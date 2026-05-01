@@ -749,9 +749,30 @@ img {
 }
 
 .badge--available {
-  background: rgba(199, 154, 85, 0.14);
+  background: rgba(196, 148, 77, 0.14);
   border: 1px solid var(--border-strong);
   color: var(--accent-strong);
+}
+
+.badge--rec {
+  display: inline-flex;
+  align-self: flex-start;
+  margin-bottom: 12px;
+  padding: 4px 13px;
+  border-radius: 999px;
+  font-family: var(--font-body);
+  font-size: 0.65rem;
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  background: rgba(196, 148, 77, 0.12);
+  border: 1px solid var(--border-strong);
+  color: var(--accent-strong);
+}
+
+.cred-num--premio {
+  font-size: 1.6rem;
+  letter-spacing: 0.02em;
 }
 
 .book-info h3 {
