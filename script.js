@@ -27,16 +27,3 @@ document.querySelectorAll(".faq-question").forEach((btn) => {
   });
 });
 
-// Newsletter form → mailto fallback
-const newsletterForm = document.getElementById("newsletter-form");
-if (newsletterForm) {
-  newsletterForm.addEventListener("submit", (e) => {
-    e.preventDefault();
-    const email = document.getElementById("newsletter-email").value;
-    const subject = encodeURIComponent("Lista de lectores — David Porto Díaz");
-    const body = encodeURIComponent(
-      `Hola,\n\nQuiero apuntarme a la lista de lectores.\n\nMi correo es: ${email}`
-    );
-    window.location.href = `mailto:davidpd89@gmail.com?subject=${subject}&body=${body}`;
-  });
-}

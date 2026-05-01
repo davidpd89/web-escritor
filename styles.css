@@ -803,96 +803,41 @@ img {
   text-transform: uppercase;
 }
 
-/* ─── Newsletter ─── */
+/* ─── Retailers row (book section) ─── */
 
-.newsletter-section {
-  position: relative;
-  overflow: hidden;
-}
-
-.newsletter-bg {
-  position: absolute;
-  inset: 0;
-  background: url('assets/david-porto-puerta.png') center/cover no-repeat;
-  opacity: 0.2;
-  z-index: 0;
-  pointer-events: none;
-}
-
-.newsletter-panel {
-  position: relative;
-  z-index: 1;
-  display: grid;
-  grid-template-columns: minmax(0, 1fr) 320px;
-  gap: 48px;
-  align-items: center;
-  padding: 52px;
-  border: 1px solid var(--border-strong);
-  border-radius: var(--radius-lg);
-  background:
-    linear-gradient(135deg, rgba(199, 154, 85, 0.1), rgba(199, 154, 85, 0.03) 46%, transparent),
-    rgba(13, 11, 9, 0.78);
-  box-shadow: var(--shadow);
-  backdrop-filter: blur(12px);
-}
-
-.newsletter-text .eyebrow {
-  margin-bottom: 12px;
-}
-
-.newsletter-text h2 {
-  margin: 0 0 14px;
-  font-size: clamp(2rem, 4vw, 3.8rem);
-  line-height: 0.96;
-  letter-spacing: -0.055em;
-}
-
-.newsletter-text p {
-  margin: 0;
-  color: var(--muted);
-  font-size: 1rem;
-  line-height: 1.78;
-}
-
-.newsletter-action {
+.retailers-row {
+  margin-top: 16px;
   display: flex;
-  flex-direction: column;
-  gap: 14px;
-}
-
-.newsletter-form-row {
-  display: flex;
-  gap: 10px;
   flex-wrap: wrap;
+  align-items: center;
+  gap: 10px 16px;
 }
 
-.newsletter-form-row input[type="email"] {
-  flex: 1 1 200px;
-  min-height: 50px;
-  padding: 0 16px;
-  border: 1px solid var(--border-strong);
-  border-radius: 999px;
-  background: rgba(255, 255, 255, 0.06);
-  color: var(--text);
-  font-family: inherit;
-  font-size: 0.95rem;
-  outline: none;
-  transition: border-color 0.2s ease;
-}
-
-.newsletter-form-row input[type="email"]::placeholder {
+.retailers-label {
+  margin: 0;
+  font-size: 0.78rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
   color: var(--muted-2);
+  white-space: nowrap;
 }
 
-.newsletter-form-row input[type="email"]:focus {
-  border-color: var(--accent);
+.retailers-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 16px;
 }
 
-.newsletter-note {
-  margin: 0 !important;
-  color: var(--muted-2) !important;
-  font-size: 0.82rem !important;
-  line-height: 1.5 !important;
+.retailers-links a {
+  font-size: 0.88rem;
+  color: var(--muted);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  transition: color 0.2s ease;
+}
+
+.retailers-links a:hover {
+  color: var(--accent-strong);
 }
 
 /* ─── Projects with cover ─── */
@@ -1386,12 +1331,6 @@ img {
     gap: 36px;
   }
 
-  .newsletter-panel {
-    grid-template-columns: minmax(0, 1fr) 260px;
-    gap: 36px;
-    padding: 40px;
-  }
-
   .events-block {
     grid-template-columns: 260px minmax(0, 1fr);
     gap: 28px;
@@ -1434,11 +1373,6 @@ img {
     max-width: 520px;
   }
 
-  .newsletter-panel {
-    grid-template-columns: 1fr;
-    gap: 28px;
-    padding: 34px;
-  }
 
   .events-block {
     grid-template-columns: 1fr;
@@ -1532,7 +1466,6 @@ img {
 
   .book-feature,
   .contact-panel,
-  .newsletter-panel,
   .award-card,
   .event-item {
     padding: 22px;
