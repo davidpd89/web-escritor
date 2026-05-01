@@ -10,16 +10,23 @@
   <meta property="og:title" content="David Porto Díaz — Autor de Samuel entre mundos" />
   <meta property="og:description" content="Fantasía y romantasy donde la magia siempre tiene un precio. Autor de Samuel entre mundos (Libros Indie, 2025)." />
   <meta property="og:type" content="website" />
-  <meta property="og:image" content="assets/david-porto-mar.jpg" />
+  <meta property="og:image" content="assets/samuel-entre-mundos.jpg" />
+
+  <link rel="icon" type="image/png" href="assets/david-porto-favicon.png" />
+  <link rel="apple-touch-icon" href="assets/david-porto-favicon.png" />
 
   <link rel="stylesheet" href="styles.css" />
 </head>
 
 <body>
   <div class="site-shell">
+
+    <!-- ══════════════════════════════════════════ HEADER -->
     <header class="site-header">
       <a class="brand" href="#inicio" aria-label="Ir al inicio">
-        <span class="brand-mark">DPD</span>
+        <span class="brand-mark">
+          <img src="assets/david-porto-logo.png" alt="" class="brand-logo-img" aria-hidden="true" />
+        </span>
         <span class="brand-text">
           <strong>David Porto Díaz</strong>
           <small>Escritor</small>
@@ -43,8 +50,10 @@
 
     <main>
 
-      <!-- ═══════════════════════════════════════ HERO -->
+      <!-- ══════════════════════════════════════════ HERO -->
       <section class="hero" id="inicio">
+        <div class="hero-bg" aria-hidden="true"></div>
+
         <div class="hero-content">
           <p class="eyebrow">Fantasía · Romantasy · Ficción especulativa</p>
 
@@ -65,7 +74,7 @@
             <a class="button secondary" href="#contacto">Contacto editorial</a>
           </div>
 
-          <div class="trust-strip" aria-label="Logros recientes">
+          <div class="trust-strip" aria-label="Credenciales">
             <article class="trust-item">
               <p class="trust-label">Publicado</p>
               <p>Samuel entre mundos · Libros Indie</p>
@@ -93,7 +102,77 @@
         </aside>
       </section>
 
-      <!-- ═══════════════════════════════════════ SOBRE MÍ -->
+      <!-- ══════════════════════════════════════════ CREDENTIALS STRIP -->
+      <div class="creds-strip" aria-label="Credenciales en cifras">
+        <div class="cred-item">
+          <span class="cred-num">1</span>
+          <span class="cred-label">novela publicada</span>
+        </div>
+        <div class="cred-divider" aria-hidden="true"></div>
+        <div class="cred-item">
+          <span class="cred-num">★</span>
+          <span class="cred-label">Primer Premio literario</span>
+        </div>
+        <div class="cred-divider" aria-hidden="true"></div>
+        <div class="cred-item">
+          <span class="cred-num">Top&nbsp;10</span>
+          <span class="cred-label">finalista Premio Nacional</span>
+        </div>
+        <div class="cred-divider" aria-hidden="true"></div>
+        <div class="cred-item">
+          <span class="cred-num">1</span>
+          <span class="cred-label">antología colaborativa</span>
+        </div>
+        <div class="cred-divider" aria-hidden="true"></div>
+        <div class="cred-item">
+          <span class="cred-num">2</span>
+          <span class="cred-label">presentaciones en Madrid</span>
+        </div>
+      </div>
+
+      <!-- ══════════════════════════════════════════ EMPIEZA POR AQUÍ -->
+      <section class="section start-here-section" id="empieza">
+        <div class="section-heading">
+          <p class="eyebrow">¿Por dónde empezar?</p>
+          <h2>Empieza por aquí.</h2>
+        </div>
+
+        <div class="start-grid">
+          <article class="start-card start-card--reader">
+            <p class="card-kicker">Para lectores</p>
+            <h3>Soy lector</h3>
+            <p>
+              Descubre <em>Samuel entre mundos</em>, una novela de fantasía
+              con portales, secretos familiares y magia con coste.
+            </p>
+            <a class="button primary" href="https://www.casadellibro.com/libro-samuel-entre-mundos/9791387659776/17856720?srsltid=AfmBOoqBOyOFQq8lzi1syea6mmb72nUV8_VMrsTCaTtm_LSL70CL9Fj2" target="_blank" rel="noopener noreferrer">
+              Comprar el libro
+            </a>
+          </article>
+
+          <article class="start-card">
+            <p class="card-kicker">Para prensa y librerías</p>
+            <h3>Soy prensa o librería</h3>
+            <p>
+              Bio, ficha técnica, fotos, portada y contacto para entrevistas,
+              firmas o presentaciones.
+            </p>
+            <a class="button secondary" href="#prensa">Ir al kit de prensa</a>
+          </article>
+
+          <article class="start-card">
+            <p class="card-kicker">Para seguir novedades</p>
+            <h3>Quiero seguir novedades</h3>
+            <p>
+              Próximas firmas, nuevos proyectos y noticias del autor sin
+              depender del algoritmo.
+            </p>
+            <a class="button secondary" href="#newsletter">Lista de lectores</a>
+          </article>
+        </div>
+      </section>
+
+      <!-- ══════════════════════════════════════════ SOBRE MÍ -->
       <section class="section" id="sobre-mi">
         <div class="section-heading">
           <p class="eyebrow">Sobre mí</p>
@@ -141,7 +220,7 @@
         </div>
       </section>
 
-      <!-- ═══════════════════════════════════════ LIBROS -->
+      <!-- ══════════════════════════════════════════ LIBROS -->
       <section class="section" id="libros">
         <div class="section-heading wide">
           <p class="eyebrow">Libros</p>
@@ -149,9 +228,12 @@
         </div>
 
         <article class="book-feature">
-          <div class="book-cover-placeholder">
-            <!-- EDITAR: sustituir por portada real en assets/samuel-entre-mundos.jpg -->
-            <span>Portada</span>
+          <div class="book-cover-wrap">
+            <img
+              src="assets/samuel-entre-mundos.jpg"
+              alt="Portada de Samuel entre mundos, de David Porto Díaz"
+              class="book-cover-img"
+            />
           </div>
 
           <div class="book-info">
@@ -170,7 +252,7 @@
 
             <p class="book-detail">
               El Espejo Ancestral guarda la respuesta. Grimlor espera.
-              Las silenciadoras también. La pregunta no es si cruzar:
+              Las silenciadoras, también. La pregunta no es si cruzar:
               es qué verdad merece el precio.
             </p>
 
@@ -178,9 +260,9 @@
               <p class="reader-tags-label">Para lectores de</p>
               <div class="reader-tags">
                 <span>portales entre mundos</span>
-                <span>academias veladas</span>
-                <span>secretos familiares</span>
                 <span>magia con reglas</span>
+                <span>secretos familiares</span>
+                <span>academias veladas</span>
                 <span>amenaza creciente</span>
                 <span>fantasía con coste</span>
               </div>
@@ -190,7 +272,7 @@
               <li><strong>Editorial:</strong> Libros Indie</li>
               <li><strong>ISBN:</strong> 9791387659776</li>
               <li><strong>Formato:</strong> Tapa blanda</li>
-              <li><strong>Páginas:</strong> Más de 400</li>
+              <li><strong>Extensión:</strong> Más de 400 páginas</li>
             </ul>
 
             <div class="button-row">
@@ -200,6 +282,7 @@
               <a class="button secondary" href="https://librosindie.net/product/samuel-entre-mundos/" target="_blank" rel="noopener noreferrer">
                 Ver en editorial
               </a>
+              <a class="button tertiary" href="#prensa">Kit de prensa</a>
             </div>
           </div>
         </article>
@@ -209,46 +292,53 @@
             <div class="incoming-badge">Próximamente</div>
             <p class="card-kicker">En proceso de publicación · Monza Ediciones</p>
             <h3>Las manecillas del recuerdo</h3>
-            <p>
-              Nueva novela en proceso de publicación con editorial Monza Ediciones.
-              Más detalles próximamente.
-            </p>
+            <p>Nueva novela en proceso de publicación con editorial Monza Ediciones. Más detalles próximamente.</p>
           </article>
 
           <article class="mini-card">
             <p class="card-kicker">En desarrollo</p>
             <h3>PIEL</h3>
-            <p>
-              Ficción especulativa de cuerpo, poder y domesticación.
-              Proyecto en desarrollo.
-            </p>
+            <p>Ficción especulativa de cuerpo, poder y domesticación. Proyecto en desarrollo.</p>
           </article>
         </div>
       </section>
 
-      <!-- ═══════════════════════════════════════ NEWSLETTER -->
+      <!-- ══════════════════════════════════════════ NEWSLETTER -->
       <section class="section newsletter-section" id="newsletter">
+        <div class="newsletter-bg" aria-hidden="true"></div>
+
         <div class="newsletter-panel">
           <div class="newsletter-text">
             <p class="eyebrow">Lista de lectores</p>
-            <h2>Escenas exclusivas, avances y novedades.</h2>
+            <h2>Lee antes que nadie.</h2>
             <p>
-              Sin algoritmos ni ruido. Cuando hay algo que vale la pena compartir —
-              una escena, un avance, un fragmento nuevo — te llega directo.
+              Fragmentos, novedades y próximos lanzamientos. Correos puntuales,
+              sin ruido. Solo cuando hay algo que vale la pena compartir.
             </p>
           </div>
+
           <div class="newsletter-action">
-            <a class="button primary" href="mailto:davidpd89@gmail.com?subject=Lista%20de%20lectores%20%E2%80%94%20David%20Porto%20D%C3%ADaz&body=Hola%2C%20quiero%20apuntarme%20a%20la%20lista%20de%20lectores.">
-              Apuntarme a la lista
-            </a>
-            <p class="newsletter-note">
-              Escribes, te confirmo la entrada. Sin spam.
-            </p>
+            <form class="newsletter-form" id="newsletter-form" action="#" method="post" novalidate>
+              <label class="sr-only" for="newsletter-email">Tu correo electrónico</label>
+              <div class="newsletter-form-row">
+                <input
+                  id="newsletter-email"
+                  name="email"
+                  type="email"
+                  inputmode="email"
+                  autocomplete="email"
+                  placeholder="Tu correo electrónico"
+                  required
+                />
+                <button type="submit" class="button primary">Apuntarme</button>
+              </div>
+            </form>
+            <p class="newsletter-note">Sin spam. Sin algoritmos. Solo historias y novedades.</p>
           </div>
         </div>
       </section>
 
-      <!-- ═══════════════════════════════════════ PROYECTOS -->
+      <!-- ══════════════════════════════════════════ PROYECTOS -->
       <section class="section" id="proyectos">
         <div class="section-heading wide">
           <p class="eyebrow">Otros proyectos</p>
@@ -256,72 +346,74 @@
         </div>
 
         <div class="cards-grid">
-          <article class="mini-card project-card">
-            <p class="card-kicker">Antología colaborativa · Fantasía</p>
-            <h3>La memoria de las tierras del norte</h3>
-            <p>
-              Participación en antología colaborativa de fantasía. Un relato de superstición,
-              memoria y objetos que no dejan marchar a quien los recoge.
-            </p>
-            <a class="button tertiary" href="https://www.diversidadliteraria.com/la-memoria-de-las-tierras-del-norte" target="_blank" rel="noopener noreferrer">
-              Ver proyecto
-            </a>
+          <article class="mini-card project-card--memoria">
+            <figure class="project-cover-frame">
+              <img
+                src="assets/la-memoria-de-las-tierras-del-norte-libro.jpg"
+                alt="Portada de La memoria de las tierras del norte"
+                class="project-cover-img"
+              />
+            </figure>
+            <div class="project-card-body">
+              <p class="card-kicker">Antología colaborativa · Fantasía</p>
+              <h3>La memoria de las tierras del norte</h3>
+              <p>Participación en antología colaborativa de fantasía. Un relato de superstición, memoria y objetos que no dejan marchar a quien los recoge.</p>
+              <a class="button tertiary" href="https://www.diversidadliteraria.com/la-memoria-de-las-tierras-del-norte" target="_blank" rel="noopener noreferrer">
+                Ver proyecto
+              </a>
+            </div>
           </article>
 
           <article class="mini-card">
             <p class="card-kicker">Relatos</p>
             <h3>Microrrelatos y certámenes</h3>
-            <p>
-              Textos breves, premios literarios y piezas publicadas o seleccionadas en
-              certámenes de ámbito nacional.
-            </p>
+            <p>Textos breves, premios literarios y piezas publicadas o seleccionadas en certámenes de ámbito nacional.</p>
           </article>
         </div>
       </section>
 
-      <!-- ═══════════════════════════════════════ EVENTOS -->
+      <!-- ══════════════════════════════════════════ EVENTOS -->
       <section class="section" id="eventos">
         <div class="section-heading">
           <p class="eyebrow">Agenda</p>
           <h2>Eventos y firmas.</h2>
         </div>
 
-        <div class="timeline">
-          <article class="event-item event-item--past">
-            <time datetime="2026-01-15">15 de enero · 2026</time>
-            <div>
-              <h3>Presentación de Samuel entre mundos</h3>
-              <p>Bar Aleatorio · Madrid. Presentación oficial del debut literario con lectores y firma de ejemplares.</p>
-            </div>
-          </article>
+        <div class="events-block">
+          <div class="events-group">
+            <p class="events-group-label">Próximo evento</p>
+            <article class="event-item event-item--featured">
+              <time datetime="2026-06-10">10<br/>Jun<br/>2026</time>
+              <div>
+                <h3>Feria del Libro</h3>
+                <p>Firma y encuentro con lectores. Detalles próximamente.</p>
+              </div>
+            </article>
+          </div>
 
-          <article class="event-item event-item--past">
-            <time datetime="2026-01-31">31 de enero · 2026</time>
-            <div>
-              <h3>Presentación en La Vecinal</h3>
-              <p>La Vecinal · Madrid. Segundo encuentro de presentación con coloquio y firma.</p>
+          <div class="events-group">
+            <p class="events-group-label">Eventos anteriores</p>
+            <div class="timeline">
+              <article class="event-item event-item--past">
+                <time datetime="2026-01-31">31 de enero · 2026</time>
+                <div>
+                  <h3>Presentación en La Vecinal</h3>
+                  <p>La Vecinal · Madrid. Coloquio y firma.</p>
+                </div>
+              </article>
+              <article class="event-item event-item--past">
+                <time datetime="2026-01-15">15 de enero · 2026</time>
+                <div>
+                  <h3>Presentación de Samuel entre mundos</h3>
+                  <p>Bar Aleatorio · Madrid. Presentación oficial del debut.</p>
+                </div>
+              </article>
             </div>
-          </article>
-
-          <article class="event-item">
-            <time datetime="2026-06-10">10 de junio · 2026</time>
-            <div>
-              <h3>Feria del Libro</h3>
-              <p>Firma y encuentro con lectores. Detalles próximamente.</p>
-            </div>
-          </article>
-
-          <article class="event-item muted">
-            <time>Próximamente</time>
-            <div>
-              <h3>Nuevas fechas</h3>
-              <p>Presentaciones, clubes de lectura, charlas y firmas.</p>
-            </div>
-          </article>
+          </div>
         </div>
       </section>
 
-      <!-- ═══════════════════════════════════════ PREMIOS -->
+      <!-- ══════════════════════════════════════════ PREMIOS -->
       <section class="section" id="premios">
         <div class="section-heading">
           <p class="eyebrow">Premios y reconocimientos</p>
@@ -367,16 +459,19 @@
         </div>
       </section>
 
-      <!-- ═══════════════════════════════════════ PRENSA -->
+      <!-- ══════════════════════════════════════════ PRENSA -->
       <section class="section" id="prensa">
         <div class="section-heading wide">
           <p class="eyebrow">Prensa</p>
-          <h2>Recursos para medios y editores.</h2>
+          <h2>Kit de prensa y recursos para medios.</h2>
         </div>
 
         <div class="press-grid">
           <article class="press-card">
-            <h3>Bio corta</h3>
+            <div class="press-card-head">
+              <h3>Bio corta</h3>
+              <span class="status-badge status--available">Disponible</span>
+            </div>
             <p>
               David Porto Díaz es escritor gallego de fantasía, romantasy y ficción
               especulativa. Autor de <em>Samuel entre mundos</em> (Libros Indie, 2025).
@@ -386,12 +481,14 @@
           </article>
 
           <article class="press-card">
-            <h3>Bio larga</h3>
+            <div class="press-card-head">
+              <h3>Bio larga</h3>
+              <span class="status-badge status--available">Disponible</span>
+            </div>
             <p>
               Nació en Pontevedra y reside en Madrid. Trabaja en tecnología como
               especialista en QA con formación en marketing online. Debutó con
-              <em>Samuel entre mundos</em>, novela de fantasía de más de 400 páginas
-              publicada por Libros Indie. Participó en la antología colaborativa
+              <em>Samuel entre mundos</em> (Libros Indie). Participó en
               <em>La memoria de las tierras del norte</em> (Diversidad Literaria).
               Su próxima novela, <em>Las manecillas del recuerdo</em>, está en proceso
               de publicación con Monza Ediciones.
@@ -399,22 +496,35 @@
           </article>
 
           <article class="press-card">
-            <h3>Foto de autor</h3>
-            <p>
-              Imagen disponible en alta resolución para medios, reseñas
-              y presentaciones. Contactar directamente para recibir el archivo.
-            </p>
+            <div class="press-card-head">
+              <h3>Foto de autor</h3>
+              <span class="status-badge status--request">Bajo petición</span>
+            </div>
+            <p>Imagen en alta resolución para medios, reseñas y presentaciones.</p>
             <a class="text-link" href="mailto:davidpd89@gmail.com?subject=Foto%20de%20autor%20%E2%80%94%20David%20Porto%20D%C3%ADaz">
               Solicitar foto
             </a>
           </article>
 
           <article class="press-card">
-            <h3>Ficha técnica — Samuel entre mundos</h3>
+            <div class="press-card-head">
+              <h3>Portada — Samuel entre mundos</h3>
+              <span class="status-badge status--request">Bajo petición</span>
+            </div>
+            <p>Portada en alta resolución para medios, librerías y reseñas.</p>
+            <a class="text-link" href="mailto:davidpd89@gmail.com?subject=Portada%20Samuel%20entre%20mundos">
+              Solicitar portada
+            </a>
+          </article>
+
+          <article class="press-card">
+            <div class="press-card-head">
+              <h3>Ficha técnica</h3>
+              <span class="status-badge status--available">Disponible</span>
+            </div>
             <p>
-              Editorial: Libros Indie · ISBN: 9791387659776 ·
-              Formato: tapa blanda · Más de 400 páginas · Castellano ·
-              Género: fantasía / aventura.
+              <em>Samuel entre mundos</em> · Libros Indie · ISBN 9791387659776 ·
+              Tapa blanda · Más de 400 páginas · Castellano · Fantasía / aventura.
             </p>
             <a class="text-link" href="https://librosindie.net/product/samuel-entre-mundos/" target="_blank" rel="noopener noreferrer">
               Ver en editorial
@@ -422,10 +532,13 @@
           </article>
 
           <article class="press-card">
-            <h3>Contacto para prensa</h3>
+            <div class="press-card-head">
+              <h3>Contacto para prensa</h3>
+              <span class="status-badge status--available">Disponible</span>
+            </div>
             <p>
               Para entrevistas, notas de prensa, coordinación editorial
-              o solicitud de ejemplares de reseña, contactar directamente.
+              o solicitud de ejemplares de reseña.
             </p>
             <a class="text-link" href="mailto:davidpd89@gmail.com?subject=Prensa%20%E2%80%94%20David%20Porto%20D%C3%ADaz">
               Escribir a prensa
@@ -434,7 +547,71 @@
         </div>
       </section>
 
-      <!-- ═══════════════════════════════════════ CONTACTO -->
+      <!-- ══════════════════════════════════════════ FAQ -->
+      <section class="section" id="faq">
+        <div class="section-heading">
+          <p class="eyebrow">Preguntas frecuentes</p>
+          <h2>Dudas habituales.</h2>
+        </div>
+
+        <div class="faq-list">
+          <div class="faq-item">
+            <button class="faq-question" aria-expanded="false">
+              ¿Dónde puedo comprar Samuel entre mundos?
+              <span class="faq-icon" aria-hidden="true"></span>
+            </button>
+            <div class="faq-answer" hidden>
+              <p>
+                En <a href="https://www.casadellibro.com/libro-samuel-entre-mundos/9791387659776/17856720?srsltid=AfmBOoqBOyOFQq8lzi1syea6mmb72nUV8_VMrsTCaTtm_LSL70CL9Fj2" target="_blank" rel="noopener noreferrer">Casa del Libro</a>
+                y a través de la <a href="https://librosindie.net/product/samuel-entre-mundos/" target="_blank" rel="noopener noreferrer">editorial Libros Indie</a>.
+                Consulta también en tu librería habitual indicando el ISBN: 9791387659776.
+              </p>
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-question" aria-expanded="false">
+              ¿Está disponible en ebook?
+              <span class="faq-icon" aria-hidden="true"></span>
+            </button>
+            <div class="faq-answer" hidden>
+              <p>
+                De momento, <em>Samuel entre mundos</em> solo está disponible en formato
+                tapa blanda. No existe edición en ebook por ahora.
+              </p>
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-question" aria-expanded="false">
+              ¿Haces firmas, presentaciones o clubes de lectura?
+              <span class="faq-icon" aria-hidden="true"></span>
+            </button>
+            <div class="faq-answer" hidden>
+              <p>
+                Sí. Consulta la <a href="#eventos">sección de eventos</a> para ver próximas
+                fechas, o <a href="mailto:davidpd89@gmail.com?subject=Firma%20%2F%20Presentaci%C3%B3n">escríbeme directamente</a> para coordinar.
+              </p>
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-question" aria-expanded="false">
+              ¿Cómo contactar para prensa o librerías?
+              <span class="faq-icon" aria-hidden="true"></span>
+            </button>
+            <div class="faq-answer" hidden>
+              <p>
+                Escribe a <a href="mailto:davidpd89@gmail.com?subject=Prensa%20%E2%80%94%20David%20Porto%20D%C3%ADaz">davidpd89@gmail.com</a>
+                con el asunto "Prensa" o "Librería". También puedes consultar el
+                <a href="#prensa">kit de prensa completo</a>.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ══════════════════════════════════════════ CONTACTO -->
       <section class="section" id="contacto">
         <div class="contact-panel">
           <div>
@@ -445,7 +622,6 @@
               puedes escribirme directamente.
             </p>
           </div>
-
           <div class="contact-actions">
             <a class="button primary" href="mailto:davidpd89@gmail.com">Escribir un mensaje</a>
             <div class="social-links" aria-label="Redes sociales">
@@ -458,14 +634,20 @@
 
     </main>
 
+    <!-- ══════════════════════════════════════════ FOOTER -->
     <footer class="site-footer">
-      <p>© 2026 David Porto Díaz. Todos los derechos reservados.</p>
+      <div class="footer-brand">
+        <img src="assets/david-porto-logo.png" alt="David Porto Díaz" class="footer-logo" />
+        <p>© 2026 David Porto Díaz. Todos los derechos reservados.</p>
+      </div>
       <div class="footer-links">
         <a href="https://www.instagram.com/davidpuede/" target="_blank" rel="noopener noreferrer">Instagram</a>
         <a href="https://www.linkedin.com/in/davidportodiaz/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+        <a href="https://librosindie.net/product/samuel-entre-mundos/" target="_blank" rel="noopener noreferrer">Libros Indie</a>
         <a href="#inicio">Volver arriba</a>
       </div>
     </footer>
+
   </div>
 
   <script src="script.js"></script>
