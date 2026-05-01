@@ -1086,21 +1086,24 @@ img {
   overflow: hidden;
   border: 1px solid rgba(199, 154, 85, 0.2);
   border-radius: var(--radius-md);
-  background: rgba(255, 255, 255, 0.025);
+  background: rgba(255, 255, 255, 0.05);
   box-shadow: var(--shadow-sm);
+  display: grid;
+  grid-template-columns: 140px minmax(0, 1fr);
+  align-items: stretch;
 }
 
 .project-cover-frame {
   margin: 0;
-  height: 200px;
   overflow: hidden;
+  flex-shrink: 0;
 }
 
 .project-cover-img {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  object-position: center 20%;
+  object-position: center top;
   display: block;
   transition: transform 0.45s ease;
 }
@@ -1127,6 +1130,56 @@ img {
   color: var(--muted);
   font-size: 0.93rem;
   line-height: 1.7;
+}
+
+/* Relatos card (no cover image) */
+.project-card--relatos .project-card-body {
+  padding: 28px;
+}
+
+.project-card--relatos .project-card-body strong {
+  color: var(--accent-strong);
+}
+
+/* ─── Contact visible email ─── */
+
+.contact-email-hint {
+  margin: 0;
+  font-size: 0.86rem;
+  color: var(--muted);
+  letter-spacing: 0.02em;
+}
+
+.contact-address {
+  margin: 8px 0 0;
+  font-size: 1rem;
+}
+
+.contact-address a {
+  color: var(--accent-strong);
+  text-decoration: none;
+  border-bottom: 1px solid rgba(225, 189, 124, 0.35);
+  transition: border-color 0.2s ease;
+}
+
+.contact-address a:hover {
+  border-color: var(--accent-strong);
+}
+
+.press-contact-hint {
+  margin: 8px 0 0 !important;
+  font-size: 0.9rem !important;
+}
+
+.press-contact-hint a {
+  color: var(--accent-strong);
+  text-decoration: none;
+  border-bottom: 1px solid rgba(225, 189, 124, 0.3);
+  transition: border-color 0.2s ease;
+}
+
+.press-contact-hint a:hover {
+  border-color: var(--accent-strong);
 }
 
 /* ─── Events ─── */
@@ -1673,6 +1726,10 @@ img {
   .cards-grid,
   .press-grid {
     grid-template-columns: 1fr;
+  }
+
+  .project-card--memoria {
+    grid-template-columns: 110px minmax(0, 1fr);
   }
 }
 
