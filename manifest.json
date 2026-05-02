@@ -1,0 +1,22 @@
+{
+  "name": "David Porto Díaz — Autor de Samuel entre mundos",
+  "short_name": "David Porto Díaz",
+  "description": "Fantasía y romantasy donde la magia siempre tiene un precio.",
+  "start_url": "/",
+  "display": "browser",
+  "background_color": "#080a0c",
+  "theme_color": "#080a0c",
+  "lang": "es",
+  "icons": [
+    {
+      "src": "assets/david-porto-favicon.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "assets/david-porto-favicon.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}

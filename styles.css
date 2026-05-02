@@ -542,6 +542,13 @@ img {
   border-top: 1px solid var(--border);
 }
 
+/* Skip rendering of off-screen sections for faster initial paint */
+#sobre-mi, #libros, #newsletter, #proyectos,
+#eventos, #premios, #prensa, #faq, #contacto {
+  content-visibility: auto;
+  contain-intrinsic-size: 0 600px;
+}
+
 .section--alt {
   background:
     linear-gradient(180deg, rgba(10, 7, 4, 0.48) 0%, transparent 80%),
@@ -1169,8 +1176,18 @@ img {
 }
 
 /* Relatos card (no cover image) */
+.project-card--relatos {
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+}
+
 .project-card--relatos .project-card-body {
   padding: 28px;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
 }
 
 .project-card--relatos .project-card-body strong {
