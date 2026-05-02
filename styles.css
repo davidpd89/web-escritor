@@ -1089,7 +1089,7 @@ img {
   background: rgba(255, 255, 255, 0.05);
   box-shadow: var(--shadow-sm);
   display: grid;
-  grid-template-columns: 140px minmax(0, 1fr);
+  grid-template-columns: 130px minmax(0, 1fr);
   align-items: stretch;
 }
 
@@ -1097,19 +1097,27 @@ img {
   margin: 0;
   overflow: hidden;
   flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px 14px;
+  background: rgba(0, 0, 0, 0.25);
 }
 
 .project-cover-img {
   width: 100%;
-  height: 100%;
-  object-fit: cover;
-  object-position: center top;
+  height: auto;
+  object-fit: contain;
   display: block;
+  border-radius: 3px 6px 6px 3px;
+  box-shadow:
+    -2px 0 4px rgba(0, 0, 0, 0.4),
+    4px 4px 12px rgba(0, 0, 0, 0.4);
   transition: transform 0.45s ease;
 }
 
 .project-card--memoria:hover .project-cover-img {
-  transform: scale(1.04);
+  transform: scale(1.03);
 }
 
 .project-card-body {
@@ -1138,6 +1146,25 @@ img {
 }
 
 .project-card--relatos .project-card-body strong {
+  color: var(--accent-strong);
+}
+
+/* Event link button inline */
+.event-link {
+  margin-top: 14px;
+  align-self: flex-start;
+  font-size: 0.82rem;
+}
+
+/* Card kicker with link */
+.card-kicker a {
+  color: inherit;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  transition: color 0.2s ease;
+}
+
+.card-kicker a:hover {
   color: var(--accent-strong);
 }
 
