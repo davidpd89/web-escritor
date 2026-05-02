@@ -2557,8 +2557,17 @@ a:focus-visible {
   }
 
   .about-grid,
-  .book-feature {
+  .book-feature,
+  .contact-panel {
     grid-template-columns: 1fr;
+  }
+
+  .contact-panel {
+    padding: 32px 28px;
+  }
+
+  .contact-actions {
+    justify-items: start;
   }
 
   .contact-grid {
