@@ -11,8 +11,13 @@
   <meta property="og:title" content="David Porto Díaz — Autor de Samuel entre mundos" />
   <meta property="og:description" content="Fantasía y romantasy donde la magia siempre tiene un precio. Autor de Samuel entre mundos (Libros Indie, 2025)." />
   <meta property="og:type" content="website" />
-  <meta property="og:image" content="https://davidportodiaz.com/assets/samuel-entre-mundos.jpg" />
+  <meta property="og:image" content="https://davidportodiaz.com/assets/david-porto-foto-portada.webp" />
   <meta property="og:url" content="https://davidportodiaz.com/" />
+
+  <meta name="theme-color" content="#080a0c" />
+
+  <link rel="preload" as="image" href="assets/david-porto-fondo4.webp" />
+  <link rel="preload" as="image" href="assets/david-porto-foto-portada-sinfondo.webp" />
 
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -23,7 +28,7 @@
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="David Porto Díaz — Autor de Samuel entre mundos" />
   <meta name="twitter:description" content="Fantasía y romantasy donde la magia siempre tiene un precio. Autor de Samuel entre mundos (Libros Indie, 2025)." />
-  <meta name="twitter:image" content="https://davidportodiaz.com/assets/samuel-entre-mundos.jpg" />
+  <meta name="twitter:image" content="https://davidportodiaz.com/assets/david-porto-foto-portada.webp" />
 
   <script type="application/ld+json">
   {
@@ -34,6 +39,7 @@
         "@id": "https://davidportodiaz.com/#author",
         "name": "David Porto Díaz",
         "url": "https://davidportodiaz.com/",
+        "image": "https://davidportodiaz.com/assets/david-porto-foto-portada.webp",
         "jobTitle": "Escritor",
         "description": "Escritor gallego de fantasía, romantasy y ficción especulativa. Autor de Samuel entre mundos.",
         "sameAs": [
@@ -47,8 +53,9 @@
         "name": "Samuel entre mundos",
         "author": { "@id": "https://davidportodiaz.com/#author" },
         "isbn": "9791387659776",
+        "datePublished": "2025",
         "publisher": { "@type": "Organization", "name": "Libros Indie" },
-        "image": "https://davidportodiaz.com/assets/samuel-entre-mundos.jpg",
+        "image": "https://davidportodiaz.com/assets/samuel-entre-mundos.webp",
         "url": "https://www.amazon.es/SAMUEL-ENTRE-MUNDOS-David-Porto/dp/B0GB6LGQFH",
         "inLanguage": "es",
         "bookFormat": "https://schema.org/Paperback",
@@ -65,13 +72,14 @@
 </head>
 
 <body>
+  <a href="#inicio" class="skip-link">Saltar al contenido</a>
   <div class="site-shell">
 
     <!-- ══════════════════════════════════════════ HEADER -->
     <header class="site-header">
       <a class="brand" href="#inicio" aria-label="Ir al inicio">
         <span class="brand-mark">
-          <img src="assets/david-porto-logo.png" alt="" class="brand-logo-img" aria-hidden="true" />
+          <img src="assets/david-porto-logo.webp" alt="" class="brand-logo-img" aria-hidden="true" />
         </span>
         <span class="brand-text">
           <strong>David Porto Díaz</strong>
@@ -138,7 +146,7 @@
         <aside class="hero-author-photo" aria-label="Foto del autor">
           <figure class="author-photo-frame">
             <img
-              src="assets/david-porto-mar.jpg"
+              src="assets/david-porto-foto-portada-sinfondo.webp"
               alt="David Porto Díaz, autor de Samuel entre mundos"
               class="author-photo-img"
             />
@@ -252,16 +260,16 @@
             <article class="literary-card">
               <figure class="secondary-photo-frame">
                 <img
-                  src="assets/david-porto-agatha.jpg"
-                  alt="David Porto Díaz en una visita literaria"
+                  src="assets/david-porto-foto-portada2.webp"
+                  alt="David Porto Díaz, escritor"
                   class="secondary-photo-img"
                   loading="lazy"
                   decoding="async"
                 />
               </figure>
               <div class="literary-card-body">
-                <p class="card-kicker">Lectura, viaje y oficio</p>
-                <p>Viajar, leer y observar lugares reales alimenta la parte menos visible de la escritura: el detalle concreto.</p>
+                <p class="card-kicker">Escritor · Madrid</p>
+                <p>Formación en marketing online, experiencia en tecnología y una novela publicada. La misma mirada analítica que entiende audiencias, puesta al servicio de la ficción.</p>
               </div>
             </article>
           </div>
@@ -278,7 +286,7 @@
         <article class="book-feature">
           <div class="book-cover-wrap">
             <img
-              src="assets/samuel-entre-mundos.jpg"
+              src="assets/samuel-entre-mundos.webp"
               alt="Portada de Samuel entre mundos, novela de David Porto Díaz — fantasía y romantasy"
               class="book-cover-img"
               decoding="async"
@@ -379,7 +387,7 @@
       <section class="section sigueme-section section--alt" id="newsletter">
         <div class="contact-panel">
           <div>
-            <p class="eyebrow">Avisos directos · Sin algoritmo</p>
+            <p class="eyebrow">Avisos directos · Antes que nadie</p>
             <h2>Cartas desde el umbral.</h2>
             <p>
               Firmas, próximos libros, fragmentos y novedades antes que nadie.
@@ -408,8 +416,8 @@
           <article class="mini-card project-card--memoria">
             <figure class="project-cover-frame">
               <img
-                src="assets/la-memoria-de-las-tierras-del-norte-libro.jpg"
-                alt="Portada de La memoria de las tierras del norte, antología de fantasía"
+                src="assets/david-porto-memoria-sinfondo.webp"
+                alt="La memoria de las tierras del norte — antología de fantasía con relato de David Porto Díaz"
                 class="project-cover-img"
                 loading="lazy"
                 decoding="async"
@@ -562,11 +570,19 @@
             <button class="copy-btn" data-copy-target="bio-larga">Copiar bio</button>
           </article>
 
-          <article class="press-card">
+          <article class="press-card press-card--photo">
             <div class="press-card-head">
               <h3>Foto de autor</h3>
               <span class="status-badge status--request">Bajo petición</span>
             </div>
+            <figure class="press-author-photo">
+              <img
+                src="assets/david-porto-autor.webp"
+                alt="David Porto Díaz — foto de prensa"
+                loading="lazy"
+                decoding="async"
+              />
+            </figure>
             <p>Imagen en alta resolución para medios, reseñas y presentaciones.</p>
             <p class="press-contact-hint"><a href="mailto:samuelentremundos@gmail.com?subject=Foto%20de%20autor%20%E2%80%94%20David%20Porto%20D%C3%ADaz">samuelentremundos@gmail.com</a></p>
           </article>
@@ -709,8 +725,8 @@
         <div class="contact-footer-row">
           <p class="contact-email-plain"><a href="mailto:samuelentremundos@gmail.com">samuelentremundos@gmail.com</a></p>
           <div class="social-links" aria-label="Redes sociales">
-            <a href="https://www.instagram.com/davidpuede/" target="_blank" rel="noopener noreferrer">Instagram</a>
-            <a href="https://www.linkedin.com/in/davidportodiaz/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+            <a href="https://www.instagram.com/davidpuede/" target="_blank" rel="noopener noreferrer me">Instagram</a>
+            <a href="https://www.linkedin.com/in/davidportodiaz/" target="_blank" rel="noopener noreferrer me">LinkedIn</a>
           </div>
         </div>
       </section>
@@ -721,7 +737,7 @@
     <footer class="site-footer">
       <div class="footer-top-row">
         <div class="footer-brand">
-          <img src="assets/david-porto-logo.png" alt="David Porto Díaz" class="footer-logo" loading="lazy" />
+          <img src="assets/david-porto-logo.webp" alt="David Porto Díaz" class="footer-logo" loading="lazy" />
           <div class="footer-brand-text">
             <strong>David Porto Díaz</strong>
             <span>La magia siempre tiene un precio.</span>
@@ -736,9 +752,8 @@
           <a href="#contacto">Contacto</a>
         </nav>
         <div class="footer-socials">
-          <a href="https://www.instagram.com/davidpuede/" target="_blank" rel="noopener noreferrer">Instagram</a>
-          <a href="https://www.linkedin.com/in/davidportodiaz/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
-          <a href="https://librosindie.net/product/samuel-entre-mundos/" target="_blank" rel="noopener noreferrer">Libros Indie</a>
+          <a href="https://www.instagram.com/davidpuede/" target="_blank" rel="noopener noreferrer me">Instagram</a>
+          <a href="https://www.linkedin.com/in/davidportodiaz/" target="_blank" rel="noopener noreferrer me">LinkedIn</a>
         </div>
       </div>
       <div class="footer-bottom-row">
