@@ -1,3 +1,12 @@
+// scheduler.postTask() shim — user-blocking priority for low-latency UI responses
+function scheduleTask(fn, priority = "user-blocking") {
+  if (typeof scheduler !== "undefined" && scheduler.postTask) {
+    scheduler.postTask(fn, { priority });
+  } else {
+    fn();
+  }
+}
+
 // Email obfuscation — build mailto: links from data-n + data-d at runtime
 // Bots that don't execute JS see href="#" and no email in the href
 document.querySelectorAll('[data-n][data-d]').forEach(el => {
@@ -52,6 +61,7 @@ if (navToggle && siteNav) {
 // Copy to clipboard (press kit bios)
 document.querySelectorAll(".copy-btn").forEach((btn) => {
   btn.addEventListener("click", () => {
+    scheduleTask(() => {
     const targetEl = document.getElementById(btn.dataset.copyTarget);
     if (!targetEl) return;
     const text = targetEl.textContent.trim();
@@ -67,6 +77,7 @@ document.querySelectorAll(".copy-btn").forEach((btn) => {
     } else {
       fallbackCopy(text, finish);
     }
+    });
   });
 });
 
@@ -213,13 +224,15 @@ function fallbackCopy(text, done) {
   }
 
   function choose(key) {
-    scores[key]++;
-    current++;
-    if (current < QUESTIONS.length) {
-      showQuestion(current);
-    } else {
-      showResult();
-    }
+    scheduleTask(() => {
+      scores[key]++;
+      current++;
+      if (current < QUESTIONS.length) {
+        showQuestion(current);
+      } else {
+        showResult();
+      }
+    });
   }
 
   function showResult() {
@@ -265,7 +278,7 @@ function fallbackCopy(text, done) {
       submitBtn.disabled = true;
       submitBtn.textContent = "Enviando…";
       try {
-        const p = ["xkeysib", "8af86008f5c78bf712bbe09ef9f86332830338b2468beabd35a3aa4a29258275", "3xhw3EqYyc3xPXM6"];
+        const p = ["xkeysib", "8af86008f5c78bf712bbe09ef9f86332830338b2468beabd35a3aa4a29258275", "5RUMWTRL4ElkPbae"];
         const res = await fetch("https://api.brevo.com/v3/contacts", {
           method: "POST",
           headers: { "api-key": p.join("-"), "Content-Type": "application/json" },
@@ -303,11 +316,13 @@ function fallbackCopy(text, done) {
 // FAQ accordion
 document.querySelectorAll(".faq-question").forEach((btn) => {
   btn.addEventListener("click", () => {
-    const item = btn.closest(".faq-item");
-    const answer = item.querySelector(".faq-answer");
-    const isOpen = item.classList.toggle("is-open");
-    btn.setAttribute("aria-expanded", String(isOpen));
-    answer.hidden = !isOpen;
+    scheduleTask(() => {
+      const item = btn.closest(".faq-item");
+      const answer = item.querySelector(".faq-answer");
+      const isOpen = item.classList.toggle("is-open");
+      btn.setAttribute("aria-expanded", String(isOpen));
+      answer.hidden = !isOpen;
+    });
   });
 });
 
