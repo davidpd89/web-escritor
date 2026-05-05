@@ -1,0 +1,26 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(git add *)",
+      "Bash(git commit -m ' *)",
+      "Bash(git push *)",
+      "Bash(Get-ChildItem \"c:\\\\GIT\\\\author-website\\\\assets\\\\\" | Select-Object Name, Length)",
+      "Bash(git restore *)",
+      "Bash(python -c ' *)",
+      "Bash(powershell -command \"Select-String -Path 'C:\\\\Users\\\\pblac\\\\.claude\\\\projects\\\\c--GIT-author-website\\\\9f6e19fc-a4f6-4b09-9fe5-0b251a14965d.jsonl' -Pattern 'serendipia|Serendipia|bookish|Bookish|libreria-le|LibreriaLe' | Select-Object -First 5 | Format-List Line\")",
+      "Bash(gh api *)",
+      "PowerShell(gh api repos/davidpd89/davidpd89.github.io/pages 2>&1)",
+      "Bash(git commit *)",
+      "Bash(sort -k5 -rn)",
+      "Bash(magick --version)",
+      "Bash(cwebp -version)",
+      "PowerShell(magick --version 2>&1)",
+      "PowerShell(if \\(-not $?\\) { \"ImageMagick not found\" })",
+      "Bash(awk '{print $5, $9}')",
+      "Bash(dir \"c:\\\\GIT\\\\author-website\\\\assets\" /B /O:N)",
+      "WebFetch(domain:www.goodreads.com)",
+      "WebSearch",
+      "WebFetch(domain:www.amazon.es)"
+    ]
+  }
+}
