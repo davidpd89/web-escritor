@@ -274,8 +274,8 @@ img {
 
 .nav-toggle {
   display: none;
-  width: 44px;
-  height: 44px;
+  width: 48px;
+  height: 48px;
   padding: 0;
   border: 1px solid var(--border);
   border-radius: 999px;
@@ -308,7 +308,10 @@ img {
 .hero-bg {
   position: absolute;
   inset: 0;
-  background: url('assets/david-porto-fondo4.webp') center 30%/cover no-repeat;
+  background: image-set(
+    url('assets/noveris-ciudad-fantasia-david-porto-diaz.avif') type('image/avif'),
+    url('assets/noveris-ciudad-fantasia-david-porto-diaz.webp') type('image/webp')
+  ) center 30%/cover no-repeat;
   opacity: 0.55;
   z-index: 0;
   pointer-events: none;
@@ -1930,9 +1933,11 @@ img {
 .copy-btn {
   display: inline-flex;
   align-items: center;
+  justify-content: center;
   gap: 6px;
   margin-top: 10px;
-  padding: 6px 14px;
+  min-height: 48px;
+  padding: 10px 16px;
   border: 1px solid var(--border-strong);
   border-radius: 999px;
   background: transparent;
@@ -2752,6 +2757,9 @@ a:focus-visible {
 
   .site-nav a {
     width: 100%;
+    min-height: 48px;
+    display: flex;
+    align-items: center;
     padding: 12px 0;
     border-bottom: 1px solid rgba(244, 236, 223, 0.06);
   }
@@ -2861,8 +2869,8 @@ a:focus-visible {
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 44px;
-  height: 44px;
+  width: 48px;
+  height: 48px;
   border: 1px solid var(--border-strong);
   border-radius: 50%;
   background: rgba(8, 10, 12, 0.88);
@@ -3058,6 +3066,7 @@ a:focus-visible {
 
 .quiz-option {
   width: 100%;
+  min-height: 48px;
   text-align: left;
   padding: 14px 18px;
   border-radius: var(--radius-md);
@@ -3172,6 +3181,7 @@ a:focus-visible {
 
 .quiz-email-input {
   flex: 1;
+  min-height: 48px;
   padding: 10px 14px;
   border-radius: var(--radius-md);
   border: 1px solid var(--border);

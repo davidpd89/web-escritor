@@ -202,6 +202,8 @@ function fallbackCopy(text, done) {
   const progressBar = document.getElementById("quiz-progress-bar");
   const shareBtn = document.getElementById("quiz-share-btn");
   const restartBtn = document.getElementById("quiz-restart-btn");
+  const subscribeForm = document.getElementById("quiz-subscribe-form");
+  const resultActions = resultEl.querySelector(".quiz-result-actions");
 
   function shuffle(arr) {
     return arr.slice().sort(() => Math.random() - 0.5);
@@ -245,7 +247,15 @@ function fallbackCopy(text, done) {
     resultDesc.textContent = res.desc;
     resultEl._shareText = res.share;
     resultEl._resultKey = winner;
+    setResultLocked(Boolean(subscribeForm && subscribeForm.dataset.done !== "true"));
     resultEl.scrollIntoView({ behavior: "smooth", block: "nearest" });
+  }
+
+  function setResultLocked(isLocked) {
+    resultEl.classList.toggle("is-locked", isLocked);
+    resultName.hidden = isLocked;
+    resultDesc.hidden = isLocked;
+    if (resultActions) resultActions.hidden = isLocked;
   }
 
   shareBtn.addEventListener("click", () => {
@@ -262,7 +272,6 @@ function fallbackCopy(text, done) {
   });
 
   // Brevo email subscription
-  const subscribeForm = document.getElementById("quiz-subscribe-form");
   if (subscribeForm) {
     subscribeForm.addEventListener("submit", async (e) => {
       e.preventDefault();
@@ -290,7 +299,9 @@ function fallbackCopy(text, done) {
           })
         });
         if (res.ok || res.status === 204 || res.status === 400) {
+          subscribeForm.dataset.done = "true";
           subscribeForm.innerHTML = "<p class=\"quiz-subscribe-ok\">✓ ¡Apuntado! Recibirás novedades de David Porto Díaz antes que nadie.</p>";
+          setResultLocked(false);
         } else {
           throw new Error(res.status);
         }
@@ -307,6 +318,7 @@ function fallbackCopy(text, done) {
     Object.keys(scores).forEach(k => { scores[k] = 0; });
     resultEl.hidden = true;
     stage.hidden = false;
+    setResultLocked(false);
     showQuestion(0);
   });
 
@@ -325,4 +337,3 @@ document.querySelectorAll(".faq-question").forEach((btn) => {
     });
   });
 });
-
