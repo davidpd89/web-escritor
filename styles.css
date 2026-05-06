@@ -187,7 +187,7 @@ img {
 .site-shell {
   position: relative;
   z-index: 1;
-  width: min(var(--max-width), calc(100% - 48px));
+  width: min(var(--max-width), calc(100% - 64px));
   margin: 0 auto;
   padding: 28px 0 54px;
 }
@@ -3603,6 +3603,19 @@ html.modo-samuel .back-to-top {
   background: rgba(245, 240, 232, 0.9);
 }
 
+html.modo-samuel .section--alt {
+  background: var(--bg-soft);
+}
+
+html.modo-samuel .hero::after {
+  display: none;
+}
+
+html.modo-samuel .contact-panel {
+  background: var(--surface);
+  box-shadow: none;
+}
+
 /* ─── 3D Book mockup — CSS puro sin JS ─── */
 
 .book-3d-wrap {
@@ -3839,7 +3852,7 @@ html.modo-samuel .fragment-text {
 
 @media (max-width: 400px) {
   .site-shell {
-    width: min(100% - 32px, var(--max-width));
+    width: min(100% - 36px, var(--max-width));
   }
 }
 
@@ -3907,4 +3920,16 @@ html.modo-samuel .fragment-text {
 .newsletter-form--stacked .quiz-email-input,
 .newsletter-form--stacked .button {
   width: 100%;
+}
+
+.newsletter-read-link {
+  margin-top: 0.75rem;
+}
+
+.newsletter-read-link .button {
+  font-size: 0.85rem;
+}
+
+.newsletter-social {
+  margin-top: 1rem;
 }
