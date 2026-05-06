@@ -3842,3 +3842,69 @@ html.modo-samuel .fragment-text {
     width: min(100% - 32px, var(--max-width));
   }
 }
+
+/* ─── Synopsis / book aside helpers ─── */
+
+.features-grid--single {
+  grid-template-columns: 1fr;
+  margin-top: 2rem;
+}
+
+.synopsis-quick--centered {
+  text-align: center;
+  padding: 2rem;
+}
+
+.synopsis-pullquote {
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+  font-size: 1.4rem;
+  color: var(--accent-strong);
+  line-height: 1.6;
+  margin-bottom: 1rem;
+}
+
+.synopsis-attribution {
+  font-size: 0.8rem;
+  color: var(--muted-2);
+}
+
+.synopsis-cta-box {
+  margin-top: 1.5rem;
+  padding: 1.25rem;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.synopsis-cta-label {
+  font-size: 0.85rem;
+  color: var(--muted);
+  margin-bottom: 0.25rem;
+}
+
+.synopsis-book-aside {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.synopsis-book-cover {
+  max-width: 200px;
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow);
+}
+
+/* Stacked newsletter form variant (email + button on separate lines) */
+.newsletter-form--stacked .quiz-subscribe-row {
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.newsletter-form--stacked .quiz-email-input,
+.newsletter-form--stacked .button {
+  width: 100%;
+}
