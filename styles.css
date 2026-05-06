@@ -3012,6 +3012,27 @@ a:focus-visible {
   line-height: 1.72;
 }
 
+.technical-diagram {
+  max-width: 860px;
+  margin: -12px auto 34px;
+}
+
+.technical-diagram img {
+  width: 100%;
+  border: 1px solid var(--border-strong);
+  border-radius: var(--radius-md);
+  background: rgba(0, 0, 0, 0.28);
+  box-shadow: var(--shadow-sm);
+}
+
+.technical-diagram figcaption {
+  margin-top: 10px;
+  color: var(--muted-2);
+  font-size: 0.82rem;
+  line-height: 1.55;
+  text-align: center;
+}
+
 /* ─── Quiz "¿Qué habitante de Noveris serías?" ─── */
 
 .quiz-wrap {

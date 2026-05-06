@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="es">
 <head>
   <meta charset="UTF-8" />
@@ -35,6 +35,19 @@
   <meta name="twitter:image" content="https://davidportodiaz.com/assets/david-porto-imagen-compartir.webp" />
   <meta name="twitter:image:alt" content="David Porto Díaz — Autor de Samuel entre mundos, novela de fantasía" />
 
+  <script type="speculationrules">
+  {
+    "prerender": [
+      {
+        "where": {
+          "href_matches": ["/libros/*", "/universo/*", "/autor.html", "/autor"]
+        },
+        "eagerness": "moderate"
+      }
+    ]
+  }
+  </script>
+
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -69,6 +82,7 @@
         "image": "https://davidportodiaz.com/assets/david-porto-foto-portada.webp",
         "jobTitle": "Escritor",
         "description": "Escritor gallego de fantasía, romantasy y ficción especulativa. Autor de Samuel entre mundos.",
+        "dateModified": "2026-05-06",
         "birthPlace": { "@type": "Place", "name": "Pontevedra, España" },
         "homeLocation": { "@type": "Place", "name": "Madrid, España" },
         "hasOccupation": {
@@ -92,7 +106,8 @@
         "author": { "@id": "https://davidportodiaz.com/#author" },
         "isbn": "9791387659776",
         "datePublished": "2025",
-        "numberOfPages": 409,
+        "dateModified": "2026-05-06",
+        "numberOfPages": 422,
         "publisher": { "@type": "Organization", "name": "Libros Indie" },
         "image": "https://davidportodiaz.com/assets/portada-libro-samuel-entre-mundos-fantasia-romantasy.webp",
         "url": "https://davidportodiaz.com/libros/samuel-entre-mundos/",
@@ -106,10 +121,11 @@
         },
         "aggregateRating": {
           "@type": "AggregateRating",
-          "ratingValue": "5",
+          "ratingValue": "4.8",
           "bestRating": "5",
-          "ratingCount": "3",
-          "reviewCount": "3"
+          "ratingCount": "24",
+          "reviewCount": "24",
+          "ratingExplanation": "Media consolidada manualmente a partir de reseñas de Amazon España."
         },
         "offers": [
           {
@@ -134,6 +150,7 @@
         "@type": "Book",
         "@id": "https://davidportodiaz.com/#book-manecillas",
         "name": "Las manecillas del recuerdo",
+        "dateModified": "2026-05-06",
         "author": { "@id": "https://davidportodiaz.com/#author" },
         "publisher": { "@type": "Organization", "name": "Monza Ediciones" },
         "inLanguage": "es",
@@ -145,6 +162,7 @@
         "@type": "Book",
         "@id": "https://davidportodiaz.com/#book-piel",
         "name": "PIEL",
+        "dateModified": "2026-05-06",
         "author": { "@id": "https://davidportodiaz.com/#author" },
         "inLanguage": "es",
         "genre": ["Ficción especulativa"],
@@ -154,6 +172,7 @@
         "@type": "ItemList",
         "@id": "https://davidportodiaz.com/#bibliography",
         "name": "Bibliografía de David Porto Díaz",
+        "dateModified": "2026-05-06",
         "description": "Obras publicadas y en proceso de publicación del escritor David Porto Díaz.",
         "numberOfItems": 3,
         "itemListElement": [
@@ -164,6 +183,7 @@
       },
       {
         "@type": "FAQPage",
+        "dateModified": "2026-05-06",
         "mainEntity": [
           {
             "@type": "Question",
@@ -501,7 +521,7 @@
               <li><strong>Editorial:</strong> Libros Indie</li>
               <li><strong>ISBN:</strong> 9791387659776</li>
               <li><strong>Formato:</strong> Tapa blanda</li>
-              <li><strong>Extensión:</strong> 409 páginas</li>
+              <li><strong>Extensión:</strong> 422 páginas</li>
             </ul>
 
             <div class="button-row">
@@ -516,7 +536,7 @@
               </a>
             </div>
             <p class="book-lead-hook">¿Quieres saber más antes de decidir? <a href="#newsletter">Recibe novedades del autor directamente.</a></p>
-            <p class="book-proof-line">Primer Premio Letras Como Espada · Finalista Premio Nacional Literatura Infantil · ★★★★★ Goodreads</p>
+            <p class="book-proof-line">Primer Premio Letras Como Espada · Finalista Premio Nacional Literatura Infantil · 4,8/5 en Amazon España</p>
             <div class="retailers-row">
               <p class="retailers-label">También en librerías</p>
               <div class="retailers-links">
@@ -533,11 +553,11 @@
         <div class="book-reviews">
           <div class="reviews-rating-bar">
             <div class="reviews-score">
-              <span class="reviews-stars" aria-label="5 estrellas de 5">★★★★★</span>
-              <strong>5,0</strong>
-              <span>· Goodreads</span>
+              <span class="reviews-stars" aria-label="4,8 estrellas de 5">★★★★★</span>
+              <strong>4,8</strong>
+              <span>· 24 reseñas en Amazon España</span>
             </div>
-            <a class="button tertiary" href="https://www.goodreads.com/book/show/245605636-samuel-entre-mundos" target="_blank" rel="noopener noreferrer me">Ver reseñas en Goodreads</a>
+            <a class="button tertiary" href="https://www.amazon.es/dp/B0GB6LGQFH?tag=davidporto-21" target="_blank" rel="sponsored noopener noreferrer">Ver en Amazon</a>
           </div>
           <div class="reviews-grid">
             <article class="review-card">

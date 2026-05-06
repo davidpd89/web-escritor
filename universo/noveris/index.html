@@ -25,6 +25,19 @@
   <meta name="twitter:description" content="Definiciones oficiales de la ciudad, la magia y las facciones de Noveris." />
   <meta name="twitter:image" content="https://davidportodiaz.com/assets/david-porto-imagen-compartir.webp" />
 
+  <script type="speculationrules">
+  {
+    "prerender": [
+      {
+        "where": {
+          "href_matches": ["/libros/*", "/universo/*", "/autor.html", "/autor"]
+        },
+        "eagerness": "moderate"
+      }
+    ]
+  }
+  </script>
+
   <meta name="theme-color" content="#080a0c" />
   <link rel="canonical" href="https://davidportodiaz.com/universo/noveris/" />
   <link rel="preload" as="image" href="/assets/noveris-ciudad-fantasia-david-porto-diaz.avif" fetchpriority="high" />
@@ -65,6 +78,7 @@
         "@type": "DefinedTermSet",
         "@id": "https://davidportodiaz.com/universo/noveris/#glosario",
         "name": "Glosario de Noveris",
+        "dateModified": "2026-05-06",
         "hasDefinedTerm": [
           { "@type": "DefinedTerm", "@id": "https://davidportodiaz.com/universo/noveris/#term-noveris", "name": "Noveris", "description": "Ciudad mística y nexo dimensional de Samuel entre mundos." },
           { "@type": "DefinedTerm", "name": "Canalizador", "description": "Objeto afin que permite conducir magia y puede desarrollar memoria o conciencia." },
@@ -234,6 +248,10 @@
           <article class="lore-term">
             <h3>Glissaro</h3>
             <p>Comando de desplazamiento. Activa zapatos o plataformas que elevan el cuerpo unos centímetros y permiten deslizarse por la ciudad a gran velocidad.</p>
+          </article>
+          <article class="lore-term">
+            <h3>Vara Glytch</h3>
+            <p>Canalizador de filtrado y precisión usado para depurar señales mágicas, aislar residuos de hechicería y separar interferencias antes de que contaminen un vínculo.</p>
           </article>
           <article class="lore-term">
             <h3>Glíder</h3>
