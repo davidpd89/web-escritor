@@ -187,7 +187,7 @@ img {
 .site-shell {
   position: relative;
   z-index: 1;
-  width: min(var(--max-width), calc(100% - 36px));
+  width: min(var(--max-width), calc(100% - 48px));
   margin: 0 auto;
   padding: 28px 0 54px;
 }
@@ -2758,7 +2758,7 @@ a:focus-visible {
   }
 
   .site-shell {
-    width: min(100% - 24px, var(--max-width));
+    width: min(100% - 40px, var(--max-width));
     padding-top: 16px;
   }
 
@@ -3687,4 +3687,144 @@ html.modo-samuel .reading-progress {
 html.modo-samuel .fragment-text {
   font-size: 1.2rem;
   line-height: 2;
+}
+
+/* ─── Fragment page layout ─── */
+
+.fragment-hero {
+  min-height: 38vh;
+}
+
+.fragment-hero .book-hero-inner {
+  padding: 3rem 0;
+}
+
+.fragment-hero-title {
+  font-size: clamp(2rem, 5vw, 3.5rem);
+}
+
+.fragment-section {
+  max-width: 720px;
+  margin: 0 auto;
+  padding: 3rem 0;
+}
+
+.fragment-meta {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+  margin-bottom: 2.5rem;
+  padding-bottom: 1.5rem;
+  border-bottom: 1px solid var(--border);
+  font-size: 0.8rem;
+  color: var(--muted);
+}
+
+.fragment-reading {
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: clamp(1.1rem, 2.5vw, 1.25rem);
+  line-height: 1.85;
+  color: var(--text);
+}
+
+.fragment-reading h2 {
+  font-size: 1rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--muted);
+  font-family: 'Inter', sans-serif;
+  font-weight: 500;
+  margin-bottom: 2rem;
+}
+
+.fragment-speech {
+  text-align: center;
+  font-size: 1.3em;
+  letter-spacing: 0.05em;
+  color: var(--accent);
+  margin: 2rem 0;
+}
+
+.fragment-divider {
+  border: none;
+  border-top: 1px solid var(--border);
+  margin: 3rem 0;
+}
+
+.fragment-aside {
+  font-style: italic;
+  color: var(--muted);
+  text-align: center;
+}
+
+.fragment-cta-box {
+  margin-top: 3rem;
+  padding: 2.5rem;
+  background: var(--surface);
+  border: 1px solid var(--border-strong);
+  border-radius: var(--radius-lg);
+  text-align: center;
+}
+
+.fragment-cta-title {
+  font-size: 1.5rem;
+  font-family: 'Cormorant Garamond', serif;
+  margin-bottom: 0.75rem;
+  color: var(--accent-strong);
+}
+
+.fragment-cta-desc {
+  color: var(--muted);
+  margin-bottom: 1.5rem;
+  font-size: 0.95rem;
+}
+
+.fragment-cta-actions {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  align-items: center;
+}
+
+.fragment-cta-actions .button {
+  min-width: 260px;
+}
+
+.fragment-cta-isbn {
+  margin-top: 1.25rem;
+  font-size: 0.8rem;
+  color: var(--muted-2);
+}
+
+.fragment-newsletter-box {
+  margin-top: 2rem;
+  padding: 2rem;
+  background: var(--bg-alt);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  text-align: center;
+}
+
+.fragment-newsletter-form {
+  max-width: 400px;
+  margin: 0.75rem auto 0;
+}
+
+.fragment-newsletter-form .quiz-subscribe-row {
+  margin-bottom: 0.75rem;
+}
+
+.fragment-nav-links {
+  margin-top: 2.5rem;
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+  justify-content: center;
+  font-size: 0.85rem;
+}
+
+@media (max-width: 400px) {
+  .site-shell {
+    width: min(100% - 32px, var(--max-width));
+  }
 }

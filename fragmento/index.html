@@ -91,9 +91,9 @@
     <main id="fragmento-contenido">
 
       <!-- HERO -->
-      <section class="book-hero" style="min-height: 38vh;" aria-label="Fragmento del libro">
+      <section class="book-hero fragment-hero" aria-label="Fragmento del libro">
         <div class="hero-bg" aria-hidden="true" style="background-image: url('/assets/mapa-noveris-ciudad-fantasia-urban-lore.avif'); opacity: 0.3;"></div>
-        <div class="book-hero-inner" style="padding: 3rem 1.5rem;">
+        <div class="book-hero-inner">
           <div class="book-hero-copy">
             <nav class="breadcrumb" aria-label="Ruta de navegación">
               <a href="/">Inicio</a>
@@ -103,16 +103,16 @@
               <span aria-current="page">Fragmento</span>
             </nav>
             <p class="eyebrow">Lectura gratuita · Capítulo 1</p>
-            <h1 style="font-size: clamp(2rem, 5vw, 3.5rem);">El principio del salto</h1>
+            <h1 class="fragment-hero-title">El principio del salto</h1>
             <p class="book-hero-tagline">Noveris. Canalizadores. Una familia con demasiados secretos.<br>Y un chico que no debería existir.</p>
           </div>
         </div>
       </section>
 
       <!-- READING SECTION -->
-      <section class="section" id="fragmento" style="max-width: 720px; margin: 0 auto; padding: 3rem 1.5rem;">
-        <div class="fragment-meta" style="display: flex; gap: 1rem; flex-wrap: wrap; margin-bottom: 2.5rem; padding-bottom: 1.5rem; border-bottom: 1px solid var(--border); font-size: 0.8rem; color: var(--muted);">
-          <span>📖 Samuel entre mundos</span>
+      <section class="section fragment-section" id="fragmento">
+        <div class="fragment-meta">
+          <span>Samuel entre mundos</span>
           <span>·</span>
           <span>David Porto Díaz</span>
           <span>·</span>
@@ -121,9 +121,9 @@
           <span>Capítulo 1 de 17</span>
         </div>
 
-        <article class="fragment-text" style="font-family: 'Cormorant Garamond', Georgia, serif; font-size: clamp(1.1rem, 2.5vw, 1.25rem); line-height: 1.85; color: var(--text);">
+        <article class="fragment-reading fragment-text">
 
-          <h2 style="font-size: 1rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--muted); font-family: 'Inter', sans-serif; font-weight: 500; margin-bottom: 2rem;">Capítulo 1 — El principio del salto</h2>
+          <h2>Capítulo 1 — El principio del salto</h2>
 
           <p>Era 1 de septiembre. En el séptimo piso del edificio Norat vivían Víctor y Victoria Osborne, una pareja obsesionada con aparentar normalidad. Evitaban cualquier cosa rara, les daba el mismo horror que escuchar su propia voz en una grabación. No querían reconocerse en lo que detestaban.</p>
 
@@ -189,13 +189,13 @@
 
           <p>Por suerte, tras intercambiar las cortesías mínimas, pudieron escapar. En Noveris nadie camina si puede evitarlo. Al unísono, pronunciaron:</p>
 
-          <p style="text-align: center; font-size: 1.3em; letter-spacing: 0.05em; color: var(--accent); margin: 2rem 0;">— Glissaro. —</p>
+          <p class="fragment-speech">— Glissaro. —</p>
 
           <p>Al instante, sus zapatos comenzaron a brillar. Resplandor suave. Sus cuerpos se elevaron unos centímetros del suelo y se deslizaron a toda velocidad hacia sus destinos, guiados por una energía invisible. A su alrededor, decenas de personas surcaban el aire aportando pinceladas de color. Lo extraño no era la velocidad, sino que el viento parecía temer despeinarlos.</p>
 
           <p>Victoria se desvió sin decir adiós. Víctor siguió su rumbo, aunque no conseguía quitarse de la cabeza lo que había pasado durante el desayuno. Una comezón entre los omóplatos le decía que alguien más los observaba desde alguna ventana oculta.</p>
 
-          <hr style="border: none; border-top: 1px solid var(--border); margin: 3rem 0;" />
+          <hr class="fragment-divider" />
 
           <p>El Hospital Arcano era tan blanco que dolía mirarlo. Sus ventanas aparecían o desaparecían según la necesidad de cada paciente. Al entrar, registró su brazalete, pero Sael soltó un pitido raro que hizo que la recepcionista lo mirara extrañada.</p>
 
@@ -249,7 +249,7 @@
 
           <p>Por primera vez en muchos años, una presión le apretó el pecho. Un puño cerrado, dejándolo sin aire. Y ese miedo no venía del paciente, sino de la posibilidad de que todo lo que siempre había creído sólido estuviera a punto de venirse abajo.</p>
 
-          <hr style="border: none; border-top: 1px solid var(--border); margin: 3rem 0;" />
+          <hr class="fragment-divider" />
 
           <p>Samuel esperaba en el apartamento a su tutor con los libros ya preparados sobre la mesa. Tenía casi doce años. Esa era la edad en la que, en Noveris, los niños podían optar a recibir su primer canalizador y comenzar a usar magia. Hasta entonces, solo observan, estudian, esperan.</p>
 
@@ -259,40 +259,40 @@
 
           <p>En apariencia, era un niño más. Pero no lo era.</p>
 
-          <p style="font-style: italic; color: var(--muted); text-align: center;">Nunca lo había sido.</p>
+          <p class="fragment-aside">Nunca lo había sido.</p>
 
         </article>
 
         <!-- CLIFFHANGER CTA -->
-        <div class="fragment-cta" style="margin-top: 3rem; padding: 2.5rem; background: var(--surface); border: 1px solid var(--border-strong); border-radius: var(--radius-lg); text-align: center;">
-          <p style="font-size: 1.5rem; font-family: 'Cormorant Garamond', serif; margin-bottom: 0.75rem; color: var(--accent-strong);">¿Qué pasa después?</p>
-          <p style="color: var(--muted); margin-bottom: 1.5rem; font-size: 0.95rem;">La grieta crece. El tutor de Samuel guarda un secreto. Y alguien —o algo— lleva meses observando el edificio Norat desde antes de que empezara todo.</p>
-          <div style="display: flex; flex-direction: column; gap: 0.75rem; align-items: center;">
-            <a class="button primary" href="https://www.amazon.es/dp/B0GB6LGQFH?tag=davidporto-21" target="_blank" rel="sponsored noopener noreferrer" style="min-width: 260px;">Leer completo en Amazon →</a>
-            <a class="button secondary" href="/libros/samuel-entre-mundos/" style="min-width: 260px;">Ficha técnica del libro</a>
+        <div class="fragment-cta-box">
+          <p class="fragment-cta-title">¿Qué pasa después?</p>
+          <p class="fragment-cta-desc">La grieta crece. El tutor de Samuel guarda un secreto. Y alguien —o algo— lleva meses observando el edificio Norat desde antes de que empezara todo.</p>
+          <div class="fragment-cta-actions">
+            <a class="button primary" href="https://www.amazon.es/dp/B0GB6LGQFH?tag=davidporto-21" target="_blank" rel="sponsored noopener noreferrer">Leer completo en Amazon →</a>
+            <a class="button secondary" href="/libros/samuel-entre-mundos/">Ficha técnica del libro</a>
           </div>
-          <p style="margin-top: 1.25rem; font-size: 0.8rem; color: var(--muted-2);">ISBN 9791387659776 · Libros Indie · 422 páginas · Tapa blanda</p>
+          <p class="fragment-cta-isbn">ISBN 9791387659776 · Libros Indie · 422 páginas · Tapa blanda</p>
         </div>
 
         <!-- NEWSLETTER CAPTURE -->
-        <div class="fragment-newsletter" style="margin-top: 2rem; padding: 2rem; background: var(--bg-alt); border: 1px solid var(--border); border-radius: var(--radius-md); text-align: center;">
-          <p class="eyebrow" style="margin-bottom: 0.5rem;">Cartas desde el umbral</p>
-          <p style="margin-bottom: 1.25rem; color: var(--muted);">Novedades de <em>Las manecillas del recuerdo</em>, eventos y fragmentos exclusivos. Un email cuando haya algo que valga la pena.</p>
-          <form class="newsletter-form" id="newsletter-form-fragmento" novalidate style="max-width: 400px; margin: 0 auto;">
-            <div class="quiz-subscribe-row" style="margin-bottom: 0.75rem;">
+        <div class="fragment-newsletter-box">
+          <p class="eyebrow">Cartas desde el umbral</p>
+          <p>Novedades de <em>Las manecillas del recuerdo</em>, eventos y fragmentos exclusivos. Un email cuando haya algo que valga la pena.</p>
+          <form class="newsletter-form fragment-newsletter-form" id="newsletter-form-fragmento" novalidate>
+            <div class="quiz-subscribe-row">
               <input type="email" id="nl-email-fragmento" class="quiz-email-input" placeholder="tu@email.com" autocomplete="email" required />
               <button type="submit" class="button primary">Suscribirme</button>
             </div>
-            <label class="quiz-gdpr-label" style="font-size: 0.75rem; color: var(--muted-2); text-align: left; display: block;">
+            <label class="quiz-gdpr-label">
               <input type="checkbox" id="nl-gdpr-fragmento" required />
               Acepto recibir novedades del autor. <a href="/privacidad.html" target="_blank" rel="noopener">Privacidad</a>.
             </label>
-            <p class="quiz-subscribe-status" id="nl-status-fragmento" aria-live="polite" role="status" style="margin-top: 0.5rem; font-size: 0.85rem;"></p>
+            <p class="quiz-subscribe-status" id="nl-status-fragmento" aria-live="polite" role="status"></p>
           </form>
         </div>
 
         <!-- NAV LINKS -->
-        <nav style="margin-top: 2.5rem; display: flex; gap: 1rem; flex-wrap: wrap; justify-content: center; font-size: 0.85rem;">
+        <nav class="fragment-nav-links" aria-label="Navegación del fragmento">
           <a href="/libros/samuel-entre-mundos/">← Volver al libro</a>
           <a href="/universo/noveris/">Glosario de Noveris →</a>
         </nav>
