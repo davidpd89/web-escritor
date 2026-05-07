@@ -167,6 +167,7 @@ a {
 img {
   display: block;
   max-width: 100%;
+  height: auto;
 }
 
 /* Utility */
@@ -316,9 +317,9 @@ img {
   display: grid;
   grid-template-columns: minmax(0, 1.1fr) 400px;
   gap: 46px;
-  align-items: end;
+  align-items: center;
   min-height: 580px;
-  padding: 52px 0 88px;
+  padding: 40px 0 72px;
   overflow: hidden;
 }
 
@@ -621,19 +622,6 @@ img {
   border-top: 1px solid var(--border);
 }
 
-/* Skip rendering of off-screen sections for faster initial paint */
-#sobre-mi, #libros, #newsletter, #proyectos,
-#eventos, #premios, #prensa, #faq, #contacto {
-  content-visibility: auto;
-  contain-intrinsic-size: auto 900px;
-}
-
-#libros,
-#prensa,
-#faq {
-  contain-intrinsic-size: auto 1200px;
-}
-
 .section--alt {
   background:
     linear-gradient(180deg, rgba(10, 7, 4, 0.48) 0%, transparent 80%),
@@ -920,11 +908,11 @@ img {
 .book-cover-img {
   width: 100%;
   height: auto;
-  aspect-ratio: 2 / 3;
-  object-fit: contain;
   display: block;
   border-radius: 6px 14px 14px 6px;
   box-shadow:
+    -10px 0 0 rgba(34, 28, 24, 0.96),
+    -13px 0 0 rgba(12, 10, 9, 0.8),
     -3px 0 6px rgba(0, 0, 0, 0.5),
     6px 6px 16px rgba(0, 0, 0, 0.5),
     18px 18px 50px rgba(0, 0, 0, 0.45);
@@ -1325,7 +1313,6 @@ img {
   display: flex;
   align-items: center;
   justify-content: center;
-  min-height: 240px;
   padding: 20px 14px;
   background: rgba(0, 0, 0, 0.25);
 }
@@ -1333,7 +1320,6 @@ img {
 .project-cover-img {
   width: 100%;
   height: auto;
-  aspect-ratio: 2 / 3;
   object-fit: contain;
   display: block;
   border-radius: 3px 6px 6px 3px;
@@ -2294,11 +2280,11 @@ a:focus-visible {
 .book-hero-img {
   width: 100%;
   height: auto;
-  aspect-ratio: 2 / 3;
-  object-fit: contain;
   display: block;
   border-radius: 6px 14px 14px 6px;
   box-shadow:
+    -10px 0 0 rgba(34, 28, 24, 0.96),
+    -13px 0 0 rgba(12, 10, 9, 0.8),
     -3px 0 6px rgba(0, 0, 0, 0.5),
     6px 6px 16px rgba(0, 0, 0, 0.5),
     18px 18px 50px rgba(0, 0, 0, 0.5);
@@ -2767,10 +2753,6 @@ a:focus-visible {
 /* ─── Responsive: 760px ─── */
 
 @media (max-width: 760px) {
-  body {
-    padding-bottom: calc(76px + env(safe-area-inset-bottom));
-  }
-
   .features-grid,
   .buy-grid {
     grid-template-columns: 1fr;
@@ -2949,6 +2931,15 @@ a:focus-visible {
 
   .event-item--featured {
     grid-template-columns: 1fr;
+  }
+
+  .event-item--featured time {
+    align-items: flex-start;
+    border-right: 0;
+    border-bottom: 1px solid var(--border-strong);
+    padding-right: 0;
+    padding-bottom: 14px;
+    text-align: left;
   }
 
   .award-year {
