@@ -281,6 +281,10 @@ img {
   color: var(--text);
 }
 
+.mobile-bottom-nav {
+  display: none;
+}
+
 .nav-toggle {
   display: none;
   width: 48px;
@@ -602,7 +606,7 @@ img {
 /* ─── Sections ─── */
 
 .section {
-  padding: 88px 0;
+  padding: 88px clamp(28px, 3.6vw, 64px);
   border-top: 1px solid var(--border);
 }
 
@@ -2738,6 +2742,10 @@ a:focus-visible {
 /* ─── Responsive: 760px ─── */
 
 @media (max-width: 760px) {
+  body {
+    padding-bottom: calc(76px + env(safe-area-inset-bottom));
+  }
+
   .features-grid,
   .buy-grid {
     grid-template-columns: 1fr;
@@ -2818,7 +2826,7 @@ a:focus-visible {
   }
 
   .section {
-    padding: 54px 8px;
+    padding: 54px 18px;
   }
 
   .section-heading {
@@ -2936,6 +2944,59 @@ a:focus-visible {
 
   .secondary-photo-img {
     height: 200px;
+  }
+
+  .mobile-bottom-nav {
+    position: fixed;
+    left: max(12px, env(safe-area-inset-left));
+    right: max(12px, env(safe-area-inset-right));
+    bottom: max(10px, env(safe-area-inset-bottom));
+    z-index: 950;
+    display: grid;
+    grid-template-columns: repeat(5, minmax(0, 1fr));
+    gap: 4px;
+    padding: 8px;
+    border: 1px solid rgba(244, 236, 223, 0.14);
+    border-radius: 22px;
+    background: rgba(8, 10, 12, 0.92);
+    box-shadow: 0 18px 50px rgba(0, 0, 0, 0.42);
+    backdrop-filter: blur(18px);
+    -webkit-backdrop-filter: blur(18px);
+  }
+
+  .mobile-bottom-nav a {
+    min-width: 0;
+    min-height: 52px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 3px;
+    border-radius: 16px;
+    color: var(--muted);
+    text-decoration: none;
+    font-size: 0.72rem;
+    line-height: 1.1;
+  }
+
+  .mobile-bottom-nav a span {
+    color: var(--accent-strong);
+    font-size: 1.05rem;
+    line-height: 1;
+  }
+
+  .mobile-bottom-nav a small {
+    max-width: 100%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    font-size: 0.68rem;
+  }
+
+  .mobile-bottom-nav a[aria-current="page"],
+  .mobile-bottom-nav a:focus-visible {
+    color: var(--text);
+    background: rgba(196, 148, 77, 0.14);
   }
 }
 
@@ -3941,8 +4002,8 @@ html.modo-samuel .fragment-text {
   }
 
   .section {
-    padding-left: 6px;
-    padding-right: 6px;
+    padding-left: 14px;
+    padding-right: 14px;
   }
 
   .section-heading h2,

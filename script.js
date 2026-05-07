@@ -47,6 +47,37 @@ if (navToggle && siteNav) {
   });
 }
 
+// Thumb-friendly mobile navigation. Injected once so every page gets the same bottom actions.
+(function () {
+  if (document.querySelector(".mobile-bottom-nav")) return;
+
+  const items = [
+    { href: "/", label: "Inicio", icon: "⌂" },
+    { href: "/libros/samuel-entre-mundos/", label: "Libro", icon: "◇" },
+    { href: "/fragmento/", label: "Leer", icon: "Ⅰ" },
+    { href: "/universo/noveris/", label: "Noveris", icon: "✦" },
+    { href: "/#contacto", label: "Contacto", icon: "@" }
+  ];
+
+  const currentPath = window.location.pathname.replace(/\/index\.html$/, "/");
+  const nav = document.createElement("nav");
+  nav.className = "mobile-bottom-nav";
+  nav.setAttribute("aria-label", "Navegación móvil principal");
+
+  items.forEach((item) => {
+    const link = document.createElement("a");
+    link.href = item.href;
+    link.innerHTML = `<span aria-hidden="true">${item.icon}</span><small>${item.label}</small>`;
+    const itemPath = new URL(item.href, window.location.origin).pathname;
+    if (currentPath === itemPath || (itemPath !== "/" && currentPath.startsWith(itemPath))) {
+      link.setAttribute("aria-current", "page");
+    }
+    nav.appendChild(link);
+  });
+
+  document.body.appendChild(nav);
+})();
+
 // Back-to-top button — create, inject, and wire up
 (function () {
   const btn = document.createElement("button");
