@@ -4152,6 +4152,29 @@ html.modo-samuel .fragment-text {
   margin-top: 1rem;
 }
 
+/* ─── Event gallery (ferias page) ─── */
+
+.event-gallery-figure {
+  margin: 0 0 16px;
+}
+
+.event-gallery-figure--last {
+  margin-bottom: 0;
+}
+
+.event-gallery-img {
+  width: 100%;
+  height: auto;
+  border-radius: var(--radius-md);
+  display: block;
+}
+
+.event-gallery-caption {
+  font-size: 0.82rem;
+  color: var(--muted);
+  margin-top: 6px;
+}
+
 /* ─── Footer E-E-A-T ─── */
 
 .footer-eeat {

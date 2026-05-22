@@ -1,4 +1,4 @@
-const CACHE_VERSION = "david-porto-v2026-05-07-5";
+const CACHE_VERSION = "david-porto-v2026-05-22-1";
 const STATIC_CACHE = `${CACHE_VERSION}-static`;
 const PAGE_CACHE = `${CACHE_VERSION}-pages`;
 
@@ -30,7 +30,10 @@ const APP_SHELL = [
   "/assets/portada-novela-samuel-entre-mundos-fantasia-david-porto.webp",
   "/assets/diagrama-tecnico-canalizadores-magia-noveris.avif",
   "/assets/fonts/cg-normal-latin.woff2",
-  "/assets/fonts/inter-normal-latin.woff2"
+  "/assets/fonts/inter-normal-latin.woff2",
+  "/assets/feria-libro-aranjuez.webp",
+  "/assets/poster.webp",
+  "/assets/fragmento-gratis.webp"
 ];
 
 self.addEventListener("install", (event) => {
