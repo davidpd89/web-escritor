@@ -940,6 +940,12 @@ img {
   color: var(--accent-strong);
 }
 
+.badge--incoming {
+  background: rgba(100, 140, 200, 0.12);
+  border: 1px solid rgba(100, 140, 200, 0.3);
+  color: #7aa2d4;
+}
+
 .badge--rec {
   display: inline-flex;
   align-self: flex-start;
