@@ -9,6 +9,7 @@ const APP_SHELL = [
   "/manifest.json",
   "/styles.css",
   "/script.js",
+  "/ferias.html",
   "/autor.html",
   "/prensa.html",
   "/eventos.html",

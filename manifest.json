@@ -2,12 +2,12 @@
   "name": "David Porto Díaz - Universos Torcidos",
   "short_name": "David Porto",
   "description": "Web oficial de David Porto Díaz, autor de Samuel entre mundos y creador del universo de Noveris.",
-  "start_url": "/universo/noveris/",
+  "start_url": "/",
   "scope": "/",
   "display": "standalone",
   "orientation": "portrait-primary",
   "background_color": "#080a0c",
-  "theme_color": "#2A52BE",
+  "theme_color": "#080a0c",
   "lang": "es",
   "categories": ["books", "entertainment", "education"],
   "icons": [
@@ -15,7 +15,13 @@
       "src": "/assets/medallon_samuel_david_porto.avif",
       "sizes": "512x512",
       "type": "image/avif",
-      "purpose": "any maskable"
+      "purpose": "any"
+    },
+    {
+      "src": "/assets/medallon_samuel_david_porto.avif",
+      "sizes": "512x512",
+      "type": "image/avif",
+      "purpose": "maskable"
     },
     {
       "src": "/assets/david-porto-favicon.png",

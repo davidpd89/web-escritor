@@ -416,6 +416,7 @@ function fallbackCopy(text, done) {
             body: JSON.stringify({
               email: emailEl.value.trim(),
               listIds: [3],
+              updateEnabled: true,
               attributes: { SOURCE: sourceLabel }
             })
           });
