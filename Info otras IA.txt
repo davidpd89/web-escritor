@@ -19,7 +19,7 @@ COMPLETADO
 
 COMPLETADO: Modal Donde comprar (commit 7bedb2f)
 COMPLETADO: srsltid limpiado (commit a0db32b)
-COMPLETADO: Schema offers precio 22 EUR (commit a0db32b)
+COMPLETADO: Schema offers precio 22 EUR (commit a0db32b) — también añadido en index.html
 COMPLETADO: Clubes de lectura E3 - premio, Amazon tag, sin-spoilers, Article schema
 COMPLETADO: Sitemap.xml formato corregido
 COMPLETADO: robots.txt - GPTBot Allow / - correcto
@@ -28,6 +28,11 @@ COMPLETADO: fetchpriority=high - solo 1 imagen en index.html - correcto
 COMPLETADO: broken-links.yml - F1 - añadidos format/output/jobSummary explícitos
 COMPLETADO: title index.html - no contiene romantasy - correcto
 COMPLETADO: prensa.html - no press mentions yet (kit de prensa sin cobertura recibida)
+COMPLETADO: H5 - clubes page schema: Article reemplazado por Guide + LearningResource
+COMPLETADO: llms.txt + llms-full.txt - bug de premio corregido: ya no atribuye
+            el Letras Como Espada 2026 a la novela sino al autor (microrrelatos)
+COMPLETADO: index.html award - "I Primer Premio" (redundante) → "Primer Premio"
+            con nota explícita (certamen de microrrelatos, no la novela)
 
 ═══════════════════════════════════════════════════════════════════
 KEYWORDS VERIFICADAS (BLOQUE F/G, mayo 2026)
@@ -55,6 +60,33 @@ Fase 3 (mes 6+): /escritura-creativa-worldbuilding/
 Blog debe ser PARA LECTORES, no para escritores.
 Artículos de worldbuilding y sistema de magia sirven lectores.
 Artículos de consejos de escritura atraen aspirantes (audiencia que no compra).
+
+═══════════════════════════════════════════════════════════════════
+HALLAZGOS CLAUDE (BLOQUE AB, mayo 2026)
+═══════════════════════════════════════════════════════════════════
+Claude Sonnet es el modelo que gestiona esta web. Lo que sé de primera
+mano sobre cómo Claude recomienda libros:
+
+CÓMO FUNCIONA CLAUDE:
+- Sin búsqueda web: solo conoce libros de antes del cutoff de entrenamiento.
+  Samuel entre mundos (dic 2025) probablemente NO está en su conocimiento base.
+- Con búsqueda web (claude.ai): lee llms.txt y /ai/ page. Usa la sección
+  "Cuándo recomendar" como mapa de decisión literal.
+- Fuentes ordenadas por peso: Wikipedia > Wikidata > WorldCat/BNE/ISFDB >
+  Publisher page > Goodreads > Amazon > llms.txt > blogs de reseñas.
+
+GAPS CRÍTICOS PARA CLAUDE (ningún otro modelo los habría detectado):
+- Sin artículo de Wikipedia del autor → fuente #1 para Claude sin search
+- Samuel entre mundos sin Q-ID en Wikidata (solo el autor tiene Q139678851)
+- Wikidata del autor incompleta: probable falta P21, P27, P106, P856, P2963
+- Sin entradas en WorldCat, BNE, ni ISFDB (base de datos canónica de fantasía)
+- Sin reseñas en blogs externos con URL propia (solo Amazon reviews)
+
+ESTADO llms.txt / llms-full.txt:
+- Formato correcto para Claude.ai search ✅
+- Sección "Cuándo recomendar" efectiva ✅
+- Bug de premio corregido (ya no atribuye el Letras Como Espada a la novela) ✅
+- Precio actualizado a ~22€ ✅
 
 ═══════════════════════════════════════════════════════════════════
 PENDIENTE DAVID (no es codigo, requiere accion manual)

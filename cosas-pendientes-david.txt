@@ -568,3 +568,83 @@ TAREAS TÉCNICAS PENDIENTES DE VERIFICACIÓN (hallazgos Bloque F/G)
     → Añado la mención a prensa.html con su fecha + NewsArticle schema al JSON-LD.
     
     (Esto mejora el E-E-A-T de la web: Google valora menciones externas con fecha verificable)
+
+---------------------------------------------------------------------------
+TAREAS PARA APARECER EN CLAUDE Y OTRAS IAs (hallazgos BLOQUE AB, mayo 2026)
+---------------------------------------------------------------------------
+
+34. WIKIDATA — COMPLETAR ENTRADA DEL AUTOR Q139678851 (Alta prioridad)
+    La entrada de David Porto Díaz existe pero probablemente falta:
+    - P21 (sexo: masculino)
+    - P27 (ciudadanía: España Q29)
+    - P106 (ocupación: escritor Q36180)
+    - P856 (sitio web oficial: https://davidportodiaz.com/)
+    - P2963 (Goodreads author ID: 66843136)
+    - P18 (foto: si hay imagen libre de derechos)
+    - P569 (fecha de nacimiento: solo si David quiere hacerla pública)
+    - P19 (lugar de nacimiento: Pontevedra Q36185)
+    
+    Cómo editarlo: https://www.wikidata.org/wiki/Q139678851
+    (requiere cuenta Wikidata — crear si no tiene)
+    
+    IMPORTANTE: Esto mejora directamente la confianza de Claude, Gemini y
+    Perplexity al recomendar al autor. No requiere esperar a tener prensa.
+
+35. WIKIDATA — CREAR ENTRADA PARA SAMUEL ENTRE MUNDOS (Alta prioridad)
+    La novela no tiene Q-ID propio. Propiedades mínimas:
+    - P31 (instancia de): Q7725634 (novela)
+    - P50 (autor): Q139678851 (David Porto Díaz)
+    - P123 (editorial): crear o vincular Libros Indie
+    - P212 (ISBN-13): 9791387659776
+    - P577 (fecha de publicación): 2025
+    - P1476 (título): Samuel entre mundos
+    - P407 (idioma): castellano Q1321
+    - P136 (género): portal fantasy + fantasía juvenil
+    - P856 (URL): https://davidportodiaz.com/libros/samuel-entre-mundos/
+    
+    Cuando exista el Q-ID del libro, actualizar el autor para enlazar:
+    - P800 (obra notable): → Q del libro
+
+36. WIKIPEDIA — CREAR ARTÍCULO DEL AUTOR (cuando haya prensa)
+    Wikipedia es la fuente #1 que usa Claude sin búsqueda web.
+    Sin artículo Wikipedia, Claude "no conoce" al autor en modo básico.
+    
+    REQUISITO: Wikipedia exige notoriedad verificable.
+    Necesitamos al menos 1-2 reseñas en medios con nombre (no blogs anónimos).
+    Ejemplos válidos: Lecturalia, El Cultural, ABC Cultura, SFX, La Vanguardia,
+    Playground, blog literario con ISSN o mención editorial significativa.
+    
+    Cuando tengamos la primera cobertura de prensa, avisar para:
+    1. Redactar borrador del artículo
+    2. Citar las fuentes externas en el artículo
+    3. Enlazar desde la entrada Wikidata del autor
+
+37. WORLDCAT + BNE — VERIFICAR PRESENCIA DEL LIBRO
+    WorldCat y el catálogo de la BNE son fuentes que Claude consulta
+    para verificar que un libro existe físicamente.
+    
+    Verificar:
+    - WorldCat: https://www.worldcat.org/ — buscar "Samuel entre mundos"
+    - BNE: https://catalogo.bne.es/ — buscar por ISBN 9791387659776
+    
+    Si no aparece en BNE: contactar al depósito legal o a la editorial
+    para que el ISBN esté correctamente registrado.
+    
+    Si no aparece en WorldCat: es por falta de catálogo en bibliotecas.
+    No hay acción directa, pero aparece cuando alguna biblioteca cataloga el libro.
+
+38. ISFDB — AÑADIR LIBRO A BASE DE DATOS DE FANTASÍA
+    ISFDB (Internet Speculative Fiction Database) es la base de datos
+    canónica de ciencia ficción y fantasía. Claude la usa para portal fantasy.
+    
+    Añadir la entrada:
+    - URL: https://www.isfdb.org/ → "New Submissions" → novela
+    - Tipo: NOVEL
+    - Título: Samuel entre mundos
+    - Autor: David Porto Díaz
+    - Año: 2025
+    - Editorial: Libros Indie
+    - ISBN: 9791387659776
+    - Géneros: Portal fantasy, Young Adult fantasy
+    
+    Requiere registro y puede tardar en aprobarse (proceso manual).

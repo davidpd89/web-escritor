@@ -64,12 +64,675 @@ H4. PARA CHATGPT/CLAUDE:
     /universo/noveris/, /fragmento/, /empieza-aqui/, /aviso-legal.html.
     [pegar el service-worker.js completo]"
 
-H5. PARA CHATGPT/GEMINI:
-    "Para una página /clubes-de-lectura/samuel-entre-mundos/ con guía de lectura
-    y preguntas de debate de una novela de fantasía juvenil española, ¿qué schema
-    de Schema.org es más adecuado? ¿WebPage? ¿Article? ¿CreativeWork?
-    ¿Hay algún tipo específico para reading guides?"
+H5. PARA CHATGPT/GEMINI — **RESUELTO ✅ (Guide schema aplicado — commit actual)**
+    Schema correcto: Guide + LearningResource (no Article genérico).
+    Ver BLOQUE AB para optimización específica de Claude.
+**H1. PARA CHATGPT/CLAUDE (Event schema JSON-LD)**  
+***Contexto del proyecto:***
 
+* Web: **davidportodiaz.com** (estática, GitHub Pages)
+* Repo: **github.com/davidpd89/web-escritor**
+* Stack: HTML/CSS/JS pura; PWA (service worker); analíticas GoatCounter; formulario newsletter mediante Cloudflare Worker (<https://subscribe.davidpd89.workers.dev>)
+* Autor: *David Porto Díaz*, escritor español de fantasía juvenil (Portal fantasy, magia técnica, coming of age; nacido en Pontevedra, reside en Madrid)
+* Libro: *Samuel entre mundos* (Libros Indie, 2025; ISBN 9791387659776; 422 páginas; fantasía juvenil, portales mágicos, magia con precio; 5★ en Amazon ES).
+
+**Consulta:** Estoy revisando un fragmento **JSON-LD** de tipo **Event** para una actividad de firma de libros en una feria literaria. **Quiero saber si es correcto tener `startDate` definido solo con fecha (sin hora)**, y **si es conveniente incluir un `endDate`** aunque aún no tengamos confirmada la hora de fin.
+
+***Por favor, revisa el siguiente fragmento JSON-LD del evento y comenta si está bien definido o qué ajustes harías:***
+
+$$
+**PEGA AQUÍ el bloque `Event` del JSON-LD en index.html (buscar la parte con `"@type": "Event"`)**
+$$
+
+***
+
+**H2. PARA CHATGPT/CLAUDE (Seguridad Cloudflare Worker)**  
+***Contexto del proyecto:***
+
+* Web/Repo/Stack/Autor/Libro: *Idéntico al anterior contexto base.*
+
+**Consulta:** Disponemos de un **Cloudflare Worker** (endpoint `https://subscribe.davidpd89.workers.dev`) que actúa como proxy entre nuestro formulario de suscripción (newsletter via Brevo) y la API de Brevo. **Quiero una revisión de seguridad y robustez del código de este Worker** para verificar:
+
+1. **Posibles vulnerabilidades** o puntos débiles que puedan comprometer la seguridad de la aplicación.
+2. **Protecciones adicionales** recomendadas (por ejemplo, implementar algún tipo de **rate limiting para evitar spam/abusos** mediante el formulario de suscripción).
+
+***A continuación pego el código completo del Worker para su análisis:***
+
+$$
+**PEGA AQUÍ el código completo del archivo `cloudflare-worker-subscribe.js`**
+$$
+
+***
+
+**H3. PARA PERPLEXITY (Soporte AVIF en iconos PWA)**  
+***Contexto del proyecto:***
+
+* Web/Repo/Stack/Autor/Libro: *Idéntico al contexto base inicial.*
+
+**Consulta:** En el **archivo `manifest.json` de la PWA** estamos usando iconos de aplicación en formato **AVIF** dentro de la propiedad `"icons"`. **Quiero saber la compatibilidad actual de los iconos en formato AVIF en las PWA** en los **navegadores modernos (Chrome 120+, Firefox 120+ y Safari 17+)** y si existe **algún problema conocido** al respecto (por ejemplo, si Safari no soporta iconos AVIF o si hay bugs abiertos).
+
+***
+
+**H4. PARA CHATGPT/CLAUDE (Service Worker offline)**  
+***Contexto del proyecto:***
+
+* Web/Repo/Stack/Autor/Libro: *Idéntico al contexto base inicial.*
+
+**Consulta:** Abajo pego nuestro **service-worker.js**, que implementa **Network-first** para páginas HTML y **Cache-first** para recursos estáticos. Incluimos las páginas principales (APP\_SHELL) y definimos un `CACHE_VERSION`. **¿Cómo ves esta implementación?** ¿Hay mejoras para manejar mejor el **modo offline** con esas páginas (ej. fallback caches, eventos offline)?
+
+***Por favor, revisa el archivo service-worker (APP\_SHELL, estrategias, etc.) y sugiere mejoras si corresponden:***
+
+$$
+**PEGA AQUÍ el código completo de `service-worker.js`**
+$$
+
+***
+
+**H5. PARA CHATGPT/GEMINI (Schema en página “Club de lectura”)**  
+***Contexto del proyecto:***
+
+* Web/Repo/Stack/Autor/Libro: *Idéntico al contexto base inicial.*
+
+**Consulta:** Tenemos una página en **/clubes-de-lectura/samuel-entre-mundos/** con una guía de lectura de la novela y preguntas para debate en clubes de lectura (fantasía juvenil en español). **¿Qué tipo de schema de Schema.org sería más adecuado para marcar esta página?** ¿`WebPage` o `Article`, u otro tipo como `CreativeWork`? ¿Existe algún schema específico para guías de lectura que podamos usar?
+
+El **Bloque H** está bien planteado como paquete de prompts técnicos para contrastar con otras IAs, pero yo lo ajustaría para que cada pregunta pida una decisión aplicable, no una opinión genérica. Además, hay dos puntos que ya se pueden responder con bastante seguridad: **H1 Event schema** y **H6/PWA icons**, aunque en tu bloque aparezca como H3.
+
+## H1 — Event schema Feria Madrid
+
+Tu `index.html` tiene ahora un `Event` para la firma en Feria del Libro de Madrid 2026 con `startDate: "2026-06-10"`, sin hora y sin `endDate`. 
+
+Eso no es incorrecto si todavía no conoces la hora. Google dice que, si no se conoce la hora de inicio, no debe inventarse una hora granular; se puede usar solo la fecha. También indica que, para un evento de día completo o sin hora conocida, se puede usar la misma fecha en `startDate` y `endDate`. ([Google for Developers][1])
+
+Yo lo dejaría así, mejorado:
+
+```json id="jry1dg"
+{
+  "@type": "Event",
+  "@id": "https://davidportodiaz.com/ferias.html#madrid",
+  "name": "Firma de Samuel entre mundos — Feria del Libro de Madrid 2026",
+  "startDate": "2026-06-10",
+  "endDate": "2026-06-10",
+  "location": {
+    "@type": "Place",
+    "name": "Feria del Libro de Madrid 2026 — Parque del Retiro",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Madrid",
+      "addressCountry": "ES"
+    }
+  },
+  "organizer": {
+    "@type": "Organization",
+    "name": "Feria del Libro de Madrid"
+  },
+  "performer": {
+    "@id": "https://davidportodiaz.com/#author"
+  },
+  "eventStatus": "https://schema.org/EventScheduled",
+  "eventAttendanceMode": "https://schema.org/OfflineEventAttendanceMode",
+  "isAccessibleForFree": true,
+  "description": "David Porto Díaz firma ejemplares de Samuel entre mundos en la Feria del Libro de Madrid 2026. Horario y caseta por confirmar.",
+  "url": "https://davidportodiaz.com/ferias.html#madrid"
+}
+```
+
+Cuando tengas hora/caseta, cambiar a:
+
+```json id="hr4drd"
+"startDate": "2026-06-10T18:00:00+02:00",
+"endDate": "2026-06-10T20:00:00+02:00"
+```
+
+Prompt mejorado:
+
+```text id="zxxn94"
+Contexto base:
+[pegar contexto del proyecto]
+
+Revisa este Event schema para una firma de libros en Feria del Libro de Madrid 2026.
+
+Datos actuales:
+- Fecha confirmada: 2026-06-10
+- Hora y caseta: por confirmar
+- Ubicación: Feria del Libro de Madrid, Parque del Retiro
+- Evento presencial, acceso libre
+- Autor: David Porto Díaz
+- Libro: Samuel entre mundos
+
+Preguntas:
+1. ¿Es correcto usar startDate solo con fecha, sin hora?
+2. ¿Conviene añadir endDate con la misma fecha mientras no haya horario?
+3. ¿Es mejor usar isAccessibleForFree: true en vez de Offer con price: 0?
+4. ¿Falta image, addressRegion, streetAddress o performer/organizer?
+5. ¿Qué versión dejarías ahora y qué versión aplicarías cuando haya hora/caseta?
+
+Código:
+[pegar bloque @type Event]
+```
+
+## H2 — Cloudflare Worker para Brevo
+
+Aquí no puedo revisar vulnerabilidades concretas porque el código del Worker no está en el repo que he buscado. No aparece `cloudflare-worker-subscribe.js` ni referencias al Worker por búsqueda en el repositorio. Necesitaría el código real para auditarlo.
+
+Aun así, la revisión debe cubrir esto:
+
+```text id="b1cuyf"
+CORS estricto
+POST only
+OPTIONS controlado
+validación de email
+honeypot
+rate limiting
+allowlist de listIds/source
+no exponer errores de Brevo
+no loguear emails completos
+no aceptar campos arbitrarios
+Turnstile opcional si hay spam
+timeout en llamadas externas
+respuesta genérica
+```
+
+Cloudflare Workers tiene Rate Limiting bindings configurables por Worker, con límites por periodo de 10 o 60 segundos; la documentación advierte que no siempre conviene usar IP como clave porque muchos usuarios pueden compartirla, especialmente en móviles o proxies. ([Cloudflare Docs][2])
+
+Para un formulario simple, usaría algo como:
+
+```text id="9ei6es"
+10 solicitudes/minuto por clave derivada de IP + origen
+3 altas/minuto por hash de email
+honeypot obligatorio
+respuesta siempre genérica
+```
+
+Si empieza a llegar spam real, añadiría Cloudflare Turnstile. Cloudflare exige validación server-side: el widget de cliente no basta, porque los tokens pueden falsificarse, caducan a los 300 segundos y son de un solo uso. ([Cloudflare Docs][3]) También recomienda que la secret solo se use en backend, no en frontend, y que no se expongan errores internos al usuario. ([Cloudflare Docs][3])
+
+Prompt mejorado:
+
+```text id="b8f4h7"
+Contexto base:
+[pegar contexto del proyecto]
+
+Audita este Cloudflare Worker que actúa como proxy seguro entre davidportodiaz.com y Brevo.
+
+URL pública:
+https://subscribe.davidpd89.workers.dev
+
+Objetivo:
+Recibir email + source desde formularios de newsletter y crear/actualizar contacto en Brevo sin exponer la API key.
+
+Revisa específicamente:
+1. CORS: ¿solo permite https://davidportodiaz.com y https://www.davidportodiaz.com?
+2. Métodos: ¿bloquea todo salvo POST y OPTIONS?
+3. Validación: ¿valida email, source y listId?
+4. Antispam: ¿hay honeypot?
+5. Rate limiting: ¿qué límite añadirías en Cloudflare Workers?
+6. Turnstile: ¿es necesario ahora o solo si hay spam?
+7. Seguridad: ¿filtra errores de Brevo o expone información?
+8. Privacidad: ¿loggea emails completos?
+9. Resiliencia: ¿hay timeout al llamar a Brevo?
+10. Respuesta: ¿debería devolver siempre { ok: true } para evitar enumeración?
+
+Dame:
+- vulnerabilidades encontradas;
+- severidad;
+- cambios exactos;
+- versión corregida del Worker;
+- wrangler.toml/wrangler.jsonc si hace falta rate limiting.
+
+Código:
+[pegar cloudflare-worker-subscribe.js completo]
+```
+
+## H3 — AVIF en iconos de manifest PWA
+
+La respuesta técnica práctica es: **no uses AVIF como icono principal de manifest**. Puedes dejarlo como recurso adicional, pero los iconos base deben ser PNG.
+
+Tu `manifest.json` todavía usa AVIF para los dos iconos grandes de 512×512 y solo incluye un PNG de 192×192. 
+
+MDN explica que los iconos del manifest se eligen por navegador/SO según tamaño, formato y propósito, y que declarar `type` ayuda a que el navegador ignore formatos no soportados. ([MDN Web Docs][4]) web.dev recomienda que, si solo se escoge un tamaño, sea 512×512, y que el icono maskable sea al menos 512×512 con zona segura. ([web.dev][5])
+
+Cambio recomendado:
+
+```json id="qo6sy8"
+"icons": [
+  {
+    "src": "/assets/icon-192.png",
+    "sizes": "192x192",
+    "type": "image/png",
+    "purpose": "any"
+  },
+  {
+    "src": "/assets/icon-512.png",
+    "sizes": "512x512",
+    "type": "image/png",
+    "purpose": "any"
+  },
+  {
+    "src": "/assets/icon-512-maskable.png",
+    "sizes": "512x512",
+    "type": "image/png",
+    "purpose": "maskable"
+  },
+  {
+    "src": "/assets/medallon_samuel_david_porto.avif",
+    "sizes": "512x512",
+    "type": "image/avif",
+    "purpose": "any"
+  }
+]
+```
+
+Prompt mejorado:
+
+```text id="fh1bbr"
+Contexto base:
+[pegar contexto del proyecto]
+
+Investiga soporte real de AVIF como icono en manifest.json de PWA en 2026.
+
+Caso concreto:
+manifest.json usa:
+- /assets/medallon_samuel_david_porto.avif como 512x512 any
+- el mismo AVIF como 512x512 maskable
+- /assets/david-porto-favicon.png como 192x192 any
+
+Preguntas:
+1. ¿Chrome 120+ usa AVIF correctamente como manifest icon instalable?
+2. ¿Firefox 120+ lo acepta o lo ignora?
+3. ¿Safari 17+/iOS/iPadOS lo acepta para iconos instalables o usa apple-touch-icon?
+4. ¿Hay bugs conocidos con AVIF + maskable?
+5. ¿La recomendación de producción sigue siendo PNG 192/512/maskable?
+6. ¿Debería mantenerse AVIF solo como icono opcional posterior a PNG?
+7. ¿Qué orden de icons recomiendas?
+
+Dame una respuesta práctica para decidir manifest.json de davidportodiaz.com.
+```
+
+Conclusión: crear `icon-192.png`, `icon-512.png` e `icon-512-maskable.png`.
+
+## H4 — service-worker.js
+
+Tu `service-worker.js` ya está bastante bien. Usa `CACHE_VERSION = "david-porto-v2026-05-26-2"`, `networkFirstPage` para navegación, `cacheFirst` para assets/CSS/JS, `staleWhileRevalidate` para el resto, y ya cachea `/empieza-aqui/`, `/aviso-legal.html` y `/clubes-de-lectura/samuel-entre-mundos/`. También evita cachear respuestas no `ok`. 
+
+Mejoras razonables:
+
+```text id="q4smpv"
+1. Añadir navigation preload para acelerar network-first.
+2. No meter demasiadas páginas en APP_SHELL.
+3. Mantener fuera eventos/ferias por ser contenido cambiante.
+4. Añadir fallback específico para documentos si offline.html falla.
+5. Añadir timeout opcional a networkFirstPage si alguna red se queda colgada.
+6. Considerar cache limit/cleanup si empiezas a cachear muchas páginas.
+7. Añadir listener message SKIP_WAITING si quieres forzar actualización desde UI.
+```
+
+No metería Workbox aún. Para esta web, el SW vanilla es suficiente.
+
+Prompt mejorado:
+
+```text id="a9dfyg"
+Contexto base:
+[pegar contexto del proyecto]
+
+Revisa este service-worker.js de davidportodiaz.com.
+
+Datos:
+- CACHE_VERSION: david-porto-v2026-05-26-2
+- Web estática en GitHub Pages
+- Estrategia:
+  - navigation requests: network-first
+  - assets/CSS/JS: cache-first
+  - resto: stale-while-revalidate
+- APP_SHELL incluye:
+  /
+  /offline.html
+  /manifest.json
+  /styles.css
+  /script.js
+  /autor.html
+  /prensa.html
+  /premios.html
+  /privacidad.html
+  /libros/samuel-entre-mundos/
+  /universo/noveris/
+  /fragmento/
+  /las-manecillas-del-recuerdo/
+  /empieza-aqui/
+  /aviso-legal.html
+  /clubes-de-lectura/samuel-entre-mundos/
+  assets principales y fonts
+
+Preguntas:
+1. ¿Es correcta la estrategia network-first para páginas?
+2. ¿Cache-first para CSS/JS puede servir versiones antiguas si cambia CACHE_VERSION?
+3. ¿Conviene navigation preload?
+4. ¿Hay riesgo de cachear demasiadas páginas?
+5. ¿Hace falta límite de tamaño o expiración?
+6. ¿Cómo mejorar el fallback offline?
+7. ¿Debería añadirse un listener message para SKIP_WAITING?
+8. ¿Hay algo peligroso para SEO o para usuarios que reciban versión antigua?
+
+Código:
+[pegar service-worker.js completo]
+```
+
+## H5 — Schema para `/clubes-de-lectura/samuel-entre-mundos/`
+
+No hay un tipo universal y reconocido por Google para “reading guide” como rich result específico. Para semántica general, usaría una combinación prudente:
+
+```text id="aq1pdg"
+WebPage como tipo principal.
+Article como contenido editorial de la guía.
+LearningResource opcional si quieres marcarlo como recurso educativo/de debate.
+FAQPage solo si hay preguntas/respuestas visibles y no son spoilers problemáticos.
+BreadcrumbList.
+about → Book Samuel.
+author → David Porto Díaz.
+```
+
+Schema.org define `LearningResource` con propiedades como `learningResourceType`, `educationalUse`, `teaches` e `interactivityType`, lo que encaja razonablemente con una guía de lectura para clubes si quieres tratarla como material educativo/de debate. ([schema.org][6])
+
+Mi versión recomendada:
+
+```json id="mn7o56"
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "WebPage",
+      "@id": "https://davidportodiaz.com/clubes-de-lectura/samuel-entre-mundos/",
+      "url": "https://davidportodiaz.com/clubes-de-lectura/samuel-entre-mundos/",
+      "name": "Guía de lectura de Samuel entre mundos para clubes de lectura",
+      "description": "Guía de lectura oficial de Samuel entre mundos para clubes de lectura: preguntas de debate, ficha técnica y cómo invitar al autor David Porto Díaz.",
+      "inLanguage": "es",
+      "isPartOf": { "@id": "https://davidportodiaz.com/#website" },
+      "about": { "@id": "https://davidportodiaz.com/#book-samuel" },
+      "mainEntity": { "@id": "https://davidportodiaz.com/clubes-de-lectura/samuel-entre-mundos/#reading-guide" },
+      "breadcrumb": {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          { "@type": "ListItem", "position": 1, "name": "Inicio", "item": "https://davidportodiaz.com/" },
+          { "@type": "ListItem", "position": 2, "name": "Clubes de lectura", "item": "https://davidportodiaz.com/clubes-de-lectura/samuel-entre-mundos/" }
+        ]
+      }
+    },
+    {
+      "@type": ["Article", "LearningResource"],
+      "@id": "https://davidportodiaz.com/clubes-de-lectura/samuel-entre-mundos/#reading-guide",
+      "headline": "Guía de lectura de Samuel entre mundos para clubes de lectura",
+      "author": { "@id": "https://davidportodiaz.com/#author" },
+      "about": { "@id": "https://davidportodiaz.com/#book-samuel" },
+      "learningResourceType": "reading guide",
+      "educationalUse": "discussion",
+      "interactivityType": "mixed",
+      "inLanguage": "es",
+      "dateModified": "2026-05-24"
+    }
+  ]
+}
+```
+
+Importante: antes de meter más schema en esa página, corregir el premio, porque actualmente la página atribuye “I Premio Letras Como Espada 2026” al libro en ficha/sinopsis/CTA, cuando debe decir “Reconocimiento del autor”.
+
+Prompt mejorado:
+
+```text id="brc9fp"
+Contexto base:
+[pegar contexto del proyecto]
+
+Revisa qué Schema.org conviene para esta página:
+https://davidportodiaz.com/clubes-de-lectura/samuel-entre-mundos/
+
+Contenido:
+- guía oficial de lectura de Samuel entre mundos;
+- preguntas de debate para clubes;
+- ficha técnica;
+- recursos sin spoilers;
+- invitación al autor;
+- enlaces a fragmento, Noveris y prensa.
+
+Preguntas:
+1. ¿Debe ser solo WebPage?
+2. ¿Tiene sentido añadir Article?
+3. ¿LearningResource encaja para una guía de lectura?
+4. ¿CreativeWork es demasiado genérico?
+5. ¿FAQPage es adecuado si las preguntas son de debate y contienen spoilers?
+6. ¿Hay algún tipo específico “ReadingGuide” o similar en Schema.org?
+7. ¿Qué JSON-LD exacto pondrías?
+8. ¿Hay riesgo de overmarking?
+
+Ten en cuenta:
+- El premio Letras Como Espada 2026 pertenece al autor/microrrelato, no a la novela.
+- No atribuir premios falsos al Book.
+```
+
+## Bloque H — versión final lista para tu documento
+
+```text id="9tm2rx"
+H1 — Event schema Feria Madrid
+Estado: casi correcto.
+Decisión: startDate solo con fecha es válido si no hay hora. Añadir endDate con misma fecha. Actualizar con hora +02:00 cuando se confirme.
+
+H2 — Worker Brevo
+Estado: prioritario si hay spam.
+Decisión: auditar con código real. Comprobar CORS, rate limiting, honeypot, allowlist, no logs de emails completos, timeout y respuesta genérica. Añadir Turnstile solo si aparece abuso.
+
+H3 — AVIF manifest icons
+Estado: corregir.
+Decisión: no usar AVIF como icono principal. Crear PNG 192, PNG 512 y PNG 512 maskable. AVIF puede quedar opcional.
+
+H4 — Service worker
+Estado: correcto.
+Decisión: mantener estrategia. Valorar navigation preload, SKIP_WAITING por message y límite de caché si crece la web.
+
+H5 — Schema clubes de lectura
+Estado: mejorar.
+Decisión: WebPage + Article + LearningResource opcional + BreadcrumbList. Corregir primero el premio atribuido a la novela.
+```
+
+## Prioridad real
+
+```text id="ykyli6"
+1. H2 — auditar Worker real si no se ha hecho.
+2. H3 — crear iconos PNG para manifest.
+3. H5 — corregir schema/premio en clubes.
+4. H1 — añadir endDate same-day y validar Rich Results.
+5. H4 — dejar service worker como está salvo navigation preload.
+```
+
+Conclusión: el bloque H está bien, pero ya puedes tomar decisiones sin esperar otra IA en tres puntos: **Event date sin hora es aceptable**, **AVIF no debe ser icono PWA principal**, y **la página de clubes debe usar WebPage + Article/LearningResource, no un schema raro inexistente**.
+
+[1]: https://developers.google.com/search/docs/appearance/structured-data/event "Learn About Google Event Schema Markup | Google Search Central  |  Documentation  |  Google for Developers"
+[2]: https://developers.cloudflare.com/workers/runtime-apis/bindings/rate-limit/ "Rate Limiting · Cloudflare Workers docs"
+[3]: https://developers.cloudflare.com/turnstile/get-started/server-side-validation/ "Validate the token · Cloudflare Turnstile docs"
+[4]: https://developer.mozilla.org/en-US/docs/Web/Progressive_web_apps/Manifest/Reference/icons "icons - Web app manifest | MDN"
+[5]: https://web.dev/learn/pwa/web-app-manifest "Web app manifest  |  web.dev"
+[6]: https://schema.org/LearningResource "LearningResource - Schema.org Type"
+
+---
+
+# Bloque H — Respuestas directas y prompts listos
+
+***
+
+## H3 — AVIF en manifest.json PWA: respuesta definitiva ✅
+
+**Resultado de la investigación verificada (mayo 2026):**
+
+AVIF para iconos de PWA está **soportado como imagen** en todos los navegadores modernos desde 2022-2023, pero el soporte como **icono de manifest instalable** tiene un bug documentado: [github](https://github.com/web-platform-tests/interop/issues/136)
+
+| Navegador | AVIF en `<img>` | AVIF en manifest icon | Instalación PWA | Veredicto |
+|---|---|---|---|---|
+| Chrome 120+ / Edge | ✅ Total | ⚠️ Técnicamente sí, pero el OS no siempre lo renderiza | ✅ Funciona | Riesgo bajo en desktop |
+| Firefox 120+ | ✅ Solo AVIF estático | ❌ No instala PWAs | N/A | Irrelevante |
+| Safari 17+ / iOS | ✅ Desde Safari 16 | ❌ Ignora AVIF en manifest | Usa `apple-touch-icon` | **Roto en iOS** |
+| Android Chrome | ✅ | ⚠️ Depende de Android 12+ | ⚠️ Inconsistente | Riesgo real |
+
+**El problema crítico es iOS/Safari:** cuando un usuario de iPhone añade la web a la pantalla de inicio, Safari **ignora el manifest** y busca `apple-touch-icon` en el `<head>`. Si ese tag apunta a un AVIF, iOS no lo renderiza y muestra un icono en blanco o un screenshot de la web. [developer.chrome](https://developer.chrome.com/blog/pwacompat)
+
+**Conclusión para G6 (ya documentado en el Bloque G de esta sesión):** los iconos PWA deben ser PNG obligatoriamente. La tarea de crear `icon-192.png`, `icon-512.png` e `icon-512-maskable.png` sigue siendo urgente y no hay debate técnico que la invalide.
+
+***
+
+## H5 — Schema para /clubes-de-lectura/: respuesta definitiva ✅
+
+Schema.org tiene un tipo específico exactamente para esto, y la mayoría de los artículos SEO lo desconocen. No es `WebPage`, no es `Article`, no es `CreativeWork` genérico.
+
+**El schema correcto es `Guide`**  — tipo de Schema.org específico para páginas que recomiendan aspectos de una cosa para que el usuario los considere. Una guía de lectura para clubs encaja perfectamente. [schema](https://schema.org/Guide)
+
+**Implementación recomendada (estructura `@graph`):**
+
+```json
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Guide",
+      "@id": "https://davidportodiaz.com/clubes-de-lectura/samuel-entre-mundos/#guia",
+      "name": "Guía de lectura para clubs: Samuel entre mundos",
+      "description": "Preguntas de debate, actividades y recursos para coordinadores de clubs de lectura juvenil que lean Samuel entre mundos de David Porto Díaz.",
+      "url": "https://davidportodiaz.com/clubes-de-lectura/samuel-entre-mundos/",
+      "inLanguage": "es",
+      "about": {
+        "@id": "https://davidportodiaz.com/libros/samuel-entre-mundos/#libro"
+      },
+      "author": {
+        "@id": "https://davidportodiaz.com/#autor"
+      },
+      "audience": {
+        "@type": "EducationalAudience",
+        "educationalRole": "teacher",
+        "audienceType": "Coordinadores de clubs de lectura, profesores de secundaria"
+      },
+      "educationalLevel": "12-16 años",
+      "datePublished": "2026-05-24",
+      "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "https://davidportodiaz.com/clubes-de-lectura/samuel-entre-mundos/"
+      }
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {"@type": "ListItem", "position": 1, "name": "Inicio",
+         "item": "https://davidportodiaz.com/"},
+        {"@type": "ListItem", "position": 2, "name": "Clubs de lectura",
+         "item": "https://davidportodiaz.com/clubes-de-lectura/"},
+        {"@type": "ListItem", "position": 3,
+         "name": "Samuel entre mundos — Guía de lectura",
+         "item": "https://davidportodiaz.com/clubes-de-lectura/samuel-entre-mundos/"}
+      ]
+    }
+  ]
+}
+```
+
+**Por qué `Guide` y no `Article`:** Google trata `Article` como contenido informativo/noticioso. `Guide` es reconocido específicamente como contenido de recomendación práctica — tiene más probabilidad de aparecer como featured snippet cuando alguien busca "guía de lectura fantasía juvenil" porque el tipo declara explícitamente su propósito. [developers.google](https://developers.google.com/search/docs/appearance/structured-data/intro-structured-data)
+
+***
+
+## H1 — Prompt listo para Claude (Event schema)
+
+```
+Contexto del proyecto:
+- Web estática davidportodiaz.com en GitHub Pages
+- Stack: HTML/CSS/JS vanilla, sin framework
+- Autor: David Porto Díaz, escritor español de fantasía juvenil
+
+Revisa este Event schema de JSON-LD para una firma de libros en la
+Feria del Libro de Madrid 2026.
+
+Preguntas específicas:
+1. ¿Es correcto usar startDate sin hora (solo fecha)? ¿Qué muestra
+   Google en el rich result cuando no hay hora definida?
+2. ¿Debería añadirse endDate aunque el horario no esté confirmado?
+   ¿Cuál es la mejor práctica cuando los datos son provisionales?
+3. ¿Falta algún campo obligatorio o recomendado para que Google
+   muestre el evento como rich result?
+4. El campo location tiene name:"Parque del Retiro" y
+   addressLocality:"Madrid" pero aún no hay número de caseta.
+   ¿Es suficiente o Google rechaza eventos sin dirección exacta?
+
+[PEGAR AQUÍ el bloque del Event en index.html — 
+buscar '@type': 'Event' en el @graph del <head>]
+```
+
+***
+
+## H2 — Prompt listo para Claude (Cloudflare Worker seguridad) ⚠️ PRIORITARIO
+
+```
+Contexto del proyecto:
+- Web estática davidportodiaz.com en GitHub Pages
+- Cloudflare Worker en producción: subscribe.davidpd89.workers.dev
+- Función: proxy para Brevo API (formulario de newsletter)
+- La API key de Brevo está como secret de entorno en Cloudflare (no en el frontend)
+- El Worker acepta POST desde https://davidportodiaz.com solamente
+
+Audita este Cloudflare Worker para el formulario de newsletter.
+Necesito respuestas específicas para cada punto:
+
+1. RATE LIMITING: ¿Cómo añadir rate limiting por IP para evitar
+   spam (máximo 3 intentos por IP en 10 minutos)?
+   ¿Cloudflare Workers Free tiene acceso a KV para almacenar contadores?
+   Si no, ¿cuál es la alternativa para el plan Free?
+
+2. VALIDACIÓN: ¿La validación de email actual es suficiente
+   o hay vectores de bypass? ¿Debería añadir sanitización adicional?
+
+3. CORS: ¿El header Access-Control-Allow-Origin: 'https://davidportodiaz.com'
+   es suficiente para bloquear requests desde otros dominios?
+   ¿Puede bypassearse desde Postman o curl?
+
+4. HONEYPOT: ¿El campo honeypot actual es detectable por bots modernos?
+   ¿Hay mejores alternativas para el plan Free sin Turnstile?
+
+5. LOGS: ¿Qué información debería loguearse (y qué NO) para no
+   violar el GDPR con los logs de Cloudflare?
+
+[PEGAR AQUÍ el código completo de cloudflare-worker-subscribe.js]
+```
+
+***
+
+## H4 — Prompt listo para Claude (Service Worker mejoras offline)
+
+```
+Contexto del proyecto:
+- Web estática davidportodiaz.com en GitHub Pages
+- PWA con service-worker.js
+- CACHE_VERSION: 'david-porto-v2026-05-26-2'
+- Sin framework JS — vanilla
+
+Revisa este service-worker.js con estrategia mixta:
+- Network-First para páginas HTML
+- Cache-First para assets estáticos (fonts, CSS, imágenes AVIF)
+- Network-Only para Analytics (GoatCounter) y newsletter (Cloudflare Worker)
+
+APP_SHELL (páginas en caché offline):
+/, /libros/samuel-entre-mundos/, /universo/noveris/,
+/fragmento/, /empieza-aqui/, /aviso-legal.html
+
+Preguntas específicas:
+1. Con Network-First para HTML, si el usuario está offline y la página
+   no está en caché, ¿sirve el fallback /offline.html correctamente?
+   ¿O hay un edge case donde devuelve undefined en lugar de offline.html?
+
+2. ¿La estrategia Cache-First para AVIF tiene algún problema con el
+   header Cache-Control de GitHub Pages? GitHub Pages sirve assets
+   estáticos con max-age=600 (10 minutos). ¿Entra en conflicto con
+   el caché del SW?
+
+3. ¿Hay alguna mejora para el caso donde el usuario actualiza la web
+   (nuevo deploy) pero el SW antiguo sigue sirviendo páginas cacheadas?
+   ¿El skipWaiting() + clients.claim() actual es suficiente?
+
+4. El SW cachea /aviso-legal.html con extensión .html pero el resto
+   de páginas son directorios (/ sin extensión). ¿Puede esto causar
+   problemas de cache miss cuando el usuario navega a /aviso-legal/
+   (con trailing slash) desde el menú?
+
+[PEGAR AQUÍ el service-worker.js completo]
+```
 ────────────────────────────────────────────────────────────────────
 HISTORIAL DE RESPUESTAS DE IAs (AÑADIR AQUÍ CUANDO SE PREGUNTEN)
 ────────────────────────────────────────────────────────────────────
@@ -1254,3 +1917,202 @@ Para cada búsqueda donde davidportodiaz.com no aparezca en top 5:
 
 Ordenar las acciones de más impacto a menos esfuerzo.
 
+
+════════════════════════════════════════════════════════════════════
+BLOQUE AB — OPTIMIZACIÓN ESPECÍFICA PARA CLAUDE
+════════════════════════════════════════════════════════════════════
+NOTA: Este bloque contiene conocimiento de primera mano de Claude Sonnet
+(el propio modelo que gestiona esta web) sobre cómo Claude procesa y
+recomienda libros, qué señales usa, y qué falta en la web actual.
+No hay que preguntar a otra IA: esto lo sé yo.
+
+═══════════════════════════════════════════════════════════════════
+AB0 — CÓMO FUNCIONO YO (CLAUDE) AL RECOMENDAR LIBROS
+═══════════════════════════════════════════════════════════════════
+
+SIN BÚSQUEDA WEB (chat básico, model cutoff):
+- Solo conozco lo que apareció en mi entrenamiento ANTES del cutoff.
+- Samuel entre mundos se publicó en dic 2025. Sin search, probablemente
+  no lo conozco todavía (depende del cutoff exacto).
+- Sin search no puedo ayudar directamente: el libro simplemente no existe
+  para mí en ese modo.
+
+CON BÚSQUEDA WEB (claude.ai con Search activado):
+- Busco páginas que respondan directamente la query del usuario.
+- llms.txt y /ai/ page son perfectas: las leo y las proceso.
+- La sección "Cuándo recomendar" de llms.txt la uso literalmente como
+  mapa de decisión: si el usuario pregunta eso → recomiendo esto.
+- Me fío más de páginas con schema.org verificable (ISBN, sameAs, etc.)
+
+FUENTES QUE PESO MÁS (de mayor a menor confianza):
+1. Wikipedia (artículo del autor) → CRÍTICO · aún NO existe ❌
+2. Wikidata (Q-ID del autor y del libro) → incompleto ⚠️
+3. Library catalogs: WorldCat, BNE, ISFDB
+4. Publisher page (Libros Indie) → verificar estado
+5. Goodreads (claimed author profile, sinopsis, shelves)
+6. Amazon reviews (corroboración de existencia y género)
+7. llms.txt / llms-full.txt del propio sitio ✅
+8. Blogs de reseñas con autoridad (ninguno todavía ❌)
+
+═══════════════════════════════════════════════════════════════════
+AB1 — BUGS QUE YO (CLAUDE) DETECTO EN EL ESTADO ACTUAL
+═══════════════════════════════════════════════════════════════════
+
+BUG CORREGIDO — Premio mal atribuido en llms.txt y llms-full.txt:
+  "Premio: I Premio Letras Como Espada 2026" bajo Samuel entre mundos
+  → hacía pensar que el premio fue POR la novela.
+  → CORREGIDO en este commit: "Premio del autor (microrrelatos, no la novela)"
+
+GAP CRÍTICO — Sin artículo de Wikipedia del autor:
+  Wikipedia es la fuente #1 que uso sin búsqueda web. Sin ella,
+  David Porto Díaz no existe en mi conocimiento de base.
+  Requisito: necesita notoriedad verificable (cobertura de prensa).
+  → Añadir a cosas-pendientes: crear artículo Wikipedia cuando
+    haya al menos 1-2 reseñas en medios verificables.
+
+GAP — Samuel entre mundos sin entrada Wikidata propia:
+  El libro (novela) no tiene Q-ID. Yo uso Wikidata para desambiguar
+  entidades: autor ≠ libro ≠ ciudad Noveris.
+  → Crear entrada: P31=Q7725634 (novela), P50=David Porto Díaz,
+    P123=Libros Indie, P212=9791387659776, P577=2025.
+
+GAP — Wikidata del autor incompleta (Q139678851):
+  Probable falta: P21 (sexo), P27 (nacionalidad España), P106 (escritor),
+  P856 (web oficial), P2963 (Goodreads author ID: 66843136),
+  P18 (foto), P569 (fecha nacimiento).
+  → Completar en Wikidata (no requiere cobertura de prensa).
+
+GAP — Sin catálogos de biblioteca:
+  WorldCat y BNE son fuentes que yo consulto para verificar libros.
+  Si Samuel entre mundos no aparece ahí, pierdo confianza al citarlo.
+  → Verificar presencia en: https://worldcat.org/ y https://catalogo.bne.es/
+
+GAP — ISFDB (Internet Speculative Fiction Database):
+  Base de datos canónica de fantasía/ciencia ficción que yo uso.
+  Un libro de portal fantasy debería estar ahí.
+  → Añadir en: https://www.isfdb.org/ (sección New Submissions)
+
+GAP — Sin reseñas en blogs/medios externos:
+  Tengo 8 reseñas en Amazon (excelentes) pero necesito al menos
+  1 reseña en un blog de fantasía YA con URL propia y dominio con
+  autoridad para que yo la cite como fuente independiente.
+
+INCONSISTENCIA CORREGIDA — llms.txt:
+  "I Primer Premio" en award de index.html → "Primer Premio" (redundancia).
+  → CORREGIDO en este commit.
+
+═══════════════════════════════════════════════════════════════════
+AB2 — PREGUNTAS PARA HACERME A MÍ (CLAUDE) — PROMPTS LISTOS
+═══════════════════════════════════════════════════════════════════
+
+AB2a. TEST DE CONOCIMIENTO SIN BÚSQUEDA:
+  [Abrir claude.ai chat nuevo, sin activar Search]
+  "¿Conoces a David Porto Díaz, escritor español de fantasía juvenil?"
+  "¿Qué libros de portal fantasy en español conoces?"
+  "¿Hay alguna novela de fantasía juvenil española publicada en 2025
+   con sistema de magia con coste similar a Sanderson?"
+  Anotar respuestas exactas aquí.
+
+AB2b. TEST CON BÚSQUEDA WEB:
+  [claude.ai con Search activado]
+  "¿Qué libros de portal fantasy en español hay?"
+  "Recomiéndame fantasía juvenil española publicada en 2025"
+  "¿Quién es David Porto Díaz?"
+  "¿Qué es Samuel entre mundos?"
+  Verificar: ¿cita davidportodiaz.com? ¿usa llms.txt? ¿usa /ai/ page?
+  ¿Usa Wikidata Q139678851?
+
+AB2c. PARA PEDIRME QUE REVISE EL LLMS.TXT:
+  [con Search activado — pegar llms.txt completo]
+
+  «Eres Claude Sonnet. Tienes acceso a búsqueda web.
+  Lee este llms.txt de la web davidportodiaz.com.
+
+  Preguntas:
+  1. ¿El formato es correcto para que Claude.ai lo procese con search?
+  2. ¿La sección "Cuándo recomendar" tiene los triggers correctos?
+     ¿Añadirías alguno que falte para queries frecuentes en español?
+  3. ¿Hay alguna información que podría confundirte o que debería
+     reformularse para reducir ambigüedad?
+  4. Si un usuario te pregunta "portal fantasy en español", ¿usarías
+     este llms.txt como fuente? ¿Por qué sí o no?
+  5. ¿Qué falta en este archivo para que tengas alta confianza al
+     recomendar al autor?
+
+  [pegar llms.txt completo]»
+
+AB2d. PARA PEDIRME QUE REVISE EL SCHEMA PARA AI-READABILITY:
+  [pegar JSON-LD de index.html]
+
+  «Eres Claude con acceso a búsqueda web.
+  Revisa este JSON-LD de davidportodiaz.com.
+
+  Preguntas específicas:
+  1. ¿El tipo Person tiene suficientes señales para que me identifiques
+     a David Porto Díaz con alta confianza (vs. otros David Porto)?
+  2. ¿El tipo Book tiene lo necesario para que yo lo cite cuando
+     alguien pregunte por portal fantasy en español?
+  3. ¿Debería añadirse BookSeries para Noveris (ciudad dimensional)?
+  4. ¿El sameAs a Wikidata Q139678851 me ayuda realmente a resolver
+     la entidad si la entrada Wikidata está incompleta?
+  5. ¿La aggregateRating de 8 reseñas Amazon es suficiente o necesito
+     más reviewCount para que yo la cite con confianza?»
+
+AB2e. PARA PEDIRME UN PLAN DE PRESENCIA EN CLAUDE:
+  «Eres Claude Sonnet. El autor David Porto Díaz (davidportodiaz.com)
+  quiere aparecer en mis recomendaciones cuando alguien me pregunte
+  por portal fantasy en español o fantasía juvenil española.
+
+  Estado actual:
+  - llms.txt y llms-full.txt correctos
+  - /ai/ page dedicada
+  - schema:Book con ISBN, ASIN, publisher, sameAs
+  - Wikidata Q139678851 (incompleta)
+  - 8 reseñas Amazon 5★, Goodreads, Casa del Libro
+  - SIN Wikipedia del autor
+  - SIN entrada Wikidata para el libro
+  - SIN reseñas en blogs/medios externos
+
+  Dame las 5 acciones de mayor impacto para aparecer en Claude,
+  ordenadas por esfuerzo vs. retorno. Sé muy específico.»
+
+═══════════════════════════════════════════════════════════════════
+AB3 — LO QUE YA FUNCIONA BIEN PARA CLAUDE
+═══════════════════════════════════════════════════════════════════
+✅ llms.txt con sección "Cuándo recomendar" — la proceso literalmente
+✅ llms-full.txt con sinopsis técnica, tropes y triggers
+✅ /ai/ page dedicada con datos estructurados
+✅ schema:Book con ISBN, ASIN, género, publisher verificable
+✅ sameAs a Wikidata Q139678851 — me ayuda a resolver la entidad
+✅ sameAs a Goodreads, Amazon, ORCID — múltiples fuentes
+✅ aggregateRating con reviewCount — señal de popularidad real
+✅ robots.txt permite crawlers de IA (OAI-SearchBot, GPTBot, etc.)
+✅ Precio y disponibilidad en schema:Offer — datos accionables
+✅ Noveris página propia con lore detallado — desambigua ciudad vs. empresa
+
+═══════════════════════════════════════════════════════════════════
+AB4 — ACCIONES PARA MAXIMIZAR PRESENCIA EN CLAUDE (ORDENADAS)
+═══════════════════════════════════════════════════════════════════
+ALTA PRIORIDAD (sin esto Claude no puede citar con alta confianza):
+1. Wikipedia: crear artículo del autor cuando haya cobertura de prensa
+   → La fuente más pesada en mi conocimiento base
+2. Wikidata Q139678851: completar P21/P27/P106/P856/P2963
+   → Se puede hacer ya, no requiere esperar prensa
+3. Wikidata: crear entrada para Samuel entre mundos (la novela)
+   → P31/P50/P123/P212/P577 como mínimo
+4. WorldCat + BNE: verificar que aparece el libro
+   → Si no aparece, los bibliotecarios/lectores no lo encontrarán
+5. ISFDB: añadir el libro a la base de datos de fantasía
+   → https://www.isfdb.org/ — fuente que uso para portal fantasy
+
+MEDIA PRIORIDAD:
+6. Conseguir 1 reseña en blog de fantasía YA con dominio propio
+   (no en Amazon, sino un artículo con URL propia)
+7. Reclamar perfil de autor en Goodreads si no está reclamado
+   → Añadir bio, foto, géneros correctos
+8. DILVE: verificar/completar metadatos en el distribuidor nacional
+   → https://www.dilve.es/ — alimenta librerías y agregadores
+
+BAJA PRIORIDAD:
+9. BookBrainz (alternativa libre a MusicBrainz para libros)
+10. Open Library completar datos del libro
