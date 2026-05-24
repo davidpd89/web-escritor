@@ -1,11 +1,10 @@
-name: Update sitemap dates on push
+name: Update sitemap lastmod selectively
 
 on:
   push:
     branches: [main]
     paths:
       - '**.html'
-      - 'sitemap.xml'
 
 permissions:
   contents: write
@@ -16,22 +15,56 @@ jobs:
     steps:
       - uses: actions/checkout@v4
         with:
+          fetch-depth: 2
           token: ${{ secrets.GITHUB_TOKEN }}
 
-      - name: Update sitemap lastmod to today
+      - name: Get changed HTML files
+        id: changed
+        run: |
+          CHANGED=$(git diff --name-only HEAD~1 HEAD -- '*.html' | tr '\n' ' ')
+          echo "files=$CHANGED" >> $GITHUB_OUTPUT
+          echo "Changed HTML files: $CHANGED"
+
+      - name: Update sitemap lastmod for changed pages only
         run: |
           TODAY=$(date -u +%Y-%m-%d)
-          sed -i "s|<lastmod>[0-9]\{4\}-[0-9]\{2\}-[0-9]\{2\}</lastmod>|<lastmod>${TODAY}</lastmod>|g" sitemap.xml
-          echo "Updated sitemap dates to $TODAY"
+          for file in ${{ steps.changed.outputs.files }}; do
+            # Convert file path to canonical URL
+            if [ "$file" = "index.html" ]; then
+              url="https://davidportodiaz.com/"
+            elif [[ "$file" == */index.html ]]; then
+              dir=$(dirname "$file")
+              url="https://davidportodiaz.com/$dir/"
+            else
+              url="https://davidportodiaz.com/$file"
+            fi
+            echo "Updating lastmod for: $url → $TODAY"
+            python3 - <<PYEOF
+import re, sys
+url = "$url"
+today = "$TODAY"
+with open('sitemap.xml', 'r', encoding='utf-8') as f:
+    content = f.read()
+# Match <loc>URL</loc> followed by optional whitespace then <lastmod>DATE</lastmod>
+pattern = r'(<loc>' + re.escape(url) + r'</loc>\s*<lastmod>)[^<]*(</lastmod>)'
+new_content = re.sub(pattern, r'\g<1>' + today + r'\2', content)
+if new_content != content:
+    with open('sitemap.xml', 'w', encoding='utf-8') as f:
+        f.write(new_content)
+    print(f"Updated: {url}")
+else:
+    print(f"No match found for: {url}")
+PYEOF
+          done
 
-      - name: Commit and push if changed
+      - name: Commit updated sitemap if changed
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
           if ! git diff --quiet sitemap.xml; then
             git add sitemap.xml
-            git commit -m "ci: update sitemap lastmod to $(date -u +%Y-%m-%d)"
+            git commit -m "ci: update sitemap lastmod for changed pages [$(date -u +%Y-%m-%d)]"
             git push origin HEAD:main
           else
-            echo "Sitemap already up to date, skipping commit."
+            echo "No sitemap changes needed."
           fi

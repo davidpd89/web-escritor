@@ -47,7 +47,7 @@
         "inLanguage": "es",
         "isPartOf": { "@id": "https://davidportodiaz.com/#website" },
         "about": { "@id": "https://davidportodiaz.com/#book-samuel" },
-        "dateModified": "2026-05-07",
+        "dateModified": "2026-05-24",
         "breadcrumb": {
           "@type": "BreadcrumbList",
           "itemListElement": [
@@ -85,10 +85,7 @@
         <a href="/universo/noveris/">Universo</a>
         <a href="/autor.html">El autor</a>
         <a href="/eventos.html">Eventos</a>
-        <a href="/ferias.html">Ferias</a>
-        <a href="/premios.html">Premios</a>
         <a href="/prensa.html">Prensa</a>
-        <a href="/#contacto">Contacto</a>
       </nav>
     </header>
 
@@ -317,8 +314,6 @@
           <a href="/universo/noveris/">Universo</a>
           <a href="/autor.html">Autor</a>
           <a href="/eventos.html">Eventos</a>
-          <a href="/ferias.html">Ferias</a>
-          <a href="/premios.html">Premios</a>
           <a href="/prensa.html">Prensa</a>
           <a href="/privacidad.html">Privacidad</a>
         </nav>
@@ -327,5 +322,51 @@
     </footer>
   </div>
   <script src="/script.js" defer></script>
+
+  <!-- ── Sticky CTA: aparece al 40% de scroll, se oculta en los últimos CTAs ── -->
+  <div id="sticky-cta" role="complementary" aria-label="¿Quieres seguir leyendo?">
+    <p>¿Quieres seguir leyendo?</p>
+    <div class="sticky-cta-buttons">
+      <a href="https://www.amazon.es/dp/B0GB6LGQFH?tag=davidporto-21"
+         target="_blank" rel="sponsored noopener noreferrer"
+         class="button primary" style="font-size:0.85rem;padding:0.5rem 1rem;">Comprar en Amazon</a>
+      <a href="/libros/samuel-entre-mundos/#comprar"
+         class="button secondary" style="font-size:0.85rem;padding:0.5rem 1rem;">Ver librerías</a>
+    </div>
+    <button id="sticky-cta-close" aria-label="Cerrar sugerencia de compra">×</button>
+  </div>
+
+  <script>
+  (function () {
+    var cta = document.getElementById('sticky-cta');
+    var closeBtn = document.getElementById('sticky-cta-close');
+    var dismissed = sessionStorage.getItem('sticky-cta-dismissed') === '1';
+    var shown = false;
+
+    function thresholds() {
+      var total = document.body.scrollHeight - window.innerHeight;
+      return { show: total * 0.40, hide: total * 0.85 };
+    }
+
+    if (!dismissed) {
+      window.addEventListener('scroll', function () {
+        if (dismissed) return;
+        var y = window.scrollY;
+        var t = thresholds();
+        if (y >= t.show && y < t.hide) {
+          if (!shown) { cta.classList.add('visible'); shown = true; }
+        } else {
+          cta.classList.remove('visible');
+        }
+      }, { passive: true });
+    }
+
+    closeBtn.addEventListener('click', function () {
+      cta.classList.remove('visible');
+      dismissed = true;
+      sessionStorage.setItem('sticky-cta-dismissed', '1');
+    });
+  })();
+  </script>
 </body>
 </html>

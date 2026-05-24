@@ -1,0 +1,116 @@
+COSAS PENDIENTES DAVID
+======================
+Estas son las acciones que solo tú puedes hacer y que se han identificado como importantes para el proyecto web.
+
+---------------------------------------------------------------------------
+CRÍTICO (afecta a seguridad)
+---------------------------------------------------------------------------
+
+1. CLOUDFLARE WORKER PARA BREVO (URGENTE)
+   La clave de la API de Brevo está expuesta en script.js. Hay que moverla a
+   un Cloudflare Worker para que nunca sea visible en el navegador.
+
+   Pasos:
+   a) Ve a https://dash.cloudflare.com/ → Workers & Pages → Create Worker
+   b) Pega el código del worker (guardado en "Respuestas a tus preguntas.txt")
+   c) Publica el worker
+   d) En la pestaña "Settings > Variables and Secrets" añade:
+      - Variable: BREVO_API_KEY
+      - Valor: tu clave actual (empieza por xkeysib-...)
+   e) Copia la URL del worker (ej. https://tu-worker.workers.dev)
+   f) Dime la URL y actualizaré script.js para llamar al worker en vez de a Brevo directamente
+
+---------------------------------------------------------------------------
+SEO Y DISTRIBUCIÓN
+---------------------------------------------------------------------------
+
+2. PERFIL DE AUTOR EN GOODREADS
+   - URL probable: https://www.goodreads.com/author/show/245605636
+   - Reclamar autoría si no está reclamada aún
+   - Actualizar biografía con el texto preparado por la IA (en "Respuestas a tus preguntas.txt")
+   - Asegurarse de que Samuel entre mundos aparece asociado al perfil
+
+3. AMAZON AUTHOR CENTRAL
+   - Ve a https://authorcentral.amazon.es/
+   - Actualiza tu bio con la frase clave: "primera novela de portal fantasy española"
+   - Añade foto y enlaces a la web
+
+4. DILVE / THEMA - EMAIL A LIBROS INDIE
+   Los géneros actuales en DILVE para Samuel entre mundos probablemente son incorrectos.
+   Pide a Libros Indie que los cambien a:
+     - FYB (Fantasía)
+     - FYJ (Fantasía juvenil / Young adult)
+     - 5LME (Español)
+     - 5PES (España)
+   Hay un borrador del email en "Respuestas a tus preguntas.txt"
+
+5. WIKIDATA - ENTRADA PARA SAMUEL ENTRE MUNDOS
+   Crear entrada en Wikidata para la novela como obra literaria independiente
+   (diferente de la entrada del autor Q139678851)
+   Campos mínimos:
+   - Instancia de: novela (Q8261)
+   - Título: Samuel entre mundos
+   - Autor: David Porto Díaz (Q139678851)
+   - Editorial: Libros Indie
+   - Fecha: 2025
+   - ISBN: 9791387659776
+   - Idioma: español
+   Guía: https://www.wikidata.org/wiki/Wikidata:WikiProject_Books
+
+---------------------------------------------------------------------------
+IMÁGENES Y ARCHIVOS
+---------------------------------------------------------------------------
+
+6. OG IMAGES 1200×630 px
+   Las imágenes de Open Graph actuales no tienen las proporciones correctas.
+   Necesitas crear (con Canva o similar):
+   - og-home.webp → logo + "Escritor de fantasía juvenil española"
+   - og-samuel.webp → portada Samuel entre mundos en proporción 1200×630
+   - og-noveris.webp → mapa o motivo Noveris
+   - og-fragmento.webp → imagen con "Lee el capítulo 1 gratis"
+   
+   Cuando los tengas, los subes a /assets/ y me dices los nombres.
+
+7. MANIFEST ICONS PNG 512×512
+   El manifest.json referencia iconos que no existen o no son los correctos.
+   Necesitas PNG cuadrados de 512×512:
+   - /assets/icon-512.png (cualquier uso)
+   - /assets/icon-512-maskable.png (maskable, con zona segura)
+   Puedes generarlos en https://maskable.app/
+
+8. PRESS KIT - CARPETA /press-kit/
+   Para que periodistas y bloggers puedan trabajar fácilmente, crea una carpeta
+   /press-kit/ con:
+   - foto-david-porto-diaz-alta-res.jpg (foto tuya a mínimo 1200px de ancho)
+   - portada-samuel-entre-mundos.jpg (portada oficial en alta resolución)
+   - ficha-tecnica-samuel-entre-mundos.txt o .pdf con:
+       Título, autor, editorial, ISBN, nº páginas, PVP, géneros, sinopsis corta
+   - press-kit-samuel-entre-mundos.zip (todo lo anterior comprimido)
+   
+   Cuando lo tengas listo, actualizo la página de prensa para que los enlaces funcionen.
+
+---------------------------------------------------------------------------
+EVENTOS
+---------------------------------------------------------------------------
+
+9. FERIA DEL LIBRO DE MADRID 2026 (10 de junio)
+   - Número de caseta (cuando lo tengas)
+   - Horario exacto de firma
+   - Cualquier evento paralelo (presentación, coloquio, etc.)
+   Con estos datos actualizo eventos.html y ferias.html
+
+10. FOTOS DE ARANJUEZ (23 de mayo 2026)
+    Sube fotos de la feria de Aranjuez para la galería en ferias.html
+    (formato: JPG o WEBP, mínimo 800px de ancho)
+    También escribe 2-3 líneas de crónica breve si quieres que aparezca.
+
+---------------------------------------------------------------------------
+ANALYTICS
+---------------------------------------------------------------------------
+
+11. GOATCOUNTER - REVISAR MÉTRICAS
+    - URL: https://davidportodiaz.goatcounter.com/
+    - Comprueba qué páginas tienen más visitas y cuál es el origen de tráfico
+    - Indica si hay alguna página con mucho rebote o poco tiempo de lectura
+    - Con esos datos puedo priorizar qué mejorar primero
+
