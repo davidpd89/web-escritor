@@ -4225,6 +4225,16 @@ html.modo-samuel .fragment-text {
   text-align: center;
 }
 
+/* ─── Reader tags narrative ─── */
+
+.reader-tags-narrative {
+  font-size: 0.97rem;
+  line-height: 1.7;
+  color: var(--text);
+  margin: 0 0 16px;
+  max-width: 640px;
+}
+
 /* ─── Hero compact variants (replaces inline style="min-height:auto;padding-bottom:64px") ─── */
 
 .hero--compact {
