@@ -39,6 +39,9 @@ jobs:
             --exclude 'hoymadrid\.app'
             './**/*.html'
           fail: false
+          format: markdown
+          output: lychee/out.md
+          jobSummary: true
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 

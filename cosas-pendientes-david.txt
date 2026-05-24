@@ -507,3 +507,64 @@ TAREAS DE CONTENIDO Y ESTRATEGIA (hallazgos Bloque E + F)
     
     Si alguno da error o no redirige: avisarme con el resultado exacto.
     (En Chrome: F12 → Network → pegar URL → ver status code)
+
+---------------------------------------------------------------------------
+TAREAS TÉCNICAS PENDIENTES DE VERIFICACIÓN (hallazgos Bloque F/G)
+---------------------------------------------------------------------------
+
+28. GITHUB ACTIONS — VERIFICAR PERMISOS (Bloque F2, 26 mayo 2026)
+    El workflow update-dates.yml hace push directo a main con GITHUB_TOKEN.
+    Puede fallar si hay branch protection rules activas.
+    
+    Verificar en GitHub:
+    Repo → Settings → Actions → General → Workflow permissions
+    Debe estar en: "Read and write permissions"
+    
+    Si main tiene "Require pull request before merging" activo:
+    → Avisarme y lo cambio a PR automática en vez de push directo.
+    
+    Verificar también si ha fallado algún run reciente en:
+    Repo → Actions → "Update sitemap lastmod selectively"
+
+29. RICH RESULTS TEST — EVENT SCHEMA FERIA MADRID (Bloque G2, 26 mayo 2026)
+    El schema Event para Feria del Libro de Madrid 2026 fue añadido al index.html.
+    Validar que Google lo detecta sin errores:
+    
+    Abrir:
+    https://search.google.com/test/rich-results?url=https%3A%2F%2Fdavidportodiaz.com%2F
+    https://search.google.com/test/rich-results?url=https%3A%2F%2Fdavidportodiaz.com%2Feventos.html
+    
+    Comprobar: tipo "Event" detectado · startDate 2026-06-10 · sin errores ni warnings
+
+30. FERIA DEL LIBRO DE MADRID — CONFIRMAR DATOS EXACTOS (Bloque G7)
+    ferias.html#madrid y eventos.html#proximos muestran "10 de junio de 2026 (provisional)".
+    
+    Cuando David confirme la caseta, el horario y el tramo exacto:
+    → Avisarme con: número de caseta, horario (ej: 11:00-14:00 y 17:00-21:00), ISBN/signatario.
+    → Actualizaré ferias.html y eventos.html con los datos reales.
+
+31. FOTOS FERIA MADRID — PARA DESPUÉS DEL EVENTO (Bloque G5)
+    ferias.html#madrid tiene dos <figure> placeholders (comentario en el HTML).
+    Después del 10 de junio, cuando David tenga fotos del evento:
+    → Enviar o poner en la carpeta assets/ con nombres: feria-madrid-2026-1.avif, etc.
+    → Avisarme y las añado al HTML.
+
+32. PWA ICONS PNG 512x512 (Bloque G6, 26 mayo 2026)
+    manifest.json usa AVIF para los iconos de 512x512 (medallón Samuel).
+    AVIF no está soportado como icono PWA en todos los navegadores (iOS, algunos Android).
+    
+    Necesario: crear dos archivos PNG de 512x512:
+    - assets/icon-512.png (propósito: any)
+    - assets/icon-512-maskable.png (propósito: maskable — con padding del 10% mínimo)
+    
+    Cuando existan, avisarme y actualizo manifest.json.
+    Herramienta para generar: https://maskable.app/editor
+
+33. PRENSA — CUANDO SALGA LA PRIMERA COBERTURA (Bloque G/Info IA)
+    La web tiene un kit de prensa completo pero todavía no lista cobertura recibida.
+    Cuando salga la primera reseña, entrevista o mención en un medio:
+    
+    → Avisarme con: nombre del medio, fecha, URL del artículo, extracto de 1-2 frases.
+    → Añado la mención a prensa.html con su fecha + NewsArticle schema al JSON-LD.
+    
+    (Esto mejora el E-E-A-T de la web: Google valora menciones externas con fecha verificable)

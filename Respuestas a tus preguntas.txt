@@ -33,55 +33,6 @@ Responde en español.»
 ────────────────────────────────────────────────────────────────────
 ```
 ────────────────────────────────────────────────────────────────────
-BLOQUE F — DUDAS DE CÓDIGO ACTIVAS
-────────────────────────────────────────────────────────────────────
-
-F1. El `broken-links.yml` usaba `broken-link-checker` (npm, 2019, no mantenido) que
-    fallaba en Node.js 20+. Reemplazado por `lycheeverse/lychee-action@v2`.
-    → Verificar que el nuevo workflow funciona en el próximo run (lunes 01/06/2026 a las 8:00 UTC)
-
-F2. El `update-dates.yml` hace `git push origin HEAD:main` con el GITHUB_TOKEN.
-    Si sigue fallando después de arreglar broken-links.yml, investigar:
-    - ¿Está activado "Allow GitHub Actions to create and approve pull requests"?
-    - ¿Hay branch protection rules activas en main?
-    → Estado: pendiente verificar si era el problema real
-
-F3. La API key de Brevo está en script.js dividida en 3 partes pero visible en source.
-    Cloudflare Worker PENDIENTE. El código del worker está listo en cosas-pendientes-david.txt.
-    David tiene que: crear el worker, añadir la secret BREVO_API_KEY, darme la URL del worker.
-    → Estado: HECHO (2026-05-24) — CF Worker en https://subscribe.davidpd89.workers.dev
-      Nueva API key configurada. script.js actualizado. Formularios funcionan.
-
-────────────────────────────────────────────────────────────────────
-BLOQUE G — CÓDIGO REVISADO EN SESIÓN 2026-05-24 (HALLAZGOS)
-────────────────────────────────────────────────────────────────────
-
-G1. service-worker.js: CORREGIDO — faltaban /empieza-aqui/ y /aviso-legal.html en APP_SHELL.
-    → Añadidos en este commit.
-
-G2. index.html: CORREGIDO — faltaba Event schema para Feria del Libro de Madrid 2026.
-    → Añadido en @graph con startDate: 2026-06-10, location: Parque del Retiro.
-    → Verificar que aparece en Rich Results Test: https://search.google.com/test/rich-results
-
-G3. sitemap.xml: CORREGIDO — indentación inconsistente en /aviso-legal.html y /empieza-aqui/.
-    Añadida nueva URL /clubes-de-lectura/samuel-entre-mundos/.
-
-G4. cosas-pendientes-david.txt: CORREGIDO — sección duplicada eliminada (había dos bloques
-    CRÍTICO idénticos). Cloudflare Worker code escrito completo en item 1.
-
-G5. ferias.html: PENDIENTE — sección #madrid tiene dos <figure> placeholder (comentarios
-    "📷 Foto del evento — pendiente"). Cuando David tenga fotos del 10 jun, hay que
-    reemplazar esos placeholders por <img> reales.
-
-G6. manifest.json: PENDIENTE — usa AVIF para los iconos (medallón samuel).
-    Los formatos AVIF no están soportados como iconos PWA en todos los navegadores.
-    Pendiente: crear icon-512.png y icon-512-maskable.png (item 7 en cosas-pendientes).
-    → Preguntar a otra IA: "¿cuál es el soporte real de AVIF en PWA manifest icons en 2026?"
-
-G7. eventos.html / ferias.html — PENDIENTE verificación: el evento de Feria Madrid aparece
-    como "10 de junio de 2026 (provisional)". Cuando David confirme caseta + horario,
-    actualizar ferias.html#madrid y eventos.html#proximos con datos exactos.
-
 ────────────────────────────────────────────────────────────────────
 BLOQUE H — PREGUNTAS TÉCNICAS PARA OTRAS IAs (CÓDIGO)
 ────────────────────────────────────────────────────────────────────
@@ -1168,3 +1119,138 @@ Z3. Si no conviene página /reseñas/, ¿cuál es la alternativa más efectiva p
     que las reseñas de lectores aparezcan en los resultados de búsqueda?
     ¿Google muestra rich results de Book+AggregateRating aunque el sitio sea pequeño?
     → Preguntado: / Respuesta:
+
+────────────────────────────────────────────────────────────────────
+BLOQUE AA — SEGUIMIENTO DE POSICIONES EN GOOGLE (KEYWORD TRACKING)
+────────────────────────────────────────────────────────────────────
+Objetivo: saber en qué puesto sale davidportodiaz.com para cada búsqueda
+relevante y cómo mejorar el ranking para llegar a lectores que buscan
+algo nuevo que leer o información relacionada con el libro.
+
+INSTRUCCIONES PARA LA IA:
+Busca en Google (modo incógnito / sin historial) cada una de estas
+consultas. Para cada una indica:
+  - Posición aproximada de davidportodiaz.com (si aparece)
+  - Qué páginas/dominios ocupan el top 3
+  - Si hay rich snippets (estrellas, precio, breadcrumbs, preguntas)
+  - Una acción concreta para subir de puesto o aparecer donde no aparece
+
+────────────────────────────────────────────────────────────────────
+AA1. BÚSQUEDAS DE MARCA (el lector que ya me conoce)
+────────────────────────────────────────────────────────────────────
+
+a) "david porto díaz"
+b) "david porto díaz escritor"
+c) "david porto diaz fantasía"
+d) "david porto escritor"
+e) "david porto díaz samuel"
+
+→ Preguntado: / Respuesta:
+
+────────────────────────────────────────────────────────────────────
+AA2. BÚSQUEDAS DEL LIBRO (el lector que busca comprar o saber más)
+────────────────────────────────────────────────────────────────────
+
+a) "samuel entre mundos"
+b) "samuel entre mundos libro"
+c) "samuel entre mundos david porto"
+d) "samuel entre mundos comprar"
+e) "samuel entre mundos reseña"
+f) "samuel entre mundos opiniones"
+g) "samuel entre mundos pdf" (búsqueda pirata — queremos ser visibles aquí
+   para redirigir al capítulo gratis en vez de que encuentren piratería)
+
+→ Preguntado: / Respuesta:
+
+────────────────────────────────────────────────────────────────────
+AA3. BÚSQUEDAS DE GÉNERO (lector que busca algo nuevo que leer)
+────────────────────────────────────────────────────────────────────
+
+a) "fantasía juvenil española"
+b) "fantasía juvenil española 2025"
+c) "mejores libros fantasía juvenil española"
+d) "portal fantasy en español"
+e) "portal fantasy español"
+f) "portal fantasy juvenil"
+g) "libros portales entre mundos"
+h) "libros de portales mágicos"
+i) "fantasía juvenil con magia"
+j) "fantasía juvenil española nueva"
+
+→ Preguntado: / Respuesta:
+
+────────────────────────────────────────────────────────────────────
+AA4. BÚSQUEDAS POR SISTEMA MÁGICO (lector exigente de hard magic)
+────────────────────────────────────────────────────────────────────
+
+a) "magia con coste libros"
+b) "sistema de magia con coste"
+c) "libros magia con consecuencias"
+d) "hard magic español"
+e) "libros magia sistema de reglas"
+f) "sanderson rules of magic español"
+g) "libros con objetos mágicos protagonistas"
+
+→ Preguntado: / Respuesta:
+
+────────────────────────────────────────────────────────────────────
+AA5. BÚSQUEDAS DE COMPARACIÓN (lector que busca más de lo que ya le gusta)
+────────────────────────────────────────────────────────────────────
+
+a) "libros parecidos a harry potter en español"
+b) "libros parecidos a percy jackson en español"
+c) "libros parecidos a narnia en español"
+d) "si te gustó harry potter lee esto"
+e) "alternativas a percy jackson en español"
+f) "portal fantasy parecido a narnia"
+g) "fantasía juvenil para adultos"
+h) "libros coming of age fantasía"
+
+→ Preguntado: / Respuesta:
+
+────────────────────────────────────────────────────────────────────
+AA6. BÚSQUEDAS DE INTENCIÓN COMERCIAL (lector listo para comprar)
+────────────────────────────────────────────────────────────────────
+
+a) "comprar libro fantasía juvenil española"
+b) "libros fantasía juvenil baratos"
+c) "libro fantasía juvenil regalo"
+d) "libros fantasía para regalar"
+e) "novedades fantasía juvenil 2025"
+f) "novedades fantasía juvenil 2026"
+g) "debut fantasía juvenil español"
+h) "libro portal fantasy comprar"
+
+→ Preguntado: / Respuesta:
+
+────────────────────────────────────────────────────────────────────
+AA7. BÚSQUEDAS DE UNIVERSO (lector que ya leyó y busca más)
+────────────────────────────────────────────────────────────────────
+
+a) "Noveris"
+b) "noveris ciudad"
+c) "universo samuel entre mundos"
+d) "samuel entre mundos segunda parte"
+e) "samuel entre mundos continuación"
+f) "las manecillas del recuerdo david porto"
+g) "canalizadores magia noveris"
+
+→ Preguntado: / Respuesta:
+
+────────────────────────────────────────────────────────────────────
+AA8. PRIORIDADES Y ACCIONES (para la IA que responda este bloque)
+────────────────────────────────────────────────────────────────────
+
+Para cada búsqueda donde davidportodiaz.com no aparezca en top 5:
+
+1. ¿Hay contenido existente en la web que podría posicionarse con ajustes?
+   → decir qué página y qué cambio concreto (H1, meta, enlace interno...)
+
+2. ¿Hace falta crear una nueva página para posicionarse?
+   → proponer URL exacta, H1 y estructura en 3 líneas
+
+3. ¿Es una keyword con demasiada competencia para un dominio nuevo?
+   → decir sí/no y alternativa de nicho más asequible
+
+Ordenar las acciones de más impacto a menos esfuerzo.
+

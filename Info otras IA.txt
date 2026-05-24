@@ -5,59 +5,100 @@ Archivo de seguimiento de hallazgos de otras IAs.
 PENDIENTE DE CODIGO
 ═══════════════════════════════════════════════════════════════════
 
-srcset/sizes en imagenes grandes
-   Detectado en analisis BLOQUE L (mayo 2026).
-   Riesgo CLS: si width/height no coinciden con dimensiones reales de los AVIF,
-   el navegador no puede reservar espacio → layout shift.
+srcset/sizes en imagenes grandes (BLOQUE L)
    Imagenes a revisar en index.html:
    - assets/mapa-noveris-ciudad-dimensional.avif
    - assets/david-porto-diaz-escritor-fantasia-juvenil.avif
    - assets/samuel-entre-mundos-portada.avif
-   Accion: comprobar que width/height en HTML coinciden con dimensiones reales.
-   Añadir srcset/sizes si la imagen se sirve en multiples tamanos.
+   Accion: comprobar que width/height HTML coinciden con dimensiones reales AVIF.
+   Si imagen se sirve en multiples tamanos, añadir srcset/sizes.
 
 ═══════════════════════════════════════════════════════════════════
 COMPLETADO
 ═══════════════════════════════════════════════════════════════════
 
 COMPLETADO: Modal Donde comprar (commit 7bedb2f)
-   - dialog id="buy-dialog" generado dinamicamente en script.js
-   - aria-modal, focus trap, ESC y backdrop para cerrar
-   - GoatCounter: abrir-modal-comprar / comprar-amazon-papel / comprar-casadellibro
-   - Botones en index.html y libros/samuel-entre-mundos/index.html
-
 COMPLETADO: srsltid limpiado (commit a0db32b)
-   - index.html: eliminados srsltid de Libreria Le, Bookish, Casa del Libro
-
-COMPLETADO: Schema offers con precio (commit a0db32b)
-   - libros/samuel-entre-mundos/: price 22.00 EUR en ambas offers
-
-COMPLETADO: Clubes de lectura - fixes E3 (commit pendiente)
-   - Premio corregido en 3 lugares: Primer Premio Letras Como Espada 2026 (microrrelatos)
-   - Amazon tag=davidporto-21 anadido a ambos enlaces + rel=sponsored
-   - Seccion Sin spoilers anadida antes del bloque de debate
-   - Article schema anadido al JSON-LD
-
+COMPLETADO: Schema offers precio 22 EUR (commit a0db32b)
+COMPLETADO: Clubes de lectura E3 - premio, Amazon tag, sin-spoilers, Article schema
 COMPLETADO: Sitemap.xml formato corregido
-   - Limpiado espacio extra en entrada privacidad.html
-   - /empieza-aqui/ y /clubes-de-lectura/ ya presentes
+COMPLETADO: robots.txt - GPTBot Allow / - correcto
+COMPLETADO: CSS inputs - font-size 1rem, min-height 48px - correcto
+COMPLETADO: fetchpriority=high - solo 1 imagen en index.html - correcto
+COMPLETADO: broken-links.yml - F1 - añadidos format/output/jobSummary explícitos
+COMPLETADO: title index.html - no contiene romantasy - correcto
+COMPLETADO: prensa.html - no press mentions yet (kit de prensa sin cobertura recibida)
 
-COMPLETADO: robots.txt - GPTBot Allow / - ya correcto
-COMPLETADO: CSS inputs - font-size 1rem (16px), min-height 48px - ya correcto
-COMPLETADO: fetchpriority="high" - solo 1 imagen en index.html - correcto
+═══════════════════════════════════════════════════════════════════
+KEYWORDS VERIFICADAS (BLOQUE F/G, mayo 2026)
+═══════════════════════════════════════════════════════════════════
+Estas keywords tienen demanda real y cero competencia en español:
+
+MAXIMA PRIORIDAD (sin competencia):
+- portal fantasy en español
+- sistema de magia con coste
+- hard magic español
+- Noveris (entidad propia)
+
+ALTA PRIORIDAD (algo de competencia):
+- fantasía juvenil española 2025/2026
+- libros club de lectura juvenil
+
+NO USAR (genero equivocado):
+- romantasy español / novelas románticas fantasía (Samuel no es romantasy)
+
+Orden de contenido para /cuaderno/ (verificado con búsquedas):
+Fase 1 (meses 1-3): /portal-fantasy-espanol-libros/ · /sistema-magia-noveris/ · /universo/noveris/ (si no existe como contenido largo)
+Fase 2 (meses 3-6): /libros-parecidos-percy-jackson-espanol/ · /protagonista-no-elegido-fantasia/
+Fase 3 (mes 6+): /escritura-creativa-worldbuilding/
+
+Blog debe ser PARA LECTORES, no para escritores.
+Artículos de worldbuilding y sistema de magia sirven lectores.
+Artículos de consejos de escritura atraen aspirantes (audiencia que no compra).
 
 ═══════════════════════════════════════════════════════════════════
 PENDIENTE DAVID (no es codigo, requiere accion manual)
 ═══════════════════════════════════════════════════════════════════
 
-Verificar redirecciones (BLOQUE L, mayo 2026)
-   Ejecutar en terminal:
+Verificar redirecciones (BLOQUE L):
    curl -I http://davidportodiaz.com
    curl -I http://www.davidportodiaz.com
    curl -I https://www.davidportodiaz.com
    Resultado esperado: 301/308 a https://davidportodiaz.com/
 
-Medir PageSpeed movil en todas las URLs (BLOQUE L, mayo 2026)
+Medir PageSpeed movil en: / · /libros/samuel-entre-mundos/ · /fragmento/ · /universo/noveris/ · /empieza-aqui/
    Herramienta: https://pagespeed.web.dev/
-   URLs a medir: / , /libros/samuel-entre-mundos/ , /fragmento/ , /universo/noveris/ , /empieza-aqui/
-   Objetivos: LCP menos de 2.5s, CLS menos de 0.1, INP menos de 200ms
+
+GitHub Actions - F2 (update-dates.yml):
+   Verificar: Settings > Actions > General > Workflow permissions = Read and write
+   Si main tiene branch protection, revisar si hay que cambiar a PR automatica.
+
+G2 - Rich Results Test (Event schema Feria Madrid):
+   https://search.google.com/test/rich-results?url=https://davidportodiaz.com/
+   https://search.google.com/test/rich-results?url=https://davidportodiaz.com/eventos.html
+   Comprobar: Event detectado sin errores, Event schema con startDate 2026-06-10.
+
+G6 - manifest.json iconos AVIF:
+   AVIF no soportado como PWA icon en todos los navegadores.
+   Crear icon-512.png y icon-512-maskable.png (ya en cosas-pendientes item 7).
+   Cuando existan, actualizar manifest.json para usar PNG en el slot 512x512.
+
+G7 - Feria del Libro de Madrid:
+   Cuando David confirme caseta + horario exactos:
+   - Actualizar ferias.html#madrid con datos confirmados
+   - Actualizar eventos.html#proximos
+   - Cambiar "(provisional)" por la hora y ubicacion exacta
+
+prensa.html - NewsArticle schema (pendiente hasta tener cobertura):
+   Cuando salga la primera reseña/entrevista en un medio:
+   Añadir en prensa.html una seccion "En medios" con:
+   - Nombre del medio, fecha, extracto entre comillas, enlace
+   Y añadir al @graph JSON-LD:
+   {
+     "@type": "NewsArticle",
+     "headline": "[titulo del articulo]",
+     "datePublished": "[fecha ISO]",
+     "publisher": { "@type": "Organization", "name": "[medio]" },
+     "url": "[URL externa]",
+     "about": {"@id": "https://davidportodiaz.com/libros/samuel-entre-mundos/#libro"}
+   }
