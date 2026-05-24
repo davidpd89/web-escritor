@@ -362,6 +362,7 @@ function fallbackCopy(text, done) {
           if (res.ok || res.status === 204 || res.status === 400) {
             subscribeForm.dataset.done = "true";
             subscribeForm.innerHTML = "<p class=\"quiz-subscribe-ok\">✓ ¡Apuntado! Recibirás novedades de David Porto Díaz antes que nadie.</p>";
+            _gcEvent("newsletter-quiz", "Newsletter: quiz Noveris");
             setResultLocked(false);
           } else {
             throw new Error(res.status);
@@ -422,6 +423,7 @@ function fallbackCopy(text, done) {
           });
           if (res.ok || res.status === 204 || res.status === 400) {
             form.innerHTML = "<p class=\"quiz-subscribe-ok\">✓ ¡Apuntado! Recibirás el capítulo y novedades de David Porto Díaz.</p>";
+            _gcEvent("newsletter-" + sourceLabel, "Newsletter: " + sourceLabel);
           } else {
             throw new Error(res.status);
           }
@@ -486,3 +488,37 @@ document.querySelectorAll(".faq-question").forEach((btn) => {
   gc.async = true;
   document.head.appendChild(gc);
 })();
+
+// GoatCounter custom event tracking — fire-and-forget, safe if GC not yet loaded
+function _gcEvent(path, title) {
+  scheduleTask(() => {
+    if (window.goatcounter && window.goatcounter.count) {
+      window.goatcounter.count({ path, title, event: true });
+    }
+  }, "background");
+}
+
+// Comprar en Amazon
+document.querySelectorAll('a[href*="amazon.es"]').forEach(link => {
+  link.addEventListener("click", () => _gcEvent("comprar-amazon", "Clic: Comprar Amazon"));
+});
+
+// Leer fragmento gratis
+document.querySelectorAll('a[href*="/fragmento/"]').forEach(link => {
+  link.addEventListener("click", () => _gcEvent("leer-fragmento", "Clic: Leer fragmento"));
+});
+
+// Explorar Noveris
+document.querySelectorAll('a[href*="/universo/noveris/"]').forEach(link => {
+  link.addEventListener("click", () => _gcEvent("explorar-noveris", "Clic: Explorar Noveris"));
+});
+
+// Ver página de prensa / press kit
+document.querySelectorAll('a[href*="/prensa"]').forEach(link => {
+  link.addEventListener("click", () => _gcEvent("ver-prensa", "Clic: Prensa"));
+});
+
+// Press kit JSON download
+document.querySelectorAll('a[href*="/press-kit/"]').forEach(link => {
+  link.addEventListener("click", () => _gcEvent("download-press-kit", "Descarga: press kit JSON"));
+});

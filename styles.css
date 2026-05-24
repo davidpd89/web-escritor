@@ -4392,6 +4392,38 @@ html.modo-samuel .fragment-text {
   color: var(--text-muted, #aaa);
 }
 
+/* Hero scroll hint */
+.hero-scroll-hint {
+  position: absolute;
+  bottom: 1.5rem;
+  left: 50%;
+  transform: translateX(-50%);
+  color: var(--accent, #c4944d);
+  opacity: 0.55;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.25rem;
+  z-index: 2;
+  transition: opacity 0.2s;
+  animation: scrollHint 2s ease-in-out infinite;
+}
+.hero-scroll-hint:hover,
+.hero-scroll-hint:focus-visible { opacity: 1; }
+.hero-scroll-hint:focus-visible {
+  outline: 2px solid var(--accent, #c4944d);
+  outline-offset: 4px;
+  border-radius: 4px;
+}
+@keyframes scrollHint {
+  0%, 100% { transform: translateX(-50%) translateY(0); }
+  50% { transform: translateX(-50%) translateY(7px); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .hero-scroll-hint { animation: none; }
+}
+
 /* Noveris FAQ */
 .faq-list {
   max-width: 720px;

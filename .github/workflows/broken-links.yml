@@ -11,34 +11,46 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
-      - name: Install broken-link-checker
-        run: npm install -g broken-link-checker
+      - name: Restore lychee cache
+        uses: actions/cache@v4
+        with:
+          path: .lycheecache
+          key: cache-lychee-${{ github.sha }}
+          restore-keys: cache-lychee-
 
-      - name: Check links on live site
-        id: blc
-        run: |
-          blc https://davidportodiaz.com \
-            --recursive \
-            --exclude "amazon.es" \
-            --exclude "amazon.com" \
-            --exclude "goodreads.com" \
-            --exclude "instagram.com" \
-            --exclude "linkedin.com" \
-            --exclude "twitter.com" \
-            --ordered \
-            --filter-level 3 \
-            2>&1 | tee blc-report.txt || true
-          BROKEN=$(grep -c "BROKEN" blc-report.txt || echo 0)
-          echo "broken_count=$BROKEN" >> $GITHUB_OUTPUT
+      - name: Check links in HTML files
+        id: lychee
+        uses: lycheeverse/lychee-action@v2
+        with:
+          args: >-
+            --verbose
+            --no-progress
+            --cache
+            --max-cache-age 1d
+            --exclude 'amazon\.es'
+            --exclude 'amazon\.com'
+            --exclude 'goodreads\.com'
+            --exclude 'instagram\.com'
+            --exclude 'linkedin\.com'
+            --exclude 'twitter\.com'
+            --exclude 'libreriale\.es'
+            --exclude 'bookish\.org'
+            --exclude 'libreriaserendipia\.com'
+            --exclude 'hoymadrid\.app'
+            './**/*.html'
+          fail: false
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Upload report
         uses: actions/upload-artifact@v4
+        if: always()
         with:
           name: broken-links-report
-          path: blc-report.txt
+          path: lychee/out.md
           retention-days: 30
 
-      - name: Fail if broken links found
-        if: steps.blc.outputs.broken_count != '0'
+      - name: Warn if broken links found
+        if: steps.lychee.outputs.exit_code != '0'
         run: |
-          echo "::warning::Found ${{ steps.blc.outputs.broken_count }} broken link(s). Check the uploaded artifact for details."
+          echo "::warning::Found broken links. Check the uploaded artifact for details."
