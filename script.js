@@ -114,7 +114,8 @@ window.addEventListener("load", () => {
 
   btn.addEventListener("click", () => {
     scheduleTask(() => {
-      window.scrollTo({ top: 0, behavior: "smooth" });
+      const reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+      window.scrollTo({ top: 0, behavior: reduced ? "auto" : "smooth" });
     }, "user-visible");
   });
 })();

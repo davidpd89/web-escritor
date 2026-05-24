@@ -1,4 +1,4 @@
-COSAS PENDIENTES DAVID
+﻿COSAS PENDIENTES DAVID
 ======================
 Estas son las acciones que solo tú puedes hacer y que se han identificado como importantes para el proyecto web.
 Última actualización: 24 mayo 2026
@@ -164,10 +164,20 @@ EVENTOS
    - Cualquier evento paralelo (presentación, coloquio, etc.)
    Con estos datos actualizo eventos.html y ferias.html
 
-12. FOTOS DE ARANJUEZ (23 de mayo 2026)
-    Sube fotos de la feria de Aranjuez para la galería en ferias.html
-    (formato: JPG o WEBP, mínimo 800px de ancho)
-    También escribe 2-3 líneas de crónica breve si quieres que aparezca.
+12. FOTOS DE ARANJUEZ (23 de mayo 2026) ← TIENES QUE HACER ESTO
+    ferias.html ya está actualizado para usar estas dos fotos.
+    Solo tienes que GUARDAR las dos imágenes en: C:\GIT\web-escritor\assets\
+    con exactamente estos nombres (en WEBP o JPG, mínimo 800px de ancho):
+
+    📷 Foto 1 (de pie, colocando libros):
+    → feria-aranjuez-2026-david-porto-diaz-colocando-samuel.webp
+
+    📷 Foto 2 (sentado, sonriendo en la caseta):
+    → feria-aranjuez-2026-david-porto-diaz-firma-caseta.webp
+
+    Si tienes las fotos como JPG, puedes subirlas directamente con extensión
+    .jpg y cambiar la extensión en ferias.html (son 2 líneas).
+    O convertirlas a WEBP con: squoosh.app (gratis, sin instalar nada)
 
 ---------------------------------------------------------------------------
 ANALYTICS
@@ -178,140 +188,3 @@ ANALYTICS
     - Comprueba qué páginas tienen más visitas y cuál es el origen de tráfico
     - Indica si hay alguna página con mucho rebote o poco tiempo de lectura
     - Con esos datos puedo priorizar qué mejorar primero
-
----------------------------------------------------------------------------
-CRÍTICO (afecta a seguridad)
----------------------------------------------------------------------------
-
-1. CLOUDFLARE WORKER PARA BREVO (URGENTE)
-   La clave de la API de Brevo está expuesta en script.js. Hay que moverla a
-   un Cloudflare Worker para que nunca sea visible en el navegador.
-
-   Pasos:
-   a) Ve a https://dash.cloudflare.com/ → Workers & Pages → Create Worker
-   b) Pega el código del worker (tengo el código listo, solo dime cuándo)
-   c) Publica el worker
-   d) En la pestaña "Settings > Variables and Secrets" añade:
-      - Variable: BREVO_API_KEY
-      - Valor: tu clave actual (empieza por xkeysib-...)
-   e) Copia la URL del worker (ej. https://tu-worker.workers.dev)
-   f) Dime la URL y actualizaré script.js para llamar al worker en vez de a Brevo directamente
-
----------------------------------------------------------------------------
-SEO Y DISTRIBUCIÓN
----------------------------------------------------------------------------
-
-2. GOODREADS - ACTUALIZAR BIO DE AUTOR
-   Tu perfil existe y está bien: https://www.goodreads.com/author/show/66843136.David_Porto_D_az
-   (El libro ya tiene 3 reseñas, todas 5 estrellas. Bien!)
-   Lo que falta: añadir descripción de autor en la página.
-   Ve a Edit Author Profile y añade una bio de 200-400 palabras.
-   Ejemplo de texto para añadir:
-   ---
-   "David Porto Díaz es escritor español de fantasía juvenil nacido en Pontevedra
-   y residente en Madrid. Debutó en 2025 con Samuel entre mundos (Libros Indie),
-   su primera novela de portal fantasy española: la historia de un chico cuya
-   medalla esconde el poder de abrir mundos, en una ciudad donde toda magia
-   exige una compensación real.
-   Ganador del Primer Premio del XII Certamen de Microrrelatos «De amor»
-   de Letras Como Espada (2026) y Top 10 Finalista del Premio Nacional de
-   Literatura Infantil Juan Andrés Teno (2025).
-   Web: https://davidportodiaz.com"
-   ---
-
-3. AMAZON AUTHOR CENTRAL - ACTUALIZAR BIO
-   Tu perfil existe: https://www.amazon.es/stores/author/B0GZFP1JV3
-   PROBLEMA: la bio actual dice "fantasía, romantasy y ficción especulativa" y
-   menciona "marketing online y sector tecnológico" como puntos principales.
-   Esto contradice tu posicionamiento como escritor de fantasía juvenil española.
-   
-   Ve a https://author.amazon.com/ y cambia la bio a algo así:
-   ---
-   "David Porto Díaz es escritor español de fantasía juvenil, nacido en Pontevedra
-   y residente en Madrid. Autor de Samuel entre mundos (Libros Indie, 2025),
-   primera novela de portal fantasy española con sistema de magia de reglas duras
-   y protagonista no-elegido. Ganador del Primer Premio Letras Como Espada 2026
-   y finalista del Premio Nacional de Literatura Infantil Juan Andrés Teno 2025.
-   Sus historias parten de la grieta entre lo cotidiano y lo extraordinario:
-   portales, objetos con memoria y una magia que siempre exige algo a cambio.
-   Web: https://davidportodiaz.com"
-   ---
-
-4. WIKIDATA - CORREGIR GOODREADS ID Y COMPLETAR FICHA DEL AUTOR
-   Tu entrada de autor existe: https://www.wikidata.org/wiki/Q139678851
-   
-   Problemas encontrados que debes corregir (necesitas cuenta de Wikidata):
-   
-   a) Goodreads author ID está EQUIVOCADO: tiene 245605636 (que es el libro)
-      → Debe ser 66843136 (que es el autor)
-      Haz clic en "edit" junto a "Goodreads author ID" y corrígelo.
-   
-   b) Falta la web oficial (P856): https://davidportodiaz.com
-   
-   c) Falta Ocupación (P106): escritor / writer
-   
-   d) Falta Lugar de nacimiento (P19): Pontevedra
-   
-   e) Falta Obra notable (P800): Samuel entre mundos
-   
-   Opcional pero recomendable:
-   f) Crear entrada separada para la novela Samuel entre mundos como obra literaria
-      Instancia: novela (Q8261), ISBN: 9791387659776, Editorial: Libros Indie, Año: 2025
-
----------------------------------------------------------------------------
-IMÁGENES Y ARCHIVOS
----------------------------------------------------------------------------
-
-6. OG IMAGES 1200×630 px
-   Las imágenes de Open Graph actuales no tienen las proporciones correctas.
-   Necesitas crear (con Canva o similar):
-   - og-home.webp → logo + "Escritor de fantasía juvenil española"
-   - og-samuel.webp → portada Samuel entre mundos en proporción 1200×630
-   - og-noveris.webp → mapa o motivo Noveris
-   - og-fragmento.webp → imagen con "Lee el capítulo 1 gratis"
-   
-   Cuando los tengas, los subes a /assets/ y me dices los nombres.
-
-7. MANIFEST ICONS PNG 512×512
-   El manifest.json referencia iconos que no existen o no son los correctos.
-   Necesitas PNG cuadrados de 512×512:
-   - /assets/icon-512.png (cualquier uso)
-   - /assets/icon-512-maskable.png (maskable, con zona segura)
-   Puedes generarlos en https://maskable.app/
-
-8. PRESS KIT - CARPETA /press-kit/
-   Para que periodistas y bloggers puedan trabajar fácilmente, crea una carpeta
-   /press-kit/ con:
-   - foto-david-porto-diaz-alta-res.jpg (foto tuya a mínimo 1200px de ancho)
-   - portada-samuel-entre-mundos.jpg (portada oficial en alta resolución)
-   - ficha-tecnica-samuel-entre-mundos.txt o .pdf con:
-       Título, autor, editorial, ISBN, nº páginas, PVP, géneros, sinopsis corta
-   - press-kit-samuel-entre-mundos.zip (todo lo anterior comprimido)
-   
-   Cuando lo tengas listo, actualizo la página de prensa para que los enlaces funcionen.
-
----------------------------------------------------------------------------
-EVENTOS
----------------------------------------------------------------------------
-
-9. FERIA DEL LIBRO DE MADRID 2026 (10 de junio)
-   - Número de caseta (cuando lo tengas)
-   - Horario exacto de firma
-   - Cualquier evento paralelo (presentación, coloquio, etc.)
-   Con estos datos actualizo eventos.html y ferias.html
-
-10. FOTOS DE ARANJUEZ (23 de mayo 2026)
-    Sube fotos de la feria de Aranjuez para la galería en ferias.html
-    (formato: JPG o WEBP, mínimo 800px de ancho)
-    También escribe 2-3 líneas de crónica breve si quieres que aparezca.
-
----------------------------------------------------------------------------
-ANALYTICS
----------------------------------------------------------------------------
-
-11. GOATCOUNTER - REVISAR MÉTRICAS
-    - URL: https://davidportodiaz.goatcounter.com/
-    - Comprueba qué páginas tienen más visitas y cuál es el origen de tráfico
-    - Indica si hay alguna página con mucho rebote o poco tiempo de lectura
-    - Con esos datos puedo priorizar qué mejorar primero
-

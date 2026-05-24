@@ -1,4 +1,4 @@
-const CACHE_VERSION = "david-porto-v2026-05-24-1";
+const CACHE_VERSION = "david-porto-v2026-05-26-1";
 const STATIC_CACHE = `${CACHE_VERSION}-static`;
 const PAGE_CACHE = `${CACHE_VERSION}-pages`;
 
@@ -25,7 +25,8 @@ const APP_SHELL = [
   "/assets/fonts/cg-normal-latin.woff2",
   "/assets/fonts/inter-normal-latin.woff2",
   "/empieza-aqui/",
-  "/aviso-legal.html"
+  "/aviso-legal.html",
+  "/clubes-de-lectura/samuel-entre-mundos/"
 ];
 
 // Install: cache each asset individually so one failure does not abort the whole install
