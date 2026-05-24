@@ -1,7 +1,7 @@
 ﻿COSAS PENDIENTES DAVID
 ======================
 Estas son las acciones que solo tú puedes hacer y que se han identificado como importantes para el proyecto web.
-Última actualización: 26 mayo 2026
+Última actualización: 26 mayo 2026 (Bloque D procesado)
 
 ---------------------------------------------------------------------------
 ✅ COMPLETADO
@@ -343,3 +343,62 @@ OUTREACH — BLOGS Y CREADORES DE CONTENIDO (hallazgos Bloque C)
        Estructura: principios de worldbuilding urbano → capas (geografía, economía,
        cultura, magia integrada) → ejemplos en Noveris → preguntas para construir
        tu propia ciudad
+
+---------------------------------------------------------------------------
+SEGUIMIENTO TÉCNICO — VERIFICACIONES PERIÓDICAS (hallazgo Bloque D)
+---------------------------------------------------------------------------
+
+19. GOOGLE SEARCH CONSOLE — VERIFICACIONES PENDIENTES
+    (Bloque D procesado, 26 mayo 2026)
+    
+    a) Inspeccionar /empieza-aqui/ en Search Console:
+       → https://search.google.com/search-console
+       → "Inspección de URL" → pegar: https://davidportodiaz.com/empieza-aqui/
+       → Si dice "URL desconocida para Google" → clic en "Solicitar indexación"
+       → Si ya está indexada: monitorear impresiones en pestaña "Rendimiento" (filtrar por URL exacta)
+       Esperar mínimo 7 días tras indexación para ver primeros datos.
+    
+    b) Rich Results Test — ejecutar manualmente en estas URLs:
+       https://search.google.com/test/rich-results?url=https%3A%2F%2Fdavidportodiaz.com%2F
+       https://search.google.com/test/rich-results?url=https%3A%2F%2Fdavidportodiaz.com%2Flibros%2Fsamuel-entre-mundos%2F
+       https://search.google.com/test/rich-results?url=https%3A%2F%2Fdavidportodiaz.com%2Funiverso%2Fnoveris%2F
+       https://search.google.com/test/rich-results?url=https%3A%2F%2Fdavidportodiaz.com%2Feventos.html
+       Qué buscar: ✅ Book (con price 22€) en libro · ✅ BreadcrumbList en todas
+       ✅ FAQPage en Noveris · ✅ Event en eventos · ❌ Errores → me los dices y lo corrijo.
+    
+    c) Core Web Vitals — medir con PageSpeed Insights:
+       https://pagespeed.web.dev/analysis?url=https%3A%2F%2Fdavidportodiaz.com%2F&strategy=mobile
+       Objetivos: LCP < 2.5s · CLS < 0.1 · INP < 200ms
+       (Bloque D confirmó valores excelentes: LCP ~1.3s, CLS ~0, INP ~100ms)
+       Repetir tras cada deploy que modifique imágenes o CSS crítico.
+
+20. AMAZON ASSOCIATES — VERIFICAR PROGRAMA Y COMISIONES
+    (Bloque D, 26 mayo 2026 — los links están correctamente implementados con ?tag=davidporto-21)
+    
+    Accede a: https://affiliate-program.amazon.com → Informes → Tracking ID: davidporto-21
+    
+    Verificar:
+    a) ¿El programa está activo? (no suspendido por inactividad de 180 días sin ventas)
+    b) ¿Hay clicks registrados desde que la web está en producción?
+       Si hay 0 clicks y la web tiene visitas → revisar que los links incluyen el tag
+       (los links del HTML sí lo tienen — puede ser que el tráfico a la web sea aún bajo)
+    c) ¿El dominio davidportodiaz.com aparece como "sitio aprobado"?
+    d) ¿Hay comisiones generadas?
+    
+    Si el programa lleva 180+ días sin ventas, Amazon puede cerrarlo.
+    Si ocurre, volver a solicitar el alta con davidportodiaz.com.
+
+21. LIBRERÍA LE — VERIFICAR DISPONIBILIDAD Y PÁGINAS
+    (Bloque D, 26 mayo 2026 — discrepancia detectada por IA revisora)
+    
+    Abrir en incógnito: https://www.libreriale.es/libro/samuel-entre-mundos/9791387659776/1766929
+    
+    Verificar:
+    a) ¿El libro aparece como "Disponible" o "No disponible"?
+       Si está como "No disponible" → contactar a Libros Indie para que actualicen el stock.
+       Si el problema persiste → retirar el link de Librería Le de la web (avisarme).
+    
+    b) ¿El número de páginas que muestra la ficha es 422 o 412?
+       El schema de la web declara 422 páginas. Si la librería muestra 412, uno de los dos
+       es incorrecto. Confirmar el número real del libro físico y avisarme si hay que
+       corregir el schema.
