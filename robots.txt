@@ -10,6 +10,10 @@ Allow: /
 User-agent: ChatGPT-User
 Allow: /
 
+# GPTBot: allowed so ChatGPT knowledge base can index the site
+User-agent: GPTBot
+Allow: /
+
 User-agent: PerplexityBot
 Allow: /
 

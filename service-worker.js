@@ -1,4 +1,4 @@
-const CACHE_VERSION = "david-porto-v2026-05-26-1";
+const CACHE_VERSION = "david-porto-v2026-05-26-2";
 const STATIC_CACHE = `${CACHE_VERSION}-static`;
 const PAGE_CACHE = `${CACHE_VERSION}-pages`;
 
@@ -83,7 +83,7 @@ async function networkFirstPage(request) {
   const cache = await caches.open(PAGE_CACHE);
   try {
     const response = await fetch(request);
-    cache.put(request, response.clone());
+    if (response.ok) cache.put(request, response.clone());
     return response;
   } catch {
     return (await cache.match(request)) || (await caches.match("/offline.html"));
@@ -95,8 +95,10 @@ async function cacheFirst(request) {
   if (cached) return cached;
 
   const response = await fetch(request);
-  const cache = await caches.open(STATIC_CACHE);
-  cache.put(request, response.clone());
+  if (response.ok) {
+    const cache = await caches.open(STATIC_CACHE);
+    cache.put(request, response.clone());
+  }
   return response;
 }
 
@@ -105,7 +107,7 @@ async function staleWhileRevalidate(request) {
   const cached = await cache.match(request);
   const fetchPromise = fetch(request)
     .then((response) => {
-      cache.put(request, response.clone());
+      if (response.ok) cache.put(request, response.clone());
       return response;
     })
     .catch(() => cached);

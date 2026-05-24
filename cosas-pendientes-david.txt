@@ -7,19 +7,28 @@ Estas son las acciones que solo tú puedes hacer y que se han identificado como 
 CRÍTICO (afecta a seguridad)
 ---------------------------------------------------------------------------
 
-1. CLOUDFLARE WORKER PARA BREVO (URGENTE)
-   La clave de la API de Brevo está expuesta en script.js. Hay que moverla a
-   un Cloudflare Worker para que nunca sea visible en el navegador.
+1. CLOUDFLARE WORKER PARA BREVO (URGENTE) ← TIENES QUE HACER ESTO
+   script.js ya NO tiene la API key. Las suscripciones no funcionarán
+   hasta que despliegues el Worker. Son 5 minutos:
 
-   Pasos:
    a) Ve a https://dash.cloudflare.com/ → Workers & Pages → Create Worker
-   b) Pega el código del worker (tengo el código listo, solo dime cuándo)
-   c) Publica el worker
-   d) En la pestaña "Settings > Variables and Secrets" añade:
-      - Variable: BREVO_API_KEY
-      - Valor: tu clave actual (empieza por xkeysib-...)
-   e) Copia la URL del worker (ej. https://tu-worker.workers.dev)
-   f) Dime la URL y actualizaré script.js para llamar al worker en vez de a Brevo directamente
+   b) Haz clic en "Edit code" y pega el contenido del archivo:
+      C:\GIT\web-escritor\cloudflare-worker-subscribe.js
+   c) Haz clic en Deploy
+   d) Ve a Settings → Variables and Secrets → Add Secret:
+        Name:  BREVO_API_KEY
+        Value: (tu clave xkeysib-... — la encuentras en app.brevo.com > API keys)
+   e) La URL del worker será algo como:
+        https://subscribe.<tu-subdominio>.workers.dev
+      Si quieres una URL bonita, puedes añadir una ruta personalizada:
+        https://davidportodiaz.com/subscribe  (en Workers → Triggers → Routes)
+   f) Abre C:\GIT\web-escritor\script.js y busca "WORKER_URL".
+      Hay dos líneas (una en el quiz, otra en los formularios).
+      Cambia el placeholder por la URL real del worker.
+      Luego haz git commit y git push.
+
+   Nota: mientras no hagas esto, el formulario de suscripción dará error.
+   La API key ya no está en el código público ← eso es lo importante.
 
 ---------------------------------------------------------------------------
 SEO Y DISTRIBUCIÓN

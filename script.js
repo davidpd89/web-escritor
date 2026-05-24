@@ -348,11 +348,12 @@ function fallbackCopy(text, done) {
         statusEl.textContent = "";
         submitBtn.disabled = true;
         submitBtn.textContent = "Enviando…";
+        // Worker URL: update with your Cloudflare Worker URL after deploying cloudflare-worker-subscribe.js
+        const WORKER_URL = "https://subscribe.davidportodiaz.workers.dev";
         try {
-          const p = ["xkeysib", "8af86008f5c78bf712bbe09ef9f86332830338b2468beabd35a3aa4a29258275", "5RUMWTRL4ElkPbae"];
-          const res = await fetch("https://api.brevo.com/v3/contacts", {
+          const res = await fetch(WORKER_URL, {
             method: "POST",
-            headers: { "api-key": p.join("-"), "Content-Type": "application/json" },
+            headers: { "Content-Type": "application/json" },
             body: JSON.stringify({
               email: emailEl.value.trim(),
               listIds: [3],
@@ -410,11 +411,12 @@ function fallbackCopy(text, done) {
         if (statusEl) statusEl.textContent = "";
         submitBtn.disabled = true;
         submitBtn.textContent = "Enviando…";
+        // Worker URL: update with your Cloudflare Worker URL after deploying cloudflare-worker-subscribe.js
+        const WORKER_URL = "https://subscribe.davidportodiaz.workers.dev";
         try {
-          const p = ["xkeysib", "8af86008f5c78bf712bbe09ef9f86332830338b2468beabd35a3aa4a29258275", "5RUMWTRL4ElkPbae"];
-          const res = await fetch("https://api.brevo.com/v3/contacts", {
+          const res = await fetch(WORKER_URL, {
             method: "POST",
-            headers: { "api-key": p.join("-"), "Content-Type": "application/json" },
+            headers: { "Content-Type": "application/json" },
             body: JSON.stringify({
               email: emailEl.value.trim(),
               listIds: [3],
