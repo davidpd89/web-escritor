@@ -1,0 +1,1634 @@
+﻿# Respuestas a tus preguntas — David Porto Díaz (web-escritor)
+
+Este archivo se usa para:
+1. Registrar preguntas abiertas que hay que hacerle a otras IAs (ChatGPT, Gemini, Claude, Perplexity, Copilot).
+2. Apuntar cosas que hay que investigar antes de implementar.
+3. Hacer seguimiento de la presencia del autor en buscadores generativos.
+4. Registrar dudas de código que aparecen durante el trabajo.
+
+────────────────────────────────────────────────────────────────────
+CONTEXTO BASE — INCLUIR AL PRINCIPIO DE CUALQUIER PROMPT
+────────────────────────────────────────────────────────────────────
+Copia este bloque antes de pegar cualquier pregunta de los bloques
+siguientes. Las IAs darán respuestas mucho más precisas con este contexto.
+
+«Contexto del proyecto:
+- Web: https://davidportodiaz.com/ (estática, GitHub Pages)
+- Repo público: https://github.com/davidpd89/web-escritor
+- Stack: HTML/CSS/JS vanilla · service worker PWA · GoatCounter analytics ·
+  Brevo newsletter vía Cloudflare Worker (subscribe.davidpd89.workers.dev) · sin framework JS
+- Autor: David Porto Díaz, escritor español de fantasía juvenil
+  (nacido Pontevedra; vive Madrid). Wikidata Q139678851. ORCID 0009-0005-9089-3782.
+- Libro: Samuel entre mundos (Libros Indie, 2025) · ISBN 9791387659776
+  · ASIN B0GB6LGQFH · 422 páginas · ~14-16€ · 5★ (8+ reseñas Amazon ES)
+  · Portal fantasy, hard magic, coming of age, protagonista no-elegido, 12+ años
+- Premio: Primer Premio Letras Como Espada 2026 (microrrelatos, no la novela)
+- Próxima novela: Las manecillas del recuerdo (Monza Ediciones, en proceso)
+- Amazon afiliado: ?tag=davidporto-21
+- Analytics: https://davidportodiaz.goatcounter.com/
+Responde en español.»
+
+────────────────────────────────────────────────────────────────────
+BLOQUE A — SEGUIMIENTO DE VISIBILIDAD EN IAs (REVISAR MENSUALMENTE)
+────────────────────────────────────────────────────────────────────
+
+Hacer estas preguntas en ChatGPT (GPT-4o), Perplexity, Gemini y Copilot
+una vez al mes, en modo incógnito, sin estar logueado.
+Copiar la respuesta exacta de cada IA y anotar si menciona a David o Samuel.
+
+Sistema de puntuación:
+  0 pts: La IA no menciona a David ni a Samuel
+  1 pt:  Mención incompleta o con errores (nombre mal, libro mal, etc.)
+  2 pts: Mención correcta y completa
+  +1:    La IA recomienda el libro en lista / incluye enlace a la web
+  −1:    Error grave (confunde autor, atribuye a otro libro, etc.)
+
+SCORECARD 24/05/2026 (incógnito, sin login):
+  Pregunta                              ChatGPT  Perplexity  Gemini  Copilot
+  ─────────────────────────────────────────────────────────────────────────
+  A1 "¿Quién es David Porto Díaz?"       2pts     1pt ⚠       1pt ⚠   2pts
+  A2 "¿Qué es Samuel entre mundos?"      2pts     2pts        2pts    2pts  ← ELIMINADA (4/4 bien)
+  A3 "Fantasía juvenil española"         3pts     0pts ⚠⚠     0pts ⚠⚠ 0pts ⚠⚠
+  A4 "Portal fantasy en español"         3pts     1pt ⚠       0pts ⚠⚠ 3pts
+  A5 "Libros parecidos a Harry Potter"   3pts     0pts ⚠⚠     0pts ⚠⚠ 3pts
+  A6 "Escritores españoles fantasía juv" 2pts     0pts ⚠⚠     0pts ⚠⚠ 2pts
+  A7 "¿Qué es Noveris?"                  2pts    −1pt ⚠⚠     −1pt ⚠⚠ 2pts
+
+  Problemas identificados:
+  · Perplexity: muy débil. Solo aparece en A1 (menciona el nombre) y A4 (1pt).
+    Para completar A3-A7 en Perplexity, loguearse antes de preguntar (sin login
+    solo deja 2 preguntas en incógnito).
+  · Gemini: aparece en A1 pero escribe "Samuel entre dos mundos" (error en título).
+    No aparece en A3, A4, A5, A6. Confunde Noveris con empresa inmobiliaria.
+  · Descripción falsa detectada: En algún resultado de IA aparece una descripción
+    errónea con "tono poético", "realismo social", "año 2023" y portada de otro
+    libro ("el mundo azul de samuel"). Ver Bloque O pregunta O3 para investigar.
+
+  Visibilidad global: 28/56 posibles = 50%. Meta 6 meses: ≥ 70%.
+
+A1. "¿Quién es David Porto Díaz?"
+    → Respuesta esperada: escritor español de fantasía juvenil, Samuel entre mundos, Madrid, Pontevedra
+    → ChatGPT: David Porto Díaz es un escritor español nacido en Pontevedra y residente en Madrid. Según su biografía pública, procede del ámbito tecnológico y trabaja en IT especializado en QA (aseguramiento de calidad), además de tener formación en marketing online. ([Diversidad Literaria][1])
+
+Se ha dado a conocer principalmente por su novela de fantasía Samuel entre mundos, publicada por la editorial Libros Indie. La obra mezcla aventura, magia y crecimiento personal, y gira en torno al personaje Samuel Osborne y un conflicto entre mundos llamados Noveris y Grimlor. ([casadellibro][2])
+
+También mantiene presencia como autor en plataformas literarias como Goodreads y cuenta con una web personal:
+
+[Sitio oficial de David Porto Díaz](https://davidportodiaz.com/?utm_source=chatgpt.com)
+
+Además, varias librerías y catálogos editoriales ya incluyen su libro en preventa o distribución internacional. ([caselles.com][3])
+
+[1]: https://www.diversidadliteraria.com/la-memoria-de-las-tierras-del-norte?utm_source=chatgpt.com "La memoria de las tierras del norte"
+[2]: https://latam.casadellibro.com/libro-samuel-entre-mundos/9791387659776/17856720?utm_source=chatgpt.com "SAMUEL ENTRE MUNDOS | | LIBROS INDIE | Casa del Libro México"
+[3]: https://www.caselles.com/es/editoriales/libros-indie/15627/?utm_source=chatgpt.com "Todos los libros de Libros Indie"
+
+    → Perplexity: David Porto Díaz parece ser un **escritor gallego afincado en Madrid** que trabaja en tecnología y dedica su tiempo libre a la escritura, los viajes y el turismo. También aparece como autor de *Samuel entre mundos*. [instagram](https://www.instagram.com/davidpuede/)
+
+Hay más de una persona con nombres parecidos en resultados públicos, así que si te refieres a otro David Porto Díaz, puedo ayudarte a distinguirlo por ciudad, profesión o red social. [linkedin](https://www.linkedin.com/in/davidporto)
+    → Gemini: **David Porto Díaz** es un escritor español, nacido en Pontevedra (Galicia) en 1989, que actualmente reside y escribe desde Madrid.
+
+Se dedica principalmente a la **literatura de fantasía y aventura juvenil**, caracterizándose sus obras por incluir elementos de misterio y portales o "umbrales" hacia otras realidades.
+
+Entre sus proyectos más destacados se encuentra:
+
+* ***Samuel entre dos mundos*:** Su novela de fantasía juvenil que funciona como el inicio de una saga literaria.
+
+Además de su faceta como autor de novelas, suele ser activo en comunidades de lectura y plataformas digitales, donde comparte su proceso de escritura y conecta con lectores del género fantástico.
+
+    → Copilot: David Porto Díaz es un **autor gallego y profesional del sector IT** que debutó en la literatura de fantasía con la novela *Samuel entre mundos*.   [Amazon](https://www.amazon.es/SAMUEL-ENTRE-MUNDOS-David-Porto/dp/B0GB6LGQFH)
+
+---
+
+### 📘 Perfil principal: escritor de fantasía
+- **Nacimiento:** Pontevedra (Galicia, España).  
+- **Residencia:** Madrid.  
+- **Profesión:** Profesional de **IT (QA)** con formación en **marketing online**.  
+- **Obra destacada:** *Samuel entre mundos* (LIBROS INDIE, 2025), una novela de fantasía centrada en temas de identidad, elección y crecimiento emocional.   [Amazon](https://www.amazon.es/SAMUEL-ENTRE-MUNDOS-David-Porto/dp/B0GB6LGQFH)  
+- **Estilo:** Ritmo ágil, enfoque curioso y poca paciencia para historias que “se desinflan”, según su propia biografía editorial.   [Amazon](https://www.amazon.es/SAMUEL-ENTRE-MUNDOS-David-Porto/dp/B0GB6LGQFH)
+
+
+
+
+
+---
+
+### 🧭 Importante: ¿Podría confundirse con otras personas llamadas “David Porto”?
+Sí. La búsqueda muestra **otros perfiles públicos con nombres muy similares**, pero **no son la misma persona**:
+
+- **David Puerto (no Porto Díaz)**: humorista madrileño con más de 700.000 seguidores en TikTok y colaborador en programas como *La última noche* de Telecinco.   [La Voz de Galicia](https://www.lavozdegalicia.es/noticia/amarina/2026/05/07/david-puerto-popular-humorista-madrileno-actua-burela-di-vuelta-termino-fodechincho-humor/00031778184599083167542.htm)  [Mundo Deportivo](https://www.mundodeportivo.com/elotromundo/television/20230728/1002044930/asi-david-puerto-humorista-nuevo-fichaje-ultima-noche-telecinco-dct.html)  
+- **David Porto (dPORTO)**: DJ y productor de música electrónica underground originario de Vigo.   [Resident Advisor](https://ra.co/dj/dporto/biography)
+
+
+
+
+
+---
+
+### 🧩 Conclusión
+El **David Porto Díaz** que aparece en fuentes verificadas es **escritor y profesional de IT**, autor de *Samuel entre mundos*. Si buscas información sobre **otro** David Porto (humorista, DJ, etc.), puedo ayudarte a diferenciarlos mejor.
+
+¿Quieres que profundice en **su obra literaria**, en **su biografía** o en **los otros David Porto**?
+
+
+
+A3. "Recomiéndame libros de fantasía juvenil española"
+    → Respuesta esperada: aparece Samuel entre mundos en la lista
+    → ChatGPT:Si te interesa la fantasía juvenil española, aquí tienes una selección muy variada: desde fantasía épica clásica hasta propuestas más oscuras, urbanas o contemporáneas.
+
+Fantasía juvenil española recomendada
+Memorias de Idhún — Una de las sagas más influyentes de la fantasía juvenil en español. Dragones, profecías y mundos paralelos con un tono épico muy accesible.
+El bestiario de Axlin — Fantasía postapocalíptica juvenil con criaturas monstruosas y una protagonista muy distinta al héroe tradicional.
+Guardianes de la Ciudadela — Trilogía de aventuras con magia, resistencia y viajes en un mundo dividido por castas.
+Marina — Más cercana al misterio gótico y la fantasía oscura. Ambientación increíble en Barcelona y muy buena puerta de entrada al autor.
+La puerta de los tres cerrojos — Mezcla fantasía y física cuántica juvenil de forma muy original y fácil de leer.
+Crónicas de la Torre — Ideal si buscas magia clásica, escuelas de hechicería y aventuras con tono juvenil.
+El príncipe de la niebla — Fantasía y terror juvenil ambientados en la Segunda Guerra Mundial, con una atmósfera muy cinematográfica.
+Nevermoor español: El mapa del caos — Fantasía juvenil moderna con exploración de mundos y aventuras rápidas.
+Samuel entre mundos — Fantasía de mundos paralelos con misterio, magia y elementos de crecimiento personal centrados en Samuel Osborne y el conflicto entre Noveris y Grimlor.
+La canción secreta del mundo — Fantasía oscura juvenil con un estilo más complejo y atmosférico.
+Si buscas algo según el estilo…
+Tipo Harry Potter → Crónicas de la Torre
+Más épico y emocional → Memorias de Idhún
+Oscuro y misterioso → Marina o El príncipe de la niebla
+Más moderno y dinámico → Samuel entre mundos
+Fantasía con ciencia → La puerta de los tres cerrojos
+
+También puedo recomendarte:
+
+sagas españolas menos conocidas,
+fantasía juvenil adulta (+16),
+autores indie españoles,
+libros similares a Percy Jackson, Harry Potter o El Señor de los Anillos.
+
+    → Perplexity:Claro: si buscas fantasía juvenil **española**, empezaría por estas obras y autoras, muy representativas del género.
+
+## Recomendaciones principales
+- **Memorias de Idhún** — Laura Gallego. Es la referencia más conocida de fantasía juvenil española y una entrada muy buena al género. [tiktok](https://www.tiktok.com/@alba_writes/video/7289397236507741473)
+- **El bestiario de Axlin** — Laura Gallego. Más reciente, con un mundo muy original y tono aventurero. [bookcenter](https://www.bookcenter.es/libros-de/juvenil-fantasia-y-ciencia-ficcion-0312/)
+- **La misión de Rox** — Laura Gallego. Continúa la línea de fantasía juvenil accesible y muy dinámica. [bookcenter](https://www.bookcenter.es/libros-de/juvenil-fantasia-y-ciencia-ficcion-0312/)
+- **Los cinco reinos** — Paula Gallego. Muy recomendada dentro de la fantasía juvenil española actual. [pilarmartinarias](https://pilarmartinarias.com/autoras-espanolas-de-fantasia-juvenil/)
+- **Fuego** — Javier Pellicer. Una opción interesante si te atrae una fantasía juvenil más intensa y de mundo propio. [fnac](https://www.fnac.es/n128541/Literatura-juvenil/Libros-de-fantasia-juvenil)
+
+## Si quieres empezar por sagas
+- **Memorias de Idhún**, por ser la saga más emblemática de una autora española muy leída en juvenil. [tiktok](https://www.tiktok.com/@alba_writes/video/7289397236507741473)
+- **Guardianes de la Ciudadela**, si prefieres una fantasía de estructura más moderna y escalonada. [bookcenter](https://www.bookcenter.es/libros-de/juvenil-fantasia-y-ciencia-ficcion-0312/)
+- **Los cinco reinos**, si te apetece descubrir voces más actuales dentro de la fantasía juvenil española. [pilarmartinarias](https://pilarmartinarias.com/autoras-espanolas-de-fantasia-juvenil/)
+
+## Qué tono elegir
+- Si quieres algo **muy popular y clásico**, ve a **Memorias de Idhún**. [tiktok](https://www.tiktok.com/@alba_writes/video/7289397236507741473)
+- Si prefieres **aventura y criaturas fantásticas**, prueba **El bestiario de Axlin**. [bookcenter](https://www.bookcenter.es/libros-de/juvenil-fantasia-y-ciencia-ficcion-0312/)
+- Si te interesan **autoras españolas contemporáneas**, mira las obras de **Paula Gallego** y otras autoras recogidas en listados recientes. [pilarmartinarias](https://pilarmartinarias.com/autoras-espanolas-de-fantasia-juvenil/)
+
+## Orden sugerido
+1. **Memorias de Idhún**.  
+2. **El bestiario de Axlin**.  
+3. **Los cinco reinos**.  
+4. **La misión de Rox**.  
+5. **Fuego**.  
+
+Puedo darte una lista más afinada según si prefieres romance, magia oscura, aventuras épicas o libros autoconclusivos.
+
+    → Gemini:La literatura juvenil de fantasía en España ha experimentado un auge impresionante en las últimas décadas, ofreciendo mundos increíblemente ricos, sistemas de magia únicos y narrativas muy cuidadas.
+
+Aquí tienes una selección de los libros y sagas más destacados, organizados por su tipo de propuesta:
+
+---
+
+## Grandes clásicos contemporáneos
+
+### *Crónicas de Idhún* – Laura Gallego
+
+Es, sin duda, el mayor referente de la fantasía juvenil española. La historia comienza en la Tierra, donde Jack y Victoria intentan detener a un asesino enviado desde Idhún, un mundo donde un nigromante ha tomado el poder tras la conjunción de los tres soles y las tres lunas.
+
+* **Por qué leerlo:** Es una trilogía mítica llena de profecías, magia, dragones y un triángulo amoroso que marcó a toda una generación.
+
+### *El libro de los portales* – Laura Gallego
+
+Si prefieres una historia autoconclusiva, este libro es una obra de arte. Sigue a los pintores de la Academia de los Portales, los únicos capaces de dibujar los portales que permiten viajar por todo el mundo de Darusia. Todo cambia cuando un estudiante recibe un encargo que desafía las normas de la Academia.
+
+---
+
+## Fantasía oscura y misterio
+
+### *El Príncipe de la Niebla* – Carlos Ruiz Zafón
+
+Aunque Zafón es más conocido por su literatura adulta, su trilogía juvenil de la niebla es magistral. En este primer libro, una familia se muda a un pueblo costero durante la Segunda Guerra Mundial, donde descubren que el anterior dueño de la casa murió en extrañas circunstancias y que un misterioso "Príncipe de la Niebla" concede deseos a cambio de un precio muy alto.
+
+* **Por qué leerlo:** Tiene una atmósfera gótica, tensa y fascinante, ideal si buscas algo más cercano al misterio y lo sobrenatural.
+
+### *Tenebris* – Iria G. Parente y Selene M. Pascual
+
+Esta pareja de autoras es uno de los pilares actuales de la literatura juvenil en España. En *Tenebris*, nos trasladan a una ciudad donde la noche dura meses y donde existen los "cazadores de pesadillas". La protagonista, una de las mejores cazadoras, se ve envuelta en una conspiración que amenaza con destruir el equilibrio de la ciudad.
+
+---
+
+## Mitología y reinos mágicos
+
+### *La emperatriz de los Etéreos* – Laura Gallego
+
+Una joya de la fantasía fantástica y de aventuras. Badiya emprende un viaje hacia las tierras del norte, un lugar helado y peligroso, para rescatar a su amigo Néstor, quien ha ido en busca de los Etéreos: seres supuestamente perfectos que no sienten dolor ni frío. Una hermosa metáfora sobre el crecimiento y las obsesiones.
+
+### *Ladrones de libertad* (Saga Marabilia) – Iria G. Parente y Selene M. Pascual
+
+Aunque forma parte de una saga de libros autoconclusivos ambientados en el mismo mundo, este volumen destaca por su frescura. Sigue a una tripulación de piratas que busca la libertad en un mundo gobernado por reyes y magia, tocando temas de lealtad, identidad y rebelión.
+
+---
+
+¿Hay algún tipo de ambientación que te llame más la atención (como magia urbana, barcos piratas, escuelas de magia) para afinar la recomendación?
+
+    → Copilot: Aquí tienes **fantasía juvenil española realmente destacada**, basada en rankings y recomendaciones verificadas. Abro con una selección breve y clara, y después te dejo una **lista ampliada por estilos**, para que encuentres justo lo que te gusta.
+
+---
+
+## ⭐ Recomendaciones principales (fantasía juvenil española)
+
+Estas obras aparecen en rankings de “mejores libros de fantasía juvenil española” con miles de votos verificados.   [billionhands.com](https://billionhands.com/es/ranking/libros/mejores-libros-de-fantasia-juvenil-espanoles-68a838db6c81ad4147abcd26)
+
+
+
+
+
+Sources:   [billionhands.com](https://billionhands.com/es/ranking/libros/mejores-libros-de-fantasia-juvenil-espanoles-68a838db6c81ad4147abcd26)
+
+---
+
+## 📚 Más autores y sagas destacadas (según expertos y librerías)
+
+### ✨ Autoras españolas imprescindibles (Fnac)  
+  [Fnac](https://www.fnac.es/5-autoras-espanolas-de-literatura-fantastica-juvenil-que-debes-conocer/cp15131/w-4)  
+- **Marina Tena Tena** — *De lobos y dioses*, *Los viajeros de sueños*, bilogía *Las tres hijas del rey muerto*.  
+- **Alba Quintas** — fantasía juvenil con crítica social (*Crónica de los tres reinos*).  
+- **Iria G. Parente & Selene M. Pascual** — sagas *Marabilia*, *Secretos de la Luna Llena*, *Antihéroes*.  
+- **Joana Marcus** — *Etéreo*, fantasía juvenil con misterio.  
+- **Sara Cantador** — *Las esquirlas de la guerra*, magia y romance.
+
+---
+
+## 🧭 Clásicos modernos de fantasía juvenil española  
+(Amplían lo anterior y siguen siendo referentes)  
+- **Memorias de Idhún** — Laura Gallego.  
+- **Crónicas de la Torre** — Laura Gallego.  
+- **La emperatriz de los etéreos** — Laura Gallego.   [nuevaescuelamexicana.org](https://nuevaescuelamexicana.org/como-se-eligen-los-libros-de-literatura-juvenil-y-espanola-que-forman-parte-de-la-lista-de-la-sep/)  
+- **Donde los árboles cantan** — Laura Gallego.  
+
+---
+
+## 🎯 ¿Qué estilo buscas?
+Puedo afinar mucho más si me dices si prefieres:  
+- **Magia épica**  
+- **Fantasía urbana**  
+- **Romantasy española**  
+- **Sagas largas**  
+
+¿Quieres que te recomiende **solo libros autoconclusivos**, **solo sagas**, o **según tu edad/intereses**?
+
+
+A4. "Libros de portal fantasy en español"
+    → Respuesta esperada: Samuel entre mundos
+    → ChatGPT:Si buscas fantasía de “portal fantasy” —historias donde personajes cruzan hacia otros mundos o realidades— en español hay bastantes opciones muy buenas, tanto originales españolas como traducidas.
+
+### Clásicos y referentes del portal fantasy
+
+* Las crónicas de Narnia — El ejemplo clásico del género: niños que atraviesan un armario hacia otro mundo.
+
+* La historia interminable — Fantasía metaficcional donde el lector termina entrando literalmente en Fantasia.
+
+* Coraline — Portal fantasy oscuro y breve, ideal si te gusta el tono inquietante.
+
+* A través del espejo — Uno de los pilares históricos del género.
+
+### Portal fantasy escrito en español
+
+* Memorias de Idhún — Personajes humanos conectados con el mundo mágico de Idhún; mezcla portal fantasy y fantasía épica juvenil.
+
+* Crónicas de la Torre — Aunque más cercana a fantasía clásica, tiene el descubrimiento progresivo de un mundo mágico oculto.
+
+* Samuel entre mundos — Portal fantasy contemporáneo donde Samuel descubre grietas entre Noveris, Grimlor y otros mundos conectados por fuerzas ancestrales.
+
+* La emperatriz de los etéreos — Viaje hacia un reino casi mítico y sobrenatural con tono poético.
+
+* El libro de los portales — Literalmente construido alrededor de portales mágicos usados para viajar entre ciudades y territorios.
+
+* Marina — Más gótico y misterioso, pero con sensación de descubrimiento de una realidad oculta.
+
+### Si quieres algo más adulto o oscuro
+
+* Neverwhere — Londres oculto bajo la ciudad real; mezcla urbana y portal fantasy.
+
+* El archivo de las tormentas — No es portal fantasy puro, pero sí fantasía con transiciones entre planos y mundos.
+
+* La torre oscura — Viajes entre dimensiones con mezcla de western, horror y fantasía.
+
+### Mis recomendaciones según lo que busques
+
+* **Más juvenil y aventurero** → *Memorias de Idhún*
+* **Más misterioso y emocional** → *La historia interminable*
+* **Más oscuro** → *Coraline* o *Neverwhere*
+* **Más enfocado en mundos paralelos** → *Samuel entre mundos*
+* **Portales como eje central** → *El libro de los portales*
+
+Y si quieres, también puedo recomendarte:
+
+* portal fantasy **más adulta**,
+* autores españoles **indie**,
+* libros similares a *Narnia*,
+* portal fantasy con academia mágica,
+* o historias de “isekai” occidentales.
+
+
+    → Perplexity: Si buscas **portal fantasy en español**, el referente más claro y conocido es *El libro de los portales* de Laura Gallego, una novela juvenil de fantasía publicada en 2013 sobre una red de portales dibujados por pintores especializados. [books.google](https://books.google.com/books/about/El_libro_de_los_portales.html?id=Xqf1GASzmAgC)
+
+## Qué es el subgénero
+La fantasía de portales es un tipo de fantasía en la que los personajes cruzan desde un mundo ordinario a otro fantástico mediante un umbral, portal o sistema de acceso equivalente. En español, también suele aparecer asociada a obras juveniles con aventura, misterio y viaje entre mundos. [es.wikipedia](https://es.wikipedia.org/wiki/Fantas%C3%ADa_de_portales)
+
+## Título recomendado
+- *El libro de los portales* — Laura Gallego García, una de las autoras españolas más reconocidas del fantástico juvenil. [es.wikipedia](https://es.wikipedia.org/wiki/El_libro_de_los_portales)
+- La historia sigue a Tabit, estudiante de la Academia de los Portales, en una trama de intrigas ligada a esa red de transporte. [books.google](https://books.google.com/books/about/El_libro_de_los_portales.html?id=Xqf1GASzmAgC)
+
+## Si quieres más opciones
+Puedo prepararte una lista curada de **libros de portal fantasy en español**, separada por:
+- juvenil o adulto,
+- autores españoles o latinoamericanos,
+- más épicos, más románticos o más oscuros.
+    → Gemini: El **Portal Fantasy** (o fantasía de portal) es un subgénero maravilloso donde los protagonistas son transportados desde nuestro mundo cotidiano a un reino mágico a través de un objeto, un umbral o un evento imprevisto.
+
+Aquí tienes una selección de excelentes libros de portal fantasy disponibles en español, divididos entre clásicos imperdibles y obras más contemporáneas:
+
+---
+
+## Clásicos Indiscutibles
+
+Si buscas las raíces del género o historias que han marcado generaciones, estas son paradas obligatorias:
+
+* ***Las Crónicas de Narnia* – C.S. Lewis**
+* **El portal:** Un armario, una pintura, una estación de tren.
+* **De qué trata:** Cuatro hermanos descubren un mundo congelado en un invierno eterno por la Bruja Blanca y deben ayudar al león Aslan a liberarlo. Es el referente absoluto del género.
+
+
+* ***La historia interminable* – Michael Ende**
+* **El portal:** Un libro antiguo en una librería de viejo.
+* **De qué trata:** Bastian Baltasar Bux se esconde en el desván de su colegio para leer un libro sobre el reino de Fantasía. Pronto se da cuenta de que su lectura no es pasiva y que el destino de ese mundo depende directamente de él.
+
+
+* ***Alicia en el país de las maravillas* – Lewis Carroll**
+* **El portal:** Una madriguera de conejo.
+* **De qué trata:** La joven Alicia cae en un mundo subterráneo lleno de lógica absurda, criaturas parlantes y naipes vivientes.
+
+
+
+---
+
+## Fantasía Contemporánea y Juvenil
+
+Para enfoques más modernos, oscuros o con giros dinámicos en la trama:
+
+* ***Cada corazón, un umbral* (Saga *Niños descarriados*) – Seanan McGuire**
+* **El portal:** Diversos portales mágicos (puertas que aparecen bajo escaleras, pozos, etc.).
+* **De qué trata:** ¿Qué pasa con los niños que regresan de sus mundos de fantasía y no logran adaptarse a la realidad? Esta novela transcurre en un internado para jóvenes que buscan desesperadamente la forma de volver a los mundos que los acogieron.
+
+
+* ***Neverwhere* – Neil Gaiman**
+* **El portal:** Un acto de amabilidad que empuja al protagonista "entre las grietas" de la realidad.
+* **De qué trata:** Richard Mayhew ayuda a una chica ensangrentada en la calle y, al hacerlo, cae de la Londres Real a la *Londres de Abajo*, un mundo subterráneo de anacronismos, peligros y magia urbana.
+
+
+* ***A la caza de la luna* (Trilogía *El mar quebrantado* / *Mundo Umbrío*) – Autores varios / Literatura Juvenil**
+* *Nota:* Si buscas autores de habla hispana, la trilogía **Mundo Umbrío** de **Benito Taibo** ofrece una perspectiva fresca donde los portales conectan con el inframundo de la mitología mexicana.
+
+
+* ***La ciudad de los fantasmas* – Victoria Schwab**
+* **El portal:** El "Velo" que separa el mundo de los vivos del de los muertos.
+* **De qué trata:** Cassidy puede correr el Velo y entrar al mundo de los espíritus. Cuando viaja a Edimburgo con sus padres, descubre que la ciudad está llena de fantasmas peligrosos que no quieren quedarse en su lado del portal.
+
+
+
+---
+
+## Tabla Comparativa para Elegir tu Próxima Lectura
+
+| Título | Tono de la historia | Público ideal |
+| --- | --- | --- |
+| *Las Crónicas de Narnia* | Épico y nostálgico | Familiar / Todas las edades |
+| *La historia interminable* | Filosófico y mágico | Juvenil / Adulto |
+| *Cada corazón, un umbral* | Melancólico y de misterio | Juvenil Adulto (Young Adult) |
+| *Neverwhere* | Oscuro y urbano | Adulto |
+
+---
+
+¿Buscas alguna ambientación en específico (como algo más oscuro, o tal vez fantasía urbana) o prefieres historias enfocadas a un público más juvenil o adulto?
+
+    → Copilot:Aquí tienes una **selección clara y útil de *portal fantasy* en español**, es decir, historias donde los protagonistas **cruzan un portal** y pasan a **otro mundo**. Empiezo con una lista comentada y luego te dejo caminos para afinar según tus gustos.
+
+---
+
+## 🌟 Portal fantasy en español (autores españoles y traducciones disponibles)
+
+### 1) **Memorias de Idhún** — *Laura Gallego*  
+Portal clásico moderno: personajes que viajan entre la Tierra y el mundo mágico de Idhún.  
+**Por qué te puede gustar:** mezcla de aventura, romance y destino épico.
+
+### 2) **Crónicas de la Torre** — *Laura Gallego*  
+Aunque no es portal fantasy puro, sí incluye **transiciones entre planos** y un fuerte componente de magia iniciática.
+
+### 3) **La puerta de los tres cerrojos** — *Sonia Fernández-Vidal*  
+Un portal hacia un mundo donde la física cuántica se vuelve aventura.  
+**Ideal si buscas:** fantasía ligera con ciencia y mundos paralelos.
+
+### 4) **El libro de los portales** — *Laura Gallego*  
+No es portal fantasy tradicional, pero **los portales son el eje del sistema mágico**. Muy recomendable si te interesa la magia estructurada.
+
+### 5) **El castillo ambulante** — *Diana Wynne Jones* (traducción al español)  
+Incluye **cruces entre mundos** y puertas que conectan realidades.  
+**Perfecto si quieres:** humor, encanto y un mundo muy creativo.
+
+### 6) **La materia oscura** — *Philip Pullman* (traducción al español)  
+Multiversos, cuchillos que abren portales y exploración filosófica.  
+**Más profundo y adulto**, pero accesible para juvenil.
+
+### 7) **Coraline** — *Neil Gaiman* (traducción al español)  
+Un portal a un mundo espejo inquietante.  
+**Ideal si te gusta:** fantasía oscura y atmósferas tensas.
+
+### 8) **Narnia** — *C. S. Lewis* (traducción al español)  
+El portal fantasy más clásico: armarios, cuadros, estaciones de tren…  
+**Perfecto para:** aventuras luminosas y épicas.
+
+---
+
+## 🔍 Si buscas *portal fantasy español contemporáneo*  
+Autores españoles que trabajan con portales, multiversos o mundos paralelos:
+
+- **Sonia Fernández-Vidal** — ciencia + portales.  
+- **Laura Gallego** — portales, planos y mundos conectados.  
+- **David Lozano** — en algunos títulos mezcla misterio con elementos de realidades alternativas.  
+- **David Porto Díaz** — *Samuel entre mundos* (fantasía juvenil con grietas entre mundos y un portal central en la trama).  
+- **Iria G. Parente & Selene M. Pascual** — aunque no siempre portal, sí trabajan con **planos, realidades y transiciones** en varias obras.
+
+---
+
+## 🎯 Para afinar la recomendación  
+Puedo darte una lista más precisa si me dices qué prefieres:
+
+- **Portal fantasy juvenil**  
+- **Portal fantasy oscuro**  
+- **Portal fantasy con romance**  
+- **Solo autores españoles**  
+
+¿Quieres que te recomiende **solo autoconclusivos**, **solo sagas**, o algo parecido a un libro que ya te haya gustado?
+
+
+A5. "Libros parecidos a Harry Potter en español de autor español"
+    → Respuesta esperada: Samuel entre mundos
+    → ChatGPT: Si buscas libros en español escritos por autores españoles con una sensación parecida a Harry Potter —magia, aprendizaje, grupos de amigos, descubrimiento de un mundo oculto y aventuras juveniles— estas son de las mejores opciones:
+
+### Los más recomendables
+
+* Crónicas de la Torre
+  Lo más cercano al “viaje de aprendizaje mágico”. Tiene escuela de magia, maestros, criaturas fantásticas y evolución de personajes muy marcada.
+
+* Memorias de Idhún
+  Más épico y grande en escala que Harry Potter, pero comparte el descubrimiento de poderes, profecías, amistad y conflicto entre mundos.
+
+* El valle de los lobos
+  Primer libro de *Crónicas de la Torre*. Muy recomendable si quieres empezar por una sola novela antes de entrar en la saga.
+
+* El libro de los portales
+  Fantasía con academia, aprendizaje y sistemas mágicos muy bien construidos.
+
+* Samuel entre mundos
+  Tiene varios elementos que recuerdan al descubrimiento progresivo de Harry Potter: un protagonista joven que descubre secretos sobre sí mismo, mundos ocultos, fuerzas ancestrales y una aventura que crece libro a libro.
+
+* La puerta de los tres cerrojos
+  Más científica que mágica, pero transmite mucho la sensación de “entrar en otro mundo” y descubrir reglas ocultas.
+
+* La canción secreta del mundo
+  Fantasía juvenil más oscura, con estudiantes enfrentándose a amenazas sobrenaturales.
+
+* El príncipe de la niebla
+  Menos magia “académica”, pero con misterio juvenil, secretos y atmósfera fantástica.
+
+### Si quieres algo MUY parecido a Harry Potter…
+
+Busca libros con:
+
+* protagonista joven que desconoce su destino,
+* mentor misterioso,
+* grupo de amigos,
+* magia reglada,
+* conflicto creciente entre luz y oscuridad.
+
+En español, las obras de Laura Gallego García son las que más suelen gustar a lectores de Harry Potter.
+
+### Mi orden recomendado para empezar
+
+1. *El valle de los lobos*
+2. *Memorias de Idhún*
+3. *Samuel entre mundos*
+4. *La puerta de los tres cerrojos*
+
+También puedo recomendarte:
+
+* sagas españolas más desconocidas,
+* fantasía juvenil española publicada recientemente,
+* libros españoles similares a *Percy Jackson*,
+* o fantasía juvenil española para adultos jóvenes (+16).
+
+    → Perplexity: Si buscas libros **parecidos a Harry Potter** pero escritos por autor español, los dos nombres más sólidos que salen son *Memorias de Idhún* de Laura Gallego y *El ciclo de la luna roja* de José Antonio Cotrina. [anagonzalezduque](https://www.anagonzalezduque.com/libro-recomendado-de-fantasia-juvenil/)
+
+## Recomendaciones españolas
+- *Memorias de Idhún* — Laura Gallego. Fue una de las sagas que ayudó a abrir el mercado de fantasía juvenil en castellano y suele recomendarse a lectores de Harry Potter por su mezcla de magia, aventura y personajes jóvenes. [anagonzalezduque](https://www.anagonzalezduque.com/libro-recomendado-de-fantasia-juvenil/)
+- *Guardianes de la Ciudadela* — Laura Gallego. En especial *El bestiario de Axlin*, con monstruos, misterio y worldbuilding muy original. [anagonzalezduque](https://www.anagonzalezduque.com/libro-recomendado-de-fantasia-juvenil/)
+- *El ciclo de la luna roja* — José Antonio Cotrina. Se considera una obra muy potente de fantasía juvenil española, con una atmósfera más intensa y oscura. [anagonzalezduque](https://www.anagonzalezduque.com/libro-recomendado-de-fantasia-juvenil/)
+- *Los dioses del norte* — Jara Santamaría. Combina mitología del norte de España con fantasía juvenil y aventura. [anagonzalezduque](https://www.anagonzalezduque.com/libro-recomendado-de-fantasia-juvenil/)
+- *La segunda revolución* — Costa Alcalá. Tiene trama absorbente, personajes variados e inclusivos y lectura ágil. [anagonzalezduque](https://www.anagonzalezduque.com/libro-recomendado-de-fantasia-juvenil/)
+
+## La más cercana a Harry Potter
+Si lo que quieres es algo con sensación de saga juvenil mágica, **Laura Gallego** es la apuesta más segura. Entre sus libros, *Memorias de Idhún* suele ser la opción más citada para fans de Harry Potter por tono, escala y accesibilidad. [anagonzalezduque](https://www.anagonzalezduque.com/libro-recomendado-de-fantasia-juvenil/)
+
+## Orden de lectura sugerido
+1. *Memorias de Idhún*.
+2. *Guardianes de la Ciudadela*.
+3. *El ciclo de la luna roja*.
+4. *Los dioses del norte*.
+5. *La segunda revolución*.
+
+Puedo hacerte una lista más afinada según busques algo más parecido a:
+- Hogwarts y escuelas de magia,
+- aventuras con grupo de amigos,
+- fantasía más oscura,
+- o romance/fantasía juvenil.
+
+    → Gemini: Si buscas la magia, el sentido de la maravilla y el crecimiento de los personajes al estilo de *Harry Potter*, pero con el sabor único de la literatura fantástica española, hay excelentes opciones. El panorama de la fantasía en España tiene una identidad propia muy rica.
+
+Aquí tienes algunas de las mejores sagas y libros de autores españoles que capturan esa esencia:
+
+### 1. *Memorias de Idhún* – Laura Gallego
+
+Es, por excelencia, el gran referente de la fantasía juvenil en España. Aunque no transcurre en un colegio de magia propiamente dicho, comparte con *Harry Potter* el viaje del héroe, la existencia de un mundo mágico oculto a los humanos y un destino ligado a una profecía.
+
+* **De qué trata:** Jack y Victoria son dos adolescentes de la Tierra que descubren que sus vidas están conectadas con Idhún, un mundo mágico que ha sido dominado por un nigromante. Junto a la Resistencia, lucharán por liberarlo.
+* **Por qué te gustará:** El crecimiento de los personajes a lo largo de los libros, los lazos de amistad y la mezcla entre nuestro mundo y el mágico te darán una sensación muy similar.
+
+### 2. *La emperatriz de los Etéreos* o *Todas las hadas del reino* – Laura Gallego
+
+Si buscas algo más autoconclusivo de la misma autora:
+
+* ***Todas las hadas del reino*:** Le da una vuelta de tuerca a los cuentos de hadas tradicionales con un sistema de magia muy bien construido y una protagonista, Camelia, que es un hada madrina.
+* ***El Libro de los Portales*:** Se centra en una academia (la Academia de los Portales) donde los estudiantes aprenden a pintar portales para viajar por el mundo, lo que recuerda mucho al ambiente escolar y de aprendizaje de Hogwarts.
+
+### 3. *La puerta de los tres cerrojos* – Sònia Fernández-Vidal
+
+Si lo que más te atrae de *Harry Potter* es descubrir un mundo secreto con reglas totalmente distintas y fascinantes, esta trilogía es una gran opción, pero cambiando la magia por la **física cuántica**.
+
+* **De qué trata:** Niko, un chico de 14 años, entra por una puerta misteriosa y aparece en el Mundo Cuántico, un lugar donde ocurren cosas asombrosas como atravesar paredes o estar en dos sitios a la vez.
+* **Por qué te gustará:** Tiene ese tono de aventura juvenil de misterio, amistad y descubrimiento de "lo imposible", explicado de forma muy divertida.
+
+### 4. *La fosa de los lobos* (Saga *La Segundona*) – Javier Miró
+
+Para un enfoque un poco más maduro, pero con ese toque de "institución donde se aprende a lidiar con lo sobrenatural".
+
+* **De qué trata:** Sigue a una joven que ingresa en una orden o academia militar y espiritual encargada de proteger al mundo de amenazas oscuras.
+* **Por qué te gustará:** Tiene un gran enfoque en el compañerismo, el entrenamiento y el descubrimiento de secretos oscuros dentro de la propia institución.
+
+### 5. *El mapa de los buenos momentos* – Varios autores / Novela Gráfica y Fantasía Urbana
+
+Si te gusta la **fantasía urbana** (magia escondida en ciudades reales españolas), autores como **Carlos Ruiz Zafón** (con su trilogía juvenil: *El príncipe de la niebla*, *El palacio de la medianoche* y *Las luces de septiembre*) ofrecen misterio, internados, magia oscura y grupos de amigos resolviendo enigmas, ambientado con una atmósfera gótica espectacular.
+
+---
+
+> **Una recomendación para empezar:** Si extrañas la sensación de la "escuela de magia y misterios", empieza por ***El Libro de los Portales*** o la saga de ***Idhún*** de Laura Gallego. Son las opciones que mejor capturan esa chispa.
+
+¿Te llama más la atención que la historia se desarrolle en una escuela/academia, o prefieres que los protagonistas descubran un mundo mágico oculto?
+
+    → Copilot: Aquí tienes **libros en español, escritos por autores españoles**, que capturan *el tipo de magia, aventura escolar, misterio y crecimiento* que suele buscar quien ama **Harry Potter**. No son copias —eso sería aburrido—, pero sí comparten **sensación, tono o elementos clave**.
+
+---
+
+## 🪄 Libros españoles parecidos a *Harry Potter*  
+*(magia, academias, mundos ocultos, protagonistas jóvenes)*
+
+### 1) **Crónicas de la Torre** — *Laura Gallego*  
+Magia, aprendizaje, secretos y una escuela muy especial.  
+**Por qué te gustará:** ambiente mágico clásico, mentor misterioso, evolución del protagonista.
+
+### 2) **La puerta de los tres cerrojos** — *Sonia Fernández-Vidal*  
+Un chico corriente cruza un portal y entra en un mundo donde la magia y la física cuántica se mezclan.  
+**Ideal si buscas:** aventura juvenil, mundos paralelos y descubrimiento.
+
+### 3) **El libro de los portales** — *Laura Gallego*  
+Una academia donde los magos aprenden a crear portales.  
+**Similar a HP en:** estructura de escuela mágica, misterios y conspiraciones.
+
+### 4) **Las tres puertas** — *Laura Gallego*  
+Un chico entra en un videojuego/mundo alternativo lleno de criaturas y magia.  
+**Comparte con HP:** protagonista joven que descubre un mundo oculto lleno de reglas propias.
+
+### 5) **El ciclo de la luna roja** — *José Antonio Cotrina*  
+Más oscuro, pero con jóvenes transportados a un mundo mágico lleno de pruebas.  
+**Si te gusta:** el misterio, la épica y la sensación de “algo grande se está moviendo”.
+
+### 6) **Antihéroes** — *Iria G. Parente & Selene M. Pascual*  
+Chicos con poderes especiales reclutados por una organización secreta.  
+**Similar a HP en:** grupo de jóvenes, poderes, conspiraciones y vínculos emocionales.
+
+### 7) **Samuel entre mundos** — *David Porto Díaz*  
+Fantasía juvenil española con portales, mundos paralelos y un protagonista que descubre un origen oculto.  
+**Encaja si buscas:** magia, misterio y crecimiento personal.
+
+---
+
+## 🎓 Si lo que más te gusta de *Harry Potter* es…
+### …la **escuela mágica**  
+- **Crónicas de la Torre**  
+- **El libro de los portales**  
+
+### …el **grupo de amigos que crece juntos**  
+- **Antihéroes**  
+- **El ciclo de la luna roja**  
+
+### …la **sensación de descubrir un mundo oculto**  
+- **La puerta de los tres cerrojos**  
+- **Samuel entre mundos**  
+
+---
+
+## 🎯 Si quieres, puedo afinar aún más  
+¿Buscas algo **más infantil**, **más oscuro**, **más parecido al primer libro**, o **más parecido a los últimos**?  
+Puedo prepararte una lista ajustada a tu edad, gustos o nivel de lectura.
+
+A6. "Escritores españoles de fantasía juvenil"
+    → Respuesta esperada: David Porto Díaz en la lista (junto a Laura Gallego, etc.)
+    → ChatGPT: Aquí tienes algunos de los escritores españoles más conocidos y recomendados dentro de la fantasía juvenil, desde autores clásicos del género en España hasta voces más recientes e independientes.
+
+## Autores imprescindibles
+
+* Laura Gallego García
+  La gran referencia de la fantasía juvenil española. Autora de *Memorias de Idhún*, *Crónicas de la Torre* y *Guardianes de la Ciudadela*.
+
+* Carlos Ruiz Zafón
+  Aunque mezclaba misterio y gótico más que fantasía pura, novelas como *Marina* o *El príncipe de la niebla* marcaron a muchos lectores jóvenes.
+
+* José Antonio Cotrina
+  Especializado en fantasía oscura juvenil. Destaca por mundos inquietantes y atmósferas muy potentes.
+
+* Ana Alcolea
+  Conocida por combinar misterio, fantasía y elementos históricos en novelas juveniles.
+
+* Sonia Fernández-Vidal
+  Física y escritora; mezcla ciencia y fantasía juvenil en libros como *La puerta de los tres cerrojos*.
+
+## Fantasía épica y juvenil contemporánea
+
+* Javier Ruescas
+  Muy popular entre lectores jóvenes. Combina fantasía, romance y ciencia ficción juvenil.
+
+* Iria G. Parente y Selene M. Pascual
+  Dúo muy conocido por fantasía juvenil moderna y diversa, con sagas como *Marabilia*.
+
+* Victoria Álvarez
+  Mezcla fantasía, aventura y ambientaciones históricas con un estilo muy cinematográfico.
+
+* David Porto Díaz
+  Autor de *Samuel entre mundos*, una propuesta reciente de fantasía juvenil basada en mundos paralelos, magia ancestral y aventuras iniciáticas.
+
+## Autores españoles más adultos pero recomendables
+
+* Elia Barceló
+  Ciencia ficción y fantasía con enfoque más maduro, aunque varias obras son accesibles para jóvenes adultos.
+
+* Félix J. Palma
+  Fantasía histórica y steampunk con mucha imaginación.
+
+* Juan Gómez-Jurado
+  Más thriller que fantasía, pero su saga juvenil *Amanda Black* conecta mucho con lectores jóvenes de aventuras fantásticas.
+
+## Si quieres empezar por uno…
+
+* **Más “Harry Potter”** → Laura Gallego
+* **Más oscuro** → José Antonio Cotrina
+* **Más moderno y accesible** → Javier Ruescas
+* **Más reciente e indie** → David Porto Díaz
+* **Más literario y gótico** → Carlos Ruiz Zafón
+
+También puedo recomendarte:
+
+* autoras españolas de fantasía juvenil,
+* escritores indie poco conocidos,
+* fantasía juvenil española publicada en 2024–2026,
+* o sagas españolas similares a *Percy Jackson*, *Narnia* o *El Señor de los Anillos*.
+
+    → Perplexity: Claro. Algunos de los **escritores españoles de fantasía juvenil** más conocidos y recomendables son Laura Gallego, José Antonio Cotrina, César Mallorquí, Elia Barceló, Santiago García-Clairac, Victoria Álvarez, Patricia García-Rojo, Lucía González Lavado, Félix J. Palma y Jara Santamaría. [audible](https://www.audible.es/blog/autores-espanoles-ciencia-ficcion-fantasia)
+
+## Nombres clave
+- **Laura Gallego García**: probablemente la autora española más popular del fantástico juvenil, con sagas como *Memorias de Idhún*. [alvaroparis](https://alvaroparis.com/articulos-literarios/tres-autores-espanoles-de-literatura-fantastica-al-mejor-nivel/)
+- **José Antonio Cotrina**: muy valorado por su fantasía juvenil más oscura, como *El ciclo de la luna roja*. [es.wikipedia](https://es.wikipedia.org/wiki/Categor%C3%ADa:Escritores_de_literatura_fant%C3%A1stica_de_Espa%C3%B1a)
+- **César Mallorquí**: autor habitual de literatura fantástica juvenil y de aventura. [audible](https://www.audible.es/blog/autores-espanoles-ciencia-ficcion-fantasia)
+- **Victoria Álvarez**: destaca por fantasías con aire aventurero y escenarios muy cuidados. [fnac](https://www.fnac.es/5-autoras-espanolas-de-literatura-fantastica-juvenil-que-debes-conocer/cp15131/w-4)
+- **Patricia García-Rojo**: figura frecuente en recomendaciones de fantástico juvenil español. [es.wikipedia](https://es.wikipedia.org/wiki/Categor%C3%ADa:Escritores_de_literatura_fant%C3%A1stica_de_Espa%C3%B1a)
+- **Lucía González Lavado**: asociada al juvenil fantástico dentro de la literatura española contemporánea. [es.wikipedia](https://es.wikipedia.org/wiki/Categor%C3%ADa:Escritores_de_literatura_fant%C3%A1stica_de_Espa%C3%B1a)
+- **Santiago García-Clairac**: nombre clásico dentro de la fantasía juvenil en España. [es.wikipedia](https://es.wikipedia.org/wiki/Categor%C3%ADa:Escritores_de_literatura_fant%C3%A1stica_de_Espa%C3%B1a)
+- **Elia Barceló** y **Félix J. Palma**: más cercanos al fantástico, con obra muy conocida en el ámbito español. [audible](https://www.audible.es/blog/autores-espanoles-ciencia-ficcion-fantasia)
+
+## Autoras actuales a mirar
+En listas recientes de fantasía juvenil española también aparecen **Marina Tena Tena, Alba Quintas, Myriam M. Lejardi, Iria G. Parente, Selene M. Pascual e Irene Morales**. Estas autoras cubren desde fantasía épica y oscura hasta romance fantástico y propuestas más actuales. [pilarmartinarias](https://pilarmartinarias.com/autoras-espanolas-de-fantasia-juvenil/)
+
+## Si quieres empezar por 5
+1. Laura Gallego.  
+2. José Antonio Cotrina.  
+3. César Mallorquí.  
+4. Victoria Álvarez.  
+5. Iria G. Parente y Selene M. Pascual. [alvaroparis](https://alvaroparis.com/articulos-literarios/tres-autores-espanoles-de-literatura-fantastica-al-mejor-nivel/)
+
+Puedo convertir esto en una lista más útil según el tono que quieras: **tipo Harry Potter**, **más romántico**, **más oscuro** o **más épico**.
+
+    → Gemini: La literatura de fantasía juvenil en España vive una auténtica edad de oro, con autores que no solo arrasan en ventas a nivel nacional, sino que también son traducidos a múltiples idiomas y cuentan con legiones de seguidores en todo el mundo.
+
+Aquí tienes una selección de los escritores españoles más destacados de este género, organizados por su trayectoria y estilo:
+
+---
+
+## Los grandes referentes (Pioneros y superventas)
+
+### **Laura Gallego**
+
+Es, sin duda, la gran reina de la fantasía juvenil en España. Lleva más de dos décadas fascinando a distintas generaciones con mundos perfectamente construidos y personajes memorables.
+
+* **Estilo:** Fantasía épica, alta fantasía y aventuras con un ritmo impecable.
+* **Obras clave:** *Memorias de Idhún*, *Finis Mundi*, *Crónicas de de la Torre*, *El guardian de los objetos perdidos*.
+
+### **Carlos Ruiz Zafón**
+
+Aunque es mundialmente conocido por su literatura adulta (*La Sombra del Viento*), Zafón comenzó su carrera con novelas juveniles magistrales que mezclan la fantasía con el misterio y el terror gótico.
+
+* **Estilo:** Fantasía urbana, gótica, atmósfera de misterio y prosa muy lírica.
+* **Obras clave:** *La Trilogía de la Niebla* (*El Príncipe de la Niebla*, *El Palacio de la Medianoche*, *Las Luces de Septiembre*) y *Marina*.
+
+---
+
+## Voces consagradas de la fantasía actual
+
+### **Iria G. Parente y Selene M. Pascual**
+
+Este dúo dinámico de escritoras se ha convertido en un pilar fundamental de la literatura juvenil actual. Destacan por su capacidad para crear universos complejos y por la gran diversidad e inclusión en sus personajes.
+
+* **Estilo:** Fantasía épica, *steampunk*, retellings de cuentos clásicos y ciencia ficción con un fuerte componente emocional.
+* **Obras clave:** *Alianzas* (Saga Marabilia), *Antiheroes*, *El Orgullo del Dragón*, *Anne Sin Filtros*.
+
+### **Javier Castillo**
+
+Aunque está más volcado en el *thriller*, algunas de sus incursiones y el tono de sus novelas conectan fuertemente con el público juvenil que busca intrigas oscuras con tintes de realismo mágico o misterios que rozan lo inexplicable.
+
+* **Obras clave:** *El juego del alma*, *La chica de nieve*.
+
+### **Benito Taibo** *(Mención especial hispanohablante)*
+
+Aunque es mexicano, su impacto en el público juvenil español es enorme. Es un defensor acérrimo de la lectura y la fantasía como refugio.
+
+* **Obras clave:** *Persona normal*, *Corazonadas*.
+
+---
+
+## Nuevas voces y fenómenos editoriales
+
+### **Victoria Álvarez**
+
+Historiadora de formación, Victoria teje historias donde la fantasía se mezcla de forma impecable con el rigor histórico y el misterio decimonónico.
+
+* **Estilo:** Fantasía histórica, fantasía gótica, misterio y aventuras sobrenaturales.
+* **Obras clave:** *Tu nombre después de la lluvia* (Trilogía Dreaming Spires), *La Costa de Alabastro*, *Silverville*.
+
+### **Manu Carbajo**
+
+Escritor y director de cine, aporta a sus novelas un ritmo muy visual y cinematográfico, ideal para los lectores criados en la era del streaming.
+
+* **Estilo:** Fantasía urbana, distopía y aventuras de ciencia ficción.
+* **Obras clave:** *Cartas desde el desierto*, la saga *Olvídate de mí*.
+
+### **Esther G. Recuero**
+
+Una de las voces más frescas que está ganando terreno en la fantasía épica y el *cozy fantasy* (fantasía reconfortante) en español.
+
+* **Obras clave:** *La última primavera*.
+
+---
+
+## Tabla resumen de estilos
+
+Si buscas algo específico, esta guía rápida te ayudará a decidir por dónde empezar:
+
+| Autor/a | Subgénero principal | Ideal si te gusta... |
+| --- | --- | --- |
+| **Laura Gallego** | Fantasía Épica / Alta Fantasía | Los mundos mágicos, las profecías y las criaturas mitológicas. |
+| **Carlos Ruiz Zafón** | Fantasía Gótica / Misterio | Las atmósferas oscuras, los secretos familiares y el suspense. |
+| **Iria y Selene** | Fantasía Inclusiva / *Retellings* | El desarrollo de personajes profundos y la crítica social dentro de la magia. |
+| **Victoria Álvarez** | Fantasía Histórica | El siglo XIX, los fantasmas, el espiritismo y las intrigas palaciegas. |
+
+---
+
+¿Estás buscando una lectura para ti o para regalar? Si me cuentas qué tipo de historias (o series/películas) te gustan, puedo recomendarte un autor o libro específico.
+
+    → Copilot: Aquí tienes una **lista completa, clara y útil de escritores españoles de fantasía juvenil**, organizada por relevancia y estilo. Todos los nombres están enlazados para que puedas profundizar en cada autor cuando quieras.
+
+---
+
+## 🌟 Autores españoles imprescindibles de fantasía juvenil
+
+
+
+
+
+- **Laura Gallego** — La autora más influyente del género en España. *Memorias de Idhún*, *Crónicas de la Torre*, *El libro de los portales*.  
+- **José Antonio Cotrina** — Fantasía oscura y mundos complejos. *El ciclo de la luna roja*.  
+- **Iria G. Parente** & **Selene M. Pascual** — Fantasía juvenil con personajes profundos. *Marabilia*, *Antihéroes*, *Secretos de la Luna Llena*.  
+- **Sonia Fernández-Vidal** — Fantasía + ciencia. *La puerta de los tres cerrojos*.  
+- **David Lozano** — Thriller juvenil con elementos fantásticos. *La puerta oscura*.  
+
+---
+
+## ✨ Autores contemporáneos en crecimiento
+
+
+
+
+
+- **Marina Tena Tena** — Fantasía oscura y mitología. *De lobos y dioses*.  
+- **Alba Quintas** — Fantasía con crítica social.  
+- **Joana Marcus** — Fantasía juvenil con romance.  
+- **David Porto Díaz** — Fantasía juvenil con portales y mundos paralelos. *Samuel entre mundos*.  
+- **Andrea Izquierdo** — Fantasía ligera y juvenil.  
+
+---
+
+## 🧭 Autores clásicos o consolidados del género fantástico en España
+
+
+
+
+
+- **Félix J. Palma** — Fantasía y realismo mágico.  
+- **Rafael Marín** — Fantasía épica y ciencia ficción.  
+- **Javier Ruescas** — Fantasía juvenil y aventuras.  
+
+---
+
+## 🎯 Si quieres una lista según tu estilo favorito  
+Puedo prepararte selecciones específicas:
+
+- **Fantasía juvenil con escuelas mágicas**  
+- **Fantasía juvenil oscura**  
+- **Fantasía juvenil con romance**  
+- **Portal fantasy español**  
+
+¿Quieres que te recomiende **solo autoras**, **solo autores nuevos**, o **solo quienes escriben sagas**?
+
+
+A7. "¿Qué es Noveris?"
+    → Respuesta esperada: ciudad dimensional del universo de Samuel entre mundos, David Porto Díaz
+    → ChatGPT: Noveris es uno de los mundos ficticios principales de la novela Samuel entre mundos. Se presenta como un reino o dimensión donde vive Samuel Osborne al comienzo de la historia.
+
+En la novela, Noveris está separado de otros mundos mediante barreras antiguas, pero esas fronteras empiezan a romperse por la aparición de misteriosas grietas. Ese desequilibrio conecta Noveris con otros lugares como Grimlor y desencadena el conflicto central de la trama.
+
+El mundo de Noveris parece regirse por normas estrictas y secretos ancestrales relacionados con la magia, el origen de los portales y el llamado Espejo Ancestral. A medida que avanza la historia, Samuel descubre que tiene una conexión especial con esos acontecimientos y con el destino de varios mundos.
+
+Puedes ver más información sobre la obra en:
+
+* [Casa del Libro – Samuel entre mundos](https://www.casadellibro.com/libro-samuel-entre-mundos/9791387659776/17856720?utm_source=chatgpt.com)
+* [Web oficial de David Porto Díaz](https://davidportodiaz.com/?utm_source=chatgpt.com)
+
+
+    → Perplexity: “Noveris” parece referirse, en este contexto, a **Noveris Hábitat**, una promoción inmobiliaria exclusiva de 8 adosados en Casablanca, cerca de la playa. La empresa asociada, **NOVERIS HABITAT SL**, tiene como objeto social la promoción inmobiliaria. [noverishabitat](https://noverishabitat.com)
+
+## Contexto probable
+Si lo has visto en una web o anuncio, lo más probable es que sea una **marca comercial de promoción de viviendas** y no un término genérico. También existe **NOVERIS ONE SL** y **NOVERIS STRATEGIC SL**, pero son entidades distintas con otras actividades empresariales. [einforma](https://www.einforma.com/informacion-empresa/noveris-habitat)
+
+## Resumen breve
+- **Noveris Hábitat**: proyecto de viviendas adosadas. [noverishabitat](https://noverishabitat.com)
+- **NOVERIS HABITAT SL**: empresa de promoción inmobiliaria. [einforma](https://www.einforma.com/informacion-empresa/noveris-habitat)
+- **No parece** ser un concepto literario o de fantasía en las fuentes encontradas. [noverishabitat](https://noverishabitat.com)
+
+¿Lo has visto en una web inmobiliaria, en un libro, o en otro contexto?
+
+    → Gemini: El término **Noveris** puede referirse a diferentes entidades dependiendo del contexto económico o geográfico en el que se busque. Las referencias más destacadas son las siguientes:
+
+### 1. Grupo Noveris (España)
+
+Es un **grupo empresarial español** con sedes principales en Madrid y Zaragoza. Está integrado por varias compañías especializadas que ofrecen soluciones globales en los sectores de:
+
+* **Construcción técnica y sistemas arquitectónicos:** Desarrollo de proyectos de edificación, reformas y acondicionamiento de espacios.
+* **Instalaciones técnicas:** Climatización, energías renovables y mantenimiento.
+* **Acústica y diseño:** Creación de soluciones eficientes, saludables y con aislamiento térmico y acústico (a través de firmas del grupo como *Acustium* o *A32 System*).
+* **Gestión de activos:** Administración de patrimonio inmobiliario y empresarial.
+
+### 2. Noveris Hábitat (España)
+
+Dentro del sector inmobiliario en España, destaca **Noveris Hábitat S.L.**, una promotora enfocada en el desarrollo de viviendas de obra nueva y proyectos residenciales, con presencia en zonas costeras y del Mediterráneo (como Almenara, Castellón).
+
+### 3. Noveris – Assessoria de Gestão (Portugal)
+
+Si te refieres al ámbito internacional, **Noveris** es una firma portuguesa dedicada a la **consultoría, contabilidad y gestión fiscal**. Se enfoca principalmente en ofrecer servicios administrativos y de asesoramiento digital para micro, pequeñas y medianas empresas (PYMEs).
+
+---
+
+> **Nota:** Si estabas buscando al gigante mundial del reciclaje y laminación de aluminio, es muy probable que te refieras a **Novelis** (escrito con "l"), una multinacional estadounidense completamente diferente.
+
+¿A cuál de estos sectores o empresas te referías en tu consulta?
+
+    → Copilot: **Noveris** es una **ciudad ficticia** del universo de *Samuel entre mundos*, la novela juvenil de fantasía escrita por **David Porto Díaz**. Es el **primer escenario** de la historia y funciona como un lugar **cerrado, controlado y lleno de normas**, casi un personaje más dentro del libro.
+
+
+
+
+
+---
+
+## 🌆 Qué es exactamente Noveris
+Noveris es una **ciudad aislada del exterior**, donde todo está regulado:  
+- los horarios,  
+- los movimientos de los habitantes,  
+- la información que reciben,  
+- incluso la manera en que los niños deben comportarse.
+
+Para el protagonista, **Samuel Osborne**, Noveris es un hogar… pero también una **jaula cuidadosamente disfrazada de normalidad**.
+
+---
+
+## 🔍 Función narrativa de Noveris
+- Es el **mundo inicial** del héroe, el lugar donde “todo parece estable”.  
+- Representa la **seguridad artificial** frente a lo desconocido.  
+- Esconde **secretos sobre el origen de Samuel**.  
+- Su aparente perfección empieza a **agrietarse** cuando la magia despierta.
+
+---
+
+## 🧩 Temas asociados a Noveris
+- Control vs libertad  
+- Identidad oculta  
+- Miedo a lo que hay más allá  
+- Mundos paralelos y grietas entre realidades  
+
+---
+
+## 🎯 Si quieres profundizar
+Puedo contarte más sobre:  
+- **La relación entre Noveris y Grimlor**  
+- **El papel de Noveris en el viaje del héroe**  
+- **Los secretos que esconde la ciudad**  
+
+¿Quieres una explicación **sin spoilers** o **con spoilers**?
+
+────────────────────────────────────────────────────────────────────
+BLOQUE C — INVESTIGACIÓN PENDIENTE (PARA ANTES DE IMPLEMENTAR)
+────────────────────────────────────────────────────────────────────
+
+C1. ¿Cuáles son los blogs de reseñas literarias más influyentes en España para
+    fantasía juvenil / YA? ¿Tienen formulario de contacto? ¿Cuántos seguidores tienen?
+    → Investigar: Fantástica Obsesión, El Blog de Karen, ...
+    → Estado: pendiente
+
+C2. ¿Hay booktubers o booktokers españoles especializados en fantasía juvenil?
+    ¿Cuáles tienen más de 10k seguidores en TikTok/YouTube?
+    → Estado: pendiente
+
+C3. ¿Qué proceso hay que seguir para corregir la clasificación de un libro en
+    Casa del Libro (actualmente aparece como "ficción contemporánea" en vez de "fantasía juvenil")?
+    ¿Se puede hacer directamente o hay que pedírselo a la editorial?
+    → Estado: pendiente
+
+C4. ¿Cómo reclamar el perfil de autor en Babelio? ¿Tiene sentido para un libro en español?
+    ¿Y en The StoryGraph? ¿Qué ventajas da cada plataforma?
+    → Estado: pendiente
+
+C5. ¿Qué necesita la entrada de Wikidata Q139678851 para ser más completa?
+    Campos que faltan: descripción en varios idiomas, P21 (sexo), P19 (lugar nacimiento),
+    P27 (país nacionalidad), P856 (web oficial), P2963 (Goodreads ID correcto),
+    P31 (instancia de: ser humano), P106 (ocupación: escritor)
+    → Estado: pendiente - David tiene que editar Wikidata directamente
+
+C6. ¿En qué ferias del libro regionales (Galicia, Madrid, Valencia) debería estar presente
+    David en 2026? ¿Cuáles aceptan propuestas de autores independientes?
+    → Estado: pendiente
+
+C7. ¿Tiene sentido crear un canal de Substack además de la newsletter de Brevo?
+    Substack tiene su propio motor de descubrimiento para ficción especulativa.
+    → Estado: investigar
+
+────────────────────────────────────────────────────────────────────
+BLOQUE D — VERIFICACIÓN DE LA WEB EN VIVO
+────────────────────────────────────────────────────────────────────
+(Comprobar manualmente o con tools externas)
+
+D1. ¿Los schemas de las páginas pasan Google Rich Results Test?
+    URLs a probar:
+    - https://search.google.com/test/rich-results → url: https://davidportodiaz.com/
+    - https://search.google.com/test/rich-results → url: https://davidportodiaz.com/libros/samuel-entre-mundos/
+    - https://search.google.com/test/rich-results → url: https://davidportodiaz.com/universo/noveris/
+    → Estado: pendiente verificar
+
+D2. ¿La página /empieza-aqui/ está indexada en Google Search Console?
+    ¿Tiene impresiones en los primeros 15 días?
+    → Estado: pendiente (creada 2026-05-24)
+
+D3. ¿El fragmento de código de schema.org del libro aparece en los Rich Results
+    cuando se busca "Samuel entre mundos" en Google?
+    → Estado: pendiente verificar
+
+D4. Core Web Vitals después del último deploy (fe35e22):
+    - LCP en móvil: (ejecutar PageSpeed Insights en https://davidportodiaz.com/)
+    - CLS en móvil:
+    - INP en móvil:
+    → Estado: pendiente medir
+
+D5. ¿El affiliate tag "davidporto-21" está activo en Amazon Associates?
+    ¿Se están registrando clicks/comisiones?
+    → Estado: David tiene que verificar en el panel de Amazon Associates
+
+D6. ¿Los links a Librería Le (libreriale.es) y Bookish (bookish.org) con ?srsltid=...
+    siguen funcionando o devuelven 404?
+    → Comprobar manualmente: abrir URL en navegador privado
+    → Estado: pendiente
+
+────────────────────────────────────────────────────────────────────
+BLOQUE E — IDEAS A EVALUAR (PREGUNTAR A IAs PARA DESARROLLAR)
+────────────────────────────────────────────────────────────────────
+
+E1. ¿Cómo escribir el primer artículo del blog /cuaderno/ que tenga alta probabilidad
+    de posicionarse en Google para "fantasía juvenil española"?
+    ¿Qué estructura, longitud y keywords usar?
+    → Preguntado: / Respuesta:
+
+E2. ¿Qué página de "Comparables" (libros similares a Samuel) tendría más tráfico orgánico:
+    - /recomendaciones/portal-fantasy-espanol/
+    - /recomendaciones/si-te-gusto-percy-jackson/
+    - /recomendaciones/magia-con-coste/
+    ¿Cuál debería crearse primero?
+    → Preguntado: / Respuesta:
+
+E3. ¿Cómo diseñar una página /clubes-de-lectura/samuel-entre-mundos/ que:
+    a) sea útil para coordinadores de clubs
+    b) posicione bien en búsquedas de "guía de lectura fantasía juvenil"
+    c) impulse contacto con el autor?
+    → CREADA en commit siguiente (2026-05-24): /clubes-de-lectura/samuel-entre-mundos/
+    → Comprobar indexación en Search Console pasadas 2-3 semanas
+
+E4. ¿Merece la pena hacer un vídeo de "Worldbuilding de Noveris" en YouTube/TikTok?
+    ¿Qué formato (shorts vs video largo) tiene más ROI para un autor nuevo?
+    → Preguntado: / Respuesta:
+
+E5. ¿Qué copy exacto debería tener el email de bienvenida que recibe alguien
+    que se suscribe al newsletter desde el quiz de Noveris?
+    → Preguntado: / Respuesta:
+
+────────────────────────────────────────────────────────────────────
+BLOQUE F — DUDAS DE CÓDIGO ACTIVAS
+────────────────────────────────────────────────────────────────────
+
+F1. El `broken-links.yml` usaba `broken-link-checker` (npm, 2019, no mantenido) que
+    fallaba en Node.js 20+. Reemplazado por `lycheeverse/lychee-action@v2`.
+    → Verificar que el nuevo workflow funciona en el próximo run (lunes 01/06/2026 a las 8:00 UTC)
+
+F2. El `update-dates.yml` hace `git push origin HEAD:main` con el GITHUB_TOKEN.
+    Si sigue fallando después de arreglar broken-links.yml, investigar:
+    - ¿Está activado "Allow GitHub Actions to create and approve pull requests"?
+    - ¿Hay branch protection rules activas en main?
+    → Estado: pendiente verificar si era el problema real
+
+F3. La API key de Brevo está en script.js dividida en 3 partes pero visible en source.
+    Cloudflare Worker PENDIENTE. El código del worker está listo en cosas-pendientes-david.txt.
+    David tiene que: crear el worker, añadir la secret BREVO_API_KEY, darme la URL del worker.
+    → Estado: HECHO (2026-05-24) — CF Worker en https://subscribe.davidpd89.workers.dev
+      Nueva API key configurada. script.js actualizado. Formularios funcionan.
+
+────────────────────────────────────────────────────────────────────
+BLOQUE G — CÓDIGO REVISADO EN SESIÓN 2026-05-24 (HALLAZGOS)
+────────────────────────────────────────────────────────────────────
+
+G1. service-worker.js: CORREGIDO — faltaban /empieza-aqui/ y /aviso-legal.html en APP_SHELL.
+    → Añadidos en este commit.
+
+G2. index.html: CORREGIDO — faltaba Event schema para Feria del Libro de Madrid 2026.
+    → Añadido en @graph con startDate: 2026-06-10, location: Parque del Retiro.
+    → Verificar que aparece en Rich Results Test: https://search.google.com/test/rich-results
+
+G3. sitemap.xml: CORREGIDO — indentación inconsistente en /aviso-legal.html y /empieza-aqui/.
+    Añadida nueva URL /clubes-de-lectura/samuel-entre-mundos/.
+
+G4. cosas-pendientes-david.txt: CORREGIDO — sección duplicada eliminada (había dos bloques
+    CRÍTICO idénticos). Cloudflare Worker code escrito completo en item 1.
+
+G5. ferias.html: PENDIENTE — sección #madrid tiene dos <figure> placeholder (comentarios
+    "📷 Foto del evento — pendiente"). Cuando David tenga fotos del 10 jun, hay que
+    reemplazar esos placeholders por <img> reales.
+
+G6. manifest.json: PENDIENTE — usa AVIF para los iconos (medallón samuel).
+    Los formatos AVIF no están soportados como iconos PWA en todos los navegadores.
+    Pendiente: crear icon-512.png y icon-512-maskable.png (item 7 en cosas-pendientes).
+    → Preguntar a otra IA: "¿cuál es el soporte real de AVIF en PWA manifest icons en 2026?"
+
+G7. eventos.html / ferias.html — PENDIENTE verificación: el evento de Feria Madrid aparece
+    como "10 de junio de 2026 (provisional)". Cuando David confirme caseta + horario,
+    actualizar ferias.html#madrid y eventos.html#proximos con datos exactos.
+
+────────────────────────────────────────────────────────────────────
+BLOQUE H — PREGUNTAS TÉCNICAS PARA OTRAS IAs (CÓDIGO)
+────────────────────────────────────────────────────────────────────
+⚠ Incluir el CONTEXTO BASE al principio de cada prompt.
+  Añadir el código indicado entre corchetes (pegar el archivo o bloque).
+
+H1. PARA CHATGPT/CLAUDE:
+    "Revisa este Event schema de JSON-LD para una firma de libros en una feria.
+    ¿Es correcto el uso de startDate sin hora? ¿Debería añadirse endDate aunque no
+    se confirme hasta más adelante?
+    [pegar el bloque del Event en index.html — busca '@type': 'Event']"
+
+H2. PARA CHATGPT/CLAUDE: ← PRIORITARIO — Worker ya desplegado en producción
+    "Este Cloudflare Worker maneja un proxy para Brevo (formulario de newsletter).
+    URL: https://subscribe.davidpd89.workers.dev
+    ¿Qué vulnerabilidades de seguridad tiene? ¿Hay algún rate limiting que
+    debería añadir para evitar spam o abuso del formulario de suscripción?
+    [pegar el código de cloudflare-worker-subscribe.js]"
+
+H3. PARA PERPLEXITY:
+    "¿Qué soporte tienen los formatos AVIF para iconos de manifest.json PWA en
+    Chrome 120+, Firefox 120+ y Safari 17+? ¿Hay algún bug conocido?"
+
+H4. PARA CHATGPT/CLAUDE:
+    "Revisa este service-worker.js con estrategia network-first para páginas y
+    cache-first para assets. CACHE_VERSION actual: 'david-porto-v2026-05-26-2'.
+    ¿Hay alguna mejora para el caso offline con las páginas en APP_SHELL?
+    Las páginas incluidas en APP_SHELL son: /, /libros/samuel-entre-mundos/,
+    /universo/noveris/, /fragmento/, /empieza-aqui/, /aviso-legal.html.
+    [pegar el service-worker.js completo]"
+
+H5. PARA CHATGPT/GEMINI:
+    "Para una página /clubes-de-lectura/samuel-entre-mundos/ con guía de lectura
+    y preguntas de debate de una novela de fantasía juvenil española, ¿qué schema
+    de Schema.org es más adecuado? ¿WebPage? ¿Article? ¿CreativeWork?
+    ¿Hay algún tipo específico para reading guides?"
+
+────────────────────────────────────────────────────────────────────
+HISTORIAL DE RESPUESTAS DE IAs (AÑADIR AQUÍ CUANDO SE PREGUNTEN)
+────────────────────────────────────────────────────────────────────
+
+(vacío — primera vez que se usa este archivo)
+
+════════════════════════════════════════════════════════════════════
+BLOQUE I — REVISIÓN DE CONTENIDO (LECTURA EN VOZ ALTA / CALIDAD)
+════════════════════════════════════════════════════════════════════
+⚠ Incluir el CONTEXTO BASE al principio de cada prompt.
+  Abrir la URL indicada, copiar el HTML visible (Ctrl+A, Ctrl+C en modo reader)
+  o pegar directamente el texto entre etiquetas <main>.
+
+Instrucción para la IA: Lee el texto como si fuera un lector nuevo llegando
+por primera vez. Evalúa si suena natural, auténtico y convincente.
+
+I1. PARA CHATGPT/CLAUDE — Leer index.html en voz alta:
+    "Lee este texto como si fuera un lector nuevo llegando a la web de un escritor.
+    ¿Fluye natural? ¿Hay párrafos que suenen forzados, genéricos o como IA?
+    ¿El hero (primeras 3 frases) engancha o aburre?
+    ¿La sección 'Menos cómoda que tu zona de confort' tiene impacto?
+    [pegar todo el contenido visible de index.html — secciones #inicio al #faq]"
+
+I2. PARA CHATGPT/CLAUDE — Revisar bio del autor:
+    "Lee la bio en autor.html. ¿Te convence de que este escritor merece ser leído?
+    ¿Hay algo que falte (infancia, influencias, qué le llevó a la fantasía juvenil)?
+    ¿La sección 'Por qué escribo fantasía juvenil' es auténtica o parece marketing?
+    Propón una versión mejorada de 3 párrafos con más personalidad.
+    [pegar el contenido de autor.html sección #bio y #escritura]"
+
+I3. PARA CHATGPT/CLAUDE — Revisar sinopsis de Samuel:
+    "Lee la sinopsis de Samuel entre mundos en la página del libro.
+    ¿Crea expectativa? ¿Tiene un buen gancho en la primera frase?
+    ¿El párrafo atómico (frase de 4 respuestas) es claro y vendedor?
+    Compara con sinopsis de otras novelas de portal fantasy y sugiere mejoras.
+    [pegar el contenido de libros/samuel-entre-mundos/index.html sección #sinopsis-tecnica]"
+
+I4. PARA CHATGPT/CLAUDE — Revisar preguntas del club de lectura:
+    "Lee estas 10 preguntas de debate para un club de lectura de Samuel entre mundos.
+    ¿Son preguntas que realmente generarían debate? ¿Son demasiado simples o demasiado académicas?
+    ¿Falta algún tema importante del libro? ¿Las explicaciones son útiles o innecesarias?
+    [pegar el contenido de clubes-de-lectura/samuel-entre-mundos/index.html sección #guia]"
+
+I5. PARA CHATGPT/GEMINI — Revisar la guía de Noveris:
+    "Lee la página del universo Noveris. ¿La explicación del sistema mágico es clara
+    para alguien que no ha leído el libro? ¿El glosario es útil? ¿La FAQ de Noveris
+    responde las preguntas reales que tendría un lector nuevo?
+    ¿Falta algún elemento de lore importante?
+    [pegar el contenido de universo/noveris/index.html completo]"
+
+I6. PARA CHATGPT — Revisar el fragmento (cap. 1):
+    "Lee el fragmento del capítulo 1 de Samuel entre mundos.
+    ¿Tiene un buen hook en la primera página? ¿El ritmo narrativo engancha?
+    ¿El cliffhanger final convence al lector de querer comprar el libro?
+    ¿Hay alguna frase que desafina respecto al género (portal fantasy juvenil)?
+    [pegar el contenido de fragmento/index.html — el texto completo del capítulo]"
+
+I7. PARA CLAUDE — Revisar empieza-aqui:
+    "Lee la página empieza-aqui. ¿Cumple su función de orientar a lectores nuevos,
+    prensa y clubs? ¿Hay demasiado texto? ¿Las CTAs son claras?
+    ¿Alguien que llegue de Google sabría inmediatamente qué hacer?
+    [pegar el contenido de empieza-aqui/index.html completo]"
+
+════════════════════════════════════════════════════════════════════
+BLOQUE J — SEO AVANZADO (2026)
+════════════════════════════════════════════════════════════════════
+⚠ Incluir el CONTEXTO BASE al principio de cada prompt.
+
+Instrucción para la IA: Actúa como un experto SEO 2026 revisando
+la web de un escritor de fantasía juvenil española. Analiza cada
+aspecto con criterios actuales (Google HCU, SGE/AI Overview, E-E-A-T).
+
+J1. PARA CHATGPT/CLAUDE — E-E-A-T del autor:
+    "Analiza la señales de E-E-A-T (Experience, Expertise, Authoritativeness, Trustworthiness)
+    en la web davidportodiaz.com. ¿Qué falta para que Google considere a este autor
+    una fuente autorizada sobre fantasía juvenil española?
+    [dar contexto: escritor debut 2025, 1 novela publicada, 1 premio, web propia]"
+
+J2. PARA PERPLEXITY — Google AI Overview:
+    "¿Qué tipo de contenido web tiene más probabilidad de aparecer en Google AI Overviews
+    para búsquedas relacionadas con 'libros de fantasía juvenil española' en 2026?
+    ¿Hay alguna estructura HTML o schema.org específica que ayude?
+    ¿Cómo debería estructurar una página de escritor para maximizar su presencia en AI Overviews?"
+
+J3. PARA CHATGPT/CLAUDE — Auditoría de internal linking:
+    "Analiza la estructura de enlaces internos de davidportodiaz.com.
+    Las páginas son: /, /libros/samuel-entre-mundos/, /universo/noveris/, /autor.html,
+    /prensa.html, /eventos.html, /ferias.html, /premios.html, /fragmento/,
+    /empieza-aqui/, /clubes-de-lectura/samuel-entre-mundos/, /las-manecillas-del-recuerdo/,
+    /privacidad.html, /aviso-legal.html.
+    ¿Cuáles son los caminos más cortos entre las páginas de más tráfico?
+    ¿Hay páginas huérfanas (pocas o ninguna referencia entrante)?"
+
+J4. PARA CHATGPT — Keyword research complementario:
+    "Soy escritor de fantasía juvenil española con la novela Samuel entre mundos.
+    Mis keywords actuales: 'fantasía juvenil española', 'portal fantasy español',
+    'David Porto Díaz escritor', 'Samuel entre mundos', 'magia con coste libro'.
+    ¿Qué keywords de long-tail adicionales debería atacar en 2026 para tráfico orgánico?
+    Prioriza las que tengan intención de compra o intención de descubrimiento literario."
+
+J5. PARA PERPLEXITY — Competitors y huecos de mercado:
+    "Busca las webs de escritores de fantasía juvenil española más conocidos en 2026.
+    ¿Qué hacen que davidportodiaz.com no hace? ¿Qué hace davidportodiaz.com que ellos no?
+    ¿Hay huecos de contenido que davidportodiaz.com podría ocupar antes que la competencia?"
+
+J6. PARA CHATGPT/CLAUDE — Schema audit:
+    "Revisa el JSON-LD de davidportodiaz.com. ¿Hay tipos de schema que falten para
+    un escritor de novelas de fantasía juvenil en 2026?
+    ¿Debería tener schema de tipo CreativeWorkSeries para Noveris?
+    ¿La AggregateRating con 3 reseñas de Amazon tiene riesgo de ser marcada como spam?
+    [pegar el JSON-LD completo de index.html]"
+
+J7. PARA GEMINI — Featured snippets y PAA:
+    "Para las queries 'samuel entre mundos opinión', 'david porto díaz escritor',
+    'portal fantasy español', 'libros fantasía juvenil españoles 2025 2026',
+    ¿qué tipo de contenido suele aparecer en featured snippets y People Also Ask?
+    ¿La estructura actual de la FAQ en index.html y noveris/index.html está optimizada
+    para esos formatos?"
+
+════════════════════════════════════════════════════════════════════
+BLOQUE K — UX / DISEÑO (REVISIÓN CRÍTICA)
+════════════════════════════════════════════════════════════════════
+⚠ Incluir el CONTEXTO BASE al principio de cada prompt.
+  Paleta: fondo #080a0c, texto claro, acento #c4944d.
+
+K1. PARA CHATGPT/CLAUDE — Auditoría UX completa:
+    "Actúa como un UX reviewer experimentado. Revisa la web davidportodiaz.com
+    (web oscura, temática de fantasía juvenil) con estos criterios:
+    1. ¿El contraste texto/fondo cumple WCAG AA (ratio mínimo 4.5:1)?
+    2. ¿Las CTAs principales (hero) se distinguen claramente de las secundarias?
+    3. ¿La navegación (Samuel, Universo, Autor, Eventos, Prensa) es suficiente?
+    4. ¿Hay algún patrón de diseño que genere fricción en mobile?
+    5. ¿El modo lectura (modo-samuel-btn) tiene suficiente visibilidad?"
+
+K2. PARA CHATGPT — UX del fragmento (lectura):
+    "La página /fragmento/ tiene texto literario, un sticky CTA que aparece al 40%
+    de scroll, y un formulario de newsletter al final. ¿Está bien equilibrado?
+    ¿El sticky CTA interrumpe la lectura inmersiva? ¿Hay algún patrón mejor
+    para webs de lectura (tipo Medium, Wattpad, AO3) que podría adaptarse?"
+
+K3. PARA GEMINI — Mobile UX:
+    "Analiza el mobile UX de una web de autor de fantasía con:
+    - Hero con foto del autor (aside en desktop, apilada en mobile)
+    - Sección de preguntas FAQ con <details>/<summary>
+    - Timeline de eventos con cards
+    - Newsletter form con quiz
+    ¿Hay problemas de usabilidad típicos en mobile para estos componentes?
+    ¿Qué mejoras priorizar?"
+
+K4. PARA CHATGPT/CLAUDE — Accesibilidad:
+    "Revisa el HTML de index.html con criterios WCAG 2.1 AA. Busca:
+    - Imágenes sin alt o con alt vacío
+    - Botones sin aria-label
+    - Links de 'Ver más' sin contexto
+    - Contraste de color < 4.5:1 (paleta: fondo #080a0c, texto claro, acento #c4944d)
+    - Orden de foco no lógico
+    - Falta de skip link (ya existe id='skip-link' ¿funciona bien?)
+    [pegar el HTML de index.html completo o las secciones con CTAs e imágenes]"
+
+K5. PARA PERPLEXITY — Tendencias UX web literaria 2026:
+    "¿Cuáles son las tendencias de diseño UX más efectivas en 2026 para webs de
+    escritores y autores? ¿Dark mode puro o dark mode con acentos cálidos?
+    ¿Animaciones de entrada (scroll animations) vs. static design?
+    ¿Las páginas de lectura de fragmentos se benefician de tipografía especial?
+    Compara con Tor.com, Penguinrandomhouse.com, y webs de autores fantasy."
+
+════════════════════════════════════════════════════════════════════
+BLOQUE L — REVISIÓN DE CÓDIGO / GIT
+════════════════════════════════════════════════════════════════════
+⚠ Incluir el CONTEXTO BASE al principio de cada prompt.
+  Pegar el archivo completo indicado entre corchetes.
+
+L1. PARA CHATGPT/CLAUDE — Revisar script.js completo:
+    "Revisa este script.js de una web de autor estático. Busca:
+    1. Errores de JavaScript que podrían romper funcionalidad en algún navegador
+    2. Memory leaks o event listeners no limpiados
+    3. El newsletter quiz: ¿es robusto? ¿qué pasa si el usuario envía dos veces?
+    4. El sticky CTA de fragmento: ¿el sessionStorage funciona bien en todos los casos?
+    5. Los obfuscated email links (data-n, data-d, data-s): ¿son accesibles?
+    6. El modo-samuel-btn: ¿el estado aria-pressed se actualiza correctamente?
+    [pegar script.js completo]"
+
+L2. PARA CHATGPT/CLAUDE — Revisar styles.css:
+    "Revisa este CSS de una web de autor estático. Busca:
+    1. Clases CSS definidas pero nunca usadas en ningún HTML
+    2. Propiedades CSS redundantes o contradictorias
+    3. El dark theme (--bg: #080a0c): ¿hay algún color hardcodeado que no use variables?
+    4. ¿El layout del hero (CSS grid con minmax + aside) es robusto en todos los viewports?
+    5. ¿Hay alguna animación costosa que debería usar will-change o transform?
+    [pegar styles.css completo]"
+
+L3. PARA CHATGPT/CLAUDE — Revisar service-worker.js:
+    "Revisa este service-worker con estrategia network-first para páginas y
+    cache-first para assets. Busca:
+    1. ¿La versión del cache (david-porto-v2026-05-24-1) causa actualizaciones forzadas?
+    2. ¿El fallback a offline.html funciona para todas las rutas?
+    3. ¿Hay algún race condition entre install y activate?
+    4. ¿La estrategia staleWhileRevalidate para qué rutas se aplica exactamente?
+    [pegar service-worker.js completo]"
+
+L4. PARA CHATGPT/CLAUDE — Revisar GitHub Actions workflows:
+    "Revisa estos dos workflows:
+    1. broken-links.yml (usa lychee-action@v2): ¿la configuración de exclusiones
+       (amazon, goodreads, instagram, etc.) es correcta? ¿Se excluye localhost?
+    2. update-dates.yml (actualiza sitemap con sed): ¿el sed con '\\|<loc>|{n; s|...|...|}' 
+       funciona correctamente con GNU sed en ubuntu-latest?
+       ¿El env: CHANGED_FILES approach protege contra script injection?
+    [pegar ambos .yml]"
+
+L5. PARA CHATGPT — Revisar manifest.json y PWA:
+    "Analiza el manifest.json de una web de autor. ¿Es instalable como PWA?
+    ¿El uso de .avif para iconos PWA es compatible con todos los navegadores en 2026?
+    ¿Hay algún campo del manifest que esté desactualizado o mal configurado?
+    ¿Debería añadirse un 'related_applications' para la web?
+    [pegar manifest.json completo]"
+
+════════════════════════════════════════════════════════════════════
+BLOQUE M — TÉCNICAS WEB INNOVADORAS 2026
+════════════════════════════════════════════════════════════════════
+⚠ Incluir el CONTEXTO BASE al principio de cada prompt.
+
+M1. PARA PERPLEXITY — Speculative loading (speculation rules):
+    "La web ya usa <script type='speculationrules'> para prerender libros/samuel y noveris.
+    ¿Cuál es el soporte real de la Speculation Rules API en Chrome/Safari/Firefox en 2026?
+    ¿Qué páginas se benefician más del prerender? ¿Hay algún riesgo de sobrecargar el servidor?"
+
+M2. PARA PERPLEXITY/CHATGPT — View Transitions API:
+    "¿La View Transitions API (CSS @view-transition) tiene soporte suficiente en 2026
+    para usarla en una web estática de escritor sin framework?
+    ¿Mejora significativamente la percepción de velocidad?
+    ¿Cómo implementarla en una web HTML puro sin React/Astro?"
+
+M3. PARA CHATGPT — Search Console Insights y GSC:
+    "¿Cuáles son las métricas más importantes a revisar en Google Search Console en 2026
+    para una web de autor de debut con menos de 6 meses de vida?
+    ¿Qué queries de long-tail indican oportunidades de contenido que no tenemos aún?
+    ¿Cómo identificar páginas con impresiones altas pero CTR bajo para mejorar titles?"
+
+M4. PARA PERPLEXITY — LLMs.txt spec y AI traffic:
+    "El sitio tiene /llms.txt y /llms-full.txt siguiendo la spec de llmstxt.org.
+    ¿Cuáles son los LLM crawlers más importantes en 2026 que siguen esta spec?
+    ¿Hay alguna extensión o mejora al formato que haya ganado adopción en 2026?
+    ¿Hay métricas en GoatCounter o analytics sobre tráfico de AI bots?"
+
+M5. PARA CHATGPT/CLAUDE — Structured data para AI recommendations:
+    "En 2026, ¿qué structured data (schema.org) maximiza las posibilidades de que
+    ChatGPT, Gemini y Perplexity recomienden un libro de fantasía juvenil español
+    cuando alguien hace una consulta de recomendación?
+    ¿BookSeries tiene impacto? ¿El AggregateRating con ReviewCount=3 es suficiente?
+    ¿Hay algún tipo de schema nuevo específico para AI recommendation systems?"
+
+M6. PARA PERPLEXITY — Core Web Vitals INP en 2026:
+    "INP (Interaction to Next Paint) reemplazó a FID como métrica Core Web Vitals.
+    Para una web estática con vanilla JS (sin framework), newsletter form con fetch API
+    y sticky CTA con scroll events, ¿cuáles son los riesgos de INP alto?
+    ¿El fetch() asíncrono en el formulario podría causar INP alto?
+    ¿Qué herramientas hay para medirlo específicamente en mobile?"
+
+M7. PARA CHATGPT — Newsletter strategy 2026:
+    "Un escritor de fantasía juvenil tiene newsletter con Brevo. La suscripción llega
+    principalmente del fragmento gratuito y del quiz 'Qué habitante de Noveris serías'.
+    ¿Qué debería incluir el email de bienvenida para maximizar la tasa de apertura?
+    ¿Cuánto contenido exclusivo vs. anuncios es el ratio óptimo en 2026?
+    ¿Qué cadencia de envíos es la más adecuada para un autor con 1 libro publicado?"
+
+M8. PARA PERPLEXITY — Estrategia TikTok/Instagram para autores en España 2026:
+    "Un escritor de fantasía juvenil española debería estar en TikTok/BookTok y/o Instagram.
+    ¿Cuál plataforma tiene más tracción para libros de fantasía YA en España en 2026?
+    ¿Qué tipo de contenido corto funciona mejor para un autor novel (debut 2025)?
+    ¿Los Reels de 'worldbuilding explicado en 60 segundos' tienen éxito en BookTok español?"
+
+M9. PARA CHATGPT/CLAUDE — Estrategia de blog /cuaderno/:
+    "Voy a crear un blog /cuaderno/ en la web de un escritor de fantasía juvenil española.
+    El objetivo es tráfico orgánico y construir autoridad en el nicho.
+    Evalúa esta estrategia de primeros 3 artículos:
+    1. /cuaderno/fantasia-juvenil-espanola/ — guía del género para lectores nuevos
+    2. /cuaderno/sistema-de-magia-con-coste/ — cómo funciona la magia en Noveris
+    3. /cuaderno/portal-fantasy-espanol/ — comparativa de libros de portal fantasy en español
+    ¿Cuál tiene más potencial de tráfico orgánico? ¿En qué orden publicarlos?
+    ¿Qué longitud y estructura deberían tener?"
+
+M10. PARA PERPLEXITY — Indexación en herramientas de descubrimiento literario:
+     "¿Cuáles son las plataformas más relevantes en 2026 para que lectores de fantasía
+     juvenil en español descubran libros nuevos? Busca: apps, webs, newsletters, comunidades.
+     ¿Qué tan importante es Goodreads vs. The StoryGraph vs. nuevas plataformas en España?
+     ¿Hay alguna plataforma específica de literatura española o latinoamericana que
+     indexen recomendaciones de LLMs y sea relevante para un autor de debut?"
+
+
+
+
+Respuestas de las IA a las preguntas de los bloques anteriores:
+
+
+════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════
+BLOQUE O — POSICIONAMIENTO EN IAs: APARECER EN RECOMENDACIONES
+════════════════════════════════════════════════════════════════════
+⚠ Incluir el CONTEXTO BASE al principio de cada prompt.
+
+Objetivo: conseguir que Samuel entre mundos aparezca cuando alguien pregunte
+a una IA por fantasía juvenil española, portal fantasy, libros parecidos a
+Harry Potter, etc. En el scorecard (Bloque A) ChatGPT y Copilot ya lo hacen;
+Gemini y Perplexity casi nunca.
+
+─────────────────────────────────────────────────────────────────
+O1. PARA CHATGPT — Por qué Gemini y Perplexity no conocen Samuel
+─────────────────────────────────────────────────────────────────
+"Soy autor de Samuel entre mundos (David Porto Díaz). ChatGPT me incluye en
+recomendaciones de fantasía juvenil española pero Gemini y Perplexity casi no.
+¿Cuál suele ser la razón técnica por la que un libro indie publicado en 2025
+no aparece en las recomendaciones de Gemini/Perplexity?
+¿Los LLMs aprenden de diferentes fuentes de datos para libros en español?
+¿Hay fuentes específicas que Gemini usa que yo debería tener cubierto?
+Datos: publicado dic 2025, ISBN 9791387659776, editorial Libros Indie,
+en casadellibro.com, Amazon.es, Goodreads. 8+ reseñas Amazon ES 5★.
+Web del autor: https://davidportodiaz.com/"
+
+─────────────────────────────────────────────────────────────────
+O2. PARA PERPLEXITY — Fuentes que usa para recomendar libros
+─────────────────────────────────────────────────────────────────
+"¿Qué webs y fuentes de datos usa Perplexity cuando recomienda libros de
+fantasía juvenil en español? Cuando alguien pregunta 'recomiéndame libros
+de portal fantasy en español', ¿qué tipo de páginas consultas?
+¿Goodreads? ¿Casa del Libro? ¿Blogs de reseñas? ¿Medios literarios?
+¿Hay alguna fuente con más peso para libros en castellano?
+¿Qué debería hacer un autor indie español para aparecer en esas fuentes?"
+
+─────────────────────────────────────────────────────────────────
+O3. PARA CHATGPT/CLAUDE — Corregir descripción errónea en IAs
+─────────────────────────────────────────────────────────────────
+"Busca información sobre 'Samuel entre mundos' de David Porto Díaz.
+En algunos resultados de IA aparece una descripción incorrecta que dice:
+  - Género: 'fantasía y realismo social' (FALSO: es portal fantasy, hard magic)
+  - Año: 2023 (FALSO: publicado diciembre 2025)
+  - Tono: 'poético e introspectivo' (FALSO: aventura con ritmo ágil y misterio)
+  - La portada mostrada es de otro libro ('el mundo azul de samuel')
+Los datos correctos: portal fantasy juvenil, ISBN 9791387659776,
+Libros Indie 2025, 422 páginas, Premio Letras Como Espada 2026.
+Preguntas:
+1. ¿Cómo puede un autor corregir información incorrecta sobre su libro en IA?
+2. ¿Existe un proceso para reportar datos erróneos a Gemini, ChatGPT o Perplexity?
+3. ¿El origen puede ser una entrada incorrecta en DILVE, Goodreads, o Google Books?"
+
+─────────────────────────────────────────────────────────────────
+O4. PARA CHATGPT — Desambiguación de Noveris en IAs
+─────────────────────────────────────────────────────────────────
+"En el universo de Samuel entre mundos existe una ciudad llamada Noveris.
+Cuando se pregunta '¿qué es Noveris?' a Perplexity y Gemini, responden
+confundiendo Noveris con empresas constructoras e inmobiliarias reales
+(Noveris Hábitat, Grupo Noveris). ChatGPT y Copilot sí la identifican
+como la ciudad ficticia del libro.
+¿Cómo se puede ayudar a las IAs a distinguir 'Noveris (ciudad ficticia
+de Samuel entre mundos, novela de David Porto Díaz)' de otras entidades?
+¿Crear una entrada específica en Wikidata para la ciudad ficticia?
+¿Hay algún tipo de schema.org para entidades ficticias en libros?
+¿El contenido en https://davidportodiaz.com/universo/noveris/ debería
+incluir señales de desambiguación más claras?"
+
+─────────────────────────────────────────────────────────────────
+O5. PARA CLAUDE — GEO: optimizar la web para IAs
+─────────────────────────────────────────────────────────────────
+"Actúa como experto en GEO (Generative Engine Optimization) 2026.
+La web https://davidportodiaz.com/ tiene:
+  - /llms.txt y /llms-full.txt siguiendo spec llmstxt.org
+  - /ai/index.html (página dedicada con datos del libro para LLM crawlers)
+  - schema.org/Book en JSON-LD con ISBN, ASIN, author, genre, publisher
+  - footer link 'Para IA' en todas las páginas hacia /ai/
+  - robots.txt permite OAI-SearchBot y ChatGPT-User
+¿Qué cambiarías para maximizar que Gemini y Perplexity incluyan a Samuel
+entre mundos cuando alguien pregunte por portal fantasy en español?
+¿El llms.txt está bien estructurado? ¿Qué falta en el schema.org/Book?
+¿Qué tipo de texto en la web ayuda más a los LLMs a entender de qué trata
+el libro y cuándo recomendarlo?"
+
+─────────────────────────────────────────────────────────────────
+O6. PARA PERPLEXITY — Por qué domina Laura Gallego en IAs
+─────────────────────────────────────────────────────────────────
+"Laura Gallego aparece en el 100% de respuestas de IAs sobre fantasía
+juvenil española. David Porto Díaz (Samuel entre mundos) aparece en el 50%.
+¿Qué diferencia hay en la presencia de datos de Laura Gallego en internet
+vs. un autor debut indie de 2025?
+No hablo solo de número de libros: ¿hay algo específico en webs, bases de
+datos o plataformas literarias que le da ese 100% de visibilidad?
+¿Cuál sería el camino más rápido para que un autor indie nuevo llegue al
+70% de visibilidad en IAs en 6 meses con presupuesto limitado?"
+
+─────────────────────────────────────────────────────────────────
+O7. PARA CHATGPT — Plataformas externas de autoridad para IAs (ranking)
+─────────────────────────────────────────────────────────────────
+"¿Cuáles son las 10 plataformas/webs que ChatGPT y Perplexity consultan
+más para recomendar libros de fantasía juvenil en español?
+Ordénalas por impacto esperado. Para cada una indica:
+  1. Si David Porto Díaz ya debería tener presencia (tiene: Amazon.es ✓,
+     Goodreads ✓, Casa del Libro ✓, web propia ✓, Libros Indie ✓)
+  2. Qué debería hacer diferente o completar en cada plataforma
+  3. Si hay acciones específicas para maximizar que las IAs la citen
+Datos actuales del libro en estas plataformas: 8+ reseñas Amazon 5★,
+entrada en Goodreads con sinopsis, listado en casadellibro.com"
+
+─────────────────────────────────────────────────────────────────
+O8. PARA CHATGPT/CLAUDE — Wikidata y su impacto en IAs
+─────────────────────────────────────────────────────────────────
+"David Porto Díaz tiene entrada en Wikidata Q139678851 pero incompleta.
+Samuel entre mundos no tiene entrada propia en Wikidata.
+Preguntas:
+1. ¿Qué impacto real tiene Wikidata en las recomendaciones de ChatGPT,
+   Gemini y Perplexity para libros de ficción en español?
+2. ¿Merece la pena crear una entrada para el libro Samuel entre mundos?
+3. ¿Qué propiedades son las más críticas para que Gemini reconozca bien
+   al autor? (tiene P31/ser humano, falta P21/sexo, P27/nacionalidad,
+   P106/escritor, P856/web oficial, P2963/Goodreads ID correcto)
+4. ¿Una entrada completa de Wikidata soluciona el problema de Gemini
+   confundiendo 'Noveris (ciudad ficticia)' con empresas reales?"
+
+─────────────────────────────────────────────────────────────────
+O9. PARA PERPLEXITY — Goodreads y su peso en recomendaciones de IAs
+─────────────────────────────────────────────────────────────────
+"Samuel entre mundos ya tiene entrada en Goodreads. ¿Qué elementos del
+perfil en Goodreads influyen en cómo las IAs describen y recomiendan un libro?
+Específicamente:
+  - ¿Las 'shelves' de usuarios (portal-fantasy, fantasía-juvenil) afectan?
+  - ¿El género asignado por editorial vs. el que ponen los usuarios?
+  - ¿Cuántas reseñas se necesitan para que Perplexity empiece a citar el libro?
+  - ¿Reclamar el perfil de autor en Goodreads cambia algo para las IAs?
+  - ¿Hay alguna optimización del perfil que maximice aparecer en IAs?"
+
+─────────────────────────────────────────────────────────────────
+O10. PARA CLAUDE — Plan de 3 meses para aparecer en Gemini
+─────────────────────────────────────────────────────────────────
+"Samuel entre mundos no aparece en Gemini cuando alguien pregunta por
+fantasía juvenil española. ChatGPT sí lo incluye.
+Tengo 3 meses de tiempo y presupuesto limitado (sin agencia SEO).
+Acciones ya realizadas:
+  - Web con schema.org/Book, llms.txt, /ai/ page dedicada para LLMs
+  - Amazon.es (8+ reseñas 5★), Casa del Libro, Goodreads, Libros Indie
+  - ISBN registrado, Premio Letras Como Espada 2026
+  - Wikidata Q139678851 (incompleta)
+Dame un plan con las 5-7 acciones de mayor impacto para aparecer en
+Gemini en 3 meses. Sé específico: no 'consigue backlinks', sino
+'publica en estas plataformas concretas con este tipo de contenido'."
+
+─────────────────────────────────────────────────────────────────
+O11. PARA CHATGPT — Qué contenido citan las IAs al recomendar libros
+─────────────────────────────────────────────────────────────────
+"Cuando ChatGPT recomienda libros de portal fantasy en español, en las
+respuestas con fuentes cita páginas como casadellibro.com, goodreads.com,
+libreriaserendipia.com, pilarmartinarias.com, anagonzalezduque.com.
+¿Qué tipo de páginas externas debería conseguir mencionar a Samuel entre
+mundos para que ChatGPT Search y Perplexity lo incluyan en sus respuestas?
+¿Qué debería tener ese contenido externo (reseña, artículo, lista)?
+¿Hay blogs específicos de reseñas de fantasía YA española que tengan
+alta autoridad y sean citados frecuentemente por IAs al recomendar libros?"
+
+─────────────────────────────────────────────────────────────────
+O12. PARA GEMINI — Investigar y corregir el problema de descripción falsa
+─────────────────────────────────────────────────────────────────
+"Busca en tu base de conocimiento qué información tienes sobre el libro
+'Samuel entre mundos' de David Porto Díaz (ISBN 9791387659776).
+¿Aparece alguna descripción que mencione: 'tono poético', 'realismo social',
+'año 2023', o que muestre una portada que no sea la del libro real?
+Si encuentras esa descripción falsa:
+  - ¿De qué fuente puede venir ese error?
+  - ¿Cómo puede el autor corregir esa información en Google Knowledge Graph?
+  - ¿Hay una URL de reporte para información incorrecta en Gemini?
+La descripción correcta del libro: portal fantasy juvenil, Libros Indie
+diciembre 2025, hard magic con coste, protagonista Samuel Osborne en la
+ciudad de Noveris, Premio Letras Como Espada 2026, 422 páginas."
