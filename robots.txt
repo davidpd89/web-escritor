@@ -3,6 +3,19 @@ Allow: /
 Allow: /assets/
 Allow: /assets/fonts/
 
+# Allow AI search crawlers (for ChatGPT Search, Bing/Copilot AI)
+User-agent: OAI-SearchBot
+Allow: /
+
+User-agent: ChatGPT-User
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: Applebot-Extended
+Allow: /
+
 Sitemap: https://davidportodiaz.com/sitemap.xml
 
 # AI crawler context

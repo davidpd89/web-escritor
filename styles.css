@@ -4440,3 +4440,31 @@ details[open] > .faq-question::after {
   color: var(--text-muted, #aaa);
 }
 
+/* Comparables table */
+.comparables-table-wrap {
+  overflow-x: auto;
+  margin-top: 1rem;
+}
+.comparables-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.875rem;
+}
+.comparables-table th,
+.comparables-table td {
+  text-align: left;
+  padding: 0.6rem 0.9rem;
+  border-bottom: 1px solid var(--border, rgba(255,255,255,0.08));
+}
+.comparables-table th {
+  background: var(--surface, #111316);
+  color: var(--accent, #c4944d);
+  font-weight: 600;
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+.comparables-table tr:hover td {
+  background: rgba(196,148,77,0.04);
+}
+

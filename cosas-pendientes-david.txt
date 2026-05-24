@@ -27,6 +27,182 @@ SEO Y DISTRIBUCIÓN
 
 2. GOODREADS - ACTUALIZAR BIO DE AUTOR
    Tu perfil existe y está bien: https://www.goodreads.com/author/show/66843136.David_Porto_D_az
+   (El libro ya tiene 3 reseñas, todas 5 estrellas. ¡Bien!)
+   Lo que falta: añadir descripción de autor en la página.
+   Ve a Edit Author Profile y añade una bio de 200-400 palabras.
+   Ejemplo de texto para añadir:
+   ---
+   "David Porto Díaz es escritor español de fantasía juvenil nacido en Pontevedra
+   y residente en Madrid. Debutó en 2025 con Samuel entre mundos (Libros Indie),
+   su primera novela de portal fantasy española: la historia de un chico cuya
+   medalla esconde el poder de abrir mundos, en una ciudad donde toda magia
+   exige una compensación real.
+   Ganador del Primer Premio del XII Certamen de Microrrelatos «De amor»
+   de Letras Como Espada (2026) y Top 10 Finalista del Premio Nacional de
+   Literatura Infantil Juan Andrés Teno (2025).
+   Web: https://davidportodiaz.com"
+   ---
+   TAMBIÉN: Añade los géneros del libro en Goodreads (Fantasy, Young Adult,
+   Portal Fantasy, Spanish Literature, Coming of Age) y crea la serie "Noveris"
+   marcando Samuel como libro #1.
+
+3. AMAZON AUTHOR CENTRAL - ACTUALIZAR BIO
+   Tu perfil existe: https://www.amazon.es/stores/author/B0GZFP1JV3
+   PROBLEMA: la bio actual dice "fantasía, romantasy y ficción especulativa" y
+   menciona "marketing online y sector tecnológico" como puntos principales.
+   Esto contradice tu posicionamiento como escritor de fantasía juvenil española.
+   
+   Ve a https://author.amazon.com/ y cambia la bio a algo así:
+   ---
+   "David Porto Díaz es escritor español de fantasía juvenil, nacido en Pontevedra
+   y residente en Madrid. Autor de Samuel entre mundos (Libros Indie, 2025),
+   primera novela de portal fantasy española con sistema de magia de reglas duras
+   y protagonista no-elegido. Ganador del Primer Premio Letras Como Espada 2026
+   y finalista del Premio Nacional de Literatura Infantil Juan Andrés Teno 2025.
+   Sus historias parten de la grieta entre lo cotidiano y lo extraordinario:
+   portales, objetos con memoria y una magia que siempre exige algo a cambio.
+   Web: https://davidportodiaz.com"
+   ---
+
+4. WIKIDATA - CORREGIR GOODREADS ID Y COMPLETAR FICHA DEL AUTOR
+   Tu entrada de autor existe: https://www.wikidata.org/wiki/Q139678851
+   
+   Problemas encontrados que debes corregir (necesitas cuenta de Wikidata):
+   
+   a) Goodreads author ID está EQUIVOCADO: tiene 245605636 (que es el libro)
+      → Debe ser 66843136 (que es el autor)
+      Haz clic en "edit" junto a "Goodreads author ID" y corrígelo.
+   
+   b) Falta la web oficial (P856): https://davidportodiaz.com
+   
+   c) Falta Ocupación (P106): escritor / writer
+   
+   d) Falta Lugar de nacimiento (P19): Pontevedra
+   
+   e) Falta Obra notable (P800): Samuel entre mundos
+   
+   Opcional pero recomendable:
+   f) Crear entrada separada para la novela Samuel entre mundos como obra literaria
+      Instancia: novela (Q8261), ISBN: 9791387659776, Editorial: Libros Indie, Año: 2025
+
+5. PLATAFORMAS DE LIBROS PENDIENTES (para que las IAs te encuentren)
+   Las siguientes plataformas son indexadas por LLMs para recomendaciones de libros.
+   Crea ficha/perfil en cada una:
+   
+   a) Babelio (Francia + España): https://www.babelio.com/
+      - Crea perfil de autor y añade Samuel entre mundos con sinopsis en español
+   
+   b) The StoryGraph: https://app.thestorygraph.com/
+      - Crea perfil de autor con tropes explícitos: "hard magic system", "portal fantasy",
+        "family secrets", "non-chosen one"
+   
+   c) LibraryThing: https://www.librarything.com/
+      - Añade el libro con todos los metadatos (ISBN: 9791387659776)
+
+---------------------------------------------------------------------------
+IMÁGENES Y ARCHIVOS
+---------------------------------------------------------------------------
+
+6. OG IMAGES 1200×630 px
+   Las imágenes de Open Graph actuales no tienen las proporciones correctas.
+   Necesitas crear (con Canva o similar):
+   - og-home.webp → logo + "Escritor de fantasía juvenil española"
+   - og-samuel.webp → portada Samuel entre mundos en proporción 1200×630
+   - og-noveris.webp → mapa o motivo Noveris
+   - og-fragmento.webp → imagen con "Lee el capítulo 1 gratis"
+   
+   Cuando los tengas, los subes a /assets/ y me dices los nombres.
+
+7. MANIFEST ICONS PNG 512×512
+   El manifest.json referencia iconos que no existen o no son los correctos.
+   Necesitas PNG cuadrados de 512×512:
+   - /assets/icon-512.png (cualquier uso)
+   - /assets/icon-512-maskable.png (maskable, con zona segura)
+   Puedes generarlos en https://maskable.app/
+
+8. PRESS KIT - ARCHIVOS DE ALTA RESOLUCIÓN
+   Ya existe /press-kit/ con los JSON de metadatos del libro y del autor.
+   Falta añadir los archivos de imagen para periodistas y bloggers:
+   - foto-david-porto-diaz-alta-res.jpg (foto tuya a mínimo 1200px de ancho)
+   - portada-samuel-entre-mundos.jpg (portada oficial en alta resolución)
+   - ficha-tecnica-samuel-entre-mundos.pdf con:
+       Título, autor, editorial, ISBN, nº páginas, PVP, géneros, sinopsis corta
+   
+   Cuando lo tengas listo, actualizo la página de prensa para que los enlaces funcionen.
+
+---------------------------------------------------------------------------
+CONTENIDO Y MENCIONES EXTERNAS (GEO)
+---------------------------------------------------------------------------
+
+9. CONSEGUIR 1-2 MENCIONES EN BLOGS LITERARIOS
+   Para que ChatGPT y Perplexity te encuentren cuando alguien pregunte por
+   "fantasía juvenil española", necesitas que 2-3 fuentes externas mencionen
+   "David Porto Díaz" + "Samuel entre mundos" + "fantasía juvenil española".
+   
+   Acciones concretas:
+   a) Envía ejemplares de reseña a blogs de fantasía y YA en español
+   b) Propón una entrevista a un medio local (Pontevedra, Galicia, Madrid)
+   c) Publica en el subreddit r/fantasia o comunidades literarias en español,
+      mencionando el libro con transparencia de autoría en tu perfil
+
+10. BANCO MENSUAL DE PROMPTS DE IA (seguimiento)
+    Cada mes (primera semana), prueba en incógnito estos prompts:
+    - ChatGPT: "Recomiéndame un libro de fantasía juvenil español"
+    - Perplexity: "Mejores libros de portal fantasy en español 2025 2026"
+    - Gemini: "Escritores españoles de fantasía juvenil"
+    - Copilot: "Libros parecidos a Percy Jackson en español"
+    Anota: ¿aparece Samuel? ¿Aparece tu nombre? ¿Qué URL cita?
+    Cuéntamelo y ajustamos la estrategia.
+
+---------------------------------------------------------------------------
+EVENTOS
+---------------------------------------------------------------------------
+
+11. FERIA DEL LIBRO DE MADRID 2026 (10 de junio)
+   - Número de caseta (cuando lo tengas)
+   - Horario exacto de firma
+   - Cualquier evento paralelo (presentación, coloquio, etc.)
+   Con estos datos actualizo eventos.html y ferias.html
+
+12. FOTOS DE ARANJUEZ (23 de mayo 2026)
+    Sube fotos de la feria de Aranjuez para la galería en ferias.html
+    (formato: JPG o WEBP, mínimo 800px de ancho)
+    También escribe 2-3 líneas de crónica breve si quieres que aparezca.
+
+---------------------------------------------------------------------------
+ANALYTICS
+---------------------------------------------------------------------------
+
+13. GOATCOUNTER - REVISAR MÉTRICAS
+    - URL: https://davidportodiaz.goatcounter.com/
+    - Comprueba qué páginas tienen más visitas y cuál es el origen de tráfico
+    - Indica si hay alguna página con mucho rebote o poco tiempo de lectura
+    - Con esos datos puedo priorizar qué mejorar primero
+
+---------------------------------------------------------------------------
+CRÍTICO (afecta a seguridad)
+---------------------------------------------------------------------------
+
+1. CLOUDFLARE WORKER PARA BREVO (URGENTE)
+   La clave de la API de Brevo está expuesta en script.js. Hay que moverla a
+   un Cloudflare Worker para que nunca sea visible en el navegador.
+
+   Pasos:
+   a) Ve a https://dash.cloudflare.com/ → Workers & Pages → Create Worker
+   b) Pega el código del worker (tengo el código listo, solo dime cuándo)
+   c) Publica el worker
+   d) En la pestaña "Settings > Variables and Secrets" añade:
+      - Variable: BREVO_API_KEY
+      - Valor: tu clave actual (empieza por xkeysib-...)
+   e) Copia la URL del worker (ej. https://tu-worker.workers.dev)
+   f) Dime la URL y actualizaré script.js para llamar al worker en vez de a Brevo directamente
+
+---------------------------------------------------------------------------
+SEO Y DISTRIBUCIÓN
+---------------------------------------------------------------------------
+
+2. GOODREADS - ACTUALIZAR BIO DE AUTOR
+   Tu perfil existe y está bien: https://www.goodreads.com/author/show/66843136.David_Porto_D_az
    (El libro ya tiene 3 reseñas, todas 5 estrellas. Bien!)
    Lo que falta: añadir descripción de autor en la página.
    Ve a Edit Author Profile y añade una bio de 200-400 palabras.
