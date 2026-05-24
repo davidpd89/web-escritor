@@ -26,9 +26,11 @@ jobs:
           echo "Changed HTML files: $CHANGED"
 
       - name: Update sitemap lastmod for changed pages only
+        env:
+          CHANGED_FILES: ${{ steps.changed.outputs.files }}
         run: |
           TODAY=$(date -u +%Y-%m-%d)
-          for file in ${{ steps.changed.outputs.files }}; do
+          for file in $CHANGED_FILES; do
             # Convert file path to canonical URL
             if [ "$file" = "index.html" ]; then
               url="https://davidportodiaz.com/"
@@ -39,22 +41,11 @@ jobs:
               url="https://davidportodiaz.com/$file"
             fi
             echo "Updating lastmod for: $url → $TODAY"
-            python3 - <<PYEOF
-import re, sys
-url = "$url"
-today = "$TODAY"
-with open('sitemap.xml', 'r', encoding='utf-8') as f:
-    content = f.read()
-# Match <loc>URL</loc> followed by optional whitespace then <lastmod>DATE</lastmod>
-pattern = r'(<loc>' + re.escape(url) + r'</loc>\s*<lastmod>)[^<]*(</lastmod>)'
-new_content = re.sub(pattern, r'\g<1>' + today + r'\2', content)
-if new_content != content:
-    with open('sitemap.xml', 'w', encoding='utf-8') as f:
-        f.write(new_content)
-    print(f"Updated: {url}")
-else:
-    print(f"No match found for: {url}")
-PYEOF
+            # Escape dots in URL for sed regex, use | as delimiter to avoid escaping slashes
+            ESCAPED=$(printf '%s' "$url" | sed 's/\./\\./g')
+            # <loc> and <lastmod> are on consecutive lines in our sitemap
+            sed -i "\|<loc>${ESCAPED}</loc>|{n; s|<lastmod>[0-9-]*</lastmod>|<lastmod>${TODAY}</lastmod>|}" sitemap.xml
+            echo "Done: $url"
           done
 
       - name: Commit updated sitemap if changed
