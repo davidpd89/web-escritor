@@ -38,6 +38,15 @@ SEO Y DISTRIBUCIÓN
    Portal Fantasy, Spanish Literature, Coming of Age) y crea la serie "Noveris"
    marcando Samuel como libro #1.
 
+   NUEVO (hallazgo Bloque A, 24/05/2026 — mejorar visibilidad en Perplexity):
+   Perplexity se alimenta de Goodreads para recomendar libros. Para que Samuel
+   aparezca en respuestas a "portal fantasy en español" o "fantasía juvenil española":
+   d) Vota Samuel en Listopias de Goodreads: busca listas de "portal fantasy en español",
+      "fantasía juvenil española" y "mundos paralelos" → vota para que Samuel entre.
+   e) Asegúrate de que el género principal sea Fantasy (no Fiction genérica).
+   f) En la página del libro, añade "tropes" si Goodreads los soporta:
+      portal fantasy, hard magic system, non-chosen-one, coming of age.
+
 3. AMAZON AUTHOR CENTRAL - ACTUALIZAR BIO
    Tu perfil existe: https://www.amazon.es/stores/author/B0GZFP1JV3
    PROBLEMA: la bio actual dice "fantasía, romantasy y ficción especulativa" y
@@ -77,6 +86,14 @@ SEO Y DISTRIBUCIÓN
    f) Crear entrada separada para la novela Samuel entre mundos como obra literaria
       Instancia: novela (Q8261), ISBN: 9791387659776, Editorial: Libros Indie, Año: 2025
 
+   NUEVO (hallazgo Bloque A, 24/05/2026 — fix Noveris en IAs):
+   g) Crear entrada para la ciudad ficticia Noveris:
+      Instancia: ciudad ficticia (fictional city)
+      Parte de: Samuel entre mundos
+      Creador: David Porto Díaz
+      Esto ayuda a que Gemini/Perplexity distingan "Noveris" del libro
+      de las empresas reales llamadas "Noveris Hábitat" o "Grupo Noveris".
+
 5. PLATAFORMAS DE LIBROS PENDIENTES (para que las IAs te encuentren)
    Las siguientes plataformas son indexadas por LLMs para recomendaciones de libros.
    Crea ficha/perfil en cada una:
@@ -90,6 +107,24 @@ SEO Y DISTRIBUCIÓN
    
    c) LibraryThing: https://www.librarything.com/
       - Añade el libro con todos los metadatos (ISBN: 9791387659776)
+
+5b. DILVE - VERIFICAR METADATOS DEL LIBRO (URGENTE para IAs)
+    DILVE es el sistema español de metadatos de libros que alimenta a distribuidores,
+    librerías y plataformas. Un error en DILVE puede propagarse a las IAs.
+    
+    Detectado en Bloque A (24/05/2026): Alguna IA describe Samuel entre mundos con
+    datos incorrectos: "realismo social", "año 2023", "tono poético" y muestra
+    la portada de otro libro. Esto puede venir de DILVE o Google Books.
+    
+    Qué hacer:
+    a) Accede a DILVE en https://www.dilve.es/ (pregunta a tu editorial Libros Indie
+       si ya han dado de alta el libro — ellos son los responsables de DILVE)
+    b) Verifica que el género sea CORRECTO: Literatura Juvenil / Fantasy (no Ficción contemporánea)
+    c) Verifica que la descripción sea la sinopsis correcta del libro
+    d) Verifica que la portada subida sea la portada real de Samuel entre mundos
+    e) Verifica que el año de publicación sea 2025 (no 2023)
+    f) Si encuentras errores, pide a Libros Indie que los corrija en DILVE
+       (Google Books, Casa del Libro y muchas IAs se alimentan de DILVE)
 
 ---------------------------------------------------------------------------
 IMÁGENES Y ARCHIVOS

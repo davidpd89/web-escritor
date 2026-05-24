@@ -1,42 +1,27 @@
 ﻿### INFO OTRAS IA — Última revisión: 24 mayo 2026
-Archivo de análisis de otras IAs (42.781 líneas originales).
-Contenido procesado e implementado. Solo queda lo pendiente real.
+Archivo de seguimiento de hallazgos de otras IAs.
 
 ═══════════════════════════════════════════════════════════════════
-PENDIENTE DE CÓDIGO (yo puedo hacer esto)
+PENDIENTE DE CÓDIGO
 ═══════════════════════════════════════════════════════════════════
 - Modal "Dónde comprar": reemplazar los <a> de compra por un <dialog>
   nativo con aria-modal, focus trap, opciones Amazon/Casa del Libro/Fnac,
-  GoatCounter event click_buy_option. (ver Info otras IA bloque UX, día 5)
-
-- BreadcrumbList JSON-LD: auditar todas las páginas indexables y añadir
-  BreadcrumbList donde falte (sobre todo páginas de subdirectorio: /libros/,
-  /universo/, /empieza-aqui/, /clubes-de-lectura/, /fragmento/)
-
-- manifest.json: reemplazar iconos .avif por .png para compatibilidad PWA
-  (ver cosas-pendientes item 7). Crear icon-512.png y icon-512-maskable.png.
-
-- Imágenes sin width/height: auditar todo el HTML para añadir width y height
-  explícitos (mejora CLS / Core Web Vitals). Prioridad: home hero, Samuel hero.
-
-- FAQPage schema: añadir FAQPage JSON-LD a las páginas que tienen <details>/<summary>
-  (Noveris, clubes-de-lectura, empieza-aqui). Ayuda a Google y a IAs.
+  GoatCounter event click_buy_option.
 
 ═══════════════════════════════════════════════════════════════════
 PENDIENTE DAVID (ver cosas-pendientes-david.txt para detalle)
 ═══════════════════════════════════════════════════════════════════
-- Wikidata Q139678851: completar P21 (sexo), P27 (nacionalidad), P106 (escritor),
-  P856 (web oficial), P2963 (Goodreads ID correcto). Crear entrada del libro.
-- Plataformas: Goodreads bio, Amazon bio ES, Babelio, StoryGraph (items 2-5)
-- Outreach: menciones en blogs literarios de reseñas (item 9)
-- Feria Madrid: confirmar caseta y horario exacto para actualizar ferias.html (item 11)
-- GoatCounter: revisar métricas y ver qué páginas tienen más tráfico (item 13)
+- Wikidata Q139678851: completar campos + entrada novela + entrada Noveris ficticia (ítem 4)
+- Plataformas: Goodreads bio + Listopias, Amazon bio, Babelio, StoryGraph (ítems 2-5)
+- DILVE: verificar metadatos del libro con editorial Libros Indie (ítem 5b)
+- Outreach: menciones en blogs literarios (ítem 9)
+- Feria Madrid: confirmar caseta y horario (ítem 11)
+- GoatCounter: revisar métricas (ítem 13)
 
 ═══════════════════════════════════════════════════════════════════
-FUTURO (cuando haya más contenido publicado)
+COMPLETADO EN SESIÓN 24/05/2026
 ═══════════════════════════════════════════════════════════════════
-- Blog /cuaderno/ — primer artículo (ver E1 en Respuestas)
-- Pillar pages: /fantasia-juvenil-espanola/, /novelas-de-portales-entre-mundos/,
-  /recomendaciones/portal-fantasy-espanol/, /recomendaciones/magia-con-coste/
-- Página /librerias/samuel-entre-mundos/
-- Migración a Astro (solo cuando el catálogo sea de 3+ libros)
+✅ FAQPage schema en /universo/noveris/ — desambiguación Noveris vs empresas
+✅ BreadcrumbList: audit completo, todas las páginas indexables lo tienen
+✅ Images width/height: offline.html y privacidad.html corregidos
+✅ FAQPage schema: empieza-aqui (sin FAQ section), clubes-de-lectura (preguntas debate, no aplica)
