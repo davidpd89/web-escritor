@@ -483,7 +483,6 @@ document.querySelectorAll(".faq-question").forEach((btn) => {
   });
 });
 
-// GoatCounter analytics — privacy-friendly, no cookies
 (function () {
   const gc = document.createElement("script");
   gc.dataset.goatcounter = "https://davidportodiaz.goatcounter.com/count";
@@ -501,8 +500,88 @@ function _gcEvent(path, title) {
   }, "background");
 }
 
-// Comprar en Amazon
-document.querySelectorAll('a[href*="amazon.es"]').forEach(link => {
+// ── MODAL "¿DÓNDE COMPRAR?" ────────────────────────────────────────────────
+// Crea el <dialog> una sola vez y lo abre cuando se pulsa cualquier
+// botón/enlace con el atributo data-buy-modal. Funciona en Android,
+// iOS (Safari 15.4+) y escritorio. ESC y clic fuera cierran el modal.
+(function () {
+  const AMAZON_URL = "https://www.amazon.es/dp/B0GB6LGQFH?tag=davidporto-21";
+  const CASADELLIBRO_URL = "https://www.casadellibro.com/libro-samuel-entre-mundos/9791387659776/17856720";
+
+  function buildDialog() {
+    const d = document.createElement("dialog");
+    d.id = "buy-dialog";
+    d.setAttribute("aria-modal", "true");
+    d.setAttribute("aria-labelledby", "buy-dialog-title");
+    d.innerHTML = `
+      <div class="buy-dialog-inner">
+        <button class="buy-dialog-close" id="buy-dialog-close" aria-label="Cerrar">✕</button>
+        <p class="buy-dialog-eyebrow">Samuel entre mundos · David Porto Díaz</p>
+        <h2 id="buy-dialog-title" class="buy-dialog-title">¿Dónde quieres leerlo?</h2>
+        <div class="buy-dialog-options">
+          <a class="buy-option buy-option--primary" href="${AMAZON_URL}" target="_blank" rel="sponsored noopener noreferrer" data-gc="comprar-amazon-papel">
+            <span class="buy-option-vendor">Amazon España</span>
+            <span class="buy-option-format">Papel · eBook</span>
+            <span class="buy-option-cta">Comprar →</span>
+          </a>
+          <a class="buy-option" href="${CASADELLIBRO_URL}" target="_blank" rel="noopener noreferrer" data-gc="comprar-casadellibro">
+            <span class="buy-option-vendor">Casa del Libro</span>
+            <span class="buy-option-format">Papel</span>
+            <span class="buy-option-cta">Comprar →</span>
+          </a>
+        </div>
+        <p class="buy-dialog-note">¿Prefieres probarlo antes? <a href="/fragmento/" class="text-link" data-gc="fragmento-desde-modal">Lee el capítulo 1 gratis →</a></p>
+      </div>`;
+    document.body.appendChild(d);
+
+    // Cerrar con el botón X
+    d.querySelector("#buy-dialog-close").addEventListener("click", () => d.close());
+
+    // Cerrar al clicar el backdrop (fuera del inner)
+    d.addEventListener("click", e => {
+      if (e.target === d) d.close();
+    });
+
+    // Focus trap: Tab dentro del diálogo
+    d.addEventListener("keydown", e => {
+      if (e.key !== "Tab") return;
+      const focusable = Array.from(d.querySelectorAll("a, button")).filter(el => !el.disabled);
+      const first = focusable[0], last = focusable[focusable.length - 1];
+      if (e.shiftKey ? document.activeElement === first : document.activeElement === last) {
+        e.preventDefault();
+        (e.shiftKey ? last : first).focus();
+      }
+    });
+
+    // GoatCounter por opción
+    d.querySelectorAll("[data-gc]").forEach(el => {
+      el.addEventListener("click", () => _gcEvent(el.dataset.gc, "Clic: " + el.dataset.gc));
+    });
+
+    return d;
+  }
+
+  let _dialog = null;
+  function openBuyDialog() {
+    if (!_dialog) _dialog = buildDialog();
+    _gcEvent("abrir-modal-comprar", "Modal: abrir dónde comprar");
+    _dialog.showModal();
+    // Enfocar el primer elemento focusable tras abrir
+    setTimeout(() => _dialog.querySelector("a, button")?.focus(), 50);
+  }
+
+  // Activar en todos los elementos con data-buy-modal
+  document.addEventListener("click", e => {
+    const trigger = e.target.closest("[data-buy-modal]");
+    if (trigger) {
+      e.preventDefault();
+      openBuyDialog();
+    }
+  });
+})();
+
+
+document.querySelectorAll('a[href*="amazon.es"]:not(#buy-dialog a)').forEach(link => {
   link.addEventListener("click", () => _gcEvent("comprar-amazon", "Clic: Comprar Amazon"));
 });
 

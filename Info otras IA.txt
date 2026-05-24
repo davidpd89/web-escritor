@@ -1,11 +1,19 @@
-﻿### INFO OTRAS IA — Última revisión: 24 mayo 2026
+﻿### INFO OTRAS IA — Última revisión: 26 mayo 2026
 Archivo de seguimiento de hallazgos de otras IAs.
 
 ═══════════════════════════════════════════════════════════════════
 PENDIENTE DE CÓDIGO
 ═══════════════════════════════════════════════════════════════════
-- Modal "Dónde comprar": reemplazar los <a> de compra por un <dialog>
-  nativo con aria-modal, focus trap, opciones Amazon/Casa del Libro/Fnac,
-  GoatCounter event click_buy_option.
+(ningún pendiente de código activo)
 
-
+═══════════════════════════════════════════════════════════════════
+COMPLETADO
+═══════════════════════════════════════════════════════════════════
+✅ Modal "Dónde comprar" — implementado 26 mayo 2026
+   - <dialog id="buy-dialog"> generado dinámicamente en script.js
+   - aria-modal="true", aria-labelledby, focus trap, ESC y backdrop para cerrar
+   - Opciones: Amazon España (papel + eBook) / Casa del Libro (papel)
+   - GoatCounter events: abrir-modal-comprar / comprar-amazon-papel / comprar-casadellibro
+   - CSS en styles.css (.buy-dialog-inner, .buy-option, .buy-option--primary)
+   - Botones "Comprar" en index.html y libros/samuel-entre-mundos/index.html
+     convertidos a <button type="button" data-buy-modal>

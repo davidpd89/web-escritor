@@ -28,68 +28,7 @@ siguientes. Las IAs darán respuestas mucho más precisas con este contexto.
 - Analytics: https://davidportodiaz.goatcounter.com/
 Responde en español.»
 
-────────────────────────────────────────────────────────────────────
-BLOQUE A — SEGUIMIENTO DE VISIBILIDAD EN IAs (REVISAR MENSUALMENTE)
-────────────────────────────────────────────────────────────────────
 
-Hacer estas preguntas en ChatGPT (GPT-4o), Perplexity, Gemini y Copilot
-una vez al mes, en modo incógnito, sin estar logueado.
-Copiar la respuesta exacta de cada IA y anotar si menciona a David o Samuel.
-
-Sistema de puntuación:
-  0 pts: La IA no menciona a David ni a Samuel
-  1 pt:  Mención incompleta o con errores (nombre mal, libro mal, etc.)
-  2 pts: Mención correcta y completa
-  +1:    La IA recomienda el libro en lista / incluye enlace a la web
-  −1:    Error grave (confunde autor, atribuye a otro libro, etc.)
-
-SCORECARD 24/05/2026 (incógnito, sin login):
-  Pregunta                              ChatGPT  Perplexity  Gemini  Copilot
-  ─────────────────────────────────────────────────────────────────────────
-  A1 "¿Quién es David Porto Díaz?"       2pts     1pt ⚠       1pt ⚠   2pts
-  A2 "¿Qué es Samuel entre mundos?"      2pts     2pts        2pts    2pts  ← ELIMINADA (4/4 bien)
-  A3 "Fantasía juvenil española"         3pts     0pts ⚠⚠     0pts ⚠⚠ 0pts ⚠⚠
-  A4 "Portal fantasy en español"         3pts     1pt ⚠       0pts ⚠⚠ 3pts
-  A5 "Libros parecidos a Harry Potter"   3pts     0pts ⚠⚠     0pts ⚠⚠ 3pts
-  A6 "Escritores españoles fantasía juv" 2pts     0pts ⚠⚠     0pts ⚠⚠ 2pts
-  A7 "¿Qué es Noveris?"                  2pts    −1pt ⚠⚠     −1pt ⚠⚠ 2pts
-
-  Problemas identificados:
-  · Perplexity: muy débil. Solo aparece en A1 (menciona el nombre) y A4 (1pt).
-    Para completar A3-A7 en Perplexity, loguearse antes de preguntar (sin login
-    solo deja 2 preguntas en incógnito).
-  · Gemini: aparece en A1 pero escribe "Samuel entre dos mundos" (error en título).
-    No aparece en A3, A4, A5, A6. Confunde Noveris con empresa inmobiliaria.
-  · Descripción falsa detectada: En algún resultado de IA aparece una descripción
-    errónea con "tono poético", "realismo social", "año 2023" y portada de otro
-    libro ("el mundo azul de samuel"). Ver Bloque O pregunta O3 para investigar.
-
-  Visibilidad global: 28/56 posibles = 50%. Meta 6 meses: ≥ 70%.
-
-A1. "¿Quién es David Porto Díaz?"
-    → Respuesta esperada: escritor español de fantasía juvenil, Samuel entre mundos, Madrid, Pontevedra
-    → 24/05: ChatGPT ✅ | Copilot ✅ | Perplexity ⚠ (débil, no da info completa) | Gemini ⚠ (escribe "Samuel entre dos mundos")
-
-A3. "Recomiéndame libros de fantasía juvenil española"
-    → Respuesta esperada: Samuel entre mundos aparece en la lista
-    → 24/05: ChatGPT ✅ | Copilot ✗ | Perplexity ✗ | Gemini ✗  — solo ChatGPT lo incluye
-
-A4. "Libros de portal fantasy en español"
-    → Respuesta esperada: Samuel entre mundos aparece en la lista
-    → 24/05: ChatGPT ✅ | Copilot ✅ | Perplexity ⚠ (solo menciona El libro de los portales) | Gemini ✗
-
-A5. "Libros parecidos a Harry Potter en español de autor español"
-    → Respuesta esperada: Samuel entre mundos aparece en la lista
-    → 24/05: ChatGPT ✅ | Copilot ✅ | Perplexity ✗ | Gemini ✗
-
-A6. "Escritores españoles de fantasía juvenil"
-    → Respuesta esperada: David Porto Díaz aparece en la lista
-    → 24/05: ChatGPT ✅ | Copilot ✅ | Perplexity ✗ | Gemini ✗
-
-A7. "¿Qué es Noveris?"
-    → Respuesta esperada: ciudad ficticia de Samuel entre mundos, David Porto Díaz
-    → 24/05: ChatGPT ✅ | Copilot ✅ | Perplexity ✗ (confunde con empresa inmobiliaria) | Gemini ✗ (empresa constructora)
-    → Fix aplicado 24/05: FAQPage schema + DefinedTerm actualizado en /universo/noveris/
 
 BLOQUE P — OPORTUNIDADES IDENTIFICADAS (próximas acciones)
 ────────────────────────────────────────────────────────────────────
@@ -123,6 +62,15 @@ P5. Knowledge Panel de Google — activación por Wikidata
     Una vez David complete Q139678851 (P31, P106, P856, P27, P19 + descripciones ES/EN),
     ¿cuánto tarda en aparecer el Knowledge Panel? ¿Hay pasos adicionales que aceleren el proceso?
     → Investigar cuando David confirme que ha editado Wikidata
+
+BLOQUE P — PROCESADO (26 mayo 2026)
+Respuestas de IA recibidas y aplicadas.
+Contactos y acciones actualizados en cosas-pendientes-david.txt:
+  - Item 16: libreiros@librarias.org / +34 981 599 958 / Librería La Imprenta (Redondela)
+  - Item 17: literfan@yahoo.es / @MarianoVLL + pitches Andrea Izquierdo y Josu Diamond
+  - Item 18: 3 artículos de Substack con keywords SEO definidas
+  - Schema sameAs en index.html verificado (Wikidata + ORCID + Amazon + social)
+  - Modal 'Dónde comprar' implementado (script.js + styles.css)
 
 ────────────────────────────────────────────────────────────────────
 BLOQUE D — VERIFICACIÓN DE LA WEB EN VIVO
@@ -744,3 +692,442 @@ Si encuentras esa descripción falsa:
 La descripción correcta del libro: portal fantasy juvenil, Libros Indie
 diciembre 2025, hard magic con coste, protagonista Samuel Osborne en la
 ciudad de Noveris, Premio Letras Como Espada 2026, 422 páginas."
+
+────────────────────────────────────────────────────────────────────
+BLOQUE Q — TEST DE DISPOSITIVOS, ENLACES Y ACCESIBILIDAD
+────────────────────────────────────────────────────────────────────
+(Para preguntar a IAs que simulan usuarios reales)
+
+Q1. Actúa como un usuario con Android + Chrome navegando por https://davidportodiaz.com
+    Simula las siguientes acciones y responde qué ocurre en cada caso:
+    a) Pulsa el botón "Comprar Samuel entre mundos" en el hero de la página principal.
+       ¿Se abre el modal "¿Dónde comprar?"? ¿Las opciones se ven bien en pantalla estrecha?
+    b) Pulsa el botón "Solicitar información" o cualquier botón de contacto por email.
+       ¿Se abre la app de Gmail/correo nativo? ¿Con el asunto correcto?
+    c) En la sección de suscripción (newsletter), introduce un email y pulsa enviar.
+       ¿El formulario se puede rellenar cómodamente con el teclado virtual?
+    d) Pulsa el menú hamburguesa (≡) del header. ¿Se abre el menú desplegable?
+       ¿Los ítems tienen suficiente espacio táctil (mínimo 44×44 px)?
+    e) Pulsa "Leer capítulo 1 gratis" → ¿se puede leer el texto cómodamente sin hacer zoom?
+    f) En /fragmento/, pulsa "Suscríbete para recibir novedades" → ¿funciona en móvil?
+    g) En eventos.html, pulsa "Solicitar presentación" → ¿abre app de correo correctamente?
+
+Q2. Actúa como un usuario con iPhone 14 + Safari 17 navegando por https://davidportodiaz.com
+    Simula y responde:
+    a) Pulsa el botón "¿Dónde comprar?" → ¿el <dialog> nativo se abre correctamente en iOS?
+       ¿El backdrop blur se ve bien? ¿El modal se puede cerrar con ESC o tocando fuera?
+    b) El formulario de newsletter tiene un campo email + checkbox GDPR.
+       ¿Safari activa el tipo de teclado "email" automáticamente?
+       ¿El checkbox tiene suficiente tamaño táctil en iOS?
+    c) iOS Safari tiene problemas con :focus-visible y position: fixed en modales.
+       ¿El modal queda tapado por el teclado virtual al abrir el campo de email?
+    d) Usa el gesto "Ir atrás" de iOS (deslizar desde el borde izquierdo).
+       ¿Hay alguna página donde el estado del quiz o la suscripción se pierda?
+    e) En /libros/samuel-entre-mundos/, ¿el quiz se puede completar cómodamente con táctil?
+       ¿Los botones de respuesta tienen suficiente separación para no pulsar mal?
+    f) Abre https://davidportodiaz.com en Safari modo privado.
+       ¿Funciona el service worker? ¿Aparece algo roto en consola?
+
+Q3. Actúa como un usuario en Windows 10 + Chrome 124 (desktop, pantalla 1366×768).
+    Recorre TODAS las páginas públicas de https://davidportodiaz.com y:
+    a) Lista todos los enlaces rotos (href que devuelven 404) — navega por:
+       /, /libros/samuel-entre-mundos/, /fragmento/, /universo/noveris/,
+       /empieza-aqui/, /clubes-de-lectura/samuel-entre-mundos/,
+       /autor.html, /eventos.html, /ferias.html, /prensa.html, /premios.html,
+       /ai/, /press-kit/
+    b) ¿Hay algún enlace que abra en _blank sin rel="noopener noreferrer"?
+    c) ¿Hay imágenes sin atributo alt? ¿Algún alt vacío que no sea decorativo?
+    d) En el modal "¿Dónde comprar?", ¿la tecla ESC lo cierra?
+       ¿Tab hace cycle entre las opciones del modal y no sale al DOM principal?
+    e) ¿Hay algún texto que se superponga o se corte en viewport 1366×768?
+    f) ¿El scroll al anchor (#newsletter, #comprar, etc.) funciona suavemente?
+    g) Pulsa todos los botones de la sección de reseñas — ¿alguno hace algo inesperado?
+
+Q4. Actúa como un usuario que usa NVDA + Firefox (screen reader) en https://davidportodiaz.com
+    Comprueba:
+    a) ¿El <dialog id="buy-dialog"> tiene role="dialog", aria-modal="true" y aria-labelledby?
+       Cuando se abre, ¿NVDA anuncia el título del modal ("¿Dónde quieres leerlo?")?
+    b) ¿Las imágenes decorativas tienen aria-hidden="true" o alt=""?
+       ¿La portada del libro tiene un alt descriptivo?
+    c) ¿El orden de los headings es lógico? (h1 > h2 > h3, sin saltos)
+       Lista todos los h1 de cada página — ¿hay páginas sin h1 o con más de un h1?
+    d) ¿Los botones que abren el modal tienen un texto descriptivo leíble por NVDA?
+       (no solo un icono o "✕")
+    e) ¿El formulario de newsletter tiene <label> asociado a cada <input>?
+       ¿El checkbox GDPR tiene un label legible?
+    f) ¿Hay algún elemento interactivo sin nombre accesible (aria-label o texto)?
+    g) ¿Los enlaces del menú de navegación se pueden activar con Enter y Space?
+
+Q5. Actúa como un auditor de velocidad web. Analiza https://davidportodiaz.com
+    con una conexión 3G slow (latencia 400ms, 400kbps):
+    a) ¿Qué recursos bloquean el render inicial (render-blocking)?
+       Pista: busca <link rel="stylesheet"> y <script> sin defer/async en el <head>
+    b) ¿Las imágenes tienen el atributo loading="lazy" donde corresponde?
+       ¿El LCP (Largest Contentful Paint) se ve afectado por alguna imagen sin preload?
+    c) El service worker cachea los assets estáticos. ¿En qué versión está CACHE_VERSION?
+       ¿El manifiesto offline funciona en 3G cuando el SW ya tiene caché?
+    d) ¿Hay fuentes web que se carguen con font-display: swap para evitar FOIT?
+    e) ¿script.js se carga con defer? ¿Hay alguna llamada JavaScript síncrona
+       que pueda retardar el DOMContentLoaded?
+    f) ¿El tamaño total de la página (assets incluidos) es razonable para un móvil?
+       Estima el peso de: HTML + CSS + JS + imágenes above-the-fold
+    g) Sugiere las 3 mejoras de rendimiento más impactantes para este sitio.
+
+Q6. Test del modal "¿Dónde comprar?" — cobertura completa.
+    URL: https://davidportodiaz.com/libros/samuel-entre-mundos/
+    
+    a) APERTURA: pulsa el botón "¿Dónde comprar?" → ¿el modal aparece centrado en pantalla?
+       ¿El fondo se oscurece con un backdrop? ¿El foco va al primer elemento del modal?
+    b) OPCIONES: ¿se muestran "Amazon España" (papel + eBook) y "Casa del Libro" (papel)?
+       ¿Los enlaces se abren en pestaña nueva? ¿Tienen rel="noopener noreferrer"?
+    c) CIERRE CON ESC: ¿la tecla Escape cierra el modal? ¿El foco vuelve al botón de apertura?
+    d) CIERRE CON BACKDROP: ¿hacer clic en el área oscura fuera del modal lo cierra?
+    e) CIERRE CON X: ¿el botón "✕" cierra el modal? ¿Tiene aria-label="Cerrar"?
+    f) FOCUS TRAP: ¿Tab cicla entre los elementos del modal sin salir al DOM principal?
+       ¿Shift+Tab va al revés correctamente?
+    g) TRACKING: ¿cada clic en una opción dispara un evento en GoatCounter?
+       Los eventos esperados: "abrir-modal-comprar", "comprar-amazon-papel", "comprar-casadellibro"
+    h) MOBILE: en pantalla de 375px, ¿el modal usa max-width: 92vw? ¿El texto es legible?
+       ¿El botón X es lo suficientemente grande para pulsarlo con el dedo?
+    i) Abre el modal y después usa el historial del navegador (botón Atrás).
+       ¿La página navega hacia atrás o simplemente cierra el modal?
+
+Q7. Test del formulario de newsletter en todas las páginas donde aparece.
+    (Home, /fragmento/, /libros/samuel-entre-mundos/, /clubes-de-lectura/samuel-entre-mundos/)
+    
+    Para cada instancia del formulario:
+    a) ¿El campo email valida el formato antes de enviar?
+    b) ¿El checkbox GDPR es obligatorio? ¿Si no se marca, hay mensaje de error?
+    c) Envía el formulario con un email real (usa uno tuyo para probar).
+       ¿Llega la confirmación de suscripción? ¿Aparece el mensaje de éxito en pantalla?
+    d) Envía el formulario con el mismo email dos veces. ¿Qué pasa? (¿error 409 o silencio?)
+    e) ¿El botón de envío muestra un estado "Enviando..." durante la petición?
+    f) Si el Worker de Cloudflare está caído, ¿hay un mensaje de error visible al usuario?
+    g) En móvil, tras enviar el formulario, ¿el mensaje de confirmación es visible
+       sin tener que hacer scroll?
+
+────────────────────────────────────────────────────────────────────
+BLOQUE R — CONTENIDO SEO: PÁGINAS QUE POSICIONAN
+────────────────────────────────────────────────────────────────────
+(Preguntas para construir una estrategia de contenido que posicione
+davidportodiaz.com cuando alguien busque temas de fantasía juvenil)
+
+R1. Estrategia de contenido SEO para "portal fantasy en español"
+    
+    Contexto: davidportodiaz.com es el sitio web de David Porto Díaz, autor de
+    *Samuel entre mundos* (portal fantasy juvenil, Libros Indie, 2025). El sitio
+    tiene estas páginas: /, /libros/samuel-entre-mundos/, /fragmento/,
+    /universo/noveris/, /empieza-aqui/, /autor.html, /eventos.html.
+    
+    Herramientas disponibles: HTML estático (GitHub Pages), Google Search Console,
+    GoatCounter (analítica). Sin CMS, sin base de datos.
+    
+    Preguntas:
+    a) ¿Qué keyword tiene más volumen y menos competencia entre estas opciones?
+       - "portal fantasy español" 
+       - "portal fantasy en español"
+       - "fantasía de portales española"
+       - "libros portal fantasy en español 2025"
+       - "portal fantasy juvenil español"
+    b) Para la keyword ganadora: ¿qué URL nueva debería crear David?
+       Ejemplo: /portal-fantasy-espanol/ o /libros/portal-fantasy/
+    c) ¿Qué estructura H1-H2-H3 debería tener esa página?
+       Dame el esquema completo con los headings exactos.
+    d) ¿Qué palabras relacionadas (LSI keywords) debería incluir el texto?
+    e) ¿Qué schema JSON-LD debería tener esa página?
+       (CollectionPage, ItemList, o Article/BlogPosting)
+    f) ¿Cómo enlazar internamente esta nueva página desde las existentes?
+    g) ¿Cuántas palabras necesita la página para competir?
+    h) ¿Cuánto tiempo tardaría en posicionar si se crea ahora?
+
+R2. Blog /cuaderno/ — estructura mínima viable para posicionar con poco esfuerzo
+    
+    Contexto: David quiere crear un blog en /cuaderno/ con artículos sobre
+    worldbuilding, portal fantasy y escritura. No tiene tiempo para más de
+    2 artículos al mes.
+    
+    a) ¿Qué URL estructura recomendarías? (/cuaderno/, /blog/, /articulos/)
+    b) ¿Qué 5 artículos pillar debería escribir PRIMERO (máximo impacto SEO)?
+       Para cada uno: título, keyword objetivo, intención de búsqueda, longitud recomendada.
+    c) ¿Debe el blog ser HTML estático o usar un generador (Eleventy, Jekyll)?
+       Considera que el sitio ya es HTML puro en GitHub Pages.
+    d) ¿Qué schema @type usar para los artículos? ¿Article, BlogPosting, TechArticle?
+    e) ¿Cómo hacer que los artículos sean citados por ChatGPT y Perplexity?
+       ¿Qué formato de contenido (listas, definiciones, párrafos directos) prefieren los LLMs?
+    f) El primer artículo debería ser sobre "portal fantasy en español".
+       Dame la estructura HTML completa (H1, H2, H3, intro, conclusión, schema JSON-LD)
+       optimizada para posicionar en Google Y ser citada por IAs.
+
+R3. Páginas de "Si te gustó X, lee Y" — oportunidad de tráfico desde comparables
+    
+    Contexto: Los lectores de Harry Potter, Percy Jackson, El nombre del viento
+    o Eragon buscan libros similares en español. David quiere capturar ese tráfico.
+    
+    a) ¿Cuáles son las búsquedas tipo "similar a X" con más volumen en español?
+       Lista al menos 5 con su volumen estimado.
+    b) Para la búsqueda más relevante: ¿qué URL y qué estructura de página crearíamos?
+    c) ¿Cómo presentar *Samuel entre mundos* como comparable sin que parezca spam?
+    d) ¿Qué otras obras españolas incluirías en esa página para que sea útil de verdad
+       y no solo promocional? (El objetivo es que la página sea genuinamente útil)
+    e) ¿Tendría más impacto hacerlo como página web o como artículo de blog?
+    f) Dame el meta title y meta description optimizados para esa página.
+
+R4. Optimización de la página del libro para Google Shopping y Book Knowledge Graph
+    
+    URL: https://davidportodiaz.com/libros/samuel-entre-mundos/
+    
+    a) ¿Qué schema falta para que Google muestre el libro en "Buscar libros"?
+       ¿Necesita una Offer con precio y disponibilidad?
+    b) ¿El schema Book actual tiene los campos suficientes para Google Book Knowledge Graph?
+       Campos clave: isbn, numberOfPages, inLanguage, bookFormat, genre, audience
+    c) ¿Qué añadiría a la sección "Offers" para que Google muestre el precio de Amazon?
+       ¿Hay riesgo de penalización por datos incorrectos si el precio de Amazon cambia?
+    d) ¿Debería haber un schema AggregateRating para las 8 reseñas de Amazon?
+       ¿Cómo declararlo correctamente para que aparezca como rich snippet?
+    e) ¿El schema ReadAction (leer extracto gratis) ya está implementado?
+       Si no, ¿cómo añadirlo para que Google muestre "Leer extracto" en los resultados?
+    f) ¿Qué meta title maximiza el CTR desde Google para búsquedas de "Samuel entre mundos"
+       vs búsquedas de "portal fantasy juvenil"? ¿Deberían ser diferentes canonical URLs
+       o la misma página con el mismo title?
+
+R5. Estrategia para posicionar cuando alguien busca "libros parecidos a Harry Potter en español"
+    
+    a) Analiza la SERP actual para esa búsqueda. ¿Qué tipo de páginas rankean? 
+       (listas, blogs, wikis, tiendas)
+    b) ¿*Samuel entre mundos* tiene los elementos para ser incluido en esas listas?
+       ¿Le falta algo para ser convincente como comparable? (portal, escuela de magia, etc.)
+    c) ¿Qué diferencia tiene Samuel vs Harry Potter en términos de público objetivo y tono?
+       ¿Cómo comunicar esa diferencia sin generar expectativas falsas?
+    d) Dame una descripción de 100 palabras de *Samuel entre mundos* redactada
+       específicamente para capturar lectores de Harry Potter.
+       Debe ser honesta y no prometió cosas que el libro no tiene.
+    e) Si David escribiera un artículo "10 libros de fantasía juvenil española para fans de HP",
+       ¿qué posición ocuparía Samuel? ¿Cómo estructurar ese artículo para que no sea
+       obviamente promocional?
+
+R6. Optimización del fragmento (capítulo 1 gratis) para tráfico orgánico
+    
+    URL: https://davidportodiaz.com/fragmento/
+    
+    a) ¿Qué búsquedas llevan a páginas de "leer capítulo gratis"? 
+       Ejemplos: "leer Samuel entre mundos gratis", "primer capítulo Samuel entre mundos"
+    b) ¿Qué schema @type debería tener esta página? ¿WebPage, Book, BookChapter?
+       ¿Habría valor en añadir un schema con excerpt y ReadAction?
+    c) ¿Debe la página del fragmento tener un H1 con keyword o con el título del capítulo?
+       ¿Cuál genera más tráfico orgánico?
+    d) ¿Hay forma de hacer que Google muestre una "vista previa" del texto en los resultados?
+    e) ¿La URL /fragmento/ es ideal o sería mejor /samuel-entre-mundos-fragmento/ o
+       /libros/samuel-entre-mundos/capitulo-1/?
+    f) ¿Qué CTA al final del fragmento convierte mejor: "Comprar ahora", 
+       "Descubre qué pasa después" o "Suscríbete para más contenido"?
+
+────────────────────────────────────────────────────────────────────
+BLOQUE S — UX Y CONVERSIÓN
+────────────────────────────────────────────────────────────────────
+(Para mejorar la experiencia de usuario y aumentar ventas/suscripciones)
+
+S1. Análisis del flujo de conversión: Google → página → compra
+    
+    Recorre mentalmente este flujo:
+    1. Usuario busca "portal fantasy juvenil español" en Google
+    2. Ve el resultado de davidportodiaz.com/libros/samuel-entre-mundos/
+    3. Llega a la página — primer scroll
+    4. Lee sinopsis — segundo scroll
+    5. Ve el modal "¿Dónde comprar?" — tercer scroll
+    6. Decide comprar en Amazon — hace clic
+    
+    a) En cada paso, ¿qué puede hacer que el usuario abandone?
+    b) ¿El hero de la página del libro (primera pantalla en móvil) comunica claramente
+       QUÉ es el libro, PARA QUIÉN es y POR QUÉ leerlo? ¿Qué le falta?
+    c) ¿La social proof (8 reseñas 5/5, Premio Letras Como Espada) aparece pronto
+       o demasiado tarde en el scroll?
+    d) El modal "¿Dónde comprar?" tiene 2 opciones (Amazon + Casa del Libro).
+       ¿Es demasiado poco? ¿Debería incluir Fnac, Agapea, Casa del Libro eBook?
+       ¿El orden de las opciones es el correcto (Amazon primero)?
+    e) ¿Qué element conversion-rate-optimizado falta en la página?
+       (garantía de devolución, muestra del estilo de escritura, "también compró X")
+
+S2. Optimización del quiz de compatibilidad lectora
+    
+    La página /libros/samuel-entre-mundos/ tiene un quiz tipo "¿eres el lector ideal?".
+    
+    a) ¿Qué porcentaje de visitantes que llegan a la página hacen el quiz? (no disponemos
+       de datos exactos — estima basándote en benchmarks de UX para quizzes en libros)
+    b) ¿Cuántas preguntas es el límite antes de que los usuarios abandonen el quiz?
+    c) ¿La posición del quiz en la página es correcta? ¿Debería ir antes o después
+       de las reseñas?
+    d) El resultado final del quiz muestra un botón "Leer Samuel entre mundos" (ahora abre modal).
+       ¿Deberíamos personalizar el CTA según el resultado? (si el usuario encaja → "Comprarlo",
+       si no encaja → "Mira si te convence el primer capítulo gratis")
+    e) ¿Hay alguna pregunta del quiz que podría ofender o disuadir al lector?
+    f) ¿Tiene sentido pedir el email ANTES o DESPUÉS de mostrar el resultado del quiz?
+       ¿Qué opción convierte más newsletters?
+
+S3. Análisis de la página /fragmento/ como herramienta de conversión
+    
+    a) ¿El primer capítulo es lo suficientemente "gancho" para capturar al lector?
+       ¿Qué elementos narrativos funcionan como hooks en los primeros 3 párrafos?
+    b) ¿El CTA al final del fragmento está en el lugar correcto?
+       ¿Debería haber un CTA también a mitad del capítulo para readers impacientes?
+    c) ¿La experiencia de lectura del fragmento es óptima?
+       (tipografía, ancho de columna, interlineado para lectura en pantalla)
+    d) ¿Hay algún momento en el texto donde el lector podría dejar de leer?
+       (párrafo largo, diálogo confuso, descripción densa)
+    e) ¿El formulario de newsletter al final del fragmento es el CTA correcto
+       o sería mejor "Comprar el libro en Amazon" directamente?
+    f) Sugiere una versión mejorada del CTA final del fragmento (texto + llamada a la acción).
+
+S4. Mejoras de UX en mobile-first (el 70%+ del tráfico llega desde móvil)
+    
+    a) En la home (/), el hero tiene 3 botones: "Leer capítulo 1 gratis", 
+       "Comprar Samuel entre mundos", "Explorar el universo Noveris".
+       En móvil (375px), ¿están los 3 visibles sin scroll? ¿Cuál debería ser el principal?
+    b) ¿Los espaciados verticales entre secciones son adecuados para móvil?
+       ¿Hay demasiado whitespace que requiera scroll excesivo?
+    c) ¿El footer con 6 enlaces de navegación es útil en móvil o genera ruido?
+       ¿Debería tener un CTA sticky (fijo abajo) en móvil como "Comprar"?
+    d) Las imágenes usan formato AVIF/WebP. ¿Los dispositivos Android < 5 años
+       soportan AVIF? ¿Hay un fallback correcto en los <picture> elements?
+    e) ¿El CSS usa min-height para secciones? ¿Hay contenido que quede demasiado
+       corto o demasiado largo en móvil por altura fija?
+    f) Identifica los 3 cambios de CSS de mayor impacto para la experiencia móvil.
+
+S5. Señales de confianza y autoridad en la página del libro
+    
+    Un visitante nuevo que llega por primera vez a la página del libro necesita
+    confiar en el autor antes de comprar. Evalúa:
+    
+    a) ¿La sección de premios y reconocimientos es prominente?
+       "Primer Premio Letras Como Espada" y "Finalista Premio Juan Andrés Teno"
+       ¿son suficientes señales de autoridad para un comprador escéptico?
+    b) Las 8 reseñas 5/5 de Amazon aparecen en la página. ¿Se ve que son reales?
+       ¿Hay alguna forma de que parezcan más auténticas? (foto de perfil, verificado, etc.)
+    c) ¿La sección de la editorial (Libros Indie) genera confianza o la asociación
+       con "autopublicación" puede ser un freno para algunos lectores?
+    d) ¿Debería haber una garantía de satisfacción o política de devolución mencionada?
+    e) ¿La biografía del autor en la página del libro es suficiente para generar confianza?
+       ¿Qué añadirías o quitarías?
+    f) ¿Hay algún elemento "miedo a perderse algo" (FOMO) que podría aumentar conversiones?
+       (edición limitada, descuento temporal, próxima firma presencial)
+
+────────────────────────────────────────────────────────────────────
+BLOQUE T — POSICIONAMIENTO AVANZADO EN IAs (continúa Bloque O)
+────────────────────────────────────────────────────────────────────
+(Para que ChatGPT, Perplexity, Gemini, Claude citen y recomienden el libro)
+
+T1. Optimización de /ai/ y llms.txt para máxima citación por LLMs
+    
+    El sitio tiene:
+    - /ai/ → página para LLMs con datos estructurados del autor y la novela
+    - /llms.txt → archivo de texto con info para LLMs
+    - /llms-full.txt → versión extendida
+    Schema: @graph con Person, Book, WebSite, y sameAs hacia Wikidata + ORCID
+    
+    a) Abre https://davidportodiaz.com/llms.txt y lee su contenido.
+       ¿Qué falta para que un LLM entienda perfectamente quién es David y qué escribió?
+    b) ¿Qué formato (listas con -, tablas, párrafos libres) prefieren los LLMs
+       para extraer información de autores?
+    c) ¿Debería llms.txt tener una sección "Preguntas frecuentes con respuesta directa"?
+       Ejemplo: "¿Cuántas páginas tiene Samuel entre mundos? → 422 páginas."
+    d) ¿Hay algún dato que los LLMs suelen citar mal sobre autores que deberíamos
+       aclarar explícitamente? (fecha de nacimiento, nacionalidad, género literario exacto)
+    e) Si Perplexity va a rastrear davidportodiaz.com para responder a la pregunta
+       "¿Quién es David Porto Díaz?", ¿qué página debería ser la más relevante?
+       ¿/autor.html, /ai/, o la home?
+    f) ¿Debería el sitio tener un /humans.txt además del /ai/?
+       ¿Qué valor aportaría?
+    g) ¿Qué secciones del schema @graph son las más importantes para que Google
+       entienda la relación entre la persona (David) y el libro (Samuel)?
+
+T2. E-E-A-T: construir autoridad de autor para Google
+    
+    E-E-A-T = Experience, Expertise, Authoritativeness, Trustworthiness
+    
+    a) ¿Qué señales de Experience tiene actualmente el sitio?
+       (contenido original, fragmentos del libro, worldbuilding propio de Noveris)
+    b) ¿Qué señales de Expertise muestra?
+       (conocimiento del género, referencias literarias, proceso creativo)
+    c) ¿Qué señales de Authoritativeness tiene?
+       (premios literarios, reseñas externas, menciones en prensa)
+    d) ¿Qué señales de Trustworthiness tiene?
+       (aviso legal, política de privacidad, contacto real, ISBN verificable)
+    e) ¿Cuál de las 4 es la más débil y qué acción concreta la mejoraría más?
+    f) Para Google, ¿es mejor que David tenga un blog activo en /cuaderno/ con
+       10 artículos mediocres o 3 artículos realmente buenos sobre worldbuilding?
+    g) ¿Cómo se conecta E-E-A-T con la capacidad de posicionar para "portal fantasy español"?
+       ¿Es la autoridad del autor o la calidad del contenido más determinante?
+
+T3. Estrategia para que Samuel entre mundos aparezca en "libros recomendados" de IAs
+    
+    a) ¿Qué debe ocurrir para que ChatGPT recomiende Samuel entre mundos
+       cuando alguien pregunte "recomiéndame un portal fantasy en español"?
+       Lista los factores de mayor a menor importancia.
+    b) ¿Qué fuentes web cita ChatGPT para recomendar libros? ¿Amazon, Goodreads, blogs?
+       ¿Cómo asegurarse de estar en esas fuentes?
+    c) Perplexity usa búsqueda en tiempo real. Si alguien pregunta "portal fantasy español 2025"
+       hoy, ¿qué páginas debería rastrear Perplexity para encontrar a Samuel?
+       ¿Está davidportodiaz.com en el índice de Perplexity? ¿Cómo verificarlo?
+    d) Gemini se alimenta de Google. ¿Qué posición debe tener davidportodiaz.com
+       en Google para que Gemini lo cite? ¿Top 3, Top 10, o basta con ser indexado?
+    e) ¿Debería David crear un perfil en Open Library o LibraryThing además de Goodreads?
+       ¿Cuál indexan más los LLMs?
+    f) ¿Qué efecto tendría conseguir una reseña en un blog con DA>30 sobre la capacidad
+       de los LLMs para citar el libro?
+    g) Dame un plan de 90 días concreto para maximizar la probabilidad de que
+       ChatGPT recomiende Samuel entre mundos a finales de agosto 2026.
+
+T4. Structured data avanzado: ¿qué rich results faltan?
+    
+    URL: https://davidportodiaz.com/libros/samuel-entre-mundos/
+    Schema actual: @graph con Book, Person, WebSite, BreadcrumbList, AggregateRating,
+    Review (múltiples), FAQPage.
+    
+    a) Abre https://search.google.com/test/rich-results?url=https://davidportodiaz.com/libros/samuel-entre-mundos/
+       ¿Qué rich results detecta Google? ¿Cuáles no detecta que deberían aparecer?
+    b) ¿El schema AggregateRating cumple con las guidelines de Google?
+       (necesita minimum 1 review, ratingCount, ratingValue entre 1 y 5)
+    c) ¿Tiene sentido añadir un schema Speakable para que Google Assistant
+       pueda leer el libro en voz alta? ¿Qué secciones marcar como speakable?
+    d) ¿Debería el libro tener schema Offer con price y priceCurrency para
+       aparecer en Google Shopping o en búsquedas con precios?
+    e) El schema Person (autor) tiene sameAs con Wikidata, ORCID, Amazon, Goodreads, Instagram.
+       ¿Falta algún sameAs importante? ¿Babelio, StoryGraph, LibraryThing?
+    f) ¿Cómo añadir un schema Event para la firma en Madrid (10 junio, 19:40-21:00)
+       que aparezca como rich snippet en Google?
+    g) ¿Qué schema usar para el quiz de compatibilidad lectora?
+       ¿Quiz, Game, o simplemente ignorarlo en structured data?
+
+T5. Análisis de visibilidad en motores de búsqueda alternativos
+    
+    a) ¿Está davidportodiaz.com indexado en Bing? Comprueba en bing.com/search?q=site:davidportodiaz.com
+       ¿Cuántas páginas indexadas hay? ¿Aparece el sitelinks?
+    b) ¿Y en DuckDuckGo? Busca "David Porto Díaz site:davidportodiaz.com"
+       ¿Los metadatos se muestran correctamente (título, descripción)?
+    c) ¿Está el sitio en el índice de Kagi (el buscador de suscripción premium)?
+       ¿Vale la pena incluirlo en Kagi Bangs o listas? Kagi es usado por lectores técnicos.
+    d) ¿Yandex (Rusia) o Baidu (China) son relevantes para este sitio?
+       ¿Hay lectores de fantasía juvenil española en esos mercados?
+    e) ¿Qué pasa cuando alguien busca "Samuel entre mundos" en Google Images?
+       ¿Aparece la portada del libro con el alt text correcto?
+       ¿Hay riesgo de que otras imágenes "Noveris" (empresa española) contaminen los resultados?
+    f) ¿El sitemap.xml está actualizado con todas las páginas actuales?
+       ¿Está enviado a Google Search Console y Bing Webmaster Tools?
+
+T6. Prueba de rendimiento en conversaciones con IAs
+    
+    Cuando un usuario pregunta a una IA sobre autores de fantasía juvenil española,
+    queremos que David Porto Díaz aparezca. Para lograrlo:
+    
+    a) Prueba AHORA en una ventana de incógnito (para no sesgar con historial):
+       - ChatGPT: "¿Qué autores españoles escriben fantasía juvenil?"
+       - Perplexity: "portal fantasy español autores 2025"
+       - Gemini: "libros fantasía juvenil española recomendados"
+       - Claude (si tienes acceso): "recomiéndame portal fantasy en castellano"
+       ¿Aparece David Porto Díaz en alguno? ¿En qué posición?
+    b) Si NO aparece: ¿qué debería cambiar en el sitio para aparecer en 3 meses?
+    c) Si SÍ aparece: ¿qué dato cita la IA? ¿Es correcto? ¿Necesita corrección?
+    d) ¿Cómo debería ser el texto de la home para que una IA lo cite como
+       "autor de referencia en portal fantasy juvenil español"?
+       Dame la versión mejorada del párrafo de introducción del autor en la home.
+    e) ¿Hay algún "test de visibilidad en IA" que puedas hacer periódicamente
+       para medir si el posicionamiento mejora mes a mes?
