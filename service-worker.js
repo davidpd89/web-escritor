@@ -4,7 +4,6 @@ const PAGE_CACHE = `${CACHE_VERSION}-pages`;
 
 const APP_SHELL = [
   "/",
-  "/index.html",
   "/offline.html",
   "/manifest.json",
   "/styles.css",

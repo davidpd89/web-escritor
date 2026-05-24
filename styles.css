@@ -946,6 +946,12 @@ img {
   color: #7aa2d4;
 }
 
+.badge--past {
+  background: rgba(120, 120, 120, 0.12);
+  border: 1px solid rgba(120, 120, 120, 0.25);
+  color: var(--muted);
+}
+
 .badge--rec {
   display: inline-flex;
   align-self: flex-start;
