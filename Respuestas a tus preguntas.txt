@@ -91,40 +91,38 @@ A7. "¿Qué es Noveris?"
     → 24/05: ChatGPT ✅ | Copilot ✅ | Perplexity ✗ (confunde con empresa inmobiliaria) | Gemini ✗ (empresa constructora)
     → Fix aplicado 24/05: FAQPage schema + DefinedTerm actualizado en /universo/noveris/
 
-BLOQUE C — INVESTIGACIÓN PENDIENTE (PARA ANTES DE IMPLEMENTAR)
+BLOQUE P — OPORTUNIDADES IDENTIFICADAS (próximas acciones)
 ────────────────────────────────────────────────────────────────────
+Bloque C procesado y aplicado 24/05/2026. Todo en cosas-pendientes-david.txt ítems 14-18.
 
-C1. ¿Cuáles son los blogs de reseñas literarias más influyentes en España para
-    fantasía juvenil / YA? ¿Tienen formulario de contacto? ¿Cuántos seguidores tienen?
-    → Investigar: Fantástica Obsesión, El Blog de Karen, ...
-    → Estado: pendiente
+P1. Ferias do Libro de Galicia 2026 — contacto directo
+    El lema de este año es "A porta a universos infinitos" (coincide con el universo de Samuel).
+    ¿librarias.org tiene formulario para propuestas de autores independientes?
+    ¿Qué plazo hay para inscribirse en Redondela (11-14 junio, URGENTE)?
+    → Pendiente: David contacta librarias.org
 
-C2. ¿Hay booktubers o booktokers españoles especializados en fantasía juvenil?
-    ¿Cuáles tienen más de 10k seguidores en TikTok/YouTube?
-    → Estado: pendiente
+P2. literfan.cyberdark.net — añadir Samuel entre mundos
+    Base de datos de CF y fantasía en español, rastreada por IAs.
+    ¿Tiene formulario de alta para libros, o requiere gestión editorial?
+    ¿Samuel entre mundos ya aparece en su índice?
+    → Investigar antes de la próxima sesión
 
-C3. ¿Qué proceso hay que seguir para corregir la clasificación de un libro en
-    Casa del Libro (actualmente aparece como "ficción contemporánea" en vez de "fantasía juvenil")?
-    ¿Se puede hacer directamente o hay que pedírselo a la editorial?
-    → Estado: pendiente
+P3. Substack "El cuaderno de worldbuilding de Noveris"
+    Recomendado como canal secundario de descubrimiento (no sustituto de Brevo).
+    ¿Cuáles serían los 3 primeros artículos con más probabilidad de posicionarse
+    para "portal fantasy español", "worldbuilding" y "sistema de magia dura"?
+    → Estado: pendiente — David decide si quiere empezar
 
-C4. ¿Cómo reclamar el perfil de autor en Babelio? ¿Tiene sentido para un libro en español?
-    ¿Y en The StoryGraph? ¿Qué ventajas da cada plataforma?
-    → Estado: pendiente
+P4. Pitch para booktubers/booktokers
+    Tenemos lista de 5 creadores con contactos (cosas-pendientes ítem 17).
+    ¿Cuál sería el mensaje de ~100 palabras ideal para Andrea Izquierdo?
+    ¿Y uno diferente (informal, DM) para Josu Diamond?
+    → Generar plantillas cuando David esté listo para enviar
 
-C5. ¿Qué necesita la entrada de Wikidata Q139678851 para ser más completa?
-    Campos que faltan: descripción en varios idiomas, P21 (sexo), P19 (lugar nacimiento),
-    P27 (país nacionalidad), P856 (web oficial), P2963 (Goodreads ID correcto),
-    P31 (instancia de: ser humano), P106 (ocupación: escritor)
-    → Estado: pendiente - David tiene que editar Wikidata directamente
-
-C6. ¿En qué ferias del libro regionales (Galicia, Madrid, Valencia) debería estar presente
-    David en 2026? ¿Cuáles aceptan propuestas de autores independientes?
-    → Estado: pendiente
-
-C7. ¿Tiene sentido crear un canal de Substack además de la newsletter de Brevo?
-    Substack tiene su propio motor de descubrimiento para ficción especulativa.
-    → Estado: investigar
+P5. Knowledge Panel de Google — activación por Wikidata
+    Una vez David complete Q139678851 (P31, P106, P856, P27, P19 + descripciones ES/EN),
+    ¿cuánto tarda en aparecer el Knowledge Panel? ¿Hay pasos adicionales que aceleren el proceso?
+    → Investigar cuando David confirme que ha editado Wikidata
 
 ────────────────────────────────────────────────────────────────────
 BLOQUE D — VERIFICACIÓN DE LA WEB EN VIVO

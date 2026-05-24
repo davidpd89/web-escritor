@@ -14,15 +14,15 @@ if ("serviceWorker" in navigator) {
   });
 }
 
-// Email obfuscation — build Gmail compose links from data-n + data-d at runtime.
+// Email obfuscation — build mailto: links from data-n + data-d at runtime.
 // Bots that don't execute JS see href="#" and no email in the href.
 document.querySelectorAll('[data-n][data-d]').forEach(el => {
   const addr = el.dataset.n + '@' + el.dataset.d;
-  const params = new URLSearchParams({ view: "cm", fs: "1", to: addr });
-  if (el.dataset.s) params.set("su", el.dataset.s);
-  el.href = "https://mail.google.com/mail/?" + params.toString();
-  el.target = "_blank";
-  el.rel = "noopener noreferrer";
+  let href = 'mailto:' + addr;
+  if (el.dataset.s) href += '?subject=' + encodeURIComponent(el.dataset.s);
+  el.href = href;
+  el.removeAttribute('target');
+  el.removeAttribute('rel');
 });
 
 // Mobile nav

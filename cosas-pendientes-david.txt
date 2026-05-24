@@ -108,23 +108,24 @@ SEO Y DISTRIBUCIÓN
    c) LibraryThing: https://www.librarything.com/
       - Añade el libro con todos los metadatos (ISBN: 9791387659776)
 
-5b. DILVE - VERIFICAR METADATOS DEL LIBRO (URGENTE para IAs)
-    DILVE es el sistema español de metadatos de libros que alimenta a distribuidores,
-    librerías y plataformas. Un error en DILVE puede propagarse a las IAs.
+5b. DILVE - VERIFICAR CLASIFICACIÓN DEL LIBRO
+    DILVE es el sistema español de metadatos de libros que distribuye datos
+    a Casa del Libro, Fnac, El Corte Inglés, Agapea y otros.
     
-    Detectado en Bloque A (24/05/2026): Alguna IA describe Samuel entre mundos con
-    datos incorrectos: "realismo social", "año 2023", "tono poético" y muestra
-    la portada de otro libro. Esto puede venir de DILVE o Google Books.
+    El libro aparece como "Narrativa española / Novela contemporánea" en Casa del Libro.
+    El género correcto es: Fantasía juvenil / Literatura juvenil.
     
-    Qué hacer:
-    a) Accede a DILVE en https://www.dilve.es/ (pregunta a tu editorial Libros Indie
-       si ya han dado de alta el libro — ellos son los responsables de DILVE)
-    b) Verifica que el género sea CORRECTO: Literatura Juvenil / Fantasy (no Ficción contemporánea)
-    c) Verifica que la descripción sea la sinopsis correcta del libro
-    d) Verifica que la portada subida sea la portada real de Samuel entre mundos
-    e) Verifica que el año de publicación sea 2025 (no 2023)
-    f) Si encuentras errores, pide a Libros Indie que los corrija en DILVE
-       (Google Books, Casa del Libro y muchas IAs se alimentan de DILVE)
+    Campos Thema que solicitar a Libros Indie:
+    - Principal: YFH (Fantasía y mundos sobrenaturales — juvenil)
+    - Secundario: YFG (Aventura — juvenil)
+    - Edad: 5AN (12+ años)
+    
+    Cómo tramitarlo:
+    a) Escribe a Libros Indie pidiendo que actualicen la clasificación Thema en DILVE.
+       Adjunta los códigos YFH, YFG, 5AN como referencia exacta.
+    b) Si Libros Indie no responde en 2 semanas, contacta Casa del Libro directamente:
+       Atención al cliente con ISBN 9791387659776 y clasificación incorrecta.
+    c) Plazo esperado desde que DILVE lo procesa: 2-4 semanas.
 
 ---------------------------------------------------------------------------
 IMÁGENES Y ARCHIVOS
@@ -186,10 +187,9 @@ EVENTOS
 ---------------------------------------------------------------------------
 
 11. FERIA DEL LIBRO DE MADRID 2026 (10 de junio)
-   - Número de caseta (cuando lo tengas)
-   - Horario exacto de firma
-   - Cualquier evento paralelo (presentación, coloquio, etc.)
-   Con estos datos actualizo eventos.html y ferias.html
+   - Horario de firma: 19:40 — 21:00 (YA ACTUALIZADO en eventos.html y ferias.html)
+   - Número de caseta (cuando lo tengas) ← falta este dato
+   Con el número de caseta actualizo los dos archivos.
 
 12. FOTOS DE ARANJUEZ — COMPLETADO (24 mayo 2026) ✅
     Ambas fotos guardadas en /assets/ y publicadas en ferias.html:
@@ -205,3 +205,72 @@ ANALYTICS
     - Comprueba qué páginas tienen más visitas y cuál es el origen de tráfico
     - Indica si hay alguna página con mucho rebote o poco tiempo de lectura
     - Con esos datos puedo priorizar qué mejorar primero
+
+---------------------------------------------------------------------------
+OUTREACH — BLOGS Y CREADORES DE CONTENIDO (hallazgos Bloque C)
+---------------------------------------------------------------------------
+
+14. CLASIFICACIÓN CASA DEL LIBRO (vía Libros Indie + DILVE)
+    Ver ítem 5b para detalle completo del proceso.
+    Acción prioritaria: email a Libros Indie con códigos Thema YFH, YFG, 5AN.
+
+15. BABELIO — PERFIL DE AUTOR + MASA CRÍTICA
+    Babelio es la plataforma de referencia para lectores franceses y españoles.
+    Es una fuente que indexan los LLMs para recomendar libros en español.
+    
+    Proceso paso a paso:
+    a) Crea cuenta en babelio.com/es
+    b) Busca el libro por ISBN 9791387659776
+    c) En la ficha: "Eres el autor" → verifica identidad (piden foto del DNI o confirmación editorial)
+    d) Alternativa rápida: escribe a contact@babelio.com con asunto:
+       "Reclamación perfil de autor — ISBN 9791387659776"
+    e) Una vez verificado: completa bio, foto, enlaza web y redes
+    f) Inscíbete en el programa MASA CRÍTICA: envías ejemplares digitales a cambio
+       de reseñas verificadas — esto sube el perfil del libro en Babelio y en Google
+
+16. FERIAS DO LIBRO DE GALICIA 2026
+    El lema oficial de las Ferias do Libro de Galicia 2026 es
+    "A porta a universos infinitos" — coincidencia directa con el universo de Samuel.
+    
+    Calendario disponible:
+    - Redondela: 11-14 junio (URGENTE — en 3 semanas, consultar YA)
+    - Ourense: 17-20 junio
+    - Vigo: 1-7 julio (prioritaria — mayor afluencia de Galicia)
+    - A Coruña: 1-10 agosto (prioritaria — mayor afluencia)
+    
+    Contacto: Federación de Librarías de Galicia
+    Web: https://www.librarias.org/es/agenda-feria-libro
+    Escríbeles indicando que eres autor gallego (Pontevedra) residente en Madrid,
+    que ya tienes experiencia en ferias (Aranjuez, Madrid) y que quieres participar.
+
+17. OUTREACH BLOGS LITERARIOS Y BOOKTUBERS (Bloque C completado)
+    Investigación ya hecha, pendiente de ejecutar:
+    
+    BLOGS PRIORITARIOS:
+    - Fantástica Obsesión: fantásticaobsesión.com → formulario de contacto en web
+    - El Blog de Karen: contacto en el blog
+    - literfan.cyberdark.net: añadir Samuel a su base de datos de libros españoles
+      (tiene una lista de "Libros más esperados 2026" que rastrean las IAs)
+    
+    BOOKTUBERS / BOOKTOKERS (prioridad por orden):
+    1. Andrea Izquierdo (@andreorowling) YouTube ~200k — fantasía tipo HP
+       Email profesional (ver perfil YouTube)
+    2. Shula Li (@adictaalibros) TikTok grande
+       Email: adictaalibroscontacto@gmail.com
+    3. Raquel Brune (@raquelbookish) TikTok 181k / YouTube 545k
+       Email: holaraquelbookish@gmail.com
+    4. Josu Diamond (@josudiamond) YouTube 239k / TikTok 180k
+       DM TikTok (menciona que eres fan + autopublicado como él)
+    5. Esperanza Luque (@esperanzalruz) TikTok 132k
+       Email: holaesperanzaluque@gmail.com
+    
+    MENSAJE CLAVE para todos: soy David Porto Díaz, portal fantasy español,
+    sistema de magia con reglas duras, Libros Indie 2025, primer premio Letras Como Espada.
+    Ofrece ejemplar físico o digital + disponibilidad para entrevista.
+
+18. SUBSTACK — CANAL DE DESCUBRIMIENTO (OPCIONAL, CUANDO HAYA TIEMPO)
+    Recomendado como canal secundario, NO sustituto de Brevo.
+    Idea: "El cuaderno de worldbuilding de Noveris" — artículos mensuales sobre
+    el sistema de magia, la geografía de Noveris, el proceso creativo.
+    Cada artículo es una URL indexable que Google y las IAs pueden citar.
+    Probar 3 meses con 6 publicaciones antes de decidir si continuar.
