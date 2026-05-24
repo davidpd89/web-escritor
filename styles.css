@@ -4224,3 +4224,49 @@ html.modo-samuel .fragment-text {
   color: var(--muted-2);
   text-align: center;
 }
+
+/* ─── Hero compact variants (replaces inline style="min-height:auto;padding-bottom:64px") ─── */
+
+.hero--compact {
+  min-height: auto;
+  padding-bottom: 64px;
+}
+
+.hero--compact-sm {
+  min-height: auto;
+  padding-bottom: 56px;
+}
+
+/* ─── Spacing utilities ─── */
+
+.mt-24 { margin-top: 24px; }
+.mt-28 { margin-top: 28px; }
+
+/* ─── Hero actions centered ─── */
+
+.hero-actions--center {
+  justify-content: center;
+}
+
+/* ─── Global prefers-reduced-motion override ─── */
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    scroll-behavior: auto !important;
+    transition-duration: 0.001ms !important;
+  }
+}
+
+/* ─── Hide decorative overlays on mobile to save GPU ─── */
+
+@media (max-width: 760px) {
+  body::before,
+  body::after {
+    display: none;
+  }
+}
+
