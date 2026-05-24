@@ -4371,3 +4371,72 @@ html.modo-samuel .fragment-text {
   }
 }
 
+/* Hero review quote */
+.hero-review {
+  margin: 1.25rem 0 0;
+  padding: 0.75rem 1rem;
+  border-left: 2px solid var(--accent, #c4944d);
+  background: rgba(196,148,77,0.07);
+  border-radius: 0 4px 4px 0;
+  max-width: 480px;
+}
+.hero-review p {
+  margin: 0 0 0.25rem;
+  font-style: italic;
+  color: var(--text, #e8e8e8);
+  font-size: 0.9rem;
+  line-height: 1.5;
+}
+.hero-review footer {
+  font-size: 0.78rem;
+  color: var(--text-muted, #aaa);
+}
+
+/* Noveris FAQ */
+.faq-list {
+  max-width: 720px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+.faq-item {
+  border: 1px solid var(--border, rgba(255,255,255,0.08));
+  border-radius: 6px;
+  overflow: hidden;
+}
+.faq-question {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 1.25rem;
+  cursor: pointer;
+  font-weight: 600;
+  font-size: 0.95rem;
+  list-style: none;
+  color: var(--text, #e8e8e8);
+  background: var(--surface, #111316);
+  gap: 0.75rem;
+}
+.faq-question::-webkit-details-marker { display: none; }
+.faq-question::after {
+  content: '+';
+  font-size: 1.2rem;
+  color: var(--accent, #c4944d);
+  flex-shrink: 0;
+  transition: transform 0.2s;
+}
+details[open] > .faq-question::after {
+  content: '−';
+}
+.faq-answer {
+  padding: 0.75rem 1.25rem 1rem;
+  background: var(--bg, #080a0c);
+}
+.faq-answer p {
+  margin: 0;
+  font-size: 0.9rem;
+  line-height: 1.7;
+  color: var(--text-muted, #aaa);
+}
+

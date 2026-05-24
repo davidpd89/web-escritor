@@ -1,6 +1,7 @@
 COSAS PENDIENTES DAVID
 ======================
 Estas son las acciones que solo tú puedes hacer y que se han identificado como importantes para el proyecto web.
+Última actualización: 24 mayo 2026
 
 ---------------------------------------------------------------------------
 CRÍTICO (afecta a seguridad)
@@ -12,7 +13,7 @@ CRÍTICO (afecta a seguridad)
 
    Pasos:
    a) Ve a https://dash.cloudflare.com/ → Workers & Pages → Create Worker
-   b) Pega el código del worker (guardado en "Respuestas a tus preguntas.txt")
+   b) Pega el código del worker (tengo el código listo, solo dime cuándo)
    c) Publica el worker
    d) En la pestaña "Settings > Variables and Secrets" añade:
       - Variable: BREVO_API_KEY
@@ -24,38 +25,62 @@ CRÍTICO (afecta a seguridad)
 SEO Y DISTRIBUCIÓN
 ---------------------------------------------------------------------------
 
-2. PERFIL DE AUTOR EN GOODREADS
-   - URL probable: https://www.goodreads.com/author/show/245605636
-   - Reclamar autoría si no está reclamada aún
-   - Actualizar biografía con el texto preparado por la IA (en "Respuestas a tus preguntas.txt")
-   - Asegurarse de que Samuel entre mundos aparece asociado al perfil
+2. GOODREADS - ACTUALIZAR BIO DE AUTOR
+   Tu perfil existe y está bien: https://www.goodreads.com/author/show/66843136.David_Porto_D_az
+   (El libro ya tiene 3 reseñas, todas 5 estrellas. Bien!)
+   Lo que falta: añadir descripción de autor en la página.
+   Ve a Edit Author Profile y añade una bio de 200-400 palabras.
+   Ejemplo de texto para añadir:
+   ---
+   "David Porto Díaz es escritor español de fantasía juvenil nacido en Pontevedra
+   y residente en Madrid. Debutó en 2025 con Samuel entre mundos (Libros Indie),
+   su primera novela de portal fantasy española: la historia de un chico cuya
+   medalla esconde el poder de abrir mundos, en una ciudad donde toda magia
+   exige una compensación real.
+   Ganador del Primer Premio del XII Certamen de Microrrelatos «De amor»
+   de Letras Como Espada (2026) y Top 10 Finalista del Premio Nacional de
+   Literatura Infantil Juan Andrés Teno (2025).
+   Web: https://davidportodiaz.com"
+   ---
 
-3. AMAZON AUTHOR CENTRAL
-   - Ve a https://authorcentral.amazon.es/
-   - Actualiza tu bio con la frase clave: "primera novela de portal fantasy española"
-   - Añade foto y enlaces a la web
+3. AMAZON AUTHOR CENTRAL - ACTUALIZAR BIO
+   Tu perfil existe: https://www.amazon.es/stores/author/B0GZFP1JV3
+   PROBLEMA: la bio actual dice "fantasía, romantasy y ficción especulativa" y
+   menciona "marketing online y sector tecnológico" como puntos principales.
+   Esto contradice tu posicionamiento como escritor de fantasía juvenil española.
+   
+   Ve a https://author.amazon.com/ y cambia la bio a algo así:
+   ---
+   "David Porto Díaz es escritor español de fantasía juvenil, nacido en Pontevedra
+   y residente en Madrid. Autor de Samuel entre mundos (Libros Indie, 2025),
+   primera novela de portal fantasy española con sistema de magia de reglas duras
+   y protagonista no-elegido. Ganador del Primer Premio Letras Como Espada 2026
+   y finalista del Premio Nacional de Literatura Infantil Juan Andrés Teno 2025.
+   Sus historias parten de la grieta entre lo cotidiano y lo extraordinario:
+   portales, objetos con memoria y una magia que siempre exige algo a cambio.
+   Web: https://davidportodiaz.com"
+   ---
 
-4. DILVE / THEMA - EMAIL A LIBROS INDIE
-   Los géneros actuales en DILVE para Samuel entre mundos probablemente son incorrectos.
-   Pide a Libros Indie que los cambien a:
-     - FYB (Fantasía)
-     - FYJ (Fantasía juvenil / Young adult)
-     - 5LME (Español)
-     - 5PES (España)
-   Hay un borrador del email en "Respuestas a tus preguntas.txt"
-
-5. WIKIDATA - ENTRADA PARA SAMUEL ENTRE MUNDOS
-   Crear entrada en Wikidata para la novela como obra literaria independiente
-   (diferente de la entrada del autor Q139678851)
-   Campos mínimos:
-   - Instancia de: novela (Q8261)
-   - Título: Samuel entre mundos
-   - Autor: David Porto Díaz (Q139678851)
-   - Editorial: Libros Indie
-   - Fecha: 2025
-   - ISBN: 9791387659776
-   - Idioma: español
-   Guía: https://www.wikidata.org/wiki/Wikidata:WikiProject_Books
+4. WIKIDATA - CORREGIR GOODREADS ID Y COMPLETAR FICHA DEL AUTOR
+   Tu entrada de autor existe: https://www.wikidata.org/wiki/Q139678851
+   
+   Problemas encontrados que debes corregir (necesitas cuenta de Wikidata):
+   
+   a) Goodreads author ID está EQUIVOCADO: tiene 245605636 (que es el libro)
+      → Debe ser 66843136 (que es el autor)
+      Haz clic en "edit" junto a "Goodreads author ID" y corrígelo.
+   
+   b) Falta la web oficial (P856): https://davidportodiaz.com
+   
+   c) Falta Ocupación (P106): escritor / writer
+   
+   d) Falta Lugar de nacimiento (P19): Pontevedra
+   
+   e) Falta Obra notable (P800): Samuel entre mundos
+   
+   Opcional pero recomendable:
+   f) Crear entrada separada para la novela Samuel entre mundos como obra literaria
+      Instancia: novela (Q8261), ISBN: 9791387659776, Editorial: Libros Indie, Año: 2025
 
 ---------------------------------------------------------------------------
 IMÁGENES Y ARCHIVOS
