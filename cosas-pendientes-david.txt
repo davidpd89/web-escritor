@@ -402,3 +402,108 @@ SEGUIMIENTO TÉCNICO — VERIFICACIONES PERIÓDICAS (hallazgo Bloque D)
        El schema de la web declara 422 páginas. Si la librería muestra 412, uno de los dos
        es incorrecto. Confirmar el número real del libro físico y avisarme si hay que
        corregir el schema.
+
+---------------------------------------------------------------------------
+TAREAS DE CONTENIDO Y ESTRATEGIA (hallazgos Bloque E + F)
+---------------------------------------------------------------------------
+
+22. CUADERNO/BLOG — PRIMER ARTÍCULO (alta prioridad cuando haya tiempo)
+    (Bloque E, 26 mayo 2026)
+    
+    URL decidida: /cuaderno/fantasia-juvenil-espanola-portales-magia-coste/
+    Keyword objetivo: "fantasía juvenil española"
+    Longitud: 1500-2000 palabras
+    
+    Estructura decidida:
+    H1: "Fantasía juvenil española con portales, magia con coste y mundos ocultos"
+    → Sección 1: Qué define la fantasía juvenil española actual
+    → Sección 2: Portal fantasy: qué busca el lector
+    → Sección 3: Magia con coste como diferenciador de género
+    → Sección 4: Libros recomendados + Samuel entre mundos (de forma natural)
+    → FAQPage al final (3 preguntas)
+    → Formulario de newsletter al cierre
+    
+    La página /cuaderno/ (índice) también hay que crearla.
+    Bloque U del archivo de preguntas tiene todas las consultas para pedir
+    el outline completo y el JSON-LD FAQPage a otras IAs.
+
+23. PÁGINAS DE COMPARABLES — ORDEN DE CREACIÓN
+    (Bloque E, 26 mayo 2026)
+    
+    Decisión tomada:
+    1ª: /recomendaciones/portal-fantasy-espanol/
+    2ª: /recomendaciones/magia-con-coste/
+    3ª: /recomendaciones/si-te-gusto-percy-jackson/ (más adelante, con cuidado)
+    
+    Antes de crear: preguntar a IAs (Bloque V) la lista de libros con ISBNs y ASINs,
+    y el schema recomendado para páginas de comparables.
+    
+    IMPORTANTE: los enlaces de afiliado Amazon en esas páginas requieren aviso legal
+    claro (ver ítem 25 de este archivo).
+
+24. VÍDEOS CORTOS BOOKTOK / REELS (cuando haya tiempo y dispositivo para grabar)
+    (Bloque E, 26 mayo 2026)
+    
+    Los 5 guiones de 30-60 segundos ya están listos. Empezar por el guion 1 o 3:
+    
+    GUION 1 — "La magia no debería ser gratis"
+    «La magia no debería ser gratis. Si en una novela cualquier hechizo resuelve
+    cualquier problema, el peligro desaparece. Por eso en Samuel entre mundos la
+    magia siempre exige un precio. En Noveris, el poder se canaliza mediante objetos
+    con memoria: una medalla, una pluma, una vara. Pero cada uso deja una consecuencia.
+    Para mí, la magia interesante no es la que lo puede todo. Es la que obliga al
+    personaje a preguntarse: ¿cuánto estoy dispuesto a pagar?
+    Lee el capítulo 1 gratis en davidportodiaz.com.»
+    
+    GUION 3 — "Samuel no es el elegido"
+    «Samuel no es el elegido. No hay profecía, no hay destino glorioso y nadie lo
+    estaba esperando como salvador. Solo hay una medalla que late, una familia que
+    ha ocultado demasiado y una ciudad imposible al otro lado. Me interesaba más
+    un protagonista que no llega porque el mundo lo necesita, sino porque la verdad
+    lo alcanza. Samuel entre mundos es fantasía juvenil española con portales,
+    secretos familiares y magia con coste.»
+    
+    Publicar el mismo vídeo adaptado a TikTok + Instagram Reels + YouTube Shorts.
+    CTA: "Lee el primer capítulo gratis en davidportodiaz.com" (no "compra mi libro").
+    Bloque X del archivo de preguntas tiene consultas sobre horarios, hashtags y plataformas.
+
+25. EMAIL DE BIENVENIDA (QUIZ) — CONFIGURAR EN BREVO
+    (Bloque E, 26 mayo 2026)
+    
+    La secuencia de 3 emails ya está escrita. Configurar en Brevo:
+    
+    Email 1 (inmediato tras suscribirse):
+    Asunto: "Tu resultado de Noveris ya está listo"
+    Contenido: resultado + link al capítulo 1 (/fragmento/)
+    
+    Email 2 (48h después):
+    Asunto: "Antes de seguir: qué es Noveris"
+    Contenido: link a /universo/noveris/
+    
+    Email 3 (5-7 días después):
+    Asunto: "Si la medalla te ha llamado"
+    Contenido: link a /libros/samuel-entre-mundos/ + CTA de compra
+    
+    Bloque W del archivo de preguntas tiene consultas sobre la configuración
+    exacta en Brevo y la segmentación por facción (Zunthar vs Marelian).
+
+26. AVISO DE AFILIADO — VERIFICAR COBERTURA LEGAL
+    (Bloque Y del archivo de preguntas, 26 mayo 2026)
+    
+    Los enlaces Amazon ?tag=davidporto-21 ya llevan rel="sponsored".
+    Pendiente: verificar si la ley española (LSSI) exige aviso de texto visible.
+    
+    Antes de crear más páginas con enlaces de afiliado (/recomendaciones/),
+    preguntar a IAs (Bloque Y) el texto exacto para aviso-legal.html.
+    Si hace falta, avisarme y lo añadimos al aviso-legal y/o footer.
+
+27. REDIRECCIONES HTTP→HTTPS — VERIFICAR MANUALMENTE
+    (Bloque L/Info otras IA, 26 mayo 2026)
+    
+    En cualquier navegador o terminal verificar:
+    - http://davidportodiaz.com → debe redirigir 301 a https://davidportodiaz.com/
+    - http://www.davidportodiaz.com → debe redirigir a https://davidportodiaz.com/
+    - https://www.davidportodiaz.com → debe redirigir a https://davidportodiaz.com/
+    
+    Si alguno da error o no redirige: avisarme con el resultado exacto.
+    (En Chrome: F12 → Network → pegar URL → ver status code)

@@ -31,36 +31,7 @@ Responde en español.»
 
 
 ────────────────────────────────────────────────────────────────────
-BLOQUE E — IDEAS A EVALUAR (PREGUNTAR A IAs PARA DESARROLLAR)
-────────────────────────────────────────────────────────────────────
-
-E1. ¿Cómo escribir el primer artículo del blog /cuaderno/ que tenga alta probabilidad
-    de posicionarse en Google para "fantasía juvenil española"?
-    ¿Qué estructura, longitud y keywords usar?
-    → Preguntado: / Respuesta:
-
-E2. ¿Qué página de "Comparables" (libros similares a Samuel) tendría más tráfico orgánico:
-    - /recomendaciones/portal-fantasy-espanol/
-    - /recomendaciones/si-te-gusto-percy-jackson/
-    - /recomendaciones/magia-con-coste/
-    ¿Cuál debería crearse primero?
-    → Preguntado: / Respuesta:
-
-E3. ¿Cómo diseñar una página /clubes-de-lectura/samuel-entre-mundos/ que:
-    a) sea útil para coordinadores de clubs
-    b) posicione bien en búsquedas de "guía de lectura fantasía juvenil"
-    c) impulse contacto con el autor?
-    → CREADA en commit siguiente (2026-05-24): /clubes-de-lectura/samuel-entre-mundos/
-    → Comprobar indexación en Search Console pasadas 2-3 semanas
-
-E4. ¿Merece la pena hacer un vídeo de "Worldbuilding de Noveris" en YouTube/TikTok?
-    ¿Qué formato (shorts vs video largo) tiene más ROI para un autor nuevo?
-    → Preguntado: / Respuesta:
-
-E5. ¿Qué copy exacto debería tener el email de bienvenida que recibe alguien
-    que se suscribe al newsletter desde el quiz de Noveris?
-    → Preguntado: / Respuesta:
-
+```
 ────────────────────────────────────────────────────────────────────
 BLOQUE F — DUDAS DE CÓDIGO ACTIVAS
 ────────────────────────────────────────────────────────────────────
@@ -1054,3 +1025,146 @@ T6. Prueba de rendimiento en conversaciones con IAs
        Dame la versión mejorada del párrafo de introducción del autor en la home.
     e) ¿Hay algún "test de visibilidad en IA" que puedas hacer periódicamente
        para medir si el posicionamiento mejora mes a mes?
+
+────────────────────────────────────────────────────────────────────
+BLOQUE U — CUADERNO: PRIMER ARTÍCULO DEL BLOG
+────────────────────────────────────────────────────────────────────
+Decisión tomada en Bloque E: primera publicación en /cuaderno/ va en:
+/cuaderno/fantasia-juvenil-espanola-portales-magia-coste/
+
+U1. Dame el outline completo del artículo con todas las H2 y H3 específicas,
+    el número de palabras por sección y los anchor texts de los enlaces internos.
+    
+    Datos conocidos:
+    - H1 propuesto: "Fantasía juvenil española con portales, magia con coste y mundos ocultos"
+    - Keywords objetivo: "fantasía juvenil española", "portal fantasy español", "magia con coste"
+    - Longitud objetivo: 1500-2000 palabras
+    - Debe mencionar Samuel entre mundos de forma natural (no forzada)
+    - Debe tener un formulario de newsletter al final
+    → Preguntado: / Respuesta:
+
+U2. Escribe las 3 preguntas de FAQPage (con respuesta completa de 40-60 palabras cada una)
+    que tendrían más probabilidad de conseguir el featured snippet de Google para
+    "¿qué es el portal fantasy?" y "fantasía juvenil española".
+    Devuélvelas en formato JSON-LD listo para copiar.
+    → Preguntado: / Respuesta:
+
+U3. ¿Qué imágenes debería tener el artículo para reforzar el SEO visual?
+    ¿Genera Google image traffic para artículos de este tipo?
+    Dame el texto del atributo alt óptimo para una imagen del mapa de Noveris
+    en el contexto de ese artículo.
+    → Preguntado: / Respuesta:
+
+────────────────────────────────────────────────────────────────────
+BLOQUE V — PÁGINAS DE COMPARABLES: PORTAL FANTASY Y MAGIA CON COSTE
+────────────────────────────────────────────────────────────────────
+Decisión tomada en Bloque E:
+1ª: /recomendaciones/portal-fantasy-espanol/
+2ª: /recomendaciones/magia-con-coste/
+3ª: /recomendaciones/si-te-gusto-percy-jackson/ (más adelante)
+
+V1. Dame una lista de 8-10 libros de portal fantasy en español (o traducidos)
+    con: título, autor, año, ISBN si está disponible, y ASIN de Amazon España.
+    Prioriza libros con buenas reseñas y enlazables por afiliado.
+    El listado debe incluir Samuel entre mundos como opción natural (no en primer lugar).
+    → Preguntado: / Respuesta:
+
+V2. Dame la estructura HTML recomendada para /recomendaciones/portal-fantasy-espanol/:
+    ¿<article> por libro? ¿<ul> de libros? ¿Schema ItemList? ¿BookFormat?
+    ¿Cómo marcar los enlaces de afiliado sin penalización SEO?
+    → Preguntado: / Respuesta:
+
+V3. Para la página de "magia con coste": dame 6-8 libros donde la magia tiene
+    consecuencias reales para el usuario (Mistborn, Stormlight, etc. + al menos
+    2 en español). Con título, autor, breve descripción del sistema mágico.
+    → Preguntado: / Respuesta:
+
+────────────────────────────────────────────────────────────────────
+BLOQUE W — NEWSLETTER: SECUENCIA DE BIENVENIDA EN BREVO
+────────────────────────────────────────────────────────────────────
+El email de bienvenida (E5) ya está redactado. Hay 3 emails en la secuencia:
+Email 1 (inmediato): resultado quiz + link al capítulo 1
+Email 2 (48h): qué es Noveris + link a /universo/noveris/
+Email 3 (5-7 días): compra + link a /libros/samuel-entre-mundos/
+
+W1. ¿Cómo se configura una automatización de 3 emails en Brevo (plan gratuito)?
+    Pasos exactos: crear workflow → añadir trigger → condiciones de tiempo → envío.
+    ¿Hay límites de automatización en el plan gratuito?
+    → Preguntado: / Respuesta:
+
+W2. ¿Qué métricas de email debo rastrear para saber si la secuencia funciona?
+    ¿Cuáles son las tasas de apertura y clic normales para newsletters de autores?
+    ¿Cuándo debería considerar que algo falla y hacer A/B test?
+    → Preguntado: / Respuesta:
+
+W3. Desde el formulario del quiz, el suscriptor elige una "facción de Noveris"
+    (Zunthar o Marelian). ¿Cómo se puede segmentar en Brevo para que el Email 1
+    mencione la facción elegida de forma personalizada?
+    → Preguntado: / Respuesta:
+
+────────────────────────────────────────────────────────────────────
+BLOQUE X — VÍDEOS CORTOS: BOOKTOK Y REELS EN ESPAÑA
+────────────────────────────────────────────────────────────────────
+Los 5 guiones están listos (en cosas-pendientes-david.txt, ítem pendiente de vídeos).
+Falta la estrategia de publicación y distribución.
+
+X1. ¿Cuál es el mejor día y hora para publicar BookTok en España para fantasía juvenil?
+    ¿Ha cambiado el algoritmo de TikTok en 2025-2026 respecto a los horarios?
+    → Preguntado: / Respuesta:
+
+X2. Dame los 10 hashtags más relevantes para BookTok en español para fantasía juvenil
+    (mayo 2026). Diferencia entre hashtags de volumen alto (#booktok) y nicho (#portalfantasy).
+    ¿Es mejor mezclarlos o ir al nicho?
+    → Preguntado: / Respuesta:
+
+X3. Para un autor nuevo sin audiencia, ¿es mejor empezar por TikTok, Instagram Reels
+    o YouTube Shorts? ¿Dónde hay más usuarios de fantasía juvenil en español en 2026?
+    Sé específico con datos si los tienes.
+    → Preguntado: / Respuesta:
+
+X4. ¿Cómo incluir el CTA en un vídeo corto sin que parezca publicidad?
+    ¿"Lee el capítulo 1 gratis en davidportodiaz.com" funciona como frase de cierre
+    o es mejor no decir la URL y poner "link en bio"?
+    → Preguntado: / Respuesta:
+
+────────────────────────────────────────────────────────────────────
+BLOQUE Y — AFILIACIÓN AMAZON: AVISO LEGAL Y TRANSPARENCIA
+────────────────────────────────────────────────────────────────────
+La web usa enlaces de afiliado Amazon (?tag=davidporto-21) con rel="sponsored".
+En España, la LSSI y las directrices de la FTC (EE.UU.) exigen avisos.
+
+Y1. ¿Qué obliga la ley española (LSSI + normativa CNMC) respecto a la declaración
+    de enlaces de afiliado en una web personal de un autor?
+    ¿El aviso debe estar en cada página con links, en el footer, o solo en aviso-legal.html?
+    → Preguntado: / Respuesta:
+
+Y2. ¿El atributo rel="sponsored" en los enlaces es suficiente para Google o hace falta
+    también texto visible de aviso ("Este enlace es de afiliado")?
+    ¿Qué prefiere Google: aviso inline o aviso genérico en footer/aviso-legal?
+    → Preguntado: / Respuesta:
+
+Y3. Dame el texto exacto (corto, ≤2 líneas) que debería aparecer en aviso-legal.html
+    para cubrir el uso de enlaces de afiliado Amazon, y si hace falta también
+    en la política de privacidad.
+    → Preguntado: / Respuesta:
+
+────────────────────────────────────────────────────────────────────
+BLOQUE Z — PÁGINA /RESEÑAS/ Y SCHEMA AGGREGATE RATING
+────────────────────────────────────────────────────────────────────
+Actualmente el schema Book en /libros/samuel-entre-mundos/ tiene AggregateRating
+(5 estrellas, 8 reseñas) pero no hay página /reseñas/ dedicada.
+
+Z1. ¿Debería existir una página /reseñas/ o /resenas/ con las reseñas de Amazon
+    y Goodreads copiadas/transcritas? ¿Hay restricciones legales de Amazon ToS
+    para citar reseñas en una web externa?
+    → Preguntado: / Respuesta:
+
+Z2. ¿Cómo se implementa schema Review + AggregateRating en una página de reseñas
+    sin que Google lo considere manipulación? ¿Se puede aumentar el ratingCount
+    si se añaden reseñas de diferentes plataformas (Amazon + Goodreads + Babelio)?
+    → Preguntado: / Respuesta:
+
+Z3. Si no conviene página /reseñas/, ¿cuál es la alternativa más efectiva para
+    que las reseñas de lectores aparezcan en los resultados de búsqueda?
+    ¿Google muestra rich results de Book+AggregateRating aunque el sitio sea pequeño?
+    → Preguntado: / Respuesta:

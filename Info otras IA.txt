@@ -1,19 +1,63 @@
-﻿### INFO OTRAS IA — Última revisión: 26 mayo 2026
+﻿### INFO OTRAS IA - Ultima revision: 26 mayo 2026
 Archivo de seguimiento de hallazgos de otras IAs.
 
 ═══════════════════════════════════════════════════════════════════
-PENDIENTE DE CÓDIGO
+PENDIENTE DE CODIGO
 ═══════════════════════════════════════════════════════════════════
-(ningún pendiente de código activo)
+
+srcset/sizes en imagenes grandes
+   Detectado en analisis BLOQUE L (mayo 2026).
+   Riesgo CLS: si width/height no coinciden con dimensiones reales de los AVIF,
+   el navegador no puede reservar espacio → layout shift.
+   Imagenes a revisar en index.html:
+   - assets/mapa-noveris-ciudad-dimensional.avif
+   - assets/david-porto-diaz-escritor-fantasia-juvenil.avif
+   - assets/samuel-entre-mundos-portada.avif
+   Accion: comprobar que width/height en HTML coinciden con dimensiones reales.
+   Añadir srcset/sizes si la imagen se sirve en multiples tamanos.
 
 ═══════════════════════════════════════════════════════════════════
 COMPLETADO
 ═══════════════════════════════════════════════════════════════════
-✅ Modal "Dónde comprar" — implementado 26 mayo 2026
-   - <dialog id="buy-dialog"> generado dinámicamente en script.js
-   - aria-modal="true", aria-labelledby, focus trap, ESC y backdrop para cerrar
-   - Opciones: Amazon España (papel + eBook) / Casa del Libro (papel)
-   - GoatCounter events: abrir-modal-comprar / comprar-amazon-papel / comprar-casadellibro
-   - CSS en styles.css (.buy-dialog-inner, .buy-option, .buy-option--primary)
-   - Botones "Comprar" en index.html y libros/samuel-entre-mundos/index.html
-     convertidos a <button type="button" data-buy-modal>
+
+COMPLETADO: Modal Donde comprar (commit 7bedb2f)
+   - dialog id="buy-dialog" generado dinamicamente en script.js
+   - aria-modal, focus trap, ESC y backdrop para cerrar
+   - GoatCounter: abrir-modal-comprar / comprar-amazon-papel / comprar-casadellibro
+   - Botones en index.html y libros/samuel-entre-mundos/index.html
+
+COMPLETADO: srsltid limpiado (commit a0db32b)
+   - index.html: eliminados srsltid de Libreria Le, Bookish, Casa del Libro
+
+COMPLETADO: Schema offers con precio (commit a0db32b)
+   - libros/samuel-entre-mundos/: price 22.00 EUR en ambas offers
+
+COMPLETADO: Clubes de lectura - fixes E3 (commit pendiente)
+   - Premio corregido en 3 lugares: Primer Premio Letras Como Espada 2026 (microrrelatos)
+   - Amazon tag=davidporto-21 anadido a ambos enlaces + rel=sponsored
+   - Seccion Sin spoilers anadida antes del bloque de debate
+   - Article schema anadido al JSON-LD
+
+COMPLETADO: Sitemap.xml formato corregido
+   - Limpiado espacio extra en entrada privacidad.html
+   - /empieza-aqui/ y /clubes-de-lectura/ ya presentes
+
+COMPLETADO: robots.txt - GPTBot Allow / - ya correcto
+COMPLETADO: CSS inputs - font-size 1rem (16px), min-height 48px - ya correcto
+COMPLETADO: fetchpriority="high" - solo 1 imagen en index.html - correcto
+
+═══════════════════════════════════════════════════════════════════
+PENDIENTE DAVID (no es codigo, requiere accion manual)
+═══════════════════════════════════════════════════════════════════
+
+Verificar redirecciones (BLOQUE L, mayo 2026)
+   Ejecutar en terminal:
+   curl -I http://davidportodiaz.com
+   curl -I http://www.davidportodiaz.com
+   curl -I https://www.davidportodiaz.com
+   Resultado esperado: 301/308 a https://davidportodiaz.com/
+
+Medir PageSpeed movil en todas las URLs (BLOQUE L, mayo 2026)
+   Herramienta: https://pagespeed.web.dev/
+   URLs a medir: / , /libros/samuel-entre-mundos/ , /fragmento/ , /universo/noveris/ , /empieza-aqui/
+   Objetivos: LCP menos de 2.5s, CLS menos de 0.1, INP menos de 200ms
