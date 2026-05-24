@@ -349,7 +349,7 @@ function fallbackCopy(text, done) {
         submitBtn.disabled = true;
         submitBtn.textContent = "Enviando…";
         // Worker URL: update with your Cloudflare Worker URL after deploying cloudflare-worker-subscribe.js
-        const WORKER_URL = "https://subscribe.davidportodiaz.workers.dev";
+        const WORKER_URL = "https://subscribe.davidpd89.workers.dev";
         try {
           const res = await fetch(WORKER_URL, {
             method: "POST",
@@ -412,7 +412,7 @@ function fallbackCopy(text, done) {
         submitBtn.disabled = true;
         submitBtn.textContent = "Enviando…";
         // Worker URL: update with your Cloudflare Worker URL after deploying cloudflare-worker-subscribe.js
-        const WORKER_URL = "https://subscribe.davidportodiaz.workers.dev";
+        const WORKER_URL = "https://subscribe.davidpd89.workers.dev";
         try {
           const res = await fetch(WORKER_URL, {
             method: "POST",

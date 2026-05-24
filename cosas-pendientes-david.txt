@@ -4,31 +4,14 @@ Estas son las acciones que solo tú puedes hacer y que se han identificado como 
 Última actualización: 24 mayo 2026
 
 ---------------------------------------------------------------------------
-CRÍTICO (afecta a seguridad)
+✅ COMPLETADO
 ---------------------------------------------------------------------------
 
-1. CLOUDFLARE WORKER PARA BREVO (URGENTE) ← TIENES QUE HACER ESTO
-   script.js ya NO tiene la API key. Las suscripciones no funcionarán
-   hasta que despliegues el Worker. Son 5 minutos:
-
-   a) Ve a https://dash.cloudflare.com/ → Workers & Pages → Create Worker
-   b) Haz clic en "Edit code" y pega el contenido del archivo:
-      C:\GIT\web-escritor\cloudflare-worker-subscribe.js
-   c) Haz clic en Deploy
-   d) Ve a Settings → Variables and Secrets → Add Secret:
-        Name:  BREVO_API_KEY
-        Value: (tu clave xkeysib-... — la encuentras en app.brevo.com > API keys)
-   e) La URL del worker será algo como:
-        https://subscribe.<tu-subdominio>.workers.dev
-      Si quieres una URL bonita, puedes añadir una ruta personalizada:
-        https://davidportodiaz.com/subscribe  (en Workers → Triggers → Routes)
-   f) Abre C:\GIT\web-escritor\script.js y busca "WORKER_URL".
-      Hay dos líneas (una en el quiz, otra en los formularios).
-      Cambia el placeholder por la URL real del worker.
-      Luego haz git commit y git push.
-
-   Nota: mientras no hagas esto, el formulario de suscripción dará error.
-   La API key ya no está en el código público ← eso es lo importante.
+1. CLOUDFLARE WORKER PARA BREVO — COMPLETADO (24 mayo 2026)
+   Worker desplegado en: https://subscribe.davidpd89.workers.dev
+   Nueva API key de Brevo configurada como secreto BREVO_API_KEY en CF.
+   script.js apunta al worker en las dos instancias de WORKER_URL.
+   Los formularios de suscripción funcionan correctamente ✓
 
 ---------------------------------------------------------------------------
 SEO Y DISTRIBUCIÓN
@@ -173,20 +156,10 @@ EVENTOS
    - Cualquier evento paralelo (presentación, coloquio, etc.)
    Con estos datos actualizo eventos.html y ferias.html
 
-12. FOTOS DE ARANJUEZ (23 de mayo 2026) ← TIENES QUE HACER ESTO
-    ferias.html ya está actualizado para usar estas dos fotos.
-    Solo tienes que GUARDAR las dos imágenes en: C:\GIT\web-escritor\assets\
-    con exactamente estos nombres (en WEBP o JPG, mínimo 800px de ancho):
-
-    📷 Foto 1 (de pie, colocando libros):
-    → feria-aranjuez-2026-david-porto-diaz-colocando-samuel.webp
-
-    📷 Foto 2 (sentado, sonriendo en la caseta):
-    → feria-aranjuez-2026-david-porto-diaz-firma-caseta.webp
-
-    Si tienes las fotos como JPG, puedes subirlas directamente con extensión
-    .jpg y cambiar la extensión en ferias.html (son 2 líneas).
-    O convertirlas a WEBP con: squoosh.app (gratis, sin instalar nada)
+12. FOTOS DE ARANJUEZ — COMPLETADO (24 mayo 2026) ✅
+    Ambas fotos guardadas en /assets/ y publicadas en ferias.html:
+    ✓ feria-aranjuez-2026-david-porto-diaz-colocando-samuel.webp
+    ✓ feria-aranjuez-2026-david-porto-diaz-firma-caseta.webp
 
 ---------------------------------------------------------------------------
 ANALYTICS
