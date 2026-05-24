@@ -23,7 +23,9 @@ const APP_SHELL = [
   "/assets/mapa-noveris-ciudad-fantasia-urban-lore.avif",
   "/assets/david-porto-diaz-escritor-fantasia-madrid-autor.avif",
   "/assets/fonts/cg-normal-latin.woff2",
-  "/assets/fonts/inter-normal-latin.woff2"
+  "/assets/fonts/inter-normal-latin.woff2",
+  "/empieza-aqui/",
+  "/aviso-legal.html"
 ];
 
 // Install: cache each asset individually so one failure does not abort the whole install
