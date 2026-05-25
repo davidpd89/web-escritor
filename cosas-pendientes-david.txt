@@ -522,3 +522,28 @@ PROCESO SKYSCRAPER:
 4. Email a los sites que enlazan al inferior:
    "Hola [nombre], vi que enlazas a [URL]. Acabo de publicar algo más completo 
    sobre el mismo tema: [URL]. Podría valer la pena mencionarlo. ¡Gracias!"
+
+---------------------------------------------------------------------------
+ENTITY SEO — WIKIDATA Y VERIFICACION (pendiente David)
+---------------------------------------------------------------------------
+
+1. MEJORAR WIKIDATA (ya tienes Q139678851 — necesitas añadir más propiedades):
+   - URL: https://www.wikidata.org/wiki/Q139678851
+   - Añadir: "occupation" → "author" (Q482980)
+   - Añadir: "genre" → "fantasy literature" (Q131539)
+   - Añadir: "award received" → Premio Letras Como Espada
+   - Añadir: "publisher" → "Libros Indie"
+   - Añadir: "ORCID iD" (si lo tienes)
+   - Completar más las propiedades — cuantas más, mejor visibilidad en AI
+
+2. VERIFICAR ENTITY RECOGNITION EN GOOGLE:
+   - Ve a: https://cloud.google.com/natural-language
+   - Pega el primer párrafo de davidportodiaz.com/autor.html
+   - Mira qué entidades reconoce Google en tu texto
+   - Si falta tu nombre, el libro o los premios: añadir más context-rich passages
+
+3. BUSCAR TU NOMBRE EN CHATGPT / CLAUDE / PERPLEXITY:
+   - "¿Quién es David Porto Díaz escritor?"
+   - "¿Qué es Samuel entre mundos?"
+   - "¿Quién ganó el Premio Letras Como Espada 2026?"
+   Anota qué dice cada uno — esto marca el baseline de tu visibilidad LLM actual
