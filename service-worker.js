@@ -1,4 +1,4 @@
-const CACHE_VERSION = "david-porto-v2026-05-26-2";
+const CACHE_VERSION = "david-porto-v2026-05-26-3";
 const STATIC_CACHE = `${CACHE_VERSION}-static`;
 const PAGE_CACHE = `${CACHE_VERSION}-pages`;
 
@@ -18,10 +18,11 @@ const APP_SHELL = [
   "/universo/noveris/",
   "/fragmento/",
   "/las-manecillas-del-recuerdo/",
-  "/assets/logo-david-porto-diaz-escritor.webp",
+  "/assets/logo-david-porto-diaz-escritor-176.webp",
   "/assets/david-porto-favicon.png",
   "/assets/mapa-noveris-ciudad-fantasia-urban-lore.avif",
-  "/assets/david-porto-diaz-escritor-fantasia-madrid-autor.avif",
+  "/assets/david-porto-autor-700.webp",
+  "/assets/david-porto-autor-400.webp",
   "/assets/fonts/cg-normal-latin.woff2",
   "/assets/fonts/inter-normal-latin.woff2",
   "/empieza-aqui/",

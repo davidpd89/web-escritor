@@ -51,6 +51,15 @@ export default {
       });
     }
 
+    // Basic email format validation to avoid forwarding garbage to Brevo
+    const emailRe = /^[^\s@]{1,64}@[^\s@]{1,253}\.[^\s@]{2,}$/;
+    if (!emailRe.test(email)) {
+      return new Response(JSON.stringify({ message: "Invalid email address" }), {
+        status: 400,
+        headers: { "Content-Type": "application/json", ...corsHeaders(origin) },
+      });
+    }
+
     const brevoRes = await fetch("https://api.brevo.com/v3/contacts", {
       method: "POST",
       headers: {

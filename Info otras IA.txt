@@ -1,17 +1,11 @@
-﻿### INFO OTRAS IA - Ultima revision: 26 mayo 2026
+﻿### INFO OTRAS IA - Ultima revision: 25 mayo 2026 (2)
 Archivo de seguimiento de hallazgos de otras IAs.
 
 ═══════════════════════════════════════════════════════════════════
 PENDIENTE DE CODIGO
 ═══════════════════════════════════════════════════════════════════
 
-srcset/sizes en imagenes grandes (BLOQUE L)
-   Imagenes a revisar en index.html:
-   - assets/mapa-noveris-ciudad-dimensional.avif
-   - assets/david-porto-diaz-escritor-fantasia-juvenil.avif
-   - assets/samuel-entre-mundos-portada.avif
-   Accion: comprobar que width/height HTML coinciden con dimensiones reales AVIF.
-   Si imagen se sirve en multiples tamanos, añadir srcset/sizes.
+(ninguno pendiente de código en este momento)
 
 ═══════════════════════════════════════════════════════════════════
 COMPLETADO
@@ -33,6 +27,16 @@ COMPLETADO: llms.txt + llms-full.txt - bug de premio corregido: ya no atribuye
             el Letras Como Espada 2026 a la novela sino al autor (microrrelatos)
 COMPLETADO: index.html award - "I Primer Premio" (redundante) → "Primer Premio"
             con nota explícita (certamen de microrrelatos, no la novela)
+COMPLETADO: srcset/sizes en imagen autor - foto autor 400w+700w WebP responsive (commit 50c2b5a)
+            logo 176x176 WebP en todas las páginas (commit 50c2b5a)
+COMPLETADO: G6 - manifest.json iconos AVIF → PNG: icon-512.png + icon-512-maskable.png creados
+            manifest.json actualizado a PNG
+COMPLETADO: H2 - Cloudflare Worker: email regex validation añadida
+COMPLETADO: H3 - AVIF manifest icons: confirmado que iOS ignora AVIF, PNG creados
+COMPLETADO: H4 - service-worker.js: APP_SHELL actualizado con nuevo logo-176 y autor-700/400
+COMPLETADO: H1 - Event schema: endDate, imagen, organizer, offers añadidos a todos los eventos
+COMPLETADO: preconnect gc.zgo.at añadido a todas las páginas (200ms LCP saving estimado)
+COMPLETADO: styles.css minificado: 92 KiB → 67 KiB (ahorro ~4 KiB gzip)
 
 ═══════════════════════════════════════════════════════════════════
 KEYWORDS VERIFICADAS (BLOQUE F/G, mayo 2026)
@@ -98,22 +102,9 @@ Verificar redirecciones (BLOQUE L):
    curl -I https://www.davidportodiaz.com
    Resultado esperado: 301/308 a https://davidportodiaz.com/
 
-Medir PageSpeed movil en: / · /libros/samuel-entre-mundos/ · /fragmento/ · /universo/noveris/ · /empieza-aqui/
-   Herramienta: https://pagespeed.web.dev/
-
 GitHub Actions - F2 (update-dates.yml):
    Verificar: Settings > Actions > General > Workflow permissions = Read and write
    Si main tiene branch protection, revisar si hay que cambiar a PR automatica.
-
-G2 - Rich Results Test (Event schema Feria Madrid):
-   https://search.google.com/test/rich-results?url=https://davidportodiaz.com/
-   https://search.google.com/test/rich-results?url=https://davidportodiaz.com/eventos.html
-   Comprobar: Event detectado sin errores, Event schema con startDate 2026-06-10.
-
-G6 - manifest.json iconos AVIF:
-   AVIF no soportado como PWA icon en todos los navegadores.
-   Crear icon-512.png y icon-512-maskable.png (ya en cosas-pendientes item 7).
-   Cuando existan, actualizar manifest.json para usar PNG en el slot 512x512.
 
 G7 - Feria del Libro de Madrid:
    Cuando David confirme caseta + horario exactos:
