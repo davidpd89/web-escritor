@@ -161,3 +161,34 @@ OUTREACH
     Lista de contactos preparada en el histórico.
     Cuando quieras empezar, pídeme el email concreto para cada uno.
     Prioridad sugerida: Andrea Izquierdo → Raquel Brune → Josu Diamond.
+
+---------------------------------------------------------------------------
+SEO EN IAS — AI OPTIMIZATION (añadido 25 mayo 2026)
+---------------------------------------------------------------------------
+
+REDDIT Y GOODREADS — PRESENCIA EN PLATAFORMAS COMUNITARIAS (PRIORIDAD ALTA)
+    POR QUÉ: ChatGPT y Google AI Mode citan Reddit y Goodreads en sus respuestas
+    más que sitios de autor. Si participas genuinamente, esas respuestas se
+    convierten en datos de entrenamiento y citas futuras.
+
+    REDDIT — r/libros y r/fantasia
+    1. Crear cuenta (o usar la tuya si ya tienes).
+    2. NO hacer spam del libro. Participar como lector/escritor.
+    3. Responder preguntas como "¿Algún libro de portal fantasy en español?" con
+       recomendaciones honestas (Samuel entre mundos + otros).
+    4. Crear un hilo de AMA ("Soy autor de portal fantasy española, AMA") cuando
+       tengas 50+ karma. Anunciarlo también en Instagram stories.
+
+    GOODREADS — GESTIÓN DE AUTOR
+    1. Pedir acceso al perfil de autor en Goodreads (goodreads.com/author/program).
+    2. Completar la bio, foto, y añadir el ISBN 9791387659776.
+    3. Responder a todas las preguntas y reseñas (aunque sean de 1 estrella:
+       solo dar las gracias, sin discutir).
+    4. Añadir el libro a las listmanías de "Portal fantasy", "Fantasía juvenil
+       española", "Best YA fantasy 2025".
+
+    CLOUDFLARE — AVISO SI LO ACTIVAS EN EL FUTURO
+    Si alguna vez configuras Cloudflare como proxy para la web, acuérdate de
+    que BLOQUEA los crawlers de IA por defecto. Tienes que desactivar
+    "Block AI Scrapers" en el panel de Cloudflare → Security → Bots.
+    Si no lo haces, ChatGPT, Perplexity y Claude no podrán indexar la web.

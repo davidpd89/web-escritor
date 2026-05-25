@@ -23,7 +23,13 @@ Allow: /
 User-agent: ClaudeBot
 Allow: /
 
+User-agent: Claude-Web
+Allow: /
+
 User-agent: anthropic-ai
+Allow: /
+
+User-agent: Google-Extended
 Allow: /
 
 Sitemap: https://davidportodiaz.com/sitemap.xml
