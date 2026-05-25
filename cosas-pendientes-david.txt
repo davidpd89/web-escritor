@@ -1,650 +1,219 @@
 ﻿COSAS PENDIENTES DAVID
 ======================
 Estas son las acciones que solo tú puedes hacer y que se han identificado como importantes para el proyecto web.
-Última actualización: 26 mayo 2026 (Bloque D procesado)
+Última actualización: 25 mayo 2026
 
 ---------------------------------------------------------------------------
 ✅ COMPLETADO
 ---------------------------------------------------------------------------
 
 1. CLOUDFLARE WORKER PARA BREVO — COMPLETADO (24 mayo 2026)
-   Worker desplegado en: https://subscribe.davidpd89.workers.dev
-   Nueva API key de Brevo configurada como secreto BREVO_API_KEY en CF.
-   script.js apunta al worker en las dos instancias de WORKER_URL.
-   Los formularios de suscripción funcionan correctamente ✓
+   Worker desplegado: https://subscribe.davidpd89.workers.dev
+   Formularios de suscripción funcionan correctamente.
+
+2. GOODREADS — BIO DE AUTOR — COMPLETADO
+   Bio actualizada en el perfil de autor.
+   PENDIENTE FUTURO: votar Samuel en listas (portal fantasy, mundos paralelos...)
+   con cuenta de un amigo cuando puedas.
+
+3. AMAZON AUTHOR CENTRAL — BIO — COMPLETADO
+   Bio de autor actualizada sin "marketing online".
+
+4. WIKIDATA — COMPLETADO (25 mayo 2026)
+   Q139678851 completado: sexo, ciudadanía, nacimiento (31 jul 1989, Pontevedra),
+   ocupación escritor, web oficial, Goodreads author ID 66843136, ORCID, Instagram.
+   Samuel entre mundos: ya tiene página propia en Wikidata con ISBN e info del libro.
+
+5. PLATAFORMAS DE LIBROS — COMPLETADO (25 mayo 2026)
+   a) Babelio: perfil de autor creado ✓
+   b) The StoryGraph: perfil hecho ✓
+   c) LibraryThing: Samuel entre mundos añadido ✓
+
+12. FOTOS DE ARANJUEZ — COMPLETADO (24 mayo 2026)
+    Ambas fotos guardadas en /assets/ y publicadas en ferias.html.
+
+15. BABELIO — PERFIL DE AUTOR — COMPLETADO
+    Perfil creado. Verificar MASA CRÍTICA si quieres reseñas verificadas:
+    https://www.babelio.com/auteur/David-Porto-Diaz/ → programa de reseñas a cambio
+    de ejemplares. Es opcional pero suma visibilidad.
+
+19a. GOOGLE SEARCH CONSOLE — /empieza-aqui/ — COMPLETADO
+     URL inspeccionada. Monitorear impresiones en Rendimiento > filtrar URL.
+
+20. AMAZON ASSOCIATES — ACTIVO ✓ (datos 25/04–24/05/2026)
+    Programa activo. 56 clics. 4 productos pedidos. 0.78€ en comisiones.
+    Conversión 7.14% — muy buena para el tráfico actual.
+    Facturación productos pedidos: 60.31€ (algunos no comisionables por condiciones Amazon).
+    No es necesario hacer nada: el programa está funcionando correctamente.
+
+21. LIBRERÍA LE — COMPLETADO (25 mayo 2026)
+    Link retirado de la web (mostraba "no disponible").
+    Si vuelve a estar disponible en un futuro, avisarme para reponerlo.
 
 ---------------------------------------------------------------------------
-SEO Y DISTRIBUCIÓN
+WIKIDATA — PENDIENTE MENOR
 ---------------------------------------------------------------------------
 
-2. GOODREADS - ACTUALIZAR BIO DE AUTOR
-   Tu perfil existe y está bien: https://www.goodreads.com/author/show/66843136.David_Porto_D_az
-   (El libro ya tiene 3 reseñas, todas 5 estrellas. ¡Bien!)
-   Lo que falta: añadir descripción de autor en la página.
-   Ve a Edit Author Profile y añade una bio de 200-400 palabras.
-   Ejemplo de texto para añadir:
-   ---
-   "David Porto Díaz es escritor español de fantasía juvenil nacido en Pontevedra
-   y residente en Madrid. Debutó en 2025 con Samuel entre mundos (Libros Indie),
-   su primera novela de portal fantasy española: la historia de un chico cuya
-   medalla esconde el poder de abrir mundos, en una ciudad donde toda magia
-   exige una compensación real.
-   Ganador del Primer Premio del XII Certamen de Microrrelatos «De amor»
-   de Letras Como Espada (2026) y Top 10 Finalista del Premio Nacional de
-   Literatura Infantil Juan Andrés Teno (2025).
-   Web: https://davidportodiaz.com"
-   ---
-   TAMBIÉN: Añade los géneros del libro en Goodreads (Fantasy, Young Adult,
-   Portal Fantasy, Spanish Literature, Coming of Age) y crea la serie "Noveris"
-   marcando Samuel como libro #1.
-
-   NUEVO (hallazgo Bloque A, 24/05/2026 — mejorar visibilidad en Perplexity):
-   Perplexity se alimenta de Goodreads para recomendar libros. Para que Samuel
-   aparezca en respuestas a "portal fantasy en español" o "fantasía juvenil española":
-   d) Vota Samuel en Listopias de Goodreads: busca listas de "portal fantasy en español",
-      "fantasía juvenil española" y "mundos paralelos" → vota para que Samuel entre.
-   e) Asegúrate de que el género principal sea Fantasy (no Fiction genérica).
-   f) En la página del libro, añade "tropes" si Goodreads los soporta:
-      portal fantasy, hard magic system, non-chosen-one, coming of age.
-
-3. AMAZON AUTHOR CENTRAL - ACTUALIZAR BIO
-   Tu perfil existe: https://www.amazon.es/stores/author/B0GZFP1JV3
-   PROBLEMA: la bio actual dice "fantasía, romantasy y ficción especulativa" y
-   menciona "marketing online y sector tecnológico" como puntos principales.
-   Esto contradice tu posicionamiento como escritor de fantasía juvenil española.
-   
-   Ve a https://author.amazon.com/ y cambia la bio a algo así:
-   ---
-   "David Porto Díaz es escritor español de fantasía juvenil, nacido en Pontevedra
-   y residente en Madrid. Autor de Samuel entre mundos (Libros Indie, 2025),
-   primera novela de portal fantasy española con sistema de magia de reglas duras
-   y protagonista no-elegido. Ganador del Primer Premio Letras Como Espada 2026
-   y finalista del Premio Nacional de Literatura Infantil Juan Andrés Teno 2025.
-   Sus historias parten de la grieta entre lo cotidiano y lo extraordinario:
-   portales, objetos con memoria y una magia que siempre exige algo a cambio.
-   Web: https://davidportodiaz.com"
-   ---
-
-4. WIKIDATA - CORREGIR GOODREADS ID Y COMPLETAR FICHA DEL AUTOR
-   Tu entrada de autor existe: https://www.wikidata.org/wiki/Q139678851
-   
-   Problemas encontrados que debes corregir (necesitas cuenta de Wikidata):
-   
-   a) Goodreads author ID está EQUIVOCADO: tiene 245605636 (que es el libro)
-      → Debe ser 66843136 (que es el autor)
-      Haz clic en "edit" junto a "Goodreads author ID" y corrígelo.
-   
-   b) Falta la web oficial (P856): https://davidportodiaz.com
-   
-   c) Falta Ocupación (P106): escritor / writer
-   
-   d) Falta Lugar de nacimiento (P19): Pontevedra
-   
-   e) Falta Obra notable (P800): Samuel entre mundos
-   
-   Opcional pero recomendable:
-   f) Crear entrada separada para la novela Samuel entre mundos como obra literaria
-      Instancia: novela (Q8261), ISBN: 9791387659776, Editorial: Libros Indie, Año: 2025
-
-   NUEVO (hallazgo Bloque A, 24/05/2026 — fix Noveris en IAs):
-   g) Crear entrada para la ciudad ficticia Noveris:
-      Instancia: ciudad ficticia (fictional city)
-      Parte de: Samuel entre mundos
-      Creador: David Porto Díaz
-      Esto ayuda a que Gemini/Perplexity distingan "Noveris" del libro
-      de las empresas reales llamadas "Noveris Hábitat" o "Grupo Noveris".
-
-5. PLATAFORMAS DE LIBROS PENDIENTES (para que las IAs te encuentren)
-   Las siguientes plataformas son indexadas por LLMs para recomendaciones de libros.
-   Crea ficha/perfil en cada una:
-   
-   a) Babelio (Francia + España): https://www.babelio.com/
-      - Crea perfil de autor y añade Samuel entre mundos con sinopsis en español
-   
-   b) The StoryGraph: https://app.thestorygraph.com/
-      - Crea perfil de autor con tropes explícitos: "hard magic system", "portal fantasy",
-        "family secrets", "non-chosen one"
-   
-   c) LibraryThing: https://www.librarything.com/
-      - Añade el libro con todos los metadatos (ISBN: 9791387659776)
-
-5b. DILVE - VERIFICAR CLASIFICACIÓN DEL LIBRO
-    DILVE es el sistema español de metadatos de libros que distribuye datos
-    a Casa del Libro, Fnac, El Corte Inglés, Agapea y otros.
-    
-    El libro aparece como "Narrativa española / Novela contemporánea" en Casa del Libro.
-    El género correcto es: Fantasía juvenil / Literatura juvenil.
-    
-    Campos Thema que solicitar a Libros Indie:
-    - Principal: YFH (Fantasía y mundos sobrenaturales — juvenil)
-    - Secundario: YFG (Aventura — juvenil)
-    - Edad: 5AN (12+ años)
-    
-    Cómo tramitarlo:
-    a) Escribe a Libros Indie pidiendo que actualicen la clasificación Thema en DILVE.
-       Adjunta los códigos YFH, YFG, 5AN como referencia exacta.
-    b) Si Libros Indie no responde en 2 semanas, contacta Casa del Libro directamente:
-       Atención al cliente con ISBN 9791387659776 y clasificación incorrecta.
-    c) Plazo esperado desde que DILVE lo procesa: 2-4 semanas.
+4g. WIKIDATA — NOVERIS (ciudad ficticia) — PENDIENTE
+    Crear entrada para la ciudad ficticia de Noveris en Wikidata.
+    Propiedades sugeridas:
+    - P31 (instancia de): lugar ficticio / fictional city
+    - P170 (creador): Q139678851 (David Porto Díaz)
+    - P1080 (del universo ficticio de): entrada de Samuel entre mundos
+    - P856 (URL canónica): https://davidportodiaz.com/universo/noveris/
+    Esto ayuda a que IAs distingan Noveris (ciudad del libro) de
+    empresas reales con ese nombre (Noveris Hábitat, Grupo Noveris).
+    Acceder a: https://www.wikidata.org/wiki/Special:NewItem
+    NO urgente — hacerlo cuando tengas 15 minutos.
 
 ---------------------------------------------------------------------------
-IMÁGENES Y ARCHIVOS
+DISTRIBUCIÓN — DILVE / CASA DEL LIBRO
 ---------------------------------------------------------------------------
 
-6. OG IMAGES 1200×630 px
-   Las imágenes de Open Graph actuales no tienen las proporciones correctas.
-   Necesitas crear (con Canva o similar):
-   - og-home.webp → logo + "Escritor de fantasía juvenil española"
-   - og-samuel.webp → portada Samuel entre mundos en proporción 1200×630
-   - og-noveris.webp → mapa o motivo Noveris
-   - og-fragmento.webp → imagen con "Lee el capítulo 1 gratis"
-   
-   Cuando los tengas, los subes a /assets/ y me dices los nombres.
+5b. DILVE — CLASIFICACIÓN THEMA (Libros Indie no lo hará)
+    El libro aparece como "Narrativa española" en Casa del Libro en vez
+    de "Fantasía juvenil". Libros Indie confirmó que no actualizará DILVE.
 
-7. MANIFEST ICONS PNG 512×512
-   El manifest.json referencia iconos que no existen o no son los correctos.
-   Necesitas PNG cuadrados de 512×512:
-   - /assets/icon-512.png (cualquier uso)
-   - /assets/icon-512-maskable.png (maskable, con zona segura)
-   Puedes generarlos en https://maskable.app/
+    OPCIÓN A — Contactar Casa del Libro directamente:
+    Ir a: https://www.casadellibro.com/cs/customer/service
+    Escribir: "El libro Samuel entre mundos (ISBN 9791387659776) aparece en
+    la categoría Narrativa española en vuestra web. La clasificación correcta
+    es Fantasía juvenil / Literatura juvenil. Los códigos Thema correctos son:
+    YFH (Fantasía y mundos sobrenaturales — juvenil) y YFG (Aventura — juvenil).
+    ¿Podéis actualizar la ficha?"
 
-8. PRESS KIT - ARCHIVOS DE ALTA RESOLUCIÓN
-   Ya existe /press-kit/ con los JSON de metadatos del libro y del autor.
-   Falta añadir los archivos de imagen para periodistas y bloggers:
-   - foto-david-porto-diaz-alta-res.jpg (foto tuya a mínimo 1200px de ancho)
-   - portada-samuel-entre-mundos.jpg (portada oficial en alta resolución)
-   - ficha-tecnica-samuel-entre-mundos.pdf con:
-       Título, autor, editorial, ISBN, nº páginas, PVP, géneros, sinopsis corta
-   
-   Cuando lo tengas listo, actualizo la página de prensa para que los enlaces funcionen.
+    OPCIÓN B — Distribución alternativa:
+    Verificar si Libros Indie usa Bookwire o Proedi (distribuidores españoles).
+    Si sí, puedes solicitar tú mismo la corrección a través del canal de autores.
 
 ---------------------------------------------------------------------------
-CONTENIDO Y MENCIONES EXTERNAS (GEO)
+IMÁGENES — PENDIENTES DE CREAR
 ---------------------------------------------------------------------------
 
-9. CONSEGUIR 1-2 MENCIONES EN BLOGS LITERARIOS
-   Para que ChatGPT y Perplexity te encuentren cuando alguien pregunte por
-   "fantasía juvenil española", necesitas que 2-3 fuentes externas mencionen
-   "David Porto Díaz" + "Samuel entre mundos" + "fantasía juvenil española".
-   
-   Acciones concretas:
-   a) Envía ejemplares de reseña a blogs de fantasía y YA en español
-   b) Propón una entrevista a un medio local (Pontevedra, Galicia, Madrid)
-   c) Publica en el subreddit r/fantasia o comunidades literarias en español,
-      mencionando el libro con transparencia de autoría en tu perfil
+6. OG IMAGES 1200×630 px (para redes sociales al compartir)
+   Las imágenes OG actuales (og:image) son genéricas. Crear imágenes específicas
+   en Canva o similar. NO usar IA generativa para esto — usa el logo y la portada real.
 
-10. BANCO MENSUAL DE PROMPTS DE IA (seguimiento)
-    Cada mes (primera semana), prueba en incógnito estos prompts:
-    - ChatGPT: "Recomiéndame un libro de fantasía juvenil español"
-    - Perplexity: "Mejores libros de portal fantasy en español 2025 2026"
-    - Gemini: "Escritores españoles de fantasía juvenil"
-    - Copilot: "Libros parecidos a Percy Jackson en español"
-    Anota: ¿aparece Samuel? ¿Aparece tu nombre? ¿Qué URL cita?
-    Cuéntamelo y ajustamos la estrategia.
+   Guía para Canva:
+   - Dimensiones: 1200 × 630 px
+   - Fondo: #080a0c (negro profundo)
+   - Acento: #c4944d (dorado)
 
----------------------------------------------------------------------------
-EVENTOS
----------------------------------------------------------------------------
+   Archivos a crear y dónde guardarlos:
+   a) assets/og-home.webp
+      Contenido: Logo "David Porto Díaz" · "Escritor de fantasía juvenil española"
+      Motivo visual derecho: portal/esfera dimensional en dorado y negro
+   b) assets/og-samuel.webp
+      Contenido: Portada del libro Samuel entre mundos (escaneada o foto real) · banner horizontal
+      Frase: "Samuel entre mundos · Libros Indie 2025"
+   c) assets/og-noveris.webp
+      Contenido: Mapa de Noveris o imagen del universo
+      Frase: "Universo Noveris · Portal fantasy"
 
-11. FERIA DEL LIBRO DE MADRID 2026 (10 de junio)
-   - Horario de firma: 19:40 — 21:00 (YA ACTUALIZADO en eventos.html y ferias.html)
-   - Número de caseta (cuando lo tengas) ← falta este dato
-   Con el número de caseta actualizo los dos archivos.
+   Cuando tengas los archivos con esos nombres en /assets/, avísame y actualizo los
+   meta og:image de cada página.
 
-12. FOTOS DE ARANJUEZ — COMPLETADO (24 mayo 2026) ✅
-    Ambas fotos guardadas en /assets/ y publicadas en ferias.html:
-    ✓ feria-aranjuez-2026-david-porto-diaz-colocando-samuel.webp
-    ✓ feria-aranjuez-2026-david-porto-diaz-firma-caseta.webp
+7. MANIFEST ICONS PNG 512×512 (para PWA e instalación en móvil)
+   El manifest.json usa AVIF para iconos, que no funciona en iOS/Safari.
+   Crear dos archivos PNG:
 
----------------------------------------------------------------------------
-ANALYTICS
----------------------------------------------------------------------------
+   OPCIÓN RÁPIDA con Canva:
+   a) assets/icon-512.png
+      Contenido: medallón Samuel (ya tienes la imagen) sobre fondo negro #080a0c
+      Tamaño: 512×512 px exacto. Formato: PNG.
+   b) assets/icon-512-maskable.png
+      Igual que el anterior pero con 10% de padding alrededor del medallón
+      (zona segura para Android). Usar: https://maskable.app/editor
+      Subir el icon-512.png y ajustar la zona segura.
 
-13. GOATCOUNTER - REVISAR MÉTRICAS
-    - URL: https://davidportodiaz.goatcounter.com/
-    - Comprueba qué páginas tienen más visitas y cuál es el origen de tráfico
-    - Indica si hay alguna página con mucho rebote o poco tiempo de lectura
-    - Con esos datos puedo priorizar qué mejorar primero
+   Cuando ambos archivos estén en /assets/, avísame y actualizo manifest.json.
 
 ---------------------------------------------------------------------------
-OUTREACH — BLOGS Y CREADORES DE CONTENIDO (hallazgos Bloque C)
+EVENTOS — PENDIENTES
 ---------------------------------------------------------------------------
 
-14. CLASIFICACIÓN CASA DEL LIBRO (vía Libros Indie + DILVE)
-    Ver ítem 5b para detalle completo del proceso.
-    Acción prioritaria: email a Libros Indie con códigos Thema YFH, YFG, 5AN.
+11. FERIA DEL LIBRO DE MADRID 2026 — CASETA
+    Horario de firma ya actualizado en la web: 19:40 – 21:00 (10 junio).
+    Falta: número de caseta.
+    Cuando lo tengas, avísame con el número y actualizo ferias.html y eventos.html.
 
-15. BABELIO — PERFIL DE AUTOR + MASA CRÍTICA
-    Babelio es la plataforma de referencia para lectores franceses y españoles.
-    Es una fuente que indexan los LLMs para recomendar libros en español.
-    
-    Proceso paso a paso:
-    a) Crea cuenta en babelio.com/es
-    b) Busca el libro por ISBN 9791387659776
-    c) En la ficha: "Eres el autor" → verifica identidad (piden foto del DNI o confirmación editorial)
-    d) Alternativa rápida: escribe a contact@babelio.com con asunto:
-       "Reclamación perfil de autor — ISBN 9791387659776"
-    e) Una vez verificado: completa bio, foto, enlaza web y redes
-    f) Inscíbete en el programa MASA CRÍTICA: envías ejemplares digitales a cambio
-       de reseñas verificadas — esto sube el perfil del libro en Babelio y en Google
+16-fotos. FOTOS DE MADRID 2026
+    Después del 10 de junio, cuando tengas fotos de la feria:
+    - Guardarlas en /assets/ como: feria-madrid-2026-david-porto-diaz-1.webp (etc.)
+    - Avisarme y añado la galería a ferias.html (como con Aranjuez).
 
-16. FERIAS DO LIBRO DE GALICIA 2026
-    El lema oficial de las Ferias do Libro de Galicia 2026 es
-    "A porta a universos infinitos" — coincidencia directa con el universo de Samuel.
-    
-    Calendario disponible:
-    - Redondela: 11-14 junio (URGENTE — Alameda Castelao)
-    - Ourense: 17-20 junio
-    - Vigo: 1-7 julio (prioritaria — mayor afluencia de Galicia)
-    - A Coruña: 1-10 agosto (prioritaria — mayor afluencia)
-    
-    CONTACTO (hallazgo Bloque P, mayo 2026):
-    Federación de Librarías de Galicia
-    ✉  libreiros@librarias.org
-    ☎  +34 981 599 958
-    Web: https://www.librarias.org/es/agenda-feria-libro
-    
-    TEXTO PARA EL EMAIL (en gallego, copia y envía):
-    ---
-    Boa tarde,
-    Son David Porto Díaz, escritor pontevedrés afincado en Madrid e autor de
-    *Samuel entre mundos* (Libros Indie, 2025), unha novela de fantasía xuvenil
-    sobre portais e mundos paralelos.
-    
-    Estou moi interesado en participar nas Ferias do Libro de Galicia 2026,
-    especialmente en Vigo e A Coruña. A temática da miña novela encaixa
-    perfectamente co lema "A porta a universos infinitos".
-    
-    Xa teño experiencia en feiras (Aranjuez e Madrid 2026) e conto con
-    material promocional preparado.
-    
-    Podedes contactarme en samuelentremundos@gmail.com
-    Máis información: https://davidportodiaz.com
-    ---
-    
-    Para REDONDELA (urgente): contacta también directamente con
-    Librería La Imprenta en Redondela — pueden cederte espacio en su caseta.
-    Busca su teléfono en Google Maps.
+---------------------------------------------------------------------------
+CONTENT / ANALÍTICA
+---------------------------------------------------------------------------
 
-17. OUTREACH BLOGS LITERARIOS Y BOOKTUBERS (Bloque C completado)
-    Investigación ya hecha, pendiente de ejecutar:
+10. SEGUIMIENTO IAs — CÓMO FUNCIONA
+    David no necesita hacer esto manualmente. Así está organizado:
     
-    BLOGS PRIORITARIOS:
-    - Fantástica Obsesión: fantásticaobsesión.com → formulario de contacto en web
-    - El Blog de Karen: contacto en el blog
-    - literfan.cyberdark.net: añadir Samuel a su base de datos de libros españoles
-      (tiene una lista de "Libros más esperados 2026" que rastrean las IAs)
-      CONTACTO LITERFAN (hallazgo Bloque P, mayo 2026):
-      ✉  literfan@yahoo.es
-      Twitter: @MarianoVLL (Mariano Villarreal, responsable)
-      Enviar: título, autor, editorial, año, ISBN, ASIN, género, sinopsis, portada alta calidad
-      + Por qué merece aparecer: portal fantasy innovador, autopublicación, Premio Letras Como Espada
+    CLAUDE (yo): lo que sé y mejoro ya está en la web (llms.txt, schema, Guide schema...).
+    Para testear: abrir claude.ai con Search ON y preguntar
+      "¿Qué libros de portal fantasy en español hay?" → verificar si aparece.
     
-    BOOKTUBERS / BOOKTOKERS (prioridad por orden):
-    1. Andrea Izquierdo (@andreorowling) YouTube ~200k — fantasía tipo HP
-       Email profesional (ver perfil YouTube)
-       PITCH (hallazgo Bloque P — email formal ~100 palabras):
-       ---
-       Asunto: Envío de ejemplar — Samuel entre mundos (portal fantasy español)
-       
-       Hola Andrea, soy David Porto Díaz, escritor de fantasía juvenil española.
-       Te escribo porque creo que Samuel entre mundos puede interesarte.
-       Es una novela de portal fantasy con un sistema de magia de reglas duras
-       y un protagonista que no es el elegido, publicada por Libros Indie en 2025.
-       Ha ganado el Primer Premio Letras Como Espada 2026.
-       
-       Me gustaría enviarte un ejemplar físico sin compromiso. Si decides
-       reseñarlo, genial; si no encaja con tu línea editorial, lo entiendo.
-       
-       ¿Te lo mando? Un saludo,
-       David Porto Díaz — https://davidportodiaz.com
-       ---
-    2. Shula Li (@adictaalibros) TikTok grande
-       Email: adictaalibroscontacto@gmail.com
-    3. Raquel Brune (@raquelbookish) TikTok 181k / YouTube 545k
-       Email: holaraquelbookish@gmail.com
-    4. Josu Diamond (@josudiamond) YouTube 239k / TikTok 180k
-       DM TikTok (menciona que eres fan + autopublicado como él)
-       PITCH (hallazgo Bloque P — DM informal):
-       ---
-       Ey Josu! Te sigo desde hace tiempo. Soy David Porto Díaz, autor
-       autopublicado de portal fantasy. Publiqué Samuel entre mundos
-       con Libros Indie en 2025 — un libro de magia con reglas, sin
-       elegido, para YA. Me encantaría que le echaras un ojo. ¿Te mando
-       un físico?
-       ---
-    5. Esperanza Luque (@esperanzalruz) TikTok 132k
-       Email: holaesperanzaluque@gmail.com
-    
-    MENSAJE CLAVE para todos: soy David Porto Díaz, portal fantasy español,
-    sistema de magia con reglas duras, Libros Indie 2025, primer premio Letras Como Espada.
-    Ofrece ejemplar físico o digital + disponibilidad para entrevista.
+    CHATGPT / GEMINI / PERPLEXITY: los prompts de seguimiento están en
+    Respuestas.txt → BLOQUE AA (8 categorías de búsquedas). Cuando
+    uses esas IAs, pasa esas queries y anota si aparece Samuel.
+    Con cada resultado que me cuentes puedo mejorar algo concreto.
 
-18. SUBSTACK — CANAL DE DESCUBRIMIENTO (OPCIONAL, CUANDO HAYA TIEMPO)
-    Recomendado como canal secundario, NO sustituto de Brevo.
-    Idea: "El cuaderno de worldbuilding de Noveris" — artículos mensuales sobre
-    el sistema de magia, la geografía de Noveris, el proceso creativo.
-    Cada artículo es una URL indexable que Google y las IAs pueden citar.
-    Probar 3 meses con 6 publicaciones antes de decidir si continuar.
+13. ANALYTICS GOATCOUNTER — ANÁLISIS (datos 25 mayo 2026)
+    Datos recibidos y analizados:
     
-    ARTÍCULOS SUGERIDOS (hallazgo Bloque P, mayo 2026 — ya con keywords SEO):
-    1. "Portal fantasy en español: los mejores libros del género"
-       Keyword objetivo: "portal fantasy español"
-       Estructura: definición del género → historia → mejores libros en español
-       → por qué Samuel encaja → CTA "¿Quieres leer uno ahora?"
+    Estado: muy buen arranque para una web de menos de 6 meses.
+    - 46 visitas totales: normal para esta fase, 85% desde España ✓
+    - Google ya trae 4 visitas orgánicas: el SEO empieza a funcionar
+    - Móvil 59% — el diseño responsive está siendo la base correcta
+    - Páginas más visitadas: home (23), libro (6), ferias (3), Noveris (3)
+    - /ferias.html ya tiene visitas (3) aunque es nueva — bien
     
-    2. "Sistema de magia dura: cómo crear reglas sin matar el misterio"
-       Keyword objetivo: "sistema de magia dura"
-       Estructura: qué es magic-system duro vs blando → ejemplos (Brandon Sanderson)
-       → el enfoque de Noveris → errores comunes al diseñar magia
-    
+    Acciones derivadas (las aplico yo en futuros commits):
+    - Seguir monitorizando con GoatCounter mensualmente
+    - El LCP de 4.3s en móvil ya está CORREGIDO en este commit (hero-bg → img)
+    - TBT desktop 620ms: investigar en próximos pasos
+
+18. SUBSTACK / CUADERNO — CONTENIDO IA
+    Los 3 artículos propuestos están en el archivo anterior de cosas-pendientes.
+    Cuando quieras escribirlos, pídeme a mí el draft de cada uno y lo genero:
+    1. "Portal fantasy en español: qué es y por qué importa"
+    2. "Sistema de magia dura: reglas sin matar el misterio"
     3. "Worldbuilding de una ciudad mágica: cómo hacer que Noveris parezca viva"
-       Keyword objetivo: "worldbuilding ciudad mágica"
-       Estructura: principios de worldbuilding urbano → capas (geografía, economía,
-       cultura, magia integrada) → ejemplos en Noveris → preguntas para construir
-       tu propia ciudad
+    No tienes que escribirlos desde cero — dímelo y te los genero listos para publicar.
 
 ---------------------------------------------------------------------------
-SEGUIMIENTO TÉCNICO — VERIFICACIONES PERIÓDICAS (hallazgo Bloque D)
+PRESENCIA EN IAs — BAJA PRIORIDAD
 ---------------------------------------------------------------------------
 
-19. GOOGLE SEARCH CONSOLE — VERIFICACIONES PENDIENTES
-    (Bloque D procesado, 26 mayo 2026)
-    
-    a) Inspeccionar /empieza-aqui/ en Search Console:
-       → https://search.google.com/search-console
-       → "Inspección de URL" → pegar: https://davidportodiaz.com/empieza-aqui/
-       → Si dice "URL desconocida para Google" → clic en "Solicitar indexación"
-       → Si ya está indexada: monitorear impresiones en pestaña "Rendimiento" (filtrar por URL exacta)
-       Esperar mínimo 7 días tras indexación para ver primeros datos.
-    
-    b) Rich Results Test — ejecutar manualmente en estas URLs:
-       https://search.google.com/test/rich-results?url=https%3A%2F%2Fdavidportodiaz.com%2F
-       https://search.google.com/test/rich-results?url=https%3A%2F%2Fdavidportodiaz.com%2Flibros%2Fsamuel-entre-mundos%2F
-       https://search.google.com/test/rich-results?url=https%3A%2F%2Fdavidportodiaz.com%2Funiverso%2Fnoveris%2F
-       https://search.google.com/test/rich-results?url=https%3A%2F%2Fdavidportodiaz.com%2Feventos.html
-       Qué buscar: ✅ Book (con price 22€) en libro · ✅ BreadcrumbList en todas
-       ✅ FAQPage en Noveris · ✅ Event en eventos · ❌ Errores → me los dices y lo corrijo.
-    
-    c) Core Web Vitals — medir con PageSpeed Insights:
-       https://pagespeed.web.dev/analysis?url=https%3A%2F%2Fdavidportodiaz.com%2F&strategy=mobile
-       Objetivos: LCP < 2.5s · CLS < 0.1 · INP < 200ms
-       (Bloque D confirmó valores excelentes: LCP ~1.3s, CLS ~0, INP ~100ms)
-       Repetir tras cada deploy que modifique imágenes o CSS crítico.
+34. WIKIDATA — COMPLETADO (ver ítem 4)
 
-20. AMAZON ASSOCIATES — VERIFICAR PROGRAMA Y COMISIONES
-    (Bloque D, 26 mayo 2026 — los links están correctamente implementados con ?tag=davidporto-21)
-    
-    Accede a: https://affiliate-program.amazon.com → Informes → Tracking ID: davidporto-21
-    
-    Verificar:
-    a) ¿El programa está activo? (no suspendido por inactividad de 180 días sin ventas)
-    b) ¿Hay clicks registrados desde que la web está en producción?
-       Si hay 0 clicks y la web tiene visitas → revisar que los links incluyen el tag
-       (los links del HTML sí lo tienen — puede ser que el tráfico a la web sea aún bajo)
-    c) ¿El dominio davidportodiaz.com aparece como "sitio aprobado"?
-    d) ¿Hay comisiones generadas?
-    
-    Si el programa lleva 180+ días sin ventas, Amazon puede cerrarlo.
-    Si ocurre, volver a solicitar el alta con davidportodiaz.com.
+35. WIKIDATA SAMUEL ENTRE MUNDOS — COMPLETADO (David creó la página)
 
-21. LIBRERÍA LE — VERIFICAR DISPONIBILIDAD Y PÁGINAS
-    (Bloque D, 26 mayo 2026 — discrepancia detectada por IA revisora)
-    
-    Abrir en incógnito: https://www.libreriale.es/libro/samuel-entre-mundos/9791387659776/1766929
-    
-    Verificar:
-    a) ¿El libro aparece como "Disponible" o "No disponible"?
-       Si está como "No disponible" → contactar a Libros Indie para que actualicen el stock.
-       Si el problema persiste → retirar el link de Librería Le de la web (avisarme).
-    
-    b) ¿El número de páginas que muestra la ficha es 422 o 412?
-       El schema de la web declara 422 páginas. Si la librería muestra 412, uno de los dos
-       es incorrecto. Confirmar el número real del libro físico y avisarme si hay que
-       corregir el schema.
+36. WIKIPEDIA — CUANDO HAYA PRENSA
+    Requisito: al menos 1 reseña en medio verificable (no Amazon, sino blog/medio
+    con nombre propio). Cuando salga la primera cobertura, avísame y redactamos
+    juntos el borrador del artículo de Wikipedia.
+
+37. WORLDCAT + BNE — VERIFICAR PRESENCIA
+    Buscar el libro:
+    - WorldCat: https://www.worldcat.org/ → buscar "Samuel entre mundos" o ISBN
+    - BNE: https://catalogo.bne.es/ → buscar por ISBN 9791387659776
+    Si no aparece en BNE: contactar a Libros Indie para que registren en depósito legal.
+    Si no aparece en WorldCat: aparecerá cuando una biblioteca lo catalogue.
+
+38. ISFDB — AÑADIR EL LIBRO
+    ISFDB es la base canónica de fantasía especulativa (la usan Claude y Perplexity).
+    Registrarse en https://www.isfdb.org/ y añadir la entrada:
+    - Tipo: NOVEL · Título: Samuel entre mundos · Autor: David Porto Díaz
+    - Año: 2025 · Editorial: Libros Indie · ISBN: 9791387659776
+    - Géneros: Portal Fantasy, Young Adult Fantasy
+    Proceso: registro gratuito + envío de datos → revisión manual (puede tardar semanas).
 
 ---------------------------------------------------------------------------
-TAREAS DE CONTENIDO Y ESTRATEGIA (hallazgos Bloque E + F)
+OUTREACH — CUANDO ESTÉS LISTO
 ---------------------------------------------------------------------------
 
-22. CUADERNO/BLOG — PRIMER ARTÍCULO (alta prioridad cuando haya tiempo)
-    (Bloque E, 26 mayo 2026)
-    
-    URL decidida: /cuaderno/fantasia-juvenil-espanola-portales-magia-coste/
-    Keyword objetivo: "fantasía juvenil española"
-    Longitud: 1500-2000 palabras
-    
-    Estructura decidida:
-    H1: "Fantasía juvenil española con portales, magia con coste y mundos ocultos"
-    → Sección 1: Qué define la fantasía juvenil española actual
-    → Sección 2: Portal fantasy: qué busca el lector
-    → Sección 3: Magia con coste como diferenciador de género
-    → Sección 4: Libros recomendados + Samuel entre mundos (de forma natural)
-    → FAQPage al final (3 preguntas)
-    → Formulario de newsletter al cierre
-    
-    La página /cuaderno/ (índice) también hay que crearla.
-    Bloque U del archivo de preguntas tiene todas las consultas para pedir
-    el outline completo y el JSON-LD FAQPage a otras IAs.
-
-23. PÁGINAS DE COMPARABLES — ORDEN DE CREACIÓN
-    (Bloque E, 26 mayo 2026)
-    
-    Decisión tomada:
-    1ª: /recomendaciones/portal-fantasy-espanol/
-    2ª: /recomendaciones/magia-con-coste/
-    3ª: /recomendaciones/si-te-gusto-percy-jackson/ (más adelante, con cuidado)
-    
-    Antes de crear: preguntar a IAs (Bloque V) la lista de libros con ISBNs y ASINs,
-    y el schema recomendado para páginas de comparables.
-    
-    IMPORTANTE: los enlaces de afiliado Amazon en esas páginas requieren aviso legal
-    claro (ver ítem 25 de este archivo).
-
-24. VÍDEOS CORTOS BOOKTOK / REELS (cuando haya tiempo y dispositivo para grabar)
-    (Bloque E, 26 mayo 2026)
-    
-    Los 5 guiones de 30-60 segundos ya están listos. Empezar por el guion 1 o 3:
-    
-    GUION 1 — "La magia no debería ser gratis"
-    «La magia no debería ser gratis. Si en una novela cualquier hechizo resuelve
-    cualquier problema, el peligro desaparece. Por eso en Samuel entre mundos la
-    magia siempre exige un precio. En Noveris, el poder se canaliza mediante objetos
-    con memoria: una medalla, una pluma, una vara. Pero cada uso deja una consecuencia.
-    Para mí, la magia interesante no es la que lo puede todo. Es la que obliga al
-    personaje a preguntarse: ¿cuánto estoy dispuesto a pagar?
-    Lee el capítulo 1 gratis en davidportodiaz.com.»
-    
-    GUION 3 — "Samuel no es el elegido"
-    «Samuel no es el elegido. No hay profecía, no hay destino glorioso y nadie lo
-    estaba esperando como salvador. Solo hay una medalla que late, una familia que
-    ha ocultado demasiado y una ciudad imposible al otro lado. Me interesaba más
-    un protagonista que no llega porque el mundo lo necesita, sino porque la verdad
-    lo alcanza. Samuel entre mundos es fantasía juvenil española con portales,
-    secretos familiares y magia con coste.»
-    
-    Publicar el mismo vídeo adaptado a TikTok + Instagram Reels + YouTube Shorts.
-    CTA: "Lee el primer capítulo gratis en davidportodiaz.com" (no "compra mi libro").
-    Bloque X del archivo de preguntas tiene consultas sobre horarios, hashtags y plataformas.
-
-25. EMAIL DE BIENVENIDA (QUIZ) — CONFIGURAR EN BREVO
-    (Bloque E, 26 mayo 2026)
-    
-    La secuencia de 3 emails ya está escrita. Configurar en Brevo:
-    
-    Email 1 (inmediato tras suscribirse):
-    Asunto: "Tu resultado de Noveris ya está listo"
-    Contenido: resultado + link al capítulo 1 (/fragmento/)
-    
-    Email 2 (48h después):
-    Asunto: "Antes de seguir: qué es Noveris"
-    Contenido: link a /universo/noveris/
-    
-    Email 3 (5-7 días después):
-    Asunto: "Si la medalla te ha llamado"
-    Contenido: link a /libros/samuel-entre-mundos/ + CTA de compra
-    
-    Bloque W del archivo de preguntas tiene consultas sobre la configuración
-    exacta en Brevo y la segmentación por facción (Zunthar vs Marelian).
-
-26. AVISO DE AFILIADO — VERIFICAR COBERTURA LEGAL
-    (Bloque Y del archivo de preguntas, 26 mayo 2026)
-    
-    Los enlaces Amazon ?tag=davidporto-21 ya llevan rel="sponsored".
-    Pendiente: verificar si la ley española (LSSI) exige aviso de texto visible.
-    
-    Antes de crear más páginas con enlaces de afiliado (/recomendaciones/),
-    preguntar a IAs (Bloque Y) el texto exacto para aviso-legal.html.
-    Si hace falta, avisarme y lo añadimos al aviso-legal y/o footer.
-
-27. REDIRECCIONES HTTP→HTTPS — VERIFICAR MANUALMENTE
-    (Bloque L/Info otras IA, 26 mayo 2026)
-    
-    En cualquier navegador o terminal verificar:
-    - http://davidportodiaz.com → debe redirigir 301 a https://davidportodiaz.com/
-    - http://www.davidportodiaz.com → debe redirigir a https://davidportodiaz.com/
-    - https://www.davidportodiaz.com → debe redirigir a https://davidportodiaz.com/
-    
-    Si alguno da error o no redirige: avisarme con el resultado exacto.
-    (En Chrome: F12 → Network → pegar URL → ver status code)
-
----------------------------------------------------------------------------
-TAREAS TÉCNICAS PENDIENTES DE VERIFICACIÓN (hallazgos Bloque F/G)
----------------------------------------------------------------------------
-
-28. GITHUB ACTIONS — VERIFICAR PERMISOS (Bloque F2, 26 mayo 2026)
-    El workflow update-dates.yml hace push directo a main con GITHUB_TOKEN.
-    Puede fallar si hay branch protection rules activas.
-    
-    Verificar en GitHub:
-    Repo → Settings → Actions → General → Workflow permissions
-    Debe estar en: "Read and write permissions"
-    
-    Si main tiene "Require pull request before merging" activo:
-    → Avisarme y lo cambio a PR automática en vez de push directo.
-    
-    Verificar también si ha fallado algún run reciente en:
-    Repo → Actions → "Update sitemap lastmod selectively"
-
-29. RICH RESULTS TEST — EVENT SCHEMA FERIA MADRID (Bloque G2, 26 mayo 2026)
-    El schema Event para Feria del Libro de Madrid 2026 fue añadido al index.html.
-    Validar que Google lo detecta sin errores:
-    
-    Abrir:
-    https://search.google.com/test/rich-results?url=https%3A%2F%2Fdavidportodiaz.com%2F
-    https://search.google.com/test/rich-results?url=https%3A%2F%2Fdavidportodiaz.com%2Feventos.html
-    
-    Comprobar: tipo "Event" detectado · startDate 2026-06-10 · sin errores ni warnings
-
-30. FERIA DEL LIBRO DE MADRID — CONFIRMAR DATOS EXACTOS (Bloque G7)
-    ferias.html#madrid y eventos.html#proximos muestran "10 de junio de 2026 (provisional)".
-    
-    Cuando David confirme la caseta, el horario y el tramo exacto:
-    → Avisarme con: número de caseta, horario (ej: 11:00-14:00 y 17:00-21:00), ISBN/signatario.
-    → Actualizaré ferias.html y eventos.html con los datos reales.
-
-31. FOTOS FERIA MADRID — PARA DESPUÉS DEL EVENTO (Bloque G5)
-    ferias.html#madrid tiene dos <figure> placeholders (comentario en el HTML).
-    Después del 10 de junio, cuando David tenga fotos del evento:
-    → Enviar o poner en la carpeta assets/ con nombres: feria-madrid-2026-1.avif, etc.
-    → Avisarme y las añado al HTML.
-
-32. PWA ICONS PNG 512x512 (Bloque G6, 26 mayo 2026)
-    manifest.json usa AVIF para los iconos de 512x512 (medallón Samuel).
-    AVIF no está soportado como icono PWA en todos los navegadores (iOS, algunos Android).
-    
-    Necesario: crear dos archivos PNG de 512x512:
-    - assets/icon-512.png (propósito: any)
-    - assets/icon-512-maskable.png (propósito: maskable — con padding del 10% mínimo)
-    
-    Cuando existan, avisarme y actualizo manifest.json.
-    Herramienta para generar: https://maskable.app/editor
-
-33. PRENSA — CUANDO SALGA LA PRIMERA COBERTURA (Bloque G/Info IA)
-    La web tiene un kit de prensa completo pero todavía no lista cobertura recibida.
-    Cuando salga la primera reseña, entrevista o mención en un medio:
-    
-    → Avisarme con: nombre del medio, fecha, URL del artículo, extracto de 1-2 frases.
-    → Añado la mención a prensa.html con su fecha + NewsArticle schema al JSON-LD.
-    
-    (Esto mejora el E-E-A-T de la web: Google valora menciones externas con fecha verificable)
-
----------------------------------------------------------------------------
-TAREAS PARA APARECER EN CLAUDE Y OTRAS IAs (hallazgos BLOQUE AB, mayo 2026)
----------------------------------------------------------------------------
-
-34. WIKIDATA — COMPLETAR ENTRADA DEL AUTOR Q139678851 (Alta prioridad)
-    La entrada de David Porto Díaz existe pero probablemente falta:
-    - P21 (sexo: masculino)
-    - P27 (ciudadanía: España Q29)
-    - P106 (ocupación: escritor Q36180)
-    - P856 (sitio web oficial: https://davidportodiaz.com/)
-    - P2963 (Goodreads author ID: 66843136)
-    - P18 (foto: si hay imagen libre de derechos)
-    - P569 (fecha de nacimiento: solo si David quiere hacerla pública)
-    - P19 (lugar de nacimiento: Pontevedra Q36185)
-    
-    Cómo editarlo: https://www.wikidata.org/wiki/Q139678851
-    (requiere cuenta Wikidata — crear si no tiene)
-    
-    IMPORTANTE: Esto mejora directamente la confianza de Claude, Gemini y
-    Perplexity al recomendar al autor. No requiere esperar a tener prensa.
-
-35. WIKIDATA — CREAR ENTRADA PARA SAMUEL ENTRE MUNDOS (Alta prioridad)
-    La novela no tiene Q-ID propio. Propiedades mínimas:
-    - P31 (instancia de): Q7725634 (novela)
-    - P50 (autor): Q139678851 (David Porto Díaz)
-    - P123 (editorial): crear o vincular Libros Indie
-    - P212 (ISBN-13): 9791387659776
-    - P577 (fecha de publicación): 2025
-    - P1476 (título): Samuel entre mundos
-    - P407 (idioma): castellano Q1321
-    - P136 (género): portal fantasy + fantasía juvenil
-    - P856 (URL): https://davidportodiaz.com/libros/samuel-entre-mundos/
-    
-    Cuando exista el Q-ID del libro, actualizar el autor para enlazar:
-    - P800 (obra notable): → Q del libro
-
-36. WIKIPEDIA — CREAR ARTÍCULO DEL AUTOR (cuando haya prensa)
-    Wikipedia es la fuente #1 que usa Claude sin búsqueda web.
-    Sin artículo Wikipedia, Claude "no conoce" al autor en modo básico.
-    
-    REQUISITO: Wikipedia exige notoriedad verificable.
-    Necesitamos al menos 1-2 reseñas en medios con nombre (no blogs anónimos).
-    Ejemplos válidos: Lecturalia, El Cultural, ABC Cultura, SFX, La Vanguardia,
-    Playground, blog literario con ISSN o mención editorial significativa.
-    
-    Cuando tengamos la primera cobertura de prensa, avisar para:
-    1. Redactar borrador del artículo
-    2. Citar las fuentes externas en el artículo
-    3. Enlazar desde la entrada Wikidata del autor
-
-37. WORLDCAT + BNE — VERIFICAR PRESENCIA DEL LIBRO
-    WorldCat y el catálogo de la BNE son fuentes que Claude consulta
-    para verificar que un libro existe físicamente.
-    
-    Verificar:
-    - WorldCat: https://www.worldcat.org/ — buscar "Samuel entre mundos"
-    - BNE: https://catalogo.bne.es/ — buscar por ISBN 9791387659776
-    
-    Si no aparece en BNE: contactar al depósito legal o a la editorial
-    para que el ISBN esté correctamente registrado.
-    
-    Si no aparece en WorldCat: es por falta de catálogo en bibliotecas.
-    No hay acción directa, pero aparece cuando alguna biblioteca cataloga el libro.
-
-38. ISFDB — AÑADIR LIBRO A BASE DE DATOS DE FANTASÍA
-    ISFDB (Internet Speculative Fiction Database) es la base de datos
-    canónica de ciencia ficción y fantasía. Claude la usa para portal fantasy.
-    
-    Añadir la entrada:
-    - URL: https://www.isfdb.org/ → "New Submissions" → novela
-    - Tipo: NOVEL
-    - Título: Samuel entre mundos
-    - Autor: David Porto Díaz
-    - Año: 2025
-    - Editorial: Libros Indie
-    - ISBN: 9791387659776
-    - Géneros: Portal fantasy, Young Adult fantasy
-    
-    Requiere registro y puede tardar en aprobarse (proceso manual).
+17. BLOGS LITERARIOS Y BOOKTUBERS
+    Lista de contactos preparada (ver histórico de cosas-pendientes o Respuestas.txt).
+    Cuando quieras empezar, avísame y te preparo el email concreto para cada uno.
+    Prioridad: Andrea Izquierdo (YouTube ~200k) → Raquel Brune → Josu Diamond.

@@ -22,7 +22,6 @@
 
   <meta name="theme-color" content="#080a0c" />
 
-  <link rel="preload" as="image" href="assets/mapa-noveris-ciudad-fantasia-urban-lore.avif" fetchpriority="high" />
   <link rel="preload" as="image" href="assets/david-porto-diaz-escritor-fantasia-madrid-autor.avif" fetchpriority="high" />
   <link rel="preload" as="font" type="font/woff2" href="assets/fonts/cg-normal-latin.woff2" crossorigin />
   <link rel="preload" as="font" type="font/woff2" href="assets/fonts/inter-normal-latin.woff2" crossorigin />
@@ -237,18 +236,20 @@
         "@type": "Event",
         "@id": "https://davidportodiaz.com/ferias.html#madrid",
         "name": "Firma de Samuel entre mundos — Feria del Libro de Madrid 2026",
-        "startDate": "2026-06-10",
+        "startDate": "2026-06-10T19:40:00+02:00",
+        "endDate": "2026-06-10T21:00:00+02:00",
+        "image": "https://davidportodiaz.com/assets/david-porto-imagen-compartir.webp",
         "location": {
           "@type": "Place",
           "name": "Feria del Libro de Madrid 2026 — Parque del Retiro",
           "address": { "@type": "PostalAddress", "addressLocality": "Madrid", "addressCountry": "ES" }
         },
-        "organizer": { "@type": "Organization", "name": "Feria del Libro de Madrid" },
+        "organizer": { "@type": "Organization", "name": "Feria del Libro de Madrid", "url": "https://www.ferialibromadrid.com" },
         "performer": { "@id": "https://davidportodiaz.com/#author" },
         "eventStatus": "https://schema.org/EventScheduled",
         "eventAttendanceMode": "https://schema.org/OfflineEventAttendanceMode",
-        "offers": { "@type": "Offer", "price": "0", "priceCurrency": "EUR", "availability": "https://schema.org/InStock" },
-        "description": "David Porto Díaz firma ejemplares de Samuel entre mundos en la Feria del Libro de Madrid 2026 (Parque del Retiro). Entrada libre y gratuita.",
+        "offers": { "@type": "Offer", "price": "0", "priceCurrency": "EUR", "availability": "https://schema.org/InStock", "url": "https://davidportodiaz.com/ferias.html#madrid", "validFrom": "2026-05-25" },
+        "description": "David Porto Díaz firma ejemplares de Samuel entre mundos en la Feria del Libro de Madrid 2026 (Parque del Retiro). Horario: 19:40–21:00. Entrada libre y gratuita.",
         "url": "https://davidportodiaz.com/ferias.html#madrid"
       }
     ]
@@ -348,7 +349,12 @@
 
       <!-- ══════════════════════════════════════════ HERO -->
       <section class="hero" id="inicio">
-        <div class="hero-bg" aria-hidden="true"></div>
+        <div class="hero-bg" aria-hidden="true">
+          <picture>
+            <source srcset="assets/mapa-noveris-ciudad-fantasia-urban-lore.avif" type="image/avif" />
+            <img src="assets/mapa-noveris-ciudad-fantasia-urban-lore.webp" alt="" class="hero-bg-img" width="1920" height="1080" fetchpriority="high" />
+          </picture>
+        </div>
 
         <div class="hero-content">
           <p class="eyebrow">Escritor gallego · Fantasía juvenil española · Madrid</p>
@@ -650,7 +656,6 @@
             <div class="retailers-row">
               <p class="retailers-label">También en librerías</p>
               <div class="retailers-links">
-                <a href="https://www.libreriale.es/libro/samuel-entre-mundos/9791387659776/1766929" target="_blank" rel="noopener noreferrer">Librería Le</a>
                 <a href="https://www.libreriaserendipia.com/libro/samuel-entre-mundos_416997" target="_blank" rel="noopener noreferrer">Serendipia</a>
                 <a href="https://www.bookish.org/libro/samuel-entre-mundos/9791387659776/1766929" target="_blank" rel="noopener noreferrer">Bookish</a>
                 <span class="retailers-sep">·</span>
@@ -997,7 +1002,6 @@
               <p>
                 En <a href="https://www.amazon.es/dp/B0GB6LGQFH?tag=davidporto-21" target="_blank" rel="sponsored noopener noreferrer">Amazon</a>,
                 <a href="https://www.casadellibro.com/libro-samuel-entre-mundos/9791387659776/17856720" target="_blank" rel="noopener noreferrer">Casa del Libro</a>,
-                <a href="https://www.libreriale.es/libro/samuel-entre-mundos/9791387659776/1766929" target="_blank" rel="noopener noreferrer">Librería Le</a>,
                 <a href="https://www.libreriaserendipia.com/libro/samuel-entre-mundos_416997" target="_blank" rel="noopener noreferrer">Librería Serendipia</a>
                 y <a href="https://www.bookish.org/libro/samuel-entre-mundos/9791387659776/1766929" target="_blank" rel="noopener noreferrer">Bookish</a>.
                 Consulta también en tu librería habitual indicando el ISBN: 9791387659776.

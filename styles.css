@@ -326,13 +326,18 @@ img {
 .hero-bg {
   position: absolute;
   inset: 0;
-  background: image-set(
-    url('assets/mapa-noveris-ciudad-fantasia-urban-lore.avif') type('image/avif'),
-    url('assets/mapa-noveris-ciudad-fantasia-urban-lore.webp') type('image/webp')
-  ) center 30%/cover no-repeat;
+  overflow: hidden;
   opacity: 0.55;
   z-index: 0;
   pointer-events: none;
+}
+
+.hero-bg-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 30%;
+  display: block;
 }
 
 .hero::after {
