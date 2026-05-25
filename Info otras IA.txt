@@ -1,47 +1,55 @@
-﻿### INFO OTRAS IA - Ultima revision: 25 mayo 2026 (2)
-Archivo de seguimiento de hallazgos de otras IAs.
+﻿### INFO OTRAS IA - Ultima revision: 25 mayo 2026
+Seguimiento de hallazgos y pendientes para la web davidportodiaz.com.
 
 ═══════════════════════════════════════════════════════════════════
-PENDIENTE DE CODIGO
+PENDIENTE DE CODIGO (lo hago yo la próxima vez)
 ═══════════════════════════════════════════════════════════════════
 
-(ninguno pendiente de código en este momento)
+CSS CRITICO INLINE (mayor mejora PageSpeed pendiente):
+   LCP actual: ~3.6s. El styles.css (67 KiB) bloquea render 150ms.
+   La solución real es extraer el CSS crítico (above-the-fold) e inlinearlo
+   en <head>, y cargar el resto con media="print" onload trick.
+   Herramienta: https://critters.npmjs.com/ o Critical npm package.
+   Estimación: podría bajar LCP a < 2.5s (umbral verde).
+   Nota: styles.css ya está minificado. Esta tarea es la siguiente.
+
+SCRIPT.JS — L1 REVISADO (mayo 2026):
+   Estado: código limpio y sin problemas críticos.
+   - Double submit protection: ✓ (button disabled + dataset.done)
+   - Email obfuscation: ✓ (data-n + data-d, bots no ven el email)
+   - 25 addEventListener, 0 removeEventListener: aceptable en web estática
+   - No sessionStorage sticky CTA (fue eliminado o no se implementó)
+   - Suggestion Rules API: script usa scheduleTask() con scheduler.postTask()
+   No hay cambios de código necesarios en este momento.
+
+AI/INDEX.HTML — FORMATEO MENOR:
+   La línea 7 tiene preconnect y canonical pegados sin newline (cosmético).
+   No afecta funcionamiento. Corregir si se edita ese archivo por otro motivo.
 
 ═══════════════════════════════════════════════════════════════════
-COMPLETADO
+PENDIENTE DAVID (acciones manuales)
 ═══════════════════════════════════════════════════════════════════
 
-COMPLETADO: Modal Donde comprar (commit 7bedb2f)
-COMPLETADO: srsltid limpiado (commit a0db32b)
-COMPLETADO: Schema offers precio 22 EUR (commit a0db32b) — también añadido en index.html
-COMPLETADO: Clubes de lectura E3 - premio, Amazon tag, sin-spoilers, Article schema
-COMPLETADO: Sitemap.xml formato corregido
-COMPLETADO: robots.txt - GPTBot Allow / - correcto
-COMPLETADO: CSS inputs - font-size 1rem, min-height 48px - correcto
-COMPLETADO: fetchpriority=high - solo 1 imagen en index.html - correcto
-COMPLETADO: broken-links.yml - F1 - añadidos format/output/jobSummary explícitos
-COMPLETADO: title index.html - no contiene romantasy - correcto
-COMPLETADO: prensa.html - no press mentions yet (kit de prensa sin cobertura recibida)
-COMPLETADO: H5 - clubes page schema: Article reemplazado por Guide + LearningResource
-COMPLETADO: llms.txt + llms-full.txt - bug de premio corregido: ya no atribuye
-            el Letras Como Espada 2026 a la novela sino al autor (microrrelatos)
-COMPLETADO: index.html award - "I Primer Premio" (redundante) → "Primer Premio"
-            con nota explícita (certamen de microrrelatos, no la novela)
-COMPLETADO: srcset/sizes en imagen autor - foto autor 400w+700w WebP responsive (commit 50c2b5a)
-            logo 176x176 WebP en todas las páginas (commit 50c2b5a)
-COMPLETADO: G6 - manifest.json iconos AVIF → PNG: icon-512.png + icon-512-maskable.png creados
-            manifest.json actualizado a PNG
-COMPLETADO: H2 - Cloudflare Worker: email regex validation añadida
-COMPLETADO: H3 - AVIF manifest icons: confirmado que iOS ignora AVIF, PNG creados
-COMPLETADO: H4 - service-worker.js: APP_SHELL actualizado con nuevo logo-176 y autor-700/400
-COMPLETADO: H1 - Event schema: endDate, imagen, organizer, offers añadidos a todos los eventos
-COMPLETADO: preconnect gc.zgo.at añadido a todas las páginas (200ms LCP saving estimado)
-COMPLETADO: styles.css minificado: 92 KiB → 67 KiB (ahorro ~4 KiB gzip)
+REDIRECCIONES (verificar, no urgente):
+   curl -I http://davidportodiaz.com
+   curl -I http://www.davidportodiaz.com
+   curl -I https://www.davidportodiaz.com
+   Resultado esperado: 301/308 → https://davidportodiaz.com/
+
+GITHUB ACTIONS - F2 (update-dates.yml):
+   Verificar: Settings > Actions > General > Workflow permissions = Read and write
+   Si main tiene branch protection, revisar si hay que cambiar a PR automática.
+
+G7 - FERIA DEL LIBRO DE MADRID 2026 — CASETA:
+   Cuando confirmes número de caseta → avísame y actualizo ferias.html + eventos.html.
+
+PRENSA — NewsArticle schema (cuando haya cobertura):
+   Cuando salga la primera reseña/entrevista en un medio con URL propia:
+   Avisarme → añado sección "En medios" en prensa.html + NewsArticle en @graph.
 
 ═══════════════════════════════════════════════════════════════════
 KEYWORDS VERIFICADAS (BLOQUE F/G, mayo 2026)
 ═══════════════════════════════════════════════════════════════════
-Estas keywords tienen demanda real y cero competencia en español:
 
 MAXIMA PRIORIDAD (sin competencia):
 - portal fantasy en español
@@ -53,75 +61,34 @@ ALTA PRIORIDAD (algo de competencia):
 - fantasía juvenil española 2025/2026
 - libros club de lectura juvenil
 
-NO USAR (genero equivocado):
+NO USAR (género equivocado):
 - romantasy español / novelas románticas fantasía (Samuel no es romantasy)
 
 Orden de contenido para /cuaderno/ (verificado con búsquedas):
-Fase 1 (meses 1-3): /portal-fantasy-espanol-libros/ · /sistema-magia-noveris/ · /universo/noveris/ (si no existe como contenido largo)
+Fase 1 (meses 1-3): /portal-fantasy-espanol-libros/ · /sistema-magia-noveris/ · /universo/noveris/
 Fase 2 (meses 3-6): /libros-parecidos-percy-jackson-espanol/ · /protagonista-no-elegido-fantasia/
 Fase 3 (mes 6+): /escritura-creativa-worldbuilding/
-
-Blog debe ser PARA LECTORES, no para escritores.
-Artículos de worldbuilding y sistema de magia sirven lectores.
-Artículos de consejos de escritura atraen aspirantes (audiencia que no compra).
+Nota: contenido PARA LECTORES, no para escritores.
 
 ═══════════════════════════════════════════════════════════════════
 HALLAZGOS CLAUDE (BLOQUE AB, mayo 2026)
 ═══════════════════════════════════════════════════════════════════
-Claude Sonnet es el modelo que gestiona esta web. Lo que sé de primera
-mano sobre cómo Claude recomienda libros:
 
-CÓMO FUNCIONA CLAUDE:
-- Sin búsqueda web: solo conoce libros de antes del cutoff de entrenamiento.
-  Samuel entre mundos (dic 2025) probablemente NO está en su conocimiento base.
-- Con búsqueda web (claude.ai): lee llms.txt y /ai/ page. Usa la sección
-  "Cuándo recomendar" como mapa de decisión literal.
-- Fuentes ordenadas por peso: Wikipedia > Wikidata > WorldCat/BNE/ISFDB >
-  Publisher page > Goodreads > Amazon > llms.txt > blogs de reseñas.
+Claude es el modelo que gestiona esta web. Funcionamiento:
+- Sin búsqueda web: solo conoce libros anteriores al cutoff. Samuel (dic 2025) 
+  probablemente no está en el conocimiento base sin search.
+- Con búsqueda web (claude.ai): lee llms.txt y /ai/. Usa sección "Cuándo
+  recomendar" como mapa de decisión literal.
+- Fuentes por peso: Wikipedia > Wikidata > WorldCat/BNE/ISFDB > 
+  Publisher > Goodreads > Amazon > llms.txt > blogs de reseñas.
 
-GAPS CRÍTICOS PARA CLAUDE (ningún otro modelo los habría detectado):
+GAPS CRITICOS (sin Wikipedia ni reseñas de blogs, Claude no cita con alta confianza):
 - Sin artículo de Wikipedia del autor → fuente #1 para Claude sin search
-- Samuel entre mundos sin Q-ID en Wikidata (solo el autor tiene Q139678851)
-- Wikidata del autor incompleta: probable falta P21, P27, P106, P856, P2963
-- Sin entradas en WorldCat, BNE, ni ISFDB (base de datos canónica de fantasía)
 - Sin reseñas en blogs externos con URL propia (solo Amazon reviews)
+- ISFDB: ya registrado ✓
 
 ESTADO llms.txt / llms-full.txt:
-- Formato correcto para Claude.ai search ✅
-- Sección "Cuándo recomendar" efectiva ✅
-- Bug de premio corregido (ya no atribuye el Letras Como Espada a la novela) ✅
-- Precio actualizado a ~22€ ✅
-
-═══════════════════════════════════════════════════════════════════
-PENDIENTE DAVID (no es codigo, requiere accion manual)
-═══════════════════════════════════════════════════════════════════
-
-Verificar redirecciones (BLOQUE L):
-   curl -I http://davidportodiaz.com
-   curl -I http://www.davidportodiaz.com
-   curl -I https://www.davidportodiaz.com
-   Resultado esperado: 301/308 a https://davidportodiaz.com/
-
-GitHub Actions - F2 (update-dates.yml):
-   Verificar: Settings > Actions > General > Workflow permissions = Read and write
-   Si main tiene branch protection, revisar si hay que cambiar a PR automatica.
-
-G7 - Feria del Libro de Madrid:
-   Cuando David confirme caseta + horario exactos:
-   - Actualizar ferias.html#madrid con datos confirmados
-   - Actualizar eventos.html#proximos
-   - Cambiar "(provisional)" por la hora y ubicacion exacta
-
-prensa.html - NewsArticle schema (pendiente hasta tener cobertura):
-   Cuando salga la primera reseña/entrevista en un medio:
-   Añadir en prensa.html una seccion "En medios" con:
-   - Nombre del medio, fecha, extracto entre comillas, enlace
-   Y añadir al @graph JSON-LD:
-   {
-     "@type": "NewsArticle",
-     "headline": "[titulo del articulo]",
-     "datePublished": "[fecha ISO]",
-     "publisher": { "@type": "Organization", "name": "[medio]" },
-     "url": "[URL externa]",
-     "about": {"@id": "https://davidportodiaz.com/libros/samuel-entre-mundos/#libro"}
-   }
+- Formato correcto para Claude.ai search ✓
+- Sección "Cuándo recomendar" efectiva ✓
+- Bug de premio corregido ✓ (Letras Como Espada = autor/microrrelatos, no novela)
+- Precio actualizado a ~22€ ✓

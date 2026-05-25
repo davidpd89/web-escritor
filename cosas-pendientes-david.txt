@@ -51,25 +51,12 @@ IMÁGENES — PENDIENTES DE CREAR
     Cuando tengas los tres archivos con esos nombres en /assets/, avísame
     y actualizo los meta og:image de cada página.
 
-7. MANIFEST ICONS PNG 512×512 (para móviles — instalar en pantalla inicio)
-    Qué son: cuando alguien añade tu web al escritorio del móvil, necesita
-    un icono PNG. Los AVIF que hay ahora no funcionan en iOS.
-    La web YA tiene las imágenes origen para esto.
-
-    Qué tienes que hacer:
-    1. Abre Canva → Crear diseño → Tamaño personalizado: 512 × 512 px
-    2. Fondo negro (#080a0c)
-    3. Inserta el medallón: busca en tus archivos
-       assets/david-porto-medallon2.webp (ya está en el repo)
-       Ponlo centrado, ocupando el 75% del espacio.
-    4. Exportar → Descargar → PNG
-       Nombre del archivo: icon-512.png → guardar en /assets/
-    5. Para la versión maskable (Android): abre https://maskable.app/editor
-       Sube el icon-512.png → asegúrate de que el logo queda dentro
-       del círculo central → Exportar como icon-512-maskable.png
-       → guardar en /assets/
-    
-    Cuando tengas los dos PNG en /assets/, avísame y actualizo manifest.json.
+7. MANIFEST ICONS PNG — ✓ HECHO (mayo 2026)
+    Los iconos PNG 512×512 fueron generados automáticamente por código
+    (Python/Pillow) y ya están en /assets/:
+      - icon-512.png          (icono principal, fondo oscuro + medallón)
+      - icon-512-maskable.png (versión Android con safe zone)
+    manifest.json actualizado. No hace falta nada de tu parte.
 
 ---------------------------------------------------------------------------
 RENDIMIENTO WEB

@@ -32,66 +32,6 @@ Responde en español.»
 
 ────────────────────────────────────────────────────────────────────
 ```
-
-(vacío — primera vez que se usa este archivo)
-
-════════════════════════════════════════════════════════════════════
-BLOQUE I — REVISIÓN DE CONTENIDO (LECTURA EN VOZ ALTA / CALIDAD)
-════════════════════════════════════════════════════════════════════
-⚠ Incluir el CONTEXTO BASE al principio de cada prompt.
-  Abrir la URL indicada, copiar el HTML visible (Ctrl+A, Ctrl+C en modo reader)
-  o pegar directamente el texto entre etiquetas <main>.
-
-Instrucción para la IA: Lee el texto como si fuera un lector nuevo llegando
-por primera vez. Evalúa si suena natural, auténtico y convincente.
-
-I1. PARA CHATGPT/CLAUDE — Leer index.html en voz alta:
-    "Lee este texto como si fuera un lector nuevo llegando a la web de un escritor.
-    ¿Fluye natural? ¿Hay párrafos que suenen forzados, genéricos o como IA?
-    ¿El hero (primeras 3 frases) engancha o aburre?
-    ¿La sección 'Menos cómoda que tu zona de confort' tiene impacto?
-    [pegar todo el contenido visible de index.html — secciones #inicio al #faq]"
-
-I2. PARA CHATGPT/CLAUDE — Revisar bio del autor:
-    "Lee la bio en autor.html. ¿Te convence de que este escritor merece ser leído?
-    ¿Hay algo que falte (infancia, influencias, qué le llevó a la fantasía juvenil)?
-    ¿La sección 'Por qué escribo fantasía juvenil' es auténtica o parece marketing?
-    Propón una versión mejorada de 3 párrafos con más personalidad.
-    [pegar el contenido de autor.html sección #bio y #escritura]"
-
-I3. PARA CHATGPT/CLAUDE — Revisar sinopsis de Samuel:
-    "Lee la sinopsis de Samuel entre mundos en la página del libro.
-    ¿Crea expectativa? ¿Tiene un buen gancho en la primera frase?
-    ¿El párrafo atómico (frase de 4 respuestas) es claro y vendedor?
-    Compara con sinopsis de otras novelas de portal fantasy y sugiere mejoras.
-    [pegar el contenido de libros/samuel-entre-mundos/index.html sección #sinopsis-tecnica]"
-
-I4. PARA CHATGPT/CLAUDE — Revisar preguntas del club de lectura:
-    "Lee estas 10 preguntas de debate para un club de lectura de Samuel entre mundos.
-    ¿Son preguntas que realmente generarían debate? ¿Son demasiado simples o demasiado académicas?
-    ¿Falta algún tema importante del libro? ¿Las explicaciones son útiles o innecesarias?
-    [pegar el contenido de clubes-de-lectura/samuel-entre-mundos/index.html sección #guia]"
-
-I5. PARA CHATGPT/GEMINI — Revisar la guía de Noveris:
-    "Lee la página del universo Noveris. ¿La explicación del sistema mágico es clara
-    para alguien que no ha leído el libro? ¿El glosario es útil? ¿La FAQ de Noveris
-    responde las preguntas reales que tendría un lector nuevo?
-    ¿Falta algún elemento de lore importante?
-    [pegar el contenido de universo/noveris/index.html completo]"
-
-I6. PARA CHATGPT — Revisar el fragmento (cap. 1):
-    "Lee el fragmento del capítulo 1 de Samuel entre mundos.
-    ¿Tiene un buen hook en la primera página? ¿El ritmo narrativo engancha?
-    ¿El cliffhanger final convence al lector de querer comprar el libro?
-    ¿Hay alguna frase que desafina respecto al género (portal fantasy juvenil)?
-    [pegar el contenido de fragmento/index.html — el texto completo del capítulo]"
-
-I7. PARA CLAUDE — Revisar empieza-aqui:
-    "Lee la página empieza-aqui. ¿Cumple su función de orientar a lectores nuevos,
-    prensa y clubs? ¿Hay demasiado texto? ¿Las CTAs son claras?
-    ¿Alguien que llegue de Google sabría inmediatamente qué hacer?
-    [pegar el contenido de empieza-aqui/index.html completo]"
-
 ════════════════════════════════════════════════════════════════════
 BLOQUE J — SEO AVANZADO (2026)
 ════════════════════════════════════════════════════════════════════
