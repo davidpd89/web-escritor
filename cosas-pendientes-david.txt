@@ -402,3 +402,16 @@ Cada vez que hagas un cambio importante en el sitio, valida el schema en:
    FAQPage, Book y ProfilePage schema están elegibles para rich results
 3. https://classyschema.org/Visualisation — pega la URL de autor.html
    para visualizar que Person y ProfilePage están conectados (habrá lineas)
+
+---------------------------------------------------------------------------
+CORE WEB VITALS — VERIFICACION MANUAL (26 mayo 2026)
+---------------------------------------------------------------------------
+
+Una vez que tengas Google Search Console activo:
+- Sección "Experiencia" > "Señales de la experiencia de página" para ver
+  LCP, INP, CLS de cada URL del sitio
+- También en https://pagespeed.web.dev/ — prueba con la URL del libro
+- Objetivo: LCP < 2.5s, INP < 200ms, CLS < 0.1
+El sitio ya tiene las optimizaciones técnicas correctas (critical CSS inline,
+fetchpriority=high en imágenes hero, no lazy loading above-the-fold, no
+third-party scripts excepto GoatCounter).
