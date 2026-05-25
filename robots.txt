@@ -20,6 +20,12 @@ Allow: /
 User-agent: Applebot-Extended
 Allow: /
 
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: anthropic-ai
+Allow: /
+
 Sitemap: https://davidportodiaz.com/sitemap.xml
 
 # AI crawler context

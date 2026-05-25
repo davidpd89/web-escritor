@@ -32,181 +32,6 @@ Responde en español.»
 
 ────────────────────────────────────────────────────────────────────
 ```
-════════════════════════════════════════════════════════════════════
-BLOQUE K — UX / DISEÑO (REVISIÓN CRÍTICA)
-════════════════════════════════════════════════════════════════════
-⚠ Incluir el CONTEXTO BASE al principio de cada prompt.
-  Paleta: fondo #080a0c, texto claro, acento #c4944d.
-
-K1. PARA CHATGPT/CLAUDE — Auditoría UX completa:
-    "Actúa como un UX reviewer experimentado. Revisa la web davidportodiaz.com
-    (web oscura, temática de fantasía juvenil) con estos criterios:
-    1. ¿El contraste texto/fondo cumple WCAG AA (ratio mínimo 4.5:1)?
-    2. ¿Las CTAs principales (hero) se distinguen claramente de las secundarias?
-    3. ¿La navegación (Samuel, Universo, Autor, Eventos, Prensa) es suficiente?
-    4. ¿Hay algún patrón de diseño que genere fricción en mobile?
-    5. ¿El modo lectura (modo-samuel-btn) tiene suficiente visibilidad?"
-
-K2. PARA CHATGPT — UX del fragmento (lectura):
-    "La página /fragmento/ tiene texto literario, un sticky CTA que aparece al 40%
-    de scroll, y un formulario de newsletter al final. ¿Está bien equilibrado?
-    ¿El sticky CTA interrumpe la lectura inmersiva? ¿Hay algún patrón mejor
-    para webs de lectura (tipo Medium, Wattpad, AO3) que podría adaptarse?"
-
-K3. PARA GEMINI — Mobile UX:
-    "Analiza el mobile UX de una web de autor de fantasía con:
-    - Hero con foto del autor (aside en desktop, apilada en mobile)
-    - Sección de preguntas FAQ con <details>/<summary>
-    - Timeline de eventos con cards
-    - Newsletter form con quiz
-    ¿Hay problemas de usabilidad típicos en mobile para estos componentes?
-    ¿Qué mejoras priorizar?"
-
-K4. PARA CHATGPT/CLAUDE — Accesibilidad:
-    "Revisa el HTML de index.html con criterios WCAG 2.1 AA. Busca:
-    - Imágenes sin alt o con alt vacío
-    - Botones sin aria-label
-    - Links de 'Ver más' sin contexto
-    - Contraste de color < 4.5:1 (paleta: fondo #080a0c, texto claro, acento #c4944d)
-    - Orden de foco no lógico
-    - Falta de skip link (ya existe id='skip-link' ¿funciona bien?)
-    [pegar el HTML de index.html completo o las secciones con CTAs e imágenes]"
-
-K5. PARA PERPLEXITY — Tendencias UX web literaria 2026:
-    "¿Cuáles son las tendencias de diseño UX más efectivas en 2026 para webs de
-    escritores y autores? ¿Dark mode puro o dark mode con acentos cálidos?
-    ¿Animaciones de entrada (scroll animations) vs. static design?
-    ¿Las páginas de lectura de fragmentos se benefician de tipografía especial?
-    Compara con Tor.com, Penguinrandomhouse.com, y webs de autores fantasy."
-
-════════════════════════════════════════════════════════════════════
-BLOQUE L — REVISIÓN DE CÓDIGO / GIT
-════════════════════════════════════════════════════════════════════
-⚠ Incluir el CONTEXTO BASE al principio de cada prompt.
-  Pegar el archivo completo indicado entre corchetes.
-
-L1. PARA CHATGPT/CLAUDE — Revisar script.js completo:
-    "Revisa este script.js de una web de autor estático. Busca:
-    1. Errores de JavaScript que podrían romper funcionalidad en algún navegador
-    2. Memory leaks o event listeners no limpiados
-    3. El newsletter quiz: ¿es robusto? ¿qué pasa si el usuario envía dos veces?
-    4. El sticky CTA de fragmento: ¿el sessionStorage funciona bien en todos los casos?
-    5. Los obfuscated email links (data-n, data-d, data-s): ¿son accesibles?
-    6. El modo-samuel-btn: ¿el estado aria-pressed se actualiza correctamente?
-    [pegar script.js completo]"
-
-L2. PARA CHATGPT/CLAUDE — Revisar styles.css:
-    "Revisa este CSS de una web de autor estático. Busca:
-    1. Clases CSS definidas pero nunca usadas en ningún HTML
-    2. Propiedades CSS redundantes o contradictorias
-    3. El dark theme (--bg: #080a0c): ¿hay algún color hardcodeado que no use variables?
-    4. ¿El layout del hero (CSS grid con minmax + aside) es robusto en todos los viewports?
-    5. ¿Hay alguna animación costosa que debería usar will-change o transform?
-    [pegar styles.css completo]"
-
-L3. PARA CHATGPT/CLAUDE — Revisar service-worker.js:
-    "Revisa este service-worker con estrategia network-first para páginas y
-    cache-first para assets. Busca:
-    1. ¿La versión del cache (david-porto-v2026-05-24-1) causa actualizaciones forzadas?
-    2. ¿El fallback a offline.html funciona para todas las rutas?
-    3. ¿Hay algún race condition entre install y activate?
-    4. ¿La estrategia staleWhileRevalidate para qué rutas se aplica exactamente?
-    [pegar service-worker.js completo]"
-
-L4. PARA CHATGPT/CLAUDE — Revisar GitHub Actions workflows:
-    "Revisa estos dos workflows:
-    1. broken-links.yml (usa lychee-action@v2): ¿la configuración de exclusiones
-       (amazon, goodreads, instagram, etc.) es correcta? ¿Se excluye localhost?
-    2. update-dates.yml (actualiza sitemap con sed): ¿el sed con '\\|<loc>|{n; s|...|...|}' 
-       funciona correctamente con GNU sed en ubuntu-latest?
-       ¿El env: CHANGED_FILES approach protege contra script injection?
-    [pegar ambos .yml]"
-
-L5. PARA CHATGPT — Revisar manifest.json y PWA:
-    "Analiza el manifest.json de una web de autor. ¿Es instalable como PWA?
-    ¿El uso de .avif para iconos PWA es compatible con todos los navegadores en 2026?
-    ¿Hay algún campo del manifest que esté desactualizado o mal configurado?
-    ¿Debería añadirse un 'related_applications' para la web?
-    [pegar manifest.json completo]"
-
-════════════════════════════════════════════════════════════════════
-BLOQUE M — TÉCNICAS WEB INNOVADORAS 2026
-════════════════════════════════════════════════════════════════════
-⚠ Incluir el CONTEXTO BASE al principio de cada prompt.
-
-M1. PARA PERPLEXITY — Speculative loading (speculation rules):
-    "La web ya usa <script type='speculationrules'> para prerender libros/samuel y noveris.
-    ¿Cuál es el soporte real de la Speculation Rules API en Chrome/Safari/Firefox en 2026?
-    ¿Qué páginas se benefician más del prerender? ¿Hay algún riesgo de sobrecargar el servidor?"
-
-M2. PARA PERPLEXITY/CHATGPT — View Transitions API:
-    "¿La View Transitions API (CSS @view-transition) tiene soporte suficiente en 2026
-    para usarla en una web estática de escritor sin framework?
-    ¿Mejora significativamente la percepción de velocidad?
-    ¿Cómo implementarla en una web HTML puro sin React/Astro?"
-
-M3. PARA CHATGPT — Search Console Insights y GSC:
-    "¿Cuáles son las métricas más importantes a revisar en Google Search Console en 2026
-    para una web de autor de debut con menos de 6 meses de vida?
-    ¿Qué queries de long-tail indican oportunidades de contenido que no tenemos aún?
-    ¿Cómo identificar páginas con impresiones altas pero CTR bajo para mejorar titles?"
-
-M4. PARA PERPLEXITY — LLMs.txt spec y AI traffic:
-    "El sitio tiene /llms.txt y /llms-full.txt siguiendo la spec de llmstxt.org.
-    ¿Cuáles son los LLM crawlers más importantes en 2026 que siguen esta spec?
-    ¿Hay alguna extensión o mejora al formato que haya ganado adopción en 2026?
-    ¿Hay métricas en GoatCounter o analytics sobre tráfico de AI bots?"
-
-M5. PARA CHATGPT/CLAUDE — Structured data para AI recommendations:
-    "En 2026, ¿qué structured data (schema.org) maximiza las posibilidades de que
-    ChatGPT, Gemini y Perplexity recomienden un libro de fantasía juvenil español
-    cuando alguien hace una consulta de recomendación?
-    ¿BookSeries tiene impacto? ¿El AggregateRating con ReviewCount=3 es suficiente?
-    ¿Hay algún tipo de schema nuevo específico para AI recommendation systems?"
-
-M6. PARA PERPLEXITY — Core Web Vitals INP en 2026:
-    "INP (Interaction to Next Paint) reemplazó a FID como métrica Core Web Vitals.
-    Para una web estática con vanilla JS (sin framework), newsletter form con fetch API
-    y sticky CTA con scroll events, ¿cuáles son los riesgos de INP alto?
-    ¿El fetch() asíncrono en el formulario podría causar INP alto?
-    ¿Qué herramientas hay para medirlo específicamente en mobile?"
-
-M7. PARA CHATGPT — Newsletter strategy 2026:
-    "Un escritor de fantasía juvenil tiene newsletter con Brevo. La suscripción llega
-    principalmente del fragmento gratuito y del quiz 'Qué habitante de Noveris serías'.
-    ¿Qué debería incluir el email de bienvenida para maximizar la tasa de apertura?
-    ¿Cuánto contenido exclusivo vs. anuncios es el ratio óptimo en 2026?
-    ¿Qué cadencia de envíos es la más adecuada para un autor con 1 libro publicado?"
-
-M8. PARA PERPLEXITY — Estrategia TikTok/Instagram para autores en España 2026:
-    "Un escritor de fantasía juvenil española debería estar en TikTok/BookTok y/o Instagram.
-    ¿Cuál plataforma tiene más tracción para libros de fantasía YA en España en 2026?
-    ¿Qué tipo de contenido corto funciona mejor para un autor novel (debut 2025)?
-    ¿Los Reels de 'worldbuilding explicado en 60 segundos' tienen éxito en BookTok español?"
-
-M9. PARA CHATGPT/CLAUDE — Estrategia de blog /cuaderno/:
-    "Voy a crear un blog /cuaderno/ en la web de un escritor de fantasía juvenil española.
-    El objetivo es tráfico orgánico y construir autoridad en el nicho.
-    Evalúa esta estrategia de primeros 3 artículos:
-    1. /cuaderno/fantasia-juvenil-espanola/ — guía del género para lectores nuevos
-    2. /cuaderno/sistema-de-magia-con-coste/ — cómo funciona la magia en Noveris
-    3. /cuaderno/portal-fantasy-espanol/ — comparativa de libros de portal fantasy en español
-    ¿Cuál tiene más potencial de tráfico orgánico? ¿En qué orden publicarlos?
-    ¿Qué longitud y estructura deberían tener?"
-
-M10. PARA PERPLEXITY — Indexación en herramientas de descubrimiento literario:
-     "¿Cuáles son las plataformas más relevantes en 2026 para que lectores de fantasía
-     juvenil en español descubran libros nuevos? Busca: apps, webs, newsletters, comunidades.
-     ¿Qué tan importante es Goodreads vs. The StoryGraph vs. nuevas plataformas en España?
-     ¿Hay alguna plataforma específica de literatura española o latinoamericana que
-     indexen recomendaciones de LLMs y sea relevante para un autor de debut?"
-
-
-
-
-Respuestas de las IA a las preguntas de los bloques anteriores:
-
-
 ════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════
 BLOQUE O — POSICIONAMIENTO EN IAs: APARECER EN RECOMENDACIONES
 ════════════════════════════════════════════════════════════════════
@@ -922,27 +747,6 @@ X4. ¿Cómo incluir el CTA en un vídeo corto sin que parezca publicidad?
     → Preguntado: / Respuesta:
 
 ────────────────────────────────────────────────────────────────────
-BLOQUE Y — AFILIACIÓN AMAZON: AVISO LEGAL Y TRANSPARENCIA
-────────────────────────────────────────────────────────────────────
-La web usa enlaces de afiliado Amazon (?tag=davidporto-21) con rel="sponsored".
-En España, la LSSI y las directrices de la FTC (EE.UU.) exigen avisos.
-
-Y1. ¿Qué obliga la ley española (LSSI + normativa CNMC) respecto a la declaración
-    de enlaces de afiliado en una web personal de un autor?
-    ¿El aviso debe estar en cada página con links, en el footer, o solo en aviso-legal.html?
-    → Preguntado: / Respuesta:
-
-Y2. ¿El atributo rel="sponsored" en los enlaces es suficiente para Google o hace falta
-    también texto visible de aviso ("Este enlace es de afiliado")?
-    ¿Qué prefiere Google: aviso inline o aviso genérico en footer/aviso-legal?
-    → Preguntado: / Respuesta:
-
-Y3. Dame el texto exacto (corto, ≤2 líneas) que debería aparecer en aviso-legal.html
-    para cubrir el uso de enlaces de afiliado Amazon, y si hace falta también
-    en la política de privacidad.
-    → Preguntado: / Respuesta:
-
-────────────────────────────────────────────────────────────────────
 BLOQUE Z — PÁGINA /RESEÑAS/ Y SCHEMA AGGREGATE RATING
 ────────────────────────────────────────────────────────────────────
 Actualmente el schema Book en /libros/samuel-entre-mundos/ tiene AggregateRating
@@ -1296,3 +1100,103 @@ MEDIA PRIORIDAD:
 BAJA PRIORIDAD:
 9. BookBrainz (alternativa libre a MusicBrainz para libros)
 10. Open Library completar datos del libro
+
+
+════════════════════════════════════════════════════════════════════
+BLOQUE N — WIKIDATA Y PLATAFORMAS LITERARIAS (para David)
+════════════════════════════════════════════════════════════════════
+ACCIONES QUE DAVID DEBE HACER MANUALMENTE (ordenadas por impacto en IAs):
+
+1. WIKIDATA — completar Q139678851 (ALTA PRIORIDAD para Gemini):
+   Faltan estas propiedades en la entrada del autor:
+   - P21 (sexo): masculino → https://www.wikidata.org/wiki/Q6581097
+   - P27 (país de ciudadanía): España → Q29
+   - P106 (ocupación): escritor → Q36180
+   - P569 (fecha de nacimiento): 1989-07-31
+   - P19 (lugar de nacimiento): Pontevedra → Q15685
+   - P856 (sitio web oficial): https://davidportodiaz.com/
+   - P2963 (ID Goodreads): 66843136
+   CÓMO: Entrar en https://www.wikidata.org/wiki/Q139678851 y añadir cada propiedad.
+   
+   CREAR ENTRADA PARA EL LIBRO (ALTA PRIORIDAD):
+   - Tipo: Q7725634 (novela)
+   - P31 (es un): novela
+   - P50 (autor): David Porto Díaz (Q139678851)
+   - P577 (fecha de publicación): 2025-12
+   - P123 (editorial): Libros Indie
+   - P212 (ISBN): 9791387659776
+   - P957 (ISBN-10): no aplica
+   - P407 (idioma): español
+   - P136 (género): portal fantasy (si existe), fantasía juvenil
+   - P18 (imagen): portada del libro (subir a Wikimedia Commons primero)
+
+2. BABELIO — registrar el libro (ALTA PRIORIDAD para Perplexity/Gemini):
+   https://www.babelio.com/ — plataforma francesa de reseñas literarias, muy indexada por LLMs.
+   - Buscar "Samuel entre mundos" → si no está, añadirlo como nueva obra.
+   - Rellenar: sinopsis, ISBN, autor, editorial, género, año.
+   - Pedir a lectores que dejen reseñas ahí también.
+
+3. LIBRARYTHING — crear perfil de autor:
+   https://www.librarything.com/ — catálogo global, ya tiene el libro por ISBN.
+   - Crear cuenta de autor y reclamar el perfil.
+
+4. OPEN LIBRARY — completar datos del libro:
+   https://openlibrary.org/isbn/9791387659776
+   - Verificar que los datos son correctos: autor, portada, descripción.
+   - Si faltan datos, editarlos (requiere cuenta de Internet Archive).
+
+5. DILVE — verificar ficha del libro:
+   https://www.dilve.es/ — fuente española que alimenta a librerías y agregadores.
+   Gestiona con la editorial (Libros Indie) para verificar que la ficha está completa.
+
+════════════════════════════════════════════════════════════════════
+BLOQUE P — PAGESPEED: INLINE CRITICAL CSS (próxima tarea de código)
+════════════════════════════════════════════════════════════════════
+CONTEXTO:
+- LCP actual: ~3.6s (score 89 mobile). Umbral verde Google: 2.5s.
+- El bloqueo mayor: styles.css (67 KiB minificado) bloquea render 150ms.
+- La solución: extraer el CSS above-the-fold e inlinearlo en <head>,
+  cargar el resto con media="print" onload trick.
+  
+TÉCNICA (implementar yo la próxima sesión):
+  1. Generar crítico con herramienta: npm install -g critical
+     O usar: https://www.npmjs.com/package/critters (webpack plugin)
+  2. Para web estática pura: usar penthouse.js o el extractor manual
+  3. Pattern HTML:
+     <style>[CSS crítico inline aquí]</style>
+     <link rel="stylesheet" href="/styles.css" media="print" onload="this.media='all'" />
+     <noscript><link rel="stylesheet" href="/styles.css"></noscript>
+  4. CSS crítico mínimo = variables custom, reset, header, hero, botones hero.
+  
+ESTIMACIÓN: Podría llevar LCP de 3.6s a < 2.5s (verde en PageSpeed).
+NOTA: styles.css está MINIFICADO — no editar manualmente, sólo añadir inline.
+NOTA: Esta tarea requiere verificar que no se rompe nada visualmente.
+
+════════════════════════════════════════════════════════════════════
+BLOQUE Q2 — ACCESIBILIDAD ARIA AVANZADA (pendiente código)
+════════════════════════════════════════════════════════════════════
+ESTADO (mayo 2026): La base es sólida. Pendiente de verificar:
+
+1. MODAL "¿Dónde comprar?":
+   - ¿El modal tiene role="dialog" y aria-modal="true"?
+   - ¿El foco se mueve al modal cuando se abre?
+   - ¿Al cerrar vuelve al botón que lo abrió?
+   - ¿El foco queda atrapado dentro del modal mientras está abierto?
+   
+2. QUIZ DE NOVERIS:
+   - ¿Las opciones del quiz tienen role="radio" o type="radio"?
+   - ¿El resultado final tiene aria-live="polite" para screen readers?
+   - ¿El formulario de email después del quiz tiene label visible?
+   
+3. MOBILE BOTTOM NAV:
+   - ¿Los iconos del bottom nav tienen texto visible o aria-label?
+   - ¿El item activo tiene aria-current="page"?
+   
+4. HERO IMAGE ALT:
+   - La foto del autor tiene alt descriptivo ✓
+   - La imagen de fondo del hero tiene alt="" (decorativa) — verificar
+   
+CÓMO VERIFICAR: 
+   - Instalar extensión axe DevTools en Chrome
+   - Ejecutar auditoría y resolver todos los errores críticos
+   - Score objetivo: 0 errores críticos, < 5 warnings
