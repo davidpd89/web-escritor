@@ -433,3 +433,26 @@ Crear un Google Business Profile como autor independiente:
 
 NOTA: El GBP también hace que ChatGPT/Perplexity te reconozcan como
 entidad verificada con información de Google, mejorando el LLM seeding.
+
+---------------------------------------------------------------------------
+GOOGLE SEARCH CONSOLE — VERIFICACION Y ACTIVACION (pendiente David)
+---------------------------------------------------------------------------
+
+PASO 1: Activar Google Search Console
+    - Ve a https://search.google.com/search-console
+    - Añade propiedad: https://davidportodiaz.com
+    - Método recomendado: "HTML tag" (snippet en el head)
+    - Google te dará un código tipo:
+      <meta name="google-site-verification" content="XXXXXXXX..." />
+    - Díselo a David/Copilot para añadirlo en el <head> del index.html
+
+PASO 2: Una vez verificado
+    - Enviar sitemap: https://davidportodiaz.com/sitemap.xml
+    - Esperar 48-72 horas para ver datos de indexación
+    - Revisar "Cobertura de índice" > pestaña Errores
+    - Revisar "Performance" > buscar keywords de posición 8-20 
+      (estas son las "opportunity keywords" a optimizar primero)
+
+PASO 3: Vincular con Google Analytics (si lo activas)
+    - En GSC: Configuración > Asociaciones > Google Analytics
+    - Esto te da datos de keywords en GA
