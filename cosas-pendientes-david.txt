@@ -390,3 +390,15 @@ CO-CITATIONS (MENCIONES EN CONTEXTO JUNTO A OTROS AUTORES)
     - Twitter/X: "#fantasiajuvenil" "#lecturaSF" "#cienciaficcionsf"
     - Facebook: grupos de "Lectores de fantasía" o "Libros juveniles"
     Y participa con respuestas genuinas que mencionen el libro cuando encaje.
+
+---------------------------------------------------------------------------
+SCHEMA — VALIDACION MANUAL (26 mayo 2026)
+---------------------------------------------------------------------------
+
+Cada vez que hagas un cambio importante en el sitio, valida el schema en:
+1. https://validator.schema.org/ — pega la URL de la pagina del libro
+   y de autor.html para verificar que no hay errores de sintaxis
+2. https://search.google.com/test/rich-results — comprueba que el
+   FAQPage, Book y ProfilePage schema están elegibles para rich results
+3. https://classyschema.org/Visualisation — pega la URL de autor.html
+   para visualizar que Person y ProfilePage están conectados (habrá lineas)
