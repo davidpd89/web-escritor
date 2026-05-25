@@ -33,62 +33,6 @@ Responde en español.»
 ────────────────────────────────────────────────────────────────────
 ```
 ════════════════════════════════════════════════════════════════════
-BLOQUE J — SEO AVANZADO (2026)
-════════════════════════════════════════════════════════════════════
-⚠ Incluir el CONTEXTO BASE al principio de cada prompt.
-
-Instrucción para la IA: Actúa como un experto SEO 2026 revisando
-la web de un escritor de fantasía juvenil española. Analiza cada
-aspecto con criterios actuales (Google HCU, SGE/AI Overview, E-E-A-T).
-
-J1. PARA CHATGPT/CLAUDE — E-E-A-T del autor:
-    "Analiza la señales de E-E-A-T (Experience, Expertise, Authoritativeness, Trustworthiness)
-    en la web davidportodiaz.com. ¿Qué falta para que Google considere a este autor
-    una fuente autorizada sobre fantasía juvenil española?
-    [dar contexto: escritor debut 2025, 1 novela publicada, 1 premio, web propia]"
-
-J2. PARA PERPLEXITY — Google AI Overview:
-    "¿Qué tipo de contenido web tiene más probabilidad de aparecer en Google AI Overviews
-    para búsquedas relacionadas con 'libros de fantasía juvenil española' en 2026?
-    ¿Hay alguna estructura HTML o schema.org específica que ayude?
-    ¿Cómo debería estructurar una página de escritor para maximizar su presencia en AI Overviews?"
-
-J3. PARA CHATGPT/CLAUDE — Auditoría de internal linking:
-    "Analiza la estructura de enlaces internos de davidportodiaz.com.
-    Las páginas son: /, /libros/samuel-entre-mundos/, /universo/noveris/, /autor.html,
-    /prensa.html, /eventos.html, /ferias.html, /premios.html, /fragmento/,
-    /empieza-aqui/, /clubes-de-lectura/samuel-entre-mundos/, /las-manecillas-del-recuerdo/,
-    /privacidad.html, /aviso-legal.html.
-    ¿Cuáles son los caminos más cortos entre las páginas de más tráfico?
-    ¿Hay páginas huérfanas (pocas o ninguna referencia entrante)?"
-
-J4. PARA CHATGPT — Keyword research complementario:
-    "Soy escritor de fantasía juvenil española con la novela Samuel entre mundos.
-    Mis keywords actuales: 'fantasía juvenil española', 'portal fantasy español',
-    'David Porto Díaz escritor', 'Samuel entre mundos', 'magia con coste libro'.
-    ¿Qué keywords de long-tail adicionales debería atacar en 2026 para tráfico orgánico?
-    Prioriza las que tengan intención de compra o intención de descubrimiento literario."
-
-J5. PARA PERPLEXITY — Competitors y huecos de mercado:
-    "Busca las webs de escritores de fantasía juvenil española más conocidos en 2026.
-    ¿Qué hacen que davidportodiaz.com no hace? ¿Qué hace davidportodiaz.com que ellos no?
-    ¿Hay huecos de contenido que davidportodiaz.com podría ocupar antes que la competencia?"
-
-J6. PARA CHATGPT/CLAUDE — Schema audit:
-    "Revisa el JSON-LD de davidportodiaz.com. ¿Hay tipos de schema que falten para
-    un escritor de novelas de fantasía juvenil en 2026?
-    ¿Debería tener schema de tipo CreativeWorkSeries para Noveris?
-    ¿La AggregateRating con 3 reseñas de Amazon tiene riesgo de ser marcada como spam?
-    [pegar el JSON-LD completo de index.html]"
-
-J7. PARA GEMINI — Featured snippets y PAA:
-    "Para las queries 'samuel entre mundos opinión', 'david porto díaz escritor',
-    'portal fantasy español', 'libros fantasía juvenil españoles 2025 2026',
-    ¿qué tipo de contenido suele aparecer en featured snippets y People Also Ask?
-    ¿La estructura actual de la FAQ en index.html y noveris/index.html está optimizada
-    para esos formatos?"
-
-════════════════════════════════════════════════════════════════════
 BLOQUE K — UX / DISEÑO (REVISIÓN CRÍTICA)
 ════════════════════════════════════════════════════════════════════
 ⚠ Incluir el CONTEXTO BASE al principio de cada prompt.
