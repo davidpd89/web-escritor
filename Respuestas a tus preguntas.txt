@@ -1283,3 +1283,26 @@ Dame 10 prompts diferentes que ese lector haría, y para cada uno di si
 'Samuel entre mundos de David Porto Díaz' debería aparecer en la respuesta
 y por qué sí o no. Si no aparecería, qué tendría que cambiar en la web
 del autor para que apareciera."
+
+---------------------------------------------------------------------------
+BLOQUE AE — DATOS PARA AÑADIR AL SCHEMA DEL LIBRO (pedir a David)
+---------------------------------------------------------------------------
+SCHEMA aggregateRating — NECESITO DATOS REALES DE GOODREADS
+El schema Book de Samuel entre mundos podría incluir aggregateRating (estrellas)
+para aparecer en Google SERP con puntuación visible — mejora CTR hasta 30%.
+
+Para activarlo necesito que David me diga:
+  - ¿Cuántas valoraciones tiene en Goodreads exactamente? (número)
+  - ¿La puntuación media? (número con decimales, p.ej. 4.8)
+  - ¿Tiene valoraciones en otras plataformas? (Amazon ES, Casa del Libro)
+
+Cuando David proporcione estos datos, añadir al JSON-LD del libro:
+  "aggregateRating": {
+    "@type": "AggregateRating",
+    "ratingValue": "X.X",
+    "ratingCount": "XX",
+    "worstRating": "1",
+    "bestRating": "5"
+  }
+NOTA: Google solo muestra rich snippets de reviews si los ratings son de usuarios
+reales. No fabricar. Usar datos exactos de Goodreads.
