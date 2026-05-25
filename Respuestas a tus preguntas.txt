@@ -1200,3 +1200,86 @@ CÓMO VERIFICAR:
    - Instalar extensión axe DevTools en Chrome
    - Ejecutar auditoría y resolver todos los errores críticos
    - Score objetivo: 0 errores críticos, < 5 warnings
+
+
+════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════
+BLOQUE AC — IDEAS PARA /CUADERNO/ (artículos de blog SEO)
+════════════════════════════════════════════════════════════════════
+⚠ Incluir el CONTEXTO BASE al principio.
+
+Objetivo: generar artículos para el blog /cuaderno/ de David que:
+a) Ranquen para long-tail keywords de fantasía juvenil española
+b) Atraigan backlinks naturales (linkable content)
+c) Se posicionen en featured snippets con respuesta directa en primer párrafo
+
+ARTÍCULOS PROPUESTOS — PEDIR A OTRA IA QUE DESARROLLE:
+----------------------------------------------------------
+
+AC1. "¿Qué es la portal fantasy? La guía definitiva para lectores españoles"
+   Keyword objetivo: "portal fantasy", "portal fantasy en español", "qué es portal fantasy"
+   Formato: guía definitiva ~1.500 palabras
+   Snippet bait (primer párrafo, 40-50 palabras): definición directa
+   Comparables a mencionar: Narnia, Harry Potter, Eragon, El señor de los anillos
+   Ángulo único: primera portal fantasy española contemporánea = Samuel entre mundos
+   Pedir a la IA: "Escribe este artículo para el blog de David Porto Díaz,
+   en primera persona del autor, con voz auténtica y sin sonar a IA. Incluye
+   al menos 3 headings H2, respuesta directa en el primer párrafo, y al menos
+   5 outbound links a Wikipedia/recursos de autoridad."
+
+AC2. "Cómo construí el sistema de magia de Noveris (y por qué tiene reglas)"
+   Keyword objetivo: "sistema de magia dura", "hard magic español", "magia con coste"
+   Formato: artículo de autor ~1.200 palabras, primera persona
+   Ángulo E-E-A-T: David habla de su proceso creativo (experiencia única)
+   Linkable: los diagramas de canalizadores del sitio son activos visuales citables
+   Pedir a la IA: "Genera el borrador en primera persona de David Porto Díaz.
+   Menciona el sistema Sanderson (Leyes de la Magia) como referencia técnica.
+   Termina con CTA para leer el capítulo 1 gratis."
+
+AC3. "Libros de fantasía juvenil española: los mejores de 2025-2026"
+   Keyword objetivo: "fantasía juvenil española", "mejores libros fantasía juvenil española"
+   Formato: listicle ~1.000 palabras
+   CUIDADO: no solo incluir el propio libro — al menos 5 autores/títulos distintos
+   Ángulo: perspectiva de autor dentro del género (voz de experto)
+   Enlaza a: Samuel entre mundos, Laura Gallego, otros autores contemporáneos
+   Pedir a la IA: "Haz una lista honesta de 7-10 libros de fantasía juvenil española
+   recientes. David Porto Díaz aparece pero no primero. Tono de recomendación
+   sincera de autor. Con snippet bait al inicio que responda directamente a
+   '¿cuáles son los mejores libros de fantasía juvenil española?'"
+
+AC4. "Portal fantasy vs. fantasía épica: ¿cuál es la diferencia?"
+   Keyword objetivo: "portal fantasy diferencia", "tipos de fantasía", "qué es fantasía épica"
+   Formato: artículo comparativo ~900 palabras
+   Snippet bait: tabla comparativa o párrafo de definición directa
+   Ángulo: educativo, ideal para lectores nuevos al género
+
+AC5. "¿Por qué los objetos mágicos tienen memoria en Samuel entre mundos?"
+   Keyword objetivo long-tail: "objetos mágicos con memoria", "canalizadores Noveris"
+   Formato: ensayo breve ~700 palabras, personal
+   E-E-A-T: reflexión del autor sobre una decisión creativa
+   Linkable: único en su tema, nadie más puede escribir esto
+
+════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════
+BLOQUE AD — ESTRATEGIA KEYWORD PARA /CUADERNO/ (pedir a ChatGPT)
+════════════════════════════════════════════════════════════════════
+⚠ Incluir el CONTEXTO BASE al principio.
+
+AD1. PARA CHATGPT — Investigación de keywords para /cuaderno/
+"Soy David Porto Díaz, autor de portal fantasy española. Quiero crear un blog
+(/cuaderno/) en mi web davidportodiaz.com para posicionarme en Google y en IAs
+(ChatGPT, Perplexity). Dame una lista de 20 long-tail keywords en español que:
+1. Tengan intención informacional (el lector busca aprender, no comprar)
+2. Estén relacionados con fantasía juvenil española, portal fantasy, worldbuilding
+   o escritura creativa
+3. Sean keywords que yo como autor pueda responder con autoridad y experiencia
+4. Tengan dificultad baja-media (mi sitio es nuevo, dominio débil)
+5. Que generen featured snippets o aparezcan en IAs cuando se preguntan
+Para cada keyword: formato de contenido recomendado (guía, listicle, Q&A),
+longitud ideal y un título de artículo concreto."
+
+AD2. PARA CHATGPT — Prompts que usan lectores al buscar mi libro en IAs
+"Actúa como un lector de 15 años que acaba de terminar Harry Potter y quiere
+algo parecido en español. ¿Cómo buscarías tu próximo libro en ChatGPT?
+Dame 10 prompts diferentes que ese lector haría, y para cada uno di si
+'Samuel entre mundos de David Porto Díaz' debería aparecer en la respuesta
+y por qué sí o no. Si no aparecería, qué tendría que cambiar en la web
+del autor para que apareciera."
