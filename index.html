@@ -22,7 +22,11 @@
 
   <meta name="theme-color" content="#080a0c" />
 
-  <link rel="preload" as="image" href="assets/david-porto-diaz-escritor-fantasia-madrid-autor.avif" fetchpriority="high" />
+  <link rel="preload" as="image"
+    href="assets/david-porto-autor-700.webp"
+    imagesrcset="assets/david-porto-autor-400.webp 400w, assets/david-porto-autor-700.webp 700w"
+    imagesizes="(max-width: 520px) 400px, 700px"
+    fetchpriority="high" />
   <link rel="preload" as="font" type="font/woff2" href="assets/fonts/cg-normal-latin.woff2" crossorigin />
   <link rel="preload" as="font" type="font/woff2" href="assets/fonts/inter-normal-latin.woff2" crossorigin />
   <link rel="canonical" href="https://davidportodiaz.com/" />
@@ -322,7 +326,7 @@
     <header class="site-header">
       <a class="brand" href="#inicio" aria-label="Ir al inicio">
         <span class="brand-mark">
-          <img src="assets/logo-david-porto-diaz-escritor.webp" alt="" class="brand-logo-img" width="52" height="52" aria-hidden="true" />
+          <img src="assets/logo-david-porto-diaz-escritor-176.webp" alt="" class="brand-logo-img" width="52" height="52" aria-hidden="true" />
         </span>
         <span class="brand-text">
           <strong>David Porto Díaz</strong>
@@ -399,13 +403,16 @@
         <aside class="hero-author-photo" aria-label="Foto del autor">
           <figure class="author-photo-frame">
             <picture>
-              <source srcset="assets/david-porto-diaz-escritor-fantasia-madrid-autor.avif" type="image/avif" />
+              <source
+                type="image/webp"
+                srcset="assets/david-porto-autor-400.webp 400w, assets/david-porto-autor-700.webp 700w"
+                sizes="(max-width: 520px) 400px, 700px" />
               <img
-                src="assets/david-porto-diaz-escritor-fantasia-madrid-autor.avif"
+                src="assets/david-porto-autor-700.webp"
                 alt="David Porto Díaz como autor de fantasía juvenil en Madrid, vinculado al universo de Samuel entre mundos"
                 class="author-photo-img"
-                width="1792"
-                height="2388"
+                width="700"
+                height="932"
                 fetchpriority="high"
                 decoding="async"
               />
@@ -1133,7 +1140,7 @@
     <footer class="site-footer">
       <div class="footer-top-row">
         <div class="footer-brand">
-          <img src="assets/logo-david-porto-diaz-escritor.webp" alt="David Porto Díaz" class="footer-logo" width="42" height="42" loading="lazy" />
+          <img src="assets/logo-david-porto-diaz-escritor-176.webp" alt="David Porto Díaz" class="footer-logo" width="42" height="42" loading="lazy" />
           <div class="footer-brand-text">
             <strong>David Porto Díaz</strong>
             <span>La magia siempre tiene un precio.</span>
