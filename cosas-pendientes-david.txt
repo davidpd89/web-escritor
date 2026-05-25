@@ -746,3 +746,94 @@ TIEMPO: Framework E.A.R.S. = 3h/semana
    - Add insight (comentar): 15-20 min/día, 4-7 comentarios de calidad
    - Respond (responder): 5-10 min/día a quien te conteste
    - Share (postear): 30-60 min/semana un post propio
+
+
+═══════════════════════════════════════════════════════════════
+ALERTA TÉCNICA: ENCODING UTF-8 (para el equipo/IA que edite la web)
+═══════════════════════════════════════════════════════════════
+
+⚠️ PROBLEMA DETECTADO Y RESUELTO (mayo 2026):
+La página del libro libros/samuel-entre-mundos/index.html tenía
+139 líneas con caracteres corruptos (U+FFFD) que afectaban a todos
+los meta tags, schema JSON-LD y contenido HTML del libro.
+
+CAUSA: Alguna herramienta de edición leyó el archivo como Latin-1
+y lo guardó como UTF-8 corrupto, reemplazando tildes y ñ con U+FFFD.
+
+FIX COMMIT: 96dd835
+
+PREVENCIÓN — Antes de cualquier edición masiva de HTML:
+1. Hacer backup: Copy-Item index.html index.html.bak
+2. Después de editar, verificar encoding con PowerShell:
+    = [IO.File]::ReadAllText('index.html', [Text.Encoding]::UTF8)
+   0 = ([regex]::Matches(, [char]0xFFFD)).Count
+   Write-Host "Caracteres corruptos: 0"   # debe ser 0
+3. Si hay FFFD: NO publicar, contactar con el agente IA para reparar.
+
+REGLA: Siempre guardar archivos HTML en UTF-8 SIN BOM.
+       Nunca editar con Notepad clásico de Windows (usa UTF-8 con BOM).
+       Usar VS Code, Notepad++ o similares con configuración UTF-8.
+
+
+═══════════════════════════════════════════════════════════════
+MONITOREO PERIÓDICO — CHECKLIST MENSUAL
+═══════════════════════════════════════════════════════════════
+
+Cada mes revisar:
+
+📊 MÉTRICAS:
+□ Google Search Console → impresiones, clics, posición media para:
+  - "Samuel entre mundos"
+  - "David Porto Díaz"
+  - "fantasía juvenil española"
+  - "portal fantasy española"
+□ Verificar que el archivo sitemap.xml sigue siendo correcto (todas las URLs)
+□ PageSpeed Insights en home y página del libro (objetivo: >90 en móvil)
+
+🔍 LLMs:
+□ Preguntar en ChatGPT, Perplexity y Claude:
+  "¿Qué es Samuel entre mundos?" y "¿Quién es David Porto Díaz?"
+  → Si la respuesta es incorrecta o no aparece, actualizar contenido web.
+□ Verificar que el schema JSON-LD del libro valida en Rich Results Test
+
+🔗 ENLACES:
+□ Verificar que el enlace de Amazon sigue vivo: https://www.amazon.es/dp/B0GB6LGQFH
+□ Comprobar que los enlaces de librerías (Casa del Libro, El Corte Inglés) funcionan
+
+📰 PRESENCIA:
+□ Google Alerts para "David Porto Díaz" y "Samuel entre mundos"
+□ Buscar menciones nuevas en Babelio, Lecturalia, Goodreads
+□ Si hay mención nueva → añadirla a citas/reseñas en la web
+
+
+═══════════════════════════════════════════════════════════════
+SEO AVANZADO — PENDIENTES DE DECISIÓN (no urgentes)
+═══════════════════════════════════════════════════════════════
+
+1. AGGREGATERATING en schema del libro:
+   Actualmente no está implementado. Se puede añadir cuando haya
+   suficientes valoraciones en Goodreads (mínimo ~10 para que Google lo muestre).
+   Datos necesarios: ratingValue, ratingCount de Goodreads o Amazon.
+
+2. BLOG DE CONTENIDO — Decisión pendiente de David:
+   Ver Bloque U de Respuestas a tus preguntas.txt para la discusión.
+   Si David decide crear blog, crear /blog/ con artículos sobre:
+   - El proceso de escritura de Samuel entre mundos
+   - El sistema de magia de Noveris (canalizadores)
+   - Comparativa de portal fantasy española vs anglosajona
+
+3. WIKIDATA — completar entidad de David Porto Díaz:
+   Ver Bloque O de Respuestas a tus preguntas.txt para instrucciones.
+   Prioridad alta para visibilidad en Perplexity/ChatGPT Search.
+
+4. VIDEO PENDIENTE:
+   David va a grabar un booktrailer/vídeo de presentación.
+   Cuando esté listo → añadir VideoObject schema en página del libro
+   + embed en sección de presentación del libro.
+
+5. SEGUNDA NOVELA — Las manecillas del recuerdo (Monza Ediciones):
+   Cuando se confirme fecha de publicación:
+   - Actualizar schema Person del autor con nuevo libro
+   - Crear /libros/las-manecillas-del-recuerdo/ con su propia página
+   - Actualizar home con nuevo card de libro
+

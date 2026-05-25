@@ -1306,3 +1306,85 @@ Cuando David proporcione estos datos, añadir al JSON-LD del libro:
   }
 NOTA: Google solo muestra rich snippets de reviews si los ratings son de usuarios
 reales. No fabricar. Usar datos exactos de Goodreads.
+
+
+════════════════════════════════════════════════════════════════════
+BLOQUE AB — AUDITORÍA TÉCNICA WEB (para IA: Claude / ChatGPT-4o)
+════════════════════════════════════════════════════════════════════
+
+PROMPT PARA CLAUDE / CHATGPT-4o:
+"Eres un auditor técnico SEO especializado en páginas de autor y webs literarias estáticas en GitHub Pages. 
+Audita la web https://davidportodiaz.com/ y su página de libro https://davidportodiaz.com/libros/samuel-entre-mundos/
+Comprueba con herramientas como PageSpeed Insights, W3C Validator, Google Rich Results Test y Screaming Frog (o análisis manual):
+
+1. ¿Hay errores de encoding (caracteres corruptos U+FFFD o entidades HTML mal formadas)?
+2. ¿Todos los enlaces internos funcionan (sin 404)?
+3. ¿Los metadatos Open Graph y Twitter Card están completos en todas las páginas?
+4. ¿El schema JSON-LD (Book, Person, FAQPage, Review) valida sin errores en Rich Results?
+5. ¿Hay imágenes sin atributo alt o con alt vacío?
+6. ¿El manifest.json y service-worker.js están bien referenciados para PWA?
+7. ¿El sitemap.xml incluye todas las URLs canonicalizadas?
+Devuelve: lista de problemas encontrados con severidad (crítico / importante / menor) y propuesta de fix."
+
+→ Preguntado: 
+→ Respuesta: 
+
+
+════════════════════════════════════════════════════════════════════
+BLOQUE AC — SCHEMA JSON-LD AVANZADO (para IA: Perplexity / Gemini)
+════════════════════════════════════════════════════════════════════
+
+PROMPT PARA PERPLEXITY PRO / GEMINI 1.5:
+"Analiza el uso de schema.org JSON-LD en la página https://davidportodiaz.com/libros/samuel-entre-mundos/
+El schema actual incluye: Book, WebPage, Review (x6), FAQPage (x8 preguntas), Offer, BreadcrumbList y Person.
+Responde:
+
+1. ¿Falta algún tipo de schema relevante para una página de libro en 2025-2026? (ej: SoftwareApplication, VideoObject, Event...)
+2. ¿El schema de Review cumple las últimas directrices de Google sobre reseñas de terceros?
+3. ¿Qué propiedades de Book son las más valoradas por Google para featured snippets de libros?
+4. ¿Tiene sentido añadir schema de Organization para la editorial Libros Indie?
+5. ¿Cómo debería estructurarse el schema para que Perplexity/ChatGPT Search citen la ficha técnica correctamente?
+Proporciona ejemplos de código JSON-LD para cualquier mejora que sugieras."
+
+→ Preguntado: 
+→ Respuesta: 
+
+
+════════════════════════════════════════════════════════════════════
+BLOQUE AD — COMPARATIVA CON WEBS DE AUTOR COMPETIDORAS (ChatGPT / Gemini)
+════════════════════════════════════════════════════════════════════
+
+PROMPT PARA CHATGPT RESEARCH / GEMINI:
+"Busca 5-8 webs de autores de fantasía juvenil española publicados entre 2020-2025 que:
+- Tengan web propia (no solo redes sociales)
+- Tengan al menos un libro publicado en editorial
+- Estén activos en al menos dos canales digitales
+
+Para cada uno, analiza:
+1. Estructura de la web (home, página de libro, blog, contacto...)
+2. Presencia en buscadores (posición para su nombre + su libro)
+3. Presencia en LLMs (si Perplexity/ChatGPT los mencionan al buscar su nombre)
+4. Estrategia de contenido visible (blog, newsletter, redes)
+5. Qué hacen mejor que davidportodiaz.com
+
+Contexto: David Porto Díaz tiene web en https://davidportodiaz.com/ con Samuel entre mundos (Libros Indie, 2025), Premio Letras Como Espada 2026. Busco benchmarking real, no recomendaciones genéricas."
+
+→ Preguntado: 
+→ Respuesta: 
+
+
+════════════════════════════════════════════════════════════════════
+BLOQUE AE — GOODREADS Y AGREGADORES PARA AGGREGATERATING (Perplexity)
+════════════════════════════════════════════════════════════════════
+
+PROMPT PARA PERPLEXITY:
+"Para el libro Samuel entre mundos (ISBN: 9791387659776) de David Porto Díaz (Libros Indie, 2025):
+1. ¿Está indexado en Goodreads? Si es así, ¿cuántas valoraciones tiene y cuál es la media?
+2. ¿Aparece en The StoryGraph, Anobii, Lecturalia, Readerly u otros agregadores de lecturas?
+3. ¿Qué umbral mínimo de valoraciones necesita Google para mostrar el aggregateRating de un libro en los resultados de búsqueda (rich snippet de estrellas)?
+4. ¿Vale la pena añadir aggregateRating al schema Book de la web si solo hay 8 reseñas en Amazon y ninguna en Goodreads todavía?
+Dame fuentes y fecha de la información."
+
+→ Preguntado: 
+→ Respuesta: 
+
