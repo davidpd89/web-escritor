@@ -1771,3 +1771,71 @@ IMÁGENES PARA EL ARTÍCULO (generarlas antes de publicar):
      editorial style, no text")
   2. Mapa de Noveris — ya existe en assets/
   3. Medalla/canalizador de Samuel — foto real o ilustración
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+BREVO — CONFIGURACIÓN DE AUTOMATIZACIÓN DE BIENVENIDA (Bloque W)
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+La web ya envía suscriptores a Brevo automáticamente vía Cloudflare Worker.
+Lo que falta es crear en Brevo la secuencia de 3 emails de bienvenida.
+
+PASO 1 — Crear atributo de contacto FACCION_NOVERIS
+────────────────────────────────────────────────────
+1. Ir a https://app.brevo.com → Contactos → Configuración → Atributos
+2. Clic en "Añadir nuevo atributo"
+3. Nombre: FACCION_NOVERIS  |  Tipo: Texto
+4. Guardar
+(Este atributo guarda la facción elegida en el quiz de la web)
+
+PASO 2 — Crear los 3 templates de email
+────────────────────────────────────────────────────
+Ir a Campañas → Templates → Nuevo template
+
+TEMPLATE 1: "Bienvenida_Samuel_Email1"
+  Asunto: Tu facción en Noveris te espera
+  Contenido sugerido:
+  - Saludo con nombre: Hola {{ contact.NOMBRE }},
+  - Confirma que están suscritos y recibirán novedades
+  - Enlaza al capítulo 1 gratis: https://davidportodiaz.com/fragmento/
+  - Si sabes su facción: "Eres de los {{ contact.FACCION_NOVERIS }}"
+  - Firma: David Porto Díaz · https://davidportodiaz.com
+
+TEMPLATE 2: "Bienvenida_Samuel_Email2"  (se envía 48h después)
+  Asunto: El mundo de Noveris, explicado en 3 minutos
+  Contenido sugerido:
+  - Breve introducción al universo de Noveris
+  - Enlace a /universo/noveris/
+  - Dato curioso del sistema de magia
+  - CTA secundario: si aún no has comprado → enlace Amazon
+
+TEMPLATE 3: "Bienvenida_Samuel_Email3"  (se envía 5 días después)
+  Asunto: ¿Listo para cruzar el portal?
+  Contenido sugerido:
+  - Recordatorio de que el libro está disponible
+  - 1-2 frases de reseña de lector
+  - CTA principal: comprar en Amazon (enlace afiliado)
+  - CTA secundario: valorar en Goodreads si ya lo leyeron
+
+PASO 3 — Crear el workflow de automatización
+────────────────────────────────────────────────────
+1. Automatización → Mis workflows → Nuevo workflow
+2. Nombre: "Secuencia bienvenida Samuel 3 emails"
+3. Trigger: "Un contacto se suscribe a una lista"
+4. Seleccionar la lista de newsletter
+5. Añadir Email 1 → delay 0 (inmediato)
+6. Añadir Esperar 2 días → Añadir Email 2
+7. Añadir Esperar 5 días → Añadir Email 3
+8. Activar el workflow
+
+PASO 4 — Prueba antes de activar
+────────────────────────────────────────────────────
+- Añadir tu propio email como contacto de prueba en la lista
+- Verificar que los 3 emails llegan en los tiempos correctos
+- Verificar personalización (nombre, facción)
+- Eliminar el contacto de prueba
+- Activar el workflow definitivamente
+
+MÉTRICAS ESPERADAS (newsletter de autor, benchmarks 2026):
+  Email 1: >50% apertura (bienvenida, alta intención)
+  Email 2: >35% apertura
+  Email 3: >30% apertura, >5% clic en Amazon
