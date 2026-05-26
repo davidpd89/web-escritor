@@ -5483,6 +5483,548 @@ Para posicionar tu obra frente a gigantes del género como *Harry Potter*, la cl
 * *Por qué:* "Comprar ahora" puede asustar si el lector solo está mirando. "Descubre..." mantiene el flujo de lectura y aumenta el tiempo en página, lo cual mejora el SEO.
 
 **¿Quieres que redacte el código HTML/Schema para esa página del Capítulo 1 para asegurar que Google lo identifique correctamente como un `BookChapter`?**
+Voy al grano: **R5 sí merece página**, pero no como “Samuel = Harry Potter”. Tiene que ser una página honesta para lectores que buscan **mundo mágico, protagonista joven, secreto familiar, objeto mágico, paso a otro mundo y aventura juvenil**, dejando claro que *Samuel entre mundos* no tiene Hogwarts ni escuela de magia. **R6 también merece optimización**, pero mantendría `/fragmento/` y reforzaría title/H1/schema/copy.
+
+---
+
+# R5 — Posicionar por “libros parecidos a Harry Potter en español”
+
+## a) SERP actual: qué tipo de páginas rankean
+
+La búsqueda no es limpia. En la muestra que he podido revisar aparecen sobre todo páginas de referencia y entidades muy fuertes relacionadas con Harry Potter y sagas juveniles/fantásticas: Harry Potter, Hogwarts, Percy Jackson, Fablehaven, Detective Esqueleto, Corazón de tinta, etc. Eso indica que Google entiende la intención como **recomendación de fantasía juvenil/mundo mágico**, pero no siempre devuelve una SERP puramente de blogs o listas comerciales. ([Wikipedia][1])
+
+Tipo de páginas que suelen encajar en esa intención:
+
+```text id="mw7i9r"
+1. Listas: “libros parecidos a Harry Potter”.
+2. Blogs literarios/bookstagram.
+3. Tiendas con colecciones o categorías.
+4. Foros/listas tipo Goodreads.
+5. Páginas de sagas juveniles conocidas.
+6. Artículos comparativos: “si te gustó X, lee Y”.
+```
+
+No intentaría rankear con una ficha del libro. Crearía una página de recomendaciones real.
+
+---
+
+## b) ¿Samuel tiene elementos para entrar en esas listas?
+
+Sí, pero por **rasgos parciales**, no por equivalencia directa.
+
+Encaja por:
+
+```text id="r5-fit"
+Protagonista joven.
+Entrada a un mundo oculto/dimensional.
+Objeto mágico central: la medalla.
+Magia con reglas.
+Secretos familiares.
+Aventura juvenil.
+Misterio de identidad/origen.
+Edad 12+.
+Tono de descubrimiento.
+```
+
+No encaja por:
+
+```text id="r5-nofit"
+No hay escuela tipo Hogwarts.
+No hay casas/colegio mágico.
+No hay mundo británico de magos.
+No es humorístico como parte central.
+No es una saga escolar.
+No gira alrededor de una profecía clásica del elegido.
+```
+
+Harry Potter tiene como eje Hogwarts, una escuela mágica de secundaria donde estudian niños de 11 a 18 años, y buena parte de la saga se estructura alrededor de la vida escolar, el mundo mágico oculto y la amenaza de Voldemort. ([Wikipedia][2]) *Samuel entre mundos* debe presentarse como alternativa para quien busca “la sensación de descubrir que el mundo era más grande”, no como clon de Hogwarts.
+
+---
+
+## c) Diferencia de Samuel vs Harry Potter
+
+La diferencia hay que explicarla así:
+
+```text id="c098z2"
+Si te gustó Harry Potter por la sensación de cruzar desde una vida aparentemente normal hacia un mundo mágico con reglas propias, Samuel entre mundos puede encajarte.
+
+Pero no es una novela de escuela de magia. Su centro no está en clases, casas o profesores, sino en Noveris: una ciudad dimensional donde los objetos mágicos conservan memoria, la magia exige un coste real y el secreto familiar de Samuel cambia todo lo que creía saber.
+```
+
+Diferencias principales:
+
+| Rasgo            | Harry Potter                                            | Samuel entre mundos                                    |
+| ---------------- | ------------------------------------------------------- | ------------------------------------------------------ |
+| Marco            | Escuela de magia                                        | Ciudad dimensional                                     |
+| Entrada al mundo | Descubrimiento de la comunidad mágica                   | Medalla/canalizador y Noveris                          |
+| Magia            | Mundo mágico amplio, hechizos, institución escolar      | Canalizadores, objetos con memoria, coste              |
+| Protagonista     | Elegido/marcado por Voldemort                           | Protagonista no-elegido/anomalía familiar              |
+| Tono             | Aventura escolar, misterio, humor, oscuridad progresiva | Aventura, secreto familiar, portal fantasy, hard magic |
+| Promesa          | “Existe una escuela mágica esperándote”                 | “La verdad familiar abre una ciudad imposible”         |
+
+---
+
+## d) Descripción de 100 palabras para lectores de Harry Potter
+
+```text id="r5desc"
+Si lo que más te atrapó de Harry Potter fue descubrir que la realidad escondía un mundo mágico con sus propias reglas, Samuel entre mundos puede interesarte. No hay una escuela como Hogwarts ni casas de alumnos, pero sí un protagonista joven, una medalla que late, una familia que oculta demasiado y una ciudad dimensional llamada Noveris. Allí, la magia no funciona como un deseo: se canaliza mediante objetos con memoria y siempre exige un precio. Es fantasía juvenil española de portales, misterio familiar y aventura para lectores que quieren cruzar al otro lado sin encontrar una copia de lo conocido.
+```
+
+No promete escuela, casas ni “nuevo Harry Potter”. Eso es importante.
+
+---
+
+## e) Artículo “10 libros de fantasía juvenil española para fans de HP”
+
+Samuel no debería ir en posición 1 si el artículo lo publica David en su propia web. Quedaría demasiado promocional. Lo pondría en posición **3 o 4**, con aviso transparente:
+
+```text id="r5pos"
+Nota: esta web es la página oficial de David Porto Díaz, autor de Samuel entre mundos. Lo incluimos en esta lista porque comparte algunos rasgos de descubrimiento mágico y mundo oculto, pero también recomendamos otras obras para que la guía sea útil de verdad.
+```
+
+Estructura recomendada:
+
+```text id="r5article"
+H1. 10 libros de fantasía juvenil española para fans de Harry Potter
+
+H2. Qué buscamos cuando pedimos “libros parecidos a Harry Potter”
+H3. Mundo mágico oculto
+H3. Protagonistas jóvenes
+H3. Misterio, amistad y peligro
+H3. Sensación de saga o universo
+
+H2. Antes de empezar: ningún libro tiene que ser una copia
+H2. 10 libros de fantasía juvenil española que pueden encajarte
+
+H3. 1. Memorias de Idhún — Laura Gallego
+H3. 2. Crónicas de la Torre — Laura Gallego
+H3. 3. Samuel entre mundos — David Porto Díaz
+H3. 4. Guardianes de la Ciudadela — Laura Gallego
+H3. 5. Sueños de piedra — Iria G. Parente y Selene M. Pascual
+H3. 6. Alianzas — Iria G. Parente y Selene M. Pascual
+H3. 7. Electro — Javier Ruescas y Manu Carbajo
+H3. 8. [otra obra juvenil española contrastada]
+H3. 9. [otra obra juvenil española contrastada]
+H3. 10. [otra obra juvenil española contrastada]
+
+H2. Si buscas algo más parecido por rasgo
+H3. Si quieres escuela de magia
+H3. Si quieres portal/mundo oculto
+H3. Si quieres magia con reglas
+H3. Si quieres protagonista joven
+
+H2. Dónde encaja Samuel entre mundos
+H2. Preguntas frecuentes
+```
+
+Meta title:
+
+```html id="r5title"
+<title>Libros parecidos a Harry Potter en español | Fantasía juvenil y mundos mágicos</title>
+```
+
+Meta description:
+
+```html id="r5meta"
+<meta name="description" content="10 libros de fantasía juvenil en español para lectores que buscan mundos mágicos, portales, secretos familiares y aventuras después de Harry Potter.">
+```
+
+URL:
+
+```text id="r5url"
+/recomendaciones/libros-parecidos-a-harry-potter-en-espanol/
+```
+
+Pero antes de crear esta, yo publicaría primero:
+
+```text id="r5first"
+/recomendaciones/portal-fantasy-en-espanol/
+```
+
+Esa es más propia y menos competida.
+
+---
+
+# R6 — Optimización de `/fragmento/`
+
+La página actual está bien planteada como lectura gratuita: tiene hero con “Lectura gratuita · Capítulo 1”, H1 “El principio del salto”, metadatos del libro, texto completo del capítulo y CTA final.  El cierre del fragmento funciona bien como gancho: “En apariencia, era un niño más. Pero no lo era. Nunca lo había sido.” 
+
+## a) Búsquedas que llevan a páginas de fragmento gratis
+
+Prioridad de keywords:
+
+```text id="r6kw"
+leer Samuel entre mundos gratis
+Samuel entre mundos capítulo 1
+Samuel entre mundos primer capítulo
+Samuel entre mundos fragmento
+leer primer capítulo Samuel entre mundos
+Samuel entre mundos David Porto Díaz fragmento
+fantasía juvenil leer capítulo gratis
+novela fantasía juvenil capítulo gratis
+portal fantasy español capítulo gratis
+leer fantasía juvenil española gratis
+```
+
+La intención principal no es informativa general, sino **marca + muestra gratuita**. Por eso `/fragmento/` debe reforzar el título del libro en title/H1/intro.
+
+---
+
+## b) Schema recomendado
+
+Usaría:
+
+```text id="r6schema-types"
+WebPage
+Article o CreativeWork para el fragmento
+Book como about/isPartOf
+BreadcrumbList
+potentialAction ReadAction opcional
+```
+
+No usaría `Book` como tipo principal de la página, porque la página no es el libro entero. Tampoco me obsesionaría con `BookChapter`: Schema.org no tiene un tipo mainstream de Google rich result específico que vaya a darte “capítulo” en SERP. Para Google, lo más seguro es `WebPage` + `Article/CreativeWork` + relación con `Book`.
+
+Google permite `Article` para páginas tipo artículo/noticia/blog; no significa que vaya a sacar rich result especial, pero ayuda a describir autoría, fecha, titular e imagen. ([Google for Developers][3]) Para Book Actions, Google tiene una documentación específica orientada a proveedores de libros, no a que una web de autor obtenga “leer extracto” solo por meter `ReadAction`. ([Google for Developers][4])
+
+Schema sugerido:
+
+```json id="r6schema"
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "WebPage",
+      "@id": "https://davidportodiaz.com/fragmento/",
+      "url": "https://davidportodiaz.com/fragmento/",
+      "name": "Leer capítulo 1 gratis de Samuel entre mundos",
+      "description": "Lee gratis el capítulo 1 de Samuel entre mundos, novela de fantasía juvenil española de David Porto Díaz publicada por Libros Indie.",
+      "inLanguage": "es",
+      "isPartOf": { "@id": "https://davidportodiaz.com/#website" },
+      "about": { "@id": "https://davidportodiaz.com/#book-samuel" },
+      "mainEntity": {
+        "@id": "https://davidportodiaz.com/fragmento/#capitulo-1"
+      }
+    },
+    {
+      "@type": ["Article", "CreativeWork"],
+      "@id": "https://davidportodiaz.com/fragmento/#capitulo-1",
+      "headline": "El principio del salto",
+      "alternativeHeadline": "Capítulo 1 de Samuel entre mundos",
+      "name": "Capítulo 1 — El principio del salto",
+      "isPartOf": { "@id": "https://davidportodiaz.com/#book-samuel" },
+      "author": { "@id": "https://davidportodiaz.com/#author" },
+      "publisher": { "@id": "https://davidportodiaz.com/#website" },
+      "inLanguage": "es",
+      "datePublished": "2025",
+      "dateModified": "2026-05-26",
+      "description": "Primer capítulo gratuito de Samuel entre mundos: Noveris, canalizadores, una familia con secretos y un chico que no debería existir.",
+      "copyrightHolder": { "@id": "https://davidportodiaz.com/#author" },
+      "isAccessibleForFree": true,
+      "potentialAction": {
+        "@type": "ReadAction",
+        "target": {
+          "@type": "EntryPoint",
+          "urlTemplate": "https://davidportodiaz.com/fragmento/"
+        },
+        "name": "Leer el capítulo 1 gratis"
+      }
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Inicio",
+          "item": "https://davidportodiaz.com/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Samuel entre mundos",
+          "item": "https://davidportodiaz.com/libros/samuel-entre-mundos/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "Capítulo 1 gratis",
+          "item": "https://davidportodiaz.com/fragmento/"
+        }
+      ]
+    }
+  ]
+}
+```
+
+---
+
+## c) H1: keyword o título del capítulo
+
+Ahora el H1 es:
+
+```text id="r6h1actual"
+El principio del salto
+```
+
+Funciona literariamente, pero para SEO es débil. Yo lo cambiaría a:
+
+```html id="r6h1"
+<h1>Leer capítulo 1 gratis de <em>Samuel entre mundos</em></h1>
+```
+
+Y debajo:
+
+```html id="r6sub"
+<p class="book-hero-tagline">
+  Capítulo 1 — <strong>El principio del salto</strong>. Noveris, canalizadores, una familia con demasiados secretos y un chico que no debería existir.
+</p>
+```
+
+Esto captura marca + intención de búsqueda. El título literario sigue presente.
+
+Title recomendado:
+
+```html id="r6title"
+<title>Leer capítulo 1 gratis de Samuel entre mundos | David Porto Díaz</title>
+```
+
+Meta:
+
+```html id="r6meta"
+<meta name="description" content="Lee gratis el capítulo 1 de Samuel entre mundos, novela de fantasía juvenil española de David Porto Díaz: Noveris, canalizadores y una medalla que cambia dos mundos.">
+```
+
+---
+
+## d) ¿Puede Google mostrar vista previa del texto?
+
+Sí, pero no se puede forzar. Google genera snippets principalmente desde el contenido visible de la página y a veces usa la meta description si es más útil; también puede mostrar fragmentos distintos según la consulta. ([Google for Developers][5])
+
+Para facilitarlo:
+
+```text id="r6snippet"
+1. No usar nosnippet.
+2. Mantener max-snippet:-1.
+3. Poner una intro clara antes del capítulo.
+4. Usar H1 y metadatos explícitos.
+5. No esconder el texto detrás de JS.
+6. No bloquear la lectura tras email.
+```
+
+Añadiría antes del capítulo:
+
+```html id="r6intro"
+<section class="fragment-intro">
+  <p>
+    Lee gratis el capítulo 1 de <em>Samuel entre mundos</em>, novela de fantasía juvenil española de David Porto Díaz. En este inicio aparecen Noveris, los canalizadores y la primera grieta en la normalidad de Samuel Osborne.
+  </p>
+</section>
+```
+
+---
+
+## e) URL ideal
+
+Mantendría:
+
+```text id="r6url"
+/fragmento/
+```
+
+Ventajas:
+
+```text id="r6url-pros"
+corta;
+memorable;
+ya enlazada;
+buena para CTA;
+no rompe estructura;
+sirve como landing universal del fragmento.
+```
+
+No migraría ahora a:
+
+```text id="r6url-alt"
+/samuel-entre-mundos-fragmento/
+/libros/samuel-entre-mundos/capitulo-1/
+```
+
+La más SEO sería `/libros/samuel-entre-mundos/capitulo-1/`, pero cambiar ahora añade redirecciones, mantenimiento y riesgo. Si en el futuro hay más fragmentos/capítulos, entonces sí:
+
+```text id="r6future"
+ /libros/samuel-entre-mundos/capitulo-1/
+ /libros/samuel-entre-mundos/capitulo-2/
+```
+
+Pero hoy, `/fragmento/` está bien. Solo refuerza title/H1/canonical.
+
+Canonical:
+
+```html id="r6canonical"
+<link rel="canonical" href="https://davidportodiaz.com/fragmento/">
+```
+
+---
+
+## f) CTA final que convierte mejor
+
+Para lector frío, no usaría “Comprar ahora” como CTA principal. Es demasiado brusco después de leer. Ahora el CTA final dice “Leer completo en Amazon →” y luego “Ficha técnica del libro”.  Yo lo cambiaría a:
+
+CTA principal:
+
+```text id="r6cta1"
+Continuar la historia
+```
+
+CTA secundaria:
+
+```text id="r6cta2"
+Ver dónde comprar
+```
+
+CTA terciaria/newsletter:
+
+```text id="r6cta3"
+Recibir novedades del autor
+```
+
+Bloque recomendado:
+
+```html id="r6ctablock"
+<div class="fragment-cta-box">
+  <p class="fragment-cta-title">La grieta acaba de abrirse.</p>
+  <p class="fragment-cta-desc">
+    El tutor de Samuel guarda un secreto. La medalla no debería latir. Y Noveris está mucho más cerca de lo que nadie quiere admitir.
+  </p>
+  <div class="fragment-cta-actions">
+    <button class="button primary" type="button" data-buy-modal>Continuar la historia</button>
+    <a class="button secondary" href="/libros/samuel-entre-mundos/">Ver ficha del libro</a>
+  </div>
+  <p class="fragment-cta-isbn">ISBN 9791387659776 · Libros Indie · 422 páginas · Tapa blanda</p>
+</div>
+```
+
+Por qué: “Continuar la historia” mantiene la emoción narrativa. Luego el modal ya ofrece Amazon/Casa del Libro. “Comprar ahora” corta la inmersión.
+
+Newsletter al final: mantener, pero no como CTA principal. Que sea alternativa para quien aún no compra.
+
+---
+
+# Decisión final R5/R6
+
+## Crear página R5, pero no la primera
+
+Orden recomendado:
+
+```text id="r-final-order"
+1. /recomendaciones/portal-fantasy-en-espanol/
+2. Optimizar /fragmento/
+3. /recomendaciones/libros-parecidos-a-harry-potter-en-espanol/
+```
+
+## Cambios inmediatos en `/fragmento/`
+
+```text id="r6todo"
+1. Cambiar title.
+2. Cambiar H1.
+3. Añadir intro SEO antes del capítulo.
+4. Añadir WebPage + Article/CreativeWork schema.
+5. Cambiar CTA “Leer completo en Amazon” por “Continuar la historia”.
+6. Usar data-buy-modal en CTA principal.
+7. Mantener /fragmento/ como canonical.
+```
+
+## Copy clave para la página Harry Potter
+
+```text id="r5key"
+Samuel entre mundos no es una escuela de magia ni una copia de Hogwarts. Es una fantasía juvenil española para lectores que echan de menos la sensación de descubrir que la realidad escondía otro mundo: una medalla que late, una ciudad dimensional llamada Noveris y una magia que siempre exige un precio.
+```
+
+Esa frase es la frontera: atrae al lector de HP, pero no genera expectativas falsas.
+
+[1]: https://es.wikipedia.org/wiki/Harry_Potter?utm_source=chatgpt.com "Harry Potter"
+[2]: https://en.wikipedia.org/wiki/Hogwarts?utm_source=chatgpt.com "Hogwarts"
+[3]: https://developers.google.com/search/docs/appearance/structured-data/article "Learn About Article Schema Markup | Google Search Central  |  Documentation  |  Google for Developers"
+[4]: https://developers.google.com/search/docs/appearance/structured-data/book "Book Schema for Google Search | Google Search Central  |  Documentation  |  Google for Developers"
+[5]: https://developers.google.com/search/docs/appearance/snippet "How to Write Meta Descriptions | Google Search Central  |  Documentation  |  Google for Developers"
+
+# Estrategia de **contenido SEO** para ampliar visibilidad de *Samuel entre mundos*
+
+Para atraer más **tráfico orgánico cualificado**, conviene crear **nuevas páginas de contenido** en davidportodiaz.com enfocadas a **palabras clave** del nicho (*fantasía juvenil*, *portal fantasy*) y los **intereses del público objetivo** (fans de Harry Potter, por ejemplo). Abajo detallamos el plan para dos áreas:
+
+1. **Página comparativa** (lista) dirigida a **lectores de *Harry Potter*** (similar a “libros parecidos a Harry Potter en español”).
+2. **Optimización** de la página de **fragmento gratuito** (Capítulo 1) para tráfico orgánico y conversión.
+
+***
+
+## **R5. Contenido SEO: “Libros parecidos a Harry Potter en español”**
+
+**a) SERP actual:** Una búsqueda como *“libros parecidos a Harry Potter en español”* arroja *resultados de tipo lista/comparativa* en **blogs literarios** y **medios especializados**. En concreto, dominan la **SERP** artículos del *blog de Casa del Libro* (que en enero 2026 publicó “Libros parecidos a Harry Potter que te encantarán”) y de *PlanetadeLibros* (penguinrandomhouse, con “14 libros para leer después de Harry Potter”). También aparecen listas de blogs independientes o portales (ej. Librería Serendipia, AurelioSuarez.es) y medios generalistas (Clarin.com). **Conclusión:** Para posicionar en este terreno, debemos crear **un contenido similar**: una **lista bien argumentada** de libros de fantasía juvenil que los fans de Harry Potter podrían disfrutar, incluyendo *Samuel entre mundos*. [\[casadellibro.com\]](https://www.casadellibro.com/blog/libros-parecidos-a-harry-potter-que-te-encantaran/), [\[planetadelibros.com\]](https://www.planetadelibros.com/blog/listas-y-tops-literarios/articulo-libros-para-leer-despues-de-harry-potter) [\[casadellibro.com\]](https://www.casadellibro.com/blog/libros-parecidos-a-harry-potter-que-te-encantaran/) [\[planetadelibros.com\]](https://www.planetadelibros.com/blog/listas-y-tops-literarios/articulo-libros-para-leer-despues-de-harry-potter)
+
+**b) Keyword objetivo:** De las variantes evaluadas, **“portal fantasy en español”** parece la mejor palabra clave principal. Es un **término intermedio**: capta la temática (**fantasía de portales**, subgénero en el que encaja *Samuel entre mundos*) y la intención “en español” indica búsquedas de obras en nuestro idioma. Además, su competencia es manejable (por tratarse de un término nicho) y volumen decente; no está saturado por webs de alto dominio más allá de la *Wikipedia de “Fantasía de portales”*. Por otro lado, “libros parecidos a Harry Potter en español” es más competido, aunque con alto volumen: usaremos **esa frase en títulos y contenido**, pero nos centraremos en la variante de portal fantasy (más alineada a *Samuel*) para la URL. [\[es.wikipedia.org\]](https://es.wikipedia.org/wiki/Fantas%C3%ADa_de_portales)
+
+**c) Nueva URL:** Proponemos crear una **página estática dedicada** (tipo pilar/evergreen). Nombre descriptivo y conciso, por ejemplo: `**/libros-portal-fantasy-espanol/**` (o `**/portal-fantasy-espanol/**`). Esta ruta incluye las keywords **portal fantasy** y **español**, lo que favorece su SEO. Alternativamente, si se prefiere integrarla en la futura sección de blog, podría ser una entrada en `/cuaderno/…`, pero siendo un contenido perenne conviene una página fija para fácil mantenimiento y enlace desde la home/menu.
+
+**d) Estructura H1–H3:**
+
+* **H1 (título principal):** *“10 libros de fantasía juvenil **en español** para fans de Harry Potter”*. – Combina la intención (recomendaciones tras HP) con nuestro target de idioma.
+* **Introducción:** Explicar brevemente que *Harry Potter* despertó la pasión por la magia en muchos lectores y que a continuación se presentan 10 libros de fantasía juvenil **escritos o disponibles en español** que comparten ciertos elementos (magia, amistad, mundos ocultos), por lo que pueden gustar a sus fans. [\[planetadelibros.com\]](https://www.planetadelibros.com/blog/listas-y-tops-literarios/articulo-libros-para-leer-despues-de-harry-potter)
+* **H2 subsecciones:** Por cada libro recomendado:
+  * Título del libro recomendado + (autor) – e.g., *“Nevermoor (Jessica Townsend)”*, *“Crónicas de la Torre (Laura Gallego)”*, *“La historia interminable (Michael Ende)”*, *“Memorias de Idhún (Laura Gallego)”*, etc. Incluir **4–5 obras** reconocidas y **1–2 menos conocidas** (donde *Samuel entre mundos* entraría sin destacar en primer lugar).
+  * Debajo, un párrafo con **sinopsis** y **por qué encaja** para fans de HP:
+    * *Resaltar elementos comunes:* escuelas de magia, portales a otros mundos, jóvenes protagonistas que crecen, lucha del bien/mal, etc. [\[casadellibro.com\]](https://www.casadellibro.com/blog/libros-parecidos-a-harry-potter-que-te-encantaran/)
+    * *Resaltar diferencias atractivas:* por ejemplo, uno es más oscuro, otro más tecnológico, etc.
+* **H2 para *Samuel entre mundos***: Integrarlo, por ejemplo, como la **posición #5** (en medio de la lista). Evitamos ponerlo #1 para no verse autopromocional.
+  * **H3 (subtítulo explicativo):** *“Samuel entre mundos – portales y magia con un giro científico”*.
+  * **Descripción (100-150 palabras):** Presentar *Samuel entre mundos* enfatizando **lo que encantará a un fan de Harry Potter**: tiene un **protagonista joven de 12 años** que descubre un **mundo mágico alternativo** a través de un portal; encuentra **amistades y se enfrenta a enemigos** mientras desentraña secretos familiares. Al mismo tiempo, aclarar **sus diferencias** para crear expectativas correctas: no hay escuela de magos ni varitas al estilo Hogwarts, sino una **ciudad oculta (Noveris)** con reglas de magia más *“científicas”* (la magia siempre tiene un coste), lo que aporta un tono un poco más maduro y misterioso. [\[librosindie.net\]](https://librosindie.net/product/samuel-entre-mundos/), [\[librosindie.net\]](https://librosindie.net/product/samuel-entre-mundos/) [\[davidportodiaz.com\]](https://davidportodiaz.com/), [\[davidportodiaz.com\]](https://davidportodiaz.com/) [\[librosindie.net\]](https://librosindie.net/product/samuel-entre-mundos/)
+* **Conclusión:** Animar al lector a explorar estas sagas y dar un cierre amigable (p.ej. *“Seguro que alguna de estas aventuras te hará sentir la misma magia que en Hogwarts”*).
+
+**e) LSI keywords:** En el texto debemos incluir variaciones relacionadas: *“libros de fantasía juvenil en español”*, *“sagas juveniles de magia”*, *“novelas similares a Harry Potter”*, *“escuelas de magia en la literatura”*, *“fantasía de portales”* (que es la traducción de *portal fantasy*). También mencionar algún personaje icónico (**Harry**, **Hogwarts**) para contexto semántico, y títulos de las obras comparadas (sirven de LSI por sí mismos). [\[casadellibro.com\]](https://www.casadellibro.com/blog/libros-parecidos-a-harry-potter-que-te-encantaran/) [\[es.wikipedia.org\]](https://es.wikipedia.org/wiki/Fantas%C3%ADa_de_portales)
+
+**f) Schema a usar:** Como la página es básicamente una **lista de libros recomendados**, lo ideal es marcarla como **ItemList** o **CollectionPage**. Con JSON-LD, describiremos la página como `@type: ItemList` (o `CollectionPage`), enumerando cada libro con su `name`, `author`, `description` y enlace. Esto ayuda a Google a entender que es una lista de libros similares. Alternativamente, se puede usar `BlogPosting` si lo incluimos dentro de una sección blog, pero al ser contenido evergreen de referencias, **ItemList** es más apropiado. (No usar `Product` schema porque no vendemos directamente esos libros; se podrían añadir marcados tipo `Book` a cada item con su ISBN para mayor detalle).
+
+**g) Enlazado interno:** Para difundir esta nueva página:
+
+* **Menú principal:** Añadir un enlace en la sección *“Libros”* o crear un apartado *“Recomendaciones”* en la web.
+* **Página *Samuel entre mundos*:** Incluir un bloque tipo *“Si te ha gustado *Harry Potter*, échale un vistazo a nuestra lista de recomendaciones”* enlazando a esta nueva página, para atrapar a visitantes relevantes.
+* **Blog/promo:** En la newsletter o redes, anunciar “Libros que recomiendo si te gusta Harry Potter” para atraer clics.
+
+**h) Extensión de la página:** Apuntamos a \~**1.500-2.000 palabras**. Las listas que rankean suelen ser densas (Casa del Libro \~2000 palabras con subapartados; PlanetadeLibros \~1800 palabras). Un contenido robusto y útil aumentará las probabilidades de posicionar. [\[casadellibro.com\]](https://www.casadellibro.com/blog/libros-parecidos-a-harry-potter-que-te-encantaran/) [\[planetadelibros.com\]](https://www.planetadelibros.com/blog/listas-y-tops-literarios/articulo-libros-para-leer-despues-de-harry-potter)
+
+**i) Tiempo estimado para posicionar:** Tras la publicación optimizada, podría tardar **1 a 3 meses** en alcanzar posiciones visibles (top 20) y de 3 a 6 meses para aspirar al top 10 de Google, dependiendo de la calidad percibida y de la competencia. La indexación será casi inmediata (pocos días) si enviamos la URL vía Search Console, pero la escalada en ranking requerirá que Google evalúe la página como **útil y autoritativa** (lo que podemos acelerar consiguiendo algunas menciones o enlaces externos, por ejemplo compartiendo en comunidades de fantasía juvenil o colaborando con otros blogs).
+
+**100-word *snippet* orientado a fans de *Harry Potter*:**
+
+> *¿Te quedaste con ganas de más magia tras Harry Potter? En **Samuel entre mundos** acompañarás a un protagonista joven y valiente que descubre un **portal a un mundo mágico** oculto. La historia fusiona **amistad** y desafíos fantásticos: un grupo de aliados inesperados, secretos familiares, un misterioso medallón latiente y fuerzas oscuras que amenazan con romper la frontera entre los mundos. Con un tono de aventura y crecimiento personal, esta novela te hará sentir de nuevo la **emoción de explorar un universo mágico** diferente. Si disfrutaste con Hogwarts y sus sorpresas, ¡esta aventura de fantasía juvenil te atrapará!* [\[librosindie.net\]](https://librosindie.net/product/samuel-entre-mundos/)
+
+*Recomendaciones de presentación:* En la lista general, asegurarse de **no exagerar** la posición de *Samuel entre mundos*. Por ejemplo, incluirlo en el medio de la lista (#4 o #5 de 10), rodeado de títulos reconocidos, para que la página sea auténticamente útil y no un mero autopromocional. Además, mencionar otros autores españoles (Laura Gallego, Fernando Vidal, etc.) refuerza la relevancia local. Este enfoque honesto aporta **autoridad** y aumentará la probabilidad de que la página reciba enlaces de terceros (blogueros o foros de lectores) y sea **bien vista por Google**.
+
+***
+
+## **R6. Optimización de la página *Fragmento/Capítulo 1***
+
+La página `**/fragmento/**` (que contiene el capítulo 1 gratis de *Samuel entre mundos*) ya existe en la web. Para potenciarla:
+
+**a) Búsquedas objetivo:** Este tipo de página puede atraer a usuarios que busquen *“leer primer capítulo \[de tal libro] gratis”*, *“avance \[título libro]” o “primer capítulo \[título del libro]”*. No son consultas de altísimo volumen, pero sí indican **alta intención** (el usuario ya conoce el libro y desea leer un fragmento). Por ejemplo, la consulta *“primer capítulo Samuel entre mundos”* ya devuelve la web oficial en primer lugar (por delante incluso de resultados bíblicos irrelevantes debido al nombre Samuel). Estas búsquedas suelen ser de nicho, pero conviene optimizar para captarlas.
+
+**b) Schema estructurado:** Marcaremos esta página como **`Book`** (u **`BookChapter`**) dentro del JSON-LD:
+
+* **Opción 1:** Usar `Book` y emplear la propiedad `hasPart` para indicar que contiene un *extracto* de la obra, o usar `Book` con la propiedad `exampleOfWork` apuntando al libro completo. Esto deja claro a los motores que la página ofrece un fragmento de la novela.
+* **Opción 2:** Usar `BookChapter` como tipo principal si consideramos que la página es específicamente un capítulo. Podría ser más semántico: `BookChapter` (capítulo 1) con `isPartOf` *Samuel entre mundos* (referencia al Book principal). Dado que es contenido de la novela, esta estructura es legítima.
+* **ReadAction**: En el esquema de `Book` principal (ficha del libro), podemos agregar un `potentialAction` de tipo **ReadAction** apuntando a la URL del fragmento (target). Esto es un microformato que puede ayudar a los motores e IAs a entender que en esa URL se puede “Leer un fragmento”. Google a veces utiliza *ReadAction* para mostrar un botón de *“Leer un extracto”* en los paneles de conocimiento o resultados de libros.
+
+**c) H1 y SEO on-page:** Actualmente la página *Fragmento* probablemente tiene por H1 solo “Fragmento” o similar. Sugerimos cambiarlo a un **H1 más descriptivo y con palabras clave**: *“Primer capítulo gratis de **Samuel entre mundos**”* por ejemplo. Esto aprovechará las keywords *primer capítulo* y *gratis* junto al título del libro, mejorando la concordancia con las posibles consultas. En el contenido, incluir también variaciones como *“leer online”*, *“leer gratis”*, *“capítulo 1 de Samuel entre mundos”* para cubrir distintas formulaciones.
+
+**d) Vista previa en SERP:** Para que Google muestre un snippet relevante del texto del capítulo en sus resultados, hay que **facilitar un resumen atractivo**. Dos estrategias:
+
+* **Meta description optimizada:** Escribir una meta descripción para la página del fragmento que incluya la palabra “fragmento” o “primer capítulo” y un gancho narrativo. Ejemplo: *“Lee el primer capítulo de *Samuel entre mundos*, la novela de fantasía juvenil de David Porto Díaz: descubre la magia y el misterio que aguardan tras los portales en la ciudad de Noveris.”* Esto guiará a Google a mostrarlo como snippet (si no hay otra respuesta más relevante a la query).
+* **Permitir snippet amplio:** Asegurarse de **no limitar a Google** con tags meta como `nosnippet` o `data-nosnippet`. Podemos utilizar un meta `max-snippet` amplio (ej. `max-snippet: 300`) para que Google tenga permiso de mostrar un fragmento más largo si lo considera útil para el usuario.
+
+**e) URL friendly:** La actual `/fragmento/` es corta pero poco descriptiva para buscadores. Se podría **redireccionar** a una URL más explícita, por ejemplo: `**/samuel-entre-mundos/capitulo-1**` o `**/samuel-entre-mundos/primer-capitulo**`. Esto repetiría el título del libro y contextualizaría la página. Sin embargo, la ventaja es marginal, y cambiar la URL requiere poner un redirect 301 desde `/fragmento/`. Dado que ya has publicado enlaces `fragmento`, podrías mantenerla e incluir en tu `<title>` y `<h1>` y metadata la descripción completa. Si es sencillo, redirigir a una URL más semántica es un plus, pero **no obligatorio**.
+
+**f) CTA al final del fragmento:** Tras el capítulo gratuito, el lector idealmente estará enganchado y listo para actuar. La conversión prioritaria es la compra del libro. Por tanto, recomendamos un CTA principal de **“Comprar ahora la novela”** con un lenguaje un poco emocional. Ejemplo: *“¿Quieres saber cómo continúa la historia? Consigue el libro completo aquí”*. Esto fusiona la llamada a la acción con la curiosidad (descubrir qué pasa) e invita a la compra sin sonar agresivo. **“Suscríbete para recibir novedades”** puede ofrecerse como CTA secundario (para quienes aún no se deciden a comprar), pero en la página del fragmento lo más eficaz será capitalizar el interés recién creado para buscar la venta inmediata.
+
+**Recapitulando**: con la nueva página comparativa bien optimizada (H1 y contenido cuidadosamente elaborados, anchored by relevant schema and internal links) y la mejora de la página del fragmento (schema BookChapter, CTA convincente), la web podrá **atraer visitantes cualificados** y guiarles en su recorrido hasta la compra. La estrategia equilibra el **contenido útil** para la comunidad lectora (lo que Google premia en 2026 con su enfoque “contenido útil” y E‑E‑A‑T) con **objetivos de conversión** claros (venta del libro y captación de suscriptores), aumentando la probabilidad de éxito tanto en **tráfico orgánico** como en **conversión a lectores de pago**. [\[planetadelibros.com\]](https://www.planetadelibros.com/blog/listas-y-tops-literarios/articulo-libros-para-leer-despues-de-harry-potter), [\[librosindie.net\]](https://librosindie.net/product/samuel-entre-mundos/)
 
 ────────────────────────────────────────────────────────────────────
 BLOQUE S — UX Y CONVERSIÓN

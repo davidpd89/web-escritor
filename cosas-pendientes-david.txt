@@ -1479,3 +1479,117 @@ DÓNDE BUSCAR PDFs GRATUITOS:
   - Reddit r/SEO, r/bigseo: a veces comparten PDFs de recursos de pago
   - O'Reilly Learning (tiene trial gratuito de 30 días): varios libros de SEO
 
+
+
+---------------------------------------------------------------------------
+BLOQUE R — PÁGINAS SEO NUEVAS A CREAR (26 mayo 2026)
+---------------------------------------------------------------------------
+
+PRIORIDAD DE CREACIÓN (de más a menos urgente):
+  1. /recomendaciones/portal-fantasy-en-espanol/
+  2. /recomendaciones/libros-parecidos-a-harry-potter-en-espanol/
+  3. /cuaderno/ (blog de artículos sobre escritura/worldbuilding)
+
+Estas páginas son lo que convierte la web en una web que atrae tráfico
+orgánico de gente que AÚN NO CONOCE a David pero busca estos temas.
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+PÁGINA 1 — /recomendaciones/portal-fantasy-en-espanol/
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+Keyword objetivo: "portal fantasy en español"
+Keyword secundaria: "portal fantasy español", "libros de portal fantasy en español"
+Longitud: 1.000-1.200 palabras. Suficiente para superar la competencia actual.
+Tiempo estimado para posicionar: 3-6 meses (niche poco competido en español)
+
+ESTRUCTURA DE HEADINGS EXACTA (copiar tal cual):
+  H1: Portal fantasy en español: libros de portales entre mundos
+  H2: ¿Qué es el portal fantasy?
+    H3: La puerta como punto de ruptura
+    H3: Diferencia entre portal fantasy y fantasía épica / isekai
+  H2: Qué busca un lector de portal fantasy en español
+    H3: Protagonistas jóvenes o fuera de lugar
+    H3: Mundos con reglas propias y magia con consecuencias
+  H2: Libros de portal fantasy en español recomendados
+    H3: Samuel entre mundos — David Porto Díaz (2025)  ← prioridad en orden
+    H3: Memorias de Idhún — Laura Gallego              ← genuino, no spam
+    H3: [1-2 comparables más si los encuentras]
+  H2: Clásicos del portal fantasy en traducción española
+    H3: Las Crónicas de Narnia / El Mago de Oz / Piranesi
+  H2: Preguntas frecuentes (FAQ)
+    H3: ¿Es el isekai lo mismo que el portal fantasy?
+    H3: ¿Hay portal fantasy para menores de 12 años?
+    H3: ¿Existe el portal fantasy con sistema de magia original?
+
+REGLA ANTI-SPAM: La sección de Samuel debe ser HONESTA sobre las diferencias
+con otros libros. No digas que es "exactamente como Narnia". Di en qué se
+diferencia (ej: "a diferencia de Narnia, el coste de la magia en Noveris es
+físico y tiene consecuencias permanentes"). La honestidad reduce el rebote.
+
+PÍDELE A OTRA IA (ChatGPT, Gemini):
+  "Escribe el texto completo de una página web de recomendaciones de
+  libros de portal fantasy en español. Sigue esta estructura de headings:
+  [pegar los H1-H2-H3 de arriba]. Incluye Samuel entre mundos de David Porto Díaz
+  (ISBN 9791387659776, Libros Indie 2025) como el primer libro en la sección de
+  portal fantasy escrito originalmente en español. Incluye también Memorias de Idhún
+  de Laura Gallego. Para las FAQ, incluye: '¿Es el isekai lo mismo que el portal
+  fantasy?' y '¿Hay portal fantasy con sistema de magia original?'. Tono: editorial,
+  cálido, sin hipérbole. Longitud: 1000-1200 palabras. En español."
+
+SCHEMA PARA ESA PÁGINA: Article + ItemList + FAQPage (Claude lo generará)
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+PÁGINA 2 — /recomendaciones/libros-parecidos-a-harry-potter-en-espanol/
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+Keyword: "libros parecidos a Harry Potter en español"
+Keyword secundaria: "libros como Harry Potter", "fantasía juvenil como Harry Potter"
+Formato: página permanente (no artículo de blog) bajo /recomendaciones/
+Longitud: 800-1.000 palabras + tabla resumen
+
+ESTRUCTURA:
+  H1: Si te gustó Harry Potter, estos libros en español te van a enganchar
+  H2: Qué tiene Harry Potter que buscas repetir
+  H2: Libros españoles para fans de Harry Potter
+    H3: Samuel entre mundos — David Porto Díaz
+    H3: El valle de los lobos — Laura Gallego
+    H3: Memorias de Idhún — Laura Gallego
+  H2: Recomendaciones internacionales disponibles en español
+    H3: Percy Jackson — Rick Riordan
+    H3: Las Crónicas de Narnia — C.S. Lewis
+  H2: Cómo elegir según la edad del lector
+    [tabla: 10-12 años / 12-15 años / 15+ años]
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+PÁGINA 3 — /cuaderno/ (blog de autor)
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+Los 5 primeros artículos a escribir (por orden de impacto SEO):
+  1. "¿Qué es el portal fantasy y por qué engancha tanto?"
+     URL: /cuaderno/que-es-el-portal-fantasy/
+     Keyword: "qué es el portal fantasy"
+  2. "Hard magic vs soft magic: sistemas de magia en libros"
+     URL: /cuaderno/hard-magic-soft-magic/
+     Keyword: "sistemas de magia en libros"
+  3. "Libros de fantasía juvenil española (2020-2026)"
+     URL: /cuaderno/fantasia-juvenil-espanola/
+     Keyword: "fantasía juvenil española"
+  4. "El protagonista no-elegido: cuando el héroe no tiene destino"
+     URL: /cuaderno/protagonista-no-elegido/
+     Keyword: "protagonista no elegido fantasía"
+  5. "Cómo crear una ciudad ficticia: worldbuilding de Noveris"
+     URL: /cuaderno/worldbuilding-ciudad-ficticia/
+     Keyword: "worldbuilding ciudad ficticia / crear ciudad fantasía"
+
+Los artículos aportan E-E-A-T (experiencia de autor) y atraen backlinks
+de blogs literarios y clubes de lectura que citan artículos de worldbuilding.
+
+CUÁNDO EMPEZAR: cuando ya tengas las 2 páginas de /recomendaciones/ publicadas.
+No empieces el blog antes — las páginas de recomendaciones posicionan más rápido.
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+LINKS INTERNOS (añadir cuando las páginas existan)
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+Una vez creadas, Claude añadirá enlace desde:
+  - index.html (sección de libro): "Descubre qué es el portal fantasy →"
+  - /libros/samuel-entre-mundos/: "Samuel es portal fantasy en español →"
+  - /universo/noveris/: "Noveris, el mundo de destino de este portal fantasy →"
+  - /empieza-aqui/: enlace en sección de géneros
+
