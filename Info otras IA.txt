@@ -14,7 +14,7 @@ A new era for AI Search -- anuncio oficial Google I/O 2026: AI Mode 1B usuarios,
 
 ## Oficiales: Bing / ChatGPT Search
 
-Introducing ChatGPT Search -- anuncio oficial con respuestas y enlaces a fuentes. ([OpenAI][2])
+Introducing ChatGPT Search -- anuncio oficial (oct 2024). ChatGPT Search disponible gratis. OAI-SearchBot ya en nuestro robots.txt. CONTEXTUAL — no requiere accion. ([OpenAI][2])
 
 ## Schema / Linked Data / Knowledge Graph tecnico
 
@@ -30,7 +30,7 @@ SPARQL 1.2 Draft -- version en desarrollo. ([w3c.github.io][7])
 
 ## Libros / manuales de Knowledge Graph
 
-The Knowledge Graph Cookbook -- manual practico de PoolParty. Aplicable a "David -> Samuel -> Noveris". ([PoolParty Semantic Suite][8])
+The Knowledge Graph Cookbook -- manual para empresas Fortune 500. Conceptos KG correctos pero N/A para caso de autor indie. LEIDO. ([PoolParty Semantic Suite][8])
 
 Building Knowledge Graphs -- O'Reilly / Neo4j. ([oreilly.com][9])
 
@@ -46,20 +46,20 @@ GEO: Generative Engine Optimization -- paper academico original que acuno el ter
 
 Generative Engine Optimization: How to Dominate AI Search -- paper 2025: AI Search biased to earned media vs brand-owned. Abstract leido. PDF pendiente. ([arXiv][14])
 
-Learning AI Search Optimization -- guia gratuita sobre GEO/AEO/LLMO. ([LearningAiSearch][15])
+Learning AI Search Optimization -- indice curado de recursos GEO/AEO. No contenido propio; utiles los sub-recursos vinculados. LEIDO. ([LearningAiSearch][15])
 
-ProFound GEO Guide 2025 -- framework practico de 10 pasos para visibilidad en LLMs. Falló antes, reintentar. ([Profound][16])
+ProFound GEO Guide 2025 -- 10 pasos: TL;DR blocks, FAQPage ✅, schema, mobile <1.8s, llms.txt ✅. "LLMs citan 2-7 dominios" → hay que estar en fuentes que los LLMs ya citan. LEIDO. ([Profound][16])
 
 ## Entity SEO / Knowledge Graph aplicado a SEO
 
-Search Engine Land: Knowledge Graph SEO -- guia 2025 sobre como afecta el Knowledge Graph al SEO. ([Search Engine Land][17])
+Search Engine Land: Knowledge Graph SEO -- Wikidata + Wikipedia = #1 fuentes del KG de Google. LLMs NO usan directamente el KG propietario de Google, sino text de web + Wikidata/Wikipedia. Knowledge Panel se puede reclamar si existe. LEIDO. ([Search Engine Land][17])
 
-WordLift: Knowledge Graph SEO -- enfoque practico para construir un grafo SEO desde contenido editorial. ([AI-Powered SEO - WordLift][18])
+WordLift: Knowledge Graph SEO -- confirma enfoque JSON-LD ✅. Separate KG domain = N/A para nosotros. LEIDO. ([AI-Powered SEO - WordLift][18])
 
 ## Los 3 imprescindibles pendientes
 
-The Knowledge Graph Cookbook. ([PoolParty Semantic Suite][8])
-Generative Engine Optimization: How to Dominate AI Search — PDF completo. ([arXiv][14])
+The Knowledge Graph Cookbook. ([PoolParty Semantic Suite][8]) LEIDO — N/A (enterprise)
+Generative Engine Optimization: How to Dominate AI Search — PDF completo. ([arXiv][14]) PDF inaccesible — abstract ya leido.
 
 [1]: https://blog.google/products-and-platforms/products/search/search-io-2026/
 [2]: https://openai.com/index/introducing-chatgpt-search/
@@ -85,8 +85,8 @@ Generative Engine Optimization: How to Dominate AI Search — PDF completo. ([ar
 ## Recursos adicionales con enlace directo
 
 **Knowledge Graph / Grafos de Conocimiento:**
-- [Getting Started with Schema.org for Your Personal Knowledge Graph -- mattartz.me](https://www.mattartz.me/getting-started-with-schema-org-for-your-personal-knowledge-graph/) -- Tutorial exactamente para tu caso: persona + obras + entidades relacionadas. Codigo incluido.
-- [The Knowledge Graph Cookbook -- Scribd](https://www.scribd.com/document/714349374/The-Knowledge-Graph-Cookbook) -- El manual tecnico de referencia sobre construccion de Knowledge Graphs con RDF y linked data.
+- [Getting Started with Schema.org for Your Personal Knowledge Graph -- mattartz.me](https://www.mattartz.me/getting-started-with-schema-org-for-your-personal-knowledge-graph/) -- LEIDO: confirma nuestro enfoque JSON-LD+sameAs. N/A (no hay cambios a hacer).
+- [The Knowledge Graph Cookbook -- Scribd](https://www.scribd.com/document/714349374/The-Knowledge-Graph-Cookbook) -- LEIDO via PoolParty landing page. Enterprise, N/A.
 - [De documentos a consultas inteligentes con LLMs -- SEDIC](https://www.sedic.es/de-documentos-a-consultas-inteligentes-construir-y-consultar-grafos-de-conocimiento-con-llms-articulo-elaborado-con-ia/) -- Articulo academico en espanol sobre como los LLMs consultan grafos. Por que el sameAs Wikidata importa.
 - [Grafo de Conocimiento del Museo del Prado](https://www.museodelprado.es/grafo-de-conocimiento/el-grafo-de-conocimiento-del-museo-del-prado) -- Caso real en espanol de linked data para entidades culturales (autores, obras). El modelo a replicar a escala autor indie.
 - [Enhancing knowledge graphs with microdata and LLMs -- Emerald](https://www.emerald.com/el/article-split/42/3/443/1223565/Enhancing-knowledge-graphs-with-microdata-and-LLMs) -- Paper academico 2024. En ingles.
