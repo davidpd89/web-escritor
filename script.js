@@ -433,9 +433,18 @@ function fallbackCopy(text, done) {
               attributes: { SOURCE: sourceLabel }
             })
           });
-          if (res.ok || res.status === 204 || res.status === 400) {
-            form.innerHTML = "<p class=\"quiz-subscribe-ok\">✓ ¡Apuntado! Recibirás el capítulo y novedades de David Porto Díaz.</p>";
+          if (res.ok || res.status === 204) {
+            form.innerHTML = "<p class=\"quiz-subscribe-ok\">✓ \u00a1Apuntado! Recibir\u00e1s el cap\u00edtulo y novedades de David Porto D\u00edaz.</p>";
             _gcEvent("newsletter-" + sourceLabel, "Newsletter: " + sourceLabel);
+          } else if (res.status === 400) {
+            // Brevo returns 400 for duplicate contacts
+            const body = await res.json().catch(() => ({}));
+            const isDupe = JSON.stringify(body).toLowerCase().includes("already exist");
+            if (isDupe) {
+              form.innerHTML = "<p class=\"quiz-subscribe-ok\">\u2714 Ya est\u00e1s suscrito a la lista. \u00a1Gracias!</p>";
+            } else {
+              throw new Error(res.status);
+            }
           } else {
             throw new Error(res.status);
           }
@@ -539,7 +548,7 @@ function _gcEvent(path, title) {
             <span class="buy-option-cta">Comprar →</span>
           </a>
         </div>
-        <p class="buy-dialog-note">¿Prefieres probarlo antes? <a href="/fragmento/" class="text-link" data-gc="fragmento-desde-modal">Lee el capítulo 1 gratis →</a></p>
+        <p class="buy-dialog-note">Amazon ofrece 30 días de devolución en papel. ¿Prefieres probarlo antes? <a href="/fragmento/" class="text-link" data-gc="fragmento-desde-modal">Lee el capítulo 1 gratis →</a></p>
       </div>`;
     document.body.appendChild(d);
 
@@ -586,6 +595,8 @@ function _gcEvent(path, title) {
     }
     _gcEvent("abrir-modal-comprar", "Modal: abrir dónde comprar");
     document.documentElement.classList.add("modal-open");
+    // Back button support: push state so Back closes modal instead of leaving page
+    history.pushState({ buyModal: true }, "", "#comprar");
     _dialog.showModal();
     // Enfocar la opción principal de compra
     setTimeout(() => (_dialog.querySelector(".buy-option--primary") || _dialog.querySelector("a, button"))?.focus(), 50);
@@ -598,6 +609,11 @@ function _gcEvent(path, title) {
       e.preventDefault();
       openBuyDialog(trigger);
     }
+  });
+
+  // Cerrar modal con el botón Atrás del navegador
+  window.addEventListener("popstate", () => {
+    if (_dialog && _dialog.open) _dialog.close();
   });
 })();
 
