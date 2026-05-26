@@ -1,4 +1,4 @@
-﻿### INFO OTRAS IA - Completado: mayo 2026 (v3) — procesado en tres sesiones
+﻿### INFO OTRAS IA - Completado: mayo 2026 (v4) — procesado en cuatro sesiones
 Todos los recursos de la lista LIBROS/MANUALES/ARTICULOS han sido leidos,
 intentados o descartados. Los insights clave estan en:
   - /memories/repo/web-escritor.md (insights tecnicos + historial)
@@ -7,6 +7,11 @@ intentados o descartados. Los insights clave estan en:
 Sesion 3 (26 mayo 2026): leidos Google AI Optimization Guide 2026, Google AI Features,
 Backlinko Technical SEO Guide, Search Engine Land SEOs new goal 2026.
 Accion aplicada: /cuaderno/index.html (hub page, fix 404 breadcrumbs).
+
+Sesion 4 (26 mayo 2026): leidos llms.txt spec (llmstxt.org), OpenAI/Perplexity/Anthropic
+crawler docs, SEL GEO 2026 full guide, CXL AEO 2026 comprehensive guide, arXiv GEO paper.
+Acciones aplicadas: robots.txt (Claude-SearchBot + Claude-User), llms.txt + llms-full.txt
+(seccion cuaderno), definicion AEO en que-es-el-portal-fantasy/index.html.
 
 === HERRAMIENTAS DE VALIDACION (usar cuando se modifique schema) ===
 - Rich Results Test:      https://search.google.com/test/rich-results
@@ -26,4 +31,11 @@ ProFound GEO: LLMs citan 2-7 dominios media. Estar en fuentes que la IA ya cita.
 SEL Knowledge Graph: LLMs NO usan KG propietario Google. Usan Wikidata + Wikipedia.
 GEO 2025 (arXiv 2509.08919): Bias overwhelming hacia Earned media vs Brand-owned.
 LLMrefs: Recency bias fuerte, contenido >3 meses ve -citaciones. Ciclo 90 dias.
-
+CXL AEO 2026: Respuesta directa 40-60 palabras al inicio de cada seccion. FAQ schema.
+  Zero-click: 69% en 2025 (vs 56% en 2024). Metrica nueva: citas IA, no solo trafico.
+OpenAI crawlers: GPTBot (training), OAI-SearchBot (ChatGPT Search), ChatGPT-User (user-triggered).
+Perplexity crawlers: PerplexityBot (indexing), Perplexity-User (user-triggered).
+Anthropic crawlers: ClaudeBot (training), Claude-SearchBot (Claude Search), Claude-User (user-triggered).
+llms.txt spec: archivo Markdown en raiz del sitio. Lista de paginas clave para LLMs.
+  No es factor ranking Google. Util para inferencia (cuando usuario pregunta por el autor).
+  Ya implementado en davidportodiaz.com/llms.txt y llms-full.txt.
