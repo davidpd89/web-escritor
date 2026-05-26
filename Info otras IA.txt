@@ -1,4 +1,4 @@
-﻿### INFO OTRAS IA - Completado: mayo 2026 (v4) — procesado en cuatro sesiones
+﻿### INFO OTRAS IA - Completado: mayo 2026 (v5) — procesado en cinco sesiones
 Todos los recursos de la lista LIBROS/MANUALES/ARTICULOS han sido leidos,
 intentados o descartados. Los insights clave estan en:
   - /memories/repo/web-escritor.md (insights tecnicos + historial)
@@ -8,10 +8,11 @@ Sesion 3 (26 mayo 2026): leidos Google AI Optimization Guide 2026, Google AI Fea
 Backlinko Technical SEO Guide, Search Engine Land SEOs new goal 2026.
 Accion aplicada: /cuaderno/index.html (hub page, fix 404 breadcrumbs).
 
-Sesion 4 (26 mayo 2026): leidos llms.txt spec (llmstxt.org), OpenAI/Perplexity/Anthropic
-crawler docs, SEL GEO 2026 full guide, CXL AEO 2026 comprehensive guide, arXiv GEO paper.
-Acciones aplicadas: robots.txt (Claude-SearchBot + Claude-User), llms.txt + llms-full.txt
-(seccion cuaderno), definicion AEO en que-es-el-portal-fantasy/index.html.
+Sesion 5 (26 mayo 2026): recursos schema.org procesados. Schema ya implementado:
+Book, Person, ProfilePage, Article, BreadcrumbList, FAQPage, Event, Review.
+Pendiente David: AggregateRating (necesita conteo real de Goodreads).
+Accion: sección SEÑALES EXTERNAS (Wikipedia, menciones, Brevo) añadida a
+cosas-pendientes-david.txt como las 3 prioridades reales de GEO.
 
 === HERRAMIENTAS DE VALIDACION (usar cuando se modifique schema) ===
 - Rich Results Test:      https://search.google.com/test/rich-results
