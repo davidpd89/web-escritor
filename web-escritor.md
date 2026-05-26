@@ -6,9 +6,40 @@ Archivo de seguimiento para Claude: estado técnico, pendientes de monitorizar y
 
 ## Estado del Service Worker
 
-- CACHE_VERSION actual: `david-porto-v2026-05-26-2`
-- Último bump: 26 mayo 2026 (para invalidar caché de styles.css con fix de events-block)
+- CACHE_VERSION actual: `david-porto-v2026-05-26-3`
+- Último bump: 26 mayo 2026 (actualizado en sesión anterior)
 - Política: network-first para navegación, cache-first para assets
+
+---
+
+## Cambios aplicados — 26 mayo 2026 (cuarta ronda — Bloques AA, AE, P, Brevo)
+
+### Brevo MCP
+- Configurado en VS Code settings.json (`mcp.servers.brevo`) con clave API full-access
+- Worker actual ya envía email al endpoint de Brevo API; los atributos FACCION_NOVERIS y SOURCE deben crearse en Brevo antes de usarlos en automatizaciones (ver checklist W1 en Respuestas a tus preguntas.txt)
+
+### Schema Person (index.html y libros/samuel-entre-mundos/)
+- Añadido `disambiguatingDescription`: "Escritor español de fantasía juvenil, autor de Samuel entre mundos (Libros Indie, 2025). No confundir con David Porto Arias, docente de Formación Profesional en A Coruña."
+- Añadido "David Porto Díaz (escritor)" a `alternateName`
+
+### Schema Book — AggregateRating (index.html + libro page)
+- Corregido `ratingCount` y `reviewCount`: de "8" a "3" (coincide con las 3 review visibles en el DOM)
+- Eliminado `ratingExplanation` (no es una propiedad estándar de schema.org)
+- HTML del libro: "8 reseñas en Amazon España" → "Valoraciones verificadas de lectores"
+
+### fragmento/index.html
+- Meta description actualizada: capturas query "samuel entre mundos gratis" sin registro
+- Añadido `<p class="fragment-notice">` al inicio de la sección de lectura para interceptar búsquedas de "pdf gratis"
+
+### llms.txt
+- Desambiguación actualizada: "David Porto Arias (docente FP, A Coruña)" específicamente mencionado
+- Calificación actualizada: "reseñas en Amazon España y Goodreads" (sin número fijo)
+
+### PageSpeed / CSS inline (index.html)
+- Añadido `will-change:backdrop-filter;contain:layout style` a `.site-header`
+- Añadido `will-change:transform` a `body::before` y `body::after`
+- Añadido `@media(prefers-reduced-motion:reduce)` al final del CSS inline
+- Hero author photo: `loading="eager"` + `decoding="sync"` (era `decoding="async"`)
 
 ---
 
