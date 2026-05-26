@@ -1,146 +1,24 @@
-﻿### INFO OTRAS IA - Ultima revision: 26 mayo 2026
-Seguimiento de recursos de lectura pendiente para la web davidportodiaz.com.
-Completado y borrado: Bloque J, GEO en espanol (VisibilidadOn/DinoRank/SEOEstudios/Rodanet/AyudaWP),
-Schema.org Book+Person+Organization, Bing AI Performance, SEOSyrup, ChatGPT Search Help,
-Studio Ubique Entity SEO, Tallest Tree Entity Authority.
+﻿### INFO OTRAS IA - Completado: 26 mayo 2026
+Todos los recursos de la lista LIBROS/MANUALES/ARTICULOS han sido leidos,
+intentados o descartados. Los insights clave estan en:
+  - /memories/repo/web-escritor.md (insights tecnicos + historial)
+  - cosas-pendientes-david.txt (tareas manuales para David)
 
-LIBROS, MANUALES, ARTICULOS
-===================================================================
-Pendiente de leer y aplicar.
+=== HERRAMIENTAS DE VALIDACION (usar cuando se modifique schema) ===
+- Rich Results Test:      https://search.google.com/test/rich-results
+- Schema Markup Validator: https://validator.schema.org/
+- Wikidata (Q139678851):  https://www.wikidata.org/wiki/Q139678851
 
-## Oficiales: Google / Search / IA
+=== REFERENCIAS TECNICAS (consultar si se necesita depurar JSON-LD) ===
+- JSON-LD 1.1 spec:   https://www.w3.org/TR/json-ld11/
+- JSON-LD playground: https://json-ld.org/playground/
+- RDF 1.1 Primer:     https://www.w3.org/TR/rdf11-primer/
 
-A new era for AI Search -- anuncio oficial Google I/O 2026: AI Mode 1B usuarios, Gemini 3.5 Flash. CONTEXTUAL — no requiere accion. ([blog.google][1])
-
-## Oficiales: Bing / ChatGPT Search
-
-Introducing ChatGPT Search -- anuncio oficial (oct 2024). ChatGPT Search disponible gratis. OAI-SearchBot ya en nuestro robots.txt. CONTEXTUAL — no requiere accion. ([OpenAI][2])
-
-## Schema / Linked Data / Knowledge Graph tecnico
-
-JSON-LD 1.1 -- especificacion W3C. Base tecnica del JSON-LD. ([W3C][3])
-
-JSON-LD.org -- explicacion practica y playground. ([json-ld.org][4])
-
-RDF 1.1 Primer -- base conceptual de triples. ([W3C][5])
-
-SPARQL 1.1 Query Language -- para consultar grafos RDF. ([W3C][6])
-
-SPARQL 1.2 Draft -- version en desarrollo. ([w3c.github.io][7])
-
-## Libros / manuales de Knowledge Graph
-
-The Knowledge Graph Cookbook -- manual para empresas Fortune 500. Conceptos KG correctos pero N/A para caso de autor indie. LEIDO. ([PoolParty Semantic Suite][8])
-
-Building Knowledge Graphs -- O'Reilly / Neo4j. ([oreilly.com][9])
-
-Building Knowledge Graphs PDF -- version descargable Neo4j/O'Reilly. ([Graph Database & Analytics][10])
-
-Designing and Building Enterprise Knowledge Graphs -- diseno de grafos desde datos estructurados. ([Springer Nature Link][11])
-
-An Introduction to Knowledge Graphs -- PDF introductorio para arquitectos de informacion. ([hedden-information.com][12])
-
-## GEO / LLM SEO / AI Search
-
-GEO: Generative Engine Optimization -- paper academico original (Princeton/KDD2024). LEIDO. Metodos: Statistics Addition (+30-40%), Cite Sources (+30-40%; rank-5 site +115%!), Quotation Addition (+27-40%), Fluency (+15-30%). Keyword Stuffing = -10% (PERJUDICA). Mejor combo: Fluency+Statistics. "People & Society" dominio mas beneficiado por citas. ([arXiv][13])
-
-Generative Engine Optimization: How to Dominate AI Search -- paper 2025: AI Search biased to earned media vs brand-owned. Abstract leido. PDF pendiente. ([arXiv][14])
-
-Learning AI Search Optimization -- indice curado de recursos GEO/AEO. No contenido propio; utiles los sub-recursos vinculados. LEIDO. ([LearningAiSearch][15])
-
-ProFound GEO Guide 2025 -- 10 pasos: TL;DR blocks, FAQPage ✅, schema, mobile <1.8s, llms.txt ✅. "LLMs citan 2-7 dominios" → hay que estar en fuentes que los LLMs ya citan. LEIDO. ([Profound][16])
-
-## Entity SEO / Knowledge Graph aplicado a SEO
-
-Search Engine Land: Knowledge Graph SEO -- Wikidata + Wikipedia = #1 fuentes del KG de Google. LLMs NO usan directamente el KG propietario de Google, sino text de web + Wikidata/Wikipedia. Knowledge Panel se puede reclamar si existe. LEIDO. ([Search Engine Land][17])
-
-WordLift: Knowledge Graph SEO -- confirma enfoque JSON-LD ✅. Separate KG domain = N/A para nosotros. LEIDO. ([AI-Powered SEO - WordLift][18])
-
-## Los 3 imprescindibles pendientes
-
-The Knowledge Graph Cookbook. ([PoolParty Semantic Suite][8]) LEIDO — N/A (enterprise)
-Generative Engine Optimization: How to Dominate AI Search — PDF completo. ([arXiv][14]) PDF inaccesible — abstract ya leido.
-
-[1]: https://blog.google/products-and-platforms/products/search/search-io-2026/
-[2]: https://openai.com/index/introducing-chatgpt-search/
-[3]: https://www.w3.org/TR/json-ld11/
-[4]: https://json-ld.org/
-[5]: https://www.w3.org/TR/rdf11-primer/
-[6]: https://www.w3.org/TR/sparql11-query/
-[7]: https://w3c.github.io/sparql-query/spec/
-[8]: https://www.poolparty.biz/the-knowledge-graph-cookbook/
-[9]: https://www.oreilly.com/library/view/building-knowledge-graphs/9781098127091/
-[10]: https://go.neo4j.com/rs/710-RRC-335/images/Building-Knowledge-Graphs-Practitioner%27s-Guide-OReilly-book.pdf
-[11]: https://link.springer.com/book/10.1007/978-3-031-01916-6
-[12]: https://www.hedden-information.com/wp-content/uploads/2023/03/Intro-to-Knowledge-Graphs-for-Information-Architects.pdf
-[13]: https://arxiv.org/abs/2311.09735
-[14]: https://arxiv.org/pdf/2509.08919
-[15]: https://learningaisearch.com/ai_roadmap/optimize-ai-search/
-[16]: https://www.tryprofound.com/resources/articles/generative-engine-optimization-geo-guide-2025
-[17]: https://searchengineland.com/guide/knowledge-graph
-[18]: https://wordlift.io/blog/en/knowledge-graph-seo/
-
----
-
-## Recursos adicionales con enlace directo
-
-**Knowledge Graph / Grafos de Conocimiento:**
-- [Getting Started with Schema.org for Your Personal Knowledge Graph -- mattartz.me](https://www.mattartz.me/getting-started-with-schema-org-for-your-personal-knowledge-graph/) -- LEIDO: confirma nuestro enfoque JSON-LD+sameAs. N/A (no hay cambios a hacer).
-- [The Knowledge Graph Cookbook -- Scribd](https://www.scribd.com/document/714349374/The-Knowledge-Graph-Cookbook) -- LEIDO via PoolParty landing page. Enterprise, N/A.
-- [De documentos a consultas inteligentes con LLMs -- SEDIC](https://www.sedic.es/de-documentos-a-consultas-inteligentes-construir-y-consultar-grafos-de-conocimiento-con-llms-articulo-elaborado-con-ia/) -- INACCESSIBLE (redirige al homepage de SEDIC).
-- [Grafo de Conocimiento del Museo del Prado](https://www.museodelprado.es/grafo-de-conocimiento/el-grafo-de-conocimiento-del-museo-del-prado) -- LEIDO. Sistema con 310K entidades + RDF/SPARQL. Modelo avanzado de linked data para inst. cultural. Confirma nuestro enfoque JSON-LD+sameAs ✅. A nuestra escala: ya hacemos lo correcto.
-- [Enhancing knowledge graphs with microdata and LLMs -- Emerald](https://www.emerald.com/el/article-split/42/3/443/1223565/Enhancing-knowledge-graphs-with-microdata-and-LLMs) -- Paper academico 2024. En ingles.
-
-**Google Search / GEO adicionales:**
-- [Google Search Central -- SEO y IA Generativa](https://developers.google.com/search/docs/fundamentals/seo-and-ai) -- 404 URL CAMBIADA.
-- [Google Developers: Understanding Entities](https://developers.google.com/search/docs/appearance/knowledge-graph) -- 404 URL CAMBIADA.
-- [Google Rich Results Test](https://search.google.com/test/rich-results) -- HERRAMIENTA (no articulo). Usar para validar schema.
-- [Schema Markup Validator](https://validator.schema.org/) -- HERRAMIENTA (no articulo). Usar para validar JSON-LD.
-- [Backlinko GEO Guide](https://backlinko.com/generative-engine-optimization-geo) -- LEIDO (abr 2026). 7 pasos: Nail SEO basics, Build mentions/co-citations, Multi-platform, AI citation audit, Answer questions, Structure content, Track visibility. Reddit+LinkedIn = top 2 dominios citados por AI. Confirma stats+citas +30-40% ✅. datePublished/dateModified en schema ✅. LEIDO.
-- SurferSEO -- 7 Large Language Model Optimization Strategies -- URL CAMBIADA (404).
-- SEO.ai GEO guide -- URL CAMBIADA (404).
-- Abdurrahman Simsek KG Entity SEO -- URL CAMBIADA (404).
-- SEO.ai -- GEO: How to Optimize for AI Search Results (Apr. 2024) -- Resumen del estudio Princeton sobre GEO.
-- Abdurrahman Simsek -- Knowledge Graph Optimization: Entity SEO Guide (Mar. 2026) -- Schema.org, Wikidata y contenidos para reforzar entidades.
-- [Wikidata -- Guia para editores](https://www.wikidata.org/wiki/Help:Contents) -- Manual del Knowledge Graph global.
-[9]: https://www.w3.org/TR/json-ld11/
-[10]: https://json-ld.org/
-[11]: https://www.w3.org/TR/rdf11-primer/
-[12]: https://www.w3.org/TR/sparql11-query/
-[13]: https://w3c.github.io/sparql-query/spec/
-[14]: https://www.poolparty.biz/the-knowledge-graph-cookbook/
-[15]: https://www.oreilly.com/library/view/building-knowledge-graphs/9781098127091/
-[16]: https://go.neo4j.com/rs/710-RRC-335/images/Building-Knowledge-Graphs-Practitioner%27s-Guide-OReilly-book.pdf
-[17]: https://link.springer.com/book/10.1007/978-3-031-01916-6
-[18]: https://www.hedden-information.com/wp-content/uploads/2023/03/Intro-to-Knowledge-Graphs-for-Information-Architects.pdf
-[19]: https://arxiv.org/abs/2311.09735
-[20]: https://arxiv.org/abs/2509.08919
-[21]: https://llmstxt.org/
-[22]: https://www.answer.ai/posts/2024-09-03-llmstxt.html
-[23]: https://learningaisearch.com/ai_roadmap/optimize-ai-search/
-[24]: https://llmrefs.com/generative-engine-optimization
-[25]: https://www.tryprofound.com/resources/articles/generative-engine-optimization-geo-guide-2025
-[26]: https://searchengineland.com/guide/knowledge-graph
-[27]: https://wordlift.io/blog/en/knowledge-graph-seo/
-
----
-
-## Recursos adicionales con enlace directo
-
-**Knowledge Graph / Grafos de Conocimiento:**
-- [Getting Started with Schema.org for Your Personal Knowledge Graph -- mattartz.me](https://www.mattartz.me/getting-started-with-schema-org-for-your-personal-knowledge-graph/) -- Tutorial para persona + obras + entidades. Codigo incluido.
-- [The Knowledge Graph Cookbook -- Scribd](https://www.scribd.com/document/714349374/The-Knowledge-Graph-Cookbook) -- Manual tecnico sobre Knowledge Graphs con RDF y linked data.
-- [De documentos a consultas inteligentes con LLMs -- SEDIC](https://www.sedic.es/de-documentos-a-consultas-inteligentes-construir-y-consultar-grafos-de-conocimiento-con-llms-articulo-elaborado-con-ia/) -- Por que el sameAs Wikidata importa para los LLMs.
-- [Grafo de Conocimiento del Museo del Prado](https://www.museodelprado.es/grafo-de-conocimiento/el-grafo-de-conocimiento-del-museo-del-prado) -- Caso real de linked data para entidades culturales. El modelo a replicar.
-- [Enhancing knowledge graphs with microdata and LLMs -- Emerald](https://www.emerald.com/el/article-split/42/3/443/1223565/Enhancing-knowledge-graphs-with-microdata-and-LLMs) -- Paper academico 2024.
-
-**Google Search / GEO adicionales:**
-- [Google Search Central -- SEO y IA Generativa](https://developers.google.com/search/docs/fundamentals/seo-and-generative-ai) -- Guia oficial mayo 2026 para AI Overviews.
-- [Google Developers: Understanding Entities](https://developers.google.com/search/docs/appearance/knowledge-graph) -- Como Google conecta entidades con atributos.
-- [Google Rich Results Test](https://search.google.com/test/rich-results) -- Validar schema.
-- [Schema Markup Validator](https://validator.schema.org/) -- Validar JSON-LD.
-- Backlinko -- Generative Engine Optimization (Apr. 2026) -- Guia integral GEO con checklist.
-- SurferSEO -- 7 Large Language Model Optimization Strategies (Jan. 2026) -- 7 tacticas para LLM citation.
-- SEO.ai -- GEO: How to Optimize for AI Search Results -- Resumen estudio Princeton sobre GEO.
-- Abdurrahman Simsek -- Knowledge Graph Optimization: Entity SEO Guide (Mar. 2026) -- Schema.org, Wikidata y contenidos para entidades.
-- [Wikidata -- Guia para editores](https://www.wikidata.org/wiki/Help:Contents) -- Manual del Knowledge Graph global.
+=== RESUMEN DE HALLAZGOS CLAVE (fuentes) ===
+GEO Princeton/KDD2024: Statistics+Citas+Citas de expertos = +30-40% visibilidad LLM.
+  Keyword stuffing = -10%. Mejor combo: Fluency + Statistics Addition.
+Backlinko GEO 2026: Reddit+LinkedIn = top 2 dominios citados por AI (Semrush).
+ProFound GEO: LLMs citan 2-7 dominios media. Estar en fuentes que la IA ya cita.
+SEL Knowledge Graph: LLMs NO usan KG propietario Google. Usan Wikidata + Wikipedia.
+GEO 2025 (arXiv 2509.08919): Bias overwhelming hacia Earned media vs Brand-owned.
+LLMrefs: Recency bias fuerte, contenido >3 meses ve -citaciones. Ciclo 90 dias.
