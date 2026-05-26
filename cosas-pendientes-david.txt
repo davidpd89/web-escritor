@@ -1757,61 +1757,68 @@ BREVO — CONFIGURACIÓN DE AUTOMATIZACIÓN DE BIENVENIDA (Bloque W)
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
 La web ya envía suscriptores a Brevo automáticamente vía Cloudflare Worker.
-Lo que falta es crear en Brevo la secuencia de 3 emails de bienvenida.
+Lo que falta es crear en Brevo el workflow de automatización.
 
-PASO 1 — Crear atributo de contacto FACCION_NOVERIS
+ESTADO ACTUAL (26 mayo 2026):
+  ✅ Cloudflare Worker activo — recibe suscriptores del quiz y los manda a Brevo
+  ✅ Template 1 creado — "Bienvenida_Samuel_Email1"  → ID 2
+  ✅ Template 2 creado — "Bienvenida_Samuel_Email2"  → ID 3
+  ✅ Template 3 creado — "Bienvenida_Samuel_Email3"  → ID 4
+  ✅ Atributo de contacto: nombre NOVERIS (no FACCION_NOVERIS — ese nombre es incorrecto)
+  ❌ Workflow de automatización — PENDIENTE TÚ (no hay API para crearlo)
+
+NOTA IMPORTANTE SOBRE EL ATRIBUTO NOVERIS:
+  El quiz de la web envía a Brevo el atributo NOVERIS con estos valores:
+    "mensajero"    → El Mensajero
+    "sabio"        → El Sabio del Espejo
+    "silenciadora" → La Silenciadora
+    "guardian"     → El Guardián
+  El Template 1 ya usa {% if contact.NOVERIS == "mensajero" %} etc. — correcto.
+  Cuando crees el atributo en Brevo, el nombre es NOVERIS (no FACCION_NOVERIS).
+
+PASO 1 — Crear atributo de contacto NOVERIS
 ────────────────────────────────────────────────────
 1. Ir a https://app.brevo.com → Contactos → Configuración → Atributos
 2. Clic en "Añadir nuevo atributo"
-3. Nombre: FACCION_NOVERIS  |  Tipo: Texto
+3. Nombre: NOVERIS  |  Tipo: Texto
 4. Guardar
-(Este atributo guarda la facción elegida en el quiz de la web)
+(Este atributo guarda el resultado del quiz de Noveris — mensajero/sabio/silenciadora/guardian)
 
-PASO 2 — Crear los 3 templates de email
+PASO 2 — Los 3 templates YA ESTÁN CREADOS
 ────────────────────────────────────────────────────
-Ir a Campañas → Templates → Nuevo template
+No tienes que hacer nada. Los templates existen en tu cuenta Brevo:
 
-TEMPLATE 1: "Bienvenida_Samuel_Email1"
-  Asunto: Tu facción en Noveris te espera
-  Contenido sugerido:
-  - Saludo con nombre: Hola {{ contact.NOMBRE }},
-  - Confirma que están suscritos y recibirán novedades
-  - Enlaza al capítulo 1 gratis: https://davidportodiaz.com/fragmento/
-  - Si sabes su facción: "Eres de los {{ contact.FACCION_NOVERIS }}"
-  - Firma: David Porto Díaz · https://davidportodiaz.com
+  ID 2 — "Bienvenida_Samuel_Email1"
+    Asunto: Tu resultado en Noveris te espera
+    Contenido: Bienvenida personalizada según resultado del quiz + CTA /fragmento/
+    Condicional: mensajero / sabio / silenciadora / guardian
 
-TEMPLATE 2: "Bienvenida_Samuel_Email2"  (se envía 48h después)
-  Asunto: El mundo de Noveris, explicado en 3 minutos
-  Contenido sugerido:
-  - Breve introducción al universo de Noveris
-  - Enlace a /universo/noveris/
-  - Dato curioso del sistema de magia
-  - CTA secundario: si aún no has comprado → enlace Amazon
+  ID 3 — "Bienvenida_Samuel_Email2"
+    Asunto: Noveris existe desde antes de que Samuel llegara
+    Contenido: 3 datos del universo Noveris + CTA /universo/noveris/
 
-TEMPLATE 3: "Bienvenida_Samuel_Email3"  (se envía 5 días después)
-  Asunto: ¿Listo para cruzar el portal?
-  Contenido sugerido:
-  - Recordatorio de que el libro está disponible
-  - 1-2 frases de reseña de lector
-  - CTA principal: comprar en Amazon (enlace afiliado)
-  - CTA secundario: valorar en Goodreads si ya lo leyeron
+  ID 4 — "Bienvenida_Samuel_Email3"
+    Asunto: ¿Listo para cruzar?
+    Contenido: Reseña de Carlos Bermejo + CTA libro + CTA Amazon
 
 PASO 3 — Crear el workflow de automatización
 ────────────────────────────────────────────────────
 1. Automatización → Mis workflows → Nuevo workflow
 2. Nombre: "Secuencia bienvenida Samuel 3 emails"
 3. Trigger: "Un contacto se suscribe a una lista"
-4. Seleccionar la lista de newsletter
-5. Añadir Email 1 → delay 0 (inmediato)
-6. Añadir Esperar 2 días → Añadir Email 2
-7. Añadir Esperar 5 días → Añadir Email 3
-8. Activar el workflow
+4. Seleccionar: Lista 3 "Lectores web"
+5. Acción: Enviar email → seleccionar Template ID 2 → delay 0 (inmediato)
+6. Añadir espera: 2 días
+7. Acción: Enviar email → seleccionar Template ID 3
+8. Añadir espera: 5 días
+9. Acción: Enviar email → seleccionar Template ID 4
+10. Activar el workflow
 
 PASO 4 — Prueba antes de activar
 ────────────────────────────────────────────────────
-- Añadir tu propio email como contacto de prueba en la lista
+- Añadir tu propio email como contacto de prueba en Lista 3
 - Verificar que los 3 emails llegan en los tiempos correctos
-- Verificar personalización (nombre, facción)
+- Comprobar que el condicional del Email 1 funciona (suscríbete desde el quiz)
 - Eliminar el contacto de prueba
 - Activar el workflow definitivamente
 
