@@ -4,26 +4,6 @@ Acciones pendientes para la web davidportodiaz.com
 Última actualización: 25 mayo 2026
 
 ---------------------------------------------------------------------------
-WIKIDATA — NOVERIS
----------------------------------------------------------------------------
-
-4g. WIKIDATA — NOVERIS (ciudad ficticia)
-    Crear entrada para la ciudad ficticia de Noveris.
-    MOTIVO SEO: si alguien busca "Noveris" y encuentra el libro, es tráfico
-    orgánico real. Y cuando el libro sea más conocido, la entrada ya existe.
-
-    Cómo hacerlo (15 minutos):
-    1. Ir a https://www.wikidata.org/wiki/Special:NewItem
-    2. Etiqueta (español): Noveris
-    3. Descripción (español): ciudad dimensional ficticia en la novela Samuel entre mundos
-    4. Añadir propiedades:
-       - P31 (instancia de): ciudad ficticia → buscar "fictional city" (Q15831598)
-       - P170 (creador): David Porto Díaz → Q139678851
-       - P1080 (del universo ficticio de): la entrada Wikidata de Samuel entre mundos
-       - P856 (URL): https://davidportodiaz.com/universo/noveris/
-    5. Guardar y enviarme el Q-ID creado para actualizar el schema del sitio.
-
----------------------------------------------------------------------------
 IMÁGENES — PENDIENTES DE CREAR
 ---------------------------------------------------------------------------
 
