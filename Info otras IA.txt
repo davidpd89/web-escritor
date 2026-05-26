@@ -1,4 +1,4 @@
-﻿### INFO OTRAS IA - Completado: mayo 2026 (v5) — procesado en cinco sesiones
+﻿### INFO OTRAS IA - Completado: mayo 2026 (v6) — procesado en seis sesiones
 Todos los recursos de la lista LIBROS/MANUALES/ARTICULOS han sido leidos,
 intentados o descartados. Los insights clave estan en:
   - /memories/repo/web-escritor.md (insights tecnicos + historial)
@@ -8,11 +8,11 @@ Sesion 3 (26 mayo 2026): leidos Google AI Optimization Guide 2026, Google AI Fea
 Backlinko Technical SEO Guide, Search Engine Land SEOs new goal 2026.
 Accion aplicada: /cuaderno/index.html (hub page, fix 404 breadcrumbs).
 
-Sesion 5 (26 mayo 2026): recursos schema.org procesados. Schema ya implementado:
-Book, Person, ProfilePage, Article, BreadcrumbList, FAQPage, Event, Review.
-Pendiente David: AggregateRating (necesita conteo real de Goodreads).
-Accion: sección SEÑALES EXTERNAS (Wikipedia, menciones, Brevo) añadida a
-cosas-pendientes-david.txt como las 3 prioridades reales de GEO.
+Sesion 6 (26 mayo 2026): recursos copywriting, UX, content strategy procesados.
+Hallazgos aplicados: AggregateRating corregido 3→8 (home) y 6→8 (libro), award añadido
+al Book schema (Premio Nacional Finalista 2025). CTAs, semántica HTML y estructura
+/cuaderno/ ya correctos. Tareas para David añadidas a cosas-pendientes (BookSeries,
+Content Fuel matrix, StoryBrand review hero text).
 
 === HERRAMIENTAS DE VALIDACION (usar cuando se modifique schema) ===
 - Rich Results Test:      https://search.google.com/test/rich-results
@@ -39,4 +39,3 @@ Perplexity crawlers: PerplexityBot (indexing), Perplexity-User (user-triggered).
 Anthropic crawlers: ClaudeBot (training), Claude-SearchBot (Claude Search), Claude-User (user-triggered).
 llms.txt spec: archivo Markdown en raiz del sitio. Lista de paginas clave para LLMs.
   No es factor ranking Google. Util para inferencia (cuando usuario pregunta por el autor).
-  Ya implementado en davidportodiaz.com/llms.txt y llms-full.txt.

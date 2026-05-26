@@ -2184,6 +2184,61 @@ Si es 100+: usamos "Únete a más de X lectores"
 VER TAMBIÉN: sección NÚMERO DE SUSCRIPTORES más abajo para más detalle.
 
 ---------------------------------------------------------------------------
+COPYWRITING, UX Y CONTENT STRATEGY — TAREAS PARA DAVID (mayo 2026)
+(hallazgos de la sesión 6 — recursos copywriting, UX y content strategy)
+---------------------------------------------------------------------------
+
+BOOKSERIES SCHEMA — PREGUNTA PENDIENTE PARA DAVID
+  ¿Samuel entre mundos es el libro 1 de una saga planificada en Noveris?
+  Si la respuesta es SÍ: añadimos schema.org/BookSeries enlazando los
+  volúmenes. Esto le dice a Google y a las IAs que es parte de una serie,
+  lo que mejora la visibilidad en búsquedas de "saga de portal fantasy".
+  Instrucción: respóndeme sí o no en el chat y lo implemento en 5 minutos.
+
+CONTENT FUEL MATRIX — IDEAS PARA /CUADERNO/ (sin bloquearte nunca)
+  El libro "The Content Fuel Framework" (Melanie Deziel) propone una
+  matriz de 10 temas × 10 formatos = 100 ideas de contenido. Para el
+  cuaderno de Noveris, los 10 focos más relevantes son:
+    1. Worldbuilding (ciudades, magia, portales de Noveris)
+    2. Proceso de escritura (cómo escribes, bloqueos, revisiones)
+    3. Personajes (Samuel, su familia, antagonistas)
+    4. Comparaciones (portal fantasy vs. otro subgénero)
+    5. Datos y estadísticas (ventas indie, lectores jóvenes en España)
+    6. Historia del género (orígenes del portal fantasy, influencias)
+    7. Preguntas de lectores (FAQs sobre el libro o la magia)
+    8. Listas curadas (mejores X del género)
+    9. Entrevistas (otros autores indie españoles)
+   10. Detrás de escenas (diseño de portada, proceso editorial con Libros Indie)
+  ACCIÓN: Cuando te quedes sin ideas para el cuaderno, elige 1 foco + 1
+  formato y pídeme que redacte el borrador. Ya tenemos el hub y 5 artículos.
+  El siguiente objetivo es 10 artículos para consolidar la autoridad temática.
+
+STORYBRAND HOMEPAGE — REVISIÓN DEL TEXTO HERO
+  El framework StoryBrand (Donald Miller, 2025) dice: el lector es el héroe,
+  tú eres el guía. La estructura correcta para la home es:
+    - Personaje (lector) con un problema → tú tienes una guía → plan → CTA
+  El hero actual ya está bien orientado. Pero cuando tengas tiempo, vale
+  revisar el párrafo de intro de la sección "sobre mí": empieza por el
+  lector antes que por David.
+  Texto actual: "David Porto Díaz nació en Pontevedra y reside en Madrid..."
+  Alternativa StoryBrand: "Si buscas fantasía juvenil española donde la
+  magia tiene precio real... [entonces David es tu guía]"
+  ACCIÓN: Cuando hagas una revisión de copy, pídeme que reescriba la
+  sección "sobre mí" con el marco StoryBrand.
+
+WCAG — TRES COMPROBACIONES RÁPIDAS (15 minutos)
+  La estructura semántica ya es correcta (<main>, <header>, <nav>, <article>).
+  Tres comprobaciones que no requieren código:
+  a) Contraste de texto: comprueba que los textos en --muted (#b6a894 sobre
+     #080a0c) superen ratio 4.5:1 para texto pequeño.
+     Herramienta: https://webaim.org/resources/contrastchecker/
+  b) Teclado: navega toda la home solo con Tab y Enter. ¿Llegas a todos los
+     botones? ¿El modal de compra es accesible con teclado?
+  c) Imágenes: confirma que el alt del mapa de Noveris describe el contenido
+     (no solo "mapa"). Si el mapa tiene texto dentro, descríbelo.
+  ACCIÓN: Hazme saber si encuentras algo roto en cualquiera de los tres puntos.
+
+---------------------------------------------------------------------------
 MARKETING LITERARIO INDIE (añadido mayo 2026)
 ---------------------------------------------------------------------------
 
