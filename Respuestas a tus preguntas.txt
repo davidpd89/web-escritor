@@ -29,10 +29,6 @@ siguientes. Las IAs darán respuestas mucho más precisas con este contexto.
 Responde en español.»
 
 
-
-────────────────────────────────────────────────────────────────────
-```
-════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════
 BLOQUE Q — TEST DE DISPOSITIVOS, ENLACES Y ACCESIBILIDAD
 ────────────────────────────────────────────────────────────────────
 (Para preguntar a IAs que simulan usuarios reales)
@@ -2172,6 +2168,483 @@ U3. ¿Qué imágenes debería tener el artículo para reforzar el SEO visual?
     Dame el texto del atributo alt óptimo para una imagen del mapa de Noveris
     en el contexto de ese artículo.
     → Preguntado: / Respuesta:
+
+**U1. Outline del artículo**
+
+* **H1: *Fantasía juvenil española con portales, magia con coste y mundos ocultos*** (introducción – *120 palabras*)
+  * Presentación del auge de la fantasía juvenil en español, cómo abre **portales** a realidades mágicas con **mundos ocultos**, y cómo la “magia con coste” aporta originalidad. Mención de autores y obras españoles representativos. Introducción breve del concepto de *portal fantasy* y *magia con coste*, anticipando su importancia en la novela *Samuel entre mundos*.
+* **H2: *La fantasía juvenil en español: historias mágicas con sabor local*** (*\~300 palabras*)
+  * **Explicación:** Definir **fantasía juvenil española** y sus particularidades. Contexto histórico breve, influencias (e.g. Laura Gallego, **Memorias de Idhún**) y cómo autores actuales aportan identidades culturales propias.
+  * **Punto relevante:** Las **tramas** de fantasía juvenil española integran raíces locales (leyendas ibéricas, ambientación en España) con temas universales.
+  * **Enlaces internos:** Mención del autor [David Porto Díaz](https://davidportodiaz.com/autor.html) y referencia a su ópera prima en un listado de nuevas voces del género (link a *Samuel entre mundos*, ver siguiente sección).
+* **H2: *Portales mágicos: del armario de Narnia a los nuevos mundos*** (*\~350 palabras*)
+  * **Explicación:** Definir el subgénero **portal fantasy** (fantasía de portales) – protagonistas que **viajan a otro mundo** a través de portales mágicos. Mencionar clásicos (Narnia, *Alicia en el país de las maravillas*) y ejemplos modernos en español si los hay (ej. *Crónicas de la Torre*, sagas juveniles con viajes a mundos paralelos). [\[es.wikipedia.org\]](https://es.wikipedia.org/wiki/Fantas%C3%ADa_de_portales)
+  * **Análisis:** ¿Por qué fascina lo de descubrir un **mundo oculto** tras un portal? La promesa de aventura y cambio (ejemplos de obras).
+  * **Ejemplo actual:** Introducir *Samuel entre mundos* como caso reciente de fantasía con portales en español, donde un chico cruza a la **ciudad de [Noveris](https://davidportodiaz.com/universo/noveris/)** (mundo mágico).
+  * **Enlaces internos:** Enlace natural al artículo del [fragmento gratis del capítulo 1](https://davidportodiaz.com/fragmento/) cuando se menciona la aventura inicial.
+* **H2: *Magia con coste: la responsabilidad de usar el poder*** (*\~300 palabras*)
+  * **Explicación:** Definir la idea de **“magia con coste”**: sistemas de magia en los que usar un hechizo requiere un **sacrificio o consecuencia** (energía, vida, riesgo). Contrastar con magia gratuita y ejemplos conocidos (ej: en *El nombre del viento* se necesita energía; en Mistborn se consumen metales). [\[quillandsteel.com\]](https://www.quillandsteel.com/es/blogs/writing-tips/types-of-magic-in-fantasy), [\[quillandsteel.com\]](https://www.quillandsteel.com/es/blogs/writing-tips/types-of-magic-in-fantasy) [\[quillandsteel.com\]](https://www.quillandsteel.com/es/blogs/writing-tips/types-of-magic-in-fantasy)
+  * **Razones:** Mostrar cómo la magia con precio hace las historias más interesantes (añade tensión, límites a los poderes y desarrollo de personajes).
+  * **Ejemplo actual:** Destacar que *Samuel entre mundos* emplea un **sistema de magia “dura”** con **coste**: cada hechizo implica consecuencias (física o emocional) para el protagonista, lo que la alinea con tendencias modernas de fantasía.
+  * **Enlaces internos:** Anchor de [Samuel entre mundos](https://davidportodiaz.com/libros/samuel-entre-mundos/) al mencionar la novela como ejemplo de obra con magia de coste y portales.
+* **H2: *“Samuel entre mundos”: portales mágicos y un giro original en la fantasía juvenil*** (*\~320 palabras*)
+  * **Contextualización:** Presentar la novela *Samuel entre mundos* dentro de la fantasía juvenil española actual. Resaltar cómo integra **un portal mágico** (que conecta el mundo real con otro) y un **sistema de magia con coste** (limitaciones y reglas de la magia) de forma innovadora.
+  * **Conexiones:** Explicar para qué tipo de lector es idónea (fans de **Harry Potter** por la magia y aventuras, fans de fantasía **Isekai** por el viaje a otro mundo, etc.).
+  * **Social proof:** Mencionar que la novela ha recibido **excelentes reseñas**, **premios literarios** (p. ej., premio de microrrelatos en 2026) y que el autor tiene experiencia en marketing digital (lo que aporta frescura en la narrativa).
+  * **Enlaces internos:** Enlace a [David Porto Díaz](https://davidportodiaz.com/autor.html) al mencionar al autor, uso del anchor *Samuel entre mundos* ya con enlace (si no se ha usado antes).
+  * **CTA interno:** Invitar a leer el [primer capítulo gratis](https://davidportodiaz.com/fragmento/) disponible en la web, animando al lector a profundizar.
+* **H2: *Conclusión: magia española para nuevas generaciones*** (*\~150 palabras*)
+  * Cierre destacando que la **fantasía juvenil en español** está en un buen momento, con autores capaces de combinar **elementos clásicos (portales mágicos)** con ideas originales (**magia con coste**). Llamado final a los lectores para explorar estos mundos y a suscribirse para más contenido.
+  * **Formulario de newsletter:** al final del artículo, un bloque sugiere suscribirse: *“¿Te apasiona descubrir nuevos mundos? **Suscríbete** para recibir más aventuras y recomendaciones en tu bandeja de entrada.”* (CTA convincente hacia el formulario de newsletters)
+
+***
+
+**U2. JSON-LD con 3 preguntas frecuentes (FAQ)**
+
+```json
+<script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "¿Qué es la fantasía de portales?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "La fantasía de portales es un subgénero de la fantasía donde uno o más protagonistas viajan desde su mundo cotidiano a otro mundo mágico a través de un portal u objeto especial. Ejemplos famosos incluyen historias como \"Las crónicas de Narnia\", donde los personajes atraviesan un armario que los lleva a un reino fantástico."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "¿Qué caracteriza a la fantasía juvenil española?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "La fantasía juvenil española suele integrar elementos universales del género (magia, aventuras y formación personal) con referencias culturales locales. A menudo aparecen protagonistas adolescentes que descubren mundos mágicos o poderes especiales, tramas con valores de amistad y valentía, todo escrito por autores españoles para un público joven hispanohablante."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "¿Qué significa la magia con coste en la literatura fantástica?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "La magia con coste se refiere a sistemas mágicos en los que el uso de poderes implica un precio o consecuencia para el personaje. Esto puede ser usar energía vital, sufrir agotamiento físico o arriesgar algo valioso cada vez que emplean la magia. Es un recurso narrativo que añade realismo y tensión a la historia."
+      }
+    }
+  ]
+}</script>
+```
+
+***
+
+**U3. Imágenes para SEO visual**  
+Para reforzar la temática visualmente, el artículo debería incluir **imágenes conceptuales** relacionadas con portales, mundos fantásticos y magia. Por ejemplo:
+
+* Una ilustración de **un portal mágico** abriéndose (reforzando lo de “fantasía de portales”),
+* Una imagen de **un personaje utilizando magia** con un impacto visible (transmitiendo el concepto de “magia con coste”),
+* **Mapa de Noveris** (si se dispone del mapa oficial) para mostrar el mundo oculto de la novela.
+
+**Tráfico de Google Imágenes:** Generalmente, los artículos de texto obtienen la mayor parte del tráfico por la búsqueda web tradicional. No obstante, incluir imágenes únicas y relevantes con **atributos alt optimizados** puede generar algo de tráfico desde Google Imágenes, sobre todo si representan conceptos específicos o material original (por ejemplo, un mapa exclusivo del mundo ficticio). Estas imágenes no suelen ser la principal fuente de visitas, pero **contribuyen a la experiencia del lector** y al SEO indirecto (más tiempo en página, mayor compartibilidad). Por tanto, es recomendable usarlas.
+
+**ALT text óptimo (ejemplo para mapa de Noveris):**
+
+```markdown
+ruta/imagen_mapa_noversis.jpg "Mapa de Noveris, ciudad mágica de *Samuel entre mundos*"
+```
+
+Este texto alternativo (*“Mapa de Noveris, la ciudad mágica ficticia de la novela *Samuel entre mundos*”*) describe claramente el contenido de la imagen y contiene las palabras clave **mapa**, **Noveris**, **ciudad mágica** y el título de la novela, lo que mejora la posibilidad de aparecer en búsquedas de imágenes relacionadas con el libro.
+Respondo el Bloque U completo con todos los entregables listos para copiar y pasar directamente a Claude.
+
+***
+
+# Bloque U — Cuaderno: primer artículo del blog
+
+***
+
+## U1 — Outline completo con H2/H3, palabras por sección y anchor texts
+
+**URL:** `/cuaderno/fantasia-juvenil-espanola-portales-magia-coste/`
+**H1:** *Fantasía juvenil española con portales, magia con coste y mundos ocultos*
+**Longitud total objetivo:** 1.700 palabras
+
+***
+
+### Estructura completa
+
+```
+H1: Fantasía juvenil española con portales, magia con coste y mundos ocultos
+└── Párrafo de apertura (sin H2) — 80 palabras
+    Por qué este artículo existe: la escasez de portal fantasy escrito
+    originalmente en castellano. Sin nombres todavía, solo el problema.
+
+H2: Qué es el portal fantasy (y por qué sigue funcionando) — 250 palabras
+    └── H3: El portal como dispositivo narrativo
+        (definición + por qué el portal es más que un gimmick)
+    └── H3: Portal fantasy vs. mundo secundario: la diferencia que importa
+        (explicar la distinción para lectores que no conocen la terminología)
+    Anchor text hacia Samuel: ninguno aún — esta sección es educativa, no promocional
+
+H2: Magia con coste: cuando el poder tiene precio — 300 palabras
+    └── H3: Sistemas de magia "duros" en la literatura juvenil
+        (Sanderson's Laws como referencia de autoridad, sin nombrar a Sanderson
+        como única fuente — el autor puede hablar desde su propia práctica)
+    └── H3: Qué hace memorable un sistema de magia con consecuencias físicas
+        (ejemplos de cómo el coste cambia las decisiones del personaje)
+    └── H3: El sistema de canalización en Noveris — 100 palabras
+        AQUÍ aparece Samuel de forma natural: "Al diseñar el sistema de
+        Samuel entre mundos, la pregunta era..."
+        Anchor text interno: "Samuel entre mundos" → /libros/samuel-entre-mundos/
+
+H2: Protagonistas ordinarios en mundos extraordinarios — 250 palabras
+    └── H3: El "chosen one" está muerto: por qué los lectores juveniles
+        quieren protagonistas sin destino predeterminado
+    └── H3: Samuel García y el antihéroe no-elegido
+        Anchor text: "leer el primer capítulo" → /fragmento/
+
+H2: Fantasía juvenil española: el estado actual — 300 palabras
+    (Esta sección posiciona "fantasía juvenil española" como keyword principal)
+    └── H3: Por qué se escribe tan poca fantasía de portal en castellano
+        (barrera de mercado editorial, cultura del realismo literario español)
+    └── H3: Autores y obras que están cambiando esto en 2024-2026
+        (mencionar 3-4 autores reales: Laura Gallego como referente histórico,
+        otros debut recientes — sin competencia directa con Samuel)
+    Anchor text: "universo Noveris" → /universo/noveris/
+
+H2: Mundos que se pueden visitar: el worldbuilding como contrato con el lector — 200 palabras
+    └── H3: Por qué los mundos de fantasía juvenil deben tener reglas
+    Anchor text: "cómo está construido Noveris" → /universo/noveris/
+
+H2: ¿Por dónde empezar si quieres leer portal fantasy en español? — 200 palabras
+    (Sección de recomendación directa — no solo Samuel, al menos 2 obras más)
+    Anchor text: "Samuel entre mundos" → /libros/samuel-entre-mundos/
+    Anchor text: "descargar el primer capítulo gratis" → /fragmento/
+
+[FORMULARIO DE NEWSLETTER]
+    Texto de invitación: 60 palabras
+    Campo email + botón "Quiero leer más"
+    Nota de privacidad (1 línea)
+
+H2: Preguntas frecuentes — 200 palabras
+    (Bloque FAQPage — ver U2 para el contenido exacto)
+```
+
+***
+
+### Tabla resumen por sección
+
+| Sección | H2 | Palabras | Keyword primaria | Enlace interno |
+|---|---|---|---|---|
+| Apertura | — | 80 | portal fantasy juvenil español | — |
+| Qué es el portal fantasy | H2 | 250 | qué es el portal fantasy | — |
+| Magia con coste | H2 | 300 | magia con coste fantasy | `/libros/samuel-entre-mundos/` |
+| Protagonistas ordinarios | H2 | 250 | protagonista no-elegido | `/fragmento/` |
+| Fantasía juvenil española | H2 | 300 | fantasía juvenil española | `/universo/noveris/` |
+| Worldbuilding con reglas | H2 | 200 | worldbuilding juvenil | `/universo/noveris/` |
+| Por dónde empezar | H2 | 200 | portal fantasy en español | `/libros/samuel-entre-mundos/` |
+| FAQ | H2 | 200 | ver U2 | — |
+| **TOTAL** | | **~1.780** | | **5 enlaces internos** |
+
+***
+
+### Reglas de enlazado interno para Claude
+
+```
+- Samuel entre mundos: mencionar 3 veces en el artículo.
+  Máximo 2 de esas menciones son anchor text con enlace.
+  La tercera mención es texto plano (sin enlace), para no parecer spam.
+
+- /fragmento/: enlazar exactamente 1 vez, en la sección "Por dónde empezar".
+  Anchor text: "leer gratis el primer capítulo de Samuel entre mundos"
+
+- /universo/noveris/: enlazar 1 vez, en la sección de worldbuilding.
+  Anchor text: "el universo de Noveris"
+
+- No enlazar a páginas externas en las primeras 300 palabras del artículo.
+  Los enlaces externos (Goodreads, Laura Gallego, etc.) van en la sección
+  "Por dónde empezar" o en la bibliografía.
+
+- Amazon afiliado: NO en el artículo del blog. Solo en la página del libro.
+  El artículo convierte al lector hacia /libros/samuel-entre-mundos/,
+  que ya tiene el enlace afiliado de Amazon.
+```
+
+***
+
+## U2 — FAQ Schema JSON-LD (3 preguntas listas para copiar)
+
+Las tres preguntas están calibradas para featured snippets en español. Las respuestas tienen entre 42 y 58 palabras — el rango óptimo para que Google las muestre completas en un featured snippet sin truncar.
+
+```json
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "¿Qué es el portal fantasy?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "El portal fantasy es un subgénero de la fantasía en el que el protagonista cruza desde el mundo real a un mundo secundario a través de un portal. La característica principal es el desplazamiento entre mundos, que genera conflictos de identidad, adaptación y regreso. Ejemplos clásicos son Narnia y El mago de Oz."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "¿Hay portal fantasy escrito originalmente en español?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Sí. Aunque el género ha estado dominado por obras anglosajonas, en los últimos años han aparecido novelas de portal fantasy escritas originalmente en castellano, como Samuel entre mundos de David Porto Díaz (Libros Indie, 2025), que combina portal fantasy con un sistema de magia de coste físico ambientado en el mundo de Noveris."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "¿Qué es la magia con coste en la fantasía juvenil?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "La magia con coste es un sistema mágico en el que usar poderes tiene consecuencias físicas, emocionales o materiales para quien los ejerce. A diferencia de la magia ilimitada, el coste obliga al personaje a tomar decisiones dramáticas. Este tipo de sistema se llama también hard magic y es característico de obras como las de Brandon Sanderson."
+      }
+    }
+  ]
+}
+</script>
+```
+
+### Nota de implementación para Claude
+
+```
+Este bloque JSON-LD va en el <head> de:
+/cuaderno/fantasia-juvenil-espanola-portales-magia-coste/
+
+ADEMÁS de este schema JSON-LD, el HTML de la página debe tener
+la sección FAQ visible en el DOM — Google verifica que las preguntas
+del FAQPage existen como texto visible en la página.
+
+Estructura HTML mínima requerida:
+<section id="faq" aria-label="Preguntas frecuentes">
+  <h2>Preguntas frecuentes</h2>
+  
+  <details>
+    <summary>¿Qué es el portal fantasy?</summary>
+    <p>[texto idéntico al del schema]</p>
+  </details>
+  
+  <details>
+    <summary>¿Hay portal fantasy escrito originalmente en español?</summary>
+    <p>[texto idéntico al del schema]</p>
+  </details>
+  
+  <details>
+    <summary>¿Qué es la magia con coste en la fantasía juvenil?</summary>
+    <p>[texto idéntico al del schema]</p>
+  </details>
+</section>
+
+Usar <details>/<summary> en lugar de divs con JS:
+- Accesible sin JavaScript
+- Google puede leer el contenido aunque esté cerrado
+- Mantiene la coherencia con el resto de la web si ya usa este patrón
+```
+
+***
+
+## U3 — Imágenes del artículo: SEO visual, tráfico y alt text
+
+### ¿Genera Google Image Search tráfico para este tipo de artículos?
+
+**Para artículos de blog literario: moderado pero real.** Las búsquedas en Google Images que generan tráfico a webs de autores son principalmente:
+- "mapa [nombre del mundo ficticio]" — alta intención de búsqueda por fans del género
+- "portada [título del libro]" — tráfico de compradores que buscan verificar la edición
+- "[nombre del libro] ilustración" — lectores y estudiantes buscando imágenes
+
+El artículo del blog tiene potencial de imagen SEO principalmente por el mapa de Noveris — es el tipo de imagen que los fans del portal fantasy buscan activamente y que prácticamente ninguna web de autor española tiene publicada con schema correcto.
+
+***
+
+### Imágenes recomendadas para el artículo
+
+| Imagen | Tipo | Posición en artículo | Alt text |
+|---|---|---|---|
+| Mapa de Noveris | Original del autor | Sección de worldbuilding | Ver abajo |
+| Portada de Samuel entre mundos | Foto del libro | Sección "Por dónde empezar" | Ver abajo |
+| Ilustración de un portal (original o sin derechos) | Decorativa | Sección "Qué es el portal fantasy" | Ver abajo |
+
+***
+
+### Alt text optimizado para cada imagen
+
+**Mapa de Noveris:**
+```html
+<figure>
+  <picture>
+    <source srcset="/assets/mapa-noveris.avif" type="image/avif">
+    <source srcset="/assets/mapa-noveris.webp" type="image/webp">
+    <img
+      src="/assets/mapa-noveris.jpg"
+      alt="Mapa del mundo de Noveris, ciudad ficticia de la novela de portal
+           fantasy juvenil Samuel entre mundos, de David Porto Díaz"
+      width="1200"
+      height="800"
+      loading="lazy"
+      decoding="async"
+    >
+  </picture>
+  <figcaption>
+    El mundo de Noveris, donde transcurre <em>Samuel entre mundos</em>.
+    Ilustración propia.
+  </figcaption>
+</figure>
+```
+
+**Por qué este alt text funciona para SEO de imagen:**
+- Incluye "Noveris" (nombre único, sin competencia de imágenes)
+- Incluye "portal fantasy juvenil" (keyword objetivo del artículo)
+- Incluye "Samuel entre mundos" y "David Porto Díaz" (entidades del Knowledge Graph)
+- El `<figcaption>` visible refuerza el contexto sin duplicar el alt
+
+***
+
+**Portada del libro:**
+```html
+<img
+  src="/assets/samuel-entre-mundos-portada.avif"
+  alt="Portada del libro Samuel entre mundos de David Porto Díaz,
+       novela de portal fantasy juvenil publicada por Libros Indie en 2025"
+  width="400"
+  height="600"
+  loading="lazy"
+  decoding="async"
+>
+```
+
+***
+
+**Ilustración decorativa de portal:**
+```html
+<img
+  src="/assets/portal-fantasia-ilustracion.avif"
+  alt="Ilustración de un portal mágico que representa el subgénero
+       del portal fantasy en la literatura juvenil"
+  width="800"
+  height="450"
+  loading="lazy"
+  decoding="async"
+>
+```
+
+Para la ilustración del portal, si no hay una imagen original disponible, la opción correcta es generarla (pedir a Claude con `generate_image` o usar Midjourney/DALL-E) en lugar de usar una imagen de stock sin derechos. Una ilustración propia con el estilo visual de la web refuerza la identidad de marca y puede posicionarse en Google Images como imagen única del dominio.
+
+***
+
+### Schema ImageObject para el mapa de Noveris
+
+Este schema añadido al `@graph` del artículo le dice a Google que la imagen es un recurso propio con entidad definida — aumenta la probabilidad de que aparezca en búsquedas de imagen con crédito al autor:
+
+```json
+{
+  "@type": "ImageObject",
+  "@id": "https://davidportodiaz.com/assets/mapa-noveris.avif",
+  "url": "https://davidportodiaz.com/assets/mapa-noveris.avif",
+  "name": "Mapa del mundo de Noveris",
+  "description": "Mapa del mundo ficticio de Noveris, ciudad principal de la novela Samuel entre mundos de David Porto Díaz",
+  "author": {
+    "@id": "https://davidportodiaz.com/autor/#person"
+  },
+  "copyrightHolder": {
+    "@id": "https://davidportodiaz.com/autor/#person"
+  },
+  "license": "https://creativecommons.org/licenses/by-nc-nd/4.0/",
+  "contentUrl": "https://davidportodiaz.com/assets/mapa-noveris.avif",
+  "width": 1200,
+  "height": 800,
+  "encodingFormat": "image/avif",
+  "isPartOf": {
+    "@id": "https://davidportodiaz.com/cuaderno/fantasia-juvenil-espanola-portales-magia-coste/#article"
+  }
+}
+Para que tu artículo en `/cuaderno/` sea una pieza de autoridad que Google valore y las IAs quieran citar, debemos alejarnos del tono puramente promocional y volcarnos hacia la **divulgación técnica sobre el género**.
+
+Aquí tienes el desarrollo solicitado:
+
+---
+
+### U1. Outline del artículo (1.800 palabras)
+
+**Título (H1):** Fantasía juvenil española: portales, magia con coste y mundos ocultos
+
+* **Introducción (150 palabras):** Estado actual del género. Por qué la fantasía española está viviendo un "boom". *Anchor text:* [Descubre Samuel entre mundos]
+* **H2: ¿Qué es realmente el Portal Fantasy? (300 palabras):** Definición técnica. Diferencia entre "isekai" y "fantasía de portales".
+* **H2: La evolución de la magia en la literatura juvenil (400 palabras):**
+* **H3: Del sistema "blando" al sistema de magia con coste.** Por qué el lector actual exige reglas.
+* **H3: El papel del "no-elegido" en las nuevas tramas.**
+
+
+* **H2: Referentes de la fantasía juvenil española actual (400 palabras):**
+* Mención a autores clave (Gallego, Ruescas, etc.).
+* **H3: Samuel entre mundos como ejemplo de hard magic.** Cómo se integra el sistema de magia en la trama sin perder ritmo. *Anchor text:* [/libros/samuel-entre-mundos/].
+
+
+* **H2: ¿Cómo escribir tu propia novela de portales? (300 palabras):**
+* **H3: Construyendo tu propio Noveris.** La importancia de la geografía ficticia. *Anchor text:* [/universo/noveris/].
+
+
+* **Conclusión (150 palabras):** Invitación a reflexionar sobre qué tipo de lector es el usuario.
+* **Sección Newsletter:** Formulario de suscripción para recibir consejos de escritura.
+
+---
+
+### U2. FAQPage (JSON-LD)
+
+Este JSON-LD está optimizado para que Google lo procese como *Featured Snippet*.
+
+```json
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "¿Qué es el portal fantasy?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "El portal fantasy es un subgénero de la fantasía donde los personajes cruzan un umbral desde nuestro mundo a uno fantástico. A diferencia de la alta fantasía, el protagonista suele ser alguien ajeno a ese nuevo mundo, lo que permite al lector descubrir las reglas del universo a la par que el personaje."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "¿Cuáles son las claves de la fantasía juvenil española actual?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "La fantasía juvenil española actual destaca por una mayor complejidad en la construcción de mundos, la incorporación de sistemas de magia con coste (hard magic) y una fuerte introspección de personajes que se alejan del arquetipo del 'elegido' clásico para centrarse en decisiones humanas y consecuencias reales."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "¿Qué significa 'magia con coste' en las novelas de fantasía?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "La magia con coste es un recurso narrativo donde cada hechizo o habilidad mágica conlleva un precio físico, mental o moral para el usuario. Este rigor impide que la magia resuelva problemas de forma gratuita, obligando a los protagonistas a ser creativos y estratégicos para superar sus conflictos."
+      }
+    }
+  ]
+}
+
+```
+
+---
+
+### U3. SEO Visual y Mapa de Noveris
+
+* **¿Genera tráfico?** Sí, mucho. Los lectores de fantasía buscan mapas y representaciones visuales de los mundos que leen. Google Images es una fuente de tráfico "frío" excelente.
+* **Estrategia visual:** Incluye al menos 3 imágenes: 1. Mapa de Noveris. 2. Infografía de cómo funciona la "magia con coste". 3. Foto del libro en un entorno real (lifestyle).
+* **Atributo ALT óptimo (Mapa de Noveris):**
+> `alt="Mapa de la ciudad ficticia de Noveris en la novela Samuel entre mundos de David Porto Díaz, mostrando la distribución urbana del mundo fantástico."`
+
+
+
+**Consejo extra:** Asegúrate de que las imágenes tengan un formato WebP (optimizado) y estén dentro de un contenedor `<figure>` con un `<figcaption>` que incluya el nombre de tu libro. Eso ayuda a los motores de búsqueda a relacionar la imagen con tu producto.
+
+¿Quieres que redacte el bloque de texto específico donde mencionas *Samuel entre mundos* dentro de este artículo para que suene natural y profesional?
+
+
 
 ────────────────────────────────────────────────────────────────────
 BLOQUE V — PÁGINAS DE COMPARABLES: PORTAL FANTASY Y MAGIA CON COSTE

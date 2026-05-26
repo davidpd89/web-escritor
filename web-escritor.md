@@ -12,7 +12,30 @@ Archivo de seguimiento para Claude: estado técnico, pendientes de monitorizar y
 
 ---
 
-## Cambios aplicados — 26 mayo 2026
+## Cambios aplicados — 26 mayo 2026 (tercera ronda — Bloque T+U segunda respuesta)
+
+### llms.txt
+- Eliminada frase "Es la primera portal fantasy española de debut..." (claim difícil de probar)
+- Sustituida por: "Samuel entre mundos es una novela española de portal fantasy juvenil con sistema de magia estructurado, objetos con memoria, protagonista no-elegido y misterio familiar."
+
+### autor.html
+- `geo-answer` reescrito: eliminada mención a "romantasy y ficción especulativa"
+- Nueva versión: "portal fantasy juvenil" como sintagma fijo (optimizado para LLMs)
+- Premio aclarado: "Primer Premio Letras Como Espada 2026 en microrrelatos"
+
+### script.js
+- Añadida línea `submitNewsletter("newsletter-form-cuaderno", ...)` para el futuro artículo de blog /cuaderno/
+
+### Respuestas a tus preguntas.txt
+- Eliminadas respuestas de Bloque T y U insertadas por el usuario (líneas 32-1551)
+- Archivo: 4773 → 3730 líneas
+
+### cosas-pendientes-david.txt
+- Añadidas secciones: dominio duplicado davidpd89.github.io (CRÍTICO), Bing Webmaster Tools, test mensual IA, Open Library, Goodreads listas, Instagram bio, primer artículo /cuaderno/
+
+---
+
+## Cambios aplicados — 26 mayo 2026 (primera ronda)
 
 ### service-worker.js
 - Bumpeada CACHE_VERSION → `david-porto-v2026-05-26-2` para invalidar caché y mostrar el fix del layout de eventos

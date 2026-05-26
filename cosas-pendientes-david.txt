@@ -1634,3 +1634,140 @@ ACCIONES CONCRETAS PARA TI:
    escrita por David Porto Díaz y publicada por Libros Indie en 2025."
    La repetición exacta ayuda a los LLMs a asociar el libro con las búsquedas.
 
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+CRÍTICO: DOMINIO DUPLICADO davidpd89.github.io (Bloque T)
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+PROBLEMA: davidpd89.github.io está indexado por Google con el texto
+"Fantasía, romantasy y ficción especulativa" — que ya no es el
+posicionamiento correcto. Google ve dos dominios del mismo autor
+(davidpd89.github.io y davidportodiaz.com) con contenido similar.
+Los LLMs pueden citar el .github.io en lugar del dominio principal.
+
+QUÉ TIENES QUE HACER:
+Ir al repositorio GitHub donde está alojado davidpd89.github.io
+(es el repo "davidpd89/web-escritor" o "davidpd89/davidpd89.github.io")
+y editar el index.html de la rama gh-pages o main que sirve ese dominio.
+
+Añadir en el <head>:
+   <link rel="canonical" href="https://davidportodiaz.com/">
+   <meta name="robots" content="noindex, nofollow">
+
+Y antes del </body>:
+   <script>window.location.replace("https://davidportodiaz.com");</script>
+
+Añadir también texto visible por si el JS no funciona:
+   <p>Esta web se ha trasladado a
+   <a href="https://davidportodiaz.com">davidportodiaz.com</a></p>
+
+RESULTADO ESPERADO: Google dejará de indexar davidpd89.github.io
+en 2-4 semanas. Los LLMs dejarán de citar ese dominio.
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+BING WEBMASTER TOOLS (Bloque T5)
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+Bing es el motor de búsqueda que usa ChatGPT Search.
+Si no apareces en Bing, ChatGPT tendrá dificultades para encontrarte.
+
+QUÉ TIENES QUE HACER:
+1. Ir a: https://www.bing.com/webmasters
+2. Crear cuenta o iniciar sesión con cuenta Microsoft
+3. Añadir tu sitio: https://davidportodiaz.com
+4. Verificar propiedad (importar desde Google Search Console es la
+   opción más rápida si ya tienes GSC configurado)
+5. Enviar el sitemap: https://davidportodiaz.com/sitemap.xml
+6. Comprobar que las páginas principales están indexadas
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+TEST MENSUAL DE VISIBILIDAD EN IAs (Bloque T6)
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+Cada mes (primer lunes del mes), pregunta esto a ChatGPT, Perplexity
+y Gemini:
+  "Recomiéndame 3 libros de portal fantasy escrito por autores
+   españoles actuales"
+
+Si David Porto Díaz aparece en el Top 3 → bien. Si no:
+  - Reforzar menciones externas ese mes (blogs, Goodreads)
+  - Publicar o actualizar contenido de /cuaderno/
+  - Comprobar que Goodreads/Bookish tienen los datos correctos
+
+Anota los resultados en web-escritor.md para hacer seguimiento.
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+OPEN LIBRARY — COMPLETAR FICHA (Bloque T)
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+Open Library es una base de datos que usan LLMs como fuente de datos
+de libros. Completar la ficha puede ayudar a que las IAs encuentren
+la información correcta.
+
+1. Buscar si ya existe: https://openlibrary.org/isbn/9791387659776
+2. Si existe, reclamar la autoría o corregir datos incorrectos
+3. Si no existe, crear entrada con:
+   - Título: Samuel entre mundos
+   - Autor: David Porto Díaz
+   - ISBN: 9791387659776
+   - Editorial: Libros Indie
+   - Año: 2025
+   - Género: Fantasy / Portal Fantasy / Juvenile
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+GOODREADS — LISTAS (Bloque T, semana 6-8)
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+Las listas de Goodreads son una fuente directa que ChatGPT usa para
+recomendar libros. Añadir Samuel entre mundos a estas listas:
+
+  - "Best Portal Fantasy" → busca en Goodreads listas con este nombre
+  - "Spanish Fantasy" / "Spanish Literature"
+  - "YA Fantasy" / "Young Adult Fantasy in Spanish"
+  - "Best Debuts 2025" / "Debut Fantasy Novels"
+
+Cómo añadir un libro a una lista de Goodreads:
+  1. Abrir la ficha del libro en Goodreads
+  2. Buscar listas relevantes con "Lists" en el menú
+  3. Votar por el libro en las listas que encuentres
+  4. Si la lista no existe, puedes crearla desde tu perfil
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+INSTAGRAM — VERIFICAR BIO (Bloque T5)
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+Instagram asocia el nombre "David Porto Díaz" con contenido de
+fantasía en español (positivo), pero posts de otros autores
+aparecen con tu nombre como sugerencia. Para reforzar la señal:
+
+Verifica que tu bio de Instagram dice exactamente:
+  "Autor de Samuel entre mundos · Portal fantasy juvenil"
+  + enlace a davidportodiaz.com
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+PRIMER ARTÍCULO DEL BLOG /cuaderno/ (Bloque U)
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+URL: /cuaderno/fantasia-juvenil-espanola-portales-magia-coste/
+H1: Fantasía juvenil española con portales, magia con coste y mundos ocultos
+Longitud objetivo: 1.700 palabras
+
+Este artículo posiciona "fantasía juvenil española", "portal fantasy"
+y "magia con coste" — las tres búsquedas clave del libro.
+
+QUÉ TIENES QUE HACER:
+Escribir el artículo siguiendo el outline de Bloque U (ya en Respuestas).
+O dárselo a Claude con el outline detallado para que genere el texto.
+
+Cuando lo tengas escrito, dáselo a Claude para:
+  - Crear el archivo HTML /cuaderno/fantasia-juvenil-espanola-portales-magia-coste/index.html
+  - Añadir el schema FAQPage JSON-LD (3 preguntas, ya listas en Respuestas BLOQUE U/U2)
+  - Añadir los enlaces internos correctos
+  - Optimizar el schema Article con author, datePublished, etc.
+
+IMÁGENES PARA EL ARTÍCULO (generarlas antes de publicar):
+  1. Hero del artículo — portal mágico atmosférico (Midjourney prompt:
+     "mystical portal glowing in dark city street, fantasy, dark
+     editorial style, no text")
+  2. Mapa de Noveris — ya existe en assets/
+  3. Medalla/canalizador de Samuel — foto real o ilustración
