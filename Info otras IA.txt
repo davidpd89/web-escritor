@@ -87,17 +87,19 @@ Generative Engine Optimization: How to Dominate AI Search — PDF completo. ([ar
 **Knowledge Graph / Grafos de Conocimiento:**
 - [Getting Started with Schema.org for Your Personal Knowledge Graph -- mattartz.me](https://www.mattartz.me/getting-started-with-schema-org-for-your-personal-knowledge-graph/) -- LEIDO: confirma nuestro enfoque JSON-LD+sameAs. N/A (no hay cambios a hacer).
 - [The Knowledge Graph Cookbook -- Scribd](https://www.scribd.com/document/714349374/The-Knowledge-Graph-Cookbook) -- LEIDO via PoolParty landing page. Enterprise, N/A.
-- [De documentos a consultas inteligentes con LLMs -- SEDIC](https://www.sedic.es/de-documentos-a-consultas-inteligentes-construir-y-consultar-grafos-de-conocimiento-con-llms-articulo-elaborado-con-ia/) -- Articulo academico en espanol sobre como los LLMs consultan grafos. Por que el sameAs Wikidata importa.
-- [Grafo de Conocimiento del Museo del Prado](https://www.museodelprado.es/grafo-de-conocimiento/el-grafo-de-conocimiento-del-museo-del-prado) -- Caso real en espanol de linked data para entidades culturales (autores, obras). El modelo a replicar a escala autor indie.
+- [De documentos a consultas inteligentes con LLMs -- SEDIC](https://www.sedic.es/de-documentos-a-consultas-inteligentes-construir-y-consultar-grafos-de-conocimiento-con-llms-articulo-elaborado-con-ia/) -- INACCESSIBLE (redirige al homepage de SEDIC).
+- [Grafo de Conocimiento del Museo del Prado](https://www.museodelprado.es/grafo-de-conocimiento/el-grafo-de-conocimiento-del-museo-del-prado) -- LEIDO. Sistema con 310K entidades + RDF/SPARQL. Modelo avanzado de linked data para inst. cultural. Confirma nuestro enfoque JSON-LD+sameAs ✅. A nuestra escala: ya hacemos lo correcto.
 - [Enhancing knowledge graphs with microdata and LLMs -- Emerald](https://www.emerald.com/el/article-split/42/3/443/1223565/Enhancing-knowledge-graphs-with-microdata-and-LLMs) -- Paper academico 2024. En ingles.
 
 **Google Search / GEO adicionales:**
-- [Google Search Central -- SEO y IA Generativa](https://developers.google.com/search/docs/fundamentals/seo-and-generative-ai) -- Guia oficial mayo 2026 con mejores practicas para AI Overviews.
-- [Google Developers: Understanding Entities](https://developers.google.com/search/docs/appearance/knowledge-graph) -- Como Google conecta entidades con atributos.
-- [Google Rich Results Test](https://search.google.com/test/rich-results) -- Validar schema antes de publicar.
-- [Schema Markup Validator](https://validator.schema.org/) -- Validar JSON-LD.
+- [Google Search Central -- SEO y IA Generativa](https://developers.google.com/search/docs/fundamentals/seo-and-ai) -- 404 URL CAMBIADA.
+- [Google Developers: Understanding Entities](https://developers.google.com/search/docs/appearance/knowledge-graph) -- 404 URL CAMBIADA.
+- [Google Rich Results Test](https://search.google.com/test/rich-results) -- HERRAMIENTA (no articulo). Usar para validar schema.
+- [Schema Markup Validator](https://validator.schema.org/) -- HERRAMIENTA (no articulo). Usar para validar JSON-LD.
 - [Backlinko GEO Guide](https://backlinko.com/generative-engine-optimization-geo) -- LEIDO (abr 2026). 7 pasos: Nail SEO basics, Build mentions/co-citations, Multi-platform, AI citation audit, Answer questions, Structure content, Track visibility. Reddit+LinkedIn = top 2 dominios citados por AI. Confirma stats+citas +30-40% ✅. datePublished/dateModified en schema ✅. LEIDO.
-- SurferSEO -- 7 Large Language Model Optimization Strategies (Jan. 2026) -- 7 tacticas concretas para LLM citation.
+- SurferSEO -- 7 Large Language Model Optimization Strategies -- URL CAMBIADA (404).
+- SEO.ai GEO guide -- URL CAMBIADA (404).
+- Abdurrahman Simsek KG Entity SEO -- URL CAMBIADA (404).
 - SEO.ai -- GEO: How to Optimize for AI Search Results (Apr. 2024) -- Resumen del estudio Princeton sobre GEO.
 - Abdurrahman Simsek -- Knowledge Graph Optimization: Entity SEO Guide (Mar. 2026) -- Schema.org, Wikidata y contenidos para reforzar entidades.
 - [Wikidata -- Guia para editores](https://www.wikidata.org/wiki/Help:Contents) -- Manual del Knowledge Graph global.
