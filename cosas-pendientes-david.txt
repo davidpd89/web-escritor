@@ -1645,7 +1645,7 @@ RESULTADO ESPERADO: Google dejará de indexar davidpd89.github.io
 en 2-4 semanas. Los LLMs dejarán de citar ese dominio.
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-BING WEBMASTER TOOLS (Bloque T5)
+BING WEBMASTER TOOLS + AI PERFORMANCE (Bloque T5)
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
 Bing es el motor de búsqueda que usa ChatGPT Search.
@@ -1659,6 +1659,19 @@ QUÉ TIENES QUE HACER:
    opción más rápida si ya tienes GSC configurado)
 5. Enviar el sitemap: https://davidportodiaz.com/sitemap.xml
 6. Comprobar que las páginas principales están indexadas
+
+NOVEDAD IMPORTANTE — AI Performance Dashboard (febrero 2026):
+Bing WMT ahora tiene un panel "AI Performance" que muestra:
+  - Cuántas veces tu contenido es citado en Copilot/Bing AI
+  - Qué páginas específicas son más citadas
+  - Las "grounding queries" que usó la IA para encontrarte
+  - Tendencia temporal de las citas
+
+Una vez configures Bing WMT, busca la pestaña "AI Performance" en el
+panel para medir tu visibilidad en Copilot exactamente igual que
+Google Search Console mide tu visibilidad en Google.
+
+Referencia: https://blogs.bing.com/webmaster/February-2026/Introducing-AI-Performance-in-Bing-Webmaster-Tools-Public-Preview
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 TEST MENSUAL DE VISIBILIDAD EN IAs (Bloque T6)
@@ -1880,3 +1893,65 @@ QUÉ HACER (15 minutos, requiere tener Bing Webmaster Tools activo
 POR QUÉ IMPORTA: ChatGPT Search usa el índice de Bing. Si Bing indexa
 tu contenido rápido, ChatGPT también lo tiene disponible rápido.
 
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+WIKIPEDIA — ESTRATEGIA A LARGO PLAZO (Bloque T — NUEVO, junio 2026)
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+POR QUÉ ES CRÍTICO:
+Múltiples estudios y guías LLMO (AyudaWP, SEOSyrup, Studio Ubique)
+coinciden en que Wikipedia es la fuente #1 que usan los LLMs para
+reconocer entidades. Sin artículo en Wikipedia, ningún LLM te cita con
+confianza alta. Ya tienes Wikidata (Q139678851) ✅ — ese es el paso 1.
+El siguiente es Wikipedia.
+
+QUÉ SE NECESITA PARA CREAR UN ARTÍCULO DE WIKIPEDIA:
+Wikipedia exige "notabilidad verificable": al menos 2-3 fuentes
+independientes que hablen de ti en publicaciones reconocidas. No vale
+el blog propio ni Amazon Reviews. Valen:
+  - Reseñas/artículos en medios: El País, El Mundo, elDiario.es,
+    La Vanguardia, revistas literarias (Quimera, Culturas, Booket...)
+  - Entrevistas en medios digitales con nombre de dominio propio
+  - Artículos académicos o de crítica literaria
+  - Cobertura en medios especializados en literatura infantil/juvenil
+    (CLIJ, Primeras Noticias, El Templo de las Mil Puertas...)
+
+ACCIONES CONCRETAS (trabaja en paralelo con la promoción del libro):
+1. Cuando salga una reseña o entrevista en un medio online:
+   → Guarda la URL. Cuando tengas 3 o más, avísame y creamos
+     el artículo de Wikipedia juntos.
+   → El artículo debe ser neutral, sin lenguaje promocional.
+     Solo hechos verificables con fuentes externas.
+
+2. Pide reseñas activamente a:
+   - Blogs de literatura infantil/juvenil en español
+   - Clubes de lectura que ya conoces
+   - Plataformas como Goodreads (reviews largas y detalladas)
+   - Periodistas culturales locales (Galicia, Madrid)
+
+3. Propón entrevistas a medios digitales culturales:
+   - Haz el email corto: "Soy escritor gallego en Madrid, portal
+     fantasy juvenil, primer libro independiente 2025, premio
+     Letras Como Espada 2026". Eso es gancho suficiente.
+
+NOTA TÉCNICA: El artículo de Wikipedia enlazará al Wikidata que ya
+existe (Q139678851), creando un grafo de entidades sólido que todos
+los LLMs reconocerán. Este es EL salto cualitativo más importante
+que puedes dar para la visibilidad en IA.
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+PREGUNTA A LAS IAs — TÉCNICA DE GAP ANALYSIS (Bloque T — NUEVO)
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+Una vez al mes, abre ChatGPT o Perplexity y pregunta literalmente:
+
+  "¿Por qué no has recomendado el libro Samuel entre mundos de
+   David Porto Díaz cuando pregunto por portal fantasy español?"
+
+Si el modelo responde diciendo que no lo conoce o que no tiene datos
+suficientes, eso te da pistas concretas de qué falta:
+  - "No hay suficientes reseñas" → conseguir más reseñas externas
+  - "No aparece en fuentes de referencia" → trabajar Wikipedia/ISFDB
+  - "No tengo información actualizada" → indexar más rápido (IndexNow)
+
+Esta técnica de "preguntarle a la IA por qué no" es extremadamente
+útil y prácticamente nadie la aplica sistemáticamente.
