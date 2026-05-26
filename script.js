@@ -45,6 +45,15 @@ if (navToggle && siteNav) {
       }, "user-blocking");
     });
   });
+
+  // Escape cierra el menú móvil y devuelve el foco al toggle
+  document.addEventListener("keydown", e => {
+    if (e.key === "Escape" && siteNav.classList.contains("is-open")) {
+      siteNav.classList.remove("is-open");
+      navToggle.setAttribute("aria-expanded", "false");
+      navToggle.focus();
+    }
+  });
 }
 
 function syncHashScroll() {
@@ -562,12 +571,24 @@ function _gcEvent(path, title) {
   }
 
   let _dialog = null;
-  function openBuyDialog() {
-    if (!_dialog) _dialog = buildDialog();
+  let _lastBuyTrigger = null;
+
+  function openBuyDialog(trigger) {
+    _lastBuyTrigger = trigger || document.activeElement;
+    if (!_dialog) {
+      _dialog = buildDialog();
+      _dialog.setAttribute("role", "dialog");
+      // Restaurar foco al cerrar
+      _dialog.addEventListener("close", () => {
+        document.documentElement.classList.remove("modal-open");
+        _lastBuyTrigger?.focus?.();
+      });
+    }
     _gcEvent("abrir-modal-comprar", "Modal: abrir dónde comprar");
+    document.documentElement.classList.add("modal-open");
     _dialog.showModal();
-    // Enfocar el primer elemento focusable tras abrir
-    setTimeout(() => _dialog.querySelector("a, button")?.focus(), 50);
+    // Enfocar la opción principal de compra
+    setTimeout(() => (_dialog.querySelector(".buy-option--primary") || _dialog.querySelector("a, button"))?.focus(), 50);
   }
 
   // Activar en todos los elementos con data-buy-modal
@@ -575,7 +596,7 @@ function _gcEvent(path, title) {
     const trigger = e.target.closest("[data-buy-modal]");
     if (trigger) {
       e.preventDefault();
-      openBuyDialog();
+      openBuyDialog(trigger);
     }
   });
 })();

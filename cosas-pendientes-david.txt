@@ -1111,3 +1111,371 @@ PROMPT (DALL-E 3 o Midjourney):
   Una vez generada, actualizar el og:image de eventos.html de
   /assets/david-porto-imagen-compartir.avif a /assets/david-porto-eventos-firmas-og.avif
 
+─────────────────────────────────────────────────────────────────
+IMAGEN 7 — Hero/fondo para premios.html
+─────────────────────────────────────────────────────────────────
+DONDE: sección hero de premios.html (actualmente sin imagen de fondo, hero negro puro)
+NOMBRE: premios-hero-reconocimiento.avif
+FORMATO: AVIF + WebP, 2816x1536 px (16:9)
+PROMPT (Midjourney):
+  a prestigious literary trophy on a dark velvet surface, surrounded by
+  elegant scattered papers, a handwritten manuscript, and a gold fountain
+  pen, dramatic chiaroscuro lighting with a single warm spotlight from above,
+  deep shadow background, editorial luxury aesthetic, no faces or text visible,
+  cinematic depth of field, amber and ivory tones --ar 16:9 --v 6.1 --style raw
+
+CÓMO AÑADIR LA IMAGEN:
+  Una vez generada, en premios.html reemplaza:
+    <div class="hero-bg" aria-hidden="true"></div>
+  por:
+    <div class="hero-bg" aria-hidden="true">
+      <img class="hero-bg-img" src="/assets/premios-hero-reconocimiento.avif"
+           alt="" loading="eager" fetchpriority="low" width="2816" height="1536" />
+    </div>
+  También hacer versión WebP y usar <picture> si quieres máxima compatibilidad.
+
+─────────────────────────────────────────────────────────────────
+IMAGEN 8 — Hero/fondo para eventos.html
+─────────────────────────────────────────────────────────────────
+DONDE: sección hero de eventos.html (actualmente sin imagen de fondo, hero negro puro)
+NOMBRE: eventos-hero-feria-libro.avif
+(Prompt ya existente en IMAGEN 1 de este documento — mismo archivo)
+CÓMO AÑADIR: igual que en IMAGEN 7 (premios.html), pero en eventos.html
+
+
+
+---------------------------------------------------------------------------
+ART OF SEO — NUEVAS ACCIONES (26 mayo 2026, cap. 2-8 terminados)
+---------------------------------------------------------------------------
+
+NOTA TÉCNICA — FIX YA APLICADO (no hace nada de tu parte):
+    autor.html, enlace "Ver todas las reseñas" de Amazon: se ha añadido
+    rel="sponsored" que faltaba. Google requiere rel="sponsored" en todos
+    los enlaces de afiliado para evitar penalización de link spam.
+    Todas las demás páginas ya tenían el atributo correcto.
+
+BING WEBMASTER TOOLS — CONFIGURAR JUNTO A GOOGLE SEARCH CONSOLE
+    Google Search Console ya está en tus pendientes. Añade también Bing:
+    URL: https://www.bing.com/webmasters/about
+    Por qué: Bing da perspectiva distinta a GSC (datos propios de Bing/Edge/DuckDuckGo).
+    También indexa más rápido que Google muchas veces.
+    Proceso:
+    1. Inicia sesión con cuenta Microsoft (o créala gratis)
+    2. Añade propiedad https://davidportodiaz.com
+    3. Verifica con HTML tag (igual que GSC)
+    4. Envía el sitemap: https://davidportodiaz.com/sitemap.xml
+    Bing Webmaster Tools tiene herramienta de keyword research gratuita
+    llamada "Keyword Research" — comprueba volúmenes y sugerencias.
+
+VERIFICAR INDEXACIÓN HOY MISMO — GRATIS, 2 MINUTOS
+    Busca en Google (sin comillas):
+        site:davidportodiaz.com
+    Deberías ver las ~18-20 páginas del sitio indexadas.
+    Si aparecen menos: avísame con el número exacto y cuáles faltan.
+    Si aparecen más de 30: puede haber páginas duplicadas o innecesarias.
+    También prueba:
+        site:davidportodiaz.com "samuel entre mundos"
+    Deberías ver la página del libro + fragmento + clubes de lectura.
+
+PASSAGE INDEXING — OPORTUNIDAD EN PÁGINAS DE LORE (no requiere acción inmediata)
+    Desde feb 2021 Google puede indexar PASAJES individuales dentro de
+    una página larga. Significa que la página /universo/noveris/ podría
+    rankear para búsquedas muy específicas sobre el sistema de magia,
+    el Estadio de Glíder, o los canalizadores, incluso si esa sección
+    está enterrada en el medio de la página.
+    Cómo aprovecharlo:
+    - Las páginas de lore ya son lo suficientemente largas ✓
+    - Asegúrate de que cada sección tenga un H2 claro con keywords descriptivos
+      (ej: "El sistema de magia de Noveris: canalizadores y coste" en lugar de
+      "El sistema de magia")
+    - Añadir anchor links en el índice de la página (tabla de contenidos) con
+      IDs descriptivos: id="sistema-magia-noveris", id="estadio-glider", etc.
+    Las páginas ya tienen esto parcialmente. Si rehacemos la estructura de
+    headings en /universo/noveris/, avísame y lo optimizamos.
+
+HERRAMIENTAS GRATUITAS PARA KEYWORD RESEARCH (capítulos 3 y 5)
+    Antes de pagar SEMrush o Ahrefs, prueba estas herramientas gratuitas
+    para identificar keywords de oportunidad:
+
+    1. ANSWERTHEPUBLIC.COM (gratuito, limitado)
+       URL: https://answerthepublic.com
+       Qué hace: genera un mapa visual de todas las preguntas que hace la gente
+       alrededor de un tema. Basado en el autocompletado de Google.
+       Cómo usarlo:
+       - Selecciona idioma "Spanish" y país "Spain" (o "México" para LATAM)
+       - Escribe: "portal fantasy", "Samuel entre mundos", "sistema de magia"
+       - Descarga el CSV de preguntas → avísame con las mejores 10-15
+       - Añadiremos FAQs a la web con esas preguntas y respuestas cortas
+
+    2. ALSOASKED.COM (gratuito, limitado)
+       URL: https://alsoasked.com
+       Qué hace: extrae exactamente las preguntas del bloque "La gente también
+       pregunta" de Google para una query dada. Perfecto para FAQs.
+       Busca: "fantasía juvenil española", "portal fantasy en español"
+       Avísame con los resultados para añadir más preguntas al FAQPage schema.
+
+    3. SOOVLE.COM (gratuito, ilimitado)
+       URL: https://www.soovle.com
+       Qué hace: muestra autocompletado simultáneo de Google, YouTube, Amazon,
+       Wikipedia, Bing y DuckDuckGo en la misma pantalla.
+       Muy útil para ver qué busca la gente en YOUTUBE sobre tu nicho
+       (fantasía juvenil, portal fantasy) — esas keywords son ideas de vídeo.
+       Busca: "Samuel entre mundos", "portal fantasy", "fantasía juvenil"
+
+    4. GOOGLE ADS KEYWORD PLANNER (gratuito con cuenta Google Ads)
+       URL: https://ads.google.com/home/tools/keyword-planner/
+       Qué hace: da volúmenes de búsqueda y CPC para keywords específicos.
+       NOTA: sin campaña activa los volúmenes son rangos amplios (100-1K).
+       Para ver datos exactos basta con crear una campaña de 0€ (no se activa
+       a menos que le pongas presupuesto y la actives manualmente).
+       Muy útil para comparar: ¿búsca más gente "portal fantasy español" o
+       "fantasía portal en español"?
+
+    5. GOOGLE TRENDS (gratuito, sin cuenta)
+       URL: https://trends.google.com
+       Cómo usarlo para tu caso:
+       - Cambia región a "España" y período "Últimos 12 meses"
+       - Compara: "portal fantasy" vs "fantasía juvenil" vs "fantasía española"
+       - Busca picos estacionales: ¿sube en San Jordi (23 abril)?
+         ¿en Navidad? ¿en Feria del Libro (mayo-junio)?
+       - "Temas relacionados" te da keywords long-tail que ni imaginas
+       Avísame los resultados si quieres que los incorporemos a la estrategia.
+
+    6. SEARCH ANALYTICS FOR SHEETS (extensión de Google Sheets, gratuita)
+       URL: https://searchanalyticsforsheets.com
+       Qué hace: descarga automáticamente los datos de Google Search Console
+       a una hoja de Google Sheets. Muy útil cuando tengas GSC configurado
+       para mantener un histórico (GSC solo guarda 16 meses de datos).
+       Instalar cuando actives GSC.
+
+SAN JORDI (23 ABRIL) — MAYOR DÍA DE VENTAS DE LIBROS EN ESPAÑA
+    El 23 de abril es el Día del Libro (Sant Jordi en Cataluña, pero
+    celebrado en toda España). Es el día de más ventas de libros del año,
+    superando incluso Navidad en muchas librerías.
+    Para David: preparar contenido y acciones con 4-6 semanas de antelación.
+
+    ACCIONES PREVIAS A SANT JORDI (a partir del 1 de marzo para 2027):
+    1. Actualizar eventos.html con si hay firma programada el 23 de abril
+    2. Publicar en Reddit/Goodreads/Instagram un post de San Jordi con foto
+       firmando o con el libro (aunque no hayas firmado: foto del libro con rosa)
+    3. Email a tu lista de newsletter con "recomendación San Jordi" + enlace Amazon
+    4. Contactar con librerías de Madrid para proponer firma o evento
+    5. Publicar un artículo del cuaderno orientado a "Regala un libro de portal
+       fantasy este Sant Jordi" — keyword específica que sube en abril
+    6. Añadir un banner temporal en la home: "Regala Samuel entre mundos este 23 de abril"
+
+    KEYWORDS PARA SAN JORDI (añadir al Keyword Plan spreadsheet):
+    - "libros para regalar Sant Jordi 2027"
+    - "recomendaciones de libros San Jordi"
+    - "novelas de fantasía para regalar"
+    - "libros juveniles para regalar"
+
+CUSTOMER PERSONAS — DEFINE TU LECTOR IDEAL (útil para keyword research)
+    El Art of SEO dice explícitamente: "The more details you can think of,
+    the better. Give each persona a one or two syllable name."
+    Para David: aquí hay 3 personas tentativas basadas en el libro.
+    Confirma si son correctas y añade detalles que yo desconozca.
+
+    PERSONA 1 — "Sara" (16-18 años)
+    - Lectora de Harry Potter, Percy Jackson, Crónicas de Narnia
+    - Busca en Google: "libros de fantasía para adolescentes en español"
+    - Mobile-first: busca desde el móvil, en Instagram o TikTok
+    - Toma decisiones por recomendaciones de bookstagram/booktok
+    - Conversión: compra el libro para ella misma (ebook o papel)
+
+    PERSONA 2 — "Marta" (32-42 años, madre/tía/profesora)
+    - Busca regalos para adolescentes lectores
+    - Busca en Google: "mejores libros para niños de 14 años", "novelas para jóvenes"
+    - Desktop-first, usa Amazon directamente
+    - Lee las reseñas antes de comprar
+    - Conversión: compra el libro como regalo
+
+    PERSONA 3 — "Carlos" (20-30 años, lector habitual de fantasía)
+    - Ha leído Sanderson, Tolkien, Joe Abercrombie
+    - Busca en Reddit/Goodreads recomendaciones de hard magic en español
+    - Desconfiado de "fantasía juvenil española" (asume que es simplista)
+    - Pero se engancha si le mencionas el sistema de magia con reglas duras
+    - Conversión: compra si ve que el sistema de magia está bien construido
+
+    NOTA: conocer estas personas ayuda a ajustar el copy de la web.
+    Por ejemplo: para Sara → énfasis en la aventura y la amistad.
+    Para Marta → énfasis en valores, edad recomendada, reseñas positivas.
+    Para Carlos → énfasis en el sistema de magia y el worldbuilding.
+    Las tres están parcialmente cubiertos en la web actual. Si quieres
+    afinar el copy para cada una, dímelo.
+
+TEXTO DE ANCHOR INTERNO — MEJORAR DESCRIPTIVIDAD
+    El Art of SEO dice: "avoid irrelevant anchor text such as 'More' or
+    'Click here'. Try to be as specific and contextually relevant as possible."
+    En español el equivalente son "Leer más", "Ver más", "Aquí", "Pincha aquí".
+
+    AUDITORÍA RÁPIDA — Busca en la web textos de enlace genéricos:
+    - En cualquier página: ¿hay botones que digan solo "Más información"?
+    - ¿Hay "Ver más" que no especifiquen qué se va a ver?
+    - ¿Hay "Haz clic aquí" para algo concreto?
+
+    EJEMPLOS DE MEJORA:
+    ✗ "Ver más →" en la card del libro de Noveris
+    ✓ "Ver universo Noveris completo →"
+    ✗ "Leer más" en la sección del cuaderno
+    ✓ "Leer el diario de escritura →"
+    Avísame si encuentras casos concretos y los cambiamos.
+
+EEAT — LA "E" DE EXPERIENCIA (añadida dic 2022)
+    Google actualizó en diciembre 2022 el E-A-T a E-E-A-T añadiendo una
+    segunda "E" de Experience (Experiencia personal del creador).
+    Para David: ya tienes Expertise (eres el creador del universo Noveris),
+    Authority (Premio Letras Como Espada 2026, editorial Libros Indie) y
+    Trust (página de prensa, schema Person, Wikidata).
+    Lo que podrías añadir para la "E" de Experience:
+    - En autor.html: mención de cuántos años llevas escribiendo, o que
+      llevas X años desarrollando el universo Noveris antes de publicar
+    - En la página del libro: "Escribí Samuel entre mundos durante [tiempo],
+      revisando el sistema de magia [número] veces para que fuera consistente"
+    - En /universo/noveris/: "Como creador de Noveris, diseñé cada regla del
+      sistema de magia basándome en [experiencia/referencia]"
+    Estas frases son señales de E-E-A-T que Google valora y que ningún
+    contenido generado por IA puede replicar de forma auténtica.
+    Avísame qué datos reales tienes (cuánto tiempo llevabas escribiendo,
+    proceso de revisión) y los incorporo al contenido.
+
+PANGUIN TOOL — MONITOREO DE CAMBIOS ALGORÍTMICOS
+    Si en algún momento ves una caída de tráfico, usa esta herramienta gratuita
+    para ver si coincide con un update de Google:
+    URL: https://barracuda.digital/panguin-tool/
+    Muestra tu tráfico de GA superpuesto con el historial de actualizaciones
+    de Google (vía Moz). Si la caída coincide con un update → es el algoritmo.
+    Si no coincide → es otro problema (técnico, o pérdida de backlinks).
+
+
+
+---------------------------------------------------------------------------
+MOZ BEGINNER'S GUIDE TO SEO — NUEVAS ACCIONES (26 mayo 2026, 54pp completas)
+---------------------------------------------------------------------------
+
+MOZ FREE DOMAIN ANALYSIS — TRACKEAR AUTORIDAD DE DOMINIO
+    URL: https://moz.com/domain-analysis
+    Qué te da gratis (sin cuenta):
+    - Domain Authority (DA): puntuación 0-100 de la autoridad del dominio
+    - Spam Score: % de características de spam del dominio
+    - Linking domains: número de dominios que enlazan
+    Primera vez que lo uses, guarda los datos en una nota. Revisa en 6 meses.
+    Objetivo: que davidportodiaz.com suba de DA a medida que consigues backlinks.
+    DA de punto de partida de autores indie similares: generalmente 10-25.
+
+FRESHNESS BOOST — NO ENTRAR EN PÁNICO (información del Moz Guide)
+    Cuando publicas contenido nuevo, Google a veces le da un "freshness boost":
+    la página sube rápido en rankings durante unos días, luego cae a su posición real.
+    Este fenómeno es normal y esperable.
+    Si publicas un artículo del cuaderno y ves que aparece en posición 5 el día 2
+    pero en posición 40 el día 7 → NO es un problema. Es el algoritmo calibrando.
+    Las posiciones estables llegan entre 3 y 8 semanas después de publicar.
+
+DIAGNÓSTICO DE CAÍDA DE TRÁFICO — FRAMEWORK (Moz)
+    Si en algún momento el tráfico cae, sigue este árbol de decisión:
+    ¿Cae en TODOS los buscadores (Google + Bing + DuckDuckGo)?
+    → Problema técnico: robots.txt, servidor, DNS, indexación bloqueada
+    → Revisar GSC y Bing Webmaster Tools para errores de crawl
+    
+    ¿Cae solo en UN buscador (solo Google)?
+    → Penalización manual o cambio algorítmico de ese motor
+    → Usar Panguin Tool para ver si coincide con un update de Google
+    → Revisar Google Search Console para avisos de penalización manual
+
+    ¿Cae solo para ALGUNAS keywords pero no todas?
+    → Un competidor te ha superado en esas keywords, o has perdido backlinks
+    → Comprobar si siguen existiendo los enlaces que te apuntaban
+    → Ver si hay nuevo competidor en esas posiciones
+
+BING ADS INTELLIGENCE — INVESTIGACIÓN DE KEYWORDS GRATIS
+    URL: https://advertise.bingads.microsoft.com/es-es/tools (o busca "Bing Ads Intelligence")
+    Similar al Keyword Planner de Google Ads pero para Bing.
+    Útil para validar términos que también usará Copilot/Bing AI.
+    Usa la extensión de Excel o la interfaz web. Gratuito.
+
+
+
+---------------------------------------------------------------------------
+LIBROS Y RECURSOS QUE NECESITO — DESCARGA PDFs (26 mayo 2026)
+---------------------------------------------------------------------------
+
+Aquí tienes la lista de lo que sería más útil leer para la web. Ordeno por
+prioridad. Si encuentras el PDF gratuito o lo puedes bajar, génial. Si no
+existe versión libre, hay alternativas indicadas.
+
+1. UX / DISEÑO WEB
+   ━━━━━━━━━━━━━━━
+   [ALTA] "Don't Make Me Think" — Steve Krug (revisited 2014)
+           El libro de referencia de UX web. Muy legible. Hay edición en PDF/epub.
+
+   [ALTA] "Refactoring UI" — Adam Wathan & Steve Schoger (2020, ebook de pago)
+           Si puedes encontrarlo: el mejor libro de diseño UI para devs. Táctico,
+           lleno de ejemplos reales. Transforma cómo ves el diseño.
+
+   [MEDIA] "Web Form Design: Filling in the Blanks" — Luke Wroblewski
+            Muy relevante para el formulario de newsletter y contacto.
+
+2. CONTENT STRATEGY / COPYWRITING
+   ════════════════════════════════
+   [ALTA] "Everybody Writes" — Ann Handley (2014/2022)
+           El libro de referencia de escritura web y content marketing.
+           Muy práctico para escribir mejor en la web y el blog.
+
+   [ALTA] "Copywriting Secrets" — Jim Edwards (2019)
+           Técnicas de copywriting aplicadas a venta de libros, landing pages,
+           emails. Muchos templates.
+
+   [MEDIA] "Building a StoryBrand" — Donald Miller (2017)
+            Claridad de mensaje. Muy usado por autores para articular su propuesta
+            de valor. "¿Qué problema resuelvo y para quién?"
+
+3. SEO AVANZADO / LINK BUILDING
+   ══════════════════════════════
+   [ALTA] "Product-Led SEO" — Eli Schwartz (2021/2022, ebook disponible)
+           SEO estratégico: no solo técnico sino cómo el contenido sirve a la
+           audiencia. Muy relevante para decidir qué páginas crear.
+
+   [MEDIA] "The Art of SEO" 4ª edición (si existe — actualmente tenemos 3ª)
+            Chequea si O'Reilly ha sacado edición 2024/2025.
+
+   [MEDIA] "Linkable" o cualquier libro de Ryan Stewart sobre link building 2025.
+
+4. ANALYTICS / DATOS
+   ══════════════════
+   [ALTA] "Web Analytics 2.0" — Avinash Kaushik
+           El clásico de métricas web. Aún relevante para entender GA4 + GSC
+           combinados. Hay versión libre en algunos repos.
+
+5. REDES SOCIALES Y AUTOR PLATFORM
+   ══════════════════════════════════
+   [ALTA] "Platform" — Michael Hyatt (2012)
+           Libro para autores sobre cómo construir audiencia. Muy citado en
+           publishing. Define el concepto de "plataforma de autor".
+
+   [MEDIA] "The Authorpreneur" — cualquier edición reciente.
+            Combina el marketing de autor con el SEO. Habla específicamente de
+            webs de escritores, Goodreads, Amazon pages, etc.
+
+6. IA / GEO (Generative Engine Optimization)
+   ════════════════════════════════════════════
+   [ALTA] "AI-Powered SEO" — cualquier libro/guía de 2024-2025.
+           El término es nuevo, busca en Google Scholar o Amazon algo reciente
+           sobre GEO (Generative Engine Optimization). Es el futuro del campo.
+
+   [MEDIA] "Prompt Engineering for Developers" (OpenAI cookbook u otros PDFs)
+            Si David quiere entender cómo funcionan los prompts para usarlos mejor.
+
+7. ACCESIBILIDAD Y PERFORMANCE WEB
+   ══════════════════════════════════
+   [YA LEÍDO] Accessibility Web WCAG 2.2 (2025) ✅
+   [FUTURA] Si hay edición 2025 de la guía de Web Performance de Google Core Web
+            Vitals, descárgala. Es actualizada con frecuencia.
+
+DÓNDE BUSCAR PDFs GRATUITOS:
+  - Archive.org: https://archive.org/search?query=título+del+libro&mediatype=texts
+  - Anna's Archive: https://annas-archive.org/ (buscador de libros)
+  - Pirate Bay: varios PDFs de libros técnicos
+  - GitHub: muchos libros de UX y SEO en repos públicos
+  - Reddit r/SEO, r/bigseo: a veces comparten PDFs de recursos de pago
+  - O'Reilly Learning (tiene trial gratuito de 30 días): varios libros de SEO
+
