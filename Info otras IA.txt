@@ -1,95 +1,172 @@
-﻿### INFO OTRAS IA - Ultima revision: 25 mayo 2026
-COMPLETADO: Bloque J (SEO avanzado: E-E-A-T, AI Overviews, linking interno, keywords, schema) — hecho con otras IAs
-Seguimiento de hallazgos y pendientes para la web davidportodiaz.com.
+﻿### INFO OTRAS IA - Ultima revision: 26 mayo 2026
+Seguimiento de recursos de lectura pendiente para la web davidportodiaz.com.
+Completado y borrado: Bloque J, GEO en espanol (VisibilidadOn/DinoRank/SEOEstudios/Rodanet/AyudaWP),
+Schema.org Book+Person+Organization, Bing AI Performance, SEOSyrup, ChatGPT Search Help,
+Studio Ubique Entity SEO, Tallest Tree Entity Authority.
 
-═══════════════════════════════════════════════════════════════════
-PENDIENTE DE CODIGO (lo hago yo la próxima vez)
-═══════════════════════════════════════════════════════════════════
+LIBROS, MANUALES, ARTICULOS
+===================================================================
+Pendiente de leer y aplicar.
 
-CSS CRITICO INLINE (mayor mejora PageSpeed pendiente):
-   LCP actual: ~3.6s. El styles.css (67 KiB) bloquea render 150ms.
-   La solución real es extraer el CSS crítico (above-the-fold) e inlinearlo
-   en <head>, y cargar el resto con media="print" onload trick.
-   Herramienta: https://critters.npmjs.com/ o Critical npm package.
-   Estimación: podría bajar LCP a < 2.5s (umbral verde).
-   Nota: styles.css ya está minificado. Esta tarea es la siguiente.
+## Oficiales: Google / Search / IA
 
-SCRIPT.JS — L1 REVISADO (mayo 2026):
-   Estado: código limpio y sin problemas críticos.
-   - Double submit protection: ✓ (button disabled + dataset.done)
-   - Email obfuscation: ✓ (data-n + data-d, bots no ven el email)
-   - 25 addEventListener, 0 removeEventListener: aceptable en web estática
-   - No sessionStorage sticky CTA (fue eliminado o no se implementó)
-   - Suggestion Rules API: script usa scheduleTask() con scheduler.postTask()
-   No hay cambios de código necesarios en este momento.
+AI Features and Your Website -- como trata Google las webs en AI Overviews/AI Mode. ([Google for Developers][1])
 
-AI/INDEX.HTML — FORMATEO MENOR:
-   La línea 7 tiene preconnect y canonical pegados sin newline (cosmético).
-   No afecta funcionamiento. Corregir si se edita ese archivo por otro motivo.
+Google Search Essentials -- base minima para que una web sea elegible en Google. ([Google for Developers][2])
 
-═══════════════════════════════════════════════════════════════════
-PENDIENTE DAVID (acciones manuales)
-═══════════════════════════════════════════════════════════════════
+Google Search Central -- centro oficial de SEO tecnico, indexacion, rastreo y contenido. ([Google for Developers][3])
 
-REDIRECCIONES (verificar, no urgente):
-   curl -I http://davidportodiaz.com
-   curl -I http://www.davidportodiaz.com
-   curl -I https://www.davidportodiaz.com
-   Resultado esperado: 301/308 → https://davidportodiaz.com/
+General Structured Data Guidelines -- reglas oficiales para que el JSON-LD no sea spam ni enganoso. ([Google for Developers][4])
 
-GITHUB ACTIONS - F2 (update-dates.yml):
-   Verificar: Settings > Actions > General > Workflow permissions = Read and write
-   Si main tiene branch protection, revisar si hay que cambiar a PR automática.
+Book structured data -- oficial de Google para marcado de libros y acciones de lectura/compra. ([Google for Developers][5])
 
-G7 - FERIA DEL LIBRO DE MADRID 2026 — CASETA:
-   Cuando confirmes número de caseta → avísame y actualizo ferias.html + eventos.html.
+A new era for AI Search -- anuncio oficial Google I/O 2026: Search hacia agentes e IA. ([blog.google][6])
 
-PRENSA — NewsArticle schema (cuando haya cobertura):
-   Cuando salga la primera reseña/entrevista en un medio con URL propia:
-   Avisarme → añado sección "En medios" en prensa.html + NewsArticle en @graph.
+## Oficiales: Bing / ChatGPT Search
 
-═══════════════════════════════════════════════════════════════════
-KEYWORDS VERIFICADAS (BLOQUE F/G, mayo 2026)
-═══════════════════════════════════════════════════════════════════
+Bing Webmaster Guidelines -- menciona Copilot y grounding API en sus directrices. ([Search - Microsoft Bing][7])
 
-MAXIMA PRIORIDAD (sin competencia):
-- portal fantasy en español
-- sistema de magia con coste
-- hard magic español
-- Noveris (entidad propia)
+Introducing ChatGPT Search -- anuncio oficial con respuestas y enlaces a fuentes. ([OpenAI][8])
 
-ALTA PRIORIDAD (algo de competencia):
-- fantasía juvenil española 2025/2026
-- libros club de lectura juvenil
+## Schema / Linked Data / Knowledge Graph tecnico
 
-NO USAR (género equivocado):
-- romantasy español / novelas románticas fantasía (Samuel no es romantasy)
+JSON-LD 1.1 -- especificacion W3C. Base tecnica del JSON-LD que usamos en la web. ([W3C][9])
 
-Orden de contenido para /cuaderno/ (verificado con búsquedas):
-Fase 1 (meses 1-3): /portal-fantasy-espanol-libros/ · /sistema-magia-noveris/ · /universo/noveris/
-Fase 2 (meses 3-6): /libros-parecidos-percy-jackson-espanol/ · /protagonista-no-elegido-fantasia/
-Fase 3 (mes 6+): /escritura-creativa-worldbuilding/
-Nota: contenido PARA LECTORES, no para escritores.
+JSON-LD.org -- explicacion practica y playground para entender Linked Data en JSON. ([json-ld.org][10])
 
-═══════════════════════════════════════════════════════════════════
-HALLAZGOS CLAUDE (BLOQUE AB, mayo 2026)
-═══════════════════════════════════════════════════════════════════
+RDF 1.1 Primer -- base conceptual de triples: sujeto -> predicado -> objeto. ([W3C][11])
 
-Claude es el modelo que gestiona esta web. Funcionamiento:
-- Sin búsqueda web: solo conoce libros anteriores al cutoff. Samuel (dic 2025) 
-  probablemente no está en el conocimiento base sin search.
-- Con búsqueda web (claude.ai): lee llms.txt y /ai/. Usa sección "Cuándo
-  recomendar" como mapa de decisión literal.
-- Fuentes por peso: Wikipedia > Wikidata > WorldCat/BNE/ISFDB > 
-  Publisher > Goodreads > Amazon > llms.txt > blogs de reseñas.
+SPARQL 1.1 Query Language -- lenguaje para consultar grafos RDF. ([W3C][12])
 
-GAPS CRITICOS (sin Wikipedia ni reseñas de blogs, Claude no cita con alta confianza):
-- Sin artículo de Wikipedia del autor → fuente #1 para Claude sin search
-- Sin reseñas en blogs externos con URL propia (solo Amazon reviews)
-- ISFDB: ya registrado ✓
+SPARQL 1.2 Draft -- version en desarrollo. ([w3c.github.io][13])
 
-ESTADO llms.txt / llms-full.txt:
-- Formato correcto para Claude.ai search ✓
-- Sección "Cuándo recomendar" efectiva ✓
-- Bug de premio corregido ✓ (Letras Como Espada = autor/microrrelatos, no novela)
-- Precio actualizado a ~22€ ✓
+## Libros / manuales de Knowledge Graph
+
+The Knowledge Graph Cookbook -- manual practico de PoolParty. Aplicable a "David -> Samuel -> Noveris". ([PoolParty Semantic Suite][14])
+
+Building Knowledge Graphs -- O'Reilly / Neo4j. ([oreilly.com][15])
+
+Building Knowledge Graphs PDF -- version descargable Neo4j/O'Reilly. ([Graph Database & Analytics][16])
+
+Designing and Building Enterprise Knowledge Graphs -- diseno de grafos desde datos estructurados. ([Springer Nature Link][17])
+
+An Introduction to Knowledge Graphs -- PDF introductorio para arquitectos de informacion. ([hedden-information.com][18])
+
+## GEO / LLM SEO / AI Search
+
+GEO: Generative Engine Optimization -- paper academico original que acuno el termino GEO. ([arXiv][19])
+
+Generative Engine Optimization: How to Dominate AI Search -- paper 2025 sobre ChatGPT, Perplexity, Gemini y Google. Muy relevante. ([arXiv][20])
+
+llms.txt specification -- propuesta original de Jeremy Howard para dar a los LLMs un indice limpio. ([llms-txt][21])
+
+Answer.AI llms.txt post -- explicacion de por que /llms.txt ayuda a modelos a leer webs sin ruido HTML. ([Answer.AI][22])
+
+Learning AI Search Optimization -- guia gratuita sobre GEO/AEO/LLMO. ([LearningAiSearch][23])
+
+LLMrefs GEO 2026 Guide -- guia practica actual sobre como estructurar contenido para ser citado por IA. ([LLMrefs][24])
+
+ProFound GEO Guide 2025 -- framework practico de 10 pasos para visibilidad en LLMs. ([Profound][25])
+
+## Entity SEO / Knowledge Graph aplicado a SEO
+
+Search Engine Land: Knowledge Graph SEO -- guia 2025 sobre como afecta el Knowledge Graph al SEO. ([Search Engine Land][26])
+
+WordLift: Knowledge Graph SEO -- enfoque practico para construir un grafo SEO desde contenido editorial. ([AI-Powered SEO - WordLift][27])
+
+## Los 3 imprescindibles pendientes
+
+General Structured Data Guidelines. ([Google for Developers][4])
+The Knowledge Graph Cookbook. ([PoolParty Semantic Suite][14])
+Generative Engine Optimization: How to Dominate AI Search. ([arXiv][20])
+
+[1]: https://developers.google.com/search/docs/appearance/ai-features
+[2]: https://developers.google.com/search/docs/essentials
+[3]: https://developers.google.com/search/
+[4]: https://developers.google.com/search/docs/appearance/structured-data/sd-policies
+[5]: https://developers.google.com/search/docs/appearance/structured-data/book
+[6]: https://blog.google/products-and-platforms/products/search/search-io-2026/
+[7]: https://www.bing.com/webmasters/help/webmaster-guidelines-30fba23a
+[8]: https://openai.com/index/introducing-chatgpt-search/
+[9]: https://www.w3.org/TR/json-ld11/
+[10]: https://json-ld.org/
+[11]: https://www.w3.org/TR/rdf11-primer/
+[12]: https://www.w3.org/TR/sparql11-query/
+[13]: https://w3c.github.io/sparql-query/spec/
+[14]: https://www.poolparty.biz/the-knowledge-graph-cookbook/
+[15]: https://www.oreilly.com/library/view/building-knowledge-graphs/9781098127091/
+[16]: https://go.neo4j.com/rs/710-RRC-335/images/Building-Knowledge-Graphs-Practitioner%27s-Guide-OReilly-book.pdf
+[17]: https://link.springer.com/book/10.1007/978-3-031-01916-6
+[18]: https://www.hedden-information.com/wp-content/uploads/2023/03/Intro-to-Knowledge-Graphs-for-Information-Architects.pdf
+[19]: https://arxiv.org/abs/2311.09735
+[20]: https://arxiv.org/abs/2509.08919
+[21]: https://llmstxt.org/
+[22]: https://www.answer.ai/posts/2024-09-03-llmstxt.html
+[23]: https://learningaisearch.com/ai_roadmap/optimize-ai-search/
+[24]: https://llmrefs.com/generative-engine-optimization
+[25]: https://www.tryprofound.com/resources/articles/generative-engine-optimization-geo-guide-2025
+[26]: https://searchengineland.com/guide/knowledge-graph
+[27]: https://wordlift.io/blog/en/knowledge-graph-seo/
+
+---
+
+## Recursos adicionales con enlace directo
+
+**Knowledge Graph / Grafos de Conocimiento:**
+- [Getting Started with Schema.org for Your Personal Knowledge Graph -- mattartz.me](https://www.mattartz.me/getting-started-with-schema-org-for-your-personal-knowledge-graph/) -- Tutorial exactamente para tu caso: persona + obras + entidades relacionadas. Codigo incluido.
+- [The Knowledge Graph Cookbook -- Scribd](https://www.scribd.com/document/714349374/The-Knowledge-Graph-Cookbook) -- El manual tecnico de referencia sobre construccion de Knowledge Graphs con RDF y linked data.
+- [De documentos a consultas inteligentes con LLMs -- SEDIC](https://www.sedic.es/de-documentos-a-consultas-inteligentes-construir-y-consultar-grafos-de-conocimiento-con-llms-articulo-elaborado-con-ia/) -- Articulo academico en espanol sobre como los LLMs consultan grafos. Por que el sameAs Wikidata importa.
+- [Grafo de Conocimiento del Museo del Prado](https://www.museodelprado.es/grafo-de-conocimiento/el-grafo-de-conocimiento-del-museo-del-prado) -- Caso real en espanol de linked data para entidades culturales (autores, obras). El modelo a replicar a escala autor indie.
+- [Enhancing knowledge graphs with microdata and LLMs -- Emerald](https://www.emerald.com/el/article-split/42/3/443/1223565/Enhancing-knowledge-graphs-with-microdata-and-LLMs) -- Paper academico 2024. En ingles.
+
+**Google Search / GEO adicionales:**
+- [Google Search Central -- SEO y IA Generativa](https://developers.google.com/search/docs/fundamentals/seo-and-generative-ai) -- Guia oficial mayo 2026 con mejores practicas para AI Overviews.
+- [Google Developers: Understanding Entities](https://developers.google.com/search/docs/appearance/knowledge-graph) -- Como Google conecta entidades con atributos.
+- [Google Rich Results Test](https://search.google.com/test/rich-results) -- Validar schema antes de publicar.
+- [Schema Markup Validator](https://validator.schema.org/) -- Validar JSON-LD.
+- Backlinko -- Generative Engine Optimization (Apr. 2026) -- Guia integral GEO con checklist.
+- SurferSEO -- 7 Large Language Model Optimization Strategies (Jan. 2026) -- 7 tacticas concretas para LLM citation.
+- SEO.ai -- GEO: How to Optimize for AI Search Results (Apr. 2024) -- Resumen del estudio Princeton sobre GEO.
+- Abdurrahman Simsek -- Knowledge Graph Optimization: Entity SEO Guide (Mar. 2026) -- Schema.org, Wikidata y contenidos para reforzar entidades.
+- [Wikidata -- Guia para editores](https://www.wikidata.org/wiki/Help:Contents) -- Manual del Knowledge Graph global.
+[9]: https://www.w3.org/TR/json-ld11/
+[10]: https://json-ld.org/
+[11]: https://www.w3.org/TR/rdf11-primer/
+[12]: https://www.w3.org/TR/sparql11-query/
+[13]: https://w3c.github.io/sparql-query/spec/
+[14]: https://www.poolparty.biz/the-knowledge-graph-cookbook/
+[15]: https://www.oreilly.com/library/view/building-knowledge-graphs/9781098127091/
+[16]: https://go.neo4j.com/rs/710-RRC-335/images/Building-Knowledge-Graphs-Practitioner%27s-Guide-OReilly-book.pdf
+[17]: https://link.springer.com/book/10.1007/978-3-031-01916-6
+[18]: https://www.hedden-information.com/wp-content/uploads/2023/03/Intro-to-Knowledge-Graphs-for-Information-Architects.pdf
+[19]: https://arxiv.org/abs/2311.09735
+[20]: https://arxiv.org/abs/2509.08919
+[21]: https://llmstxt.org/
+[22]: https://www.answer.ai/posts/2024-09-03-llmstxt.html
+[23]: https://learningaisearch.com/ai_roadmap/optimize-ai-search/
+[24]: https://llmrefs.com/generative-engine-optimization
+[25]: https://www.tryprofound.com/resources/articles/generative-engine-optimization-geo-guide-2025
+[26]: https://searchengineland.com/guide/knowledge-graph
+[27]: https://wordlift.io/blog/en/knowledge-graph-seo/
+
+---
+
+## Recursos adicionales con enlace directo
+
+**Knowledge Graph / Grafos de Conocimiento:**
+- [Getting Started with Schema.org for Your Personal Knowledge Graph -- mattartz.me](https://www.mattartz.me/getting-started-with-schema-org-for-your-personal-knowledge-graph/) -- Tutorial para persona + obras + entidades. Codigo incluido.
+- [The Knowledge Graph Cookbook -- Scribd](https://www.scribd.com/document/714349374/The-Knowledge-Graph-Cookbook) -- Manual tecnico sobre Knowledge Graphs con RDF y linked data.
+- [De documentos a consultas inteligentes con LLMs -- SEDIC](https://www.sedic.es/de-documentos-a-consultas-inteligentes-construir-y-consultar-grafos-de-conocimiento-con-llms-articulo-elaborado-con-ia/) -- Por que el sameAs Wikidata importa para los LLMs.
+- [Grafo de Conocimiento del Museo del Prado](https://www.museodelprado.es/grafo-de-conocimiento/el-grafo-de-conocimiento-del-museo-del-prado) -- Caso real de linked data para entidades culturales. El modelo a replicar.
+- [Enhancing knowledge graphs with microdata and LLMs -- Emerald](https://www.emerald.com/el/article-split/42/3/443/1223565/Enhancing-knowledge-graphs-with-microdata-and-LLMs) -- Paper academico 2024.
+
+**Google Search / GEO adicionales:**
+- [Google Search Central -- SEO y IA Generativa](https://developers.google.com/search/docs/fundamentals/seo-and-generative-ai) -- Guia oficial mayo 2026 para AI Overviews.
+- [Google Developers: Understanding Entities](https://developers.google.com/search/docs/appearance/knowledge-graph) -- Como Google conecta entidades con atributos.
+- [Google Rich Results Test](https://search.google.com/test/rich-results) -- Validar schema.
+- [Schema Markup Validator](https://validator.schema.org/) -- Validar JSON-LD.
+- Backlinko -- Generative Engine Optimization (Apr. 2026) -- Guia integral GEO con checklist.
+- SurferSEO -- 7 Large Language Model Optimization Strategies (Jan. 2026) -- 7 tacticas para LLM citation.
+- SEO.ai -- GEO: How to Optimize for AI Search Results -- Resumen estudio Princeton sobre GEO.
+- Abdurrahman Simsek -- Knowledge Graph Optimization: Entity SEO Guide (Mar. 2026) -- Schema.org, Wikidata y contenidos para entidades.
+- [Wikidata -- Guia para editores](https://www.wikidata.org/wiki/Help:Contents) -- Manual del Knowledge Graph global.
