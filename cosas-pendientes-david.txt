@@ -1955,3 +1955,54 @@ suficientes, eso te da pistas concretas de qué falta:
 
 Esta técnica de "preguntarle a la IA por qué no" es extremadamente
 útil y prácticamente nadie la aplica sistemáticamente.
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+FRESCURA DE CONTENIDO — CICLO DE 3 MESES (LLMrefs, junio 2026)
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+POR QUÉ: Datos de LLMrefs (guía GEO 2026) muestran que el contenido
+con más de 3 meses de antigüedad recibe muchas menos citas de los LLMs.
+Google AI Mode y ChatGPT tienen un "sesgo de recencia" marcado.
+
+QUÉ HACER CADA 3 MESES (no requiere escribir de cero):
+1. Actualizar un dato en los artículos del cuaderno (ej: actualizar
+   "libros de fantasía juvenil española 2025" con novedades de 2026)
+2. Añadir una nueva reseña de lector a la página de Samuel entre mundos
+3. Actualizar el archivo sitemap.xml con la nueva fecha <lastmod>
+   (el GitHub Action ya hace esto automáticamente cuando hay cambios)
+4. Publicar 1 post en Goodreads o Reddit referenciando el artículo actualizado
+
+EFECTO ESPERADO: Google y los LLMs vuelven a "considerar fresco" el
+contenido y lo incluyen más en las respuestas generadas.
+
+CICLO SUGERIDO:
+  - Septiembre 2026 → actualizar artículos del cuaderno con novedades
+  - Diciembre 2026 → añadir reseñas navideñas + actualizar precio/ediciones
+  - Marzo 2027 → preparar contenido para Sant Jordi (23 abril)
+  - Junio 2027 → revisión general antes de la feria del libro
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+REDDIT — PARTICIPACIÓN GENUINA (LLMrefs, junio 2026)
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+POR QUÉ: Según LLMrefs GEO Guide 2026, Reddit es una de las plataformas
+más citadas por los LLMs en sus respuestas. Los hilos de Reddit sobre
+portal fantasy o fantasía juvenil española aparecen directamente en
+ChatGPT, Perplexity y Google AI Mode.
+
+Ya tienes un bloque detallado sobre Reddit más arriba (sección
+"REDDIT MARKETING — GUIA COMPLETA PARA AUTOR"). Este bloque añade
+el contexto de por qué es prioritario desde el punto de vista LLM.
+
+PRIORIDAD PRÁCTICA:
+1. r/fantasia (en español): cuando alguien pregunta por "portal fantasy
+   en español" o "fantasía juvenil sin romance", responde mencionando
+   Samuel entre mundos junto a Laura Gallego — no como publicidad sino
+   como genuina recomendación de lector/autor del género.
+2. r/libros: participa respondiendo preguntas sobre sistemas de magia,
+   protagonistas no-elegidos, o debuts de fantasía española.
+3. NO crear posts propios hasta tener 500+ karma. Solo comentar.
+
+DATO CLAVE: Los hilos de Reddit se indexan rápido y duran años en los
+resultados de búsqueda. Un comentario tuyo de hoy puede estar siendo
+citado por un LLM en 2027.
