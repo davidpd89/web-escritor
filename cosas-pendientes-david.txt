@@ -457,17 +457,28 @@ PROCESO SKYSCRAPER:
    sobre el mismo tema: [URL]. Podría valer la pena mencionarlo. ¡Gracias!"
 
 ---------------------------------------------------------------------------
-ENTITY SEO — WIKIDATA Y VERIFICACION (pendiente David)
+ENTITY SEO — WIKIDATA Y VERIFICACION
 ---------------------------------------------------------------------------
 
-1. MEJORAR WIKIDATA (ya tienes Q139678851 — necesitas añadir más propiedades):
-   - URL: https://www.wikidata.org/wiki/Q139678851
-   - Añadir: "occupation" → "author" (Q482980)
-   - Añadir: "genre" → "fantasy literature" (Q131539)
-   - Añadir: "award received" → Premio Letras Como Espada
-   - Añadir: "publisher" → "Libros Indie"
-   - Añadir: "ORCID iD" (si lo tienes)
-   - Completar más las propiedades — cuantas más, mejor visibilidad en AI
+Estado actual (verificado 27 mayo 2026):
+  Q139678851 (persona) ya tiene: occupation writer, genres fantasía+speculative,
+  ORCID, Goodreads ID, Instagram, website, nationality, birthdate, given/family name.
+  Q139915381 (libro Samuel entre mundos) ya existe con: autor, título, idioma, año.
+
+FALTA AÑADIR — ejecutar vía QuickStatements (quickstatements.toolforge.org):
+  Inicia sesión con tu cuenta de Wikidata y pega estas líneas:
+
+  Q139678851|P136|Q119429258  ← añade portal fantasy como género a la persona
+  Q139915381|P136|Q119429258  ← añade portal fantasy como género al libro
+  Q139915381|P136|Q943192     ← añade fantasía como género al libro
+  Q139915381|P212|"979-13-87659-77-6"  ← añade ISBN-13 al libro
+
+PARA EL PREMIO Y LA EDITORIAL:
+  "Premio Letras Como Espada" y "Libros Indie" no tienen item en Wikidata todavía.
+  Cuando quieras añadirlos: crear los items primero, luego añadir:
+  Q139678851|P166|Qxxx  ← award received → Premio Letras Como Espada
+  Q139915381|P123|Qyyy  ← publisher → Libros Indie
+  Avísame y lo hacemos juntos.
 
 2. VERIFICAR ENTITY RECOGNITION EN GOOGLE:
    - Ve a: https://cloud.google.com/natural-language
@@ -1540,8 +1551,8 @@ Es LIMPIAR ambigüedades y conseguir menciones externas.
 
 ACCIONES CONCRETAS PARA TI:
 
-1. STORYGRAPH — Reclamar el libro o añadirlo si falta.
-   URL: https://app.thestorygraph.com/
+1. ✅ STORYGRAPH — Cuenta creada @david_porto, Samuel entre mundos en Favoritos (mayo 2026).
+   URL: https://app.thestorygraph.com/profile/david_porto
 
 3. GOODREADS — Verifica que los datos son correctos (año, género, editorial).
    La ficha existe pero comprueba que el género sea "Fantasy" con subcategorías
