@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
+
+  <title>Worldbuilding de una ciudad mágica: cómo hacer que Noveris parezca viva | David Porto Díaz</title>
+  <meta name="description" content="Cómo construí Noveris, la ciudad mágica de Samuel entre mundos: qué preguntas hacerse al diseñar una ciudad ficticia, por qué el pasado invisible importa y qué hay detrás de cada calle." />
+  <meta name="author" content="David Porto Díaz" />
+
+  <meta property="og:title" content="Worldbuilding de una ciudad mágica: cómo hacer que Noveris parezca viva" />
+  <meta property="og:description" content="Cómo construí Noveris, la ciudad mágica de Samuel entre mundos: por qué el pasado invisible importa y qué hay detrás de cada calle." />
+  <meta property="og:type" content="article" />
+  <meta property="og:image" content="https://davidportodiaz.com/assets/david-porto-imagen-compartir.webp" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:image:alt" content="Worldbuilding de Noveris — David Porto Díaz" />
+  <meta property="og:url" content="https://davidportodiaz.com/cuaderno/worldbuilding-noveris-ciudad-magica/" />
+  <meta property="og:locale" content="es_ES" />
+  <meta property="og:site_name" content="David Porto Díaz" />
+
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Worldbuilding de una ciudad mágica: cómo hacer que Noveris parezca viva" />
+  <meta name="twitter:description" content="Cómo construí Noveris: por qué el pasado invisible importa y qué hay detrás de cada calle de la ciudad mágica de Samuel entre mundos." />
+  <meta name="twitter:image" content="https://davidportodiaz.com/assets/david-porto-imagen-compartir.webp" />
+
+  <meta name="theme-color" content="#080a0c" />
+  <link rel="canonical" href="https://davidportodiaz.com/cuaderno/worldbuilding-noveris-ciudad-magica/" />
+  <link rel="preconnect" href="https://gc.zgo.at" />
+  <link rel="preload" as="font" type="font/woff2" href="/assets/fonts/cg-normal-latin.woff2" crossorigin />
+  <link rel="preload" as="font" type="font/woff2" href="/assets/fonts/inter-normal-latin.woff2" crossorigin />
+  <link rel="icon" type="image/png" href="/assets/david-porto-favicon.png" />
+  <link rel="apple-touch-icon" href="/assets/david-porto-favicon.png" />
+  <link rel="manifest" href="/manifest.json" />
+  <link rel="preload" href="/styles.css" as="style" onload="this.onload=null;this.rel='stylesheet'" />
+  <noscript><link rel="stylesheet" href="/styles.css" /></noscript>
+  <style>:root{color-scheme:dark;--bg:#080a0c;--bg-alt:#0c1018;--bg-soft:#13110d;--surface:#18140e;--text:#f2e8d8;--muted:#b6a894;--muted-2:#8e8170;--accent:#c4944d;--accent-strong:#e0b979;--border:rgba(242,232,216,0.11);--border-strong:rgba(196,148,77,0.3);--shadow:0 32px 120px rgba(0,0,0,0.55);--shadow-sm:0 8px 36px rgba(0,0,0,0.38);--shadow-hover:0 20px 60px rgba(0,0,0,0.62);--radius-lg:20px;--radius-md:14px;--max-width:1180px;--font-display:"Cormorant Garamond",Georgia,"Times New Roman",serif;--font-body:"Inter",system-ui,-apple-system,sans-serif}.skip-link{position:absolute;top:-100%;left:16px;z-index:9999;padding:10px 20px;border-radius:0 0 8px 8px;background:var(--accent-strong);color:#07060a;font-size:0.9rem;font-weight:600;text-decoration:none;transition:top 0.15s ease}.skip-link:focus{top:0}*,*::before,*::after{box-sizing:border-box}html{scroll-behavior:smooth;scroll-padding-top:96px;overflow-x:hidden}body{margin:0;min-height:100vh;font-family:var(--font-body);font-size:1rem;line-height:1.6;color:var(--text);background:radial-gradient(circle at 18% 8%,rgba(196,148,77,0.09),transparent 30%),radial-gradient(circle at 82% 4%,rgba(12,20,32,0.6),transparent 28%),linear-gradient(165deg,#080a0c 0%,#0c100a 55%,#060808 100%)}body::before{content:"";position:fixed;inset:0;pointer-events:none;background-image:linear-gradient(rgba(255,255,255,0.016) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,0.016) 1px,transparent 1px);background-size:58px 58px;mask-image:linear-gradient(to bottom,black,transparent 68%);z-index:0}body::after{content:"";position:fixed;inset:0;pointer-events:none;background:radial-gradient(ellipse at center,transparent 0%,rgba(0,0,0,0.3) 80%);z-index:0}h1,h2,h3,h4,h5,h6{font-family:var(--font-display)}a{color:inherit}[id]{scroll-margin-top:96px}img{display:block;max-width:100%;height:auto}.sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}.site-shell{position:relative;z-index:1;max-width:var(--max-width);width:calc(100% - 64px);margin:0 auto;padding:28px 0 54px}.site-header{position:sticky;top:0;z-index:20;display:flex;align-items:center;justify-content:space-between;gap:28px;padding:14px 0;margin-bottom:48px;border-bottom:1px solid var(--border);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);background:rgba(8,10,12,0.82)}.brand{display:inline-flex;align-items:center;gap:14px;color:var(--text);text-decoration:none;flex-shrink:0}.brand-mark{display:flex;align-items:center;justify-content:center;width:52px;height:52px;border:1px solid var(--border-strong);border-radius:50%;overflow:hidden;background:#000;flex-shrink:0}.brand-logo-img{width:100%;height:100%;object-fit:cover;border-radius:50%}.brand-text{display:grid;gap:3px}.brand-text strong{font-family:var(--font-body);font-size:0.95rem;font-weight:600;letter-spacing:0.05em}.brand-text small{color:var(--muted);font-size:0.86rem}.site-nav{display:flex;align-items:center;justify-content:flex-end;flex-wrap:wrap;gap:clamp(10px,1.4vw,22px);row-gap:4px}.site-nav a{display:inline-flex;align-items:center;min-height:44px;color:var(--muted);font-family:var(--font-body);font-size:0.88rem;font-weight:500;text-decoration:none;letter-spacing:0.04em;transition:color 0.2s ease}.site-nav a:hover,.site-nav a:focus-visible,.site-nav a[aria-current="page"]{color:var(--text)}.nav-toggle{display:none;width:48px;height:48px;padding:0;border:1px solid var(--border);border-radius:999px;background:transparent;cursor:pointer}.nav-toggle span{display:block;width:18px;height:1px;margin:6px auto;background:var(--text);transition:transform 0.2s ease,opacity 0.2s ease}.button{display:inline-flex;align-items:center;justify-content:center;min-height:48px;min-width:48px;padding:13px 26px;border:1px solid var(--border);border-radius:999px;background:transparent;color:var(--text);text-decoration:none;font-family:var(--font-body);font-size:0.9rem;font-weight:500;letter-spacing:0.03em;line-height:1;cursor:pointer;transition:transform 0.18s ease,border-color 0.18s ease,background 0.18s ease,box-shadow 0.18s ease,color 0.18s ease}.button.primary{color:#07060a;background:linear-gradient(135deg,var(--accent-strong) 0%,var(--accent) 100%);border-color:transparent;font-weight:600}.button.primary:hover,.button.primary:focus-visible{background:linear-gradient(135deg,#ead08a,var(--accent-strong));transform:translateY(-2px);box-shadow:0 6px 18px rgba(196,148,77,0.22)}.button.secondary{background:transparent;border-color:var(--border-strong)}.button.secondary:hover,.button.secondary:focus-visible{background:rgba(196,148,77,0.07);border-color:var(--accent);transform:translateY(-1px)}.eyebrow{margin:0 0 14px;color:var(--accent);font-family:var(--font-body);font-size:0.72rem;font-weight:600;letter-spacing:0.28em;text-transform:uppercase}@media(max-width:760px){.site-shell{width:100%;padding:14px 18px 48px}.site-header{align-items:flex-start;margin-bottom:28px}.nav-toggle{display:inline-block}.site-nav{position:absolute;top:80px;right:0;left:0;display:none;flex-direction:column;align-items:flex-start;gap:0;padding:12px 16px;border:1px solid var(--border);border-radius:var(--radius-md);background:rgba(8,10,12,.97)}.site-nav.is-open{display:flex}.site-nav a{width:100%;min-height:48px;display:flex;align-items:center;padding:12px 0;border-bottom:1px solid rgba(244,236,223,.06)}}</style>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Article",
+        "@id": "https://davidportodiaz.com/cuaderno/worldbuilding-noveris-ciudad-magica/#article",
+        "headline": "Worldbuilding de una ciudad mágica: cómo hacer que Noveris parezca viva",
+        "description": "Cómo construí Noveris, la ciudad mágica de Samuel entre mundos: qué preguntas hacerse al diseñar una ciudad ficticia, por qué el pasado invisible importa y qué hay detrás de cada calle.",
+        "url": "https://davidportodiaz.com/cuaderno/worldbuilding-noveris-ciudad-magica/",
+        "inLanguage": "es",
+        "datePublished": "2026-05-27",
+        "dateModified": "2026-05-27",
+        "author": { "@id": "https://davidportodiaz.com/#author" },
+        "publisher": { "@id": "https://davidportodiaz.com/#author" },
+        "isPartOf": { "@id": "https://davidportodiaz.com/#website" },
+        "keywords": "worldbuilding fantasía, ciudad mágica, Noveris, diseño de mundo, fantasía juvenil española",
+        "about": [
+          { "@type": "Thing", "name": "Worldbuilding" },
+          { "@type": "Thing", "name": "Ciudad mágica" },
+          { "@type": "Thing", "name": "Fantasía juvenil española" }
+        ],
+        "mentions": { "@id": "https://davidportodiaz.com/#book-samuel" }
+      },
+      {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          { "@type": "ListItem", "position": 1, "name": "Inicio", "item": "https://davidportodiaz.com/" },
+          { "@type": "ListItem", "position": 2, "name": "Cuaderno", "item": "https://davidportodiaz.com/cuaderno/" },
+          { "@type": "ListItem", "position": 3, "name": "Worldbuilding de Noveris", "item": "https://davidportodiaz.com/cuaderno/worldbuilding-noveris-ciudad-magica/" }
+        ]
+      },
+      {
+        "@type": "FAQPage",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "¿Qué es el worldbuilding en fantasía juvenil?",
+            "acceptedAnswer": { "@type": "Answer", "text": "El worldbuilding es el proceso de construir el mundo ficticio de una novela: su geografía, historia, culturas, reglas y lógica interna. En la fantasía juvenil, un worldbuilding sólido hace que el mundo se sienta real incluso cuando el protagonista —y el lector— lo están descubriendo por primera vez." }
+          },
+          {
+            "@type": "Question",
+            "name": "¿Cómo es la ciudad de Noveris en Samuel entre mundos?",
+            "acceptedAnswer": { "@type": "Answer", "text": "Noveris es una ciudad dimensional que existe en un punto de convergencia de planos. Tiene barrios que crecieron según su proximidad al acceso dimensional, arquitectura que refleja qué plano llegó primero, y un idioma que mezcla influencias de varios mundos. Es el escenario principal de Samuel entre mundos (David Porto Díaz, Libros Indie, 2025)." }
+          },
+          {
+            "@type": "Question",
+            "name": "¿Cómo crear una ciudad ficticia que parezca real?",
+            "acceptedAnswer": { "@type": "Answer", "text": "La clave es preguntarse por qué existe la ciudad donde existe. Una ciudad real no es un plano de arquitecto: es el resultado de decisiones humanas acumuladas a lo largo de generaciones. Cuando una ciudad ficticia tiene una razón lógica para existir en ese lugar, los barrios, la arquitectura y los conflictos sociales se generan solos a partir de esa lógica." }
+          },
+          {
+            "@type": "Question",
+            "name": "¿Qué es el portal fantasy?",
+            "acceptedAnswer": { "@type": "Answer", "text": "El portal fantasy es un subgénero de la fantasía en el que el protagonista cruza desde el mundo real a un mundo secundario a través de un portal. Samuel entre mundos es portal fantasy: Samuel llega a Noveris a través de un objeto sellado y debe entender las reglas de ese mundo sin que nadie se las explique." }
+          }
+        ]
+      }
+    ]
+  }
+  </script>
+<script type="text/javascript">
+    (function(c,l,a,r,i,t,y){
+        c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+        t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+        y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+    })(window, document, "clarity", "script", "wxkseslr28");
+</script>
+</head>
+<body>
+  <a href="#main-content" class="skip-link">Saltar al contenido</a>
+
+  <div class="site-shell" id="contenido">
+    <header class="site-header">
+      <a class="brand" href="/" aria-label="Volver al inicio - David Porto Díaz">
+        <span class="brand-mark">
+          <img src="/assets/logo-david-porto-diaz-escritor-176.webp" alt="" class="brand-logo-img" width="52" height="52" loading="eager" aria-hidden="true" />
+        </span>
+        <span class="brand-text">
+          <strong>David Porto Díaz</strong>
+          <small>Escritor</small>
+        </span>
+      </a>
+
+      <button class="nav-toggle" type="button" aria-label="Abrir menú" aria-expanded="false">
+        <span></span>
+        <span></span>
+      </button>
+
+      <nav class="site-nav" aria-label="Navegación principal">
+        <a href="/">Inicio</a>
+        <a href="/libros/samuel-entre-mundos/">Samuel entre mundos</a>
+        <a href="/universo/noveris/">Universo</a>
+        <a href="/autor.html">El autor</a>
+        <a href="/eventos.html">Eventos</a>
+        <a href="/prensa.html">Prensa</a>
+      </nav>
+    </header>
+
+    <main id="main-content" tabindex="-1">
+
+      <!-- BREADCRUMB -->
+      <nav class="breadcrumb" aria-label="Ruta de navegación" style="margin-bottom:32px;font-size:0.82rem;color:var(--muted)">
+        <a href="/" style="color:var(--muted);text-decoration:none">Inicio</a>
+        <span aria-hidden="true" style="margin:0 6px">›</span>
+        <a href="/cuaderno/" style="color:var(--muted);text-decoration:none">Cuaderno</a>
+        <span aria-hidden="true" style="margin:0 6px">›</span>
+        <span style="color:var(--text)">Worldbuilding de Noveris</span>
+      </nav>
+
+      <!-- ARTICLE -->
+      <article style="max-width:760px" aria-labelledby="article-title">
+
+        <header style="margin-bottom:48px">
+          <p class="eyebrow">Cuaderno del autor</p>
+          <h1 id="article-title" style="font-family:var(--font-display);font-size:clamp(2.2rem,4.5vw,3.6rem);font-weight:600;line-height:1.1;margin:0 0 24px">Worldbuilding de una ciudad mágica: cómo hacer que Noveris parezca viva</h1>
+          <p style="font-family:var(--font-display);font-size:clamp(1.1rem,1.5vw,1.25rem);font-style:italic;color:var(--muted);line-height:1.7;margin:0 0 20px">Construir un mundo ficticio no consiste en inventar nombres y mapas. Consiste en responder una sola pregunta. Esta es la que cambió Noveris.</p>
+          <p style="font-size:0.84rem;color:var(--muted-2)">Por <a href="/autor.html" style="color:var(--muted)">David Porto Díaz</a> · 27 mayo 2026 · 7 min de lectura</p>
+        </header>
+
+        <!-- AEO DEFINITION BOX -->
+        <div style="border-left:3px solid var(--accent);padding:20px 24px;margin-bottom:40px;background:rgba(196,148,77,0.05);border-radius:0 var(--radius-md) var(--radius-md) 0" role="note" aria-label="Definición">
+          <p style="margin:0;font-size:1rem;line-height:1.7"><strong>El worldbuilding de una ciudad mágica</strong> no empieza por la arquitectura ni los mapas, sino por la lógica que explica su existencia: por qué está donde está, quién la construyó y qué necesidad cubrió. Cuando esa lógica es sólida, los detalles del mundo se generan solos a partir de ella, y el lector percibe la ciudad como un lugar real aunque nunca haya existido.</p>
+        </div>
+
+        <!-- INTRO -->
+        <div style="font-size:1.05rem;line-height:1.8;margin-bottom:48px">
+          <p>Una ciudad ficticia es fácil de inventar. Un nombre. Cuatro calles. Un edificio emblemático. Un tipo de gente que habla de cierta manera.</p>
+          <p>Una ciudad que parezca viva es otra cosa.</p>
+          <p>Cuando empecé a diseñar <a href="/universo/noveris/" style="color:var(--accent)">Noveris</a>, el escenario principal de <em>Samuel entre mundos</em>, el error más frecuente que cometía era describirla como un set de decorado. Fachadas. Colores. Dimensiones. Lo que un arquitecto pondría en un plano. El resultado era un mundo que se veía desde fuera pero no se sentía desde dentro.</p>
+          <p>Este artículo cuenta qué cambió eso: qué pregunta reordenó todo el diseño de Noveris y qué aprendí en el proceso sobre la diferencia entre construir un mundo y construir la ilusión de un mundo.</p>
+        </div>
+
+        <!-- H2: CIUDADES PLANAS -->
+        <section id="ciudades-planas" style="margin-bottom:48px">
+          <h2 style="font-family:var(--font-display);font-size:clamp(1.6rem,2.8vw,2.2rem);font-weight:600;line-height:1.2;margin:0 0 20px">El primer problema: las ciudades como decorado</h2>
+
+          <p style="line-height:1.8">La diferencia entre una ciudad-decorado y una ciudad-lugar es la misma que existe entre fotografiar una ciudad y vivir en ella. Cuando fotografías, ves superficies: colores, formas, proporciones. Cuando vives, ves capas: la calle que se llama así porque antes había un mercado, el edificio que tiene esa grieta porque en 1978 hubo un terremoto, el barrio que está donde está porque el río lo empujó ahí hace doscientos años.</p>
+          <p style="line-height:1.8">Las ciudades reales no son planos. Son el resultado de generaciones de decisiones humanas acumuladas. Cada calle, cada edificio, cada nombre es la respuesta visible a una pregunta que alguien se hizo en el pasado: ¿dónde construimos esto? ¿Por qué aquí y no allá? ¿Qué necesitamos que esté cerca?</p>
+          <p style="line-height:1.8">Una ciudad ficticia que se sienta real necesita ese mismo principio activo: no solo parecer un lugar, sino tener una lógica que explique por qué es como es.</p>
+
+          <h3 style="font-family:var(--font-display);font-size:clamp(1.25rem,2vw,1.65rem);font-weight:600;margin:32px 0 14px">El error de empezar por el mapa</h3>
+          <p style="line-height:1.8">Muchos escritores de fantasía empiezan el worldbuilding dibujando un mapa. Es comprensible: el mapa da la sensación de que el mundo existe antes de que exista. Pero el mapa es el resultado, no el origen. Si dibujas el mapa antes de saber por qué la ciudad está donde está, terminas con una ciudad que parece real en el papel y vacía en el texto.</p>
+          <p style="line-height:1.8">Yo cometí ese error al principio con Noveris. Tenía mapas, tenía nombres de barrios, tenía una plaza central y un mercado y unas murallas que delimitaban el núcleo histórico. Lo que no tenía era ninguna razón lógica por la que todo eso estuviera donde estaba. El resultado era exactamente lo que describes: un set de decorado. Los personajes se movían por él, pero el decorado no los afectaba.</p>
+        </section>
+
+        <!-- H2: LA PREGUNTA -->
+        <section id="la-pregunta" style="margin-bottom:48px">
+          <h2 style="font-family:var(--font-display);font-size:clamp(1.6rem,2.8vw,2.2rem);font-weight:600;line-height:1.2;margin:0 0 20px">La pregunta que lo cambió todo: ¿por qué existe Noveris donde existe?</h2>
+
+          <p style="line-height:1.8">La pregunta llegó durante la tercera revisión del primer capítulo. Estaba intentando explicar por qué el mercado central de Noveris tenía siempre más actividad en ciertos días de la semana, y me di cuenta de que no tenía ninguna razón lógica para eso: era un detalle que había añadido porque los mercados medievales funcionaban así en el mundo real, no porque tuviera sentido dentro del mundo que estaba construyendo.</p>
+          <p style="line-height:1.8">Para encontrar la razón necesitaba responder primero algo más básico: ¿por qué Noveris existe donde existe? ¿Qué tiene ese lugar que no tiene ningún otro?</p>
+          <p style="line-height:1.8">La respuesta que encontré cambió todo lo que vino después.</p>
+
+          <h3 style="font-family:var(--font-display);font-size:clamp(1.25rem,2vw,1.65rem);font-weight:600;margin:32px 0 14px">La convergencia de planos dimensionales</h3>
+          <p style="line-height:1.8">Noveris existe en un punto de convergencia de planos dimensionales. No porque alguien la diseñara así, sino porque ese punto de convergencia ya estaba ahí —una anomalía geográfica dimensional—, y la ciudad creció a su alrededor porque resultaba conveniente, rentable, estratégico para quienes sabían aprovecharla.</p>
+          <p style="line-height:1.8">Esa respuesta generó, sin que yo tuviera que inventar nada más, toda la lógica urbana de la ciudad:</p>
+          <ul style="line-height:1.8;padding-left:24px;margin:16px 0">
+            <li style="margin-bottom:10px">Los barrios que crecieron más rápido y más ricos son los más cercanos al punto de acceso dimensional.</li>
+            <li style="margin-bottom:10px">Los barrios que quedaron al margen son los que están en zonas donde la convergencia genera anomalías inestables: nadie quiere construir ahí porque las estructuras no duran.</li>
+            <li style="margin-bottom:10px">La arquitectura de distintos barrios refleja qué plano dimensional llegó primero: los edificios más antiguos mezclan materiales que no existen en el mundo real.</li>
+            <li style="margin-bottom:10px">El idioma de Noveris mezcla influencias de varios mundos porque los primeros habitantes vinieron de distintos planos.</li>
+            <li>El mercado central tiene actividad variable porque los ciclos dimensionales no son constantes: hay días en los que el acceso está más activo y el intercambio aumenta.</li>
+          </ul>
+
+          <h3 style="font-family:var(--font-display);font-size:clamp(1.25rem,2vw,1.65rem);font-weight:600;margin:32px 0 14px">Lo que esa respuesta generó</h3>
+          <p style="line-height:1.8">Cuando una ciudad tiene una lógica de origen, los conflictos sociales y políticos se generan solos. Las facciones de Noveris —los Zunthar y los Marelian— no surgieron de una decisión narrativa arbitraria. Surgieron de la pregunta: ¿quién controla el acceso a la convergencia? ¿Quién decide quién puede usarla y en qué condiciones? Esas preguntas tienen respuestas distintas dependiendo de si eres un conservacionista que cree que la convergencia es un recurso escaso o un pragmático que cree que debe explotarse mientras esté disponible. Y de esa diferencia de respuestas nacen dos facciones con filosofías distintas, intereses opuestos y una historia de conflictos que precede a Samuel por décadas.</p>
+          <p style="line-height:1.8">Nada de eso estaba planificado. Todo surgió de responder la pregunta correcta.</p>
+        </section>
+
+        <!-- H2: EL 90% INVISIBLE -->
+        <section id="worldbuilding-invisible" style="margin-bottom:48px">
+          <h2 style="font-family:var(--font-display);font-size:clamp(1.6rem,2.8vw,2.2rem);font-weight:600;line-height:1.2;margin:0 0 20px">El worldbuilding que no aparece en el libro</h2>
+
+          <p style="line-height:1.8">Hay una frase que se repite mucho en conversaciones sobre escritura de fantasía y que, con el tiempo, aprendí a leer en su sentido correcto: "el 90% del worldbuilding no aparece en el libro".</p>
+          <p style="line-height:1.8">Se dice a veces como advertencia —no dediques demasiado tiempo a construir cosas que el lector nunca va a ver— y a veces como principio —construye todo lo que necesites aunque no lo uses, porque el lector percibe la solidez del mundo aunque no sepa de dónde viene.</p>
+          <p style="line-height:1.8">Las dos lecturas son correctas. Y son compatibles.</p>
+
+          <h3 style="font-family:var(--font-display);font-size:clamp(1.25rem,2vw,1.65rem);font-weight:600;margin:32px 0 14px">Lo que no está en el texto</h3>
+          <p style="line-height:1.8">El 90% del worldbuilding de Noveris no está en el texto de <em>Samuel entre mundos</em>. Está en mis notas, en los mapas que dibujé mal, en las preguntas que me hice sobre la historia de la ciudad y que todavía no tienen respuesta definitiva.</p>
+          <p style="line-height:1.8">Hay barrios enteros de Noveris que no aparecen en la primera novela. Hay personajes secundarios con historias completas que el lector nunca va a conocer a menos que haya más libros. Hay decisiones sobre el idioma, la gastronomía y los rituales de la ciudad que influyen en cómo hablan los personajes pero que no se explican directamente en el texto.</p>
+
+          <h3 style="font-family:var(--font-display);font-size:clamp(1.25rem,2vw,1.65rem);font-weight:600;margin:32px 0 14px">Por qué necesitas saberlo igual</h3>
+          <p style="line-height:1.8">Cuando un escritor no sabe qué hay detrás de su mundo, eso se percibe en el texto aunque el lector no sepa explicar por qué. Los personajes actúan de forma inconsistente con su contexto. Los conflictos parecen arbitrarios porque no tienen raíces históricas visibles. El mundo se siente pequeño aunque abarque miles de páginas.</p>
+          <p style="line-height:1.8">No necesitas saber todo antes de empezar a escribir. Pero sí necesitas saber que existe. Que si alguien te pregunta por qué el mercado central está donde está, tienes una respuesta que tiene sentido aunque nunca salga en voz alta en la novela.</p>
+          <p style="line-height:1.8">La diferencia entre un escritor que sabe y un escritor que improvisa se percibe en la solidez de los detalles. No en su cantidad.</p>
+        </section>
+
+        <!-- H2: DECISIONES CONCRETAS -->
+        <section id="decisiones-diseno" style="margin-bottom:48px">
+          <h2 style="font-family:var(--font-display);font-size:clamp(1.6rem,2.8vw,2.2rem);font-weight:600;line-height:1.2;margin:0 0 20px">Decisiones concretas de diseño en Noveris</h2>
+
+          <p style="line-height:1.8">Una vez establecida la lógica de origen, las decisiones concretas de diseño fueron relativamente fáciles. No en el sentido de que no requirieran trabajo, sino en el sentido de que tenían una dirección clara. En lugar de inventar detalles, los deducía de la lógica que ya existía.</p>
+
+          <h3 style="font-family:var(--font-display);font-size:clamp(1.25rem,2vw,1.65rem);font-weight:600;margin:32px 0 14px">Barrios que crecen por necesidad, no por diseño</h3>
+          <p style="line-height:1.8">Los barrios de Noveris no fueron planificados. Crecieron según la presión de las necesidades. El barrio más antiguo está junto al punto de acceso dimensional porque los primeros habitantes querían estar cerca del recurso. El barrio industrial creció después, cuando hubo suficiente población para especializarse. Los barrios periféricos llegaron cuando el núcleo central se volvió demasiado caro para los recién llegados.</p>
+          <p style="line-height:1.8">Cada uno de esos barrios tiene una identidad que refleja su origen: el tipo de gente que lo habita, el tipo de comercio que lo define, el tipo de conflicto que genera. Samuel, que llega a Noveris sin entender nada, aprende a leer la ciudad exactamente así: leyendo los barrios como si fueran capítulos de una historia que nadie le ha contado.</p>
+
+          <h3 style="font-family:var(--font-display);font-size:clamp(1.25rem,2vw,1.65rem);font-weight:600;margin:32px 0 14px">La arquitectura como historia acumulada</h3>
+          <p style="line-height:1.8">La arquitectura de Noveris mezcla materiales y estilos de distintos planos dimensionales, pero no de forma caótica. Mezcla de forma estratificada: los edificios más antiguos tienen materiales del plano que llegó primero, los más recientes tienen materiales locales con influencias de los últimos planos que se abrieron. Un arquitecto de Noveris puede leer la historia de un edificio en su estructura.</p>
+          <p style="line-height:1.8">Ese detalle no aparece explicado directamente en el texto de <em>Samuel entre mundos</em>. Pero aparece en cómo los personajes que llevan tiempo en Noveris miran los edificios, en qué comentarios hacen, en qué les parece obvio que Samuel no entiende. El lector no necesita saber la teoría para percibir que los personajes nativos tienen una relación con la ciudad que Samuel todavía no tiene.</p>
+
+          <h3 style="font-family:var(--font-display);font-size:clamp(1.25rem,2vw,1.65rem);font-weight:600;margin:32px 0 14px">El mapa de Noveris</h3>
+          <p style="line-height:1.8">El mapa de Noveris que dibujé durante el proceso —y que está disponible en la web— es la versión simplificada del worldbuilding que hay detrás. Muestra los barrios principales, los puntos de referencia clave y la disposición general de la ciudad. Lo que no muestra es todo lo que hubo antes: los mapas anteriores que dibujé mal, las versiones que tuve que tirar porque la lógica no cuadraba, las iteraciones en las que los barrios estaban en sitios que luego no tenían sentido.</p>
+          <p style="line-height:1.8">El mapa final es el resultado del worldbuilding, no su punto de partida. Esa es la diferencia.</p>
+        </section>
+
+        <!-- H2: CIERRE -->
+        <section id="la-ciudad-que-sigue-creciendo" style="margin-bottom:48px">
+          <h2 style="font-family:var(--font-display);font-size:clamp(1.6rem,2.8vw,2.2rem);font-weight:600;line-height:1.2;margin:0 0 20px">La ciudad que sigue creciendo</h2>
+
+          <p style="line-height:1.8">Noveris sigue creciendo en mis notas aunque la primera novela ya esté publicada. Hay preguntas sobre la ciudad que todavía no he respondido, zonas que todavía no he explorado en el texto, personajes cuya historia en la ciudad no he contado.</p>
+          <p style="line-height:1.8">Eso no es un problema. Es exactamente cómo tiene que funcionar.</p>
+          <p style="line-height:1.8">Las ciudades que parecen vivas son las que tienen un pasado aunque el lector nunca lo vea. Son las que tienen una lógica que explica por qué son como son aunque esa lógica no se explique directamente en el texto. Son las que hacen sentir al lector que podría seguir explorando si hubiera más páginas.</p>
+          <p style="line-height:1.8">Si quieres ver cómo se percibe Noveris desde los ojos de alguien que acaba de llegar sin entender nada, el <a href="/fragmento/" style="color:var(--accent)">capítulo 1 de Samuel entre mundos está disponible gratis</a>. Samuel no sabe nada de convergencias dimensionales cuando empieza. Tú tampoco tienes que saberlo para entrar.</p>
+        </section>
+
+        <!-- FAQ -->
+        <section id="preguntas-frecuentes" style="margin-bottom:48px">
+          <h2 style="font-family:var(--font-display);font-size:clamp(1.6rem,2.8vw,2.2rem);font-weight:600;line-height:1.2;margin:0 0 28px">Preguntas frecuentes sobre worldbuilding y Noveris</h2>
+
+          <div style="border:1px solid var(--border);border-radius:var(--radius-md);overflow:hidden">
+            <details style="padding:20px 24px;border-bottom:1px solid var(--border)">
+              <summary style="font-weight:600;cursor:pointer;list-style:none;display:flex;justify-content:space-between;align-items:center">¿Qué es el worldbuilding en fantasía juvenil? <span aria-hidden="true" style="color:var(--accent)">+</span></summary>
+              <p style="margin:14px 0 0;color:var(--muted);line-height:1.7">El worldbuilding es el proceso de construir el mundo ficticio de una novela: su geografía, historia, culturas, reglas y lógica interna. En la fantasía juvenil, un worldbuilding sólido hace que el mundo se sienta real incluso cuando el protagonista —y el lector— lo están descubriendo por primera vez.</p>
+            </details>
+            <details style="padding:20px 24px;border-bottom:1px solid var(--border)">
+              <summary style="font-weight:600;cursor:pointer;list-style:none;display:flex;justify-content:space-between;align-items:center">¿Cómo es la ciudad de Noveris en Samuel entre mundos? <span aria-hidden="true" style="color:var(--accent)">+</span></summary>
+              <p style="margin:14px 0 0;color:var(--muted);line-height:1.7">Noveris es una ciudad dimensional que existe en un punto de convergencia de planos. Tiene barrios que crecieron según su proximidad al acceso dimensional, arquitectura que refleja qué plano llegó primero, y un idioma que mezcla influencias de varios mundos. Es el escenario principal de Samuel entre mundos (David Porto Díaz, Libros Indie, 2025).</p>
+            </details>
+            <details style="padding:20px 24px;border-bottom:1px solid var(--border)">
+              <summary style="font-weight:600;cursor:pointer;list-style:none;display:flex;justify-content:space-between;align-items:center">¿Cómo crear una ciudad ficticia que parezca real? <span aria-hidden="true" style="color:var(--accent)">+</span></summary>
+              <p style="margin:14px 0 0;color:var(--muted);line-height:1.7">La clave es preguntarse por qué existe la ciudad donde existe. Una ciudad real no es un plano de arquitecto: es el resultado de decisiones humanas acumuladas a lo largo de generaciones. Cuando una ciudad ficticia tiene una razón lógica para existir en ese lugar, los barrios, la arquitectura y los conflictos sociales se generan solos a partir de esa lógica.</p>
+            </details>
+            <details style="padding:20px 24px">
+              <summary style="font-weight:600;cursor:pointer;list-style:none;display:flex;justify-content:space-between;align-items:center">¿Qué es el portal fantasy? <span aria-hidden="true" style="color:var(--accent)">+</span></summary>
+              <p style="margin:14px 0 0;color:var(--muted);line-height:1.7">El portal fantasy es un subgénero de la fantasía en el que el protagonista cruza desde el mundo real a un mundo secundario a través de un portal. Samuel entre mundos es portal fantasy: Samuel llega a Noveris a través de un objeto sellado y debe entender las reglas de ese mundo sin que nadie se las explique.</p>
+            </details>
+          </div>
+        </section>
+
+        <!-- NEWSLETTER -->
+        <section id="newsletter" style="margin:56px 0;padding:36px 40px;border:1px solid var(--border-strong);border-radius:20px;background:rgba(196,148,77,0.04)">
+          <p class="eyebrow">Cuaderno de fantasía</p>
+          <h2 style="font-family:var(--font-display);font-size:clamp(1.4rem,2.4vw,1.9rem);font-weight:600;margin:0 0 12px">Recibe nuevos artículos y fragmentos de David Porto Díaz</h2>
+          <p style="color:var(--muted);line-height:1.7;margin:0 0 24px">Sé de los primeros lectores de Noveris. Novedades del universo, fragmentos exclusivos y avance de los próximos textos del autor.</p>
+
+          <form id="newsletter-form-cuaderno" class="newsletter-form" novalidate>
+            <label for="nl-email-cuaderno" style="display:block;font-size:0.88rem;font-weight:500;margin-bottom:8px">Email</label>
+            <div style="display:flex;gap:12px;flex-wrap:wrap">
+              <input type="email" id="nl-email-cuaderno" name="email" autocomplete="email" required placeholder="tu@email.com"
+                     style="flex:1;min-width:220px;padding:13px 18px;border:1px solid var(--border-strong);border-radius:999px;background:rgba(255,255,255,0.04);color:var(--text);font-size:0.95rem;font-family:var(--font-body);outline:none" />
+              <button class="button primary" type="submit" style="white-space:nowrap">Apuntarme</button>
+            </div>
+            <label style="display:flex;align-items:flex-start;gap:10px;margin-top:14px;font-size:0.82rem;color:var(--muted);cursor:pointer">
+              <input type="checkbox" id="nl-gdpr-cuaderno" required style="margin-top:3px;flex-shrink:0" />
+              <span>Acepto recibir novedades del autor. Puedo darme de baja en cualquier momento. <a href="/privacidad.html" style="color:var(--accent)">Política de privacidad</a>.</span>
+            </label>
+            <p id="nl-status-cuaderno" role="status" aria-live="polite" style="margin-top:12px;font-size:0.88rem;min-height:1.4em"></p>
+          </form>
+        </section>
+
+        <!-- CTA BOTTOM -->
+        <div style="border-top:1px solid var(--border);padding-top:40px;margin-top:16px;display:flex;gap:16px;flex-wrap:wrap">
+          <a href="/libros/samuel-entre-mundos/" class="button secondary">Ver ficha del libro</a>
+          <a href="/fragmento/" class="button primary">Leer el capítulo 1 gratis</a>
+        </div>
+
+      </article>
+
+    </main>
+
+    <footer style="margin-top:80px;padding-top:32px;border-top:1px solid var(--border);display:flex;flex-wrap:wrap;justify-content:space-between;gap:16px;font-size:0.82rem;color:var(--muted-2)">
+      <p style="margin:0">© 2026 David Porto Díaz · <a href="/privacidad.html" style="color:var(--muted-2)">Privacidad</a> · <a href="/aviso-legal.html" style="color:var(--muted-2)">Aviso legal</a></p>
+      <p style="margin:0"><a href="/" style="color:var(--muted-2)">davidportodiaz.com</a></p>
+    </footer>
+  </div>
+
+  <script src="/script.js" defer></script>
+  <script>window.goatcounter={path:function(p){return location.hostname+p}}</script>
+  <script data-goatcounter="https://davidportodiaz.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
+</body>
+</html>
