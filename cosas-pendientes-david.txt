@@ -1653,35 +1653,6 @@ ACCIONES CONCRETAS PARA TI:
 
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-CRÍTICO: DOMINIO DUPLICADO davidpd89.github.io (Bloque T)
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-
-PROBLEMA: davidpd89.github.io está indexado por Google con el texto
-"Fantasía, romantasy y ficción especulativa" — que ya no es el
-posicionamiento correcto. Google ve dos dominios del mismo autor
-(davidpd89.github.io y davidportodiaz.com) con contenido similar.
-Los LLMs pueden citar el .github.io en lugar del dominio principal.
-
-QUÉ TIENES QUE HACER:
-Ir al repositorio GitHub donde está alojado davidpd89.github.io
-(es el repo "davidpd89/web-escritor" o "davidpd89/davidpd89.github.io")
-y editar el index.html de la rama gh-pages o main que sirve ese dominio.
-
-Añadir en el <head>:
-   <link rel="canonical" href="https://davidportodiaz.com/">
-   <meta name="robots" content="noindex, nofollow">
-
-Y antes del </body>:
-   <script>window.location.replace("https://davidportodiaz.com");</script>
-
-Añadir también texto visible por si el JS no funciona:
-   <p>Esta web se ha trasladado a
-   <a href="https://davidportodiaz.com">davidportodiaz.com</a></p>
-
-RESULTADO ESPERADO: Google dejará de indexar davidpd89.github.io
-en 2-4 semanas. Los LLMs dejarán de citar ese dominio.
-
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 BING WEBMASTER TOOLS + AI PERFORMANCE (Bloque T5)
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
