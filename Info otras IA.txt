@@ -1,4 +1,4 @@
-﻿### INFO OTRAS IA - Completado: mayo 2026 (v7) — procesado en siete sesiones
+﻿### INFO OTRAS IA - Completado: mayo 2026 (v8) — procesado en ocho sesiones
 Todos los recursos de la lista LIBROS/MANUALES/ARTICULOS han sido leidos,
 intentados o descartados. Los insights clave estan en:
   - /memories/repo/web-escritor.md (insights tecnicos + historial)
@@ -8,12 +8,12 @@ Sesion 3 (26 mayo 2026): leidos Google AI Optimization Guide 2026, Google AI Fea
 Backlinko Technical SEO Guide, Search Engine Land SEOs new goal 2026.
 Accion aplicada: /cuaderno/index.html (hub page, fix 404 breadcrumbs).
 
-Sesion 7 (27 mayo 2026): recursos email marketing y marketing de autor indie procesados.
-Hallazgos aplicados: BookSeries schema añadido a home e index de Samuel (saga confirmada,
-Samuel = libro 1 de la Saga de Noveris). Tareas nuevas en cosas-pendientes: SPF/DKIM/DMARC
-para Brevo, 4 prompts de imagen (mapa Noveris, foto horizontal, portada saga, infografía
-magia). Email marketing ya bien cubierto con Brevo. Welcome sequence ya configurada.
-Goodreads Author Program ya en cosas-pendientes.
+Sesion 8 (27 mayo 2026): recursos accesibilidad WCAG, analítica web, SEO clásico procesados.
+Hallazgo nuevo: el sitio NO tiene analytics (ni GA4, ni Clarity, ni Plausible).
+Accion: tarea Microsoft Clarity añadida a cosas-pendientes con snippet listo para pegar.
+Accesibilidad ya correcta: HTML semántico, alt texts, skip-link, ARIA labels.
+SEO y E-E-A-T: ya implementado. WCAG A/AA: semántica, contraste, accesibilidad teclado OK.
+Search Console, GA4, Bing Webmaster: ya en cosas-pendientes anteriores.
 
 === HERRAMIENTAS DE VALIDACION (usar cuando se modifique schema) ===
 - Rich Results Test:      https://search.google.com/test/rich-results
@@ -39,4 +39,3 @@ OpenAI crawlers: GPTBot (training), OAI-SearchBot (ChatGPT Search), ChatGPT-User
 Perplexity crawlers: PerplexityBot (indexing), Perplexity-User (user-triggered).
 Anthropic crawlers: ClaudeBot (training), Claude-SearchBot (Claude Search), Claude-User (user-triggered).
 llms.txt spec: archivo Markdown en raiz del sitio. Lista de paginas clave para LLMs.
-  No es factor ranking Google. Util para inferencia (cuando usuario pregunta por el autor).

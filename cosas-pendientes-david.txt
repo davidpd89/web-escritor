@@ -438,6 +438,43 @@ PASO 3: Vincular con Google Analytics (si lo activas)
     - Esto te da datos de keywords en GA
 
 ---------------------------------------------------------------------------
+MICROSOFT CLARITY — HEATMAPS Y GRABACIONES GRATIS (PRIORIDAD ALTA)
+(añadido mayo 2026 — la herramienta que más información da con menos esfuerzo)
+---------------------------------------------------------------------------
+
+POR QUÉ: Clarity es gratuito, ilimitado, no requiere cookies propias y en
+30 minutos ves exactamente:
+  - Dónde hacen clic los visitantes en tu home y libro (heatmap de clics)
+  - Hasta dónde hacen scroll (¿ven la sección de newsletter?)
+  - Grabaciones reales de sesiones de lectores navegando el sitio
+  - Qué elementos ignoran y cuáles generan "rage clicks" (frustración)
+
+Esto es más valioso que cualquier libro de UX: datos REALES de TUS lectores.
+La OMTM (One Metric That Matters) ahora mismo para davidportodiaz.com:
+  usuarios que llegan → leen fragmento → se suscriben o compran.
+Clarity te muestra exactamente dónde se rompe ese embudo.
+
+CÓMO ACTIVARLO (15 minutos):
+1. Ve a https://clarity.microsoft.com/ y crea cuenta con tu Microsoft/GitHub
+2. Haz clic en "New project" → nombre: "davidportodiaz.com" → URL de la web
+3. Selecciona "Install manually"
+4. Clarity te dará un ID de proyecto, algo como: "abc1234def"
+5. Dime ese ID en el chat → yo añado el snippet a TODAS las páginas del sitio
+   (home, libro, fragmento, cuaderno, autor, ferias, prensa, etc.)
+
+El snippet que añadiré a cada página es solo esto (3 líneas en el <head>):
+  <script type="text/javascript">
+    (function(c,l,a,r,i,t,y){
+      c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+      t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+      y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+    })(window,document,"clarity","script","TU_ID_AQUI");
+  </script>
+
+ACCIÓN: crea la cuenta y dime el ID. Clarity empieza a recoger datos
+inmediatamente, sin necesidad de banner de cookies (datos anónimos y agregados).
+
+---------------------------------------------------------------------------
 YOUTUBE — CANAL Y SEO DE VIDEO (pendiente David)
 ---------------------------------------------------------------------------
 
