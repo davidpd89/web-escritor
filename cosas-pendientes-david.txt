@@ -4,24 +4,6 @@ Acciones pendientes para la web davidportodiaz.com
 Última actualización: 27 mayo 2026
 
 ---------------------------------------------------------------------------
-IMÁGENES — PENDIENTES DE CREAR
----------------------------------------------------------------------------
-
-6. ✅ OG IMAGES — HECHO (mayo 2026)
-    og-home.webp, og-samuel.webp, og-noveris.webp creados en Canva y subidos a /assets/.
-    Meta og:image y twitter:image actualizados en:
-    - / → assets/og-home.webp
-    - /libros/samuel-entre-mundos/ → assets/og-samuel.webp
-    - /universo/noveris/ → assets/og-noveris.webp
-
-7. MANIFEST ICONS PNG — ✓ HECHO (mayo 2026)
-    Los iconos PNG 512×512 fueron generados automáticamente por código
-    (Python/Pillow) y ya están en /assets/:
-      - icon-512.png          (icono principal, fondo oscuro + medallón)
-      - icon-512-maskable.png (versión Android con safe zone)
-    manifest.json actualizado. No hace falta nada de tu parte.
-
----------------------------------------------------------------------------
 RENDIMIENTO WEB
 ---------------------------------------------------------------------------
 
@@ -30,16 +12,6 @@ en este commit (imágenes responsive, -40 KiB aproximadamente).
 El LCP bajó de 4.3s a 3.8s. Pendiente de verificar si baja más con
 las nuevas imágenes responsive. Ejecutar de nuevo PageSpeed en 24h:
 https://pagespeed.web.dev/analysis?url=https%3A%2F%2Fdavidportodiaz.com%2F
-
----------------------------------------------------------------------------
-SUBSTACK / CUADERNO
----------------------------------------------------------------------------
-
-✅ ARTÍCULOS CUADERNO / SUBSTACK — HECHO (mayo 2026)
-    Worldbuilding de Noveris publicado en el Cuaderno de la web:
-    → https://davidportodiaz.com/cuaderno/worldbuilding-noveris-ciudad-magica/
-
-    3 artículos publicados en Substack el 27 mayo 2026. ✓
 
 ---------------------------------------------------------------------------
 SEO OFF-SITE — BACKLINKO (añadido 25 mayo 2026)
@@ -85,19 +57,14 @@ WIKIPEDIA / PRENSA
 ---------------------------------------------------------------------------
 
 36. WIKIPEDIA — CUANDO HAYA PRENSA
-    Requisito previo: al menos 1 reseña en medio verificable
-    (blog literario con nombre propio, no solo Amazon).
-    Cuando salga la primera cobertura externa, avísame y redactamos
+    Presentación hecha en vecinal Pueblo Nuevo (mayo 2026).
+    Esto NO cuenta por sí solo para Wikipedia. Lo que cuenta es cobertura
+    en un medio independiente (periódico local, blog literario, web cultural)
+    — no el anuncio del evento por la propia vecinal.
+    Si hay un artículo escrito sobre esa presentación en algún medio, avísame
+    → eso cuenta como fuente 1 de las 2-3 necesarias para Wikipedia.
+    Cuando tengas la primera cobertura verificable, avísame y redactamos
     el borrador del artículo juntos.
-
----------------------------------------------------------------------------
-OUTREACH
----------------------------------------------------------------------------
-
-17. BLOGS LITERARIOS Y BOOKTUBERS
-    Lista de contactos preparada en el histórico.
-    Cuando quieras empezar, pídeme el email concreto para cada uno.
-    Prioridad sugerida: Andrea Izquierdo → Raquel Brune → Josu Diamond.
 
 ---------------------------------------------------------------------------
 SEO EN IAS — AI OPTIMIZATION (añadido 25 mayo 2026)
@@ -116,21 +83,11 @@ REDDIT Y GOODREADS — PRESENCIA EN PLATAFORMAS COMUNITARIAS (PRIORIDAD ALTA)
     4. Crear un hilo de AMA ("Soy autor de portal fantasy española, AMA") cuando
        tengas 50+ karma. Anunciarlo también en Instagram stories.
 
-    GOODREADS — ✅ COMPLETO (mayo 2026)
-    ✅ Perfil de autor reclamado, bio, foto, géneros y web completados (mayo 2026).
-    ✅ Listmanías: añadido a "Portal fantasy", "Fantasía juvenil española", "Best YA fantasy 2025".
-
     CLOUDFLARE — AVISO SI LO ACTIVAS EN EL FUTURO
     Si alguna vez configuras Cloudflare como proxy para la web, acuérdate de
     que BLOQUEA los crawlers de IA por defecto. Tienes que desactivar
     "Block AI Scrapers" en el panel de Cloudflare → Security → Bots.
     Si no lo haces, ChatGPT, Perplexity y Claude no podrán indexar la web.
-
-✅ GOOGLE BUSINESS PROFILE — CREADO (pendiente verificación Google, hasta 5 días)
-    Categoría: Artista | Zona de servicio: España
-    Teléfono: 699 38 96 67 | Web: davidportodiaz.com
-    Google enviará postal o llamada de verificación.
-    → Cuando esté verificado, avísame → actualizo el schema del sitio.
 
 ---------------------------------------------------------------------------
 DWELL TIME — VIDEO PARA LA WEB (añadido 26 mayo 2026)
@@ -175,52 +132,6 @@ PEOPLE ALSO ASK — BÚSQUEDA MANUAL (PRIORIDAD MEDIA)
     Manda las preguntas que aparezcan → las añado a la FAQ del libro o al
     contenido de la web. Estas preguntas vienen directamente de lo que buscan
     los lectores reales.
-
----------------------------------------------------------------------------
-BACKLINKS — LINK RECLAMATION Y NUEVAS OPORTUNIDADES (26 mayo 2026)
----------------------------------------------------------------------------
-
-LINK RECLAMATION — MENCIONES SIN ENLACE (PRIORIDAD ALTA)
-    Hay personas que ya mencionan tu libro o tu nombre online sin poner un
-    enlace. Recuperar esos enlaces es la forma MAS FACIL de conseguir backlinks.
-
-    Como encontrar menciones:
-    1. Busca en Google (entre comillas): "David Porto Diaz" -site:davidportodiaz.com
-    2. Busca: "Samuel entre mundos" -site:davidportodiaz.com -site:amazon.es
-    3. Busca: "@davidportod" en Twitter/X, Instagram, etc.
-    Cuando encuentres una mencion SIN enlace, escribe al autor con este mensaje:
-    "Hola [Nombre], vi que mencionaste [libro/mi nombre] en tu articulo de [fecha].
-    Muchas gracias. Si tienes un momento, seria genial que anadieras un enlace
-    a davidportodiaz.com para que tus lectores puedan encontrar mas informacion.
-    Un saludo, David"
-
-PLATAFORMAS DE PERIODISTAS / PR (ALTERNATIVAS A HARO)
-    Estas plataformas conectan periodistas que buscan fuentes con autores y expertos.
-    Puedes conseguir menciones en prensa con backlinks.
-    Opciones:
-    - Qwoted (qwoted.com): gratuito para fuentes. Busca queries de "libros", "escritores"
-    - SourceBottle (sourcebottle.com): gratuito para fuentes en Australia/UK (llega a medios internacionales)
-    - JournoRequests en Twitter/X: busca el hashtag #journorequest + "libro" o "fantasia"
-    Cuando aparezca una query relevante (ej: "busco autor de fantasía para artículo"), responde
-    con una nota breve y tu web.
-
-LINK ROUNDUPS DE FANTASIA JUVENIL ESPANOLA
-    Algunos blogs hacen resúmenes mensuales de "los mejores libros de fantasia juvenil".
-    Busca en Google:
-    - "fantasía juvenil española" "link roundup"
-    - "mejores libros juveniles" "mayo 2026" blog
-    - "novedades fantasía juvenil" blog
-    Si encuentras uno sin Samuel entre mundos, escribe al autor proponiendo incluirlo.
-    Proporciona: titulo, ISBN, descripcion de 50 palabras, y enlace a la ficha:
-    https://davidportodiaz.com/libros/samuel-entre-mundos/
-
-TESTIMONIOS EN HERRAMIENTAS (BACKLINKS FACILES)
-    Si usas alguna herramienta de escritura, Scrivener, plataformas de edicion,
-    o servicios de Libros Indie que tengan pagina de testimonios, envia un
-    testimonio breve. Normalmente incluyen enlace a tu web.
-    Ejemplo: "Samuel entre mundos fue publicado con el apoyo de [herramienta].
-    Como escritor de fantasia juvenil, [beneficio concreto]. — David Porto Diaz,
-    davidportodiaz.com"
 
 ---------------------------------------------------------------------------
 LLM SEEDING — VISIBILIDAD EN CHATGPT, CLAUDE, PERPLEXITY (26 mayo 2026)
@@ -279,10 +190,6 @@ RASTREAR SI LOS LLMs TE MENCIONAN
     Anota si apareces, en qué posición, y con qué descripción.
     Si no apareces: las acciones de Reddit/Quora/Medium aceleran la visibilidad.
 
-✅ GOOGLE ALERTS — HECHO (mayo 2026)
-    Alertas configuradas para: "David Porto Díaz", "Samuel entre mundos", "davidportodiaz.com"
-    Recibirás un email cuando alguien te mencione online → link reclamation.
-
 ---------------------------------------------------------------------------
 LINK BUILDING — RESOURCE PAGES Y BUSQUEDAS ESPECIFICAS (26 mayo 2026)
 ---------------------------------------------------------------------------
@@ -335,11 +242,6 @@ fetchpriority=high en imágenes hero, no lazy loading above-the-fold, no
 third-party scripts excepto GoatCounter).
 
 ---------------------------------------------------------------------------
-✅ GOOGLE BUSINESS PROFILE (LOCAL SEO) — CREADO (pendiente verificación)
-    Ver nota más arriba. Cuando Google verifique, actualizar schema del sitio.
----------------------------------------------------------------------------
-
----------------------------------------------------------------------------
 SKYSCRAPER TECHNIQUE — LINKABLE ASSETS (pendiente David)
 ---------------------------------------------------------------------------
 
@@ -369,31 +271,6 @@ PROCESO SKYSCRAPER:
 4. Email a los sites que enlazan al inferior:
    "Hola [nombre], vi que enlazas a [URL]. Acabo de publicar algo más completo 
    sobre el mismo tema: [URL]. Podría valer la pena mencionarlo. ¡Gracias!"
-
----------------------------------------------------------------------------
-✅ ENTITY SEO — WIKIDATA COMPLETADO (27 mayo 2026)
----------------------------------------------------------------------------
-
-Items creados y actualizados:
-  Q139678851 — David Porto Díaz (persona): género portal fantasy, premio,
-               ocupación autor, ORCID, Goodreads, Instagram, website, etc.
-  Q139915381 — Samuel entre mundos (libro): portal fantasy, España, 2025,
-               Premio Letras Como Espada, enlace a primera edición.
-  Q139945987 — Samuel entre mundos (primera edición): ISBN, editorial, URL fragmento.
-  Q139945957 — Premio Letras Como Espada: creado, país España.
-  Q139945958 — Libros Indie: creado, país España.
-
-2. VERIFICAR ENTITY RECOGNITION EN GOOGLE:
-   - Ve a: https://cloud.google.com/natural-language
-   - Pega el primer párrafo de davidportodiaz.com/autor.html
-   - Mira qué entidades reconoce Google en tu texto
-   - Si falta tu nombre, el libro o los premios: añadir más context-rich passages
-
-3. BUSCAR TU NOMBRE EN CHATGPT / CLAUDE / PERPLEXITY:
-   - "¿Quién es David Porto Díaz escritor?"
-   - "¿Qué es Samuel entre mundos?"
-   - "¿Quién ganó el Premio Letras Como Espada 2026?"
-   Anota qué dice cada uno — esto marca el baseline de tu visibilidad LLM actual
 
 ---------------------------------------------------------------------------
 AI SEARCH STRATEGY — SEEN & TRUSTED FRAMEWORK (Backlinko, mayo 2026)
@@ -1519,16 +1396,6 @@ Si David Porto Díaz aparece en el Top 3 → bien. Si no:
   - Comprobar que Goodreads/Bookish tienen los datos correctos
 
 Anota los resultados en web-escritor.md para hacer seguimiento.
-
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-✅ OPEN LIBRARY — COMPLETADO (27 mayo 2026)
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-
-Ficha completada en:
-  Obra:    https://openlibrary.org/works/OL45355983W/Samuel_entre_mundos
-  Edición: https://openlibrary.org/books/OL61814887M
-Añadido: autor David Porto Díaz, editorial Libros Indie, Madrid España,
-primera edición, descripción, subjects (portal fantasy, YA, etc.), ISBN.
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 GOODREADS — LISTAS (Bloque T, semana 6-8)
