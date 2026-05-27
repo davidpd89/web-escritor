@@ -2152,27 +2152,6 @@ PLAN DE CONTENIDOS /cuaderno/ — ESTRUCTURA SUGERIDA (2:1)
     No necesitas volumen: 1 artículo al mes sostenido es mejor que 5 en una semana.
 
 ---------------------------------------------------------------------------
-EMAIL — SPF/DKIM/DMARC PARA BREVO (ENTREGABILIDAD — PRIORIDAD ALTA)
-(añadido mayo 2026 — Google y Yahoo exigen autenticación para dominios propios)
----------------------------------------------------------------------------
-
-ESTADO: ❌ CONFIRMADO FALTANTE (verificado 27 mayo 2026 en mxtoolbox.com/spf.aspx)
-Los emails de Brevo pueden caer en spam hasta que se configure.
-
-PASO 1 — Obtener registros DKIM de Brevo (son únicos por cuenta):
-  Brevo → Settings → Senders & IPs → Domains → "Add a domain"
-  Escribe "davidportodiaz.com" → Brevo te dará el CNAME/TXT para DKIM.
-
-PASO 2 — Añadir en Spaceship DNS (tu registrador):
-  Tipo TXT  | Host: @       | v=spf1 include:sendinblue.com ~all
-  Tipo TXT  | Host: _dmarc  | v=DMARC1; p=none; rua=mailto:samuelentremundos@gmail.com
-  Tipo CNAME| Host: (Brevo) | Valor: (Brevo)
-
-PASO 3 — Verificar en Brevo que los registros están activos.
-
-PASO 4 — Volver a mxtoolbox.com/spf.aspx y confirmar que aparece "include:sendinblue.com"
-
----------------------------------------------------------------------------
 PROMPTS DE IMAGEN — ACTIVOS VISUALES A GENERAR (mayo 2026)
 (añadido mayo 2026 — para generar con IA o con diseñador)
 ---------------------------------------------------------------------------
