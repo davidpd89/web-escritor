@@ -7,29 +7,12 @@ Acciones pendientes para la web davidportodiaz.com
 IMÁGENES — PENDIENTES DE CREAR
 ---------------------------------------------------------------------------
 
-6. OG IMAGES 1200×630 px (para redes sociales al compartir)
-    Qué son: cuando alguien comparte un enlace de tu web en WhatsApp,
-    Twitter o LinkedIn, aparece una imagen de vista previa. Ahora todas
-    las páginas usan la misma (la foto del autor). Con imágenes específicas
-    para cada página se ve más profesional y aumentan los clics.
-
-    Qué tienes que hacer: crear en Canva (canva.com) tres imágenes.
-    Dimensiones exactas: 1200 × 630 px. Guardar como WebP o JPG.
-    Nombres de archivo exactos:
-    - assets/og-home.webp → página principal
-    - assets/og-samuel.webp → página del libro
-    - assets/og-noveris.webp → universo Noveris
-
-    Guía para Canva:
-    a) Entra en Canva → Crear diseño → Tamaño personalizado: 1200 × 630
-    b) Fondo negro (#080a0c). Logo o nombre del autor en dorado (#c4944d).
-    c) Para og-samuel.webp: usa la portada real del libro (foto o scan).
-    d) Para og-noveris.webp: usa el mapa de Noveris que ya tienes en el repo
-       (assets/mapa-noveris-ciudad-fantasia-urban-lore.webp).
-    e) Exportar → Descargar → formato WebP o JPG.
-
-    Cuando tengas los tres archivos con esos nombres en /assets/, avísame
-    y actualizo los meta og:image de cada página.
+6. ✅ OG IMAGES — HECHO (mayo 2026)
+    og-home.webp, og-samuel.webp, og-noveris.webp creados en Canva y subidos a /assets/.
+    Meta og:image y twitter:image actualizados en:
+    - / → assets/og-home.webp
+    - /libros/samuel-entre-mundos/ → assets/og-samuel.webp
+    - /universo/noveris/ → assets/og-noveris.webp
 
 7. MANIFEST ICONS PNG — ✓ HECHO (mayo 2026)
     Los iconos PNG 512×512 fueron generados automáticamente por código
@@ -56,9 +39,7 @@ SUBSTACK / CUADERNO
     Worldbuilding de Noveris publicado en el Cuaderno de la web:
     → https://davidportodiaz.com/cuaderno/worldbuilding-noveris-ciudad-magica/
 
-    Para Substack: los 3 textos están en substack-articulos.txt
-    Copia cada uno en substack.com/write y publica cuando quieras.
-    Están revisados y listos. Solo necesitas copiar y pegar.
+    3 artículos publicados en Substack el 27 mayo 2026. ✓
 
 ---------------------------------------------------------------------------
 SEO OFF-SITE — BACKLINKO (añadido 25 mayo 2026)
@@ -145,23 +126,11 @@ REDDIT Y GOODREADS — PRESENCIA EN PLATAFORMAS COMUNITARIAS (PRIORIDAD ALTA)
     "Block AI Scrapers" en el panel de Cloudflare → Security → Bots.
     Si no lo haces, ChatGPT, Perplexity y Claude no podrán indexar la web.
 
-GOOGLE BUSINESS PROFILE — PERFIL DE AUTOR EN MADRID (RECOMENDADO)
-    POR QUÉ: GBP puede aparecer en el panel de conocimiento de Google y en
-    búsquedas locales como "escritor de fantasía juvenil en Madrid".
-    También es fuente de datos para Google AI Overviews.
-
-    Cómo crearlo (20 minutos):
-    1. Ir a https://business.google.com/ e iniciar sesión con tu cuenta Google
-    2. Añadir negocio: "David Porto Díaz" como nombre
-    3. Categoría: "Author" o "Writer" (busca en inglés, es la categoría disponible)
-    4. Dirección: como no tienes local físico, selecciona "Área de servicio"
-       → Añade "Madrid", "Aranjuez", "España"
-    5. Descripción: "Escritor español de fantasía juvenil. Autor de Samuel entre
-       mundos (Libros Indie, 2025), portal fantasy con sistema de magia de reglas
-       duras. Ganador del Primer Premio Letras Como Espada 2026."
-    6. Sube foto de perfil (la foto oficial del autor)
-    7. Añade enlace a davidportodiaz.com
-    8. En cuanto tengas el perfil, avísame → añado los datos al schema del sitio
+✅ GOOGLE BUSINESS PROFILE — CREADO (pendiente verificación Google, hasta 5 días)
+    Categoría: Artista | Zona de servicio: España
+    Teléfono: 699 38 96 67 | Web: davidportodiaz.com
+    Google enviará postal o llamada de verificación.
+    → Cuando esté verificado, avísame → actualizo el schema del sitio.
 
 ---------------------------------------------------------------------------
 DWELL TIME — VIDEO PARA LA WEB (añadido 26 mayo 2026)
@@ -366,22 +335,9 @@ fetchpriority=high en imágenes hero, no lazy loading above-the-fold, no
 third-party scripts excepto GoatCounter).
 
 ---------------------------------------------------------------------------
-GOOGLE BUSINESS PROFILE (LOCAL SEO) — PENDIENTE DAVID
+✅ GOOGLE BUSINESS PROFILE (LOCAL SEO) — CREADO (pendiente verificación)
+    Ver nota más arriba. Cuando Google verifique, actualizar schema del sitio.
 ---------------------------------------------------------------------------
-
-Crear un Google Business Profile como autor independiente:
-- Nombre: David Porto Díaz
-- Categoría: "Autor" o "Escritor independiente" / "Publisher"
-- Ubicación: Madrid, España
-- Web: https://davidportodiaz.com
-- Descripción: usar las keywords clave ("fantasía juvenil española",
-  "portal fantasy", "Samuel entre mundos")
-- Añadir foto del autor y portada del libro
-- Esto permite aparecer en Google Maps y Knowledge Panel para búsquedas
-  locales de tipo "escritor fantasía Madrid" o "autor Samuel entre mundos"
-
-NOTA: El GBP también hace que ChatGPT/Perplexity te reconozcan como
-entidad verificada con información de Google, mejorando el LLM seeding.
 
 ---------------------------------------------------------------------------
 SKYSCRAPER TECHNIQUE — LINKABLE ASSETS (pendiente David)
