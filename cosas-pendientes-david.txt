@@ -49,15 +49,6 @@ las nuevas imágenes responsive. Ejecutar de nuevo PageSpeed en 24h:
 https://pagespeed.web.dev/analysis?url=https%3A%2F%2Fdavidportodiaz.com%2F
 
 ---------------------------------------------------------------------------
-EVENTOS — CASETA MADRID
----------------------------------------------------------------------------
-
-11. FERIA DEL LIBRO DE MADRID 2026 — NÚMERO DE CASETA
-    Firma: 10 junio 2026, 19:40 – 21:00. Ya publicado en la web.
-    Falta: el número de caseta.
-    Cuando lo tengas, avísame con el número → actualizo ferias.html.
-
----------------------------------------------------------------------------
 SUBSTACK / CUADERNO
 ---------------------------------------------------------------------------
 
@@ -413,29 +404,6 @@ Crear un Google Business Profile como autor independiente:
 
 NOTA: El GBP también hace que ChatGPT/Perplexity te reconozcan como
 entidad verificada con información de Google, mejorando el LLM seeding.
-
----------------------------------------------------------------------------
-GOOGLE SEARCH CONSOLE — VERIFICACION Y ACTIVACION (pendiente David)
----------------------------------------------------------------------------
-
-PASO 1: Activar Google Search Console
-    - Ve a https://search.google.com/search-console
-    - Añade propiedad: https://davidportodiaz.com
-    - Método recomendado: "HTML tag" (snippet en el head)
-    - Google te dará un código tipo:
-      <meta name="google-site-verification" content="XXXXXXXX..." />
-    - Díselo a David/Copilot para añadirlo en el <head> del index.html
-
-PASO 2: Una vez verificado
-    - Enviar sitemap: https://davidportodiaz.com/sitemap.xml
-    - Esperar 48-72 horas para ver datos de indexación
-    - Revisar "Cobertura de índice" > pestaña Errores
-    - Revisar "Performance" > buscar keywords de posición 8-20 
-      (estas son las "opportunity keywords" a optimizar primero)
-
-PASO 3: Vincular con Google Analytics (si lo activas)
-    - En GSC: Configuración > Asociaciones > Google Analytics
-    - Esto te da datos de keywords en GA
 
 ---------------------------------------------------------------------------
 MICROSOFT CLARITY — HEATMAPS Y GRABACIONES GRATIS (PRIORIDAD ALTA)
@@ -1772,81 +1740,6 @@ IMÁGENES PARA EL ARTÍCULO (generarlas antes de publicar):
      editorial style, no text")
   2. Mapa de Noveris — ya existe en assets/
   3. Medalla/canalizador de Samuel — foto real o ilustración
-
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-BREVO — CONFIGURACIÓN DE AUTOMATIZACIÓN DE BIENVENIDA (Bloque W)
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-
-La web ya envía suscriptores a Brevo automáticamente vía Cloudflare Worker.
-Lo que falta es crear en Brevo el workflow de automatización.
-
-ESTADO ACTUAL (26 mayo 2026):
-  ✅ Cloudflare Worker activo — recibe suscriptores del quiz y los manda a Brevo
-  ✅ Template 1 creado — "Bienvenida_Samuel_Email1"  → ID 2
-  ✅ Template 2 creado — "Bienvenida_Samuel_Email2"  → ID 3
-  ✅ Template 3 creado — "Bienvenida_Samuel_Email3"  → ID 4
-  ✅ Atributo de contacto: nombre NOVERIS (no FACCION_NOVERIS — ese nombre es incorrecto)
-  ❌ Workflow de automatización — PENDIENTE TÚ (no hay API para crearlo)
-
-NOTA IMPORTANTE SOBRE EL ATRIBUTO NOVERIS:
-  El quiz de la web envía a Brevo el atributo NOVERIS con estos valores:
-    "mensajero"    → El Mensajero
-    "sabio"        → El Sabio del Espejo
-    "silenciadora" → La Silenciadora
-    "guardian"     → El Guardián
-  El Template 1 ya usa {% if contact.NOVERIS == "mensajero" %} etc. — correcto.
-  Cuando crees el atributo en Brevo, el nombre es NOVERIS (no FACCION_NOVERIS).
-
-PASO 1 — Crear atributo de contacto NOVERIS
-────────────────────────────────────────────────────
-1. Ir a https://app.brevo.com → Contactos → Configuración → Atributos
-2. Clic en "Añadir nuevo atributo"
-3. Nombre: NOVERIS  |  Tipo: Texto
-4. Guardar
-(Este atributo guarda el resultado del quiz de Noveris — mensajero/sabio/silenciadora/guardian)
-
-PASO 2 — Los 3 templates YA ESTÁN CREADOS
-────────────────────────────────────────────────────
-No tienes que hacer nada. Los templates existen en tu cuenta Brevo:
-
-  ID 2 — "Bienvenida_Samuel_Email1"
-    Asunto: Tu resultado en Noveris te espera
-    Contenido: Bienvenida personalizada según resultado del quiz + CTA /fragmento/
-    Condicional: mensajero / sabio / silenciadora / guardian
-
-  ID 3 — "Bienvenida_Samuel_Email2"
-    Asunto: Noveris existe desde antes de que Samuel llegara
-    Contenido: 3 datos del universo Noveris + CTA /universo/noveris/
-
-  ID 4 — "Bienvenida_Samuel_Email3"
-    Asunto: ¿Listo para cruzar?
-    Contenido: Reseña de Carlos Bermejo + CTA libro + CTA Amazon
-
-PASO 3 — Crear el workflow de automatización
-────────────────────────────────────────────────────
-1. Automatización → Mis workflows → Nuevo workflow
-2. Nombre: "Secuencia bienvenida Samuel 3 emails"
-3. Trigger: "Un contacto se suscribe a una lista"
-4. Seleccionar: Lista 3 "Lectores web"
-5. Acción: Enviar email → seleccionar Template ID 2 → delay 0 (inmediato)
-6. Añadir espera: 2 días
-7. Acción: Enviar email → seleccionar Template ID 3
-8. Añadir espera: 5 días
-9. Acción: Enviar email → seleccionar Template ID 4
-10. Activar el workflow
-
-PASO 4 — Prueba antes de activar
-────────────────────────────────────────────────────
-- Añadir tu propio email como contacto de prueba en Lista 3
-- Verificar que los 3 emails llegan en los tiempos correctos
-- Comprobar que el condicional del Email 1 funciona (suscríbete desde el quiz)
-- Eliminar el contacto de prueba
-- Activar el workflow definitivamente
-
-MÉTRICAS ESPERADAS (newsletter de autor, benchmarks 2026):
-  Email 1: >50% apertura (bienvenida, alta intención)
-  Email 2: >35% apertura
-  Email 3: >30% apertura, >5% clic en Amazon
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 CHATGPT — VERIFICAR DOMINIO EN OPENAI (Bloque T — NUEVO, junio 2026)
