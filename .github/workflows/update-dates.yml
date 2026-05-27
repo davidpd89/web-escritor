@@ -55,6 +55,7 @@ jobs:
           if ! git diff --quiet sitemap.xml; then
             git add sitemap.xml
             git commit -m "ci: update sitemap lastmod for changed pages [$(date -u +%Y-%m-%d)]"
+            git pull --rebase origin main
             git push origin HEAD:main
           else
             echo "No sitemap changes needed."
