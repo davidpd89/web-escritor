@@ -457,28 +457,17 @@ PROCESO SKYSCRAPER:
    sobre el mismo tema: [URL]. Podría valer la pena mencionarlo. ¡Gracias!"
 
 ---------------------------------------------------------------------------
-ENTITY SEO — WIKIDATA Y VERIFICACION
+✅ ENTITY SEO — WIKIDATA COMPLETADO (27 mayo 2026)
 ---------------------------------------------------------------------------
 
-Estado actual (verificado 27 mayo 2026):
-  Q139678851 (persona) ya tiene: occupation writer, genres fantasía+speculative,
-  ORCID, Goodreads ID, Instagram, website, nationality, birthdate, given/family name.
-  Q139915381 (libro Samuel entre mundos) ya existe con: autor, título, idioma, año.
-
-FALTA AÑADIR — ejecutar vía QuickStatements (quickstatements.toolforge.org):
-  Inicia sesión con tu cuenta de Wikidata y pega estas líneas:
-
-  Q139678851|P136|Q119429258  ← añade portal fantasy como género a la persona
-  Q139915381|P136|Q119429258  ← añade portal fantasy como género al libro
-  Q139915381|P136|Q943192     ← añade fantasía como género al libro
-  Q139915381|P212|"979-13-87659-77-6"  ← añade ISBN-13 al libro
-
-PARA EL PREMIO Y LA EDITORIAL:
-  "Premio Letras Como Espada" y "Libros Indie" no tienen item en Wikidata todavía.
-  Cuando quieras añadirlos: crear los items primero, luego añadir:
-  Q139678851|P166|Qxxx  ← award received → Premio Letras Como Espada
-  Q139915381|P123|Qyyy  ← publisher → Libros Indie
-  Avísame y lo hacemos juntos.
+Items creados y actualizados:
+  Q139678851 — David Porto Díaz (persona): género portal fantasy, premio,
+               ocupación autor, ORCID, Goodreads, Instagram, website, etc.
+  Q139915381 — Samuel entre mundos (libro): portal fantasy, España, 2025,
+               Premio Letras Como Espada, enlace a primera edición.
+  Q139945987 — Samuel entre mundos (primera edición): ISBN, editorial, URL fragmento.
+  Q139945957 — Premio Letras Como Espada: creado, país España.
+  Q139945958 — Libros Indie: creado, país España.
 
 2. VERIFICAR ENTITY RECOGNITION EN GOOGLE:
    - Ve a: https://cloud.google.com/natural-language
@@ -766,9 +755,8 @@ SEO AVANZADO — PENDIENTES DE DECISIÓN (no urgentes)
    - El sistema de magia de Noveris (canalizadores)
    - Comparativa de portal fantasy española vs anglosajona
 
-3. WIKIDATA — completar entidad de David Porto Díaz:
-   Ver Bloque O de Respuestas a tus preguntas.txt para instrucciones.
-   Prioridad alta para visibilidad en Perplexity/ChatGPT Search.
+3. ✅ WIKIDATA — completado (27 mayo 2026). 5 items creados/actualizados.
+   Ver bloque ENTITY SEO más arriba para detalle.
 
 4. VIDEO PENDIENTE:
    David va a grabar un booktrailer/vídeo de presentación.
