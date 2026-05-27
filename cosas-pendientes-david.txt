@@ -2156,29 +2156,21 @@ EMAIL — SPF/DKIM/DMARC PARA BREVO (ENTREGABILIDAD — PRIORIDAD ALTA)
 (añadido mayo 2026 — Google y Yahoo exigen autenticación para dominios propios)
 ---------------------------------------------------------------------------
 
-POR QUÉ: Desde febrero 2024, Google y Yahoo rechazan emails de dominios sin
-autenticación correcta. Si el dominio davidportodiaz.com no tiene SPF+DKIM+DMARC
-configurados para Brevo, tus newsletters pueden caer en spam o ser rechazados.
+ESTADO: ❌ CONFIRMADO FALTANTE (verificado 27 mayo 2026 en mxtoolbox.com/spf.aspx)
+Los emails de Brevo pueden caer en spam hasta que se configure.
 
-QUÉ SON:
-- SPF: declara que Brevo puede enviar emails en nombre de tu dominio
-- DKIM: firma digital que verifica que el email no fue alterado en tránsito
-- DMARC: instrucción a los servidores sobre qué hacer si SPF/DKIM fallan
+PASO 1 — Obtener registros DKIM de Brevo (son únicos por cuenta):
+  Brevo → Settings → Senders & IPs → Domains → "Add a domain"
+  Escribe "davidportodiaz.com" → Brevo te dará el CNAME/TXT para DKIM.
 
-CÓMO CONFIGURARLO CON BREVO (20 minutos en el panel de tu dominio):
-1. Entra en Brevo → Settings → Senders & IPs → Domains
-2. Haz clic en "Add a domain" y escribe "davidportodiaz.com"
-3. Brevo te mostrará 3 registros DNS para añadir (TXT/CNAME)
-4. Ve al panel DNS de donde tienes el dominio (probablemente GitHub Pages o tu registrador)
-5. Añade los 3 registros exactamente como los muestra Brevo
-6. Vuelve a Brevo y haz clic en "Verify" — debería aparecer como verificado
-7. Avísame cuando esté hecho → actualizo el Cloudflare Worker de la newsletter
+PASO 2 — Añadir en Spaceship DNS (tu registrador):
+  Tipo TXT  | Host: @       | v=spf1 include:sendinblue.com ~all
+  Tipo TXT  | Host: _dmarc  | v=DMARC1; p=none; rua=mailto:samuelentremundos@gmail.com
+  Tipo CNAME| Host: (Brevo) | Valor: (Brevo)
 
-ESTADO ACTUAL: Brevo está activo y funciona, pero no sé si ya tiene
-SPF/DKIM configurados. Para comprobarlo:
-   ir a https://mxtoolbox.com/spf.aspx → introducir "davidportodiaz.com"
-   Si el resultado incluye "include:sendinblue.com" → ya está bien.
-   Si no → configura según los pasos de arriba.
+PASO 3 — Verificar en Brevo que los registros están activos.
+
+PASO 4 — Volver a mxtoolbox.com/spf.aspx y confirmar que aparece "include:sendinblue.com"
 
 ---------------------------------------------------------------------------
 PROMPTS DE IMAGEN — ACTIVOS VISUALES A GENERAR (mayo 2026)
