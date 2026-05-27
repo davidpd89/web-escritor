@@ -2321,3 +2321,120 @@ PLAN DE CONTENIDOS /cuaderno/ — ESTRUCTURA SUGERIDA (2:1)
     Esta proporción equilibra lectores actuales (lore) con nuevos (SEO).
     No necesitas volumen: 1 artículo al mes sostenido es mejor que 5 en una semana.
 
+---------------------------------------------------------------------------
+EMAIL — SPF/DKIM/DMARC PARA BREVO (ENTREGABILIDAD — PRIORIDAD ALTA)
+(añadido mayo 2026 — Google y Yahoo exigen autenticación para dominios propios)
+---------------------------------------------------------------------------
+
+POR QUÉ: Desde febrero 2024, Google y Yahoo rechazan emails de dominios sin
+autenticación correcta. Si el dominio davidportodiaz.com no tiene SPF+DKIM+DMARC
+configurados para Brevo, tus newsletters pueden caer en spam o ser rechazados.
+
+QUÉ SON:
+- SPF: declara que Brevo puede enviar emails en nombre de tu dominio
+- DKIM: firma digital que verifica que el email no fue alterado en tránsito
+- DMARC: instrucción a los servidores sobre qué hacer si SPF/DKIM fallan
+
+CÓMO CONFIGURARLO CON BREVO (20 minutos en el panel de tu dominio):
+1. Entra en Brevo → Settings → Senders & IPs → Domains
+2. Haz clic en "Add a domain" y escribe "davidportodiaz.com"
+3. Brevo te mostrará 3 registros DNS para añadir (TXT/CNAME)
+4. Ve al panel DNS de donde tienes el dominio (probablemente GitHub Pages o tu registrador)
+5. Añade los 3 registros exactamente como los muestra Brevo
+6. Vuelve a Brevo y haz clic en "Verify" — debería aparecer como verificado
+7. Avísame cuando esté hecho → actualizo el Cloudflare Worker de la newsletter
+
+ESTADO ACTUAL: Brevo está activo y funciona, pero no sé si ya tiene
+SPF/DKIM configurados. Para comprobarlo:
+   ir a https://mxtoolbox.com/spf.aspx → introducir "davidportodiaz.com"
+   Si el resultado incluye "include:sendinblue.com" → ya está bien.
+   Si no → configura según los pasos de arriba.
+
+---------------------------------------------------------------------------
+PROMPTS DE IMAGEN — ACTIVOS VISUALES A GENERAR (mayo 2026)
+(añadido mayo 2026 — para generar con IA o con diseñador)
+---------------------------------------------------------------------------
+
+El usuario puede generar imágenes con IA. Aquí están los prompts
+para los activos que más valor darían a la web y al marketing:
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+1. MAPA DE NOVERIS — Reader magnet principal (prioridad máxima)
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+Uso: entrega como lead magnet en BookFunnel / formulario de newsletter.
+Reemplaza el "primer capítulo" como imán — los lectores de fantasía
+se suscriben mucho más por un mapa exclusivo del mundo que por texto.
+
+PROMPT (para Midjourney/Flux/Firefly):
+"Fantasy world map, parchment texture, hand-drawn cartography style,
+dark academia aesthetic, city of Noveris at the center with dimensional
+portals marked, labeling in Spanish: 'Noveris — Ciudad de los Portales',
+dimensional barriers visible as golden shimmering lines, faction zones
+Zunthar and Marelian separated by the Crystal War boundary, compass rose
+with magical symbols, aged paper background with black and amber ink,
+detailed borders and decorative elements, 1200x900px, high detail"
+
+Versión alternativa más minimalista (para redes sociales):
+"Minimal fantasy city map of Noveris, dark background #080a0c,
+gold accent lines #c4944d, Art Deco inspired, portal symbols as geometric
+shapes, clean vector style, 1080x1080px Instagram format"
+
+ACCIÓN: genera una versión, me la enseñas y la adaptamos.
+Cuando esté lista, la subo a assets/ y la configuro como descarga automática
+al suscribirse → aumenta el subscriber count de forma pasiva.
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+2. FOTO DE AUTOR PARA REDES / BIO — Versión horizontal
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+Uso: Twitter/X header, LinkedIn banner, kit de prensa digital.
+Las IAs cuando buscan info sobre un autor priorizan perfiles con foto
+de calidad. Necesitas una versión horizontal de la foto de autor
+que ya tienes (la vertical funciona bien para la web).
+
+ESTO NO ES PARA IA GENERATIVA: es una foto real tuya. Saca una foto
+horizontal (1500x500px) o adapta la que tienes con fondo oscuro #080a0c.
+Si quieres fondo generado por IA para la foto:
+PROMPT fondo: "dark atmospheric literary background, gothic architecture
+silhouette, Spanish fantasy novel aesthetic, deep dark navy #080a0c,
+subtle golden particles, bokeh effect, landscape horizontal format"
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+3. PORTADA SAGA DE NOVERIS — Imagen para /universo/noveris/
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+Uso: imagen hero de la página /universo/noveris/ y Open Graph de la saga.
+Ahora que Samuel es libro 1 de una saga, el universo merece su propia
+imagen de presentación que no sea solo la portada de Samuel.
+
+PROMPT:
+"Epic fantasy city floating between dimensional portals, dark atmospheric,
+Spanish YA fantasy aesthetic, city of Noveris with magical barriers visible
+as amber and gold light curtains, dimensional gateways in background,
+characters silhouetted carrying magical objects (canalizadores),
+dark #080a0c background with gold #c4944d and bronze accents,
+cinematic composition, 1200x630px for Open Graph"
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+4. INFOGRAFÍA SISTEMA DE MAGIA NOVERIS — para artículo /cuaderno/
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+Uso: ilustración para el artículo "Sistema de magia de Noveris" en /cuaderno/.
+Las infografías en artículos de worldbuilding son el tipo de contenido
+que las IAs citan más frecuentemente (estadística + elemento visual).
+
+PROMPT (para diagrama/infografía):
+"Minimalist fantasy magic system diagram, dark background, gold and amber
+color scheme, showing cost-based magic flow: Object (canalizador) →
+Energy displacement → Physical cost, Spanish labels, Art Deco ornamental
+borders, clean infographic style, 800x600px"
+
+NOTA: El texto en español dentro de la imagen ayuda a LLMs que procesan
+imágenes a entender que es contenido en español sobre este sistema de magia.
+
+ACCIÓN PARA CADA PROMPT: genera la imagen, me la enseñas en el chat,
+te digo el nombre de archivo exacto y dónde subirla. Yo me encargo del
+resto (añadirla al HTML con schema ImageObject correcto, alt text SEO).
+
+

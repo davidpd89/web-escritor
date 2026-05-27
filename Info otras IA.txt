@@ -1,4 +1,4 @@
-﻿### INFO OTRAS IA - Completado: mayo 2026 (v6) — procesado en seis sesiones
+﻿### INFO OTRAS IA - Completado: mayo 2026 (v7) — procesado en siete sesiones
 Todos los recursos de la lista LIBROS/MANUALES/ARTICULOS han sido leidos,
 intentados o descartados. Los insights clave estan en:
   - /memories/repo/web-escritor.md (insights tecnicos + historial)
@@ -8,11 +8,12 @@ Sesion 3 (26 mayo 2026): leidos Google AI Optimization Guide 2026, Google AI Fea
 Backlinko Technical SEO Guide, Search Engine Land SEOs new goal 2026.
 Accion aplicada: /cuaderno/index.html (hub page, fix 404 breadcrumbs).
 
-Sesion 6 (26 mayo 2026): recursos copywriting, UX, content strategy procesados.
-Hallazgos aplicados: AggregateRating corregido 3→8 (home) y 6→8 (libro), award añadido
-al Book schema (Premio Nacional Finalista 2025). CTAs, semántica HTML y estructura
-/cuaderno/ ya correctos. Tareas para David añadidas a cosas-pendientes (BookSeries,
-Content Fuel matrix, StoryBrand review hero text).
+Sesion 7 (27 mayo 2026): recursos email marketing y marketing de autor indie procesados.
+Hallazgos aplicados: BookSeries schema añadido a home e index de Samuel (saga confirmada,
+Samuel = libro 1 de la Saga de Noveris). Tareas nuevas en cosas-pendientes: SPF/DKIM/DMARC
+para Brevo, 4 prompts de imagen (mapa Noveris, foto horizontal, portada saga, infografía
+magia). Email marketing ya bien cubierto con Brevo. Welcome sequence ya configurada.
+Goodreads Author Program ya en cosas-pendientes.
 
 === HERRAMIENTAS DE VALIDACION (usar cuando se modifique schema) ===
 - Rich Results Test:      https://search.google.com/test/rich-results
