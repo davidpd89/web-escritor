@@ -632,8 +632,8 @@ function _gcEvent(path, title) {
     if (e.clientY <= 0) { document.removeEventListener("mouseleave", onLeave); showPopup(); }
   });
 
-  // Trigger 3: 60-second fallback for passive readers
-  setTimeout(showPopup, 60000);
+  // Trigger 3: 30-second fallback for passive readers
+  setTimeout(showPopup, 30000);
 })();
 
 // ── MODAL "¿DÓNDE COMPRAR?" ────────────────────────────────────────────────

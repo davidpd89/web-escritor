@@ -1,14 +1,24 @@
 
+# Brevo / email setup
 brevo-mcp-setup.txt
 BREVO-OPERATIVO.md
 PROMPTS-BREVO-OPTIMIZADOS.md
 _brevo_*.py
+
+# Binarios y dependencias
 *.docx
 *.xlsx
 *.pdf
 node_modules/
+
+# Ficheros personales / IA
 Info otras IA.txt
 Respuestas a tus preguntas.txt
-reddit_watcher.py
-reddit_config.py
-reddit_seen_posts.json
+cosas-pendientes-david.txt
+substack-articulos.txt
+web-escritor.md
+
+# Carpetas de herramientas y trabajo local (no van al repo)
+_tools/
+_reddit/
+_david/
