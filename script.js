@@ -657,7 +657,7 @@ function _gcEvent(path, title) {
         <div class="buy-dialog-options">
           <a class="buy-option buy-option--primary" href="${AMAZON_URL}" target="_blank" rel="sponsored noopener noreferrer" data-gc="comprar-amazon-papel">
             <span class="buy-option-vendor">Amazon España</span>
-            <span class="buy-option-format">Papel · eBook</span>
+            <span class="buy-option-format">Tapa blanda</span>
             <span class="buy-option-cta">Comprar →</span>
           </a>
           <a class="buy-option" href="${CASADELLIBRO_URL}" target="_blank" rel="noopener noreferrer" data-gc="comprar-casadellibro">
