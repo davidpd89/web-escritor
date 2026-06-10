@@ -77,9 +77,9 @@ window.addEventListener("load", () => {
 
   const items = [
     { href: "/", label: "Inicio", icon: "⌂" },
-    { href: "/libros/samuel-entre-mundos/", label: "Libro", icon: "◇" },
+    { href: "/libros/", label: "Libros", icon: "◇" },
     { href: "/fragmento/", label: "Leer", icon: "Ⅰ" },
-    { href: "/universo/noveris/", label: "Noveris", icon: "✦" },
+    { href: "/cuaderno/", label: "Cuaderno", icon: "✎" },
     { href: "/#contacto", label: "Contacto", icon: "@" }
   ];
 
