@@ -10,7 +10,7 @@ Allow: /
 User-agent: ChatGPT-User
 Allow: /
 
-# GPTBot: allowed so ChatGPT knowledge base can index the site
+# GPTBot: allowed for OpenAI model crawling; OAI-SearchBot handles ChatGPT Search visibility.
 User-agent: GPTBot
 Allow: /
 

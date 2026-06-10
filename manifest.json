@@ -1,7 +1,7 @@
 {
   "name": "David Porto Díaz — Escritor de fantasía juvenil",
   "short_name": "David Porto",
-  "description": "Web oficial de David Porto Díaz, autor de Samuel entre mundos y creador del universo de Noveris.",
+  "description": "Web oficial de David Porto Díaz, autor de Samuel entre mundos y de la ciudad fantástica de Noveris.",
   "start_url": "/",
   "scope": "/",
   "display": "standalone",
@@ -38,10 +38,10 @@
       "description": "Ficha oficial de la novela Samuel entre mundos."
     },
     {
-      "name": "Universo de Noveris",
+      "name": "Noveris, ciudad fantástica",
       "short_name": "Noveris",
       "url": "/universo/noveris/",
-      "description": "Glosario y lore oficial de Noveris."
+      "description": "Ciudad fantástica y worldbuilding de Samuel entre mundos."
     },
     {
       "name": "Kit de prensa",

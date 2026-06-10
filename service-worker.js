@@ -1,33 +1,26 @@
-const CACHE_VERSION = "david-porto-v2026-06-09-3";
+const CACHE_VERSION = "david-porto-v2026-06-10-1";
 const STATIC_CACHE = `${CACHE_VERSION}-static`;
 const PAGE_CACHE = `${CACHE_VERSION}-pages`;
 
-// Critical app shell — assets that MUST be cached for offline to work.
-// Do NOT include frequently-changing pages (eventos, ferias) here.
+// Critical app shell — stable assets only.
+// Do NOT precache editorial HTML; navigations use network-first and update normally.
 const APP_SHELL = [
-  "/",
   "/offline.html",
   "/manifest.json",
   "/styles.css",
   "/script.js",
-  "/autor.html",
-  "/prensa.html",
-  "/premios.html",
-  "/privacidad.html",
-  "/libros/samuel-entre-mundos/",
-  "/universo/noveris/",
-  "/fragmento/",
-  "/las-manecillas-del-recuerdo/",
   "/assets/logo-david-porto-diaz-escritor-176.webp",
   "/assets/david-porto-favicon.png",
+  "/assets/icon-512.png",
+  "/assets/icon-512-maskable.png",
   "/assets/mapa-noveris-ciudad-fantasia-urban-lore.avif",
   "/assets/david-porto-autor-700.webp",
   "/assets/david-porto-autor-400.webp",
   "/assets/fonts/cg-normal-latin.woff2",
+  "/assets/fonts/cg-normal-latin-ext.woff2",
+  "/assets/fonts/cg-italic-latin.woff2",
   "/assets/fonts/inter-normal-latin.woff2",
-  "/empieza-aqui/",
-  "/aviso-legal.html",
-  "/clubes-de-lectura/samuel-entre-mundos/"
+  "/assets/fonts/inter-normal-latin-ext.woff2"
 ];
 
 // Install: cache each asset individually so one failure does not abort the whole install
