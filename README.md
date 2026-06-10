@@ -39,3 +39,9 @@ git push -u origin main
 ```
 
 Reemplaza `USER` y `REPOSITORY` por tus datos reales.
+## Nota operativa: Bookdala e imagen de prensa
+
+Bookdala publicó el artículo `Fantasía juvenil con voz propia en la Feria del Libro de Madrid`:
+https://bookdala.com/bnews/2026/06/10/fantasia-juvenil-con-voz-propia-en-la-feria-del-libro-de-madrid/
+
+Bookdala incrusta la foto directamente desde la fuente original de davidportodiaz.com. Si se borra la imagen del kit de prensa, desaparecerá también en Bookdala. Si se sustituye manteniendo exactamente el mismo nombre de fichero y ruta, la actualización se reflejará también allí.
