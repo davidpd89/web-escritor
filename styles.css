@@ -88,7 +88,7 @@
 
 /* Inner padding for hero text blocks */
 :root{
-  --content-inset-mobile:34px;
+  --content-inset-mobile:20px;
   --content-inset-tablet:40px;
   --content-inset-desktop:48px;
 }
@@ -126,25 +126,4 @@ body .site-shell main .lore-hero .book-hero-content{
     padding-inline:var(--content-inset-mobile);
   }
 
-  body .site-shell main .section .book-feature{
-    padding-inline:28px;
-  }
-
-  body .site-shell main .section .book-info{
-    padding-left:28px;
-    padding-right:28px;
-  }
-}
-
-@media (max-width:760px){
-  body .site-shell main .hero .hero-content,
-  body .site-shell main .book-hero .book-hero-copy,
-  body .site-shell main .book-hero .book-hero-content,
-  body .site-shell main .fragment-hero .book-hero-copy,
-  body .site-shell main .fragment-hero .fragment-hero-copy,
-  body .site-shell main .lore-hero .book-hero-copy,
-  body .site-shell main .lore-hero .book-hero-content{
-    padding-left:34px;
-    padding-right:34px;
-  }
 }
