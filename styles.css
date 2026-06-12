@@ -56,3 +56,32 @@
   body .section{padding-left:18px;padding-right:18px}
   body .event-item{padding:18px 16px}
 }
+
+/* Long-form page reading comfort refinements */
+@media (max-width:760px){
+  body .fragment-section{padding-left:22px;padding-right:22px}
+  body .fragment-notice,
+  body .fragment-intro-indexable,
+  body .fragment-meta{max-width:100%;line-height:1.7}
+  body .fragment-reading,
+  body .fragment-text{max-width:100%;margin-inline:auto}
+  body .fragment-reading p,
+  body .fragment-text p{line-height:1.76}
+  body .geo-answer,
+  body .about-copy p,
+  body .section-heading p{line-height:1.72!important}
+  body main>header[style*="max-width:760px"]>p:not(.eyebrow),
+  body main>section[aria-label="Artículos"] li>p,
+  body main>section[style*="max-width:760px"]>p,
+  body .lore-prose p,
+  body .lore-term p,
+  body .lore-bento-card p,
+  body .lore-map-grid .feature-card p{line-height:1.72}
+  body .lore-table td{line-height:1.65}
+  body .press-card .button{width:auto;max-width:100%;min-width:0;white-space:normal}
+}
+
+@media (min-width:761px){
+  body .fragment-reading,
+  body .fragment-text{max-width:760px;margin-inline:auto}
+}
