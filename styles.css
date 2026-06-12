@@ -7,3 +7,52 @@
 @media(max-width:760px){.section--light::before{left:0;width:100%}}
 .section--light::before{left:0;right:0;width:auto;box-shadow:0 0 0 100vmax #f0ebe1;clip-path:inset(0 -100vmax)}
 .event-photo-grid,.press-photo-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:14px;margin-top:16px}.event-photo-card{margin:0}.event-photo-card img{width:100%;height:auto;border:1px solid var(--border);border-radius:var(--radius-md);box-shadow:var(--shadow-sm);background:rgba(255,255,255,.035)}.event-photo-card figcaption{margin-top:8px;color:var(--muted-2);font-size:.78rem;line-height:1.45;text-align:center}.event-photo-card--featured{max-width:320px;margin:0 0 18px}.press-card--wide{grid-column:1/-1}.press-photo-grid{grid-template-columns:repeat(3,minmax(0,1fr))}.press-photo-grid .event-photo-card img{max-height:320px;object-fit:contain}.event-gallery>p{margin-top:0}@media(max-width:760px){.press-photo-grid{grid-template-columns:1fr}.event-photo-grid{grid-template-columns:1fr}.event-photo-card--featured{max-width:100%}}
+
+/* Mobile reading comfort refinements */
+@media (max-width:760px){
+  body .site-shell{padding-left:22px;padding-right:22px}
+  body .hero-content,
+  body .book-hero-copy,
+  body .book-info,
+  body .visual-feature__copy,
+  body .section-heading,
+  body .geo-answer{max-width:100%}
+  body .hero-lead,
+  body .hero-spark,
+  body .book-hero-desc,
+  body .book-lead-hook,
+  body .book-hook,
+  body .book-detail,
+  body .visual-feature__copy p,
+  body .geo-answer{line-height:1.72}
+  body .book-feature,
+  body .book-info{padding-left:2px;padding-right:2px}
+  body .timeline{gap:16px}
+  body .event-item{padding:18px;gap:14px}
+  body .event-item time{margin-bottom:4px}
+  body .event-item>div{min-width:0}
+  body .event-item p{line-height:1.7}
+  body .event-item--featured{padding:18px}
+  body .event-photo-card--featured{margin-bottom:16px}
+  body .event-photo-card--featured img{width:100%;max-height:520px;object-fit:cover;object-position:center 30%;border-radius:14px}
+  body .about-grid{gap:24px}
+  body .about-copy,
+  body .about-side{min-width:0}
+  body .about-copy p,
+  body .about-side p{line-height:1.72}
+  body .event-gallery{padding:16px;border-radius:16px}
+  body .event-gallery>p{line-height:1.7}
+  body .event-photo-grid{gap:16px}
+  body .event-photo-card{margin:0}
+  body .event-photo-card img{border-radius:14px}
+  body .event-photo-card figcaption,
+  body .event-gallery-caption{padding-top:8px;line-height:1.45}
+  body .event-gallery-figure{margin-bottom:16px}
+  body .event-gallery-img{width:100%;border-radius:14px}
+}
+
+@media (max-width:420px){
+  body .site-shell{padding-left:22px;padding-right:22px}
+  body .section{padding-left:18px;padding-right:18px}
+  body .event-item{padding:18px 16px}
+}
