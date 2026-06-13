@@ -492,15 +492,24 @@ function fallbackCopy(text, done) {
   });
 })();
 
-// FAQ accordion
+// FAQ accordion — closes siblings when one opens
 document.querySelectorAll(".faq-question").forEach((btn) => {
   btn.addEventListener("click", () => {
     scheduleTask(() => {
       const item = btn.closest(".faq-item");
-      const answer = item.querySelector(".faq-answer");
-      const isOpen = item.classList.toggle("is-open");
-      btn.setAttribute("aria-expanded", String(isOpen));
-      answer.hidden = !isOpen;
+      const isOpening = !item.classList.contains("is-open");
+      const list = item.closest(".faq-list") || item.parentElement;
+      list.querySelectorAll(".faq-item.is-open").forEach(other => {
+        if (other === item) return;
+        other.classList.remove("is-open");
+        const ob = other.querySelector(".faq-question");
+        const oa = other.querySelector(".faq-answer");
+        if (ob) ob.setAttribute("aria-expanded", "false");
+        if (oa) oa.hidden = true;
+      });
+      item.classList.toggle("is-open", isOpening);
+      btn.setAttribute("aria-expanded", String(isOpening));
+      item.querySelector(".faq-answer").hidden = !isOpening;
     }, "user-visible");
   });
 });

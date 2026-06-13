@@ -752,3 +752,103 @@ body::after{
 
 /* Mobile: empieza-aqui feature-grid */
 @media(max-width:760px){.start-here-hero .book-hero-content{max-width:100%}}
+
+/* === editorial-5: visual overhaul + 11 bug fixes 2026-06-13 === */
+
+/* 1. HEADER PREMIUM — glassmorphism reforzado, mejor altura y espaciado */
+.site-header{
+  min-height:68px;
+  background:rgba(8,10,12,.94)!important;
+  backdrop-filter:blur(24px)!important;
+  -webkit-backdrop-filter:blur(24px)!important;
+  padding-top:13px!important;
+  padding-bottom:13px!important;
+}
+.brand-text strong{font-size:.97rem;letter-spacing:.05em}
+.brand-text small{letter-spacing:.12em;font-size:.7rem;text-transform:uppercase;color:var(--muted)}
+.site-nav{gap:22px}
+.site-nav a{font-size:.85rem;letter-spacing:.05em}
+
+/* Modo lectura: pill visible y distinguible */
+.modo-samuel-btn{
+  border:1px solid rgba(224,185,121,.32)!important;
+  border-radius:999px!important;
+  padding:5px 14px!important;
+  font-size:.77rem!important;
+  letter-spacing:.06em!important;
+  color:var(--accent)!important;
+  background:rgba(196,148,77,.07)!important;
+  cursor:pointer;
+  transition:background .2s,border-color .2s,color .2s;
+  white-space:nowrap;
+}
+.modo-samuel-btn:hover{background:rgba(196,148,77,.15)!important;border-color:rgba(224,185,121,.5)!important}
+.modo-samuel-btn[aria-pressed="true"]{background:rgba(196,148,77,.2)!important;border-color:var(--accent)!important;color:var(--accent-strong)!important}
+
+/* 2. MODO SAMUEL — botón visible en fondo claro */
+.modo-samuel .site-nav .modo-samuel-btn{color:#6a3c0e!important;border-color:rgba(140,80,20,.42)!important;background:rgba(196,148,77,.15)!important}
+.modo-samuel .site-nav .modo-samuel-btn[aria-pressed="true"]{background:rgba(196,148,77,.28)!important;border-color:#b07028!important;color:#4a2a04!important}
+
+/* 3. CREDS STRIP — centrado vertical homogéneo */
+.creds-strip{display:flex;flex-wrap:wrap;align-items:center;justify-content:center}
+.cred-item{display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;gap:4px;padding:14px 22px}
+.cred-label{text-align:center;font-size:.68rem;letter-spacing:.14em;text-transform:uppercase;line-height:1.35}
+.cred-num{justify-content:center;text-align:center}
+
+/* 4. LORE BENTO GRID — layout bento correcto, sin hueco vacío */
+.lore-bento-grid{display:grid;grid-template-columns:1.25fr 1fr;gap:16px;margin-top:32px}
+.lore-bento-card{background:rgba(255,255,255,.04);border:1px solid var(--border);border-radius:var(--radius-md);padding:26px;display:flex;flex-direction:column}
+.lore-bento-card--large{grid-row:span 2}
+.lore-bento-card--wide{grid-column:1/-1}
+.lore-bento-kicker{font-size:.67rem;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--accent);margin:0 0 9px;font-family:var(--font-body)}
+.lore-bento-card h3{font-size:1.3rem;margin:0 0 9px;letter-spacing:-.02em}
+.lore-bento-card>p{color:var(--muted);font-size:.88rem;line-height:1.65;margin:0}
+@media(max-width:760px){.lore-bento-grid{grid-template-columns:1fr}.lore-bento-card--large,.lore-bento-card--wide{grid-row:auto;grid-column:auto}}
+
+/* 5. STICKY BOOK COVER — reinforce para que vuelva a funcionar */
+@media(min-width:900px){.book-cover-wrap{position:sticky!important;top:100px;align-self:start}}
+
+/* 6. SYNOPSIS-QUICK: datos clave mejorados */
+.synopsis-quick{background:rgba(255,255,255,.04);border:1px solid var(--border);border-radius:var(--radius-md);padding:16px 20px;margin-top:14px}
+.synopsis-quick-label{font-size:.67rem;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--accent);margin:0 0 10px;display:block;font-family:var(--font-body)}
+.synopsis-quick ul{margin:0;padding:0;list-style:none;display:flex;flex-direction:column}
+.synopsis-quick ul li{padding:6px 0;border-bottom:1px solid var(--border);font-size:.84rem;color:var(--muted);line-height:1.4;display:flex;align-items:flex-start;gap:7px}
+.synopsis-quick ul li:last-child{border-bottom:none}
+.synopsis-quick ul li::before{content:"·";color:var(--accent);font-weight:700;flex-shrink:0;font-size:1.1em}
+
+/* Medallón: imagen cuadrada, no cortada */
+.synopsis-aside figure{text-align:center;margin:0 0 14px}
+.synopsis-aside figure img{aspect-ratio:16/9;object-fit:cover;object-position:center;max-width:100%!important;width:100%!important;height:auto!important;border-radius:10px;border:1px solid var(--border)}
+
+/* 7. SECTION--LIGHT book-feature — fondo oscuro para que la portada 3D quede bien */
+.section--light .book-feature{background:rgba(10,8,6,.92)!important;border-color:rgba(196,148,77,.28)!important}
+
+/* 8. SECTION-ALT — separadores más visibles */
+.section--alt{border-top:1px solid rgba(242,232,216,.06);border-bottom:1px solid rgba(242,232,216,.06)}
+
+/* 9. HOVER MEJORADO — tarjetas con micro-elevación */
+@media(prefers-reduced-motion:no-preference){
+  .feature-card,.press-card,.mini-card,.award-card,.contact-card,.review-card{
+    transition:border-color .2s ease,transform .2s ease,box-shadow .2s ease;
+  }
+  .feature-card:hover,.press-card:hover,.mini-card:hover,.award-card:hover,.contact-card:hover,.review-card:hover{
+    border-color:var(--border-strong)!important;
+    transform:translateY(-2px);
+    box-shadow:0 20px 60px rgba(0,0,0,.28)!important;
+  }
+}
+
+/* 10. EYEBROW — color acento consistente en toda la web */
+.eyebrow,.card-kicker,.lore-bento-kicker,.synopsis-quick-label{color:var(--accent)}
+
+/* 11. TIPOGRAFÍA — section headings equilibradas */
+.section-heading h2,.hero h1,.book-hero h1{text-wrap:balance}
+
+/* Animación suave en acordeón FAQ */
+.faq-answer{transition:none}
+.faq-item.is-open .faq-answer{display:block}
+
+@media(max-width:760px){
+  .cred-item{padding:10px 14px}
+  .synopsis-aside figure img{max-width:160px!important;width:160px!important;aspect-ratio:1;object-fit:cover}
+}
