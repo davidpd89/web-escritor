@@ -1,4 +1,4 @@
-const CACHE_VERSION = "david-porto-v2026-06-10-1";
+const CACHE_VERSION = "david-porto-v2026-06-13-1";
 const STATIC_CACHE = `${CACHE_VERSION}-static`;
 const PAGE_CACHE = `${CACHE_VERSION}-pages`;
 
@@ -7,7 +7,6 @@ const PAGE_CACHE = `${CACHE_VERSION}-pages`;
 const APP_SHELL = [
   "/offline.html",
   "/manifest.json",
-  "/styles.css",
   "/script.js",
   "/assets/logo-david-porto-diaz-escritor-176.webp",
   "/assets/david-porto-favicon.png",
@@ -65,7 +64,12 @@ self.addEventListener("fetch", (event) => {
     return;
   }
 
-  if (url.pathname.startsWith("/assets/") || url.pathname.endsWith(".css") || url.pathname.endsWith(".js")) {
+  if (url.pathname.endsWith(".css")) {
+    event.respondWith(networkFirstStatic(request));
+    return;
+  }
+
+  if (url.pathname.startsWith("/assets/") || url.pathname.endsWith(".js")) {
     event.respondWith(cacheFirst(request));
     return;
   }
@@ -94,6 +98,17 @@ async function cacheFirst(request) {
     cache.put(request, response.clone());
   }
   return response;
+}
+
+async function networkFirstStatic(request) {
+  const cache = await caches.open(STATIC_CACHE);
+  try {
+    const response = await fetch(request);
+    if (response.ok) cache.put(request, response.clone());
+    return response;
+  } catch {
+    return (await cache.match(request)) || Response.error();
+  }
 }
 
 async function staleWhileRevalidate(request) {

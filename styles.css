@@ -275,3 +275,41 @@ body .site-shell main .lore-hero .book-hero-content{
     padding-inline:var(--content-inset-tablet);
   }
 }
+
+body::before,
+body::after{
+  display:none;
+}
+
+.section--alt,
+.home-credenciales,
+.home-start-here-band,
+.start-here-hero,
+.samuel-about-band,
+.author-about-band{
+  background-image:none;
+}
+
+.section--alt,
+.home-start-here-band,
+.start-here-hero,
+.samuel-about-band{
+  background-color:#101214;
+}
+
+.home-credenciales,
+.author-about-band{
+  background-color:#111315;
+}
+
+.home-credenciales::before{
+  display:none;
+}
+
+.home-start-here-band .start-card{
+  background:#17191b;
+}
+
+.home-start-here-band .start-card--reader{
+  background:linear-gradient(145deg,rgba(196,148,77,.12),#17191b 58%);
+}
