@@ -724,3 +724,31 @@ body::after{
 
 /* UTILIDADES */
 .mt-16{margin-top:16px}
+
+/* === v20260613-editorial-3b: audit fixes === */
+
+/* Alias para footer-back-top que usa las-manecillas */
+.back-to-top-link{display:inline-flex;align-items:center;gap:6px;color:var(--muted);font-size:0.84rem;text-decoration:none;transition:color .2s ease}.back-to-top-link:hover{color:var(--accent-strong)}
+
+/* Empieza-aqui: start-here-hero ya cubre con lore-hero+book-hero, anular extra */
+.start-here-hero .book-hero-content{max-width:640px}
+
+/* Libros/index visual-feature */
+.visual-feature{display:grid;grid-template-columns:minmax(0,1fr) 280px;gap:48px;align-items:center;padding:40px 0}.visual-feature__copy{max-width:640px}.visual-feature__media{display:flex;align-items:center;justify-content:center}
+@media(max-width:760px){.visual-feature{grid-template-columns:1fr;gap:24px}.visual-feature--noveris .visual-feature__media{order:-1}}
+
+/* Secciones home: ritmo oscuro/claro mas pronunciado */
+.section--light{background:rgba(242,232,216,.03);border-top:1px solid rgba(242,232,216,.06);border-bottom:1px solid rgba(242,232,216,.06)}
+
+/* Press photo card alias */
+.press-photo-card{overflow:hidden}.press-photo-card figure{margin:0 0 14px;border-radius:var(--radius-md);overflow:hidden}
+
+/* Event photo card */
+.event-photo-card{overflow:hidden;border-radius:var(--radius-md)}.event-photo-card--featured{border:1px solid var(--border-strong)}
+.event-photo-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:16px}
+
+/* Comparables table */
+.comparables-table{width:100%;border-collapse:collapse;margin:24px 0}.comparables-table th,.comparables-table td{padding:10px 16px;text-align:left;border-bottom:1px solid var(--border);font-size:.9rem}.comparables-table th{color:var(--accent);font-weight:600;letter-spacing:.06em;text-transform:uppercase;font-size:.75rem}
+
+/* Mobile: empieza-aqui feature-grid */
+@media(max-width:760px){.start-here-hero .book-hero-content{max-width:100%}}
