@@ -1,8 +1,8 @@
-const CACHE_VERSION = "david-porto-v2026-06-13-1";
+const CACHE_VERSION = "david-porto-v2026-06-13-2";
 const STATIC_CACHE = `${CACHE_VERSION}-static`;
 const PAGE_CACHE = `${CACHE_VERSION}-pages`;
 
-// Critical app shell — stable assets only.
+// Critical app shell - stable assets only.
 // Do NOT precache editorial HTML; navigations use network-first and update normally.
 const APP_SHELL = [
   "/offline.html",
@@ -12,7 +12,6 @@ const APP_SHELL = [
   "/assets/david-porto-favicon.png",
   "/assets/icon-512.png",
   "/assets/icon-512-maskable.png",
-  "/assets/mapa-noveris-ciudad-fantasia-urban-lore.avif",
   "/assets/david-porto-autor-700.webp",
   "/assets/david-porto-autor-400.webp",
   "/assets/fonts/cg-normal-latin.woff2",
