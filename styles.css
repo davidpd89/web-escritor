@@ -687,3 +687,40 @@ body::after{
     width:100%;
   }
 }
+
+
+/* === v20260613-editorial-3 === */
+
+/* HEADER: radio inferior + sombra editorial */
+.site-header{border-bottom:1px solid rgba(242,232,216,.08)!important;border-left:1px solid rgba(242,232,216,.08);border-right:1px solid rgba(242,232,216,.08);border-radius:0 0 18px 18px;box-shadow:0 14px 42px rgba(0,0,0,.22)}
+.site-nav a{position:relative}
+.site-nav a[aria-current=page]::after{content:"";position:absolute;left:0;right:0;bottom:6px;height:1px;background:var(--accent-strong);opacity:.75;pointer-events:none}
+
+/* CREDS: alineacion consistente */
+.creds-strip{align-items:stretch}
+.cred-item{min-height:88px;justify-content:center;flex:1;min-width:110px}
+.cred-num{display:flex;align-items:center;font-variant-numeric:lining-nums tabular-nums}
+@media(max-width:760px){.cred-item{flex:0 0 calc(50% - 1px);min-width:unset}.cred-divider{display:none}}
+
+/* PORTADA HOME: hover animation */
+@media(prefers-reduced-motion:no-preference) and (min-width:900px){.book-cover-img{transition:transform .35s ease,box-shadow .35s ease}.book-cover-wrap:hover .book-cover-img{transform:translateY(-6px) rotate(-1.5deg);box-shadow:0 32px 80px rgba(0,0,0,.65)}}
+
+/* FRAGMENTO HERO: layout bloque, no grid estrecho */
+.fragment-hero .book-hero-inner{display:block!important;max-width:980px;margin-inline:auto}
+.fragment-hero .book-hero-copy{max-width:760px;width:100%}
+.fragment-hero-title{font-size:clamp(2.8rem,7vw,5.5rem)!important;line-height:.92!important;letter-spacing:-.04em!important;text-wrap:balance}
+.fragment-hero .breadcrumb{display:flex;flex-wrap:wrap;gap:6px 10px;align-items:center;max-width:100%;margin-bottom:28px}
+@media(max-width:760px){.fragment-hero .book-hero-copy{max-width:100%}.fragment-hero-title{font-size:clamp(2.4rem,13vw,4rem)!important}}
+
+/* CLUBES: feature-grid singular + site-logo alias */
+.feature-grid{display:grid;gap:18px}
+.feature-grid--3{grid-template-columns:repeat(3,minmax(0,1fr))}
+@media(max-width:760px){.feature-grid--3{grid-template-columns:1fr}}
+.site-logo{display:inline-flex;align-items:center;gap:14px;color:var(--text);text-decoration:none;flex-shrink:0}
+.site-logo img{width:52px;height:52px;border:1px solid var(--border-strong);border-radius:50%;object-fit:cover}
+.site-logo-text{display:grid;gap:3px}
+.site-logo-text strong{font-family:var(--font-body);font-size:.95rem;font-weight:600;letter-spacing:.05em}
+.site-logo-text small{color:var(--muted);font-size:.86rem}
+
+/* UTILIDADES */
+.mt-16{margin-top:16px}
