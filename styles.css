@@ -1053,32 +1053,101 @@ body .section .synopsis-aside {
   }
 }
 
-/* 2026-06-14 reading mode stabilization */
+
+/* 2026-06-14 reading mode hard reset + safe editorial polish */
 html.modo-samuel {
   color-scheme: dark;
+  --bg: #080a0c !important;
+  --bg-alt: #0c1018 !important;
+  --bg-soft: #13110d !important;
+  --surface: #18140e !important;
+  --text: #f2e8d8 !important;
+  --muted: #b6a894 !important;
+  --muted-2: #8e8170 !important;
+  --accent: #c4944d !important;
+  --accent-strong: #e0b979 !important;
+  --border: rgba(242,232,216,.11) !important;
+  --border-strong: rgba(196,148,77,.3) !important;
 }
 
-html.modo-samuel .site-header {
-  background: rgba(8, 10, 12, .96) !important;
-  border-color: rgba(242, 232, 216, .1) !important;
+html.modo-samuel body {
+  background:
+    radial-gradient(circle at 18% 8%, rgba(196,148,77,.09), transparent 30%),
+    radial-gradient(circle at 82% 4%, rgba(12,20,32,.6), transparent 28%),
+    linear-gradient(165deg, #080a0c 0%, #0c100a 55%, #060808 100%) !important;
+  color: var(--text) !important;
 }
 
-html.modo-samuel .site-nav a {
+html.modo-samuel body::before,
+html.modo-samuel body::after {
+  display: block;
+}
+
+html.modo-samuel .hero-bg,
+html.modo-samuel .book-hero .hero-bg {
+  opacity: .55 !important;
+}
+
+html.modo-samuel .hero::after {
+  display: block !important;
+}
+
+html.modo-samuel .hero,
+html.modo-samuel .book-hero,
+html.modo-samuel .section--alt,
+html.modo-samuel .contact-panel,
+html.modo-samuel .review-card,
+html.modo-samuel .event-item,
+html.modo-samuel .faq-item,
+html.modo-samuel .feature-card,
+html.modo-samuel .award-card,
+html.modo-samuel .mini-card,
+html.modo-samuel .press-card,
+html.modo-samuel .lore-bento-card {
+  color: var(--text) !important;
+}
+
+html.modo-samuel .section--light {
+  color: #1a1510 !important;
+}
+
+html.modo-samuel .creds-strip {
+  background: transparent !important;
+}
+
+html.modo-samuel .brand-mark {
+  background: #000 !important;
+}
+
+html.modo-samuel .hero h1,
+html.modo-samuel .hero-lead,
+html.modo-samuel .hero-spark,
+html.modo-samuel .trust-item p:last-child,
+html.modo-samuel .hero-review p,
+html.modo-samuel .book-hero h1,
+html.modo-samuel .book-hero-desc {
+  color: inherit !important;
+}
+
+html.modo-samuel .hero-spark,
+html.modo-samuel .hero-review footer,
+html.modo-samuel .book-hero-desc,
+html.modo-samuel .section p {
   color: var(--muted) !important;
 }
 
-html.modo-samuel .site-nav a:hover,
-html.modo-samuel .site-nav a:focus-visible,
-html.modo-samuel .site-nav a[aria-current="page"] {
+html.modo-samuel .button.secondary,
+html.modo-samuel .button.tertiary,
+html.modo-samuel .explore-toggle {
   color: var(--text) !important;
+  border-color: var(--border-strong) !important;
 }
 
 html.modo-samuel .site-nav .modo-samuel-btn,
 html.modo-samuel .modo-samuel-btn {
   color: var(--accent-strong) !important;
-  background: rgba(196, 148, 77, .12) !important;
-  border-color: rgba(224, 185, 121, .48) !important;
-  box-shadow: 0 0 0 1px rgba(224, 185, 121, .06) inset;
+  background: rgba(196,148,77,.14) !important;
+  border-color: rgba(224,185,121,.52) !important;
 }
 
 html.modo-samuel .site-nav .modo-samuel-btn[aria-pressed="true"],
@@ -1088,35 +1157,46 @@ html.modo-samuel .modo-samuel-btn[aria-pressed="true"] {
   border-color: transparent !important;
 }
 
-html.modo-samuel .fragment-reading,
-html.modo-samuel .fragment-text,
-html.modo-samuel .article-body,
-html.modo-samuel .editorial-prose,
-html.modo-samuel .prose-block {
-  max-width: 760px;
-  margin-inline: auto;
-  font-size: clamp(1.08rem, 1.3vw, 1.22rem);
-  line-height: 1.9;
+:where(a, button, input, summary, textarea, select):focus-visible {
+  outline: 2px solid rgba(224,185,121,.9);
+  outline-offset: 4px;
 }
 
-html.modo-samuel .fragment-reading p,
-html.modo-samuel .fragment-text p,
-html.modo-samuel .article-body p,
-html.modo-samuel .editorial-prose p,
-html.modo-samuel .prose-block p {
-  line-height: 1.9;
+.text-link,
+.article-body a,
+.editorial-prose a,
+.prose-block a,
+.fragment-reading a {
+  text-decoration-thickness: 1px;
+  text-underline-offset: .22em;
 }
 
-html.modo-samuel .fragment-cta-box,
-html.modo-samuel .fragment-newsletter-box,
-html.modo-samuel .quiz-wrap,
-html.modo-samuel .contact-panel {
-  background: rgba(255, 255, 255, .045);
-  border-color: rgba(242, 232, 216, .14);
-}
+@media (prefers-reduced-motion: no-preference) {
+  .button.primary {
+    position: relative;
+    overflow: hidden;
+  }
 
-@media (max-width: 900px) {
-  html.modo-samuel .site-nav {
-    background: rgba(8, 10, 12, .98) !important;
+  .button.primary::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(110deg, transparent 0%, rgba(255,255,255,.28) 45%, transparent 70%);
+    transform: translateX(-130%);
+    transition: transform .65s ease;
+    pointer-events: none;
+  }
+
+  .button.primary:hover::after,
+  .button.primary:focus-visible::after {
+    transform: translateX(130%);
+  }
+
+  .review-card,
+  .feature-card,
+  .press-card,
+  .mini-card,
+  .rec-item {
+    will-change: transform;
   }
 }
