@@ -556,31 +556,10 @@ function fallbackCopy(text, done) {
   submitNewsletter("newsletter-form-cuaderno",   "nl-email-cuaderno",   "nl-gdpr-cuaderno",   "nl-status-cuaderno",   "cuaderno");
 })();
 
-// Modo Samuel — accesibilidad cognitiva y foco lector
+// Modo lectura desactivado temporalmente: limpia estados antiguos guardados en el navegador.
 (function () {
-  const STORAGE_KEY = "modo-samuel";
-  const root = document.documentElement;
-
-  function applyMode(active) {
-    root.classList.toggle("modo-samuel", active);
-    document.querySelectorAll(".modo-samuel-btn").forEach(btn => {
-      btn.setAttribute("aria-pressed", String(active));
-      btn.title = active ? "Desactivar modo de lectura" : "Activar modo de lectura enfocado";
-    });
-  }
-
-  const saved = localStorage.getItem(STORAGE_KEY) === "1";
-  applyMode(saved);
-
-  document.querySelectorAll(".modo-samuel-btn").forEach(btn => {
-    btn.addEventListener("click", () => {
-      scheduleTask(() => {
-        const next = !root.classList.contains("modo-samuel");
-        localStorage.setItem(STORAGE_KEY, next ? "1" : "0");
-        applyMode(next);
-      }, "user-blocking");
-    });
-  });
+  document.documentElement.classList.remove("modo-samuel");
+  try { localStorage.removeItem("modo-samuel"); } catch {}
 })();
 
 // FAQ accordion — closes siblings when one opens
