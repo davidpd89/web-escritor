@@ -6,6 +6,18 @@ function scheduleTask(fn, priority = "background") {
   return Promise.resolve().then(fn);
 }
 
+const NEWSLETTER_CONFIG = {
+  endpoint: "https://subscribe.davidpd89.workers.dev",
+  defaultListIds: [3],
+  sources: {
+    quiz: "quiz-noveris",
+    home: "home",
+    fragmento: "fragmento",
+    manecillas: "manecillas",
+    cuaderno: "cuaderno",
+    popup: "popup"
+  }
+};
 if ("serviceWorker" in navigator) {
   window.addEventListener("load", () => {
     scheduleTask(() => {
@@ -319,22 +331,22 @@ function fallbackCopy(text, done) {
     mensajero: {
       name: "El Mensajero",
       desc: "Eres el tipo de habitante que Noveris no esperaba. Curioso hasta el riesgo, incapaz de dejar una pregunta sin responder, cruzarías la barrera aunque todo te dijera que no. Como Samuel, tu fuerza no es la fuerza: es la necesidad de saber. Noveris te necesita aunque no lo sepa todavía.",
-      share: "Soy El Mensajero en el mundo de Samuel entre mundos ✨ Mi curiosidad cruzaría cualquier barrera. ¿Y tú, qué habitante de Noveris serías? → davidportodiaz.com"
+      share: "He descubierto mi perfil de Noveris: El Mensajero. Hazlo aquí: https://davidportodiaz.com/universo/noveris/#quiz"
     },
     sabio: {
       name: "El Sabio del Espejo",
       desc: "Observas más de lo que hablas. El Espejo Ancestral no revela lo que ves: revela lo que eres, y tú llevas tiempo mirándote. En Noveris guardarías el conocimiento como se guarda el fuego — con cuidado, para que no queme lo que no debe. La paciencia es tu poder más subestimado.",
-      share: "Soy El Sabio del Espejo en el mundo de Samuel entre mundos ✨ El conocimiento como poder y responsabilidad. ¿Y tú, qué habitante de Noveris serías? → davidportodiaz.com"
+      share: "He descubierto mi perfil de Noveris: El Sabio del Espejo. Hazlo aquí: https://davidportodiaz.com/universo/noveris/#quiz"
     },
     silenciadora: {
       name: "La Silenciadora",
       desc: "Disciplina absoluta. Conoces los costes de la magia mejor que nadie — y te aseguras de que nadie los olvide. En Noveris no eres el villano: eres la consecuencia necesaria. Lo que otros llaman frialdad, tú lo llamas honestidad. Noveris funciona porque hay gente como tú dispuesta a mantener el precio real.",
-      share: "Soy La Silenciadora en el mundo de Samuel entre mundos ✨ La disciplina que mantiene el equilibrio. ¿Y tú, qué habitante de Noveris serías? → davidportodiaz.com"
+      share: "He descubierto mi perfil de Noveris: La Silenciadora. Hazlo aquí: https://davidportodiaz.com/universo/noveris/#quiz"
     },
     guardian: {
       name: "El Guardián",
       desc: "Firme, leal, con el peso de lo que cuidas grabado en cada decisión. En Noveris entenderías que la barrera existe por algo y que no todo lo que está al otro lado merece cruzar. Tu fortaleza no está en atacar: está en lo que decides no soltar nunca, cueste lo que cueste.",
-      share: "Soy El Guardián en el mundo de Samuel entre mundos ✨ La lealtad que sostiene el mundo. ¿Y tú, qué habitante de Noveris serías? → davidportodiaz.com"
+      share: "He descubierto mi perfil de Noveris: El Guardián. Hazlo aquí: https://davidportodiaz.com/universo/noveris/#quiz"
     }
   };
 
@@ -396,7 +408,7 @@ function fallbackCopy(text, done) {
     resultDesc.textContent = res.desc;
     resultEl._shareText = res.share;
     resultEl._resultKey = winner;
-    setResultLocked(Boolean(subscribeForm && subscribeForm.dataset.done !== "true"));
+    setResultLocked(false);
     resultEl.scrollIntoView({ behavior: "smooth", block: "nearest" });
   }
 
@@ -437,14 +449,14 @@ function fallbackCopy(text, done) {
         submitBtn.disabled = true;
         submitBtn.textContent = "Enviando…";
         // Worker URL: update with your Cloudflare Worker URL after deploying cloudflare-worker-subscribe.js
-        const WORKER_URL = "https://subscribe.davidpd89.workers.dev";
+        const WORKER_URL = NEWSLETTER_CONFIG.endpoint;
         try {
           const res = await fetch(WORKER_URL, {
             method: "POST",
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify({
               email: emailEl.value.trim(),
-              listIds: [3],
+              listIds: NEWSLETTER_CONFIG.defaultListIds,
               updateEnabled: true,
               attributes: { NOVERIS: resultEl._resultKey || "" }
             })
@@ -452,7 +464,7 @@ function fallbackCopy(text, done) {
           if (res.ok || res.status === 204 || res.status === 400) {
             localStorage.setItem("nl-subscribed", "1");
             subscribeForm.dataset.done = "true";
-            subscribeForm.innerHTML = '<p class="quiz-subscribe-ok">✓ ¡Apuntado! Recibirás novedades de David Porto Díaz antes que nadie.</p>';
+            subscribeForm.innerHTML = '<p class="quiz-subscribe-ok">✓ ¡Apuntado! Recibirás tu resultado y el pack lector de Noveris.</p>';
             _gcEvent("newsletter-quiz", "Newsletter: quiz Noveris");
             setResultLocked(false);
           } else {
@@ -501,16 +513,16 @@ function fallbackCopy(text, done) {
         submitBtn.disabled = true;
         submitBtn.textContent = "Enviando…";
         // Worker URL: update with your Cloudflare Worker URL after deploying cloudflare-worker-subscribe.js
-        const WORKER_URL = "https://subscribe.davidpd89.workers.dev";
+        const WORKER_URL = NEWSLETTER_CONFIG.endpoint;
         try {
           const res = await fetch(WORKER_URL, {
             method: "POST",
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify({
               email: emailEl.value.trim(),
-              listIds: [3],
+              listIds: NEWSLETTER_CONFIG.defaultListIds,
               updateEnabled: true,
-              attributes: { SOURCE: sourceLabel }
+              attributes: { SOURCE: NEWSLETTER_CONFIG.sources[sourceLabel] || sourceLabel }
             })
           });
           if (res.ok || res.status === 204) {
@@ -573,9 +585,13 @@ function fallbackCopy(text, done) {
 
 // FAQ accordion — closes siblings when one opens
 document.querySelectorAll(".faq-question").forEach((btn) => {
+  if (btn.closest("details")) return;
   btn.addEventListener("click", () => {
     scheduleTask(() => {
       const item = btn.closest(".faq-item");
+      if (!item) return;
+      const answer = item.querySelector(".faq-answer");
+      if (!answer) return;
       const isOpening = !item.classList.contains("is-open");
       const list = item.closest(".faq-list") || item.parentElement;
       list.querySelectorAll(".faq-item.is-open").forEach(other => {
@@ -588,7 +604,7 @@ document.querySelectorAll(".faq-question").forEach((btn) => {
       });
       item.classList.toggle("is-open", isOpening);
       btn.setAttribute("aria-expanded", String(isOpening));
-      item.querySelector(".faq-answer").hidden = !isOpening;
+      answer.hidden = !isOpening;
     }, "user-visible");
   });
 });
@@ -637,6 +653,7 @@ function _gcEvent(path, title) {
   function showPopup() {
     if (shown || document.getElementById("nl-popup-overlay")) return;
     shown = true;
+    localStorage.setItem(DISMISSED_KEY, String(Date.now()));
 
     const style = document.createElement("style");
     style.textContent = "#nl-popup-overlay{position:fixed;inset:0;z-index:9000;display:flex;align-items:center;justify-content:center;padding:16px;background:rgba(8,10,12,0.84);backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px);animation:nl-in 0.28s ease}@keyframes nl-in{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}#nl-popup-panel{position:relative;width:100%;max-width:460px;padding:40px 36px 32px;background:#18140e;border:1px solid rgba(196,148,77,0.38);border-radius:20px;box-shadow:0 32px 120px rgba(0,0,0,0.72)}#nl-popup-close{position:absolute;top:14px;right:14px;width:38px;height:38px;border:none;background:transparent;color:#b6a894;font-size:1.5rem;line-height:1;cursor:pointer;border-radius:50%;display:flex;align-items:center;justify-content:center;padding:0;transition:color 0.18s}#nl-popup-close:hover,#nl-popup-close:focus-visible{color:#f2e8d8;outline:none}#nl-popup-panel .eyebrow{margin:0 0 12px;color:#c4944d;font-size:0.68rem;font-weight:700;letter-spacing:0.26em;text-transform:uppercase;font-family:Inter,system-ui,sans-serif}#nl-popup-title{font-family:'Cormorant Garamond',Georgia,serif;margin:0 0 12px;font-size:clamp(1.55rem,4vw,2.1rem);line-height:1.08;color:#f2e8d8;font-weight:600}#nl-popup-body{margin:0 0 22px;color:#b6a894;font-size:0.96rem;line-height:1.7}#nl-popup-email{width:100%;padding:12px 18px;border:1px solid rgba(196,148,77,0.28);border-radius:999px;background:rgba(255,255,255,0.04);color:#f2e8d8;font-size:0.95rem;font-family:inherit;outline:none;box-sizing:border-box;margin-bottom:10px;transition:border-color 0.2s}#nl-popup-email:focus{border-color:#c4944d}#nl-popup-submit{width:100%;justify-content:center;margin-bottom:0}#nl-popup-gdpr-row{display:flex;align-items:flex-start;gap:8px;margin-top:12px;font-size:0.79rem;color:#8e8170;line-height:1.5;cursor:pointer}#nl-popup-gdpr-row input{margin-top:3px;flex-shrink:0}#nl-popup-gdpr-row a{color:#c4944d}#nl-popup-status{margin:8px 0 0;font-size:0.84rem;color:#b6a894;min-height:1.2em}#nl-popup-skip{display:block;margin:14px auto 0;background:none;border:none;color:#8e8170;font-size:0.82rem;cursor:pointer;text-decoration:underline;text-underline-offset:3px;font-family:inherit;transition:color 0.2s;padding:0}#nl-popup-skip:hover{color:#b6a894}@media(max-width:520px){#nl-popup-panel{padding:32px 22px 26px}}";
@@ -651,11 +668,11 @@ function _gcEvent(path, title) {
       '<div id="nl-popup-panel">' +
       '<button id="nl-popup-close" type="button" aria-label="Cerrar">&times;</button>' +
       '<p class="eyebrow">Primeros lectores de Noveris</p>' +
-      '<h2 id="nl-popup-title">El primer cap\u00edtulo, gratis.</h2>' +
-      '<p id="nl-popup-body">Suscr\u00edbete y recibe el cap\u00edtulo 1 de <em>Samuel entre mundos</em> en tu bandeja. Un email cuando haya algo que valga la pena.</p>' +
+      '<h2 id="nl-popup-title">Recibe el pack lector de Noveris.</h2>' +
+      '<p id="nl-popup-body">Mapa, cap\u00edtulo 1 en PDF y avisos de nuevas firmas o lecturas. Un email cuando haya algo que valga la pena.</p>' +
       '<form id="nl-popup-form" novalidate>' +
       '<input type="email" id="nl-popup-email" name="email" placeholder="tu@email.com" autocomplete="email" required />' +
-      '<button type="submit" class="button primary" id="nl-popup-submit">Recibir cap\u00edtulo gratis</button>' +
+      '<button type="submit" class="button primary" id="nl-popup-submit">Recibir pack lector</button>' +
       '<label id="nl-popup-gdpr-row"><input type="checkbox" id="nl-popup-gdpr" required />Acepto recibir novedades del autor. <a href="/privacidad.html" target="_blank" rel="noopener">Privacidad</a>.</label>' +
       '<p id="nl-popup-status" role="status" aria-live="polite"></p>' +
       '</form>' +
@@ -688,22 +705,22 @@ function _gcEvent(path, title) {
         submitBtn.disabled = true;
         submitBtn.textContent = "Enviando\u2026";
         try {
-          const res = await fetch("https://subscribe.davidpd89.workers.dev", {
+          const res = await fetch(NEWSLETTER_CONFIG.endpoint, {
             method: "POST",
             headers: { "Content-Type": "application/json" },
-            body: JSON.stringify({ email: emailEl.value.trim(), listIds: [3], updateEnabled: true, attributes: { SOURCE: "popup" } })
+            body: JSON.stringify({ email: emailEl.value.trim(), listIds: NEWSLETTER_CONFIG.defaultListIds, updateEnabled: true, attributes: { SOURCE: NEWSLETTER_CONFIG.sources.popup } })
           });
           if (res.ok || res.status === 204 || res.status === 400) {
             localStorage.setItem(SUBSCRIBED_KEY, "1");
             const panel = document.getElementById("nl-popup-panel");
-            panel.innerHTML = '<p style="font-family:Cormorant Garamond,Georgia,serif;font-size:1.5rem;color:#e0b979;text-align:center;margin:0 0 10px">\u2713 \u00a1Apuntado!</p><p style="color:#b6a894;text-align:center;font-size:0.94rem;margin:0">Revisa tu bandeja. Nos vemos en Noveris.</p>';
+            panel.innerHTML = '<p style="font-family:Cormorant Garamond,Georgia,serif;font-size:1.5rem;color:#e0b979;text-align:center;margin:0 0 10px">\u2713 \u00a1Apuntado!</p><p style="color:#b6a894;text-align:center;font-size:0.94rem;margin:0">Recibirás el pack lector y las novedades importantes.</p>';
             _gcEvent("newsletter-popup", "Newsletter: popup");
             setTimeout(dismiss, 3200);
           } else throw new Error(res.status);
         } catch (_) {
           statusEl.textContent = "Error al suscribirse. Prueba m\u00e1s tarde.";
           submitBtn.disabled = false;
-          submitBtn.textContent = "Recibir cap\u00edtulo gratis";
+          submitBtn.textContent = "Recibir pack lector";
         }
       }, "user-blocking");
     });
@@ -743,7 +760,7 @@ function _gcEvent(path, title) {
         <p class="buy-dialog-eyebrow">Samuel entre mundos · David Porto Díaz</p>
         <h2 id="buy-dialog-title" class="buy-dialog-title">¿Dónde quieres leerlo?</h2>
         <div class="buy-dialog-options">
-          <a class="buy-option buy-option--primary" href="${AMAZON_URL}" target="_blank" rel="sponsored noopener noreferrer" data-gc="comprar-amazon-papel">
+          <a class="buy-option buy-option--primary" href="${AMAZON_URL}" target="_blank" rel="sponsored nofollow noopener noreferrer" data-gc="comprar-amazon-papel">
             <span class="buy-option-vendor">Amazon España</span>
             <span class="buy-option-format">Tapa blanda</span>
             <span class="buy-option-cta">Comprar →</span>
