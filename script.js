@@ -56,6 +56,85 @@ if (navToggle && siteNav) {
   });
 }
 
+
+// GLOBAL EXPLORE MENU — discover all important pages without crowding the header.
+(function () {
+  if (!siteNav || siteNav.querySelector(".explore-nav")) return;
+
+  const groups = [
+    { title: "Inicio", links: [["/", "Página principal"], ["/empieza-aqui/", "Empieza por aquí"], ["/fragmento/", "Leer capítulo 1 gratis"], ["/libros/samuel-entre-mundos/#comprar", "Dónde comprar Samuel"]] },
+    { title: "Libros y recursos", links: [["/libros/", "Todos los libros"], ["/libros/samuel-entre-mundos/", "Samuel entre mundos"], ["/las-manecillas-del-recuerdo/", "Las manecillas del recuerdo"], ["/clubes-de-lectura/samuel-entre-mundos/", "Clubes de lectura"], ["/clubes-de-lectura/samuel-entre-mundos/guia-imprimible/", "Guía imprimible"]] },
+    { title: "Lectura y mundo", links: [["/universo/noveris/", "Noveris"], ["/recomendaciones/", "Recomendaciones"], ["/recomendaciones/portal-fantasy-espanol/", "Portal fantasy en español"], ["/recomendaciones/magia-con-coste/", "Libros con magia con coste"]] },
+    { title: "Cuaderno", links: [["/cuaderno/", "Todos los artículos"], ["/cuaderno/feria-libro-madrid-2026-samuel-entre-mundos/", "Feria del Libro Madrid 2026"], ["/cuaderno/que-es-el-portal-fantasy/", "Qué es el portal fantasy"], ["/cuaderno/sistema-de-magia-noveris/", "Sistema de magia de Noveris"], ["/cuaderno/worldbuilding-noveris-ciudad-magica/", "Worldbuilding de Noveris"]] },
+    { title: "Autor y prensa", links: [["/autor.html", "Sobre David Porto Díaz"], ["/prensa.html", "Kit de prensa"], ["/eventos.html", "Eventos y firmas"], ["/premios.html", "Premios"], ["/#contacto", "Contacto"]] },
+    { title: "Sitio", links: [["/mapa-del-sitio/", "Mapa del sitio"], ["/ai/", "Información para IA"], ["/privacidad.html", "Privacidad"], ["/aviso-legal.html", "Aviso legal"]] }
+  ];
+
+  const wrap = document.createElement("div");
+  wrap.className = "explore-nav";
+
+  const button = document.createElement("button");
+  button.type = "button";
+  button.className = "explore-toggle";
+  button.setAttribute("aria-expanded", "false");
+  button.setAttribute("aria-controls", "explore-panel");
+  button.innerHTML = '<span>Explorar</span><span aria-hidden="true">+</span>';
+
+  const panel = document.createElement("div");
+  panel.id = "explore-panel";
+  panel.className = "explore-panel";
+  panel.hidden = true;
+  panel.innerHTML = '<div class="explore-panel-inner">' + groups.map(group => (
+    '<section class="explore-group"><h2>' + group.title + '</h2>' +
+    group.links.map(([href, label]) => '<a href="' + href + '">' + label + '</a>').join("") +
+    '</section>'
+  )).join("") + '</div>';
+
+  function closeExplore(returnFocus) {
+    panel.hidden = true;
+    button.setAttribute("aria-expanded", "false");
+    if (returnFocus) button.focus();
+  }
+
+  button.addEventListener("click", () => {
+    const isOpen = button.getAttribute("aria-expanded") === "true";
+    if (isOpen) closeExplore(false);
+    else {
+      panel.hidden = false;
+      button.setAttribute("aria-expanded", "true");
+    }
+  });
+
+  panel.addEventListener("click", (event) => {
+    if (!event.target.closest("a")) return;
+    closeExplore(false);
+    siteNav.classList.remove("is-open");
+    navToggle?.setAttribute("aria-expanded", "false");
+  });
+
+  document.addEventListener("click", (event) => {
+    if (panel.hidden || wrap.contains(event.target)) return;
+    closeExplore(false);
+  });
+
+  document.addEventListener("keydown", (event) => {
+    if (event.key === "Escape" && !panel.hidden) closeExplore(true);
+  });
+
+  wrap.append(button, panel);
+  siteNav.appendChild(wrap);
+})();
+
+// Add a site map link to existing footer navigation without editing every static page.
+(function () {
+  document.querySelectorAll(".footer-nav").forEach((nav) => {
+    if (nav.querySelector('a[href="/mapa-del-sitio/"]')) return;
+    const link = document.createElement("a");
+    link.href = "/mapa-del-sitio/";
+    link.textContent = "Mapa del sitio";
+    nav.appendChild(link);
+  });
+})();
 function syncHashScroll() {
   if (!window.location.hash || window.location.hash === "#") return;
   const targetId = decodeURIComponent(window.location.hash.slice(1));
@@ -373,7 +452,7 @@ function fallbackCopy(text, done) {
           if (res.ok || res.status === 204 || res.status === 400) {
             localStorage.setItem("nl-subscribed", "1");
             subscribeForm.dataset.done = "true";
-            subscribeForm.innerHTML = "<p class=\"quiz-subscribe-ok\">✓ ¡Apuntado! Recibirás novedades de David Porto Díaz antes que nadie.</p>";
+            subscribeForm.innerHTML = '<p class="quiz-subscribe-ok">✓ ¡Apuntado! Recibirás novedades de David Porto Díaz antes que nadie.</p>';
             _gcEvent("newsletter-quiz", "Newsletter: quiz Noveris");
             setResultLocked(false);
           } else {
@@ -436,7 +515,7 @@ function fallbackCopy(text, done) {
           });
           if (res.ok || res.status === 204) {
             localStorage.setItem("nl-subscribed", "1");
-            form.innerHTML = "<p class=\"quiz-subscribe-ok\">✓ \u00a1Apuntado! Recibir\u00e1s el cap\u00edtulo y novedades de David Porto D\u00edaz.</p>";
+            form.innerHTML = '<p class="quiz-subscribe-ok">✓ \u00a1Apuntado! Recibir\u00e1s el cap\u00edtulo y novedades de David Porto D\u00edaz.</p>';
             _gcEvent("newsletter-" + sourceLabel, "Newsletter: " + sourceLabel);
           } else if (res.status === 400) {
             // Brevo returns 400 for duplicate contacts
@@ -444,7 +523,7 @@ function fallbackCopy(text, done) {
             const isDupe = JSON.stringify(body).toLowerCase().includes("already exist");
             if (isDupe) {
               localStorage.setItem("nl-subscribed", "1");
-              form.innerHTML = "<p class=\"quiz-subscribe-ok\">\u2714 Ya est\u00e1s suscrito a la lista. \u00a1Gracias!</p>";
+              form.innerHTML = '<p class="quiz-subscribe-ok">\u2714 Ya est\u00e1s suscrito a la lista. \u00a1Gracias!</p>';
             } else {
               throw new Error(res.status);
             }
