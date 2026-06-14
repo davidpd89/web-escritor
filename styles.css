@@ -858,3 +858,197 @@ body::after{
 
 /* === editorial-7: purchase anchors and readable book feature === */
 .book-feature .book-cover-wrap{position:relative!important;top:auto!important;align-self:start}.section--light .book-feature{background:rgba(255,250,242,.94)!important;border:1px solid rgba(122,92,42,.18)!important;border-radius:var(--radius-lg);box-shadow:0 18px 56px rgba(80,50,10,.1)!important}.section--light .book-info h3,.section--light .book-hook,.section--light .book-detail,.section--light .book-finds li{color:#21170e!important}.section--light .book-finds-label,.section--light .book-meta li,.section--light .reader-tags-label{color:#6a5a46!important}.section--light .book-meta strong{color:#21170e!important}.purchase-section .purchase-options{align-items:stretch}.purchase-card{display:flex;flex-direction:column;gap:10px}.purchase-card .button{margin-top:auto;align-self:flex-start}.purchase-card p{margin-top:0}
+/* 2026-06-14 targeted fixes: book sticky, covers, gutters and lore cards */
+@media (min-width: 900px) {
+  body .site-shell main .section .book-feature .book-cover-wrap {
+    position: sticky !important;
+    top: 108px !important;
+    align-self: start;
+  }
+}
+
+@media (max-width: 899px) {
+  body .site-shell main .section .book-feature .book-cover-wrap {
+    position: relative !important;
+    top: auto !important;
+  }
+}
+
+body .book-hero-cover,
+body .book-hero-cover figure,
+body .book-hero-cover picture,
+body .synopsis-book-aside,
+body .synopsis-book-aside picture {
+  background: transparent !important;
+  border: 0 !important;
+  box-shadow: none !important;
+}
+
+body .book-hero-img,
+body .synopsis-book-cover,
+body .book-cover-img {
+  background: transparent !important;
+  box-shadow: none !important;
+}
+
+body .section--light .visual-feature--noveris {
+  padding: clamp(24px, 3vw, 36px);
+  gap: clamp(24px, 4vw, 44px);
+}
+
+body .section--light .visual-feature--noveris .visual-feature__copy {
+  min-width: 0;
+  padding-inline: clamp(6px, 1.6vw, 18px);
+}
+
+@media (max-width: 760px) {
+  body .section--light .visual-feature--noveris {
+    padding: 22px;
+    margin-inline: 0;
+  }
+}
+
+body .lore-bento-card--large {
+  grid-row: auto;
+}
+
+body .lore-bento-card {
+  min-height: 0;
+}
+
+body .lore-bento-card--wide {
+  grid-column: 1 / -1;
+}
+
+@media (min-width: 900px) {
+  body .lore-bento-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    align-items: stretch;
+  }
+  body .lore-bento-card--large,
+  body .lore-bento-card--wide {
+    grid-column: 1 / -1;
+  }
+  body .lore-bento-card--large,
+  body .lore-bento-card--wide {
+    padding-block: 28px;
+  }
+}
+
+body .synopsis-quick ul li::before {
+  content: "";
+  width: 6px;
+  height: 6px;
+  margin-top: .58em;
+  border-radius: 999px;
+  background: var(--accent);
+  flex: 0 0 6px;
+}
+
+body .synopsis-quick ul li {
+  gap: 10px;
+}
+
+body .purchase-section,
+body .section--light .book-feature {
+  color: #21170e;
+}
+
+body .purchase-section .section-heading h2,
+body .purchase-section .feature-card h3,
+body .section--light .book-info h3 {
+  color: #21170e !important;
+}
+
+body .purchase-section .section-heading p,
+body .purchase-section .feature-card p,
+body .section--light .book-hook,
+body .section--light .book-detail {
+  color: #463a2e !important;
+}
+
+body .purchase-section .feature-card {
+  background: rgba(255, 252, 246, .96);
+  border-color: rgba(122, 92, 42, .18);
+}
+
+body .purchase-section .button.secondary,
+body .purchase-section .button.tertiary {
+  color: #21170e;
+  border-color: rgba(122, 92, 42, .28);
+}
+
+body .book-hero .book-hero-inner,
+body .section .synopsis-grid,
+body .section .feature-grid,
+body .section .features-grid {
+  min-width: 0;
+}
+
+body .book-hero .book-hero-copy,
+body .section .synopsis-text,
+body .section .synopsis-aside {
+  min-width: 0;
+}
+
+@media (max-width: 760px) {
+  body .book-hero,
+  body .section {
+    padding-left: 22px;
+    padding-right: 22px;
+  }
+  body .book-hero .book-hero-inner,
+  body .section .synopsis-grid {
+    gap: 24px;
+  }
+  body .synopsis-cta-box,
+  body .synopsis-quick {
+    padding: 20px;
+  }
+}
+
+@media (max-width: 420px) {
+  body .book-hero,
+  body .section {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+}
+/* 2026-06-14 readability fix for Samuel yes/no blocks */
+.para-quien-grid {
+  gap: clamp(18px, 3vw, 28px);
+}
+
+.para-quien-grid .feature-card {
+  min-width: 0;
+}
+
+.para-quien-list {
+  line-height: 1.78;
+}
+
+.para-quien-list li + li {
+  margin-top: 8px;
+}
+
+@media (max-width: 760px) {
+  body .para-quien-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 18px;
+  }
+
+  body .para-quien-grid .feature-card {
+    padding: 24px 22px;
+  }
+
+  body .para-quien-grid .feature-card h3 {
+    font-size: 1.34rem;
+    line-height: 1.2;
+    margin-bottom: 16px;
+  }
+
+  body .para-quien-list {
+    line-height: 1.72;
+  }
+}

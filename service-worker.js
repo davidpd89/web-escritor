@@ -1,4 +1,4 @@
-const CACHE_VERSION = "david-porto-v2026-06-13-7";
+const CACHE_VERSION = "david-porto-v2026-06-14-1";
 const STATIC_CACHE = `${CACHE_VERSION}-static`;
 const PAGE_CACHE = `${CACHE_VERSION}-pages`;
 
@@ -7,7 +7,6 @@ const PAGE_CACHE = `${CACHE_VERSION}-pages`;
 const APP_SHELL = [
   "/offline.html",
   "/manifest.json",
-  "/script.js",
   "/assets/logo-david-porto-diaz-escritor-176.webp",
   "/assets/david-porto-favicon.png",
   "/assets/icon-512.png",
