@@ -1052,3 +1052,71 @@ body .section .synopsis-aside {
     line-height: 1.72;
   }
 }
+
+/* 2026-06-14 reading mode stabilization */
+html.modo-samuel {
+  color-scheme: dark;
+}
+
+html.modo-samuel .site-header {
+  background: rgba(8, 10, 12, .96) !important;
+  border-color: rgba(242, 232, 216, .1) !important;
+}
+
+html.modo-samuel .site-nav a {
+  color: var(--muted) !important;
+}
+
+html.modo-samuel .site-nav a:hover,
+html.modo-samuel .site-nav a:focus-visible,
+html.modo-samuel .site-nav a[aria-current="page"] {
+  color: var(--text) !important;
+}
+
+html.modo-samuel .site-nav .modo-samuel-btn,
+html.modo-samuel .modo-samuel-btn {
+  color: var(--accent-strong) !important;
+  background: rgba(196, 148, 77, .12) !important;
+  border-color: rgba(224, 185, 121, .48) !important;
+  box-shadow: 0 0 0 1px rgba(224, 185, 121, .06) inset;
+}
+
+html.modo-samuel .site-nav .modo-samuel-btn[aria-pressed="true"],
+html.modo-samuel .modo-samuel-btn[aria-pressed="true"] {
+  color: #080a0c !important;
+  background: linear-gradient(135deg, var(--accent-strong), var(--accent)) !important;
+  border-color: transparent !important;
+}
+
+html.modo-samuel .fragment-reading,
+html.modo-samuel .fragment-text,
+html.modo-samuel .article-body,
+html.modo-samuel .editorial-prose,
+html.modo-samuel .prose-block {
+  max-width: 760px;
+  margin-inline: auto;
+  font-size: clamp(1.08rem, 1.3vw, 1.22rem);
+  line-height: 1.9;
+}
+
+html.modo-samuel .fragment-reading p,
+html.modo-samuel .fragment-text p,
+html.modo-samuel .article-body p,
+html.modo-samuel .editorial-prose p,
+html.modo-samuel .prose-block p {
+  line-height: 1.9;
+}
+
+html.modo-samuel .fragment-cta-box,
+html.modo-samuel .fragment-newsletter-box,
+html.modo-samuel .quiz-wrap,
+html.modo-samuel .contact-panel {
+  background: rgba(255, 255, 255, .045);
+  border-color: rgba(242, 232, 216, .14);
+}
+
+@media (max-width: 900px) {
+  html.modo-samuel .site-nav {
+    background: rgba(8, 10, 12, .98) !important;
+  }
+}
