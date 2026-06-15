@@ -1070,45 +1070,345 @@ body .section .synopsis-aside {
     transform: translateX(130%);
   }
 }
-/* Consentimiento discreto de analítica: Clarity solo se carga tras aceptar. */
-.analytics-consent {
-  position: fixed;
-  inset: auto clamp(12px, 3vw, 28px) calc(16px + env(safe-area-inset-bottom));
-  z-index: 1200;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 16px;
-  max-width: 760px;
-  margin-inline: auto;
-  padding: 14px 16px;
-  border: 1px solid rgba(176, 140, 76, 0.24);
-  border-radius: 14px;
-  background: rgba(18, 17, 15, 0.94);
-  color: var(--text);
-  box-shadow: 0 18px 48px rgba(0, 0, 0, 0.28);
-  backdrop-filter: blur(14px);
+/* Stable header regression fixes: compact desktop nav, hamburger before overflow. */
+.site-header {
+  padding: 10px 14px;
+  gap: clamp(10px, 1.6vw, 20px);
 }
 
-.analytics-consent p {
-  margin: 0;
-  font-size: 0.88rem;
-  line-height: 1.5;
-  color: var(--muted-2);
+.site-nav {
+  flex: 1 1 auto;
+  min-width: 0;
+  gap: clamp(8px, 0.9vw, 14px);
 }
 
-.analytics-consent-actions {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  flex: 0 0 auto;
-}
-
-.analytics-consent .button {
-  min-height: 38px;
-  padding: 0 14px;
-  font-size: 0.82rem;
+.site-nav a {
   white-space: nowrap;
+  font-size: clamp(0.78rem, 0.86vw, 0.85rem);
+  letter-spacing: 0.02em;
+}
+
+.explore-toggle {
+  white-space: nowrap;
+  padding-inline: 12px;
+}
+
+@media (max-width: 1120px) {
+  .brand-text small {
+    display: none;
+  }
+
+  .brand-text strong {
+    font-size: 0.9rem;
+  }
+}
+
+@media (max-width: 1040px) {
+  .nav-toggle {
+    display: inline-block;
+    flex: 0 0 auto;
+  }
+
+  .site-header {
+    align-items: flex-start;
+  }
+
+  .site-nav {
+    position: absolute;
+    top: calc(100% + 8px);
+    right: 0;
+    left: 0;
+    display: none;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0;
+    padding: 12px 16px;
+    border: 1px solid var(--border);
+    border-radius: var(--radius-md);
+    background: rgba(8,10,12,.98);
+    box-shadow: 0 20px 60px rgba(0,0,0,.42);
+  }
+
+  .site-nav.is-open {
+    display: flex;
+  }
+
+  .site-nav a {
+    width: 100%;
+    min-height: 48px;
+    display: flex;
+    align-items: center;
+    padding: 12px 0;
+    border-bottom: 1px solid rgba(244,236,223,.06);
+    font-size: 0.9rem;
+  }
+}
+
+@media (max-width: 760px) {
+  .site-header {
+    margin-bottom: 28px;
+  }
+}
+
+/* Stable mobile shell: keep header controls, hero copy and thumb nav inside the viewport. */
+@media (max-width: 760px) {
+  body .site-shell {
+    width: 100%;
+    max-width: 100%;
+    padding-left: 18px;
+    padding-right: 18px;
+    overflow-x: clip;
+  }
+
+  body .site-header {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    min-width: 0;
+    padding: 10px 12px;
+    gap: 10px;
+  }
+
+  body .brand {
+    flex: 1 1 auto;
+    min-width: 0;
+    gap: 10px;
+  }
+
+  body .brand-mark {
+    width: 44px;
+    height: 44px;
+  }
+
+  body .brand-text {
+    min-width: 0;
+  }
+
+  body .brand-text strong {
+    display: block;
+    max-width: 34vw;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    font-size: 0.82rem;
+  }
+
+  body .nav-toggle {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    flex: 0 0 44px;
+    width: 44px;
+    height: 44px;
+    margin-left: auto;
+    position: relative;
+    z-index: 4;
+  }
+
+  body .nav-toggle span {
+    position: absolute;
+    left: 50%;
+    width: 18px;
+    margin: 0;
+    transform: translateX(-50%);
+  }
+
+  body .nav-toggle span:first-child {
+    top: 17px;
+  }
+
+  body .nav-toggle span:last-child {
+    top: 25px;
+  }
+
+  body .site-nav {
+    top: calc(100% + 8px);
+    right: 0;
+    left: 0;
+    z-index: 3;
+  }
+
+  body .hero,
+  body .book-hero,
+  body .fragment-hero,
+  body .lore-hero {
+    width: 100%;
+    max-width: 100%;
+    overflow-x: clip;
+  }
+
+  body .hero-content,
+  body .book-hero-copy,
+  body .book-hero-content,
+  body .fragment-hero-copy,
+  body .lore-hero .book-hero-copy,
+  body .lore-hero .book-hero-content {
+    min-width: 0;
+    max-width: 100%;
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+
+  body .eyebrow,
+  body .card-kicker {
+    max-width: 100%;
+    font-size: 0.66rem;
+    letter-spacing: 0.16em;
+    line-height: 1.6;
+    overflow-wrap: anywhere;
+  }
+
+  body .hero h1 {
+    max-width: 100%;
+    overflow-wrap: normal;
+  }
+
+  body .hero-lead,
+  body .hero-spark {
+    max-width: 100%;
+    overflow-wrap: break-word;
+  }
+
+  body .mobile-bottom-nav {
+    left: max(10px, env(safe-area-inset-left));
+    right: max(10px, env(safe-area-inset-right));
+    bottom: max(8px, env(safe-area-inset-bottom));
+    width: auto;
+    max-width: none;
+    transform: none;
+    display: grid;
+    grid-template-columns: repeat(5, minmax(0, 1fr));
+    gap: 4px;
+    padding: 6px;
+    box-sizing: border-box;
+  }
+
+  body .mobile-bottom-nav a {
+    min-width: 0;
+    width: auto;
+    padding: 7px 4px;
+    overflow: hidden;
+    font-size: 0.68rem;
+  }
+
+  body .mobile-bottom-nav a span,
+  body .mobile-bottom-nav a small {
+    max-width: 100%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+}
+
+/* Final viewport guardrails for small phones. */
+@media (max-width: 760px) {
+  body .site-header {
+    position: sticky;
+    padding-right: 66px;
+    min-height: 68px;
+  }
+
+  body .site-header .nav-toggle {
+    display: inline-flex !important;
+    position: absolute;
+    top: 50%;
+    right: 12px;
+    transform: translateY(-50%);
+    background: rgba(196, 148, 77, .08);
+    border-color: rgba(224, 185, 121, .34);
+    color: #f2e8d8;
+  }
+
+  body .site-header .nav-toggle::before {
+    content: "Menu";
+    font-size: 0.64rem;
+    font-weight: 700;
+    letter-spacing: 0.02em;
+    text-transform: uppercase;
+  }
+
+  body .site-header .nav-toggle span {
+    display: none;
+  }
+
+  body .brand-text strong {
+    max-width: 48vw;
+  }
+
+  body .hero-content,
+  body .book-hero-copy,
+  body .book-hero-content,
+  body .fragment-hero-copy {
+    width: auto;
+    max-width: calc(100vw - 36px);
+    padding-left: 0;
+    padding-right: 0;
+    margin-left: 0;
+    margin-right: 0;
+  }
+
+  body .hero .eyebrow {
+    max-width: 280px;
+    overflow-wrap: normal;
+  }
+
+  body .mobile-bottom-nav {
+    left: 8px !important;
+    right: auto !important;
+    width: calc(100vw - 16px) !important;
+    max-width: calc(100vw - 16px) !important;
+    transform: none !important;
+    grid-template-columns: repeat(5, minmax(0, 1fr)) !important;
+    gap: 2px !important;
+  }
+
+  body .mobile-bottom-nav a {
+    min-width: 0 !important;
+    max-width: 100%;
+    padding-left: 2px !important;
+    padding-right: 2px !important;
+    font-size: 0.64rem !important;
+  }
+}
+
+/* Small-phone hardening: anchor controls to the viewport, not to a widened page. */
+@media (max-width: 760px) {
+  body .site-header .nav-toggle {
+    position: fixed !important;
+    top: 30px !important;
+    right: 28px !important;
+    transform: none !important;
+    z-index: 120 !important;
+  }
+
+  body .site-nav {
+    position: fixed !important;
+    top: 86px !important;
+    right: 18px !important;
+    left: 18px !important;
+    z-index: 119 !important;
+  }
+
+  body .mobile-bottom-nav {
+    position: fixed !important;
+    left: 8px !important;
+    right: 8px !important;
+    width: auto !important;
+    max-width: none !important;
+  }
+}
+
+@media (max-width: 520px) {
+  body .site-header .nav-toggle {
+    right: max(14px, calc(100vw - 376px)) !important;
+  }
+
+  body .mobile-bottom-nav {
+    left: 8px !important;
+    right: auto !important;
+    width: min(calc(100vw - 16px), 374px) !important;
+    max-width: min(calc(100vw - 16px), 374px) !important;
+  }
 }
 
 .buy-dialog-affiliate-note {
@@ -1116,21 +1416,4 @@ body .section .synopsis-aside {
   font-size: 0.78rem;
   line-height: 1.45;
   color: var(--muted);
-}
-
-@media (max-width: 640px) {
-  .analytics-consent {
-    flex-direction: column;
-    align-items: stretch;
-    inset-inline: 14px;
-    padding: 14px;
-  }
-
-  .analytics-consent-actions {
-    justify-content: stretch;
-  }
-
-  .analytics-consent .button {
-    flex: 1 1 0;
-  }
 }

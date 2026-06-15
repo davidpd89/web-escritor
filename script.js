@@ -18,57 +18,7 @@ const NEWSLETTER_CONFIG = {
     popup: "popup"
   }
 };
-const CLARITY_PROJECT_ID = "wxkseslr28";
-const ANALYTICS_CONSENT_KEY = "dpd_analytics_consent";
-
-function loadClarityAfterConsent() {
-  if (!CLARITY_PROJECT_ID || window.__dpdClarityLoaded) return;
-  window.__dpdClarityLoaded = true;
-  window.clarity = window.clarity || function () {
-    (window.clarity.q = window.clarity.q || []).push(arguments);
-  };
-  window.clarity("consent");
-  const script = document.createElement("script");
-  script.async = true;
-  script.src = "https://www.clarity.ms/tag/" + CLARITY_PROJECT_ID;
-  document.head.appendChild(script);
-}
-
-(function initAnalyticsConsent() {
-  if (typeof window === "undefined" || typeof document === "undefined") return;
-  if (window.location.pathname.includes("/guia-imprimible/") || window.location.pathname === "/offline.html") return;
-  const stored = getAnalyticsConsent();
-  if (stored === "granted") {
-    loadClarityAfterConsent();
-    return;
-  }
-  if (stored === "denied") return;
-
-  window.addEventListener("load", () => {
-    if (document.querySelector(".analytics-consent")) return;
-    const banner = document.createElement("section");
-    banner.className = "analytics-consent";
-    banner.setAttribute("aria-label", "Consentimiento de analítica");
-    banner.innerHTML = `
-      <p>Uso analítica de experiencia para detectar problemas de navegación. Puedes aceptar o seguir sin analítica.</p>
-      <div class="analytics-consent-actions">
-        <button type="button" class="button tertiary analytics-consent-reject">Seguir sin analítica</button>
-        <button type="button" class="button primary analytics-consent-accept">Aceptar analítica</button>
-      </div>`;
-    document.body.appendChild(banner);
-
-    banner.querySelector(".analytics-consent-accept").addEventListener("click", () => {
-      setAnalyticsConsent("granted");
-      loadClarityAfterConsent();
-      banner.remove();
-    });
-
-    banner.querySelector(".analytics-consent-reject").addEventListener("click", () => {
-      setAnalyticsConsent("denied");
-      banner.remove();
-    });
-  }, { once: true });
-})();
+// Clarity analytics is intentionally disabled. Keep the project id out of runtime until it is useful again.
 if ("serviceWorker" in navigator) {
   window.addEventListener("load", () => {
     scheduleTask(() => {
