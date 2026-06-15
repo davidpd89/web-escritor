@@ -1,4 +1,4 @@
-const CACHE_VERSION = "david-porto-v2026-06-14-1";
+const CACHE_VERSION = "david-porto-v2026-06-15-1";
 const STATIC_CACHE = `${CACHE_VERSION}-static`;
 const PAGE_CACHE = `${CACHE_VERSION}-pages`;
 
