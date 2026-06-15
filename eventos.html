@@ -54,7 +54,7 @@
         "inLanguage": "es",
         "isPartOf": { "@id": "https://davidportodiaz.com/#website" },
         "about": { "@id": "https://davidportodiaz.com/#author" },
-        "dateModified": "2026-06-14",
+        "dateModified": "2026-06-15",
         "breadcrumb": {
           "@type": "BreadcrumbList",
           "itemListElement": [
@@ -70,11 +70,11 @@
         "description": "David Porto Díaz firmó ejemplares de su novela de fantasía Samuel entre mundos en la Feria del Libro de Madrid 2026. Horario: 19:00 a 20:00. Caseta 337.",
         "startDate": "2026-06-10T19:00:00+02:00",
         "endDate": "2026-06-10T20:00:00+02:00",
-        "url": "https://davidportodiaz.com/eventos.html",
+        "url": "https://davidportodiaz.com/eventos.html#feria-libro-madrid-2026",
         "eventStatus": "https://schema.org/EventCompleted",
         "eventAttendanceMode": "https://schema.org/OfflineEventAttendanceMode",
         "isAccessibleForFree": true,
-        "offers": { "@type": "Offer", "price": "0", "priceCurrency": "EUR", "availability": "https://schema.org/InStock", "url": "https://davidportodiaz.com/eventos.html", "validFrom": "2026-05-25" },
+        "offers": { "@type": "Offer", "price": "0", "priceCurrency": "EUR", "availability": "https://schema.org/InStock", "url": "https://davidportodiaz.com/eventos.html#feria-libro-madrid-2026", "validFrom": "2026-05-25T00:00:00+02:00" },
         "location": {
           "@type": "Place",
           "name": "Feria del Libro de Madrid — Parque del Retiro, caseta 337",
@@ -85,7 +85,7 @@
             "addressCountry": "ES"
           }
         },
-        "performer": { "@id": "https://davidportodiaz.com/#author" },
+        "performer": { "@type": "Person", "@id": "https://davidportodiaz.com/#author", "name": "David Porto Díaz", "url": "https://davidportodiaz.com/" },
         "organizer": { "@type": "Organization", "name": "Feria del Libro de Madrid", "url": "https://www.ferialibromadrid.com" },
         "about": {
           "@type": "Book",
@@ -95,7 +95,7 @@
         },
         "image": "https://davidportodiaz.com/assets/eventos/david-porto-diaz-feria-libro-madrid-2026-caseta-337.webp",
         "inLanguage": "es",
-        "dateModified": "2026-06-14"
+        "dateModified": "2026-06-15"
       },
       {
         "@type": "Event",
@@ -104,7 +104,7 @@
         "description": "David Porto D\u00edaz firma ejemplares de Samuel entre mundos en la Feria del Libro de Aranjuez 2026. Plaza de la Constituci\u00f3n, Aranjuez. Acceso libre y gratuito.",
         "startDate": "2026-05-23T10:00:00+02:00",
         "endDate": "2026-05-23T11:30:00+02:00",
-        "url": "https://davidportodiaz.com/eventos.html",
+        "url": "https://davidportodiaz.com/eventos.html#feria-libro-aranjuez-2026",
         "eventStatus": "https://schema.org/EventCompleted",
         "eventAttendanceMode": "https://schema.org/OfflineEventAttendanceMode",
         "isAccessibleForFree": true,
@@ -118,9 +118,7 @@
             "addressCountry": "ES"
           }
         },
-        "performer": { "@id": "https://davidportodiaz.com/#author" },
-        "organizer": { "@type": "Organization", "name": "Ayuntamiento de Aranjuez" },
-        "offers": { "@type": "Offer", "price": "0", "priceCurrency": "EUR", "availability": "https://schema.org/InStock" },
+        "performer": { "@type": "Person", "@id": "https://davidportodiaz.com/#author", "name": "David Porto Díaz", "url": "https://davidportodiaz.com/" },
         "about": {
           "@type": "Book",
           "name": "Samuel entre mundos",
@@ -129,7 +127,7 @@
         },
         "image": "https://davidportodiaz.com/assets/david-porto-imagen-compartir.webp",
         "inLanguage": "es",
-        "dateModified": "2026-06-14"
+        "dateModified": "2026-06-15"
       }
     ]
   }
@@ -209,7 +207,7 @@
           <div>
             <p class="events-group-label">Evento reciente</p>
             <div class="timeline">
-              <article class="event-item event-item--featured event-item--past">
+              <article class="event-item event-item--featured event-item--past" id="feria-libro-madrid-2026">
                 <time datetime="2026-06-10">
                   <span class="event-day">10</span>
                   <span class="event-month">Jun</span>
@@ -260,9 +258,9 @@
           <h2>Eventos anteriores.</h2>
         </div>
 
-        <p class="events-group-label">2026 / 2025</p>
+        <p class="events-group-label">2026</p>
         <div class="timeline">
-            <article class="event-item event-item--past">
+            <article class="event-item event-item--past" id="feria-libro-aranjuez-2026">
               <time datetime="2026-05-23">23 may 2026</time>
               <div>
                 <h3>Feria del Libro de Aranjuez</h3>
@@ -288,7 +286,7 @@
             </article>
 
             <article class="event-item event-item--past">
-              <time datetime="2025-12">dic 2025</time>
+              <time datetime="2026-01">ene 2026</time>
               <div>
                 <h3>Publicación de Samuel entre mundos</h3>
                 <p>Publicación de la novela con Libros Indie. ISBN 9791387659776.</p>
