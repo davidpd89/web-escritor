@@ -1473,3 +1473,28 @@ body .section .synopsis-aside {
     word-break: normal !important;
   }
 }
+/* Press/compact hero mobile lane: avoid clipped long Spanish lines. */
+@media (max-width: 520px) {
+  body .hero--compact-sm .hero-content,
+  body .hero--compact .hero-content {
+    box-sizing: border-box !important;
+    width: calc(100vw - 116px) !important;
+    max-width: calc(100vw - 116px) !important;
+  }
+
+  body .hero--compact-sm .hero-lead,
+  body .hero--compact-sm .hero-spark,
+  body .hero--compact .hero-lead,
+  body .hero--compact .hero-spark {
+    overflow-wrap: anywhere !important;
+    word-break: normal !important;
+  }
+}
+/* Final hero mobile lane: keep long hero copy inside narrow viewports. */
+@media (max-width: 520px) {
+  body .hero .hero-content {
+    box-sizing: border-box !important;
+    width: calc(100vw - 116px) !important;
+    max-width: calc(100vw - 116px) !important;
+  }
+}
