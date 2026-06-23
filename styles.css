@@ -1417,3 +1417,59 @@ body .section .synopsis-aside {
   line-height: 1.45;
   color: var(--muted);
 }
+
+.about-social{flex-wrap:wrap}
+/* Tight mobile text lanes after adding extra social links. */
+@media (max-width: 520px) {
+  body .hero-content,
+  body .book-hero-copy,
+  body .book-hero-content,
+  body .fragment-hero-copy {
+    max-width: calc(100vw - 76px);
+  }
+
+  body .hero-lead,
+  body .hero-spark,
+  body .book-hero-desc,
+  body .about-copy p,
+  body .geo-answer {
+    max-width: 100%;
+    overflow-wrap: anywhere;
+  }
+
+  body .about-social {
+    flex-wrap: wrap;
+    align-items: stretch;
+  }
+
+  body .about-social .button {
+    flex: 1 1 136px;
+    max-width: 100%;
+    white-space: normal;
+  }
+}
+/* Final small-phone clipping fix. */
+@media (max-width: 520px) {
+  body .hero-content,
+  body .book-hero-copy,
+  body .book-hero-content,
+  body .fragment-hero-copy {
+    box-sizing: border-box !important;
+    width: calc(100vw - 96px) !important;
+    max-width: calc(100vw - 96px) !important;
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+  }
+
+  body .hero-lead,
+  body .hero-spark,
+  body .book-hero-desc,
+  body .book-hero-copy p,
+  body .hero-content p {
+    width: 100% !important;
+    max-width: 100% !important;
+    white-space: normal !important;
+    overflow-wrap: anywhere !important;
+    word-break: normal !important;
+  }
+}
