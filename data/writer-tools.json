@@ -1,0 +1,343 @@
+{
+  "schema_version": 1,
+  "generated_for": "davidportodiaz.com",
+  "methodology": {
+    "language": "es",
+    "checked_at": "2026-08-19",
+    "principles": [
+      "No hay ranking global ni puntuación numérica.",
+      "Se distingue prueba directa de verificación documental.",
+      "Precios, plataformas y almacenamiento se enlazan a fuentes primarias cuando existen.",
+      "No se crea una URL individual por herramienta en la V1.",
+      "Los enlaces afiliados, si algún día existen, deben declararse y usar rel=sponsored."
+    ]
+  },
+  "tools": [
+    {
+      "slug": "scrivener",
+      "name": "Scrivener",
+      "website": "https://www.literatureandlatte.com/scrivener/overview",
+      "stages": [
+        "planificacion",
+        "escritura",
+        "revision",
+        "exportacion"
+      ],
+      "best_for": "Novelas largas con mucha estructura, escenas, notas y material de investigación.",
+      "not_for": "Quien quiera colaboración web en tiempo real o una herramienta muy simple.",
+      "price": {
+        "model": "pago-unico",
+        "display": "Pago único por plataforma; Mac App Store ES muestra 69,99 €.",
+        "source": "https://apps.apple.com/es/app/scrivener-3/id1310686187?mt=12"
+      },
+      "platforms": [
+        "Windows",
+        "macOS",
+        "iOS/iPadOS"
+      ],
+      "data_mode": "local-con-sync-opcional",
+      "data_note": "En escritorio trabaja con proyectos locales; la sincronización entre dispositivos depende del servicio configurado.",
+      "account_required": false,
+      "interface_es": "sí-en-mac-app-store",
+      "open_source": false,
+      "license": null,
+      "verification": {
+        "level": "fuentes-oficiales",
+        "hands_on": false,
+        "checked_at": "2026-08-19",
+        "sources": [
+          "https://www.literatureandlatte.com/store/scrivener",
+          "https://www.literatureandlatte.com/download",
+          "https://www.literatureandlatte.com/how-our-licensing-works",
+          "https://apps.apple.com/es/app/scrivener-3/id1310686187?mt=12"
+        ]
+      },
+      "editorial_note": "Muy flexible, pero esa flexibilidad implica curva de aprendizaje. La licencia es perpetua por versión y plataforma; las grandes versiones pueden requerir nueva compra.",
+      "affiliate": false,
+      "status": "active"
+    },
+    {
+      "slug": "reedsy-studio",
+      "name": "Reedsy Studio",
+      "website": "https://reedsy.com/studio/",
+      "stages": [
+        "planificacion",
+        "escritura",
+        "revision",
+        "maquetacion"
+      ],
+      "best_for": "Escribir, colaborar y exportar EPUB/PDF desde el navegador sin pagar por el núcleo de funciones.",
+      "not_for": "Quien necesite que el manuscrito permanezca únicamente en archivos locales o quiera trabajar sin cuenta.",
+      "price": {
+        "model": "freemium",
+        "display": "Núcleo gratuito; complementos premium opcionales desde 4,99 USD/mes.",
+        "source": "https://reedsy.com/studio/pricing/"
+      },
+      "platforms": [
+        "Web",
+        "móvil vía navegador"
+      ],
+      "data_mode": "servicio-web",
+      "data_note": "Requiere cuenta y funciona como servicio web; revisar su política de privacidad antes de subir un manuscrito sensible.",
+      "account_required": true,
+      "interface_es": "no-verificado",
+      "open_source": false,
+      "license": null,
+      "verification": {
+        "level": "fuentes-oficiales",
+        "hands_on": false,
+        "checked_at": "2026-08-19",
+        "sources": [
+          "https://reedsy.com/studio/",
+          "https://reedsy.com/studio/pricing/"
+        ]
+      },
+      "editorial_note": "Su punto fuerte es reducir fricción entre escritura, colaboración y maquetación. No es una alternativa universal a Scrivener: resuelven flujos distintos.",
+      "affiliate": false,
+      "status": "active"
+    },
+    {
+      "slug": "atticus",
+      "name": "Atticus",
+      "website": "https://www.atticus.io/",
+      "stages": [
+        "escritura",
+        "maquetacion",
+        "exportacion"
+      ],
+      "best_for": "Autores que quieren escribir y maquetar ebook + impresión con la misma herramienta en varios sistemas.",
+      "not_for": "Quien solo necesita redactar o prefiera software libre/local sin cuenta.",
+      "price": {
+        "model": "pago-unico",
+        "display": "147 USD, pago único.",
+        "source": "https://www.atticus.io/"
+      },
+      "platforms": [
+        "Windows",
+        "macOS",
+        "Linux",
+        "Chromebook",
+        "Web"
+      ],
+      "data_mode": "cuenta-con-backup-cloud",
+      "data_note": "La web oficial indica guardado automático y copia de seguridad en la nube.",
+      "account_required": true,
+      "interface_es": "no-verificado",
+      "open_source": false,
+      "license": null,
+      "verification": {
+        "level": "fuente-oficial",
+        "hands_on": false,
+        "checked_at": "2026-08-19",
+        "sources": [
+          "https://www.atticus.io/"
+        ]
+      },
+      "editorial_note": "El coste es sencillo de entender y cubre ebook e impresión. La privacidad no debe describirse como local-first: la propia herramienta anuncia backups cloud.",
+      "affiliate": false,
+      "status": "active"
+    },
+    {
+      "slug": "novelwriter",
+      "name": "novelWriter",
+      "website": "https://novelwriter.io/",
+      "stages": [
+        "planificacion",
+        "escritura",
+        "revision",
+        "estadisticas"
+      ],
+      "best_for": "Novelas grandes cuando se valora texto plano, archivos locales y una estructura robusta y auditable.",
+      "not_for": "Quien busque maquetación visual de impresión o colaboración cloud integrada.",
+      "price": {
+        "model": "gratis-open-source",
+        "display": "Gratis y open source.",
+        "source": "https://novelwriter.io/"
+      },
+      "platforms": [
+        "Windows",
+        "macOS",
+        "Linux"
+      ],
+      "data_mode": "local",
+      "data_note": "Cada proyecto vive en una carpeta local y los documentos se guardan como archivos de texto legibles.",
+      "account_required": false,
+      "interface_es": "traducciones-disponibles-no-auditadas",
+      "open_source": true,
+      "license": "GPL-3.0",
+      "verification": {
+        "level": "fuentes-oficiales-y-repositorio",
+        "hands_on": false,
+        "checked_at": "2026-08-19",
+        "sources": [
+          "https://novelwriter.io/",
+          "https://novelwriter.io/docs/technical/storage.html",
+          "https://github.com/vkbo/novelWriter"
+        ]
+      },
+      "editorial_note": "Su ventaja diferencial es la transparencia del formato de almacenamiento: texto local y legible, apropiado para copias de seguridad y control de versiones.",
+      "affiliate": false,
+      "status": "active"
+    },
+    {
+      "slug": "manuskript",
+      "name": "Manuskript",
+      "website": "https://github.com/olivierkes/manuskript",
+      "stages": [
+        "planificacion",
+        "escritura",
+        "revision"
+      ],
+      "best_for": "Escritores que quieren un entorno de novela gratuito con esquema, personajes, trama y editor de borrador.",
+      "not_for": "Quien necesite una experiencia comercial muy pulida o quiera evitar software que aún recomienda copias de seguridad frecuentes.",
+      "price": {
+        "model": "gratis-open-source",
+        "display": "Gratis y open source.",
+        "source": "https://github.com/olivierkes/manuskript"
+      },
+      "platforms": [
+        "Windows",
+        "macOS",
+        "Linux"
+      ],
+      "data_mode": "local",
+      "data_note": "Aplicación de escritorio; el proyecto oficial recomienda realizar copias de seguridad frecuentes.",
+      "account_required": false,
+      "interface_es": "no-auditado",
+      "open_source": true,
+      "license": "GPL-3.0",
+      "verification": {
+        "level": "repositorio-oficial",
+        "hands_on": false,
+        "checked_at": "2026-08-19",
+        "sources": [
+          "https://github.com/olivierkes/manuskript",
+          "https://github.com/olivierkes/manuskript/releases"
+        ]
+      },
+      "editorial_note": "Tiene muchas funciones de planificación sin coste, pero el propio proyecto advierte que continúa en desarrollo temprano. Esa advertencia debe mostrarse.",
+      "affiliate": false,
+      "status": "active"
+    },
+    {
+      "slug": "sigil",
+      "name": "Sigil",
+      "website": "https://github.com/Sigil-Ebook/Sigil",
+      "stages": [
+        "maquetacion",
+        "epub",
+        "validacion"
+      ],
+      "best_for": "Editar y revisar EPUB 2/3 con control técnico directo del archivo.",
+      "not_for": "Escribir una novela desde cero o maquetar un libro impreso.",
+      "price": {
+        "model": "gratis-open-source",
+        "display": "Gratis y open source.",
+        "source": "https://github.com/Sigil-Ebook/Sigil"
+      },
+      "platforms": [
+        "Windows",
+        "macOS",
+        "Linux"
+      ],
+      "data_mode": "local",
+      "data_note": "Editor de escritorio para archivos EPUB locales.",
+      "account_required": false,
+      "interface_es": "traducciones-no-auditadas",
+      "open_source": true,
+      "license": "GPL-3.0",
+      "verification": {
+        "level": "repositorio-oficial",
+        "hands_on": false,
+        "checked_at": "2026-08-19",
+        "sources": [
+          "https://github.com/Sigil-Ebook/Sigil",
+          "https://github.com/Sigil-Ebook/Sigil/releases"
+        ]
+      },
+      "editorial_note": "No compite con Scrivener ni Reedsy Studio: entra al final del flujo, cuando ya existe un EPUB y se necesita inspeccionarlo o corregirlo.",
+      "affiliate": false,
+      "status": "active"
+    },
+    {
+      "slug": "vellum",
+      "name": "Vellum",
+      "website": "https://vellum.pub/",
+      "stages": [
+        "maquetacion",
+        "epub",
+        "impresion"
+      ],
+      "best_for": "Maquetación de ebooks e interiores impresos en Mac con una interfaz muy enfocada al libro.",
+      "not_for": "Usuarios de Windows/Linux o quien busque una herramienta gratuita.",
+      "price": {
+        "model": "pago-unico",
+        "display": "199,99 USD para ebooks; 249,99 USD para ebooks + impresión.",
+        "source": "https://store.vellum.pub/"
+      },
+      "platforms": [
+        "macOS"
+      ],
+      "data_mode": "desktop",
+      "data_note": "Aplicación exclusiva para Mac; la política de tratamiento del manuscrito no se da por auditada en esta ficha.",
+      "account_required": "no-verificado",
+      "interface_es": "no-verificado",
+      "open_source": false,
+      "license": null,
+      "verification": {
+        "level": "fuente-oficial",
+        "hands_on": false,
+        "checked_at": "2026-08-19",
+        "sources": [
+          "https://vellum.pub/",
+          "https://store.vellum.pub/"
+        ]
+      },
+      "editorial_note": "Especializada en maquetación, no en planificación de novelas. El límite de plataforma es decisivo y debe aparecer antes que cualquier elogio estético.",
+      "affiliate": false,
+      "status": "active"
+    },
+    {
+      "slug": "bibliogon",
+      "name": "Bibliogon",
+      "website": "https://astrapi69.github.io/bibliogon/",
+      "stages": [
+        "planificacion",
+        "escritura",
+        "revision",
+        "exportacion",
+        "epub"
+      ],
+      "best_for": "Autores que quieren una Story Bible local integrada con manuscrito, relaciones, apariciones, continuidad y exportación sin depender de un servicio central.",
+      "not_for": "Quien busque una microherramienta simple: es una plataforma amplia y todavía joven, con muchas funciones además de la biblia de novela.",
+      "price": {
+        "model": "gratis-open-source",
+        "display": "Gratis y open source; aplicación web local-first y autoalojable.",
+        "source": "https://github.com/astrapi69/bibliogon"
+      },
+      "platforms": [
+        "Web PWA",
+        "self-hosted",
+        "desktop/servidor propio"
+      ],
+      "data_mode": "local",
+      "data_note": "La PWA oficial funciona offline y guarda los datos en IndexedDB. Las funciones de IA son opcionales y, si se activan, llaman desde el navegador al proveedor configurado por el usuario.",
+      "account_required": false,
+      "interface_es": "sí-documentado",
+      "open_source": true,
+      "license": "MIT",
+      "verification": {
+        "level": "repositorio-oficial-y-readme",
+        "hands_on": false,
+        "checked_at": "2026-08-19",
+        "sources": [
+          "https://github.com/astrapi69/bibliogon",
+          "https://github.com/astrapi69/bibliogon/blob/develop/README.md"
+        ]
+      },
+      "editorial_note": "Su Story Bible ya cubre personajes, escenarios, puntos de trama, objetos, lore, relaciones, apariciones y avisos de continuidad. Por eso no compensa reconstruir una versión reducida en davidportodiaz.com.",
+      "affiliate": false,
+      "status": "active"
+    }
+  ]
+}
