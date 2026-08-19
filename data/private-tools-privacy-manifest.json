@@ -1,0 +1,42 @@
+{
+  "schemaVersion": 1,
+  "policy": "private-manuscript-tool",
+  "policyVersion": "2026-08-19.1",
+  "scope": "Interactive tools that accept unpublished text or manuscript files",
+  "guarantees": {
+    "analysisRunsInBrowser": true,
+    "manuscriptSentToServer": false,
+    "thirdPartyScripts": false,
+    "programmaticNetworkConnections": false,
+    "persistentManuscriptStorage": false,
+    "serviceWorkerOnToolPage": false,
+    "cloudAI": false
+  },
+  "requiredCsp": {
+    "connect-src": "'none'",
+    "script-src": "'self'",
+    "worker-src": "'self'",
+    "form-action": "'none'"
+  },
+  "analytics": {
+    "toolPageAnalytics": "none",
+    "allowedMeasurementOutsideToolPage": [
+      "Search Console impressions/clicks",
+      "aggregate site metrics that cannot access manuscript input"
+    ]
+  },
+  "verification": {
+    "staticAudit": "audit-private-tools.py",
+    "manualQa": [
+      "Open DevTools Network before pasting text",
+      "Run the analysis",
+      "Confirm no request is emitted by the tool action",
+      "Confirm CSP blocks fetch/XHR/beacon/WebSocket/EventSource"
+    ]
+  },
+  "limitations": [
+    "A static audit is a preflight, not a formal proof of security.",
+    "Same-origin HTML, CSS, JavaScript and images are still downloaded when the page itself loads.",
+    "Browser extensions and compromised browser software are outside the site's threat model."
+  ]
+}
