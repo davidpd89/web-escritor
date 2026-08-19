@@ -34,7 +34,7 @@ def validate(data):
             raise ValueError(f"categoría desconocida: {tool['category']}")
         if tool["privacy"] not in PRIVACY:
             raise ValueError(f"privacy desconocida: {tool['privacy']}")
-        if not tool["href"].startswith("/herramientas/") or not tool["href"].endswith("/"):
+        if not tool["href"].startswith("/") or not tool["href"].endswith("/"):
             raise ValueError(f"ruta inválida: {tool['href']}")
         seen_slug.add(tool["slug"]); seen_href.add(tool["href"])
     return tools
@@ -77,7 +77,7 @@ def render(data, tools):
 <div class="tool-filters" role="group" aria-label="Filtrar herramientas"><button type="button" data-filter="all" aria-pressed="true">Todas</button><button type="button" data-filter="revisar">Revisar texto</button><button type="button" data-filter="estructura">Personajes y estructura</button><button type="button" data-filter="publicar">Publicar y promocionar</button><button type="button" data-filter="local">Solo navegador</button></div>
 <p class="tool-count" data-tool-count aria-live="polite">{len(tools)} herramientas</p></section>
 {''.join(sections)}
-<section class="tools-method"><h2>Qué significa «privada» aquí</h2><p>Las herramientas marcadas «En tu navegador» no necesitan enviar el texto o los datos introducidos a nuestro servidor para calcular el resultado. Las que necesitan consultar una URL pública lo dicen de forma distinta. No usamos «privada» como sello de seguridad genérico.</p><p><a href="/metodologia-editorial/">Cómo investigamos, probamos y corregimos estas herramientas</a>.</p></section>
+<section class="tools-method"><h2>Qué significa «privada» aquí</h2><p>Las herramientas marcadas «En tu navegador» no necesitan enviar el texto o los datos introducidos a nuestro servidor para calcular el resultado. Las que necesitan consultar una URL pública lo dicen de forma distinta. No usamos «privada» como sello de seguridad genérico.</p></section>
 <section class="tools-external"><h2>¿Buscas software externo?</h2><p>Este hub reúne herramientas creadas para davidportodiaz.com. La selección de programas y servicios de terceros vive aparte para poder verificar precio, plataforma, idioma y tratamiento del manuscrito sin mezclar recomendaciones con producto propio.</p><p><a href="/recursos/herramientas-para-escritores/">Ver directorio curado de herramientas para autores</a></p></section>
 <noscript><section class="tools-noscript"><h2>Todas las herramientas</h2><ul>{items}</ul></section></noscript>
 </main></div><script src="/assets/herramientas-hub.js?v=20260819-1" defer></script></body></html>'''

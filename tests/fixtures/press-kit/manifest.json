@@ -1,8 +1,8 @@
 {
-  "bookFacts": "data/press-kit/book.json",
-  "authorFacts": "data/press-kit/author.json",
-  "editorialFacts": "data/press-kit/editorial.json",
-  "output": "data/press-kit/presskit.zip",
+  "bookFacts": "tests/fixtures/press-kit/book.json",
+  "authorFacts": "tests/fixtures/press-kit/author.json",
+  "editorialFacts": "tests/fixtures/press-kit/editorial.json",
+  "output": "tests/fixtures/press-kit/presskit.zip",
   "fixture": true,
   "assets": [],
   "documents": []
