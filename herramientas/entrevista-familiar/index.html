@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; connect-src 'none'; img-src 'self'; style-src 'self'; font-src 'self'; script-src 'self'; object-src 'none'; base-uri 'self'; form-action 'none'; frame-src 'none'">
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+  <title>Preguntas para entrevistar a un familiar | Herramientas</title>
+  <meta name="description" content="Prepara gratis una entrevista familiar con preguntas abiertas sobre infancia, lugares, trabajo, tradiciones, migración, objetos y recuerdos. Sin registro y con hoja imprimible.">
+  <link rel="canonical" href="https://davidportodiaz.com/herramientas/entrevista-familiar/">
+  <link rel="stylesheet" href="/styles.css">
+  <link rel="stylesheet" href="/assets/entrevista-familiar.css">
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebApplication","name":"Preparador de entrevista familiar","url":"/herramientas/entrevista-familiar/","applicationCategory":"UtilitiesApplication","operatingSystem":"Any","isAccessibleForFree":true,"inLanguage":"es","author":{"@id":"/#author"},"description":"Herramienta gratuita para preparar e imprimir una entrevista de historia familiar con preguntas abiertas."}</script>
+</head>
+<body>
+<a href="#main-content" class="skip-link">Saltar al contenido</a>
+<main id="main-content" class="family-interview-page">
+<nav class="breadcrumb" aria-label="Ruta de navegación"><a href="/">Inicio</a> › <a href="/herramientas/">Herramientas</a> › Entrevista familiar</nav>
+<header class="family-interview-hero"><p class="eyebrow">Herramienta gratuita · historia familiar</p><h1>Prepara una conversación que merezca la pena recordar.</h1><p class="lead">Elige cuánto tiempo tienes y los temas que quieres recorrer. La herramienta prepara un guion flexible con preguntas abiertas y repreguntas. No es un interrogatorio: úsalo para escuchar y deja que la conversación cambie de rumbo.</p></header>
+
+<form class="family-interview-panel" data-family-interview-form>
+  <div class="family-grid">
+    <label class="family-field">Nombre de la persona <span class="sr-only">(opcional)</span><input data-family-name name="person" autocomplete="off" placeholder="Opcional"></label>
+    <label class="family-field">Relación <input data-family-relation name="relation" autocomplete="off" placeholder="Ej.: abuelo, madre, tía"></label>
+    <label class="family-field">Duración orientativa<select name="duration"><option value="15">15 minutos</option><option value="30" selected>30 minutos</option><option value="45">45 minutos</option><option value="60">60 minutos</option></select></label>
+  </div>
+  <fieldset class="family-themes"><legend>¿De qué quieres hablar?</legend><div class="family-theme-grid">
+    <label class="family-theme"><input type="checkbox" name="theme" value="infancia" checked><span>Infancia y escuela</span></label>
+    <label class="family-theme"><input type="checkbox" name="theme" value="lugares"><span>Casa, barrio y lugares</span></label>
+    <label class="family-theme"><input type="checkbox" name="theme" value="familia" checked><span>Familia y personas</span></label>
+    <label class="family-theme"><input type="checkbox" name="theme" value="trabajo"><span>Trabajo y vida cotidiana</span></label>
+    <label class="family-theme"><input type="checkbox" name="theme" value="amor"><span>Amistades y relaciones</span></label>
+    <label class="family-theme"><input type="checkbox" name="theme" value="tradiciones"><span>Comidas y celebraciones</span></label>
+    <label class="family-theme"><input type="checkbox" name="theme" value="migracion"><span>Mudanzas y migración</span></label>
+    <label class="family-theme"><input type="checkbox" name="theme" value="cambios"><span>Decisiones y cambios</span></label>
+    <label class="family-theme"><input type="checkbox" name="theme" value="sentidos" checked><span>Detalles, sonidos y sentidos</span></label>
+    <label class="family-theme"><input type="checkbox" name="theme" value="dificil"><span>Cambios difíciles y pérdidas</span></label>
+    <label class="family-theme"><input type="checkbox" name="theme" value="futuro"><span>Aprendizajes y futuro</span></label>
+  </div></fieldset>
+  <div class="family-options"><label class="family-theme"><input type="checkbox" name="objectMode"><span>Voy a llevar una foto u objeto para activar recuerdos</span></label></div>
+  <div class="family-actions"><button class="button primary" type="submit">Preparar entrevista</button><button class="button secondary" type="button" data-family-reset>Empezar de nuevo</button></div>
+  <p class="family-status" data-family-status aria-live="polite">No se guarda ningún nombre ni selección.</p>
+</form>
+
+<section class="family-results" data-family-interview-results hidden aria-label="Guion de entrevista">
+  <h2 class="family-print-title">Guion de entrevista familiar</h2>
+  <p class="family-meta" data-family-meta></p>
+  <div class="family-sensitive-note" data-family-sensitive-note hidden><strong>Si entras en recuerdos difíciles:</strong> avisa del tema, acepta un «prefiero no hablar de eso» y cambia de asunto si la persona lo necesita. El objetivo es conservar su voz, no obtener todas las respuestas.</div>
+  <ol class="family-questions" data-family-questions></ol>
+  <h2>Repreguntas que sirven cuando aparece una historia</h2>
+  <ul class="family-followups" data-family-followups></ul>
+  <h2>Antes de empezar</h2>
+  <ul class="family-checklist">
+    <li>Explica para qué quieres hacer la entrevista.</li>
+    <li>Si vas a grabar, pide permiso antes de hacerlo.</li>
+    <li>Busca un lugar tranquilo y sin interrupciones.</li>
+    <li>Haz una pregunta cada vez y deja silencios.</li>
+    <li>No corrijas el recuerdo durante la conversación.</li>
+    <li>Anota nombres, lugares o fechas que quieras verificar después.</li>
+  </ul>
+  <div class="family-actions"><button class="button primary" type="button" data-family-print>Imprimir / guardar como PDF</button></div>
+</section>
+
+<section class="family-method"><h2>Cómo está diseñada</h2><p>Este preparador se basa en prácticas de historia oral: preguntas abiertas, guion flexible, consentimiento para grabar, escucha activa y respeto a los límites del narrador. Las preguntas son orientativas y se han redactado para esta herramienta; no sustituyen un protocolo profesional cuando la entrevista se realiza para investigación, archivo o publicación formal.</p><p>Fuentes de método: <a href="https://oralhistory.org/principles-and-best-practices-revised-2018/" target="_blank" rel="external noopener noreferrer">Oral History Association</a>, <a href="https://siarchives.si.edu/history/how-do-oral-history" target="_blank" rel="external noopener noreferrer">Smithsonian Institution Archives</a>, <a href="https://storycorps.org/participate/great-questions/" target="_blank" rel="external noopener noreferrer">StoryCorps</a> y <a href="https://guides.loc.gov/family-history-for-kids/oral-histories" target="_blank" rel="external noopener noreferrer">Library of Congress</a>.</p></section>
+</main>
+<script type="module" src="/assets/entrevista-familiar.js"></script>
+</body>
+</html>

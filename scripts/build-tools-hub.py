@@ -9,6 +9,7 @@ CATEGORIES = {
     "lectura-eventos": ("Lecturas y eventos", "Prepara lecturas públicas y recursos de calendario sin repetir datos a mano."),
     "publicar-web": ("Publicar en la web", "Metadatos, marcado y comprobaciones orientadas a una web de escritor."),
     "publicar-promocionar": ("Prensa y promoción", "Recursos para empaquetar material profesional sin convertirlo en una fábrica de copy."),
+    "investigar-recordar": ("Investigar y recordar", "Prepara conversaciones y fichas para recoger historia real antes de convertirla en material narrativo."),
 }
 PRIVACY = {
     "local": "En tu navegador",
