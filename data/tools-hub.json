@@ -1,7 +1,6 @@
 {
   "schema_version": 1,
   "tools": [
-    {"slug":"lectura-lista","name":"Lista de lecturas","href":"/lecturas/","category":"lectura-eventos","summary":"Generador de lista de lecturas personales con notas y enlace oficial si existe.","privacy":"local","input":"json","source_doc":"scripts/build-reading-list.py"},
     {"slug":"manuscrito-analisis","name":"Analizador de manuscrito","href":"/herramientas/manuscrito/","category":"revisar-manuscrito","summary":"Métricas y agrupaciones para encontrar repeticiones, inconsistencias y niveles de diálogo vs. narración.","privacy":"local","input":"file","source_doc":"assets/analizador-capitulos.js"},
     {"slug":"personajes-matriz","name":"Matriz de personajes","href":"/herramientas/personajes/","category":"personajes-estructura","summary":"Ficha y matriz de relaciones entre personajes con señales para huecos de motivación.","privacy":"local","input":"json","source_doc":"assets/mapa-personajes.js"},
     {"slug":"publica-web","name":"Checklist publicación web","href":"/publicar-web/","category":"publicar-web","summary":"Checklist automatizable para metadatos, json-ld, y comprobaciones SEO básicas.","privacy":"local","input":"url","source_doc":"scripts/build-sitemap.py"},
