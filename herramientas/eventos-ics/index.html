@@ -1,11 +1,70 @@
 <!doctype html>
-<html lang="es"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Generador ICS de eventos | Herramientas</title>
-<link rel="canonical" href="https://davidportodiaz.com/herramientas/eventos-ics/">
-</head><body>
-<main>
-  <h1>Generador ICS</h1>
-  <p>Genera un archivo .ics a partir de un JSON con fecha, título y ubicación. Ejemplo generado en <code>data/event/event.ics</code>.</p>
-  <p><a href="/data/event/event.ics">Descargar sample.ics</a></p>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; connect-src 'none'; img-src 'self' https:; style-src 'self'; font-src 'self'; script-src 'self'; object-src 'none'; base-uri 'self'; form-action 'none'; frame-src 'none'">
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+  <title>Generador de evento + calendario | Herramientas</title>
+  <meta name="description" content="Genera desde un evento confirmado el HTML visible, JSON-LD Event y un archivo .ics compatible con calendarios. Procesamiento local.">
+  <link rel="canonical" href="https://davidportodiaz.com/herramientas/eventos-ics/">
+  <link rel="stylesheet" href="/styles.css">
+  <link rel="stylesheet" href="/assets/generador-evento-escritor.css">
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebApplication","name":"Generador de evento + calendario para escritores","url":"/herramientas/eventos-ics/","applicationCategory":"UtilitiesApplication","operatingSystem":"Any","isAccessibleForFree":true,"inLanguage":"es","author":{"@id":"/#author"}}</script>
+</head>
+<body>
+<a href="#main-content" class="skip-link">Saltar al contenido</a>
+<main id="main-content" class="event-builder" data-event-builder>
+<nav class="breadcrumb" aria-label="Ruta de navegación"><a href="/">Inicio</a> › <a href="/herramientas/">Herramientas</a> › Generador de evento + calendario</nav>
+<header class="event-builder__hero"><p class="eyebrow">Herramienta gratuita</p><h1>Publica un evento sin descoordinar web, schema y calendario</h1><p>Para presentaciones, firmas y encuentros presenciales confirmados. Un mismo formulario genera contenido visible, JSON-LD <code>Event</code> y un <code>.ics</code>.</p></header>
+<p class="event-note">No uses esta herramienta para fechas tentativas. Google exige que los datos del evento describan con precisión nombre, fecha y ubicación; el código generado debe publicarse en una URL dedicada al evento.</p>
+
+<form>
+  <fieldset><legend>Evento</legend>
+    <div class="event-grid">
+      <div class="event-field event-field--wide"><label for="ev-name">Nombre *</label><input id="ev-name" name="name" required maxlength="180"></div>
+      <div class="event-field"><label for="ev-url">URL única del evento *</label><input id="ev-url" name="url" type="url" inputmode="url" required placeholder="https://..."></div>
+      <div class="event-field"><label for="ev-img">Imagen HTTPS</label><input id="ev-img" name="imageUrl" type="url" inputmode="url"></div>
+      <div class="event-field event-field--wide"><label for="ev-desc">Descripción</label><textarea id="ev-desc" name="description" maxlength="3000"></textarea></div>
+    </div>
+  </fieldset>
+  <fieldset><legend>Fecha</legend>
+    <label class="event-check"><input name="allDay" type="checkbox">Evento de día completo</label>
+    <div class="event-grid" data-timed-fields>
+      <div class="event-field"><label for="ev-start-dt">Inicio *</label><input id="ev-start-dt" name="startDateTime" type="datetime-local"></div>
+      <div class="event-field"><label for="ev-end-dt">Fin</label><input id="ev-end-dt" name="endDateTime" type="datetime-local"></div>
+      <div class="event-field"><label for="ev-offset">Offset UTC *</label><input id="ev-offset" name="utcOffset" value="+02:00" pattern="[+-][0-2][0-9]:[0-5][0-9]" inputmode="text"><small>Ejemplo Madrid en horario de verano: +02:00.</small></div>
+    </div>
+    <div class="event-grid" data-date-fields hidden>
+      <div class="event-field"><label for="ev-start-date">Fecha *</label><input id="ev-start-date" name="startDate" type="date"></div>
+      <div class="event-field"><label for="ev-end-date">Último día, si dura varios días</label><input id="ev-end-date" name="endDate" type="date"></div>
+    </div>
+  </fieldset>
+  <fieldset><legend>Ubicación presencial</legend>
+    <div class="event-grid">
+      <div class="event-field"><label for="ev-venue">Lugar *</label><input id="ev-venue" name="venueName" required></div>
+      <div class="event-field"><label for="ev-street">Dirección *</label><input id="ev-street" name="streetAddress" required></div>
+      <div class="event-field"><label for="ev-locality">Localidad *</label><input id="ev-locality" name="addressLocality" required></div>
+      <div class="event-field"><label for="ev-postal">Código postal</label><input id="ev-postal" name="postalCode"></div>
+      <div class="event-field"><label for="ev-region">Provincia/región</label><input id="ev-region" name="addressRegion"></div>
+      <div class="event-field"><label for="ev-country">País *</label><input id="ev-country" name="addressCountry" value="ES" required></div>
+    </div>
+  </fieldset>
+  <fieldset><legend>Organización</legend>
+    <div class="event-grid">
+      <div class="event-field"><label for="ev-org">Organizador</label><input id="ev-org" name="organizerName"></div>
+      <div class="event-field"><label for="ev-org-url">Web del organizador</label><input id="ev-org-url" name="organizerUrl" type="url"></div>
+    </div>
+  </fieldset>
+  <label class="event-check"><input name="confirmed" type="checkbox" required><span>Confirmo que el evento es real y está programado; no es una fecha tentativa.</span></label>
+  <div class="event-actions"><button type="submit" class="button primary">Generar</button><p class="event-status" data-event-status role="status" aria-live="polite"></p></div>
+</form>
+
+<section class="event-results" data-event-results hidden>
+  <div class="event-output"><h2>HTML visible</h2><textarea data-event-html readonly></textarea><div class="event-result-actions"><button type="button" class="button secondary" data-copy-target="[data-event-html]">Copiar</button></div></div>
+  <div class="event-output"><h2>JSON-LD</h2><textarea data-event-jsonld readonly></textarea><div class="event-result-actions"><button type="button" class="button secondary" data-copy-target="[data-event-jsonld]">Copiar</button></div></div>
+  <div class="event-result-actions"><button type="button" class="button secondary" data-event-ics>Descargar .ics</button></div>
+</section>
 </main>
-</body></html>
+<script type="module" src="/assets/generador-evento-escritor.js"></script>
+</body>
+</html>
