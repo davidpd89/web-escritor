@@ -58,7 +58,7 @@ def render(data, tools):
 <h2>{html.escape(title)}</h2><p>{html.escape(desc)}</p>
 <div class="tools-grid">{''.join(card(t) for t in subset)}</div>
 </section>''')
-    items=''.join(f'<li><a href="{html.escape(t['href'])}">{html.escape(t['name'])}</a></li>' for t in tools)
+    items=''.join('<li><a href="{0}">{1}</a></li>'.format(html.escape(t['href']), html.escape(t['name'])) for t in tools)
     return f'''<!doctype html>
 <html lang="es"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <meta name="robots" content="index,follow,max-image-preview:large">
