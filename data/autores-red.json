@@ -1,0 +1,46 @@
+{
+  "site_name": "David Porto Díaz",
+  "section_name": "Autores en primera persona",
+  "section_description": "Conversaciones breves con escritores sobre decisiones reales de escritura, libros y oficio.",
+  "authors": [
+    {
+      "status": "draft",
+      "slug": "autor-ejemplo-no-publicar",
+      "name": "AUTOR DE EJEMPLO — NO PUBLICAR",
+      "description": "Registro de ejemplo para probar el generador. Sustituir por una persona real que haya autorizado su perfil.",
+      "genres": [
+        "género de ejemplo"
+      ],
+      "location": "",
+      "website": "https://example.com/",
+      "image": "",
+      "same_as": [],
+      "date_created": "2026-08-17",
+      "date_modified": "2026-08-17",
+      "books": [
+        {
+          "title": "Libro de ejemplo",
+          "url": "https://example.com/"
+        }
+      ],
+      "answers": [
+        {
+          "question": "¿Qué tipo de historia intentas escribir aunque cambien tus libros?",
+          "answer": "Respuesta original proporcionada por el autor invitado. Este texto de ejemplo no debe publicarse."
+        },
+        {
+          "question": "¿Qué decisión de escritura te costó más en tu último libro?",
+          "answer": "Respuesta original proporcionada por el autor invitado. Este texto de ejemplo no debe publicarse."
+        },
+        {
+          "question": "¿Qué lector crees que conectará mejor con tu obra?",
+          "answer": "Respuesta original proporcionada por el autor invitado. Este texto de ejemplo no debe publicarse."
+        },
+        {
+          "question": "¿Qué parte del oficio de escribir no suele verse desde fuera?",
+          "answer": "Respuesta original proporcionada por el autor invitado. Este texto de ejemplo no debe publicarse."
+        }
+      ]
+    }
+  ]
+}
