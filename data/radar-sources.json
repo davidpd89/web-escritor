@@ -1,0 +1,29 @@
+{
+  "schema_version": 1,
+  "sources": [
+    {
+      "id": "cultura-creacion-literaria",
+      "name": "Ministerio de Cultura — creación literaria",
+      "url": "https://www.cultura.gob.es/cultura/libro/becas-ayudas-subvenciones/ayudas-y-subvenciones/creacion-literaria.html",
+      "official": true,
+      "enabled": true,
+      "keywords": ["convocatoria", "plazo", "creación literaria", "solicitud"]
+    },
+    {
+      "id": "diputacion-palencia-cultura",
+      "name": "Diputación de Palencia — becas, premios y concursos",
+      "url": "https://www.diputaciondepalencia.es/sitio/cultura/becas-premios-concursos",
+      "official": true,
+      "enabled": true,
+      "keywords": ["premio", "poesía", "inscripción", "plazo"]
+    },
+    {
+      "id": "kutxa-premios-literarios",
+      "name": "Kutxa Fundazioa — premios literarios",
+      "url": "https://literatursariak.kutxafundazioa.eus/es/preguntas-y-respuestas",
+      "official": true,
+      "enabled": true,
+      "keywords": ["premios", "novela", "poesía", "fecha final", "presentación"]
+    }
+  ]
+}

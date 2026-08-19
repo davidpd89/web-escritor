@@ -1,0 +1,21 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//David Porto Diaz//Radar escritores//ES
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+X-WR-CALNAME:Convocatorias para escritores
+BEGIN:VEVENT
+UID:jorge-manrique-poesia-2026@davidportodiaz.com
+DTSTART;VALUE=DATE:20261009
+DTEND;VALUE=DATE:20261010
+SUMMARY:Cierra: X Premio Internacional de Poesía Jorge Manrique
+URL:https://www.diputaciondepalencia.es/sitio/cultura/becas-premios-concursos
+END:VEVENT
+BEGIN:VEVENT
+UID:kutxa-literarios-2027@davidportodiaz.com
+DTSTART;VALUE=DATE:20260921
+DTEND;VALUE=DATE:20260922
+SUMMARY:Cierra: Premios Literarios Kutxa Fundazioa 2027
+URL:https://literatursariak.kutxafundazioa.eus/es/preguntas-y-respuestas
+END:VEVENT
+END:VCALENDAR
