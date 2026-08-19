@@ -7,6 +7,7 @@ from pathlib import Path
 from zoneinfo import ZoneInfo
 import json
 import re
+import subprocess
 import sys
 
 ROOT = Path(__file__).resolve().parent.parent
@@ -106,14 +107,37 @@ def read(rel: str) -> str | None:
     return path.read_text(encoding="utf-8", errors="replace")
 
 
+def git_tracked_files() -> set[str]:
+    """Files actually tracked by git - i.e. what GitHub Pages can serve.
+
+    A filesystem walk alone doesn't reflect what's public: this repo keeps
+    several real, sizeable internal notes files on disk (gitignored) that a
+    naive rglob() would wrongly treat as public surfaces, producing
+    permanent false-positive findings for content nobody has ever published.
+    Falls back to a filesystem walk (old behavior) if git isn't available,
+    so this still works in odd environments/CI without git in PATH.
+    """
+    try:
+        out = subprocess.run(
+            ["git", "ls-files"], cwd=ROOT, capture_output=True, text=True, check=True
+        ).stdout
+        return {line.strip() for line in out.splitlines() if line.strip()}
+    except (OSError, subprocess.CalledProcessError):
+        return set()
+
+
 def public_text_files():
+    tracked = git_tracked_files()
     for path in ROOT.rglob("*"):
         if not path.is_file() or path.suffix.lower() not in SCAN_SUFFIXES:
             continue
         rel = path.relative_to(ROOT)
         if any(part in SKIP_PARTS for part in rel.parts):
             continue
-        yield rel.as_posix(), path.read_text(encoding="utf-8", errors="replace")
+        rel_posix = rel.as_posix()
+        if tracked and rel_posix not in tracked:
+            continue
+        yield rel_posix, path.read_text(encoding="utf-8", errors="replace")
 
 
 
