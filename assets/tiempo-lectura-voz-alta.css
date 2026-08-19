@@ -11,9 +11,7 @@
 .readaloud-field input:focus-visible,.readaloud-field textarea:focus-visible{outline:3px solid currentColor;outline-offset:3px}
 .readaloud-help{font-size:.9rem;opacity:.75;margin:.15rem 0 0}
 .readaloud-references{display:flex;flex-wrap:wrap;gap:.6rem;margin:.8rem 0 0}
-.readaloud-references button{min-height:44px}
 .readaloud-actions{display:flex;flex-wrap:wrap;gap:.65rem;margin-top:1rem}
-.readaloud-actions .btn{min-height:44px}
 .readaloud-status{margin:.8rem 0 0;opacity:.8}
 .readaloud-results{margin-top:2rem}
 .readaloud-cards{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:1rem}
@@ -25,4 +23,4 @@
 .readaloud-quick ul{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:.5rem 1.5rem;margin:.5rem 0 0;padding:0;list-style:none}
 .readaloud-note{max-width:780px;margin-top:2rem;padding:1rem 1.2rem;border-radius:16px;background:color-mix(in srgb,currentColor 4%,transparent)}
 @media(max-width:800px){.readaloud-grid{grid-template-columns:1fr 1fr}.readaloud-cards{grid-template-columns:1fr 1fr}}
-@media(max-width:520px){.readaloud-grid,.readaloud-cards{grid-template-columns:1fr}.readaloud-actions,.readaloud-references{display:grid}.readaloud-actions .btn,.readaloud-references button{width:100%}.readaloud-quick ul{grid-template-columns:1fr}}
+@media(max-width:520px){.readaloud-grid,.readaloud-cards{grid-template-columns:1fr}.readaloud-actions,.readaloud-references{display:grid}.readaloud-actions .button,.readaloud-references .button{width:100%}.readaloud-quick ul{grid-template-columns:1fr}}
