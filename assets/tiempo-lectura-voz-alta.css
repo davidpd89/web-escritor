@@ -1,0 +1,28 @@
+.readaloud-hero{max-width:760px;margin:0 0 2rem}
+.readaloud-hero h1{max-width:20ch}
+.readaloud-hero .lead{max-width:68ch}
+.readaloud-panel{padding:clamp(1rem,2vw,1.5rem);border:1px solid color-mix(in srgb,currentColor 18%,transparent);border-radius:18px;background:color-mix(in srgb,currentColor 3%,transparent)}
+.readaloud-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:1rem}
+.readaloud-field{display:grid;gap:.45rem}
+.readaloud-field--wide{grid-column:1/-1}
+.readaloud-field label{font-weight:700}
+.readaloud-field input,.readaloud-field textarea{box-sizing:border-box;width:100%;padding:.8rem;border:1px solid color-mix(in srgb,currentColor 24%,transparent);border-radius:11px;background:transparent;color:inherit;font:inherit}
+.readaloud-field textarea{min-height:200px;resize:vertical;line-height:1.6}
+.readaloud-field input:focus-visible,.readaloud-field textarea:focus-visible{outline:3px solid currentColor;outline-offset:3px}
+.readaloud-help{font-size:.9rem;opacity:.75;margin:.15rem 0 0}
+.readaloud-references{display:flex;flex-wrap:wrap;gap:.6rem;margin:.8rem 0 0}
+.readaloud-references button{min-height:44px}
+.readaloud-actions{display:flex;flex-wrap:wrap;gap:.65rem;margin-top:1rem}
+.readaloud-actions .btn{min-height:44px}
+.readaloud-status{margin:.8rem 0 0;opacity:.8}
+.readaloud-results{margin-top:2rem}
+.readaloud-cards{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:1rem}
+.readaloud-card{padding:1rem;border:1px solid color-mix(in srgb,currentColor 17%,transparent);border-radius:16px}
+.readaloud-card h2{font-size:1rem;margin:0 0 .5rem}
+.readaloud-card p{font-size:clamp(1.35rem,3vw,2rem);font-weight:800;line-height:1.15;margin:.2rem 0;font-variant-numeric:tabular-nums}
+.readaloud-card small{display:block;opacity:.72;margin-top:.4rem;line-height:1.4}
+.readaloud-quick{margin:1.4rem 0;padding:1rem 1.2rem;border-left:4px solid currentColor}
+.readaloud-quick ul{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:.5rem 1.5rem;margin:.5rem 0 0;padding:0;list-style:none}
+.readaloud-note{max-width:780px;margin-top:2rem;padding:1rem 1.2rem;border-radius:16px;background:color-mix(in srgb,currentColor 4%,transparent)}
+@media(max-width:800px){.readaloud-grid{grid-template-columns:1fr 1fr}.readaloud-cards{grid-template-columns:1fr 1fr}}
+@media(max-width:520px){.readaloud-grid,.readaloud-cards{grid-template-columns:1fr}.readaloud-actions,.readaloud-references{display:grid}.readaloud-actions .btn,.readaloud-references button{width:100%}.readaloud-quick ul{grid-template-columns:1fr}}

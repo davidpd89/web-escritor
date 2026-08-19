@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; connect-src 'none'; script-src 'self'; style-src 'self'; img-src 'self'; font-src 'self'; object-src 'none'; base-uri 'self'; form-action 'none'; frame-src 'none'">
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+  <title>Tiempo de lectura en voz alta | Herramientas</title>
+  <meta name="description" content="Calcula cuánto tardas en leer un texto en voz alta y cuántas palabras caben en 3, 5, 10 o 15 minutos. Velocidad configurable, procesamiento local.">
+  <link rel="canonical" href="https://davidportodiaz.com/herramientas/tiempo-lectura-voz-alta/">
+  <link rel="stylesheet" href="/styles.css">
+  <link rel="stylesheet" href="/assets/tiempo-lectura-voz-alta.css">
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebApplication","name":"Tiempo de lectura en voz alta","url":"/herramientas/tiempo-lectura-voz-alta/","applicationCategory":"UtilitiesApplication","operatingSystem":"Any","isAccessibleForFree":true,"inLanguage":"es","author":{"@id":"/#author"}}</script>
+</head>
+<body>
+<a href="#main-content" class="skip-link">Saltar al contenido</a>
+<main id="main-content">
+<nav class="breadcrumb" aria-label="Ruta de navegación"><a href="/">Inicio</a> › <a href="/herramientas/">Herramientas</a> › Tiempo de lectura en voz alta</nav>
+<header class="readaloud-hero"><p class="eyebrow">Herramienta gratuita · lecturas y eventos</p><h1>¿Cabe este fragmento en cinco minutos?</h1><p class="lead">Pega el texto o escribe su número de palabras. Ajusta tu velocidad y añade margen para pausas, interpretación o interacción con el público. El cálculo se hace en tu navegador.</p></header>
+
+<form class="readaloud-panel" data-readaloud-form>
+  <div class="readaloud-grid">
+    <div class="readaloud-field readaloud-field--wide">
+      <label for="readaloud-text">Texto</label>
+      <textarea id="readaloud-text" data-readaloud-text placeholder="Pega aquí un fragmento, discurso, guion o capítulo."></textarea>
+      <p class="readaloud-help">Si pegas texto, se usa su recuento. No se envía ni se guarda.</p>
+    </div>
+    <div class="readaloud-field">
+      <label for="readaloud-manual-words">O introduce palabras</label>
+      <input id="readaloud-manual-words" data-readaloud-manual-words type="number" min="1" step="1" inputmode="numeric" placeholder="Ej. 1200">
+    </div>
+    <div class="readaloud-field">
+      <label for="readaloud-wpm">Velocidad (palabras/minuto)</label>
+      <input id="readaloud-wpm" data-readaloud-wpm type="number" min="60" max="300" step="1" value="155" inputmode="numeric">
+      <p class="readaloud-help">Configurable: no existe una velocidad correcta para todos.</p>
+    </div>
+    <div class="readaloud-field">
+      <label for="readaloud-buffer">Margen por pausas (%)</label>
+      <input id="readaloud-buffer" data-readaloud-buffer type="number" min="0" max="100" step="1" value="10" inputmode="numeric">
+      <p class="readaloud-help">Añade tiempo para respiración, interpretación o público.</p>
+    </div>
+    <div class="readaloud-field">
+      <label for="readaloud-target">Tiempo disponible (minutos)</label>
+      <input id="readaloud-target" data-readaloud-target type="number" min="0.5" max="600" step="0.5" value="5" inputmode="decimal">
+    </div>
+  </div>
+  <div class="readaloud-references" aria-label="Referencias de velocidad">
+    <button class="btn" type="button" data-wpm-reference="155" data-reference-label="Referencia ACX: 9.300 palabras por hora de audio terminado (~155 ppm).">155 ppm · referencia audiobook ACX</button>
+    <button class="btn" type="button" data-wpm-reference="183" data-reference-label="Referencia de investigación: media aproximada de lectura oral adulta (metaanálisis Brysbaert).">183 ppm · referencia de investigación</button>
+  </div>
+  <div class="readaloud-actions">
+    <button class="btn btn-primary" type="submit">Calcular</button>
+    <button class="btn" type="button" data-readaloud-sample>Probar ejemplo</button>
+    <button class="btn" type="button" data-readaloud-clear>Borrar</button>
+  </div>
+  <p class="readaloud-status" data-readaloud-status aria-live="polite">Nada de lo que pegues se envía al servidor.</p>
+</form>
+
+<section class="readaloud-results" data-readaloud-results hidden aria-label="Resultado">
+  <div class="readaloud-cards">
+    <article class="readaloud-card"><h2>Palabras</h2><p data-readaloud-word-count>0</p><small>Recuento del texto o valor manual.</small></article>
+    <article class="readaloud-card"><h2>Duración estimada</h2><p data-readaloud-duration>—</p><small>Incluye el margen de pausas.</small></article>
+    <article class="readaloud-card"><h2>En tu tiempo objetivo</h2><p data-readaloud-capacity>—</p><small>Máximo aproximado con la velocidad elegida.</small></article>
+    <article class="readaloud-card"><h2>Ritmo efectivo</h2><p data-readaloud-effective>—</p><small>Velocidad ajustada por el margen.</small></article>
+  </div>
+  <section class="readaloud-quick"><h2>Presupuesto rápido</h2><ul data-readaloud-quick></ul></section>
+</section>
+
+<section class="readaloud-note"><h2>Una estimación, no un cronómetro</h2><p>La lectura expresiva puede variar mucho por diálogos, emoción, nombres difíciles, silencios, preguntas del público o respiración. Lo más preciso es cronometrar un minuto propio y usar tus palabras por minuto como referencia personal.</p><h2>Privacidad</h2><p>El texto y el cálculo se procesan en tu navegador. No se envían a un servidor.</p></section>
+</main>
+<script type="module" src="/assets/tiempo-lectura-voz-alta.js"></script>
+</body>
+</html>
