@@ -82,8 +82,8 @@ function analyze() {
 
 form.addEventListener('submit', event => { event.preventDefault(); analyze(); });
 $('[data-repetition-sample]', form)?.addEventListener('click', () => {
-  input.value = `Noa miró la puerta. La puerta seguía abierta y Noa volvió a mirar la puerta antes de entrar. Parecía tranquila. Parecía tranquila, al menos desde fuera.\n\nNoa dio un paso. Noa dio otro paso. Entonces miró a Brais, y entonces comprendió que llevaba toda la conversación diciendo entonces sin darse cuenta.`;
-  ticsInput.value = 'parecía, entonces, Noa dio';
+  input.value = `Ana miró la puerta. La puerta seguía abierta y Ana volvió a mirar la puerta antes de entrar. Parecía tranquila. Parecía tranquila, al menos desde fuera.\n\nAna dio un paso. Ana dio otro paso. Entonces miró a Bruno, y entonces comprendió que llevaba toda la conversación diciendo entonces sin darse cuenta.`;
+  ticsInput.value = 'parecía, entonces, Ana dio';
   analyze(); emit('repetition_sample'); input.focus();
 });
 $('[data-repetition-clear]', form)?.addEventListener('click', () => {

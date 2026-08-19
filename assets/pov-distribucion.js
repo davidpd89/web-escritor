@@ -117,14 +117,14 @@
 
   sample.addEventListener('click', () => {
     input.value = [
-      '1.1 | Noa | 1420',
-      '1.2 | Noa | 980',
-      '2.1 | Brais | 1310',
-      '2.2 | Noa | 1560',
-      '3.1 | Cibrán | 1120',
-      '3.2 | Brais | 1250',
-      '4.1 | Noa | 1680',
-      '4.2 | Cibrán | 1040'
+      '1.1 | Ana | 1420',
+      '1.2 | Ana | 980',
+      '2.1 | Bruno | 1310',
+      '2.2 | Ana | 1560',
+      '3.1 | Clara | 1120',
+      '3.2 | Bruno | 1250',
+      '4.1 | Ana | 1680',
+      '4.2 | Clara | 1040'
     ].join('\n');
     run(); input.focus();
   });
