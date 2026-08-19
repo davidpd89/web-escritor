@@ -43,7 +43,7 @@ FORBIDDEN_AWARD_WORDING = [
 ]
 
 FORBIDDEN_SAMUEL_CANON = [
-    (re.compile(r"Samuel entre mundos.{0,240}\b422\s+páginas\b", re.I | re.S), "422 páginas de Samuel no verificado (valor correcto: 412)"),
+    (re.compile(r"Samuel entre mundos.{0,240}\b412\s+páginas\b", re.I | re.S), "412 páginas de Samuel incorrecto (dato de retailer, no del editor); el valor correcto es 422 (409 numeradas + portada/contraportada, confirmado contra el ejemplar físico y la ficha de Libros Indie)"),
     (re.compile(r"Samuel entre mundos.{0,240}\b12\s*(?:\+|[-–]\s*(?:17|18)|años en adelante)", re.I | re.S), "edad objetivo de Samuel no verificada (valor correcto: 15+)"),
     (re.compile(r"Samuel entre mundos.{0,260}(?:9\s+calificaciones|11\s+valoraciones|aggregateRating)", re.I | re.S), "valoraciones de Samuel no aptas como dato canónico durable"),
     # Año resuelto el 19/08/2026: 2025 es correcto, 2026 es el valor incorrecto que circulaba.
