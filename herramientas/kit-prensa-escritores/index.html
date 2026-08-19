@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; connect-src 'none'; img-src 'self'; style-src 'self'; font-src 'self'; script-src 'self'; object-src 'none'; base-uri 'self'; form-action 'none'; frame-src 'none'">
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+  <title>Generador de kit de prensa para escritores | Herramientas</title>
+  <meta name="description" content="Crea un ZIP de prensa para un autor y un libro con bios, ficha, sinopsis, imágenes, permisos, manifiesto y checksums. Se genera localmente en tu navegador.">
+  <link rel="canonical" href="https://davidportodiaz.com/herramientas/kit-prensa-escritores/">
+  <link rel="stylesheet" href="/styles.css">
+  <link rel="stylesheet" href="/assets/kit-prensa-escritor.css">
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebApplication","name":"Generador de kit de prensa para escritores","url":"/herramientas/kit-prensa-escritores/","applicationCategory":"UtilitiesApplication","operatingSystem":"Any","isAccessibleForFree":true,"inLanguage":"es","author":{"@id":"/#author"}}</script>
+</head>
+<body>
+<a href="#main-content" class="skip-link">Saltar al contenido</a>
+<main id="main-content" class="press-kit-builder" data-press-kit-builder>
+<nav class="breadcrumb" aria-label="Ruta de navegación"><a href="/">Inicio</a> › <a href="/herramientas/">Herramientas</a> › Kit de prensa</nav>
+<header class="press-kit-builder__hero"><p class="eyebrow">Herramienta gratuita</p><h1>Crea un kit de prensa sin subir tus archivos</h1><p>Introduce solo datos que puedas verificar. El generador organiza textos, ficha del libro, imágenes y permisos en un ZIP con manifiesto y hashes SHA-256. No inventa biografías, premios, citas ni sinopsis.</p></header>
+<p class="press-kit-privacy"><strong>Privacidad:</strong> los datos y archivos seleccionados se procesan localmente en tu navegador para construir el ZIP. Nada se envía a un servidor.</p>
+
+<form class="press-kit-builder__form">
+  <fieldset><legend>Autor y contacto</legend><div class="press-kit-grid">
+    <div class="press-kit-field"><label for="pk-author">Nombre del autor *</label><input id="pk-author" name="authorName" required maxlength="120" autocomplete="name"></div>
+    <div class="press-kit-field"><label for="pk-email">Email de prensa *</label><input id="pk-email" name="contactEmail" type="email" required maxlength="254" autocomplete="email"></div>
+    <div class="press-kit-field"><label for="pk-web">Web</label><input id="pk-web" name="website" type="url" inputmode="url" placeholder="https://..."></div>
+    <div class="press-kit-field"><label for="pk-social">Redes/enlaces</label><input id="pk-social" name="socialLinks" maxlength="500" placeholder="Instagram, Goodreads, etc."></div>
+    <div class="press-kit-field press-kit-field--wide"><label for="pk-bio-short">Biografía corta *</label><textarea id="pk-bio-short" name="bioShort" required maxlength="2000"></textarea><small>Texto listo para copiar; el generador no lo reescribe.</small></div>
+    <div class="press-kit-field press-kit-field--wide"><label for="pk-bio-long">Biografía larga</label><textarea id="pk-bio-long" name="bioLong" maxlength="6000"></textarea></div>
+  </div></fieldset>
+  <fieldset><legend>Libro destacado</legend><div class="press-kit-grid">
+    <div class="press-kit-field"><label for="pk-book">Título *</label><input id="pk-book" name="bookTitle" required maxlength="180"></div>
+    <div class="press-kit-field"><label for="pk-publisher">Editorial / sello</label><input id="pk-publisher" name="publisher" maxlength="180"></div>
+    <div class="press-kit-field"><label for="pk-isbn">ISBN</label><input id="pk-isbn" name="isbn" maxlength="32" inputmode="numeric"></div>
+    <div class="press-kit-field"><label for="pk-date">Fecha de publicación</label><input id="pk-date" name="publicationDate" type="date"></div>
+    <div class="press-kit-field"><label for="pk-price">PVP / precio</label><input id="pk-price" name="price" maxlength="40"></div>
+    <div class="press-kit-field"><label for="pk-buy">Enlace oficial</label><input id="pk-buy" name="purchaseUrl" type="url" inputmode="url"></div>
+    <div class="press-kit-field press-kit-field--wide"><label for="pk-desc">Sinopsis / descripción para prensa *</label><textarea id="pk-desc" name="bookDescription" required maxlength="7000"></textarea></div>
+    <div class="press-kit-field press-kit-field--wide"><label for="pk-topics">Temas de entrevista</label><textarea id="pk-topics" name="interviewTopics" maxlength="4000" placeholder="Un tema por línea"></textarea></div>
+  </div></fieldset>
+  <fieldset><legend>Assets locales</legend><div class="press-kit-grid">
+    <div class="press-kit-field"><label for="pk-author-photos">Fotos de autor</label><input id="pk-author-photos" name="authorPhotos" type="file" accept="image/jpeg,image/png,image/webp" multiple></div>
+    <div class="press-kit-field"><label for="pk-covers">Portadas</label><input id="pk-covers" name="coverFiles" type="file" accept="image/jpeg,image/png,image/webp" multiple></div>
+    <div class="press-kit-field press-kit-field--wide"><label for="pk-other">Otros archivos útiles</label><input id="pk-other" name="otherFiles" type="file" accept="image/jpeg,image/png,image/webp,application/pdf" multiple><small>Máximo 10 archivos, 12 MiB por archivo y 25 MiB en total.</small></div>
+    <div class="press-kit-field press-kit-field--wide"><label for="pk-permission">Uso de imágenes *</label><select id="pk-permission" name="assetPermission" required><option value="contact_only">Pedir autorización antes de reproducir</option><option value="editorial_use">Autorizo uso editorial para informar del autor/libro</option></select><small>Selecciona solo una opción que refleje derechos que realmente posees.</small></div>
+  </div></fieldset>
+  <div class="press-kit-actions"><button type="submit" class="button primary" data-kit-submit>Generar ZIP</button><p class="press-kit-status" data-kit-status role="status" aria-live="polite"></p></div>
+  <div class="press-kit-summary" data-kit-summary hidden></div>
+</form>
+<section><h2>Qué incluye</h2><p>README, datos JSON del autor y libro, bios en texto, sinopsis, temas de entrevista si los aportas, política de uso de assets, checklist de campos pendientes, archivos seleccionados, MANIFEST y CHECKSUMS_SHA256. El ZIP se genera sin compresión (método «store»): los textos son pequeños y las imágenes ya vienen comprimidas, así que no se pierde nada y el resultado es más simple de verificar.</p></section>
+</main>
+<script type="module" src="/assets/kit-prensa-escritor.js"></script>
+</body>
+</html>
