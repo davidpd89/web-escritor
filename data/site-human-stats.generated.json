@@ -1,0 +1,23 @@
+{
+  "generated_on": "2026-08-19",
+  "stats": [
+    {
+      "key": "books",
+      "label": "Libros publicados",
+      "value": 1,
+      "method": "Páginas indexables bajo /libros/*/."
+    },
+    {
+      "key": "articles",
+      "label": "Artículos del Cuaderno",
+      "value": 7,
+      "method": "Páginas indexables bajo /cuaderno/*/."
+    },
+    {
+      "key": "tools",
+      "label": "Herramientas gratuitas",
+      "value": 13,
+      "method": "Páginas indexables bajo /herramientas/*/."
+    }
+  ]
+}
