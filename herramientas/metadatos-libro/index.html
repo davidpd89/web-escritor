@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; connect-src 'none'; img-src 'self' https:; style-src 'self'; font-src 'self'; script-src 'self'; object-src 'none'; base-uri 'self'; form-action 'none'; frame-src 'none'">
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+  <title>Preview de metadatos para libros | Herramientas</title>
+  <meta name="description" content="Previsualiza y genera title, description, Open Graph y X Card para la página de un libro. Herramienta gratuita, procesamiento local.">
+  <link rel="canonical" href="https://davidportodiaz.com/herramientas/metadatos-libro/">
+  <link rel="stylesheet" href="/styles.css">
+  <link rel="stylesheet" href="/assets/metadatos-libro.css">
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebApplication","name":"Preview de metadatos para libros","url":"/herramientas/metadatos-libro/","applicationCategory":"DeveloperApplication","operatingSystem":"Any","isAccessibleForFree":true,"inLanguage":"es","author":{"@id":"/#author"}}</script>
+</head>
+<body>
+<a href="#main-content" class="skip-link">Saltar al contenido</a>
+<main id="main-content" class="meta-page">
+<nav class="breadcrumb" aria-label="Ruta de navegación"><a href="/">Inicio</a> › <a href="/herramientas/">Herramientas</a> › Metadatos de libro</nav>
+<header class="meta-hero"><p class="eyebrow">Herramienta gratuita para escritores</p><h1>Previsualiza cómo presentas un libro antes de publicar la página.</h1><p class="lead">Genera un bloque básico de metadatos para una ficha de libro y comprueba de forma orientativa el título, la descripción y la tarjeta social. No rastrea tu web ni envía los datos a un servidor.</p></header>
+<div class="meta-grid">
+<form class="meta-panel" data-meta-form>
+  <div class="meta-fields">
+    <div class="meta-field"><label for="meta-book">Título del libro</label><input id="meta-book" name="book" autocomplete="off" required></div>
+    <div class="meta-field"><label for="meta-author">Autor</label><input id="meta-author" name="author" autocomplete="name"></div>
+    <div class="meta-field"><label for="meta-site">Nombre del sitio</label><input id="meta-site" name="site" autocomplete="organization"></div>
+    <div class="meta-field"><label for="meta-url">URL canónica HTTPS</label><input id="meta-url" name="url" type="url" inputmode="url" placeholder="https://…"></div>
+    <div class="meta-field meta-field--wide"><label for="meta-description">Descripción de la página</label><textarea id="meta-description" name="description"></textarea></div>
+    <div class="meta-field meta-field--wide"><label for="meta-image">URL HTTPS de imagen social</label><input id="meta-image" name="image" type="url" inputmode="url" placeholder="https://…/social.webp"></div>
+    <div class="meta-field meta-field--wide"><label for="meta-image-alt">Descripción de la imagen</label><input id="meta-image-alt" name="image_alt"></div>
+    <div class="meta-field"><label for="meta-isbn">ISBN (opcional)</label><input id="meta-isbn" name="isbn" inputmode="numeric"></div>
+    <div class="meta-field"><label for="meta-release">Fecha de publicación</label><input id="meta-release" name="release_date" type="date"></div>
+    <div class="meta-field"><label for="meta-author-url">URL del perfil del autor (opcional)</label><input id="meta-author-url" name="author_url" type="url" inputmode="url"></div>
+    <div class="meta-field"><label for="meta-x">Cuenta de X del sitio (opcional)</label><input id="meta-x" name="x_site" placeholder="@usuario"></div>
+  </div>
+  <div class="meta-actions"><button type="submit" class="button primary">Generar vista</button><button type="button" class="button secondary" data-meta-sample>Cargar ejemplo</button></div>
+  <p class="meta-status" data-meta-status aria-live="polite">Los datos se procesan en tu navegador.</p>
+</form>
+<section class="meta-output" data-meta-output hidden aria-label="Previsualizaciones y código">
+  <div class="meta-preview-stack">
+    <article class="meta-card"><p class="meta-card__label">Google · simulación orientativa</p><div class="meta-google"><div class="meta-google__url" data-google-url></div><h2 class="meta-google__title" data-google-title></h2><p class="meta-google__desc" data-google-desc></p></div></article>
+    <article class="meta-card"><p class="meta-card__label">Open Graph · simulación</p><img class="meta-social-image" data-og-image hidden alt=""><div class="meta-social-body"><strong data-og-title></strong><p data-og-desc></p></div></article>
+    <article class="meta-card"><p class="meta-card__label">X · summary large image · simulación</p><img class="meta-social-image" data-x-image hidden alt=""><div class="meta-social-body"><strong data-x-title></strong><p data-x-desc></p></div></article>
+  </div>
+  <ul class="meta-warnings" data-meta-warnings></ul>
+  <div class="meta-code-wrap"><h2>Bloque HTML</h2><p class="meta-note">Revísalo antes de pegarlo en el <code>&lt;head&gt;</code>. La herramienta no sustituye los validadores oficiales de cada plataforma.</p><pre class="meta-code" data-meta-code></pre><button type="button" class="button secondary" data-copy-meta>Copiar código</button></div>
+</section>
+</div>
+<section class="meta-info"><h2>Qué significa «preview» aquí</h2><p>Google genera enlaces de título y fragmentos automáticamente y puede usar fuentes distintas del <code>&lt;title&gt;</code> o la metadescripción. Las redes también pueden recortar o presentar las tarjetas de forma diferente según el cliente. Esta herramienta sirve para detectar problemas antes de publicar y producir metadatos coherentes, no para prometer un render exacto.</p></section>
+</main>
+<script type="module" src="/assets/metadatos-libro.js"></script>
+</body>
+</html>
