@@ -92,6 +92,21 @@ def render(data, tools, directories):
 <meta name="robots" content="index,follow,max-image-preview:large">
 <title>Herramientas gratuitas para escritores | David Porto Díaz</title>
 <meta name="description" content="Herramientas gratuitas para revisar manuscritos, personajes, metadatos, eventos y webs de escritor. Sin registro; las herramientas de texto indican cuándo todo se procesa en tu navegador.">
+<meta property="og:title" content="Herramientas gratuitas para escritores | David Porto Díaz">
+<meta property="og:description" content="Herramientas gratuitas para revisar manuscritos, personajes, metadatos, eventos y webs de escritor. Sin registro; las herramientas de texto indican cuándo todo se procesa en tu navegador.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://davidportodiaz.com/herramientas/">
+<meta property="og:image" content="https://davidportodiaz.com/assets/david-porto-imagen-compartir.webp">
+<meta property="og:image:width" content="1731">
+<meta property="og:image:height" content="909">
+<meta property="og:image:alt" content="Herramientas gratuitas para escritores | David Porto Díaz">
+<meta property="og:locale" content="es_ES">
+<meta property="og:site_name" content="David Porto Díaz">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Herramientas gratuitas para escritores | David Porto Díaz">
+<meta name="twitter:description" content="Herramientas gratuitas para revisar manuscritos, personajes, metadatos, eventos y webs de escritor. Sin registro; las herramientas de texto indican cuándo todo se procesa en tu navegador.">
+<meta name="twitter:image" content="https://davidportodiaz.com/assets/david-porto-imagen-compartir.webp">
+<meta name="twitter:image:alt" content="Herramientas gratuitas para escritores | David Porto Díaz">
 <link rel="canonical" href="https://davidportodiaz.com/herramientas/">
 <link rel="stylesheet" href="/styles.css?v=202609-launch-1"><link rel="stylesheet" href="/assets/herramientas-hub.css?v=20260819-1">
 <script type="application/ld+json">{{"@context":"https://schema.org","@type":"CollectionPage","name":"Herramientas gratuitas para escritores","url":"https://davidportodiaz.com/herramientas/","inLanguage":"es","mainEntity":{{"@type":"ItemList","numberOfItems":{len(tools)},"itemListElement":[{','.join(json.dumps({'@type':'ListItem','position':i+1,'url':'https://davidportodiaz.com'+t['href'],'name':t['name']}, ensure_ascii=False) for i,t in enumerate(tools))}]}}}}</script>

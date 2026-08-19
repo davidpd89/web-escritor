@@ -506,9 +506,21 @@ function fallbackCopy(text, done) {
 
 // Generic newsletter forms (home, fragmento, manecillas pages)
 (function () {
+  // Contextual success copy per source: a launch-alert signup on the
+  // Manecillas page shouldn't be told it will receive "el capítulo" - that
+  // promise belongs to Samuel entre mundos, which is what home/fragmento
+  // actually deliver. Falls back to a generic message for unknown sources.
+  const NEWSLETTER_SUCCESS_COPY = {
+    home: "Recibirás el capítulo y novedades de David Porto Díaz.",
+    fragmento: "Recibirás novedades de David Porto Díaz.",
+    manecillas: "Te avisaré cuando Las manecillas del recuerdo esté disponible.",
+    cuaderno: "Recibirás las novedades de David Porto Díaz."
+  };
+
   async function submitNewsletter(formId, emailId, gdprId, statusId, sourceLabel) {
     const form = document.getElementById(formId);
     if (!form) return;
+    const successBody = NEWSLETTER_SUCCESS_COPY[sourceLabel] || "Recibirás las novedades de David Porto Díaz.";
     form.addEventListener("submit", (e) => {
       e.preventDefault();
       scheduleTask(async () => {
@@ -540,7 +552,7 @@ function fallbackCopy(text, done) {
           });
           if (res.ok || res.status === 204) {
             localStorage.setItem("nl-subscribed", "1");
-            form.innerHTML = '<p class="quiz-subscribe-ok">✓ \u00a1Apuntado! Recibir\u00e1s el cap\u00edtulo y novedades de David Porto D\u00edaz.</p>';
+            form.innerHTML = '<p class="quiz-subscribe-ok">✓ ¡Apuntado! ' + successBody + '</p>';
             _gcEvent("newsletter-" + sourceLabel, "Newsletter: " + sourceLabel);
           } else if (res.status === 400) {
             // Brevo returns 400 for duplicate contacts
