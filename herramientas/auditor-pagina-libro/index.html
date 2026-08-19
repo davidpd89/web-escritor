@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; connect-src 'none'; img-src 'self'; style-src 'self'; font-src 'self'; script-src 'self'; object-src 'none'; base-uri 'self'; form-action 'none'; frame-src 'none'">
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+  <title>Auditor de página de libro | Herramientas</title>
+  <meta name="description" content="Pega el código HTML de la página de un libro y comprueba si un lector puede identificarlo, entenderlo y continuar hacia la compra o la lectura. Sin URL, sin fetch, todo local.">
+  <link rel="canonical" href="https://davidportodiaz.com/herramientas/auditor-pagina-libro/">
+  <link rel="stylesheet" href="/styles.css">
+  <link rel="stylesheet" href="/assets/auditor-pagina-libro.css">
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebApplication","name":"Auditor de página de libro","url":"/herramientas/auditor-pagina-libro/","applicationCategory":"UtilitiesApplication","operatingSystem":"Any","isAccessibleForFree":true,"inLanguage":"es","author":{"@id":"/#author"}}</script>
+</head>
+<body>
+<a href="#main-content" class="skip-link">Saltar al contenido</a>
+<main id="main-content" class="book-audit-page">
+<nav class="breadcrumb" aria-label="Ruta de navegación"><a href="/">Inicio</a> › <a href="/herramientas/">Herramientas</a> › Auditor de página de libro</nav>
+<header class="book-audit-hero"><p class="eyebrow">Herramienta gratuita · escritores independientes y tradicionales</p><h1>¿Esta página deja claro qué es el libro y qué hacer a continuación?</h1><p class="lead">Pega el código fuente (HTML) de la página de un libro — el tuyo o cualquier otro que quieras revisar. La herramienta comprueba si un lector puede identificar el título, la autoría, la portada, la disponibilidad y una acción de compra, además de contrastar los datos de la edición y el JSON-LD <code>Book</code> si existe. No asigna una nota ni un «SEO score».</p></header>
+
+<form class="book-audit-panel" data-book-audit-form>
+  <div class="book-audit-field">
+    <label for="book-audit-html">Código HTML de la página</label>
+    <textarea id="book-audit-html" data-book-audit-html spellcheck="false" placeholder="Copia el HTML con «Ver código fuente de la página» (Ctrl/Cmd+U) y pégalo aquí."></textarea>
+  </div>
+  <div class="book-audit-field">
+    <label for="book-audit-title">Título esperado <span aria-hidden="true">· opcional</span></label>
+    <input id="book-audit-title" data-book-audit-title type="text" autocomplete="off" placeholder="Ayuda a detectar mejor el H1 y la portada">
+  </div>
+  <div class="book-audit-field">
+    <label for="book-audit-url">URL de referencia <span aria-hidden="true">· opcional, solo para mostrarla en el resultado</span></label>
+    <input id="book-audit-url" data-book-audit-url type="url" inputmode="url" placeholder="https://…">
+  </div>
+  <div class="book-audit-actions">
+    <button type="submit" class="button primary">Auditar</button>
+    <button type="button" class="button secondary" data-book-audit-clear>Limpiar</button>
+  </div>
+  <p class="book-audit-status" data-book-audit-status aria-live="polite">Nada de lo que pegues se envía al servidor: el HTML se analiza en tu navegador con expresiones regulares, sin fetch ni almacenamiento.</p>
+</form>
+
+<section class="book-audit-results" data-book-audit-results hidden aria-label="Resultado de la auditoría">
+  <p class="book-audit-detected" data-book-audit-detected></p>
+  <div data-book-audit-groups></div>
+  <div class="book-audit-ctas" data-book-audit-ctas hidden></div>
+</section>
+
+<section><h2>Qué mide y qué no</h2><p>Distingue tres niveles: lo esencial para que un lector entienda y continúe (título, autoría, portada, descripción, disponibilidad, acción de compra), los datos de la edición (ISBN, editorial, fecha, formato, páginas — informativos, nunca obligatorios) y elementos opcionales (fragmento, prensa, club de lectura, serie, derechos de assets). También contrasta el HTML visible con el primer <code>Book</code> de JSON-LD si existe, y avisa si no coinciden.</p><p>Es una detección heurística basada en patrones de texto y enlaces: puede dar falsos positivos o negativos en páginas con estructuras poco habituales. No sustituye una revisión humana ni herramientas oficiales de Google o Schema.org.</p></section>
+</main>
+<script type="module" src="/assets/auditor-pagina-libro.js"></script>
+</body>
+</html>
