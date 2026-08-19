@@ -65,6 +65,19 @@
   });
   shareWrap.appendChild(shareBtn);
 
+  // Print control
+  const printWrap = document.createElement('div'); printWrap.className = 'at-print';
+  const printBtn = document.createElement('button'); printBtn.className = 'at-btn'; printBtn.type = 'button'; printBtn.textContent = 'Imprimir';
+  printBtn.addEventListener('click', ()=>{
+    // Inject print stylesheet if not present
+    if (!document.querySelector('link[href="/assets/article-print.css"]')){
+      const l = document.createElement('link'); l.rel='stylesheet'; l.href='/assets/article-print.css'; l.media='print'; document.head.appendChild(l);
+    }
+    try{ window.print(); dispatchShareEvent('print'); }catch(e){}
+  });
+  printWrap.appendChild(printBtn);
+  controls.appendChild(printWrap);
+
   // Optionally add progress toggle if no global progress exists
   if (!hasGlobalProgress){
     const progBtn = document.createElement('button'); progBtn.className='at-btn'; progBtn.type='button'; progBtn.textContent='Mostrar progreso';

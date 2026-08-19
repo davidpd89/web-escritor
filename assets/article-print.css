@@ -1,0 +1,31 @@
+/* Print stylesheet for articles — hides navigation, UI chrome, and improves typography */
+@media print {
+  /* Hide site chrome */
+  header, nav, .site-header, .site-footer, .article-tools, .at-controls, .at-btn, .reading-progress, .cookie-banner, .site-nav, .site-aside { display: none !important; }
+
+  /* Main content area — use full width */
+  #main-content, main, .content, .article { width: 100% !important; margin: 0 !important; padding: 0 !important; }
+
+  /* Improve typography for print */
+  body, #main-content, article { background: #fff !important; color: #000 !important; font-size: 12pt !important; line-height: 1.45 !important; }
+  h1, h2, h3, h4 { color: #000 !important; page-break-after: avoid; }
+  img { max-width: 100% !important; height: auto !important; page-break-inside: avoid; }
+
+  /* Avoid orphaned headings at bottom of page */
+  h2, h3 { page-break-after: avoid; page-break-inside: avoid; }
+
+  /* Avoid breaking code blocks */
+  pre, code, blockquote { page-break-inside: avoid; }
+
+  /* Links: show URL in parentheses after the link text */
+  a[href]:after { content: " (" attr(href) ")"; font-size: 90%; }
+
+  /* Remove background images */
+  * { background: transparent !important; background-image: none !important; }
+
+  /* Remove forms and interactive elements */
+  input, textarea, button, select, details, summary { display: none !important; }
+
+  /* Page breaks for sections */
+  section, article, .section { page-break-inside: avoid; }
+}
