@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; connect-src 'none'; img-src 'self'; style-src 'self'; font-src 'self'; script-src 'self'; object-src 'none'; base-uri 'self'; form-action 'none'; frame-src 'none'">
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+  <title>Generador JSON-LD para escritores | Herramientas</title>
+  <meta name="description" content="Genera JSON-LD conservador para perfiles de autor, libros, artículos y eventos, con avisos sobre lo que Google realmente documenta. Procesamiento local.">
+  <link rel="canonical" href="https://davidportodiaz.com/herramientas/json-ld-escritores/">
+  <link rel="stylesheet" href="/styles.css">
+  <link rel="stylesheet" href="/assets/jsonld-escritores.css">
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebApplication","name":"Generador JSON-LD para escritores","url":"/herramientas/json-ld-escritores/","applicationCategory":"DeveloperApplication","operatingSystem":"Any","isAccessibleForFree":true,"inLanguage":"es","author":{"@id":"/#author"}}</script>
+</head>
+<body>
+<a class="skip-link" href="#main-content">Saltar al contenido</a>
+<main id="main-content" class="jsonld-page">
+<nav class="breadcrumb" aria-label="Ruta de navegación"><a href="/">Inicio</a> › <a href="/herramientas/">Herramientas</a> › JSON-LD</nav>
+<header><p class="eyebrow">Herramienta gratuita · sin IA</p><h1>Generador JSON-LD para escritores</h1><p class="lead">Crea marcado conservador para un perfil de autor, un libro, un artículo o un evento. Los campos vacíos no se inventan y la herramienta separa «Schema.org válido» de «función enriquecida documentada por Google».</p><p class="jsonld-warning"><strong>Importante:</strong> un JSON-LD correcto no garantiza un rich result ni mejora el ranking por sí solo. Debe describir información real y visible en la página.</p></header>
+<div class="jsonld-grid">
+<form id="jsonld-form" class="jsonld-form-card">
+  <label for="jsonld-mode">Qué quieres describir</label>
+  <select id="jsonld-mode" name="mode"><option value="profile">Perfil de autor</option><option value="book">Libro</option><option value="article">Artículo</option><option value="event">Evento</option></select>
+  <div id="jsonld-fields"></div>
+  <div class="jsonld-actions"><button id="jsonld-reset" type="button" class="button secondary">Vaciar</button></div>
+</form>
+<section class="jsonld-output-card" aria-label="Resultado">
+  <h2>Resultado</h2>
+  <div id="jsonld-report" class="jsonld-report"></div>
+  <div class="jsonld-actions"><button id="jsonld-copy" type="button" class="button primary">Copiar</button><button id="jsonld-download" type="button" class="button secondary">Descargar</button></div>
+  <pre><code id="jsonld-output"></code></pre>
+  <p id="jsonld-status" role="status" aria-live="polite"></p>
+</section>
+</div>
+<section class="jsonld-method"><h2>Qué valida y qué no</h2><p>Comprueba campos básicos, HTTPS, fechas, coherencia mínima y evita emitir propiedades vacías. No sustituye el validador de Schema.org, Rich Results Test ni la inspección de URL de Google.</p><table><thead><tr><th>Modo</th><th>Schema.org</th><th>Google</th></tr></thead><tbody><tr><td>Perfil de autor</td><td>ProfilePage + Person</td><td>Profile page documentado</td></tr><tr><td>Libro</td><td>Book</td><td>Sin rich result dedicado en la galería actual</td></tr><tr><td>Artículo</td><td>Article</td><td>Article documentado</td></tr><tr><td>Evento</td><td>Event</td><td>Event documentado</td></tr></tbody></table><h2>Regla principal</h2><p>Menos campos correctos es mejor que completar propiedades con datos supuestos. No declares ISBN, precio, disponibilidad, editorial, fecha o perfiles sociales si no puedes verificarlos.</p></section>
+</main>
+<script type="module" src="/assets/jsonld-escritores.js"></script>
+</body>
+</html>
