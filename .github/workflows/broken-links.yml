@@ -39,7 +39,7 @@ jobs:
             --host-concurrency 2
             --host-request-interval 250ms
             --max-concurrency 32
-            --method head,get
+            --method get
             './**/*.html'
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
