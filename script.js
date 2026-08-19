@@ -602,6 +602,11 @@ document.querySelectorAll(".faq-question").forEach((btn) => {
 });
 
 (function () {
+  // Guard against double-loading: some pages still carry a legacy direct
+  // <script data-goatcounter> tag alongside this global loader, which would
+  // otherwise fetch count.js twice and double-count the same pageview.
+  if (document.querySelector('script[data-goatcounter]')) return;
+
   const gc = document.createElement("script");
   gc.dataset.goatcounter = "https://davidportodiaz.goatcounter.com/count";
   gc.src = "//gc.zgo.at/count.js";
