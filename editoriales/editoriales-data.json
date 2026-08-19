@@ -1,0 +1,140 @@
+{
+  "version": 1,
+  "publishers": [
+    {
+      "publish": true,
+      "slug": "minotauro",
+      "name": "Minotauro",
+      "group": "Grupo Planeta",
+      "publisher_type": "tradicional",
+      "country": "España",
+      "genres": [
+        "fantasía",
+        "ciencia ficción",
+        "terror"
+      ],
+      "status": "open",
+      "direct_submission": true,
+      "submission_channel": "Correo electrónico",
+      "submission_email": "proyectosminotauro@planeta.es",
+      "submission_url": "https://www.planetadelibros.com/editorial/minotauro/21",
+      "website_url": "https://www.planetadelibros.com/editorial/minotauro/21",
+      "requirements": [
+        "Proyecto inédito de fantasía, ciencia ficción o terror.",
+        "PDF o Word, con un mínimo de 200 páginas a interlineado doble.",
+        "Datos personales del autor o autora.",
+        "Sinopsis argumental completa."
+      ],
+      "response_time": "La editorial indica que responde dentro de los seis meses siguientes a la recepción.",
+      "summary": "Sello de Grupo Planeta especializado en literatura fantástica, ciencia ficción y terror con una vía directa y pública para el envío de proyectos inéditos.",
+      "public_note": "La vía de proyectos y el Premio Minotauro son procesos distintos; antes de enviar conviene comprobar las condiciones vigentes de la opción elegida.",
+      "verified_at": "2026-08-17",
+      "page_updated_at": "2026-08-17",
+      "sources": [
+        {
+          "label": "Minotauro — editorial y envío de proyectos",
+          "url": "https://www.planetadelibros.com/editorial/minotauro/21",
+          "primary": true
+        }
+      ],
+      "history": [
+        {
+          "date": "2026-08-17",
+          "event": "Comprobada la recepción directa de proyectos por correo electrónico y sus requisitos públicos.",
+          "source_url": "https://www.planetadelibros.com/editorial/minotauro/21"
+        }
+      ]
+    },
+    {
+      "publish": true,
+      "slug": "nocturna-ediciones",
+      "name": "Nocturna Ediciones",
+      "group": "Independiente",
+      "publisher_type": "tradicional",
+      "country": "España",
+      "genres": [
+        "fantasía",
+        "juvenil",
+        "narrativa adulta"
+      ],
+      "status": "open",
+      "direct_submission": true,
+      "submission_channel": "Correo electrónico",
+      "submission_email": "manuscritos@nocturnaediciones.com",
+      "submission_url": "https://www.nocturnaediciones.com/contacto",
+      "website_url": "https://www.nocturnaediciones.com/",
+      "requirements": [
+        "Novelas para público adulto o juvenil.",
+        "Documento adjunto en formato Microsoft Word.",
+        "Sinopsis, nombre y dos apellidos del remitente.",
+        "Método de contacto, preferiblemente correo electrónico y teléfono."
+      ],
+      "response_time": "La editorial indica que la respuesta suele tardar un mínimo de seis meses.",
+      "summary": "Editorial independiente con catálogo de narrativa adulta y juvenil que mantiene una vía pública específica para recibir novelas por correo electrónico.",
+      "public_note": "Nocturna indica que no recibe manuscritos físicos. La ficha enlaza siempre a su página oficial para comprobar cualquier cambio antes del envío.",
+      "verified_at": "2026-08-17",
+      "page_updated_at": "2026-08-17",
+      "sources": [
+        {
+          "label": "Nocturna Ediciones — contacto y envío de manuscritos",
+          "url": "https://www.nocturnaediciones.com/contacto",
+          "primary": true
+        },
+        {
+          "label": "Nocturna Ediciones — catálogo",
+          "url": "https://www.nocturnaediciones.com/catalogo",
+          "primary": true
+        }
+      ],
+      "history": [
+        {
+          "date": "2026-08-17",
+          "event": "Comprobada la recepción de novelas por correo electrónico y los requisitos visibles en la página oficial.",
+          "source_url": "https://www.nocturnaediciones.com/contacto"
+        }
+      ]
+    },
+    {
+      "publish": true,
+      "slug": "duermevela-ediciones",
+      "name": "Duermevela Ediciones",
+      "group": "Independiente",
+      "publisher_type": "tradicional",
+      "country": "España",
+      "genres": [
+        "fantasía",
+        "ficción especulativa",
+        "terror"
+      ],
+      "status": "closed",
+      "direct_submission": false,
+      "submission_channel": "Recepción cerrada",
+      "submission_email": null,
+      "submission_url": "https://www.duermevelaediciones.es/manuscritos/",
+      "website_url": "https://www.duermevelaediciones.es/",
+      "requirements": [
+        "La página conserva requisitos de convocatorias anteriores solo con carácter orientativo.",
+        "La editorial indica que volverá a abrir la recepción próximamente, sin publicar una fecha concreta en la comprobación actual."
+      ],
+      "response_time": null,
+      "summary": "Editorial independiente especializada en fantástico cuya página oficial mantiene actualmente cerrada la recepción de manuscritos y conserva requisitos anteriores como orientación.",
+      "public_note": "No se publica un correo de envío mientras el estado figure como cerrado. Hay que esperar a una reapertura oficial y volver a verificar las condiciones.",
+      "verified_at": "2026-08-17",
+      "page_updated_at": "2026-08-17",
+      "sources": [
+        {
+          "label": "Duermevela Ediciones — manuscritos",
+          "url": "https://www.duermevelaediciones.es/manuscritos/",
+          "primary": true
+        }
+      ],
+      "history": [
+        {
+          "date": "2026-08-17",
+          "event": "Comprobada la recepción de manuscritos como cerrada; la web anuncia una futura reapertura sin fecha concreta.",
+          "source_url": "https://www.duermevelaediciones.es/manuscritos/"
+        }
+      ]
+    }
+  ]
+}
