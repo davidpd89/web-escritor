@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self'; connect-src 'none';">
+  <title>Comprobador de nombres — Herramientas</title>
+  <meta name="description" content="Detecta nombres de personajes parecidos que pueden confundir al lector. Análisis local en el navegador.">
+  <link rel="stylesheet" href="/styles.css">
+  <link rel="stylesheet" href="/assets/nombres-personajes.css">
+</head>
+<body>
+<main data-character-name-checker>
+  <nav class="breadcrumb" aria-label="Ruta de navegación"><a href="/">Inicio</a> › <a href="/herramientas/">Herramientas</a> › <span>Comprobador de nombres</span></nav>
+  <h1>Comprobador de nombres de personaje</h1>
+  <form>
+    <label for="names">Lista de nombres (una por línea, o separados por comas)</label>
+    <textarea id="names" data-names-input></textarea>
+    <div>
+      <button type="submit">Analizar</button>
+      <button type="button" id="clear" data-clear>Limpiar</button>
+    </div>
+    <p id="summary" data-summary>Introduce al menos dos nombres para analizar.</p>
+  </form>
+  <section id="results" data-results></section>
+</main>
+<script type="module" src="/assets/nombres-personajes-engine-compat.js"></script>
+<script src="/assets/nombres-personajes.js"></script>
+</body>
+</html>
