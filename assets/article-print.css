@@ -1,31 +1,134 @@
-/* Print stylesheet for articles — hides navigation, UI chrome, and improves typography */
+/* Print stylesheet for articles — opt-in via .printable-page / [data-printable] */
 @media print {
-  /* Hide site chrome */
-  header, nav, .site-header, .site-footer, .article-tools, .at-controls, .at-btn, .reading-progress, .cookie-banner, .site-nav, .site-aside { display: none !important; }
+  @page {
+    size: A4;
+    margin: 18mm 16mm 20mm;
+  }
 
-  /* Main content area — use full width */
-  #main-content, main, .content, .article { width: 100% !important; margin: 0 !important; padding: 0 !important; }
+  /* Hide site chrome and interactive UI */
+  header,
+  nav,
+  .site-header,
+  .site-footer,
+  .site-shell > footer,
+  .article-tools,
+  .at-controls,
+  .at-btn,
+  .at-toc,
+  .at-share,
+  .at-print,
+  .reading-progress,
+  .cookie-banner,
+  .site-nav,
+  .site-aside,
+  .breadcrumb,
+  .skip-link,
+  .newsletter,
+  .nl-popup,
+  .footer-back-top,
+  .button,
+  .rec-badge,
+  noscript { display: none !important; }
 
-  /* Improve typography for print */
-  body, #main-content, article { background: #fff !important; color: #000 !important; font-size: 12pt !important; line-height: 1.45 !important; }
-  h1, h2, h3, h4 { color: #000 !important; page-break-after: avoid; }
-  img { max-width: 100% !important; height: auto !important; page-break-inside: avoid; }
+  /* Main content — full width, readable on paper */
+  body.printable-page,
+  body.printable-page #main-content,
+  body.printable-page main,
+  body.printable-page [data-printable],
+  body.printable-page .content,
+  body.printable-page .article,
+  body.printable-page .section {
+    width: 100% !important;
+    max-width: none !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    box-shadow: none !important;
+  }
 
-  /* Avoid orphaned headings at bottom of page */
-  h2, h3 { page-break-after: avoid; page-break-inside: avoid; }
+  body,
+  #main-content,
+  article,
+  [data-printable] {
+    background: #fff !important;
+    color: #000 !important;
+    font-size: 11pt !important;
+    line-height: 1.45 !important;
+  }
 
-  /* Avoid breaking code blocks */
-  pre, code, blockquote { page-break-inside: avoid; }
+  h1, h2, h3, h4 {
+    color: #000 !important;
+    page-break-after: avoid;
+    break-after: avoid-page;
+  }
 
-  /* Links: show URL in parentheses after the link text */
-  a[href]:after { content: " (" attr(href) ")"; font-size: 90%; }
+  h2, h3 {
+    page-break-inside: avoid;
+    break-inside: avoid-page;
+  }
 
-  /* Remove background images */
-  * { background: transparent !important; background-image: none !important; }
+  p, li, blockquote {
+    widows: 3;
+    orphans: 3;
+  }
 
-  /* Remove forms and interactive elements */
+  img {
+    max-width: 100% !important;
+    height: auto !important;
+    page-break-inside: avoid;
+    break-inside: avoid-page;
+  }
+
+  pre, code, blockquote, table, figure, .rec-item {
+    page-break-inside: avoid;
+    break-inside: avoid-page;
+  }
+
+  table {
+    border-collapse: collapse;
+    width: 100%;
+  }
+
+  th, td {
+    border: 1px solid #ccc;
+    padding: 4pt 6pt;
+  }
+
+  /* External links: show URL after text */
+  a[href^="http"]:after {
+    content: " (" attr(href) ")";
+    font-size: 85%;
+    font-weight: normal;
+  }
+
+  /* Internal links: keep text only */
+  a[href^="/"]:after,
+  a[href^="#"]:after { content: ""; }
+
+  * {
+    background: transparent !important;
+    background-image: none !important;
+    box-shadow: none !important;
+    text-shadow: none !important;
+  }
+
   input, textarea, button, select, details, summary { display: none !important; }
 
-  /* Page breaks for sections */
-  section, article, .section { page-break-inside: avoid; }
+  /* Print provenance block */
+  .print-source {
+    display: block !important;
+    margin-top: 24pt;
+    padding-top: 10pt;
+    border-top: 1px solid #999;
+    font-size: 9pt;
+    color: #333 !important;
+    page-break-inside: avoid;
+    break-inside: avoid-page;
+  }
+}
+
+/* Hidden on screen; article-tools may inject this element */
+.print-source { display: none; }
+
+@media screen {
+  .print-source { display: none; }
 }

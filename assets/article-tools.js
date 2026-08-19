@@ -67,14 +67,34 @@
 
   // Print control
   const printWrap = document.createElement('div'); printWrap.className = 'at-print';
-  const printBtn = document.createElement('button'); printBtn.className = 'at-btn'; printBtn.type = 'button'; printBtn.textContent = 'Imprimir';
+  const printBtn = document.createElement('button');
+  printBtn.className = 'at-btn';
+  printBtn.type = 'button';
+  printBtn.textContent = 'Imprimir / PDF';
+  printBtn.setAttribute('aria-label', 'Imprimir o guardar como PDF');
   printBtn.addEventListener('click', ()=>{
-    // Inject print stylesheet if not present
     if (!document.querySelector('link[href="/assets/article-print.css"]')){
-      const l = document.createElement('link'); l.rel='stylesheet'; l.href='/assets/article-print.css'; l.media='print'; document.head.appendChild(l);
+      const l = document.createElement('link');
+      l.rel = 'stylesheet';
+      l.href = '/assets/article-print.css';
+      l.media = 'print';
+      document.head.appendChild(l);
     }
+    ensurePrintSource();
     try{ window.print(); dispatchShareEvent('print'); }catch(e){}
   });
+
+  function ensurePrintSource(){
+    if (document.querySelector('.print-source')) return;
+    const url = (document.querySelector('link[rel="canonical"]')||{}).href || location.href;
+    const title = document.querySelector('h1')?.textContent?.trim() || document.title || '';
+    const el = document.createElement('p');
+    el.className = 'print-source';
+    el.setAttribute('aria-hidden', 'true');
+    el.textContent = title ? `${title} — ${url}` : url;
+    const host = main.querySelector('[data-printable]') || main;
+    host.appendChild(el);
+  }
   printWrap.appendChild(printBtn);
   controls.appendChild(printWrap);
 
