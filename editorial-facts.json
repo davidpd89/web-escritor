@@ -1,0 +1,39 @@
+{
+  "schemaVersion": 1,
+  "lastReviewed": "2026-08-16",
+  "author": {
+    "name": "David Porto Díaz",
+    "website": "https://davidportodiaz.com/",
+    "instagram": "https://www.instagram.com/davidportodiaz/"
+  },
+  "books": {
+    "lasManecillasDelRecuerdo": {
+      "title": "Las manecillas del recuerdo",
+      "publisher": "Monza Ediciones",
+      "publicationDate": "2026-09-03",
+      "isbn": "979-8-90514-935-1",
+      "numberOfPages": 272,
+      "priceEUR": 16,
+      "statusBeforePublication": "scheduled",
+      "statusFromPublicationDate": "published",
+      "purchaseUrl": null,
+      "format": "Paperback"
+    },
+    "samuelEntreMundos": {
+      "title": "Samuel entre mundos",
+      "publisher": "Libros Indie",
+      "isbn": "9791387659776",
+      "publicationYear": null,
+      "numberOfPages": null,
+      "typicalAgeRange": null,
+      "rating": null,
+      "ratingCount": null,
+      "note": "No publicar año, páginas, edad o valoraciones como datos canónicos hasta resolverlos contra fuente editorial/distribuidora estable."
+    }
+  },
+  "knownEditorialIncident": {
+    "coverInstagramPrinted": "@davidpuede",
+    "status": "must-not-propagate",
+    "note": "La cubierta recibida de Monza el 23/07/2026 contiene este handle; la web canónica usa @davidportodiaz. Requiere corrección editorial independiente."
+  }
+}
