@@ -1,10 +1,25 @@
 <!doctype html>
-<html lang="es"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Analizador de manuscrito | Herramientas</title>
-<meta name="description" content="Métricas y agrupaciones para analizar manuscritos.">
-</head><body>
-<main>
-  <h1>Analizador de manuscrito</h1>
-  <p>Página inicial de la herramienta de análisis de manuscrito. Implementación basada en `WEB DAVID PORTO nuevas ideas/CODIGO PROPUESTO 2026-08-15/`.</p>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; connect-src 'none'; script-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; font-src 'self'; worker-src 'self'; object-src 'none'; base-uri 'self'; form-action 'none'; frame-src 'none'; media-src 'none'; manifest-src 'self'">
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+  <title>Analizador de capítulos para novelas | Herramientas</title>
+  <meta name="description" content="Compara capítulos de una novela: palabras, longitud de párrafos, diálogo aproximado, acumulado, separadores de escena y menciones. Todo se procesa en tu navegador.">
+  <link rel="stylesheet" href="/styles.css">
+  <link rel="stylesheet" href="/assets/analizador-capitulos.css">
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebApplication","name":"Analizador de capítulos para novelas","url":"/herramientas/manuscrito/","applicationCategory":"UtilitiesApplication","operatingSystem":"Any","isAccessibleForFree":true,"inLanguage":"es","author":{"@id":"/#author"}}</script>
+</head>
+<body>
+<a href="#main-content" class="skip-link">Saltar al contenido</a>
+<main id="main-content">
+<nav class="breadcrumb" aria-label="Ruta de navegación"><a href="/">Inicio</a> › <a href="/herramientas/">Herramientas</a> › Analizador de capítulos</nav>
+<header><p class="eyebrow">Herramienta gratuita · análisis local</p><h1>Analizador de capítulos para novelas</h1><p class="lead">Compara la estructura cuantitativa de varios capítulos sin subir el manuscrito. Las métricas describen diferencias; no deciden cómo debe estar escrita tu novela.</p></header>
+<section class="chapter-tool" data-chapter-analyzer>
+<div class="chapter-tool__panel"><form><label>Capítulos como archivos .txt o .md<input type="file" multiple accept=".txt,.md,.markdown,text/plain,text/markdown" data-chapter-files></label><p>Se ordenan por nombre de archivo. También puedes pegar un manuscrito con encabezados «Capítulo 1», «Capítulo 2»…</p><label>O pega el texto<textarea data-chapter-paste placeholder="CAPÍTULO 1\n…\n\nCAPÍTULO 2\n…"></textarea></label><label>Personajes o términos que quieras contar <small>Opcional. Sepáralos por comas o líneas; no se detectan nombres automáticamente.</small><textarea data-chapter-names placeholder="Noa\nBrais\nCibrán"></textarea></label><div class="chapter-tool__actions"><button type="submit" class="btn btn-primary">Analizar capítulos</button><button type="button" class="btn btn-secondary" data-chapter-clear>Limpiar</button></div><p class="chapter-tool__status" role="status" aria-live="polite" data-chapter-status></p></form></div>
+<div class="chapter-tool__panel" data-chapter-results hidden><h2>Vista del manuscrito</h2><dl class="chapter-summary" data-chapter-summary></dl><div class="chapter-chart" data-chapter-chart aria-label="Comparación visual de palabras por capítulo"></div><div class="chapter-table-wrap" data-chapter-table></div><p class="chapter-caveat" data-chapter-note></p><div class="chapter-tool__actions"><button type="button" class="btn btn-secondary" data-chapter-export>Exportar CSV</button></div></div>
+</section>
+<section><h2>Qué mide y qué no</h2><p>Cuenta palabras y párrafos, compara cada capítulo con la mediana de tu propio manuscrito, estima el peso de bloques dialogados y detecta únicamente separadores de escena explícitos. Si introduces nombres, cuenta sus menciones exactas. No interpreta ritmo, calidad, tensión ni importancia narrativa.</p><h2>Privacidad</h2><p>Los archivos se leen con la API del navegador y el cálculo se realiza en un Web Worker local. El texto, los nombres y los resultados no se envían al servidor.</p></section>
 </main>
+<script type="module" src="/assets/analizador-capitulos.js"></script>
 </body></html>
