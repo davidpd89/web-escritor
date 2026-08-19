@@ -1,15 +1,31 @@
 #!/usr/bin/env python3
 """Simple RSS generator for /cuaderno entries.
 
-Scans HTML files under 'cuaderno' for JSON-LD or meta title/date and emits feed.xml.
+Scans HTML files under 'cuaderno' for JSON-LD or meta title/date and emits
+feed.xml. The output links to /assets/rss.xsl so the feed renders as a
+readable page when opened directly in a browser, while staying valid RSS 2.0
+for feed readers (the xml-stylesheet PI is presentation-only).
+
+Usage:
+    python scripts/build-feed.py
+    python scripts/build-feed.py --check
 """
-import os, sys, re, json
+import argparse
+import os
+import sys
+import re
+import json
 from datetime import datetime
 from xml.etree.ElementTree import Element, SubElement, tostring
+from xml.dom import minidom
+import xml.etree.ElementTree as ET
 
 ROOT = os.path.dirname(os.path.dirname(__file__))
 CUADERNO = os.path.join(ROOT, 'cuaderno')
 OUT = os.path.join(ROOT, 'cuaderno', 'feed.xml')
+XSL_PATH = os.path.join(ROOT, 'assets', 'rss.xsl')
+XSL_HREF = '/assets/rss.xsl'
+STALE_CHANNEL_MARKERS = ('fantasía juvenil', 'portales', 'worldbuilding', 'samuel entre mundos')
 
 def find_html_files():
     for dirpath, dirs, files in os.walk(CUADERNO):
@@ -17,8 +33,16 @@ def find_html_files():
             if f.lower().endswith('.html'):
                 yield os.path.join(dirpath, f)
 
+def is_noindex(html_text):
+    m = re.search(r'<meta[^>]+name=["\']robots["\'][^>]*content=["\']([^"\']+)["\']', html_text, flags=re.I)
+    if not m:
+        return False
+    return 'noindex' in m.group(1).lower()
+
 def extract_metadata(path):
     s = open(path, encoding='utf8', errors='ignore').read()
+    if is_noindex(s):
+        return {'path': path, 'title': None, 'url': None, 'date': None, 'description': None, 'skip': True}
     # Try JSON-LD
     m = re.search(r'<script[^>]+type=["\']application/ld\+json["\'][^>]*>([\s\S]*?)</script>', s, flags=re.I)
     title=None; url=None; date=None; desc=None
@@ -54,7 +78,7 @@ def extract_metadata(path):
     if not desc:
         m = re.search(r'<meta[^>]+name=["\']description["\'][^>]*content=["\']([^"\']+)["\']', s, flags=re.I)
         if m: desc = m.group(1)
-    return {'path': path, 'title': title, 'url': url, 'date': date, 'description': desc}
+    return {'path': path, 'title': title, 'url': url, 'date': date, 'description': desc, 'skip': False}
 
 def iso_to_rfc2822(d):
     try:
@@ -63,7 +87,7 @@ def iso_to_rfc2822(d):
     except Exception:
         return None
 
-def build_feed(items):
+def build_feed_bytes(items):
     root = Element('rss', version='2.0')
     ch = SubElement(root, 'channel')
     SubElement(ch, 'title').text = 'Cuaderno — David Porto Díaz'
@@ -81,22 +105,96 @@ def build_feed(items):
             rfc = iso_to_rfc2822(it['date'])
             if rfc:
                 SubElement(item,'pubDate').text = rfc
-    xml = tostring(root, encoding='utf-8')
-    open(OUT,'wb').write(xml)
-    print('Feed written to', OUT)
+    body = tostring(root, encoding='unicode')
+    # Build the XML declaration and xml-stylesheet PI ourselves: ElementTree's
+    # tostring() does not emit a declaration for plain element serialization,
+    # and the PI must precede the root element per the W3C Associating Style
+    # Sheets spec.
+    declaration = "<?xml version='1.0' encoding='UTF-8'?>"
+    pi = f'<?xml-stylesheet type="text/xsl" href="{XSL_HREF}"?>'
+    return f'{declaration}\n{pi}\n{body}'.encode('utf-8')
 
-def main():
-    if not os.path.isdir(CUADERNO):
-        print('No cuaderno directory found, skipping'); sys.exit(0)
+def collect_items():
     files = list(find_html_files())
     items = []
+    skipped = 0
     for f in files:
         meta = extract_metadata(f)
+        if meta.get('skip'):
+            skipped += 1
+            continue
         if meta.get('url') or meta.get('title'):
             items.append(meta)
-    # sort by date desc if possible
     items.sort(key=lambda x: x.get('date') or '', reverse=True)
-    build_feed(items[:50])
+    return items[:50], skipped
+
+def validate_xsl_asset(errors):
+    if not os.path.isfile(XSL_PATH):
+        errors.append(f'falta {XSL_PATH}')
+        return
+    try:
+        ET.parse(XSL_PATH)
+    except ET.ParseError as exc:
+        errors.append(f'{XSL_PATH} no es XML valido: {exc}')
+
+def validate_feed_content(xml_bytes, errors):
+    text = xml_bytes.decode('utf-8')
+    expected_pi = f'<?xml-stylesheet type="text/xsl" href="{XSL_HREF}"?>'
+    if expected_pi not in text:
+        errors.append('falta la instruccion xml-stylesheet en el feed generado')
+    lowered = text.lower()
+    channel_end = lowered.find('</description>')
+    channel_desc = lowered[:channel_end] if channel_end != -1 else lowered
+    for marker in STALE_CHANNEL_MARKERS:
+        if marker in channel_desc:
+            errors.append(f'la descripcion de canal contiene la formulacion antigua centrada en Samuel/fantasia juvenil ("{marker}")')
+            break
+    try:
+        ET.fromstring(text)
+    except ET.ParseError as exc:
+        errors.append(f'feed.xml generado no es XML valido: {exc}')
+
+def main():
+    parser = argparse.ArgumentParser()
+    parser.add_argument('--check', action='store_true', help='comprueba que feed.xml y assets/rss.xsl ya estan al dia, sin escribir')
+    args = parser.parse_args()
+
+    if not os.path.isdir(CUADERNO):
+        print('No cuaderno directory found, skipping')
+        return 0
+
+    items, skipped = collect_items()
+    generated = build_feed_bytes(items)
+
+    errors = []
+    validate_xsl_asset(errors)
+    validate_feed_content(generated, errors)
+
+    if args.check:
+        if os.path.isfile(OUT):
+            with open(OUT, 'rb') as f:
+                current = f.read()
+        else:
+            current = b''
+            errors.append(f'falta {OUT}')
+        if current != generated:
+            errors.append('feed.xml esta desactualizado respecto al contenido actual de cuaderno/')
+        if errors:
+            for e in errors:
+                print(f'ERROR: {e}', file=sys.stderr)
+            return 1
+        print(f'OK: feed.xml al dia ({len(items)} entradas, {skipped} excluidas por noindex)')
+        return 0
+
+    if errors:
+        for e in errors:
+            print(f'ERROR: {e}', file=sys.stderr)
+        return 1
+
+    with open(OUT, 'wb') as f:
+        f.write(generated)
+    print(f'Feed written to {OUT} ({len(items)} entradas, {skipped} excluidas por noindex)')
+    return 0
 
 if __name__ == '__main__':
-    main()
+    raise SystemExit(main())
