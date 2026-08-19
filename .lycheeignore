@@ -1,0 +1,12 @@
+# Hosts that commonly block automated CI clients or return challenge pages.
+# These are excluded from HTTP reachability only; commercial URLs remain
+# subject to the editorial release gate and canonical-data checks.
+https?://([^/]+\.)?instagram\.com/.*
+https?://([^/]+\.)?facebook\.com/.*
+https?://([^/]+\.)?(twitter|x)\.com/.*
+https?://([^/]+\.)?amazon\.[^/]+/.*
+https?://([^/]+\.)?goodreads\.com/.*
+https?://([^/]+\.)?casadellibro\.com/.*
+https?://([^/]+\.)?fnac\.es/.*
+https?://([^/]+\.)?elcorteingles\.es/.*
+https?://([^/]+\.)?todostuslibros\.com/.*

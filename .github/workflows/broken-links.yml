@@ -1,47 +1,46 @@
-name: Check for broken links
+name: Check external links
 
 on:
   schedule:
-    - cron: '0 8 * * 1'  # Every Monday at 08:00 UTC
+    - cron: '0 6 * * 1'  # Every Monday at 06:00 UTC
   workflow_dispatch:      # Allow manual trigger
+
+permissions:
+  contents: read
 
 jobs:
   check-links:
     runs-on: ubuntu-latest
+    timeout-minutes: 12
+
     steps:
-      - uses: actions/checkout@v4
+      - name: Checkout
+        uses: actions/checkout@v4
 
-      - name: Restore lychee cache
-        uses: actions/cache@v4
-        with:
-          path: .lycheecache
-          key: cache-lychee-${{ github.sha }}
-          restore-keys: cache-lychee-
-
-      - name: Check links in HTML files
+      - name: Check links with Lychee
         id: lychee
         uses: lycheeverse/lychee-action@v2
         with:
+          lycheeVersion: v0.24.2
+          fail: true
+          failIfEmpty: true
+          jobSummary: true
+          format: markdown
+          output: lychee/out.md
           args: >-
             --verbose
             --no-progress
-            --cache
-            --max-cache-age 1d
-            --exclude 'amazon\.es'
-            --exclude 'amazon\.com'
-            --exclude 'goodreads\.com'
-            --exclude 'instagram\.com'
-            --exclude 'linkedin\.com'
-            --exclude 'twitter\.com'
-            --exclude 'libreriale\.es'
-            --exclude 'bookish\.org'
-            --exclude 'libreriaserendipia\.com'
-            --exclude 'hoymadrid\.app'
+            --root-dir "$(pwd)"
+            --index-files 'index.html,.'
+            --cache-exclude-status '429,500..=599'
+            --max-retries 4
+            --retry-wait-time 2
+            --timeout 25
+            --host-concurrency 2
+            --host-request-interval 250ms
+            --max-concurrency 32
+            --method head,get
             './**/*.html'
-          fail: false
-          format: markdown
-          output: lychee/out.md
-          jobSummary: true
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
@@ -52,8 +51,3 @@ jobs:
           name: broken-links-report
           path: lychee/out.md
           retention-days: 30
-
-      - name: Warn if broken links found
-        if: steps.lychee.outputs.exit_code != '0'
-        run: |
-          echo "::warning::Found broken links. Check the uploaded artifact for details."

@@ -1,0 +1,65 @@
+name: Editorial facts check
+
+on:
+  pull_request:
+    paths:
+      - 'index.html'
+      - 'autor.html'
+      - 'libros/**'
+      - 'las-manecillas-del-recuerdo/**'
+      - 'prensa.html'
+      - 'premios.html'
+      - 'eventos.html'
+      - 'ferias.html'
+      - 'ai/**'
+      - 'llms*.txt'
+      - 'humans.txt'
+      - 'press-kit/**'
+      - 'manifest.json'
+      - 'editorial-facts.json'
+      - 'scripts/check-editorial-facts.py'
+  push:
+    branches: [main]
+    paths:
+      - 'index.html'
+      - 'autor.html'
+      - 'libros/**'
+      - 'las-manecillas-del-recuerdo/**'
+      - 'prensa.html'
+      - 'premios.html'
+      - 'eventos.html'
+      - 'ferias.html'
+      - 'ai/**'
+      - 'llms*.txt'
+      - 'humans.txt'
+      - 'press-kit/**'
+      - 'manifest.json'
+      - 'editorial-facts.json'
+      - 'scripts/check-editorial-facts.py'
+  workflow_dispatch:
+    inputs:
+      mode:
+        description: 'Estado que se quiere validar'
+        required: true
+        default: auto
+        type: choice
+        options:
+          - auto
+          - prelaunch
+          - launch
+
+permissions:
+  contents: read
+
+jobs:
+  editorial-facts:
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.13'
+      - name: Check launch-critical editorial facts
+        env:
+          MANUAL_MODE: ${{ github.event.inputs.mode || 'auto' }}
+        run: python scripts/check-editorial-facts.py --mode "$MANUAL_MODE"

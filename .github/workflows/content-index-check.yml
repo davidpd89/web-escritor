@@ -1,0 +1,20 @@
+name: Check content indexes
+
+on:
+  pull_request:
+  workflow_dispatch:
+
+jobs:
+  content-indexes:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Check RSS is generated from current articles
+        run: python scripts/build-feed.py --check
+      - name: Check sitemap is generated from canonical indexable HTML
+        run: python scripts/build-sitemap.py --check
+      - name: Check indexable pages are not orphaned
+        run: python scripts/check-internal-graph.py
