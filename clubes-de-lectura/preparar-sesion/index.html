@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; connect-src 'none'; img-src 'self'; style-src 'self'; font-src 'self'; script-src 'self'; object-src 'none'; base-uri 'self'; form-action 'none'; frame-src 'none'">
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+  <title>Preparar una sesión de club de lectura | David Porto Díaz</title>
+  <meta name="description" content="Crea una agenda de 30, 60 o 90 minutos para tu club de lectura con preguntas abiertas y bloques de conversación. Gratis y sin enviar datos al servidor.">
+  <link rel="canonical" href="https://davidportodiaz.com/clubes-de-lectura/preparar-sesion/">
+  <link rel="stylesheet" href="/styles.css">
+  <link rel="stylesheet" href="/assets/club-session-builder.css">
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebApplication","name":"Preparador de sesiones de club de lectura","url":"/clubes-de-lectura/preparar-sesion/","applicationCategory":"UtilitiesApplication","operatingSystem":"Any","isAccessibleForFree":true,"inLanguage":"es","author":{"@id":"/#author"}}</script>
+</head>
+<body>
+<a href="#main-content" class="skip-link">Saltar al contenido</a>
+<main id="main-content" tabindex="-1" class="club-tool-page">
+<nav class="breadcrumb" aria-label="Ruta de navegación"><a href="/">Inicio</a> › <a href="/herramientas/">Herramientas</a> › Preparar sesión de club</nav>
+<header class="club-tool-hero"><p class="eyebrow">Herramienta gratuita · sin IA</p><h1>Prepara una conversación, no un examen.</h1><p class="lead">Elige duración, tipo de libro y tono del grupo. La herramienta compone una sesión con apertura, debate, actividad y cierre. Las preguntas son abiertas y se procesan completamente en tu navegador.</p></header>
+<div class="club-tool-grid">
+<form class="club-tool-panel" data-club-session-form>
+  <div class="club-tool-field"><label for="club-title">Libro <span aria-hidden="true">·</span> opcional</label><input id="club-title" name="title" autocomplete="off" placeholder="Título del libro"></div>
+  <div class="club-tool-field"><label for="club-author">Autor/a <span aria-hidden="true">·</span> opcional</label><input id="club-author" name="author" autocomplete="off" placeholder="Nombre del autor"></div>
+  <div class="club-tool-field"><label for="club-kind">Tipo</label><select id="club-kind" name="kind"><option value="fiction">Ficción</option><option value="nonfiction">No ficción</option></select></div>
+  <div class="club-tool-field"><label for="club-genre">Enfoque</label><select id="club-genre" name="genre"><option value="general">General</option><option value="fantasy">Fantasía</option><option value="scifi">Ciencia ficción</option><option value="mystery">Misterio / thriller</option><option value="romance">Romance</option><option value="historical">Histórica</option><option value="contemporary">Contemporánea</option><option value="horror">Terror</option><option value="memoir">Memorias / autobiografía</option></select></div>
+  <div class="club-tool-field"><label for="club-duration">Duración</label><select id="club-duration" name="duration"><option value="30">30 minutos</option><option value="60" selected>60 minutos</option><option value="90">90 minutos</option></select></div>
+  <div class="club-tool-field"><label for="club-tone">Tono del grupo</label><select id="club-tone" name="tone"><option value="social">Más social</option><option value="balanced" selected>Equilibrado</option><option value="deep">Más analítico</option></select></div>
+  <div class="club-tool-field"><label for="club-scope">Hasta dónde habéis leído</label><select id="club-scope" name="scope"><option value="complete">Libro completo</option><option value="partial">Lectura parcial · evitar preguntas de final</option></select></div>
+  <div class="club-tool-field"><label for="club-tokens">Temas, personajes o elementos <span aria-hidden="true">·</span> opcional</label><input id="club-tokens" name="tokens" autocomplete="off" placeholder="memoria, familia, Elena"><small>Hasta cuatro, separados por comas. Solo se usan en este dispositivo.</small></div>
+  <div class="club-tool-actions"><button type="submit" class="button primary">Preparar sesión</button></div>
+  <p class="club-tool-status" data-club-session-status aria-live="polite">No se guarda ni se envía ningún título, tema o nombre.</p>
+</form>
+<div>
+  <div class="club-tool-result-actions"><button type="button" class="button secondary" data-club-session-alt>Otra combinación</button><button type="button" class="button secondary" data-club-session-copy>Copiar</button><button type="button" class="button secondary" data-club-session-print>Imprimir</button></div>
+  <section class="club-session-output" data-club-session-output hidden aria-label="Sesión generada"></section>
+</div>
+</div>
+<section class="club-tool-note"><h2>Cómo usar las preguntas</h2><p>No hace falta recorrerlas todas. Una buena conversación puede quedarse veinte minutos en una sola pregunta. Si la pregunta no abre respuestas diferentes, abandónala. Si aparece desacuerdo, vuelve al libro y pide escenas, decisiones o detalles que sostengan cada lectura.</p><p>Para títulos propios existen además guías específicas, como la de <a href="/clubes-de-lectura/samuel-entre-mundos/">Samuel entre mundos</a>.</p></section>
+</main>
+<script type="module" src="/assets/club-session-builder.js"></script>
+</body>
+</html>
