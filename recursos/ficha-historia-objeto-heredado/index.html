@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; connect-src 'none'; img-src 'self'; style-src 'self'; font-src 'self'; script-src 'self'; object-src 'none'; base-uri 'self'; form-action 'none'; frame-src 'none'">
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+  <title>Ficha interactiva para documentar un objeto heredado | David Porto Díaz</title>
+  <meta name="description" content="Registra la procedencia de un objeto familiar, sus propietarios, fuentes, recuerdos y dudas. Funciona en tu navegador y permite exportar el registro como JSON.">
+  <link rel="canonical" href="https://davidportodiaz.com/recursos/ficha-historia-objeto-heredado/">
+  <link rel="stylesheet" href="/styles.css">
+  <link rel="stylesheet" href="/assets/objeto-heredado.css">
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":["WebPage","LearningResource"],"@id":"https://davidportodiaz.com/recursos/ficha-historia-objeto-heredado/#resource","url":"https://davidportodiaz.com/recursos/ficha-historia-objeto-heredado/","name":"Ficha para documentar la historia de un objeto heredado","inLanguage":"es","isAccessibleForFree":true,"learningResourceType":"worksheet","educationalUse":"research","author":{"@id":"https://davidportodiaz.com/#author"}}</script>
+</head>
+<body>
+<a href="#main-content" class="skip-link">Saltar al contenido</a>
+<main id="main-content" tabindex="-1" class="object-record" data-object-record>
+<nav class="breadcrumb" aria-label="Ruta de navegación"><a href="/">Inicio</a> › <a href="/herramientas/">Herramientas</a> › Ficha de objeto heredado</nav>
+<p class="eyebrow">Recurso gratuito · archivo familiar</p><h1>Documenta la historia de un objeto heredado</h1>
+<p class="object-record__lead">Separa lo que puedes comprobar de lo que recuerda la familia y de lo que todavía es una hipótesis. Una laguna bien señalada también es información.</p>
+<div class="record-privacy"><strong>Privacidad:</strong> esta versión trabaja en tu navegador. No sube el contenido ni las fotos a davidportodiaz.com. Para conservar el trabajo, descarga el archivo JSON y guárdalo tú.</div>
+<div class="record-actions"><button class="button primary" type="button" data-record-export>Descargar JSON</button><button class="button secondary" type="button" data-record-open>Abrir JSON</button><button class="button secondary" type="button" data-record-print>Imprimir / PDF</button><button class="button secondary" type="button" data-record-clear>Vaciar</button><input class="record-hidden" type="file" accept="application/json,.json" data-record-import aria-label="Abrir registro JSON"></div>
+<p class="record-status" role="status" aria-live="polite" data-record-status></p>
+<form autocomplete="off">
+<section class="record-section"><h2>1. Identificación física</h2><div class="record-grid">
+<div class="record-field"><label>Nombre o descripción<input data-object-field="title"></label></div><div class="record-field"><label>Tipo de objeto<input data-object-field="type"></label></div>
+<div class="record-field"><label>Materiales<input data-object-field="materials"></label></div><div class="record-field"><label>Técnicas / fabricación<input data-object-field="techniques"></label></div>
+<div class="record-field"><label>Dimensiones<input data-object-field="dimensions"></label></div><div class="record-field"><label>Fabricante / autor, si se conoce<input data-object-field="maker"></label></div>
+<div class="record-field"><label>Fecha o periodo<input data-object-field="date_period" placeholder="p. ej. ca. 1940–1950"></label></div><div class="record-field"><label>Ubicación actual<input data-object-field="current_location"></label></div>
+<div class="record-field record-field--wide"><label>Marcas, números, inscripciones<textarea rows="3" data-object-field="marks"></textarea></label></div><div class="record-field record-field--wide"><label>Rasgos distintivos, reparaciones o modificaciones<textarea rows="3" data-object-field="distinguishing_features"></textarea></label></div>
+</div></section>
+<section class="record-section"><h2>2. Fotografías documentales</h2><p class="record-help">No se suben imágenes: registra sus nombres de archivo para poder relacionarlas con la ficha.</p><div class="record-rows" data-rows="photos"></div><button type="button" class="button secondary record-add" data-add-row="photos">Añadir fotografía</button></section>
+<section class="record-section"><h2>3. Propietarios y traspasos</h2><p class="record-help">Usa intervalos aproximados cuando no conozcas una fecha exacta. En «fuentes» escribe IDs como F01.</p><div class="record-rows" data-rows="owners"></div><button type="button" class="button secondary record-add" data-add-row="owners">Añadir propietario</button></section>
+<section class="record-section"><h2>4. Fuentes y evidencias</h2><p class="record-help">Una marca en el objeto, una fotografía antigua, una factura y una entrevista son fuentes distintas. No hace falta que todas digan lo mismo.</p><div class="record-rows" data-rows="evidence"></div><button type="button" class="button secondary record-add" data-add-row="evidence">Añadir fuente</button></section>
+<section class="record-section"><h2>5. Memoria oral</h2><div class="record-rows" data-rows="oral_history"></div><button type="button" class="button secondary record-add" data-add-row="oral_history">Añadir recuerdo</button></section>
+<section class="record-section"><h2>6. Cronología</h2><div class="record-rows" data-rows="timeline"></div><button type="button" class="button secondary record-add" data-add-row="timeline">Añadir hecho</button></section>
+<section class="record-section"><h2>7. Estado y conservación</h2><div class="record-grid"><div class="record-field"><label>Fecha de observación<input type="date" data-conservation-field="observed_on"></label></div><div class="record-field record-field--wide"><label>Estado observado<textarea rows="3" data-object-field="condition_notes"></textarea></label></div><div class="record-field record-field--wide"><label>Riesgos observados<textarea rows="3" data-conservation-field="risks"></textarea></label></div><div class="record-field record-field--wide"><label>Cambios observados con el tiempo<textarea rows="3" data-conservation-field="changes_observed"></textarea></label></div><div class="record-field record-field--wide"><label>Siguientes pasos / profesional a consultar<textarea rows="3" data-conservation-field="next_steps"></textarea></label></div></div><p class="record-help">Esta ficha no sustituye asesoramiento profesional de conservación, autenticación o tasación.</p></section>
+<section class="record-section"><h2>8. Preguntas pendientes</h2><div class="record-field"><label>Una pregunta por línea<textarea rows="7" data-open-questions placeholder="¿Quién lo compró?&#10;¿Qué significa esta marca?&#10;¿Existe una foto anterior a 1960?"></textarea></label></div></section>
+</form>
+<p class="record-help">No rellenes una laguna solo para hacer la historia más coherente: una pregunta abierta bien anotada vale más que una fecha inventada.</p>
+</main>
+<script type="module" src="/assets/objeto-heredado.js"></script>
+</body>
+</html>
