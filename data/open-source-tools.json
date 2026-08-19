@@ -1,0 +1,80 @@
+{
+  "repository_name": "herramientas-escritores-es",
+  "repository_description": "Microherramientas gratuitas y transparentes para escritores en español.",
+  "license": null,
+  "topics": ["writing-tools", "writers", "spanish", "javascript", "privacy", "creative-writing"],
+  "tools": [
+    {
+      "slug": "legibilidad",
+      "name": "Analizador de legibilidad en español",
+      "description": "Métricas descriptivas de legibilidad (Inflesz, Fernández-Huerta) procesadas localmente, sin enviar el texto a un servidor.",
+      "demo_url": "https://davidportodiaz.com/herramientas/legibilidad/",
+      "files": ["legibilidad-engine.js"],
+      "third_party": [],
+      "export": false
+    },
+    {
+      "slug": "dialogo",
+      "name": "Medidor de diálogo",
+      "description": "Calcula el porcentaje de diálogo frente a narración en un texto pegado, reconociendo raya y comillas españolas.",
+      "demo_url": "https://davidportodiaz.com/herramientas/dialogo/",
+      "files": ["dialogo-espanol.js"],
+      "third_party": [],
+      "export": false
+    },
+    {
+      "slug": "repeticiones",
+      "name": "Detector de repeticiones",
+      "description": "Localiza duplicados, ecos cercanos, comienzos repetidos y tics propios en un texto pegado.",
+      "demo_url": "https://davidportodiaz.com/herramientas/repeticiones/",
+      "files": ["repeticiones-engine.js"],
+      "third_party": [],
+      "export": false
+    },
+    {
+      "slug": "variedad-lexica",
+      "name": "Variedad léxica",
+      "description": "Mide la diversidad léxica de un texto y su perfil por tramos de longitud.",
+      "demo_url": "https://davidportodiaz.com/herramientas/variedad-lexica/",
+      "files": ["variedad-lexica-engine.js"],
+      "third_party": [],
+      "export": false
+    },
+    {
+      "slug": "nombres-personajes",
+      "name": "Comprobador de nombres",
+      "description": "Detecta nombres de personajes que pueden confundir al lector por ser demasiado parecidos entre sí.",
+      "demo_url": "https://davidportodiaz.com/herramientas/nombres-personajes/",
+      "files": ["nombres-personajes-engine.js"],
+      "third_party": [],
+      "export": false
+    },
+    {
+      "slug": "distribucion-pov",
+      "name": "Visualizador de distribución de POV",
+      "description": "Visualiza el reparto de puntos de vista de una novela por escenas sin inferir el POV desde la prosa.",
+      "demo_url": "https://davidportodiaz.com/herramientas/distribucion-pov/",
+      "files": ["pov-distribucion-engine.js", "pov-distribucion.js"],
+      "third_party": [],
+      "export": false
+    },
+    {
+      "slug": "tiempo-lectura-voz-alta",
+      "name": "Tiempo de lectura en voz alta",
+      "description": "Calcula cuánto tardas en leer un texto en voz alta y cuántas palabras caben en un tiempo objetivo.",
+      "demo_url": "https://davidportodiaz.com/herramientas/tiempo-lectura-voz-alta/",
+      "files": ["tiempo-lectura-voz-alta.js"],
+      "third_party": [],
+      "export": false
+    },
+    {
+      "slug": "json-ld-escritores",
+      "name": "Generador JSON-LD para escritores",
+      "description": "Genera JSON-LD conservador para perfil de autor, libro, artículo o evento, indicando qué documenta Google realmente.",
+      "demo_url": "https://davidportodiaz.com/herramientas/json-ld-escritores/",
+      "files": ["jsonld-escritores-core.js"],
+      "third_party": [],
+      "export": false
+    }
+  ]
+}
