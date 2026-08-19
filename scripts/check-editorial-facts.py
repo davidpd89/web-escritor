@@ -43,11 +43,15 @@ FORBIDDEN_AWARD_WORDING = [
 ]
 
 FORBIDDEN_SAMUEL_CANON = [
-    (re.compile(r"Samuel entre mundos.{0,240}\b422\s+páginas\b", re.I | re.S), "422 páginas de Samuel no verificado"),
-    (re.compile(r"Samuel entre mundos.{0,240}\b12\s*(?:\+|[-–]\s*17|años en adelante)", re.I | re.S), "edad objetivo de Samuel no verificada"),
+    (re.compile(r"Samuel entre mundos.{0,240}\b422\s+páginas\b", re.I | re.S), "422 páginas de Samuel no verificado (valor correcto: 412)"),
+    (re.compile(r"Samuel entre mundos.{0,240}\b12\s*(?:\+|[-–]\s*(?:17|18)|años en adelante)", re.I | re.S), "edad objetivo de Samuel no verificada (valor correcto: 15+)"),
     (re.compile(r"Samuel entre mundos.{0,260}(?:9\s+calificaciones|11\s+valoraciones|aggregateRating)", re.I | re.S), "valoraciones de Samuel no aptas como dato canónico durable"),
-    (re.compile(r"Samuel entre mundos\s*\((?:19|20)\d{2}\)", re.I), "año de Samuel no verificado"),
-    (re.compile(r"Samuel entre mundos.{0,100}\bpublicad[oa]\s+(?:en\s+)?(?:19|20)\d{2}\b", re.I | re.S), "año de publicación de Samuel no verificado"),
+    # Año resuelto el 19/08/2026: 2025 es correcto, 2026 es el valor incorrecto que circulaba.
+    # Este patrón exige que el paréntesis con el año venga pegado al título (permitiendo
+    # </em>/* de cierre de énfasis y "de David Porto Díaz"), para no disparar con años
+    # correctos de OTRA obra o premio que aparezcan más adelante en la misma frase.
+    (re.compile(r"Samuel entre mundos(?:</em>|\*)?(?:\s*de David Porto D[ií]az)?\s*\([^)]{0,40}2026\)", re.I), "año de Samuel incorrecto (2026) pegado al título; el año correcto es 2025"),
+    (re.compile(r"Samuel entre mundos.{0,100}\bpublicad[oa]\s+(?:en\s+)?2026\b", re.I | re.S), "año de publicación de Samuel incorrecto (2026); el año correcto es 2025"),
 ]
 
 PRELAUNCH_AVAILABLE = [
