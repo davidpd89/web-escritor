@@ -462,12 +462,24 @@ function fallbackCopy(text, done) {
               attributes: { NOVERIS: resultEl._resultKey || "" }
             })
           });
-          if (res.ok || res.status === 204 || res.status === 400) {
+          if (res.ok || res.status === 204) {
             localStorage.setItem("nl-subscribed", "1");
             subscribeForm.dataset.done = "true";
             subscribeForm.innerHTML = '<p class="quiz-subscribe-ok">✓ ¡Apuntado! Recibirás tu resultado y el pack lector de Noveris.</p>';
             _gcEvent("newsletter-quiz", "Newsletter: quiz Noveris");
             setResultLocked(false);
+          } else if (res.status === 400) {
+            // Brevo returns 400 for duplicate contacts; only that specific case counts as success.
+            const body = await res.json().catch(() => ({}));
+            const isDupe = JSON.stringify(body).toLowerCase().includes("already exist");
+            if (isDupe) {
+              localStorage.setItem("nl-subscribed", "1");
+              subscribeForm.dataset.done = "true";
+              subscribeForm.innerHTML = '<p class="quiz-subscribe-ok">✓ Ya estás suscrito. ¡Gracias!</p>';
+              setResultLocked(false);
+            } else {
+              throw new Error(res.status);
+            }
           } else {
             throw new Error(res.status);
           }
@@ -655,6 +667,10 @@ document.addEventListener('dp:analytics', _dpAnalyticsBridge);
 
   // Skip on fragmento (reader already has the chapter)
   if (window.location.pathname.startsWith("/fragmento")) return;
+  // Skip on Las manecillas del recuerdo: this popup's copy ("pack lector de
+  // Noveris") is Samuel entre mundos-specific and would be a branding
+  // mismatch on the other book's own page.
+  if (window.location.pathname.startsWith("/las-manecillas-del-recuerdo")) return;
   if (localStorage.getItem(SUBSCRIBED_KEY) === "1") return;
   const ts = localStorage.getItem(DISMISSED_KEY);
   if (ts && Date.now() - Number(ts) < COOLDOWN) return;
@@ -730,12 +746,24 @@ document.addEventListener('dp:analytics', _dpAnalyticsBridge);
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify({ email: emailEl.value.trim(), listIds: NEWSLETTER_CONFIG.defaultListIds, updateEnabled: true, attributes: { SOURCE: NEWSLETTER_CONFIG.sources.popup } })
           });
-          if (res.ok || res.status === 204 || res.status === 400) {
+          if (res.ok || res.status === 204) {
             localStorage.setItem(SUBSCRIBED_KEY, "1");
             const panel = document.getElementById("nl-popup-panel");
             panel.innerHTML = '<p style="font-family:Cormorant Garamond,Georgia,serif;font-size:1.5rem;color:#e0b979;text-align:center;margin:0 0 10px">\u2713 \u00a1Apuntado!</p><p style="color:#b6a894;text-align:center;font-size:0.94rem;margin:0">Recibirás el pack lector y las novedades importantes.</p>';
             _gcEvent("newsletter-popup", "Newsletter: popup");
             setTimeout(dismiss, 3200);
+          } else if (res.status === 400) {
+            // Brevo returns 400 for duplicate contacts; only that specific case counts as success.
+            const body = await res.json().catch(() => ({}));
+            const isDupe = JSON.stringify(body).toLowerCase().includes("already exist");
+            if (isDupe) {
+              localStorage.setItem(SUBSCRIBED_KEY, "1");
+              const panel = document.getElementById("nl-popup-panel");
+              panel.innerHTML = '<p style="font-family:Cormorant Garamond,Georgia,serif;font-size:1.5rem;color:#e0b979;text-align:center;margin:0 0 10px">\u2713 Ya estás suscrito.</p><p style="color:#b6a894;text-align:center;font-size:0.94rem;margin:0">\u00a1Gracias por seguir a David Porto Díaz!</p>';
+              setTimeout(dismiss, 3200);
+            } else {
+              throw new Error(res.status);
+            }
           } else throw new Error(res.status);
         } catch (_) {
           statusEl.textContent = "Error al suscribirse. Prueba m\u00e1s tarde.";

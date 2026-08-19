@@ -7,10 +7,26 @@
  *   3. Settings → Variables and Secrets → Add secret:
  *        Name:  BREVO_API_KEY
  *        Value: (tu clave xkeysib-... de https://app.brevo.com > API keys)
- *   4. Copy the Worker URL (e.g. https://subscribe.davidportodiaz.workers.dev)
- *   5. Update WORKER_URL in script.js with that URL
+ *   4. Settings → Variables and Secrets → Add variable:
+ *        Name:  BREVO_LIST_ID
+ *        Value: 3   (el ID numerico de la lista de Brevo a la que se suscribe
+ *                     todo el sitio; ver NEWSLETTER_CONFIG.defaultListIds en
+ *                     script.js — debe coincidir)
+ *   5. Copy the Worker URL (e.g. https://subscribe.davidportodiaz.workers.dev)
+ *   6. Update WORKER_URL in script.js with that URL
  *
  * The script.js file already has WORKER_URL ready — just update the placeholder.
+ *
+ * IMPORTANT: after editing this file, the change only takes effect once you
+ * manually re-paste/redeploy it in the Cloudflare dashboard — pushing to this
+ * git repo does not deploy the Worker.
+ *
+ * SECURITY NOTE (2026-08-19): listIds is no longer accepted from the client.
+ * Previously the browser could specify any Brevo listIds/updateEnabled value
+ * in the POST body and this Worker forwarded it unchecked to Brevo — a
+ * malicious client could have subscribed an email to an arbitrary list. The
+ * Worker now always uses env.BREVO_LIST_ID server-side and ignores any
+ * listIds sent by the client.
  */
 
 const ALLOWED_ORIGIN = "https://davidportodiaz.com";
@@ -43,8 +59,8 @@ export default {
       return new Response("Bad Request", { status: 400 });
     }
 
-    const { email, listIds, attributes, updateEnabled } = body;
-    if (!email || !listIds) {
+    const { email, attributes } = body;
+    if (!email) {
       return new Response(JSON.stringify({ message: "Missing required fields" }), {
         status: 400,
         headers: { "Content-Type": "application/json", ...corsHeaders(origin) },
@@ -60,6 +76,17 @@ export default {
       });
     }
 
+    // listIds is never taken from the client: a browser could otherwise ask
+    // to be added to an arbitrary Brevo list by sending its own listIds.
+    // The single allowed list is configured server-side via env.BREVO_LIST_ID.
+    if (!env.BREVO_LIST_ID) {
+      return new Response(JSON.stringify({ message: "Server misconfigured: BREVO_LIST_ID not set" }), {
+        status: 500,
+        headers: { "Content-Type": "application/json", ...corsHeaders(origin) },
+      });
+    }
+    const listIds = [Number(env.BREVO_LIST_ID)];
+
     const brevoRes = await fetch("https://api.brevo.com/v3/contacts", {
       method: "POST",
       headers: {
@@ -67,7 +94,7 @@ export default {
         "Content-Type": "application/json",
         Accept: "application/json",
       },
-      body: JSON.stringify({ email, listIds, attributes, updateEnabled }),
+      body: JSON.stringify({ email, listIds, attributes, updateEnabled: true }),
     });
 
     const text = await brevoRes.text();
