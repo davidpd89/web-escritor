@@ -3,6 +3,7 @@
   "authorFacts": "data/press-kit/author.json",
   "editorialFacts": "data/press-kit/editorial.json",
   "output": "data/press-kit/presskit.zip",
+  "fixture": true,
   "assets": [],
   "documents": []
 }

@@ -1,10 +1,42 @@
 <!doctype html>
-<html lang="es"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Matriz de personajes | Herramientas</title>
-<meta name="description" content="Ficha y matriz de relaciones entre personajes con señales para huecos de motivación.">
-</head><body>
-<main>
-  <h1>Matriz de personajes</h1>
-  <p>Página inicial de la herramienta de matriz de personajes. Implementación: pendiente. Usa `data/` para fichas de personajes.</p>
+<html lang="es">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Mapa de relaciones de personajes | Herramientas</title>
+  <meta name="description" content="Crea un mapa visual de relaciones entre personajes en tu navegador. Sin cuenta ni servidor.">
+  <link rel="stylesheet" href="/styles.css">
+  <link rel="stylesheet" href="/assets/mapa-personajes.css">
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebApplication","name":"Mapa de relaciones de personajes para escritores","url":"/herramientas/personajes/","applicationCategory":"UtilitiesApplication","operatingSystem":"Web","isAccessibleForFree":true,"inLanguage":"es","author":{"@id":"/#author"}}</script>
+</head>
+<body>
+<a class="skip-link" href="#main-content">Saltar al contenido</a>
+<main id="main-content" class="character-map-page">
+<nav class="breadcrumb" aria-label="Ruta de navegación"><a href="/">Inicio</a> › <a href="/herramientas/">Herramientas</a> › Mapa de personajes</nav>
+<header><p class="eyebrow">Herramienta gratuita · local</p><h1>Mapa de relaciones de personajes</h1><p class="lead">Dibuja quién se relaciona con quién, qué tipo de vínculo existe y cómo cambia. El mapa no inventa relaciones: tú decides qué forma parte del canon.</p><p class="map-privacy"><strong>Privacidad:</strong> los nombres y relaciones se procesan en este dispositivo. No se envían a un servidor.</p></header>
+
+<div class="map-workspace">
+<section class="map-panel" aria-label="Editor del mapa">
+<label for="map-title">Nombre del proyecto</label><input id="map-title" type="text" autocomplete="off" placeholder="Mi novela">
+<fieldset><legend>1. Personajes</legend><label for="character-name">Nombre</label><input id="character-name" type="text" autocomplete="off" placeholder="Noa"><button id="add-character" type="button">Añadir personaje</button></fieldset>
+<fieldset><legend>2. Relaciones</legend>
+<div class="map-row"><div><label for="relation-from">De</label><select id="relation-from"><option value="">Selecciona…</option></select></div><div><label for="relation-to">A</label><select id="relation-to"><option value="">Selecciona…</option></select></div></div>
+<label for="relation-type">Tipo</label><select id="relation-type"><option value="familia">Familia</option><option value="amistad">Amistad</option><option value="romance">Romance</option><option value="rivalidad">Rivalidad</option><option value="alianza">Alianza</option><option value="mentoria">Mentoría</option><option value="secreto">Secreto</option><option value="otro">Otro</option></select>
+<label for="relation-label">Etiqueta opcional</label><input id="relation-label" type="text" maxlength="80" placeholder="hermanas, antigua amistad…">
+<label for="relation-evolution">Cambio o contexto opcional</label><textarea id="relation-evolution" maxlength="240" placeholder="En C8 dejan de confiar el uno en el otro"></textarea>
+<label class="map-check"><input id="relation-directed" type="checkbox"> Relación dirigida (A → B)</label><button id="add-relation" type="button">Añadir relación</button>
+</fieldset>
+<p class="map-note">El mapa representa lo que declares. Coaparición no significa relación.</p>
+</section>
+
+<section class="map-canvas-wrap" aria-label="Mapa visual">
+<div class="map-canvas-head"><div><strong id="map-stats">0 personajes · 0 relaciones</strong><div class="map-type-filters" aria-label="Filtrar tipos"><label><input data-relation-filter type="checkbox" value="familia" checked>Familia</label><label><input data-relation-filter type="checkbox" value="amistad" checked>Amistad</label><label><input data-relation-filter type="checkbox" value="romance" checked>Romance</label><label><input data-relation-filter type="checkbox" value="rivalidad" checked>Rivalidad</label><label><input data-relation-filter type="checkbox" value="alianza" checked>Alianza</label><label><input data-relation-filter type="checkbox" value="mentoria" checked>Mentoría</label><label><input data-relation-filter type="checkbox" value="secreto" checked>Secreto</label><label><input data-relation-filter type="checkbox" value="otro" checked>Otro</label></div></div><label for="map-focus">Foco<select id="map-focus"><option value="">Todos los personajes</option></select></label></div>
+<p id="map-empty" class="map-empty">Añade dos personajes y una relación para empezar a ver la red.</p><svg id="character-map" class="character-map" role="img" aria-label="Mapa visual de relaciones entre personajes"></svg>
+<ul id="relation-list" class="relation-list" aria-label="Relaciones declaradas"></ul>
+<div class="map-actions"><button id="export-json" type="button">Guardar JSON</button><button id="import-json" type="button">Abrir JSON</button><input id="import-file" type="file" accept="application/json,.json" hidden><button id="export-svg" type="button">Exportar SVG</button><button id="clear-map" type="button">Vaciar</button></div><p id="map-status" role="status" aria-live="polite"></p>
+</section>
+</div>
+
+<section class="map-method"><h2>Qué sirve para detectar</h2><p>La utilidad del mapa no es medir si una historia es buena. Sirve para ver la forma de un reparto: personajes aislados, núcleos demasiado cerrados, relaciones centrales, vínculos secretos o cambios que conviene recordar.</p><h2>Qué no hace</h2><p>No lee ni sube tu manuscrito, no usa IA, no deduce sentimientos y no convierte dos personajes que aparecen juntos en «amigos». Esa decisión narrativa sigue siendo tuya.</p><h2>Por qué puedes guardar el proyecto</h2><p>El botón JSON descarga los datos para reabrirlos después. El SVG guarda la imagen del mapa y puede insertarse en notas, dossiers o documentos de trabajo.</p></section>
 </main>
+<script type="module" src="/assets/mapa-personajes.js"></script>
 </body></html>

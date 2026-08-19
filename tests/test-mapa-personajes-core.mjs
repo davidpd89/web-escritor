@@ -1,0 +1,12 @@
+import assert from 'node:assert/strict';
+import { normalizeProject, circularLayout, visibleGraph, relationshipSummary, serializeProject, parseProject } from '../assets/mapa-personajes-core.js';
+const project = normalizeProject({characters:[{name:'Noa'},{name:'Brais'},{name:'Cibrán'}],relations:[{from:'noa',to:'brais',type:'alianza',label:'confianza'},{from:'noa',to:'cibran',type:'rivalidad'}]});
+assert.equal(project.characters.length, 3);
+assert.equal(project.relations.length, 2);
+assert.equal(circularLayout(project.characters, 900, 600, 'noa').find(n=>n.id==='noa').x, 450);
+assert.equal(visibleGraph(project,{focusId:'brais'}).characters.length,2);
+assert.equal(relationshipSummary(project).mostConnected[0].character,'Noa');
+assert.deepEqual(parseProject(serializeProject(project)), project);
+const bad = normalizeProject({characters:[{name:'A'}],relations:[{from:'a',to:'missing',type:'romance'}]});
+assert.equal(bad.relations.length,0);
+console.log('tests/test-mapa-personajes-core: OK');
