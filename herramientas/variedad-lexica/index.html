@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self'; connect-src 'none';">
+  <title>Variedad léxica — Herramientas</title>
+  <meta name="description" content="Métricas de diversidad léxica y perfil por tramos. Local y privado.">
+  <link rel="stylesheet" href="/styles.css">
+  <link rel="stylesheet" href="/assets/variedad-lexica.css">
+</head>
+<body>
+  <main>
+    <nav class="breadcrumb"><a href="/">Inicio</a> › <a href="/herramientas/">Herramientas</a> › <span>Variedad léxica</span></nav>
+    <h1>Variedad léxica</h1>
+    <form data-lexical-form>
+      <label for="lexical-input">Texto a analizar</label>
+      <textarea id="lexical-input" data-lexical-input></textarea>
+      <div class="lexical-controls">
+        <button type="submit">Analizar</button>
+        <button type="button" data-lexical-sample>Cargar ejemplo</button>
+        <button type="button" data-lexical-clear>Limpiar</button>
+        <span id="lexical-count" data-lexical-count></span>
+      </div>
+      <p id="lexical-status" data-lexical-status>Introduce texto y pulsa Analizar.</p>
+    </form>
+
+    <section id="lexical-results" data-lexical-results hidden>
+      <div id="lexical-summary" data-lexical-summary></div>
+      <div id="lexical-metrics" data-lexical-metrics></div>
+      <div id="lexical-profile" data-lexical-profile></div>
+      <p id="lexical-profile-note" data-lexical-profile-note></p>
+    </section>
+  </main>
+
+  <script type="module" src="/assets/variedad-lexica.js"></script>
+</body>
+</html>
