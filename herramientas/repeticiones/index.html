@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self'; connect-src 'none';">
+  <title>Detector de repeticiones — Herramientas</title>
+  <meta name="description" content="Detecta duplicados, ecos cercanos y frases repetidas en textos en español. Procesamiento local en el navegador.">
+  <link rel="stylesheet" href="/styles.css">
+  <link rel="stylesheet" href="/assets/repeticiones-espanol.css">
+</head>
+<body>
+<main id="main-content" class="repetition-page">
+  <nav class="breadcrumb" aria-label="Ruta de navegación"><a href="/">Inicio</a> › <a href="/herramientas/">Herramientas</a> › <span>Detector de repeticiones</span></nav>
+  <header class="repetition-hero"><p class="eyebrow">Herramienta gratuita · escritura</p><h1>Encuentra los ecos que ya no ves.</h1><p class="lead">Pega un capítulo o fragmento y localiza duplicados, palabras demasiado próximas, comienzos repetidos, frases que vuelven y tus propios tics. El texto no sale de tu navegador.</p></header>
+
+  <form class="repetition-panel" data-repetition-form>
+    <label class="repetition-label" for="repetition-text">Tu texto</label>
+    <textarea id="repetition-text" class="repetition-input" data-repetition-input spellcheck="true" placeholder="Pega aquí el texto. Se procesa en este dispositivo; no se envía al servidor."></textarea>
+    <div class="repetition-options">
+      <div><label class="repetition-label" for="repetition-window">Ventana para considerar un eco</label><select id="repetition-window" class="repetition-select" data-repetition-window><option value="15">15 palabras</option><option value="30" selected>30 palabras</option><option value="50">50 palabras</option><option value="80">80 palabras</option></select></div>
+      <div><label class="repetition-label" for="repetition-tics">Tics que quieres vigilar</label><textarea id="repetition-tics" class="repetition-small-input" data-repetition-tics placeholder="parecía, como si, de pronto, entonces"></textarea></div>
+      <div><label class="repetition-label" for="repetition-ignore">Palabras que quieres ignorar</label><textarea id="repetition-ignore" class="repetition-small-input" data-repetition-ignore placeholder="Noa, Brais, Madrid"></textarea></div>
+    </div>
+    <label class="repetition-check"><input type="checkbox" data-repetition-common> Incluir también palabras funcionales muy comunes</label>
+    <div class="repetition-actions"><button type="submit" class="btn btn-primary">Analizar repeticiones</button><button type="button" class="btn" data-repetition-sample>Probar un ejemplo</button><button type="button" class="btn" data-repetition-clear>Borrar</button></div>
+    <p class="repetition-status" data-repetition-status aria-live="polite">Nada de lo que pegues se guarda ni se envía.</p>
+  </form>
+
+  <section class="repetition-results" data-repetition-results hidden aria-label="Resultados de repeticiones">
+    <div class="repetition-summary" data-repetition-summary></div>
+    <section class="repetition-section"><h2>Duplicados inmediatos</h2><p>Casos como «la la» o «que que», habituales después de mover texto durante una revisión.</p><ul class="repetition-list" data-immediate></ul></section>
+    <section class="repetition-section"><h2>Ecos cercanos</h2><p>La misma palabra de contenido reaparece dentro de la distancia elegida. No implica que sobre: nombres, motivos y repeticiones retóricas pueden ser intencionales.</p><ul class="repetition-list" data-echoes></ul></section>
+    <section class="repetition-section"><h2>Palabras dominantes</h2><p>Frecuencia descriptiva por cada 1000 palabras, excluyendo artículos, preposiciones y otras palabras funcionales salvo que actives la opción.</p><ul class="repetition-list repetition-compact" data-dominant></ul></section>
+    <section class="repetition-section"><h2>Comienzos repetidos</h2><p>Detecta frases y párrafos que arrancan con las mismas dos palabras.</p><ul class="repetition-list repetition-compact" data-starts></ul></section>
+    <section class="repetition-section"><h2>Frases que vuelven</h2><p>Secuencias exactas de 2–5 palabras que aparecen al menos dos veces. Se priorizan las más largas para reducir ruido.</p><ul class="repetition-list" data-phrases></ul></section>
+    <section class="repetition-section"><h2>Tus tics</h2><p>Cuenta literalmente las palabras o expresiones que hayas escrito en el campo de vigilancia, incluso si son palabras comunes.</p><ul class="repetition-list" data-tics></ul></section>
+  </section>
+
+  <section class="repetition-section repetition-caveat"><h2>Repetir no es escribir mal</h2><p>La repetición puede crear ritmo, énfasis, cohesión, voz o un motivo narrativo. Esta herramienta no asigna una puntuación de calidad ni propone sinónimos. Sirve para hacer visible un patrón que el ojo puede haber dejado de percibir después de muchas revisiones.</p></section>
+</main>
+<script type="module" src="/assets/repeticiones-espanol.js"></script>
+</body>
+</html>
