@@ -1,0 +1,18 @@
+{
+  "defaults": {
+    "standard": "WCAG2AA",
+    "level": "error",
+    "threshold": 0,
+    "includeNotices": false,
+    "includeWarnings": false,
+    "timeout": 30000,
+    "wait": 250,
+    "chromeLaunchConfig": {
+      "args": [
+        "--no-sandbox",
+        "--disable-dev-shm-usage"
+      ]
+    }
+  },
+  "concurrency": 2
+}

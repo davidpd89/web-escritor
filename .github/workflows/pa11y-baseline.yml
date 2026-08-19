@@ -1,0 +1,68 @@
+name: Accessibility baseline (Pa11y)
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  pa11y-baseline:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+
+      - name: Install Pa11y CI
+        run: npm install --global pa11y-ci@4.1.1
+
+      - name: Start local static server
+        run: |
+          python3 -m http.server 4173 --bind 127.0.0.1 > /tmp/web-escritor-http.log 2>&1 &
+          echo $! > /tmp/web-escritor-http.pid
+          for i in {1..30}; do
+            if curl --fail --silent http://127.0.0.1:4173/ >/dev/null; then
+              exit 0
+            fi
+            sleep 1
+          done
+          cat /tmp/web-escritor-http.log
+          exit 1
+
+      - name: Audit every URL in the sitemap
+        id: pa11y
+        shell: bash
+        run: |
+          set +e
+          pa11y-ci \
+            --config ./.pa11yci \
+            --sitemap http://127.0.0.1:4173/sitemap.xml \
+            --sitemap-find 'https://davidportodiaz.com' \
+            --sitemap-replace 'http://127.0.0.1:4173' \
+            2>&1 | tee pa11y-baseline.txt
+          status=${PIPESTATUS[0]}
+          echo "exit_code=$status" >> "$GITHUB_OUTPUT"
+          exit 0
+
+      - name: Upload baseline report
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: pa11y-baseline
+          path: pa11y-baseline.txt
+          retention-days: 14
+
+      - name: Mark baseline result
+        if: always()
+        run: |
+          status='${{ steps.pa11y.outputs.exit_code }}'
+          if [ "$status" = "0" ]; then
+            echo "Pa11y baseline is clean. This workflow can be promoted to a PR gate."
+            exit 0
+          fi
+          echo "Pa11y found WCAG2AA errors (or a runner error). Review the artifact before promoting this to a PR gate."
+          exit "$status"
