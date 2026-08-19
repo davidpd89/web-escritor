@@ -660,20 +660,58 @@ document.addEventListener('dp:analytics', _dpAnalyticsBridge);
 
 // Email capture popup
 // Triggers: 60% scroll depth OR exit-intent (desktop). Once per 7 days, never if subscribed.
+// Scope (C-022): only shown on pages that have no newsletter form of their own
+// (Cuaderno articles, recomendaciones, Noveris universe, clubes de lectura).
+// Home, /libros/, /fragmento/ and /las-manecillas-del-recuerdo/ already embed
+// their own inline forms (see "Generic newsletter forms" above) - showing this
+// popup there too would be a double-ask, and on Manecillas' own page the
+// Noveris-themed copy would also be a branding mismatch.
 (function () {
   const DISMISSED_KEY = "nl-popup-ts";
   const SUBSCRIBED_KEY = "nl-subscribed";
   const COOLDOWN = 7 * 24 * 60 * 60 * 1000;
+  const path = window.location.pathname.replace(/\/index\.html$/, "/");
 
-  // Skip on fragmento (reader already has the chapter)
-  if (window.location.pathname.startsWith("/fragmento")) return;
-  // Skip on Las manecillas del recuerdo: this popup's copy ("pack lector de
-  // Noveris") is Samuel entre mundos-specific and would be a branding
-  // mismatch on the other book's own page.
-  if (window.location.pathname.startsWith("/las-manecillas-del-recuerdo")) return;
+  function allowedPath() {
+    if (path === "/" || path === "/libros/" || path === "/fragmento/") return false;
+    if (path.startsWith("/las-manecillas-del-recuerdo")) return false;
+    if (["/autor.html", "/prensa.html", "/eventos.html", "/privacidad.html", "/aviso-legal.html"].includes(path)) return false;
+    if (path.startsWith("/empieza-aqui/") || path.startsWith("/gracias-suscripcion/")) return false;
+    return path.startsWith("/cuaderno/") || path.startsWith("/recomendaciones/") ||
+      path.startsWith("/universo/noveris/") || path.startsWith("/clubes-de-lectura/");
+  }
+
+  if (!allowedPath()) return;
   if (localStorage.getItem(SUBSCRIBED_KEY) === "1") return;
   const ts = localStorage.getItem(DISMISSED_KEY);
   if (ts && Date.now() - Number(ts) < COOLDOWN) return;
+
+  // Copy varies by context: the Noveris/Samuel-specific pitch only makes
+  // sense on pages actually about that book. Elsewhere it stays generic.
+  function popupCopy() {
+    if (path.startsWith("/universo/noveris/") || path.startsWith("/clubes-de-lectura/")) {
+      return {
+        eyebrow: "Primeros lectores de Noveris",
+        title: "Recibe el pack lector de Noveris.",
+        body: "Mapa, capítulo 1 en PDF y avisos de nuevas firmas o lecturas. Un email cuando haya algo que valga la pena.",
+        cta: "Recibir pack lector",
+        okTitle: "✓ ¡Apuntado!",
+        okBody: "Recibirás el pack lector y las novedades importantes.",
+        dupeTitle: "✓ Ya estás suscrito.",
+        dupeBody: "¡Gracias por seguir a David Porto Díaz!"
+      };
+    }
+    return {
+      eyebrow: "Novedades de David Porto Díaz",
+      title: "Sigue los próximos libros y artículos.",
+      body: "Nuevas publicaciones, artículos, firmas y recursos para lectores. Solo cuando haya algo que contar.",
+      cta: "Suscribirme",
+      okTitle: "✓ ¡Apuntado!",
+      okBody: "Recibirás las novedades de David Porto Díaz.",
+      dupeTitle: "✓ Ya estás suscrito.",
+      dupeBody: "¡Gracias por seguir a David Porto Díaz!"
+    };
+  }
 
   let shown = false;
 
@@ -690,6 +728,7 @@ document.addEventListener('dp:analytics', _dpAnalyticsBridge);
     if (shown || document.getElementById("nl-popup-overlay")) return;
     shown = true;
     localStorage.setItem(DISMISSED_KEY, String(Date.now()));
+    const copy = popupCopy();
 
     const style = document.createElement("style");
     style.textContent = "#nl-popup-overlay{position:fixed;inset:0;z-index:9000;display:flex;align-items:center;justify-content:center;padding:16px;background:rgba(8,10,12,0.84);backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px);animation:nl-in 0.28s ease}@keyframes nl-in{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}#nl-popup-panel{position:relative;width:100%;max-width:460px;padding:40px 36px 32px;background:#18140e;border:1px solid rgba(196,148,77,0.38);border-radius:20px;box-shadow:0 32px 120px rgba(0,0,0,0.72)}#nl-popup-close{position:absolute;top:14px;right:14px;width:38px;height:38px;border:none;background:transparent;color:#b6a894;font-size:1.5rem;line-height:1;cursor:pointer;border-radius:50%;display:flex;align-items:center;justify-content:center;padding:0;transition:color 0.18s}#nl-popup-close:hover,#nl-popup-close:focus-visible{color:#f2e8d8;outline:none}#nl-popup-panel .eyebrow{margin:0 0 12px;color:#c4944d;font-size:0.68rem;font-weight:700;letter-spacing:0.26em;text-transform:uppercase;font-family:Inter,system-ui,sans-serif}#nl-popup-title{font-family:'Cormorant Garamond',Georgia,serif;margin:0 0 12px;font-size:clamp(1.55rem,4vw,2.1rem);line-height:1.08;color:#f2e8d8;font-weight:600}#nl-popup-body{margin:0 0 22px;color:#b6a894;font-size:0.96rem;line-height:1.7}#nl-popup-email{width:100%;padding:12px 18px;border:1px solid rgba(196,148,77,0.28);border-radius:999px;background:rgba(255,255,255,0.04);color:#f2e8d8;font-size:0.95rem;font-family:inherit;outline:none;box-sizing:border-box;margin-bottom:10px;transition:border-color 0.2s}#nl-popup-email:focus{border-color:#c4944d}#nl-popup-submit{width:100%;justify-content:center;margin-bottom:0}#nl-popup-gdpr-row{display:flex;align-items:flex-start;gap:8px;margin-top:12px;font-size:0.79rem;color:#8e8170;line-height:1.5;cursor:pointer}#nl-popup-gdpr-row input{margin-top:3px;flex-shrink:0}#nl-popup-gdpr-row a{color:#c4944d}#nl-popup-status{margin:8px 0 0;font-size:0.84rem;color:#b6a894;min-height:1.2em}#nl-popup-skip{display:block;margin:14px auto 0;background:none;border:none;color:#8e8170;font-size:0.82rem;cursor:pointer;text-decoration:underline;text-underline-offset:3px;font-family:inherit;transition:color 0.2s;padding:0}#nl-popup-skip:hover{color:#b6a894}@media(max-width:520px){#nl-popup-panel{padding:32px 22px 26px}}";
@@ -703,12 +742,12 @@ document.addEventListener('dp:analytics', _dpAnalyticsBridge);
     overlay.innerHTML =
       '<div id="nl-popup-panel">' +
       '<button id="nl-popup-close" type="button" aria-label="Cerrar">&times;</button>' +
-      '<p class="eyebrow">Primeros lectores de Noveris</p>' +
-      '<h2 id="nl-popup-title">Recibe el pack lector de Noveris.</h2>' +
-      '<p id="nl-popup-body">Mapa, cap\u00edtulo 1 en PDF y avisos de nuevas firmas o lecturas. Un email cuando haya algo que valga la pena.</p>' +
+      '<p class="eyebrow">' + copy.eyebrow + '</p>' +
+      '<h2 id="nl-popup-title">' + copy.title + '</h2>' +
+      '<p id="nl-popup-body">' + copy.body + '</p>' +
       '<form id="nl-popup-form" novalidate>' +
       '<input type="email" id="nl-popup-email" name="email" placeholder="tu@email.com" autocomplete="email" required />' +
-      '<button type="submit" class="button primary" id="nl-popup-submit">Recibir pack lector</button>' +
+      '<button type="submit" class="button primary" id="nl-popup-submit">' + copy.cta + '</button>' +
       '<label id="nl-popup-gdpr-row"><input type="checkbox" id="nl-popup-gdpr" required />Acepto recibir novedades del autor. <a href="/privacidad.html" target="_blank" rel="noopener">Privacidad</a>.</label>' +
       '<p id="nl-popup-status" role="status" aria-live="polite"></p>' +
       '</form>' +
@@ -735,11 +774,11 @@ document.addEventListener('dp:analytics', _dpAnalyticsBridge);
         const gdprEl = document.getElementById("nl-popup-gdpr");
         const statusEl = document.getElementById("nl-popup-status");
         const submitBtn = document.getElementById("nl-popup-submit");
-        if (!emailEl.value.trim()) { statusEl.textContent = "Introduce un email v\u00e1lido."; return; }
-        if (!gdprEl.checked) { statusEl.textContent = "Acepta la pol\u00edtica de privacidad para continuar."; return; }
+        if (!emailEl.value.trim()) { statusEl.textContent = "Introduce un email válido."; return; }
+        if (!gdprEl.checked) { statusEl.textContent = "Acepta la política de privacidad para continuar."; return; }
         statusEl.textContent = "";
         submitBtn.disabled = true;
-        submitBtn.textContent = "Enviando\u2026";
+        submitBtn.textContent = "Enviando…";
         try {
           const res = await fetch(NEWSLETTER_CONFIG.endpoint, {
             method: "POST",
@@ -749,7 +788,7 @@ document.addEventListener('dp:analytics', _dpAnalyticsBridge);
           if (res.ok || res.status === 204) {
             localStorage.setItem(SUBSCRIBED_KEY, "1");
             const panel = document.getElementById("nl-popup-panel");
-            panel.innerHTML = '<p style="font-family:Cormorant Garamond,Georgia,serif;font-size:1.5rem;color:#e0b979;text-align:center;margin:0 0 10px">\u2713 \u00a1Apuntado!</p><p style="color:#b6a894;text-align:center;font-size:0.94rem;margin:0">Recibirás el pack lector y las novedades importantes.</p>';
+            panel.innerHTML = '<p style="font-family:Cormorant Garamond,Georgia,serif;font-size:1.5rem;color:#e0b979;text-align:center;margin:0 0 10px">' + copy.okTitle + '</p><p style="color:#b6a894;text-align:center;font-size:0.94rem;margin:0">' + copy.okBody + '</p>';
             _gcEvent("newsletter-popup", "Newsletter: popup");
             setTimeout(dismiss, 3200);
           } else if (res.status === 400) {
@@ -759,16 +798,16 @@ document.addEventListener('dp:analytics', _dpAnalyticsBridge);
             if (isDupe) {
               localStorage.setItem(SUBSCRIBED_KEY, "1");
               const panel = document.getElementById("nl-popup-panel");
-              panel.innerHTML = '<p style="font-family:Cormorant Garamond,Georgia,serif;font-size:1.5rem;color:#e0b979;text-align:center;margin:0 0 10px">\u2713 Ya estás suscrito.</p><p style="color:#b6a894;text-align:center;font-size:0.94rem;margin:0">\u00a1Gracias por seguir a David Porto Díaz!</p>';
+              panel.innerHTML = '<p style="font-family:Cormorant Garamond,Georgia,serif;font-size:1.5rem;color:#e0b979;text-align:center;margin:0 0 10px">' + copy.dupeTitle + '</p><p style="color:#b6a894;text-align:center;font-size:0.94rem;margin:0">' + copy.dupeBody + '</p>';
               setTimeout(dismiss, 3200);
             } else {
               throw new Error(res.status);
             }
           } else throw new Error(res.status);
         } catch (_) {
-          statusEl.textContent = "Error al suscribirse. Prueba m\u00e1s tarde.";
+          statusEl.textContent = "Error al suscribirse. Prueba más tarde.";
           submitBtn.disabled = false;
-          submitBtn.textContent = "Recibir pack lector";
+          submitBtn.textContent = copy.cta;
         }
       }, "user-blocking");
     });
