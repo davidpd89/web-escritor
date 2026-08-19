@@ -1,197 +1,349 @@
 #!/usr/bin/env python3
-"""Internal graph checker.
+"""Internal link graph checker for the static site.
 
-Scans local HTML files, extracts internal links and canonicals, reports:
-- broken internal links
-- pages with zero incoming internal links (orphan pages)
-- pages missing `link rel="canonical"`
-- canonical collisions (multiple pages claiming same canonical)
+Reports broken internal page links, orphan indexable pages, missing canonicals
+and canonical collisions. Uses ERROR / WARNING / INFO severities.
 
-Excludes assets, feeds, robots, and pages with `meta name="robots" content="noindex"`.
+Does not treat assets, feeds, legal/utility pages or noindex routes as graph errors.
+See 27_REPOSITORIOS_Y_MEJORAS_IMPLEMENTABLES_2026-08-16.md §14.
 """
-from pathlib import Path
+from __future__ import annotations
+
+import argparse
 import re
 import sys
-import json
 from collections import defaultdict
+from pathlib import Path
+from urllib.parse import urlparse
 
-ROOT = Path('.').resolve()
-DOMAIN = 'https://davidportodiaz.com'
-EXCLUDE_PATH_PARTS = {'node_modules', '.git', 'assets', 'images', 'videos', 'android'}
+DOMAIN = "https://davidportodiaz.com"
+
+EXCLUDE_DIRS = {
+    "node_modules",
+    ".git",
+    "assets",
+    "images",
+    "videos",
+    "android",
+    "tests",
+    "_tools",
+    "_reddit",
+    "_david",
+    "WEB DAVID PORTO nuevas ideas",
+    "press-kit",
+    "data",
+}
+
+ASSET_EXTENSIONS = {
+    ".css",
+    ".js",
+    ".mjs",
+    ".json",
+    ".xml",
+    ".txt",
+    ".webp",
+    ".png",
+    ".jpg",
+    ".jpeg",
+    ".gif",
+    ".svg",
+    ".woff",
+    ".woff2",
+    ".ico",
+    ".zip",
+    ".ics",
+    ".pdf",
+}
+
+ORPHAN_OK_PATHS = {
+    "/",
+    "/privacidad.html",
+    "/aviso-legal.html",
+    "/offline.html",
+    "/samuel-entre-mundos.html",
+    "/sitemap.xml",
+    "/robots.txt",
+    "/llms.txt",
+    "/llms-full.txt",
+    "/humans.txt",
+    "/manifest.json",
+    "/cuaderno/feed.xml",
+}
+
+ORPHAN_OK_PREFIXES = (
+    "/ai/",
+    "/assets/",
+)
 
 
-def read_text(p: Path):
+class Finding:
+    __slots__ = ("level", "category", "message")
+
+    def __init__(self, level: str, category: str, message: str):
+        self.level = level
+        self.category = category
+        self.message = message
+
+
+def read_text(path: Path) -> str:
     try:
-        return p.read_text(encoding='utf-8', errors='ignore')
+        return path.read_text(encoding="utf-8", errors="ignore")
     except Exception:
-        return ''
+        return ""
 
 
-def find_html_files(root: Path):
-    for p in root.rglob('*.html'):
-        if any(part in EXCLUDE_PATH_PARTS for part in p.parts):
-            continue
-        yield p
+def should_skip_file(path: Path, root: Path) -> bool:
+    rel = path.relative_to(root)
+    if any(part in EXCLUDE_DIRS for part in rel.parts):
+        return True
+    if path.name.lower() in {"offline.html", "404.html"}:
+        return True
+    lower = path.name.lower()
+    if lower.endswith((".example.html", ".template.html", ".component.html")):
+        return True
+    return False
 
 
-def extract_canonical(text):
+def extract_canonical(text: str) -> str | None:
     m = re.search(r'<link[^>]+rel=["\']canonical["\'][^>]*>', text, flags=re.I)
     if not m:
         return None
     h = re.search(r'href=["\']([^"\']+)["\']', m.group(0), flags=re.I)
-    if h:
-        return h.group(1).strip()
-    return None
+    return h.group(1).strip() if h else None
 
 
-def has_noindex(text):
+def has_noindex(text: str) -> bool:
     m = re.search(r'<meta[^>]+name=["\']robots["\'][^>]*>', text, flags=re.I)
     if not m:
         return False
     c = re.search(r'content=["\']([^"\']+)["\']', m.group(0), flags=re.I)
-    return bool(c and 'noindex' in c.group(1).lower())
+    return bool(c and "noindex" in c.group(1).lower())
 
 
-def extract_links(text):
-    # find href/src etc.
+def extract_anchor_links(text: str) -> list[str]:
     links = []
-    for m in re.finditer(r'href=["\']([^"\'#]+)(?:#[^"\']*)?["\']', text, flags=re.I):
-        links.append(m.group(1))
-    for m in re.finditer(r'src=["\']([^"\'#]+)(?:#[^"\']*)?["\']', text, flags=re.I):
-        links.append(m.group(1))
+    for m in re.finditer(r'<a[^>]+href=["\']([^"\']+)["\']', text, flags=re.I):
+        href = m.group(1).strip()
+        if not href or href.startswith("#"):
+            continue
+        links.append(href.split("#", 1)[0])
     return links
 
 
-def resolve_link(src_path: Path, link: str):
-    # absolute http(s)
-    if link.startswith('http://') or link.startswith('https://'):
+def is_asset_link(link: str) -> bool:
+    if link.startswith(("mailto:", "tel:", "javascript:")):
+        return True
+    path = link
+    if link.startswith(DOMAIN):
+        path = urlparse(link).path
+    elif link.startswith("/"):
+        path = link
+    else:
+        return False
+    if path.startswith("/assets/"):
+        return True
+    if "?" in path:
+        path = path.split("?", 1)[0]
+    return Path(path).suffix.lower() in ASSET_EXTENSIONS
+
+
+def resolve_link(src_path: Path, link: str, root: Path) -> str | None:
+    if is_asset_link(link):
+        return None
+    if link.startswith("http://") or link.startswith("https://"):
+        if not link.startswith(DOMAIN):
+            return None
         return link
-    if link.startswith('//'):
-        return 'https:' + link
-    # root-relative
-    if link.startswith('/'):
-        return DOMAIN.rstrip('/') + link
-    # relative path
-    return str((src_path.parent / link).resolve())
-
-
-def to_site_path(root: Path, loc: str):
-    # convert generated absolute domain URL back to file path if possible
-    if loc.startswith('http://') or loc.startswith('https://'):
-        if DOMAIN in loc:
-            suffix = loc.split(DOMAIN, 1)[1]
-            if suffix.startswith('/'):
-                candidate = root.joinpath(suffix.lstrip('/'))
-                if candidate.exists():
-                    return candidate
-    # fallback: if loc is filesystem path
-    p = Path(loc)
-    if p.exists():
-        return p
-    return None
-
-
-def short(p: Path):
+    if link.startswith("//"):
+        link = "https:" + link
+        if not link.startswith(DOMAIN):
+            return None
+        return link
+    if link.startswith("/"):
+        return DOMAIN.rstrip("/") + link
+    # relative path: resolve against the source file, then express as a
+    # domain-relative URL so url_to_file() can handle it uniformly.
     try:
-        return str(p.relative_to(ROOT))
+        target_path = (src_path.parent / link).resolve()
+    except (OSError, ValueError):
+        return None
+    try:
+        rel = target_path.relative_to(root)
+    except ValueError:
+        return None
+    return DOMAIN.rstrip("/") + "/" + str(rel).replace("\\", "/")
+
+
+def url_to_file(root: Path, url: str) -> Path | None:
+    if not url.startswith(DOMAIN):
+        return None
+    suffix = url[len(DOMAIN) :]
+    if not suffix or suffix == "/":
+        candidate = root / "index.html"
+        return candidate if candidate.exists() else None
+    if suffix.endswith("/"):
+        candidate = root / suffix.lstrip("/") / "index.html"
+    elif suffix.endswith(".html"):
+        candidate = root / suffix.lstrip("/")
+    else:
+        candidate = root / (suffix.lstrip("/") + "/index.html")
+        if candidate.exists():
+            return candidate
+        candidate = root / (suffix.lstrip("/") + ".html")
+    return candidate if candidate.exists() else None
+
+
+def canonical_to_path(canonical: str | None, fallback: Path, root: Path) -> str:
+    if canonical:
+        if canonical.startswith(DOMAIN):
+            f = url_to_file(root, canonical.rstrip("/") + ("" if canonical.endswith(".html") else ""))
+            if canonical.endswith("/"):
+                f = url_to_file(root, canonical)
+            if f:
+                return str(f.resolve())
+        if canonical.startswith("/"):
+            f = url_to_file(root, DOMAIN + canonical)
+            if f:
+                return str(f.resolve())
+    return str(fallback.resolve())
+
+
+def orphan_allowed(canonical: str | None, path: Path, root: Path) -> bool:
+    if canonical:
+        if canonical in ORPHAN_OK_PATHS or canonical.rstrip("/") + "/" in ORPHAN_OK_PATHS:
+            return True
+        for prefix in ORPHAN_OK_PREFIXES:
+            if canonical.startswith(DOMAIN + prefix) or canonical.startswith(prefix):
+                return True
+    rel = "/" + str(path.relative_to(root)).replace("\\", "/")
+    if rel.endswith("/index.html"):
+        rel = rel[: -len("index.html")] or "/"
+    elif rel.endswith(".html"):
+        rel = "/" + path.name if path.parent == root else rel
+    return rel in ORPHAN_OK_PATHS
+
+
+def short(path: Path, root: Path) -> str:
+    try:
+        return str(path.relative_to(root))
     except Exception:
-        return str(p)
+        return str(path)
 
 
-def main():
-    files = list(find_html_files(ROOT))
-    pages = {}
+def main() -> int:
+    ap = argparse.ArgumentParser(description="Check internal HTML link graph")
+    ap.add_argument("--root", default=".", help="site root")
+    ap.add_argument("--report", action="store_true", help="show inbound/outbound counts")
+    args = ap.parse_args()
+
+    root = Path(args.root).resolve()
+    files = [p for p in root.rglob("*.html") if not should_skip_file(p, root)]
+
+    pages: dict[str, dict] = {}
+    noindex_pages: list[str] = []
+
     for f in files:
         txt = read_text(f)
         if has_noindex(txt):
+            noindex_pages.append(short(f, root))
             continue
         canonical = extract_canonical(txt)
-        links = extract_links(txt)
-        pages[str(f)] = {
-            'path': f,
-            'canonical': canonical,
-            'links': links,
+        key = canonical_to_path(canonical, f, root)
+        pages[key] = {
+            "path": f,
+            "canonical": canonical,
+            "links": extract_anchor_links(txt),
         }
 
-    # build graph
-    outgoing = defaultdict(list)
-    incoming = defaultdict(list)
-    broken = []
+    incoming: dict[str, list[str]] = defaultdict(list)
+    findings: list[Finding] = []
 
-    for p, meta in pages.items():
-        src_path = meta['path']
-        for link in meta['links']:
-            if link.startswith('mailto:') or link.startswith('tel:'):
+    for key, meta in pages.items():
+        src = meta["path"]
+        for link in meta["links"]:
+            resolved = resolve_link(src, link, root)
+            if not resolved:
                 continue
-            resolved = resolve_link(src_path, link)
-            # if link is internal (domain or filesystem)
-            if resolved.startswith(DOMAIN) or resolved.startswith(str(ROOT)) or not re.match(r'https?://', resolved):
-                target_path = to_site_path(ROOT, resolved)
-                if target_path and target_path.exists():
-                    outgoing[p].append(str(target_path))
-                    incoming[str(target_path)].append(p)
-                else:
-                    # allow index.html mapping
-                    # try adding index.html
-                    if resolved.endswith('/'):
-                        candidate = to_site_path(ROOT, resolved + 'index.html')
-                        if candidate and candidate.exists():
-                            outgoing[p].append(str(candidate))
-                            incoming[str(candidate)].append(p)
-                        else:
-                            broken.append((p, link, resolved))
-                    else:
-                        # try resolved + '.html'
-                        candidate = to_site_path(ROOT, resolved + '.html')
-                        if candidate and candidate.exists():
-                            outgoing[p].append(str(candidate))
-                            incoming[str(candidate)].append(p)
-                        else:
-                            broken.append((p, link, resolved))
+            target = url_to_file(root, resolved)
+            if target is None and resolved.endswith("/"):
+                target = url_to_file(root, resolved + "index.html")
+            if target is None and not resolved.endswith(".html"):
+                target = url_to_file(root, resolved.rstrip("/") + "/")
+            if target and target.exists():
+                tkey = str(target.resolve())
+                incoming[tkey].append(key)
+            else:
+                if not is_asset_link(link):
+                    findings.append(
+                        Finding(
+                            "ERROR",
+                            "broken",
+                            f"{short(src, root)} -> {link} (resolved: {resolved})",
+                        )
+                    )
 
-    # orphan pages: pages with zero incoming links (excluding index/home)
-    orphans = []
-    for p in pages:
-        ppath = pages[p]['path']
-        if str(ppath) not in incoming:
-            # skip root index
-            if ppath.name.lower() in ('index.html', 'home.html'):
-                continue
-            orphans.append(p)
+    for key, meta in pages.items():
+        canon = meta["canonical"]
+        path = meta["path"]
+        if not canon:
+            findings.append(
+                Finding("WARNING", "missing-canonical", short(path, root))
+            )
+        if key not in incoming and not orphan_allowed(canon, path, root):
+            label = canon or short(path, root)
+            findings.append(
+                Finding("WARNING", "orphan", f"{short(path, root)} ({label})")
+            )
 
-    # missing canonical
-    missing_canonical = [p for p,m in pages.items() if not m['canonical']]
+    canon_map: dict[str, list[str]] = defaultdict(list)
+    for key, meta in pages.items():
+        if meta["canonical"]:
+            canon_map[meta["canonical"]].append(short(meta["path"], root))
+    for canon, paths in canon_map.items():
+        if len(paths) > 1:
+            findings.append(
+                Finding(
+                    "ERROR",
+                    "canonical-collision",
+                    f"{canon} claimed by: {', '.join(paths)}",
+                )
+            )
 
-    # canonical collisions
-    canon_map = defaultdict(list)
-    for p,m in pages.items():
-        if m['canonical']:
-            canon_map[m['canonical']].append(p)
-    collisions = {c: lst for c,lst in canon_map.items() if len(lst) > 1}
+    if noindex_pages:
+        findings.append(
+            Finding(
+                "INFO",
+                "noindex-skipped",
+                f"{len(noindex_pages)} pages excluded (noindex): {', '.join(noindex_pages[:8])}"
+                + (" …" if len(noindex_pages) > 8 else ""),
+            )
+        )
 
-    # print report
-    print('INTERNAL GRAPH REPORT')
-    print('Files scanned:', len(files))
-    print('Pages considered (noindex excluded):', len(pages))
-    print('\nBROKEN INTERNAL LINKS:')
-    for b in broken[:200]:
-        print('-', short(Path(b[0])), '->', b[1], '(resolved:', b[2], ')')
-    print('\nORPHAN PAGES (no incoming):')
-    for o in orphans[:200]:
-        print('-', short(Path(o)))
-    print('\nPAGES MISSING CANONICAL:')
-    for m in missing_canonical[:200]:
-        print('-', short(Path(m)))
-    print('\nCANONICAL COLLISIONS:')
-    for c,lst in collisions.items():
-        print('-', c)
-        for p in lst[:10]:
-            print('   *', short(Path(p)))
+    print("INTERNAL GRAPH REPORT")
+    print(f"Files scanned: {len(files)}")
+    print(f"Indexable pages: {len(pages)}")
 
-    # exit code non-zero if severe issues found (broken links > 0)
-    if broken:
-        sys.exit(2)
+    for level in ("ERROR", "WARNING", "INFO"):
+        items = [f for f in findings if f.level == level]
+        if not items:
+            continue
+        print(f"\n{level} ({len(items)}):")
+        for item in items[:200]:
+            print(f"  [{item.category}] {item.message}")
+        if len(items) > 200:
+            print(f"  … and {len(items) - 200} more")
+
+    if args.report:
+        print("\nINBOUND COUNTS (indexable):")
+        for key in sorted(pages, key=lambda k: short(Path(k), root)):
+            count = len(incoming.get(key, []))
+            print(f"  {count:3d}  {short(Path(key), root)}")
+
+    errors = sum(1 for f in findings if f.level == "ERROR")
+    warnings = sum(1 for f in findings if f.level == "WARNING")
+    print(f"\nSummary: {errors} error(s), {warnings} warning(s)")
+    return 2 if errors else 0
 
 
-if __name__ == '__main__':
-    main()
+if __name__ == "__main__":
+    raise SystemExit(main())
