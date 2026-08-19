@@ -6,8 +6,8 @@ UID:manecillas-20260915
 DTSTAMP:20260819T125000Z
 DTSTART:20260915T193000
 DTEND:20260915T210000
-SUMMARY:Lectura pública: Las manecillas del recuerdo
-DESCRIPTION:Lectura y presentación del autor.
-LOCATION:Librería Ejemplo, Plaza Central
+SUMMARY:Lectura pública: Las manecillas del recuerdo (fixture)
+DESCRIPTION:Lectura de ejemplo generada a partir de datos de prueba. No es un evento oficial.
+LOCATION:Fixture: Librería Ejemplo
 END:VEVENT
 END:VCALENDAR

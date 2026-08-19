@@ -1,4 +1,35 @@
 <!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Legibilidad — Herramientas</title>
+  <meta name="description" content="Analizador de legibilidad en español (Inflesz, Fernández-Huerta, etc.). Local-only.">
+  <link rel="stylesheet" href="/styles.css">
+  <link rel="stylesheet" href="/assets/legibilidad-espanol.css">
+</head>
+<body>
+<main>
+  <h1>Legibilidad (Inflesz, Fernández-Huerta)</h1>
+  <form data-readability-form>
+    <label for="readability-input">Pega un texto</label>
+    <textarea id="readability-input" data-readability-input></textarea>
+    <div><button type="submit">Analizar</button><button type="button" data-readability-sample>Cargar ejemplo</button><button type="button" data-readability-clear>Borrar</button></div>
+    <p id="readability-status" data-readability-status>El texto no sale del navegador.</p>
+  </form>
+  <section data-readability-results hidden>
+    <div data-summary></div>
+    <div data-metrics></div>
+    <div data-density-strip></div>
+    <ol data-dense></ol>
+    <ol data-longest></ol>
+  </section>
+  <div data-live-count>0 palabras</div>
+</main>
+<script type="module" src="/assets/legibilidad-espanol.js"></script>
+</body>
+</html>
+<!doctype html>
 <html lang="es"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Herramienta de legibilidad | Herramientas</title>
 <meta name="description" content="Calcula índices de legibilidad y ofrece sugerencias rápidas.">
