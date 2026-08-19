@@ -119,7 +119,7 @@
   function showTempLabel(btn, text){ const orig = btn.textContent; btn.textContent = text; setTimeout(()=>btn.textContent=orig,2000); }
 
   // Utility: dispatch dp:analytics custom event (non-blocking)
-  function dispatchShareEvent(action){ try{ const ev = new CustomEvent('dp:analytics', {detail:{category:'article-tools', action}}); window.dispatchEvent(ev);}catch(e){} }
+  function dispatchShareEvent(action){ try{ const ev = new CustomEvent('dp:analytics', {detail:{event: action}}); window.dispatchEvent(ev);}catch(e){} }
 
   // Throttle
   function throttle(fn, wait){ let t=0; return function(){ const now=Date.now(); if (now-t>wait){ t=now; fn.apply(this,arguments); } }; }

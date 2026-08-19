@@ -622,6 +622,30 @@ function _gcEvent(path, title) {
   }, "background");
 }
 
+// Bridge for opt-in modules (Article Tools, herramientas/*) that dispatch a
+// local "dp:analytics" CustomEvent instead of calling _gcEvent() directly —
+// keeps those modules decoupled from GoatCounter and from each other.
+// Manuscript-processing tools deliberately do NOT dispatch this event.
+// Different modules dispatch on window or on document depending on when
+// they were written, so this listens on both; a given event only ever
+// fires on the target it was dispatched to, so there is no double-count.
+function _dpAnalyticsBridge(event) {
+  const detail = event.detail || {};
+  const name = String(detail.event || '');
+  if (!/^[a-z0-9_-]{1,64}$/i.test(name)) return;
+
+  const safeTarget = String(detail.target || '')
+    .replace(/[^a-zA-Z0-9/_.-]/g, '')
+    .slice(0, 96);
+
+  _gcEvent(
+    `article-${name}`,
+    safeTarget ? `Artículo: ${name} · ${safeTarget}` : `Artículo: ${name}`
+  );
+}
+window.addEventListener('dp:analytics', _dpAnalyticsBridge);
+document.addEventListener('dp:analytics', _dpAnalyticsBridge);
+
 // Email capture popup
 // Triggers: 60% scroll depth OR exit-intent (desktop). Once per 7 days, never if subscribed.
 (function () {
