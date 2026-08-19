@@ -197,8 +197,19 @@ def manecillas_semantic_errors(rel: str, text: str):
                         errors.append(f"{rel}: {field} de Manecillas sin purchaseUrl canónica")
     return errors
 
-def contains_offer(text: str) -> bool:
-    return bool(re.search(r'["\']@type["\']\s*:\s*["\']Offer["\']', text, re.I))
+def manecillas_offer_present(rel: str, text: str) -> bool:
+    """True only if an Offer node is actually nested under a Manecillas Book,
+    not merely co-present anywhere on a page that also mentions the title
+    (e.g. an unrelated Offer for Samuel's historical events on /eventos.html)."""
+    for doc in json_documents(rel, text):
+        for obj in iter_dicts(doc):
+            if obj.get("name") != BOOK.get("title") and obj.get("title") != BOOK.get("title"):
+                continue
+            for nested in iter_dicts(obj):
+                nested_type = nested.get("@type")
+                if nested_type == "Offer" or (isinstance(nested_type, list) and "Offer" in nested_type):
+                    return True
+    return False
 
 
 def main() -> int:
@@ -272,7 +283,7 @@ def main() -> int:
                 for pattern in PRELAUNCH_AVAILABLE:
                     if pattern.search(text):
                         errors.append(f"{rel}: estado de compra/disponibilidad prematuro para Manecillas")
-                if contains_offer(text) and "manecillas" in text.lower():
+                if manecillas_offer_present(rel, text):
                     errors.append(f"{rel}: Offer de Manecillas antes de existir purchaseUrl canónica")
 
     if mode == "launch":
@@ -285,7 +296,7 @@ def main() -> int:
         # Si purchaseUrl o format siguen sin verificar, deben omitirse; nunca inventarse.
         if not BOOK.get("purchaseUrl"):
             for rel, text in public_surfaces:
-                if "manecillas" in text.lower() and contains_offer(text):
+                if manecillas_offer_present(rel, text):
                     errors.append(f"{rel}: Offer de Manecillas sin purchaseUrl canónica")
         if not BOOK.get("format"):
             warnings.append("editorial-facts.json: format sigue null; se permite publicar si se omite de las superficies públicas")
