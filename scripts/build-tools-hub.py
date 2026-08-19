@@ -37,8 +37,22 @@ def validate(data):
             raise ValueError(f"privacy desconocida: {tool['privacy']}")
         if not tool["href"].startswith("/") or not tool["href"].endswith("/"):
             raise ValueError(f"ruta inválida: {tool['href']}")
+        # The hub must not list itself as one of the tools it indexes.
+        if tool["href"] == "/herramientas/":
+            raise ValueError("el hub no puede listarse a sí mismo como herramienta")
         seen_slug.add(tool["slug"]); seen_href.add(tool["href"])
-    return tools
+
+    directories = data.get("directories", [])
+    if not isinstance(directories, list):
+        raise ValueError("directories debe ser una lista")
+    for i, entry in enumerate(directories, 1):
+        for key in ("name", "href", "summary"):
+            if not isinstance(entry.get(key), str) or not entry[key].strip():
+                raise ValueError(f"directorio {i}: falta {key}")
+        if entry["href"] in seen_href:
+            raise ValueError(f"href duplicado entre herramientas y directorios: {entry['href']}")
+
+    return tools, directories
 
 
 def card(tool):
@@ -50,7 +64,14 @@ def card(tool):
 </article>'''
 
 
-def render(data, tools):
+def directory_card(entry):
+    return f'''<article class="directory-card">
+  <h3><a href="{html.escape(entry['href'])}">{html.escape(entry['name'])}</a></h3>
+  <p>{html.escape(entry['summary'])}</p>
+</article>'''
+
+
+def render(data, tools, directories):
     sections=[]
     for key,(title,desc) in CATEGORIES.items():
         subset=[t for t in tools if t['category']==key]
@@ -60,6 +81,12 @@ def render(data, tools):
 <div class="tools-grid">{''.join(card(t) for t in subset)}</div>
 </section>''')
     items=''.join('<li><a href="{0}">{1}</a></li>'.format(html.escape(t['href']), html.escape(t['name'])) for t in tools)
+    directories_section = ''
+    if directories:
+        directories_section = f'''<section class="tools-directories"><h2>Checklists y directorios relacionados</h2>
+<p>Estas páginas no son herramientas interactivas: son listas de comprobación o directorios de referencia. No cuentan como parte de las {len(tools)} herramientas de arriba.</p>
+<div class="directories-grid">{''.join(directory_card(d) for d in directories)}</div>
+</section>'''
     return f'''<!doctype html>
 <html lang="es"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <meta name="robots" content="index,follow,max-image-preview:large">
@@ -75,9 +102,10 @@ def render(data, tools):
 <header class="tools-hero"><p class="eyebrow">Recursos para escritores</p><h1>Herramientas pequeñas para problemas concretos.</h1>
 <p class="lead">Sin cuenta y sin convertir cada decisión en un «score». Si una herramienta recibe texto privado, la página indica de forma explícita si se procesa solo en tu navegador.</p></header>
 <section class="tool-finder" aria-labelledby="finder-title"><h2 id="finder-title">¿Qué necesitas hacer?</h2>
-<div class="tool-filters" role="group" aria-label="Filtrar herramientas"><button type="button" data-filter="all" aria-pressed="true">Todas</button><button type="button" data-filter="revisar">Revisar texto</button><button type="button" data-filter="estructura">Personajes y estructura</button><button type="button" data-filter="publicar">Publicar y promocionar</button><button type="button" data-filter="local">Solo navegador</button></div>
+<div class="tool-filters" role="group" aria-label="Filtrar herramientas"><button type="button" data-filter="all" aria-pressed="true">Todas</button><button type="button" data-filter="revisar">Revisar texto</button><button type="button" data-filter="estructura">Personajes y estructura</button><button type="button" data-filter="publicar">Publicar y promocionar</button><button type="button" data-filter="investigar">Investigar y recordar</button><button type="button" data-filter="local">Solo navegador</button></div>
 <p class="tool-count" data-tool-count aria-live="polite">{len(tools)} herramientas</p></section>
 {''.join(sections)}
+{directories_section}
 <section class="tools-method"><h2>Qué significa «privada» aquí</h2><p>Las herramientas marcadas «En tu navegador» no necesitan enviar el texto o los datos introducidos a nuestro servidor para calcular el resultado. Las que necesitan consultar una URL pública lo dicen de forma distinta. No usamos «privada» como sello de seguridad genérico.</p></section>
 <section class="tools-external"><h2>¿Buscas software externo?</h2><p>Este hub reúne herramientas creadas para davidportodiaz.com. La selección de programas y servicios de terceros vive aparte para poder verificar precio, plataforma, idioma y tratamiento del manuscrito sin mezclar recomendaciones con producto propio.</p><p><a href="/recursos/herramientas-para-escritores/">Ver directorio curado de herramientas para autores</a></p></section>
 <noscript><section class="tools-noscript"><h2>Todas las herramientas</h2><ul>{items}</ul></section></noscript>
@@ -86,11 +114,11 @@ def render(data, tools):
 
 def main():
     p=argparse.ArgumentParser(); p.add_argument('data'); p.add_argument('output'); p.add_argument('--check', action='store_true'); args=p.parse_args()
-    data=json.loads(Path(args.data).read_text(encoding='utf-8')); tools=validate(data); out=render(data,tools); target=Path(args.output)
+    data=json.loads(Path(args.data).read_text(encoding='utf-8')); tools,directories=validate(data); out=render(data,tools,directories); target=Path(args.output)
     if args.check:
         if not target.exists() or target.read_text(encoding='utf-8') != out:
             print('OUTDATED', file=sys.stderr); return 2
-        print(f'OK: {len(tools)} herramientas'); return 0
-    target.write_text(out,encoding='utf-8'); print(f'GENERATED: {len(tools)} herramientas'); return 0
+        print(f'OK: {len(tools)} herramientas, {len(directories)} directorios'); return 0
+    target.write_text(out,encoding='utf-8'); print(f'GENERATED: {len(tools)} herramientas, {len(directories)} directorios'); return 0
 
 if __name__=='__main__': raise SystemExit(main())
