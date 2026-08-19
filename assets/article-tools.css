@@ -1,0 +1,19 @@
+/* Article Tools styles - scoped to .article-tools */
+.article-tools{font-family:inherit;color:var(--text);max-width:980px;margin:12px auto 20px;padding:10px 14px;border-radius:8px;background:transparent;display:flex;align-items:center;gap:12px}
+.article-tools .at-toc{display:flex;flex-direction:column;gap:8px}
+.article-tools .at-controls{margin-left:auto;display:flex;gap:8px;align-items:center}
+.article-tools .at-btn{appearance:none;border:1px solid var(--border);background:var(--surface);color:var(--text);padding:8px 10px;border-radius:6px;font-size:0.95rem;cursor:pointer}
+.article-tools .at-btn:focus{outline:2px solid Highlight;color:HighlightText}
+.article-tools .at-toc-list{max-height:220px;overflow:auto;padding:8px;border:1px solid var(--border);border-radius:6px;background:rgba(0,0,0,0.02)}
+.article-tools .at-share{display:inline-flex;align-items:center;gap:8px}
+
+/* Small screens: stack controls */
+@media (max-width:640px){
+  .article-tools{flex-direction:column;align-items:stretch}
+  .article-tools .at-controls{margin-left:0}
+}
+
+/* Reduced motion */
+@media (prefers-reduced-motion: reduce){
+  .article-tools .at-toc-list{transition:none}
+}

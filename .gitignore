@@ -22,3 +22,6 @@ web-escritor.md
 _tools/
 _reddit/
 _david/
+.env
+.env.*
+!.env.example
