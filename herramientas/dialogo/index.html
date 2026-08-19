@@ -1,4 +1,54 @@
 <!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self'; connect-src 'none';">
+  <title>Medidor de diálogo — Herramientas</title>
+  <meta name="description" content="Analiza localmente el porcentaje de diálogo en textos narrativos en español. El texto no se envía a servidores externos.">
+  <link rel="stylesheet" href="/styles.css">
+  <link rel="stylesheet" href="/assets/dialogo-espanol.css">
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":["SoftwareApplication","WebApplication"],"name":"Medidor de diálogo para novelas en español","url":"/herramientas/porcentaje-dialogo/","description":"Herramienta gratuita que analiza localmente el porcentaje y la distribución del diálogo en textos narrativos en español.","applicationCategory":"UtilitiesApplication","operatingSystem":"Navegador web"}</script>
+</head>
+<body>
+<main id="main-content" class="dialogue-tool">
+  <nav class="breadcrumb" aria-label="Ruta de navegación"><a href="/">Inicio</a> › <a href="/herramientas/">Herramientas</a> › <span>Medidor de diálogo</span></nav>
+  <header class="dialogue-tool__intro">
+    <p class="eyebrow">Herramienta para escritores</p>
+    <h1>¿Qué porcentaje de tu texto está en bloques de diálogo?</h1>
+    <p>Pega un fragmento, capítulo o manuscrito. El análisis reconoce párrafos iniciados con raya — y, cuando no hay rayas, segmentos entre «comillas españolas», “tipográficas” o "rectas". El texto se procesa exclusivamente en el navegador.</p>
+  </header>
+
+  <form class="dialogue-tool__panel" data-dialogue-tool>
+    <label for="dialogue-text">Texto a analizar</label>
+    <textarea id="dialogue-text" name="text" spellcheck="false" autocomplete="off" placeholder="—No sé si debería entrar —dijo Ana—.\n\nLa puerta seguía abierta.\n\n«Hazlo», pensó."></textarea>
+    <div class="dialogue-tool__actions">
+      <button type="submit">Analizar diálogo</button>
+      <button type="button" data-dialogue-clear>Limpiar</button>
+    </div>
+    <p class="dialogue-tool__privacy"><strong>Privacidad:</strong> el texto se procesa localmente en tu navegador. No se envía a terceros.</p>
+  </form>
+
+  <section class="dialogue-results" data-dialogue-results hidden aria-live="polite">
+    <h2>Resultado</h2>
+    <p class="dialogue-results__note" data-dialogue-basis></p>
+    <dl class="dialogue-metrics" data-dialogue-metrics></dl>
+    <h3>Convenciones detectadas</h3>
+    <p data-dialogue-conventions></p>
+    <p class="dialogue-results__note" data-dialogue-caveat></p>
+    <p class="dialogue-results__note" data-dialogue-caveat-extra></p>
+    <details>
+      <summary>Ver hasta 20 bloques detectados</summary>
+      <ol data-dialogue-detail></ol>
+    </details>
+    <h3>Distribución por capítulos</h3>
+    <ol data-dialogue-chapters></ol>
+  </section>
+</main>
+<script type="module" src="/assets/dialogo-espanol.js"></script>
+</body>
+</html>
+<!doctype html>
 <html lang="es"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Porcentaje de diálogo | Herramientas</title>
 <meta name="description" content="Analizador que estima porcentaje de diálogo en un texto.">
