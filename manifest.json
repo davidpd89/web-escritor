@@ -1,11 +1,11 @@
 {
-  "name": "David Porto Díaz — Escritor de fantasía juvenil",
+  "id": "/",
+  "name": "David Porto Díaz — Escritor",
   "short_name": "David Porto",
-  "description": "Web oficial de David Porto Díaz, autor de Samuel entre mundos, novela de fantasía juvenil española ambientada en Noveris.",
+  "description": "Web oficial de David Porto Díaz: Las manecillas del recuerdo, Samuel entre mundos, artículos sobre escritura, lectura y proceso editorial.",
   "start_url": "/",
   "scope": "/",
   "display": "standalone",
-  "orientation": "portrait-primary",
   "background_color": "#080a0c",
   "theme_color": "#080a0c",
   "lang": "es",
@@ -32,22 +32,28 @@
   ],
   "shortcuts": [
     {
-      "name": "Samuel entre mundos",
-      "short_name": "Samuel",
-      "url": "/libros/samuel-entre-mundos/",
-      "description": "Ficha oficial de la novela Samuel entre mundos."
+      "name": "Las manecillas del recuerdo",
+      "short_name": "Manecillas",
+      "url": "/las-manecillas-del-recuerdo/",
+      "description": "Ficha oficial, sinopsis, fragmentos y novedades de Las manecillas del recuerdo."
     },
     {
-      "name": "Noveris, ciudad fantástica",
-      "short_name": "Noveris",
-      "url": "/universo/noveris/",
-      "description": "Noveris, ciudad fantástica de Samuel entre mundos y base de su worldbuilding."
+      "name": "Todos los libros",
+      "short_name": "Libros",
+      "url": "/libros/",
+      "description": "Catálogo de novelas de David Porto Díaz."
+    },
+    {
+      "name": "Cuaderno",
+      "short_name": "Cuaderno",
+      "url": "/cuaderno/",
+      "description": "Artículos sobre escritura, lectura, fantasía y proceso editorial."
     },
     {
       "name": "Kit de prensa",
       "short_name": "Prensa",
       "url": "/prensa.html",
-      "description": "Bios, ficha técnica y contacto para medios."
+      "description": "Biografías, fichas editoriales, imágenes y contacto para medios."
     }
   ]
 }

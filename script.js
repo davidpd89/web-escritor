@@ -75,8 +75,8 @@ if (navToggle && siteNav) {
   if (!siteNav || siteNav.querySelector(".explore-nav")) return;
 
   const groups = [
-    { title: "Inicio", links: [["/", "Página principal"], ["/empieza-aqui/", "Empieza por aquí"], ["/fragmento/", "Leer capítulo 1 gratis"], ["/libros/samuel-entre-mundos/#comprar", "Dónde comprar Samuel"]] },
-    { title: "Libros y recursos", links: [["/libros/", "Todos los libros"], ["/libros/samuel-entre-mundos/", "Samuel entre mundos"], ["/las-manecillas-del-recuerdo/", "Las manecillas del recuerdo"], ["/clubes-de-lectura/samuel-entre-mundos/", "Clubes de lectura"], ["/clubes-de-lectura/samuel-entre-mundos/guia-imprimible/", "Guía imprimible"]] },
+    { title: "Inicio", links: [["/", "Página principal"], ["/empieza-aqui/", "Empieza por aquí"], ["/las-manecillas-del-recuerdo/", "Las manecillas del recuerdo — novedad"], ["/cuaderno/", "Cuaderno"]] },
+    { title: "Libros y recursos", links: [["/libros/", "Todos los libros"], ["/libros/samuel-entre-mundos/", "Samuel entre mundos"], ["/fragmento/", "Leer capítulo 1 gratis"], ["/libros/samuel-entre-mundos/#comprar", "Dónde comprar Samuel"], ["/clubes-de-lectura/samuel-entre-mundos/", "Clubes de lectura"], ["/clubes-de-lectura/samuel-entre-mundos/guia-imprimible/", "Guía imprimible"]] },
     { title: "Lectura y mundo", links: [["/universo/noveris/", "Noveris"], ["/recomendaciones/", "Recomendaciones"], ["/recomendaciones/portal-fantasy-espanol/", "Portal fantasy en español"], ["/recomendaciones/magia-con-coste/", "Libros con magia con coste"]] },
     { title: "Cuaderno", links: [["/cuaderno/", "Todos los artículos"], ["/cuaderno/feria-libro-madrid-2026-samuel-entre-mundos/", "Feria del Libro Madrid 2026"], ["/cuaderno/que-es-el-portal-fantasy/", "Qué es el portal fantasy"], ["/cuaderno/sistema-de-magia-noveris/", "Sistema de magia de Noveris"], ["/cuaderno/worldbuilding-noveris-ciudad-magica/", "Worldbuilding de Noveris"]] },
     { title: "Autor y prensa", links: [["/autor.html", "Sobre David Porto Díaz"], ["/prensa.html", "Kit de prensa"], ["/eventos.html", "Eventos y firmas"], ["/premios.html", "Premios"], ["/#contacto", "Contacto"]] },
@@ -169,8 +169,8 @@ window.addEventListener("load", () => {
 
   const items = [
     { href: "/", label: "Inicio", icon: "⌂" },
+    { href: "/las-manecillas-del-recuerdo/", label: "Novedad", icon: "◷" },
     { href: "/libros/", label: "Libros", icon: "◇" },
-    { href: "/fragmento/", label: "Leer", icon: "Ⅰ" },
     { href: "/cuaderno/", label: "Cuaderno", icon: "✎" },
     { href: "/#contacto", label: "Contacto", icon: "@" }
   ];

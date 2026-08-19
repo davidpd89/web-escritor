@@ -32,10 +32,16 @@
 
   <script type="speculationrules">
   {
-    "prerender": [{
-      "urls": ["/libros/samuel-entre-mundos/", "/universo/noveris/"],
-      "eagerness": "moderate"
-    }]
+    "prefetch": [
+      {
+        "source": "list",
+        "urls": [
+          "/las-manecillas-del-recuerdo/",
+          "/libros/"
+        ],
+        "eagerness": "moderate"
+      }
+    ]
   }
   </script>
 
