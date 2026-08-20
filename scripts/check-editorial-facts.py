@@ -45,7 +45,15 @@ FORBIDDEN_AWARD_WORDING = [
 
 FORBIDDEN_SAMUEL_CANON = [
     (re.compile(r"Samuel entre mundos.{0,240}\b412\s+páginas\b", re.I | re.S), "412 páginas de Samuel incorrecto (dato de retailer, no del editor); el valor correcto es 422 (409 numeradas + portada/contraportada, confirmado contra el ejemplar físico y la ficha de Libros Indie)"),
-    (re.compile(r"Samuel entre mundos.{0,240}\b12\s*(?:\+|[-–]\s*(?:17|18)|años en adelante)", re.I | re.S), "edad objetivo de Samuel no verificada (valor correcto: 15+)"),
+    # Edad: sin fuente primaria (la ficha de Libros Indie no publica un rango de
+    # edad; Casa del Libro dice 15+ pero es un retailer, la misma fuente que dio
+    # el dato de páginas incorrecto). No se afirma ningún número concreto.
+    # Anchored to actual age phrasing ("X años", "X+ años", "a partir de X años")
+    # so it doesn't false-positive on timestamps/date ranges elsewhere on a page
+    # that happens to mention Samuel entre mundos within the lookaround window.
+    (re.compile(r"Samuel entre mundos.{0,240}\b\d{1,2}\s*(?:\+\s*años|\+(?!\d)|años en adelante|(?:años? )?en adelante)", re.I | re.S), "edad objetivo de Samuel no verificada (sin fuente primaria; no afirmar un número concreto)"),
+    (re.compile(r"\ba partir de\s+\d{1,2}\s*años.{0,240}Samuel entre mundos", re.I | re.S), "edad objetivo de Samuel no verificada (sin fuente primaria; no afirmar un número concreto)"),
+    (re.compile(r"Samuel entre mundos.{0,240}\ba partir de\s+\d{1,2}\s*años", re.I | re.S), "edad objetivo de Samuel no verificada (sin fuente primaria; no afirmar un número concreto)"),
     (re.compile(r"Samuel entre mundos.{0,260}(?:9\s+calificaciones|11\s+valoraciones|aggregateRating)", re.I | re.S), "valoraciones de Samuel no aptas como dato canónico durable"),
     # Año resuelto el 19/08/2026: 2025 es correcto, 2026 es el valor incorrecto que circulaba.
     # Este patrón exige que el paréntesis con el año venga pegado al título (permitiendo
