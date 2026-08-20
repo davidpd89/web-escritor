@@ -18,3 +18,5 @@ jobs:
         run: python scripts/build-sitemap.py --check
       - name: Check indexable pages are not orphaned
         run: python scripts/check-internal-graph.py
+      - name: Check local asset references resolve to real files
+        run: python scripts/check-local-assets.py

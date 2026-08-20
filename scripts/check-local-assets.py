@@ -159,19 +159,25 @@ def audit_file(path: Path, root: Path) -> list[str]:
     return errors
 
 
-JS_IMPORT_RE = None
+import re as _re
+
+# Local-reference patterns inside JS source that an HTML attribute scan can't
+# see: static `from './x.js'`, side-effect `import('./x.js')` dynamic
+# imports, `new Worker('./x.js')` and `importScripts('./x.js')` (used inside
+# worker files themselves). Each capture group must be the quoted path.
+JS_REF_PATTERNS = [
+    (_re.compile(r"""from\s+['"](\.\.?/[^'"]+)['"]"""), "static import"),
+    (_re.compile(r"""\bimport\(\s*['"](\.\.?/[^'"]+)['"]"""), "dynamic import()"),
+    (_re.compile(r"""new\s+Worker\(\s*['"]([^'"]+)['"]"""), "new Worker()"),
+    (_re.compile(r"""\bimportScripts\(\s*['"]([^'"]+)['"]"""), "importScripts()"),
+]
 
 
 def audit_js_imports(root: Path) -> list[str]:
-    """ES module `import ... from './x.js'` targets are invisible to an HTML
-    attribute scan but are exactly the kind of local reference that can 404
-    or fail to load - check every JS file under assets/ (where the site's
-    ES modules live) for relative imports that don't resolve."""
-    import re
-    global JS_IMPORT_RE
-    if JS_IMPORT_RE is None:
-        JS_IMPORT_RE = re.compile(r"""from\s+['"](\.\.?/[^'"]+)['"]""")
-
+    """Local references inside JS source are invisible to an HTML attribute
+    scan but are exactly the kind of reference that can 404 or fail to load
+    silently at runtime - check every JS file under assets/ (where the
+    site's scripts/modules/workers live)."""
     errors = []
     assets_dir = root / "assets"
     if not assets_dir.is_dir():
@@ -181,12 +187,40 @@ def audit_js_imports(root: Path) -> list[str]:
             text = js_path.read_text(encoding="utf-8", errors="replace")
         except OSError:
             continue
-        for m in JS_IMPORT_RE.finditer(text):
-            rel_import = m.group(1)
-            target = (js_path.parent / rel_import).resolve()
+        rel_js = js_path.relative_to(root).as_posix()
+        for pattern, label in JS_REF_PATTERNS:
+            for m in pattern.finditer(text):
+                ref = m.group(1)
+                if not is_local(ref):
+                    continue
+                target = resolve_local(ref, js_path, root)
+                if not target.exists():
+                    errors.append(f"{rel_js}: missing {label} target: {ref} -> {target}")
+    return errors
+
+
+def audit_css_urls(root: Path) -> list[str]:
+    """CSS `url(...)` referencing a local, non-data path (fonts, background
+    images) - the site currently has none pointing off-disk, but this is a
+    one-line regex to keep it that way rather than a hypothetical risk."""
+    url_re = _re.compile(r"""url\(\s*(['"]?)([^'")]+)\1\s*\)""")
+    errors = []
+    for css_path in sorted(root.rglob("*.css")):
+        rel = css_path.relative_to(root)
+        if any(part in SKIP_PARTS for part in rel.parts):
+            continue
+        try:
+            text = css_path.read_text(encoding="utf-8", errors="replace")
+        except OSError:
+            continue
+        rel_css = rel.as_posix()
+        for m in url_re.finditer(text):
+            ref = m.group(2).strip()
+            if not is_local(ref):
+                continue
+            target = resolve_local(ref, css_path, root)
             if not target.exists():
-                rel_js = js_path.relative_to(root).as_posix()
-                errors.append(f"{rel_js}: missing JS import target: {rel_import} -> {target}")
+                errors.append(f"{rel_css}: missing CSS url() target: {ref} -> {target}")
     return errors
 
 
@@ -205,10 +239,17 @@ def main() -> int:
     js_errors = audit_js_imports(root)
     all_errors.extend(js_errors)
 
+    css_errors = audit_css_urls(root)
+    all_errors.extend(css_errors)
+
     for e in all_errors:
         print(f"ERROR {e}")
 
-    print(f"\nLocal asset check: {scanned} HTML files scanned; {len(all_errors)} broken local reference(s) (including {len(js_errors)} JS import target(s)).")
+    print(
+        f"\nLocal asset check: {scanned} HTML files scanned; {len(all_errors)} broken local "
+        f"reference(s) (including {len(js_errors)} JS reference target(s) and "
+        f"{len(css_errors)} CSS url() target(s))."
+    )
     return 1 if all_errors else 0
 
 
