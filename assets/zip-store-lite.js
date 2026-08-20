@@ -42,10 +42,15 @@ export function strToU8(str) {
   return new TextEncoder().encode(str);
 }
 
+// Se leen los componentes en UTC, no en hora local: con getters locales el
+// mismo contenido producía un ZIP distinto en cada zona horaria (y con el
+// epoch 1980-01-01T00:00Z, en cualquier zona al oeste de UTC el año local
+// caía a 1979 y el campo de año se iba a negativo). La reproducibilidad
+// exige que los bytes no dependan de dónde esté el navegador.
 function dosDateTime(date) {
-  const time = ((date.getHours() & 0x1f) << 11) | ((date.getMinutes() & 0x3f) << 5) | ((date.getSeconds() >> 1) & 0x1f);
-  const year = date.getFullYear() - 1980;
-  const dosDate = ((year & 0x7f) << 9) | (((date.getMonth() + 1) & 0xf) << 5) | (date.getDate() & 0x1f);
+  const time = ((date.getUTCHours() & 0x1f) << 11) | ((date.getUTCMinutes() & 0x3f) << 5) | ((date.getUTCSeconds() >> 1) & 0x1f);
+  const year = Math.max(0, date.getUTCFullYear() - 1980);
+  const dosDate = ((year & 0x7f) << 9) | (((date.getUTCMonth() + 1) & 0xf) << 5) | (date.getUTCDate() & 0x1f);
   return { time: time & 0xffff, date: dosDate & 0xffff };
 }
 
@@ -67,11 +72,18 @@ class ByteWriter {
  * @param {Record<string, Uint8Array>} files - path -> file bytes. Options
  *   objects (as used by fflate's [bytes, {level}] tuple form) are also
  *   accepted and ignored, since STORE has no compression level.
- * @param {{mtime?: Date}} [options]
+ * @param {{mtime?: Date}} [options] - `mtime` fija la marca de tiempo escrita
+ *   en las entradas del ZIP. Por defecto NO se usa la hora actual: se usa
+ *   1980-01-01, el epoch del formato ZIP (MS-DOS no representa fechas
+ *   anteriores). Un `new Date()` por defecto hacía que dos ZIP con exactamente
+ *   el mismo contenido salieran con bytes distintos, rompiendo la
+ *   reproducibilidad que exige el contrato del generador de kit de prensa.
  * @returns {Uint8Array}
  */
+export const ZIP_EPOCH = new Date(Date.UTC(1980, 0, 1, 0, 0, 0));
+
 export function zipStoreSync(files, options = {}) {
-  const mtime = options.mtime instanceof Date ? options.mtime : new Date();
+  const mtime = options.mtime instanceof Date ? options.mtime : ZIP_EPOCH;
   const { time: dosTime, date: dosDate } = dosDateTime(mtime);
   const local = new ByteWriter();
   const central = new ByteWriter();

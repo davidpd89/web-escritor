@@ -1,5 +1,5 @@
 import { slugify, sanitizeFilename, validatePressKitModel, buildTextFiles, sha256Hex } from './kit-prensa-core.js';
-import { strToU8, zipStoreSync } from './zip-store-lite.js';
+import { strToU8, zipStoreSync, ZIP_EPOCH } from './zip-store-lite.js';
 
 const root = document.querySelector('[data-press-kit-builder]');
 if (root) init(root);
@@ -74,7 +74,9 @@ function init(root) {
       const checksums = checksumEntries.map(x => `${x.sha256}  ${x.path}`).join('\n') + '\n';
       archive['CHECKSUMS_SHA256.txt'] = strToU8(checksums);
 
-      const zip = zipStoreSync(archive);
+      // mtime fijo: el contrato del doc 36 exige que dos kits con el mismo
+      // contenido produzcan un ZIP identico byte a byte.
+      const zip = zipStoreSync(archive, { mtime: ZIP_EPOCH });
       const blob = new Blob([zip], { type: 'application/zip' });
       const filename = `kit-prensa-${slugify(model.authorName)}-${slugify(model.bookTitle)}.zip`;
       download(blob, filename);
@@ -120,18 +122,38 @@ function modelFromForm(form) {
   };
 }
 
+const MAX_ASSETS = 10;
+const ACCEPTED_MIME = new Set(['image/jpeg', 'image/png', 'image/webp', 'application/pdf']);
+
+// Antes esta funcion hacia `continue` con los MIME no admitidos y devolvia
+// `result.slice(0, 10)`: quien seleccionaba 12 imagenes, o un .tiff, recibia un
+// ZIP al que le faltaban archivos sin que nada se lo dijera. Ahora ambos casos
+// son errores visibles.
 function collectAssetFiles(form) {
   const result = [];
-  const accept = new Set(['image/jpeg', 'image/png', 'image/webp', 'application/pdf']);
+  const rejected = [];
   for (const [field, role] of [['authorPhotos', 'author'], ['coverFiles', 'cover'], ['otherFiles', 'other']]) {
     const input = form.elements[field];
     for (const file of input?.files || []) {
-      if (!accept.has(file.type)) continue;
+      if (!ACCEPTED_MIME.has(file.type)) {
+        rejected.push(file.name);
+        continue;
+      }
       if (file.size > 12 * 1024 * 1024) throw new Error(`Archivo demasiado grande: ${file.name}`);
       result.push({ role, file });
     }
   }
-  return result.slice(0, 10);
+  if (rejected.length) {
+    throw new Error(
+      `Formato no admitido: ${rejected.join(', ')}. Se aceptan JPG, PNG, WebP y PDF.`
+    );
+  }
+  if (result.length > MAX_ASSETS) {
+    throw new Error(
+      `Has seleccionado ${result.length} archivos y el maximo es ${MAX_ASSETS}. Quita ${result.length - MAX_ASSETS} y vuelve a generar el kit.`
+    );
+  }
+  return result;
 }
 
 async function manifestEntry(path, bytes, role, mime = 'text/plain') {
