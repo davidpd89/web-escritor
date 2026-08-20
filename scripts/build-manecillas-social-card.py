@@ -25,7 +25,13 @@ from pathlib import Path
 from PIL import Image, ImageDraw, ImageFilter, ImageFont, ImageOps
 
 ROOT = Path(__file__).resolve().parents[1]
-COVER = ROOT / "assets" / "manecillas" / "source" / "portada-master-1024x1536.png"
+# Versioned input: the same 1024x1536 cover already tracked in git and used
+# sitewide (index.html, /libros/, etc.), NOT the gitignored lossless PNG
+# master under assets/manecillas/source/ — that master is a local-only
+# convenience copy, so building from it would make this script
+# non-reproducible from a clean checkout. Versioned input + this builder
+# = reproducible output, per project convention.
+COVER = ROOT / "assets" / "portada-las-manecillas-del-recuerdo-1024.webp"
 OUT = ROOT / "assets" / "og-manecillas.webp"
 
 FONT_SERIF = ROOT / "assets" / "fonts" / "cg-normal-latin.woff2"  # Cormorant Garamond

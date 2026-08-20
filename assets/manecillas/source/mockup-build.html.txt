@@ -22,7 +22,7 @@
   .face{ position:absolute; }
   .front{
     width:var(--w); height:var(--h);
-    background-image:url('portada-master-1024x1536.png');
+    background-image:url('COVER_URL_PLACEHOLDER');
     background-size:cover;
     background-position:center;
     transform: translateZ(calc(var(--d) / 2));
