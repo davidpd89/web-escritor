@@ -2,46 +2,141 @@
 <html lang="es">
 <head>
   <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1">
-  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; connect-src 'none'; form-action 'none';">
-  <title>Legibilidad — Herramientas</title>
-  <meta name="description" content="Analizador de legibilidad en español (Inflesz, Fernández-Huerta, etc.). Local-only.">
-  <meta property="og:title" content="Legibilidad — Herramientas">
-  <meta property="og:description" content="Analizador de legibilidad en español (Inflesz, Fernández-Huerta, etc.). Local-only.">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; connect-src 'none'; script-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; font-src 'self'; worker-src 'self'; object-src 'none'; base-uri 'self'; form-action 'none'; frame-src 'none'; media-src 'none'; manifest-src 'self'">
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+  <title>Analizador de legibilidad en español | Herramientas</title>
+  <meta name="description" content="Pega un texto y comprueba su legibilidad con Inflesz, Fernández-Huerta y otras fórmulas en español. Señala frases y párrafos densos. Se procesa en tu navegador y no se envía a ningún servidor.">
+  <meta property="og:title" content="Analizador de legibilidad en español | Herramientas">
+  <meta property="og:description" content="Pega un texto y comprueba su legibilidad con Inflesz, Fernández-Huerta y otras fórmulas en español. Señala frases y párrafos densos. Se procesa en tu navegador y no se envía a ningún servidor.">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://davidportodiaz.com/herramientas/legibilidad/">
   <meta property="og:image" content="https://davidportodiaz.com/assets/david-porto-imagen-compartir.webp">
   <meta property="og:image:width" content="1731">
   <meta property="og:image:height" content="909">
-  <meta property="og:image:alt" content="Legibilidad — Herramientas">
+  <meta property="og:image:alt" content="Analizador de legibilidad en español | Herramientas">
   <meta property="og:locale" content="es_ES">
   <meta property="og:site_name" content="David Porto Díaz">
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Legibilidad — Herramientas">
-  <meta name="twitter:description" content="Analizador de legibilidad en español (Inflesz, Fernández-Huerta, etc.). Local-only.">
+  <meta name="twitter:title" content="Analizador de legibilidad en español | Herramientas">
+  <meta name="twitter:description" content="Pega un texto y comprueba su legibilidad con Inflesz, Fernández-Huerta y otras fórmulas en español. Señala frases y párrafos densos. Se procesa en tu navegador y no se envía a ningún servidor.">
   <meta name="twitter:image" content="https://davidportodiaz.com/assets/david-porto-imagen-compartir.webp">
-  <meta name="twitter:image:alt" content="Legibilidad — Herramientas">
+  <meta name="twitter:image:alt" content="Analizador de legibilidad en español | Herramientas">
   <link rel="canonical" href="https://davidportodiaz.com/herramientas/legibilidad/">
   <link rel="stylesheet" href="/styles.css?v=202609-launch-1">
   <link rel="stylesheet" href="/assets/legibilidad-espanol.css">
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebApplication","name":"Analizador de legibilidad en español","url":"https://davidportodiaz.com/herramientas/legibilidad/","applicationCategory":"UtilitiesApplication","operatingSystem":"Cualquier navegador moderno","isAccessibleForFree":true,"inLanguage":"es","author":{"@id":"https://davidportodiaz.com/#author"},"description":"Herramienta gratuita que analiza localmente un texto en español con Inflesz, Fernández-Huerta y otras fórmulas de legibilidad, y compara la densidad formal de sus párrafos."}</script>
 </head>
 <body>
-<main>
-  <h1>Legibilidad (Inflesz, Fernández-Huerta)</h1>
-  <form data-readability-form>
-    <label for="readability-input">Pega un texto</label>
-    <textarea id="readability-input" data-readability-input></textarea>
-    <div><button type="submit">Analizar</button><button type="button" data-readability-sample>Cargar ejemplo</button><button type="button" data-readability-clear>Borrar</button></div>
-    <p id="readability-status" data-readability-status>El texto no sale del navegador.</p>
+<a href="#main-content" class="skip-link">Saltar al contenido</a>
+<main id="main-content" tabindex="-1" class="readability-page">
+  <nav class="breadcrumb" aria-label="Ruta de navegación"><a href="/">Inicio</a> › <a href="/herramientas/">Herramientas</a> › <span>Legibilidad</span></nav>
+
+  <header class="readability-hero">
+    <p class="eyebrow">Herramienta gratuita · análisis local</p>
+    <h1>¿Dónde se vuelve más denso tu texto?</h1>
+    <p class="lead">A veces lo notas al releer y cuesta señalar dónde. Pega unas páginas aquí. El analizador cuenta sílabas y longitud de frase, compara párrafos y te enseña dónde cambia la carga de lectura. Tú decides si hay que tocar algo.</p>
+    <div class="readability-trust" aria-label="Privacidad y uso"><span>Sin cuenta</span><span>Sin subir archivos</span><span>El texto no sale de tu navegador</span></div>
+  </header>
+
+  <form class="readability-panel" data-readability-form novalidate>
+    <label class="readability-label" for="readability-input">Pega un fragmento, una escena, un capítulo o un artículo</label>
+    <p class="readability-hint" id="readability-hint">Funciona con textos cortos, aunque a partir de unas 100 palabras la comparación empieza a tener más sentido.</p>
+    <textarea id="readability-input" class="readability-input" data-readability-input rows="12" aria-describedby="readability-hint readability-status" spellcheck="true" maxlength="150000" placeholder="Pega aquí el texto que quieras mirar. No hace falta limpiarlo ni quitar diálogos."></textarea>
+    <div class="readability-input-meta"><span data-live-count>0 palabras</span><span>Límite técnico: 150.000 caracteres</span></div>
+    <div class="readability-actions">
+      <button type="submit" class="button primary">Analizar texto</button>
+      <button type="button" class="button secondary" data-readability-sample>Cargar un ejemplo</button>
+      <button type="button" class="button tertiary" data-readability-clear>Borrar</button>
+    </div>
+    <p class="readability-status" id="readability-status" data-readability-status aria-live="polite" role="status">El texto no sale del navegador.</p>
   </form>
-  <section data-readability-results hidden>
-    <div data-summary></div>
-    <div data-metrics></div>
-    <div data-density-strip></div>
-    <ol data-dense></ol>
-    <ol data-longest></ol>
+
+  <section class="readability-results" data-readability-results hidden aria-label="Resultados de legibilidad">
+    <div class="readability-summary" data-summary></div>
+    <div class="readability-metrics" data-metrics></div>
+
+    <section class="readability-section" aria-labelledby="mapa-densidad">
+      <h2 id="mapa-densidad">Mira primero el cambio entre párrafos</h2>
+      <p>La barra no dice «bueno» o «malo». Solo hace visible qué bloques se separan del resto por longitud de frase y de palabra. Si un párrafo denso coincide con una explicación importante, quizá esté haciendo exactamente el trabajo que querías.</p>
+      <div class="density-strip" data-density-strip aria-label="Comparación de densidad formal entre párrafos"></div>
+    </section>
+
+    <section class="readability-section">
+      <h2>Los párrafos que más pesan en la muestra</h2>
+      <p>Comparo solo párrafos de 20 palabras o más. Abre el manuscrito al lado y léelos de nuevo. Muchas veces el problema está ahí. Otras veces no hay ningún problema.</p>
+      <ol class="readability-findings" data-dense></ol>
+    </section>
+
+    <section class="readability-section">
+      <h2>Las frases más largas</h2>
+      <p>Una frase larga puede sostener una idea compleja mejor que tres cortas. Esta lista sirve para encontrarlas rápido; no para cortarlas por sistema.</p>
+      <ol class="readability-findings" data-longest></ol>
+    </section>
   </section>
-  <div data-live-count>0 palabras</div>
+
+  <section class="readability-section readability-caveat">
+    <h2>Una cifra no corrige una novela</h2>
+    <p>Estas fórmulas cuentan cosas bastante humildes: palabras, sílabas y frases. No saben si una voz tiene gracia, si una pausa llega donde debe o si un párrafo largo está apretando al lector a propósito. Tampoco entienden una ironía.</p>
+    <p>Por eso Inflesz aparece como referencia y el resto como contraste. Úsalos para encontrar zonas que quieras releer. Si conviertes el número en una meta, es fácil acabar igualando todo el texto hasta quitarle la voz.</p>
+  </section>
+
+  <section class="readability-section">
+    <h2>Qué calcula cada índice</h2>
+    <p>Las fórmulas no nacieron para juzgar ficción literaria. Las dejo visibles porque una herramienta que da números sin explicar de dónde salen sirve de poco.</p>
+    <div class="readability-two-col">
+      <article class="readability-card">
+        <h3>Flesch-Szigriszt / Inflesz</h3>
+        <code class="readability-formula">206,835 − 62,3 × (sílabas / palabras) − (palabras / frases)</code>
+        <p>Es la lectura principal. La escala Inflesz agrupa el resultado en cinco tramos. La validación publicada en 2008 se hizo con documentación dirigida a pacientes; aquí la usamos de forma descriptiva.</p>
+      </article>
+      <article class="readability-card">
+        <h3>Fernández-Huerta</h3>
+        <code class="readability-formula">206,84 − 60 × (sílabas / palabras) − 102 × (frases / palabras)</code>
+        <p>La fórmula histórica se publicó pensando en muestras de 100 palabras y existe una discusión documentada sobre cómo trasladar su término de frases a textos de cualquier longitud. Aquí usamos la variante normalizada por longitud media de oración. Por eso otra calculadora puede darte un resultado distinto.</p>
+      </article>
+      <article class="readability-card">
+        <h3>Gutiérrez de Polini</h3>
+        <code class="readability-formula">95,2 − 9,7 × (letras / palabras) − 0,35 × (palabras / frases)</code>
+        <p>Se concibió para textos escolares. No le asigno una etiqueta moderna inventada: el valor queda como apoyo para comparar versiones del mismo texto.</p>
+      </article>
+      <article class="readability-card">
+        <h3>Crawford</h3>
+        <code class="readability-formula">−0,205 × (frases / 100 palabras) + 0,049 × (sílabas / 100 palabras) − 3,407</code>
+        <p>También nace en un contexto escolar. Su resultado aproxima un nivel educativo; no dice nada sobre la calidad de una novela ni sobre quién «debería» leerla.</p>
+      </article>
+    </div>
+  </section>
+
+  <section class="readability-section">
+    <h2>Privacidad: el manuscrito se queda contigo</h2>
+    <p>El cálculo ocurre en JavaScript dentro del navegador. El texto no se manda al Worker de la newsletter, a Brevo, a una IA ni a un servicio de análisis. Tampoco se guarda en <code>localStorage</code> o <code>sessionStorage</code>.</p>
+    <p>Si medimos el uso de la herramienta, el evento solo indica que se ejecutó un análisis y un tramo aproximado de longitud —por ejemplo, «100–499 palabras»—. No contiene frases, títulos, nombres ni ninguna palabra pegada en el cuadro.</p>
+  </section>
+
+  <section class="readability-section">
+    <h2>Fuentes y método</h2>
+    <p>He preferido dejar las fuentes a la vista. También las limitaciones. Algunas fórmulas tienen varias décadas y fueron creadas para educación o comunicación sanitaria, no para novelas.</p>
+    <ul class="source-list">
+      <li><a href="https://pubmed.ncbi.nlm.nih.gov/18953362/" target="_blank" rel="noopener noreferrer">Barrio-Cantalejo et al. (2008) — validación de la escala INFLESZ</a>.</li>
+      <li><a href="https://produccioncientifica.ucm.es/documentos/5d1df5fb29995204f765de7f" target="_blank" rel="noopener noreferrer">Francisco Szigriszt Pazos (1993) — tesis «Sistemas predictivos de legibilidad del mensaje escrito: fórmula de perspicuidad», UCM</a>.</li>
+      <li><a href="https://eric.ed.gov/?id=ED273119" target="_blank" rel="noopener noreferrer">Alan N. Crawford (1984) — «A Spanish Language Fry-Type Readability Procedure»</a>.</li>
+      <li><a href="https://linguistlist.org/issues/22/2332/" target="_blank" rel="noopener noreferrer">Gwillim Law (2011) — discusión sobre la fórmula de Fernández-Huerta</a>.</li>
+      <li><a href="https://github.com/nicofrem/silabajs" target="_blank" rel="noopener noreferrer">SilabaJS 2.1.0 — motor de separación silábica en español, licencia MIT</a>.</li>
+      <li>Gutiérrez de Polini, Luisa Elena (1972), <em>Investigación sobre lectura en Venezuela</em>. No he localizado una copia primaria abierta en internet; por eso la herramienta no atribuye una escala interpretativa que no pueda verificar.</li>
+    </ul>
+    <p>La política general de fuentes, correcciones y uso de herramientas está explicada en <a href="/metodologia-editorial/">Metodología editorial</a>.</p>
+  </section>
+
+  <section class="readability-section">
+    <h2>Dudas que suelen aparecer al probarlo</h2>
+    <div class="readability-faq">
+      <details><summary>¿Qué puntuación debería tener una novela?</summary><p>No hay una puntuación objetivo fiable para ficción. Dos escenas del mismo libro pueden necesitar ritmos muy distintos. Me fijaría antes en los cambios internos del texto que en alcanzar un número concreto.</p></details>
+      <details><summary>¿Una puntuación alta ayuda al SEO?</summary><p>No existe un «bonus Inflesz» documentado por Google. La claridad puede mejorar la experiencia de una persona cuando el contenido lo pide, pero Google recomienda contenido útil y centrado en las personas, no perseguir una fórmula de legibilidad.</p></details>
+      <details><summary>¿Guardáis el texto que pego?</summary><p>No. El cálculo se ejecuta en tu navegador. Puedes abrir las herramientas de red del navegador y comprobar que el contenido no se envía a ningún endpoint.</p></details>
+      <details><summary>¿Por qué otra calculadora me da un resultado diferente?</summary><p>Puede cambiar cómo se separan sílabas, qué se considera una frase y qué variante de una fórmula histórica se aplica. Fernández-Huerta es el caso más delicado. Por eso esta página publica exactamente la ecuación que utiliza.</p></details>
+      <details><summary>¿Puedo pegar un capítulo entero?</summary><p>Sí. El límite de la interfaz es 150.000 caracteres para evitar que un pegado accidental haga pesado el navegador. Para una novela completa es mejor analizar capítulos o bloques y comparar entre ellos.</p></details>
+    </div>
+  </section>
 </main>
 <script type="module" src="/assets/legibilidad-espanol.js"></script>
 </body>
