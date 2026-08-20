@@ -37,17 +37,25 @@
  *      popup/quiz) end-to-end against the real Worker before considering
  *      this done.
  *
- * BREVO API GATE (2026-08-20): this session attempted a real read-only
- * Brevo audit (scripts/brevo/audit-brevo.py) using a real, verified
- * BREVO_API_KEY, and every endpoint — including /account — returned
- * 401 "unrecognised IP address", i.e. Brevo's account-level IP allowlist
- * is blocking this environment entirely, not a code or key problem.
- * Authorize the calling IP at https://app.brevo.com/security/authorised_ips
- * (or disable IP allowlisting) and re-run that script before trusting any
- * assumption about existing lists/attributes/automations. Until that
- * audit actually runs, this file's SOURCE_MAP and BREVO_LIST_ID usage
- * remain the same conservative, previously-agreed values from the 08-19/
- * 08-20 hardening passes — nothing here was changed based on a guess.
+ * BREVO — ESTADO REAL VERIFICADO (2026-08-20): la auditoría read-only
+ * (scripts/brevo/audit-brevo.py) SÍ llegó a ejecutarse con éxito desde la
+ * máquina de David. Confirmado contra la cuenta real: la lista canónica del
+ * sitio es la ID 3 "Lectores web" (2 suscriptores reales) — que es la que
+ * env.BREVO_LIST_ID debe apuntar — y el atributo de contacto SOURCE existe
+ * ya (se creó en esa misma sesión), así que el SOURCE_MAP de este Worker
+ * tiene dónde aterrizar. Existe además la lista ID 4 "identified_contacts"
+ * (0 suscriptores), que NO es la del sitio.
+ *
+ * Si vuelve a aparecer un 401 "unrecognised IP address": la cuenta usa lista
+ * blanca de IPs y la IPv6 doméstica rota el sufijo dentro del mismo prefijo
+ * /64, así que autorizar una IP suelta caduca en la siguiente rotación —
+ * autorizar el prefijo /64 en app.brevo.com/security/authorised_ips.
+ *
+ * SIGUE SIENDO GATE: si un alta en la lista 3 dispara alguna automatización
+ * (hay plantillas Bienvenida_Samuel_* y Automatización #2_step_*), porque la
+ * API v3 REST no expone Automation (/automation/emails y /automation/workflows
+ * devuelven 404). Hay que mirarlo en el panel de Brevo. Por eso el copy de la
+ * web sigue sin prometer entrega de capítulo: no está verificado.
  *
  * SECURITY NOTE (2026-08-19): listIds is no longer accepted from the client.
  *

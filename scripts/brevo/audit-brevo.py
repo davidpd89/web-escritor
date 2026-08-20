@@ -9,14 +9,24 @@ scripts/openai/generate-image.py). Never prints the key.
 Usage:
   python scripts/brevo/audit-brevo.py
 
-Known gate (2026-08-20): Brevo blocks API calls - including this
-read-only audit - from IP addresses not on the account's authorized-IP
-allowlist, returning 401 "unrecognised IP address" for every endpoint.
-This is an account security setting, not a bug here. It must be resolved
-by the account owner at https://app.brevo.com/security/authorised_ips
-(or by disabling IP allowlisting) before this script can return real
-data. There is nothing to retry from the calling side - a 401 with that
-exact message means the request never reached authentication logic.
+Estado verificado (20/08/2026): la auditoria SI ha llegado a ejecutarse con
+exito desde la maquina de David. Resultado real de esa ejecucion:
+lista canonica ID 3 "Lectores web" (2 suscriptores), lista ID 4
+"identified_contacts" (0), 8 plantillas incluidas Bienvenida_Samuel_* y
+Automatizacion #2_step_*, y se creo el atributo de contacto SOURCE.
+
+Cuidado con el 401 "unrecognised IP address": la cuenta tiene lista blanca de
+IPs y la IPv6 domestica de David ROTA el sufijo dentro del mismo prefijo /64
+(se han visto 2a0c:5a81:b502:2c00:353a:... y 2a0c:5a81:b502:2c00:dda4:...).
+Autorizar una sola IP solo funciona hasta la siguiente rotacion; hay que
+autorizar el prefijo /64 en app.brevo.com/security/authorised_ips. Un 401 con
+ese mensaje no es un fallo de este script ni algo reintentable: la peticion no
+llega siquiera a autenticarse.
+
+Las automatizaciones (Automation) siguen siendo un gate aparte: la API v3 REST
+no las expone (probadas /automation/emails y /automation/workflows, ambas 404),
+asi que para saber si al alta en la lista 3 se le entrega algo hay que mirarlo
+en el panel de Brevo.
 """
 from __future__ import annotations
 
