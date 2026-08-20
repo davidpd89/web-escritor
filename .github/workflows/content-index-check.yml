@@ -38,3 +38,16 @@ jobs:
         run: python tests/test-editoriales-metodologia.py
       - name: Check published Spanish copy is not missing its accents
         run: python scripts/check-copy-tildes.py
+      # El contrato "el texto no sale del navegador" es el argumento de venta
+      # de cada herramienta de manuscrito. Este preflight existia
+      # (scripts/audit-private-tools.py) pero nada lo ejecutaba en CI: una
+      # regresion de CSP o un fetch() colado habria llegado a produccion sin
+      # que ningun check se pusiera en rojo. Verificado que detecta una
+      # regresion real antes de fiarse de el (ver el commit que lo activa).
+      - name: Check manuscript tools keep their local-only privacy contract
+        run: >
+          python scripts/audit-private-tools.py
+          herramientas/*/index.html
+          clubes-de-lectura/preparar-sesion/index.html
+          convocatorias-escritores/index.html
+          recursos/ficha-historia-objeto-heredado/index.html

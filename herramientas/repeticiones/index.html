@@ -24,9 +24,11 @@
   <link rel="canonical" href="https://davidportodiaz.com/herramientas/repeticiones/">
   <link rel="stylesheet" href="/styles.css?v=202609-launch-1">
   <link rel="stylesheet" href="/assets/repeticiones-espanol.css">
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebApplication","name":"Detector de repeticiones y tics para escritores","url":"https://davidportodiaz.com/herramientas/repeticiones/","description":"Herramienta gratuita que detecta duplicados, ecos cercanos, comienzos repetidos, frases duplicadas y tics de escritura en español. El texto se procesa en el navegador.","applicationCategory":"UtilitiesApplication","operatingSystem":"Cualquiera (navegador web)","isAccessibleForFree":true,"inLanguage":"es","author":{"@id":"https://davidportodiaz.com/#author"}}</script>
 </head>
 <body>
-<main id="main-content" class="repetition-page">
+<a href="#main-content" class="skip-link">Saltar al contenido</a>
+<main id="main-content" tabindex="-1" class="repetition-page">
   <nav class="breadcrumb" aria-label="Ruta de navegación"><a href="/">Inicio</a> › <a href="/herramientas/">Herramientas</a> › <span>Detector de repeticiones</span></nav>
   <header class="repetition-hero"><p class="eyebrow">Herramienta gratuita · escritura</p><h1>Encuentra los ecos que ya no ves.</h1><p class="lead">Pega un capítulo o fragmento y localiza duplicados, palabras demasiado próximas, comienzos repetidos, frases que vuelven y tus propios tics. El texto no sale de tu navegador.</p></header>
 
@@ -40,7 +42,7 @@
     </div>
     <label class="repetition-check"><input type="checkbox" data-repetition-common> Incluir también palabras funcionales muy comunes</label>
     <div class="repetition-actions"><button type="submit" class="button primary">Analizar repeticiones</button><button type="button" class="button secondary" data-repetition-sample>Probar un ejemplo</button><button type="button" class="button secondary" data-repetition-clear>Borrar</button></div>
-    <p class="repetition-status" data-repetition-status aria-live="polite">Nada de lo que pegues se guarda ni se envía.</p>
+    <p class="repetition-status" data-repetition-status role="status" aria-live="polite">Nada de lo que pegues se guarda ni se envía.</p>
   </form>
 
   <section class="repetition-results" data-repetition-results hidden aria-label="Resultados de repeticiones">
