@@ -15,3 +15,12 @@ https?://([^/]+\.)?librarything\.com/.*
 https?://([^/]+\.)?reddit\.com/.*
 https?://([^/]+\.)?thestorygraph\.com/.*
 https?://([^/]+\.)?siarchives\.si\.edu/.*
+
+# URLs canónicas del propio sitio. Este workflow comprueba enlaces EXTERNOS
+# contra la web en vivo, y toda página nueva de una rama de integración
+# devuelve 404 en producción hasta que se mergea: las canónicas de
+# /editoriales/, /convocatorias-escritores/ o /las-manecillas-del-recuerdo/
+# fragmentos/ hacían fallar el check por existir solo en la rama. Los enlaces
+# internos ya los valida check-internal-graph.py contra los archivos reales
+# del repo, que es la comprobación correcta para ellos.
+https?://([^/]+\.)?davidportodiaz\.com/.*
