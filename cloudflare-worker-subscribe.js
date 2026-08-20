@@ -21,6 +21,34 @@
  * manually re-paste/redeploy it in the Cloudflare dashboard — pushing to this
  * git repo does not deploy the Worker.
  *
+ * DEPLOY ORDER (2026-08-20, critical — do not deploy this Worker version
+ * out of order): `main` (the live site) still expects the OLD Worker
+ * contract — the client used to send listIds/attributes/updateEnabled
+ * directly, which this new Worker version deliberately ignores. Deploying
+ * THIS Worker before the new script.js (the one that sends only
+ * { email, source, result? }) reaches production would break the live
+ * newsletter forms, because the currently-deployed script.js still sends
+ * the old shape and this Worker would silently drop the parts it no
+ * longer reads. Correct order:
+ *   1. merge implementacion-web-2026 → main (human decision, not automated)
+ *   2. verify GitHub Pages actually serves the new script.js in production
+ *   3. THEN deploy this Worker file in the Cloudflare dashboard
+ *   4. smoke-test each newsletter form (home/fragmento/manecillas/cuaderno/
+ *      popup/quiz) end-to-end against the real Worker before considering
+ *      this done.
+ *
+ * BREVO API GATE (2026-08-20): this session attempted a real read-only
+ * Brevo audit (scripts/brevo/audit-brevo.py) using a real, verified
+ * BREVO_API_KEY, and every endpoint — including /account — returned
+ * 401 "unrecognised IP address", i.e. Brevo's account-level IP allowlist
+ * is blocking this environment entirely, not a code or key problem.
+ * Authorize the calling IP at https://app.brevo.com/security/authorised_ips
+ * (or disable IP allowlisting) and re-run that script before trusting any
+ * assumption about existing lists/attributes/automations. Until that
+ * audit actually runs, this file's SOURCE_MAP and BREVO_LIST_ID usage
+ * remain the same conservative, previously-agreed values from the 08-19/
+ * 08-20 hardening passes — nothing here was changed based on a guess.
+ *
  * SECURITY NOTE (2026-08-19): listIds is no longer accepted from the client.
  *
  * SECURITY NOTE (2026-08-20): the client input contract is now minimal by
