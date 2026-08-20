@@ -1,0 +1,86 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<style>
+  :root{
+    --w:520px; --h:780px; --d:34px;
+  }
+  html,body{margin:0;padding:0;background:transparent;}
+  .stage{
+    width:900px;height:1000px;
+    display:flex;align-items:center;justify-content:center;
+    perspective:2400px;
+    background:transparent;
+  }
+  .book{
+    position:relative;
+    width:var(--w);height:var(--h);
+    transform-style:preserve-3d;
+    transform: rotateY(-26deg) rotateX(1deg);
+  }
+  .face{ position:absolute; }
+  .front{
+    width:var(--w); height:var(--h);
+    background-image:url('portada-master-1024x1536.png');
+    background-size:cover;
+    background-position:center;
+    transform: translateZ(calc(var(--d) / 2));
+    border-radius:2px;
+    box-shadow:
+      0 40px 80px -16px rgba(0,0,0,.65),
+      0 14px 30px -8px rgba(0,0,0,.55);
+    overflow:hidden;
+  }
+  .front::after{
+    content:"";
+    position:absolute; inset:0;
+    background:linear-gradient(90deg, rgba(0,0,0,.32) 0%, rgba(0,0,0,0) 7%, rgba(0,0,0,0) 90%, rgba(0,0,0,.18) 100%);
+    pointer-events:none;
+  }
+  .spine{
+    width:var(--d); height:var(--h);
+    left:calc((var(--w) - var(--d)) / 2); top:0;
+    transform: rotateY(-90deg) translateZ(calc(var(--w) / 2));
+    background:linear-gradient(180deg,#241708 0%,#3a2812 8%,#2c1c0f 50%,#3a2812 92%,#1c1108 100%);
+    box-shadow: inset 5px 0 12px rgba(0,0,0,.55), inset -3px 0 6px rgba(160,110,40,.14);
+  }
+  .spine::before{
+    content:"";
+    position:absolute; left:8px; right:8px; top:9%; height:1px;
+    background:linear-gradient(90deg,transparent, rgba(207,146,70,.4), transparent);
+  }
+  .spine::after{
+    content:"";
+    position:absolute; left:8px; right:8px; bottom:9%; height:1px;
+    background:linear-gradient(90deg,transparent, rgba(207,146,70,.4), transparent);
+  }
+  .pages{
+    width:var(--d); height:var(--h);
+    left:calc((var(--w) - var(--d)) / 2); top:0;
+    transform: rotateY(90deg) translateZ(calc(var(--w) / 2));
+    background:
+      repeating-linear-gradient(180deg,
+        #f2e9d6 0px, #f2e9d6 1.4px,
+        #ddcfaf 1.4px, #ddcfaf 2.2px);
+    box-shadow: inset 7px 0 14px rgba(0,0,0,.3), inset -2px 0 4px rgba(0,0,0,.18);
+  }
+  .top-edge{
+    width:var(--w); height:var(--d);
+    left:0; top:calc((var(--h) - var(--d)) / 2);
+    transform: rotateX(90deg) translateZ(calc(var(--h) / 2));
+    background: linear-gradient(180deg,#4a331a,#241708);
+  }
+</style>
+</head>
+<body>
+  <div class="stage">
+    <div class="book">
+      <div class="face front"></div>
+      <div class="face spine"></div>
+      <div class="face pages"></div>
+      <div class="face top-edge"></div>
+    </div>
+  </div>
+</body>
+</html>

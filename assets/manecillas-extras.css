@@ -1,0 +1,154 @@
+/* Manecillas visual accent layer — scoped, does not touch global tokens.
+ *
+ * Per WEB DAVID PORTO nuevas ideas/26_DISENOS_MANECILLAS_CON_PORTADA_REAL.md:
+ * palette extracted from the official cover, applied only within
+ * .theme-manecillas so the rest of the site (including Samuel entre
+ * mundos, which keeps its own blue accent) is untouched. Gradients,
+ * borders, and rules below are CSS-only — no raster textures — per the
+ * doc's "componentes de codigo, no imagenes" section.
+ */
+
+.theme-manecillas {
+  --mnc-tinta: #17120b;
+  --mnc-nogal: #4c351a;
+  --mnc-cuero: #6a4c28;
+  --mnc-bronce: #936631;
+  --mnc-cobre: #c27937;
+  --mnc-oro: #cf9246;
+}
+
+/* Hero: replace the flat translucent card with a subtle radial glow
+ * derived from the cover palette, sitting behind the cover + copy grid.
+ * No AI texture, no reloj adicional, no personas — a plain gradient. */
+.theme-manecillas .book-hero.manecillas-hero {
+  position: relative;
+  overflow: hidden;
+  border-color: rgba(207, 146, 70, 0.16);
+  background:
+    radial-gradient(ellipse 620px 460px at 14% 8%, rgba(147, 102, 49, 0.16), transparent 60%),
+    radial-gradient(ellipse 720px 520px at 100% 100%, rgba(76, 53, 26, 0.22), transparent 62%),
+    linear-gradient(150deg, rgba(23, 18, 11, 0.5) 0%, rgba(17, 14, 10, 0.2) 55%, rgba(8, 10, 12, 0.05) 100%);
+}
+
+.theme-manecillas .book-hero.manecillas-hero .book-hero-cover figure {
+  margin: 0;
+}
+
+.theme-manecillas .book-hero.manecillas-hero .book-hero-cover figcaption {
+  margin-top: 14px;
+  font-size: 0.78rem;
+  color: var(--muted, #b6a894);
+  text-align: center;
+}
+
+.theme-manecillas .book-hero.manecillas-hero .book-hero-img {
+  width: 100%;
+  height: auto;
+  display: block;
+  filter: drop-shadow(0 26px 46px rgba(0, 0, 0, 0.5));
+}
+
+/* Eyebrow + badges pick up the warmer Manecillas accent instead of the
+ * site-wide bronze so the page reads distinctly without a second palette. */
+.theme-manecillas .book-hero.manecillas-hero .eyebrow {
+  color: var(--mnc-oro);
+}
+
+.theme-manecillas .book-hero.manecillas-hero .badge--available {
+  border-color: rgba(207, 146, 70, 0.4);
+  background: rgba(147, 102, 49, 0.14);
+  color: #f2e8d8;
+}
+
+/* Pull-quote band on the book page: warmer, papery tone instead of the
+ * generic dark card, matching the "papel/fragmento" step of the documented
+ * alternation (hero tinta -> ficha -> sinopsis oscura -> ... -> papel). */
+.theme-manecillas .synopsis-quick--centered {
+  background: linear-gradient(155deg, rgba(76, 53, 26, 0.22), rgba(23, 18, 11, 0.3));
+  border: 1px solid rgba(207, 146, 70, 0.18);
+}
+
+.theme-manecillas .synopsis-pullquote {
+  color: #f2e8d8;
+}
+
+.theme-manecillas .synopsis-attribution {
+  color: var(--mnc-oro);
+}
+
+/* Thin bronze corner accents on the hero cover only — code, not a raster
+ * ornament, and only at the sizes where they read cleanly. */
+@media (min-width: 900px) {
+  .theme-manecillas .book-hero.manecillas-hero .book-hero-cover {
+    position: relative;
+  }
+  .theme-manecillas .book-hero.manecillas-hero .book-hero-cover::before {
+    content: "";
+    position: absolute;
+    inset: -14px -14px auto auto;
+    width: 34px;
+    height: 34px;
+    border-top: 1px solid rgba(207, 146, 70, 0.45);
+    border-right: 1px solid rgba(207, 146, 70, 0.45);
+    pointer-events: none;
+  }
+}
+
+@media (max-width: 760px) {
+  .theme-manecillas .book-hero.manecillas-hero .book-hero-cover {
+    max-width: 240px;
+    margin-inline: auto;
+  }
+}
+
+/* ------------------------------------------------------------------
+ * Home hero (Manecillas-first): David's photo stays the primary
+ * portrait, but the book now has real presence, peeking from behind
+ * at an angle instead of being absent. Asymmetric, not a collage —
+ * a single added element, per section 6 of the visual-design brief.
+ * ------------------------------------------------------------------ */
+.home-hero-launch .hero-author-photo {
+  position: relative;
+}
+
+.hero-book-peek-img {
+  position: absolute;
+  left: -6%;
+  bottom: 2%;
+  width: 46%;
+  max-width: 190px;
+  height: auto;
+  z-index: 1;
+  transform: rotate(-4deg);
+  filter: drop-shadow(0 20px 34px rgba(0, 0, 0, 0.55));
+  pointer-events: none;
+}
+
+.home-hero-launch .author-photo-frame {
+  position: relative;
+  z-index: 2;
+}
+
+@media (max-width: 900px) {
+  .hero-book-peek-img {
+    left: -2%;
+    width: 40%;
+    max-width: 150px;
+  }
+}
+
+@media (max-width: 640px) {
+  .hero-book-peek-img {
+    position: static;
+    display: block;
+    width: 132px;
+    max-width: 40vw;
+    margin: 0 auto 18px;
+    transform: rotate(-3deg);
+  }
+  .home-hero-launch .hero-author-photo {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+}

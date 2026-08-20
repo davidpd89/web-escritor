@@ -27,3 +27,10 @@ _david/
 !.env.example
 __pycache__/
 **/__pycache__/
+
+# Large lossless source masters for the visual-asset pipeline (SOURCE -> MASTER
+# -> WEB OPTIMIZED per WEB DAVID PORTO nuevas ideas/26_.../section 16). Only
+# the final web-optimized outputs (assets/*.webp) are tracked; the PNG
+# sources stay local so regeneration is possible without repo bloat.
+assets/manecillas/source/*.png
+assets/*/source/*.png
