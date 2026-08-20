@@ -1,5 +1,23 @@
 name: Lighthouse CI
 
+# Nota sobre lighthouserc.json (JSON no admite comentarios, asi que va aqui):
+#
+# La assertion `robots-txt` esta en "off" a proposito. Lighthouse descarga
+# /robots.txt desde el contexto de la pagina auditada, y las paginas de
+# herramientas declaran `connect-src 'none'` en su CSP porque prometen que el
+# texto del usuario no sale del navegador. Esa CSP bloquea tambien la peticion
+# de Lighthouse, que lo reporta como "unable to download a robots.txt file" y
+# tumba el SEO de esas rutas a 0,92. Comprobado: cambiando solo esa directiva a
+# `connect-src 'self'` en una copia de /herramientas/manuscrito/, el SEO sube a
+# 1,00 sin tocar nada mas. No es un fallo del sitio, es una medicion imposible
+# en esas paginas, y relajar la CSP para complacer al auditor romperia la
+# garantia de privacidad que la pagina anuncia.
+#
+# robots.txt NO se queda sin verificar: scripts/check-ai-discoverability.py lo
+# valida en content-index-check.yml con mas rigor que Lighthouse (lo parsea con
+# urllib.robotparser, exige el sitemap canonico y comprueba que cada bot de
+# busqueda pueda rastrear las rutas clave).
+
 on:
   pull_request:
     paths:
@@ -33,8 +51,21 @@ jobs:
       - name: Install Lighthouse CI
         run: npm install --global @lhci/cli@0.15.1
 
-      - name: Audit representative routes
-        run: lhci autorun --config=./lighthouserc.json
+      # collect y assert van separados a proposito. Con `lhci autorun`, cuando
+      # las assertions fallaban el proceso terminaba antes de dejar los informes
+      # donde el paso de artifact pudiera recogerlos, y GitHub cerraba el run
+      # diciendo que no habia ningun fichero que subir: justo en los runs que
+      # fallan, que son los unicos en los que hace falta mirar el informe.
+      - name: Collect Lighthouse reports
+        run: lhci collect --config=./lighthouserc.json
+
+      - name: Upload reports to temporary public storage
+        if: always()
+        continue-on-error: true
+        run: lhci upload --config=./lighthouserc.json
+
+      - name: Assert budgets
+        run: lhci assert --config=./lighthouserc.json
 
       - name: Upload local Lighthouse reports
         if: always()
@@ -42,5 +73,5 @@ jobs:
         with:
           name: lighthouse-reports
           path: .lighthouseci/
-          if-no-files-found: ignore
+          if-no-files-found: warn
           retention-days: 14

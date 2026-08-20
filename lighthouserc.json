@@ -68,7 +68,8 @@
             "maxNumericValue": 400,
             "aggregationMethod": "median"
           }
-        ]
+        ],
+        "robots-txt": "off"
       }
     },
     "upload": {

@@ -24,3 +24,11 @@ jobs:
         run: python scripts/build-public-dist.py --check-assetsignore
       - name: Check shared JSON-LD entities use one canonical @id
         run: python scripts/check-canonical-entity-ids.py
+      - name: Check the pre-rendered article-tools block matches current headings
+        run: python scripts/build-article-tools.py --check
+      # Lighthouse no puede auditar robots.txt en las paginas con
+      # `connect-src 'none'` (ver .github/workflows/lighthouse-ci.yml), asi que
+      # la validacion real vive aqui: parsea el fichero, exige el sitemap
+      # canonico y comprueba que cada bot de busqueda alcance las rutas clave.
+      - name: Check robots.txt and AI/search crawler access
+        run: python scripts/check-ai-discoverability.py
