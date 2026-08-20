@@ -40,6 +40,17 @@ SKIP_PARTS = {
 WATCHED_TYPES = {"Book", "Person", "Organization"}
 LD_BLOCK = re.compile(r"<script[^>]*application/ld\+json[^>]*>(.*?)</script>", re.S | re.I)
 
+# Identificadores canonicos fijados. La comprobacion de consistencia por si sola
+# no basta: si un cambio masivo moviera TODAS las paginas al mismo @id
+# equivocado, seguirian siendo consistentes entre si y el checker pasaria,
+# mientras los buscadores empezarian a acumular las senales en una entidad
+# nueva y vacia. Anclarlos aqui convierte eso en un fallo.
+EXPECTED_IDS = {
+    "David Porto Díaz": "https://davidportodiaz.com/#author",
+    "Las manecillas del recuerdo": "https://davidportodiaz.com/#book-manecillas",
+    "Samuel entre mundos": "https://davidportodiaz.com/#book-samuel",
+}
+
 
 def html_files():
     for path in ROOT.rglob("*.html"):
@@ -92,6 +103,19 @@ def main() -> int:
                 f"{entity_id} ({', '.join(sorted(files))})" for entity_id, files in sorted(ids.items())
             )
             errors.append(f'"{name}" usa {len(ids)} @id distintos: {detail}')
+
+    for name, expected in EXPECTED_IDS.items():
+        seen = by_name.get(name)
+        if not seen:
+            errors.append(f'"{name}" no aparece con @id en ninguna página (se esperaba {expected})')
+            continue
+        wrong = sorted(i for i in seen if i != expected)
+        if wrong:
+            files = sorted({f for i in wrong for f in seen[i]})
+            errors.append(
+                f'"{name}" debe usar el @id canónico {expected}, pero aparece como '
+                f'{", ".join(wrong)} en: {", ".join(files)}'
+            )
 
     if errors:
         print(f"CANONICAL ENTITY IDs: FAILED ({len(errors)})")

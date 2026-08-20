@@ -28,5 +28,10 @@ cloudflare-worker-subscribe.js
 editorial-facts.json
 lighthouserc.json
 .assetsignore
-# LAUNCH GATE: regenerar sin esta regla el 03/09/2026
+
+# Piezas de campana para redes: no las usa ninguna pagina, se suben a
+# mano desde el repo local. Permanentes, sin fecha: no hay nada que
+# 'liberar' el dia del lanzamiento.
+assets/manecillas-social-4x5-aviso.webp
 assets/manecillas-social-4x5-disponible.webp
+assets/manecillas-social-story-9x16.webp

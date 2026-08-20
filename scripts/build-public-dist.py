@@ -16,17 +16,16 @@ Usage:
   python scripts/build-public-dist.py --check-contents # verify an already
       -built dist dir contains none of the excluded categories (does not
       rebuild; run build first)
-  python scripts/build-public-dist.py --date 2026-09-05 # override "today"
-      for the manecillas-social-4x5-disponible.webp launch gate (testing
-      only; real runs use the real date, same convention as
-      apply-manecillas-launch-state.py)
+  python scripts/build-public-dist.py --emit-assetsignore  # regenerar
+      .assetsignore desde estas mismas constantes
+  python scripts/build-public-dist.py --check-assetsignore # (en CI) avisar
+      si .assetsignore se ha desincronizado de estas constantes
 
-Launch gate: assets/manecillas-social-4x5-disponible.webp stays tracked
-in git (it's a prepared, reviewed asset) but is excluded from the public
-dist until the actual publication date, so it can never accidentally be
-public before the book is out. Everything else that should be gated by
-launch date is a separate, human, day-of task — this only protects the
-one specific pre-built "now available" social asset.
+Las piezas de campana para redes (CAMPAIGN_SOCIAL_ASSETS) quedan siempre
+fuera del output publico: ninguna pagina las referencia, se suben a mano a
+las redes desde el repo local. No hay ningun gate por fecha aqui -- ver el
+comentario de esa constante para por que el anterior era una tarea manual
+escondida disfrazada de automatismo.
 
 PRODUCTION OPTIONS (documented only — NOT implemented, GitHub Pages
 production is untouched by this script):
@@ -53,12 +52,19 @@ production is untouched by this script):
      tested cutover, not a silent switch.
 
   Both require a human decision and a tested rollout plan; neither is
-  wired into any workflow by this pass. The current staging Cloudflare
-  Pages preview build (david-porto-preview.davidpd89.workers.dev) is a
-  separate, already-working preview channel with its own build - this
-  script does not change how that staging deploy currently sources its
-  files unless/until someone wires it to consume .preview-dist/ instead
-  of `git archive HEAD`.
+  wired into any workflow by this pass.
+
+STAGING (INTENTIONALLY_CHANGED respecto al plan original): el staging de
+Cloudflare sigue construyendo con `git archive HEAD`, porque cambiar su
+build command es un ajuste del dashboard y la Workers Builds API rechaza
+tanto los tokens de cuenta como el OAuth de wrangler. Pero este script SI
+afecta ya al staging real, de forma indirecta: `--emit-assetsignore` genera
+el `.assetsignore` de la raiz del repo a partir de las MISMAS constantes de
+exclusion de aqui abajo, `git archive` lo deposita en la raiz del directorio
+de assets, y ahi `wrangler deploy --assets` lo respeta y no sube nada que
+coincida. Verificado en vivo: scripts/, tests/, data/, .env.example,
+lecturas/, publicar-web/, editorial-facts.json y cloudflare-worker-subscribe.js
+pasaron de HTTP 200 a 404 en la preview sin tocar el dashboard.
 """
 from __future__ import annotations
 
@@ -66,15 +72,27 @@ import argparse
 import shutil
 import subprocess
 import sys
-from datetime import date
 from pathlib import Path
-from zoneinfo import ZoneInfo
 
 ROOT = Path(__file__).resolve().parents[1]
 DEFAULT_OUT = ROOT / ".preview-dist"
-MADRID = ZoneInfo("Europe/Madrid")
-MANECILLAS_PUBLICATION_DATE = date(2026, 9, 3)
-GATED_DISPONIBLE_ASSET = "assets/manecillas-social-4x5-disponible.webp"
+# Piezas de campana para redes (4:5 y 9:16). NINGUNA pagina las referencia
+# -- comprobado con git grep sobre *.html/*.css/*.js: cero referencias --, se
+# suben a mano a Instagram/Facebook desde el repo local. Por tanto no son
+# runtime web y se quedan FUERA del output publico de forma permanente.
+#
+# Antes la variante "disponible" estaba excluida solo hasta la fecha de
+# publicacion, como si el 03/09 fuera a hacerse publica sola. No era cierto:
+# Cloudflare construye con `git archive HEAD` y nunca ejecuta este generador,
+# asi que el .assetsignore desplegado es el que este commiteado. Eso convertia
+# el "gate" en una tarea manual escondida justo el dia del lanzamiento --
+# exactamente lo que se queria evitar. Como el asset no necesita ser publico
+# NUNCA, el gate temporal desaparece en vez de automatizarse.
+CAMPAIGN_SOCIAL_ASSETS = (
+    "assets/manecillas-social-4x5-aviso.webp",
+    "assets/manecillas-social-4x5-disponible.webp",
+    "assets/manecillas-social-story-9x16.webp",
+)
 
 # Directories excluded wholesale (any tracked file whose path starts with
 # one of these, using posix-style forward slashes).
@@ -108,30 +126,20 @@ def git_tracked_files() -> list[str]:
 
 
 def is_excluded(rel_path: str) -> bool:
-    if rel_path in EXCLUDE_FILES:
+    if rel_path in EXCLUDE_FILES or rel_path in CAMPAIGN_SOCIAL_ASSETS:
         return True
     return any(rel_path.startswith(prefix) for prefix in EXCLUDE_DIR_PREFIXES)
 
 
-def resolve_today(date_arg: str | None) -> date:
-    if date_arg:
-        return date.fromisoformat(date_arg)
-    return __import__("datetime").datetime.now(MADRID).date()
-
-
-def build(out_dir: Path, today: date) -> tuple[int, int]:
+def build(out_dir: Path) -> tuple[int, int]:
     if out_dir.exists():
         shutil.rmtree(out_dir)
     out_dir.mkdir(parents=True)
 
     included, excluded = 0, 0
-    launch_gated = today < MANECILLAS_PUBLICATION_DATE
 
     for rel in git_tracked_files():
         if is_excluded(rel):
-            excluded += 1
-            continue
-        if rel == GATED_DISPONIBLE_ASSET and launch_gated:
             excluded += 1
             continue
         src = ROOT / rel
@@ -145,12 +153,10 @@ def build(out_dir: Path, today: date) -> tuple[int, int]:
     return included, excluded
 
 
-def check_contents(out_dir: Path, today: date | None = None) -> int:
+def check_contents(out_dir: Path) -> int:
     if not out_dir.exists():
         print(f"FAIL: {out_dir} does not exist — run the builder first.", file=sys.stderr)
         return 1
-    if today is None:
-        today = resolve_today(None)
     failures = []
     for prefix in EXCLUDE_DIR_PREFIXES:
         if (out_dir / prefix).exists():
@@ -158,8 +164,9 @@ def check_contents(out_dir: Path, today: date | None = None) -> int:
     for fname in EXCLUDE_FILES:
         if (out_dir / fname).exists():
             failures.append(f"excluded file present in dist: {fname}")
-    if today < MANECILLAS_PUBLICATION_DATE and (out_dir / GATED_DISPONIBLE_ASSET).exists():
-        failures.append(f"launch-gated asset present before publication date: {GATED_DISPONIBLE_ASSET}")
+    for asset in CAMPAIGN_SOCIAL_ASSETS:
+        if (out_dir / asset).exists():
+            failures.append(f"campaign social asset present in public dist: {asset}")
 
     if failures:
         print(f"FAIL — {len(failures)} issue(s) in {out_dir}:")
@@ -187,27 +194,24 @@ ASSETSIGNORE_HEADER = """# GENERADO por scripts/build-public-dist.py --emit-asse
 """
 
 
-def assetsignore_lines(today: date) -> list[str]:
+def assetsignore_lines() -> list[str]:
     lines = [p.rstrip("/") + "/" for p in EXCLUDE_DIR_PREFIXES]
     lines += sorted(EXCLUDE_FILES)
     lines.append(".assetsignore")
-    if today < MANECILLAS_PUBLICATION_DATE:
-        # OJO: en sintaxis .gitignore el '#' solo abre comentario a principio
-        # de línea; un comentario al final formaría parte del patrón y la regla
-        # no coincidiría con nada. Va en su propia línea.
-        lines.append(
-            f"# LAUNCH GATE: regenerar sin esta regla el {MANECILLAS_PUBLICATION_DATE:%d/%m/%Y}"
-        )
-        lines.append(GATED_DISPONIBLE_ASSET)
+    lines.append("")
+    lines.append("# Piezas de campana para redes: no las usa ninguna pagina, se suben a")
+    lines.append("# mano desde el repo local. Permanentes, sin fecha: no hay nada que")
+    lines.append("# 'liberar' el dia del lanzamiento.")
+    lines += list(CAMPAIGN_SOCIAL_ASSETS)
     return lines
 
 
-def render_assetsignore(today: date) -> str:
-    return ASSETSIGNORE_HEADER + "\n".join(assetsignore_lines(today)) + "\n"
+def render_assetsignore() -> str:
+    return ASSETSIGNORE_HEADER + "\n".join(assetsignore_lines()) + "\n"
 
 
-def emit_assetsignore(today: date, check_only: bool) -> int:
-    expected = render_assetsignore(today)
+def emit_assetsignore(check_only: bool) -> int:
+    expected = render_assetsignore()
     current = ASSETSIGNORE.read_text(encoding="utf-8") if ASSETSIGNORE.exists() else None
     if check_only:
         if current == expected:
@@ -217,7 +221,7 @@ def emit_assetsignore(today: date, check_only: bool) -> int:
         print(f"FAIL: .assetsignore {reason}. Regenera con --emit-assetsignore.")
         return 1
     ASSETSIGNORE.write_text(expected, encoding="utf-8")
-    print(f"ESCRITO {ASSETSIGNORE} ({len(assetsignore_lines(today))} reglas).")
+    print(f"ESCRITO {ASSETSIGNORE} ({len(assetsignore_lines())} reglas).")
     return 0
 
 
@@ -227,25 +231,23 @@ def main() -> int:
     ap.add_argument("--check-contents", action="store_true", help="Verify an already-built dist, don't rebuild")
     ap.add_argument("--emit-assetsignore", action="store_true", help="Write .assetsignore from this builder's exclude list")
     ap.add_argument("--check-assetsignore", action="store_true", help="Verify .assetsignore matches the exclude list")
-    ap.add_argument("--date", help="YYYY-MM-DD, for testing the launch gate only")
     args = ap.parse_args()
 
     out_dir = Path(args.out)
     if not out_dir.is_absolute():
         out_dir = ROOT / out_dir
 
-    today = resolve_today(args.date)
 
     if args.emit_assetsignore or args.check_assetsignore:
-        return emit_assetsignore(today, check_only=args.check_assetsignore)
+        return emit_assetsignore(check_only=args.check_assetsignore)
 
     if args.check_contents:
-        return check_contents(out_dir, today)
+        return check_contents(out_dir)
 
-    included, excluded = build(out_dir, today)
-    gate_note = " (launch gate ACTIVE — disponible asset withheld)" if today < MANECILLAS_PUBLICATION_DATE else ""
+    included, excluded = build(out_dir)
+    gate_note = ""
     print(f"BUILT {out_dir}: {included} file(s) included, {excluded} excluded{gate_note}")
-    return check_contents(out_dir, today)
+    return check_contents(out_dir)
 
 
 if __name__ == "__main__":
