@@ -64,11 +64,31 @@ FORBIDDEN_SAMUEL_CANON = [
 ]
 
 PRELAUNCH_AVAILABLE = [
-    re.compile(r"Las manecillas del recuerdo.{0,180}(?:ya\s+)?disponible(?:\s+ahora)?", re.I | re.S),
-    re.compile(r"(?:ya\s+)?disponible(?:\s+ahora)?.{0,180}Las manecillas del recuerdo", re.I | re.S),
+    re.compile(r"Las manecillas del recuerdo.{0,180}(?:ya\s+)?disponibles?(?:\s+ahora)?", re.I | re.S),
+    re.compile(r"(?:ya\s+)?disponibles?(?:\s+ahora)?.{0,180}Las manecillas del recuerdo", re.I | re.S),
     re.compile(r"[\"']status[\"']\s*:\s*[\"']available[\"']", re.I),
     re.compile(r"buy_(?:open|click)_manecillas", re.I),
 ]
+
+# Honest future/conditional phrasing ("los enlaces aparecerán... en cuanto
+# estén disponibles") is the CORRECT prelaunch copy (see this session's
+# Manecillas UX fixes) and must not be flagged as a premature availability
+# claim just because the word "disponible(s)" appears near the title. Only
+# treat a PRELAUNCH_AVAILABLE match as real if "disponible(s)" itself isn't
+# immediately preceded by a conditional/future marker.
+CONDITIONAL_AVAILABILITY_MARKERS = re.compile(r"(?:en\s+cuanto|cuando)\s+est[ée]n?\s*$", re.I)
+
+
+def _is_conditional_availability(text: str, match: "re.Match") -> bool:
+    """True if the 'disponible(s)' in this match is future/conditional
+    phrasing ("en cuanto/cuando esté(n) disponible(s)"), not a present-tense
+    availability claim."""
+    lowered_match = match.group(0).lower()
+    idx = lowered_match.find("disponible")
+    if idx == -1:
+        return False
+    preceding = match.group(0)[:idx]
+    return bool(CONDITIONAL_AVAILABILITY_MARKERS.search(preceding))
 
 LAUNCH_STALE = [
     re.compile(r"Las manecillas del recuerdo.{0,220}(?:próxima novela|próximamente|en proceso de publicación|fecha de publicación por confirmar|avísame|avísame cuando)", re.I | re.S),
@@ -317,7 +337,8 @@ def main() -> int:
         if BOOK.get("purchaseUrl") is None:
             for rel, text in public_surfaces:
                 for pattern in PRELAUNCH_AVAILABLE:
-                    if pattern.search(text):
+                    m = pattern.search(text)
+                    if m and not _is_conditional_availability(text, m):
                         errors.append(f"{rel}: estado de compra/disponibilidad prematuro para Manecillas")
                 if manecillas_offer_present(rel, text):
                     errors.append(f"{rel}: Offer de Manecillas antes de existir purchaseUrl canónica")

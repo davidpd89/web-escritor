@@ -28,7 +28,9 @@
       "typicalAgeRange": null,
       "rating": null,
       "ratingCount": null,
-      "note": "Año resuelto por el autor el 19/08/2026 (2025, reemplazando el 2026 sin verificar que circulaba). Páginas: el 19/08/2026 se fijó brevemente en 412 páginas contra la ficha de un retailer (Casa del Libro), que resultó ser el dato incorrecto. El 20/08/2026 el autor confirmó contra el ejemplar físico -409 páginas numeradas más portada/contraportada sin numerar- y contra la ficha oficial de la propia editorial Libros Indie (https://librosindie.net/product/samuel-entre-mundos/, fuente primaria), ambas coincidentes en 422 páginas. Ese es el valor canónico, verificado el 20/08/2026 directamente contra la ficha del editor. Edad: NO hay confirmación del autor ni fuente primaria (la propia ficha de Libros Indie no publica un rango de edad). Casa del Libro anuncia 'desde 15 años', pero es la misma ficha de retailer que dio el dato de páginas incorrecto, así que no se trata como fiable. No se fija typicalAgeRange como dato bibliográfico oficial; si en el futuro el editor publica un rango de edad, actualizar aquí con la fuente exacta. Las valoraciones (Amazon/Goodreads) siguen sin tratarse como dato canónico durable: son inherentemente cambiantes y no se fijan aquí."
+      "note": "Páginas (422) y año (2025) verificados el 20/08/2026 contra el ejemplar físico y la ficha oficial de la editorial (sourceUrl, fuente primaria), no contra fichas de retailers. No hay rango de edad oficial publicado por la editorial; no se afirma uno (typicalAgeRange queda null). Historial completo de correcciones (incluida una cifra de páginas incorrecta usada brevemente el 19/08) está en el tracker del proyecto, no en este fichero de datos canónicos.",
+      "verifiedAt": "2026-08-20",
+      "sourceUrl": "https://librosindie.net/product/samuel-entre-mundos/"
     }
   },
   "knownEditorialIncident": {
