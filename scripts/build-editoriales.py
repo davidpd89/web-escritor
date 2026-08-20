@@ -185,6 +185,16 @@ def load_and_validate(path: Path, today: date) -> tuple[dict, list[dict], list[s
     return raw, published, warnings
 
 
+SHARE_IMAGE = "https://davidportodiaz.com/assets/david-porto-imagen-compartir.webp"
+# Dimensiones reales del fichero, no las recomendadas. check-social-cards.py
+# compara lo declarado con los bytes de la imagen y marca dimension-drift si no
+# coinciden: declarar 1200x630 "porque es lo que pide Open Graph" seria mentir
+# sobre un fichero que mide otra cosa.
+SHARE_IMAGE_WIDTH = 1731
+SHARE_IMAGE_HEIGHT = 909
+SHARE_IMAGE_ALT = "David Porto Díaz, autor de Samuel entre mundos y Las manecillas del recuerdo"
+
+
 def page_shell(*, title: str, description: str, canonical: str, main_html: str, jsonld: dict, js: bool = False) -> str:
     script = '<script src="/assets/editoriales.js" defer></script>' if js else ""
     return f'''<!doctype html>
@@ -204,7 +214,15 @@ def page_shell(*, title: str, description: str, canonical: str, main_html: str, 
   <meta property="og:url" content="{esc(canonical)}">
   <meta property="og:site_name" content="David Porto Díaz">
   <meta property="og:locale" content="es_ES">
-  <meta property="og:image" content="https://davidportodiaz.com/assets/david-porto-imagen-compartir.webp">
+  <meta property="og:image" content="{SHARE_IMAGE}">
+  <meta property="og:image:width" content="{SHARE_IMAGE_WIDTH}">
+  <meta property="og:image:height" content="{SHARE_IMAGE_HEIGHT}">
+  <meta property="og:image:alt" content="{esc(SHARE_IMAGE_ALT)}">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="{esc(title)}">
+  <meta name="twitter:description" content="{esc(description)}">
+  <meta name="twitter:image" content="{SHARE_IMAGE}">
+  <meta name="twitter:image:alt" content="{esc(SHARE_IMAGE_ALT)}">
   <meta name="theme-color" content="#080a0c">
   <link rel="stylesheet" href="/styles.css?v=202609-launch-1">
   <link rel="stylesheet" href="/assets/editoriales.css">
@@ -368,54 +386,80 @@ def render_detail(site: str, record: dict, today: date) -> str:
 def render_sitemap(site: str, records: list[dict]) -> str:
     rows = [(f"{site}/editoriales/", max(r["page_updated_at"] for r in records))]
     rows.extend((f"{site}/editoriales/{r['slug']}/", r["page_updated_at"]) for r in records)
+    # La metodologia forma parte del directorio y el builder la genera junto al
+    # resto, asi que tambien va en este sitemap parcial. El sitemap canonico
+    # (sitemap.xml) ya la incluia; faltaba solo aqui.
+    rows.append((f"{site}/{METHODOLOGY_SLUG}/", methodology_date_modified(records)))
     urls = ''.join(f'<url><loc>{esc(loc)}</loc><lastmod>{esc(lastmod)}</lastmod></url>' for loc, lastmod in rows)
     return f'<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">{urls}</urlset>\n'
 
 
 METHODOLOGY_SLUG = "metodologia-editorial"
 
+# Fecha de la ultima revision real del TEXTO de la pagina de metodologia.
+# Se sube a mano cuando cambia lo que la pagina afirma.
+#
+# No se usa `today` para el dateModified: el contrato del doc 31 prohibe
+# expresamente que una simple comprobacion aparente una actualizacion
+# editorial, y con `today.isoformat()` bastaba ejecutar el builder para que la
+# pagina dijera haber cambiado hoy sin haber cambiado nada. La fecha efectiva
+# es el maximo entre esta revision y la ultima actualizacion real de las
+# fichas, porque la pagina afirma cuantas fichas publica el directorio.
+METHODOLOGY_REVISED = "2026-08-20"
+
+
+def methodology_date_modified(records: list[dict]) -> str:
+    """dateModified determinista: depende del contenido, no de cuando se ejecute."""
+    dates = [METHODOLOGY_REVISED] + [r["page_updated_at"] for r in records]
+    return max(dates)
+
+
+def plural_fichas(count: int) -> str:
+    """"1 ficha" / "2 fichas". Publicar "3 ficha(s)" es dejar ver el molde."""
+    return f"{count} ficha" if count == 1 else f"{count} fichas"
+
 
 def render_methodology(site: str, records: list[dict], today: date) -> str:
-    """Pagina de metodologia exigida por el contrato del doc 31 (bloque 11).
+    """Página de metodología exigida por el contrato del doc 31 (bloque 11).
 
     Todo lo que afirma se deriva del propio validador/builder de este archivo
     o del dataset: los estados permitidos son los que valida load_and_validate,
-    la caducidad de 90 dias es la que aplica needs_recheck(), y la separacion
-    hoja privada / dataset publico es la que hace safe_payload en build().
-    No se documenta ningun proceso que el codigo no haga de verdad.
+    la caducidad de 90 días es la que aplica stale(), y la separación hoja
+    privada / dataset público es la que hace safe_payload en build(). No se
+    documenta ningún proceso que el código no haga de verdad.
     """
     canonical = f"{site}/{METHODOLOGY_SLUG}/"
     states = "".join(
         f"<div class=\"editorial-fact\"><dt>{esc(code)}</dt><dd>{esc(label)}</dd></div>"
         for code, label in (
-            ("open", "La editorial acepta envios directos segun su propia pagina oficial."),
-            ("closed", "La recepcion esta cerrada en la fecha de comprobacion."),
-            ("indirect", "Solo admite manuscritos por via indirecta, por ejemplo a traves de agencia."),
+            ("open", "La editorial acepta envíos directos según su propia página oficial."),
+            ("closed", "La recepción está cerrada en la fecha de comprobación."),
+            ("indirect", "Solo admite manuscritos por vía indirecta, por ejemplo a través de agencia."),
             ("award_only", "Solo recibe originales dentro de una convocatoria o premio concreto."),
             ("unknown", "No hay fuente oficial suficiente para afirmar el estado."),
         )
     )
     count = len(records)
     description = (
-        "Como se verifica, se fecha y se corrige la informacion de las fichas de "
+        "Cómo se verifica, se fecha y se corrige la información de las fichas de "
         "editoriales: fuentes primarias, estados permitidos, caducidad y correcciones."
     )
     main_html = f'''
 <main id="main-content" tabindex="-1" class="editorial-directory">
-  {breadcrumbs([('Inicio', '/'), ('Editoriales', '/editoriales/'), ('Metodologia', None)])}
-  <header class="editorial-hero"><p class="eyebrow">Metodologia</p><h1>Como se verifica esta informacion.</h1><p class="lead">Cada ficha del directorio se genera a partir de un dataset validado, no se escribe a mano. Esta pagina explica de donde sale cada dato, cuando caduca y como se corrige.</p></header>
+  {breadcrumbs([('Inicio', '/'), ('Editoriales', '/editoriales/'), ('Metodología', None)])}
+  <header class="editorial-hero"><p class="eyebrow">Metodología</p><h1>Cómo se verifica esta información.</h1><p class="lead">Cada ficha del directorio se genera a partir de un dataset validado, no se escribe a mano. Esta página explica de dónde sale cada dato, cuándo caduca y cómo se corrige.</p></header>
 
-  <section class="editorial-section"><h2>De donde sale cada dato</h2><p>Los datos de recepcion de manuscritos proceden de la pagina oficial de cada editorial. Cada ficha enlaza esa fuente primaria y separa siempre el hecho publicado por la editorial de cualquier resumen propio. Cuando la editorial no publica una via de envio directa, la ficha lo dice en vez de deducirlo.</p><p>Actualmente el directorio publica {count} ficha(s).</p></section>
+  <section class="editorial-section"><h2>De dónde sale cada dato</h2><p>Los datos de recepción de manuscritos proceden de la página oficial de cada editorial. Cada ficha enlaza esa fuente primaria y separa siempre el hecho publicado por la editorial de cualquier resumen propio. Cuando la editorial no publica una vía de envío directa, la ficha lo dice en vez de deducirlo.</p><p>Actualmente el directorio publica {plural_fichas(count)}.</p></section>
 
-  <section class="editorial-section"><h2>Estados de recepcion</h2><p>El estado es un valor cerrado, no texto libre, para que no aparezcan variantes contradictorias entre fichas:</p><dl class="editorial-facts">{states}</dl></section>
+  <section class="editorial-section"><h2>Estados de recepción</h2><p>El estado es un valor cerrado, no texto libre, para que no aparezcan variantes contradictorias entre fichas:</p><dl class="editorial-facts">{states}</dl></section>
 
-  <section class="editorial-section"><h2>Fechas y caducidad</h2><p>Cada ficha distingue dos fechas: <strong>ultima comprobacion</strong> (cuando se reviso la fuente oficial) y <strong>ultima actualizacion de la pagina</strong> (cuando cambio de forma significativa el contenido publicado aqui). Una ficha comprobada hace mas de 90 dias se marca para revision: la informacion de recepcion cambia sin aviso y una fecha vieja no es una garantia.</p></section>
+  <section class="editorial-section"><h2>Fechas y caducidad</h2><p>Cada ficha distingue dos fechas: <strong>última comprobación</strong> (cuándo se revisó la fuente oficial) y <strong>última actualización de la página</strong> (cuándo cambió de forma significativa el contenido publicado aquí). Una ficha comprobada hace más de 90 días se marca para revisión: la información de recepción cambia sin aviso y una fecha vieja no es una garantía.</p></section>
 
-  <section class="editorial-section"><h2>Que no se publica</h2><p>El dataset publico se genera filtrando la hoja de trabajo interna, asi que notas privadas y campos de seguimiento no llegan a la web. Los correos de contacto solo se publican cuando la propia editorial los ofrece como via de envio y la recepcion esta abierta: publicar un correo historico de una recepcion cerrada solo genera envios que nadie va a leer.</p><p>No hay valoraciones, rankings ni recomendaciones de una editorial sobre otra. El builder falla si alguien intenta introducir un campo de ranking.</p></section>
+  <section class="editorial-section"><h2>Qué no se publica</h2><p>El dataset público se genera filtrando la hoja de trabajo interna, así que notas privadas y campos de seguimiento no llegan a la web. Los correos de contacto solo se publican cuando la propia editorial los ofrece como vía de envío y la recepción está abierta: publicar un correo histórico de una recepción cerrada solo genera envíos que nadie va a leer.</p><p>No hay valoraciones, rankings ni recomendaciones de una editorial sobre otra. El builder falla si alguien intenta introducir un campo de ranking.</p></section>
 
   <section class="editorial-section"><h2>Correcciones</h2><p>Si eres responsable de una editorial listada o detectas un dato incorrecto u obsoleto, escribe a <a href="mailto:samuelentremundos@gmail.com">samuelentremundos@gmail.com</a> indicando la ficha y la fuente oficial. Las correcciones con fuente se aplican y quedan reflejadas en el historial de comprobaciones de la ficha correspondiente.</p></section>
 
-  <aside class="editorial-disclaimer"><strong>No es asesoramiento ni representacion.</strong> davidportodiaz.com no representa a ninguna de estas editoriales. Las instrucciones oficiales de cada editorial prevalecen siempre sobre lo que se resuma aqui.</aside>
+  <aside class="editorial-disclaimer"><strong>No es asesoramiento ni representación.</strong> davidportodiaz.com no representa a ninguna de estas editoriales. Las instrucciones oficiales de cada editorial prevalecen siempre sobre lo que se resuma aquí.</aside>
 </main>'''
 
     jsonld = {
@@ -425,9 +469,9 @@ def render_methodology(site: str, records: list[dict], today: date) -> str:
                 "@type": "WebPage",
                 "@id": canonical,
                 "url": canonical,
-                "name": "Metodologia del directorio de editoriales",
+                "name": "Metodología del directorio de editoriales",
                 "description": description,
-                "dateModified": today.isoformat(),
+                "dateModified": methodology_date_modified(records),
                 "inLanguage": "es",
                 "isPartOf": {"@id": f"{site}/editoriales/"},
                 "author": {"@id": f"{site}/#author"},
@@ -435,7 +479,7 @@ def render_methodology(site: str, records: list[dict], today: date) -> str:
         ],
     }
     return page_shell(
-        title="Metodologia del directorio de editoriales | David Porto Diaz",
+        title="Metodología del directorio de editoriales | David Porto Díaz",
         description=description,
         canonical=canonical,
         main_html=main_html,

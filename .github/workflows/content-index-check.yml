@@ -32,3 +32,7 @@ jobs:
       # canonico y comprueba que cada bot de busqueda alcance las rutas clave.
       - name: Check robots.txt and AI/search crawler access
         run: python scripts/check-ai-discoverability.py
+      - name: Check social cards (Open Graph / Twitter) on every indexable page
+        run: python scripts/check-social-cards.py --strict
+      - name: Check the editorial methodology page is date-independent
+        run: python tests/test-editoriales-metodologia.py
