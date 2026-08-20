@@ -1531,3 +1531,15 @@ body .section .synopsis-aside {
 .footer-socials {
   gap: 4px;
 }
+
+/* Contraste WCAG AA en la sección de eventos. Lighthouse medía aquí ratios de
+   2.98 a 4.43 sobre el fondo #141618, por debajo del mínimo de 4.5:1 para
+   texto normal: el mes usaba --accent (3.86), el año --muted-2 (2.98), los
+   párrafos #857c6f (4.41) y el "— Realizado" llevaba opacity:0.7 en línea, que
+   aclaraba el texto hasta 4.43. Se sube el tono dentro de la misma familia
+   cromática en vez de tocar la paleta global, que se usa en todo el sitio. */
+#eventos .event-month{color:#a98553}
+#eventos .event-year{color:#9a9083}
+#eventos .event-card p,#eventos .event-card p em{color:#9a9083}
+#eventos .event-link{color:#9a9083}
+#eventos .event-done{font-weight:400;font-size:0.8em;color:#9a9083}
