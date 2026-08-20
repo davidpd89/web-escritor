@@ -206,7 +206,7 @@ def page_shell(*, title: str, description: str, canonical: str, main_html: str, 
   <meta property="og:locale" content="es_ES">
   <meta property="og:image" content="https://davidportodiaz.com/assets/david-porto-imagen-compartir.webp">
   <meta name="theme-color" content="#080a0c">
-  <link rel="stylesheet" href="/styles.css">
+  <link rel="stylesheet" href="/styles.css?v=202609-launch-1">
   <link rel="stylesheet" href="/assets/editoriales.css">
   <script type="application/ld+json">{html.escape(json.dumps(jsonld, ensure_ascii=False, separators=(',', ':')), quote=False)}</script>
 </head>

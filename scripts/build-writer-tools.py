@@ -83,7 +83,7 @@ def render(data):
 <title>Herramientas para escritores: directorio verificado | David Porto Díaz</title>
 <meta name="description" content="Directorio editorial de herramientas para escritores: precio, plataforma, privacidad, idioma, para qué sirve y para qué no, con fuentes y fecha de verificación.">
 <link rel="canonical" href="https://davidportodiaz.com/recursos/herramientas-para-escritores/">
-<link rel="stylesheet" href="/styles.css"><link rel="stylesheet" href="/assets/writer-tools.css">
+<link rel="stylesheet" href="/styles.css?v=202609-launch-1"><link rel="stylesheet" href="/assets/writer-tools.css">
 </head><body>
 <a class="skip-link" href="#main-content">Saltar al contenido</a><main id="main-content" class="wt-page">
 <nav class="breadcrumb" aria-label="Ruta de navegación"><a href="/">Inicio</a> › <a href="/herramientas/">Herramientas</a> › Herramientas para escritores</nav>

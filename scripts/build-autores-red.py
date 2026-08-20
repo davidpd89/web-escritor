@@ -73,7 +73,7 @@ def layout(title: str, description: str, body: str, canonical: str, jsonld: dict
 <title>{esc(title)}</title>
 <meta name="description" content="{esc(description)}">
 <link rel="canonical" href="{esc(canonical)}">
-<link rel="stylesheet" href="/styles.css">
+<link rel="stylesheet" href="/styles.css?v=202609-launch-1">
 <link rel="stylesheet" href="/assets/autores-red.css?v=20260817-1">
 {ld}
 </head>

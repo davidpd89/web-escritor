@@ -1,4 +1,4 @@
-const CACHE_VERSION = "david-porto-v2026-08-19-1";
+const CACHE_VERSION = "david-porto-v2026-08-20-launch-1";
 const STATIC_CACHE = `${CACHE_VERSION}-static`;
 const PAGE_CACHE = `${CACHE_VERSION}-pages`;
 
@@ -62,12 +62,20 @@ self.addEventListener("fetch", (event) => {
     return;
   }
 
-  if (url.pathname.endsWith(".css")) {
+  // Mutable code (CSS/JS) must never be cache-first indefinitely: a stale
+  // cached copy would otherwise survive until a full CACHE_VERSION bump,
+  // even for /assets/*.js tool engines that change independently of the
+  // site-wide script.js?v=... cache-busting query string. Reviewed
+  // 2026-08-20 (corrective audit point 6).
+  if (url.pathname.endsWith(".css") || url.pathname.endsWith(".js")) {
     event.respondWith(networkFirstStatic(request));
     return;
   }
 
-  if (url.pathname.startsWith("/assets/") || url.pathname.endsWith(".js")) {
+  // Fonts/images under /assets/ are effectively immutable in practice
+  // (replaced, not mutated in place) and a full CACHE_VERSION bump still
+  // clears them on a real release - cache-first is fine here.
+  if (url.pathname.startsWith("/assets/")) {
     event.respondWith(cacheFirst(request));
     return;
   }
