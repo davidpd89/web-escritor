@@ -1,7 +1,15 @@
+/* Adaptado al tema real del sitio. La versión anterior era un prototipo de
+   tema claro: paneles con background:#fff, pistas #f5f5f5 y un degradado azul
+   ajeno a la paleta, y ni una sola declaración de color. Como el sitio es
+   oscuro y --text es crema (#f2e8d8), el texto del formulario se heredaba
+   crema sobre blanco: Lighthouse medía 1.21:1 (el mínimo es 4.5:1), es decir,
+   las etiquetas del formulario eran prácticamente invisibles. */
 .chapter-tool{display:flex;gap:16px}
-.chapter-tool__panel{flex:1;border:1px solid #eee;padding:12px;border-radius:8px;background:#fff}
+.chapter-tool__panel{flex:1;border:1px solid var(--border);padding:12px;border-radius:8px;background:var(--surface);color:var(--text)}
+.chapter-tool__panel label{display:block;color:var(--text)}
+.chapter-tool__panel small,.chapter-tool__panel p{color:var(--muted)}
 .chapter-tool__actions{display:flex;gap:8px;margin-top:12px}
 .chapter-bar-row{display:flex;align-items:center;gap:8px;margin:6px 0}
-.chapter-bar-label{width:220px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
-.chapter-bar-track{flex:1;background:#f5f5f5;border-radius:6px;padding:4px}
-.chapter-bar-fill{display:block;height:12px;background:linear-gradient(90deg,#6b9ef8,#3b82f6);border-radius:6px;width:var(--bar,10%)}
+.chapter-bar-label{width:220px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;color:var(--text)}
+.chapter-bar-track{flex:1;background:rgba(242,232,216,0.08);border-radius:6px;padding:4px}
+.chapter-bar-fill{display:block;height:12px;background:linear-gradient(90deg,var(--accent),var(--accent-strong));border-radius:6px;width:var(--bar,10%)}
