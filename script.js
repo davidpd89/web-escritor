@@ -6,17 +6,15 @@ function scheduleTask(fn, priority = "background") {
   return Promise.resolve().then(fn);
 }
 
+// Client contract (2026-08-20): only { email, source, result? } is ever
+// sent to the Worker. listIds/attributes/updateEnabled are no longer
+// client-controlled — the Worker validates `source` against its own
+// server-side whitelist and builds the Brevo attributes itself. See
+// cloudflare-worker-subscribe.js. The `source` values used below (home,
+// fragmento, manecillas, cuaderno, popup, quiz) must match the Worker's
+// SOURCE_MAP keys exactly.
 const NEWSLETTER_CONFIG = {
-  endpoint: "https://subscribe.davidpd89.workers.dev",
-  defaultListIds: [3],
-  sources: {
-    quiz: "quiz-noveris",
-    home: "home",
-    fragmento: "fragmento",
-    manecillas: "manecillas",
-    cuaderno: "cuaderno",
-    popup: "popup"
-  }
+  endpoint: "https://subscribe.davidpd89.workers.dev"
 };
 // Clarity analytics is intentionally disabled. Keep the project id out of runtime until it is useful again.
 if ("serviceWorker" in navigator) {
@@ -457,15 +455,14 @@ function fallbackCopy(text, done) {
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify({
               email: emailEl.value.trim(),
-              listIds: NEWSLETTER_CONFIG.defaultListIds,
-              updateEnabled: true,
-              attributes: { NOVERIS: resultEl._resultKey || "" }
+              source: "quiz",
+              result: resultEl._resultKey || ""
             })
           });
           if (res.ok || res.status === 204) {
             localStorage.setItem("nl-subscribed", "1");
             subscribeForm.dataset.done = "true";
-            subscribeForm.innerHTML = '<p class="quiz-subscribe-ok">✓ ¡Apuntado! Recibirás tu resultado y el pack lector de Noveris.</p>';
+            subscribeForm.innerHTML = '<p class="quiz-subscribe-ok">✓ ¡Apuntado! Recibirás las novedades de Noveris.</p>';
             _gcEvent("newsletter-quiz", "Newsletter: quiz Noveris");
             setResultLocked(false);
           } else if (res.status === 400) {
@@ -506,15 +503,19 @@ function fallbackCopy(text, done) {
 
 // Generic newsletter forms (home, fragmento, manecillas pages)
 (function () {
-  // Contextual success copy per source: a launch-alert signup on the
-  // Manecillas page shouldn't be told it will receive "el capítulo" - that
-  // promise belongs to Samuel entre mundos, which is what home/fragmento
-  // actually deliver. Falls back to a generic message for unknown sources.
+  // Contextual success copy per source. BREVO AUTOMATION VERIFICATION
+  // REQUIRED: there is no confirmed Brevo automation in this repo that
+  // actually emails the Samuel entre mundos chapter (or any other content)
+  // on signup — subscribing only adds the contact to a list with a SOURCE
+  // attribute. Until such an automation is verified and documented, copy
+  // must not promise specific automatic content delivery (2026-08-20).
+  // Manecillas keeps its own promise because that one is just "I'll notify
+  // you" (a real, simple thing this list can do), not a content delivery.
   const NEWSLETTER_SUCCESS_COPY = {
-    home: "Recibirás el capítulo y novedades de David Porto Díaz.",
-    fragmento: "Recibirás novedades de David Porto Díaz.",
+    home: "Te has suscrito correctamente. Recibirás las novedades de David Porto Díaz.",
+    fragmento: "Te has suscrito correctamente. Recibirás las novedades de David Porto Díaz.",
     manecillas: "Te avisaré cuando Las manecillas del recuerdo esté disponible.",
-    cuaderno: "Recibirás las novedades de David Porto Díaz."
+    cuaderno: "Te has suscrito correctamente. Recibirás las novedades de David Porto Díaz."
   };
 
   async function submitNewsletter(formId, emailId, gdprId, statusId, sourceLabel) {
@@ -545,9 +546,7 @@ function fallbackCopy(text, done) {
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify({
               email: emailEl.value.trim(),
-              listIds: NEWSLETTER_CONFIG.defaultListIds,
-              updateEnabled: true,
-              attributes: { SOURCE: NEWSLETTER_CONFIG.sources[sourceLabel] || sourceLabel }
+              source: sourceLabel
             })
           });
           if (res.ok || res.status === 204) {
@@ -707,13 +706,17 @@ document.addEventListener('dp:analytics', _dpAnalyticsBridge);
   // sense on pages actually about that book. Elsewhere it stays generic.
   function popupCopy() {
     if (path.startsWith("/universo/noveris/") || path.startsWith("/clubes-de-lectura/")) {
+      // BREVO AUTOMATION VERIFICATION REQUIRED (2026-08-20): no confirmed
+      // Brevo automation in this repo actually emails a map/chapter PDF on
+      // signup, so this copy no longer promises specific automatic content
+      // delivery — only what a plain list subscription genuinely does.
       return {
         eyebrow: "Primeros lectores de Noveris",
-        title: "Recibe el pack lector de Noveris.",
-        body: "Mapa, capítulo 1 en PDF y avisos de nuevas firmas o lecturas. Un email cuando haya algo que valga la pena.",
-        cta: "Recibir pack lector",
+        title: "Sigue el universo de Noveris.",
+        body: "Novedades sobre el universo de Noveris y avisos de nuevas firmas o lecturas. Un email cuando haya algo que valga la pena.",
+        cta: "Suscribirme",
         okTitle: "✓ ¡Apuntado!",
-        okBody: "Recibirás el pack lector y las novedades importantes.",
+        okBody: "Recibirás las novedades de David Porto Díaz sobre el universo de Noveris.",
         dupeTitle: "✓ Ya estás suscrito.",
         dupeBody: "¡Gracias por seguir a David Porto Díaz!"
       };
@@ -800,7 +803,7 @@ document.addEventListener('dp:analytics', _dpAnalyticsBridge);
           const res = await fetch(NEWSLETTER_CONFIG.endpoint, {
             method: "POST",
             headers: { "Content-Type": "application/json" },
-            body: JSON.stringify({ email: emailEl.value.trim(), listIds: NEWSLETTER_CONFIG.defaultListIds, updateEnabled: true, attributes: { SOURCE: NEWSLETTER_CONFIG.sources.popup } })
+            body: JSON.stringify({ email: emailEl.value.trim(), source: "popup" })
           });
           if (res.ok || res.status === 204) {
             localStorage.setItem(SUBSCRIBED_KEY, "1");
