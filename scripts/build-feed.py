@@ -125,6 +125,12 @@ def collect_items():
             continue
         if meta.get('url') or meta.get('title'):
             items.append(meta)
+    # El orden debe ser determinista en cualquier sistema de archivos: los
+    # articulos actuales no publican fecha, asi que ordenar solo por fecha
+    # dejaba el orden que devuelve os.walk -- alfabetico en Windows, arbitrario
+    # en ext4. El feed se generaba distinto en local y en CI, y --check fallaba
+    # en CI sin que hubiera cambiado ningun contenido. Se desempata por URL.
+    items.sort(key=lambda x: x.get('url') or x.get('link') or '')
     items.sort(key=lambda x: x.get('date') or '', reverse=True)
     return items[:50], skipped
 
