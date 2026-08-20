@@ -1,22 +1,39 @@
 name: Lighthouse CI
 
-# Nota sobre lighthouserc.json (JSON no admite comentarios, asi que va aqui):
+# Notas sobre lighthouserc.json (JSON no admite comentarios, asi que van aqui):
 #
-# La assertion `robots-txt` esta en "off" a proposito. Lighthouse descarga
-# /robots.txt desde el contexto de la pagina auditada, y las paginas de
-# herramientas declaran `connect-src 'none'` en su CSP porque prometen que el
-# texto del usuario no sale del navegador. Esa CSP bloquea tambien la peticion
-# de Lighthouse, que lo reporta como "unable to download a robots.txt file" y
-# tumba el SEO de esas rutas a 0,92. Comprobado: cambiando solo esa directiva a
-# `connect-src 'self'` en una copia de /herramientas/manuscrito/, el SEO sube a
-# 1,00 sin tocar nada mas. No es un fallo del sitio, es una medicion imposible
-# en esas paginas, y relajar la CSP para complacer al auditor romperia la
-# garantia de privacidad que la pagina anuncia.
+# --- Por que hay assertMatrix y no una sola lista de assertions
 #
-# robots.txt NO se queda sin verificar: scripts/check-ai-discoverability.py lo
+# Lighthouse descarga /robots.txt desde el contexto de la pagina auditada. Las
+# paginas de herramientas declaran `connect-src 'none'` en su CSP porque
+# prometen que el texto del usuario no sale del navegador, y esa CSP bloquea
+# tambien la peticion de Lighthouse, que lo reporta como "unable to download a
+# robots.txt file". Ese unico audit hunde la categoria SEO de esas rutas a 0,92.
+#
+# Comprobado: cambiando solo esa directiva a `connect-src 'self'` en una copia
+# de /herramientas/manuscrito/, el SEO sube a 1,00 sin tocar nada mas. No es un
+# fallo del sitio; es una medicion imposible en esas paginas, y relajar la CSP
+# para complacer al auditor romperia la garantia de privacidad que la pagina
+# anuncia.
+#
+# La primera version de este arreglo ponia `robots-txt: off` en la lista global
+# y no servia de nada: desactivar la assertion de un audit no cambia la
+# PUNTUACION de la categoria, que Lighthouse calcula con ese audit dentro. Por
+# eso las rutas de herramienta van en su propio grupo, con `categories:seo`
+# apagada y, a cambio, los ocho audits de SEO que si son medibles exigidos uno a
+# uno en error. Sale un control mas estricto que la nota agregada, no mas laxo.
+#
+# robots.txt no se queda sin verificar: scripts/check-ai-discoverability.py lo
 # valida en content-index-check.yml con mas rigor que Lighthouse (lo parsea con
 # urllib.robotparser, exige el sitemap canonico y comprueba que cada bot de
 # busqueda pueda rastrear las rutas clave).
+#
+# --- Por que best-practices esta en warn y no se persigue
+#
+# Sale 0,82 en casi todas las paginas y siempre por lo mismo: `is-on-https`,
+# que pesa 5 puntos. LHCI sirve el sitio en http://localhost, asi que el audit
+# no puede pasar aqui aunque el sitio en produccion sea HTTPS. Es un artefacto
+# del laboratorio, no un defecto: no hay nada que arreglar en las paginas.
 
 on:
   pull_request:
@@ -51,11 +68,8 @@ jobs:
       - name: Install Lighthouse CI
         run: npm install --global @lhci/cli@0.15.1
 
-      # collect y assert van separados a proposito. Con `lhci autorun`, cuando
-      # las assertions fallaban el proceso terminaba antes de dejar los informes
-      # donde el paso de artifact pudiera recogerlos, y GitHub cerraba el run
-      # diciendo que no habia ningun fichero que subir: justo en los runs que
-      # fallan, que son los unicos en los que hace falta mirar el informe.
+      # collect y assert van separados a proposito: con `lhci autorun`, un fallo
+      # de assertions terminaba el proceso antes de los pasos siguientes.
       - name: Collect Lighthouse reports
         run: lhci collect --config=./lighthouserc.json
 
@@ -67,11 +81,17 @@ jobs:
       - name: Assert budgets
         run: lhci assert --config=./lighthouserc.json
 
+      # include-hidden-files es imprescindible, no decorativo: LHCI deja los
+      # informes en `.lighthouseci/`, y upload-artifact@v4 ignora por defecto
+      # todo lo que empiece por punto. De ahi el "No files were found with the
+      # provided path" de los runs anteriores — el directorio existia y estaba
+      # lleno; la accion no lo miraba.
       - name: Upload local Lighthouse reports
         if: always()
         uses: actions/upload-artifact@v4
         with:
           name: lighthouse-reports
           path: .lighthouseci/
+          include-hidden-files: true
           if-no-files-found: warn
           retention-days: 14

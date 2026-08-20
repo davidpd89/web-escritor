@@ -150,7 +150,7 @@ function collectAssetFiles(form) {
   }
   if (result.length > MAX_ASSETS) {
     throw new Error(
-      `Has seleccionado ${result.length} archivos y el maximo es ${MAX_ASSETS}. Quita ${result.length - MAX_ASSETS} y vuelve a generar el kit.`
+      `Has seleccionado ${result.length} archivos y el máximo es ${MAX_ASSETS}. Quita ${result.length - MAX_ASSETS} y vuelve a generar el kit.`
     );
   }
   return result;

@@ -7,6 +7,28 @@ from html import escape
 from urllib.parse import urlparse
 
 ALLOWED_STAGES={"planificacion","escritura","revision","estadisticas","maquetacion","exportacion","epub","validacion","impresion","marketing","distribucion"}
+# Los slugs de arriba son valores tecnicos: viajan en data-stages y es lo que
+# filtra writer-tools.js. Pero tambien se pintaban tal cual como etiquetas
+# visibles, asi que la ficha mostraba "planificacion / revision / maquetacion"
+# justo debajo de un desplegable que ya decia "Planificacion / Revision /
+# Maquetacion" bien acentuado. El dato sigue siendo el slug; lo que se lee, no.
+PAGE_TITLE="Herramientas para escritores: directorio verificado | David Porto Díaz"
+DESCRIPTION=("Directorio editorial de herramientas para escritores: precio, plataforma, "
+             "privacidad, idioma, para qué sirve y para qué no, con fuentes y fecha de verificación.")
+CANONICAL="https://davidportodiaz.com/recursos/herramientas-para-escritores/"
+# Las etiquetas Open Graph / Twitter estaban escritas a mano en el HTML
+# generado, no aqui: la primera regeneracion del fichero se las llevo por
+# delante. Viven en el builder para que no vuelva a pasar.
+SHARE_IMAGE="https://davidportodiaz.com/assets/david-porto-imagen-compartir.webp"
+SHARE_IMAGE_WIDTH=1731
+SHARE_IMAGE_HEIGHT=909
+
+STAGE_LABELS={
+    "planificacion":"Planificación","escritura":"Escritura","revision":"Revisión",
+    "estadisticas":"Estadísticas","maquetacion":"Maquetación","exportacion":"Exportación",
+    "epub":"EPUB","validacion":"Validación","impresion":"Impresión",
+    "marketing":"Marketing","distribucion":"Distribución",
+}
 ALLOWED_STATUS={"active","monitor","deprecated"}
 ALLOWED_PRICE={"gratis-open-source","gratis","freemium","suscripcion","pago-unico","variable"}
 SLUG_RE=re.compile(r"^[a-z0-9]+(?:-[a-z0-9]+)*$")
@@ -58,7 +80,7 @@ def render_tool(t):
     return f'''
 <article class="wt-card" data-name="{escape(t["name"].lower())}" data-stages="{escape(stages)}" data-price="{escape(t["price"]["model"])}" data-local="{"1" if localish else "0"}" data-spanish="{"1" if es else "0"}" data-account="{"0" if t["account_required"] is False else "1" if t["account_required"] is True else "unknown"}">
 <header class="wt-card__head"><div><p class="wt-kicker">{escape(tested_label)}</p><h2>{escape(t["name"])}</h2></div><span class="wt-verified">Verificado {escape(t["verification"]["checked_at"])}</span></header>
-<div class="wt-pills">{''.join(pill(x) for x in t["stages"])}</div>
+<div class="wt-pills">{''.join(pill(STAGE_LABELS.get(x, x)) for x in t["stages"])}</div>
 <dl class="wt-facts">
 <div><dt>Precio</dt><dd>{escape(t["price"]["display"])}</dd></div>
 <div><dt>Plataformas</dt><dd>{escape(", ".join(t["platforms"]))}</dd></div>
@@ -80,9 +102,24 @@ def render(data):
 <html lang="es"><head>
 <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <meta name="robots" content="index,follow,max-image-preview:large">
-<title>Herramientas para escritores: directorio verificado | David Porto Díaz</title>
-<meta name="description" content="Directorio editorial de herramientas para escritores: precio, plataforma, privacidad, idioma, para qué sirve y para qué no, con fuentes y fecha de verificación.">
-<link rel="canonical" href="https://davidportodiaz.com/recursos/herramientas-para-escritores/">
+<title>{PAGE_TITLE}</title>
+<meta name="description" content="{DESCRIPTION}">
+<meta property="og:title" content="{PAGE_TITLE}">
+<meta property="og:description" content="{DESCRIPTION}">
+<meta property="og:type" content="website">
+<meta property="og:url" content="{CANONICAL}">
+<meta property="og:image" content="{SHARE_IMAGE}">
+<meta property="og:image:width" content="{SHARE_IMAGE_WIDTH}">
+<meta property="og:image:height" content="{SHARE_IMAGE_HEIGHT}">
+<meta property="og:image:alt" content="{PAGE_TITLE}">
+<meta property="og:locale" content="es_ES">
+<meta property="og:site_name" content="David Porto Díaz">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="{PAGE_TITLE}">
+<meta name="twitter:description" content="{DESCRIPTION}">
+<meta name="twitter:image" content="{SHARE_IMAGE}">
+<meta name="twitter:image:alt" content="{PAGE_TITLE}">
+<link rel="canonical" href="{CANONICAL}">
 <link rel="stylesheet" href="/styles.css?v=202609-launch-1"><link rel="stylesheet" href="/assets/writer-tools.css">
 </head><body>
 <a class="skip-link" href="#main-content">Saltar al contenido</a><main id="main-content" class="wt-page">
