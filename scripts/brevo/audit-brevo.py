@@ -20,12 +20,17 @@ exact message means the request never reached authentication logic.
 """
 from __future__ import annotations
 
+import io
 import json
 import os
 import sys
 import urllib.error
 import urllib.request
 from pathlib import Path
+
+if sys.platform == "win32":
+    sys.stdout = io.TextIOWrapper(sys.stdout.buffer, encoding="utf-8")
+    sys.stderr = io.TextIOWrapper(sys.stderr.buffer, encoding="utf-8")
 
 ROOT = Path(__file__).resolve().parents[2]
 API = "https://api.brevo.com/v3"
@@ -82,7 +87,10 @@ def main() -> int:
     status, data = call(key, "/account")
     print(status)
     if status == 200:
-        print(json.dumps({k: data.get(k) for k in ("email", "companyName", "plan")}, ensure_ascii=False))
+        # Deliberately minimal: never print marketingAutomation.key, address,
+        # or SMTP relay credentials - treat the full /account payload as
+        # sensitive even though this key only grants read-mostly access.
+        print(json.dumps({"plan": data.get("plan")}, ensure_ascii=False))
     else:
         print(json.dumps(data, ensure_ascii=False)[:1000])
         if status == 401 and "unrecognised IP" in json.dumps(data):
@@ -97,8 +105,21 @@ def main() -> int:
     section("LISTS")
     status, data = call(key, "/contacts/lists?limit=50&offset=0")
     print(status)
+    list_ids = []
     for l in data.get("lists", []) if status == 200 else []:
-        print(f"  id={l.get('id')} name={l.get('name')!r} totalSubscribers={l.get('totalSubscribers')} folderId={l.get('folderId')}")
+        list_ids.append(l.get("id"))
+        print(f"  id={l.get('id')} name={l.get('name')!r} folderId={l.get('folderId')}")
+
+    section("LIST DETAIL (reliable subscriber counts)")
+    # The /contacts/lists listing endpoint's totalSubscribers has been seen
+    # to report a stale/misleading 0 - always confirm via the per-list
+    # detail endpoint before treating a count as real.
+    for list_id in list_ids:
+        status, l = call(key, f"/contacts/lists/{list_id}")
+        if status == 200:
+            print(f"  id={l.get('id')} name={l.get('name')!r} totalSubscribers={l.get('totalSubscribers')} uniqueSubscribers={l.get('uniqueSubscribers')}")
+        else:
+            print(f"  id={list_id} -> {status}")
 
     section("CONTACT ATTRIBUTES")
     status, data = call(key, "/contacts/attributes")
