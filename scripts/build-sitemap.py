@@ -37,6 +37,8 @@ EXCLUDE_DIRS = {
     "WEB DAVID PORTO nuevas ideas",
     "press-kit",
     "data",
+    ".preview-dist",
+    "dist",
 }
 
 SKIP_BASENAMES = {

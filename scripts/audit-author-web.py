@@ -18,6 +18,7 @@ ROOT = Path(__file__).resolve().parent.parent
 SKIP_PARTS = {
     ".git", ".github", "node_modules", "tests", "vendor",
     "WEB DAVID PORTO nuevas ideas", "archive", ".codex_work",
+    ".preview-dist", "dist",
 }
 
 

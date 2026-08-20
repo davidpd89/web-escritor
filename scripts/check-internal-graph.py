@@ -32,6 +32,8 @@ EXCLUDE_DIRS = {
     "WEB DAVID PORTO nuevas ideas",
     "press-kit",
     "data",
+    ".preview-dist",
+    "dist",
 }
 
 ASSET_EXTENSIONS = {

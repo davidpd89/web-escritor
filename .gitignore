@@ -34,3 +34,7 @@ __pycache__/
 # sources stay local so regeneration is possible without repo bloat.
 assets/manecillas/source/*.png
 assets/*/source/*.png
+
+# Build output of scripts/build-public-dist.py — generated, never tracked.
+.preview-dist/
+dist/

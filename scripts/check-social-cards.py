@@ -258,6 +258,7 @@ def main() -> int:
     skip_parts = {
         ".git", "node_modules", "vendor", ".github", "tests", "scripts",
         "WEB DAVID PORTO nuevas ideas", "archive", ".codex_work",
+        ".preview-dist", "dist",
     }
     for path in sorted(root.rglob("*.html")):
         # Never treat vendored/generated fixtures or draft/example pages from
