@@ -162,8 +162,12 @@ window.addEventListener("load", () => {
 });
 
 // Thumb-friendly mobile navigation. Injected once so every page gets the same bottom actions.
+// Scoped off legal/policy pages: a promotional "Novedad" shortcut doesn't
+// belong on a privacy policy or legal notice page (reviewed 2026-08-20).
 (function () {
   if (document.querySelector(".mobile-bottom-nav")) return;
+  const NO_BOTTOM_NAV_PATHS = new Set(["/privacidad.html", "/aviso-legal.html"]);
+  if (NO_BOTTOM_NAV_PATHS.has(window.location.pathname)) return;
 
   const items = [
     { href: "/", label: "Inicio", icon: "⌂" },
@@ -252,8 +256,11 @@ function fallbackCopy(text, done) {
   document.body.removeChild(ta);
 }
 
-// Reading progress bar
+// Reading progress bar — opt-in only (data-reading-progress on <body>),
+// not injected on every page. Long-form reading pages (articles,
+// fragments) opt in explicitly; utility/tool/legal pages don't need it.
 (function () {
+  if (!document.body.hasAttribute("data-reading-progress")) return;
   const bar = document.createElement("div");
   bar.className = "reading-progress";
   bar.setAttribute("role", "progressbar");
