@@ -78,6 +78,20 @@ PRELAUNCH_AVAILABLE = [
 # immediately preceded by a conditional/future marker.
 CONDITIONAL_AVAILABILITY_MARKERS = re.compile(r"(?:en\s+cuanto|cuando)\s+est[ée]n?\s*$", re.I)
 
+# El kit de prensa marca cada recurso (bio, foto, portada) con
+# <span class="status-badge status--available">Disponible</span>: eso dice que
+# el RECURSO se puede copiar/descargar, no que el libro esté a la venta. Como
+# esas tarjetas citan el título en el texto de la bio, el badge caía dentro de
+# la ventana de 180 caracteres y se contaba como anuncio prematuro de compra.
+# Se eliminan esos badges antes de buscar afirmaciones de disponibilidad.
+ASSET_STATUS_BADGE = re.compile(
+    r"<span[^>]*class=\"[^\"]*status-badge[^\"]*\"[^>]*>.*?</span>", re.I | re.S
+)
+
+
+def _strip_asset_status_badges(text: str) -> str:
+    return ASSET_STATUS_BADGE.sub(" ", text)
+
 
 def _is_conditional_availability(text: str, match: "re.Match") -> bool:
     """True if the 'disponible(s)' in this match is future/conditional
@@ -106,6 +120,14 @@ SCAN_SUFFIXES = {".html", ".json", ".txt", ".xml", ".webmanifest"}
 SKIP_PARTS = {
     ".git", ".github", "node_modules", "tests", "scripts",
     "WEB DAVID PORTO nuevas ideas", "archive", ".codex_work",
+    # data/ son fuentes de build (datasets gated, fixtures, entradas de
+    # builders). build-public-dist.py las excluye enteras del output público,
+    # así que no son "superficie pública" y no deben juzgarse como tal: el
+    # placeholder example.com de data/autores-red.json (dataset con gate, sin
+    # página publicada) mantenía este checker en rojo permanente sin que nada
+    # de eso llegara nunca a un visitante.
+    "data",
+    ".preview-dist", "dist",
 }
 
 
@@ -336,9 +358,10 @@ def main() -> int:
         # No anunciar disponibilidad ni Offer si todavía no existe compra verificada.
         if BOOK.get("purchaseUrl") is None:
             for rel, text in public_surfaces:
+                availability_text = _strip_asset_status_badges(text)
                 for pattern in PRELAUNCH_AVAILABLE:
-                    m = pattern.search(text)
-                    if m and not _is_conditional_availability(text, m):
+                    m = pattern.search(availability_text)
+                    if m and not _is_conditional_availability(availability_text, m):
                         errors.append(f"{rel}: estado de compra/disponibilidad prematuro para Manecillas")
                 if manecillas_offer_present(rel, text):
                     errors.append(f"{rel}: Offer de Manecillas antes de existir purchaseUrl canónica")
