@@ -1,5 +1,6 @@
 #!/usr/bin/env python3
-"""Generate an image with the OpenAI Images API (gpt-image-1).
+"""Generate an image with the OpenAI Images API (default model: gpt-image-2,
+overridable with --model).
 
 This script reads OPENAI_API_KEY from the environment ONLY. It never
 accepts a key via CLI argument, never prints it, never writes it to any
@@ -21,10 +22,14 @@ Usage:
   # Real generation (spends money). Only after reviewing the dry run.
   python scripts/openai/generate-image.py --prompt "..." --out assets/x.png --live
 
-  # Optional size/quality (gpt-image-1 supported sizes: 1024x1024,
-  # 1024x1536, 1536x1024, auto; quality: low, medium, high, auto).
+  # Optional size/quality (supported sizes: 1024x1024, 1024x1536,
+  # 1536x1024, auto; quality: low, medium, high, auto).
   python scripts/openai/generate-image.py --prompt "..." --out assets/x.png \
       --size 1536x1024 --quality medium --live
+
+  # Older model, if gpt-image-2 isn't available on this account/API version:
+  python scripts/openai/generate-image.py --prompt "..." --out assets/x.png \
+      --model gpt-image-1 --live
 
 Cost control: this script makes exactly ONE API request per invocation
 (n=1, hardcoded). There is no batch/loop mode. Run it once per variant
@@ -73,6 +78,12 @@ def parse_args():
     p.add_argument("--out", required=True, help="Output image path (.png or .webp)")
     p.add_argument("--size", default="1024x1024", choices=["1024x1024", "1024x1536", "1536x1024", "auto"])
     p.add_argument("--quality", default="medium", choices=["low", "medium", "high", "auto"])
+    p.add_argument(
+        "--model",
+        default="gpt-image-2",
+        help="OpenAI image model (default: gpt-image-2, current per OpenAI's docs as of this "
+        "session; pass e.g. --model gpt-image-1 for the older model if needed).",
+    )
     p.add_argument("--live", action="store_true", help="Perform a real, billed API call")
     return p.parse_args()
 
@@ -87,6 +98,7 @@ def main() -> int:
 
     print("Prompt:", args.prompt)
     print("Output:", args.out)
+    print("Model:", args.model)
     print("Size:", args.size, "| Quality:", args.quality)
 
     if not args.live:
@@ -96,7 +108,7 @@ def main() -> int:
     print("\nLive generation requested — this is a BILLED API call.")
 
     payload = {
-        "model": "gpt-image-1",
+        "model": args.model,
         "prompt": args.prompt,
         "size": args.size,
         "quality": args.quality,

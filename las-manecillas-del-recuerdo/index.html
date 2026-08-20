@@ -50,12 +50,18 @@
         "inLanguage": "es",
         "isPartOf": { "@id": "https://davidportodiaz.com/#website" },
         "about": { "@id": "https://davidportodiaz.com/#book-manecillas" },
-        "dateModified": "2026-08-19",
+        "dateModified": "2026-08-20",
+        "primaryImageOfPage": {
+          "@type": "ImageObject",
+          "contentUrl": "https://davidportodiaz.com/assets/portada-las-manecillas-del-recuerdo-1024.webp",
+          "width": 1024,
+          "height": 1536
+        },
         "breadcrumb": {
           "@type": "BreadcrumbList",
           "itemListElement": [
             { "@type": "ListItem", "position": 1, "name": "Inicio", "item": "https://davidportodiaz.com/" },
-            { "@type": "ListItem", "position": 2, "name": "Libros", "item": "https://davidportodiaz.com/#libros" },
+            { "@type": "ListItem", "position": 2, "name": "Libros", "item": "https://davidportodiaz.com/libros/" },
             { "@type": "ListItem", "position": 3, "name": "Las manecillas del recuerdo", "item": "https://davidportodiaz.com/las-manecillas-del-recuerdo/" }
           ]
         }
@@ -69,11 +75,12 @@
         "inLanguage": "es",
         "bookFormat": "https://schema.org/Paperback",
         "genre": ["Novela coral", "Ficción especulativa", "Narrativa familiar"],
-        "description": "Las manecillas del recuerdo narra la historia de un niño y su abuelo, cuyo reloj de bolsillo —heredado en la Guerra Civil de 1936— se detiene la víspera de una cita con el cardiólogo y desencadena el relato que ese reloj guarda desde hace generaciones. Un reloj que pasa de mano en mano y cambia de significado en cada vida que toca: novela coral sobre el tiempo heredado, la memoria familiar y los objetos que saben cuándo ha llegado el momento de hablar.",
+        "image": "https://davidportodiaz.com/assets/portada-las-manecillas-del-recuerdo-1024.webp",
+        "description": "Las manecillas del recuerdo sigue un reloj que atraviesa vidas, generaciones y épocas: con cada mano cambia su significado —recuerdo, ancla, mercancía, prueba o herencia—. La historia cambia de voz, época y registro mientras el objeto acumula significados que sus propietarios no siempre conocen. La memoria familiar abre el recorrido —un niño y su abuelo, un reloj que se detiene la víspera de una cita médica—; después aparecen preguntas sobre precio, credibilidad, tiempo y lo analógico en un mundo digital. Novela coral sobre el tiempo heredado, la memoria familiar y los objetos que saben cuándo ha llegado el momento de hablar.",
         "isbn": "979-8-90514-935-1",
         "numberOfPages": 272,
         "datePublished": "2026-09-03",
-        "dateModified": "2026-08-19"
+        "dateModified": "2026-08-20"
       }
     ]
   }
@@ -110,7 +117,7 @@
     <main id="contenido">
 
       <!-- HERO -->
-      <section class="book-hero manecillas-hero" aria-label="Las manecillas del recuerdo">
+      <section class="book-hero book-hero--manecillas" aria-label="Las manecillas del recuerdo">
         <div class="hero-bg" aria-hidden="true"></div>
         <div class="book-hero-inner">
           <div class="book-hero-cover">
@@ -126,7 +133,7 @@
             <nav class="breadcrumb" aria-label="Ruta de navegación">
               <a href="/">Inicio</a>
               <span aria-hidden="true"> / </span>
-              <a href="/#libros">Libros</a>
+              <a href="/libros/">Libros</a>
               <span aria-hidden="true"> / </span>
               <span aria-current="page">Las manecillas del recuerdo</span>
             </nav>
@@ -142,25 +149,22 @@
 
             <div class="hero-actions">
               <a class="button primary" href="#aviso">Recuérdamelo el día del lanzamiento</a>
-              <a class="button secondary" href="/libros/samuel-entre-mundos/">Conocer la obra publicada de David Porto Díaz</a>
+              <a class="button secondary" href="/las-manecillas-del-recuerdo/fragmentos/">Leer tres fragmentos</a>
+              <a class="button tertiary" href="/libros/samuel-entre-mundos/">Conocer la obra publicada de David Porto Díaz</a>
             </div>
           </div>
         </div>
       </section>
 
-      <!-- ABOUT -->
+      <!-- FICHA EDITORIAL -->
       <section class="section" id="aviso">
         <div class="section-heading">
-          <p class="eyebrow">Próxima novela</p>
-          <h2>Lo que sabemos hasta ahora.</h2>
+          <p class="eyebrow">Ficha editorial</p>
+          <h2>Un reloj cambia de manos. La novela cambia con él.</h2>
         </div>
 
-        <div class="synopsis-grid">
-          <div class="synopsis-text">
-            <p class="geo-answer"><strong>Las manecillas del recuerdo</strong> es la próxima novela coral de vidas conectadas de David Porto Díaz, prevista para el 3 de septiembre de 2026 con <strong>Monza Ediciones</strong>. Es una obra independiente dentro de la narrativa de David Porto Díaz. Un niño tiene la costumbre de contar las cosas: los tic-tacs por minuto, las cucharadas de azúcar, las veces que su abuelo toca la esfera del reloj. Ese domingo, el reloj se para. Mañana es la cita con el cardiólogo.</p>
-            <p>El reloj es un objeto de bolsillo adaptado a la muñeca, heredado del bisabuelo Antonio en 1936, que nunca se había detenido en setenta años. En el tiempo que tarda en enfriarse el chocolate, Manuel empieza a contar la historia que había guardado demasiado tiempo: la inscripción del interior de la tapa, la Guerra Civil, y por qué ese reloj eligió precisamente este domingo para callarse.</p>
-            <p>Una novela sobre lo que los objetos recuerdan mejor que las personas, y sobre la urgencia de contarlo antes de que sea demasiado tarde.</p>
-
+        <div class="about-grid">
+          <div class="about-copy">
             <div class="features-grid">
               <article class="feature-card">
                 <h3>Género</h3>
@@ -189,10 +193,40 @@
             </div>
           </div>
 
+          <div class="about-side">
+            <picture class="manecillas-cover-picture">
+              <source
+                type="image/webp"
+                srcset="
+                  /assets/portada-las-manecillas-del-recuerdo-320.webp 320w,
+                  /assets/portada-las-manecillas-del-recuerdo-512.webp 512w,
+                  /assets/portada-las-manecillas-del-recuerdo-768.webp 768w,
+                  /assets/portada-las-manecillas-del-recuerdo-1024.webp 1024w"
+                sizes="(max-width: 820px) min(72vw, 300px), 320px" />
+              <img
+                src="/assets/portada-las-manecillas-del-recuerdo-1024.webp"
+                alt="Portada de Las manecillas del recuerdo, novela de David Porto Díaz"
+                width="1024" height="1536"
+                loading="lazy" decoding="async" />
+            </picture>
+          </div>
+        </div>
+      </section>
+
+      <!-- SINOPSIS CORAL -->
+      <section class="section section--alt">
+        <div class="synopsis-grid">
+          <div class="synopsis-text">
+            <p class="eyebrow">La novela</p>
+            <h2>Seguir la pista de un objeto también significa seguir la de quienes lo tuvieron.</h2>
+            <p class="geo-answer"><em>Las manecillas del recuerdo</em> sigue un reloj que atraviesa vidas, generaciones y épocas. Con cada mano cambia su significado: recuerdo, ancla, mercancía, prueba o herencia.</p>
+            <p>La historia cambia de voz, época y registro mientras el objeto acumula significados que sus propietarios no siempre conocen. La memoria familiar abre el recorrido; después aparecen preguntas sobre precio, credibilidad, salud, tecnología y privacidad.</p>
+            <p>No es una cronología explicada desde fuera: cada tramo obliga a mirar el reloj desde intereses distintos y a preguntarse cuánto vale una historia cuando nadie puede poseerla completa.</p>
+          </div>
           <aside class="synopsis-aside">
             <div class="synopsis-quick synopsis-quick--centered">
               <p class="synopsis-pullquote">«A veces creo que los objetos importantes sienten las cosas antes que nosotros. A veces eligen su momento para hablar.»</p>
-              <p class="synopsis-attribution">— Manuel, en <em>Las manecillas del recuerdo</em></p>
+              <p class="synopsis-attribution">— <em>Las manecillas del recuerdo</em>, capítulo 1</p>
             </div>
 
             <div class="synopsis-cta-box">
@@ -204,13 +238,81 @@
         </div>
       </section>
 
-      <!-- NEWSLETTER -->
+      <!-- TRES PUERTAS DE ENTRADA -->
+      <section class="section manecillas-defer" aria-labelledby="puertas-manecillas">
+        <div class="section-heading">
+          <p class="eyebrow">Tres puertas de entrada</p>
+          <h2 id="puertas-manecillas">Memoria, valor y futuro.</h2>
+          <p>La novela cambia de problema junto con el reloj. Estos tres ejes permiten orientarse sin convertir la ficha en un resumen de capítulos.</p>
+        </div>
+        <div class="manecillas-theme-grid">
+          <article class="manecillas-theme-card">
+            <p class="eyebrow">01 · Memoria</p>
+            <h3>Lo que una familia recuerda a medias</h3>
+            <p>Historias heredadas, silencios, fotografías y recuerdos que cambian cuando pasan de una generación a otra.</p>
+          </article>
+          <article class="manecillas-theme-card">
+            <p class="eyebrow">02 · Valor</p>
+            <h3>Lo que cuesta y lo que significa</h3>
+            <p>El mismo objeto puede ser reliquia, mercancía, prueba o estorbo. Su precio no siempre se parece a su valor.</p>
+          </article>
+          <article class="manecillas-theme-card">
+            <p class="eyebrow">03 · Futuro</p>
+            <h3>Lo analógico dentro de un mundo digital</h3>
+            <p>Cuando el entorno cambia, también cambia lo que un mecanismo antiguo representa para quien lo escucha.</p>
+          </article>
+        </div>
+      </section>
+
+      <!-- QUOTE BAND -->
+      <div class="manecillas-quote-band manecillas-defer">
+        <blockquote>
+          «A quienes alguna vez olvidaron que el tiempo no vuelve.»
+          <cite>Dedicatoria de <em>Las manecillas del recuerdo</em></cite>
+        </blockquote>
+      </div>
+
+      <!-- MUESTRA DE LECTURA -->
+      <section class="section manecillas-paper manecillas-defer" id="muestra">
+        <div class="section-heading">
+          <p class="eyebrow">Muestra de lectura</p>
+          <h2>La voz del libro no se queda quieta.</h2>
+          <p>La apertura familiar no representa por sí sola toda la novela. Hay tres pasajes breves seleccionados para enseñar el cambio de registro sin contar el recorrido del reloj.</p>
+        </div>
+        <div class="manecillas-frame">
+          <p class="manecillas-excerpt-label">Apertura · capítulo 1.1</p>
+          <div class="manecillas-reading" data-nosnippet>
+            <p>Tomás contó las siete veces que su abuelo miró el reloj durante el desayuno. Los domingos normales, Manuel apenas lo miraba; el tiempo con los nietos era otra cosa, más despacio. Pero hoy cada minuto se veía venir desde lejos y el niño ya sabía por qué: mañana era la cita con el cardiólogo.</p>
+            <p>El sol se colaba por las cortinas gastadas, formando manchas doradas que bailaban sobre la mesa de nogal. En la cocina del abuelo Manuel, el chocolate de los domingos tenía su propio orden: primero el cacao, después el azúcar, después el silencio.</p>
+          </div>
+          <div class="manecillas-cta">
+            <a class="button primary" href="/las-manecillas-del-recuerdo/fragmentos/">Leer los tres fragmentos</a>
+          </div>
+        </div>
+      </section>
+
+      <!-- SINOPSIS EDITORIAL OFICIAL -->
+      <section class="section manecillas-defer" id="sinopsis-editorial">
+        <div class="section-heading">
+          <p class="eyebrow">Texto de cubierta</p>
+          <h2>Sinopsis editorial</h2>
+          <p>Texto oficial facilitado por Monza Ediciones.</p>
+        </div>
+        <div class="prose-card">
+          <p>Manuel siempre ha sabido que el viejo reloj familiar guarda mucho más que el paso de las horas. Cuando comienza a compartir con su nieto Tomás las historias que rodean aquella reliquia, ambos emprenden un viaje por varias generaciones marcadas por el amor, las pérdidas, los secretos y la esperanza.</p>
+          <p>Pero la aparición inesperada de alguien del pasado cambiará para siempre el destino de la familia, obligándolos a enfrentarse a viejas heridas y a descubrir que nunca es demasiado tarde para encontrar el perdón.</p>
+          <p><em>Las manecillas del recuerdo</em> es una novela emotiva sobre la memoria, los lazos familiares y el valor de las segundas oportunidades. Una historia que nos recuerda que el tiempo pasa, pero los recuerdos y el amor verdadero permanecen.</p>
+        </div>
+      </section>
+
+      <!-- DISPONIBILIDAD -->
       <section class="section section--alt" id="newsletter-manecillas">
         <div class="contact-panel">
           <div>
-            <p class="eyebrow">Sé el primero</p>
-            <h2>Sale el 3 de septiembre de 2026.</h2>
+            <p class="eyebrow">Disponibilidad</p>
+            <h2>Publicación: 3 de septiembre de 2026.</h2>
             <p>Deja tu email y te aviso el día del lanzamiento, con la portada oficial y cualquier novedad de <em>Las manecillas del recuerdo</em>. Sin spam, solo lo que importa.</p>
+            <p class="launch-purchase-status">Los enlaces de compra se incorporarán aquí únicamente cuando exista una ficha comercial verificable. No se enlaza una búsqueda genérica ni una URL provisional.</p>
           </div>
           <div class="contact-actions">
             <form class="newsletter-form newsletter-form--stacked" id="newsletter-form-manecillas" novalidate>
@@ -225,6 +327,7 @@
               </label>
               <p class="quiz-subscribe-status" id="nl-status-manecillas" aria-live="polite" role="status"></p>
             </form>
+            <a class="button secondary" href="/prensa.html">Material de prensa</a>
           </div>
         </div>
       </section>
