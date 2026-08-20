@@ -12,10 +12,10 @@
   <meta property="og:title" content="Las manecillas del recuerdo — David Porto Díaz · Monza Ediciones" />
   <meta property="og:description" content="Un reloj que pasa de mano en mano y cambia de significado en cada vida que toca. Memoria, valor y ficción especulativa entrelazadas en una novela coral. Prevista para el 3 de septiembre de 2026 con Monza Ediciones." />
   <meta property="og:type" content="book" />
-  <meta property="og:image" content="https://davidportodiaz.com/assets/portada-las-manecillas-del-recuerdo-1024.webp" />
-  <meta property="og:image:width" content="1024" />
-  <meta property="og:image:height" content="1536" />
-  <meta property="og:image:alt" content="Portada de Las manecillas del recuerdo, de David Porto Díaz" />
+  <meta property="og:image" content="https://davidportodiaz.com/assets/og-manecillas.webp" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:image:alt" content="Las manecillas del recuerdo, de David Porto Díaz — Monza Ediciones, septiembre de 2026" />
   <meta property="og:url" content="https://davidportodiaz.com/las-manecillas-del-recuerdo/" />
   <meta property="og:locale" content="es_ES" />
   <meta property="og:site_name" content="David Porto Díaz" />
@@ -23,17 +23,19 @@
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="Las manecillas del recuerdo — próxima novela de David Porto Díaz" />
   <meta name="twitter:description" content="Novela coral de vidas conectadas por un reloj que pasa de mano en mano. Prevista para el 3 de septiembre de 2026 con Monza Ediciones." />
-  <meta name="twitter:image" content="https://davidportodiaz.com/assets/portada-las-manecillas-del-recuerdo-1024.webp" />
-  <meta name="twitter:image:alt" content="Portada de Las manecillas del recuerdo, de David Porto Díaz" />
+  <meta name="twitter:image" content="https://davidportodiaz.com/assets/og-manecillas.webp" />
+  <meta name="twitter:image:alt" content="Las manecillas del recuerdo, de David Porto Díaz — Monza Ediciones, septiembre de 2026" />
 
   <meta name="theme-color" content="#080a0c" />
   <link rel="preconnect" href="https://gc.zgo.at" /><link rel="canonical" href="https://davidportodiaz.com/las-manecillas-del-recuerdo/" />
   <link rel="preload" as="font" type="font/woff2" href="/assets/fonts/cg-normal-latin.woff2" crossorigin />
   <link rel="preload" as="font" type="font/woff2" href="/assets/fonts/inter-normal-latin.woff2" crossorigin />
+  <link rel="preload" as="image" href="/assets/manecillas-book-mockup.webp" fetchpriority="high" />
   <link rel="icon" type="image/png" href="/assets/david-porto-favicon.png" />
   <link rel="apple-touch-icon" href="/assets/david-porto-favicon.png" />
   <link rel="manifest" href="/manifest.json" />
   <link rel="stylesheet" href="/styles.css?v=20260615-stable-1" />
+  <link rel="stylesheet" href="/assets/manecillas-extras.css?v=20260820-1" />
 
   <script type="application/ld+json">
   {
@@ -78,7 +80,7 @@
   </script>
 </head>
 
-<body>
+<body class="theme-manecillas">
   <a href="#contenido" class="skip-link">Saltar al contenido</a>
   <div class="site-shell">
 
@@ -108,9 +110,18 @@
     <main id="contenido">
 
       <!-- HERO -->
-      <section class="book-hero" aria-label="Las manecillas del recuerdo">
+      <section class="book-hero manecillas-hero" aria-label="Las manecillas del recuerdo">
         <div class="hero-bg" aria-hidden="true"></div>
         <div class="book-hero-inner">
+          <div class="book-hero-cover">
+            <figure>
+              <picture>
+                <img src="/assets/manecillas-book-mockup.webp" alt="Las manecillas del recuerdo, de David Porto Díaz — Monza Ediciones" class="book-hero-img" width="420" height="606" fetchpriority="high" decoding="async" />
+              </picture>
+              <figcaption>Las manecillas del recuerdo · Monza Ediciones · 3 de septiembre de 2026</figcaption>
+            </figure>
+          </div>
+
           <div class="book-hero-copy">
             <nav class="breadcrumb" aria-label="Ruta de navegación">
               <a href="/">Inicio</a>
@@ -119,9 +130,16 @@
               <span aria-hidden="true"> / </span>
               <span aria-current="page">Las manecillas del recuerdo</span>
             </nav>
-            <p class="eyebrow">Publicación: 3 de septiembre de 2026 · Monza Ediciones</p>
+            <p class="eyebrow">Próxima novela · David Porto Díaz · Monza Ediciones</p>
             <h1>Las manecillas<br>del recuerdo</h1>
             <p class="book-hero-tagline">Un reloj que se detiene.<br>Una historia que ya no puede esperar.</p>
+
+            <div class="book-hero-badges">
+              <span class="badge badge--available">Próxima novela</span>
+              <span class="badge badge--available">3 de septiembre de 2026</span>
+              <span class="badge badge--available">Monza Ediciones</span>
+            </div>
+
             <div class="hero-actions">
               <a class="button primary" href="#aviso">Recuérdamelo el día del lanzamiento</a>
               <a class="button secondary" href="/libros/samuel-entre-mundos/">Conocer la obra publicada de David Porto Díaz</a>
