@@ -269,7 +269,7 @@ def render_index(site: str, records: list[dict], today: date) -> str:
 <main id="main-content" tabindex="-1" class="editorial-directory" data-editoriales-directory>
   {breadcrumbs([('Inicio', '/'), ('Editoriales', None)])}
   <header class="editorial-hero"><p class="eyebrow">Recurso para escritores</p><h1>Editoriales y recepción de manuscritos, verificadas.</h1><p class="lead">No es una lista copiada de contactos. Cada ficha separa hechos públicos, fecha de comprobación y fuente oficial para que puedas saber qué acepta una editorial y qué pide antes de enviar.</p></header>
-  <aside class="editorial-trust-note"><strong>Importante:</strong> davidportodiaz.com no representa a estas editoriales ni garantiza que una convocatoria siga abierta después de la fecha indicada. Comprueba siempre la fuente oficial antes de enviar.</aside>
+  <aside class="editorial-trust-note"><strong>Importante:</strong> davidportodiaz.com no representa a estas editoriales ni garantiza que una convocatoria siga abierta después de la fecha indicada. Comprueba siempre la fuente oficial antes de enviar. <a href="/metodologia-editorial/">Cómo se verifica y se corrige esta información</a>.</aside>
   <section class="editorial-filters" aria-label="Filtrar editoriales">
     <div class="editorial-filter editorial-filter--search"><label for="editoriales-q">Buscar</label><input id="editoriales-q" type="search" autocomplete="off" enterkeyhint="search" placeholder="Editorial, sello, género…" data-editoriales-search></div>
     <div class="editorial-filter"><label for="editoriales-genero">Género</label><select id="editoriales-genero" data-editoriales-genre><option value="">Todos</option>{genre_options}</select></div>
@@ -337,7 +337,7 @@ def render_detail(site: str, record: dict, today: date) -> str:
   <section class="editorial-section"><h2>Nota editorial</h2><p>{esc(record['public_note'])}</p></section>
   <section class="editorial-section"><h2>Historial de comprobaciones y cambios</h2><ul class="editorial-history">{history}</ul></section>
   <section class="editorial-section"><h2>Fuentes</h2><ul class="editorial-source-list">{sources}</ul><p>Esta ficha distingue siempre la fuente oficial de nuestro resumen.</p></section>
-  <aside class="editorial-disclaimer"><strong>No es asesoramiento ni representación.</strong> Esta ficha es informativa. {esc(record['name'])} no participa en su redacción y sus instrucciones oficiales prevalecen siempre.</aside>
+  <aside class="editorial-disclaimer"><strong>No es asesoramiento ni representación.</strong> Esta ficha es informativa. {esc(record['name'])} no participa en su redacción y sus instrucciones oficiales prevalecen siempre. <a href="/metodologia-editorial/">Cómo se verifica y se corrige esta información</a>.</aside>
 </main>'''
 
     jsonld = {
@@ -372,6 +372,77 @@ def render_sitemap(site: str, records: list[dict]) -> str:
     return f'<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">{urls}</urlset>\n'
 
 
+METHODOLOGY_SLUG = "metodologia-editorial"
+
+
+def render_methodology(site: str, records: list[dict], today: date) -> str:
+    """Pagina de metodologia exigida por el contrato del doc 31 (bloque 11).
+
+    Todo lo que afirma se deriva del propio validador/builder de este archivo
+    o del dataset: los estados permitidos son los que valida load_and_validate,
+    la caducidad de 90 dias es la que aplica needs_recheck(), y la separacion
+    hoja privada / dataset publico es la que hace safe_payload en build().
+    No se documenta ningun proceso que el codigo no haga de verdad.
+    """
+    canonical = f"{site}/{METHODOLOGY_SLUG}/"
+    states = "".join(
+        f"<div class=\"editorial-fact\"><dt>{esc(code)}</dt><dd>{esc(label)}</dd></div>"
+        for code, label in (
+            ("open", "La editorial acepta envios directos segun su propia pagina oficial."),
+            ("closed", "La recepcion esta cerrada en la fecha de comprobacion."),
+            ("indirect", "Solo admite manuscritos por via indirecta, por ejemplo a traves de agencia."),
+            ("award_only", "Solo recibe originales dentro de una convocatoria o premio concreto."),
+            ("unknown", "No hay fuente oficial suficiente para afirmar el estado."),
+        )
+    )
+    count = len(records)
+    description = (
+        "Como se verifica, se fecha y se corrige la informacion de las fichas de "
+        "editoriales: fuentes primarias, estados permitidos, caducidad y correcciones."
+    )
+    main_html = f'''
+<main id="main-content" tabindex="-1" class="editorial-directory">
+  {breadcrumbs([('Inicio', '/'), ('Editoriales', '/editoriales/'), ('Metodologia', None)])}
+  <header class="editorial-hero"><p class="eyebrow">Metodologia</p><h1>Como se verifica esta informacion.</h1><p class="lead">Cada ficha del directorio se genera a partir de un dataset validado, no se escribe a mano. Esta pagina explica de donde sale cada dato, cuando caduca y como se corrige.</p></header>
+
+  <section class="editorial-section"><h2>De donde sale cada dato</h2><p>Los datos de recepcion de manuscritos proceden de la pagina oficial de cada editorial. Cada ficha enlaza esa fuente primaria y separa siempre el hecho publicado por la editorial de cualquier resumen propio. Cuando la editorial no publica una via de envio directa, la ficha lo dice en vez de deducirlo.</p><p>Actualmente el directorio publica {count} ficha(s).</p></section>
+
+  <section class="editorial-section"><h2>Estados de recepcion</h2><p>El estado es un valor cerrado, no texto libre, para que no aparezcan variantes contradictorias entre fichas:</p><dl class="editorial-facts">{states}</dl></section>
+
+  <section class="editorial-section"><h2>Fechas y caducidad</h2><p>Cada ficha distingue dos fechas: <strong>ultima comprobacion</strong> (cuando se reviso la fuente oficial) y <strong>ultima actualizacion de la pagina</strong> (cuando cambio de forma significativa el contenido publicado aqui). Una ficha comprobada hace mas de 90 dias se marca para revision: la informacion de recepcion cambia sin aviso y una fecha vieja no es una garantia.</p></section>
+
+  <section class="editorial-section"><h2>Que no se publica</h2><p>El dataset publico se genera filtrando la hoja de trabajo interna, asi que notas privadas y campos de seguimiento no llegan a la web. Los correos de contacto solo se publican cuando la propia editorial los ofrece como via de envio y la recepcion esta abierta: publicar un correo historico de una recepcion cerrada solo genera envios que nadie va a leer.</p><p>No hay valoraciones, rankings ni recomendaciones de una editorial sobre otra. El builder falla si alguien intenta introducir un campo de ranking.</p></section>
+
+  <section class="editorial-section"><h2>Correcciones</h2><p>Si eres responsable de una editorial listada o detectas un dato incorrecto u obsoleto, escribe a <a href="mailto:samuelentremundos@gmail.com">samuelentremundos@gmail.com</a> indicando la ficha y la fuente oficial. Las correcciones con fuente se aplican y quedan reflejadas en el historial de comprobaciones de la ficha correspondiente.</p></section>
+
+  <aside class="editorial-disclaimer"><strong>No es asesoramiento ni representacion.</strong> davidportodiaz.com no representa a ninguna de estas editoriales. Las instrucciones oficiales de cada editorial prevalecen siempre sobre lo que se resuma aqui.</aside>
+</main>'''
+
+    jsonld = {
+        "@context": "https://schema.org",
+        "@graph": [
+            {
+                "@type": "WebPage",
+                "@id": canonical,
+                "url": canonical,
+                "name": "Metodologia del directorio de editoriales",
+                "description": description,
+                "dateModified": today.isoformat(),
+                "inLanguage": "es",
+                "isPartOf": {"@id": f"{site}/editoriales/"},
+                "author": {"@id": f"{site}/#author"},
+            }
+        ],
+    }
+    return page_shell(
+        title="Metodologia del directorio de editoriales | David Porto Diaz",
+        description=description,
+        canonical=canonical,
+        main_html=main_html,
+        jsonld=jsonld,
+    )
+
+
 def build(data_path: Path, output: Path, today: date, check_only: bool) -> tuple[int, list[str]]:
     raw, records, warnings = load_and_validate(data_path, today)
     if check_only:
@@ -384,6 +455,12 @@ def build(data_path: Path, output: Path, today: date, check_only: bool) -> tuple
         detail_dir = target / record["slug"]
         detail_dir.mkdir(parents=True, exist_ok=True)
         (detail_dir / "index.html").write_text(render_detail(raw["site"].rstrip('/'), record, today), encoding="utf-8")
+
+    methodology_dir = output / METHODOLOGY_SLUG
+    methodology_dir.mkdir(parents=True, exist_ok=True)
+    (methodology_dir / "index.html").write_text(
+        render_methodology(raw["site"].rstrip('/'), records, today), encoding="utf-8"
+    )
 
     safe_payload = {"version": raw["version"], "publishers": records}
     (target / "editoriales-data.json").write_text(json.dumps(safe_payload, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
