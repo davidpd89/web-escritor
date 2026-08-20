@@ -108,6 +108,9 @@ def render(data, tools, directories):
 <meta name="twitter:image" content="https://davidportodiaz.com/assets/david-porto-imagen-compartir.webp">
 <meta name="twitter:image:alt" content="Herramientas gratuitas para escritores | David Porto Díaz">
 <link rel="canonical" href="https://davidportodiaz.com/herramientas/">
+<link rel="icon" type="image/png" href="/assets/david-porto-favicon.png">
+<link rel="apple-touch-icon" href="/assets/david-porto-favicon.png">
+<link rel="manifest" href="/manifest.json">
 <link rel="stylesheet" href="/styles.css?v=202609-launch-1"><link rel="stylesheet" href="/assets/herramientas-hub.css?v=20260819-1">
 <script type="application/ld+json">{{"@context":"https://schema.org","@type":"CollectionPage","name":"Herramientas gratuitas para escritores","url":"https://davidportodiaz.com/herramientas/","inLanguage":"es","mainEntity":{{"@type":"ItemList","numberOfItems":{len(tools)},"itemListElement":[{','.join(json.dumps({'@type':'ListItem','position':i+1,'url':'https://davidportodiaz.com'+t['href'],'name':t['name']}, ensure_ascii=False) for i,t in enumerate(tools))}]}}}}</script>
 </head><body>
