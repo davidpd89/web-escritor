@@ -63,3 +63,5 @@ jobs:
         env:
           MANUAL_MODE: ${{ github.event.inputs.mode || 'auto' }}
         run: python scripts/check-editorial-facts.py --mode "$MANUAL_MODE"
+      - name: Check Las manecillas del recuerdo prelaunch markers
+        run: python scripts/apply-manecillas-launch-state.py --check
