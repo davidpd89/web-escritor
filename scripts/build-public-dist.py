@@ -170,10 +170,63 @@ def check_contents(out_dir: Path, today: date | None = None) -> int:
     return 0
 
 
+ASSETSIGNORE = ROOT / ".assetsignore"
+ASSETSIGNORE_HEADER = """# GENERADO por scripts/build-public-dist.py --emit-assetsignore — no editar a mano.
+#
+# Por qué existe: el build de staging en Cloudflare hace `git archive HEAD` a
+# .preview-dist y despliega esa carpeta con `wrangler deploy --assets`, así que
+# hasta ahora subía TODO el repo trackeado (scripts/, tests/, data/, ...).
+# Cambiar ese comando de build es un ajuste del dashboard de Cloudflare, y la
+# Builds API no acepta tokens de cuenta ni OAuth de wrangler. Pero wrangler sí
+# respeta un .assetsignore (sintaxis .gitignore) en la raíz del directorio de
+# assets, y `git archive` deposita este archivo exactamente ahí. Resultado: las
+# mismas exclusiones que build-public-dist.py, aplicadas en el despliegue real,
+# sin depender de que nadie toque el dashboard.
+#
+# Mantener sincronizado: python scripts/build-public-dist.py --check-assetsignore
+"""
+
+
+def assetsignore_lines(today: date) -> list[str]:
+    lines = [p.rstrip("/") + "/" for p in EXCLUDE_DIR_PREFIXES]
+    lines += sorted(EXCLUDE_FILES)
+    lines.append(".assetsignore")
+    if today < MANECILLAS_PUBLICATION_DATE:
+        # OJO: en sintaxis .gitignore el '#' solo abre comentario a principio
+        # de línea; un comentario al final formaría parte del patrón y la regla
+        # no coincidiría con nada. Va en su propia línea.
+        lines.append(
+            f"# LAUNCH GATE: regenerar sin esta regla el {MANECILLAS_PUBLICATION_DATE:%d/%m/%Y}"
+        )
+        lines.append(GATED_DISPONIBLE_ASSET)
+    return lines
+
+
+def render_assetsignore(today: date) -> str:
+    return ASSETSIGNORE_HEADER + "\n".join(assetsignore_lines(today)) + "\n"
+
+
+def emit_assetsignore(today: date, check_only: bool) -> int:
+    expected = render_assetsignore(today)
+    current = ASSETSIGNORE.read_text(encoding="utf-8") if ASSETSIGNORE.exists() else None
+    if check_only:
+        if current == expected:
+            print("OK: .assetsignore coincide con las exclusiones de este builder.")
+            return 0
+        reason = "no existe" if current is None else "está desincronizado"
+        print(f"FAIL: .assetsignore {reason}. Regenera con --emit-assetsignore.")
+        return 1
+    ASSETSIGNORE.write_text(expected, encoding="utf-8")
+    print(f"ESCRITO {ASSETSIGNORE} ({len(assetsignore_lines(today))} reglas).")
+    return 0
+
+
 def main() -> int:
     ap = argparse.ArgumentParser()
     ap.add_argument("--out", default=str(DEFAULT_OUT))
     ap.add_argument("--check-contents", action="store_true", help="Verify an already-built dist, don't rebuild")
+    ap.add_argument("--emit-assetsignore", action="store_true", help="Write .assetsignore from this builder's exclude list")
+    ap.add_argument("--check-assetsignore", action="store_true", help="Verify .assetsignore matches the exclude list")
     ap.add_argument("--date", help="YYYY-MM-DD, for testing the launch gate only")
     args = ap.parse_args()
 
@@ -182,6 +235,9 @@ def main() -> int:
         out_dir = ROOT / out_dir
 
     today = resolve_today(args.date)
+
+    if args.emit_assetsignore or args.check_assetsignore:
+        return emit_assetsignore(today, check_only=args.check_assetsignore)
 
     if args.check_contents:
         return check_contents(out_dir, today)

@@ -20,3 +20,5 @@ jobs:
         run: python scripts/check-internal-graph.py
       - name: Check local asset references resolve to real files
         run: python scripts/check-local-assets.py
+      - name: Check .assetsignore still matches the public-dist exclude list
+        run: python scripts/build-public-dist.py --check-assetsignore

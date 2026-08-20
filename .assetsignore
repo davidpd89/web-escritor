@@ -1,0 +1,32 @@
+# GENERADO por scripts/build-public-dist.py --emit-assetsignore — no editar a mano.
+#
+# Por qué existe: el build de staging en Cloudflare hace `git archive HEAD` a
+# .preview-dist y despliega esa carpeta con `wrangler deploy --assets`, así que
+# hasta ahora subía TODO el repo trackeado (scripts/, tests/, data/, ...).
+# Cambiar ese comando de build es un ajuste del dashboard de Cloudflare, y la
+# Builds API no acepta tokens de cuenta ni OAuth de wrangler. Pero wrangler sí
+# respeta un .assetsignore (sintaxis .gitignore) en la raíz del directorio de
+# assets, y `git archive` deposita este archivo exactamente ahí. Resultado: las
+# mismas exclusiones que build-public-dist.py, aplicadas en el despliegue real,
+# sin depender de que nadie toque el dashboard.
+#
+# Mantener sincronizado: python scripts/build-public-dist.py --check-assetsignore
+.claude/
+.github/
+scripts/
+tests/
+data/
+assets/manecillas/source/
+publicar-web/
+lecturas/
+.env.example
+.gitignore
+.lycheeignore
+.pa11yci
+README.md
+cloudflare-worker-subscribe.js
+editorial-facts.json
+lighthouserc.json
+.assetsignore
+# LAUNCH GATE: regenerar sin esta regla el 03/09/2026
+assets/manecillas-social-4x5-disponible.webp
