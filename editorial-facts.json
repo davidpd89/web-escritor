@@ -14,8 +14,9 @@
       "isbn": "979-8-90514-935-1",
       "numberOfPages": 272,
       "priceEUR": 16,
-      "statusBeforePublication": "scheduled",
+      "statusBeforePublication": "published",
       "statusFromPublicationDate": "published",
+      "editorialCopyNote": "Editorial decision 2026-08-20 (authorized by David directly, independent of the calendar publicationDate gate): public copy presents the book as permanently published ('Publicada el 3 de septiembre de 2026'), not as prelaunch/scheduled, even though today's date is still before publicationDate. statusBeforePublication set to 'published' to match. purchaseUrl stays null/gated separately — no commercial links or Offer schema until a real, verified purchase URL exists.",
       "purchaseUrl": null,
       "format": "Paperback"
     },
