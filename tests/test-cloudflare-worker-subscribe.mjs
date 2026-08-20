@@ -100,6 +100,61 @@ async function run() {
       worker.fetch(makeRequest({ email: 'a@b.com', source: 'home' }), makeEnv({ BREVO_LIST_ID: undefined }))
     );
     assert.equal(res.status, 500);
+    const body = await res.json();
+    assert.equal(body.ok, false);
+  }
+
+  // BREVO_LIST_ID present but not a positive integer -> 500, not silently NaN
+  {
+    const res = await withMockedBrevoFetch(201, {}, () =>
+      worker.fetch(makeRequest({ email: 'a@b.com', source: 'home' }), makeEnv({ BREVO_LIST_ID: 'not-a-number' }))
+    );
+    assert.equal(res.status, 500);
+  }
+
+  // BREVO_API_KEY missing server-side -> 500, explicit check (point 22)
+  {
+    const res = await withMockedBrevoFetch(201, {}, () =>
+      worker.fetch(makeRequest({ email: 'a@b.com', source: 'home' }), makeEnv({ BREVO_API_KEY: undefined }))
+    );
+    assert.equal(res.status, 500);
+  }
+
+  // Success response body is minimal and does not leak Brevo's raw contact
+  // payload (id, createdAt, etc.) to the client.
+  {
+    const res = await withMockedBrevoFetch(201, { id: 42, createdAt: '2026-08-20T00:00:00Z' }, () =>
+      worker.fetch(makeRequest({ email: 'reader2@example.com', source: 'home' }), makeEnv())
+    );
+    assert.equal(res.status, 201);
+    const body = await res.json();
+    assert.deepEqual(body, { ok: true });
+  }
+
+  // Duplicate contact: Brevo's actual error text is never forwarded to the
+  // client, only a clean structured flag script.js can check directly.
+  {
+    const res = await withMockedBrevoFetch(400, { code: 'duplicate_parameter', message: 'Contact already exist' }, () =>
+      worker.fetch(makeRequest({ email: 'dupe@example.com', source: 'home' }), makeEnv())
+    );
+    assert.equal(res.status, 400);
+    const body = await res.json();
+    assert.deepEqual(body, { ok: false, duplicate: true });
+  }
+
+  // Any other Brevo failure (e.g. auth/rate-limit/internal error): the raw
+  // Brevo body must never reach the client, and the client-visible message
+  // must not contain anything from it.
+  {
+    const res = await withMockedBrevoFetch(401, { code: 'unauthorized', message: 'Key not found: xkeysib-SECRETVALUE' }, () =>
+      worker.fetch(makeRequest({ email: 'reader3@example.com', source: 'home' }), makeEnv())
+    );
+    assert.equal(res.status, 502);
+    const body = await res.json();
+    assert.equal(body.ok, false);
+    const bodyText = JSON.stringify(body);
+    assert.ok(!bodyText.includes('SECRETVALUE'), 'Brevo error detail must not leak to the client');
+    assert.ok(!bodyText.includes('unauthorized'), 'Brevo error code must not leak to the client');
   }
 
   // Valid request: listIds comes from env, not from the client, even when

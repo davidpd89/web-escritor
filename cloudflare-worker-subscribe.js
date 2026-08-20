@@ -160,39 +160,72 @@ export default {
       attributes.NOVERIS = result;
     }
 
-    // listIds is never taken from the client: a browser could otherwise ask
-    // to be added to an arbitrary Brevo list by sending its own listIds.
-    // The single allowed list is configured server-side via env.BREVO_LIST_ID.
-    if (!env.BREVO_LIST_ID) {
-      return new Response(JSON.stringify({ message: "Server misconfigured: BREVO_LIST_ID not set" }), {
-        status: 500,
-        headers: { "Content-Type": "application/json", ...corsHeaders(origin) },
-      });
+    // Explicit server-config validation (point 22 of the 2026-08-20
+    // corrective audit): both env values are checked for presence AND
+    // shape before ever calling Brevo, instead of only checking BREVO_LIST_ID
+    // truthiness and letting a malformed value silently become NaN.
+    if (!env.BREVO_API_KEY || typeof env.BREVO_API_KEY !== "string") {
+      console.error("Worker misconfigured: BREVO_API_KEY missing");
+      return jsonResponse(origin, 500, { ok: false, message: "Servicio no disponible temporalmente." });
     }
-    const listIds = [Number(env.BREVO_LIST_ID)];
+    const listIdNumber = Number(env.BREVO_LIST_ID);
+    if (!env.BREVO_LIST_ID || !Number.isInteger(listIdNumber) || listIdNumber <= 0) {
+      console.error("Worker misconfigured: BREVO_LIST_ID is not a positive integer");
+      return jsonResponse(origin, 500, { ok: false, message: "Servicio no disponible temporalmente." });
+    }
+    const listIds = [listIdNumber];
 
     // updateEnabled is hardcoded true (not read from the client): resubmitting
     // the same email should update attributes/list membership rather than error.
-    const brevoRes = await fetch("https://api.brevo.com/v3/contacts", {
-      method: "POST",
-      headers: {
-        "api-key": env.BREVO_API_KEY,
-        "Content-Type": "application/json",
-        Accept: "application/json",
-      },
-      body: JSON.stringify({ email, listIds, attributes, updateEnabled: true }),
-    });
+    let brevoRes;
+    try {
+      brevoRes = await fetch("https://api.brevo.com/v3/contacts", {
+        method: "POST",
+        headers: {
+          "api-key": env.BREVO_API_KEY,
+          "Content-Type": "application/json",
+          Accept: "application/json",
+        },
+        body: JSON.stringify({ email, listIds, attributes, updateEnabled: true }),
+      });
+    } catch (err) {
+      console.error("Brevo request failed:", err);
+      return jsonResponse(origin, 502, { ok: false, message: "No se ha podido completar la suscripción. Inténtalo de nuevo más tarde." });
+    }
 
-    const text = await brevoRes.text();
-    return new Response(text, {
-      status: brevoRes.status,
-      headers: {
-        "Content-Type": "application/json",
-        ...corsHeaders(origin),
-      },
-    });
+    // Never forward Brevo's raw response body to the client — it can carry
+    // internal error detail that's not meant for a public API consumer.
+    // Log the real response server-side (Cloudflare Worker logs only) and
+    // return a minimal, safe, structured body instead. The one case the
+    // client genuinely needs to distinguish is "this email is already
+    // subscribed" (Brevo returns 400 for that), surfaced here as a clean
+    // { duplicate: true } flag instead of asking the client to string-search
+    // Brevo's raw error message.
+    if (brevoRes.ok || brevoRes.status === 204) {
+      return jsonResponse(origin, brevoRes.status === 204 ? 204 : 201, { ok: true });
+    }
+
+    let brevoBodyText = "";
+    try {
+      brevoBodyText = await brevoRes.text();
+    } catch {
+      // ignore — brevoBodyText stays empty, we only needed it for the duplicate check
+    }
+    if (brevoRes.status === 400 && brevoBodyText.toLowerCase().includes("already exist")) {
+      return jsonResponse(origin, 400, { ok: false, duplicate: true });
+    }
+
+    console.error(`Brevo error ${brevoRes.status}:`, brevoBodyText.slice(0, 500));
+    return jsonResponse(origin, 502, { ok: false, message: "No se ha podido completar la suscripción. Inténtalo de nuevo más tarde." });
   },
 };
+
+function jsonResponse(origin, status, bodyObj) {
+  return new Response(JSON.stringify(bodyObj), {
+    status,
+    headers: { "Content-Type": "application/json", ...corsHeaders(origin) },
+  });
+}
 
 function corsHeaders(origin) {
   return {

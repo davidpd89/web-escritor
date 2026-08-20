@@ -16,6 +16,14 @@ function scheduleTask(fn, priority = "background") {
 const NEWSLETTER_CONFIG = {
   endpoint: "https://subscribe.davidpd89.workers.dev"
 };
+
+// Staging must never create real Brevo contacts. This is the Cloudflare
+// Pages preview hostname for this project (confirmed working
+// 2026-08-20) — production is davidportodiaz.com, which is never in
+// this set. Point 23 of the 2026-08-20 corrective audit.
+const STAGING_HOSTNAMES = new Set(["david-porto-preview.davidpd89.workers.dev"]);
+const IS_STAGING = STAGING_HOSTNAMES.has(window.location.hostname);
+const STAGING_DISABLED_MESSAGE = "Formulario desactivado en el entorno de pruebas.";
 // Clarity analytics is intentionally disabled. Keep the project id out of runtime until it is useful again.
 if ("serviceWorker" in navigator) {
   window.addEventListener("load", () => {
@@ -74,7 +82,7 @@ if (navToggle && siteNav) {
 
   const groups = [
     { title: "Inicio", links: [["/", "Página principal"], ["/empieza-aqui/", "Empieza por aquí"], ["/las-manecillas-del-recuerdo/", "Las manecillas del recuerdo — novedad"], ["/cuaderno/", "Cuaderno"]] },
-    { title: "Libros y recursos", links: [["/libros/", "Todos los libros"], ["/libros/samuel-entre-mundos/", "Samuel entre mundos"], ["/fragmento/", "Leer capítulo 1 gratis"], ["/libros/samuel-entre-mundos/#comprar", "Dónde comprar Samuel"], ["/clubes-de-lectura/samuel-entre-mundos/", "Clubes de lectura"], ["/clubes-de-lectura/samuel-entre-mundos/guia-imprimible/", "Guía imprimible"]] },
+    { title: "Libros y recursos", links: [["/libros/", "Todos los libros"], ["/las-manecillas-del-recuerdo/", "Las manecillas del recuerdo"], ["/las-manecillas-del-recuerdo/fragmentos/", "Tres fragmentos de Las manecillas"], ["/libros/samuel-entre-mundos/", "Samuel entre mundos"], ["/fragmento/", "Leer capítulo 1 de Samuel gratis"], ["/libros/samuel-entre-mundos/#comprar", "Dónde comprar Samuel"], ["/clubes-de-lectura/samuel-entre-mundos/", "Clubes de lectura"], ["/clubes-de-lectura/samuel-entre-mundos/guia-imprimible/", "Guía imprimible"]] },
     { title: "Lectura y mundo", links: [["/universo/noveris/", "Noveris"], ["/recomendaciones/", "Recomendaciones"], ["/recomendaciones/portal-fantasy-espanol/", "Portal fantasy en español"], ["/recomendaciones/magia-con-coste/", "Libros con magia con coste"]] },
     { title: "Cuaderno", links: [["/cuaderno/", "Todos los artículos"], ["/cuaderno/feria-libro-madrid-2026-samuel-entre-mundos/", "Feria del Libro Madrid 2026"], ["/cuaderno/que-es-el-portal-fantasy/", "Qué es el portal fantasy"], ["/cuaderno/sistema-de-magia-noveris/", "Sistema de magia de Noveris"], ["/cuaderno/worldbuilding-noveris-ciudad-magica/", "Worldbuilding de Noveris"]] },
     { title: "Autor y prensa", links: [["/autor.html", "Sobre David Porto Díaz"], ["/prensa.html", "Kit de prensa"], ["/eventos.html", "Eventos y firmas"], ["/premios.html", "Premios"], ["/#contacto", "Contacto"]] },
@@ -447,6 +455,10 @@ function fallbackCopy(text, done) {
         const gdprEl = document.getElementById("quiz-gdpr");
         const statusEl = document.getElementById("quiz-subscribe-status");
         const submitBtn = subscribeForm.querySelector("[type=submit]");
+        if (IS_STAGING) {
+          statusEl.textContent = STAGING_DISABLED_MESSAGE;
+          return;
+        }
         if (!emailEl.value.trim() || !gdprEl.checked) {
           statusEl.textContent = gdprEl.checked ? "Introduce un email válido." : "Acepta la política de privacidad para continuar.";
           return;
@@ -475,7 +487,7 @@ function fallbackCopy(text, done) {
           } else if (res.status === 400) {
             // Brevo returns 400 for duplicate contacts; only that specific case counts as success.
             const body = await res.json().catch(() => ({}));
-            const isDupe = JSON.stringify(body).toLowerCase().includes("already exist");
+            const isDupe = body.duplicate === true;
             if (isDupe) {
               localStorage.setItem("nl-subscribed", "1");
               subscribeForm.dataset.done = "true";
@@ -536,6 +548,10 @@ function fallbackCopy(text, done) {
         const gdprEl = document.getElementById(gdprId);
         const statusEl = document.getElementById(statusId);
         const submitBtn = form.querySelector("[type=submit]");
+        if (IS_STAGING) {
+          if (statusEl) statusEl.textContent = STAGING_DISABLED_MESSAGE;
+          return;
+        }
         if (!emailEl || !emailEl.value.trim() || !gdprEl || !gdprEl.checked) {
           if (statusEl) statusEl.textContent = gdprEl && !gdprEl.checked
             ? "Acepta la política de privacidad para continuar."
@@ -563,7 +579,7 @@ function fallbackCopy(text, done) {
           } else if (res.status === 400) {
             // Brevo returns 400 for duplicate contacts
             const body = await res.json().catch(() => ({}));
-            const isDupe = JSON.stringify(body).toLowerCase().includes("already exist");
+            const isDupe = body.duplicate === true;
             if (isDupe) {
               localStorage.setItem("nl-subscribed", "1");
               form.innerHTML = '<p class="quiz-subscribe-ok">\u2714 Ya est\u00e1s suscrito a la lista. \u00a1Gracias!</p>';
@@ -801,6 +817,7 @@ document.addEventListener('dp:analytics', _dpAnalyticsBridge);
         const gdprEl = document.getElementById("nl-popup-gdpr");
         const statusEl = document.getElementById("nl-popup-status");
         const submitBtn = document.getElementById("nl-popup-submit");
+        if (IS_STAGING) { statusEl.textContent = STAGING_DISABLED_MESSAGE; return; }
         if (!emailEl.value.trim()) { statusEl.textContent = "Introduce un email válido."; return; }
         if (!gdprEl.checked) { statusEl.textContent = "Acepta la política de privacidad para continuar."; return; }
         statusEl.textContent = "";
@@ -821,7 +838,7 @@ document.addEventListener('dp:analytics', _dpAnalyticsBridge);
           } else if (res.status === 400) {
             // Brevo returns 400 for duplicate contacts; only that specific case counts as success.
             const body = await res.json().catch(() => ({}));
-            const isDupe = JSON.stringify(body).toLowerCase().includes("already exist");
+            const isDupe = body.duplicate === true;
             if (isDupe) {
               localStorage.setItem(SUBSCRIBED_KEY, "1");
               const panel = document.getElementById("nl-popup-panel");
