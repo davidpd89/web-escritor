@@ -17,14 +17,15 @@ function renderFindingList(items) {
   if (!items.length) return '<p class="audit-empty">Sin elementos en este bloque.</p>';
   return `<ul class="audit-findings">${items.map(f => `
     <li class="audit-finding audit-finding--${f.status}">
-      <span class="audit-finding__badge">${STATUS_LABEL[f.status] || f.status}</span>
+      <span class="audit-finding__badge">${STATUS_LABEL[f.status] || escapeHtml(f.status)}</span>
       <div><strong>${escapeHtml(f.title)}</strong><p>${escapeHtml(f.detail)}</p>${f.evidence ? `<p class="audit-evidence">Evidencia: ${escapeHtml(f.evidence)}</p>` : ''}</div>
     </li>`).join('')}</ul>`;
 }
 
 function render(result, refs) {
   refs.results.hidden = false;
-  refs.detected.textContent = result.detectedTitle ? `Título detectado: ${result.detectedTitle}` : 'No se ha podido detectar un título.';
+  const titleText = result.detectedTitle ? `Título detectado: ${result.detectedTitle}` : 'No se ha podido detectar un título.';
+  refs.detected.textContent = result.url ? `${titleText} · Referencia: ${result.url}` : titleText;
 
   const sections = GROUPS.map(([key, label]) => {
     const items = result.findings[key] || [];
@@ -78,6 +79,13 @@ export function init() {
     refs.results.hidden = true;
     refs.status.textContent = 'Nada de lo que pegues se envía al servidor.';
   });
+
+  const processor = document.querySelector('[data-publishing-processor]');
+  if (processor) {
+    processor.inert = false;
+    processor.removeAttribute('inert');
+    processor.removeAttribute('aria-disabled');
+  }
 }
 
 if (typeof document !== 'undefined') init();

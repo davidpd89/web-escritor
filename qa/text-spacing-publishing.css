@@ -1,0 +1,3 @@
+/* QA-only WCAG text-spacing fixture; same-origin to respect production CSP. */
+*{line-height:1.5!important;letter-spacing:.12em!important;word-spacing:.16em!important}
+p,li,dd,dt{margin-bottom:2em!important}

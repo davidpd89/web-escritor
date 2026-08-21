@@ -1,52 +1,73 @@
 import assert from 'node:assert/strict';
 import { buildMetaTags, validateMetaTags, httpsUrl } from '../assets/metadatos-libro.js';
 
-// httpsUrl: only accepts valid https URLs
-assert.equal(httpsUrl('https://example.com/book'), 'https://example.com/book');
-assert.equal(httpsUrl('http://example.com/book'), '');
-assert.equal(httpsUrl('not a url'), '');
-
-const values = {
-  book: 'Las manecillas del recuerdo',
-  author: 'David Porto Díaz',
-  site: 'David Porto Díaz',
-  url: 'https://davidportodiaz.com/las-manecillas-del-recuerdo/',
-  description: 'Novela coral sobre memoria familiar y objetos heredados.',
-  image: 'https://davidportodiaz.com/assets/las-manecillas-del-recuerdo-social.webp',
-  imageAlt: 'Portada de Las manecillas del recuerdo',
-  isbn: '979-8-90514-935-1',
+const valid = {
+  book: 'La casa de prueba',
+  author: 'Ana Ejemplo',
+  site: 'Ana Ejemplo',
+  url: 'https://example.test/libros/la-casa/',
+  description: 'Una novela de prueba sobre memoria, familia y las decisiones que dejan huella.',
+  image: 'https://assets.example.test/portada social.webp',
+  imageAlt: 'Portada de «La casa de prueba» & autora',
+  isbn: '978-1-23456-789-0',
   releaseDate: '2026-09-03',
-  authorUrl: 'https://davidportodiaz.com/autor.html',
-  xSite: 'davidportodiaz',
+  authorUrl: 'https://example.test/ana/',
+  xSite: 'anaejemplo',
 };
 
-const built = buildMetaTags(values);
-assert.equal(built.canonical, values.url);
-assert.equal(built.image, values.image);
-assert.equal(built.title, 'Las manecillas del recuerdo — David Porto Díaz | David Porto Díaz');
-assert.equal(built.socialTitle, 'Las manecillas del recuerdo — David Porto Díaz');
-assert.match(built.lines, /<title>Las manecillas del recuerdo — David Porto Díaz \| David Porto Díaz<\/title>/);
-assert.match(built.lines, /<meta property="book:isbn" content="9798905149351">/);
-assert.match(built.lines, /<meta name="twitter:site" content="@davidportodiaz">/);
+assert.equal(httpsUrl('https://example.test/book'), 'https://example.test/book');
+assert.equal(httpsUrl('http://example.test/book'), '');
+assert.equal(httpsUrl('javascript:alert(1)'), '');
+assert.equal(httpsUrl('not a url'), '');
 
-// A complete, well-formed set of values should produce zero warnings
-assert.deepEqual(validateMetaTags(values, built), []);
+const built = buildMetaTags(valid);
+assert.equal(built.canonical, valid.url);
+assert.equal(built.image, 'https://assets.example.test/portada%20social.webp');
+assert.match(built.lines, /book:isbn" content="9781234567890"/);
+assert.match(built.lines, /twitter:site" content="@anaejemplo"/);
+assert.deepEqual(validateMetaTags(valid, built), []);
 
-// HTML-escaping in the generated block
-const withMarkup = buildMetaTags({ ...values, description: 'Historias de "familia" & recuerdos' });
-assert.match(withMarkup.lines, /content="Historias de &quot;familia&quot; &amp; recuerdos"/);
+const minimum = { book: 'Libro mínimo' };
+const minimumBuilt = buildMetaTags(minimum);
+assert.ok(!minimumBuilt.lines.includes('og:url'));
+assert.ok(!minimumBuilt.lines.includes('og:image"'));
+assert.ok(!minimumBuilt.lines.includes('book:isbn'));
+assert.ok(!minimumBuilt.lines.includes('book:release_date'));
+assert.ok(validateMetaTags(minimum, minimumBuilt).length >= 3);
 
-// Missing required fields surface warnings
-const empty = buildMetaTags({});
-const issues = validateMetaTags({}, empty);
-assert.ok(issues.includes('Añade el título del libro.'));
-assert.ok(issues.includes('Falta la URL canónica.'));
-assert.ok(issues.includes('Falta una imagen social.'));
+const longTitle = buildMetaTags({ ...valid, book: 'Título '.repeat(20) });
+assert.ok(validateMetaTags({ ...valid, book: 'Título '.repeat(20) }, longTitle).some(x => x.includes('título social')));
 
-// Non-HTTPS URL is rejected, not silently downgraded
-const insecure = buildMetaTags({ ...values, url: 'http://davidportodiaz.com/las-manecillas-del-recuerdo/' });
-assert.equal(insecure.canonical, '');
-assert.ok(validateMetaTags({ ...values, url: 'http://davidportodiaz.com/x/' }, insecure)
-  .includes('La URL canónica debe ser una URL HTTPS válida.'));
+const longDescriptionValue = { ...valid, description: 'Descripción '.repeat(30) };
+assert.ok(validateMetaTags(longDescriptionValue, buildMetaTags(longDescriptionValue)).some(x => x.includes('descripción es larga')));
+
+assert.ok(validateMetaTags({ ...valid, description: '' }, buildMetaTags({ ...valid, description: '' })).some(x => x.includes('descripción específica')));
+assert.equal(buildMetaTags({ ...valid, url: 'http://example.test/libro' }).canonical, '');
+assert.equal(buildMetaTags({ ...valid, url: 'https://exa mple.test' }).canonical, '');
+assert.equal(buildMetaTags({ ...valid, url: 'https://example.test/libro' }).canonical, 'https://example.test/libro');
+assert.equal(buildMetaTags({ ...valid, image: 'javascript:alert(1)' }).image, '');
+assert.ok(validateMetaTags({ ...valid, authorUrl: 'javascript:alert(1)' }, buildMetaTags({ ...valid, authorUrl: 'javascript:alert(1)' })).some(x => x.includes('perfil del autor')));
+assert.ok(validateMetaTags({ ...valid, image: 'https://assets.example.test/a.webp', imageAlt: '' }, buildMetaTags({ ...valid, image: 'https://assets.example.test/a.webp', imageAlt: '' })).some(x => x.includes('texto alternativo')));
+
+for (const patch of [{isbn:''},{releaseDate:''}]) {
+  const out = buildMetaTags({ ...valid, ...patch }).lines;
+  if ('isbn' in patch) assert.equal(out.includes('book:isbn'), false);
+  if ('releaseDate' in patch) assert.equal(out.includes('book:release_date'), false);
+}
+
+const hostile = buildMetaTags({
+  ...valid,
+  book: 'Niña & «mar» <script>alert(1)</script>',
+  author: 'Ana "Ejemplo"',
+  site: 'Sitio > prueba',
+  description: '"</script>" & < > ñ',
+  imageAlt: '"><svg onload=alert(1)>',
+  xSite: '"><img src=x onerror=alert(1)>',
+});
+assert.ok(hostile.lines.includes('&amp;'));
+assert.ok(hostile.lines.includes('&lt;script&gt;alert(1)&lt;/script&gt;'));
+assert.ok(hostile.lines.includes('&quot;'));
+assert.equal(hostile.lines.includes('<svg onload='), false);
+assert.equal(hostile.lines.includes('<img src=x'), false);
 
 console.log('tests/test-metadatos-libro: OK');

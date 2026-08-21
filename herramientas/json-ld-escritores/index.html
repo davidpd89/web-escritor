@@ -34,10 +34,10 @@
   <link rel="stylesheet" href="/assets/v1-shell.css" />
   <link rel="stylesheet" href="/assets/v1-components.css" />
   <link rel="stylesheet" href="/assets/v1-tools.css" />
+  <link rel="stylesheet" href="/assets/v1-tools-publishing.css" />
   <link rel="stylesheet" href="/assets/jsonld-escritores.css" />
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebApplication","name":"Generador JSON-LD para escritores","url":"https://davidportodiaz.com/herramientas/json-ld-escritores/","applicationCategory":"DeveloperApplication","operatingSystem":"Any","isAccessibleForFree":true,"inLanguage":"es","author":{"@id":"https://davidportodiaz.com/#author"}}</script>
 </head>
-
 <body>
   <a href="#contenido" class="skip-link">Saltar al contenido</a>
 
@@ -117,9 +117,16 @@
       <h1>Generador JSON-LD para escritores</h1>
       <p class="tool-hero__lead">Crea marcado conservador para un perfil de autor, un libro, un artículo o un evento. Los campos vacíos no se inventan y la herramienta separa «Schema.org válido» de «función enriquecida documentada por Google».</p>
       <p class="tool-note"><strong>Importante:</strong> un JSON-LD correcto no garantiza un rich result ni mejora el ranking por sí solo. Debe describir información real y visible en la página.</p>
+      <ol class="publishing-flow" aria-label="Cómo usar esta herramienta">
+        <li><strong>Elige</strong><span>perfil, libro, artículo o evento.</span></li>
+        <li><strong>Completa</strong><span>solo datos reales y verificables.</span></li>
+        <li><strong>Copia</strong><span>el JSON-LD después de revisar los avisos.</span></li>
+      </ol>
     </header>
 
-    <section class="tool-panel">
+    <noscript><aside class="publishing-noscript" role="note"><strong>JavaScript está desactivado.</strong> La metodología sigue disponible, pero generar y validar JSON-LD necesita JavaScript en este navegador.</aside></noscript>
+
+    <section class="tool-panel" data-publishing-processor inert aria-disabled="true">
       <div class="tool-workspace">
         <form id="jsonld-form">
           <button type="submit" class="sr-only">Generar JSON-LD</button>
@@ -151,7 +158,7 @@
 
     <section class="tool-panel tool-caveat">
       <h2>Qué valida y qué no</h2>
-      <p>Comprueba campos básicos, HTTPS, fechas, coherencia mínima y evita emitir propiedades vacías. No sustituye el validador de Schema.org, Rich Results Test ni la inspección de URL de Google.</p>
+      <p>Comprueba campos básicos, URLs HTTPS reales, fechas, coherencia mínima y evita emitir propiedades vacías. No sustituye el validador de Schema.org, Rich Results Test ni la inspección de URL de Google.</p>
       <div class="tool-table-wrap">
         <table class="tool-table">
           <thead><tr><th>Modo</th><th>Schema.org</th><th>Google</th></tr></thead>
@@ -164,9 +171,13 @@
         </table>
       </div>
       <h2>Regla principal</h2>
-      <p>Menos campos correctos es mejor que completar propiedades con datos supuestos. No declares ISBN, precio, disponibilidad, editorial, fecha o perfiles sociales si no puedes verificarlos.</p>
+      <p>Menos campos correctos es mejor que completar propiedades con datos supuestos. No declares ISBN, precio, disponibilidad, editorial, fecha, idioma, modalidad o perfiles sociales si no puedes verificarlos.</p>
     </section>
 
+    <nav class="publishing-next" aria-label="Herramientas relacionadas">
+      <h2>Comprueba la página completa</h2>
+      <div class="publishing-next__links"><a href="/herramientas/metadatos-libro/">Preparar metadatos</a><a href="/herramientas/auditor-pagina-libro/">Auditar la página del libro</a></div>
+    </nav>
   </main>
 
   <footer class="site-footer">
@@ -182,7 +193,6 @@
   </footer>
 
   <script defer src="/assets/v1-shell.js"></script>
-
   <script type="module" src="/assets/jsonld-escritores.js"></script>
 </body>
 </html>

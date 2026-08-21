@@ -28,7 +28,9 @@ export function validatePressKitModel(model) {
   if (!String(model.bookTitle || "").trim()) errors.push("Falta el título del libro.");
   if (!String(model.bookDescription || "").trim()) errors.push("Falta la descripción/sinopsis del libro.");
   if (!['contact_only','editorial_use'].includes(model.assetPermission)) errors.push("Selecciona una política de uso de imágenes.");
-  if (model.website && !isHttpsUrl(model.website)) errors.push("La web debe usar HTTPS.");
+  if (model.website && !isHttpsUrl(model.website)) errors.push("La web debe usar una URL HTTPS válida.");
+  if (model.purchaseUrl && !isHttpsUrl(model.purchaseUrl)) errors.push("El enlace oficial debe usar una URL HTTPS válida.");
+  if (model.publicationDate && !isIsoDate(model.publicationDate)) errors.push("La fecha de publicación debe ser una fecha real en formato AAAA-MM-DD.");
   return errors;
 }
 
@@ -124,4 +126,12 @@ export function splitLines(value) {
 function clean(value) { const v = String(value || "").trim(); return v || undefined; }
 function cleanObject(obj) { return Object.fromEntries(Object.entries(obj).filter(([,v]) => v !== undefined && v !== "")); }
 function isEmail(v) { return /^[^\s@]{1,64}@[^\s@]{1,253}\.[^\s@]{2,}$/i.test(String(v || "").trim()); }
-function isHttpsUrl(v) { try { return new URL(v).protocol === "https:"; } catch { return false; } }
+function isHttpsUrl(v) { const t = String(v || '').trim(); if (!t) return false; try { const u = new URL(t); if (u.protocol !== "https:" || !u.hostname) return false; return !/%[0-9a-f]{2}/i.test(u.hostname); } catch { return false; } }
+function isIsoDate(v) {
+  const raw = String(v || '').trim();
+  const m = raw.match(/^(\d{4})-(\d{2})-(\d{2})$/);
+  if (!m) return false;
+  const [, y, mo, d] = m.map(Number);
+  const date = new Date(Date.UTC(y, mo - 1, d));
+  return date.getUTCFullYear() === y && date.getUTCMonth() === mo - 1 && date.getUTCDate() === d;
+}

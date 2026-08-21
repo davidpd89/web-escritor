@@ -51,7 +51,7 @@ function init(root) {
       const usedNames = new Set();
       for (const asset of assets.sort((a, b) => a.file.name.localeCompare(b.file.name, 'es'))) {
         const bytes = new Uint8Array(await asset.file.arrayBuffer());
-        const safe = uniqueName(`${asset.role}-${sanitizeFilename(asset.file.name, asset.role)}`, usedNames);
+        const safe = uniqueName(`${asset.role}-${safeAssetFilename(asset.file, asset.role)}`, usedNames);
         const path = `assets/${safe}`;
         archive[path] = bytes;
         manifestFiles.push(await manifestEntry(path, bytes, asset.role, asset.file.type));
@@ -74,8 +74,6 @@ function init(root) {
       const checksums = checksumEntries.map(x => `${x.sha256}  ${x.path}`).join('\n') + '\n';
       archive['CHECKSUMS_SHA256.txt'] = strToU8(checksums);
 
-      // mtime fijo: el contrato del doc 36 exige que dos kits con el mismo
-      // contenido produzcan un ZIP identico byte a byte.
       const zip = zipStoreSync(archive, { mtime: ZIP_EPOCH });
       const blob = new Blob([zip], { type: 'application/zip' });
       const filename = `kit-prensa-${slugify(model.authorName)}-${slugify(model.bookTitle)}.zip`;
@@ -98,6 +96,14 @@ function init(root) {
   function setStatus(message, error) {
     status.textContent = message;
     status.dataset.state = error ? 'error' : 'normal';
+    status.setAttribute('role', error ? 'alert' : 'status');
+  }
+
+  const processor = root.querySelector('[data-publishing-processor]');
+  if (processor) {
+    processor.inert = false;
+    processor.removeAttribute('inert');
+    processor.removeAttribute('aria-disabled');
   }
 }
 
@@ -123,12 +129,9 @@ function modelFromForm(form) {
 }
 
 const MAX_ASSETS = 10;
-const ACCEPTED_MIME = new Set(['image/jpeg', 'image/png', 'image/webp', 'application/pdf']);
+const MIME_EXT = new Map([['image/jpeg','.jpg'],['image/png','.png'],['image/webp','.webp'],['application/pdf','.pdf']]);
+const ACCEPTED_MIME = new Set(MIME_EXT.keys());
 
-// Antes esta funcion hacia `continue` con los MIME no admitidos y devolvia
-// `result.slice(0, 10)`: quien seleccionaba 12 imagenes, o un .tiff, recibia un
-// ZIP al que le faltaban archivos sin que nada se lo dijera. Ahora ambos casos
-// son errores visibles.
 function collectAssetFiles(form) {
   const result = [];
   const rejected = [];
@@ -144,16 +147,19 @@ function collectAssetFiles(form) {
     }
   }
   if (rejected.length) {
-    throw new Error(
-      `Formato no admitido: ${rejected.join(', ')}. Se aceptan JPG, PNG, WebP y PDF.`
-    );
+    throw new Error(`Formato no admitido: ${rejected.join(', ')}. Se aceptan JPG, PNG, WebP y PDF.`);
   }
   if (result.length > MAX_ASSETS) {
-    throw new Error(
-      `Has seleccionado ${result.length} archivos y el máximo es ${MAX_ASSETS}. Quita ${result.length - MAX_ASSETS} y vuelve a generar el kit.`
-    );
+    throw new Error(`Has seleccionado ${result.length} archivos y el máximo es ${MAX_ASSETS}. Quita ${result.length - MAX_ASSETS} y vuelve a generar el kit.`);
   }
   return result;
+}
+
+function safeAssetFilename(file, fallback) {
+  const normalized = sanitizeFilename(file.name, fallback);
+  const dot = normalized.lastIndexOf('.');
+  const stem = dot > 0 ? normalized.slice(0, dot) : normalized;
+  return `${stem}${MIME_EXT.get(file.type)}`;
 }
 
 async function manifestEntry(path, bytes, role, mime = 'text/plain') {
@@ -185,7 +191,10 @@ function download(blob, filename) {
 function renderSummary(el, built, assets, size, filename) {
   const mib = (size / 1024 / 1024).toFixed(2);
   el.hidden = false;
-  el.innerHTML = `<strong>${escapeHtml(filename)}</strong><span>${mib} MiB · ${assets.length} asset(s) · ${built.checklist.length} pendiente(s) recomendado(s)</span>`;
+  el.replaceChildren();
+  const strong = document.createElement('strong');
+  strong.textContent = filename;
+  const span = document.createElement('span');
+  span.textContent = `${mib} MiB · ${assets.length} asset(s) · ${built.checklist.length} pendiente(s) recomendado(s)`;
+  el.append(strong, span);
 }
-
-function escapeHtml(v) { return String(v).replace(/[&<>'"]/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', "'": '&#39;', '"': '&quot;' }[c])); }
