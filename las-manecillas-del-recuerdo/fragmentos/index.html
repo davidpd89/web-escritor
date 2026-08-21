@@ -1,15 +1,12 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="es" class="v1">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
   <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
-
   <title>Tres fragmentos de Las manecillas del recuerdo | David Porto Díaz</title>
   <meta name="description" content="Lee tres fragmentos breves de Las manecillas del recuerdo: intimidad familiar, humor negro y futuro cercano, sin resumir el recorrido del reloj." />
   <meta name="author" content="David Porto Díaz" />
-  <link rel="canonical" href="https://davidportodiaz.com/las-manecillas-del-recuerdo/fragmentos/" />
-
   <meta property="og:type" content="book" />
   <meta property="og:title" content="Tres fragmentos de Las manecillas del recuerdo" />
   <meta property="og:description" content="Tres pasajes, tres registros distintos y ningún resumen del recorrido del reloj." />
@@ -20,23 +17,25 @@
   <meta property="og:image:alt" content="Las manecillas del recuerdo, de David Porto Díaz — Monza Ediciones, septiembre de 2026" />
   <meta property="og:locale" content="es_ES" />
   <meta property="og:site_name" content="David Porto Díaz" />
-
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="Tres fragmentos de Las manecillas del recuerdo" />
   <meta name="twitter:description" content="Tres pasajes breves para descubrir cómo cambia la voz de la novela sin destripes." />
   <meta name="twitter:image" content="https://davidportodiaz.com/assets/og-manecillas.webp" />
   <meta name="twitter:image:alt" content="Las manecillas del recuerdo, de David Porto Díaz — Monza Ediciones, septiembre de 2026" />
-
-  <meta name="theme-color" content="#080a0c" />
-  <link rel="preconnect" href="https://gc.zgo.at" />
-  <link rel="preload" as="font" type="font/woff2" href="/assets/fonts/cg-normal-latin.woff2" crossorigin />
-  <link rel="preload" as="font" type="font/woff2" href="/assets/fonts/inter-normal-latin.woff2" crossorigin />
+  <meta name="theme-color" content="#F4EFE7" />
+  <link rel="canonical" href="https://davidportodiaz.com/las-manecillas-del-recuerdo/fragmentos/" />
   <link rel="icon" type="image/png" href="/assets/david-porto-favicon.png" />
   <link rel="apple-touch-icon" href="/assets/david-porto-favicon.png" />
   <link rel="manifest" href="/manifest.json" />
-  <link rel="stylesheet" href="/styles.css?v=202609-launch-1" />
-  <link rel="stylesheet" href="/assets/manecillas-extras.css?v=20260820-1" />
 
+  <link rel="stylesheet" href="/assets/v1-fonts.css" />
+  <link rel="stylesheet" href="/assets/v1-tokens.css" />
+  <link rel="stylesheet" href="/assets/v1-base.css" />
+  <link rel="stylesheet" href="/assets/v1-shell.css" />
+  <link rel="stylesheet" href="/assets/v1-components.css" />
+  <link rel="stylesheet" href="/assets/v1-families.css" />
+  <link rel="stylesheet" href="/assets/v1-tools.css" />
+  <link rel="stylesheet" href="/assets/v1-book.css" />
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -117,109 +116,126 @@
   </script>
 </head>
 
-<body class="theme-manecillas" data-reading-progress>
-  <a href="#fragmentos-contenido" class="skip-link">Saltar al contenido</a>
-  <div class="site-shell">
+<body data-reading-progress>
+  <a href="#contenido" class="skip-link">Saltar al contenido</a>
 
-    <header class="site-header">
-      <a class="brand" href="/" aria-label="Volver al inicio - David Porto Díaz">
-        <span class="brand-mark">
-          <img src="/assets/logo-david-porto-diaz-escritor-176.webp" alt="" class="brand-logo-img" width="52" height="52" aria-hidden="true" />
-        </span>
-        <span class="brand-text">
-          <strong>David Porto Díaz</strong>
-          <small>Escritor</small>
-        </span>
+  <header class="site-header" data-header>
+    <div class="site-header__inner">
+      <a class="brand" href="/" aria-label="David Porto Díaz — inicio">
+        <span class="brand__name">David Porto Díaz</span>
+        <span class="brand__role">Escritor</span>
       </a>
-      <button class="nav-toggle" type="button" aria-label="Abrir menú" aria-expanded="false">
-        <span></span><span></span>
-      </button>
-      <nav class="site-nav" aria-label="Navegación principal">
-        <a href="/">Inicio</a>
-        <a href="/libros/">Libros</a>
+      <nav class="primary-nav" aria-label="Navegación principal">
+        <a href="/libros/" aria-current="page">Obra</a>
         <a href="/cuaderno/">Cuaderno</a>
-        <a href="/autor.html">El autor</a>
-        <a href="/eventos.html">Eventos</a>
-        <a href="/prensa.html">Prensa</a>
+        <a href="/herramientas/">Herramientas</a>
       </nav>
-    </header>
+      <button class="explore-trigger" type="button" aria-haspopup="dialog" aria-controls="explore-dialog" aria-expanded="false" data-explore-open>
+        Explorar
+      </button>
+    </div>
+  </header>
 
-    <main id="fragmentos-contenido">
-      <section class="book-hero book-hero--manecillas" aria-label="Fragmentos de Las manecillas del recuerdo">
-        <div class="book-hero-inner">
-          <div class="book-hero-cover">
-            <picture class="manecillas-cover-picture">
-              <source
-                type="image/webp"
-                srcset="
-                  /assets/portada-las-manecillas-del-recuerdo-320.webp 320w,
-                  /assets/portada-las-manecillas-del-recuerdo-512.webp 512w,
-                  /assets/portada-las-manecillas-del-recuerdo-768.webp 768w,
-                  /assets/portada-las-manecillas-del-recuerdo-1024.webp 1024w"
-                sizes="(max-width: 820px) min(72vw, 300px), 320px" />
-              <img
-                src="/assets/portada-las-manecillas-del-recuerdo-1024.webp"
-                alt="Portada de Las manecillas del recuerdo, novela de David Porto Díaz"
-                width="1024" height="1536"
-                fetchpriority="high" decoding="async" />
-            </picture>
-          </div>
-          <div class="book-hero-copy">
-            <nav class="breadcrumb" aria-label="Ruta de navegación">
-              <a href="/">Inicio</a><span aria-hidden="true"> / </span>
-              <a href="/las-manecillas-del-recuerdo/">Las manecillas del recuerdo</a><span aria-hidden="true"> / </span>
-              <span aria-current="page">Fragmentos</span>
-            </nav>
-            <p class="eyebrow">Muestra de lectura · sin destripes</p>
-            <h1>Tres fragmentos,<br>tres registros</h1>
-            <p class="book-hero-tagline">La novela cambia de voz, época y textura. Estos tres pasajes breves enseñan ese contraste sin resumir el recorrido del reloj.</p>
-            <div class="hero-actions">
-              <a class="button primary" href="#leer">Empezar a leer</a>
-              <a class="button secondary" href="/las-manecillas-del-recuerdo/">Ver la ficha del libro</a>
-            </div>
-          </div>
+  <dialog class="explore-dialog" id="explore-dialog" aria-labelledby="explore-title" data-explore-dialog>
+    <div class="explore-dialog__shell">
+      <div class="explore-dialog__head">
+        <div>
+          <p class="eyebrow">Índice general</p>
+          <h2 id="explore-title">Explorar</h2>
         </div>
-      </section>
-
-      <section class="section" id="leer">
-        <div class="section-heading">
-          <p class="eyebrow">Cómo leer esta muestra</p>
-          <h2>No son tres capítulos abreviados.</h2>
-          <p class="manecillas-kicker">Son tres escenas separadas escogidas por contraste. La primera pertenece al comienzo de la novela; las otras muestran cambios de registro sin explicar cómo llega el reloj hasta allí ni qué ocurre después.</p>
-        </div>
-      </section>
-
-      <section class="section manecillas-paper">
-        <div class="manecillas-excerpt-list">
-          <article class="manecillas-excerpt" id="fragmento-1">
-            <p class="manecillas-excerpt-label">Registro I · íntimo</p>
-            <h2>El ritual del domingo</h2>
-            <div class="manecillas-reading" data-nosnippet>
-              <p>Tomás contó las siete veces que su abuelo miró el reloj durante el desayuno. Los domingos normales, Manuel apenas lo miraba; el tiempo con los nietos era otra cosa, más despacio. Pero hoy cada minuto se veía venir desde lejos y el niño ya sabía por qué: mañana era la cita con el cardiólogo.</p>
-              <p>El sol se colaba por las cortinas gastadas, formando manchas doradas que bailaban sobre la mesa de nogal. En la cocina del abuelo Manuel, el chocolate de los domingos tenía su propio orden: primero el cacao, después el azúcar, después el silencio.</p>
-              <p>Este domingo el chocolate llevaba cinco minutos en la mesa y ninguno de los dos lo había tocado.</p>
-            </div>
-            <div class="manecillas-fragment-meta">
-              <span>Capítulo 1.1</span><span>Apertura de la novela</span>
-            </div>
-          </article>
-        </div>
-      </section>
-
-      <div class="manecillas-quote-band" aria-label="Cita de la novela">
-        <blockquote>
-          «Este reloj ha vivido más vidas que yo.»
-          <cite>— <em>Las manecillas del recuerdo</em></cite>
-        </blockquote>
+        <button class="icon-button" type="button" aria-label="Cerrar Explorar" data-explore-close>
+          <svg aria-hidden="true" viewBox="0 0 24 24" width="20" height="20"><path d="M5 5l14 14M19 5L5 19"/></svg>
+        </button>
       </div>
 
-      <section class="section manecillas-paper manecillas-defer">
-        <div class="manecillas-excerpt-list">
-          <article class="manecillas-excerpt" id="fragmento-2">
-            <p class="manecillas-excerpt-label">Registro II · humor negro</p>
-            <h2>El precio de una historia</h2>
-            <div class="manecillas-reading" data-nosnippet>
-              <p>Mientras tanto, la mujer examina el reloj de la vitrina principal como si fuera el Santo Grial.</p>
+      <div class="explore-dialog__grid">
+        <nav class="explore-list" aria-label="Destinos de la web">
+          <a class="explore-row" href="/las-manecillas-del-recuerdo/" data-preview="manecillas">
+            <span class="explore-row__index">01</span>
+            <span class="explore-row__body"><strong>Las manecillas del recuerdo</strong><small>La obra actual.</small></span>
+          </a>
+          <a class="explore-row" href="/autor.html" data-preview="autor">
+            <span class="explore-row__index">02</span>
+            <span class="explore-row__body"><strong>Autor</strong><small>Biografía, obra y trayectoria.</small></span>
+          </a>
+          <a class="explore-row" href="/libros/samuel-entre-mundos/" data-preview="samuel">
+            <span class="explore-row__index">03</span>
+            <span class="explore-row__body"><strong>Samuel entre mundos</strong><small>Primera novela publicada.</small></span>
+          </a>
+          <a class="explore-row" href="/cuaderno/" data-preview="cuaderno">
+            <span class="explore-row__index">04</span>
+            <span class="explore-row__body"><strong>Cuaderno</strong><small>Artículos y piezas editoriales.</small></span>
+          </a>
+          <a class="explore-row" href="/herramientas/" data-preview="herramientas">
+            <span class="explore-row__index">05</span>
+            <span class="explore-row__body"><strong>Herramientas</strong><small>Utilidades gratuitas para escritores.</small></span>
+          </a>
+          <a class="explore-row" href="/prensa.html" data-preview="prensa">
+            <span class="explore-row__index">06</span>
+            <span class="explore-row__body"><strong>Prensa y eventos</strong><small>Apariciones, materiales y agenda.</small></span>
+          </a>
+        </nav>
+
+        <aside class="explore-preview" aria-live="polite" aria-atomic="true" data-explore-preview>
+          <div class="explore-preview__media" aria-hidden="true" data-preview-media></div>
+          <p class="explore-preview__label" data-preview-label>Las manecillas del recuerdo</p>
+          <p class="explore-preview__copy" data-preview-copy>La obra actual.</p>
+        </aside>
+      </div>
+    </div>
+  </dialog>
+
+  <main id="contenido">
+    <article class="book-page book-page--manecillas">
+      <nav class="book-breadcrumb" aria-label="Ruta de navegación">
+        <ol><li><a href="/">Inicio</a></li><li><a href="/las-manecillas-del-recuerdo/">Las manecillas del recuerdo</a></li><li aria-current="page">Fragmentos</li></ol>
+      </nav>
+
+      <header class="book-hero" data-book-hero>
+        <div class="book-cover-zone" data-hero-media>
+          <figure class="book-cover" data-media="cover">
+            <picture>
+              <source media="(max-width:420px)" srcset="/assets/portada-las-manecillas-del-recuerdo-320.webp">
+              <source media="(max-width:820px)" srcset="/assets/portada-las-manecillas-del-recuerdo-512.webp">
+              <source media="(max-width:1280px)" srcset="/assets/portada-las-manecillas-del-recuerdo-768.webp">
+              <img src="/assets/portada-las-manecillas-del-recuerdo-1024.webp" alt="Portada de Las manecillas del recuerdo, novela de David Porto Díaz" width="1024" height="1536" loading="eager" decoding="async" fetchpriority="high">
+            </picture>
+          </figure>
+        </div>
+        <div class="book-hero__copy">
+          <p class="eyebrow">Muestra de lectura · sin destripes</p>
+          <h1>Tres fragmentos, tres registros</h1>
+          <p class="book-lead">La novela cambia de voz, época y textura. Estos tres pasajes breves enseñan ese contraste sin resumir el recorrido del reloj.</p>
+          <div class="book-actions">
+            <a class="primary-action" href="#fragmento-1">Empezar a leer</a>
+            <a class="text-action" href="/las-manecillas-del-recuerdo/">Ver la ficha del libro</a>
+          </div>
+        </div>
+      </header>
+
+      <section class="v1-section">
+        <p class="eyebrow">Cómo leer esta muestra</p>
+        <h2>No son tres capítulos abreviados.</h2>
+        <p class="lore-prose">Son tres escenas separadas escogidas por contraste. La primera pertenece al comienzo de la novela; las otras muestran cambios de registro sin explicar cómo llega el reloj hasta allí ni qué ocurre después.</p>
+      </section>
+
+      <section class="book-section excerpt-section" id="fragmento-1" aria-labelledby="fragmento-1-title">
+        <div class="book-section__label"><p class="eyebrow">Registro I · íntimo</p><h2 id="fragmento-1-title">El ritual del domingo</h2><p class="tool-meta">Capítulo 1.1 · Apertura de la novela</p></div>
+        <div class="excerpt-field" data-nosnippet>
+<p>Tomás contó las siete veces que su abuelo miró el reloj durante el desayuno. Los domingos normales, Manuel apenas lo miraba; el tiempo con los nietos era otra cosa, más despacio. Pero hoy cada minuto se veía venir desde lejos y el niño ya sabía por qué: mañana era la cita con el cardiólogo.</p>
+              <p>El sol se colaba por las cortinas gastadas, formando manchas doradas que bailaban sobre la mesa de nogal. En la cocina del abuelo Manuel, el chocolate de los domingos tenía su propio orden: primero el cacao, después el azúcar, después el silencio.</p>
+              <p>Este domingo el chocolate llevaba cinco minutos en la mesa y ninguno de los dos lo había tocado.</p>
+        </div>
+      </section>
+
+      <aside class="book-dedication" aria-label="Cita de la novela">
+        <blockquote>«Este reloj ha vivido más vidas que yo.»</blockquote>
+      </aside>
+
+      <section class="book-section excerpt-section" id="fragmento-2" aria-labelledby="fragmento-2-title">
+        <div class="book-section__label"><p class="eyebrow">Registro II · humor negro</p><h2 id="fragmento-2-title">El precio de una historia</h2><p class="tool-meta">Capítulo 4 · Escena de la casa de empeños</p></div>
+        <div class="excerpt-field" data-nosnippet>
+<p>Mientras tanto, la mujer examina el reloj de la vitrina principal como si fuera el Santo Grial.</p>
               <p>—¿Este reloj también está en venta?</p>
               <p>—Ese no se toca. —Ramón se pone serio—. Ese es especial.</p>
               <p>«Aquí está. La primera que muerde el anzuelo».</p>
@@ -230,78 +246,49 @@
               <p>—¿Cuánto vale?</p>
               <p>—No está en venta. Es una pieza de museo.</p>
               <p>«Mentira número uno. Ahora a inflar la demanda».</p>
-            </div>
-            <div class="manecillas-fragment-meta">
-              <span>Capítulo 4</span><span>Escena de la casa de empeños</span>
-            </div>
-          </article>
         </div>
       </section>
 
-      <div class="manecillas-divider" aria-hidden="true">
-        <span class="manecillas-divider-mark">III</span>
-      </div>
-
-      <section class="section manecillas-paper manecillas-defer">
-        <div class="manecillas-excerpt-list">
-          <article class="manecillas-excerpt" id="fragmento-3">
-            <p class="manecillas-excerpt-label">Registro III · futuro cercano</p>
-            <h2>Las horas silenciosas</h2>
-            <div class="manecillas-reading" data-nosnippet>
-              <p>—¿Ese reloj es analógico?</p>
+      <section class="book-section excerpt-section" id="fragmento-3" aria-labelledby="fragmento-3-title">
+        <div class="book-section__label"><p class="eyebrow">Registro III · futuro cercano</p><h2 id="fragmento-3-title">Las horas silenciosas</h2><p class="tool-meta">Capítulo 10 · Futuro cercano</p></div>
+        <div class="excerpt-field" data-nosnippet>
+<p>—¿Ese reloj es analógico?</p>
               <p>—Sí.</p>
               <p>—¿Puedo?</p>
               <p>Dudó un momento, luego se lo quitó y se lo pasó. Martín lo examinó con fascinación.</p>
               <p>—Es increíble. En un mundo donde todo se actualiza constantemente, donde todo es Smart, esto simplemente… es. —Escuchó el tic-tac—. ¿Sabe? Mi generación no conoce este sonido. Para nosotros, las horas son silenciosas. Digitales.</p>
               <p>—¿Qué notas con el sonido?</p>
               <p>—Suena… honesto. Como si no tuviera nada que demostrar. Como si cada segundo valiera por sí mismo.</p>
-            </div>
-            <div class="manecillas-fragment-meta">
-              <span>Capítulo 10</span><span>Futuro cercano</span>
-            </div>
-          </article>
         </div>
       </section>
 
-      <section class="section">
-        <div class="manecillas-frame">
-          <div class="section-heading">
-            <p class="eyebrow">La novela completa</p>
-            <h2>Un mismo objeto. Significados incompatibles.</h2>
-            <p>Los fragmentos muestran el reloj en situaciones distintas, pero no explican cómo llega a esas manos, cuánto permanece allí ni cuál es su destino. Esa cadena es la historia.</p>
-          </div>
-          <div class="manecillas-cta">
-            <a class="button primary" href="/las-manecillas-del-recuerdo/">Ficha de Las manecillas del recuerdo</a>
-            <a class="button secondary" href="/#newsletter">Recibir novedades</a>
-          </div>
+      <section class="v1-section" id="cta-final">
+        <p class="eyebrow">La novela completa</p>
+        <h2>Un mismo objeto. Significados incompatibles.</h2>
+        <p class="lore-prose">Los fragmentos muestran el reloj en situaciones distintas, pero no explican cómo llega a esas manos, cuánto permanece allí ni cuál es su destino. Esa cadena es la historia.</p>
+        <div class="tool-actions">
+          <a class="primary-action" href="/las-manecillas-del-recuerdo/">Ficha de Las manecillas del recuerdo</a>
+          <a class="text-action" href="/#newsletter">Recibir novedades</a>
         </div>
       </section>
-    </main>
+    </article>
+  </main>
 
-    <footer class="site-footer">
-      <div class="footer-top-row">
-        <div class="footer-brand">
-          <img src="/assets/logo-david-porto-diaz-escritor-176.webp" alt="David Porto Díaz" class="footer-logo" width="42" height="42" loading="lazy" />
-          <p>David Porto Díaz · Escritor</p>
-        </div>
-        <nav class="footer-nav" aria-label="Pie de página">
-          <a href="/">Inicio</a>
-          <a href="/libros/">Libros</a>
-          <a href="/las-manecillas-del-recuerdo/">Las manecillas del recuerdo</a>
-          <a href="/cuaderno/">Cuaderno</a>
-          <a href="/autor.html">Autor</a>
-          <a href="/eventos.html">Eventos</a>
-          <a href="/prensa.html">Prensa</a>
-          <a href="/privacidad.html">Privacidad</a>
-          <a href="/ai/">Para IA</a>
-        </nav>
+  <footer class="site-footer">
+    <div class="site-footer__grid">
+      <div>
+        <strong class="brand__name">David Porto Díaz</strong>
+        <p>Autor de Las manecillas del recuerdo y Samuel entre mundos.</p>
       </div>
-      <div class="footer-bottom">
-        <a href="#fragmentos-contenido" class="back-to-top-link">↑ Volver arriba</a>
-        <p class="footer-copy">© 2026 David Porto Díaz · <a href="https://davidportodiaz.com/">davidportodiaz.com</a></p>
-      </div>
-    </footer>
-  </div>
-  <script src="/script.js?v=202609-launch-1" defer></script>
+      <nav aria-label="Obra"><h2>Obra</h2><a href="/las-manecillas-del-recuerdo/">Las manecillas del recuerdo</a><a href="/libros/samuel-entre-mundos/">Samuel entre mundos</a><a href="/fragmento/">Fragmento gratis</a></nav>
+      <nav aria-label="Leer y recursos"><h2>Leer</h2><a href="/cuaderno/">Cuaderno</a><a href="/herramientas/">Herramientas</a><a href="/mapa-del-sitio/">Mapa del sitio</a></nav>
+      <nav aria-label="Información"><h2>Información</h2><a href="/autor.html">Autor</a><a href="/prensa.html">Prensa</a><a href="/eventos.html">Eventos</a><a href="/privacidad.html">Privacidad</a><a href="/aviso-legal.html">Aviso legal</a><a href="/ai/">Para IA</a></nav>
+    </div>
+    <p class="footer-legal"><span>© 2026 David Porto Díaz. Todos los derechos reservados.</span></p>
+  </footer>
+
+  <script defer src="/assets/v1-shell.js"></script>
+  <script defer src="/script.js?v=202609-launch-1"></script>
+
 </body>
 </html>
