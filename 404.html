@@ -1,171 +1,34 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="es" class="v1">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
-  <meta name="robots" content="noindex, follow" />
+  <meta name="robots" content="noindex,follow" />
   <title>Página no encontrada · David Porto Díaz</title>
-  <meta name="description" content="La página que buscas no existe o ha cambiado de dirección. Continúa por los libros, el Cuaderno o la novedad de David Porto Díaz." />
-  <meta name="theme-color" content="#080a0c" />
-
-  <link rel="preload" as="font" type="font/woff2" href="/assets/fonts/cg-normal-latin.woff2" crossorigin />
-  <link rel="preload" as="font" type="font/woff2" href="/assets/fonts/inter-normal-latin.woff2" crossorigin />
+  <meta name="description" content="La dirección solicitada no existe. Vuelve al inicio o continúa hacia las obras, el Cuaderno, las herramientas o el mapa del sitio." />
+  <meta name="theme-color" content="#F4EFE7" />
   <link rel="icon" type="image/png" href="/assets/david-porto-favicon.png" />
   <link rel="apple-touch-icon" href="/assets/david-porto-favicon.png" />
-  <link rel="stylesheet" href="/styles.css?v=202609-launch-1" />
-
-  <style>
-    .not-found {
-      min-height: clamp(34rem, 76svh, 52rem);
-      display: grid;
-      place-items: center;
-      padding-block: clamp(4.5rem, 10vw, 8rem);
-    }
-
-    .not-found__panel {
-      width: min(100%, 58rem);
-      text-align: center;
-      margin-inline: auto;
-    }
-
-    .not-found__code {
-      margin: 0 0 .5rem;
-      font: 600 clamp(.78rem, 1.4vw, .92rem)/1.2 Inter, sans-serif;
-      letter-spacing: .16em;
-      text-transform: uppercase;
-      opacity: .72;
-    }
-
-    .not-found h1 {
-      max-width: 15ch;
-      margin-inline: auto;
-      text-wrap: balance;
-    }
-
-    .not-found__copy {
-      max-width: 42rem;
-      margin: 1.25rem auto 0;
-      text-wrap: pretty;
-    }
-
-    .not-found__actions {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: .75rem;
-      margin-top: 2rem;
-    }
-
-    .not-found__links {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: .5rem 1rem;
-      margin: 1.75rem auto 0;
-      padding: 0;
-      list-style: none;
-    }
-
-    .not-found__links a {
-      text-underline-offset: .2em;
-    }
-
-    @media (max-width: 520px) {
-      .not-found__actions {
-        align-items: stretch;
-        flex-direction: column;
-      }
-
-      .not-found__actions .button {
-        width: 100%;
-        justify-content: center;
-      }
-    }
-
-    @media (prefers-reduced-motion: reduce) {
-      .not-found *,
-      .not-found *::before,
-      .not-found *::after {
-        scroll-behavior: auto !important;
-        transition-duration: .01ms !important;
-      }
-    }
-  </style>
+  <link rel="manifest" href="/manifest.json" />
+  <link rel="stylesheet" href="/assets/v1-fonts.css" />
+  <link rel="stylesheet" href="/assets/v1-tokens.css" />
+  <link rel="stylesheet" href="/assets/v1-base.css" />
+  <link rel="stylesheet" href="/assets/v1-shell.css" />
+  <link rel="stylesheet" href="/assets/v1-components.css" />
+  <link rel="stylesheet" href="/assets/v1-findability.css" />
 </head>
-
 <body>
   <a href="#contenido" class="skip-link">Saltar al contenido</a>
-  <div class="site-shell">
-    <header class="site-header">
-      <a class="brand" href="/" aria-label="Volver al inicio - David Porto Díaz">
-        <span class="brand-mark">
-          <img src="/assets/logo-david-porto-diaz-escritor-176.webp" alt="" class="brand-logo-img" width="52" height="52" aria-hidden="true" />
-        </span>
-        <span class="brand-text">
-          <strong>David Porto Díaz</strong>
-          <small>Escritor</small>
-        </span>
-      </a>
-
-      <button class="nav-toggle" type="button" aria-label="Abrir menú" aria-expanded="false">
-        <span></span><span></span>
-      </button>
-
-      <nav class="site-nav" aria-label="Navegación principal">
-        <a href="/">Inicio</a>
-        <a href="/las-manecillas-del-recuerdo/">Las manecillas</a>
-        <a href="/libros/">Libros</a>
-        <a href="/cuaderno/">Cuaderno</a>
-        <a href="/autor.html">El autor</a>
-        <a href="/prensa.html">Prensa</a>
-      </nav>
-    </header>
-
-    <main id="contenido">
-      <section class="section not-found" aria-labelledby="not-found-title">
-        <div class="not-found__panel">
-          <p class="not-found__code">Error 404</p>
-          <p class="eyebrow">Esta dirección no lleva a ninguna página</p>
-          <h1 id="not-found-title">Aquí se ha perdido algo.</h1>
-          <p class="not-found__copy">
-            La página que buscabas no existe o ha cambiado de sitio. Puedes volver a la novedad,
-            recorrer los libros o entrar por una de las rutas principales de la web.
-          </p>
-
-          <div class="not-found__actions">
-            <a class="button primary" href="/las-manecillas-del-recuerdo/">Las manecillas del recuerdo</a>
-            <a class="button secondary" href="/empieza-aqui/">Empieza aquí</a>
-          </div>
-
-          <ul class="not-found__links" aria-label="Otros destinos">
-            <li><a href="/">Inicio</a></li>
-            <li><a href="/libros/">Todos los libros</a></li>
-            <li><a href="/cuaderno/">Cuaderno</a></li>
-            <li><a href="/recomendaciones/">Recomendaciones</a></li>
-            <li><a href="/eventos.html">Eventos</a></li>
-          </ul>
-        </div>
-      </section>
-    </main>
-
-    <footer class="site-footer">
-      <div class="footer-top-row">
-        <div class="footer-brand">
-          <img src="/assets/logo-david-porto-diaz-escritor-176.webp" alt="David Porto Díaz" class="footer-logo" width="42" height="42" loading="lazy" />
-          <p>David Porto Díaz · Escritor</p>
-        </div>
-        <nav class="footer-nav" aria-label="Pie de página">
-          <a href="/">Inicio</a>
-          <a href="/libros/">Libros</a>
-          <a href="/cuaderno/">Cuaderno</a>
-          <a href="/autor.html">Autor</a>
-          <a href="/prensa.html">Prensa</a>
-          <a href="/privacidad.html">Privacidad</a>
-        </nav>
-      </div>
-    </footer>
-  </div>
-
-  <script src="/script.js?v=202609-launch-1" defer></script>
+  <header class="site-header" data-header><div class="site-header__inner">
+    <a class="brand" href="/" aria-label="David Porto Díaz — inicio"><span class="brand__name">David Porto Díaz</span><span class="brand__role">Escritor</span></a>
+    <nav class="primary-nav" aria-label="Navegación principal"><a href="/libros/">Obra</a><a href="/cuaderno/">Cuaderno</a><a href="/herramientas/">Herramientas</a></nav>
+    <button class="explore-trigger" type="button" aria-haspopup="dialog" aria-controls="explore-dialog" aria-expanded="false" data-explore-open>Explorar</button>
+  </div></header>
+  <dialog class="explore-dialog" id="explore-dialog" aria-labelledby="explore-title" data-explore-dialog><div class="explore-dialog__shell"><div class="explore-dialog__head"><div><p class="eyebrow">Índice general</p><h2 id="explore-title">Explorar</h2></div><button class="icon-button" type="button" aria-label="Cerrar Explorar" data-explore-close><svg aria-hidden="true" viewBox="0 0 24 24" width="20" height="20"><path d="M5 5l14 14M19 5L5 19"/></svg></button></div><div class="explore-dialog__grid"><nav class="explore-list" aria-label="Destinos de la web"><a class="explore-row" href="/las-manecillas-del-recuerdo/" data-preview="manecillas"><span class="explore-row__index">01</span><span class="explore-row__body"><strong>Las manecillas del recuerdo</strong><small>La obra actual.</small></span></a><a class="explore-row" href="/autor.html" data-preview="autor"><span class="explore-row__index">02</span><span class="explore-row__body"><strong>Autor</strong><small>Biografía, obra y trayectoria.</small></span></a><a class="explore-row" href="/libros/samuel-entre-mundos/" data-preview="samuel"><span class="explore-row__index">03</span><span class="explore-row__body"><strong>Samuel entre mundos</strong><small>Primera novela publicada.</small></span></a><a class="explore-row" href="/cuaderno/" data-preview="cuaderno"><span class="explore-row__index">04</span><span class="explore-row__body"><strong>Cuaderno</strong><small>Artículos y piezas editoriales.</small></span></a><a class="explore-row" href="/herramientas/" data-preview="herramientas"><span class="explore-row__index">05</span><span class="explore-row__body"><strong>Herramientas</strong><small>Utilidades gratuitas para escritores.</small></span></a><a class="explore-row" href="/prensa.html" data-preview="prensa"><span class="explore-row__index">06</span><span class="explore-row__body"><strong>Prensa y eventos</strong><small>Apariciones, materiales y agenda.</small></span></a></nav><aside class="explore-preview" aria-live="polite" aria-atomic="true" data-explore-preview><div class="explore-preview__media" aria-hidden="true" data-preview-media></div><p class="explore-preview__label" data-preview-label>Recuperar</p><p class="explore-preview__copy" data-preview-copy>Destinos principales de la web.</p></aside></div></div></dialog>
+  <main id="contenido" class="v1-main" data-family="findability" data-findability-page="404">
+    <section class="findability-recovery" aria-labelledby="not-found-title"><div><p class="findability-folio" aria-hidden="true">404</p><p class="findability-hero__kicker">Dirección no encontrada</p><h1 id="not-found-title">Esta dirección no existe.</h1><p class="findability-recovery__copy">Puede que el enlace haya cambiado o que la dirección esté incompleta. Puedes volver al inicio y continuar desde la arquitectura actual de la web.</p><a class="findability-primary" href="/">Volver al inicio</a></div><div class="recovery-secondary"><h2>O continúa desde aquí</h2><ul class="findability-plain-list"><li><a href="/las-manecillas-del-recuerdo/">Las manecillas del recuerdo</a></li><li><a href="/libros/">Obras</a></li><li><a href="/empieza-aqui/">Empieza aquí</a></li><li><a href="/cuaderno/">Cuaderno</a></li><li><a href="/herramientas/">Herramientas</a></li><li><a href="/recomendaciones/">Recomendaciones de lectura</a></li><li><a href="/eventos.html">Eventos y firmas</a></li><li><a href="/mapa-del-sitio/">Mapa del sitio</a></li></ul></div></section>
+  </main>
+  <footer class="site-footer"><div class="site-footer__grid"><div><strong class="brand__name">David Porto Díaz</strong><p>Autor de Las manecillas del recuerdo y Samuel entre mundos.</p></div><nav aria-label="Obra"><h2>Obra</h2><a href="/las-manecillas-del-recuerdo/">Las manecillas del recuerdo</a><a href="/libros/samuel-entre-mundos/">Samuel entre mundos</a></nav><nav aria-label="Leer y recursos"><h2>Leer</h2><a href="/cuaderno/">Cuaderno</a><a href="/herramientas/">Herramientas</a><a href="/mapa-del-sitio/">Mapa del sitio</a></nav><nav aria-label="Información"><h2>Información</h2><a href="/autor.html">Autor</a><a href="/prensa.html">Prensa</a><a href="/eventos.html">Eventos</a><a href="/privacidad.html">Privacidad</a><a href="/aviso-legal.html">Aviso legal</a></nav></div></footer>
+  <script defer src="/assets/v1-shell.js"></script>
 </body>
 </html>
