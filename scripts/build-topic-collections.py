@@ -129,14 +129,102 @@ def check_repo(root: Path, ready_collections: list[dict]) -> None:
         raise ValidationError("; ".join(problems))
 
 
+SHELL_HEADER = '''  <a href="#contenido" class="skip-link">Saltar al contenido</a>
+
+  <header class="site-header" data-header>
+    <div class="site-header__inner">
+      <a class="brand" href="/" aria-label="David Porto Díaz — inicio">
+        <span class="brand__name">David Porto Díaz</span>
+        <span class="brand__role">Escritor</span>
+      </a>
+      <nav class="primary-nav" aria-label="Navegación principal">
+        <a href="/libros/">Obra</a>
+        <a href="/cuaderno/">Cuaderno</a>
+        <a href="/herramientas/">Herramientas</a>
+      </nav>
+      <button class="explore-trigger" type="button" aria-haspopup="dialog" aria-controls="explore-dialog" aria-expanded="false" data-explore-open>
+        Explorar
+      </button>
+    </div>
+  </header>
+
+  <dialog class="explore-dialog" id="explore-dialog" aria-labelledby="explore-title" data-explore-dialog>
+    <div class="explore-dialog__shell">
+      <div class="explore-dialog__head">
+        <div>
+          <p class="eyebrow">Índice general</p>
+          <h2 id="explore-title">Explorar</h2>
+        </div>
+        <button class="icon-button" type="button" aria-label="Cerrar Explorar" data-explore-close>
+          <svg aria-hidden="true" viewBox="0 0 24 24" width="20" height="20"><path d="M5 5l14 14M19 5L5 19"/></svg>
+        </button>
+      </div>
+
+      <div class="explore-dialog__grid">
+        <nav class="explore-list" aria-label="Destinos de la web">
+          <a class="explore-row" href="/las-manecillas-del-recuerdo/" data-preview="manecillas">
+            <span class="explore-row__index">01</span>
+            <span class="explore-row__body"><strong>Las manecillas del recuerdo</strong><small>La obra actual.</small></span>
+          </a>
+          <a class="explore-row" href="/autor.html" data-preview="autor">
+            <span class="explore-row__index">02</span>
+            <span class="explore-row__body"><strong>Autor</strong><small>Biografía, obra y trayectoria.</small></span>
+          </a>
+          <a class="explore-row" href="/libros/samuel-entre-mundos/" data-preview="samuel">
+            <span class="explore-row__index">03</span>
+            <span class="explore-row__body"><strong>Samuel entre mundos</strong><small>Primera novela publicada.</small></span>
+          </a>
+          <a class="explore-row" href="/cuaderno/" data-preview="cuaderno">
+            <span class="explore-row__index">04</span>
+            <span class="explore-row__body"><strong>Cuaderno</strong><small>Artículos y piezas editoriales.</small></span>
+          </a>
+          <a class="explore-row" href="/herramientas/" data-preview="herramientas">
+            <span class="explore-row__index">05</span>
+            <span class="explore-row__body"><strong>Herramientas</strong><small>Utilidades gratuitas para escritores.</small></span>
+          </a>
+          <a class="explore-row" href="/prensa.html" data-preview="prensa">
+            <span class="explore-row__index">06</span>
+            <span class="explore-row__body"><strong>Prensa y eventos</strong><small>Apariciones, materiales y agenda.</small></span>
+          </a>
+        </nav>
+
+        <aside class="explore-preview" aria-live="polite" aria-atomic="true" data-explore-preview>
+          <div class="explore-preview__media" aria-hidden="true" data-preview-media></div>
+          <p class="explore-preview__label" data-preview-label>Herramientas</p>
+          <p class="explore-preview__copy" data-preview-copy>Utilidades gratuitas para escritores.</p>
+        </aside>
+      </div>
+    </div>
+  </dialog>
+'''
+
+SHELL_FOOTER = '''  <footer class="site-footer">
+    <div class="site-footer__grid">
+      <div>
+        <strong class="brand__name">David Porto Díaz</strong>
+        <p>Autor de Las manecillas del recuerdo y Samuel entre mundos.</p>
+      </div>
+      <nav aria-label="Obra"><h2>Obra</h2><a href="/las-manecillas-del-recuerdo/">Las manecillas del recuerdo</a><a href="/libros/samuel-entre-mundos/">Samuel entre mundos</a><a href="/fragmento/">Fragmento gratis</a></nav>
+      <nav aria-label="Leer y recursos"><h2>Leer</h2><a href="/cuaderno/">Cuaderno</a><a href="/herramientas/">Herramientas</a><a href="/mapa-del-sitio/">Mapa del sitio</a></nav>
+      <nav aria-label="Información"><h2>Información</h2><a href="/autor.html">Autor</a><a href="/prensa.html">Prensa</a><a href="/eventos.html">Eventos</a><a href="/privacidad.html">Privacidad</a><a href="/aviso-legal.html">Aviso legal</a><a href="/ai/">Para IA</a></nav>
+    </div>
+  </footer>
+
+  <script defer src="/assets/v1-shell.js"></script>
+</body>
+</html>
+'''
+
+
 def head(title: str, description: str, canonical: str, jsonld: dict) -> str:
     schema = json.dumps(jsonld, ensure_ascii=False, separators=(",", ":"))
     return (
-        '<!doctype html><html lang="es"><head><meta charset="utf-8">'
+        '<!doctype html><html lang="es" class="v1"><head><meta charset="utf-8">'
         '<meta http-equiv="Content-Security-Policy" content="default-src \'self\'; connect-src \'none\'; '
         "img-src 'self'; style-src 'self'; font-src 'self'; script-src 'self'; object-src 'none'; "
         "base-uri 'self'; form-action 'none'; frame-src 'none'\">"
         '<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">'
+        '<meta name="robots" content="index,follow,max-image-preview:large">'
         f"<title>{esc(title)}</title>"
         f'<meta name="description" content="{esc(description)}">'
         f'<meta property="og:title" content="{esc(title)}">'
@@ -154,11 +242,20 @@ def head(title: str, description: str, canonical: str, jsonld: dict) -> str:
         f'<meta name="twitter:description" content="{esc(description)}">'
         f'<meta name="twitter:image" content="{SHARE_IMAGE}">'
         f'<meta name="twitter:image:alt" content="{esc(title)}">'
+        '<meta name="theme-color" content="#F4EFE7">'
         f'<link rel="canonical" href="{esc(canonical)}">'
-        '<meta name="robots" content="index,follow,max-image-preview:large">'
-        '<link rel="stylesheet" href="/styles.css?v=202609-launch-1">'
-        '<link rel="stylesheet" href="/assets/topic-collection.css">'
+        '<link rel="icon" type="image/png" href="/assets/david-porto-favicon.png">'
+        '<link rel="apple-touch-icon" href="/assets/david-porto-favicon.png">'
+        '<link rel="manifest" href="/manifest.json">'
+        '<link rel="stylesheet" href="/assets/v1-fonts.css">'
+        '<link rel="stylesheet" href="/assets/v1-tokens.css">'
+        '<link rel="stylesheet" href="/assets/v1-base.css">'
+        '<link rel="stylesheet" href="/assets/v1-shell.css">'
+        '<link rel="stylesheet" href="/assets/v1-components.css">'
+        '<link rel="stylesheet" href="/assets/v1-families.css">'
+        '<link rel="stylesheet" href="/assets/v1-tools.css">'
         f'<script type="application/ld+json">{schema}</script></head><body>'
+        + SHELL_HEADER
     )
 
 
@@ -173,17 +270,20 @@ def breadcrumb_jsonld(items: list[tuple[str, str | None]]) -> dict:
 
 
 def render_breadcrumb(items: list[tuple[str, str | None]]) -> str:
-    parts = [f'<a href="{esc(url)}">{esc(name)}</a>' if url else f"<span>{esc(name)}</span>" for name, url in items]
-    return '<nav class="breadcrumb" aria-label="Ruta de navegación">' + "<span aria-hidden=\"true\">›</span>".join(parts) + "</nav>"
+    parts = [
+        f'<li><a href="{esc(url)}">{esc(name)}</a></li>' if url else f'<li aria-current="page">{esc(name)}</li>'
+        for name, url in items
+    ]
+    return '<nav class="book-breadcrumb" aria-label="Ruta de navegación"><ol>' + "".join(parts) + "</ol></nav>"
 
 
 def render_index(ready: list[dict]) -> str:
     title = "Colecciones del Cuaderno | David Porto Díaz"
     description = "Hubs temáticos que agrupan varios artículos del Cuaderno alrededor de una misma pregunta o proceso, con una introducción que explica por qué encajan juntos."
     cards = "".join(
-        f'<article class="topic-card"><h2><a href="{esc(SITE + "/cuaderno/temas/" + c["slug"] + "/")}">{esc(c["title"])}</a></h2>'
+        f'<article class="id-card"><h2><a href="{esc(SITE + "/cuaderno/temas/" + c["slug"] + "/")}">{esc(c["title"])}</a></h2>'
         f'<p>{esc(c["description"])}</p>'
-        f'<p class="topic-card__meta">{"Colección" if c["mode"] == "collection" else "Serie"} · {len(c["items"])} piezas</p></article>'
+        f'<p class="tool-meta">{"Colección" if c["mode"] == "collection" else "Serie"} · {len(c["items"])} piezas</p></article>'
         for c in ready
     )
     jsonld = {
@@ -204,30 +304,29 @@ def render_index(ready: list[dict]) -> str:
         ],
     }
     main = (
-        '<a href="#main-content" class="skip-link">Saltar al contenido</a>'
-        '<main id="main-content" tabindex="-1" class="topic-page">'
+        '<main id="contenido" class="v1-main" data-family="topic-collection">'
         + render_breadcrumb([("Inicio", "/"), ("Cuaderno", "/cuaderno/"), ("Temas", None)])
-        + '<header class="topic-hero"><p class="eyebrow">Cuaderno del autor</p>'
-        f"<h1>Colecciones del Cuaderno</h1><p class=\"lead\">{esc(description)}</p></header>"
-        f'<section class="topic-grid" aria-label="Colecciones publicadas">{cards}</section>'
-        '<p class="topic-back"><a href="/cuaderno/">← Volver al Cuaderno</a></p>'
+        + '<header class="tool-hero"><p class="eyebrow">Cuaderno del autor</p>'
+        f"<h1>Colecciones del Cuaderno</h1><p class=\"tool-hero__lead\">{esc(description)}</p></header>"
+        f'<section class="v1-section" aria-label="Colecciones publicadas"><div class="id-cards">{cards}</div></section>'
+        '<section class="v1-section"><p><a class="text-action" href="/cuaderno/">← Volver al Cuaderno</a></p></section>'
         "</main>"
     )
-    return head(title, description, INDEX_URL, jsonld) + main + "</body></html>\n"
+    return head(title, description, INDEX_URL, jsonld) + main + SHELL_FOOTER
 
 
 def render_hub(coll: dict) -> str:
     canonical = f"{SITE}/cuaderno/temas/{coll['slug']}/"
     title = f"{coll['title']} | Cuaderno | David Porto Díaz"
     is_series = coll["mode"] == "series"
+    total = len(coll["items"])
     items_html = []
     for i, item in enumerate(coll["items"], 1):
-        number = f'<span class="topic-item__number" aria-hidden="true">{i}</span>' if is_series else ""
+        eyebrow = f'<p class="eyebrow">Pieza {i} de {total}</p>' if is_series else ""
         items_html.append(
-            f'<li class="topic-item">{number}<h2><a href="{esc(item["url"])}">{esc(item["title"])}</a></h2>'
-            f'<p>{esc(item["description"])}</p></li>'
+            f'<article class="id-card">{eyebrow}<h2><a href="{esc(item["url"])}">{esc(item["title"])}</a></h2>'
+            f'<p>{esc(item["description"])}</p></article>'
         )
-    list_tag = "ol" if is_series else "ul"
     jsonld = {
         "@context": "https://schema.org",
         "@graph": [
@@ -257,22 +356,22 @@ def render_hub(coll: dict) -> str:
         ],
     }
     series_note = (
-        '<p class="topic-hero__note">Esta serie tiene un orden de lectura recomendado: cada entrega da por hecha la anterior.</p>'
+        '<p class="tool-note">Esta serie tiene un orden de lectura recomendado: cada entrega da por hecha la anterior.</p>'
         if is_series
         else ""
     )
     main = (
-        '<a href="#main-content" class="skip-link">Saltar al contenido</a>'
-        '<main id="main-content" tabindex="-1" class="topic-page">'
+        '<main id="contenido" class="v1-main" data-family="topic-collection">'
         + render_breadcrumb([("Inicio", "/"), ("Cuaderno", "/cuaderno/"), ("Temas", "/cuaderno/temas/"), (coll["title"], None)])
-        + f'<header class="topic-hero"><p class="eyebrow">{"Serie del Cuaderno" if is_series else "Colección del Cuaderno"}</p>'
-        f"<h1>{esc(coll['title'])}</h1><p class=\"lead\">{esc(coll['intro'])}</p>{series_note}</header>"
-        f'<{list_tag} class="topic-list">{"".join(items_html)}</{list_tag}>'
-        f'<p class="topic-updated">Revisión de esta colección: <time datetime="{esc(coll["updated"])}">{esc(coll["updated"])}</time></p>'
-        '<p class="topic-back"><a href="/cuaderno/temas/">← Todas las colecciones</a> · <a href="/cuaderno/">Volver al Cuaderno</a></p>'
+        + f'<header class="tool-hero"><p class="eyebrow">{"Serie del Cuaderno" if is_series else "Colección del Cuaderno"}</p>'
+        f"<h1>{esc(coll['title'])}</h1><p class=\"tool-hero__lead\">{esc(coll['intro'])}</p></header>"
+        f'{series_note}'
+        f'<section class="v1-section" aria-label="Piezas de la colección"><div class="id-cards">{"".join(items_html)}</div></section>'
+        f'<section class="v1-section"><p class="tool-note">Revisión de esta colección: <time datetime="{esc(coll["updated"])}">{esc(coll["updated"])}</time></p>'
+        '<p><a class="text-action" href="/cuaderno/temas/">← Todas las colecciones</a> · <a class="text-action" href="/cuaderno/">Volver al Cuaderno</a></p></section>'
         "</main>"
     )
-    return head(title, coll["description"], canonical, jsonld) + main + "</body></html>\n"
+    return head(title, coll["description"], canonical, jsonld) + main + SHELL_FOOTER
 
 
 def build(data_path: Path, root: Path, check_only: bool) -> tuple[int, int]:
