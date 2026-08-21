@@ -17,6 +17,7 @@ on:
       - 'docs/assistant-deploy.md'
       - 'migrations/assistant-quota.sql'
       - 'scripts/check-assistant-contract.py'
+      - 'wrangler.assistant.example.jsonc'
       - 'lighthouserc.json'
       - '.github/workflows/tool-tests.yml'
   workflow_dispatch:
