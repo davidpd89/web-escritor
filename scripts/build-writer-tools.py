@@ -68,7 +68,7 @@ def validate(data):
         if {"rating","score","stars","rank"}.intersection(t.keys()): fail(f"{p}: no se permiten ratings/rankings numéricos")
     return True
 
-def pill(text): return f'<span class="wt-pill">{escape(str(text))}</span>'
+def pill(text): return f'<span class="editorial-genre">{escape(str(text))}</span>'
 
 def render_tool(t):
     stages=" ".join(t["stages"])
@@ -78,20 +78,20 @@ def render_tool(t):
     tested_label="Probado directamente" if tested else "Verificado documentalmente"
     sources="".join(f'<li><a href="{escape(u)}" target="_blank" rel="noopener noreferrer">Fuente {n}</a></li>' for n,u in enumerate(t["verification"]["sources"],1))
     return f'''
-<article class="wt-card" data-name="{escape(t["name"].lower())}" data-stages="{escape(stages)}" data-price="{escape(t["price"]["model"])}" data-local="{"1" if localish else "0"}" data-spanish="{"1" if es else "0"}" data-account="{"0" if t["account_required"] is False else "1" if t["account_required"] is True else "unknown"}">
-<header class="wt-card__head"><div><p class="wt-kicker">{escape(tested_label)}</p><h2>{escape(t["name"])}</h2></div><span class="wt-verified">Verificado {escape(t["verification"]["checked_at"])}</span></header>
-<div class="wt-pills">{''.join(pill(STAGE_LABELS.get(x, x)) for x in t["stages"])}</div>
-<dl class="wt-facts">
+<article class="id-card wt-card" data-name="{escape(t["name"].lower())}" data-stages="{escape(stages)}" data-price="{escape(t["price"]["model"])}" data-local="{"1" if localish else "0"}" data-spanish="{"1" if es else "0"}" data-account="{"0" if t["account_required"] is False else "1" if t["account_required"] is True else "unknown"}">
+<div class="editorial-card__head"><div><p class="tool-meta">{escape(tested_label)}</p><h2>{escape(t["name"])}</h2></div><span class="editorial-verified">Verificado {escape(t["verification"]["checked_at"])}</span></div>
+<div class="editorial-genres">{''.join(pill(STAGE_LABELS.get(x, x)) for x in t["stages"])}</div>
+<dl class="spec-ledger">
 <div><dt>Precio</dt><dd>{escape(t["price"]["display"])}</dd></div>
 <div><dt>Plataformas</dt><dd>{escape(", ".join(t["platforms"]))}</dd></div>
 <div><dt>Datos</dt><dd>{escape(t["data_note"])}</dd></div>
 <div><dt>Interfaz en español</dt><dd>{escape(str(t["interface_es"]))}</dd></div>
 </dl>
-<section><h3>Para qué sí</h3><p>{escape(t["best_for"])}</p></section>
-<section><h3>Para qué no</h3><p>{escape(t["not_for"])}</p></section>
-<p class="wt-editorial">{escape(t["editorial_note"])}</p>
-<details class="wt-sources"><summary>Fuentes y verificación</summary><ul>{sources}</ul></details>
-<p class="wt-actions"><a class="button secondary" href="{escape(t["website"])}" target="_blank" rel="noopener noreferrer">Web oficial</a></p>
+<div class="tool-findings-block"><h3>Para qué sí</h3><p>{escape(t["best_for"])}</p></div>
+<div class="tool-findings-block"><h3>Para qué no</h3><p>{escape(t["not_for"])}</p></div>
+<p>{escape(t["editorial_note"])}</p>
+<details><summary>Fuentes y verificación</summary><ul class="tool-source-list">{sources}</ul></details>
+<div class="id-card__actions"><a class="text-action" href="{escape(t["website"])}" target="_blank" rel="noopener noreferrer">Web oficial</a></div>
 </article>'''
 
 def render(data):
@@ -104,46 +104,186 @@ def render(data):
         "isPartOf":{"@id":"https://davidportodiaz.com/#website"},
         "author":{"@id":"https://davidportodiaz.com/#author"},
     },ensure_ascii=False,separators=(",",":"))
-    return f'''<!doctype html>
-<html lang="es"><head>
-<meta charset="utf-8">
-<meta http-equiv="Content-Security-Policy" content="default-src 'self'; connect-src 'none'; img-src 'self'; style-src 'self'; font-src 'self'; script-src 'self'; object-src 'none'; base-uri 'self'; form-action 'none'; frame-src 'none'">
-<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-<meta name="robots" content="index,follow,max-image-preview:large">
-<title>{PAGE_TITLE}</title>
-<meta name="description" content="{DESCRIPTION}">
-<meta property="og:title" content="{PAGE_TITLE}">
-<meta property="og:description" content="{DESCRIPTION}">
-<meta property="og:type" content="website">
-<meta property="og:url" content="{CANONICAL}">
-<meta property="og:image" content="{SHARE_IMAGE}">
-<meta property="og:image:width" content="{SHARE_IMAGE_WIDTH}">
-<meta property="og:image:height" content="{SHARE_IMAGE_HEIGHT}">
-<meta property="og:image:alt" content="{PAGE_TITLE}">
-<meta property="og:locale" content="es_ES">
-<meta property="og:site_name" content="David Porto Díaz">
-<meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="{PAGE_TITLE}">
-<meta name="twitter:description" content="{DESCRIPTION}">
-<meta name="twitter:image" content="{SHARE_IMAGE}">
-<meta name="twitter:image:alt" content="{PAGE_TITLE}">
-<link rel="canonical" href="{CANONICAL}">
-<link rel="stylesheet" href="/styles.css?v=202609-launch-1"><link rel="stylesheet" href="/assets/writer-tools.css">
-<script type="application/ld+json">{schema}</script>
-</head><body>
-<a class="skip-link" href="#main-content">Saltar al contenido</a><main id="main-content" class="wt-page">
-<nav class="breadcrumb" aria-label="Ruta de navegación"><a href="/">Inicio</a> › <a href="/herramientas/">Herramientas</a> › Herramientas para escritores</nav>
-<header class="wt-hero"><p class="eyebrow">Recursos para escritores</p><h1>Herramientas para escritores, verificadas una a una.</h1><p class="lead">No es una lista de cien aplicaciones. Son herramientas con fuentes, fecha de comprobación y una explicación concreta de para qué sirven y para qué no.</p><p class="wt-meta">{count} herramientas en la V1 · última revisión global: {escape(checked)}</p></header>
-<aside class="wt-method" aria-labelledby="wt-method-title"><h2 id="wt-method-title">Cómo se construye este directorio</h2><ul><li>Precio y plataforma se contrastan con la fuente original cuando es posible.</li><li>«Probado directamente» y «verificado documentalmente» no significan lo mismo.</li><li>No hay puntuaciones de 1 a 10 ni un ganador universal.</li><li>Una herramienta desactualizada se marca; no se rejuvenece la fecha sin revisarla.</li><li>Los futuros enlaces afiliados se declararán de forma visible y técnica.</li></ul></aside>
-<form class="wt-filters" data-wt-filters aria-label="Filtrar herramientas"><button type="submit" class="sr-only">Filtrar</button>
-<label>Buscar<input type="search" data-wt-search placeholder="Scrivener, EPUB, maquetación…"></label>
-<label>Etapa<select data-wt-stage><option value="">Todas</option><option value="planificacion">Planificación</option><option value="escritura">Escritura</option><option value="revision">Revisión</option><option value="maquetacion">Maquetación</option><option value="epub">EPUB</option></select></label>
-<label>Precio<select data-wt-price><option value="">Todos</option><option value="gratis-open-source">Gratis / open source</option><option value="freemium">Freemium</option><option value="pago-unico">Pago único</option><option value="suscripcion">Suscripción</option></select></label>
-<label class="wt-check"><input type="checkbox" data-wt-no-account> Sin cuenta</label><label class="wt-check"><input type="checkbox" data-wt-local> Priorizar local</label><label class="wt-check"><input type="checkbox" data-wt-spanish> Interfaz ES confirmada</label>
-<button type="button" class="button secondary" data-wt-clear>Limpiar</button><p class="wt-result-count" data-wt-count aria-live="polite">{count} herramientas</p></form>
-<section class="wt-grid" data-wt-grid aria-label="Herramientas">{cards}</section><p class="wt-empty" data-wt-empty hidden>No hay herramientas que cumplan esos filtros.</p>
-<section class="wt-contribute"><h2>¿Falta una herramienta?</h2><p>Que exista no basta para entrar. Necesito una fuente oficial verificable y una razón concreta por la que ayude a un escritor. La inclusión no se compra.</p></section>
-</main><script src="/assets/writer-tools.js" defer></script></body></html>'''
+    return f'''<!DOCTYPE html>
+<html lang="es" class="v1">
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; connect-src 'none'; img-src 'self'; style-src 'self'; font-src 'self'; script-src 'self'; object-src 'none'; base-uri 'self'; form-action 'none'; frame-src 'none'">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <meta name="robots" content="index,follow,max-image-preview:large" />
+  <title>{PAGE_TITLE}</title>
+  <meta name="description" content="{DESCRIPTION}">
+  <meta property="og:title" content="{PAGE_TITLE}">
+  <meta property="og:description" content="{DESCRIPTION}">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="{CANONICAL}">
+  <meta property="og:image" content="{SHARE_IMAGE}">
+  <meta property="og:image:width" content="{SHARE_IMAGE_WIDTH}">
+  <meta property="og:image:height" content="{SHARE_IMAGE_HEIGHT}">
+  <meta property="og:image:alt" content="{PAGE_TITLE}">
+  <meta property="og:locale" content="es_ES">
+  <meta property="og:site_name" content="David Porto Díaz">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="{PAGE_TITLE}">
+  <meta name="twitter:description" content="{DESCRIPTION}">
+  <meta name="twitter:image" content="{SHARE_IMAGE}">
+  <meta name="twitter:image:alt" content="{PAGE_TITLE}">
+  <meta name="theme-color" content="#F4EFE7" />
+  <link rel="canonical" href="{CANONICAL}" />
+  <link rel="icon" type="image/png" href="/assets/david-porto-favicon.png" />
+  <link rel="apple-touch-icon" href="/assets/david-porto-favicon.png" />
+  <link rel="manifest" href="/manifest.json" />
+
+  <link rel="stylesheet" href="/assets/v1-fonts.css" />
+  <link rel="stylesheet" href="/assets/v1-tokens.css" />
+  <link rel="stylesheet" href="/assets/v1-base.css" />
+  <link rel="stylesheet" href="/assets/v1-shell.css" />
+  <link rel="stylesheet" href="/assets/v1-components.css" />
+  <link rel="stylesheet" href="/assets/v1-families.css" />
+  <link rel="stylesheet" href="/assets/v1-tools.css" />
+  <link rel="stylesheet" href="/assets/editoriales.css" />
+  <link rel="stylesheet" href="/assets/writer-tools.css" />
+  <script type="application/ld+json">{schema}</script>
+</head>
+
+<body>
+  <a href="#contenido" class="skip-link">Saltar al contenido</a>
+
+  <header class="site-header" data-header>
+    <div class="site-header__inner">
+      <a class="brand" href="/" aria-label="David Porto Díaz — inicio">
+        <span class="brand__name">David Porto Díaz</span>
+        <span class="brand__role">Escritor</span>
+      </a>
+      <nav class="primary-nav" aria-label="Navegación principal">
+        <a href="/libros/">Obra</a>
+        <a href="/cuaderno/">Cuaderno</a>
+        <a href="/herramientas/">Herramientas</a>
+      </nav>
+      <button class="explore-trigger" type="button" aria-haspopup="dialog" aria-controls="explore-dialog" aria-expanded="false" data-explore-open>
+        Explorar
+      </button>
+    </div>
+  </header>
+
+  <dialog class="explore-dialog" id="explore-dialog" aria-labelledby="explore-title" data-explore-dialog>
+    <div class="explore-dialog__shell">
+      <div class="explore-dialog__head">
+        <div>
+          <p class="eyebrow">Índice general</p>
+          <h2 id="explore-title">Explorar</h2>
+        </div>
+        <button class="icon-button" type="button" aria-label="Cerrar Explorar" data-explore-close>
+          <svg aria-hidden="true" viewBox="0 0 24 24" width="20" height="20"><path d="M5 5l14 14M19 5L5 19"/></svg>
+        </button>
+      </div>
+
+      <div class="explore-dialog__grid">
+        <nav class="explore-list" aria-label="Destinos de la web">
+          <a class="explore-row" href="/las-manecillas-del-recuerdo/" data-preview="manecillas">
+            <span class="explore-row__index">01</span>
+            <span class="explore-row__body"><strong>Las manecillas del recuerdo</strong><small>La obra actual.</small></span>
+          </a>
+          <a class="explore-row" href="/autor.html" data-preview="autor">
+            <span class="explore-row__index">02</span>
+            <span class="explore-row__body"><strong>Autor</strong><small>Biografía, obra y trayectoria.</small></span>
+          </a>
+          <a class="explore-row" href="/libros/samuel-entre-mundos/" data-preview="samuel">
+            <span class="explore-row__index">03</span>
+            <span class="explore-row__body"><strong>Samuel entre mundos</strong><small>Primera novela publicada.</small></span>
+          </a>
+          <a class="explore-row" href="/cuaderno/" data-preview="cuaderno">
+            <span class="explore-row__index">04</span>
+            <span class="explore-row__body"><strong>Cuaderno</strong><small>Artículos y piezas editoriales.</small></span>
+          </a>
+          <a class="explore-row" href="/herramientas/" data-preview="herramientas">
+            <span class="explore-row__index">05</span>
+            <span class="explore-row__body"><strong>Herramientas</strong><small>Utilidades gratuitas para escritores.</small></span>
+          </a>
+          <a class="explore-row" href="/prensa.html" data-preview="prensa">
+            <span class="explore-row__index">06</span>
+            <span class="explore-row__body"><strong>Prensa y eventos</strong><small>Apariciones, materiales y agenda.</small></span>
+          </a>
+        </nav>
+
+        <aside class="explore-preview" aria-live="polite" aria-atomic="true" data-explore-preview>
+          <div class="explore-preview__media" aria-hidden="true" data-preview-media></div>
+          <p class="explore-preview__label" data-preview-label>Herramientas</p>
+          <p class="explore-preview__copy" data-preview-copy>Utilidades gratuitas para escritores.</p>
+        </aside>
+      </div>
+    </div>
+  </dialog>
+
+  <main id="contenido" class="v1-main" data-family="tool">
+    <nav class="book-breadcrumb" aria-label="Ruta de navegación">
+      <ol><li><a href="/">Inicio</a></li><li><a href="/herramientas/">Herramientas</a></li><li aria-current="page">Herramientas para escritores</li></ol>
+    </nav>
+
+    <header class="tool-hero">
+      <p class="eyebrow">Recursos para escritores</p>
+      <h1>Herramientas para escritores, verificadas una a una.</h1>
+      <p class="tool-hero__lead">No es una lista de cien aplicaciones. Son herramientas con fuentes, fecha de comprobación y una explicación concreta de para qué sirven y para qué no.</p>
+      <p class="tool-note">{count} herramientas en la V1 · última revisión global: {escape(checked)}</p>
+    </header>
+
+    <section class="v1-section">
+      <h2 id="wt-method-title">Cómo se construye este directorio</h2>
+      <ul class="tool-findings">
+        <li>Precio y plataforma se contrastan con la fuente original cuando es posible.</li>
+        <li>«Probado directamente» y «verificado documentalmente» no significan lo mismo.</li>
+        <li>No hay puntuaciones de 1 a 10 ni un ganador universal.</li>
+        <li>Una herramienta desactualizada se marca; no se rejuvenece la fecha sin revisarla.</li>
+        <li>Los futuros enlaces afiliados se declararán de forma visible y técnica.</li>
+      </ul>
+    </section>
+
+    <section class="tool-finder" aria-label="Filtrar herramientas">
+      <form data-wt-filters>
+        <button type="submit" class="sr-only">Filtrar</button>
+        <div class="tool-options">
+          <div class="tool-field"><label class="tool-field-label" for="wt-search">Buscar</label><input class="tool-input" id="wt-search" type="search" data-wt-search placeholder="Scrivener, EPUB, maquetación…"></div>
+          <div class="tool-field"><label class="tool-field-label" for="wt-stage">Etapa</label><select class="tool-select" id="wt-stage" data-wt-stage><option value="">Todas</option><option value="planificacion">Planificación</option><option value="escritura">Escritura</option><option value="revision">Revisión</option><option value="maquetacion">Maquetación</option><option value="epub">EPUB</option></select></div>
+          <div class="tool-field"><label class="tool-field-label" for="wt-price">Precio</label><select class="tool-select" id="wt-price" data-wt-price><option value="">Todos</option><option value="gratis-open-source">Gratis / open source</option><option value="freemium">Freemium</option><option value="pago-unico">Pago único</option><option value="suscripcion">Suscripción</option></select></div>
+        </div>
+        <div class="tool-options">
+          <label class="tool-check"><input type="checkbox" data-wt-no-account><span>Sin cuenta</span></label>
+          <label class="tool-check"><input type="checkbox" data-wt-local><span>Priorizar local</span></label>
+          <label class="tool-check"><input type="checkbox" data-wt-spanish><span>Interfaz ES confirmada</span></label>
+        </div>
+        <div class="tool-actions"><button type="button" class="text-action" data-wt-clear>Limpiar</button></div>
+        <p class="tool-count" data-wt-count aria-live="polite">{count} herramientas</p>
+      </form>
+    </section>
+
+    <section class="v1-section" data-wt-grid aria-label="Herramientas">
+      <div class="id-cards">{cards}
+      </div>
+      <p class="tool-note" data-wt-empty hidden>No hay herramientas que cumplan esos filtros.</p>
+    </section>
+
+    <section class="v1-section">
+      <h2>¿Falta una herramienta?</h2>
+      <p>Que exista no basta para entrar. Necesito una fuente oficial verificable y una razón concreta por la que ayude a un escritor. La inclusión no se compra.</p>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="site-footer__grid">
+      <div>
+        <strong class="brand__name">David Porto Díaz</strong>
+        <p>Autor de Las manecillas del recuerdo y Samuel entre mundos.</p>
+      </div>
+      <nav aria-label="Obra"><h2>Obra</h2><a href="/las-manecillas-del-recuerdo/">Las manecillas del recuerdo</a><a href="/libros/samuel-entre-mundos/">Samuel entre mundos</a><a href="/fragmento/">Fragmento gratis</a></nav>
+      <nav aria-label="Leer y recursos"><h2>Leer</h2><a href="/cuaderno/">Cuaderno</a><a href="/herramientas/">Herramientas</a><a href="/mapa-del-sitio/">Mapa del sitio</a></nav>
+      <nav aria-label="Información"><h2>Información</h2><a href="/autor.html">Autor</a><a href="/prensa.html">Prensa</a><a href="/eventos.html">Eventos</a><a href="/privacidad.html">Privacidad</a><a href="/aviso-legal.html">Aviso legal</a><a href="/ai/">Para IA</a></nav>
+    </div>
+  </footer>
+
+  <script defer src="/assets/v1-shell.js"></script>
+  <script src="/assets/writer-tools.js" defer></script>
+</body>
+</html>'''
 
 def main():
     ap=argparse.ArgumentParser()
