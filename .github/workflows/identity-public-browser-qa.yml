@@ -1,0 +1,116 @@
+name: Identity public browser QA
+
+on:
+  pull_request:
+    paths:
+      - 'autor.html'
+      - 'prensa.html'
+      - 'premios.html'
+      - 'eventos.html'
+      - 'assets/v1-identity.css'
+      - 'qa/identity-public-browser.mjs'
+      - '.github/workflows/identity-public-browser-qa.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  identity-public:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 25
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+
+      - name: Install Playwright
+        run: |
+          npm install --no-save --no-package-lock playwright@1.55.0
+          npx playwright install --with-deps chromium
+
+      - name: Start static server
+        shell: bash
+        run: |
+          python -m http.server 4173 --bind 127.0.0.1 > /tmp/identity-server.log 2>&1 &
+          echo $! > /tmp/identity-server.pid
+          for i in {1..30}; do
+            if curl --fail --silent http://127.0.0.1:4173/autor.html >/dev/null; then exit 0; fi
+            sleep 1
+          done
+          cat /tmp/identity-server.log
+          exit 1
+
+      - name: Browser QA and screenshots
+        env:
+          IDENTITY_BASE_URL: http://127.0.0.1:4173
+          IDENTITY_ARTIFACT_DIR: artifacts/identity-public
+        run: node qa/identity-public-browser.mjs
+
+      - name: Install Lighthouse CI
+        if: always()
+        run: npm install --global @lhci/cli@0.15.1
+
+      - name: Configure Identity Lighthouse
+        if: always()
+        shell: bash
+        run: |
+          cat > /tmp/identity-lighthouserc.json <<'JSON'
+          {
+            "ci": {
+              "collect": {
+                "staticDistDir": "./",
+                "url": [
+                  "http://localhost/autor.html",
+                  "http://localhost/prensa.html",
+                  "http://localhost/premios.html",
+                  "http://localhost/eventos.html"
+                ],
+                "numberOfRuns": 1,
+                "settings": { "chromeFlags": "--no-sandbox" }
+              },
+              "assert": {
+                "assertions": {
+                  "categories:performance": ["warn", { "minScore": 0.85 }],
+                  "categories:accessibility": ["error", { "minScore": 0.97 }],
+                  "categories:best-practices": ["warn", { "minScore": 0.95 }],
+                  "categories:seo": ["error", { "minScore": 0.98 }],
+                  "largest-contentful-paint": ["warn", { "maxNumericValue": 3500 }],
+                  "cumulative-layout-shift": ["error", { "maxNumericValue": 0.1 }],
+                  "total-blocking-time": ["warn", { "maxNumericValue": 400 }]
+                }
+              }
+            }
+          }
+          JSON
+
+      - name: Lighthouse collect
+        if: always()
+        run: lhci collect --config=/tmp/identity-lighthouserc.json
+
+      - name: Lighthouse assert
+        if: always()
+        run: lhci assert --config=/tmp/identity-lighthouserc.json
+
+      - name: Save server log
+        if: always()
+        run: |
+          mkdir -p artifacts/identity-public
+          cp /tmp/identity-server.log artifacts/identity-public/server.log || true
+
+      - name: Upload Identity QA artifacts
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: identity-public-qa
+          path: |
+            artifacts/identity-public/
+            .lighthouseci/
+          include-hidden-files: true
+          if-no-files-found: warn
+          retention-days: 14
