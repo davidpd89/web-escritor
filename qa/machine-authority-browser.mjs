@@ -130,11 +130,38 @@ for (const viewport of viewports) {
   const context = await contextFor({ width: 390, height: 844 });
   const { page } = await openChecked(context);
   await page.addStyleTag({ content: `html{font-size:200% !important}` });
-  const state = await page.evaluate(() => ({
-    overflow: document.documentElement.scrollWidth - document.documentElement.clientWidth,
-    text: document.querySelector('main')?.innerText.trim().length || 0,
-  }));
-  check(state.overflow <= 1, `a11y 200% text zoom: horizontal overflow ${state.overflow}`);
+  const state = await page.evaluate(() => {
+    const viewportWidth = document.documentElement.clientWidth;
+    const offenders = [...document.body.querySelectorAll('*')]
+      .map((el) => {
+        const rect = el.getBoundingClientRect();
+        const style = getComputedStyle(el);
+        return {
+          tag: el.tagName.toLowerCase(),
+          id: el.id || '',
+          className: typeof el.className === 'string' ? el.className : '',
+          text: (el.textContent || '').trim().replace(/\s+/g, ' ').slice(0, 80),
+          left: Math.round(rect.left * 10) / 10,
+          right: Math.round(rect.right * 10) / 10,
+          width: Math.round(rect.width * 10) / 10,
+          scrollWidth: el.scrollWidth,
+          clientWidth: el.clientWidth,
+          display: style.display,
+          overflowX: style.overflowX,
+          position: style.position,
+        };
+      })
+      .filter((item) => item.display !== 'none' && (item.right > viewportWidth + 1 || item.left < -1))
+      .sort((a, b) => (b.right - viewportWidth) - (a.right - viewportWidth))
+      .slice(0, 12);
+    return {
+      overflow: document.documentElement.scrollWidth - viewportWidth,
+      text: document.querySelector('main')?.innerText.trim().length || 0,
+      offenders,
+    };
+  });
+  const offenderSummary = state.offenders.length ? `; offenders=${JSON.stringify(state.offenders)}` : '';
+  check(state.overflow <= 1, `a11y 200% text zoom: horizontal overflow ${state.overflow}${offenderSummary}`);
   check(state.text > 2000, 'a11y 200% text zoom: content lost');
   await context.close();
 }
