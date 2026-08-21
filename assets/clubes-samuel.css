@@ -1,0 +1,7 @@
+/* V1 editorial system — bespoke pieces for the Samuel entre mundos reading-
+   club companion pages. Structural chrome (hero/id-cards/fact-list/
+   identity-faq) lives in v1-tools.css/v1-families.css; nothing here is
+   JS-driven — both pages are fully static. */
+html.v1 .club-session-list{list-style:none;margin:0;padding:0;display:grid;gap:.7rem;max-width:60ch}
+html.v1 .club-session-list li{padding:.7rem 0;border-top:1px solid var(--color-border);font:400 .96rem/1.55 var(--font-reading)}
+html.v1 .club-session-list li:first-child{border-top:0}

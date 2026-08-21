@@ -150,6 +150,7 @@ html.v1 .identity-faq details[open] summary::after{content:"–"}
 html.v1 .identity-faq details p{margin:.85rem 0 0;color:var(--color-muted);font-family:var(--font-reading);font-size:1rem;line-height:1.6}
 
 html.v1 .mt-28{margin-top:1.75rem}
+html.v1 .mt-16{margin-top:1rem}
 
 @media(max-width:600px){
   html.v1 .press-card--wide{grid-column:auto}
