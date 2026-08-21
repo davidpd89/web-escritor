@@ -107,6 +107,12 @@
 
   function initAssistantWidget() {
     if (/^\/asistente(?:\/|$)/.test(location.pathname)) return;
+    // The widget runs the assistant inside a same-origin iframe, so pages that
+    // declare frame-src 'none' (tools, directories and other CSP-locked routes)
+    // must not mount it: the browser would block the frame and log a CSP
+    // violation on every visit. Those pages still reach /asistente/ via Explorar.
+    const csp = document.querySelector('meta[http-equiv="Content-Security-Policy"]')?.content || '';
+    if (/frame-src\s+'none'/i.test(csp)) return;
     let scheduled = false;
     const load = () => {
       if (scheduled) return;

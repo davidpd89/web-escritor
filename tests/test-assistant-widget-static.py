@@ -21,6 +21,7 @@ need('data-assistant-menu-link' in shell and "href = '/asistente/'" in shell, "E
 need("asistente: ['Asistente'" in shell, "Explore preview copy for assistant missing")
 need("requestIdleCallback" in shell, "widget must be loaded off the critical render path")
 need('/^\\/asistente(?:\\/|$)/' in shell, "full assistant/embed routes must not recursively mount widget")
+need("frame-src\\s+'none'" in shell, "widget must not mount on pages whose CSP forbids framing")
 
 need('aria-controls' in widget and 'aria-expanded' in widget, "launcher disclosure semantics missing")
 need('role", "dialog"' in widget and 'aria-modal", "false"' in widget, "widget must be a non-modal dialog")

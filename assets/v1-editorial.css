@@ -55,13 +55,14 @@ html.v1 .article-page{position:relative}
    itself rather than adding a second, competing progress implementation. */
 html.v1 .reading-progress{position:fixed;left:0;top:0;z-index:calc(var(--z-header) + 1);width:0;height:2px;background:var(--color-accent-strong);pointer-events:none}
 html.v1 .article-header{max-width:var(--layout-wide);display:grid;grid-template-columns:minmax(0,9fr) minmax(210px,3fr);gap:var(--grid-gap);padding-bottom:clamp(3rem,6vw,5.5rem);border-bottom:1px solid var(--color-border)}
-html.v1 .article-header h1{margin:.55rem 0 1.25rem;max-width:17ch;font-family:var(--font-display);font-size:clamp(3rem,6vw,6.5rem);font-weight:400;line-height:.94;letter-spacing:-.03em;text-wrap:balance}
+html.v1 .article-header h1{margin:.55rem 0 1.25rem;max-width:17ch;font-family:var(--font-display);font-size:clamp(3rem,6vw,6.5rem);font-weight:400;line-height:.94;letter-spacing:-.03em;text-wrap:balance;overflow-wrap:anywhere}
 html.v1 .article-deck{max-width:58ch;margin:0;font-family:var(--font-reading);font-size:clamp(1.25rem,1.7vw,1.65rem);line-height:1.5;color:var(--color-muted)}
 html.v1 .article-meta{align-self:end;border-left:1px solid var(--color-border);padding-left:clamp(1rem,2vw,2rem);font-size:var(--text-xs);color:var(--color-muted)}
 html.v1 .article-meta p{margin:.4rem 0}
 html.v1 .article-meta a{color:var(--color-text)}
 html.v1 .article-utilities{display:flex;flex-wrap:wrap;gap:1.1rem;margin-top:1.25rem}
 html.v1 .article-share-status{min-width:1px;font-size:var(--text-xs);color:var(--color-muted)}
+html.v1 .article-print-source{display:none}
 
 html.v1 .article-layout{max-width:var(--layout-wide);display:grid;grid-template-columns:minmax(180px,3fr) minmax(0,7fr) minmax(80px,2fr);gap:clamp(1.5rem,4vw,4.5rem);padding-top:clamp(3.5rem,6vw,6rem)}
 html.v1 .article-toc{grid-column:1;align-self:start;position:sticky;top:110px;max-height:calc(100dvh - 140px);overflow:auto;border-top:1px solid var(--color-border);padding-top:1rem}
@@ -71,9 +72,9 @@ html.v1 .article-toc a{font-size:var(--text-xs);line-height:1.35;text-decoration
 html.v1 .article-toc a:hover,html.v1 .article-toc a:focus-visible,html.v1 .article-toc a[aria-current="location"]{color:var(--color-text);text-decoration:underline;text-decoration-color:var(--color-accent)}
 html.v1 .article-prose{grid-column:2;min-width:0;max-width:var(--reading-max);font-family:var(--font-reading);font-size:clamp(1.12rem,1.15rem + .15vw,1.28rem);line-height:1.68}
 html.v1 .article-prose>p{margin:0 0 1.35em}
-html.v1 .article-prose h2{scroll-margin-top:110px;margin:2.5em 0 .7em;font-family:var(--font-display);font-size:clamp(2.2rem,3.5vw,3.5rem);font-weight:400;line-height:1.02;letter-spacing:-.018em;text-wrap:balance}
-html.v1 .article-prose h3{scroll-margin-top:110px;margin:2em 0 .6em;font-family:var(--font-display);font-size:clamp(1.55rem,2.2vw,2.15rem);font-weight:400;line-height:1.1;text-wrap:balance}
-html.v1 .article-prose a{text-decoration-color:var(--color-accent)}
+html.v1 .article-prose h2{scroll-margin-top:110px;margin:2.5em 0 .7em;font-family:var(--font-display);font-size:clamp(2.2rem,3.5vw,3.5rem);font-weight:400;line-height:1.02;letter-spacing:-.018em;text-wrap:balance;overflow-wrap:anywhere}
+html.v1 .article-prose h3{scroll-margin-top:110px;margin:2em 0 .6em;font-family:var(--font-display);font-size:clamp(1.55rem,2.2vw,2.15rem);font-weight:400;line-height:1.1;text-wrap:balance;overflow-wrap:anywhere}
+html.v1 .article-prose a{text-decoration-color:var(--color-accent);overflow-wrap:anywhere}
 html.v1 .article-prose ul,html.v1 .article-prose ol{margin:0 0 1.35em;padding-left:1.3em}
 html.v1 .article-prose li{margin-bottom:.5em}
 html.v1 .article-note{margin:0 0 clamp(2.75rem,5vw,4.5rem);padding:1.25rem 0 1.25rem clamp(1rem,2vw,1.75rem);border-left:2px solid var(--color-accent);font-family:var(--font-ui);font-size:var(--text-sm);line-height:1.6}
@@ -85,6 +86,8 @@ html.v1 .article-prose blockquote footer{font-family:var(--font-ui);font-size:va
 html.v1 .article-prose figure{margin:2em 0}
 html.v1 .article-prose figure img{width:100%;height:auto;display:block}
 html.v1 .article-prose figcaption{margin-top:.6rem;font-family:var(--font-ui);font-size:var(--text-xs);color:var(--color-muted)}
+html.v1 .article-table-wrap{overflow-x:auto;margin:2em 0}
+html.v1 .article-table-wrap table{margin:0;min-width:19rem}
 html.v1 .article-prose table{width:100%;margin:2em 0;border-collapse:collapse;font-family:var(--font-ui);font-size:var(--text-sm)}
 html.v1 .article-prose th,html.v1 .article-prose td{padding:.7rem 1rem;text-align:left;border-bottom:1px solid var(--color-border);vertical-align:top}
 html.v1 .article-prose th{font-weight:650;border-bottom:1px solid var(--color-text)}
@@ -148,6 +151,18 @@ html.v1 .article-related a:hover,html.v1 .article-related a:focus-visible{text-d
   html.v1 .article-prose{grid-column:2}
   html.v1 .article-faq,html.v1 .article-end{grid-template-columns:minmax(160px,2fr) minmax(0,6fr)}
 }
+@media (min-width:768px) and (max-width:859px){
+  html.v1 .article-header{grid-template-columns:1fr}
+  html.v1 .article-meta{border-left:0;border-top:1px solid var(--color-border);padding:1rem 0 0;display:flex;flex-wrap:wrap;gap:.25rem 1rem}
+  html.v1 .article-layout{display:block;padding-top:2.75rem}
+  html.v1 .article-toc{position:static;max-height:none;margin:0 0 2.75rem;padding:1rem 0;border-bottom:1px solid var(--color-border);overflow-x:auto}
+  html.v1 .article-toc ol{display:flex;gap:1rem;min-width:max-content}
+  html.v1 .article-toc a{display:block;max-width:20ch}
+  html.v1 .article-prose{max-width:var(--reading-max);margin-inline:auto}
+  html.v1 .article-faq,html.v1 .article-end{display:block}
+  html.v1 .article-faq__head,html.v1 .article-end__label{margin-bottom:1.5rem}
+  html.v1 .article-faq__list,html.v1 .article-end__body{border-top:1px solid var(--color-border)}
+}
 @media (max-width:767px){
   html.v1 .editorial-page{padding-top:2rem}
   html.v1 .editorial-breadcrumb{margin-bottom:2rem}
@@ -194,4 +209,5 @@ html.v1 .article-related a:hover,html.v1 .article-related a:focus-visible{text-d
   html.v1 .article-prose h2,html.v1 .article-prose h3{break-after:avoid}
   html.v1 .article-faq{display:block;padding-top:2rem}
   html.v1 .article-faq__list{border-top:1px solid currentColor}
+  html.v1 .article-print-source{display:block;margin:2rem 0 0;padding-top:.8rem;border-top:1px solid currentColor;font:9pt/1.45 var(--font-ui);overflow-wrap:anywhere}
 }
