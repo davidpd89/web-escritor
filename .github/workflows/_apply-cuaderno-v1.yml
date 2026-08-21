@@ -35,3 +35,4 @@ jobs:
           git diff --cached --check
           git commit -m "feat(cuaderno): refine editorial article system V1"
           git push origin HEAD:gpt/cuaderno-editorial-v1
+# trigger: workflow now exists on the branch
