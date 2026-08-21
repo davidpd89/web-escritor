@@ -77,3 +77,247 @@ html.v1 .faq-native summary::after{content:"+";color:var(--color-muted);font-wei
 html.v1 .faq-native details[open] summary::after{content:"–"}
 html.v1 .faq-native details p{margin:.85rem 0 0;color:var(--color-muted);font-family:var(--font-reading);font-size:1.02rem;line-height:1.6;max-width:60ch}
 @media(max-width:1199px){html.v1 .faq-native{grid-column:1/-1}}
+
+/* Home cartography V1 — editorial routes: work / process / public life. */
+html.v1 .map-stage{
+  --route-work-opacity:.72;
+  --route-process-opacity:.52;
+  --route-public-opacity:.4;
+  min-height:720px;
+  isolation:isolate;
+}
+html.v1 .map-stage::before,
+html.v1 .map-stage::after{
+  content:"";
+  position:absolute;
+  inset:0;
+  z-index:0;
+  pointer-events:none;
+  background:color-mix(in srgb,var(--color-accent-strong) 52%,transparent);
+  -webkit-mask-repeat:no-repeat;
+  mask-repeat:no-repeat;
+  -webkit-mask-position:center;
+  mask-position:center;
+  -webkit-mask-size:100% 100%;
+  mask-size:100% 100%;
+  transition:opacity var(--motion-state) var(--ease-standard);
+}
+html.v1 .map-stage::before{
+  opacity:var(--route-process-opacity);
+  -webkit-mask-image:url("data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%201440%20820'%20preserveAspectRatio='none'%3E%3Cpath%20d='M662%20148%20C610%20300%20545%20430%20504%20566%20C648%20548%20742%20586%20893%20631'%20fill='none'%20stroke='black'%20stroke-width='1.5'%20vector-effect='non-scaling-stroke'/%3E%3C/svg%3E");
+  mask-image:url("data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%201440%20820'%20preserveAspectRatio='none'%3E%3Cpath%20d='M662%20148%20C610%20300%20545%20430%20504%20566%20C648%20548%20742%20586%20893%20631'%20fill='none'%20stroke='black'%20stroke-width='1.5'%20vector-effect='non-scaling-stroke'/%3E%3C/svg%3E");
+}
+html.v1 .map-stage::after{
+  opacity:var(--route-public-opacity);
+  -webkit-mask-image:url("data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%201440%20820'%20preserveAspectRatio='none'%3E%3Cpath%20d='M662%20148%20C540%20240%20460%20350%20385%20455%20C330%20535%20290%20610%20259%20672'%20fill='none'%20stroke='black'%20stroke-width='1.5'%20vector-effect='non-scaling-stroke'/%3E%3C/svg%3E");
+  mask-image:url("data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%201440%20820'%20preserveAspectRatio='none'%3E%3Cpath%20d='M662%20148%20C540%20240%20460%20350%20385%20455%20C330%20535%20290%20610%20259%20672'%20fill='none'%20stroke='black'%20stroke-width='1.5'%20vector-effect='non-scaling-stroke'/%3E%3C/svg%3E");
+}
+html.v1 .map-routes{z-index:0;stroke:color-mix(in srgb,var(--color-accent-strong) 62%,transparent)}
+html.v1 .map-routes path{display:none}
+html.v1 .map-routes path:first-child{
+  display:block;
+  opacity:var(--route-work-opacity);
+  transition:opacity var(--motion-state) var(--ease-standard),stroke var(--motion-state) var(--ease-standard),stroke-width var(--motion-state) var(--ease-standard);
+}
+html.v1 .map-nodes{z-index:1}
+html.v1 .map-node{
+  min-block-size:52px;
+  min-inline-size:210px;
+  max-inline-size:310px;
+  grid-template-columns:20px minmax(0,1fr);
+  gap:0 .72rem;
+  padding:.72rem .8rem .72rem .1rem;
+  transition:opacity var(--motion-state) var(--ease-standard);
+}
+html.v1 .map-node::before{inset:-4px -8px}
+html.v1 .map-node strong{
+  display:inline;
+  width:fit-content;
+  max-width:100%;
+  font-family:var(--font-display);
+  font-size:clamp(1.45rem,1.55vw,1.92rem);
+  font-weight:400;
+  line-height:.98;
+  letter-spacing:-.012em;
+  text-wrap:balance;
+  background-image:linear-gradient(currentColor,currentColor);
+  background-repeat:no-repeat;
+  background-position:0 100%;
+  background-size:0 1px;
+  transition:background-size var(--motion-state) var(--ease-standard);
+}
+html.v1 .map-node small{
+  display:block;
+  margin-top:.52rem;
+  font-size:.78rem;
+  line-height:1.42;
+  max-width:26ch;
+}
+html.v1 .map-node small::before{
+  display:block;
+  margin-bottom:.16rem;
+  color:var(--color-accent-strong);
+  font-family:var(--font-ui);
+  font-size:.62rem;
+  font-weight:700;
+  line-height:1.25;
+  letter-spacing:.095em;
+  text-transform:uppercase;
+}
+html.v1 [data-map-node="autor"] small::before{content:"Origen"}
+html.v1 [data-map-node="samuel"] small::before{content:"Obra publicada"}
+html.v1 [data-map-node="cuaderno"] small::before{content:"Proceso"}
+html.v1 [data-map-node="herramientas"] small::before{content:"Práctica"}
+html.v1 [data-map-node="prensa"] small::before{content:"Vida pública"}
+html.v1 .map-node--primary{
+  min-inline-size:340px;
+  max-inline-size:440px;
+}
+html.v1 .map-node--primary strong{
+  font-size:clamp(2.6rem,4.1vw,4.35rem);
+  line-height:.88;
+  letter-spacing:-.03em;
+}
+html.v1 .map-node__marker{
+  width:11px;
+  height:11px;
+  border-color:color-mix(in srgb,currentColor 78%,transparent);
+}
+html.v1 .map-node--primary .map-node__marker{width:14px;height:14px}
+html.v1 .map-node:hover strong,
+html.v1 .map-node:focus-visible strong{background-size:100% 1px}
+html.v1 .map-node:focus-visible{
+  outline:2px solid var(--focus-color);
+  outline-offset:4px;
+}
+html.v1 .map-stage[data-active] .map-node{opacity:.84}
+html.v1 .map-stage[data-active="manecillas"] [data-map-node="manecillas"],
+html.v1 .map-stage[data-active="autor"] [data-map-node="autor"],
+html.v1 .map-stage[data-active="samuel"] [data-map-node="samuel"],
+html.v1 .map-stage[data-active="cuaderno"] [data-map-node="cuaderno"],
+html.v1 .map-stage[data-active="herramientas"] [data-map-node="herramientas"],
+html.v1 .map-stage[data-active="prensa"] [data-map-node="prensa"]{opacity:1}
+html.v1 .map-stage[data-active="manecillas"],
+html.v1 .map-stage[data-active="samuel"]{--route-work-opacity:1;--route-process-opacity:.16;--route-public-opacity:.14}
+html.v1 .map-stage[data-active="cuaderno"],
+html.v1 .map-stage[data-active="herramientas"]{--route-work-opacity:.18;--route-process-opacity:1;--route-public-opacity:.14}
+html.v1 .map-stage[data-active="prensa"]{--route-work-opacity:.18;--route-process-opacity:.16;--route-public-opacity:1}
+html.v1 .map-stage[data-active="autor"]{--route-work-opacity:.92;--route-process-opacity:.82;--route-public-opacity:.76}
+@supports selector(:has(*)){
+  html.v1 .map-stage:has([data-map-node="manecillas"]:is(:hover,:focus-visible)),
+  html.v1 .map-stage:has([data-map-node="samuel"]:is(:hover,:focus-visible)){--route-work-opacity:1;--route-process-opacity:.16;--route-public-opacity:.14}
+  html.v1 .map-stage:has([data-map-node="cuaderno"]:is(:hover,:focus-visible)),
+  html.v1 .map-stage:has([data-map-node="herramientas"]:is(:hover,:focus-visible)){--route-work-opacity:.18;--route-process-opacity:1;--route-public-opacity:.14}
+  html.v1 .map-stage:has([data-map-node="prensa"]:is(:hover,:focus-visible)){--route-work-opacity:.18;--route-process-opacity:.16;--route-public-opacity:1}
+  html.v1 .map-stage:has([data-map-node="autor"]:is(:hover,:focus-visible)){--route-work-opacity:.92;--route-process-opacity:.82;--route-public-opacity:.76}
+  html.v1 .map-stage:has(.map-node:is(:hover,:focus-visible)) .map-node:not(:hover):not(:focus-visible){opacity:.84}
+}
+@media (min-width:900px){
+  html.v1 .map-node[data-map-node="manecillas"]{--x:72%;--y:24%}
+  html.v1 .map-node[data-map-node="autor"]{--x:46%;--y:18%}
+  html.v1 .map-node[data-map-node="samuel"]{--x:24%;--y:38%}
+  html.v1 .map-node[data-map-node="cuaderno"]{--x:35%;--y:69%}
+  html.v1 .map-node[data-map-node="herramientas"]{--x:62%;--y:77%}
+  html.v1 .map-node[data-map-node="prensa"]{--x:18%;--y:82%}
+}
+@media (max-width:1199px) and (min-width:900px){
+  html.v1 .map-stage{min-height:660px}
+  html.v1 .map-node{min-inline-size:180px;max-inline-size:245px}
+  html.v1 .map-node strong{font-size:clamp(1.3rem,1.7vw,1.65rem)}
+  html.v1 .map-node--primary{min-inline-size:290px;max-inline-size:350px}
+  html.v1 .map-node--primary strong{font-size:clamp(2.35rem,3.8vw,3.45rem)}
+}
+@media (max-width:899px){
+  html.v1 .map-stage{
+    min-height:0;
+    border-bottom:0;
+    overflow:visible;
+    --route-work-opacity:0;
+    --route-process-opacity:0;
+    --route-public-opacity:0;
+  }
+  html.v1 .map-stage::before,
+  html.v1 .map-stage::after,
+  html.v1 .map-routes{display:none}
+  html.v1 .map-nodes{
+    position:relative;
+    display:grid;
+    gap:0;
+    padding:1.25rem 0 .25rem 1.7rem;
+  }
+  html.v1 .map-nodes::before{
+    content:"";
+    position:absolute;
+    left:.43rem;
+    top:2rem;
+    bottom:1.5rem;
+    width:1px;
+    background:color-mix(in srgb,var(--color-accent-strong) 44%,transparent);
+  }
+  html.v1 .map-node,
+  html.v1 .map-node--primary{
+    position:relative;
+    left:auto;
+    top:auto;
+    transform:none;
+    width:100%;
+    min-width:0;
+    max-width:none;
+    min-block-size:72px;
+    grid-template-columns:18px minmax(0,1fr);
+    padding:1.15rem 0 1.2rem;
+    border-bottom:1px solid var(--color-border);
+  }
+  html.v1 .map-node::before{
+    inset:0 -4px;
+  }
+  html.v1 .map-node::after{
+    content:"";
+    position:absolute;
+    left:-1.27rem;
+    top:calc(1.15rem + 5px);
+    width:.8rem;
+    height:1px;
+    background:color-mix(in srgb,var(--color-accent-strong) 44%,transparent);
+  }
+  html.v1 .map-node strong{
+    font-size:clamp(1.62rem,4.8vw,2.05rem);
+    line-height:.98;
+  }
+  html.v1 .map-node--primary{
+    padding-top:1.55rem;
+    padding-bottom:1.55rem;
+  }
+  html.v1 .map-node--primary strong{
+    font-size:clamp(2.55rem,8.8vw,4rem);
+    max-width:12ch;
+  }
+  html.v1 .map-node small{font-size:.82rem;max-width:34ch}
+  html.v1 .map-node__marker{position:relative;z-index:2;background:var(--surface-page)}
+  html.v1 .map-stage[data-active] .map-node{opacity:1}
+}
+@media (max-width:767px){
+  html.v1 .map-nodes{padding-left:1.45rem}
+  html.v1 .map-nodes::before{left:.35rem}
+  html.v1 .map-node::after{left:-1.03rem;width:.64rem}
+  html.v1 .map-node--primary strong{font-size:clamp(2.3rem,10.8vw,3.35rem)}
+}
+@media (max-width:360px){
+  html.v1 .map-node strong{font-size:clamp(1.5rem,7.2vw,1.78rem)}
+  html.v1 .map-node--primary strong{font-size:clamp(2.1rem,10.9vw,2.75rem)}
+  html.v1 .map-node small{font-size:.78rem}
+}
+@media (orientation:landscape) and (max-height:520px) and (pointer:coarse){
+  html.v1 .map-node,
+  html.v1 .map-node--primary{min-block-size:64px;padding-top:.9rem;padding-bottom:.95rem}
+}
+@media (prefers-reduced-motion:reduce){
+  html.v1 .map-stage::before,
+  html.v1 .map-stage::after,
+  html.v1 .map-routes path:first-child,
+  html.v1 .map-node,
+  html.v1 .map-node strong,
+  html.v1 .map-node__marker{transition:none}
+  html.v1 .map-node:hover .map-node__marker,
+  html.v1 .map-node:focus-visible .map-node__marker{transform:none}
+}
