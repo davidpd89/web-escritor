@@ -1,0 +1,76 @@
+name: Assistant hardening QA
+
+on:
+  pull_request:
+    paths:
+      - 'asistente/**'
+      - 'assets/assistant*'
+      - 'data/assistant-source-registry.json'
+      - 'cloudflare-worker-assistant.js'
+      - 'migrations/assistant-quota.sql'
+      - 'scripts/check-assistant-contract.py'
+      - 'tests/test-assistant-*.mjs'
+      - 'tests/test-assistant-contract.py'
+      - 'qa/assistant-browser.mjs'
+      - '.github/workflows/assistant-hardening-qa.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  contract-and-security:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Contract
+        run: python3 tests/test-assistant-contract.py
+      - name: Core
+        run: node tests/test-assistant-core.mjs
+      - name: Worker
+        run: node tests/test-assistant-worker.mjs
+      - name: Hardening boundaries
+        run: node tests/test-assistant-hardening.mjs
+      - name: Secrets and dangerous sinks
+        shell: bash
+        run: |
+          set -euo pipefail
+          ! grep -RInE '(sk-[A-Za-z0-9_-]{20,}|TURNSTILE_SECRET_KEY[[:space:]]*[:=][[:space:]]*["'\''][^"'\'']+["'\''])' asistente assets/assistant* data/assistant-source-registry.json cloudflare-worker-assistant.js
+          ! grep -RInE 'innerHTML[[:space:]]*=|insertAdjacentHTML|document\.write\(' assets/assistant.js
+          ! grep -RIn 'ASSISTANT_QA_SECRET_582931' asistente assets/assistant* data/assistant-source-registry.json cloudflare-worker-assistant.js
+
+  browser-qa:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Install Playwright
+        run: |
+          npm install --no-save --no-package-lock playwright@1.55.0
+          npx playwright install --with-deps chromium
+      - name: Start static server
+        run: |
+          python3 -m http.server 4173 --bind 127.0.0.1 >/tmp/assistant-server.log 2>&1 &
+          for i in {1..30}; do curl --fail --silent http://127.0.0.1:4173/asistente/ >/dev/null && exit 0; sleep 1; done
+          cat /tmp/assistant-server.log
+          exit 1
+      - name: Browser QA
+        env:
+          QA_ORIGIN: http://127.0.0.1:4173
+          QA_OUT: qa-artifacts/assistant
+        run: node qa/assistant-browser.mjs
+      - name: Upload six viewport screenshots
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: assistant-hardening-screenshots
+          path: qa-artifacts/assistant/
+          if-no-files-found: error
+          retention-days: 14
