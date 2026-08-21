@@ -294,10 +294,10 @@ function render(resetPositions = false) {
         : '');
   }
 
-  els.list.innerHTML = project.relations.map((r, i) => {
+  els.list.innerHTML = graph.relations.map((r) => {
     const a = project.characters.find(c => c.id === r.from)?.name || r.from;
     const b = project.characters.find(c => c.id === r.to)?.name || r.to;
-    return `<li><span><strong>${escapeHtml(a)}</strong> ${r.directed ? '→' : '—'} <strong>${escapeHtml(b)}</strong> · ${escapeHtml(r.label || r.type)}${r.evolution ? `<small>${escapeHtml(r.evolution)}</small>` : ''}</span><button type="button" data-remove-relation="${i}" aria-label="Eliminar relación ${escapeHtml(a)} y ${escapeHtml(b)}">×</button></li>`;
+    return `<li><span><strong>${escapeHtml(a)}</strong> ${r.directed ? '→' : '—'} <strong>${escapeHtml(b)}</strong> · ${escapeHtml(r.label || r.type)}${r.evolution ? `<small>${escapeHtml(r.evolution)}</small>` : ''}</span><button type="button" data-remove-relation="${r.id}" aria-label="Eliminar relación ${escapeHtml(a)} y ${escapeHtml(b)}">×</button></li>`;
   }).join('');
 }
 
@@ -361,7 +361,9 @@ els.title.addEventListener('input', () => {
 els.list.addEventListener('click', event => {
   const btn = event.target.closest('[data-remove-relation]');
   if (!btn) return;
-  project.relations.splice(Number(btn.dataset.removeRelation), 1);
+  const idx = project.relations.findIndex(r => r.id === btn.dataset.removeRelation);
+  if (idx === -1) return;
+  project.relations.splice(idx, 1);
   project = normalizeProject(project);
   setRelationError();
   render(false);

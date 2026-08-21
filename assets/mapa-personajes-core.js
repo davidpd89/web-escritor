@@ -69,10 +69,10 @@ export function circularLayout(characters, width = 900, height = 600, focusId = 
   return nodes;
 }
 
-export function visibleGraph(project, { focusId = '', types = [] } = {}) {
+export function visibleGraph(project, { focusId = '', types = null } = {}) {
   const normalized = normalizeProject(project);
-  const enabled = new Set(types || []);
-  let relations = normalized.relations.filter(r => !enabled.size || enabled.has(r.type));
+  const enabled = types == null ? null : new Set(types);
+  let relations = normalized.relations.filter(r => !enabled || enabled.has(r.type));
   let ids = new Set(normalized.characters.map(c => c.id));
   if (focusId) {
     relations = relations.filter(r => r.from === focusId || r.to === focusId);
