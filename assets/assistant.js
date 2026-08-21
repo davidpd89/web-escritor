@@ -1,4 +1,4 @@
-import { PROTOCOL_VERSION, normalizeQuery, isSafeInternalPath, isValidAssistantResponse, formatCitationMarkers, rankLocalSources, makeSessionId } from "/assets/assistant-core.mjs";
+import { PROTOCOL_VERSION, QUERY_MAX_LENGTH, normalizeQuery, isSafeInternalPath, isValidAssistantResponse, formatCitationMarkers, rankLocalSources, makeSessionId } from "/assets/assistant-core.mjs";
 
 const form = document.querySelector("[data-assistant-form]");
 const input = document.querySelector("[data-assistant-query]");
@@ -210,7 +210,13 @@ void getRemoteConfig();
 
 form?.addEventListener("submit", async (event) => {
   event.preventDefault();
-  const query = normalizeQuery(input.value);
+  const rawQuery = String(input.value ?? "").normalize("NFC").replace(/\s+/g, " ").trim();
+  if (rawQuery.length > QUERY_MAX_LENGTH) {
+    status.textContent = `La pregunta no puede superar ${QUERY_MAX_LENGTH} caracteres.`;
+    input.focus();
+    return;
+  }
+  const query = normalizeQuery(rawQuery);
   if (query.length < 2) {
     status.textContent = "Escribe una pregunta un poco más concreta.";
     input.focus();
