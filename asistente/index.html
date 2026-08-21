@@ -57,11 +57,11 @@
         <label for="assistant-query">Tu pregunta</label>
         <textarea id="assistant-query" name="query" maxlength="500" required autocomplete="off" placeholder="Por ejemplo: ¿de qué trata Las manecillas del recuerdo?" data-assistant-query></textarea>
         <div class="assistant-actions"><button class="primary-action" type="submit" data-assistant-submit>Buscar respuesta</button><button class="text-action assistant-stop" type="button" data-assistant-stop hidden>Detener</button><a class="text-action" href="/mapa-del-sitio/">Ver mapa del sitio</a></div>
-        <div class="assistant-turnstile" data-assistant-turnstile aria-label="Verificación antiabuso"></div>
+        <div class="assistant-turnstile" data-assistant-turnstile role="group" aria-label="Verificación antiabuso"></div>
         <p class="assistant-status" role="status" aria-live="polite" data-assistant-status>La búsqueda local funciona aunque la respuesta con IA esté desactivada.</p>
       </form>
       <div class="assistant-answer" role="region" aria-live="polite" aria-label="Respuesta" data-assistant-answer hidden></div>
-      <div aria-label="Fuentes"><ol class="assistant-sources" data-assistant-sources></ol></div>
+      <div role="group" aria-label="Fuentes"><ol class="assistant-sources" data-assistant-sources></ol></div>
       <div class="assistant-local" data-assistant-local hidden><strong>Resultados de la web</strong><ul data-assistant-local-list></ul></div>
       <p class="assistant-privacy">La pregunta solo se envía al endpoint del propio sitio cuando la respuesta remota está activada. Antes se muestran resultados locales. La verificación antiabuso usa Cloudflare Turnstile únicamente cuando hace falta consumir IA.</p>
     </section>
