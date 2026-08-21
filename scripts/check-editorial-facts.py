@@ -128,6 +128,13 @@ SKIP_PARTS = {
     # de eso llegara nunca a un visitante.
     "data",
     ".preview-dist", "dist",
+    # lab/ is the doc-25/CLAUDE-HANDOFF.md staging package: noindex,
+    # explicitly "NO sustituye index.html público... NO autoriza merge ni
+    # producción" (INTEGRATION.md), served only for browser QA on this
+    # branch. Its scaffold pages intentionally describe pending/blocked
+    # commercial states while building the real candidate pages, which is
+    # not the same claim as a live public page asserting them.
+    "lab",
 }
 
 

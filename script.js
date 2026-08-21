@@ -174,6 +174,10 @@ window.addEventListener("load", () => {
 // belong on a privacy policy or legal notice page (reviewed 2026-08-20).
 (function () {
   if (document.querySelector(".mobile-bottom-nav")) return;
+  // V1 editorial shell pages reach every primary route via direct header
+  // links + Explorar; MIGRATION-MATRIX.md marks the legacy bottom nav
+  // "FUERA DE HOME" for those pages, not just excluded by path.
+  if (document.documentElement.classList.contains("v1")) return;
   const NO_BOTTOM_NAV_PATHS = new Set(["/privacidad.html", "/aviso-legal.html"]);
   if (NO_BOTTOM_NAV_PATHS.has(window.location.pathname)) return;
 

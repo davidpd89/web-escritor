@@ -1,0 +1,33 @@
+/* V1 editorial system — base primitives (buttons, forms, focus, skip-link).
+   Ported from lab/diseno-home-v1/css/base.css. Scoped to html.v1 pages only. */
+html.v1,html.v1 *,html.v1 *::before,html.v1 *::after{box-sizing:border-box}
+html.v1{background:var(--surface-page);color:var(--color-text);font-family:var(--font-ui);scroll-padding-top:88px}
+html.v1 body{margin:0;background:var(--surface-page);color:var(--color-text);font-size:var(--text-base);line-height:1.65;text-rendering:optimizeLegibility}
+html.v1 img,html.v1 svg{display:block;max-width:100%}
+html.v1 a{color:inherit;text-decoration-thickness:1px;text-underline-offset:.25em;text-decoration-skip-ink:auto}
+html.v1 button,html.v1 input,html.v1 summary{font:inherit}
+html.v1 button,html.v1 a,html.v1 input,html.v1 summary{outline:none}
+html.v1 :focus-visible{outline:2px solid var(--focus-color);outline-offset:3px}
+html.v1 .skip-link{position:fixed;left:1rem;top:1rem;z-index:var(--z-dialog);background:var(--surface-inverse);color:var(--color-on-inverse);padding:.75rem 1rem;transform:translateY(-180%);transition:transform var(--motion-state) var(--ease-standard)}
+html.v1 .skip-link:focus{transform:none}
+html.v1 .eyebrow{margin:0;text-transform:uppercase;letter-spacing:.11em;font-size:.72rem;font-weight:600;color:var(--color-muted)}
+html.v1 .primary-action{display:inline-grid;place-items:center;min-height:48px;padding:.45rem 1.25rem;border-radius:var(--radius-control);border:1px solid var(--surface-inverse);text-decoration:none;background:var(--surface-inverse);color:var(--color-on-inverse);font-size:.94rem;font-weight:600;transition:background var(--motion-state) var(--ease-standard),transform var(--motion-feedback) var(--ease-standard)}
+html.v1 .primary-action:hover{background:color-mix(in srgb,var(--surface-inverse) 88%,var(--color-accent-strong))}
+html.v1 .primary-action:active{transform:translateY(1px)}
+html.v1 .text-action{display:inline-flex;align-items:center;min-height:44px;border:0;background:none;padding:0;color:inherit;cursor:pointer;font-weight:600;text-decoration-line:underline;text-decoration-color:var(--color-accent);text-decoration-thickness:1px;text-underline-offset:.35em}
+html.v1 .text-action:hover,html.v1 .text-action:focus-visible{text-decoration-thickness:2px}
+html.v1 .form-field-label{display:block;font-size:.84rem;font-weight:600;margin-bottom:.5rem}
+html.v1 .form-row{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:.75rem}
+html.v1 .form-input{min-width:0;min-height:48px;width:100%;border:1px solid var(--color-border);border-radius:var(--radius-input);background:transparent;color:inherit;padding:.65rem .9rem;font-size:1rem}
+html.v1 .form-input[aria-invalid="true"],html.v1 .form-consent input[aria-invalid="true"]{border-color:var(--color-text)}
+html.v1 .form-submit{min-height:48px;border:1px solid var(--surface-inverse);border-radius:var(--radius-control);background:var(--surface-inverse);color:var(--color-on-inverse);padding:.65rem 1.15rem;font-weight:600;cursor:pointer}
+html.v1 .form-submit:hover,html.v1 .form-submit:focus-visible{background:color-mix(in srgb,var(--surface-inverse) 88%,var(--color-accent-strong))}
+html.v1 .form-help,html.v1 .form-status{font-size:.82rem;line-height:1.5;color:var(--color-muted)}
+html.v1 .form-help{margin:.65rem 0 .75rem}
+html.v1 .form-status{min-height:1.5em;margin:.65rem 0 0}
+html.v1 .quiz-subscribe-ok{font-family:var(--font-reading);font-size:1.05rem}
+html.v1 .form-consent{display:grid;grid-template-columns:auto minmax(0,1fr);align-items:start;gap:.65rem;margin:.35rem 0 0;font-size:.82rem;font-weight:400;line-height:1.5;color:var(--color-muted)}
+html.v1 .form-consent input{width:18px;min-height:18px;height:18px;margin:.15rem 0 0;padding:0;accent-color:var(--color-text)}
+html.v1 .form-consent a,html.v1 .form-help a{text-decoration:underline;text-underline-offset:.15em}
+@media (max-width:767px){html.v1 .form-row{grid-template-columns:1fr}html.v1 .form-submit{width:100%}}
+@media (prefers-reduced-motion:reduce){html.v1 *,html.v1 *::before,html.v1 *::after{scroll-behavior:auto!important;animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important}}

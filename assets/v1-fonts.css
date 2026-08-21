@@ -1,0 +1,5 @@
+/* V1 editorial system — typography. Remote Google Fonts import while this
+   branch is staging (matches the approved V1-B lab render). Before
+   MERGE_READY this must become a self-hosted WOFF2 (Latin + Latin Extended)
+   per doc 25/INTEGRATION.md — this file is the single place that changes. */
+@import url('https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Manrope:wght@400;500;600;700&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,600;1,6..72,400&display=swap');
