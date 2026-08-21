@@ -1,0 +1,100 @@
+name: Recommendations browser QA
+
+on:
+  pull_request:
+    paths:
+      - 'recomendaciones/**'
+      - 'assets/v1-recommendations.css'
+      - 'qa/recommendations-browser.mjs'
+      - '.github/workflows/recommendations-browser-qa.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  recommendations:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 25
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: Set up Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Install Playwright
+        run: |
+          npm install --no-save --no-package-lock playwright@1.55.0
+          npx playwright install --with-deps chromium
+      - name: Start static server
+        shell: bash
+        run: |
+          python -m http.server 4173 --bind 127.0.0.1 > /tmp/recommendations-server.log 2>&1 &
+          for i in {1..30}; do
+            if curl --fail --silent http://127.0.0.1:4173/recomendaciones/ >/dev/null; then exit 0; fi
+            sleep 1
+          done
+          cat /tmp/recommendations-server.log
+          exit 1
+      - name: Browser QA and screenshots
+        env:
+          RECOMMENDATIONS_BASE_URL: http://127.0.0.1:4173
+          RECOMMENDATIONS_ARTIFACT_DIR: artifacts/recommendations
+        run: node qa/recommendations-browser.mjs
+      - name: Install Lighthouse CI
+        if: always()
+        run: npm install --global @lhci/cli@0.15.1
+      - name: Configure recommendations Lighthouse
+        if: always()
+        shell: bash
+        run: |
+          cat > /tmp/recommendations-lighthouserc.json <<'JSON'
+          {
+            "ci": {
+              "collect": {
+                "staticDistDir": "./",
+                "url": [
+                  "http://localhost/recomendaciones/",
+                  "http://localhost/recomendaciones/portal-fantasy-espanol/",
+                  "http://localhost/recomendaciones/magia-con-coste/"
+                ],
+                "numberOfRuns": 1,
+                "settings": { "chromeFlags": "--no-sandbox" }
+              },
+              "assert": {
+                "assertions": {
+                  "categories:performance": ["warn", { "minScore": 0.85 }],
+                  "categories:accessibility": ["error", { "minScore": 0.97 }],
+                  "categories:best-practices": ["warn", { "minScore": 0.95 }],
+                  "categories:seo": ["error", { "minScore": 0.98 }],
+                  "largest-contentful-paint": ["warn", { "maxNumericValue": 3500 }],
+                  "cumulative-layout-shift": ["error", { "maxNumericValue": 0.1 }],
+                  "total-blocking-time": ["warn", { "maxNumericValue": 400 }]
+                }
+              }
+            }
+          }
+          JSON
+      - name: Lighthouse collect
+        if: always()
+        run: lhci collect --config=/tmp/recommendations-lighthouserc.json
+      - name: Lighthouse assert
+        if: always()
+        run: lhci assert --config=/tmp/recommendations-lighthouserc.json
+      - name: Save server log
+        if: always()
+        run: |
+          mkdir -p artifacts/recommendations
+          cp /tmp/recommendations-server.log artifacts/recommendations/server.log || true
+      - name: Upload QA artifacts
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: recommendations-qa
+          path: |
+            artifacts/recommendations/
+            .lighthouseci/
+          include-hidden-files: true
+          if-no-files-found: warn
+          retention-days: 14

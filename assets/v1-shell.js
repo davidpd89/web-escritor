@@ -22,11 +22,36 @@
     update();
   }
 
+  function ensureAssistantExploreLink(dialog) {
+    const list = q('.explore-list', dialog);
+    if (!list || q('[data-assistant-menu-link]', list)) return;
+    const link = document.createElement('a');
+    link.className = 'explore-row';
+    link.href = '/asistente/';
+    link.dataset.preview = 'asistente';
+    link.dataset.assistantMenuLink = 'true';
+
+    const index = document.createElement('span');
+    index.className = 'explore-row__index';
+    index.textContent = String(qa('.explore-row__index', list).length + 1).padStart(2, '0');
+    const body = document.createElement('span');
+    body.className = 'explore-row__body';
+    const strong = document.createElement('strong');
+    strong.textContent = 'Asistente';
+    const small = document.createElement('small');
+    small.textContent = 'Pregunta y encuentra la página que necesitas.';
+    body.append(strong, small);
+    link.append(index, body);
+    list.append(link);
+  }
+
   function initExplore() {
     const dialog = q('[data-explore-dialog]');
     const open = q('[data-explore-open]');
     const close = q('[data-explore-close]');
     if (!dialog || !open || !close || typeof dialog.showModal !== 'function') return;
+
+    ensureAssistantExploreLink(dialog);
 
     let opener = null;
     open.addEventListener('click', () => {
@@ -52,7 +77,8 @@
       samuel: ['Samuel entre mundos', 'Primera novela publicada.'],
       cuaderno: ['Cuaderno', 'Artículos y piezas editoriales.'],
       herramientas: ['Herramientas', 'Utilidades gratuitas para problemas concretos de escritura y publicación.'],
-      prensa: ['Prensa y eventos', 'Apariciones, materiales de prensa y agenda.']
+      prensa: ['Prensa y eventos', 'Apariciones, materiales de prensa y agenda.'],
+      asistente: ['Asistente', 'Pregunta por libros, recursos, prensa o escritura y abre la fuente correcta.']
     };
     const setPreview = (key) => {
       if (!preview || !content[key]) return;
@@ -79,7 +105,31 @@
     });
   }
 
+  function initAssistantWidget() {
+    if (/^\/asistente(?:\/|$)/.test(location.pathname)) return;
+    let scheduled = false;
+    const load = () => {
+      if (scheduled) return;
+      scheduled = true;
+      if (!q('link[data-assistant-widget-style]')) {
+        const style = document.createElement('link');
+        style.rel = 'stylesheet';
+        style.href = '/assets/assistant-widget.css';
+        style.dataset.assistantWidgetStyle = 'true';
+        document.head.append(style);
+      }
+      import('/assets/assistant-widget.js').catch(() => {});
+    };
+    const schedule = () => {
+      if ('requestIdleCallback' in window) requestIdleCallback(load, { timeout: 1400 });
+      else setTimeout(load, 350);
+    };
+    if (document.readyState === 'complete') schedule();
+    else addEventListener('load', schedule, { once: true });
+  }
+
   initHeader();
   initExplore();
   initMap();
+  initAssistantWidget();
 })();
