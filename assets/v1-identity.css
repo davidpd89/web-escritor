@@ -85,8 +85,11 @@ html.v1 [data-family="identity"] .copy-btn{
 }
 
 /* Awards: the ledger is the visual authority. Years/results read as records,
-   not badges, and reception is intentionally quieter than awards. */
+   not badges, and reception is intentionally quieter than awards. The wider
+   first track also accommodates exact publication dates without colliding with
+   the record title. */
 html.v1 [data-family="identity"] .awards-ledger li{
+  grid-template-columns:minmax(8.25rem,.25fr) minmax(0,1fr);
   align-items:start;
 }
 html.v1 [data-family="identity"] .awards-ledger li > span{
@@ -211,6 +214,26 @@ html.v1 [data-family="identity"] .contact-card .text-action{
   }
 }
 
+/* The two press fact sheets still carry their original desktop grid inline.
+   At narrow widths that inline declaration must be explicitly overridden or
+   the ledger and cover are squeezed side-by-side, which also breaks WCAG text
+   spacing reflow. */
+@media (max-width:700px){
+  html.v1 [data-family="identity"] #ficha-manecillas > div[style*="grid-template-columns"],
+  html.v1 [data-family="identity"] #ficha > div[style*="grid-template-columns"]{
+    grid-template-columns:minmax(0,1fr) !important;
+  }
+  html.v1 [data-family="identity"] #ficha-manecillas > div[style*="grid-template-columns"] > *,
+  html.v1 [data-family="identity"] #ficha > div[style*="grid-template-columns"] > *{
+    min-width:0;
+  }
+  html.v1 [data-family="identity"] #ficha-manecillas a,
+  html.v1 [data-family="identity"] #ficha a,
+  html.v1 [data-family="identity"] #contacto a{
+    overflow-wrap:anywhere;
+  }
+}
+
 @media (max-width:600px){
   html.v1 [data-family="identity"] .author-portrait::after{
     inset:auto 0 -.75rem 1rem;
@@ -222,6 +245,9 @@ html.v1 [data-family="identity"] .contact-card .text-action{
   html.v1 [data-family="identity"] .press-card,
   html.v1 [data-family="identity"] .press-card--wide{
     padding:1.35rem 0;
+  }
+  html.v1 [data-family="identity"] .awards-ledger li{
+    grid-template-columns:minmax(0,1fr);
   }
   html.v1 [data-family="identity"] .event-photo-grid{
     grid-template-columns:1fr;
