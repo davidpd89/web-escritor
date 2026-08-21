@@ -16,6 +16,7 @@ on:
       - 'assets/repeticiones-*'
       - 'assets/variedad-lexica*'
       - 'qa/tools-browser.mjs'
+      - 'qa/text-spacing.css'
       - '.github/workflows/tools-browser-qa.yml'
   workflow_dispatch:
 
