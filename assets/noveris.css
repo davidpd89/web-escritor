@@ -2,6 +2,16 @@
    Structural chrome lives in v1-tools.css/v1-families.css. This layer keeps
    the world archive editorial: figures/table are documentary, while the
    glossary is rendered as a lexicon ledger rather than a grid of cards. */
+html.v1 [data-family="lore"]{overflow-wrap:anywhere}
+
+/* Local text-resilience for the Samuel companion surfaces. The shared shell
+   intentionally uses width:max-content on .brand; at 200% text that intrinsic
+   width can exceed the mobile two-column header. These pages allow the brand
+   to reflow without changing the global shell contract. */
+html.v1 .site-header__inner>*{min-width:0}
+html.v1 .brand{width:auto;max-width:100%}
+html.v1 .brand__name,html.v1 .explore-trigger{overflow-wrap:anywhere}
+
 html.v1 .lore-figure{margin:2.5rem 0;border:1px solid var(--color-border)}
 html.v1 .lore-figure img{display:block;width:100%;height:auto}
 html.v1 .lore-figure__copy{padding:1.5rem;min-width:0}

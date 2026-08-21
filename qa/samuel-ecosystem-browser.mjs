@@ -63,18 +63,18 @@ async function closeClean(run,key) {
   assert.deepEqual(run.consoleErrors,[],`${key}: console.error`);
   await run.ctx.close();
 }
-async function metadata(page,key) {
-  assert.ok((await page.title()).trim(), `${key}: title`);
-  assert.equal(await page.locator('link[rel="canonical"]').getAttribute('href'), CANONICAL[key], `${key}: canonical`);
-  assert.match((await page.locator('meta[name="description"]').getAttribute('content'))||'', /\S/, `${key}: description`);
-  assert.match((await page.locator('meta[name="robots"]').getAttribute('content'))||'', /index/, `${key}: robots`);
-  assert.equal(await page.locator('h1').count(),1,`${key}: H1 único`);
+async function metadata(page,key,label) {
+  assert.ok((await page.title()).trim(), `${label}: title`);
+  assert.equal(await page.locator('link[rel="canonical"]').getAttribute('href'), CANONICAL[key], `${label}: canonical`);
+  assert.match((await page.locator('meta[name="description"]').getAttribute('content'))||'', /\S/, `${label}: description`);
+  assert.match((await page.locator('meta[name="robots"]').getAttribute('content'))||'', /index/, `${label}: robots`);
+  assert.equal(await page.locator('h1').count(),1,`${label}: H1 único`);
   const badOrder=await page.evaluate(()=>{
     let prev=0; const bad=[];
     for(const h of document.querySelectorAll('h1,h2,h3,h4,h5,h6')){const n=Number(h.tagName[1]); if(prev&&n>prev+1) bad.push(`${prev}->${n}:${h.textContent}`); prev=n;}
     return bad;
   });
-  assert.deepEqual(badOrder,[],`${key}: heading order`);
+  assert.deepEqual(badOrder,[],`${label}: heading order`);
 }
 async function anchorsAndLinks(page,key) {
   const result=await page.evaluate(()=>{
@@ -96,7 +96,7 @@ async function overflow(page,label){
 // Noveris: canonical inventory, schema parity, media and cross-links.
 {
   const run=await openFresh('noveris'); const {page}=run;
-  await metadata(page,'Noveris'); await anchorsAndLinks(page,'Noveris');
+  await metadata(page,'noveris','Noveris'); await anchorsAndLinks(page,'Noveris');
   const terms=await page.locator('#glosario .id-card h3').allTextContents();
   assert.deepEqual(terms.map(norm),TERMS_BEFORE,'Noveris: términos visibles preservados y en el mismo orden');
   const schema=JSON.parse(await page.locator('script[type="application/ld+json"]').textContent());
@@ -105,10 +105,12 @@ async function overflow(page,label){
   const defined=termSet.hasDefinedTerm.map(x=>x.name);
   for(const term of TERMS_BEFORE) assert.ok(defined.includes(term),`Noveris: DefinedTerm faltante ${term}`);
   assert.equal(new Set(defined).size,defined.length,'Noveris: DefinedTerm duplicado');
+  assert.ok(termSet.hasDefinedTerm.every(x=>norm(x.name)&&norm(x.description)), 'Noveris: ningún DefinedTerm puede quedar vacío');
   const faq=graph.find(x=>x['@type']==='FAQPage');
   const visibleQ=(await page.locator('#preguntas-frecuentes summary').allTextContents()).map(norm);
   const schemaQ=faq.mainEntity.map(q=>norm(q.name));
   assert.deepEqual(schemaQ,visibleQ,'Noveris: FAQ visible/schema parity');
+  assert.ok(faq.mainEntity.every(q=>norm(q.acceptedAnswer?.text)), 'Noveris: respuestas FAQ schema no vacías');
   assert.equal(termSet.hasDefinedTerm.find(x=>x.name==='Noveris').sameAs,'https://www.wikidata.org/wiki/Q139927664','Noveris: sameAs preservado');
   assert.equal(await page.locator('a[href="/clubes-de-lectura/samuel-entre-mundos/"]').count(),1,'Noveris: enlace contextual al club');
   const media=await page.locator('main img').evaluateAll(imgs=>imgs.map(i=>({alt:i.alt,w:i.getAttribute('width'),h:i.getAttribute('height'),src:i.getAttribute('src')})));
@@ -119,7 +121,7 @@ async function overflow(page,label){
 // Club: preserve all canonical questions and objective spoiler labelling.
 {
   const run=await openFresh('club'); const {page}=run;
-  await metadata(page,'Club'); await anchorsAndLinks(page,'Club');
+  await metadata(page,'club','Club'); await anchorsAndLinks(page,'Club');
   const q=(await page.locator('#guia details summary').allTextContents()).map(x=>norm(x).replace(/^\d+\.\s*/,''));
   assert.deepEqual(q,QUESTIONS,'Club: 10 preguntas canónicas preservadas');
   assert.match(norm(await page.locator('#guia .tool-note').textContent()),/spoilers/i,'Club: bloque final avisa spoilers');
@@ -132,11 +134,11 @@ async function overflow(page,label){
 // Printable guide: questions must be byte-equivalent after normalization to Club.
 {
   const run=await openFresh('guide'); const {page}=run;
-  await metadata(page,'Guía'); await anchorsAndLinks(page,'Guía');
+  await metadata(page,'guide','Guía'); await anchorsAndLinks(page,'Guía');
   const q=(await page.locator('.questions li strong').allTextContents()).map(norm);
   assert.deepEqual(q,QUESTIONS,'Guía: preguntas sincronizadas con Club');
   assert.match(norm(await page.locator('#preguntas').locator('xpath=preceding-sibling::*[1]').textContent()),/terminar el libro/i,'Guía: capa postlectura explícita');
-  assert.ok(await page.locator('button').filter({hasText:'Imprimir guía'}).count()===1,'Guía: acción de impresión');
+  assert.equal(await page.locator('button').filter({hasText:'Imprimir guía'}).count(),1,'Guía: acción de impresión');
   await closeClean(run,'Guía');
 }
 
@@ -162,9 +164,10 @@ for(const key of Object.keys(URLS)){
   await closeClean(run,`${key} long-content`);
 }
 
-// Keyboard/skip-link on pages with the global shell.
-for(const key of ['noveris','club']){
+// Keyboard/skip-link on all three surfaces.
+for(const key of Object.keys(URLS)){
   const run=await openFresh(key);
+  await run.page.evaluate(()=>document.activeElement?.blur());
   await run.page.keyboard.press('Tab');
   assert.ok(await run.page.evaluate(()=>document.activeElement?.classList.contains('skip-link')),`${key}: primer Tab alcanza skip link`);
   await closeClean(run,`${key} keyboard`);
@@ -214,7 +217,7 @@ for(const [key,width,file] of [
 {
   const run=await openFresh('guide',{width:1440,height:1000}); const {page}=run;
   await page.emulateMedia({media:'print'});
-  for(const sel of ['.topbar','.breadcrumb','.actions']) assert.equal(await page.locator(sel).evaluate(el=>getComputedStyle(el).display),'none',`print: ${sel} oculto`);
+  for(const sel of ['.skip-link','.topbar','.breadcrumb','.actions']) assert.equal(await page.locator(sel).evaluate(el=>getComputedStyle(el).display),'none',`print: ${sel} oculto`);
   const pdf=path.join(OUT,'samuel-guia-imprimible.pdf');
   await page.pdf({path:pdf,format:'A4',printBackground:false,preferCSSPageSize:true});
   const stat=await fs.stat(pdf); assert.ok(stat.size>20000,`print: PDF útil (${stat.size} bytes)`);
