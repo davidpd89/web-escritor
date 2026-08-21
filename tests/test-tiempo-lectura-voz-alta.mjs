@@ -28,7 +28,7 @@ assert.equal(manual.quickBudgets[1].words, 775);
 // 930/155 = 6 minutes; pause factor 1.1 => 6.6 minutes = 6m36s.
 const controlled = calculateReadAloud({ manualWords: 930, wpm: 155, bufferPct: 10, targetMinutes: 5 });
 assert.equal(controlled.words, 930);
-assert.equal(controlled.minutes, 6.6);
+assert.ok(Math.abs(controlled.minutes - 6.6) < 1e-12);
 assert.equal(controlled.duration, '6 min 36 s');
 assert.equal(controlled.maxWordsForTarget, 704);
 assert.ok(Math.abs(controlled.effectiveWpm - (155 / 1.1)) < 1e-9);

@@ -1,0 +1,89 @@
+name: Tools events and memory browser QA
+
+on:
+  pull_request:
+    branches:
+      - implementacion-web-2026
+    paths:
+      - 'herramientas/eventos-ics/**'
+      - 'herramientas/tiempo-lectura-voz-alta/**'
+      - 'clubes-de-lectura/preparar-sesion/**'
+      - 'herramientas/entrevista-familiar/**'
+      - 'recursos/ficha-historia-objeto-heredado/**'
+      - 'assets/evento-escritor-core.js'
+      - 'assets/generador-evento-escritor.js'
+      - 'assets/generador-evento-escritor.css'
+      - 'assets/tiempo-lectura-voz-alta.js'
+      - 'assets/tiempo-lectura-voz-alta.css'
+      - 'assets/club-session-engine.js'
+      - 'assets/club-session-builder.js'
+      - 'assets/club-session-builder.css'
+      - 'assets/entrevista-familiar-core.js'
+      - 'assets/entrevista-familiar.js'
+      - 'assets/entrevista-familiar.css'
+      - 'assets/objeto-heredado-core.js'
+      - 'assets/objeto-heredado.js'
+      - 'assets/objeto-heredado.css'
+      - 'assets/v1-tools-events-memory.css'
+      - 'tests/test-evento-escritor-core.mjs'
+      - 'tests/test-evento-ics-rfc5545.mjs'
+      - 'tests/test-tiempo-lectura-voz-alta.mjs'
+      - 'tests/test-club-session-engine.mjs'
+      - 'tests/test-entrevista-familiar-core.mjs'
+      - 'tests/test-objeto-heredado-core.mjs'
+      - 'qa/tools-events-memory-browser.mjs'
+      - '.github/workflows/tools-events-memory-browser-qa.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  browser-qa:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+
+      - name: Run focused engine regressions
+        run: |
+          set -e
+          node tests/test-evento-escritor-core.mjs
+          node tests/test-evento-ics-rfc5545.mjs
+          node tests/test-tiempo-lectura-voz-alta.mjs
+          node tests/test-club-session-engine.mjs
+          node tests/test-entrevista-familiar-core.mjs
+          node tests/test-objeto-heredado-core.mjs
+
+      - name: Install Chromium QA dependency
+        run: |
+          npm init -y >/dev/null 2>&1
+          npm install --no-save playwright@1.55.0
+          npx playwright install --with-deps chromium
+
+      - name: Run browser QA
+        run: |
+          set -e
+          python3 -m http.server 4173 --bind 127.0.0.1 > /tmp/tools-events-memory-http.log 2>&1 &
+          server_pid=$!
+          trap 'kill "$server_pid" 2>/dev/null || true' EXIT
+          for i in {1..20}; do
+            if curl -fsS http://127.0.0.1:4173/herramientas/eventos-ics/ >/dev/null; then
+              break
+            fi
+            sleep 0.5
+          done
+          node qa/tools-events-memory-browser.mjs
+
+      - name: Upload QA evidence
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: tools-events-memory-browser-qa
+          path: qa-artifacts/tools-events-memory/
+          if-no-files-found: warn
+          retention-days: 14
