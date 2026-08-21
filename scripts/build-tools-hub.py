@@ -11,6 +11,12 @@ CATEGORIES = {
     "publicar-promocionar": ("Prensa y promoción", "Recursos para empaquetar material profesional sin convertirlo en una fábrica de copy."),
     "investigar-recordar": ("Investigar y recordar", "Prepara conversaciones y fichas para recoger historia real antes de convertirla en material narrativo."),
 }
+FILTER_GROUPS = {
+    "revisar": ("Revisar texto", {"revisar-texto", "revisar-manuscrito"}),
+    "estructura": ("Personajes y estructura", {"personajes-estructura"}),
+    "publicar": ("Publicar y promocionar", {"publicar-web", "publicar-promocionar", "lectura-eventos"}),
+    "investigar": ("Investigar y recordar", {"investigar-recordar"}),
+}
 PRIVACY = {
     "local": "En tu navegador",
     "network-required": "Necesita consultar una URL pública",
@@ -56,87 +62,258 @@ def validate(data):
 
 
 def card(tool):
-    return f'''<article class="tool-card" data-tool data-category="{html.escape(tool['category'])}" data-privacy="{html.escape(tool['privacy'])}">
-  <p class="tool-meta"><span>{html.escape(PRIVACY[tool['privacy']])}</span></p>
-  <h3><a href="{html.escape(tool['href'])}">{html.escape(tool['name'])}</a></h3>
-  <p>{html.escape(tool['summary'])}</p>
-  <a class="tool-link" href="{html.escape(tool['href'])}">Abrir herramienta <span aria-hidden="true">→</span></a>
-</article>'''
+    return f'''<article class="id-card" data-tool data-category="{html.escape(tool['category'])}" data-privacy="{html.escape(tool['privacy'])}">
+          <p class="tool-meta">{html.escape(PRIVACY[tool['privacy']])}</p>
+          <h3><a href="{html.escape(tool['href'])}">{html.escape(tool['name'])}</a></h3>
+          <p>{html.escape(tool['summary'])}</p>
+          <div class="id-card__actions"><a class="text-action" href="{html.escape(tool['href'])}">Abrir herramienta</a></div>
+        </article>'''
 
 
 def directory_card(entry):
-    return f'''<article class="directory-card">
-  <h3><a href="{html.escape(entry['href'])}">{html.escape(entry['name'])}</a></h3>
-  <p>{html.escape(entry['summary'])}</p>
-</article>'''
+    return f'''<article class="id-card">
+          <h3><a href="{html.escape(entry['href'])}">{html.escape(entry['name'])}</a></h3>
+          <p>{html.escape(entry['summary'])}</p>
+        </article>'''
+
+
+def noscript_item(i, tool):
+    return f'''<li><span>{i:02d}</span><div><strong><a href="{html.escape(tool['href'])}">{html.escape(tool['name'])}</a></strong></div></li>'''
+
+
+def item_list_entry(i, tool):
+    return json.dumps({"@type": "ListItem", "position": i, "url": "https://davidportodiaz.com" + tool["href"], "name": tool["name"]}, ensure_ascii=False)
 
 
 def render(data, tools, directories):
-    sections=[]
-    for key,(title,desc) in CATEGORIES.items():
-        subset=[t for t in tools if t['category']==key]
-        if not subset: continue
-        sections.append(f'''<section class="tools-section" data-tool-section>
-<h2>{html.escape(title)}</h2><p>{html.escape(desc)}</p>
-<div class="tools-grid">{''.join(card(t) for t in subset)}</div>
-</section>''')
-    items=''.join('<li><a href="{0}">{1}</a></li>'.format(html.escape(t['href']), html.escape(t['name'])) for t in tools)
+    sections = []
+    for key, (title, desc) in CATEGORIES.items():
+        subset = [t for t in tools if t['category'] == key]
+        if not subset:
+            continue
+        sections.append(f'''    <section class="tools-section" data-tool-section>
+      <h2>{html.escape(title)}</h2>
+      <p>{html.escape(desc)}</p>
+      <div class="id-cards">
+        {chr(10).join('        ' + card(t) if False else card(t) for t in subset)}
+      </div>
+    </section>''')
+
+    filter_buttons = '\n        '.join(
+        f'<button type="button" data-filter="{key}">{html.escape(label)}</button>'
+        for key, (label, _cats) in FILTER_GROUPS.items()
+    )
+
     directories_section = ''
     if directories:
-        directories_section = f'''<section class="tools-directories"><h2>Checklists y directorios relacionados</h2>
-<p>Estas páginas no son herramientas interactivas: son listas de comprobación o directorios de referencia. No cuentan como parte de las {len(tools)} herramientas de arriba.</p>
-<div class="directories-grid">{''.join(directory_card(d) for d in directories)}</div>
-</section>'''
-    return f'''<!doctype html>
-<html lang="es"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-<meta name="robots" content="index,follow,max-image-preview:large">
-<title>Herramientas gratuitas para escritores | David Porto Díaz</title>
-<meta name="description" content="Herramientas gratuitas para revisar manuscritos, personajes, metadatos, eventos y webs de escritor. Sin registro; las herramientas de texto indican cuándo todo se procesa en tu navegador.">
-<meta property="og:title" content="Herramientas gratuitas para escritores | David Porto Díaz">
-<meta property="og:description" content="Herramientas gratuitas para revisar manuscritos, personajes, metadatos, eventos y webs de escritor. Sin registro; las herramientas de texto indican cuándo todo se procesa en tu navegador.">
-<meta property="og:type" content="website">
-<meta property="og:url" content="https://davidportodiaz.com/herramientas/">
-<meta property="og:image" content="https://davidportodiaz.com/assets/david-porto-imagen-compartir.webp">
-<meta property="og:image:width" content="1731">
-<meta property="og:image:height" content="909">
-<meta property="og:image:alt" content="Herramientas gratuitas para escritores | David Porto Díaz">
-<meta property="og:locale" content="es_ES">
-<meta property="og:site_name" content="David Porto Díaz">
-<meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Herramientas gratuitas para escritores | David Porto Díaz">
-<meta name="twitter:description" content="Herramientas gratuitas para revisar manuscritos, personajes, metadatos, eventos y webs de escritor. Sin registro; las herramientas de texto indican cuándo todo se procesa en tu navegador.">
-<meta name="twitter:image" content="https://davidportodiaz.com/assets/david-porto-imagen-compartir.webp">
-<meta name="twitter:image:alt" content="Herramientas gratuitas para escritores | David Porto Díaz">
-<link rel="canonical" href="https://davidportodiaz.com/herramientas/">
-<link rel="icon" type="image/png" href="/assets/david-porto-favicon.png">
-<link rel="apple-touch-icon" href="/assets/david-porto-favicon.png">
-<link rel="manifest" href="/manifest.json">
-<link rel="stylesheet" href="/styles.css?v=202609-launch-1"><link rel="stylesheet" href="/assets/herramientas-hub.css?v=20260819-1">
-<script type="application/ld+json">{{"@context":"https://schema.org","@type":"CollectionPage","name":"Herramientas gratuitas para escritores","url":"https://davidportodiaz.com/herramientas/","inLanguage":"es","mainEntity":{{"@type":"ItemList","numberOfItems":{len(tools)},"itemListElement":[{','.join(json.dumps({'@type':'ListItem','position':i+1,'url':'https://davidportodiaz.com'+t['href'],'name':t['name']}, ensure_ascii=False) for i,t in enumerate(tools))}]}}}}</script>
-</head><body>
-<a class="skip-link" href="#main-content">Saltar al contenido</a>
-<div class="site-shell"><main id="main-content" class="tools-page" tabindex="-1">
-<nav class="breadcrumb" aria-label="Ruta de navegación"><a href="/">Inicio</a><span aria-hidden="true">›</span><span>Herramientas</span></nav>
-<header class="tools-hero"><p class="eyebrow">Recursos para escritores</p><h1>Herramientas pequeñas para problemas concretos.</h1>
-<p class="lead">Sin cuenta y sin convertir cada decisión en un «score». Si una herramienta recibe texto privado, la página indica de forma explícita si se procesa solo en tu navegador.</p></header>
-<section class="tool-finder" aria-labelledby="finder-title"><h2 id="finder-title">¿Qué necesitas hacer?</h2>
-<div class="tool-filters" role="group" aria-label="Filtrar herramientas"><button type="button" data-filter="all" aria-pressed="true">Todas</button><button type="button" data-filter="revisar">Revisar texto</button><button type="button" data-filter="estructura">Personajes y estructura</button><button type="button" data-filter="publicar">Publicar y promocionar</button><button type="button" data-filter="investigar">Investigar y recordar</button><button type="button" data-filter="local">Solo navegador</button></div>
-<p class="tool-count" data-tool-count aria-live="polite">{len(tools)} herramientas</p></section>
-{''.join(sections)}
+        directories_section = f'''    <section class="v1-section" id="directorios">
+      <div class="v1-section__head">
+        <p class="eyebrow">Checklists y directorios relacionados</p>
+        <div><h2>Referencia, no herramientas interactivas.</h2><p>Estas páginas son listas de comprobación o directorios de referencia. No cuentan como parte de las {len(tools)} herramientas de arriba.</p></div>
+      </div>
+      <div class="id-cards">
+        {chr(10).join(directory_card(d) for d in directories)}
+      </div>
+    </section>'''
+
+    noscript_items = '\n          '.join(noscript_item(i, t) for i, t in enumerate(tools, 1))
+    item_list_json = ','.join(item_list_entry(i, t) for i, t in enumerate(tools, 1))
+
+    return f'''<!DOCTYPE html>
+<html lang="es" class="v1">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <meta name="robots" content="index,follow,max-image-preview:large" />
+
+  <title>Herramientas gratuitas para escritores | David Porto Díaz</title>
+  <meta name="description" content="Herramientas gratuitas para revisar manuscritos, personajes, metadatos, eventos y webs de escritor. Sin registro; las herramientas de texto indican cuándo todo se procesa en tu navegador." />
+  <meta property="og:title" content="Herramientas gratuitas para escritores | David Porto Díaz" />
+  <meta property="og:description" content="Herramientas gratuitas para revisar manuscritos, personajes, metadatos, eventos y webs de escritor. Sin registro; las herramientas de texto indican cuándo todo se procesa en tu navegador." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://davidportodiaz.com/herramientas/" />
+  <meta property="og:image" content="https://davidportodiaz.com/assets/david-porto-imagen-compartir.webp" />
+  <meta property="og:image:width" content="1731" />
+  <meta property="og:image:height" content="909" />
+  <meta property="og:image:alt" content="Herramientas gratuitas para escritores | David Porto Díaz" />
+  <meta property="og:locale" content="es_ES" />
+  <meta property="og:site_name" content="David Porto Díaz" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Herramientas gratuitas para escritores | David Porto Díaz" />
+  <meta name="twitter:description" content="Herramientas gratuitas para revisar manuscritos, personajes, metadatos, eventos y webs de escritor. Sin registro; las herramientas de texto indican cuándo todo se procesa en tu navegador." />
+  <meta name="twitter:image" content="https://davidportodiaz.com/assets/david-porto-imagen-compartir.webp" />
+  <meta name="twitter:image:alt" content="Herramientas gratuitas para escritores | David Porto Díaz" />
+
+  <meta name="theme-color" content="#F4EFE7" />
+  <link rel="preconnect" href="https://gc.zgo.at" />
+  <link rel="canonical" href="https://davidportodiaz.com/herramientas/" />
+  <link rel="icon" type="image/png" href="/assets/david-porto-favicon.png" />
+  <link rel="apple-touch-icon" href="/assets/david-porto-favicon.png" />
+  <link rel="manifest" href="/manifest.json" />
+
+  <!-- V1 editorial system — Herramientas hub uses the identity family's
+       card grid (the one place a card grid is the right default: unrelated
+       utilities, not an editorial archive). Generated by
+       scripts/build-tools-hub.py from data/tools-hub.json — do not edit
+       this file by hand; edit the JSON and regenerate. -->
+  <link rel="stylesheet" href="/assets/v1-fonts.css" />
+  <link rel="stylesheet" href="/assets/v1-tokens.css" />
+  <link rel="stylesheet" href="/assets/v1-base.css" />
+  <link rel="stylesheet" href="/assets/v1-shell.css" />
+  <link rel="stylesheet" href="/assets/v1-components.css" />
+  <link rel="stylesheet" href="/assets/v1-families.css" />
+
+  <script type="application/ld+json">{{"@context":"https://schema.org","@type":"CollectionPage","name":"Herramientas gratuitas para escritores","url":"https://davidportodiaz.com/herramientas/","inLanguage":"es","mainEntity":{{"@type":"ItemList","numberOfItems":{len(tools)},"itemListElement":[{item_list_json}]}}}}</script>
+</head>
+
+<body>
+  <a href="#contenido" class="skip-link">Saltar al contenido</a>
+
+  <header class="site-header" data-header>
+    <div class="site-header__inner">
+      <a class="brand" href="/" aria-label="David Porto Díaz — inicio">
+        <span class="brand__name">David Porto Díaz</span>
+        <span class="brand__role">Escritor</span>
+      </a>
+      <nav class="primary-nav" aria-label="Navegación principal">
+        <a href="/libros/">Obra</a>
+        <a href="/cuaderno/">Cuaderno</a>
+        <a href="/herramientas/" aria-current="page">Herramientas</a>
+      </nav>
+      <button class="explore-trigger" type="button" aria-haspopup="dialog" aria-controls="explore-dialog" aria-expanded="false" data-explore-open>
+        Explorar
+      </button>
+    </div>
+  </header>
+
+  <dialog class="explore-dialog" id="explore-dialog" aria-labelledby="explore-title" data-explore-dialog>
+    <div class="explore-dialog__shell">
+      <div class="explore-dialog__head">
+        <div>
+          <p class="eyebrow">Índice general</p>
+          <h2 id="explore-title">Explorar</h2>
+        </div>
+        <button class="icon-button" type="button" aria-label="Cerrar Explorar" data-explore-close>
+          <svg aria-hidden="true" viewBox="0 0 24 24" width="20" height="20"><path d="M5 5l14 14M19 5L5 19"/></svg>
+        </button>
+      </div>
+
+      <div class="explore-dialog__grid">
+        <nav class="explore-list" aria-label="Destinos de la web">
+          <a class="explore-row" href="/las-manecillas-del-recuerdo/" data-preview="manecillas">
+            <span class="explore-row__index">01</span>
+            <span class="explore-row__body"><strong>Las manecillas del recuerdo</strong><small>La obra actual.</small></span>
+          </a>
+          <a class="explore-row" href="/autor.html" data-preview="autor">
+            <span class="explore-row__index">02</span>
+            <span class="explore-row__body"><strong>Autor</strong><small>Biografía, obra y trayectoria.</small></span>
+          </a>
+          <a class="explore-row" href="/libros/samuel-entre-mundos/" data-preview="samuel">
+            <span class="explore-row__index">03</span>
+            <span class="explore-row__body"><strong>Samuel entre mundos</strong><small>Primera novela publicada.</small></span>
+          </a>
+          <a class="explore-row" href="/cuaderno/" data-preview="cuaderno">
+            <span class="explore-row__index">04</span>
+            <span class="explore-row__body"><strong>Cuaderno</strong><small>Artículos y piezas editoriales.</small></span>
+          </a>
+          <a class="explore-row" href="/herramientas/" data-preview="herramientas">
+            <span class="explore-row__index">05</span>
+            <span class="explore-row__body"><strong>Herramientas</strong><small>Utilidades gratuitas para escritores.</small></span>
+          </a>
+          <a class="explore-row" href="/prensa.html" data-preview="prensa">
+            <span class="explore-row__index">06</span>
+            <span class="explore-row__body"><strong>Prensa y eventos</strong><small>Apariciones, materiales y agenda.</small></span>
+          </a>
+        </nav>
+
+        <aside class="explore-preview" aria-live="polite" aria-atomic="true" data-explore-preview>
+          <div class="explore-preview__media" aria-hidden="true" data-preview-media></div>
+          <p class="explore-preview__label" data-preview-label>Herramientas</p>
+          <p class="explore-preview__copy" data-preview-copy>Utilidades gratuitas para escritores.</p>
+        </aside>
+      </div>
+    </div>
+  </dialog>
+
+  <main id="contenido" class="v1-main" data-family="tools-hub">
+    <nav class="book-breadcrumb" aria-label="Ruta de navegación">
+      <ol><li><a href="/">Inicio</a></li><li aria-current="page">Herramientas</li></ol>
+    </nav>
+
+    <header class="v1-masthead">
+      <div>
+        <span class="coordinate">Recursos</span>
+        <p class="eyebrow">Recursos para escritores</p>
+        <h1>Herramientas pequeñas para problemas concretos.</h1>
+        <p class="v1-masthead__lead">Sin cuenta y sin convertir cada decisión en un «score». Si una herramienta recibe texto privado, la página indica de forma explícita si se procesa solo en tu navegador.</p>
+      </div>
+    </header>
+
+    <section class="tool-finder" aria-labelledby="finder-title">
+      <h2 id="finder-title">¿Qué necesitas hacer?</h2>
+      <div class="tool-filters" role="group" aria-label="Filtrar herramientas">
+        <button type="button" data-filter="all" aria-pressed="true">Todas</button>
+        {filter_buttons}
+        <button type="button" data-filter="local">Solo navegador</button>
+      </div>
+      <p class="tool-count" data-tool-count aria-live="polite">{len(tools)} herramientas</p>
+    </section>
+
+{chr(10).join(sections)}
+
 {directories_section}
-<section class="tools-method"><h2>Qué significa «privada» aquí</h2><p>Las herramientas marcadas «En tu navegador» no necesitan enviar el texto o los datos introducidos a nuestro servidor para calcular el resultado. Las que necesitan consultar una URL pública lo dicen de forma distinta. No usamos «privada» como sello de seguridad genérico.</p></section>
-<section class="tools-external"><h2>¿Buscas software externo?</h2><p>Este hub reúne herramientas creadas para davidportodiaz.com. La selección de programas y servicios de terceros vive aparte para poder verificar precio, plataforma, idioma y tratamiento del manuscrito sin mezclar recomendaciones con producto propio.</p><p><a href="/recursos/herramientas-para-escritores/">Ver directorio curado de herramientas para autores</a></p></section>
-<noscript><section class="tools-noscript"><h2>Todas las herramientas</h2><ul>{items}</ul></section></noscript>
-</main></div><script src="/assets/herramientas-hub.js?v=20260819-1" defer></script></body></html>'''
+
+    <section class="v1-section" id="metodo">
+      <div class="v1-section__head"><p class="eyebrow">Método</p><h2>Qué significa «privada» aquí.</h2></div>
+      <p class="samuel-narrow" style="max-width:64ch">Las herramientas marcadas «En tu navegador» no necesitan enviar el texto o los datos introducidos a nuestro servidor para calcular el resultado. Las que necesitan consultar una URL pública lo dicen de forma distinta. No usamos «privada» como sello de seguridad genérico.</p>
+    </section>
+
+    <section class="v1-section" id="externas">
+      <div class="v1-section__head"><p class="eyebrow">¿Buscas software externo?</p><h2>Este hub reúne herramientas propias.</h2></div>
+      <p class="samuel-narrow" style="max-width:64ch">La selección de programas y servicios de terceros vive aparte para poder verificar precio, plataforma, idioma y tratamiento del manuscrito sin mezclar recomendaciones con producto propio.</p>
+      <p style="margin-top:1rem"><a class="text-action" href="/recursos/herramientas-para-escritores/">Ver directorio curado de herramientas para autores</a></p>
+    </section>
+
+    <noscript>
+      <section class="v1-section">
+        <div class="v1-section__head"><p class="eyebrow">Sin JavaScript</p><h2>Todas las herramientas.</h2></div>
+        <ul class="samuel-route-list">
+          {noscript_items}
+        </ul>
+      </section>
+    </noscript>
+  </main>
+
+  <footer class="site-footer">
+    <div class="site-footer__grid">
+      <div>
+        <strong class="brand__name">David Porto Díaz</strong>
+        <p>Autor de Las manecillas del recuerdo y Samuel entre mundos.</p>
+      </div>
+      <nav aria-label="Obra"><h2>Obra</h2><a href="/las-manecillas-del-recuerdo/">Las manecillas del recuerdo</a><a href="/libros/samuel-entre-mundos/">Samuel entre mundos</a><a href="/fragmento/">Fragmento gratis</a></nav>
+      <nav aria-label="Leer y recursos"><h2>Leer</h2><a href="/cuaderno/">Cuaderno</a><a href="/herramientas/" aria-current="page">Herramientas</a><a href="/mapa-del-sitio/">Mapa del sitio</a></nav>
+      <nav aria-label="Información"><h2>Información</h2><a href="/autor.html">Autor</a><a href="/prensa.html">Prensa</a><a href="/eventos.html">Eventos</a><a href="/privacidad.html">Privacidad</a><a href="/aviso-legal.html">Aviso legal</a><a href="/ai/">Para IA</a></nav>
+    </div>
+    <p class="footer-legal">
+      <span>© 2026 David Porto Díaz. Todos los derechos reservados.</span>
+    </p>
+  </footer>
+
+  <script defer src="/assets/v1-shell.js"></script>
+  <script defer src="/script.js?v=202609-launch-1"></script>
+  <script src="/assets/herramientas-hub.js?v=20260819-1" defer></script>
+</body>
+</html>
+'''
 
 
 def main():
-    p=argparse.ArgumentParser(); p.add_argument('data'); p.add_argument('output'); p.add_argument('--check', action='store_true'); args=p.parse_args()
-    data=json.loads(Path(args.data).read_text(encoding='utf-8')); tools,directories=validate(data); out=render(data,tools,directories); target=Path(args.output)
+    p = argparse.ArgumentParser(); p.add_argument('data'); p.add_argument('output'); p.add_argument('--check', action='store_true'); args = p.parse_args()
+    data = json.loads(Path(args.data).read_text(encoding='utf-8')); tools, directories = validate(data); out = render(data, tools, directories); target = Path(args.output)
     if args.check:
         if not target.exists() or target.read_text(encoding='utf-8') != out:
             print('OUTDATED', file=sys.stderr); return 2
         print(f'OK: {len(tools)} herramientas, {len(directories)} directorios'); return 0
-    target.write_text(out,encoding='utf-8'); print(f'GENERATED: {len(tools)} herramientas, {len(directories)} directorios'); return 0
+    target.write_text(out, encoding='utf-8'); print(f'GENERATED: {len(tools)} herramientas, {len(directories)} directorios'); return 0
 
-if __name__=='__main__': raise SystemExit(main())
+if __name__ == '__main__': raise SystemExit(main())
