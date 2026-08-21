@@ -106,7 +106,7 @@ for (const viewport of viewports) {
   await context.close();
 }
 
-// Prensa: copy controls, fallback, print state and exact copied plain text.
+// Prensa: mobile fact sheets must stack; copy controls, fallback and print work.
 {
   const context = await newContext({ width: 390, height: 844 });
   await context.addInitScript(() => {
@@ -116,6 +116,20 @@ for (const viewport of viewports) {
     });
   });
   const { page } = await openChecked(context, '/prensa.html');
+
+  const factSheets = await page.locator('#ficha-manecillas > div[style*="grid-template-columns"], #ficha > div[style*="grid-template-columns"]').evaluateAll((nodes) => nodes.map((node) => {
+    const children = [...node.children].filter((child) => child instanceof HTMLElement);
+    const first = children[0]?.getBoundingClientRect();
+    const second = children[1]?.getBoundingClientRect();
+    return {
+      columns: getComputedStyle(node).gridTemplateColumns,
+      stacked: Boolean(first && second && second.top >= first.bottom - 1),
+    };
+  }));
+  check(factSheets.length === 2, `prensa: expected two book fact-sheet grids, got ${factSheets.length}`);
+  check(factSheets.every((sheet) => !sheet.columns.includes(' ')), `prensa: fact sheets remain multi-column at 390px (${factSheets.map((sheet) => sheet.columns).join(' | ')})`);
+  check(factSheets.every((sheet) => sheet.stacked), 'prensa: book facts and cover are not vertically stacked at 390px');
+
   const buttons = page.locator('.copy-btn');
   check(await buttons.count() >= 4, 'prensa: expected at least four copy controls');
   const first = buttons.first();
@@ -168,11 +182,17 @@ for (const viewport of viewports) {
     const docs = [...document.querySelectorAll('script[type="application/ld+json"]')].map((s) => JSON.parse(s.textContent));
     const nodes = docs.flatMap((d) => d['@graph'] || [d]);
     const person = nodes.find((n) => n['@type'] === 'Person');
+    const ledgerGeometry = [...document.querySelectorAll('.awards-ledger li')].map((item) => {
+      const label = item.querySelector(':scope > span')?.getBoundingClientRect();
+      const title = item.querySelector('h3')?.getBoundingClientRect();
+      return label && title ? { labelRight: label.right, titleLeft: title.left } : null;
+    }).filter(Boolean);
     return {
       awards: person?.award || [],
       recognition: document.querySelector('#reconocimientos')?.innerText || '',
       trajectory: document.querySelector('#colaboraciones')?.innerText || '',
       reception: document.querySelector('#recepcion')?.innerText || '',
+      ledgerGeometry,
     };
   });
   check(result.awards.length === 2, `premios: expected 2 schema awards, got ${result.awards.length}`);
@@ -181,7 +201,14 @@ for (const viewport of viewports) {
   check(result.trajectory.includes('Debut novelístico publicado'), 'premios: debut missing from trajectory');
   check(result.trajectory.includes('Antología colaborativa'), 'premios: anthology missing from trajectory');
   check(result.reception.includes('Reseñas de lectores'), 'premios: reader reviews missing from reception');
+  check(result.ledgerGeometry.every(({ labelRight, titleLeft }) => labelRight <= titleLeft), 'premios: ledger date/result column overlaps a record title at 1440px');
   await context.close();
+
+  const mobileContext = await newContext({ width: 390, height: 844 });
+  const { page: mobilePage } = await openChecked(mobileContext, '/premios.html');
+  const mobileColumns = await mobilePage.locator('.awards-ledger li').first().evaluate((item) => getComputedStyle(item).gridTemplateColumns);
+  check(!mobileColumns.includes(' '), `premios: ledger does not collapse to one column at 390px (${mobileColumns})`);
+  await mobileContext.close();
 }
 
 // Eventos: upcoming empty state first, only two authorized archive records, both EventCompleted.
