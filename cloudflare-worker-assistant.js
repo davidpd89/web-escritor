@@ -5,21 +5,24 @@
  * Required bindings when ASSISTANT_ENABLED=true:
  *   ASSISTANT_SEARCH      AI Search instance binding
  *   AI                    Workers AI binding
- *   SESSION_RATE_LIMITER  per-session limiter
+ *   ASSISTANT_QUOTA_DB    D1 database for exact daily generation quotas
+ *   SESSION_RATE_LIMITER  per-session burst limiter
  *   IP_RATE_LIMITER       secondary anti-abuse limiter
- *   GLOBAL_RATE_LIMITER   coarse global limiter (per Cloudflare location)
+ *   GLOBAL_RATE_LIMITER   coarse global burst limiter (per Cloudflare location)
  *
  * Required vars/secrets when enabled:
- *   ASSISTANT_MODEL
- *   TURNSTILE_SITE_KEY      (public; returned by GET /api/assistant/config)
- *   TURNSTILE_SECRET_KEY    (secret)
- *   TURNSTILE_HOSTNAMES     comma-separated, e.g. davidportodiaz.com
+ *   ASSISTANT_MODEL        V1 is deliberately restricted to FREE_V1_MODELS
+ *   TURNSTILE_SITE_KEY     public; returned by GET /api/assistant/config
+ *   TURNSTILE_SECRET_KEY   secret
+ *   TURNSTILE_HOSTNAMES    comma-separated, e.g. davidportodiaz.com
  *
  * Optional vars:
- *   ASSISTANT_ALLOWED_ORIGINS      extra HTTPS origins for staging
- *   ASSISTANT_REGISTRY_URL         defaults to canonical public registry
- *   ASSISTANT_MATCH_THRESHOLD      defaults to 0.42
+ *   ASSISTANT_ALLOWED_ORIGINS       extra HTTPS origins for staging
+ *   ASSISTANT_REGISTRY_URL          defaults to canonical public registry
+ *   ASSISTANT_MATCH_THRESHOLD       defaults to 0.42
  *   ASSISTANT_REQUIRE_METADATA_FILTER=true|false (default false)
+ *   ASSISTANT_DAILY_SESSION_LIMIT   1..5 (default/max 5)
+ *   ASSISTANT_DAILY_GLOBAL_LIMIT    1..50 (default/max 50)
  *
  * The Worker fails closed. The browser never selects model, provider,
  * source URLs, retrieval settings or side effects.
@@ -33,6 +36,9 @@ const DEFAULT_REGISTRY_URL = `${CANONICAL_ORIGIN}/data/assistant-source-registry
 const SESSION_RE = /^(?:[0-9a-f]{32}|[0-9a-f]{8}-[0-9a-f]{4}-[1-5][0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12})$/i;
 const SOURCE_ID_RE = /^[a-z0-9][a-z0-9-]{0,80}$/i;
 const TURNSTILE_ACTION = "assistant_query";
+const FREE_V1_MODELS = new Set(["@cf/qwen/qwen3-30b-a3b-fp8"]);
+const MAX_CONTEXT_CHUNKS = 6;
+const MAX_CHUNK_CHARS = 1200;
 
 export default {
   async fetch(request, env) {
@@ -90,12 +96,12 @@ export default {
     const ipLimit = await env.IP_RATE_LIMITER.limit({ key: `ip:${ip}` });
     if (!ipLimit.success) return json(origin, 429, { ok: false, code: "rate_limited" }, { "Retry-After": "60" });
 
-    const globalLimit = await env.GLOBAL_RATE_LIMITER.limit({ key: "assistant:v1" });
-    if (!globalLimit.success) return json(origin, 429, { ok: false, code: "rate_limited" }, { "Retry-After": "60" });
-
     if (!(await verifyTurnstile(body.turnstile_token, request, env))) {
       return json(origin, 403, { ok: false, code: "turnstile_failed" });
     }
+
+    const globalLimit = await env.GLOBAL_RATE_LIMITER.limit({ key: "assistant:v1" });
+    if (!globalLimit.success) return json(origin, 429, { ok: false, code: "rate_limited" }, { "Retry-After": "60" });
 
     const registry = await loadRegistry(env, allowedOrigins);
     if (!registry) return json(origin, 503, { ok: false, code: "registry_unavailable" });
@@ -107,7 +113,7 @@ export default {
       fusion_method: "rrf",
       keyword_match_mode: "or",
       match_threshold: clampThreshold(env.ASSISTANT_MATCH_THRESHOLD),
-      max_num_results: 20,
+      max_num_results: 16,
       context_expansion: 1,
       return_on_failure: false,
     };
@@ -129,9 +135,17 @@ export default {
     const chunks = (searchResult?.chunks || [])
       .map((chunk) => normalizeChunk(chunk, allowedById, allowedByPath, allowedOrigins))
       .filter(Boolean)
-      .slice(0, 8);
+      .slice(0, MAX_CONTEXT_CHUNKS);
 
     if (!chunks.length) return abstained(origin);
+
+    const quota = await consumeDailyQuota(env.ASSISTANT_QUOTA_DB, body.session_id, env);
+    if (!quota.success) {
+      return json(origin, quota.unavailable ? 503 : 429, {
+        ok: false,
+        code: quota.unavailable ? "quota_unavailable" : quota.code,
+      }, quota.unavailable ? {} : { "Retry-After": String(secondsUntilUtcMidnight()) });
+    }
 
     const sourceOrder = [];
     for (const chunk of chunks) if (!sourceOrder.some((source) => source.id === chunk.source.id)) sourceOrder.push(chunk.source);
@@ -143,7 +157,8 @@ export default {
       "No inventes fechas, disponibilidad, biografía, enlaces ni datos.",
       "No escribas URLs. Los enlaces los construye el servidor.",
       "Si el contexto no permite responder con seguridad, responde exactamente NO_EVIDENCE.",
-      "Si respondes, usa español de España, sé directo y breve (máximo 140 palabras) y añade al final de cada afirmación factual importante uno o más source_id exactos entre corchetes, por ejemplo [work-manecillas].",
+      "Si respondes, usa español de España, sé directo y breve (máximo 140 palabras).",
+      "Añade al final de cada afirmación factual importante sus source_id exactos, cada uno en su propio par de corchetes: [work-manecillas][author].",
       "Nunca uses un source_id que no aparezca en CONTEXTO.",
     ].join(" ");
     const user = `PREGUNTA DEL VISITANTE:\n${query}\n\nCONTEXTO RECUPERADO:\n${context}`;
@@ -183,8 +198,9 @@ export default {
 
 function assistantConfigured(env) {
   return String(env.ASSISTANT_ENABLED || "false").toLowerCase() === "true" &&
-    Boolean(env.ASSISTANT_SEARCH && env.AI && env.SESSION_RATE_LIMITER && env.IP_RATE_LIMITER && env.GLOBAL_RATE_LIMITER &&
-      env.ASSISTANT_MODEL && env.TURNSTILE_SITE_KEY && env.TURNSTILE_SECRET_KEY && env.TURNSTILE_HOSTNAMES);
+    FREE_V1_MODELS.has(String(env.ASSISTANT_MODEL || "")) &&
+    Boolean(env.ASSISTANT_SEARCH && env.AI && env.ASSISTANT_QUOTA_DB && env.SESSION_RATE_LIMITER && env.IP_RATE_LIMITER && env.GLOBAL_RATE_LIMITER &&
+      env.TURNSTILE_SITE_KEY && env.TURNSTILE_SECRET_KEY && env.TURNSTILE_HOSTNAMES);
 }
 function getAllowedOrigins(env) {
   const values = [CANONICAL_ORIGIN, ...String(env.ASSISTANT_ALLOWED_ORIGINS || "").split(",")];
@@ -192,6 +208,7 @@ function getAllowedOrigins(env) {
 }
 function normalizeQuery(value) { return String(value ?? "").normalize("NFC").replace(/\s+/g, " ").trim(); }
 function clampThreshold(value) { const n = Number(value ?? 0.42); return Number.isFinite(n) ? Math.min(0.9, Math.max(0.1, n)) : 0.42; }
+function clampInt(value, fallback, max) { const n = Number(value ?? fallback); return Number.isInteger(n) ? Math.min(max, Math.max(1, n)) : fallback; }
 function safeError(error) { return error instanceof Error ? { name: error.name, message: error.message.slice(0, 160) } : { message: "unknown error" }; }
 function extractText(result) { if (typeof result === "string") return result; return String(result?.response ?? result?.result?.response ?? result?.choices?.[0]?.message?.content ?? ""); }
 function containsUrlLike(value) { return /(?:https?:\/\/|www\.|(?:^|\s)\/\/?[A-Za-z0-9][A-Za-z0-9_./-]*)/i.test(value); }
@@ -213,7 +230,7 @@ function normalizeChunk(chunk, allowedById, allowedByPath, allowedOrigins) {
     if (path) source = allowedByPath.get(path);
   }
   if (!source) return null;
-  return { source, text: chunk.text.slice(0, 1800), score: Number(chunk.score || 0) };
+  return { source, text: chunk.text.slice(0, MAX_CHUNK_CHARS), score: Number(chunk.score || 0) };
 }
 function abstained(origin, sources = []) {
   return json(origin, 200, {
@@ -223,6 +240,34 @@ function abstained(origin, sources = []) {
     abstained: true,
     sources: sources.map(({ id, url, title }) => ({ id, url, title })),
   });
+}
+function utcDay(now = new Date()) { return now.toISOString().slice(0, 10); }
+function secondsUntilUtcMidnight(now = new Date()) {
+  const next = Date.UTC(now.getUTCFullYear(), now.getUTCMonth(), now.getUTCDate() + 1);
+  return Math.max(1, Math.ceil((next - now.getTime()) / 1000));
+}
+async function incrementQuota(db, bucket, day) {
+  const row = await db.prepare(`INSERT INTO assistant_daily_quota (bucket, day_utc, count) VALUES (?, ?, 1) ON CONFLICT(bucket, day_utc) DO UPDATE SET count = count + 1 RETURNING count`).bind(bucket, day).first();
+  return Number(row?.count || 0);
+}
+async function consumeDailyQuota(db, sessionId, env) {
+  const day = utcDay();
+  const sessionMax = clampInt(env.ASSISTANT_DAILY_SESSION_LIMIT, 5, 5);
+  const globalMax = clampInt(env.ASSISTANT_DAILY_GLOBAL_LIMIT, 50, 50);
+  try {
+    const sessionCount = await incrementQuota(db, `session:${sessionId}`, day);
+    if (!sessionCount || sessionCount > sessionMax) return { success: false, code: "daily_session_limit" };
+    const globalCount = await incrementQuota(db, "global", day);
+    if (!globalCount || globalCount > globalMax) return { success: false, code: "daily_global_limit" };
+    if (globalCount === 1) {
+      const cutoff = new Date(Date.now() - 8 * 86400000).toISOString().slice(0, 10);
+      try { await db.prepare("DELETE FROM assistant_daily_quota WHERE day_utc < ?").bind(cutoff).run(); } catch {}
+    }
+    return { success: true };
+  } catch (error) {
+    console.error("Assistant quota unavailable", safeError(error));
+    return { success: false, unavailable: true };
+  }
 }
 async function withTimeout(promise, ms) {
   let timer;
