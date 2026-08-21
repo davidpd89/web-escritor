@@ -44,21 +44,27 @@ async function context(options={}) {
 async function openFresh(key, viewport={width:1440,height:1000}, options={}) {
   const ctx = await context({ viewport, ...options });
   const page = await ctx.newPage();
+  // With scripting off there is no execution context: no init script runs, no
+  // evaluate() succeeds and no layout-shift observer exists, so the frame
+  // settle and the CLS assertion have to be skipped rather than crash.
+  const scripting = options.javaScriptEnabled !== false;
   const errors=[]; const consoleErrors=[];
   page.on('pageerror', e=>errors.push(String(e)));
   page.on('console', m=>{ if(m.type()==='error') consoleErrors.push(m.text()); });
-  await page.addInitScript(()=>{
+  if(scripting) await page.addInitScript(()=>{
     window.__qaCls=0;
     try { new PerformanceObserver(list=>{for(const e of list.getEntries()) if(!e.hadRecentInput) window.__qaCls+=e.value;}).observe({type:'layout-shift',buffered:true}); } catch {}
   });
   const response = await page.goto(`${BASE}${URLS[key]}`, {waitUntil:'networkidle'});
   assert.equal(response?.status(), 200, `${key}: HTTP 200`);
-  await page.evaluate(()=>new Promise(r=>requestAnimationFrame(()=>requestAnimationFrame(r))));
-  return {ctx,page,errors,consoleErrors};
+  if(scripting) await page.evaluate(()=>new Promise(r=>requestAnimationFrame(()=>requestAnimationFrame(r))));
+  return {ctx,page,errors,consoleErrors,scripting};
 }
 async function closeClean(run,key) {
-  const cls=await run.page.evaluate(()=>window.__qaCls||0);
-  assert.ok(cls<=0.1, `${key}: CLS ${cls}`);
+  if(run.scripting!==false){
+    const cls=await run.page.evaluate(()=>window.__qaCls||0);
+    assert.ok(cls<=0.1, `${key}: CLS ${cls}`);
+  }
   assert.deepEqual(run.errors,[],`${key}: pageerror`);
   assert.deepEqual(run.consoleErrors,[],`${key}: console.error`);
   await run.ctx.close();
@@ -88,8 +94,18 @@ async function anchorsAndLinks(page,key) {
   assert.deepEqual(result.broken,[],`${key}: anchors rotos`);
   assert.equal(result.positive,0,`${key}: tabindex positivo`);
 }
-async function overflow(page,label){
-  const n=await page.evaluate(()=>document.documentElement.scrollWidth-document.documentElement.clientWidth);
+async function overflow(page,label,scripting=true){
+  let n;
+  if(scripting){
+    n=await page.evaluate(()=>document.documentElement.scrollWidth-document.documentElement.clientWidth);
+  }else{
+    // No execution context with scripting off, so read the same measurement
+    // from the layout engine itself instead of skipping the check.
+    const cdp=await page.context().newCDPSession(page);
+    const m=await cdp.send('Page.getLayoutMetrics');
+    n=Math.round(m.cssContentSize.width-m.cssLayoutViewport.clientWidth);
+    await cdp.detach();
+  }
   assert.ok(n<=1,`${label}: overflow horizontal ${n}px`);
 }
 
@@ -180,6 +196,11 @@ for(const className of ['qa-text-200','qa-text-spacing']){
     await run.page.evaluate(()=>new Promise((resolve,reject)=>{const l=document.createElement('link');l.rel='stylesheet';l.href='/qa/samuel-ecosystem-text-resilience.css';l.onload=resolve;l.onerror=reject;document.head.append(l);}));
     await run.page.evaluate(c=>document.documentElement.classList.add(c),className);
     await run.page.evaluate(()=>new Promise(r=>requestAnimationFrame(()=>requestAnimationFrame(r))));
+    // Restyling the whole document after load is a deliberate reflow by this
+    // harness, so it registers as one huge layout shift that says nothing
+    // about the page's own stability. Discard it and keep asserting CLS on
+    // anything the page shifts from here on.
+    await run.page.evaluate(()=>{window.__qaCls=0;});
     await overflow(run.page,`${key} ${className}`);
     await closeClean(run,`${key} ${className}`);
   }
@@ -199,7 +220,7 @@ for(const key of Object.keys(URLS)){
   if(key==='noveris') assert.equal(await run.page.locator('#glosario .id-card h3').count(),14,'Noveris: glosario no-JS');
   if(key==='club') assert.equal(await run.page.locator('#guia details summary').count(),10,'Club: preguntas no-JS');
   if(key==='guide') assert.equal(await run.page.locator('.questions li').count(),10,'Guía: preguntas no-JS');
-  await overflow(run.page,`${key} no-JS`);
+  await overflow(run.page,`${key} no-JS`,run.scripting);
   await closeClean(run,`${key} no-JS`);
 }
 
