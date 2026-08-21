@@ -127,6 +127,17 @@ async function checkMetadata(page, key) {
   assert.match(got.csp || '', /connect-src 'none'/);
 }
 
+async function resizeViewport(page, viewport) {
+  await page.setViewportSize(viewport);
+  // Chromium can serve one stale layout pass for aspect-ratio boxes inside
+  // overflow:auto + scrollbar-gutter:stable containers right after a
+  // viewport resize (min-width from the resized media query not applied
+  // yet). Two rAF ticks reliably let it settle before we measure.
+  await page.evaluate(() => new Promise(resolve => {
+    requestAnimationFrame(() => requestAnimationFrame(resolve));
+  }));
+}
+
 async function noOverflow(page, label) {
   const bad = await page.evaluate(() => document.documentElement.scrollWidth > document.documentElement.clientWidth + 1);
   assert.equal(bad, false, `${label}: overflow horizontal de página`);
@@ -308,7 +319,7 @@ async function qaPersonajes() {
   await noOverflow(page, 'personajes 1440');
   await noBadNumbers(page, 'personajes');
   await screenshot(page, 'personajes-1440-result.png');
-  await page.setViewportSize({ width: 390, height: 900 });
+  await resizeViewport(page, { width: 390, height: 900 });
   await noOverflow(page, 'personajes 390');
   const localScroll = await page.locator('.map-viewport').evaluate(el => el.scrollWidth > el.clientWidth + 1);
   assert.equal(localScroll, true, 'personajes: el mapa móvil no conserva scroll local');
@@ -401,14 +412,14 @@ async function qaPov() {
   await noBadNumbers(page, 'pov control');
   await screenshot(page, 'pov-1440-result.png');
 
-  await page.setViewportSize({ width: 390, height: 900 });
+  await resizeViewport(page, { width: 390, height: 900 });
   await noOverflow(page, 'pov 390 result');
   const lanesScroll = await page.locator('.pov-lanes').evaluate(el => el.scrollWidth > el.clientWidth + 1);
   const tableScroll = await page.locator('.pov-table-wrap').evaluate(el => el.scrollWidth > el.clientWidth + 1);
   assert.equal(lanesScroll, true, 'pov: carriles sin scroll local en móvil');
   assert.equal(tableScroll, true, 'pov: tabla sin scroll local en móvil');
   await screenshot(page, 'pov-390-result.png');
-  await page.setViewportSize({ width: 1440, height: 1000 });
+  await resizeViewport(page, { width: 1440, height: 1000 });
 
   await analyze('1.1 | Ana\n1.2 | Bruno\n2.1 | Ana');
   assert.match(await page.locator('[data-pov-metrics]').innerText(), /Opcionales/);
