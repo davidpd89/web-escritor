@@ -17,11 +17,6 @@ export function httpsUrl(value) {
   }
 }
 
-/**
- * Pure builder: takes the raw form values and returns the resolved
- * canonical/image URLs, computed titles, and the HTML <head> block.
- * No DOM — safe to run in Node for tests.
- */
 export function buildMetaTags(v = {}) {
   const canonical = httpsUrl(v.url);
   const image = httpsUrl(v.image);
@@ -54,10 +49,6 @@ export function buildMetaTags(v = {}) {
   return { canonical, image, title, socialTitle, lines };
 }
 
-/**
- * Pure validator: basic, non-judgmental checks (missing fields, non-HTTPS
- * URLs, missing alt text, long titles/descriptions as a heads-up, not a rule).
- */
 export function validateMetaTags(v = {}, built) {
   const b = built || buildMetaTags(v);
   const items = [];
@@ -68,20 +59,30 @@ export function validateMetaTags(v = {}, built) {
   if (v.image && !b.image) items.push('La imagen social debe usar una URL HTTPS válida.');
   if (!v.image) items.push('Falta una imagen social.');
   if (v.image && !v.imageAlt) items.push('Añade texto alternativo para la imagen social.');
+  if (v.authorUrl && !httpsUrl(v.authorUrl)) items.push('La URL del perfil del autor debe ser una URL HTTPS válida.');
   if ((v.description || '').length > 180) items.push('La descripción es larga. No hay un límite universal de snippet, pero conviene revisar que la idea principal aparezca pronto.');
   if (b.socialTitle.length > 90) items.push('El título social es largo y puede truncarse en algunas interfaces.');
   return items;
 }
 
-function setImage(img, src, alt) {
-  if (!src) { img.hidden = true; img.removeAttribute('src'); return; }
-  img.src = src; img.alt = alt || ''; img.hidden = false;
+function setImageReference(slot, src, alt) {
+  if (!src) {
+    slot.hidden = true;
+    slot.textContent = '';
+    slot.removeAttribute('aria-label');
+    return;
+  }
+  slot.hidden = false;
+  slot.textContent = `Imagen indicada · ${src}`;
+  const altNote = alt ? ` Texto alternativo: ${alt}.` : '';
+  slot.setAttribute('aria-label', `Imagen social indicada: ${src}.${altNote} No se descarga durante esta previsualización.`);
 }
 
 export function init() {
   const form = document.querySelector('[data-meta-form]');
   if (!form) return;
 
+  const processor = document.querySelector('[data-publishing-processor]');
   const q = sel => form.querySelector(sel);
   const output = document.querySelector('[data-meta-output]');
   const code = document.querySelector('[data-meta-code]');
@@ -119,8 +120,8 @@ export function init() {
     ogDesc.textContent = v.description || 'Descripción social del libro.';
     xTitle.textContent = built.socialTitle || 'Título del libro — Autor';
     xDesc.textContent = v.description || 'Descripción social del libro.';
-    setImage(ogImage, built.image, v.imageAlt);
-    setImage(xImage, built.image, v.imageAlt);
+    setImageReference(ogImage, built.image, v.imageAlt);
+    setImageReference(xImage, built.image, v.imageAlt);
     code.textContent = built.lines;
     warnings.replaceChildren(...issues.map(issue => {
       const li = document.createElement('li'); li.textContent = issue; return li;
@@ -151,6 +152,12 @@ export function init() {
     fields.imageAlt.value = 'Portada de Las manecillas del recuerdo, de David Porto Díaz';
     render();
   });
+
+  if (processor) {
+    processor.inert = false;
+    processor.removeAttribute('inert');
+    processor.removeAttribute('aria-disabled');
+  }
 }
 
 if (typeof document !== 'undefined') init();

@@ -1,5 +1,17 @@
 const DATE_RE = /^\d{4}-\d{2}-\d{2}$/;
 const DATETIME_RE = /^\d{4}-\d{2}-\d{2}T\d{2}:\d{2}(?::\d{2})?$/;
+const BOOK_FORMATS = new Set([
+  'https://schema.org/AudiobookFormat',
+  'https://schema.org/EBook',
+  'https://schema.org/Hardcover',
+  'https://schema.org/Pamphlet',
+  'https://schema.org/Paperback',
+]);
+const ATTENDANCE_MODES = new Set([
+  'https://schema.org/OfflineEventAttendanceMode',
+  'https://schema.org/OnlineEventAttendanceMode',
+  'https://schema.org/MixedEventAttendanceMode',
+]);
 
 export const MODES = {
   profile: { label: 'Perfil de autor', schema: 'ProfilePage + Person', googleFeature: 'Profile page' },
@@ -73,8 +85,8 @@ export function buildJsonLd(mode, data = {}) {
       '@context': 'https://schema.org', '@type': 'Book', '@id': d.id || d.url,
       name: d.name, url: d.url, description: d.description, image: d.image,
       isbn: d.isbn, numberOfPages: d.pages ? Number(d.pages) : undefined,
-      datePublished: d.datePublished, inLanguage: d.language,
-      genre: d.genre, author, publisher,
+      datePublished: d.datePublished, inLanguage: d.language, genre: d.genre,
+      bookFormat: d.bookFormat, author, publisher,
     });
   }
 
@@ -121,6 +133,7 @@ export function validateInput(mode, data = {}) {
     https('image','la imagen'); https('authorUrl','la URL del autor');
     if (data.pages && (!Number.isInteger(Number(data.pages)) || Number(data.pages) <= 0)) errors.push('El número de páginas debe ser un entero positivo.');
     if (data.datePublished && !isIsoDate(data.datePublished)) errors.push('La fecha de publicación debe ser una fecha real en formato AAAA-MM-DD.');
+    if (clean(data.bookFormat) && !BOOK_FORMATS.has(clean(data.bookFormat))) errors.push('El formato del libro no es un valor BookFormatType soportado.');
     info.push('Book es un tipo Schema.org, pero Google no lo lista actualmente como rich result dedicado en su galería de datos estructurados.');
     warnings.push('No añadas precio, disponibilidad u Offer si no existe una oferta real y visible en la página.');
   } else if (mode === 'article') {
@@ -135,7 +148,8 @@ export function validateInput(mode, data = {}) {
     if (data.startDate && !isIsoLocalDateTime(data.startDate)) errors.push('startDate debe incluir una fecha y hora reales en formato ISO local.');
     if (data.endDate && !isIsoLocalDateTime(data.endDate)) errors.push('endDate debe incluir una fecha y hora reales en formato ISO local.');
     if (isIsoLocalDateTime(data.startDate) && isIsoLocalDateTime(data.endDate) && new Date(data.endDate) < new Date(data.startDate)) errors.push('endDate no puede ser anterior a startDate.');
-    if (data.attendanceMode?.includes('Offline') && !clean(data.locationName)) warnings.push('Un evento presencial debería indicar un lugar visible y real.');
+    if (clean(data.attendanceMode) && !ATTENDANCE_MODES.has(clean(data.attendanceMode))) errors.push('La modalidad del evento no es un valor EventAttendanceMode soportado.');
+    if ((data.attendanceMode?.includes('Offline') || data.attendanceMode?.includes('Mixed')) && !clean(data.locationName)) warnings.push('Un evento presencial o mixto debería indicar un lugar visible y real.');
     info.push('Event está en la galería de funciones de datos estructurados de Google, sujeto a sus directrices específicas.');
   }
 

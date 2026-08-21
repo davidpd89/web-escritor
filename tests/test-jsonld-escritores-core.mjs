@@ -1,20 +1,25 @@
 import assert from 'node:assert/strict';
 import { buildJsonLd, validateInput, scriptTag } from '../assets/jsonld-escritores-core.js';
 
-const book=buildJsonLd('book',{name:'Libro X',url:'https://example.com/libro/',authorName:'Autora',isbn:'123',pages:'272'});
+const book=buildJsonLd('book',{name:'Libro X',url:'https://example.com/libro/',authorName:'Autora',isbn:'123',pages:'272',bookFormat:'https://schema.org/Paperback'});
 assert.equal(book['@type'],'Book');
 assert.equal(book.numberOfPages,272);
 assert.equal(book.publisher,undefined);
 assert.equal(book.inLanguage,undefined, 'no debe inventar idioma si el usuario no lo aporta');
+assert.equal(book.bookFormat,'https://schema.org/Paperback');
 
-const bcheck=validateInput('book',{name:'Libro X',url:'https://example.com/libro/',authorName:'Autora'});
+const bcheck=validateInput('book',{name:'Libro X',url:'https://example.com/libro/',authorName:'Autora',bookFormat:'https://schema.org/Paperback'});
 assert.equal(bcheck.valid,true);
 assert.ok(bcheck.info.some(x=>x.includes('rich result')));
+assert.equal(validateInput('book',{name:'Libro X',url:'https://example.com/libro/',authorName:'Autora',bookFormat:'Paperback inventado'}).valid,false);
 
 const profile=buildJsonLd('profile',{name:'Ana',url:'https://example.com/ana/',sameAs:'https://instagram.com/ana\nhttps://example.org/ana'});
 assert.equal(profile['@type'],'ProfilePage');
 assert.equal(profile.mainEntity['@type'],'Person');
 assert.equal(profile.mainEntity.sameAs.length,2);
+const profileMinimum=buildJsonLd('profile',{name:'Ana',url:'https://example.com/ana/'});
+assert.equal(profileMinimum.mainEntity.image,undefined);
+assert.equal(profileMinimum.mainEntity.sameAs,undefined);
 
 for (const invalidUrl of ['http://example.com','https://','https://exa mple.com','javascript:alert(1)']) {
   const check = validateInput('profile',{name:'Ana',url:invalidUrl});
@@ -27,13 +32,14 @@ assert.equal(article['@type'],'Article');
 assert.equal(article.inLanguage,undefined);
 assert.equal(validateInput('article',{headline:'Título',url:'https://example.com/a',authorName:'Ana',datePublished:'2026-02-30'}).valid,false);
 
-const event=buildJsonLd('event',{name:'Firma',url:'https://example.com/firma',startDate:'2026-09-03T18:00'});
+const event=buildJsonLd('event',{name:'Firma',url:'https://example.com/firma',startDate:'2026-09-03T18:00',attendanceMode:'https://schema.org/OnlineEventAttendanceMode'});
 assert.equal(event['@type'],'Event');
 assert.equal(event.eventStatus,undefined, 'no debe inventar estado');
-assert.equal(event.eventAttendanceMode,undefined, 'no debe inventar modalidad');
+assert.equal(event.eventAttendanceMode,'https://schema.org/OnlineEventAttendanceMode');
 assert.equal(event.location,undefined, 'no debe inventar lugar');
 assert.equal(validateInput('event',{name:'Firma',url:'https://example.com',startDate:'2026-13-40T27:90'}).valid,false);
 assert.equal(validateInput('event',{name:'Firma',url:'https://example.com',startDate:'2026-09-03T18:00',endDate:'2026-09-03T17:59'}).valid,false);
+assert.equal(validateInput('event',{name:'Firma',url:'https://example.com',startDate:'2026-09-03T18:00',attendanceMode:'offline'}).valid,false);
 
 const malicious=buildJsonLd('book',{name:'</script><img src=x onerror=alert(1)> & "libro"',url:'https://example.com/libro',authorName:'Ana'});
 const tag=scriptTag(malicious);

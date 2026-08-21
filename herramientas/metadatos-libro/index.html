@@ -34,10 +34,10 @@
   <link rel="stylesheet" href="/assets/v1-shell.css" />
   <link rel="stylesheet" href="/assets/v1-components.css" />
   <link rel="stylesheet" href="/assets/v1-tools.css" />
+  <link rel="stylesheet" href="/assets/v1-tools-publishing.css" />
   <link rel="stylesheet" href="/assets/metadatos-libro.css" />
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebApplication","name":"Preview de metadatos para libros","url":"https://davidportodiaz.com/herramientas/metadatos-libro/","applicationCategory":"DeveloperApplication","operatingSystem":"Any","isAccessibleForFree":true,"inLanguage":"es","author":{"@id":"https://davidportodiaz.com/#author"}}</script>
 </head>
-
 <body>
   <a href="#contenido" class="skip-link">Saltar al contenido</a>
 
@@ -116,9 +116,16 @@
       <p class="eyebrow">Herramienta gratuita para escritores</p>
       <h1>Previsualiza cómo presentas un libro antes de publicar la página.</h1>
       <p class="tool-hero__lead">Genera un bloque básico de metadatos para una ficha de libro y comprueba de forma orientativa el título, la descripción y la tarjeta social. No rastrea tu web ni envía los datos a un servidor.</p>
+      <ol class="publishing-flow" aria-label="Cómo usar esta herramienta">
+        <li><strong>Rellena</strong><span>los datos reales del libro y de su página.</span></li>
+        <li><strong>Revisa</strong><span>los previews y los avisos antes de publicar.</span></li>
+        <li><strong>Copia</strong><span>el bloque HTML y revísalo en tu web.</span></li>
+      </ol>
     </header>
 
-    <section class="tool-panel">
+    <noscript><aside class="publishing-noscript" role="note"><strong>JavaScript está desactivado.</strong> Puedes leer la explicación y las limitaciones, pero generar previews y código necesita JavaScript en este navegador.</aside></noscript>
+
+    <section class="tool-panel" data-publishing-processor inert aria-disabled="true">
       <div class="tool-workspace">
         <form data-meta-form>
           <div class="tool-row">
@@ -130,7 +137,7 @@
             <div class="tool-field"><label class="tool-field-label" for="meta-url">URL canónica HTTPS</label><input class="tool-input" id="meta-url" name="url" type="url" inputmode="url" placeholder="https://…"></div>
           </div>
           <div class="tool-field"><label class="tool-field-label" for="meta-description">Descripción de la página</label><textarea class="tool-textarea tool-textarea--small" id="meta-description" name="description"></textarea></div>
-          <div class="tool-field"><label class="tool-field-label" for="meta-image">URL HTTPS de imagen social</label><input class="tool-input" id="meta-image" name="image" type="url" inputmode="url" placeholder="https://…/social.webp"></div>
+          <div class="tool-field"><label class="tool-field-label" for="meta-image">URL HTTPS de imagen social</label><input class="tool-input" id="meta-image" name="image" type="url" inputmode="url" placeholder="https://…/social.webp"><span class="tool-field-hint">El preview muestra la referencia, pero no descarga la imagen indicada.</span></div>
           <div class="tool-field"><label class="tool-field-label" for="meta-image-alt">Descripción de la imagen</label><input class="tool-input" id="meta-image-alt" name="image_alt"></div>
           <div class="tool-row">
             <div class="tool-field"><label class="tool-field-label" for="meta-isbn">ISBN (opcional)</label><input class="tool-input" id="meta-isbn" name="isbn" inputmode="numeric"></div>
@@ -155,12 +162,12 @@
             </article>
             <article class="meta-card">
               <p class="meta-card__label">Open Graph · simulación</p>
-              <img class="meta-social-image" data-og-image hidden alt="">
+              <div class="meta-social-image publishing-preview-placeholder" data-og-image hidden role="img"></div>
               <div class="meta-social-body"><strong data-og-title></strong><p data-og-desc></p></div>
             </article>
             <article class="meta-card">
               <p class="meta-card__label">X · summary large image · simulación</p>
-              <img class="meta-social-image" data-x-image hidden alt="">
+              <div class="meta-social-image publishing-preview-placeholder" data-x-image hidden role="img"></div>
               <div class="meta-social-body"><strong data-x-title></strong><p data-x-desc></p></div>
             </article>
           </div>
@@ -180,6 +187,10 @@
       <p>Google genera enlaces de título y fragmentos automáticamente y puede usar fuentes distintas del <code>&lt;title&gt;</code> o la metadescripción. Las redes también pueden recortar o presentar las tarjetas de forma diferente según el cliente. Esta herramienta sirve para detectar problemas antes de publicar y producir metadatos coherentes, no para prometer un render exacto.</p>
     </section>
 
+    <nav class="publishing-next" aria-label="Siguiente paso">
+      <h2>Continúa la ficha técnica</h2>
+      <div class="publishing-next__links"><a href="/herramientas/json-ld-escritores/">Generar JSON-LD</a><a href="/herramientas/auditor-pagina-libro/">Auditar la página del libro</a></div>
+    </nav>
   </main>
 
   <footer class="site-footer">
@@ -195,7 +206,6 @@
   </footer>
 
   <script defer src="/assets/v1-shell.js"></script>
-
   <script type="module" src="/assets/metadatos-libro.js"></script>
 </body>
 </html>

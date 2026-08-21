@@ -1,0 +1,84 @@
+name: Publishing tools browser QA
+
+on:
+  pull_request:
+    paths:
+      - 'herramientas/metadatos-libro/**'
+      - 'herramientas/json-ld-escritores/**'
+      - 'herramientas/kit-prensa-escritores/**'
+      - 'herramientas/auditor-pagina-libro/**'
+      - 'assets/metadatos-libro.js'
+      - 'assets/jsonld-escritores-core.js'
+      - 'assets/jsonld-escritores.js'
+      - 'assets/kit-prensa-core.js'
+      - 'assets/kit-prensa-escritor.js'
+      - 'assets/book-page-audit-rules.js'
+      - 'assets/auditor-pagina-libro.js'
+      - 'assets/v1-tools-publishing.css'
+      - 'tests/test-metadatos-libro.mjs'
+      - 'tests/test-jsonld-escritores-core.mjs'
+      - 'tests/test-kit-prensa-core.mjs'
+      - 'tests/test-book-page-audit-rules.mjs'
+      - 'qa/tools-publishing-browser.mjs'
+      - 'qa/text-spacing-publishing.css'
+      - 'qa/validate-press-kit.py'
+      - 'qa/publishing-metadata-preservation.mjs'
+      - '.github/workflows/tools-publishing-browser-qa.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  browser-qa:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Set up Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+
+      - name: Preserve production metadata
+        env:
+          BASE_SHA: ${{ github.event.pull_request.base.sha || 'origin/implementacion-web-2026' }}
+        run: node qa/publishing-metadata-preservation.mjs
+
+      - name: Install Playwright
+        run: |
+          npm install --no-save --no-package-lock playwright@1.55.0
+          npx playwright install --with-deps chromium
+
+      - name: Start local static server
+        run: |
+          python3 -m http.server 4173 --bind 127.0.0.1 > /tmp/publishing-qa-server.log 2>&1 &
+          echo $! > /tmp/publishing-qa-server.pid
+          for i in {1..30}; do
+            if curl --fail --silent http://127.0.0.1:4173/herramientas/metadatos-libro/ > /dev/null; then exit 0; fi
+            sleep 1
+          done
+          cat /tmp/publishing-qa-server.log
+          exit 1
+
+      - name: Run publishing browser QA
+        env:
+          QA_ORIGIN: http://127.0.0.1:4173
+          QA_OUT: qa-artifacts
+        run: node qa/tools-publishing-browser.mjs
+
+      - name: Inspect generated press-kit ZIP
+        run: python3 qa/validate-press-kit.py qa-artifacts/press-kit-qa.zip
+
+      - name: Upload publishing QA evidence
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: publishing-tools-browser-qa
+          path: qa-artifacts/
+          if-no-files-found: warn
+          retention-days: 14
