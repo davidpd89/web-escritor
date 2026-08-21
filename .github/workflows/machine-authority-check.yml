@@ -1,0 +1,81 @@
+name: Machine authority check
+
+on:
+  pull_request:
+    paths:
+      - 'ai/**'
+      - 'assets/v1-ai-authority.css'
+      - 'llms.txt'
+      - 'llms-full.txt'
+      - 'press-kit/*.json'
+      - 'robots.txt'
+      - 'editorial-facts.json'
+      - 'sitemap.xml'
+      - 'tests/test-machine-authority.py'
+      - 'qa/machine-authority-browser.mjs'
+      - 'tests/fixtures/machine-authority-drift-before.json'
+      - '.github/workflows/machine-authority-check.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  machine-authority:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 25
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Validate machine authority contract
+        run: python tests/test-machine-authority.py --artifact-dir artifacts/machine-authority
+
+      - name: Set up Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+
+      - name: Install Playwright
+        run: |
+          npm install --no-save --no-package-lock playwright@1.55.0
+          npx playwright install --with-deps chromium
+
+      - name: Start static server
+        shell: bash
+        run: |
+          python -m http.server 4173 --bind 127.0.0.1 > /tmp/machine-authority-server.log 2>&1 &
+          echo $! > /tmp/machine-authority-server.pid
+          for i in {1..30}; do
+            if curl --fail --silent http://127.0.0.1:4173/ai/ >/dev/null; then exit 0; fi
+            sleep 1
+          done
+          cat /tmp/machine-authority-server.log
+          exit 1
+
+      - name: Browser QA and screenshots
+        env:
+          MACHINE_BASE_URL: http://127.0.0.1:4173
+          MACHINE_ARTIFACT_DIR: artifacts/machine-authority
+        run: node qa/machine-authority-browser.mjs
+
+      - name: Save server log
+        if: always()
+        run: |
+          mkdir -p artifacts/machine-authority
+          cp /tmp/machine-authority-server.log artifacts/machine-authority/server.log || true
+
+      - name: Upload machine authority artifacts
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: machine-authority-qa
+          path: artifacts/machine-authority/
+          if-no-files-found: warn
+          retention-days: 14

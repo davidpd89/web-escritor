@@ -1,4 +1,5 @@
-import { PROTOCOL_VERSION, normalizeQuery, isSafeInternalPath, isValidAssistantResponse, formatCitationMarkers, rankLocalSources, makeSessionId } from "/assets/assistant-core.mjs";
+import { ASSISTANT_PUBLIC_CONFIG } from "/assets/assistant-config.js";
+import { PROTOCOL_VERSION, QUERY_MIN_LENGTH, QUERY_MAX_LENGTH, normalizeQuery, isSafeInternalPath, isValidAssistantResponse, formatCitationMarkers, rankLocalSources, makeSessionId } from "/assets/assistant-core.mjs";
 
 const form = document.querySelector("[data-assistant-form]");
 const input = document.querySelector("[data-assistant-query]");
@@ -14,7 +15,7 @@ const examples = [...document.querySelectorAll("[data-assistant-example]")];
 
 let requestSerial = 0;
 let activeController = null;
-let registryPromise;
+let registryModulePromise;
 let configPromise;
 let turnstileScriptPromise;
 let turnstileWidgetId = null;
@@ -36,22 +37,31 @@ function getSessionId() {
 }
 
 async function getRegistry() {
-  if (!registryPromise) {
-    registryPromise = fetch("/data/assistant-source-registry.json", { credentials: "same-origin", cache: "force-cache" })
-      .then((response) => response.ok ? response.json() : null)
-      .then((data) => Array.isArray(data?.sources) ? data.sources : [])
+  if (!registryModulePromise) {
+    registryModulePromise = import("/assets/assistant-source-registry.js")
+      .then((module) => Array.isArray(module.ASSISTANT_SOURCE_REGISTRY) ? module.ASSISTANT_SOURCE_REGISTRY : [])
       .catch(() => []);
   }
-  return registryPromise;
+  return registryModulePromise;
+}
+
+function normalizeRemoteConfig(data) {
+  if (data?.protocol_version !== PROTOCOL_VERSION || data?.ok !== true || data?.enabled !== true) return { enabled: false };
+  const sitekey = typeof data.turnstile_site_key === "string" ? data.turnstile_site_key.trim() : "";
+  if (!sitekey || sitekey.length > 256) return { enabled: false };
+  return { enabled: true, turnstile_site_key: sitekey };
 }
 
 async function getRemoteConfig() {
+  if (!ASSISTANT_PUBLIC_CONFIG.remoteEnabled || !isSafeInternalPath(ASSISTANT_PUBLIC_CONFIG.assistantUrl) || !isSafeInternalPath(ASSISTANT_PUBLIC_CONFIG.configUrl)) {
+    return { enabled: false };
+  }
   if (!configPromise) {
     const controller = new AbortController();
     const timer = setTimeout(() => controller.abort(), 2500);
-    configPromise = fetch("/api/assistant/config", { credentials: "same-origin", cache: "no-store", signal: controller.signal })
+    configPromise = fetch(ASSISTANT_PUBLIC_CONFIG.configUrl, { credentials: "same-origin", cache: "no-store", signal: controller.signal })
       .then((response) => response.ok ? response.json() : null)
-      .then((data) => data?.protocol_version === PROTOCOL_VERSION && data?.ok === true ? data : { enabled: false })
+      .then(normalizeRemoteConfig)
       .catch(() => ({ enabled: false }))
       .finally(() => clearTimeout(timer));
   }
@@ -130,21 +140,27 @@ function loadTurnstileScript() {
   if (globalThis.turnstile) return Promise.resolve();
   if (!turnstileScriptPromise) {
     turnstileScriptPromise = new Promise((resolve, reject) => {
-      const timeout = setTimeout(() => reject(new Error("turnstile-script-timeout")), 8000);
-      const done = (callback) => (...args) => { clearTimeout(timeout); callback(...args); };
       const existing = document.querySelector('script[data-assistant-turnstile-script]');
-      if (existing) {
-        existing.addEventListener("load", done(resolve), { once: true });
-        existing.addEventListener("error", done(() => reject(new Error("turnstile-script-failed"))), { once: true });
-        return;
-      }
+      if (existing && !globalThis.turnstile) existing.remove();
+
       const script = document.createElement("script");
+      const timeout = setTimeout(() => {
+        script.remove();
+        reject(new Error("turnstile-script-timeout"));
+      }, 8000);
+      const finish = (callback) => (...args) => {
+        clearTimeout(timeout);
+        callback(...args);
+      };
       script.src = "https://challenges.cloudflare.com/turnstile/v0/api.js?render=explicit";
       script.async = true;
       script.defer = true;
       script.dataset.assistantTurnstileScript = "true";
-      script.addEventListener("load", done(resolve), { once: true });
-      script.addEventListener("error", done(() => reject(new Error("turnstile-script-failed"))), { once: true });
+      script.addEventListener("load", finish(resolve), { once: true });
+      script.addEventListener("error", finish(() => {
+        script.remove();
+        reject(new Error("turnstile-script-failed"));
+      }), { once: true });
       document.head.append(script);
     }).catch((error) => {
       turnstileScriptPromise = null;
@@ -210,8 +226,14 @@ void getRemoteConfig();
 
 form?.addEventListener("submit", async (event) => {
   event.preventDefault();
-  const query = normalizeQuery(input.value);
-  if (query.length < 2) {
+  const rawQuery = String(input.value ?? "").normalize("NFC").replace(/\s+/g, " ").trim();
+  if (rawQuery.length > QUERY_MAX_LENGTH) {
+    status.textContent = `La pregunta no puede superar ${QUERY_MAX_LENGTH} caracteres.`;
+    input.focus();
+    return;
+  }
+  const query = normalizeQuery(rawQuery);
+  if (query.length < QUERY_MIN_LENGTH) {
     status.textContent = "Escribe una pregunta un poco más concreta.";
     input.focus();
     return;
@@ -226,8 +248,8 @@ form?.addEventListener("submit", async (event) => {
 
   try {
     const config = await getRemoteConfig();
-    if (!config?.enabled || !config.turnstile_site_key) {
-      status.textContent = localBox.hidden ? "El asistente todavía no está activo." : "Te dejo los resultados disponibles en la web.";
+    if (!config.enabled) {
+      status.textContent = localBox.hidden ? "El asistente remoto está desactivado; prueba con otra búsqueda local." : "Te dejo los resultados disponibles en la web.";
       return;
     }
 
@@ -253,7 +275,7 @@ form?.addEventListener("submit", async (event) => {
     activeController = controller;
     const timer = setTimeout(() => controller.abort(), 12000);
     try {
-      const response = await fetch("/api/assistant", {
+      const response = await fetch(ASSISTANT_PUBLIC_CONFIG.assistantUrl, {
         method: "POST",
         credentials: "same-origin",
         headers: { "Content-Type": "application/json" },

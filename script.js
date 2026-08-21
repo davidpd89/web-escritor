@@ -17,6 +17,13 @@ const NEWSLETTER_CONFIG = {
   endpoint: "https://subscribe.davidpd89.workers.dev"
 };
 
+// Same shape as the Worker's server-side check (cloudflare-worker-subscribe.js)
+// so obviously-invalid input never leaves the browser, not just the empty case.
+const NEWSLETTER_EMAIL_RE = /^[^\s@]{1,64}@[^\s@]{1,253}\.[^\s@]{2,}$/;
+function isValidNewsletterEmail(value) {
+  return NEWSLETTER_EMAIL_RE.test(String(value || "").trim());
+}
+
 // Staging must never create real Brevo contacts. This is the Cloudflare
 // Pages preview hostname for this project (confirmed working
 // 2026-08-20) — production is davidportodiaz.com, which is never in
@@ -463,7 +470,7 @@ function fallbackCopy(text, done) {
           statusEl.textContent = STAGING_DISABLED_MESSAGE;
           return;
         }
-        if (!emailEl.value.trim() || !gdprEl.checked) {
+        if (!isValidNewsletterEmail(emailEl.value) || !gdprEl.checked) {
           statusEl.textContent = gdprEl.checked ? "Introduce un email válido." : "Acepta la política de privacidad para continuar.";
           return;
         }
@@ -556,7 +563,7 @@ function fallbackCopy(text, done) {
           if (statusEl) statusEl.textContent = STAGING_DISABLED_MESSAGE;
           return;
         }
-        if (!emailEl || !emailEl.value.trim() || !gdprEl || !gdprEl.checked) {
+        if (!emailEl || !isValidNewsletterEmail(emailEl.value) || !gdprEl || !gdprEl.checked) {
           if (statusEl) statusEl.textContent = gdprEl && !gdprEl.checked
             ? "Acepta la política de privacidad para continuar."
             : "Introduce un email válido.";
@@ -822,7 +829,7 @@ document.addEventListener('dp:analytics', _dpAnalyticsBridge);
         const statusEl = document.getElementById("nl-popup-status");
         const submitBtn = document.getElementById("nl-popup-submit");
         if (IS_STAGING) { statusEl.textContent = STAGING_DISABLED_MESSAGE; return; }
-        if (!emailEl.value.trim()) { statusEl.textContent = "Introduce un email válido."; return; }
+        if (!isValidNewsletterEmail(emailEl.value)) { statusEl.textContent = "Introduce un email válido."; return; }
         if (!gdprEl.checked) { statusEl.textContent = "Acepta la política de privacidad para continuar."; return; }
         statusEl.textContent = "";
         submitBtn.disabled = true;
