@@ -1,0 +1,41 @@
+{
+  "ci": {
+    "collect": {
+      "staticDistDir": "./",
+      "url": [
+        "http://localhost/herramientas/eventos-ics/",
+        "http://localhost/herramientas/tiempo-lectura-voz-alta/",
+        "http://localhost/clubes-de-lectura/preparar-sesion/",
+        "http://localhost/herramientas/entrevista-familiar/",
+        "http://localhost/recursos/ficha-historia-objeto-heredado/"
+      ],
+      "numberOfRuns": 1,
+      "settings": {
+        "chromeFlags": "--no-sandbox"
+      }
+    },
+    "assert": {
+      "assertMatrix": [
+        {
+          "matchingUrlPattern": ".*",
+          "assertions": {
+            "categories:performance": ["warn", { "minScore": 0.85 }],
+            "categories:accessibility": ["error", { "minScore": 0.97 }],
+            "categories:best-practices": ["warn", { "minScore": 0.95 }],
+            "categories:seo": "off",
+            "is-crawlable": ["error", { "minScore": 1 }],
+            "document-title": ["error", { "minScore": 1 }],
+            "meta-description": ["error", { "minScore": 1 }],
+            "http-status-code": ["error", { "minScore": 1 }],
+            "link-text": ["error", { "minScore": 1 }],
+            "crawlable-anchors": ["error", { "minScore": 1 }],
+            "canonical": ["error", { "minScore": 1 }],
+            "largest-contentful-paint": ["warn", { "maxNumericValue": 3500 }],
+            "cumulative-layout-shift": ["error", { "maxNumericValue": 0.1 }],
+            "total-blocking-time": ["warn", { "maxNumericValue": 400 }]
+          }
+        }
+      ]
+    }
+  }
+}
