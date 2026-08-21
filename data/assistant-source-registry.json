@@ -1,0 +1,25 @@
+{
+  "schema_version": 1,
+  "generated_from": "data/content-registry.json",
+  "policy": "deny-by-default",
+  "sources": [
+    {"id":"home","url":"/","title":"David Porto Díaz — escritor","territory":"sitio","priority":1,"visibility":"public","keywords":["inicio","david porto díaz","escritor","libros"]},
+    {"id":"author","url":"/autor.html","title":"David Porto Díaz — autor","territory":"autor","priority":1,"visibility":"public","keywords":["biografía","autor","trayectoria","david porto díaz"]},
+    {"id":"works-hub","url":"/libros/","title":"Obras","territory":"obras","priority":1,"visibility":"public","keywords":["libros","obras","novelas"]},
+    {"id":"work-manecillas","url":"/las-manecillas-del-recuerdo/","title":"Las manecillas del recuerdo","territory":"obras","work":"manecillas","priority":1,"visibility":"public","keywords":["las manecillas del recuerdo","monza","novela coral","reloj","memoria","familia"]},
+    {"id":"work-manecillas-fragments","url":"/las-manecillas-del-recuerdo/fragmentos/","title":"Fragmentos de Las manecillas del recuerdo","territory":"obras","work":"manecillas","priority":2,"visibility":"public","keywords":["fragmentos","leer","muestra","las manecillas del recuerdo"]},
+    {"id":"work-samuel","url":"/libros/samuel-entre-mundos/","title":"Samuel entre mundos","territory":"obras","work":"samuel","priority":1,"visibility":"public","keywords":["samuel entre mundos","fantasía juvenil","portal fantasy","noveris"]},
+    {"id":"samuel-fragment","url":"/fragmento/","title":"Primer capítulo de Samuel entre mundos","territory":"obras","work":"samuel","priority":2,"visibility":"public","keywords":["fragmento","capítulo 1","samuel entre mundos","leer gratis"]},
+    {"id":"samuel-noveris","url":"/universo/noveris/","title":"Noveris","territory":"obras","work":"samuel","priority":2,"visibility":"public","keywords":["noveris","mundo","magia","facciones","worldbuilding"]},
+    {"id":"notebook-hub","url":"/cuaderno/","title":"Cuaderno","territory":"cuaderno","priority":2,"visibility":"public","keywords":["cuaderno","artículos","escritura","fantasía"]},
+    {"id":"recommendations-hub","url":"/recomendaciones/","title":"Recomendaciones de lectura","territory":"cuaderno","priority":2,"visibility":"public","keywords":["recomendaciones","libros","lecturas","fantasía"]},
+    {"id":"tools-hub","url":"/herramientas/","title":"Herramientas gratuitas para escritores","territory":"herramientas","priority":2,"visibility":"public","keywords":["herramientas","escritores","manuscrito","revisión"]},
+    {"id":"editorials-hub","url":"/editoriales/","title":"Editoriales que aceptan manuscritos","territory":"herramientas","priority":2,"visibility":"public","keywords":["editoriales","manuscritos","enviar novela","publicar"]},
+    {"id":"opportunities","url":"/convocatorias-escritores/","title":"Convocatorias para escritores","territory":"herramientas","priority":2,"visibility":"public","keywords":["concursos","convocatorias","premios","escritores"]},
+    {"id":"external-tools","url":"/recursos/herramientas-para-escritores/","title":"Directorio de herramientas para escritores","territory":"herramientas","priority":3,"visibility":"public","keywords":["recursos","software","herramientas","escritura"]},
+    {"id":"awards","url":"/premios.html","title":"Premios y reconocimientos","territory":"autor","priority":2,"visibility":"public","keywords":["premios","reconocimientos","letras como espada"]},
+    {"id":"events","url":"/eventos.html","title":"Eventos y firmas","territory":"prensa-eventos","priority":2,"visibility":"public","keywords":["eventos","firmas","ferias","agenda"]},
+    {"id":"press","url":"/prensa.html","title":"Prensa","territory":"prensa-eventos","priority":2,"visibility":"public","keywords":["prensa","entrevistas","kit de prensa","medios"]},
+    {"id":"site-ai","url":"/ai/","title":"Información canónica para IA","territory":"sitio","priority":3,"visibility":"public","keywords":["datos canónicos","llm","ia","autor","libros"]}
+  ]
+}
