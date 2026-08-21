@@ -27,6 +27,15 @@ export function isValidAssistantResponse(payload) {
   );
 }
 
+export function formatCitationMarkers(value, sources) {
+  let text = String(value ?? "");
+  const indexById = new Map((Array.isArray(sources) ? sources : []).map((source, index) => [source.id, index + 1]));
+  return text.replace(/\[([a-z0-9][a-z0-9-]{0,80})\]/gi, (match, id) => {
+    const index = indexById.get(id);
+    return index ? `[${index}]` : match;
+  });
+}
+
 export function rankLocalSources(query, sources, limit = 5) {
   const q = normalizeQuery(query).toLocaleLowerCase("es");
   if (!q) return [];
