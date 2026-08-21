@@ -16,6 +16,8 @@ jobs:
         run: python scripts/build-feed.py --check
       - name: Check sitemap is generated from canonical indexable HTML
         run: python scripts/build-sitemap.py --check
+      - name: Check canonical navigation coverage
+        run: python scripts/check-navigation-coverage.py
       - name: Check indexable pages are not orphaned
         run: python scripts/check-internal-graph.py
       - name: Check local asset references resolve to real files
