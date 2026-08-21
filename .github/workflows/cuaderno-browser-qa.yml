@@ -30,7 +30,7 @@ permissions:
 jobs:
   browser-qa:
     runs-on: ubuntu-latest
-    timeout-minutes: 35
+    timeout-minutes: 40
     steps:
       - uses: actions/checkout@v4
 
@@ -40,7 +40,7 @@ jobs:
 
       - name: Install browser QA dependencies
         run: |
-          npm install --no-save --package-lock=false playwright@1.55.0 pa11y-ci@4.1.1
+          npm install --no-save --package-lock=false playwright@1.55.0 pa11y-ci@4.1.1 @lhci/cli@0.15.1
           npx playwright install --with-deps chromium
 
       - name: Start local site
@@ -60,6 +60,13 @@ jobs:
           QA_BASE_URL: http://127.0.0.1:4173
         run: node qa/cuaderno-browser.mjs
 
+      - name: Check generated editorial outputs
+        run: |
+          python scripts/build-feed.py --check
+          python scripts/build-sitemap.py --check
+          python scripts/build-article-tools.py --check
+          python scripts/build-topic-collections.py --data data/topic-collections.json --root . --check
+
       - name: Run Cuaderno WCAG2AA
         run: |
           npx pa11y-ci --config ./.pa11yci \
@@ -72,11 +79,45 @@ jobs:
             http://127.0.0.1:4173/cuaderno/libros-fantasia-juvenil-espanola-2025-2026/ \
             http://127.0.0.1:4173/cuaderno/worldbuilding-noveris-ciudad-magica/
 
+      - name: Run Cuaderno Lighthouse
+        run: |
+          cat > /tmp/cuaderno-lhci.json <<'JSON'
+          {
+            "ci": {
+              "collect": {
+                "url": [
+                  "http://127.0.0.1:4173/cuaderno/",
+                  "http://127.0.0.1:4173/cuaderno/que-es-el-portal-fantasy/",
+                  "http://127.0.0.1:4173/cuaderno/feria-libro-madrid-2026-samuel-entre-mundos/"
+                ],
+                "numberOfRuns": 3,
+                "settings": {"chromeFlags": "--no-sandbox"}
+              },
+              "assert": {
+                "assertions": {
+                  "categories:performance": ["warn", {"minScore": 0.85, "aggregationMethod": "median"}],
+                  "categories:accessibility": ["error", {"minScore": 0.97, "aggregationMethod": "median"}],
+                  "categories:best-practices": ["warn", {"minScore": 0.95, "aggregationMethod": "median"}],
+                  "categories:seo": ["error", {"minScore": 0.98, "aggregationMethod": "median"}],
+                  "largest-contentful-paint": ["warn", {"maxNumericValue": 3500, "aggregationMethod": "median"}],
+                  "cumulative-layout-shift": ["error", {"maxNumericValue": 0.1, "aggregationMethod": "pessimistic"}],
+                  "total-blocking-time": ["warn", {"maxNumericValue": 400, "aggregationMethod": "median"}]
+                }
+              }
+            }
+          }
+          JSON
+          npx lhci collect --config=/tmp/cuaderno-lhci.json
+          npx lhci assert --config=/tmp/cuaderno-lhci.json
+
       - name: Upload QA evidence
         if: always()
         uses: actions/upload-artifact@v4
         with:
           name: cuaderno-editorial-evidence
-          path: qa-artifacts/cuaderno/
+          path: |
+            qa-artifacts/cuaderno/
+            .lighthouseci/
+          include-hidden-files: true
           if-no-files-found: warn
           retention-days: 14
