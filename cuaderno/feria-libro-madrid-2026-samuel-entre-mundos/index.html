@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="es" class="v1">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
@@ -22,36 +22,24 @@
 
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="Samuel entre mundos en la Feria del Libro de Madrid 2026" />
-  <meta name="twitter:description" content="Crónica de la firma de David Porto Díaz en la caseta 337 de la Feria del Libro de Madrid 2026." />
+  <meta name="twitter:description" content="Crónica de la firma de David Porto Díaz en la Feria del Libro de Madrid 2026, con Samuel entre mundos en la caseta 337." />
   <meta name="twitter:image" content="https://davidportodiaz.com/assets/eventos/og-feria-libro-madrid-2026-david-porto-samuel.webp" />
   <meta name="twitter:image:alt" content="David Porto Díaz en la Feria del Libro de Madrid 2026 con Samuel entre mundos" />
 
-  <meta name="theme-color" content="#080a0c" />
+  <meta name="theme-color" content="#F4EFE7" />
   <link rel="canonical" href="https://davidportodiaz.com/cuaderno/feria-libro-madrid-2026-samuel-entre-mundos/" />
   <link rel="preconnect" href="https://gc.zgo.at" />
-  <link rel="preload" as="font" type="font/woff2" href="/assets/fonts/cg-normal-latin.woff2" crossorigin />
-  <link rel="preload" as="font" type="font/woff2" href="/assets/fonts/inter-normal-latin.woff2" crossorigin />
   <link rel="icon" type="image/png" href="/assets/david-porto-favicon.png" />
   <link rel="apple-touch-icon" href="/assets/david-porto-favicon.png" />
   <link rel="manifest" href="/manifest.json" />
-  <link rel="stylesheet" href="/styles.css?v=202609-launch-1" />
-  <style>
-    .article-shell{max-width:860px;margin:0 auto}
-    .article-hero{margin-bottom:42px}
-    .article-hero h1{font-family:var(--font-display);font-size:clamp(2.25rem,5vw,4rem);line-height:1.06;font-weight:600;margin:0 0 22px}
-    .article-lead{font-family:var(--font-display);font-size:clamp(1.15rem,1.8vw,1.45rem);font-style:italic;color:var(--muted);line-height:1.65;margin:0}
-    .article-meta{display:flex;flex-wrap:wrap;gap:10px 16px;margin:20px 0 0;color:var(--muted-2);font-size:.86rem}
-    .article-body{font-size:1.05rem;line-height:1.86;color:var(--text)}
-    .article-body p{margin:0 0 22px}
-    .article-body h2{font-family:var(--font-display);font-size:clamp(1.6rem,3vw,2.25rem);line-height:1.15;margin:54px 0 18px}
-    .article-note{border-left:3px solid var(--accent);padding:20px 24px;margin:34px 0;background:rgba(196,148,77,.05);border-radius:0 14px 14px 0}
-    .article-gallery{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px;margin:36px 0}
-    .article-gallery figure{margin:0;border:1px solid var(--border);border-radius:16px;overflow:hidden;background:rgba(255,255,255,.03)}
-    .article-gallery img{width:100%;height:100%;max-height:420px;object-fit:cover}
-    .article-gallery figcaption{padding:12px 14px;color:var(--muted);font-size:.84rem;line-height:1.5}
-    .article-links{display:flex;flex-wrap:wrap;gap:12px;margin-top:28px}
-    @media(max-width:760px){.article-gallery{grid-template-columns:1fr}.article-body{font-size:1rem}.article-note{padding:18px 20px}}
-  </style>
+  <link rel="alternate" type="application/rss+xml" title="Cuaderno del autor — David Porto Díaz" href="https://davidportodiaz.com/cuaderno/feed.xml" />
+
+  <!-- V1 editorial system — Cuaderno/Artículo family -->
+  <link rel="stylesheet" href="/assets/v1-fonts.css" />
+  <link rel="stylesheet" href="/assets/v1-tokens.css" />
+  <link rel="stylesheet" href="/assets/v1-base.css" />
+  <link rel="stylesheet" href="/assets/v1-shell.css" />
+  <link rel="stylesheet" href="/assets/v1-editorial.css" />
 
   <script type="application/ld+json">
   {
@@ -120,78 +108,117 @@
   }
   </script>
 </head>
+
 <body data-reading-progress>
-  <a href="#main-content" class="skip-link">Saltar al contenido</a>
+  <a href="#contenido" class="skip-link">Saltar al contenido</a>
 
-  <div class="site-shell" id="contenido">
-    <header class="site-header">
-      <a class="brand" href="/" aria-label="Volver al inicio - David Porto Díaz">
-        <span class="brand-mark">
-          <img src="/assets/logo-david-porto-diaz-escritor-176.webp" alt="" class="brand-logo-img" width="52" height="52" loading="eager" aria-hidden="true" />
-        </span>
-        <span class="brand-text">
-          <strong>David Porto Díaz</strong>
-          <small>Escritor</small>
-        </span>
+  <header class="site-header" data-header>
+    <div class="site-header__inner">
+      <a class="brand" href="/" aria-label="David Porto Díaz — inicio">
+        <span class="brand__name">David Porto Díaz</span>
+        <span class="brand__role">Escritor</span>
       </a>
-
-      <button class="nav-toggle" type="button" aria-label="Abrir menú" aria-expanded="false">
-        <span></span>
-        <span></span>
-      </button>
-
-      <nav class="site-nav" aria-label="Navegación principal">
-        <a href="/">Inicio</a>
-        <a href="/libros/">Libros</a>
+      <nav class="primary-nav" aria-label="Navegación principal">
+        <a href="/libros/">Obra</a>
         <a href="/cuaderno/" aria-current="page">Cuaderno</a>
-        <a href="/autor.html">El autor</a>
-        <a href="/eventos.html">Eventos</a>
-        <a href="/prensa.html">Prensa</a>
+        <a href="/herramientas/">Herramientas</a>
       </nav>
-    </header>
+      <button class="explore-trigger" type="button" aria-haspopup="dialog" aria-controls="explore-dialog" aria-expanded="false" data-explore-open>
+        Explorar
+      </button>
+    </div>
+  </header>
 
-    <main id="main-content" class="article-shell" tabindex="-1">
-      <nav class="breadcrumb" aria-label="Ruta de navegación" style="margin-bottom:32px;font-size:0.82rem;color:var(--muted)">
-        <a href="/" style="color:var(--muted);text-decoration:none">Inicio</a>
-        <span aria-hidden="true" style="margin:0 6px">›</span>
-        <a href="/cuaderno/" style="color:var(--muted);text-decoration:none">Cuaderno</a>
-        <span aria-hidden="true" style="margin:0 6px">›</span>
-        <span style="color:var(--text)">Feria del Libro de Madrid 2026</span>
-      </nav>
+  <dialog class="explore-dialog" id="explore-dialog" aria-labelledby="explore-title" data-explore-dialog>
+    <div class="explore-dialog__shell">
+      <div class="explore-dialog__head">
+        <div>
+          <p class="eyebrow">Índice general</p>
+          <h2 id="explore-title">Explorar</h2>
+        </div>
+        <button class="icon-button" type="button" aria-label="Cerrar Explorar" data-explore-close>
+          <svg aria-hidden="true" viewBox="0 0 24 24" width="20" height="20"><path d="M5 5l14 14M19 5L5 19"/></svg>
+        </button>
+      </div>
 
-      <article class="article-body">
-        <header class="article-hero">
+      <div class="explore-dialog__grid">
+        <nav class="explore-list" aria-label="Destinos de la web">
+          <a class="explore-row" href="/las-manecillas-del-recuerdo/" data-preview="manecillas">
+            <span class="explore-row__index">01</span>
+            <span class="explore-row__body"><strong>Las manecillas del recuerdo</strong><small>La obra actual.</small></span>
+          </a>
+          <a class="explore-row" href="/autor.html" data-preview="autor">
+            <span class="explore-row__index">02</span>
+            <span class="explore-row__body"><strong>Autor</strong><small>Biografía, obra y trayectoria.</small></span>
+          </a>
+          <a class="explore-row" href="/libros/samuel-entre-mundos/" data-preview="samuel">
+            <span class="explore-row__index">03</span>
+            <span class="explore-row__body"><strong>Samuel entre mundos</strong><small>Primera novela publicada.</small></span>
+          </a>
+          <a class="explore-row" href="/cuaderno/" data-preview="cuaderno">
+            <span class="explore-row__index">04</span>
+            <span class="explore-row__body"><strong>Cuaderno</strong><small>Artículos y piezas editoriales.</small></span>
+          </a>
+          <a class="explore-row" href="/herramientas/" data-preview="herramientas">
+            <span class="explore-row__index">05</span>
+            <span class="explore-row__body"><strong>Herramientas</strong><small>Utilidades gratuitas para escritores.</small></span>
+          </a>
+          <a class="explore-row" href="/prensa.html" data-preview="prensa">
+            <span class="explore-row__index">06</span>
+            <span class="explore-row__body"><strong>Prensa y eventos</strong><small>Apariciones, materiales y agenda.</small></span>
+          </a>
+        </nav>
+
+        <aside class="explore-preview" aria-live="polite" aria-atomic="true" data-explore-preview>
+          <div class="explore-preview__media" aria-hidden="true" data-preview-media></div>
+          <p class="explore-preview__label" data-preview-label>Cuaderno</p>
+          <p class="explore-preview__copy" data-preview-copy>Artículos, crónicas y piezas editoriales.</p>
+        </aside>
+      </div>
+    </div>
+  </dialog>
+  <main class="editorial-page article-page" id="contenido">
+    <nav class="editorial-breadcrumb" aria-label="Ruta de navegación"><ol><li><a href="/">Inicio</a></li><li><a href="/cuaderno/">Cuaderno</a></li><li aria-current="page">Feria del Libro de Madrid 2026</li></ol></nav>
+
+    <article aria-labelledby="article-title">
+      <header class="article-header">
+        <div>
           <p class="eyebrow">Crónica de autor</p>
-          <h1>Samuel entre mundos en la Feria del Libro de Madrid 2026</h1>
-          <p class="article-lead">El 10 de junio de 2026 firmé ejemplares de <em>Samuel entre mundos</em> en la caseta 337 de la Feria del Libro de Madrid. Esta es una crónica breve de esa tarde en el Retiro, con fotos reales del encuentro.</p>
-          <div class="article-meta">
-            <span>David Porto Díaz</span>
-            <span>10 junio 2026</span>
-            <span>Feria del Libro de Madrid · Caseta 337</span>
+          <h1 id="article-title">Samuel entre mundos en la Feria del Libro de Madrid 2026</h1>
+          <p class="article-deck">El 10 de junio de 2026 firmé ejemplares de Samuel entre mundos en la caseta 337 de la Feria del Libro de Madrid. Esta es una crónica breve de esa tarde en el Retiro, con fotos reales del encuentro.</p>
+        </div>
+        <div class="article-meta">
+          <p>Por <a href="/autor.html">David Porto Díaz</a></p>
+          <p><time datetime="2026-06-10">10 de junio de 2026</time></p>
+          <p>4 min de lectura</p>
+          <div class="article-utilities">
+            <button class="text-action" type="button" hidden data-share-url="https://davidportodiaz.com/cuaderno/feria-libro-madrid-2026-samuel-entre-mundos/" data-share-title="Samuel entre mundos en la Feria del Libro de Madrid 2026" aria-describedby="article-share-status">Compartir</button>
+            <button class="text-action" type="button" hidden data-print>Imprimir</button>
+            <span class="article-share-status" id="article-share-status" role="status" aria-live="polite"></span>
           </div>
-        </header>
+        </div>
+      </header>
 
-        <figure style="margin:0 0 36px;border-radius:18px;overflow:hidden;border:1px solid var(--border);background:rgba(255,255,255,.03)">
-          <img src="/assets/eventos/david-porto-diaz-feria-libro-madrid-2026-caseta-337.webp" alt="David Porto Díaz en la caseta 337 de la Feria del Libro de Madrid 2026" width="1500" height="2000" loading="eager" decoding="async" style="width:100%;max-height:620px;object-fit:cover;object-position:center 28%" />
-          <figcaption style="padding:12px 14px;color:var(--muted);font-size:.84rem;line-height:1.5">Caseta 337 · Feria del Libro de Madrid 2026.</figcaption>
+      <div class="article-layout">
+        <nav class="article-toc" aria-label="En esta página" data-article-toc><span class="article-toc__label">En esta página</span><ol><li><a href="#firmar-un-libro">Firmar un libro que empezó en silencio</a></li><li><a href="#que-supuso-estar-alli">Qué supuso estar allí</a></li></ol></nav>
+        <div class="article-prose" data-article-body>
+          <figure class="article-hero-figure">
+          <img src="/assets/eventos/david-porto-diaz-feria-libro-madrid-2026-caseta-337.webp" alt="David Porto Díaz en la caseta 337 de la Feria del Libro de Madrid 2026" width="1500" height="2000" loading="eager" decoding="async" />
+          <figcaption>Caseta 337 · Feria del Libro de Madrid 2026.</figcaption>
         </figure>
 
-        <p>Hay momentos que uno imagina muchas veces antes de que ocurran. Publicar una novela es uno de ellos. Verla sobre una mesa, en una caseta de la Feria del Libro de Madrid, con lectores acercándose a preguntar de qué va, es otro distinto. Más concreto. Más raro. Más bonito.</p>
+          <p>Hay momentos que uno imagina muchas veces antes de que ocurran. Publicar una novela es uno de ellos. Verla sobre una mesa, en una caseta de la Feria del Libro de Madrid, con lectores acercándose a preguntar de qué va, es otro distinto. Más concreto. Más raro. Más bonito.</p>
 
         <p><em>Samuel entre mundos</em> llegó a la Feria del Libro de Madrid 2026 de la mano de Libros Indie. La firma fue el miércoles 10 de junio, de 19:00 a 20:00, en la caseta 337, dentro del Paseo de Coches del Parque del Retiro. Una hora no parece mucho cuando la ves escrita en una agenda, pero allí se llenó de conversaciones, fotos, nervios y ejemplares dedicados.</p>
 
-        <div class="article-note">
-          <p style="margin:0"><strong>Datos de la firma:</strong> Feria del Libro de Madrid 2026 · Parque del Retiro · Caseta 337 · 10 de junio · 19:00 a 20:00 · Firma de ejemplares de <em>Samuel entre mundos</em>.</p>
-        </div>
+          <div class="article-note" role="note" aria-label="Datos del evento"><p><strong>Datos de la firma:</strong> Feria del Libro de Madrid 2026 · Parque del Retiro · Caseta 337 · 10 de junio · 19:00 a 20:00 · Firma de ejemplares de <em>Samuel entre mundos</em>.</p></div>
 
-        <h2>Firmar un libro que empezó en silencio</h2>
-
-        <p><em>Samuel entre mundos</em> es una novela de fantasía juvenil española con portales, objetos con memoria y magia con coste. Pero antes de ser una ficha técnica, un ISBN o una portada en una caseta, fue una historia escrita a ratos, corregida muchas veces y defendida con la mezcla habitual de ilusión y duda.</p>
+          <h2 id="firmar-un-libro">Firmar un libro que empezó en silencio</h2>
+          <p><em>Samuel entre mundos</em> es una novela de fantasía juvenil española con portales, objetos con memoria y magia con coste. Pero antes de ser una ficha técnica, un ISBN o una portada en una caseta, fue una historia escrita a ratos, corregida muchas veces y defendida con la mezcla habitual de ilusión y duda.</p>
 
         <p>Por eso firmar en Madrid no fue solo una foto bonita. Fue una forma de comprobar que el libro ya estaba fuera de mí. En manos de otras personas. En preguntas que yo no había previsto. En lectores que se acercaban por la portada, por la premisa o por simple curiosidad.</p>
 
-        <div class="article-gallery" aria-label="Fotos de la firma de Samuel entre mundos en la Feria del Libro de Madrid 2026">
-          <figure>
+          <div class="article-gallery" aria-label="Fotos de la firma de Samuel entre mundos en la Feria del Libro de Madrid 2026"><figure>
             <img src="/assets/eventos/david-porto-diaz-feria-libro-madrid-2026-firma-samuel-entre-mundos.webp" alt="David Porto Díaz firmando Samuel entre mundos en la Feria del Libro de Madrid 2026" width="941" height="1672" loading="lazy" decoding="async" />
             <figcaption>Firma de ejemplares de <em>Samuel entre mundos</em>.</figcaption>
           </figure>
@@ -206,36 +233,77 @@
           <figure>
             <img src="/assets/eventos/samuel-entre-mundos-feria-libro-madrid-2026-caseta-337.webp" alt="Samuel entre mundos en la caseta 337 de la Feria del Libro de Madrid 2026" width="1536" height="2048" loading="lazy" decoding="async" />
             <figcaption><em>Samuel entre mundos</em> en la caseta 337.</figcaption>
-          </figure>
-        </div>
+          </figure></div>
 
-        <h2>Qué supuso estar allí</h2>
-
-        <p>La Feria del Libro de Madrid tiene algo muy físico: el calor, los árboles, las filas de casetas, la gente que camina con bolsas llenas de libros y esa sensación de que todo el mundo ha ido allí a buscar algo, aunque no siempre sepa qué.</p>
+          <h2 id="que-supuso-estar-alli">Qué supuso estar allí</h2>
+          <p>La Feria del Libro de Madrid tiene algo muy físico: el calor, los árboles, las filas de casetas, la gente que camina con bolsas llenas de libros y esa sensación de que todo el mundo ha ido allí a buscar algo, aunque no siempre sepa qué.</p>
 
         <p>Para un autor que acaba de publicar su primera novela, estar allí ayuda a poner la obra en el mundo de una manera muy directa. No como publicación abstracta, sino como conversación. Alguien pregunta. Alguien hojea. Alguien se lleva el libro. Alguien vuelve para una foto. Ese tipo de escenas son pequeñas, pero sostienen mucho.</p>
 
-        <p>Ese mismo día, <a href="https://bookdala.com/bnews/2026/06/10/fantasia-juvenil-con-voz-propia-en-la-feria-del-libro-de-madrid/" target="_blank" rel="noopener noreferrer" style="color:var(--accent)">Bookdala publicó una mención sobre <em>Samuel entre mundos</em>, David Porto Díaz y la firma en la Feria del Libro de Madrid</a>, un apoyo externo que ayuda a situar la novela dentro de la conversación literaria de la feria.</p>
-
-        <h2>Seguir leyendo</h2>
-
-        <p>Si llegas aquí porque viste alguna foto de la firma o porque buscas fantasía juvenil española con portales, puedes leer el primer capítulo gratis, visitar la ficha completa del libro o consultar la página de eventos para próximas presentaciones y clubes de lectura.</p>
-
-        <div class="article-links">
-          <a class="button primary" href="/fragmento/">Leer capítulo 1 gratis</a>
-          <a class="button secondary" href="/libros/samuel-entre-mundos/">Ver ficha de Samuel entre mundos</a>
-          <a class="button secondary" href="/ferias.html">Ver ferias del libro</a>
-          <a class="button tertiary" href="/prensa.html">Kit de prensa</a>
+        <p>Ese mismo día, <a href="https://bookdala.com/bnews/2026/06/10/fantasia-juvenil-con-voz-propia-en-la-feria-del-libro-de-madrid/" target="_blank" rel="noopener noreferrer">Bookdala publicó una mención sobre <em>Samuel entre mundos</em>, David Porto Díaz y la firma en la Feria del Libro de Madrid</a>, un apoyo externo que ayuda a situar la novela dentro de la conversación literaria de la feria.</p>
         </div>
-      </article>
-    </main>
 
-    <footer style="margin-top:80px;padding-top:32px;border-top:1px solid var(--border);display:flex;flex-wrap:wrap;justify-content:space-between;gap:16px;font-size:0.82rem;color:var(--muted-2)">
-      <p style="margin:0">© 2026 David Porto Díaz · <a href="/privacidad.html" style="color:var(--muted-2)">Privacidad</a> · <a href="/aviso-legal.html" style="color:var(--muted-2)">Aviso legal</a></p>
-      <p style="margin:0"><a href="/" style="color:var(--muted-2)">davidportodiaz.com</a></p>
-    </footer>
-  </div>
+        <aside class="article-folio" aria-hidden="true">
+          <strong>06</strong>
+          <span>Cuaderno del autor</span>
+        </aside>
+      </div>
 
-  <script src="/script.js?v=202609-launch-1" defer></script>
+
+      <section class="article-end" aria-labelledby="article-end-title">
+        <div class="article-end__label">
+          <p class="eyebrow">Continuar</p>
+          <h2 id="article-end-title">Seguir leyendo</h2>
+        </div>
+        <div class="article-end__body">
+          <p>Si llegas aquí porque viste alguna foto de la firma o porque buscas fantasía juvenil española con portales, puedes leer el primer capítulo gratis, visitar la ficha completa del libro o consultar la página de eventos para próximas presentaciones y clubes de lectura.</p>
+          <nav class="article-related" aria-label="Contenido relacionado">
+            <a href="/fragmento/">Leer capítulo 1 gratis</a><a href="/libros/samuel-entre-mundos/">Ver ficha de Samuel entre mundos</a><a href="/ferias.html">Ver ferias del libro</a><a href="/prensa.html">Kit de prensa</a><a href="/cuaderno/">Volver al Cuaderno</a>
+          </nav>
+        </div>
+      </section>
+    </article>
+
+    <section class="editorial-newsletter" id="newsletter" aria-labelledby="article-newsletter-title">
+      <div class="editorial-newsletter__copy">
+        <p class="eyebrow">Cuaderno de fantasía</p>
+        <h2 id="article-newsletter-title">Recibe nuevos artículos y fragmentos</h2>
+        <p>Sé de los primeros lectores de Noveris. Novedades del universo, fragmentos exclusivos y avance de los próximos textos del autor.</p>
+      </div>
+      <form class="editorial-newsletter__form" id="newsletter-form-cuaderno" novalidate data-newsletter-source="cuaderno">
+        <label class="form-field-label" for="nl-email-cuaderno">Email</label>
+        <div class="form-row">
+          <input class="form-input" id="nl-email-cuaderno" name="email" type="email" autocomplete="email" inputmode="email" required aria-describedby="nl-status-cuaderno">
+          <button class="form-submit" type="submit">Apuntarme</button>
+        </div>
+        <label class="form-consent" for="nl-gdpr-cuaderno">
+          <input id="nl-gdpr-cuaderno" name="consent" type="checkbox" required aria-describedby="nl-status-cuaderno">
+          <span>Acepto recibir novedades del autor. Puedo darme de baja en cualquier momento. <a href="/privacidad.html" target="_blank" rel="noopener">Privacidad</a>.</span>
+        </label>
+        <p id="nl-status-cuaderno" class="form-status" role="status" aria-live="polite"></p>
+      </form>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="site-footer__grid">
+      <div>
+        <strong class="brand__name">David Porto Díaz</strong>
+        <p>Autor de Las manecillas del recuerdo y Samuel entre mundos.</p>
+      </div>
+      <nav aria-label="Obra"><h2>Obra</h2><a href="/las-manecillas-del-recuerdo/">Las manecillas del recuerdo</a><a href="/libros/samuel-entre-mundos/">Samuel entre mundos</a><a href="/fragmento/">Fragmento gratis</a></nav>
+      <nav aria-label="Leer y recursos"><h2>Leer</h2><a href="/cuaderno/">Cuaderno</a><a href="/cuaderno/feed.xml">RSS del Cuaderno</a><a href="/herramientas/">Herramientas</a><a href="/mapa-del-sitio/">Mapa del sitio</a></nav>
+      <nav aria-label="Información"><h2>Información</h2><a href="/autor.html">Autor</a><a href="/prensa.html">Prensa</a><a href="/eventos.html">Eventos</a><a href="/privacidad.html">Privacidad</a><a href="/aviso-legal.html">Aviso legal</a><a href="/ai/">Para IA</a></nav>
+    </div>
+    <p class="footer-legal">
+      <span>© 2026 David Porto Díaz. Todos los derechos reservados.</span>
+    </p>
+  </footer>
+
+  <script defer src="/assets/v1-shell.js"></script>
+  <script defer src="/assets/v1-editorial.js"></script>
+  <script defer src="/script.js?v=202609-launch-1"></script>
+  <script>window.goatcounter={path:function(p){return location.hostname+p}}</script>
+  <script data-goatcounter="https://davidportodiaz.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
 </body>
 </html>
