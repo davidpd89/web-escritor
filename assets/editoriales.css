@@ -7,7 +7,7 @@ html.v1 .editorial-card__head h2{margin-block-start:0}
 html.v1 .editorial-badges,html.v1 .editorial-genres{display:flex;flex-wrap:wrap;gap:.4rem;margin:0}
 html.v1 .editorial-genres--spaced{margin:1rem 0 0}
 html.v1 .editorial-badge,html.v1 .editorial-genre{display:inline-flex;align-items:center;min-height:2rem;padding:.25rem .6rem;border:1px solid var(--color-border);border-radius:0;font:600 .72rem/1.4 var(--font-ui);letter-spacing:.02em;color:var(--color-muted)}
-html.v1 .editorial-badge--open{border-color:var(--dp-petrol);color:var(--dp-petrol)}
+html.v1 .editorial-badge--open{border-color:var(--dp-petrol);color:var(--dp-petrol-ink)}
 html.v1 .editorial-badge--closed{opacity:.75}
 html.v1 .editorial-verified{margin:0;font:400 .85rem/1.5 var(--font-ui);color:var(--color-muted)}
 html.v1 [data-editoriales-directory] .id-card__actions{margin-block-start:.75rem}
