@@ -7,150 +7,33 @@
   <meta name="robots" content="index,follow,max-image-preview:large" />
   <title>Comprobador de nombres — Herramientas</title>
   <meta name="description" content="Detecta nombres de personajes parecidos que pueden confundir al lector. Análisis local en el navegador.">
-  <meta property="og:title" content="Comprobador de nombres — Herramientas">
-  <meta property="og:description" content="Detecta nombres de personajes parecidos que pueden confundir al lector. Análisis local en el navegador.">
-  <meta property="og:type" content="website">
-  <meta property="og:url" content="https://davidportodiaz.com/herramientas/nombres-personajes/">
-  <meta property="og:image" content="https://davidportodiaz.com/assets/david-porto-imagen-compartir.webp">
-  <meta property="og:image:width" content="1731">
-  <meta property="og:image:height" content="909">
-  <meta property="og:image:alt" content="Comprobador de nombres — Herramientas">
-  <meta property="og:locale" content="es_ES">
-  <meta property="og:site_name" content="David Porto Díaz">
-  <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Comprobador de nombres — Herramientas">
-  <meta name="twitter:description" content="Detecta nombres de personajes parecidos que pueden confundir al lector. Análisis local en el navegador.">
-  <meta name="twitter:image" content="https://davidportodiaz.com/assets/david-porto-imagen-compartir.webp">
-  <meta name="twitter:image:alt" content="Comprobador de nombres — Herramientas">
+  <meta property="og:title" content="Comprobador de nombres — Herramientas"><meta property="og:description" content="Detecta nombres de personajes parecidos que pueden confundir al lector. Análisis local en el navegador."><meta property="og:type" content="website"><meta property="og:url" content="https://davidportodiaz.com/herramientas/nombres-personajes/"><meta property="og:image" content="https://davidportodiaz.com/assets/david-porto-imagen-compartir.webp"><meta property="og:image:width" content="1731"><meta property="og:image:height" content="909"><meta property="og:image:alt" content="Comprobador de nombres — Herramientas"><meta property="og:locale" content="es_ES"><meta property="og:site_name" content="David Porto Díaz">
+  <meta name="twitter:card" content="summary_large_image"><meta name="twitter:title" content="Comprobador de nombres — Herramientas"><meta name="twitter:description" content="Detecta nombres de personajes parecidos que pueden confundir al lector. Análisis local en el navegador."><meta name="twitter:image" content="https://davidportodiaz.com/assets/david-porto-imagen-compartir.webp"><meta name="twitter:image:alt" content="Comprobador de nombres — Herramientas">
   <meta name="theme-color" content="#F4EFE7" />
-  <link rel="canonical" href="https://davidportodiaz.com/herramientas/nombres-personajes/" />
-  <link rel="icon" type="image/png" href="/assets/david-porto-favicon.png" />
-  <link rel="apple-touch-icon" href="/assets/david-porto-favicon.png" />
-  <link rel="manifest" href="/manifest.json" />
-
-  <link rel="stylesheet" href="/assets/v1-fonts.css" />
-  <link rel="stylesheet" href="/assets/v1-tokens.css" />
-  <link rel="stylesheet" href="/assets/v1-base.css" />
-  <link rel="stylesheet" href="/assets/v1-shell.css" />
-  <link rel="stylesheet" href="/assets/v1-components.css" />
-  <link rel="stylesheet" href="/assets/v1-tools.css" />
-  <link rel="stylesheet" href="/assets/nombres-personajes.css" />
+  <link rel="canonical" href="https://davidportodiaz.com/herramientas/nombres-personajes/" /><link rel="icon" type="image/png" href="/assets/david-porto-favicon.png" /><link rel="apple-touch-icon" href="/assets/david-porto-favicon.png" /><link rel="manifest" href="/manifest.json" />
+  <link rel="stylesheet" href="/assets/v1-fonts.css" /><link rel="stylesheet" href="/assets/v1-tokens.css" /><link rel="stylesheet" href="/assets/v1-base.css" /><link rel="stylesheet" href="/assets/v1-shell.css" /><link rel="stylesheet" href="/assets/v1-components.css" /><link rel="stylesheet" href="/assets/v1-tools.css" /><link rel="stylesheet" href="/assets/nombres-personajes.css" />
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebApplication","name":"Comprobador de nombres de personaje parecidos","url":"https://davidportodiaz.com/herramientas/nombres-personajes/","description":"Herramienta gratuita que detecta pares de nombres de personaje que pueden confundir al lector, con el motivo de cada coincidencia. El texto se procesa en el navegador.","applicationCategory":"UtilitiesApplication","operatingSystem":"Cualquiera (navegador web)","isAccessibleForFree":true,"inLanguage":"es","author":{"@id":"https://davidportodiaz.com/#author"}}</script>
 </head>
-
 <body>
   <a href="#contenido" class="skip-link">Saltar al contenido</a>
-
-  <header class="site-header" data-header>
-    <div class="site-header__inner">
-      <a class="brand" href="/" aria-label="David Porto Díaz — inicio">
-        <span class="brand__name">David Porto Díaz</span>
-        <span class="brand__role">Escritor</span>
-      </a>
-      <nav class="primary-nav" aria-label="Navegación principal">
-        <a href="/libros/">Obra</a>
-        <a href="/cuaderno/">Cuaderno</a>
-        <a href="/herramientas/" aria-current="page">Herramientas</a>
-      </nav>
-      <button class="explore-trigger" type="button" aria-haspopup="dialog" aria-controls="explore-dialog" aria-expanded="false" data-explore-open>
-        Explorar
-      </button>
-    </div>
-  </header>
-
-  <dialog class="explore-dialog" id="explore-dialog" aria-labelledby="explore-title" data-explore-dialog>
-    <div class="explore-dialog__shell">
-      <div class="explore-dialog__head">
-        <div>
-          <p class="eyebrow">Índice general</p>
-          <h2 id="explore-title">Explorar</h2>
-        </div>
-        <button class="icon-button" type="button" aria-label="Cerrar Explorar" data-explore-close>
-          <svg aria-hidden="true" viewBox="0 0 24 24" width="20" height="20"><path d="M5 5l14 14M19 5L5 19"/></svg>
-        </button>
-      </div>
-
-      <div class="explore-dialog__grid">
-        <nav class="explore-list" aria-label="Destinos de la web">
-          <a class="explore-row" href="/las-manecillas-del-recuerdo/" data-preview="manecillas">
-            <span class="explore-row__index">01</span>
-            <span class="explore-row__body"><strong>Las manecillas del recuerdo</strong><small>La obra actual.</small></span>
-          </a>
-          <a class="explore-row" href="/autor.html" data-preview="autor">
-            <span class="explore-row__index">02</span>
-            <span class="explore-row__body"><strong>Autor</strong><small>Biografía, obra y trayectoria.</small></span>
-          </a>
-          <a class="explore-row" href="/libros/samuel-entre-mundos/" data-preview="samuel">
-            <span class="explore-row__index">03</span>
-            <span class="explore-row__body"><strong>Samuel entre mundos</strong><small>Primera novela publicada.</small></span>
-          </a>
-          <a class="explore-row" href="/cuaderno/" data-preview="cuaderno">
-            <span class="explore-row__index">04</span>
-            <span class="explore-row__body"><strong>Cuaderno</strong><small>Artículos y piezas editoriales.</small></span>
-          </a>
-          <a class="explore-row" href="/herramientas/" data-preview="herramientas">
-            <span class="explore-row__index">05</span>
-            <span class="explore-row__body"><strong>Herramientas</strong><small>Utilidades gratuitas para escritores.</small></span>
-          </a>
-          <a class="explore-row" href="/prensa.html" data-preview="prensa">
-            <span class="explore-row__index">06</span>
-            <span class="explore-row__body"><strong>Prensa y eventos</strong><small>Apariciones, materiales y agenda.</small></span>
-          </a>
-        </nav>
-
-        <aside class="explore-preview" aria-live="polite" aria-atomic="true" data-explore-preview>
-          <div class="explore-preview__media" aria-hidden="true" data-preview-media></div>
-          <p class="explore-preview__label" data-preview-label>Herramientas</p>
-          <p class="explore-preview__copy" data-preview-copy>Utilidades gratuitas para escritores.</p>
-        </aside>
-      </div>
-    </div>
-  </dialog>
-
-  <main id="contenido" class="v1-main" data-family="tool" data-character-name-checker>
-    <nav class="book-breadcrumb" aria-label="Ruta de navegación">
-      <ol><li><a href="/">Inicio</a></li><li><a href="/herramientas/">Herramientas</a></li><li aria-current="page">Comprobador de nombres</li></ol>
-    </nav>
-
-    <header class="tool-hero">
-      <p class="eyebrow">Herramienta gratuita · local</p>
-      <h1>Comprobador de nombres de personaje</h1>
-      <p class="tool-hero__lead">Pega tu lista de nombres y detecta parejas que un lector real podría confundir: por forma, sonido o patrón de vocales.</p>
-    </header>
-
+  <header class="site-header" data-header><div class="site-header__inner"><a class="brand" href="/" aria-label="David Porto Díaz — inicio"><span class="brand__name">David Porto Díaz</span><span class="brand__role">Escritor</span></a><nav class="primary-nav" aria-label="Navegación principal"><a href="/libros/">Obra</a><a href="/cuaderno/">Cuaderno</a><a href="/herramientas/" aria-current="page">Herramientas</a></nav><button class="explore-trigger" type="button" aria-haspopup="dialog" aria-controls="explore-dialog" aria-expanded="false" data-explore-open>Explorar</button></div></header>
+  <dialog class="explore-dialog" id="explore-dialog" aria-labelledby="explore-title" data-explore-dialog><div class="explore-dialog__shell"><div class="explore-dialog__head"><div><p class="eyebrow">Índice general</p><h2 id="explore-title">Explorar</h2></div><button class="icon-button" type="button" aria-label="Cerrar Explorar" data-explore-close><svg aria-hidden="true" viewBox="0 0 24 24" width="20" height="20"><path d="M5 5l14 14M19 5L5 19"/></svg></button></div><div class="explore-dialog__grid"><nav class="explore-list" aria-label="Destinos de la web"><a class="explore-row" href="/las-manecillas-del-recuerdo/" data-preview="manecillas"><span class="explore-row__index">01</span><span class="explore-row__body"><strong>Las manecillas del recuerdo</strong><small>La obra actual.</small></span></a><a class="explore-row" href="/autor.html" data-preview="autor"><span class="explore-row__index">02</span><span class="explore-row__body"><strong>Autor</strong><small>Biografía, obra y trayectoria.</small></span></a><a class="explore-row" href="/libros/samuel-entre-mundos/" data-preview="samuel"><span class="explore-row__index">03</span><span class="explore-row__body"><strong>Samuel entre mundos</strong><small>Primera novela publicada.</small></span></a><a class="explore-row" href="/cuaderno/" data-preview="cuaderno"><span class="explore-row__index">04</span><span class="explore-row__body"><strong>Cuaderno</strong><small>Artículos y piezas editoriales.</small></span></a><a class="explore-row" href="/herramientas/" data-preview="herramientas"><span class="explore-row__index">05</span><span class="explore-row__body"><strong>Herramientas</strong><small>Utilidades gratuitas para escritores.</small></span></a><a class="explore-row" href="/prensa.html" data-preview="prensa"><span class="explore-row__index">06</span><span class="explore-row__body"><strong>Prensa y eventos</strong><small>Apariciones, materiales y agenda.</small></span></a></nav><aside class="explore-preview" aria-live="polite" aria-atomic="true" data-explore-preview><div class="explore-preview__media" aria-hidden="true" data-preview-media></div><p class="explore-preview__label" data-preview-label>Herramientas</p><p class="explore-preview__copy" data-preview-copy>Utilidades gratuitas para escritores.</p></aside></div></div></dialog>
+  <main id="contenido" class="v1-main" data-family="tool" data-character-name-checker data-state="initial">
+    <nav class="book-breadcrumb" aria-label="Ruta de navegación"><ol><li><a href="/">Inicio</a></li><li><a href="/herramientas/">Herramientas</a></li><li aria-current="page">Comprobador de nombres</li></ol></nav>
+    <header class="tool-hero"><p class="eyebrow">Herramienta gratuita · local</p><h1>Comprobador de nombres de personaje</h1><p class="tool-hero__lead">Pega tu lista de nombres y detecta parejas que un lector real podría confundir: por forma, sonido o patrón de vocales.</p><p class="tool-status">Privacidad: la lista se compara en este navegador. No se envía a un servidor ni se guarda.</p></header>
+    <noscript><p class="tool-note">Esta herramienta necesita JavaScript para comparar los nombres. Sin JavaScript puedes seguir leyendo qué analiza, cómo interpretar el resultado y cómo tratamos tus datos.</p></noscript>
     <section class="tool-panel">
-      <form>
-        <div class="tool-field">
-          <label class="tool-field-label" for="names">Lista de nombres (una por línea, o separados por comas)</label>
-          <textarea id="names" class="tool-textarea" data-names-input></textarea>
-        </div>
-        <div class="tool-actions">
-          <button type="submit" class="primary-action">Analizar</button>
-          <button type="button" id="clear" class="text-action" data-clear>Limpiar</button>
-        </div>
+      <form novalidate>
+        <div class="tool-field"><label class="tool-field-label" for="names">Lista de nombres (una por línea, o separados por comas)</label><span class="tool-field-hint" id="names-hint">Acepta líneas, comas o punto y coma. El resultado señala similitudes; no califica un nombre como bueno o malo.</span><textarea id="names" class="tool-textarea" data-names-input aria-describedby="names-hint summary" spellcheck="false"></textarea></div>
+        <div class="tool-actions"><button type="submit" class="primary-action">Analizar</button><button type="button" id="clear" class="text-action" data-clear>Limpiar</button></div>
         <p id="summary" class="tool-status" data-summary role="status" aria-live="polite">Introduce al menos dos nombres para analizar.</p>
       </form>
     </section>
-
-    <section class="tool-results" id="results" data-results aria-live="polite"></section>
-
+    <section class="tool-results" id="results" data-results aria-live="polite" aria-label="Resultado del análisis"></section>
+    <section class="tool-panel tool-caveat" aria-labelledby="names-method"><h2 id="names-method">Cómo leer el resultado</h2><p>Se comparan señales formales —similitud ortográfica, Jaro-Winkler, patrón vocálico y silueta consonante/vocal— para localizar parejas que merecen una segunda mirada. Una alerta indica parecido, no un error de escritura.</p><h2>Qué no hace</h2><p>No evalúa la personalidad, el género, el origen ni la calidad de un nombre. Tampoco lee tu manuscrito: solo compara las etiquetas que pegues en el campo anterior.</p></section>
+    <section class="tool-next" aria-labelledby="names-next"><p class="eyebrow">Siguiente paso</p><h2 id="names-next">Lleva los nombres al reparto</h2><div class="tool-next-links"><a href="/herramientas/personajes/">Crear el mapa de relaciones</a></div></section>
   </main>
-
-  <footer class="site-footer">
-    <div class="site-footer__grid">
-      <div>
-        <strong class="brand__name">David Porto Díaz</strong>
-        <p>Autor de Las manecillas del recuerdo y Samuel entre mundos.</p>
-      </div>
-      <nav aria-label="Obra"><h2>Obra</h2><a href="/las-manecillas-del-recuerdo/">Las manecillas del recuerdo</a><a href="/libros/samuel-entre-mundos/">Samuel entre mundos</a><a href="/fragmento/">Fragmento gratis</a></nav>
-      <nav aria-label="Leer y recursos"><h2>Leer</h2><a href="/cuaderno/">Cuaderno</a><a href="/herramientas/" aria-current="page">Herramientas</a><a href="/mapa-del-sitio/">Mapa del sitio</a></nav>
-      <nav aria-label="Información"><h2>Información</h2><a href="/autor.html">Autor</a><a href="/prensa.html">Prensa</a><a href="/eventos.html">Eventos</a><a href="/privacidad.html">Privacidad</a><a href="/aviso-legal.html">Aviso legal</a><a href="/ai/">Para IA</a></nav>
-    </div>
-  </footer>
-
-  <script defer src="/assets/v1-shell.js"></script>
-
-  <script type="module" src="/assets/nombres-personajes-engine-compat.js"></script>
-  <script src="/assets/nombres-personajes.js" defer></script>
+  <footer class="site-footer"><div class="site-footer__grid"><div><strong class="brand__name">David Porto Díaz</strong><p>Autor de Las manecillas del recuerdo y Samuel entre mundos.</p></div><nav aria-label="Obra"><h2>Obra</h2><a href="/las-manecillas-del-recuerdo/">Las manecillas del recuerdo</a><a href="/libros/samuel-entre-mundos/">Samuel entre mundos</a><a href="/fragmento/">Fragmento gratis</a></nav><nav aria-label="Leer y recursos"><h2>Leer</h2><a href="/cuaderno/">Cuaderno</a><a href="/herramientas/" aria-current="page">Herramientas</a><a href="/mapa-del-sitio/">Mapa del sitio</a></nav><nav aria-label="Información"><h2>Información</h2><a href="/autor.html">Autor</a><a href="/prensa.html">Prensa</a><a href="/eventos.html">Eventos</a><a href="/privacidad.html">Privacidad</a><a href="/aviso-legal.html">Aviso legal</a><a href="/ai/">Para IA</a></nav></div></footer>
+  <script defer src="/assets/v1-shell.js"></script><script type="module" src="/assets/nombres-personajes-engine-compat.js"></script><script src="/assets/nombres-personajes.js" defer></script>
 </body>
 </html>
