@@ -4,7 +4,7 @@ import fs from "node:fs/promises";
 const workerCode = await fs.readFile(new URL("../cloudflare-worker-assistant.js", import.meta.url), "utf8");
 const { default: worker } = await import(`data:text/javascript;base64,${Buffer.from(workerCode).toString("base64")}`);
 
-const registry = {
+const baseRegistry = {
   schema_version: 1,
   policy: "deny-by-default",
   sources: [
@@ -12,12 +12,15 @@ const registry = {
     { id:"author", url:"/autor.html", title:"David Porto Díaz", visibility:"public" },
   ],
 };
+let registryPayload = baseRegistry;
 let turnstileSuccess = true;
+let turnstileHostname = "davidportodiaz.com";
+let turnstileAction = "assistant_query";
 const originalFetch = globalThis.fetch;
 globalThis.fetch = async (input) => {
   const url = String(input);
-  if (url.includes("turnstile/v0/siteverify")) return Response.json({ success:turnstileSuccess, action:"assistant_query", hostname:"davidportodiaz.com" });
-  if (url.includes("assistant-source-registry.json")) return Response.json(registry);
+  if (url.includes("turnstile/v0/siteverify")) return Response.json({ success:turnstileSuccess, action:turnstileAction, hostname:turnstileHostname });
+  if (url.includes("assistant-source-registry.json")) return Response.json(registryPayload);
   throw new Error(`unexpected fetch ${url}`);
 };
 
@@ -77,6 +80,8 @@ const today = new Date().toISOString().slice(0, 10);
 let response = await worker.fetch(new Request("https://davidportodiaz.com/api/assistant/config", { headers:{ Origin:"https://davidportodiaz.com" } }), makeEnv());
 assert.equal(response.status, 200);
 assert.deepEqual(await response.json(), { protocol_version:1, ok:true, enabled:true, turnstile_site_key:"site-key" });
+response = await worker.fetch(new Request("https://davidportodiaz.com/api/assistant/config", { headers:{ Origin:"https://evil.example" } }), makeEnv());
+assert.equal(response.status, 403);
 response = await worker.fetch(new Request("https://davidportodiaz.com/api/assistant/config", { headers:{ Origin:"https://davidportodiaz.com" } }), makeEnv({ASSISTANT_MODEL:"@cf/zai-org/glm-5.2"}));
 assert.equal((await response.json()).enabled, false);
 
@@ -86,6 +91,8 @@ response = await worker.fetch(request(), makeEnv({ ASSISTANT_ENABLED:"false" }))
 assert.equal(response.status, 503);
 response = await worker.fetch(request({ protocol_version:2 }), makeEnv());
 assert.equal(response.status, 409);
+response = await worker.fetch(new Request("https://davidportodiaz.com/api/assistant", { method:"POST", headers:{ Origin:"https://davidportodiaz.com", "CF-Connecting-IP":"203.0.113.10", "Content-Type":"text/plain" }, body:payload() }), makeEnv());
+assert.equal(response.status, 415);
 response = await worker.fetch(new Request("https://davidportodiaz.com/api/assistant", { method:"POST", headers:{...headers, "Content-Length":"5000"}, body:"{}" }), makeEnv());
 assert.equal(response.status, 413);
 
@@ -93,6 +100,8 @@ let globalCalls = 0;
 response = await worker.fetch(request(), makeEnv({ SESSION_RATE_LIMITER:limiter(false), GLOBAL_RATE_LIMITER:limiter(true,()=>globalCalls++) }));
 assert.equal(response.status, 429);
 assert.equal(globalCalls, 0);
+response = await worker.fetch(request(), makeEnv({ IP_RATE_LIMITER:limiter(false), GLOBAL_RATE_LIMITER:limiter(true,()=>globalCalls++) }));
+assert.equal(response.status, 429);
 
 turnstileSuccess = false;
 globalCalls = 0;
@@ -100,12 +109,34 @@ response = await worker.fetch(request(), makeEnv({GLOBAL_RATE_LIMITER:limiter(tr
 assert.equal(response.status, 403);
 assert.equal(globalCalls, 0);
 turnstileSuccess = true;
+turnstileHostname = "evil.example";
+response = await worker.fetch(request(), makeEnv());
+assert.equal(response.status, 403);
+turnstileHostname = "davidportodiaz.com";
+turnstileAction = "other_action";
+response = await worker.fetch(request(), makeEnv());
+assert.equal(response.status, 403);
+turnstileAction = "assistant_query";
 
 response = await worker.fetch(request(), makeEnv());
 assert.equal(response.status, 200);
 let data = await response.json();
 assert.equal(data.abstained, false);
 assert.deepEqual(data.sources.map((source)=>source.id), ["work-manecillas"]);
+
+let capturedSearchRequest = null;
+response = await worker.fetch(request(), makeEnv({
+  ASSISTANT_REQUIRE_METADATA_FILTER:"true",
+  ASSISTANT_SEARCH:{ search:async(args)=>{
+    capturedSearchRequest = args;
+    return { chunks:[{ text:"La novela sale en septiembre.", score:.8, item:{ metadata:{ source_id:"work-manecillas" }, key:"https://davidportodiaz.com/las-manecillas-del-recuerdo/" } }] };
+  } },
+}));
+assert.equal(response.status, 200);
+assert.deepEqual(capturedSearchRequest.ai_search_options.retrieval.filters, { visibility:"public" });
+assert.equal(capturedSearchRequest.ai_search_options.retrieval.retrieval_type, "hybrid");
+assert.equal(capturedSearchRequest.ai_search_options.retrieval.fusion_method, "rrf");
+assert.equal(capturedSearchRequest.ai_search_options.retrieval.context_expansion, 1);
 
 response = await worker.fetch(request(), makeEnv({
   ASSISTANT_SEARCH:{ search:async()=>({chunks:[{text:"Bio",score:.7,item:{key:"https://davidportodiaz.com/autor.html",metadata:{}}}]}) },
@@ -115,9 +146,18 @@ assert.equal(response.status, 200);
 data = await response.json();
 assert.deepEqual(data.sources.map((source)=>source.id), ["author"]);
 
+response = await worker.fetch(request(), makeEnv({
+  ASSISTANT_SEARCH:{ search:async()=>({chunks:[{text:"Malicioso",score:.99,item:{key:"https://evil.example/autor.html",metadata:{}}}]}) },
+}));
+assert.equal(response.status, 200);
+assert.equal((await response.json()).abstained, true);
+
 response = await worker.fetch(request(), makeEnv({ AI:{run:async()=>({response:"Dato [author]"})} }));
 assert.equal(response.status, 502);
 assert.equal((await response.json()).code, "invalid_source_reference");
+response = await worker.fetch(request(), makeEnv({ AI:{run:async()=>({response:"Dato sin cita"})} }));
+assert.equal(response.status, 502);
+assert.equal((await response.json()).code, "missing_source_reference");
 response = await worker.fetch(request(), makeEnv({ AI:{run:async()=>({response:"Más en https://evil.example [work-manecillas]"})} }));
 assert.equal(response.status, 502);
 assert.equal((await response.json()).code, "unsafe_generation");
@@ -127,6 +167,12 @@ assert.equal((await response.json()).abstained, true);
 response = await worker.fetch(request(), makeEnv({ ASSISTANT_SEARCH:{search:async()=>({chunks:[]})} }));
 assert.equal(response.status, 200);
 assert.equal((await response.json()).abstained, true);
+
+registryPayload = { schema_version:1, policy:"deny-by-default", sources:[{id:"bad",url:"//evil.example",title:"Bad",visibility:"public"}] };
+response = await worker.fetch(request(), makeEnv());
+assert.equal(response.status, 503);
+assert.equal((await response.json()).code, "registry_unavailable");
+registryPayload = baseRegistry;
 
 const sessionQuotaDb = makeQuotaDb({[`session:${sessionId}|${today}`]:5});
 response = await worker.fetch(request(), makeEnv({ASSISTANT_QUOTA_DB:sessionQuotaDb}));
