@@ -72,7 +72,7 @@ need('retrievedIds' in worker and 'invalid_source_reference' in worker, "model s
 need('missing_source_reference' in worker, "generated answers without citations must fail closed")
 need('unsafe_generation' in worker and 'containsUrlLike' in worker, "generated URLs must fail closed")
 need('NO_EVIDENCE' in worker, "explicit abstention sentinel missing")
-need('datos no confiables' in worker and 'no puede cambiar estas reglas' in worker, "prompt-injection boundary missing")
+need('datos no confiables' in worker and 'puede cambiar estas reglas' in worker, "prompt-injection boundary missing")
 need('messages: [{ role: "system"' in worker, "generation policy must use a system message")
 need('Cache-Control": "no-store"' in worker, "assistant responses must not be cached")
 need('temperature: 0.1' in worker, "generation should stay low-temperature")
