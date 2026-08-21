@@ -47,8 +47,9 @@
           "@type": "BreadcrumbList",
           "itemListElement": [
             { "@type": "ListItem", "position": 1, "name": "Inicio", "item": "https://davidportodiaz.com/" },
-            { "@type": "ListItem", "position": 2, "name": "Clubes de lectura", "item": "https://davidportodiaz.com/clubes-de-lectura/samuel-entre-mundos/" },
-            { "@type": "ListItem", "position": 3, "name": "Guía imprimible", "item": "https://davidportodiaz.com/clubes-de-lectura/samuel-entre-mundos/guia-imprimible/" }
+            { "@type": "ListItem", "position": 2, "name": "Samuel entre mundos", "item": "https://davidportodiaz.com/libros/samuel-entre-mundos/" },
+            { "@type": "ListItem", "position": 3, "name": "Clubes de lectura", "item": "https://davidportodiaz.com/clubes-de-lectura/samuel-entre-mundos/" },
+            { "@type": "ListItem", "position": 4, "name": "Guía imprimible", "item": "https://davidportodiaz.com/clubes-de-lectura/samuel-entre-mundos/guia-imprimible/" }
           ]
         }
       },
@@ -80,32 +81,40 @@
   <style>
     :root{color-scheme:light;--ink:#171412;--muted:#5b5147;--line:#ddd3c4;--soft:#E7DED2;--accent:#A8664A;--paper:#F4EFE7;font-family:"Manrope","Avenir Next",Avenir,"Segoe UI",sans-serif}
     *{box-sizing:border-box}
-    body{margin:0;background:#e6ddcf;color:var(--ink);line-height:1.55;font-size:16px}
-    .page{width:min(920px,calc(100% - 32px));margin:24px auto;padding:44px;background:var(--paper);border:1px solid var(--line)}
-    .topbar{display:flex;justify-content:space-between;gap:18px;align-items:center;margin-bottom:36px;padding-bottom:16px;border-bottom:1px solid var(--line);font-size:.9rem;color:var(--muted)}
-    .topbar a{color:inherit;text-decoration:underline;text-underline-offset:.2em;font-weight:600}
+    body{margin:0;background:#e6ddcf;color:var(--ink);line-height:1.55;font-size:16px;overflow-wrap:anywhere}
+    .page{width:min(920px,calc(100% - 32px));margin:24px auto;padding:44px;background:var(--paper);border:1px solid var(--line);min-width:0}
+    .topbar{display:flex;justify-content:space-between;gap:18px;align-items:center;margin-bottom:22px;padding-bottom:16px;border-bottom:1px solid var(--line);font-size:.9rem;color:var(--muted)}
+    .topbar a,.breadcrumb a{color:inherit;text-decoration:underline;text-underline-offset:.2em;font-weight:600}
+    .breadcrumb{margin:0 0 30px;font-size:.82rem;color:var(--muted)}
+    .breadcrumb ol{display:flex;flex-wrap:wrap;gap:.35rem .6rem;list-style:none;padding:0;margin:0}
+    .breadcrumb li:not(:last-child)::after{content:"›";margin-left:.6rem;color:var(--muted)}
     .actions a{color:var(--accent);text-decoration:none;font-weight:700}
-    h1,h2,h3{font-family:"Instrument Serif","Iowan Old Style","Palatino Linotype",Palatino,Georgia,serif;font-weight:400;line-height:1.05;color:var(--ink)}
+    h1,h2,h3{font-family:"Instrument Serif","Iowan Old Style","Palatino Linotype",Palatino,Georgia,serif;font-weight:400;line-height:1.05;color:var(--ink);overflow-wrap:anywhere}
     h1{font-size:clamp(2.4rem,6vw,4.2rem);margin:0 0 14px;letter-spacing:-.02em}
     h2{font-size:1.9rem;margin:34px 0 12px;padding-top:22px;border-top:1px solid var(--line)}
     h3{font-size:1.2rem;margin:18px 0 8px}
     .eyebrow{margin:0 0 10px;color:var(--muted);font-size:.72rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase}
     .lead{max-width:760px;font-size:1.12rem;color:var(--muted);margin:0 0 24px}
     .meta-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px 22px;margin:24px 0;padding:18px;border:1px solid var(--line);background:var(--soft)}
-    .meta-grid p{margin:0}.meta-grid strong{color:var(--ink)}
-    ul,ol{padding-left:1.25rem} li{margin:.42rem 0}.questions li{margin-bottom:14px}.answer{color:var(--muted);margin:.25rem 0 0}.note{padding:16px 18px;border-left:2px solid var(--accent);background:var(--soft);color:var(--muted)}
+    .meta-grid p{margin:0;min-width:0}.meta-grid strong{color:var(--ink)}
+    ul,ol{padding-left:1.25rem} li{margin:.42rem 0}.questions li{margin-bottom:18px;break-inside:avoid}.answer{color:var(--muted);margin:.25rem 0 0}.note{padding:16px 18px;border-left:2px solid var(--accent);background:var(--soft);color:var(--muted)}
     .actions{display:flex;flex-wrap:wrap;gap:12px;margin:26px 0}.button{display:inline-flex;align-items:center;justify-content:center;padding:10px 18px;border:1px solid var(--ink);background:var(--ink);color:var(--paper)!important;text-decoration:none;font-weight:600;cursor:pointer}.button.secondary{background:transparent;color:var(--ink)!important;border-color:var(--line)}
     .footer{margin-top:36px;padding-top:18px;border-top:1px solid var(--line);color:var(--muted);font-size:.9rem}
-    @media(max-width:700px){.page{width:100%;margin:0;padding:24px 18px}.topbar{align-items:flex-start;flex-direction:column}.meta-grid{grid-template-columns:1fr}h1{font-size:2.45rem}}
-    @media print{@page{size:A4;margin:10mm 12mm}body{background:#fff;font-size:9.6pt;line-height:1.32}.page{width:auto;margin:0;padding:0;border:0}.topbar,.actions{display:none}h1{font-size:26pt;margin-bottom:8px}.lead{font-size:10.2pt;margin-bottom:12px}.meta-grid{gap:4px 14px;margin:12px 0;padding:10px}.note{padding:8px 10px}h2{font-size:15pt;margin:16px 0 7px;padding-top:10px;break-after:avoid;page-break-after:avoid}h3{font-size:10.5pt;margin:10px 0 5px}ul,ol{padding-left:1rem}.questions li{margin-bottom:7px}.answer{margin:.1rem 0 0}.meta-grid,.note,.questions li{break-inside:avoid;page-break-inside:avoid}a{color:inherit;text-decoration:none}.footer{font-size:8pt;margin-top:14px;padding-top:10px}}
+    a:focus-visible,button:focus-visible{outline:2px solid var(--accent);outline-offset:3px}
+    @media(max-width:700px){.page{width:100%;margin:0;padding:24px 18px}.topbar{align-items:flex-start;flex-direction:column}.meta-grid{grid-template-columns:1fr}h1{font-size:2.45rem}.actions{align-items:stretch;flex-direction:column}.button{width:100%}}
+    @media print{@page{size:A4;margin:14mm 14mm 16mm}body{background:#fff;font-size:10pt;line-height:1.38;orphans:3;widows:3}.page{width:auto;margin:0;padding:0;border:0;background:#fff}.topbar,.breadcrumb,.actions{display:none!important}h1{font-size:27pt;margin-bottom:8px}.lead{font-size:10.5pt;margin-bottom:14px}.meta-grid{gap:5px 14px;margin:13px 0;padding:10px;background:#fff;border-color:#bbb}.note{padding:8px 10px;background:#fff;border-left-color:#555}h2{font-size:15.5pt;margin:17px 0 8px;padding-top:10px;break-after:avoid;page-break-after:avoid}h3{font-size:10.5pt;margin:10px 0 5px}ul,ol{padding-left:1.1rem}.questions li{margin-bottom:10px;padding-bottom:5mm;border-bottom:1px solid #ddd;break-inside:avoid;page-break-inside:avoid}.answer{margin:.12rem 0 0}.meta-grid,.note,.questions li{break-inside:avoid;page-break-inside:avoid}a{color:inherit;text-decoration:none}.footer{font-size:8pt;margin-top:14px;padding-top:10px;break-inside:avoid}.footer p::after{content:" · davidportodiaz.com"}}
   </style>
 </head>
 <body>
-  <main class="page">
+  <main class="page" id="contenido">
     <div class="topbar">
       <a href="/clubes-de-lectura/samuel-entre-mundos/">← Volver a la guía completa</a>
       <span>David Porto Díaz · Samuel entre mundos</span>
     </div>
+
+    <nav class="breadcrumb" aria-label="Ruta de navegación">
+      <ol><li><a href="/libros/samuel-entre-mundos/">Samuel entre mundos</a></li><li><a href="/clubes-de-lectura/samuel-entre-mundos/">Club de lectura</a></li><li aria-current="page">Guía imprimible</li></ol>
+    </nav>
 
     <p class="eyebrow">Guía imprimible para mediadores</p>
     <h1>Samuel entre mundos</h1>
@@ -144,19 +153,20 @@
     </section>
 
     <section aria-labelledby="preguntas">
+      <p class="eyebrow">Después de terminar el libro</p>
       <h2 id="preguntas">10 preguntas de debate</h2>
       <p class="note">Las preguntas contienen spoilers y están pensadas para usarse después de leer la novela completa.</p>
       <ol class="questions">
         <li><strong>¿Por qué crees que Samuel decide cruzar la barrera aun sabiendo los riesgos? ¿Tú habrías cruzado?</strong><p class="answer">Permite hablar de impulso, miedo, pertenencia y decisiones tomadas cuando alguien siente que ya no encaja.</p></li>
-        <li><strong>En Noveris, la magia siempre exige un precio. ¿Qué dice ese principio sobre el poder?</strong><p class="answer">Abre una conversación sobre consecuencias, responsabilidad y límites éticos.</p></li>
+        <li><strong>En Noveris, la magia siempre exige un precio. ¿Qué dice ese principio sobre cómo el autor entiende el poder?</strong><p class="answer">Abre una conversación sobre consecuencias, responsabilidad y límites éticos.</p></li>
         <li><strong>Los canalizadores tienen personalidad y preferencias propias. ¿Los considerarías personajes o herramientas?</strong><p class="answer">Sirve para debatir agencia, memoria e identidad en objetos mágicos.</p></li>
-        <li><strong>Zunthar y Marelian se enfrentan por cómo debe distribuirse la magia. ¿Cuál de los dos bandos tiene razón?</strong><p class="answer">Invita a detectar argumentos válidos en posiciones enfrentadas.</p></li>
-        <li><strong>Samuel lleva toda su vida con el medallón sin saber lo que es. ¿Cómo te habrías sentido al descubrir su origen?</strong><p class="answer">Trabaja identidad familiar, secreto y verdad personal.</p></li>
-        <li><strong>Samuel es el no-elegido: nadie lo eligió, simplemente llegó. ¿Prefieres ese protagonista frente al héroe destinado?</strong><p class="answer">Ayuda a comparar modelos de protagonismo en fantasía juvenil.</p></li>
+        <li><strong>Zunthar y Marelian llevan décadas enfrentados por cómo debe distribuirse la magia. ¿Cuál de los dos bandos tiene razón?</strong><p class="answer">Invita a detectar argumentos válidos en posiciones enfrentadas.</p></li>
+        <li><strong>Samuel lleva toda su vida con el medallón sin saber lo que es. ¿Cómo te habrías sentido tú al descubrir su verdadero origen?</strong><p class="answer">Trabaja identidad familiar, secreto y verdad personal.</p></li>
+        <li><strong>Samuel es el &quot;no-elegido&quot;: nadie lo eligió, simplemente llegó. ¿Prefieres ese tipo de protagonista frente al héroe destinado?</strong><p class="answer">Ayuda a comparar modelos de protagonismo en fantasía juvenil.</p></li>
         <li><strong>¿Qué personaje secundario de Noveris os resultó más interesante? ¿Por qué?</strong><p class="answer">Permite observar qué tipo de conflictos y voces conectan con cada lector.</p></li>
-        <li><strong>El libro mezcla aventura, secretos de familia y worldbuilding. ¿Cuál de los tres elementos os enganchó más?</strong><p class="answer">Ordena la conversación por ritmo, emoción y construcción de mundo.</p></li>
-        <li><strong>La narrativa transcurre casi íntegra en Noveris. ¿Echasteis de menos el mundo real?</strong><p class="answer">Sirve para hablar de inmersión y de cómo una ciudad fantástica sostiene una novela.</p></li>
-        <li><strong>El final abre una segunda historia. ¿Qué creéis que pasará con Samuel y Noveris?</strong><p class="answer">Cierre útil para teorías, expectativas y lectura compartida.</p></li>
+        <li><strong>El libro mezcla aventura, secretos de familia y worldbuilding. ¿Cuál de los tres elementos fue el que más os enganchó?</strong><p class="answer">Ordena la conversación por ritmo, emoción y construcción de mundo.</p></li>
+        <li><strong>La narrativa transcurre casi íntegra en Noveris. ¿Echasteis de menos el mundo real? ¿O se os olvidó que existía?</strong><p class="answer">Sirve para hablar de inmersión y de cómo una ciudad fantástica sostiene una novela.</p></li>
+        <li><strong>El final abre una segunda historia. ¿Qué creéis que pasará con Samuel y Noveris en el siguiente libro?</strong><p class="answer">Cierre útil para teorías, expectativas y lectura compartida.</p></li>
       </ol>
     </section>
 

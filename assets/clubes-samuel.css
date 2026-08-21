@@ -1,7 +1,24 @@
 /* V1 editorial system — bespoke pieces for the Samuel entre mundos reading-
-   club companion pages. Structural chrome (hero/id-cards/fact-list/
-   identity-faq) lives in v1-tools.css/v1-families.css; nothing here is
-   JS-driven — both pages are fully static. */
-html.v1 .club-session-list{list-style:none;margin:0;padding:0;display:grid;gap:.7rem;max-width:60ch}
-html.v1 .club-session-list li{padding:.7rem 0;border-top:1px solid var(--color-border);font:400 .96rem/1.55 var(--font-reading)}
+   club companion. Structural chrome lives in v1-tools.css/v1-families.css;
+   this layer turns the discussion into an editorial sequence, not FAQ cards. */
+html.v1 .club-session-list{list-style:none;margin:0;padding:0;display:grid;gap:.7rem;max-width:60ch;min-width:0}
+html.v1 .club-session-list li{padding:.7rem 0;border-top:1px solid var(--color-border);font:400 .96rem/1.55 var(--font-reading);overflow-wrap:anywhere}
 html.v1 .club-session-list li:first-child{border-top:0}
+
+html.v1 #guia .identity-faq{counter-reset:club-question;border-top:1px solid var(--color-text);margin-top:1.5rem}
+html.v1 #guia .identity-faq details{counter-increment:club-question;border:0;border-bottom:1px solid var(--color-border);border-radius:0;background:transparent;min-width:0}
+html.v1 #guia .identity-faq summary{display:grid;grid-template-columns:2.2rem minmax(0,1fr);gap:.7rem;align-items:start;padding:1.1rem 0;font:500 1rem/1.5 var(--font-reading);cursor:pointer;overflow-wrap:anywhere}
+html.v1 #guia .identity-faq summary::before{content:counter(club-question,decimal-leading-zero);font:600 .72rem/1.8 var(--font-ui);letter-spacing:.08em;color:var(--color-muted)}
+html.v1 #guia .identity-faq summary strong{display:none}
+html.v1 #guia .identity-faq details>p{margin:0 0 1.1rem 2.9rem;max-width:68ch;font-family:var(--font-reading);color:var(--color-muted);overflow-wrap:anywhere}
+html.v1 #guia .identity-faq summary:focus-visible{outline:2px solid var(--focus-color);outline-offset:4px}
+html.v1 [data-family="lore"] .tool-two-col>*{min-width:0}
+
+@media(max-width:560px){
+  html.v1 #guia .identity-faq summary{grid-template-columns:1.8rem minmax(0,1fr);gap:.55rem}
+  html.v1 #guia .identity-faq details>p{margin-left:2.35rem}
+}
+
+@media print{
+  html.v1 #guia .identity-faq details{break-inside:avoid;page-break-inside:avoid}
+}
