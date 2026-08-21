@@ -120,5 +120,22 @@ sin_tilde = sorted(set(re.findall(
 )))
 check(not sin_tilde, "el texto visible lleva tildes", ", ".join(sin_tilde))
 
+# 4. La pagina PUBLICADA sigue reflejando el dataset.
+# Todo lo anterior comprueba el builder contra un directorio temporal. La
+# pagina servida se migro a V1 por separado (0ed1303) y ya no coincide con la
+# plantilla del builder, asi que un dato obsoleto ahi no lo detecta nadie: el
+# recuento de fichas es texto fijo dentro del HTML publicado.
+publicada = (ROOT / be.METHODOLOGY_SLUG / "index.html").read_text(encoding="utf-8")
+esperado = be.plural_fichas(len(published))
+check(
+    esperado in publicada,
+    f"la pagina publicada declara el recuento real de fichas ({esperado})",
+    "el dataset y el texto publicado no coinciden",
+)
+check(
+    "ficha(s)" not in publicada,
+    "la pagina publicada no contiene 'ficha(s)'",
+)
+
 print("tests/test-editoriales-metodologia: " + ("OK" if not failures else f"{len(failures)} FALLO(S)"))
 raise SystemExit(1 if failures else 0)
