@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="es" class="v1">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
@@ -34,12 +34,22 @@
   }
   </script>
 
-  <meta name="theme-color" content="#080a0c" />
-  <link rel="preconnect" href="https://gc.zgo.at" /><link rel="canonical" href="https://davidportodiaz.com/eventos.html" />
-  <link rel="manifest" href="manifest.json" />
-  <link rel="icon" type="image/png" href="assets/david-porto-favicon.png" />
-  <link rel="apple-touch-icon" href="assets/david-porto-favicon.png" />
-  <link rel="stylesheet" href="styles.css?v=202609-launch-1" />
+  <meta name="theme-color" content="#F4EFE7" />
+  <link rel="preconnect" href="https://gc.zgo.at" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="canonical" href="https://davidportodiaz.com/eventos.html" />
+  <link rel="manifest" href="/manifest.json" />
+  <link rel="icon" type="image/png" href="/assets/david-porto-favicon.png" />
+  <link rel="apple-touch-icon" href="/assets/david-porto-favicon.png" />
+
+  <!-- V1 editorial system — Identity family (Autor/Premios/Prensa/Eventos) -->
+  <link rel="stylesheet" href="/assets/v1-fonts.css" />
+  <link rel="stylesheet" href="/assets/v1-tokens.css" />
+  <link rel="stylesheet" href="/assets/v1-base.css" />
+  <link rel="stylesheet" href="/assets/v1-shell.css" />
+  <link rel="stylesheet" href="/assets/v1-components.css" />
+  <link rel="stylesheet" href="/assets/v1-families.css" />
 
   <script type="application/ld+json">
   {
@@ -54,7 +64,7 @@
         "inLanguage": "es",
         "isPartOf": { "@id": "https://davidportodiaz.com/#website" },
         "about": { "@id": "https://davidportodiaz.com/#author" },
-        "dateModified": "2026-08-19",
+        "dateModified": "2026-08-21",
         "breadcrumb": {
           "@type": "BreadcrumbList",
           "itemListElement": [
@@ -101,7 +111,7 @@
         "@type": "Event",
         "@id": "https://davidportodiaz.com/eventos.html#feria-libro-aranjuez-2026",
         "name": "Feria del Libro de Aranjuez 2026 — Firma de Samuel entre mundos",
-        "description": "David Porto D\u00edaz firma ejemplares de Samuel entre mundos en la Feria del Libro de Aranjuez 2026. Plaza de la Constituci\u00f3n, Aranjuez. Acceso libre y gratuito.",
+        "description": "David Porto Díaz firma ejemplares de Samuel entre mundos en la Feria del Libro de Aranjuez 2026. Plaza de la Constitución, Aranjuez. Acceso libre y gratuito.",
         "startDate": "2026-05-23T10:00:00+02:00",
         "endDate": "2026-05-23T11:30:00+02:00",
         "url": "https://davidportodiaz.com/eventos.html#feria-libro-aranjuez-2026",
@@ -110,7 +120,7 @@
         "isAccessibleForFree": true,
         "location": {
           "@type": "Place",
-          "name": "Plaza de la Constituci\u00f3n",
+          "name": "Plaza de la Constitución",
           "address": {
             "@type": "PostalAddress",
             "addressLocality": "Aranjuez",
@@ -138,233 +148,214 @@
 
 <body>
   <a href="#contenido" class="skip-link">Saltar al contenido</a>
-  <div class="site-shell">
 
-    <!-- HEADER -->
-    <header class="site-header">
-      <a class="brand" href="/" aria-label="Volver al inicio — David Porto Díaz">
-        <span class="brand-mark">
-          <img src="assets/logo-david-porto-diaz-escritor-176.webp" alt="" class="brand-logo-img" width="52" height="52" aria-hidden="true" />
-        </span>
-        <span class="brand-text">
-          <strong>David Porto Díaz</strong>
-          <small>Escritor</small>
-        </span>
+  <header class="site-header" data-header>
+    <div class="site-header__inner">
+      <a class="brand" href="/" aria-label="David Porto Díaz — inicio">
+        <span class="brand__name">David Porto Díaz</span>
+        <span class="brand__role">Escritor</span>
       </a>
-
-      <button class="nav-toggle" type="button" aria-label="Abrir menú" aria-expanded="false">
-        <span></span>
-        <span></span>
-      </button>
-
-      <nav class="site-nav" aria-label="Navegación principal">
-        <a href="/">Inicio</a>
-        <a href="/libros/">Libros</a>
+      <nav class="primary-nav" aria-label="Navegación principal">
+        <a href="/libros/">Obra</a>
         <a href="/cuaderno/">Cuaderno</a>
-        <a href="/autor.html">El autor</a>
-        <a href="/eventos.html" aria-current="page">Eventos</a>
-        <a href="/prensa.html">Prensa</a>
+        <a href="/herramientas/">Herramientas</a>
       </nav>
+      <button class="explore-trigger" type="button" aria-haspopup="dialog" aria-controls="explore-dialog" aria-expanded="false" data-explore-open>
+        Explorar
+      </button>
+    </div>
+  </header>
+
+  <dialog class="explore-dialog" id="explore-dialog" aria-labelledby="explore-title" data-explore-dialog>
+    <div class="explore-dialog__shell">
+      <div class="explore-dialog__head">
+        <div>
+          <p class="eyebrow">Índice general</p>
+          <h2 id="explore-title">Explorar</h2>
+        </div>
+        <button class="icon-button" type="button" aria-label="Cerrar Explorar" data-explore-close>
+          <svg aria-hidden="true" viewBox="0 0 24 24" width="20" height="20"><path d="M5 5l14 14M19 5L5 19"/></svg>
+        </button>
+      </div>
+
+      <div class="explore-dialog__grid">
+        <nav class="explore-list" aria-label="Destinos de la web">
+          <a class="explore-row" href="/las-manecillas-del-recuerdo/" data-preview="manecillas">
+            <span class="explore-row__index">01</span>
+            <span class="explore-row__body"><strong>Las manecillas del recuerdo</strong><small>La obra actual.</small></span>
+          </a>
+          <a class="explore-row" href="/autor.html" data-preview="autor">
+            <span class="explore-row__index">02</span>
+            <span class="explore-row__body"><strong>Autor</strong><small>Biografía, obra y trayectoria.</small></span>
+          </a>
+          <a class="explore-row" href="/libros/samuel-entre-mundos/" data-preview="samuel">
+            <span class="explore-row__index">03</span>
+            <span class="explore-row__body"><strong>Samuel entre mundos</strong><small>Primera novela publicada.</small></span>
+          </a>
+          <a class="explore-row" href="/cuaderno/" data-preview="cuaderno">
+            <span class="explore-row__index">04</span>
+            <span class="explore-row__body"><strong>Cuaderno</strong><small>Artículos y piezas editoriales.</small></span>
+          </a>
+          <a class="explore-row" href="/herramientas/" data-preview="herramientas">
+            <span class="explore-row__index">05</span>
+            <span class="explore-row__body"><strong>Herramientas</strong><small>Utilidades gratuitas para escritores.</small></span>
+          </a>
+          <a class="explore-row" href="/prensa.html" data-preview="prensa">
+            <span class="explore-row__index">06</span>
+            <span class="explore-row__body"><strong>Prensa y eventos</strong><small>Apariciones, materiales y agenda.</small></span>
+          </a>
+        </nav>
+
+        <aside class="explore-preview" aria-live="polite" aria-atomic="true" data-explore-preview>
+          <div class="explore-preview__media" aria-hidden="true" data-preview-media></div>
+          <p class="explore-preview__label" data-preview-label>Prensa y eventos</p>
+          <p class="explore-preview__copy" data-preview-copy>Apariciones, materiales y agenda.</p>
+        </aside>
+      </div>
+    </div>
+  </dialog>
+
+  <main id="contenido" class="v1-main" data-family="identity">
+    <nav class="book-breadcrumb" aria-label="Ruta de navegación">
+      <ol><li><a href="/">Inicio</a></li><li aria-current="page">Eventos</li></ol>
+    </nav>
+
+    <header class="v1-masthead">
+      <div>
+        <span class="coordinate">Identidad</span>
+        <p class="eyebrow">Agenda · Firmas · Presentaciones</p>
+        <h1>Eventos</h1>
+        <p class="v1-masthead__lead">Dónde encontrar a David Porto Díaz: firmas, presentaciones, ferias del libro y clubes de lectura. Consulta las próximas fechas o escribe para organizar un evento.</p>
+        <div class="v1-masthead__actions">
+          <a class="primary-action" href="mailto:samuelentremundos@gmail.com?subject=Solicitud%20de%20presentaci%C3%B3n%20%E2%80%94%20David%20Porto%20D%C3%ADaz">Solicitar presentación</a>
+          <a class="text-action" href="/las-manecillas-del-recuerdo/">Conocer Las manecillas del recuerdo</a>
+        </div>
+      </div>
     </header>
 
-    <main id="contenido">
+    <section class="v1-section" id="proximos">
+      <div class="v1-section__head"><p class="eyebrow">Agenda</p><h2>Agenda y eventos.</h2></div>
 
-      <!-- HERO -->
-      <section class="hero hero--compact" aria-label="Eventos">
-        <div class="hero-bg" aria-hidden="true"></div>
-        <div class="hero-content">
-          <nav class="breadcrumb" aria-label="Ruta de navegación">
-            <a href="/">David Porto Díaz</a>
-            <span aria-hidden="true"> / </span>
-            <span aria-current="page">Eventos</span>
-          </nav>
-
-          <p class="eyebrow">Agenda · Firmas · Presentaciones</p>
-          <h1>Eventos</h1>
-          <p class="hero-lead">Dónde encontrar a David Porto Díaz: firmas, presentaciones, ferias y clubes de lectura.</p>
-          <p class="hero-spark">Firmas, presentaciones, ferias del libro y clubes de lectura. Consulta las próximas fechas o escribe para organizar un evento.</p>
-
-          <div class="hero-actions">
-            <a class="button primary" href="mailto:samuelentremundos@gmail.com?subject=Solicitud%20de%20presentaci%C3%B3n%20%E2%80%94%20David%20Porto%20D%C3%ADaz" data-n="samuelentremundos" data-d="gmail.com" data-s="Solicitud de presentación — David Porto Díaz">Solicitar presentación</a>
-            <a class="button secondary" href="/las-manecillas-del-recuerdo/">Conocer <em>Las manecillas del recuerdo</em></a>
-          </div>
-        </div>
-      </section>
-
-      <!-- PRÓXIMOS EVENTOS -->
-      <section class="section" id="proximos">
-        <div class="section-heading">
-          <p class="eyebrow">Agenda</p>
-          <h2>Agenda y eventos.</h2>
-        </div>
-
-        <div style="display:flex;flex-direction:column;gap:20px">
-          <div>
-            <p class="events-group-label">Evento reciente</p>
-            <div class="timeline">
-              <article class="event-item event-item--featured event-item--past" id="feria-libro-madrid-2026">
-                <time datetime="2026-06-10">
-                  <span class="event-day">10</span>
-                  <span class="event-month">Jun</span>
-                  <span class="event-year">2026</span>
-                </time>
-                <div>
-                  <figure class="event-photo-card event-photo-card--featured">
-                    <img src="/assets/eventos/david-porto-diaz-feria-libro-madrid-2026-caseta-337.webp" alt="David Porto Díaz en la caseta 337 de la Feria del Libro de Madrid 2026" width="1500" height="2000" loading="lazy" decoding="async" />
-                    <figcaption>Firma de <em>Samuel entre mundos</em> en la Feria del Libro de Madrid 2026 · Caseta 337</figcaption>
-                  </figure>
-                  <h3>Feria del Libro de Madrid</h3>
-                  <p>David Porto Díaz firmó ejemplares de <em>Samuel entre mundos</em> en la Feria del Libro de Madrid 2026. Horario: <strong>19:00–20:00</strong>. Caseta 337.</p>
-                  <a class="button tertiary event-link" href="/cuaderno/feria-libro-madrid-2026-samuel-entre-mundos/">Ver crónica y fotos →</a>
-                </div>
-              </article>
+      <div class="event-year">
+        <h3>Reciente</h3>
+        <ol class="event-list">
+          <li class="event-entry" id="feria-libro-madrid-2026">
+            <time datetime="2026-06-10">10 jun 2026</time>
+            <div>
+              <figure>
+                <img src="/assets/eventos/david-porto-diaz-feria-libro-madrid-2026-caseta-337.webp" alt="David Porto Díaz en la caseta 337 de la Feria del Libro de Madrid 2026" width="1500" height="2000" loading="lazy" decoding="async" />
+                <figcaption>Firma de <em>Samuel entre mundos</em> en la Feria del Libro de Madrid 2026 · Caseta 337</figcaption>
+              </figure>
+              <h3>Feria del Libro de Madrid</h3>
+              <p>David Porto Díaz firmó ejemplares de <em>Samuel entre mundos</em> en la Feria del Libro de Madrid 2026. Horario: 19:00–20:00. Caseta 337.</p>
+              <a class="text-action" href="/cuaderno/feria-libro-madrid-2026-samuel-entre-mundos/">Ver crónica y fotos</a>
             </div>
-          </div>
+          </li>
+        </ol>
+      </div>
 
-          <div>
-            <p class="events-group-label">Próximas fechas</p>
-            <article class="event-item">
-              <time aria-hidden="true">—</time>
-              <div>
-                <h3>No hay fechas confirmadas ahora mismo</h3>
-                <p>Las próximas firmas, presentaciones y clubes de lectura aparecerán aquí cuando estén confirmados. No se publican fechas provisionales.</p>
-                <a class="text-link" href="/#newsletter">Recibir avisos de nuevos eventos</a>
-              </div>
-            </article>
-          </div>
-        </div>
-      </section>
-
-      <!-- PASADOS -->
-      <section class="section section--alt" id="pasados">
-        <div class="section-heading">
-          <p class="eyebrow">Historial</p>
-          <h2>Eventos anteriores.</h2>
-        </div>
-
-        <p class="events-group-label">2026</p>
-        <div class="timeline">
-            <article class="event-item event-item--past" id="feria-libro-aranjuez-2026">
-              <time datetime="2026-05-23">23 may 2026</time>
-              <div>
-                <h3>Feria del Libro de Aranjuez</h3>
-                  <p>Firma de <em>Samuel entre mundos</em> en la Plaza de la Constitución, Aranjuez. Organizó el Ayuntamiento de Aranjuez. Acceso libre y gratuito.</p>
-                <a class="text-link" href="/ferias.html#aranjuez">Ver fotos del evento →</a>
-              </div>
-            </article>
-
-            <article class="event-item event-item--past">
-              <time datetime="2026-01-31">31 ene 2026</time>
-              <div>
-                <h3>Presentación en La Vecinal</h3>
-                <p>Encuentro con lectores, coloquio y firma de ejemplares de <em>Samuel entre mundos</em> en La Vecinal, Madrid.</p>
-              </div>
-            </article>
-
-            <article class="event-item event-item--past">
-              <time datetime="2026-01-15">15 ene 2026</time>
-              <div>
-                <h3>Presentación oficial de Samuel entre mundos</h3>
-                <p>Presentación del debut de David Porto Díaz en Bar Aleatorio, Madrid.</p>
-              </div>
-            </article>
-
-            <article class="event-item event-item--past">
-              <time datetime="2026-01">ene 2026</time>
-              <div>
-                <h3>Publicación de Samuel entre mundos</h3>
-                <p>Publicación de la novela con Libros Indie. ISBN 9791387659776.</p>
-              </div>
-            </article>
-          </div>
-      </section>
-
-      <!-- ORGANIZAR EVENTO -->
-      <section class="section" id="organizar">
-        <div class="section-heading">
-          <p class="eyebrow">¿Quieres organizar algo?</p>
-          <h2>Solicitar una firma o presentación.</h2>
-          <p>Para librerías, ferias, institutos, clubes de lectura o cualquier espacio literario. Cuéntanos el proyecto y lo estudiamos.</p>
-        </div>
-
-        <div class="contact-grid">
-          <article class="contact-card contact-card--featured">
-            <p class="contact-card-type">Librerías y ferias</p>
-            <h3>Firma o presentación</h3>
-            <p>Organiza una firma de ejemplares o una presentación de una de sus obras en tu espacio. Indícanos fecha, ciudad y formato.</p>
-            <a class="button primary" href="mailto:samuelentremundos@gmail.com?subject=Solicitud%20de%20firma%20o%20presentaci%C3%B3n%20%E2%80%94%20David%20Porto%20D%C3%ADaz" data-n="samuelentremundos" data-d="gmail.com" data-s="Solicitud de firma o presentación — David Porto Díaz">Solicitar evento</a>
-          </article>
-
-          <article class="contact-card">
-            <p class="contact-card-type">Institutos y centros</p>
-            <h3>Charla o taller</h3>
-            <p>Para institutos, bibliotecas o centros culturales que quieran una charla sobre escritura, proceso creativo o narrativa.</p>
-            <a class="button secondary" href="mailto:samuelentremundos@gmail.com?subject=Charla%20o%20taller%20%E2%80%94%20David%20Porto%20D%C3%ADaz" data-n="samuelentremundos" data-d="gmail.com" data-s="Charla o taller — David Porto Díaz">Escribir</a>
-          </article>
-
-          <article class="contact-card">
-            <p class="contact-card-type">Clubes de lectura</p>
-            <h3>Visita a club de lectura</h3>
-            <p>Presencial o por videollamada. Si tu club lee una de las obras de David Porto Díaz, el autor puede participar.</p>
-            <a class="button secondary" href="mailto:samuelentremundos@gmail.com?subject=Club%20de%20lectura%20%E2%80%94%20David%20Porto%20D%C3%ADaz" data-n="samuelentremundos" data-d="gmail.com" data-s="Club de lectura — David Porto Díaz">Coordinar visita</a>
-          </article>
-        </div>
-
-        <div class="contact-footer-row">
-          <p class="contact-email-plain"><a href="mailto:samuelentremundos@gmail.com" data-n="samuelentremundos" data-d="gmail.com">samuelentremundos&#64;gmail.com</a></p>
-          <div class="social-links">
-            <a class="social-icon" href="https://www.instagram.com/davidportodiaz/" target="_blank" rel="noopener noreferrer me" aria-label="Instagram" title="Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true" focusable="false"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="3.8"/><circle cx="17.3" cy="6.7" r="0.6" fill="currentColor" stroke="none"/></svg></a>
-            <a class="social-icon" href="https://www.facebook.com/profile.php?id=61590793667301" target="_blank" rel="noopener noreferrer me" aria-label="Facebook" title="Facebook"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" focusable="false"><path d="M16.7 3H7.3A4.3 4.3 0 0 0 3 7.3v9.4A4.3 4.3 0 0 0 7.3 21h4.2v-6.6H9.4v-2.6h2.1V9.8c0-2.1 1.3-3.3 3.2-3.3.9 0 1.7.1 1.9.1v2.2h-1.3c-1 0-1.2.5-1.2 1.2v1.7h2.4l-.3 2.6h-2.1V21h2.6a4.3 4.3 0 0 0 4.3-4.3V7.3A4.3 4.3 0 0 0 16.7 3z"/></svg></a>
-            <a class="social-icon" href="https://www.tiktok.com/@davidportoescritor" target="_blank" rel="noopener noreferrer me" aria-label="TikTok" title="TikTok"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" focusable="false"><path d="M14 3c.4 2.2 2 3.8 4.2 4.1v2.7c-1.5 0-2.9-.4-4.1-1.2v6.1a4.9 4.9 0 1 1-4.2-4.9v2.7a2.2 2.2 0 1 0 1.6 2.1V3h2.5z"/></svg></a>
-            <a class="social-icon" href="https://www.threads.net/@davidportodiaz" target="_blank" rel="noopener noreferrer me" aria-label="Threads" title="Threads"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true" focusable="false"><path d="M12 21c4.4 0 7-2.8 7-7.5C19 8 16.5 4 12 4 8 4 5.5 6.8 5.5 11c0 3 1.8 4.8 4.3 4.8 2 0 3.4-1.2 3.4-3 0-1.4-.9-2.3-2.1-2.3-.9 0-1.5.5-1.7 1.2"/></svg></a>
-            <a class="social-icon" href="https://bsky.app/profile/davidportoescritor.bsky.social" target="_blank" rel="noopener noreferrer me" aria-label="Bluesky" title="Bluesky"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" focusable="false"><path d="M12 7c-1.6-2.3-4.6-3.6-6.7-3.2-.3 2.3.4 5.4 2 7.1-1.6.1-2.8.8-3 1.7.7.9 2.3 1.3 3.8 1-.9 1.1-1.1 2.6-.5 3.8 1.6.1 3.7-1.1 4.6-2.8.4 1 .9 1.9 1.5 2.6.6-.7 1.1-1.6 1.5-2.6.9 1.7 3 2.9 4.6 2.8.6-1.2.4-2.7-.5-3.8 1.5.3 3.1-.1 3.8-1-.2-.9-1.4-1.6-3-1.7 1.6-1.7 2.3-4.8 2-7.1-2.1-.4-5.1.9-6.7 3.2-.2.3-.4.6-.5 1-.1-.4-.3-.7-.5-1z"/></svg></a>
-            <a class="social-icon" href="https://www.pinterest.com/davidportodiaz/" target="_blank" rel="noopener noreferrer me" aria-label="Pinterest" title="Pinterest"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" focusable="false"><path d="M12 2C6.5 2 3 5.6 3 10c0 3.2 1.8 5.1 3 5.7.2.1.4 0 .4-.3l.4-1.5c0-.2 0-.3-.1-.5-.4-.5-.7-1.4-.7-2.3 0-3 2.2-5.7 5.8-5.7 3.1 0 4.9 1.9 4.9 4.5 0 3.4-1.5 5.6-3.5 5.6-1.1 0-2-.9-1.7-2.1.3-1.3.9-2.7.9-3.7 0-.8-.5-1.5-1.4-1.5-1.1 0-2 1.2-2 2.7 0 1 .3 1.7.3 1.7s-1.2 4.9-1.4 5.8c-.4 1.6-.1 3.6 0 3.8.1.1.2.1.3 0 .1-.2 1.5-1.9 2-3.5.1-.4.6-2.3.6-2.3.3.6 1.2 1.1 2.2 1.1 2.9 0 5-2.7 5-6.4C20 5.7 16.5 2 12 2z"/></svg></a>
-            <a class="social-icon" href="https://www.linkedin.com/in/davidportodiaz/" target="_blank" rel="noopener noreferrer me" aria-label="LinkedIn" title="LinkedIn"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" focusable="false"><path d="M5 3a2 2 0 1 0 0 4 2 2 0 0 0 0-4zM3.5 9h3v12h-3V9zm6.5 0h2.9v1.6c.5-.9 1.7-1.9 3.4-1.9 3.6 0 4.6 2.3 4.6 5.4V21h-3v-6.1c0-1.5-.5-2.5-1.9-2.5-1.4 0-2 1-2 2.4V21h-3V9z"/></svg></a>
-          </div>
-        </div>
-      </section>
-
-    </main>
-
-    <!-- FOOTER -->
-    <footer class="site-footer">
-      <div class="footer-top-row">
-        <div class="footer-brand">
-          <img src="assets/logo-david-porto-diaz-escritor-176.webp" alt="David Porto Díaz" class="footer-logo" width="42" height="42" loading="lazy" />
-          <div class="footer-brand-text">
-            <strong>David Porto Díaz</strong>
-            <span>Autor de Las manecillas del recuerdo y Samuel entre mundos.</span>
-          </div>
-        </div>
-        <nav class="footer-nav" aria-label="Navegación pie de página">
-          <a href="/">Inicio</a>
-          <a href="/libros/">Libros</a>
-          <a href="/cuaderno/">Cuaderno</a>
-          <a href="/autor.html">El autor</a>
-          <a href="/eventos.html" aria-current="page">Eventos</a>
-          <a href="/prensa.html">Prensa</a>
-        </nav>
-        <div class="footer-socials">
-          <a class="social-icon" href="https://www.instagram.com/davidportodiaz/" target="_blank" rel="noopener noreferrer me" aria-label="Instagram" title="Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true" focusable="false"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="3.8"/><circle cx="17.3" cy="6.7" r="0.6" fill="currentColor" stroke="none"/></svg></a>
-          <a class="social-icon" href="https://www.facebook.com/profile.php?id=61590793667301" target="_blank" rel="noopener noreferrer me" aria-label="Facebook" title="Facebook"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" focusable="false"><path d="M16.7 3H7.3A4.3 4.3 0 0 0 3 7.3v9.4A4.3 4.3 0 0 0 7.3 21h4.2v-6.6H9.4v-2.6h2.1V9.8c0-2.1 1.3-3.3 3.2-3.3.9 0 1.7.1 1.9.1v2.2h-1.3c-1 0-1.2.5-1.2 1.2v1.7h2.4l-.3 2.6h-2.1V21h2.6a4.3 4.3 0 0 0 4.3-4.3V7.3A4.3 4.3 0 0 0 16.7 3z"/></svg></a>
-          <a class="social-icon" href="https://www.tiktok.com/@davidportoescritor" target="_blank" rel="noopener noreferrer me" aria-label="TikTok" title="TikTok"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" focusable="false"><path d="M14 3c.4 2.2 2 3.8 4.2 4.1v2.7c-1.5 0-2.9-.4-4.1-1.2v6.1a4.9 4.9 0 1 1-4.2-4.9v2.7a2.2 2.2 0 1 0 1.6 2.1V3h2.5z"/></svg></a>
-          <a class="social-icon" href="https://www.threads.net/@davidportodiaz" target="_blank" rel="noopener noreferrer me" aria-label="Threads" title="Threads"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true" focusable="false"><path d="M12 21c4.4 0 7-2.8 7-7.5C19 8 16.5 4 12 4 8 4 5.5 6.8 5.5 11c0 3 1.8 4.8 4.3 4.8 2 0 3.4-1.2 3.4-3 0-1.4-.9-2.3-2.1-2.3-.9 0-1.5.5-1.7 1.2"/></svg></a>
-          <a class="social-icon" href="https://bsky.app/profile/davidportoescritor.bsky.social" target="_blank" rel="noopener noreferrer me" aria-label="Bluesky" title="Bluesky"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" focusable="false"><path d="M12 7c-1.6-2.3-4.6-3.6-6.7-3.2-.3 2.3.4 5.4 2 7.1-1.6.1-2.8.8-3 1.7.7.9 2.3 1.3 3.8 1-.9 1.1-1.1 2.6-.5 3.8 1.6.1 3.7-1.1 4.6-2.8.4 1 .9 1.9 1.5 2.6.6-.7 1.1-1.6 1.5-2.6.9 1.7 3 2.9 4.6 2.8.6-1.2.4-2.7-.5-3.8 1.5.3 3.1-.1 3.8-1-.2-.9-1.4-1.6-3-1.7 1.6-1.7 2.3-4.8 2-7.1-2.1-.4-5.1.9-6.7 3.2-.2.3-.4.6-.5 1-.1-.4-.3-.7-.5-1z"/></svg></a>
-          <a class="social-icon" href="https://www.pinterest.com/davidportodiaz/" target="_blank" rel="noopener noreferrer me" aria-label="Pinterest" title="Pinterest"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" focusable="false"><path d="M12 2C6.5 2 3 5.6 3 10c0 3.2 1.8 5.1 3 5.7.2.1.4 0 .4-.3l.4-1.5c0-.2 0-.3-.1-.5-.4-.5-.7-1.4-.7-2.3 0-3 2.2-5.7 5.8-5.7 3.1 0 4.9 1.9 4.9 4.5 0 3.4-1.5 5.6-3.5 5.6-1.1 0-2-.9-1.7-2.1.3-1.3.9-2.7.9-3.7 0-.8-.5-1.5-1.4-1.5-1.1 0-2 1.2-2 2.7 0 1 .3 1.7.3 1.7s-1.2 4.9-1.4 5.8c-.4 1.6-.1 3.6 0 3.8.1.1.2.1.3 0 .1-.2 1.5-1.9 2-3.5.1-.4.6-2.3.6-2.3.3.6 1.2 1.1 2.2 1.1 2.9 0 5-2.7 5-6.4C20 5.7 16.5 2 12 2z"/></svg></a>
-          <a class="social-icon" href="https://www.linkedin.com/in/davidportodiaz/" target="_blank" rel="noopener noreferrer me" aria-label="LinkedIn" title="LinkedIn"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" focusable="false"><path d="M5 3a2 2 0 1 0 0 4 2 2 0 0 0 0-4zM3.5 9h3v12h-3V9zm6.5 0h2.9v1.6c.5-.9 1.7-1.9 3.4-1.9 3.6 0 4.6 2.3 4.6 5.4V21h-3v-6.1c0-1.5-.5-2.5-1.9-2.5-1.4 0-2 1-2 2.4V21h-3V9z"/></svg></a>
+      <div class="event-year" style="margin-top:2rem">
+        <h3>Próximas fechas</h3>
+        <div class="event-empty">
+          <h3 style="font-family:var(--font-display);font-weight:400;font-size:clamp(1.4rem,2vw,1.8rem);margin:0 0 .75rem">No hay fechas confirmadas ahora mismo</h3>
+          <p>Las próximas firmas, presentaciones y clubes de lectura aparecerán aquí cuando estén confirmados. No se publican fechas provisionales.</p>
+          <p style="margin-top:.75rem"><a class="text-action" href="/#newsletter">Recibir avisos de nuevos eventos</a></p>
         </div>
       </div>
-      <div class="footer-bottom-row">
-        <p>© 2026 David Porto Díaz. Todos los derechos reservados.</p>
-        <a href="/privacidad.html" class="footer-privacy-link">Política de privacidad</a>
-        <a href="/aviso-legal.html" class="footer-privacy-link">Aviso legal</a>
-        <a href="/ai/" class="footer-privacy-link">Para IA</a>
-        <a href="#contenido" class="footer-back-top">↑ Volver arriba</a>
+    </section>
+
+    <section class="v1-section" id="pasados">
+      <div class="v1-section__head"><p class="eyebrow">Historial</p><h2>Eventos anteriores.</h2></div>
+      <div class="event-year">
+        <h3>2026</h3>
+        <ol class="event-list">
+          <li class="event-entry" id="feria-libro-aranjuez-2026">
+            <time datetime="2026-05-23">23 may 2026</time>
+            <div>
+              <h3>Feria del Libro de Aranjuez</h3>
+              <p>Firma de <em>Samuel entre mundos</em> en la Plaza de la Constitución, Aranjuez. Organizó el Ayuntamiento de Aranjuez. Acceso libre y gratuito.</p>
+              <a class="text-action" href="/ferias.html#aranjuez">Ver fotos del evento</a>
+            </div>
+          </li>
+          <li class="event-entry">
+            <time datetime="2026-01-31">31 ene 2026</time>
+            <div>
+              <h3>Presentación en La Vecinal</h3>
+              <p>Encuentro con lectores, coloquio y firma de ejemplares de <em>Samuel entre mundos</em> en La Vecinal, Madrid.</p>
+            </div>
+          </li>
+          <li class="event-entry">
+            <time datetime="2026-01-15">15 ene 2026</time>
+            <div>
+              <h3>Presentación oficial de Samuel entre mundos</h3>
+              <p>Presentación del debut de David Porto Díaz en Bar Aleatorio, Madrid.</p>
+            </div>
+          </li>
+          <li class="event-entry">
+            <time datetime="2026-01">ene 2026</time>
+            <div>
+              <h3>Publicación de Samuel entre mundos</h3>
+              <p>Publicación de la novela con Libros Indie. ISBN 9791387659776.</p>
+            </div>
+          </li>
+        </ol>
       </div>
-    </footer>
+    </section>
 
-  </div>
+    <section class="v1-section" id="organizar">
+      <div class="v1-section__head">
+        <p class="eyebrow">¿Quieres organizar algo?</p>
+        <div><h2>Solicitar una firma o presentación.</h2><p>Para librerías, ferias, institutos, clubes de lectura o cualquier espacio literario. Cuéntanos el proyecto y lo estudiamos.</p></div>
+      </div>
+      <div class="contact-grid">
+        <article class="contact-card contact-card--featured">
+          <p class="eyebrow">Librerías y ferias</p>
+          <h3>Firma o presentación</h3>
+          <p>Organiza una firma de ejemplares o una presentación de una de sus obras en tu espacio. Indícanos fecha, ciudad y formato.</p>
+          <a class="primary-action" href="mailto:samuelentremundos@gmail.com?subject=Solicitud%20de%20firma%20o%20presentaci%C3%B3n%20%E2%80%94%20David%20Porto%20D%C3%ADaz">Solicitar evento</a>
+        </article>
+        <article class="contact-card">
+          <p class="eyebrow">Institutos y centros</p>
+          <h3>Charla o taller</h3>
+          <p>Para institutos, bibliotecas o centros culturales que quieran una charla sobre escritura, proceso creativo o narrativa.</p>
+          <a class="text-action" href="mailto:samuelentremundos@gmail.com?subject=Charla%20o%20taller%20%E2%80%94%20David%20Porto%20D%C3%ADaz">Escribir</a>
+        </article>
+        <article class="contact-card">
+          <p class="eyebrow">Clubes de lectura</p>
+          <h3>Visita a club de lectura</h3>
+          <p>Presencial o por videollamada. Si tu club lee una de las obras de David Porto Díaz, el autor puede participar.</p>
+          <a class="text-action" href="mailto:samuelentremundos@gmail.com?subject=Club%20de%20lectura%20%E2%80%94%20David%20Porto%20D%C3%ADaz">Coordinar visita</a>
+        </article>
+      </div>
+      <p style="margin-top:2rem"><a href="mailto:samuelentremundos@gmail.com">samuelentremundos&#64;gmail.com</a></p>
+      <div class="social-row">
+        <a class="social-icon" href="https://www.instagram.com/davidportodiaz/" target="_blank" rel="noopener noreferrer me" aria-label="Instagram" title="Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true" focusable="false"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="3.8"/><circle cx="17.3" cy="6.7" r="0.6" fill="currentColor" stroke="none"/></svg></a>
+        <a class="social-icon" href="https://www.facebook.com/profile.php?id=61590793667301" target="_blank" rel="noopener noreferrer me" aria-label="Facebook" title="Facebook"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" focusable="false"><path d="M16.7 3H7.3A4.3 4.3 0 0 0 3 7.3v9.4A4.3 4.3 0 0 0 7.3 21h4.2v-6.6H9.4v-2.6h2.1V9.8c0-2.1 1.3-3.3 3.2-3.3.9 0 1.7.1 1.9.1v2.2h-1.3c-1 0-1.2.5-1.2 1.2v1.7h2.4l-.3 2.6h-2.1V21h2.6a4.3 4.3 0 0 0 4.3-4.3V7.3A4.3 4.3 0 0 0 16.7 3z"/></svg></a>
+        <a class="social-icon" href="https://www.tiktok.com/@davidportoescritor" target="_blank" rel="noopener noreferrer me" aria-label="TikTok" title="TikTok"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" focusable="false"><path d="M14 3c.4 2.2 2 3.8 4.2 4.1v2.7c-1.5 0-2.9-.4-4.1-1.2v6.1a4.9 4.9 0 1 1-4.2-4.9v2.7a2.2 2.2 0 1 0 1.6 2.1V3h2.5z"/></svg></a>
+        <a class="social-icon" href="https://www.threads.net/@davidportodiaz" target="_blank" rel="noopener noreferrer me" aria-label="Threads" title="Threads"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true" focusable="false"><path d="M12 21c4.4 0 7-2.8 7-7.5C19 8 16.5 4 12 4 8 4 5.5 6.8 5.5 11c0 3 1.8 4.8 4.3 4.8 2 0 3.4-1.2 3.4-3 0-1.4-.9-2.3-2.1-2.3-.9 0-1.5.5-1.7 1.2"/></svg></a>
+        <a class="social-icon" href="https://bsky.app/profile/davidportoescritor.bsky.social" target="_blank" rel="noopener noreferrer me" aria-label="Bluesky" title="Bluesky"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" focusable="false"><path d="M12 7c-1.6-2.3-4.6-3.6-6.7-3.2-.3 2.3.4 5.4 2 7.1-1.6.1-2.8.8-3 1.7.7.9 2.3 1.3 3.8 1-.9 1.1-1.1 2.6-.5 3.8 1.6.1 3.7-1.1 4.6-2.8.4 1 .9 1.9 1.5 2.6.6-.7 1.1-1.6 1.5-2.6.9 1.7 3 2.9 4.6 2.8.6-1.2.4-2.7-.5-3.8 1.5.3 3.1-.1 3.8-1-.2-.9-1.4-1.6-3-1.7 1.6-1.7 2.3-4.8 2-7.1-2.1-.4-5.1.9-6.7 3.2-.2.3-.4.6-.5 1-.1-.4-.3-.7-.5-1z"/></svg></a>
+        <a class="social-icon" href="https://www.pinterest.com/davidportodiaz/" target="_blank" rel="noopener noreferrer me" aria-label="Pinterest" title="Pinterest"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" focusable="false"><path d="M12 2C6.5 2 3 5.6 3 10c0 3.2 1.8 5.1 3 5.7.2.1.4 0 .4-.3l.4-1.5c0-.2 0-.3-.1-.5-.4-.5-.7-1.4-.7-2.3 0-3 2.2-5.7 5.8-5.7 3.1 0 4.9 1.9 4.9 4.5 0 3.4-1.5 5.6-3.5 5.6-1.1 0-2-.9-1.7-2.1.3-1.3.9-2.7.9-3.7 0-.8-.5-1.5-1.4-1.5-1.1 0-2 1.2-2 2.7 0 1 .3 1.7.3 1.7s-1.2 4.9-1.4 5.8c-.4 1.6-.1 3.6 0 3.8.1.1.2.1.3 0 .1-.2 1.5-1.9 2-3.5.1-.4.6-2.3.6-2.3.3.6 1.2 1.1 2.2 1.1 2.9 0 5-2.7 5-6.4C20 5.7 16.5 2 12 2z"/></svg></a>
+        <a class="social-icon" href="https://www.linkedin.com/in/davidportodiaz/" target="_blank" rel="noopener noreferrer me" aria-label="LinkedIn" title="LinkedIn"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" focusable="false"><path d="M5 3a2 2 0 1 0 0 4 2 2 0 0 0 0-4zM3.5 9h3v12h-3V9zm6.5 0h2.9v1.6c.5-.9 1.7-1.9 3.4-1.9 3.6 0 4.6 2.3 4.6 5.4V21h-3v-6.1c0-1.5-.5-2.5-1.9-2.5-1.4 0-2 1-2 2.4V21h-3V9z"/></svg></a>
+      </div>
+    </section>
+  </main>
 
-  <script defer src="script.js?v=202609-launch-1"></script>
+  <footer class="site-footer">
+    <div class="site-footer__grid">
+      <div>
+        <strong class="brand__name">David Porto Díaz</strong>
+        <p>Autor de Las manecillas del recuerdo y Samuel entre mundos.</p>
+      </div>
+      <nav aria-label="Obra"><h2>Obra</h2><a href="/las-manecillas-del-recuerdo/">Las manecillas del recuerdo</a><a href="/libros/samuel-entre-mundos/">Samuel entre mundos</a><a href="/fragmento/">Fragmento gratis</a></nav>
+      <nav aria-label="Leer y recursos"><h2>Leer</h2><a href="/cuaderno/">Cuaderno</a><a href="/herramientas/">Herramientas</a><a href="/mapa-del-sitio/">Mapa del sitio</a></nav>
+      <nav aria-label="Información"><h2>Información</h2><a href="/autor.html">Autor</a><a href="/premios.html">Premios</a><a href="/prensa.html">Prensa</a><a href="/eventos.html" aria-current="page">Eventos</a><a href="/ferias.html">Ferias del libro</a><a href="/privacidad.html">Privacidad</a><a href="/aviso-legal.html">Aviso legal</a></nav>
+    </div>
+    <p class="footer-legal">
+      <span>© 2026 David Porto Díaz. Todos los derechos reservados.</span>
+    </p>
+  </footer>
+
+  <script defer src="/assets/v1-shell.js"></script>
+  <script defer src="/script.js?v=202609-launch-1"></script>
 </body>
 </html>
