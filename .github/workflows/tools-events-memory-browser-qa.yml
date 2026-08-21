@@ -33,6 +33,7 @@ on:
       - 'tests/test-objeto-heredado-core.mjs'
       - 'qa/tools-events-memory-browser.mjs'
       - 'qa/tools-events-memory-text-resilience.css'
+      - 'qa/tools-events-memory-lighthouserc.json'
       - '.github/workflows/tools-events-memory-browser-qa.yml'
   workflow_dispatch:
 
@@ -60,10 +61,10 @@ jobs:
           node tests/test-entrevista-familiar-core.mjs
           node tests/test-objeto-heredado-core.mjs
 
-      - name: Install Chromium QA dependency
+      - name: Install browser QA dependencies
         run: |
           npm init -y >/dev/null 2>&1
-          npm install --no-save --package-lock=false playwright@1.62.1
+          npm install --no-save --package-lock=false playwright@1.62.1 @lhci/cli@0.15.1
           npx playwright install --with-deps chromium
 
       - name: Run browser QA
@@ -79,6 +80,14 @@ jobs:
             sleep 0.5
           done
           node qa/tools-events-memory-browser.mjs
+
+      - name: Run focused Lighthouse gate
+        run: |
+          set -e
+          npx lhci collect --config=./qa/tools-events-memory-lighthouserc.json
+          npx lhci assert --config=./qa/tools-events-memory-lighthouserc.json
+          mkdir -p qa-artifacts/tools-events-memory/lighthouse
+          cp -R .lighthouseci/. qa-artifacts/tools-events-memory/lighthouse/
 
       - name: Upload QA evidence
         if: always()
