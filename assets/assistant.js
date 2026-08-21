@@ -1,4 +1,4 @@
-import { PROTOCOL_VERSION, normalizeQuery, isValidAssistantResponse, rankLocalSources, makeSessionId } from "/assets/assistant-core.mjs";
+import { PROTOCOL_VERSION, normalizeQuery, isSafeInternalPath, isValidAssistantResponse, rankLocalSources, makeSessionId } from "/assets/assistant-core.mjs";
 
 const form = document.querySelector("[data-assistant-form]");
 const input = document.querySelector("[data-assistant-query]");
@@ -8,9 +8,16 @@ const answer = document.querySelector("[data-assistant-answer]");
 const sourcesList = document.querySelector("[data-assistant-sources]");
 const localBox = document.querySelector("[data-assistant-local]");
 const localList = document.querySelector("[data-assistant-local-list]");
+const turnstileBox = document.querySelector("[data-assistant-turnstile]");
 
 let requestSerial = 0;
+let activeController = null;
 let registryPromise;
+let configPromise;
+let turnstileScriptPromise;
+let turnstileWidgetId = null;
+let turnstileResolve = null;
+let turnstileReject = null;
 
 function getSessionId() {
   const key = "davidporto-assistant-session-v1";
@@ -29,13 +36,31 @@ function getSessionId() {
 async function getRegistry() {
   if (!registryPromise) {
     registryPromise = fetch("/data/assistant-source-registry.json", { credentials: "same-origin", cache: "force-cache" })
-      .then((response) => {
-        if (!response.ok) throw new Error("registry-unavailable");
-        return response.json();
-      })
-      .then((data) => Array.isArray(data.sources) ? data.sources : []);
+      .then((response) => response.ok ? response.json() : null)
+      .then((data) => Array.isArray(data?.sources) ? data.sources : [])
+      .catch(() => []);
   }
   return registryPromise;
+}
+
+async function getRemoteConfig() {
+  if (!configPromise) {
+    const controller = new AbortController();
+    const timer = setTimeout(() => controller.abort(), 2500);
+    configPromise = fetch("/api/assistant/config", { credentials: "same-origin", cache: "no-store", signal: controller.signal })
+      .then((response) => response.ok ? response.json() : null)
+      .then((data) => data?.protocol_version === PROTOCOL_VERSION && data?.ok === true ? data : { enabled: false })
+      .catch(() => ({ enabled: false }))
+      .finally(() => clearTimeout(timer));
+  }
+  return configPromise;
+}
+
+function normalizeLocalResult(item) {
+  if (!item || !isSafeInternalPath(item.url)) return null;
+  const title = String(item.title || item.url).trim();
+  if (!title) return null;
+  return { id: String(item.id || item.url), url: item.url, title: title.slice(0, 180) };
 }
 
 async function pagefindFallback(query) {
@@ -43,20 +68,20 @@ async function pagefindFallback(query) {
     const pagefind = await import("/pagefind/pagefind.js");
     const search = await pagefind.search(query);
     const first = await Promise.all((search.results || []).slice(0, 5).map((item) => item.data()));
-    return first.map((item) => ({
+    return first.map((item) => normalizeLocalResult({
       id: item.meta?.source_id || item.url,
       url: item.url,
       title: item.meta?.title || item.meta?.source_title || item.url,
-    }));
+    })).filter(Boolean);
   } catch {
     const sources = await getRegistry();
-    return rankLocalSources(query, sources);
+    return rankLocalSources(query, sources).map(normalizeLocalResult).filter(Boolean);
   }
 }
 
 function setBusy(busy) {
   submit.disabled = busy;
-  input.setAttribute("aria-busy", busy ? "true" : "false");
+  form?.setAttribute("aria-busy", busy ? "true" : "false");
 }
 
 function clearResult() {
@@ -68,7 +93,8 @@ function clearResult() {
 }
 
 function renderSources(sources) {
-  sourcesList.replaceChildren(...sources.map((source) => {
+  const safe = sources.filter((source) => isSafeInternalPath(source.url));
+  sourcesList.replaceChildren(...safe.map((source) => {
     const li = document.createElement("li");
     const link = document.createElement("a");
     link.href = source.url;
@@ -78,10 +104,14 @@ function renderSources(sources) {
   }));
 }
 
-async function renderLocalFallback(query, reason) {
-  const local = await pagefindFallback(query);
-  status.textContent = reason;
-  if (!local.length) return;
+async function renderLocalSuggestions(query, message) {
+  status.textContent = message;
+  let local = [];
+  try { local = await pagefindFallback(query); } catch { local = []; }
+  if (!local.length) {
+    localBox.hidden = true;
+    return;
+  }
   localBox.hidden = false;
   localList.replaceChildren(...local.map((source) => {
     const li = document.createElement("li");
@@ -93,6 +123,64 @@ async function renderLocalFallback(query, reason) {
   }));
 }
 
+function loadTurnstileScript() {
+  if (globalThis.turnstile) return Promise.resolve();
+  if (!turnstileScriptPromise) {
+    turnstileScriptPromise = new Promise((resolve, reject) => {
+      const existing = document.querySelector('script[data-assistant-turnstile-script]');
+      if (existing) {
+        existing.addEventListener("load", resolve, { once: true });
+        existing.addEventListener("error", reject, { once: true });
+        return;
+      }
+      const script = document.createElement("script");
+      script.src = "https://challenges.cloudflare.com/turnstile/v0/api.js?render=explicit";
+      script.async = true;
+      script.defer = true;
+      script.dataset.assistantTurnstileScript = "true";
+      script.addEventListener("load", resolve, { once: true });
+      script.addEventListener("error", () => reject(new Error("turnstile-script-failed")), { once: true });
+      document.head.append(script);
+    });
+  }
+  return turnstileScriptPromise;
+}
+
+async function getTurnstileToken(sitekey) {
+  if (!sitekey || !turnstileBox) throw new Error("turnstile-unavailable");
+  await loadTurnstileScript();
+  if (!globalThis.turnstile) throw new Error("turnstile-unavailable");
+  if (turnstileWidgetId === null) {
+    turnstileWidgetId = globalThis.turnstile.render(turnstileBox, {
+      sitekey,
+      appearance: "interaction-only",
+      execution: "execute",
+      action: "assistant_query",
+      language: "es",
+      callback(token) { turnstileResolve?.(token); },
+      "error-callback"() { turnstileReject?.(new Error("turnstile-failed")); return true; },
+      "expired-callback"() { turnstileReject?.(new Error("turnstile-expired")); },
+      "timeout-callback"() { turnstileReject?.(new Error("turnstile-timeout")); },
+    });
+  }
+  return new Promise((resolve, reject) => {
+    turnstileResolve = resolve;
+    turnstileReject = reject;
+    globalThis.turnstile.execute(turnstileWidgetId);
+  }).finally(() => {
+    turnstileResolve = null;
+    turnstileReject = null;
+  });
+}
+
+function resetTurnstile() {
+  if (turnstileWidgetId !== null && globalThis.turnstile) {
+    try { globalThis.turnstile.reset(turnstileWidgetId); } catch {}
+  }
+}
+
+void getRemoteConfig();
+
 form?.addEventListener("submit", async (event) => {
   event.preventDefault();
   const query = normalizeQuery(input.value);
@@ -102,47 +190,78 @@ form?.addEventListener("submit", async (event) => {
     return;
   }
 
+  activeController?.abort();
   clearResult();
   const serial = ++requestSerial;
-  const controller = new AbortController();
-  const timer = setTimeout(() => controller.abort(), 9000);
   setBusy(true);
-  status.textContent = "Buscando en la web…";
+  await renderLocalSuggestions(query, "Buscando páginas relacionadas…");
+  if (serial !== requestSerial) return;
 
   try {
-    const response = await fetch("/api/assistant", {
-      method: "POST",
-      credentials: "same-origin",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ protocol_version: PROTOCOL_VERSION, query, session_id: getSessionId(), locale: "es" }),
-      signal: controller.signal,
-    });
+    const config = await getRemoteConfig();
+    if (!config?.enabled || !config.turnstile_site_key) {
+      status.textContent = localBox.hidden ? "El asistente todavía no está activo." : "Te dejo los resultados disponibles en la web.";
+      return;
+    }
 
+    status.textContent = "Preparando una respuesta basada en la web…";
+    let turnstileToken;
+    try {
+      turnstileToken = await getTurnstileToken(config.turnstile_site_key);
+    } catch {
+      status.textContent = "No se pudo completar la verificación antiabuso. Los resultados locales siguen disponibles.";
+      return;
+    }
     if (serial !== requestSerial) return;
-    if (response.status === 429) {
-      await renderLocalFallback(query, "Se ha alcanzado el límite temporal del asistente. Te dejo resultados locales.");
-      return;
-    }
-    if (!response.ok) {
-      await renderLocalFallback(query, "El asistente no está disponible ahora. La búsqueda local sigue funcionando.");
-      return;
-    }
 
-    const payload = await response.json();
-    if (!isValidAssistantResponse(payload)) {
-      await renderLocalFallback(query, "La respuesta remota no pasó la validación. Te dejo resultados locales.");
-      return;
-    }
+    const controller = new AbortController();
+    activeController = controller;
+    const timer = setTimeout(() => controller.abort(), 12000);
+    try {
+      const response = await fetch("/api/assistant", {
+        method: "POST",
+        credentials: "same-origin",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          protocol_version: PROTOCOL_VERSION,
+          query,
+          session_id: getSessionId(),
+          locale: "es",
+          turnstile_token: turnstileToken,
+        }),
+        signal: controller.signal,
+      });
 
-    answer.textContent = payload.answer;
-    answer.hidden = false;
-    renderSources(payload.sources);
-    status.textContent = payload.abstained ? "No hay evidencia suficiente para responder con seguridad." : "Respuesta basada en páginas públicas de esta web.";
-  } catch (error) {
-    if (serial !== requestSerial) return;
-    await renderLocalFallback(query, error?.name === "AbortError" ? "La respuesta tardó demasiado. Te dejo resultados locales." : "No hay conexión con el asistente. Te dejo resultados locales.");
+      if (serial !== requestSerial) return;
+      if (response.status === 429) {
+        status.textContent = "Se ha alcanzado el límite temporal del asistente. Los resultados locales siguen disponibles.";
+        return;
+      }
+      if (!response.ok) {
+        status.textContent = "La respuesta con IA no está disponible ahora. Los resultados locales siguen funcionando.";
+        return;
+      }
+
+      let payload;
+      try { payload = await response.json(); } catch { payload = null; }
+      if (!isValidAssistantResponse(payload)) {
+        status.textContent = "La respuesta remota no pasó la validación. Los resultados locales siguen disponibles.";
+        return;
+      }
+
+      answer.textContent = payload.answer;
+      answer.hidden = false;
+      renderSources(payload.sources);
+      status.textContent = payload.abstained ? "No hay evidencia suficiente para responder con seguridad." : "Respuesta basada en páginas públicas de esta web.";
+    } catch (error) {
+      if (serial !== requestSerial) return;
+      status.textContent = error?.name === "AbortError" ? "La respuesta tardó demasiado. Los resultados locales siguen disponibles." : "No hay conexión con la respuesta remota. Los resultados locales siguen disponibles.";
+    } finally {
+      clearTimeout(timer);
+      if (activeController === controller) activeController = null;
+      resetTurnstile();
+    }
   } finally {
-    clearTimeout(timer);
     if (serial === requestSerial) setBusy(false);
   }
 });
