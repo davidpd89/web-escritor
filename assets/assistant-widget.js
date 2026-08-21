@@ -6,17 +6,18 @@ import {
 const EXPECTED_ORIGIN = location.origin;
 const AUTO_OPEN_DELAY_MS = 1100;
 const MAX_AUTO_OPEN_ATTEMPTS = 6;
+let sessionStorageUsable = true;
 
 if (shouldMountAssistantWidget(location.pathname) && !document.querySelector("[data-assistant-widget]")) {
   mountAssistantWidget();
 }
 
 function safeSessionGet(key) {
-  try { return sessionStorage.getItem(key); } catch { return null; }
+  try { return sessionStorage.getItem(key); } catch { sessionStorageUsable = false; return null; }
 }
 
 function safeSessionSet(key, value) {
-  try { sessionStorage.setItem(key, value); } catch {}
+  try { sessionStorage.setItem(key, value); } catch { sessionStorageUsable = false; }
 }
 
 function makeSvgIcon(kind) {
@@ -194,7 +195,7 @@ function mountAssistantWidget() {
   });
 
   function tryAutoOpen() {
-    if (safeSessionGet(ASSISTANT_WIDGET_AUTO_KEY) || open) return;
+    if (!sessionStorageUsable || safeSessionGet(ASSISTANT_WIDGET_AUTO_KEY) || open) return;
     if (document.visibilityState !== "visible" || document.querySelector("dialog[open]")) {
       autoOpenAttempt += 1;
       if (autoOpenAttempt < MAX_AUTO_OPEN_ATTEMPTS) setTimeout(tryAutoOpen, 1200);
@@ -203,7 +204,8 @@ function mountAssistantWidget() {
     openWidget({ focus: false, auto: true });
   }
 
-  if (!safeSessionGet(ASSISTANT_WIDGET_AUTO_KEY)) {
+  const priorAutoOpen = safeSessionGet(ASSISTANT_WIDGET_AUTO_KEY);
+  if (sessionStorageUsable && !priorAutoOpen) {
     setTimeout(tryAutoOpen, AUTO_OPEN_DELAY_MS);
   }
 }

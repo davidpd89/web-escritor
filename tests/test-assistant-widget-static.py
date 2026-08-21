@@ -27,6 +27,7 @@ need('role", "dialog"' in widget and 'aria-modal", "false"' in widget, "widget m
 need('frame.src = `/asistente/embed.html?from=' in widget, "widget iframe must be same-origin assistant embed")
 need('event.origin !== EXPECTED_ORIGIN' in widget and 'event.source !== frame.contentWindow' in widget, "postMessage must validate both origin and source window")
 need('ASSISTANT_WIDGET_AUTO_KEY' in widget and 'AUTO_OPEN_DELAY_MS' in widget, "auto-open-once session contract missing")
+need('sessionStorageUsable' in widget and 'if (!sessionStorageUsable' in widget, "blocked sessionStorage must disable auto-open instead of repeatedly reopening")
 need('focus: false, auto: true' in widget, "automatic opening must not steal focus")
 need('data-assistant-menu-link' in widget and 'event.preventDefault()' in widget, "menu entry must open the widget progressively")
 need('innerHTML' not in widget, "widget must construct DOM without innerHTML")
