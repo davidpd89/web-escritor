@@ -1,0 +1,285 @@
+/* Identity V1 — local layer for Autor / Prensa / Premios / Eventos only.
+   Loaded only by the four public identity pages. Shared family primitives stay
+   in v1-families.css; this file corrects the public/documentary treatment
+   without changing other families. */
+
+/* Author: keep the real portrait editorial, reserve its geometry and avoid a
+   corporate card treatment. Intrinsic HTML dimensions remain the CLS source. */
+html.v1 [data-family="identity"] .author-portrait{
+  position:relative;
+  align-self:start;
+}
+html.v1 [data-family="identity"] .author-portrait::after{
+  content:"";
+  position:absolute;
+  inset:auto -1rem -1rem 1rem;
+  height:1px;
+  background:var(--color-border);
+  pointer-events:none;
+}
+html.v1 [data-family="identity"] .author-portrait img{
+  display:block;
+  border:0;
+  object-position:50% 38%;
+}
+html.v1 [data-family="identity"] .author-bio__copy{
+  text-wrap:pretty;
+}
+
+/* Press kit: turn the generic equal-card grid into a document ledger. The
+   semantic article markup stays intact; hierarchy comes from columns,
+   hairlines and unequal media rather than repeated rectangles. */
+html.v1 [data-family="identity"] .press-grid{
+  display:block;
+  border-top:1px solid var(--color-border);
+}
+html.v1 [data-family="identity"] .press-card,
+html.v1 [data-family="identity"] .press-card--wide{
+  display:grid;
+  grid-template-columns:minmax(10rem,.42fr) minmax(0,1fr);
+  column-gap:clamp(1.5rem,5vw,5rem);
+  row-gap:.8rem;
+  padding:clamp(1.35rem,2.6vw,2rem) 0;
+  border:0;
+  border-bottom:1px solid var(--color-border);
+  background:transparent;
+}
+html.v1 [data-family="identity"] .press-card > *{
+  grid-column:2;
+  min-width:0;
+}
+html.v1 [data-family="identity"] .press-card > .press-card-head{
+  grid-column:1;
+  grid-row:1 / span 12;
+  display:block;
+  align-self:start;
+}
+html.v1 [data-family="identity"] .press-card-head h3{
+  font-size:clamp(1.22rem,1.6vw,1.55rem);
+  line-height:1.08;
+}
+html.v1 [data-family="identity"] .press-card-head .status-badge{
+  display:inline-flex;
+  margin-top:.7rem;
+}
+html.v1 [data-family="identity"] .press-card p{
+  max-width:68ch;
+}
+html.v1 [data-family="identity"] .press-author-photo{
+  max-width:min(100%,27rem);
+}
+html.v1 [data-family="identity"] .press-author-photo img{
+  display:block;
+}
+html.v1 [data-family="identity"] .event-photo-grid{
+  grid-template-columns:repeat(3,minmax(0,1fr));
+  max-width:58rem;
+}
+html.v1 [data-family="identity"] .copy-btn{
+  min-height:44px;
+  display:inline-flex;
+  align-items:center;
+  width:max-content;
+  max-width:100%;
+  padding:.6rem 0;
+}
+
+/* Awards: the ledger is the visual authority. Years/results read as records,
+   not badges, and reception is intentionally quieter than awards. */
+html.v1 [data-family="identity"] .awards-ledger li{
+  align-items:start;
+}
+html.v1 [data-family="identity"] .awards-ledger li > span{
+  font-family:var(--font-display);
+  font-size:clamp(1.05rem,1.8vw,1.45rem);
+  font-weight:400;
+  color:var(--color-text);
+  letter-spacing:-.015em;
+}
+html.v1 [data-family="identity"] .awards-ledger--reception li > span{
+  font-family:var(--font-ui);
+  font-size:.78rem;
+  font-weight:600;
+  color:var(--color-muted);
+  letter-spacing:.04em;
+  text-transform:uppercase;
+}
+
+/* Events: future state is a deliberate editorial state, then the documentary
+   archive. Photographs remain content images, never card backgrounds. */
+html.v1 [data-family="identity"] .event-empty{
+  position:relative;
+  padding:clamp(1.75rem,3vw,2.5rem) 0 clamp(1.75rem,3vw,2.5rem) clamp(1rem,2vw,1.75rem);
+  border-top:1px solid var(--color-border);
+  border-bottom:1px solid var(--color-border);
+}
+html.v1 [data-family="identity"] .event-empty::before{
+  content:"";
+  position:absolute;
+  left:0;
+  top:1.65rem;
+  bottom:1.65rem;
+  width:2px;
+  background:var(--color-accent-strong);
+}
+html.v1 [data-family="identity"] .event-empty__title{
+  margin:0 0 .75rem;
+  max-width:22ch;
+  font:400 clamp(1.45rem,2.2vw,2rem)/1.05 var(--font-display);
+  letter-spacing:-.02em;
+}
+html.v1 [data-family="identity"] .event-empty__actions{
+  margin-top:1.25rem;
+}
+html.v1 [data-family="identity"] .event-entry figure{
+  margin:0 0 1.25rem;
+  max-width:min(100%,34rem);
+}
+html.v1 [data-family="identity"] .event-entry figure img{
+  display:block;
+  width:100%;
+  height:auto;
+}
+html.v1 [data-family="identity"] .event-entry figcaption{
+  max-width:52ch;
+  margin-top:.55rem;
+  color:var(--color-muted);
+  font-size:.78rem;
+  line-height:1.4;
+}
+
+/* Contextual contact modules read like a directory instead of another card
+   soup. The first item can still carry the primary action without a fake panel. */
+html.v1 [data-family="identity"] .contact-grid{
+  display:block;
+  border-top:1px solid var(--color-border);
+}
+html.v1 [data-family="identity"] .contact-card,
+html.v1 [data-family="identity"] .contact-card--featured{
+  display:grid;
+  grid-template-columns:minmax(10rem,.42fr) minmax(0,1fr) auto;
+  gap:.55rem clamp(1.25rem,4vw,4rem);
+  align-items:start;
+  padding:1.4rem 0;
+  border:0;
+  border-bottom:1px solid var(--color-border);
+  background:transparent;
+}
+html.v1 [data-family="identity"] .contact-card .eyebrow{
+  grid-column:1;
+  grid-row:1 / span 3;
+}
+html.v1 [data-family="identity"] .contact-card h3,
+html.v1 [data-family="identity"] .contact-card p{
+  grid-column:2;
+}
+html.v1 [data-family="identity"] .contact-card .primary-action,
+html.v1 [data-family="identity"] .contact-card .text-action{
+  grid-column:3;
+  grid-row:1 / span 3;
+  align-self:center;
+  white-space:nowrap;
+}
+
+@media (max-width:900px){
+  html.v1 [data-family="identity"] .press-card,
+  html.v1 [data-family="identity"] .press-card--wide,
+  html.v1 [data-family="identity"] .contact-card,
+  html.v1 [data-family="identity"] .contact-card--featured{
+    grid-template-columns:1fr;
+  }
+  html.v1 [data-family="identity"] .press-card > *,
+  html.v1 [data-family="identity"] .press-card > .press-card-head,
+  html.v1 [data-family="identity"] .contact-card .eyebrow,
+  html.v1 [data-family="identity"] .contact-card h3,
+  html.v1 [data-family="identity"] .contact-card p,
+  html.v1 [data-family="identity"] .contact-card .primary-action,
+  html.v1 [data-family="identity"] .contact-card .text-action{
+    grid-column:1;
+    grid-row:auto;
+  }
+  html.v1 [data-family="identity"] .press-card > .press-card-head{
+    margin-bottom:.25rem;
+  }
+  html.v1 [data-family="identity"] .contact-card .primary-action,
+  html.v1 [data-family="identity"] .contact-card .text-action{
+    justify-self:start;
+    white-space:normal;
+  }
+  html.v1 [data-family="identity"] .event-photo-grid{
+    grid-template-columns:repeat(2,minmax(0,1fr));
+  }
+}
+
+@media (max-width:600px){
+  html.v1 [data-family="identity"] .author-portrait::after{
+    inset:auto 0 -.75rem 1rem;
+  }
+  html.v1 [data-family="identity"] .author-portrait img{
+    max-height:none;
+    object-position:50% 35%;
+  }
+  html.v1 [data-family="identity"] .press-card,
+  html.v1 [data-family="identity"] .press-card--wide{
+    padding:1.35rem 0;
+  }
+  html.v1 [data-family="identity"] .event-photo-grid{
+    grid-template-columns:1fr;
+  }
+  html.v1 [data-family="identity"] .event-empty{
+    padding-left:1rem;
+  }
+}
+
+/* Prensa is expected to survive browser print/PDF as a useful one-page-ish
+   dossier. This sheet is loaded only by Identity pages, so these print rules do
+   not leak into Home/Books/Tools. */
+@media print{
+  html.v1 .site-header,
+  html.v1 .explore-dialog,
+  html.v1 .site-footer,
+  html.v1 .copy-btn,
+  html.v1 .social-row,
+  html.v1 .v1-masthead__actions{
+    display:none !important;
+  }
+  html.v1 body{
+    background:#fff !important;
+    color:#000 !important;
+  }
+  html.v1 [data-family="identity"]{
+    max-width:none !important;
+    padding:0 !important;
+  }
+  html.v1 [data-family="identity"] .book-breadcrumb{
+    margin-bottom:1rem;
+  }
+  html.v1 [data-family="identity"] .v1-masthead{
+    display:block;
+    padding:0 0 1.25rem;
+    border-bottom:1px solid #777;
+  }
+  html.v1 [data-family="identity"] .v1-section{
+    padding:1.2rem 0;
+    border-color:#aaa;
+  }
+  html.v1 [data-family="identity"] .v1-section__head{
+    margin-bottom:1rem;
+  }
+  html.v1 [data-family="identity"] .press-card,
+  html.v1 [data-family="identity"] .press-card--wide,
+  html.v1 [data-family="identity"] .contact-card,
+  html.v1 [data-family="identity"] .contact-card--featured{
+    break-inside:avoid;
+    border-color:#aaa;
+  }
+  html.v1 [data-family="identity"] .press-author-photo{
+    max-width:11rem;
+  }
+  html.v1 [data-family="identity"] .event-photo-grid{
+    grid-template-columns:repeat(3,1fr);
+  }
+  @page{
+    margin:14mm;
+  }
+}
