@@ -3,23 +3,28 @@ Allow: /
 Allow: /assets/
 Allow: /assets/fonts/
 
-# Allow AI search crawlers (for ChatGPT Search, Bing/Copilot AI)
+# OpenAI search discovery.
 User-agent: OAI-SearchBot
 Allow: /
 
+# OpenAI user-triggered fetches.
 User-agent: ChatGPT-User
 Allow: /
 
-# GPTBot: allowed for OpenAI model crawling; OAI-SearchBot handles ChatGPT Search visibility.
+# OpenAI model-development crawling.
 User-agent: GPTBot
 Allow: /
 
+# Perplexity search crawler; separate from foundation-model training.
 User-agent: PerplexityBot
 Allow: /
 
+# Apple policy token controlling use of Applebot-crawled data for model training.
+# Applebot-Extended does not crawl webpages itself.
 User-agent: Applebot-Extended
 Allow: /
 
+# Anthropic model-development, search and user-triggered retrieval.
 User-agent: ClaudeBot
 Allow: /
 
@@ -29,17 +34,13 @@ Allow: /
 User-agent: Claude-User
 Allow: /
 
-User-agent: Claude-Web
-Allow: /
-
-User-agent: anthropic-ai
-Allow: /
-
+# Google product token controlling eligible use of crawled content for Gemini.
+# It is not a standalone crawler and does not affect Google Search ranking.
 User-agent: Google-Extended
 Allow: /
 
 Sitemap: https://davidportodiaz.com/sitemap.xml
 
-# AI crawler context
-# Summary for LLMs: https://davidportodiaz.com/llms.txt
-# Full canonical profile for LLMs: https://davidportodiaz.com/llms-full.txt
+# Machine-readable editorial context (ordinary URLs, not robots directives):
+# Summary: https://davidportodiaz.com/llms.txt
+# Expanded profile: https://davidportodiaz.com/llms-full.txt

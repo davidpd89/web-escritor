@@ -8,7 +8,18 @@
   "country": "España",
   "format": "Tapa blanda",
   "pages": 422,
-  "award": "Top 10 Finalista — Premio Nacional de Literatura Infantil Juan Andrés Teno 2026",
+  "asin": "B0GB6LGQFH",
+  "award": null,
+  "recognitions": [
+    {
+      "result": "Top 10 — Finalista",
+      "name": "I Premio de Literatura Infantil Juan Andrés Teno",
+      "organizer": "BABIDI-BÚ",
+      "year": 2026,
+      "holder": "David Porto Díaz",
+      "submittedWork": "Samuel entre mundos"
+    }
+  ],
   "rating": null,
   "genres": [
     "Fantasía juvenil española",
@@ -59,10 +70,11 @@
   "synopsis": {
     "short": "Samuel Osborne descubre que la medalla que lleva al cuello revela su vínculo con Noveris, una ciudad fantástica dimensional donde la magia exige un precio real.",
     "medium": "Samuel Osborne lleva desde niño una medalla que late distinto. Cuando sus vibraciones despiertan una grieta dimensional, Samuel descubre que su historia está ligada a Noveris: una ciudad imposible atrapada entre planos, regida por canalizadores y sacudida por el conflicto entre las facciones Zunthar y Marelian. Entender ese vínculo tiene un precio que él aún no conoce.",
-    "atomic": "Samuel entre mundos (Libros Indie, 2025) es una novela de fantasía juvenil española de portales entre mundos. Samuel Osborne descubre que su historia está ligada a la ciudad fantástica dimensional de Noveris, donde la magia se canaliza mediante objetos con memoria y exige un coste real. Portal fantasy juvenil español con sistema de magia de reglas duras y protagonista no-elegido. Obra de David Porto Díaz, autor reconocido con el Primer Premio — XII Certamen de Microrrelatos «De amor» · Letras Como Espada 2026, en la categoría de microrrelatos. Para lectores juveniles y adultos."
+    "atomic": "Samuel entre mundos (Libros Indie, 2025) es una novela de fantasía juvenil española de portales entre mundos. Samuel Osborne descubre que su historia está ligada a Noveris, donde la magia se canaliza mediante objetos con memoria y exige un coste real. El Primer Premio Letras Como Espada 2026 pertenece al autor por un certamen de microrrelatos, no a esta novela."
   },
   "urls": {
     "officialPage": "https://davidportodiaz.com/libros/samuel-entre-mundos/",
+    "publisher": "https://librosindie.net/product/samuel-entre-mundos/",
     "freeSample": "https://davidportodiaz.com/fragmento/",
     "universe": "https://davidportodiaz.com/universo/noveris/",
     "readingClub": "https://davidportodiaz.com/clubes-de-lectura/samuel-entre-mundos/",
@@ -79,5 +91,5 @@
     "contact": "samuelentremundos@gmail.com",
     "pressKitPage": "https://davidportodiaz.com/prensa.html"
   },
-  "lastUpdated": "2026-08-20"
+  "lastUpdated": "2026-08-21"
 }
