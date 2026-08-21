@@ -50,6 +50,7 @@ for (const line of long.split('\r\n')) {
 }
 
 assert.equal(escapeIcs('a,b;c\\d\ne'), 'a\\,b\\;c\\\\d\\ne');
+assert.equal(escapeIcs('a\rb\r\nc\nd'), 'a\\nb\\nc\\nd');
 assert.equal(parseOffsetDate('2026-09-03T19:00', '+02:00').toISOString(), '2026-09-03T17:00:00.000Z');
 
 console.log('tests/test-evento-escritor-core: OK');
