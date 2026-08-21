@@ -55,7 +55,7 @@ async function openChecked(context, route) {
       brokenLocal.push(`${response.status()} ${url.pathname}`);
     }
   });
-  const response = await page.goto(BASE + route, { waitUntil: 'domcontentloaded' });
+  const response = await page.goto(BASE + route, { waitUntil: 'load' });
   check(response && response.ok(), `${route}: HTTP ${response?.status() ?? 'no response'}`);
   await page.waitForTimeout(350);
   const layout = await page.evaluate(() => ({
@@ -242,10 +242,14 @@ for (const viewport of viewports) {
 }
 
 // No-JS: public information remains readable on every route.
+// These routes are measured for horizontal overflow, so they navigate with
+// waitUntil 'load': at 'domcontentloaded' only one or two of the seven V1
+// stylesheets have been applied and the page still lays out at its intrinsic
+// desktop width, which reads as a ~1200px overflow that is not real.
 for (const route of routes) {
   const context = await browser.newContext({ viewport: { width: 390, height: 844 }, javaScriptEnabled: false });
   const page = await context.newPage();
-  const response = await page.goto(BASE + route, { waitUntil: 'domcontentloaded' });
+  const response = await page.goto(BASE + route, { waitUntil: 'load' });
   check(response && response.ok(), `${route} no-JS: HTTP failure`);
   const state = await page.evaluate(() => ({
     text: document.querySelector('main')?.innerText.trim().length || 0,
@@ -261,7 +265,7 @@ for (const route of routes) {
 for (const route of routes) {
   const context = await newContext({ width: 390, height: 844 });
   const page = await context.newPage();
-  await page.goto(BASE + route, { waitUntil: 'domcontentloaded' });
+  await page.goto(BASE + route, { waitUntil: 'load' });
   await page.addStyleTag({ content: `*{line-height:1.5 !important;letter-spacing:.12em !important;word-spacing:.16em !important} p{margin-bottom:2em !important}` });
   const overflow = await page.evaluate(() => document.documentElement.scrollWidth - document.documentElement.clientWidth);
   check(overflow <= 1, `${route} text-spacing: horizontal overflow ${overflow}`);
