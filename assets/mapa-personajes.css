@@ -15,8 +15,9 @@ html.v1 .map-viewport{width:100%;overflow:auto;background:var(--surface-quiet);o
 html.v1 .map-viewport:focus-visible{outline:2px solid var(--focus-color);outline-offset:2px}
 html.v1 .character-map{display:block;width:100%;min-width:0;aspect-ratio:16/9;background:var(--surface-quiet);touch-action:none}
 html.v1 .map-node{cursor:grab}
+html.v1 .map-node.is-dragging{cursor:grabbing}
 html.v1 .map-node circle{fill:var(--surface-page);stroke:var(--dp-ink);stroke-width:1.5}
-html.v1 .map-node text{fill:var(--dp-ink);font-size:13px;font-family:var(--font-ui)}
+html.v1 .map-node text{fill:var(--dp-ink);font-size:13px;font-family:var(--font-ui);pointer-events:none}
 html.v1 .map-edge line{stroke:var(--dp-walnut);stroke-width:1.5;opacity:.82}
 html.v1 .map-edge text{fill:var(--color-text);font-size:11px;font-family:var(--font-ui);paint-order:stroke;stroke:var(--surface-quiet);stroke-width:4px;stroke-linejoin:round}
 html.v1 .map-edge.type-romance line{stroke:var(--dp-copper);stroke-width:2}
