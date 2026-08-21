@@ -68,16 +68,6 @@ function announce(message) {
   if (status) status.textContent = message;
 }
 
-function associateStaticLabels() {
-  $$('.tool-field').forEach((group, index) => {
-    const label = $('label:not([for])', group);
-    const field = $('input, textarea, select', group);
-    if (!label || !field) return;
-    if (!field.id) field.id = `object-record-field-${index + 1}`;
-    label.htmlFor = field.id;
-  });
-}
-
 function addRow(kind, data = {}) {
   const container = $(`[data-rows="${kind}"]`);
   if (!container || !templates[kind]) return null;
@@ -122,7 +112,8 @@ function hydrate(record) {
   $('[data-open-questions]').value = record.open_questions.join('\n');
   for (const kind of Object.keys(templates)) {
     const rows = record[kind] || [];
-    rows.forEach((row) => addRow(kind, row));
+    if (rows.length) rows.forEach((row) => addRow(kind, row));
+    else addRow(kind);
   }
 }
 
@@ -173,6 +164,7 @@ $('[data-record-clear]').addEventListener('click', () => {
     return;
   }
   hydrate(createEmptyRecord());
+  $('[data-object-field="title"]')?.focus();
   announce('Ficha vaciada. No se ha enviado ni borrado ningún archivo de tu dispositivo.');
 });
 $('[data-record-open]').addEventListener('click', () => fileInput.click());
@@ -192,6 +184,5 @@ fileInput.addEventListener('change', async () => {
   }
 });
 
-associateStaticLabels();
 for (const kind of Object.keys(templates)) addRow(kind);
 announce('Todo lo que escribas se mantiene en esta página hasta que cierres o recargues. Descarga el JSON para conservarlo.');
