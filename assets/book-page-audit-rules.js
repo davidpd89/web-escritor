@@ -1,6 +1,6 @@
 // book-page-audit-rules.js
 // Extensión modular para el auditor de web de escritor.
-// Analiza una página individual de libro a partir del HTML ya descargado por el Worker.
+// Analiza una página individual de libro a partir del HTML pegado por el usuario.
 // No hace fetch, no puntúa SEO y no convierte señales opcionales en requisitos.
 
 const clean = (s='') => String(s)
@@ -59,12 +59,14 @@ const getImages = (html) => {
 
 const collectJsonLd = (html) => {
   const blocks = [];
+  let invalidCount = 0;
   const re = /<script\b[^>]*type\s*=\s*(?:"application\/ld\+json"|'application\/ld\+json')[^>]*>([\s\S]*?)<\/script>/gi;
   let m;
   while ((m = re.exec(String(html)))) {
-    try { blocks.push(JSON.parse(m[1].trim())); } catch { /* base auditor can report parse errors */ }
+    try { blocks.push(JSON.parse(m[1].trim())); }
+    catch { invalidCount += 1; }
   }
-  return blocks;
+  return { blocks, invalidCount };
 };
 
 const walk = (value, fn) => {
@@ -82,6 +84,18 @@ const bookEntities = (jsonLd) => {
     if (types.filter(Boolean).some(x => normalize(x) === 'book')) books.push(node);
   }));
   return books;
+};
+
+const schemaAuthorNames = (author) => {
+  const list = Array.isArray(author) ? author : [author];
+  return list.map(item => typeof item === 'string' ? clean(item) : clean(item?.name)).filter(Boolean);
+};
+
+const visibleAuthorName = (text) => {
+  const source = String(text || '');
+  const labelled = source.match(/\b(?:autor|autora)\s*[:·\-–—]\s*([^.;|]{2,100})/i);
+  const byline = source.match(/\b(?:escrito|escrita)\s+por\s+([^.;|]{2,100})/i);
+  return clean((labelled || byline || [,''])[1]);
 };
 
 const digits = s => String(s || '').replace(/\D/g, '');
@@ -103,7 +117,7 @@ export function auditBookPageHtml(html, options={}) {
   const visible = clean(source);
   const links = getLinks(source);
   const images = getImages(source);
-  const jsonLd = collectJsonLd(source);
+  const { blocks: jsonLd, invalidCount: invalidJsonLdCount } = collectJsonLd(source);
   const books = bookEntities(jsonLd);
   const primaryBook = books[0] || null;
 
@@ -137,6 +151,8 @@ export function auditBookPageHtml(html, options={}) {
   const schemaPages = primaryBook?.numberOfPages || '';
   const schemaImage = typeof primaryBook?.image === 'string'
     ? primaryBook.image : primaryBook?.image?.url || '';
+  const visibleAuthor = visibleAuthorName(visible.slice(0, 3500));
+  const schemaAuthors = schemaAuthorNames(primaryBook?.author);
 
   const coverLikely = Boolean(
     ogImage || schemaImage ||
@@ -160,7 +176,7 @@ export function auditBookPageHtml(html, options={}) {
   const rightsVisible = hasAny(visible, rightsTerms);
 
   const factsVisible = {
-    isbn: Boolean(textIsbn),
+    isbn: Boolean(textIsbn || schemaIsbn),
     publisher: hasAny(visible, ['editorial','publicado por','publicada por']) || Boolean(schemaPublisher),
     date: hasAny(visible, ['fecha de publicación','fecha de publicacion','publicado','publicada']) || Boolean(schemaDate),
     format: hasAny(visible, ['tapa blanda','tapa dura','ebook','e-book','audiolibro','formato']) || Boolean(schemaFormat),
@@ -226,7 +242,9 @@ export function auditBookPageHtml(html, options={}) {
 
   const structured = books.length
     ? finding('book_schema','ok','Book JSON-LD',`Se detectan ${books.length} entidad(es) Book. Deben coincidir con lo visible.`)
-    : finding('book_schema','info','Book JSON-LD','No se detecta Book JSON-LD. Schema.org puede describir el libro, pero no debe presentarse como requisito de ranking.');
+    : invalidJsonLdCount
+      ? finding('book_schema_invalid','review','JSON-LD no válido',`Se detectan ${invalidJsonLdCount} bloque(s) application/ld+json que no se pueden interpretar como JSON válido.`)
+      : finding('book_schema','info','Book JSON-LD','No se detecta Book JSON-LD. Schema.org puede describir el libro, pero no debe presentarse como requisito de ranking.');
 
   const consistency = [];
   if (schemaIsbn && textIsbn && schemaIsbn !== textIsbn) {
@@ -239,6 +257,11 @@ export function auditBookPageHtml(html, options={}) {
       'El nombre del Book JSON-LD no parece coincidir con el H1 visible.',
       `${primaryBook.name} ↔ ${h1}`));
   }
+  if (visibleAuthor && schemaAuthors.length && !schemaAuthors.some(name => normalize(name) === normalize(visibleAuthor))) {
+    consistency.push(finding('book_author_mismatch','review','Autoría inconsistente',
+      'La autoría visible no coincide con la autoría del primer Book JSON-LD.',
+      `${visibleAuthor} ↔ ${schemaAuthors.join(', ')}`));
+  }
 
   return {
     mode: 'book-page',
@@ -249,6 +272,7 @@ export function auditBookPageHtml(html, options={}) {
       h1, titleTag, metaDescriptionLength: metaDescription.length,
       imageCount: images.length, purchaseLinkCount: purchaseLinks.length,
       excerptLinkCount: excerptLinks.length, bookEntityCount: books.length,
+      invalidJsonLdCount, visibleAuthor, schemaAuthors,
     }
   };
 }
