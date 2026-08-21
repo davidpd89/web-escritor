@@ -29,7 +29,11 @@ jobs:
           fetch-depth: 0
 
       - name: Apply asserted migration
-        run: python scripts/_apply-cuaderno-v1.py
+        run: |
+          python scripts/_apply-cuaderno-v1.py
+          for file in $(git diff --name-only -- cuaderno/); do
+            sed -i 's/^[[:space:]]\+$//' "$file"
+          done
 
       - name: Remove migration-only files
         run: rm scripts/_apply-cuaderno-v1.py .github/workflows/_apply-cuaderno-v1.yml
