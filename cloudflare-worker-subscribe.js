@@ -209,8 +209,13 @@ export default {
     // subscribed" (Brevo returns 400 for that), surfaced here as a clean
     // { duplicate: true } flag instead of asking the client to string-search
     // Brevo's raw error message.
-    if (brevoRes.ok || brevoRes.status === 204) {
-      return jsonResponse(origin, brevoRes.status === 204 ? 204 : 201, { ok: true });
+    if (brevoRes.status === 204) {
+      // HTTP 204 must not carry a response body. Returning JSON here makes
+      // the Fetch Response constructor throw in standards-compliant runtimes.
+      return new Response(null, { status: 204, headers: corsHeaders(origin) });
+    }
+    if (brevoRes.ok) {
+      return jsonResponse(origin, 201, { ok: true });
     }
 
     let brevoBodyText = "";

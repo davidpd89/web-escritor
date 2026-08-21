@@ -33,9 +33,24 @@
     sections.forEach(section => observer.observe(section));
   }
 
+  const ensurePrintSource = () => {
+    const article = document.querySelector('.article-page article');
+    if (!article || article.querySelector('.article-print-source')) return;
+    const canonical = document.querySelector('link[rel="canonical"]')?.href || location.href;
+    const title = article.querySelector('h1')?.textContent?.trim() || document.title;
+    const source = document.createElement('p');
+    source.className = 'article-print-source';
+    source.setAttribute('aria-hidden', 'true');
+    source.textContent = `${title} — ${canonical}`;
+    article.appendChild(source);
+  };
+
   document.querySelectorAll('[data-print]').forEach(button => {
     button.hidden = false;
-    button.addEventListener('click', () => window.print());
+    button.addEventListener('click', () => {
+      ensurePrintSource();
+      window.print();
+    });
   });
 
   document.querySelectorAll('[data-share-url]').forEach(button => {

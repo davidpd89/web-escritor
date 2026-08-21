@@ -1,0 +1,50 @@
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "david-porto-assistant",
+  "main": "cloudflare-worker-assistant.js",
+  "compatibility_date": "2026-08-21",
+  "workers_dev": true,
+  "ai": {
+    "binding": "AI"
+  },
+  "ai_search": [
+    {
+      "binding": "ASSISTANT_SEARCH",
+      "instance_name": "REPLACE_WITH_AI_SEARCH_INSTANCE"
+    }
+  ],
+  "d1_databases": [
+    {
+      "binding": "ASSISTANT_QUOTA_DB",
+      "database_name": "REPLACE_WITH_D1_DATABASE_NAME",
+      "database_id": "REPLACE_WITH_D1_DATABASE_ID"
+    }
+  ],
+  "ratelimits": [
+    {
+      "name": "SESSION_RATE_LIMITER",
+      "namespace_id": "1001",
+      "simple": { "limit": 6, "period": 60 }
+    },
+    {
+      "name": "IP_RATE_LIMITER",
+      "namespace_id": "1002",
+      "simple": { "limit": 30, "period": 60 }
+    },
+    {
+      "name": "GLOBAL_RATE_LIMITER",
+      "namespace_id": "1003",
+      "simple": { "limit": 120, "period": 60 }
+    }
+  ],
+  "vars": {
+    "ASSISTANT_ENABLED": "false",
+    "ASSISTANT_MODEL": "@cf/qwen/qwen3-30b-a3b-fp8",
+    "ASSISTANT_MATCH_THRESHOLD": "0.42",
+    "ASSISTANT_REQUIRE_METADATA_FILTER": "false",
+    "ASSISTANT_DAILY_SESSION_LIMIT": "5",
+    "ASSISTANT_DAILY_GLOBAL_LIMIT": "50",
+    "TURNSTILE_SITE_KEY": "REPLACE_WITH_TURNSTILE_SITE_KEY",
+    "TURNSTILE_HOSTNAMES": "davidportodiaz.com"
+  }
+}

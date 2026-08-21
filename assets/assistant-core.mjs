@@ -1,5 +1,8 @@
-export const PROTOCOL_VERSION = 1;
-export const QUERY_MAX_LENGTH = 500;
+import { ASSISTANT_PUBLIC_CONFIG } from "./assistant-config.js";
+
+export const PROTOCOL_VERSION = ASSISTANT_PUBLIC_CONFIG.protocolVersion;
+export const QUERY_MIN_LENGTH = ASSISTANT_PUBLIC_CONFIG.queryMinLength;
+export const QUERY_MAX_LENGTH = ASSISTANT_PUBLIC_CONFIG.queryMaxLength;
 
 export function normalizeQuery(value) {
   return String(value ?? "").normalize("NFC").replace(/\s+/g, " ").trim().slice(0, QUERY_MAX_LENGTH);
@@ -21,10 +24,18 @@ export function isValidAssistantResponse(payload) {
   if (typeof payload.answer !== "string" || !payload.answer.trim() || payload.answer.length > 6000) return false;
   if (typeof payload.abstained !== "boolean" || !Array.isArray(payload.sources) || payload.sources.length > 8) return false;
   if (!payload.abstained && payload.sources.length === 0) return false;
-  return payload.sources.every((source) =>
-    source && typeof source.id === "string" && /^[a-z0-9][a-z0-9-]{0,80}$/i.test(source.id) &&
-    isSafeInternalPath(source.url) && typeof source.title === "string" && source.title.trim().length > 0 && source.title.length <= 180
-  );
+
+  const ids = new Set();
+  for (const source of payload.sources) {
+    if (!source || typeof source.id !== "string" || !/^[a-z0-9][a-z0-9-]{0,80}$/i.test(source.id) || ids.has(source.id)) return false;
+    if (!isSafeInternalPath(source.url) || typeof source.title !== "string" || !source.title.trim() || source.title.length > 180) return false;
+    ids.add(source.id);
+  }
+
+  const markers = [...payload.answer.matchAll(/\[([a-z0-9][a-z0-9-]{0,80})\]/gi)].map((match) => match[1]);
+  if (!payload.abstained && markers.length === 0) return false;
+  if (markers.some((id) => !ids.has(id))) return false;
+  return true;
 }
 
 export function formatCitationMarkers(value, sources) {
