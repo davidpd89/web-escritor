@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="es" class="v1">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
@@ -22,20 +22,24 @@
 
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="Qué es el portal fantasy: guía para lectores en español" />
-  <meta name="twitter:description" content="Qué es el portal fantasy, cómo funciona la fantasía de portales y qué libros leer en español." />
+  <meta name="twitter:description" content="Qué es el portal fantasy, cómo funciona la fantasía de portales y qué libros leer en español si buscas mundos ocultos, magia y viajes entre realidades." />
   <meta name="twitter:image" content="https://davidportodiaz.com/assets/david-porto-imagen-compartir.webp" />
   <meta name="twitter:image:alt" content="Qué es el portal fantasy — David Porto Díaz" />
 
-  <meta name="theme-color" content="#080a0c" />
+  <meta name="theme-color" content="#F4EFE7" />
   <link rel="canonical" href="https://davidportodiaz.com/cuaderno/que-es-el-portal-fantasy/" />
   <link rel="preconnect" href="https://gc.zgo.at" />
-  <link rel="preload" as="font" type="font/woff2" href="/assets/fonts/cg-normal-latin.woff2" crossorigin />
-  <link rel="preload" as="font" type="font/woff2" href="/assets/fonts/inter-normal-latin.woff2" crossorigin />
   <link rel="icon" type="image/png" href="/assets/david-porto-favicon.png" />
   <link rel="apple-touch-icon" href="/assets/david-porto-favicon.png" />
   <link rel="manifest" href="/manifest.json" />
-  <link rel="stylesheet" href="/styles.css?v=202609-launch-1" />
-  <link rel="stylesheet" href="/assets/article-sources.css" />
+  <link rel="alternate" type="application/rss+xml" title="Cuaderno del autor — David Porto Díaz" href="https://davidportodiaz.com/cuaderno/feed.xml" />
+
+  <!-- V1 editorial system — Cuaderno/Artículo family -->
+  <link rel="stylesheet" href="/assets/v1-fonts.css" />
+  <link rel="stylesheet" href="/assets/v1-tokens.css" />
+  <link rel="stylesheet" href="/assets/v1-base.css" />
+  <link rel="stylesheet" href="/assets/v1-shell.css" />
+  <link rel="stylesheet" href="/assets/v1-editorial.css" />
 
   <script type="application/ld+json">
   {
@@ -101,225 +105,245 @@
   }
   </script>
 </head>
+
 <body data-reading-progress>
-  <a href="#main-content" class="skip-link">Saltar al contenido</a>
+  <a href="#contenido" class="skip-link">Saltar al contenido</a>
 
-  <div class="site-shell" id="contenido">
-    <header class="site-header">
-      <a class="brand" href="/" aria-label="Volver al inicio - David Porto Díaz">
-        <span class="brand-mark">
-          <img src="/assets/logo-david-porto-diaz-escritor-176.webp" alt="" class="brand-logo-img" width="52" height="52" loading="eager" aria-hidden="true" />
-        </span>
-        <span class="brand-text">
-          <strong>David Porto Díaz</strong>
-          <small>Escritor</small>
-        </span>
+  <header class="site-header" data-header>
+    <div class="site-header__inner">
+      <a class="brand" href="/" aria-label="David Porto Díaz — inicio">
+        <span class="brand__name">David Porto Díaz</span>
+        <span class="brand__role">Escritor</span>
       </a>
-
-      <button class="nav-toggle" type="button" aria-label="Abrir menú" aria-expanded="false">
-        <span></span>
-        <span></span>
-      </button>
-
-      <nav class="site-nav" aria-label="Navegación principal">
-        <a href="/">Inicio</a>
-        <a href="/libros/">Libros</a>
+      <nav class="primary-nav" aria-label="Navegación principal">
+        <a href="/libros/">Obra</a>
         <a href="/cuaderno/" aria-current="page">Cuaderno</a>
-        <a href="/autor.html">El autor</a>
-        <a href="/eventos.html">Eventos</a>
-        <a href="/prensa.html">Prensa</a>
+        <a href="/herramientas/">Herramientas</a>
       </nav>
-    </header>
+      <button class="explore-trigger" type="button" aria-haspopup="dialog" aria-controls="explore-dialog" aria-expanded="false" data-explore-open>
+        Explorar
+      </button>
+    </div>
+  </header>
 
-    <main id="main-content" tabindex="-1">
-
-      <!-- BREADCRUMB -->
-      <nav class="breadcrumb" aria-label="Ruta de navegación" style="margin-bottom:32px;font-size:0.82rem;color:var(--muted)">
-        <a href="/" style="color:var(--muted);text-decoration:none">Inicio</a>
-        <span aria-hidden="true" style="margin:0 6px">›</span>
-        <a href="/cuaderno/" style="color:var(--muted);text-decoration:none">Cuaderno</a>
-        <span aria-hidden="true" style="margin:0 6px">›</span>
-        <span style="color:var(--text)">Qué es el portal fantasy</span>
-      </nav>
-
-      <!-- ARTICLE -->
-      <article style="max-width:760px" aria-labelledby="article-title">
-
-        <header style="margin-bottom:48px">
-          <p class="eyebrow">Cuaderno del autor</p>
-          <h1 id="article-title" style="font-family:var(--font-display);font-size:clamp(2.2rem,4.5vw,3.6rem);font-weight:600;line-height:1.1;margin:0 0 24px">¿Qué es el portal fantasy? La guía definitiva para lectores en español</h1>
-          <p style="font-family:var(--font-display);font-size:clamp(1.1rem,1.5vw,1.25rem);font-style:italic;color:var(--muted);line-height:1.7;margin:0 0 20px">Desde Narnia hasta los portales del siglo XXI: qué define este subgénero, por qué sigue funcionando y dónde encontrar portal fantasy escrito en español.</p>
-          <p style="font-size:0.84rem;color:var(--muted-2)">Por <a href="/autor.html" style="color:var(--muted)">David Porto Díaz</a> · 26 mayo 2026 · 7 min de lectura</p>
-        </header>
-
-        <!-- DEFINICIÓN DIRECTA (AEO) -->
-        <div style="border-left:3px solid var(--accent);padding:20px 24px;margin-bottom:40px;background:rgba(196,148,77,0.05);border-radius:0 var(--radius-md) var(--radius-md) 0" role="note" aria-label="Definición">
-          <p style="margin:0;font-size:1rem;line-height:1.7;color:var(--text)"><strong>El portal fantasy</strong> es un subgénero de la fantasía en el que el protagonista viaja desde el mundo real a un mundo secundario a través de un portal o umbral. Lo que define el género es ese punto de cruce —el armario de Narnia, la plataforma 9¾— y la pregunta que genera: ¿podrá volver, y querrá hacerlo?</p>
+  <dialog class="explore-dialog" id="explore-dialog" aria-labelledby="explore-title" data-explore-dialog>
+    <div class="explore-dialog__shell">
+      <div class="explore-dialog__head">
+        <div>
+          <p class="eyebrow">Índice general</p>
+          <h2 id="explore-title">Explorar</h2>
         </div>
+        <button class="icon-button" type="button" aria-label="Cerrar Explorar" data-explore-close>
+          <svg aria-hidden="true" viewBox="0 0 24 24" width="20" height="20"><path d="M5 5l14 14M19 5L5 19"/></svg>
+        </button>
+      </div>
 
-        <!-- INTRO -->
-        <div style="font-size:1.05rem;line-height:1.8;margin-bottom:48px">
+      <div class="explore-dialog__grid">
+        <nav class="explore-list" aria-label="Destinos de la web">
+          <a class="explore-row" href="/las-manecillas-del-recuerdo/" data-preview="manecillas">
+            <span class="explore-row__index">01</span>
+            <span class="explore-row__body"><strong>Las manecillas del recuerdo</strong><small>La obra actual.</small></span>
+          </a>
+          <a class="explore-row" href="/autor.html" data-preview="autor">
+            <span class="explore-row__index">02</span>
+            <span class="explore-row__body"><strong>Autor</strong><small>Biografía, obra y trayectoria.</small></span>
+          </a>
+          <a class="explore-row" href="/libros/samuel-entre-mundos/" data-preview="samuel">
+            <span class="explore-row__index">03</span>
+            <span class="explore-row__body"><strong>Samuel entre mundos</strong><small>Primera novela publicada.</small></span>
+          </a>
+          <a class="explore-row" href="/cuaderno/" data-preview="cuaderno">
+            <span class="explore-row__index">04</span>
+            <span class="explore-row__body"><strong>Cuaderno</strong><small>Artículos y piezas editoriales.</small></span>
+          </a>
+          <a class="explore-row" href="/herramientas/" data-preview="herramientas">
+            <span class="explore-row__index">05</span>
+            <span class="explore-row__body"><strong>Herramientas</strong><small>Utilidades gratuitas para escritores.</small></span>
+          </a>
+          <a class="explore-row" href="/prensa.html" data-preview="prensa">
+            <span class="explore-row__index">06</span>
+            <span class="explore-row__body"><strong>Prensa y eventos</strong><small>Apariciones, materiales y agenda.</small></span>
+          </a>
+        </nav>
+
+        <aside class="explore-preview" aria-live="polite" aria-atomic="true" data-explore-preview>
+          <div class="explore-preview__media" aria-hidden="true" data-preview-media></div>
+          <p class="explore-preview__label" data-preview-label>Cuaderno</p>
+          <p class="explore-preview__copy" data-preview-copy>Artículos, crónicas y piezas editoriales.</p>
+        </aside>
+      </div>
+    </div>
+  </dialog>
+  <main class="editorial-page article-page" id="contenido">
+    <nav class="editorial-breadcrumb" aria-label="Ruta de navegación"><ol><li><a href="/">Inicio</a></li><li><a href="/cuaderno/">Cuaderno</a></li><li aria-current="page">Qué es el portal fantasy</li></ol></nav>
+
+    <article aria-labelledby="article-title">
+      <header class="article-header">
+        <div>
+          <p class="eyebrow">Cuaderno del autor</p>
+          <h1 id="article-title">¿Qué es el portal fantasy? La guía definitiva para lectores en español</h1>
+          <p class="article-deck">Desde Narnia hasta los portales del siglo XXI: qué define este subgénero, por qué sigue funcionando y dónde encontrar portal fantasy escrito en español.</p>
+        </div>
+        <div class="article-meta">
+          <p>Por <a href="/autor.html">David Porto Díaz</a></p>
+          <p><time datetime="2026-05-26">26 de mayo de 2026</time></p>
+          <p>7 min de lectura</p>
+          <div class="article-utilities">
+            <button class="text-action" type="button" hidden data-share-url="https://davidportodiaz.com/cuaderno/que-es-el-portal-fantasy/" data-share-title="¿Qué es el portal fantasy? La guía definitiva para lectores en español" aria-describedby="article-share-status">Compartir</button>
+            <button class="text-action" type="button" hidden data-print>Imprimir</button>
+            <span class="article-share-status" id="article-share-status" role="status" aria-live="polite"></span>
+          </div>
+        </div>
+      </header>
+
+      <div class="article-layout">
+        <nav class="article-toc" aria-label="En esta página" data-article-toc><span class="article-toc__label">En esta página</span><ol><li><a href="#de-narnia-al-siglo-xxi">De Narnia al siglo XXI: breve historia del género</a></li><li><a href="#tres-elementos">Los tres elementos que definen un portal fantasy</a></li><li><a href="#por-que-no-ha-envejecido">Por qué el portal fantasy no ha envejecido</a></li><li><a href="#portal-fantasy-en-espanol">El portal fantasy en español: un hueco editorial real</a></li><li><a href="#samuel-entre-mundos">Qué hace diferente a Samuel entre mundos</a></li><li><a href="#para-seguir-leyendo">Para seguir leyendo</a></li><li><a href="#faq">Preguntas frecuentes</a></li></ol></nav>
+        <div class="article-prose" data-article-body>
+          <div class="article-note" role="note" aria-label="Definición"><p><strong>El portal fantasy</strong> es un subgénero de la fantasía en el que el protagonista viaja desde el mundo real a un mundo secundario a través de un portal o umbral. Lo que define el género es ese punto de cruce —el armario de Narnia, la plataforma 9¾— y la pregunta que genera: ¿podrá volver, y querrá hacerlo?</p></div>
+
           <p>Un armario al fondo de una habitación vacía. Un andén que solo aparece cuando corres hacia él. Una madriguera que no tiene fondo. Tres portales distintos, tres historias distintas, una misma estructura narrativa: alguien cruza desde aquí hacia allá, y ese cruce lo cambia todo.</p>
           <p>El portal fantasy es uno de los subgéneros de la fantasía más reconocibles y, al mismo tiempo, uno de los menos definidos con precisión. La mayoría de los lectores saben identificar una historia de portales cuando la leen, pero si alguien pregunta qué la diferencia exactamente de otra fantasía con mundos mágicos, la respuesta suele ser vaga.</p>
           <p>Esta guía aclara exactamente eso: qué es el portal fantasy, qué elementos lo definen, por qué funciona tan bien en la ficción juvenil, y dónde encontrar portal fantasy escrito originalmente en español.</p>
-        </div>
 
-        <!-- H2: DE NARNIA AL SIGLO XXI -->
-        <section id="de-narnia-al-siglo-xxi" style="margin-bottom:48px">
-          <h2 style="font-family:var(--font-display);font-size:clamp(1.6rem,2.8vw,2.2rem);font-weight:600;line-height:1.2;margin:0 0 20px">De Narnia al siglo XXI: breve historia del género</h2>
+          <h2 id="de-narnia-al-siglo-xxi">De Narnia al siglo XXI: breve historia del género</h2>
 
-          <p style="line-height:1.8">El portal fantasy no nació con C.S. Lewis, aunque el armario de Narnia sea su imagen más reconocida. El subgénero tiene raíces en el cuento de hadas clásico —Alicia en el País de las Maravillas (1865) de Lewis Carroll es probablemente el primer portal fantasy moderno— y en la literatura de finales del siglo XIX, cuando la fantasía todavía no existía como categoría editorial.</p>
-          <p style="line-height:1.8">Lo que Lewis Carroll y después L. Frank Baum (<em>El mago de Oz</em>, 1900) establecieron fue la estructura básica: protagonista del mundo real, umbral de cruce, mundo secundario con sus propias reglas, y la pregunta del regreso. C.S. Lewis refinó esa estructura en <em>Las crónicas de Narnia</em> (1950-1956) añadiendo el peso moral del cruce: no solo «¿cómo vuelvo?» sino «¿debería volver?». La saga ha vendido más de 100 millones de ejemplares en todo el mundo, una cifra que habla de la durabilidad de su estructura más que de su época.</p>
-          <p style="line-height:1.8">En los noventa, J.K. Rowling llevó el género a dimensiones industriales con Harry Potter: con más de 600 millones de copias vendidas en todo el mundo, es la saga de libros más vendida de la historia. La plataforma 9¾ y el Expreso de Hogwarts son portales perfectamente diseñados: visibles para el lector, invisibles para los muggles, y cargados de la misma promesa que el armario de Narnia —al otro lado hay un mundo mejor, más verdadero, más tuyo.</p>
-          <p style="line-height:1.8">El siglo XXI ha diversificado los portales sin abandonar la estructura. Los protagonistas de las historias actuales no siempre cruzan hacia mundos mejores ni regresan sin cicatrices. El portal fantasy contemporáneo es más ambivalente: el otro lado tiene magia, pero también tiene un coste.</p>
-        </section>
+          <p>El portal fantasy no nació con C.S. Lewis, aunque el armario de Narnia sea su imagen más reconocida. El subgénero tiene raíces en el cuento de hadas clásico —Alicia en el País de las Maravillas (1865) de Lewis Carroll es probablemente el primer portal fantasy moderno— y en la literatura de finales del siglo XIX, cuando la fantasía todavía no existía como categoría editorial.</p>
+          <p>Lo que Lewis Carroll y después L. Frank Baum (<em>El mago de Oz</em>, 1900) establecieron fue la estructura básica: protagonista del mundo real, umbral de cruce, mundo secundario con sus propias reglas, y la pregunta del regreso. C.S. Lewis refinó esa estructura en <em>Las crónicas de Narnia</em> (1950-1956) añadiendo el peso moral del cruce: no solo «¿cómo vuelvo?» sino «¿debería volver?». La saga ha vendido más de 100 millones de ejemplares en todo el mundo, una cifra que habla de la durabilidad de su estructura más que de su época.</p>
+          <p>En los noventa, J.K. Rowling llevó el género a dimensiones industriales con Harry Potter: con más de 600 millones de copias vendidas en todo el mundo, es la saga de libros más vendida de la historia. La plataforma 9¾ y el Expreso de Hogwarts son portales perfectamente diseñados: visibles para el lector, invisibles para los muggles, y cargados de la misma promesa que el armario de Narnia —al otro lado hay un mundo mejor, más verdadero, más tuyo.</p>
+          <p>El siglo XXI ha diversificado los portales sin abandonar la estructura. Los protagonistas de las historias actuales no siempre cruzan hacia mundos mejores ni regresan sin cicatrices. El portal fantasy contemporáneo es más ambivalente: el otro lado tiene magia, pero también tiene un coste.</p>
 
-        <!-- H2: LOS TRES ELEMENTOS -->
-        <section id="tres-elementos" style="margin-bottom:48px">
-          <h2 style="font-family:var(--font-display);font-size:clamp(1.6rem,2.8vw,2.2rem);font-weight:600;line-height:1.2;margin:0 0 20px">Los tres elementos que definen un portal fantasy</h2>
+          <h2 id="tres-elementos">Los tres elementos que definen un portal fantasy</h2>
 
-          <p style="line-height:1.8">La académica Farah Mendlesohn, en su ensayo <em>Rhetorics of Fantasy</em> (2008), fue la primera en sistematizar qué distingue el portal fantasy de otros tipos de fantasía. Su análisis identifica tres elementos estructurales que, cuando están presentes, convierten una historia de fantasía en portal fantasy propiamente dicho.</p>
+          <p>La académica Farah Mendlesohn, en su ensayo <em>Rhetorics of Fantasy</em> (2008), fue la primera en sistematizar qué distingue el portal fantasy de otros tipos de fantasía. Su análisis identifica tres elementos estructurales que, cuando están presentes, convierten una historia de fantasía en portal fantasy propiamente dicho.</p>
 
-          <h3 style="font-family:var(--font-display);font-size:clamp(1.25rem,2vw,1.65rem);font-weight:600;margin:32px 0 14px">1. El umbral</h3>
-          <p style="line-height:1.8">El portal no tiene que ser un objeto físico —puede ser una experiencia, una decisión, un sueño— pero tiene que ser un punto de ruptura claramente identificable. El lector y el protagonista saben, en un momento concreto, que algo ha cruzado una línea. Antes del umbral estaban aquí; después del umbral están allá.</p>
-          <p style="line-height:1.8">La claridad del umbral es parte de su poder narrativo. No hay ambigüedad: el protagonista sabe que ha cruzado, aunque no sepa adónde, y el lector comparte esa certeza.</p>
+          <h3>1. El umbral</h3>
+          <p>El portal no tiene que ser un objeto físico —puede ser una experiencia, una decisión, un sueño— pero tiene que ser un punto de ruptura claramente identificable. El lector y el protagonista saben, en un momento concreto, que algo ha cruzado una línea. Antes del umbral estaban aquí; después del umbral están allá.</p>
+          <p>La claridad del umbral es parte de su poder narrativo. No hay ambigüedad: el protagonista sabe que ha cruzado, aunque no sepa adónde, y el lector comparte esa certeza.</p>
 
-          <h3 style="font-family:var(--font-display);font-size:clamp(1.25rem,2vw,1.65rem);font-weight:600;margin:32px 0 14px">2. El mundo de origen</h3>
-          <p style="line-height:1.8">El protagonista viene de un lugar que el lector reconoce. No necesariamente de la España o el Reino Unido contemporáneos —puede ser cualquier mundo «normal»—, pero sí de un punto de partida que el lector puede comparar con el mundo de destino. Esa comparación es fundamental: la maravilla del mundo de fantasía solo funciona si hay una referencia de normalidad contra la que medirla.</p>
-          <p style="line-height:1.8">En la alta fantasía, el lector entra directamente en el mundo secundario sin bisagra. En el portal fantasy, la bisagra es narrativamente esencial.</p>
+          <h3>2. El mundo de origen</h3>
+          <p>El protagonista viene de un lugar que el lector reconoce. No necesariamente de la España o el Reino Unido contemporáneos —puede ser cualquier mundo «normal»—, pero sí de un punto de partida que el lector puede comparar con el mundo de destino. Esa comparación es fundamental: la maravilla del mundo de fantasía solo funciona si hay una referencia de normalidad contra la que medirla.</p>
+          <p>En la alta fantasía, el lector entra directamente en el mundo secundario sin bisagra. En el portal fantasy, la bisagra es narrativamente esencial.</p>
 
-          <h3 style="font-family:var(--font-display);font-size:clamp(1.25rem,2vw,1.65rem);font-weight:600;margin:32px 0 14px">3. La pregunta del regreso</h3>
-          <p style="line-height:1.8">¿Puede el protagonista volver? ¿Quiere volver? ¿Qué perdería si volviera? Las mejores historias de portal fantasy convierten la pregunta del regreso en la pregunta central de la historia, no solo un problema logístico. Dorothy quiere volver a Kansas, pero una parte de ella —y del lector— sabe que Kansas ya no puede ser lo mismo después de Oz.</p>
-          <p style="line-height:1.8">Esta tensión entre quedarse y volver es lo que da al portal fantasy su carga emocional característica: es una historia sobre identidad, sobre dónde pertenece uno realmente, sobre si el hogar es un lugar o una decisión.</p>
-        </section>
+          <h3>3. La pregunta del regreso</h3>
+          <p>¿Puede el protagonista volver? ¿Quiere volver? ¿Qué perdería si volviera? Las mejores historias de portal fantasy convierten la pregunta del regreso en la pregunta central de la historia, no solo un problema logístico. Dorothy quiere volver a Kansas, pero una parte de ella —y del lector— sabe que Kansas ya no puede ser lo mismo después de Oz.</p>
+          <p>Esta tensión entre quedarse y volver es lo que da al portal fantasy su carga emocional característica: es una historia sobre identidad, sobre dónde pertenece uno realmente, sobre si el hogar es un lugar o una decisión.</p>
 
-        <!-- H2: POR QUÉ NO HA ENVEJECIDO -->
-        <section id="por-que-no-ha-envejecido" style="margin-bottom:48px">
-          <h2 style="font-family:var(--font-display);font-size:clamp(1.6rem,2.8vw,2.2rem);font-weight:600;line-height:1.2;margin:0 0 20px">Por qué el portal fantasy no ha envejecido</h2>
+          <h2 id="por-que-no-ha-envejecido">Por qué el portal fantasy no ha envejecido</h2>
 
-          <p style="line-height:1.8">El portal fantasy tiene más de ciento cincuenta años si contamos desde Alicia, y sigue siendo uno de los subgéneros más activos de la ficción juvenil. Eso no es accidental. Hay algo en la estructura del portal que resuena de forma especialmente intensa con los lectores adolescentes.</p>
-          <p style="line-height:1.8">La adolescencia es, en esencia, un portal. El adolescente está en un umbral entre dos versiones de sí mismo, sin saber exactamente cuándo cruza, sin mapa del otro lado, sin garantía de poder volver al que era antes. La ficción de portales externaliza ese proceso interior y lo hace navegable: hay un portal visible, hay reglas para el mundo de destino, hay una historia que seguir.</p>
-          <p style="line-height:1.8">El otro factor es la estructura de descubrimiento. El portal fantasy es, en su forma más pura, una historia de aprendizaje: el protagonista llega sin saber nada y tiene que aprenderlo todo. Cada detalle del mundo de destino es nuevo, cada regla es una revelación, cada aliado y cada enemigo tiene que ser descubierto. Eso crea un ritmo narrativo de revelaciones constantes que mantiene al lector enganchado.</p>
-          <p style="line-height:1.8">Y por encima de todo, el portal fantasy hace una promesa que la ficción realista no puede hacer: que hay algo más. Que detrás del armario, detrás del andén, detrás de la medalla que late sin motivo, hay un mundo que todavía no conoces y que podría cambiarlo todo.</p>
+          <p>El portal fantasy tiene más de ciento cincuenta años si contamos desde Alicia, y sigue siendo uno de los subgéneros más activos de la ficción juvenil. Eso no es accidental. Hay algo en la estructura del portal que resuena de forma especialmente intensa con los lectores adolescentes.</p>
+          <p>La adolescencia es, en esencia, un portal. El adolescente está en un umbral entre dos versiones de sí mismo, sin saber exactamente cuándo cruza, sin mapa del otro lado, sin garantía de poder volver al que era antes. La ficción de portales externaliza ese proceso interior y lo hace navegable: hay un portal visible, hay reglas para el mundo de destino, hay una historia que seguir.</p>
+          <p>El otro factor es la estructura de descubrimiento. El portal fantasy es, en su forma más pura, una historia de aprendizaje: el protagonista llega sin saber nada y tiene que aprenderlo todo. Cada detalle del mundo de destino es nuevo, cada regla es una revelación, cada aliado y cada enemigo tiene que ser descubierto. Eso crea un ritmo narrativo de revelaciones constantes que mantiene al lector enganchado.</p>
+          <p>Y por encima de todo, el portal fantasy hace una promesa que la ficción realista no puede hacer: que hay algo más. Que detrás del armario, detrás del andén, detrás de la medalla que late sin motivo, hay un mundo que todavía no conoces y que podría cambiarlo todo.</p>
 
-          <blockquote style="margin:24px 0;padding:16px 24px;border-left:3px solid var(--accent);background:rgba(196,148,77,0.04)">
-            <p style="margin:0 0 8px;font-family:var(--font-display);font-size:1.05rem;font-style:italic;line-height:1.7;color:var(--text)">«Hay un anhelo particular al que el portal fantasy realmente apela: la sensación de que hay algo más en la realidad, de que podríamos deslizarnos hacia él si solo pudiéramos encontrar la dirección correcta.»</p>
-            <footer style="font-size:0.84rem;color:var(--muted-2)">Sylvia Bishop, novelista de fantasía y editora de <a href="https://fivebooks.com/best-books/portal-fantasy/" target="_blank" rel="noopener noreferrer" style="color:var(--muted)">Five Books</a> (2025)</footer>
+          <blockquote>
+            <p>«Hay un anhelo particular al que el portal fantasy realmente apela: la sensación de que hay algo más en la realidad, de que podríamos deslizarnos hacia él si solo pudiéramos encontrar la dirección correcta.»</p>
+            <footer>Sylvia Bishop, novelista de fantasía y editora de <a href="https://fivebooks.com/best-books/portal-fantasy/" target="_blank" rel="noopener noreferrer">Five Books</a> (2025)</footer>
           </blockquote>
-        </section>
 
-        <!-- H2: EN ESPAÑOL -->
-        <section id="portal-fantasy-en-espanol" style="margin-bottom:48px">
-          <h2 style="font-family:var(--font-display);font-size:clamp(1.6rem,2.8vw,2.2rem);font-weight:600;line-height:1.2;margin:0 0 20px">El portal fantasy en español: un hueco editorial real</h2>
+          <h2 id="portal-fantasy-en-espanol">El portal fantasy en español: un hueco editorial real</h2>
 
-          <p style="line-height:1.8">La mayor parte del portal fantasy que han leído los lectores hispanohablantes es traducción. Narnia viene del inglés. Harry Potter viene del inglés. La historia interminable viene del alemán. Eso no es un problema en sí mismo —las traducciones permiten acceder a obras que de otro modo serían inaccesibles—, pero sí señala un hueco: hay muy pocas novelas de portal fantasy escritas originalmente en castellano.</p>
-          <p style="line-height:1.8">Laura Gallego es la gran excepción histórica. <em>El libro de los portales</em> y la saga <em>Memorias de Idhún</em> son portal fantasy escrito en español por una autora española, con personajes que vienen de aquí, con referencias culturales reconocibles. Su influencia sobre los lectores españoles de los años noventa y dos mil es difícil de sobreestimar.</p>
-          <p style="line-height:1.8">Más allá de Gallego, el panorama es escaso. El mercado editorial español ha tendido a apostar por autores ya consolidados en el mercado anglosajón antes que desarrollar su propio catálogo de portal fantasy. El resultado es que hay una demanda no satisfecha: lectores que quieren portal fantasy, que saben lo que es porque lo han leído en traducción, y que buscan historias que no requieran salir del español.</p>
-          <p style="line-height:1.8">Puedes ver una lista curada de opciones en la página de <a href="/recomendaciones/portal-fantasy-espanol/" style="color:var(--accent)">portal fantasy en español</a>, ordenadas por perfil de lector.</p>
-        </section>
+          <p>La mayor parte del portal fantasy que han leído los lectores hispanohablantes es traducción. Narnia viene del inglés. Harry Potter viene del inglés. La historia interminable viene del alemán. Eso no es un problema en sí mismo —las traducciones permiten acceder a obras que de otro modo serían inaccesibles—, pero sí señala un hueco: hay muy pocas novelas de portal fantasy escritas originalmente en castellano.</p>
+          <p>Laura Gallego es la gran excepción histórica. <em>El libro de los portales</em> y la saga <em>Memorias de Idhún</em> son portal fantasy escrito en español por una autora española, con personajes que vienen de aquí, con referencias culturales reconocibles. Su influencia sobre los lectores españoles de los años noventa y dos mil es difícil de sobreestimar.</p>
+          <p>Más allá de Gallego, el panorama es escaso. El mercado editorial español ha tendido a apostar por autores ya consolidados en el mercado anglosajón antes que desarrollar su propio catálogo de portal fantasy. El resultado es que hay una demanda no satisfecha: lectores que quieren portal fantasy, que saben lo que es porque lo han leído en traducción, y que buscan historias que no requieran salir del español.</p>
+          <p>Puedes ver una lista curada de opciones en la página de <a href="/recomendaciones/portal-fantasy-espanol/">portal fantasy en español</a>, ordenadas por perfil de lector.</p>
 
-        <!-- H2: QUÉ HACE DIFERENTE A SAMUEL -->
-        <section id="samuel-entre-mundos" style="margin-bottom:48px">
-          <h2 style="font-family:var(--font-display);font-size:clamp(1.6rem,2.8vw,2.2rem);font-weight:600;line-height:1.2;margin:0 0 20px">Qué hace diferente a Samuel entre mundos</h2>
+          <h2 id="samuel-entre-mundos">Qué hace diferente a Samuel entre mundos</h2>
 
-          <p style="line-height:1.8"><a href="/libros/samuel-entre-mundos/" style="color:var(--accent)">Samuel entre mundos</a> es portal fantasy escrito en español, pero no es solo portal fantasy. Lo que lo distingue de la mayor parte del género es la combinación de dos elementos que raramente aparecen juntos en la fantasía juvenil española: un sistema de magia con reglas estrictas y un protagonista sin destino.</p>
-          <p style="line-height:1.8">La magia de <a href="/universo/noveris/" style="color:var(--accent)">Noveris</a> tiene consecuencias físicas. Cada uso deja una deuda que el cuerpo tiene que pagar. Los objetos con memoria —como la medalla que desencadena toda la historia— guardan rastros de usos anteriores, lo que los convierte en recursos peligrosos. El sistema no es decorativo: afecta directamente a las decisiones del protagonista y al ritmo de la historia.</p>
-          <p style="line-height:1.8">Samuel Osborne descubre Noveris sin manual de instrucciones, sin profecía que justifique su presencia, sin mentor que le explique por qué es especial. Es un chico que toca algo que no debería tocar, en un momento que nadie planeó. A partir de ese punto, todo lo que hace es decisión suya.</p>
-          <p style="line-height:1.8">Si quieres saber si la historia es para ti, el <a href="/fragmento/" style="color:var(--accent)">primer capítulo de Samuel entre mundos está disponible gratis</a> en la web. El tono, el sistema de magia y el protagonista están presentes desde la primera página.</p>
-        </section>
+          <p><a href="/libros/samuel-entre-mundos/">Samuel entre mundos</a> es portal fantasy escrito en español, pero no es solo portal fantasy. Lo que lo distingue de la mayor parte del género es la combinación de dos elementos que raramente aparecen juntos en la fantasía juvenil española: un sistema de magia con reglas estrictas y un protagonista sin destino.</p>
+          <p>La magia de <a href="/universo/noveris/">Noveris</a> tiene consecuencias físicas. Cada uso deja una deuda que el cuerpo tiene que pagar. Los objetos con memoria —como la medalla que desencadena toda la historia— guardan rastros de usos anteriores, lo que los convierte en recursos peligrosos. El sistema no es decorativo: afecta directamente a las decisiones del protagonista y al ritmo de la historia.</p>
+          <p>Samuel Osborne descubre Noveris sin manual de instrucciones, sin profecía que justifique su presencia, sin mentor que le explique por qué es especial. Es un chico que toca algo que no debería tocar, en un momento que nadie planeó. A partir de ese punto, todo lo que hace es decisión suya.</p>
+          <p>Si quieres saber si la historia es para ti, el <a href="/fragmento/">primer capítulo de Samuel entre mundos está disponible gratis</a> en la web. El tono, el sistema de magia y el protagonista están presentes desde la primera página.</p>
 
-        <!-- H2: PARA SEGUIR LEYENDO -->
-        <section id="para-seguir-leyendo" style="margin-bottom:48px">
-          <h2 style="font-family:var(--font-display);font-size:clamp(1.6rem,2.8vw,2.2rem);font-weight:600;line-height:1.2;margin:0 0 20px">Para seguir leyendo</h2>
+          <h2 id="para-seguir-leyendo">Para seguir leyendo</h2>
 
-          <p style="line-height:1.8">Si esta guía te ha abierto el apetito y quieres explorar más el género, estos son los siguientes pasos más útiles:</p>
+          <p>Si esta guía te ha abierto el apetito y quieres explorar más el género, estos son los siguientes pasos más útiles:</p>
 
-          <ul style="line-height:1.9;padding-left:1.4rem;margin:0 0 20px">
-            <li style="margin-bottom:8px">Para entender cómo funciona la <strong>magia con coste</strong> en la fantasía juvenil, el artículo <a href="/cuaderno/sistema-de-magia-noveris/" style="color:var(--accent)">Cómo construí el sistema de magia de Noveris</a> explica el proceso desde dentro.</li>
-            <li style="margin-bottom:8px">Si quieres <strong>comparar el portal fantasy con la fantasía épica</strong> con ejemplos concretos, lee <a href="/cuaderno/portal-fantasy-vs-fantasia-epica/" style="color:var(--accent)">Portal fantasy vs. fantasía épica: ¿cuál es la diferencia?</a></li>
-            <li style="margin-bottom:8px">Para una <strong>lista de títulos</strong> de fantasía juvenil española actuales, el artículo <a href="/cuaderno/libros-fantasia-juvenil-espanola-2025-2026/" style="color:var(--accent)">Libros de fantasía juvenil española 2025-2026</a> recoge las mejores opciones del momento.</li>
-            <li>Para leer el inicio de <em>Samuel entre mundos</em>, accede directamente al <a href="/fragmento/" style="color:var(--accent)">capítulo 1 gratis</a>.</li>
+          <ul>
+            <li>Para entender cómo funciona la <strong>magia con coste</strong> en la fantasía juvenil, el artículo <a href="/cuaderno/sistema-de-magia-noveris/">Cómo construí el sistema de magia de Noveris</a> explica el proceso desde dentro.</li>
+            <li>Si quieres <strong>comparar el portal fantasy con la fantasía épica</strong> con ejemplos concretos, lee <a href="/cuaderno/portal-fantasy-vs-fantasia-epica/">Portal fantasy vs. fantasía épica: ¿cuál es la diferencia?</a></li>
+            <li>Para una <strong>lista de títulos</strong> de fantasía juvenil española actuales, el artículo <a href="/cuaderno/libros-fantasia-juvenil-espanola-2025-2026/">Libros de fantasía juvenil española 2025-2026</a> recoge las mejores opciones del momento.</li>
+            <li>Para leer el inicio de <em>Samuel entre mundos</em>, accede directamente al <a href="/fragmento/">capítulo 1 gratis</a>.</li>
           </ul>
-        </section>
 
-        <!-- NEWSLETTER -->
-        <section id="newsletter" style="margin:56px 0;padding:36px 40px;border:1px solid var(--border-strong);border-radius:20px;background:rgba(196,148,77,0.04)">
-          <p class="eyebrow">Cuaderno de fantasía</p>
-          <h2 style="font-family:var(--font-display);font-size:clamp(1.4rem,2.4vw,1.9rem);font-weight:600;margin:0 0 12px">Recibe nuevos artículos y fragmentos de David Porto Díaz</h2>
-          <p style="color:var(--muted);line-height:1.7;margin:0 0 24px">Sé de los primeros lectores de Noveris. Novedades del universo, fragmentos exclusivos y avance de los próximos textos del autor.</p>
-
-          <form id="newsletter-form-cuaderno" class="newsletter-form" novalidate>
-            <label for="nl-email-cuaderno" style="display:block;font-size:0.88rem;font-weight:500;margin-bottom:8px">Email</label>
-            <div style="display:flex;gap:12px;flex-wrap:wrap">
-              <input type="email" id="nl-email-cuaderno" name="email" autocomplete="email" required placeholder="tu@email.com"
-                     style="flex:1;min-width:220px;padding:13px 18px;border:1px solid var(--border-strong);border-radius:999px;background:rgba(255,255,255,0.04);color:var(--text);font-size:0.95rem;font-family:var(--font-body);outline:none" />
-              <button class="button primary" type="submit" style="white-space:nowrap">Apuntarme</button>
-            </div>
-            <label style="display:flex;align-items:flex-start;gap:10px;margin-top:14px;font-size:0.82rem;color:var(--muted);cursor:pointer">
-              <input type="checkbox" id="nl-gdpr-cuaderno" required style="margin-top:3px;flex-shrink:0" />
-              <span>Acepto recibir novedades del autor. Puedo darme de baja en cualquier momento. <a href="/privacidad.html" style="color:var(--accent)">Política de privacidad</a>.</span>
-            </label>
-            <p id="nl-status-cuaderno" role="status" aria-live="polite" style="margin-top:12px;font-size:0.88rem;min-height:1.4em"></p>
-          </form>
-        </section>
-
-        <!-- FAQ -->
-        <section id="faq" aria-label="Preguntas frecuentes" style="margin-bottom:56px">
-          <h2 style="font-family:var(--font-display);font-size:clamp(1.6rem,2.8vw,2.2rem);font-weight:600;line-height:1.2;margin:0 0 28px">Preguntas frecuentes</h2>
-
-          <details style="border-top:1px solid var(--border);padding:20px 0" open>
-            <summary style="font-family:var(--font-display);font-size:1.15rem;font-weight:600;cursor:pointer;list-style:none;display:flex;justify-content:space-between;align-items:center">
-              ¿Qué es el portal fantasy?
-              <span aria-hidden="true" style="font-family:var(--font-body);font-size:1.2rem;font-weight:300;color:var(--muted)">+</span>
-            </summary>
-            <p style="margin:14px 0 0;line-height:1.8;color:var(--muted)">El portal fantasy es un subgénero de la fantasía en el que el protagonista viaja desde el mundo real a un mundo secundario a través de un portal o umbral. Lo que define el género no es la existencia de magia, sino la existencia de ese punto de cruce: el armario de Narnia, la plataforma 9¾ de Harry Potter, la madriguera de Alicia. El portal separa el mundo conocido del desconocido y convierte ese tránsito en el motor emocional de la historia.</p>
-          </details>
-
-          <details style="border-top:1px solid var(--border);padding:20px 0">
-            <summary style="font-family:var(--font-display);font-size:1.15rem;font-weight:600;cursor:pointer;list-style:none;display:flex;justify-content:space-between;align-items:center">
-              ¿Cuál es la diferencia entre portal fantasy y fantasía épica?
-              <span aria-hidden="true" style="font-family:var(--font-body);font-size:1.2rem;font-weight:300;color:var(--muted)">+</span>
-            </summary>
-            <p style="margin:14px 0 0;line-height:1.8;color:var(--muted)">En la fantasía épica clásica (El señor de los anillos, Canción de hielo y fuego) el lector entra directamente en el mundo secundario sin punto de origen en el mundo real. En el portal fantasy, el protagonista viene de un lugar que el lector reconoce, y ese contraste es la fuente principal de tensión: qué pierde al cruzar, si podrá volver, si querrá volver.</p>
-          </details>
-
-          <details style="border-top:1px solid var(--border);border-bottom:1px solid var(--border);padding:20px 0">
-            <summary style="font-family:var(--font-display);font-size:1.15rem;font-weight:600;cursor:pointer;list-style:none;display:flex;justify-content:space-between;align-items:center">
-              ¿Hay portal fantasy escrito originalmente en español?
-              <span aria-hidden="true" style="font-family:var(--font-body);font-size:1.2rem;font-weight:300;color:var(--muted)">+</span>
-            </summary>
-            <p style="margin:14px 0 0;line-height:1.8;color:var(--muted)">Sí, aunque es un nicho menos desarrollado que en el mercado anglosajón. Laura Gallego es la referencia histórica con <em>El libro de los portales</em> y <em>Memorias de Idhún</em>. Más recientemente, <em>Samuel entre mundos</em> de David Porto Díaz (2025) propone un portal fantasy con sistema de magia propia, ambientado en la ciudad ficticia de Noveris.</p>
-          </details>
-        </section>
-
-        <aside class="article-sources" aria-labelledby="fuentes-ampliar">
-          <h2 id="fuentes-ampliar">Fuentes y lecturas para ampliar</h2>
+          <div class="article-sources"><h2 id="fuentes-ampliar">Fuentes y lecturas para ampliar</h2>
           <p>Referencia externa citada en este artículo. La definición y las conclusiones del texto son propias.</p>
           <ul>
             <li>
               <span class="source-kind">Recomendaciones de lectura</span>
               <a href="https://fivebooks.com/best-books/portal-fantasy/" target="_blank" rel="external noopener noreferrer">Five Books — The Best Portal Fantasy Books (Sylvia Bishop)</a>
             </li>
-          </ul>
-        </aside>
-
-        <!-- CTA BOTTOM -->
-        <div style="border-top:1px solid var(--border);padding-top:40px;margin-top:16px;display:flex;gap:16px;flex-wrap:wrap">
-          <a href="/libros/samuel-entre-mundos/" class="button secondary">Ver ficha del libro</a>
-          <a href="/fragmento/" class="button primary">Leer el capítulo 1 gratis</a>
+          </ul></div>
         </div>
 
-      </article>
+        <aside class="article-folio" aria-hidden="true">
+          <strong>01</strong>
+          <span>Cuaderno del autor</span>
+        </aside>
+      </div>
 
-    </main>
+      <section class="article-faq" id="faq" aria-labelledby="article-faq-title">
+        <div class="article-faq__head">
+          <p class="eyebrow">Respuestas rápidas</p>
+          <h2 id="article-faq-title">Preguntas frecuentes</h2>
+        </div>
+        <div class="article-faq__list">
+          <details open><summary>¿Qué es el portal fantasy?</summary><p>El portal fantasy es un subgénero de la fantasía en el que el protagonista viaja desde el mundo real a un mundo secundario a través de un portal o umbral. Lo que define el género no es la existencia de magia, sino la existencia de ese punto de cruce: el armario de Narnia, la plataforma 9¾ de Harry Potter, la madriguera de Alicia. El portal separa el mundo conocido del desconocido y convierte ese tránsito en el motor emocional de la historia.</p></details><details><summary>¿Cuál es la diferencia entre portal fantasy y fantasía épica?</summary><p>En la fantasía épica clásica (El señor de los anillos, Canción de hielo y fuego) el lector entra directamente en el mundo secundario sin punto de origen en el mundo real. En el portal fantasy, el protagonista viene de un lugar que el lector reconoce, y ese contraste es la fuente principal de tensión: qué pierde al cruzar, si podrá volver, si querrá volver.</p></details><details><summary>¿Hay portal fantasy escrito originalmente en español?</summary><p>Sí, aunque es un nicho menos desarrollado que en el mercado anglosajón. Laura Gallego es la referencia histórica con <em>El libro de los portales</em> y <em>Memorias de Idhún</em>. Más recientemente, <em>Samuel entre mundos</em> de David Porto Díaz (2025) propone un portal fantasy con sistema de magia propia, ambientado en la ciudad ficticia de Noveris.</p></details>
+        </div>
+      </section>
 
-    <footer style="margin-top:80px;padding-top:32px;border-top:1px solid var(--border);display:flex;flex-wrap:wrap;justify-content:space-between;gap:16px;font-size:0.82rem;color:var(--muted-2)">
-      <p style="margin:0">© 2026 David Porto Díaz · <a href="/privacidad.html" style="color:var(--muted-2)">Privacidad</a> · <a href="/aviso-legal.html" style="color:var(--muted-2)">Aviso legal</a></p>
-      <p style="margin:0"><a href="/" style="color:var(--muted-2)">davidportodiaz.com</a></p>
-    </footer>
-  </div>
+      <section class="article-end" aria-labelledby="article-end-title">
+        <div class="article-end__label">
+          <p class="eyebrow">Continuar</p>
+          <h2 id="article-end-title">Seguir leyendo</h2>
+        </div>
+        <div class="article-end__body">
+          <p>Si quieres seguir explorando el género, lee cómo se compara con la fantasía épica o descubre qué se está escribiendo ahora en español. Y si quieres empezar directamente por la novela, el primer capítulo es gratis.</p>
+          <nav class="article-related" aria-label="Contenido relacionado">
+            <a href="/cuaderno/portal-fantasy-vs-fantasia-epica/">Portal fantasy vs. fantasía épica</a><a href="/fragmento/">Leer el capítulo 1 de Samuel entre mundos</a><a href="/libros/samuel-entre-mundos/">Ficha completa de Samuel entre mundos</a><a href="/cuaderno/">Volver al Cuaderno</a>
+          </nav>
+        </div>
+      </section>
+    </article>
 
-  <script src="/script.js?v=202609-launch-1" defer></script>
+    <section class="editorial-newsletter" id="newsletter" aria-labelledby="article-newsletter-title">
+      <div class="editorial-newsletter__copy">
+        <p class="eyebrow">Cuaderno de fantasía</p>
+        <h2 id="article-newsletter-title">Recibe nuevos artículos y fragmentos</h2>
+        <p>Sé de los primeros lectores de Noveris. Novedades del universo, fragmentos exclusivos y avance de los próximos textos del autor.</p>
+      </div>
+      <form class="editorial-newsletter__form" id="newsletter-form-cuaderno" novalidate data-newsletter-source="cuaderno">
+        <label class="form-field-label" for="nl-email-cuaderno">Email</label>
+        <div class="form-row">
+          <input class="form-input" id="nl-email-cuaderno" name="email" type="email" autocomplete="email" inputmode="email" required aria-describedby="nl-status-cuaderno">
+          <button class="form-submit" type="submit">Apuntarme</button>
+        </div>
+        <label class="form-consent" for="nl-gdpr-cuaderno">
+          <input id="nl-gdpr-cuaderno" name="consent" type="checkbox" required aria-describedby="nl-status-cuaderno">
+          <span>Acepto recibir novedades del autor. Puedo darme de baja en cualquier momento. <a href="/privacidad.html" target="_blank" rel="noopener">Privacidad</a>.</span>
+        </label>
+        <p id="nl-status-cuaderno" class="form-status" role="status" aria-live="polite"></p>
+      </form>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="site-footer__grid">
+      <div>
+        <strong class="brand__name">David Porto Díaz</strong>
+        <p>Autor de Las manecillas del recuerdo y Samuel entre mundos.</p>
+      </div>
+      <nav aria-label="Obra"><h2>Obra</h2><a href="/las-manecillas-del-recuerdo/">Las manecillas del recuerdo</a><a href="/libros/samuel-entre-mundos/">Samuel entre mundos</a><a href="/fragmento/">Fragmento gratis</a></nav>
+      <nav aria-label="Leer y recursos"><h2>Leer</h2><a href="/cuaderno/">Cuaderno</a><a href="/cuaderno/feed.xml">RSS del Cuaderno</a><a href="/herramientas/">Herramientas</a><a href="/mapa-del-sitio/">Mapa del sitio</a></nav>
+      <nav aria-label="Información"><h2>Información</h2><a href="/autor.html">Autor</a><a href="/prensa.html">Prensa</a><a href="/eventos.html">Eventos</a><a href="/privacidad.html">Privacidad</a><a href="/aviso-legal.html">Aviso legal</a><a href="/ai/">Para IA</a></nav>
+    </div>
+    <p class="footer-legal">
+      <span>© 2026 David Porto Díaz. Todos los derechos reservados.</span>
+    </p>
+  </footer>
+
+  <script defer src="/assets/v1-shell.js"></script>
+  <script defer src="/assets/v1-editorial.js"></script>
+  <script defer src="/script.js?v=202609-launch-1"></script>
   <script>window.goatcounter={path:function(p){return location.hostname+p}}</script>
   <script data-goatcounter="https://davidportodiaz.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
 </body>

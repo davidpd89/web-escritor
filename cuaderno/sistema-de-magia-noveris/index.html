@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="es" class="v1">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
@@ -22,19 +22,24 @@
 
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="Cómo construí el sistema de magia de Noveris (y por qué tiene reglas)" />
-  <meta name="twitter:description" content="La magia de Noveris tiene reglas, costes y consecuencias. Cómo construí el hard magic de Samuel entre mundos." />
+  <meta name="twitter:description" content="La magia de Noveris tiene reglas, costes y consecuencias. Cuento cómo construí el sistema de hard magic de Samuel entre mundos." />
   <meta name="twitter:image" content="https://davidportodiaz.com/assets/david-porto-imagen-compartir.webp" />
   <meta name="twitter:image:alt" content="Sistema de magia de Noveris — David Porto Díaz" />
 
-  <meta name="theme-color" content="#080a0c" />
+  <meta name="theme-color" content="#F4EFE7" />
   <link rel="canonical" href="https://davidportodiaz.com/cuaderno/sistema-de-magia-noveris/" />
   <link rel="preconnect" href="https://gc.zgo.at" />
-  <link rel="preload" as="font" type="font/woff2" href="/assets/fonts/cg-normal-latin.woff2" crossorigin />
-  <link rel="preload" as="font" type="font/woff2" href="/assets/fonts/inter-normal-latin.woff2" crossorigin />
   <link rel="icon" type="image/png" href="/assets/david-porto-favicon.png" />
   <link rel="apple-touch-icon" href="/assets/david-porto-favicon.png" />
   <link rel="manifest" href="/manifest.json" />
-  <link rel="stylesheet" href="/styles.css?v=202609-launch-1" />
+  <link rel="alternate" type="application/rss+xml" title="Cuaderno del autor — David Porto Díaz" href="https://davidportodiaz.com/cuaderno/feed.xml" />
+
+  <!-- V1 editorial system — Cuaderno/Artículo family -->
+  <link rel="stylesheet" href="/assets/v1-fonts.css" />
+  <link rel="stylesheet" href="/assets/v1-tokens.css" />
+  <link rel="stylesheet" href="/assets/v1-base.css" />
+  <link rel="stylesheet" href="/assets/v1-shell.css" />
+  <link rel="stylesheet" href="/assets/v1-editorial.css" />
 
   <script type="application/ld+json">
   {
@@ -70,6 +75,7 @@
       },
       {
         "@type": "FAQPage",
+        "@id": "https://davidportodiaz.com/cuaderno/sistema-de-magia-noveris/#faq",
         "mainEntity": [
           {
             "@type": "Question",
@@ -97,194 +103,221 @@
   }
   </script>
 </head>
+
 <body data-reading-progress>
-  <a href="#main-content" class="skip-link">Saltar al contenido</a>
+  <a href="#contenido" class="skip-link">Saltar al contenido</a>
 
-  <div class="site-shell" id="contenido">
-    <header class="site-header">
-      <a class="brand" href="/" aria-label="Volver al inicio - David Porto Díaz">
-        <span class="brand-mark">
-          <img src="/assets/logo-david-porto-diaz-escritor-176.webp" alt="" class="brand-logo-img" width="52" height="52" loading="eager" aria-hidden="true" />
-        </span>
-        <span class="brand-text">
-          <strong>David Porto Díaz</strong>
-          <small>Escritor</small>
-        </span>
+  <header class="site-header" data-header>
+    <div class="site-header__inner">
+      <a class="brand" href="/" aria-label="David Porto Díaz — inicio">
+        <span class="brand__name">David Porto Díaz</span>
+        <span class="brand__role">Escritor</span>
       </a>
-
-      <button class="nav-toggle" type="button" aria-label="Abrir menú" aria-expanded="false">
-        <span></span>
-        <span></span>
-      </button>
-
-      <nav class="site-nav" aria-label="Navegación principal">
-        <a href="/">Inicio</a>
-        <a href="/libros/">Libros</a>
+      <nav class="primary-nav" aria-label="Navegación principal">
+        <a href="/libros/">Obra</a>
         <a href="/cuaderno/" aria-current="page">Cuaderno</a>
-        <a href="/autor.html">El autor</a>
-        <a href="/eventos.html">Eventos</a>
-        <a href="/prensa.html">Prensa</a>
+        <a href="/herramientas/">Herramientas</a>
       </nav>
-    </header>
+      <button class="explore-trigger" type="button" aria-haspopup="dialog" aria-controls="explore-dialog" aria-expanded="false" data-explore-open>
+        Explorar
+      </button>
+    </div>
+  </header>
 
-    <main id="main-content" tabindex="-1">
-
-      <!-- BREADCRUMB -->
-      <nav class="breadcrumb" aria-label="Ruta de navegación" style="margin-bottom:32px;font-size:0.82rem;color:var(--muted)">
-        <a href="/" style="color:var(--muted);text-decoration:none">Inicio</a>
-        <span aria-hidden="true" style="margin:0 6px">›</span>
-        <a href="/cuaderno/" style="color:var(--muted);text-decoration:none">Cuaderno</a>
-        <span aria-hidden="true" style="margin:0 6px">›</span>
-        <span style="color:var(--text)">El sistema de magia de Noveris</span>
-      </nav>
-
-      <!-- ARTICLE -->
-      <article style="max-width:760px" aria-labelledby="article-title">
-
-        <header style="margin-bottom:48px">
-          <p class="eyebrow">Cuaderno del autor</p>
-          <h1 id="article-title" style="font-family:var(--font-display);font-size:clamp(2.2rem,4.5vw,3.6rem);font-weight:600;line-height:1.1;margin:0 0 24px">Cómo construí el sistema de magia de Noveris (y por qué tiene reglas)</h1>
-          <p style="font-family:var(--font-display);font-size:clamp(1.1rem,1.5vw,1.25rem);font-style:italic;color:var(--muted);line-height:1.7;margin:0 0 20px">Del borrador sin reglas a la canalización con coste físico: el proceso de construir un sistema de hard magic para una novela de fantasía juvenil española.</p>
-          <p style="font-size:0.84rem;color:var(--muted-2)">Por <a href="/autor.html" style="color:var(--muted)">David Porto Díaz</a> · 26 mayo 2026 · 6 min de lectura</p>
-        </header>
-
-        <!-- AEO DEFINITION BOX -->
-        <div style="border-left:3px solid var(--accent);padding:20px 24px;margin-bottom:40px;background:rgba(196,148,77,0.05);border-radius:0 var(--radius-md) var(--radius-md) 0" role="note" aria-label="Definición">
-          <p style="margin:0;font-size:1rem;line-height:1.7"><strong>El sistema de magia de Noveris</strong>, el mundo ficticio de <em>Samuel entre mundos</em>, se basa en la canalización de energía entre dimensiones. Es un hard magic: las reglas son explícitas, los poderes tienen límites claros y cada uso exige un coste físico proporcional. Los personajes con este don se llaman canalizadores.</p>
+  <dialog class="explore-dialog" id="explore-dialog" aria-labelledby="explore-title" data-explore-dialog>
+    <div class="explore-dialog__shell">
+      <div class="explore-dialog__head">
+        <div>
+          <p class="eyebrow">Índice general</p>
+          <h2 id="explore-title">Explorar</h2>
         </div>
+        <button class="icon-button" type="button" aria-label="Cerrar Explorar" data-explore-close>
+          <svg aria-hidden="true" viewBox="0 0 24 24" width="20" height="20"><path d="M5 5l14 14M19 5L5 19"/></svg>
+        </button>
+      </div>
 
-        <!-- INTRO -->
-        <div style="font-size:1.05rem;line-height:1.8;margin-bottom:48px">
+      <div class="explore-dialog__grid">
+        <nav class="explore-list" aria-label="Destinos de la web">
+          <a class="explore-row" href="/las-manecillas-del-recuerdo/" data-preview="manecillas">
+            <span class="explore-row__index">01</span>
+            <span class="explore-row__body"><strong>Las manecillas del recuerdo</strong><small>La obra actual.</small></span>
+          </a>
+          <a class="explore-row" href="/autor.html" data-preview="autor">
+            <span class="explore-row__index">02</span>
+            <span class="explore-row__body"><strong>Autor</strong><small>Biografía, obra y trayectoria.</small></span>
+          </a>
+          <a class="explore-row" href="/libros/samuel-entre-mundos/" data-preview="samuel">
+            <span class="explore-row__index">03</span>
+            <span class="explore-row__body"><strong>Samuel entre mundos</strong><small>Primera novela publicada.</small></span>
+          </a>
+          <a class="explore-row" href="/cuaderno/" data-preview="cuaderno">
+            <span class="explore-row__index">04</span>
+            <span class="explore-row__body"><strong>Cuaderno</strong><small>Artículos y piezas editoriales.</small></span>
+          </a>
+          <a class="explore-row" href="/herramientas/" data-preview="herramientas">
+            <span class="explore-row__index">05</span>
+            <span class="explore-row__body"><strong>Herramientas</strong><small>Utilidades gratuitas para escritores.</small></span>
+          </a>
+          <a class="explore-row" href="/prensa.html" data-preview="prensa">
+            <span class="explore-row__index">06</span>
+            <span class="explore-row__body"><strong>Prensa y eventos</strong><small>Apariciones, materiales y agenda.</small></span>
+          </a>
+        </nav>
+
+        <aside class="explore-preview" aria-live="polite" aria-atomic="true" data-explore-preview>
+          <div class="explore-preview__media" aria-hidden="true" data-preview-media></div>
+          <p class="explore-preview__label" data-preview-label>Cuaderno</p>
+          <p class="explore-preview__copy" data-preview-copy>Artículos, crónicas y piezas editoriales.</p>
+        </aside>
+      </div>
+    </div>
+  </dialog>
+  <main class="editorial-page article-page" id="contenido">
+    <nav class="editorial-breadcrumb" aria-label="Ruta de navegación"><ol><li><a href="/">Inicio</a></li><li><a href="/cuaderno/">Cuaderno</a></li><li aria-current="page">El sistema de magia de Noveris</li></ol></nav>
+
+    <article aria-labelledby="article-title">
+      <header class="article-header">
+        <div>
+          <p class="eyebrow">Cuaderno del autor</p>
+          <h1 id="article-title">Cómo construí el sistema de magia de Noveris (y por qué tiene reglas)</h1>
+          <p class="article-deck">Del borrador sin reglas a la canalización con coste físico: el proceso de construir un sistema de hard magic para una novela de fantasía juvenil española.</p>
+        </div>
+        <div class="article-meta">
+          <p>Por <a href="/autor.html">David Porto Díaz</a></p>
+          <p><time datetime="2026-05-26">26 de mayo de 2026</time></p>
+          <p>6 min de lectura</p>
+          <div class="article-utilities">
+            <button class="text-action" type="button" hidden data-share-url="https://davidportodiaz.com/cuaderno/sistema-de-magia-noveris/" data-share-title="Cómo construí el sistema de magia de Noveris (y por qué tiene reglas)" aria-describedby="article-share-status">Compartir</button>
+            <button class="text-action" type="button" hidden data-print>Imprimir</button>
+            <span class="article-share-status" id="article-share-status" role="status" aria-live="polite"></span>
+          </div>
+        </div>
+      </header>
+
+      <div class="article-layout">
+        <nav class="article-toc" aria-label="En esta página" data-article-toc><span class="article-toc__label">En esta página</span><ol><li><a href="#por-que-empece-con-sanderson">Por qué empecé con Sanderson</a></li><li><a href="#primer-borrador">El primer borrador: cuando la magia era demasiado bonita</a></li><li><a href="#la-pregunta">La pregunta que lo cambió todo</a></li><li><a href="#el-coste">El coste: borrar capas de historia</a></li><li><a href="#lo-que-hace">Lo que el sistema hace por la historia</a></li><li><a href="#lo-que-deje-fuera">Lo que dejé fuera deliberadamente</a></li><li><a href="#preguntas-frecuentes">Preguntas frecuentes</a></li></ol></nav>
+        <div class="article-prose" data-article-body>
+          <div class="article-note" role="note" aria-label="Definición"><p><strong>El sistema de magia de Noveris</strong>, el mundo ficticio de <em>Samuel entre mundos</em>, se basa en la canalización de energía entre dimensiones. Es un hard magic: las reglas son explícitas, los poderes tienen límites claros y cada uso exige un coste físico proporcional. Los personajes con este don se llaman canalizadores.</p></div>
+
           <p>El primer borrador de <em>Samuel entre mundos</em> tenía un problema que tardé meses en identificar: la magia no costaba nada. Los personajes la usaban cuando la necesitaban, la historia avanzaba, todo funcionaba en superficie —pero algo no respondía.</p>
           <p>Tardé en entender qué era ese algo. Era que ninguna decisión tenía peso real. Si el protagonista podía usar la magia sin pagar un precio, entonces el protagonista no estaba realmente en peligro. Y si no estaba en peligro, yo como lector de mis propios borradores no me preocupaba por él.</p>
-          <p>Este artículo cuenta el proceso de construir el sistema de magia de <a href="/universo/noveris/" style="color:var(--accent)">Noveris</a>: qué aprendí de las leyes de Sanderson, dónde las apliqué, dónde me separé de ellas, y qué pregunta cambió todo.</p>
+          <p>Este artículo cuenta el proceso de construir el sistema de magia de <a href="/universo/noveris/">Noveris</a>: qué aprendí de las leyes de Sanderson, dónde las apliqué, dónde me separé de ellas, y qué pregunta cambió todo.</p>
+
+          <h2 id="por-que-empece-con-sanderson">Por qué empecé con Sanderson</h2>
+
+          <p>Brandon Sanderson tiene un ensayo que circula mucho entre escritores de fantasía: sus Tres Leyes del worldbuilding mágico. La primera ley dice que la capacidad del autor para resolver problemas narrativos con magia es proporcional a la comprensión que el lector tiene de esa magia. En otras palabras: si el lector no entiende las reglas del sistema, los finales que dependen de la magia se perciben como trampa.</p>
+          <p>La segunda ley dice que las limitaciones son más interesantes que los poderes. Un mago que puede hacer todo no tiene problemas reales. Un mago con poderes claros y limitaciones claras tiene que ingeniárselas, y eso es drama.</p>
+          <p>Leí esos ensayos tarde, cuando ya tenía el primer borrador escrito, y fue como recibir el diagnóstico después de saber que algo no funcionaba. Mi sistema de magia violaba las dos primeras leyes al mismo tiempo: las reglas eran vagas y los poderes no tenían límite visible. El resultado era exactamente lo que Sanderson predice: los momentos de magia se sentían arbitrarios, y los problemas que la magia resolvía no tenían el peso que deberían.</p>
+
+          <h2 id="primer-borrador">El primer borrador: cuando la magia era demasiado bonita</h2>
+
+          <p>En el primer borrador, los canalizadores de Noveris podían mover energía entre dimensiones con un nivel de concentración variable. Cuanta más concentración, más potencia. Sin límites claros, sin coste físico, sin consecuencias duraderas más allá del cansancio genérico.</p>
+          <p>El problema con el cansancio genérico como coste es que no tiene textura. El lector no puede medir cuánto le queda al personaje, no puede anticipar el momento en que va a quedarse sin recursos, no puede calcular el riesgo de la siguiente decisión. Es el equivalente narrativo de un marcador de vida invisible: la tensión no puede construirse sobre algo que no se ve.</p>
+          <p>Además, el primer borrador tenía lo que yo llamé internamente «el problema del tercer acto»: cuando llegaba el momento de máxima tensión, la magia podía resolverlo casi todo si el protagonista hacía un esfuerzo suficientemente grande. Eso me obligaba a inventar obstáculos externos para impedir que la magia solucionara los problemas, y esos obstáculos se sentían artificiales porque lo eran.</p>
+
+          <h2 id="la-pregunta">La pregunta que lo cambió todo</h2>
+
+          <p>La pregunta llegó durante una revisión del segundo acto. Estaba intentando justificar por qué los objetos con historia larga eran más valiosos en Noveris que los objetos nuevos, y la respuesta que encontré fue la que cambió el sistema entero.</p>
+          <p>La respuesta fue: porque los objetos guardan memoria.</p>
+          <p>No en sentido metafórico. En Noveris, los objetos que han sido usados en canalizaciones conservan rastros de esa energía. Esa energía residual puede ser aprovechada por un canalizado, lo que hace que un objeto con historia sea un recurso valioso —y también un objeto peligroso, porque la energía residual de otros canalizadores no siempre es compatible con la tuya.</p>
+          <p>Esa idea, que empezó como una justificación para el valor de los objetos antiguos, reconfiguró todo el sistema. Si los objetos tienen memoria energética, entonces cada canalización deja una huella. Si cada canalización deja una huella, entonces usar la magia tiene consecuencias que no desaparecen cuando termina el uso. Y si las consecuencias no desaparecen, el protagonista tiene que decidir cuándo vale la pena dejar esa huella y cuándo no.</p>
+
+          <h2 id="el-coste">El coste: borrar capas de historia</h2>
+
+          <p>Una vez establecida la memoria de los objetos, el coste del sistema se volvió evidente: si la energía para canalizar sale del entorno, algo del entorno se consume. Cuando un canalizado usa un objeto, no solo mueve energía —borra parte de la historia acumulada de ese objeto. El objeto queda más vacío después de la canalización que antes.</p>
+          <p>Este coste tiene varias propiedades narrativas que el cansancio genérico no tenía. Primero, es visible: el lector puede saber qué objeto tiene cuánta carga residual, cuánto se gasta en cada uso, cuánto queda. Segundo, es irreversible: no desaparece con descanso, no se recupera por sí solo. Tercero, crea dilemas morales concretos: un objeto de valor histórico puede tener mucha energía acumulada, pero usarla significa destruir esa historia.</p>
+          <p>La medalla que desencadena la historia de Samuel es un ejemplo de esto. Es un objeto con décadas de historia acumulada, mucha energía residual, y alguien que lo selló deliberadamente para que nadie pudiera usarla. Cuando Samuel la toca sin saber lo que hace, activa energía que lleva años contenida. Eso no se deshace.</p>
+
+          <h2 id="lo-que-hace">Lo que el sistema hace por la historia</h2>
+
+          <p>Un sistema de magia bien diseñado no es decorativo. Genera conflictos específicos que solo ese sistema puede generar. El de Noveris hace tres cosas concretas por la historia de <a href="/libros/samuel-entre-mundos/">Samuel entre mundos</a>.</p>
+
+          <h3>Convierte cada uso en una decisión</h3>
+          <p>Samuel no puede canalizar sin consecuencias. Cada vez que usa la magia, tiene que decidir si el beneficio inmediato vale lo que va a costar. Eso convierte cada escena de magia en un dilema, y los dilemas son el material básico de la narrativa dramática.</p>
+
+          <h3>Da significado a los objetos</h3>
+          <p>En un sistema sin memoria de objetos, una espada es una espada. En Noveris, cada objeto tiene una historia energética que influye en su valor y en su peligrosidad. Eso hace que los objetos sean personajes en sí mismos, no solo herramientas.</p>
+
+          <h3>Justifica el conflicto de facciones</h3>
+          <p>Las facciones de Noveris, Zunthar y Marelian, tienen filosofías distintas sobre el uso de la magia. Los Zunthar son conservadores: el coste es real y hay que medirlo antes de cada canalización. Los Marelian son pragmáticos: si el objetivo lo justifica, el coste es aceptable. Esta división filosófica, que subyace al conflicto político de la novela, solo tiene sentido porque el sistema de magia tiene un coste real que merece ser debatido.</p>
+
+          <h2 id="lo-que-deje-fuera">Lo que dejé fuera deliberadamente</h2>
+
+          <p>El sistema de magia de Noveris no explica todo. Hay preguntas que el sistema puede responder —cuánta energía tiene un objeto, cuánto cuesta una canalización concreta, qué pasa cuando un canalizado supera su límite— y preguntas que el sistema deliberadamente no responde.</p>
+          <p>¿Por qué algunos objetos acumulan energía y otros no? ¿Por qué algunas personas son canalizadores y otras no? ¿De dónde viene originalmente la energía que los objetos absorben?</p>
+          <p>Esas preguntas tienen respuestas en mis notas, pero no aparecen en la novela. La razón es que explicar completamente un sistema de magia no hace la historia más interesante: la hace más pequeña. El misterio tiene su propio valor narrativo. El lector que termina <em>Samuel entre mundos</em> sabe cómo funciona el sistema lo suficiente como para entender todas las decisiones del protagonista. Lo que no sabe es todo lo que hay detrás, y ese espacio abierto es parte de lo que hace que el universo se sienta mayor que la historia que cuenta.</p>
+          <p>Si quieres ver el sistema en funcionamiento desde la primera página, el <a href="/fragmento/">capítulo 1 está disponible gratis</a>.</p>
         </div>
 
-        <!-- H2: SANDERSON -->
-        <section id="por-que-empece-con-sanderson" style="margin-bottom:48px">
-          <h2 style="font-family:var(--font-display);font-size:clamp(1.6rem,2.8vw,2.2rem);font-weight:600;line-height:1.2;margin:0 0 20px">Por qué empecé con Sanderson</h2>
+        <aside class="article-folio" aria-hidden="true">
+          <strong>04</strong>
+          <span>Cuaderno del autor</span>
+        </aside>
+      </div>
 
-          <p style="line-height:1.8">Brandon Sanderson tiene un ensayo que circula mucho entre escritores de fantasía: sus Tres Leyes del worldbuilding mágico. La primera ley dice que la capacidad del autor para resolver problemas narrativos con magia es proporcional a la comprensión que el lector tiene de esa magia. En otras palabras: si el lector no entiende las reglas del sistema, los finales que dependen de la magia se perciben como trampa.</p>
-          <p style="line-height:1.8">La segunda ley dice que las limitaciones son más interesantes que los poderes. Un mago que puede hacer todo no tiene problemas reales. Un mago con poderes claros y limitaciones claras tiene que ingeniárselas, y eso es drama.</p>
-          <p style="line-height:1.8">Leí esos ensayos tarde, cuando ya tenía el primer borrador escrito, y fue como recibir el diagnóstico después de saber que algo no funcionaba. Mi sistema de magia violaba las dos primeras leyes al mismo tiempo: las reglas eran vagas y los poderes no tenían límite visible. El resultado era exactamente lo que Sanderson predice: los momentos de magia se sentían arbitrarios, y los problemas que la magia resolvía no tenían el peso que deberían.</p>
-        </section>
-
-        <!-- H2: EL PRIMER BORRADOR -->
-        <section id="primer-borrador" style="margin-bottom:48px">
-          <h2 style="font-family:var(--font-display);font-size:clamp(1.6rem,2.8vw,2.2rem);font-weight:600;line-height:1.2;margin:0 0 20px">El primer borrador: cuando la magia era demasiado bonita</h2>
-
-          <p style="line-height:1.8">En el primer borrador, los canalizadores de Noveris podían mover energía entre dimensiones con un nivel de concentración variable. Cuanta más concentración, más potencia. Sin límites claros, sin coste físico, sin consecuencias duraderas más allá del cansancio genérico.</p>
-          <p style="line-height:1.8">El problema con el cansancio genérico como coste es que no tiene textura. El lector no puede medir cuánto le queda al personaje, no puede anticipar el momento en que va a quedarse sin recursos, no puede calcular el riesgo de la siguiente decisión. Es el equivalente narrativo de un marcador de vida invisible: la tensión no puede construirse sobre algo que no se ve.</p>
-          <p style="line-height:1.8">Además, el primer borrador tenía lo que yo llamé internamente «el problema del tercer acto»: cuando llegaba el momento de máxima tensión, la magia podía resolverlo casi todo si el protagonista hacía un esfuerzo suficientemente grande. Eso me obligaba a inventar obstáculos externos para impedir que la magia solucionara los problemas, y esos obstáculos se sentían artificiales porque lo eran.</p>
-        </section>
-
-        <!-- H2: LA PREGUNTA -->
-        <section id="la-pregunta" style="margin-bottom:48px">
-          <h2 style="font-family:var(--font-display);font-size:clamp(1.6rem,2.8vw,2.2rem);font-weight:600;line-height:1.2;margin:0 0 20px">La pregunta que lo cambió todo</h2>
-
-          <p style="line-height:1.8">La pregunta llegó durante una revisión del segundo acto. Estaba intentando justificar por qué los objetos con historia larga eran más valiosos en Noveris que los objetos nuevos, y la respuesta que encontré fue la que cambió el sistema entero.</p>
-          <p style="line-height:1.8">La respuesta fue: porque los objetos guardan memoria.</p>
-          <p style="line-height:1.8">No en sentido metafórico. En Noveris, los objetos que han sido usados en canalizaciones conservan rastros de esa energía. Esa energía residual puede ser aprovechada por un canalizado, lo que hace que un objeto con historia sea un recurso valioso —y también un objeto peligroso, porque la energía residual de otros canalizadores no siempre es compatible con la tuya.</p>
-          <p style="line-height:1.8">Esa idea, que empezó como una justificación para el valor de los objetos antiguos, reconfiguró todo el sistema. Si los objetos tienen memoria energética, entonces cada canalización deja una huella. Si cada canalización deja una huella, entonces usar la magia tiene consecuencias que no desaparecen cuando termina el uso. Y si las consecuencias no desaparecen, el protagonista tiene que decidir cuándo vale la pena dejar esa huella y cuándo no.</p>
-        </section>
-
-        <!-- H2: EL COSTE -->
-        <section id="el-coste" style="margin-bottom:48px">
-          <h2 style="font-family:var(--font-display);font-size:clamp(1.6rem,2.8vw,2.2rem);font-weight:600;line-height:1.2;margin:0 0 20px">El coste: borrar capas de historia</h2>
-
-          <p style="line-height:1.8">Una vez establecida la memoria de los objetos, el coste del sistema se volvió evidente: si la energía para canalizar sale del entorno, algo del entorno se consume. Cuando un canalizado usa un objeto, no solo mueve energía —borra parte de la historia acumulada de ese objeto. El objeto queda más vacío después de la canalización que antes.</p>
-          <p style="line-height:1.8">Este coste tiene varias propiedades narrativas que el cansancio genérico no tenía. Primero, es visible: el lector puede saber qué objeto tiene cuánta carga residual, cuánto se gasta en cada uso, cuánto queda. Segundo, es irreversible: no desaparece con descanso, no se recupera por sí solo. Tercero, crea dilemas morales concretos: un objeto de valor histórico puede tener mucha energía acumulada, pero usarla significa destruir esa historia.</p>
-          <p style="line-height:1.8">La medalla que desencadena la historia de Samuel es un ejemplo de esto. Es un objeto con décadas de historia acumulada, mucha energía residual, y alguien que lo selló deliberadamente para que nadie pudiera usarla. Cuando Samuel la toca sin saber lo que hace, activa energía que lleva años contenida. Eso no se deshace.</p>
-        </section>
-
-        <!-- H2: LO QUE EL SISTEMA HACE -->
-        <section id="lo-que-hace" style="margin-bottom:48px">
-          <h2 style="font-family:var(--font-display);font-size:clamp(1.6rem,2.8vw,2.2rem);font-weight:600;line-height:1.2;margin:0 0 20px">Lo que el sistema hace por la historia</h2>
-
-          <p style="line-height:1.8">Un sistema de magia bien diseñado no es decorativo. Genera conflictos específicos que solo ese sistema puede generar. El de Noveris hace tres cosas concretas por la historia de <a href="/libros/samuel-entre-mundos/" style="color:var(--accent)">Samuel entre mundos</a>.</p>
-
-          <h3 style="font-family:var(--font-display);font-size:clamp(1.25rem,2vw,1.65rem);font-weight:600;margin:32px 0 14px">Convierte cada uso en una decisión</h3>
-          <p style="line-height:1.8">Samuel no puede canalizar sin consecuencias. Cada vez que usa la magia, tiene que decidir si el beneficio inmediato vale lo que va a costar. Eso convierte cada escena de magia en un dilema, y los dilemas son el material básico de la narrativa dramática.</p>
-
-          <h3 style="font-family:var(--font-display);font-size:clamp(1.25rem,2vw,1.65rem);font-weight:600;margin:32px 0 14px">Da significado a los objetos</h3>
-          <p style="line-height:1.8">En un sistema sin memoria de objetos, una espada es una espada. En Noveris, cada objeto tiene una historia energética que influye en su valor y en su peligrosidad. Eso hace que los objetos sean personajes en sí mismos, no solo herramientas.</p>
-
-          <h3 style="font-family:var(--font-display);font-size:clamp(1.25rem,2vw,1.65rem);font-weight:600;margin:32px 0 14px">Justifica el conflicto de facciones</h3>
-          <p style="line-height:1.8">Las facciones de Noveris, Zunthar y Marelian, tienen filosofías distintas sobre el uso de la magia. Los Zunthar son conservadores: el coste es real y hay que medirlo antes de cada canalización. Los Marelian son pragmáticos: si el objetivo lo justifica, el coste es aceptable. Esta división filosófica, que subyace al conflicto político de la novela, solo tiene sentido porque el sistema de magia tiene un coste real que merece ser debatido.</p>
-        </section>
-
-        <!-- H2: LO QUE DEJÉ FUERA -->
-        <section id="lo-que-deje-fuera" style="margin-bottom:48px">
-          <h2 style="font-family:var(--font-display);font-size:clamp(1.6rem,2.8vw,2.2rem);font-weight:600;line-height:1.2;margin:0 0 20px">Lo que dejé fuera deliberadamente</h2>
-
-          <p style="line-height:1.8">El sistema de magia de Noveris no explica todo. Hay preguntas que el sistema puede responder —cuánta energía tiene un objeto, cuánto cuesta una canalización concreta, qué pasa cuando un canalizado supera su límite— y preguntas que el sistema deliberadamente no responde.</p>
-          <p style="line-height:1.8">¿Por qué algunos objetos acumulan energía y otros no? ¿Por qué algunas personas son canalizadores y otras no? ¿De dónde viene originalmente la energía que los objetos absorben?</p>
-          <p style="line-height:1.8">Esas preguntas tienen respuestas en mis notas, pero no aparecen en la novela. La razón es que explicar completamente un sistema de magia no hace la historia más interesante: la hace más pequeña. El misterio tiene su propio valor narrativo. El lector que termina <em>Samuel entre mundos</em> sabe cómo funciona el sistema lo suficiente como para entender todas las decisiones del protagonista. Lo que no sabe es todo lo que hay detrás, y ese espacio abierto es parte de lo que hace que el universo se sienta mayor que la historia que cuenta.</p>
-          <p style="line-height:1.8">Si quieres ver el sistema en funcionamiento desde la primera página, el <a href="/fragmento/" style="color:var(--accent)">capítulo 1 está disponible gratis</a>.</p>
-        </section>
-
-        <!-- NEWSLETTER -->
-        <section id="preguntas-frecuentes" style="margin-bottom:48px">
-          <h2 style="font-family:var(--font-display);font-size:clamp(1.6rem,2.8vw,2.2rem);font-weight:600;line-height:1.2;margin:0 0 28px">Preguntas frecuentes sobre la magia de Noveris</h2>
-
-          <div style="border:1px solid var(--border);border-radius:var(--radius-md);overflow:hidden">
-            <details style="padding:20px 24px;border-bottom:1px solid var(--border)">
-              <summary style="font-weight:600;cursor:pointer;list-style:none;display:flex;justify-content:space-between;align-items:center">¿Qué es el sistema de magia de Noveris? <span aria-hidden="true" style="color:var(--accent)">+</span></summary>
-              <p style="margin:14px 0 0;color:var(--muted);line-height:1.7">La magia de Noveris funciona a través de la canalización: los canalizadores mueven energía aprovechando la historia acumulada de los objetos. Cada canalización consume esa historia residual de forma irreversible. El coste no es cansancio genérico, sino la pérdida de capas de memoria del objeto usado.</p>
-            </details>
-            <details style="padding:20px 24px;border-bottom:1px solid var(--border)">
-              <summary style="font-weight:600;cursor:pointer;list-style:none;display:flex;justify-content:space-between;align-items:center">¿Qué es el hard magic o magia dura en fantasía? <span aria-hidden="true" style="color:var(--accent)">+</span></summary>
-              <p style="margin:14px 0 0;color:var(--muted);line-height:1.7">El hard magic o magia dura es un sistema de magia con reglas explícitas, costes claros y limitaciones definidas. El concepto lo popularizó Brandon Sanderson con sus Tres Leyes del worldbuilding: la capacidad de resolver problemas narrativos con magia es proporcional a la comprensión del lector sobre esas reglas.</p>
-            </details>
-            <details style="padding:20px 24px;border-bottom:1px solid var(--border)">
-              <summary style="font-weight:600;cursor:pointer;list-style:none;display:flex;justify-content:space-between;align-items:center">¿Cómo se diferencia la magia de Noveris de otros sistemas de fantasía? <span aria-hidden="true" style="color:var(--accent)">+</span></summary>
-              <p style="margin:14px 0 0;color:var(--muted);line-height:1.7">La diferencia principal es el coste: en Noveris se consume la historia energética de los objetos, no la energía física del canalizado. Esto convierte los objetos con historia en recursos escasos y cada decisión de canalizar en un dilema moral concreto entre beneficio inmediato y pérdida irreversible.</p>
-            </details>
-            <details style="padding:20px 24px">
-              <summary style="font-weight:600;cursor:pointer;list-style:none;display:flex;justify-content:space-between;align-items:center">¿Qué es Samuel entre mundos? <span aria-hidden="true" style="color:var(--accent)">+</span></summary>
-              <p style="margin:14px 0 0;color:var(--muted);line-height:1.7">Samuel entre mundos es una novela de portal fantasy y hard magic escrita por David Porto Díaz, publicada en 2025 por Libros Indie. Cuenta la historia de Samuel, que llega al mundo de Noveris a través de un objeto sellado y debe aprender a entender un sistema de magia con reglas que nadie le explica.</p>
-            </details>
-          </div>
-        </section>
-
-        <!-- NEWSLETTER -->
-        <section id="newsletter" style="margin:56px 0;padding:36px 40px;border:1px solid var(--border-strong);border-radius:20px;background:rgba(196,148,77,0.04)">
-          <p class="eyebrow">Cuaderno de fantasía</p>
-          <h2 style="font-family:var(--font-display);font-size:clamp(1.4rem,2.4vw,1.9rem);font-weight:600;margin:0 0 12px">Recibe nuevos artículos y fragmentos de David Porto Díaz</h2>
-          <p style="color:var(--muted);line-height:1.7;margin:0 0 24px">Sé de los primeros lectores de Noveris. Novedades del universo, fragmentos exclusivos y avance de los próximos textos del autor.</p>
-
-          <form id="newsletter-form-cuaderno" class="newsletter-form" novalidate>
-            <label for="nl-email-cuaderno" style="display:block;font-size:0.88rem;font-weight:500;margin-bottom:8px">Email</label>
-            <div style="display:flex;gap:12px;flex-wrap:wrap">
-              <input type="email" id="nl-email-cuaderno" name="email" autocomplete="email" required placeholder="tu@email.com"
-                     style="flex:1;min-width:220px;padding:13px 18px;border:1px solid var(--border-strong);border-radius:999px;background:rgba(255,255,255,0.04);color:var(--text);font-size:0.95rem;font-family:var(--font-body);outline:none" />
-              <button class="button primary" type="submit" style="white-space:nowrap">Apuntarme</button>
-            </div>
-            <label style="display:flex;align-items:flex-start;gap:10px;margin-top:14px;font-size:0.82rem;color:var(--muted);cursor:pointer">
-              <input type="checkbox" id="nl-gdpr-cuaderno" required style="margin-top:3px;flex-shrink:0" />
-              <span>Acepto recibir novedades del autor. Puedo darme de baja en cualquier momento. <a href="/privacidad.html" style="color:var(--accent)">Política de privacidad</a>.</span>
-            </label>
-            <p id="nl-status-cuaderno" role="status" aria-live="polite" style="margin-top:12px;font-size:0.88rem;min-height:1.4em"></p>
-          </form>
-        </section>
-
-        <!-- CTA BOTTOM -->
-        <div style="border-top:1px solid var(--border);padding-top:40px;margin-top:16px;display:flex;gap:16px;flex-wrap:wrap">
-          <a href="/libros/samuel-entre-mundos/" class="button secondary">Ver ficha del libro</a>
-          <a href="/fragmento/" class="button primary">Leer el capítulo 1 gratis</a>
+      <section class="article-faq" id="preguntas-frecuentes" aria-labelledby="article-faq-title">
+        <div class="article-faq__head">
+          <p class="eyebrow">Respuestas rápidas</p>
+          <h2 id="article-faq-title">Preguntas frecuentes</h2>
         </div>
+        <div class="article-faq__list">
+          <details open><summary>¿Qué es el sistema de magia de Noveris?</summary><p>La magia de Noveris funciona a través de la canalización: los canalizadores mueven energía aprovechando la historia acumulada de los objetos. Cada canalización consume esa historia residual de forma irreversible. El coste no es cansancio genérico, sino la pérdida de capas de memoria del objeto usado.</p></details><details><summary>¿Qué es el hard magic o magia dura en fantasía?</summary><p>El hard magic o magia dura es un sistema de magia con reglas explícitas, costes claros y limitaciones definidas. El concepto lo popularizó Brandon Sanderson con sus Tres Leyes del worldbuilding: la capacidad de resolver problemas narrativos con magia es proporcional a la comprensión del lector sobre esas reglas.</p></details><details><summary>¿Cómo se diferencia la magia de Noveris de otros sistemas de fantasía?</summary><p>La diferencia principal es el coste: en Noveris se consume la historia energética de los objetos, no la energía física del canalizado. Esto convierte los objetos con historia en recursos escasos y cada decisión de canalizar en un dilema moral concreto entre beneficio inmediato y pérdida irreversible.</p></details><details><summary>¿Qué es Samuel entre mundos?</summary><p>Samuel entre mundos es una novela de portal fantasy y hard magic escrita por David Porto Díaz, publicada en 2025 por Libros Indie. Cuenta la historia de Samuel, que llega al mundo de Noveris a través de un objeto sellado y debe aprender a entender un sistema de magia con reglas que nadie le explica.</p></details>
+        </div>
+      </section>
 
-      </article>
+      <section class="article-end" aria-labelledby="article-end-title">
+        <div class="article-end__label">
+          <p class="eyebrow">Continuar</p>
+          <h2 id="article-end-title">Seguir leyendo</h2>
+        </div>
+        <div class="article-end__body">
+          <p>Si te interesa el otro lado del worldbuilding, lee cómo construí la ciudad de Noveris para que se sintiera viva. Y si quieres ver el sistema de magia en acción, el primer capítulo es gratis.</p>
+          <nav class="article-related" aria-label="Contenido relacionado">
+            <a href="/cuaderno/worldbuilding-noveris-ciudad-magica/">Worldbuilding de Noveris</a><a href="/fragmento/">Leer el capítulo 1 de Samuel entre mundos</a><a href="/universo/noveris/">El universo de Noveris</a><a href="/cuaderno/">Volver al Cuaderno</a>
+          </nav>
+        </div>
+      </section>
+    </article>
 
-    </main>
+    <section class="editorial-newsletter" id="newsletter" aria-labelledby="article-newsletter-title">
+      <div class="editorial-newsletter__copy">
+        <p class="eyebrow">Cuaderno de fantasía</p>
+        <h2 id="article-newsletter-title">Recibe nuevos artículos y fragmentos</h2>
+        <p>Sé de los primeros lectores de Noveris. Novedades del universo, fragmentos exclusivos y avance de los próximos textos del autor.</p>
+      </div>
+      <form class="editorial-newsletter__form" id="newsletter-form-cuaderno" novalidate data-newsletter-source="cuaderno">
+        <label class="form-field-label" for="nl-email-cuaderno">Email</label>
+        <div class="form-row">
+          <input class="form-input" id="nl-email-cuaderno" name="email" type="email" autocomplete="email" inputmode="email" required aria-describedby="nl-status-cuaderno">
+          <button class="form-submit" type="submit">Apuntarme</button>
+        </div>
+        <label class="form-consent" for="nl-gdpr-cuaderno">
+          <input id="nl-gdpr-cuaderno" name="consent" type="checkbox" required aria-describedby="nl-status-cuaderno">
+          <span>Acepto recibir novedades del autor. Puedo darme de baja en cualquier momento. <a href="/privacidad.html" target="_blank" rel="noopener">Privacidad</a>.</span>
+        </label>
+        <p id="nl-status-cuaderno" class="form-status" role="status" aria-live="polite"></p>
+      </form>
+    </section>
+  </main>
 
-    <footer style="margin-top:80px;padding-top:32px;border-top:1px solid var(--border);display:flex;flex-wrap:wrap;justify-content:space-between;gap:16px;font-size:0.82rem;color:var(--muted-2)">
-      <p style="margin:0">© 2026 David Porto Díaz · <a href="/privacidad.html" style="color:var(--muted-2)">Privacidad</a> · <a href="/aviso-legal.html" style="color:var(--muted-2)">Aviso legal</a></p>
-      <p style="margin:0"><a href="/" style="color:var(--muted-2)">davidportodiaz.com</a></p>
-    </footer>
-  </div>
+  <footer class="site-footer">
+    <div class="site-footer__grid">
+      <div>
+        <strong class="brand__name">David Porto Díaz</strong>
+        <p>Autor de Las manecillas del recuerdo y Samuel entre mundos.</p>
+      </div>
+      <nav aria-label="Obra"><h2>Obra</h2><a href="/las-manecillas-del-recuerdo/">Las manecillas del recuerdo</a><a href="/libros/samuel-entre-mundos/">Samuel entre mundos</a><a href="/fragmento/">Fragmento gratis</a></nav>
+      <nav aria-label="Leer y recursos"><h2>Leer</h2><a href="/cuaderno/">Cuaderno</a><a href="/cuaderno/feed.xml">RSS del Cuaderno</a><a href="/herramientas/">Herramientas</a><a href="/mapa-del-sitio/">Mapa del sitio</a></nav>
+      <nav aria-label="Información"><h2>Información</h2><a href="/autor.html">Autor</a><a href="/prensa.html">Prensa</a><a href="/eventos.html">Eventos</a><a href="/privacidad.html">Privacidad</a><a href="/aviso-legal.html">Aviso legal</a><a href="/ai/">Para IA</a></nav>
+    </div>
+    <p class="footer-legal">
+      <span>© 2026 David Porto Díaz. Todos los derechos reservados.</span>
+    </p>
+  </footer>
 
-  <script src="/script.js?v=202609-launch-1" defer></script>
+  <script defer src="/assets/v1-shell.js"></script>
+  <script defer src="/assets/v1-editorial.js"></script>
+  <script defer src="/script.js?v=202609-launch-1"></script>
   <script>window.goatcounter={path:function(p){return location.hostname+p}}</script>
   <script data-goatcounter="https://davidportodiaz.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
 </body>

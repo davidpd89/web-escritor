@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="es" class="v1">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
@@ -22,19 +22,24 @@
 
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="Portal fantasy vs. fantasía épica: ¿cuál es la diferencia?" />
-  <meta name="twitter:description" content="Portal fantasy y fantasía épica: diferencias clave con ejemplos concretos." />
+  <meta name="twitter:description" content="Portal fantasy y fantasía épica no son lo mismo aunque compartan dragones y magia. La diferencia clave con ejemplos concretos." />
   <meta name="twitter:image" content="https://davidportodiaz.com/assets/david-porto-imagen-compartir.webp" />
   <meta name="twitter:image:alt" content="Portal fantasy vs fantasía épica — David Porto Díaz" />
 
-  <meta name="theme-color" content="#080a0c" />
+  <meta name="theme-color" content="#F4EFE7" />
   <link rel="canonical" href="https://davidportodiaz.com/cuaderno/portal-fantasy-vs-fantasia-epica/" />
   <link rel="preconnect" href="https://gc.zgo.at" />
-  <link rel="preload" as="font" type="font/woff2" href="/assets/fonts/cg-normal-latin.woff2" crossorigin />
-  <link rel="preload" as="font" type="font/woff2" href="/assets/fonts/inter-normal-latin.woff2" crossorigin />
   <link rel="icon" type="image/png" href="/assets/david-porto-favicon.png" />
   <link rel="apple-touch-icon" href="/assets/david-porto-favicon.png" />
   <link rel="manifest" href="/manifest.json" />
-  <link rel="stylesheet" href="/styles.css?v=202609-launch-1" />
+  <link rel="alternate" type="application/rss+xml" title="Cuaderno del autor — David Porto Díaz" href="https://davidportodiaz.com/cuaderno/feed.xml" />
+
+  <!-- V1 editorial system — Cuaderno/Artículo family -->
+  <link rel="stylesheet" href="/assets/v1-fonts.css" />
+  <link rel="stylesheet" href="/assets/v1-tokens.css" />
+  <link rel="stylesheet" href="/assets/v1-base.css" />
+  <link rel="stylesheet" href="/assets/v1-shell.css" />
+  <link rel="stylesheet" href="/assets/v1-editorial.css" />
 
   <script type="application/ld+json">
   {
@@ -100,228 +105,251 @@
   }
   </script>
 </head>
+
 <body data-reading-progress>
-  <a href="#main-content" class="skip-link">Saltar al contenido</a>
+  <a href="#contenido" class="skip-link">Saltar al contenido</a>
 
-  <div class="site-shell" id="contenido">
-    <header class="site-header">
-      <a class="brand" href="/" aria-label="Volver al inicio - David Porto Díaz">
-        <span class="brand-mark">
-          <img src="/assets/logo-david-porto-diaz-escritor-176.webp" alt="" class="brand-logo-img" width="52" height="52" loading="eager" aria-hidden="true" />
-        </span>
-        <span class="brand-text">
-          <strong>David Porto Díaz</strong>
-          <small>Escritor</small>
-        </span>
+  <header class="site-header" data-header>
+    <div class="site-header__inner">
+      <a class="brand" href="/" aria-label="David Porto Díaz — inicio">
+        <span class="brand__name">David Porto Díaz</span>
+        <span class="brand__role">Escritor</span>
       </a>
-
-      <button class="nav-toggle" type="button" aria-label="Abrir menú" aria-expanded="false">
-        <span></span>
-        <span></span>
-      </button>
-
-      <nav class="site-nav" aria-label="Navegación principal">
-        <a href="/">Inicio</a>
-        <a href="/libros/">Libros</a>
+      <nav class="primary-nav" aria-label="Navegación principal">
+        <a href="/libros/">Obra</a>
         <a href="/cuaderno/" aria-current="page">Cuaderno</a>
-        <a href="/autor.html">El autor</a>
-        <a href="/eventos.html">Eventos</a>
-        <a href="/prensa.html">Prensa</a>
+        <a href="/herramientas/">Herramientas</a>
       </nav>
-    </header>
+      <button class="explore-trigger" type="button" aria-haspopup="dialog" aria-controls="explore-dialog" aria-expanded="false" data-explore-open>
+        Explorar
+      </button>
+    </div>
+  </header>
 
-    <main id="main-content" tabindex="-1">
-
-      <!-- BREADCRUMB -->
-      <nav class="breadcrumb" aria-label="Ruta de navegación" style="margin-bottom:32px;font-size:0.82rem;color:var(--muted)">
-        <a href="/" style="color:var(--muted);text-decoration:none">Inicio</a>
-        <span aria-hidden="true" style="margin:0 6px">›</span>
-        <a href="/cuaderno/" style="color:var(--muted);text-decoration:none">Cuaderno</a>
-        <span aria-hidden="true" style="margin:0 6px">›</span>
-        <span style="color:var(--text)">Portal fantasy vs. fantasía épica</span>
-      </nav>
-
-      <!-- ARTICLE -->
-      <article style="max-width:760px" aria-labelledby="article-title">
-
-        <header style="margin-bottom:48px">
-          <p class="eyebrow">Cuaderno del autor</p>
-          <h1 id="article-title" style="font-family:var(--font-display);font-size:clamp(2.2rem,4.5vw,3.6rem);font-weight:600;line-height:1.1;margin:0 0 24px">Portal fantasy vs. fantasía épica: ¿cuál es la diferencia?</h1>
-          <p style="font-family:var(--font-display);font-size:clamp(1.1rem,1.5vw,1.25rem);font-style:italic;color:var(--muted);line-height:1.7;margin:0 0 20px">Tienen dragones, magia y mundos imposibles. Pero no son lo mismo. La diferencia importa y se explica en menos de dos minutos.</p>
-          <p style="font-size:0.84rem;color:var(--muted-2)">Por <a href="/autor.html" style="color:var(--muted)">David Porto Díaz</a> · 26 mayo 2026 · 4 min de lectura</p>
-        </header>
-
-        <!-- AEO DEFINITION BOX -->
-        <div style="border-left:3px solid var(--accent);padding:20px 24px;margin-bottom:40px;background:rgba(196,148,77,0.05);border-radius:0 var(--radius-md) var(--radius-md) 0" role="note" aria-label="Definición">
-          <p style="margin:0;font-size:1rem;line-height:1.7"><strong>El portal fantasy y la fantasía épica</strong> son dos subgéneros distintos dentro de la ficción fantástica. La diferencia esencial es el origen del protagonista: en el portal fantasy, el personaje cruza desde el mundo real a un mundo secundario; en la fantasía épica, ya existe dentro de ese mundo secundario desde la primera página.</p>
+  <dialog class="explore-dialog" id="explore-dialog" aria-labelledby="explore-title" data-explore-dialog>
+    <div class="explore-dialog__shell">
+      <div class="explore-dialog__head">
+        <div>
+          <p class="eyebrow">Índice general</p>
+          <h2 id="explore-title">Explorar</h2>
         </div>
+        <button class="icon-button" type="button" aria-label="Cerrar Explorar" data-explore-close>
+          <svg aria-hidden="true" viewBox="0 0 24 24" width="20" height="20"><path d="M5 5l14 14M19 5L5 19"/></svg>
+        </button>
+      </div>
 
-        <!-- INTRO -->
-        <div style="font-size:1.05rem;line-height:1.8;margin-bottom:48px">
+      <div class="explore-dialog__grid">
+        <nav class="explore-list" aria-label="Destinos de la web">
+          <a class="explore-row" href="/las-manecillas-del-recuerdo/" data-preview="manecillas">
+            <span class="explore-row__index">01</span>
+            <span class="explore-row__body"><strong>Las manecillas del recuerdo</strong><small>La obra actual.</small></span>
+          </a>
+          <a class="explore-row" href="/autor.html" data-preview="autor">
+            <span class="explore-row__index">02</span>
+            <span class="explore-row__body"><strong>Autor</strong><small>Biografía, obra y trayectoria.</small></span>
+          </a>
+          <a class="explore-row" href="/libros/samuel-entre-mundos/" data-preview="samuel">
+            <span class="explore-row__index">03</span>
+            <span class="explore-row__body"><strong>Samuel entre mundos</strong><small>Primera novela publicada.</small></span>
+          </a>
+          <a class="explore-row" href="/cuaderno/" data-preview="cuaderno">
+            <span class="explore-row__index">04</span>
+            <span class="explore-row__body"><strong>Cuaderno</strong><small>Artículos y piezas editoriales.</small></span>
+          </a>
+          <a class="explore-row" href="/herramientas/" data-preview="herramientas">
+            <span class="explore-row__index">05</span>
+            <span class="explore-row__body"><strong>Herramientas</strong><small>Utilidades gratuitas para escritores.</small></span>
+          </a>
+          <a class="explore-row" href="/prensa.html" data-preview="prensa">
+            <span class="explore-row__index">06</span>
+            <span class="explore-row__body"><strong>Prensa y eventos</strong><small>Apariciones, materiales y agenda.</small></span>
+          </a>
+        </nav>
+
+        <aside class="explore-preview" aria-live="polite" aria-atomic="true" data-explore-preview>
+          <div class="explore-preview__media" aria-hidden="true" data-preview-media></div>
+          <p class="explore-preview__label" data-preview-label>Cuaderno</p>
+          <p class="explore-preview__copy" data-preview-copy>Artículos, crónicas y piezas editoriales.</p>
+        </aside>
+      </div>
+    </div>
+  </dialog>
+  <main class="editorial-page article-page" id="contenido">
+    <nav class="editorial-breadcrumb" aria-label="Ruta de navegación"><ol><li><a href="/">Inicio</a></li><li><a href="/cuaderno/">Cuaderno</a></li><li aria-current="page">Portal fantasy vs. fantasía épica</li></ol></nav>
+
+    <article aria-labelledby="article-title">
+      <header class="article-header">
+        <div>
+          <p class="eyebrow">Cuaderno del autor</p>
+          <h1 id="article-title">Portal fantasy vs. fantasía épica: ¿cuál es la diferencia?</h1>
+          <p class="article-deck">Tienen dragones, magia y mundos imposibles. Pero no son lo mismo. La diferencia importa y se explica en menos de dos minutos.</p>
+        </div>
+        <div class="article-meta">
+          <p>Por <a href="/autor.html">David Porto Díaz</a></p>
+          <p><time datetime="2026-05-26">26 de mayo de 2026</time></p>
+          <p>4 min de lectura</p>
+          <div class="article-utilities">
+            <button class="text-action" type="button" hidden data-share-url="https://davidportodiaz.com/cuaderno/portal-fantasy-vs-fantasia-epica/" data-share-title="Portal fantasy vs. fantasía épica: ¿cuál es la diferencia?" aria-describedby="article-share-status">Compartir</button>
+            <button class="text-action" type="button" hidden data-print>Imprimir</button>
+            <span class="article-share-status" id="article-share-status" role="status" aria-live="polite"></span>
+          </div>
+        </div>
+      </header>
+
+      <div class="article-layout">
+        <nav class="article-toc" aria-label="En esta página" data-article-toc><span class="article-toc__label">En esta página</span><ol><li><a href="#la-diferencia-clave">La diferencia clave: de dónde viene el protagonista</a></li><li><a href="#comparacion">Comparación directa</a></li><li><a href="#ejemplos">Ejemplos concretos</a></li><li><a href="#samuel">Dónde encaja Samuel entre mundos</a></li><li><a href="#generos-mixtos">Una nota sobre los géneros mixtos</a></li><li><a href="#faq">Preguntas frecuentes</a></li></ol></nav>
+        <div class="article-prose" data-article-body>
+          <div class="article-note" role="note" aria-label="Definición"><p><strong>El portal fantasy y la fantasía épica</strong> son dos subgéneros distintos dentro de la ficción fantástica. La diferencia esencial es el origen del protagonista: en el portal fantasy, el personaje cruza desde el mundo real a un mundo secundario; en la fantasía épica, ya existe dentro de ese mundo secundario desde la primera página.</p></div>
+
           <p>La pregunta llega a menudo: «¿Harry Potter es lo mismo que El señor de los anillos?» En sentido amplio, los dos son fantasía. Pero si esa es la única categoría que usamos, perdemos información útil sobre qué esperar de cada historia, qué tipo de tensión genera, y por qué uno puede gustarte mucho y el otro dejarte frío.</p>
           <p>La distinción entre portal fantasy y fantasía épica es una de las más útiles para navegar el género, y una de las más frecuentemente confundidas. Este artículo las separa con claridad y con ejemplos concretos.</p>
-        </div>
 
-        <!-- H2: LA DIFERENCIA CLAVE -->
-        <section id="la-diferencia-clave" style="margin-bottom:48px">
-          <h2 style="font-family:var(--font-display);font-size:clamp(1.6rem,2.8vw,2.2rem);font-weight:600;line-height:1.2;margin:0 0 20px">La diferencia clave: de dónde viene el protagonista</h2>
+          <h2 id="la-diferencia-clave">La diferencia clave: de dónde viene el protagonista</h2>
 
-          <p style="line-height:1.8">La distinción más importante entre portal fantasy y fantasía épica no es la escala, ni la presencia de dragones, ni la complejidad del sistema de magia. Es el punto de origen del protagonista.</p>
+          <p>La distinción más importante entre portal fantasy y fantasía épica no es la escala, ni la presencia de dragones, ni la complejidad del sistema de magia. Es el punto de origen del protagonista.</p>
 
-          <p style="line-height:1.8">En el <strong>portal fantasy</strong>, el protagonista viene del mundo real —nuestro mundo, o un análogo reconocible de él— y viaja a un mundo de fantasía a través de un portal o umbral. La bisagra entre mundos es estructuralmente esencial: sin el cruce, no hay historia.</p>
+          <p>En el <strong>portal fantasy</strong>, el protagonista viene del mundo real —nuestro mundo, o un análogo reconocible de él— y viaja a un mundo de fantasía a través de un portal o umbral. La bisagra entre mundos es estructuralmente esencial: sin el cruce, no hay historia.</p>
 
-          <p style="line-height:1.8">En la <strong>fantasía épica</strong>, el protagonista existe ya dentro del mundo de fantasía desde el primer momento. El lector entra directamente en ese mundo sin punto de comparación con la realidad conocida. No hay cruce, no hay bisagra: hay inmersión directa.</p>
+          <p>En la <strong>fantasía épica</strong>, el protagonista existe ya dentro del mundo de fantasía desde el primer momento. El lector entra directamente en ese mundo sin punto de comparación con la realidad conocida. No hay cruce, no hay bisagra: hay inmersión directa.</p>
 
-          <p style="line-height:1.8">Esa diferencia genera dos experiencias de lectura distintas. El portal fantasy genera la maravilla del contraste: ves el mundo de fantasía a través de los ojos de alguien que tampoco lo conocía. La fantasía épica genera la maravilla de la inmersión: estás dentro del mundo desde el principio, como si siempre hubieras estado ahí.</p>
-        </section>
+          <p>Esa diferencia genera dos experiencias de lectura distintas. El portal fantasy genera la maravilla del contraste: ves el mundo de fantasía a través de los ojos de alguien que tampoco lo conocía. La fantasía épica genera la maravilla de la inmersión: estás dentro del mundo desde el principio, como si siempre hubieras estado ahí.</p>
 
-        <!-- H2: TABLA COMPARATIVA -->
-        <section id="comparacion" style="margin-bottom:48px">
-          <h2 style="font-family:var(--font-display);font-size:clamp(1.6rem,2.8vw,2.2rem);font-weight:600;line-height:1.2;margin:0 0 20px">Comparación directa</h2>
+          <h2 id="comparacion">Comparación directa</h2>
 
-          <div style="overflow-x:auto;margin-bottom:24px">
-            <table style="width:100%;border-collapse:collapse;font-size:0.92rem">
+          <table>
               <thead>
-                <tr style="border-bottom:1px solid var(--border-strong)">
-                  <th style="text-align:left;padding:12px 16px;color:var(--accent);font-family:var(--font-body);font-weight:600;font-size:0.78rem;letter-spacing:0.12em;text-transform:uppercase"></th>
-                  <th style="text-align:left;padding:12px 16px;color:var(--accent);font-family:var(--font-body);font-weight:600;font-size:0.78rem;letter-spacing:0.12em;text-transform:uppercase">Portal Fantasy</th>
-                  <th style="text-align:left;padding:12px 16px;color:var(--accent);font-family:var(--font-body);font-weight:600;font-size:0.78rem;letter-spacing:0.12em;text-transform:uppercase">Fantasía Épica</th>
+                <tr>
+                  <th></th>
+                  <th>Portal Fantasy</th>
+                  <th>Fantasía Épica</th>
                 </tr>
               </thead>
               <tbody>
-                <tr style="border-bottom:1px solid var(--border)">
-                  <td style="padding:12px 16px;color:var(--muted);font-weight:500">Origen del protagonista</td>
-                  <td style="padding:12px 16px;color:var(--text)">Mundo real → mundo fantasía</td>
-                  <td style="padding:12px 16px;color:var(--text)">Mundo fantasía desde el inicio</td>
-                </tr>
-                <tr style="border-bottom:1px solid var(--border)">
-                  <td style="padding:12px 16px;color:var(--muted);font-weight:500">Elemento central</td>
-                  <td style="padding:12px 16px;color:var(--text)">El cruce entre mundos</td>
-                  <td style="padding:12px 16px;color:var(--text)">La aventura dentro del mundo</td>
-                </tr>
-                <tr style="border-bottom:1px solid var(--border)">
-                  <td style="padding:12px 16px;color:var(--muted);font-weight:500">Pregunta clave</td>
-                  <td style="padding:12px 16px;color:var(--text)">¿Podrá / querrá volver?</td>
-                  <td style="padding:12px 16px;color:var(--text)">¿Podrá salvar el mundo / ganar?</td>
-                </tr>
-                <tr style="border-bottom:1px solid var(--border)">
-                  <td style="padding:12px 16px;color:var(--muted);font-weight:500">Ejemplos clásicos</td>
-                  <td style="padding:12px 16px;color:var(--text)">Narnia, Harry Potter, Alicia</td>
-                  <td style="padding:12px 16px;color:var(--text)">El señor de los anillos, Canción de hielo y fuego</td>
+                <tr>
+                  <td>Origen del protagonista</td>
+                  <td>Mundo real → mundo fantasía</td>
+                  <td>Mundo fantasía desde el inicio</td>
                 </tr>
                 <tr>
-                  <td style="padding:12px 16px;color:var(--muted);font-weight:500">Escala típica</td>
-                  <td style="padding:12px 16px;color:var(--text)">Variable (puede ser grande o íntima)</td>
-                  <td style="padding:12px 16px;color:var(--text)">Generalmente épica / política</td>
+                  <td>Elemento central</td>
+                  <td>El cruce entre mundos</td>
+                  <td>La aventura dentro del mundo</td>
+                </tr>
+                <tr>
+                  <td>Pregunta clave</td>
+                  <td>¿Podrá / querrá volver?</td>
+                  <td>¿Podrá salvar el mundo / ganar?</td>
+                </tr>
+                <tr>
+                  <td>Ejemplos clásicos</td>
+                  <td>Narnia, Harry Potter, Alicia</td>
+                  <td>El señor de los anillos, Canción de hielo y fuego</td>
+                </tr>
+                <tr>
+                  <td>Escala típica</td>
+                  <td>Variable (puede ser grande o íntima)</td>
+                  <td>Generalmente épica / política</td>
                 </tr>
               </tbody>
             </table>
-          </div>
-        </section>
 
-        <!-- H2: EJEMPLOS -->
-        <section id="ejemplos" style="margin-bottom:48px">
-          <h2 style="font-family:var(--font-display);font-size:clamp(1.6rem,2.8vw,2.2rem);font-weight:600;line-height:1.2;margin:0 0 20px">Ejemplos concretos</h2>
+          <h2 id="ejemplos">Ejemplos concretos</h2>
 
-          <h3 style="font-family:var(--font-display);font-size:clamp(1.25rem,2vw,1.65rem);font-weight:600;margin:32px 0 14px">Narnia — portal fantasy canónico</h3>
-          <p style="line-height:1.8">Los niños Pevensie vienen de Londres durante los bombardeos de la Segunda Guerra Mundial. El armario es el portal. Narnia es el mundo de destino. La tensión del regreso —¿cuándo tienen que volver? ¿quieren volver?— es parte del motor emocional de la serie. Sin el mundo real de origen, la historia cambiaría de naturaleza.</p>
+          <h3>Narnia — portal fantasy canónico</h3>
+          <p>Los niños Pevensie vienen de Londres durante los bombardeos de la Segunda Guerra Mundial. El armario es el portal. Narnia es el mundo de destino. La tensión del regreso —¿cuándo tienen que volver? ¿quieren volver?— es parte del motor emocional de la serie. Sin el mundo real de origen, la historia cambiaría de naturaleza.</p>
 
-          <h3 style="font-family:var(--font-display);font-size:clamp(1.25rem,2vw,1.65rem);font-weight:600;margin:32px 0 14px">El señor de los anillos — fantasía épica canónica</h3>
-          <p style="line-height:1.8">Frodo Bolsón vive en la Comarca desde el primer momento. No hay cruce desde nuestro mundo. La Tierra Media no se experimenta como un lugar al que se llega: es el único lugar que existe dentro de la historia. No hay bisagra, no hay pregunta del regreso a ningún «aquí» real.</p>
+          <h3>El señor de los anillos — fantasía épica canónica</h3>
+          <p>Frodo Bolsón vive en la Comarca desde el primer momento. No hay cruce desde nuestro mundo. La Tierra Media no se experimenta como un lugar al que se llega: es el único lugar que existe dentro de la historia. No hay bisagra, no hay pregunta del regreso a ningún «aquí» real.</p>
 
-          <h3 style="font-family:var(--font-display);font-size:clamp(1.25rem,2vw,1.65rem);font-weight:600;margin:32px 0 14px">Harry Potter — portal fantasy con escala épica</h3>
-          <p style="line-height:1.8">Harry viene del mundo muggle. Sus tíos, su barrio, su colegio antes de Hogwarts son el punto de origen real. Los portales concretos —la plataforma 9¾, el Lejano Rincón, el Ministerio de Magia— son bisagras entre mundos. La tensión entre el mundo mágico y el mundo muggle es central en toda la serie. Eso es portal fantasy, aunque la escala de la historia se vuelva cada vez más épica.</p>
+          <h3>Harry Potter — portal fantasy con escala épica</h3>
+          <p>Harry viene del mundo muggle. Sus tíos, su barrio, su colegio antes de Hogwarts son el punto de origen real. Los portales concretos —la plataforma 9¾, el Lejano Rincón, el Ministerio de Magia— son bisagras entre mundos. La tensión entre el mundo mágico y el mundo muggle es central en toda la serie. Eso es portal fantasy, aunque la escala de la historia se vuelva cada vez más épica.</p>
 
-          <h3 style="font-family:var(--font-display);font-size:clamp(1.25rem,2vw,1.65rem);font-weight:600;margin:32px 0 14px">La historia interminable — portal en dos fases</h3>
-          <p style="line-height:1.8">Bastian lee el libro, que es el primer portal. Fantasía es el mundo de destino. Pero luego Bastian cruza físicamente al libro —segundo portal, segunda bisagra. Michael Ende construye el portal como el tema explícito de la historia: la pregunta sobre si la ficción es real y si cruzar hacia ella tiene consecuencias es el corazón de la novela.</p>
-        </section>
+          <h3>La historia interminable — portal en dos fases</h3>
+          <p>Bastian lee el libro, que es el primer portal. Fantasía es el mundo de destino. Pero luego Bastian cruza físicamente al libro —segundo portal, segunda bisagra. Michael Ende construye el portal como el tema explícito de la historia: la pregunta sobre si la ficción es real y si cruzar hacia ella tiene consecuencias es el corazón de la novela.</p>
 
-        <!-- H2: DÓNDE ENCAJA SAMUEL -->
-        <section id="samuel" style="margin-bottom:48px">
-          <h2 style="font-family:var(--font-display);font-size:clamp(1.6rem,2.8vw,2.2rem);font-weight:600;line-height:1.2;margin:0 0 20px">Dónde encaja Samuel entre mundos</h2>
+          <h2 id="samuel">Dónde encaja Samuel entre mundos</h2>
 
-          <p style="line-height:1.8"><a href="/libros/samuel-entre-mundos/" style="color:var(--accent)">Samuel entre mundos</a> es portal fantasy. Samuel Osborne viene de aquí —de una casa española, de una familia ordinaria, de un mundo que el lector reconoce— y el choque con <a href="/universo/noveris/" style="color:var(--accent)">Noveris</a> es accidental, no elegido, y no reversible de forma inmediata.</p>
-          <p style="line-height:1.8">La escala de la historia no es épica en el sentido de ejércitos en guerra y destino del mundo, aunque la política de facciones de Noveris y el conflicto de fondo tengan dimensiones grandes. El foco es más íntimo: un personaje que intenta entender dónde está, qué pasó y qué está dispuesto a pagar para salir de ahí.</p>
-          <p style="line-height:1.8">Lo que lo distingue dentro del portal fantasy es el sistema de magia: las reglas de canalización y el coste real no son decorativas, sino que afectan directamente a las decisiones del protagonista en cada escena. Puedes leerlo desde el primer capítulo —disponible gratis— para ver si el tono es lo que buscas.</p>
-          <p style="line-height:1.8"><a href="/fragmento/" style="color:var(--accent)">Leer el capítulo 1 gratis →</a></p>
-        </section>
+          <p><a href="/libros/samuel-entre-mundos/">Samuel entre mundos</a> es portal fantasy. Samuel Osborne viene de aquí —de una casa española, de una familia ordinaria, de un mundo que el lector reconoce— y el choque con <a href="/universo/noveris/">Noveris</a> es accidental, no elegido, y no reversible de forma inmediata.</p>
+          <p>La escala de la historia no es épica en el sentido de ejércitos en guerra y destino del mundo, aunque la política de facciones de Noveris y el conflicto de fondo tengan dimensiones grandes. El foco es más íntimo: un personaje que intenta entender dónde está, qué pasó y qué está dispuesto a pagar para salir de ahí.</p>
+          <p>Lo que lo distingue dentro del portal fantasy es el sistema de magia: las reglas de canalización y el coste real no son decorativas, sino que afectan directamente a las decisiones del protagonista en cada escena. Puedes leerlo desde el primer capítulo —disponible gratis— para ver si el tono es lo que buscas.</p>
+          <p><a href="/fragmento/">Leer el capítulo 1 gratis →</a></p>
 
-        <!-- H2: GÉNEROS MIXTOS -->
-        <section id="generos-mixtos" style="margin-bottom:48px">
-          <h2 style="font-family:var(--font-display);font-size:clamp(1.6rem,2.8vw,2.2rem);font-weight:600;line-height:1.2;margin:0 0 20px">Una nota sobre los géneros mixtos</h2>
+          <h2 id="generos-mixtos">Una nota sobre los géneros mixtos</h2>
 
-          <p style="line-height:1.8">Los géneros no son compartimentos estancos. Una historia puede tener la estructura de bisagra del portal fantasy y la escala épica de la alta fantasía. Puede tener un protagonista que cruza desde nuestro mundo pero que, una vez dentro, enfrenta amenazas de dimensión civilizacional.</p>
-          <p style="line-height:1.8">Lo que importa no es la etiqueta sino lo que la historia usa. Si la bisagra entre mundos es estructuralmente importante —si la historia no funcionaría igual sin el punto de origen en el mundo real, sin la pregunta del regreso— es portal fantasy aunque tenga dragones del tamaño de ciudades. Si el protagonista vive ya dentro del mundo de fantasía y la historia no necesita ninguna comparación con el mundo real, es alta fantasía aunque la escala sea íntima.</p>
-          <p style="line-height:1.8">La distinción es útil no para clasificar sino para entender qué esperar de cada lectura. Y para elegir qué leer a continuación.</p>
-        </section>
-
-        <!-- NEWSLETTER -->
-        <section id="newsletter" style="margin:56px 0;padding:36px 40px;border:1px solid var(--border-strong);border-radius:20px;background:rgba(196,148,77,0.04)">
-          <p class="eyebrow">Cuaderno de fantasía</p>
-          <h2 style="font-family:var(--font-display);font-size:clamp(1.4rem,2.4vw,1.9rem);font-weight:600;margin:0 0 12px">Recibe nuevos artículos y fragmentos de David Porto Díaz</h2>
-          <p style="color:var(--muted);line-height:1.7;margin:0 0 24px">Sé de los primeros lectores de Noveris. Novedades del universo, fragmentos exclusivos y avance de los próximos textos del autor.</p>
-
-          <form id="newsletter-form-cuaderno" class="newsletter-form" novalidate>
-            <label for="nl-email-cuaderno" style="display:block;font-size:0.88rem;font-weight:500;margin-bottom:8px">Email</label>
-            <div style="display:flex;gap:12px;flex-wrap:wrap">
-              <input type="email" id="nl-email-cuaderno" name="email" autocomplete="email" required placeholder="tu@email.com"
-                     style="flex:1;min-width:220px;padding:13px 18px;border:1px solid var(--border-strong);border-radius:999px;background:rgba(255,255,255,0.04);color:var(--text);font-size:0.95rem;font-family:var(--font-body);outline:none" />
-              <button class="button primary" type="submit" style="white-space:nowrap">Apuntarme</button>
-            </div>
-            <label style="display:flex;align-items:flex-start;gap:10px;margin-top:14px;font-size:0.82rem;color:var(--muted);cursor:pointer">
-              <input type="checkbox" id="nl-gdpr-cuaderno" required style="margin-top:3px;flex-shrink:0" />
-              <span>Acepto recibir novedades del autor. Puedo darme de baja en cualquier momento. <a href="/privacidad.html" style="color:var(--accent)">Política de privacidad</a>.</span>
-            </label>
-            <p id="nl-status-cuaderno" role="status" aria-live="polite" style="margin-top:12px;font-size:0.88rem;min-height:1.4em"></p>
-          </form>
-        </section>
-
-        <!-- FAQ -->
-        <section id="faq" aria-label="Preguntas frecuentes" style="margin-bottom:56px">
-          <h2 style="font-family:var(--font-display);font-size:clamp(1.6rem,2.8vw,2.2rem);font-weight:600;line-height:1.2;margin:0 0 28px">Preguntas frecuentes</h2>
-
-          <details style="border-top:1px solid var(--border);padding:20px 0" open>
-            <summary style="font-family:var(--font-display);font-size:1.15rem;font-weight:600;cursor:pointer;list-style:none;display:flex;justify-content:space-between;align-items:center">
-              ¿Es Harry Potter portal fantasy o fantasía épica?
-              <span aria-hidden="true" style="font-family:var(--font-body);font-size:1.2rem;font-weight:300;color:var(--muted)">+</span>
-            </summary>
-            <p style="margin:14px 0 0;line-height:1.8;color:var(--muted)">Harry Potter es portal fantasy. Harry viene del mundo real (el mundo muggle), cruza hacia el mundo mágico a través de portales concretos (la plataforma 9¾, el andén del Expreso de Hogwarts) y la tensión entre ambos mundos es central en la serie. Eso es la estructura básica del portal fantasy.</p>
-          </details>
-
-          <details style="border-top:1px solid var(--border);padding:20px 0">
-            <summary style="font-family:var(--font-display);font-size:1.15rem;font-weight:600;cursor:pointer;list-style:none;display:flex;justify-content:space-between;align-items:center">
-              ¿Es El señor de los anillos portal fantasy?
-              <span aria-hidden="true" style="font-family:var(--font-body);font-size:1.2rem;font-weight:300;color:var(--muted)">+</span>
-            </summary>
-            <p style="margin:14px 0 0;line-height:1.8;color:var(--muted)">No. El señor de los anillos es alta fantasía o fantasía épica. El lector entra directamente en la Tierra Media sin punto de origen en el mundo real. Tolkien construyó su mundo como un mundo completo en sí mismo, no como un destino al que se llega desde aquí. No hay bisagra entre nuestro mundo y el suyo.</p>
-          </details>
-
-          <details style="border-top:1px solid var(--border);border-bottom:1px solid var(--border);padding:20px 0">
-            <summary style="font-family:var(--font-display);font-size:1.15rem;font-weight:600;cursor:pointer;list-style:none;display:flex;justify-content:space-between;align-items:center">
-              ¿Puede una historia ser portal fantasy y fantasía épica a la vez?
-              <span aria-hidden="true" style="font-family:var(--font-body);font-size:1.2rem;font-weight:300;color:var(--muted)">+</span>
-            </summary>
-            <p style="margin:14px 0 0;line-height:1.8;color:var(--muted)">Sí. Los géneros no son mutuamente excluyentes. Una historia puede tener el portal y el protagonista del mundo real del portal fantasy, y al mismo tiempo tener la escala épica, los ejércitos en guerra y la amenaza mundial de la fantasía épica clásica. Lo que importa es si la bisagra entre mundos es estructuralmente relevante para la historia.</p>
-          </details>
-        </section>
-
-        <!-- CTA BOTTOM -->
-        <div style="border-top:1px solid var(--border);padding-top:40px;margin-top:16px;display:flex;gap:16px;flex-wrap:wrap">
-          <a href="/libros/samuel-entre-mundos/" class="button secondary">Ver ficha del libro</a>
-          <a href="/fragmento/" class="button primary">Leer el capítulo 1 gratis</a>
+          <p>Los géneros no son compartimentos estancos. Una historia puede tener la estructura de bisagra del portal fantasy y la escala épica de la alta fantasía. Puede tener un protagonista que cruza desde nuestro mundo pero que, una vez dentro, enfrenta amenazas de dimensión civilizacional.</p>
+          <p>Lo que importa no es la etiqueta sino lo que la historia usa. Si la bisagra entre mundos es estructuralmente importante —si la historia no funcionaría igual sin el punto de origen en el mundo real, sin la pregunta del regreso— es portal fantasy aunque tenga dragones del tamaño de ciudades. Si el protagonista vive ya dentro del mundo de fantasía y la historia no necesita ninguna comparación con el mundo real, es alta fantasía aunque la escala sea íntima.</p>
+          <p>La distinción es útil no para clasificar sino para entender qué esperar de cada lectura. Y para elegir qué leer a continuación.</p>
         </div>
 
-      </article>
+        <aside class="article-folio" aria-hidden="true">
+          <strong>02</strong>
+          <span>Cuaderno del autor</span>
+        </aside>
+      </div>
 
-    </main>
+      <section class="article-faq" id="faq" aria-labelledby="article-faq-title">
+        <div class="article-faq__head">
+          <p class="eyebrow">Respuestas rápidas</p>
+          <h2 id="article-faq-title">Preguntas frecuentes</h2>
+        </div>
+        <div class="article-faq__list">
+          <details open><summary>¿Es Harry Potter portal fantasy o fantasía épica?</summary><p>Harry Potter es portal fantasy. Harry viene del mundo real (el mundo muggle), cruza hacia el mundo mágico a través de portales concretos (la plataforma 9¾, el andén del Expreso de Hogwarts) y la tensión entre ambos mundos es central en la serie. Eso es la estructura básica del portal fantasy.</p></details><details><summary>¿Es El señor de los anillos portal fantasy?</summary><p>No. El señor de los anillos es alta fantasía o fantasía épica. El lector entra directamente en la Tierra Media sin punto de origen en el mundo real. Tolkien construyó su mundo como un mundo completo en sí mismo, no como un destino al que se llega desde aquí. No hay bisagra entre nuestro mundo y el suyo.</p></details><details><summary>¿Puede una historia ser portal fantasy y fantasía épica a la vez?</summary><p>Sí. Los géneros no son mutuamente excluyentes. Una historia puede tener el portal y el protagonista del mundo real del portal fantasy, y al mismo tiempo tener la escala épica, los ejércitos en guerra y la amenaza mundial de la fantasía épica clásica. Lo que importa es si la bisagra entre mundos es estructuralmente relevante para la historia.</p></details>
+        </div>
+      </section>
 
-    <footer style="margin-top:80px;padding-top:32px;border-top:1px solid var(--border);display:flex;flex-wrap:wrap;justify-content:space-between;gap:16px;font-size:0.82rem;color:var(--muted-2)">
-      <p style="margin:0">© 2026 David Porto Díaz · <a href="/privacidad.html" style="color:var(--muted-2)">Privacidad</a> · <a href="/aviso-legal.html" style="color:var(--muted-2)">Aviso legal</a></p>
-      <p style="margin:0"><a href="/" style="color:var(--muted-2)">davidportodiaz.com</a></p>
-    </footer>
-  </div>
+      <section class="article-end" aria-labelledby="article-end-title">
+        <div class="article-end__label">
+          <p class="eyebrow">Continuar</p>
+          <h2 id="article-end-title">Seguir leyendo</h2>
+        </div>
+        <div class="article-end__body">
+          <p>Si quieres ver de dónde viene la distinción, lee qué es el portal fantasy desde cero, o descubre dónde encaja Samuel entre mundos en todo esto. El primer capítulo es gratis.</p>
+          <nav class="article-related" aria-label="Contenido relacionado">
+            <a href="/cuaderno/que-es-el-portal-fantasy/">Qué es el portal fantasy</a><a href="/fragmento/">Leer el capítulo 1 de Samuel entre mundos</a><a href="/libros/samuel-entre-mundos/">Ficha completa de Samuel entre mundos</a><a href="/cuaderno/">Volver al Cuaderno</a>
+          </nav>
+        </div>
+      </section>
+    </article>
 
-  <script src="/script.js?v=202609-launch-1" defer></script>
+    <section class="editorial-newsletter" id="newsletter" aria-labelledby="article-newsletter-title">
+      <div class="editorial-newsletter__copy">
+        <p class="eyebrow">Cuaderno de fantasía</p>
+        <h2 id="article-newsletter-title">Recibe nuevos artículos y fragmentos</h2>
+        <p>Sé de los primeros lectores de Noveris. Novedades del universo, fragmentos exclusivos y avance de los próximos textos del autor.</p>
+      </div>
+      <form class="editorial-newsletter__form" id="newsletter-form-cuaderno" novalidate data-newsletter-source="cuaderno">
+        <label class="form-field-label" for="nl-email-cuaderno">Email</label>
+        <div class="form-row">
+          <input class="form-input" id="nl-email-cuaderno" name="email" type="email" autocomplete="email" inputmode="email" required aria-describedby="nl-status-cuaderno">
+          <button class="form-submit" type="submit">Apuntarme</button>
+        </div>
+        <label class="form-consent" for="nl-gdpr-cuaderno">
+          <input id="nl-gdpr-cuaderno" name="consent" type="checkbox" required aria-describedby="nl-status-cuaderno">
+          <span>Acepto recibir novedades del autor. Puedo darme de baja en cualquier momento. <a href="/privacidad.html" target="_blank" rel="noopener">Privacidad</a>.</span>
+        </label>
+        <p id="nl-status-cuaderno" class="form-status" role="status" aria-live="polite"></p>
+      </form>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="site-footer__grid">
+      <div>
+        <strong class="brand__name">David Porto Díaz</strong>
+        <p>Autor de Las manecillas del recuerdo y Samuel entre mundos.</p>
+      </div>
+      <nav aria-label="Obra"><h2>Obra</h2><a href="/las-manecillas-del-recuerdo/">Las manecillas del recuerdo</a><a href="/libros/samuel-entre-mundos/">Samuel entre mundos</a><a href="/fragmento/">Fragmento gratis</a></nav>
+      <nav aria-label="Leer y recursos"><h2>Leer</h2><a href="/cuaderno/">Cuaderno</a><a href="/cuaderno/feed.xml">RSS del Cuaderno</a><a href="/herramientas/">Herramientas</a><a href="/mapa-del-sitio/">Mapa del sitio</a></nav>
+      <nav aria-label="Información"><h2>Información</h2><a href="/autor.html">Autor</a><a href="/prensa.html">Prensa</a><a href="/eventos.html">Eventos</a><a href="/privacidad.html">Privacidad</a><a href="/aviso-legal.html">Aviso legal</a><a href="/ai/">Para IA</a></nav>
+    </div>
+    <p class="footer-legal">
+      <span>© 2026 David Porto Díaz. Todos los derechos reservados.</span>
+    </p>
+  </footer>
+
+  <script defer src="/assets/v1-shell.js"></script>
+  <script defer src="/assets/v1-editorial.js"></script>
+  <script defer src="/script.js?v=202609-launch-1"></script>
   <script>window.goatcounter={path:function(p){return location.hostname+p}}</script>
   <script data-goatcounter="https://davidportodiaz.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
 </body>
