@@ -38,6 +38,14 @@ jobs:
         run: python tests/test-editoriales-metodologia.py
       - name: Check published Spanish copy is not missing its accents
         run: python scripts/check-copy-tildes.py
+      # Sin este check, un cambio en data/writer-tools.json (o en el propio
+      # builder) puede fusionarse sin regenerar el HTML publicado, y nada lo
+      # avisaria: paso exactamente eso con el CSP y el JSON-LD de esta pagina,
+      # ausentes en el HTML desplegado aunque cada pagina hermana los lleva.
+      - name: Check the curated writer-tools directory is up to date
+        run: >
+          python scripts/build-writer-tools.py data/writer-tools.json
+          --output recursos/herramientas-para-escritores/index.html --check
       # El contrato "el texto no sale del navegador" es el argumento de venta
       # de cada herramienta de manuscrito. Este preflight existia
       # (scripts/audit-private-tools.py) pero nada lo ejecutaba en CI: una

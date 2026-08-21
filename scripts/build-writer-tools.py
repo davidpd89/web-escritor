@@ -98,9 +98,17 @@ def render(data):
     cards="\n".join(render_tool(t) for t in data["tools"] if t["status"]!="deprecated")
     count=sum(1 for t in data["tools"] if t["status"]!="deprecated")
     checked=data["methodology"]["checked_at"]
+    schema=json.dumps({
+        "@context":"https://schema.org","@type":"CollectionPage","name":PAGE_TITLE,
+        "url":CANONICAL,"description":DESCRIPTION,"inLanguage":"es",
+        "isPartOf":{"@id":"https://davidportodiaz.com/#website"},
+        "author":{"@id":"https://davidportodiaz.com/#author"},
+    },ensure_ascii=False,separators=(",",":"))
     return f'''<!doctype html>
 <html lang="es"><head>
-<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta charset="utf-8">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; connect-src 'none'; img-src 'self'; style-src 'self'; font-src 'self'; script-src 'self'; object-src 'none'; base-uri 'self'; form-action 'none'; frame-src 'none'">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <meta name="robots" content="index,follow,max-image-preview:large">
 <title>{PAGE_TITLE}</title>
 <meta name="description" content="{DESCRIPTION}">
@@ -121,6 +129,7 @@ def render(data):
 <meta name="twitter:image:alt" content="{PAGE_TITLE}">
 <link rel="canonical" href="{CANONICAL}">
 <link rel="stylesheet" href="/styles.css?v=202609-launch-1"><link rel="stylesheet" href="/assets/writer-tools.css">
+<script type="application/ld+json">{schema}</script>
 </head><body>
 <a class="skip-link" href="#main-content">Saltar al contenido</a><main id="main-content" class="wt-page">
 <nav class="breadcrumb" aria-label="Ruta de navegación"><a href="/">Inicio</a> › <a href="/herramientas/">Herramientas</a> › Herramientas para escritores</nav>
