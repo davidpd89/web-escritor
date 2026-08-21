@@ -1,10 +1,22 @@
 {
   "schemaVersion": 1,
-  "lastReviewed": "2026-08-20",
+  "lastReviewed": "2026-08-21",
   "author": {
     "name": "David Porto Díaz",
     "website": "https://davidportodiaz.com/",
-    "instagram": "https://www.instagram.com/davidportodiaz/"
+    "instagram": "https://www.instagram.com/davidportodiaz/",
+    "birthPlace": "Pontevedra, Galicia, España",
+    "homeLocation": "Madrid, España",
+    "publicContact": "samuelentremundos@gmail.com",
+    "identifiers": {
+      "wikidata": "https://www.wikidata.org/wiki/Q139678851",
+      "orcid": "https://orcid.org/0009-0005-9089-3782",
+      "amazonAuthorCentral": "https://www.amazon.es/stores/author/B0GZFP1JV3",
+      "goodreads": "https://www.goodreads.com/author/show/66843136.David_Porto_D_az",
+      "babelio": "https://es.babelio.com/monprofil.php?id_user=114337",
+      "storygraph": "https://app.thestorygraph.com/profile/david_porto"
+    },
+    "nationality": "Española"
   },
   "books": {
     "lasManecillasDelRecuerdo": {
@@ -14,11 +26,16 @@
       "isbn": "979-8-90514-935-1",
       "numberOfPages": 272,
       "priceEUR": 16,
+      "format": "Paperback",
+      "genres": [
+        "Novela coral",
+        "Ficción especulativa",
+        "Narrativa familiar"
+      ],
       "statusBeforePublication": "published",
       "statusFromPublicationDate": "published",
       "editorialCopyNote": "Editorial decision 2026-08-20 (authorized by David directly, independent of the calendar publicationDate gate): public copy presents the book as permanently published ('Publicada el 3 de septiembre de 2026'), not as prelaunch/scheduled, even though today's date is still before publicationDate. statusBeforePublication set to 'published' to match. purchaseUrl stays null/gated separately — no commercial links or Offer schema until a real, verified purchase URL exists.",
-      "purchaseUrl": null,
-      "format": "Paperback"
+      "purchaseUrl": null
     },
     "samuelEntreMundos": {
       "title": "Samuel entre mundos",
@@ -26,12 +43,63 @@
       "isbn": "9791387659776",
       "publicationYear": 2025,
       "numberOfPages": 422,
+      "format": "Paperback",
+      "asin": "B0GB6LGQFH",
+      "genres": [
+        "Fantasía juvenil española",
+        "Portal fantasy",
+        "Magia con sistema (hard magic)",
+        "Aventura fantástica",
+        "Coming of age"
+      ],
       "typicalAgeRange": null,
       "rating": null,
       "ratingCount": null,
+      "purchaseUrls": {
+        "publisher": "https://librosindie.net/product/samuel-entre-mundos/",
+        "amazonEs": "https://www.amazon.es/dp/B0GB6LGQFH?tag=davidporto-21",
+        "casaDelLibro": "https://www.casadellibro.com/libro-samuel-entre-mundos/9791387659776"
+      },
       "note": "Páginas (422) y año (2025) verificados el 20/08/2026 contra el ejemplar físico y la ficha oficial de la editorial (sourceUrl, fuente primaria), no contra fichas de retailers. No hay rango de edad oficial publicado por la editorial; no se afirma uno (typicalAgeRange queda null). Historial completo de correcciones (incluida una cifra de páginas incorrecta usada brevemente el 19/08) está en el tracker del proyecto, no en este fichero de datos canónicos.",
       "verifiedAt": "2026-08-20",
       "sourceUrl": "https://librosindie.net/product/samuel-entre-mundos/"
+    }
+  },
+  "recognitions": {
+    "letrasComoEspada2026": {
+      "type": "award",
+      "result": "Primer Premio",
+      "name": "XII Certamen de Microrrelatos «De amor»",
+      "organizer": "Letras Como Espada",
+      "year": 2026,
+      "holder": "David Porto Díaz",
+      "submittedWork": null,
+      "sourceUrl": "https://www.letrascomoespada.com/concursos/memoria_concursos/memoria2026.php"
+    },
+    "juanAndresTeno2026": {
+      "type": "finalistSelection",
+      "result": "Top 10 — Finalista",
+      "name": "I Premio de Literatura Infantil Juan Andrés Teno",
+      "organizer": "BABIDI-BÚ",
+      "year": 2026,
+      "holder": "David Porto Díaz",
+      "submittedWork": "Samuel entre mundos"
+    }
+  },
+  "contributions": [
+    {
+      "type": "anthologyParticipation",
+      "title": "La memoria de las tierras del norte",
+      "publisher": "Diversidad Literaria",
+      "year": 2026
+    }
+  ],
+  "entities": {
+    "noveris": {
+      "name": "Noveris",
+      "type": "fictionalPlace",
+      "canonicalUrl": "https://davidportodiaz.com/universo/noveris/",
+      "wikidata": "https://www.wikidata.org/wiki/Q139927664"
     }
   },
   "knownEditorialIncident": {
