@@ -1,0 +1,73 @@
+name: Privacy legal browser QA
+
+on:
+  pull_request:
+    paths:
+      - 'privacidad.html'
+      - 'aviso-legal.html'
+      - 'assets/v1-legal.css'
+      - 'qa/privacy-contract-browser.mjs'
+      - 'qa/newsletter-worker-contract.mjs'
+      - '.github/workflows/privacy-legal-browser-qa.yml'
+      - 'script.js'
+      - 'cloudflare-worker-subscribe.js'
+      - 'assets/assistant.js'
+      - 'asistente/**'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  privacy-legal:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 25
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Install Playwright
+        run: |
+          npm install --no-save --no-package-lock playwright@1.55.0
+          npx playwright install --with-deps chromium
+      - name: Start static server
+        run: |
+          python -m http.server 4173 --bind 127.0.0.1 > /tmp/privacy-server.log 2>&1 &
+          for i in {1..30}; do curl --fail --silent http://127.0.0.1:4173/privacidad.html >/dev/null && exit 0; sleep 1; done
+          cat /tmp/privacy-server.log; exit 1
+      - name: Browser privacy contract QA
+        env:
+          PRIVACY_BASE_URL: http://127.0.0.1:4173
+          PRIVACY_ARTIFACT_DIR: artifacts/privacy-legal
+        run: node qa/privacy-contract-browser.mjs
+      - name: Newsletter Worker contract
+        if: always()
+        run: node qa/newsletter-worker-contract.mjs
+      - name: Install Lighthouse CI
+        if: always()
+        run: npm install --global @lhci/cli@0.15.1
+      - name: Configure Lighthouse
+        if: always()
+        run: |
+          cat > /tmp/privacy-lighthouserc.json <<'JSON'
+          {"ci":{"collect":{"staticDistDir":"./","url":["http://localhost/privacidad.html","http://localhost/aviso-legal.html"],"numberOfRuns":1,"settings":{"chromeFlags":"--no-sandbox","skipAudits":["is-crawlable"]}},"assert":{"assertions":{"categories:performance":["warn",{"minScore":0.85}],"categories:accessibility":["error",{"minScore":0.97}],"categories:best-practices":["warn",{"minScore":0.95}],"categories:seo":["error",{"minScore":0.98}],"largest-contentful-paint":["warn",{"maxNumericValue":3500}],"cumulative-layout-shift":["error",{"maxNumericValue":0.1}],"total-blocking-time":["warn",{"maxNumericValue":400}]}}}}
+          JSON
+      - name: Lighthouse collect
+        if: always()
+        run: lhci collect --config=/tmp/privacy-lighthouserc.json
+      - name: Lighthouse assert
+        if: always()
+        run: lhci assert --config=/tmp/privacy-lighthouserc.json
+      - name: Upload QA artifacts
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: privacy-legal-qa
+          path: |
+            artifacts/privacy-legal/
+            .lighthouseci/
+            /tmp/privacy-server.log
+          include-hidden-files: true
+          if-no-files-found: warn
+          retention-days: 14
