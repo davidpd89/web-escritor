@@ -1,9 +1,10 @@
-<!doctype html>
-<html lang="es">
+<!DOCTYPE html>
+<html lang="es" class="v1">
 <head>
-  <meta charset="utf-8">
+  <meta charset="UTF-8" />
   <meta http-equiv="Content-Security-Policy" content="default-src 'self'; connect-src 'none'; img-src 'self' https:; style-src 'self'; font-src 'self'; script-src 'self'; object-src 'none'; base-uri 'self'; form-action 'none'; frame-src 'none'">
-  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <meta name="robots" content="index,follow,max-image-preview:large" />
   <title>Generador de evento + calendario | Herramientas</title>
   <meta name="description" content="Genera desde un evento confirmado el HTML visible, JSON-LD Event y un archivo .ics compatible con calendarios. Procesamiento local.">
   <meta property="og:title" content="Generador de evento + calendario | Herramientas">
@@ -21,65 +22,196 @@
   <meta name="twitter:description" content="Genera desde un evento confirmado el HTML visible, JSON-LD Event y un archivo .ics compatible con calendarios. Procesamiento local.">
   <meta name="twitter:image" content="https://davidportodiaz.com/assets/david-porto-imagen-compartir.webp">
   <meta name="twitter:image:alt" content="Generador de evento + calendario | Herramientas">
-  <link rel="canonical" href="https://davidportodiaz.com/herramientas/eventos-ics/">
-  <link rel="stylesheet" href="/styles.css?v=202609-launch-1">
-  <link rel="stylesheet" href="/assets/generador-evento-escritor.css">
+  <meta name="theme-color" content="#F4EFE7" />
+  <link rel="canonical" href="https://davidportodiaz.com/herramientas/eventos-ics/" />
+  <link rel="icon" type="image/png" href="/assets/david-porto-favicon.png" />
+  <link rel="apple-touch-icon" href="/assets/david-porto-favicon.png" />
+  <link rel="manifest" href="/manifest.json" />
+
+  <link rel="stylesheet" href="/assets/v1-fonts.css" />
+  <link rel="stylesheet" href="/assets/v1-tokens.css" />
+  <link rel="stylesheet" href="/assets/v1-base.css" />
+  <link rel="stylesheet" href="/assets/v1-shell.css" />
+  <link rel="stylesheet" href="/assets/v1-components.css" />
+  <link rel="stylesheet" href="/assets/v1-tools.css" />
+  <link rel="stylesheet" href="/assets/generador-evento-escritor.css" />
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebApplication","name":"Generador de evento + calendario para escritores","url":"https://davidportodiaz.com/herramientas/eventos-ics/","applicationCategory":"UtilitiesApplication","operatingSystem":"Any","isAccessibleForFree":true,"inLanguage":"es","author":{"@id":"https://davidportodiaz.com/#author"}}</script>
 </head>
+
 <body>
-<a href="#main-content" class="skip-link">Saltar al contenido</a>
-<main id="main-content" class="event-builder" data-event-builder>
-<nav class="breadcrumb" aria-label="Ruta de navegación"><a href="/">Inicio</a> › <a href="/herramientas/">Herramientas</a> › Generador de evento + calendario</nav>
-<header class="event-builder__hero"><p class="eyebrow">Herramienta gratuita</p><h1>Publica un evento sin descoordinar web, schema y calendario</h1><p>Para presentaciones, firmas y encuentros presenciales confirmados. Un mismo formulario genera contenido visible, JSON-LD <code>Event</code> y un <code>.ics</code>.</p></header>
-<p class="event-note">No uses esta herramienta para fechas tentativas. Google exige que los datos del evento describan con precisión nombre, fecha y ubicación; el código generado debe publicarse en una URL dedicada al evento.</p>
+  <a href="#contenido" class="skip-link">Saltar al contenido</a>
 
-<form>
-  <fieldset><legend>Evento</legend>
-    <div class="event-grid">
-      <div class="event-field event-field--wide"><label for="ev-name">Nombre *</label><input id="ev-name" name="name" required maxlength="180"></div>
-      <div class="event-field"><label for="ev-url">URL única del evento *</label><input id="ev-url" name="url" type="url" inputmode="url" required placeholder="https://..."></div>
-      <div class="event-field"><label for="ev-img">Imagen HTTPS</label><input id="ev-img" name="imageUrl" type="url" inputmode="url"></div>
-      <div class="event-field event-field--wide"><label for="ev-desc">Descripción</label><textarea id="ev-desc" name="description" maxlength="3000"></textarea></div>
+  <header class="site-header" data-header>
+    <div class="site-header__inner">
+      <a class="brand" href="/" aria-label="David Porto Díaz — inicio">
+        <span class="brand__name">David Porto Díaz</span>
+        <span class="brand__role">Escritor</span>
+      </a>
+      <nav class="primary-nav" aria-label="Navegación principal">
+        <a href="/libros/">Obra</a>
+        <a href="/cuaderno/">Cuaderno</a>
+        <a href="/herramientas/" aria-current="page">Herramientas</a>
+      </nav>
+      <button class="explore-trigger" type="button" aria-haspopup="dialog" aria-controls="explore-dialog" aria-expanded="false" data-explore-open>
+        Explorar
+      </button>
     </div>
-  </fieldset>
-  <fieldset><legend>Fecha</legend>
-    <label class="event-check"><input name="allDay" type="checkbox">Evento de día completo</label>
-    <div class="event-grid" data-timed-fields>
-      <div class="event-field"><label for="ev-start-dt">Inicio *</label><input id="ev-start-dt" name="startDateTime" type="datetime-local"></div>
-      <div class="event-field"><label for="ev-end-dt">Fin</label><input id="ev-end-dt" name="endDateTime" type="datetime-local"></div>
-      <div class="event-field"><label for="ev-offset">Offset UTC *</label><input id="ev-offset" name="utcOffset" value="+02:00" pattern="[+-][0-2][0-9]:[0-5][0-9]" inputmode="text"><small>Ejemplo Madrid en horario de verano: +02:00.</small></div>
-    </div>
-    <div class="event-grid" data-date-fields hidden>
-      <div class="event-field"><label for="ev-start-date">Fecha *</label><input id="ev-start-date" name="startDate" type="date"></div>
-      <div class="event-field"><label for="ev-end-date">Último día, si dura varios días</label><input id="ev-end-date" name="endDate" type="date"></div>
-    </div>
-  </fieldset>
-  <fieldset><legend>Ubicación presencial</legend>
-    <div class="event-grid">
-      <div class="event-field"><label for="ev-venue">Lugar *</label><input id="ev-venue" name="venueName" required></div>
-      <div class="event-field"><label for="ev-street">Dirección *</label><input id="ev-street" name="streetAddress" required></div>
-      <div class="event-field"><label for="ev-locality">Localidad *</label><input id="ev-locality" name="addressLocality" required></div>
-      <div class="event-field"><label for="ev-postal">Código postal</label><input id="ev-postal" name="postalCode"></div>
-      <div class="event-field"><label for="ev-region">Provincia/región</label><input id="ev-region" name="addressRegion"></div>
-      <div class="event-field"><label for="ev-country">País *</label><input id="ev-country" name="addressCountry" value="ES" required></div>
-    </div>
-  </fieldset>
-  <fieldset><legend>Organización</legend>
-    <div class="event-grid">
-      <div class="event-field"><label for="ev-org">Organizador</label><input id="ev-org" name="organizerName"></div>
-      <div class="event-field"><label for="ev-org-url">Web del organizador</label><input id="ev-org-url" name="organizerUrl" type="url"></div>
-    </div>
-  </fieldset>
-  <label class="event-check"><input name="confirmed" type="checkbox" required><span>Confirmo que el evento es real y está programado; no es una fecha tentativa.</span></label>
-  <div class="event-actions"><button type="submit" class="button primary">Generar</button><p class="event-status" data-event-status role="status" aria-live="polite"></p></div>
-</form>
+  </header>
 
-<section class="event-results" data-event-results hidden>
-  <div class="event-output"><h2 id="event-html-label">HTML visible</h2><textarea data-event-html readonly aria-labelledby="event-html-label"></textarea><div class="event-result-actions"><button type="button" class="button secondary" data-copy-target="[data-event-html]">Copiar</button></div></div>
-  <div class="event-output"><h2 id="event-jsonld-label">JSON-LD</h2><textarea data-event-jsonld readonly aria-labelledby="event-jsonld-label"></textarea><div class="event-result-actions"><button type="button" class="button secondary" data-copy-target="[data-event-jsonld]">Copiar</button></div></div>
-  <div class="event-result-actions"><button type="button" class="button secondary" data-event-ics>Descargar .ics</button></div>
-</section>
-</main>
-<script type="module" src="/assets/generador-evento-escritor.js"></script>
+  <dialog class="explore-dialog" id="explore-dialog" aria-labelledby="explore-title" data-explore-dialog>
+    <div class="explore-dialog__shell">
+      <div class="explore-dialog__head">
+        <div>
+          <p class="eyebrow">Índice general</p>
+          <h2 id="explore-title">Explorar</h2>
+        </div>
+        <button class="icon-button" type="button" aria-label="Cerrar Explorar" data-explore-close>
+          <svg aria-hidden="true" viewBox="0 0 24 24" width="20" height="20"><path d="M5 5l14 14M19 5L5 19"/></svg>
+        </button>
+      </div>
+
+      <div class="explore-dialog__grid">
+        <nav class="explore-list" aria-label="Destinos de la web">
+          <a class="explore-row" href="/las-manecillas-del-recuerdo/" data-preview="manecillas">
+            <span class="explore-row__index">01</span>
+            <span class="explore-row__body"><strong>Las manecillas del recuerdo</strong><small>La obra actual.</small></span>
+          </a>
+          <a class="explore-row" href="/autor.html" data-preview="autor">
+            <span class="explore-row__index">02</span>
+            <span class="explore-row__body"><strong>Autor</strong><small>Biografía, obra y trayectoria.</small></span>
+          </a>
+          <a class="explore-row" href="/libros/samuel-entre-mundos/" data-preview="samuel">
+            <span class="explore-row__index">03</span>
+            <span class="explore-row__body"><strong>Samuel entre mundos</strong><small>Primera novela publicada.</small></span>
+          </a>
+          <a class="explore-row" href="/cuaderno/" data-preview="cuaderno">
+            <span class="explore-row__index">04</span>
+            <span class="explore-row__body"><strong>Cuaderno</strong><small>Artículos y piezas editoriales.</small></span>
+          </a>
+          <a class="explore-row" href="/herramientas/" data-preview="herramientas">
+            <span class="explore-row__index">05</span>
+            <span class="explore-row__body"><strong>Herramientas</strong><small>Utilidades gratuitas para escritores.</small></span>
+          </a>
+          <a class="explore-row" href="/prensa.html" data-preview="prensa">
+            <span class="explore-row__index">06</span>
+            <span class="explore-row__body"><strong>Prensa y eventos</strong><small>Apariciones, materiales y agenda.</small></span>
+          </a>
+        </nav>
+
+        <aside class="explore-preview" aria-live="polite" aria-atomic="true" data-explore-preview>
+          <div class="explore-preview__media" aria-hidden="true" data-preview-media></div>
+          <p class="explore-preview__label" data-preview-label>Herramientas</p>
+          <p class="explore-preview__copy" data-preview-copy>Utilidades gratuitas para escritores.</p>
+        </aside>
+      </div>
+    </div>
+  </dialog>
+
+  <main id="contenido" class="v1-main" data-family="tool" data-event-builder>
+    <nav class="book-breadcrumb" aria-label="Ruta de navegación">
+      <ol><li><a href="/">Inicio</a></li><li><a href="/herramientas/">Herramientas</a></li><li aria-current="page">Generador de evento + calendario</li></ol>
+    </nav>
+
+    <header class="tool-hero">
+      <p class="eyebrow">Herramienta gratuita</p>
+      <h1>Publica un evento sin descoordinar web, schema y calendario</h1>
+      <p class="tool-hero__lead">Para presentaciones, firmas y encuentros presenciales confirmados. Un mismo formulario genera contenido visible, JSON-LD <code>Event</code> y un <code>.ics</code>.</p>
+      <p class="tool-note">No uses esta herramienta para fechas tentativas. Google exige que los datos del evento describan con precisión nombre, fecha y ubicación; el código generado debe publicarse en una URL dedicada al evento.</p>
+    </header>
+
+    <section class="tool-panel">
+      <form>
+        <fieldset class="tool-aside">
+          <legend>Evento</legend>
+          <div class="tool-field"><label class="tool-field-label" for="ev-name">Nombre *</label><input class="tool-input" id="ev-name" name="name" required maxlength="180"></div>
+          <div class="tool-row">
+            <div class="tool-field"><label class="tool-field-label" for="ev-url">URL única del evento *</label><input class="tool-input" id="ev-url" name="url" type="url" inputmode="url" required placeholder="https://..."></div>
+            <div class="tool-field"><label class="tool-field-label" for="ev-img">Imagen HTTPS</label><input class="tool-input" id="ev-img" name="imageUrl" type="url" inputmode="url"></div>
+          </div>
+          <div class="tool-field"><label class="tool-field-label" for="ev-desc">Descripción</label><textarea class="tool-textarea tool-textarea--small" id="ev-desc" name="description" maxlength="3000"></textarea></div>
+        </fieldset>
+
+        <fieldset class="tool-aside">
+          <legend>Fecha</legend>
+          <label class="tool-check"><input name="allDay" type="checkbox"><span>Evento de día completo</span></label>
+          <div data-timed-fields>
+            <div class="tool-row">
+              <div class="tool-field"><label class="tool-field-label" for="ev-start-dt">Inicio *</label><input class="tool-input" id="ev-start-dt" name="startDateTime" type="datetime-local"></div>
+              <div class="tool-field"><label class="tool-field-label" for="ev-end-dt">Fin</label><input class="tool-input" id="ev-end-dt" name="endDateTime" type="datetime-local"></div>
+            </div>
+            <div class="tool-field">
+              <label class="tool-field-label" for="ev-offset">Offset UTC *</label>
+              <input class="tool-input" id="ev-offset" name="utcOffset" value="+02:00" pattern="[+-][0-2][0-9]:[0-5][0-9]" inputmode="text">
+              <span class="tool-field-hint">Ejemplo Madrid en horario de verano: +02:00.</span>
+            </div>
+          </div>
+          <div class="tool-row" data-date-fields hidden>
+            <div class="tool-field"><label class="tool-field-label" for="ev-start-date">Fecha *</label><input class="tool-input" id="ev-start-date" name="startDate" type="date"></div>
+            <div class="tool-field"><label class="tool-field-label" for="ev-end-date">Último día, si dura varios días</label><input class="tool-input" id="ev-end-date" name="endDate" type="date"></div>
+          </div>
+        </fieldset>
+
+        <fieldset class="tool-aside">
+          <legend>Ubicación presencial</legend>
+          <div class="tool-row">
+            <div class="tool-field"><label class="tool-field-label" for="ev-venue">Lugar *</label><input class="tool-input" id="ev-venue" name="venueName" required></div>
+            <div class="tool-field"><label class="tool-field-label" for="ev-street">Dirección *</label><input class="tool-input" id="ev-street" name="streetAddress" required></div>
+          </div>
+          <div class="tool-row">
+            <div class="tool-field"><label class="tool-field-label" for="ev-locality">Localidad *</label><input class="tool-input" id="ev-locality" name="addressLocality" required></div>
+            <div class="tool-field"><label class="tool-field-label" for="ev-postal">Código postal</label><input class="tool-input" id="ev-postal" name="postalCode"></div>
+          </div>
+          <div class="tool-row">
+            <div class="tool-field"><label class="tool-field-label" for="ev-region">Provincia/región</label><input class="tool-input" id="ev-region" name="addressRegion"></div>
+            <div class="tool-field"><label class="tool-field-label" for="ev-country">País *</label><input class="tool-input" id="ev-country" name="addressCountry" value="ES" required></div>
+          </div>
+        </fieldset>
+
+        <fieldset class="tool-aside">
+          <legend>Organización</legend>
+          <div class="tool-row">
+            <div class="tool-field"><label class="tool-field-label" for="ev-org">Organizador</label><input class="tool-input" id="ev-org" name="organizerName"></div>
+            <div class="tool-field"><label class="tool-field-label" for="ev-org-url">Web del organizador</label><input class="tool-input" id="ev-org-url" name="organizerUrl" type="url"></div>
+          </div>
+        </fieldset>
+
+        <label class="tool-check"><input name="confirmed" type="checkbox" required><span>Confirmo que el evento es real y está programado; no es una fecha tentativa.</span></label>
+        <div class="tool-actions"><button type="submit" class="primary-action">Generar</button></div>
+        <p class="tool-status" data-event-status role="status" aria-live="polite"></p>
+      </form>
+    </section>
+
+    <section class="tool-results" data-event-results hidden>
+      <div class="tool-findings-block">
+        <h3 id="event-html-label">HTML visible</h3>
+        <textarea class="tool-textarea meta-code" data-event-html readonly aria-labelledby="event-html-label"></textarea>
+        <div class="tool-actions"><button type="button" class="text-action" data-copy-target="[data-event-html]">Copiar</button></div>
+      </div>
+      <div class="tool-findings-block">
+        <h3 id="event-jsonld-label">JSON-LD</h3>
+        <textarea class="tool-textarea meta-code" data-event-jsonld readonly aria-labelledby="event-jsonld-label"></textarea>
+        <div class="tool-actions"><button type="button" class="text-action" data-copy-target="[data-event-jsonld]">Copiar</button></div>
+      </div>
+      <div class="tool-actions"><button type="button" class="primary-action" data-event-ics>Descargar .ics</button></div>
+    </section>
+
+  </main>
+
+  <footer class="site-footer">
+    <div class="site-footer__grid">
+      <div>
+        <strong class="brand__name">David Porto Díaz</strong>
+        <p>Autor de Las manecillas del recuerdo y Samuel entre mundos.</p>
+      </div>
+      <nav aria-label="Obra"><h2>Obra</h2><a href="/las-manecillas-del-recuerdo/">Las manecillas del recuerdo</a><a href="/libros/samuel-entre-mundos/">Samuel entre mundos</a><a href="/fragmento/">Fragmento gratis</a></nav>
+      <nav aria-label="Leer y recursos"><h2>Leer</h2><a href="/cuaderno/">Cuaderno</a><a href="/herramientas/" aria-current="page">Herramientas</a><a href="/mapa-del-sitio/">Mapa del sitio</a></nav>
+      <nav aria-label="Información"><h2>Información</h2><a href="/autor.html">Autor</a><a href="/prensa.html">Prensa</a><a href="/eventos.html">Eventos</a><a href="/privacidad.html">Privacidad</a><a href="/aviso-legal.html">Aviso legal</a><a href="/ai/">Para IA</a></nav>
+    </div>
+  </footer>
+
+  <script defer src="/assets/v1-shell.js"></script>
+  <script defer src="/script.js?v=202609-launch-1"></script>
+
+  <script type="module" src="/assets/generador-evento-escritor.js"></script>
 </body>
 </html>

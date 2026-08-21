@@ -1,9 +1,10 @@
-<!doctype html>
-<html lang="es">
+<!DOCTYPE html>
+<html lang="es" class="v1">
 <head>
-  <meta charset="utf-8">
+  <meta charset="UTF-8" />
   <meta http-equiv="Content-Security-Policy" content="default-src 'self'; connect-src 'none'; script-src 'self'; style-src 'self'; img-src 'self'; font-src 'self'; object-src 'none'; base-uri 'self'; form-action 'none'; frame-src 'none'">
-  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <meta name="robots" content="index,follow,max-image-preview:large" />
   <title>Tiempo de lectura en voz alta | Herramientas</title>
   <meta name="description" content="Calcula cuánto tardas en leer un texto en voz alta y cuántas palabras caben en 3, 5, 10 o 15 minutos. Velocidad configurable, procesamiento local.">
   <meta property="og:title" content="Tiempo de lectura en voz alta | Herramientas">
@@ -21,67 +22,165 @@
   <meta name="twitter:description" content="Calcula cuánto tardas en leer un texto en voz alta y cuántas palabras caben en 3, 5, 10 o 15 minutos. Velocidad configurable, procesamiento local.">
   <meta name="twitter:image" content="https://davidportodiaz.com/assets/david-porto-imagen-compartir.webp">
   <meta name="twitter:image:alt" content="Tiempo de lectura en voz alta | Herramientas">
-  <link rel="canonical" href="https://davidportodiaz.com/herramientas/tiempo-lectura-voz-alta/">
-  <link rel="stylesheet" href="/styles.css?v=202609-launch-1">
-  <link rel="stylesheet" href="/assets/tiempo-lectura-voz-alta.css">
+  <meta name="theme-color" content="#F4EFE7" />
+  <link rel="canonical" href="https://davidportodiaz.com/herramientas/tiempo-lectura-voz-alta/" />
+  <link rel="icon" type="image/png" href="/assets/david-porto-favicon.png" />
+  <link rel="apple-touch-icon" href="/assets/david-porto-favicon.png" />
+  <link rel="manifest" href="/manifest.json" />
+
+  <link rel="stylesheet" href="/assets/v1-fonts.css" />
+  <link rel="stylesheet" href="/assets/v1-tokens.css" />
+  <link rel="stylesheet" href="/assets/v1-base.css" />
+  <link rel="stylesheet" href="/assets/v1-shell.css" />
+  <link rel="stylesheet" href="/assets/v1-components.css" />
+  <link rel="stylesheet" href="/assets/v1-tools.css" />
+  <link rel="stylesheet" href="/assets/tiempo-lectura-voz-alta.css" />
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebApplication","name":"Tiempo de lectura en voz alta","url":"https://davidportodiaz.com/herramientas/tiempo-lectura-voz-alta/","applicationCategory":"UtilitiesApplication","operatingSystem":"Any","isAccessibleForFree":true,"inLanguage":"es","author":{"@id":"https://davidportodiaz.com/#author"}}</script>
 </head>
+
 <body>
-<a href="#main-content" class="skip-link">Saltar al contenido</a>
-<main id="main-content">
-<nav class="breadcrumb" aria-label="Ruta de navegación"><a href="/">Inicio</a> › <a href="/herramientas/">Herramientas</a> › Tiempo de lectura en voz alta</nav>
-<header class="readaloud-hero"><p class="eyebrow">Herramienta gratuita · lecturas y eventos</p><h1>¿Cabe este fragmento en cinco minutos?</h1><p class="lead">Pega el texto o escribe su número de palabras. Ajusta tu velocidad y añade margen para pausas, interpretación o interacción con el público. El cálculo se hace en tu navegador.</p></header>
+  <a href="#contenido" class="skip-link">Saltar al contenido</a>
 
-<form class="readaloud-panel" data-readaloud-form>
-  <div class="readaloud-grid">
-    <div class="readaloud-field readaloud-field--wide">
-      <label for="readaloud-text">Texto</label>
-      <textarea id="readaloud-text" data-readaloud-text placeholder="Pega aquí un fragmento, discurso, guion o capítulo."></textarea>
-      <p class="readaloud-help">Si pegas texto, se usa su recuento. No se envía ni se guarda.</p>
+  <header class="site-header" data-header>
+    <div class="site-header__inner">
+      <a class="brand" href="/" aria-label="David Porto Díaz — inicio">
+        <span class="brand__name">David Porto Díaz</span>
+        <span class="brand__role">Escritor</span>
+      </a>
+      <nav class="primary-nav" aria-label="Navegación principal">
+        <a href="/libros/">Obra</a>
+        <a href="/cuaderno/">Cuaderno</a>
+        <a href="/herramientas/" aria-current="page">Herramientas</a>
+      </nav>
+      <button class="explore-trigger" type="button" aria-haspopup="dialog" aria-controls="explore-dialog" aria-expanded="false" data-explore-open>
+        Explorar
+      </button>
     </div>
-    <div class="readaloud-field">
-      <label for="readaloud-manual-words">O introduce palabras</label>
-      <input id="readaloud-manual-words" data-readaloud-manual-words type="number" min="1" step="1" inputmode="numeric" placeholder="Ej. 1200">
-    </div>
-    <div class="readaloud-field">
-      <label for="readaloud-wpm">Velocidad (palabras/minuto)</label>
-      <input id="readaloud-wpm" data-readaloud-wpm type="number" min="60" max="300" step="1" value="155" inputmode="numeric">
-      <p class="readaloud-help">Configurable: no existe una velocidad correcta para todos.</p>
-    </div>
-    <div class="readaloud-field">
-      <label for="readaloud-buffer">Margen por pausas (%)</label>
-      <input id="readaloud-buffer" data-readaloud-buffer type="number" min="0" max="100" step="1" value="10" inputmode="numeric">
-      <p class="readaloud-help">Añade tiempo para respiración, interpretación o público.</p>
-    </div>
-    <div class="readaloud-field">
-      <label for="readaloud-target">Tiempo disponible (minutos)</label>
-      <input id="readaloud-target" data-readaloud-target type="number" min="0.5" max="600" step="0.5" value="5" inputmode="decimal">
-    </div>
-  </div>
-  <div class="readaloud-references" aria-label="Referencias de velocidad">
-    <button class="button secondary" type="button" data-wpm-reference="155" data-reference-label="Referencia ACX: 9.300 palabras por hora de audio terminado (~155 ppm).">155 ppm · referencia audiobook ACX</button>
-    <button class="button secondary" type="button" data-wpm-reference="183" data-reference-label="Referencia de investigación: media aproximada de lectura oral adulta (metaanálisis Brysbaert).">183 ppm · referencia de investigación</button>
-  </div>
-  <div class="readaloud-actions">
-    <button class="button primary" type="submit">Calcular</button>
-    <button class="button secondary" type="button" data-readaloud-sample>Probar ejemplo</button>
-    <button class="button secondary" type="button" data-readaloud-clear>Borrar</button>
-  </div>
-  <p class="readaloud-status" data-readaloud-status role="status" aria-live="polite">Nada de lo que pegues se envía al servidor.</p>
-</form>
+  </header>
 
-<section class="readaloud-results" data-readaloud-results hidden aria-label="Resultado">
-  <div class="readaloud-cards">
-    <article class="readaloud-card"><h2>Palabras</h2><p data-readaloud-word-count>0</p><small>Recuento del texto o valor manual.</small></article>
-    <article class="readaloud-card"><h2>Duración estimada</h2><p data-readaloud-duration>—</p><small>Incluye el margen de pausas.</small></article>
-    <article class="readaloud-card"><h2>En tu tiempo objetivo</h2><p data-readaloud-capacity>—</p><small>Máximo aproximado con la velocidad elegida.</small></article>
-    <article class="readaloud-card"><h2>Ritmo efectivo</h2><p data-readaloud-effective>—</p><small>Velocidad ajustada por el margen.</small></article>
-  </div>
-  <section class="readaloud-quick"><h2>Presupuesto rápido</h2><ul data-readaloud-quick></ul></section>
-</section>
+  <dialog class="explore-dialog" id="explore-dialog" aria-labelledby="explore-title" data-explore-dialog>
+    <div class="explore-dialog__shell">
+      <div class="explore-dialog__head">
+        <div>
+          <p class="eyebrow">Índice general</p>
+          <h2 id="explore-title">Explorar</h2>
+        </div>
+        <button class="icon-button" type="button" aria-label="Cerrar Explorar" data-explore-close>
+          <svg aria-hidden="true" viewBox="0 0 24 24" width="20" height="20"><path d="M5 5l14 14M19 5L5 19"/></svg>
+        </button>
+      </div>
 
-<section class="readaloud-note"><h2>Una estimación, no un cronómetro</h2><p>La lectura expresiva puede variar mucho por diálogos, emoción, nombres difíciles, silencios, preguntas del público o respiración. Lo más preciso es cronometrar un minuto propio y usar tus palabras por minuto como referencia personal.</p><h2>Privacidad</h2><p>El texto y el cálculo se procesan en tu navegador. No se envían a un servidor.</p></section>
-</main>
-<script type="module" src="/assets/tiempo-lectura-voz-alta.js"></script>
+      <div class="explore-dialog__grid">
+        <nav class="explore-list" aria-label="Destinos de la web">
+          <a class="explore-row" href="/las-manecillas-del-recuerdo/" data-preview="manecillas">
+            <span class="explore-row__index">01</span>
+            <span class="explore-row__body"><strong>Las manecillas del recuerdo</strong><small>La obra actual.</small></span>
+          </a>
+          <a class="explore-row" href="/autor.html" data-preview="autor">
+            <span class="explore-row__index">02</span>
+            <span class="explore-row__body"><strong>Autor</strong><small>Biografía, obra y trayectoria.</small></span>
+          </a>
+          <a class="explore-row" href="/libros/samuel-entre-mundos/" data-preview="samuel">
+            <span class="explore-row__index">03</span>
+            <span class="explore-row__body"><strong>Samuel entre mundos</strong><small>Primera novela publicada.</small></span>
+          </a>
+          <a class="explore-row" href="/cuaderno/" data-preview="cuaderno">
+            <span class="explore-row__index">04</span>
+            <span class="explore-row__body"><strong>Cuaderno</strong><small>Artículos y piezas editoriales.</small></span>
+          </a>
+          <a class="explore-row" href="/herramientas/" data-preview="herramientas">
+            <span class="explore-row__index">05</span>
+            <span class="explore-row__body"><strong>Herramientas</strong><small>Utilidades gratuitas para escritores.</small></span>
+          </a>
+          <a class="explore-row" href="/prensa.html" data-preview="prensa">
+            <span class="explore-row__index">06</span>
+            <span class="explore-row__body"><strong>Prensa y eventos</strong><small>Apariciones, materiales y agenda.</small></span>
+          </a>
+        </nav>
+
+        <aside class="explore-preview" aria-live="polite" aria-atomic="true" data-explore-preview>
+          <div class="explore-preview__media" aria-hidden="true" data-preview-media></div>
+          <p class="explore-preview__label" data-preview-label>Herramientas</p>
+          <p class="explore-preview__copy" data-preview-copy>Utilidades gratuitas para escritores.</p>
+        </aside>
+      </div>
+    </div>
+  </dialog>
+
+  <main id="contenido" class="v1-main" data-family="tool">
+    <nav class="book-breadcrumb" aria-label="Ruta de navegación">
+      <ol><li><a href="/">Inicio</a></li><li><a href="/herramientas/">Herramientas</a></li><li aria-current="page">Tiempo de lectura en voz alta</li></ol>
+    </nav>
+
+    <header class="tool-hero">
+      <p class="eyebrow">Herramienta gratuita · lecturas y eventos</p>
+      <h1>¿Cabe este fragmento en cinco minutos?</h1>
+      <p class="tool-hero__lead">Pega el texto o escribe su número de palabras. Ajusta tu velocidad y añade margen para pausas, interpretación o interacción con el público. El cálculo se hace en tu navegador.</p>
+    </header>
+
+    <section class="tool-panel">
+      <form data-readaloud-form>
+        <div class="tool-field">
+          <label class="tool-field-label" for="readaloud-text">Texto</label>
+          <textarea id="readaloud-text" class="tool-textarea" data-readaloud-text placeholder="Pega aquí un fragmento, discurso, guion o capítulo."></textarea>
+          <span class="tool-field-hint">Si pegas texto, se usa su recuento. No se envía ni se guarda.</span>
+        </div>
+        <div class="tool-options">
+          <div class="tool-field"><label class="tool-field-label" for="readaloud-manual-words">O introduce palabras</label><input class="tool-input" id="readaloud-manual-words" data-readaloud-manual-words type="number" min="1" step="1" inputmode="numeric" placeholder="Ej. 1200"></div>
+          <div class="tool-field"><label class="tool-field-label" for="readaloud-wpm">Velocidad (palabras/minuto)</label><input class="tool-input" id="readaloud-wpm" data-readaloud-wpm type="number" min="60" max="300" step="1" value="155" inputmode="numeric"><span class="tool-field-hint">Configurable: no existe una velocidad correcta para todos.</span></div>
+          <div class="tool-field"><label class="tool-field-label" for="readaloud-buffer">Margen por pausas (%)</label><input class="tool-input" id="readaloud-buffer" data-readaloud-buffer type="number" min="0" max="100" step="1" value="10" inputmode="numeric"><span class="tool-field-hint">Añade tiempo para respiración, interpretación o público.</span></div>
+          <div class="tool-field"><label class="tool-field-label" for="readaloud-target">Tiempo disponible (minutos)</label><input class="tool-input" id="readaloud-target" data-readaloud-target type="number" min="0.5" max="600" step="0.5" value="5" inputmode="decimal"></div>
+        </div>
+        <div class="tool-actions" aria-label="Referencias de velocidad">
+          <button class="text-action" type="button" data-wpm-reference="155" data-reference-label="Referencia ACX: 9.300 palabras por hora de audio terminado (~155 ppm).">155 ppm · referencia audiobook ACX</button>
+          <button class="text-action" type="button" data-wpm-reference="183" data-reference-label="Referencia de investigación: media aproximada de lectura oral adulta (metaanálisis Brysbaert).">183 ppm · referencia de investigación</button>
+        </div>
+        <div class="tool-actions">
+          <button class="primary-action" type="submit">Calcular</button>
+          <button class="text-action" type="button" data-readaloud-sample>Probar ejemplo</button>
+          <button class="text-action" type="button" data-readaloud-clear>Borrar</button>
+        </div>
+        <p class="tool-status" data-readaloud-status role="status" aria-live="polite">Nada de lo que pegues se envía al servidor.</p>
+      </form>
+    </section>
+
+    <section class="tool-results" data-readaloud-results hidden aria-label="Resultado">
+      <div class="tool-summary">
+        <div><span>Palabras</span><strong data-readaloud-word-count>0</strong></div>
+        <div><span>Duración estimada</span><strong data-readaloud-duration>—</strong></div>
+        <div><span>En tu tiempo objetivo</span><strong data-readaloud-capacity>—</strong></div>
+        <div><span>Ritmo efectivo</span><strong data-readaloud-effective>—</strong></div>
+      </div>
+      <div class="tool-findings-block">
+        <h3>Presupuesto rápido</h3>
+        <ul class="tool-findings tool-findings--compact" data-readaloud-quick></ul>
+      </div>
+    </section>
+
+    <section class="tool-panel tool-caveat">
+      <h2>Una estimación, no un cronómetro</h2>
+      <p>La lectura expresiva puede variar mucho por diálogos, emoción, nombres difíciles, silencios, preguntas del público o respiración. Lo más preciso es cronometrar un minuto propio y usar tus palabras por minuto como referencia personal.</p>
+      <h2>Privacidad</h2>
+      <p>El texto y el cálculo se procesan en tu navegador. No se envían a un servidor.</p>
+    </section>
+
+  </main>
+
+  <footer class="site-footer">
+    <div class="site-footer__grid">
+      <div>
+        <strong class="brand__name">David Porto Díaz</strong>
+        <p>Autor de Las manecillas del recuerdo y Samuel entre mundos.</p>
+      </div>
+      <nav aria-label="Obra"><h2>Obra</h2><a href="/las-manecillas-del-recuerdo/">Las manecillas del recuerdo</a><a href="/libros/samuel-entre-mundos/">Samuel entre mundos</a><a href="/fragmento/">Fragmento gratis</a></nav>
+      <nav aria-label="Leer y recursos"><h2>Leer</h2><a href="/cuaderno/">Cuaderno</a><a href="/herramientas/" aria-current="page">Herramientas</a><a href="/mapa-del-sitio/">Mapa del sitio</a></nav>
+      <nav aria-label="Información"><h2>Información</h2><a href="/autor.html">Autor</a><a href="/prensa.html">Prensa</a><a href="/eventos.html">Eventos</a><a href="/privacidad.html">Privacidad</a><a href="/aviso-legal.html">Aviso legal</a><a href="/ai/">Para IA</a></nav>
+    </div>
+  </footer>
+
+  <script defer src="/assets/v1-shell.js"></script>
+  <script defer src="/script.js?v=202609-launch-1"></script>
+
+  <script type="module" src="/assets/tiempo-lectura-voz-alta.js"></script>
 </body>
 </html>
