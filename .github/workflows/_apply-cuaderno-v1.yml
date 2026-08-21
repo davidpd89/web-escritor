@@ -7,6 +7,13 @@ on:
     paths:
       - 'scripts/_apply-cuaderno-v1.py'
       - '.github/workflows/_apply-cuaderno-v1.yml'
+  pull_request:
+    types: [opened, synchronize]
+    branches:
+      - implementacion-web-2026
+    paths:
+      - 'scripts/_apply-cuaderno-v1.py'
+      - '.github/workflows/_apply-cuaderno-v1.yml'
 
 permissions:
   contents: write
@@ -35,4 +42,3 @@ jobs:
           git diff --cached --check
           git commit -m "feat(cuaderno): refine editorial article system V1"
           git push origin HEAD:gpt/cuaderno-editorial-v1
-# trigger: workflow now exists on the branch
