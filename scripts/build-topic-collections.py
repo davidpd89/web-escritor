@@ -320,12 +320,13 @@ def render_hub(coll: dict) -> str:
     title = f"{coll['title']} | Cuaderno | David Porto Díaz"
     is_series = coll["mode"] == "series"
     total = len(coll["items"])
+    list_tag = "ol" if is_series else "ul"
     items_html = []
     for i, item in enumerate(coll["items"], 1):
         eyebrow = f'<p class="eyebrow">Pieza {i} de {total}</p>' if is_series else ""
         items_html.append(
-            f'<article class="id-card">{eyebrow}<h2><a href="{esc(item["url"])}">{esc(item["title"])}</a></h2>'
-            f'<p>{esc(item["description"])}</p></article>'
+            f'<li class="id-card topic-item">{eyebrow}<h2><a href="{esc(item["url"])}">{esc(item["title"])}</a></h2>'
+            f'<p>{esc(item["description"])}</p></li>'
         )
     jsonld = {
         "@context": "https://schema.org",
@@ -366,7 +367,7 @@ def render_hub(coll: dict) -> str:
         + f'<header class="tool-hero"><p class="eyebrow">{"Serie del Cuaderno" if is_series else "Colección del Cuaderno"}</p>'
         f"<h1>{esc(coll['title'])}</h1><p class=\"tool-hero__lead\">{esc(coll['intro'])}</p></header>"
         f'{series_note}'
-        f'<section class="v1-section" aria-label="Piezas de la colección"><div class="id-cards">{"".join(items_html)}</div></section>'
+        f'<section class="v1-section" aria-label="Piezas de la colección"><{list_tag} class="topic-list">{"".join(items_html)}</{list_tag}></section>'
         f'<section class="v1-section"><p class="tool-note">Revisión de esta colección: <time datetime="{esc(coll["updated"])}">{esc(coll["updated"])}</time></p>'
         '<p><a class="text-action" href="/cuaderno/temas/">← Todas las colecciones</a> · <a class="text-action" href="/cuaderno/">Volver al Cuaderno</a></p></section>'
         "</main>"
