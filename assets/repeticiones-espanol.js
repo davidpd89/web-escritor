@@ -8,7 +8,7 @@ const windowSelect = $('[data-repetition-window]', form);
 const ticsInput = $('[data-repetition-tics]', form);
 const ignoredInput = $('[data-repetition-ignore]', form);
 const commonInput = $('[data-repetition-common]', form);
-const results = $('[data-repetition-results');
+const results = $('[data-repetition-results]');
 const status = $('[data-repetition-status]');
 
 function esc(value) {

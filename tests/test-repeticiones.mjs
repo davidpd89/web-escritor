@@ -1,4 +1,5 @@
 import assert from 'node:assert/strict';
+import { readFileSync } from 'node:fs';
 import { analyzeRepetitions } from '../assets/repeticiones-engine.js';
 
 // Caso genérico previo: solo comprobaba la forma del resultado, no que
@@ -59,6 +60,20 @@ assert(
 assert(
   !withOptions.repeatedPhrases.some((p) => p.phrase.toLowerCase().includes('noa')),
   '"Noa" tampoco debe aparecer dentro de ninguna frase repetida cuando se pasa en ignored'
+);
+
+// Regresión de UI: el selector debe ser CSS válido. Este typo rompía la
+// inicialización completa de la herramienta antes de ejecutar el motor.
+const uiSource = readFileSync(new URL('../assets/repeticiones-espanol.js', import.meta.url), 'utf8');
+assert.match(
+  uiSource,
+  /const results = \$\('\[data-repetition-results\]'\);/,
+  'la UI debe buscar [data-repetition-results] con un selector CSS cerrado'
+);
+assert.equal(
+  uiSource.includes("$('[data-repetition-results');"),
+  false,
+  'no debe reaparecer el selector incompleto que lanzaba DOMException'
 );
 
 console.log('tests/test-repeticiones: OK');
