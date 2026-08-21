@@ -117,6 +117,7 @@
       <h1>Publica un evento sin descoordinar web, schema y calendario</h1>
       <p class="tool-hero__lead">Para presentaciones, firmas y encuentros presenciales confirmados. Un mismo formulario genera contenido visible, JSON-LD <code>Event</code> y un <code>.ics</code>.</p>
       <p class="tool-note">No uses esta herramienta para fechas tentativas. Google exige que los datos del evento describan con precisión nombre, fecha y ubicación; el código generado debe publicarse en una URL dedicada al evento.</p>
+      <p class="tool-note"><strong>Privacidad:</strong> los datos del evento se procesan en tu navegador. No se envían a un servidor.</p>
     </header>
 
     <section class="tool-panel">
@@ -141,8 +142,8 @@
             </div>
             <div class="tool-field">
               <label class="tool-field-label" for="ev-offset">Offset UTC *</label>
-              <input class="tool-input" id="ev-offset" name="utcOffset" value="+02:00" pattern="[+-][0-2][0-9]:[0-5][0-9]" inputmode="text">
-              <span class="tool-field-hint">Ejemplo Madrid en horario de verano: +02:00.</span>
+              <input class="tool-input" id="ev-offset" name="utcOffset" value="+02:00" pattern="(?:\+|-)(?:(?:0[0-9]|1[0-3]):[0-5][0-9]|14:00)" maxlength="6" inputmode="text" aria-describedby="ev-offset-hint">
+              <span class="tool-field-hint" id="ev-offset-hint">Ejemplo Madrid en horario de verano: +02:00. Rango admitido: −14:00 a +14:00.</span>
             </div>
           </div>
           <div class="tool-row" data-date-fields hidden>

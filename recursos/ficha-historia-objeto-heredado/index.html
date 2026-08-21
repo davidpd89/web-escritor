@@ -120,6 +120,7 @@
     </header>
 
     <section class="tool-panel" data-object-record>
+      <h2 class="sr-only">Ficha del objeto heredado</h2>
       <div class="tool-actions">
         <button class="primary-action" type="button" data-record-export>Descargar JSON</button>
         <button class="text-action" type="button" data-record-open>Abrir JSON</button>
@@ -134,18 +135,18 @@
         <div class="tool-findings-block">
           <h3>1. Identificación física</h3>
           <div class="tool-options">
-            <div class="tool-field"><label class="tool-field-label">Nombre o descripción</label><input class="tool-input" data-object-field="title"></div>
-            <div class="tool-field"><label class="tool-field-label">Tipo de objeto</label><input class="tool-input" data-object-field="type"></div>
-            <div class="tool-field"><label class="tool-field-label">Materiales</label><input class="tool-input" data-object-field="materials"></div>
-            <div class="tool-field"><label class="tool-field-label">Técnicas / fabricación</label><input class="tool-input" data-object-field="techniques"></div>
-            <div class="tool-field"><label class="tool-field-label">Dimensiones</label><input class="tool-input" data-object-field="dimensions"></div>
-            <div class="tool-field"><label class="tool-field-label">Fabricante / autor, si se conoce</label><input class="tool-input" data-object-field="maker"></div>
-            <div class="tool-field"><label class="tool-field-label">Fecha o periodo</label><input class="tool-input" data-object-field="date_period" placeholder="p. ej. ca. 1940–1950"></div>
-            <div class="tool-field"><label class="tool-field-label">Ubicación actual</label><input class="tool-input" data-object-field="current_location"></div>
+            <div class="tool-field"><label class="tool-field-label" for="object-title">Nombre o descripción</label><input class="tool-input" id="object-title" data-object-field="title"></div>
+            <div class="tool-field"><label class="tool-field-label" for="object-type">Tipo de objeto</label><input class="tool-input" id="object-type" data-object-field="type"></div>
+            <div class="tool-field"><label class="tool-field-label" for="object-materials">Materiales</label><input class="tool-input" id="object-materials" data-object-field="materials"></div>
+            <div class="tool-field"><label class="tool-field-label" for="object-techniques">Técnicas / fabricación</label><input class="tool-input" id="object-techniques" data-object-field="techniques"></div>
+            <div class="tool-field"><label class="tool-field-label" for="object-dimensions">Dimensiones</label><input class="tool-input" id="object-dimensions" data-object-field="dimensions"></div>
+            <div class="tool-field"><label class="tool-field-label" for="object-maker">Fabricante / autor, si se conoce</label><input class="tool-input" id="object-maker" data-object-field="maker"></div>
+            <div class="tool-field"><label class="tool-field-label" for="object-date-period">Fecha o periodo</label><input class="tool-input" id="object-date-period" data-object-field="date_period" placeholder="p. ej. ca. 1940–1950"></div>
+            <div class="tool-field"><label class="tool-field-label" for="object-current-location">Ubicación actual</label><input class="tool-input" id="object-current-location" data-object-field="current_location"></div>
           </div>
           <div class="tool-row">
-            <div class="tool-field"><label class="tool-field-label">Marcas, números, inscripciones</label><textarea class="tool-textarea tool-textarea--small" rows="3" data-object-field="marks"></textarea></div>
-            <div class="tool-field"><label class="tool-field-label">Rasgos distintivos, reparaciones o modificaciones</label><textarea class="tool-textarea tool-textarea--small" rows="3" data-object-field="distinguishing_features"></textarea></div>
+            <div class="tool-field"><label class="tool-field-label" for="object-marks">Marcas, números, inscripciones</label><textarea class="tool-textarea tool-textarea--small" id="object-marks" rows="3" data-object-field="marks"></textarea></div>
+            <div class="tool-field"><label class="tool-field-label" for="object-features">Rasgos distintivos, reparaciones o modificaciones</label><textarea class="tool-textarea tool-textarea--small" id="object-features" rows="3" data-object-field="distinguishing_features"></textarea></div>
           </div>
         </div>
 
@@ -185,22 +186,22 @@
         <div class="tool-findings-block">
           <h3>7. Estado y conservación</h3>
           <div class="tool-options">
-            <div class="tool-field"><label class="tool-field-label">Fecha de observación</label><input class="tool-input" type="date" data-conservation-field="observed_on"></div>
+            <div class="tool-field"><label class="tool-field-label" for="object-observed-on">Fecha de observación</label><input class="tool-input" id="object-observed-on" type="date" data-conservation-field="observed_on"></div>
           </div>
           <div class="tool-row">
-            <div class="tool-field"><label class="tool-field-label">Estado observado</label><textarea class="tool-textarea tool-textarea--small" rows="3" data-object-field="condition_notes"></textarea></div>
-            <div class="tool-field"><label class="tool-field-label">Riesgos observados</label><textarea class="tool-textarea tool-textarea--small" rows="3" data-conservation-field="risks"></textarea></div>
+            <div class="tool-field"><label class="tool-field-label" for="object-condition-notes">Estado observado</label><textarea class="tool-textarea tool-textarea--small" id="object-condition-notes" rows="3" data-object-field="condition_notes"></textarea></div>
+            <div class="tool-field"><label class="tool-field-label" for="object-risks">Riesgos observados</label><textarea class="tool-textarea tool-textarea--small" id="object-risks" rows="3" data-conservation-field="risks"></textarea></div>
           </div>
           <div class="tool-row">
-            <div class="tool-field"><label class="tool-field-label">Cambios observados con el tiempo</label><textarea class="tool-textarea tool-textarea--small" rows="3" data-conservation-field="changes_observed"></textarea></div>
-            <div class="tool-field"><label class="tool-field-label">Siguientes pasos / profesional a consultar</label><textarea class="tool-textarea tool-textarea--small" rows="3" data-conservation-field="next_steps"></textarea></div>
+            <div class="tool-field"><label class="tool-field-label" for="object-changes">Cambios observados con el tiempo</label><textarea class="tool-textarea tool-textarea--small" id="object-changes" rows="3" data-conservation-field="changes_observed"></textarea></div>
+            <div class="tool-field"><label class="tool-field-label" for="object-next-steps">Siguientes pasos / profesional a consultar</label><textarea class="tool-textarea tool-textarea--small" id="object-next-steps" rows="3" data-conservation-field="next_steps"></textarea></div>
           </div>
           <p class="tool-note">Esta ficha no sustituye asesoramiento profesional de conservación, autenticación o tasación.</p>
         </div>
 
         <div class="tool-findings-block">
           <h3>8. Preguntas pendientes</h3>
-          <div class="tool-field"><label class="tool-field-label">Una pregunta por línea</label><textarea class="tool-textarea tool-textarea--small" rows="7" data-open-questions placeholder="¿Quién lo compró?&#10;¿Qué significa esta marca?&#10;¿Existe una foto anterior a 1960?"></textarea></div>
+          <div class="tool-field"><label class="tool-field-label" for="object-open-questions">Una pregunta por línea</label><textarea class="tool-textarea tool-textarea--small" id="object-open-questions" rows="7" data-open-questions placeholder="¿Quién lo compró?&#10;¿Qué significa esta marca?&#10;¿Existe una foto anterior a 1960?"></textarea></div>
         </div>
       </form>
       <p class="tool-note">No rellenes una laguna solo para hacer la historia más coherente: una pregunta abierta bien anotada vale más que una fecha inventada.</p>

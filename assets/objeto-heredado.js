@@ -70,7 +70,7 @@ function announce(message) {
 
 function addRow(kind, data = {}) {
   const container = $(`[data-rows="${kind}"]`);
-  if (!container || !templates[kind]) return;
+  if (!container || !templates[kind]) return null;
   container.insertAdjacentHTML('beforeend', templates[kind]());
   const row = container.lastElementChild;
   Object.entries(data).forEach(([key, value]) => {
@@ -78,6 +78,7 @@ function addRow(kind, data = {}) {
     if (!field) return;
     field.value = Array.isArray(value) ? value.join(', ') : value ?? '';
   });
+  return row;
 }
 
 function collectRows(kind) {
@@ -111,7 +112,8 @@ function hydrate(record) {
   $('[data-open-questions]').value = record.open_questions.join('\n');
   for (const kind of Object.keys(templates)) {
     const rows = record[kind] || [];
-    rows.forEach((row) => addRow(kind, row));
+    if (rows.length) rows.forEach((row) => addRow(kind, row));
+    else addRow(kind);
   }
 }
 
@@ -132,9 +134,22 @@ function downloadJson() {
 
 root.addEventListener('click', (event) => {
   const add = event.target.closest('[data-add-row]');
-  if (add) { addRow(add.dataset.addRow); return; }
+  if (add) {
+    const row = addRow(add.dataset.addRow);
+    row?.querySelector('[data-key]')?.focus();
+    announce('Fila añadida.');
+    return;
+  }
   const remove = event.target.closest('[data-remove]');
-  if (remove) remove.closest('[data-row]')?.remove();
+  if (remove) {
+    const row = remove.closest('[data-row]');
+    const container = row?.parentElement;
+    const kind = container?.dataset.rows;
+    row?.remove();
+    const fallback = kind ? $(`[data-add-row="${kind}"]`) : null;
+    fallback?.focus();
+    announce('Fila eliminada.');
+  }
 });
 
 $('[data-record-export]').addEventListener('click', downloadJson);
@@ -143,7 +158,13 @@ $('[data-record-print]').addEventListener('click', () => {
   window.dispatchEvent(new CustomEvent('dp:analytics', { detail: { event: 'object_record_print' } }));
 });
 $('[data-record-clear]').addEventListener('click', () => {
+  const confirmed = window.confirm('Vaciar la ficha eliminará de esta página todo lo que has escrito. ¿Quieres continuar?');
+  if (!confirmed) {
+    announce('La ficha se mantiene sin cambios.');
+    return;
+  }
   hydrate(createEmptyRecord());
+  $('[data-object-field="title"]')?.focus();
   announce('Ficha vaciada. No se ha enviado ni borrado ningún archivo de tu dispositivo.');
 });
 $('[data-record-open]').addEventListener('click', () => fileInput.click());

@@ -14,6 +14,7 @@ assert.equal(validateEventModel(base).length, 0);
 for (const patch of [
   { confirmed: false }, { url: 'http://x.test/' }, { utcOffset: 'Europe/Madrid' },
   { utcOffset: '+15:00' }, { endDateTime: '2026-09-03T18:00' },
+  { startDateTime: '2026-02-31T19:00' }, { startDateTime: '2026-09-03T24:00' },
 ]) {
   assert.ok(validateEventModel({ ...base, ...patch }).length > 0, `expected invalid: ${JSON.stringify(patch)}`);
 }
@@ -33,12 +34,23 @@ const allDayEvt = buildEventOutputs({ ...base, allDay: true, startDate: '2026-09
 assert.ok(allDayEvt.ics.includes('DTSTART;VALUE=DATE:20260903'));
 assert.ok(allDayEvt.ics.includes('DTEND;VALUE=DATE:20260905')); // exclusive end
 
+for (const patch of [
+  { startDate: '2026-02-31', endDate: '' },
+  { startDate: '2026-02-28', endDate: '2026-02-31' },
+]) {
+  const invalidAllDay = { ...base, allDay: true, startDate: '2026-09-03', endDate: '', startDateTime: '', endDateTime: '', utcOffset: '', ...patch };
+  assert.ok(validateEventModel(invalidAllDay).length > 0, `expected invalid all-day date: ${JSON.stringify(patch)}`);
+}
+const leapDay = { ...base, allDay: true, startDate: '2028-02-29', endDate: '', startDateTime: '', endDateTime: '', utcOffset: '' };
+assert.equal(validateEventModel(leapDay).length, 0);
+
 const long = foldIcsLine('DESCRIPTION:' + 'á'.repeat(100));
 for (const line of long.split('\r\n')) {
   assert.ok(new TextEncoder().encode(line).length <= 75, `line too long: ${line}`);
 }
 
 assert.equal(escapeIcs('a,b;c\\d\ne'), 'a\\,b\\;c\\\\d\\ne');
+assert.equal(escapeIcs('a\rb\r\nc\nd'), 'a\\nb\\nc\\nd');
 assert.equal(parseOffsetDate('2026-09-03T19:00', '+02:00').toISOString(), '2026-09-03T17:00:00.000Z');
 
 console.log('tests/test-evento-escritor-core: OK');

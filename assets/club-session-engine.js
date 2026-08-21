@@ -127,6 +127,12 @@ const ACTIVITIES = {
   ]
 };
 
+const ENDING_FOCUSED = /\b(final|terminar|terminaste|acabó|cierre)\b|después de terminar|llegar al final|principio y el final/i;
+
+function isEndingFocused(question) {
+  return ENDING_FOCUSED.test(question);
+}
+
 function hashString(value) {
   let h = 2166136261;
   for (const ch of String(value)) {
@@ -189,7 +195,8 @@ export function buildSession(config = {}, variant = 0) {
   const seedBase = JSON.stringify({ title, author, kind, genre, tone, duration, tokens, scope, variant });
   const random = rng(hashString(seedBase));
 
-  const opening = shuffle(BANKS.opening, random).slice(0, duration === 90 ? 2 : 1);
+  const openingPool = scope === 'partial' ? BANKS.opening.filter(q => !isEndingFocused(q)) : BANKS.opening;
+  const opening = shuffle(openingPool, random).slice(0, duration === 90 ? 2 : 1);
   let core = [...BANKS[kind]];
   if (BANKS[genre]) core.push(...BANKS[genre]);
   if (tone === 'social') core.push(...BANKS.personal, ...BANKS.personal);
@@ -197,7 +204,7 @@ export function buildSession(config = {}, variant = 0) {
   if (tone === 'deep') core.push(...BANKS.craft, ...BANKS.craft, ...BANKS.disagreement, ...BANKS.disagreement);
   core.push(...customQuestions(tokens, kind));
   if (scope === 'partial') {
-    core = core.filter(q => !/final|terminar|terminaste|llegar al final|principio y el final|cierre/i.test(q));
+    core = core.filter(q => !isEndingFocused(q));
     core.push('Sin anticipar lo que falta por leer, ¿qué preguntas ha abierto el libro hasta este punto?');
   }
   const questions = shuffle([...new Set(core)], random).slice(0, timing.questions);

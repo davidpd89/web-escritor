@@ -42,7 +42,14 @@ function init(root){
 
   root.querySelectorAll('[data-copy-target]').forEach(btn=>btn.addEventListener('click',async()=>{
     const target=root.querySelector(btn.dataset.copyTarget); if(!target?.value) return;
-    await navigator.clipboard.writeText(target.value); btn.textContent='Copiado'; setTimeout(()=>btn.textContent='Copiar',1200);
+    const originalLabel=btn.textContent;
+    try{
+      await navigator.clipboard.writeText(target.value);
+      btn.textContent='Copiado';
+      setTimeout(()=>{btn.textContent=originalLabel;},1200);
+    }catch{
+      setStatus('No se pudo copiar automáticamente. Selecciona el contenido y cópialo manualmente.',true);
+    }
   }));
 
   function toggleMode(){ timed.hidden=allDay.checked; dated.hidden=!allDay.checked; }

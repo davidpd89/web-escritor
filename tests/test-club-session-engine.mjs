@@ -16,28 +16,41 @@ assert.equal(short.timing.activity, false);
 assert.equal(short.activity, null);
 assert.equal(short.questions.length, short.timing.questions);
 assert.equal(short.opening.length, 1);
+assert.equal(short.timing.opening + short.timing.core + short.timing.close, 30);
+
+const medium = buildSession({ ...config, duration: 60 }, 0);
+assert.equal(medium.timing.opening + medium.timing.core + medium.timing.close, 60);
 
 const long = buildSession({ ...config, duration: 90 }, 0);
 assert.equal(long.timing.activity, true);
 assert.ok(long.activity);
 assert.equal(long.opening.length, 2);
 assert.equal(long.closing.length, 2);
+assert.equal(long.timing.opening + long.timing.core + long.timing.close, 90);
 
 // A different "variant" (the "otra combinación" button) changes the
 // selection without changing the config.
 const variant1 = buildSession(config, 1);
 assert.notDeepEqual(a.questions, variant1.questions);
 
-// Partial-read scope avoids ending-focused questions.
+// Partial-read scope avoids ending-focused questions in both the opening
+// and the central discussion. The previous implementation only filtered
+// the central pool and could still open by asking about the ending.
 const partial = buildSession({ ...config, scope: 'partial' }, 0);
-for (const q of partial.questions) {
-  assert.ok(!/final|terminar|terminaste|llegar al final|principio y el final|cierre/i.test(q), q);
+const endingFocused = /\b(final|terminar|terminaste|acabó|cierre)\b|después de terminar|llegar al final|principio y el final/i;
+for (const q of [...partial.opening, ...partial.questions]) {
+  assert.ok(!endingFocused.test(q), q);
 }
 
 // Custom tokens (character/theme names) generate extra tailored questions.
 const withTokens = buildSession({ ...config, tokens: 'memoria, familia' }, 0);
 const withoutTokens = buildSession({ ...config, tokens: '' }, 0);
 assert.notDeepEqual(withTokens.questions, withoutTokens.questions);
+
+// Only the first four tokens are used, even with repeated commas/spaces.
+const fourTokens = buildSession({ ...config, tokens: 'memoria, familia, Elena, reloj' }, 0);
+const fiveTokens = buildSession({ ...config, tokens: ' memoria, familia,, Elena, reloj, ignorado ' }, 0);
+assert.deepEqual(fourTokens.questions, fiveTokens.questions);
 
 // No duplicate questions within a single generated session.
 const unique = new Set(a.questions);
