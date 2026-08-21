@@ -48,6 +48,14 @@ jobs:
           --output recursos/herramientas-para-escritores/index.html --check
       - name: Check the /herramientas/ hub is up to date
         run: python scripts/build-tools-hub.py data/tools-hub.json herramientas/index.html --check
+      # --root valida los destinos "ready" contra el HTML real: existen, no
+      # llevan noindex y el canonical esperado sigue presente. Sin este paso
+      # en CI, una pagina podria pasar a noindex o desaparecer y el boton
+      # "Sorprendeme" seguiria ofreciendola sin que nada avisara.
+      - name: Check the "Sorpréndeme" pool against real pages
+        run: >
+          python scripts/build-surprise-content.py data/surprise-content.json
+          assets/surprise-content.generated.js --root . --check
       # El contrato "el texto no sale del navegador" es el argumento de venta
       # de cada herramienta de manuscrito. Este preflight existia
       # (scripts/audit-private-tools.py) pero nada lo ejecutaba en CI: una
