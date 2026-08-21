@@ -1,6 +1,7 @@
 name: Accessibility baseline (Pa11y)
 
 on:
+  pull_request:
   workflow_dispatch:
 
 permissions:
