@@ -8,7 +8,10 @@ html.v1 .editorial-badges,html.v1 .editorial-genres{display:flex;flex-wrap:wrap;
 html.v1 .editorial-genres--spaced{margin:1rem 0 0}
 html.v1 .editorial-badge,html.v1 .editorial-genre{display:inline-flex;align-items:center;min-height:2rem;padding:.25rem .6rem;border:1px solid var(--color-border);border-radius:0;font:600 .72rem/1.4 var(--font-ui);letter-spacing:.02em;color:var(--color-muted)}
 html.v1 .editorial-badge--open{border-color:var(--dp-petrol);color:var(--dp-petrol-ink)}
-html.v1 .editorial-badge--closed{opacity:.75}
+/* De-emphasise the closed state through the border, not opacity: opacity
+   blended the label into the page (3.24:1, under the 4.5:1 AA minimum for
+   small text). The state is carried by the badge's own wording anyway. */
+html.v1 .editorial-badge--closed{border-style:dashed}
 html.v1 .editorial-verified{margin:0;font:400 .85rem/1.5 var(--font-ui);color:var(--color-muted)}
 html.v1 [data-editoriales-directory] .id-card__actions{margin-block-start:.75rem}
 @media (max-width:600px){html.v1 .editorial-card__head{display:grid;grid-template-columns:minmax(0,1fr);gap:.65rem}html.v1 .editorial-badge{justify-self:start}}
