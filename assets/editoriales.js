@@ -1,84 +1,17 @@
 (() => {
   'use strict';
-
-  const root = document.querySelector('[data-editoriales-directory]');
-  if (!root) return;
-
-  const search = root.querySelector('[data-editoriales-search]');
-  const genre = root.querySelector('[data-editoriales-genre]');
-  const status = root.querySelector('[data-editoriales-status]');
-  const direct = root.querySelector('[data-editoriales-direct]');
-  const reset = root.querySelector('[data-editoriales-reset]');
-  const count = root.querySelector('[data-editoriales-count]');
-  const empty = root.querySelector('[data-editoriales-empty]');
-  const cards = [...root.querySelectorAll('[data-editorial-card]')];
-
-  const normalize = (value = '') => value
-    .toLocaleLowerCase('es')
-    .normalize('NFD')
-    .replace(/[\u0300-\u036f]/g, '')
-    .trim();
-
-  const readHash = () => {
-    const params = new URLSearchParams(location.hash.replace(/^#/, ''));
-    if (search) search.value = params.get('q') || '';
-    if (genre) genre.value = params.get('genero') || '';
-    if (status) status.value = params.get('estado') || '';
-    if (direct) direct.checked = params.get('directo') === '1';
-  };
-
-  const writeHash = () => {
-    const params = new URLSearchParams();
-    if (search?.value.trim()) params.set('q', search.value.trim());
-    if (genre?.value) params.set('genero', genre.value);
-    if (status?.value) params.set('estado', status.value);
-    if (direct?.checked) params.set('directo', '1');
-    const next = params.toString();
-    history.replaceState(null, '', `${location.pathname}${location.search}${next ? `#${next}` : ''}`);
-  };
-
-  const apply = ({ updateHash = true } = {}) => {
-    const q = normalize(search?.value);
-    const wantedGenre = normalize(genre?.value);
-    const wantedStatus = status?.value || '';
-    const onlyDirect = Boolean(direct?.checked);
-    let visible = 0;
-
-    cards.forEach((card) => {
-      const haystack = normalize(`${card.dataset.name || ''} ${card.dataset.group || ''} ${card.dataset.genres || ''} ${card.textContent || ''}`);
-      const genres = normalize(card.dataset.genres || '').split('|');
-      const matches = (!q || haystack.includes(q))
-        && (!wantedGenre || genres.includes(wantedGenre))
-        && (!wantedStatus || card.dataset.status === wantedStatus)
-        && (!onlyDirect || card.dataset.direct === 'true');
-
-      card.hidden = !matches;
-      if (matches) visible += 1;
-    });
-
-    if (count) count.textContent = `${visible} ${visible === 1 ? 'editorial' : 'editoriales'}`;
-    if (empty) empty.hidden = visible !== 0;
-    if (updateHash) writeHash();
-  };
-
-  [search, genre, status, direct].filter(Boolean).forEach((control) => {
-    control.addEventListener(control === search ? 'input' : 'change', () => apply());
-  });
-
-  reset?.addEventListener('click', () => {
-    if (search) search.value = '';
-    if (genre) genre.value = '';
-    if (status) status.value = '';
-    if (direct) direct.checked = false;
-    apply();
-    search?.focus();
-  });
-
-  window.addEventListener('hashchange', () => {
-    readHash();
-    apply({ updateHash: false });
-  });
-
-  readHash();
-  apply({ updateHash: false });
+  const root=document.querySelector('[data-editoriales-directory]'); if(!root)return;
+  const search=root.querySelector('[data-editoriales-search]'),genre=root.querySelector('[data-editoriales-genre]'),status=root.querySelector('[data-editoriales-status]'),direct=root.querySelector('[data-editoriales-direct]'),reset=root.querySelector('[data-editoriales-reset]'),count=root.querySelector('[data-editoriales-count]'),empty=root.querySelector('[data-editoriales-empty]'),cards=[...root.querySelectorAll('[data-editorial-card]')];
+  // n with tilde and u with diaeresis are distinct letters in Spanish, not
+  // accented n/u: folding them makes a search for one of them match every
+  // word containing the base letter. Fold every other combining mark.
+  const normalize=(value='')=>String(value).toLocaleLowerCase('es').normalize('NFD').replace(/(?<!n)\u0303|(?<!u)\u0308|[\u0300-\u0302\u0304-\u0307\u0309-\u036f]/g,'').normalize('NFC').trim();
+  const valid=(select,value)=>select&&value&&[...select.options].some(o=>o.value===value)?value:'';
+  const readHash=()=>{const p=new URLSearchParams(location.hash.replace(/^#/,''));if(search)search.value=p.get('q')||'';if(genre)genre.value=valid(genre,p.get('genero')||'');if(status)status.value=valid(status,p.get('estado')||'');if(direct)direct.checked=p.get('directo')==='1';};
+  const nextUrl=()=>{const p=new URLSearchParams();if(search?.value.trim())p.set('q',search.value.trim());if(genre?.value)p.set('genero',genre.value);if(status?.value)p.set('estado',status.value);if(direct?.checked)p.set('directo','1');const h=p.toString();return `${location.pathname}${location.search}${h?`#${h}`:''}`;};
+  const apply=({historyMode='replace'}={})=>{const q=normalize(search?.value),g=normalize(genre?.value),s=status?.value||'',d=Boolean(direct?.checked);let visible=0;cards.forEach(card=>{const hay=normalize(`${card.dataset.name||''} ${card.dataset.group||''} ${card.dataset.genres||''} ${card.textContent||''}`),genres=normalize(card.dataset.genres||'').split('|');const ok=(!q||hay.includes(q))&&(!g||genres.includes(g))&&(!s||card.dataset.status===s)&&(!d||card.dataset.direct==='true');card.hidden=!ok;if(ok)visible++;});if(count)count.textContent=`${visible} ${visible===1?'editorial':'editoriales'}`;if(empty)empty.hidden=visible!==0;if(historyMode)history[historyMode==='push'?'pushState':'replaceState'](null,'',nextUrl());};
+  search?.addEventListener('input',()=>apply({historyMode:'replace'}));[genre,status,direct].filter(Boolean).forEach(c=>c.addEventListener('change',()=>apply({historyMode:'push'})));
+  reset?.addEventListener('click',()=>{if(search)search.value='';if(genre)genre.value='';if(status)status.value='';if(direct)direct.checked=false;apply({historyMode:'push'});search?.focus();});
+  let lastRestoredUrl=location.href;const restore=()=>{if(location.href===lastRestoredUrl)return;lastRestoredUrl=location.href;readHash();apply({historyMode:null});};window.addEventListener('hashchange',restore);window.addEventListener('popstate',restore);
+  readHash();apply({historyMode:null});
 })();

@@ -7,6 +7,9 @@
   --dp-paper:#F4EFE7;
   --dp-sand:#E7DED2;
   --dp-petrol:#55798A;
+  /* Petrol darkened to clear 4.5:1 on the light surface; the base tone only
+     reaches 4.08:1, which fails WCAG AA for small text like badges. */
+  --dp-petrol-ink:#4A6B7A;
   --dp-brass:#B99A63;
   --dp-copper:#A8664A;
   --dp-walnut:#4D372C;

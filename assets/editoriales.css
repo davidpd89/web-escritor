@@ -1,15 +1,17 @@
-/* V1 editorial system — bespoke pieces for the publisher directory + detail
-   fiches. Structural chrome (hero/finder/id-cards/spec-ledger/findings)
-   lives in v1-tools.css/v1-families.css; this file only adds what's
-   specific to editorial fact-checking: status badges and genre tags
-   (rectangular, not pills — V1 forbids rounded chips as decoration) and
-   editoriales.js's card layout, which it reads via [data-editorial-card]
-   on the shared .id-card, not a class of its own. */
-html.v1 .editorial-card__head{display:flex;align-items:flex-start;justify-content:space-between;gap:.9rem}
+/* Professional resources V1 — publisher directory as an editorial ledger. */
 html.v1 .editorial-card[hidden]{display:none}
-
+html.v1 [data-editoriales-directory] .id-cards{display:block;border-top:1px solid var(--color-border)}
+html.v1 [data-editoriales-directory] .editorial-card{margin:0;padding:1.35rem 0;border:0;border-bottom:1px solid var(--color-border);border-radius:0;box-shadow:none;background:transparent}
+html.v1 .editorial-card__head{display:flex;align-items:flex-start;justify-content:space-between;gap:1rem}
+html.v1 .editorial-card__head h2{margin-block-start:0}
 html.v1 .editorial-badges,html.v1 .editorial-genres{display:flex;flex-wrap:wrap;gap:.4rem;margin:0}
-html.v1 .editorial-badge,html.v1 .editorial-genre{display:inline-flex;align-items:center;padding:.25rem .6rem;border:1px solid var(--color-border);font:600 .72rem/1.4 var(--font-ui);letter-spacing:.02em;color:var(--color-muted)}
-html.v1 .editorial-badge--open{border-color:var(--dp-petrol);color:var(--dp-petrol)}
-html.v1 .editorial-badge--closed{opacity:.7}
+html.v1 .editorial-genres--spaced{margin:1rem 0 0}
+html.v1 .editorial-badge,html.v1 .editorial-genre{display:inline-flex;align-items:center;min-height:2rem;padding:.25rem .6rem;border:1px solid var(--color-border);border-radius:0;font:600 .72rem/1.4 var(--font-ui);letter-spacing:.02em;color:var(--color-muted)}
+html.v1 .editorial-badge--open{border-color:var(--dp-petrol);color:var(--dp-petrol-ink)}
+/* De-emphasise the closed state through the border, not opacity: opacity
+   blended the label into the page (3.24:1, under the 4.5:1 AA minimum for
+   small text). The state is carried by the badge's own wording anyway. */
+html.v1 .editorial-badge--closed{border-style:dashed}
 html.v1 .editorial-verified{margin:0;font:400 .85rem/1.5 var(--font-ui);color:var(--color-muted)}
+html.v1 [data-editoriales-directory] .id-card__actions{margin-block-start:.75rem}
+@media (max-width:600px){html.v1 .editorial-card__head{display:grid;grid-template-columns:minmax(0,1fr);gap:.65rem}html.v1 .editorial-badge{justify-self:start}}
