@@ -24,9 +24,11 @@
   <link rel="canonical" href="https://davidportodiaz.com/herramientas/nombres-personajes/">
   <link rel="stylesheet" href="/styles.css?v=202609-launch-1">
   <link rel="stylesheet" href="/assets/nombres-personajes.css">
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebApplication","name":"Comprobador de nombres de personaje parecidos","url":"https://davidportodiaz.com/herramientas/nombres-personajes/","description":"Herramienta gratuita que detecta pares de nombres de personaje que pueden confundir al lector, con el motivo de cada coincidencia. El texto se procesa en el navegador.","applicationCategory":"UtilitiesApplication","operatingSystem":"Cualquiera (navegador web)","isAccessibleForFree":true,"inLanguage":"es","author":{"@id":"https://davidportodiaz.com/#author"}}</script>
 </head>
 <body>
-<main data-character-name-checker>
+<a href="#main-content" class="skip-link">Saltar al contenido</a>
+<main id="main-content" tabindex="-1" data-character-name-checker>
   <nav class="breadcrumb" aria-label="Ruta de navegación"><a href="/">Inicio</a> › <a href="/herramientas/">Herramientas</a> › <span>Comprobador de nombres</span></nav>
   <h1>Comprobador de nombres de personaje</h1>
   <form>
@@ -36,11 +38,19 @@
       <button type="submit">Analizar</button>
       <button type="button" id="clear" data-clear>Limpiar</button>
     </div>
-    <p id="summary" data-summary>Introduce al menos dos nombres para analizar.</p>
+    <p id="summary" data-summary role="status" aria-live="polite">Introduce al menos dos nombres para analizar.</p>
   </form>
-  <section id="results" data-results></section>
+  <section id="results" data-results aria-live="polite"></section>
 </main>
+<!-- defer es obligatorio, no decorativo: sin él este script clásico se
+     ejecutaba de forma síncrona durante el parseo, ANTES de que el <script
+     type="module"> de arriba (diferido por defecto) definiera
+     window.DPCharacterNames. La guarda de nombres-personajes.js
+     ("if (!window.DPCharacterNames) return;") se cumplía siempre y el
+     formulario se quedaba sin manejador de submit: el botón "Analizar" no
+     hacía nada, en ningún navegador, nunca. Confirmado en vivo por CDP antes
+     y después del cambio. -->
 <script type="module" src="/assets/nombres-personajes-engine-compat.js"></script>
-<script src="/assets/nombres-personajes.js"></script>
+<script src="/assets/nombres-personajes.js" defer></script>
 </body>
 </html>

@@ -109,8 +109,38 @@ export const pair = (left, right) => {
   return {left, right, score, level, reasons, metrics: {edit, jaroWinkler: jw, vowels, shape, sameInitial, prefix, lengthGap}};
 };
 
+// Solo pliega mayúsculas/minúsculas para decidir si dos entradas de ENTRADA
+// son el mismo dato repetido dos veces. Deliberadamente NO usa strip(): esa
+// función también quita tildes, y una tilde de menos/más es precisamente el
+// tipo de par que esta herramienta existe para detectar y mostrar (ver el
+// ejemplo del propio documento fuente, "Ana / Antía"). "Bruno" y "Brunó" son
+// dos grafías distintas que un autor puede haber elegido a propósito para dos
+// personajes distintos: deben compararse y, si procede, marcarse como
+// confundibles — no desaparecer en silencio como si fueran la misma entrada
+// repetida. "Noa"/"noa"/"NOA" sí son literalmente el mismo dato tecleado con
+// distinta caja, y esos sí deben colapsar en una sola entrada.
+const dedupeKey = (value) => value.toLocaleLowerCase('es');
+
 export const analyze = (names) => {
-  const cleaned = [...new Set((names || []).map(v => String(v).trim()).filter(Boolean))];
+  // Deduplicar por forma normalizada de MAYÚSCULA/MINÚSCULA únicamente (ver
+  // dedupeKey arriba), no por el string exacto. Antes se usaba un Set() sobre
+  // el texto tal cual, así que "Noa"/"noa"/"NOA" no se consideraban
+  // duplicados: llegaban los tres a pair(), que sí reconoce que son el mismo
+  // nombre normalizado y los marcaba "alta" con el motivo "mismo nombre al
+  // normalizar tildes/mayúsculas" — el contrato del documento fuente (34,
+  // sección 13) pide justo lo contrario: que los duplicados de entrada se
+  // eliminen, no que se informen como una alerta de confusión entre dos
+  // personajes. Se conserva la PRIMERA grafía vista para mostrarla intacta.
+  const seen = new Set();
+  const cleaned = [];
+  for (const raw of names || []) {
+    const trimmed = String(raw).trim();
+    if (!trimmed) continue;
+    const key = dedupeKey(trimmed);
+    if (seen.has(key)) continue;
+    seen.add(key);
+    cleaned.push(trimmed);
+  }
   const pairs = [];
   for (let i = 0; i < cleaned.length; i++) {
     for (let j = i + 1; j < cleaned.length; j++) pairs.push(pair(cleaned[i], cleaned[j]));
