@@ -1,0 +1,7 @@
+/* V1 editorial system — site map. Reuses .id-cards/.id-card (already
+   shared by the tools hub and directory sections) for each category
+   group; this file only adds the h2 variant (categories are the page's
+   only heading level here) and the plain link list inside each card. */
+html.v1 .id-card h2{margin:0;font:400 clamp(1.25rem,1.6vw,1.6rem)/1.15 var(--font-display)}
+html.v1 .sitemap-list{list-style:none;margin:0;padding:0;display:grid;gap:.5rem}
+html.v1 .sitemap-list a{display:inline-block;font:400 .95rem/1.5 var(--font-reading);text-decoration-color:var(--color-accent);text-underline-offset:.25em}
