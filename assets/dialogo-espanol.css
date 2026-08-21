@@ -1,18 +1,5 @@
-.dialogue-tool{max-width:980px;margin:0 auto;padding:clamp(1rem,3vw,2rem)}
-.dialogue-tool__intro{max-width:72ch;margin-bottom:1.5rem}
-.dialogue-tool__panel{border:1px solid rgba(255,255,255,.14);border-radius:18px;padding:clamp(1rem,3vw,1.5rem);background:rgba(255,255,255,.035)}
-.dialogue-tool label{display:block;font-weight:700;margin-bottom:.6rem}
-.dialogue-tool textarea{width:100%;min-height:280px;resize:vertical;border-radius:14px;border:1px solid rgba(255,255,255,.18);padding:1rem;font:inherit;line-height:1.55;background:#0d1014;color:inherit}
-.dialogue-tool textarea:focus-visible{outline:3px solid currentColor;outline-offset:3px}
-.dialogue-tool__actions{display:flex;flex-wrap:wrap;gap:.75rem;margin-top:1rem}
-.dialogue-tool button{min-height:44px;padding:.7rem 1rem;border-radius:999px;border:1px solid currentColor;font:inherit;font-weight:700;cursor:pointer}
-.dialogue-tool__privacy{margin:.8rem 0 0;font-size:.92rem;opacity:.8}
-.dialogue-results{margin-top:1.5rem}
-.dialogue-metrics{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:.8rem;margin:1rem 0}
-.dialogue-metric{margin:0;padding:1rem;border:1px solid rgba(255,255,255,.12);border-radius:14px}
-.dialogue-metric dt{font-size:.88rem;opacity:.78}.dialogue-metric dd{margin:.35rem 0 0;font-size:1.35rem;font-weight:800}
-.dialogue-results__note{padding:1rem;border-left:3px solid currentColor;background:rgba(255,255,255,.035)}
-.dialogue-results ol{padding-left:1.25rem}.dialogue-results li+li{margin-top:.65rem}
-@media(max-width:720px){.dialogue-metrics{grid-template-columns:1fr 1fr}}
-@media(max-width:460px){.dialogue-metrics{grid-template-columns:1fr}.dialogue-tool__actions>*{width:100%}}
-@media print{.dialogue-tool__panel,.dialogue-tool__actions{display:none}.dialogue-results{margin:0}.dialogue-metric{break-inside:avoid}}
+/* V1 editorial system — bespoke pieces for the dialogue-percentage tool.
+   Structural chrome lives in v1-tools.css; dialogue-espanol.js only injects
+   .dialogue-metric divs into [data-dialogue-metrics] (a .tool-summary dl). */
+html.v1 .dialogue-metric dt{display:block;font:600 .68rem/1.4 var(--font-ui);letter-spacing:.06em;text-transform:uppercase;color:var(--color-muted);margin-bottom:.3rem}
+html.v1 .dialogue-metric dd{margin:0;font:400 1.55rem/1.1 var(--font-display);color:var(--color-text)}

@@ -1,0 +1,82 @@
+/* V1 editorial system — shared "instrument" chrome for individual tool
+   pages (doc 23 §B/C/D). Structural pieces only: hero, form fields, action
+   row, status line, results wrapper, findings list. Each tool keeps its own
+   bespoke visualisation (bars, metric grids) in its own stylesheet, restyled
+   to these tokens — the JS in each engine only ever selects by data-*
+   attribute, so none of this renames anything an engine depends on. */
+
+html.v1 .tool-hero{max-width:56rem;padding:clamp(3rem,6vw,5rem) 0 clamp(2rem,4vw,3rem);border-bottom:1px solid var(--color-border)}
+html.v1 .tool-hero h1{font:400 var(--text-4xl)/1.05 var(--font-display);letter-spacing:-.02em;margin:.6rem 0 1.1rem;max-width:22ch;text-wrap:balance}
+html.v1 .tool-hero__lead{font:400 1.08rem/1.65 var(--font-reading);color:var(--color-muted);max-width:64ch;margin:0}
+
+html.v1 .tool-panel{max-width:60rem;padding:clamp(2.5rem,5vw,4rem) 0;border-bottom:1px solid var(--color-border)}
+html.v1 .tool-field{display:block;margin:0 0 1.6rem}
+html.v1 .tool-field:last-child{margin-bottom:0}
+html.v1 .tool-field-label{display:block;font:600 .8rem/1.3 var(--font-ui);letter-spacing:.03em;margin-bottom:.6rem}
+html.v1 .tool-field-hint{display:block;font:400 .85rem/1.55 var(--font-ui);color:var(--color-muted);margin:.4rem 0 .7rem}
+html.v1 .tool-textarea,html.v1 .tool-select{width:100%;border:1px solid var(--color-border);border-radius:var(--radius-input);background:var(--surface-page);color:var(--color-text);padding:.9rem 1rem;font:400 1.02rem/1.6 var(--font-reading)}
+html.v1 .tool-textarea{min-height:280px;resize:vertical}
+html.v1 .tool-textarea--small{min-height:84px;resize:vertical;font-family:var(--font-ui);font-size:.92rem}
+html.v1 .tool-select{min-height:var(--control-min-height);font-family:var(--font-ui);font-size:.95rem;appearance:auto}
+html.v1 .tool-file{width:100%;font:400 .95rem/1.5 var(--font-ui);color:var(--color-text)}
+html.v1 .tool-textarea:focus-visible,html.v1 .tool-select:focus-visible,html.v1 .tool-file:focus-visible{outline:2px solid var(--focus-color);outline-offset:2px}
+html.v1 .tool-options{display:grid;gap:1.5rem 2rem;grid-template-columns:repeat(auto-fit,minmax(14rem,1fr));margin:1.8rem 0 0}
+html.v1 .tool-check{display:flex;align-items:flex-start;gap:.6rem;font:400 .92rem/1.5 var(--font-ui);color:var(--color-text);margin-top:1.4rem}
+html.v1 .tool-check input{width:18px;min-height:18px;height:18px;margin:.15rem 0 0;accent-color:var(--color-text)}
+html.v1 .tool-input-meta{display:flex;flex-wrap:wrap;justify-content:space-between;gap:.5rem 1rem;font:400 .78rem/1.4 var(--font-ui);color:var(--color-muted);margin-top:.55rem}
+html.v1 .tool-actions{display:flex;flex-wrap:wrap;gap:1rem;align-items:center;margin-top:1.9rem}
+html.v1 .tool-status{min-height:1.4em;margin:1.1rem 0 0;font:400 .85rem/1.55 var(--font-ui);color:var(--color-muted)}
+html.v1 .tool-status[role="alert"]{color:var(--color-accent-strong)}
+
+html.v1 .tool-results{max-width:60rem;padding:clamp(2.5rem,5vw,4rem) 0;border-bottom:1px solid var(--color-border)}
+html.v1 .tool-results h2{font:400 var(--text-2xl)/1.15 var(--font-display);margin:0 0 .5rem}
+html.v1 .tool-summary{display:grid;grid-template-columns:repeat(auto-fit,minmax(9rem,1fr));gap:1px;background:var(--color-border);border:1px solid var(--color-border);margin:0 0 2.2rem}
+html.v1 .tool-summary>div,html.v1 .tool-summary>article{background:var(--surface-page);padding:1.1rem 1.25rem;margin:0}
+html.v1 .tool-summary dt{display:block;font:600 .68rem/1.4 var(--font-ui);letter-spacing:.06em;text-transform:uppercase;color:var(--color-muted);margin-bottom:.3rem}
+html.v1 .tool-summary dd{margin:0;font:400 1.55rem/1.1 var(--font-display);color:var(--color-text)}
+html.v1 .tool-summary>div>strong{display:block;font:400 1.55rem/1.1 var(--font-display);color:var(--color-text)}
+html.v1 .tool-summary>div>span{display:block;font:600 .68rem/1.4 var(--font-ui);letter-spacing:.06em;text-transform:uppercase;color:var(--color-muted);margin-top:.3rem}
+html.v1 .tool-note{padding:1rem 1.25rem;border-left:2px solid var(--color-accent);background:var(--surface-quiet);font:400 .92rem/1.55 var(--font-reading);margin:0 0 1.5rem;max-width:66ch}
+
+html.v1 .tool-findings-block{margin:2.4rem 0 0}
+html.v1 .tool-findings-block:first-child{margin-top:0}
+html.v1 .tool-findings-block h3{font:600 1.1rem/1.3 var(--font-display);margin:0 0 .35rem}
+html.v1 .tool-findings-block>p{font:400 .95rem/1.55 var(--font-reading);color:var(--color-muted);max-width:64ch;margin:0 0 1rem}
+html.v1 .tool-findings{list-style:none;margin:0;padding:0;display:grid;gap:.9rem}
+html.v1 .tool-findings li{padding:.9rem 0;border-top:1px solid var(--color-border)}
+html.v1 .tool-findings li>div{display:flex;gap:1rem;justify-content:space-between;align-items:baseline;flex-wrap:wrap}
+html.v1 .tool-findings li>strong{display:block;font:600 .95rem/1.4 var(--font-ui)}
+html.v1 .tool-findings li>span,html.v1 .tool-findings li div>span{font:400 .85rem/1.5 var(--font-ui);color:var(--color-muted)}
+html.v1 .tool-findings li p{margin:.5rem 0 0;font:400 .96rem/1.55 var(--font-reading);color:var(--color-text)}
+html.v1 .tool-findings li q{display:block;margin:.55rem 0 0;padding-left:.85rem;border-left:2px solid var(--color-border);font:400 .92rem/1.55 var(--font-reading);color:var(--color-muted)}
+html.v1 .tool-findings li q+q{margin-top:.35rem}
+html.v1 .tool-findings-empty{font:400 .95rem/1.5 var(--font-ui);color:var(--color-muted)}
+html.v1 .tool-findings--compact li>div{justify-content:space-between}
+
+html.v1 .tool-caveat{max-width:66ch}
+html.v1 .tool-caveat p{font-family:var(--font-reading)}
+
+html.v1 .tool-two-col{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:1px;background:var(--color-border);border:1px solid var(--color-border)}
+html.v1 .tool-two-col article{background:var(--surface-page);padding:1.5rem}
+html.v1 .tool-two-col h3{font:600 .95rem/1.3 var(--font-ui);margin:0 0 .5rem}
+html.v1 .tool-two-col p{margin:0;font:400 .92rem/1.55 var(--font-reading);color:var(--color-muted)}
+html.v1 .tool-formula{display:block;font:400 .85rem/1.5 var(--font-ui);color:var(--color-muted);background:var(--surface-quiet);padding:.6rem .8rem;margin:0 0 .7rem;overflow-x:auto}
+
+html.v1 .tool-next{padding:clamp(2.5rem,5vw,4rem) 0}
+html.v1 .tool-next-links{display:flex;flex-wrap:wrap;gap:.85rem 1.5rem;margin-top:1.3rem}
+
+html.v1 .tool-source-list{list-style:none;margin:0;padding:0;max-width:66ch;display:grid;gap:.7rem}
+html.v1 .tool-source-list li{font:400 .92rem/1.55 var(--font-reading);color:var(--color-muted);padding-top:.7rem;border-top:1px solid var(--color-border)}
+html.v1 .tool-source-list a{color:var(--color-text);text-decoration:underline;text-underline-offset:.2em}
+html.v1 .tool-trust{display:flex;flex-wrap:wrap;gap:.5rem 1rem;margin-top:1.5rem}
+html.v1 .tool-trust span{font:600 .74rem/1.4 var(--font-ui);letter-spacing:.04em;text-transform:uppercase;color:var(--color-muted);padding:.4rem .75rem;border:1px solid var(--color-border)}
+
+@media(max-width:767px){
+  html.v1 .tool-summary{grid-template-columns:repeat(2,minmax(0,1fr))}
+  html.v1 .tool-findings li>div{flex-direction:column;align-items:flex-start;gap:.25rem}
+  html.v1 .tool-two-col{grid-template-columns:1fr}
+}
+
+@media print{
+  html.v1 .tool-panel,html.v1 .tool-actions{display:none}
+}

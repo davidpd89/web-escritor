@@ -1,9 +1,10 @@
-<!doctype html>
-<html lang="es">
+<!DOCTYPE html>
+<html lang="es" class="v1">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+  <meta charset="UTF-8" />
   <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self'; connect-src 'none'; form-action 'none';">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <meta name="robots" content="index,follow,max-image-preview:large" />
   <title>Medidor de diálogo — Herramientas</title>
   <meta name="description" content="Analiza localmente el porcentaje de diálogo en textos narrativos en español. El texto no se envía a servidores externos.">
   <meta property="og:title" content="Medidor de diálogo — Herramientas">
@@ -21,47 +22,153 @@
   <meta name="twitter:description" content="Analiza localmente el porcentaje de diálogo en textos narrativos en español. El texto no se envía a servidores externos.">
   <meta name="twitter:image" content="https://davidportodiaz.com/assets/david-porto-imagen-compartir.webp">
   <meta name="twitter:image:alt" content="Medidor de diálogo — Herramientas">
-  <link rel="canonical" href="https://davidportodiaz.com/herramientas/dialogo/">
-  <link rel="stylesheet" href="/styles.css?v=202609-launch-1">
-  <link rel="stylesheet" href="/assets/dialogo-espanol.css">
+  <meta name="theme-color" content="#F4EFE7" />
+  <link rel="canonical" href="https://davidportodiaz.com/herramientas/dialogo/" />
+  <link rel="icon" type="image/png" href="/assets/david-porto-favicon.png" />
+  <link rel="apple-touch-icon" href="/assets/david-porto-favicon.png" />
+  <link rel="manifest" href="/manifest.json" />
+
+  <link rel="stylesheet" href="/assets/v1-fonts.css" />
+  <link rel="stylesheet" href="/assets/v1-tokens.css" />
+  <link rel="stylesheet" href="/assets/v1-base.css" />
+  <link rel="stylesheet" href="/assets/v1-shell.css" />
+  <link rel="stylesheet" href="/assets/v1-components.css" />
+  <link rel="stylesheet" href="/assets/v1-tools.css" />
+  <link rel="stylesheet" href="/assets/dialogo-espanol.css" />
   <script type="application/ld+json">{"@context":"https://schema.org","@type":["SoftwareApplication","WebApplication"],"name":"Medidor de diálogo para novelas en español","url":"https://davidportodiaz.com/herramientas/dialogo/","description":"Herramienta gratuita que analiza localmente el porcentaje y la distribución del diálogo en textos narrativos en español.","applicationCategory":"UtilitiesApplication","operatingSystem":"Navegador web"}</script>
 </head>
+
 <body>
-<a href="#main-content" class="skip-link">Saltar al contenido</a>
-<main id="main-content" tabindex="-1" class="dialogue-tool">
-  <nav class="breadcrumb" aria-label="Ruta de navegación"><a href="/">Inicio</a> › <a href="/herramientas/">Herramientas</a> › <span>Medidor de diálogo</span></nav>
-  <header class="dialogue-tool__intro">
-    <p class="eyebrow">Herramienta para escritores</p>
-    <h1>¿Qué porcentaje de tu texto está en bloques de diálogo?</h1>
-    <p>Pega un fragmento, capítulo o manuscrito. El análisis reconoce párrafos iniciados con raya — y, cuando no hay rayas, segmentos entre «comillas españolas», “tipográficas” o "rectas". El texto se procesa exclusivamente en el navegador.</p>
+  <a href="#contenido" class="skip-link">Saltar al contenido</a>
+
+  <header class="site-header" data-header>
+    <div class="site-header__inner">
+      <a class="brand" href="/" aria-label="David Porto Díaz — inicio">
+        <span class="brand__name">David Porto Díaz</span>
+        <span class="brand__role">Escritor</span>
+      </a>
+      <nav class="primary-nav" aria-label="Navegación principal">
+        <a href="/libros/">Obra</a>
+        <a href="/cuaderno/">Cuaderno</a>
+        <a href="/herramientas/" aria-current="page">Herramientas</a>
+      </nav>
+      <button class="explore-trigger" type="button" aria-haspopup="dialog" aria-controls="explore-dialog" aria-expanded="false" data-explore-open>
+        Explorar
+      </button>
+    </div>
   </header>
 
-  <form class="dialogue-tool__panel" data-dialogue-tool>
-    <label for="dialogue-text">Texto a analizar</label>
-    <textarea id="dialogue-text" name="text" spellcheck="false" autocomplete="off" placeholder="—No sé si debería entrar —dijo Ana—.\n\nLa puerta seguía abierta.\n\n«Hazlo», pensó."></textarea>
-    <div class="dialogue-tool__actions">
-      <button type="submit">Analizar diálogo</button>
-      <button type="button" data-dialogue-clear>Limpiar</button>
-    </div>
-    <p class="dialogue-tool__privacy"><strong>Privacidad:</strong> el texto se procesa localmente en tu navegador. No se envía a terceros.</p>
-  </form>
+  <dialog class="explore-dialog" id="explore-dialog" aria-labelledby="explore-title" data-explore-dialog>
+    <div class="explore-dialog__shell">
+      <div class="explore-dialog__head">
+        <div>
+          <p class="eyebrow">Índice general</p>
+          <h2 id="explore-title">Explorar</h2>
+        </div>
+        <button class="icon-button" type="button" aria-label="Cerrar Explorar" data-explore-close>
+          <svg aria-hidden="true" viewBox="0 0 24 24" width="20" height="20"><path d="M5 5l14 14M19 5L5 19"/></svg>
+        </button>
+      </div>
 
-  <section class="dialogue-results" data-dialogue-results hidden aria-live="polite">
-    <h2>Resultado</h2>
-    <p class="dialogue-results__note" data-dialogue-basis></p>
-    <dl class="dialogue-metrics" data-dialogue-metrics></dl>
-    <h3>Convenciones detectadas</h3>
-    <p data-dialogue-conventions></p>
-    <p class="dialogue-results__note" data-dialogue-caveat></p>
-    <p class="dialogue-results__note" data-dialogue-caveat-extra></p>
-    <details>
-      <summary>Ver hasta 20 bloques detectados</summary>
-      <ol data-dialogue-detail></ol>
-    </details>
-    <h3>Distribución por capítulos</h3>
-    <ol data-dialogue-chapters></ol>
-  </section>
-</main>
-<script type="module" src="/assets/dialogo-espanol.js"></script>
+      <div class="explore-dialog__grid">
+        <nav class="explore-list" aria-label="Destinos de la web">
+          <a class="explore-row" href="/las-manecillas-del-recuerdo/" data-preview="manecillas">
+            <span class="explore-row__index">01</span>
+            <span class="explore-row__body"><strong>Las manecillas del recuerdo</strong><small>La obra actual.</small></span>
+          </a>
+          <a class="explore-row" href="/autor.html" data-preview="autor">
+            <span class="explore-row__index">02</span>
+            <span class="explore-row__body"><strong>Autor</strong><small>Biografía, obra y trayectoria.</small></span>
+          </a>
+          <a class="explore-row" href="/libros/samuel-entre-mundos/" data-preview="samuel">
+            <span class="explore-row__index">03</span>
+            <span class="explore-row__body"><strong>Samuel entre mundos</strong><small>Primera novela publicada.</small></span>
+          </a>
+          <a class="explore-row" href="/cuaderno/" data-preview="cuaderno">
+            <span class="explore-row__index">04</span>
+            <span class="explore-row__body"><strong>Cuaderno</strong><small>Artículos y piezas editoriales.</small></span>
+          </a>
+          <a class="explore-row" href="/herramientas/" data-preview="herramientas">
+            <span class="explore-row__index">05</span>
+            <span class="explore-row__body"><strong>Herramientas</strong><small>Utilidades gratuitas para escritores.</small></span>
+          </a>
+          <a class="explore-row" href="/prensa.html" data-preview="prensa">
+            <span class="explore-row__index">06</span>
+            <span class="explore-row__body"><strong>Prensa y eventos</strong><small>Apariciones, materiales y agenda.</small></span>
+          </a>
+        </nav>
+
+        <aside class="explore-preview" aria-live="polite" aria-atomic="true" data-explore-preview>
+          <div class="explore-preview__media" aria-hidden="true" data-preview-media></div>
+          <p class="explore-preview__label" data-preview-label>Herramientas</p>
+          <p class="explore-preview__copy" data-preview-copy>Utilidades gratuitas para escritores.</p>
+        </aside>
+      </div>
+    </div>
+  </dialog>
+
+  <main id="contenido" class="v1-main" data-family="tool">
+    <nav class="book-breadcrumb" aria-label="Ruta de navegación">
+      <ol><li><a href="/">Inicio</a></li><li><a href="/herramientas/">Herramientas</a></li><li aria-current="page">Medidor de diálogo</li></ol>
+    </nav>
+
+    <header class="tool-hero">
+      <p class="eyebrow">Herramienta para escritores · análisis local</p>
+      <h1>¿Qué porcentaje de tu texto está en bloques de diálogo?</h1>
+      <p class="tool-hero__lead">Pega un fragmento, capítulo o manuscrito. El análisis reconoce párrafos iniciados con raya — y, cuando no hay rayas, segmentos entre «comillas españolas», “tipográficas” o "rectas". El texto se procesa exclusivamente en el navegador.</p>
+    </header>
+
+    <section class="tool-panel" data-dialogue-tool>
+      <form>
+        <div class="tool-field">
+          <label class="tool-field-label" for="dialogue-text">Texto a analizar</label>
+          <textarea id="dialogue-text" class="tool-textarea" name="text" spellcheck="false" autocomplete="off" placeholder="—No sé si debería entrar —dijo Ana—.&#10;&#10;La puerta seguía abierta.&#10;&#10;«Hazlo», pensó."></textarea>
+        </div>
+        <div class="tool-actions">
+          <button type="submit" class="primary-action">Analizar diálogo</button>
+          <button type="button" class="text-action" data-dialogue-clear>Limpiar</button>
+        </div>
+        <p class="tool-status">Privacidad: el texto se procesa localmente en tu navegador. No se envía a terceros.</p>
+      </form>
+    </section>
+
+    <section class="tool-results" data-dialogue-results hidden aria-live="polite">
+      <h2>Resultado</h2>
+      <p class="tool-note" data-dialogue-basis></p>
+      <dl class="tool-summary" data-dialogue-metrics></dl>
+      <div class="tool-findings-block">
+        <h3>Convenciones detectadas</h3>
+        <p data-dialogue-conventions></p>
+        <p class="tool-note" data-dialogue-caveat></p>
+        <p class="tool-note" data-dialogue-caveat-extra></p>
+      </div>
+      <details class="tool-findings-block">
+        <summary>Ver hasta 20 bloques detectados</summary>
+        <ol class="tool-findings tool-findings--compact" data-dialogue-detail></ol>
+      </details>
+      <div class="tool-findings-block">
+        <h3>Distribución por capítulos</h3>
+        <ol class="tool-findings tool-findings--compact" data-dialogue-chapters></ol>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="site-footer">
+    <div class="site-footer__grid">
+      <div>
+        <strong class="brand__name">David Porto Díaz</strong>
+        <p>Autor de Las manecillas del recuerdo y Samuel entre mundos.</p>
+      </div>
+      <nav aria-label="Obra"><h2>Obra</h2><a href="/las-manecillas-del-recuerdo/">Las manecillas del recuerdo</a><a href="/libros/samuel-entre-mundos/">Samuel entre mundos</a><a href="/fragmento/">Fragmento gratis</a></nav>
+      <nav aria-label="Leer y recursos"><h2>Leer</h2><a href="/cuaderno/">Cuaderno</a><a href="/herramientas/" aria-current="page">Herramientas</a><a href="/mapa-del-sitio/">Mapa del sitio</a></nav>
+      <nav aria-label="Información"><h2>Información</h2><a href="/autor.html">Autor</a><a href="/prensa.html">Prensa</a><a href="/eventos.html">Eventos</a><a href="/privacidad.html">Privacidad</a><a href="/aviso-legal.html">Aviso legal</a><a href="/ai/">Para IA</a></nav>
+    </div>
+  </footer>
+
+  <script defer src="/assets/v1-shell.js"></script>
+  <script defer src="/script.js?v=202609-launch-1"></script>
+
+  <script type="module" src="/assets/dialogo-espanol.js"></script>
 </body>
 </html>

@@ -1,9 +1,10 @@
-<!doctype html>
-<html lang="es">
+<!DOCTYPE html>
+<html lang="es" class="v1">
 <head>
-  <meta charset="utf-8">
+  <meta charset="UTF-8" />
   <meta http-equiv="Content-Security-Policy" content="default-src 'self'; connect-src 'none'; script-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; font-src 'self'; worker-src 'self'; object-src 'none'; base-uri 'self'; form-action 'none'; frame-src 'none'; media-src 'none'; manifest-src 'self'">
-  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <meta name="robots" content="index,follow,max-image-preview:large" />
   <title>Analizador de capítulos para novelas | Herramientas</title>
   <meta name="description" content="Compara capítulos de una novela: palabras, longitud de párrafos, diálogo aproximado, acumulado, separadores de escena y menciones. Todo se procesa en tu navegador.">
   <meta property="og:title" content="Analizador de capítulos para novelas | Herramientas">
@@ -21,21 +22,159 @@
   <meta name="twitter:description" content="Compara capítulos de una novela: palabras, longitud de párrafos, diálogo aproximado, acumulado, separadores de escena y menciones. Todo se procesa en tu navegador.">
   <meta name="twitter:image" content="https://davidportodiaz.com/assets/david-porto-imagen-compartir.webp">
   <meta name="twitter:image:alt" content="Analizador de capítulos para novelas | Herramientas">
-  <link rel="canonical" href="https://davidportodiaz.com/herramientas/manuscrito/">
-  <link rel="stylesheet" href="/styles.css?v=202609-launch-1">
-  <link rel="stylesheet" href="/assets/analizador-capitulos.css">
+  <meta name="theme-color" content="#F4EFE7" />
+  <link rel="canonical" href="https://davidportodiaz.com/herramientas/manuscrito/" />
+  <link rel="icon" type="image/png" href="/assets/david-porto-favicon.png" />
+  <link rel="apple-touch-icon" href="/assets/david-porto-favicon.png" />
+  <link rel="manifest" href="/manifest.json" />
+
+  <link rel="stylesheet" href="/assets/v1-fonts.css" />
+  <link rel="stylesheet" href="/assets/v1-tokens.css" />
+  <link rel="stylesheet" href="/assets/v1-base.css" />
+  <link rel="stylesheet" href="/assets/v1-shell.css" />
+  <link rel="stylesheet" href="/assets/v1-components.css" />
+  <link rel="stylesheet" href="/assets/v1-tools.css" />
+  <link rel="stylesheet" href="/assets/analizador-capitulos.css" />
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebApplication","name":"Analizador de capítulos para novelas","url":"https://davidportodiaz.com/herramientas/manuscrito/","applicationCategory":"UtilitiesApplication","operatingSystem":"Any","isAccessibleForFree":true,"inLanguage":"es","author":{"@id":"https://davidportodiaz.com/#author"}}</script>
 </head>
+
 <body>
-<a href="#main-content" class="skip-link">Saltar al contenido</a>
-<main id="main-content">
-<nav class="breadcrumb" aria-label="Ruta de navegación"><a href="/">Inicio</a> › <a href="/herramientas/">Herramientas</a> › Analizador de capítulos</nav>
-<header><p class="eyebrow">Herramienta gratuita · análisis local</p><h1>Analizador de capítulos para novelas</h1><p class="lead">Compara la estructura cuantitativa de varios capítulos sin subir el manuscrito. Las métricas describen diferencias; no deciden cómo debe estar escrita tu novela.</p></header>
-<section class="chapter-tool" data-chapter-analyzer>
-<div class="chapter-tool__panel"><form><label>Capítulos como archivos .txt o .md<input type="file" multiple accept=".txt,.md,.markdown,text/plain,text/markdown" data-chapter-files></label><p>Se ordenan por nombre de archivo. También puedes pegar un manuscrito con encabezados «Capítulo 1», «Capítulo 2»…</p><label>O pega el texto<textarea data-chapter-paste placeholder="CAPÍTULO 1\n…\n\nCAPÍTULO 2\n…"></textarea></label><label>Personajes o términos que quieras contar <small>Opcional. Sepáralos por comas o líneas; no se detectan nombres automáticamente.</small><textarea data-chapter-names placeholder="Ana\nBruno\nClara"></textarea></label><div class="chapter-tool__actions"><button type="submit" class="button primary">Analizar capítulos</button><button type="button" class="button secondary" data-chapter-clear>Limpiar</button></div><p class="chapter-tool__status" role="status" aria-live="polite" data-chapter-status></p></form></div>
-<div class="chapter-tool__panel" data-chapter-results hidden><h2>Vista del manuscrito</h2><dl class="chapter-summary" data-chapter-summary></dl><div class="chapter-chart" data-chapter-chart aria-label="Comparación visual de palabras por capítulo"></div><div class="chapter-table-wrap" data-chapter-table></div><p class="chapter-caveat" data-chapter-note></p><div class="chapter-tool__actions"><button type="button" class="button secondary" data-chapter-export>Exportar CSV</button></div></div>
-</section>
-<section><h2>Qué mide y qué no</h2><p>Cuenta palabras y párrafos, compara cada capítulo con la mediana de tu propio manuscrito, estima el peso de bloques dialogados y detecta únicamente separadores de escena explícitos. Si introduces nombres, cuenta sus menciones exactas. No interpreta ritmo, calidad, tensión ni importancia narrativa.</p><h2>Privacidad</h2><p>Los archivos se leen con la API del navegador y el cálculo se realiza en un Web Worker local. El texto, los nombres y los resultados no se envían al servidor.</p></section>
-</main>
-<script type="module" src="/assets/analizador-capitulos.js"></script>
-</body></html>
+  <a href="#contenido" class="skip-link">Saltar al contenido</a>
+
+  <header class="site-header" data-header>
+    <div class="site-header__inner">
+      <a class="brand" href="/" aria-label="David Porto Díaz — inicio">
+        <span class="brand__name">David Porto Díaz</span>
+        <span class="brand__role">Escritor</span>
+      </a>
+      <nav class="primary-nav" aria-label="Navegación principal">
+        <a href="/libros/">Obra</a>
+        <a href="/cuaderno/">Cuaderno</a>
+        <a href="/herramientas/" aria-current="page">Herramientas</a>
+      </nav>
+      <button class="explore-trigger" type="button" aria-haspopup="dialog" aria-controls="explore-dialog" aria-expanded="false" data-explore-open>
+        Explorar
+      </button>
+    </div>
+  </header>
+
+  <dialog class="explore-dialog" id="explore-dialog" aria-labelledby="explore-title" data-explore-dialog>
+    <div class="explore-dialog__shell">
+      <div class="explore-dialog__head">
+        <div>
+          <p class="eyebrow">Índice general</p>
+          <h2 id="explore-title">Explorar</h2>
+        </div>
+        <button class="icon-button" type="button" aria-label="Cerrar Explorar" data-explore-close>
+          <svg aria-hidden="true" viewBox="0 0 24 24" width="20" height="20"><path d="M5 5l14 14M19 5L5 19"/></svg>
+        </button>
+      </div>
+
+      <div class="explore-dialog__grid">
+        <nav class="explore-list" aria-label="Destinos de la web">
+          <a class="explore-row" href="/las-manecillas-del-recuerdo/" data-preview="manecillas">
+            <span class="explore-row__index">01</span>
+            <span class="explore-row__body"><strong>Las manecillas del recuerdo</strong><small>La obra actual.</small></span>
+          </a>
+          <a class="explore-row" href="/autor.html" data-preview="autor">
+            <span class="explore-row__index">02</span>
+            <span class="explore-row__body"><strong>Autor</strong><small>Biografía, obra y trayectoria.</small></span>
+          </a>
+          <a class="explore-row" href="/libros/samuel-entre-mundos/" data-preview="samuel">
+            <span class="explore-row__index">03</span>
+            <span class="explore-row__body"><strong>Samuel entre mundos</strong><small>Primera novela publicada.</small></span>
+          </a>
+          <a class="explore-row" href="/cuaderno/" data-preview="cuaderno">
+            <span class="explore-row__index">04</span>
+            <span class="explore-row__body"><strong>Cuaderno</strong><small>Artículos y piezas editoriales.</small></span>
+          </a>
+          <a class="explore-row" href="/herramientas/" data-preview="herramientas">
+            <span class="explore-row__index">05</span>
+            <span class="explore-row__body"><strong>Herramientas</strong><small>Utilidades gratuitas para escritores.</small></span>
+          </a>
+          <a class="explore-row" href="/prensa.html" data-preview="prensa">
+            <span class="explore-row__index">06</span>
+            <span class="explore-row__body"><strong>Prensa y eventos</strong><small>Apariciones, materiales y agenda.</small></span>
+          </a>
+        </nav>
+
+        <aside class="explore-preview" aria-live="polite" aria-atomic="true" data-explore-preview>
+          <div class="explore-preview__media" aria-hidden="true" data-preview-media></div>
+          <p class="explore-preview__label" data-preview-label>Herramientas</p>
+          <p class="explore-preview__copy" data-preview-copy>Utilidades gratuitas para escritores.</p>
+        </aside>
+      </div>
+    </div>
+  </dialog>
+
+  <main id="contenido" class="v1-main" data-family="tool">
+    <nav class="book-breadcrumb" aria-label="Ruta de navegación">
+      <ol><li><a href="/">Inicio</a></li><li><a href="/herramientas/">Herramientas</a></li><li aria-current="page">Analizador de manuscrito</li></ol>
+    </nav>
+
+    <header class="tool-hero">
+      <p class="eyebrow">Herramienta gratuita · análisis local</p>
+      <h1>Analizador de capítulos para novelas</h1>
+      <p class="tool-hero__lead">Compara la estructura cuantitativa de varios capítulos sin subir el manuscrito. Las métricas describen diferencias; no deciden cómo debe estar escrita tu novela.</p>
+    </header>
+
+    <section class="tool-panel" data-chapter-analyzer>
+      <form>
+        <div class="tool-field">
+          <label class="tool-field-label" for="chapter-files">Capítulos como archivos .txt o .md</label>
+          <input class="tool-file" id="chapter-files" type="file" multiple accept=".txt,.md,.markdown,text/plain,text/markdown" data-chapter-files>
+          <span class="tool-field-hint">Se ordenan por nombre de archivo. También puedes pegar un manuscrito con encabezados «Capítulo 1», «Capítulo 2»…</span>
+        </div>
+        <div class="tool-field">
+          <label class="tool-field-label" for="chapter-paste">O pega el texto</label>
+          <textarea id="chapter-paste" class="tool-textarea" data-chapter-paste placeholder="CAPÍTULO 1&#10;…&#10;&#10;CAPÍTULO 2&#10;…"></textarea>
+        </div>
+        <div class="tool-field">
+          <label class="tool-field-label" for="chapter-names">Personajes o términos que quieras contar</label>
+          <span class="tool-field-hint">Opcional. Sepáralos por comas o líneas; no se detectan nombres automáticamente.</span>
+          <textarea id="chapter-names" class="tool-textarea tool-textarea--small" data-chapter-names placeholder="Ana&#10;Bruno&#10;Clara"></textarea>
+        </div>
+        <div class="tool-actions">
+          <button type="submit" class="primary-action">Analizar capítulos</button>
+          <button type="button" class="text-action" data-chapter-clear>Limpiar</button>
+        </div>
+        <p class="tool-status" role="status" aria-live="polite" data-chapter-status></p>
+      </form>
+
+      <div class="tool-results" data-chapter-results hidden>
+        <h2>Vista del manuscrito</h2>
+        <dl class="tool-summary" data-chapter-summary></dl>
+        <div class="chapter-chart" data-chapter-chart aria-label="Comparación visual de palabras por capítulo"></div>
+        <div class="chapter-table-wrap" data-chapter-table></div>
+        <p class="tool-note" data-chapter-note></p>
+        <div class="tool-actions"><button type="button" class="text-action" data-chapter-export>Exportar CSV</button></div>
+      </div>
+    </section>
+
+    <section class="tool-panel tool-caveat">
+      <h2>Qué mide y qué no</h2>
+      <p>Cuenta palabras y párrafos, compara cada capítulo con la mediana de tu propio manuscrito, estima el peso de bloques dialogados y detecta únicamente separadores de escena explícitos. Si introduces nombres, cuenta sus menciones exactas. No interpreta ritmo, calidad, tensión ni importancia narrativa.</p>
+      <h2>Privacidad</h2>
+      <p>Los archivos se leen con la API del navegador y el cálculo se realiza en un Web Worker local. El texto, los nombres y los resultados no se envían al servidor.</p>
+    </section>
+
+  </main>
+
+  <footer class="site-footer">
+    <div class="site-footer__grid">
+      <div>
+        <strong class="brand__name">David Porto Díaz</strong>
+        <p>Autor de Las manecillas del recuerdo y Samuel entre mundos.</p>
+      </div>
+      <nav aria-label="Obra"><h2>Obra</h2><a href="/las-manecillas-del-recuerdo/">Las manecillas del recuerdo</a><a href="/libros/samuel-entre-mundos/">Samuel entre mundos</a><a href="/fragmento/">Fragmento gratis</a></nav>
+      <nav aria-label="Leer y recursos"><h2>Leer</h2><a href="/cuaderno/">Cuaderno</a><a href="/herramientas/" aria-current="page">Herramientas</a><a href="/mapa-del-sitio/">Mapa del sitio</a></nav>
+      <nav aria-label="Información"><h2>Información</h2><a href="/autor.html">Autor</a><a href="/prensa.html">Prensa</a><a href="/eventos.html">Eventos</a><a href="/privacidad.html">Privacidad</a><a href="/aviso-legal.html">Aviso legal</a><a href="/ai/">Para IA</a></nav>
+    </div>
+  </footer>
+
+  <script defer src="/assets/v1-shell.js"></script>
+  <script defer src="/script.js?v=202609-launch-1"></script>
+
+  <script type="module" src="/assets/analizador-capitulos.js"></script>
+</body>
+</html>

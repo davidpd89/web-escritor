@@ -1,15 +1,21 @@
-/* Adaptado al tema real del sitio. La versión anterior era un prototipo de
-   tema claro: paneles con background:#fff, pistas #f5f5f5 y un degradado azul
-   ajeno a la paleta, y ni una sola declaración de color. Como el sitio es
-   oscuro y --text es crema (#f2e8d8), el texto del formulario se heredaba
-   crema sobre blanco: Lighthouse medía 1.21:1 (el mínimo es 4.5:1), es decir,
-   las etiquetas del formulario eran prácticamente invisibles. */
-.chapter-tool{display:flex;gap:16px}
-.chapter-tool__panel{flex:1;border:1px solid var(--border);padding:12px;border-radius:8px;background:var(--surface);color:var(--text)}
-.chapter-tool__panel label{display:block;color:var(--text)}
-.chapter-tool__panel small,.chapter-tool__panel p{color:var(--muted)}
-.chapter-tool__actions{display:flex;gap:8px;margin-top:12px}
-.chapter-bar-row{display:flex;align-items:center;gap:8px;margin:6px 0}
-.chapter-bar-label{width:220px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;color:var(--text)}
-.chapter-bar-track{flex:1;background:rgba(242,232,216,0.08);border-radius:6px;padding:4px}
-.chapter-bar-fill{display:block;height:12px;background:linear-gradient(90deg,var(--accent),var(--accent-strong));border-radius:6px;width:var(--bar,10%)}
+/* V1 editorial system — bespoke visualisation for the manuscript-chapter
+   analyzer. Structural chrome (panel/form/results) lives in v1-tools.css;
+   this file only styles the pieces this engine generates itself: the bar
+   chart rows (analizador-capitulos.js) and the comparison table. */
+html.v1 .chapter-chart{margin:0 0 1.75rem}
+html.v1 .chapter-bar-row{display:flex;align-items:center;gap:.75rem;padding:.4rem 0;border-top:1px solid var(--color-border)}
+html.v1 .chapter-bar-row:first-child{border-top:0}
+html.v1 .chapter-bar-label{width:12rem;flex:0 0 auto;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;font:400 .88rem/1.4 var(--font-ui);color:var(--color-text)}
+html.v1 .chapter-bar-track{flex:1;background:var(--surface-quiet);height:10px}
+html.v1 .chapter-bar-fill{display:block;height:10px;background:var(--color-accent-strong);width:var(--bar,10%)}
+html.v1 .chapter-bar-row strong{flex:0 0 auto;font:600 .85rem/1.4 var(--font-ui);color:var(--color-text)}
+
+html.v1 .chapter-table-wrap{overflow-x:auto;margin:0 0 1.5rem}
+html.v1 .chapter-table-wrap table{width:100%;border-collapse:collapse;font:400 .88rem/1.5 var(--font-ui)}
+html.v1 .chapter-table-wrap th,html.v1 .chapter-table-wrap td{padding:.6rem .75rem;text-align:left;border-bottom:1px solid var(--color-border);white-space:nowrap}
+html.v1 .chapter-table-wrap thead th{font:600 .72rem/1.3 var(--font-ui);letter-spacing:.05em;text-transform:uppercase;color:var(--color-muted);border-bottom:1px solid var(--color-text)}
+html.v1 .chapter-table-wrap tbody th{font-weight:600}
+
+@media(max-width:600px){
+  html.v1 .chapter-bar-label{width:7rem}
+}
