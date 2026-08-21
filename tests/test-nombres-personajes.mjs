@@ -1,5 +1,5 @@
 import assert from 'node:assert/strict';
-import { analyze, pair } from '../assets/nombres-personajes-engine.js';
+import { analyze, pair, strip } from '../assets/nombres-personajes-engine.js';
 
 const sample = ['Ana', 'Anah', 'Ana Díaz', 'Bruno', 'Brunó'];
 const res = analyze(sample);
@@ -43,6 +43,16 @@ assert.equal(caseDupes.counts.high, 0, 'sin duplicados de caja no debe quedar ni
 const accentPair = res.pairs.find((p) => p.left === 'Bruno' && p.right === 'Brunó');
 assert(accentPair, 'Bruno/Brunó deben seguir siendo dos entradas separadas y comparadas entre sí');
 assert.equal(accentPair.level, 'high');
+
+// Regresión: NFD descompone ñ como n + U+0303. Si se eliminan todas las marcas
+// combinantes sin recomponerla antes, "Niña" se convierte en "nina" y el
+// motor la trata como idéntica a "Nina". Las tildes vocálicas sí se pliegan,
+// pero la ñ debe conservarse como letra española independiente.
+assert.equal(strip('Álvaro'), 'alvaro', 'las tildes vocálicas se normalizan');
+assert.equal(strip('Niña'), 'niña', 'la ñ debe sobrevivir a la normalización');
+const enyePair = pair('Nina', 'Niña');
+assert.notEqual(enyePair.metrics.edit, 1, 'Nina/Niña no deben colapsar a la misma forma ortográfica');
+assert(!enyePair.reasons.includes('mismo nombre al normalizar tildes/mayúsculas'));
 
 const single = res.pairs[0];
 assert.equal(typeof single.score, 'number');

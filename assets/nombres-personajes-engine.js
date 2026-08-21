@@ -1,7 +1,11 @@
 export const strip = (value) => String(value || '')
-  .normalize('NFD')
-  .replace(/[\u0300-\u036f]/g, '')
   .toLowerCase()
+  .normalize('NFD')
+  // En español, ñ es una letra distinta de n, no una n con un acento
+  // prescindible. NFD la separa como n + U+0303, así que la recomponemos antes
+  // de retirar el resto de marcas diacríticas (á → a, ó → o, etc.).
+  .replace(/n\u0303/g, 'ñ')
+  .replace(/[\u0300-\u036f]/g, '')
   .replace(/[^a-zñ]/g, '');
 
 export const levenshtein = (a, b) => {

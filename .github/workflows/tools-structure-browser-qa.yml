@@ -1,0 +1,68 @@
+name: Tools structure browser QA
+
+on:
+  pull_request:
+    paths:
+      - 'herramientas/personajes/**'
+      - 'herramientas/nombres-personajes/**'
+      - 'herramientas/distribucion-pov/**'
+      - 'assets/mapa-personajes.js'
+      - 'assets/mapa-personajes.css'
+      - 'assets/nombres-personajes.js'
+      - 'assets/nombres-personajes.css'
+      - 'assets/pov-distribucion.js'
+      - 'assets/pov-distribucion.css'
+      - 'qa/tools-structure-browser.mjs'
+      - '.github/workflows/tools-structure-browser-qa.yml'
+
+permissions:
+  contents: read
+
+jobs:
+  browser-qa:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+
+      - name: Install browser QA dependencies
+        run: |
+          npm install --no-save --package-lock=false playwright@1.55.0 pa11y-ci@4.1.1
+          npx playwright install --with-deps chromium
+
+      - name: Start local site
+        run: |
+          python3 -m http.server 4173 --bind 127.0.0.1 > /tmp/tools-structure-http.log 2>&1 &
+          for i in {1..30}; do
+            if curl -fsS http://127.0.0.1:4173/herramientas/personajes/ >/dev/null; then
+              exit 0
+            fi
+            sleep 1
+          done
+          cat /tmp/tools-structure-http.log
+          exit 1
+
+      - name: Run structure tools browser QA
+        env:
+          QA_BASE_URL: http://127.0.0.1:4173
+        run: node qa/tools-structure-browser.mjs
+
+      - name: Run structure tools WCAG2AA
+        run: |
+          npx pa11y-ci --config ./.pa11yci \
+            http://127.0.0.1:4173/herramientas/personajes/ \
+            http://127.0.0.1:4173/herramientas/nombres-personajes/ \
+            http://127.0.0.1:4173/herramientas/distribucion-pov/
+
+      - name: Upload QA evidence
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: tools-structure-browser-evidence
+          path: qa-artifacts/tools-structure/
+          if-no-files-found: warn
+          retention-days: 14
