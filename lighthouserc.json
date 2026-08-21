@@ -9,6 +9,7 @@
         "http://localhost/libros/samuel-entre-mundos/",
         "http://localhost/herramientas/",
         "http://localhost/herramientas/manuscrito/",
+        "http://localhost/asistente/",
         "http://localhost/autor.html",
         "http://localhost/prensa.html",
         "http://localhost/recomendaciones/portal-fantasy-espanol/"
@@ -21,7 +22,7 @@
     "assert": {
       "assertMatrix": [
         {
-          "matchingUrlPattern": "^(?!.*/herramientas/[^/]+/$).*$",
+          "matchingUrlPattern": "^(?!.*/herramientas/[^/]+/$)(?!.*\\/asistente\\/$).*$",
           "assertions": {
             "categories:performance": ["warn", { "minScore": 0.85, "aggregationMethod": "median" }],
             "categories:accessibility": ["error", { "minScore": 0.97, "aggregationMethod": "median" }],
@@ -46,6 +47,25 @@
             "link-text": ["error", { "minScore": 1 }],
             "crawlable-anchors": ["error", { "minScore": 1 }],
             "hreflang": ["error", { "minScore": 1 }],
+            "canonical": ["error", { "minScore": 1 }],
+            "robots-txt": "off",
+            "largest-contentful-paint": ["warn", { "maxNumericValue": 3500, "aggregationMethod": "median" }],
+            "cumulative-layout-shift": ["error", { "maxNumericValue": 0.1, "aggregationMethod": "pessimistic" }],
+            "total-blocking-time": ["warn", { "maxNumericValue": 400, "aggregationMethod": "median" }]
+          }
+        },
+        {
+          "matchingUrlPattern": ".*/asistente/$",
+          "assertions": {
+            "categories:performance": ["warn", { "minScore": 0.85, "aggregationMethod": "median" }],
+            "categories:accessibility": ["error", { "minScore": 0.97, "aggregationMethod": "median" }],
+            "categories:best-practices": ["warn", { "minScore": 0.95, "aggregationMethod": "median" }],
+            "categories:seo": "off",
+            "document-title": ["error", { "minScore": 1 }],
+            "meta-description": ["error", { "minScore": 1 }],
+            "http-status-code": ["error", { "minScore": 1 }],
+            "link-text": ["error", { "minScore": 1 }],
+            "crawlable-anchors": ["error", { "minScore": 1 }],
             "canonical": ["error", { "minScore": 1 }],
             "robots-txt": "off",
             "largest-contentful-paint": ["warn", { "maxNumericValue": 3500, "aggregationMethod": "median" }],
