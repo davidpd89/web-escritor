@@ -19,7 +19,7 @@ html.v1 .tool-textarea{min-height:280px;resize:vertical}
 html.v1 .tool-textarea--small{min-height:84px;resize:vertical;font-family:var(--font-ui);font-size:.92rem}
 html.v1 .tool-select{min-height:var(--control-min-height);font-family:var(--font-ui);font-size:.95rem;appearance:auto}
 html.v1 .tool-file{width:100%;font:400 .95rem/1.5 var(--font-ui);color:var(--color-text)}
-html.v1 .tool-textarea:focus-visible,html.v1 .tool-select:focus-visible,html.v1 .tool-file:focus-visible{outline:2px solid var(--focus-color);outline-offset:2px}
+html.v1 .tool-textarea:focus-visible,html.v1 .tool-select:focus-visible,html.v1 .tool-file:focus-visible{outline:2px solid var(--focus-color);outline-offset:2px;box-shadow:0 0 0 1px var(--surface-page),0 0 0 3px var(--focus-color)}
 html.v1 .tool-options{display:grid;gap:1.5rem 2rem;grid-template-columns:repeat(auto-fit,minmax(14rem,1fr));margin:1.8rem 0 0}
 html.v1 .tool-check{display:flex;align-items:flex-start;gap:.6rem;font:400 .92rem/1.5 var(--font-ui);color:var(--color-text);margin-top:1.4rem}
 html.v1 .tool-check input{width:18px;min-height:18px;height:18px;margin:.15rem 0 0;accent-color:var(--color-text)}

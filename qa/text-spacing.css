@@ -1,0 +1,9 @@
+/* QA-only WCAG text-spacing override. Loaded as a same-origin stylesheet so production CSP remains unchanged. */
+* {
+  line-height: 1.5 !important;
+  letter-spacing: .12em !important;
+  word-spacing: .16em !important;
+}
+p, li, dd, dt {
+  margin-bottom: 2em !important;
+}

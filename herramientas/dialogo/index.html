@@ -72,102 +72,41 @@
 
       <div class="explore-dialog__grid">
         <nav class="explore-list" aria-label="Destinos de la web">
-          <a class="explore-row" href="/las-manecillas-del-recuerdo/" data-preview="manecillas">
-            <span class="explore-row__index">01</span>
-            <span class="explore-row__body"><strong>Las manecillas del recuerdo</strong><small>La obra actual.</small></span>
-          </a>
-          <a class="explore-row" href="/autor.html" data-preview="autor">
-            <span class="explore-row__index">02</span>
-            <span class="explore-row__body"><strong>Autor</strong><small>Biografía, obra y trayectoria.</small></span>
-          </a>
-          <a class="explore-row" href="/libros/samuel-entre-mundos/" data-preview="samuel">
-            <span class="explore-row__index">03</span>
-            <span class="explore-row__body"><strong>Samuel entre mundos</strong><small>Primera novela publicada.</small></span>
-          </a>
-          <a class="explore-row" href="/cuaderno/" data-preview="cuaderno">
-            <span class="explore-row__index">04</span>
-            <span class="explore-row__body"><strong>Cuaderno</strong><small>Artículos y piezas editoriales.</small></span>
-          </a>
-          <a class="explore-row" href="/herramientas/" data-preview="herramientas">
-            <span class="explore-row__index">05</span>
-            <span class="explore-row__body"><strong>Herramientas</strong><small>Utilidades gratuitas para escritores.</small></span>
-          </a>
-          <a class="explore-row" href="/prensa.html" data-preview="prensa">
-            <span class="explore-row__index">06</span>
-            <span class="explore-row__body"><strong>Prensa y eventos</strong><small>Apariciones, materiales y agenda.</small></span>
-          </a>
+          <a class="explore-row" href="/las-manecillas-del-recuerdo/" data-preview="manecillas"><span class="explore-row__index">01</span><span class="explore-row__body"><strong>Las manecillas del recuerdo</strong><small>La obra actual.</small></span></a>
+          <a class="explore-row" href="/autor.html" data-preview="autor"><span class="explore-row__index">02</span><span class="explore-row__body"><strong>Autor</strong><small>Biografía, obra y trayectoria.</small></span></a>
+          <a class="explore-row" href="/libros/samuel-entre-mundos/" data-preview="samuel"><span class="explore-row__index">03</span><span class="explore-row__body"><strong>Samuel entre mundos</strong><small>Primera novela publicada.</small></span></a>
+          <a class="explore-row" href="/cuaderno/" data-preview="cuaderno"><span class="explore-row__index">04</span><span class="explore-row__body"><strong>Cuaderno</strong><small>Artículos y piezas editoriales.</small></span></a>
+          <a class="explore-row" href="/herramientas/" data-preview="herramientas"><span class="explore-row__index">05</span><span class="explore-row__body"><strong>Herramientas</strong><small>Utilidades gratuitas para escritores.</small></span></a>
+          <a class="explore-row" href="/prensa.html" data-preview="prensa"><span class="explore-row__index">06</span><span class="explore-row__body"><strong>Prensa y eventos</strong><small>Apariciones, materiales y agenda.</small></span></a>
         </nav>
-
-        <aside class="explore-preview" aria-live="polite" aria-atomic="true" data-explore-preview>
-          <div class="explore-preview__media" aria-hidden="true" data-preview-media></div>
-          <p class="explore-preview__label" data-preview-label>Herramientas</p>
-          <p class="explore-preview__copy" data-preview-copy>Utilidades gratuitas para escritores.</p>
-        </aside>
+        <aside class="explore-preview" aria-live="polite" aria-atomic="true" data-explore-preview><div class="explore-preview__media" aria-hidden="true" data-preview-media></div><p class="explore-preview__label" data-preview-label>Herramientas</p><p class="explore-preview__copy" data-preview-copy>Utilidades gratuitas para escritores.</p></aside>
       </div>
     </div>
   </dialog>
 
   <main id="contenido" class="v1-main" data-family="tool">
-    <nav class="book-breadcrumb" aria-label="Ruta de navegación">
-      <ol><li><a href="/">Inicio</a></li><li><a href="/herramientas/">Herramientas</a></li><li aria-current="page">Medidor de diálogo</li></ol>
-    </nav>
-
-    <header class="tool-hero">
-      <p class="eyebrow">Herramienta para escritores · análisis local</p>
-      <h1>¿Qué porcentaje de tu texto está en bloques de diálogo?</h1>
-      <p class="tool-hero__lead">Pega un fragmento, capítulo o manuscrito. El análisis reconoce párrafos iniciados con raya — y, cuando no hay rayas, segmentos entre «comillas españolas», “tipográficas” o "rectas". El texto se procesa exclusivamente en el navegador.</p>
-    </header>
+    <nav class="book-breadcrumb" aria-label="Ruta de navegación"><ol><li><a href="/">Inicio</a></li><li><a href="/herramientas/">Herramientas</a></li><li aria-current="page">Medidor de diálogo</li></ol></nav>
+    <header class="tool-hero"><p class="eyebrow">Herramienta para escritores · análisis local</p><h1>¿Qué porcentaje de tu texto está en bloques de diálogo?</h1><p class="tool-hero__lead">Pega un fragmento, capítulo o manuscrito. El análisis reconoce párrafos iniciados con raya — y, cuando no hay rayas, segmentos entre «comillas españolas», “tipográficas” o "rectas". El texto se procesa exclusivamente en el navegador.</p></header>
 
     <section class="tool-panel" data-dialogue-tool>
+      <noscript><p class="tool-note" role="status">JavaScript está desactivado. Puedes leer esta página y su metodología, pero el cálculo necesita JavaScript para ejecutarse localmente en tu navegador.</p></noscript>
       <form>
-        <div class="tool-field">
-          <label class="tool-field-label" for="dialogue-text">Texto a analizar</label>
-          <textarea id="dialogue-text" class="tool-textarea" name="text" spellcheck="false" autocomplete="off" placeholder="—No sé si debería entrar —dijo Ana—.&#10;&#10;La puerta seguía abierta.&#10;&#10;«Hazlo», pensó."></textarea>
-        </div>
-        <div class="tool-actions">
-          <button type="submit" class="primary-action">Analizar diálogo</button>
-          <button type="button" class="text-action" data-dialogue-clear>Limpiar</button>
-        </div>
+        <div class="tool-field"><label class="tool-field-label" for="dialogue-text">Texto a analizar</label><textarea id="dialogue-text" class="tool-textarea" name="text" spellcheck="false" autocomplete="off" placeholder="—No sé si debería entrar —dijo Ana—.&#10;&#10;La puerta seguía abierta.&#10;&#10;«Hazlo», pensó."></textarea></div>
+        <div class="tool-actions"><button type="submit" class="primary-action">Analizar diálogo</button><button type="button" class="text-action" data-dialogue-clear>Limpiar</button></div>
         <p class="tool-status">Privacidad: el texto se procesa localmente en tu navegador. No se envía a terceros.</p>
       </form>
     </section>
 
     <section class="tool-results" data-dialogue-results hidden aria-live="polite">
-      <h2>Resultado</h2>
-      <p class="tool-note" data-dialogue-basis></p>
-      <dl class="tool-summary" data-dialogue-metrics></dl>
-      <div class="tool-findings-block">
-        <h3>Convenciones detectadas</h3>
-        <p data-dialogue-conventions></p>
-        <p class="tool-note" data-dialogue-caveat></p>
-        <p class="tool-note" data-dialogue-caveat-extra></p>
-      </div>
-      <details class="tool-findings-block">
-        <summary>Ver hasta 20 bloques detectados</summary>
-        <ol class="tool-findings tool-findings--compact" data-dialogue-detail></ol>
-      </details>
-      <div class="tool-findings-block">
-        <h3>Distribución por capítulos</h3>
-        <ol class="tool-findings tool-findings--compact" data-dialogue-chapters></ol>
-      </div>
+      <h2>Resultado</h2><p class="tool-note" data-dialogue-basis></p><dl class="tool-summary" data-dialogue-metrics></dl>
+      <div class="tool-findings-block"><h3>Convenciones detectadas</h3><p data-dialogue-conventions></p><p class="tool-note" data-dialogue-caveat></p><p class="tool-note" data-dialogue-caveat-extra></p></div>
+      <details class="tool-findings-block"><summary>Ver hasta 20 bloques detectados</summary><ol class="tool-findings tool-findings--compact" data-dialogue-detail></ol></details>
+      <div class="tool-findings-block"><h3>Distribución por capítulos</h3><ol class="tool-findings tool-findings--compact" data-dialogue-chapters></ol></div>
     </section>
-
   </main>
 
-  <footer class="site-footer">
-    <div class="site-footer__grid">
-      <div>
-        <strong class="brand__name">David Porto Díaz</strong>
-        <p>Autor de Las manecillas del recuerdo y Samuel entre mundos.</p>
-      </div>
-      <nav aria-label="Obra"><h2>Obra</h2><a href="/las-manecillas-del-recuerdo/">Las manecillas del recuerdo</a><a href="/libros/samuel-entre-mundos/">Samuel entre mundos</a><a href="/fragmento/">Fragmento gratis</a></nav>
-      <nav aria-label="Leer y recursos"><h2>Leer</h2><a href="/cuaderno/">Cuaderno</a><a href="/herramientas/" aria-current="page">Herramientas</a><a href="/mapa-del-sitio/">Mapa del sitio</a></nav>
-      <nav aria-label="Información"><h2>Información</h2><a href="/autor.html">Autor</a><a href="/prensa.html">Prensa</a><a href="/eventos.html">Eventos</a><a href="/privacidad.html">Privacidad</a><a href="/aviso-legal.html">Aviso legal</a><a href="/ai/">Para IA</a></nav>
-    </div>
-  </footer>
-
+  <footer class="site-footer"><div class="site-footer__grid"><div><strong class="brand__name">David Porto Díaz</strong><p>Autor de Las manecillas del recuerdo y Samuel entre mundos.</p></div><nav aria-label="Obra"><h2>Obra</h2><a href="/las-manecillas-del-recuerdo/">Las manecillas del recuerdo</a><a href="/libros/samuel-entre-mundos/">Samuel entre mundos</a><a href="/fragmento/">Fragmento gratis</a></nav><nav aria-label="Leer y recursos"><h2>Leer</h2><a href="/cuaderno/">Cuaderno</a><a href="/herramientas/" aria-current="page">Herramientas</a><a href="/mapa-del-sitio/">Mapa del sitio</a></nav><nav aria-label="Información"><h2>Información</h2><a href="/autor.html">Autor</a><a href="/prensa.html">Prensa</a><a href="/eventos.html">Eventos</a><a href="/privacidad.html">Privacidad</a><a href="/aviso-legal.html">Aviso legal</a><a href="/ai/">Para IA</a></nav></div></footer>
   <script defer src="/assets/v1-shell.js"></script>
-
   <script type="module" src="/assets/dialogo-espanol.js"></script>
 </body>
 </html>
