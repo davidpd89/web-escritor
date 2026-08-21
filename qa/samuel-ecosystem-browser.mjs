@@ -241,7 +241,11 @@ for(const [key,width,file] of [
   // Switching to print media is a deliberate reflow by this harness (the print
   // stylesheet hides the chrome and re-lays the document), so it registers as
   // one large layout shift that says nothing about the page's own stability.
-  // Same reasoning as the text-stress runs above.
+  // Same reasoning as the text-stress runs above. layout-shift entries are
+  // delivered asynchronously, so let them land before clearing the counter —
+  // resetting straight after emulateMedia() discards nothing.
+  await page.evaluate(()=>new Promise(r=>requestAnimationFrame(()=>requestAnimationFrame(r))));
+  await page.waitForTimeout(120);
   await page.evaluate(()=>{window.__qaCls=0;});
   for(const sel of ['.skip-link','.topbar','.breadcrumb','.actions']) assert.equal(await page.locator(sel).evaluate(el=>getComputedStyle(el).display),'none',`print: ${sel} oculto`);
   const pdf=path.join(OUT,'samuel-guia-imprimible.pdf');
