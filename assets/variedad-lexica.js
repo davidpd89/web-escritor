@@ -12,7 +12,17 @@ const profileNote = document.querySelector('[data-lexical-profile-note]');
 const sampleButton = document.querySelector('[data-lexical-sample]');
 const clearButton = document.querySelector('[data-lexical-clear]');
 
-const SAMPLE = `El reloj de la cocina llevaba tres minutos atrasado, pero Julia no quiso corregirlo.`;
+// 144 palabras: por debajo de 100 no se puede mostrar MATTR-100, y el propio
+// botón "Cargar ejemplo" existe para que un visitante vea la herramienta
+// funcionar sin tener que pegar su propio texto primero. La frase anterior
+// tenía solo 14 palabras — por debajo incluso del mínimo de 20 que exige el
+// propio análisis — así que pulsar el ejemplo y luego "Analizar" no mostraba
+// ningún resultado, solo el aviso de "pega al menos 20 palabras".
+const SAMPLE = `Marta releyó el capítulo entero antes de tocar nada. El primer párrafo repetía «puerta» tres veces en dos frases; lo dejó así porque la puerta era el objeto de la escena, no un descuido. El segundo párrafo era distinto: ahí había usado «mirar», «observar», «contemplar» y «fijarse» casi seguidos, y ese exceso de sinónimos sonaba más a diccionario que a una mujer cansada entrando en su propia casa.
+
+Cambió tres verbos y dejó uno repetido. La variedad no era el objetivo; el ritmo sí. Un texto que evita toda repetición puede acabar sonando artificial, como si alguien hubiera pasado un tesauro por encima sin escuchar cómo sonaba en voz alta.
+
+Cerró el capítulo, abrió el siguiente y encontró justo el problema contrario: cuarenta líneas sin una sola palabra que se repitiera, ninguna respiración, ninguna vuelta. Ahí sí hacía falta bajar el vocabulario, no subirlo.`;
 
 function escapeHTML(value) {
   return String(value).replace(/[&<>"']/g, char => ({

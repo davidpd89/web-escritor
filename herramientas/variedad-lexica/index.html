@@ -2,53 +2,125 @@
 <html lang="es">
 <head>
   <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1">
-  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; connect-src 'none'; form-action 'none';">
-  <title>Variedad léxica — Herramientas</title>
-  <meta name="description" content="Métricas de diversidad léxica y perfil por tramos. Local y privado.">
-  <meta property="og:title" content="Variedad léxica — Herramientas">
-  <meta property="og:description" content="Métricas de diversidad léxica y perfil por tramos. Local y privado.">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; connect-src 'none'; script-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; font-src 'self'; worker-src 'self'; object-src 'none'; base-uri 'self'; form-action 'none'; frame-src 'none'; media-src 'none'; manifest-src 'self'">
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+  <title>Analizador de variedad léxica en español | Herramientas</title>
+  <meta name="description" content="Analiza TTR, MATTR y MTLD en español y compara cómo cambia la variedad de formas léxicas a lo largo de un texto. Todo se procesa en tu navegador.">
+  <meta property="og:title" content="Analizador de variedad léxica en español | Herramientas">
+  <meta property="og:description" content="Compara TTR, MATTR y MTLD sin convertir la variedad de vocabulario en una nota de calidad. El texto no sale de tu navegador.">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://davidportodiaz.com/herramientas/variedad-lexica/">
   <meta property="og:image" content="https://davidportodiaz.com/assets/david-porto-imagen-compartir.webp">
   <meta property="og:image:width" content="1731">
   <meta property="og:image:height" content="909">
-  <meta property="og:image:alt" content="Variedad léxica — Herramientas">
+  <meta property="og:image:alt" content="Analizador de variedad léxica en español | Herramientas">
   <meta property="og:locale" content="es_ES">
   <meta property="og:site_name" content="David Porto Díaz">
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Variedad léxica — Herramientas">
-  <meta name="twitter:description" content="Métricas de diversidad léxica y perfil por tramos. Local y privado.">
+  <meta name="twitter:title" content="Analizador de variedad léxica en español | Herramientas">
+  <meta name="twitter:description" content="Mira cómo cambia la variedad del vocabulario de un texto sin subirlo a ningún servidor.">
   <meta name="twitter:image" content="https://davidportodiaz.com/assets/david-porto-imagen-compartir.webp">
-  <meta name="twitter:image:alt" content="Variedad léxica — Herramientas">
+  <meta name="twitter:image:alt" content="Analizador de variedad léxica en español | Herramientas">
   <link rel="canonical" href="https://davidportodiaz.com/herramientas/variedad-lexica/">
   <link rel="stylesheet" href="/styles.css?v=202609-launch-1">
   <link rel="stylesheet" href="/assets/variedad-lexica.css">
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebApplication","name":"Analizador de variedad léxica en español","url":"https://davidportodiaz.com/herramientas/variedad-lexica/","applicationCategory":"UtilitiesApplication","operatingSystem":"Cualquier navegador moderno","isAccessibleForFree":true,"inLanguage":"es","author":{"@id":"https://davidportodiaz.com/#author"},"description":"Herramienta gratuita que calcula localmente métricas descriptivas de diversidad léxica (TTR, MATTR-50, MATTR-100, MTLD) y muestra cómo cambia dentro del propio texto."}</script>
 </head>
 <body>
-  <main>
-    <nav class="breadcrumb"><a href="/">Inicio</a> › <a href="/herramientas/">Herramientas</a> › <span>Variedad léxica</span></nav>
-    <h1>Variedad léxica</h1>
-    <form data-lexical-form>
-      <label for="lexical-input">Texto a analizar</label>
-      <textarea id="lexical-input" data-lexical-input></textarea>
-      <div class="lexical-controls">
-        <button type="submit">Analizar</button>
-        <button type="button" data-lexical-sample>Cargar ejemplo</button>
-        <button type="button" data-lexical-clear>Limpiar</button>
-        <span id="lexical-count" data-lexical-count></span>
-      </div>
-      <p id="lexical-status" data-lexical-status>Introduce texto y pulsa Analizar.</p>
-    </form>
+<a href="#main-content" class="skip-link">Saltar al contenido</a>
+<main id="main-content" tabindex="-1" class="lexical-page">
+  <nav class="breadcrumb" aria-label="Ruta de navegación"><a href="/">Inicio</a> › <a href="/herramientas/">Herramientas</a> › <span>Variedad léxica</span></nav>
 
-    <section id="lexical-results" data-lexical-results hidden>
-      <div id="lexical-summary" data-lexical-summary></div>
-      <div id="lexical-metrics" data-lexical-metrics></div>
-      <div id="lexical-profile" data-lexical-profile></div>
-      <p id="lexical-profile-note" data-lexical-profile-note></p>
+  <header class="lexical-hero">
+    <p class="eyebrow">Herramienta gratuita · español</p>
+    <h1>¿Tu vocabulario cambia o solo lo parece?</h1>
+    <p class="lead">Pega un fragmento, un capítulo o varias páginas. El analizador compara formas distintas, MATTR y MTLD y dibuja cómo cambia la variedad léxica dentro del propio texto. No decide si tu prosa es rica, pobre, buena o mala.</p>
+    <div class="lexical-trust" aria-label="Privacidad y método"><span>Sin cuenta</span><span>Sin IA</span><span>Sin subir el manuscrito</span><span>Método publicado</span></div>
+  </header>
+
+  <form class="lexical-panel" data-lexical-form novalidate>
+    <label class="lexical-label" for="lexical-input">Pega el texto que quieras comparar</label>
+    <p class="lexical-hint" id="lexical-hint">A partir de 50 palabras se puede calcular MATTR-50 y MTLD; por debajo de 100 conviene interpretar cualquier cifra con especial cautela.</p>
+    <textarea id="lexical-input" class="lexical-input" data-lexical-input rows="12" aria-describedby="lexical-hint lexical-status" spellcheck="true" maxlength="150000" placeholder="Pega aquí un fragmento, una escena o un capítulo. El texto se procesa solo en este navegador."></textarea>
+    <div class="lexical-input-meta"><span id="lexical-count" data-lexical-count>0 palabras</span><span>Límite técnico: 150.000 caracteres</span></div>
+    <div class="lexical-actions">
+      <button type="submit" class="button primary">Analizar variedad</button>
+      <button type="button" class="button secondary" data-lexical-sample>Cargar un ejemplo</button>
+      <button type="button" class="button tertiary" data-lexical-clear>Borrar</button>
+    </div>
+    <p class="lexical-status" id="lexical-status" data-lexical-status role="status" aria-live="polite">Nada de lo que pegues se guarda ni se envía.</p>
+  </form>
+
+  <section class="lexical-results" data-lexical-results hidden aria-label="Resultados de variedad léxica">
+    <div class="lexical-summary" data-lexical-summary></div>
+    <div class="lexical-metrics" data-lexical-metrics></div>
+
+    <section class="lexical-section" aria-labelledby="lexical-profile-title">
+      <h2 id="lexical-profile-title">Cómo cambia dentro del texto</h2>
+      <p>Divido la muestra en bloques consecutivos de hasta 200 palabras y calculo MATTR-50 dentro de cada uno. Esta vista no compara tu novela con una norma externa: compara unas zonas con otras.</p>
+      <div class="lexical-profile" data-lexical-profile aria-label="MATTR-50 por tramos consecutivos del texto"></div>
+      <p class="lexical-profile-note" id="lexical-profile-note" data-lexical-profile-note></p>
     </section>
-  </main>
+  </section>
 
-  <script type="module" src="/assets/variedad-lexica.js"></script>
+  <section class="lexical-section lexical-caveat">
+    <h2>Más variedad no significa mejor prosa</h2>
+    <p>Repetir una palabra puede ser torpeza, ritmo, voz, cohesión o una decisión deliberada. Un diálogo natural puede usar menos vocabulario que un párrafo descriptivo y funcionar mejor. Estas métricas miden distribución de formas; no entienden intención narrativa.</p>
+    <p>Por eso esta herramienta no muestra semáforos, percentiles de «calidad» ni una puntuación final. Si quieres localizar qué palabras se repiten y dónde, esa tarea corresponde al <a href="/herramientas/repeticiones/">detector de repeticiones</a>.</p>
+  </section>
+
+  <section class="lexical-section">
+    <h2>Qué significa cada cifra</h2>
+    <div class="lexical-two-col">
+      <article class="lexical-card"><h3>TTR</h3><p>Divide el número de formas distintas entre el total de palabras. Es intuitivo, pero cae de manera sistemática al crecer el texto; úsalo solo como descripción de esa muestra.</p></article>
+      <article class="lexical-card"><h3>MATTR-50 y MATTR-100</h3><p>Calculan TTR en ventanas móviles y promedian los resultados. Reducen parte del problema de longitud, pero el tamaño de ventana y la posición de los tokens siguen importando. Mostrar dos ventanas hace visible esa sensibilidad.</p></article>
+      <article class="lexical-card"><h3>MTLD</h3><p>Estima cuánto texto hace falta, en promedio, para que TTR caiga hasta un umbral de 0,72. Se calcula en ambos sentidos y sirve como contraste, no como nota literaria.</p></article>
+      <article class="lexical-card"><h3>Formas que aparecen una sola vez</h3><p>Los <em>hapax</em> son formas con una sola aparición en la muestra. También dependen de longitud, género y tema. Los mostramos porque ayudan a describir el texto, no porque exista una proporción ideal.</p></article>
+    </div>
+  </section>
+
+  <section class="lexical-section">
+    <h2>Una limitación importante en español</h2>
+    <p>Este MVP trabaja con <strong>formas ortográficas</strong>, no con lemas. «Casa» y «casas» cuentan como formas distintas; «hablo», «hablé» y «hablar» también. Es una decisión deliberada: una lematización española fiable requiere un análisis lingüístico bastante más pesado que no quiero fingir con reglas caseras.</p>
+    <p>Los estudios y herramientas académicas de riqueza léxica para español suelen lematizar antes de calcular algunas métricas. Por eso no debes comparar directamente una cifra de esta página con otra herramienta que use spaCy, Freeling u otro analizador morfológico.</p>
+  </section>
+
+  <section class="lexical-section">
+    <h2>Privacidad</h2>
+    <p>Todo el cálculo ocurre en JavaScript dentro del navegador. No hay <code>fetch</code>, API de IA, almacenamiento local del manuscrito ni envío del contenido a analítica.</p>
+    <p>Si se mide el uso, el evento solo contiene el nombre de la herramienta y un tramo aproximado de longitud —por ejemplo, «500–1.999 palabras»—. Nunca incluye el texto, palabras detectadas, nombres, resultados o títulos.</p>
+  </section>
+
+  <section class="lexical-section">
+    <h2>Fuentes y método</h2>
+    <ul class="lexical-source-list">
+      <li><a href="https://doi.org/10.1080/09296171003643098" target="_blank" rel="noopener noreferrer">Covington & McFall (2010) — Moving-Average Type-Token Ratio</a>.</li>
+      <li><a href="https://pubmed.ncbi.nlm.nih.gov/20479170/" target="_blank" rel="noopener noreferrer">McCarthy & Jarvis (2010) — evaluación de MTLD y otras medidas de diversidad léxica</a>.</li>
+      <li><a href="https://doi.org/10.1016/j.rmal.2024.100168" target="_blank" rel="noopener noreferrer">Bestgen (2025) — ventajas y límites de MATTR como medida global</a>.</li>
+      <li><a href="https://doi.org/10.1017/S0272263123000384" target="_blank" rel="noopener noreferrer">Díez-Ortega & Kyle — riqueza léxica en español L2 y métricas basadas en lemas</a>.</li>
+      <li><a href="https://github.com/kristopherkyle/lexical_diversity" target="_blank" rel="noopener noreferrer">lexical_diversity — implementación abierta de referencia para TTR, MATTR y MTLD</a>.</li>
+    </ul>
+    <p>La política general de fuentes, correcciones y uso de herramientas está en <a href="/metodologia-editorial/">Metodología editorial</a>.</p>
+  </section>
+
+  <section class="lexical-section">
+    <h2>Dudas frecuentes</h2>
+    <div class="lexical-faq">
+      <details><summary>¿Qué TTR o MTLD debería tener una novela?</summary><p>No existe un umbral universal fiable para decir que una novela tiene «buen vocabulario». La longitud, el género, el diálogo, el tema y el procesamiento lingüístico cambian los resultados.</p></details>
+      <details><summary>¿Por qué TTR baja al pegar más texto?</summary><p>Porque al crecer la muestra muchas palabras reaparecen mientras el número de formas nuevas no aumenta al mismo ritmo. Es una propiedad conocida de TTR, no un deterioro automático del estilo.</p></details>
+      <details><summary>¿Por qué mostráis MATTR-50 y MATTR-100?</summary><p>Porque el tamaño de ventana influye. Ver ambos resultados recuerda que MATTR tampoco es una constante absoluta del texto.</p></details>
+      <details><summary>¿Detecta texto escrito por IA?</summary><p>No. La diversidad léxica por sí sola no identifica de forma fiable la autoría humana o automática, y esta herramienta no intenta hacerlo.</p></details>
+      <details><summary>¿Sirve para mejorar el SEO?</summary><p>No hay un factor de ranking documentado que premie un TTR, MATTR o MTLD concreto. El objetivo es ayudar a revisar escritura; el posible valor orgánico de la página proviene de ser una utilidad real.</p></details>
+    </div>
+  </section>
+
+  <section class="lexical-next" aria-labelledby="lexical-next-title">
+    <p class="eyebrow">Sigue revisando, sin subir el manuscrito</p>
+    <h2 id="lexical-next-title">Cada herramienta responde una pregunta distinta.</h2>
+    <p>Para localizar ecos concretos, usa el detector de repeticiones. Para ver dónde aumenta la carga formal de lectura, usa el analizador de legibilidad.</p>
+    <div class="lexical-next-links"><a class="button secondary" href="/herramientas/repeticiones/">Detectar repeticiones</a><a class="button secondary" href="/herramientas/legibilidad/">Analizar legibilidad</a><a class="button tertiary" href="/cuaderno/">Ir al Cuaderno</a></div>
+  </section>
+</main>
+<script type="module" src="/assets/variedad-lexica.js"></script>
 </body>
 </html>
