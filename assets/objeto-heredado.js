@@ -15,6 +15,7 @@ const $$ = (selector, scope = root) => [...scope.querySelectorAll(selector)];
 const status = $('[data-record-status]');
 const fileInput = $('[data-record-import]');
 const form = $('form');
+form.addEventListener('submit', (event) => event.preventDefault());
 
 const certaintyOptions = CERTAINTY_VALUES.map((value) =>
   `<option value="${value}">${({comprobado:'Comprobado',recuerdo:'Recuerdo oral',hipotesis:'Hipótesis',desconocido:'Desconocido'})[value]}</option>`

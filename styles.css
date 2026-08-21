@@ -929,19 +929,16 @@ body .synopsis-quick ul li {
   gap: 10px;
 }
 
-body .purchase-section,
-body .section--light .book-feature {
+body body .section--light .book-feature {
   color: #21170e;
 }
 
-body .purchase-section .section-heading h2,
-body .purchase-section .feature-card h3,
+body body .purchase-section .feature-card h3,
 body .section--light .book-info h3 {
   color: #21170e !important;
 }
 
-body .purchase-section .section-heading p,
-body .purchase-section .feature-card p,
+body body .purchase-section .feature-card p,
 body .section--light .book-hook,
 body .section--light .book-detail {
   color: #463a2e !important;

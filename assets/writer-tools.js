@@ -27,6 +27,7 @@
     empty.hidden = visible !== 0;
   }
   form.addEventListener("input", apply);
+  form.addEventListener("submit", (event) => event.preventDefault());
   form.querySelector("[data-wt-clear]").addEventListener("click", () => { form.reset(); apply(); search.focus(); });
   apply();
 })();

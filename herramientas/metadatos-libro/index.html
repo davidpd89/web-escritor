@@ -35,8 +35,8 @@
 <form class="meta-panel" data-meta-form>
   <div class="meta-fields">
     <div class="meta-field"><label for="meta-book">Título del libro</label><input id="meta-book" name="book" autocomplete="off" required></div>
-    <div class="meta-field"><label for="meta-author">Autor</label><input id="meta-author" name="author" autocomplete="name"></div>
-    <div class="meta-field"><label for="meta-site">Nombre del sitio</label><input id="meta-site" name="site" autocomplete="organization"></div>
+    <div class="meta-field"><label for="meta-author">Autor</label><input id="meta-author" name="author" type="text" autocomplete="name"></div>
+    <div class="meta-field"><label for="meta-site">Nombre del sitio</label><input id="meta-site" name="site" type="text" autocomplete="organization"></div>
     <div class="meta-field"><label for="meta-url">URL canónica HTTPS</label><input id="meta-url" name="url" type="url" inputmode="url" placeholder="https://…"></div>
     <div class="meta-field meta-field--wide"><label for="meta-description">Descripción de la página</label><textarea id="meta-description" name="description"></textarea></div>
     <div class="meta-field meta-field--wide"><label for="meta-image">URL HTTPS de imagen social</label><input id="meta-image" name="image" type="url" inputmode="url" placeholder="https://…/social.webp"></div>
@@ -51,7 +51,7 @@
 </form>
 <section class="meta-output" data-meta-output hidden aria-label="Previsualizaciones y código">
   <div class="meta-preview-stack">
-    <article class="meta-card"><p class="meta-card__label">Google · simulación orientativa</p><div class="meta-google"><div class="meta-google__url" data-google-url></div><h2 class="meta-google__title" data-google-title></h2><p class="meta-google__desc" data-google-desc></p></div></article>
+    <article class="meta-card"><p class="meta-card__label">Google · simulación orientativa</p><div class="meta-google"><div class="meta-google__url" data-google-url></div><h2 class="meta-google__title" data-google-title>Título de la página</h2><p class="meta-google__desc" data-google-desc></p></div></article>
     <article class="meta-card"><p class="meta-card__label">Open Graph · simulación</p><img class="meta-social-image" data-og-image hidden alt=""><div class="meta-social-body"><strong data-og-title></strong><p data-og-desc></p></div></article>
     <article class="meta-card"><p class="meta-card__label">X · summary large image · simulación</p><img class="meta-social-image" data-x-image hidden alt=""><div class="meta-social-body"><strong data-x-title></strong><p data-x-desc></p></div></article>
   </div>

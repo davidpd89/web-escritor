@@ -75,8 +75,8 @@
 </form>
 
 <section class="event-results" data-event-results hidden>
-  <div class="event-output"><h2>HTML visible</h2><textarea data-event-html readonly></textarea><div class="event-result-actions"><button type="button" class="button secondary" data-copy-target="[data-event-html]">Copiar</button></div></div>
-  <div class="event-output"><h2>JSON-LD</h2><textarea data-event-jsonld readonly></textarea><div class="event-result-actions"><button type="button" class="button secondary" data-copy-target="[data-event-jsonld]">Copiar</button></div></div>
+  <div class="event-output"><h2 id="event-html-label">HTML visible</h2><textarea data-event-html readonly aria-labelledby="event-html-label"></textarea><div class="event-result-actions"><button type="button" class="button secondary" data-copy-target="[data-event-html]">Copiar</button></div></div>
+  <div class="event-output"><h2 id="event-jsonld-label">JSON-LD</h2><textarea data-event-jsonld readonly aria-labelledby="event-jsonld-label"></textarea><div class="event-result-actions"><button type="button" class="button secondary" data-copy-target="[data-event-jsonld]">Copiar</button></div></div>
   <div class="event-result-actions"><button type="button" class="button secondary" data-event-ics>Descargar .ics</button></div>
 </section>
 </main>
