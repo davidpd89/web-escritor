@@ -16,6 +16,7 @@ worker = (ROOT / "cloudflare-worker-assistant.js").read_text(encoding="utf-8")
 registry = json.loads((ROOT / "data/assistant-source-registry.json").read_text(encoding="utf-8"))
 lighthouse = json.loads((ROOT / "lighthouserc.json").read_text(encoding="utf-8"))
 migration = (ROOT / "migrations/assistant-quota.sql").read_text(encoding="utf-8")
+wrangler = json.loads((ROOT / "wrangler.assistant.example.jsonc").read_text(encoding="utf-8"))
 build_registry = (ROOT / "scripts/build-assistant-source-registry.mjs").read_text(encoding="utf-8")
 parity_registry = (ROOT / "scripts/test-assistant-index-parity.mjs").read_text(encoding="utf-8")
 
@@ -85,6 +86,24 @@ urls = lighthouse.get("ci", {}).get("collect", {}).get("url", [])
 need("http://localhost/asistente/" in urls, "Lighthouse must audit /asistente/ before merge")
 ids = [s.get("id") for s in registry.get("sources", [])]
 
+# Deployment template: useful enough to copy, impossible to activate accidentally.
+need(wrangler.get("main") == "cloudflare-worker-assistant.js", "Wrangler template must point at the audited Worker")
+vars_ = wrangler.get("vars", {})
+need(vars_.get("ASSISTANT_ENABLED") == "false", "Wrangler template must remain fail-closed")
+need(vars_.get("ASSISTANT_MODEL") == "@cf/qwen/qwen3-30b-a3b-fp8", "Wrangler template model must match FREE_V1_MODELS")
+need("TURNSTILE_SECRET_KEY" not in json.dumps(wrangler), "Turnstile secret must never be committed in Wrangler config")
+need(wrangler.get("ai", {}).get("binding") == "AI", "Wrangler Workers AI binding must be named AI")
+ai_search = wrangler.get("ai_search", [])
+need(len(ai_search) == 1 and ai_search[0].get("binding") == "ASSISTANT_SEARCH", "Wrangler AI Search binding must be ASSISTANT_SEARCH")
+d1 = wrangler.get("d1_databases", [])
+need(len(d1) == 1 and d1[0].get("binding") == "ASSISTANT_QUOTA_DB", "Wrangler D1 binding must be ASSISTANT_QUOTA_DB")
+ratelimits = wrangler.get("ratelimits", [])
+expected_rate_names = {"SESSION_RATE_LIMITER", "IP_RATE_LIMITER", "GLOBAL_RATE_LIMITER"}
+need({item.get("name") for item in ratelimits} == expected_rate_names, "Wrangler must define exactly the three assistant rate limit bindings")
+namespace_ids = [str(item.get("namespace_id", "")) for item in ratelimits]
+need(len(namespace_ids) == len(set(namespace_ids)) == 3 and all(value.isdigit() and int(value) > 0 for value in namespace_ids), "Assistant rate limit namespace IDs must be three distinct positive integers")
+need(all(item.get("simple", {}).get("period") in (10, 60) and isinstance(item.get("simple", {}).get("limit"), int) and item["simple"]["limit"] > 0 for item in ratelimits), "Assistant rate limits must use valid simple limit/period values")
+
 content_registry_path = ROOT / "data/content-registry.json"
 if content_registry_path.exists():
     content_registry = json.loads(content_registry_path.read_text(encoding="utf-8"))
@@ -107,4 +126,4 @@ if errors:
     print("Assistant contract check FAILED:")
     for error in errors: print(f" - {error}")
     sys.exit(1)
-print(f"Assistant contract OK: {len(ids)} public sources, public+server kill switches, generated parity, protocol v1, fail-closed Worker, Turnstile, Lighthouse and safe citation contract.")
+print(f"Assistant contract OK: {len(ids)} public sources, public+server kill switches, generated parity, protocol v1, fail-closed Worker/config, exact quotas, Turnstile, Lighthouse, deployment template and safe citation contract.")
