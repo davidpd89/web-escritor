@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="es" class="v1">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
@@ -35,12 +35,22 @@
   }
   </script>
 
-  <meta name="theme-color" content="#080a0c" />
-  <link rel="preconnect" href="https://gc.zgo.at" /><link rel="canonical" href="https://davidportodiaz.com/premios.html" />
-  <link rel="manifest" href="manifest.json" />
-  <link rel="icon" type="image/png" href="assets/david-porto-favicon.png" />
-  <link rel="apple-touch-icon" href="assets/david-porto-favicon.png" />
-  <link rel="stylesheet" href="styles.css?v=202609-launch-1" />
+  <meta name="theme-color" content="#F4EFE7" />
+  <link rel="preconnect" href="https://gc.zgo.at" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="canonical" href="https://davidportodiaz.com/premios.html" />
+  <link rel="manifest" href="/manifest.json" />
+  <link rel="icon" type="image/png" href="/assets/david-porto-favicon.png" />
+  <link rel="apple-touch-icon" href="/assets/david-porto-favicon.png" />
+
+  <!-- V1 editorial system — Identity family (Autor/Premios/Prensa/Eventos) -->
+  <link rel="stylesheet" href="/assets/v1-fonts.css" />
+  <link rel="stylesheet" href="/assets/v1-tokens.css" />
+  <link rel="stylesheet" href="/assets/v1-base.css" />
+  <link rel="stylesheet" href="/assets/v1-shell.css" />
+  <link rel="stylesheet" href="/assets/v1-components.css" />
+  <link rel="stylesheet" href="/assets/v1-families.css" />
 
   <script type="application/ld+json">
   {
@@ -55,7 +65,7 @@
         "inLanguage": "es",
         "isPartOf": { "@id": "https://davidportodiaz.com/#website" },
         "about": { "@id": "https://davidportodiaz.com/#author" },
-        "dateModified": "2026-08-20",
+        "dateModified": "2026-08-21",
         "breadcrumb": {
           "@type": "BreadcrumbList",
           "itemListElement": [
@@ -68,7 +78,7 @@
         "@type": "Person",
         "@id": "https://davidportodiaz.com/#author",
         "name": "David Porto Díaz",
-        "dateModified": "2026-08-20",
+        "dateModified": "2026-08-21",
         "award": [
           "Primer Premio — XII Certamen de Microrrelatos «De amor» · Letras Como Espada (2026)",
           "Top 10 Finalista Premio Nacional de Literatura Infantil Juan Andrés Teno (2026)",
@@ -82,224 +92,200 @@
 
 <body>
   <a href="#contenido" class="skip-link">Saltar al contenido</a>
-  <div class="site-shell">
 
-    <!-- HEADER -->
-    <header class="site-header">
-      <a class="brand" href="/" aria-label="Volver al inicio — David Porto Díaz">
-        <span class="brand-mark">
-          <img src="assets/logo-david-porto-diaz-escritor-176.webp" alt="" class="brand-logo-img" width="52" height="52" aria-hidden="true" />
-        </span>
-        <span class="brand-text">
-          <strong>David Porto Díaz</strong>
-          <small>Escritor</small>
-        </span>
+  <header class="site-header" data-header>
+    <div class="site-header__inner">
+      <a class="brand" href="/" aria-label="David Porto Díaz — inicio">
+        <span class="brand__name">David Porto Díaz</span>
+        <span class="brand__role">Escritor</span>
       </a>
-
-      <button class="nav-toggle" type="button" aria-label="Abrir menú" aria-expanded="false">
-        <span></span>
-        <span></span>
-      </button>
-
-      <nav class="site-nav" aria-label="Navegación principal">
-        <a href="/">Inicio</a>
-        <a href="/libros/">Libros</a>
+      <nav class="primary-nav" aria-label="Navegación principal">
+        <a href="/libros/">Obra</a>
         <a href="/cuaderno/">Cuaderno</a>
-        <a href="/autor.html">El autor</a>
-        <a href="/eventos.html">Eventos</a>
-        <a href="/prensa.html">Prensa</a>
+        <a href="/herramientas/">Herramientas</a>
       </nav>
+      <button class="explore-trigger" type="button" aria-haspopup="dialog" aria-controls="explore-dialog" aria-expanded="false" data-explore-open>
+        Explorar
+      </button>
+    </div>
+  </header>
+
+  <dialog class="explore-dialog" id="explore-dialog" aria-labelledby="explore-title" data-explore-dialog>
+    <div class="explore-dialog__shell">
+      <div class="explore-dialog__head">
+        <div>
+          <p class="eyebrow">Índice general</p>
+          <h2 id="explore-title">Explorar</h2>
+        </div>
+        <button class="icon-button" type="button" aria-label="Cerrar Explorar" data-explore-close>
+          <svg aria-hidden="true" viewBox="0 0 24 24" width="20" height="20"><path d="M5 5l14 14M19 5L5 19"/></svg>
+        </button>
+      </div>
+
+      <div class="explore-dialog__grid">
+        <nav class="explore-list" aria-label="Destinos de la web">
+          <a class="explore-row" href="/las-manecillas-del-recuerdo/" data-preview="manecillas">
+            <span class="explore-row__index">01</span>
+            <span class="explore-row__body"><strong>Las manecillas del recuerdo</strong><small>La obra actual.</small></span>
+          </a>
+          <a class="explore-row" href="/autor.html" data-preview="autor">
+            <span class="explore-row__index">02</span>
+            <span class="explore-row__body"><strong>Autor</strong><small>Biografía, obra y trayectoria.</small></span>
+          </a>
+          <a class="explore-row" href="/libros/samuel-entre-mundos/" data-preview="samuel">
+            <span class="explore-row__index">03</span>
+            <span class="explore-row__body"><strong>Samuel entre mundos</strong><small>Primera novela publicada.</small></span>
+          </a>
+          <a class="explore-row" href="/cuaderno/" data-preview="cuaderno">
+            <span class="explore-row__index">04</span>
+            <span class="explore-row__body"><strong>Cuaderno</strong><small>Artículos y piezas editoriales.</small></span>
+          </a>
+          <a class="explore-row" href="/herramientas/" data-preview="herramientas">
+            <span class="explore-row__index">05</span>
+            <span class="explore-row__body"><strong>Herramientas</strong><small>Utilidades gratuitas para escritores.</small></span>
+          </a>
+          <a class="explore-row" href="/prensa.html" data-preview="prensa">
+            <span class="explore-row__index">06</span>
+            <span class="explore-row__body"><strong>Prensa y eventos</strong><small>Apariciones, materiales y agenda.</small></span>
+          </a>
+        </nav>
+
+        <aside class="explore-preview" aria-live="polite" aria-atomic="true" data-explore-preview>
+          <div class="explore-preview__media" aria-hidden="true" data-preview-media></div>
+          <p class="explore-preview__label" data-preview-label>Autor</p>
+          <p class="explore-preview__copy" data-preview-copy>Biografía, obra y trayectoria.</p>
+        </aside>
+      </div>
+    </div>
+  </dialog>
+
+  <main id="contenido" class="v1-main" data-family="identity">
+    <nav class="book-breadcrumb" aria-label="Ruta de navegación">
+      <ol><li><a href="/">Inicio</a></li><li aria-current="page">Premios</li></ol>
+    </nav>
+
+    <header class="v1-masthead">
+      <div>
+        <span class="coordinate">Identidad</span>
+        <p class="eyebrow">Reconocimientos · Certámenes · Trayectoria</p>
+        <h1>Premios</h1>
+        <p class="v1-masthead__lead">La trayectoria reconocida de David Porto Díaz en el panorama literario español. Primer Premio en el XII Certamen de Microrrelatos de Letras Como Espada (2026) y finalista en el Premio Nacional de Literatura Infantil Juan Andrés Teno (2026).</p>
+        <div class="v1-masthead__actions">
+          <a class="primary-action" href="/libros/samuel-entre-mundos/">Ver su debut: Samuel entre mundos</a>
+          <a class="text-action" href="/autor.html">Sobre el autor</a>
+        </div>
+      </div>
     </header>
 
-    <main id="contenido">
-
-      <!-- HERO -->
-      <section class="hero hero--compact" aria-label="Premios">
-        <div class="hero-bg" aria-hidden="true"></div>
-        <div class="hero-content">
-          <nav class="breadcrumb" aria-label="Ruta de navegación">
-            <a href="/">David Porto Díaz</a>
-            <span aria-hidden="true"> / </span>
-            <span aria-current="page">Premios</span>
-          </nav>
-
-          <p class="eyebrow">Reconocimientos · Certámenes · Trayectoria</p>
-          <h1>Premios</h1>
-          <p class="hero-lead">La trayectoria reconocida de David Porto Díaz en el panorama literario español.</p>
-          <p class="hero-spark">Primer Premio en el XII Certamen de Microrrelatos de Letras Como Espada (2026) y finalista en el Premio Nacional de Literatura Infantil Juan Andrés Teno (2026).</p>
-
-          <div class="hero-actions">
-            <a class="button primary" href="/libros/samuel-entre-mundos/">Ver su debut: Samuel entre mundos</a>
-            <a class="button secondary" href="autor.html">Sobre el autor</a>
+    <section class="v1-section" id="reconocimientos">
+      <div class="v1-section__head"><p class="eyebrow">Reconocimientos</p><h2>Premios y distinciones.</h2></div>
+      <ol class="awards-ledger">
+        <li>
+          <span>2026</span>
+          <div>
+            <h3>Primer Premio Letras Como Espada</h3>
+            <p class="award-contest">XII Certamen de Microrrelatos «De amor» · Letras Como Espada</p>
+            <p>Primer Premio en el certamen nacional de microrrelatos organizado por Letras Como Espada. Relato publicado en la antología oficial del certamen. Certamen de narrativa breve en español.</p>
+            <a class="text-action" href="https://www.letrascomoespada.com/concursos/bases/2026/febrero/febrero2026-bases-microrrelatos-de-amor.php" target="_blank" rel="noopener noreferrer">Ver bases del certamen</a>
           </div>
-        </div>
-      </section>
-
-      <!-- PREMIOS PRINCIPALES -->
-      <section class="section" id="reconocimientos">
-        <div class="section-heading">
-          <p class="eyebrow">Reconocimientos</p>
-          <h2>Premios y distinciones.</h2>
-        </div>
-
-        <div class="awards-grid">
-          <article class="award-card award-card--winner">
-            <span class="award-year">2026</span>
-            <div>
-              <h3>Primer Premio Letras Como Espada</h3>
-              <p class="award-contest">XII Certamen de Microrrelatos «De amor» · Letras Como Espada</p>
-              <p>
-                Primer Premio en el certamen nacional de microrrelatos organizado por Letras Como Espada.
-                Relato publicado en la antología oficial del certamen. Certamen de narrativa breve en español.
-              </p>
-              <a class="text-link" href="https://www.letrascomoespada.com/concursos/bases/2026/febrero/febrero2026-bases-microrrelatos-de-amor.php" target="_blank" rel="noopener noreferrer">Ver bases del certamen ?</a>
-            </div>
-          </article>
-
-          <article class="award-card award-card--winner">
-            <span class="award-year">2026</span>
-            <div>
-              <h3>Top 10 — Finalista nacional</h3>
-              <p class="award-contest">Premio Nacional de Literatura Infantil Juan Andrés Teno · babidibulibros</p>
-              <p>
-                Seleccionado entre los diez finalistas del Premio Nacional de Literatura Infantil Juan Andrés Teno en su convocatoria de 2026.
-                Certamen nacional de literatura infantil organizado por babidibulibros.
-              </p>
-              <a class="text-link" href="https://www.instagram.com/davidportodiaz/" target="_blank" rel="noopener noreferrer">Ver Instagram del autor</a>
-            </div>
-          </article>
-
-          <article class="award-card">
-            <span class="award-year">2025</span>
-            <div>
-              <h3>Debut novelístico publicado</h3>
-              <p class="award-contest">Samuel entre mundos · Libros Indie · ISBN 9791387659776</p>
-              <p>
-                Publicación de su primera novela, <em>Samuel entre mundos</em>, con la editorial especializada Libros Indie.
-              </p>
-              <a class="text-link" href="/libros/samuel-entre-mundos/">Ver Samuel entre mundos ?</a>
-            </div>
-          </article>
-        </div>
-      </section>
-
-      <!-- COLABORACIONES -->
-      <section class="section section--alt" id="colaboraciones">
-        <div class="section-heading">
-          <p class="eyebrow">Obra y trayectoria</p>
-          <h2>Colaboraciones y proyectos literarios.</h2>
-        </div>
-
-        <div class="awards-grid">
-          <article class="award-card">
-            <span class="award-year">2026</span>
-            <div>
-              <h3>Antología colaborativa</h3>
-              <p class="award-contest">La memoria de las tierras del norte · Diversidad Literaria</p>
-              <p>
-                Seleccionado para participar en la antología colaborativa de fantasía de Diversidad Literaria,
-                proyecto realizado mediante crowdfunding editorial con varios autores del género fantástico en español.
-              </p>
-              <a class="text-link" href="https://www.diversidadliteraria.com/la-memoria-de-las-tierras-del-norte" target="_blank" rel="noopener noreferrer">Ver proyecto ?</a>
-            </div>
-          </article>
-
-          <article class="award-card">
-            <span class="award-year">03/09/2026</span>
-            <div>
-              <h3>Segunda novela</h3>
-              <p class="award-contest">Las manecillas del recuerdo · Monza Ediciones</p>
-              <p>
-                Segunda novela de David Porto Díaz, publicada el 3 de septiembre de 2026 con Monza Ediciones.
-                <a href="/las-manecillas-del-recuerdo/">Ver ficha del libro</a>.
-              </p>
-            </div>
-          </article>
-
-          <article class="award-card">
-            <span class="award-year">Lectores</span>
-            <div>
-              <h3>Reseñas de lectores</h3>
-              <p class="award-contest">Samuel entre mundos · Goodreads</p>
-              <p>
-                «El ritmo del libro es trepidante» — Carlos · «Atrapándote en un viaje del que ya no quieras bajarte» — Manuel Corrochano.
-              </p>
-              <a class="text-link" href="https://www.goodreads.com/book/show/245605636-samuel-entre-mundos" target="_blank" rel="noopener noreferrer me">Ver en Goodreads ?</a>
-            </div>
-          </article>
-        </div>
-      </section>
-
-      <!-- CTA -->
-      <section class="section" id="conocer">
-        <div class="section-heading">
-          <p class="eyebrow">¿Quieres saber más?</p>
-          <h2>Conocer al autor y su obra.</h2>
-        </div>
-
-        <div class="start-grid">
-          <div class="start-card start-card--reader">
-            <h3>Samuel entre mundos</h3>
-            <p>La novela de debut de David Porto Díaz. Fantasía y aventura en 422 páginas. <em>Disponible ahora.</em></p>
-            <a class="button primary" href="/libros/samuel-entre-mundos/">Ver Samuel entre mundos</a>
+        </li>
+        <li>
+          <span>2026</span>
+          <div>
+            <h3>Top 10 — Finalista nacional</h3>
+            <p class="award-contest">Premio Nacional de Literatura Infantil Juan Andrés Teno · babidibulibros</p>
+            <p>Seleccionado entre los diez finalistas del Premio Nacional de Literatura Infantil Juan Andrés Teno en su convocatoria de 2026. Certamen nacional de literatura infantil organizado por babidibulibros.</p>
+            <a class="text-action" href="https://www.instagram.com/davidportodiaz/" target="_blank" rel="noopener noreferrer">Ver Instagram del autor</a>
           </div>
-
-          <div class="start-card">
-            <h3>Sobre el autor</h3>
-            <p>Bio completa, trayectoria, libros publicados y próximos proyectos de David Porto Díaz.</p>
-            <a class="button secondary" href="autor.html">Ver perfil del autor</a>
+        </li>
+        <li>
+          <span>2025</span>
+          <div>
+            <h3>Debut novelístico publicado</h3>
+            <p class="award-contest">Samuel entre mundos · Libros Indie · ISBN 9791387659776</p>
+            <p>Publicación de su primera novela, <em>Samuel entre mundos</em>, con la editorial especializada Libros Indie.</p>
+            <a class="text-action" href="/libros/samuel-entre-mundos/">Ver Samuel entre mundos</a>
           </div>
+        </li>
+      </ol>
+    </section>
 
-          <div class="start-card">
-            <h3>Para prensa y medios</h3>
-            <p>Kit de prensa, bios listas para copiar, ficha técnica del libro y contacto para entrevistas.</p>
-            <a class="button secondary" href="prensa.html">Kit de prensa</a>
+    <section class="v1-section" id="colaboraciones">
+      <div class="v1-section__head"><p class="eyebrow">Obra y trayectoria</p><h2>Colaboraciones y proyectos literarios.</h2></div>
+      <ol class="awards-ledger">
+        <li>
+          <span>2026</span>
+          <div>
+            <h3>Antología colaborativa</h3>
+            <p class="award-contest">La memoria de las tierras del norte · Diversidad Literaria</p>
+            <p>Seleccionado para participar en la antología colaborativa de fantasía de Diversidad Literaria, proyecto realizado mediante crowdfunding editorial con varios autores del género fantástico en español.</p>
+            <a class="text-action" href="https://www.diversidadliteraria.com/la-memoria-de-las-tierras-del-norte" target="_blank" rel="noopener noreferrer">Ver proyecto</a>
           </div>
-        </div>
-      </section>
-
-    </main>
-
-    <!-- FOOTER -->
-    <footer class="site-footer">
-      <div class="footer-top-row">
-        <div class="footer-brand">
-          <img src="assets/logo-david-porto-diaz-escritor-176.webp" alt="David Porto Díaz" class="footer-logo" width="42" height="42" loading="lazy" />
-          <div class="footer-brand-text">
-            <strong>David Porto Díaz</strong>
-            <span>Autor de Las manecillas del recuerdo y Samuel entre mundos.</span>
+        </li>
+        <li>
+          <span>03/09/2026</span>
+          <div>
+            <h3>Segunda novela</h3>
+            <p class="award-contest">Las manecillas del recuerdo · Monza Ediciones</p>
+            <p>Segunda novela de David Porto Díaz, publicada el 3 de septiembre de 2026 con Monza Ediciones.</p>
+            <a class="text-action" href="/las-manecillas-del-recuerdo/">Ver ficha del libro</a>
           </div>
-        </div>
-        <nav class="footer-nav" aria-label="Navegación pie de página">
-          <a href="/">Inicio</a>
-          <a href="/libros/">Libros</a>
-          <a href="/cuaderno/">Cuaderno</a>
-          <a href="/autor.html">El autor</a>
-          <a href="/eventos.html">Eventos</a>
-          <a href="/premios.html" aria-current="page">Premios</a>
-          <a href="/prensa.html">Prensa</a>
-        </nav>
-        <div class="footer-socials">
+        </li>
+        <li>
+          <span>Lectores</span>
+          <div>
+            <h3>Reseñas de lectores</h3>
+            <p class="award-contest">Samuel entre mundos · Goodreads</p>
+            <p>«El ritmo del libro es trepidante» — Carlos · «Atrapándote en un viaje del que ya no quieras bajarte» — Manuel Corrochano.</p>
+            <a class="text-action" href="https://www.goodreads.com/book/show/245605636-samuel-entre-mundos" target="_blank" rel="noopener noreferrer me">Ver en Goodreads</a>
+          </div>
+        </li>
+      </ol>
+    </section>
+
+    <section class="v1-section" id="conocer">
+      <div class="v1-section__head"><p class="eyebrow">¿Quieres saber más?</p><h2>Conocer al autor y su obra.</h2></div>
+      <div class="id-cards">
+        <article class="id-card id-card--featured">
+          <h3>Samuel entre mundos</h3>
+          <p>La novela de debut de David Porto Díaz. Fantasía y aventura en 422 páginas. Disponible ahora.</p>
+          <div class="id-card__actions"><a class="text-action" href="/libros/samuel-entre-mundos/">Ver Samuel entre mundos</a></div>
+        </article>
+        <article class="id-card">
+          <h3>Sobre el autor</h3>
+          <p>Bio completa, trayectoria, libros publicados y próximos proyectos de David Porto Díaz.</p>
+          <div class="id-card__actions"><a class="text-action" href="/autor.html">Ver perfil del autor</a></div>
+        </article>
+        <article class="id-card">
+          <h3>Para prensa y medios</h3>
+          <p>Kit de prensa, bios listas para copiar, ficha técnica del libro y contacto para entrevistas.</p>
+          <div class="id-card__actions"><a class="text-action" href="/prensa.html">Kit de prensa</a></div>
+        </article>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="site-footer__grid">
+      <div>
+        <strong class="brand__name">David Porto Díaz</strong>
+        <p>Autor de Las manecillas del recuerdo y Samuel entre mundos.</p>
+        <div class="social-row" style="margin-top:1rem">
           <a class="social-icon" href="https://www.instagram.com/davidportodiaz/" target="_blank" rel="noopener noreferrer me" aria-label="Instagram" title="Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true" focusable="false"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="3.8"/><circle cx="17.3" cy="6.7" r="0.6" fill="currentColor" stroke="none"/></svg></a>
-          <a class="social-icon" href="https://www.facebook.com/profile.php?id=61590793667301" target="_blank" rel="noopener noreferrer me" aria-label="Facebook" title="Facebook"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" focusable="false"><path d="M16.7 3H7.3A4.3 4.3 0 0 0 3 7.3v9.4A4.3 4.3 0 0 0 7.3 21h4.2v-6.6H9.4v-2.6h2.1V9.8c0-2.1 1.3-3.3 3.2-3.3.9 0 1.7.1 1.9.1v2.2h-1.3c-1 0-1.2.5-1.2 1.2v1.7h2.4l-.3 2.6h-2.1V21h2.6a4.3 4.3 0 0 0 4.3-4.3V7.3A4.3 4.3 0 0 0 16.7 3z"/></svg></a>
           <a class="social-icon" href="https://www.tiktok.com/@davidportoescritor" target="_blank" rel="noopener noreferrer me" aria-label="TikTok" title="TikTok"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" focusable="false"><path d="M14 3c.4 2.2 2 3.8 4.2 4.1v2.7c-1.5 0-2.9-.4-4.1-1.2v6.1a4.9 4.9 0 1 1-4.2-4.9v2.7a2.2 2.2 0 1 0 1.6 2.1V3h2.5z"/></svg></a>
-          <a class="social-icon" href="https://www.threads.net/@davidportodiaz" target="_blank" rel="noopener noreferrer me" aria-label="Threads" title="Threads"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true" focusable="false"><path d="M12 21c4.4 0 7-2.8 7-7.5C19 8 16.5 4 12 4 8 4 5.5 6.8 5.5 11c0 3 1.8 4.8 4.3 4.8 2 0 3.4-1.2 3.4-3 0-1.4-.9-2.3-2.1-2.3-.9 0-1.5.5-1.7 1.2"/></svg></a>
-          <a class="social-icon" href="https://bsky.app/profile/davidportoescritor.bsky.social" target="_blank" rel="noopener noreferrer me" aria-label="Bluesky" title="Bluesky"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" focusable="false"><path d="M12 7c-1.6-2.3-4.6-3.6-6.7-3.2-.3 2.3.4 5.4 2 7.1-1.6.1-2.8.8-3 1.7.7.9 2.3 1.3 3.8 1-.9 1.1-1.1 2.6-.5 3.8 1.6.1 3.7-1.1 4.6-2.8.4 1 .9 1.9 1.5 2.6.6-.7 1.1-1.6 1.5-2.6.9 1.7 3 2.9 4.6 2.8.6-1.2.4-2.7-.5-3.8 1.5.3 3.1-.1 3.8-1-.2-.9-1.4-1.6-3-1.7 1.6-1.7 2.3-4.8 2-7.1-2.1-.4-5.1.9-6.7 3.2-.2.3-.4.6-.5 1-.1-.4-.3-.7-.5-1z"/></svg></a>
-          <a class="social-icon" href="https://www.pinterest.com/davidportodiaz/" target="_blank" rel="noopener noreferrer me" aria-label="Pinterest" title="Pinterest"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" focusable="false"><path d="M12 2C6.5 2 3 5.6 3 10c0 3.2 1.8 5.1 3 5.7.2.1.4 0 .4-.3l.4-1.5c0-.2 0-.3-.1-.5-.4-.5-.7-1.4-.7-2.3 0-3 2.2-5.7 5.8-5.7 3.1 0 4.9 1.9 4.9 4.5 0 3.4-1.5 5.6-3.5 5.6-1.1 0-2-.9-1.7-2.1.3-1.3.9-2.7.9-3.7 0-.8-.5-1.5-1.4-1.5-1.1 0-2 1.2-2 2.7 0 1 .3 1.7.3 1.7s-1.2 4.9-1.4 5.8c-.4 1.6-.1 3.6 0 3.8.1.1.2.1.3 0 .1-.2 1.5-1.9 2-3.5.1-.4.6-2.3.6-2.3.3.6 1.2 1.1 2.2 1.1 2.9 0 5-2.7 5-6.4C20 5.7 16.5 2 12 2z"/></svg></a>
           <a class="social-icon" href="https://www.linkedin.com/in/davidportodiaz/" target="_blank" rel="noopener noreferrer me" aria-label="LinkedIn" title="LinkedIn"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" focusable="false"><path d="M5 3a2 2 0 1 0 0 4 2 2 0 0 0 0-4zM3.5 9h3v12h-3V9zm6.5 0h2.9v1.6c.5-.9 1.7-1.9 3.4-1.9 3.6 0 4.6 2.3 4.6 5.4V21h-3v-6.1c0-1.5-.5-2.5-1.9-2.5-1.4 0-2 1-2 2.4V21h-3V9z"/></svg></a>
         </div>
       </div>
-      <div class="footer-bottom-row">
-        <p>© 2026 David Porto Díaz. Todos los derechos reservados.</p>
-        <a href="/privacidad.html" class="footer-privacy-link">Política de privacidad</a>
-        <a href="/aviso-legal.html" class="footer-privacy-link">Aviso legal</a>
-        <a href="/ai/" class="footer-privacy-link">Para IA</a>
-        <a href="#contenido" class="footer-back-top">? Volver arriba</a>
-      </div>
-    </footer>
+      <nav aria-label="Obra"><h2>Obra</h2><a href="/las-manecillas-del-recuerdo/">Las manecillas del recuerdo</a><a href="/libros/samuel-entre-mundos/">Samuel entre mundos</a><a href="/fragmento/">Fragmento gratis</a></nav>
+      <nav aria-label="Leer y recursos"><h2>Leer</h2><a href="/cuaderno/">Cuaderno</a><a href="/herramientas/">Herramientas</a><a href="/mapa-del-sitio/">Mapa del sitio</a></nav>
+      <nav aria-label="Información"><h2>Información</h2><a href="/autor.html">Autor</a><a href="/premios.html" aria-current="page">Premios</a><a href="/prensa.html">Prensa</a><a href="/eventos.html">Eventos</a><a href="/privacidad.html">Privacidad</a><a href="/aviso-legal.html">Aviso legal</a></nav>
+    </div>
+    <p class="footer-legal">
+      <span>© 2026 David Porto Díaz. Todos los derechos reservados.</span>
+    </p>
+  </footer>
 
-  </div>
-
-  <script defer src="script.js?v=202609-launch-1"></script>
+  <script defer src="/assets/v1-shell.js"></script>
+  <script defer src="/script.js?v=202609-launch-1"></script>
 </body>
 </html>
