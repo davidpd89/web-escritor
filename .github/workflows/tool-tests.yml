@@ -1,26 +1,23 @@
 name: Tool engine tests
 
-# Por que existe: los ~22 test-*.mjs de tests/ (motor de legibilidad,
-# silabas, ZIP del kit de prensa, ICS/RFC 5545, deteccion de personajes
-# parecidos, distribucion de POV, etc.) nunca corrian en ningun workflow.
-# Se ejecutaban a mano en cada sesion de auditoria, pero un PR normal podia
-# fusionar una regresion real en cualquiera de esos motores sin que ningun
-# check en rojo lo avisara. Ya paso una vez de hecho: silabajs-lite-2.1.0.js
-# desplegado era un stub de conteo silabico que fallaba los propios casos de
-# prueba del documento fuente (32), y ningun CI lo habria detectado porque
-# nada ejecutaba tests/test-silabas-espanol.mjs.
-#
-# El bucle de bash con `|| exit 1` por fichero es deliberado: node no tiene
-# aqui un test runner central (no hay package.json), cada fichero es un
-# script independiente que imprime OK o lanza una assertion. Correr todos y
-# fallar el job si CUALQUIERA falla es el equivalente correcto a "npm test"
-# para esta forma de organizar los tests.
+# Por que existe: los test-*.mjs de tests/ (motores de herramientas y
+# contratos del asistente) deben ejecutarse en cada PR que pueda alterar su
+# comportamiento. El bucle con `|| exit 1` por fichero es deliberado: este
+# repositorio no tiene un test runner npm central y cada test es un script
+# independiente que imprime OK o lanza una assertion.
 
 on:
   pull_request:
     paths:
       - 'assets/**'
       - 'tests/**'
+      - 'asistente/**'
+      - 'cloudflare-worker-assistant.js'
+      - 'data/assistant-source-registry.json'
+      - 'docs/assistant-deploy.md'
+      - 'migrations/assistant-quota.sql'
+      - 'scripts/check-assistant-contract.py'
+      - 'lighthouserc.json'
       - '.github/workflows/tool-tests.yml'
   workflow_dispatch:
 
