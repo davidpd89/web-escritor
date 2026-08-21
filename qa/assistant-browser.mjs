@@ -121,6 +121,15 @@ for (const [width,height] of viewports) {
   await page.goto(`${origin}/asistente/`);
   await page.keyboard.press("Tab");
   check(await page.locator(".skip-link").evaluate(el=>el===document.activeElement),"keyboard: first Tab must focus skip link");
+  // The skip link slides in with transform .22s, so reading its box straight
+  // after Tab samples it mid-animation while it is still off-screen. Let the
+  // transition finish (bounded, so a link that never animates still fails the
+  // check below rather than hanging) and then assert it really is visible.
+  await page.locator(".skip-link").evaluate(el=>new Promise(resolve=>{
+    const done=()=>{el.removeEventListener("transitionend",done);resolve();};
+    el.addEventListener("transitionend",done);
+    setTimeout(done,600);
+  }));
   const focusedSkip=await page.locator(".skip-link").evaluate(el=>el.getBoundingClientRect().bottom>0);
   check(focusedSkip,"keyboard: focused skip link must become visible");
   await page.locator("[data-assistant-example]").first().focus(); await page.keyboard.press("Enter");
