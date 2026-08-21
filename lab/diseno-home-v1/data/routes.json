@@ -1,0 +1,84 @@
+{
+  "schema_version": 2,
+  "generatedFor": "LAB HOME V1",
+  "repository": "davidpd89/web-escritor",
+  "productionBaseline": "main",
+  "targetBranch": "implementacion-web-2026",
+  "targetHeadVerified": "5c4a9afca7c009bd78d5dd44ca4b6c656239527c",
+  "productionRule": "Un nodo puede probarse en lab aunque productionAllowedNow=false, pero no puede llegar a la Home pública con promotionBlocked=true.",
+  "territories": [
+    {
+      "id": "manecillas",
+      "label": "Las manecillas del recuerdo",
+      "href": "/las-manecillas-del-recuerdo/",
+      "status": "verified-main-and-target",
+      "targetBranchAvailable": true,
+      "targetSitemap": true,
+      "productionAllowedNow": true,
+      "promotionBlocked": false
+    },
+    {
+      "id": "autor",
+      "label": "Autor",
+      "href": "/autor.html",
+      "status": "verified-main-and-target",
+      "targetBranchAvailable": true,
+      "productionAllowedNow": true,
+      "promotionBlocked": false
+    },
+    {
+      "id": "samuel",
+      "label": "Samuel entre mundos",
+      "href": "/libros/samuel-entre-mundos/",
+      "status": "verified-main-and-target",
+      "targetBranchAvailable": true,
+      "targetSitemap": true,
+      "productionAllowedNow": true,
+      "promotionBlocked": false
+    },
+    {
+      "id": "jaula",
+      "label": "Dónde empieza la jaula",
+      "href": "/donde-empieza-la-jaula/",
+      "status": "content-authorized-route-pending",
+      "targetBranchAvailable": false,
+      "targetSitemap": false,
+      "productionAllowedNow": false,
+      "promotionBlocked": true,
+      "blocker": "Contenido público autorizado y scaffold listos. Crear /donde-empieza-la-jaula/ en staging desde book-jaula.html/jaula-preservation.json, verificar HTTP 200 + SEO/schema + cobertura de navegación y solo entonces desbloquear promoción pública."
+    },
+    {
+      "id": "cuaderno",
+      "label": "Cuaderno",
+      "href": "/cuaderno/",
+      "status": "verified-main-and-target",
+      "targetBranchAvailable": true,
+      "targetSitemap": true,
+      "productionAllowedNow": true,
+      "promotionBlocked": false
+    },
+    {
+      "id": "herramientas",
+      "label": "Herramientas",
+      "href": "/herramientas/",
+      "status": "verified-target-branch",
+      "targetBranchAvailable": true,
+      "targetSitemap": true,
+      "productionAllowedNow": false,
+      "promotionBlocked": false,
+      "note": "El hub existe en implementacion-web-2026 con 17 herramientas y está en el sitemap de esa rama. Ya no es un bloqueo del rediseño; será público cuando la rama aprobada se promueva."
+    },
+    {
+      "id": "prensa-eventos",
+      "label": "Prensa y eventos",
+      "href": "/prensa.html",
+      "secondaryHref": "/eventos.html",
+      "status": "verified-main-and-target",
+      "targetBranchAvailable": true,
+      "targetSitemap": true,
+      "productionAllowedNow": true,
+      "promotionBlocked": false
+    }
+  ],
+  "headPolicy": "Baseline informativa: antes de integrar, comparar este HEAD auditado con el HEAD actual de implementacion-web-2026 y reabrir solo los contratos cuyos archivos relevantes hayan cambiado."
+}

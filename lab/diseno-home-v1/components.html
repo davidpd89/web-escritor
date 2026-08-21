@@ -1,0 +1,227 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+  <meta name="robots" content="noindex,nofollow,noarchive">
+  <meta name="color-scheme" content="light">
+  <title>Componentes V1 — laboratorio de diseño · David Porto Díaz</title>
+  <link rel="stylesheet" href="./css/fonts-lab.css">
+  <link rel="stylesheet" href="./css/tokens.css">
+  <link rel="stylesheet" href="./css/base.css">
+  <link rel="stylesheet" href="./css/components.css">
+</head>
+<body>
+  <a class="skip-link" href="#contenido">Saltar al contenido</a>
+
+  <header class="specimen-header">
+    <div class="specimen-header__inner">
+      <a class="specimen-brand" href="./index.html" aria-label="Volver al laboratorio Home">
+        <span>David Porto Díaz</span>
+        <small>Laboratorio de diseño</small>
+      </a>
+      <nav aria-label="Laboratorio">
+        <a href="./index.html">Home A/B</a>
+        <a href="./QA.md">QA</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="contenido">
+    <section class="specimen-intro" aria-labelledby="titulo-componentes">
+      <p class="eyebrow">Gate 0 · sin fotografía ni portada</p>
+      <h1 id="titulo-componentes">Componentes V1</h1>
+      <p class="specimen-lead">La identidad debe sobrevivir cuando retiramos el material visual. Esta página prueba tipografía, escala, línea, ritmo, interacción y estados sin recurrir a cards genéricas.</p>
+      <p class="specimen-meta">No es una página pública. No define contenido editorial final.</p>
+    </section>
+
+    <section class="specimen-section" aria-labelledby="acciones">
+      <header class="specimen-section__head">
+        <p class="specimen-index">01</p>
+        <div>
+          <p class="eyebrow">Acciones</p>
+          <h2 id="acciones">Jerarquía antes que decoración</h2>
+        </div>
+      </header>
+
+      <div class="action-specimens">
+        <div class="action-specimen">
+          <p class="specimen-label">Primary editorial</p>
+          <a class="ui-action ui-action--primary" href="/las-manecillas-del-recuerdo/">Descubrir Las manecillas</a>
+          <p class="specimen-note">Una acción dominante por región.</p>
+        </div>
+        <div class="action-specimen">
+          <p class="specimen-label">Secondary</p>
+          <a class="ui-action ui-action--secondary" href="/fragmento/">Leer un fragmento</a>
+          <p class="specimen-note">Solo cuando existe una segunda tarea real.</p>
+        </div>
+        <div class="action-specimen">
+          <p class="specimen-label">Text action</p>
+          <a class="text-action" href="/autor.html">Ver la página de autor</a>
+          <p class="specimen-note">No todo enlace necesita una caja.</p>
+        </div>
+        <div class="action-specimen" aria-label="Estado desactivado">
+          <p class="specimen-label">Disabled</p>
+          <button class="ui-action ui-action--secondary" type="button" disabled>No disponible</button>
+          <p class="specimen-note">El estado no depende solo de opacidad.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="specimen-section" aria-labelledby="enlaces">
+      <header class="specimen-section__head">
+        <p class="specimen-index">02</p>
+        <div>
+          <p class="eyebrow">Enlaces y orientación</p>
+          <h2 id="enlaces">La ruta siempre sigue siendo un enlace</h2>
+        </div>
+      </header>
+
+      <nav class="breadcrumb" aria-label="Ruta de navegación de ejemplo">
+        <ol>
+          <li><a href="/">Inicio</a></li>
+          <li><a href="/las-manecillas-del-recuerdo/">Las manecillas del recuerdo</a></li>
+          <li aria-current="page">Fragmento</li>
+        </ol>
+      </nav>
+
+      <div class="route-specimen" aria-labelledby="related-heading">
+        <div class="route-stitch" aria-hidden="true"></div>
+        <div class="route-copy">
+          <p class="specimen-label">Relacionado con</p>
+          <h3 id="related-heading"><a href="/las-manecillas-del-recuerdo/">Las manecillas del recuerdo</a></h3>
+          <p>La relación se entiende por texto y estructura incluso si se elimina la línea.</p>
+        </div>
+        <div class="route-secondary" aria-label="Otras continuaciones de ejemplo">
+          <a href="/autor.html">David Porto Díaz</a>
+          <a href="/cuaderno/">Cuaderno</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="specimen-section" aria-labelledby="ledger">
+      <header class="specimen-section__head">
+        <p class="specimen-index">03</p>
+        <div>
+          <p class="eyebrow">Metadata</p>
+          <h2 id="ledger">Ledger, no nube de chips</h2>
+        </div>
+      </header>
+
+      <dl class="meta-ledger">
+        <div><dt>Fecha</dt><dd><time datetime="2026-09-03">3 de septiembre de 2026</time></dd></div>
+        <div><dt>Editorial</dt><dd>Monza Ediciones</dd></div>
+        <div><dt>Género</dt><dd>Ficción contemplativa · Narrativa familiar</dd></div>
+        <div><dt>Autor</dt><dd>David Porto Díaz</dd></div>
+      </dl>
+      <p class="specimen-note specimen-note--wide">El ledger admite valores de dos líneas y crece verticalmente. Ninguna fila tiene altura fija.</p>
+    </section>
+
+    <section class="specimen-section" aria-labelledby="formularios">
+      <header class="specimen-section__head">
+        <p class="specimen-index">04</p>
+        <div>
+          <p class="eyebrow">Formulario y estados</p>
+          <h2 id="formularios">El feedback vive junto a la tarea</h2>
+        </div>
+      </header>
+
+      <div class="form-specimens">
+        <form class="form-specimen" novalidate>
+          <label class="form-field-label" for="spec-email">Correo electrónico</label>
+          <div class="form-row">
+            <input class="form-input" id="spec-email" name="email" type="email" autocomplete="email" inputmode="email" required aria-describedby="spec-email-help spec-email-status">
+            <button class="form-submit" type="button">Suscribirme</button>
+          </div>
+          <p class="form-help" id="spec-email-help">Se usaría únicamente para la suscripción descrita en la página.</p>
+          <label class="form-consent" for="spec-consent"><input id="spec-consent" type="checkbox" required aria-describedby="spec-email-status"><span>Acepto recibir novedades del autor. <a href="/privacidad.html">Privacidad</a>.</span></label>
+          <p class="form-status" id="spec-email-status" role="status" aria-live="polite"></p>
+        </form>
+
+        <div class="status-specimens" aria-label="Ejemplos estáticos de estado">
+          <div class="status-line status-line--error">
+            <p class="specimen-label">Error</p>
+            <p>Introduce una dirección de correo válida.</p>
+          </div>
+          <div class="status-line status-line--success">
+            <p class="specimen-label">Éxito</p>
+            <p>Suscripción confirmada.</p>
+          </div>
+          <div class="status-line">
+            <p class="specimen-label">Servicio</p>
+            <p>No hemos podido completar el envío ahora. Inténtalo de nuevo dentro de unos minutos.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="specimen-section" aria-labelledby="notas">
+      <header class="specimen-section__head">
+        <p class="specimen-index">05</p>
+        <div>
+          <p class="eyebrow">Notas y lectura</p>
+          <h2 id="notas">Dos registros, una misma gramática</h2>
+        </div>
+      </header>
+
+      <div class="note-stack">
+        <aside class="editorial-note" aria-labelledby="nota-editorial">
+          <p class="specimen-label">Nota editorial</p>
+          <h3 id="nota-editorial">La ausencia también es un estado válido.</h3>
+          <p>Si falta una imagen, un evento o contenido relacionado real, la página no inventa un módulo para rellenar el hueco.</p>
+        </aside>
+
+        <aside class="functional-notice" aria-labelledby="nota-funcional">
+          <p class="specimen-label">Información operativa</p>
+          <h3 id="nota-funcional">Esta muestra no envía ningún dato.</h3>
+          <p>Los controles existen para probar geometría, foco, wrapping y estados del sistema.</p>
+        </aside>
+      </div>
+
+      <blockquote class="editorial-quote">
+        <p>«A veces creo que los objetos importantes sienten las cosas antes que nosotros. A veces eligen su momento para hablar.»</p>
+        <footer>— Manuel, en <cite>Las manecillas del recuerdo</cite></footer>
+      </blockquote>
+    </section>
+
+    <section class="specimen-section" aria-labelledby="details-heading">
+      <header class="specimen-section__head">
+        <p class="specimen-index">06</p>
+        <div>
+          <p class="eyebrow">Disclosure</p>
+          <h2 id="details-heading">Ocultar solo lo secundario</h2>
+        </div>
+      </header>
+
+      <details class="editorial-details">
+        <summary>Ver criterios técnicos de esta muestra</summary>
+        <div class="details-body">
+          <p>El contenido principal permanece visible. Este patrón se reserva para notas, condiciones o información secundaria que puede ocultarse sin perjudicar lectura, SEO ni tarea.</p>
+          <ul>
+            <li>El resumen explica qué se abre.</li>
+            <li>No sustituye una sinopsis, una biografía ni el cuerpo de un artículo.</li>
+            <li>Funciona sin JavaScript.</li>
+          </ul>
+        </div>
+      </details>
+    </section>
+
+    <section class="specimen-section specimen-section--stress" aria-labelledby="stress-heading">
+      <header class="specimen-section__head">
+        <p class="specimen-index">07</p>
+        <div>
+          <p class="eyebrow">Stress</p>
+          <h2 id="stress-heading">Este título deliberadamente largo comprueba que la composición admite varias líneas sin truncar información significativa</h2>
+        </div>
+      </header>
+      <p class="stress-copy">La prueba termina bien si a 320 CSS px, 200 % de zoom y con aumento de espaciado de texto no aparece scroll horizontal accidental, no se recorta ningún label y el orden de foco sigue siendo lógico.</p>
+      <a class="ui-action ui-action--secondary" href="./QA.md">Abrir el protocolo de QA del laboratorio</a>
+    </section>
+  </main>
+
+  <footer class="specimen-footer">
+    <p><strong>Gate 0:</strong> ocultar mentalmente la marca. Si solo queda «una web beige limpia», la identidad todavía no está resuelta.</p>
+    <a href="./index.html">Volver a Home A/B</a>
+  </footer>
+</body>
+</html>

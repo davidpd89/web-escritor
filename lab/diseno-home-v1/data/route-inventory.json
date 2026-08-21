@@ -1,0 +1,485 @@
+{
+  "schemaVersion": 1,
+  "repository": "davidpd89/web-escritor",
+  "branch": "implementacion-web-2026",
+  "baselineHead": "5c4a9afca7c009bd78d5dd44ca4b6c656239527c",
+  "source": "sitemap.xml at audited HEAD + explicit off-sitemap files verified via GitHub",
+  "sitemapRouteCount": 55,
+  "routes": [
+    {
+      "path": "/",
+      "inSitemap": true,
+      "family": "home",
+      "scaffold": "index.html",
+      "migrationRule": "preserve-content-head-schema-links-functions; replace-visual-composition",
+      "designStatus": "IMPLEMENT_READY"
+    },
+    {
+      "path": "/ai/",
+      "inSitemap": true,
+      "family": "secondary-machine-readable",
+      "scaffold": "secondary.html",
+      "migrationRule": "preserve-content-head-schema-links-functions; replace-visual-composition",
+      "designStatus": "IMPLEMENT_READY"
+    },
+    {
+      "path": "/autor.html",
+      "inSitemap": true,
+      "family": "identity",
+      "scaffold": "author.html",
+      "migrationRule": "preserve-content-head-schema-links-functions; replace-visual-composition",
+      "designStatus": "IMPLEMENT_READY"
+    },
+    {
+      "path": "/clubes-de-lectura/preparar-sesion/",
+      "inSitemap": true,
+      "family": "tool",
+      "scaffold": "tool-pilot.html",
+      "migrationRule": "preserve-content-head-schema-links-functions; replace-visual-composition",
+      "designStatus": "IMPLEMENT_READY"
+    },
+    {
+      "path": "/clubes-de-lectura/samuel-entre-mundos/",
+      "inSitemap": true,
+      "family": "book-companion",
+      "scaffold": "book-companion.html",
+      "migrationRule": "preserve-content-head-schema-links-functions; replace-visual-composition",
+      "designStatus": "IMPLEMENT_READY"
+    },
+    {
+      "path": "/clubes-de-lectura/samuel-entre-mundos/guia-imprimible/",
+      "inSitemap": true,
+      "family": "print-companion",
+      "scaffold": "book-companion.html",
+      "migrationRule": "preserve-content-head-schema-links-functions; replace-visual-composition",
+      "designStatus": "IMPLEMENT_READY"
+    },
+    {
+      "path": "/convocatorias-escritores/",
+      "inSitemap": true,
+      "family": "reference-index",
+      "scaffold": "reference-index.html",
+      "migrationRule": "preserve-content-head-schema-links-functions; replace-visual-composition",
+      "designStatus": "IMPLEMENT_READY"
+    },
+    {
+      "path": "/cuaderno/",
+      "inSitemap": true,
+      "family": "editorial-index",
+      "scaffold": "cuaderno.html",
+      "migrationRule": "preserve-content-head-schema-links-functions; replace-visual-composition",
+      "designStatus": "IMPLEMENT_READY"
+    },
+    {
+      "path": "/cuaderno/fantasia-juvenil-espanola-portales-magia-coste/",
+      "inSitemap": true,
+      "family": "editorial-article",
+      "scaffold": "article-pilot.html",
+      "migrationRule": "preserve-content-head-schema-links-functions; replace-visual-composition",
+      "designStatus": "IMPLEMENT_READY"
+    },
+    {
+      "path": "/cuaderno/feria-libro-madrid-2026-samuel-entre-mundos/",
+      "inSitemap": true,
+      "family": "editorial-article",
+      "scaffold": "article-pilot.html",
+      "migrationRule": "preserve-content-head-schema-links-functions; replace-visual-composition",
+      "designStatus": "IMPLEMENT_READY"
+    },
+    {
+      "path": "/cuaderno/libros-fantasia-juvenil-espanola-2025-2026/",
+      "inSitemap": true,
+      "family": "editorial-article",
+      "scaffold": "article-pilot.html",
+      "migrationRule": "preserve-content-head-schema-links-functions; replace-visual-composition",
+      "designStatus": "IMPLEMENT_READY"
+    },
+    {
+      "path": "/cuaderno/portal-fantasy-vs-fantasia-epica/",
+      "inSitemap": true,
+      "family": "editorial-article",
+      "scaffold": "article-pilot.html",
+      "migrationRule": "preserve-content-head-schema-links-functions; replace-visual-composition",
+      "designStatus": "IMPLEMENT_READY"
+    },
+    {
+      "path": "/cuaderno/que-es-el-portal-fantasy/",
+      "inSitemap": true,
+      "family": "editorial-article",
+      "scaffold": "article-pilot.html",
+      "migrationRule": "preserve-content-head-schema-links-functions; replace-visual-composition",
+      "designStatus": "IMPLEMENT_READY"
+    },
+    {
+      "path": "/cuaderno/sistema-de-magia-noveris/",
+      "inSitemap": true,
+      "family": "editorial-article",
+      "scaffold": "article-pilot.html",
+      "migrationRule": "preserve-content-head-schema-links-functions; replace-visual-composition",
+      "designStatus": "IMPLEMENT_READY"
+    },
+    {
+      "path": "/cuaderno/temas/",
+      "inSitemap": true,
+      "family": "editorial-index",
+      "scaffold": "cuaderno.html",
+      "migrationRule": "preserve-content-head-schema-links-functions; replace-visual-composition",
+      "designStatus": "IMPLEMENT_READY"
+    },
+    {
+      "path": "/cuaderno/temas/fantasia-de-portales/",
+      "inSitemap": true,
+      "family": "editorial-topic",
+      "scaffold": "reference-index.html",
+      "migrationRule": "preserve-content-head-schema-links-functions; replace-visual-composition",
+      "designStatus": "IMPLEMENT_READY"
+    },
+    {
+      "path": "/cuaderno/worldbuilding-noveris-ciudad-magica/",
+      "inSitemap": true,
+      "family": "editorial-article",
+      "scaffold": "article-pilot.html",
+      "migrationRule": "preserve-content-head-schema-links-functions; replace-visual-composition",
+      "designStatus": "IMPLEMENT_READY"
+    },
+    {
+      "path": "/editoriales/",
+      "inSitemap": true,
+      "family": "reference-index",
+      "scaffold": "reference-index.html",
+      "migrationRule": "preserve-content-head-schema-links-functions; replace-visual-composition",
+      "designStatus": "IMPLEMENT_READY"
+    },
+    {
+      "path": "/editoriales/duermevela-ediciones/",
+      "inSitemap": true,
+      "family": "reference-detail",
+      "scaffold": "reference-detail.html",
+      "migrationRule": "preserve-content-head-schema-links-functions; replace-visual-composition",
+      "designStatus": "IMPLEMENT_READY"
+    },
+    {
+      "path": "/editoriales/minotauro/",
+      "inSitemap": true,
+      "family": "reference-detail",
+      "scaffold": "reference-detail.html",
+      "migrationRule": "preserve-content-head-schema-links-functions; replace-visual-composition",
+      "designStatus": "IMPLEMENT_READY"
+    },
+    {
+      "path": "/editoriales/nocturna-ediciones/",
+      "inSitemap": true,
+      "family": "reference-detail",
+      "scaffold": "reference-detail.html",
+      "migrationRule": "preserve-content-head-schema-links-functions; replace-visual-composition",
+      "designStatus": "IMPLEMENT_READY"
+    },
+    {
+      "path": "/empieza-aqui/",
+      "inSitemap": true,
+      "family": "wayfinding",
+      "scaffold": "wayfinding.html",
+      "migrationRule": "preserve-content-head-schema-links-functions; replace-visual-composition",
+      "designStatus": "IMPLEMENT_READY"
+    },
+    {
+      "path": "/eventos.html",
+      "inSitemap": true,
+      "family": "events",
+      "scaffold": "events.html",
+      "migrationRule": "preserve-content-head-schema-links-functions; replace-visual-composition",
+      "designStatus": "IMPLEMENT_READY"
+    },
+    {
+      "path": "/ferias.html",
+      "inSitemap": true,
+      "family": "events",
+      "scaffold": "events.html",
+      "migrationRule": "preserve-content-head-schema-links-functions; replace-visual-composition",
+      "designStatus": "IMPLEMENT_READY"
+    },
+    {
+      "path": "/fragmento/",
+      "inSitemap": true,
+      "family": "book-excerpt",
+      "scaffold": "book-excerpt.html",
+      "migrationRule": "preserve-content-head-schema-links-functions; replace-visual-composition",
+      "designStatus": "IMPLEMENT_READY"
+    },
+    {
+      "path": "/herramientas/",
+      "inSitemap": true,
+      "family": "tools-index",
+      "scaffold": "tools-hub.html",
+      "migrationRule": "preserve-content-head-schema-links-functions; replace-visual-composition",
+      "designStatus": "IMPLEMENT_READY"
+    },
+    {
+      "path": "/herramientas/auditor-pagina-libro/",
+      "inSitemap": true,
+      "family": "tool",
+      "scaffold": "tool-pilot.html",
+      "migrationRule": "preserve-content-head-schema-links-functions; replace-visual-composition",
+      "designStatus": "IMPLEMENT_READY"
+    },
+    {
+      "path": "/herramientas/dialogo/",
+      "inSitemap": true,
+      "family": "tool",
+      "scaffold": "tool-pilot.html",
+      "migrationRule": "preserve-content-head-schema-links-functions; replace-visual-composition",
+      "designStatus": "IMPLEMENT_READY"
+    },
+    {
+      "path": "/herramientas/distribucion-pov/",
+      "inSitemap": true,
+      "family": "tool",
+      "scaffold": "tool-pilot.html",
+      "migrationRule": "preserve-content-head-schema-links-functions; replace-visual-composition",
+      "designStatus": "IMPLEMENT_READY"
+    },
+    {
+      "path": "/herramientas/entrevista-familiar/",
+      "inSitemap": true,
+      "family": "tool",
+      "scaffold": "tool-pilot.html",
+      "migrationRule": "preserve-content-head-schema-links-functions; replace-visual-composition",
+      "designStatus": "IMPLEMENT_READY"
+    },
+    {
+      "path": "/herramientas/eventos-ics/",
+      "inSitemap": true,
+      "family": "tool",
+      "scaffold": "tool-pilot.html",
+      "migrationRule": "preserve-content-head-schema-links-functions; replace-visual-composition",
+      "designStatus": "IMPLEMENT_READY"
+    },
+    {
+      "path": "/herramientas/json-ld-escritores/",
+      "inSitemap": true,
+      "family": "tool",
+      "scaffold": "tool-pilot.html",
+      "migrationRule": "preserve-content-head-schema-links-functions; replace-visual-composition",
+      "designStatus": "IMPLEMENT_READY"
+    },
+    {
+      "path": "/herramientas/kit-prensa-escritores/",
+      "inSitemap": true,
+      "family": "tool",
+      "scaffold": "tool-pilot.html",
+      "migrationRule": "preserve-content-head-schema-links-functions; replace-visual-composition",
+      "designStatus": "IMPLEMENT_READY"
+    },
+    {
+      "path": "/herramientas/legibilidad/",
+      "inSitemap": true,
+      "family": "tool",
+      "scaffold": "tool-pilot.html",
+      "migrationRule": "preserve-content-head-schema-links-functions; replace-visual-composition",
+      "designStatus": "IMPLEMENT_READY"
+    },
+    {
+      "path": "/herramientas/manuscrito/",
+      "inSitemap": true,
+      "family": "tool",
+      "scaffold": "tool-pilot.html",
+      "migrationRule": "preserve-content-head-schema-links-functions; replace-visual-composition",
+      "designStatus": "IMPLEMENT_READY"
+    },
+    {
+      "path": "/herramientas/metadatos-libro/",
+      "inSitemap": true,
+      "family": "tool",
+      "scaffold": "tool-pilot.html",
+      "migrationRule": "preserve-content-head-schema-links-functions; replace-visual-composition",
+      "designStatus": "IMPLEMENT_READY"
+    },
+    {
+      "path": "/herramientas/nombres-personajes/",
+      "inSitemap": true,
+      "family": "tool",
+      "scaffold": "tool-pilot.html",
+      "migrationRule": "preserve-content-head-schema-links-functions; replace-visual-composition",
+      "designStatus": "IMPLEMENT_READY"
+    },
+    {
+      "path": "/herramientas/personajes/",
+      "inSitemap": true,
+      "family": "tool",
+      "scaffold": "tool-pilot.html",
+      "migrationRule": "preserve-content-head-schema-links-functions; replace-visual-composition",
+      "designStatus": "IMPLEMENT_READY"
+    },
+    {
+      "path": "/herramientas/repeticiones/",
+      "inSitemap": true,
+      "family": "tool",
+      "scaffold": "tool-pilot.html",
+      "migrationRule": "preserve-content-head-schema-links-functions; replace-visual-composition",
+      "designStatus": "IMPLEMENT_READY"
+    },
+    {
+      "path": "/herramientas/tiempo-lectura-voz-alta/",
+      "inSitemap": true,
+      "family": "tool",
+      "scaffold": "tool-pilot.html",
+      "migrationRule": "preserve-content-head-schema-links-functions; replace-visual-composition",
+      "designStatus": "IMPLEMENT_READY"
+    },
+    {
+      "path": "/herramientas/variedad-lexica/",
+      "inSitemap": true,
+      "family": "tool",
+      "scaffold": "tool-pilot.html",
+      "migrationRule": "preserve-content-head-schema-links-functions; replace-visual-composition",
+      "designStatus": "IMPLEMENT_READY"
+    },
+    {
+      "path": "/las-manecillas-del-recuerdo/",
+      "inSitemap": true,
+      "family": "book",
+      "scaffold": "book-manecillas.html",
+      "migrationRule": "preserve-content-head-schema-links-functions; replace-visual-composition",
+      "designStatus": "IMPLEMENT_READY"
+    },
+    {
+      "path": "/las-manecillas-del-recuerdo/fragmentos/",
+      "inSitemap": true,
+      "family": "book-excerpt",
+      "scaffold": "book-excerpt.html",
+      "migrationRule": "preserve-content-head-schema-links-functions; replace-visual-composition",
+      "designStatus": "IMPLEMENT_READY"
+    },
+    {
+      "path": "/libros/",
+      "inSitemap": true,
+      "family": "books-index",
+      "scaffold": "books-index.html",
+      "migrationRule": "preserve-content-head-schema-links-functions; replace-visual-composition",
+      "designStatus": "IMPLEMENT_READY"
+    },
+    {
+      "path": "/libros/samuel-entre-mundos/",
+      "inSitemap": true,
+      "family": "book-samuel",
+      "scaffold": "book-samuel.html",
+      "migrationRule": "preserve-samuel-contract; threshold-composition",
+      "designStatus": "IMPLEMENT_READY"
+    },
+    {
+      "path": "/mapa-del-sitio/",
+      "inSitemap": true,
+      "family": "wayfinding",
+      "scaffold": "wayfinding.html",
+      "migrationRule": "preserve-content-head-schema-links-functions; replace-visual-composition",
+      "designStatus": "IMPLEMENT_READY"
+    },
+    {
+      "path": "/metodologia-editorial/",
+      "inSitemap": true,
+      "family": "reference-detail",
+      "scaffold": "reference-detail.html",
+      "migrationRule": "preserve-content-head-schema-links-functions; replace-visual-composition",
+      "designStatus": "IMPLEMENT_READY"
+    },
+    {
+      "path": "/premios.html",
+      "inSitemap": true,
+      "family": "awards",
+      "scaffold": "awards.html",
+      "migrationRule": "preserve-awards-contract; separate-formal-distinctions-from-trajectory",
+      "designStatus": "IMPLEMENT_READY"
+    },
+    {
+      "path": "/prensa.html",
+      "inSitemap": true,
+      "family": "press",
+      "scaffold": "press.html",
+      "migrationRule": "preserve-content-head-schema-links-functions; replace-visual-composition",
+      "designStatus": "IMPLEMENT_READY"
+    },
+    {
+      "path": "/recomendaciones/",
+      "inSitemap": true,
+      "family": "editorial-index",
+      "scaffold": "cuaderno.html",
+      "migrationRule": "preserve-content-head-schema-links-functions; replace-visual-composition",
+      "designStatus": "IMPLEMENT_READY"
+    },
+    {
+      "path": "/recomendaciones/magia-con-coste/",
+      "inSitemap": true,
+      "family": "editorial-article",
+      "scaffold": "article-pilot.html",
+      "migrationRule": "preserve-content-head-schema-links-functions; replace-visual-composition",
+      "designStatus": "IMPLEMENT_READY"
+    },
+    {
+      "path": "/recomendaciones/portal-fantasy-espanol/",
+      "inSitemap": true,
+      "family": "editorial-article",
+      "scaffold": "article-pilot.html",
+      "migrationRule": "preserve-content-head-schema-links-functions; replace-visual-composition",
+      "designStatus": "IMPLEMENT_READY"
+    },
+    {
+      "path": "/recursos/ficha-historia-objeto-heredado/",
+      "inSitemap": true,
+      "family": "resource",
+      "scaffold": "reference-detail.html",
+      "migrationRule": "preserve-content-head-schema-links-functions; replace-visual-composition",
+      "designStatus": "IMPLEMENT_READY"
+    },
+    {
+      "path": "/recursos/herramientas-para-escritores/",
+      "inSitemap": true,
+      "family": "reference-detail",
+      "scaffold": "reference-detail.html",
+      "migrationRule": "preserve-content-head-schema-links-functions; replace-visual-composition",
+      "designStatus": "IMPLEMENT_READY"
+    },
+    {
+      "path": "/universo/noveris/",
+      "inSitemap": true,
+      "family": "book-companion",
+      "scaffold": "book-companion.html",
+      "migrationRule": "preserve-content-head-schema-links-functions; replace-visual-composition",
+      "designStatus": "IMPLEMENT_READY"
+    },
+    {
+      "path": "/404.html",
+      "inSitemap": false,
+      "family": "secondary",
+      "scaffold": "secondary.html",
+      "migrationRule": "preserve-noindex-follow; replace-visual-composition",
+      "designStatus": "IMPLEMENT_READY"
+    },
+    {
+      "path": "/privacidad.html",
+      "inSitemap": false,
+      "family": "legal-reading",
+      "scaffold": "secondary.html",
+      "migrationRule": "preserve-legal-copy-verbatim; replace-shell-and-typography-only",
+      "designStatus": "IMPLEMENT_READY"
+    },
+    {
+      "path": "/aviso-legal.html",
+      "inSitemap": false,
+      "family": "legal-reading",
+      "scaffold": "secondary.html",
+      "migrationRule": "preserve-noindex-follow-head-and-legal-copy; replace-visual-composition",
+      "designStatus": "IMPLEMENT_READY"
+    },
+    {
+      "path": "/donde-empieza-la-jaula/",
+      "inSitemap": false,
+      "family": "book-development",
+      "scaffold": "book-jaula.html",
+      "migrationRule": "create-authorized-public-route-from-canonical-manuscript-chapter-1; no-invented-metadata; add-to-sitemap/navigation-only-after-staging-200-and-coverage-gate",
+      "status": "AUTHORIZED_FOR_STAGING",
+      "productionAllowed": false,
+      "designStatus": "IMPLEMENT_READY"
+    }
+  ],
+  "routeCountIncludingOperationalAndBlocked": 59
+}

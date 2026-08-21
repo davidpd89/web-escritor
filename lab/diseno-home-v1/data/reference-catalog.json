@@ -1,0 +1,120 @@
+{
+  "schemaVersion": 1,
+  "policy": "No third-party proprietary code copied. MIT repositories are references/candidates; if code is copied later, preserve license notice.",
+  "references": [
+    {
+      "id": "webby-criteria-2026",
+      "kind": "award-criteria",
+      "title": "The Webby Awards — 2025/2026 Judging Criteria",
+      "url": "https://www.webbyawards.com/judging-criteria/",
+      "transfer": "Gate content, structure/navigation, visual design, functionality, interactivity, innovation and overall experience.",
+      "reject": "Do not copy the visual skin or turn the reference into a global dependency."
+    },
+    {
+      "id": "ottografie-2026",
+      "kind": "award-winner",
+      "title": "Ottografie — Exo Ape — Webby Winner 2026, Best Navigation/Structure",
+      "url": "https://winners.webbyawards.com/2026/websites-and-mobile-sites/features-design/best-navigationstructure/363523/ottografie",
+      "transfer": "Persistent categorical wayfinding, counts/territories and a clear mental model; transfer IA, not skin.",
+      "reject": "Do not copy the visual skin or turn the reference into a global dependency."
+    },
+    {
+      "id": "dich-2026",
+      "kind": "award-winner",
+      "title": "DICH™ Fashion — BL/S® — Webby Winner 2026, Best User Interface",
+      "url": "https://winners.webbyawards.com/2026/websites-and-mobile-sites/features-design/best-user-interface/363972/dich-fashion",
+      "transfer": "UI states, typography and interaction as one system.",
+      "reject": "Do not copy the visual skin or turn the reference into a global dependency."
+    },
+    {
+      "id": "webby-magazine-2026",
+      "kind": "award-field",
+      "title": "Webby 2026 — Magazine or Publication",
+      "url": "https://winners.webbyawards.com/winners/websites-and-mobile-sites/general-desktop-mobile-sites/magazine-or-publication",
+      "transfer": "Benchmark Cuaderno/reference families against publication quality, not blog themes.",
+      "reject": "Do not copy the visual skin or turn the reference into a global dependency."
+    },
+    {
+      "id": "sticky-grid-scroll",
+      "kind": "public-repo-mit",
+      "title": "Sticky Grid Scroll — Theo Plawinski / Codrops",
+      "url": "https://github.com/theoplawinski/codrops-sticky-grid-scroll",
+      "license": "MIT",
+      "transfer": "Fixed editorial scene unfolding in phases; candidate for Press/Archive only after static layout passes.",
+      "reject": "Do not copy the visual skin or turn the reference into a global dependency."
+    },
+    {
+      "id": "svg-mask-scroll",
+      "kind": "public-repo-mit",
+      "title": "Scroll-Transition — Hiroki Watanabe / Codrops",
+      "url": "https://github.com/Hiro-kiii/Scroll-Transition",
+      "license": "MIT",
+      "transfer": "Intentional scene seams/masks for one or two narrative transitions; content never depends on mask.",
+      "reject": "Do not copy the visual skin or turn the reference into a global dependency."
+    },
+    {
+      "id": "curved-path-codrops",
+      "kind": "human-tutorial",
+      "title": "Responsive Curved Path Animations — Ross Anderson / OFF+BRAND",
+      "url": "https://tympanus.net/codrops/2025/12/17/building-responsive-scroll-triggered-curved-path-animations-with-gsap/",
+      "transfer": "Responsive anchor recalculation and explicit reduced-motion for cartographic thread.",
+      "reject": "Do not copy the visual skin or turn the reference into a global dependency."
+    },
+    {
+      "id": "view-transition-mdn",
+      "kind": "platform-api",
+      "title": "MDN — View Transition API",
+      "url": "https://developer.mozilla.org/en-US/docs/Web/API/View_Transition_API",
+      "transfer": "Same-origin MPA continuity for semantic pairs, progressive enhancement.",
+      "reject": "Do not copy the visual skin or turn the reference into a global dependency."
+    },
+    {
+      "id": "animation-timeline-mdn",
+      "kind": "platform-compatibility",
+      "title": "MDN — animation-timeline",
+      "url": "https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/Properties/animation-timeline",
+      "transfer": "Scroll-linked CSS is enhancement-only while support remains limited.",
+      "reject": "Do not copy the visual skin or turn the reference into a global dependency."
+    },
+    {
+      "id": "reform-collective-2025",
+      "kind": "human-case-study",
+      "title": "Reform Collective: A New Website, Designed to Be Seen — Codrops",
+      "url": "https://tympanus.net/codrops/2025/07/24/reform-collective-a-new-website-designed-to-be-seen/",
+      "transfer": "Clarity, performance and structure first; expressive CSS scenes can be isolated instead of defining every page.",
+      "reject": "Do not reproduce its studio skin, scroll controller or 3D block effect as site-wide identity."
+    },
+    {
+      "id": "spain-collection-2025",
+      "kind": "human-case-study",
+      "title": "Spain Collection: Evolving a Luxury Website into a Digital Ecosystem — Codrops",
+      "url": "https://tympanus.net/codrops/2025/12/18/spain-collection-evolving-a-luxury-website-into-a-digital-ecosystem/",
+      "transfer": "Editorial art direction, generous breathing room, explicit content architecture and memorable but subtle interaction; distinct page families can share one system.",
+      "reject": "Do not import luxury-travel visual language, large photo dependency or modal catalog mechanics where they do not serve author-site tasks."
+    },
+    {
+      "id": "exat-microsite-2026",
+      "kind": "human-case-study",
+      "title": "The Exat Microsite: Pushing a Typography Showcase to New Creative Extremes — Codrops",
+      "url": "https://tympanus.net/codrops/2026/04/10/the-exat-microsite-pushing-a-typography-showcase-to-new-creative-extremes/",
+      "transfer": "Typography can be the interface; alternate calm reading sections with one expressive scene, and let scroll structure pacing rather than trigger decoration everywhere.",
+      "reject": "Do not imitate type-specimen effects or make continuous motion carry information."
+    },
+    {
+      "id": "christian-fleming-2025",
+      "kind": "human-case-study",
+      "title": "Setting the Stage: Christian Fleming — Codrops",
+      "url": "https://tympanus.net/codrops/2025/08/14/setting-the-stage-inside-the-process-of-bringing-christian-flemings-work-to-life-in-print-web-and-3d/",
+      "transfer": "Prototype against hostile long titles and mobile early; hierarchy can come from type weight, placement and negative space rather than more components.",
+      "reject": "Do not transfer the theatrical skin or central photo staging literally."
+    },
+    {
+      "id": "247-artists-2025",
+      "kind": "human-case-study",
+      "title": "Turning Music Into Motion: 24/7 Artists — Codrops",
+      "url": "https://tympanus.net/codrops/2025/04/16/case-study-24-7-artists/",
+      "transfer": "Storyboard a long page as a sequence of states and transitions before coding; prioritize bold effects that are achievable and understood by the implementation team.",
+      "reject": "Do not transfer mouse trails, music visualizer aesthetics or full-screen spectacle to an author site."
+    }
+  ]
+}

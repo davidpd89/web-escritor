@@ -1,0 +1,112 @@
+{
+  "schema_version": 2,
+  "repository": "davidpd89/web-escritor",
+  "targetBranch": "implementacion-web-2026",
+  "notes": "Los IDs de Drive conservan procedencia/copia de seguridad. Los target_path reutilizan los assets planos que ya existen y usa la rama activa; no crear una segunda carpeta de cubiertas en el repo ni hotlinkear Drive.",
+  "assets": [
+    {
+      "id": "manecillas-cover-320",
+      "drive_file_id": "1aY210xiafo5LWxHvo29b2lrRL_vQmSu3",
+      "source_name": "portada-las-manecillas-del-recuerdo-320.webp",
+      "target_path": "/assets/portada-las-manecillas-del-recuerdo-320.webp",
+      "repo_verified_target_branch": true,
+      "role": "cover-responsive",
+      "required_for_visual_gate": true,
+      "intrinsic_width": 320,
+      "intrinsic_height": 480,
+      "bytes": 38590,
+      "aspect_ratio": "2:3"
+    },
+    {
+      "id": "manecillas-cover-512",
+      "drive_file_id": "1lvMzLFTqrHCMo3o95xM_ksVN-R-RbIgZ",
+      "source_name": "portada-las-manecillas-del-recuerdo-512.webp",
+      "target_path": "/assets/portada-las-manecillas-del-recuerdo-512.webp",
+      "repo_verified_target_branch": true,
+      "role": "cover-responsive",
+      "required_for_visual_gate": true,
+      "intrinsic_width": 512,
+      "intrinsic_height": 768,
+      "bytes": 88152,
+      "aspect_ratio": "2:3"
+    },
+    {
+      "id": "manecillas-cover-768",
+      "drive_file_id": "1Bdi056oEgQNKIjh5gExsaSTkSp2IRH0t",
+      "source_name": "portada-las-manecillas-del-recuerdo-768.webp",
+      "target_path": "/assets/portada-las-manecillas-del-recuerdo-768.webp",
+      "repo_verified_target_branch": true,
+      "role": "cover-responsive",
+      "required_for_visual_gate": true,
+      "intrinsic_width": 768,
+      "intrinsic_height": 1152,
+      "bytes": 169052,
+      "aspect_ratio": "2:3"
+    },
+    {
+      "id": "manecillas-cover-1024",
+      "drive_file_id": "1XCJnsqzW9Kz1rgzFS4cBwlP57HoO-j-U",
+      "source_name": "portada-las-manecillas-del-recuerdo-1024.webp",
+      "target_path": "/assets/portada-las-manecillas-del-recuerdo-1024.webp",
+      "repo_verified_target_branch": true,
+      "role": "cover-responsive-lcp",
+      "required_for_visual_gate": true,
+      "intrinsic_width": 1024,
+      "intrinsic_height": 1536,
+      "bytes": 258970,
+      "aspect_ratio": "2:3"
+    },
+    {
+      "id": "author-portrait-current",
+      "repo_path": "/assets/david-porto-foto-portada-sinfondo.webp",
+      "repo_verified_target_branch": true,
+      "role": "author-portrait-home-ab",
+      "required_for_visual_gate": false,
+      "note": "Candidato inicial. Doc 30/asset QA decide si se conserva y cómo se recorta; el sistema debe seguir pasando Gate 0 sin este retrato.",
+      "source_drive_file_id": "1Tb4HxsMokS-eiW4Dqr9pwhxlquV1Qxc9",
+      "lab_drive_file_id": "1EkUZKUv1r7xx9ZNS6abtTqfW-sh-1Nr_",
+      "source_name": "david-porto-foto-portada-sinfondo.webp",
+      "lab_path": "/assets/david-porto-foto-portada-sinfondo.webp",
+      "intrinsic_width": 433,
+      "intrinsic_height": 577,
+      "alpha": true,
+      "display_max_width_css_px": 430,
+      "resolution_gate": "pass-no-destructive-upscale",
+      "selection_reason": "Recorte transparente ya alineado con la composición superpuesta de Home. A 1440 el CSS limita el retrato a 430 px de ancho, por debajo de sus 433 px intrínsecos; en móvil siempre reduce. Los candidatos de mayor resolución conservan fondo y modificarían la dirección visual, por lo que no son sustitutos técnicos equivalentes.",
+      "alternatives_reviewed": [
+        {
+          "drive_file_id": "1VCYOGaTlBSAzp70Jju4wx0r4ZgxpHh6r",
+          "name": "david-porto-foto.webp",
+          "intrinsic": "4032x3024",
+          "reason_not_selected": "fotografía horizontal con fondo; cambia composición"
+        },
+        {
+          "drive_file_id": "1iD6vSCmdqNZjHIKP5QNoLca0ZMiJwqIu",
+          "name": "david-porto-foto-portada2.webp",
+          "intrinsic": "1122x1402",
+          "reason_not_selected": "retrato con fondo; no es reemplazo transparente 1:1"
+        },
+        {
+          "drive_file_id": "1GhecdT0Pj0uNQgFwv79b8aDQtpO8N7HT",
+          "name": "david-porto-foto-portada.webp",
+          "intrinsic": "1086x1448",
+          "reason_not_selected": "retrato con fondo; no es reemplazo transparente 1:1"
+        }
+      ],
+      "required_for_home_ab_gate": true,
+      "required_for_gate_0": false,
+      "bytes": 10150
+    }
+  ],
+  "performance_budget": {
+    "home_above_fold_media_bytes_max": 310000,
+    "selected_home_media_estimate_bytes_at_1440": 269120,
+    "selected_home_media_note": "1024 cover + transparent portrait. Browser may choose smaller cover source below desktop breakpoints.",
+    "cover_320_bytes_max": 45000,
+    "cover_512_bytes_max": 100000,
+    "cover_768_bytes_max": 190000,
+    "cover_1024_bytes_max": 280000
+  },
+  "lastAuditedHead": "5c4a9afca7c009bd78d5dd44ca4b6c656239527c",
+  "headPolicy": "Baseline informativa: antes de integrar, comparar este HEAD auditado con el HEAD actual de implementacion-web-2026 y reabrir solo los contratos cuyos archivos relevantes hayan cambiado."
+}

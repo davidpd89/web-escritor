@@ -1,0 +1,244 @@
+<!doctype html>
+<html lang="es" data-variant="a" data-state="h1" data-fixture="normal">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+  <meta name="robots" content="noindex,nofollow,noarchive">
+  <meta name="color-scheme" content="light">
+  <title>Lab Home V1 — David Porto Díaz</title>
+  <meta name="description" content="Laboratorio privado de diseño Home V1. No indexar ni reutilizar como página pública.">
+  <script>
+    (() => {
+      const p = new URLSearchParams(location.search);
+      const root = document.documentElement;
+      root.classList.add('js');
+      root.dataset.variant = p.get('variant') === 'b' ? 'b' : 'a';
+      root.dataset.state = ['h0','h1','h6'].includes(p.get('state')) ? p.get('state') : 'h1';
+      root.dataset.fixture = p.get('fixture') || 'normal';
+      if (p.get('motion') === 'off') root.dataset.motion = 'off';
+      if (p.get('capture') === '1') root.dataset.capture = 'true';
+    })();
+  </script>
+  <link rel="stylesheet" href="./css/fonts-lab.css">
+  <link rel="stylesheet" href="./css/tokens.css">
+  <link rel="stylesheet" href="./css/base.css">
+  <link rel="stylesheet" href="./css/shell.css">
+  <link rel="stylesheet" href="./css/home.css">
+  <link rel="stylesheet" href="./css/variants.css">
+  <script src="./js/fixtures.js" defer></script>
+  <script src="./js/lab.js" defer></script>
+</head>
+<body>
+  <a class="skip-link" href="#contenido">Saltar al contenido</a>
+
+  <header class="site-header" data-header>
+    <div class="site-header__inner">
+      <a class="brand" href="/" aria-label="David Porto Díaz — inicio">
+        <span class="brand__name">David Porto Díaz</span>
+        <span class="brand__role">Escritor</span>
+      </a>
+      <nav class="primary-nav" aria-label="Navegación principal">
+        <a href="/libros/">Obra</a>
+        <a href="/cuaderno/">Cuaderno</a>
+        <a href="/herramientas/">Herramientas</a>
+      </nav>
+      <button class="explore-trigger" type="button" aria-haspopup="dialog" aria-controls="explore-dialog" aria-expanded="false" data-explore-open>
+        Explorar
+      </button>
+    </div>
+  </header>
+
+  <dialog class="explore-dialog" id="explore-dialog" aria-labelledby="explore-title" data-explore-dialog>
+    <div class="explore-dialog__shell">
+      <div class="explore-dialog__head">
+        <div>
+          <p class="eyebrow">Índice general</p>
+          <h2 id="explore-title">Explorar</h2>
+        </div>
+        <button class="icon-button" type="button" aria-label="Cerrar Explorar" data-explore-close>
+          <svg aria-hidden="true" viewBox="0 0 24 24" width="20" height="20"><path d="M5 5l14 14M19 5L5 19"/></svg>
+        </button>
+      </div>
+
+      <div class="explore-dialog__grid">
+        <nav class="explore-list" aria-label="Destinos de la web">
+          <a class="explore-row" href="/las-manecillas-del-recuerdo/" data-preview="manecillas">
+            <span class="explore-row__index">01</span>
+            <span class="explore-row__body"><strong>Las manecillas del recuerdo</strong><small>La obra actual.</small></span>
+          </a>
+          <a class="explore-row" href="/autor.html" data-preview="autor">
+            <span class="explore-row__index">02</span>
+            <span class="explore-row__body"><strong>Autor</strong><small>Biografía, obra y trayectoria.</small></span>
+          </a>
+          <a class="explore-row" href="/libros/samuel-entre-mundos/" data-preview="samuel">
+            <span class="explore-row__index">03</span>
+            <span class="explore-row__body"><strong>Samuel entre mundos</strong><small>Primera novela publicada.</small></span>
+          </a>
+          <span class="explore-row explore-row--planned" data-preview="jaula" data-route-planned="true">
+            <span class="explore-row__index">04</span>
+            <span class="explore-row__body"><strong>Dónde empieza la jaula</strong><small>Proyecto en desarrollo público limitado.</small></span>
+          </span>
+          <a class="explore-row" href="/cuaderno/" data-preview="cuaderno">
+            <span class="explore-row__index">05</span>
+            <span class="explore-row__body"><strong>Cuaderno</strong><small>Artículos y piezas editoriales.</small></span>
+          </a>
+          <a class="explore-row" href="/herramientas/" data-preview="herramientas">
+            <span class="explore-row__index">06</span>
+            <span class="explore-row__body"><strong>Herramientas</strong><small>Utilidades gratuitas para escritores.</small></span>
+          </a>
+          <a class="explore-row" href="/prensa.html" data-preview="prensa">
+            <span class="explore-row__index">07</span>
+            <span class="explore-row__body"><strong>Prensa y eventos</strong><small>Apariciones, materiales y agenda.</small></span>
+          </a>
+        </nav>
+
+        <aside class="explore-preview" aria-live="polite" aria-atomic="true" data-explore-preview>
+          <div class="explore-preview__media" aria-hidden="true" data-preview-media></div>
+          <p class="explore-preview__label" data-preview-label>Las manecillas del recuerdo</p>
+          <p class="explore-preview__copy" data-preview-copy>La obra actual y punto de entrada editorial.</p>
+        </aside>
+      </div>
+    </div>
+  </dialog>
+
+  <main id="contenido">
+    <section class="home-hero" aria-labelledby="home-title" data-home-hero>
+      <div class="home-hero__inner">
+        <div class="home-hero__copy">
+          <p class="hero-kicker">Escritor</p>
+          <h1 id="home-title" data-fixture-target="hero-title">David Porto Díaz</h1>
+          <div class="hero-work">
+            <p class="hero-work__label">Obra actual</p>
+            <p class="hero-work__title" data-fixture-target="book-title">Las manecillas del recuerdo</p>
+            <time class="hero-work__date" datetime="2026-09-03" data-fixture-target="date">Publicada el 3 de septiembre de 2026</time>
+          </div>
+          <a class="primary-action" href="/las-manecillas-del-recuerdo/">Descubrir Las manecillas</a>
+        </div>
+
+        <div class="hero-media" aria-label="David Porto Díaz y Las manecillas del recuerdo" data-hero-media>
+          <figure class="hero-portrait media-object" data-media="portrait">
+            <img src="/assets/david-porto-foto-portada-sinfondo.webp" alt="David Porto Díaz" width="433" height="577" loading="eager" decoding="async" data-media-img>
+          </figure>
+          <figure class="hero-cover media-object" data-media="cover">
+            <picture>
+              <source media="(max-width: 420px)" srcset="/assets/portada-las-manecillas-del-recuerdo-320.webp">
+              <source media="(max-width: 820px)" srcset="/assets/portada-las-manecillas-del-recuerdo-512.webp">
+              <source media="(max-width: 1280px)" srcset="/assets/portada-las-manecillas-del-recuerdo-768.webp">
+              <img src="/assets/portada-las-manecillas-del-recuerdo-1024.webp" alt="Portada de Las manecillas del recuerdo, de David Porto Díaz" width="1024" height="1536" loading="eager" decoding="async" fetchpriority="high" data-media-img>
+            </picture>
+          </figure>
+          <div class="media-fallback" hidden data-media-fallback>
+            <span>Material real no disponible en este entorno</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <div class="editorial-seam" aria-hidden="true"><span></span></div>
+
+    <section class="cartography" aria-labelledby="cartography-title">
+      <div class="section-intro">
+        <p class="eyebrow">Índice visual</p>
+        <h2 id="cartography-title">Explorar la web</h2>
+        <p>Obra, autor, artículos, herramientas, prensa y eventos conectados por una misma estructura.</p>
+      </div>
+
+      <div class="map-stage" data-map>
+        <svg class="map-routes" viewBox="0 0 1440 820" preserveAspectRatio="none" aria-hidden="true">
+          <path d="M1037 197 C850 198 790 120 662 148 C512 182 470 265 346 312"/>
+          <path d="M1037 197 C1160 260 1194 360 1152 467 C1102 592 1012 622 893 631"/>
+          <path d="M346 312 C410 430 438 498 504 566 C412 616 350 651 259 672"/>
+          <path d="M504 566 C648 548 742 586 893 631"/>
+        </svg>
+
+        <nav class="map-nodes" aria-label="Territorios de la web">
+          <a class="map-node map-node--primary" href="/las-manecillas-del-recuerdo/" style="--x:72%;--y:24%;" data-map-node="manecillas">
+            <span class="map-node__marker" aria-hidden="true"></span><strong>Las manecillas del recuerdo</strong><small>Obra actual</small>
+          </a>
+          <a class="map-node" href="/autor.html" style="--x:46%;--y:18%;" data-map-node="autor">
+            <span class="map-node__marker" aria-hidden="true"></span><strong>Autor</strong><small>Biografía y trayectoria</small>
+          </a>
+          <a class="map-node" href="/libros/samuel-entre-mundos/" style="--x:24%;--y:38%;" data-map-node="samuel">
+            <span class="map-node__marker" aria-hidden="true"></span><strong>Samuel entre mundos</strong><small>Primera novela</small>
+          </a>
+          <span class="map-node map-node--planned" style="--x:80%;--y:57%;" data-map-node="jaula" data-route-planned="true">
+            <span class="map-node__marker" aria-hidden="true"></span><strong>Dónde empieza la jaula</strong><small>Estado editorial neutro</small>
+          </span>
+          <a class="map-node" href="/cuaderno/" style="--x:35%;--y:69%;" data-map-node="cuaderno">
+            <span class="map-node__marker" aria-hidden="true"></span><strong>Cuaderno</strong><small>Artículos</small>
+          </a>
+          <a class="map-node" href="/herramientas/" style="--x:62%;--y:77%;" data-map-node="herramientas">
+            <span class="map-node__marker" aria-hidden="true"></span><strong>Herramientas</strong><small>Utilidades para escritores</small>
+          </a>
+          <a class="map-node" href="/prensa.html" style="--x:18%;--y:82%;" data-map-node="prensa">
+            <span class="map-node__marker" aria-hidden="true"></span><strong>Prensa y eventos</strong><small>Archivo y agenda</small>
+          </a>
+        </nav>
+      </div>
+    </section>
+
+    <section class="editorial-river" aria-labelledby="river-title" data-river>
+      <div class="section-intro section-intro--compact">
+        <p class="eyebrow">Ahora</p>
+        <h2 id="river-title">En la web</h2>
+      </div>
+      <div class="river-list" data-river-list>
+        <article class="river-item river-item--lead" data-signal="1">
+          <p class="river-item__meta">Las manecillas del recuerdo · 3 septiembre 2026</p>
+          <h3><a href="/las-manecillas-del-recuerdo/">La nueva novela de David Porto Díaz</a></h3>
+          <p>Ficha, publicación, fragmentos y materiales de la obra.</p>
+        </article>
+        <article class="river-item" data-signal="2">
+          <p class="river-item__meta">Cuaderno</p>
+          <h3><a href="/cuaderno/">Artículos sobre escritura, libros y proceso</a></h3>
+        </article>
+        <article class="river-item" data-signal="3">
+          <p class="river-item__meta">Herramientas</p>
+          <h3><a href="/herramientas/">Utilidades gratuitas para escritores</a></h3>
+        </article>
+      </div>
+    </section>
+
+    <section class="newsletter" aria-labelledby="newsletter-title">
+      <div class="newsletter__copy">
+        <p class="eyebrow">Novedades</p>
+        <h2 id="newsletter-title">Recibir novedades</h2>
+        <p>Publicaciones, eventos y contenido nuevo cuando haya algo que contar.</p>
+      </div>
+      <form class="newsletter__form" id="newsletter-form-home" action="#" method="post" novalidate data-demo-form data-newsletter-source="home">
+        <label class="form-field-label" for="nl-email-home">Correo electrónico</label>
+        <div class="form-row">
+          <input class="form-input" id="nl-email-home" name="email" type="email" autocomplete="email" inputmode="email" required aria-describedby="nl-email-help-home nl-status-home">
+          <button class="form-submit" type="submit">Suscribirme</button>
+        </div>
+        <p id="nl-email-help-home" class="form-help">Se usa únicamente para enviarte novedades.</p>
+        <label class="form-consent" for="nl-gdpr-home">
+          <input id="nl-gdpr-home" name="consent" type="checkbox" required aria-describedby="nl-status-home">
+          <span>Acepto recibir novedades del autor. <a href="/privacidad.html">Privacidad</a>.</span>
+        </label>
+        <p id="nl-status-home" class="form-status" role="status" aria-live="polite"></p>
+      </form>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="site-footer__grid">
+      <div><strong>David Porto Díaz</strong><p>Escritor.</p></div>
+      <nav aria-label="Obra"><h2>Obra</h2><a href="/las-manecillas-del-recuerdo/">Las manecillas del recuerdo</a><a href="/libros/samuel-entre-mundos/">Samuel entre mundos</a></nav>
+      <nav aria-label="Leer y recursos"><h2>Leer</h2><a href="/cuaderno/">Cuaderno</a><a href="/herramientas/">Herramientas</a></nav>
+      <nav aria-label="Información"><h2>Información</h2><a href="/autor.html">Autor</a><a href="/prensa.html">Prensa</a><a href="/eventos.html">Eventos</a><a href="/privacidad.html">Privacidad</a></nav>
+    </div>
+  </footer>
+
+  <aside class="lab-toolbar" aria-label="Controles del laboratorio" data-lab-toolbar>
+    <strong>Lab V1</strong>
+    <a href="?variant=a&state=h1">A</a>
+    <a href="?variant=b&state=h1">B</a>
+    <a href="?variant=a&state=h0">H0</a>
+    <a href="?variant=a&state=h6">H6</a>
+    <a href="?variant=a&fixture=long">Long</a>
+    <a href="?variant=a&fixture=no-media">No media</a>
+    <a href="?variant=a&motion=off">Motion off</a>
+  </aside>
+</body>
+</html>

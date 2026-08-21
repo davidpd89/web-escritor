@@ -1,0 +1,195 @@
+<!doctype html>
+<html lang="es" data-fixture="normal">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+  <meta name="robots" content="noindex,nofollow,noarchive">
+  <title>Lab Libro V1 — Las manecillas del recuerdo</title>
+  <meta name="description" content="Scaffold privado de la familia Libro V1. No sustituye la ficha pública.">
+  <script>(()=>{document.documentElement.classList.add('js');const p=new URLSearchParams(location.search);document.documentElement.dataset.fixture=p.get('fixture')||'normal';if(p.get('motion')==='off')document.documentElement.dataset.motion='off';if(p.get('capture')==='1')document.documentElement.dataset.capture='true';})();</script>
+  <link rel="stylesheet" href="./css/fonts-lab.css">
+  <link rel="stylesheet" href="./css/tokens.css">
+  <link rel="stylesheet" href="./css/base.css">
+  <link rel="stylesheet" href="./css/shell.css">
+  <link rel="stylesheet" href="./css/book.css">
+  <script src="./js/book-fixtures.js" defer></script>
+  <script src="./js/lab.js" defer></script>
+</head>
+<body>
+  <a class="skip-link" href="#contenido">Saltar al contenido</a>
+  <header class="site-header" data-header>
+    <div class="site-header__inner">
+      <a class="brand" href="/" aria-label="David Porto Díaz — inicio"><span class="brand__name">David Porto Díaz</span><span class="brand__role">Escritor</span></a>
+      <nav class="primary-nav" aria-label="Navegación principal"><a href="/libros/" aria-current="page">Obra</a><a href="/cuaderno/">Cuaderno</a><a href="/herramientas/">Herramientas</a></nav>
+      <button class="explore-trigger" type="button" aria-haspopup="dialog" aria-controls="explore-dialog" aria-expanded="false" data-explore-open>Explorar</button>
+    </div>
+  </header>
+  <dialog class="explore-dialog" id="explore-dialog" aria-labelledby="explore-title" data-explore-dialog>
+    <div class="explore-dialog__shell">
+      <div class="explore-dialog__head">
+        <div>
+          <p class="eyebrow">Índice general</p>
+          <h2 id="explore-title">Explorar</h2>
+        </div>
+        <button class="icon-button" type="button" aria-label="Cerrar Explorar" data-explore-close>
+          <svg aria-hidden="true" viewBox="0 0 24 24" width="20" height="20"><path d="M5 5l14 14M19 5L5 19"/></svg>
+        </button>
+      </div>
+
+      <div class="explore-dialog__grid">
+        <nav class="explore-list" aria-label="Destinos de la web">
+          <a class="explore-row" href="/las-manecillas-del-recuerdo/" data-preview="manecillas">
+            <span class="explore-row__index">01</span>
+            <span class="explore-row__body"><strong>Las manecillas del recuerdo</strong><small>La obra actual.</small></span>
+          </a>
+          <a class="explore-row" href="/autor.html" data-preview="autor">
+            <span class="explore-row__index">02</span>
+            <span class="explore-row__body"><strong>Autor</strong><small>Biografía, obra y trayectoria.</small></span>
+          </a>
+          <a class="explore-row" href="/libros/samuel-entre-mundos/" data-preview="samuel">
+            <span class="explore-row__index">03</span>
+            <span class="explore-row__body"><strong>Samuel entre mundos</strong><small>Primera novela publicada.</small></span>
+          </a>
+          <span class="explore-row explore-row--planned" data-preview="jaula" data-route-planned="true">
+            <span class="explore-row__index">04</span>
+            <span class="explore-row__body"><strong>Dónde empieza la jaula</strong><small>Proyecto en desarrollo público limitado.</small></span>
+          </span>
+          <a class="explore-row" href="/cuaderno/" data-preview="cuaderno">
+            <span class="explore-row__index">05</span>
+            <span class="explore-row__body"><strong>Cuaderno</strong><small>Artículos y piezas editoriales.</small></span>
+          </a>
+          <a class="explore-row" href="/herramientas/" data-preview="herramientas">
+            <span class="explore-row__index">06</span>
+            <span class="explore-row__body"><strong>Herramientas</strong><small>Utilidades gratuitas para escritores.</small></span>
+          </a>
+          <a class="explore-row" href="/prensa.html" data-preview="prensa">
+            <span class="explore-row__index">07</span>
+            <span class="explore-row__body"><strong>Prensa y eventos</strong><small>Apariciones, materiales y agenda.</small></span>
+          </a>
+        </nav>
+
+        <aside class="explore-preview" aria-live="polite" aria-atomic="true" data-explore-preview>
+          <div class="explore-preview__media" aria-hidden="true" data-preview-media></div>
+          <p class="explore-preview__label" data-preview-label>Las manecillas del recuerdo</p>
+          <p class="explore-preview__copy" data-preview-copy>La obra actual y punto de entrada editorial.</p>
+        </aside>
+      </div>
+    </div>
+  </dialog>
+
+  <main id="contenido">
+    <article class="book-page book-page--manecillas">
+      <nav class="book-breadcrumb" aria-label="Ruta de navegación">
+        <ol><li><a href="/">Inicio</a></li><li><a href="/libros/">Libros</a></li><li aria-current="page">Las manecillas del recuerdo</li></ol>
+      </nav>
+
+      <header class="book-hero" data-book-hero>
+        <div class="book-cover-zone" data-hero-media>
+          <figure class="book-cover" data-media="cover">
+            <picture>
+              <source media="(max-width:420px)" srcset="/assets/portada-las-manecillas-del-recuerdo-320.webp">
+              <source media="(max-width:820px)" srcset="/assets/portada-las-manecillas-del-recuerdo-512.webp">
+              <source media="(max-width:1280px)" srcset="/assets/portada-las-manecillas-del-recuerdo-768.webp">
+              <img src="/assets/portada-las-manecillas-del-recuerdo-1024.webp" alt="Portada de Las manecillas del recuerdo, novela de David Porto Díaz" width="1024" height="1536" loading="eager" decoding="async" fetchpriority="high" data-media-img>
+            </picture>
+          </figure>
+          <div class="book-cover-fallback" hidden data-media-fallback>Portada no disponible en este entorno de prueba.</div>
+        </div>
+        <div class="book-hero__copy">
+          <p class="eyebrow">Novela</p>
+          <h1 data-book-title>Las manecillas del recuerdo</h1>
+          <p class="book-author">David Porto Díaz</p>
+          <p class="book-lead"><em>Las manecillas del recuerdo</em> sigue un reloj que atraviesa vidas, generaciones y épocas. Con cada mano cambia su significado: recuerdo, ancla, mercancía, prueba o herencia.</p>
+          <time class="book-date" datetime="2026-09-03">Publicada el 3 de septiembre de 2026</time>
+          <div class="book-actions"><a class="primary-action" href="#fragmento">Leer un fragmento</a><a class="text-action" href="#newsletter-manecillas">Recibir novedades</a></div>
+        </div>
+        <dl class="book-meta-ledger" id="aviso" aria-label="Datos editoriales">
+          <div data-book-meta="editorial"><dt>Editorial</dt><dd>Monza Ediciones</dd></div>
+          <div data-book-meta="genero"><dt>Género</dt><dd>Novela coral · Ficción especulativa</dd></div>
+          <div data-book-meta="paginas"><dt>Páginas</dt><dd>272</dd></div>
+          <div data-book-meta="isbn"><dt>ISBN</dt><dd>979-8-90514-935-1</dd></div>
+          <div data-book-meta="publicacion"><dt>Publicación</dt><dd>3 de septiembre de 2026</dd></div>
+          <div data-book-meta="pvp"><dt>PVP</dt><dd>16 €</dd></div>
+        </dl>
+      </header>
+
+      <div class="book-seam" aria-hidden="true"><span></span></div>
+
+      <section class="book-section prose-section" id="sinopsis" aria-labelledby="sinopsis-title">
+        <div class="book-section__label"><p class="eyebrow">La novela</p></div>
+        <div class="prose-field">
+          <h2 id="sinopsis-title">Un objeto cambia de significado cada vez que cambia de manos.</h2>
+          <p>La historia cambia de voz, época y registro mientras el objeto acumula significados que sus propietarios no siempre conocen. La memoria familiar abre el recorrido; después aparecen preguntas sobre precio, credibilidad, salud, tecnología y privacidad.</p>
+          <p>No es una cronología explicada desde fuera: cada tramo obliga a mirar el reloj desde intereses distintos y a preguntarse cuánto vale una historia cuando nadie puede poseerla completa.</p>
+        </div>
+        <aside class="book-margin-note"><span>Ruta</span><p>Objeto → memoria → valor → herencia.</p></aside>
+      </section>
+
+      <aside class="book-dedication" aria-label="Dedicatoria de Las manecillas del recuerdo">
+        <p class="eyebrow">Dedicatoria</p>
+        <blockquote>«A quienes alguna vez olvidaron que el tiempo no vuelve.»</blockquote>
+      </aside>
+
+      <section class="book-section excerpt-section" id="fragmento" aria-labelledby="fragmento-title">
+        <span class="book-anchor-alias" id="muestra" aria-hidden="true"></span>
+        <div class="book-section__label"><p class="eyebrow">Muestra de lectura</p><h2 id="fragmento-title">Apertura · capítulo 1.1</h2><p><a class="text-action" href="/las-manecillas-del-recuerdo/fragmentos/">Leer los tres fragmentos</a></p></div>
+        <div class="excerpt-field" data-nosnippet>
+          <p>Tomás contó las siete veces que su abuelo miró el reloj durante el desayuno. Los domingos normales, Manuel apenas lo miraba; el tiempo con los nietos era otra cosa, más despacio. Pero hoy cada minuto se veía venir desde lejos y el niño ya sabía por qué: mañana era la cita con el cardiólogo.</p>
+          <p>El sol se colaba por las cortinas gastadas, formando manchas doradas que bailaban sobre la mesa de nogal. En la cocina del abuelo Manuel, el chocolate de los domingos tenía su propio orden: primero el cacao, después el azúcar, después el silencio.</p>
+        </div>
+      </section>
+
+      <section class="book-section context-section" id="contexto" data-book-context aria-labelledby="contexto-title">
+        <span class="book-anchor-alias" id="sinopsis-editorial" aria-hidden="true"></span>
+        <div class="book-section__label"><p class="eyebrow">Texto de cubierta</p></div>
+        <div class="prose-field prose-field--compact">
+          <h2 id="contexto-title">Sinopsis editorial</h2>
+          <p>Manuel siempre ha sabido que el viejo reloj familiar guarda mucho más que el paso de las horas. Cuando comienza a compartir con su nieto Tomás las historias que rodean aquella reliquia, ambos emprenden un viaje por varias generaciones marcadas por el amor, las pérdidas, los secretos y la esperanza.</p>
+          <p>Pero la aparición inesperada de alguien del pasado cambiará para siempre el destino de la familia, obligándolos a enfrentarse a viejas heridas y a descubrir que nunca es demasiado tarde para encontrar el perdón.</p>
+          <p><em>Las manecillas del recuerdo</em> es una novela emotiva sobre la memoria, los lazos familiares y el valor de las segundas oportunidades. Una historia que nos recuerda que el tiempo pasa, pero los recuerdos y el amor verdadero permanecen.</p>
+        </div>
+      </section>
+
+      <section class="book-section availability-section" id="disponibilidad" aria-labelledby="disponibilidad-title">
+        <div class="book-section__label"><p class="eyebrow">Disponibilidad</p><h2 id="disponibilidad-title">Edición y disponibilidad</h2></div>
+        <div class="availability-list">
+          <p class="availability-status">Los destinos comerciales se incorporarán aquí únicamente cuando estén verificados. El scaffold no inventa retailers.</p>
+          <dl><div><dt>Edición</dt><dd>Monza Ediciones</dd></div><div><dt>PVP</dt><dd>16 €</dd></div><div><dt>ISBN</dt><dd>979-8-90514-935-1</dd></div></dl>
+          <p><a class="text-action" href="/prensa.html">Ver material de prensa</a></p>
+        </div>
+      </section>
+
+      <div class="book-utility-actions" aria-label="Acciones sobre esta ficha">
+        <button class="text-action" type="button" hidden data-share-url="https://davidportodiaz.com/las-manecillas-del-recuerdo/" data-share-title="Las manecillas del recuerdo — David Porto Díaz" aria-describedby="book-share-status">Compartir</button>
+        <span class="book-share-status" id="book-share-status" role="status" aria-live="polite"></span>
+      </div>
+
+      <aside class="book-related" id="relacionado" data-book-related aria-labelledby="relacionado-title">
+        <div><p class="eyebrow">Relacionado</p><h2 id="relacionado-title">Otra obra y contexto</h2></div>
+        <div class="related-primary" data-related-primary><p class="related-type">Otra obra</p><h3><a href="/libros/samuel-entre-mundos/">Samuel entre mundos</a></h3><p>La primera novela publicada de David Porto Díaz.</p></div>
+        <nav class="related-secondary" data-related-secondary aria-label="Más contenido relacionado"><a href="/autor.html">Sobre el autor</a><a href="/cuaderno/">Cuaderno</a><a href="/eventos.html">Eventos</a></nav>
+      </aside>
+
+      <section class="book-newsletter" id="newsletter-manecillas" aria-labelledby="book-newsletter-title">
+        <div><p class="eyebrow">Novedades</p><h2 id="book-newsletter-title">Recibir novedades</h2><p>Actualizaciones de la obra y del autor cuando haya algo que contar.</p></div>
+        <form id="newsletter-form-manecillas" class="book-newsletter__form" novalidate data-demo-form data-newsletter-source="manecillas">
+          <label class="form-field-label" for="nl-email-manecillas">Correo electrónico</label>
+          <div class="form-row"><input class="form-input" id="nl-email-manecillas" name="email" type="email" autocomplete="email" inputmode="email" required aria-describedby="nl-status-manecillas"><button class="form-submit" type="submit">Suscribirme</button></div>
+          <label class="form-consent" for="nl-gdpr-manecillas"><input id="nl-gdpr-manecillas" name="consent" type="checkbox" required aria-describedby="nl-status-manecillas"><span>Acepto recibir novedades del autor. <a href="/privacidad.html">Privacidad</a>.</span></label>
+          <p id="nl-status-manecillas" class="form-status" role="status" aria-live="polite"></p>
+        </form>
+      </section>
+    </article>
+  </main>
+  <footer class="site-footer">
+    <div class="site-footer__grid">
+      <div><strong>David Porto Díaz</strong><p>Escritor.</p></div>
+      <nav aria-label="Obra"><h2>Obra</h2><a href="/las-manecillas-del-recuerdo/">Las manecillas del recuerdo</a><a href="/libros/samuel-entre-mundos/">Samuel entre mundos</a></nav>
+      <nav aria-label="Leer y recursos"><h2>Leer</h2><a href="/cuaderno/">Cuaderno</a><a href="/herramientas/">Herramientas</a></nav>
+      <nav aria-label="Información"><h2>Información</h2><a href="/autor.html">Autor</a><a href="/prensa.html">Prensa</a><a href="/eventos.html">Eventos</a><a href="/privacidad.html">Privacidad</a></nav>
+    </div>
+  </footer>
+
+  <aside class="book-lab-toolbar" aria-label="Controles del scaffold"><strong>Libro V1 · scaffold</strong><a href="./index.html">Home lab</a><a href="?fixture=no-media">Sin media</a><a href="?fixture=partial-meta">Meta parcial</a><a href="?fixture=related-none">Sin related</a><a href="?fixture=long-title">Título largo</a><a href="?motion=off">Motion off</a></aside>
+</body>
+</html>

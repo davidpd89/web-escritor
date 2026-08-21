@@ -1,0 +1,40 @@
+/* V1 signature layer — no legacy styles.css dependency */
+.coordinate{
+  display:inline-flex; align-items:center; gap:.6rem;
+  font:600 .74rem/1 var(--font-ui);
+  letter-spacing:.12em; text-transform:uppercase; color:var(--color-muted);
+}
+.coordinate::after{content:""; inline-size:clamp(2.5rem,8vw,7rem); block-size:1px; background:currentColor; opacity:.45}
+.folio{font:600 .72rem/1 var(--font-ui); letter-spacing:.12em; text-transform:uppercase; color:var(--color-muted)}
+.ledger{margin:0; padding:0; list-style:none; border-top:1px solid var(--color-border)}
+.ledger__row{
+  display:grid; grid-template-columns:minmax(3.5rem,7rem) minmax(0,1.25fr) minmax(10rem,.75fr) auto;
+  gap:clamp(.75rem,2vw,2rem); align-items:baseline;
+  min-height:4.6rem; padding:1rem 0;
+  border-bottom:1px solid var(--color-border);
+}
+.ledger__row:focus-within,.ledger__row:hover{border-bottom-color:var(--color-text)}
+.ledger__index{font:600 .72rem/1 var(--font-ui); letter-spacing:.1em; color:var(--color-muted)}
+.ledger__primary{font:500 clamp(1.08rem,1rem + .45vw,1.5rem)/1.15 var(--font-display)}
+.ledger__secondary{font-size:.88rem; line-height:1.45; color:var(--color-muted)}
+.ledger__action{justify-self:end; white-space:nowrap}
+.ledger__row a{text-underline-offset:.22em}
+.object-cover{display:block; width:min(100%,28rem); height:auto; box-shadow:var(--shadow-object)}
+.marginalia{font:500 .78rem/1.45 var(--font-ui); color:var(--color-muted); border-left:1px solid var(--color-border); padding-left:1rem}
+.route-spine{position:relative; list-style:none; margin:0; padding:0 0 0 2rem}
+.route-spine::before{content:"";position:absolute;left:.3rem;top:.4rem;bottom:.4rem;width:1px;background:var(--color-border)}
+.route-spine>li{position:relative;padding:0 0 2.25rem}
+.route-spine>li::before{content:"";position:absolute;left:-1.98rem;top:.45rem;width:.6rem;height:.6rem;border:1px solid var(--color-text);background:var(--surface-page)}
+.route-spine>li:last-child{padding-bottom:0}
+@view-transition{navigation:auto}
+.vt-cover{view-transition-name:book-cover}
+.vt-title{view-transition-name:work-title}
+@media (prefers-reduced-motion:reduce){
+  .vt-cover,.vt-title{view-transition-name:none}
+  ::view-transition-group(*),::view-transition-old(*),::view-transition-new(*){animation:none!important}
+}
+@media(max-width:767px){
+  .ledger__row{grid-template-columns:3rem minmax(0,1fr);gap:.55rem 1rem;align-items:start}
+  .ledger__secondary,.ledger__action{grid-column:2}
+  .ledger__action{justify-self:start}
+}

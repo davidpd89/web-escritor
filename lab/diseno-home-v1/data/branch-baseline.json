@@ -1,0 +1,46 @@
+{
+  "schemaVersion": 1,
+  "repository": "davidpd89/web-escritor",
+  "targetBranch": "implementacion-web-2026",
+  "auditedHead": "5c4a9afca7c009bd78d5dd44ca4b6c656239527c",
+  "auditedTree": "2012d1355f431f7c79c41c0d71d06674eced0725",
+  "auditedAt": "2026-08-21",
+  "staleHeadPolicy": "Before any implementation write, fetch target branch HEAD. If it differs, diff from auditedHead and re-audit changed contracts/routes/builders/assets before applying V1. Never reset or overwrite newer work.",
+  "knownFacts": {
+    "sitemapRouteCount": 55,
+    "operationalOffSitemapRoutes": [
+      "/404.html",
+      "/privacidad.html",
+      "/aviso-legal.html"
+    ],
+    "toolsHubExists": true,
+    "toolCountDeclaredByHub": 17,
+    "jaulaPublicRouteExists": false,
+    "assetsIgnoreGenerated": true,
+    "generatedWriterToolsHaveBuilderContract": true,
+    "writerToolsBuilder": "scripts/build-writer-tools.py",
+    "mainWriteAllowed": false,
+    "mergeAllowed": false,
+    "productionDeployAllowed": false,
+    "contentRegistryExists": true,
+    "navigationRegistryExists": true,
+    "jaulaRegisteredInContentRegistry": false,
+    "jaulaRegisteredInNavigation": false
+  },
+  "latestCommitContractNote": "HEAD actual añade la matriz de retención UX. content-registry.json y navigation.json son ahora contratos reales de findability; al crear Jaula en staging no se debe promover a navegación/sitemap hasta pasar su gate específico.",
+  "previousAuditedHead": "755d4ef71de436f72dd5736d726a4b48523b2336",
+  "lastDelta": {
+    "from": "755d4ef71de436f72dd5736d726a4b48523b2336",
+    "to": "5c4a9afca7c009bd78d5dd44ca4b6c656239527c",
+    "aheadBy": 5,
+    "behindBy": 0,
+    "changedFiles": [
+      ".github/workflows/content-index-check.yml",
+      "data/content-registry.json",
+      "data/navigation.json",
+      "data/ux-feature-retention.json",
+      "scripts/check-navigation-coverage.py"
+    ],
+    "verdict": "No reabre dirección visual ni familias. Añade contratos de navegación/findability y retención UX. Jaula sigue sin ruta ni registro público y permanece bloqueada para producción."
+  }
+}

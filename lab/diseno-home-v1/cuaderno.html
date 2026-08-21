@@ -1,0 +1,84 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+  <meta name="robots" content="noindex,nofollow,noarchive">
+  <meta name="color-scheme" content="light">
+  <title>Lab Cuaderno V1 — David Porto Díaz</title>
+  <meta name="description" content="Scaffold privado del índice editorial Cuaderno V1. No sustituye /cuaderno/.">
+  <script>(()=>{document.documentElement.classList.add('js');const p=new URLSearchParams(location.search);if(p.get('motion')==='off')document.documentElement.dataset.motion='off';if(p.get('capture')==='1')document.documentElement.dataset.capture='true';})();</script>
+  <link rel="alternate" type="application/rss+xml" title="Cuaderno del autor — David Porto Díaz" href="https://davidportodiaz.com/cuaderno/feed.xml">
+  <link rel="stylesheet" href="./css/fonts-lab.css">
+  <link rel="stylesheet" href="./css/tokens.css">
+  <link rel="stylesheet" href="./css/base.css">
+  <link rel="stylesheet" href="./css/shell.css">
+  <link rel="stylesheet" href="./css/editorial.css">
+  <script src="./js/lab.js" defer></script>
+</head>
+<body>
+  <a class="skip-link" href="#contenido">Saltar al contenido</a>
+  <header class="site-header" data-header>
+    <div class="site-header__inner">
+      <a class="brand" href="/" aria-label="David Porto Díaz — inicio"><span class="brand__name">David Porto Díaz</span><span class="brand__role">Escritor</span></a>
+      <nav class="primary-nav" aria-label="Navegación principal"><a href="/libros/">Obra</a><a href="/cuaderno/" aria-current="page">Cuaderno</a><a href="/herramientas/">Herramientas</a></nav>
+      <button class="explore-trigger" type="button" aria-haspopup="dialog" aria-controls="explore-dialog" aria-expanded="false" data-explore-open>Explorar</button>
+    </div>
+  </header>
+
+  <dialog class="explore-dialog" id="explore-dialog" aria-labelledby="explore-title" data-explore-dialog>
+    <div class="explore-dialog__shell">
+      <div class="explore-dialog__head"><div><p class="eyebrow">Índice general</p><h2 id="explore-title">Explorar</h2></div><button class="icon-button" type="button" aria-label="Cerrar Explorar" data-explore-close><svg aria-hidden="true" viewBox="0 0 24 24" width="20" height="20"><path d="M5 5l14 14M19 5L5 19"/></svg></button></div>
+      <div class="explore-dialog__grid">
+        <nav class="explore-list" aria-label="Destinos de la web">
+          <a class="explore-row" href="/las-manecillas-del-recuerdo/" data-preview="manecillas"><span class="explore-row__index">01</span><span class="explore-row__body"><strong>Las manecillas del recuerdo</strong><small>La obra actual.</small></span></a>
+          <a class="explore-row" href="/autor.html" data-preview="autor"><span class="explore-row__index">02</span><span class="explore-row__body"><strong>Autor</strong><small>Biografía, obra y trayectoria.</small></span></a>
+          <a class="explore-row" href="/libros/samuel-entre-mundos/" data-preview="samuel"><span class="explore-row__index">03</span><span class="explore-row__body"><strong>Samuel entre mundos</strong><small>Primera novela publicada.</small></span></a>
+          <span class="explore-row explore-row--planned" data-preview="jaula" data-route-planned="true"><span class="explore-row__index">04</span><span class="explore-row__body"><strong>Dónde empieza la jaula</strong><small>Proyecto en desarrollo público limitado.</small></span></span>
+          <a class="explore-row" href="/cuaderno/" data-preview="cuaderno"><span class="explore-row__index">05</span><span class="explore-row__body"><strong>Cuaderno</strong><small>Artículos y piezas editoriales.</small></span></a>
+          <a class="explore-row" href="/herramientas/" data-preview="herramientas"><span class="explore-row__index">06</span><span class="explore-row__body"><strong>Herramientas</strong><small>Utilidades gratuitas para escritores.</small></span></a>
+          <a class="explore-row" href="/prensa.html" data-preview="prensa"><span class="explore-row__index">07</span><span class="explore-row__body"><strong>Prensa y eventos</strong><small>Apariciones, materiales y agenda.</small></span></a>
+        </nav>
+        <aside class="explore-preview" aria-live="polite" aria-atomic="true" data-explore-preview><div class="explore-preview__media" aria-hidden="true" data-preview-media></div><p class="explore-preview__label" data-preview-label>Cuaderno</p><p class="explore-preview__copy" data-preview-copy>Artículos, crónicas y piezas editoriales.</p></aside>
+      </div>
+    </div>
+  </dialog>
+
+  <main class="editorial-page" id="contenido">
+    <nav class="editorial-breadcrumb" aria-label="Ruta de navegación"><ol><li><a href="/">Inicio</a></li><li aria-current="page">Cuaderno</li></ol></nav>
+
+    <header class="cuaderno-masthead">
+      <div>
+        <p class="eyebrow">Cuaderno del autor</p>
+        <h1>Artículos sobre escritura, lectura y proceso editorial</h1>
+        <p class="cuaderno-masthead__lead">Portal fantasy, sistemas de magia con coste, worldbuilding y recomendaciones de lectura. Escritos desde dentro del género, por un autor del género.</p>
+      </div>
+      <aside class="cuaderno-masthead__folio" aria-label="Estado del archivo"><strong>07</strong><span>piezas publicadas</span></aside>
+    </header>
+
+    <section class="cuaderno-feature" aria-labelledby="cuaderno-feature-title">
+      <div class="cuaderno-feature__meta"><span class="cuaderno-feature__index">01 / 07</span><p class="eyebrow">Crónica · 5 min</p></div>
+      <div class="cuaderno-feature__body"><h2 id="cuaderno-feature-title"><a href="/cuaderno/feria-libro-madrid-2026-samuel-entre-mundos/">Samuel entre mundos en la Feria del Libro de Madrid 2026</a></h2><p>Crónica de la firma en la caseta 337 de la Feria del Libro de Madrid: fotos reales, lectores y qué supuso ver la novela en el Retiro.</p><a class="text-action" href="/cuaderno/feria-libro-madrid-2026-samuel-entre-mundos/">Leer crónica</a></div>
+    </section>
+
+    <section class="cuaderno-archive" aria-labelledby="cuaderno-archive-title">
+      <div class="cuaderno-archive__head"><h2 id="cuaderno-archive-title">Archivo</h2></div>
+      <ol class="cuaderno-ledger">
+        <li class="cuaderno-entry"><span class="cuaderno-entry__index">02</span><p class="cuaderno-entry__meta"><span>Guía</span><span>7 min</span></p><div class="cuaderno-entry__body"><h3><a href="/cuaderno/que-es-el-portal-fantasy/">¿Qué es el portal fantasy? La guía definitiva para lectores en español</a></h3><p>Qué es el portal fantasy, cómo funciona la fantasía de portales y qué libros leer en español si buscas mundos ocultos, magia y viajes entre realidades.</p></div></li>
+        <li class="cuaderno-entry"><span class="cuaderno-entry__index">03</span><p class="cuaderno-entry__meta"><span>Comparativa</span><span>4 min</span></p><div class="cuaderno-entry__body"><h3><a href="/cuaderno/portal-fantasy-vs-fantasia-epica/">Portal fantasy vs. fantasía épica: ¿cuál es la diferencia?</a></h3><p>Portal fantasy y fantasía épica no son lo mismo aunque compartan dragones y magia. La diferencia clave, con ejemplos concretos.</p></div></li>
+        <li class="cuaderno-entry"><span class="cuaderno-entry__index">04</span><p class="cuaderno-entry__meta"><span>Proceso</span><span>6 min</span></p><div class="cuaderno-entry__body"><h3><a href="/cuaderno/sistema-de-magia-noveris/">Cómo construí el sistema de magia de Noveris (y por qué tiene reglas)</a></h3><p>La magia de Noveris tiene reglas, costes y consecuencias. Cómo funciona un sistema de magia con coste y por qué cada hechizo deja consecuencias.</p></div></li>
+        <li class="cuaderno-entry"><span class="cuaderno-entry__index">05</span><p class="cuaderno-entry__meta"><span>Guía</span><span>8 min</span></p><div class="cuaderno-entry__body"><h3><a href="/cuaderno/fantasia-juvenil-espanola-portales-magia-coste/">Fantasía juvenil española con portales y magia con coste</a></h3><p>Guía de fantasía juvenil española con portales, mundos ocultos y magia con coste. Qué busca el lector y dónde encaja <em>Samuel entre mundos</em>.</p></div></li>
+        <li class="cuaderno-entry"><span class="cuaderno-entry__index">06</span><p class="cuaderno-entry__meta"><span>Worldbuilding</span><span>7 min</span></p><div class="cuaderno-entry__body"><h3><a href="/cuaderno/worldbuilding-noveris-ciudad-magica/">Worldbuilding de una ciudad fantástica: cómo hacer que Noveris parezca viva</a></h3><p>Construir un mundo ficticio no consiste en inventar nombres y mapas. Consiste en responder por qué existe esa ciudad donde existe.</p></div></li>
+        <li class="cuaderno-entry"><span class="cuaderno-entry__index">07</span><p class="cuaderno-entry__meta"><span>Lecturas</span><span>5 min</span></p><div class="cuaderno-entry__body"><h3><a href="/cuaderno/libros-fantasia-juvenil-espanola-2025-2026/">Libros de fantasía juvenil española: selección 2025-2026</a></h3><p>Una selección comentada de libros de fantasía juvenil española de 2025 y 2026, escrita desde el criterio de un autor del género.</p></div></li>
+      </ol>
+      <div class="cuaderno-utilities"><a class="text-action" href="/mapa-del-sitio/" data-surprise-me data-surprise-audience="all">Sorpréndeme</a><p>Destino curado: lectura, artículo o herramienta. El enlace funciona aun sin JavaScript.</p></div>
+    </section>
+
+    <aside class="editorial-continuity" aria-labelledby="cuaderno-continuity-title"><div><p class="eyebrow">Continuidad</p><h2 id="cuaderno-continuity-title">Seguir por la obra</h2></div><nav class="editorial-continuity__links" aria-label="Contenido relacionado"><a href="/las-manecillas-del-recuerdo/"><span>Las manecillas del recuerdo</span><span>Obra actual</span></a><a href="/libros/samuel-entre-mundos/"><span>Samuel entre mundos</span><span>Primera novela</span></a><a href="/autor.html"><span>Sobre el autor</span><span>Trayectoria</span></a></nav></aside>
+
+    <section class="editorial-newsletter" id="newsletter" aria-labelledby="cuaderno-newsletter-title"><div class="editorial-newsletter__copy"><p class="eyebrow">Novedades</p><h2 id="cuaderno-newsletter-title">Recibir nuevos artículos</h2><p>Artículos, libros y novedades cuando haya algo que contar.</p></div><form class="editorial-newsletter__form" id="newsletter-form-cuaderno" novalidate data-demo-form data-newsletter-source="cuaderno"><label class="form-field-label" for="nl-email-cuaderno">Correo electrónico</label><div class="form-row"><input class="form-input" id="nl-email-cuaderno" name="email" type="email" autocomplete="email" inputmode="email" required aria-describedby="nl-status-cuaderno"><button class="form-submit" type="submit">Suscribirme</button></div><label class="form-consent" for="nl-gdpr-cuaderno"><input id="nl-gdpr-cuaderno" name="consent" type="checkbox" required aria-describedby="nl-status-cuaderno"><span>Acepto recibir novedades del autor. <a href="/privacidad.html">Privacidad</a>.</span></label><p id="nl-status-cuaderno" class="form-status" role="status" aria-live="polite"></p></form></section>
+  </main>
+
+  <footer class="site-footer"><div class="site-footer__grid"><div><strong>David Porto Díaz</strong><p>Escritor.</p></div><nav aria-label="Obra"><h2>Obra</h2><a href="/las-manecillas-del-recuerdo/">Las manecillas del recuerdo</a><a href="/libros/samuel-entre-mundos/">Samuel entre mundos</a></nav><nav aria-label="Leer y recursos"><h2>Leer</h2><a href="/cuaderno/">Cuaderno</a><a href="/herramientas/">Herramientas</a></nav><nav aria-label="Información"><h2>Información</h2><a href="/autor.html">Autor</a><a href="/prensa.html">Prensa</a><a href="/eventos.html">Eventos</a><a href="/privacidad.html">Privacidad</a></nav></div></footer>
+</body>
+</html>

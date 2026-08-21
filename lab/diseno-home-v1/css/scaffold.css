@@ -1,0 +1,37 @@
+/* Lab-only scaffolding for the family pages. Production must merge these primitives into the namespaced V1 layer. */
+.v1-skip{position:absolute;left:1rem;top:-5rem;z-index:50;background:var(--surface-page);color:var(--color-text);padding:.7rem 1rem;border:1px solid var(--color-text)}
+.v1-skip:focus{top:1rem}
+.v1-header{position:relative;z-index:20;border-bottom:1px solid var(--color-border);background:var(--surface-page)}
+.v1-header__inner{max-width:var(--layout-max);margin:auto;min-height:5rem;padding:0 var(--page-gutter);display:grid;grid-template-columns:auto 1fr auto;align-items:center;gap:2rem}
+.v1-brand{display:grid;text-decoration:none;line-height:1.05}
+.v1-brand strong{font:500 1.08rem/1 var(--font-display);letter-spacing:.01em}
+.v1-brand small{margin-top:.28rem;font:600 .66rem/1 var(--font-ui);letter-spacing:.13em;text-transform:uppercase;color:var(--color-muted)}
+.v1-nav{display:flex;justify-content:center;gap:clamp(1rem,2.2vw,2.4rem);font:600 .76rem/1 var(--font-ui);letter-spacing:.08em;text-transform:uppercase}
+.v1-nav a{text-decoration:none}
+.v1-nav a[aria-current="page"]{text-decoration:underline;text-underline-offset:.45em}
+.v1-explore-link{font:600 .76rem/1 var(--font-ui);letter-spacing:.08em;text-transform:uppercase;text-underline-offset:.35em}
+.v1-kicker{font:600 .72rem/1 var(--font-ui);letter-spacing:.14em;text-transform:uppercase;color:var(--color-muted)}
+.v1-actions{display:flex;align-items:center;gap:1rem;flex-wrap:wrap}
+.v1-action{display:inline-flex;align-items:center;justify-content:center;min-height:44px;padding:.75rem 1rem;border:1px solid var(--color-text);border-radius:var(--radius-control);font:600 .78rem/1 var(--font-ui);letter-spacing:.04em;text-decoration:none;background:transparent;color:inherit}
+.v1-action--primary{background:var(--color-text);color:var(--surface-page)}
+.v1-text-action{font:600 .8rem/1.2 var(--font-ui);text-underline-offset:.32em}
+.v1-aside-index{position:sticky;top:2rem;list-style:none;margin:0;padding:0;font:600 .72rem/1.5 var(--font-ui);letter-spacing:.06em;text-transform:uppercase;color:var(--color-muted)}
+.v1-aside-index li+li{margin-top:.7rem}
+.v1-rule{border:0;border-top:1px solid var(--color-border);margin:0}
+.v1-note{max-width:45rem;padding:1rem 0;border-top:2px solid var(--color-text);font-size:.88rem;line-height:1.55}
+.v1-image{display:block;max-width:100%;height:auto}
+.v1-columns{display:grid;grid-template-columns:minmax(0,1.15fr) minmax(15rem,.55fr);gap:clamp(2rem,6vw,7rem);align-items:start}
+.v1-copy{max-width:68ch;font-family:var(--font-reading);line-height:1.75}
+.v1-copy p:first-child{margin-top:0}
+.v1-copy p:last-child{margin-bottom:0}
+.v1-footer{border-top:1px solid var(--color-border)}
+.v1-footer__inner{max-width:var(--layout-max);margin:auto;padding:2rem var(--page-gutter) 3rem;display:flex;justify-content:space-between;gap:2rem;flex-wrap:wrap;font-size:.76rem;color:var(--color-muted)}
+[data-lab-only]{outline:0}
+@media(max-width:800px){
+ .v1-header__inner{grid-template-columns:1fr auto;gap:1rem;min-height:4.4rem}
+ .v1-nav{grid-column:1/-1;order:3;justify-content:flex-start;overflow:auto;padding:0 0 1rem;scrollbar-width:none}
+ .v1-nav::-webkit-scrollbar{display:none}
+ .v1-columns{grid-template-columns:1fr}
+ .v1-aside-index{position:static;border-top:1px solid var(--color-border);padding-top:1rem}
+}
+@media(max-width:480px){.v1-header__inner{padding-inline:max(1rem,env(safe-area-inset-left))}.v1-actions{align-items:stretch}.v1-action{width:100%}}

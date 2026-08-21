@@ -1,0 +1,416 @@
+{
+  "schemaVersion": 1,
+  "package": "LAB HOME V1 — full design/implementation handoff",
+  "targetBranch": "implementacion-web-2026",
+  "auditedHead": "5c4a9afca7c009bd78d5dd44ca4b6c656239527c",
+  "generatedAt": "2026-08-21",
+  "status": {
+    "claudeImplementation": "YES_FOR_STAGING_IMPLEMENTATION",
+    "merge": "NO",
+    "production": "NO",
+    "browserQA": "PENDING_STAGING"
+  },
+  "fileCountExcludingManifest": 80,
+  "files": [
+    {
+      "path": "BRANCH-AUDIT.md",
+      "size": 12861,
+      "sha256": "6123037d256813926ac4bcedecf29019f3e15239df7aff0637a5e5161dc2bd74"
+    },
+    {
+      "path": "CLAUDE-HANDOFF.md",
+      "size": 6784,
+      "sha256": "f0c9918f51ce679104de922023f4e1c63984dc6b7f7584e4c40bcc2090de4921"
+    },
+    {
+      "path": "EDITORIAL-MIGRATION.md",
+      "size": 4565,
+      "sha256": "3b2e41b593027b759acfa0a4712b5ea0b8f70a225cb6ac4a2ac00b5b8b43bec4"
+    },
+    {
+      "path": "FAMILY-EXTENSION.md",
+      "size": 2487,
+      "sha256": "220fdeb63f0e83e155f29f68efe43622010a2d57cb6ed7d67f06283dca61e7a3"
+    },
+    {
+      "path": "HOME-PRESERVATION.md",
+      "size": 6654,
+      "sha256": "3e1d9f697f771cacaba0d337b5ca327de0ef02e8567edffea7cdb490283ccb7b"
+    },
+    {
+      "path": "IMPLEMENTATION-READINESS.md",
+      "size": 5347,
+      "sha256": "74d3ba83ffc86dd12b357eeca2a0d75c07e0372e04c4d3fdb5bfc104e02e46d8"
+    },
+    {
+      "path": "INTEGRATION.md",
+      "size": 20840,
+      "sha256": "ffa30b5b996065e7e99d310746ca607e2b16538941af58a73e65c372c2a72740"
+    },
+    {
+      "path": "JAULA-PUBLIC-SPEC.md",
+      "size": 3445,
+      "sha256": "6342b5d6588d887edb4fb306a1e067ebb6eb368f86a5a086e047ad877e6b77d3"
+    },
+    {
+      "path": "MANECILLAS-MIGRATION.md",
+      "size": 15631,
+      "sha256": "6a4ef86502a58d78ab79b8dc317ecf63dd13d87be557deefaa69f76ebea78a4a"
+    },
+    {
+      "path": "MIGRATION-MATRIX.md",
+      "size": 14810,
+      "sha256": "dba9200a5df45f1ad60f32a883b630d39b74164f300eab998d7a42fa44eeea25"
+    },
+    {
+      "path": "QA.md",
+      "size": 23116,
+      "sha256": "9f1d1a719fd24776c74a602874b8de87e87e6ebfb108d79c8400bc1c5d6a50cc"
+    },
+    {
+      "path": "README.md",
+      "size": 11678,
+      "sha256": "19d278e9029db4f0e9eeb5022ea9673b3e4a1ab81b2dd1e67cb4da0273c07066"
+    },
+    {
+      "path": "REFERENCIAS-HUMANAS.md",
+      "size": 10048,
+      "sha256": "2fc6eb346f6ac493dc0d3a0eabb85d346beb2c49e91e970f48cd39a868da68a8"
+    },
+    {
+      "path": "ROUTE-INVENTORY.md",
+      "size": 2556,
+      "sha256": "ecd7e27ff9707921222dee6c14abd09c4d359cdc04968139079cfc608275f033"
+    },
+    {
+      "path": "SIGNATURE-SYSTEM.md",
+      "size": 5259,
+      "sha256": "693576d69dbb0c3290bd4597d601ce970df72fd71a65ca29fdb8aaa923dbeba4"
+    },
+    {
+      "path": "THIRD-PARTY-NOTICES.md",
+      "size": 608,
+      "sha256": "561583100fef387f52c89862c63b8691466bb5b29ed3ac28fadc848ac75942f4"
+    },
+    {
+      "path": "article-pilot.html",
+      "size": 16882,
+      "sha256": "e5be7a38bfdff12c2be59bcf57e4aec0eb8ddfade906676f001c747cc411f02d"
+    },
+    {
+      "path": "assets/david-porto-foto-portada-sinfondo.webp",
+      "size": 10150,
+      "sha256": "866553fbd5320e4d1803623021469927e7688f14f81a6e7d43d760d2885d0b5e"
+    },
+    {
+      "path": "assets/las-manecillas/portada-las-manecillas-del-recuerdo-1024.webp",
+      "size": 258970,
+      "sha256": "e1d3d0f0475740200d64ad3bf2aed5068a5e64e8c1f31d5e31a2d7543bebcdd8"
+    },
+    {
+      "path": "assets/las-manecillas/portada-las-manecillas-del-recuerdo-320.webp",
+      "size": 38590,
+      "sha256": "8e5c057344f84bd9cf967d85e84d4ea062ed1ebc30d1c7f4cddadafda3bb3f2a"
+    },
+    {
+      "path": "assets/las-manecillas/portada-las-manecillas-del-recuerdo-512.webp",
+      "size": 88152,
+      "sha256": "0ca7c4efcf2df2ed7358a0886766ec0e393543f99779892b8c8f337b999c4766"
+    },
+    {
+      "path": "assets/las-manecillas/portada-las-manecillas-del-recuerdo-768.webp",
+      "size": 169052,
+      "sha256": "0dacea9ab1c107847b526f060b9ac35c3661dbbde984d411b2d3dc7278b0dadd"
+    },
+    {
+      "path": "author.html",
+      "size": 4071,
+      "sha256": "79fbf7f989a34eb28ec89cebd0c3f18a801c3881a1f3a4090416cedd2bccdf60"
+    },
+    {
+      "path": "awards.html",
+      "size": 5443,
+      "sha256": "cfbfde2b81a4d5a09c582eafea800f9e1a3b8fed59c9d1a68027cb98fe9f3c83"
+    },
+    {
+      "path": "book-companion.html",
+      "size": 2808,
+      "sha256": "95364f1a217b3aec73aee871c29eedd87ef5090d51cc45814c2cc869cbebd4a0"
+    },
+    {
+      "path": "book-excerpt.html",
+      "size": 2326,
+      "sha256": "d20a7297002f311e5104014ff8b0a2acb65ed86d32d4b7ee53e278cad01283a9"
+    },
+    {
+      "path": "book-jaula.html",
+      "size": 22650,
+      "sha256": "4f0935a6a9980ff74de86ababec89883d16f3db83dd8a6d40da097aa20018508"
+    },
+    {
+      "path": "book-manecillas.html",
+      "size": 15312,
+      "sha256": "1bf875a7a6c9c71ef4d368765cce9445e64ed10d83d6d12111d7689c56c2556b"
+    },
+    {
+      "path": "book-samuel.html",
+      "size": 13430,
+      "sha256": "d458c55791f9df7d42dab459b7c64919a26946c37115e7dadd1a8a94d829ed01"
+    },
+    {
+      "path": "books-index.html",
+      "size": 3830,
+      "sha256": "73861abd55bb326eb1974c27df3ef19d9bd2b786ac41c1f9e0ec555ea591e803"
+    },
+    {
+      "path": "components.html",
+      "size": 10519,
+      "sha256": "ac44b37dbc3e05ad30412c0a9213209109c51902f698fd4fef3ee0b089536211"
+    },
+    {
+      "path": "css/awards.css",
+      "size": 3911,
+      "sha256": "ebd1dc750550a354b0433acd6d880a508f370205fd78465cf04472cf2c9d229a"
+    },
+    {
+      "path": "css/base.css",
+      "size": 4042,
+      "sha256": "8029567f512502f4cf65a1ae900520d2b9bb726bb7332b033002763f216687f0"
+    },
+    {
+      "path": "css/book.css",
+      "size": 11607,
+      "sha256": "0de303d49f52b35aae3e513a4b8a69e32278c86dcfc6dac3c10023362e468e85"
+    },
+    {
+      "path": "css/components.css",
+      "size": 13020,
+      "sha256": "bb62fc77deb2725561c05172a7778e7f0121dd1a4ddf8e0b52250e7101de2bcf"
+    },
+    {
+      "path": "css/editorial.css",
+      "size": 13619,
+      "sha256": "c63ddae230c510a84df0e6caafcfe32ffcaed809f4129a9092d85856f559d4ba"
+    },
+    {
+      "path": "css/families.css",
+      "size": 3704,
+      "sha256": "ccbf724e0ddef577967b42ca345ab74e435f1ec0a2bce7c03d163a130cb07af0"
+    },
+    {
+      "path": "css/fonts-lab.css",
+      "size": 437,
+      "sha256": "d1da86614b30b0a11d08b40e053fc034769435eec3fe8b7a538e4efad42f4150"
+    },
+    {
+      "path": "css/home.css",
+      "size": 9852,
+      "sha256": "8817e59a28d9dbacda638a4a7e639bb2634c20095c82dbf74f89607e395cf9db"
+    },
+    {
+      "path": "css/samuel.css",
+      "size": 7242,
+      "sha256": "bcf1155e355093d44ff7fb10cf74fda3bb93cf5b752026408859c8a9d8920446"
+    },
+    {
+      "path": "css/scaffold.css",
+      "size": 3479,
+      "sha256": "febcac78b63280c76842eb45bc0231716ffe96f7b45b6db1e5409af3f58373eb"
+    },
+    {
+      "path": "css/secondary.css",
+      "size": 2322,
+      "sha256": "4e45094a2bd187df0ad72287865fe5f484f50bce7ae628872a0c3798a9fbb2c3"
+    },
+    {
+      "path": "css/shell.css",
+      "size": 7568,
+      "sha256": "7aecefa9c5abd29de68c1fe0c1a82b8d062e83e1f0587957816b4f5fa25d9c42"
+    },
+    {
+      "path": "css/signatures.css",
+      "size": 2499,
+      "sha256": "aa17996961625142c2e037634acb1e39530f3538df7ee7a2e4a198c94679e18e"
+    },
+    {
+      "path": "css/tokens.css",
+      "size": 2608,
+      "sha256": "dc2936a893bb25ca843482f0a429cf4146fe512bd39225957a20ca0920903556"
+    },
+    {
+      "path": "css/tools.css",
+      "size": 3682,
+      "sha256": "32b42141f59d59e09937d73cab35abd4b0d130ee7d1ed1d5a672a781cc2b5cd8"
+    },
+    {
+      "path": "css/variants.css",
+      "size": 2563,
+      "sha256": "a33ebbe0acc5fd5d82223df26287451c0ae6281076a49e272924dcc5b1078fc7"
+    },
+    {
+      "path": "cuaderno.html",
+      "size": 11791,
+      "sha256": "7bcc6832a02bb20d8f6b9abc50f1a59e006624eb5b3f04eb19a30f8d3e91b71e"
+    },
+    {
+      "path": "data/article-preservation.json",
+      "size": 2963,
+      "sha256": "8ed015c483e1d5155dadce87bc3f628094b7c48c55e1875ba4927da46708934d"
+    },
+    {
+      "path": "data/awards-preservation.json",
+      "size": 1693,
+      "sha256": "e48457722a164b60e4170b2781549b50480187f26401660c27b5ace8ba4df19f"
+    },
+    {
+      "path": "data/branch-baseline.json",
+      "size": 2098,
+      "sha256": "d7937f43055604858b7b2849f73663319b4b98821c2f13eb4833985bda869f03"
+    },
+    {
+      "path": "data/cuaderno-preservation.json",
+      "size": 2571,
+      "sha256": "0ee6e2f034411ee713dec393942110c990f8467104fbb698d5a8e15424643e89"
+    },
+    {
+      "path": "data/font-contract.json",
+      "size": 3214,
+      "sha256": "c4fce35794b5add1065246b8ea7905347222742ceb58031132f3cefbbe0b1a17"
+    },
+    {
+      "path": "data/home-preservation.json",
+      "size": 2474,
+      "sha256": "78b40e033b1686f638bd57fdd619cb9781203803bb88be2327eee86e79301546"
+    },
+    {
+      "path": "data/jaula-preservation.json",
+      "size": 2398,
+      "sha256": "25ab026bb1be89c2cfa689dd04ee512aa1ae165acab5c1344afe567956c212b0"
+    },
+    {
+      "path": "data/manecillas-preservation.json",
+      "size": 4942,
+      "sha256": "811ab2924937f7d6355aeae2a3cd450b58a66c8404a0d1180b87b56db870cd86"
+    },
+    {
+      "path": "data/media-manifest.json",
+      "size": 5094,
+      "sha256": "bbb1e33edd6cf86d579719228fbeb684f8a16b057bb2426b38d1d51e33a67d8d"
+    },
+    {
+      "path": "data/migration-map.json",
+      "size": 9643,
+      "sha256": "a6987e9ce325b09472f7a1a3133831faeec8e1bfed79f755023715104acf39d8"
+    },
+    {
+      "path": "data/reference-catalog.json",
+      "size": 7186,
+      "sha256": "75400f0502447a61ceb47731a03945023d94a8962f7a9e29df95e19002dda508"
+    },
+    {
+      "path": "data/route-inventory.json",
+      "size": 17621,
+      "sha256": "985b2eaf0cdb65945ea8d1ec471ba5f598016f775082b67688b79abdb38b72ed"
+    },
+    {
+      "path": "data/routes.json",
+      "size": 3121,
+      "sha256": "92d1eb3dfe50488fde423351c375a2cd2d9b403abe2d85a8ca37a85c2d83afc6"
+    },
+    {
+      "path": "data/samuel-preservation.json",
+      "size": 2399,
+      "sha256": "11749dc46be71633bd27e876cbc1a5933ad9d97876bf7ccaf9c03dc49938eff4"
+    },
+    {
+      "path": "events.html",
+      "size": 3770,
+      "sha256": "0fad0531cfc423921278710a29899bc8ed7638320322e5b6010744d1d134d949"
+    },
+    {
+      "path": "index.html",
+      "size": 13761,
+      "sha256": "990f026d79d012ca09c43209501d2acc123370bea6725ddccf1760fc35b74a90"
+    },
+    {
+      "path": "js/book-fixtures.js",
+      "size": 1317,
+      "sha256": "c0ed0c6047a361915525b4c9f8db6c817fb4ae6bbf77a3b70a3895cfe8a89fcc"
+    },
+    {
+      "path": "js/editorial.js",
+      "size": 1736,
+      "sha256": "55d60e8ec1e22fdd904708ed6501c2847f9a2ae4432e2fb47e85a8e032be853d"
+    },
+    {
+      "path": "js/extension.js",
+      "size": 2274,
+      "sha256": "e6314263e2a12498e26cc4b29686b7a6850c4ad8933e977ec281f88c51583db1"
+    },
+    {
+      "path": "js/fixtures.js",
+      "size": 653,
+      "sha256": "a86358e323ee06f2edfb5d6f659d58fcd16a5f7d5055a0f0487b56b9df164269"
+    },
+    {
+      "path": "js/lab.js",
+      "size": 6865,
+      "sha256": "5e458732bbec8ef024d83331381917faa1ec0b9c8ba80371544f49f801396998"
+    },
+    {
+      "path": "js/signatures.js",
+      "size": 611,
+      "sha256": "8bef8d30c099e65da3abf32294d7bb83228b1f215c7ebd887e8be0211344a45e"
+    },
+    {
+      "path": "press.html",
+      "size": 5803,
+      "sha256": "91db57c247d371acf079465d37f95f0ca708eb2937acedd141b6c05b1fc549c3"
+    },
+    {
+      "path": "reference-detail.html",
+      "size": 2713,
+      "sha256": "fa9b228950f5b4612e81f219c9d76c1235ae525d3c2e0282ae2ddebc2df5c0e3"
+    },
+    {
+      "path": "reference-index.html",
+      "size": 2716,
+      "sha256": "0e3ea3b003751c0fc5aefdb117d1b0b134bca1d99e83a5c68a673c8d2743564c"
+    },
+    {
+      "path": "scripts/check_preservation.py",
+      "size": 11694,
+      "sha256": "d2c31d9bb665aaae0392811e5bd7403eb1ac15b2ecb9af58133713a28502f9ea"
+    },
+    {
+      "path": "scripts/validate_extension.py",
+      "size": 13325,
+      "sha256": "3cbe526eae918b98ec2be434ae1f0c3b3cc36e453f77a3f2f5b200e80e65a20c"
+    },
+    {
+      "path": "scripts/validate_lab.py",
+      "size": 45355,
+      "sha256": "d99b8bd4ed258c12491eeca897cd038b80d9a93b995d6c749d5d931c2c511b63"
+    },
+    {
+      "path": "secondary.html",
+      "size": 2489,
+      "sha256": "71711ffb06efa3d2c748cfa8cfa22f56bcf2426a1195175336ca27af7ca3f1ae"
+    },
+    {
+      "path": "tool-pilot.html",
+      "size": 3607,
+      "sha256": "84e15570aa6cc137c52d39a7e2a4323f5b9b08f60812f193d6d80cc102cf27e0"
+    },
+    {
+      "path": "tools-hub.html",
+      "size": 11715,
+      "sha256": "053d17a8a72935b673d18a8b6f8e6118e9625c3778d88745af1f6d6c1cd6c461"
+    },
+    {
+      "path": "wayfinding.html",
+      "size": 2629,
+      "sha256": "25c9c529e5e923ae0b2d3d25e97fcf7551c8ada1ae0d55a82aa9669463b5fbe8"
+    }
+  ]
+}

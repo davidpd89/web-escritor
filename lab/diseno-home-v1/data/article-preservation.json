@@ -1,0 +1,63 @@
+{
+  "schema_version": 1,
+  "target_branch": "implementacion-web-2026",
+  "target_head_verified": "5c4a9afca7c009bd78d5dd44ca4b6c656239527c",
+  "head_policy": "Baseline informativa: refrescar branch drift antes de integración; reabrir solo contratos afectados.",
+  "source_path": "cuaderno/fantasia-juvenil-espanola-portales-magia-coste/index.html",
+  "public_url": "https://davidportodiaz.com/cuaderno/fantasia-juvenil-espanola-portales-magia-coste/",
+  "seo": {
+    "canonical": "https://davidportodiaz.com/cuaderno/fantasia-juvenil-espanola-portales-magia-coste/",
+    "title": "Fantasía juvenil española con portales y magia con coste | David Porto Díaz",
+    "h1": "Fantasía juvenil española con portales, magia con coste y mundos ocultos",
+    "article_id": "https://davidportodiaz.com/cuaderno/fantasia-juvenil-espanola-portales-magia-coste/#article",
+    "datePublished": "2026-05-26",
+    "dateModified": "2026-08-19",
+    "schema_types": [
+      "Article",
+      "BreadcrumbList",
+      "FAQPage"
+    ],
+    "mentions": "https://davidportodiaz.com/#book-samuel",
+    "preserve_body_copy_verbatim": true,
+    "preserve_heading_hierarchy": true,
+    "preserve_internal_links": true
+  },
+  "anchors": [
+    "que-es-el-portal-fantasy",
+    "magia-con-coste",
+    "protagonistas-ordinarios",
+    "fantasia-juvenil-espanola",
+    "faq"
+  ],
+  "functional": {
+    "body_marker": "data-reading-progress",
+    "newsletter_form_id": "newsletter-form-cuaderno",
+    "newsletter_email_id": "nl-email-cuaderno",
+    "newsletter_consent_id": "nl-gdpr-cuaderno",
+    "newsletter_status_id": "nl-status-cuaderno",
+    "newsletter_source": "cuaderno",
+    "share": "Web Share with copy-link fallback in V1",
+    "print": "CSS print + optional native print action",
+    "analytics": "GoatCounter — preserve existing functional analytics unless project policy changes"
+  },
+  "faq_policy": {
+    "visible_faq_required_if_FAQPage_schema_remains": true,
+    "rebuild_schema_from_visible_answers_at_integration": true,
+    "reason": "The current visible second answer and JSON-LD answer are semantically related but not textually identical; do not copy stale FAQ schema blindly."
+  },
+  "content_contract": {
+    "aeo_definition_note": "preserve content; recompose as editorial note, not rounded card",
+    "long_reading_measure": "Newsreader, approximately 58–72ch",
+    "toc": "only because this pilot has sufficient H2 structure; real HTML links to existing anchors",
+    "reading_progress": "progressive enhancement only; article remains complete without JS",
+    "faq": "native details/summary; no accordion library",
+    "bottom_cta": "replace salesy sibling buttons with editorial continuity; preserve links to Samuel and /fragmento/"
+  },
+  "visual_debt_not_to_copy": [
+    "inline styles",
+    "AEO rounded colored box",
+    "template-blog single-column treatment without editorial rail",
+    "generic bottom CTA row",
+    "legacy font/palette rules"
+  ]
+}

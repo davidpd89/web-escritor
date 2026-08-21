@@ -1,0 +1,62 @@
+{
+  "schema_version": 1,
+  "target_branch": "implementacion-web-2026",
+  "target_head_verified": "5c4a9afca7c009bd78d5dd44ca4b6c656239527c",
+  "head_policy": "Baseline informativa: refrescar branch drift antes de integración; reabrir solo contratos afectados.",
+  "source_path": "cuaderno/index.html",
+  "public_url": "https://davidportodiaz.com/cuaderno/",
+  "seo": {
+    "canonical": "https://davidportodiaz.com/cuaderno/",
+    "title": "Cuaderno del autor — David Porto Díaz",
+    "h1": "Artículos sobre escritura, lectura y proceso editorial",
+    "schema_types": [
+      "CollectionPage",
+      "BreadcrumbList"
+    ],
+    "collection_id": "https://davidportodiaz.com/cuaderno/#page",
+    "rss": "https://davidportodiaz.com/cuaderno/feed.xml",
+    "preserve_hasPart": true,
+    "preserve_all_existing_article_routes": true
+  },
+  "articles": [
+    "/cuaderno/feria-libro-madrid-2026-samuel-entre-mundos/",
+    "/cuaderno/que-es-el-portal-fantasy/",
+    "/cuaderno/portal-fantasy-vs-fantasia-epica/",
+    "/cuaderno/sistema-de-magia-noveris/",
+    "/cuaderno/fantasia-juvenil-espanola-portales-magia-coste/",
+    "/cuaderno/worldbuilding-noveris-ciudad-magica/",
+    "/cuaderno/libros-fantasia-juvenil-espanola-2025-2026/"
+  ],
+  "functional": {
+    "newsletter_form_id": "newsletter-form-cuaderno",
+    "newsletter_email_id": "nl-email-cuaderno",
+    "newsletter_consent_id": "nl-gdpr-cuaderno",
+    "newsletter_status_id": "nl-status-cuaderno",
+    "newsletter_source": "cuaderno",
+    "surprise_feature": {
+      "preserve_task": true,
+      "fallback_href": "/mapa-del-sitio/",
+      "attribute": "data-surprise-me",
+      "production_scripts": [
+        "/assets/surprise-content.generated.js",
+        "/assets/surprise-me.js"
+      ]
+    },
+    "analytics": "GoatCounter — preserve existing functional analytics unless project policy changes"
+  },
+  "visual_debt_not_to_copy": [
+    "inline style attributes as layout system",
+    "legacy Cormorant/Inter typography",
+    "rounded CTA panels as default section container",
+    "Samuel-only promotional panel as dominant continuity",
+    "single 760px column used as the whole index art direction"
+  ],
+  "v1_contract": {
+    "layout": "editorial masthead + one dominant feature + archive ledger + continuity + newsletter",
+    "cards": "forbidden as default archive pattern",
+    "primary_book_context": "Las manecillas del recuerdo",
+    "samuel_link_must_remain": true,
+    "empty_archive_state": "must not invent filler",
+    "abundant_archive_state": "ledger/archive scales without card grid"
+  }
+}

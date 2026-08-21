@@ -1,0 +1,71 @@
+{
+  "schema_version": 1,
+  "status": "prototype-approved-pending-final-render-gate",
+  "authority": "07 — TIPOGRAFÍA + 35 — MICROTIPOGRAFÍA EDITORIAL ES",
+  "lab": {
+    "remote_google_fonts_import_allowed": true,
+    "reason": "Solo laboratorio aislado para comparar la combinación exacta antes de self-host.",
+    "css_file": "css/fonts-lab.css"
+  },
+  "production": {
+    "remote_google_fonts_import_allowed": false,
+    "delivery": "self-host",
+    "format_target": "woff2",
+    "subset": ["latin", "latin-ext/es-required"],
+    "font_display": "swap",
+    "rule": "No copiar el @import de fonts-lab.css a producción. Verificar glifos españoles, CLS y 200 % resize antes de promover."
+  },
+  "families": [
+    {
+      "role": "display",
+      "family": "Instrument Serif",
+      "license": "SIL OFL 1.1",
+      "official_repository": "https://github.com/Instrument/instrument-serif",
+      "source_files": [
+        {"path": "fonts/webfonts/InstrumentSerif-Regular.woff2", "weight": 400, "style": "normal", "sha": "cc85579b2b1dd30bff51d7113ecda29c84ac4407"},
+        {"path": "fonts/webfonts/InstrumentSerif-Italic.woff2", "weight": 400, "style": "italic", "sha": "e1f3123a86f0196825de76d34f32fc02b6bb6b12"}
+      ],
+      "allowed_weights": [400],
+      "allowed_styles": ["normal", "italic"],
+      "forbidden": ["synthetic bold", "body copy", "small UI controls"],
+      "preload_if_used_above_fold": true
+    },
+    {
+      "role": "ui-body",
+      "family": "Manrope",
+      "license": "SIL OFL 1.1",
+      "official_repository": "https://github.com/google/fonts/tree/main/ofl/manrope",
+      "source_files": [
+        {"path": "ofl/manrope/Manrope[wght].ttf", "axes": {"wght": "200..800"}, "sha": "23dcf5e05a97f19a3567d40ebb3765580a4325f7"}
+      ],
+      "allowed_weights": [400, 500, 600, 700],
+      "allowed_styles": ["normal"],
+      "preload_if_critical": true
+    },
+    {
+      "role": "literary-reading",
+      "family": "Newsreader",
+      "license": "SIL OFL 1.1",
+      "official_repository": "https://github.com/google/fonts/tree/main/ofl/newsreader",
+      "source_files": [
+        {"path": "ofl/newsreader/Newsreader[opsz,wght].ttf", "style": "normal", "sha": "ad4a9a8c44ec328c80b61c773f1ba02f6b5ed292"},
+        {"path": "ofl/newsreader/Newsreader-Italic[opsz,wght].ttf", "style": "italic", "sha": "d25879656a601d44c49836f9e773d100190c62e1"}
+      ],
+      "allowed_weights": [400, 600],
+      "allowed_styles": ["normal", "italic-400"],
+      "load_scope": "solo páginas/bloques con lectura literaria o larga",
+      "preload_globally": false
+    }
+  ],
+  "visual_gate": {
+    "viewports": [390, 768, 1440],
+    "required_surfaces": ["Home hero", "Header", "Cartografía", "Manecillas", "Herramienta", "Fragmento literario"],
+    "questions": [
+      "¿Instrument aporta firma sin parecer moda editorial genérica?",
+      "¿Manrope conserva carácter sin sentirse tecnológica/SaaS?",
+      "¿Newsreader mejora de forma visible la lectura frente a Manrope?",
+      "¿Las tres familias siguen percibiéndose como una sola marca?"
+    ],
+    "promotion_rule": "No extender a producción completa hasta pasar el render real con fuentes cargadas y fallback comparado."
+  }
+}

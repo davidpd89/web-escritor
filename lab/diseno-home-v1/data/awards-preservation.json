@@ -1,0 +1,26 @@
+{
+  "schemaVersion": 1,
+  "sourcePath": "premios.html",
+  "targetScaffold": "awards.html",
+  "route": "/premios.html",
+  "preserve": {
+    "head": ["title", "description", "canonical", "robots", "OpenGraph", "Twitter", "manifest/favicon"],
+    "structuredData": ["WebPage", "Person#author award values"],
+    "anchors": ["reconocimientos", "colaboraciones", "conocer"],
+    "formalDistinctions": [
+      {"year": 2026, "type": "winner", "label": "Primer Premio — XII Certamen de Microrrelatos «De amor» · Letras Como Espada"},
+      {"year": 2026, "type": "finalist", "label": "Top 10 Finalista Premio Nacional de Literatura Infantil Juan Andrés Teno"}
+    ],
+    "editorialSelection": [
+      {"year": 2026, "type": "selection", "label": "Seleccionado en antología La memoria de las tierras del norte — Diversidad Literaria", "semanticNote": "Current Person JSON-LD lists this under award; V1 visible UI labels it selection/editorial project to avoid implying a won prize. Do not alter structured data without separate schema review."}
+    ],
+    "trajectoryNotAwards": ["Samuel entre mundos publication — Libros Indie — 2025", "Las manecillas del recuerdo — Monza Ediciones — 03/09/2026", "reader reviews / Goodreads"]
+  },
+  "designTransform": {
+    "primary": "chronological evidence archive",
+    "distinctions": "year + status + title + evidence source in rows",
+    "trajectory": "separate chronological layer",
+    "proof": "reader reception belongs to trajectory/proof, never to awards"
+  },
+  "forbidden": ["trophy icon", "medal decoration", "award tile grid", "badge semantics", "count-up statistics", "calling publication an award", "calling a review an award"]
+}

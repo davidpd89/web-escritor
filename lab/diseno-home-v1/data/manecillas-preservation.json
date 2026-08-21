@@ -1,0 +1,116 @@
+{
+  "schema_version": 1,
+  "repository": "davidpd89/web-escritor",
+  "target_branch": "implementacion-web-2026",
+  "target_head_verified": "5c4a9afca7c009bd78d5dd44ca4b6c656239527c",
+  "source_path": "/las-manecillas-del-recuerdo/index.html",
+  "public_url": "https://davidportodiaz.com/las-manecillas-del-recuerdo/",
+  "preserve": {
+    "canonical": "https://davidportodiaz.com/las-manecillas-del-recuerdo/",
+    "title": "Las manecillas del recuerdo · Novela de David Porto Díaz",
+    "robots": "index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1",
+    "book_entity_id": "https://davidportodiaz.com/#book-manecillas",
+    "author_entity_id": "https://davidportodiaz.com/#author",
+    "book_facts": {
+      "name": "Las manecillas del recuerdo",
+      "author": "David Porto Díaz",
+      "publisher": "Monza Ediciones",
+      "isbn": "979-8-90514-935-1",
+      "numberOfPages": 272,
+      "datePublished": "2026-09-03",
+      "priceVisible": "16 €",
+      "genreVisible": "Novela coral · Ficción especulativa",
+      "genreSchema": [
+        "Novela coral",
+        "Ficción especulativa",
+        "Narrativa familiar"
+      ]
+    },
+    "official_cover": {
+      "1024": "/assets/portada-las-manecillas-del-recuerdo-1024.webp",
+      "768": "/assets/portada-las-manecillas-del-recuerdo-768.webp",
+      "512": "/assets/portada-las-manecillas-del-recuerdo-512.webp",
+      "320": "/assets/portada-las-manecillas-del-recuerdo-320.webp"
+    },
+    "functional_hooks_first_migration": [
+      "newsletter-form-manecillas",
+      "nl-email-manecillas",
+      "nl-gdpr-manecillas",
+      "nl-status-manecillas",
+      "source:manecillas"
+    ],
+    "important_routes": [
+      "/las-manecillas-del-recuerdo/fragmentos/",
+      "/prensa.html",
+      "/libros/samuel-entre-mundos/",
+      "/privacidad.html"
+    ],
+    "newsletter_contract": {
+      "source": "manecillas",
+      "html_marker": "data-newsletter-source=\"manecillas\"",
+      "backend_binding": "submitNewsletter(..., sourceLabel=\"manecillas\")",
+      "success_copy_required": "Te has suscrito correctamente. Recibirás las novedades de Las manecillas del recuerdo y de David Porto Díaz.",
+      "rule": "El lab no hace red. En producción se conserva el Worker y se actualiza solo el microcopy; no prometer contenido automático no verificado."
+    },
+    "deep_links": {
+      "aviso": "Datos editoriales / metadata ledger",
+      "muestra": "Muestra de lectura / fragmento",
+      "sinopsis-editorial": "Texto de cubierta / sinopsis editorial",
+      "newsletter-manecillas": "Newsletter de Manecillas"
+    },
+    "dedication_contract": {
+      "text": "«A quienes alguna vez olvidaron que el tiempo no vuelve.»",
+      "source_status": "already-public-on-current-book-page",
+      "rule": "Conservar como una sola pausa editorial. No duplicar con quote-band ni añadir otra cita ornamental para rellenar."
+    }
+  },
+  "legacy_visual_debt": [
+    "hero mockup /assets/manecillas-book-mockup.webp",
+    "features-grid + feature-card metadata",
+    "manecillas-theme-grid + manecillas-theme-card",
+    "manecillas-frame",
+    "manecillas-paper simulated surface",
+    "manecillas-quote-band",
+    "direct historic --m-* palette in manecillas-extras.css",
+    "multiple local gradients/shadows",
+    "full Samuel promotional section as related content"
+  ],
+  "target_sections": [
+    "book-hero",
+    "sinopsis",
+    "fragmento",
+    "contexto-if-real",
+    "prensa-eventos-if-real",
+    "disponibilidad",
+    "relacionado"
+  ],
+  "gates": [
+    "winning Home variant selected before final visual approval",
+    "retailer URLs verified before purchase CTA activation",
+    "newsletter success copy aligned to permanent publication state",
+    "data-nosnippet strategy revalidated",
+    "quote/dedication publication authorization confirmed if retained",
+    "SEO/schema/head diff passes",
+    "320/390/768/1024/1440/1728 + zoom + keyboard + reduced motion + print"
+  ],
+  "head_policy": "Baseline informativa: antes de integrar, comparar este HEAD auditado con el HEAD actual de implementacion-web-2026 y reabrir solo los contratos cuyos archivos relevantes hayan cambiado.",
+  "commercial_gate": {
+    "status": "pending-verified-retailer-urls",
+    "day_03_changes_allowed": [
+      "añadir URLs comerciales verificadas",
+      "activar o ajustar CTA principal de compra según destino aprobado"
+    ],
+    "must_not_change": [
+      "copy editorial Publicada el 3 de septiembre de 2026",
+      "fecha/ISBN/editorial/páginas/PVP",
+      "arquitectura visual ya aprobada",
+      "canonical/Book @id"
+    ],
+    "rule": "No inventar retailers ni mantener CTA a destinos no verificados.",
+    "pending_state_cta": {
+      "label": "Recibir novedades",
+      "href": "#newsletter-manecillas",
+      "rule": "Mientras no existan retailers verificados, el hero no debe presentar un CTA de compra que aterrice en un estado vacío."
+    }
+  }
+}

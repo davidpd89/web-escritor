@@ -1,0 +1,305 @@
+{
+  "schema_version": 1,
+  "repository": "davidpd89/web-escritor",
+  "target_branch": "implementacion-web-2026",
+  "target_head_verified": "5c4a9afca7c009bd78d5dd44ca4b6c656239527c",
+  "rule": "legacy code is removed only after the V1 replacement passes its listed gate",
+  "mappings": [
+    {
+      "area": "shell",
+      "legacy": ".site-header",
+      "v1": ".site-header > .site-header__inner",
+      "action": "replace-markup-and-style",
+      "remove_when": "shell V1 passes Gate 1 on Home + one internal page",
+      "tests": [
+        "keyboard",
+        "320px",
+        "200%-zoom",
+        "landscape",
+        "scroll"
+      ]
+    },
+    {
+      "area": "shell",
+      "legacy": ".site-nav",
+      "v1": ".primary-nav",
+      "action": "replace-presentation-preserve-routes",
+      "remove_when": "all primary tasks remain reachable without Explore",
+      "tests": [
+        "keyboard",
+        "coarse-pointer",
+        "no-js"
+      ]
+    },
+    {
+      "area": "shell",
+      "legacy": ".nav-toggle + Mobile nav IIFE",
+      "v1": "responsive primary-nav",
+      "action": "remove-after-parity",
+      "remove_when": "primary nav recomposes at 320/390 without hidden menu",
+      "tests": [
+        "320px",
+        "390px",
+        "zoom",
+        "orientation"
+      ]
+    },
+    {
+      "area": "explore",
+      "legacy": "GLOBAL EXPLORE MENU IIFE + .explore-nav/.explore-panel",
+      "v1": "[data-explore-open] + <dialog data-explore-dialog>",
+      "action": "replace",
+      "remove_when": "one V1 dialog passes focus/escape/no-js tests",
+      "tests": [
+        "escape",
+        "focus-return",
+        "backdrop",
+        "tab-order",
+        "no-js"
+      ]
+    },
+    {
+      "area": "mobile",
+      "legacy": "mobile-bottom-nav IIFE",
+      "v1": null,
+      "action": "remove-after-task-parity",
+      "remove_when": "shell + cartography pass mobile task tests without fixed bottom nav",
+      "tests": [
+        "safe-area",
+        "task-completion",
+        "footer-reachable"
+      ]
+    },
+    {
+      "area": "home",
+      "legacy": ".hero.home-hero-launch",
+      "v1": ".home-hero",
+      "action": "replace-composition-preserve-facts",
+      "remove_when": "winning Home variant passes Gate 2",
+      "tests": [
+        "5-second",
+        "H0",
+        "H1",
+        "H6",
+        "responsive"
+      ]
+    },
+    {
+      "area": "home",
+      "legacy": ".hero-bg + assets/manecillas-hero-bg.webp",
+      "v1": "V1 surfaces + real media objects",
+      "action": "do-not-carry-as-grammar",
+      "remove_when": "Home V1 approved",
+      "tests": [
+        "no-media",
+        "reduced-motion",
+        "identity"
+      ]
+    },
+    {
+      "area": "home",
+      "legacy": ".hero-author-photo + .hero-book-peek-img",
+      "v1": ".hero-media + .hero-portrait + .hero-cover",
+      "action": "replace",
+      "remove_when": "flat cover + portrait treatment passes media gate",
+      "tests": [
+        "LCP",
+        "alt",
+        "failed-media",
+        "320px"
+      ]
+    },
+    {
+      "area": "home",
+      "legacy": "manecillas-book-mockup.webp",
+      "v1": "portada-las-manecillas-del-recuerdo-*.webp",
+      "action": "replace-3d-with-flat-official-cover",
+      "remove_when": "V1 Home/Book use verified flat cover",
+      "tests": [
+        "ratio",
+        "responsive-srcset",
+        "view-transition-fallback"
+      ]
+    },
+    {
+      "area": "home",
+      "legacy": ".start-here-section/.start-grid/.start-card",
+      "v1": ".cartography",
+      "action": "replace",
+      "remove_when": "cartography passes navigation/mobile gates",
+      "tests": [
+        "keyboard",
+        "touch",
+        "no-js",
+        "route-status"
+      ]
+    },
+    {
+      "area": "home",
+      "legacy": ".trust-strip/.creds-strip",
+      "v1": "editorial ledger/river signals",
+      "action": "recompose-not-port",
+      "remove_when": "credibility remains scannable without KPI/card strips",
+      "tests": [
+        "5-second",
+        "content-stress"
+      ]
+    },
+    {
+      "area": "newsletter",
+      "legacy": "#newsletter-form-home + #nl-email-home + #nl-gdpr-home + #nl-status-home",
+      "v1": "V1 newsletter UI with legacy hooks retained in first migration",
+      "action": "preserve-functional-hooks",
+      "remove_when": "only after backend adapter and analytics parity are separately approved",
+      "tests": [
+        "invalid-email",
+        "gdpr",
+        "staging-disabled",
+        "success",
+        "duplicate",
+        "service-error"
+      ]
+    },
+    {
+      "area": "newsletter",
+      "legacy": "submitNewsletter(..., sourceLabel='home')",
+      "v1": "same source contract",
+      "action": "preserve",
+      "remove_when": "never unless Worker contract changes separately",
+      "tests": [
+        "payload-email-source-only",
+        "worker-whitelist"
+      ]
+    },
+    {
+      "area": "newsletter",
+      "legacy": "submitNewsletter(..., sourceLabel='manecillas') + NEWSLETTER_SUCCESS_COPY.manecillas",
+      "v1": "data-newsletter-source=\"manecillas\" + same backend source contract; permanent post-publication success copy",
+      "action": "preserve-source-update-copy-only",
+      "remove_when": "never unless Worker contract changes separately",
+      "tests": [
+        "payload-email-source-only",
+        "source-manecillas",
+        "truthful-success-copy",
+        "staging-no-send"
+      ]
+    },
+    {
+      "area": "analytics",
+      "legacy": "GoatCounter + _gcEvent + Metricool loader",
+      "v1": "production analytics outside lab",
+      "action": "preserve-outside-lab",
+      "remove_when": "separate privacy/analytics decision",
+      "tests": [
+        "single-pageview",
+        "single-newsletter-event"
+      ]
+    },
+    {
+      "area": "global-js",
+      "legacy": "service worker, email obfuscation, quiz, copy-btn, reading progress, FAQ, dp:analytics, popup",
+      "v1": null,
+      "action": "do-not-touch-during-home-migration",
+      "remove_when": "only within owning family audit",
+      "tests": [
+        "no-regression"
+      ]
+    },
+    {
+      "area": "css",
+      "legacy": "/styles.css",
+      "v1": "V1 namespaced CSS",
+      "action": "do-not-import-into-lab-do-not-delete-yet",
+      "remove_when": "zero remaining legacy consumers",
+      "tests": [
+        "selector-consumer-audit"
+      ]
+    },
+    {
+      "area": "css",
+      "legacy": "/assets/manecillas-extras.css",
+      "v1": "Book V1 tokens/components",
+      "action": "superseded-visual-language-do-not-import",
+      "remove_when": "Manecillas page migrated and zero consumers remain",
+      "tests": [
+        "Book-Gate-3",
+        "selector-consumer-audit"
+      ]
+    },
+    {
+      "area": "route",
+      "legacy": null,
+      "v1": "/herramientas/",
+      "action": "verified-target-route",
+      "remove_when": "n/a",
+      "tests": [
+        "exists-target",
+        "sitemap-target"
+      ]
+    },
+    {
+      "area": "route",
+      "legacy": null,
+      "v1": "/donde-empieza-la-jaula/",
+      "action": "authorized-create-route",
+      "remove_when": "route exists in staging, returns 200, matches jaula-preservation.json and passes navigation/SEO gates",
+      "tests": [
+        "chapter-1-source-contract",
+        "no-invented-metadata",
+        "no-404-before-promotion",
+        "navigation-coverage-before-public-link"
+      ]
+    },
+    {
+      "area": "staging",
+      "legacy": ".assetsignore without lab/ exclusion",
+      "v1": "serve lab in staging only",
+      "action": "intentional-temporary-state",
+      "remove_when": "before production promotion delete lab or exclude lab/",
+      "tests": [
+        "lab-200-staging",
+        "lab-noindex",
+        "lab-not-in-sitemap",
+        "lab-not-production"
+      ]
+    },
+    {
+      "area": "book-commercial",
+      "legacy": "prelaunch/placeholder commercial state",
+      "v1": "#disponibilidad + verified retailer links + one primary purchase action when approved",
+      "action": "gate-until-verified-urls",
+      "remove_when": "retailer URLs verified and launch owner approves activation",
+      "tests": [
+        "no-fake-retailer",
+        "no-dead-cta",
+        "publication-copy-unchanged",
+        "canonical-unchanged"
+      ],
+      "status": "pending-verified-retailer-urls"
+    }
+  ],
+  "head_policy": "Baseline informativa: antes de integrar, comparar este HEAD auditado con el HEAD actual de implementacion-web-2026 y reabrir solo los contratos cuyos archivos relevantes hayan cambiado.",
+  "migrations": [
+    {
+      "area": "book-deep-links",
+      "legacy": "#aviso #muestra #sinopsis-editorial #newsletter-manecillas",
+      "v1": "metadata ledger + alias anchors + newsletter section",
+      "remove_when": "never remove public deep-link compatibility without explicit redirect/alias decision",
+      "test": "validate_lab.py + check_preservation.py verify all four ids remain resolvable"
+    },
+    {
+      "area": "book-dedication",
+      "legacy": "manecillas-quote-band",
+      "v1": "single .book-dedication editorial pause with the already-public dedication text",
+      "remove_when": "only if editorial source is explicitly withdrawn",
+      "test": "exact text once; no legacy quote-band"
+    },
+    {
+      "area": "book-commercial-pending-cta",
+      "legacy": "purchase/availability CTA before verified retailers",
+      "v1": "Recibir novedades -> #newsletter-manecillas while commercial_gate=pending-verified-retailer-urls",
+      "remove_when": "verified retailer URLs exist and purchase CTA is activated deliberately",
+      "test": "pending state has no invented retailer destination and hero keeps newsletter CTA"
+    }
+  ]
+}

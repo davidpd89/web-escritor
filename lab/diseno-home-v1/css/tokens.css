@@ -1,0 +1,86 @@
+:root {
+  /* Current V1 prototype palette from doc 06 delta. Components consume semantic roles. */
+  --dp-ink:#171412;
+  --dp-paper:#F4EFE7;
+  --dp-sand:#E7DED2;
+  --dp-petrol:#55798A;
+  --dp-brass:#B99A63;
+  --dp-copper:#A8664A;
+  --dp-walnut:#4D372C;
+
+  --surface-page:var(--dp-paper);
+  --surface-quiet:color-mix(in srgb,var(--dp-paper) 72%,var(--dp-sand));
+  --surface-inverse:var(--dp-ink);
+  --surface-dialog:var(--dp-paper);
+  --color-text:var(--dp-ink);
+  --color-muted:color-mix(in srgb,var(--dp-ink) 66%,var(--dp-paper));
+  --color-border:color-mix(in srgb,var(--dp-ink) 20%,var(--dp-paper));
+  --color-accent:var(--dp-copper);
+  --color-accent-strong:var(--dp-walnut);
+  --color-on-inverse:var(--dp-paper);
+  --focus-color:var(--dp-walnut);
+
+  --font-display:"Instrument Serif","Iowan Old Style","Palatino Linotype",Palatino,Georgia,serif;
+  --font-ui:"Manrope","Avenir Next",Avenir,"Segoe UI",sans-serif;
+  --font-reading:"Newsreader","Iowan Old Style",Charter,Georgia,serif;
+
+  --text-xs:clamp(.78rem,.75rem + .12vw,.86rem);
+  --text-sm:clamp(.88rem,.84rem + .16vw,.98rem);
+  --text-base:clamp(1rem,.97rem + .15vw,1.1rem);
+  --text-lg:clamp(1.13rem,1.07rem + .28vw,1.3rem);
+  --text-2xl:clamp(1.6rem,1.38rem + 1vw,2.2rem);
+  --text-4xl:clamp(2.5rem,1.9rem + 2.8vw,4.25rem);
+  --text-5xl:clamp(3.25rem,2.15rem + 4.5vw,6rem);
+  --text-hero:clamp(4rem,2.2rem + 7vw,8rem);
+
+  --space-1:.25rem;
+  --space-2:.5rem;
+  --space-3:.75rem;
+  --space-4:1rem;
+  --space-5:1.5rem;
+  --space-6:2rem;
+  --space-7:3rem;
+  --space-8:4rem;
+  --space-9:6rem;
+  --space-10:8rem;
+
+  --layout-max:90rem;
+  --layout-wide:76rem;
+  --reading-max:68ch;
+  --page-gutter:clamp(1.25rem,4vw,4rem);
+  --grid-gap:clamp(1rem,2vw,2rem);
+  --section-gap:clamp(4rem,8vw,8rem);
+
+  --radius-none:0;
+  --radius-control:4px;
+  --radius-input:6px;
+  --radius-special:8px;
+  --shadow-object:0 18px 48px rgba(23,20,18,.16);
+
+  --line-base:1px;
+  --line-emphasis:2px;
+  --line-opacity-quiet:.22;
+  --line-opacity-base:.45;
+  --line-opacity-active:.85;
+
+  --control-min-height:44px;
+  --control-primary-height:clamp(44px,3vw,48px);
+  --control-hit-area:44px;
+
+  --motion-feedback:150ms;
+  --motion-state:220ms;
+  --motion-reveal:440ms;
+  --motion-continuity:560ms;
+  --motion-narrative-max:800ms;
+  --ease-standard:cubic-bezier(.2,.8,.2,1);
+  --ease-enter:cubic-bezier(.16,1,.3,1);
+  --ease-exit:cubic-bezier(.7,0,.84,0);
+
+  --z-base:0;
+  --z-sticky:100;
+  --z-header:200;
+  --z-dialog:800;
+}
+
+@media (max-width:1023px){:root{--page-gutter:clamp(1.25rem,3.6vw,2rem);}}
+@media (max-width:389px){:root{--page-gutter:1rem;--grid-gap:.875rem;}}

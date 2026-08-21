@@ -1,0 +1,4 @@
+/* LAB ONLY. Production must self-host these fonts; do not keep this remote import.
+   Prototype contract: Instrument Serif 400 + italic; Manrope 400/500/600/700;
+   Newsreader 400/600 + real 400 italic. See data/font-contract.json. */
+@import url('https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Manrope:wght@400;500;600;700&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,600;1,6..72,400&display=swap');

@@ -1,0 +1,36 @@
+{
+  "schemaVersion": 1,
+  "sourcePath": "libros/samuel-entre-mundos/index.html",
+  "targetScaffold": "book-samuel.html",
+  "route": "/libros/samuel-entre-mundos/",
+  "preserve": {
+    "head": ["title", "description", "canonical", "robots", "OpenGraph", "Twitter", "manifest/favicon", "speculationrules where still justified"],
+    "structuredData": ["Book#book-samuel", "WebPage", "FAQPage", "review nodes currently present", "sameAs", "potentialAction"],
+    "facts": {
+      "title": "Samuel entre mundos",
+      "author": "David Porto Díaz",
+      "publisher": "Libros Indie",
+      "year": 2025,
+      "isbn": "9791387659776",
+      "pages": 422,
+      "format": "Tapa blanda",
+      "genres": ["Fantasía juvenil", "Fantasía de portales", "Ficción especulativa", "Aventura"]
+    },
+    "anchors": ["sinopsis-tecnica", "para-quien", "ficha", "clubes-bibliotecas", "mecanica", "validacion-social", "comprar", "ejemplar-firmado", "para-quien-detalle", "por-que-empieza", "noveris-intro", "quiz-noveris", "faq"],
+    "coreLinks": ["/fragmento/", "/universo/noveris/", "/clubes-de-lectura/samuel-entre-mundos/", "/clubes-de-lectura/samuel-entre-mundos/guia-imprimible/", "/prensa.html"],
+    "verifiedHeroMedia": ["/assets/samuel_entre_mundos_3d.avif", "/assets/samuel_entre_mundos_3d.webp"],
+    "interactiveContracts": ["buy modal / retailer choices", "signed-copy mail flow", "Noveris quiz and its consent/result hooks", "newsletter if present on source page"],
+    "contentRule": "Transplant all SEO-visible prose and verified reader reviews from source. Scaffold copy may not replace or shorten production content."
+  },
+  "designTransform": {
+    "hero": "threshold composition; book object + text separated by a physical seam",
+    "facts": "ledger instead of badges",
+    "readingFit": "two typographic registers instead of feature tiles",
+    "magicSystem": "numbered technical ledger instead of feature tiles",
+    "reviews": "continuous quotation/archive stream instead of review tiles",
+    "purchase": "retailer ledger instead of purchase tiles",
+    "worldShift": "single territorial seam; no global fantasy skin",
+    "fallback": "page remains fully legible and identifiable if hero media fails"
+  },
+  "forbidden": ["invent lore", "invent retailer", "replace reviews", "add fake ratings", "generic fantasy glow", "fantasy icon set", "mosaic of tiles", "rewrite quiz algorithm"]
+}

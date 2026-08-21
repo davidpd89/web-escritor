@@ -1,0 +1,66 @@
+{
+  "schema_version": 1,
+  "repository": "davidpd89/web-escritor",
+  "target_branch": "implementacion-web-2026",
+  "target_head_verified": "5c4a9afca7c009bd78d5dd44ca4b6c656239527c",
+  "source_path": "/index.html",
+  "canonical": "https://davidportodiaz.com/",
+  "baseline": {
+    "title": "David Porto Díaz | Las manecillas del recuerdo y Samuel entre mundos",
+    "description": "Web oficial de David Porto Díaz. Las manecillas del recuerdo, novela coral de vidas conectadas con Monza Ediciones (3 de septiembre de 2026), y Samuel entre mundos, publicada con Libros Indie.",
+    "robots": "index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1",
+    "og_title": "David Porto Díaz — Las manecillas del recuerdo",
+    "og_image": "https://davidportodiaz.com/assets/og-manecillas.webp",
+    "twitter_card": "summary_large_image"
+  },
+  "canonical_entity_ids": [
+    "https://davidportodiaz.com/#website",
+    "https://davidportodiaz.com/#webpage",
+    "https://davidportodiaz.com/#author",
+    "https://davidportodiaz.com/#book-manecillas",
+    "https://davidportodiaz.com/#book-samuel",
+    "https://davidportodiaz.com/#publisher-libros-indie"
+  ],
+  "manecillas_facts": {
+    "isbn": "979-8-90514-935-1",
+    "datePublished": "2026-09-03",
+    "numberOfPages": 272,
+    "publisher": "Monza Ediciones",
+    "image": "https://davidportodiaz.com/assets/portada-las-manecillas-del-recuerdo-1024.webp"
+  },
+  "schema_policy": {
+    "keep_or_adapt": [
+      "WebSite",
+      "WebPage",
+      "Person#author",
+      "Book#book-manecillas"
+    ],
+    "conditional": [
+      "Book#book-samuel",
+      "ItemList#bibliography"
+    ],
+    "remove_or_move_if_visible_block_removed": [
+      "Book#book-samuel.review",
+      "Event#feria-madrid-2026",
+      "FAQPage"
+    ]
+  },
+  "legacy_head_not_to_copy_blindly": [
+    "theme-color:#080a0c",
+    "preload:assets/fonts/cg-normal-latin.woff2",
+    "preload:assets/fonts/inter-normal-latin.woff2",
+    "stylesheet:styles.css",
+    "stylesheet:assets/manecillas-extras.css"
+  ],
+  "runtime_preserve_or_reaudit": [
+    "manifest",
+    "favicon/apple-touch-icon",
+    "service-worker",
+    "GoatCounter",
+    "Metricool",
+    "newsletter source/home hooks",
+    "speculationrules",
+    "LCP preload"
+  ],
+  "head_policy": "Baseline informativa: antes de integrar, comparar este HEAD auditado con el HEAD actual de implementacion-web-2026 y reabrir solo los contratos cuyos archivos relevantes hayan cambiado."
+}

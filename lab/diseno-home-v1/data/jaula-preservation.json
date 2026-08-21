@@ -1,0 +1,58 @@
+{
+  "schemaVersion": 2,
+  "route": "/donde-empieza-la-jaula/",
+  "status": "AUTHORIZED_FOR_STAGING",
+  "productionAllowed": false,
+  "source": {
+    "driveId": "1bfo_20JoPw3W_oHK8k-G1rd3v-K1Jfvx",
+    "title": "01 - DÓNDE EMPIEZA LA JAULA — MANUSCRITO ANÓNIMO UMBRIEL.docx",
+    "sha256": "22d11a7d54ac9423f12964aed9f42109a17e66c32d2ec13f07b41863407ba95d",
+    "chapterStartHeading": "CAPÍTULO 1",
+    "chapterEndExclusiveHeading": "CAPÍTULO 2"
+  },
+  "chapter1": {
+    "paragraphCount": 133,
+    "wordCount": 2158,
+    "sha256": "1474a35fd44d6c161f18c876dfffebc7cfb5a2da3518be75a4c1e322570457bc",
+    "firstParagraph": "El orbe salía del agua y subía.",
+    "lastParagraph": "Desde el pasillo oyó a su padre abrir el cajón de las llaves, revolver dentro y volver a cerrarlo."
+  },
+  "publicFacts": {
+    "title": "Dónde empieza la jaula",
+    "author": "David Porto Díaz",
+    "type": "Novela",
+    "editorialStatus": "En desarrollo"
+  },
+  "forbiddenUntilVerified": [
+    "publicationDate",
+    "publisher",
+    "isbn",
+    "price",
+    "retailers",
+    "officialCover",
+    "commercialGenreClaim"
+  ],
+  "publishGate": "Create route in implementacion-web-2026, verify HTTP 200/staging + SEO/schema + navigation coverage, then decide sitemap/public discovery. No production link while route is absent.",
+  "publicCopy": {
+    "lead": "Noa tiene diecinueve años, trabaja junto al muelle y carga con sueños que no consigue tratar como simples sueños. Entre turnos, familia y la memoria pública de los portadores, algo empieza a abrir una grieta en una vida medida hasta entonces por horarios, reparaciones y mareas.",
+    "primaryCta": {
+      "label": "Leer el primer capítulo",
+      "href": "#capitulo-1"
+    },
+    "secondaryCta": {
+      "label": "Volver a Obras",
+      "href": "/libros/"
+    }
+  },
+  "stagingPolicy": {
+    "robotsMustContain": "noindex",
+    "sitemapAllowed": false,
+    "publicNavigationAllowed": false,
+    "canonicalRequired": false,
+    "reason": "La ruta está autorizada para materializarse en staging, no para descubrimiento público hasta superar el gate."
+  },
+  "registryGate": {
+    "contentRegistry": "No añadir como public/searchIndex/sitemap mientras productionAllowed=false.",
+    "navigation": "Puede existir solo como planned/non-link dentro del lab; no como destino navegable público hasta HTTP 200 + preservación + SEO/schema."
+  }
+}
