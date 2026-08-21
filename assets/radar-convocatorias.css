@@ -1,7 +1,34 @@
-/* V1 editorial system — bespoke pieces for the convocatorias radar.
-   Structural chrome (finder/id-cards/spec-ledger) lives in v1-tools.css/
-   v1-families.css; this file only keeps the .radar-badge class that
-   radar-convocatorias.js reads literally (el.querySelector('.radar-badge')
-   text content decides the "closes soon" filter) — combined here with the
-   shared .editorial-badge look rather than being a separate visual style. */
-html.v1 [data-radar-item][hidden]{display:none}
+/* Professional resources V1 — opportunity radar as a restrained editorial ledger. */
+.radar-page{width:min(1120px,calc(100% - 2rem));margin:0 auto;padding:1.25rem 0 4rem;color:#1c1a17}
+.radar-page,.radar-page *{box-sizing:border-box;min-width:0}
+.radar-page a{overflow-wrap:anywhere}
+.radar-hero{padding:clamp(2.5rem,7vw,6rem) 0 2rem;border-bottom:1px solid #cbc2b7}
+.radar-hero h1{max-width:18ch;margin:.35rem 0 1rem;font-size:clamp(2.35rem,6vw,5.6rem);line-height:.95;letter-spacing:-.035em}
+.radar-hero .lead{max-width:68ch;font-size:clamp(1.05rem,2vw,1.25rem);line-height:1.65}
+.radar-filters{display:grid;grid-template-columns:minmax(12rem,2fr) repeat(2,minmax(9rem,1fr)) auto auto;gap:.85rem;align-items:end;padding:1.25rem 0;border-bottom:1px solid #cbc2b7}
+.radar-filters label{display:grid;gap:.35rem;font-weight:650}
+.radar-filters input[type="search"],.radar-filters select{width:100%;min-height:48px;padding:.65rem .75rem;border:1px solid #8e867d;border-radius:0;background:#fff;color:#1c1a17;font:inherit}
+.radar-check{display:flex!important;align-items:center;gap:.55rem;min-height:48px}
+.radar-check input{width:1.25rem;height:1.25rem}
+.radar-filters button,.radar-empty button{min-height:48px}
+.radar-count{margin:1rem 0;color:#615a53}
+.radar-grid{display:block;border-top:1px solid #cbc2b7}
+.radar-card{padding:1.4rem 0;border-bottom:1px solid #cbc2b7}
+.radar-card[hidden]{display:none}
+.radar-card__top{display:flex;justify-content:space-between;gap:1rem;align-items:flex-start;font-size:.8rem;letter-spacing:.035em;text-transform:uppercase}
+.radar-badge{display:inline-block;padding:.28rem .55rem;border:1px solid #756d65;border-radius:0;font-weight:700}
+.radar-card h2{max-width:26ch;margin:.65rem 0 .25rem;font-size:clamp(1.5rem,3vw,2.35rem);line-height:1.08}
+.radar-org,.radar-verified{color:#615a53}
+.radar-card dl{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));margin:1.15rem 0;border-top:1px solid #ddd5cb}
+.radar-card dl>div{padding:.8rem .85rem .8rem 0;border-bottom:1px solid #ddd5cb}
+.radar-card dt{font-size:.76rem;font-weight:750;text-transform:uppercase;letter-spacing:.04em;color:#615a53}
+.radar-card dd{margin:.25rem 0 0;line-height:1.5;overflow-wrap:anywhere}
+.radar-relative{white-space:normal}
+.radar-note{max-width:72ch}
+.radar-empty{padding:1rem 0 1.5rem;border-bottom:1px solid #cbc2b7}
+.radar-empty[hidden]{display:none}
+.radar-method{margin-top:2.5rem;padding-top:1.5rem;border-top:1px solid #cbc2b7;max-width:72ch}
+.radar-page :focus-visible{outline:3px solid currentColor;outline-offset:3px}
+@media (max-width:860px){.radar-filters{grid-template-columns:repeat(2,minmax(0,1fr))}.radar-filters>label:first-child{grid-column:1/-1}.radar-card dl{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media (max-width:520px){.radar-page{width:min(100% - 2rem,1120px)}.radar-filters{grid-template-columns:minmax(0,1fr)}.radar-filters>label:first-child{grid-column:auto}.radar-card__top{display:grid;gap:.5rem}.radar-card dl{grid-template-columns:minmax(0,1fr)}}
+@media (prefers-reduced-motion:reduce){.radar-page *{scroll-behavior:auto!important;transition:none!important;animation:none!important}}

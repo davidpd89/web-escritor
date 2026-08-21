@@ -1,0 +1,75 @@
+name: Professional resources QA
+
+on:
+  pull_request:
+    paths:
+      - 'data/editoriales.json'
+      - 'data/radar-opportunities.json'
+      - 'editoriales/**'
+      - 'convocatorias-escritores/**'
+      - 'assets/editoriales.css'
+      - 'assets/editoriales.js'
+      - 'assets/radar-convocatorias.css'
+      - 'assets/radar-convocatorias.js'
+      - 'scripts/build-editoriales.py'
+      - 'scripts/build-radar-opportunities.py'
+      - 'scripts/check-professional-resources.py'
+      - 'qa/pro-resources-browser.mjs'
+      - 'lighthouserc-pro-resources.json'
+      - '.github/workflows/pro-resources-qa.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  data-and-browser:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with: {python-version: '3.13'}
+      - name: Validate publisher source
+        run: python3 scripts/build-editoriales.py --data data/editoriales.json --output . --today 2026-08-21 --check
+      - name: Validate opportunity source
+        run: python3 scripts/build-radar-opportunities.py --data data/radar-opportunities.json --out convocatorias-escritores --today 2026-08-21 --check
+      - name: Check source/output/ICS parity
+        run: python3 scripts/check-professional-resources.py
+      - uses: actions/setup-node@v4
+        with: {node-version: '22'}
+      - name: Install Playwright
+        run: |
+          npm install --no-save --no-package-lock playwright@1.55.0
+          npx playwright install --with-deps chromium
+      - name: Start local static server
+        run: |
+          python3 -m http.server 4173 --bind 127.0.0.1 > /tmp/pro-resources-server.log 2>&1 &
+          for i in {1..30}; do
+            if curl --fail --silent http://127.0.0.1:4173/editoriales/ > /dev/null && curl --fail --silent http://127.0.0.1:4173/convocatorias-escritores/ > /dev/null; then exit 0; fi
+            sleep 1
+          done
+          cat /tmp/pro-resources-server.log
+          exit 1
+      - name: Run browser QA
+        env: {QA_ORIGIN: 'http://127.0.0.1:4173', QA_OUT: 'qa-artifacts/browser'}
+        run: node qa/pro-resources-browser.mjs
+      - name: Upload browser evidence
+        if: always()
+        uses: actions/upload-artifact@v4
+        with: {name: pro-resources-browser-qa, path: 'qa-artifacts/browser/', if-no-files-found: error, retention-days: 14}
+  lighthouse:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with: {node-version: '22'}
+      - name: Install Lighthouse CI
+        run: npm install --global @lhci/cli@0.15.1
+      - name: Collect Lighthouse reports
+        run: lhci collect --config=./lighthouserc-pro-resources.json
+      - name: Assert Lighthouse budgets
+        run: lhci assert --config=./lighthouserc-pro-resources.json
+      - name: Upload Lighthouse reports
+        if: always()
+        uses: actions/upload-artifact@v4
+        with: {name: pro-resources-lighthouse, path: '.lighthouseci/', include-hidden-files: true, if-no-files-found: warn, retention-days: 14}
