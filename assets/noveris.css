@@ -1,0 +1,32 @@
+/* V1 editorial system — bespoke pieces for the Noveris worldbuilding guide.
+   Structural chrome (hero/id-cards/identity-faq/spec-ledger) lives in
+   v1-tools.css/v1-families.css; this file adds what's specific to a lore
+   reference: the bento-style focus grid (one large card + three regular)
+   and the canalizador/artifact table with real product photography. */
+html.v1 .lore-figure{margin:2.5rem 0;border:1px solid var(--color-border)}
+html.v1 .lore-figure img{display:block;width:100%;height:auto}
+html.v1 .lore-figure__copy{padding:1.5rem}
+html.v1 .lore-figure__copy h3{font:400 var(--text-lg)/1.2 var(--font-display);margin:.4rem 0 .6rem}
+html.v1 .lore-figure__copy p{margin:0;color:var(--color-muted);font-family:var(--font-reading)}
+html.v1 .lore-figure figcaption{padding:1rem 1.5rem;border-top:1px solid var(--color-border);font:400 .85rem/1.5 var(--font-ui);color:var(--color-muted)}
+
+html.v1 .lore-bento-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:1px;background:var(--color-border);border:1px solid var(--color-border);margin:2.5rem 0 0}
+html.v1 .lore-bento-grid .id-card{border:0}
+html.v1 .lore-bento-card--large{grid-column:span 2;grid-row:span 2}
+html.v1 .lore-bento-card--wide{grid-column:span 2}
+
+html.v1 .lore-table-wrap{overflow-x:auto;margin:2.5rem 0 0}
+html.v1 .lore-table{width:100%;border-collapse:collapse;min-width:46rem;font:400 .92rem/1.5 var(--font-ui)}
+html.v1 .lore-table caption{text-align:left;font:600 .7rem/1.4 var(--font-ui);letter-spacing:.06em;text-transform:uppercase;color:var(--color-muted);margin-bottom:.75rem}
+html.v1 .lore-table th,html.v1 .lore-table td{text-align:left;padding:.75rem 1rem;border-bottom:1px solid var(--color-border);vertical-align:middle}
+html.v1 .lore-table thead th{font:600 .68rem/1.3 var(--font-ui);letter-spacing:.05em;text-transform:uppercase;color:var(--color-muted);border-bottom:1px solid var(--color-text)}
+html.v1 .lore-table tbody th{font-family:var(--font-display);font-weight:400;font-size:1.05rem}
+html.v1 .lore-table-img{width:4.5rem;height:auto;display:block}
+
+html.v1 .lore-prose{max-width:var(--reading-max);font-family:var(--font-reading);font-size:1.05rem;line-height:1.7}
+html.v1 .lore-prose p{margin:0 0 1.3em}
+
+@media(max-width:900px){
+  html.v1 .lore-bento-grid{grid-template-columns:1fr}
+  html.v1 .lore-bento-card--large,html.v1 .lore-bento-card--wide{grid-column:auto;grid-row:auto}
+}

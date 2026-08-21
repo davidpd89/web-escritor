@@ -1,14 +1,12 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="es" class="v1">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
   <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
-
   <title>Noveris | Ciudad fantástica de Samuel entre mundos — David Porto Díaz</title>
   <meta name="description" content="Noveris es la ciudad fantástica de Samuel entre mundos, novela de David Porto Díaz: canalizadores, magia con coste, memoria y facciones en conflicto." />
   <meta name="author" content="David Porto Díaz" />
-
   <meta property="og:title" content="Noveris - Ciudad fantástica de Samuel entre mundos" />
   <meta property="og:description" content="Noveris es la ciudad fantástica de Samuel entre mundos: un escenario de magia con canalizadores, objetos con memoria y decisiones que siempre tienen coste." />
   <meta property="og:type" content="article" />
@@ -19,7 +17,6 @@
   <meta property="og:url" content="https://davidportodiaz.com/universo/noveris/" />
   <meta property="og:locale" content="es_ES" />
   <meta property="og:site_name" content="David Porto Díaz" />
-
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="Noveris - Ciudad fantástica de Samuel entre mundos" />
   <meta name="twitter:description" content="Ciudad fantástica de Samuel entre mundos: magia con canalizadores, objetos con memoria y coste real." />
@@ -34,16 +31,20 @@
     }]
   }
   </script>
-
-  <meta name="theme-color" content="#080a0c" />
-  <link rel="preconnect" href="https://gc.zgo.at" /><link rel="canonical" href="https://davidportodiaz.com/universo/noveris/" />
-  <link rel="preload" as="font" type="font/woff2" href="/assets/fonts/cg-normal-latin.woff2" crossorigin />
-  <link rel="preload" as="font" type="font/woff2" href="/assets/fonts/inter-normal-latin.woff2" crossorigin />
+  <meta name="theme-color" content="#F4EFE7" />
+  <link rel="canonical" href="https://davidportodiaz.com/universo/noveris/" />
   <link rel="icon" type="image/png" href="/assets/david-porto-favicon.png" />
   <link rel="apple-touch-icon" href="/assets/david-porto-favicon.png" />
   <link rel="manifest" href="/manifest.json" />
-  <link rel="stylesheet" href="/styles.css?v=202609-launch-1" />
 
+  <link rel="stylesheet" href="/assets/v1-fonts.css" />
+  <link rel="stylesheet" href="/assets/v1-tokens.css" />
+  <link rel="stylesheet" href="/assets/v1-base.css" />
+  <link rel="stylesheet" href="/assets/v1-shell.css" />
+  <link rel="stylesheet" href="/assets/v1-components.css" />
+  <link rel="stylesheet" href="/assets/v1-families.css" />
+  <link rel="stylesheet" href="/assets/v1-tools.css" />
+  <link rel="stylesheet" href="/assets/noveris.css" />
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -133,384 +134,276 @@
 
 <body>
   <a href="#contenido" class="skip-link">Saltar al contenido</a>
-  <div class="site-shell">
-    <header class="site-header">
-      <a class="brand" href="/" aria-label="Volver al inicio - David Porto Díaz">
-        <span class="brand-mark">
-          <img src="/assets/logo-david-porto-diaz-escritor-176.webp" alt="" class="brand-logo-img" width="52" height="52" aria-hidden="true" />
-        </span>
-        <span class="brand-text">
-          <strong>David Porto Díaz</strong>
-          <small>Escritor</small>
-        </span>
+
+  <header class="site-header" data-header>
+    <div class="site-header__inner">
+      <a class="brand" href="/" aria-label="David Porto Díaz — inicio">
+        <span class="brand__name">David Porto Díaz</span>
+        <span class="brand__role">Escritor</span>
       </a>
-
-      <button class="nav-toggle" type="button" aria-label="Abrir menú" aria-expanded="false">
-        <span></span>
-        <span></span>
-      </button>
-
-      <nav class="site-nav" aria-label="Navegación principal">
-        <a href="/">Inicio</a>
-        <a href="/libros/">Libros</a>
+      <nav class="primary-nav" aria-label="Navegación principal">
+        <a href="/libros/" aria-current="page">Obra</a>
         <a href="/cuaderno/">Cuaderno</a>
-        <a href="/autor.html">El autor</a>
-        <a href="/eventos.html">Eventos</a>
-        <a href="/prensa.html">Prensa</a>
+        <a href="/herramientas/">Herramientas</a>
       </nav>
+      <button class="explore-trigger" type="button" aria-haspopup="dialog" aria-controls="explore-dialog" aria-expanded="false" data-explore-open>
+        Explorar
+      </button>
+    </div>
+  </header>
+
+  <dialog class="explore-dialog" id="explore-dialog" aria-labelledby="explore-title" data-explore-dialog>
+    <div class="explore-dialog__shell">
+      <div class="explore-dialog__head">
+        <div>
+          <p class="eyebrow">Índice general</p>
+          <h2 id="explore-title">Explorar</h2>
+        </div>
+        <button class="icon-button" type="button" aria-label="Cerrar Explorar" data-explore-close>
+          <svg aria-hidden="true" viewBox="0 0 24 24" width="20" height="20"><path d="M5 5l14 14M19 5L5 19"/></svg>
+        </button>
+      </div>
+
+      <div class="explore-dialog__grid">
+        <nav class="explore-list" aria-label="Destinos de la web">
+          <a class="explore-row" href="/las-manecillas-del-recuerdo/" data-preview="manecillas">
+            <span class="explore-row__index">01</span>
+            <span class="explore-row__body"><strong>Las manecillas del recuerdo</strong><small>La obra actual.</small></span>
+          </a>
+          <a class="explore-row" href="/autor.html" data-preview="autor">
+            <span class="explore-row__index">02</span>
+            <span class="explore-row__body"><strong>Autor</strong><small>Biografía, obra y trayectoria.</small></span>
+          </a>
+          <a class="explore-row" href="/libros/samuel-entre-mundos/" data-preview="samuel">
+            <span class="explore-row__index">03</span>
+            <span class="explore-row__body"><strong>Samuel entre mundos</strong><small>Primera novela publicada.</small></span>
+          </a>
+          <a class="explore-row" href="/cuaderno/" data-preview="cuaderno">
+            <span class="explore-row__index">04</span>
+            <span class="explore-row__body"><strong>Cuaderno</strong><small>Artículos y piezas editoriales.</small></span>
+          </a>
+          <a class="explore-row" href="/herramientas/" data-preview="herramientas">
+            <span class="explore-row__index">05</span>
+            <span class="explore-row__body"><strong>Herramientas</strong><small>Utilidades gratuitas para escritores.</small></span>
+          </a>
+          <a class="explore-row" href="/prensa.html" data-preview="prensa">
+            <span class="explore-row__index">06</span>
+            <span class="explore-row__body"><strong>Prensa y eventos</strong><small>Apariciones, materiales y agenda.</small></span>
+          </a>
+        </nav>
+
+        <aside class="explore-preview" aria-live="polite" aria-atomic="true" data-explore-preview>
+          <div class="explore-preview__media" aria-hidden="true" data-preview-media></div>
+          <p class="explore-preview__label" data-preview-label>Samuel entre mundos</p>
+          <p class="explore-preview__copy" data-preview-copy>Primera novela publicada.</p>
+        </aside>
+      </div>
+    </div>
+  </dialog>
+
+  <main id="contenido" class="v1-main" data-family="lore">
+    <nav class="book-breadcrumb" aria-label="Ruta de navegación">
+      <ol><li><a href="/">Inicio</a></li><li aria-current="page">Noveris</li></ol>
+    </nav>
+
+    <header class="tool-hero">
+      <p class="eyebrow">Ciudad fantástica de Samuel entre mundos</p>
+      <h1>Noveris</h1>
+      <p class="tool-hero__lead">Ciudad, sistema mágico y archivo de términos. Esta guía reúne las claves de Noveris: canalizadores con memoria, criaturas que limpian residuos mágicos, facciones históricas y una barrera dimensional donde cada hechizo tiene un precio.</p>
+      <div class="tool-actions">
+        <a class="primary-action" href="/libros/samuel-entre-mundos/">Samuel entre mundos: portal fantasy español</a>
+        <a class="text-action" href="#glosario">Ver glosario</a>
+      </div>
     </header>
 
-    <main id="contenido">
-      <section class="book-hero lore-hero" aria-label="Noveris">
-        <div class="hero-bg" aria-hidden="true"></div>
-        <div class="book-hero-inner lore-hero-inner">
-          <div class="book-hero-copy">
-            <nav class="breadcrumb" aria-label="Ruta de navegación">
-              <a href="/">David Porto Díaz</a>
-              <span aria-hidden="true"> / </span>
-              <span aria-current="page">Noveris</span>
-            </nav>
-            <p class="eyebrow">Ciudad fantástica de Samuel entre mundos</p>
-            <h1>Noveris</h1>
-            <p class="book-hero-tagline">Ciudad, sistema mágico y archivo de términos.</p>
-            <p class="book-hero-desc">
-              Esta guía reúne las claves de Noveris: canalizadores con memoria, criaturas que limpian residuos mágicos, facciones históricas y una barrera dimensional donde cada hechizo tiene un precio.
-            </p>
-            <div class="hero-actions">
-              <a class="button primary" href="/libros/samuel-entre-mundos/">Samuel entre mundos: portal fantasy español</a>
-              <a class="button secondary" href="#glosario">Ver glosario</a>
-            </div>
-          </div>
-        </div>
-      </section>
+    <section class="v1-section" id="respuesta">
+      <p class="eyebrow">Respuesta rápida</p>
+      <h2>Qué es Noveris.</h2>
+      <p class="lore-prose"><strong>Noveris</strong> es una ciudad fantástica separada del mundo humano por una barrera dimensional inestable. Sus habitantes se vinculan a objetos mágicos llamados <strong>canalizadores</strong>, como Sael o Zakra. Regida por el <strong>Silencio</strong>, la ciudad oculta los <strong>Archivos de la Memoria</strong> y las cicatrices de la <strong>Guerra de los Cristales</strong>.</p>
 
-      <section class="section" id="respuesta">
-        <div class="section-heading">
-          <p class="eyebrow">Respuesta rápida</p>
-          <h2>Qué es Noveris.</h2>
-        </div>
-        <p class="geo-answer"><strong>Noveris</strong> es una ciudad fantástica separada del mundo humano por una barrera dimensional inestable. Sus habitantes se vinculan a objetos mágicos llamados <strong>canalizadores</strong>, como Sael o Zakra. Regida por el <strong>Silencio</strong>, la ciudad oculta los <strong>Archivos de la Memoria</strong> y las cicatrices de la <strong>Guerra de los Cristales</strong>.</p>
-
-
-        <figure class="visual-figure visual-figure--map" aria-labelledby="mapa-noveris-title">
-          <div class="visual-figure__copy">
-            <p class="eyebrow">Mapa funcional</p>
-            <h3 id="mapa-noveris-title">Cómo se organiza Noveris</h3>
-            <p>Una vista de la ciudad fantástica de <em>Samuel entre mundos</em>: Grimlor, el Hospital Arcano, los Archivos de la Memoria, el estadio de Glíder y la Barrera como puntos clave del sistema de contención.</p>
-          </div>
-          <picture>
-            <img src="/assets/mapa-funcional-noveris-ciudad-fantastica.webp" alt="Mapa funcional de Noveris con Grimlor, Hospital Arcano, Archivos de la Memoria, estadio de Glíder y la Barrera" loading="lazy" decoding="async" width="1448" height="1086" />
-          </picture>
-          <figcaption>Mapa funcional de Noveris: ciudad, instituciones mágicas y zonas de contención.</figcaption>
-        </figure>
-        <div class="lore-bento-grid" aria-label="Focos de conocimiento de Noveris">
-          <article class="lore-bento-card lore-bento-card--large">
-            <p class="lore-bento-kicker">Artefacto central</p>
-            <h3>Espejo Ancestral</h3>
-            <p>El Espejo Ancestral no funciona como oráculo decorativo: lee identidad, vínculo y fractura. Su valor narrativo está en revelar lo que una persona es, incluso cuando la memoria, la familia o los protocolos de Noveris han intentado sellarlo.</p>
-          </article>
-
-          <article class="lore-bento-card">
-            <p class="lore-bento-kicker">Facciones</p>
-            <h3>Zunthar y Marelian</h3>
-            <p>Los Zunthar defienden la pureza heredada de la magia; los Marelian buscan abrir su acceso. La Guerra de los Cristales nace de esa disputa entre control, democratización y miedo a una fractura imposible de revertir.</p>
-          </article>
-
-          <article class="lore-bento-card">
-            <p class="lore-bento-kicker">Mapa funcional</p>
-            <h3>Ciudad de control</h3>
-            <p>Noveris se organiza como infraestructura de contención: Grimlor forma y vigila, el Hospital Arcano mide daños de canalización y el estadio de Glíder convierte riesgo mágico en deporte regulado.</p>
-          </article>
-
-          <article class="lore-bento-card lore-bento-card--wide">
-            <p class="lore-bento-kicker">Física dimensional</p>
-            <h3>Velo y barrera</h3>
-            <p>La barrera separa el mundo humano del arcano, pero no es una pared estable. Es una fractura tensada: filtra recuerdos, residuos de hechicería y señales de objetos afines cuando un canalizador opera fuera de rango.</p>
-          </article>
-        </div>
-      </section>
-
-      <section class="section section--alt" id="sistema">
-        <div class="section-heading">
-          <p class="eyebrow">Arquitectura del mundo</p>
-          <h2>Cómo funciona Noveris.</h2>
-        </div>
-
-        <div class="lore-prose">
-          <p>
-            Noveris es una ciudad diseñada para vivir después de una catástrofe. La Guerra de los Cristales no fue solo una guerra política: dejó una fractura física, mágica y dimensional. Desde entonces, la sociedad noveriana funciona mediante contención. Las puertas, los sellos, los protocolos escolares, los hospitales y hasta los sistemas de transporte están pensados para impedir que una fisura privada se convierta en una fuga pública.
-          </p>
-          <p>
-            La magia no nace del gesto vacío. Se canaliza mediante objetos afines que los habitantes eligen o por los que son elegidos. Un canalizador puede ser un brazalete, una pluma, un colgante o una pieza metálica con memoria. Su tarea es conducir energía, pero su vínculo con el portador puede llegar a ser más íntimo que una herramienta. Sael, por ejemplo, es un brazalete arcano de metal oscuro con gemas flotantes; Zakra es una pluma negra con detalles dorados, nerviosa y exacta; Zephy conserva memoria material y busca recuperar su forma original tras ser dañado; Arálea despliega extremidades metálicas y opera con precisión clínica.
-          </p>
-          <p>
-            El coste es la ley física de Noveris. Un canalizador mal elegido no produce solo un fallo decorativo: puede saturar el cuerpo, deformar huesos o romper procesos de percepción. Por eso los niños no reciben su primer vínculo hasta una edad concreta y por eso Grimlor, aunque se llame colegio, funciona como institución de desarrollo, vigilancia y contención. La magia se enseña como una disciplina de riesgo, no como un talento ornamental.
-          </p>
-        </div>
-
-        <div class="lore-table-wrap" aria-label="Tabla técnica de canalizadores y objetos arcanos">
-          <table class="lore-table">
-            <caption>Canalizadores y objetos arcanos de Noveris</caption>
-            <thead>
-              <tr>
-                <th scope="col">Objeto arcano</th>
-                <th scope="col">Imagen</th>
-                <th scope="col">Usuario o contexto</th>
-                <th scope="col">Descripción sensorial</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <th scope="row">Sael</th>
-                <td class="lore-table-img-cell">
-                  <img src="/assets/sael-canalizador-victor-osborne.avif" alt="Sael, brazalete arcano de metal oscuro con gemas flotantes, canalizador de Víctor Osborne en Noveris" class="lore-table-img" width="2816" height="1536" loading="lazy" decoding="async" />
-                </td>
-                <td>Víctor Osborne</td>
-                <td>Brazalete de metal oscuro con gemas flotantes que automatiza rutinas, duda ante anomalías y vibra cuando la realidad cercana pierde coherencia.</td>
-              </tr>
-              <tr>
-                <th scope="row">Zakra</th>
-                <td class="lore-table-img-cell">
-                  <img src="/assets/zakra-pluma-arcana-victoria-osborne.avif" alt="Zakra, pluma arcana negra con detalles dorados, canalizador de Victoria Osborne en Noveris" class="lore-table-img" width="2816" height="1536" loading="lazy" decoding="async" />
-                </td>
-                <td>Victoria Osborne</td>
-                <td>Pluma negra con detalles dorados, precisa y nerviosa; zumba con concentración, traza caracteres luminosos y no tolera errores de canalización.</td>
-              </tr>
-              <tr>
-                <th scope="row">Sernía</th>
-                <td class="lore-table-img-cell">
-                  <img src="/assets/sernia-bebida-lore-noveris.avif" alt="La Sernía, bebida oscura de Noveris con vapor de café tostado, canela y tinta antigua" class="lore-table-img" width="2816" height="1536" loading="lazy" decoding="async" />
-                </td>
-                <td>Población de Noveris</td>
-                <td>Bebida oscura cuyo vapor recuerda al café recién molido, canela tostada y tinta antigua; despierta sentidos y marca cultura doméstica arcana.</td>
-              </tr>
-              <tr>
-                <th scope="row">Melastra</th>
-                <td class="lore-table-img-cell">
-                  <img src="/assets/melastra-savia-tanilu.avif" alt="Melastra, pasta tibia de savia del árbol de Tanilu que chispea al contacto con el metal en Noveris" class="lore-table-img" width="2816" height="1536" loading="lazy" decoding="async" />
-                </td>
-                <td>Familia Osborne</td>
-                <td>Pasta tibia de savia de Tanilu que chispea con el metal, uniendo alimentación, botánica y reacción material en la vida cotidiana de Noveris.</td>
-              </tr>
-              <tr>
-                <th scope="row">Vara Glytch</th>
-                <td class="lore-table-img-cell" aria-label="Sin imagen disponible">—</td>
-                <td>Glíder</td>
-                <td>Canalizador deportivo de filtrado que regula impactos, bloquea hechizos letales y evita que la energía residual contamine vínculos o cuerpos.</td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
-      </section>
-
-      <section class="section" id="mapa">
-        <div class="section-heading">
+      <figure class="lore-figure" aria-labelledby="mapa-noveris-title">
+        <img src="/assets/mapa-funcional-noveris-ciudad-fantastica.webp" alt="Mapa funcional de Noveris con Grimlor, Hospital Arcano, Archivos de la Memoria, estadio de Glíder y la Barrera" loading="lazy" decoding="async" width="1448" height="1086" />
+        <div class="lore-figure__copy">
           <p class="eyebrow">Mapa funcional</p>
-          <h2>Zonas y puntos de control.</h2>
+          <h3 id="mapa-noveris-title">Cómo se organiza Noveris</h3>
+          <p>Una vista de la ciudad fantástica de <em>Samuel entre mundos</em>: Grimlor, el Hospital Arcano, los Archivos de la Memoria, el estadio de Glíder y la Barrera como puntos clave del sistema de contención.</p>
         </div>
+        <figcaption>Mapa funcional de Noveris: ciudad, instituciones mágicas y zonas de contención.</figcaption>
+      </figure>
 
-        <div class="lore-map-grid">
-          <article class="feature-card">
-            <h3>Colegio Grimlor</h3>
-            <p>Internado especializado en habilidades latentes. Su función real es educar, aislar y contener caos dimensional cuando un estudiante muestra signos de fractura o vínculo anómalo.</p>
-          </article>
-          <article class="feature-card">
-            <h3>Hospital Arcano</h3>
-            <p>Centro médico de arquitectura adaptable. Sus ventanas aparecen o desaparecen según la necesidad del paciente, y sus sanadores detectan fluctuaciones en canalizadores y memoria.</p>
-          </article>
-          <article class="feature-card">
-            <h3>La Raíz de Noveris</h3>
-            <p>Botica del distrito comercial donde sustancias volátiles, impuestos mágicos y remedios especializados conviven con la economía diaria de la ciudad.</p>
-          </article>
-          <article class="feature-card">
-            <h3>Estadio de Glíder</h3>
-            <p>El estadio de Glíder convierte riesgo mágico en deporte regulado. Plataformas levitantes, hechizos de apoyo y riesgo controlado; nació como símbolo de unidad tras la Guerra de los Cristales.</p>
-          </article>
-        </div>
-      </section>
-
-      <section class="section section--alt" id="historia">
-        <div class="section-heading">
-          <p class="eyebrow">Historia</p>
-          <h2>Guerra de los Cristales y fractura.</h2>
-        </div>
-
-        <div class="lore-prose">
-          <p>
-            Antes de la fractura, los Siete Cristales Primordiales eran el origen de la magia. Cada cristal se alzaba como una fuente de poder y legitimidad. El conflicto comenzó cuando la pregunta dejó de ser cómo usar la magia y pasó a ser quién tenía derecho a usarla.
-          </p>
-        </div>
-
-        <figure class="historia-visual">
-          <img
-            src="/assets/espejo-ancestral-portal-noveris.avif"
-            alt="El Espejo Ancestral de Noveris, artefacto de lectura identitaria que revela lo que el portador es, vinculado al portal dimensional y a la Guerra de los Cristales en Samuel entre mundos"
-            width="2816"
-            height="1536"
-            loading="lazy"
-            decoding="async"
-          />
-          <figcaption>El Espejo Ancestral — artefacto central de Noveris. No revela deseos: muestra lo que el portador es, incluido lo que la memoria intenta ocultar.</figcaption>
-        </figure>
-
-        <div class="lore-prose">
-          <p>
-            Los Zunthar defendían que la magia debía permanecer pura y reservarse a quienes nacían con el don. Los Marelian querían democratizarla, compartirla y abrir los sistemas de acceso. Ningún bando se veía a sí mismo como villano: unos hablaban de protección, otros de justicia. El choque escaló cuando un grupo radical intentó sellar los Cristales para protegerlos y la resistencia Marelian se opuso.
-          </p>
-          <p>
-            La explosión partió el mundo. Dimensiones que coexistían quedaron separadas por una barrera, sociedades completas desaparecieron y la realidad se llenó de residuos peligrosos. De ese trauma nacen los protocolos de Noveris: el miedo a una Tercera Fractura, la vigilancia de las Silenciadoras, la economía del Veltris y la obsesión por registrar, sellar y medir todo fenómeno anómalo.
-          </p>
-        </div>
-      </section>
-
-      <section class="section" id="glosario">
-        <div class="section-heading">
-          <p class="eyebrow">Diccionario de términos</p>
-          <h2>Glosario técnico de Noveris.</h2>
-        </div>
-
-        <div class="lore-term-grid">
-          <article class="lore-term">
-            <h3>Canalizador</h3>
-            <p>Objeto afín que permite conducir magia. Puede desarrollar memoria, preferencias y respuesta emocional. La compatibilidad con el portador determina estabilidad, potencia y riesgo.</p>
-          </article>
-          <article class="lore-term">
-            <h3>Sael</h3>
-            <p>Brazalete arcano de Víctor, hecho de metal oscuro y gemas flotantes. Automatiza rutinas, detecta fluctuaciones y muestra fallos cuando la realidad cercana pierde coherencia.</p>
-          </article>
-          <article class="lore-term">
-            <h3>Zakra</h3>
-            <p>Pluma negra con detalles dorados vinculada a Victoria. Es exacta, nerviosa y poco tolerante con el error; sus vacilaciones revelan que algo externo altera el sistema.</p>
-          </article>
-          <article class="lore-term">
-            <h3>Gorx</h3>
-            <p>Aves esponjosas especializadas en devorar hechicería residual. Funcionan como limpieza urbana, rastreo y alarma biológica después de la Guerra de los Cristales. Su presencia indica que un hechizo ha fallado, se ha degradado o ha dejado residuos peligrosos.</p>
-          </article>
-          <article class="lore-term">
-            <h3>Velukis</h3>
-            <p>Criaturas del tamaño de un gato grande, con pelaje azul perlado, patas traseras saltarinas y hocico húmedo. Transportan comida y reaccionan ante señales anómalas.</p>
-          </article>
-          <article class="lore-term">
-            <h3>Glissaro</h3>
-            <p>Comando de desplazamiento. Activa zapatos o plataformas que elevan el cuerpo unos centímetros y permiten deslizarse por la ciudad a gran velocidad.</p>
-          </article>
-          <article class="lore-term">
-            <h3>Vara Glytch</h3>
-            <p>Canalizador de filtrado usado para depurar señales mágicas y separar residuos o interferencias. En el Glíder y otros contextos de riesgo, filtra hechizos letales, regula impactos y evita que la energía residual contamine vínculos o cuerpos.</p>
-          </article>
-          <article class="lore-term">
-            <h3>Glíder</h3>
-            <p>Deporte popular de Noveris. Combina estrategia, reflejos y canalización: cinco jugadores persiguen al Glíd, protegen plumas y alteran el campo con hechizos.</p>
-          </article>
-          <article class="lore-term">
-            <h3>Veltris</h3>
-            <p>Mineral extraído de zonas donde impactaron los cristales primordiales. Es ligero, resistente y base de la moneda; su valor depende de la geometría, no del tamaño.</p>
-          </article>
-          <article class="lore-term">
-            <h3>Sernía</h3>
-            <p>Bebida espesa y oscura asociada al despertar de los sentidos. Su vapor desprende un aroma entre café recién molido, canela tostada y tinta antigua. No actúa como simple bebida: marca ritmo doméstico, alerta perceptiva y cultura material arcana.</p>
-          </article>
-          <article class="lore-term">
-            <h3>Melastra</h3>
-            <p>Pasta tibia elaborada con savia del árbol de Tanilu. En Noveris se consume como alimento sensorial y chispea al contacto con el metal, vinculando cocina, botánica y física mágica. Su reacción material ayuda a describir la vida cotidiana arcana.</p>
-          </article>
-          <article class="lore-term">
-            <h3>Velo / Barrera</h3>
-            <p>Fractura dimensional que separa el mundo humano del arcano. No es una pared fija, sino una membrana inestable que puede filtrar recuerdos, sonidos, olores y residuos de hechicería. Su degradación explica portales, anomalías y protocolos de contención.</p>
-          </article>
-          <article class="lore-term">
-            <h3>Espejo Ancestral</h3>
-            <p>Artefacto central de lectura identitaria. No revela deseos ni apariencia, sino aquello que el portador es, incluido lo que la memoria intenta ocultar.</p>
-          </article>
-          <article class="lore-term">
-            <h3>Silenciadoras</h3>
-            <p>Cuerpo de élite asociado a interrogatorios psíquicos y extracción de información sin rastro físico. Intervienen cuando una anomalía amenaza el equilibrio dimensional.</p>
-          </article>
-        </div>
-      </section>
-
-      <section class="section section--alt" id="libro">
-        <div class="section-heading">
-          <p class="eyebrow">Lectura relacionada</p>
-          <h2>Conocer Noveris.</h2>
-          <p>El universo de Noveris aparece en <em>Samuel entre mundos</em>, novela de David Porto Díaz publicada por Libros Indie.</p>
-        </div>
-        <div class="hero-actions hero-actions--center">
-          <a class="button primary" href="/libros/samuel-entre-mundos/">Ficha de Samuel entre mundos</a>
-          <a class="button secondary" href="https://www.amazon.es/dp/B0GB6LGQFH?tag=davidporto-21" target="_blank" rel="sponsored nofollow noopener noreferrer">Comprar en Amazon</a>
-        </div>
-      </section>
-
-      <section class="section" id="preguntas-frecuentes" aria-label="Preguntas frecuentes sobre Noveris">
-        <div class="section-heading">
-          <p class="eyebrow">FAQ</p>
-          <h2>Preguntas frecuentes.</h2>
-        </div>
-        <div class="faq-list">
-          <details class="faq-item">
-            <summary class="faq-question">¿Qué es Noveris?</summary>
-            <div class="faq-answer">
-              <p>Noveris es una ciudad fantástica dimensional situada en un plano paralelo al nuestro, accesible solo a través de portales controlados por canalizadores. Es el escenario principal de <em>Samuel entre mundos</em>, con dos facciones en conflicto permanente: los Zunthar y los Marelian.</p>
-            </div>
-          </details>
-          <details class="faq-item">
-            <summary class="faq-question">¿Qué son los canalizadores?</summary>
-            <div class="faq-answer">
-              <p>Los canalizadores son objetos afines que permiten a su portador conducir magia. Pueden desarrollar memoria e incluso conciencia propia con el tiempo. La medalla de Samuel es un canalizador irregular — puede abrir portales, algo que se creía imposible.</p>
-            </div>
-          </details>
-          <details class="faq-item">
-            <summary class="faq-question">¿Qué es la magia con coste?</summary>
-            <div class="faq-answer">
-              <p>En Noveris toda magia exige una compensación real: energía, memoria, tiempo o algo más valioso. No existe el poder gratuito. Esta regla es el eje del sistema mágico de la novela y la fuente de la mayoría de los conflictos de la trama.</p>
-            </div>
-          </details>
-          <details class="faq-item">
-            <summary class="faq-question">¿Quiénes son los Zunthar y los Marelian?</summary>
-            <div class="faq-answer">
-              <p>Son las dos facciones principales de Noveris, enfrentadas desde la Guerra de los Cristales. Los Zunthar controlan el orden y la ley mágica; los Marelian representan a los disidentes y los expulsados. Samuel se enfrenta a Noveris sin saber de qué lado está.</p>
-            </div>
-          </details>
-          <details class="faq-item">
-            <summary class="faq-question">¿Se puede leer esta guía sin spoilers?</summary>
-            <div class="faq-answer">
-              <p>Esta guía no desvela el arco argumental ni el desenlace. Puedes leerla antes de empezar la novela para situarte en el mundo, o después para entender mejor los detalles del sistema mágico y la historia de Noveris.</p>
-            </div>
-          </details>
-        </div>
-      </section>
-
-    <footer class="site-footer">
-      <div class="footer-top-row">
-        <div class="footer-brand">
-          <img src="/assets/logo-david-porto-diaz-escritor-176.webp" alt="David Porto Díaz" class="footer-logo" width="42" height="42" loading="lazy" />
-          <div class="footer-brand-text">
-            <strong>David Porto Díaz</strong>
-            <span>La magia siempre tiene un precio.</span>
-          </div>
-        </div>
-        <nav class="footer-nav" aria-label="Navegación pie de página">
-          <a href="/">Inicio</a>
-          <a href="/libros/">Libros</a>
-          <a href="/cuaderno/">Cuaderno</a>
-          <a href="/autor.html">El autor</a>
-          <a href="/eventos.html">Eventos</a>
-          <a href="/prensa.html">Prensa</a>
-        </nav>
+      <div class="lore-bento-grid" aria-label="Focos de conocimiento de Noveris">
+        <article class="id-card lore-bento-card--large">
+          <p class="tool-meta">Artefacto central</p>
+          <h3>Espejo Ancestral</h3>
+          <p>El Espejo Ancestral no funciona como oráculo decorativo: lee identidad, vínculo y fractura. Su valor narrativo está en revelar lo que una persona es, incluso cuando la memoria, la familia o los protocolos de Noveris han intentado sellarlo.</p>
+        </article>
+        <article class="id-card">
+          <p class="tool-meta">Facciones</p>
+          <h3>Zunthar y Marelian</h3>
+          <p>Los Zunthar defienden la pureza heredada de la magia; los Marelian buscan abrir su acceso. La Guerra de los Cristales nace de esa disputa entre control, democratización y miedo a una fractura imposible de revertir.</p>
+        </article>
+        <article class="id-card">
+          <p class="tool-meta">Mapa funcional</p>
+          <h3>Ciudad de control</h3>
+          <p>Noveris se organiza como infraestructura de contención: Grimlor forma y vigila, el Hospital Arcano mide daños de canalización y el estadio de Glíder convierte riesgo mágico en deporte regulado.</p>
+        </article>
+        <article class="id-card lore-bento-card--wide">
+          <p class="tool-meta">Física dimensional</p>
+          <h3>Velo y barrera</h3>
+          <p>La barrera separa el mundo humano del arcano, pero no es una pared estable. Es una fractura tensada: filtra recuerdos, residuos de hechicería y señales de objetos afines cuando un canalizador opera fuera de rango.</p>
+        </article>
       </div>
-        <p class="footer-affiliate-notice" style="font-size:0.75rem;color:var(--muted);margin-top:6px">
-          Algunos enlaces de compra son de afiliado del <a href="/aviso-legal.html#afiliado" style="color:inherit">programa Amazon Associates</a> (tag: davidporto-21). Si compras a través de ellos recibo una pequeña comisión sin coste adicional para ti.
-        </p>
-      <div class="footer-bottom-row">
-        <p>© 2026 David Porto Díaz. Todos los derechos reservados.</p>
-        <a href="/privacidad.html" class="footer-privacy-link">Política de privacidad</a>
-        <a href="/aviso-legal.html" class="footer-privacy-link">Aviso legal</a>
-        <a href="/ai/" class="footer-privacy-link">Para IA</a>
-        <a href="#contenido" class="footer-back-top">Volver arriba</a>
-      </div>
-    </footer>
-  </div>
+    </section>
 
+    <section class="v1-section" id="sistema">
+      <p class="eyebrow">Arquitectura del mundo</p>
+      <h2>Cómo funciona Noveris.</h2>
+
+      <div class="lore-prose">
+        <p>Noveris es una ciudad diseñada para vivir después de una catástrofe. La Guerra de los Cristales no fue solo una guerra política: dejó una fractura física, mágica y dimensional. Desde entonces, la sociedad noveriana funciona mediante contención. Las puertas, los sellos, los protocolos escolares, los hospitales y hasta los sistemas de transporte están pensados para impedir que una fisura privada se convierta en una fuga pública.</p>
+        <p>La magia no nace del gesto vacío. Se canaliza mediante objetos afines que los habitantes eligen o por los que son elegidos. Un canalizador puede ser un brazalete, una pluma, un colgante o una pieza metálica con memoria. Su tarea es conducir energía, pero su vínculo con el portador puede llegar a ser más íntimo que una herramienta. Sael, por ejemplo, es un brazalete arcano de metal oscuro con gemas flotantes; Zakra es una pluma negra con detalles dorados, nerviosa y exacta; Zephy conserva memoria material y busca recuperar su forma original tras ser dañado; Arálea despliega extremidades metálicas y opera con precisión clínica.</p>
+        <p>El coste es la ley física de Noveris. Un canalizador mal elegido no produce solo un fallo decorativo: puede saturar el cuerpo, deformar huesos o romper procesos de percepción. Por eso los niños no reciben su primer vínculo hasta una edad concreta y por eso Grimlor, aunque se llame colegio, funciona como institución de desarrollo, vigilancia y contención. La magia se enseña como una disciplina de riesgo, no como un talento ornamental.</p>
+      </div>
+
+      <div class="lore-table-wrap">
+        <table class="lore-table">
+          <caption>Canalizadores y objetos arcanos de Noveris</caption>
+          <thead>
+            <tr>
+              <th scope="col">Objeto arcano</th>
+              <th scope="col">Imagen</th>
+              <th scope="col">Usuario o contexto</th>
+              <th scope="col">Descripción sensorial</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <th scope="row">Sael</th>
+              <td><img class="lore-table-img" src="/assets/sael-canalizador-victor-osborne.avif" alt="Sael, brazalete arcano de metal oscuro con gemas flotantes, canalizador de Víctor Osborne en Noveris" width="2816" height="1536" loading="lazy" decoding="async" /></td>
+              <td>Víctor Osborne</td>
+              <td>Brazalete de metal oscuro con gemas flotantes que automatiza rutinas, duda ante anomalías y vibra cuando la realidad cercana pierde coherencia.</td>
+            </tr>
+            <tr>
+              <th scope="row">Zakra</th>
+              <td><img class="lore-table-img" src="/assets/zakra-pluma-arcana-victoria-osborne.avif" alt="Zakra, pluma arcana negra con detalles dorados, canalizador de Victoria Osborne en Noveris" width="2816" height="1536" loading="lazy" decoding="async" /></td>
+              <td>Victoria Osborne</td>
+              <td>Pluma negra con detalles dorados, precisa y nerviosa; zumba con concentración, traza caracteres luminosos y no tolera errores de canalización.</td>
+            </tr>
+            <tr>
+              <th scope="row">Sernía</th>
+              <td><img class="lore-table-img" src="/assets/sernia-bebida-lore-noveris.avif" alt="La Sernía, bebida oscura de Noveris con vapor de café tostado, canela y tinta antigua" width="2816" height="1536" loading="lazy" decoding="async" /></td>
+              <td>Población de Noveris</td>
+              <td>Bebida oscura cuyo vapor recuerda al café recién molido, canela tostada y tinta antigua; despierta sentidos y marca cultura doméstica arcana.</td>
+            </tr>
+            <tr>
+              <th scope="row">Melastra</th>
+              <td><img class="lore-table-img" src="/assets/melastra-savia-tanilu.avif" alt="Melastra, pasta tibia de savia del árbol de Tanilu que chispea al contacto con el metal en Noveris" width="2816" height="1536" loading="lazy" decoding="async" /></td>
+              <td>Familia Osborne</td>
+              <td>Pasta tibia de savia de Tanilu que chispea con el metal, uniendo alimentación, botánica y reacción material en la vida cotidiana de Noveris.</td>
+            </tr>
+            <tr>
+              <th scope="row">Vara Glytch</th>
+              <td aria-label="Sin imagen disponible">—</td>
+              <td>Glíder</td>
+              <td>Canalizador deportivo de filtrado que regula impactos, bloquea hechizos letales y evita que la energía residual contamine vínculos o cuerpos.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <section class="v1-section" id="mapa">
+      <p class="eyebrow">Mapa funcional</p>
+      <h2>Zonas y puntos de control.</h2>
+      <div class="id-cards">
+        <article class="id-card"><h3>Colegio Grimlor</h3><p>Internado especializado en habilidades latentes. Su función real es educar, aislar y contener caos dimensional cuando un estudiante muestra signos de fractura o vínculo anómalo.</p></article>
+        <article class="id-card"><h3>Hospital Arcano</h3><p>Centro médico de arquitectura adaptable. Sus ventanas aparecen o desaparecen según la necesidad del paciente, y sus sanadores detectan fluctuaciones en canalizadores y memoria.</p></article>
+        <article class="id-card"><h3>La Raíz de Noveris</h3><p>Botica del distrito comercial donde sustancias volátiles, impuestos mágicos y remedios especializados conviven con la economía diaria de la ciudad.</p></article>
+        <article class="id-card"><h3>Estadio de Glíder</h3><p>El estadio de Glíder convierte riesgo mágico en deporte regulado. Plataformas levitantes, hechizos de apoyo y riesgo controlado; nació como símbolo de unidad tras la Guerra de los Cristales.</p></article>
+      </div>
+    </section>
+
+    <section class="v1-section" id="historia">
+      <p class="eyebrow">Historia</p>
+      <h2>Guerra de los Cristales y fractura.</h2>
+
+      <div class="lore-prose">
+        <p>Antes de la fractura, los Siete Cristales Primordiales eran el origen de la magia. Cada cristal se alzaba como una fuente de poder y legitimidad. El conflicto comenzó cuando la pregunta dejó de ser cómo usar la magia y pasó a ser quién tenía derecho a usarla.</p>
+      </div>
+
+      <figure class="lore-figure">
+        <img src="/assets/espejo-ancestral-portal-noveris.avif" alt="El Espejo Ancestral de Noveris, artefacto de lectura identitaria que revela lo que el portador es, vinculado al portal dimensional y a la Guerra de los Cristales en Samuel entre mundos" width="2816" height="1536" loading="lazy" decoding="async" />
+        <figcaption>El Espejo Ancestral — artefacto central de Noveris. No revela deseos: muestra lo que el portador es, incluido lo que la memoria intenta ocultar.</figcaption>
+      </figure>
+
+      <div class="lore-prose">
+        <p>Los Zunthar defendían que la magia debía permanecer pura y reservarse a quienes nacían con el don. Los Marelian querían democratizarla, compartirla y abrir los sistemas de acceso. Ningún bando se veía a sí mismo como villano: unos hablaban de protección, otros de justicia. El choque escaló cuando un grupo radical intentó sellar los Cristales para protegerlos y la resistencia Marelian se opuso.</p>
+        <p>La explosión partió el mundo. Dimensiones que coexistían quedaron separadas por una barrera, sociedades completas desaparecieron y la realidad se llenó de residuos peligrosos. De ese trauma nacen los protocolos de Noveris: el miedo a una Tercera Fractura, la vigilancia de las Silenciadoras, la economía del Veltris y la obsesión por registrar, sellar y medir todo fenómeno anómalo.</p>
+      </div>
+    </section>
+
+    <section class="v1-section" id="glosario">
+      <p class="eyebrow">Diccionario de términos</p>
+      <h2>Glosario técnico de Noveris.</h2>
+      <div class="id-cards">
+        <article class="id-card"><h3>Canalizador</h3><p>Objeto afín que permite conducir magia. Puede desarrollar memoria, preferencias y respuesta emocional. La compatibilidad con el portador determina estabilidad, potencia y riesgo.</p></article>
+        <article class="id-card"><h3>Sael</h3><p>Brazalete arcano de Víctor, hecho de metal oscuro y gemas flotantes. Automatiza rutinas, detecta fluctuaciones y muestra fallos cuando la realidad cercana pierde coherencia.</p></article>
+        <article class="id-card"><h3>Zakra</h3><p>Pluma negra con detalles dorados vinculada a Victoria. Es exacta, nerviosa y poco tolerante con el error; sus vacilaciones revelan que algo externo altera el sistema.</p></article>
+        <article class="id-card"><h3>Gorx</h3><p>Aves esponjosas especializadas en devorar hechicería residual. Funcionan como limpieza urbana, rastreo y alarma biológica después de la Guerra de los Cristales. Su presencia indica que un hechizo ha fallado, se ha degradado o ha dejado residuos peligrosos.</p></article>
+        <article class="id-card"><h3>Velukis</h3><p>Criaturas del tamaño de un gato grande, con pelaje azul perlado, patas traseras saltarinas y hocico húmedo. Transportan comida y reaccionan ante señales anómalas.</p></article>
+        <article class="id-card"><h3>Glissaro</h3><p>Comando de desplazamiento. Activa zapatos o plataformas que elevan el cuerpo unos centímetros y permiten deslizarse por la ciudad a gran velocidad.</p></article>
+        <article class="id-card"><h3>Vara Glytch</h3><p>Canalizador de filtrado usado para depurar señales mágicas y separar residuos o interferencias. En el Glíder y otros contextos de riesgo, filtra hechizos letales, regula impactos y evita que la energía residual contamine vínculos o cuerpos.</p></article>
+        <article class="id-card"><h3>Glíder</h3><p>Deporte popular de Noveris. Combina estrategia, reflejos y canalización: cinco jugadores persiguen al Glíd, protegen plumas y alteran el campo con hechizos.</p></article>
+        <article class="id-card"><h3>Veltris</h3><p>Mineral extraído de zonas donde impactaron los cristales primordiales. Es ligero, resistente y base de la moneda; su valor depende de la geometría, no del tamaño.</p></article>
+        <article class="id-card"><h3>Sernía</h3><p>Bebida espesa y oscura asociada al despertar de los sentidos. Su vapor desprende un aroma entre café recién molido, canela tostada y tinta antigua. No actúa como simple bebida: marca ritmo doméstico, alerta perceptiva y cultura material arcana.</p></article>
+        <article class="id-card"><h3>Melastra</h3><p>Pasta tibia elaborada con savia del árbol de Tanilu. En Noveris se consume como alimento sensorial y chispea al contacto con el metal, vinculando cocina, botánica y física mágica. Su reacción material ayuda a describir la vida cotidiana arcana.</p></article>
+        <article class="id-card"><h3>Velo / Barrera</h3><p>Fractura dimensional que separa el mundo humano del arcano. No es una pared fija, sino una membrana inestable que puede filtrar recuerdos, sonidos, olores y residuos de hechicería. Su degradación explica portales, anomalías y protocolos de contención.</p></article>
+        <article class="id-card"><h3>Espejo Ancestral</h3><p>Artefacto central de lectura identitaria. No revela deseos ni apariencia, sino aquello que el portador es, incluido lo que la memoria intenta ocultar.</p></article>
+        <article class="id-card"><h3>Silenciadoras</h3><p>Cuerpo de élite asociado a interrogatorios psíquicos y extracción de información sin rastro físico. Intervienen cuando una anomalía amenaza el equilibrio dimensional.</p></article>
+      </div>
+    </section>
+
+    <section class="v1-section" id="libro">
+      <p class="eyebrow">Lectura relacionada</p>
+      <h2>Conocer Noveris.</h2>
+      <p class="lore-prose">El universo de Noveris aparece en <em>Samuel entre mundos</em>, novela de David Porto Díaz publicada por Libros Indie.</p>
+      <div class="tool-actions">
+        <a class="primary-action" href="/libros/samuel-entre-mundos/">Ficha de Samuel entre mundos</a>
+        <a class="text-action" href="https://www.amazon.es/dp/B0GB6LGQFH?tag=davidporto-21" target="_blank" rel="sponsored nofollow noopener noreferrer">Comprar en Amazon</a>
+      </div>
+    </section>
+
+    <section class="v1-section" id="preguntas-frecuentes" aria-label="Preguntas frecuentes sobre Noveris">
+      <p class="eyebrow">FAQ</p>
+      <h2>Preguntas frecuentes.</h2>
+      <div class="identity-faq">
+        <details><summary>¿Qué es Noveris?</summary><p>Noveris es una ciudad fantástica dimensional situada en un plano paralelo al nuestro, accesible solo a través de portales controlados por canalizadores. Es el escenario principal de <em>Samuel entre mundos</em>, con dos facciones en conflicto permanente: los Zunthar y los Marelian.</p></details>
+        <details><summary>¿Qué son los canalizadores?</summary><p>Los canalizadores son objetos afines que permiten a su portador conducir magia. Pueden desarrollar memoria e incluso conciencia propia con el tiempo. La medalla de Samuel es un canalizador irregular — puede abrir portales, algo que se creía imposible.</p></details>
+        <details><summary>¿Qué es la magia con coste?</summary><p>En Noveris toda magia exige una compensación real: energía, memoria, tiempo o algo más valioso. No existe el poder gratuito. Esta regla es el eje del sistema mágico de la novela y la fuente de la mayoría de los conflictos de la trama.</p></details>
+        <details><summary>¿Quiénes son los Zunthar y los Marelian?</summary><p>Son las dos facciones principales de Noveris, enfrentadas desde la Guerra de los Cristales. Los Zunthar controlan el orden y la ley mágica; los Marelian representan a los disidentes y los expulsados. Samuel se enfrenta a Noveris sin saber de qué lado está.</p></details>
+        <details><summary>¿Se puede leer esta guía sin spoilers?</summary><p>Esta guía no desvela el arco argumental ni el desenlace. Puedes leerla antes de empezar la novela para situarte en el mundo, o después para entender mejor los detalles del sistema mágico y la historia de Noveris.</p></details>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="site-footer__grid">
+      <div>
+        <strong class="brand__name">David Porto Díaz</strong>
+        <p>La magia siempre tiene un precio.</p>
+      </div>
+      <nav aria-label="Obra"><h2>Obra</h2><a href="/las-manecillas-del-recuerdo/">Las manecillas del recuerdo</a><a href="/libros/samuel-entre-mundos/">Samuel entre mundos</a><a href="/fragmento/">Fragmento gratis</a></nav>
+      <nav aria-label="Leer y recursos"><h2>Leer</h2><a href="/cuaderno/">Cuaderno</a><a href="/herramientas/">Herramientas</a><a href="/mapa-del-sitio/">Mapa del sitio</a></nav>
+      <nav aria-label="Información"><h2>Información</h2><a href="/autor.html">Autor</a><a href="/prensa.html">Prensa</a><a href="/eventos.html">Eventos</a><a href="/privacidad.html">Privacidad</a><a href="/aviso-legal.html">Aviso legal</a><a href="/ai/">Para IA</a></nav>
+    </div>
+    <p class="footer-legal">
+      <span>© 2026 David Porto Díaz. Todos los derechos reservados.</span>
+      <span>Algunos enlaces de compra son de afiliado del <a href="/aviso-legal.html#afiliado">programa Amazon Associates</a> (tag: davidporto-21). Si compras a través de ellos recibo una pequeña comisión sin coste adicional para ti.</span>
+    </p>
+  </footer>
+
+  <script defer src="/assets/v1-shell.js"></script>
   <script defer src="/script.js?v=202609-launch-1"></script>
+
 </body>
 </html>
