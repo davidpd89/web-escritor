@@ -1,9 +1,10 @@
-<!doctype html>
-<html lang="es">
+<!DOCTYPE html>
+<html lang="es" class="v1">
 <head>
-  <meta charset="utf-8">
+  <meta charset="UTF-8" />
   <meta http-equiv="Content-Security-Policy" content="default-src 'self'; connect-src 'none'; img-src 'self'; style-src 'self'; font-src 'self'; script-src 'self'; object-src 'none'; base-uri 'self'; form-action 'none'; frame-src 'none'">
-  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <meta name="robots" content="index,follow,max-image-preview:large" />
   <title>Generador JSON-LD para escritores | Herramientas</title>
   <meta name="description" content="Genera JSON-LD conservador para perfiles de autor, libros, artículos y eventos, con avisos sobre lo que Google realmente documenta. Procesamiento local.">
   <meta property="og:title" content="Generador JSON-LD para escritores | Herramientas">
@@ -21,33 +22,168 @@
   <meta name="twitter:description" content="Genera JSON-LD conservador para perfiles de autor, libros, artículos y eventos, con avisos sobre lo que Google realmente documenta. Procesamiento local.">
   <meta name="twitter:image" content="https://davidportodiaz.com/assets/david-porto-imagen-compartir.webp">
   <meta name="twitter:image:alt" content="Generador JSON-LD para escritores | Herramientas">
-  <link rel="canonical" href="https://davidportodiaz.com/herramientas/json-ld-escritores/">
-  <link rel="stylesheet" href="/styles.css?v=202609-launch-1">
-  <link rel="stylesheet" href="/assets/jsonld-escritores.css">
+  <meta name="theme-color" content="#F4EFE7" />
+  <link rel="canonical" href="https://davidportodiaz.com/herramientas/json-ld-escritores/" />
+  <link rel="icon" type="image/png" href="/assets/david-porto-favicon.png" />
+  <link rel="apple-touch-icon" href="/assets/david-porto-favicon.png" />
+  <link rel="manifest" href="/manifest.json" />
+
+  <link rel="stylesheet" href="/assets/v1-fonts.css" />
+  <link rel="stylesheet" href="/assets/v1-tokens.css" />
+  <link rel="stylesheet" href="/assets/v1-base.css" />
+  <link rel="stylesheet" href="/assets/v1-shell.css" />
+  <link rel="stylesheet" href="/assets/v1-components.css" />
+  <link rel="stylesheet" href="/assets/v1-tools.css" />
+  <link rel="stylesheet" href="/assets/jsonld-escritores.css" />
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebApplication","name":"Generador JSON-LD para escritores","url":"https://davidportodiaz.com/herramientas/json-ld-escritores/","applicationCategory":"DeveloperApplication","operatingSystem":"Any","isAccessibleForFree":true,"inLanguage":"es","author":{"@id":"https://davidportodiaz.com/#author"}}</script>
 </head>
+
 <body>
-<a class="skip-link" href="#main-content">Saltar al contenido</a>
-<main id="main-content" class="jsonld-page">
-<nav class="breadcrumb" aria-label="Ruta de navegación"><a href="/">Inicio</a> › <a href="/herramientas/">Herramientas</a> › JSON-LD</nav>
-<header><p class="eyebrow">Herramienta gratuita · sin IA</p><h1>Generador JSON-LD para escritores</h1><p class="lead">Crea marcado conservador para un perfil de autor, un libro, un artículo o un evento. Los campos vacíos no se inventan y la herramienta separa «Schema.org válido» de «función enriquecida documentada por Google».</p><p class="jsonld-warning"><strong>Importante:</strong> un JSON-LD correcto no garantiza un rich result ni mejora el ranking por sí solo. Debe describir información real y visible en la página.</p></header>
-<div class="jsonld-grid">
-<form id="jsonld-form" class="jsonld-form-card"><button type="submit" class="sr-only">Generar JSON-LD</button>
-  <label for="jsonld-mode">Qué quieres describir</label>
-  <select id="jsonld-mode" name="mode"><option value="profile">Perfil de autor</option><option value="book">Libro</option><option value="article">Artículo</option><option value="event">Evento</option></select>
-  <div id="jsonld-fields"></div>
-  <div class="jsonld-actions"><button id="jsonld-reset" type="button" class="button secondary">Vaciar</button></div>
-</form>
-<section class="jsonld-output-card" aria-label="Resultado">
-  <h2>Resultado</h2>
-  <div id="jsonld-report" class="jsonld-report"></div>
-  <div class="jsonld-actions"><button id="jsonld-copy" type="button" class="button primary">Copiar</button><button id="jsonld-download" type="button" class="button secondary">Descargar</button></div>
-  <pre><code id="jsonld-output"></code></pre>
-  <p id="jsonld-status" role="status" aria-live="polite"></p>
-</section>
-</div>
-<section class="jsonld-method"><h2>Qué valida y qué no</h2><p>Comprueba campos básicos, HTTPS, fechas, coherencia mínima y evita emitir propiedades vacías. No sustituye el validador de Schema.org, Rich Results Test ni la inspección de URL de Google.</p><table><thead><tr><th>Modo</th><th>Schema.org</th><th>Google</th></tr></thead><tbody><tr><td>Perfil de autor</td><td>ProfilePage + Person</td><td>Profile page documentado</td></tr><tr><td>Libro</td><td>Book</td><td>Sin rich result dedicado en la galería actual</td></tr><tr><td>Artículo</td><td>Article</td><td>Article documentado</td></tr><tr><td>Evento</td><td>Event</td><td>Event documentado</td></tr></tbody></table><h2>Regla principal</h2><p>Menos campos correctos es mejor que completar propiedades con datos supuestos. No declares ISBN, precio, disponibilidad, editorial, fecha o perfiles sociales si no puedes verificarlos.</p></section>
-</main>
-<script type="module" src="/assets/jsonld-escritores.js"></script>
+  <a href="#contenido" class="skip-link">Saltar al contenido</a>
+
+  <header class="site-header" data-header>
+    <div class="site-header__inner">
+      <a class="brand" href="/" aria-label="David Porto Díaz — inicio">
+        <span class="brand__name">David Porto Díaz</span>
+        <span class="brand__role">Escritor</span>
+      </a>
+      <nav class="primary-nav" aria-label="Navegación principal">
+        <a href="/libros/">Obra</a>
+        <a href="/cuaderno/">Cuaderno</a>
+        <a href="/herramientas/" aria-current="page">Herramientas</a>
+      </nav>
+      <button class="explore-trigger" type="button" aria-haspopup="dialog" aria-controls="explore-dialog" aria-expanded="false" data-explore-open>
+        Explorar
+      </button>
+    </div>
+  </header>
+
+  <dialog class="explore-dialog" id="explore-dialog" aria-labelledby="explore-title" data-explore-dialog>
+    <div class="explore-dialog__shell">
+      <div class="explore-dialog__head">
+        <div>
+          <p class="eyebrow">Índice general</p>
+          <h2 id="explore-title">Explorar</h2>
+        </div>
+        <button class="icon-button" type="button" aria-label="Cerrar Explorar" data-explore-close>
+          <svg aria-hidden="true" viewBox="0 0 24 24" width="20" height="20"><path d="M5 5l14 14M19 5L5 19"/></svg>
+        </button>
+      </div>
+
+      <div class="explore-dialog__grid">
+        <nav class="explore-list" aria-label="Destinos de la web">
+          <a class="explore-row" href="/las-manecillas-del-recuerdo/" data-preview="manecillas">
+            <span class="explore-row__index">01</span>
+            <span class="explore-row__body"><strong>Las manecillas del recuerdo</strong><small>La obra actual.</small></span>
+          </a>
+          <a class="explore-row" href="/autor.html" data-preview="autor">
+            <span class="explore-row__index">02</span>
+            <span class="explore-row__body"><strong>Autor</strong><small>Biografía, obra y trayectoria.</small></span>
+          </a>
+          <a class="explore-row" href="/libros/samuel-entre-mundos/" data-preview="samuel">
+            <span class="explore-row__index">03</span>
+            <span class="explore-row__body"><strong>Samuel entre mundos</strong><small>Primera novela publicada.</small></span>
+          </a>
+          <a class="explore-row" href="/cuaderno/" data-preview="cuaderno">
+            <span class="explore-row__index">04</span>
+            <span class="explore-row__body"><strong>Cuaderno</strong><small>Artículos y piezas editoriales.</small></span>
+          </a>
+          <a class="explore-row" href="/herramientas/" data-preview="herramientas">
+            <span class="explore-row__index">05</span>
+            <span class="explore-row__body"><strong>Herramientas</strong><small>Utilidades gratuitas para escritores.</small></span>
+          </a>
+          <a class="explore-row" href="/prensa.html" data-preview="prensa">
+            <span class="explore-row__index">06</span>
+            <span class="explore-row__body"><strong>Prensa y eventos</strong><small>Apariciones, materiales y agenda.</small></span>
+          </a>
+        </nav>
+
+        <aside class="explore-preview" aria-live="polite" aria-atomic="true" data-explore-preview>
+          <div class="explore-preview__media" aria-hidden="true" data-preview-media></div>
+          <p class="explore-preview__label" data-preview-label>Herramientas</p>
+          <p class="explore-preview__copy" data-preview-copy>Utilidades gratuitas para escritores.</p>
+        </aside>
+      </div>
+    </div>
+  </dialog>
+
+  <main id="contenido" class="v1-main" data-family="tool">
+    <nav class="book-breadcrumb" aria-label="Ruta de navegación">
+      <ol><li><a href="/">Inicio</a></li><li><a href="/herramientas/">Herramientas</a></li><li aria-current="page">JSON-LD para escritores</li></ol>
+    </nav>
+
+    <header class="tool-hero">
+      <p class="eyebrow">Herramienta gratuita · sin IA</p>
+      <h1>Generador JSON-LD para escritores</h1>
+      <p class="tool-hero__lead">Crea marcado conservador para un perfil de autor, un libro, un artículo o un evento. Los campos vacíos no se inventan y la herramienta separa «Schema.org válido» de «función enriquecida documentada por Google».</p>
+      <p class="tool-note"><strong>Importante:</strong> un JSON-LD correcto no garantiza un rich result ni mejora el ranking por sí solo. Debe describir información real y visible en la página.</p>
+    </header>
+
+    <section class="tool-panel">
+      <div class="tool-workspace">
+        <form id="jsonld-form">
+          <button type="submit" class="sr-only">Generar JSON-LD</button>
+          <div class="tool-field">
+            <label class="tool-field-label" for="jsonld-mode">Qué quieres describir</label>
+            <select id="jsonld-mode" name="mode" class="tool-select">
+              <option value="profile">Perfil de autor</option>
+              <option value="book">Libro</option>
+              <option value="article">Artículo</option>
+              <option value="event">Evento</option>
+            </select>
+          </div>
+          <div id="jsonld-fields" class="jsonld-fields"></div>
+          <div class="tool-actions"><button id="jsonld-reset" type="button" class="text-action">Vaciar</button></div>
+        </form>
+
+        <section aria-label="Resultado">
+          <h2>Resultado</h2>
+          <div id="jsonld-report" class="tool-note"></div>
+          <div class="tool-actions">
+            <button id="jsonld-copy" type="button" class="primary-action">Copiar</button>
+            <button id="jsonld-download" type="button" class="text-action">Descargar</button>
+          </div>
+          <pre class="meta-code"><code id="jsonld-output"></code></pre>
+          <p id="jsonld-status" class="tool-status" role="status" aria-live="polite"></p>
+        </section>
+      </div>
+    </section>
+
+    <section class="tool-panel tool-caveat">
+      <h2>Qué valida y qué no</h2>
+      <p>Comprueba campos básicos, HTTPS, fechas, coherencia mínima y evita emitir propiedades vacías. No sustituye el validador de Schema.org, Rich Results Test ni la inspección de URL de Google.</p>
+      <div class="tool-table-wrap">
+        <table class="tool-table">
+          <thead><tr><th>Modo</th><th>Schema.org</th><th>Google</th></tr></thead>
+          <tbody>
+            <tr><td>Perfil de autor</td><td>ProfilePage + Person</td><td>Profile page documentado</td></tr>
+            <tr><td>Libro</td><td>Book</td><td>Sin rich result dedicado en la galería actual</td></tr>
+            <tr><td>Artículo</td><td>Article</td><td>Article documentado</td></tr>
+            <tr><td>Evento</td><td>Event</td><td>Event documentado</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <h2>Regla principal</h2>
+      <p>Menos campos correctos es mejor que completar propiedades con datos supuestos. No declares ISBN, precio, disponibilidad, editorial, fecha o perfiles sociales si no puedes verificarlos.</p>
+    </section>
+
+  </main>
+
+  <footer class="site-footer">
+    <div class="site-footer__grid">
+      <div>
+        <strong class="brand__name">David Porto Díaz</strong>
+        <p>Autor de Las manecillas del recuerdo y Samuel entre mundos.</p>
+      </div>
+      <nav aria-label="Obra"><h2>Obra</h2><a href="/las-manecillas-del-recuerdo/">Las manecillas del recuerdo</a><a href="/libros/samuel-entre-mundos/">Samuel entre mundos</a><a href="/fragmento/">Fragmento gratis</a></nav>
+      <nav aria-label="Leer y recursos"><h2>Leer</h2><a href="/cuaderno/">Cuaderno</a><a href="/herramientas/" aria-current="page">Herramientas</a><a href="/mapa-del-sitio/">Mapa del sitio</a></nav>
+      <nav aria-label="Información"><h2>Información</h2><a href="/autor.html">Autor</a><a href="/prensa.html">Prensa</a><a href="/eventos.html">Eventos</a><a href="/privacidad.html">Privacidad</a><a href="/aviso-legal.html">Aviso legal</a><a href="/ai/">Para IA</a></nav>
+    </div>
+  </footer>
+
+  <script defer src="/assets/v1-shell.js"></script>
+  <script defer src="/script.js?v=202609-launch-1"></script>
+
+  <script type="module" src="/assets/jsonld-escritores.js"></script>
 </body>
 </html>

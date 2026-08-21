@@ -1,25 +1,23 @@
-.book-audit-page{max-width:1000px;margin:0 auto}
-.book-audit-hero{max-width:760px;margin-bottom:2rem}
-.book-audit-panel{padding:clamp(1rem,2vw,1.5rem);border:1px solid color-mix(in srgb,currentColor 18%,transparent);border-radius:18px;background:color-mix(in srgb,currentColor 3%,transparent)}
-.book-audit-field{display:grid;gap:.45rem;margin-bottom:1rem}
-.book-audit-field label{font-weight:700}
-.book-audit-field input,.book-audit-field textarea{box-sizing:border-box;width:100%;padding:.8rem;border:1px solid color-mix(in srgb,currentColor 24%,transparent);border-radius:11px;background:transparent;color:inherit;font:inherit}
-.book-audit-field textarea{min-height:220px;resize:vertical;font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:.85rem;line-height:1.5}
-.book-audit-actions{display:flex;flex-wrap:wrap;gap:.65rem;margin-top:.5rem}
-.book-audit-status{margin:.8rem 0 0;opacity:.8}
-.book-audit-results{margin-top:2rem}
-.book-audit-detected{font-weight:700;margin-bottom:1rem}
-.audit-group{margin-bottom:1.75rem}
-.audit-group h2{font-size:1.1rem;margin:0 0 .75rem}
-.audit-findings{list-style:none;margin:0;padding:0;display:grid;gap:.6rem}
-.audit-finding{display:flex;gap:.75rem;align-items:flex-start;padding:.75rem 1rem;border:1px solid color-mix(in srgb,currentColor 14%,transparent);border-radius:12px}
-.audit-finding__badge{flex:0 0 auto;font-size:.72rem;font-weight:800;text-transform:uppercase;letter-spacing:.04em;padding:.2rem .55rem;border-radius:999px;border:1px solid currentColor}
-.audit-finding--ok .audit-finding__badge{color:#3f9142}
-.audit-finding--review .audit-finding__badge{color:#c05621}
-.audit-finding--info .audit-finding__badge{color:#4a5568;opacity:.85}
-.audit-finding--optional .audit-finding__badge{color:#6b7280;opacity:.7}
-.audit-finding p{margin:.25rem 0 0;opacity:.85;font-size:.92rem}
-.audit-evidence{opacity:.65;font-size:.82rem}
-.audit-empty{opacity:.65;font-size:.9rem}
-.book-audit-ctas{display:flex;flex-wrap:wrap;gap:.65rem;margin:1.5rem 0}
-@media(max-width:520px){.book-audit-field textarea{min-height:160px}}
+/* V1 editorial system — bespoke pieces for the book-page auditor.
+   Structural chrome lives in v1-tools.css; auditor-pagina-libro.js builds
+   .audit-group/.audit-finding/.audit-finding__badge itself into
+   [data-book-audit-groups], and emits <a class="button secondary"> CTAs
+   into [data-book-audit-ctas] — restyled here to the text-action look
+   since the engine's class names are unrelated to a JS bug. */
+html.v1 .audit-group{margin:2rem 0 0}
+html.v1 .audit-group:first-child{margin-top:0}
+html.v1 .audit-group h2{font:400 var(--text-2xl)/1.15 var(--font-display);margin:0 0 .75rem}
+html.v1 .audit-findings{list-style:none;margin:0;padding:0;display:grid;gap:.6rem}
+html.v1 .audit-finding{display:flex;gap:.9rem;align-items:flex-start;padding:.8rem 0;border-top:1px solid var(--color-border)}
+html.v1 .audit-finding__badge{flex:0 0 auto;font:600 .68rem/1.4 var(--font-ui);text-transform:uppercase;letter-spacing:.05em;padding:.2rem .55rem;border:1px solid currentColor}
+html.v1 .audit-finding--ok .audit-finding__badge{color:var(--dp-petrol)}
+html.v1 .audit-finding--review .audit-finding__badge{color:var(--color-accent-strong)}
+html.v1 .audit-finding--info .audit-finding__badge{color:var(--color-muted)}
+html.v1 .audit-finding--optional .audit-finding__badge{color:var(--color-muted);opacity:.75}
+html.v1 .audit-finding strong{display:block;font:600 .95rem/1.4 var(--font-ui)}
+html.v1 .audit-finding p{margin:.3rem 0 0;font:400 .92rem/1.55 var(--font-reading);color:var(--color-text)}
+html.v1 .audit-evidence{color:var(--color-muted)!important;font-size:.82rem!important}
+html.v1 .audit-empty{font:400 .9rem/1.5 var(--font-ui);color:var(--color-muted)}
+
+html.v1 [data-book-audit-ctas] .button.secondary{display:inline-flex;align-items:center;min-height:44px;border:0;background:none;padding:0;color:inherit;cursor:pointer;font:600 .95rem/1.4 var(--font-ui);text-decoration-line:underline;text-decoration-color:var(--color-accent);text-decoration-thickness:1px;text-underline-offset:.35em}
+html.v1 [data-book-audit-ctas] .button.secondary:hover{text-decoration-thickness:2px}
