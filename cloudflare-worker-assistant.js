@@ -18,7 +18,7 @@
  *
  * Optional vars:
  *   ASSISTANT_ALLOWED_ORIGINS       extra HTTPS origins for staging
- *   ASSISTANT_REGISTRY_URL          same-origin registry override for staging
+ *   ASSISTANT_REGISTRY_URL          canonical registry override; origin/path remain pinned
  *   ASSISTANT_MATCH_THRESHOLD       defaults to 0.42
  *   ASSISTANT_REQUIRE_METADATA_FILTER=true|false (default false)
  *   ASSISTANT_DAILY_SESSION_LIMIT   1..5 (default/max 5)
@@ -333,7 +333,7 @@ async function loadRegistry(env, allowedOrigins) {
   const registryUrl = String(env.ASSISTANT_REGISTRY_URL || DEFAULT_REGISTRY_URL);
   let parsed;
   try { parsed = new URL(registryUrl); } catch { return null; }
-  if (!allowedOrigins.has(parsed.origin) || parsed.protocol !== "https:" || parsed.pathname !== REGISTRY_PATH || parsed.search || parsed.hash || parsed.username || parsed.password) return null;
+  if (parsed.origin !== CANONICAL_ORIGIN || parsed.protocol !== "https:" || parsed.pathname !== REGISTRY_PATH || parsed.search || parsed.hash || parsed.username || parsed.password) return null;
   try {
     const response = await withTimeout(fetch(parsed.href, { headers: { Accept: "application/json" }, cf: { cacheEverything: true, cacheTtl: 300 } }), 2500);
     if (!response.ok) return null;
