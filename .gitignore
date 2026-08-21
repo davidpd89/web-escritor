@@ -39,3 +39,9 @@ assets/*/source/*.png
 .preview-dist/
 dist/
 lh.html
+
+# QA evidence written by the browser suites and uploaded by CI — generated,
+# never tracked.
+artifacts/
+qa-artifacts/
+.lighthouseci/
