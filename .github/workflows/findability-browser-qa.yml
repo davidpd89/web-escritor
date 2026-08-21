@@ -1,0 +1,98 @@
+name: Findability recovery browser QA
+
+on:
+  pull_request:
+    paths:
+      - 'empieza-aqui/**'
+      - 'mapa-del-sitio/**'
+      - '404.html'
+      - 'assets/v1-findability.css'
+      - 'data/content-registry.json'
+      - 'data/navigation.json'
+      - 'qa/findability-*.mjs'
+      - 'qa/text-spacing-findability.css'
+      - '.github/workflows/findability-browser-qa.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  findability-qa:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Set up Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+
+      - name: Build before/after inventory
+        env:
+          PR_BASE_SHA: ${{ github.event.pull_request.base.sha }}
+          QA_OUT: qa-artifacts
+        run: |
+          mkdir -p qa-artifacts
+          BASE_SHA="$PR_BASE_SHA"
+          if [ -z "$BASE_SHA" ]; then BASE_SHA="$(git rev-parse origin/implementacion-web-2026)"; fi
+          BASE_SHA="$BASE_SHA" node qa/findability-inventory.mjs
+
+      - name: Repository integrity checks
+        run: |
+          python3 scripts/build-sitemap.py --check
+          python3 scripts/check-navigation-coverage.py
+          python3 scripts/check-internal-graph.py
+          python3 scripts/check-local-assets.py
+
+      - name: Install Playwright
+        run: |
+          npm install --no-save --no-package-lock playwright@1.55.0
+          npx playwright install --with-deps chromium
+
+      - name: Start local static server
+        run: |
+          python3 -m http.server 4173 --bind 127.0.0.1 > /tmp/findability-server.log 2>&1 &
+          echo $! > /tmp/findability-server.pid
+          for i in {1..30}; do
+            if curl --fail --silent http://127.0.0.1:4173/empieza-aqui/ > /dev/null; then exit 0; fi
+            sleep 1
+          done
+          cat /tmp/findability-server.log
+          exit 1
+
+      - name: Run browser QA
+        env:
+          QA_ORIGIN: http://127.0.0.1:4173
+          QA_OUT: qa-artifacts
+        run: node qa/findability-browser.mjs
+
+      - name: Install Lighthouse CI
+        run: npm install --global @lhci/cli@0.15.1
+
+      - name: Collect findability Lighthouse reports
+        run: lhci collect --config=./qa/lighthouserc-findability.json
+
+      - name: Upload Lighthouse reports to temporary storage
+        if: always()
+        continue-on-error: true
+        run: lhci upload --config=./qa/lighthouserc-findability.json
+
+      - name: Assert findability Lighthouse budgets
+        run: lhci assert --config=./qa/lighthouserc-findability.json
+
+      - name: Upload findability QA evidence
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: findability-recovery-qa
+          path: |
+            qa-artifacts/
+            .lighthouseci/
+          include-hidden-files: true
+          if-no-files-found: warn
+          retention-days: 14
