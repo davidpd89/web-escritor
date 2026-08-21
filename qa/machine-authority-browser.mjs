@@ -132,36 +132,49 @@ for (const viewport of viewports) {
   await page.addStyleTag({ content: `html{font-size:200% !important}` });
   const state = await page.evaluate(() => {
     const viewportWidth = document.documentElement.clientWidth;
-    const offenders = [...document.body.querySelectorAll('*')]
-      .map((el) => {
-        const rect = el.getBoundingClientRect();
-        const style = getComputedStyle(el);
-        return {
-          tag: el.tagName.toLowerCase(),
-          id: el.id || '',
-          className: typeof el.className === 'string' ? el.className : '',
-          text: (el.textContent || '').trim().replace(/\s+/g, ' ').slice(0, 80),
-          left: Math.round(rect.left * 10) / 10,
-          right: Math.round(rect.right * 10) / 10,
-          width: Math.round(rect.width * 10) / 10,
-          scrollWidth: el.scrollWidth,
-          clientWidth: el.clientWidth,
-          display: style.display,
-          overflowX: style.overflowX,
-          position: style.position,
-        };
-      })
+    const elementInfo = [...document.body.querySelectorAll('*')].map((el) => {
+      const rect = el.getBoundingClientRect();
+      const style = getComputedStyle(el);
+      return {
+        tag: el.tagName.toLowerCase(),
+        id: el.id || '',
+        className: typeof el.className === 'string' ? el.className : '',
+        text: (el.textContent || '').trim().replace(/\s+/g, ' ').slice(0, 80),
+        left: Math.round(rect.left * 10) / 10,
+        right: Math.round(rect.right * 10) / 10,
+        width: Math.round(rect.width * 10) / 10,
+        scrollWidth: el.scrollWidth,
+        clientWidth: el.clientWidth,
+        display: style.display,
+        overflowX: style.overflowX,
+        position: style.position,
+      };
+    });
+    const rectOffenders = elementInfo
       .filter((item) => item.display !== 'none' && (item.right > viewportWidth + 1 || item.left < -1))
       .sort((a, b) => (b.right - viewportWidth) - (a.right - viewportWidth))
       .slice(0, 12);
+    const internalOverflow = elementInfo
+      .filter((item) => item.display !== 'none' && item.scrollWidth > item.clientWidth + 1)
+      .sort((a, b) => (b.scrollWidth - b.clientWidth) - (a.scrollWidth - a.clientWidth))
+      .slice(0, 12);
     return {
       overflow: document.documentElement.scrollWidth - viewportWidth,
+      documentScrollWidth: document.documentElement.scrollWidth,
+      viewportWidth,
+      bodyScrollWidth: document.body.scrollWidth,
+      bodyClientWidth: document.body.clientWidth,
       text: document.querySelector('main')?.innerText.trim().length || 0,
-      offenders,
+      rectOffenders,
+      internalOverflow,
     };
   });
-  const offenderSummary = state.offenders.length ? `; offenders=${JSON.stringify(state.offenders)}` : '';
-  check(state.overflow <= 1, `a11y 200% text zoom: horizontal overflow ${state.overflow}${offenderSummary}`);
+  const details = [];
+  if (state.rectOffenders.length) details.push(`rect=${JSON.stringify(state.rectOffenders)}`);
+  if (state.internalOverflow.length) details.push(`internal=${JSON.stringify(state.internalOverflow)}`);
+  details.push(`doc=${state.documentScrollWidth}/${state.viewportWidth}`);
+  details.push(`body=${state.bodyScrollWidth}/${state.bodyClientWidth}`);
+  check(state.overflow <= 1, `a11y 200% text zoom: horizontal overflow ${state.overflow}; ${details.join('; ')}`);
   check(state.text > 2000, 'a11y 200% text zoom: content lost');
   await context.close();
 }
