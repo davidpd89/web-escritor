@@ -1,0 +1,47 @@
+{
+  "schema_version": 1,
+  "header": [
+    "works-hub",
+    "notebook-hub",
+    "tools-hub",
+    "author"
+  ],
+  "exploreTerritories": [
+    {"id":"works-hub","previewId":"work-manecillas"},
+    {"id":"notebook-hub","previewId":"notebook-hub"},
+    {"id":"tools-hub","previewId":"tools-hub"},
+    {"id":"author","previewId":"author"},
+    {"id":"press","previewId":"press"}
+  ],
+  "exploreShortcuts": [
+    {"label":"Leer un fragmento","targetId":"work-manecillas-fragments"},
+    {"label":"Revisar un texto","targetId":"tools-hub"},
+    {"label":"Buscar editorial o convocatoria","targetId":"editorials-hub"},
+    {"label":"Preparar publicación o promoción","targetId":"tool-book-metadata"},
+    {"label":"Recursos para prensa","targetId":"press"}
+  ],
+  "exploreUtilities": [
+    "site-map"
+  ],
+  "footer": {
+    "Obras": ["works-hub","work-manecillas","work-samuel"],
+    "Escribir": ["tools-hub","editorials-hub","opportunities","external-tools"],
+    "Leer": ["notebook-hub","notebook-topics","recommendations-hub","work-manecillas-fragments"],
+    "David": ["author","awards","events","press"],
+    "Sitio": ["site-map","site-ai"]
+  },
+  "homeMap": [
+    "work-manecillas",
+    "work-samuel",
+    "author",
+    "notebook-hub",
+    "tools-hub",
+    "press"
+  ],
+  "localNavSets": {
+    "manecillas": ["work-manecillas","work-manecillas-fragments","press"],
+    "samuel": ["work-samuel","samuel-fragment","samuel-noveris","samuel-club","samuel-club-guide"],
+    "herramientas": ["tools-hub","editorials-hub","opportunities","external-tools"],
+    "autor": ["author","awards","events","press"]
+  }
+}
