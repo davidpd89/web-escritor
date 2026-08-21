@@ -1,0 +1,23 @@
+{
+  "updated_on": "2026-08-19",
+  "entries": [
+    {
+      "slug": "herramientas-manuscrito-sin-red",
+      "title": "Qué cambia cuando prometes que un manuscrito no sale del navegador",
+      "entry_type": "decision",
+      "summary": "Candidato basado en el trabajo real de privacidad de las herramientas. Debe redactarse como caso de implementación, no como promesa genérica.",
+      "date": "2026-08-19",
+      "url": "/cuaderno/herramientas-manuscrito-sin-red/",
+      "publish": false
+    },
+    {
+      "slug": "hub-herramientas-por-tareas",
+      "title": "Por qué agrupé las herramientas por problemas y no por tecnología",
+      "entry_type": "decision",
+      "summary": "Candidato basado en la arquitectura del hub. Publicar solo cuando el hub real exista y pueda mostrarse con capturas/datos verificables.",
+      "date": "2026-08-19",
+      "url": "/cuaderno/hub-herramientas-por-tareas/",
+      "publish": false
+    }
+  ]
+}
