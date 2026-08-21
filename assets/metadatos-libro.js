@@ -9,9 +9,12 @@ function normalizeHandle(value) {
 }
 
 export function httpsUrl(value) {
+  const trimmed = String(value || '').trim();
   try {
-    const u = new URL(String(value || '').trim());
-    return u.protocol === 'https:' ? u.href : '';
+    const u = new URL(trimmed);
+    if (u.protocol !== 'https:') return '';
+    if (/%[0-9a-f]{2}/i.test(u.hostname)) return '';
+    return u.href;
   } catch {
     return '';
   }

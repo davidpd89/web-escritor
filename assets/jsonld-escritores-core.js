@@ -29,7 +29,8 @@ function isHttpsUrl(value) {
   if (!v) return false;
   try {
     const url = new URL(v);
-    return url.protocol === 'https:' && Boolean(url.hostname);
+    if (url.protocol !== 'https:' || !url.hostname) return false;
+    return !/%[0-9a-f]{2}/i.test(url.hostname);
   } catch {
     return false;
   }

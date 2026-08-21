@@ -126,7 +126,7 @@ export function splitLines(value) {
 function clean(value) { const v = String(value || "").trim(); return v || undefined; }
 function cleanObject(obj) { return Object.fromEntries(Object.entries(obj).filter(([,v]) => v !== undefined && v !== "")); }
 function isEmail(v) { return /^[^\s@]{1,64}@[^\s@]{1,253}\.[^\s@]{2,}$/i.test(String(v || "").trim()); }
-function isHttpsUrl(v) { try { const u = new URL(String(v || '').trim()); return u.protocol === "https:" && Boolean(u.hostname); } catch { return false; } }
+function isHttpsUrl(v) { const t = String(v || '').trim(); if (!t) return false; try { const u = new URL(t); if (u.protocol !== "https:" || !u.hostname) return false; return !/%[0-9a-f]{2}/i.test(u.hostname); } catch { return false; } }
 function isIsoDate(v) {
   const raw = String(v || '').trim();
   const m = raw.match(/^(\d{4})-(\d{2})-(\d{2})$/);
