@@ -7,6 +7,7 @@ on:
       - 'aviso-legal.html'
       - 'assets/v1-legal.css'
       - 'qa/privacy-contract-browser.mjs'
+      - 'qa/newsletter-worker-contract.mjs'
       - '.github/workflows/privacy-legal-browser-qa.yml'
       - 'script.js'
       - 'cloudflare-worker-subscribe.js'
@@ -40,9 +41,9 @@ jobs:
           PRIVACY_BASE_URL: http://127.0.0.1:4173
           PRIVACY_ARTIFACT_DIR: artifacts/privacy-legal
         run: node qa/privacy-contract-browser.mjs
-      - name: Newsletter Worker tests
+      - name: Newsletter Worker contract
         if: always()
-        run: node scripts/test-worker-subscribe.mjs
+        run: node qa/newsletter-worker-contract.mjs
       - name: Install Lighthouse CI
         if: always()
         run: npm install --global @lhci/cli@0.15.1
