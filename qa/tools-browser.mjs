@@ -118,13 +118,16 @@ async function runNoJs(browser, report) {
   for (const tool of tools) {
     const context = await browser.newContext({ javaScriptEnabled: false, viewport: { width: 390, height: 844 } });
     const page = await context.newPage();
-    await page.goto(`${ORIGIN}${tool.path}`, { waitUntil: 'domcontentloaded' });
-    const notice = page.getByText('JavaScript está desactivado.', { exact: false });
-    await notice.waitFor({ state: 'visible', timeout: 3000 });
+    const response = await page.goto(`${ORIGIN}${tool.path}`, { waitUntil: 'domcontentloaded' });
+    const rawHtml = await response.text();
+    assert(rawHtml.includes('<noscript>'), `${tool.key}: falta <noscript> en el HTML servido`);
+    assert(rawHtml.includes('JavaScript está desactivado.'), `${tool.key}: falta el aviso semántico no-JS en el HTML servido`);
+    assert((await page.locator('noscript').count()) >= 1, `${tool.key}: <noscript> no está presente en el DOM`);
     assert(await page.locator('h1').isVisible(), `${tool.key}: H1 no visible sin JS`);
     assert(await page.locator('form').isVisible(), `${tool.key}: el formulario debe conservar su espacio desde el parseo inicial`);
+    assert.equal(await page.locator('[data-header]').getAttribute('data-scrolled'), null, `${tool.key}: v1-shell.js se ejecutó con JavaScript desactivado`);
     await assertNoBodyOverflow(page, `${tool.key}@no-js`);
-    report.noJs[tool.key] = { pass: true, semanticNoscript: true };
+    report.noJs[tool.key] = { pass: true, semanticNoscript: true, scriptsExecuted: false };
     await context.close();
   }
 }
@@ -273,10 +276,13 @@ try {
   await runResponsive(browser, report);
   await runNoJs(browser, report);
   await runManuscriptFiles(browser, report);
-  await runAccessibility(browser, report);
   await runScreenshots(browser, report);
-  await fs.writeFile(path.join(OUT, 'browser-qa-report.json'), JSON.stringify(report, null, 2));
+  await runAccessibility(browser, report);
   console.log('TOOLS BROWSER QA: OK');
+} catch (error) {
+  report.failure = String(error?.stack || error);
+  throw error;
 } finally {
+  await fs.writeFile(path.join(OUT, 'browser-qa-report.json'), JSON.stringify(report, null, 2));
   await browser.close();
 }
