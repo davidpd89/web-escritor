@@ -56,6 +56,16 @@ jobs:
         run: >
           python scripts/build-surprise-content.py data/surprise-content.json
           assets/surprise-content.generated.js --root . --check
+      # El propio script documenta este comando como el uso previsto en CI
+      # (ver la docstring), pero nunca se habia ejecutado en ningun workflow:
+      # el bloque en autor.html llevaba 2 dias desactualizado (13 herramientas
+      # en vez de 15) sin que nada lo avisara.
+      - name: Check "Esta web, en cifras" is reproducible and up to date
+        run: >
+          python scripts/build-human-site-stats.py --root .
+          --output data/site-human-stats.generated.html
+          --json-output data/site-human-stats.generated.json
+          --inject-into autor.html --check
       # El contrato "el texto no sale del navegador" es el argumento de venta
       # de cada herramienta de manuscrito. Este preflight existia
       # (scripts/audit-private-tools.py) pero nada lo ejecutaba en CI: una
