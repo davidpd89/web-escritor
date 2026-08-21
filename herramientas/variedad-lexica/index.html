@@ -5,23 +5,23 @@
   <meta http-equiv="Content-Security-Policy" content="default-src 'self'; connect-src 'none'; script-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; font-src 'self'; worker-src 'self'; object-src 'none'; base-uri 'self'; form-action 'none'; frame-src 'none'; media-src 'none'; manifest-src 'self'">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
   <meta name="robots" content="index,follow,max-image-preview:large" />
-  <title>Analizador de variedad léxica en español | Herramientas</title>
-  <meta name="description" content="Analiza TTR, MATTR y MTLD en español y compara cómo cambia la variedad de formas léxicas a lo largo de un texto. Todo se procesa en tu navegador.">
-  <meta property="og:title" content="Analizador de variedad léxica en español | Herramientas">
-  <meta property="og:description" content="Compara TTR, MATTR y MTLD sin convertir la variedad de vocabulario en una nota de calidad. El texto no sale de tu navegador.">
+  <title>Analizador de variedad léxica | Herramientas</title>
+  <meta name="description" content="Analiza TTR, MATTR y MTLD en textos en español y observa cómo cambia la variedad léxica por tramos. Todo se procesa en tu navegador.">
+  <meta property="og:title" content="Analizador de variedad léxica | Herramientas">
+  <meta property="og:description" content="Analiza TTR, MATTR y MTLD en textos en español y observa cómo cambia la variedad léxica por tramos. Todo se procesa en tu navegador.">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://davidportodiaz.com/herramientas/variedad-lexica/">
   <meta property="og:image" content="https://davidportodiaz.com/assets/david-porto-imagen-compartir.webp">
   <meta property="og:image:width" content="1731">
   <meta property="og:image:height" content="909">
-  <meta property="og:image:alt" content="Analizador de variedad léxica en español | Herramientas">
+  <meta property="og:image:alt" content="Analizador de variedad léxica | Herramientas">
   <meta property="og:locale" content="es_ES">
   <meta property="og:site_name" content="David Porto Díaz">
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Analizador de variedad léxica en español | Herramientas">
-  <meta name="twitter:description" content="Mira cómo cambia la variedad del vocabulario de un texto sin subirlo a ningún servidor.">
+  <meta name="twitter:title" content="Analizador de variedad léxica | Herramientas">
+  <meta name="twitter:description" content="Analiza TTR, MATTR y MTLD en textos en español y observa cómo cambia la variedad léxica por tramos. Todo se procesa en tu navegador.">
   <meta name="twitter:image" content="https://davidportodiaz.com/assets/david-porto-imagen-compartir.webp">
-  <meta name="twitter:image:alt" content="Analizador de variedad léxica en español | Herramientas">
+  <meta name="twitter:image:alt" content="Analizador de variedad léxica | Herramientas">
   <meta name="theme-color" content="#F4EFE7" />
   <link rel="canonical" href="https://davidportodiaz.com/herramientas/variedad-lexica/" />
   <link rel="icon" type="image/png" href="/assets/david-porto-favicon.png" />
@@ -35,7 +35,7 @@
   <link rel="stylesheet" href="/assets/v1-components.css" />
   <link rel="stylesheet" href="/assets/v1-tools.css" />
   <link rel="stylesheet" href="/assets/variedad-lexica.css" />
-  <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebApplication","name":"Analizador de variedad léxica en español","url":"https://davidportodiaz.com/herramientas/variedad-lexica/","applicationCategory":"UtilitiesApplication","operatingSystem":"Cualquier navegador moderno","isAccessibleForFree":true,"inLanguage":"es","author":{"@id":"https://davidportodiaz.com/#author"},"description":"Herramienta gratuita que calcula localmente métricas descriptivas de diversidad léxica (TTR, MATTR-50, MATTR-100, MTLD) y muestra cómo cambia dentro del propio texto."}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebApplication","name":"Analizador de variedad léxica en español","url":"https://davidportodiaz.com/herramientas/variedad-lexica/","description":"Herramienta gratuita que calcula TTR, MATTR y MTLD de forma local y describe cómo cambia la diversidad léxica dentro del texto.","applicationCategory":"UtilitiesApplication","operatingSystem":"Cualquier navegador moderno","isAccessibleForFree":true,"inLanguage":"es","author":{"@id":"https://davidportodiaz.com/#author"}}</script>
 </head>
 
 <body>
@@ -43,74 +43,28 @@
 
   <header class="site-header" data-header>
     <div class="site-header__inner">
-      <a class="brand" href="/" aria-label="David Porto Díaz — inicio">
-        <span class="brand__name">David Porto Díaz</span>
-        <span class="brand__role">Escritor</span>
-      </a>
-      <nav class="primary-nav" aria-label="Navegación principal">
-        <a href="/libros/">Obra</a>
-        <a href="/cuaderno/">Cuaderno</a>
-        <a href="/herramientas/" aria-current="page">Herramientas</a>
-      </nav>
-      <button class="explore-trigger" type="button" aria-haspopup="dialog" aria-controls="explore-dialog" aria-expanded="false" data-explore-open>
-        Explorar
-      </button>
+      <a class="brand" href="/" aria-label="David Porto Díaz — inicio"><span class="brand__name">David Porto Díaz</span><span class="brand__role">Escritor</span></a>
+      <nav class="primary-nav" aria-label="Navegación principal"><a href="/libros/">Obra</a><a href="/cuaderno/">Cuaderno</a><a href="/herramientas/" aria-current="page">Herramientas</a></nav>
+      <button class="explore-trigger" type="button" aria-haspopup="dialog" aria-controls="explore-dialog" aria-expanded="false" data-explore-open>Explorar</button>
     </div>
   </header>
 
   <dialog class="explore-dialog" id="explore-dialog" aria-labelledby="explore-title" data-explore-dialog>
     <div class="explore-dialog__shell">
-      <div class="explore-dialog__head">
-        <div>
-          <p class="eyebrow">Índice general</p>
-          <h2 id="explore-title">Explorar</h2>
-        </div>
-        <button class="icon-button" type="button" aria-label="Cerrar Explorar" data-explore-close>
-          <svg aria-hidden="true" viewBox="0 0 24 24" width="20" height="20"><path d="M5 5l14 14M19 5L5 19"/></svg>
-        </button>
-      </div>
-
-      <div class="explore-dialog__grid">
-        <nav class="explore-list" aria-label="Destinos de la web">
-          <a class="explore-row" href="/las-manecillas-del-recuerdo/" data-preview="manecillas">
-            <span class="explore-row__index">01</span>
-            <span class="explore-row__body"><strong>Las manecillas del recuerdo</strong><small>La obra actual.</small></span>
-          </a>
-          <a class="explore-row" href="/autor.html" data-preview="autor">
-            <span class="explore-row__index">02</span>
-            <span class="explore-row__body"><strong>Autor</strong><small>Biografía, obra y trayectoria.</small></span>
-          </a>
-          <a class="explore-row" href="/libros/samuel-entre-mundos/" data-preview="samuel">
-            <span class="explore-row__index">03</span>
-            <span class="explore-row__body"><strong>Samuel entre mundos</strong><small>Primera novela publicada.</small></span>
-          </a>
-          <a class="explore-row" href="/cuaderno/" data-preview="cuaderno">
-            <span class="explore-row__index">04</span>
-            <span class="explore-row__body"><strong>Cuaderno</strong><small>Artículos y piezas editoriales.</small></span>
-          </a>
-          <a class="explore-row" href="/herramientas/" data-preview="herramientas">
-            <span class="explore-row__index">05</span>
-            <span class="explore-row__body"><strong>Herramientas</strong><small>Utilidades gratuitas para escritores.</small></span>
-          </a>
-          <a class="explore-row" href="/prensa.html" data-preview="prensa">
-            <span class="explore-row__index">06</span>
-            <span class="explore-row__body"><strong>Prensa y eventos</strong><small>Apariciones, materiales y agenda.</small></span>
-          </a>
-        </nav>
-
-        <aside class="explore-preview" aria-live="polite" aria-atomic="true" data-explore-preview>
-          <div class="explore-preview__media" aria-hidden="true" data-preview-media></div>
-          <p class="explore-preview__label" data-preview-label>Herramientas</p>
-          <p class="explore-preview__copy" data-preview-copy>Utilidades gratuitas para escritores.</p>
-        </aside>
-      </div>
+      <div class="explore-dialog__head"><div><p class="eyebrow">Índice general</p><h2 id="explore-title">Explorar</h2></div><button class="icon-button" type="button" aria-label="Cerrar Explorar" data-explore-close><svg aria-hidden="true" viewBox="0 0 24 24" width="20" height="20"><path d="M5 5l14 14M19 5L5 19"/></svg></button></div>
+      <div class="explore-dialog__grid"><nav class="explore-list" aria-label="Destinos de la web">
+        <a class="explore-row" href="/las-manecillas-del-recuerdo/" data-preview="manecillas"><span class="explore-row__index">01</span><span class="explore-row__body"><strong>Las manecillas del recuerdo</strong><small>La obra actual.</small></span></a>
+        <a class="explore-row" href="/autor.html" data-preview="autor"><span class="explore-row__index">02</span><span class="explore-row__body"><strong>Autor</strong><small>Biografía, obra y trayectoria.</small></span></a>
+        <a class="explore-row" href="/libros/samuel-entre-mundos/" data-preview="samuel"><span class="explore-row__index">03</span><span class="explore-row__body"><strong>Samuel entre mundos</strong><small>Primera novela publicada.</small></span></a>
+        <a class="explore-row" href="/cuaderno/" data-preview="cuaderno"><span class="explore-row__index">04</span><span class="explore-row__body"><strong>Cuaderno</strong><small>Artículos y piezas editoriales.</small></span></a>
+        <a class="explore-row" href="/herramientas/" data-preview="herramientas"><span class="explore-row__index">05</span><span class="explore-row__body"><strong>Herramientas</strong><small>Utilidades gratuitas para escritores.</small></span></a>
+        <a class="explore-row" href="/prensa.html" data-preview="prensa"><span class="explore-row__index">06</span><span class="explore-row__body"><strong>Prensa y eventos</strong><small>Apariciones, materiales y agenda.</small></span></a>
+      </nav><aside class="explore-preview" aria-live="polite" aria-atomic="true" data-explore-preview><div class="explore-preview__media" aria-hidden="true" data-preview-media></div><p class="explore-preview__label" data-preview-label>Herramientas</p><p class="explore-preview__copy" data-preview-copy>Utilidades gratuitas para escritores.</p></aside></div>
     </div>
   </dialog>
 
   <main id="contenido" class="v1-main" data-family="tool">
-    <nav class="book-breadcrumb" aria-label="Ruta de navegación">
-      <ol><li><a href="/">Inicio</a></li><li><a href="/herramientas/">Herramientas</a></li><li aria-current="page">Variedad léxica</li></ol>
-    </nav>
+    <nav class="book-breadcrumb" aria-label="Ruta de navegación"><ol><li><a href="/">Inicio</a></li><li><a href="/herramientas/">Herramientas</a></li><li aria-current="page">Variedad léxica</li></ol></nav>
 
     <header class="tool-hero">
       <p class="eyebrow">Herramienta gratuita · español</p>
@@ -120,6 +74,7 @@
     </header>
 
     <section class="tool-panel">
+      <noscript><p class="tool-note" role="status">JavaScript está desactivado. Puedes leer esta página y su metodología, pero el cálculo necesita JavaScript para ejecutarse localmente en tu navegador.</p></noscript>
       <form data-lexical-form novalidate>
         <div class="tool-field">
           <label class="tool-field-label" for="lexical-input">Pega el texto que quieras comparar</label>
@@ -139,93 +94,27 @@
     <section class="tool-results" data-lexical-results hidden aria-label="Resultados de variedad léxica">
       <div data-lexical-summary></div>
       <div class="tool-summary" data-lexical-metrics></div>
-
-      <div class="tool-findings-block" aria-labelledby="lexical-profile-title">
-        <h3 id="lexical-profile-title">Cómo cambia dentro del texto</h3>
-        <p>Divido la muestra en bloques consecutivos de hasta 200 palabras y calculo MATTR-50 dentro de cada uno. Esta vista no compara tu novela con una norma externa: compara unas zonas con otras.</p>
-        <div class="lexical-profile" data-lexical-profile aria-label="MATTR-50 por tramos consecutivos del texto"></div>
-        <p class="tool-note" id="lexical-profile-note" data-lexical-profile-note></p>
-      </div>
+      <div class="tool-findings-block" aria-labelledby="lexical-profile-title"><h3 id="lexical-profile-title">Cómo cambia dentro del texto</h3><p>Divido la muestra en bloques consecutivos de hasta 200 palabras y calculo MATTR-50 dentro de cada uno. Esta vista no compara tu novela con una norma externa: compara unas zonas con otras.</p><div class="lexical-profile" data-lexical-profile aria-label="MATTR-50 por tramos consecutivos del texto"></div><p class="tool-note" id="lexical-profile-note" data-lexical-profile-note></p></div>
     </section>
 
-    <section class="tool-panel tool-caveat">
-      <h2>Más variedad no significa mejor prosa</h2>
-      <p>Repetir una palabra puede ser torpeza, ritmo, voz, cohesión o una decisión deliberada. Un diálogo natural puede usar menos vocabulario que un párrafo descriptivo y funcionar mejor. Estas métricas miden distribución de formas; no entienden intención narrativa.</p>
-      <p>Por eso esta herramienta no muestra semáforos, percentiles de «calidad» ni una puntuación final. Si quieres localizar qué palabras se repiten y dónde, esa tarea corresponde al <a href="/herramientas/repeticiones/">detector de repeticiones</a>.</p>
-    </section>
+    <section class="tool-panel tool-caveat"><h2>Más variedad no significa mejor prosa</h2><p>Repetir una palabra puede ser torpeza, ritmo, voz, cohesión o una decisión deliberada. Un diálogo natural puede usar menos vocabulario que un párrafo descriptivo y funcionar mejor. Estas métricas miden distribución de formas; no entienden intención narrativa.</p><p>Por eso esta herramienta no muestra semáforos, percentiles de «calidad» ni una puntuación final. Si quieres localizar qué palabras se repiten y dónde, esa tarea corresponde al <a href="/herramientas/repeticiones/">detector de repeticiones</a>.</p></section>
 
-    <section class="tool-panel">
-      <h2>Qué significa cada cifra</h2>
-      <div class="tool-two-col">
-        <article><h3>TTR</h3><p>Divide el número de formas distintas entre el total de palabras. Es intuitivo, pero cae de manera sistemática al crecer el texto; úsalo solo como descripción de esa muestra.</p></article>
-        <article><h3>MATTR-50 y MATTR-100</h3><p>Calculan TTR en ventanas móviles y promedian los resultados. Reducen parte del problema de longitud, pero el tamaño de ventana y la posición de los tokens siguen importando. Mostrar dos ventanas hace visible esa sensibilidad.</p></article>
-        <article><h3>MTLD</h3><p>Estima cuánto texto hace falta, en promedio, para que TTR caiga hasta un umbral de 0,72. Se calcula en ambos sentidos y sirve como contraste, no como nota literaria.</p></article>
-        <article><h3>Formas que aparecen una sola vez</h3><p>Los <em>hapax</em> son formas con una sola aparición en la muestra. También dependen de longitud, género y tema. Los mostramos porque ayudan a describir el texto, no porque exista una proporción ideal.</p></article>
-      </div>
-    </section>
+    <section class="tool-panel"><h2>Qué significa cada cifra</h2><div class="tool-two-col"><article><h3>TTR</h3><p>Divide el número de formas distintas entre el total de palabras. Es intuitivo, pero cae de manera sistemática al crecer el texto; úsalo solo como descripción de esa muestra.</p></article><article><h3>MATTR-50 y MATTR-100</h3><p>Calculan TTR en ventanas móviles y promedian los resultados. Reducen parte del problema de longitud, pero el tamaño de ventana y la posición de los tokens siguen importando. Mostrar dos ventanas hace visible esa sensibilidad.</p></article><article><h3>MTLD</h3><p>Estima cuánto texto hace falta, en promedio, para que TTR caiga hasta un umbral de 0,72. Se calcula en ambos sentidos y sirve como contraste, no como nota literaria.</p></article><article><h3>Formas que aparecen una sola vez</h3><p>Los <em>hapax</em> son formas con una sola aparición en la muestra. También dependen de longitud, género y tema. Los mostramos porque ayudan a describir el texto, no porque exista una proporción ideal.</p></article></div></section>
 
-    <section class="tool-panel tool-caveat">
-      <h2>Una limitación importante en español</h2>
-      <p>Este MVP trabaja con <strong>formas ortográficas</strong>, no con lemas. «Casa» y «casas» cuentan como formas distintas; «hablo», «hablé» y «hablar» también. Es una decisión deliberada: una lematización española fiable requiere un análisis lingüístico bastante más pesado que no quiero fingir con reglas caseras.</p>
-      <p>Los estudios y herramientas académicas de riqueza léxica para español suelen lematizar antes de calcular algunas métricas. Por eso no debes comparar directamente una cifra de esta página con otra herramienta que use spaCy, Freeling u otro analizador morfológico.</p>
-    </section>
+    <section class="tool-panel tool-caveat"><h2>Una limitación importante en español</h2><p>Este MVP trabaja con <strong>formas ortográficas</strong>, no con lemas. «Casa» y «casas» cuentan como formas distintas; «hablo», «hablé» y «hablar» también. Es una decisión deliberada: una lematización española fiable requiere un análisis lingüístico bastante más pesado que no quiero fingir con reglas caseras.</p><p>Los estudios y herramientas académicas de riqueza léxica para español suelen lematizar antes de calcular algunas métricas. Por eso no debes comparar directamente una cifra de esta página con otra herramienta que use spaCy, Freeling u otro analizador morfológico.</p></section>
 
-    <section class="tool-panel tool-caveat">
-      <h2>Privacidad</h2>
-      <p>Todo el cálculo ocurre en JavaScript dentro del navegador. No hay <code>fetch</code>, API de IA, almacenamiento local del manuscrito ni envío del contenido a analítica.</p>
-      <p>Si se mide el uso, el evento solo contiene el nombre de la herramienta y un tramo aproximado de longitud, por ejemplo «500–1.999 palabras». Nunca incluye el texto, palabras detectadas, nombres, resultados o títulos.</p>
-    </section>
+    <section class="tool-panel tool-caveat"><h2>Privacidad</h2><p>Todo el cálculo ocurre en JavaScript dentro del navegador. No hay <code>fetch</code>, API de IA, almacenamiento local del manuscrito ni envío del contenido a analítica.</p><p>Si se mide el uso, el evento solo contiene el nombre de la herramienta y un tramo aproximado de longitud, por ejemplo «500–1.999 palabras». Nunca incluye el texto, palabras detectadas, nombres, resultados o títulos.</p></section>
 
-    <section class="tool-panel">
-      <h2>Fuentes y método</h2>
-      <ul class="tool-source-list">
-        <li><a href="https://doi.org/10.1080/09296171003643098" target="_blank" rel="noopener noreferrer">Covington &amp; McFall (2010) — Moving-Average Type-Token Ratio</a>.</li>
-        <li><a href="https://pubmed.ncbi.nlm.nih.gov/20479170/" target="_blank" rel="noopener noreferrer">McCarthy &amp; Jarvis (2010) — evaluación de MTLD y otras medidas de diversidad léxica</a>.</li>
-        <li><a href="https://doi.org/10.1016/j.rmal.2024.100168" target="_blank" rel="noopener noreferrer">Bestgen (2025) — ventajas y límites de MATTR como medida global</a>.</li>
-        <li><a href="https://doi.org/10.1017/S0272263123000384" target="_blank" rel="noopener noreferrer">Díez-Ortega &amp; Kyle — riqueza léxica en español L2 y métricas basadas en lemas</a>.</li>
-        <li><a href="https://github.com/kristopherkyle/lexical_diversity" target="_blank" rel="noopener noreferrer">lexical_diversity — implementación abierta de referencia para TTR, MATTR y MTLD</a>.</li>
-      </ul>
-      <p class="tool-caveat" style="margin-top:1.2rem">La política general de fuentes, correcciones y uso de herramientas está en <a href="/metodologia-editorial/">Metodología editorial</a>.</p>
-    </section>
+    <section class="tool-panel"><h2>Fuentes y método</h2><ul class="tool-source-list"><li><a href="https://doi.org/10.1080/09296171003643098" target="_blank" rel="noopener noreferrer">Covington &amp; McFall (2010) — Moving-Average Type-Token Ratio</a>.</li><li><a href="https://pubmed.ncbi.nlm.nih.gov/20479170/" target="_blank" rel="noopener noreferrer">McCarthy &amp; Jarvis (2010) — evaluación de MTLD y otras medidas de diversidad léxica</a>.</li><li><a href="https://doi.org/10.1016/j.rmal.2024.100168" target="_blank" rel="noopener noreferrer">Bestgen (2025) — ventajas y límites de MATTR como medida global</a>.</li><li><a href="https://doi.org/10.1017/S0272263123000384" target="_blank" rel="noopener noreferrer">Díez-Ortega &amp; Kyle — riqueza léxica en español L2 y métricas basadas en lemas</a>.</li><li><a href="https://github.com/kristopherkyle/lexical_diversity" target="_blank" rel="noopener noreferrer">lexical_diversity — implementación abierta de referencia para TTR, MATTR y MTLD</a>.</li></ul><p class="tool-caveat" style="margin-top:1.2rem">La política general de fuentes, correcciones y uso de herramientas está en <a href="/metodologia-editorial/">Metodología editorial</a>.</p></section>
 
-    <section class="tool-panel">
-      <h2>Dudas frecuentes</h2>
-      <div class="identity-faq">
-        <details><summary>¿Qué TTR o MTLD debería tener una novela?</summary><p>No existe un umbral universal fiable para decir que una novela tiene «buen vocabulario». La longitud, el género, el diálogo, el tema y el procesamiento lingüístico cambian los resultados.</p></details>
-        <details><summary>¿Por qué TTR baja al pegar más texto?</summary><p>Porque al crecer la muestra muchas palabras reaparecen mientras el número de formas nuevas no aumenta al mismo ritmo. Es una propiedad conocida de TTR, no un deterioro automático del estilo.</p></details>
-        <details><summary>¿Por qué mostráis MATTR-50 y MATTR-100?</summary><p>Porque el tamaño de ventana influye. Ver ambos resultados recuerda que MATTR tampoco es una constante absoluta del texto.</p></details>
-        <details><summary>¿Detecta texto escrito por IA?</summary><p>No. La diversidad léxica por sí sola no identifica de forma fiable la autoría humana o automática, y esta herramienta no intenta hacerlo.</p></details>
-        <details><summary>¿Sirve para mejorar el SEO?</summary><p>No hay un factor de ranking documentado que premie un TTR, MATTR o MTLD concreto. El objetivo es ayudar a revisar escritura; el posible valor orgánico de la página proviene de ser una utilidad real.</p></details>
-      </div>
-    </section>
+    <section class="tool-panel"><h2>Dudas frecuentes</h2><div class="identity-faq"><details><summary>¿Qué TTR o MTLD debería tener una novela?</summary><p>No existe un umbral universal fiable para decir que una novela tiene «buen vocabulario». La longitud, el género, el diálogo, el tema y el procesamiento lingüístico cambian los resultados.</p></details><details><summary>¿Por qué TTR baja al pegar más texto?</summary><p>Porque al crecer la muestra muchas palabras reaparecen mientras el número de formas nuevas no aumenta al mismo ritmo. Es una propiedad conocida de TTR, no un deterioro automático del estilo.</p></details><details><summary>¿Por qué mostráis MATTR-50 y MATTR-100?</summary><p>Porque el tamaño de ventana influye. Ver ambos resultados recuerda que MATTR tampoco es una constante absoluta del texto.</p></details><details><summary>¿Detecta texto escrito por IA?</summary><p>No. La diversidad léxica por sí sola no identifica de forma fiable la autoría humana o automática, y esta herramienta no intenta hacerlo.</p></details><details><summary>¿Sirve para mejorar el SEO?</summary><p>No hay un factor de ranking documentado que premie un TTR, MATTR o MTLD concreto. El objetivo es ayudar a revisar escritura; el posible valor orgánico de la página proviene de ser una utilidad real.</p></details></div></section>
 
-    <section class="tool-next" aria-labelledby="lexical-next-title">
-      <p class="eyebrow">Sigue revisando, sin subir el manuscrito</p>
-      <h2 id="lexical-next-title">Cada herramienta responde una pregunta distinta.</h2>
-      <p class="tool-caveat">Para localizar ecos concretos, usa el detector de repeticiones. Para ver dónde aumenta la carga formal de lectura, usa el analizador de legibilidad.</p>
-      <div class="tool-next-links">
-        <a class="text-action" href="/herramientas/repeticiones/">Detectar repeticiones</a>
-        <a class="text-action" href="/herramientas/legibilidad/">Analizar legibilidad</a>
-        <a class="text-action" href="/cuaderno/">Ir al Cuaderno</a>
-      </div>
-    </section>
-
+    <section class="tool-next" aria-labelledby="lexical-next-title"><p class="eyebrow">Sigue revisando, sin subir el manuscrito</p><h2 id="lexical-next-title">Cada herramienta responde una pregunta distinta.</h2><p class="tool-caveat">Para localizar ecos concretos, usa el detector de repeticiones. Para ver dónde aumenta la carga formal de lectura, usa el analizador de legibilidad.</p><div class="tool-next-links"><a class="text-action" href="/herramientas/repeticiones/">Detectar repeticiones</a><a class="text-action" href="/herramientas/legibilidad/">Analizar legibilidad</a><a class="text-action" href="/cuaderno/">Ir al Cuaderno</a></div></section>
   </main>
 
-  <footer class="site-footer">
-    <div class="site-footer__grid">
-      <div>
-        <strong class="brand__name">David Porto Díaz</strong>
-        <p>Autor de Las manecillas del recuerdo y Samuel entre mundos.</p>
-      </div>
-      <nav aria-label="Obra"><h2>Obra</h2><a href="/las-manecillas-del-recuerdo/">Las manecillas del recuerdo</a><a href="/libros/samuel-entre-mundos/">Samuel entre mundos</a><a href="/fragmento/">Fragmento gratis</a></nav>
-      <nav aria-label="Leer y recursos"><h2>Leer</h2><a href="/cuaderno/">Cuaderno</a><a href="/herramientas/" aria-current="page">Herramientas</a><a href="/mapa-del-sitio/">Mapa del sitio</a></nav>
-      <nav aria-label="Información"><h2>Información</h2><a href="/autor.html">Autor</a><a href="/prensa.html">Prensa</a><a href="/eventos.html">Eventos</a><a href="/privacidad.html">Privacidad</a><a href="/aviso-legal.html">Aviso legal</a><a href="/ai/">Para IA</a></nav>
-    </div>
-  </footer>
+  <footer class="site-footer"><div class="site-footer__grid"><div><strong class="brand__name">David Porto Díaz</strong><p>Autor de Las manecillas del recuerdo y Samuel entre mundos.</p></div><nav aria-label="Obra"><h2>Obra</h2><a href="/las-manecillas-del-recuerdo/">Las manecillas del recuerdo</a><a href="/libros/samuel-entre-mundos/">Samuel entre mundos</a><a href="/fragmento/">Fragmento gratis</a></nav><nav aria-label="Leer y recursos"><h2>Leer</h2><a href="/cuaderno/">Cuaderno</a><a href="/herramientas/" aria-current="page">Herramientas</a><a href="/mapa-del-sitio/">Mapa del sitio</a></nav><nav aria-label="Información"><h2>Información</h2><a href="/autor.html">Autor</a><a href="/prensa.html">Prensa</a><a href="/eventos.html">Eventos</a><a href="/privacidad.html">Privacidad</a><a href="/aviso-legal.html">Aviso legal</a><a href="/ai/">Para IA</a></nav></div></footer>
 
   <script defer src="/assets/v1-shell.js"></script>
-
   <script type="module" src="/assets/variedad-lexica.js"></script>
 </body>
 </html>
