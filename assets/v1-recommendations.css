@@ -1,222 +1,69 @@
-/* Recommendations V1 — scoped editorial treatment for /recomendaciones/ only.
-   Deliberately typography-led: curated lists, not product cards. */
+/* Recommendations V1 — local editorial layer for the three recommendation routes. */
+html.v1 [data-family="recomendaciones"]{--rec-rule:var(--color-border)}
 
-html.v1 [data-family="recomendaciones"]{
-  --rec-rule:var(--color-border);
-}
+html.v1 .recommendations-hero{max-width:72rem;padding:clamp(3rem,7vw,7rem) 0 clamp(2.5rem,5vw,5rem);border-bottom:1px solid var(--rec-rule,var(--color-border))}
+html.v1 .recommendations-hero h1{max-width:12ch;margin:.2rem 0 1.15rem;font-size:clamp(3rem,8vw,7rem);line-height:.92;letter-spacing:-.045em}
+html.v1 .recommendations-hero__lead{max-width:62ch;margin:0;font-size:clamp(1.05rem,1.6vw,1.25rem);line-height:1.55;text-wrap:pretty}
 
-html.v1 .recommendations-hero{
-  max-width:72rem;
-  padding:clamp(3rem,7vw,7rem) 0 clamp(2.5rem,5vw,5rem);
-  border-bottom:1px solid var(--rec-rule,var(--color-border));
-}
-html.v1 .recommendations-hero h1{
-  max-width:12ch;
-  margin:.2rem 0 1.15rem;
-  font-size:clamp(3rem,8vw,7rem);
-  line-height:.92;
-  letter-spacing:-.045em;
-}
-html.v1 .recommendations-hero__lead{
-  max-width:62ch;
-  margin:0;
-  font-size:clamp(1.05rem,1.6vw,1.25rem);
-  line-height:1.55;
-  text-wrap:pretty;
-}
-
-html.v1 .recommendations-index{
-  list-style:none;
-  margin:1.5rem 0 0;
-  padding:0;
-  border-top:1px solid var(--rec-rule,var(--color-border));
-}
-html.v1 .recommendations-index > li{
-  display:grid;
-  grid-template-columns:minmax(5rem,.18fr) minmax(0,1fr);
-  gap:clamp(1.25rem,4vw,4rem);
-  padding:clamp(1.7rem,3vw,2.6rem) 0;
-  border-bottom:1px solid var(--rec-rule,var(--color-border));
-}
-html.v1 .recommendations-index__number{
-  font-family:var(--font-display);
-  font-size:clamp(2.4rem,5vw,4.8rem);
-  line-height:.9;
-  color:var(--color-muted);
-  letter-spacing:-.04em;
-}
-html.v1 .recommendations-index h3{
-  max-width:24ch;
-  margin:.25rem 0 .65rem;
-  font:400 clamp(1.7rem,3vw,2.7rem)/1.02 var(--font-display);
-  letter-spacing:-.025em;
-}
+html.v1 .recommendations-index{list-style:none;margin:1.5rem 0 0;padding:0;border-top:1px solid var(--rec-rule,var(--color-border))}
+html.v1 .recommendations-index>li{display:grid;grid-template-columns:minmax(5rem,.18fr) minmax(0,1fr);gap:clamp(1.25rem,4vw,4rem);padding:clamp(1.7rem,3vw,2.6rem) 0;border-bottom:1px solid var(--rec-rule,var(--color-border))}
+html.v1 .recommendations-index__number{font-family:var(--font-display);font-size:clamp(2.4rem,5vw,4.8rem);line-height:.9;color:var(--color-muted);letter-spacing:-.04em}
+html.v1 .recommendations-index h3{max-width:24ch;margin:.25rem 0 .65rem;font:400 clamp(1.7rem,3vw,2.7rem)/1.02 var(--font-display);letter-spacing:-.025em;overflow-wrap:anywhere}
 html.v1 .recommendations-index p:not(.tool-meta){max-width:62ch}
 
-html.v1 .recommendations-method__copy{
-  display:grid;
-  grid-template-columns:repeat(2,minmax(0,1fr));
-  gap:clamp(1.5rem,4vw,4rem);
-  border-top:1px solid var(--rec-rule,var(--color-border));
-  padding-top:1.5rem;
-}
+html.v1 .recommendations-method__copy{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:clamp(1.5rem,4vw,4rem);border-top:1px solid var(--rec-rule,var(--color-border));padding-top:1.5rem}
 html.v1 .recommendations-method__copy p{margin:0;max-width:54ch}
-html.v1 .recommendations-context-row{
-  display:grid;
-  grid-template-columns:minmax(0,1fr) auto;
-  align-items:center;
-  gap:1.5rem 3rem;
-  padding:1.5rem 0;
-  border-top:1px solid var(--rec-rule,var(--color-border));
-  border-bottom:1px solid var(--rec-rule,var(--color-border));
-}
-html.v1 .recommendations-context-row h3{
-  margin:0 0 .5rem;
-  font:400 clamp(1.5rem,2.4vw,2.1rem)/1.05 var(--font-display);
-}
+html.v1 .recommendations-context-row{display:grid;grid-template-columns:minmax(0,1fr) auto;align-items:center;gap:1.5rem 3rem;padding:1.5rem 0;border-top:1px solid var(--rec-rule,var(--color-border));border-bottom:1px solid var(--rec-rule,var(--color-border))}
+html.v1 .recommendations-context-row h3{margin:0 0 .5rem;font:400 clamp(1.5rem,2.4vw,2.1rem)/1.05 var(--font-display)}
 html.v1 .recommendations-context-row p{margin:0;max-width:62ch}
 
-/* List pages */
 html.v1 .recommendations-page .article-deck{max-width:64ch;text-wrap:pretty}
-html.v1 .recommendations-page .rec-editorial-note{
-  margin:0 0 1.5rem;
-  padding:0 0 1.5rem;
-  border-bottom:1px solid var(--rec-rule,var(--color-border));
-}
-html.v1 .recommendations-page .rec-editorial-note h2{
-  margin:.25rem 0 .8rem;
-  font-size:clamp(1.6rem,3vw,2.3rem);
-  line-height:1.05;
-}
-html.v1 .recommendations-page .rec-disclosures{
-  margin:1.5rem 0 2.5rem;
-  padding:1.25rem 0 1.25rem clamp(1rem,2vw,1.5rem);
-  border-left:2px solid var(--color-accent-strong);
-  border-top:1px solid var(--rec-rule,var(--color-border));
-  border-bottom:1px solid var(--rec-rule,var(--color-border));
-}
+html.v1 .recommendations-page .rec-editorial-note{margin:0 0 1.5rem;padding:0 0 1.5rem;border-bottom:1px solid var(--rec-rule,var(--color-border))}
+html.v1 .recommendations-page .rec-editorial-note h2{margin:.25rem 0 .8rem;font-size:clamp(1.6rem,3vw,2.3rem);line-height:1.05}
+html.v1 .recommendations-page .rec-disclosures{margin:1.5rem 0 2.5rem;padding:1.25rem 0 1.25rem clamp(1rem,2vw,1.5rem);border-left:2px solid var(--color-accent-strong);border-top:1px solid var(--rec-rule,var(--color-border));border-bottom:1px solid var(--rec-rule,var(--color-border))}
 html.v1 .recommendations-page .rec-disclosures p{margin:.25rem 0;max-width:70ch}
-html.v1 .recommendations-page .rec-list{
-  list-style:none;
-  margin:1.5rem 0 0;
-  padding:0;
-  counter-reset:none;
-  border-top:1px solid var(--rec-rule,var(--color-border));
-}
-html.v1 .recommendations-page .rec-item,
-html.v1 .recommendations-page .rec-item--self{
-  position:relative;
-  display:grid;
-  grid-template-columns:minmax(3.5rem,.12fr) minmax(0,1fr);
-  column-gap:clamp(1.25rem,4vw,3.5rem);
-  padding:clamp(1.7rem,3vw,2.5rem) 0;
-  border:0;
-  border-bottom:1px solid var(--rec-rule,var(--color-border));
-  border-radius:0;
-  background:transparent;
-  box-shadow:none;
-}
-html.v1 .recommendations-page .rec-item > *:not(.rec-position){grid-column:2;min-width:0}
-html.v1 .recommendations-page .rec-position{
-  grid-column:1;
-  grid-row:1 / span 6;
-  align-self:start;
-  font-family:var(--font-display);
-  font-size:clamp(2.3rem,4.5vw,4.25rem);
-  line-height:.9;
-  color:var(--color-muted);
-  letter-spacing:-.04em;
-}
-html.v1 .recommendations-page .rec-book-title{
-  margin:0 0 .25rem;
-  font:400 clamp(1.55rem,2.8vw,2.35rem)/1.04 var(--font-display);
-  letter-spacing:-.025em;
-  overflow-wrap:anywhere;
-}
-html.v1 .recommendations-page .rec-book-author{
-  margin:.2rem 0 1rem;
-  font-size:.9rem;
-  color:var(--color-muted);
-}
-html.v1 .recommendations-page .rec-self-label{
-  font-size:.76rem;
-  font-weight:600;
-  letter-spacing:.025em;
-}
+
+html.v1 .recommendations-page .rec-list{list-style:none;margin:1.5rem 0 0;padding:0;counter-reset:none;border-top:1px solid var(--rec-rule,var(--color-border))}
+html.v1 .recommendations-page .rec-item,html.v1 .recommendations-page .rec-item--self{position:relative;display:grid;grid-template-columns:minmax(3.5rem,.12fr) minmax(0,1fr);column-gap:clamp(1.25rem,4vw,3.5rem);padding:clamp(1.7rem,3vw,2.5rem) 0;border:0;border-bottom:1px solid var(--rec-rule,var(--color-border));border-radius:0;background:transparent;box-shadow:none}
+html.v1 .recommendations-page .rec-item>*:not(.rec-position){grid-column:2;min-width:0}
+html.v1 .recommendations-page .rec-position{grid-column:1;grid-row:1/span 6;align-self:start;font-family:var(--font-display);font-size:clamp(2.3rem,4.5vw,4.25rem);line-height:.9;color:var(--color-muted);letter-spacing:-.04em}
+html.v1 .recommendations-page .rec-book-title{margin:0 0 .25rem;font:400 clamp(1.55rem,2.8vw,2.35rem)/1.04 var(--font-display);letter-spacing:-.025em;overflow-wrap:anywhere}
+html.v1 .recommendations-page .rec-book-author{margin:.2rem 0 1rem;font-size:.9rem;color:var(--color-muted)}
+html.v1 .recommendations-page .rec-self-label{font-size:.76rem;font-weight:600;letter-spacing:.025em}
 html.v1 .recommendations-page .rec-book-desc{max-width:68ch;margin:.2rem 0 1rem;text-wrap:pretty}
-html.v1 .recommendations-page .rec-book-meta{
-  max-width:68ch;
-  margin:0 0 .85rem;
-  font-size:.8rem;
-  color:var(--color-muted);
-  overflow-wrap:anywhere;
-}
-html.v1 .recommendations-page .rec-book-footer{
-  display:flex;
-  flex-wrap:wrap;
-  align-items:center;
-  gap:.5rem 1rem;
-  margin-top:.2rem;
-}
-html.v1 .recommendations-page .rec-badge{
-  display:inline-flex;
-  align-items:center;
-  min-height:1.9rem;
-  padding:.15rem .55rem;
-  border:1px solid var(--rec-rule,var(--color-border));
-  border-radius:999px;
-  background:transparent;
-  font-size:.72rem;
-  line-height:1.25;
-}
-html.v1 .recommendations-page .affiliate-disclosure{
-  margin:1.75rem 0 0;
-  padding-top:1.25rem;
-  max-width:70ch;
-  border-top:1px solid var(--rec-rule,var(--color-border));
-  font-size:.88rem;
-  color:var(--color-muted);
-}
+html.v1 .recommendations-page .rec-book-meta{max-width:68ch;margin:0 0 .85rem;font-size:.8rem;color:var(--color-muted);overflow-wrap:anywhere}
+html.v1 .recommendations-page .rec-book-footer{display:flex;flex-wrap:wrap;align-items:center;gap:.5rem 1rem;margin-top:.2rem}
+html.v1 .recommendations-page .rec-badge{display:inline-flex;align-items:center;min-height:1.9rem;padding:.15rem .55rem;border:1px solid var(--rec-rule,var(--color-border));border-radius:999px;background:transparent;font-size:.72rem;line-height:1.25}
+html.v1 .recommendations-page .affiliate-disclosure{margin:1.75rem 0 0;padding-top:1.25rem;max-width:70ch;border-top:1px solid var(--rec-rule,var(--color-border));font-size:.88rem;color:var(--color-muted)}
 html.v1 .recommendations-page code{overflow-wrap:anywhere}
 
-@media (max-width:760px){
+@media(max-width:760px){
   html.v1 .recommendations-method__copy{grid-template-columns:1fr}
   html.v1 .recommendations-context-row{grid-template-columns:1fr}
   html.v1 .recommendations-context-row .text-action{justify-self:start}
-  html.v1 .recommendations-index > li{grid-template-columns:3.25rem minmax(0,1fr);gap:1rem}
+  html.v1 .recommendations-index>li{grid-template-columns:3.25rem minmax(0,1fr);gap:1rem}
   html.v1 .recommendations-index__number{font-size:2.35rem}
-  html.v1 .recommendations-page .rec-item,
-  html.v1 .recommendations-page .rec-item--self{grid-template-columns:2.7rem minmax(0,1fr);column-gap:.85rem}
+  html.v1 .recommendations-page .rec-item,html.v1 .recommendations-page .rec-item--self{grid-template-columns:2.7rem minmax(0,1fr);column-gap:.85rem}
   html.v1 .recommendations-page .rec-position{font-size:2.05rem}
 }
-
-@media (max-width:420px){
+@media(max-width:420px){
   html.v1 .recommendations-hero h1{font-size:clamp(2.65rem,16vw,4rem)}
-  html.v1 .recommendations-page .rec-item,
-  html.v1 .recommendations-page .rec-item--self{grid-template-columns:1fr;row-gap:.3rem}
+  html.v1 .recommendations-page .rec-item,html.v1 .recommendations-page .rec-item--self{grid-template-columns:1fr;row-gap:.3rem}
   html.v1 .recommendations-page .rec-position{grid-column:1;grid-row:auto;font-size:1.45rem;margin-bottom:.3rem}
-  html.v1 .recommendations-page .rec-item > *:not(.rec-position){grid-column:1}
+  html.v1 .recommendations-page .rec-item>*:not(.rec-position){grid-column:1}
   html.v1 .recommendations-page .rec-book-footer{align-items:flex-start;flex-direction:column}
 }
 
+/* This stylesheet is loaded only by recommendations routes, so top-level shell
+   selectors are safe in print and avoid relying on ancestor relationships. */
 @media print{
-  html.v1 .recommendations-page .site-header,
-  html.v1 .recommendations-page .explore-dialog,
-  html.v1 .recommendations-page .article-utilities,
-  html.v1 .recommendations-page .article-toc,
-  html.v1 .recommendations-page .article-folio,
-  html.v1 .recommendations-page .editorial-newsletter,
-  html.v1 .recommendations-page .site-footer,
-  html.v1 .recommendations-page .article-end,
-  html.v1 .recommendations-page .rec-book-footer .text-action,
-  html.v1 .recommendations-page .rec-book-title a[href*="amazon.es"]{
-    display:none !important;
-  }
-  html.v1 .recommendations-page .article-layout{display:block !important}
-  html.v1 .recommendations-page .article-prose{max-width:none !important;width:auto !important}
-  html.v1 .recommendations-page .rec-item,
-  html.v1 .recommendations-page .rec-item--self{break-inside:avoid;page-break-inside:avoid}
-  html.v1 .recommendations-page .rec-book-title::after{content:attr(data-print-title)}
-  html.v1 .recommendations-page .rec-disclosures,
-  html.v1 .recommendations-page .affiliate-disclosure{display:block !important}
+  html.v1 .site-header,html.v1 .explore-dialog,html.v1 .site-footer,
+  html.v1 .recommendations-page .article-utilities,html.v1 .recommendations-page .article-toc,
+  html.v1 .recommendations-page .article-folio,html.v1 .recommendations-page .editorial-newsletter,
+  html.v1 .recommendations-page .article-end,html.v1 .recommendations-page .rec-book-footer{display:none!important}
+  html.v1 .recommendations-page .article-layout{display:block!important}
+  html.v1 .recommendations-page .article-prose{max-width:none!important;width:auto!important}
+  html.v1 .recommendations-page .rec-item,html.v1 .recommendations-page .rec-item--self{break-inside:avoid;page-break-inside:avoid}
+  html.v1 .recommendations-page .rec-book-title a{display:inline!important;color:inherit!important;text-decoration:none!important}
+  html.v1 .recommendations-page .rec-disclosures,html.v1 .recommendations-page .affiliate-disclosure{display:block!important}
 }
