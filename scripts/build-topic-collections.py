@@ -304,7 +304,7 @@ def render_index(ready: list[dict]) -> str:
         ],
     }
     main = (
-        '<main id="contenido" class="v1-main" data-family="topic-collection">'
+        '<main id="contenido" tabindex="-1" class="v1-main" data-family="topic-collection">'
         + render_breadcrumb([("Inicio", "/"), ("Cuaderno", "/cuaderno/"), ("Temas", None)])
         + '<header class="tool-hero"><p class="eyebrow">Cuaderno del autor</p>'
         f"<h1>Colecciones del Cuaderno</h1><p class=\"tool-hero__lead\">{esc(description)}</p></header>"
@@ -362,7 +362,7 @@ def render_hub(coll: dict) -> str:
         else ""
     )
     main = (
-        '<main id="contenido" class="v1-main" data-family="topic-collection">'
+        '<main id="contenido" tabindex="-1" class="v1-main" data-family="topic-collection">'
         + render_breadcrumb([("Inicio", "/"), ("Cuaderno", "/cuaderno/"), ("Temas", "/cuaderno/temas/"), (coll["title"], None)])
         + f'<header class="tool-hero"><p class="eyebrow">{"Serie del Cuaderno" if is_series else "Colección del Cuaderno"}</p>'
         f"<h1>{esc(coll['title'])}</h1><p class=\"tool-hero__lead\">{esc(coll['intro'])}</p></header>"

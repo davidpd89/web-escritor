@@ -89,7 +89,7 @@ def layout(title: str, description: str, body: str, canonical: str, jsonld: dict
 <a href="/autor.html">Autor</a>
 </nav>
 </header>
-<main id="contenido">
+<main id="contenido" tabindex="-1">
 {body}
 </main>
 <footer class="autores-footer">

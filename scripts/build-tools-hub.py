@@ -235,7 +235,7 @@ def render(data, tools, directories):
     </div>
   </dialog>
 
-  <main id="contenido" class="v1-main" data-family="tools-hub">
+  <main id="contenido" tabindex="-1" class="v1-main" data-family="tools-hub">
     <nav class="book-breadcrumb" aria-label="Ruta de navegación">
       <ol><li><a href="/">Inicio</a></li><li aria-current="page">Herramientas</li></ol>
     </nav>

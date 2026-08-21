@@ -215,7 +215,7 @@ def render(data):
     </div>
   </dialog>
 
-  <main id="contenido" class="v1-main" data-family="tool">
+  <main id="contenido" tabindex="-1" class="v1-main" data-family="tool">
     <nav class="book-breadcrumb" aria-label="Ruta de navegación">
       <ol><li><a href="/">Inicio</a></li><li><a href="/herramientas/">Herramientas</a></li><li aria-current="page">Herramientas para escritores</li></ol>
     </nav>
