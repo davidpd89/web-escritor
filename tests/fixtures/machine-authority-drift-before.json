@@ -1,0 +1,115 @@
+{
+  "baseSha": "e22ba6aa50c4392b5ae426c17fde9a0b642a1112",
+  "capturedAt": "2026-08-21",
+  "rows": [
+    {
+      "fact": "manecillas.status",
+      "sources": {
+        "editorial-facts.json": "published",
+        "ai/index.html": "próxima publicación",
+        "llms.txt": "publicada el 3 de septiembre de 2026",
+        "llms-full.txt": "publicada el 3 de septiembre de 2026",
+        "press-kit/david-porto-diaz.json": "published",
+        "press-kit/las-manecillas-del-recuerdo.json": "purchase.status: No disponible todavía — publicación 3 de septiembre de 2026"
+      },
+      "drift": true
+    },
+    {
+      "fact": "manecillas.commercialAvailability",
+      "sources": {
+        "editorial-facts.json": "purchaseUrl=null",
+        "ai/index.html": "sin tiendas confirmadas hasta la fecha de publicación",
+        "press-kit/las-manecillas-del-recuerdo.json": "No disponible todavía — publicación 3 de septiembre de 2026"
+      },
+      "drift": true
+    },
+    {
+      "fact": "author.birthYear",
+      "sources": {
+        "llms.txt": "1989",
+        "editorial-facts.json": null,
+        "press-kit/david-porto-diaz.json": null,
+        "autor.html": "no birth year in canonical identity data"
+      },
+      "drift": true,
+      "note": "Unsupported year appeared only in llms.txt."
+    },
+    {
+      "fact": "juanAndresTeno2026.name",
+      "sources": {
+        "premios.html": "Top 10 — Finalista · I Premio de Literatura Infantil Juan Andrés Teno (2026)",
+        "press-kit/david-porto-diaz.json": "Top 10 Premio Nacional Juan Andrés Teno",
+        "press-kit/samuel-entre-mundos.json": "Top 10 Finalista — Premio Nacional de Literatura Infantil Juan Andrés Teno 2026",
+        "llms.txt": "Top 10 Finalista — Premio Nacional de Literatura Infantil Juan Andrés Teno (2026)",
+        "llms-full.txt": "Premio Nacional de Literatura Infantil Juan Andrés Teno"
+      },
+      "drift": true
+    },
+    {
+      "fact": "awardOwnership",
+      "sources": {
+        "editorial-facts.json": "no canonical recognition model",
+        "press-kit/david-porto-diaz.json": "Top 10 stored inside awards[]",
+        "llms.txt": "anthology listed under Premios y reconocimientos",
+        "llms-full.txt": "anthology listed under Premios y reconocimientos"
+      },
+      "drift": true
+    },
+    {
+      "fact": "samuel.pages",
+      "sources": {
+        "editorial-facts.json": 422,
+        "press-kit/samuel-entre-mundos.json": 422,
+        "llms.txt": 422,
+        "llms-full.txt": 422
+      },
+      "drift": false
+    },
+    {
+      "fact": "samuel.publicationYear",
+      "sources": {
+        "editorial-facts.json": 2025,
+        "press-kit/samuel-entre-mundos.json": 2025,
+        "llms.txt": 2025,
+        "llms-full.txt": 2025
+      },
+      "drift": false
+    },
+    {
+      "fact": "noveris.identity",
+      "sources": {
+        "universo/noveris/index.html": "fictional city; Wikidata Q139927664",
+        "llms.txt": "fictional city",
+        "llms-full.txt": "fictional city"
+      },
+      "drift": false
+    },
+    {
+      "fact": "llmsFull.quiz",
+      "sources": {
+        "llms-full.txt": "claims interactive quiz ¿Qué habitante de Noveris serías?",
+        "data/content-registry.json": "no public quiz route",
+        "repository": "no matching public feature found"
+      },
+      "drift": true
+    },
+    {
+      "fact": "robots.anthropicAgents",
+      "sources": {
+        "robots.txt": [
+          "ClaudeBot",
+          "Claude-SearchBot",
+          "Claude-User",
+          "Claude-Web",
+          "anthropic-ai"
+        ],
+        "current documented policy": [
+          "ClaudeBot",
+          "Claude-SearchBot",
+          "Claude-User"
+        ]
+      },
+      "drift": true
+    }
+  ]
+}

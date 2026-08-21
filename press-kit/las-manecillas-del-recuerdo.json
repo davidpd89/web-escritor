@@ -9,6 +9,7 @@
   "format": "Tapa blanda",
   "pages": 272,
   "priceEUR": 16,
+  "status": "published",
   "award": null,
   "rating": null,
   "structuralLabel": "Novela coral de vidas conectadas",
@@ -20,7 +21,11 @@
     "historias conectadas por un objeto",
     "pérdida, procedencia, credibilidad, tecnología, privacidad y segundas oportunidades"
   ],
-  "genres": ["Novela coral", "Ficción especulativa", "Narrativa familiar"],
+  "genres": [
+    "Novela coral",
+    "Ficción especulativa",
+    "Narrativa familiar"
+  ],
   "themes": [
     "memoria individual y memoria heredada",
     "abuelos, hijos y nietos",
@@ -42,11 +47,12 @@
   "synopsis": {
     "short": "Manuel comparte con su nieto Tomás las historias de un reloj que ha pasado por distintas manos y generaciones. Cuando alguien inesperado regresa del pasado, el destino de la familia cambia.",
     "medium": "Las manecillas del recuerdo sigue un reloj que atraviesa vidas, generaciones y épocas. Con cada mano cambia su significado: recuerdo, ancla, mercancía, prueba o herencia. La memoria familiar abre el recorrido; después aparecen preguntas sobre precio, credibilidad, tecnología y segundas oportunidades. No es una cronología explicada desde fuera: cada tramo obliga a mirar el reloj desde intereses distintos.",
-    "atomic": "Las manecillas del recuerdo (Monza Ediciones, 3 de septiembre de 2026) es una novela coral de vidas conectadas de David Porto Díaz. Un reloj familiar atraviesa generaciones marcadas por el amor, la pérdida, los secretos y la esperanza — una novela coral sobre todo lo que el tiempo no consigue borrar. 272 páginas, ISBN 979-8-90514-935-1, 16 €."
+    "atomic": "Las manecillas del recuerdo (Monza Ediciones, publicada el 3 de septiembre de 2026) es una novela coral de vidas conectadas de David Porto Díaz. Un reloj familiar atraviesa generaciones marcadas por el amor, la pérdida, los secretos y la esperanza. 272 páginas, ISBN 979-8-90514-935-1, PVP 16 €."
   },
   "purchase": {
-    "status": "No disponible todavía — publicación 3 de septiembre de 2026",
-    "note": "No se enlaza ninguna tienda hasta que exista una ficha comercial verificable. No usar búsquedas genéricas ni URLs provisionales."
+    "purchaseUrl": null,
+    "status": "Sin URL de compra verificada",
+    "note": "No se enlaza ninguna tienda hasta que exista una ficha comercial verificable. El PVP no implica disponibilidad ni una oferta comercial."
   },
   "urls": {
     "officialPage": "https://davidportodiaz.com/las-manecillas-del-recuerdo/",
@@ -60,5 +66,5 @@
     "mockup3D": "https://davidportodiaz.com/assets/manecillas-book-mockup.webp",
     "socialCardHorizontal": "https://davidportodiaz.com/assets/og-manecillas.webp"
   },
-  "lastUpdated": "2026-08-20"
+  "lastUpdated": "2026-08-21"
 }
