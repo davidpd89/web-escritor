@@ -1,0 +1,46 @@
+/* V1 editorial system — bespoke pieces for the free-chapter reading page.
+   Structural chrome (article-header/article-layout/article-prose/editorial-
+   newsletter) lives in v1-editorial.css, shared with the Cuaderno article
+   family. This file only adds what's specific to reading real fiction
+   prose (novel-style paragraph indent, the chapter figure) and the two
+   purchase CTAs (inline box + scroll-triggered sticky bar). */
+html.v1 .fragment-notice{margin:0 0 2rem;padding:.9rem 1.25rem;border-left:2px solid var(--color-accent);background:var(--surface-quiet);font:400 .92rem/1.6 var(--font-ui);color:var(--color-muted)}
+html.v1 .fragment-intro-indexable{font:400 1rem/1.65 var(--font-reading);color:var(--color-muted);margin:0 0 2rem}
+
+html.v1 .visual-figure--fragment{margin:0 0 2.5rem}
+html.v1 .visual-figure--fragment img{width:100%;height:auto;border:1px solid var(--color-border)}
+html.v1 .visual-figure--fragment figcaption{margin-top:.6rem;font:400 .82rem/1.5 var(--font-ui);color:var(--color-muted);text-align:center}
+
+html.v1 .fragment-reading.fragment-text{font-family:var(--font-reading)}
+html.v1 .fragment-text h2{font:600 .82rem/1.4 var(--font-ui);letter-spacing:.1em;text-transform:uppercase;color:var(--color-muted);margin:0 0 2rem;scroll-margin-top:110px}
+html.v1 .fragment-text p{margin:0 0 1.4em;hanging-punctuation:first}
+html.v1 .fragment-text p+p{text-indent:1.5em}
+html.v1 .fragment-text p:first-of-type{text-indent:0}
+html.v1 .fragment-speech{text-align:center;font:400 1.15em/1.5 var(--font-display);color:var(--color-accent-strong);margin:2rem 0}
+html.v1 .fragment-aside{font-style:italic;color:var(--color-muted);text-align:center}
+html.v1 .fragment-divider{border:none;border-top:1px solid var(--color-border);margin:3rem 0}
+
+html.v1 .fragment-cta-box{margin:3.5rem 0 0;padding:clamp(2rem,4vw,3rem);border:1px solid var(--color-border);text-align:center}
+html.v1 .fragment-cta-box h2{font:400 var(--text-2xl)/1.15 var(--font-display);margin:.4rem 0 .9rem}
+html.v1 .fragment-cta-box>p{max-width:52ch;margin:0 auto 1.5rem;color:var(--color-muted);font-family:var(--font-reading)}
+html.v1 .fragment-cta-actions{display:flex;flex-direction:column;gap:.9rem;align-items:center}
+html.v1 .fragment-cta-actions .primary-action{min-width:260px}
+html.v1 .fragment-cta-isbn{margin-top:1.4rem;font:400 .8rem/1.5 var(--font-ui);color:var(--color-muted)}
+
+html.v1 #sticky-cta{position:fixed;left:0;right:0;bottom:0;z-index:var(--z-sticky);display:flex;align-items:center;justify-content:space-between;gap:1rem;padding:1rem clamp(1rem,4vw,2rem);background:var(--surface-inverse);color:var(--color-on-inverse);transform:translateY(110%);transition:transform var(--motion-state) var(--ease-standard)}
+html.v1 #sticky-cta.visible{transform:translateY(0)}
+html.v1 #sticky-cta p{margin:0;font:400 .95rem/1.4 var(--font-reading);display:none}
+html.v1 .sticky-cta-buttons{display:flex;gap:.75rem;flex-wrap:wrap;align-items:center}
+html.v1 #sticky-cta .primary-action{background:var(--color-on-inverse);color:var(--surface-inverse);border-color:var(--color-on-inverse)}
+html.v1 #sticky-cta .text-action{color:var(--color-on-inverse);text-decoration-color:var(--dp-brass)}
+html.v1 #sticky-cta-close{border:0;background:none;color:var(--color-on-inverse);font-size:1.3rem;line-height:1;cursor:pointer;padding:.25rem .5rem}
+
+@media(min-width:640px){
+  html.v1 #sticky-cta p{display:block}
+}
+@media(max-width:520px){
+  html.v1 .fragment-cta-actions .primary-action{min-width:0;width:100%}
+}
+@media print{
+  html.v1 #sticky-cta,html.v1 .editorial-newsletter{display:none!important}
+}
