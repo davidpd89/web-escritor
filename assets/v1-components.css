@@ -1,0 +1,28 @@
+/* V1 editorial system — shared signature layer (coordinate/folio/ledger/
+   marginalia/route-spine/view-transitions). Ported from
+   lab/diseno-home-v1/css/signatures.css. Used by any V1 family that needs
+   a numbered-ledger or archival-marginalia composition (Samuel, and future
+   families per doc 25) instead of duplicating these primitives per file. */
+html.v1 .coordinate{display:inline-flex;align-items:center;gap:.6rem;font:600 .74rem/1 var(--font-ui);letter-spacing:.12em;text-transform:uppercase;color:var(--color-muted)}
+html.v1 .coordinate::after{content:"";inline-size:clamp(2.5rem,8vw,7rem);block-size:1px;background:currentColor;opacity:.45}
+html.v1 .folio{font:600 .72rem/1 var(--font-ui);letter-spacing:.12em;text-transform:uppercase;color:var(--color-muted)}
+html.v1 .ledger{margin:0;padding:0;list-style:none;border-top:1px solid var(--color-border)}
+html.v1 .ledger__row{display:grid;grid-template-columns:minmax(3.5rem,7rem) minmax(0,1.25fr) minmax(10rem,.75fr) auto;gap:clamp(.75rem,2vw,2rem);align-items:baseline;min-height:4.6rem;padding:1rem 0;border-bottom:1px solid var(--color-border)}
+html.v1 .ledger__row:focus-within,html.v1 .ledger__row:hover{border-bottom-color:var(--color-text)}
+html.v1 .ledger__index{font:600 .72rem/1 var(--font-ui);letter-spacing:.1em;color:var(--color-muted)}
+html.v1 .ledger__primary{font:500 clamp(1.08rem,1rem + .45vw,1.5rem)/1.15 var(--font-display)}
+html.v1 .ledger__secondary{font-size:.88rem;line-height:1.45;color:var(--color-muted)}
+html.v1 .ledger__action{justify-self:end;white-space:nowrap}
+html.v1 .ledger__row a{text-underline-offset:.22em}
+html.v1 .object-cover{display:block;width:min(100%,28rem);height:auto;box-shadow:var(--shadow-object)}
+html.v1 .marginalia{font:500 .78rem/1.45 var(--font-ui);color:var(--color-muted);border-left:1px solid var(--color-border);padding-left:1rem}
+html.v1 .route-spine{position:relative;list-style:none;margin:0;padding:0 0 0 2rem}
+html.v1 .route-spine::before{content:"";position:absolute;left:.3rem;top:.4rem;bottom:.4rem;width:1px;background:var(--color-border)}
+html.v1 .route-spine>li{position:relative;padding:0 0 2.25rem}
+html.v1 .route-spine>li::before{content:"";position:absolute;left:-1.98rem;top:.45rem;width:.6rem;height:.6rem;border:1px solid var(--color-text);background:var(--surface-page)}
+html.v1 .route-spine>li:last-child{padding-bottom:0}
+@media(max-width:767px){
+  html.v1 .ledger__row{grid-template-columns:3rem minmax(0,1fr);gap:.55rem 1rem;align-items:start}
+  html.v1 .ledger__secondary,html.v1 .ledger__action{grid-column:2}
+  html.v1 .ledger__action{justify-self:start}
+}

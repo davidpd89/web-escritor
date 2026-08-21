@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="es" class="v1">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
@@ -36,15 +36,25 @@
   }
   </script>
 
-  <meta name="theme-color" content="#080a0c" />
-  <link rel="preconnect" href="https://gc.zgo.at" /><link rel="canonical" href="https://davidportodiaz.com/libros/samuel-entre-mundos/" />
+  <meta name="theme-color" content="#F4EFE7" />
+  <link rel="preconnect" href="https://gc.zgo.at" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="canonical" href="https://davidportodiaz.com/libros/samuel-entre-mundos/" />
   <link rel="preload" as="image" href="/assets/samuel_entre_mundos_3d.avif" fetchpriority="high" />
-  <link rel="preload" as="font" type="font/woff2" href="/assets/fonts/cg-normal-latin.woff2" crossorigin />
-  <link rel="preload" as="font" type="font/woff2" href="/assets/fonts/inter-normal-latin.woff2" crossorigin />
   <link rel="icon" type="image/png" href="/assets/david-porto-favicon.png" />
   <link rel="apple-touch-icon" href="/assets/david-porto-favicon.png" />
   <link rel="manifest" href="/manifest.json" />
-  <link rel="stylesheet" href="/styles.css?v=202609-launch-1" />
+
+  <!-- V1 editorial system — Samuel is a dedicated family, not the Manecillas
+       book skin: fonts/tokens/base/shell (shared shell), components
+       (ledger/coordinate/folio), samuel (threshold/two-register/review stream). -->
+  <link rel="stylesheet" href="/assets/v1-fonts.css" />
+  <link rel="stylesheet" href="/assets/v1-tokens.css" />
+  <link rel="stylesheet" href="/assets/v1-base.css" />
+  <link rel="stylesheet" href="/assets/v1-shell.css" />
+  <link rel="stylesheet" href="/assets/v1-components.css" />
+  <link rel="stylesheet" href="/assets/v1-samuel.css" />
 
   <script type="application/ld+json">
   {
@@ -59,7 +69,7 @@
         "inLanguage": "es",
         "isPartOf": { "@id": "https://davidportodiaz.com/#website" },
         "about": { "@id": "https://davidportodiaz.com/#book-samuel" },
-        "dateModified": "2026-08-20",
+        "dateModified": "2026-08-21",
         "breadcrumb": {
           "@type": "BreadcrumbList",
           "itemListElement": [
@@ -76,7 +86,7 @@
         "author": { "@type": "Person", "@id": "https://davidportodiaz.com/#author", "name": "David Porto Díaz" },
         "isbn": "9791387659776",
         "datePublished": "2025",
-        "dateModified": "2026-08-20",
+        "dateModified": "2026-08-21",
         "numberOfPages": 422,
         "inLanguage": "es",
         "publisher": { "@id": "https://davidportodiaz.com/#publisher-libros-indie" },
@@ -257,404 +267,258 @@
 
 <body>
   <a href="#contenido" class="skip-link">Saltar al contenido</a>
-  <div class="site-shell">
-    <header class="site-header">
-      <a class="brand" href="/" aria-label="Volver al inicio - David Porto Díaz">
-        <span class="brand-mark">
-          <img src="/assets/logo-david-porto-diaz-escritor-176.webp" alt="" class="brand-logo-img" width="52" height="52" aria-hidden="true" />
-        </span>
-        <span class="brand-text">
-          <strong>David Porto Díaz</strong>
-          <small>Escritor</small>
-        </span>
+
+  <header class="site-header" data-header>
+    <div class="site-header__inner">
+      <a class="brand" href="/" aria-label="David Porto Díaz — inicio">
+        <span class="brand__name">David Porto Díaz</span>
+        <span class="brand__role">Escritor</span>
       </a>
-
-      <button class="nav-toggle" type="button" aria-label="Abrir menú" aria-expanded="false">
-        <span></span>
-        <span></span>
-      </button>
-
-      <nav class="site-nav" aria-label="Navegación principal">
-        <a href="/">Inicio</a>
-        <a href="/libros/" aria-current="page">Libros</a>
+      <nav class="primary-nav" aria-label="Navegación principal">
+        <a href="/libros/" aria-current="page">Obra</a>
         <a href="/cuaderno/">Cuaderno</a>
-        <a href="/autor.html">El autor</a>
-        <a href="/eventos.html">Eventos</a>
-        <a href="/prensa.html">Prensa</a>
+        <a href="/herramientas/">Herramientas</a>
       </nav>
+      <button class="explore-trigger" type="button" aria-haspopup="dialog" aria-controls="explore-dialog" aria-expanded="false" data-explore-open>
+        Explorar
+      </button>
+    </div>
+  </header>
+
+  <dialog class="explore-dialog" id="explore-dialog" aria-labelledby="explore-title" data-explore-dialog>
+    <div class="explore-dialog__shell">
+      <div class="explore-dialog__head">
+        <div>
+          <p class="eyebrow">Índice general</p>
+          <h2 id="explore-title">Explorar</h2>
+        </div>
+        <button class="icon-button" type="button" aria-label="Cerrar Explorar" data-explore-close>
+          <svg aria-hidden="true" viewBox="0 0 24 24" width="20" height="20"><path d="M5 5l14 14M19 5L5 19"/></svg>
+        </button>
+      </div>
+
+      <div class="explore-dialog__grid">
+        <nav class="explore-list" aria-label="Destinos de la web">
+          <a class="explore-row" href="/las-manecillas-del-recuerdo/" data-preview="manecillas">
+            <span class="explore-row__index">01</span>
+            <span class="explore-row__body"><strong>Las manecillas del recuerdo</strong><small>La obra actual.</small></span>
+          </a>
+          <a class="explore-row" href="/autor.html" data-preview="autor">
+            <span class="explore-row__index">02</span>
+            <span class="explore-row__body"><strong>Autor</strong><small>Biografía, obra y trayectoria.</small></span>
+          </a>
+          <a class="explore-row" href="/libros/samuel-entre-mundos/" data-preview="samuel">
+            <span class="explore-row__index">03</span>
+            <span class="explore-row__body"><strong>Samuel entre mundos</strong><small>Primera novela publicada.</small></span>
+          </a>
+          <a class="explore-row" href="/cuaderno/" data-preview="cuaderno">
+            <span class="explore-row__index">04</span>
+            <span class="explore-row__body"><strong>Cuaderno</strong><small>Artículos y piezas editoriales.</small></span>
+          </a>
+          <a class="explore-row" href="/herramientas/" data-preview="herramientas">
+            <span class="explore-row__index">05</span>
+            <span class="explore-row__body"><strong>Herramientas</strong><small>Utilidades gratuitas para escritores.</small></span>
+          </a>
+          <a class="explore-row" href="/prensa.html" data-preview="prensa">
+            <span class="explore-row__index">06</span>
+            <span class="explore-row__body"><strong>Prensa y eventos</strong><small>Apariciones, materiales y agenda.</small></span>
+          </a>
+        </nav>
+
+        <aside class="explore-preview" aria-live="polite" aria-atomic="true" data-explore-preview>
+          <div class="explore-preview__media" aria-hidden="true" data-preview-media></div>
+          <p class="explore-preview__label" data-preview-label>Las manecillas del recuerdo</p>
+          <p class="explore-preview__copy" data-preview-copy>La obra actual y punto de entrada editorial.</p>
+        </aside>
+      </div>
+    </div>
+  </dialog>
+
+  <main id="contenido" class="samuel-page" data-family="book-samuel">
+    <header class="samuel-threshold" aria-labelledby="samuel-title">
+      <div class="samuel-threshold__object">
+        <span class="coordinate">Obra · 01 · Publicada</span>
+        <picture class="samuel-object">
+          <source srcset="/assets/samuel_entre_mundos_3d.avif" type="image/avif">
+          <img src="/assets/samuel_entre_mundos_3d.webp" alt="Atmósfera de Noveris en la portada de Samuel entre mundos, destacando la medalla como umbral entre mundos" width="420" height="659" fetchpriority="high" decoding="async">
+        </picture>
+        <p class="samuel-object__caption">Libros Indie · 2025 · ISBN 9791387659776</p>
+      </div>
+      <div class="samuel-threshold__copy">
+        <p class="eyebrow">Fantasía juvenil española · Fantasía de portales</p>
+        <h1 id="samuel-title">Samuel entre mundos</h1>
+        <p class="samuel-lead">Un chico con una medalla que esconde demasiados secretos. Una ciudad fantástica dimensional donde la magia siempre exige un precio.</p>
+        <dl class="samuel-facts" aria-label="Ficha rápida">
+          <div><dt>Páginas</dt><dd>422</dd></div>
+          <div><dt>Formato</dt><dd>Tapa blanda</dd></div>
+          <div><dt>Editorial</dt><dd>Libros Indie</dd></div>
+          <div><dt>Año</dt><dd>2025</dd></div>
+        </dl>
+        <div class="samuel-actions">
+          <a class="primary-action" href="/fragmento/">Leer capítulo 1 gratis</a>
+          <button class="text-action" type="button" data-buy-modal>¿Dónde comprar?</button>
+          <a class="text-action" href="/universo/noveris/">Explorar Noveris</a>
+        </div>
+        <p class="samuel-hook">¿Quieres un ejemplar dedicado? <a href="#ejemplar-firmado">Solicita información para recibirlo firmado.</a> También hay una <a href="/clubes-de-lectura/samuel-entre-mundos/">guía para clubes de lectura</a>.</p>
+      </div>
+      <a class="samuel-threshold__route" href="#sinopsis-tecnica"><span>01</span><strong>Cruzar el umbral</strong><small>Qué es el libro</small></a>
     </header>
 
-    <main id="contenido">
-      <section class="book-hero book-hero--compact" aria-label="Samuel entre mundos">
-        <div class="hero-bg" aria-hidden="true"></div>
-
-        <div class="book-hero-inner">
-          <div class="book-hero-cover">
-            <figure>
-              <picture>
-                <source srcset="/assets/samuel_entre_mundos_3d.avif" type="image/avif" />
-                <img src="/assets/samuel_entre_mundos_3d.webp" alt="Atmósfera de Noveris en la portada de Samuel entre mundos, destacando la medalla como umbral entre mundos" class="book-hero-img" width="420" height="659" fetchpriority="high" decoding="async" />
-              </picture>
-              <figcaption>Samuel entre mundos · Libros Indie · ISBN 9791387659776</figcaption>
-            </figure>
-          </div>
-
-          <div class="book-hero-copy">
-            <nav class="breadcrumb" aria-label="Ruta de navegación">
-              <a href="/">David Porto Díaz</a>
-              <span aria-hidden="true"> / </span>
-              <span aria-current="page">Samuel entre mundos</span>
-            </nav>
-
-            <p class="eyebrow">Fantasía juvenil española · David Porto Díaz · Libros Indie 2025</p>
-            <h1>Samuel entre mundos</h1>
-            <p class="book-hero-tagline">Un chico con una medalla que esconde demasiados secretos.<br>Una ciudad fantástica dimensional donde la magia siempre exige un precio.</p>
-            <p class="book-hero-desc">
-              Samuel Osborne no buscaba héroes ni aventuras. Pero la medalla que lleva consigo tiene memoria propia, y Noveris lleva años esperando que alguien recuerde la verdad.<br/>
-              Una historia de portales, lealtades rotas y verdades que no se pueden desaprender. 422 páginas de fantasía juvenil española.
-            </p>
-
-            <div class="book-hero-badges">
-              <span class="badge badge--available">Disponible</span>
-              <span class="badge badge--available">422 páginas</span>
-              <span class="badge badge--available">ISBN 9791387659776</span>
-            </div>
-
-            <div class="hero-actions">
-              <a class="button primary" href="/fragmento/">Leer capítulo 1 gratis</a>
-              <button class="button secondary" type="button" data-buy-modal>¿Dónde comprar?</button>
-              <a class="button tertiary" href="/universo/noveris/">Explorar Noveris</a>
-              <a class="button tertiary" href="/clubes-de-lectura/samuel-entre-mundos/">Clubes de lectura</a>
-            </div>
-            <p class="book-lead-hook">¿Quieres un ejemplar dedicado? <a href="#ejemplar-firmado">Solicita información para recibir Samuel entre mundos firmado.</a> También hay una <a href="/clubes-de-lectura/samuel-entre-mundos/">guía para clubes de lectura</a> y una <a href="/clubes-de-lectura/samuel-entre-mundos/guia-imprimible/">versión imprimible para mediadores</a>.</p>
-          </div>
+    <section class="samuel-section samuel-register" id="sinopsis-tecnica">
+      <header class="samuel-section__head"><span class="folio">Registro S/01</span><div><p class="eyebrow">Respuesta rápida</p><h2>Qué es Samuel entre mundos.</h2></div></header>
+      <div class="samuel-register__split">
+        <div class="samuel-register__prose">
+          <p><em>Samuel entre mundos</em> (Libros Indie, 2025) es una novela de <strong>fantasía juvenil española</strong> de portales entre mundos, dirigida a lectores juveniles y a adultos que buscan fantasía con sistema de magia coherente y protagonista no-elegido. Narra la historia de Samuel Osborne, cuya medalla familiar despierta en <strong>Noveris</strong>, una ciudad fantástica separada del mundo humano por una barrera dimensional, y lo arrastra a una guerra entre facciones —Zunthar y Marelian— donde cada uso de magia exige un precio real. Obra de David Porto Díaz, autor reconocido con el Primer Premio — XII Certamen de Microrrelatos «De amor» · Letras Como Espada 2026, en la categoría de microrrelatos. ISBN: 9791387659776. 422 páginas.</p>
+          <p>La novela plantea una fantasía de portales con lógica interna precisa: Noveris no trata la magia como decoración, sino como una tecnología orgánica que necesita instrumentos, afinidad y compensación. Los canalizadores no son simples varitas. Pueden conservar memoria, responder a fallos de su portador y buscar volver a su forma original cuando son dañados.</p>
+          <p>El conflicto central nace de una infraestructura rota. La barrera que separa dimensiones pierde estabilidad, las fisuras permiten contaminación de recuerdos entre mundos y Samuel empieza a comportarse como una anomalía que el sistema no sabe clasificar. Su medalla familiar actúa como llave, sensor y archivo de una verdad que otros intentaron sellar.</p>
+          <figure>
+            <img src="/assets/diagrama-tecnico-canalizadores-magia-noveris.avif" alt="Diagrama técnico del sistema de canalizadores de Noveris, mostrando vínculo, memoria material y coste mágico" width="2752" height="1536" loading="lazy" decoding="async" />
+            <figcaption>Diagrama técnico de canalizadores: vínculo, memoria del objeto y coste mágico en Noveris.</figcaption>
+          </figure>
         </div>
-      </section>
-
-      <section class="section samuel-about-band" id="sinopsis-tecnica">
-        <div class="section-heading">
-          <p class="eyebrow">Respuesta rápida</p>
-          <h2>Qué es Samuel entre mundos.</h2>
-        </div>
-        <p class="geo-answer"><em>Samuel entre mundos</em> (Libros Indie, 2025) es una novela de <strong>fantasía juvenil española</strong> de portales entre mundos, dirigida a lectores juveniles y a adultos que buscan fantasía con sistema de magia coherente y protagonista no-elegido. Narra la historia de Samuel Osborne, cuya medalla familiar despierta en <strong>Noveris</strong>, una ciudad fantástica separada del mundo humano por una barrera dimensional, y lo arrastra a una guerra entre facciones —Zunthar y Marelian— donde cada uso de magia exige un precio real. Se presenta como portal fantasy juvenil español con sistema de magia de reglas duras, objetos con memoria y protagonista no-elegido. Obra de David Porto Díaz, autor reconocido con el Primer Premio — XII Certamen de Microrrelatos «De amor» · Letras Como Espada 2026, en la categoría de microrrelatos. ISBN: 9791387659776. 422 páginas.</p>
-
-        <figure class="technical-diagram">
-          <img
-            src="/assets/diagrama-tecnico-canalizadores-magia-noveris.avif"
-            alt="Diagrama técnico del sistema de canalizadores de Noveris, mostrando vínculo, memoria material y coste mágico"
-            width="2752"
-            height="1536"
-            loading="lazy"
-            decoding="async"
-          />
-          <figcaption>Diagrama técnico de canalizadores: vínculo, memoria del objeto y coste mágico en Noveris.</figcaption>
-        </figure>
-
-        <div class="synopsis-grid">
-          <div class="synopsis-text">
-            <p>
-              La novela plantea una fantasía de portales con lógica interna precisa: Noveris no trata la magia como decoración, sino como una tecnología orgánica que necesita instrumentos, afinidad y compensación. Los canalizadores no son simples varitas. Pueden conservar memoria, responder a fallos de su portador y buscar volver a su forma original cuando son dañados.
-            </p>
-            <p>
-              El conflicto central nace de una infraestructura rota. La barrera que separa dimensiones pierde estabilidad, las fisuras permiten contaminación de recuerdos entre mundos y Samuel empieza a comportarse como una anomalía que el sistema no sabe clasificar. Su medalla familiar actúa como llave, sensor y archivo de una verdad que otros intentaron sellar.
-            </p>
-          </div>
-
-          <aside class="synopsis-aside">
-            <figure style="margin: 0 0 20px; text-align: center;">
-              <img
-                src="/assets/medallon-samuel-entidad.avif"
-                alt="El medallón de Samuel Osborne — canalizador anómalo de Noveris que late en lugar de brillar"
-                width="2816"
-                height="1536"
-                loading="lazy"
-                decoding="async"
-                style="width: 100%; max-width: 200px; border-radius: 10px; border: 1px solid var(--border);"
-              />
-              <figcaption style="font-size: 0.75rem; color: var(--muted-2); margin-top: 6px;">El medallón — objeto arcano de Samuel</figcaption>
-            </figure>
-            <div class="synopsis-quick">
-              <p class="synopsis-quick-label">Datos clave</p>
-              <ul>
-                <li>Ciudad central: Noveris</li>
-                <li>Sistema mágico: canalizadores con vínculo</li>
-                <li>Evento histórico: Guerra de los Cristales</li>
-                <li>Facciones: Zunthar y Marelian</li>
-                <li>Artefacto central: Espejo Ancestral</li>
-              </ul>
-            </div>
-          </aside>
-        </div>
-      </section>
-
-      <section class="section section--alt" id="para-quien">
-        <div class="section-heading">
-          <p class="eyebrow">Orientación de lectura</p>
-          <h2>Para quién es Samuel entre mundos.</h2>
-        </div>
-
-        <div style="display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:20px">
-          <article style="border:1px solid var(--border);border-radius:18px;padding:26px;background:rgba(255,255,255,0.03)">
-            <h3 style="font-family:var(--font-display);font-size:1.55rem;margin:0 0 14px">Este libro es para ti si buscas...</h3>
-            <ul style="margin:0;padding-left:20px;color:var(--muted);line-height:1.8">
-              <li>Fantasía juvenil española con portales y mundos conectados.</li>
-              <li>Magia con reglas, coste real y consecuencias reales.</li>
-              <li>Secretos familiares, objetos con memoria y protagonista no-elegido.</li>
-              <li>Una aventura de 422 páginas con ciudad fantástica, facciones y misterio.</li>
-            </ul>
-          </article>
-
-          <article style="border:1px solid var(--border);border-radius:18px;padding:26px;background:rgba(255,255,255,0.03)">
-            <h3 style="font-family:var(--font-display);font-size:1.55rem;margin:0 0 14px">Quizá no es para ti si buscas...</h3>
-            <ul style="margin:0;padding-left:20px;color:var(--muted);line-height:1.8">
-              <li>Romantasy centrado en una relación amorosa principal.</li>
-              <li>Fantasía épica clásica de elfos, dragones y reinos medievales.</li>
-              <li>Terror adulto, violencia extrema o una novela oscura para mayores.</li>
-              <li>Una historia realista sin portales, objetos mágicos ni sistema de magia.</li>
-            </ul>
-          </article>
-        </div>
-      </section>
-
-      <section class="section section--alt" id="ficha">
-        <div class="section-heading">
-          <p class="eyebrow">Ficha técnica</p>
-          <h2>Datos bibliográficos y de prensa.</h2>
-        </div>
-
-        <div class="ficha-grid">
-          <dl class="ficha-dl">
-            <div class="ficha-row"><dt>Título</dt><dd>Samuel entre mundos</dd></div>
-            <div class="ficha-row"><dt>Autor</dt><dd><a href="/">David Porto Díaz</a></dd></div>
-            <div class="ficha-row"><dt>Editorial</dt><dd><a href="https://librosindie.net/product/samuel-entre-mundos/" target="_blank" rel="noopener noreferrer">Libros Indie</a></dd></div>
-            <div class="ficha-row"><dt>Año</dt><dd>2025</dd></div>
-            <div class="ficha-row"><dt>ISBN</dt><dd>9791387659776</dd></div>
-            <div class="ficha-row"><dt>Formato</dt><dd>Tapa blanda</dd></div>
-            <div class="ficha-row"><dt>Páginas</dt><dd>422</dd></div>
-            <div class="ficha-row"><dt>Géneros</dt><dd>Fantasía juvenil · Fantasía de portales · Ficción especulativa · Aventura</dd></div>
-            <div class="ficha-row"><dt>Kit de prensa</dt><dd><a href="/assets/samuel-entre-mundos-ficha-tecnica.txt" download>Descargar ficha técnica</a> · <a href="/prensa.html">Ver recursos</a></dd></div>
+        <div>
+          <img src="/assets/medallon-samuel-entidad.avif" alt="El medallón de Samuel Osborne — canalizador anómalo de Noveris que late en lugar de brillar" width="2816" height="1536" loading="lazy" decoding="async" style="width:100%;max-width:14rem;display:block;margin-bottom:1rem;border:1px solid var(--color-border)" />
+          <dl class="samuel-ledger" aria-label="Datos clave">
+            <div><dt>Ciudad central</dt><dd>Noveris</dd></div>
+            <div><dt>Sistema mágico</dt><dd>Canalizadores con vínculo</dd></div>
+            <div><dt>Evento histórico</dt><dd>Guerra de los Cristales</dd></div>
+            <div><dt>Facciones</dt><dd>Zunthar y Marelian</dd></div>
+            <div><dt>Artefacto central</dt><dd>Espejo Ancestral</dd></div>
           </dl>
         </div>
-      </section>
+      </div>
+    </section>
 
-      <section class="section" id="clubes-bibliotecas">
-        <div class="section-heading">
-          <p class="eyebrow">Clubes, institutos y bibliotecas</p>
-          <h2>Material para trabajar Samuel entre mundos en grupo.</h2>
-          <p>Recursos para mediadores de lectura: ficha rápida, preguntas de debate, actividad final y contacto para invitar al autor a una sesión presencial o por videollamada.</p>
+    <section class="samuel-section samuel-fit" id="para-quien">
+      <header class="samuel-section__head"><span class="folio">Registro S/02</span><div><p class="eyebrow">Orientación de lectura</p><h2>Para quién es Samuel entre mundos.</h2></div></header>
+      <div class="samuel-fit__split">
+        <div>
+          <h3>Este libro es para ti si buscas...</h3>
+          <ul>
+            <li>Fantasía juvenil española con portales y mundos conectados.</li>
+            <li>Magia con reglas, coste real y consecuencias reales.</li>
+            <li>Secretos familiares, objetos con memoria y protagonista no-elegido.</li>
+            <li>Una aventura de 422 páginas con ciudad fantástica, facciones y misterio.</li>
+          </ul>
         </div>
-        <div class="feature-grid feature-grid--3">
-          <article class="feature-card">
-            <h3>Guía de lectura</h3>
-            <p>Preguntas ordenadas para comentar la novela completa, con foco en identidad, Noveris, canalizadores y magia con coste.</p>
-            <a class="button secondary" href="/clubes-de-lectura/samuel-entre-mundos/">Ver guía completa</a>
-          </article>
-          <article class="feature-card">
-            <h3>Versión imprimible</h3>
-            <p>Una página ligera para compartir con profesores, bibliotecas o coordinadores del club antes de la sesión.</p>
-            <a class="button secondary" href="/clubes-de-lectura/samuel-entre-mundos/guia-imprimible/">Abrir guía imprimible</a>
-          </article>
-          <article class="feature-card">
-            <h3>Encuentro con el autor</h3>
-            <p>David Porto Díaz puede participar en preguntas y respuestas con el grupo, presencialmente en Madrid y alrededores o por videollamada.</p>
-            <a class="button secondary" href="/clubes-de-lectura/samuel-entre-mundos/#invitar">Invitar al autor</a>
-          </article>
+        <div>
+          <h3>Quizá no es para ti si buscas...</h3>
+          <ul>
+            <li>Romantasy centrado en una relación amorosa principal.</li>
+            <li>Fantasía épica clásica de elfos, dragones y reinos medievales.</li>
+            <li>Terror adulto, violencia extrema o una novela oscura para mayores.</li>
+            <li>Una historia realista sin portales, objetos mágicos ni sistema de magia.</li>
+          </ul>
         </div>
-      </section>
+      </div>
+    </section>
 
-      <section class="section" id="mecanica">
-        <div class="section-heading">
-          <p class="eyebrow">Sistema de magia</p>
-          <h2>El sistema de magia: canalizadores, coste y Noveris.</h2>
+    <section class="samuel-section" id="ficha">
+      <header class="samuel-section__head"><span class="folio">Registro S/03</span><div><p class="eyebrow">Ficha técnica</p><h2>Datos bibliográficos y de prensa.</h2></div></header>
+      <dl class="samuel-ledger samuel-ledger--wide">
+        <div><dt>Título</dt><dd>Samuel entre mundos</dd></div>
+        <div><dt>Autor</dt><dd><a href="/">David Porto Díaz</a></dd></div>
+        <div><dt>Editorial</dt><dd><a href="https://librosindie.net/product/samuel-entre-mundos/" target="_blank" rel="noopener noreferrer">Libros Indie</a></dd></div>
+        <div><dt>Año</dt><dd>2025</dd></div>
+        <div><dt>ISBN</dt><dd>9791387659776</dd></div>
+        <div><dt>Formato</dt><dd>Tapa blanda</dd></div>
+        <div><dt>Páginas</dt><dd>422</dd></div>
+        <div><dt>Géneros</dt><dd>Fantasía juvenil · Fantasía de portales · Ficción especulativa · Aventura</dd></div>
+        <div><dt>Kit de prensa</dt><dd><a href="/assets/samuel-entre-mundos-ficha-tecnica.txt" download>Descargar ficha técnica</a> · <a href="/prensa.html">Ver recursos</a></dd></div>
+      </dl>
+    </section>
+
+    <section class="samuel-section" id="clubes-bibliotecas">
+      <header class="samuel-section__head"><span class="folio">Registro S/04</span><div><p class="eyebrow">Clubes, institutos y bibliotecas</p><h2>Material para trabajar Samuel entre mundos en grupo.</h2></div></header>
+      <ol class="samuel-route-list">
+        <li><span>01</span><div><strong>Guía de lectura</strong><p>Preguntas ordenadas para comentar la novela completa, con foco en identidad, Noveris, canalizadores y magia con coste.</p></div><a href="/clubes-de-lectura/samuel-entre-mundos/">Ver guía completa</a></li>
+        <li><span>02</span><div><strong>Versión imprimible</strong><p>Una página ligera para compartir con profesores, bibliotecas o coordinadores del club antes de la sesión.</p></div><a href="/clubes-de-lectura/samuel-entre-mundos/guia-imprimible/">Abrir guía imprimible</a></li>
+        <li><span>03</span><div><strong>Encuentro con el autor</strong><p>David Porto Díaz puede participar en preguntas y respuestas con el grupo, presencialmente en Madrid y alrededores o por videollamada.</p></div><a href="/clubes-de-lectura/samuel-entre-mundos/#invitar">Invitar al autor</a></li>
+      </ol>
+    </section>
+
+    <section class="samuel-section samuel-mechanics" id="mecanica">
+      <header class="samuel-section__head"><span class="folio">Registro S/05</span><div><p class="eyebrow">Sistema de magia</p><h2>Canalizadores, coste y Noveris.</h2></div></header>
+      <ol class="samuel-mechanics__ledger">
+        <li><span>01</span><h3>Canalizadores</h3><p>Objetos afines que median la energía mágica. Algunos desarrollan memoria y comportamiento propio, como Sael, Zakra, Zephy o Arúlea. El vínculo incorrecto puede producir daño físico o cognitivo.</p></li>
+        <li><span>02</span><h3>Barrera dimensional</h3><p>Separación inestable entre Noveris y el mundo humano. Cuando cede, no solo se abren puertas: se filtran recuerdos, olores, sonidos y fragmentos de realidad que alteran la percepción.</p></li>
+        <li><span>03</span><h3>Espejo Ancestral</h3><p>Instrumento de lectura profunda. Su función no es reflejar la superficie, sino revelar identidad, vínculo y fractura, convirtiendo la verdad personal en un dato peligroso.</p></li>
+      </ol>
+    </section>
+
+    <section class="samuel-section samuel-proof" id="validacion-social">
+      <header class="samuel-section__head"><span class="folio">Registro S/06</span><div><p class="eyebrow">Lectores verificados · Amazon España</p><h2>Reseñas y opiniones.</h2></div></header>
+      <div class="samuel-proof__contract">
+        <p>Reseñas reales de lectores en Amazon España, en orden. Ninguna ha sido resumida ni editada.</p>
+        <a class="text-action" href="https://www.amazon.es/dp/B0GB6LGQFH?tag=davidporto-21" target="_blank" rel="sponsored nofollow noopener noreferrer">Ver en Amazon</a>
+      </div>
+      <ul class="samuel-proof__stream">
+        <li><span class="folio">01</span><div><blockquote>«El ritmo del libro es trepidante y siempre tiene lista una nueva sorpresa, un giro inesperado que hace que no quieras parar de leer. Recomendadísimo.»</blockquote><cite>Carlos Bermejo Pérez · Amazon España</cite></div></li>
+        <li><span class="folio">02</span><div><blockquote>«Hay libros que se leen… y otros que se sienten. Cuando llegas al final, no sientes que se acabe: sientes que quieres seguir.»</blockquote><cite>Manuel Corrochano · Amazon España</cite></div></li>
+        <li><span class="folio">03</span><div><blockquote>«Uno de los grandes aciertos del libro es su capacidad para conectar con lectores jóvenes y adultos por igual. Sus temas universales hacen que cualquiera pueda verse reflejado.»</blockquote><cite>Miguel Ángel Dorado Lozano · Amazon España</cite></div></li>
+        <li><span class="folio">04</span><div><blockquote>«Una magnífica novela debut, entretenida y fácil de leer. Un buen punto de partida para una saga de más libros. Deseando leer más novelas del autor.»</blockquote><cite>Ángela · Amazon España</cite></div></li>
+        <li><span class="folio">05</span><div><blockquote>«Una historia muy original y entretenida. Se nota el cariño y la imaginación puestos en la historia. Muy recomendable para quienes disfrutan de la fantasía y los mundos paralelos.»</blockquote><cite>Ismael · Amazon España</cite></div></li>
+        <li><span class="folio">06</span><div><blockquote>«La relación entre los personajes y el compañerismo juegan un papel muy importante. Un mensaje positivo sobre la amistad, la confianza y la unión.»</blockquote><cite>José Luis · Amazon España</cite></div></li>
+        <li><span class="folio">07</span><div><blockquote>«Desde las primeras páginas consigue atraparte con una mezcla de misterio, aventura y emoción que hace muy difícil dejar de leer.»</blockquote><cite>Cliente Amazon · Amazon España</cite></div></li>
+        <li><span class="folio">08</span><div><blockquote>«Una historia muy entretenida, con una trama de fantasía que engancha desde el inicio. Lectura ágil y recomendable.»</blockquote><cite>Jonathan VM · Amazon España</cite></div></li>
+        <li><span class="folio">09</span><div><blockquote>«Un libro fácil de leer que engancha desde el principio.»</blockquote><cite>Ruben · Amazon España</cite></div></li>
+      </ul>
+      <p class="samuel-narrow" style="margin-top:2rem">¿Has leído <em>Samuel entre mundos</em>? Tu opinión ayuda a otros lectores. <a href="https://www.amazon.es/dp/B0GB6LGQFH?tag=davidporto-21#customerReviews" target="_blank" rel="sponsored nofollow noopener noreferrer">Dejar reseña en Amazon</a> · <a href="https://www.goodreads.com/book/show/245605636-samuel-entre-mundos" target="_blank" rel="noopener noreferrer">Valorar en Goodreads</a></p>
+    </section>
+
+    <section class="samuel-section" id="comprar">
+      <header class="samuel-section__head"><span class="folio">Registro S/07</span><div><p class="eyebrow">Dónde comprar</p><h2>Samuel entre mundos.</h2></div></header>
+      <ul class="ledger">
+        <li class="ledger__row"><span class="ledger__index">01</span><strong class="ledger__primary">Amazon España</strong><span class="ledger__secondary">Tapa blanda</span><a class="ledger__action" href="https://www.amazon.es/dp/B0GB6LGQFH?tag=davidporto-21" target="_blank" rel="sponsored nofollow noopener noreferrer">Comprar</a></li>
+        <li class="ledger__row"><span class="ledger__index">02</span><strong class="ledger__primary">Casa del Libro</strong><span class="ledger__secondary">Ficha de compra</span><a class="ledger__action" href="https://www.casadellibro.com/libro-samuel-entre-mundos/9791387659776/17856720" target="_blank" rel="noopener noreferrer">Abrir</a></li>
+        <li class="ledger__row"><span class="ledger__index">03</span><strong class="ledger__primary">Librerías</strong><span class="ledger__secondary">Pídelo por ISBN 9791387659776</span><button class="ledger__action text-action" type="button" data-buy-modal>Ver opciones</button></li>
+        <li class="ledger__row"><span class="ledger__index">04</span><strong class="ledger__primary">Ejemplar firmado</strong><span class="ledger__secondary">Información antes de confirmar disponibilidad y envío</span><a class="ledger__action" href="#ejemplar-firmado">Solicitar</a></li>
+      </ul>
+    </section>
+
+    <section class="samuel-section" id="ejemplar-firmado">
+      <header class="samuel-section__head"><span class="folio">Registro S/08</span><div><p class="eyebrow">Ejemplar firmado</p><h2>Un Samuel entre mundos dedicado.</h2></div></header>
+      <div class="samuel-narrow">
+        <p>Si quieres recibir un ejemplar firmado de <em>Samuel entre mundos</em>, escribe al autor con el asunto <strong>Ejemplar firmado de Samuel entre mundos</strong> e indica para quién iría dedicado. También puedes preguntar por regalos, clubes de lectura o varios ejemplares. Te responderá con la información de disponibilidad, dedicatoria y envío antes de confirmar nada.</p>
+        <div class="samuel-actions">
+          <a class="primary-action" href="mailto:samuelentremundos@gmail.com?subject=Ejemplar%20firmado%20de%20Samuel%20entre%20mundos">Solicitar ejemplar firmado</a>
+          <button class="text-action" type="button" data-buy-modal>Comprar en librerías</button>
         </div>
+        <p><a href="mailto:samuelentremundos@gmail.com?subject=Ejemplar%20firmado%20de%20Samuel%20entre%20mundos">samuelentremundos&#64;gmail.com</a></p>
+      </div>
+    </section>
 
-        <div class="features-grid">
-          <article class="feature-card">
-            <h3>Canalizadores</h3>
-            <p>Objetos afines que median la energía mágica. Algunos desarrollan memoria y comportamiento propio, como Sael, Zakra, Zephy o Arúlea. El vínculo incorrecto puede producir daño físico o cognitivo.</p>
-          </article>
-          <article class="feature-card">
-            <h3>Barrera dimensional</h3>
-            <p>Separación inestable entre Noveris y el mundo humano. Cuando cede, no solo se abren puertas: se filtran recuerdos, olores, sonidos y fragmentos de realidad que alteran la percepción.</p>
-          </article>
-          <article class="feature-card">
-            <h3>Espejo Ancestral</h3>
-            <p>Instrumento de lectura profunda. Su función no es reflejar la superficie, sino revelar identidad, vínculo y fractura, convirtiendo la verdad personal en un dato peligroso.</p>
-          </article>
+    <section class="samuel-section samuel-fit" id="para-quien-detalle">
+      <header class="samuel-section__head"><span class="folio">Registro S/09</span><div><p class="eyebrow">¿Es este libro para ti?</p><h2>Para lectores de fantasía juvenil con portales, magia con coste y secretos familiares.</h2></div></header>
+      <p class="samuel-narrow">Portales entre mundos, magia con reglas, secretos familiares, objetos que guardan memoria, protagonistas jóvenes obligados a decidir demasiado pronto y aventuras donde cruzar el umbral siempre cuesta algo. Puede interesar también a lectores de fantasía juvenil con mundos ocultos, objetos mágicos, instituciones secretas y protagonistas que descubren que su origen no era el que les contaron.</p>
+      <div class="samuel-fit__split" style="margin-top:2.5rem">
+        <div>
+          <h3>✓ Sí es para ti si buscas</h3>
+          <ul>
+            <li>Fantasía juvenil española con portal fantasy.</li>
+            <li>Sistema de magia con reglas y consecuencias reales.</li>
+            <li>Misterios familiares que cambian la historia.</li>
+            <li>Protagonista no-elegido que tiene que decidir solo.</li>
+            <li>Universo propio con nombres, facciones y objetos mágicos.</li>
+            <li>Ritmo ágil, con acción constante y pocos tiempos muertos.</li>
+          </ul>
         </div>
-      </section>
-
-      <section class="section" id="validacion-social">
-        <div class="section-heading">
-          <p class="eyebrow">Lectores verificados · Amazon España</p>
-          <h2>Reseñas y opiniones de Samuel entre mundos.</h2>
+        <div>
+          <h3>✗ Quizá no es para ti si buscas</h3>
+          <ul>
+            <li>Romance como eje principal de la historia.</li>
+            <li>Fantasía épica clásica de elfos, reinos y dragones.</li>
+            <li>Realismo contemporáneo puro sin elementos de magia.</li>
+            <li>Una historia autoconclusiva sin vocación de saga.</li>
+          </ul>
         </div>
-
-        <div class="book-reviews">
-          <div class="reviews-rating-bar">
-            <div class="reviews-score">
-              <span>Reseñas de lectores en Amazon España</span>
-            </div>
-            <a class="button tertiary" href="https://www.amazon.es/dp/B0GB6LGQFH?tag=davidporto-21" target="_blank" rel="sponsored nofollow noopener noreferrer">Ver en Amazon</a>
-          </div>
-
-          <div class="reviews-grid">
-            <article class="review-card">
-              <span class="review-stars" aria-hidden="true">★★★★★</span>
-              <blockquote>«El ritmo del libro es trepidante y siempre tiene lista una nueva sorpresa, un giro inesperado que hace que no quieras parar de leer. Recomendadísimo.»</blockquote>
-              <cite>Carlos Bermejo Pérez · Amazon España</cite>
-            </article>
-
-            <article class="review-card">
-              <span class="review-stars" aria-hidden="true">★★★★★</span>
-              <blockquote>«Hay libros que se leen… y otros que se sienten. Cuando llegas al final, no sientes que se acabe: sientes que quieres seguir.»</blockquote>
-              <cite>Manuel Corrochano · Amazon España</cite>
-            </article>
-
-            <article class="review-card">
-              <span class="review-stars" aria-hidden="true">★★★★★</span>
-              <blockquote>«Uno de los grandes aciertos del libro es su capacidad para conectar con lectores jóvenes y adultos por igual. Sus temas universales hacen que cualquiera pueda verse reflejado.»</blockquote>
-              <cite>Miguel Ángel Dorado Lozano · Amazon España</cite>
-            </article>
-
-            <article class="review-card">
-              <span class="review-stars" aria-hidden="true">★★★★★</span>
-              <blockquote>«Una magnífica novela debut, entretenida y fácil de leer. Un buen punto de partida para una saga de más libros. Deseando leer más novelas del autor.»</blockquote>
-              <cite>Ángela · Amazon España</cite>
-            </article>
-
-            <article class="review-card">
-              <span class="review-stars" aria-hidden="true">★★★★★</span>
-              <blockquote>«Una historia muy original y entretenida. Se nota el cariño y la imaginación puestos en la historia. Muy recomendable para quienes disfrutan de la fantasía y los mundos paralelos.»</blockquote>
-              <cite>Ismael · Amazon España</cite>
-            </article>
-
-            <article class="review-card">
-              <span class="review-stars" aria-hidden="true">★★★★★</span>
-              <blockquote>«La relación entre los personajes y el compañerismo juegan un papel muy importante. Un mensaje positivo sobre la amistad, la confianza y la unión.»</blockquote>
-              <cite>José Luis · Amazon España</cite>
-            </article>
-            <article class="review-card">
-              <span class="review-stars" aria-hidden="true">★★★★★</span>
-              <blockquote>«Desde las primeras páginas consigue atraparte con una mezcla de misterio, aventura y emoción que hace muy difícil dejar de leer.»</blockquote>
-              <cite>Cliente Amazon · Amazon España</cite>
-            </article>
-
-            <article class="review-card">
-              <span class="review-stars" aria-hidden="true">★★★★★</span>
-              <blockquote>«Una historia muy entretenida, con una trama de fantasía que engancha desde el inicio. Lectura ágil y recomendable.»</blockquote>
-              <cite>Jonathan VM · Amazon España</cite>
-            </article>
-
-            <article class="review-card">
-              <span class="review-stars" aria-hidden="true">★★★★★</span>
-              <blockquote>«Un libro fácil de leer que engancha desde el principio.»</blockquote>
-              <cite>Ruben · Amazon España</cite>
-            </article>
-          </div>
-          <div class="reviews-cta">
-            <p>¿Has leído <em>Samuel entre mundos</em>? Tu opinión ayuda a otros lectores.</p>
-            <div class="reviews-cta-links">
-              <a href="https://www.amazon.es/dp/B0GB6LGQFH?tag=davidporto-21#customerReviews" class="button tertiary" target="_blank" rel="sponsored nofollow noopener noreferrer">Dejar reseña en Amazon</a>
-              <a href="https://www.goodreads.com/book/show/245605636-samuel-entre-mundos" class="button tertiary" target="_blank" rel="noopener noreferrer">Valorar en Goodreads</a>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section class="section section--alt purchase-section" id="comprar">
-        <div class="section-heading">
-          <p class="eyebrow">Dónde comprar</p>
-          <h2>Compra Samuel entre mundos.</h2>
-          <p><em>Samuel entre mundos</em> está disponible en tapa blanda. Puedes comprarlo online, pedirlo en librerías con el ISBN o solicitar información para recibir un ejemplar firmado.</p>
-        </div>
-        <div class="cards-grid purchase-options">
-          <article class="feature-card purchase-card">
-            <p class="card-kicker">Amazon España</p>
-            <h3>Tapa blanda</h3>
-            <p>Compra directa del libro en Amazon España.</p>
-            <a class="button primary" href="https://www.amazon.es/dp/B0GB6LGQFH?tag=davidporto-21" target="_blank" rel="sponsored nofollow noopener noreferrer">Comprar en Amazon</a>
-          </article>
-          <article class="feature-card purchase-card">
-            <p class="card-kicker">Casa del Libro</p>
-            <h3>Papel</h3>
-            <p>Ficha de compra en Casa del Libro.</p>
-            <a class="button secondary" href="https://www.casadellibro.com/libro-samuel-entre-mundos/9791387659776/17856720" target="_blank" rel="noopener noreferrer">Ver en Casa del Libro</a>
-          </article>
-          <article class="feature-card purchase-card">
-            <p class="card-kicker">Librerías</p>
-            <h3>Pídelo por ISBN</h3>
-            <p>Si prefieres comprarlo en una librería física, puedes pedirlo con el ISBN <strong>9791387659776</strong>.</p>
-            <button class="button secondary" type="button" data-buy-modal>Ver opciones</button>
-          </article>
-          <article class="feature-card purchase-card">
-            <p class="card-kicker">Ejemplar firmado</p>
-            <h3>Libro dedicado</h3>
-            <p>Para regalos, clubes de lectura o ejemplares dedicados, escribe al autor y recibirás la información antes de confirmar nada.</p>
-            <a class="button tertiary" href="#ejemplar-firmado">Solicitar información</a>
-          </article>
-        </div>
-      </section>
-      <section class="section section--alt" id="ejemplar-firmado">
-        <div class="section-heading">
-          <p class="eyebrow">Ejemplar firmado</p>
-          <h2>Un Samuel entre mundos dedicado.</h2>
-          <p>Si quieres recibir un ejemplar firmado de <em>Samuel entre mundos</em>, escribe al autor. Te responderá con la información de disponibilidad, dedicatoria y envío antes de confirmar nada.</p>
-        </div>
-        <div class="features-grid features-grid--single">
-          <article class="feature-card">
-            <h3>Cómo pedirlo</h3>
-            <p>Envía un email con el asunto <strong>Ejemplar firmado de Samuel entre mundos</strong> e indica para quién iría dedicado. También puedes preguntar por regalos, clubes de lectura o varios ejemplares.</p>
-            <div class="button-row">
-              <a class="button primary" href="mailto:samuelentremundos@gmail.com?subject=Ejemplar%20firmado%20de%20Samuel%20entre%20mundos">Solicitar ejemplar firmado</a><p class="press-contact-hint"><a href="mailto:samuelentremundos@gmail.com?subject=Ejemplar%20firmado%20de%20Samuel%20entre%20mundos">samuelentremundos&#64;gmail.com</a></p>
-              <button class="button secondary" type="button" data-buy-modal>Comprar en librerías</button>
-            </div>
-          </article>
-        </div>
-      </section>
-      <!-- ------ SI ES / NO ES ------ -->
-      <section class="section" id="para-quien-detalle">
-        <div class="section-heading">
-          <p class="eyebrow">¿Es este libro para ti?</p>
-          <h2>Para lectores de fantasía juvenil con portales, magia con coste y secretos familiares.</h2>
-        </div>
-
-        <p class="geo-answer">Portales entre mundos, magia con reglas, secretos familiares, objetos que guardan memoria, protagonistas jóvenes obligados a decidir demasiado pronto y aventuras donde cruzar el umbral siempre cuesta algo.</p>
-
-        <p class="section-sub">Puede interesar también a lectores de fantasía juvenil con mundos ocultos, objetos mágicos, instituciones secretas y protagonistas que descubren que su origen no era el que les contaron.</p>
-
-        <div class="features-grid para-quien-grid">
-          <article class="feature-card">
-            <h3>✓ Sí es para ti si buscas</h3>
-            <ul class="para-quien-list">
-              <li>Fantasía juvenil española con portal fantasy.</li>
-              <li>Sistema de magia con reglas y consecuencias reales.</li>
-              <li>Misterios familiares que cambian la historia.</li>
-              <li>Protagonista no-elegido que tiene que decidir solo.</li>
-              <li>Universo propio con nombres, facciones y objetos mágicos.</li>
-              <li>Ritmo ágil, con acción constante y pocos tiempos muertos.</li>
-            </ul>
-          </article>
-          <article class="feature-card">
-            <h3>✗ Quizá no es para ti si buscas</h3>
-            <ul class="para-quien-list">
-              <li>Romance como eje principal de la historia.</li>
-              <li>Fantasía épica clásica de elfos, reinos y dragones.</li>
-              <li>Realismo contemporáneo puro sin elementos de magia.</li>
-              <li>Una historia autoconclusiva sin vocación de saga.</li>
-            </ul>
-          </article>
-        </div>
-
-        <div class="section-heading" style="margin-top: 2.5rem;">
-          <p class="eyebrow">Comparables por rasgo</p>
-          <h3>¿Por qué puede encajarte <em>Samuel entre mundos</em>?</h3>
-        </div>
-        <div class="comparables-table-wrap">
-          <table class="comparables-table">
-            <thead>
-              <tr><th>Si buscas…</th><th>Puede encajarte Samuel porque…</th></tr>
-            </thead>
+      </div>
+      <div style="margin-top:2.5rem">
+        <p class="eyebrow">Comparables por rasgo</p>
+        <h3 style="font-family:var(--font-display);font-weight:400;font-size:var(--text-2xl);margin:.4rem 0 0">¿Por qué puede encajarte <em>Samuel entre mundos</em>?</h3>
+        <div style="overflow-x:auto">
+          <table class="samuel-comparables">
+            <thead><tr><th>Si buscas…</th><th>Puede encajarte Samuel porque…</th></tr></thead>
             <tbody>
               <tr><td>Mundos ocultos</td><td>Noveris existe en paralelo a nuestra realidad y Samuel no sabía nada de ella.</td></tr>
               <tr><td>Portales entre mundos</td><td>La frontera entre planos es parte central del conflicto, no solo una excusa de trama.</td></tr>
@@ -666,178 +530,131 @@
             </tbody>
           </table>
         </div>
-      </section>
+      </div>
+    </section>
 
-      <!-- ------ AEO BLOCKS ------ -->
-      <section class="section" id="por-que-empieza">
-        <div class="section-heading">
-          <p class="eyebrow">Nota del autor</p>
-          <h2>¿Por qué empieza por el medallón?</h2>
-        </div>
-        <div class="prose-block">
-          <p>Quería que el primer objeto que tocara Samuel fuera el que lo cambiara todo. No una conversación, no una mirada: un objeto con memoria propia. En Noveris, los canalizadores guardan rastro de quienes los llevaron; la medalla de Samuel no es una excepción. Empezar por ella era la única forma de que el lector y Samuel descubrieran a la vez que algo en ese objeto late distinto. El resto de la historia es, en parte, la respuesta a esa primera sensación.</p>
-        </div>
-      </section>
+    <section class="samuel-section" id="por-que-empieza">
+      <header class="samuel-section__head"><span class="folio">Registro S/10</span><div><p class="eyebrow">Nota del autor</p><h2>¿Por qué empieza por el medallón?</h2></div></header>
+      <p class="samuel-narrow">Quería que el primer objeto que tocara Samuel fuera el que lo cambiara todo. No una conversación, no una mirada: un objeto con memoria propia. En Noveris, los canalizadores guardan rastro de quienes los llevaron; la medalla de Samuel no es una excepción. Empezar por ella era la única forma de que el lector y Samuel descubrieran a la vez que algo en ese objeto late distinto. El resto de la historia es, en parte, la respuesta a esa primera sensación.</p>
+    </section>
 
-      <section class="section section--alt" id="noveris-intro">
-        <div class="section-heading">
-          <p class="eyebrow">El mundo</p>
-          <h2>La ciudad de Noveris.</h2>
-          <p class="eyebrow" style="margin-top: 8px; font-style: italic;">Portal fantasy juvenil español con sistema de magia de reglas duras y protagonista no-elegido. Publicada en 2025.</p>
-        </div>
-        <div class="prose-block">
-          <p>Noveris es una ciudad fantástica separada del mundo humano por una barrera dimensional inestable, accesible solo a través de grietas entre planos. No es un escenario fantástico genérico: tiene facciones, historia y una guerra reciente que todavía no ha cicatrizado. En esta novela juvenil española de portales y magia con reglas, cada canalizador tiene una función, cada objeto conserva memoria material y cada desplazamiento de energía exige compensación. Noveris no se explica en el primer capítulo —se descubre capa por capa, como Samuel.</p>
-        </div>
-      </section>
+    <section class="samuel-section samuel-world" id="noveris-intro">
+      <header class="samuel-section__head"><span class="folio">Registro S/11</span><div><p class="eyebrow">El mundo</p><h2>La ciudad de Noveris.</h2></div></header>
+      <div class="samuel-world__split">
+        <p>Noveris es una ciudad fantástica separada del mundo humano por una barrera dimensional inestable, accesible solo a través de grietas entre planos. No es un escenario fantástico genérico: tiene facciones, historia y una guerra reciente que todavía no ha cicatrizado. Cada canalizador tiene una función, cada objeto conserva memoria material y cada desplazamiento de energía exige compensación. Noveris no se explica en el primer capítulo —se descubre capa por capa, como Samuel.</p>
+        <a class="text-action" href="/universo/noveris/">Entrar en Noveris</a>
+      </div>
+    </section>
 
-      <section class="section section--alt" id="quiz-noveris">
-        <div class="section-heading">
-          <p class="eyebrow">Cierre interactivo</p>
-          <h2>¿Qué habitante de Noveris serías?</h2>
-          <p>5 preguntas para entrar en el mundo de <em>Samuel entre mundos</em>.</p>
+    <section class="samuel-section" id="quiz-noveris">
+      <header class="samuel-section__head"><span class="folio">Registro S/12</span><div><p class="eyebrow">Cierre interactivo</p><h2>¿Qué habitante de Noveris serías?</h2></div></header>
+      <p class="samuel-narrow" style="margin-bottom:2rem">5 preguntas para entrar en el mundo de <em>Samuel entre mundos</em>.</p>
+
+      <div class="quiz-wrap" id="quiz-noveris-app" role="region" aria-label="Quiz interactivo - ¿Qué habitante de Noveris serías?">
+        <div class="quiz-progress-wrap" aria-hidden="true">
+          <div class="quiz-progress-bar" id="quiz-progress-bar" style="width: 0%"></div>
         </div>
 
-        <div class="quiz-wrap" id="quiz-noveris-app" role="region" aria-label="Quiz interactivo - ¿Qué habitante de Noveris serías?">
-          <div class="quiz-progress-wrap" aria-hidden="true">
-            <div class="quiz-progress-bar" id="quiz-progress-bar" style="width: 0%"></div>
-          </div>
+        <div class="quiz-stage" id="quiz-stage">
+          <p class="quiz-step-label" id="quiz-step-label" aria-live="polite">Pregunta 1 de 5</p>
+          <p class="quiz-question-text" id="quiz-question-text"></p>
+          <div class="quiz-options" id="quiz-options" role="group" aria-label="Opciones de respuesta"></div>
+        </div>
 
-          <div class="quiz-stage" id="quiz-stage">
-            <p class="quiz-step-label" id="quiz-step-label" aria-live="polite">Pregunta 1 de 5</p>
-            <p class="quiz-question-text" id="quiz-question-text"></p>
-            <div class="quiz-options" id="quiz-options" role="group" aria-label="Opciones de respuesta"></div>
-          </div>
+        <div class="quiz-result" id="quiz-result" hidden>
+          <p class="quiz-result-eyebrow">Eres</p>
+          <h3 class="quiz-result-name" id="quiz-result-name">Resultado</h3>
+          <p class="quiz-result-desc" id="quiz-result-desc"></p>
 
-          <div class="quiz-result" id="quiz-result" hidden>
-            <p class="quiz-result-eyebrow">Eres</p>
-            <h3 class="quiz-result-name" id="quiz-result-name">Resultado</h3>
-            <p class="quiz-result-desc" id="quiz-result-desc"></p>
-
-            <form class="quiz-subscribe-form" id="quiz-subscribe-form" novalidate>
-              <p class="quiz-subscribe-label">Deja tu email para desbloquear tu arquetipo de Noveris y recibir el informe de personalidad del quiz.</p>
-              <label class="form-field-label" for="quiz-email">Email</label>
-              <div class="quiz-subscribe-row">
-                <input type="email" id="quiz-email" name="email" class="quiz-email-input" placeholder="tu@email.com" autocomplete="email" aria-describedby="quiz-subscribe-status" required />
-                <button type="submit" class="button primary">Desbloquear mi arquetipo</button>
-              </div>
-              <p style="font-size:0.8rem;color:var(--muted-2);margin:6px 0 0">Recibirás tu resultado al email. Sin spam.</p>
-              <label class="quiz-gdpr-label">
-                <input type="checkbox" id="quiz-gdpr" required />
-                Acepto recibir novedades del autor. Puedo darme de baja en cualquier momento. <a href="/privacidad.html" target="_blank" rel="noopener">Privacidad</a>.
-              </label>
-              <p class="quiz-subscribe-status" id="quiz-subscribe-status" aria-live="polite" role="status"></p>
-            </form>
-
-            <div class="quiz-result-actions">
-              <button class="button secondary" id="quiz-share-btn" type="button">Compartir resultado</button>
-              <button class="button tertiary" id="quiz-restart-btn" type="button">Repetir quiz</button>
-              <button class="button primary" type="button" data-buy-modal>Leer Samuel entre mundos</button>
+          <form class="quiz-subscribe-form" id="quiz-subscribe-form" novalidate>
+            <p class="quiz-subscribe-label">Deja tu email para desbloquear tu arquetipo de Noveris y recibir el informe de personalidad del quiz.</p>
+            <label class="form-field-label" for="quiz-email">Email</label>
+            <div class="quiz-subscribe-row">
+              <input type="email" id="quiz-email" name="email" class="quiz-email-input" placeholder="tu@email.com" autocomplete="email" aria-describedby="quiz-subscribe-status" required />
+              <button type="submit" class="button primary">Desbloquear mi arquetipo</button>
             </div>
+            <p style="font-size:0.8rem;color:var(--color-muted);margin:6px 0 0">Recibirás tu resultado al email. Sin spam.</p>
+            <label class="quiz-gdpr-label">
+              <input type="checkbox" id="quiz-gdpr" required />
+              Acepto recibir novedades del autor. Puedo darme de baja en cualquier momento. <a href="/privacidad.html" target="_blank" rel="noopener">Privacidad</a>.
+            </label>
+            <p class="quiz-subscribe-status" id="quiz-subscribe-status" aria-live="polite" role="status"></p>
+          </form>
+
+          <div class="quiz-result-actions">
+            <button class="button secondary" id="quiz-share-btn" type="button">Compartir resultado</button>
+            <button class="button tertiary" id="quiz-restart-btn" type="button">Repetir quiz</button>
+            <button class="button primary" type="button" data-buy-modal>Leer Samuel entre mundos</button>
           </div>
         </div>
-      </section>
-
-      <!-- ------------------------------------------ FAQ -->
-      <section class="section section--alt" id="faq">
-        <div class="section-heading">
-          <p class="eyebrow">Respuestas rápidas</p>
-          <h2>Preguntas frecuentes sobre Samuel entre mundos</h2>
-        </div>
-        <div class="faq-list">
-          <details class="faq-item">
-            <summary class="faq-question">¿Para qué edad es Samuel entre mundos?</summary>
-            <div class="faq-answer"><p>Samuel entre mundos es fantasía juvenil española, pensada para lectores juveniles y adultos que disfrutan de la fantasía con profundidad. La editorial no publica un rango de edad oficial.</p></div>
-          </details>
-          <details class="faq-item">
-            <summary class="faq-question">¿Es Samuel entre mundos romantasy?</summary>
-            <div class="faq-answer"><p>No. Samuel entre mundos es fantasía juvenil con portales, sistema de magia y misterio familiar. El romance no es el hilo principal de la historia.</p></div>
-          </details>
-          <details class="faq-item">
-            <summary class="faq-question">¿De qué trata Samuel entre mundos?</summary>
-            <div class="faq-answer"><p>Samuel entre mundos (David Porto Díaz, Libros Indie, 2025) es una novela de fantasía juvenil española de 422 páginas. Narra la historia de Samuel Osborne, un chico de once años que descubre que su medalla esconde el poder de un canalizador y revela su vínculo con Noveris, una ciudad fantástica separada del mundo humano por una barrera dimensional donde la magia siempre exige un precio real. Portal fantasy, protagonista no-elegido, sistema de magia con reglas.</p></div>
-          </details>
-          <details class="faq-item">
-            <summary class="faq-question">¿Quién es David Porto Díaz?</summary>
-            <div class="faq-answer"><p>David Porto Díaz es un escritor español nacido en Pontevedra y residente en Madrid. Su segunda novela, Las manecillas del recuerdo, publicada el 3 de septiembre de 2026 con Monza Ediciones, es una novela coral de vidas conectadas. Es también autor de Samuel entre mundos (Libros Indie, 2025), su debut de fantasía juvenil, y ganador del Primer Premio — XII Certamen de Microrrelatos «De amor» · Letras Como Espada 2026, en la categoría de microrrelatos.</p></div>
-          </details>
-          <details class="faq-item">
-            <summary class="faq-question">¿Dónde puedo comprar Samuel entre mundos?</summary>
-            <div class="faq-answer"><p>Samuel entre mundos está disponible en <a href="https://www.amazon.es/dp/B0GB6LGQFH?tag=davidporto-21" rel="sponsored nofollow noopener noreferrer">Amazon España</a> en tapa blanda, y también puede pedirse en librerías físicas con el ISBN 9791387659776.</p></div>
-          </details>
-          <details class="faq-item">
-            <summary class="faq-question">¿Puedo pedir un ejemplar firmado?</summary>
-            <div class="faq-answer"><p>Sí. Escribe a <a href="mailto:samuelentremundos@gmail.com?subject=Ejemplar%20firmado%20de%20Samuel%20entre%20mundos">samuelentremundos&#64;gmail.com</a> y te enviaré la información de disponibilidad, dedicatoria y envío para recibir un ejemplar firmado de <em>Samuel entre mundos</em>.</p></div>
-          </details>
-          <details class="faq-item">
-            <summary class="faq-question">¿Qué es el sistema de magia de Noveris?</summary>
-            <div class="faq-answer"><p>La magia en Noveris funciona mediante canalizadores: objetos con memoria que permiten activar poderes, pero siempre a un coste real para el usuario. Es un sistema de magia de reglas duras (hard magic), donde el lector puede entender y predecir las consecuencias de cada uso de magia.</p></div>
-          </details>
-          <details class="faq-item">
-            <summary class="faq-question">¿Samuel entre mundos tendrá continuación?</summary>
-            <div class="faq-answer"><p><em>Samuel entre mundos</em> es la primera novela publicada de David Porto Díaz. La historia de Samuel deja abierta la posibilidad de nuevas entregas, pero esta página recoge únicamente la información oficial de este libro.</p></div>
-          </details>
-        </div>
-        <p class="page-updated-note" style="font-size:0.75rem;color:var(--muted);margin-top:1.5rem;text-align:center">Página actualizada: <time datetime="2026-06-11">junio de 2026</time></p>
-      </section>
-
-      <!-- INTERNAL LINKS TO RECOMMENDATIONS -->
-      <section class="section" aria-label="Más recomendaciones">
-        <div class="section-heading">
-          <p class="eyebrow">Si te gustó</p>
-          <h2>Otros libros que podrían interesarte</h2>
-        </div>
-        <div class="feature-grid feature-grid--2" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:18px">
-          <article class="feature-card">
-            <h3>Libros de portal fantasy juvenil en español</h3>
-            <p>Una lista curada de los diez mejores libros del género: desde Narnia y Harry Potter hasta los referentes españoles como Laura Gallego.</p>
-            <a class="button secondary" href="/recomendaciones/portal-fantasy-espanol/">Ver lista de portal fantasy</a>
-          </article>
-          <article class="feature-card">
-            <h3>Libros con magia que tiene un precio</h3>
-            <p>Si el sistema de magia con coste de Noveris te interesó, aquí tienes más libros donde la magia tiene reglas reales: Mistborn, FMA, El nombre del viento y otros.</p>
-            <a class="button secondary" href="/recomendaciones/magia-con-coste/">Ver lista de hard magic</a>
-          </article>
-          <article class="feature-card">
-            <h3>Portales, magia con coste y mundos ocultos</h3>
-            <p>Qué es el portal fantasy, por qué funciona la magia con consecuencias y dónde encaja la fantasía juvenil española en el género. Artículo del cuaderno del autor.</p>
-            <a class="button secondary" href="/cuaderno/fantasia-juvenil-espanola-portales-magia-coste/">Leer el artículo</a>
-          </article>
-        </div>
-      </section>
-    </main>
-
-    <footer class="site-footer">
-      <div class="footer-top-row">
-        <div class="footer-brand">
-          <img src="/assets/logo-david-porto-diaz-escritor-176.webp" alt="David Porto Díaz" class="footer-logo" width="42" height="42" loading="lazy" />
-          <div class="footer-brand-text">
-            <strong>David Porto Díaz</strong>
-            <span>La magia siempre tiene un precio.</span>
-          </div>
-        </div>
-        <nav class="footer-nav" aria-label="Navegación pie de página">
-          <a href="/">Inicio</a>
-          <a href="/libros/">Libros</a>
-          <a href="/cuaderno/">Cuaderno</a>
-          <a href="/autor.html">El autor</a>
-          <a href="/eventos.html">Eventos</a>
-          <a href="/prensa.html">Prensa</a>
-        </nav>
       </div>
-        <p class="footer-affiliate-notice" style="font-size:0.75rem;color:var(--muted);margin-top:6px">
-          Algunos enlaces de compra son de afiliado del <a href="/aviso-legal.html#afiliado" style="color:inherit">programa Amazon Associates</a> (tag: davidporto-21). Si compras a través de ellos recibo una pequeña comisión sin coste adicional para ti.
-        </p>
-      <div class="footer-bottom-row">
-        <p>© 2026 David Porto Díaz. Todos los derechos reservados.</p>
-        <a href="/privacidad.html" class="footer-privacy-link">Política de privacidad</a>
-        <a href="/aviso-legal.html" class="footer-privacy-link">Aviso legal</a>
-        <a href="/ai/" class="footer-privacy-link">Para IA</a>
-        <a href="#contenido" class="footer-back-top">Volver arriba</a>
-      </div>
-    </footer>
-  </div>
+    </section>
 
+    <section class="samuel-section" id="faq">
+      <header class="samuel-section__head"><span class="folio">Registro S/13</span><div><p class="eyebrow">Respuestas rápidas</p><h2>Preguntas frecuentes.</h2></div></header>
+      <div class="samuel-narrow samuel-faq">
+        <details>
+          <summary>¿Para qué edad es Samuel entre mundos?</summary>
+          <p>Samuel entre mundos es fantasía juvenil española, pensada para lectores juveniles y adultos que disfrutan de la fantasía con profundidad. La editorial no publica un rango de edad oficial.</p>
+        </details>
+        <details>
+          <summary>¿Es Samuel entre mundos romantasy?</summary>
+          <p>No. Samuel entre mundos es fantasía juvenil con portales, sistema de magia y misterio familiar. El romance no es el hilo principal de la historia.</p>
+        </details>
+        <details>
+          <summary>¿De qué trata Samuel entre mundos?</summary>
+          <p>Samuel entre mundos (David Porto Díaz, Libros Indie, 2025) es una novela de fantasía juvenil española de 422 páginas. Narra la historia de Samuel Osborne, un chico de once años que descubre que su medalla esconde el poder de un canalizador y revela su vínculo con Noveris, una ciudad fantástica separada del mundo humano por una barrera dimensional donde la magia siempre exige un precio real. Portal fantasy, protagonista no-elegido, sistema de magia con reglas.</p>
+        </details>
+        <details>
+          <summary>¿Quién es David Porto Díaz?</summary>
+          <p>David Porto Díaz es un escritor español nacido en Pontevedra y residente en Madrid. Su segunda novela, Las manecillas del recuerdo, publicada el 3 de septiembre de 2026 con Monza Ediciones, es una novela coral de vidas conectadas. Es también autor de Samuel entre mundos (Libros Indie, 2025), su debut de fantasía juvenil, y ganador del Primer Premio — XII Certamen de Microrrelatos «De amor» · Letras Como Espada 2026, en la categoría de microrrelatos.</p>
+        </details>
+        <details>
+          <summary>¿Dónde puedo comprar Samuel entre mundos?</summary>
+          <p>Samuel entre mundos está disponible en <a href="https://www.amazon.es/dp/B0GB6LGQFH?tag=davidporto-21" rel="sponsored nofollow noopener noreferrer">Amazon España</a> en tapa blanda, y también puede pedirse en librerías físicas con el ISBN 9791387659776.</p>
+        </details>
+        <details>
+          <summary>¿Puedo pedir un ejemplar firmado?</summary>
+          <p>Sí. Escribe a <a href="mailto:samuelentremundos@gmail.com?subject=Ejemplar%20firmado%20de%20Samuel%20entre%20mundos">samuelentremundos&#64;gmail.com</a> y te enviaré la información de disponibilidad, dedicatoria y envío para recibir un ejemplar firmado de <em>Samuel entre mundos</em>.</p>
+        </details>
+        <details>
+          <summary>¿Qué es el sistema de magia de Noveris?</summary>
+          <p>La magia en Noveris funciona mediante canalizadores: objetos con memoria que permiten activar poderes, pero siempre a un coste real para el usuario. Es un sistema de magia de reglas duras (hard magic), donde el lector puede entender y predecir las consecuencias de cada uso de magia.</p>
+        </details>
+        <details>
+          <summary>¿Samuel entre mundos tendrá continuación?</summary>
+          <p><em>Samuel entre mundos</em> es la primera novela publicada de David Porto Díaz. La historia de Samuel deja abierta la posibilidad de nuevas entregas, pero esta página recoge únicamente la información oficial de este libro.</p>
+        </details>
+      </div>
+    </section>
+
+    <section class="samuel-section" aria-label="Más recomendaciones">
+      <header class="samuel-section__head"><span class="folio">Si te gustó</span><div><p class="eyebrow">Más lecturas</p><h2>Otros libros que podrían interesarte.</h2></div></header>
+      <ol class="samuel-route-list">
+        <li><span>01</span><div><strong>Libros de portal fantasy juvenil en español</strong><p>Una lista curada de los diez mejores libros del género: desde Narnia y Harry Potter hasta los referentes españoles como Laura Gallego.</p></div><a href="/recomendaciones/portal-fantasy-espanol/">Ver lista</a></li>
+        <li><span>02</span><div><strong>Libros con magia que tiene un precio</strong><p>Si el sistema de magia con coste de Noveris te interesó, aquí tienes más libros donde la magia tiene reglas reales: Mistborn, FMA, El nombre del viento y otros.</p></div><a href="/recomendaciones/magia-con-coste/">Ver lista</a></li>
+        <li><span>03</span><div><strong>Portales, magia con coste y mundos ocultos</strong><p>Qué es el portal fantasy, por qué funciona la magia con consecuencias y dónde encaja la fantasía juvenil española en el género.</p></div><a href="/cuaderno/fantasia-juvenil-espanola-portales-magia-coste/">Leer el artículo</a></li>
+      </ol>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="site-footer__grid">
+      <div>
+        <strong class="brand__name">David Porto Díaz</strong>
+        <p>Autor de Las manecillas del recuerdo y Samuel entre mundos.</p>
+      </div>
+      <nav aria-label="Obra"><h2>Obra</h2><a href="/las-manecillas-del-recuerdo/">Las manecillas del recuerdo</a><a href="/libros/samuel-entre-mundos/">Samuel entre mundos</a><a href="/fragmento/">Fragmento gratis</a></nav>
+      <nav aria-label="Leer y recursos"><h2>Leer</h2><a href="/cuaderno/">Cuaderno</a><a href="/herramientas/">Herramientas</a><a href="/mapa-del-sitio/">Mapa del sitio</a></nav>
+      <nav aria-label="Información"><h2>Información</h2><a href="/autor.html">Autor</a><a href="/prensa.html">Prensa</a><a href="/eventos.html">Eventos</a><a href="/privacidad.html">Privacidad</a><a href="/aviso-legal.html">Aviso legal</a><a href="/ai/">Para IA</a></nav>
+    </div>
+    <p class="footer-legal">
+      <span>© 2026 David Porto Díaz. Todos los derechos reservados.</span>
+      <span>Algunos enlaces de compra son de afiliado del <a href="/aviso-legal.html#afiliado">programa Amazon Associates</a> (tag: davidporto-21).</span>
+    </p>
+  </footer>
+
+  <script defer src="/assets/v1-shell.js"></script>
   <script defer src="/script.js?v=202609-launch-1"></script>
 </body>
 </html>
-
