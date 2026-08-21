@@ -3,6 +3,10 @@
    lab/diseno-home-v1/css/signatures.css. Used by any V1 family that needs
    a numbered-ledger or archival-marginalia composition (Samuel, and future
    families per doc 25) instead of duplicating these primitives per file. */
+html.v1 .book-breadcrumb{padding-top:clamp(1.5rem,3vw,2.5rem)}
+html.v1 .book-breadcrumb ol{display:flex;flex-wrap:wrap;gap:.35rem .7rem;margin:0;padding:0;list-style:none;font-size:.78rem;color:var(--color-muted)}
+html.v1 .book-breadcrumb li:not(:last-child)::after{content:"/";margin-left:.7rem;color:var(--color-border)}
+html.v1 .book-breadcrumb a{color:var(--color-text)}
 html.v1 .coordinate{display:inline-flex;align-items:center;gap:.6rem;font:600 .74rem/1 var(--font-ui);letter-spacing:.12em;text-transform:uppercase;color:var(--color-muted)}
 html.v1 .coordinate::after{content:"";inline-size:clamp(2.5rem,8vw,7rem);block-size:1px;background:currentColor;opacity:.45}
 html.v1 .folio{font:600 .72rem/1 var(--font-ui);letter-spacing:.12em;text-transform:uppercase;color:var(--color-muted)}

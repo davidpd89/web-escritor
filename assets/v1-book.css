@@ -1,10 +1,6 @@
 /* V1 editorial system — Book family (Manecillas piloto). Ported from
    lab/diseno-home-v1/css/book.css, scoped to html.v1 pages. */
 html.v1 .book-page{max-width:var(--layout-max);margin:auto;padding-inline:var(--page-gutter)}
-html.v1 .book-breadcrumb{padding-top:clamp(1.5rem,3vw,2.5rem)}
-html.v1 .book-breadcrumb ol{display:flex;flex-wrap:wrap;gap:.35rem .7rem;margin:0;padding:0;list-style:none;font-size:.78rem;color:var(--color-muted)}
-html.v1 .book-breadcrumb li:not(:last-child)::after{content:"/";margin-left:.7rem;color:var(--color-border)}
-html.v1 .book-breadcrumb a{color:var(--color-text)}
 html.v1 .book-hero{min-height:clamp(720px,72vw,900px);display:grid;grid-template-columns:repeat(12,minmax(0,1fr));gap:var(--grid-gap);align-items:center;padding:clamp(3rem,6vw,6rem) 0 clamp(5rem,8vw,8rem)}
 html.v1 .book-cover-zone{grid-column:1/span 4;position:relative;align-self:center;display:grid;place-items:center;min-width:0}
 html.v1 .book-cover{margin:0;width:min(100%,430px)}
