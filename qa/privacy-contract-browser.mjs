@@ -5,6 +5,7 @@ import path from 'node:path';
 const BASE = process.env.PRIVACY_BASE_URL || 'http://127.0.0.1:4173';
 const OUT = process.env.PRIVACY_ARTIFACT_DIR || 'artifacts/privacy-legal';
 const SENTINEL = 'privacy.qa.582931@example.test';
+const WORKER_RE = /^https:\/\/subscribe\.davidpd89\.workers\.dev(?:\/.*)?$/;
 await fs.mkdir(OUT, { recursive: true });
 const report = { base: BASE, generatedAt: new Date().toISOString(), legal: {}, network: {}, storage: {}, sourceInventory: {}, notes: [] };
 function assert(ok, message){ if(!ok) throw new Error(message); }
@@ -21,7 +22,7 @@ async function capture(route, viewport={width:1440,height:1000}, js=true){
   const page=await context.newPage(); const requests=[]; const consoleMessages=[];
   page.on('request',r=>{ if(external(r.url())) requests.push({url:r.url(),method:r.method(),postData:r.postData()}); });
   page.on('console',m=>consoleMessages.push(m.text()));
-  await page.route(/https:\/\/(?:gc\.zgo\.at|tracker\.metricool\.com)\/.*/, async r=>r.fulfill({status:200,contentType:'application/javascript',body:''}));
+  await page.route(/https?:\/\/(?:gc\.zgo\.at|tracker\.metricool\.com)\/.*/, async r=>r.fulfill({status:200,contentType:'application/javascript',body:''}));
   await page.goto(BASE+route,{waitUntil:'networkidle'});
   return {context,page,requests,consoleMessages};
 }
@@ -66,14 +67,15 @@ assert(goatLoads<=1,'Duplicate GoatCounter script load'); assert(metricoolLoads<
 
 // Newsletter contract: unchecked must block; checked may POST only after explicit action. Intercept Worker — never send a live email.
 let workerBodies=[];
-await home.page.route('https://subscribe.davidpd89.workers.dev/**',async r=>{ workerBodies.push(r.request().postData()||''); await r.fulfill({status:201,contentType:'application/json',body:'{"ok":true}'}); });
+await home.page.route(WORKER_RE,async r=>{ workerBodies.push(r.request().postData()||''); await r.fulfill({status:201,contentType:'application/json',body:'{"ok":true}'}); });
 const form=home.page.locator('#newsletter-form-home');
 assert(await form.count()===1,'Home newsletter fixture missing');
 const checkbox=home.page.locator('#nl-gdpr-home'); assert(!(await checkbox.isChecked()),'Newsletter checkbox prechecked');
 await home.page.locator('#nl-email-home').fill(SENTINEL); await form.locator('button[type="submit"]').click(); await home.page.waitForTimeout(150); assert(workerBodies.length===0,'Unchecked newsletter submitted');
 await checkbox.check(); await form.locator('button[type="submit"]').click(); await home.page.waitForTimeout(250); assert(workerBodies.length===1,'Checked newsletter did not submit exactly once');
 const payload=JSON.parse(workerBodies[0]); assert(payload.email===SENTINEL,'Newsletter email mismatch'); assert(payload.source==='home','Newsletter source mismatch'); assert(!('consent' in payload),'Unexpected consent field sent to Worker');
-const leakHaystack=JSON.stringify({requests:home.requests,console:home.consoleMessages,url:home.page.url(),storage:await home.page.evaluate(()=>({local:{...localStorage},session:{...sessionStorage}}))});
+const nonSubscriptionRequests=home.requests.filter(r=>!WORKER_RE.test(r.url));
+const leakHaystack=JSON.stringify({requests:nonSubscriptionRequests,console:home.consoleMessages,url:home.page.url(),storage:await home.page.evaluate(()=>({local:{...localStorage},session:{...sessionStorage}}))});
 assert(!leakHaystack.includes(SENTINEL),'Email sentinel leaked outside intercepted subscription payload');
 report.newsletter={payloadKeys:Object.keys(payload),source:payload.source,uncheckedBlocked:true,sentinelLeak:false};
 report.storage.home=await home.page.evaluate(async()=>({localStorage:{...localStorage},sessionStorage:{...sessionStorage},indexedDB:await indexedDB.databases().then(x=>x.map(d=>d.name)),cacheStorage:'caches' in globalThis?await caches.keys():[]}));
