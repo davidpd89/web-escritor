@@ -3,10 +3,14 @@
 
   const MS_DAY = 86400000;
   const STALE_DAYS = 30;
+  // n with tilde and u with diaeresis are distinct letters in Spanish, not
+  // accented n/u: folding them makes a search for one of them match every
+  // word containing the base letter. Fold every other combining mark.
   const normalize = (value = '') => String(value)
     .toLocaleLowerCase('es')
     .normalize('NFD')
-    .replace(/[\u0300-\u036f]/g, '')
+    .replace(/(?<!n)\u0303|(?<!u)\u0308|[\u0300-\u0302\u0304-\u0307\u0309-\u036f]/g, '')
+    .normalize('NFC')
     .trim();
 
   const parseCivil = (value) => {
