@@ -174,6 +174,16 @@ async function validateCore(spec, page) {
     assert.ok(data.datePublished, `${spec.key}: falta datePublished`);
     assert.ok(data.dateModified, `${spec.key}: falta dateModified`);
     assert.equal(data.articleId, SITE + spec.route + '#article', `${spec.key}: @id Article`);
+    const articleSchema = flattenNodes(parsed).find(node => node['@type'] === 'Article');
+    assert.ok(norm(articleSchema?.headline), `${spec.key}: Article headline`);
+    assert.ok(norm(articleSchema?.description), `${spec.key}: Article description`);
+    assert.equal(articleSchema?.url, SITE + spec.route, `${spec.key}: Article url`);
+    assert.equal(articleSchema?.inLanguage, 'es', `${spec.key}: Article inLanguage`);
+    assert.ok(articleSchema?.author?.['@id'], `${spec.key}: Article author`);
+    assert.ok(articleSchema?.publisher?.['@id'], `${spec.key}: Article publisher`);
+    assert.ok(articleSchema?.isPartOf?.['@id'], `${spec.key}: Article isPartOf`);
+    assert.ok(articleSchema?.about, `${spec.key}: Article about`);
+    assert.ok(articleSchema?.mentions, `${spec.key}: Article mentions`);
   }
 
   const parsed = await page.locator('script[type="application/ld+json"]').evaluateAll(nodes => nodes.map(node => JSON.parse(node.textContent)));
@@ -187,8 +197,15 @@ async function validateCore(spec, page) {
 
   const toc = page.locator('[data-article-toc]');
   if (await toc.count()) {
+    const tocCount = await toc.locator('a[href^="#"]').count();
+    assert.ok(tocCount >= 4, `${spec.key}: TOC sin suficiente valor de navegación (${tocCount})`);
     const missing = await toc.locator('a[href^="#"]').evaluateAll(links => links.map(link => link.getAttribute('href')).filter(href => !document.querySelector(href)));
     assert.deepEqual(missing, [], `${spec.key}: TOC apunta a destino inexistente`);
+  }
+
+  if (spec.kind === 'article') {
+    const relatedCount = await page.locator('.article-related a').count();
+    assert.ok(relatedCount >= 1 && relatedCount <= 3, `${spec.key}: conexiones editoriales ${relatedCount}, esperado 1–3`);
   }
 
   const faqVisible = await page.locator('.article-faq details').evaluateAll(details => details.map(item => ({
@@ -210,10 +227,14 @@ async function validateCore(spec, page) {
     alt: img.getAttribute('alt'),
     width: img.getAttribute('width'),
     height: img.getAttribute('height'),
-    loading: img.getAttribute('loading'),
-    top: img.getBoundingClientRect().top + window.scrollY,
   })).filter(item => item.alt === null || !item.width || !item.height));
   assert.deepEqual(imageProblems, [], `${spec.key}: imágenes sin alt/dimensiones`);
+  if (spec.key === 'feria') {
+    const galleryLoading = await page.locator('.article-gallery img').evaluateAll(images => images.map(img => img.getAttribute('loading')));
+    assert.ok(galleryLoading.length >= 1 && galleryLoading.every(value => value === 'lazy'), 'feria: media below-fold debe cargar lazy');
+    const hero = page.locator('.article-hero-figure img');
+    assert.equal(await hero.getAttribute('loading'), 'eager', 'feria: foto documental principal debe estar disponible sin lazy delay');
+  }
 
   const cls = await page.evaluate(() => window.__qaCLS || 0);
   assert.ok(cls <= 0.1, `${spec.key}: CLS ${cls}`);
@@ -292,6 +313,16 @@ async function keyboardAudit() {
   assert.equal(await page.evaluate(() => document.activeElement?.classList.contains('skip-link')), true, 'teclado: skip link no es primer foco');
   await page.keyboard.press('Enter');
   assert.equal(new URL(page.url()).hash, '#contenido', 'teclado: skip link no salta a contenido');
+  const firstToc = page.locator('[data-article-toc] a[href^="#"]').first();
+  await firstToc.focus();
+  const firstTarget = await firstToc.getAttribute('href');
+  await page.keyboard.press('Enter');
+  assert.equal(new URL(page.url()).hash, firstTarget, 'teclado: TOC no navega al destino');
+  await page.locator('[data-explore-open]').focus();
+  await page.keyboard.press('Enter');
+  assert.equal(await page.locator('[data-explore-dialog]').evaluate(dialog => dialog.open), true, 'teclado: Explore no abre');
+  await page.keyboard.press('Escape');
+  assert.equal(await page.locator('[data-explore-dialog]').evaluate(dialog => dialog.open), false, 'teclado: Explore no cierra con Escape');
   assert.equal(await page.locator('[data-share-url]:visible').count(), 1, 'teclado: compartir no disponible con JS');
   assert.equal(await page.locator('[data-print]:visible').count(), 1, 'teclado: imprimir no disponible con JS');
   report.keyboard.portal = true;
@@ -299,7 +330,7 @@ async function keyboardAudit() {
 }
 
 async function zoomAudit() {
-  for (const spec of [pages[0], pages.find(p => p.key === 'portal')]) {
+  for (const spec of pages) {
     const { context, page } = await open(spec, { viewport: { width: 390, height: 900 } });
     const cdp = await context.newCDPSession(page);
     await cdp.send('Emulation.setPageScaleFactor', { pageScaleFactor: 2 });
@@ -314,7 +345,7 @@ async function zoomAudit() {
 
 async function textSpacingAudit() {
   const css = `*{line-height:1.5!important;letter-spacing:.12em!important;word-spacing:.16em!important}p{margin-bottom:2em!important}`;
-  for (const spec of [pages[0], pages.find(p => p.key === 'portal')]) {
+  for (const spec of pages) {
     const { context, page } = await open(spec, { viewport: { width: 320, height: 900 } });
     await applyInspectorStyles(context, page, css);
     await page.evaluate(() => new Promise(resolve => requestAnimationFrame(() => requestAnimationFrame(resolve))));
@@ -325,7 +356,7 @@ async function textSpacingAudit() {
 }
 
 async function reducedMotionAudit() {
-  for (const spec of [pages[0], pages.find(p => p.key === 'portal')]) {
+  for (const spec of pages) {
     const { context, page } = await open(spec, { reducedMotion: 'reduce' });
     await page.waitForTimeout(100);
     const running = await page.evaluate(() => document.getAnimations().filter(animation => animation.playState === 'running').length);
@@ -367,6 +398,9 @@ async function printAudit() {
   const { context, page } = await open(spec, { initScript: () => { window.print = () => { window.__printed = (window.__printed || 0) + 1; }; } });
   await page.click('[data-print]');
   assert.equal(await page.evaluate(() => window.__printed), 1, 'print: botón no llama window.print');
+  const printSource = page.locator('.article-print-source');
+  assert.equal(await printSource.count(), 1, 'print: falta procedencia canónica');
+  assert.match(await printSource.innerText(), /https:\/\/davidportodiaz\.com\/cuaderno\/que-es-el-portal-fantasy\//, 'print: procedencia sin canonical');
   await page.emulateMedia({ media: 'print' });
   const visible = await page.evaluate(() => ({
     header: getComputedStyle(document.querySelector('.site-header')).display,
@@ -374,12 +408,14 @@ async function printAudit() {
     toc: getComputedStyle(document.querySelector('.article-toc')).display,
     prose: getComputedStyle(document.querySelector('.article-prose')).display,
     articleEnd: getComputedStyle(document.querySelector('.article-end')).display,
+    source: getComputedStyle(document.querySelector('.article-print-source')).display,
   }));
   assert.equal(visible.header, 'none', 'print: header debe ocultarse');
   assert.equal(visible.footer, 'none', 'print: footer debe ocultarse');
   assert.equal(visible.toc, 'none', 'print: TOC debe ocultarse');
   assert.notEqual(visible.prose, 'none', 'print: prosa oculta');
   assert.equal(visible.articleEnd, 'none', 'print: cierre de navegación debe ocultarse');
+  assert.notEqual(visible.source, 'none', 'print: procedencia canónica debe imprimirse');
   await page.screenshot({ path: path.join(OUT, 'article-print.png'), fullPage: true });
   report.print.portal = true;
   await context.close();
