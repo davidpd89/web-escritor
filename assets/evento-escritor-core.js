@@ -152,7 +152,7 @@ export function foldIcsLine(line) {
 }
 
 export function escapeIcs(value) {
-  return String(value || '').replace(/\\/g, '\\\\').replace(/\r?\n/g, '\\n').replace(/,/g, '\\,').replace(/;/g, '\\;');
+  return String(value || '').replace(/\\/g, '\\\\').replace(/\r\n|\r|\n/g, '\\n').replace(/,/g, '\\,').replace(/;/g, '\\;');
 }
 
 export function parseOffsetDate(local, offset) {
