@@ -1,14 +1,13 @@
-<!doctype html>
-<html lang="es">
+<!DOCTYPE html>
+<html lang="es" class="v1">
 <head>
-  <meta charset="utf-8">
+  <meta charset="UTF-8" />
   <meta http-equiv="Content-Security-Policy" content="default-src 'self'; connect-src 'none'; img-src 'self'; style-src 'self'; font-src 'self'; script-src 'self'; object-src 'none'; base-uri 'self'; form-action 'none'; frame-src 'none'">
-  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-  <meta name="robots" content="index,follow,max-image-preview:large">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <meta name="robots" content="index,follow,max-image-preview:large" />
   <title>Metodología del directorio de editoriales | David Porto Díaz</title>
   <meta name="description" content="Cómo se verifica, se fecha y se corrige la información de las fichas de editoriales: fuentes primarias, estados permitidos, caducidad y correcciones.">
   <meta name="author" content="David Porto Díaz">
-  <link rel="canonical" href="https://davidportodiaz.com/metodologia-editorial/">
   <meta property="og:type" content="website">
   <meta property="og:title" content="Metodología del directorio de editoriales | David Porto Díaz">
   <meta property="og:description" content="Cómo se verifica, se fecha y se corrige la información de las fichas de editoriales: fuentes primarias, estados permitidos, caducidad y correcciones.">
@@ -24,30 +23,156 @@
   <meta name="twitter:description" content="Cómo se verifica, se fecha y se corrige la información de las fichas de editoriales: fuentes primarias, estados permitidos, caducidad y correcciones.">
   <meta name="twitter:image" content="https://davidportodiaz.com/assets/david-porto-imagen-compartir.webp">
   <meta name="twitter:image:alt" content="David Porto Díaz, autor de Samuel entre mundos y Las manecillas del recuerdo">
-  <meta name="theme-color" content="#080a0c">
-  <link rel="stylesheet" href="/styles.css?v=202609-launch-1">
-  <link rel="stylesheet" href="/assets/editoriales.css">
+  <meta name="theme-color" content="#F4EFE7" />
+  <link rel="canonical" href="https://davidportodiaz.com/metodologia-editorial/" />
+  <link rel="icon" type="image/png" href="/assets/david-porto-favicon.png" />
+  <link rel="apple-touch-icon" href="/assets/david-porto-favicon.png" />
+  <link rel="manifest" href="/manifest.json" />
+
+  <link rel="stylesheet" href="/assets/v1-fonts.css" />
+  <link rel="stylesheet" href="/assets/v1-tokens.css" />
+  <link rel="stylesheet" href="/assets/v1-base.css" />
+  <link rel="stylesheet" href="/assets/v1-shell.css" />
+  <link rel="stylesheet" href="/assets/v1-components.css" />
+  <link rel="stylesheet" href="/assets/v1-families.css" />
+  <link rel="stylesheet" href="/assets/v1-tools.css" />
+  <link rel="stylesheet" href="/assets/editoriales.css" />
   <script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"WebPage","@id":"https://davidportodiaz.com/metodologia-editorial/","url":"https://davidportodiaz.com/metodologia-editorial/","name":"Metodología del directorio de editoriales","description":"Cómo se verifica, se fecha y se corrige la información de las fichas de editoriales: fuentes primarias, estados permitidos, caducidad y correcciones.","dateModified":"2026-08-20","inLanguage":"es","isPartOf":{"@id":"https://davidportodiaz.com/editoriales/"},"author":{"@id":"https://davidportodiaz.com/#author"}}]}</script>
 </head>
+
 <body>
-<a href="#main-content" class="skip-link">Saltar al contenido</a>
+  <a href="#contenido" class="skip-link">Saltar al contenido</a>
 
-<main id="main-content" tabindex="-1" class="editorial-directory">
-  <nav class="breadcrumb article-breadcrumb" aria-label="Ruta de navegación"><a href="/">Inicio</a><span aria-hidden="true">›</span><a href="/editoriales/">Editoriales</a><span aria-hidden="true">›</span><span>Metodología</span></nav>
-  <header class="editorial-hero"><p class="eyebrow">Metodología</p><h1>Cómo se verifica esta información.</h1><p class="lead">Cada ficha del directorio se genera a partir de un dataset validado, no se escribe a mano. Esta página explica de dónde sale cada dato, cuándo caduca y cómo se corrige.</p></header>
+  <header class="site-header" data-header>
+    <div class="site-header__inner">
+      <a class="brand" href="/" aria-label="David Porto Díaz — inicio">
+        <span class="brand__name">David Porto Díaz</span>
+        <span class="brand__role">Escritor</span>
+      </a>
+      <nav class="primary-nav" aria-label="Navegación principal">
+        <a href="/libros/">Obra</a>
+        <a href="/cuaderno/">Cuaderno</a>
+        <a href="/herramientas/" aria-current="page">Herramientas</a>
+      </nav>
+      <button class="explore-trigger" type="button" aria-haspopup="dialog" aria-controls="explore-dialog" aria-expanded="false" data-explore-open>
+        Explorar
+      </button>
+    </div>
+  </header>
 
-  <section class="editorial-section"><h2>De dónde sale cada dato</h2><p>Los datos de recepción de manuscritos proceden de la página oficial de cada editorial. Cada ficha enlaza esa fuente primaria y separa siempre el hecho publicado por la editorial de cualquier resumen propio. Cuando la editorial no publica una vía de envío directa, la ficha lo dice en vez de deducirlo.</p><p>Actualmente el directorio publica 3 fichas.</p></section>
+  <dialog class="explore-dialog" id="explore-dialog" aria-labelledby="explore-title" data-explore-dialog>
+    <div class="explore-dialog__shell">
+      <div class="explore-dialog__head">
+        <div>
+          <p class="eyebrow">Índice general</p>
+          <h2 id="explore-title">Explorar</h2>
+        </div>
+        <button class="icon-button" type="button" aria-label="Cerrar Explorar" data-explore-close>
+          <svg aria-hidden="true" viewBox="0 0 24 24" width="20" height="20"><path d="M5 5l14 14M19 5L5 19"/></svg>
+        </button>
+      </div>
 
-  <section class="editorial-section"><h2>Estados de recepción</h2><p>El estado es un valor cerrado, no texto libre, para que no aparezcan variantes contradictorias entre fichas:</p><dl class="editorial-facts"><div class="editorial-fact"><dt>open</dt><dd>La editorial acepta envíos directos según su propia página oficial.</dd></div><div class="editorial-fact"><dt>closed</dt><dd>La recepción está cerrada en la fecha de comprobación.</dd></div><div class="editorial-fact"><dt>indirect</dt><dd>Solo admite manuscritos por vía indirecta, por ejemplo a través de agencia.</dd></div><div class="editorial-fact"><dt>award_only</dt><dd>Solo recibe originales dentro de una convocatoria o premio concreto.</dd></div><div class="editorial-fact"><dt>unknown</dt><dd>No hay fuente oficial suficiente para afirmar el estado.</dd></div></dl></section>
+      <div class="explore-dialog__grid">
+        <nav class="explore-list" aria-label="Destinos de la web">
+          <a class="explore-row" href="/las-manecillas-del-recuerdo/" data-preview="manecillas">
+            <span class="explore-row__index">01</span>
+            <span class="explore-row__body"><strong>Las manecillas del recuerdo</strong><small>La obra actual.</small></span>
+          </a>
+          <a class="explore-row" href="/autor.html" data-preview="autor">
+            <span class="explore-row__index">02</span>
+            <span class="explore-row__body"><strong>Autor</strong><small>Biografía, obra y trayectoria.</small></span>
+          </a>
+          <a class="explore-row" href="/libros/samuel-entre-mundos/" data-preview="samuel">
+            <span class="explore-row__index">03</span>
+            <span class="explore-row__body"><strong>Samuel entre mundos</strong><small>Primera novela publicada.</small></span>
+          </a>
+          <a class="explore-row" href="/cuaderno/" data-preview="cuaderno">
+            <span class="explore-row__index">04</span>
+            <span class="explore-row__body"><strong>Cuaderno</strong><small>Artículos y piezas editoriales.</small></span>
+          </a>
+          <a class="explore-row" href="/herramientas/" data-preview="herramientas">
+            <span class="explore-row__index">05</span>
+            <span class="explore-row__body"><strong>Herramientas</strong><small>Utilidades gratuitas para escritores.</small></span>
+          </a>
+          <a class="explore-row" href="/prensa.html" data-preview="prensa">
+            <span class="explore-row__index">06</span>
+            <span class="explore-row__body"><strong>Prensa y eventos</strong><small>Apariciones, materiales y agenda.</small></span>
+          </a>
+        </nav>
 
-  <section class="editorial-section"><h2>Fechas y caducidad</h2><p>Cada ficha distingue dos fechas: <strong>última comprobación</strong> (cuándo se revisó la fuente oficial) y <strong>última actualización de la página</strong> (cuándo cambió de forma significativa el contenido publicado aquí). Una ficha comprobada hace más de 90 días se marca para revisión: la información de recepción cambia sin aviso y una fecha vieja no es una garantía.</p></section>
+        <aside class="explore-preview" aria-live="polite" aria-atomic="true" data-explore-preview>
+          <div class="explore-preview__media" aria-hidden="true" data-preview-media></div>
+          <p class="explore-preview__label" data-preview-label>Herramientas</p>
+          <p class="explore-preview__copy" data-preview-copy>Utilidades gratuitas para escritores.</p>
+        </aside>
+      </div>
+    </div>
+  </dialog>
 
-  <section class="editorial-section"><h2>Qué no se publica</h2><p>El dataset público se genera filtrando la hoja de trabajo interna, así que notas privadas y campos de seguimiento no llegan a la web. Los correos de contacto solo se publican cuando la propia editorial los ofrece como vía de envío y la recepción está abierta: publicar un correo histórico de una recepción cerrada solo genera envíos que nadie va a leer.</p><p>No hay valoraciones, rankings ni recomendaciones de una editorial sobre otra. El builder falla si alguien intenta introducir un campo de ranking.</p></section>
+  <main id="contenido" class="v1-main" data-family="tool">
+    <nav class="book-breadcrumb" aria-label="Ruta de navegación">
+      <ol><li><a href="/">Inicio</a></li><li><a href="/editoriales/">Editoriales</a></li><li aria-current="page">Metodología</li></ol>
+    </nav>
 
-  <section class="editorial-section"><h2>Correcciones</h2><p>Si eres responsable de una editorial listada o detectas un dato incorrecto u obsoleto, escribe a <a href="mailto:samuelentremundos@gmail.com">samuelentremundos@gmail.com</a> indicando la ficha y la fuente oficial. Las correcciones con fuente se aplican y quedan reflejadas en el historial de comprobaciones de la ficha correspondiente.</p></section>
+    <header class="tool-hero">
+      <p class="eyebrow">Metodología</p>
+      <h1>Cómo se verifica esta información.</h1>
+      <p class="tool-hero__lead">Cada ficha del directorio se genera a partir de un dataset validado, no se escribe a mano. Esta página explica de dónde sale cada dato, cuándo caduca y cómo se corrige.</p>
+    </header>
 
-  <aside class="editorial-disclaimer"><strong>No es asesoramiento ni representación.</strong> davidportodiaz.com no representa a ninguna de estas editoriales. Las instrucciones oficiales de cada editorial prevalecen siempre sobre lo que se resuma aquí.</aside>
-</main>
+    <section class="v1-section">
+      <div class="tool-findings-block">
+        <h3>De dónde sale cada dato</h3>
+        <p>Los datos de recepción de manuscritos proceden de la página oficial de cada editorial. Cada ficha enlaza esa fuente primaria y separa siempre el hecho publicado por la editorial de cualquier resumen propio. Cuando la editorial no publica una vía de envío directa, la ficha lo dice en vez de deducirlo.</p>
+        <p>Actualmente el directorio publica 3 fichas.</p>
+      </div>
+
+      <div class="tool-findings-block">
+        <h3>Estados de recepción</h3>
+        <p>El estado es un valor cerrado, no texto libre, para que no aparezcan variantes contradictorias entre fichas:</p>
+        <dl class="spec-ledger">
+          <div><dt>open</dt><dd>La editorial acepta envíos directos según su propia página oficial.</dd></div>
+          <div><dt>closed</dt><dd>La recepción está cerrada en la fecha de comprobación.</dd></div>
+          <div><dt>indirect</dt><dd>Solo admite manuscritos por vía indirecta, por ejemplo a través de agencia.</dd></div>
+          <div><dt>award_only</dt><dd>Solo recibe originales dentro de una convocatoria o premio concreto.</dd></div>
+          <div><dt>unknown</dt><dd>No hay fuente oficial suficiente para afirmar el estado.</dd></div>
+        </dl>
+      </div>
+
+      <div class="tool-findings-block">
+        <h3>Fechas y caducidad</h3>
+        <p>Cada ficha distingue dos fechas: <strong>última comprobación</strong> (cuándo se revisó la fuente oficial) y <strong>última actualización de la página</strong> (cuándo cambió de forma significativa el contenido publicado aquí). Una ficha comprobada hace más de 90 días se marca para revisión: la información de recepción cambia sin aviso y una fecha vieja no es una garantía.</p>
+      </div>
+
+      <div class="tool-findings-block">
+        <h3>Qué no se publica</h3>
+        <p>El dataset público se genera filtrando la hoja de trabajo interna, así que notas privadas y campos de seguimiento no llegan a la web. Los correos de contacto solo se publican cuando la propia editorial los ofrece como vía de envío y la recepción está abierta: publicar un correo histórico de una recepción cerrada solo genera envíos que nadie va a leer.</p>
+        <p>No hay valoraciones, rankings ni recomendaciones de una editorial sobre otra. El builder falla si alguien intenta introducir un campo de ranking.</p>
+      </div>
+
+      <div class="tool-findings-block">
+        <h3>Correcciones</h3>
+        <p>Si eres responsable de una editorial listada o detectas un dato incorrecto u obsoleto, escribe a <a href="mailto:samuelentremundos@gmail.com">samuelentremundos@gmail.com</a> indicando la ficha y la fuente oficial. Las correcciones con fuente se aplican y quedan reflejadas en el historial de comprobaciones de la ficha correspondiente.</p>
+      </div>
+
+      <p class="tool-note"><strong>No es asesoramiento ni representación.</strong> davidportodiaz.com no representa a ninguna de estas editoriales. Las instrucciones oficiales de cada editorial prevalecen siempre sobre lo que se resuma aquí.</p>
+    </section>
+
+  </main>
+
+  <footer class="site-footer">
+    <div class="site-footer__grid">
+      <div>
+        <strong class="brand__name">David Porto Díaz</strong>
+        <p>Autor de Las manecillas del recuerdo y Samuel entre mundos.</p>
+      </div>
+      <nav aria-label="Obra"><h2>Obra</h2><a href="/las-manecillas-del-recuerdo/">Las manecillas del recuerdo</a><a href="/libros/samuel-entre-mundos/">Samuel entre mundos</a><a href="/fragmento/">Fragmento gratis</a></nav>
+      <nav aria-label="Leer y recursos"><h2>Leer</h2><a href="/cuaderno/">Cuaderno</a><a href="/herramientas/" aria-current="page">Herramientas</a><a href="/mapa-del-sitio/">Mapa del sitio</a></nav>
+      <nav aria-label="Información"><h2>Información</h2><a href="/autor.html">Autor</a><a href="/prensa.html">Prensa</a><a href="/eventos.html">Eventos</a><a href="/privacidad.html">Privacidad</a><a href="/aviso-legal.html">Aviso legal</a><a href="/ai/">Para IA</a></nav>
+    </div>
+  </footer>
+
+  <script defer src="/assets/v1-shell.js"></script>
 
 </body>
 </html>
