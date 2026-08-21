@@ -30,12 +30,31 @@ function inventory(html){
   };
 }
 const baseText=p=>execFileSync('git',['show',`${BASE}:${p}`],{encoding:'utf8'});
+
+// A baseline destination may only disappear if it was already broken: the
+// target file does not exist, or its #anchor matches no id in that file.
+// Anything still reachable must be preserved, so this stays a real guard
+// against silently dropping working links.
+function brokenInBaseline(href){
+  if(!href.startsWith('/')||href.startsWith('//'))return null;
+  const [rawPath,hash]=href.split('#');
+  let target=(rawPath||'/').replace(/^\//,'');
+  if(target===''||target.endsWith('/'))target+='index.html';
+  if(!fs.existsSync(target))return `fichero inexistente: ${target}`;
+  if(!hash)return null;
+  const html=fs.readFileSync(target,'utf8');
+  const hasId=new RegExp(`\\bid\\s*=\\s*["']${hash.replace(/[.*+?^${}()|[\]\\]/g,'\\$&')}["']`,'i').test(html);
+  return hasId?null:`anchor inexistente: #${hash} en ${target}`;
+}
+
 const report={baseSha:BASE,pages:{}};
 for(const p of paths){
   const before=inventory(baseText(p)),after=inventory(fs.readFileSync(p,'utf8'));
   const removed=before.hrefs.filter(x=>!after.hrefs.includes(x)),added=after.hrefs.filter(x=>!before.hrefs.includes(x));
-  assert.deepEqual(removed,[],`${p}: destinos eliminados sin preservar: ${removed.join(', ')}`);
-  report.pages[p]={before,after,addedDestinations:added,removedDestinations:removed,metadataChanges:{title:before.title===after.title?null:[before.title,after.title],description:before.description===after.description?null:[before.description,after.description],robots:before.robots===after.robots?null:[before.robots,after.robots],canonical:before.canonical===after.canonical?null:[before.canonical,after.canonical]}};
+  const removedJustification=Object.fromEntries(removed.map(h=>[h,brokenInBaseline(h)]));
+  const unjustified=removed.filter(h=>!removedJustification[h]);
+  assert.deepEqual(unjustified,[],`${p}: destinos eliminados sin preservar: ${unjustified.join(', ')}`);
+  report.pages[p]={before,after,addedDestinations:added,removedDestinations:removed,removedJustification,metadataChanges:{title:before.title===after.title?null:[before.title,after.title],description:before.description===after.description?null:[before.description,after.description],robots:before.robots===after.robots?null:[before.robots,after.robots],canonical:before.canonical===after.canonical?null:[before.canonical,after.canonical]}};
 }
 fs.writeFileSync(`${outDir}/findability-inventory.json`,JSON.stringify(report,null,2));
 console.log('FINDABILITY INVENTORY/PRESERVATION: OK');

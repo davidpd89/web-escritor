@@ -97,11 +97,17 @@ async function checkFocus(page,key){
   let reached=false,visible=false;
   for(let i=0;i<40;i++){
     await page.keyboard.press('Tab');
-    const s=await page.evaluate(()=>{
-      const e=document.activeElement; if(!(e instanceof HTMLElement))return null;
-      if(!e.matches('[data-family="findability"] .findability-links a,[data-family="findability"] .directory-list a,[data-family="findability"] .findability-primary,[data-family="findability"] .findability-plain-list a'))return {target:false};
-      const c=getComputedStyle(e);return {target:true,outline:c.outlineStyle!=='none'&&parseFloat(c.outlineWidth)>0,shadow:c.boxShadow!=='none'};
-    });
+    // The focus ring resolves through a transition (shortened, not removed,
+    // under prefers-reduced-motion), so a synchronous read right after Tab
+    // returns the transition's start value (outline-width 0) even though the
+    // ring is painted on the very next frame. Settle a frame before measuring.
+    const s=await page.evaluate(()=>new Promise(resolve=>{
+      requestAnimationFrame(()=>requestAnimationFrame(()=>{
+        const e=document.activeElement; if(!(e instanceof HTMLElement))return resolve(null);
+        if(!e.matches('[data-family="findability"] .findability-links a,[data-family="findability"] .directory-list a,[data-family="findability"] .findability-primary,[data-family="findability"] .findability-plain-list a'))return resolve({target:false});
+        const c=getComputedStyle(e);resolve({target:true,outline:c.outlineStyle!=='none'&&parseFloat(c.outlineWidth)>0,shadow:c.boxShadow!=='none'});
+      }));
+    }));
     if(s?.target){reached=true;visible=s.outline||s.shadow;break;}
   }
   assert(reached,`${key}: teclado no alcanza enlaces principales`);assert(visible,`${key}: foco principal no visible`);
