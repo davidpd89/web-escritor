@@ -227,6 +227,7 @@ for (const viewport of viewports) {
       archiveText: main.querySelector('#pasados')?.innerText || '',
       events,
       aranjuezImage: aranjuez?.image || null,
+      aranjuezOrganizerUrl: aranjuez?.organizer?.url || null,
     };
   });
   check(Boolean(state.upcomingBeforeArchive), 'eventos: upcoming state does not precede archive');
@@ -234,7 +235,8 @@ for (const viewport of viewports) {
   check(state.emptyText.includes('Solicitar presentación'), 'eventos: empty state lacks presentation action');
   check(state.events.length === 2, `eventos: expected 2 Event schemas, got ${state.events.length}`);
   check(state.events.every((e) => e.eventStatus === 'https://schema.org/EventCompleted'), 'eventos: completed status not preserved');
-  check(state.aranjuezImage === null, 'eventos: Aranjuez still has a non-documentary generic image');
+  check(state.aranjuezImage === 'https://davidportodiaz.com/assets/feria-aranjuez-2026-david-porto-diaz-colocando-samuel.webp', 'eventos: Aranjuez documentary image missing or replaced by a generic asset');
+  check(state.aranjuezOrganizerUrl === 'https://www.aranjuez.es/eres-autor-libreria-o-editorial-inscribete-en-la-feria-del-libro-de-aranjuez-2026/', 'eventos: Aranjuez organizer URL is not the official municipal source');
   for (const forbidden of ['La Vecinal', 'Bar Aleatorio', 'Publicación de Samuel entre mundos']) {
     check(!state.archiveText.includes(forbidden), `eventos: unverified archive item still visible: ${forbidden}`);
   }
