@@ -66,6 +66,8 @@ jobs:
           --output data/site-human-stats.generated.html
           --json-output data/site-human-stats.generated.json
           --inject-into autor.html --check
+      - name: Check /cuaderno/temas/ topic collections are up to date
+        run: python scripts/build-topic-collections.py --data data/topic-collections.json --root . --check
       # El contrato "el texto no sale del navegador" es el argumento de venta
       # de cada herramienta de manuscrito. Este preflight existia
       # (scripts/audit-private-tools.py) pero nada lo ejecutaba en CI: una

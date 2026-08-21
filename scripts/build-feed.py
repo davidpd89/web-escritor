@@ -39,6 +39,36 @@ def is_noindex(html_text):
         return False
     return 'noindex' in m.group(1).lower()
 
+# /cuaderno/ ya no es solo articulos: los hubs tematicos del doc 55
+# (/cuaderno/temas/, /cuaderno/temas/{slug}/) tambien viven bajo este
+# directorio y son indexables, pero no son entradas nuevas -- son una capa de
+# navegacion sobre articulos que YA estan en el feed individualmente.
+# Meterlos tambien como item de RSS duplicaria contenido para el suscriptor
+# sin dar nada nuevo que leer. Un CollectionPage no es un Article.
+ARTICLE_TYPES = {'Article', 'BlogPosting', 'NewsArticle', 'TechArticle'}
+NON_ARTICLE_TYPES = {'CollectionPage'}
+
+
+def is_non_article_page(json_ld_root) -> bool:
+    """True si el @graph de la pagina declara explicitamente un tipo que NO
+    es una entrada de blog (p.ej. CollectionPage), sin declarar ningun tipo
+    de articulo junto a el."""
+    if not isinstance(json_ld_root, dict):
+        return False
+    graph = json_ld_root.get('@graph')
+    if not isinstance(graph, list):
+        return False
+    types = set()
+    for node in graph:
+        if isinstance(node, dict):
+            t = node.get('@type')
+            if isinstance(t, str):
+                types.add(t)
+            elif isinstance(t, list):
+                types.update(x for x in t if isinstance(x, str))
+    return bool(types & NON_ARTICLE_TYPES) and not (types & ARTICLE_TYPES)
+
+
 def extract_metadata(path):
     s = open(path, encoding='utf8', errors='ignore').read()
     if is_noindex(s):
@@ -49,6 +79,8 @@ def extract_metadata(path):
     if m:
         try:
             j=json.loads(m.group(1))
+            if is_non_article_page(j):
+                return {'path': path, 'title': None, 'url': None, 'date': None, 'description': None, 'skip': True}
             # try Article or WebPage
             node = None
             if isinstance(j, dict):
@@ -189,7 +221,7 @@ def main():
             for e in errors:
                 print(f'ERROR: {e}', file=sys.stderr)
             return 1
-        print(f'OK: feed.xml al dia ({len(items)} entradas, {skipped} excluidas por noindex)')
+        print(f'OK: feed.xml al dia ({len(items)} entradas, {skipped} excluidas por noindex/no-articulo)')
         return 0
 
     if errors:
@@ -199,7 +231,7 @@ def main():
 
     with open(OUT, 'wb') as f:
         f.write(generated)
-    print(f'Feed written to {OUT} ({len(items)} entradas, {skipped} excluidas por noindex)')
+    print(f'Feed written to {OUT} ({len(items)} entradas, {skipped} excluidas por noindex/no-articulo)')
     return 0
 
 if __name__ == '__main__':
