@@ -1,5 +1,6 @@
 /* /ai/ — V1 authority document. Text-first, no decorative motion or runtime dependency. */
 html.v1 .skip-link{max-width:calc(100vw - 2rem);white-space:normal;overflow-wrap:anywhere}
+html.v1 .authority-main .eyebrow{overflow-wrap:anywhere}
 html.v1 .authority-header .site-header__inner{grid-template-columns:minmax(0,1fr) auto}
 html.v1 .authority-main{width:min(100%,var(--layout-wide));margin:0 auto;padding:0 var(--page-gutter) var(--space-9)}
 html.v1 .authority-hero{padding:clamp(4rem,9vw,8rem) 0 clamp(3rem,7vw,6rem);border-bottom:var(--line-emphasis) solid var(--color-text)}
