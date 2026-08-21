@@ -142,8 +142,8 @@
             </div>
             <div class="tool-field">
               <label class="tool-field-label" for="ev-offset">Offset UTC *</label>
-              <input class="tool-input" id="ev-offset" name="utcOffset" value="+02:00" pattern="[+-][0-2][0-9]:[0-5][0-9]" inputmode="text">
-              <span class="tool-field-hint">Ejemplo Madrid en horario de verano: +02:00.</span>
+              <input class="tool-input" id="ev-offset" name="utcOffset" value="+02:00" pattern="(?:\+|-)(?:(?:0[0-9]|1[0-3]):[0-5][0-9]|14:00)" maxlength="6" inputmode="text" aria-describedby="ev-offset-hint">
+              <span class="tool-field-hint" id="ev-offset-hint">Ejemplo Madrid en horario de verano: +02:00. Rango admitido: −14:00 a +14:00.</span>
             </div>
           </div>
           <div class="tool-row" data-date-fields hidden>
