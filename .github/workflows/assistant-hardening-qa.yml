@@ -8,6 +8,8 @@ on:
       - 'data/assistant-source-registry.json'
       - 'cloudflare-worker-assistant.js'
       - 'migrations/assistant-quota.sql'
+      - 'scripts/build-assistant-source-registry.mjs'
+      - 'scripts/test-assistant-index-parity.mjs'
       - 'scripts/check-assistant-contract.py'
       - 'tests/test-assistant-*.mjs'
       - 'tests/test-assistant-contract.py'
@@ -27,6 +29,10 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: '22'
+      - name: Generated source-registry parity
+        run: |
+          node scripts/build-assistant-source-registry.mjs --check
+          node scripts/test-assistant-index-parity.mjs
       - name: Contract
         run: python3 tests/test-assistant-contract.py
       - name: Core
