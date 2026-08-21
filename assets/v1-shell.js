@@ -5,7 +5,6 @@
 // in script.js's submitNewsletter(), bound by the same element IDs).
 (() => {
   'use strict';
-  document.documentElement.classList.add('has-js');
   const q = (s, c = document) => c.querySelector(s);
   const qa = (s, c = document) => [...c.querySelectorAll(s)];
 
