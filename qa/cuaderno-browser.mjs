@@ -166,6 +166,10 @@ async function validateCore(spec, page) {
   assert.ok(data.mainText.length > 180, `${spec.key}: cuerpo visible insuficiente`);
   const ids = data.headings.map(h => h.id).filter(Boolean);
   assert.equal(new Set(ids).size, ids.length, `${spec.key}: heading ids duplicados`);
+
+  const parsed = await page.locator('script[type="application/ld+json"]').evaluateAll(nodes => nodes.map(node => JSON.parse(node.textContent)));
+  assert.ok(parsed.length >= 1, `${spec.key}: JSON-LD ausente`);
+
   if (spec.kind === 'index') {
     assert.ok(data.jsonLdTypes.includes('CollectionPage'), 'index: falta CollectionPage');
   } else {
@@ -185,9 +189,6 @@ async function validateCore(spec, page) {
     assert.ok(articleSchema?.about, `${spec.key}: Article about`);
     assert.ok(articleSchema?.mentions, `${spec.key}: Article mentions`);
   }
-
-  const parsed = await page.locator('script[type="application/ld+json"]').evaluateAll(nodes => nodes.map(node => JSON.parse(node.textContent)));
-  assert.ok(parsed.length >= 1, `${spec.key}: JSON-LD ausente`);
 
   const duplicateIds = await page.evaluate(() => {
     const ids = [...document.querySelectorAll('[id]')].map(el => el.id).filter(Boolean);
