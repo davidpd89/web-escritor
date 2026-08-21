@@ -170,8 +170,17 @@ function eventDateKey(model) { return (model.allDay ? model.startDate : model.st
 function dateOnlyToIcs(value) { return String(value).replace(/-/g,''); }
 function toIcsUtc(date) { return date.toISOString().replace(/[-:]/g,'').replace(/\.\d{3}Z$/,'Z'); }
 function addDays(dateOnly, days) { const d = new Date(`${dateOnly}T00:00:00Z`); d.setUTCDate(d.getUTCDate()+days); return d.toISOString().slice(0,10); }
-function isDateOnly(v) { return /^\d{4}-\d{2}-\d{2}$/.test(String(v||'')) && Number.isFinite(new Date(`${v}T00:00:00Z`).getTime()); }
-function isLocalDateTime(v) { return /^\d{4}-\d{2}-\d{2}T\d{2}:\d{2}$/.test(String(v||'')); }
+function isDateOnly(v) {
+  const value = String(v || '');
+  if (!/^\d{4}-\d{2}-\d{2}$/.test(value)) return false;
+  const date = new Date(`${value}T00:00:00Z`);
+  return Number.isFinite(date.getTime()) && date.toISOString().slice(0, 10) === value;
+}
+function isLocalDateTime(v) {
+  const value = String(v || '');
+  const match = value.match(/^(\d{4}-\d{2}-\d{2})T([01]\d|2[0-3]):([0-5]\d)$/);
+  return Boolean(match && isDateOnly(match[1]));
+}
 function isOffset(v) {
   const m = String(v || '').match(/^([+-])(\d{2}):([0-5]\d)$/);
   if (!m) return false;
