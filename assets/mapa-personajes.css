@@ -1,35 +1,42 @@
-/* V1 editorial system — bespoke pieces for the character-relationship map.
-   Structural chrome (aside/fieldset/inputs) lives in v1-tools.css; this file
-   only styles what mapa-personajes.js builds itself: the SVG canvas nodes/
-   edges (by type), the filter row and the relation list. IDs/data-* below
-   match the engine's $('#id') / [data-relation-filter] contract exactly. */
-html.v1 .map-canvas-wrap{border:1px solid var(--color-border);padding:1.75rem}
+/* V1 editorial map: visualisation is supplemental to the complete textual relation list. */
+html.v1 .map-canvas-wrap{border:1px solid var(--color-border);padding:clamp(1rem,2.5vw,1.75rem);min-width:0}
 html.v1 .map-canvas-head{display:flex;flex-wrap:wrap;justify-content:space-between;gap:1.25rem;align-items:start;margin-bottom:1rem}
-html.v1 .map-canvas-head>div>strong{display:block;font:400 1.1rem/1.3 var(--font-display);margin-bottom:.6rem}
-html.v1 .map-canvas-head .tool-select{min-height:40px;padding:.4rem .6rem;font-size:.88rem}
-
-html.v1 .map-type-filters{display:flex;flex-wrap:wrap;gap:.4rem .9rem}
-html.v1 .map-type-filters label{display:flex;align-items:center;gap:.4rem;font:400 .82rem/1.4 var(--font-ui);color:var(--color-muted)}
-html.v1 .map-type-filters input{width:15px;height:15px;accent-color:var(--color-text)}
-
-html.v1 .character-map{width:100%;aspect-ratio:16/9;background:var(--surface-quiet);touch-action:none}
+html.v1 .map-canvas-head>div{min-width:0;flex:1 1 24rem}
+html.v1 .map-canvas-head>div>strong{display:block;font:400 1.1rem/1.3 var(--font-display);margin-bottom:.8rem;overflow-wrap:anywhere}
+html.v1 .map-focus-label{flex:0 1 13rem;min-width:min(100%,11rem)}
+html.v1 .map-canvas-head .tool-select{min-height:44px;padding:.45rem .6rem;font-size:.88rem}
+html.v1 .map-filter-set{border:0;padding:0;margin:0}
+html.v1 .map-filter-set legend{font:600 .7rem/1.4 var(--font-ui);letter-spacing:.05em;text-transform:uppercase;color:var(--color-muted);margin:0 0 .45rem;padding:0}
+html.v1 .map-type-filters{display:flex;flex-wrap:wrap;gap:.2rem .45rem}
+html.v1 .map-type-filters label{display:flex;align-items:center;gap:.45rem;min-height:44px;padding:.2rem .35rem;font:400 .82rem/1.4 var(--font-ui);color:var(--color-text)}
+html.v1 .map-type-filters input{width:18px;height:18px;accent-color:var(--color-text)}
+html.v1 .map-field-error{min-height:1.35em;margin:.35rem 0 0;font:400 .8rem/1.45 var(--font-ui);color:var(--color-accent-strong)}
+html.v1 .map-viewport{width:100%;overflow:auto;background:var(--surface-quiet);overscroll-behavior-inline:contain;scrollbar-gutter:stable}
+html.v1 .map-viewport:focus-visible{outline:2px solid var(--focus-color);outline-offset:2px}
+html.v1 .character-map{display:block;width:100%;min-width:0;aspect-ratio:16/9;background:var(--surface-quiet);touch-action:none}
 html.v1 .map-node{cursor:grab}
+html.v1 .map-node.is-dragging{cursor:grabbing}
 html.v1 .map-node circle{fill:var(--surface-page);stroke:var(--dp-ink);stroke-width:1.5}
-html.v1 .map-node text{fill:var(--dp-ink);font-size:13px;font-family:var(--font-ui)}
-html.v1 .map-edge line{stroke:var(--dp-walnut);stroke-width:1.5;opacity:.75}
-html.v1 .map-edge text{fill:var(--color-muted);font-size:11px;font-family:var(--font-ui)}
-html.v1 .map-edge.type-romance line{stroke:var(--dp-copper)}
-html.v1 .map-edge.type-rivalidad line{stroke:var(--dp-walnut);stroke-dasharray:2 3}
-html.v1 .map-edge.type-secreto line{stroke:var(--color-muted);stroke-dasharray:1 4}
-html.v1 .map-edge.type-alianza line{stroke:var(--dp-petrol)}
-html.v1 .map-edge.type-mentoria line{stroke:var(--dp-brass)}
-html.v1 .map-edge.type-amistad line{stroke:var(--dp-petrol);opacity:.55}
-html.v1 .map-edge.type-familia line{stroke:var(--dp-walnut);opacity:.9}
-
-html.v1 .map-empty{padding:2.5rem 0;text-align:center;font:400 .95rem/1.5 var(--font-ui);color:var(--color-muted)}
-
-html.v1 .relation-list{list-style:none;margin:1.25rem 0 0;padding:0;display:grid;gap:.6rem}
-html.v1 .relation-list li{display:flex;justify-content:space-between;align-items:center;gap:1rem;padding:.7rem 0;border-top:1px solid var(--color-border);font:400 .92rem/1.5 var(--font-reading)}
-html.v1 .relation-list li small{display:block;color:var(--color-muted);font:400 .82rem/1.5 var(--font-ui);margin-top:.2rem}
-html.v1 .relation-list li button{flex:0 0 auto;width:28px;height:28px;border:1px solid var(--color-border);background:none;color:var(--color-text);cursor:pointer;font-size:1rem;line-height:1}
+html.v1 .map-node text{fill:var(--dp-ink);font-size:13px;font-family:var(--font-ui);pointer-events:none}
+html.v1 .map-edge line{stroke:var(--dp-walnut);stroke-width:1.5;opacity:.82}
+html.v1 .map-edge text{fill:var(--color-text);font-size:11px;font-family:var(--font-ui);paint-order:stroke;stroke:var(--surface-quiet);stroke-width:4px;stroke-linejoin:round}
+html.v1 .map-edge.type-romance line{stroke:var(--dp-copper);stroke-width:2}
+html.v1 .map-edge.type-rivalidad line{stroke:var(--dp-walnut);stroke-dasharray:5 4}
+html.v1 .map-edge.type-secreto line{stroke:var(--color-muted);stroke-dasharray:1 5}
+html.v1 .map-edge.type-alianza line{stroke:var(--dp-petrol);stroke-dasharray:10 3}
+html.v1 .map-edge.type-mentoria line{stroke:var(--dp-brass);stroke-dasharray:8 3 2 3}
+html.v1 .map-edge.type-amistad line{stroke:var(--dp-petrol);opacity:.75}
+html.v1 .map-edge.type-familia line{stroke:var(--dp-walnut);opacity:.95;stroke-width:2}
+html.v1 .map-empty{padding:2.5rem 1rem;text-align:center;font:400 .95rem/1.5 var(--font-ui);color:var(--color-muted)}
+html.v1 .map-equivalent{margin:1rem 0 0;max-width:62ch;font:400 .82rem/1.55 var(--font-ui);color:var(--color-muted)}
+html.v1 .map-relation-heading{margin:1.8rem 0 .4rem;font:400 1.35rem/1.2 var(--font-display)}
+html.v1 .relation-list{list-style:none;margin:0;padding:0;display:grid}
+html.v1 .relation-list li{display:flex;justify-content:space-between;align-items:center;gap:1rem;padding:.8rem 0;border-top:1px solid var(--color-border);font:400 .92rem/1.5 var(--font-reading);min-width:0}
+html.v1 .relation-list li>span{min-width:0;overflow-wrap:anywhere}
+html.v1 .relation-list li small{display:block;color:var(--color-muted);font:400 .82rem/1.5 var(--font-ui);margin-top:.2rem;overflow-wrap:anywhere}
+html.v1 .relation-list li button{flex:0 0 auto;width:44px;height:44px;border:1px solid var(--color-border);background:none;color:var(--color-text);cursor:pointer;font-size:1.15rem;line-height:1}
 html.v1 .relation-list li button:hover{border-color:var(--color-text)}
+html.v1 .relation-list li button:focus-visible{outline:2px solid var(--focus-color);outline-offset:2px}
+html.v1 .tool-next-links a{min-height:44px;display:inline-flex;align-items:center;text-underline-offset:.2em}
+@media(max-width:767px){html.v1 .map-canvas-wrap{border-inline:0;padding-inline:0}html.v1 .map-canvas-head{display:block}html.v1 .map-focus-label{display:block;margin-top:1rem}html.v1 .map-viewport{border-block:1px solid var(--color-border)}html.v1 .character-map{width:720px;min-width:720px;height:auto}html.v1 .relation-list li{align-items:flex-start}html.v1 .map-type-filters label{flex:1 1 7rem}}
+@media(prefers-reduced-motion:reduce){html.v1 .map-viewport{scroll-behavior:auto}}

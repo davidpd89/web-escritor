@@ -1,42 +1,25 @@
-/* V1 editorial system — bespoke pieces for the POV-distribution tool.
-   Structural chrome lives in v1-tools.css; pov-distribucion.js builds the
-   sequence strip, lane grid and summary table itself, tagging each POV
-   with one of 10 .pov-tone-N classes (by declaration order) so a reader can
-   follow the same narrator across all three views. */
-html.v1 .pov-status.is-error{color:var(--color-accent-strong)}
-
-html.v1 .pov-sequence{display:flex;gap:1px;overflow-x:auto;padding:.25rem 0 .75rem;background:var(--color-border)}
-html.v1 .pov-scene{flex:0 0 auto;min-width:6rem;max-width:9rem;padding:.55rem .65rem;background:var(--surface-page);border-top:2px solid currentColor}
-html.v1 .pov-scene span,html.v1 .pov-scene strong{display:block;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+/* V1 editorial POV views: manuscript structure, not an analytics dashboard. */
+html.v1 [data-pov-status].is-error{color:var(--color-accent-strong)}
+html.v1 .pov-sequence{display:flex;gap:1px;overflow-x:auto;padding:.25rem 0 .75rem;background:var(--color-border);overscroll-behavior-inline:contain;scrollbar-gutter:stable}
+html.v1 .pov-sequence:focus-visible,html.v1 .pov-lanes:focus-visible,html.v1 .pov-table-wrap:focus-visible{outline:2px solid var(--focus-color);outline-offset:2px}
+html.v1 .pov-scene{flex:0 0 auto;min-width:7rem;max-width:12rem;padding:.6rem .7rem;background:var(--surface-page);border-top:3px solid currentColor;min-height:4.3rem}
+html.v1 .pov-scene span,html.v1 .pov-scene strong{display:block;white-space:normal;overflow-wrap:anywhere}
 html.v1 .pov-scene span{font:400 .7rem/1.4 var(--font-ui);color:var(--color-muted)}
 html.v1 .pov-scene strong{font:600 .84rem/1.4 var(--font-ui);margin-top:.2rem;color:currentColor}
-
-html.v1 .pov-lanes{overflow-x:auto;border:1px solid var(--color-border);padding:.5rem}
+html.v1 .pov-lanes{overflow-x:auto;border-block:1px solid var(--color-border);padding:.35rem 0;overscroll-behavior-inline:contain;scrollbar-gutter:stable}
 html.v1 .pov-lane-grid{min-width:max-content}
-html.v1 .pov-lane-row{display:grid;grid-template-columns:8rem minmax(22rem,1fr);align-items:center;border-bottom:1px solid var(--color-border)}
+html.v1 .pov-lane-row{display:grid;grid-template-columns:minmax(8rem,12rem) minmax(24rem,1fr);align-items:stretch;border-bottom:1px solid var(--color-border)}
 html.v1 .pov-lane-row:last-child{border-bottom:0}
-html.v1 .pov-lane-name{padding:.5rem;font:600 .85rem/1.3 var(--font-ui);color:currentColor;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
-html.v1 .pov-lane-track{display:grid;min-height:2.1rem}
-html.v1 .pov-lane-cell{display:flex;align-items:center;justify-content:center;border-left:1px solid var(--color-border);font-size:.78rem;color:transparent}
+html.v1 .pov-lane-name{padding:.55rem .7rem;font:600 .85rem/1.35 var(--font-ui);color:currentColor;white-space:normal;overflow-wrap:anywhere;align-self:center}
+html.v1 .pov-lane-track{display:grid;min-height:2.4rem}
+html.v1 .pov-lane-cell{display:flex;align-items:center;justify-content:center;border-left:1px solid var(--color-border);font-size:.78rem;color:transparent;min-width:20px}
 html.v1 .pov-lane-cell.is-active{color:currentColor;font-size:.9rem}
-
-html.v1 .pov-table-wrap{overflow-x:auto}
-html.v1 .pov-table{width:100%;border-collapse:collapse;min-width:42rem;font:400 .88rem/1.5 var(--font-ui)}
-html.v1 .pov-table th,html.v1 .pov-table td{text-align:left;padding:.6rem .75rem;border-bottom:1px solid var(--color-border)}
+html.v1 .pov-table-wrap{overflow-x:auto;overscroll-behavior-inline:contain;scrollbar-gutter:stable}
+html.v1 .pov-table{width:100%;border-collapse:collapse;min-width:42rem;font:400 .88rem/1.5 var(--font-ui);font-variant-numeric:tabular-nums}
+html.v1 .pov-table th,html.v1 .pov-table td{text-align:left;padding:.65rem .75rem;border-bottom:1px solid var(--color-border)}
 html.v1 .pov-table thead th{font:600 .7rem/1.3 var(--font-ui);letter-spacing:.05em;text-transform:uppercase;color:var(--color-muted);border-bottom:1px solid var(--color-text)}
-html.v1 .pov-table tbody th{color:currentColor;font-weight:600}
-
-html.v1 .pov-tone-1{color:#9C7B3E}
-html.v1 .pov-tone-2{color:#3D6070}
-html.v1 .pov-tone-3{color:#8A4A32}
-html.v1 .pov-tone-4{color:#5C6E3E}
-html.v1 .pov-tone-5{color:#7A4258}
-html.v1 .pov-tone-6{color:#3F332A}
-html.v1 .pov-tone-7{color:#3D6660}
-html.v1 .pov-tone-8{color:#79542A}
-html.v1 .pov-tone-9{color:#5A4A73}
-html.v1 .pov-tone-10{color:#5F5138}
-
-@media(max-width:600px){
-  html.v1 .pov-lane-row{grid-template-columns:5.5rem minmax(18rem,1fr)}
-}
+html.v1 .pov-table tbody th{color:currentColor;font-weight:600;overflow-wrap:anywhere}
+html.v1 .pov-tone-1{color:#765A2B}html.v1 .pov-tone-2{color:#3D6070}html.v1 .pov-tone-3{color:#8A4A32}html.v1 .pov-tone-4{color:#5C6E3E}html.v1 .pov-tone-5{color:#7A4258}html.v1 .pov-tone-6{color:#3F332A}html.v1 .pov-tone-7{color:#3D6660}html.v1 .pov-tone-8{color:#79542A}html.v1 .pov-tone-9{color:#5A4A73}html.v1 .pov-tone-10{color:#5F5138}
+html.v1 .tool-next-links a{min-height:44px;display:inline-flex;align-items:center;text-underline-offset:.2em}
+@media(max-width:600px){html.v1 .pov-scene{min-width:8rem;max-width:10rem}html.v1 .pov-lane-row{grid-template-columns:8rem minmax(22rem,1fr)}html.v1 .pov-lane-name{position:sticky;left:0;background:var(--surface-page);z-index:1;border-right:1px solid var(--color-border)}}
+@media(prefers-reduced-motion:reduce){html.v1 .pov-sequence,html.v1 .pov-lanes,html.v1 .pov-table-wrap{scroll-behavior:auto}}
