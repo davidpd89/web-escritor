@@ -72,45 +72,20 @@
 
       <div class="explore-dialog__grid">
         <nav class="explore-list" aria-label="Destinos de la web">
-          <a class="explore-row" href="/las-manecillas-del-recuerdo/" data-preview="manecillas">
-            <span class="explore-row__index">01</span>
-            <span class="explore-row__body"><strong>Las manecillas del recuerdo</strong><small>La obra actual.</small></span>
-          </a>
-          <a class="explore-row" href="/autor.html" data-preview="autor">
-            <span class="explore-row__index">02</span>
-            <span class="explore-row__body"><strong>Autor</strong><small>Biografía, obra y trayectoria.</small></span>
-          </a>
-          <a class="explore-row" href="/libros/samuel-entre-mundos/" data-preview="samuel">
-            <span class="explore-row__index">03</span>
-            <span class="explore-row__body"><strong>Samuel entre mundos</strong><small>Primera novela publicada.</small></span>
-          </a>
-          <a class="explore-row" href="/cuaderno/" data-preview="cuaderno">
-            <span class="explore-row__index">04</span>
-            <span class="explore-row__body"><strong>Cuaderno</strong><small>Artículos y piezas editoriales.</small></span>
-          </a>
-          <a class="explore-row" href="/herramientas/" data-preview="herramientas">
-            <span class="explore-row__index">05</span>
-            <span class="explore-row__body"><strong>Herramientas</strong><small>Utilidades gratuitas para escritores.</small></span>
-          </a>
-          <a class="explore-row" href="/prensa.html" data-preview="prensa">
-            <span class="explore-row__index">06</span>
-            <span class="explore-row__body"><strong>Prensa y eventos</strong><small>Apariciones, materiales y agenda.</small></span>
-          </a>
+          <a class="explore-row" href="/las-manecillas-del-recuerdo/" data-preview="manecillas"><span class="explore-row__index">01</span><span class="explore-row__body"><strong>Las manecillas del recuerdo</strong><small>La obra actual.</small></span></a>
+          <a class="explore-row" href="/autor.html" data-preview="autor"><span class="explore-row__index">02</span><span class="explore-row__body"><strong>Autor</strong><small>Biografía, obra y trayectoria.</small></span></a>
+          <a class="explore-row" href="/libros/samuel-entre-mundos/" data-preview="samuel"><span class="explore-row__index">03</span><span class="explore-row__body"><strong>Samuel entre mundos</strong><small>Primera novela publicada.</small></span></a>
+          <a class="explore-row" href="/cuaderno/" data-preview="cuaderno"><span class="explore-row__index">04</span><span class="explore-row__body"><strong>Cuaderno</strong><small>Artículos y piezas editoriales.</small></span></a>
+          <a class="explore-row" href="/herramientas/" data-preview="herramientas"><span class="explore-row__index">05</span><span class="explore-row__body"><strong>Herramientas</strong><small>Utilidades gratuitas para escritores.</small></span></a>
+          <a class="explore-row" href="/prensa.html" data-preview="prensa"><span class="explore-row__index">06</span><span class="explore-row__body"><strong>Prensa y eventos</strong><small>Apariciones, materiales y agenda.</small></span></a>
         </nav>
-
-        <aside class="explore-preview" aria-live="polite" aria-atomic="true" data-explore-preview>
-          <div class="explore-preview__media" aria-hidden="true" data-preview-media></div>
-          <p class="explore-preview__label" data-preview-label>Herramientas</p>
-          <p class="explore-preview__copy" data-preview-copy>Utilidades gratuitas para escritores.</p>
-        </aside>
+        <aside class="explore-preview" aria-live="polite" aria-atomic="true" data-explore-preview><div class="explore-preview__media" aria-hidden="true" data-preview-media></div><p class="explore-preview__label" data-preview-label>Herramientas</p><p class="explore-preview__copy" data-preview-copy>Utilidades gratuitas para escritores.</p></aside>
       </div>
     </div>
   </dialog>
 
   <main id="contenido" class="v1-main" data-family="tool">
-    <nav class="book-breadcrumb" aria-label="Ruta de navegación">
-      <ol><li><a href="/">Inicio</a></li><li><a href="/herramientas/">Herramientas</a></li><li aria-current="page">Legibilidad</li></ol>
-    </nav>
+    <nav class="book-breadcrumb" aria-label="Ruta de navegación"><ol><li><a href="/">Inicio</a></li><li><a href="/herramientas/">Herramientas</a></li><li aria-current="page">Legibilidad</li></ol></nav>
 
     <header class="tool-hero">
       <p class="eyebrow">Herramienta gratuita · análisis local</p>
@@ -120,6 +95,7 @@
     </header>
 
     <section class="tool-panel">
+      <noscript><p class="tool-note" role="status">JavaScript está desactivado. Puedes leer esta página y su metodología, pero el cálculo necesita JavaScript para ejecutarse localmente en tu navegador.</p></noscript>
       <form data-readability-form novalidate>
         <div class="tool-field">
           <label class="tool-field-label" for="readability-input">Pega un fragmento, una escena, un capítulo o un artículo</label>
@@ -139,64 +115,25 @@
     <section class="tool-results" data-readability-results hidden aria-label="Resultados de legibilidad">
       <div data-summary></div>
       <div class="tool-summary" data-metrics></div>
-
-      <div class="tool-findings-block" aria-labelledby="mapa-densidad">
-        <h3 id="mapa-densidad">Mira primero el cambio entre párrafos</h3>
-        <p>La barra no dice «bueno» o «malo». Solo hace visible qué bloques se separan del resto por longitud de frase y de palabra. Si un párrafo denso coincide con una explicación importante, quizá esté haciendo exactamente el trabajo que querías.</p>
-        <div class="density-strip" data-density-strip aria-label="Comparación de densidad formal entre párrafos"></div>
-      </div>
-
-      <div class="tool-findings-block">
-        <h3>Los párrafos que más pesan en la muestra</h3>
-        <p>Comparo solo párrafos de 20 palabras o más. Abre el manuscrito al lado y léelos de nuevo. Muchas veces el problema está ahí. Otras veces no hay ningún problema.</p>
-        <ol class="tool-findings" data-dense></ol>
-      </div>
-
-      <div class="tool-findings-block">
-        <h3>Las frases más largas</h3>
-        <p>Una frase larga puede sostener una idea compleja mejor que tres cortas. Esta lista sirve para encontrarlas rápido; no para cortarlas por sistema.</p>
-        <ol class="tool-findings" data-longest></ol>
-      </div>
+      <div class="tool-findings-block" aria-labelledby="mapa-densidad"><h3 id="mapa-densidad">Mira primero el cambio entre párrafos</h3><p>La barra no dice «bueno» o «malo». Solo hace visible qué bloques se separan del resto por longitud de frase y de palabra. Si un párrafo denso coincide con una explicación importante, quizá esté haciendo exactamente el trabajo que querías.</p><div class="density-strip" data-density-strip aria-label="Comparación de densidad formal entre párrafos"></div></div>
+      <div class="tool-findings-block"><h3>Los párrafos que más pesan en la muestra</h3><p>Comparo solo párrafos de 20 palabras o más. Abre el manuscrito al lado y léelos de nuevo. Muchas veces el problema está ahí. Otras veces no hay ningún problema.</p><ol class="tool-findings" data-dense></ol></div>
+      <div class="tool-findings-block"><h3>Las frases más largas</h3><p>Una frase larga puede sostener una idea compleja mejor que tres cortas. Esta lista sirve para encontrarlas rápido; no para cortarlas por sistema.</p><ol class="tool-findings" data-longest></ol></div>
     </section>
 
-    <section class="tool-panel tool-caveat">
-      <h2>Una cifra no corrige una novela</h2>
-      <p>Estas fórmulas cuentan cosas bastante humildes: palabras, sílabas y frases. No saben si una voz tiene gracia, si una pausa llega donde debe o si un párrafo largo está apretando al lector a propósito. Tampoco entienden una ironía.</p>
-      <p>Por eso Inflesz aparece como referencia y el resto como contraste. Úsalos para encontrar zonas que quieras releer. Si conviertes el número en una meta, es fácil acabar igualando todo el texto hasta quitarle la voz.</p>
-    </section>
+    <section class="tool-panel tool-caveat"><h2>Una cifra no corrige una novela</h2><p>Estas fórmulas cuentan cosas bastante humildes: palabras, sílabas y frases. No saben si una voz tiene gracia, si una pausa llega donde debe o si un párrafo largo está apretando al lector a propósito. Tampoco entienden una ironía.</p><p>Por eso Inflesz aparece como referencia y el resto como contraste. Úsalos para encontrar zonas que quieras releer. Si conviertes el número en una meta, es fácil acabar igualando todo el texto hasta quitarle la voz.</p></section>
 
     <section class="tool-panel">
       <h2>Qué calcula cada índice</h2>
       <p class="tool-caveat">Las fórmulas no nacieron para juzgar ficción literaria. Las dejo visibles porque una herramienta que da números sin explicar de dónde salen sirve de poco.</p>
       <div class="tool-two-col">
-        <article>
-          <h3>Flesch-Szigriszt / Inflesz</h3>
-          <code class="tool-formula">206,835 − 62,3 × (sílabas / palabras) − (palabras / frases)</code>
-          <p>Es la lectura principal. La escala Inflesz agrupa el resultado en cinco tramos. La validación publicada en 2008 se hizo con documentación dirigida a pacientes; aquí la usamos de forma descriptiva.</p>
-        </article>
-        <article>
-          <h3>Fernández-Huerta</h3>
-          <code class="tool-formula">206,84 − 60 × (sílabas / palabras) − 102 × (frases / palabras)</code>
-          <p>La fórmula histórica se publicó pensando en muestras de 100 palabras y existe una discusión documentada sobre cómo trasladar su término de frases a textos de cualquier longitud. Aquí usamos la variante normalizada por longitud media de oración. Por eso otra calculadora puede darte un resultado distinto.</p>
-        </article>
-        <article>
-          <h3>Gutiérrez de Polini</h3>
-          <code class="tool-formula">95,2 − 9,7 × (letras / palabras) − 0,35 × (palabras / frases)</code>
-          <p>Se concibió para textos escolares. No le asigno una etiqueta moderna inventada: el valor queda como apoyo para comparar versiones del mismo texto.</p>
-        </article>
-        <article>
-          <h3>Crawford</h3>
-          <code class="tool-formula">−0,205 × (frases / 100 palabras) + 0,049 × (sílabas / 100 palabras) − 3,407</code>
-          <p>También nace en un contexto escolar. Su resultado aproxima un nivel educativo; no dice nada sobre la calidad de una novela ni sobre quién «debería» leerla.</p>
-        </article>
+        <article><h3>Flesch-Szigriszt / Inflesz</h3><code class="tool-formula">206,835 − 62,3 × (sílabas / palabras) − (palabras / frases)</code><p>Es la lectura principal. La escala Inflesz agrupa el resultado en cinco tramos. La validación publicada en 2008 se hizo con documentación dirigida a pacientes; aquí la usamos de forma descriptiva.</p></article>
+        <article><h3>Fernández-Huerta</h3><code class="tool-formula">206,84 − 60 × (sílabas / palabras) − 102 × (frases / palabras)</code><p>La fórmula histórica se publicó pensando en muestras de 100 palabras y existe una discusión documentada sobre cómo trasladar su término de frases a textos de cualquier longitud. Aquí usamos la variante normalizada por longitud media de oración. Por eso otra calculadora puede darte un resultado distinto.</p></article>
+        <article><h3>Gutiérrez de Polini</h3><code class="tool-formula">95,2 − 9,7 × (letras / palabras) − 0,35 × (palabras / frases)</code><p>Se concibió para textos escolares. No le asigno una etiqueta moderna inventada: el valor queda como apoyo para comparar versiones del mismo texto.</p></article>
+        <article><h3>Crawford</h3><code class="tool-formula">−0,205 × (frases / 100 palabras) + 0,049 × (sílabas / 100 palabras) − 3,407</code><p>También nace en un contexto escolar. Su resultado aproxima un nivel educativo; no dice nada sobre la calidad de una novela ni sobre quién «debería» leerla.</p></article>
       </div>
     </section>
 
-    <section class="tool-panel tool-caveat">
-      <h2>Privacidad: el manuscrito se queda contigo</h2>
-      <p>El cálculo ocurre en JavaScript dentro del navegador. El texto no se manda al Worker de la newsletter, a Brevo, a una IA ni a un servicio de análisis. Tampoco se guarda en <code>localStorage</code> o <code>sessionStorage</code>.</p>
-      <p>Si medimos el uso de la herramienta, el evento solo indica que se ejecutó un análisis y un tramo aproximado de longitud, por ejemplo «100–499 palabras». No contiene frases, títulos, nombres ni ninguna palabra pegada en el cuadro.</p>
-    </section>
+    <section class="tool-panel tool-caveat"><h2>Privacidad: el manuscrito se queda contigo</h2><p>El cálculo ocurre en JavaScript dentro del navegador. El texto no se manda al Worker de la newsletter, a Brevo, a una IA ni a un servicio de análisis. Tampoco se guarda en <code>localStorage</code> o <code>sessionStorage</code>.</p><p>Si medimos el uso de la herramienta, el evento solo indica que se ejecutó un análisis y un tramo aproximado de longitud, por ejemplo «100–499 palabras». No contiene frases, títulos, nombres ni ninguna palabra pegada en el cuadro.</p></section>
 
     <section class="tool-panel">
       <h2>Fuentes y método</h2>
@@ -222,23 +159,11 @@
         <details><summary>¿Puedo pegar un capítulo entero?</summary><p>Sí. El límite de la interfaz es 150.000 caracteres para evitar que un pegado accidental haga pesado el navegador. Para una novela completa es mejor analizar capítulos o bloques y comparar entre ellos.</p></details>
       </div>
     </section>
-
   </main>
 
-  <footer class="site-footer">
-    <div class="site-footer__grid">
-      <div>
-        <strong class="brand__name">David Porto Díaz</strong>
-        <p>Autor de Las manecillas del recuerdo y Samuel entre mundos.</p>
-      </div>
-      <nav aria-label="Obra"><h2>Obra</h2><a href="/las-manecillas-del-recuerdo/">Las manecillas del recuerdo</a><a href="/libros/samuel-entre-mundos/">Samuel entre mundos</a><a href="/fragmento/">Fragmento gratis</a></nav>
-      <nav aria-label="Leer y recursos"><h2>Leer</h2><a href="/cuaderno/">Cuaderno</a><a href="/herramientas/" aria-current="page">Herramientas</a><a href="/mapa-del-sitio/">Mapa del sitio</a></nav>
-      <nav aria-label="Información"><h2>Información</h2><a href="/autor.html">Autor</a><a href="/prensa.html">Prensa</a><a href="/eventos.html">Eventos</a><a href="/privacidad.html">Privacidad</a><a href="/aviso-legal.html">Aviso legal</a><a href="/ai/">Para IA</a></nav>
-    </div>
-  </footer>
+  <footer class="site-footer"><div class="site-footer__grid"><div><strong class="brand__name">David Porto Díaz</strong><p>Autor de Las manecillas del recuerdo y Samuel entre mundos.</p></div><nav aria-label="Obra"><h2>Obra</h2><a href="/las-manecillas-del-recuerdo/">Las manecillas del recuerdo</a><a href="/libros/samuel-entre-mundos/">Samuel entre mundos</a><a href="/fragmento/">Fragmento gratis</a></nav><nav aria-label="Leer y recursos"><h2>Leer</h2><a href="/cuaderno/">Cuaderno</a><a href="/herramientas/" aria-current="page">Herramientas</a><a href="/mapa-del-sitio/">Mapa del sitio</a></nav><nav aria-label="Información"><h2>Información</h2><a href="/autor.html">Autor</a><a href="/prensa.html">Prensa</a><a href="/eventos.html">Eventos</a><a href="/privacidad.html">Privacidad</a><a href="/aviso-legal.html">Aviso legal</a><a href="/ai/">Para IA</a></nav></div></footer>
 
   <script defer src="/assets/v1-shell.js"></script>
-
   <script type="module" src="/assets/legibilidad-espanol.js"></script>
 </body>
 </html>
