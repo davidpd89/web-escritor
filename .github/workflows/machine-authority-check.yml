@@ -12,7 +12,7 @@ on:
       - 'editorial-facts.json'
       - 'sitemap.xml'
       - 'tests/test-machine-authority.py'
-      - 'tests/machine-authority-browser.mjs'
+      - 'qa/machine-authority-browser.mjs'
       - 'tests/fixtures/machine-authority-drift-before.json'
       - '.github/workflows/machine-authority-check.yml'
   workflow_dispatch:
@@ -63,7 +63,7 @@ jobs:
         env:
           MACHINE_BASE_URL: http://127.0.0.1:4173
           MACHINE_ARTIFACT_DIR: artifacts/machine-authority
-        run: node tests/machine-authority-browser.mjs
+        run: node qa/machine-authority-browser.mjs
 
       - name: Save server log
         if: always()
