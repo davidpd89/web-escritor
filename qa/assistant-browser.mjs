@@ -34,6 +34,11 @@ for (const [width,height] of viewports) {
   const shortTargets=await page.locator("[data-assistant-example], .assistant-actions a, .assistant-actions button").evaluateAll((els)=>els.filter(el=>!el.hidden&&getComputedStyle(el).display!=="none").filter(el=>{const r=el.getBoundingClientRect();return r.width<44||r.height<44}).map(el=>({tag:el.tagName,text:el.textContent?.trim(),w:el.getBoundingClientRect().width,h:el.getBoundingClientRect().height})));
   check(shortTargets.length===0,`${width}x${height}: touch targets below 44px ${JSON.stringify(shortTargets)}`);
 
+  // Baseline screenshot must represent the clean initial state, before synthetic QA payloads alter focus/scroll/content.
+  const skipState=await page.locator(".skip-link").evaluate(el=>{const r=el.getBoundingClientRect();return {focused:document.activeElement===el,top:r.top,bottom:r.bottom}});
+  check(!skipState.focused && skipState.bottom<=0,`${width}x${height}: skip link visible without focus ${JSON.stringify(skipState)}`);
+  if(shots.has(`${width}x${height}`)) await page.screenshot({path:path.join(out,`assistant-${width}x${height}.png`),fullPage:true});
+
   await page.locator("[data-assistant-query]").fill("x");
   await page.locator("[data-assistant-submit]").click();
   check((await page.locator("[data-assistant-status]").innerText()).includes("concreta"),`${width}x${height}: one-char validation`);
@@ -50,7 +55,6 @@ for (const [width,height] of viewports) {
 
   const textResilience=await page.evaluate(()=>{const el=document.querySelector("[data-assistant-answer]");el.hidden=false;el.textContent="W".repeat(400);return document.documentElement.scrollWidth-document.documentElement.clientWidth});
   check(textResilience<=1,`${width}x${height}: long-token overflow`);
-  if(shots.has(`${width}x${height}`)) await page.screenshot({path:path.join(out,`assistant-${width}x${height}.png`),fullPage:true});
   await context.close();
 }
 
@@ -111,10 +115,15 @@ for (const [width,height] of viewports) {
   await context.close();
 }
 
-// Keyboard path and focus: example -> textarea.
+// Keyboard path and focus: example -> textarea, plus skip-link accessibility behavior.
 {
   const context=await browser.newContext({viewport:{width:390,height:900}}); const page=await context.newPage();
-  await page.goto(`${origin}/asistente/`); await page.locator("[data-assistant-example]").first().focus(); await page.keyboard.press("Enter");
+  await page.goto(`${origin}/asistente/`);
+  await page.keyboard.press("Tab");
+  check(await page.locator(".skip-link").evaluate(el=>el===document.activeElement),"keyboard: first Tab must focus skip link");
+  const focusedSkip=await page.locator(".skip-link").evaluate(el=>el.getBoundingClientRect().bottom>0);
+  check(focusedSkip,"keyboard: focused skip link must become visible");
+  await page.locator("[data-assistant-example]").first().focus(); await page.keyboard.press("Enter");
   check(await page.locator("[data-assistant-query]").evaluate(el=>el===document.activeElement),"keyboard: starter must focus query");
   await context.close();
 }
@@ -135,4 +144,4 @@ for (const [width,height] of viewports) {
 
 await browser.close();
 if(failures.length){console.error("Assistant browser QA FAILED:\n- "+failures.join("\n- "));process.exit(1)}
-console.log(`assistant-browser: OK (${viewports.length} viewports, 6 screenshots, local+remote mock, XSS, network sentinel, keyboard, no-JS, reduced-motion, text-spacing)`);
+console.log(`assistant-browser: OK (${viewports.length} viewports, 6 clean screenshots, local+remote mock, XSS, network sentinel, skip-link+keyboard, no-JS, reduced-motion, text-spacing)`);
