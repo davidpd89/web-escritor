@@ -46,7 +46,6 @@ const viewports = [
 
 const exfil = new Map(Object.keys(routes).map(key => [key, []]));
 const external = new Map(Object.keys(routes).map(key => [key, []]));
-const failures = [];
 
 await fs.mkdir(OUT, { recursive: true });
 const browser = await chromium.launch({ headless: true });
@@ -60,7 +59,7 @@ function isExternalNetworkUrl(rawUrl) {
   }
 }
 
-function tracked(page, key) {
+function track(page, key) {
   page.on('request', request => {
     const raw = `${request.url()}\n${request.postData() || ''}`;
     if (raw.includes(SENTINEL)) {
@@ -70,12 +69,10 @@ function tracked(page, key) {
       external.get(key).push(`request:${request.method()}:${request.url()}`);
     }
   });
-
   page.on('websocket', socket => {
     if (socket.url().includes(SENTINEL)) exfil.get(key).push(`websocket:${socket.url()}`);
     if (isExternalNetworkUrl(socket.url())) external.get(key).push(`websocket:${socket.url()}`);
   });
-
   page.on('framenavigated', frame => {
     if (frame !== page.mainFrame()) return;
     const url = frame.url();
@@ -96,16 +93,14 @@ async function open(key, viewport = { width: 1440, height: 1000 }, javaScriptEna
       }
     }).observe({ type: 'layout-shift', buffered: true });
   });
-
   const page = await context.newPage();
-  tracked(page, key);
+  track(page, key);
   const consoleErrors = [];
   const pageErrors = [];
   page.on('console', message => {
     if (message.type() === 'error') consoleErrors.push(message.text());
   });
   page.on('pageerror', error => pageErrors.push(error.message));
-
   const response = await page.goto(BASE + routes[key], { waitUntil: 'networkidle' });
   assert.equal(response?.status(), 200, `${key}: HTTP`);
   if (javaScriptEnabled) {
@@ -142,18 +137,17 @@ async function noBadNumbers(page, label) {
   assert.equal(/\b(?:nan|infinity|undefined)\b/.test(text), false, `${label}: valor inválido visible`);
 }
 
-async function cls(page, label) {
+async function checkCls(page, label) {
   await page.waitForTimeout(80);
   const value = await page.evaluate(() => window.__qaCLS || 0);
   assert.ok(value <= 0.1, `${label}: CLS ${value}`);
-  return value;
 }
 
 async function screenshot(page, name) {
   await page.screenshot({ path: path.join(OUT, name), fullPage: true });
 }
 
-async function assertMinTarget(page, selector, label) {
+async function minTarget(page, selector, label) {
   const box = await page.locator(selector).first().boundingBox();
   assert.ok(box, `${label}: target inexistente`);
   assert.ok(box.width >= 44 && box.height >= 44, `${label}: target ${box.width}×${box.height}`);
@@ -172,8 +166,8 @@ async function applyInspectorStyles(context, page, cssText) {
 async function qaPersonajes() {
   const { context, page } = await open('personajes');
   await checkMetadata(page, 'personajes');
-  await cls(page, 'personajes carga inicial');
-  await assertMinTarget(page, '#add-character', 'personajes: añadir personaje');
+  await checkCls(page, 'personajes carga inicial');
+  await minTarget(page, '#add-character', 'personajes: añadir personaje');
 
   const add = async name => {
     await page.fill('#character-name', name);
@@ -181,7 +175,6 @@ async function qaPersonajes() {
   };
   for (const name of ['Ana', 'Bruno', 'Clara', 'Diego']) await add(name);
   assert.equal(await page.locator('#relation-from option').count(), 5);
-
   await add('Ana');
   assert.match(await page.locator('[data-character-error]').innerText(), /ya está/i);
 
@@ -202,18 +195,26 @@ async function qaPersonajes() {
   assert.equal(await page.locator('.map-edge').count(), 4);
   assert.equal(await page.locator('.map-node').count(), 4);
   assert.match(await page.locator('#relation-list').innerText(), /Ana\s+→\s+Diego/);
-  await assertMinTarget(page, '#add-relation', 'personajes: añadir relación');
+  await minTarget(page, '#add-relation', 'personajes: añadir relación');
 
   const ana = page.locator('.map-node[data-id="ana"]');
+  const anaCircle = ana.locator('circle');
   const connectedLine = page.locator('.map-edge[data-from="ana"] line').first();
+  await anaCircle.scrollIntoViewIfNeeded();
+  await anaCircle.hover();
+  const anaBox = await anaCircle.boundingBox();
+  assert.ok(anaBox, 'personajes: círculo de Ana no visible');
+  const startX = anaBox.x + anaBox.width / 2;
+  const startY = anaBox.y + anaBox.height / 2;
+  const hitId = await page.evaluate(({ x, y }) => document.elementFromPoint(x, y)?.closest('.map-node')?.dataset.id || '', { x: startX, y: startY });
+  assert.equal(hitId, 'ana', `personajes: el punto de drag impacta en ${hitId || 'ningún nodo'}`);
   const transformBefore = await ana.getAttribute('transform');
   const lineBefore = await connectedLine.evaluate(line => `${line.getAttribute('x1')},${line.getAttribute('y1')},${line.getAttribute('x2')},${line.getAttribute('y2')}`);
-  const anaBox = await ana.boundingBox();
-  assert.ok(anaBox, 'personajes: nodo Ana no visible');
-  await page.mouse.move(anaBox.x + anaBox.width / 2, anaBox.y + anaBox.height / 2);
-  await page.mouse.down();
-  await page.mouse.move(anaBox.x + anaBox.width / 2 + 90, anaBox.y + anaBox.height / 2 + 55, { steps: 6 });
-  await page.mouse.up();
+  await page.mouse.move(startX, startY);
+  await page.mouse.down({ button: 'left' });
+  await page.mouse.move(startX + 90, startY + 55, { steps: 8 });
+  await page.mouse.up({ button: 'left' });
+  await page.waitForTimeout(30);
   const transformAfter = await ana.getAttribute('transform');
   const lineAfter = await connectedLine.evaluate(line => `${line.getAttribute('x1')},${line.getAttribute('y1')},${line.getAttribute('x2')},${line.getAttribute('y2')}`);
   assert.notEqual(transformAfter, transformBefore, 'personajes: el drag no mueve el nodo');
@@ -236,7 +237,6 @@ async function qaPersonajes() {
   assert.ok((await page.locator('.map-edge').count()) < edges);
   assert.match(await page.locator('#map-stats').innerText(), /visibles/i);
   await page.locator('[data-relation-filter][value="rivalidad"]').check();
-
   await page.selectOption('#map-focus', { label: 'Ana' });
   assert.ok((await page.locator('.map-node').count()) < 4);
   assert.match(await page.locator('#map-stats').innerText(), /visibles/i);
@@ -260,19 +260,10 @@ async function qaPersonajes() {
 
   await page.click('#clear-map');
   assert.equal(await page.locator('#relation-list li').count(), 0);
-  await page.setInputFiles('#import-file', {
-    name: 'mapa.json',
-    mimeType: 'application/json',
-    buffer: Buffer.from(jsonText),
-  });
+  await page.setInputFiles('#import-file', { name: 'mapa.json', mimeType: 'application/json', buffer: Buffer.from(jsonText) });
   await page.waitForTimeout(40);
   assert.equal(await page.locator('#relation-list li').count(), 4);
-
-  await page.setInputFiles('#import-file', {
-    name: 'mal.json',
-    mimeType: 'application/json',
-    buffer: Buffer.from('{malformed'),
-  });
+  await page.setInputFiles('#import-file', { name: 'mal.json', mimeType: 'application/json', buffer: Buffer.from('{malformed') });
   await page.waitForTimeout(40);
   assert.match(await page.locator('#map-status').innerText(), /no se ha podido/i);
 
@@ -322,15 +313,16 @@ async function qaPersonajes() {
   const localScroll = await page.locator('.map-viewport').evaluate(el => el.scrollWidth > el.clientWidth + 1);
   assert.equal(localScroll, true, 'personajes: el mapa móvil no conserva scroll local');
   await screenshot(page, 'personajes-390-result.png');
-  await assertMinTarget(page, '#relation-list button', 'personajes: eliminar relación');
+  await minTarget(page, '#relation-list button', 'personajes: eliminar relación');
   await context.close();
 }
 
 async function qaNombres() {
   const { context, page } = await open('nombres');
   await checkMetadata(page, 'nombres');
-  await cls(page, 'nombres carga inicial');
-  await assertMinTarget(page, 'button[type="submit"]', 'nombres: analizar');
+  await checkCls(page, 'nombres carga inicial');
+  await minTarget(page, 'button[type="submit"]', 'nombres: analizar');
+  assert.equal(await page.locator('[data-results]').isHidden(), true, 'nombres: resultados deben iniciar ocultos');
 
   const analyze = async text => {
     await page.fill('[data-names-input]', text);
@@ -341,19 +333,19 @@ async function qaNombres() {
   await analyze('Álvaro\nAlvaro\nBruno\nXimena');
   assert.ok((await page.locator('.namecheck-pair').count()) >= 1);
   assert.match(await page.locator('[data-results]').innerText(), /Motivo:/);
+  await page.fill('[data-names-input]', 'Álvaro\nAlvaro\nBruno\nXimena\nZoe');
+  assert.equal(await page.locator('[data-results]').isHidden(), true, 'nombres: editar debe ocultar resultado obsoleto');
 
   await analyze('Beatriz, Gonzalo, Ximena');
   assert.equal(await page.locator('.namecheck-pair').count(), 0);
   assert.match(await page.locator('[data-results]').innerText(), /No aparecen parejas/);
-
   await analyze('Álvaro; Alvaro\nBruno');
   assert.ok((await page.locator('.namecheck-pair').count()) >= 1);
-
   await analyze('Noa\nnoa\nNOA\nBruno');
   assert.match(await page.locator('[data-summary]').innerText(), /^2 nombres/);
-
   await analyze('');
   assert.equal(await page.locator('[data-names-input]').getAttribute('aria-invalid'), 'true');
+  assert.equal(await page.locator('[data-results]').isHidden(), true);
   await analyze('Único');
   assert.equal(await page.locator('[data-names-input]').getAttribute('aria-invalid'), 'true');
 
@@ -361,7 +353,6 @@ async function qaNombres() {
   await analyze(longList);
   assert.match(await page.locator('[data-summary]').innerText(), /^30 nombres/);
   await noBadNumbers(page, 'nombres');
-
   await analyze('Álvaro\nAlvaro\nBruno\nXimena');
   await screenshot(page, 'nombres-1440-result.png');
   await analyze(`${SENTINEL}\nSentinela`);
@@ -373,8 +364,8 @@ async function qaNombres() {
 async function qaPov() {
   const { context, page } = await open('pov');
   await checkMetadata(page, 'pov');
-  await cls(page, 'pov carga inicial');
-  await assertMinTarget(page, '[data-pov-run]', 'pov: analizar distribución');
+  await checkCls(page, 'pov carga inicial');
+  await minTarget(page, '[data-pov-run]', 'pov: analizar distribución');
 
   const controlled = [
     '1.1 | Ana | 1420',
@@ -397,7 +388,6 @@ async function qaPov() {
   assert.equal(await page.locator('.pov-scene').count(), 8);
   assert.equal(await page.locator('.pov-lane-row').count(), 3);
   assert.equal(await page.locator('[data-pov-summary] tr').count(), 3);
-
   const model = await page.evaluate(() => {
     const parsed = window.PovDistribution.parse(document.querySelector('[data-pov-input]').value);
     return window.PovDistribution.analyze(parsed.scenes);
@@ -422,21 +412,16 @@ async function qaPov() {
 
   await analyze('1.1 | Ana\n1.2 | Bruno\n2.1 | Ana');
   assert.match(await page.locator('[data-pov-metrics]').innerText(), /Opcionales/);
-
   await analyze('1.1\tAna\t1000\n1.2\tBruno\t1200');
   assert.equal(await page.locator('.pov-scene').count(), 2);
-
   await analyze('1.1 | Ana\nlínea inválida');
   assert.equal(await page.locator('[data-pov-input]').getAttribute('aria-invalid'), 'true');
   assert.ok(await page.locator('[data-pov-results]').isHidden());
-
   await analyze('');
   assert.equal(await page.locator('[data-pov-input]').getAttribute('aria-invalid'), 'true');
-
   await analyze('1 | POV con nombre deliberadamente largo de cuarenta caracteres | 100000\n2 | POV con nombre deliberadamente largo de cuarenta caracteres | 99999');
   assert.equal(await page.locator('[data-pov-summary] tr').count(), 1);
   assert.match(await page.locator('[data-pov-summary]').innerText(), /2\s+100 %/);
-
   await analyze(`1 | ${SENTINEL} | 1000\n2 | Ana | 900`);
   await page.waitForTimeout(80);
   await noOverflow(page, 'pov 1440');
@@ -448,9 +433,7 @@ async function responsiveAndA11y() {
     for (const viewport of viewports) {
       const { context, page } = await open(key, viewport);
       await noOverflow(page, `${key} ${viewport.width}x${viewport.height}`);
-      const positive = await page.locator('[tabindex]').evaluateAll(elements =>
-        elements.filter(el => Number(el.getAttribute('tabindex')) > 0).length,
-      );
+      const positive = await page.locator('[tabindex]').evaluateAll(elements => elements.filter(el => Number(el.getAttribute('tabindex')) > 0).length);
       assert.equal(positive, 0, `${key}: tabindex positivo`);
       await context.close();
     }
@@ -501,12 +484,12 @@ try {
     viewports,
     metadataPreserved: true,
     textSpacingUnderCsp: true,
+    dragHitTested: true,
   };
   await fs.writeFile(path.join(OUT, 'report.json'), JSON.stringify(report, null, 2));
   console.log('TOOLS STRUCTURE QA PASS', report);
 } catch (error) {
-  failures.push(error.stack || String(error));
-  await fs.writeFile(path.join(OUT, 'failure.txt'), failures.join('\n\n'));
+  await fs.writeFile(path.join(OUT, 'failure.txt'), error.stack || String(error));
   console.error(error);
   process.exitCode = 1;
 } finally {
