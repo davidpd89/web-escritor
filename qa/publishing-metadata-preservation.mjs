@@ -4,6 +4,13 @@ import { execFileSync } from 'node:child_process';
 
 const base = process.env.BASE_SHA;
 if (!base) throw new Error('BASE_SHA es obligatorio');
+// Un BASE_SHA inválido haría que todas las páginas parezcan "nuevas" y el gate
+// pasaría en vacío, así que se comprueba que la referencia existe de verdad.
+try {
+  execFileSync('git', ['rev-parse', '--verify', `${base}^{commit}`], { stdio: 'ignore' });
+} catch {
+  throw new Error(`BASE_SHA no resuelve a un commit: ${base}`);
+}
 
 const paths = [
   'herramientas/metadatos-libro/index.html',
@@ -56,9 +63,28 @@ function extract(html) {
   };
 }
 
+// Una página que no existía en la base no tiene metadata previa que preservar,
+// así que se omite en lugar de romper el gate con un error crudo de git. Sólo
+// aplica al caso "nueva en esta rama": si el fichero existe en la base y se ha
+// borrado, readFileSync falla y el gate sigue avisando.
+function existsInBase(path) {
+  try {
+    execFileSync('git', ['cat-file', '-e', `${base}:${path}`], { stdio: 'ignore' });
+    return true;
+  } catch {
+    return false;
+  }
+}
+
+const introduced = [];
 for (const path of paths) {
+  if (!existsInBase(path)) { introduced.push(path); continue; }
   const before = execFileSync('git', ['show', `${base}:${path}`], { encoding: 'utf8' });
   const after = fs.readFileSync(path, 'utf8');
   assert.deepEqual(extract(after), extract(before), `regresión de metadata/H1 en ${path}`);
+}
+if (introduced.length) {
+  console.log(`PUBLISHING METADATA PRESERVATION: ${introduced.length} página(s) nuevas respecto a la base, sin metadata que preservar:`);
+  for (const path of introduced) console.log(` - ${path}`);
 }
 console.log('PUBLISHING METADATA PRESERVATION: OK');
