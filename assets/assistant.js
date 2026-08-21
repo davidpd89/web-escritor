@@ -1,14 +1,16 @@
-import { PROTOCOL_VERSION, normalizeQuery, isSafeInternalPath, isValidAssistantResponse, rankLocalSources, makeSessionId } from "/assets/assistant-core.mjs";
+import { PROTOCOL_VERSION, normalizeQuery, isSafeInternalPath, isValidAssistantResponse, formatCitationMarkers, rankLocalSources, makeSessionId } from "/assets/assistant-core.mjs";
 
 const form = document.querySelector("[data-assistant-form]");
 const input = document.querySelector("[data-assistant-query]");
 const submit = document.querySelector("[data-assistant-submit]");
+const stop = document.querySelector("[data-assistant-stop]");
 const status = document.querySelector("[data-assistant-status]");
 const answer = document.querySelector("[data-assistant-answer]");
 const sourcesList = document.querySelector("[data-assistant-sources]");
 const localBox = document.querySelector("[data-assistant-local]");
 const localList = document.querySelector("[data-assistant-local-list]");
 const turnstileBox = document.querySelector("[data-assistant-turnstile]");
+const examples = [...document.querySelectorAll("[data-assistant-example]")];
 
 let requestSerial = 0;
 let activeController = null;
@@ -81,6 +83,7 @@ async function pagefindFallback(query) {
 
 function setBusy(busy) {
   submit.disabled = busy;
+  if (stop) stop.hidden = !busy;
   form?.setAttribute("aria-busy", busy ? "true" : "false");
 }
 
@@ -127,10 +130,12 @@ function loadTurnstileScript() {
   if (globalThis.turnstile) return Promise.resolve();
   if (!turnstileScriptPromise) {
     turnstileScriptPromise = new Promise((resolve, reject) => {
+      const timeout = setTimeout(() => reject(new Error("turnstile-script-timeout")), 8000);
+      const done = (callback) => (...args) => { clearTimeout(timeout); callback(...args); };
       const existing = document.querySelector('script[data-assistant-turnstile-script]');
       if (existing) {
-        existing.addEventListener("load", resolve, { once: true });
-        existing.addEventListener("error", reject, { once: true });
+        existing.addEventListener("load", done(resolve), { once: true });
+        existing.addEventListener("error", done(() => reject(new Error("turnstile-script-failed"))), { once: true });
         return;
       }
       const script = document.createElement("script");
@@ -138,9 +143,12 @@ function loadTurnstileScript() {
       script.async = true;
       script.defer = true;
       script.dataset.assistantTurnstileScript = "true";
-      script.addEventListener("load", resolve, { once: true });
-      script.addEventListener("error", () => reject(new Error("turnstile-script-failed")), { once: true });
+      script.addEventListener("load", done(resolve), { once: true });
+      script.addEventListener("error", done(() => reject(new Error("turnstile-script-failed"))), { once: true });
       document.head.append(script);
+    }).catch((error) => {
+      turnstileScriptPromise = null;
+      throw error;
     });
   }
   return turnstileScriptPromise;
@@ -164,8 +172,9 @@ async function getTurnstileToken(sitekey) {
     });
   }
   return new Promise((resolve, reject) => {
-    turnstileResolve = resolve;
-    turnstileReject = reject;
+    const timeout = setTimeout(() => reject(new Error("turnstile-callback-timeout")), 10000);
+    turnstileResolve = (token) => { clearTimeout(timeout); resolve(token); };
+    turnstileReject = (error) => { clearTimeout(timeout); reject(error); };
     globalThis.turnstile.execute(turnstileWidgetId);
   }).finally(() => {
     turnstileResolve = null;
@@ -178,6 +187,24 @@ function resetTurnstile() {
     try { globalThis.turnstile.reset(turnstileWidgetId); } catch {}
   }
 }
+
+function cancelCurrentRequest(message = "Búsqueda detenida. Los resultados locales siguen disponibles.") {
+  requestSerial += 1;
+  activeController?.abort();
+  activeController = null;
+  turnstileReject?.(new DOMException("Aborted", "AbortError"));
+  resetTurnstile();
+  setBusy(false);
+  status.textContent = message;
+}
+
+examples.forEach((button) => {
+  button.addEventListener("click", () => {
+    input.value = button.dataset.assistantExample || "";
+    input.focus();
+  });
+});
+stop?.addEventListener("click", () => cancelCurrentRequest());
 
 void getRemoteConfig();
 
@@ -209,10 +236,18 @@ form?.addEventListener("submit", async (event) => {
     try {
       turnstileToken = await getTurnstileToken(config.turnstile_site_key);
     } catch {
+      resetTurnstile();
+      if (serial !== requestSerial) return;
       status.textContent = "No se pudo completar la verificación antiabuso. Los resultados locales siguen disponibles.";
       return;
     }
     if (serial !== requestSerial) return;
+
+    let sessionId;
+    try { sessionId = getSessionId(); } catch {
+      status.textContent = "Este navegador no permite crear una sesión segura. Los resultados locales siguen disponibles.";
+      return;
+    }
 
     const controller = new AbortController();
     activeController = controller;
@@ -225,7 +260,7 @@ form?.addEventListener("submit", async (event) => {
         body: JSON.stringify({
           protocol_version: PROTOCOL_VERSION,
           query,
-          session_id: getSessionId(),
+          session_id: sessionId,
           locale: "es",
           turnstile_token: turnstileToken,
         }),
@@ -249,7 +284,7 @@ form?.addEventListener("submit", async (event) => {
         return;
       }
 
-      answer.textContent = payload.answer;
+      answer.textContent = formatCitationMarkers(payload.answer, payload.sources);
       answer.hidden = false;
       renderSources(payload.sources);
       status.textContent = payload.abstained ? "No hay evidencia suficiente para responder con seguridad." : "Respuesta basada en páginas públicas de esta web.";
