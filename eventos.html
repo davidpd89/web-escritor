@@ -47,6 +47,7 @@
   <link rel="stylesheet" href="/assets/v1-shell.css" />
   <link rel="stylesheet" href="/assets/v1-components.css" />
   <link rel="stylesheet" href="/assets/v1-families.css" />
+  <link rel="stylesheet" href="/assets/v1-identity.css" />
 
   <script type="application/ld+json">
   {
@@ -126,7 +127,7 @@
           }
         },
         "performer": { "@type": "Person", "@id": "https://davidportodiaz.com/#author", "name": "David Porto Díaz", "url": "https://davidportodiaz.com/" },
-        "organizer": { "@type": "Organization", "name": "Ayuntamiento de Aranjuez", "url": "https://davidportodiaz.com/eventos.html#feria-libro-aranjuez-2026" },
+        "organizer": { "@type": "Organization", "name": "Ayuntamiento de Aranjuez" },
         "offers": { "@type": "Offer", "url": "https://davidportodiaz.com/eventos.html#feria-libro-aranjuez-2026", "price": "0", "priceCurrency": "EUR", "validFrom": "2026-05-01T00:00:00+02:00" },
         "about": {
           "@type": "Book",
@@ -134,7 +135,6 @@
           "isbn": "9791387659776",
           "author": { "@id": "https://davidportodiaz.com/#author" }
         },
-        "image": "https://davidportodiaz.com/assets/david-porto-imagen-compartir.webp",
         "inLanguage": "es",
         "dateModified": "2026-06-15"
       }
@@ -231,10 +231,24 @@
     </header>
 
     <section class="v1-section" id="proximos">
-      <div class="v1-section__head"><p class="eyebrow">Agenda</p><h2>Agenda y eventos.</h2></div>
-
+      <div class="v1-section__head"><p class="eyebrow">Agenda</p><h2>Próximas fechas.</h2></div>
       <div class="event-year">
-        <h3>Reciente</h3>
+        <h3>Ahora</h3>
+        <div class="event-empty">
+          <h3 class="event-empty__title">Ahora mismo no hay una próxima fecha publicada.</h3>
+          <p>La agenda se actualiza únicamente cuando una firma, presentación o encuentro está confirmado.</p>
+          <div class="v1-masthead__actions event-empty__actions">
+            <a class="primary-action" href="mailto:samuelentremundos@gmail.com?subject=Solicitud%20de%20presentaci%C3%B3n%20%E2%80%94%20David%20Porto%20D%C3%ADaz">Solicitar presentación</a>
+            <a class="text-action" href="#pasados">Ver archivo reciente</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="v1-section" id="pasados">
+      <div class="v1-section__head"><p class="eyebrow">Archivo</p><h2>Eventos recientes.</h2></div>
+      <div class="event-year">
+        <h3>2026</h3>
         <ol class="event-list">
           <li class="event-entry" id="feria-libro-madrid-2026">
             <time datetime="2026-06-10">10 jun 2026</time>
@@ -248,51 +262,12 @@
               <a class="text-action" href="/cuaderno/feria-libro-madrid-2026-samuel-entre-mundos/">Ver crónica y fotos</a>
             </div>
           </li>
-        </ol>
-      </div>
-
-      <div class="event-year" style="margin-top:2rem">
-        <h3>Próximas fechas</h3>
-        <div class="event-empty">
-          <h3 style="font-family:var(--font-display);font-weight:400;font-size:clamp(1.4rem,2vw,1.8rem);margin:0 0 .75rem">No hay fechas confirmadas ahora mismo</h3>
-          <p>Las próximas firmas, presentaciones y clubes de lectura aparecerán aquí cuando estén confirmados. No se publican fechas provisionales.</p>
-          <p style="margin-top:.75rem"><a class="text-action" href="/#newsletter">Recibir avisos de nuevos eventos</a></p>
-        </div>
-      </div>
-    </section>
-
-    <section class="v1-section" id="pasados">
-      <div class="v1-section__head"><p class="eyebrow">Historial</p><h2>Eventos anteriores.</h2></div>
-      <div class="event-year">
-        <h3>2026</h3>
-        <ol class="event-list">
           <li class="event-entry" id="feria-libro-aranjuez-2026">
             <time datetime="2026-05-23">23 may 2026</time>
             <div>
               <h3>Feria del Libro de Aranjuez</h3>
               <p>Firma de <em>Samuel entre mundos</em> en la Plaza de la Constitución, Aranjuez. Organizó el Ayuntamiento de Aranjuez. Acceso libre y gratuito.</p>
-              <a class="text-action" href="/ferias.html#aranjuez">Ver fotos del evento</a>
-            </div>
-          </li>
-          <li class="event-entry">
-            <time datetime="2026-01-31">31 ene 2026</time>
-            <div>
-              <h3>Presentación en La Vecinal</h3>
-              <p>Encuentro con lectores, coloquio y firma de ejemplares de <em>Samuel entre mundos</em> en La Vecinal, Madrid.</p>
-            </div>
-          </li>
-          <li class="event-entry">
-            <time datetime="2026-01-15">15 ene 2026</time>
-            <div>
-              <h3>Presentación oficial de Samuel entre mundos</h3>
-              <p>Presentación del debut de David Porto Díaz en Bar Aleatorio, Madrid.</p>
-            </div>
-          </li>
-          <li class="event-entry">
-            <time datetime="2026-01">ene 2026</time>
-            <div>
-              <h3>Publicación de Samuel entre mundos</h3>
-              <p>Publicación de la novela con Libros Indie. ISBN 9791387659776.</p>
+              <a class="text-action" href="/ferias.html#aranjuez">Ver documentación del evento</a>
             </div>
           </li>
         </ol>
