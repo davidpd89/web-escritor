@@ -104,6 +104,23 @@ html.v1 .article-gallery img{max-height:26rem}
 html.v1 .article-hero-figure img{max-height:34rem;object-position:center 28%}
 html.v1 .article-gallery figcaption,html.v1 .article-hero-figure figcaption{padding:.8rem 1rem;color:var(--color-muted);font:400 .85rem/1.5 var(--font-reading)}
 @media(max-width:640px){html.v1 .article-gallery{grid-template-columns:1fr}}
+html.v1 .rec-list{list-style:none;margin:0 0 1.5rem;padding:0;display:grid;gap:1.5rem}
+html.v1 .rec-item{position:relative;padding:1.75rem clamp(1.25rem,3vw,2.25rem);border:1px solid var(--color-border);display:grid;gap:.6rem}
+html.v1 .rec-item--featured{border-color:var(--color-accent-strong)}
+html.v1 .rec-position{position:absolute;top:1.6rem;right:clamp(1.25rem,3vw,2.25rem);font:400 2rem/1 var(--font-display);color:var(--color-border)}
+html.v1 .rec-item--featured .rec-position{color:var(--color-accent-strong)}
+html.v1 .rec-book-title{margin:0;padding-right:3rem;font:400 1.4rem/1.25 var(--font-display)}
+html.v1 .rec-book-title a{text-decoration-color:var(--color-accent)}
+html.v1 .rec-book-author{margin:0;font:600 .78rem/1.4 var(--font-ui);letter-spacing:.04em;text-transform:uppercase;color:var(--color-muted)}
+html.v1 .rec-book-desc{margin:0;font:400 .98rem/1.6 var(--font-reading);color:var(--color-text)}
+html.v1 .rec-book-desc a{text-decoration-color:var(--color-accent)}
+html.v1 .rec-book-footer{display:flex;flex-wrap:wrap;align-items:center;gap:.6rem .9rem;margin-top:.4rem}
+html.v1 .rec-badge{display:inline-flex;align-items:center;padding:.25rem .6rem;border:1px solid var(--color-border);font:600 .7rem/1.4 var(--font-ui);letter-spacing:.03em;color:var(--color-muted)}
+html.v1 .rec-badge--featured{border-color:var(--color-accent-strong);color:var(--color-accent-strong)}
+html.v1 .rec-intro-note{margin:0 0 2.5rem;padding:1.25rem 0 1.25rem clamp(1rem,2vw,1.75rem);border-left:2px solid var(--color-accent);font:400 .92rem/1.6 var(--font-reading)}
+html.v1 .rec-intro-note p{margin:0 0 .6rem}
+html.v1 .rec-intro-note p:last-child{margin-bottom:0}
+html.v1 .affiliate-disclosure{margin:0 0 2.5rem;font:400 .82rem/1.55 var(--font-ui);color:var(--color-muted);max-width:66ch}
 html.v1 .article-folio{grid-column:3;align-self:start;position:sticky;top:110px;border-left:1px solid var(--color-border);padding-left:1rem;color:var(--color-muted);font-size:var(--text-xs)}
 html.v1 .article-folio strong{display:block;margin-bottom:.4rem;color:var(--color-text);font-family:var(--font-display);font-size:2rem;font-weight:400}
 
