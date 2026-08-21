@@ -238,6 +238,11 @@ for(const [key,width,file] of [
 {
   const run=await openFresh('guide',{width:1440,height:1000}); const {page}=run;
   await page.emulateMedia({media:'print'});
+  // Switching to print media is a deliberate reflow by this harness (the print
+  // stylesheet hides the chrome and re-lays the document), so it registers as
+  // one large layout shift that says nothing about the page's own stability.
+  // Same reasoning as the text-stress runs above.
+  await page.evaluate(()=>{window.__qaCls=0;});
   for(const sel of ['.skip-link','.topbar','.breadcrumb','.actions']) assert.equal(await page.locator(sel).evaluate(el=>getComputedStyle(el).display),'none',`print: ${sel} oculto`);
   const pdf=path.join(OUT,'samuel-guia-imprimible.pdf');
   await page.pdf({path:pdf,format:'A4',printBackground:false,preferCSSPageSize:true});
