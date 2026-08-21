@@ -31,7 +31,7 @@ for (const [width,height] of viewports) {
 
   const textareaFont=await page.locator("[data-assistant-query]").evaluate(el=>parseFloat(getComputedStyle(el).fontSize));
   check(textareaFont>=16,`${width}x${height}: textarea font below 16px (${textareaFont})`);
-  const shortTargets=await page.locator("[data-assistant-example], .assistant-actions a, .assistant-actions button").evaluateAll((els)=>els.filter(el=>{const r=el.getBoundingClientRect();return r.width<44||r.height<44}).map(el=>({tag:el.tagName,text:el.textContent?.trim(),w:el.getBoundingClientRect().width,h:el.getBoundingClientRect().height})));
+  const shortTargets=await page.locator("[data-assistant-example], .assistant-actions a, .assistant-actions button").evaluateAll((els)=>els.filter(el=>!el.hidden&&getComputedStyle(el).display!=="none").filter(el=>{const r=el.getBoundingClientRect();return r.width<44||r.height<44}).map(el=>({tag:el.tagName,text:el.textContent?.trim(),w:el.getBoundingClientRect().width,h:el.getBoundingClientRect().height})));
   check(shortTargets.length===0,`${width}x${height}: touch targets below 44px ${JSON.stringify(shortTargets)}`);
 
   await page.locator("[data-assistant-query]").fill("x");
