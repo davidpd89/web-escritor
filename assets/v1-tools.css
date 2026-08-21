@@ -65,6 +65,15 @@ html.v1 .tool-formula{display:block;font:400 .85rem/1.5 var(--font-ui);color:var
 html.v1 .tool-next{padding:clamp(2.5rem,5vw,4rem) 0}
 html.v1 .tool-next-links{display:flex;flex-wrap:wrap;gap:.85rem 1.5rem;margin-top:1.3rem}
 
+html.v1 .tool-workspace{display:grid;grid-template-columns:minmax(16rem,20rem) minmax(0,1fr);gap:clamp(1.5rem,3vw,3rem);align-items:start}
+html.v1 .tool-workspace .tool-panel,html.v1 .tool-workspace .tool-results{max-width:none;padding:0;border-bottom:0}
+html.v1 .tool-aside{padding:1.75rem;border:1px solid var(--color-border)}
+html.v1 .tool-aside fieldset{border:0;padding:1.5rem 0 0;margin:1.5rem 0 0;border-top:1px solid var(--color-border)}
+html.v1 .tool-aside fieldset:first-of-type{padding-top:0;margin-top:0;border-top:0}
+html.v1 .tool-aside legend{padding:0 0 1rem;font:600 .7rem/1.3 var(--font-ui);letter-spacing:.06em;text-transform:uppercase;color:var(--color-muted)}
+html.v1 .tool-input{width:100%;min-height:44px;border:1px solid var(--color-border);border-radius:var(--radius-input);background:var(--surface-page);color:var(--color-text);padding:.55rem .8rem;font:400 .95rem/1.5 var(--font-ui)}
+html.v1 .tool-input:focus-visible{outline:2px solid var(--focus-color);outline-offset:2px}
+html.v1 .tool-row{display:grid;grid-template-columns:1fr 1fr;gap:1rem}
 html.v1 .tool-source-list{list-style:none;margin:0;padding:0;max-width:66ch;display:grid;gap:.7rem}
 html.v1 .tool-source-list li{font:400 .92rem/1.55 var(--font-reading);color:var(--color-muted);padding-top:.7rem;border-top:1px solid var(--color-border)}
 html.v1 .tool-source-list a{color:var(--color-text);text-decoration:underline;text-underline-offset:.2em}
@@ -75,6 +84,8 @@ html.v1 .tool-trust span{font:600 .74rem/1.4 var(--font-ui);letter-spacing:.04em
   html.v1 .tool-summary{grid-template-columns:repeat(2,minmax(0,1fr))}
   html.v1 .tool-findings li>div{flex-direction:column;align-items:flex-start;gap:.25rem}
   html.v1 .tool-two-col{grid-template-columns:1fr}
+  html.v1 .tool-workspace{grid-template-columns:1fr}
+  html.v1 .tool-row{grid-template-columns:1fr}
 }
 
 @media print{

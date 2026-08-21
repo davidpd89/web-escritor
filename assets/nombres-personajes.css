@@ -1,8 +1,19 @@
-.namecheck{max-width:980px;margin:0 auto;padding:clamp(1rem,3vw,2rem)}
-.namecheck__intro{max-width:72ch}.namecheck__panel{margin-top:1.5rem;padding:clamp(1rem,2.5vw,1.5rem);border:1px solid rgba(255,255,255,.14);border-radius:20px;background:rgba(255,255,255,.035)}
-.namecheck label{display:block;font-weight:700;margin-bottom:.55rem}.namecheck textarea{width:100%;min-height:180px;resize:vertical;padding:1rem;border-radius:14px;border:1px solid rgba(255,255,255,.2);background:#0d1115;color:inherit;font:inherit;line-height:1.55}
-.namecheck textarea:focus-visible,.namecheck button:focus-visible{outline:3px solid currentColor;outline-offset:3px}.namecheck__actions{display:flex;gap:.75rem;flex-wrap:wrap;margin-top:1rem}.namecheck button{min-height:44px;padding:.7rem 1rem;border-radius:999px;border:1px solid rgba(255,255,255,.2);font:inherit;font-weight:700;cursor:pointer}.namecheck button[type=submit]{background:#f2efe8;color:#111}.namecheck [data-clear]{background:transparent;color:inherit}
-.namecheck__summary{margin:1rem 0;color:rgba(255,255,255,.78)}.namecheck__results{display:grid;gap:.8rem}.namecheck-pair{padding:1rem;border:1px solid rgba(255,255,255,.14);border-radius:16px}.namecheck-pair--high{border-width:2px}.namecheck-pair__head{display:flex;align-items:baseline;justify-content:space-between;gap:1rem;flex-wrap:wrap}.namecheck-pair__head span{font-size:.9rem;opacity:.8}.namecheck-pair p{margin:.45rem 0 0}.namecheck details{margin-top:.7rem}.namecheck details summary{cursor:pointer;min-height:44px;display:flex;align-items:center}.namecheck-empty{padding:1rem;border:1px dashed rgba(255,255,255,.2);border-radius:14px}.namecheck__note{margin-top:1.25rem;font-size:.95rem;opacity:.8}
-@media(max-width:560px){.namecheck{padding-inline:.8rem}.namecheck-pair__head{display:block}.namecheck-pair__head span{display:block;margin-top:.2rem}}
-@media(prefers-reduced-motion:reduce){.namecheck *{scroll-behavior:auto!important;transition:none!important}}
-@media print{.namecheck__actions,.site-header,.site-footer{display:none!important}.namecheck__panel,.namecheck-pair{border-color:#bbb;background:#fff;color:#000}}
+/* V1 editorial system — bespoke pieces for the character-name checker.
+   Structural chrome lives in v1-tools.css; nombres-personajes.js injects
+   article.namecheck-pair into [data-results] (a .tool-results section). */
+html.v1 .namecheck-pair{padding:1.1rem 0;border-top:1px solid var(--color-border)}
+html.v1 .namecheck-pair:first-child{border-top:0}
+html.v1 .namecheck-pair--high{border-top-width:2px;border-top-color:var(--color-accent-strong)}
+html.v1 .namecheck-pair__head{display:flex;align-items:baseline;justify-content:space-between;gap:1rem;flex-wrap:wrap}
+html.v1 .namecheck-pair__head strong{font:400 1.15rem/1.3 var(--font-display)}
+html.v1 .namecheck-pair__head span{font:600 .74rem/1.4 var(--font-ui);letter-spacing:.04em;text-transform:uppercase;color:var(--color-muted)}
+html.v1 .namecheck-pair p{margin:.5rem 0 0;font:400 .96rem/1.55 var(--font-reading);color:var(--color-text)}
+html.v1 .namecheck-pair details{margin-top:.6rem}
+html.v1 .namecheck-pair summary{cursor:pointer;font:600 .85rem/1.4 var(--font-ui);color:var(--color-muted)}
+html.v1 .namecheck-pair details ul{margin:.6rem 0 0;padding:0;list-style:none;display:grid;gap:.3rem;font:400 .88rem/1.5 var(--font-ui);color:var(--color-muted)}
+html.v1 .namecheck-empty{font:400 .95rem/1.5 var(--font-ui);color:var(--color-muted)}
+
+@media(max-width:560px){
+  html.v1 .namecheck-pair__head{display:block}
+  html.v1 .namecheck-pair__head span{display:block;margin-top:.25rem}
+}

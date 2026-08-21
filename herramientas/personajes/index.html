@@ -1,8 +1,10 @@
-<!doctype html>
-<html lang="es">
+<!DOCTYPE html>
+<html lang="es" class="v1">
 <head>
-  <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta charset="UTF-8" />
   <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self'; connect-src 'none'; form-action 'none';">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <meta name="robots" content="index,follow,max-image-preview:large" />
   <title>Mapa de relaciones de personajes | Herramientas</title>
   <meta name="description" content="Crea un mapa visual de relaciones entre personajes en tu navegador. Sin cuenta ni servidor.">
   <meta property="og:title" content="Mapa de relaciones de personajes | Herramientas">
@@ -20,40 +22,215 @@
   <meta name="twitter:description" content="Crea un mapa visual de relaciones entre personajes en tu navegador. Sin cuenta ni servidor.">
   <meta name="twitter:image" content="https://davidportodiaz.com/assets/david-porto-imagen-compartir.webp">
   <meta name="twitter:image:alt" content="Mapa de relaciones de personajes | Herramientas">
-  <link rel="canonical" href="https://davidportodiaz.com/herramientas/personajes/">
-  <link rel="stylesheet" href="/styles.css?v=202609-launch-1">
-  <link rel="stylesheet" href="/assets/mapa-personajes.css">
+  <meta name="theme-color" content="#F4EFE7" />
+  <link rel="canonical" href="https://davidportodiaz.com/herramientas/personajes/" />
+  <link rel="icon" type="image/png" href="/assets/david-porto-favicon.png" />
+  <link rel="apple-touch-icon" href="/assets/david-porto-favicon.png" />
+  <link rel="manifest" href="/manifest.json" />
+
+  <link rel="stylesheet" href="/assets/v1-fonts.css" />
+  <link rel="stylesheet" href="/assets/v1-tokens.css" />
+  <link rel="stylesheet" href="/assets/v1-base.css" />
+  <link rel="stylesheet" href="/assets/v1-shell.css" />
+  <link rel="stylesheet" href="/assets/v1-components.css" />
+  <link rel="stylesheet" href="/assets/v1-tools.css" />
+  <link rel="stylesheet" href="/assets/mapa-personajes.css" />
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebApplication","name":"Mapa de relaciones de personajes para escritores","url":"https://davidportodiaz.com/herramientas/personajes/","applicationCategory":"UtilitiesApplication","operatingSystem":"Web","isAccessibleForFree":true,"inLanguage":"es","author":{"@id":"https://davidportodiaz.com/#author"}}</script>
 </head>
+
 <body>
-<a class="skip-link" href="#main-content">Saltar al contenido</a>
-<main id="main-content" class="character-map-page">
-<nav class="breadcrumb" aria-label="Ruta de navegación"><a href="/">Inicio</a> › <a href="/herramientas/">Herramientas</a> › Mapa de personajes</nav>
-<header><p class="eyebrow">Herramienta gratuita · local</p><h1>Mapa de relaciones de personajes</h1><p class="lead">Dibuja quién se relaciona con quién, qué tipo de vínculo existe y cómo cambia. El mapa no inventa relaciones: tú decides qué forma parte del canon.</p><p class="map-privacy"><strong>Privacidad:</strong> los nombres y relaciones se procesan en este dispositivo. No se envían a un servidor.</p></header>
+  <a href="#contenido" class="skip-link">Saltar al contenido</a>
 
-<div class="map-workspace">
-<section class="map-panel" aria-label="Editor del mapa">
-<label for="map-title">Nombre del proyecto</label><input id="map-title" type="text" autocomplete="off" placeholder="Mi novela">
-<fieldset><legend>1. Personajes</legend><label for="character-name">Nombre</label><input id="character-name" type="text" autocomplete="off" placeholder="Ana"><button id="add-character" type="button">Añadir personaje</button></fieldset>
-<fieldset><legend>2. Relaciones</legend>
-<div class="map-row"><div><label for="relation-from">De</label><select id="relation-from"><option value="">Selecciona…</option></select></div><div><label for="relation-to">A</label><select id="relation-to"><option value="">Selecciona…</option></select></div></div>
-<label for="relation-type">Tipo</label><select id="relation-type"><option value="familia">Familia</option><option value="amistad">Amistad</option><option value="romance">Romance</option><option value="rivalidad">Rivalidad</option><option value="alianza">Alianza</option><option value="mentoria">Mentoría</option><option value="secreto">Secreto</option><option value="otro">Otro</option></select>
-<label for="relation-label">Etiqueta opcional</label><input id="relation-label" type="text" maxlength="80" placeholder="hermanas, antigua amistad…">
-<label for="relation-evolution">Cambio o contexto opcional</label><textarea id="relation-evolution" maxlength="240" placeholder="En C8 dejan de confiar el uno en el otro"></textarea>
-<label class="map-check"><input id="relation-directed" type="checkbox"> Relación dirigida (A → B)</label><button id="add-relation" type="button">Añadir relación</button>
-</fieldset>
-<p class="map-note">El mapa representa lo que declares. Coaparición no significa relación.</p>
-</section>
+  <header class="site-header" data-header>
+    <div class="site-header__inner">
+      <a class="brand" href="/" aria-label="David Porto Díaz — inicio">
+        <span class="brand__name">David Porto Díaz</span>
+        <span class="brand__role">Escritor</span>
+      </a>
+      <nav class="primary-nav" aria-label="Navegación principal">
+        <a href="/libros/">Obra</a>
+        <a href="/cuaderno/">Cuaderno</a>
+        <a href="/herramientas/" aria-current="page">Herramientas</a>
+      </nav>
+      <button class="explore-trigger" type="button" aria-haspopup="dialog" aria-controls="explore-dialog" aria-expanded="false" data-explore-open>
+        Explorar
+      </button>
+    </div>
+  </header>
 
-<section class="map-canvas-wrap" aria-label="Mapa visual">
-<div class="map-canvas-head"><div><strong id="map-stats">0 personajes · 0 relaciones</strong><div class="map-type-filters" aria-label="Filtrar tipos"><label><input data-relation-filter type="checkbox" value="familia" checked>Familia</label><label><input data-relation-filter type="checkbox" value="amistad" checked>Amistad</label><label><input data-relation-filter type="checkbox" value="romance" checked>Romance</label><label><input data-relation-filter type="checkbox" value="rivalidad" checked>Rivalidad</label><label><input data-relation-filter type="checkbox" value="alianza" checked>Alianza</label><label><input data-relation-filter type="checkbox" value="mentoria" checked>Mentoría</label><label><input data-relation-filter type="checkbox" value="secreto" checked>Secreto</label><label><input data-relation-filter type="checkbox" value="otro" checked>Otro</label></div></div><label for="map-focus">Foco<select id="map-focus"><option value="">Todos los personajes</option></select></label></div>
-<p id="map-empty" class="map-empty">Añade dos personajes y una relación para empezar a ver la red.</p><svg id="character-map" class="character-map" role="img" aria-label="Mapa visual de relaciones entre personajes"></svg>
-<ul id="relation-list" class="relation-list" aria-label="Relaciones declaradas"></ul>
-<div class="map-actions"><button id="export-json" type="button">Guardar JSON</button><button id="import-json" type="button">Abrir JSON</button><input id="import-file" type="file" accept="application/json,.json" aria-label="Seleccionar archivo JSON para abrir" hidden><button id="export-svg" type="button">Exportar SVG</button><button id="clear-map" type="button">Vaciar</button></div><p id="map-status" role="status" aria-live="polite"></p>
-</section>
-</div>
+  <dialog class="explore-dialog" id="explore-dialog" aria-labelledby="explore-title" data-explore-dialog>
+    <div class="explore-dialog__shell">
+      <div class="explore-dialog__head">
+        <div>
+          <p class="eyebrow">Índice general</p>
+          <h2 id="explore-title">Explorar</h2>
+        </div>
+        <button class="icon-button" type="button" aria-label="Cerrar Explorar" data-explore-close>
+          <svg aria-hidden="true" viewBox="0 0 24 24" width="20" height="20"><path d="M5 5l14 14M19 5L5 19"/></svg>
+        </button>
+      </div>
 
-<section class="map-method"><h2>Qué sirve para detectar</h2><p>La utilidad del mapa no es medir si una historia es buena. Sirve para ver la forma de un reparto: personajes aislados, núcleos demasiado cerrados, relaciones centrales, vínculos secretos o cambios que conviene recordar.</p><h2>Qué no hace</h2><p>No lee ni sube tu manuscrito, no usa IA, no deduce sentimientos y no convierte dos personajes que aparecen juntos en «amigos». Esa decisión narrativa sigue siendo tuya.</p><h2>Por qué puedes guardar el proyecto</h2><p>El botón JSON descarga los datos para reabrirlos después. El SVG guarda la imagen del mapa y puede insertarse en notas, dossiers o documentos de trabajo.</p></section>
-</main>
-<script type="module" src="/assets/mapa-personajes.js"></script>
-</body></html>
+      <div class="explore-dialog__grid">
+        <nav class="explore-list" aria-label="Destinos de la web">
+          <a class="explore-row" href="/las-manecillas-del-recuerdo/" data-preview="manecillas">
+            <span class="explore-row__index">01</span>
+            <span class="explore-row__body"><strong>Las manecillas del recuerdo</strong><small>La obra actual.</small></span>
+          </a>
+          <a class="explore-row" href="/autor.html" data-preview="autor">
+            <span class="explore-row__index">02</span>
+            <span class="explore-row__body"><strong>Autor</strong><small>Biografía, obra y trayectoria.</small></span>
+          </a>
+          <a class="explore-row" href="/libros/samuel-entre-mundos/" data-preview="samuel">
+            <span class="explore-row__index">03</span>
+            <span class="explore-row__body"><strong>Samuel entre mundos</strong><small>Primera novela publicada.</small></span>
+          </a>
+          <a class="explore-row" href="/cuaderno/" data-preview="cuaderno">
+            <span class="explore-row__index">04</span>
+            <span class="explore-row__body"><strong>Cuaderno</strong><small>Artículos y piezas editoriales.</small></span>
+          </a>
+          <a class="explore-row" href="/herramientas/" data-preview="herramientas">
+            <span class="explore-row__index">05</span>
+            <span class="explore-row__body"><strong>Herramientas</strong><small>Utilidades gratuitas para escritores.</small></span>
+          </a>
+          <a class="explore-row" href="/prensa.html" data-preview="prensa">
+            <span class="explore-row__index">06</span>
+            <span class="explore-row__body"><strong>Prensa y eventos</strong><small>Apariciones, materiales y agenda.</small></span>
+          </a>
+        </nav>
+
+        <aside class="explore-preview" aria-live="polite" aria-atomic="true" data-explore-preview>
+          <div class="explore-preview__media" aria-hidden="true" data-preview-media></div>
+          <p class="explore-preview__label" data-preview-label>Herramientas</p>
+          <p class="explore-preview__copy" data-preview-copy>Utilidades gratuitas para escritores.</p>
+        </aside>
+      </div>
+    </div>
+  </dialog>
+
+  <main id="contenido" class="v1-main" data-family="tool">
+    <nav class="book-breadcrumb" aria-label="Ruta de navegación">
+      <ol><li><a href="/">Inicio</a></li><li><a href="/herramientas/">Herramientas</a></li><li aria-current="page">Matriz de personajes</li></ol>
+    </nav>
+
+    <header class="tool-hero">
+      <p class="eyebrow">Herramienta gratuita · local</p>
+      <h1>Mapa de relaciones de personajes</h1>
+      <p class="tool-hero__lead">Dibuja quién se relaciona con quién, qué tipo de vínculo existe y cómo cambia. El mapa no inventa relaciones: tú decides qué forma parte del canon.</p>
+      <p class="tool-status">Privacidad: los nombres y relaciones se procesan en este dispositivo. No se envían a un servidor.</p>
+    </header>
+
+    <section class="tool-panel">
+      <div class="tool-workspace">
+        <section class="tool-aside" aria-label="Editor del mapa">
+          <div class="tool-field">
+            <label class="tool-field-label" for="map-title">Nombre del proyecto</label>
+            <input class="tool-input" id="map-title" type="text" autocomplete="off" placeholder="Mi novela">
+          </div>
+          <fieldset>
+            <legend>1. Personajes</legend>
+            <div class="tool-field">
+              <label class="tool-field-label" for="character-name">Nombre</label>
+              <input class="tool-input" id="character-name" type="text" autocomplete="off" placeholder="Ana">
+            </div>
+            <div class="tool-actions"><button id="add-character" type="button" class="text-action">Añadir personaje</button></div>
+          </fieldset>
+          <fieldset>
+            <legend>2. Relaciones</legend>
+            <div class="tool-row">
+              <div class="tool-field">
+                <label class="tool-field-label" for="relation-from">De</label>
+                <select id="relation-from" class="tool-select"><option value="">Selecciona…</option></select>
+              </div>
+              <div class="tool-field">
+                <label class="tool-field-label" for="relation-to">A</label>
+                <select id="relation-to" class="tool-select"><option value="">Selecciona…</option></select>
+              </div>
+            </div>
+            <div class="tool-field">
+              <label class="tool-field-label" for="relation-type">Tipo</label>
+              <select id="relation-type" class="tool-select">
+                <option value="familia">Familia</option>
+                <option value="amistad">Amistad</option>
+                <option value="romance">Romance</option>
+                <option value="rivalidad">Rivalidad</option>
+                <option value="alianza">Alianza</option>
+                <option value="mentoria">Mentoría</option>
+                <option value="secreto">Secreto</option>
+                <option value="otro">Otro</option>
+              </select>
+            </div>
+            <div class="tool-field">
+              <label class="tool-field-label" for="relation-label">Etiqueta opcional</label>
+              <input class="tool-input" id="relation-label" type="text" maxlength="80" placeholder="hermanas, antigua amistad…">
+            </div>
+            <div class="tool-field">
+              <label class="tool-field-label" for="relation-evolution">Cambio o contexto opcional</label>
+              <textarea class="tool-textarea tool-textarea--small" id="relation-evolution" maxlength="240" placeholder="En C8 dejan de confiar el uno en el otro"></textarea>
+            </div>
+            <label class="tool-check"><input id="relation-directed" type="checkbox"> Relación dirigida (A → B)</label>
+            <div class="tool-actions"><button id="add-relation" type="button" class="text-action">Añadir relación</button></div>
+          </fieldset>
+          <p class="tool-note">El mapa representa lo que declares. Coaparición no significa relación.</p>
+        </section>
+
+        <section class="map-canvas-wrap" aria-label="Mapa visual">
+          <div class="map-canvas-head">
+            <div>
+              <strong id="map-stats">0 personajes · 0 relaciones</strong>
+              <div class="map-type-filters" aria-label="Filtrar tipos">
+                <label><input data-relation-filter type="checkbox" value="familia" checked><span>Familia</span></label>
+                <label><input data-relation-filter type="checkbox" value="amistad" checked><span>Amistad</span></label>
+                <label><input data-relation-filter type="checkbox" value="romance" checked><span>Romance</span></label>
+                <label><input data-relation-filter type="checkbox" value="rivalidad" checked><span>Rivalidad</span></label>
+                <label><input data-relation-filter type="checkbox" value="alianza" checked><span>Alianza</span></label>
+                <label><input data-relation-filter type="checkbox" value="mentoria" checked><span>Mentoría</span></label>
+                <label><input data-relation-filter type="checkbox" value="secreto" checked><span>Secreto</span></label>
+                <label><input data-relation-filter type="checkbox" value="otro" checked><span>Otro</span></label>
+              </div>
+            </div>
+            <label class="tool-field-label" for="map-focus">Foco<select id="map-focus" class="tool-select"><option value="">Todos los personajes</option></select></label>
+          </div>
+          <p id="map-empty" class="map-empty">Añade dos personajes y una relación para empezar a ver la red.</p>
+          <svg id="character-map" class="character-map" role="img" aria-label="Mapa visual de relaciones entre personajes"></svg>
+          <ul id="relation-list" class="relation-list" aria-label="Relaciones declaradas"></ul>
+          <div class="tool-actions">
+            <button id="export-json" type="button" class="text-action">Guardar JSON</button>
+            <button id="import-json" type="button" class="text-action">Abrir JSON</button>
+            <input id="import-file" type="file" accept="application/json,.json" aria-label="Seleccionar archivo JSON para abrir" hidden>
+            <button id="export-svg" type="button" class="text-action">Exportar SVG</button>
+            <button id="clear-map" type="button" class="text-action">Vaciar</button>
+          </div>
+          <p id="map-status" class="tool-status" role="status" aria-live="polite"></p>
+        </section>
+      </div>
+    </section>
+
+    <section class="tool-panel tool-caveat">
+      <h2>Qué sirve para detectar</h2>
+      <p>La utilidad del mapa no es medir si una historia es buena. Sirve para ver la forma de un reparto: personajes aislados, núcleos demasiado cerrados, relaciones centrales, vínculos secretos o cambios que conviene recordar.</p>
+      <h2>Qué no hace</h2>
+      <p>No lee ni sube tu manuscrito, no usa IA, no deduce sentimientos y no convierte dos personajes que aparecen juntos en «amigos». Esa decisión narrativa sigue siendo tuya.</p>
+      <h2>Por qué puedes guardar el proyecto</h2>
+      <p>El botón JSON descarga los datos para reabrirlos después. El SVG guarda la imagen del mapa y puede insertarse en notas, dossiers o documentos de trabajo.</p>
+    </section>
+
+  </main>
+
+  <footer class="site-footer">
+    <div class="site-footer__grid">
+      <div>
+        <strong class="brand__name">David Porto Díaz</strong>
+        <p>Autor de Las manecillas del recuerdo y Samuel entre mundos.</p>
+      </div>
+      <nav aria-label="Obra"><h2>Obra</h2><a href="/las-manecillas-del-recuerdo/">Las manecillas del recuerdo</a><a href="/libros/samuel-entre-mundos/">Samuel entre mundos</a><a href="/fragmento/">Fragmento gratis</a></nav>
+      <nav aria-label="Leer y recursos"><h2>Leer</h2><a href="/cuaderno/">Cuaderno</a><a href="/herramientas/" aria-current="page">Herramientas</a><a href="/mapa-del-sitio/">Mapa del sitio</a></nav>
+      <nav aria-label="Información"><h2>Información</h2><a href="/autor.html">Autor</a><a href="/prensa.html">Prensa</a><a href="/eventos.html">Eventos</a><a href="/privacidad.html">Privacidad</a><a href="/aviso-legal.html">Aviso legal</a><a href="/ai/">Para IA</a></nav>
+    </div>
+  </footer>
+
+  <script defer src="/assets/v1-shell.js"></script>
+  <script defer src="/script.js?v=202609-launch-1"></script>
+
+  <script type="module" src="/assets/mapa-personajes.js"></script>
+</body>
+</html>

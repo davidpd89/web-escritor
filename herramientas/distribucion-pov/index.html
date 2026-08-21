@@ -1,9 +1,10 @@
-<!doctype html>
-<html lang="es">
+<!DOCTYPE html>
+<html lang="es" class="v1">
 <head>
-  <meta charset="utf-8">
+  <meta charset="UTF-8" />
   <meta http-equiv="Content-Security-Policy" content="default-src 'self'; connect-src 'none'; img-src 'self'; style-src 'self' 'unsafe-inline'; font-src 'self'; script-src 'self'; object-src 'none'; base-uri 'self'; form-action 'none'; frame-src 'none'">
-  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <meta name="robots" content="index,follow,max-image-preview:large" />
   <title>Distribución de POV por escenas | Herramientas</title>
   <meta name="description" content="Visualiza cómo se reparten los puntos de vista de una novela por escenas: secuencia, carriles, porcentaje, rachas y huecos. Sin subir el manuscrito.">
   <meta property="og:title" content="Distribución de POV por escenas | Herramientas">
@@ -21,37 +22,167 @@
   <meta name="twitter:description" content="Visualiza cómo se reparten los puntos de vista de una novela por escenas: secuencia, carriles, porcentaje, rachas y huecos. Sin subir el manuscrito.">
   <meta name="twitter:image" content="https://davidportodiaz.com/assets/david-porto-imagen-compartir.webp">
   <meta name="twitter:image:alt" content="Distribución de POV por escenas | Herramientas">
-  <link rel="canonical" href="https://davidportodiaz.com/herramientas/distribucion-pov/">
-  <link rel="stylesheet" href="/styles.css?v=202609-launch-1">
-  <link rel="stylesheet" href="/assets/pov-distribucion.css">
+  <meta name="theme-color" content="#F4EFE7" />
+  <link rel="canonical" href="https://davidportodiaz.com/herramientas/distribucion-pov/" />
+  <link rel="icon" type="image/png" href="/assets/david-porto-favicon.png" />
+  <link rel="apple-touch-icon" href="/assets/david-porto-favicon.png" />
+  <link rel="manifest" href="/manifest.json" />
+
+  <link rel="stylesheet" href="/assets/v1-fonts.css" />
+  <link rel="stylesheet" href="/assets/v1-tokens.css" />
+  <link rel="stylesheet" href="/assets/v1-base.css" />
+  <link rel="stylesheet" href="/assets/v1-shell.css" />
+  <link rel="stylesheet" href="/assets/v1-components.css" />
+  <link rel="stylesheet" href="/assets/v1-tools.css" />
+  <link rel="stylesheet" href="/assets/pov-distribucion.css" />
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebApplication","name":"Distribución de POV por escenas","url":"https://davidportodiaz.com/herramientas/distribucion-pov/","applicationCategory":"UtilitiesApplication","operatingSystem":"Any","isAccessibleForFree":true,"inLanguage":"es","author":{"@id":"https://davidportodiaz.com/#author"}}</script>
 </head>
+
 <body>
-<a href="#main-content" class="skip-link">Saltar al contenido</a>
-<main id="main-content" class="pov-page" data-pov-app>
-<nav class="breadcrumb" aria-label="Ruta de navegación"><a href="/">Inicio</a> › <a href="/herramientas/">Herramientas</a> › Distribución de POV</nav>
-<header class="pov-hero"><p class="eyebrow">Revisión estructural</p><h1>Ve cómo se reparten tus POV a lo largo de la novela.</h1><p class="lead">Pega una línea por escena y obtén otra forma de mirar la estructura: secuencia de narradores, carriles, presencia relativa, rachas consecutivas y huecos entre apariciones. No hay un «porcentaje ideal» ni una nota de equilibrio.</p></header>
-<div class="pov-privacy" role="note"><strong>Privado por diseño.</strong> Solo introduces etiquetas, POV y, si quieres, recuentos de palabras. El análisis ocurre en este navegador; la página bloquea conexiones salientes y no carga analítica ni servicios de terceros.</div>
-<div class="pov-workspace">
-<section class="pov-input-card" aria-labelledby="pov-input-title">
-  <h2 id="pov-input-title">Una escena por línea</h2>
-  <p class="pov-help">Formato: <code>escena | POV | palabras</code>. La tercera columna es opcional. También puedes pegar tres columnas separadas por tabuladores desde una hoja de cálculo.</p>
-  <label for="pov-input" class="sr-only">Escenas y POV</label>
-  <textarea id="pov-input" data-pov-input spellcheck="false" placeholder="1.1 | Ana | 1420&#10;1.2 | Ana | 980&#10;2.1 | Bruno | 1310"></textarea>
-  <div class="pov-actions"><button type="button" class="button primary" data-pov-sample>Cargar ejemplo</button><button type="button" class="button secondary" data-pov-clear>Limpiar</button></div>
-  <p class="pov-status" data-pov-status role="status" aria-live="polite"></p>
-</section>
-<section class="pov-output" data-pov-results hidden aria-label="Resultados">
-  <div class="pov-metrics" data-pov-metrics></div>
-  <section class="pov-section"><h2>Secuencia de lectura</h2><p>La novela tal como la recibe el lector. El color ayuda, pero cada bloque conserva el nombre del POV.</p><div class="pov-sequence" data-pov-sequence></div></section>
-  <section class="pov-section"><h2>Carriles de POV</h2><p>Cada fila es un narrador; cada columna, una escena. Sirve para ver alternancias, concentraciones y ausencias sin releer el índice.</p><div class="pov-lanes" data-pov-lanes></div></section>
-  <section class="pov-section"><h2>Resumen descriptivo</h2><div class="pov-table-wrap"><table class="pov-table"><thead><tr><th>POV</th><th>Escenas</th><th>% escenas</th><th>Palabras</th><th>% palabras</th><th>Racha máx.</th><th>Hueco interno máx.</th></tr></thead><tbody data-pov-summary></tbody></table></div></section>
-  <div class="pov-caveat"><strong>Cómo leerlo.</strong><p>Una distribución desigual puede ser exactamente la decisión correcta. «Hueco» significa escenas entre dos apariciones del mismo POV; no cuenta lo que ocurre antes de su primera entrada ni después de su última salida. La herramienta describe la estructura que has introducido: no detecta POV automáticamente ni juzga la calidad.</p></div>
-</section>
-</div>
-<section><h2>Qué no hace</h2><p>No infiere el POV a partir del texto: tú decides qué escena pertenece a quién. No juzga si el reparto está equilibrado ni sugiere un porcentaje ideal. Para relaciones entre personajes usa el <a href="/herramientas/personajes/">mapa de personajes</a>; para longitudes por capítulo, el <a href="/herramientas/manuscrito/">analizador de manuscrito</a>.</p></section>
-</main>
-<script src="/assets/pov-distribucion-engine.js" defer></script>
-<script src="/assets/pov-distribucion.js" defer></script>
+  <a href="#contenido" class="skip-link">Saltar al contenido</a>
+
+  <header class="site-header" data-header>
+    <div class="site-header__inner">
+      <a class="brand" href="/" aria-label="David Porto Díaz — inicio">
+        <span class="brand__name">David Porto Díaz</span>
+        <span class="brand__role">Escritor</span>
+      </a>
+      <nav class="primary-nav" aria-label="Navegación principal">
+        <a href="/libros/">Obra</a>
+        <a href="/cuaderno/">Cuaderno</a>
+        <a href="/herramientas/" aria-current="page">Herramientas</a>
+      </nav>
+      <button class="explore-trigger" type="button" aria-haspopup="dialog" aria-controls="explore-dialog" aria-expanded="false" data-explore-open>
+        Explorar
+      </button>
+    </div>
+  </header>
+
+  <dialog class="explore-dialog" id="explore-dialog" aria-labelledby="explore-title" data-explore-dialog>
+    <div class="explore-dialog__shell">
+      <div class="explore-dialog__head">
+        <div>
+          <p class="eyebrow">Índice general</p>
+          <h2 id="explore-title">Explorar</h2>
+        </div>
+        <button class="icon-button" type="button" aria-label="Cerrar Explorar" data-explore-close>
+          <svg aria-hidden="true" viewBox="0 0 24 24" width="20" height="20"><path d="M5 5l14 14M19 5L5 19"/></svg>
+        </button>
+      </div>
+
+      <div class="explore-dialog__grid">
+        <nav class="explore-list" aria-label="Destinos de la web">
+          <a class="explore-row" href="/las-manecillas-del-recuerdo/" data-preview="manecillas">
+            <span class="explore-row__index">01</span>
+            <span class="explore-row__body"><strong>Las manecillas del recuerdo</strong><small>La obra actual.</small></span>
+          </a>
+          <a class="explore-row" href="/autor.html" data-preview="autor">
+            <span class="explore-row__index">02</span>
+            <span class="explore-row__body"><strong>Autor</strong><small>Biografía, obra y trayectoria.</small></span>
+          </a>
+          <a class="explore-row" href="/libros/samuel-entre-mundos/" data-preview="samuel">
+            <span class="explore-row__index">03</span>
+            <span class="explore-row__body"><strong>Samuel entre mundos</strong><small>Primera novela publicada.</small></span>
+          </a>
+          <a class="explore-row" href="/cuaderno/" data-preview="cuaderno">
+            <span class="explore-row__index">04</span>
+            <span class="explore-row__body"><strong>Cuaderno</strong><small>Artículos y piezas editoriales.</small></span>
+          </a>
+          <a class="explore-row" href="/herramientas/" data-preview="herramientas">
+            <span class="explore-row__index">05</span>
+            <span class="explore-row__body"><strong>Herramientas</strong><small>Utilidades gratuitas para escritores.</small></span>
+          </a>
+          <a class="explore-row" href="/prensa.html" data-preview="prensa">
+            <span class="explore-row__index">06</span>
+            <span class="explore-row__body"><strong>Prensa y eventos</strong><small>Apariciones, materiales y agenda.</small></span>
+          </a>
+        </nav>
+
+        <aside class="explore-preview" aria-live="polite" aria-atomic="true" data-explore-preview>
+          <div class="explore-preview__media" aria-hidden="true" data-preview-media></div>
+          <p class="explore-preview__label" data-preview-label>Herramientas</p>
+          <p class="explore-preview__copy" data-preview-copy>Utilidades gratuitas para escritores.</p>
+        </aside>
+      </div>
+    </div>
+  </dialog>
+
+  <main id="contenido" class="v1-main" data-family="tool" data-pov-app>
+    <nav class="book-breadcrumb" aria-label="Ruta de navegación">
+      <ol><li><a href="/">Inicio</a></li><li><a href="/herramientas/">Herramientas</a></li><li aria-current="page">Distribución de POV</li></ol>
+    </nav>
+
+    <header class="tool-hero">
+      <p class="eyebrow">Revisión estructural</p>
+      <h1>Ve cómo se reparten tus POV a lo largo de la novela.</h1>
+      <p class="tool-hero__lead">Pega una línea por escena y obtén otra forma de mirar la estructura: secuencia de narradores, carriles, presencia relativa, rachas consecutivas y huecos entre apariciones. No hay un «porcentaje ideal» ni una nota de equilibrio.</p>
+    </header>
+
+    <section class="tool-panel">
+      <p class="tool-note">Privado por diseño. Solo introduces etiquetas, POV y, si quieres, recuentos de palabras. El análisis ocurre en este navegador; la página bloquea conexiones salientes y no carga analítica ni servicios de terceros.</p>
+      <div class="tool-field">
+        <label class="tool-field-label" for="pov-input">Una escena por línea</label>
+        <span class="tool-field-hint">Formato: <code>escena | POV | palabras</code>. La tercera columna es opcional. También puedes pegar tres columnas separadas por tabuladores desde una hoja de cálculo.</span>
+        <textarea id="pov-input" class="tool-textarea" data-pov-input spellcheck="false" placeholder="1.1 | Ana | 1420&#10;1.2 | Ana | 980&#10;2.1 | Bruno | 1310"></textarea>
+      </div>
+      <div class="tool-actions">
+        <button type="button" class="primary-action" data-pov-sample>Cargar ejemplo</button>
+        <button type="button" class="text-action" data-pov-clear>Limpiar</button>
+      </div>
+      <p class="tool-status" data-pov-status role="status" aria-live="polite"></p>
+    </section>
+
+    <section class="tool-results" data-pov-results hidden aria-label="Resultados">
+      <div class="tool-summary" data-pov-metrics></div>
+
+      <div class="tool-findings-block">
+        <h3>Secuencia de lectura</h3>
+        <p>La novela tal como la recibe el lector. El color ayuda, pero cada bloque conserva el nombre del POV.</p>
+        <div class="pov-sequence" data-pov-sequence></div>
+      </div>
+
+      <div class="tool-findings-block">
+        <h3>Carriles de POV</h3>
+        <p>Cada fila es un narrador; cada columna, una escena. Sirve para ver alternancias, concentraciones y ausencias sin releer el índice.</p>
+        <div class="pov-lanes" data-pov-lanes></div>
+      </div>
+
+      <div class="tool-findings-block">
+        <h3>Resumen descriptivo</h3>
+        <div class="pov-table-wrap">
+          <table class="pov-table">
+            <thead><tr><th>POV</th><th>Escenas</th><th>% escenas</th><th>Palabras</th><th>% palabras</th><th>Racha máx.</th><th>Hueco interno máx.</th></tr></thead>
+            <tbody data-pov-summary></tbody>
+          </table>
+        </div>
+      </div>
+
+      <p class="tool-note"><strong>Cómo leerlo.</strong> Una distribución desigual puede ser exactamente la decisión correcta. «Hueco» significa escenas entre dos apariciones del mismo POV; no cuenta lo que ocurre antes de su primera entrada ni después de su última salida. La herramienta describe la estructura que has introducido: no detecta POV automáticamente ni juzga la calidad.</p>
+    </section>
+
+    <section class="tool-panel tool-caveat">
+      <h2>Qué no hace</h2>
+      <p>No infiere el POV a partir del texto: tú decides qué escena pertenece a quién. No juzga si el reparto está equilibrado ni sugiere un porcentaje ideal. Para relaciones entre personajes usa el <a href="/herramientas/personajes/">mapa de personajes</a>; para longitudes por capítulo, el <a href="/herramientas/manuscrito/">analizador de manuscrito</a>.</p>
+    </section>
+
+  </main>
+
+  <footer class="site-footer">
+    <div class="site-footer__grid">
+      <div>
+        <strong class="brand__name">David Porto Díaz</strong>
+        <p>Autor de Las manecillas del recuerdo y Samuel entre mundos.</p>
+      </div>
+      <nav aria-label="Obra"><h2>Obra</h2><a href="/las-manecillas-del-recuerdo/">Las manecillas del recuerdo</a><a href="/libros/samuel-entre-mundos/">Samuel entre mundos</a><a href="/fragmento/">Fragmento gratis</a></nav>
+      <nav aria-label="Leer y recursos"><h2>Leer</h2><a href="/cuaderno/">Cuaderno</a><a href="/herramientas/" aria-current="page">Herramientas</a><a href="/mapa-del-sitio/">Mapa del sitio</a></nav>
+      <nav aria-label="Información"><h2>Información</h2><a href="/autor.html">Autor</a><a href="/prensa.html">Prensa</a><a href="/eventos.html">Eventos</a><a href="/privacidad.html">Privacidad</a><a href="/aviso-legal.html">Aviso legal</a><a href="/ai/">Para IA</a></nav>
+    </div>
+  </footer>
+
+  <script defer src="/assets/v1-shell.js"></script>
+  <script defer src="/script.js?v=202609-launch-1"></script>
+
+  <script src="/assets/pov-distribucion-engine.js" defer></script>
+  <script src="/assets/pov-distribucion.js" defer></script>
 </body>
 </html>
