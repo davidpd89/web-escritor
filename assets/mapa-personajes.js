@@ -40,6 +40,7 @@ const els = {
 
 let project = normalizeProject({ title: '', characters: [], relations: [] });
 let positions = new Map();
+let dragState = null;
 
 function announce(message) {
   els.status.textContent = message;
@@ -203,7 +204,23 @@ function moveNode(node, id, x, y) {
   });
 }
 
+function pointFromPointer(event) {
+  const matrix = els.svg.getScreenCTM();
+  if (!matrix) return null;
+  const point = els.svg.createSVGPoint();
+  point.x = event.clientX;
+  point.y = event.clientY;
+  return point.matrixTransform(matrix.inverse());
+}
+
+function stopDragging(pointerId = null) {
+  if (!dragState || (pointerId !== null && pointerId !== dragState.pointerId)) return;
+  dragState.node.classList.remove('is-dragging');
+  dragState = null;
+}
+
 function render(resetPositions = false) {
+  stopDragging();
   project.title = els.title.value.trim();
   selectOptions();
   updatePrimaryAction();
@@ -285,38 +302,25 @@ function render(resetPositions = false) {
 }
 
 function makeDraggable(node, id) {
-  let dragging = false;
-  let pointerId = null;
-
-  const stop = () => {
-    dragging = false;
-    pointerId = null;
-    node.classList.remove('is-dragging');
-  };
-
   node.addEventListener('pointerdown', event => {
-    dragging = true;
-    pointerId = event.pointerId;
+    if (event.button !== 0 || !event.isPrimary) return;
+    stopDragging();
+    dragState = { node, id, pointerId: event.pointerId };
     node.classList.add('is-dragging');
-    node.setPointerCapture(pointerId);
     event.preventDefault();
   });
-
-  node.addEventListener('pointermove', event => {
-    if (!dragging || event.pointerId !== pointerId) return;
-    const matrix = els.svg.getScreenCTM();
-    if (!matrix) return;
-    const point = els.svg.createSVGPoint();
-    point.x = event.clientX;
-    point.y = event.clientY;
-    const local = point.matrixTransform(matrix.inverse());
-    moveNode(node, id, local.x, local.y);
-  });
-
-  node.addEventListener('pointerup', stop);
-  node.addEventListener('pointercancel', stop);
-  node.addEventListener('lostpointercapture', stop);
 }
+
+window.addEventListener('pointermove', event => {
+  if (!dragState || event.pointerId !== dragState.pointerId) return;
+  const point = pointFromPointer(event);
+  if (!point) return;
+  moveNode(dragState.node, dragState.id, point.x, point.y);
+  event.preventDefault();
+});
+window.addEventListener('pointerup', event => stopDragging(event.pointerId));
+window.addEventListener('pointercancel', event => stopDragging(event.pointerId));
+window.addEventListener('blur', () => stopDragging());
 
 function download(name, type, text) {
   const blob = new Blob([text], { type });
