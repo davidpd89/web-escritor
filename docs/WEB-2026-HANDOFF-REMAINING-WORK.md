@@ -1219,6 +1219,44 @@ mínimo duro en `minmax()` pasa el barrido de anchos y falla bajo zoom.
 5. Registrar en el cuerpo de la PR cuántas rutas entran en la puerta y cuántas
    fallaban antes del arreglo.
 
+## Punto de partida ya medido
+
+Barrido hecho el 2026-08-22 sobre `a6a7b38`, con el text-spacing de WCAG
+aplicado y, donde se indica, zoom 200 %. Son desbordes **reales y actuales**,
+no hipótesis. Sirven de lista inicial, no de lista completa: solo se midieron
+ocho rutas.
+
+| Ruta | Condición | Desborde |
+|---|---|---|
+| `/` | 390 + zoom 200 % | 251 px |
+| `/` | 768 + zoom 200 % | 228 px |
+| `/editoriales/` | 390 + zoom 200 % | 17 px |
+| `/herramientas/` | 320 | 9 px |
+| `/herramientas/` | 390 + zoom 200 % | 360 px |
+| `/herramientas/` | 768 + zoom 200 % | 626 px |
+| `/libros/samuel-entre-mundos/` | 320 | 26 px |
+| `/libros/samuel-entre-mundos/` | 390 + zoom 200 % | 324 px |
+| `/libros/samuel-entre-mundos/` | 768 + zoom 200 % | 144 px |
+| `/cuaderno/` | 390 + zoom 200 % | 230 px |
+| `/cuaderno/` | 768 + zoom 200 % | 86 px |
+| `/autor.html` | 390 + zoom 200 % | 181 px |
+| `/autor.html` | 768 + zoom 200 % | 288 px |
+| `/prensa.html` | 320 | 25 px |
+| `/prensa.html` | 390 + zoom 200 % | 331 px |
+| `/prensa.html` | 768 + zoom 200 % | 475 px |
+
+Dos avisos sobre estas cifras:
+
+- Las tres filas a 320 **sin** zoom son text-spacing puro. El barrido de
+  desbordamiento que ya existe en la rama (66 páginas × 9 anchos) pasa limpio
+  porque no aplica text-spacing: son condiciones distintas y hacen falta las
+  dos.
+- `/convocatorias-escritores/` **no** está en la tabla: quedó a 0 px en las
+  cuatro anchuras con y sin zoom al arreglar el pie en `a6a7b38`. Ese arreglo
+  —`min-width:0` en los hijos de los `<nav>` del pie, que son grid items y
+  arrastraban `min-content`— beneficia a todas las páginas, así que estas
+  cifras ya lo incluyen. Lo que queda es contenido de cada página.
+
 ## Stop condition
 
 - No cerrar la PR con rutas excluidas "temporalmente" sin declarar cuáles y
