@@ -47,14 +47,53 @@ function brokenInBaseline(href){
   return hasId?null:`anchor inexistente: #${hash} en ${target}`;
 }
 
-const report={baseSha:BASE,pages:{}};
+const esc=s=>s.replace(/[.*+?^${}()|[\]\\]/g,'\\$&');
+const mainWithId=(html,id)=>new RegExp(`<main\\b[^>]*\\bid\\s*=\\s*["']${esc(id)}["']`,'i').test(html);
+function skipTarget(html){
+  const m=html.match(/<a\b[^>]*class\s*=\s*["'][^"']*skip-link[^"']*["'][^>]*href\s*=\s*["']#([^"']+)["']/i)
+        ||html.match(/<a\b[^>]*href\s*=\s*["']#([^"']+)["'][^>]*class\s*=\s*["'][^"']*skip-link/i);
+  return m?m[1]:null;
+}
+
+// The one same-page case that is a rename rather than a removal: the fragment
+// named this page's <main> landmark, and the page still exposes that landmark
+// under a new id with its skip link resolving to it. Deliberately narrow — it
+// checks that the destination is still <main> and still reachable from the
+// skip link, so a page that simply dropped its skip link, or points it at
+// something that is not the landmark, still fails. That the target is also
+// focusable is asserted separately by scripts/check-heading-structure.py.
+function landmarkRenamed(href,beforeHtml,afterHtml){
+  if(!href.startsWith('#'))return null;
+  const id=href.slice(1);
+  if(!mainWithId(beforeHtml,id))return null;
+  const now=skipTarget(afterHtml);
+  if(!now||!mainWithId(afterHtml,now))return null;
+  return `landmark <main> renombrado: #${id} -> #${now}`;
+}
+
+// An unresolvable BASE_SHA would make every page look new and pass the gate
+// in vacuum, so the ref is verified before anything else.
+try{execFileSync('git',['rev-parse','--verify',`${BASE}^{commit}`],{stdio:'ignore'});}
+catch{throw new Error(`BASE_SHA no resuelve a un commit: ${BASE}`);}
+const existsInBase=p=>{
+  try{execFileSync('git',['cat-file','-e',`${BASE}:${p}`],{stdio:'ignore'});return true;}
+  catch{return false;}
+};
+
+const report={baseSha:BASE,pages:{},introduced:[]};
 for(const p of paths){
-  const before=inventory(baseText(p)),after=inventory(fs.readFileSync(p,'utf8'));
+  // A page that did not exist in the base has no destinations to preserve.
+  // Narrow on purpose: it only covers "new in this branch", so deleting a page
+  // still fails on readFileSync below.
+  if(!existsInBase(p)){report.introduced.push(p);continue;}
+  const beforeHtml=baseText(p),afterHtml=fs.readFileSync(p,'utf8');
+  const before=inventory(beforeHtml),after=inventory(afterHtml);
   const removed=before.hrefs.filter(x=>!after.hrefs.includes(x)),added=after.hrefs.filter(x=>!before.hrefs.includes(x));
-  const removedJustification=Object.fromEntries(removed.map(h=>[h,brokenInBaseline(h)]));
+  const removedJustification=Object.fromEntries(removed.map(h=>[h,brokenInBaseline(h)||landmarkRenamed(h,beforeHtml,afterHtml)]));
   const unjustified=removed.filter(h=>!removedJustification[h]);
   assert.deepEqual(unjustified,[],`${p}: destinos eliminados sin preservar: ${unjustified.join(', ')}`);
   report.pages[p]={before,after,addedDestinations:added,removedDestinations:removed,removedJustification,metadataChanges:{title:before.title===after.title?null:[before.title,after.title],description:before.description===after.description?null:[before.description,after.description],robots:before.robots===after.robots?null:[before.robots,after.robots],canonical:before.canonical===after.canonical?null:[before.canonical,after.canonical]}};
 }
 fs.writeFileSync(`${outDir}/findability-inventory.json`,JSON.stringify(report,null,2));
+if(report.introduced.length)console.log(`FINDABILITY INVENTORY: ${report.introduced.length} página(s) nuevas respecto a la base, sin destinos que preservar: ${report.introduced.join(', ')}`);
 console.log('FINDABILITY INVENTORY/PRESERVATION: OK');
