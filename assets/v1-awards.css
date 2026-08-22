@@ -1,0 +1,175 @@
+/* Premios V1 — evidencia y atribución local. No modifica la familia Identity. */
+html.v1 [data-page="awards"] .awards-section{
+  position:relative;
+}
+html.v1 [data-page="awards"] .awards-section--recognitions{
+  border-top:var(--line-emphasis) solid var(--color-text);
+}
+html.v1 [data-page="awards"] .awards-section--trajectory,
+html.v1 [data-page="awards"] .awards-section--reception{
+  border-top:1px solid var(--color-border);
+}
+html.v1 [data-page="awards"] .awards-section--reception{
+  color:color-mix(in srgb,var(--color-text) 88%,var(--surface-page));
+}
+html.v1 [data-page="awards"] .awards-section-note{
+  max-width:66ch;
+  margin:calc(var(--space-5) * -1) 0 var(--space-6);
+  color:var(--color-muted);
+  font-size:var(--text-sm);
+}
+html.v1 [data-page="awards"] [data-award-record] > div{
+  min-width:0;
+}
+html.v1 [data-page="awards"] .award-attribution{
+  display:grid;
+  grid-template-columns:repeat(4,minmax(0,1fr));
+  margin:var(--space-5) 0 0;
+  border-top:1px solid var(--color-border);
+  border-bottom:1px solid var(--color-border);
+}
+html.v1 [data-page="awards"] .award-attribution > div{
+  min-width:0;
+  padding:.8rem clamp(.75rem,1.6vw,1.25rem) .85rem 0;
+}
+html.v1 [data-page="awards"] .award-attribution > div + div{
+  padding-left:clamp(.75rem,1.6vw,1.25rem);
+  border-left:1px solid var(--color-border);
+}
+html.v1 [data-page="awards"] .award-attribution dt{
+  margin:0 0 .28rem;
+  color:var(--color-muted);
+  font-size:.7rem;
+  font-weight:600;
+  letter-spacing:.08em;
+  text-transform:uppercase;
+}
+html.v1 [data-page="awards"] .award-attribution dd{
+  min-width:0;
+  margin:0;
+  font-family:var(--font-reading);
+  font-size:var(--text-sm);
+  line-height:1.45;
+  overflow-wrap:anywhere;
+}
+html.v1 [data-page="awards"] .award-source-rail{
+  display:grid;
+  grid-template-columns:repeat(2,minmax(0,1fr));
+  gap:.65rem var(--grid-gap);
+  margin-top:var(--space-5);
+  padding-top:var(--space-4);
+  border-top:var(--line-emphasis) solid var(--color-accent-strong);
+}
+html.v1 [data-page="awards"] .award-source-rail p{
+  min-width:0;
+  margin:0;
+}
+html.v1 [data-page="awards"] .award-source-label{
+  display:block;
+  margin-bottom:.35rem;
+  color:var(--color-muted);
+  font-size:.68rem;
+  font-weight:600;
+  letter-spacing:.09em;
+  text-transform:uppercase;
+}
+html.v1 [data-page="awards"] .award-source-rail .text-action{
+  min-height:44px;
+  max-width:100%;
+  overflow-wrap:anywhere;
+}
+html.v1 [data-page="awards"] .award-evidence-note{
+  grid-column:1/-1;
+  max-width:76ch;
+  color:var(--color-muted);
+  font-size:var(--text-sm);
+  line-height:1.55;
+}
+html.v1 [data-page="awards"] .awards-ledger--reception{
+  border-top-color:color-mix(in srgb,var(--color-border) 72%,transparent);
+}
+html.v1 [data-page="awards"] .awards-next{
+  border-top:1px solid var(--color-border);
+}
+html.v1 [data-page="awards"] .awards-next > a{
+  display:grid;
+  grid-template-columns:minmax(7rem,.22fr) minmax(0,1fr);
+  gap:var(--grid-gap);
+  align-items:start;
+  padding:var(--space-4) 0;
+  border-bottom:1px solid var(--color-border);
+  text-decoration:none;
+}
+html.v1 [data-page="awards"] .awards-next__label{
+  color:var(--color-muted);
+  font-size:.72rem;
+  font-weight:600;
+  letter-spacing:.08em;
+  text-transform:uppercase;
+}
+html.v1 [data-page="awards"] .awards-next strong{
+  display:block;
+  font-family:var(--font-reading);
+  font-size:var(--text-lg);
+  font-weight:600;
+}
+html.v1 [data-page="awards"] .awards-next small{
+  display:block;
+  margin-top:.2rem;
+  color:var(--color-muted);
+  font-size:var(--text-sm);
+  line-height:1.45;
+}
+html.v1 [data-page="awards"] .awards-next > a:hover strong,
+html.v1 [data-page="awards"] .awards-next > a:focus-visible strong{
+  text-decoration:underline;
+  text-decoration-thickness:1px;
+  text-underline-offset:.28em;
+}
+
+@media (max-width:760px){
+  html.v1 [data-page="awards"] .award-attribution{
+    grid-template-columns:repeat(2,minmax(0,1fr));
+  }
+  html.v1 [data-page="awards"] .award-attribution > div:nth-child(3){
+    border-left:0;
+    border-top:1px solid var(--color-border);
+    padding-left:0;
+  }
+  html.v1 [data-page="awards"] .award-attribution > div:nth-child(4){
+    border-top:1px solid var(--color-border);
+  }
+}
+
+@media (max-width:600px){
+  html.v1 [data-page="awards"] .award-source-rail{
+    grid-template-columns:minmax(0,1fr);
+  }
+  html.v1 [data-page="awards"] .award-evidence-note{
+    grid-column:1;
+  }
+  html.v1 [data-page="awards"] .awards-next > a{
+    grid-template-columns:minmax(0,1fr);
+    gap:.35rem;
+  }
+}
+
+@media (max-width:389px){
+  html.v1 [data-page="awards"] .award-attribution{
+    grid-template-columns:minmax(0,1fr);
+  }
+  html.v1 [data-page="awards"] .award-attribution > div,
+  html.v1 [data-page="awards"] .award-attribution > div + div,
+  html.v1 [data-page="awards"] .award-attribution > div:nth-child(3){
+    padding:.72rem 0;
+    border-left:0;
+    border-top:1px solid var(--color-border);
+  }
+  html.v1 [data-page="awards"] .award-attribution > div:first-child{
+    border-top:0;
+  }
+  html.v1 [data-page="awards"] [data-award-record] *,
+  html.v1 [data-page="awards"] .awards-next *{
+    overflow-wrap:anywhere;
+  }
+}
