@@ -66,46 +66,102 @@ No asumir que está hecho por el nombre histórico de la rama.
 
 ## 0.3 Trabajo activo que NO hay que pisar
 
-### PR #26 — Full-site residual audit
+Ahora mismo, **ninguno**. Las PR #26 a #38 están integradas y no queda ninguna
+rama de trabajo abierta contra `implementacion-web-2026`. La única PR viva es la
+#1 (`implementacion-web-2026` → `main`), que sigue en borrador y **no se
+mergea**: GitHub Pages publica desde `main`, así que ese merge es el despliegue
+a producción y lo decide una persona.
 
-PR abierta:
+Sobre la antigua PR #27: GitHub la cerró sola al borrarse su rama base. Se
+rehízo como **#37**, rebasada sobre `implementacion-web-2026` y con el informe
+corregido para que no diga «listo para main». No reutilizar la #27.
 
-`Site audit: remove residual legacy and integration regressions V1`
 
-Rama:
+## 0.4 Segunda ronda integrada (2026-08-22) — NO REHACER
 
-`gpt/site-residual-cleanup-v1`
+Todas revisadas y corregidas en su propia rama antes de entrar. Ninguna quedó
+pendiente.
 
-En el momento de esta actualización está abierta y trabaja sobre el residual audit. Ha detectado/corregido, al menos, social cards genéricas en páginas editoriales y ha añadido protección anti-regresión.
+| PR | Qué entró | Corregido al revisar |
+|---|---|---|
+| #26 | Social cards editoriales + test anti-regresión | — |
+| #29 | Navegación de fragmentos de Manecillas | `syncHashScroll` en `script.js` llamaba a `decodeURIComponent` sin proteger: un `%` mal formado en el hash lanzaba un error **en todas las páginas del sitio** |
+| #30 | Evidencia y atribución de premios | Timing en la QA de foco |
+| #31 | Cartografía contextual de la Home | Cuatro medidas que no medían lo que decían (ver abajo) |
+| #32 | UX conversacional del asistente | La QA exigía ≥16 px y ≥44 px y el CSS no lo cumplía: textarea a 14,72 px (iOS hace zoom al enfocar) y botones de 38 px |
+| #33 | Gate de reflow sitewide | Rediseñaba la tablet sin declararlo; inventario de rutas desde disco |
+| #34 | Paridad del archivo de ferias | Su *scope guard* bloqueaba **cualquier** PR posterior (retirado en la #38) |
+| #35 | Familia editorial de /cuaderno/temas/ | Las series pasaron a `<ul>`: perdían el orden semántico que la propia página afirma tener |
+| #36 | PWA / offline | Cinco assertions que pasaban por delante del caso que describen |
+| #37 | Paquete de evidencia pre-main (sustituye a la #27) | Decía `READY_FOR_HUMAN_MAIN_REVIEW` sin abrir un navegador; su workflow nunca había corrido |
+| #38 | Retirada del scope guard de Ferias | — |
 
-**No crear otra rama para hacer lo mismo mientras #26 esté activa.**
+### Lo que se repite y conviene tener delante
 
-Esperar revisión independiente. Si se aprueba, integrarla primero y actualizar `implementacion-web-2026` antes de continuar con tareas que dependan del estado final.
+**1. Un workflow que no se dispara se ve igual que uno que pasa.** Van tres
+casos en dos rondas:
 
-### PR #27 — Release readiness PREMATURA / PROVISIONAL
+- el escaneo de secretos vivía en un workflow filtrado a rutas del asistente,
+  así que una clave en cualquier otro sitio no lo activaba;
+- el workflow de la #37 llevaba `branches: [implementacion-web-2026]` y la PR
+  estaba apilada sobre otra rama: no corrió nunca, y por eso nadie vio que su
+  `npm ci` no puede funcionar (no hay `package.json` en el repo);
+- el gate de reflow recorría el disco y metía ficheros sin versionar: en CI no
+  existen, así que salía verde por una razón distinta de la que creía.
 
-Existe también una PR abierta:
+**Antes de dar por buena una puerta nueva, comprueba que se ha ejecutado de
+verdad** —mira el log del job, no el check verde— y **que falla cuando debe**:
+rompe algo a propósito, míralo en rojo, revierte, y decláralo en la PR.
 
-`Release: prepare implementation branch for final production review V1`
+**2. Escribir la assertion no es cumplirla.** La #32 traía la QA correcta
+(≥16 px de fuente, ≥44 px de área táctil) y el CSS sin tocar. Si añades un
+contrato, deja el producto cumpliéndolo en la misma PR o marca la PR como
+DRAFT diciéndolo.
 
-Rama:
+**3. Medir en el tick equivocado.** Cinco fallos de esta ronda eran esto, no
+bugs de producto:
 
-`gpt/release-readiness-v1`
+- leer `getComputedStyle` justo después de `Tab` o `hover`, con una
+  `transition` de por medio, devuelve el valor de partida;
+- bajo `prefers-reduced-motion` la receta del sitio es
+  `transition-duration:.01ms!important`, **no `0s`** (a `0s` no se dispara
+  `transitionend`), así que hay una transición real, cortísima: hay que dejar
+  pasar un frame, y **no** exigir `=== 0` en las assertions de reduced motion;
+- `navigator.serviceWorker.ready` resuelve con el worker aún en `activating`, y
+  `clients.claim()` dispara `controllerchange` **dentro** del `waitUntil` de
+  `activate`: para saber que la activación terminó hay que esperar al estado
+  `activated`, no al controlador ni a un `setTimeout`.
 
-**Advertencia crítica:** fue creada con base `gpt/site-residual-cleanup-v1`, es decir, está apilada sobre la PR #26 y no sobre el HEAD final de `implementacion-web-2026`.
+**4. Dos cosas que Playwright no hace y parece que sí.** Las dos costaron un
+rato en la #36:
 
-Además se generó antes de ejecutar todos los gates pendientes de este documento.
+- `route.request().serviceWorker()` **no** da `true` para el `fetch()` que el
+  propio worker hace dentro de su handler;
+- `context.setOffline(true)` **no** alcanza a las peticiones que origina el
+  worker.
 
-Por tanto:
+Con las dos, la petición llega a la red, responde 200 y se cachea: la assertion
+del fallback offline pasaba sin ver jamás el fallback. Lo que sí funciona es
+cortar la conexión en el servidor de la propia QA.
 
-- NO tratar #27 como readiness final;
-- NO usar su `READY_FOR_HUMAN_MAIN_REVIEW` como cierre definitivo;
-- NO mergearla a `main`;
-- no seguir apilando nuevas tareas sobre ella;
-- conservarla, si resulta útil, como evidencia/prototipo del paquete de readiness;
-- la readiness FINAL debe regenerarse al final desde un HEAD fresco de `implementacion-web-2026`, después de integrar todos los bloques aplicables.
+**5. El widget del asistente se auto-abre.** 1,1 s después de cargar, una vez
+por sesión, con un panel de 410×650 en escritorio. Cae encima de la cartografía
+de la Home y roba el `:hover`. Cualquier QA de un componente de la Home debe
+marcar antes la clave de sesión `davidporto-assistant-widget-auto-v1`.
 
-La tarea final de este documento usa una rama nueva `gpt/release-readiness-v2` para evitar ambigüedad.
+### Dos hallazgos abiertos, para decidir
+
+Ninguno se ha tocado: los dos son decisiones, no bugs con arreglo obvio.
+
+- **Puntero y foco compiten por el resalte del mapa.** `v1-shell.js` escribe
+  `data-active` tanto en `mouseenter` como en `focus`, y gana el último evento.
+  Si el ratón descansa sobre un nodo y navegas con Tab, el scroll dispara un
+  `mouseenter` tardío que le roba el resalte al nodo enfocado. Hay que decidir
+  qué entrada manda antes de tocarlo.
+- **El auto-open del asistente tapa el contenido principal de la Home.** Es
+  deliberado y se limita a una vez por sesión, pero conviene mirarlo con ojos de
+  producto, no de QA.
+
 
 ---
 
@@ -291,9 +347,9 @@ Toda eliminación debe aparecer en el informe final con motivo/evidencia.
 
 El orden recomendado desde este punto es:
 
-0. **Terminar/revisar PR #26** — no duplicar mientras siga activa.
-1. **Global shell/navigation/footer closure** — reinsertada porque quedó sin ejecutar.
-2. **Sitewide reflow 200 % + text-spacing gate**.
+0. ~~Terminar/revisar PR #26~~ — **HECHA E INTEGRADA**.
+1. **Global shell/navigation/footer closure** — reinsertada porque quedó sin ejecutar. **SIGUIENTE.**
+2. ~~Sitewide reflow 200 % + text-spacing gate~~ — **HECHA E INTEGRADA (PR #33)**.
 3. **CSS ownership/component-definition gate**.
 4. **Radar de convocatorias freshness gate**.
 5. **Build reproducibility/source↔generated parity global**.
@@ -304,7 +360,7 @@ El orden recomendado desde este punto es:
 10. **Informe de outliers SEO title/description** — informe, NO aplicar copy.
 11. **Release readiness V2 FINAL** — siempre la última.
 
-Tareas 2–4 pueden ejecutarse de forma separada después de que #26 se estabilice; Tareas 5–8 deben trabajar contra un estado ya razonablemente final para evitar conclusiones obsoletas.
+Las Tareas 3 y 4 pueden ejecutarse de forma separada y en paralelo. Tareas 5–8 deben trabajar contra un estado ya razonablemente final para evitar conclusiones obsoletas.
 
 Si #26 encuentra una nueva familia coherente que no encaja en estas tareas, se documenta y se crea un bloque separado. No absorber silenciosamente un refactor grande en #26.
 
@@ -413,51 +469,53 @@ Si el inventario descubre una familia grande con lógica propia, detener esa par
 
 # TAREA 2 — ZOOM 200 % Y WCAG TEXT-SPACING COMO GATE SITEWIDE
 
-Rama:
+## ESTADO: HECHA E INTEGRADA (PR #33, 2026-08-22)
 
-`gpt/reflow-gate-sitewide-v1`
+No reabrir. Lo que quedó en la rama:
 
-PR:
+- `qa/sitewide-reflow-browser.mjs` — **66 rutas × 2 viewports = 132 comprobaciones**,
+  con text-spacing de WCAG 1.4.12 inyectado por hoja de inspector CDP (no
+  `addStyleTag`: las páginas llevan `style-src 'self'` y el inline se rechaza) y
+  zoom 200 %;
+- `.github/workflows/sitewide-reflow-qa.yml`;
+- el CSS corregido en 12 hojas V1.
 
-`QA: assert WCAG reflow and text-spacing on the whole route inventory`
+Tres cosas que se corrigieron **al revisar la PR** y que conviene no repetir en
+las tareas siguientes, porque son errores fáciles de cometer otra vez:
 
-## Objetivo
+1. **Arreglar el reflow no es rediseñar.** La primera versión quitaba mínimos
+   duros a base de aplanar layouts: `.v1-section__head` perdía sus dos columnas
+   a 768 px, `.contact-grid` pasaba de dos columnas a una en tablet, y el `h1`
+   del masthead se iba de 489 px a 713 px al soltarle el `max-width`. Nada de
+   eso hacía falta: `minmax(min(N,100%),1fr)` ata el mínimo al contenedor y a
+   ancho normal no cambia nada. Se midió con A/B geométrico contra la base
+   (8 rutas × 3 anchos) hasta dejar la diferencia en **0**.
 
-Convertir el reflow bajo zoom 200 % y WCAG text-spacing en una puerta real de CI sobre el inventario público, no únicamente sobre unas pocas herramientas.
+   **Regla para las tareas 3, 5, 6 y 7: si un arreglo cambia la geometría a
+   ancho normal, mídelo y decláralo. No lo cuentes como «endurecer».**
 
-## Antecedente confirmado
+2. **El inventario de rutas no puede salir de recorrer el disco.**
+   `walkHtmlFiles` recorría el árbol de ficheros, así que metía en la puerta el
+   HTML suelto de las carpetas de notas e ideas sin versionar —cientos de px de
+   desbordamiento en ficheros que no se publican—. En CI no aparecían, porque no
+   están en el repo: **el gate salía verde por accidente, no por acuerdo.** Sale
+   de `git ls-files`, que da el mismo conjunto en local y en CI.
 
-Ya aparecieron fallos que los tests normales de ancho fijo no detectaban: `minmax()` con mínimos duros, grid items arrastrando `min-content` y páginas que solo desbordaban al aplicar text-spacing/zoom.
+3. **Ojo con `overflow-wrap:anywhere` frente a `break-word`.** `anywhere` aplana
+   el `min-content` a un glifo, así que una pista dimensionada por contenido se
+   colapsa. `break-word` parte igual cuando no cabe y **no** toca el
+   `min-content`. Salvo que quieras lo primero a propósito, usa `break-word`.
 
-El handoff anterior midió desbordes reales en Home, Editoriales, Hub de herramientas, Samuel, Cuaderno, Autor y Prensa. Esas cifras son referencia histórica; **volver a medir sobre el HEAD actual** porque varias PR posteriores pueden haber cambiado el resultado.
+Referencia de patrones que ya funcionan, para reutilizar:
 
-## Implementación
+| Síntoma | Arreglo |
+|---|---|
+| Rejilla con mínimo en `rem`/`px` que no encoge | `minmax(min(N,100%),1fr)` |
+| Palabra larga que no cabe | `overflow-wrap:break-word` |
+| Hijo de grid/flex que no baja de su `min-content` | `min-width:0` en el hijo |
 
-1. Obtener inventario público real, no hardcodearlo manualmente si existe fuente.
-2. Crear/reforzar suite específica de reflow.
-3. Por ruta y condición:
-   - contexto/página nueva;
-   - aplicar text-spacing por mecanismo compatible con CSP (reutilizar helper de inspector si existe);
-   - aplicar zoom 200 %;
-   - assert `scrollWidth - clientWidth <= 1` para la página.
-4. Scroll local dentro de componentes solo si está justificado; no confundirlo con overflow de documento.
-5. Cuando falle, corregir CSS real.
-6. No reemplazar zoom por resize: no es la misma condición.
-7. No excluir rutas “temporalmente” sin declararlo.
-8. Cablear el gate a CI con trigger suficientemente global para detectar cambios en `assets/**` y HTML.
-
-## QA
-
-- demostrar al menos una vez que el gate se pone rojo con un fixture/cambio controlado y vuelve a verde tras revertir;
-- 320/390/768 y zoom 200 %;
-- WCAG text-spacing;
-- font fallback donde sea útil;
-- no regresión de layout normal;
-- Lighthouse/a11y relevante.
-
-## Stop condition
-
-No bajar el umbral de 1 px para acomodar fallos.
+Ese último caso es el que tenían los `<nav>` del pie: son `display:grid`, así que
+sus enlaces arrastraban `min-width:auto`.
 
 ---
 
