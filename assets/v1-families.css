@@ -4,7 +4,11 @@
    families that don't have a bespoke signature sheet of their own. */
 html.v1 .v1-main{max-width:var(--layout-max);margin-inline:auto;padding:clamp(2.25rem,5vw,5rem) var(--page-gutter) clamp(5rem,10vw,10rem)}
 html.v1 .v1-masthead{display:grid;grid-template-columns:minmax(0,1.35fr) minmax(16rem,.65fr);gap:clamp(2rem,6vw,7rem);align-items:end;padding:clamp(4rem,8vw,8rem) 0 clamp(3rem,7vw,7rem);border-bottom:1px solid var(--color-border)}
-/* min-width:min-content keeps the 11ch measure from squeezing a headline
+/* The margin shorthand left bottom at 0, so with line-height .86 the
+   headline sat flush against its lead paragraph on six of the seven
+   masthead pages: a 128px "Porto Diaz" with its descenders touching the
+   first line of body copy at desktop.
+   min-width:min-content keeps the 11ch measure from squeezing a headline
    narrower than its own longest word. "Herramientas" is twelve characters, so
    on the tools hub the cap was tighter than the word at every width and the
    text spilled out of its box. The box may now grow to the longest word;
@@ -12,7 +16,7 @@ html.v1 .v1-masthead{display:grid;grid-template-columns:minmax(0,1.35fr) minmax(
    is below 11ch. Not overflow-wrap:anywhere, which "solves" it by breaking
    mid-syllable ("Herramienta|s") and would also flatten min-content to a
    single glyph, defeating this rule. */
-html.v1 .v1-masthead h1{font:400 var(--text-hero)/.86 var(--font-display);letter-spacing:-.035em;margin:.45rem 0 0;max-width:11ch;min-width:min-content;text-wrap:balance}
+html.v1 .v1-masthead h1{font:400 var(--text-hero)/.86 var(--font-display);letter-spacing:-.035em;margin:.45rem 0 clamp(1.25rem,2vw,2.75rem);max-width:11ch;min-width:min-content;text-wrap:balance}
 html.v1 .v1-masthead__lead{font:400 clamp(1.15rem,1rem + .65vw,1.8rem)/1.32 var(--font-reading);max-width:32ch;margin:0}
 html.v1 .v1-masthead__actions{display:flex;flex-wrap:wrap;gap:1.1rem;margin-top:1.75rem}
 
