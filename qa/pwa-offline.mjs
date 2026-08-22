@@ -13,6 +13,11 @@ const swSource = readFileSync(join(ROOT, 'service-worker.js'), 'utf8');
 const offlineSource = readFileSync(join(ROOT, 'offline.html'), 'utf8');
 const manifest = JSON.parse(readFileSync(join(ROOT, 'manifest.json'), 'utf8'));
 let serveUpdatedWorker = false;
+// Corta la conexion de /__pwa_test__/recovery-target para simular la caida de
+// red. Ver el bloque del fallback offline mas abajo para por que hace falta
+// esto y no vale abortar por ruta ni context.setOffline().
+let dropRecoveryTarget = false;
+let dropMissingQaAssets = false;
 
 const BASE_SHA = 'e9207278747646b76a0f22ebf3703b3e19c0c3db';
 const BASELINE_APP_SHELL = [
@@ -141,8 +146,10 @@ const server = createServer((req, res) => {
     return send(res, 200, '<!doctype html><html lang="es"><head><link rel="manifest" href="/manifest.json"><title>PWA QA</title></head><body><main><h1>PWA QA</h1></main></body></html>', 'text/html; charset=utf-8');
   }
   if (url.pathname === '/__pwa_test__/recovery-target') {
+    if (dropRecoveryTarget) return res.destroy();
     return send(res, 200, '<!doctype html><html lang="es"><body><h1>RECOVERY TARGET</h1></body></html>', 'text/html; charset=utf-8');
   }
+  if (dropMissingQaAssets && url.pathname.startsWith('/assets/__pwa_qa_missing.')) return res.destroy();
   if (url.pathname === '/__pwa_test__/not-found') {
     return send(res, 404, '<!doctype html><html><body><h1>EXPECTED 404</h1></body></html>', 'text/html; charset=utf-8');
   }
@@ -206,6 +213,24 @@ try {
         }, { once: true });
       });
     }
+    // navigator.serviceWorker.ready resuelve en cuanto hay un worker activo,
+    // pero la spec permite que ese worker siga en 'activating'. Y el propio SW
+    // llama a clients.claim() DENTRO del waitUntil de activate, asi que
+    // 'controllerchange' se dispara mientras todavia esta activando: leer
+    // reg.active.state justo despues devuelve 'activating' de forma
+    // reproducible. Hay que esperar al statechange, no al controlador.
+    const active = reg.active;
+    if (active && active.state !== 'activated') {
+      await new Promise((resolveActivated) => {
+        const timer = setTimeout(resolveActivated, 5000);
+        active.addEventListener('statechange', function onChange() {
+          if (active.state !== 'activated') return;
+          active.removeEventListener('statechange', onChange);
+          clearTimeout(timer);
+          resolveActivated();
+        });
+      });
+    }
     return { scope: reg.scope, controlled: Boolean(navigator.serviceWorker.controller), state: reg.active?.state || null };
   });
   const worker = await workerPromise;
@@ -257,21 +282,25 @@ try {
   assert(await page.locator('text=EXPECTED 500').isVisible(), '500 was replaced by offline fallback');
 
   const recoveryUrl = `${origin}/__pwa_test__/recovery-target?case=online-event`;
-  const recoveryPattern = `${origin}/__pwa_test__/recovery-target**`;
-  await context.route(recoveryPattern, async (route) => {
-    if (route.request().serviceWorker()) {
-      await route.abort('internetdisconnected');
-    } else {
-      await route.continue();
-    }
-  });
+  // La caida de red se provoca desde el servidor de esta misma QA, no desde el
+  // navegador. Las dos vias que parecen mas naturales no funcionan aqui:
+  //   - abortar por ruta filtrando con route.request().serviceWorker(): ese
+  //     predicado no da true para el fetch() que el worker hace dentro de
+  //     networkFirstPage;
+  //   - context.setOffline(true): no alcanza a las peticiones que origina el
+  //     propio worker.
+  // Con las dos, la peticion llegaba a la red, respondia 200, se guardaba en
+  // PAGE_CACHE y la pagina mostraba el contenido real: la assertion de abajo
+  // pasaba por delante del caso que dice comprobar. Destruir la conexion en el
+  // servidor si hace fallar el fetch del worker de forma determinista.
   const externalBeforeFallback = externalRequests.length;
+  dropRecoveryTarget = true;
   const fallbackResponse = await page.goto(recoveryUrl, { waitUntil: 'domcontentloaded' });
+  dropRecoveryTarget = false;
   assert(fallbackResponse?.fromServiceWorker(), 'Offline fallback navigation was not handled by the service worker');
   assert(await page.locator('#offline-title').isVisible(), 'Offline navigation fallback not rendered');
   assert.equal(page.url(), recoveryUrl, 'Offline fallback changed requested URL');
   assert.equal(externalRequests.slice(externalBeforeFallback).length, 0, 'Offline fallback made external requests');
-  await context.unroute(recoveryPattern);
 
   await page.evaluate(() => {
     sessionStorage.setItem('__pwaQaOnlineEvents', '0');
@@ -290,23 +319,21 @@ try {
   report.browser.recovery = { result: 'network failure -> offline fallback -> online event -> same URL recovered', onlineEventCount };
 
   const retryUrl = `${origin}/__pwa_test__/recovery-target?case=retry-button`;
-  await context.route(recoveryPattern, async (route) => {
-    if (route.request().serviceWorker()) await route.abort('internetdisconnected');
-    else await route.continue();
-  });
+  // Misma razon que en el bloque anterior: el filtro por serviceWorker() dejaba
+  // pasar la peticion y esta assertion nunca veia el fallback.
+  dropRecoveryTarget = true;
   await page.goto(retryUrl, { waitUntil: 'domcontentloaded' });
   assert(await page.locator('#offline-title').isVisible(), 'Retry case did not reach offline fallback');
-  await context.unroute(recoveryPattern);
+  dropRecoveryTarget = false;
   await page.locator('[data-retry]').click();
   await page.waitForSelector('text=RECOVERY TARGET', { timeout: 5000 });
   assert.equal(page.url(), retryUrl, 'Retry button did not preserve requested URL');
   report.browser.retry = 'PASS';
 
-  const missingAssetPattern = `${origin}/assets/__pwa_qa_missing.*`;
-  await context.route(missingAssetPattern, async (route) => {
-    if (route.request().serviceWorker()) await route.abort('internetdisconnected');
-    else await route.continue();
-  });
+  // Igual que los dos bloques anteriores: sin cortar en el servidor, la
+  // peticion llegaba y devolvia el 404 del servidor de pruebas en vez del 504
+  // de offlineResponse(), que es lo que esta assertion comprueba.
+  dropMissingQaAssets = true;
   for (const assetPath of ['/assets/__pwa_qa_missing.css', '/assets/__pwa_qa_missing.js', '/assets/__pwa_qa_missing.png']) {
     const assetResult = await page.evaluate(async (url) => {
       const response = await fetch(url);
@@ -316,7 +343,7 @@ try {
     assert(!assetResult.type.includes('text/html'), `Offline asset received HTML fallback: ${assetPath}`);
     assert.equal(assetResult.text, 'Offline');
   }
-  await context.unroute(missingAssetPattern);
+  dropMissingQaAssets = false;
 
   await page.goto(`${origin}/offline.html`, { waitUntil: 'networkidle' });
   await page.keyboard.press('Tab');
@@ -388,7 +415,25 @@ try {
     });
     await reg.update();
     await changed;
-    await new Promise((resolveDelay) => setTimeout(resolveDelay, 300));
+    // No basta con controllerchange y un sleep. El worker llama a skipWaiting()
+    // dentro del waitUntil de install, asi que toma el control —y dispara
+    // controllerchange— mientras el handler de activate todavia esta borrando
+    // las caches obsoletas. Los 300 ms de espera fija a veces llegaban tarde y
+    // la assertion de limpieza fallaba con las caches viejas aun presentes.
+    // El estado 'activated' solo se alcanza cuando el waitUntil de activate ha
+    // terminado, que es exactamente la garantia que hace falta aqui.
+    const incoming = reg.installing || reg.waiting || reg.active;
+    if (incoming && incoming.state !== 'activated') {
+      await new Promise((resolveActivated) => {
+        const timer = setTimeout(resolveActivated, 8000);
+        incoming.addEventListener('statechange', function onChange() {
+          if (incoming.state !== 'activated') return;
+          incoming.removeEventListener('statechange', onChange);
+          clearTimeout(timer);
+          resolveActivated();
+        });
+      });
+    }
     return { caches: await caches.keys(), controlled: Boolean(navigator.serviceWorker.controller) };
   });
   assert(updateAudit.caches.includes('qa-unrelated-cache'), 'Update deleted an unrelated cache');
