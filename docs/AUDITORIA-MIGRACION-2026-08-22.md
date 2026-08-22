@@ -33,34 +33,50 @@ temas del Cuaderno, la metodología editorial y el 404.
 
 ### 1.3 Destinos de enlace
 
-Comparando el conjunto de destinos alcanzables (normalizando relativo↔absoluto y
-quitando query/fragmento):
+Comparar URLs exactas entre dos versiones de un sitio rediseñado da un resultado
+engañoso: cualquier cambio de `autor.html` a `/autor.html`, o de la versión inglesa a
+la española de una política de terceros, aparece como «enlace perdido» sin serlo. La
+medida útil es por dominio: **¿queda algún destino externo de producción sin ninguna
+referencia en la rama?**
 
 | Medida | Resultado |
 |---|---|
-| Destinos únicos en producción | 87 |
-| Destinos alcanzables en la rama | 164 |
-| **Destinos de producción que ya no existen en ninguna página** | **9** |
+| Dominios externos referenciados desde producción | 43 |
+| Dominios externos referenciados desde la rama | 80 |
+| **Dominios de producción sin ninguna referencia en la rama** | **6** |
 
-Los nueve son enlaces externos. Ninguno es una página del sitio:
+Los seis:
 
-| Destino perdido | Qué era | Peso |
+| Dominio | Qué era | Peso |
 |---|---|---|
-| `metricool.com/privacy-policy/` | política de privacidad del rastreador que usa el sitio | **Legal.** Un tercero que procesa datos debe estar enlazado desde la página de privacidad |
-| `app.thestorygraph.com/profile/david_porto` | perfil del autor | Identidad (`sameAs`) |
-| `es.babelio.com/monprofil.php?id_user=114337` | perfil del autor | Identidad (`sameAs`) |
-| `amazon.es/stores/author/B0GZFP1JV3` | página de autor en Amazon | Identidad + venta |
-| `amazon.es/dp/B002ZPIQDI` · `amazon.es/dp/B00SHYJGUC` | dos libros recomendados en `/recomendaciones/magia-con-coste/` | Contenido editorial + afiliación |
-| `ferialibromadrid.com/` | web oficial de la feria | Evidencia de la ficha |
-| `hoymadrid.app/…/presentacion-de-samuel-entre-dos-mundos…` | mención externa del evento | Evidencia |
-| `llmstxt.org/` | especificación de `llms.txt` | Referencia menor |
+| `hoymadrid.app` | mención externa de la presentación de *Samuel entre mundos* | **Evidencia editorial.** El único con valor de contenido |
+| `json-ld.org/playground/` | validador de JSON-LD | Herramienta de desarrollo |
+| `validator.schema.org` | validador de schema.org | Herramienta de desarrollo |
+| `search.google.com/test/rich-results` | test de resultados enriquecidos | Herramienta de desarrollo |
+| `llmstxt.org` | especificación de `llms.txt` | Referencia |
+| `w3.org/TR/rdf11-primer/` | primer de RDF | Referencia |
 
-**Los cuatro primeros conviene recuperarlos.** El de Metricool es el más urgente: es
-el enlace a la política de un procesador de datos y su ausencia deja la página de
-privacidad incompleta. Los tres de identidad alimentan el `sameAs` del autor, que es
-justo lo que sostiene el trabajo de autoridad para IA y buscadores.
+Cinco de los seis son enlaces de utilidad para quien programa, que vivían en
+`/ai/index.html`. Su ausencia no afecta a ningún lector ni a ningún buscador.
 
----
+**Lo que conviene recuperar es uno: `hoymadrid.app`**, porque acredita un evento real.
+
+#### Tres cosas que parecían perdidas y no lo están
+
+Las anoto porque son justo los falsos positivos que produce comparar URLs exactas, y
+para que nadie abra una PR a arreglarlas:
+
+- **Perfiles de autor** (StoryGraph, Babelio, página de autor de Amazon). Siguen en el
+  `sameAs` del JSON-LD de `autor.html` e `index.html`, y en `llms.txt`,
+  `editorial-facts.json` y el press-kit. Lo que cambió es que ya no son enlaces
+  pinchables en `/ai/`. La autoridad de entidad está intacta.
+- **Política de privacidad de Metricool.** Sigue enlazada desde `privacidad.html`, en
+  la versión española (`metricool.com/es/politica-privacidad/`) en lugar de la inglesa.
+  Para un sitio en español es mejor, no peor.
+- **Los dos libros de `/recomendaciones/magia-con-coste/`.** Sus URL de Amazon estaban
+  en el campo `url` del `Book` en JSON-LD, no como enlaces visibles. Poner un enlace de
+  afiliado como `url` canónica del libro **de otro autor** es discutible de por sí, así
+  que quitarlas no es una pérdida.
 
 ## 2. El dossier «WEB DAVID PORTO nuevas ideas»
 
@@ -155,31 +171,38 @@ Nada de esto bloquea el paso a diseño. Ordenado por lo que costaría dejarlo si
 
 | # | Asunto | Tipo |
 |---|---|---|
-| 1 | Recuperar el enlace a la política de privacidad de Metricool | **Legal** |
-| 2 | Recuperar los tres perfiles de autor (StoryGraph, Babelio, Amazon) en el `sameAs` | Autoridad |
-| 3 | Unificar «17» vs «15» herramientas | Coherencia pública |
-| 4 | Decidir el método de «Libros publicados» para que cuente Manecillas | Coherencia pública |
-| 5 | Recuperar los dos libros recomendados que perdieron su enlace de compra | Contenido |
-| 6 | Confirmar la fecha de promoción a `main` frente al 3 de septiembre | Decisión del autor |
-| 7 | Confirmar la reducción del río editorial de la Home (9 → 5 tarjetas) | Diseño |
-| 8 | Puntero vs foco en el resalte del mapa de la Home | Interacción |
-| 9 | El asistente se auto-abre encima del contenido principal de la Home | Producto |
-| 10 | 292,8 MB de imágenes sin referenciar (`assets/alicia_capitulo_*`) | Informe pendiente |
-| 11 | 26 páginas fuera de la guía de longitud de `title`/`description` | Informe pendiente |
-| 12 | Segundo email de contacto propuesto (`davidportodiaz@gmail.com`) | Decisión del autor |
+| 1 | Unificar «17» vs «15» herramientas | Coherencia pública |
+| 2 | Decidir el método de «Libros publicados» para que cuente Manecillas | Coherencia pública |
+| 3 | Confirmar la fecha de promoción a `main` frente al 3 de septiembre | Decisión del autor |
+| 4 | Recuperar el enlace a la mención de `hoymadrid.app` | Evidencia editorial |
+| 5 | Confirmar la reducción del río editorial de la Home (9 → 5 tarjetas) | Diseño |
+| 6 | Segundo email de contacto propuesto (`davidportodiaz@gmail.com`) | Decisión del autor |
+| 7 | Puntero vs foco en el resalte del mapa de la Home | Interacción |
+| 8 | El asistente se auto-abre encima del contenido principal de la Home | Producto |
+| 9 | 292,8 MB de imágenes sin referenciar (`assets/alicia_capitulo_*`) | Informe pendiente |
+| 10 | 26 páginas fuera de la guía de longitud de `title`/`description` | Informe pendiente |
+| 11 | Devolver a `/ai/` los enlaces a validadores y especificaciones, si se quieren | Opcional |
 
-Los puntos 10 y 11 ya tienen tarea escrita en el handoff como **informe, no
+Los puntos 9 y 10 ya tienen tarea escrita en el handoff como **informe, no
 implementación**: los dos tocan material publicado o copy del autor.
-
----
 
 ## 7. Conclusión
 
 **La rama contiene todo lo que hay en producción, y bastante más.** Cero páginas
-perdidas, cero activos perdidos, 19 de 19 herramientas del dossier publicadas, y nueve
-enlaces externos caídos de los que cuatro merecen recuperarse.
+perdidas, cero activos perdidos, 19 de 19 herramientas del dossier publicadas, y un
+solo destino externo con valor de contenido sin recuperar.
 
 Las dos incoherencias numéricas del punto 3 son las únicas que un visitante nota hoy,
 y ninguna la detecta un test porque cada número es correcto según su propio método.
 Esa es la clase de fallo que sobrevive a una CI verde, y por eso están aquí y no en un
 check.
+
+### Nota de método
+
+La primera versión de esta auditoría comparaba URLs exactas y concluía que había nueve
+destinos perdidos, cuatro de ellos importantes. Al verificarlos uno a uno, tres eran
+falsos positivos —los perfiles de autor siguen en el `sameAs`, la política de Metricool
+sigue enlazada en su versión española, y las URL de Amazon eran campos de JSON-LD, no
+enlaces—. Comparar URLs exactas entre dos versiones de un sitio rediseñado no mide lo
+que parece medir. La comparación por dominio, más los tres desmentidos de arriba, es lo
+que queda en pie.
