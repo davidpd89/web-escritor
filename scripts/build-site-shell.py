@@ -51,12 +51,32 @@ SOCIAL_ROW = (
     "</div>"
 )
 
+# Copy exacto de las 59 páginas escritas a mano, antes de que este builder
+# existiera (recuperado de origin/implementacion-web-2026 con `git show`), no
+# una redacción nueva. `works-hub`/`notebook-hub`/`tools-hub` no forman parte
+# del Explorar de ninguna página real hoy —viven aquí para el día en que
+# `exploreTerritories` los declare— y llevan copy equivalente a su territorio,
+# no una entrada por separado inventada.
 PREVIEW_COPY = {
-    "works-hub": "Las dos novelas publicadas, fragmentos y rutas de lectura.",
-    "notebook-hub": "Artículos y piezas editoriales sobre proceso y lecturas.",
-    "tools-hub": "Utilidades gratuitas para problemas concretos de escritura.",
-    "author": "Biografía, trayectoria y páginas de contexto del autor.",
-    "press": "Material de prensa, agenda y apariciones verificables.",
+    "work-manecillas": "La obra actual.",
+    "work-samuel": "Primera novela publicada.",
+    "works-hub": "La obra actual.",
+    "notebook-hub": "Artículos y piezas editoriales.",
+    "tools-hub": "Utilidades gratuitas para escritores.",
+    "author": "Biografía, obra y trayectoria.",
+    "press": "Apariciones, materiales y agenda.",
+    "site-map": "Índice completo para recorrer todo el sitio por secciones.",
+}
+# Copy de la aside de preview (distinto del de la fila: la fila usa la
+# etiqueta corta, la aside la frase larga que se ve al abrir el diálogo).
+PREVIEW_ASIDE_COPY = {
+    "work-manecillas": "La obra actual y punto de entrada editorial.",
+    "work-samuel": "Primera novela publicada.",
+    "works-hub": "La obra actual y punto de entrada editorial.",
+    "notebook-hub": "Artículos, crónicas y piezas editoriales.",
+    "tools-hub": "Utilidades gratuitas para escritores.",
+    "author": "Biografía, obra y trayectoria.",
+    "press": "Apariciones, materiales y agenda.",
     "site-map": "Índice completo para recorrer todo el sitio por secciones.",
 }
 
@@ -68,6 +88,8 @@ class Entry:
     label: str
     short_label: str
     source_file: str
+    territory: str | None
+    nav_family: str | None
 
 
 class BuildError(RuntimeError):
@@ -136,29 +158,63 @@ def collect_shell_pages(root: Path) -> tuple[list[Path], list[str]]:
     return pages, escapees
 
 
+# Qué entrada de la cabecera se resalta según el territorio de la página
+# actual. No es "coincide la URL exacta": la cabecera del sitio siempre
+# resaltó la sección entera de una familia (un artículo del Cuaderno resalta
+# "Cuaderno" aunque su URL no sea /cuaderno/). Recuperado observando las 59
+# páginas escritas a mano antes de que este builder existiera.
+NAV_FAMILY_BY_TERRITORY = {
+    "obras": "works-hub",
+    "herramientas": "tools-hub",
+    "cuaderno": "notebook-hub",
+}
+# Excepciones: páginas cuyo territorio sugeriría una familia, pero que en las
+# páginas originales no resaltaban nada. Son contenido satélite (recomenda-
+# ciones de otros autores, un directorio externo) que no pertenece de lleno a
+# ninguna sección de la cabecera. `None` explícito, no ausencia: que falte
+# aquí una entrada nueva debe leerse como "aún sin decidir", no como "no
+# resalta nada".
+NAV_FAMILY_OVERRIDES = {
+    "recommendations-hub": None,
+    "recommend-magic-cost": None,
+    "recommend-portal-es": None,
+    "external-tools": None,
+}
+
+
 def ensure_registry(registry_raw: dict) -> dict[str, Entry]:
     defaults = registry_raw.get("defaults", {})
     entries_raw = registry_raw.get("entries", [])
     out: dict[str, Entry] = {}
     for raw in entries_raw:
         merged = {**defaults, **raw}
-        out[merged["id"]] = Entry(
-            item_id=merged["id"],
+        item_id = merged["id"]
+        territory = merged.get("territory")
+        if item_id in NAV_FAMILY_OVERRIDES:
+            nav_family = NAV_FAMILY_OVERRIDES[item_id]
+        else:
+            nav_family = NAV_FAMILY_BY_TERRITORY.get(territory)
+        out[item_id] = Entry(
+            item_id=item_id,
             url=merged["url"],
             label=merged["label"],
             short_label=merged["shortLabel"],
             source_file=merged["sourceFile"],
+            territory=territory,
+            nav_family=nav_family,
         )
     return out
 
 
-def link(entry: Entry, current_path: str) -> str:
-    aria = ' aria-current="page"' if entry.url == current_path else ""
+def link(entry: Entry, current_family: str | None) -> str:
+    aria = ' aria-current="page"' if entry.item_id == current_family else ""
     return f'<a href="{entry.url}"{aria}>{entry.short_label}</a>'
 
 
 def render_header(nav: dict, by_id: dict[str, Entry], current_path: str) -> str:
-    links = "\n".join(f"        {link(by_id[item_id], current_path)}" for item_id in nav["header"])
+    current_entry = next((entry for entry in by_id.values() if entry.url == current_path), None)
+    current_family = current_entry.nav_family if current_entry else None
+    links = "\n".join(f"        {link(by_id[item_id], current_family)}" for item_id in nav["header"])
     return (
         '<header class="site-header" data-header>\n'
         '  <div class="site-header__inner">\n'
@@ -195,9 +251,19 @@ def render_explore_rows(nav: dict, by_id: dict[str, Entry]) -> list[tuple[str, s
 def render_explore(nav: dict, by_id: dict[str, Entry], current_path: str) -> str:
     rows = render_explore_rows(nav, by_id)
     current_entry = next((entry for entry in by_id.values() if entry.url == current_path), None)
-    default_key = current_entry.item_id if current_entry and current_entry.item_id in PREVIEW_COPY else (rows[0][3] if rows else "works-hub")
+    # El preview por defecto describe el territorio en el que ya está el
+    # lector: primero se intenta la propia página (si es uno de los destinos
+    # del Explorar), luego la familia de su cabecera (así un artículo del
+    # Cuaderno abre Explorar con "Cuaderno", no con la última fila de la
+    # lista), y solo si ninguna de las dos aplica se usa la primera fila.
+    if current_entry and current_entry.item_id in PREVIEW_COPY:
+        default_key = current_entry.item_id
+    elif current_entry and current_entry.nav_family in PREVIEW_COPY:
+        default_key = current_entry.nav_family
+    else:
+        default_key = rows[0][3] if rows else "works-hub"
     default_label = by_id[default_key].short_label if default_key in by_id else "Explorar"
-    default_copy = PREVIEW_COPY.get(default_key, "Destinos clave de la web.")
+    default_copy = PREVIEW_ASIDE_COPY.get(default_key, PREVIEW_COPY.get(default_key, "Destinos clave de la web."))
 
     row_markup: list[str] = []
     for index, (href, title, text, preview_id) in enumerate(rows, 1):
@@ -299,9 +365,36 @@ def replace_or_insert_block(text: str, regex: re.Pattern[str], generated: str, s
     return text, False
 
 
-def process_page(path: Path, nav: dict, by_id: dict[str, Entry], extras: dict, check: bool) -> tuple[bool, bool]:
-    original = path.read_text(encoding="utf-8", errors="replace")
-    rel_path = path.relative_to(ROOT).as_posix()
+_SHELL_SOURCES: tuple[dict, dict[str, Entry], dict] | None = None
+
+
+def shell_sources() -> tuple[dict, dict[str, Entry], dict]:
+    """Carga (y memoiza) las tres fuentes del shell.
+
+    Existe para que los builders que generan páginas —editoriales,
+    convocatorias, temas del Cuaderno— puedan pedir el mismo shell que el resto
+    del sitio sin releer los JSON en cada página.
+    """
+    global _SHELL_SOURCES
+    if _SHELL_SOURCES is None:
+        _SHELL_SOURCES = (load_json(NAV_PATH), ensure_registry(load_json(REGISTRY_PATH)), load_json(EXTRAS_PATH))
+    return _SHELL_SOURCES
+
+
+def inject_shell(text: str, rel_path: str) -> str:
+    """Devuelve `text` con cabecera, Explorar y pie sustituidos por los del contrato.
+
+    Es el punto de entrada para los builders de páginas. Antes cada uno llevaba
+    su propia copia literal del shell en una cadena de Python: tres copias más
+    que mantener a mano, y las tres se desincronizaron en cuanto el shell pasó a
+    generarse. Ahora todos piden el mismo bloque a esta función, así que el
+    `--check` de cada builder y el de este coinciden por construcción.
+    """
+    nav, by_id, extras = shell_sources()
+    return apply_shell(text, rel_path, nav, by_id, extras)
+
+
+def apply_shell(original: str, rel_path: str, nav: dict, by_id: dict[str, Entry], extras: dict) -> str:
     current_path = canonical_path_from_html(original) or ("/" if rel_path == "index.html" else "/" + rel_path.replace("index.html", ""))
 
     new_text = original
@@ -326,6 +419,14 @@ def process_page(path: Path, nav: dict, by_id: dict[str, Entry], extras: dict, c
     new_text, ok_footer = replace_or_insert_block(new_text, FOOTER_RE, footer_html, FOOTER_START, FOOTER_END)
     if not ok_footer:
         raise BuildError(f"{rel_path}: no se encontró pie para inyectar shell")
+
+    return new_text
+
+
+def process_page(path: Path, nav: dict, by_id: dict[str, Entry], extras: dict, check: bool) -> tuple[bool, bool]:
+    original = path.read_text(encoding="utf-8", errors="replace")
+    rel_path = path.relative_to(ROOT).as_posix()
+    new_text = apply_shell(original, rel_path, nav, by_id, extras)
 
     changed = new_text != original
     if changed and not check:

@@ -7,8 +7,12 @@ import html
 import json
 import re
 from datetime import date, timedelta
+import sys
 from pathlib import Path
 from urllib.parse import urlsplit
+
+sys.path.insert(0, str(Path(__file__).resolve().parent))
+from site_shell import inject_shell_auto  # noqa: E402
 
 STALE_DAYS = 30
 TITLE = "Convocatorias para escritores: concursos, becas y manuscritos | David Porto Díaz"
@@ -116,7 +120,7 @@ def active_items(items, today):
     active = [item for item in items if item.get("published") and state(item, today) in {"open", "closing_soon"}]
     return sorted(active, key=lambda item: item["deadline"])
 
-def build_html(items, today):
+def render_page_body(items, today):
     active = active_items(items, today)
     cards = "\n".join(card(item) for item in active) or '<p data-radar-empty>No hay oportunidades verificadas activas ahora mismo.</p>'
     types = sorted({item["type"] for item in active})
@@ -354,6 +358,16 @@ def main():
     (out / "deadlines.ics").write_text(build_ics(items, today), encoding="utf-8", newline="")
     active = len(active_items(items, today))
     print(f"built active={active} hidden={len(items) - active}")
+
+def build_html(items, today):
+    """Pagina completa del radar, con el shell generado desde el contrato.
+
+    El shell ya no vive en la plantilla de este fichero: lo pone
+    scripts/build-site-shell.py desde data/navigation.json, igual que en el
+    resto del sitio. Ver scripts/site_shell.py.
+    """
+    return inject_shell_auto(render_page_body(items, today))
+
 
 if __name__ == "__main__":
     main()

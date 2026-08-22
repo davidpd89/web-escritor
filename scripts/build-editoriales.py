@@ -15,7 +15,11 @@ import sys
 from dataclasses import dataclass
 from datetime import date, datetime
 from pathlib import Path
+
 from urllib.parse import urlparse
+
+sys.path.insert(0, str(Path(__file__).resolve().parent))
+from site_shell import inject_shell_auto  # noqa: E402
 
 STATUS_LABELS = {
     "open": "Acepta manuscritos",
@@ -196,6 +200,11 @@ SHARE_IMAGE_ALT = "David Porto Díaz, autor de Samuel entre mundos y Las manecil
 
 
 def page_shell(*, title: str, description: str, canonical: str, main_html: str, jsonld: dict, js: bool = False) -> str:
+        # El shell (cabecera, Explorar y pie) no se escribe aqui: lo genera
+        # scripts/build-site-shell.py desde data/navigation.json, igual que en las
+        # 59 paginas escritas a mano. Las cadenas literales que habia debajo eran
+        # una cuarta copia del shell y se quedaron atras en cuanto el shell paso a
+        # generarse. Ver scripts/site_shell.py.
         script = '<script src="/assets/editoriales.js" defer></script>' if js else ""
         return f'''<!DOCTYPE html>
 <html lang="es" class="v1">
@@ -599,6 +608,11 @@ def write_page(path: Path, html: str) -> None:
     path.write_text(html, encoding="utf-8")
 
 
+def with_site_shell(html: str) -> str:
+    """Sustituye el shell de la plantilla por el generado desde el contrato."""
+    return inject_shell_auto(html)
+
+
 def build(data_path: Path, output: Path, today: date, check_only: bool) -> tuple[int, list[str]]:
     raw, records, warnings = load_and_validate(data_path, today)
     if check_only:
@@ -606,17 +620,17 @@ def build(data_path: Path, output: Path, today: date, check_only: bool) -> tuple
 
     target = output / "editoriales"
     target.mkdir(parents=True, exist_ok=True)
-    write_page(target / "index.html", render_index(raw["site"].rstrip('/'), records, today))
+    write_page(target / "index.html", with_site_shell(render_index(raw["site"].rstrip('/'), records, today)))
     for record in records:
         detail_dir = target / record["slug"]
         detail_dir.mkdir(parents=True, exist_ok=True)
-        write_page(detail_dir / "index.html", render_detail(raw["site"].rstrip('/'), record, today))
+        write_page(detail_dir / "index.html", with_site_shell(render_detail(raw["site"].rstrip('/'), record, today)))
 
     methodology_dir = output / METHODOLOGY_SLUG
     methodology_dir.mkdir(parents=True, exist_ok=True)
     write_page(
         methodology_dir / "index.html",
-        render_methodology(raw["site"].rstrip('/'), records, today),
+        with_site_shell(render_methodology(raw["site"].rstrip('/'), records, today)),
     )
 
     safe_payload = {"version": raw["version"], "publishers": records}

@@ -2,6 +2,9 @@
 from __future__ import annotations
 import argparse, json, re, sys
 from pathlib import Path
+
+sys.path.insert(0, str(Path(__file__).resolve().parent))
+from site_shell import inject_shell_auto  # noqa: E402
 from datetime import datetime
 from html import escape
 from urllib.parse import urlparse
@@ -298,7 +301,9 @@ def render(data):
 def main():
     ap=argparse.ArgumentParser()
     ap.add_argument("data",type=Path); ap.add_argument("--output",type=Path); ap.add_argument("--check",action="store_true")
-    a=ap.parse_args(); data=json.loads(a.data.read_text(encoding="utf-8")); validate(data); out=render(data)
+    a=ap.parse_args(); data=json.loads(a.data.read_text(encoding="utf-8")); validate(data)
+    # El shell lo genera scripts/build-site-shell.py desde data/navigation.json.
+    out=inject_shell_auto(render(data))
     if a.check:
         if not a.output or not a.output.exists():
             print("FAIL: salida ausente",file=sys.stderr); return 2
