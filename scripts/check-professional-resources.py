@@ -65,6 +65,16 @@ def parse_ics():
     if cur is not None:fail("ICS unterminated VEVENT")
     return events
 def unesc(v):return v.replace("\\n","\n").replace("\\,",",").replace("\\;",";").replace("\\\\","\\")
+def check_radar_freshness(builder,items,published_items,generated_for,real_today):
+    if generated_for>real_today:fail(f"radar generated_for {generated_for} is in the future relative to {real_today}")
+    live_expected=builder.active_items(items,real_today)
+    if published_items!=live_expected:
+        live_ids=[item["id"] for item in live_expected]
+        published_ids=[item.get("id") for item in published_items]
+        fail(
+            "radar public output is stale for real execution date "
+            f"{real_today}: published={published_ids} expected={live_ids}; regenerate only after verifying official sources when required"
+        )
 def check_radar():
     b=radar_builder();src=load(Path("data/radar-opportunities.json"));items=src.get("items")
     if not isinstance(items,list):fail("radar source items[] missing")
@@ -73,13 +83,14 @@ def check_radar():
         b.validate(item)
         if item["id"] in ids:fail(f"radar duplicate id {item['id']}")
         ids.add(item["id"])
-    pub=load(Path("convocatorias-escritores/opportunities.json"));today=iso(pub.get("generated_for"),"generated_for");expected=b.active_items(items,today)
-    if pub.get("items")!=expected:fail("radar public JSON drifted from source/builder")
+    pub=load(Path("convocatorias-escritores/opportunities.json"));generated_for=iso(pub.get("generated_for"),"generated_for");expected=b.active_items(items,generated_for)
+    if pub.get("items")!=expected:fail("radar public JSON drifted from source/builder at its generated_for clock")
+    check_radar_freshness(b,items,pub.get("items"),generated_for,date.today())
     html=(ROOT/"convocatorias-escritores/index.html").read_text(encoding="utf-8")
-    if html!=b.build_html(items,today):fail("radar HTML drifted from builder")
+    if html!=b.build_html(items,generated_for):fail("radar HTML drifted from builder")
     if STATIC_DAYS.search(html):fail("radar HTML contains static countdown")
     if "connect-src 'none'" not in html:fail("radar CSP connect-src changed")
-    ics=b.build_ics(items,today).encode("utf-8")
+    ics=b.build_ics(items,generated_for).encode("utf-8")
     if (ROOT/"convocatorias-escritores/deadlines.ics").read_bytes()!=ics:fail("ICS drifted from builder")
     events=parse_ics()
     if len(events)!=len(expected):fail("ICS event count mismatch")
@@ -94,5 +105,5 @@ def check_radar():
         nxt=(iso(item["deadline"],item["id"])+timedelta(days=1)).strftime("%Y%m%d")
         if e.get("DTEND;VALUE=DATE")!=nxt:fail(f"ICS DTEND mismatch {item['id']}")
 def main():
-    check_editorials();check_radar();print("OK professional resources: data, detail coverage, generated outputs and ICS parity")
+    check_editorials();check_radar();print("OK professional resources: data, detail coverage, generated outputs, real-clock freshness and ICS parity")
 if __name__=="__main__":main()
