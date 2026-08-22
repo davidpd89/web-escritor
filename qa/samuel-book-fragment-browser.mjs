@@ -103,6 +103,13 @@ for (const [width, height] of VIEWPORTS) {
   await context.close();
 }
 
+// innerText devuelve el texto *renderizado*, y .quiz-step-label lleva
+// text-transform:uppercase, asi que lo que llega es "PREGUNTA 1 DE 5" y la
+// comparacion contra "Pregunta 1 de 5" no casaba nunca: el quiz funciona, lo
+// que fallaba era la comparacion. Se compara sin distinguir mayusculas para no
+// atar la QA a una decision tipografica del CSS.
+const stepLabel = async (page) => (await page.locator('[data-quiz-step]').innerText()).toLocaleLowerCase('es');
+const stepIs = async (page, n) => (await stepLabel(page)).includes(`pregunta ${n} de 5`);
 // Quiz: five questions, keyboard, result, explicit share and reset. No quiz-triggered network.
 {
   const context = await browser.newContext({ viewport: { width: 390, height: 900 }, hasTouch: true });
@@ -124,7 +131,7 @@ for (const [width, height] of VIEWPORTS) {
   check((await page.locator('#quiz-noveris').innerText()).includes('no se envían a terceros'), 'quiz: local privacy disclosure missing');
 
   for (let index = 0; index < 5; index += 1) {
-    check((await page.locator('[data-quiz-step]').innerText()).includes(`Pregunta ${index + 1} de 5`), `quiz: step ${index + 1}`);
+    check(await stepIs(page, index + 1), `quiz: step ${index + 1}`);
     const options = page.locator('[data-quiz-options] .quiz-option');
     check(await options.count() === 4, `quiz: question ${index + 1} option count`);
     const target = options.first();
@@ -148,7 +155,7 @@ for (const [width, height] of VIEWPORTS) {
 
   await page.locator('[data-quiz-restart]').click();
   check(await page.locator('[data-quiz-result]').isHidden(), 'quiz: result not hidden after reset');
-  check((await page.locator('[data-quiz-step]').innerText()).includes('Pregunta 1 de 5'), 'quiz: reset did not return to question 1');
+  check(await stepIs(page, 1), 'quiz: reset did not return to question 1');
   check(await page.locator('[data-quiz-options] .quiz-option').first().evaluate(el => el === document.activeElement), 'quiz: reset focus');
   check(errors.length === 0, `quiz: ${errors.join(' | ')}`);
   await context.close();
