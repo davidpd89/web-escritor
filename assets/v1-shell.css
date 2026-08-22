@@ -37,7 +37,13 @@ html.v1 .explore-preview__label{font-family:var(--font-display);font-size:clamp(
 html.v1 .explore-preview__copy{margin:0;color:var(--color-muted);max-width:36ch}
 html.v1 .site-footer{border-top:1px solid var(--color-border);padding:clamp(3rem,5vw,4.5rem) var(--page-gutter);max-width:var(--layout-max);margin:auto}
 html.v1 .site-footer__grid{display:grid;grid-template-columns:4fr repeat(3,2fr);gap:var(--grid-gap)}
-html.v1 .site-footer__grid>*{min-width:0}
+/* Las columnas del pie son <nav> con display:grid, asi que sus enlaces son
+   grid items y arrastran min-width:auto, es decir min-content: con zoom 200%
+   "Las manecillas del recuerdo" no cabe en su columna y no podia partirse.
+   min-width:0 en los hijos deja que break-word haga su trabajo. A ancho
+   normal no cambia nada: break-word solo parte cuando ya no cabe. */
+html.v1 .site-footer__grid>*,html.v1 .site-footer__grid nav>*{min-width:0}
+html.v1 .site-footer__grid>*{overflow-wrap:break-word}
 html.v1 .site-footer p{color:var(--color-muted);margin:.5rem 0}
 html.v1 .site-footer nav{display:grid;align-content:start;gap:.55rem}
 html.v1 .site-footer h2{font-family:var(--font-ui);font-size:.72rem;text-transform:uppercase;letter-spacing:.08em;margin:0 0 .5rem}
