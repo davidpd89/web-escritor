@@ -204,7 +204,18 @@ if (navToggle && siteNav) {
 })();
 function syncHashScroll() {
   if (!window.location.hash || window.location.hash === "#") return;
-  const targetId = decodeURIComponent(window.location.hash.slice(1));
+  // decodeURIComponent lanza URIError con un % mal formado en la URL
+  // (#%E0%A4%A, por ejemplo). Es una URL que cualquiera puede teclear o que
+  // llega desde un enlace roto, y hasta ahora tiraba un error no capturado en
+  // *todas* las paginas que cargan este script, no solo aqui. Un hash que no
+  // se puede decodificar simplemente no apunta a nada: no hay a donde
+  // desplazarse, asi que salir es la respuesta correcta.
+  let targetId;
+  try {
+    targetId = decodeURIComponent(window.location.hash.slice(1));
+  } catch {
+    return;
+  }
   const target = document.getElementById(targetId);
   if (!target) return;
   target.scrollIntoView({ block: "start" });
