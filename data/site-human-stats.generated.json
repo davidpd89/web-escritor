@@ -4,8 +4,8 @@
     {
       "key": "books",
       "label": "Libros publicados",
-      "value": 1,
-      "method": "Páginas indexables bajo /libros/*/."
+      "value": 2,
+      "method": "Obras públicas del registro de contenido (data/content-registry.json), con su página verificada como indexable."
     },
     {
       "key": "articles",
@@ -16,8 +16,8 @@
     {
       "key": "tools",
       "label": "Herramientas gratuitas",
-      "value": 15,
-      "method": "Páginas indexables bajo /herramientas/*/."
+      "value": 17,
+      "method": "Herramientas públicas del registro del hub (data/tools-hub.json), la misma fuente que cuenta /herramientas/."
     }
   ]
 }

@@ -151,7 +151,7 @@ for (const viewport of viewports) {
     main: getComputedStyle(document.querySelector('main')).display,
     header: getComputedStyle(document.querySelector('.site-header')).display,
     copy: getComputedStyle(document.querySelector('.copy-btn')).display,
-    contact: document.querySelector('#contacto')?.innerText.includes('samuelentremundos@gmail.com') || false,
+    contact: document.querySelector('#contacto')?.innerText.includes('davidportodiaz@gmail.com') || false,
     facts: (document.querySelector('#ficha-manecillas')?.innerText.includes('979-8-90514-935-1') || false) && (document.querySelector('#ficha')?.innerText.includes('9791387659776') || false),
   }));
   check(printState.main !== 'none', 'prensa print: main content hidden');

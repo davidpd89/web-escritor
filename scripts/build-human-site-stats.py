@@ -2,10 +2,16 @@
 """Reproducible "site in numbers" block: books, articles, tools, sample words.
 
 Only counts things a machine can verify against the repository itself:
-- indexable pages under libros/*/, cuaderno/*/, herramientas/*/ (real
-  canonical required, no noindex);
+- obras públicas declaradas en data/content-registry.json;
+- herramientas públicas declaradas en data/tools-hub.json (misma fuente que
+  el titular del hub, para que los dos números no puedan divergir);
+- páginas indexables bajo cuaderno/*/;
 - words inside explicit data-public-sample blocks (free-sample text the
   author marked as public).
+
+En los tres primeros casos, el registro decide *qué* cuenta y el HTML decide
+*si de verdad está publicado*: toda ruta declarada tiene que existir, no ser
+noindex y llevar canonical en el dominio canónico.
 
 No traffic, sales, follower or reader counts — those aren't reproducible
 from the repo and are explicitly out of scope (see
@@ -133,16 +139,88 @@ def count_sample_words(root: Path) -> tuple[int, int]:
     return total, blocks
 
 
+def verify_public_page(root: Path, rel: str, origin: str) -> Path:
+    """Comprueba que una ruta declarada por un registro es realmente pública.
+
+    El registro dice qué cuenta; el HTML dice si de verdad está publicado. Las
+    dos cosas tienen que coincidir, o la cifra publicada miente.
+    """
+    path = (root / rel).resolve()
+    if not path.exists():
+        raise ValueError(f'{origin}: la página declarada no existe: {rel}')
+    text = read_text(path)
+    if not is_indexable(text):
+        raise ValueError(f'{origin}: la página declarada es noindex: {rel}')
+    can = canonical(text)
+    if not can:
+        raise ValueError(f'{origin}: página sin canonical: {rel}')
+    parsed = urlparse(can)
+    if parsed.scheme != 'https' or parsed.netloc not in {'davidportodiaz.com', 'www.davidportodiaz.com'}:
+        raise ValueError(f'{origin}: canonical fuera del dominio canónico: {can} ({rel})')
+    return path
+
+
+def count_works(root: Path) -> int:
+    """Obras publicadas, contadas desde data/content-registry.json.
+
+    Antes esto era `libros/*/index.html`, y por eso el sitio publicaba
+    «Libros publicados: 1»: Las manecillas del recuerdo vive en
+    /las-manecillas-del-recuerdo/, fuera de ese prefijo. El prefijo de URL es
+    una decisión de rutas, no la definición de qué es una obra publicada. La
+    autoridad es el registro de contenido.
+
+    Cuenta las entradas type=work que no son el propio hub de Obras y cuyo
+    estado efectivo es público — así Dónde empieza la jaula (status noindex)
+    queda fuera sola, y entra sola el día que se publique.
+    """
+    registry = json.loads(read_text(root / 'data' / 'content-registry.json'))
+    default_status = registry.get('defaults', {}).get('status', 'public')
+    count = 0
+    for entry in registry.get('entries', []):
+        if entry.get('type') != 'work':
+            continue
+        if entry.get('id') == entry.get('hubId'):
+            continue  # el hub /libros/ no es una obra
+        if entry.get('status', default_status) != 'public':
+            continue
+        source = entry.get('sourceFile')
+        if not source:
+            raise ValueError(f'content-registry: obra sin sourceFile: {entry.get("id")}')
+        verify_public_page(root, source, f'content-registry:{entry.get("id")}')
+        count += 1
+    return count
+
+
+def count_public_tools(root: Path) -> int:
+    """Herramientas públicas, contadas desde data/tools-hub.json.
+
+    Es la misma fuente que usa el titular de /herramientas/, así que los dos
+    números del sitio ya no pueden divergir. Contarlas por
+    `herramientas/*/index.html` daba 15 frente a las 17 del hub, porque hay
+    rutas internas bajo ese prefijo y herramientas publicadas fuera de él.
+    """
+    hub = json.loads(read_text(root / 'data' / 'tools-hub.json'))
+    tools = hub.get('tools', [])
+    if not tools:
+        raise ValueError('tools-hub.json no declara herramientas públicas')
+    for tool in tools:
+        href = tool.get('href', '')
+        if not (href.startswith('/') and href.endswith('/')):
+            raise ValueError(f'tools-hub: href inválido: {href!r}')
+        verify_public_page(root, f'{href.strip("/")}/index.html', f'tools-hub:{tool.get("slug")}')
+    return len(tools)
+
+
 def stats(root: Path) -> list[dict]:
-    books = collect_indexable(root, 'libros/*/index.html')
+    books = count_works(root)
     articles = collect_indexable(root, 'cuaderno/*/index.html')
-    tools = collect_indexable(root, 'herramientas/*/index.html')
+    tools = count_public_tools(root)
     sample_words, sample_blocks = count_sample_words(root)
 
     out = [
-        {'key': 'books', 'label': 'Libros publicados', 'value': len(books), 'method': 'Páginas indexables bajo /libros/*/.'},
+        {'key': 'books', 'label': 'Libros publicados', 'value': books, 'method': 'Obras públicas del registro de contenido (data/content-registry.json), con su página verificada como indexable.'},
         {'key': 'articles', 'label': 'Artículos del Cuaderno', 'value': len(articles), 'method': 'Páginas indexables bajo /cuaderno/*/.'},
-        {'key': 'tools', 'label': 'Herramientas gratuitas', 'value': len(tools), 'method': 'Páginas indexables bajo /herramientas/*/.'},
+        {'key': 'tools', 'label': 'Herramientas gratuitas', 'value': tools, 'method': 'Herramientas públicas del registro del hub (data/tools-hub.json), la misma fuente que cuenta /herramientas/.'},
     ]
     if sample_blocks and sample_words:
         out.append({'key': 'sample_words', 'label': 'Palabras de lectura gratuita', 'value': sample_words, 'method': f'Texto visible dentro de {sample_blocks} bloque(s) data-public-sample.'})
