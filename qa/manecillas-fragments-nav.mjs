@@ -70,7 +70,15 @@ assert.deepEqual(protectedParts(currentHtml), protectedParts(baseHtml), 'SEO/sch
 assert(currentHtml.includes('<body data-reading-progress>'), 'debe conservar body[data-reading-progress]');
 
 const pageErrors = [];
-const report = { excerptHashes, viewports: {}, deepLinks: {}, noJs: {}, accessibility: {}, currentState: {}, readingProgress: {} };
+const report = {
+  excerptHashes,
+  viewports: {},
+  deepLinks: {},
+  noJs: {},
+  accessibility: {},
+  currentState: {},
+  readingProgress: {}
+};
 
 function watchErrors(page, label) {
   const errors = [];
@@ -81,6 +89,19 @@ function watchErrors(page, label) {
 
 async function settle(page) {
   await page.evaluate(() => new Promise(resolve => requestAnimationFrame(() => requestAnimationFrame(resolve))));
+}
+
+async function waitForHash(page, hash) {
+  await page.waitForURL(url => url.hash === hash);
+  await page.waitForTimeout(80);
+}
+
+async function clickHash(page, locator, hash) {
+  await Promise.all([
+    page.waitForURL(url => url.hash === hash),
+    locator.click()
+  ]);
+  await page.waitForTimeout(80);
 }
 
 async function assertNoOverflow(page, label) {
@@ -109,6 +130,8 @@ try {
   for (const viewport of [
     { width: 320, height: 900 },
     { width: 390, height: 900 },
+    { width: 640, height: 900 },
+    { width: 767, height: 900 },
     { width: 768, height: 1000 },
     { width: 1440, height: 900 }
   ]) {
@@ -124,8 +147,14 @@ try {
       const box = await indexLinks.nth(i).boundingBox();
       assert(box && box.height >= 44, `${viewport.width}: target demasiado pequeño en índice`);
     }
+    const pagerLinks = page.locator('.fragment-pager__link');
+    assert.equal(await pagerLinks.count(), 5, `${viewport.width}: pager incompleto`);
+    for (let i = 0; i < 5; i++) {
+      const box = await pagerLinks.nth(i).boundingBox();
+      assert(box && box.height >= 44, `${viewport.width}: target demasiado pequeño en pager`);
+    }
     assert.equal(errors.length, 0, `${viewport.width}: pageerror: ${errors.join(' | ')}`);
-    report.viewports[viewport.width] = { overflow: false, indexTargets: 3 };
+    report.viewports[viewport.width] = { overflow: false, indexTargets: 3, pagerTargets: 5 };
     await context.close();
   }
 
@@ -137,6 +166,7 @@ try {
     await settle(page);
     assert.equal(new URL(page.url()).hash, `#${id}`);
     await assertTargetBelowHeader(page, id, `deep link ${id}`);
+    assert.equal(await page.locator(`[data-fragment-link="${id}"]`).getAttribute('data-current'), 'true', `${id}: el índice no marca el fragmento actual`);
     assert.equal(errors.length, 0, `${id}: pageerror`);
     report.deepLinks[id] = true;
     await context.close();
@@ -147,14 +177,16 @@ try {
     const page = await context.newPage();
     const errors = watchErrors(page, 'history');
     await page.goto(`${ORIGIN}/las-manecillas-del-recuerdo/fragmentos/`, { waitUntil: 'load' });
-    await page.locator('[data-fragment-link="fragmento-2"]').click();
-    assert.equal(new URL(page.url()).hash, '#fragmento-2');
-    await page.locator('[data-fragment-link="fragmento-3"]').click();
-    assert.equal(new URL(page.url()).hash, '#fragmento-3');
+    await clickHash(page, page.locator('[data-fragment-link="fragmento-2"]'), '#fragmento-2');
+    assert.equal(await page.locator('[data-fragment-link="fragmento-2"]').getAttribute('data-current'), 'true');
+    await clickHash(page, page.locator('[data-fragment-link="fragmento-3"]'), '#fragmento-3');
+    assert.equal(await page.locator('[data-fragment-link="fragmento-3"]').getAttribute('data-current'), 'true');
     await page.goBack();
-    assert.equal(new URL(page.url()).hash, '#fragmento-2');
+    await waitForHash(page, '#fragmento-2');
+    assert.equal(await page.locator('[data-fragment-link="fragmento-2"]').getAttribute('data-current'), 'true');
     await page.goForward();
-    assert.equal(new URL(page.url()).hash, '#fragmento-3');
+    await waitForHash(page, '#fragmento-3');
+    assert.equal(await page.locator('[data-fragment-link="fragmento-3"]').getAttribute('data-current'), 'true');
     assert.equal(errors.length, 0, `history: pageerror ${errors.join(' | ')}`);
     report.deepLinks.backForward = true;
     await context.close();
@@ -164,19 +196,20 @@ try {
     const context = await browser.newContext({ viewport: { width: 390, height: 900 }, javaScriptEnabled: false });
     const page = await context.newPage();
     await page.goto(`${ORIGIN}/las-manecillas-del-recuerdo/fragmentos/#fragmento-2`, { waitUntil: 'load' });
-    await settle(page);
     assert.equal(await page.locator('.excerpt-section').count(), 3);
     for (const id of fragmentIds) assert(await page.locator(`#${id}`).isVisible(), `no-JS: ${id} no visible`);
     assert.equal(await page.locator('[data-fragment-index] a').count(), 3);
     assert.equal(await page.locator('.fragment-pager__link').count(), 5);
+    assert.equal(await page.locator('[data-fragment-link][data-current="true"]').count(), 0, 'no-JS: no debe existir estado automático de fragmento actual');
     assert(await page.locator('#cta-final').isVisible(), 'no-JS: CTA final no visible');
+    assert.equal(await page.locator('#cta-final .primary-action').getAttribute('href'), '/las-manecillas-del-recuerdo/', 'no-JS: CTA final cambió');
     await assertTargetBelowHeader(page, 'fragmento-2', 'no-JS deep link fragmento-2');
-    await page.locator('[data-fragment-link="fragmento-3"]').click();
-    assert.equal(new URL(page.url()).hash, '#fragmento-3');
-    await settle(page);
+    await clickHash(page, page.locator('[data-fragment-link="fragmento-3"]'), '#fragmento-3');
     await assertTargetBelowHeader(page, 'fragmento-3', 'no-JS anchor fragmento-3');
+    await clickHash(page, page.locator('#fragmento-3 .fragment-pager__link--next'), '#cta-final');
+    await assertTargetBelowHeader(page, 'cta-final', 'no-JS CTA final');
     await assertNoOverflow(page, 'no-JS 390');
-    report.noJs = { index: true, anchors: true, pager: true, fragments: 3, cta: true };
+    report.noJs = { index: true, anchors: true, pager: true, fragments: 3, cta: true, automaticCurrentState: false };
     await context.close();
   }
 
@@ -207,9 +240,10 @@ try {
     report.accessibility.zoom200 = true;
     await cdp.send('Emulation.setPageScaleFactor', { pageScaleFactor: 1 });
 
+    await page.setViewportSize({ width: 320, height: 900 });
     await page.addStyleTag({ content: `html *{line-height:1.5!important;letter-spacing:.12em!important;word-spacing:.16em!important} p{margin-bottom:2em!important}` });
     await settle(page);
-    await assertNoOverflow(page, 'text spacing');
+    await assertNoOverflow(page, 'text spacing 320');
     report.accessibility.textSpacing = true;
     await context.close();
   }
@@ -223,6 +257,7 @@ try {
       return { animationName: s.animationName, transitionDuration: s.transitionDuration };
     });
     assert.equal(motion.animationName, 'none');
+    assert(parseFloat(motion.transitionDuration) <= 0.01, `reduced motion: transición inesperada ${motion.transitionDuration}`);
     report.accessibility.reducedMotion = motion;
     await context.close();
   }
@@ -232,17 +267,26 @@ try {
     const page = await context.newPage();
     const errors = watchErrors(page, 'current-state');
     await page.goto(`${ORIGIN}/las-manecillas-del-recuerdo/fragmentos/`, { waitUntil: 'load' });
+    const indexGeometryBefore = await page.locator('[data-fragment-index]').evaluate(el => ({ width: el.offsetWidth, height: el.offsetHeight }));
     await page.locator('#fragmento-2').scrollIntoViewIfNeeded();
     await page.waitForFunction(() => document.querySelector('[data-fragment-link="fragmento-2"]')?.dataset.current === 'true');
     assert.equal(await page.locator('[data-fragment-link][data-current="true"]').count(), 1, 'debe existir un único fragmento actual');
     assert.match(await page.locator('[data-fragment-link="fragmento-2"] [data-current-label]').textContent(), /Fragmento actual/);
+    const indexGeometryAfter = await page.locator('[data-fragment-index]').evaluate(el => ({ width: el.offsetWidth, height: el.offsetHeight }));
+    assert.deepEqual(indexGeometryAfter, indexGeometryBefore, 'el estado actual no debe alterar la geometría del índice');
     assert.equal(errors.length, 0, `current-state: pageerror ${errors.join(' | ')}`);
-    report.currentState = { fragmento2: true, unique: true };
+    report.currentState = { fragmento2: true, unique: true, geometryStable: true };
+
     assert(await page.locator('body').getAttribute('data-reading-progress') !== null, 'reading progress attribute desapareció');
+    const progress = page.locator('.reading-progress');
+    await progress.waitFor({ state: 'attached' });
+    const initialWidth = parseFloat((await progress.evaluate(el => el.style.width)) || '0');
     await page.evaluate(() => scrollTo(0, document.documentElement.scrollHeight));
-    await settle(page);
+    await page.waitForFunction(() => parseFloat(document.querySelector('.reading-progress')?.style.width || '0') > 90);
+    const finalWidth = parseFloat((await progress.evaluate(el => el.style.width)) || '0');
+    assert(finalWidth > Math.max(initialWidth, 90), `reading progress no avanzó (${initialWidth} -> ${finalWidth})`);
     assert.equal(errors.length, 0, `reading progress: pageerror ${errors.join(' | ')}`);
-    report.readingProgress = { preserved: true, compatibleWithNavigation: true };
+    report.readingProgress = { preserved: true, compatibleWithNavigation: true, initialWidth, finalWidth };
     await context.close();
   }
 

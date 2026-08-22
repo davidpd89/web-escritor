@@ -18,16 +18,19 @@
   };
 
   const idFromHash = () => {
-    const id = decodeURIComponent(location.hash.slice(1));
-    return sections.some(section => section.id === id) ? id : null;
+    if (!location.hash || location.hash === '#') return null;
+    try {
+      const id = decodeURIComponent(location.hash.slice(1));
+      return sections.some(section => section.id === id) ? id : null;
+    } catch {
+      return null;
+    }
   };
 
-  const initial = idFromHash();
-  if (initial) setCurrent(initial);
+  setCurrent(idFromHash());
 
   addEventListener('hashchange', () => {
-    const id = idFromHash();
-    if (id) setCurrent(id);
+    setCurrent(idFromHash());
   });
 
   if (!('IntersectionObserver' in window)) return;
@@ -36,7 +39,7 @@
   const observer = new IntersectionObserver(entries => {
     entries.forEach(entry => ratios.set(entry.target.id, entry.isIntersecting ? entry.intersectionRatio : 0));
     const current = [...ratios.entries()].sort((a, b) => b[1] - a[1])[0];
-    if (current && current[1] > 0) setCurrent(current[0]);
+    setCurrent(current && current[1] > 0 ? current[0] : null);
   }, {
     rootMargin: '-18% 0px -55% 0px',
     threshold: [0, .15, .35, .6, .85]
