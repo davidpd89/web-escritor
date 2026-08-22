@@ -76,6 +76,12 @@ self.addEventListener("fetch", (event) => {
 
   const url = new URL(request.url);
 
+  // API responses are never owned by the PWA cache. This includes assistant
+  // config/response endpoints and any future same-origin API: let the browser
+  // network stack handle them directly so authenticated/dynamic JSON cannot be
+  // served stale or copied into PAGE_CACHE.
+  if (url.pathname === "/api" || url.pathname.startsWith("/api/")) return;
+
   if (request.mode === "navigate") {
     event.respondWith(networkFirstPage(request));
     return;
