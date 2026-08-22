@@ -1,0 +1,53 @@
+{
+  "schema_version": 1,
+  "footerNavExtras": {
+    "rss-feed": {
+      "id": "site-rss-feed",
+      "group": "Leer y recursos",
+      "pages": [
+        "cuaderno/index.html",
+        "cuaderno/fantasia-juvenil-espanola-portales-magia-coste/index.html",
+        "cuaderno/feria-libro-madrid-2026-samuel-entre-mundos/index.html",
+        "cuaderno/libros-fantasia-juvenil-espanola-2025-2026/index.html",
+        "cuaderno/portal-fantasy-vs-fantasia-epica/index.html",
+        "cuaderno/que-es-el-portal-fantasy/index.html",
+        "cuaderno/sistema-de-magia-noveris/index.html",
+        "cuaderno/worldbuilding-noveris-ciudad-magica/index.html",
+        "empieza-aqui/index.html",
+        "recomendaciones/index.html",
+        "recomendaciones/magia-con-coste/index.html",
+        "recomendaciones/portal-fantasy-espanol/index.html"
+      ]
+    },
+    "ferias": {
+      "id": "fairs",
+      "group": "Información",
+      "pages": [
+        "eventos.html",
+        "ferias.html"
+      ]
+    },
+    "premios": {
+      "id": "awards",
+      "group": "Información",
+      "pages": [
+        "eventos.html",
+        "ferias.html",
+        "premios.html",
+        "prensa.html"
+      ]
+    }
+  },
+  "footerLegalAffiliatePages": [
+    "autor.html",
+    "ferias.html",
+    "index.html",
+    "prensa.html",
+    "clubes-de-lectura/samuel-entre-mundos/index.html",
+    "fragmento/index.html",
+    "las-manecillas-del-recuerdo/index.html",
+    "libros/index.html",
+    "libros/samuel-entre-mundos/index.html",
+    "universo/noveris/index.html"
+  ]
+}

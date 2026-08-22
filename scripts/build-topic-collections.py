@@ -18,6 +18,9 @@ import re
 import sys
 from pathlib import Path
 
+sys.path.insert(0, str(Path(__file__).resolve().parent))
+from site_shell import inject_shell_auto  # noqa: E402
+
 SITE = "https://davidportodiaz.com"
 INDEX_URL = f"{SITE}/cuaderno/temas/"
 SLUG_RE = re.compile(r"^[a-z0-9]+(?:-[a-z0-9]+)*$")
@@ -457,8 +460,10 @@ def build(data_path: Path, root: Path, check_only: bool) -> tuple[int, int]:
     check_repo(root, ready)
 
     index_target = root / "cuaderno" / "temas" / "index.html"
-    index_html = render_index(ready)
-    hub_html = {c["slug"]: render_hub(c) for c in ready}
+    # El shell lo genera scripts/build-site-shell.py desde data/navigation.json.
+    # La plantilla de este fichero ya no lo escribe: ver scripts/site_shell.py.
+    index_html = inject_shell_auto(render_index(ready))
+    hub_html = {c["slug"]: inject_shell_auto(render_hub(c)) for c in ready}
 
     if check_only:
         drift = []

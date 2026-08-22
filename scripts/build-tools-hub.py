@@ -2,6 +2,9 @@
 import argparse, html, json, sys
 from pathlib import Path
 
+sys.path.insert(0, str(Path(__file__).resolve().parent))
+from site_shell import inject_shell_auto  # noqa: E402
+
 CATEGORIES = {
     "revisar-texto": ("Revisar un texto", "Métricas descriptivas para encontrar patrones que merecen una segunda mirada."),
     "revisar-manuscrito": ("Ver el manuscrito completo", "Comparaciones internas para entender la estructura del propio libro."),
@@ -319,7 +322,9 @@ def render(data, tools, directories):
 
 def main():
     p = argparse.ArgumentParser(); p.add_argument('data'); p.add_argument('output'); p.add_argument('--check', action='store_true'); args = p.parse_args()
-    data = json.loads(Path(args.data).read_text(encoding='utf-8')); tools, directories = validate(data); out = render(data, tools, directories); target = Path(args.output)
+    data = json.loads(Path(args.data).read_text(encoding='utf-8')); tools, directories = validate(data); # El shell lo genera scripts/build-site-shell.py desde data/navigation.json;
+    # la plantilla de este fichero ya no manda sobre cabecera, Explorar ni pie.
+    out = inject_shell_auto(render(data, tools, directories)); target = Path(args.output)
     if args.check:
         if not target.exists() or target.read_text(encoding='utf-8') != out:
             print('OUTDATED', file=sys.stderr); return 2

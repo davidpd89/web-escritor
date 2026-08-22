@@ -44,16 +44,11 @@ function trapErrors(page) {
 async function open(context) {
   const page = await context.newPage();
   const errors = trapErrors(page);
-  // El widget del asistente se auto-abre 1,1 s despues de cargar (una vez por
-  // sesion) y su panel mide 410x650 en escritorio: cae justo encima de los
-  // nodos del mapa. Sin esto, page.hover() mueve el raton al centro del nodo
-  // pero quien recibe :hover es .assistant-widget__panel, asi que las rutas se
-  // quedan en reposo (.72/.52/.4) y la suite falla en el primer nodo. Se marca
-  // la clave de sesion que el propio widget usa para no repetir la apertura, en
-  // vez de cerrarlo despues: asi no llega a abrirse y no hay carrera. Este
-  // suite mide la cartografia; el widget se comprueba en su propia QA.
+  // El widget del asistente muestra un aviso una vez por sesión. Este suite
+  // mide cartografía y no el widget, así que se marca su clave de sesión para
+  // evitar superposición accidental durante hover/focus.
   await page.addInitScript(() => {
-    try { sessionStorage.setItem('davidporto-assistant-widget-auto-v1', '1'); } catch { /* sin sessionStorage el widget tampoco se auto-abre */ }
+    try { sessionStorage.setItem('davidporto-assistant-widget-hint-v2', '1'); } catch { /* sin sessionStorage tampoco aparece el aviso */ }
     window.__homeMapCls = 0;
     new PerformanceObserver(list => {
       for (const entry of list.getEntries()) if (!entry.hadRecentInput) window.__homeMapCls += entry.value;
@@ -144,15 +139,19 @@ async function preview(page) {
     if (key === 'autor') await page.screenshot({ path: path.join(OUT, '1440-autor-active.png') });
   }
 
-  // Sacar el raton del mapa antes de la parte de teclado. El bucle de hover lo
-  // deja aparcado sobre el ultimo nodo (prensa), y v1-shell.js escribe
-  // data-active tanto en mouseenter como en focus: al tabular, el scroll mueve
-  // los nodos bajo el cursor quieto y ese mouseenter tardio pisaba al nodo que
-  // acababa de recibir el foco, de modo que "focus herramientas" media el
-  // estado de prensa. Una prueba de teclado no debe correr con el puntero
-  // encima del componente.
-  await page.mouse.move(2, 2);
-  await page.waitForTimeout(120);
+  // Caso mixto: foco y puntero en nodos distintos. El foco debe dominar.
+  await page.locator('body').focus();
+  let tabFocused = '';
+  for (let i = 0; i < 60 && tabFocused !== 'manecillas'; i++) {
+    await page.keyboard.press('Tab');
+    tabFocused = await page.evaluate(() => document.activeElement?.getAttribute?.('data-map-node') || '');
+  }
+  assert.equal(tabFocused, 'manecillas', 'teclado alcanza manecillas para caso mixto');
+  await page.waitForTimeout(220);
+  await page.locator('[data-map-node="prensa"]').hover();
+  await page.waitForTimeout(220);
+  await assertState(page, 'manecillas', 'focus domina sobre hover inicial');
+
   await page.locator('body').focus();
   const seen = [];
   for (let i = 0; i < 100 && seen.length < 6; i++) {
@@ -168,9 +167,19 @@ async function preview(page) {
       await assertState(page, key, `focus ${key}`);
       await assertNodesRemainVisible(page, key, `focus ${key}`);
       assert.ok((await preview(page)).textOpacity > .9, `focus ${key}: preview contextual`);
+
+      // Aunque el ratón entre en otro nodo, el foco debe conservar el resalte.
+      if (key !== 'prensa') {
+        await page.locator('[data-map-node="prensa"]').hover();
+        await page.waitForTimeout(220);
+        await assertState(page, key, `focus ${key} mantiene prioridad tras hover prensa`);
+      }
     }
   }
-  assert.deepEqual(seen, NODES.map(([key]) => key), '1440: Tab recorre los seis nodos en orden');
+  const expectedOrder = NODES.map(([key]) => key);
+  const start = expectedOrder.indexOf(seen[0]);
+  const rotated = expectedOrder.slice(start).concat(expectedOrder.slice(0, start));
+  assert.deepEqual(seen, rotated, '1440: Tab recorre los seis nodos en orden cíclico');
   assert.ok((await page.evaluate(() => window.__homeMapCls || 0)) <= .1, '1440: CLS <= 0.1');
   assert.deepEqual(errors.pageErrors, [], `1440 pageerror: ${errors.pageErrors.join(' | ')}`);
   assert.deepEqual(errors.consoleErrors, [], `1440 console: ${errors.consoleErrors.join(' | ')}`);

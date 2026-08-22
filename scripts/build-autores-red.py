@@ -16,6 +16,9 @@ import sys
 from pathlib import Path
 from urllib.parse import urlparse
 
+sys.path.insert(0, str(Path(__file__).resolve().parent))
+from site_shell import inject_shell_auto  # noqa: E402
+
 SLUG_RE = re.compile(r"^[a-z0-9]+(?:-[a-z0-9]+)*$")
 BASE_URL = "https://davidportodiaz.com"
 
@@ -208,16 +211,20 @@ def render_index(data: dict, authors: list[dict]) -> str:
     )
 
 def expected_outputs(data: dict) -> dict[Path, str]:
+    # El shell (cabecera, Explorar, pie) lo genera build-site-shell.py desde
+    # data/navigation.json. Este builder no publica nada todavia —/autores/ no
+    # existe en el repo—, pero se unifica ahora para que el dia que se active no
+    # nazca con una copia mas del shell desincronizada.
     published = sorted((a for a in data["authors"] if a["status"] == "published"), key=lambda a: a["name"].casefold())
-    outputs = {Path("autores/index.html"): render_index(data, published)}
+    outputs = {Path("autores/index.html"): inject_shell_auto(render_index(data, published))}
     for a in published:
-        outputs[Path(f"autores/{a['slug']}/index.html")] = layout(
+        outputs[Path(f"autores/{a['slug']}/index.html")] = inject_shell_auto(layout(
             f"{a['name']} — Autores en primera persona | David Porto Díaz",
             a["description"],
             render_author(a),
             f"{BASE_URL}/autores/{a['slug']}/",
             author_jsonld(a),
-        )
+        ))
     return outputs
 
 def main() -> int:
