@@ -28,6 +28,10 @@ jobs:
         run: python scripts/check-heading-structure.py
       - name: Check .assetsignore still matches the public-dist exclude list
         run: python scripts/build-public-dist.py --check-assetsignore
+      - name: Check public dist excludes internal-only content
+        run: |
+          python scripts/build-public-dist.py
+          python scripts/build-public-dist.py --check-contents
       - name: Check shared JSON-LD entities use one canonical @id
         run: python scripts/check-canonical-entity-ids.py
       - name: Check the pre-rendered article-tools block matches current headings
