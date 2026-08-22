@@ -8,6 +8,13 @@ export function normalizeQuery(value) {
   return String(value ?? "").normalize("NFC").replace(/\s+/g, " ").trim().slice(0, QUERY_MAX_LENGTH);
 }
 
+export function foldQuery(value) {
+  return normalizeQuery(value)
+    .normalize("NFD")
+    .replace(/\p{M}+/gu, "")
+    .toLocaleLowerCase("es");
+}
+
 export function isSafeInternalPath(value) {
   if (typeof value !== "string" || !value.startsWith("/") || value.startsWith("//") || value.includes("\\")) return false;
   if (/[\u0000-\u001F\u007F]/u.test(value)) return false;
@@ -48,7 +55,7 @@ export function formatCitationMarkers(value, sources) {
 }
 
 export function rankLocalSources(query, sources, limit = 5) {
-  const q = normalizeQuery(query).toLocaleLowerCase("es");
+  const q = foldQuery(query);
   if (!q) return [];
   const terms = [...new Set(q.split(/[^\p{L}\p{N}]+/u).filter((term) => term.length > 1))];
   return sources
@@ -56,11 +63,13 @@ export function rankLocalSources(query, sources, limit = 5) {
     .map((source) => {
       const title = String(source.title || "");
       const keywords = Array.isArray(source.keywords) ? source.keywords.map(String) : [];
-      const haystack = [title, source.territory, ...keywords].join(" ").toLocaleLowerCase("es");
+      const titleFolded = foldQuery(title);
+      const keywordFolded = keywords.map(foldQuery);
+      const haystack = [titleFolded, foldQuery(source.territory), ...keywordFolded].join(" ");
       let score = haystack.includes(q) ? 20 : 0;
       for (const term of terms) {
-        if (title.toLocaleLowerCase("es").includes(term)) score += 5;
-        if (keywords.some((keyword) => keyword.toLocaleLowerCase("es").includes(term))) score += 3;
+        if (titleFolded.includes(term)) score += 5;
+        if (keywordFolded.some((keyword) => keyword.includes(term))) score += 3;
         if (haystack.includes(term)) score += 1;
       }
       score -= Number(source.priority || 3) * 0.1;

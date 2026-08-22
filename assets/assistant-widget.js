@@ -1,11 +1,11 @@
 import {
-  ASSISTANT_WIDGET_AUTO_KEY,
+  ASSISTANT_WIDGET_HINT_KEY,
   shouldMountAssistantWidget,
 } from "/assets/assistant-widget-core.mjs";
 
 const EXPECTED_ORIGIN = location.origin;
-const AUTO_OPEN_DELAY_MS = 1100;
-const MAX_AUTO_OPEN_ATTEMPTS = 6;
+const HINT_DELAY_MS = 3600;
+const HINT_VISIBLE_MS = 6500;
 let sessionStorageUsable = true;
 
 if (shouldMountAssistantWidget(location.pathname) && !document.querySelector("[data-assistant-widget]")) {
@@ -32,7 +32,7 @@ function makeSvgIcon(kind) {
   path.setAttribute("stroke-linecap", "round");
   path.setAttribute("stroke-linejoin", "round");
   if (kind === "chat") path.setAttribute("d", "M5 5.5h14v10H9l-4 3v-13Z M8 9h8 M8 12h5");
-  else if (kind === "minus") path.setAttribute("d", "M6 12h12");
+  else if (kind === "close") path.setAttribute("d", "M7 7l10 10M17 7 7 17");
   else path.setAttribute("d", "M7 17 17 7 M9 7h8v8");
   svg.append(path);
   return svg;
@@ -58,13 +58,13 @@ function mountAssistantWidget() {
   const header = document.createElement("header");
   header.className = "assistant-widget__header";
   const headingWrap = document.createElement("div");
-  const eyebrow = document.createElement("span");
-  eyebrow.className = "assistant-widget__eyebrow";
-  eyebrow.textContent = "Asistente";
   const title = document.createElement("strong");
   title.id = titleId;
-  title.textContent = "¿Qué necesitas encontrar?";
-  headingWrap.append(eyebrow, title);
+  title.textContent = "Asistente";
+  const subtitle = document.createElement("span");
+  subtitle.className = "assistant-widget__subtitle";
+  subtitle.textContent = "Pregunta sobre esta web";
+  headingWrap.append(title, subtitle);
 
   const headerActions = document.createElement("div");
   headerActions.className = "assistant-widget__header-actions";
@@ -74,23 +74,28 @@ function mountAssistantWidget() {
   fullPage.setAttribute("aria-label", "Abrir el asistente en página completa");
   fullPage.title = "Abrir en página completa";
   fullPage.append(makeSvgIcon("external"));
-  const minimize = document.createElement("button");
-  minimize.className = "assistant-widget__icon-action";
-  minimize.type = "button";
-  minimize.setAttribute("aria-label", "Minimizar asistente");
-  minimize.title = "Minimizar";
-  minimize.append(makeSvgIcon("minus"));
-  headerActions.append(fullPage, minimize);
+  const close = document.createElement("button");
+  close.className = "assistant-widget__icon-action";
+  close.type = "button";
+  close.setAttribute("aria-label", "Cerrar asistente");
+  close.title = "Cerrar";
+  close.append(makeSvgIcon("close"));
+  headerActions.append(fullPage, close);
   header.append(headingWrap, headerActions);
 
   const body = document.createElement("div");
   body.className = "assistant-widget__body";
   const loading = document.createElement("p");
   loading.className = "assistant-widget__loading";
-  loading.textContent = "Cargando el asistente…";
+  loading.textContent = "Abriendo…";
   body.append(loading);
-
   panel.append(header, body);
+
+  const hint = document.createElement("button");
+  hint.className = "assistant-widget__hint";
+  hint.type = "button";
+  hint.hidden = true;
+  hint.textContent = "¿Buscas algo? Pregúntame";
 
   const launcher = document.createElement("button");
   launcher.className = "assistant-widget__launcher";
@@ -101,21 +106,20 @@ function mountAssistantWidget() {
   launcher.title = "Asistente";
   launcher.append(makeSvgIcon("chat"));
 
-  root.append(panel, launcher);
+  root.append(panel, hint, launcher);
   document.body.append(root);
 
   let frame = null;
   let frameReady = false;
   let pendingFrameFocus = false;
   let open = false;
-  let autoOpenAttempt = 0;
+  let hintTimer = null;
 
   function ensureFrame() {
     if (frame) return frame;
     frame = document.createElement("iframe");
     frame.className = "assistant-widget__frame";
     frame.title = "Chat con el asistente de davidportodiaz.com";
-    frame.loading = "eager";
     frame.referrerPolicy = "strict-origin-when-cross-origin";
     const from = location.pathname.slice(0, 500);
     frame.src = `/asistente/embed.html?from=${encodeURIComponent(from)}`;
@@ -132,7 +136,14 @@ function mountAssistantWidget() {
     frame.contentWindow.postMessage({ type: "assistant:focus" }, EXPECTED_ORIGIN);
   }
 
-  function openWidget({ focus = true, auto = false } = {}) {
+  function hideHint() {
+    clearTimeout(hintTimer);
+    hintTimer = null;
+    hint.hidden = true;
+  }
+
+  function openWidget({ focus = true } = {}) {
+    hideHint();
     if (open) {
       if (focus) focusFrameInput();
       return;
@@ -142,12 +153,11 @@ function mountAssistantWidget() {
     panel.hidden = false;
     root.dataset.open = "true";
     launcher.setAttribute("aria-expanded", "true");
-    launcher.setAttribute("aria-label", "Minimizar asistente");
-    safeSessionSet(ASSISTANT_WIDGET_AUTO_KEY, "1");
-    if (focus && !auto) focusFrameInput();
+    launcher.setAttribute("aria-label", "Cerrar asistente");
+    if (focus) focusFrameInput();
   }
 
-  function minimizeWidget({ restoreFocus = true } = {}) {
+  function closeWidget({ restoreFocus = true } = {}) {
     if (!open) return;
     open = false;
     panel.hidden = true;
@@ -158,16 +168,12 @@ function mountAssistantWidget() {
     if (restoreFocus) launcher.focus({ preventScroll: true });
   }
 
-  launcher.addEventListener("click", () => {
-    if (open) minimizeWidget();
-    else openWidget({ focus: true });
-  });
-  minimize.addEventListener("click", () => minimizeWidget());
+  launcher.addEventListener("click", () => open ? closeWidget() : openWidget());
+  hint.addEventListener("click", () => openWidget());
+  close.addEventListener("click", () => closeWidget());
 
   document.addEventListener("keydown", (event) => {
-    if (event.key === "Escape" && open && document.activeElement !== frame) {
-      minimizeWidget();
-    }
+    if (event.key === "Escape" && open && document.activeElement !== frame) closeWidget();
   });
 
   document.addEventListener("click", (event) => {
@@ -176,12 +182,13 @@ function mountAssistantWidget() {
     event.preventDefault();
     const explore = menuLink.closest("dialog[open]");
     if (explore && typeof explore.close === "function") explore.close();
-    setTimeout(() => openWidget({ focus: true }), 0);
+    setTimeout(() => openWidget(), 0);
   });
 
   const exploreTrigger = document.querySelector("[data-explore-open]");
   exploreTrigger?.addEventListener("click", () => {
-    if (open) minimizeWidget({ restoreFocus: false });
+    hideHint();
+    if (open) closeWidget({ restoreFocus: false });
   });
 
   addEventListener("message", (event) => {
@@ -190,22 +197,19 @@ function mountAssistantWidget() {
       frameReady = true;
       if (pendingFrameFocus) focusFrameInput();
     } else if (event.data?.type === "assistant:close") {
-      minimizeWidget();
+      closeWidget();
     }
   });
 
-  function tryAutoOpen() {
-    if (!sessionStorageUsable || safeSessionGet(ASSISTANT_WIDGET_AUTO_KEY) || open) return;
-    if (document.visibilityState !== "visible" || document.querySelector("dialog[open]")) {
-      autoOpenAttempt += 1;
-      if (autoOpenAttempt < MAX_AUTO_OPEN_ATTEMPTS) setTimeout(tryAutoOpen, 1200);
-      return;
-    }
-    openWidget({ focus: false, auto: true });
+  function showHintOnce() {
+    if (!sessionStorageUsable || safeSessionGet(ASSISTANT_WIDGET_HINT_KEY) || open || document.visibilityState !== "visible" || document.querySelector("dialog[open]")) return;
+    safeSessionSet(ASSISTANT_WIDGET_HINT_KEY, "1");
+    if (!sessionStorageUsable) return;
+    hint.hidden = false;
+    hintTimer = setTimeout(hideHint, HINT_VISIBLE_MS);
   }
 
-  const priorAutoOpen = safeSessionGet(ASSISTANT_WIDGET_AUTO_KEY);
-  if (sessionStorageUsable && !priorAutoOpen) {
-    setTimeout(tryAutoOpen, AUTO_OPEN_DELAY_MS);
+  if (sessionStorageUsable && !safeSessionGet(ASSISTANT_WIDGET_HINT_KEY)) {
+    setTimeout(showHintOnce, HINT_DELAY_MS);
   }
 }

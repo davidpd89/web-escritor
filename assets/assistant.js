@@ -1,15 +1,140 @@
 import { ASSISTANT_PUBLIC_CONFIG } from "/assets/assistant-config.js";
-import { PROTOCOL_VERSION, QUERY_MIN_LENGTH, QUERY_MAX_LENGTH, normalizeQuery, isSafeInternalPath, isValidAssistantResponse, formatCitationMarkers, rankLocalSources, makeSessionId } from "/assets/assistant-core.mjs";
+import {
+  PROTOCOL_VERSION,
+  QUERY_MIN_LENGTH,
+  QUERY_MAX_LENGTH,
+  normalizeQuery,
+  isSafeInternalPath,
+  isValidAssistantResponse,
+  formatCitationMarkers,
+  rankLocalSources,
+  makeSessionId,
+} from "/assets/assistant-core.mjs";
+import { resolveLocalAnswer } from "/assets/assistant-local-knowledge.mjs";
+
+upgradeStandaloneMarkup();
+
+function makeSendIcon() {
+  const svg = document.createElementNS("http://www.w3.org/2000/svg", "svg");
+  svg.setAttribute("viewBox", "0 0 24 24");
+  svg.setAttribute("aria-hidden", "true");
+  svg.setAttribute("focusable", "false");
+  const path = document.createElementNS("http://www.w3.org/2000/svg", "path");
+  path.setAttribute("d", "m5 12 14-7-4 14-3-5-7-2Zm7 2 3-5");
+  svg.append(path);
+  return svg;
+}
+
+function upgradeStandaloneMarkup() {
+  const panel = document.querySelector(".assistant-panel");
+  if (!panel || panel.querySelector("[data-assistant-log]")) return;
+
+  const oldExamples = [...panel.querySelectorAll("[data-assistant-example]")].map((button) => ({
+    query: button.dataset.assistantExample || button.textContent || "",
+    label: button.textContent?.trim() || "Pregunta sugerida",
+  }));
+
+  const hero = document.querySelector(".tool-hero");
+  const heroTitle = hero?.querySelector("h1");
+  const heroLead = hero?.querySelector(".tool-hero__lead");
+  if (heroTitle) heroTitle.textContent = "¿Qué buscas?";
+  if (heroLead) heroLead.textContent = "Pregúntame por los libros, fragmentos, Noveris, herramientas, editoriales, eventos o información sobre David.";
+  document.getElementById("limites-title")?.closest(".v1-section")?.remove();
+
+  panel.classList.remove("assistant-panel");
+  panel.classList.add("assistant-chat");
+  panel.removeAttribute("aria-labelledby");
+  panel.setAttribute("aria-label", "Chat con el asistente");
+
+  const chatLog = document.createElement("section");
+  chatLog.className = "assistant-chat__log";
+  chatLog.setAttribute("role", "log");
+  chatLog.setAttribute("aria-live", "polite");
+  chatLog.setAttribute("aria-relevant", "additions");
+  chatLog.setAttribute("aria-label", "Conversación");
+  chatLog.dataset.assistantLog = "";
+
+  const welcome = document.createElement("article");
+  welcome.className = "assistant-message assistant-message--assistant";
+  const welcomeBubble = document.createElement("div");
+  welcomeBubble.className = "assistant-message__bubble";
+  const welcomeText = document.createElement("p");
+  welcomeText.textContent = "Hola. Dime qué buscas y te ayudo a encontrarlo en la web.";
+  welcomeBubble.append(welcomeText);
+  welcome.append(welcomeBubble);
+  chatLog.append(welcome);
+
+  const starterWrap = document.createElement("div");
+  starterWrap.className = "assistant-starters";
+  starterWrap.setAttribute("aria-label", "Preguntas sugeridas");
+  starterWrap.dataset.assistantStarters = "";
+  oldExamples.slice(0, 3).forEach(({ query, label }) => {
+    const button = document.createElement("button");
+    button.type = "button";
+    button.className = "assistant-example";
+    button.dataset.assistantExample = query;
+    button.textContent = label;
+    starterWrap.append(button);
+  });
+
+  const composer = document.createElement("form");
+  composer.className = "assistant-composer";
+  composer.dataset.assistantForm = "";
+  const label = document.createElement("label");
+  label.className = "sr-only";
+  label.htmlFor = "assistant-query";
+  label.textContent = "Escribe tu pregunta";
+  const row = document.createElement("div");
+  row.className = "assistant-composer__row";
+  const textarea = document.createElement("textarea");
+  textarea.id = "assistant-query";
+  textarea.name = "query";
+  textarea.rows = 1;
+  textarea.maxLength = QUERY_MAX_LENGTH;
+  textarea.required = true;
+  textarea.autocomplete = "off";
+  textarea.enterKeyHint = "send";
+  textarea.placeholder = "Escribe tu pregunta…";
+  textarea.dataset.assistantQuery = "";
+  const send = document.createElement("button");
+  send.className = "assistant-send";
+  send.type = "submit";
+  send.dataset.assistantSubmit = "";
+  send.setAttribute("aria-label", "Enviar pregunta");
+  send.title = "Enviar";
+  send.append(makeSendIcon());
+  const cancel = document.createElement("button");
+  cancel.className = "assistant-stop";
+  cancel.type = "button";
+  cancel.dataset.assistantStop = "";
+  cancel.hidden = true;
+  cancel.setAttribute("aria-label", "Detener respuesta");
+  const stopShape = document.createElement("span");
+  stopShape.setAttribute("aria-hidden", "true");
+  cancel.append(stopShape);
+  row.append(textarea, send, cancel);
+  const liveStatus = document.createElement("p");
+  liveStatus.className = "assistant-status";
+  liveStatus.setAttribute("role", "status");
+  liveStatus.setAttribute("aria-live", "polite");
+  liveStatus.dataset.assistantStatus = "";
+  const turnstile = document.createElement("div");
+  turnstile.className = "assistant-turnstile";
+  turnstile.dataset.assistantTurnstile = "";
+  turnstile.setAttribute("aria-hidden", "true");
+  composer.append(label, row, liveStatus, turnstile);
+
+  panel.replaceChildren(chatLog, starterWrap, composer);
+  document.querySelector(".assistant-shell")?.classList.add("assistant-shell--ready");
+}
 
 const form = document.querySelector("[data-assistant-form]");
 const input = document.querySelector("[data-assistant-query]");
 const submit = document.querySelector("[data-assistant-submit]");
 const stop = document.querySelector("[data-assistant-stop]");
 const status = document.querySelector("[data-assistant-status]");
-const answer = document.querySelector("[data-assistant-answer]");
-const sourcesList = document.querySelector("[data-assistant-sources]");
-const localBox = document.querySelector("[data-assistant-local]");
-const localList = document.querySelector("[data-assistant-local-list]");
+const log = document.querySelector("[data-assistant-log]");
+const starters = document.querySelector("[data-assistant-starters]");
 const turnstileBox = document.querySelector("[data-assistant-turnstile]");
 const examples = [...document.querySelectorAll("[data-assistant-example]")];
 
@@ -21,6 +146,11 @@ let turnstileScriptPromise;
 let turnstileWidgetId = null;
 let turnstileResolve = null;
 let turnstileReject = null;
+let localContext = { pending: null, lastIntent: null };
+
+function setStatus(message = "") {
+  if (status) status.textContent = message;
+}
 
 function getSessionId() {
   const key = "davidporto-assistant-session-v1";
@@ -91,49 +221,93 @@ async function pagefindFallback(query) {
   }
 }
 
+function sourcesById(sourceIds, registry) {
+  const byId = new Map(registry.map((source) => [source.id, source]));
+  return [...new Set(sourceIds || [])]
+    .map((id) => normalizeLocalResult(byId.get(id)))
+    .filter(Boolean);
+}
+
+function createSourceLinks(sources) {
+  const safe = (sources || []).filter((source) => isSafeInternalPath(source.url)).slice(0, 4);
+  if (!safe.length) return null;
+  const nav = document.createElement("nav");
+  nav.className = "assistant-message__sources";
+  nav.setAttribute("aria-label", safe.length === 1 ? "Fuente" : "Fuentes");
+  safe.forEach((source, index) => {
+    const link = document.createElement("a");
+    link.href = source.url;
+    link.textContent = safe.length === 1 ? source.title : `${index + 1}. ${source.title}`;
+    nav.append(link);
+  });
+  return nav;
+}
+
+function createSuggestions(suggestions) {
+  if (!Array.isArray(suggestions) || !suggestions.length) return null;
+  const wrap = document.createElement("div");
+  wrap.className = "assistant-message__suggestions";
+  suggestions.slice(0, 3).forEach((suggestion) => {
+    const button = document.createElement("button");
+    button.type = "button";
+    button.className = "assistant-reply-chip";
+    button.textContent = suggestion.label;
+    button.addEventListener("click", () => submitQuery(suggestion.query));
+    wrap.append(button);
+  });
+  return wrap;
+}
+
+function appendMessage(role, text, { sources = [], suggestions = [], pending = false } = {}) {
+  if (!log) return null;
+  const article = document.createElement("article");
+  article.className = `assistant-message assistant-message--${role}`;
+  if (pending) article.dataset.pending = "true";
+
+  const bubble = document.createElement("div");
+  bubble.className = "assistant-message__bubble";
+  const body = document.createElement("p");
+  body.textContent = text;
+  bubble.append(body);
+
+  const sourceLinks = createSourceLinks(sources);
+  if (sourceLinks) bubble.append(sourceLinks);
+  const suggestionButtons = createSuggestions(suggestions);
+  if (suggestionButtons) bubble.append(suggestionButtons);
+
+  article.append(bubble);
+  log.append(article);
+  log.scrollTop = log.scrollHeight;
+  return article;
+}
+
+function appendTyping() {
+  const node = appendMessage("assistant", "", { pending: true });
+  if (!node) return null;
+  const bubble = node.querySelector(".assistant-message__bubble");
+  bubble?.replaceChildren();
+  const dots = document.createElement("span");
+  dots.className = "assistant-typing";
+  dots.setAttribute("aria-label", "Buscando respuesta");
+  for (let index = 0; index < 3; index += 1) dots.append(document.createElement("i"));
+  bubble?.append(dots);
+  return node;
+}
+
 function setBusy(busy) {
-  submit.disabled = busy;
+  if (submit) submit.disabled = busy;
   if (stop) stop.hidden = !busy;
   form?.setAttribute("aria-busy", busy ? "true" : "false");
 }
 
-function clearResult() {
-  answer.hidden = true;
-  answer.textContent = "";
-  sourcesList.replaceChildren();
-  localBox.hidden = true;
-  localList.replaceChildren();
+function hideStarters() {
+  if (starters) starters.hidden = true;
 }
 
-function renderSources(sources) {
-  const safe = sources.filter((source) => isSafeInternalPath(source.url));
-  sourcesList.replaceChildren(...safe.map((source) => {
-    const li = document.createElement("li");
-    const link = document.createElement("a");
-    link.href = source.url;
-    link.textContent = source.title;
-    li.append(link);
-    return li;
-  }));
-}
-
-async function renderLocalSuggestions(query, message) {
-  status.textContent = message;
-  let local = [];
-  try { local = await pagefindFallback(query); } catch { local = []; }
-  if (!local.length) {
-    localBox.hidden = true;
-    return;
-  }
-  localBox.hidden = false;
-  localList.replaceChildren(...local.map((source) => {
-    const li = document.createElement("li");
-    const a = document.createElement("a");
-    a.href = source.url;
-    a.textContent = source.title;
-    li.append(a);
-    return li;
-  }));
+function resizeComposer() {
+  if (!input) return;
+  input.style.height = "auto";
+  input.style.height = `${Math.min(input.scrollHeight, 112)}px`;
 }
 
 function loadTurnstileScript() {
@@ -142,30 +316,17 @@ function loadTurnstileScript() {
     turnstileScriptPromise = new Promise((resolve, reject) => {
       const existing = document.querySelector('script[data-assistant-turnstile-script]');
       if (existing && !globalThis.turnstile) existing.remove();
-
       const script = document.createElement("script");
-      const timeout = setTimeout(() => {
-        script.remove();
-        reject(new Error("turnstile-script-timeout"));
-      }, 8000);
-      const finish = (callback) => (...args) => {
-        clearTimeout(timeout);
-        callback(...args);
-      };
+      const timeout = setTimeout(() => { script.remove(); reject(new Error("turnstile-script-timeout")); }, 8000);
+      const finish = (callback) => (...args) => { clearTimeout(timeout); callback(...args); };
       script.src = "https://challenges.cloudflare.com/turnstile/v0/api.js?render=explicit";
       script.async = true;
       script.defer = true;
       script.dataset.assistantTurnstileScript = "true";
       script.addEventListener("load", finish(resolve), { once: true });
-      script.addEventListener("error", finish(() => {
-        script.remove();
-        reject(new Error("turnstile-script-failed"));
-      }), { once: true });
+      script.addEventListener("error", finish(() => { script.remove(); reject(new Error("turnstile-script-failed")); }), { once: true });
       document.head.append(script);
-    }).catch((error) => {
-      turnstileScriptPromise = null;
-      throw error;
-    });
+    }).catch((error) => { turnstileScriptPromise = null; throw error; });
   }
   return turnstileScriptPromise;
 }
@@ -192,10 +353,7 @@ async function getTurnstileToken(sitekey) {
     turnstileResolve = (token) => { clearTimeout(timeout); resolve(token); };
     turnstileReject = (error) => { clearTimeout(timeout); reject(error); };
     globalThis.turnstile.execute(turnstileWidgetId);
-  }).finally(() => {
-    turnstileResolve = null;
-    turnstileReject = null;
-  });
+  }).finally(() => { turnstileResolve = null; turnstileReject = null; });
 }
 
 function resetTurnstile() {
@@ -204,121 +362,153 @@ function resetTurnstile() {
   }
 }
 
-function cancelCurrentRequest(message = "Búsqueda detenida. Los resultados locales siguen disponibles.") {
+function cancelCurrentRequest(message = "Respuesta detenida.") {
   requestSerial += 1;
   activeController?.abort();
   activeController = null;
   turnstileReject?.(new DOMException("Aborted", "AbortError"));
   resetTurnstile();
   setBusy(false);
-  status.textContent = message;
+  log?.querySelector('[data-pending="true"]')?.remove();
+  setStatus(message);
 }
 
-examples.forEach((button) => {
-  button.addEventListener("click", () => {
-    input.value = button.dataset.assistantExample || "";
-    input.focus();
-  });
-});
-stop?.addEventListener("click", () => cancelCurrentRequest());
+async function renderSearchFallback(query, message = "No tengo una respuesta exacta a eso, pero estas páginas son las más relacionadas.") {
+  let local = [];
+  try { local = await pagefindFallback(query); } catch { local = []; }
+  if (!local.length) {
+    appendMessage("assistant", "No he encontrado eso en la web. Prueba con el nombre de un libro, una herramienta, un evento o una sección concreta.");
+    return;
+  }
+  appendMessage("assistant", message, { sources: local.slice(0, 3) });
+}
 
-void getRemoteConfig();
+async function queryRemote(query, config, serial) {
+  let turnstileToken;
+  try {
+    turnstileToken = await getTurnstileToken(config.turnstile_site_key);
+  } catch {
+    resetTurnstile();
+    if (serial === requestSerial) await renderSearchFallback(query);
+    return;
+  }
+  if (serial !== requestSerial) return;
 
-form?.addEventListener("submit", async (event) => {
-  event.preventDefault();
-  const rawQuery = String(input.value ?? "").normalize("NFC").replace(/\s+/g, " ").trim();
+  let sessionId;
+  try { sessionId = getSessionId(); } catch {
+    await renderSearchFallback(query);
+    return;
+  }
+
+  const controller = new AbortController();
+  activeController = controller;
+  const timer = setTimeout(() => controller.abort(), 12000);
+  try {
+    const response = await fetch(ASSISTANT_PUBLIC_CONFIG.assistantUrl, {
+      method: "POST",
+      credentials: "same-origin",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ protocol_version: PROTOCOL_VERSION, query, session_id: sessionId, locale: "es", turnstile_token: turnstileToken }),
+      signal: controller.signal,
+    });
+    if (serial !== requestSerial) return;
+
+    if (!response.ok) {
+      const message = response.status === 429
+        ? "Ahora mismo he llegado al límite de respuestas ampliadas, pero estas páginas pueden ayudarte."
+        : "Ahora no puedo ampliar esa respuesta, pero estas páginas pueden ayudarte.";
+      await renderSearchFallback(query, message);
+      return;
+    }
+
+    let payload;
+    try { payload = await response.json(); } catch { payload = null; }
+    if (!isValidAssistantResponse(payload)) {
+      await renderSearchFallback(query);
+      return;
+    }
+
+    appendMessage("assistant", formatCitationMarkers(payload.answer, payload.sources), { sources: payload.sources });
+  } catch (error) {
+    if (serial !== requestSerial) return;
+    if (error?.name !== "AbortError") await renderSearchFallback(query);
+    else appendMessage("assistant", "He tardado demasiado en responder. Prueba de nuevo o abre una de estas páginas relacionadas.", { sources: (await pagefindFallback(query)).slice(0, 3) });
+  } finally {
+    clearTimeout(timer);
+    if (activeController === controller) activeController = null;
+    resetTurnstile();
+  }
+}
+
+async function submitQuery(value) {
+  const rawQuery = String(value ?? input?.value ?? "").normalize("NFC").replace(/\s+/g, " ").trim();
   if (rawQuery.length > QUERY_MAX_LENGTH) {
-    status.textContent = `La pregunta no puede superar ${QUERY_MAX_LENGTH} caracteres.`;
-    input.focus();
+    setStatus(`La pregunta es demasiado larga. Usa un máximo de ${QUERY_MAX_LENGTH} caracteres.`);
+    input?.focus();
     return;
   }
   const query = normalizeQuery(rawQuery);
   if (query.length < QUERY_MIN_LENGTH) {
-    status.textContent = "Escribe una pregunta un poco más concreta.";
-    input.focus();
+    setStatus("Escribe una pregunta un poco más concreta.");
+    input?.focus();
     return;
   }
 
   activeController?.abort();
-  clearResult();
   const serial = ++requestSerial;
   setBusy(true);
-  await renderLocalSuggestions(query, "Buscando páginas relacionadas…");
-  if (serial !== requestSerial) return;
+  setStatus("");
+  hideStarters();
+  appendMessage("user", query);
+  if (input) { input.value = ""; resizeComposer(); }
 
   try {
-    const config = await getRemoteConfig();
-    if (!config.enabled) {
-      status.textContent = localBox.hidden ? "El asistente remoto está desactivado; prueba con otra búsqueda local." : "Te dejo los resultados disponibles en la web.";
-      return;
-    }
-
-    status.textContent = "Preparando una respuesta basada en la web…";
-    let turnstileToken;
-    try {
-      turnstileToken = await getTurnstileToken(config.turnstile_site_key);
-    } catch {
-      resetTurnstile();
-      if (serial !== requestSerial) return;
-      status.textContent = "No se pudo completar la verificación antiabuso. Los resultados locales siguen disponibles.";
-      return;
-    }
+    const registry = await getRegistry();
     if (serial !== requestSerial) return;
 
-    let sessionId;
-    try { sessionId = getSessionId(); } catch {
-      status.textContent = "Este navegador no permite crear una sesión segura. Los resultados locales siguen disponibles.";
+    const localAnswer = resolveLocalAnswer(query, localContext);
+    if (localAnswer) {
+      const sources = sourcesById(localAnswer.sourceIds, registry);
+      appendMessage("assistant", localAnswer.answer, { sources, suggestions: localAnswer.suggestions });
+      localContext = { pending: localAnswer.pending, lastIntent: localAnswer.intent };
+      return;
+    }
+    localContext = { pending: null, lastIntent: null };
+
+    const config = await getRemoteConfig();
+    if (serial !== requestSerial) return;
+    if (!config.enabled) {
+      await renderSearchFallback(query);
       return;
     }
 
-    const controller = new AbortController();
-    activeController = controller;
-    const timer = setTimeout(() => controller.abort(), 12000);
-    try {
-      const response = await fetch(ASSISTANT_PUBLIC_CONFIG.assistantUrl, {
-        method: "POST",
-        credentials: "same-origin",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-          protocol_version: PROTOCOL_VERSION,
-          query,
-          session_id: sessionId,
-          locale: "es",
-          turnstile_token: turnstileToken,
-        }),
-        signal: controller.signal,
-      });
-
-      if (serial !== requestSerial) return;
-      if (response.status === 429) {
-        status.textContent = "Se ha alcanzado el límite temporal del asistente. Los resultados locales siguen disponibles.";
-        return;
-      }
-      if (!response.ok) {
-        status.textContent = "La respuesta con IA no está disponible ahora. Los resultados locales siguen funcionando.";
-        return;
-      }
-
-      let payload;
-      try { payload = await response.json(); } catch { payload = null; }
-      if (!isValidAssistantResponse(payload)) {
-        status.textContent = "La respuesta remota no pasó la validación. Los resultados locales siguen disponibles.";
-        return;
-      }
-
-      answer.textContent = formatCitationMarkers(payload.answer, payload.sources);
-      answer.hidden = false;
-      renderSources(payload.sources);
-      status.textContent = payload.abstained ? "No hay evidencia suficiente para responder con seguridad." : "Respuesta basada en páginas públicas de esta web.";
-    } catch (error) {
-      if (serial !== requestSerial) return;
-      status.textContent = error?.name === "AbortError" ? "La respuesta tardó demasiado. Los resultados locales siguen disponibles." : "No hay conexión con la respuesta remota. Los resultados locales siguen disponibles.";
-    } finally {
-      clearTimeout(timer);
-      if (activeController === controller) activeController = null;
-      resetTurnstile();
-    }
+    const typing = appendTyping();
+    await queryRemote(query, config, serial);
+    typing?.remove();
   } finally {
-    if (serial === requestSerial) setBusy(false);
+    if (serial === requestSerial) {
+      setBusy(false);
+      setStatus("");
+      input?.focus({ preventScroll: true });
+    }
+  }
+}
+
+examples.forEach((button) => {
+  button.addEventListener("click", () => submitQuery(button.dataset.assistantExample || button.textContent || ""));
+});
+
+form?.addEventListener("submit", (event) => {
+  event.preventDefault();
+  void submitQuery(input?.value || "");
+});
+
+stop?.addEventListener("click", () => cancelCurrentRequest());
+input?.addEventListener("input", resizeComposer);
+input?.addEventListener("keydown", (event) => {
+  if (event.key === "Enter" && !event.shiftKey && !event.isComposing) {
+    event.preventDefault();
+    form?.requestSubmit();
   }
 });
+resizeComposer();
