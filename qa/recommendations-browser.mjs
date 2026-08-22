@@ -68,7 +68,7 @@ async function openChecked(context, route) {
     const u = new URL(response.url());
     if (u.origin === new URL(BASE).origin && response.status() >= 400) brokenLocal.push(`${response.status()} ${u.pathname}`);
   });
-  const response = await page.goto(BASE + route, { waitUntil: 'domcontentloaded' });
+  const response = await page.goto(BASE + route, { waitUntil: 'load' });
   check(response?.ok(), `${route}: HTTP ${response?.status() ?? 'no response'}`);
   await page.waitForTimeout(350);
   const state = await page.evaluate(() => ({
@@ -221,7 +221,7 @@ await inspectList('/recomendaciones/magia-con-coste/', 6);
 for (const route of routes) {
   const context = await contextFor({ width: 390, height: 900 });
   const page = await context.newPage();
-  await page.goto(BASE + route.path, { waitUntil: 'domcontentloaded' });
+  await page.goto(BASE + route.path, { waitUntil: 'load' });
   await page.addStyleTag({ content: '*{line-height:1.5 !important;letter-spacing:.12em !important;word-spacing:.16em !important} p{margin-bottom:2em !important}' });
   const overflow = await page.evaluate(() => document.documentElement.scrollWidth - document.documentElement.clientWidth);
   check(overflow <= 1, `${route.path}: WCAG text-spacing overflow ${overflow}`);
@@ -229,7 +229,7 @@ for (const route of routes) {
 
   const zoomContext = await contextFor({ width: 390, height: 900 });
   const zoomPage = await zoomContext.newPage();
-  await zoomPage.goto(BASE + route.path, { waitUntil: 'domcontentloaded' });
+  await zoomPage.goto(BASE + route.path, { waitUntil: 'load' });
   await zoomPage.addStyleTag({ content: 'html{zoom:2}' });
   const zoomState = await zoomPage.evaluate(() => ({ body: document.body.scrollWidth, doc: document.documentElement.clientWidth, main: document.querySelector('main')?.innerText.length || 0 }));
   check(zoomState.main > 250, `${route.path}: content lost at 200% zoom`);
@@ -241,7 +241,7 @@ for (const route of routes) {
 for (const route of routes) {
   const context = await browser.newContext({ viewport: { width: 390, height: 900 }, javaScriptEnabled: false });
   const page = await context.newPage();
-  const response = await page.goto(BASE + route.path, { waitUntil: 'domcontentloaded' });
+  const response = await page.goto(BASE + route.path, { waitUntil: 'load' });
   check(response?.ok(), `${route.path} no-JS: HTTP failure`);
   const state = await page.evaluate(() => ({ text: document.querySelector('main')?.innerText.trim().length || 0, display: getComputedStyle(document.querySelector('main')).display, overflow: document.documentElement.scrollWidth - document.documentElement.clientWidth }));
   check(state.text > 250 && state.display !== 'none', `${route.path} no-JS: content unavailable`);
@@ -253,7 +253,7 @@ for (const route of routes) {
 {
   const context = await contextFor({ width: 390, height: 900 });
   const page = await context.newPage();
-  await page.goto(BASE + '/recomendaciones/portal-fantasy-espanol/', { waitUntil: 'domcontentloaded' });
+  await page.goto(BASE + '/recomendaciones/portal-fantasy-espanol/', { waitUntil: 'load' });
   await page.keyboard.press('Tab');
   check(await page.locator('.skip-link').evaluate((el) => el === document.activeElement), 'keyboard: first Tab does not focus skip link');
   await page.locator('[data-explore-open]').focus();
@@ -268,7 +268,7 @@ for (const route of routes) {
 {
   const context = await contextFor({ width: 1440, height: 1000 });
   const page = await context.newPage();
-  await page.goto(BASE + '/recomendaciones/portal-fantasy-espanol/', { waitUntil: 'domcontentloaded' });
+  await page.goto(BASE + '/recomendaciones/portal-fantasy-espanol/', { waitUntil: 'load' });
   await page.waitForTimeout(250);
   check(await page.locator('[data-share-url]').isVisible(), 'share: control not visible after JS initialization');
   check(await page.locator('[data-print]').isVisible(), 'print: control not visible after JS initialization');
@@ -301,7 +301,7 @@ const shots = [
 for (const [route, width, height, file] of shots) {
   const context = await contextFor({ width, height });
   const page = await context.newPage();
-  await page.goto(BASE + route, { waitUntil: 'domcontentloaded' });
+  await page.goto(BASE + route, { waitUntil: 'load' });
   await page.waitForTimeout(250);
   await page.screenshot({ path: path.join(OUT, file), fullPage: true });
   await context.close();

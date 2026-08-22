@@ -138,7 +138,7 @@ async function runResponsive(browser, report) {
       const page = await context.newPage();
       const errors = [];
       page.on('pageerror', err => errors.push(String(err)));
-      await page.goto(`${ORIGIN}${tool.path}`, { waitUntil: 'domcontentloaded' });
+      await page.goto(`${ORIGIN}${tool.path}`, { waitUntil: 'load' });
       await page.waitForTimeout(150);
       await assertNoBodyOverflow(page, `${tool.key}@${vp.name}`);
       assert.deepEqual(errors, [], `${tool.key}@${vp.name}: ${errors.join(' | ')}`);
@@ -152,7 +152,7 @@ async function runNoJs(browser, report) {
   for (const tool of tools) {
     const context = await browser.newContext({ javaScriptEnabled: false, viewport: { width: 390, height: 844 } });
     const page = await context.newPage();
-    const response = await page.goto(`${ORIGIN}${tool.path}`, { waitUntil: 'domcontentloaded' });
+    const response = await page.goto(`${ORIGIN}${tool.path}`, { waitUntil: 'load' });
     const rawHtml = await response.text();
     assert(rawHtml.includes('<noscript>'), `${tool.key}: falta <noscript>`);
     assert(rawHtml.includes('JavaScript está desactivado.'), `${tool.key}: falta mensaje no-JS`);
@@ -246,7 +246,7 @@ async function runAccessibility(browser, report) {
   for (const tool of tools) {
     const context = await browser.newContext({ viewport: { width: 390, height: 844 }, reducedMotion: 'reduce' });
     const page = await context.newPage();
-    await page.goto(`${ORIGIN}${tool.path}`, { waitUntil: 'domcontentloaded' });
+    await page.goto(`${ORIGIN}${tool.path}`, { waitUntil: 'load' });
 
     await page.keyboard.press('Tab');
     assert.equal(await page.evaluate(() => document.activeElement?.classList.contains('skip-link')), true, `${tool.key}: primer Tab no llega al skip-link`);

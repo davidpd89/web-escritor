@@ -167,7 +167,7 @@ for (const viewport of viewports) {
     Document.prototype.execCommand = function(command) { return command === 'copy'; };
   });
   const fallbackPage = await fallbackContext.newPage();
-  await fallbackPage.goto(BASE + '/prensa.html', { waitUntil: 'domcontentloaded' });
+  await fallbackPage.goto(BASE + '/prensa.html', { waitUntil: 'load' });
   await fallbackPage.locator('.copy-btn').first().click();
   await fallbackPage.waitForFunction(() => document.querySelector('.copy-btn')?.textContent.includes('Copiado'));
   check((await fallbackPage.locator('.copy-btn').first().textContent()).includes('Copiado'), 'prensa: fallback copy path did not report success');
@@ -276,7 +276,7 @@ for (const route of routes) {
 {
   const context = await newContext({ width: 390, height: 844 });
   const page = await context.newPage();
-  await page.goto(BASE + '/autor.html', { waitUntil: 'domcontentloaded' });
+  await page.goto(BASE + '/autor.html', { waitUntil: 'load' });
   await page.keyboard.press('Tab');
   check(await page.locator('.skip-link').evaluate((el) => el === document.activeElement), 'a11y: first Tab does not focus skip link');
   await context.close();
@@ -295,7 +295,7 @@ const shots = [
 for (const [route, width, height, file] of shots) {
   const context = await newContext({ width, height });
   const page = await context.newPage();
-  await page.goto(BASE + route, { waitUntil: 'domcontentloaded' });
+  await page.goto(BASE + route, { waitUntil: 'load' });
   await page.waitForTimeout(250);
   await page.screenshot({ path: path.join(OUT, file), fullPage: true });
   await context.close();

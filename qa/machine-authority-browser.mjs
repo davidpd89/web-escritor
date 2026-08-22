@@ -56,7 +56,7 @@ async function openChecked(context) {
     }
   });
 
-  const response = await page.goto(BASE + route, { waitUntil: 'domcontentloaded' });
+  const response = await page.goto(BASE + route, { waitUntil: 'load' });
   check(response && response.ok(), `${route}: HTTP ${response?.status() ?? 'no response'}`);
   await page.waitForTimeout(250);
   const state = await page.evaluate(() => ({
@@ -92,7 +92,11 @@ for (const viewport of viewports) {
 {
   const context = await browser.newContext({ viewport: { width: 390, height: 844 }, javaScriptEnabled: false });
   const page = await context.newPage();
-  const response = await page.goto(BASE + route, { waitUntil: 'domcontentloaded' });
+  // 'load', not 'domcontentloaded': DCL does not wait for stylesheets, and
+  // under a slow CI runner this measured the page with zero sheets applied —
+  // a state no visitor sees, since browsers block first paint on CSS. The
+  // assertion below is unchanged; only when it samples is.
+  const response = await page.goto(BASE + route, { waitUntil: 'load' });
   check(response && response.ok(), `${route} no-JS: HTTP failure`);
   const state = await page.evaluate(() => ({
     text: document.querySelector('main')?.innerText.trim().length || 0,
@@ -185,7 +189,7 @@ for (const [width, height, file] of [
 ]) {
   const context = await contextFor({ width, height });
   const page = await context.newPage();
-  await page.goto(BASE + route, { waitUntil: 'domcontentloaded' });
+  await page.goto(BASE + route, { waitUntil: 'load' });
   await page.waitForTimeout(250);
   await page.screenshot({ path: path.join(OUT, file), fullPage: true });
   await context.close();

@@ -487,7 +487,7 @@ async function testNoJs() {
   const context = await makeContext({ javaScriptEnabled:false });
   for (const [key,route,canonical,privacyText,limitationText] of CASES) {
     const page = await context.newPage();
-    await page.goto(`${BASE}${route}`, { waitUntil:'domcontentloaded' });
+    await page.goto(`${BASE}${route}`, { waitUntil:'load' });
     await assertMetadata(page,key,canonical);
     for (const selector of ['.site-header','.primary-nav','h1','.site-footer']) check(await page.locator(selector).count() > 0, `No-JS ${key}: falta ${selector}`);
     const body = await page.locator('body').innerText();
