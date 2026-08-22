@@ -142,19 +142,6 @@ html.v1 [data-page="awards"] .awards-next > a:focus-visible strong{
 }
 
 @media (max-width:600px){
-  html.v1 [data-page="awards"] .award-source-rail{
-    grid-template-columns:minmax(0,1fr);
-  }
-  html.v1 [data-page="awards"] .award-evidence-note{
-    grid-column:1;
-  }
-  html.v1 [data-page="awards"] .awards-next > a{
-    grid-template-columns:minmax(0,1fr);
-    gap:.35rem;
-  }
-}
-
-@media (max-width:389px){
   html.v1 [data-page="awards"] .award-attribution{
     grid-template-columns:minmax(0,1fr);
   }
@@ -168,6 +155,19 @@ html.v1 [data-page="awards"] .awards-next > a:focus-visible strong{
   html.v1 [data-page="awards"] .award-attribution > div:first-child{
     border-top:0;
   }
+  html.v1 [data-page="awards"] .award-source-rail{
+    grid-template-columns:minmax(0,1fr);
+  }
+  html.v1 [data-page="awards"] .award-evidence-note{
+    grid-column:1;
+  }
+  html.v1 [data-page="awards"] .awards-next > a{
+    grid-template-columns:minmax(0,1fr);
+    gap:.35rem;
+  }
+}
+
+@media (max-width:389px){
   html.v1 [data-page="awards"] [data-award-record] *,
   html.v1 [data-page="awards"] .awards-next *{
     overflow-wrap:anywhere;
