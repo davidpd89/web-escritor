@@ -34,7 +34,6 @@ function requestText(url, timeoutMs) {
       target,
       {
         method: 'GET',
-        family: 4,
         rejectUnauthorized: target.protocol === 'https:' ? !INSECURE_TLS : undefined,
         headers: {
           'user-agent': 'staging-smoke-test/1.0',

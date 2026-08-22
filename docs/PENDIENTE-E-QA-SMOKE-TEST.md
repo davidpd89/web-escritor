@@ -147,3 +147,45 @@ completa de Playwright. Construye:
 - [ ] E.2: smoke test ejecutado manualmente contra staging real, salida pegada
 - [ ] E.2: workflow `workflow_dispatch` creado y, si es posible, disparado una vez para confirmar que funciona
 - [ ] E.3 (regresión visual): abordada o marcada explícitamente como fuera de esta PR
+
+---
+
+## Estado de implementación (rama `pendiente-e-qa-smoke-test`)
+
+- [x] E.1 wireado en CI: `content-index-check.yml` ejecuta
+  `build-public-dist.py` + `build-public-dist.py --check-contents`.
+- [x] E.1 probado en rojo una vez (inyección deliberada de `scripts/` en
+  `.preview-dist/`) y revertido.
+- [x] E.2 implementado: `tests/test-staging-smoke.mjs` + workflow
+  `.github/workflows/staging-smoke-test.yml` con `workflow_dispatch` (y
+  `schedule` diario).
+- [ ] E.2 ejecución verde local contra staging: **no reproducible en esta red**
+  por TLS interceptado (`self-signed certificate in certificate chain`) y
+  respuestas `403` del endpoint desde este entorno. El test mantiene criterios
+  estrictos (200 públicas / 404 internas) y falla con diagnóstico explícito.
+- [x] E.3 marcada fuera de alcance en esta PR (scaffold visual no implementado
+  en esta rama).
+
+### Evidencia de comandos (real)
+
+Rojo deliberado de E.1:
+
+```text
+FAIL — 1 issue(s) in C:\GIT\web-escritor\.preview-dist:
+- excluded directory present in dist: scripts/
+```
+
+Verde de E.1 tras revertir la inyección:
+
+```text
+OK: C:\GIT\web-escritor\.preview-dist contains none of the excluded categories.
+```
+
+Ejecución local de E.2 en este entorno (fallo de conectividad/TLS real, no
+simulado):
+
+```text
+FAIL public /: /: request failed (Error: self-signed certificate in certificate chain)
+...
+STAGING SMOKE FAIL (15 issue(s))
+```
