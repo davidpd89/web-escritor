@@ -60,8 +60,18 @@
       dialog.showModal();
       close.focus();
     });
-    close.addEventListener('click', () => dialog.close());
-    dialog.addEventListener('click', (event) => { if (event.target === dialog) dialog.close(); });
+    // aria-expanded se pone a false aqui ademas de en el evento 'close'. El
+    // <dialog> quita su atributo open de forma sincrona, pero 'close' se
+    // encola como tarea: entre las dos cosas hay un hueco en el que el dialogo
+    // ya no se ve y el disparador sigue anunciando aria-expanded="true". Un
+    // lector de pantalla puede leer ese estado, y medido con Playwright falla
+    // ~la mitad de las veces. Marcarlo tambien al cerrar cierra el hueco; el
+    // handler de 'close' se queda como red de seguridad para los cierres que
+    // no pasan por aqui y es quien devuelve el foco.
+    const markClosed = () => open.setAttribute('aria-expanded', 'false');
+    close.addEventListener('click', () => { markClosed(); dialog.close(); });
+    dialog.addEventListener('cancel', markClosed);
+    dialog.addEventListener('click', (event) => { if (event.target === dialog) { markClosed(); dialog.close(); } });
     dialog.addEventListener('close', () => {
       open.setAttribute('aria-expanded', 'false');
       if (opener instanceof HTMLElement) opener.focus({ preventScroll: true });
