@@ -26,73 +26,10 @@ html.v1 .route-spine>li{position:relative;padding:0 0 2.25rem}
 html.v1 .route-spine>li::before{content:"";position:absolute;left:-1.98rem;top:.45rem;width:.6rem;height:.6rem;border:1px solid var(--color-text);background:var(--surface-page)}
 html.v1 .route-spine>li:last-child{padding-bottom:0}
 
-/* V1 visual primitives: restrained editorial frames.
-   Reusable in any family without introducing image card UI. */
-html.v1 .v1-frame-offset,
-html.v1 .v1-media-frame{
-  position:relative;
-  isolation:isolate;
-}
-html.v1 .v1-frame-offset::before,
-html.v1 .v1-media-frame::before{
-  content:"";
-  position:absolute;
-  inset:0;
-  border:1px solid color-mix(in srgb,var(--color-accent-strong) 34%,var(--color-border));
-  pointer-events:none;
-}
-html.v1 .v1-frame-offset::after,
-html.v1 .v1-media-frame::after{
-  content:"";
-  position:absolute;
-  inset:clamp(8px,1.2vw,12px) clamp(-10px,-1.2vw,-8px) clamp(-10px,-1.2vw,-8px) clamp(8px,1.2vw,12px);
-  border:1px solid color-mix(in srgb,var(--color-accent) 38%,transparent);
-  opacity:.62;
-  pointer-events:none;
-}
-html.v1 .v1-frame-corner::before,
-html.v1 .v1-frame-corner::after{
-  content:"";
-  position:absolute;
-  width:clamp(14px,1.8vw,20px);
-  height:clamp(14px,1.8vw,20px);
-  border-color:color-mix(in srgb,var(--color-accent-strong) 65%,transparent);
-  border-style:solid;
-  pointer-events:none;
-}
-html.v1 .v1-frame-corner::before{
-  top:calc(-1 * clamp(4px,.6vw,6px));
-  left:calc(-1 * clamp(4px,.6vw,6px));
-  border-width:1px 0 0 1px;
-}
-html.v1 .v1-frame-corner::after{
-  right:calc(-1 * clamp(4px,.6vw,6px));
-  bottom:calc(-1 * clamp(4px,.6vw,6px));
-  border-width:0 1px 1px 0;
-}
-html.v1 .v1-caption-rail{
-  position:relative;
-  padding-top:.82rem;
-  border-top:1px solid color-mix(in srgb,var(--color-accent-strong) 36%,var(--color-border));
-}
-html.v1 .v1-caption-rail::before{
-  content:attr(data-index);
-  position:absolute;
-  top:-.62rem;
-  left:0;
-  padding:0 .35rem 0 0;
-  background:var(--surface-page);
-  color:var(--color-muted);
-  font:600 .63rem/1 var(--font-ui);
-  letter-spacing:.1em;
-  text-transform:uppercase;
-}
 @media(max-width:767px){
   html.v1 .ledger__row{grid-template-columns:3rem minmax(0,1fr);gap:.55rem 1rem;align-items:start}
   html.v1 .ledger__secondary,html.v1 .ledger__action{grid-column:2}
   html.v1 .ledger__action{justify-self:start}
-  html.v1 .v1-frame-offset::after,
-  html.v1 .v1-media-frame::after{inset:6px -6px -6px 6px}
 }
 
 /* Botones. Vivian en v1-samuel.css, pero no son de Samuel: /convocatorias-escritores/
