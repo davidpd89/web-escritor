@@ -1,0 +1,63 @@
+name: Content parity — Libros + Manecillas
+
+on:
+  pull_request:
+    paths:
+      - 'libros/index.html'
+      - 'las-manecillas-del-recuerdo/**'
+      - 'assets/manecillas-*'
+      - 'assets/v1-book.css'
+      - 'assets/v1-fragments.css'
+      - 'assets/v1-fragments.js'
+      - 'qa/content-parity-manecillas.mjs'
+      - 'docs/CONTENT-PARITY-MANECILLAS-V1.md'
+      - '.github/workflows/content-parity-manecillas.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  content-parity:
+    runs-on: ubuntu-latest
+    timeout-minutes: 12
+    env:
+      QA_ORIGIN: http://127.0.0.1:4173
+      QA_OUT: qa-artifacts/content-parity-manecillas
+      PR_BASE_SHA: ${{ github.event.pull_request.base.sha }}
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - name: Set up Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Install Playwright Chromium
+        run: |
+          npm install --no-save --package-lock=false playwright@1.62.1
+          npx playwright install --with-deps chromium
+      - name: Start static server
+        run: |
+          python3 -m http.server 4173 --bind 127.0.0.1 > /tmp/manecillas-parity-server.log 2>&1 &
+          for i in {1..30}; do
+            curl --fail --silent http://127.0.0.1:4173/las-manecillas-del-recuerdo/ > /dev/null && exit 0
+            sleep 1
+          done
+          cat /tmp/manecillas-parity-server.log
+          exit 1
+      - name: Run content parity QA
+        run: node qa/content-parity-manecillas.mjs
+      - name: Re-run fragment preservation/navigation QA
+        run: BASE_SHA="$PR_BASE_SHA" QA_OUT="qa-artifacts/fragments" node qa/manecillas-fragments-nav.mjs
+      - name: Run malformed fragment hash regression
+        run: node qa/manecillas-fragments-hash-regression.mjs
+      - name: Upload QA evidence
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: content-parity-manecillas-v1
+          path: qa-artifacts/
+          if-no-files-found: error
+          retention-days: 14
