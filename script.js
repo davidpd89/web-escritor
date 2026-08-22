@@ -92,116 +92,6 @@ document.querySelectorAll('[data-n][data-d]').forEach(el => {
   el.removeAttribute('rel');
 });
 
-// Mobile nav
-const navToggle = document.querySelector(".nav-toggle");
-const siteNav = document.querySelector(".site-nav");
-
-if (navToggle && siteNav) {
-  navToggle.addEventListener("click", () => {
-    scheduleTask(() => {
-      const isOpen = siteNav.classList.toggle("is-open");
-      navToggle.setAttribute("aria-expanded", String(isOpen));
-    }, "user-blocking");
-  });
-
-  siteNav.querySelectorAll("a").forEach((link) => {
-    link.addEventListener("click", () => {
-      scheduleTask(() => {
-        siteNav.classList.remove("is-open");
-        navToggle.setAttribute("aria-expanded", "false");
-      }, "user-blocking");
-    });
-  });
-
-  // Escape cierra el menú móvil y devuelve el foco al toggle
-  document.addEventListener("keydown", e => {
-    if (e.key === "Escape" && siteNav.classList.contains("is-open")) {
-      siteNav.classList.remove("is-open");
-      navToggle.setAttribute("aria-expanded", "false");
-      navToggle.focus();
-    }
-  });
-}
-
-
-// GLOBAL EXPLORE MENU — discover all important pages without crowding the header.
-(function () {
-  if (!siteNav || siteNav.querySelector(".explore-nav")) return;
-
-  const groups = [
-    { title: "Inicio", links: [["/", "Página principal"], ["/empieza-aqui/", "Empieza por aquí"], ["/las-manecillas-del-recuerdo/", "Las manecillas del recuerdo — novedad"], ["/cuaderno/", "Cuaderno"]] },
-    { title: "Libros y recursos", links: [["/libros/", "Todos los libros"], ["/las-manecillas-del-recuerdo/", "Las manecillas del recuerdo"], ["/las-manecillas-del-recuerdo/fragmentos/", "Tres fragmentos de Las manecillas"], ["/libros/samuel-entre-mundos/", "Samuel entre mundos"], ["/fragmento/", "Leer capítulo 1 de Samuel gratis"], ["/libros/samuel-entre-mundos/#comprar", "Dónde comprar Samuel"], ["/clubes-de-lectura/samuel-entre-mundos/", "Clubes de lectura"], ["/clubes-de-lectura/samuel-entre-mundos/guia-imprimible/", "Guía imprimible"]] },
-    { title: "Lectura y mundo", links: [["/universo/noveris/", "Noveris"], ["/recomendaciones/", "Recomendaciones"], ["/recomendaciones/portal-fantasy-espanol/", "Portal fantasy en español"], ["/recomendaciones/magia-con-coste/", "Libros con magia con coste"]] },
-    { title: "Cuaderno", links: [["/cuaderno/", "Todos los artículos"], ["/cuaderno/feria-libro-madrid-2026-samuel-entre-mundos/", "Feria del Libro Madrid 2026"], ["/cuaderno/que-es-el-portal-fantasy/", "Qué es el portal fantasy"], ["/cuaderno/sistema-de-magia-noveris/", "Sistema de magia de Noveris"], ["/cuaderno/worldbuilding-noveris-ciudad-magica/", "Worldbuilding de Noveris"]] },
-    { title: "Autor y prensa", links: [["/autor.html", "Sobre David Porto Díaz"], ["/prensa.html", "Kit de prensa"], ["/eventos.html", "Eventos y firmas"], ["/premios.html", "Premios"], ["/#contacto", "Contacto"]] },
-    { title: "Sitio", links: [["/mapa-del-sitio/", "Mapa del sitio"], ["/ai/", "Información para IA"], ["/privacidad.html", "Privacidad"], ["/aviso-legal.html", "Aviso legal"]] }
-  ];
-
-  const wrap = document.createElement("div");
-  wrap.className = "explore-nav";
-
-  const button = document.createElement("button");
-  button.type = "button";
-  button.className = "explore-toggle";
-  button.setAttribute("aria-expanded", "false");
-  button.setAttribute("aria-controls", "explore-panel");
-  button.innerHTML = '<span>Explorar</span><span aria-hidden="true">+</span>';
-
-  const panel = document.createElement("div");
-  panel.id = "explore-panel";
-  panel.className = "explore-panel";
-  panel.hidden = true;
-  panel.innerHTML = '<div class="explore-panel-inner">' + groups.map(group => (
-    '<section class="explore-group"><h2>' + group.title + '</h2>' +
-    group.links.map(([href, label]) => '<a href="' + href + '">' + label + '</a>').join("") +
-    '</section>'
-  )).join("") + '</div>';
-
-  function closeExplore(returnFocus) {
-    panel.hidden = true;
-    button.setAttribute("aria-expanded", "false");
-    if (returnFocus) button.focus();
-  }
-
-  button.addEventListener("click", () => {
-    const isOpen = button.getAttribute("aria-expanded") === "true";
-    if (isOpen) closeExplore(false);
-    else {
-      panel.hidden = false;
-      button.setAttribute("aria-expanded", "true");
-    }
-  });
-
-  panel.addEventListener("click", (event) => {
-    if (!event.target.closest("a")) return;
-    closeExplore(false);
-    siteNav.classList.remove("is-open");
-    navToggle?.setAttribute("aria-expanded", "false");
-  });
-
-  document.addEventListener("click", (event) => {
-    if (panel.hidden || wrap.contains(event.target)) return;
-    closeExplore(false);
-  });
-
-  document.addEventListener("keydown", (event) => {
-    if (event.key === "Escape" && !panel.hidden) closeExplore(true);
-  });
-
-  wrap.append(button, panel);
-  siteNav.appendChild(wrap);
-})();
-
-// Add a site map link to existing footer navigation without editing every static page.
-(function () {
-  document.querySelectorAll(".footer-nav").forEach((nav) => {
-    if (nav.querySelector('a[href="/mapa-del-sitio/"]')) return;
-    const link = document.createElement("a");
-    link.href = "/mapa-del-sitio/";
-    link.textContent = "Mapa del sitio";
-    nav.appendChild(link);
-  });
-})();
 function syncHashScroll() {
   if (!window.location.hash || window.location.hash === "#") return;
   // decodeURIComponent lanza URIError con un % mal formado en la URL
@@ -811,7 +701,7 @@ document.addEventListener('dp:analytics', _dpAnalyticsBridge);
     const copy = popupCopy();
 
     const style = document.createElement("style");
-    style.textContent = "#nl-popup-overlay{position:fixed;inset:0;z-index:9000;display:flex;align-items:center;justify-content:center;padding:16px;background:rgba(8,10,12,0.84);backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px);animation:nl-in 0.28s ease}@keyframes nl-in{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}#nl-popup-panel{position:relative;width:100%;max-width:460px;padding:40px 36px 32px;background:#18140e;border:1px solid rgba(196,148,77,0.38);border-radius:20px;box-shadow:0 32px 120px rgba(0,0,0,0.72)}#nl-popup-close{position:absolute;top:14px;right:14px;width:38px;height:38px;border:none;background:transparent;color:#b6a894;font-size:1.5rem;line-height:1;cursor:pointer;border-radius:50%;display:flex;align-items:center;justify-content:center;padding:0;transition:color 0.18s}#nl-popup-close:hover,#nl-popup-close:focus-visible{color:#f2e8d8;outline:none}#nl-popup-panel .eyebrow{margin:0 0 12px;color:#c4944d;font-size:0.68rem;font-weight:700;letter-spacing:0.26em;text-transform:uppercase;font-family:Inter,system-ui,sans-serif}#nl-popup-title{font-family:'Cormorant Garamond',Georgia,serif;margin:0 0 12px;font-size:clamp(1.55rem,4vw,2.1rem);line-height:1.08;color:#f2e8d8;font-weight:600}#nl-popup-body{margin:0 0 22px;color:#b6a894;font-size:0.96rem;line-height:1.7}#nl-popup-email{width:100%;padding:12px 18px;border:1px solid rgba(196,148,77,0.28);border-radius:999px;background:rgba(255,255,255,0.04);color:#f2e8d8;font-size:0.95rem;font-family:inherit;outline:none;box-sizing:border-box;margin-bottom:10px;transition:border-color 0.2s}#nl-popup-email:focus{border-color:#c4944d}#nl-popup-submit{width:100%;justify-content:center;margin-bottom:0}#nl-popup-gdpr-row{display:flex;align-items:flex-start;gap:8px;margin-top:12px;font-size:0.79rem;color:#8e8170;line-height:1.5;cursor:pointer}#nl-popup-gdpr-row input{margin-top:3px;flex-shrink:0}#nl-popup-gdpr-row a{color:#c4944d}#nl-popup-status{margin:8px 0 0;font-size:0.84rem;color:#b6a894;min-height:1.2em}#nl-popup-skip{display:block;margin:14px auto 0;background:none;border:none;color:#8e8170;font-size:0.82rem;cursor:pointer;text-decoration:underline;text-underline-offset:3px;font-family:inherit;transition:color 0.2s;padding:0}#nl-popup-skip:hover{color:#b6a894}@media(max-width:520px){#nl-popup-panel{padding:32px 22px 26px}}";
+    style.textContent = "#nl-popup-overlay{position:fixed;inset:0;z-index:9000;display:flex;align-items:center;justify-content:center;padding:16px;background:rgba(8,10,12,0.84);backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px);animation:nl-in 0.28s ease}@keyframes nl-in{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}#nl-popup-panel{position:relative;width:100%;max-width:460px;padding:40px 36px 32px;background:#18140e;border:1px solid rgba(196,148,77,0.38);border-radius:20px;box-shadow:0 32px 120px rgba(0,0,0,0.72)}#nl-popup-close{position:absolute;top:14px;right:14px;width:38px;height:38px;border:none;background:transparent;color:#b6a894;font-size:1.5rem;line-height:1;cursor:pointer;border-radius:50%;display:flex;align-items:center;justify-content:center;padding:0;transition:color 0.18s}#nl-popup-close:hover,#nl-popup-close:focus-visible{color:#f2e8d8;outline:none}#nl-popup-panel .eyebrow{margin:0 0 12px;color:#c4944d;font-size:0.68rem;font-weight:700;letter-spacing:0.26em;text-transform:uppercase;font-family:var(--font-ui,Inter,system-ui,sans-serif)}#nl-popup-title{font-family:var(--font-display,Georgia,serif);margin:0 0 12px;font-size:clamp(1.55rem,4vw,2.1rem);line-height:1.08;color:#f2e8d8;font-weight:600}#nl-popup-body{margin:0 0 22px;color:#b6a894;font-size:0.96rem;line-height:1.7}#nl-popup-email{width:100%;padding:12px 18px;border:1px solid rgba(196,148,77,0.28);border-radius:999px;background:rgba(255,255,255,0.04);color:#f2e8d8;font-size:0.95rem;font-family:inherit;outline:none;box-sizing:border-box;margin-bottom:10px;transition:border-color 0.2s}#nl-popup-email:focus{border-color:#c4944d}#nl-popup-submit{width:100%;justify-content:center;margin-bottom:0}#nl-popup-gdpr-row{display:flex;align-items:flex-start;gap:8px;margin-top:12px;font-size:0.79rem;color:#8e8170;line-height:1.5;cursor:pointer}#nl-popup-gdpr-row input{margin-top:3px;flex-shrink:0}#nl-popup-gdpr-row a{color:#c4944d}#nl-popup-status{margin:8px 0 0;font-size:0.84rem;color:#b6a894;min-height:1.2em}#nl-popup-skip{display:block;margin:14px auto 0;background:none;border:none;color:#8e8170;font-size:0.82rem;cursor:pointer;text-decoration:underline;text-underline-offset:3px;font-family:inherit;transition:color 0.2s;padding:0}#nl-popup-skip:hover{color:#b6a894}@media(max-width:520px){#nl-popup-panel{padding:32px 22px 26px}}";
     document.head.appendChild(style);
 
     const overlay = document.createElement("div");
