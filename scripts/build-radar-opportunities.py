@@ -130,7 +130,140 @@ def build_html(items, today):
         "inLanguage": "es",
         "isPartOf": {"@id": "https://davidportodiaz.com/#website"},
     }, ensure_ascii=False, separators=(",", ":"))
-    return f'''<!doctype html><html lang="es"><head><meta charset="utf-8"><meta http-equiv="Content-Security-Policy" content="default-src 'self'; connect-src 'none'; img-src 'self'; style-src 'self'; font-src 'self'; script-src 'self'; object-src 'none'; base-uri 'self'; form-action 'none'; frame-src 'none'"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><title>{TITLE}</title><meta name="description" content="{DESCRIPTION}"><meta property="og:title" content="{TITLE}"><meta property="og:description" content="{DESCRIPTION}"><meta property="og:type" content="website"><meta property="og:url" content="{CANONICAL}"><meta property="og:image" content="{SHARE_IMAGE}"><meta property="og:image:width" content="{SHARE_IMAGE_WIDTH}"><meta property="og:image:height" content="{SHARE_IMAGE_HEIGHT}"><meta property="og:image:alt" content="{TITLE}"><meta property="og:locale" content="es_ES"><meta property="og:site_name" content="David Porto Díaz"><meta name="twitter:card" content="summary_large_image"><meta name="twitter:title" content="{TITLE}"><meta name="twitter:description" content="{DESCRIPTION}"><meta name="twitter:image" content="{SHARE_IMAGE}"><meta name="twitter:image:alt" content="{TITLE}"><link rel="canonical" href="{CANONICAL}"><meta name="robots" content="index,follow,max-image-preview:large"><link rel="stylesheet" href="/styles.css?v=202609-launch-1"><link rel="stylesheet" href="/assets/radar-convocatorias.css"><script type="application/ld+json">{schema}</script></head><body><a href="#main-content" class="skip-link">Saltar al contenido</a><main id="main-content" tabindex="-1" class="radar-page"><nav class="breadcrumb" aria-label="Ruta de navegación"><a href="/">Inicio</a> › <a href="/herramientas/">Herramientas</a> › Convocatorias</nav><header class="radar-hero"><p class="eyebrow">Radar para escritores · fuentes verificadas</p><h1>Convocatorias que todavía están a tiempo.</h1><p class="lead">Concursos, premios, ayudas, becas, residencias y recepción de manuscritos. Cada ficha enlaza la fuente oficial y muestra cuándo se comprobó.</p><p><a data-radar-calendar href="/convocatorias-escritores/deadlines.ics" download="convocatorias-escritores.ics">Añadir fechas a mi calendario</a></p></header><noscript><p class="radar-note" role="status">JavaScript está desactivado. La lista completa y sus fuentes siguen visibles, pero los filtros y la búsqueda necesitan JavaScript.</p></noscript><section class="radar-filters" aria-label="Filtrar convocatorias"><label>Buscar <input type="search" data-radar-search autocomplete="off" placeholder="Título u organizador"></label><label>Tipo <select data-radar-type><option value="">Todos</option>{options(types)}</select></label><label>Género <select data-radar-genre><option value="">Todos</option>{options(genres)}</select></label><label class="radar-check"><input type="checkbox" data-radar-soon> Cierra en 7 días</label><button type="button" class="button secondary" data-radar-clear>Limpiar</button></section><p class="radar-count" role="status" aria-live="polite" data-radar-count>{len(active)} convocatorias verificadas</p><section class="radar-grid" data-radar-grid>{cards}</section><div class="radar-empty" data-radar-filter-empty hidden><p>No hay coincidencias con estos filtros.</p><button type="button" class="button secondary" data-radar-empty-clear>Limpiar filtros</button></div><section class="radar-method"><h2>Cómo se mantiene este radar</h2><p>Una lista de fuentes oficiales se revisa para detectar posibles cambios y nuevas convocatorias. Nada se publica automáticamente: una oportunidad solo aparece después de revisar la fuente oficial, su fecha límite y sus condiciones básicas. Una convocatoria activa que lleva más de 30 días sin volver a comprobarse deja de mostrarse aquí aunque su plazo siga abierto.</p></section></main><script src="/assets/radar-convocatorias.js" defer></script></body></html>'''
+    return f'''<!DOCTYPE html>
+<html lang="es" class="v1">
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; connect-src 'none'; img-src 'self'; style-src 'self'; font-src 'self'; script-src 'self'; object-src 'none'; base-uri 'self'; form-action 'none'; frame-src 'none'">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <meta name="robots" content="index,follow,max-image-preview:large">
+  <title>{TITLE}</title>
+  <meta name="description" content="{DESCRIPTION}">
+  <meta property="og:title" content="{TITLE}">
+  <meta property="og:description" content="{DESCRIPTION}">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="{CANONICAL}">
+  <meta property="og:image" content="{SHARE_IMAGE}">
+  <meta property="og:image:width" content="{SHARE_IMAGE_WIDTH}">
+  <meta property="og:image:height" content="{SHARE_IMAGE_HEIGHT}">
+  <meta property="og:image:alt" content="{TITLE}">
+  <meta property="og:locale" content="es_ES">
+  <meta property="og:site_name" content="David Porto Díaz">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="{TITLE}">
+  <meta name="twitter:description" content="{DESCRIPTION}">
+  <meta name="twitter:image" content="{SHARE_IMAGE}">
+  <meta name="twitter:image:alt" content="{TITLE}">
+  <meta name="theme-color" content="#F4EFE7" />
+  <link rel="canonical" href="{CANONICAL}">
+  <link rel="icon" type="image/png" href="/assets/david-porto-favicon.png" />
+  <link rel="apple-touch-icon" href="/assets/david-porto-favicon.png" />
+  <link rel="manifest" href="/manifest.json" />
+
+  <link rel="stylesheet" href="/assets/v1-fonts.css" />
+  <link rel="stylesheet" href="/assets/v1-tokens.css" />
+  <link rel="stylesheet" href="/assets/v1-base.css" />
+  <link rel="stylesheet" href="/assets/v1-shell.css" />
+  <link rel="stylesheet" href="/assets/v1-components.css" />
+  <link rel="stylesheet" href="/assets/v1-families.css" />
+  <link rel="stylesheet" href="/assets/v1-tools.css" />
+  <link rel="stylesheet" href="/assets/radar-convocatorias.css">
+  <script type="application/ld+json">{schema}</script>
+</head>
+<body>
+  <a href="#contenido" class="skip-link">Saltar al contenido</a>
+
+  <header class="site-header" data-header>
+    <div class="site-header__inner">
+      <a class="brand" href="/" aria-label="David Porto Díaz — inicio">
+        <span class="brand__name">David Porto Díaz</span>
+        <span class="brand__role">Escritor</span>
+      </a>
+      <nav class="primary-nav" aria-label="Navegación principal">
+        <a href="/libros/">Obra</a>
+        <a href="/cuaderno/">Cuaderno</a>
+        <a href="/herramientas/" aria-current="page">Herramientas</a>
+      </nav>
+      <button class="explore-trigger" type="button" aria-haspopup="dialog" aria-controls="explore-dialog" aria-expanded="false" data-explore-open>
+        Explorar
+      </button>
+    </div>
+  </header>
+
+  <dialog class="explore-dialog" id="explore-dialog" aria-labelledby="explore-title" data-explore-dialog>
+    <div class="explore-dialog__shell">
+      <div class="explore-dialog__head">
+        <div>
+          <p class="eyebrow">Índice general</p>
+          <h2 id="explore-title">Explorar</h2>
+        </div>
+        <button class="icon-button" type="button" aria-label="Cerrar Explorar" data-explore-close>
+          <svg aria-hidden="true" viewBox="0 0 24 24" width="20" height="20"><path d="M5 5l14 14M19 5L5 19"/></svg>
+        </button>
+      </div>
+      <div class="explore-dialog__grid">
+        <nav class="explore-list" aria-label="Destinos de la web">
+          <a class="explore-row" href="/las-manecillas-del-recuerdo/" data-preview="manecillas"><span class="explore-row__index">01</span><span class="explore-row__body"><strong>Las manecillas del recuerdo</strong><small>La obra actual.</small></span></a>
+          <a class="explore-row" href="/autor.html" data-preview="autor"><span class="explore-row__index">02</span><span class="explore-row__body"><strong>Autor</strong><small>Biografía, obra y trayectoria.</small></span></a>
+          <a class="explore-row" href="/libros/samuel-entre-mundos/" data-preview="samuel"><span class="explore-row__index">03</span><span class="explore-row__body"><strong>Samuel entre mundos</strong><small>Primera novela publicada.</small></span></a>
+          <a class="explore-row" href="/cuaderno/" data-preview="cuaderno"><span class="explore-row__index">04</span><span class="explore-row__body"><strong>Cuaderno</strong><small>Artículos y piezas editoriales.</small></span></a>
+          <a class="explore-row" href="/herramientas/" data-preview="herramientas"><span class="explore-row__index">05</span><span class="explore-row__body"><strong>Herramientas</strong><small>Utilidades gratuitas para escritores.</small></span></a>
+          <a class="explore-row" href="/prensa.html" data-preview="prensa"><span class="explore-row__index">06</span><span class="explore-row__body"><strong>Prensa y eventos</strong><small>Apariciones, materiales y agenda.</small></span></a>
+        </nav>
+        <aside class="explore-preview" aria-live="polite" aria-atomic="true" data-explore-preview>
+          <div class="explore-preview__media" aria-hidden="true" data-preview-media></div>
+          <p class="explore-preview__label" data-preview-label>Herramientas</p>
+          <p class="explore-preview__copy" data-preview-copy>Utilidades gratuitas para escritores.</p>
+        </aside>
+      </div>
+    </div>
+  </dialog>
+
+  <main id="contenido" tabindex="-1" class="v1-main" data-family="tool">
+    <nav class="book-breadcrumb" aria-label="Ruta de navegación"><ol><li><a href="/">Inicio</a></li><li><a href="/herramientas/">Herramientas</a></li><li aria-current="page">Convocatorias</li></ol></nav>
+
+    <header class="tool-hero">
+      <p class="eyebrow">Radar para escritores · fuentes verificadas</p>
+      <h1>Convocatorias que todavía están a tiempo.</h1>
+      <p class="tool-hero__lead">Concursos, premios, ayudas, becas, residencias y vías de envío de manuscritos revisadas contra la fuente oficial. Se ocultan automáticamente cuando vencen o la verificación supera 30 días.</p>
+      <p class="tool-note"><strong>Importante:</strong> esta web no organiza estas convocatorias ni garantiza que sigan abiertas después de la fecha mostrada. Confirma siempre en la fuente oficial antes de enviar.</p>
+    </header>
+
+    <section class="tool-finder" aria-label="Filtrar convocatorias">
+      <div class="tool-options">
+        <div class="tool-field"><label class="tool-field-label" for="radar-search">Buscar</label><input class="tool-input" id="radar-search" type="search" data-radar-search placeholder="Entidad, premio, género…"></div>
+        <div class="tool-field"><label class="tool-field-label" for="radar-type">Tipo</label><select class="tool-select" id="radar-type" data-radar-type><option value="">Todos</option>{options(types)}</select></div>
+        <div class="tool-field"><label class="tool-field-label" for="radar-genre">Género</label><select class="tool-select" id="radar-genre" data-radar-genre><option value="">Todos</option>{options(genres)}</select></div>
+      </div>
+      <label class="tool-check"><input type="checkbox" data-radar-soon> <span>Cierra en 7 días</span></label>
+      <div class="tool-actions"><button type="button" class="text-action" data-radar-clear>Limpiar</button></div>
+      <p class="tool-count" role="status" aria-live="polite" data-radar-count>{len(active)} convocatorias verificadas</p>
+    </section>
+
+    <section class="radar-grid" data-radar-grid>{cards}</section>
+    <div class="radar-empty" data-radar-filter-empty hidden><p>No hay coincidencias con estos filtros.</p><button type="button" class="button secondary" data-radar-empty-clear>Limpiar filtros</button></div>
+
+    <section class="v1-section">
+      <div class="tool-findings-block"><h2>Cómo se mantiene este radar</h2><p>Una lista de fuentes oficiales se revisa para detectar posibles cambios y nuevas convocatorias. Nada se publica automáticamente: una oportunidad solo aparece después de revisar la fuente oficial, su fecha límite y sus condiciones básicas. Una convocatoria activa que lleva más de 30 días sin volver a comprobarse deja de mostrarse aquí aunque su plazo siga abierto.</p></div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="site-footer__grid">
+      <div>
+        <strong class="brand__name">David Porto Díaz</strong>
+        <p>Autor de Las manecillas del recuerdo y Samuel entre mundos.</p>
+      </div>
+      <nav aria-label="Obra"><h2>Obra</h2><a href="/las-manecillas-del-recuerdo/">Las manecillas del recuerdo</a><a href="/libros/samuel-entre-mundos/">Samuel entre mundos</a><a href="/fragmento/">Fragmento gratis</a></nav>
+      <nav aria-label="Leer y recursos"><h2>Leer</h2><a href="/cuaderno/">Cuaderno</a><a href="/herramientas/" aria-current="page">Herramientas</a><a href="/mapa-del-sitio/">Mapa del sitio</a></nav>
+      <nav aria-label="Información"><h2>Información</h2><a href="/autor.html">Autor</a><a href="/prensa.html">Prensa</a><a href="/eventos.html">Eventos</a><a href="/privacidad.html">Privacidad</a><a href="/aviso-legal.html">Aviso legal</a><a href="/ai/">Para IA</a></nav>
+    </div>
+  </footer>
+
+  <script defer src="/assets/v1-shell.js"></script>
+  <script src="/assets/radar-convocatorias.js" defer></script>
+</body>
+</html>'''
 
 def ics_escape(value):
     return str(value).replace("\\", "\\\\").replace("\n", "\\n").replace(",", "\\,").replace(";", "\\;")
