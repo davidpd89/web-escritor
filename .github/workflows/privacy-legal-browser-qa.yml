@@ -44,6 +44,9 @@ jobs:
       - name: Newsletter Worker contract
         if: always()
         run: node qa/newsletter-worker-contract.mjs
+      - name: Newsletter client contract
+        if: always()
+        run: node tests/test-newsletter-client-contract.mjs
       - name: Install Lighthouse CI
         if: always()
         run: npm install --global @lhci/cli@0.15.1
