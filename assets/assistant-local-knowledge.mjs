@@ -54,7 +54,7 @@ export function resolveLocalAnswer(query, context = {}) {
   }
 
   if (mentionsManecillas && hasAny(q, ["cuando", "fecha", "publica", "sale", "lanzamiento"])) {
-    return result("manecillas-date", "«Las manecillas del recuerdo» se publica el 3 de septiembre de 2026 con Monza Ediciones.", ["work-manecillas"]);
+    return result("manecillas-date", "La fecha de publicación de «Las manecillas del recuerdo» es el 3 de septiembre de 2026, con Monza Ediciones.", ["work-manecillas"]);
   }
   if (mentionsManecillas) {
     return result("manecillas", "«Las manecillas del recuerdo» es una novela coral sobre el tiempo heredado y la memoria familiar, unida por un reloj que va pasando de mano en mano y adquiere significados distintos en cada vida.", ["work-manecillas"]);
