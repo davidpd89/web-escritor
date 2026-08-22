@@ -22,6 +22,36 @@ html.v1 [data-family="identity"] .author-portrait img{
   border:0;
   object-position:50% 38%;
 }
+html.v1 [data-family="identity"] .author-portrait,
+html.v1 [data-family="identity"] .press-author-photo,
+html.v1 [data-family="identity"] .event-photo-card,
+html.v1 [data-family="identity"] .event-entry figure{
+  position:relative;
+  isolation:isolate;
+}
+html.v1 [data-family="identity"] .author-portrait::before,
+html.v1 [data-family="identity"] .press-author-photo::before,
+html.v1 [data-family="identity"] .event-photo-card::before,
+html.v1 [data-family="identity"] .event-entry figure::before{
+  content:"";
+  position:absolute;
+  inset:0;
+  border:1px solid color-mix(in srgb,var(--color-accent-strong) 30%,var(--color-border));
+  pointer-events:none;
+}
+html.v1 [data-family="identity"] .press-author-photo::after,
+html.v1 [data-family="identity"] .event-photo-card::after,
+html.v1 [data-family="identity"] .event-entry figure::after{
+  content:"";
+  position:absolute;
+  right:-7px;
+  bottom:-7px;
+  width:18px;
+  height:18px;
+  border-right:1px solid color-mix(in srgb,var(--color-accent) 58%,transparent);
+  border-bottom:1px solid color-mix(in srgb,var(--color-accent) 58%,transparent);
+  pointer-events:none;
+}
 html.v1 [data-family="identity"] .author-bio__copy{
   text-wrap:pretty;
 }
@@ -144,11 +174,25 @@ html.v1 [data-family="identity"] .event-entry figure img{
   height:auto;
 }
 html.v1 [data-family="identity"] .event-entry figcaption{
+  position:relative;
   max-width:52ch;
   margin-top:.55rem;
+  padding-top:.68rem;
+  border-top:1px solid color-mix(in srgb,var(--color-accent-strong) 34%,var(--color-border));
   color:var(--color-muted);
   font-size:.78rem;
   line-height:1.4;
+}
+html.v1 [data-family="identity"] .event-entry figcaption::before{
+  content:"M5";
+  position:absolute;
+  left:0;
+  top:-.55rem;
+  padding:0 .3rem 0 0;
+  background:var(--surface-page);
+  font:600 .62rem/1 var(--font-ui);
+  letter-spacing:.1em;
+  text-transform:uppercase;
 }
 
 /* Contextual contact modules read like a directory instead of another card

@@ -3,7 +3,9 @@
 html.v1 .book-page{max-width:var(--layout-max);margin:auto;padding-inline:var(--page-gutter)}
 html.v1 .book-hero{min-height:clamp(720px,72vw,900px);display:grid;grid-template-columns:repeat(12,minmax(0,1fr));gap:var(--grid-gap);align-items:center;padding:clamp(3rem,6vw,6rem) 0 clamp(5rem,8vw,8rem)}
 html.v1 .book-cover-zone{grid-column:1/span 4;position:relative;align-self:center;display:grid;place-items:center;min-width:0}
-html.v1 .book-cover{margin:0;width:min(100%,430px)}
+html.v1 .book-cover{margin:0;width:min(100%,430px);position:relative;isolation:isolate}
+html.v1 .book-cover::before{content:"";position:absolute;inset:0;border:1px solid color-mix(in srgb,var(--color-accent-strong) 28%,var(--color-border));pointer-events:none}
+html.v1 .book-cover::after{content:"M1";position:absolute;left:0;bottom:-1.1rem;padding:.1rem .35rem 0 0;background:var(--surface-page);color:var(--color-muted);font:600 .62rem/1 var(--font-ui);letter-spacing:.1em;text-transform:uppercase}
 html.v1 .book-cover img{width:100%;height:auto;box-shadow:var(--shadow-object)}
 html.v1 .book-cover-fallback{width:min(100%,430px);aspect-ratio:2/3;border:1px solid var(--color-border);display:grid;align-items:end;padding:1rem;font-size:.78rem;color:var(--color-muted)}
 html.v1 .book-hero__copy{grid-column:5/span 5;align-self:center;min-width:0}
@@ -79,6 +81,8 @@ html.v1 .book-theme p{margin:0;color:var(--color-muted);font-size:.92rem;line-he
 @media(max-width:767px){html.v1 .book-theme-list{grid-column:1;grid-template-columns:1fr;gap:2rem}}
 html.v1 .book-crosspromo{grid-template-columns:3fr minmax(0,6fr) 3fr}
 html.v1 .book-crosspromo-media{grid-column:3;align-self:start}
-html.v1 .book-crosspromo-media img{width:100%;height:auto;box-shadow:var(--shadow-object)}
+html.v1 .book-crosspromo-media picture{display:block;position:relative;isolation:isolate}
+html.v1 .book-crosspromo-media picture::before{content:"";position:absolute;inset:8px -8px -8px 8px;border:1px solid color-mix(in srgb,var(--color-accent) 35%,transparent);pointer-events:none}
+html.v1 .book-crosspromo-media img{display:block;width:100%;height:auto;box-shadow:var(--shadow-object);border:1px solid var(--color-border)}
 @media(max-width:1199px){html.v1 .book-crosspromo{grid-template-columns:2fr 6fr}html.v1 .book-crosspromo-media{grid-column:2;margin-top:2rem;max-width:220px}}
 @media(max-width:767px){html.v1 .book-crosspromo{grid-template-columns:1fr}html.v1 .book-crosspromo-media{grid-column:1;max-width:200px}}

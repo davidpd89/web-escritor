@@ -85,6 +85,10 @@ html.v1 .map-stage{
   --route-public-opacity:.4;
   min-height:720px;
   isolation:isolate;
+  background:
+    radial-gradient(110% 80% at 80% 15%,color-mix(in srgb,var(--color-accent) 14%,transparent),transparent 62%),
+    radial-gradient(90% 70% at 12% 82%,color-mix(in srgb,var(--color-accent-strong) 10%,transparent),transparent 70%),
+    linear-gradient(180deg,color-mix(in srgb,var(--surface-page) 92%,var(--color-accent) 8%),var(--surface-page));
 }
 html.v1 .map-stage::before,
 html.v1 .map-stage::after{
@@ -129,7 +133,8 @@ html.v1 .map-node{
   padding:.72rem .8rem .72rem .1rem;
   transition:opacity var(--motion-state) var(--ease-standard);
 }
-html.v1 .map-node::before{inset:-4px -8px}
+html.v1 .map-node::before{inset:-4px -8px;border:1px solid color-mix(in srgb,var(--color-accent-strong) 20%,transparent);opacity:0;transition:opacity var(--motion-state) var(--ease-standard)}
+html.v1 .map-node::after{content:"";position:absolute;right:-6px;bottom:-6px;width:18px;height:18px;border-right:1px solid color-mix(in srgb,var(--color-accent-strong) 58%,transparent);border-bottom:1px solid color-mix(in srgb,var(--color-accent-strong) 58%,transparent);opacity:0;transition:opacity var(--motion-state) var(--ease-standard)}
 html.v1 .map-node strong{
   display:inline;
   width:fit-content;
@@ -186,6 +191,10 @@ html.v1 .map-node__marker{
 html.v1 .map-node--primary .map-node__marker{width:14px;height:14px}
 html.v1 .map-node:hover strong,
 html.v1 .map-node:focus-visible strong{background-size:100% 1px}
+html.v1 .map-node:hover::before,
+html.v1 .map-node:focus-visible::before,
+html.v1 .map-node:hover::after,
+html.v1 .map-node:focus-visible::after{opacity:1}
 html.v1 .map-node:focus-visible{
   outline:2px solid var(--focus-color);
   outline-offset:4px;
@@ -235,6 +244,7 @@ html.v1 .map-stage[data-active="autor"]{--route-work-opacity:.92;--route-process
     --route-work-opacity:0;
     --route-process-opacity:0;
     --route-public-opacity:0;
+    background:none;
   }
   html.v1 .map-stage::before,
   html.v1 .map-stage::after,
@@ -279,6 +289,8 @@ html.v1 .map-stage[data-active="autor"]{--route-work-opacity:.92;--route-process
     width:.8rem;
     height:1px;
     background:color-mix(in srgb,var(--color-accent-strong) 44%,transparent);
+    border:0;
+    opacity:1;
   }
   html.v1 .map-node strong{
     font-size:clamp(1.62rem,4.8vw,2.05rem);
@@ -316,6 +328,8 @@ html.v1 .map-stage[data-active="autor"]{--route-work-opacity:.92;--route-process
   html.v1 .map-stage::after,
   html.v1 .map-routes path:first-child,
   html.v1 .map-node,
+  html.v1 .map-node::before,
+  html.v1 .map-node::after,
   html.v1 .map-node strong,
   html.v1 .map-node__marker{transition:none}
   html.v1 .map-node:hover .map-node__marker,
