@@ -1,0 +1,49 @@
+name: Home cartography interaction QA
+
+on:
+  pull_request:
+    branches:
+      - implementacion-web-2026
+    paths:
+      - 'index.html'
+      - 'assets/v1-home.css'
+      - 'qa/home-map-interaction.mjs'
+      - '.github/workflows/home-map-interaction-qa.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  home-map:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Install current Chromium QA dependency
+        run: |
+          npm init -y >/dev/null 2>&1
+          npm install --no-save --package-lock=false playwright@1.62.1
+          npx playwright install --with-deps chromium
+      - name: Run cartography browser QA
+        run: |
+          set -e
+          python3 -m http.server 4173 --bind 127.0.0.1 > /tmp/home-map-http.log 2>&1 &
+          server_pid=$!
+          trap 'kill "$server_pid" 2>/dev/null || true' EXIT
+          for i in {1..30}; do
+            if curl -fsS http://127.0.0.1:4173/ >/dev/null; then break; fi
+            sleep 0.5
+          done
+          node qa/home-map-interaction.mjs
+      - name: Upload screenshots
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: home-map-interaction-qa
+          path: qa-artifacts/home-map/
+          if-no-files-found: warn
+          retention-days: 14
