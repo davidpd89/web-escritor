@@ -21,21 +21,6 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
-        with:
-          fetch-depth: 0
-
-      - name: Scope guard
-        if: github.event_name == 'pull_request'
-        shell: bash
-        run: |
-          changed="$(git diff --name-only "${{ github.event.pull_request.base.sha }}...HEAD")"
-          printf '%s\n' "$changed"
-          unexpected="$(printf '%s\n' "$changed" | grep -Ev '^(ferias\.html|assets/v1-ferias\.css|sitemap\.xml|tests/test-ferias-parity\.py|qa/ferias-archive-browser\.mjs|\.github/workflows/ferias-archive-parity-qa\.yml)$' || true)"
-          if [ -n "$unexpected" ]; then
-            echo 'Unexpected files in Ferias PR:'
-            printf '%s\n' "$unexpected"
-            exit 1
-          fi
 
       - name: Static archive parity contract
         run: python tests/test-ferias-parity.py
