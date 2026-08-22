@@ -162,7 +162,12 @@ def build_report(output: Path) -> int:
         if not ok:
             failures += 1
 
-    summary = "READY_FOR_HUMAN_MAIN_REVIEW" if failures == 0 else "BLOCKED"
+    # No decir "READY_FOR_HUMAN_MAIN_REVIEW". Este script corre 18 comprobaciones
+    # estaticas y un inventario de rutas: ni un suite de navegador, ni Lighthouse,
+    # ni pa11y, ni el gate de reflow. Un informe que se titula "listo para main"
+    # sin haber abierto un navegador invita a leerlo como una autorizacion que no
+    # es. El paquete final lo genera la tarea de release readiness v2.
+    summary = "STATIC_CHECKS_PASSED" if failures == 0 else "BLOCKED"
 
     lines: list[str] = []
     lines.append("# Release Readiness Evidence V1")
@@ -173,6 +178,15 @@ def build_report(output: Path) -> int:
     lines.append(f"- Previous SHA (rollback candidate): `{prev}`")
     lines.append("")
     lines.append(f"## Final Status: `{summary}`")
+    lines.append("")
+    lines.append("> **Este informe NO autoriza el merge a `main` ni el despliegue.**")
+    lines.append(">")
+    lines.append("> Cubre comprobaciones estaticas y el inventario de rutas. **No** ejecuta:")
+    lines.append("> los 12 suites de QA de navegador, Lighthouse, pa11y/WCAG2AA, el gate de")
+    lines.append("> reflow (zoom 200 % y text-spacing), no-JS, ni teclado. `STATIC_CHECKS_PASSED`")
+    lines.append("> significa exactamente lo que dice: las comprobaciones de esta tabla pasan.")
+    lines.append("> La evidencia completa la produce la tarea de release readiness v2 sobre un")
+    lines.append("> HEAD fresco, y la decision de promocionar a produccion es humana.")
     lines.append("")
     lines.append("## Commit Window (latest 20)")
     lines.append("")
@@ -242,7 +256,7 @@ def main() -> int:
     if code != 0:
         print("release-readiness: BLOCKED (one or more checks failed)")
     else:
-        print("release-readiness: READY_FOR_HUMAN_MAIN_REVIEW")
+        print("release-readiness: STATIC_CHECKS_PASSED (no cubre navegador/Lighthouse/pa11y)")
     return code
 
 

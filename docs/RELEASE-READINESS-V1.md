@@ -1,16 +1,26 @@
 # Release Readiness Evidence V1
 
-- Generated: `2026-08-22T09:26:41.323549+00:00`
+- Generated: `2026-08-22T12:02:02.305703+00:00`
 - Branch: `gpt/release-readiness-v1`
-- HEAD: `4b1641b8b1b0b0511d9683bcaea2e97aa227f4e3`
-- Previous SHA (rollback candidate): `e9207278747646b76a0f22ebf3703b3e19c0c3db`
+- HEAD: `64fa58fb7f8bd223e9fa8c32c554f43d2286998c`
+- Previous SHA (rollback candidate): `8a8d8f227a5e838876d4584aa9e220365fca2996`
 
-## Final Status: `READY_FOR_HUMAN_MAIN_REVIEW`
+## Final Status: `STATIC_CHECKS_PASSED`
+
+> **Este informe NO autoriza el merge a `main` ni el despliegue.**
+>
+> Cubre comprobaciones estaticas y el inventario de rutas. **No** ejecuta:
+> los 12 suites de QA de navegador, Lighthouse, pa11y/WCAG2AA, el gate de
+> reflow (zoom 200 % y text-spacing), no-JS, ni teclado. `STATIC_CHECKS_PASSED`
+> significa exactamente lo que dice: las comprobaciones de esta tabla pasan.
+> La evidencia completa la produce la tarea de release readiness v2 sobre un
+> HEAD fresco, y la decision de promocionar a produccion es humana.
 
 ## Commit Window (latest 20)
 
 ```text
-4b1641b Audit cleanup: harden article social cards and guard CI
+64fa58f release: add pre-main readiness evidence package v1
+8a8d8f2 Site audit: remove residual legacy and integration regressions V1 (#26)
 e920727 Visual system: finish editorial frames routes and media treatment V1 (#24)
 db68607 Convocatorias: migrate builder output to V1 shell parity (#22)
 cc5ef69 Handoff: add tasks 7-11 and run the secret scan on every PR (#25)
@@ -29,7 +39,6 @@ a05cac4 chore: remove probe scripts committed by mistake
 ad46b15 feat(footer): restore social profiles sitewide and fix two lost destinations
 7a10f26 ci: promote the Pa11y WCAG2AA baseline to a pull-request gate
 b863386 a11y: warn about disabled JavaScript on the four tools that did not
-e1d5aa9 chore: ignore the QA evidence directories
 ```
 
 ## Required Route Inventory
@@ -98,7 +107,7 @@ Files scanned: 84
 Indexable pages: 55
 
 INFO (1):
-  [noindex-skipped] 29 pages excluded (noindex): aviso-legal.html, privacidad.html, samuel-entre-mundos.html, asistente\embed.html, asistente\index.html, donde-empieza-la-jaula\index.html, lecturas\index.html, publicar-web\index.html �
+  [noindex-skipped] 29 pages excluded (noindex): aviso-legal.html, privacidad.html, samuel-entre-mundos.html, asistente\embed.html, asistente\index.html, donde-empieza-la-jaula\index.html, herramientas\auditor-web\index.html, lab\diseno-home-v1\article-pilot.html �
 
 Summary: 0 error(s), 0 warning(s)
 ```
@@ -228,7 +237,7 @@ test-social-card-article-specific: OK (7 pages checked)
 ## Rollback Procedure (Documented, not executed)
 
 1. Identify incident and freeze merges.
-2. Checkout rollback target SHA: `e9207278747646b76a0f22ebf3703b3e19c0c3db`.
+2. Checkout rollback target SHA: `8a8d8f227a5e838876d4584aa9e220365fca2996`.
 3. Re-run core checks:
 ```bash
 python scripts/check-local-assets.py

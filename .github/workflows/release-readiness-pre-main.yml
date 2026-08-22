@@ -3,8 +3,6 @@ name: Release Readiness Pre-Main
 on:
   workflow_dispatch:
   pull_request:
-    branches:
-      - implementacion-web-2026
     paths:
       - docs/RELEASE-READINESS-V1.md
       - scripts/release-readiness.py
@@ -20,9 +18,7 @@ jobs:
           python-version: '3.12'
       - uses: actions/setup-node@v4
         with:
-          node-version: '20'
-      - name: Install node dependencies
-        run: npm ci
+          node-version: '22'
       - name: Generate release readiness report
         run: python scripts/release-readiness.py --output docs/RELEASE-READINESS-V1.md
       - name: Upload readiness report artifact
