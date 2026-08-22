@@ -29,7 +29,7 @@ function newsletterErrorMessage(code) {
   if (code === "offline") return "No hay conexión. Revisa tu red e inténtalo de nuevo.";
   if (code === "timeout") return "La solicitud está tardando demasiado. Inténtalo de nuevo en unos segundos.";
   if (code === "rate_limited") return "Has hecho demasiados intentos. Espera un minuto e inténtalo de nuevo.";
-  return "Error al suscribirse. Escríbenos a samuelentremundos@gmail.com.";
+  return "Error al suscribirse. Escríbenos a davidportodiaz@gmail.com.";
 }
 
 async function postNewsletter(payload) {
