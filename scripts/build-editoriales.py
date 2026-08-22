@@ -196,42 +196,144 @@ SHARE_IMAGE_ALT = "David Porto Díaz, autor de Samuel entre mundos y Las manecil
 
 
 def page_shell(*, title: str, description: str, canonical: str, main_html: str, jsonld: dict, js: bool = False) -> str:
-    script = '<script src="/assets/editoriales.js" defer></script>' if js else ""
-    return f'''<!doctype html>
-<html lang="es">
+        script = '<script src="/assets/editoriales.js" defer></script>' if js else ""
+        return f'''<!DOCTYPE html>
+<html lang="es" class="v1">
 <head>
-  <meta charset="utf-8">
-  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; connect-src 'none'; img-src 'self'; style-src 'self'; font-src 'self'; script-src 'self'; object-src 'none'; base-uri 'self'; form-action 'none'; frame-src 'none'">
-  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-  <meta name="robots" content="index,follow,max-image-preview:large">
-  <title>{esc(title)}</title>
-  <meta name="description" content="{esc(description)}">
-  <meta name="author" content="David Porto Díaz">
-  <link rel="canonical" href="{esc(canonical)}">
-  <meta property="og:type" content="website">
-  <meta property="og:title" content="{esc(title)}">
-  <meta property="og:description" content="{esc(description)}">
-  <meta property="og:url" content="{esc(canonical)}">
-  <meta property="og:site_name" content="David Porto Díaz">
-  <meta property="og:locale" content="es_ES">
-  <meta property="og:image" content="{SHARE_IMAGE}">
-  <meta property="og:image:width" content="{SHARE_IMAGE_WIDTH}">
-  <meta property="og:image:height" content="{SHARE_IMAGE_HEIGHT}">
-  <meta property="og:image:alt" content="{esc(SHARE_IMAGE_ALT)}">
-  <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="{esc(title)}">
-  <meta name="twitter:description" content="{esc(description)}">
-  <meta name="twitter:image" content="{SHARE_IMAGE}">
-  <meta name="twitter:image:alt" content="{esc(SHARE_IMAGE_ALT)}">
-  <meta name="theme-color" content="#080a0c">
-  <link rel="stylesheet" href="/styles.css?v=202609-launch-1">
-  <link rel="stylesheet" href="/assets/editoriales.css">
-  <script type="application/ld+json">{html.escape(json.dumps(jsonld, ensure_ascii=False, separators=(',', ':')), quote=False)}</script>
+    <meta charset="UTF-8" />
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; connect-src 'none'; img-src 'self'; style-src 'self'; font-src 'self'; script-src 'self'; object-src 'none'; base-uri 'self'; form-action 'none'; frame-src 'none'">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+    <meta name="robots" content="index,follow,max-image-preview:large" />
+    <title>{esc(title)}</title>
+    <meta name="description" content="{esc(description)}">
+    <meta name="author" content="David Porto Díaz">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="{esc(title)}">
+    <meta property="og:description" content="{esc(description)}">
+    <meta property="og:url" content="{esc(canonical)}">
+    <meta property="og:site_name" content="David Porto Díaz">
+    <meta property="og:locale" content="es_ES">
+    <meta property="og:image" content="{SHARE_IMAGE}">
+    <meta property="og:image:width" content="{SHARE_IMAGE_WIDTH}">
+    <meta property="og:image:height" content="{SHARE_IMAGE_HEIGHT}">
+    <meta property="og:image:alt" content="{esc(SHARE_IMAGE_ALT)}">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="{esc(title)}">
+    <meta name="twitter:description" content="{esc(description)}">
+    <meta name="twitter:image" content="{SHARE_IMAGE}">
+    <meta name="twitter:image:alt" content="{esc(SHARE_IMAGE_ALT)}">
+    <meta name="theme-color" content="#F4EFE7" />
+    <link rel="canonical" href="{esc(canonical)}" />
+    <link rel="icon" type="image/png" href="/assets/david-porto-favicon.png" />
+    <link rel="apple-touch-icon" href="/assets/david-porto-favicon.png" />
+    <link rel="manifest" href="/manifest.json" />
+
+    <link rel="stylesheet" href="/assets/v1-fonts.css" />
+    <link rel="stylesheet" href="/assets/v1-tokens.css" />
+    <link rel="stylesheet" href="/assets/v1-base.css" />
+    <link rel="stylesheet" href="/assets/v1-shell.css" />
+    <link rel="stylesheet" href="/assets/v1-components.css" />
+    <link rel="stylesheet" href="/assets/v1-families.css" />
+    <link rel="stylesheet" href="/assets/v1-tools.css" />
+    <link rel="stylesheet" href="/assets/editoriales.css" />
+    <script type="application/ld+json">{html.escape(json.dumps(jsonld, ensure_ascii=False, separators=(',', ':')), quote=False)}</script>
 </head>
+
 <body>
-<a href="#main-content" class="skip-link">Saltar al contenido</a>
+    <a href="#contenido" class="skip-link">Saltar al contenido</a>
+
+    <header class="site-header" data-header>
+        <div class="site-header__inner">
+            <a class="brand" href="/" aria-label="David Porto Díaz — inicio">
+                <span class="brand__name">David Porto Díaz</span>
+                <span class="brand__role">Escritor</span>
+            </a>
+            <nav class="primary-nav" aria-label="Navegación principal">
+                <a href="/libros/">Obra</a>
+                <a href="/cuaderno/">Cuaderno</a>
+                <a href="/herramientas/" aria-current="page">Herramientas</a>
+            </nav>
+            <button class="explore-trigger" type="button" aria-haspopup="dialog" aria-controls="explore-dialog" aria-expanded="false" data-explore-open>
+                Explorar
+            </button>
+        </div>
+    </header>
+
+    <dialog class="explore-dialog" id="explore-dialog" aria-labelledby="explore-title" data-explore-dialog>
+        <div class="explore-dialog__shell">
+            <div class="explore-dialog__head">
+                <div>
+                    <p class="eyebrow">Índice general</p>
+                    <h2 id="explore-title">Explorar</h2>
+                </div>
+                <button class="icon-button" type="button" aria-label="Cerrar Explorar" data-explore-close>
+                    <svg aria-hidden="true" viewBox="0 0 24 24" width="20" height="20"><path d="M5 5l14 14M19 5L5 19"/></svg>
+                </button>
+            </div>
+
+            <div class="explore-dialog__grid">
+                <nav class="explore-list" aria-label="Destinos de la web">
+                    <a class="explore-row" href="/las-manecillas-del-recuerdo/" data-preview="manecillas">
+                        <span class="explore-row__index">01</span>
+                        <span class="explore-row__body"><strong>Las manecillas del recuerdo</strong><small>La obra actual.</small></span>
+                    </a>
+                    <a class="explore-row" href="/autor.html" data-preview="autor">
+                        <span class="explore-row__index">02</span>
+                        <span class="explore-row__body"><strong>Autor</strong><small>Biografía, obra y trayectoria.</small></span>
+                    </a>
+                    <a class="explore-row" href="/libros/samuel-entre-mundos/" data-preview="samuel">
+                        <span class="explore-row__index">03</span>
+                        <span class="explore-row__body"><strong>Samuel entre mundos</strong><small>Primera novela publicada.</small></span>
+                    </a>
+                    <a class="explore-row" href="/cuaderno/" data-preview="cuaderno">
+                        <span class="explore-row__index">04</span>
+                        <span class="explore-row__body"><strong>Cuaderno</strong><small>Artículos y piezas editoriales.</small></span>
+                    </a>
+                    <a class="explore-row" href="/herramientas/" data-preview="herramientas">
+                        <span class="explore-row__index">05</span>
+                        <span class="explore-row__body"><strong>Herramientas</strong><small>Utilidades gratuitas para escritores.</small></span>
+                    </a>
+                    <a class="explore-row" href="/prensa.html" data-preview="prensa">
+                        <span class="explore-row__index">06</span>
+                        <span class="explore-row__body"><strong>Prensa y eventos</strong><small>Apariciones, materiales y agenda.</small></span>
+                    </a>
+                </nav>
+
+                <aside class="explore-preview" aria-live="polite" aria-atomic="true" data-explore-preview>
+                    <div class="explore-preview__media" aria-hidden="true" data-preview-media></div>
+                    <p class="explore-preview__label" data-preview-label>Herramientas</p>
+                    <p class="explore-preview__copy" data-preview-copy>Utilidades gratuitas para escritores.</p>
+                </aside>
+            </div>
+        </div>
+    </dialog>
+
 {main_html}
-{script}
+
+    <footer class="site-footer">
+        <div class="site-footer__grid">
+            <div>
+                <strong class="brand__name">David Porto Díaz</strong>
+                <p>Autor de Las manecillas del recuerdo y Samuel entre mundos.</p>
+                <div class="social-row">
+                <a class="social-icon" href="https://www.instagram.com/davidportodiaz/" target="_blank" rel="noopener noreferrer me" aria-label="Instagram" title="Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true" focusable="false"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="3.8"/><circle cx="17.3" cy="6.7" r="0.6" fill="currentColor" stroke="none"/></svg></a>
+                <a class="social-icon" href="https://www.facebook.com/profile.php?id=61590793667301" target="_blank" rel="noopener noreferrer me" aria-label="Facebook" title="Facebook"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" focusable="false"><path d="M16.7 3H7.3A4.3 4.3 0 0 0 3 7.3v9.4A4.3 4.3 0 0 0 7.3 21h4.2v-6.6H9.4v-2.6h2.1V9.8c0-2.1 1.3-3.3 3.2-3.3.9 0 1.7.1 1.9.1v2.2h-1.3c-1 0-1.2.5-1.2 1.2v1.7h2.4l-.3 2.6h-2.1V21h2.6a4.3 4.3 0 0 0 4.3-4.3V7.3A4.3 4.3 0 0 0 16.7 3z"/></svg></a>
+                <a class="social-icon" href="https://www.tiktok.com/@davidportoescritor" target="_blank" rel="noopener noreferrer me" aria-label="TikTok" title="TikTok"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" focusable="false"><path d="M14 3c.4 2.2 2 3.8 4.2 4.1v2.7c-1.5 0-2.9-.4-4.1-1.2v6.1a4.9 4.9 0 1 1-4.2-4.9v2.7a2.2 2.2 0 1 0 1.6 2.1V3h2.5z"/></svg></a>
+                <a class="social-icon" href="https://www.threads.net/@davidportodiaz" target="_blank" rel="noopener noreferrer me" aria-label="Threads" title="Threads"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true" focusable="false"><path d="M12 21c4.4 0 7-2.8 7-7.5C19 8 16.5 4 12 4 8 4 5.5 6.8 5.5 11c0 3 1.8 4.8 4.3 4.8 2 0 3.4-1.2 3.4-3 0-1.4-.9-2.3-2.1-2.3-.9 0-1.5.5-1.7 1.2"/></svg></a>
+                <a class="social-icon" href="https://bsky.app/profile/davidportoescritor.bsky.social" target="_blank" rel="noopener noreferrer me" aria-label="Bluesky" title="Bluesky"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" focusable="false"><path d="M12 7c-1.6-2.3-4.6-3.6-6.7-3.2-.3 2.3.4 5.4 2 7.1-1.6.1-2.8.8-3 1.7.7.9 2.3 1.3 3.8 1-.9 1.1-1.1 2.6-.5 3.8 1.6.1 3.7-1.1 4.6-2.8.4 1 .9 1.9 1.5 2.6.6-.7 1.1-1.6 1.5-2.6.9 1.7 3 2.9 4.6 2.8.6-1.2.4-2.7-.5-3.8 1.5.3 3.1-.1 3.8-1-.2-.9-1.4-1.6-3-1.7 1.6-1.7 2.3-4.8 2-7.1-2.1-.4-5.1.9-6.7 3.2-.2.3-.4.6-.5 1-.1-.4-.3-.7-.5-1z"/></svg></a>
+                <a class="social-icon" href="https://www.pinterest.com/davidportodiaz/" target="_blank" rel="noopener noreferrer me" aria-label="Pinterest" title="Pinterest"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" focusable="false"><path d="M12 2C6.5 2 3 5.6 3 10c0 3.2 1.8 5.1 3 5.7.2.1.4 0 .4-.3l.4-1.5c0-.2 0-.3-.1-.5-.4-.5-.7-1.4-.7-2.3 0-3 2.2-5.7 5.8-5.7 3.1 0 4.9 1.9 4.9 4.5 0 3.4-1.5 5.6-3.5 5.6-1.1 0-2-.9-1.7-2.1.3-1.3.9-2.7.9-3.7 0-.8-.5-1.5-1.4-1.5-1.1 0-2 1.2-2 2.7 0 1 .3 1.7.3 1.7s-1.2 4.9-1.4 5.8c-.4 1.6-.1 3.6 0 3.8.1.1.2.1.3 0 .1-.2 1.5-1.9 2-3.5.1-.4.6-2.3.6-2.3.3.6 1.2 1.1 2.2 1.1 2.9 0 5-2.7 5-6.4C20 5.7 16.5 2 12 2z"/></svg></a>
+                <a class="social-icon" href="https://www.linkedin.com/in/davidportodiaz/" target="_blank" rel="noopener noreferrer me" aria-label="LinkedIn" title="LinkedIn"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" focusable="false"><path d="M5 3a2 2 0 1 0 0 4 2 2 0 0 0 0-4zM3.5 9h3v12h-3V9zm6.5 0h2.9v1.6c.5-.9 1.7-1.9 3.4-1.9 3.6 0 4.6 2.3 4.6 5.4V21h-3v-6.1c0-1.5-.5-2.5-1.9-2.5-1.4 0-2 1-2 2.4V21h-3V9z"/></svg></a>
+                <a class="text-action" href="https://www.goodreads.com/author/show/66843136.David_Porto_D_az" target="_blank" rel="noopener noreferrer">Goodreads</a>
+                </div>
+            </div>
+            <nav aria-label="Obra"><h2>Obra</h2><a href="/las-manecillas-del-recuerdo/">Las manecillas del recuerdo</a><a href="/libros/samuel-entre-mundos/">Samuel entre mundos</a><a href="/fragmento/">Fragmento gratis</a></nav>
+            <nav aria-label="Leer y recursos"><h2>Leer</h2><a href="/cuaderno/">Cuaderno</a><a href="/herramientas/" aria-current="page">Herramientas</a><a href="/mapa-del-sitio/">Mapa del sitio</a></nav>
+            <nav aria-label="Información"><h2>Información</h2><a href="/autor.html">Autor</a><a href="/prensa.html">Prensa</a><a href="/eventos.html">Eventos</a><a href="/privacidad.html">Privacidad</a><a href="/aviso-legal.html">Aviso legal</a><a href="/ai/">Para IA</a></nav>
+        </div>
+    </footer>
+
+    <script defer src="/assets/v1-shell.js"></script>
+    {script}
 </body>
 </html>
 '''
@@ -240,8 +342,8 @@ def page_shell(*, title: str, description: str, canonical: str, main_html: str, 
 def breadcrumbs(items: list[tuple[str, str | None]]) -> str:
     rendered = []
     for label, url in items:
-        rendered.append(f'<a href="{esc(url)}">{esc(label)}</a>' if url else f'<span>{esc(label)}</span>')
-    return '<nav class="breadcrumb article-breadcrumb" aria-label="Ruta de navegación">' + '<span aria-hidden="true">›</span>'.join(rendered) + '</nav>'
+        rendered.append(f'<li><a href="{esc(url)}">{esc(label)}</a></li>' if url else f'<li aria-current="page">{esc(label)}</li>')
+    return '<nav class="book-breadcrumb" aria-label="Ruta de navegación"><ol>' + ''.join(rendered) + '</ol></nav>'
 
 
 def breadcrumb_jsonld(base: str, items: list[tuple[str, str]]) -> dict:
@@ -269,35 +371,42 @@ def render_index(site: str, records: list[dict], today: date) -> str:
     for r in records:
         genres_pipe = "|".join(r["genres"])
         tags = "".join(f'<span class="editorial-genre">{esc(g)}</span>' for g in r["genres"])
-        stale_note = '<p class="editorial-stale">Verificación antigua: revisa la fuente oficial antes de enviar.</p>' if stale(r, today) else ""
+        stale_note = '<p class="tool-note">Verificación antigua: revisa la fuente oficial antes de enviar.</p>' if stale(r, today) else ""
         cards.append(f'''
-<article class="editorial-card" data-editorial-card data-name="{esc(r['name'])}" data-group="{esc(r['group'])}" data-genres="{esc(genres_pipe)}" data-status="{esc(r['status'])}" data-direct="{'true' if r['direct_submission'] else 'false'}">
-  <div class="editorial-card__head"><div><h2><a href="/editoriales/{esc(r['slug'])}/">{esc(r['name'])}</a></h2><p>{esc(r['group'])}</p></div>{status_badge(r)}</div>
+<article class="id-card editorial-card" data-editorial-card data-name="{esc(r['name'])}" data-group="{esc(r['group'])}" data-genres="{esc(genres_pipe)}" data-status="{esc(r['status'])}" data-direct="{'true' if r['direct_submission'] else 'false'}">
+    <div class="editorial-card__head"><div><h2><a href="/editoriales/{esc(r['slug'])}/">{esc(r['name'])}</a></h2><p class="tool-meta">{esc(r['group'])}</p></div>{status_badge(r)}</div>
   <p>{esc(r['summary'])}</p>
-  <div class="editorial-genres" aria-label="Géneros">{tags}</div>
+    <div class="editorial-genres">{tags}</div>
   <p class="editorial-verified">Comprobado: <time datetime="{esc(r['verified_at'])}">{esc(r['verified_at'])}</time></p>
   {stale_note}
-  <div class="editorial-card__actions"><a href="/editoriales/{esc(r['slug'])}/">Ver requisitos y fuentes<span class="sr-only"> de {esc(r['name'])}</span></a></div>
+    <div class="id-card__actions"><a class="text-action" href="/editoriales/{esc(r['slug'])}/">Ver requisitos y fuentes<span class="sr-only"> de {esc(r['name'])}</span></a></div>
 </article>''')
 
     genre_options = ''.join(f'<option value="{esc(g)}">{esc(g)}</option>' for g in genres)
     canonical = f"{site}/editoriales/"
     description = "Directorio verificado de editoriales: recepción de manuscritos, requisitos, canal oficial, fecha de comprobación e historial de cambios."
     main = f'''
-<main id="main-content" tabindex="-1" class="editorial-directory" data-editoriales-directory>
+<main id="contenido" tabindex="-1" class="v1-main" data-family="tool" data-editoriales-directory>
   {breadcrumbs([('Inicio', '/'), ('Editoriales', None)])}
-  <header class="editorial-hero"><p class="eyebrow">Recurso para escritores</p><h1>Editoriales y recepción de manuscritos, verificadas.</h1><p class="lead">No es una lista copiada de contactos. Cada ficha separa hechos públicos, fecha de comprobación y fuente oficial para que puedas saber qué acepta una editorial y qué pide antes de enviar.</p></header>
-  <aside class="editorial-trust-note"><strong>Importante:</strong> davidportodiaz.com no representa a estas editoriales ni garantiza que una convocatoria siga abierta después de la fecha indicada. Comprueba siempre la fuente oficial antes de enviar. <a href="/metodologia-editorial/">Cómo se verifica y se corrige esta información</a>.</aside>
-  <section class="editorial-filters" aria-label="Filtrar editoriales">
-    <div class="editorial-filter editorial-filter--search"><label for="editoriales-q">Buscar</label><input id="editoriales-q" type="search" autocomplete="off" enterkeyhint="search" placeholder="Editorial, sello, género…" data-editoriales-search></div>
-    <div class="editorial-filter"><label for="editoriales-genero">Género</label><select id="editoriales-genero" data-editoriales-genre><option value="">Todos</option>{genre_options}</select></div>
-    <div class="editorial-filter"><label for="editoriales-estado">Estado</label><select id="editoriales-estado" data-editoriales-status><option value="">Todos</option><option value="open">Acepta manuscritos</option><option value="closed">Recepción cerrada</option><option value="indirect">Vía indirecta</option><option value="award_only">Solo convocatoria/premio</option><option value="unknown">Por verificar</option></select></div>
-    <label class="editorial-check"><input type="checkbox" data-editoriales-direct> <span>Solo envío directo</span></label>
-    <button class="editorial-reset" type="button" data-editoriales-reset>Limpiar</button>
+    <header class="tool-hero">
+        <p class="eyebrow">Recurso para escritores</p>
+        <h1>Editoriales y recepción de manuscritos, verificadas.</h1>
+        <p class="tool-hero__lead">No es una lista copiada de contactos. Cada ficha separa hechos públicos, fecha de comprobación y fuente oficial para que puedas saber qué acepta una editorial y qué pide antes de enviar.</p>
+        <p class="tool-note"><strong>Importante:</strong> davidportodiaz.com no representa a estas editoriales ni garantiza que una convocatoria siga abierta después de la fecha indicada. Comprueba siempre la fuente oficial antes de enviar. <a href="/metodologia-editorial/">Cómo se verifica y se corrige esta información</a>.</p>
+    </header>
+    <section class="tool-finder" aria-label="Filtrar editoriales">
+        <div class="tool-options">
+            <div class="tool-field"><label class="tool-field-label" for="editoriales-q">Buscar</label><input class="tool-input" id="editoriales-q" type="search" autocomplete="off" enterkeyhint="search" placeholder="Editorial, sello, género…" data-editoriales-search></div>
+            <div class="tool-field"><label class="tool-field-label" for="editoriales-genero">Género</label><select class="tool-select" id="editoriales-genero" data-editoriales-genre><option value="">Todos</option>{genre_options}</select></div>
+            <div class="tool-field"><label class="tool-field-label" for="editoriales-estado">Estado</label><select class="tool-select" id="editoriales-estado" data-editoriales-status><option value="">Todos</option><option value="open">Acepta manuscritos</option><option value="closed">Recepción cerrada</option><option value="indirect">Vía indirecta</option><option value="award_only">Solo convocatoria/premio</option><option value="unknown">Por verificar</option></select></div>
+        </div>
+        <label class="tool-check"><input type="checkbox" data-editoriales-direct> <span>Solo envío directo</span></label>
+        <div class="tool-actions"><button class="text-action" type="button" data-editoriales-reset>Limpiar</button></div>
+        <p class="tool-count"><strong data-editoriales-count role="status" aria-live="polite">{len(records)} editoriales</strong> · Los filtros se guardan en el fragmento <code>#</code>; no crean páginas SEO nuevas.</p>
   </section>
-  <div class="editorial-results-meta"><strong data-editoriales-count role="status" aria-live="polite">{len(records)} editoriales</strong><span>Los filtros se guardan en el fragmento <code>#</code>; no crean páginas SEO nuevas.</span></div>
-  <section class="editorial-grid" aria-label="Directorio de editoriales">{''.join(cards)}</section>
-  <p class="editorial-empty" data-editoriales-empty hidden>No hay editoriales que coincidan con esos filtros.</p>
+    <section class="v1-section" aria-label="Directorio de editoriales"><div class="id-cards">{''.join(cards)}</div>
+    <p class="tool-note" data-editoriales-empty hidden>No hay editoriales que coincidan con esos filtros.</p>
+    </section>
 </main>'''
     jsonld = {
         "@context": "https://schema.org",
@@ -334,28 +443,24 @@ def render_detail(site: str, record: dict, today: date) -> str:
     email = record.get("submission_email")
     email_html = f'<a href="mailto:{esc(email)}">{esc(email)}</a>' if email else "No se publica un correo de envío para el estado actual."
     response = esc(record.get("response_time") or "No se publica un plazo oficial en esta ficha.")
-    stale_html = '<aside class="editorial-stale"><strong>Revisión recomendada:</strong> esta ficha lleva más de 90 días sin verificarse. Comprueba la fuente oficial antes de usar los datos.</aside>' if stale(record, today) else ""
+    stale_html = '<p class="tool-note"><strong>Revisión recomendada:</strong> esta ficha lleva más de 90 días sin verificarse. Comprueba la fuente oficial antes de usar los datos.</p>' if stale(record, today) else ""
     description = f"{record['name']}: estado de recepción de manuscritos, requisitos, canal oficial, fuentes y fecha de comprobación."
 
     main = f'''
-<main id="main-content" tabindex="-1" class="editorial-detail">
+<main id="contenido" tabindex="-1" class="v1-main" data-family="tool">
   {breadcrumbs([('Inicio', '/'), ('Editoriales', '/editoriales/'), (record['name'], None)])}
-  <header class="editorial-detail__header"><p class="eyebrow">Ficha editorial verificada</p><h1>{esc(record['name'])}</h1><div class="editorial-badges">{status_badge(record)}<span class="editorial-badge">{esc(record['publisher_type'])}</span></div><p class="lead">{esc(record['summary'])}</p><div class="editorial-genres">{genre_tags}</div></header>
-  {stale_html}
-  <dl class="editorial-facts">
-    <div class="editorial-fact"><dt>Estado de originales</dt><dd>{esc(status)}</dd></div>
-    <div class="editorial-fact"><dt>Última comprobación</dt><dd><time datetime="{esc(record['verified_at'])}">{esc(record['verified_at'])}</time></dd></div>
-    <div class="editorial-fact"><dt>Canal</dt><dd>{esc(record['submission_channel'])}</dd></div>
-    <div class="editorial-fact"><dt>Correo de envío</dt><dd>{email_html}</dd></div>
-    <div class="editorial-fact"><dt>Grupo / tipo</dt><dd>{esc(record['group'])}</dd></div>
-    <div class="editorial-fact"><dt>País</dt><dd>{esc(record['country'])}</dd></div>
-  </dl>
-  <section class="editorial-section"><h2>Qué pide ahora</h2><ul>{requirements}</ul><p><a class="editorial-primary-link" href="{esc(record['submission_url'])}" target="_blank" rel="noopener noreferrer">Comprobar las instrucciones oficiales</a></p></section>
-  <section class="editorial-section"><h2>Plazo de respuesta publicado</h2><p>{response}</p></section>
-  <section class="editorial-section"><h2>Nota editorial</h2><p>{esc(record['public_note'])}</p></section>
-  <section class="editorial-section"><h2>Historial de comprobaciones y cambios</h2><ul class="editorial-history">{history}</ul></section>
-  <section class="editorial-section"><h2>Fuentes</h2><ul class="editorial-source-list">{sources}</ul><p>Esta ficha distingue siempre la fuente oficial de nuestro resumen.</p></section>
-  <aside class="editorial-disclaimer"><strong>No es asesoramiento ni representación.</strong> Esta ficha es informativa. {esc(record['name'])} no participa en su redacción y sus instrucciones oficiales prevalecen siempre. <a href="/metodologia-editorial/">Cómo se verifica y se corrige esta información</a>.</aside>
+    <header class="tool-hero"><p class="eyebrow">Ficha editorial verificada</p><h1>{esc(record['name'])}</h1><div class="editorial-genres editorial-genres--spaced">{status_badge(record)}<span class="editorial-badge">{esc(record['publisher_type'])}</span></div><p class="tool-hero__lead">{esc(record['summary'])}</p><div class="editorial-genres">{genre_tags}</div></header>
+    <section class="v1-section">
+        {stale_html}
+        <dl class="spec-ledger"><div class="editorial-fact"><dt>Estado de originales</dt><dd>{esc(status)}</dd></div><div class="editorial-fact"><dt>Última comprobación</dt><dd><time datetime="{esc(record['verified_at'])}">{esc(record['verified_at'])}</time></dd></div><div class="editorial-fact"><dt>Canal</dt><dd>{esc(record['submission_channel'])}</dd></div><div class="editorial-fact"><dt>Correo de envío</dt><dd>{email_html}</dd></div><div class="editorial-fact"><dt>Grupo / tipo</dt><dd>{esc(record['group'])}</dd></div><div class="editorial-fact"><dt>País</dt><dd>{esc(record['country'])}</dd></div></dl>
+
+        <div class="tool-findings-block"><h2>Qué pide ahora</h2><ul class="tool-findings">{requirements}</ul><p class="tool-actions"><a class="text-action" href="{esc(record['submission_url'])}" target="_blank" rel="noopener noreferrer">Comprobar las instrucciones oficiales</a></p></div>
+        <div class="tool-findings-block"><h2>Plazo de respuesta publicado</h2><p>{response}</p></div>
+        <div class="tool-findings-block"><h2>Nota editorial</h2><p>{esc(record['public_note'])}</p></div>
+        <div class="tool-findings-block"><h2>Historial de comprobaciones y cambios</h2><ul class="tool-findings">{history}</ul></div>
+        <div class="tool-findings-block"><h2>Fuentes</h2><ul class="tool-source-list">{sources}</ul><p class="tool-note">Esta ficha distingue siempre la fuente oficial de nuestro resumen.</p></div>
+        <p class="tool-note"><strong>No es asesoramiento ni representación.</strong> Esta ficha es informativa. {esc(record['name'])} no participa en su redacción y sus instrucciones oficiales prevalecen siempre. <a href="/metodologia-editorial/">Cómo se verifica y se corrige esta información</a>.</p>
+    </section>
 </main>'''
 
     jsonld = {
@@ -445,21 +550,23 @@ def render_methodology(site: str, records: list[dict], today: date) -> str:
         "editoriales: fuentes primarias, estados permitidos, caducidad y correcciones."
     )
     main_html = f'''
-<main id="main-content" tabindex="-1" class="editorial-directory">
+<main id="contenido" tabindex="-1" class="v1-main" data-family="tool">
   {breadcrumbs([('Inicio', '/'), ('Editoriales', '/editoriales/'), ('Metodología', None)])}
-  <header class="editorial-hero"><p class="eyebrow">Metodología</p><h1>Cómo se verifica esta información.</h1><p class="lead">Cada ficha del directorio se genera a partir de un dataset validado, no se escribe a mano. Esta página explica de dónde sale cada dato, cuándo caduca y cómo se corrige.</p></header>
+    <header class="tool-hero"><p class="eyebrow">Metodología</p><h1>Cómo se verifica esta información.</h1><p class="tool-hero__lead">Cada ficha del directorio se genera a partir de un dataset validado, no se escribe a mano. Esta página explica de dónde sale cada dato, cuándo caduca y cómo se corrige.</p></header>
 
-  <section class="editorial-section"><h2>De dónde sale cada dato</h2><p>Los datos de recepción de manuscritos proceden de la página oficial de cada editorial. Cada ficha enlaza esa fuente primaria y separa siempre el hecho publicado por la editorial de cualquier resumen propio. Cuando la editorial no publica una vía de envío directa, la ficha lo dice en vez de deducirlo.</p><p>Actualmente el directorio publica {plural_fichas(count)}.</p></section>
+    <section class="v1-section">
+        <div class="tool-findings-block"><h2>De dónde sale cada dato</h2><p>Los datos de recepción de manuscritos proceden de la página oficial de cada editorial. Cada ficha enlaza esa fuente primaria y separa siempre el hecho publicado por la editorial de cualquier resumen propio. Cuando la editorial no publica una vía de envío directa, la ficha lo dice en vez de deducirlo.</p><p>Actualmente el directorio publica {plural_fichas(count)}.</p></div>
 
-  <section class="editorial-section"><h2>Estados de recepción</h2><p>El estado es un valor cerrado, no texto libre, para que no aparezcan variantes contradictorias entre fichas:</p><dl class="editorial-facts">{states}</dl></section>
+        <div class="tool-findings-block"><h2>Estados de recepción</h2><p>El estado es un valor cerrado, no texto libre, para que no aparezcan variantes contradictorias entre fichas:</p><dl class="spec-ledger">{states}</dl></div>
 
-  <section class="editorial-section"><h2>Fechas y caducidad</h2><p>Cada ficha distingue dos fechas: <strong>última comprobación</strong> (cuándo se revisó la fuente oficial) y <strong>última actualización de la página</strong> (cuándo cambió de forma significativa el contenido publicado aquí). Una ficha comprobada hace más de 90 días se marca para revisión: la información de recepción cambia sin aviso y una fecha vieja no es una garantía.</p></section>
+        <div class="tool-findings-block"><h2>Fechas y caducidad</h2><p>Cada ficha distingue dos fechas: <strong>última comprobación</strong> (cuándo se revisó la fuente oficial) y <strong>última actualización de la página</strong> (cuándo cambió de forma significativa el contenido publicado aquí). Una ficha comprobada hace más de 90 días se marca para revisión: la información de recepción cambia sin aviso y una fecha vieja no es una garantía.</p></div>
 
-  <section class="editorial-section"><h2>Qué no se publica</h2><p>El dataset público se genera filtrando la hoja de trabajo interna, así que notas privadas y campos de seguimiento no llegan a la web. Los correos de contacto solo se publican cuando la propia editorial los ofrece como vía de envío y la recepción está abierta: publicar un correo histórico de una recepción cerrada solo genera envíos que nadie va a leer.</p><p>No hay valoraciones, rankings ni recomendaciones de una editorial sobre otra. El builder falla si alguien intenta introducir un campo de ranking.</p></section>
+        <div class="tool-findings-block"><h2>Qué no se publica</h2><p>El dataset público se genera filtrando la hoja de trabajo interna, así que notas privadas y campos de seguimiento no llegan a la web. Los correos de contacto solo se publican cuando la propia editorial los ofrece como vía de envío y la recepción está abierta: publicar un correo histórico de una recepción cerrada solo genera envíos que nadie va a leer.</p><p>No hay valoraciones, rankings ni recomendaciones de una editorial sobre otra. El builder falla si alguien intenta introducir un campo de ranking.</p></div>
 
-  <section class="editorial-section"><h2>Correcciones</h2><p>Si eres responsable de una editorial listada o detectas un dato incorrecto u obsoleto, escribe a <a href="mailto:samuelentremundos@gmail.com">samuelentremundos@gmail.com</a> indicando la ficha y la fuente oficial. Las correcciones con fuente se aplican y quedan reflejadas en el historial de comprobaciones de la ficha correspondiente.</p></section>
+        <div class="tool-findings-block"><h2>Correcciones</h2><p>Si eres responsable de una editorial listada o detectas un dato incorrecto u obsoleto, escribe a <a href="mailto:samuelentremundos@gmail.com">samuelentremundos@gmail.com</a> indicando la ficha y la fuente oficial. Las correcciones con fuente se aplican y quedan reflejadas en el historial de comprobaciones de la ficha correspondiente.</p></div>
 
-  <aside class="editorial-disclaimer"><strong>No es asesoramiento ni representación.</strong> davidportodiaz.com no representa a ninguna de estas editoriales. Las instrucciones oficiales de cada editorial prevalecen siempre sobre lo que se resuma aquí.</aside>
+        <p class="tool-note"><strong>No es asesoramiento ni representación.</strong> davidportodiaz.com no representa a ninguna de estas editoriales. Las instrucciones oficiales de cada editorial prevalecen siempre sobre lo que se resuma aquí.</p>
+    </section>
 </main>'''
 
     jsonld = {
@@ -488,25 +595,7 @@ def render_methodology(site: str, records: list[dict], today: date) -> str:
 
 
 def write_page(path: Path, html: str) -> None:
-    """Escribe una pagina generada, salvo que eso revierta una migracion hecha a mano.
-
-    Este directorio se migro a V1 en 0ed1303 sin actualizar estas plantillas, asi
-    que el builder sigue emitiendo el marcado anterior. `--check` solo valida el
-    dataset, nunca este HTML, de modo que ejecutar el builder sin `--check`
-    revertiria las cinco paginas al diseno viejo sin que nada avisara. La condicion
-    es estrecha a proposito: solo aborta cuando el fichero en disco es V1 y lo que
-    ibamos a escribir no lo es. En cuanto las plantillas emitan V1, deja de saltar
-    y la regeneracion normal vuelve a funcionar.
-    """
-    if path.exists():
-        current = path.read_text(encoding="utf-8")
-        if current != html and 'class="v1"' in current and 'class="v1"' not in html:
-            raise SystemExit(
-                f"ABORTADO: {path} esta migrada a V1 y esta plantilla emite el diseno "
-                f"anterior; escribirla revertiria la pagina.\n"
-                f"Actualiza el render_* correspondiente para que emita V1, o borra el "
-                f"fichero si de verdad quieres regenerarlo desde la plantilla."
-            )
+    """Escribe una página generada del directorio editorial V1."""
     path.write_text(html, encoding="utf-8")
 
 
