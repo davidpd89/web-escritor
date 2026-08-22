@@ -59,6 +59,7 @@ jobs:
         run: node qa/identity-public-browser.mjs
 
       - name: Awards evidence browser QA and screenshots
+        if: always()
         env:
           IDENTITY_BASE_URL: http://127.0.0.1:4173
           IDENTITY_ARTIFACT_DIR: artifacts/identity-public
