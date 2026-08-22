@@ -30,6 +30,26 @@ function makeRequest(body, { method = 'POST', origin = ALLOWED_ORIGIN, headers =
   return new Request('https://subscribe.example.workers.dev/', init);
 }
 
+function makeMockKv(nowRef) {
+  const store = new Map();
+  return {
+    async get(key) {
+      const row = store.get(key);
+      if (!row) return null;
+      if (row.expiresAt <= nowRef.value) {
+        store.delete(key);
+        return null;
+      }
+      return row.value;
+    },
+    async put(key, value, options = {}) {
+      const ttl = Number(options.expirationTtl || 0);
+      const expiresAt = nowRef.value + Math.max(0, ttl) * 1000;
+      store.set(key, { value: String(value), expiresAt });
+    },
+  };
+}
+
 // Capture whatever the Worker would have sent to Brevo, without hitting the
 // network. Restored after each call site below via try/finally.
 function withMockedBrevoFetch(fakeStatus, fakeBody, fn) {
@@ -183,6 +203,85 @@ async function run() {
     assert.deepEqual(forwarded.listIds, [3]); // from env.BREVO_LIST_ID, not the client's [999]
     assert.deepEqual(forwarded.attributes, { SOURCE: 'home' }); // server-derived, not attacker-controlled
     assert.equal(forwarded.updateEnabled, true); // hardcoded server-side, not the client's false
+  }
+
+  // Honeypot field with content must look like a valid signup response, but
+  // must not call Brevo.
+  {
+    const res = await withMockedBrevoFetch(201, { id: 1 }, async (calls) => {
+      const response = await worker.fetch(
+        makeRequest({ email: 'bot@example.com', source: 'home', website: 'https://spam.example' }),
+        makeEnv()
+      );
+      assert.equal(calls.length, 0, 'Brevo must not be called for honeypot hits');
+      return response;
+    });
+    assert.equal(res.status, 201);
+    const body = await res.json();
+    assert.deepEqual(body, { ok: true });
+  }
+
+  // Honeypot empty keeps normal behavior and still calls Brevo once.
+  {
+    const calls = [];
+    const res = await withMockedBrevoFetch(201, { id: 1 }, async (capturedCalls) => {
+      const response = await worker.fetch(
+        makeRequest({ email: 'reader4@example.com', source: 'home', website: '' }),
+        makeEnv()
+      );
+      calls.push(...capturedCalls);
+      return response;
+    });
+    assert.equal(res.status, 201);
+    assert.equal(calls.length, 1);
+  }
+
+  // KV-backed rate limiting: 6th attempt in the same window is blocked.
+  {
+    const nowRef = { value: Date.now() };
+    const env = makeEnv({ RATE_LIMIT_KV: makeMockKv(nowRef) });
+    const calls = [];
+    await withMockedBrevoFetch(201, { id: 1 }, async (capturedCalls) => {
+      for (let i = 0; i < 5; i += 1) {
+        const res = await worker.fetch(
+          makeRequest({ email: `limit${i}@example.com`, source: 'home' }, { headers: { 'CF-Connecting-IP': '198.51.100.10' } }),
+          env
+        );
+        assert.equal(res.status, 201);
+      }
+      const blocked = await worker.fetch(
+        makeRequest({ email: 'limit-blocked@example.com', source: 'home' }, { headers: { 'CF-Connecting-IP': '198.51.100.10' } }),
+        env
+      );
+      calls.push(...capturedCalls);
+      assert.equal(blocked.status, 429);
+      const body = await blocked.json();
+      assert.equal(body.ok, false);
+    });
+    assert.equal(calls.length, 5, 'Blocked request must not call Brevo');
+  }
+
+  // Rate-limit window expiration resets the counter.
+  {
+    const nowRef = { value: Date.now() };
+    const env = makeEnv({ RATE_LIMIT_KV: makeMockKv(nowRef) });
+    const calls = [];
+    await withMockedBrevoFetch(201, { id: 1 }, async (capturedCalls) => {
+      for (let i = 0; i < 5; i += 1) {
+        await worker.fetch(
+          makeRequest({ email: `ttl${i}@example.com`, source: 'home' }, { headers: { 'CF-Connecting-IP': '198.51.100.20' } }),
+          env
+        );
+      }
+      nowRef.value += 10 * 60 * 1000 + 1000;
+      const resAfterWindow = await worker.fetch(
+        makeRequest({ email: 'ttl-after@example.com', source: 'home' }, { headers: { 'CF-Connecting-IP': '198.51.100.20' } }),
+        env
+      );
+      calls.push(...capturedCalls);
+      assert.equal(resAfterWindow.status, 201);
+    });
+    assert.equal(calls.length, 6);
   }
 
   // Quiz source: a valid result is included as the NOVERIS attribute.

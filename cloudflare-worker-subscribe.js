@@ -12,8 +12,15 @@
  *        Value: 3   (el ID numerico de la lista de Brevo a la que se suscribe
  *                     todo el sitio; ver NEWSLETTER_CONFIG.endpoint en
  *                     script.js)
- *   5. Copy the Worker URL (e.g. https://subscribe.davidportodiaz.workers.dev)
- *   6. Update WORKER_URL in script.js with that URL
+ *   5. Settings → Variables and Secrets → Add variable:
+ *        Name:  BREVO_DOI_REDIRECT_URL
+ *        Value: https://davidportodiaz.com/gracias-suscripcion/
+ *        (la URL de retorno de doble confirmacion configurada en Brevo)
+ *   6. Settings → KV Namespace Bindings → Add binding:
+ *        Variable name: RATE_LIMIT_KV
+ *        KV namespace:  (namespace real creado en Cloudflare)
+ *   7. Copy the Worker URL (e.g. https://subscribe.davidportodiaz.workers.dev)
+ *   8. Update WORKER_URL in script.js with that URL
  *
  * The script.js file already has WORKER_URL ready — just update the placeholder.
  *
@@ -86,6 +93,8 @@
  */
 
 const ALLOWED_ORIGIN = "https://davidportodiaz.com";
+const RATE_LIMIT_MAX_ATTEMPTS = 5;
+const RATE_LIMIT_WINDOW_SECONDS = 10 * 60;
 
 // Server-side whitelist: maps a client-supplied `source` label to the exact
 // Brevo SOURCE attribute value. Must stay in sync with the source labels
@@ -126,6 +135,15 @@ export default {
       return new Response("Forbidden", { status: 403 });
     }
 
+    const clientIp = getClientIp(request);
+    const allowed = await isRateLimitAllowed(env, clientIp);
+    if (!allowed) {
+      return jsonResponse(origin, 429, {
+        ok: false,
+        message: "Has hecho demasiados intentos. Inténtalo de nuevo más tarde.",
+      });
+    }
+
     let body;
     try {
       body = await request.json();
@@ -133,10 +151,15 @@ export default {
       return new Response("Bad Request", { status: 400 });
     }
 
-    // Minimal client contract: only email/source/result are ever read from
+    // Minimal client contract: only email/source/result/website are ever read from
     // the request body. Anything else the client sends (listIds, attributes,
     // updateEnabled, ...) is silently ignored, not forwarded to Brevo.
-    const { email, source, result } = body;
+    const { email, source, result, website } = body;
+
+    // Honeypot: if a bot fills this field, pretend success but skip Brevo.
+    if (typeof website === "string" && website.trim() !== "") {
+      return jsonResponse(origin, 201, { ok: true });
+    }
     if (!email) {
       return new Response(JSON.stringify({ message: "Missing required fields" }), {
         status: 400,
@@ -247,4 +270,40 @@ function corsHeaders(origin) {
     "Access-Control-Allow-Headers": "Content-Type",
     "Access-Control-Max-Age": "86400",
   };
+}
+
+function getClientIp(request) {
+  return (
+    request.headers.get("CF-Connecting-IP") ||
+    request.headers.get("x-forwarded-for")?.split(",")[0]?.trim() ||
+    "unknown"
+  );
+}
+
+async function isRateLimitAllowed(env, clientIp) {
+  const kv = env?.RATE_LIMIT_KV;
+  if (!kv || typeof kv.get !== "function" || typeof kv.put !== "function") {
+    return true;
+  }
+
+  const key = `newsletter:${clientIp}`;
+  let current = 0;
+  try {
+    const raw = await kv.get(key);
+    const parsed = Number.parseInt(raw || "0", 10);
+    current = Number.isFinite(parsed) && parsed > 0 ? parsed : 0;
+  } catch {
+    return true;
+  }
+
+  if (current >= RATE_LIMIT_MAX_ATTEMPTS) {
+    return false;
+  }
+
+  try {
+    await kv.put(key, String(current + 1), { expirationTtl: RATE_LIMIT_WINDOW_SECONDS });
+  } catch {
+    return true;
+  }
+  return true;
 }

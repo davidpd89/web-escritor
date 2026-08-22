@@ -25,6 +25,11 @@ function isValidNewsletterEmail(value) {
   return NEWSLETTER_EMAIL_RE.test(String(value || "").trim());
 }
 
+function honeypotValue(form) {
+  const field = form?.querySelector('input[name="website"]');
+  return field ? String(field.value || "").trim() : "";
+}
+
 function newsletterErrorMessage(code) {
   if (code === "offline") return "No hay conexión. Revisa tu red e inténtalo de nuevo.";
   if (code === "timeout") return "La solicitud está tardando demasiado. Inténtalo de nuevo en unos segundos.";
@@ -423,7 +428,8 @@ function fallbackCopy(text, done) {
           const result = await postNewsletter({
             email: emailEl.value.trim(),
             source: "quiz",
-            result: resultEl._resultKey || ""
+            result: resultEl._resultKey || "",
+            website: honeypotValue(subscribeForm)
           });
           if (result.ok && !result.duplicate) {
             localStorage.setItem("nl-subscribed", "1");
@@ -480,6 +486,16 @@ function fallbackCopy(text, done) {
   async function submitNewsletter(formId, emailId, gdprId, statusId, sourceLabel) {
     const form = document.getElementById(formId);
     if (!form) return;
+    if (!form.querySelector('input[name="website"]')) {
+      const hp = document.createElement("input");
+      hp.type = "text";
+      hp.name = "website";
+      hp.autocomplete = "off";
+      hp.tabIndex = -1;
+      hp.setAttribute("aria-hidden", "true");
+      hp.style.cssText = "position:absolute;left:-9999px;top:auto;width:1px;height:1px;overflow:hidden;";
+      form.appendChild(hp);
+    }
     const successBody = NEWSLETTER_SUCCESS_COPY[sourceLabel] || "Recibirás las novedades de David Porto Díaz.";
     form.addEventListener("submit", (e) => {
       e.preventDefault();
@@ -504,7 +520,8 @@ function fallbackCopy(text, done) {
         try {
           const result = await postNewsletter({
             email: emailEl.value.trim(),
-            source: sourceLabel
+            source: sourceLabel,
+            website: honeypotValue(form)
           });
           if (result.ok && !result.duplicate) {
             localStorage.setItem("nl-subscribed", "1");
@@ -717,6 +734,7 @@ document.addEventListener('dp:analytics', _dpAnalyticsBridge);
       '<p id="nl-popup-body">' + copy.body + '</p>' +
       '<form id="nl-popup-form" novalidate>' +
       '<input type="email" id="nl-popup-email" name="email" placeholder="tu@email.com" autocomplete="email" required />' +
+      '<input type="text" id="nl-popup-website" name="website" autocomplete="off" tabindex="-1" aria-hidden="true" style="position:absolute;left:-9999px;top:auto;width:1px;height:1px;overflow:hidden;" />' +
       '<button type="submit" class="button primary" id="nl-popup-submit">' + copy.cta + '</button>' +
       '<label id="nl-popup-gdpr-row"><input type="checkbox" id="nl-popup-gdpr" required />Acepto recibir novedades del autor. <a href="/privacidad.html" target="_blank" rel="noopener">Privacidad</a>.</label>' +
       '<p id="nl-popup-status" role="status" aria-live="polite"></p>' +
@@ -751,7 +769,11 @@ document.addEventListener('dp:analytics', _dpAnalyticsBridge);
         submitBtn.disabled = true;
         submitBtn.textContent = "Enviando…";
         try {
-          const result = await postNewsletter({ email: emailEl.value.trim(), source: "popup" });
+          const result = await postNewsletter({
+            email: emailEl.value.trim(),
+            source: "popup",
+            website: honeypotValue(document.getElementById("nl-popup-form"))
+          });
           if (result.ok && !result.duplicate) {
             localStorage.setItem(SUBSCRIBED_KEY, "1");
             const panel = document.getElementById("nl-popup-panel");
