@@ -62,7 +62,9 @@
   "press": {
     "contact": "davidportodiaz@gmail.com",
     "pressKitPage": "https://davidportodiaz.com/prensa.html",
-    "coverHighRes": "https://davidportodiaz.com/assets/portada-las-manecillas-del-recuerdo-1024.webp",
+    "coverHighRes": null,
+    "coverReleaseStatus": "blocked-pending-editorial-clearance",
+    "coverReleaseNote": "La distribución pública de la cubierta en alta resolución permanece bloqueada mientras knownEditorialIncident siga sin resolverse. Solicitudes de medios: usar el contacto de prensa; no generar ni publicar un ZIP final saltándose este gate.",
     "mockup3D": "https://davidportodiaz.com/assets/manecillas-book-mockup.webp",
     "socialCardHorizontal": "https://davidportodiaz.com/assets/og-manecillas.webp"
   },
