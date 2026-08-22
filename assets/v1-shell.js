@@ -67,6 +67,31 @@
       if (opener instanceof HTMLElement) opener.focus({ preventScroll: true });
     });
 
+    // Trampa de foco explicita. El <dialog> modal ya impide llegar al contenido
+    // de detras —el fondo es inerte—, pero el ciclo nativo de Chromium mete dos
+    // paradas muertas por vuelta: al pasar del ultimo enlace el foco cae en
+    // <body> y despues en el propio <dialog>, y solo entonces vuelve al boton de
+    // cerrar. Para quien navega con teclado son dos tabulaciones que no llevan a
+    // ningun sitio, cada vuelta. Con esto, del ultimo elemento se pasa al
+    // primero y al reves con Shift.
+    const FOCUSABLE = 'a[href],button:not([disabled]),input:not([disabled]),select:not([disabled]),textarea:not([disabled]),[tabindex]:not([tabindex="-1"])';
+    dialog.addEventListener('keydown', (event) => {
+      if (event.key !== 'Tab') return;
+      const items = [...dialog.querySelectorAll(FOCUSABLE)]
+        .filter((el) => el.offsetWidth > 0 || el.offsetHeight > 0 || el.getClientRects().length);
+      if (!items.length) return;
+      const first = items[0];
+      const last = items[items.length - 1];
+      const active = document.activeElement;
+      if (event.shiftKey && (active === first || active === dialog)) {
+        event.preventDefault();
+        last.focus();
+      } else if (!event.shiftKey && active === last) {
+        event.preventDefault();
+        first.focus();
+      }
+    });
+
     const preview = q('[data-explore-preview]', dialog);
     const label = q('[data-preview-label]', dialog);
     const copy = q('[data-preview-copy]', dialog);

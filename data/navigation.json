@@ -1,10 +1,14 @@
 {
   "schema_version": 1,
+  "runtimeOwnership": {
+    "shell": "authored-static-v1-html",
+    "contract": "data/navigation.json + CI parity",
+    "exploreAssistant": "progressive-enhancement injected by assets/v1-shell.js"
+  },
   "header": [
     "works-hub",
     "notebook-hub",
-    "tools-hub",
-    "author"
+    "tools-hub"
   ],
   "exploreTerritories": [
     {"id":"works-hub","previewId":"work-manecillas"},

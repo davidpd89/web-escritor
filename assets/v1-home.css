@@ -2,7 +2,7 @@
    lab/diseno-home-v1/css/home.css + variants.css html[data-variant="b"].
    Shell/nav/footer stay light; only .home-hero goes dark territory —
    this is the approved contrast, not a global dark-mode switch. */
-html.v1 .home-hero{min-height:max(760px,calc(100svh - 76px));display:grid;align-items:center;position:relative;overflow:clip;background:var(--territory-bg);color:var(--territory-text)}
+html.v1 .home-hero{min-height:max(760px,calc(100svh - 76px));display:grid;grid-template-columns:minmax(0,1fr);align-items:center;position:relative;overflow:clip;background:var(--territory-bg);color:var(--territory-text)}
 html.v1 .home-hero{--color-muted:var(--territory-muted);--color-border:var(--territory-border);--focus-color:var(--territory-focus)}
 html.v1 .home-hero::after{content:"";position:absolute;inset:0 0 0 52%;background:linear-gradient(120deg,transparent 0 40%,rgba(244,239,231,.045) 70%,transparent 100%);pointer-events:none}
 html.v1 .home-hero .primary-action{background:var(--dp-paper);color:var(--dp-ink)}
@@ -10,7 +10,8 @@ html.v1 .home-hero .primary-action:hover{background:var(--dp-sand)}
 html.v1 .home-hero__inner{width:100%;max-width:var(--layout-max);margin:auto;padding:clamp(3rem,6vw,6rem) var(--page-gutter);display:grid;grid-template-columns:repeat(12,minmax(0,1fr));gap:var(--grid-gap);align-items:center}
 html.v1 .home-hero__copy{grid-column:1/span 6;min-width:0;position:relative;z-index:2}
 html.v1 .hero-kicker{text-transform:uppercase;letter-spacing:.11em;font-size:.72rem;font-weight:600;margin:0;color:var(--color-muted)}
-html.v1 .home-hero h1{font-family:var(--font-display);font-weight:400;font-size:var(--text-hero);line-height:.9;letter-spacing:-.035em;margin:.45rem 0 clamp(2rem,4vw,3.5rem);text-wrap:balance;max-width:8.8ch;overflow-wrap:normal}
+html.v1 .home-hero h1{font-family:var(--font-display);font-weight:400;font-size:var(--text-hero);line-height:.9;letter-spacing:-.035em;margin:.45rem 0 clamp(2rem,4vw,3.5rem);text-wrap:balance;max-width:8.8ch;overflow-wrap:break-word}
+html.v1 .hero-work>*{min-width:0;overflow-wrap:break-word}
 html.v1 .hero-work{display:grid;gap:.15rem;margin-bottom:clamp(1.75rem,3vw,2.5rem);padding-left:clamp(1rem,2vw,1.5rem);border-left:1px solid color-mix(in srgb,var(--color-accent) 65%,transparent)}
 html.v1 .hero-work__label{font-size:.72rem;text-transform:uppercase;letter-spacing:.08em;font-weight:600;color:var(--color-muted);margin:0 0 .25rem}
 html.v1 .hero-work__title{font-family:var(--font-display);font-size:clamp(2rem,3.2vw,3.25rem);line-height:.98;letter-spacing:-.02em;margin:0;max-width:18ch;text-wrap:balance}
@@ -94,7 +95,7 @@ html.v1 .river-item--secondary{border-top:0}
 html.v1 .faq-native{grid-column:2;max-width:68ch;display:grid;gap:0}
 html.v1 .faq-native details{border-top:1px solid var(--color-border);padding:1.1rem 0}
 html.v1 .faq-native details:last-child{border-bottom:1px solid var(--color-border)}
-html.v1 .faq-native summary{cursor:pointer;font-weight:600;font-size:1.02rem;list-style:none;display:flex;justify-content:space-between;gap:1rem;align-items:baseline}
+html.v1 .faq-native summary{cursor:pointer;font-weight:600;font-size:1.02rem;list-style:none;display:flex;flex-wrap:wrap;justify-content:space-between;gap:1rem;align-items:baseline}
 html.v1 .faq-native summary::-webkit-details-marker{display:none}
 html.v1 .faq-native summary::after{content:"+";color:var(--color-muted);font-weight:400;flex:0 0 auto}
 html.v1 .faq-native details[open] summary::after{content:"–"}
@@ -417,4 +418,25 @@ html.v1 .map-stage[data-active="autor"]{--route-work-opacity:.92;--route-process
 @media (prefers-reduced-motion:reduce){
   html.v1 .map-nodes::before,
   html.v1 .map-nodes::after{transition:none}
+}
+
+/* El bloque de @media (max-width:767px) suelta el ancho del nodo con
+   min-width:0 / max-width:none, pero una regla posterior sin media query vuelve
+   a fijarlo con min-inline-size / max-inline-size. Son propiedades distintas,
+   asi que no se pisan entre si y gana la ultima: en movil el nodo seguia con un
+   minimo de 210px y el titulo con la pista de contenido del diseno de
+   escritorio. Con el texto al 200% eso empujaba la Home 259px fuera del
+   viewport. Va al final del fichero, despues de esa regla, y solo en movil. */
+@media (max-width:767px){
+  html.v1 .map-node,html.v1 .map-node--primary{min-inline-size:0;max-inline-size:none;grid-template-columns:22px minmax(0,1fr)}
+  html.v1 .map-node strong{width:auto;max-width:100%}
+  html.v1 .newsletter>*{min-width:0}
+}
+
+/* Las esquinas decorativas del nodo se dibujan 6px fuera de su caja
+   (right:-6px / bottom:-6px). En movil, con la columna del mapa pegada al
+   borde, esos 6px son desbordamiento horizontal real. Son decorativas: se
+   recogen dentro. */
+@media (max-width:767px){
+  html.v1 .map-node::after{right:0;bottom:0}
 }

@@ -23,6 +23,18 @@ html.v1 .primary-action:active{transform:translateY(1px)}
    nada, porque quien lo muestra es assets/manecillas-book.js. Esto lo cierra
    para cualquier componente, no solo para ese boton. */
 html.v1 [hidden]{display:none!important}
+/* Con zoom de texto al 200% en un movil de 320px, una palabra larga de titular
+   deja de caber por mucho que la caja pueda encoger. break-word solo parte
+   cuando ya no cabe y, a diferencia de `anywhere`, no toca el min-content, asi
+   que a anchos normales no cambia ni la anchura ni el numero de lineas
+   (verificado con A/B geometrico). Va aqui, en la base, en vez de repetirlo
+   componente a componente.
+   Segunda linea: los hijos de rejilla arrastran min-width:auto, cuyo suelo es
+   ese mismo min-content. Sin bajarlo, la caja no encoge aunque el texto si
+   pueda partir. */
+html.v1 :is(h1,h2,h3,h4,h5,h6,p,li,dt,dd,figcaption,blockquote,summary,label,strong,small){overflow-wrap:break-word}
+html.v1 :is(.section-intro,.hero-work,.river-item,.book-section__label,.map-node,.faq-native)>*{min-width:0}
+
 html.v1 .text-action{display:inline-flex;align-items:center;min-height:44px;border:0;background:none;padding:0;color:inherit;cursor:pointer;font-weight:600;text-decoration-line:underline;text-decoration-color:var(--color-accent);text-decoration-thickness:1px;text-underline-offset:.35em}
 html.v1 .text-action:hover,html.v1 .text-action:focus-visible{text-decoration-thickness:2px}
 html.v1 .form-field-label{display:block;font-size:.84rem;font-weight:600;margin-bottom:.5rem}
