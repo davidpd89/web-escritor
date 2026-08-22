@@ -51,7 +51,6 @@ def normalized_json_bytes(obj) -> bytes:
 
 
 def make_readme(book: dict, author: dict, manifest: dict) -> bytes:
-    price = book.get("printedRetailPriceCommunicated", {})
     genres = ", ".join(book.get("genres", []))
     lines = [
         "KIT DE PRENSA — DAVID PORTO DÍAZ / LAS MANECILLAS DEL RECUERDO",
@@ -65,12 +64,12 @@ def make_readme(book: dict, author: dict, manifest: dict) -> bytes:
         f"Editorial: {book.get('publisher', '')}",
         f"Fecha de publicación: {book.get('publicationDate', '')}",
         f"ISBN: {book.get('isbn', '')}",
-        f"Extensión de maqueta: {book.get('manuscriptPages', '')} páginas",
-        f"PVP comunicado: {price.get('value', '')} {price.get('currency', '')}",
+        f"Extensión de maqueta: {book.get('pages', '')} páginas",
+        f"PVP comunicado: {book.get('priceEUR', '')} EUR",
         f"Géneros/posicionamiento: {genres}",
         "",
         "SINOPSIS BREVE",
-        book.get("synopsis", {}).get("websitePress", ""),
+        book.get("synopsis", {}).get("short", ""),
         "",
         "BIO BREVE",
         author.get("shortBio", ""),
@@ -100,10 +99,6 @@ def validate(manifest: dict, book: dict, author: dict, editorial: dict):
     incident = editorial.get("knownEditorialIncident", {})
     if incident.get("status") != "resolved":
         errors.append("incidencia editorial de cubierta no resuelta")
-
-    if book.get("sourceNotes", {}).get("coverWarning"):
-        # La advertencia puede permanecer como histórico, pero no habilita el asset.
-        pass
 
     seen_archives = set()
     for item in manifest.get("assets", []):
@@ -136,7 +131,7 @@ def validate(manifest: dict, book: dict, author: dict, editorial: dict):
         ("title", book.get("title"), canon.get("title")),
         ("publisher", book.get("publisher"), canon.get("publisher")),
         ("publicationDate", book.get("publicationDate"), canon.get("publicationDate")),
-        ("numberOfPages", book.get("manuscriptPages"), canon.get("numberOfPages")),
+        ("numberOfPages", book.get("pages"), canon.get("numberOfPages")),
     ]
     for label, packaged, canonical in comparisons:
         if packaged != canonical:
@@ -144,7 +139,7 @@ def validate(manifest: dict, book: dict, author: dict, editorial: dict):
     digits = lambda value: "".join(ch for ch in str(value or "") if ch.isdigit())
     if digits(book.get("isbn")) != digits(canon.get("isbn")):
         errors.append("deriva entre press-kit y editorial-facts en ISBN")
-    press_price = book.get("printedRetailPriceCommunicated", {}).get("value")
+    press_price = book.get("priceEUR")
     if press_price != canon.get("priceEUR"):
         errors.append(f"deriva entre press-kit y editorial-facts en PVP: {press_price!r} != {canon.get('priceEUR')!r}")
     return errors
