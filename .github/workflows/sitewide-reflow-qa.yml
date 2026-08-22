@@ -1,0 +1,60 @@
+name: Sitewide Reflow QA
+
+on:
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  reflow-sitewide:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 30
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+
+      - name: Install Playwright
+        run: |
+          npm install --no-save --no-package-lock playwright@1.55.0
+          npx playwright install --with-deps chromium
+
+      - name: Start static server
+        shell: bash
+        run: |
+          python -m http.server 4173 --bind 127.0.0.1 > /tmp/reflow-server.log 2>&1 &
+          echo $! > /tmp/reflow-server.pid
+          for i in {1..30}; do
+            if curl --fail --silent http://127.0.0.1:4173/ >/dev/null; then exit 0; fi
+            sleep 1
+          done
+          cat /tmp/reflow-server.log
+          exit 1
+
+      - name: Run sitewide reflow gate
+        env:
+          QA_ORIGIN: http://127.0.0.1:4173
+          QA_OUT: artifacts/sitewide-reflow
+        run: node qa/sitewide-reflow-browser.mjs
+
+      - name: Save server log
+        if: always()
+        run: |
+          mkdir -p artifacts/sitewide-reflow
+          cp /tmp/reflow-server.log artifacts/sitewide-reflow/server.log || true
+
+      - name: Upload artifacts
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: sitewide-reflow-qa
+          path: artifacts/sitewide-reflow/
+          if-no-files-found: warn
+          retention-days: 14
