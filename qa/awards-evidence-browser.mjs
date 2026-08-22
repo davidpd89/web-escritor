@@ -85,6 +85,15 @@ for (const viewport of viewports) {
   }
   check(reachedSource, 'keyboard: no award source link reached by Tab');
   if (reachedSource) {
+    // Hay que dejar pasar un frame antes de leer el outline. Este contexto corre
+    // con reducedMotion:'reduce', y la receta de v1-base.css para eso es
+    // transition-duration:.01ms!important (no 0s, para que transitionend siga
+    // disparandose). Sobre `transition:all` eso convierte el outline en una
+    // transicion real, cortisima pero real: leerlo en el mismo tick devuelve el
+    // valor de partida, 0px, de forma reproducible. Con reducedMotion apagado
+    // la duracion es 0s y no pasaba. El foco funciona; lo que fallaba era el
+    // momento de la medicion.
+    await page.evaluate(() => new Promise((r) => requestAnimationFrame(() => requestAnimationFrame(r))));
     const focusState = await page.evaluate(() => {
       const style = getComputedStyle(document.activeElement);
       return { outlineStyle: style.outlineStyle, outlineWidth: style.outlineWidth };
