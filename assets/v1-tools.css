@@ -10,10 +10,10 @@ html.v1 .tool-hero h1{font:400 var(--text-4xl)/1.05 var(--font-display);letter-s
 html.v1 .tool-hero__lead{font:400 1.08rem/1.65 var(--font-reading);color:var(--color-muted);max-width:64ch;margin:0}
 html.v1 .tool-hero__actions{margin:1.4rem 0 0}
 
-html.v1 .tool-panel{max-width:60rem;padding:clamp(2.5rem,5vw,4rem) 0;border-bottom:1px solid var(--color-border)}
-html.v1 .tool-field{display:block;margin:0 0 1.6rem}
+html.v1 .tool-panel{max-width:60rem;padding:clamp(2.5rem,5vw,4rem) 0;border-bottom:1px solid var(--color-border);overflow-x:hidden}
+html.v1 .tool-field{display:block;min-width:0;max-width:100%;margin:0 0 1.6rem}
 html.v1 .tool-field:last-child{margin-bottom:0}
-html.v1 .tool-field-label{display:block;font:600 .8rem/1.3 var(--font-ui);letter-spacing:.03em;margin-bottom:.6rem}
+html.v1 .tool-field-label{display:block;min-width:0;max-width:100%;font:600 .8rem/1.3 var(--font-ui);letter-spacing:.03em;margin-bottom:.6rem;overflow-wrap:anywhere}
 html.v1 .tool-field-hint{display:block;font:400 .85rem/1.55 var(--font-ui);color:var(--color-muted);margin:.4rem 0 .7rem}
 html.v1 .tool-textarea,html.v1 .tool-select{width:100%;border:1px solid var(--color-border);border-radius:var(--radius-input);background:var(--surface-page);color:var(--color-text);padding:.9rem 1rem;font:400 1.02rem/1.6 var(--font-reading)}
 html.v1 .tool-textarea{min-height:280px;resize:vertical}
@@ -26,7 +26,7 @@ html.v1 .tool-textarea:focus-visible,html.v1 .tool-select:focus-visible,html.v1 
    columna no podia encoger y /convocatorias-escritores/ desbordaba 306px. min() lo
    ata al contenedor, no al viewport, y a ancho normal no cambia nada. */
 html.v1 .tool-options{display:grid;gap:1.5rem 2rem;grid-template-columns:repeat(auto-fit,minmax(min(14rem,100%),1fr));margin:1.8rem 0 0}
-html.v1 .tool-check{display:flex;align-items:flex-start;gap:.6rem;font:400 .92rem/1.5 var(--font-ui);color:var(--color-text);margin-top:1.4rem}
+html.v1 .tool-check{display:flex;align-items:flex-start;gap:.6rem;font:400 .92rem/1.5 var(--font-ui);color:var(--color-text);margin-top:1.4rem;min-width:0;max-width:100%}
 html.v1 .tool-check input{width:18px;min-height:18px;height:18px;margin:.15rem 0 0;accent-color:var(--color-text)}
 html.v1 .tool-input-meta{display:flex;flex-wrap:wrap;justify-content:space-between;gap:.5rem 1rem;font:400 .78rem/1.4 var(--font-ui);color:var(--color-muted);margin-top:.55rem}
 html.v1 .tool-actions{display:flex;flex-wrap:wrap;gap:1rem;align-items:center;margin-top:1.9rem}
@@ -73,13 +73,14 @@ html.v1 .tool-next-links{display:flex;flex-wrap:wrap;gap:.85rem 1.5rem;margin-to
 html.v1 .tool-workspace{display:grid;grid-template-columns:minmax(16rem,20rem) minmax(0,1fr);gap:clamp(1.5rem,3vw,3rem);align-items:start}
 html.v1 .tool-workspace .tool-panel,html.v1 .tool-workspace .tool-results{max-width:none;padding:0;border-bottom:0}
 html.v1 .tool-aside{padding:1.75rem;border:1px solid var(--color-border)}
-html.v1 .tool-aside fieldset{border:0;padding:1.5rem 0 0;margin:1.5rem 0 0;border-top:1px solid var(--color-border)}
+html.v1 .tool-aside{min-width:0;max-width:100%;width:100%;overflow-x:hidden}
+html.v1 .tool-aside fieldset{border:0;padding:1.5rem 0 0;margin:1.5rem 0 0;border-top:1px solid var(--color-border);min-width:0;max-width:100%}
 html.v1 .tool-aside fieldset:first-of-type{padding-top:0;margin-top:0;border-top:0}
 html.v1 .tool-aside legend{padding:0 0 1rem;font:600 .7rem/1.3 var(--font-ui);letter-spacing:.06em;text-transform:uppercase;color:var(--color-muted)}
-html.v1 .tool-input{width:100%;min-height:44px;border:1px solid var(--color-border);border-radius:var(--radius-input);background:var(--surface-page);color:var(--color-text);padding:.55rem .8rem;font:400 .95rem/1.5 var(--font-ui)}
+html.v1 .tool-input{width:100%;min-width:0;max-width:100%;min-height:44px;border:1px solid var(--color-border);border-radius:var(--radius-input);background:var(--surface-page);color:var(--color-text);padding:.55rem .8rem;font:400 .95rem/1.5 var(--font-ui)}
 html.v1 .tool-input:focus-visible{outline:2px solid var(--focus-color);outline-offset:2px}
-html.v1 .tool-row{display:grid;grid-template-columns:1fr 1fr;gap:1rem}
-html.v1 .tool-table-wrap{overflow-x:auto}
+html.v1 .tool-row{display:grid;grid-template-columns:1fr 1fr;gap:1rem;min-width:0;max-width:100%}
+html.v1 .tool-table-wrap{overflow-x:auto;max-width:100%}
 html.v1 .tool-table{width:100%;border-collapse:collapse;font:400 .88rem/1.5 var(--font-ui)}
 html.v1 .tool-table th,html.v1 .tool-table td{text-align:left;padding:.6rem .75rem;border-bottom:1px solid var(--color-border)}
 html.v1 .tool-table thead th{font:600 .7rem/1.3 var(--font-ui);letter-spacing:.05em;text-transform:uppercase;color:var(--color-muted);border-bottom:1px solid var(--color-text)}
@@ -98,6 +99,31 @@ html.v1 .tool-trust span{font:600 .74rem/1.4 var(--font-ui);letter-spacing:.04em
   html.v1 .tool-two-col{grid-template-columns:1fr}
   html.v1 .tool-workspace{grid-template-columns:1fr}
   html.v1 .tool-row{grid-template-columns:1fr}
+}
+
+@media(max-width:900px){
+  html.v1 .tool-workspace{grid-template-columns:1fr}
+  html.v1 .tool-row{grid-template-columns:1fr}
+  html.v1 .tool-aside{padding:1.25rem;min-width:0;width:100%;max-width:100%}
+  html.v1 .tool-actions{align-items:stretch}
+  html.v1 .tool-actions > *{max-width:100%;overflow-wrap:anywhere}
+  html.v1 .tool-table-wrap{overflow:hidden}
+  html.v1 .tool-table,
+  html.v1 .tool-table thead,
+  html.v1 .tool-table tbody,
+  html.v1 .tool-table tr,
+  html.v1 .tool-table th,
+  html.v1 .tool-table td{display:block;width:100%}
+  html.v1 .tool-table thead{display:none}
+  html.v1 .tool-table tr{padding:.7rem 0;border-bottom:1px solid var(--color-border)}
+  html.v1 .tool-table th,
+  html.v1 .tool-table td{border-bottom:0;padding:.35rem 0;overflow-wrap:anywhere}
+}
+
+@media(max-width:700px){
+  html.v1 .tool-hero{max-width:none}
+  html.v1 .tool-hero h1{max-width:none;overflow-wrap:anywhere;text-wrap:pretty}
+  html.v1 .tool-hero__lead{max-width:none;overflow-wrap:anywhere}
 }
 
 @media print{

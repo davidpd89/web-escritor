@@ -60,6 +60,29 @@ html.v1 .newsletter__form{align-self:center}
 @media (max-width:389px){html.v1 .home-hero h1{font-size:clamp(3rem,15vw,3.5rem)}html.v1 .hero-work__title{font-size:clamp(1.65rem,8.2vw,2rem)}html.v1 .hero-media{min-height:350px}html.v1 .hero-portrait{width:82vw;height:108vw}html.v1 .hero-cover{width:47vw}}
 @media (orientation:landscape) and (max-height:520px) and (pointer:coarse){html.v1 .home-hero{min-height:auto}html.v1 .home-hero__inner{padding-top:2rem;padding-bottom:2rem}html.v1 .hero-media{min-height:300px}html.v1 .home-hero h1{font-size:clamp(3rem,9vw,4.6rem)}}
 
+@media (max-width:1023px){
+  html.v1 .section-intro,
+  html.v1 .section-intro--compact,
+  html.v1 .newsletter{grid-template-columns:1fr}
+  html.v1 .section-intro h2,
+  html.v1 .newsletter h2{max-width:none;overflow-wrap:break-word}
+  html.v1 .map-node strong{overflow-wrap:break-word}
+  html.v1 main a[href^="mailto:"]{overflow-wrap:anywhere;word-break:break-word}
+}
+
+@media (max-width:767px){
+  html.v1 .hero-media{position:relative;overflow:hidden;min-height:clamp(300px,92vw,420px);margin-top:2.25rem;width:100%}
+  html.v1 .hero-portrait{position:absolute;left:0;bottom:0;transform:none;width:min(74vw,300px);height:auto}
+  html.v1 .hero-cover{position:absolute;right:0;bottom:0;transform:none;width:min(44vw,180px)}
+  html.v1 .section-intro,
+  html.v1 .section-intro--compact,
+  html.v1 .newsletter{grid-template-columns:1fr}
+  html.v1 .section-intro h2,
+  html.v1 .newsletter h2{max-width:none;overflow-wrap:break-word}
+  html.v1 .newsletter{gap:2rem}
+  html.v1 .newsletter__copy>p:last-child{max-width:100%}
+}
+
 /* Editorial-river extension: Home keeps the long-form SEO sections (Samuel
    essay, bio, book comparison, projects) alive as full pages elsewhere
    (autor.html, /libros/, /libros/samuel-entre-mundos/) and links to them

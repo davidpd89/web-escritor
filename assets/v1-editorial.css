@@ -148,22 +148,53 @@ html.v1 .article-related{display:grid;margin-top:2rem;border-top:1px solid var(-
 html.v1 .article-related a{padding:1rem 0;border-bottom:1px solid var(--color-border);text-decoration:none}
 html.v1 .article-related a:hover,html.v1 .article-related a:focus-visible{text-decoration:underline;text-decoration-color:var(--color-accent)}
 
+@media (max-width:900px){
+  html.v1 .cuaderno-masthead{grid-template-columns:1fr}
+  html.v1 .cuaderno-masthead__folio{border-left:0;border-top:1px solid var(--color-border);padding:1rem 0 0;grid-template-columns:auto 1fr;gap:.75rem;align-items:baseline}
+  html.v1 .cuaderno-feature{grid-template-columns:1fr;gap:1.2rem}
+  html.v1 .cuaderno-feature__meta{grid-template-columns:auto 1fr;gap:.75rem;align-items:baseline;position:static}
+  html.v1 .cuaderno-feature__body h2{font-size:clamp(2.4rem,11vw,3.6rem);max-width:none;overflow-wrap:anywhere;text-wrap:pretty}
+  html.v1 .cuaderno-entry{grid-template-columns:2rem minmax(0,1fr);gap:.75rem 1rem}
+  html.v1 .cuaderno-entry__meta{grid-column:2;grid-row:1;display:flex;flex-wrap:wrap;gap:.5rem 1rem}
+  html.v1 .cuaderno-entry__body{grid-column:2}
+  html.v1 .cuaderno-entry__body h3{max-width:none;overflow-wrap:anywhere;text-wrap:pretty}
+  html.v1 .cuaderno-utilities{align-items:flex-start;flex-direction:column;gap:.6rem}
+  html.v1 .editorial-continuity,html.v1 .editorial-newsletter{grid-template-columns:1fr;gap:1.5rem}
+}
+
 @media (max-width:1023px){
   html.v1 .cuaderno-feature__meta{position:static}
-  html.v1 .article-layout{grid-template-columns:minmax(160px,2fr) minmax(0,6fr)}
+  html.v1 .article-layout{grid-template-columns:minmax(0,1fr)}
   html.v1 .article-folio{display:none}
-  html.v1 .article-toc{top:130px}
-  html.v1 .article-prose{grid-column:2}
-  html.v1 .article-faq,html.v1 .article-end{grid-template-columns:minmax(160px,2fr) minmax(0,6fr)}
+  html.v1 .article-toc{position:static;max-height:none;margin:0 0 2.5rem;padding:1rem 0;border-bottom:1px solid var(--color-border);overflow:visible}
+  html.v1 .article-toc ol{grid-template-columns:1fr;gap:.7rem}
+  html.v1 .article-toc a{display:block;max-width:none}
+  html.v1 .article-prose{grid-column:auto;max-width:var(--reading-max);margin-inline:auto}
+  html.v1 .article-faq,html.v1 .article-end{grid-template-columns:1fr}
+  html.v1 .article-faq__head,html.v1 .article-end__label{grid-column:auto}
+  html.v1 .article-faq__list,html.v1 .article-end__body{grid-column:auto}
 }
 @media (min-width:768px) and (max-width:859px){
   html.v1 .article-header{grid-template-columns:1fr}
   html.v1 .article-meta{border-left:0;border-top:1px solid var(--color-border);padding:1rem 0 0;display:flex;flex-wrap:wrap;gap:.25rem 1rem}
   html.v1 .article-layout{display:block;padding-top:2.75rem}
-  html.v1 .article-toc{position:static;max-height:none;margin:0 0 2.75rem;padding:1rem 0;border-bottom:1px solid var(--color-border);overflow-x:auto}
-  html.v1 .article-toc ol{display:flex;gap:1rem;min-width:max-content}
-  html.v1 .article-toc a{display:block;max-width:20ch}
+  html.v1 .article-toc{position:static;max-height:none;margin:0 0 2.75rem;padding:1rem 0;border-bottom:1px solid var(--color-border);overflow:visible}
+  html.v1 .article-toc ol{display:grid;gap:.65rem;min-width:0}
+  html.v1 .article-toc a{display:block;max-width:none}
   html.v1 .article-prose{max-width:var(--reading-max);margin-inline:auto}
+  html.v1 .article-table-wrap{max-width:100%;overflow:hidden}
+  html.v1 .article-table-wrap table,
+  html.v1 .article-table-wrap thead,
+  html.v1 .article-table-wrap tbody,
+  html.v1 .article-table-wrap tr,
+  html.v1 .article-table-wrap th,
+  html.v1 .article-table-wrap td{display:block;width:100%}
+  html.v1 .article-table-wrap thead{display:none}
+  html.v1 .article-table-wrap tr{padding:.65rem 0;border-bottom:1px solid var(--color-border)}
+  html.v1 .article-prose th,
+  html.v1 .article-prose td{min-width:0;padding:.35rem 0;border-bottom:0;overflow-wrap:break-word}
+  html.v1 .article-prose th:first-child,
+  html.v1 .article-prose td:first-child{font-weight:650}
   html.v1 .article-faq,html.v1 .article-end{display:block}
   html.v1 .article-faq__head,html.v1 .article-end__label{margin-bottom:1.5rem}
   html.v1 .article-faq__list,html.v1 .article-end__body{border-top:1px solid var(--color-border)}
@@ -189,10 +220,23 @@ html.v1 .article-related a:hover,html.v1 .article-related a:focus-visible{text-d
   html.v1 .article-header h1{font-size:clamp(2.8rem,13vw,4.6rem)}
   html.v1 .article-meta{border-left:0;border-top:1px solid var(--color-border);padding:1rem 0 0;display:flex;flex-wrap:wrap;gap:.25rem 1rem}
   html.v1 .article-layout{display:block;padding-top:2.5rem}
-  html.v1 .article-toc{position:static;max-height:none;margin-bottom:2.5rem;padding:1rem 0;border-bottom:1px solid var(--color-border);overflow-x:auto}
-  html.v1 .article-toc ol{display:flex;gap:1rem;min-width:max-content}
-  html.v1 .article-toc a{display:block;max-width:18ch}
+  html.v1 .article-toc{position:static;max-height:none;margin-bottom:2.5rem;padding:1rem 0;border-bottom:1px solid var(--color-border);overflow:visible}
+  html.v1 .article-toc ol{display:grid;gap:.65rem;min-width:0}
+  html.v1 .article-toc a{display:block;max-width:none}
   html.v1 .article-prose{font-size:clamp(1.08rem,4.7vw,1.2rem);max-width:none}
+  html.v1 .article-table-wrap{max-width:100%;overflow:hidden}
+  html.v1 .article-table-wrap table,
+  html.v1 .article-table-wrap thead,
+  html.v1 .article-table-wrap tbody,
+  html.v1 .article-table-wrap tr,
+  html.v1 .article-table-wrap th,
+  html.v1 .article-table-wrap td{display:block;width:100%}
+  html.v1 .article-table-wrap thead{display:none}
+  html.v1 .article-table-wrap tr{padding:.65rem 0;border-bottom:1px solid var(--color-border)}
+  html.v1 .article-prose th,
+  html.v1 .article-prose td{min-width:0;padding:.35rem 0;border-bottom:0;overflow-wrap:break-word}
+  html.v1 .article-prose th:first-child,
+  html.v1 .article-prose td:first-child{font-weight:650}
   html.v1 .article-prose h2{scroll-margin-top:120px;font-size:clamp(2.1rem,9vw,3rem)}
   html.v1 .article-prose h3{scroll-margin-top:120px}
   html.v1 .article-faq,html.v1 .article-end{display:block}
