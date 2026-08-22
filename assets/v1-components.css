@@ -25,6 +25,7 @@ html.v1 .route-spine::before{content:"";position:absolute;left:.3rem;top:.4rem;b
 html.v1 .route-spine>li{position:relative;padding:0 0 2.25rem}
 html.v1 .route-spine>li::before{content:"";position:absolute;left:-1.98rem;top:.45rem;width:.6rem;height:.6rem;border:1px solid var(--color-text);background:var(--surface-page)}
 html.v1 .route-spine>li:last-child{padding-bottom:0}
+
 @media(max-width:767px){
   html.v1 .ledger__row{grid-template-columns:3rem minmax(0,1fr);gap:.55rem 1rem;align-items:start}
   html.v1 .ledger__secondary,html.v1 .ledger__action{grid-column:2}
