@@ -135,7 +135,7 @@ try {
       await page.keyboard.press('Tab');
       const inside = await page.evaluate(() => {
         const dialogNode = document.querySelector('[data-explore-dialog]');
-        return Boolean(dialogNode && dialogNode.contains(document.activeElement));
+        return Boolean(dialogNode && (dialogNode === document.activeElement || dialogNode.contains(document.activeElement)));
       });
       assert(inside, `Explore ${vp.name}: modal focus escaped on Tab ${i + 1}`);
     }
