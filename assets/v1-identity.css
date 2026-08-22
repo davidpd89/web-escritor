@@ -184,7 +184,7 @@ html.v1 [data-family="identity"] .event-entry figcaption{
   line-height:1.4;
 }
 html.v1 [data-family="identity"] .event-entry figcaption::before{
-  content:"M5";
+  content:"M5" / "";
   position:absolute;
   left:0;
   top:-.55rem;

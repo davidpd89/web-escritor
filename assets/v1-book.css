@@ -5,7 +5,7 @@ html.v1 .book-hero{min-height:clamp(720px,72vw,900px);display:grid;grid-template
 html.v1 .book-cover-zone{grid-column:1/span 4;position:relative;align-self:center;display:grid;place-items:center;min-width:0}
 html.v1 .book-cover{margin:0;width:min(100%,430px);position:relative;isolation:isolate}
 html.v1 .book-cover::before{content:"";position:absolute;inset:0;border:1px solid color-mix(in srgb,var(--color-accent-strong) 28%,var(--color-border));pointer-events:none}
-html.v1 .book-cover::after{content:"M1";position:absolute;left:0;bottom:-1.1rem;padding:.1rem .35rem 0 0;background:var(--surface-page);color:var(--color-muted);font:600 .62rem/1 var(--font-ui);letter-spacing:.1em;text-transform:uppercase}
+html.v1 .book-cover::after{content:"M1" / "";position:absolute;left:0;bottom:-1.1rem;padding:.1rem .35rem 0 0;background:var(--surface-page);color:var(--color-muted);font:600 .62rem/1 var(--font-ui);letter-spacing:.1em;text-transform:uppercase}
 html.v1 .book-cover img{width:100%;height:auto;box-shadow:var(--shadow-object)}
 html.v1 .book-cover-fallback{width:min(100%,430px);aspect-ratio:2/3;border:1px solid var(--color-border);display:grid;align-items:end;padding:1rem;font-size:.78rem;color:var(--color-muted)}
 html.v1 .book-hero__copy{grid-column:5/span 5;align-self:center;min-width:0}
