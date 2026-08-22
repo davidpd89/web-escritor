@@ -14,6 +14,7 @@ const offlineSource = readFileSync(join(ROOT, 'offline.html'), 'utf8');
 const manifest = JSON.parse(readFileSync(join(ROOT, 'manifest.json'), 'utf8'));
 let serveUpdatedWorker = false;
 
+const BASE_SHA = 'e9207278747646b76a0f22ebf3703b3e19c0c3db';
 const BASELINE_APP_SHELL = [
   '/offline.html',
   '/manifest.json',
@@ -50,8 +51,8 @@ function fileInfo(urlPath) {
 
 function pngDimensions(path) {
   const bytes = readFileSync(path);
-  assert.equal(bytes.subarray(1, 4).toString('ascii'), 'PNG', `${path} is not PNG`);
   assert(bytes.length >= 24, `${path} PNG too short`);
+  assert.equal(bytes.subarray(1, 4).toString('ascii'), 'PNG', `${path} is not PNG`);
   return { width: bytes.readUInt32BE(16), height: bytes.readUInt32BE(20) };
 }
 
@@ -60,6 +61,7 @@ const baseline = BASELINE_APP_SHELL.map((path) => ({ path, ...fileInfo(path) }))
 const current = appShell.map((path) => ({ path, ...fileInfo(path) }));
 const baselineBytes = baseline.reduce((sum, entry) => sum + entry.bytes, 0);
 const currentBytes = current.reduce((sum, entry) => sum + entry.bytes, 0);
+const baselineMissing = baseline.filter((entry) => !entry.exists).map((entry) => entry.path);
 
 for (const entry of current) assert(entry.exists, `APP_SHELL path missing: ${entry.path}`);
 assert.equal(appShell.filter((path) => path.endsWith('.html')).join(','), '/offline.html', 'Only offline.html may be precached');
@@ -68,7 +70,7 @@ for (const legacy of ['cg-normal', 'cg-italic', 'inter-normal', 'david-porto-aut
 }
 assert(appShell.includes('/assets/fonts/is-normal-400-latin.woff2'), 'Instrument Serif V1 fallback not precached');
 assert(appShell.includes('/assets/fonts/mr-normal-400-700-latin.woff2'), 'Manrope V1 fallback not precached');
-assert(!appShell.some((path) => path.includes('nr-')), 'Newsreader should not be cached unless offline.html uses it');
+assert(!appShell.some((path) => path.includes('/assets/fonts/nr-')), 'Newsreader should not be cached unless offline.html uses it');
 assert(swSource.includes('const CACHE_NAMESPACE = "david-porto-pwa"'), 'PWA cache namespace missing');
 assert(swSource.includes('key.startsWith(`${CACHE_NAMESPACE}-`)'), 'activate must restrict cleanup to PWA namespace');
 assert(!swSource.includes('.filter((key) => !key.startsWith(CACHE_VERSION))'), 'Broad cache deletion regression');
@@ -160,17 +162,23 @@ const port = server.address().port;
 const origin = `http://127.0.0.1:${port}`;
 const browser = await chromium.launch({ headless: true });
 const report = {
-  baseContract: 'implementacion-web-2026@e9207278747646b76a0f22ebf3703b3e19c0c3db',
+  baseContract: `implementacion-web-2026@${BASE_SHA}`,
   appShell,
   baselineAppShell: baseline,
-  cacheBytes: { beforeExistingBytes: baselineBytes, afterBytes: currentBytes },
+  cacheBytes: {
+    beforeExistingBytes: baselineBytes,
+    beforeDeclaredEntries: baseline.length,
+    beforeMissingEntries: baselineMissing,
+    afterBytes: currentBytes,
+    afterEntries: current.length
+  },
   icons: iconAudit,
   browser: {},
   screenshots: []
 };
 
 try {
-  const context = await browser.newContext({ viewport: { width: 390, height: 900 } });
+  const context = await browser.newContext({ viewport: { width: 390, height: 900 }, serviceWorkers: 'allow' });
   const page = await context.newPage();
   const pageErrors = [];
   const consoleErrors = [];
@@ -179,17 +187,14 @@ try {
   page.on('console', (message) => {
     if (message.type() === 'error' && !message.text().includes('Failed to load resource')) consoleErrors.push(message.text());
   });
-  page.on('request', (request) => {
+  context.on('request', (request) => {
     const requestUrl = new URL(request.url());
     if (requestUrl.origin !== origin) externalRequests.push(request.url());
   });
 
+  const workerPromise = context.waitForEvent('serviceworker');
   await page.goto(`${origin}/__pwa_test__/register.html`, { waitUntil: 'domcontentloaded' });
-  const cdp = await context.newCDPSession(page);
-  const chromiumManifest = await cdp.send('Page.getAppManifest');
-  assert.equal(chromiumManifest.errors?.length || 0, 0, `Chromium manifest errors: ${JSON.stringify(chromiumManifest.errors)}`);
-
-  const registration = await page.evaluate(async () => {
+  const registrationPromise = page.evaluate(async () => {
     const reg = await navigator.serviceWorker.register('/service-worker.js');
     await navigator.serviceWorker.ready;
     if (!navigator.serviceWorker.controller) {
@@ -201,10 +206,38 @@ try {
         }, { once: true });
       });
     }
-    return { scope: reg.scope, controlled: Boolean(navigator.serviceWorker.controller) };
+    return { scope: reg.scope, controlled: Boolean(navigator.serviceWorker.controller), state: reg.active?.state || null };
   });
+  const worker = await workerPromise;
+  await worker.evaluate(async () => {
+    if (self.registration.active?.state === 'activated') return;
+    await new Promise((resolveActivated) => {
+      const timer = setTimeout(resolveActivated, 5000);
+      self.addEventListener('activate', () => {
+        clearTimeout(timer);
+        resolveActivated();
+      }, { once: true });
+    });
+  }).catch(() => undefined);
+  const registration = await registrationPromise;
   assert.equal(registration.scope, `${origin}/`, 'Unexpected service worker scope');
   assert.equal(registration.controlled, true, 'Page is not controlled after service worker activation');
+  assert.equal(registration.state, 'activated', 'Service worker is not activated');
+
+  const cdp = await context.newCDPSession(page);
+  const chromiumManifest = await cdp.send('Page.getAppManifest');
+  assert.equal(chromiumManifest.errors?.length || 0, 0, `Chromium manifest errors: ${JSON.stringify(chromiumManifest.errors)}`);
+  let installabilityErrors = [];
+  try {
+    ({ installabilityErrors = [] } = await cdp.send('Page.getInstallabilityErrors'));
+  } catch (error) {
+    report.browser.installabilityProbe = `CDP Page.getInstallabilityErrors unavailable: ${error.message}`;
+  }
+  if (installabilityErrors.length) {
+    report.browser.installabilityErrors = installabilityErrors;
+    throw new Error(`Chromium installability errors: ${JSON.stringify(installabilityErrors)}`);
+  }
+  report.browser.installabilityErrors = installabilityErrors;
 
   for (const path of appShell) {
     const cached = await page.evaluate(async (url) => Boolean(await caches.match(url)), path);
@@ -212,7 +245,7 @@ try {
   }
 
   for (const icon of manifest.icons) {
-    const response = await page.request.get(`${origin}${icon.src}`);
+    const response = await context.request.get(`${origin}${icon.src}`);
     assert.equal(response.status(), 200, `Manifest icon HTTP failure: ${icon.src}`);
   }
 
@@ -223,15 +256,57 @@ try {
   assert.equal(response500.status(), 500, 'Online navigation 500 must remain 500');
   assert(await page.locator('text=EXPECTED 500').isVisible(), '500 was replaced by offline fallback');
 
-  await page.goto(`${origin}/__pwa_test__/register.html`, { waitUntil: 'domcontentloaded' });
-  const externalBeforeOffline = externalRequests.length;
-  await context.setOffline(true);
-  await page.goto(`${origin}/__pwa_test__/recovery-target?case=offline`, { waitUntil: 'domcontentloaded' });
+  const recoveryUrl = `${origin}/__pwa_test__/recovery-target?case=online-event`;
+  const recoveryPattern = `${origin}/__pwa_test__/recovery-target**`;
+  await context.route(recoveryPattern, async (route) => {
+    if (route.request().serviceWorker()) {
+      await route.abort('internetdisconnected');
+    } else {
+      await route.continue();
+    }
+  });
+  const externalBeforeFallback = externalRequests.length;
+  const fallbackResponse = await page.goto(recoveryUrl, { waitUntil: 'domcontentloaded' });
+  assert(fallbackResponse?.fromServiceWorker(), 'Offline fallback navigation was not handled by the service worker');
   assert(await page.locator('#offline-title').isVisible(), 'Offline navigation fallback not rendered');
-  assert.equal(page.url(), `${origin}/__pwa_test__/recovery-target?case=offline`, 'Offline fallback changed requested URL');
-  const externalDuringOffline = externalRequests.slice(externalBeforeOffline);
-  assert.equal(externalDuringOffline.length, 0, `Offline page made external requests: ${externalDuringOffline.join(', ')}`);
+  assert.equal(page.url(), recoveryUrl, 'Offline fallback changed requested URL');
+  assert.equal(externalRequests.slice(externalBeforeFallback).length, 0, 'Offline fallback made external requests');
+  await context.unroute(recoveryPattern);
 
+  await page.evaluate(() => {
+    sessionStorage.setItem('__pwaQaOnlineEvents', '0');
+    window.addEventListener('online', () => {
+      const count = Number(sessionStorage.getItem('__pwaQaOnlineEvents') || '0') + 1;
+      sessionStorage.setItem('__pwaQaOnlineEvents', String(count));
+    });
+  });
+  await context.setOffline(true);
+  assert.equal(await page.evaluate(() => navigator.onLine), false, 'navigator.onLine did not enter offline state');
+  await context.setOffline(false);
+  await page.waitForSelector('text=RECOVERY TARGET', { timeout: 7000 });
+  assert.equal(page.url(), recoveryUrl, 'Online recovery did not preserve requested URL');
+  const onlineEventCount = await page.evaluate(() => Number(sessionStorage.getItem('__pwaQaOnlineEvents') || '0'));
+  assert.equal(onlineEventCount, 1, 'Online recovery fired more than once / possible reload loop');
+  report.browser.recovery = { result: 'network failure -> offline fallback -> online event -> same URL recovered', onlineEventCount };
+
+  const retryUrl = `${origin}/__pwa_test__/recovery-target?case=retry-button`;
+  await context.route(recoveryPattern, async (route) => {
+    if (route.request().serviceWorker()) await route.abort('internetdisconnected');
+    else await route.continue();
+  });
+  await page.goto(retryUrl, { waitUntil: 'domcontentloaded' });
+  assert(await page.locator('#offline-title').isVisible(), 'Retry case did not reach offline fallback');
+  await context.unroute(recoveryPattern);
+  await page.locator('[data-retry]').click();
+  await page.waitForSelector('text=RECOVERY TARGET', { timeout: 5000 });
+  assert.equal(page.url(), retryUrl, 'Retry button did not preserve requested URL');
+  report.browser.retry = 'PASS';
+
+  const missingAssetPattern = `${origin}/assets/__pwa_qa_missing.*`;
+  await context.route(missingAssetPattern, async (route) => {
+    if (route.request().serviceWorker()) await route.abort('internetdisconnected');
+    else await route.continue();
+  });
   for (const assetPath of ['/assets/__pwa_qa_missing.css', '/assets/__pwa_qa_missing.js', '/assets/__pwa_qa_missing.png']) {
     const assetResult = await page.evaluate(async (url) => {
       const response = await fetch(url);
@@ -241,11 +316,7 @@ try {
     assert(!assetResult.type.includes('text/html'), `Offline asset received HTML fallback: ${assetPath}`);
     assert.equal(assetResult.text, 'Offline');
   }
-
-  await context.setOffline(false);
-  await page.waitForSelector('text=RECOVERY TARGET', { timeout: 5000 });
-  assert.equal(page.url(), `${origin}/__pwa_test__/recovery-target?case=offline`, 'Online recovery did not preserve URL');
-  report.browser.recovery = 'offline fallback -> online event -> same URL recovered';
+  await context.unroute(missingAssetPattern);
 
   await page.goto(`${origin}/offline.html`, { waitUntil: 'networkidle' });
   await page.keyboard.press('Tab');
@@ -345,7 +416,8 @@ console.log(JSON.stringify({
   appShellEntries: appShell.length,
   cacheBytesBeforeExisting: baselineBytes,
   cacheBytesAfter: currentBytes,
-  missingBaseline: baseline.filter((entry) => !entry.exists).map((entry) => entry.path),
+  missingBaseline: baselineMissing,
   icons: iconAudit,
+  installabilityErrors: report.browser.installabilityErrors,
   screenshots: report.screenshots
 }, null, 2));
