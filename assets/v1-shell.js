@@ -107,13 +107,19 @@
     const copy = q('[data-preview-copy]', dialog);
     const media = q('[data-preview-media]', dialog);
     const content = {
+      'works-hub': ['Obras', 'Las dos novelas publicadas, fragmentos y rutas de lectura.'],
+      'notebook-hub': ['Cuaderno', 'Artículos y piezas editoriales sobre proceso y lecturas.'],
+      'tools-hub': ['Herramientas', 'Utilidades gratuitas para problemas concretos de escritura.'],
+      author: ['Autor', 'Biografía, obra y trayectoria de David Porto Díaz.'],
+      press: ['Prensa', 'Material de prensa, agenda y apariciones verificables.'],
+      'site-map': ['Mapa del sitio', 'Índice completo para recorrer la web por secciones.'],
       manecillas: ['Las manecillas del recuerdo', 'La obra actual y punto de entrada editorial.'],
       autor: ['Autor', 'Biografía, obra y trayectoria de David Porto Díaz.'],
       samuel: ['Samuel entre mundos', 'Primera novela publicada.'],
       cuaderno: ['Cuaderno', 'Artículos y piezas editoriales.'],
       herramientas: ['Herramientas', 'Utilidades gratuitas para problemas concretos de escritura y publicación.'],
       prensa: ['Prensa y eventos', 'Apariciones, materiales de prensa y agenda.'],
-      asistente: ['Asistente', 'Pregunta por libros, recursos, prensa o escritura y abre la fuente correcta.']
+      asistente: ['Asistente', 'Pregunta y encuentra la página que necesitas.']
     };
     const setPreview = (key) => {
       if (!preview || !content[key]) return;
@@ -130,13 +136,33 @@
   function initMap() {
     const map = q('[data-map]');
     if (!map) return;
+    let focusKey = '';
+    let hoverKey = '';
+    const sync = () => {
+      const active = focusKey || hoverKey;
+      if (active) map.dataset.active = active;
+      else delete map.dataset.active;
+      if (focusKey) map.dataset.focusActive = focusKey;
+      else delete map.dataset.focusActive;
+    };
     qa('[data-map-node]', map).forEach((node) => {
-      const on = () => { map.dataset.active = node.dataset.mapNode; };
-      const off = () => { delete map.dataset.active; };
-      node.addEventListener('mouseenter', on);
-      node.addEventListener('mouseleave', off);
-      node.addEventListener('focus', on);
-      node.addEventListener('blur', off);
+      const key = node.dataset.mapNode || '';
+      node.addEventListener('mouseenter', () => {
+        hoverKey = key;
+        sync();
+      });
+      node.addEventListener('mouseleave', () => {
+        if (hoverKey === key) hoverKey = '';
+        sync();
+      });
+      node.addEventListener('focus', () => {
+        focusKey = key;
+        sync();
+      });
+      node.addEventListener('blur', () => {
+        if (focusKey === key) focusKey = '';
+        sync();
+      });
     });
   }
 

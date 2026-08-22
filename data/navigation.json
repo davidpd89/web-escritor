@@ -28,11 +28,9 @@
     "site-map"
   ],
   "footer": {
-    "Obras": ["works-hub","work-manecillas","work-samuel"],
-    "Escribir": ["tools-hub","editorials-hub","opportunities","external-tools"],
-    "Leer": ["notebook-hub","notebook-topics","recommendations-hub","work-manecillas-fragments"],
-    "David": ["author","awards","events","press"],
-    "Sitio": ["site-map","site-ai"]
+    "Obra": ["work-manecillas","work-samuel","samuel-fragment"],
+    "Leer y recursos": ["notebook-hub","tools-hub","site-map"],
+    "Información": ["author","press","events","site-privacy","site-legal","site-accessibility","site-ai"]
   },
   "homeMap": [
     "work-manecillas",

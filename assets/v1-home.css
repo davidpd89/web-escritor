@@ -244,7 +244,27 @@ html.v1 .map-stage[data-active="autor"]{--route-work-opacity:.92;--route-process
   html.v1 .map-stage:has([data-map-node="prensa"]:is(:hover,:focus-visible)){--route-work-opacity:.18;--route-process-opacity:.16;--route-public-opacity:1}
   html.v1 .map-stage:has([data-map-node="autor"]:is(:hover,:focus-visible)){--route-work-opacity:.92;--route-process-opacity:.82;--route-public-opacity:.76}
   html.v1 .map-stage:has(.map-node:is(:hover,:focus-visible)) .map-node:not(:hover):not(:focus-visible){opacity:.84}
+  html.v1 .map-stage:has([data-map-node="manecillas"]:focus-visible),
+  html.v1 .map-stage:has([data-map-node="samuel"]:focus-visible){--route-work-opacity:1;--route-process-opacity:.16;--route-public-opacity:.14}
+  html.v1 .map-stage:has([data-map-node="cuaderno"]:focus-visible),
+  html.v1 .map-stage:has([data-map-node="herramientas"]:focus-visible){--route-work-opacity:.18;--route-process-opacity:1;--route-public-opacity:.14}
+  html.v1 .map-stage:has([data-map-node="prensa"]:focus-visible){--route-work-opacity:.18;--route-process-opacity:.16;--route-public-opacity:1}
+  html.v1 .map-stage:has([data-map-node="autor"]:focus-visible){--route-work-opacity:.92;--route-process-opacity:.82;--route-public-opacity:.76}
+  html.v1 .map-stage:has(.map-node:focus-visible) .map-node:not(:focus-visible){opacity:.84}
 }
+html.v1 .map-stage[data-focus-active] .map-node{opacity:.84}
+html.v1 .map-stage[data-focus-active="manecillas"] [data-map-node="manecillas"],
+html.v1 .map-stage[data-focus-active="autor"] [data-map-node="autor"],
+html.v1 .map-stage[data-focus-active="samuel"] [data-map-node="samuel"],
+html.v1 .map-stage[data-focus-active="cuaderno"] [data-map-node="cuaderno"],
+html.v1 .map-stage[data-focus-active="herramientas"] [data-map-node="herramientas"],
+html.v1 .map-stage[data-focus-active="prensa"] [data-map-node="prensa"]{opacity:1}
+html.v1 .map-stage[data-focus-active="manecillas"],
+html.v1 .map-stage[data-focus-active="samuel"]{--route-work-opacity:1;--route-process-opacity:.16;--route-public-opacity:.14}
+html.v1 .map-stage[data-focus-active="cuaderno"],
+html.v1 .map-stage[data-focus-active="herramientas"]{--route-work-opacity:.18;--route-process-opacity:1;--route-public-opacity:.14}
+html.v1 .map-stage[data-focus-active="prensa"]{--route-work-opacity:.18;--route-process-opacity:.16;--route-public-opacity:1}
+html.v1 .map-stage[data-focus-active="autor"]{--route-work-opacity:.92;--route-process-opacity:.82;--route-public-opacity:.76}
 @media (min-width:900px){
   html.v1 .map-node[data-map-node="manecillas"]{--x:72%;--y:24%}
   html.v1 .map-node[data-map-node="autor"]{--x:46%;--y:18%}
