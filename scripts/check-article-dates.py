@@ -18,6 +18,14 @@ JSONLD_RE = re.compile(
 )
 ARTICLE_HEADER_RE = re.compile(r"<header\s+class=\"article-header\"", re.I)
 DATE_RE = re.compile(r"^\d{4}-\d{2}-\d{2}$")
+PUBLISHED_VISIBLE_RE = re.compile(
+    r"Publicado el\s*<time[^>]*datetime=[\"'](?P<date>\d{4}-\d{2}-\d{2})[\"']",
+    re.I,
+)
+UPDATED_VISIBLE_RE = re.compile(
+    r"Actualizado el\s*<time[^>]*datetime=[\"'](?P<date>\d{4}-\d{2}-\d{2})[\"']",
+    re.I,
+)
 
 
 def iter_nodes(node):
@@ -60,32 +68,37 @@ def extract_article_dates(html: str) -> tuple[str | None, str | None]:
     return published, modified
 
 
-def check_file(path: Path) -> list[str]:
+def check_file(path: Path) -> tuple[list[str], bool]:
     errors: list[str] = []
     rel = path.relative_to(ROOT).as_posix()
     html = path.read_text(encoding="utf-8", errors="replace")
 
     if not ARTICLE_HEADER_RE.search(html):
-        return errors
+        return errors, False
 
     published, modified = extract_article_dates(html)
     if not published or not modified:
         errors.append(f"{rel}: missing datePublished/dateModified in JSON-LD Article")
-        return errors
+        return errors, True
 
-    if f'Publicado el <time datetime="{published}">' not in html:
+    visible_published = PUBLISHED_VISIBLE_RE.search(html)
+    if not visible_published:
+        errors.append(f"{rel}: missing visible published date block")
+    elif visible_published.group("date") != published:
         errors.append(f"{rel}: missing visible published date matching JSON-LD ({published})")
 
-    updated_prefix = 'Actualizado el <time datetime="'
-    has_updated = updated_prefix in html
+    visible_updated = UPDATED_VISIBLE_RE.search(html)
+    has_updated = visible_updated is not None
     if modified == published:
         if has_updated:
             errors.append(f"{rel}: has visible updated date even though dateModified == datePublished ({modified})")
     else:
-        if f'Actualizado el <time datetime="{modified}">' not in html:
+        if not visible_updated:
+            errors.append(f"{rel}: missing visible updated date block ({modified})")
+        elif visible_updated.group("date") != modified:
             errors.append(f"{rel}: missing visible updated date matching JSON-LD ({modified})")
 
-    return errors
+    return errors, True
 
 
 def main() -> int:
@@ -97,8 +110,8 @@ def main() -> int:
     errors: list[str] = []
     checked = 0
     for file_path in files:
-        file_errors = check_file(file_path)
-        if ARTICLE_HEADER_RE.search(file_path.read_text(encoding="utf-8", errors="replace")):
+        file_errors, is_article = check_file(file_path)
+        if is_article:
             checked += 1
         errors.extend(file_errors)
 
