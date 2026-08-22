@@ -108,8 +108,8 @@ def render(data, tools, directories):
     if directories:
         directories_section = f'''    <section class="v1-section" id="directorios">
       <div class="v1-section__head">
-        <p class="eyebrow">Checklists y directorios relacionados</p>
-        <div><h2>Referencia, no herramientas interactivas.</h2><p>Estas páginas son listas de comprobación o directorios de referencia. No cuentan como parte de las {len(tools)} herramientas de arriba.</p></div>
+        <p class="eyebrow">Directorios relacionados</p>
+        <div><h2>Referencia, no herramientas interactivas.</h2><p>Estas páginas son directorios de referencia. No cuentan como parte de las {len(tools)} herramientas de arriba.</p></div>
       </div>
       <div class="id-cards">
         {chr(10).join(directory_card(d) for d in directories)}
