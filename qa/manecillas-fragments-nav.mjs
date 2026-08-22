@@ -16,21 +16,46 @@ assert(BASE_SHA, 'BASE_SHA/PR_BASE_SHA es obligatorio para verificar preservaci�
 fs.mkdirSync(path.join(ROOT, OUT), { recursive: true });
 
 const currentHtml = fs.readFileSync(path.join(ROOT, PAGE_PATH), 'utf8');
-const baseHtml = execFileSync('git', ['show', `${BASE_SHA}:${PAGE_PATH}`], { encoding: 'utf8' });
+
+// La pagina puede no existir en la base. Pasa de verdad en la PR de
+// integracion (implementacion-web-2026 -> main): /fragmentos/ es nueva en la
+// rama, asi que `git show main:...` aborta con status 128 y la suite entera se
+// caia antes de comprobar nada. Contra una base donde la pagina no existe no
+// hay contenido literario que preservar, asi que ese bloque se salta y se dice
+// por que; el resto de la suite (navegacion, teclado, hash) sigue corriendo
+// entero, que es donde esta el valor.
+//
+// Deliberadamente estrecho: solo cubre "no existia". Si la pagina existe en la
+// base y su texto cambia, la comparacion sigue fallando como debe.
+const existsInBase = (() => {
+  try {
+    execFileSync('git', ['cat-file', '-e', `${BASE_SHA}:${PAGE_PATH}`], { stdio: 'ignore' });
+    return true;
+  } catch {
+    return false;
+  }
+})();
+const baseHtml = existsInBase
+  ? execFileSync('git', ['show', `${BASE_SHA}:${PAGE_PATH}`], { encoding: 'utf8' })
+  : null;
 const navJs = fs.readFileSync(path.join(ROOT, JS_PATH), 'utf8');
 
 const sha = value => crypto.createHash('sha256').update(value).digest('hex');
 const excerptPattern = /<div class="excerpt-field" data-nosnippet>([\s\S]*?)\n\s*<\/div>/g;
 const excerpts = html => [...html.matchAll(excerptPattern)].map(match => match[1]);
-const beforeExcerpts = excerpts(baseHtml);
 const afterExcerpts = excerpts(currentHtml);
-
-assert.equal(beforeExcerpts.length, 3, 'base: deben existir exactamente 3 .excerpt-field');
 assert.equal(afterExcerpts.length, 3, 'after: deben existir exactamente 3 .excerpt-field');
-assert.deepEqual(afterExcerpts, beforeExcerpts, 'el contenido literario de .excerpt-field cambió');
 
-const excerptHashes = beforeExcerpts.map(sha);
-assert.deepEqual(excerptHashes, afterExcerpts.map(sha), 'los hashes literarios before/after no coinciden');
+const excerptHashes = afterExcerpts.map(sha);
+
+if (existsInBase) {
+  const beforeExcerpts = excerpts(baseHtml);
+  assert.equal(beforeExcerpts.length, 3, 'base: deben existir exactamente 3 .excerpt-field');
+  assert.deepEqual(afterExcerpts, beforeExcerpts, 'el contenido literario de .excerpt-field cambió');
+  assert.deepEqual(excerptHashes, beforeExcerpts.map(sha), 'los hashes literarios before/after no coinciden');
+} else {
+  console.log(`PRESERVACION LITERARIA: ${PAGE_PATH} no existe en ${BASE_SHA}; es una pagina nueva respecto a esa base y no hay texto anterior que preservar.`);
+}
 
 const fragmentIds = [...currentHtml.matchAll(/<section class="book-section excerpt-section" id="(fragmento-[123])"/g)].map(m => m[1]);
 assert.deepEqual(fragmentIds, ['fragmento-1', 'fragmento-2', 'fragmento-3'], 'los tres IDs canónicos deben conservarse y ser únicos');
@@ -66,7 +91,19 @@ const protectedParts = html => ({
   twitter: [...html.matchAll(/<meta name="twitter:[^>]+>/g)].map(m => m[0]),
   jsonld: html.match(/<script type="application\/ld\+json">[\s\S]*?<\/script>/)?.[0]
 });
-assert.deepEqual(protectedParts(currentHtml), protectedParts(baseHtml), 'SEO/schema protegido cambió');
+// Misma condicion que arriba: contra una base sin la pagina no hay metadatos
+// anteriores que comparar. Se comprueba entonces que los que trae existen, que
+// es lo que se puede afirmar sin base.
+if (existsInBase) {
+  assert.deepEqual(protectedParts(currentHtml), protectedParts(baseHtml), 'SEO/schema protegido cambió');
+} else {
+  const parts = protectedParts(currentHtml);
+  for (const key of ['title', 'description', 'canonical', 'jsonld']) {
+    assert.ok(parts[key], `pagina nueva: falta ${key}`);
+  }
+  assert.ok(parts.og.length > 0, 'pagina nueva: faltan metadatos Open Graph');
+  assert.ok(parts.twitter.length > 0, 'pagina nueva: faltan metadatos Twitter');
+}
 assert(currentHtml.includes('<body data-reading-progress>'), 'debe conservar body[data-reading-progress]');
 
 const pageErrors = [];
