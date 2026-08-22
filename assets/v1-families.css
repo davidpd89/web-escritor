@@ -59,10 +59,6 @@ html.v1 .archive-media figcaption{font-size:.74rem;color:var(--color-muted);marg
    (which only sketched a masthead+bio skeleton); composed here to carry the
    real, abundant content of these pages without a card-grid-as-default
    pattern (each card is content-bearing, not decorative). */
-html.v1 .social-row{display:flex;flex-wrap:wrap;align-items:center;gap:.85rem;margin-top:1.75rem}
-html.v1 .social-icon{display:inline-flex;align-items:center;justify-content:center;width:2.35rem;height:2.35rem;border:1px solid var(--color-border);border-radius:50%;color:var(--color-text);text-decoration:none;transition:border-color var(--motion-state) var(--ease-standard),color var(--motion-state) var(--ease-standard)}
-html.v1 .social-icon svg{width:1.05rem;height:1.05rem}
-html.v1 .social-icon:hover,html.v1 .social-icon:focus-visible{border-color:var(--color-accent-strong);color:var(--color-accent-strong)}
 
 html.v1 .id-cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(15rem,100%),1fr));gap:var(--grid-gap)}
 html.v1 .topic-list{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(auto-fit,minmax(15rem,1fr));gap:var(--grid-gap)}

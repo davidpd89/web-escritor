@@ -43,6 +43,15 @@ html.v1 .site-footer nav{display:grid;align-content:start;gap:.55rem}
 html.v1 .site-footer h2{font-family:var(--font-ui);font-size:.72rem;text-transform:uppercase;letter-spacing:.08em;margin:0 0 .5rem}
 html.v1 .site-footer a{font-size:.88rem;text-decoration:none;min-height:32px}
 html.v1 .site-footer a:hover,html.v1 .site-footer a:focus-visible{text-decoration:underline}
+/* Social profiles. Lives here rather than in v1-families.css because the
+   footer row is part of the shell every V1 page loads, while families is
+   only on 22 of them. Footer margin is a rule, not an inline style: 28
+   pages declare style-src 'self', which blocks inline style attributes. */
+html.v1 .social-row{display:flex;flex-wrap:wrap;align-items:center;gap:.85rem;margin-top:1.75rem}
+html.v1 .social-icon{display:inline-flex;align-items:center;justify-content:center;width:2.35rem;height:2.35rem;border:1px solid var(--color-border);border-radius:50%;color:var(--color-text);text-decoration:none;transition:border-color var(--motion-state) var(--ease-standard),color var(--motion-state) var(--ease-standard)}
+html.v1 .social-icon svg{width:1.05rem;height:1.05rem}
+html.v1 .social-icon:hover,html.v1 .social-icon:focus-visible{border-color:var(--color-accent-strong);color:var(--color-accent-strong)}
+html.v1 .site-footer .social-row{margin-top:1rem}
 html.v1 .footer-legal{grid-column:1/-1;margin-top:1.5rem;padding-top:1.5rem;border-top:1px solid var(--color-border);display:flex;flex-wrap:wrap;gap:.4rem 1.2rem;align-items:center}
 html.v1 .footer-legal a{font-size:.82rem}
 @media (max-width:1023px){html.v1 .site-header__inner{min-height:auto;grid-template-columns:minmax(0,1fr) auto;gap:0 .75rem;padding-top:.55rem;padding-bottom:0}html.v1 .brand,html.v1 .explore-trigger{align-self:center}html.v1 .primary-nav{grid-column:1/-1;display:flex;min-width:0;width:100%;gap:clamp(1rem,4vw,1.6rem);margin-top:.45rem;border-top:1px solid var(--color-border);overflow-x:auto;overscroll-behavior-inline:contain;scrollbar-width:none;-webkit-overflow-scrolling:touch}html.v1 .primary-nav::-webkit-scrollbar{display:none}html.v1 .primary-nav a{flex:0 0 auto;min-height:44px;font-size:.84rem}html.v1 .explore-dialog__grid{grid-template-columns:1fr}html.v1 .explore-preview{display:none}}
