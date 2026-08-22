@@ -4,9 +4,29 @@
    families that don't have a bespoke signature sheet of their own. */
 html.v1 .v1-main{max-width:var(--layout-max);margin-inline:auto;padding:clamp(2.25rem,5vw,5rem) var(--page-gutter) clamp(5rem,10vw,10rem)}
 html.v1 .v1-masthead{display:grid;grid-template-columns:minmax(0,1.35fr) minmax(16rem,.65fr);gap:clamp(2rem,6vw,7rem);align-items:end;padding:clamp(4rem,8vw,8rem) 0 clamp(3rem,7vw,7rem);border-bottom:1px solid var(--color-border)}
-html.v1 .v1-masthead h1{font:400 var(--text-hero)/.86 var(--font-display);letter-spacing:-.035em;margin:.45rem 0 0;max-width:11ch;text-wrap:balance}
+/* min-width:min-content keeps the 11ch measure from squeezing a headline
+   narrower than its own longest word. "Herramientas" is twelve characters, so
+   on the tools hub the cap was tighter than the word at every width and the
+   text spilled out of its box. The box may now grow to the longest word;
+   headlines whose words already fit are unaffected, since their min-content
+   is below 11ch. Not overflow-wrap:anywhere, which "solves" it by breaking
+   mid-syllable ("Herramienta|s") and would also flatten min-content to a
+   single glyph, defeating this rule. */
+html.v1 .v1-masthead h1{font:400 var(--text-hero)/.86 var(--font-display);letter-spacing:-.035em;margin:.45rem 0 0;max-width:11ch;min-width:min-content;text-wrap:balance}
 html.v1 .v1-masthead__lead{font:400 clamp(1.15rem,1rem + .65vw,1.8rem)/1.32 var(--font-reading);max-width:32ch;margin:0}
 html.v1 .v1-masthead__actions{display:flex;flex-wrap:wrap;gap:1.1rem;margin-top:1.75rem}
+
+/* --text-hero is clamp(4rem,2.2rem + 7vw,8rem), so its 4rem floor is pinned
+   for every viewport under 411px: a 320px phone got exactly the same 64px
+   headline as a 410px one. This restores a proportional ramp below that
+   breakpoint and stops there, so 411px and up are untouched. */
+@media(max-width:410px){
+  /* max-width:11ch is the hero's typographic measure, but "Herramientas" is
+     twelve characters, so at any size it could never fit and the word broke
+     mid-syllable. Below this breakpoint the column itself is already the
+     measure, so the ch cap is what has to go. */
+  html.v1 .v1-masthead h1{font-size:clamp(2.6rem,1rem + 8vw,4rem);max-width:none}
+}
 html.v1 .v1-section{padding:clamp(3.5rem,7vw,7rem) 0;border-bottom:1px solid var(--color-border)}
 html.v1 .v1-section:last-child{border-bottom:0}
 html.v1 .v1-section__head{display:grid;grid-template-columns:minmax(8rem,.35fr) minmax(0,1.65fr);gap:clamp(1.5rem,5vw,5rem);margin-bottom:clamp(2rem,5vw,4rem)}
