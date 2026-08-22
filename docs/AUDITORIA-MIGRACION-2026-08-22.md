@@ -195,20 +195,56 @@ Nada de esto bloquea el paso a diseño. Ordenado por lo que costaría dejarlo si
 | 3 | Fecha de promoción frente al 3 de septiembre | Decisión del autor: la web se lanza con el libro, el copy se queda en «publicada» |
 | 5 | Reducción del río editorial de la Home (9 → 5) | Revisada: las cuatro tarjetas retiradas (`/cuaderno/`, `/herramientas/`, `/eventos.html`, `/prensa.html`) siguen enlazadas desde la propia Home 4, 4, 2 y 4 veces por cartografía, cabecera y pie. Se quitaron duplicados, no destinos |
 | 6 | Segundo email de contacto | Decisión del autor: **hay un solo email suyo, `davidportodiaz@gmail.com`**. `samuelentremundos@gmail.com` desaparece del sitio (22 ficheros). Los correos de editoriales o terceros no se tocan |
+| 7 | Puntero vs foco en el resalte del mapa de la Home | Cerrado en PR #51: `assets/v1-shell.js` separa `focusKey`/`hoverKey`; con foco activo, el ratón ya no puede robarle el resalte |
+| 8 | El asistente se auto-abre encima del contenido principal de la Home | Ya no se auto-abre; ahora es un aviso una vez por sesión (`assets/assistant-widget.js`, confirmado en ronda anterior) |
 
 ### Siguen abiertos
 
 | # | Asunto | Tipo |
 |---|---|---|
 | 4 | Recuperar el enlace a la mención de `hoymadrid.app` | Evidencia editorial |
-| 7 | Puntero vs foco en el resalte del mapa de la Home | Interacción |
-| 8 | El asistente se auto-abre encima del contenido principal de la Home | Producto |
 | 9 | 292,8 MB de imágenes sin referenciar (`assets/alicia_capitulo_*`) | Informe pendiente |
 | 10 | 26 páginas fuera de la guía de longitud de `title`/`description` | Informe pendiente |
 | 11 | Devolver a `/ai/` los enlaces a validadores y especificaciones, si se quieren | Opcional |
 
 Los puntos 9 y 10 ya tienen tarea escrita en el handoff como **informe, no
 implementación**: los dos tocan material publicado o copy del autor.
+
+### Añadidos 22/08 — cruzando el audit contra el documento GPT paralelo
+
+David tenía a GPT revisando en paralelo, fichero por fichero, el dossier
+completo de `WEB DAVID PORTO nuevas ideas`. Cada afirmación se verificó contra
+el repo antes de anotarla aquí; lo que no se sostuvo al comprobarlo no entra
+en esta lista. Dos hallazgos ya se corrigieron directamente (email del
+asistente arriba aparte):
+
+- **El popup de newsletter usaba tipografía del sistema visual anterior**
+  (Cormorant Garamond/Inter) en las cuatro rutas donde se dispara
+  (`/cuaderno/`, `/recomendaciones/`, `/universo/noveris/`,
+  `/clubes-de-lectura/`), todas ya V1. Corregido — ahora usa
+  `var(--font-display)`/`var(--font-ui)`. Ver PR #52.
+- **`script.js` tenía tres funciones (menú móvil legacy, un "Explorar" duplicado
+  anterior al diálogo actual, e inyector de enlace en pies antiguos) que no
+  encontraban su DOM en ninguna página del repo** y no ejecutaban nada, en
+  cada carga, desde hace tiempo. Retiradas. Ver PR #52.
+- **`/recomendaciones/` promocionaba activamente el artículo en cuarentena**
+  `libros-fantasia-juvenil-espanola-2025-2026` (noindex por afirmaciones sin
+  verificar) bajo «Artículos relacionados». El `noindex` protege el SEO, pero
+  no impedía que una sección que se presenta como curada siguiera invitando a
+  leerlo. Enlace retirado; la página en sí no se toca.
+
+Y tres que quedan explícitamente para decisión del autor, porque tocan copy
+editorial o infraestructura sensible que este documento no debe tocar por su
+cuenta:
+
+| # | Asunto | Por qué no se ha tocado |
+|---|---|---|
+| 12 | `/cuaderno/sistema-de-magia-noveris/` sigue afirmando como hecho una mecánica de canon que la propia auditoría de agosto marcó como no resuelta (varias versiones incompatibles), a pesar de estar `noindex` por esa razón exacta | Reescribir el FAQ/artículo en un tono neutral es una decisión de canon, no un arreglo de código — hay que decidir la mecánica real o el tono de "en revisión" con el autor |
+| 13 | El Worker de newsletter (`cloudflare-worker-subscribe.js`) no tiene rate limiting ni Turnstile/KV — el propio fichero lo dice en un comentario propio | Cambiar el Worker es infraestructura de producción; no se toca sin autorización explícita (ver limitación permanente al pie de este documento) |
+| 14 | La integración con Brevo es de alta directa (single opt-in): guarda `nl-subscribed=1` nada más recibir 200 del Worker, sin doble confirmación por email, sin atributos `DP_CONSENT_*`/`DP_INTEREST_*` ni página de preferencias — la arquitectura original preveía más de esto | Implementarlo requiere una automatización nueva en el panel de Brevo (fuera del repo) además de código; es un bloque de trabajo real, pero coordinado con un servicio externo, no un fix aislado |
+
+Los puntos 12–14 no bloquean el paso a diseño — son deuda de producto/seguridad,
+no defectos visibles para un lector. Se anotan aquí para que no se pierdan.
 
 ## 7. Conclusión
 
