@@ -1,24 +1,14 @@
 #!/usr/bin/env python3
-"""Hubs de colecciones tematicas del Cuaderno (doc 55).
+'''Hubs de colecciones temáticas del Cuaderno.
 
-Genera `/cuaderno/temas/` (indice) y `/cuaderno/temas/{slug}/` (un hub por
-cada coleccion con status "ready"). Los articulos siguen en sus URLs
-actuales; esto solo añade una capa de navegacion que explica por que varias
-piezas forman un conjunto.
-
-El gate de 3 piezas para "ready" (doc 55, seccion 5) NO es una regla SEO: es
-una barrera editorial para no publicar hubs de una o dos tarjetas. Una
-coleccion con menos piezas debe quedarse en "draft" — el builder simplemente
-no genera pagina para ella, no falla el build (fallar obligaria a completar
-la coleccion o borrarla del JSON solo para poder desplegar el resto).
+Genera `/cuaderno/temas/` y `/cuaderno/temas/{slug}/` para las colecciones
+con status "ready". Los artículos conservan sus URLs; esta capa solo crea
+índices editoriales que explican por qué las piezas forman un conjunto.
 
 Uso:
-  # generar
   python scripts/build-topic-collections.py --data data/topic-collections.json --root .
-
-  # solo validar, sin escribir nada
   python scripts/build-topic-collections.py --data data/topic-collections.json --root . --check
-"""
+'''
 from __future__ import annotations
 
 import argparse
@@ -55,7 +45,10 @@ def validate_item(item: dict, coll_slug: str, index: int, seen_urls: set[str]) -
             raise ValidationError(f"{coll_slug}.items[{index}]: falta {key}")
     url = item["url"]
     if not INTERNAL_URL_RE.fullmatch(url):
-        raise ValidationError(f"{coll_slug}.items[{index}]: URL debe ser interna y limpia (sin dominio, query ni hash): {url!r}")
+        raise ValidationError(
+            f"{coll_slug}.items[{index}]: URL debe ser interna y limpia "
+            f"(sin dominio, query ni hash): {url!r}"
+        )
     if "://" in url:
         raise ValidationError(f"{coll_slug}.items[{index}]: URL externa no permitida: {url!r}")
     if url in seen_urls:
@@ -99,7 +92,7 @@ def validate(data: dict) -> list[dict]:
 
         if coll["status"] == "ready" and len(items) < 3:
             raise ValidationError(
-                f"{slug}: status=ready exige al menos 3 piezas (gate editorial, doc 55 §5); tiene {len(items)}. "
+                f"{slug}: status=ready exige al menos 3 piezas; tiene {len(items)}. "
                 "Déjala en draft hasta que exista una tercera pieza real."
             )
 
@@ -107,10 +100,6 @@ def validate(data: dict) -> list[dict]:
 
 
 def check_repo(root: Path, ready_collections: list[dict]) -> None:
-    """--root: confirma que cada pieza de cada colección ready es una página
-    real, indexable, con el canonical esperado — el mismo contrato que ya usa
-    scripts/build-surprise-content.py, para que una colección no siga
-    ofreciendo un artículo que pasó a noindex o se movió."""
     problems: list[str] = []
     for coll in ready_collections:
         for item in coll["items"]:
@@ -139,7 +128,7 @@ SHELL_HEADER = '''  <a href="#contenido" class="skip-link">Saltar al contenido</
       </a>
       <nav class="primary-nav" aria-label="Navegación principal">
         <a href="/libros/">Obra</a>
-        <a href="/cuaderno/">Cuaderno</a>
+        <a href="/cuaderno/" aria-current="page">Cuaderno</a>
         <a href="/herramientas/">Herramientas</a>
       </nav>
       <button class="explore-trigger" type="button" aria-haspopup="dialog" aria-controls="explore-dialog" aria-expanded="false" data-explore-open>
@@ -190,8 +179,8 @@ SHELL_HEADER = '''  <a href="#contenido" class="skip-link">Saltar al contenido</
 
         <aside class="explore-preview" aria-live="polite" aria-atomic="true" data-explore-preview>
           <div class="explore-preview__media" aria-hidden="true" data-preview-media></div>
-          <p class="explore-preview__label" data-preview-label>Herramientas</p>
-          <p class="explore-preview__copy" data-preview-copy>Utilidades gratuitas para escritores.</p>
+          <p class="explore-preview__label" data-preview-label>Cuaderno</p>
+          <p class="explore-preview__copy" data-preview-copy>Artículos, crónicas y piezas editoriales.</p>
         </aside>
       </div>
     </div>
@@ -263,7 +252,7 @@ def head(title: str, description: str, canonical: str, jsonld: dict) -> str:
         '<link rel="stylesheet" href="/assets/v1-shell.css">'
         '<link rel="stylesheet" href="/assets/v1-components.css">'
         '<link rel="stylesheet" href="/assets/v1-families.css">'
-        '<link rel="stylesheet" href="/assets/v1-tools.css">'
+        '<link rel="stylesheet" href="/assets/v1-cuaderno-topics.css">'
         f'<script type="application/ld+json">{schema}</script></head><body>'
         + SHELL_HEADER
     )
@@ -281,20 +270,49 @@ def breadcrumb_jsonld(items: list[tuple[str, str | None]]) -> dict:
 
 def render_breadcrumb(items: list[tuple[str, str | None]]) -> str:
     parts = [
-        f'<li><a href="{esc(url)}">{esc(name)}</a></li>' if url else f'<li aria-current="page">{esc(name)}</li>'
+        f'<li><a href="{esc(url)}">{esc(name)}</a></li>'
+        if url
+        else f'<li aria-current="page">{esc(name)}</li>'
         for name, url in items
     ]
-    return '<nav class="book-breadcrumb" aria-label="Ruta de navegación"><ol>' + "".join(parts) + "</ol></nav>"
+    return (
+        '<nav class="cuaderno-topics-breadcrumb" aria-label="Ruta de navegación"><ol>'
+        + "".join(parts)
+        + "</ol></nav>"
+    )
+
+
+def hero(eyebrow: str, title: str, lead: str, count: int, count_label: str) -> str:
+    return (
+        '<header class="cuaderno-topics-hero">'
+        '<div class="cuaderno-topics-hero__copy">'
+        f'<p class="eyebrow">{esc(eyebrow)}</p>'
+        f"<h1>{esc(title)}</h1>"
+        f'<p class="cuaderno-topics-hero__lead">{esc(lead)}</p>'
+        "</div>"
+        f'<aside class="cuaderno-topics-hero__folio" aria-label="{esc(count_label)}">'
+        f"<strong>{count:02d}</strong><span>{esc(count_label)}</span></aside>"
+        "</header>"
+    )
 
 
 def render_index(ready: list[dict]) -> str:
     title = "Colecciones del Cuaderno | David Porto Díaz"
-    description = "Hubs temáticos que agrupan varios artículos del Cuaderno alrededor de una misma pregunta o proceso, con una introducción que explica por qué encajan juntos."
-    cards = "".join(
-        f'<article class="id-card"><h2><a href="{esc(SITE + "/cuaderno/temas/" + c["slug"] + "/")}">{esc(c["title"])}</a></h2>'
-        f'<p>{esc(c["description"])}</p>'
-        f'<p class="tool-meta">{"Colección" if c["mode"] == "collection" else "Serie"} · {len(c["items"])} piezas</p></article>'
-        for c in ready
+    description = (
+        "Hubs temáticos que agrupan varios artículos del Cuaderno alrededor de una misma pregunta "
+        "o proceso, con una introducción que explica por qué encajan juntos."
+    )
+    rows = "".join(
+        (
+            '<li class="cuaderno-topics-entry">'
+            f'<span class="cuaderno-topics-entry__index" aria-hidden="true">{i:02d}</span>'
+            '<div class="cuaderno-topics-entry__body">'
+            f'<p class="cuaderno-topics-entry__meta">{"Colección" if c["mode"] == "collection" else "Serie"} · {len(c["items"])} piezas</p>'
+            f'<h2><a href="{esc(SITE + "/cuaderno/temas/" + c["slug"] + "/")}">{esc(c["title"])}</a></h2>'
+            f'<p>{esc(c["description"])}</p>'
+            "</div></li>"
+        )
+        for i, c in enumerate(ready, 1)
     )
     jsonld = {
         "@context": "https://schema.org",
@@ -310,17 +328,22 @@ def render_index(ready: list[dict]) -> str:
                 "author": {"@id": f"{SITE}/#author"},
                 "breadcrumb": {"@id": INDEX_URL + "#breadcrumb"},
             },
-            {**breadcrumb_jsonld([("Inicio", SITE + "/"), ("Cuaderno", SITE + "/cuaderno/"), ("Temas", None)]), "@id": INDEX_URL + "#breadcrumb"},
+            {
+                **breadcrumb_jsonld(
+                    [("Inicio", SITE + "/"), ("Cuaderno", SITE + "/cuaderno/"), ("Temas", None)]
+                ),
+                "@id": INDEX_URL + "#breadcrumb",
+            },
         ],
     }
+    count_label = "colección publicada" if len(ready) == 1 else "colecciones publicadas"
     main = (
-        '<main id="contenido" tabindex="-1" class="v1-main" data-family="topic-collection">'
+        '<main id="contenido" tabindex="-1" class="v1-main" data-family="cuaderno-topics">'
         + render_breadcrumb([("Inicio", "/"), ("Cuaderno", "/cuaderno/"), ("Temas", None)])
-        + '<header class="tool-hero"><p class="eyebrow">Cuaderno del autor</p>'
-        f"<h1>Colecciones del Cuaderno</h1><p class=\"tool-hero__lead\">{esc(description)}</p></header>"
-        f'<section class="v1-section" aria-label="Colecciones publicadas"><div class="id-cards">{cards}</div></section>'
-        '<section class="v1-section"><p><a class="text-action" href="/cuaderno/">← Volver al Cuaderno</a></p></section>'
-        "</main>"
+        + hero("Cuaderno del autor", "Colecciones del Cuaderno", description, len(ready), count_label)
+        + f'<section class="cuaderno-topics-index" aria-label="Colecciones publicadas"><ol class="cuaderno-topics-ledger">{rows}</ol></section>'
+        + '<section class="cuaderno-topics-tail"><p><a class="cuaderno-topics-link" href="/cuaderno/">← Volver al Cuaderno</a></p></section>'
+        + "</main>"
     )
     return head(title, description, INDEX_URL, jsonld) + main + SHELL_FOOTER
 
@@ -330,14 +353,18 @@ def render_hub(coll: dict) -> str:
     title = f"{coll['title']} | Cuaderno | David Porto Díaz"
     is_series = coll["mode"] == "series"
     total = len(coll["items"])
-    list_tag = "ol" if is_series else "ul"
+
     items_html = []
     for i, item in enumerate(coll["items"], 1):
-        eyebrow = f'<p class="eyebrow">Pieza {i} de {total}</p>' if is_series else ""
         items_html.append(
-            f'<li class="id-card topic-item">{eyebrow}<h2><a href="{esc(item["url"])}">{esc(item["title"])}</a></h2>'
-            f'<p>{esc(item["description"])}</p></li>'
+            '<li class="cuaderno-topic-step">'
+            f'<span class="cuaderno-topic-step__index" aria-hidden="true">{i:02d}</span>'
+            '<div class="cuaderno-topic-step__body">'
+            f'<h2><a href="{esc(item["url"])}">{esc(item["title"])}</a></h2>'
+            f'<p>{esc(item["description"])}</p>'
+            "</div></li>"
         )
+
     jsonld = {
         "@context": "https://schema.org",
         "@graph": [
@@ -357,30 +384,62 @@ def render_hub(coll: dict) -> str:
             {
                 "@type": "ItemList",
                 "@id": canonical + "#list",
-                "itemListOrder": "https://schema.org/ItemListOrderAscending" if is_series else "https://schema.org/ItemListUnordered",
+                "itemListOrder": (
+                    "https://schema.org/ItemListOrderAscending"
+                    if is_series
+                    else "https://schema.org/ItemListUnordered"
+                ),
                 "itemListElement": [
-                    {"@type": "ListItem", "position": i, "url": SITE + item["url"], "name": item["title"]}
+                    {
+                        "@type": "ListItem",
+                        "position": i,
+                        "url": SITE + item["url"],
+                        "name": item["title"],
+                    }
                     for i, item in enumerate(coll["items"], 1)
                 ],
             },
-            {**breadcrumb_jsonld([("Inicio", SITE + "/"), ("Cuaderno", SITE + "/cuaderno/"), ("Temas", SITE + "/cuaderno/temas/"), (coll["title"], None)]), "@id": canonical + "#breadcrumb"},
+            {
+                **breadcrumb_jsonld(
+                    [
+                        ("Inicio", SITE + "/"),
+                        ("Cuaderno", SITE + "/cuaderno/"),
+                        ("Temas", SITE + "/cuaderno/temas/"),
+                        (coll["title"], None),
+                    ]
+                ),
+                "@id": canonical + "#breadcrumb",
+            },
         ],
     }
+
     series_note = (
-        '<p class="tool-note">Esta serie tiene un orden de lectura recomendado: cada entrega da por hecha la anterior.</p>'
+        '<p class="cuaderno-topic-note">Esta serie tiene un orden de lectura recomendado: cada entrega da por hecha la anterior.</p>'
         if is_series
         else ""
     )
     main = (
-        '<main id="contenido" tabindex="-1" class="v1-main" data-family="topic-collection">'
-        + render_breadcrumb([("Inicio", "/"), ("Cuaderno", "/cuaderno/"), ("Temas", "/cuaderno/temas/"), (coll["title"], None)])
-        + f'<header class="tool-hero"><p class="eyebrow">{"Serie del Cuaderno" if is_series else "Colección del Cuaderno"}</p>'
-        f"<h1>{esc(coll['title'])}</h1><p class=\"tool-hero__lead\">{esc(coll['intro'])}</p></header>"
-        f'{series_note}'
-        f'<section class="v1-section" aria-label="Piezas de la colección"><{list_tag} class="topic-list">{"".join(items_html)}</{list_tag}></section>'
-        f'<section class="v1-section"><p class="tool-note">Revisión de esta colección: <time datetime="{esc(coll["updated"])}">{esc(coll["updated"])}</time></p>'
-        '<p><a class="text-action" href="/cuaderno/temas/">← Todas las colecciones</a> · <a class="text-action" href="/cuaderno/">Volver al Cuaderno</a></p></section>'
-        "</main>"
+        '<main id="contenido" tabindex="-1" class="v1-main" data-family="cuaderno-topics">'
+        + render_breadcrumb(
+            [
+                ("Inicio", "/"),
+                ("Cuaderno", "/cuaderno/"),
+                ("Temas", "/cuaderno/temas/"),
+                (coll["title"], None),
+            ]
+        )
+        + hero(
+            "Serie del Cuaderno" if is_series else "Colección del Cuaderno",
+            coll["title"],
+            coll["intro"],
+            total,
+            "piezas en la colección",
+        )
+        + series_note
+        + f'<section class="cuaderno-topic-itinerary" aria-label="Piezas de la colección"><ul class="cuaderno-topic-steps">{"".join(items_html)}</ul></section>'
+        + f'<section class="cuaderno-topics-tail"><p class="cuaderno-topic-revision">Revisión de esta colección: <time datetime="{esc(coll["updated"])}">{esc(coll["updated"])}</time></p>'
+        + '<nav class="cuaderno-topics-tail__links" aria-label="Continuar en el Cuaderno"><a class="cuaderno-topics-link" href="/cuaderno/temas/">← Todas las colecciones</a><span aria-hidden="true">·</span><a class="cuaderno-topics-link" href="/cuaderno/">Volver al Cuaderno</a></nav></section>'
+        + "</main>"
     )
     return head(title, coll["description"], canonical, jsonld) + main + SHELL_FOOTER
 
@@ -400,8 +459,8 @@ def build(data_path: Path, root: Path, check_only: bool) -> tuple[int, int]:
         if not index_target.exists() or index_target.read_text(encoding="utf-8") != index_html:
             drift.append("cuaderno/temas/index.html")
         for slug, html_out in hub_html.items():
-            p = root / "cuaderno" / "temas" / slug / "index.html"
-            if not p.exists() or p.read_text(encoding="utf-8") != html_out:
+            path = root / "cuaderno" / "temas" / slug / "index.html"
+            if not path.exists() or path.read_text(encoding="utf-8") != html_out:
                 drift.append(f"cuaderno/temas/{slug}/index.html")
         if drift:
             print("FAIL: salida desactualizada: " + ", ".join(drift))
@@ -412,22 +471,26 @@ def build(data_path: Path, root: Path, check_only: bool) -> tuple[int, int]:
     index_target.parent.mkdir(parents=True, exist_ok=True)
     index_target.write_text(index_html, encoding="utf-8")
     for slug, html_out in hub_html.items():
-        p = root / "cuaderno" / "temas" / slug / "index.html"
-        p.parent.mkdir(parents=True, exist_ok=True)
-        p.write_text(html_out, encoding="utf-8")
+        path = root / "cuaderno" / "temas" / slug / "index.html"
+        path.parent.mkdir(parents=True, exist_ok=True)
+        path.write_text(html_out, encoding="utf-8")
     print(f"GENERATED: {len(collections)} colección(es) validadas, {len(ready)} hub(s) publicado(s)")
     return len(collections), len(ready)
 
 
+def parse_args() -> argparse.Namespace:
+    parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument("--data", type=Path, required=True)
+    parser.add_argument("--root", type=Path, required=True)
+    parser.add_argument("--check", action="store_true")
+    return parser.parse_args()
+
+
 def main() -> int:
-    ap = argparse.ArgumentParser(description=__doc__)
-    ap.add_argument("--data", type=Path, required=True)
-    ap.add_argument("--root", type=Path, required=True, help="raíz del repo (para generar/verificar y para --root de check_repo)")
-    ap.add_argument("--check", action="store_true")
-    args = ap.parse_args()
+    args = parse_args()
     try:
         _, ready_count = build(args.data, args.root, args.check)
-    except ValidationError as exc:
+    except (OSError, json.JSONDecodeError, ValidationError) as exc:
         print(f"FAIL: {exc}", file=sys.stderr)
         return 1
     return 1 if (args.check and ready_count == -1) else 0

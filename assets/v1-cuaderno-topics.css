@@ -1,0 +1,65 @@
+/* Cuaderno topic collections V1 — archive/dossier family.
+   Scoped exclusively to [data-family="cuaderno-topics"]. */
+html.v1 [data-family="cuaderno-topics"]{max-width:var(--layout-max)}
+
+html.v1 [data-family="cuaderno-topics"] .cuaderno-topics-breadcrumb{margin:0 0 clamp(2rem,4vw,4.5rem);font:400 var(--text-xs)/1.45 var(--font-ui);color:var(--color-muted)}
+html.v1 [data-family="cuaderno-topics"] .cuaderno-topics-breadcrumb ol{display:flex;flex-wrap:wrap;gap:.4rem .65rem;list-style:none;margin:0;padding:0}
+html.v1 [data-family="cuaderno-topics"] .cuaderno-topics-breadcrumb li+li::before{content:"/";margin-right:.65rem;color:var(--color-border)}
+html.v1 [data-family="cuaderno-topics"] .cuaderno-topics-breadcrumb a{text-decoration:none;text-underline-offset:.18em}
+html.v1 [data-family="cuaderno-topics"] .cuaderno-topics-breadcrumb a:hover{text-decoration:underline;text-decoration-color:var(--color-accent)}
+html.v1 [data-family="cuaderno-topics"] .cuaderno-topics-breadcrumb a:focus-visible{outline:2px solid var(--focus-color);outline-offset:3px}
+
+html.v1 [data-family="cuaderno-topics"] .cuaderno-topics-hero{display:grid;grid-template-columns:minmax(0,8fr) minmax(8rem,3fr);gap:clamp(2rem,6vw,7rem);align-items:end;max-width:var(--layout-wide);padding:0 0 clamp(3rem,6vw,6rem);border-bottom:1px solid var(--color-border)}
+html.v1 [data-family="cuaderno-topics"] .cuaderno-topics-hero__copy{min-width:0}
+html.v1 [data-family="cuaderno-topics"] .cuaderno-topics-hero .eyebrow{margin:0}
+html.v1 [data-family="cuaderno-topics"] .cuaderno-topics-hero h1{max-width:13ch;margin:.55rem 0 1.25rem;font:400 clamp(3.3rem,6.8vw,7rem)/.94 var(--font-display);letter-spacing:-.032em;text-wrap:balance;overflow-wrap:break-word}
+html.v1 [data-family="cuaderno-topics"] .cuaderno-topics-hero__lead{max-width:56ch;margin:0;font:400 clamp(1.16rem,1.05rem + .45vw,1.5rem)/1.55 var(--font-reading);color:var(--color-muted)}
+html.v1 [data-family="cuaderno-topics"] .cuaderno-topics-hero__folio{align-self:stretch;display:grid;align-content:end;gap:.35rem;border-left:1px solid var(--color-border);padding-left:clamp(1rem,2vw,2rem);color:var(--color-muted)}
+html.v1 [data-family="cuaderno-topics"] .cuaderno-topics-hero__folio strong{display:block;color:var(--color-text);font:400 clamp(2.6rem,4.4vw,4.6rem)/.9 var(--font-display);font-variant-numeric:tabular-nums}
+html.v1 [data-family="cuaderno-topics"] .cuaderno-topics-hero__folio span{max-width:16ch;font:600 .7rem/1.4 var(--font-ui);letter-spacing:.08em;text-transform:uppercase}
+
+html.v1 [data-family="cuaderno-topics"] .cuaderno-topics-index,
+html.v1 [data-family="cuaderno-topics"] .cuaderno-topic-itinerary{max-width:var(--layout-wide);padding:clamp(3.25rem,6vw,6rem) 0}
+html.v1 [data-family="cuaderno-topics"] .cuaderno-topics-ledger,
+html.v1 [data-family="cuaderno-topics"] .cuaderno-topic-steps{list-style:none;margin:0;padding:0;border-top:1px solid var(--color-border)}
+html.v1 [data-family="cuaderno-topics"] .cuaderno-topics-entry,
+html.v1 [data-family="cuaderno-topics"] .cuaderno-topic-step{display:grid;grid-template-columns:clamp(2.2rem,4vw,3.75rem) minmax(0,1fr);gap:clamp(1rem,2.5vw,2.5rem);align-items:start;padding:clamp(1.6rem,2.7vw,2.4rem) 0;border-bottom:1px solid var(--color-border)}
+html.v1 [data-family="cuaderno-topics"] .cuaderno-topics-entry__index,
+html.v1 [data-family="cuaderno-topics"] .cuaderno-topic-step__index{padding-top:.28rem;font:600 .72rem/1 var(--font-ui);font-variant-numeric:tabular-nums;letter-spacing:.05em;color:var(--color-muted)}
+html.v1 [data-family="cuaderno-topics"] .cuaderno-topics-entry__body,
+html.v1 [data-family="cuaderno-topics"] .cuaderno-topic-step__body{min-width:0;max-width:68rem}
+html.v1 [data-family="cuaderno-topics"] .cuaderno-topics-entry__meta{margin:0 0 .55rem;font:600 .72rem/1.4 var(--font-ui);letter-spacing:.06em;text-transform:uppercase;color:var(--color-muted)}
+html.v1 [data-family="cuaderno-topics"] :is(.cuaderno-topics-entry__body,.cuaderno-topic-step__body) h2{max-width:28ch;margin:0 0 .65rem;font:400 clamp(1.75rem,3.2vw,3.3rem)/1.02 var(--font-display);letter-spacing:-.018em;text-wrap:balance;overflow-wrap:anywhere}
+html.v1 [data-family="cuaderno-topics"] :is(.cuaderno-topics-entry__body,.cuaderno-topic-step__body) h2 a{color:inherit;text-decoration:underline;text-decoration-color:var(--color-border);text-decoration-thickness:1px;text-underline-offset:.16em}
+html.v1 [data-family="cuaderno-topics"] :is(.cuaderno-topics-entry__body,.cuaderno-topic-step__body) h2 a:hover{text-decoration:underline;text-decoration-color:var(--color-accent)}
+html.v1 [data-family="cuaderno-topics"] :is(.cuaderno-topics-entry__body,.cuaderno-topic-step__body) h2 a:focus-visible{outline:2px solid var(--focus-color);outline-offset:4px}
+html.v1 [data-family="cuaderno-topics"] :is(.cuaderno-topics-entry__body,.cuaderno-topic-step__body)>p:last-child{max-width:62ch;margin:0;font:400 var(--text-base)/1.62 var(--font-reading);color:var(--color-muted)}
+
+html.v1 [data-family="cuaderno-topics"] .cuaderno-topic-note{max-width:66ch;margin:clamp(2rem,4vw,3rem) 0 0;padding:1rem 0 1rem clamp(1rem,2vw,1.5rem);border-left:2px solid var(--color-accent);font:400 var(--text-sm)/1.6 var(--font-reading);color:var(--color-muted)}
+html.v1 [data-family="cuaderno-topics"] .cuaderno-topics-tail{max-width:var(--layout-wide);display:flex;flex-wrap:wrap;align-items:baseline;justify-content:space-between;gap:1rem 2rem;padding:clamp(1.5rem,3vw,2.25rem) 0 0;border-top:1px solid var(--color-border)}
+html.v1 [data-family="cuaderno-topics"] .cuaderno-topics-tail p{margin:0}
+html.v1 [data-family="cuaderno-topics"] .cuaderno-topic-revision{font:400 var(--text-xs)/1.5 var(--font-ui);color:var(--color-muted)}
+html.v1 [data-family="cuaderno-topics"] .cuaderno-topics-tail__links{display:flex;flex-wrap:wrap;gap:.45rem .75rem;align-items:baseline}
+html.v1 [data-family="cuaderno-topics"] .cuaderno-topics-link{color:var(--color-text);font:600 var(--text-xs)/1.45 var(--font-ui);text-decoration:underline;text-decoration-color:var(--color-border);text-underline-offset:.2em;overflow-wrap:anywhere}
+html.v1 [data-family="cuaderno-topics"] .cuaderno-topics-link:hover{text-decoration-color:var(--color-accent)}
+html.v1 [data-family="cuaderno-topics"] .cuaderno-topics-link:focus-visible{outline:2px solid var(--focus-color);outline-offset:3px}
+
+@media(max-width:767px){
+  html.v1 [data-family="cuaderno-topics"] .cuaderno-topics-breadcrumb{margin-bottom:2rem}
+  html.v1 [data-family="cuaderno-topics"] .cuaderno-topics-hero{grid-template-columns:1fr;gap:1.75rem;padding-bottom:3rem}
+  html.v1 [data-family="cuaderno-topics"] .cuaderno-topics-hero h1{max-width:none;font-size:clamp(3rem,13vw,4.9rem)}
+  html.v1 [data-family="cuaderno-topics"] .cuaderno-topics-hero__folio{border-left:0;border-top:1px solid var(--color-border);padding:1rem 0 0;grid-template-columns:auto minmax(0,1fr);gap:.75rem;align-items:baseline}
+  html.v1 [data-family="cuaderno-topics"] .cuaderno-topics-hero__folio strong{font-size:2.4rem}
+  html.v1 [data-family="cuaderno-topics"] .cuaderno-topics-hero__folio span{max-width:none}
+  html.v1 [data-family="cuaderno-topics"] .cuaderno-topics-index,
+  html.v1 [data-family="cuaderno-topics"] .cuaderno-topic-itinerary{padding:2.75rem 0}
+  html.v1 [data-family="cuaderno-topics"] .cuaderno-topics-entry,
+  html.v1 [data-family="cuaderno-topics"] .cuaderno-topic-step{grid-template-columns:2rem minmax(0,1fr);gap:.85rem 1rem;padding:1.5rem 0}
+  html.v1 [data-family="cuaderno-topics"] :is(.cuaderno-topics-entry__body,.cuaderno-topic-step__body) h2{font-size:clamp(1.65rem,7.5vw,2.55rem)}
+  html.v1 [data-family="cuaderno-topics"] .cuaderno-topics-tail{align-items:flex-start;flex-direction:column}
+}
+
+@media(max-width:389px){
+  html.v1 [data-family="cuaderno-topics"] .cuaderno-topics-entry,
+  html.v1 [data-family="cuaderno-topics"] .cuaderno-topic-step{grid-template-columns:1.6rem minmax(0,1fr);gap:.75rem}
+}
