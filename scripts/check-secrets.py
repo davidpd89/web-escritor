@@ -8,9 +8,15 @@ import re
 import subprocess
 import sys
 
+# The (?<![A-Za-z0-9_-]) guard makes "sk-" match only at a token boundary. Without
+# it the pattern fired inside ordinary words and URLs: a Codrops link containing
+# "svg-mask-transitions-...-scrolltrigger" matched on the "sk-" of "mask", which
+# left the scanner failing on a false positive and therefore unusable in CI.
 patterns = [
-    re.compile(r'sk-[A-Za-z0-9_-]{20,}'),
-    re.compile(r'sk-proj-[A-Za-z0-9_-]{10,}'),
+    re.compile(r'(?<![A-Za-z0-9_-])sk-[A-Za-z0-9_-]{20,}'),
+    re.compile(r'(?<![A-Za-z0-9_-])sk-proj-[A-Za-z0-9_-]{10,}'),
+    # Brevo (newsletter) issues keys with this prefix; the site uses Brevo.
+    re.compile(r'(?<![A-Za-z0-9_-])xkeysib-[A-Za-z0-9_-]{32,}'),
     # match only if OPENAI_API_KEY has a value (non-empty) to avoid false positives in .env.example
     re.compile(r'OPENAI_API_KEY\s*=\s*\S+')
 ]
