@@ -2,7 +2,13 @@
 html.v1 .editorial-card[hidden]{display:none}
 html.v1 [data-editoriales-directory] .id-cards{display:block;border-top:1px solid var(--color-border)}
 html.v1 [data-editoriales-directory] .editorial-card{margin:0;padding:1.35rem 0;border:0;border-bottom:1px solid var(--color-border);border-radius:0;box-shadow:none;background:transparent}
-html.v1 .editorial-card__head{display:flex;align-items:flex-start;justify-content:space-between;gap:1rem}
+/* Flex children default to min-width:auto, so a long title could not shrink
+   and pushed the "Verificado" badge out of the card: 6px of horizontal page
+   overflow at 1440px, where the card grid lands on five narrow columns.
+   min-width:0 lets the title wrap; flex-wrap lets the badge drop instead of
+   escaping when even that is not enough. */
+html.v1 .editorial-card__head{display:flex;align-items:flex-start;justify-content:space-between;gap:1rem;flex-wrap:wrap}
+html.v1 .editorial-card__head>*{min-width:0}
 html.v1 .editorial-card__head h2{margin-block-start:0}
 html.v1 .editorial-badges,html.v1 .editorial-genres{display:flex;flex-wrap:wrap;gap:.4rem;margin:0}
 html.v1 .editorial-genres--spaced{margin:1rem 0 0}
