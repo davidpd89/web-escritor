@@ -6,8 +6,9 @@
    attribute, so none of this renames anything an engine depends on. */
 
 html.v1 .tool-hero{max-width:56rem;padding:clamp(3rem,6vw,5rem) 0 clamp(2rem,4vw,3rem);border-bottom:1px solid var(--color-border)}
-html.v1 .tool-hero h1{font:400 var(--text-4xl)/1.05 var(--font-display);letter-spacing:-.02em;margin:.6rem 0 1.1rem;max-width:22ch;text-wrap:balance}
+html.v1 .tool-hero h1{font:400 var(--text-4xl)/1.05 var(--font-display);letter-spacing:-.02em;margin:.6rem 0 1.1rem;max-width:22ch;text-wrap:balance;overflow-wrap:break-word}
 html.v1 .tool-hero__lead{font:400 1.08rem/1.65 var(--font-reading);color:var(--color-muted);max-width:64ch;margin:0}
+html.v1 .tool-hero__actions{margin:1.4rem 0 0}
 
 html.v1 .tool-panel{max-width:60rem;padding:clamp(2.5rem,5vw,4rem) 0;border-bottom:1px solid var(--color-border)}
 html.v1 .tool-field{display:block;margin:0 0 1.6rem}
@@ -20,7 +21,11 @@ html.v1 .tool-textarea--small{min-height:84px;resize:vertical;font-family:var(--
 html.v1 .tool-select{min-height:var(--control-min-height);font-family:var(--font-ui);font-size:.95rem;appearance:auto}
 html.v1 .tool-file{width:100%;font:400 .95rem/1.5 var(--font-ui);color:var(--color-text)}
 html.v1 .tool-textarea:focus-visible,html.v1 .tool-select:focus-visible,html.v1 .tool-file:focus-visible{outline:2px solid var(--focus-color);outline-offset:2px;box-shadow:0 0 0 1px var(--surface-page),0 0 0 3px var(--focus-color)}
-html.v1 .tool-options{display:grid;gap:1.5rem 2rem;grid-template-columns:repeat(auto-fit,minmax(14rem,1fr));margin:1.8rem 0 0}
+/* minmax(14rem,...) es un minimo duro: bajo zoom 200% el contenedor mide la mitad
+   en px CSS pero las media queries siguen viendo el viewport sin zoom, asi que la
+   columna no podia encoger y /convocatorias-escritores/ desbordaba 306px. min() lo
+   ata al contenedor, no al viewport, y a ancho normal no cambia nada. */
+html.v1 .tool-options{display:grid;gap:1.5rem 2rem;grid-template-columns:repeat(auto-fit,minmax(min(14rem,100%),1fr));margin:1.8rem 0 0}
 html.v1 .tool-check{display:flex;align-items:flex-start;gap:.6rem;font:400 .92rem/1.5 var(--font-ui);color:var(--color-text);margin-top:1.4rem}
 html.v1 .tool-check input{width:18px;min-height:18px;height:18px;margin:.15rem 0 0;accent-color:var(--color-text)}
 html.v1 .tool-input-meta{display:flex;flex-wrap:wrap;justify-content:space-between;gap:.5rem 1rem;font:400 .78rem/1.4 var(--font-ui);color:var(--color-muted);margin-top:.55rem}

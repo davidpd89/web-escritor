@@ -13,7 +13,7 @@
 .radar-filters button,.radar-empty button{min-height:48px}
 .radar-count{margin:1rem 0;color:#615a53}
 .radar-grid{display:block;border-top:1px solid #cbc2b7}
-.radar-card{padding:1.4rem 0;border-bottom:1px solid #cbc2b7}
+.radar-card{padding:1.4rem 0;border-bottom:1px solid #cbc2b7;overflow-wrap:break-word}
 .radar-card[hidden]{display:none}
 .radar-card__top{display:flex;justify-content:space-between;gap:1rem;align-items:flex-start;font-size:.8rem;letter-spacing:.035em;text-transform:uppercase}
 .radar-badge{display:inline-block;padding:.28rem .55rem;border:1px solid #756d65;border-radius:0;font-weight:700}

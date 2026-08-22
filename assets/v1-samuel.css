@@ -67,14 +67,6 @@ html.v1 .samuel-faq details p{margin:.85rem 0 0;color:var(--color-muted);font-fa
 /* Interactive contracts transplanted from script.js (buy-modal, Noveris quiz)
    restyled on V1 tokens. Markup/IDs/behaviour are unchanged — see
    MIGRATION-MATRIX.md "interactiveContracts": buy modal + Noveris quiz. */
-html.v1 .button{display:inline-flex;align-items:center;justify-content:center;min-height:var(--control-min-height);padding:.8rem 1.5rem;border:1px solid var(--color-border);border-radius:var(--radius-control);background:transparent;color:var(--color-text);text-decoration:none;font:500 .9rem/1 var(--font-ui);letter-spacing:.02em;cursor:pointer;transition:background var(--motion-state) var(--ease-standard),border-color var(--motion-state) var(--ease-standard),transform var(--motion-feedback) var(--ease-standard)}
-html.v1 .button.primary{color:var(--color-on-inverse);background:var(--surface-inverse);border-color:var(--surface-inverse);font-weight:600}
-html.v1 .button.primary:hover,html.v1 .button.primary:focus-visible{background:color-mix(in srgb,var(--surface-inverse) 88%,var(--color-accent-strong))}
-html.v1 .button.secondary{background:transparent;border-color:var(--color-border)}
-html.v1 .button.secondary:hover,html.v1 .button.secondary:focus-visible{background:color-mix(in srgb,var(--color-text) 5%,transparent);border-color:var(--color-accent)}
-html.v1 .button.tertiary{background:transparent;border-color:var(--color-border);color:var(--color-muted);font-size:.86rem}
-html.v1 .button.tertiary:hover,html.v1 .button.tertiary:focus-visible{color:var(--color-text);border-color:color-mix(in srgb,var(--color-text) 36%,var(--surface-page))}
-html.v1 .button:active{transform:translateY(1px) scale(.99)}
 
 html.v1 .quiz-wrap{max-width:46rem;margin:0 auto;background:var(--surface-quiet);border:1px solid var(--color-border);border-radius:var(--radius-special);overflow:hidden}
 html.v1 .quiz-progress-wrap{height:3px;background:var(--color-border)}
