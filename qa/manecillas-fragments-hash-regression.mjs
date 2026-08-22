@@ -2,7 +2,7 @@ import assert from 'node:assert/strict';
 import { chromium } from 'playwright';
 
 const origin = process.env.QA_ORIGIN || 'http://127.0.0.1:4173';
-const browser = await chromium.launch({ headless: true });
+const browser = await chromium.launch({ headless: true, ...(process.env.QA_CHROMIUM_EXECUTABLE_PATH ? { executablePath: process.env.QA_CHROMIUM_EXECUTABLE_PATH } : {}) });
 const context = await browser.newContext({ viewport: { width: 390, height: 900 } });
 const page = await context.newPage();
 const pageErrors = [];

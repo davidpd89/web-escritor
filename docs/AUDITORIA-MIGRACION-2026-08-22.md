@@ -97,32 +97,50 @@ verdad es la rama.
 
 ---
 
-## 3. Incoherencias que ve un visitante
+## 3. Incoherencias que ve un visitante — RESUELTAS 22/08/2026
 
-Estas dos las ve cualquiera que navegue dos páginas seguidas.
+Las dos las veía cualquiera que navegase dos páginas seguidas. Las dos venían del
+mismo error de fondo: **contar por prefijo de URL**. Un prefijo es una decisión de
+rutas, no la definición de qué es una obra publicada ni de qué es una herramienta
+pública. Ahora cada cifra se cuenta desde su registro canónico.
 
-### 3.1 El sitio dice dos números distintos de herramientas
+### 3.1 El sitio decía dos números distintos de herramientas
 
-| Dónde | Qué dice |
-|---|---|
-| `/herramientas/` | «17 herramientas» |
-| `autor.html`, «Esta web, en cifras» | «15 herramientas gratuitas» |
+| Dónde | Decía | Dice |
+|---|---|---|
+| `/herramientas/` | «17 herramientas» | «17 herramientas» |
+| `autor.html`, «Esta web, en cifras» | «15 herramientas gratuitas» | «17 herramientas gratuitas» |
 
-No es un error de cálculo: son dos métodos distintos. El hub cuenta las herramientas
-del registro; la cifra cuenta páginas indexables bajo `/herramientas/*/`, y hay dos
-rutas internas (`auditor-web`, y el hub mismo) que quedan fuera. Ambos números son
-correctos según su método, y por eso el problema no lo detecta ningún test: hay que
-decidir **qué número se publica** y que los dos sitios usen el mismo.
+No era un error de cálculo: eran dos métodos distintos. El hub contaba las
+herramientas del registro; la cifra contaba páginas indexables bajo
+`/herramientas/*/`, que deja fuera las rutas internas y las herramientas publicadas
+fuera de ese prefijo. Ambos números eran correctos según su método, y por eso no lo
+detectaba ningún test.
 
-### 3.2 «Libros publicados: 1»
+`build-human-site-stats.py` cuenta ahora desde `data/tools-hub.json`, **la misma
+fuente que usa el titular del hub**, así que los dos números ya no pueden divergir
+por construcción. Y `tests/test-human-site-stats.py` compara explícitamente la cifra
+publicada con el titular del hub: si alguien vuelve a separarlos, falla.
 
-El método declarado es «páginas indexables bajo `/libros/*/`». Manecillas vive en
-`/las-manecillas-del-recuerdo/`, fuera de `/libros/`, así que no cuenta. Un autor con
-dos novelas publica un «1» en su propia página de autor.
+### 3.2 «Libros publicados: 1» → 2
+
+El método declarado era «páginas indexables bajo `/libros/*/`». Manecillas vive en
+`/las-manecillas-del-recuerdo/`, fuera de `/libros/`, así que no contaba: un autor con
+dos novelas publicaba un «1» en su propia página de autor.
+
+Ahora cuenta las entradas `type: work` de `data/content-registry.json` que no son el
+propio hub y cuyo estado es público. Da 2, y da igual dónde viva cada ficha. *Dónde
+empieza la jaula* queda fuera sola por su `status: noindex`, y entrará sola el día
+que se publique.
+
+En los dos casos el registro decide **qué** cuenta y el HTML decide **si de verdad
+está publicado**: toda ruta declarada tiene que existir, no ser `noindex` y llevar
+canonical en el dominio canónico. Si el registro y la página se contradicen, el build
+falla en vez de publicar una cifra falsa.
 
 ---
 
-## 4. Fecha de publicación de Manecillas
+## 4. Fecha de publicación de Manecillas — DECIDIDO 22/08/2026
 
 `editorial-facts.json` declara:
 
@@ -133,16 +151,15 @@ dos novelas publica un «1» en su propia página de autor.
 
 Ese `statusBeforePublication` empezó siendo `"scheduled"` y se cambió a `"published"`
 en el commit `ced4799` («permanent Manecillas copy»). El efecto es que el sitio dice
-hoy —22 de agosto— que el libro **fue publicado** el 3 de septiembre, doce días antes
-de que ocurra. El verificador del repo lo acepta porque corre en `mode=prelaunch`, así
-que es coherente consigo mismo y ningún test lo marca.
+hoy —22 de agosto— que el libro **fue publicado** el 3 de septiembre.
 
-**No es un problema mientras la rama no sea producción.** Si el paso a `main` ocurre el
-3 de septiembre o después, todo el copy es correcto sin tocar nada. Si se adelanta,
-hay que volver a `"scheduled"` antes.
+**Decisión del autor: se queda como está.** La web se lanza *con* el libro, así que
+para cualquiera que lea estas páginas la publicación ya habrá ocurrido. El copy está
+escrito para el lector que llega, no para la fecha en que se escribió.
 
-Se deja anotado porque es una afirmación de hecho sobre una obra, no un detalle
-técnico, y la decisión es del autor.
+Queda por tanto cerrado, no abierto. Lo único que sigue vivo es la comprobación final
+de release: el día real de promoción a `main`, verificar que fecha, estado y enlaces
+de compra son los correctos.
 
 ---
 
@@ -169,14 +186,21 @@ Convocatorias, y contrato de cliente de la newsletter.
 
 Nada de esto bloquea el paso a diseño. Ordenado por lo que costaría dejarlo sin hacer.
 
+### Cerrados el 22/08/2026
+
+| # | Asunto | Cómo se cerró |
+|---|---|---|
+| 1 | Unificar «17» vs «15» herramientas | Las dos cifras salen ya de `data/tools-hub.json`, y un test compara la publicada con el titular del hub |
+| 2 | «Libros publicados» debe contar Manecillas | Se cuenta desde `data/content-registry.json`: da 2, sin depender del prefijo de URL |
+| 3 | Fecha de promoción frente al 3 de septiembre | Decisión del autor: la web se lanza con el libro, el copy se queda en «publicada» |
+| 5 | Reducción del río editorial de la Home (9 → 5) | Revisada: las cuatro tarjetas retiradas (`/cuaderno/`, `/herramientas/`, `/eventos.html`, `/prensa.html`) siguen enlazadas desde la propia Home 4, 4, 2 y 4 veces por cartografía, cabecera y pie. Se quitaron duplicados, no destinos |
+| 6 | Segundo email de contacto | Decisión del autor: **hay un solo email suyo, `davidportodiaz@gmail.com`**. `samuelentremundos@gmail.com` desaparece del sitio (22 ficheros). Los correos de editoriales o terceros no se tocan |
+
+### Siguen abiertos
+
 | # | Asunto | Tipo |
 |---|---|---|
-| 1 | Unificar «17» vs «15» herramientas | Coherencia pública |
-| 2 | Decidir el método de «Libros publicados» para que cuente Manecillas | Coherencia pública |
-| 3 | Confirmar la fecha de promoción a `main` frente al 3 de septiembre | Decisión del autor |
 | 4 | Recuperar el enlace a la mención de `hoymadrid.app` | Evidencia editorial |
-| 5 | Confirmar la reducción del río editorial de la Home (9 → 5 tarjetas) | Diseño |
-| 6 | Segundo email de contacto propuesto (`davidportodiaz@gmail.com`) | Decisión del autor |
 | 7 | Puntero vs foco en el resalte del mapa de la Home | Interacción |
 | 8 | El asistente se auto-abre encima del contenido principal de la Home | Producto |
 | 9 | 292,8 MB de imágenes sin referenciar (`assets/alicia_capitulo_*`) | Informe pendiente |
@@ -192,10 +216,11 @@ implementación**: los dos tocan material publicado o copy del autor.
 perdidas, cero activos perdidos, 19 de 19 herramientas del dossier publicadas, y un
 solo destino externo con valor de contenido sin recuperar.
 
-Las dos incoherencias numéricas del punto 3 son las únicas que un visitante nota hoy,
-y ninguna la detecta un test porque cada número es correcto según su propio método.
-Esa es la clase de fallo que sobrevive a una CI verde, y por eso están aquí y no en un
-check.
+Las dos incoherencias numéricas del punto 3 eran las únicas que un visitante notaba, y
+ninguna la detectaba un test porque cada número era correcto según su propio método.
+Esa es la clase de fallo que sobrevive a una CI verde, y por eso aparecieron aquí y no
+en un check. Al arreglarlas se ha añadido el check que faltaba: comparar las dos cifras
+entre sí, que es lo que ningún método por separado podía ver.
 
 ### Nota de método
 

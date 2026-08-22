@@ -14,6 +14,7 @@ from __future__ import annotations
 import argparse
 import json
 import re
+import subprocess
 import sys
 from dataclasses import dataclass
 from pathlib import Path
@@ -88,16 +89,51 @@ def canonical_path_from_html(text: str) -> str | None:
     return path or "/"
 
 
-def collect_shell_pages(root: Path) -> list[Path]:
+# Páginas V1 que a propósito NO llevan el shell. Tienen que estar declaradas
+# aquí una por una, con su motivo: una página V1 que no esté ni generada ni
+# exenta hace fallar el build. Sin esta lista, cualquier página se salía del
+# contrato con solo no tener `<footer class="site-footer">`, y el check pasaba
+# igual — que es exactamente el modo de fallo que este builder venía a cerrar.
+SHELL_EXEMPT = {
+    # Superficie para IA/desarrollo, sin shell de lectura. Su cabecera reducida
+    # (Obra · Autor · Prensa) es deliberada y por eso queda fuera del contrato.
+    "ai/index.html": "superficie para IA: cabecera propia, sin pie de navegación",
+    # Documento que se sirve dentro de un iframe: el shell lo pone la página
+    # anfitriona, repetirlo aquí duplicaría cabecera y pie dentro del marco.
+    "asistente/embed.html": "documento embebido en iframe: el shell lo pone la página anfitriona",
+}
+
+
+def tracked_html(root: Path) -> list[Path]:
+    """Ficheros HTML versionados, preguntándoselo a git.
+
+    Recorrer el disco mete ficheros que en CI no existen (`.preview-dist/`,
+    carpetas de trabajo sin versionar) y deja el gate comportándose distinto
+    en local y en CI. Ya pasó con el gate de reflow.
+    """
+    out = subprocess.run(
+        ["git", "ls-files", "-z", "*.html"],
+        cwd=root, capture_output=True, text=True, check=True,
+    ).stdout
+    return [root / rel for rel in out.split("\0") if rel]
+
+
+def collect_shell_pages(root: Path) -> tuple[list[Path], list[str]]:
+    """Devuelve (páginas con shell, páginas V1 que se han saltado el contrato)."""
     pages: list[Path] = []
-    for path in sorted(root.rglob("*.html")):
+    escapees: list[str] = []
+    for path in sorted(tracked_html(root)):
         rel = path.relative_to(root).as_posix()
         if rel.startswith("lab/"):
             continue
         text = path.read_text(encoding="utf-8", errors="replace")
-        if SHELL_PAGE_RE.search(text) and FOOTER_RE.search(text):
+        if not SHELL_PAGE_RE.search(text):
+            continue
+        if FOOTER_RE.search(text):
             pages.append(path)
-    return pages
+        elif rel not in SHELL_EXEMPT:
+            escapees.append(rel)
+    return pages, escapees
 
 
 def ensure_registry(registry_raw: dict) -> dict[str, Entry]:
@@ -306,9 +342,15 @@ def main() -> int:
     registry = ensure_registry(load_json(REGISTRY_PATH))
     extras = load_json(EXTRAS_PATH)
 
-    pages = collect_shell_pages(ROOT)
+    pages, escapees = collect_shell_pages(ROOT)
     if not pages:
         raise BuildError("No se encontraron páginas shell")
+    if escapees:
+        raise BuildError(
+            "páginas V1 sin shell y sin declarar en SHELL_EXEMPT: "
+            + ", ".join(escapees)
+            + " — o llevan el shell, o se declaran exentas con su motivo"
+        )
 
     changed: list[str] = []
     for page in pages:

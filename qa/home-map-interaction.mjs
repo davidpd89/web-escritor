@@ -32,12 +32,7 @@ const cssSource = await fs.readFile('assets/v1-home.css', 'utf8');
 const decorativePreviewRules = cssSource.match(/\.map-nodes::after\{content:[^\n]+\/ ""\}/g) || [];
 assert.equal(decorativePreviewRules.length, 6, 'a11y: los seis previews deben tener alternativa vacía');
 
-const browser = await chromium.launch({
-  headless: true,
-  ...(process.env.QA_CHROMIUM_EXECUTABLE_PATH
-    ? { executablePath: process.env.QA_CHROMIUM_EXECUTABLE_PATH }
-    : {}),
-});
+const browser = await chromium.launch({ headless: true, ...(process.env.QA_CHROMIUM_EXECUTABLE_PATH ? { executablePath: process.env.QA_CHROMIUM_EXECUTABLE_PATH } : {}) });
 
 function trapErrors(page) {
   const state = { pageErrors: [], consoleErrors: [] };

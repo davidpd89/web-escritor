@@ -170,10 +170,5 @@ async function runCls(browser,report){for(const def of pages){const values=[];fo
 async function runScreens(browser,report){for(const def of pages){for(const vp of [{name:'1440',width:1440,height:1000},{name:'390',width:390,height:900}]){const c=await browser.newContext({viewport:{width:vp.width,height:vp.height}}),p=await c.newPage();await p.goto(`${ORIGIN}${def.url}`,{waitUntil:'load'});await p.waitForTimeout(250);const file=`${def.key}-${vp.name}.png`;await p.screenshot({path:path.join(OUT,file),fullPage:false});report.screenshots.push(file);await c.close();}}}
 
 const report={internalLinks:validateInternalLinks(),externalLinks:validateExternalLinks(),contracts:{},responsive:{},noJs:{},accessibility:{},fontFallback:{},cls:{},screenshots:[]};
-const browser=await chromium.launch({
-  headless:true,
-  ...(process.env.QA_CHROMIUM_EXECUTABLE_PATH
-    ? { executablePath: process.env.QA_CHROMIUM_EXECUTABLE_PATH }
-    : {}),
-});
+const browser=await chromium.launch({ headless: true, ...(process.env.QA_CHROMIUM_EXECUTABLE_PATH ? { executablePath: process.env.QA_CHROMIUM_EXECUTABLE_PATH } : {}) });
 try{await runContracts(browser,report);await runResponsive(browser,report);await runNoJs(browser,report);await runAccessibility(browser,report);await runFallback(browser,report);await runCls(browser,report);await runScreens(browser,report);fs.writeFileSync(path.join(OUT,'findability-browser-qa-report.json'),JSON.stringify(report,null,2));console.log('FINDABILITY BROWSER QA: OK');}finally{await browser.close();}

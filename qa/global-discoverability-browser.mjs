@@ -57,12 +57,7 @@ const viewports = [
   { name: '844x390', width: 844, height: 390 },
 ];
 const report = { origin: ORIGIN, representative: {}, viewports: {}, contracts: {}, noJs: {} };
-const browser = await chromium.launch({
-  headless: true,
-  ...(process.env.QA_CHROMIUM_EXECUTABLE_PATH
-    ? { executablePath: process.env.QA_CHROMIUM_EXECUTABLE_PATH }
-    : {}),
-});
+const browser = await chromium.launch({ headless: true, ...(process.env.QA_CHROMIUM_EXECUTABLE_PATH ? { executablePath: process.env.QA_CHROMIUM_EXECUTABLE_PATH } : {}) });
 
 async function open(page, route) {
   const pageErrors = [];
