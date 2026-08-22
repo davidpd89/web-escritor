@@ -1,0 +1,147 @@
+name: Global discoverability closure QA
+
+on:
+  pull_request:
+    paths:
+      - 'mapa-del-sitio/**'
+      - '404.html'
+      - 'assets/v1-shell.css'
+      - 'assets/v1-shell.js'
+      - 'data/content-registry.json'
+      - 'data/navigation.json'
+      - 'data/ux-feature-retention.json'
+      - 'data/surprise-content.json'
+      - 'sitemap.xml'
+      - 'robots.txt'
+      - 'llms.txt'
+      - 'llms-full.txt'
+      - 'ai/**'
+      - 'humans.txt'
+      - 'manifest.json'
+      - 'service-worker.js'
+      - 'offline.html'
+      - 'scripts/build-sitemap.py'
+      - 'scripts/check-internal-graph.py'
+      - 'scripts/check-global-discoverability.py'
+      - 'tests/test-pwa-api-bypass.mjs'
+      - 'qa/global-discoverability-browser.mjs'
+      - '.github/workflows/global-discoverability-closure-qa.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  contracts:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 15
+    steps:
+      - name: Checkout full history for authoritative tracked inventory
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Set up Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+
+      - name: Global public-route and shell contract
+        run: python scripts/check-global-discoverability.py
+
+      - name: Existing navigation coverage contract
+        run: python scripts/check-navigation-coverage.py
+
+      - name: Internal graph
+        run: python scripts/check-internal-graph.py
+
+      - name: Local assets
+        run: python scripts/check-local-assets.py
+
+      - name: AI discoverability and canonical entities
+        run: |
+          python scripts/check-ai-discoverability.py
+          python scripts/check-canonical-entity-ids.py
+          python tests/test-machine-authority.py
+
+      - name: Sitemap current and reproducible
+        shell: bash
+        run: |
+          python scripts/build-sitemap.py --check
+          cp sitemap.xml /tmp/sitemap.before.xml
+          python scripts/build-sitemap.py
+          cmp -s sitemap.xml /tmp/sitemap.before.xml
+          python scripts/build-sitemap.py
+          cmp -s sitemap.xml /tmp/sitemap.before.xml
+
+      - name: Surprise pool generated parity
+        run: python scripts/build-surprise-content.py data/surprise-content.json assets/surprise-content.generated.js --root . --check
+
+      - name: Service worker API isolation
+        run: node tests/test-pwa-api-bypass.mjs
+
+      - name: Upload authoritative route inventory
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: global-discoverability-inventory
+          path: artifacts/global-discoverability/inventory.json
+          if-no-files-found: error
+          retention-days: 14
+
+  browser:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 30
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+
+      - name: Install Playwright
+        run: |
+          npm install --no-save --no-package-lock playwright@1.55.0
+          npx playwright install --with-deps chromium
+
+      - name: Shell, Explore, map, 404 and no-JS browser QA
+        env:
+          GLOBAL_QA_OUT: artifacts/global-discoverability
+        run: node qa/global-discoverability-browser.mjs
+
+      - name: Start static server for existing sitewide reflow gate
+        shell: bash
+        run: |
+          python3 -m http.server 4173 --bind 127.0.0.1 > /tmp/global-discoverability-http.log 2>&1 &
+          echo $! > /tmp/global-discoverability-http.pid
+          for i in {1..30}; do
+            if curl --fail --silent http://127.0.0.1:4173/ >/dev/null; then exit 0; fi
+            sleep 1
+          done
+          cat /tmp/global-discoverability-http.log
+          exit 1
+
+      - name: Existing sitewide reflow gate
+        env:
+          QA_ORIGIN: http://127.0.0.1:4173
+          QA_OUT: artifacts/sitewide-reflow
+        run: node qa/sitewide-reflow-browser.mjs
+
+      - name: Upload browser evidence
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: global-discoverability-browser
+          path: |
+            artifacts/global-discoverability/
+            artifacts/sitewide-reflow/
+            /tmp/global-discoverability-http.log
+          if-no-files-found: warn
+          retention-days: 14
