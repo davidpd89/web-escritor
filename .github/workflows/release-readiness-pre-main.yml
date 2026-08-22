@@ -1,0 +1,28 @@
+name: Release Readiness Pre-Main
+
+on:
+  workflow_dispatch:
+  pull_request:
+    paths:
+      - docs/RELEASE-READINESS-V1.md
+      - scripts/release-readiness.py
+      - .github/workflows/release-readiness-pre-main.yml
+
+jobs:
+  readiness:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Generate release readiness report
+        run: python scripts/release-readiness.py --output docs/RELEASE-READINESS-V1.md
+      - name: Upload readiness report artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: release-readiness-report
+          path: docs/RELEASE-READINESS-V1.md
