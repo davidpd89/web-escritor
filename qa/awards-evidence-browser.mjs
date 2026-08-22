@@ -109,13 +109,42 @@ for (const viewport of viewports) {
   await context.close();
 }
 
-// WCAG 1.4.12 text-spacing fixture.
+// WCAG 1.4.12 text-spacing fixture. Keep offender geometry in the failure so a
+// future regression identifies the responsible node instead of inviting CSS guesses.
 {
   const context = await contextFor(390, 900);
   const { page } = await openChecked(context);
   await page.addStyleTag({ content: '*{line-height:1.5 !important;letter-spacing:.12em !important;word-spacing:.16em !important} p{margin-bottom:2em !important}' });
-  const overflow = await page.evaluate(() => document.documentElement.scrollWidth - document.documentElement.clientWidth);
-  check(overflow <= 1, `text spacing: horizontal overflow ${overflow}`);
+  const state = await page.evaluate(() => {
+    const viewportWidth = document.documentElement.clientWidth;
+    const offenders = [...document.body.querySelectorAll('*')]
+      .map((el) => {
+        const rect = el.getBoundingClientRect();
+        const style = getComputedStyle(el);
+        return {
+          tag: el.tagName.toLowerCase(),
+          id: el.id || '',
+          className: typeof el.className === 'string' ? el.className : '',
+          text: (el.textContent || '').trim().replace(/\s+/g, ' ').slice(0, 80),
+          left: Math.round(rect.left * 10) / 10,
+          right: Math.round(rect.right * 10) / 10,
+          width: Math.round(rect.width * 10) / 10,
+          scrollWidth: el.scrollWidth,
+          clientWidth: el.clientWidth,
+          display: style.display,
+          overflowX: style.overflowX,
+        };
+      })
+      .filter((item) => item.display !== 'none' && (item.right > viewportWidth + 1 || item.left < -1 || item.scrollWidth > item.clientWidth + 1))
+      .sort((a, b) => Math.max(b.right - viewportWidth, b.scrollWidth - b.clientWidth) - Math.max(a.right - viewportWidth, a.scrollWidth - a.clientWidth))
+      .slice(0, 12);
+    return {
+      overflow: document.documentElement.scrollWidth - viewportWidth,
+      offenders,
+    };
+  });
+  const detail = state.offenders.length ? `; offenders=${JSON.stringify(state.offenders)}` : '';
+  check(state.overflow <= 1, `text spacing: horizontal overflow ${state.overflow}${detail}`);
   await context.close();
 }
 
