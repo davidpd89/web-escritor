@@ -1,0 +1,26 @@
+/* Manecillas fragments — local reading navigation only. */
+html.v1 .fragment-index{margin:clamp(1rem,2vw,2rem) 0 var(--section-gap);border-block:1px solid var(--color-border)}
+html.v1 .fragment-index__list{list-style:none;margin:0;padding:0;display:grid}
+html.v1 .fragment-index__item+ .fragment-index__item{border-top:1px solid var(--color-border)}
+html.v1 .fragment-index__link{position:relative;display:grid;grid-template-columns:minmax(6.75rem,8rem) minmax(0,1fr);align-items:center;gap:clamp(.75rem,2vw,1.5rem);min-height:56px;padding:.8rem .25rem;text-decoration:none;overflow-wrap:anywhere}
+html.v1 .fragment-index__link::before{content:"";position:absolute;inset-block:.55rem;left:-.65rem;width:2px;background:transparent}
+html.v1 .fragment-index__link[data-current="true"]{background:color-mix(in srgb,var(--surface-page) 72%,var(--dp-sand))}
+html.v1 .fragment-index__link[data-current="true"]::before{background:var(--color-accent-strong)}
+html.v1 .fragment-index__register{font:600 var(--text-xs)/1.25 var(--font-ui);letter-spacing:.08em;text-transform:uppercase;color:var(--color-muted)}
+html.v1 .fragment-index__title{font:400 clamp(1.05rem,1rem + .3vw,1.3rem)/1.25 var(--font-reading)}
+html.v1 .excerpt-section,html.v1 #cta-final{scroll-margin-top:calc(88px + var(--space-4))}
+html.v1 .fragment-pager{grid-column:2;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:var(--grid-gap);margin-top:clamp(2rem,4vw,3.5rem);padding-top:var(--space-4);border-top:1px solid var(--color-border)}
+html.v1 .fragment-pager--single{grid-template-columns:minmax(0,1fr) minmax(0,1fr)}
+html.v1 .fragment-pager--single .fragment-pager__link{grid-column:2}
+html.v1 .fragment-pager__link{display:grid;gap:.2rem;align-content:center;min-height:56px;padding:.7rem 0;text-decoration:none;overflow-wrap:anywhere}
+html.v1 .fragment-pager__link--next{text-align:right}
+html.v1 .fragment-pager__direction{font:600 var(--text-xs)/1.3 var(--font-ui);letter-spacing:.07em;text-transform:uppercase;color:var(--color-muted)}
+html.v1 .fragment-pager__title{font:400 var(--text-base)/1.35 var(--font-reading);text-decoration:underline;text-decoration-color:var(--color-accent);text-underline-offset:.28em}
+html.v1 .fragment-pager__link:hover .fragment-pager__title,html.v1 .fragment-pager__link:focus-visible .fragment-pager__title{text-decoration-thickness:2px}
+@media(max-width:767px){
+  html.v1 .fragment-index__link{grid-template-columns:1fr;gap:.2rem;padding:.85rem .15rem}
+  html.v1 .fragment-index__link::before{left:-.35rem}
+  html.v1 .fragment-pager,html.v1 .fragment-pager--single{grid-column:1;grid-template-columns:1fr;gap:.35rem}
+  html.v1 .fragment-pager--single .fragment-pager__link{grid-column:1}
+  html.v1 .fragment-pager__link--next{text-align:left}
+}

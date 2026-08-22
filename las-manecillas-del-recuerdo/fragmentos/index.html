@@ -36,6 +36,7 @@
   <link rel="stylesheet" href="/assets/v1-families.css" />
   <link rel="stylesheet" href="/assets/v1-tools.css" />
   <link rel="stylesheet" href="/assets/v1-book.css" />
+  <link rel="stylesheet" href="/assets/v1-fragments.css" />
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -219,6 +220,14 @@
         <p class="lore-prose">Son tres escenas separadas escogidas por contraste. La primera pertenece al comienzo de la novela; las otras muestran cambios de registro sin explicar cómo llega el reloj hasta allí ni qué ocurre después.</p>
       </section>
 
+      <nav class="fragment-index" aria-label="Índice de lectura" data-fragment-index>
+        <ol class="fragment-index__list">
+          <li class="fragment-index__item"><a class="fragment-index__link" href="#fragmento-1" data-fragment-link="fragmento-1"><span class="fragment-index__register">Registro I</span><span class="fragment-index__title">El ritual del domingo</span><span class="sr-only" data-current-label></span></a></li>
+          <li class="fragment-index__item"><a class="fragment-index__link" href="#fragmento-2" data-fragment-link="fragmento-2"><span class="fragment-index__register">Registro II</span><span class="fragment-index__title">El precio de una historia</span><span class="sr-only" data-current-label></span></a></li>
+          <li class="fragment-index__item"><a class="fragment-index__link" href="#fragmento-3" data-fragment-link="fragmento-3"><span class="fragment-index__register">Registro III</span><span class="fragment-index__title">Las horas silenciosas</span><span class="sr-only" data-current-label></span></a></li>
+        </ol>
+      </nav>
+
       <section class="book-section excerpt-section" id="fragmento-1" aria-labelledby="fragmento-1-title">
         <div class="book-section__label"><p class="eyebrow">Registro I · íntimo</p><h2 id="fragmento-1-title">El ritual del domingo</h2><p class="tool-meta">Capítulo 1.1 · Apertura de la novela</p></div>
         <div class="excerpt-field" data-nosnippet>
@@ -226,6 +235,9 @@
               <p>El sol se colaba por las cortinas gastadas, formando manchas doradas que bailaban sobre la mesa de nogal. En la cocina del abuelo Manuel, el chocolate de los domingos tenía su propio orden: primero el cacao, después el azúcar, después el silencio.</p>
               <p>Este domingo el chocolate llevaba cinco minutos en la mesa y ninguno de los dos lo había tocado.</p>
         </div>
+        <nav class="fragment-pager fragment-pager--single" aria-label="Navegación del fragmento I">
+          <a class="fragment-pager__link fragment-pager__link--next" href="#fragmento-2"><span class="fragment-pager__direction">Siguiente →</span><span class="fragment-pager__title">II · El precio de una historia</span></a>
+        </nav>
       </section>
 
       <aside class="book-dedication" aria-label="Cita de la novela">
@@ -247,6 +259,10 @@
               <p>—No está en venta. Es una pieza de museo.</p>
               <p>«Mentira número uno. Ahora a inflar la demanda».</p>
         </div>
+        <nav class="fragment-pager" aria-label="Navegación del fragmento II">
+          <a class="fragment-pager__link fragment-pager__link--prev" href="#fragmento-1"><span class="fragment-pager__direction">← Anterior</span><span class="fragment-pager__title">I · El ritual del domingo</span></a>
+          <a class="fragment-pager__link fragment-pager__link--next" href="#fragmento-3"><span class="fragment-pager__direction">Siguiente →</span><span class="fragment-pager__title">III · Las horas silenciosas</span></a>
+        </nav>
       </section>
 
       <section class="book-section excerpt-section" id="fragmento-3" aria-labelledby="fragmento-3-title">
@@ -260,6 +276,10 @@
               <p>—¿Qué notas con el sonido?</p>
               <p>—Suena… honesto. Como si no tuviera nada que demostrar. Como si cada segundo valiera por sí mismo.</p>
         </div>
+        <nav class="fragment-pager" aria-label="Navegación del fragmento III">
+          <a class="fragment-pager__link fragment-pager__link--prev" href="#fragmento-2"><span class="fragment-pager__direction">← Anterior</span><span class="fragment-pager__title">II · El precio de una historia</span></a>
+          <a class="fragment-pager__link fragment-pager__link--next" href="#cta-final"><span class="fragment-pager__direction">Continuar →</span><span class="fragment-pager__title">La novela completa</span></a>
+        </nav>
       </section>
 
       <section class="v1-section" id="cta-final">
@@ -298,6 +318,7 @@
   </footer>
 
   <script defer src="/assets/v1-shell.js"></script>
+  <script defer src="/assets/v1-fragments.js"></script>
   <script defer src="/script.js?v=202609-launch-1"></script>
 
 </body>
