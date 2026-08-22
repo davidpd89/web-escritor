@@ -44,7 +44,16 @@ function trapErrors(page) {
 async function open(context) {
   const page = await context.newPage();
   const errors = trapErrors(page);
+  // El widget del asistente se auto-abre 1,1 s despues de cargar (una vez por
+  // sesion) y su panel mide 410x650 en escritorio: cae justo encima de los
+  // nodos del mapa. Sin esto, page.hover() mueve el raton al centro del nodo
+  // pero quien recibe :hover es .assistant-widget__panel, asi que las rutas se
+  // quedan en reposo (.72/.52/.4) y la suite falla en el primer nodo. Se marca
+  // la clave de sesion que el propio widget usa para no repetir la apertura, en
+  // vez de cerrarlo despues: asi no llega a abrirse y no hay carrera. Este
+  // suite mide la cartografia; el widget se comprueba en su propia QA.
   await page.addInitScript(() => {
+    try { sessionStorage.setItem('davidporto-assistant-widget-auto-v1', '1'); } catch { /* sin sessionStorage el widget tampoco se auto-abre */ }
     window.__homeMapCls = 0;
     new PerformanceObserver(list => {
       for (const entry of list.getEntries()) if (!entry.hadRecentInput) window.__homeMapCls += entry.value;
@@ -135,6 +144,15 @@ async function preview(page) {
     if (key === 'autor') await page.screenshot({ path: path.join(OUT, '1440-autor-active.png') });
   }
 
+  // Sacar el raton del mapa antes de la parte de teclado. El bucle de hover lo
+  // deja aparcado sobre el ultimo nodo (prensa), y v1-shell.js escribe
+  // data-active tanto en mouseenter como en focus: al tabular, el scroll mueve
+  // los nodos bajo el cursor quieto y ese mouseenter tardio pisaba al nodo que
+  // acababa de recibir el foco, de modo que "focus herramientas" media el
+  // estado de prensa. Una prueba de teclado no debe correr con el puntero
+  // encima del componente.
+  await page.mouse.move(2, 2);
+  await page.waitForTimeout(120);
   await page.locator('body').focus();
   const seen = [];
   for (let i = 0; i < 100 && seen.length < 6; i++) {
@@ -142,6 +160,11 @@ async function preview(page) {
     const key = await page.evaluate(() => document.activeElement?.getAttribute?.('data-map-node') || '');
     if (key && !seen.includes(key)) {
       seen.push(key);
+      // La rama de hover espera 220 ms y esta no esperaba nada. .map-node
+      // transiciona la opacidad, asi que medir en el mismo tick que el Tab
+      // devuelve un valor intermedio y "activo reforzado" (>=.99) fallaba
+      // aunque el estado final sea 1. Misma espera que en hover.
+      await page.waitForTimeout(220);
       await assertState(page, key, `focus ${key}`);
       await assertNodesRemainVisible(page, key, `focus ${key}`);
       assert.ok((await preview(page)).textOpacity > .9, `focus ${key}: preview contextual`);
@@ -197,11 +220,19 @@ for (const [width, height] of VIEWPORTS.slice(1)) {
   await page.locator('.cartography').scrollIntoViewIfNeeded();
   await page.locator('[data-map-node="autor"]').hover();
   await assertState(page, 'autor', 'reduced motion Autor');
+  // El umbral no es 0 exacto. La receta de reduced motion del sitio, en
+  // v1-base.css, es transition-duration:.01ms!important, no 0s, y eso es
+  // deliberado: a 0s el navegador no dispara transitionend y cualquier JS que
+  // lo espere se queda colgado. .01ms es 1e-05 s, imperceptible pero distinto
+  // de cero, asi que exigir === 0 hacia fallar la suite contra el propio
+  // sistema del sitio. Lo que hay que comprobar es que no queda animacion
+  // perceptible; 1 ms cumple eso con margen de sobra.
+  const IMPERCEPTIBLE_S = 0.001;
   const p = await preview(page);
-  assert.equal(parseFloat(p.textDuration), 0, `reduced motion preview text: ${p.textDuration}`);
-  assert.equal(parseFloat(p.mediaDuration), 0, `reduced motion preview media: ${p.mediaDuration}`);
+  assert.ok(parseFloat(p.textDuration) <= IMPERCEPTIBLE_S, `reduced motion preview text: ${p.textDuration}`);
+  assert.ok(parseFloat(p.mediaDuration) <= IMPERCEPTIBLE_S, `reduced motion preview media: ${p.mediaDuration}`);
   const nodeDuration = await page.locator('[data-map-node="autor"]').evaluate(el => getComputedStyle(el).transitionDuration);
-  assert.ok(nodeDuration.split(',').every(v => parseFloat(v) === 0), `reduced motion node: ${nodeDuration}`);
+  assert.ok(nodeDuration.split(',').every(v => parseFloat(v) <= IMPERCEPTIBLE_S), `reduced motion node: ${nodeDuration}`);
   await context.close();
 }
 
