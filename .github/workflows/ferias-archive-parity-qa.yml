@@ -5,6 +5,7 @@ on:
     paths:
       - 'ferias.html'
       - 'assets/v1-ferias.css'
+      - 'sitemap.xml'
       - 'tests/test-ferias-parity.py'
       - 'qa/ferias-archive-browser.mjs'
       - '.github/workflows/ferias-archive-parity-qa.yml'
@@ -27,10 +28,9 @@ jobs:
         if: github.event_name == 'pull_request'
         shell: bash
         run: |
-          git fetch origin "${{ github.base_ref }}" --depth=1
-          changed="$(git diff --name-only "origin/${{ github.base_ref }}...HEAD")"
+          changed="$(git diff --name-only "${{ github.event.pull_request.base.sha }}...HEAD")"
           printf '%s\n' "$changed"
-          unexpected="$(printf '%s\n' "$changed" | grep -Ev '^(ferias\.html|assets/v1-ferias\.css|tests/test-ferias-parity\.py|qa/ferias-archive-browser\.mjs|\.github/workflows/ferias-archive-parity-qa\.yml)$' || true)"
+          unexpected="$(printf '%s\n' "$changed" | grep -Ev '^(ferias\.html|assets/v1-ferias\.css|sitemap\.xml|tests/test-ferias-parity\.py|qa/ferias-archive-browser\.mjs|\.github/workflows/ferias-archive-parity-qa\.yml)$' || true)"
           if [ -n "$unexpected" ]; then
             echo 'Unexpected files in Ferias PR:'
             printf '%s\n' "$unexpected"
@@ -39,6 +39,9 @@ jobs:
 
       - name: Static archive parity contract
         run: python tests/test-ferias-parity.py
+
+      - name: Generated sitemap parity
+        run: python scripts/build-sitemap.py --check
 
   browser-qa:
     runs-on: ubuntu-24.04

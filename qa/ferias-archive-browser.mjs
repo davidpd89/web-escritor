@@ -45,6 +45,14 @@ async function openChecked(context, suffix = '') {
 for (const viewport of viewports) {
   const context = await contextFor(viewport.width, viewport.height);
   const { page, errors, brokenLocal } = await openChecked(context);
+
+  // Trigger every native lazy image deterministically before checking natural
+  // dimensions. The response listener remains active, so missing assets fail.
+  for (const image of await page.locator('img').all()) {
+    await image.scrollIntoViewIfNeeded();
+  }
+  await page.waitForTimeout(150);
+
   const state = await page.evaluate(() => ({
     scrollWidth: document.documentElement.scrollWidth,
     clientWidth: document.documentElement.clientWidth,
@@ -62,13 +70,27 @@ for (const viewport of viewports) {
   check(state.images.every((img) => img.complete && img.nw > 0), `${viewport.name}: one or more local images failed to load`);
   check(errors.length === 0, `${viewport.name}: ${errors.join(' | ')}`);
   check(brokenLocal.length === 0, `${viewport.name}: broken local responses ${[...new Set(brokenLocal)].join(', ')}`);
-
-  if (viewport.width === 1440 || viewport.width === 390) {
-    for (const event of events) {
-      await page.locator(`#${event.id}`).screenshot({ path: path.join(OUT, `${event.shot}-${viewport.width}x${viewport.height}.png`) });
-    }
-  }
   await context.close();
+}
+
+// Clean visual evidence: canonical deep-link viewport, not a stitched locator
+// screenshot. This avoids sticky-shell artefacts while preserving the real UI.
+for (const viewport of [{ width: 1440, height: 900 }, { width: 390, height: 900 }]) {
+  for (const event of events) {
+    const context = await contextFor(viewport.width, viewport.height);
+    const { page, errors, brokenLocal } = await openChecked(context, `#${event.id}`);
+    await page.evaluate(() => document.activeElement instanceof HTMLElement && document.activeElement.blur());
+    await page.waitForTimeout(100);
+    const baseline = await page.locator('.skip-link').evaluate((el) => {
+      const rect = el.getBoundingClientRect();
+      return { bottom: rect.bottom, transform: getComputedStyle(el).transform };
+    });
+    check(baseline.bottom <= 0, `screenshot ${event.shot} ${viewport.width}: skip link unexpectedly visible at baseline`);
+    check(errors.length === 0, `screenshot ${event.shot} ${viewport.width}: ${errors.join(' | ')}`);
+    check(brokenLocal.length === 0, `screenshot ${event.shot} ${viewport.width}: broken local responses ${[...new Set(brokenLocal)].join(', ')}`);
+    await page.screenshot({ path: path.join(OUT, `${event.shot}-${viewport.width}x${viewport.height}.png`), fullPage: false });
+    await context.close();
+  }
 }
 
 // Canonical and legacy deep links must land on the corresponding record without being hidden by the sticky shell.
@@ -92,6 +114,7 @@ for (const event of events) {
   const context = await contextFor(390, 900);
   const { page } = await openChecked(context);
   await page.keyboard.press('Tab');
+  await page.waitForTimeout(50);
   const focus = await page.evaluate(() => {
     const el = document.activeElement;
     const rect = el.getBoundingClientRect();
@@ -103,10 +126,11 @@ for (const event of events) {
       height: rect.height,
       visibility: style.visibility,
       display: style.display,
+      transform: style.transform,
     };
   });
   check(focus.text === 'Saltar al contenido', `keyboard: first focus is not skip link (${focus.text})`);
-  check(focus.width > 0 && focus.height > 0 && focus.top >= 0 && focus.visibility !== 'hidden' && focus.display !== 'none', 'keyboard: focused skip link is not visible');
+  check(focus.width > 0 && focus.height > 0 && focus.top >= 0 && focus.visibility !== 'hidden' && focus.display !== 'none', `keyboard: focused skip link is not visible (top ${focus.top}, transform ${focus.transform})`);
   await page.keyboard.press('Enter');
   check((await page.evaluate(() => location.hash)) === '#contenido', 'keyboard: skip link does not navigate to main content');
   await context.close();
