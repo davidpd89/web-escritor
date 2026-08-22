@@ -40,6 +40,8 @@ jobs:
         run: python scripts/check-social-cards.py --strict
       - name: Check the editorial methodology page is date-independent
         run: python tests/test-editoriales-metodologia.py
+      - name: Check the Editoriales builder keeps V1 parity with published pages
+        run: python tests/test-editoriales-builder-parity-v1.py
       - name: Check published Spanish copy is not missing its accents
         run: python scripts/check-copy-tildes.py
       # Sin este check, un cambio en data/writer-tools.json (o en el propio
