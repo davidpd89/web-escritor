@@ -487,6 +487,29 @@ def render_methodology(site: str, records: list[dict], today: date) -> str:
     )
 
 
+def write_page(path: Path, html: str) -> None:
+    """Escribe una pagina generada, salvo que eso revierta una migracion hecha a mano.
+
+    Este directorio se migro a V1 en 0ed1303 sin actualizar estas plantillas, asi
+    que el builder sigue emitiendo el marcado anterior. `--check` solo valida el
+    dataset, nunca este HTML, de modo que ejecutar el builder sin `--check`
+    revertiria las cinco paginas al diseno viejo sin que nada avisara. La condicion
+    es estrecha a proposito: solo aborta cuando el fichero en disco es V1 y lo que
+    ibamos a escribir no lo es. En cuanto las plantillas emitan V1, deja de saltar
+    y la regeneracion normal vuelve a funcionar.
+    """
+    if path.exists():
+        current = path.read_text(encoding="utf-8")
+        if current != html and 'class="v1"' in current and 'class="v1"' not in html:
+            raise SystemExit(
+                f"ABORTADO: {path} esta migrada a V1 y esta plantilla emite el diseno "
+                f"anterior; escribirla revertiria la pagina.\n"
+                f"Actualiza el render_* correspondiente para que emita V1, o borra el "
+                f"fichero si de verdad quieres regenerarlo desde la plantilla."
+            )
+    path.write_text(html, encoding="utf-8")
+
+
 def build(data_path: Path, output: Path, today: date, check_only: bool) -> tuple[int, list[str]]:
     raw, records, warnings = load_and_validate(data_path, today)
     if check_only:
@@ -494,16 +517,17 @@ def build(data_path: Path, output: Path, today: date, check_only: bool) -> tuple
 
     target = output / "editoriales"
     target.mkdir(parents=True, exist_ok=True)
-    (target / "index.html").write_text(render_index(raw["site"].rstrip('/'), records, today), encoding="utf-8")
+    write_page(target / "index.html", render_index(raw["site"].rstrip('/'), records, today))
     for record in records:
         detail_dir = target / record["slug"]
         detail_dir.mkdir(parents=True, exist_ok=True)
-        (detail_dir / "index.html").write_text(render_detail(raw["site"].rstrip('/'), record, today), encoding="utf-8")
+        write_page(detail_dir / "index.html", render_detail(raw["site"].rstrip('/'), record, today))
 
     methodology_dir = output / METHODOLOGY_SLUG
     methodology_dir.mkdir(parents=True, exist_ok=True)
-    (methodology_dir / "index.html").write_text(
-        render_methodology(raw["site"].rstrip('/'), records, today), encoding="utf-8"
+    write_page(
+        methodology_dir / "index.html",
+        render_methodology(raw["site"].rstrip('/'), records, today),
     )
 
     safe_payload = {"version": raw["version"], "publishers": records}
