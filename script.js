@@ -16,12 +16,53 @@ function scheduleTask(fn, priority = "background") {
 const NEWSLETTER_CONFIG = {
   endpoint: "https://subscribe.davidpd89.workers.dev"
 };
+const NEWSLETTER_TIMEOUT_MS = 12000;
 
 // Same shape as the Worker's server-side check (cloudflare-worker-subscribe.js)
 // so obviously-invalid input never leaves the browser, not just the empty case.
 const NEWSLETTER_EMAIL_RE = /^[^\s@]{1,64}@[^\s@]{1,253}\.[^\s@]{2,}$/;
 function isValidNewsletterEmail(value) {
   return NEWSLETTER_EMAIL_RE.test(String(value || "").trim());
+}
+
+function newsletterErrorMessage(code) {
+  if (code === "offline") return "No hay conexión. Revisa tu red e inténtalo de nuevo.";
+  if (code === "timeout") return "La solicitud está tardando demasiado. Inténtalo de nuevo en unos segundos.";
+  if (code === "rate_limited") return "Has hecho demasiados intentos. Espera un minuto e inténtalo de nuevo.";
+  return "Error al suscribirse. Escríbenos a samuelentremundos@gmail.com.";
+}
+
+async function postNewsletter(payload) {
+  if (typeof navigator !== "undefined" && navigator.onLine === false) {
+    return { ok: false, code: "offline" };
+  }
+  const controller = new AbortController();
+  const timer = setTimeout(() => controller.abort(), NEWSLETTER_TIMEOUT_MS);
+  try {
+    const res = await fetch(NEWSLETTER_CONFIG.endpoint, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(payload),
+      signal: controller.signal
+    });
+
+    if (res.ok || res.status === 204) return { ok: true, code: "ok" };
+
+    if (res.status === 400) {
+      const body = await res.json().catch(() => ({}));
+      if (body.duplicate === true) return { ok: true, duplicate: true, code: "duplicate" };
+      return { ok: false, code: "invalid_request" };
+    }
+
+    if (res.status === 429) return { ok: false, code: "rate_limited" };
+    if (res.status >= 500) return { ok: false, code: "server_error" };
+    return { ok: false, code: "request_failed" };
+  } catch (err) {
+    if (err && err.name === "AbortError") return { ok: false, code: "timeout" };
+    return { ok: false, code: "network_error" };
+  } finally {
+    clearTimeout(timer);
+  }
 }
 
 // Staging must never create real Brevo contacts. This is the Cloudflare
@@ -477,43 +518,30 @@ function fallbackCopy(text, done) {
         statusEl.textContent = "";
         submitBtn.disabled = true;
         submitBtn.textContent = "Enviando…";
-        // Worker URL: update with your Cloudflare Worker URL after deploying cloudflare-worker-subscribe.js
-        const WORKER_URL = NEWSLETTER_CONFIG.endpoint;
         try {
-          const res = await fetch(WORKER_URL, {
-            method: "POST",
-            headers: { "Content-Type": "application/json" },
-            body: JSON.stringify({
-              email: emailEl.value.trim(),
-              source: "quiz",
-              result: resultEl._resultKey || ""
-            })
+          const result = await postNewsletter({
+            email: emailEl.value.trim(),
+            source: "quiz",
+            result: resultEl._resultKey || ""
           });
-          if (res.ok || res.status === 204) {
+          if (result.ok && !result.duplicate) {
             localStorage.setItem("nl-subscribed", "1");
             subscribeForm.dataset.done = "true";
             subscribeForm.innerHTML = '<p class="quiz-subscribe-ok">✓ ¡Apuntado! Recibirás las novedades de Noveris.</p>';
             _gcEvent("newsletter-quiz", "Newsletter: quiz Noveris");
             setResultLocked(false);
-          } else if (res.status === 400) {
-            // Brevo returns 400 for duplicate contacts; only that specific case counts as success.
-            const body = await res.json().catch(() => ({}));
-            const isDupe = body.duplicate === true;
-            if (isDupe) {
-              localStorage.setItem("nl-subscribed", "1");
-              subscribeForm.dataset.done = "true";
-              subscribeForm.innerHTML = '<p class="quiz-subscribe-ok">✓ Ya estás suscrito. ¡Gracias!</p>';
-              setResultLocked(false);
-            } else {
-              throw new Error(res.status);
-            }
+          } else if (result.ok && result.duplicate) {
+            localStorage.setItem("nl-subscribed", "1");
+            subscribeForm.dataset.done = "true";
+            subscribeForm.innerHTML = '<p class="quiz-subscribe-ok">✓ Ya estás suscrito. ¡Gracias!</p>';
+            setResultLocked(false);
           } else {
-            throw new Error(res.status);
+            throw new Error(result.code || "request_failed");
           }
-        } catch {
-          statusEl.textContent = "Error al suscribirse. Escríbenos a samuelentremundos@gmail.com.";
+        } catch (err) {
+          statusEl.textContent = newsletterErrorMessage(err.message);
           submitBtn.disabled = false;
-          submitBtn.textContent = "Suscribirme";
+          submitBtn.textContent = "Desbloquear mi arquetipo";
         }
       }, "user-blocking");
     });
@@ -572,36 +600,23 @@ function fallbackCopy(text, done) {
         if (statusEl) statusEl.textContent = "";
         submitBtn.disabled = true;
         submitBtn.textContent = "Enviando…";
-        // Worker URL: update with your Cloudflare Worker URL after deploying cloudflare-worker-subscribe.js
-        const WORKER_URL = NEWSLETTER_CONFIG.endpoint;
         try {
-          const res = await fetch(WORKER_URL, {
-            method: "POST",
-            headers: { "Content-Type": "application/json" },
-            body: JSON.stringify({
-              email: emailEl.value.trim(),
-              source: sourceLabel
-            })
+          const result = await postNewsletter({
+            email: emailEl.value.trim(),
+            source: sourceLabel
           });
-          if (res.ok || res.status === 204) {
+          if (result.ok && !result.duplicate) {
             localStorage.setItem("nl-subscribed", "1");
             form.innerHTML = '<p class="quiz-subscribe-ok">✓ ¡Apuntado! ' + successBody + '</p>';
             _gcEvent("newsletter-" + sourceLabel, "Newsletter: " + sourceLabel);
-          } else if (res.status === 400) {
-            // Brevo returns 400 for duplicate contacts
-            const body = await res.json().catch(() => ({}));
-            const isDupe = body.duplicate === true;
-            if (isDupe) {
-              localStorage.setItem("nl-subscribed", "1");
-              form.innerHTML = '<p class="quiz-subscribe-ok">\u2714 Ya est\u00e1s suscrito a la lista. \u00a1Gracias!</p>';
-            } else {
-              throw new Error(res.status);
-            }
+          } else if (result.ok && result.duplicate) {
+            localStorage.setItem("nl-subscribed", "1");
+            form.innerHTML = '<p class="quiz-subscribe-ok">\u2714 Ya est\u00e1s suscrito a la lista. \u00a1Gracias!</p>';
           } else {
-            throw new Error(res.status);
+            throw new Error(result.code || "request_failed");
           }
-        } catch {
-          if (statusEl) statusEl.textContent = "Error al suscribirse. Escríbenos a samuelentremundos@gmail.com.";
+        } catch (err) {
+          if (statusEl) statusEl.textContent = newsletterErrorMessage(err.message);
           submitBtn.disabled = false;
           submitBtn.textContent = "Suscribirme";
         }
@@ -835,32 +850,23 @@ document.addEventListener('dp:analytics', _dpAnalyticsBridge);
         submitBtn.disabled = true;
         submitBtn.textContent = "Enviando…";
         try {
-          const res = await fetch(NEWSLETTER_CONFIG.endpoint, {
-            method: "POST",
-            headers: { "Content-Type": "application/json" },
-            body: JSON.stringify({ email: emailEl.value.trim(), source: "popup" })
-          });
-          if (res.ok || res.status === 204) {
+          const result = await postNewsletter({ email: emailEl.value.trim(), source: "popup" });
+          if (result.ok && !result.duplicate) {
             localStorage.setItem(SUBSCRIBED_KEY, "1");
             const panel = document.getElementById("nl-popup-panel");
             panel.innerHTML = '<p style="font-family:Cormorant Garamond,Georgia,serif;font-size:1.5rem;color:#e0b979;text-align:center;margin:0 0 10px">' + copy.okTitle + '</p><p style="color:#b6a894;text-align:center;font-size:0.94rem;margin:0">' + copy.okBody + '</p>';
             _gcEvent("newsletter-popup", "Newsletter: popup");
             setTimeout(dismiss, 3200);
-          } else if (res.status === 400) {
-            // Brevo returns 400 for duplicate contacts; only that specific case counts as success.
-            const body = await res.json().catch(() => ({}));
-            const isDupe = body.duplicate === true;
-            if (isDupe) {
-              localStorage.setItem(SUBSCRIBED_KEY, "1");
-              const panel = document.getElementById("nl-popup-panel");
-              panel.innerHTML = '<p style="font-family:Cormorant Garamond,Georgia,serif;font-size:1.5rem;color:#e0b979;text-align:center;margin:0 0 10px">' + copy.dupeTitle + '</p><p style="color:#b6a894;text-align:center;font-size:0.94rem;margin:0">' + copy.dupeBody + '</p>';
-              setTimeout(dismiss, 3200);
-            } else {
-              throw new Error(res.status);
-            }
-          } else throw new Error(res.status);
-        } catch (_) {
-          statusEl.textContent = "Error al suscribirse. Prueba más tarde.";
+          } else if (result.ok && result.duplicate) {
+            localStorage.setItem(SUBSCRIBED_KEY, "1");
+            const panel = document.getElementById("nl-popup-panel");
+            panel.innerHTML = '<p style="font-family:Cormorant Garamond,Georgia,serif;font-size:1.5rem;color:#e0b979;text-align:center;margin:0 0 10px">' + copy.dupeTitle + '</p><p style="color:#b6a894;text-align:center;font-size:0.94rem;margin:0">' + copy.dupeBody + '</p>';
+            setTimeout(dismiss, 3200);
+          } else {
+            throw new Error(result.code || "request_failed");
+          }
+        } catch (err) {
+          statusEl.textContent = newsletterErrorMessage(err.message);
           submitBtn.disabled = false;
           submitBtn.textContent = copy.cta;
         }
