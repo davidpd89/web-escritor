@@ -1,4 +1,16 @@
 /* Premios V1 — evidencia y atribución local. No modifica la familia Identity. */
+html.v1 [data-page="awards"] .v1-masthead,
+html.v1 [data-page="awards"] .v1-masthead > div{
+  min-width:0;
+  max-width:100%;
+}
+html.v1 [data-page="awards"] .v1-masthead h1,
+html.v1 [data-page="awards"] .v1-masthead .eyebrow,
+html.v1 [data-page="awards"] .v1-masthead__lead,
+html.v1 [data-page="awards"] .v1-masthead__actions{
+  min-width:0;
+  max-width:100%;
+}
 html.v1 [data-page="awards"] .awards-section{
   position:relative;
 }
@@ -78,6 +90,10 @@ html.v1 [data-page="awards"] .award-source-rail .text-action{
   max-width:100%;
   overflow-wrap:anywhere;
 }
+html.v1 [data-page="awards"] .award-source-rail .text-action:focus-visible{
+  outline:2px solid var(--focus-color);
+  outline-offset:3px;
+}
 html.v1 [data-page="awards"] .award-evidence-note{
   grid-column:1/-1;
   max-width:76ch;
@@ -142,6 +158,19 @@ html.v1 [data-page="awards"] .awards-next > a:focus-visible strong{
 }
 
 @media (max-width:600px){
+  html.v1 [data-page="awards"] .v1-masthead h1,
+  html.v1 [data-page="awards"] .v1-masthead .eyebrow,
+  html.v1 [data-page="awards"] .v1-masthead__lead{
+    min-width:0;
+    max-width:100%;
+    overflow-wrap:anywhere;
+    text-wrap:wrap;
+  }
+  html.v1 [data-page="awards"] .v1-masthead__actions > *{
+    min-width:0;
+    max-width:100%;
+    white-space:normal;
+  }
   html.v1 [data-page="awards"] .award-attribution{
     grid-template-columns:minmax(0,1fr);
   }
