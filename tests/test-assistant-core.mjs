@@ -72,6 +72,11 @@ for (const [query, expectedIntent] of localCases) {
   assert.ok(answer?.answer?.length > 15, `local answer is too thin for: ${query}`);
   for (const sourceId of answer?.sourceIds || []) assert.ok(registryIds.has(sourceId), `${expectedIntent}: unknown source_id ${sourceId}`);
 }
+
+const manecillasDate = resolveLocalAnswer("¿Cuándo se publica Las manecillas del recuerdo?");
+assert.match(manecillasDate?.answer || "", /La fecha de publicación .*3 de septiembre de 2026.*Monza Ediciones/i);
+assert.doesNotMatch(manecillasDate?.answer || "", /\bse publica\b/i, "publication answer must not drift with runner/client date");
+
 const choice = resolveLocalAnswer("Quiero leer un fragmento");
 assert.equal(choice?.intent, "fragment-choice");
 assert.equal(choice?.pending, "fragment-choice");
