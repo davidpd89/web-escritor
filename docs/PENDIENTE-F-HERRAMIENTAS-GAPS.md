@@ -208,10 +208,10 @@ existe en ningún sitio del repo fuera de la carpeta del dossier.
 
 ## Test plan
 
-- [ ] F.1: `build-autores-red.py --check` sin traceback
-- [ ] F.4: `test-validate-video-to-article.py` en verde + `video-source.component.html` creado
-- [ ] F.2: herramienta nueva con contrato de privacidad verificado + tests
-- [ ] F.3: `test-atlas-literario.py` creado y en verde, sin tocar contenido/publicación
+- [x] F.1: `build-autores-red.py --check` sin traceback
+- [x] F.4: `test-validate-video-to-article.py` en verde + `video-source.component.html` creado
+- [x] F.2: herramienta nueva con contrato de privacidad verificado + tests
+- [x] F.3: `test-atlas-literario.py` creado y en verde, sin tocar contenido/publicación
 
 ---
 
@@ -256,3 +256,16 @@ F.3:
 ```text
 tests/test-atlas-literario: OK
 ```
+
+### Correcciones de merge readiness tras CI
+
+- Se regeneró `autor.html` y `data/site-human-stats.generated.*` para alinear
+   "Esta web, en cifras" con el nuevo total público (18 herramientas),
+   resolviendo `python-tests`/`content-indexes`.
+- Se añadió `/herramientas/dialogo-convenciones/` en
+   `mapa-del-sitio/index.html` para cerrar el contrato de discoverability.
+- Se añadió `robots noindex` a
+   `scripts/templates/video-source.component.html` para evitar que se trate
+   como HTML público indexable en `check-global-discoverability.py`.
+- Se regeneró shell en `herramientas/dialogo-convenciones/index.html` para
+   pasar `build-site-shell.py --check`.
