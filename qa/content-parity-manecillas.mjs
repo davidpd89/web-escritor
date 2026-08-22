@@ -16,12 +16,12 @@ const fragmentsHtml = read('las-manecillas-del-recuerdo/fragmentos/index.html');
 const shareJs = read('assets/manecillas-book.js');
 const globalJs = read('script.js');
 
-const manecillas = facts.books.manecillas;
-const samuel = facts.books.samuel;
-assert(manecillas, 'editorial-facts: falta books.manecillas');
-assert(samuel, 'editorial-facts: falta books.samuel');
-assert.equal(manecillas.purchaseUrl, null, 'purchaseUrl de Manecillas debe seguir null en esta base');
-assert.equal(manecillas.format, 'Paperback', 'esta tarea parte de la autoridad que confirma Paperback');
+const manecillas = facts.books?.lasManecillasDelRecuerdo;
+const samuel = facts.books?.samuelEntreMundos;
+assert(manecillas, 'editorial-facts: falta books.lasManecillasDelRecuerdo');
+assert(samuel, 'editorial-facts: falta books.samuelEntreMundos');
+assert.equal(manecillas.purchaseUrl, null, 'purchaseUrl de Manecillas debe seguir null');
+assert.equal(manecillas.format, 'Paperback', 'la autoridad actual debe confirmar Paperback');
 
 function jsonLd(html) {
   return [...html.matchAll(/<script type="application\/ld\+json">([\s\S]*?)<\/script>/g)].map(match => JSON.parse(match[1]));
@@ -29,27 +29,27 @@ function jsonLd(html) {
 function flattenGraph(docs) {
   return docs.flatMap(doc => Array.isArray(doc['@graph']) ? doc['@graph'] : [doc]);
 }
-function containsType(node, type) {
+function hasType(node, type) {
   const value = node?.['@type'];
   return Array.isArray(value) ? value.includes(type) : value === type;
 }
 function hasOffer(value) {
   if (!value || typeof value !== 'object') return false;
-  if (containsType(value, 'Offer') || Object.hasOwn(value, 'offers')) return true;
+  if (hasType(value, 'Offer') || Object.hasOwn(value, 'offers')) return true;
   return Object.values(value).some(hasOffer);
 }
 
 const catalogGraph = flattenGraph(jsonLd(catalogHtml));
-const itemList = catalogGraph.find(node => containsType(node, 'ItemList'));
+const itemList = catalogGraph.find(node => hasType(node, 'ItemList'));
 assert(itemList, 'catálogo: falta ItemList');
 assert.equal(itemList.itemListElement?.length, 2, 'catálogo: deben existir exactamente dos libros públicos');
 const catalogBooks = itemList.itemListElement.map(entry => entry.item);
-assert.deepEqual(catalogBooks.map(book => book.name), ['Las manecillas del recuerdo', 'Samuel entre mundos'], 'catálogo: jerarquía incorrecta');
+assert.deepEqual(catalogBooks.map(book => book.name), [manecillas.title, samuel.title], 'catálogo: orden/jerarquía incorrecta');
 
 const catManecillas = catalogBooks[0];
 assert.equal(catManecillas.isbn, manecillas.isbn);
 assert.equal(catManecillas.publisher?.name, manecillas.publisher);
-assert.equal(catManecillas.numberOfPages, manecillas.pages);
+assert.equal(catManecillas.numberOfPages, manecillas.numberOfPages);
 assert.equal(catManecillas.datePublished, manecillas.publicationDate);
 assert.equal(catManecillas.bookFormat, 'https://schema.org/Paperback');
 assert.deepEqual(catManecillas.genre, manecillas.genres);
@@ -59,16 +59,17 @@ assert.equal(hasOffer(catManecillas), false, 'catálogo: Manecillas no puede ten
 const catSamuel = catalogBooks[1];
 assert.equal(catSamuel.isbn, samuel.isbn);
 assert.equal(catSamuel.publisher?.name, samuel.publisher);
-assert.equal(catSamuel.numberOfPages, samuel.pages);
+assert.equal(catSamuel.numberOfPages, samuel.numberOfPages);
 assert.equal(String(catSamuel.datePublished), String(samuel.publicationYear));
 assert.equal(catSamuel.bookFormat, 'https://schema.org/Paperback');
+assert.match(catSamuel.image || '', /samuel-entre-mundos\.webp$/);
 
 const bookGraph = flattenGraph(jsonLd(bookHtml));
-const bookSchema = bookGraph.find(node => containsType(node, 'Book'));
+const bookSchema = bookGraph.find(node => hasType(node, 'Book'));
 assert(bookSchema, 'ficha: falta Book');
 assert.equal(bookSchema.isbn, manecillas.isbn);
 assert.equal(bookSchema.publisher?.name, manecillas.publisher);
-assert.equal(bookSchema.numberOfPages, manecillas.pages);
+assert.equal(bookSchema.numberOfPages, manecillas.numberOfPages);
 assert.equal(bookSchema.datePublished, manecillas.publicationDate);
 assert.equal(bookSchema.bookFormat, 'https://schema.org/Paperback');
 assert.deepEqual(bookSchema.genre, manecillas.genres);
@@ -77,8 +78,8 @@ assert(!/amazon\.es|amazon\.com/i.test(bookHtml), 'ficha Manecillas: no debe con
 assert(!/data-purchase|comprar en amazon|comprar ahora/i.test(bookHtml), 'ficha Manecillas: no debe simular CTA comercial');
 assert(!/book-crosspromo/.test(bookHtml), 'ficha Manecillas: no debe duplicar Samuel como upsell grande');
 assert(/<dt>Formato<\/dt><dd>Tapa blanda<\/dd>/.test(bookHtml), 'ficha: falta formato autorizado visible');
-assert(/PVP editorial/.test(bookHtml), 'ficha: el precio debe identificarse como dato editorial en disponibilidad');
-assert(/Publicada el 3 de septiembre de 2026/.test(bookHtml), 'ficha: falta copy temporal estable');
+assert(/PVP editorial/.test(bookHtml), 'ficha: el precio debe identificarse como dato editorial');
+assert(/Publicada el 3 de septiembre de 2026/.test(bookHtml), 'ficha: falta copy estable de publicación');
 assert(!/próximamente|en proceso de publicación/i.test(bookHtml), 'ficha: queda copy prelaunch');
 assert(!/David Porto Díaz publica <em>Las manecillas/.test(catalogHtml), 'catálogo: queda copy verbal prelaunch');
 assert(/publicada el 3 de septiembre de 2026/.test(catalogHtml), 'catálogo: falta estado publicado estable');
@@ -93,7 +94,7 @@ assert(!/\bfetch\s*\(/.test(shareJs), 'share local no debe hacer fetch');
 assert(/STAGING_HOSTNAMES/.test(globalJs) && /david-porto-preview\.davidpd89\.workers\.dev/.test(globalJs), 'newsletter: se perdió safe mode de staging global');
 
 const fragmentGraph = flattenGraph(jsonLd(fragmentsHtml));
-const collection = fragmentGraph.find(node => containsType(node, 'Collection'));
+const collection = fragmentGraph.find(node => hasType(node, 'Collection'));
 assert.equal(collection?.collectionSize, 3, 'fragmentos: Collection debe contener 3 piezas');
 const fragmentIds = ['fragmento-1', 'fragmento-2', 'fragmento-3'];
 for (const id of fragmentIds) {
@@ -103,7 +104,13 @@ for (const id of fragmentIds) {
 assert.equal((fragmentsHtml.match(/class="excerpt-field"/g) || []).length, 3, 'fragmentos: deben existir exactamente 3 excerpt-field');
 
 const report = {
-  facts: { manecillas: true, samuel: true, purchaseUrl: null },
+  authority: {
+    schemaVersion: facts.schemaVersion,
+    lastReviewed: facts.lastReviewed,
+    manecillasKey: 'lasManecillasDelRecuerdo',
+    samuelKey: 'samuelEntreMundos',
+    purchaseUrl: manecillas.purchaseUrl
+  },
   schema: { catalogItems: 2, manecillasOffer: false, bookFormat: true, fragmentCollection: 3 },
   viewports: {},
   noJs: {},
@@ -112,6 +119,8 @@ const report = {
   share: {},
   consoleErrors: []
 };
+const writeReport = () => fs.writeFileSync(path.join(ROOT, OUT, 'content-parity-manecillas-report.json'), JSON.stringify(report, null, 2));
+writeReport();
 
 function watch(page, label) {
   const pageErrors = [];
@@ -120,8 +129,6 @@ function watch(page, label) {
   page.on('console', msg => { if (msg.type() === 'error') consoleErrors.push(msg.text()); });
   return () => {
     assert.deepEqual(pageErrors, [], `${label}: pageerror ${pageErrors.join(' | ')}`);
-    // Chromium puede registrar fallos de red abortados por el propio navegador; solo
-    // elevamos errores de consola de aplicación, no mensajes de DevTools sobre recursos.
     const appErrors = consoleErrors.filter(text => !/Failed to load resource/i.test(text));
     assert.deepEqual(appErrors, [], `${label}: console error ${appErrors.join(' | ')}`);
     report.consoleErrors.push({ label, count: appErrors.length });
@@ -164,22 +171,22 @@ const viewports = [
 const browser = await chromium.launch({ headless: true });
 try {
   for (const viewport of viewports) {
-    report.viewports[`${viewport.width}x${viewport.height}`] = {};
+    const viewportKey = `${viewport.width}x${viewport.height}`;
+    report.viewports[viewportKey] = {};
     for (const route of pages) {
       const context = await browser.newContext({ viewport, reducedMotion: 'reduce' });
       const page = await context.newPage();
-      const verifyErrors = watch(page, `${route.key}-${viewport.width}x${viewport.height}`);
+      const verifyErrors = watch(page, `${route.key}-${viewportKey}`);
       await page.goto(`${ORIGIN}${route.url}`, { waitUntil: 'load' });
-      await noOverflow(page, `${route.key}-${viewport.width}x${viewport.height}`);
+      await noOverflow(page, `${route.key}-${viewportKey}`);
       assert(await page.locator('main').isVisible(), `${route.key}: main no visible`);
       assert(await page.locator('h1').isVisible(), `${route.key}: h1 no visible`);
       verifyErrors();
-      report.viewports[`${viewport.width}x${viewport.height}`][route.key] = { overflow: false, pageerror: 0 };
+      report.viewports[viewportKey][route.key] = { overflow: false, pageerror: 0 };
       await context.close();
     }
   }
 
-  // Public hierarchy and no accidental Jaula/PIEL leakage.
   {
     const context = await browser.newContext({ viewport: { width: 1440, height: 1000 } });
     const page = await context.newPage();
@@ -193,10 +200,10 @@ try {
     assert(!/Dónde empieza la jaula|PIEL/i.test(visibleMain), 'catálogo: fuga de obra gated');
     assert(await page.locator('a[href="/libros/samuel-entre-mundos/"]').count() > 0, 'Samuel dejó de ser accesible');
     verifyErrors();
+    report.navigation.catalogHierarchy = true;
     await context.close();
   }
 
-  // Historical anchors and native deep links.
   {
     const context = await browser.newContext({ viewport: { width: 390, height: 900 } });
     const page = await context.newPage();
@@ -211,7 +218,6 @@ try {
     await context.close();
   }
 
-  // Explore remains keyboard-operable.
   {
     const context = await browser.newContext({ viewport: { width: 390, height: 900 } });
     const page = await context.newPage();
@@ -230,7 +236,6 @@ try {
     await context.close();
   }
 
-  // Share enhancement: stub Web Share, assert no network/router side effects.
   {
     const context = await browser.newContext({ viewport: { width: 390, height: 900 } });
     await context.addInitScript(() => {
@@ -250,7 +255,6 @@ try {
     await context.close();
   }
 
-  // No-JS: content/navigation remain complete; progressive actions simply disappear.
   for (const route of pages) {
     const context = await browser.newContext({ viewport: { width: 390, height: 900 }, javaScriptEnabled: false });
     const page = await context.newPage();
@@ -277,7 +281,6 @@ try {
     await context.close();
   }
 
-  // Keyboard/focus, 200% zoom and WCAG text spacing at the narrowest width.
   {
     const context = await browser.newContext({ viewport: { width: 320, height: 900 } });
     const page = await context.newPage();
@@ -307,7 +310,6 @@ try {
     await context.close();
   }
 
-  // Reduced motion + print keep the editorial content usable.
   {
     const context = await browser.newContext({ viewport: { width: 1024, height: 900 }, reducedMotion: 'reduce' });
     const page = await context.newPage();
@@ -324,7 +326,6 @@ try {
     await context.close();
   }
 
-  // Evidence captures.
   for (const shot of [
     { url: '/libros/', width: 1440, height: 1000, file: 'libros-1440.png' },
     { url: '/las-manecillas-del-recuerdo/', width: 1440, height: 1000, file: 'manecillas-1440.png' },
@@ -341,5 +342,5 @@ try {
   await browser.close();
 }
 
-fs.writeFileSync(path.join(ROOT, OUT, 'content-parity-manecillas-report.json'), JSON.stringify(report, null, 2));
+writeReport();
 console.log('CONTENT PARITY MANECILLAS QA: PASS');
