@@ -170,17 +170,18 @@ async function capture(width, height, suffix) {
   const { page } = await openChecked(context);
   await page.locator('#reconocimientos').screenshot({ path: path.join(OUT, `premios-reconocimientos-${suffix}.png`) });
 
-  const clip = await page.evaluate(() => {
-    const first = document.querySelector('#colaboraciones').getBoundingClientRect();
-    const last = document.querySelector('#recepcion').getBoundingClientRect();
-    return {
-      x: 0,
-      y: Math.max(0, first.top + window.scrollY),
-      width: document.documentElement.clientWidth,
-      height: last.bottom - first.top,
-    };
-  });
-  await page.screenshot({ path: path.join(OUT, `premios-trayectoria-recepcion-${suffix}.png`), clip });
+  // Produce a focused documentary capture without page-coordinate clipping:
+  // hide unrelated regions only in this Playwright page, then screenshot the
+  // resulting full page. Published HTML/CSS is untouched.
+  await page.addStyleTag({ content: `
+    body > .skip-link,
+    body > .site-header,
+    body > .explore-dialog,
+    main > :not(#colaboraciones):not(#recepcion),
+    body > .site-footer { display:none !important; }
+    html, body { min-height:0 !important; }
+  ` });
+  await page.screenshot({ path: path.join(OUT, `premios-trayectoria-recepcion-${suffix}.png`), fullPage: true });
   await context.close();
 }
 
