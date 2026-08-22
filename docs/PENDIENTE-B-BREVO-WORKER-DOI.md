@@ -180,6 +180,38 @@ de esta PR). Sí puedes dejar preparado un **rate limit básico KV-backed**:
 
 ## Test plan
 
-- [ ] `node scripts/test-worker-subscribe.mjs` — todos los casos anteriores + los nuevos de honeypot y rate limit, en verde
-- [ ] `/gracias-suscripcion/` responde 200 en local (`python -m http.server 4173`), `noindex,follow` confirmado en el HTML
-- [ ] Documentado en la PR qué falta configurar en Cloudflare (KV namespace, `BREVO_DOI_REDIRECT_URL`) antes del despliegue real
+- [x] `node scripts/test-worker-subscribe.mjs` — todos los casos anteriores + los nuevos de honeypot y rate limit, en verde
+- [x] `/gracias-suscripcion/` responde 200 en local (`python -m http.server 4173`), `noindex,follow` confirmado en el HTML
+- [x] Documentado en la PR qué falta configurar en Cloudflare (KV namespace, `BREVO_DOI_REDIRECT_URL`) antes del despliegue real
+
+---
+
+## Estado de implementación (revisión externa 2026-08-22)
+
+- [x] B.1: `/gracias-suscripcion/index.html` existe, `noindex,follow`, fija
+  `nl-subscribed` antes de cargar `script.js`, pasa `build-site-shell.py --check`
+  y no aparece en `sitemap.xml` (correcto, al ser noindex).
+- [x] B.2: honeypot `website` implementado en `cloudflare-worker-subscribe.js`
+  (devuelve `{ ok: true }` sin llamar a Brevo) e inyectado en los tres flujos
+  del frontend (`quiz`, popup, `submitNewsletter` genérico) vía
+  `honeypotValue()` en `script.js`.
+- [x] B.3: rate limit KV-backed (`RATE_LIMIT_KV`, 5 intentos/10 min) con
+  degradación segura a "sin límite" si el binding no existe todavía en
+  Cloudflare. Documentado en el propio Worker (deploy steps 15-21) y en
+  `docs/BREVO-WORKER-DEPLOY.md`.
+
+### Evidencia de ejecución (verificado en revisión externa)
+
+```text
+$ node tests/test-cloudflare-worker-subscribe.mjs
+test-cloudflare-worker-subscribe: all assertions passed
+
+$ node tests/test-newsletter-client-contract.mjs
+test-newsletter-client-contract: all assertions passed
+
+$ python scripts/build-sitemap.py --check
+SITEMAP OK: 54 URLs
+
+$ python scripts/check-global-discoverability.py
+PASS: global discoverability (89 tracked HTML artifacts; 54 indexable; search=POSPUESTO; map=60 human destinations)
+```
