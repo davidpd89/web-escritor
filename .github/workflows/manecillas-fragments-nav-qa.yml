@@ -7,6 +7,7 @@ on:
       - 'assets/v1-fragments.css'
       - 'assets/v1-fragments.js'
       - 'qa/manecillas-fragments-nav.mjs'
+      - 'qa/manecillas-fragments-hash-regression.mjs'
       - '.github/workflows/manecillas-fragments-nav-qa.yml'
   workflow_dispatch:
 
@@ -45,6 +46,8 @@ jobs:
           exit 1
       - name: Run navigation and preservation QA
         run: BASE_SHA="$PR_BASE_SHA" node qa/manecillas-fragments-nav.mjs
+      - name: Run malformed-hash regression
+        run: node qa/manecillas-fragments-hash-regression.mjs
       - name: Upload screenshots and report
         if: always()
         uses: actions/upload-artifact@v4
