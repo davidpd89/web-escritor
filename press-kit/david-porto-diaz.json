@@ -8,7 +8,7 @@
   "website": "https://davidportodiaz.com/",
   "canonicalDescription": "David Porto Díaz es un escritor gallego residente en Madrid, autor de Samuel entre mundos y de Las manecillas del recuerdo (Monza Ediciones, 3 de septiembre de 2026).",
   "shortBio": "Escritor gallego residente en Madrid. Autor de Las manecillas del recuerdo (Monza Ediciones, publicada el 3 de septiembre de 2026) y Samuel entre mundos (Libros Indie, 2025), y ganador del Primer Premio — XII Certamen de Microrrelatos «De amor» · Letras Como Espada 2026, en la categoría de microrrelatos.",
-  "longBio": "David Porto Díaz nació en Pontevedra (Galicia) y reside en Madrid. Su segunda novela, Las manecillas del recuerdo (Monza Ediciones), publicada el 3 de septiembre de 2026, es una novela coral de vidas conectadas por un reloj que pasa de mano en mano. Su primera novela, Samuel entre mundos, fue publicada por Libros Indie en 2025 y fue la obra presentada en la selección Top 10 — Finalista del I Premio de Literatura Infantil Juan Andrés Teno 2026, organizado por BABIDI-BÚ. En 2026 obtuvo el Primer Premio — XII Certamen de Microrrelatos «De amor» · Letras Como Espada, en la categoría de microrrelatos.",
+  "longBio": "David Porto Díaz nació en Pontevedra (Galicia) y reside en Madrid. Su segunda novela, Las manecillas del recuerdo (Monza Ediciones), publicada el 3 de septiembre de 2026, es una novela coral de vidas conectadas por un reloj que pasa de mano en mano. Su primera novela, Samuel entre mundos, fue publicada por Libros Indie en 2025. En 2026 fue seleccionado Top 10 — Finalista del I Premio de Literatura Infantil Juan Andrés Teno, organizado por BABIDI-BÚ; la fuente pública oficial localizada no identifica la obra presentada, por lo que esta ficha no atribuye la selección a una obra concreta. En 2026 obtuvo el Primer Premio — XII Certamen de Microrrelatos «De amor» · Letras Como Espada, en la categoría de microrrelatos.",
   "identifiers": {
     "wikidata": "https://www.wikidata.org/wiki/Q139678851",
     "orcid": "https://orcid.org/0009-0005-9089-3782",
@@ -62,7 +62,9 @@
       "organizer": "BABIDI-BÚ",
       "year": 2026,
       "holder": "David Porto Díaz",
-      "submittedWork": "Samuel entre mundos"
+      "submittedWork": null,
+      "sourceUrl": "https://www.babidibulibros.com/premio-literatura-juan-andres-teno-2026/",
+      "sourceLimitation": "La convocatoria pública oficial localizada acredita el certamen y sus bases, pero no identifica la obra presentada ni contiene una lista pública de finalistas localizada durante esta revisión."
     }
   ],
   "contributions": [
@@ -77,5 +79,5 @@
     "email": "samuelentremundos@gmail.com",
     "pressKit": "https://davidportodiaz.com/prensa.html"
   },
-  "lastUpdated": "2026-08-21"
+  "lastUpdated": "2026-08-22"
 }
