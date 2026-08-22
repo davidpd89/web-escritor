@@ -4,6 +4,7 @@
 - Compare base: `gpt/release-readiness-v1`
 - Compare branch: `gpt/reflow-gate-sitewide-v1`
 - Compare URL: `https://github.com/davidpd89/web-escritor/compare/gpt/release-readiness-v1...gpt/reflow-gate-sitewide-v1?expand=1`
+- PR URL: `https://github.com/davidpd89/web-escritor/pull/33`
 
 ## Scope
 
