@@ -1,16 +1,34 @@
-# Pendiente J — Operativa asistida en webs externas
+# Pendiente J — Operativa asistida en webs externas SIN API/conector utilizable
 
 Fecha: 2026-08-23  
 Rama base: `implementacion-web-2026`  
 HEAD base auditado: `4694799edc6d9c9e729b896cadda1eef9726d083`
 
-> Esta PR es un **recordatorio operativo ejecutable** para tareas que no se pueden cerrar mirando solo Git: Search Console, Brevo, Cloudflare y cualquier otro panel web que aparezca en las auditorías. No implementa cambios de producción por sí sola.
+> Esta PR es un **recordatorio operativo ejecutable exclusivamente para tareas externas que NO podamos resolver con una API, conector o herramienta ya disponible**. No debe usarse como sustituto de una API existente.
 
-## 1. Objetivo
+## 1. Regla principal: API primero, navegador solo si no hay vía programática utilizable
 
-Cuando una auditoría marque algo como «externo», «requiere panel», «requiere login» o «no verificable desde Git», **no dejarlo indefinidamente como gate abstracto**.
+Antes de abrir Edge, comprobar siempre este orden:
 
-La forma de resolverlo será:
+1. ¿Existe conector/herramienta ya conectado en el entorno de trabajo?
+2. ¿Existe API oficial y tenemos ya credenciales/API key válidas para usarla?
+3. ¿Existe una CLI oficial/autorizada ya configurada?
+4. Solo si las respuestas anteriores son negativas, o si la operación concreta **no está expuesta por la API disponible**, usar el procedimiento de navegador controlado descrito en esta PR.
+
+Por tanto:
+
+- **Brevo NO entra en esta operativa por defecto**: tenemos API key y las tareas que exponga la API deben hacerse por API.
+- **Cloudflare NO entra en esta operativa por defecto**: tenemos credenciales/API y las tareas que exponga la API deben hacerse por API.
+- **Metricool tampoco debe abrirse por navegador si el conector/API disponible permite la operación concreta.**
+- Una UI web solo entra aquí cuando **no tenemos una vía programática utilizable para esa acción específica**.
+
+Si una API cubre lectura pero no una operación concreta de configuración, solo esa operación residual puede pasar al navegador. Debe documentarse por qué no podía hacerse por API.
+
+## 2. Objetivo
+
+Cuando una auditoría marque algo como «externo», «requiere panel», «requiere login» o «no verificable desde Git», no dejarlo indefinidamente como gate abstracto.
+
+Primero se intenta resolver mediante API/conector. Si no existe una vía programática utilizable, la forma de resolverlo será:
 
 1. abrir una instancia dedicada de Microsoft Edge con depuración remota;
 2. conectar el agente local/Claude Code mediante CDP al puerto elegido;
@@ -22,7 +40,7 @@ La forma de resolverlo será:
 
 La intención es reducir al mínimo el trabajo manual del usuario: **el usuario interviene solo cuando un proveedor exige autenticación humana o una decisión que no se deba inferir**.
 
-## 2. Apertura de Edge controlable
+## 3. Apertura de Edge controlable
 
 En Windows, usar una instancia separada de Edge. Ejemplo con puerto `9222`:
 
@@ -37,7 +55,7 @@ Si Edge está instalado en `C:\Program Files\Microsoft\Edge\Application\msedge.e
 ### Reglas
 
 - utilizar un perfil dedicado mediante `--user-data-dir`; no engancharse al perfil habitual de Edge mientras esté abierto;
-- exponer la depuración **solo en localhost**; no publicar el puerto en red ni abrirlo en el firewall;
+- exponer la depuración solo en localhost; no publicar el puerto en red ni abrirlo en el firewall;
 - no guardar contraseñas, códigos 2FA, cookies o tokens en el repositorio;
 - no copiar secretos desde DevTools a ficheros o PR;
 - cerrar la instancia dedicada cuando termine la sesión operativa.
@@ -48,7 +66,7 @@ El agente local se conecta por Chrome DevTools Protocol a:
 http://127.0.0.1:9222
 ```
 
-## 3. Login humano mínimo
+## 4. Login humano mínimo
 
 Si una web muestra login, 2FA, captcha, passkey o consentimiento de cuenta:
 
@@ -60,19 +78,21 @@ Si una web muestra login, 2FA, captcha, passkey o consentimiento de cuenta:
 
 No intentar automatizar contraseñas, 2FA, captcha ni mecanismos antiabuso. Tampoco intentar simular comportamiento humano para eludir controles del proveedor.
 
-## 4. Ritmo de ejecución
+## 5. Ritmo de ejecución
 
 Las acciones en paneles externos deben ser pausadas y verificables:
 
 - una acción significativa cada vez;
 - esperar carga/confirmación antes de la siguiente;
-- evitar clicks repetidos o envíos duplicados;
+- evitar clics repetidos o envíos duplicados;
 - volver a leer el estado después de guardar;
 - si una acción es irreversible, económica, publica contenido, cambia DNS, activa producción o borra datos, detenerse y pedir confirmación explícita;
 - capturar evidencia textual o screenshot cuando sea útil;
 - no declarar «hecho» hasta volver a comprobar el estado final en el propio panel.
 
-## 5. Google Search Console — checklist operativo
+## 6. Google Search Console — ejemplo principal de esta operativa
+
+Usar navegador **solo mientras no dispongamos en el flujo actual de credenciales/conector/API autorizada que permita realizar la operación concreta**.
 
 Cuando se haga esta ronda, abrir Search Console con la propiedad de `davidportodiaz.com` y comprobar al menos:
 
@@ -118,54 +138,34 @@ Para cada una:
 - no sacar conclusiones fuertes si el volumen es demasiado bajo;
 - anotar anomalías reales que deban convertirse en una tarea posterior de SEO/contenido.
 
-## 6. Brevo — checklist operativo
+## 7. Qué servicios NO deben ir por Edge si ya tenemos API
 
-La parte de código vive en otras PR; esta operativa cubre lo que solo puede verificarse/configurarse en el panel real.
+### Brevo
 
-Comprobar:
+Resolver por API todo lo que exponga la API usando la credencial existente: listas, contactos, atributos, plantillas, campañas/configuración disponible, verificaciones y pruebas automatizables.
 
-- lista canónica usada por la web;
-- atributos de contacto esperados (`SOURCE` y los que procedan);
-- estado real de doble opt-in;
-- plantilla/automatización que se dispara tras confirmar;
-- URL de retorno tras confirmación;
-- baja/unsubscribe;
-- que una suscripción real desde cada origen relevante aterriza en la lista correcta;
-- que no se promete por copy algo que la automatización real no entrega.
+Solo si una función concreta de Brevo **no está disponible mediante la API que podemos usar** —por ejemplo, una pantalla/automatización no expuesta— se podrá aplicar excepcionalmente esta operativa de navegador para esa función y se dejará escrito el motivo.
 
-Si hay que crear/modificar una automatización:
+### Cloudflare
 
-- documentar antes el estado actual;
-- hacer un único cambio lógico por vez;
-- usar una dirección de prueba autorizada;
-- confirmar recepción/confirmación/baja end-to-end;
-- no modificar campañas históricas no relacionadas.
+Resolver por API todo lo expuesto por las credenciales existentes: Workers, bindings, variables/configuración compatible, despliegues autorizados, zonas/rutas cuando proceda, etc.
 
-## 7. Cloudflare — checklist operativo
+No abrir el dashboard solo porque sea cómodo. El navegador queda reservado a una operación no disponible con nuestras credenciales/API o que requiera interacción humana del proveedor.
 
-Cuando corresponda después de integrar el código correcto:
+### Metricool y otros servicios conectados
 
-- revisar Worker correcto;
-- verificar `BREVO_API_KEY` como secret sin exponer su valor;
-- verificar `BREVO_LIST_ID`;
-- revisar bindings/KV/D1/Rate Limiting/Turnstile solo si la PR aplicable los requiere;
-- desplegar únicamente la versión de Worker compatible con el `script.js` que ya esté en producción;
-- ejecutar smoke test real después del deploy;
-- revisar logs únicamente para confirmar comportamiento, sin copiar PII a GitHub.
+Si existe conector/API capaz de ejecutar la tarea concreta, usarlo. Navegador únicamente como fallback para funciones no expuestas.
 
-Cambios de DNS, dominios, rutas, producción o seguridad que puedan afectar al sitio requieren confirmación humana explícita justo antes de aplicarlos.
+## 8. Otros paneles candidatos SIN API utilizable
 
-## 8. Otros paneles que aparezcan durante la auditoría
+Esta operativa puede aplicarse, cuando exista una tarea concreta, a servicios como:
 
-Esta misma operativa se aplicará a cualquier tarea futura que dependa de UI autenticada, por ejemplo:
-
-- Google Search Console;
-- Brevo;
-- Cloudflare;
-- Metricool;
-- perfiles sociales o plataformas de publicación cuando exista una tarea concreta;
-- paneles de editorial/retailer si se necesita verificar una URL comercial;
-- cualquier servicio externo cuya configuración real no pueda demostrarse desde el repositorio.
+- Google Search Console mientras no haya integración/API autorizada en nuestro flujo;
+- perfiles o plataformas de publicación sin API útil para la acción requerida;
+- paneles de editorial/retailer para verificar o configurar una URL comercial si no existe API;
+- Amazon/KDP u otros backoffices cuando la acción no tenga una API autorizada disponible;
+- servicios de premios, directorios, fichas de autor o plataformas similares sin API útil;
+- cualquier servicio externo cuya configuración real no pueda demostrarse ni ejecutarse desde Git/API/conector.
 
 No abrir un panel «por si acaso». Debe existir una tarea concreta y verificable.
 
@@ -175,6 +175,7 @@ La persona/agente que la ejecute debe dejar constancia de:
 
 - fecha;
 - servicio y cuenta/propiedad usada, sin datos sensibles;
+- por qué no pudo usarse API/conector para esa acción;
 - estado inicial relevante;
 - cambio realizado;
 - estado final verificado;
@@ -187,33 +188,32 @@ Cuando sea razonable, añadir screenshot sin datos personales/secrets o una tran
 
 ## 10. Qué NO debe hacerse
 
+- no usar navegador si ya existe una API/conector utilizable para la misma acción;
 - no automatizar credenciales, 2FA o captcha;
 - no intentar eludir sistemas anti-bot;
-- no ejecutar acciones destructivas/reversibles sin confirmación;
+- no ejecutar acciones destructivas/irreversibles sin confirmación;
 - no enviar cientos de URLs a indexar en masa;
-- no desplegar una versión incompatible del Worker;
-- no activar automatizaciones de correo sin probarlas;
 - no almacenar secretos/cookies/tokens en código, logs o PR;
 - no confundir «pude abrir el panel» con «configuración verificada».
 
 ## 11. Orden sugerido cuando se retome
 
-1. terminar/integrar primero las PR de código que afecten al servicio;
-2. abrir Edge dedicado por CDP;
-3. Search Console: propiedad + sitemap + URLs de lanzamiento;
-4. Brevo: DOI/automatización/lista/orígenes;
-5. Cloudflare: desplegar y verificar Worker compatible;
-6. Metricool u otros paneles solo cuando exista una tarea concreta;
-7. registrar resultados y abrir PR de código únicamente si la evidencia externa descubre un defecto real.
+1. identificar el gate externo concreto;
+2. comprobar primero API/conector/CLI disponibles;
+3. resolver por API todo lo posible;
+4. solo para el residuo no cubierto, abrir Edge dedicado por CDP;
+5. pedir login humano si es necesario;
+6. ejecutar la operación concreta y verificarla;
+7. registrar evidencia y abrir PR de código únicamente si el resultado descubre un defecto real.
 
 ## 12. Criterio de cierre de esta PR
 
 Esta PR no se cierra porque exista este documento. Se podrá cerrar cuando:
 
-- las tareas externas actualmente conocidas hayan sido ejecutadas o explícitamente pospuestas por una dependencia real;
-- Search Console haya sido revisado después del despliegue pertinente;
-- Brevo/Cloudflare hayan sido verificados end-to-end cuando las PR de código correspondientes estén integradas;
+- los gates externos **sin API/conector utilizable** actualmente conocidos hayan sido ejecutados o explícitamente pospuestos por una dependencia real;
+- Search Console haya sido revisado después del despliegue pertinente si sigue requiriendo UI;
 - cualquier hallazgo nuevo tenga su PR/tarea específica;
 - quede un registro de evidencia suficiente para no tener que repetir la investigación.
 
+**Brevo y Cloudflare no son tareas de navegador por defecto: usar API.**  
 **No merge automático a `main`. No desplegar producción desde esta PR.**
