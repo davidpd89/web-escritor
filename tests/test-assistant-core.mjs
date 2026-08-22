@@ -56,6 +56,7 @@ const localCases = [
   ["¿De qué trata Las manecillas del recuerdo?", "manecillas"],
   ["¿Cuándo se publica Las manecillas del recuerdo?", "manecillas-date"],
   ["¿De qué trata Samuel entre mundos?", "samuel"],
+  ["¿Qué premio ganó Samuel entre mundos?", "samuel-awards"],
   ["¿Qué es Noveris?", "noveris"],
   ["¿Dónde mando un manuscrito?", "editorials"],
   ["¿Qué concursos para escritores hay?", "opportunities"],
@@ -76,6 +77,12 @@ for (const [query, expectedIntent] of localCases) {
 const manecillasDate = resolveLocalAnswer("¿Cuándo se publica Las manecillas del recuerdo?");
 assert.match(manecillasDate?.answer || "", /La fecha de publicación .*3 de septiembre de 2026.*Monza Ediciones/i);
 assert.doesNotMatch(manecillasDate?.answer || "", /\bse publica\b/i, "publication answer must not drift with runner/client date");
+
+const samuelAwards = resolveLocalAnswer("¿Fue Samuel entre mundos finalista del Juan Andrés Teno?");
+assert.equal(samuelAwards?.intent, "samuel-awards");
+assert.match(samuelAwards?.answer || "", /No se atribuye.*Samuel entre mundos.*Letras Como Espada/i);
+assert.match(samuelAwards?.answer || "", /Top 10.*Juan Andrés Teno.*obra presentada no está identificada/i);
+assert.deepEqual(samuelAwards?.sourceIds, ["awards", "work-samuel"]);
 
 const choice = resolveLocalAnswer("Quiero leer un fragmento");
 assert.equal(choice?.intent, "fragment-choice");
