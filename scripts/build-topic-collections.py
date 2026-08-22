@@ -436,7 +436,13 @@ def render_hub(coll: dict) -> str:
             "piezas en la colección",
         )
         + series_note
-        + f'<section class="cuaderno-topic-itinerary" aria-label="Piezas de la colección"><ul class="cuaderno-topic-steps">{"".join(items_html)}</ul></section>'
+        # <ol> cuando es serie, <ul> cuando no. El JSON-LD ya distingue
+        # ItemListOrderedAscending de ItemListUnordered mas arriba, y la pagina
+        # dice por escrito que la serie tiene un orden de lectura recomendado:
+        # el marcado tiene que decir lo mismo. Un lector de pantalla anuncia
+        # "lista de 4 elementos" en un <ul> y "lista ordenada" en un <ol>, que
+        # es justo la diferencia que importa aqui.
+        + f'<section class="cuaderno-topic-itinerary" aria-label="Piezas de la colección"><{"ol" if is_series else "ul"} class="cuaderno-topic-steps">{"".join(items_html)}</{"ol" if is_series else "ul"}></section>'
         + f'<section class="cuaderno-topics-tail"><p class="cuaderno-topic-revision">Revisión de esta colección: <time datetime="{esc(coll["updated"])}">{esc(coll["updated"])}</time></p>'
         + '<nav class="cuaderno-topics-tail__links" aria-label="Continuar en el Cuaderno"><a class="cuaderno-topics-link" href="/cuaderno/temas/">← Todas las colecciones</a><span aria-hidden="true">·</span><a class="cuaderno-topics-link" href="/cuaderno/">Volver al Cuaderno</a></nav></section>'
         + "</main>"

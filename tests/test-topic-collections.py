@@ -113,8 +113,8 @@ with tempfile.TemporaryDirectory() as tmp:
     pos_segunda = serie_hub.find("Segunda entrega")
     pos_primera = serie_hub.find("Primera entrega")
     check(0 < pos_segunda < pos_primera, "la serie mantiene el orden de items[], no lo reordena")
-    check("<ol class=\"topic-list\"" in serie_hub, "una serie se renderiza como <ol> (orden), no <ul>")
-    check('<ul class="topic-list"' in hub, "una colección libre se renderiza como <ul>, no <ol>")
+    check("<ol class=\"cuaderno-topic-steps\"" in serie_hub, "una serie se renderiza como <ol> (orden), no <ul>")
+    check('<ul class="cuaderno-topic-steps"' in hub, "una colección libre se renderiza como <ul>, no <ol>")
 
     # --check detecta salida al día
     n2, ready2 = btc.build(data_path, root, True)
