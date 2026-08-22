@@ -358,3 +358,63 @@ html.v1 .map-stage[data-active="autor"]{--route-work-opacity:.92;--route-process
   html.v1 .map-node:hover .map-node__marker,
   html.v1 .map-node:focus-visible .map-node__marker{transform:none}
 }
+
+/* Home cartography contextual preview V1 — stable, non-essential and CSS-only. */
+@media (min-width:1200px){
+  html.v1 .map-nodes::before,
+  html.v1 .map-nodes::after{
+    position:absolute;
+    z-index:3;
+    pointer-events:none;
+    opacity:0;
+    transition:opacity 180ms var(--ease-standard);
+  }
+  html.v1 .map-nodes::before{
+    content:"";
+    top:42%;
+    right:clamp(15.8rem,20vw,20rem);
+    width:clamp(74px,6.5vw,92px);
+    aspect-ratio:2/3;
+    background-position:center;
+    background-repeat:no-repeat;
+    background-size:cover;
+    border:1px solid var(--color-border);
+  }
+  html.v1 .map-nodes::after{
+    content:"";
+    top:42%;
+    right:clamp(1.25rem,3vw,3.25rem);
+    width:clamp(210px,15.5vw,244px);
+    min-height:138px;
+    padding:1rem 0 .9rem;
+    border-top:1px solid color-mix(in srgb,var(--color-accent-strong) 48%,var(--color-border));
+    border-bottom:1px solid var(--color-border);
+    background:color-mix(in srgb,var(--surface-page) 94%,transparent);
+    color:var(--color-text);
+    font-family:var(--font-display);
+    font-size:clamp(1.25rem,1.55vw,1.65rem);
+    font-weight:400;
+    line-height:1.08;
+    letter-spacing:-.012em;
+    white-space:pre-line;
+  }
+  html.v1 .map-stage:has(.map-node:is(:hover,:focus-visible)) .map-nodes::after{opacity:1}
+  html.v1 .map-stage:has([data-map-node="manecillas"]:is(:hover,:focus-visible)) .map-nodes::before{
+    opacity:1;
+    background-image:url('/assets/portada-las-manecillas-del-recuerdo-512.webp');
+  }
+  html.v1 .map-stage:has([data-map-node="samuel"]:is(:hover,:focus-visible)) .map-nodes::before{
+    opacity:1;
+    background-image:url('/assets/samuel-entre-mundos.webp');
+  }
+  html.v1 .map-stage:has([data-map-node="manecillas"]:is(:hover,:focus-visible)) .map-nodes::after{content:"Las manecillas del recuerdo\A Obra actual" / ""}
+  html.v1 .map-stage:has([data-map-node="autor"]:is(:hover,:focus-visible)) .map-nodes::after{content:"Autor\A Biografía y trayectoria" / ""}
+  html.v1 .map-stage:has([data-map-node="samuel"]:is(:hover,:focus-visible)) .map-nodes::after{content:"Samuel entre mundos\A Primera novela" / ""}
+  html.v1 .map-stage:has([data-map-node="cuaderno"]:is(:hover,:focus-visible)) .map-nodes::after{content:"Cuaderno\A Artículos" / ""}
+  html.v1 .map-stage:has([data-map-node="herramientas"]:is(:hover,:focus-visible)) .map-nodes::after{content:"Herramientas\A Utilidades para escritores" / ""}
+  html.v1 .map-stage:has([data-map-node="prensa"]:is(:hover,:focus-visible)) .map-nodes::after{content:"Prensa y eventos\A Archivo y agenda" / ""}
+}
+@media (prefers-reduced-motion:reduce){
+  html.v1 .map-nodes::before,
+  html.v1 .map-nodes::after{transition:none}
+}
