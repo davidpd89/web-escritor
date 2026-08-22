@@ -5,10 +5,17 @@ on:
     branches:
       - implementacion-web-2026
     paths:
+      - 'libros/samuel-entre-mundos/**'
+      - 'fragmento/**'
       - 'universo/noveris/**'
       - 'clubes-de-lectura/samuel-entre-mundos/**'
+      - 'assets/v1-samuel.css'
+      - 'assets/fragmento.css'
+      - 'assets/samuel-quiz.js'
       - 'assets/noveris.css'
       - 'assets/clubes-samuel.css'
+      - 'tests/test-samuel-ecosystem-parity.py'
+      - 'qa/samuel-book-fragment-browser.mjs'
       - 'qa/samuel-ecosystem-browser.mjs'
       - 'qa/samuel-ecosystem-text-resilience.css'
       - 'qa/samuel-ecosystem-lighthouserc.json'
@@ -21,13 +28,22 @@ permissions:
 jobs:
   browser-qa:
     runs-on: ubuntu-latest
-    timeout-minutes: 30
+    timeout-minutes: 35
+    env:
+      QA_ORIGIN: http://127.0.0.1:4173
+      QA_OUT: qa-artifacts/samuel-ecosystem
+      PR_BASE_SHA: ${{ github.event.pull_request.base.sha }}
     steps:
       - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
 
       - uses: actions/setup-node@v4
         with:
           node-version: '22'
+
+      - name: Static authority and parity contract
+        run: python3 tests/test-samuel-ecosystem-parity.py
 
       - name: Install browser QA dependencies
         run: |
@@ -44,11 +60,14 @@ jobs:
           server_pid=$!
           trap 'kill "$server_pid" 2>/dev/null || true' EXIT
           for i in {1..30}; do
-            if curl -fsS http://127.0.0.1:4173/universo/noveris/ >/dev/null; then
+            if curl -fsS http://127.0.0.1:4173/libros/samuel-entre-mundos/ >/dev/null \
+              && curl -fsS http://127.0.0.1:4173/fragmento/ >/dev/null \
+              && curl -fsS http://127.0.0.1:4173/universo/noveris/ >/dev/null; then
               break
             fi
             sleep 0.5
           done
+          node qa/samuel-book-fragment-browser.mjs
           node qa/samuel-ecosystem-browser.mjs
 
       - name: Run focused Lighthouse gate
