@@ -184,11 +184,25 @@ try {
     await context.close();
   }
 
+  async function applyInspectorStyles(ctx, pg, cssText) {
+    const cdp = await ctx.newCDPSession(pg);
+    await cdp.send('Page.enable');
+    await cdp.send('DOM.enable');
+    await cdp.send('CSS.enable');
+    const { frameTree } = await cdp.send('Page.getFrameTree');
+    const { styleSheetId } = await cdp.send('CSS.createStyleSheet', { frameId: frameTree.frame.id });
+    await cdp.send('CSS.setStyleSheetText', { styleSheetId, text: cssText });
+  }
+
   for (const route of ['/', '/mapa-del-sitio/']) {
     const context = await browser.newContext({ viewport: { width: 320, height: 900 }, reducedMotion: 'reduce' });
     const page = await context.newPage();
     await open(page, route);
-    await page.addStyleTag({ content: '*{line-height:1.5!important;letter-spacing:.12em!important;word-spacing:.16em!important}p{margin-bottom:2em!important}' });
+    // addStyleTag inyecta una hoja inline y estas paginas llevan style-src 'self':
+    // el navegador la rechaza y la suite muere en /mapa-del-sitio/ antes de medir.
+    // Se inyecta como hoja de inspector por CDP, que no pasa por la CSP de la
+    // pagina. Es el mismo helper que ya usa qa/pro-resources-browser.mjs.
+    await applyInspectorStyles(context, page, '*{line-height:1.5!important;letter-spacing:.12em!important;word-spacing:.16em!important}p{margin-bottom:2em!important}');
     await page.evaluate(() => { document.documentElement.style.fontSize = '200%'; });
     await page.waitForTimeout(80);
     const dimensions = await page.evaluate(() => ({ sw: document.documentElement.scrollWidth, cw: document.documentElement.clientWidth }));
