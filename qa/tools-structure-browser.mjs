@@ -48,7 +48,7 @@ const exfil = new Map(Object.keys(routes).map(key => [key, []]));
 const external = new Map(Object.keys(routes).map(key => [key, []]));
 
 await fs.mkdir(OUT, { recursive: true });
-const browser = await chromium.launch({ headless: true });
+const browser = await chromium.launch({ headless: true, ...(process.env.QA_CHROMIUM_EXECUTABLE_PATH ? { executablePath: process.env.QA_CHROMIUM_EXECUTABLE_PATH } : {}) });
 
 function isExternalNetworkUrl(rawUrl) {
   try {

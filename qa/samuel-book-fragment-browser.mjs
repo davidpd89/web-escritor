@@ -29,7 +29,7 @@ if (BASE_SHA) {
   assert.equal(currentText, baseText, 'fragment literary prose changed byte-for-byte');
 }
 
-const browser = await chromium.launch({ headless: true });
+const browser = await chromium.launch({ headless: true, ...(process.env.QA_CHROMIUM_EXECUTABLE_PATH ? { executablePath: process.env.QA_CHROMIUM_EXECUTABLE_PATH } : {}) });
 const failures = [];
 const check = (condition, message) => { if (!condition) failures.push(message); };
 

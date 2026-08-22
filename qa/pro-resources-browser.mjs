@@ -4,7 +4,7 @@ import fs from 'node:fs/promises';
 import path from 'node:path';
 const origin=process.env.QA_ORIGIN||'http://127.0.0.1:4173',out=process.env.QA_OUT||'qa-artifacts';await fs.mkdir(out,{recursive:true});
 const sizes=[[320,900],[390,900],[768,1000],[1024,900],[1440,1000],[1728,1000],[844,390]];
-const browser=await chromium.launch({headless:true}),errors=[];
+const browser=await chromium.launch({ headless: true, ...(process.env.QA_CHROMIUM_EXECUTABLE_PATH ? { executablePath: process.env.QA_CHROMIUM_EXECUTABLE_PATH } : {}) }),errors=[];
 async function open(route,{w=1440,h=1000,js=true,fixed=false}={}){const c=await browser.newContext({viewport:{width:w,height:h},javaScriptEnabled:js,reducedMotion:'reduce'}),p=await c.newPage();p.on('pageerror',e=>errors.push(`${route}: ${e.message}`));p.on('console',m=>{if(m.type()==='error')errors.push(`${route}: ${m.text()}`)});if(fixed&&js)await p.addInitScript(()=>{window.__DP_RADAR_TODAY__='2026-08-21'});const r=await p.goto(origin+route,{waitUntil:js?'networkidle':'load'});assert.equal(r.status(),200,route);return[c,p]}
 // These pages ship a strict CSP (style-src 'self'), so addStyleTag's inline
 // sheet is refused. Inject the WCAG stress styles the way the other suites do:

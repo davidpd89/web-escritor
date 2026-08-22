@@ -17,7 +17,7 @@ const files=await walk('.');
 const patterns={goatcounter:/gc\.zgo\.at|goatcounter/i,metricool:/tracker\.metricool|beTracker/i,brevo:/brevo|sendinblue/i,cloudflare:/cloudflare|turnstile|workers\.dev/i,clarity:/clarity\.ms|Microsoft Clarity/i,googleAnalytics:/google-analytics|gtag\s*\(/i,facebookPixel:/fbq\s*\(|connect\.facebook\.net/i,hotjar:/hotjar|hj\s*\(/i,youtube:/youtube\.com\/embed/i,instagram:/instagram\.com\/embed/i};
 for(const [provider,re] of Object.entries(patterns)){ const hits=[]; for(const file of files){ const text=await fs.readFile(file,'utf8'); if(re.test(text)) hits.push(file.replaceAll('\\','/')); } report.sourceInventory[provider]=hits; }
 
-const browser=await chromium.launch({headless:true});
+const browser=await chromium.launch({ headless: true, ...(process.env.QA_CHROMIUM_EXECUTABLE_PATH ? { executablePath: process.env.QA_CHROMIUM_EXECUTABLE_PATH } : {}) });
 async function capture(route, viewport={width:1440,height:1000}, js=true){
   const context=await browser.newContext({viewport,javaScriptEnabled:js});
   await context.clearCookies();

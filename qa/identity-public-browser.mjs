@@ -21,7 +21,7 @@ function fail(message) { failures.push(message); }
 function check(value, message) { if (!value) fail(message); }
 
 await fs.mkdir(OUT, { recursive: true });
-const browser = await chromium.launch({ headless: true });
+const browser = await chromium.launch({ headless: true, ...(process.env.QA_CHROMIUM_EXECUTABLE_PATH ? { executablePath: process.env.QA_CHROMIUM_EXECUTABLE_PATH } : {}) });
 
 async function newContext(viewport, extra = {}) {
   return browser.newContext({

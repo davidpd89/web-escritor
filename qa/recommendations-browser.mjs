@@ -43,7 +43,7 @@ function validISBN13(raw) {
 function validISBN(raw) { return validISBN10(raw) || validISBN13(raw); }
 
 await fs.mkdir(OUT, { recursive: true });
-const browser = await chromium.launch({ headless: true });
+const browser = await chromium.launch({ headless: true, ...(process.env.QA_CHROMIUM_EXECUTABLE_PATH ? { executablePath: process.env.QA_CHROMIUM_EXECUTABLE_PATH } : {}) });
 
 async function contextFor(viewport, extra = {}) {
   return browser.newContext({ viewport: { width: viewport.width, height: viewport.height }, reducedMotion: 'reduce', ...extra });

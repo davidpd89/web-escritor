@@ -39,7 +39,7 @@ const viewports = [
 ];
 
 await fs.mkdir(OUT, { recursive: true });
-const browser = await chromium.launch({ headless: true });
+const browser = await chromium.launch({ headless: true, ...(process.env.QA_CHROMIUM_EXECUTABLE_PATH ? { executablePath: process.env.QA_CHROMIUM_EXECUTABLE_PATH } : {}) });
 const report = { core: {}, responsive: {}, noJs: {}, zoom: {}, textSpacing: {}, reducedMotion: {} };
 
 const norm = value => String(value || '').replace(/\s+/g, ' ').trim();

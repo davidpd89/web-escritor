@@ -6,7 +6,7 @@ const origin = process.env.QA_ORIGIN || "http://127.0.0.1:4173";
 const out = process.env.QA_OUT || "qa-artifacts/assistant";
 await fs.mkdir(out, { recursive: true });
 
-const browser = await chromium.launch({ headless: true });
+const browser = await chromium.launch({ headless: true, ...(process.env.QA_CHROMIUM_EXECUTABLE_PATH ? { executablePath: process.env.QA_CHROMIUM_EXECUTABLE_PATH } : {}) });
 const viewports = [[320,900],[390,900],[768,1000],[1024,900],[1440,1000],[1728,1000],[844,390]];
 const shots = new Set(["320x900","390x900","768x1000","1024x900","1440x1000","1728x1000"]);
 const failures = [];
