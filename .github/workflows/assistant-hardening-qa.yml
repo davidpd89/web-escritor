@@ -41,11 +41,6 @@ jobs:
         run: node tests/test-assistant-worker.mjs
       - name: Hardening boundaries
         run: node tests/test-assistant-hardening.mjs
-      - name: Secrets across every tracked file
-        # The step below only scans the assistant's own paths. GitHub Pages
-        # publishes main from the repository root, so anything tracked is
-        # public: the scan has to cover the whole tree, not one subsystem.
-        run: python3 scripts/check-secrets.py
       - name: Secrets and dangerous sinks
         shell: bash
         run: |

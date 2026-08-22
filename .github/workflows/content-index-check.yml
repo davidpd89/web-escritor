@@ -44,6 +44,14 @@ jobs:
         run: python tests/test-editoriales-builder-parity-v1.py
       - name: Check published Spanish copy is not missing its accents
         run: python scripts/check-copy-tildes.py
+      # Este escaneo vivia en assistant-hardening-qa.yml, que solo se dispara
+      # cuando la PR toca ficheros del asistente: una clave colada en cualquier
+      # otro sitio del repo no lo activaba y pasaba sin mirar. GitHub Pages
+      # publica main desde la raiz, asi que todo lo versionado es publico y el
+      # escaneo tiene que correr en todas las PR, que es lo que hace este
+      # workflow.
+      - name: Check no tracked file leaks an API key
+        run: python scripts/check-secrets.py
       # Sin este check, un cambio en data/writer-tools.json (o en el propio
       # builder) puede fusionarse sin regenerar el HTML publicado, y nada lo
       # avisaria: paso exactamente eso con el CSP y el JSON-LD de esta pagina,

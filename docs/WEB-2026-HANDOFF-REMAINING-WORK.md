@@ -1139,3 +1139,307 @@ Antes de integrar verificar independientemente:
 Después de integrar una PR, comprobar HEAD nuevo de `implementacion-web-2026` antes de autorizar la siguiente tarea.
 
 Este procedimiento permite paralelizar la implementación sin convertir la rama de integración en una cadena de supuestos no verificados.
+
+---
+
+# ANEXO — TAREAS AÑADIDAS POR EL REVISOR (2026-08-22)
+
+Añadidas al integrar las PR #20–#24. No sustituyen a las Tareas 5 y 6: son
+bloques nuevos, cada uno con su rama y su PR, y **las Tareas 7, 8 y 9 pueden
+ejecutarse antes que la 5**, porque la 5 audita el estado final y conviene que
+para entonces estos agujeros ya estén tapados.
+
+Las Tareas 10 y 11 **no se implementan**: producen un informe para que decida
+una persona. Se declara explícitamente porque las dos tocan material que ya
+está publicado en producción.
+
+## Hecho nuevo descubierto al revisar la PR #22
+
+La migración de `/convocatorias-escritores/` a V1 destapó dos fallos que ya
+existían en el shell y que **ninguna otra página comprobaba**:
+
+- con zoom 200 % la página desbordaba 306 px, porque `minmax(14rem,1fr)` y
+  `1fr 1fr` son mínimos duros: bajo zoom el contenedor mide la mitad en px CSS
+  pero las media queries siguen viendo el viewport **sin** zoom, así que la
+  columna no puede encoger;
+- `.button` estaba definido en `assets/v1-samuel.css`, que esa página no carga,
+  de modo que cada enlace `.button` salía sin estilo.
+
+Los dos están corregidos en `1de4792`. Lo que **no** está resuelto es que en
+ambos casos el fallo llevaba tiempo en la rama y solo apareció porque una
+página nueva entró en un suite que sí lo comprobaba. Eso es lo que atacan las
+Tareas 7 y 8.
+
+---
+
+# TAREA 7 — ZOOM 200 % Y TEXT-SPACING COMO PUERTA REAL DE TODO EL SITIO
+
+Rama:
+
+`gpt/reflow-gate-sitewide-v1`
+
+PR:
+
+`QA: assert WCAG reflow and text-spacing on the whole route inventory`
+
+## Objetivo
+
+Que el desbordamiento bajo zoom 200 % y bajo el text-spacing de WCAG 1.4.12
+sea un fallo de CI en **todas** las rutas públicas, no solo en las dos que hoy
+lo comprueban.
+
+## Estado actual
+
+`qa/pro-resources-browser.mjs` es prácticamente el único suite que aplica
+`document.documentElement.style.zoom='2'` y el bloque de text-spacing. El
+resto de suites comprueban desbordamiento a anchos fijos, que es otra cosa: un
+mínimo duro en `minmax()` pasa el barrido de anchos y falla bajo zoom.
+
+## Implementación requerida
+
+1. Obtener el inventario real de rutas públicas (sitemap + builders + HTML),
+   no una lista escrita a mano.
+2. Añadir un suite nuevo —no ampliar uno existente hasta que sea verde— que
+   por cada ruta:
+   - cargue con contexto/página nueva (ver 2.7);
+   - inyecte el text-spacing por hoja de inspector CDP, **no** con
+     `addStyleTag`: estas páginas llevan `style-src 'self'` y el inline se
+     rechaza (`qa/pro-resources-browser.mjs` ya resuelve esto, reutilizar el
+     helper `applyInspectorStyles`);
+   - aplique zoom 200 %;
+   - asserte `documentElement.scrollWidth - clientWidth <= 1`.
+3. Cuando algo falle: **corregir el CSS, no relajar el assert**. El patrón que
+   ya ha funcionado es `minmax(min(N,100%),1fr)` para las rejillas y
+   `overflow-wrap:break-word` para las palabras largas. Ojo: `break-word`
+   parte solo cuando ya no cabe y **no** altera el `min-content`, mientras que
+   `anywhere` sí lo aplana a un glifo y rompe otros arreglos de la rama.
+4. Cablear el suite a un workflow **sin filtro de rutas**, o con un filtro que
+   incluya `assets/**` y `*.html`. Un fallo de shell aparece al tocar CSS
+   global, así que un workflow filtrado a una subcarpeta no lo vería.
+5. Registrar en el cuerpo de la PR cuántas rutas entran en la puerta y cuántas
+   fallaban antes del arreglo.
+
+## Punto de partida ya medido
+
+Barrido hecho el 2026-08-22 sobre `a6a7b38`, con el text-spacing de WCAG
+aplicado y, donde se indica, zoom 200 %. Son desbordes **reales y actuales**,
+no hipótesis. Sirven de lista inicial, no de lista completa: solo se midieron
+ocho rutas.
+
+| Ruta | Condición | Desborde |
+|---|---|---|
+| `/` | 390 + zoom 200 % | 251 px |
+| `/` | 768 + zoom 200 % | 228 px |
+| `/editoriales/` | 390 + zoom 200 % | 17 px |
+| `/herramientas/` | 320 | 9 px |
+| `/herramientas/` | 390 + zoom 200 % | 360 px |
+| `/herramientas/` | 768 + zoom 200 % | 626 px |
+| `/libros/samuel-entre-mundos/` | 320 | 26 px |
+| `/libros/samuel-entre-mundos/` | 390 + zoom 200 % | 324 px |
+| `/libros/samuel-entre-mundos/` | 768 + zoom 200 % | 144 px |
+| `/cuaderno/` | 390 + zoom 200 % | 230 px |
+| `/cuaderno/` | 768 + zoom 200 % | 86 px |
+| `/autor.html` | 390 + zoom 200 % | 181 px |
+| `/autor.html` | 768 + zoom 200 % | 288 px |
+| `/prensa.html` | 320 | 25 px |
+| `/prensa.html` | 390 + zoom 200 % | 331 px |
+| `/prensa.html` | 768 + zoom 200 % | 475 px |
+
+Dos avisos sobre estas cifras:
+
+- Las tres filas a 320 **sin** zoom son text-spacing puro. El barrido de
+  desbordamiento que ya existe en la rama (66 páginas × 9 anchos) pasa limpio
+  porque no aplica text-spacing: son condiciones distintas y hacen falta las
+  dos.
+- `/convocatorias-escritores/` **no** está en la tabla: quedó a 0 px en las
+  cuatro anchuras con y sin zoom al arreglar el pie en `a6a7b38`. Ese arreglo
+  —`min-width:0` en los hijos de los `<nav>` del pie, que son grid items y
+  arrastraban `min-content`— beneficia a todas las páginas, así que estas
+  cifras ya lo incluyen. Lo que queda es contenido de cada página.
+
+## Stop condition
+
+- No cerrar la PR con rutas excluidas "temporalmente" sin declarar cuáles y
+  por qué;
+- no bajar el umbral de 1 px;
+- no cambiar `zoom` por un resize de viewport: no es la misma condición.
+
+---
+
+# TAREA 8 — NINGUNA PÁGINA DEBE USAR UNA CLASE QUE NO CARGA
+
+Rama:
+
+`gpt/css-ownership-gate-v1`
+
+PR:
+
+`CI: fail when a page uses a class no stylesheet it loads defines`
+
+## Objetivo
+
+Convertir en check determinista el fallo de `.button`: una página usa una
+clase cuya regla vive en una hoja que esa página no enlaza, así que el
+componente sale sin estilo y **nada** se pone en rojo.
+
+## Por qué merece un check y no una revisión manual
+
+Es el segundo caso igual en esta rama: antes le pasó a `.social-row`, que
+vivía en `v1-families.css` (22 páginas) cuando la cargaban 57 desde el pie, y
+se movió a `v1-shell.css`. El patrón se repite porque las hojas V1 crecieron
+por página en vez de por componente.
+
+## Implementación requerida
+
+1. Script nuevo en `scripts/` que, por cada HTML público:
+   - extraiga las hojas que enlaza (`<link rel="stylesheet">`);
+   - extraiga las clases usadas en `class="..."`;
+   - extraiga los selectores de clase definidos en esas hojas **más** los de
+     cualquier `<style>` embebido en la propia página;
+   - falle listando página + clase para las que no estén definidas en ninguna.
+2. Es una heurística, no un analizador de CSS: hay clases que existen solo
+   para JS y clases generadas. Para esos casos, una lista de excepciones
+   **explícita y comentada** en el propio script, con el motivo de cada una.
+   No usar una lista de exclusión genérica por prefijo.
+3. Ejecutarlo sobre el HEAD actual y arreglar lo que salga. Regla de reparto:
+   si el componente lo usa más de una familia, la regla se mueve a la hoja
+   compartida (`v1-components.css` / `v1-shell.css`); si es de una sola
+   página, se queda donde está y se añade el `<link>` que falte.
+4. Al mover una regla entre hojas, comprobar el orden de cascada en las
+   páginas que ya la cargaban: subir una regla en la cascada solo es seguro si
+   ninguna hoja intermedia la redefine. Declararlo en el cuerpo de la PR.
+5. Cablear a `content-index-check.yml`, que corre en todas las PR.
+
+## QA
+
+- El check falla de verdad: introducir una clase inexistente en una página,
+  ver el rojo, revertir. **Declarar que se hizo.** No basta con verlo verde.
+- Páginas afectadas a 390 y 1440 antes/después.
+
+---
+
+# TAREA 9 — EL RADAR DE CONVOCATORIAS PUEDE CADUCAR SIN QUE CI SE ENTERE
+
+Rama:
+
+`gpt/radar-freshness-gate-v1`
+
+PR:
+
+`CI: fail when the opportunities radar goes stale`
+
+## Objetivo
+
+Impedir que `/convocatorias-escritores/` publique indefinidamente una lista
+vieja sin que ningún check lo note.
+
+## El agujero, concreto
+
+- `scripts/check-professional-resources.py` toma la fecha "de hoy" del propio
+  `convocatorias-escritores/opportunities.json` (`generated_for`). Es
+  coherente consigo mismo por construcción: si el fichero no se regenera, la
+  comprobación sigue en verde para siempre.
+- `pro-resources-qa.yml` llama al builder con `--check`, pero `--check` solo
+  valida la fuente y sale; **no** compara con la salida publicada.
+- Resultado: la página puede quedarse congelada meses, mostrando convocatorias
+  cuyo plazo ya pasó, y toda la CI en verde.
+
+Ojo con el matiz: el filtro `STALE_DAYS = 30` sí existe, pero se evalúa contra
+`generated_for`, no contra la fecha real. Es el filtro el que está anclado a
+una fecha que no avanza.
+
+## Implementación requerida
+
+1. Añadir un check que falle si `generated_for` tiene más de N días respecto a
+   la fecha real de ejecución. Proponer N y justificarlo a partir de
+   `STALE_DAYS`; no elegirlo al azar.
+2. Decidir y **documentar en el propio script** qué pasa cuando la lista sí
+   está fresca pero se queda sin elementos activos: hoy el builder emite
+   `<p data-radar-empty>`. Comprobar que esa página vacía sigue siendo
+   correcta (SEO, JSON-LD, sin desbordes) o hacer que el check lo avise.
+3. No convertir esto en un cron que regenere solo: la fuente se verifica a
+   mano contra la web oficial y ese contrato no se toca.
+
+## Stop condition
+
+No cerrar sin demostrar que el check se pone rojo con un `generated_for`
+antiguo y verde con uno actual.
+
+---
+
+# TAREA 10 — INFORME (NO BORRAR): 292,8 MB DE IMÁGENES SIN REFERENCIAR
+
+Rama:
+
+`gpt/unreferenced-assets-report-v1`
+
+PR:
+
+`Docs: inventory the unreferenced alicia_capitulo_* assets`
+
+## Esto es un informe. NO borrar nada.
+
+`assets/alicia_capitulo_*` son ~174 ficheros, ~292,8 MB, el ~72 % de los bytes
+versionados, y **ninguna página los referencia**.
+
+El motivo de no borrarlos sin más: **ya están publicados en producción**
+(están en el `main` actual, y GitHub Pages sirve `main` desde la raíz). Sus
+URL existen hoy. Borrarlos rompe cualquier enlace externo, incrustación o
+resultado indexado que apunte a ellos.
+
+## Qué debe producir
+
+Un documento en `docs/` con:
+
+1. lista completa: ruta, tamaño, fecha del commit que los introdujo;
+2. verificación de que ninguna página, feed, sitemap, JSON-LD, CSS ni JS los
+   referencia — con el comando exacto usado;
+3. si son alcanzables hoy en `https://davidportodiaz.com/...`;
+4. si aparecen en `sitemap.xml` o en algún índice;
+5. opciones con su coste real: dejarlos, moverlos a otro repo/CDN con
+   redirección, o borrarlos asumiendo 404;
+6. una recomendación, claramente marcada como recomendación.
+
+## Prohibido en esta tarea
+
+- borrar, mover o renombrar ficheros;
+- tocar `.assetsignore` o el excluir de `build-public-dist.py`;
+- abrir la PR como algo distinto de documentación.
+
+---
+
+# TAREA 11 — INFORME (NO APLICAR): 26 PÁGINAS FUERA DE LA GUÍA DE LONGITUD SEO
+
+Rama:
+
+`gpt/seo-length-report-v1`
+
+PR:
+
+`Docs: report title/description length outliers`
+
+## Esto es un informe. NO reescribir copy.
+
+26 páginas exceden la guía de longitud de `<title>`/`meta description`. Los
+peores casos conocidos:
+
+- `autor.html`: description de 214 caracteres;
+- `worldbuilding-noveris`: title de 94, description de 189.
+
+Es copy editorial escrito por el autor. **No se reescribe sin él.**
+
+## Qué debe producir
+
+Un documento con, por página: title y description actuales, su longitud, en
+cuánto se pasan, cómo aparecería truncado en Google en móvil y escritorio, y
+**una** alternativa propuesta que conserve el sentido y la voz. Marcar las
+propuestas como propuestas.
+
+Añadir aparte: si el sitio quiere de verdad una puerta de longitud en CI, con
+qué umbrales y cuántas páginas fallarían hoy. No implementarla en esta tarea.
+
+## Prohibido en esta tarea
+
+- editar ningún `<title>` ni `meta description`;
+- añadir el check a CI;
+- tocar canonical, robots ni JSON-LD.
