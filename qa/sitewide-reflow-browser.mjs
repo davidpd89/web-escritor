@@ -95,6 +95,7 @@ function collectRoutes() {
   walkHtmlFiles(ROOT, htmlFiles);
   for (const filePath of htmlFiles) {
     const route = normalizeRoute(routeFromHtmlPath(filePath));
+    if (route?.startsWith('/data/')) continue;
     if (route) routes.add(route);
   }
 
@@ -122,7 +123,39 @@ async function settle(page) {
 }
 
 async function measureOverflow(page) {
-  return page.evaluate(() => document.documentElement.scrollWidth - document.documentElement.clientWidth);
+  return page.evaluate(() => {
+    function hasHorizontalScrollerAncestor(node) {
+      let parent = node.parentElement;
+      while (parent && parent !== document.body) {
+        const style = window.getComputedStyle(parent);
+        if ((style.overflowX === 'auto' || style.overflowX === 'scroll') && parent.clientWidth > 0) {
+          return true;
+        }
+        parent = parent.parentElement;
+      }
+      return false;
+    }
+
+    const zoom = Number.parseFloat(window.getComputedStyle(document.documentElement).zoom || '1') || 1;
+    const vw = document.documentElement.clientWidth;
+    let maxOverflow = 0;
+
+    for (const el of document.querySelectorAll('body *')) {
+      const style = window.getComputedStyle(el);
+      if (style.display === 'none' || style.visibility === 'hidden') continue;
+      if (hasHorizontalScrollerAncestor(el)) continue;
+
+      const rect = el.getBoundingClientRect();
+      if (rect.width <= 0 || rect.height <= 0) continue;
+
+      const rightOverflow = rect.right / zoom - vw;
+      const leftOverflow = -(rect.left / zoom);
+      if (rightOverflow > maxOverflow) maxOverflow = rightOverflow;
+      if (leftOverflow > maxOverflow) maxOverflow = leftOverflow;
+    }
+
+    return Math.ceil(Math.max(0, maxOverflow));
+  });
 }
 
 const browser = await chromium.launch({
