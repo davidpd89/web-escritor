@@ -775,19 +775,18 @@ document.addEventListener('dp:analytics', _dpAnalyticsBridge);
     });
   }
 
-  // Trigger 1: 60% scroll depth
+  // Trigger 1: 70% scroll depth
   window.addEventListener("scroll", function onScroll() {
     const ratio = window.scrollY / Math.max(1, document.documentElement.scrollHeight - window.innerHeight);
-    if (ratio >= 0.6) { window.removeEventListener("scroll", onScroll); showPopup(); }
+    if (ratio >= 0.7) { window.removeEventListener("scroll", onScroll); showPopup(); }
   }, { passive: true });
 
-  // Trigger 2: exit-intent — mouse leaves from top of viewport
-  document.addEventListener("mouseleave", function onLeave(e) {
-    if (e.clientY <= 0) { document.removeEventListener("mouseleave", onLeave); showPopup(); }
-  });
-
-  // Trigger 3: 30-second fallback for passive readers
-  setTimeout(showPopup, 30000);
+  // Trigger 2: exit-intent only on devices with real hover + fine pointer.
+  if (window.matchMedia("(hover: hover) and (pointer: fine)").matches) {
+    document.addEventListener("mouseleave", function onLeave(e) {
+      if (e.clientY <= 0) { document.removeEventListener("mouseleave", onLeave); showPopup(); }
+    });
+  }
 })();
 
 // ── MODAL "¿DÓNDE COMPRAR?" ────────────────────────────────────────────────
