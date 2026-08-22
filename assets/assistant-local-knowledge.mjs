@@ -31,6 +31,7 @@ export function resolveLocalAnswer(query, context = {}) {
   const mentionsManecillas = hasAny(q, ["manecillas", "reloj del recuerdo"]);
   const mentionsSamuel = hasAny(q, ["samuel", "noveris"]);
   const asksFragment = hasAny(q, ["fragmento", "capitulo", "muestra", "leer gratis", "primeras paginas"]);
+  const asksAward = hasAny(q, ["premio", "premios", "premiado", "reconocimiento", "reconocimientos", "finalista", "letras como espada", "juan andres", "teno"]);
 
   if (asksFragment && mentionsManecillas) {
     return result("manecillas-fragment", "Puedes leer varios fragmentos de «Las manecillas del recuerdo» directamente en la web.", ["work-manecillas-fragments"]);
@@ -60,6 +61,13 @@ export function resolveLocalAnswer(query, context = {}) {
     return result("manecillas", "«Las manecillas del recuerdo» es una novela coral sobre el tiempo heredado y la memoria familiar, unida por un reloj que va pasando de mano en mano y adquiere significados distintos en cada vida.", ["work-manecillas"]);
   }
 
+  if (mentionsSamuel && asksAward) {
+    return result(
+      "samuel-awards",
+      "No se atribuye a «Samuel entre mundos» el Primer Premio Letras Como Espada de 2026: ese premio pertenece a David Porto Díaz por un certamen de microrrelatos. Tampoco se atribuye al libro la selección Top 10 — Finalista del I Premio de Literatura Infantil Juan Andrés Teno, porque la obra presentada no está identificada en la fuente pública oficial localizada.",
+      ["awards", "work-samuel"],
+    );
+  }
   if (mentionsSamuel && q.includes("noveris")) {
     return result("noveris", "Noveris es la ciudad fantástica dimensional de «Samuel entre mundos». En su guía puedes explorar el mundo, las facciones, el sistema mágico y el glosario sin necesidad de buscarlo por distintas páginas.", ["samuel-noveris"]);
   }
@@ -83,7 +91,7 @@ export function resolveLocalAnswer(query, context = {}) {
     return result("events", "La agenda de Eventos y firmas reúne las apariciones, presentaciones y fechas públicas disponibles en la web.", ["events"]);
   }
 
-  if (hasAny(q, ["premio", "premios", "reconocimiento", "reconocimientos", "letras como espada"])) {
+  if (asksAward) {
     return result("awards", "Los premios y reconocimientos de David están reunidos en una página específica para poder comprobarlos con su contexto.", ["awards"]);
   }
 
