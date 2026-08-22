@@ -212,3 +212,47 @@ existe en ningún sitio del repo fuera de la carpeta del dossier.
 - [ ] F.4: `test-validate-video-to-article.py` en verde + `video-source.component.html` creado
 - [ ] F.2: herramienta nueva con contrato de privacidad verificado + tests
 - [ ] F.3: `test-atlas-literario.py` creado y en verde, sin tocar contenido/publicación
+
+---
+
+## Estado de implementación (rama `pendiente-f-herramientas-gaps`)
+
+- [x] F.1: corregido el crash de shell en `build-autores-red.py` ajustando el
+   placeholder del pie al patrón reconocido por `build-site-shell.py`.
+- [x] F.2: creada herramienta nueva `herramientas/dialogo-convenciones/` +
+   motor `assets/dialogo-convenciones.js` + test `tests/test-dialogo-convenciones.mjs`.
+- [x] F.2: registrada en `data/tools-hub.json`, `data/content-registry.json` y
+   regenerado `herramientas/index.html`.
+- [x] F.3: creado `tests/test-atlas-literario.py` con casos published inválido
+   y planned sin salida publicable.
+- [x] F.4: creado `tests/test-validate-video-to-article.py` y componente
+   `scripts/templates/video-source.component.html`.
+
+### Evidencia de ejecución
+
+F.1 (sin traceback):
+
+```text
+Desactualizados:
+- autores\index.html
+```
+
+F.4:
+
+```text
+tests/test-validate-video-to-article: OK
+```
+
+F.2:
+
+```text
+test-dialogo-convenciones: all assertions passed
+PASS — 1 file(s) satisfy the static private-tool preflight
+PASS tools-hub boundary: 18 public tools, 2 public directories
+```
+
+F.3:
+
+```text
+tests/test-atlas-literario: OK
+```
