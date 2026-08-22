@@ -2,8 +2,9 @@
 """Global public-content discoverability and shell contract.
 
 The public registry answers what exists, sitemap.xml answers what search engines
-receive, and authored V1 HTML remains the runtime shell. This checker proves
-that those layers do not drift and emits an auditable tracked-route inventory.
+receive, and authored V1 HTML remains the normal runtime shell. Purpose-built
+machine/print surfaces may use a documented minimal shell; this checker records
+those exceptions instead of silently forcing them into the general template.
 """
 from __future__ import annotations
 
@@ -23,12 +24,16 @@ OUT = ROOT / "artifacts" / "global-discoverability" / "inventory.json"
 INTERNAL_PREFIXES = ("publicar-web/", "lecturas/", "herramientas/auditor-web/")
 LAB_PREFIXES = ("lab/",)
 GATED_PREFIXES = ("donde-empieza-la-jaula/",)
-GENERATED_PREFIXES = (
+GENERATED_ROUTE_PREFIXES = (
     "editoriales/duermevela-ediciones/",
     "editoriales/minotauro/",
     "editoriales/nocturna-ediciones/",
     "cuaderno/temas/",
 )
+MINIMAL_SHELL_EXCEPTIONS = {
+    "ai/index.html": "machine-readable authority surface with intentional minimal navigation",
+    "clubes-de-lectura/samuel-entre-mundos/guia-imprimible/index.html": "print-first public utility with intentional minimal shell",
+}
 EXPECTED_HEADER = ["/libros/", "/cuaderno/", "/herramientas/"]
 EXPECTED_EXPLORE = {
     "/las-manecillas-del-recuerdo/",
@@ -75,6 +80,8 @@ def route_for_file(path: str) -> str:
 
 
 def classify(path: str, html: str) -> str:
+    if path.startswith("data/"):
+        return "GENERATED"
     if path.startswith(LAB_PREFIXES):
         return "LAB"
     if path.startswith(GATED_PREFIXES):
@@ -146,7 +153,8 @@ def main() -> int:
             "classification": classification,
             "robots": robots(html),
             "canonical": canonical(html),
-            "generated": path.startswith(GENERATED_PREFIXES),
+            "generatedRoute": path.startswith(GENERATED_ROUTE_PREFIXES),
+            "minimalShellReason": MINIMAL_SHELL_EXCEPTIONS.get(path),
             "v1": bool(re.search(r"<html\b[^>]*class=['\"][^'\"]*\bv1\b", html, re.I)),
             "hasHeader": "site-header" in html,
             "hasFooter": "site-footer" in html,
@@ -224,6 +232,8 @@ def main() -> int:
         if path not in tracked:
             errors.append(f"shell source missing from git: {path}")
             continue
+        if path in MINIMAL_SHELL_EXCEPTIONS:
+            continue
         html = read(path)
         for token, label in (("skip-link", "skip link"), ("site-header", "V1 header"), ("site-footer", "V1 footer"), ("data-explore-dialog", "Explore dialog")):
             if token not in html:
@@ -247,7 +257,7 @@ def main() -> int:
             errors.append(f"{path}: Explore list missing")
 
     shell_js = read("assets/v1-shell.js")
-    for token in ("showModal()", "data-explore-close", "lastOpen", "/asistente/"):
+    for token in ("showModal()", "data-explore-close", "opener", "/asistente/"):
         if token not in shell_js:
             errors.append(f"v1-shell.js missing Explore contract token: {token}")
 
@@ -261,9 +271,16 @@ def main() -> int:
     robots_txt = read("robots.txt")
     if "Sitemap: https://davidportodiaz.com/sitemap.xml" not in robots_txt:
         errors.append("robots.txt lacks canonical sitemap declaration")
-    for blocked in ("/donde-empieza-la-jaula/", "/lecturas/", "/publicar-web/", "/lab/"):
-        if f"Disallow: {blocked}" not in robots_txt:
-            errors.append(f"robots.txt missing deliberate block: {blocked}")
+    disallows = [
+        line.split(":", 1)[1].strip()
+        for line in robots_txt.splitlines()
+        if line.strip().lower().startswith("disallow:") and line.split(":", 1)[1].strip()
+    ]
+    for route in sorted(sitemap):
+        for rule in disallows:
+            prefix = rule.rstrip("*")
+            if prefix == "/" or (prefix and route.startswith(prefix)):
+                errors.append(f"robots.txt may block indexable route {route} via {rule}")
 
     for machine in ("llms.txt", "llms-full.txt", "humans.txt", "ai/index.html"):
         if machine not in tracked:
@@ -275,7 +292,7 @@ def main() -> int:
 
     global_search_markers = []
     for path in html_files:
-        if path.startswith(("lab/", "asistente/")):
+        if path.startswith(("lab/", "asistente/", "data/")):
             continue
         html = read(path).lower()
         if "pagefind-ui" in html or "data-pagefind" in html:
@@ -297,12 +314,14 @@ def main() -> int:
         "inventorySource": "git ls-files + robots/canonical + content-registry + sitemap",
         "counts": dict(sorted(counts.items())),
         "routes": inventory,
+        "minimalShellExceptions": MINIMAL_SHELL_EXCEPTIONS,
         "sitemapCount": len(sitemap),
         "registrySitemapCount": len(registry_sitemap),
         "mapHumanRouteCount": len(map_hrefs),
         "searchState": search_state,
         "searchMarkers": global_search_markers,
         "legacy": legacy,
+        "robotsDisallowRules": disallows,
         "errors": errors,
     }
     OUT.parent.mkdir(parents=True, exist_ok=True)
@@ -317,7 +336,7 @@ def main() -> int:
 
     print(
         "PASS: global discoverability "
-        f"({len(inventory)} tracked HTML routes; {len(sitemap)} indexable; "
+        f"({len(inventory)} tracked HTML artifacts; {len(sitemap)} indexable; "
         f"search={search_state}; map={len(map_hrefs)} human destinations)"
     )
     print(f"Inventory: {OUT.relative_to(ROOT)}")
