@@ -1,0 +1,46 @@
+name: PWA offline QA
+
+on:
+  pull_request:
+    paths:
+      - "service-worker.js"
+      - "offline.html"
+      - "manifest.json"
+      - "assets/icon-*.png"
+      - "assets/fonts/is-normal-400-latin.woff2"
+      - "assets/fonts/mr-normal-400-700-latin.woff2"
+      - "qa/pwa-offline.mjs"
+      - ".github/workflows/pwa-offline-qa.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  pwa-offline:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+
+      - name: Install Playwright Chromium
+        run: |
+          npm install --no-save playwright@1.55.0
+          npx playwright install --with-deps chromium
+
+      - name: Run PWA/offline contract QA
+        run: node qa/pwa-offline.mjs
+
+      - name: Upload PWA/offline evidence
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: pwa-offline-evidence
+          path: artifacts/pwa-offline/
+          if-no-files-found: warn

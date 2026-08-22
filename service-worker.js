@@ -1,131 +1,159 @@
-const CACHE_VERSION = "david-porto-v2026-08-20-launch-1";
+const CACHE_NAMESPACE = "david-porto-pwa";
+const CACHE_VERSION = `${CACHE_NAMESPACE}-v3`;
 const STATIC_CACHE = `${CACHE_VERSION}-static`;
 const PAGE_CACHE = `${CACHE_VERSION}-pages`;
+const CURRENT_CACHES = new Set([STATIC_CACHE, PAGE_CACHE]);
 
-// Critical app shell - stable assets only.
-// Do NOT precache editorial HTML; navigations use network-first and update normally.
+// Known cache keys from previous versions of this PWA. Keep this explicit:
+// activation must never delete unrelated CacheStorage entries on the origin.
+const LEGACY_PWA_CACHES = new Set([
+  "david-porto-v2026-08-20-launch-1-static",
+  "david-porto-v2026-08-20-launch-1-pages",
+  "david-porto-pwa-v2-20260813",
+  "david-porto-pwa-v2-20260813-assets"
+]);
+
+// Stable offline shell only. Editorial pages remain network-first and are not
+// precached. The two fonts are the minimum V1 subset used by offline.html.
 const APP_SHELL = [
   "/offline.html",
   "/manifest.json",
-  "/assets/logo-david-porto-diaz-escritor-176.webp",
-  "/assets/david-porto-favicon.png",
+  "/favicon.ico",
   "/assets/icon-512.png",
   "/assets/icon-512-maskable.png",
-  "/assets/david-porto-autor-700.webp",
-  "/assets/david-porto-autor-400.webp",
-  "/assets/fonts/cg-normal-latin.woff2",
-  "/assets/fonts/cg-normal-latin-ext.woff2",
-  "/assets/fonts/cg-italic-latin.woff2",
-  "/assets/fonts/inter-normal-latin.woff2",
-  "/assets/fonts/inter-normal-latin-ext.woff2"
+  "/assets/fonts/is-normal-400-latin.woff2",
+  "/assets/fonts/mr-normal-400-700-latin.woff2"
 ];
 
-// Install: cache each asset individually so one failure does not abort the whole install
+function offlineResponse() {
+  return new Response("Offline", {
+    status: 504,
+    statusText: "Offline",
+    headers: { "Content-Type": "text/plain; charset=utf-8" }
+  });
+}
+
+async function putIfCacheable(cache, request, response) {
+  if (response && response.ok) {
+    await cache.put(request, response.clone());
+  }
+  return response;
+}
+
 self.addEventListener("install", (event) => {
-  event.waitUntil(
-    caches.open(STATIC_CACHE).then(async (cache) => {
-      await Promise.allSettled(
-        APP_SHELL.map((url) =>
-          fetch(url).then((res) => {
-            if (!res.ok) throw new Error(`${res.status} ${url}`);
-            return cache.put(url, res);
-          }).catch((err) => {
-            console.warn("[SW] Failed to cache:", err.message);
-          })
-        )
-      );
-    }).then(() => self.skipWaiting())
-  );
+  event.waitUntil((async () => {
+    const cache = await caches.open(STATIC_CACHE);
+    // Atomic by design: every APP_SHELL entry is contract-tested. If one is
+    // missing, keep the previous worker rather than activating a partial shell.
+    await cache.addAll(APP_SHELL.map((url) => new Request(url, { cache: "reload" })));
+    await self.skipWaiting();
+  })());
 });
 
 self.addEventListener("activate", (event) => {
-  event.waitUntil(
-    caches.keys()
-      .then((keys) => Promise.all(
-        keys
-          .filter((key) => !key.startsWith(CACHE_VERSION))
-          .map((key) => caches.delete(key))
-      ))
-      .then(() => self.clients.claim())
-  );
+  event.waitUntil((async () => {
+    const keys = await caches.keys();
+    await Promise.all(
+      keys
+        .filter((key) => {
+          const obsoleteNamespaced = key.startsWith(`${CACHE_NAMESPACE}-`) && !CURRENT_CACHES.has(key);
+          return obsoleteNamespaced || LEGACY_PWA_CACHES.has(key);
+        })
+        .map((key) => caches.delete(key))
+    );
+    await self.clients.claim();
+  })());
 });
+
+function isSameOriginGet(request) {
+  if (request.method !== "GET") return false;
+  return new URL(request.url).origin === self.location.origin;
+}
 
 self.addEventListener("fetch", (event) => {
   const { request } = event;
-  if (request.method !== "GET") return;
+  if (!isSameOriginGet(request)) return;
 
   const url = new URL(request.url);
-  if (url.origin !== self.location.origin) return;
 
   if (request.mode === "navigate") {
     event.respondWith(networkFirstPage(request));
     return;
   }
 
-  // Mutable code (CSS/JS) must never be cache-first indefinitely: a stale
-  // cached copy would otherwise survive until a full CACHE_VERSION bump,
-  // even for /assets/*.js tool engines that change independently of the
-  // site-wide script.js?v=... cache-busting query string. Reviewed
-  // 2026-08-20 (corrective audit point 6).
+  // Mutable code stays network-first.
   if (url.pathname.endsWith(".css") || url.pathname.endsWith(".js")) {
     event.respondWith(networkFirstStatic(request));
     return;
   }
 
-  // Fonts/images under /assets/ are effectively immutable in practice
-  // (replaced, not mutated in place) and a full CACHE_VERSION bump still
-  // clears them on a real release - cache-first is fine here.
+  // Images and fonts under /assets/ are cache-first.
   if (url.pathname.startsWith("/assets/")) {
-    event.respondWith(cacheFirst(request));
+    event.respondWith(cacheFirstAsset(request));
     return;
   }
 
-  event.respondWith(staleWhileRevalidate(request));
+  // Other same-origin GET requests remain stale-while-revalidate.
+  event.respondWith(staleWhileRevalidate(event));
 });
 
 async function networkFirstPage(request) {
-  const cache = await caches.open(PAGE_CACHE);
+  const pageCache = await caches.open(PAGE_CACHE);
   try {
     const response = await fetch(request);
-    if (response.ok) cache.put(request, response.clone());
+    await putIfCacheable(pageCache, request, response);
     return response;
   } catch {
-    return (await cache.match(request)) || (await caches.match("/offline.html"));
+    const cached = await pageCache.match(request);
+    if (cached) return cached;
+    const staticCache = await caches.open(STATIC_CACHE);
+    return (await staticCache.match("/offline.html")) || offlineResponse();
   }
-}
-
-async function cacheFirst(request) {
-  const cached = await caches.match(request);
-  if (cached) return cached;
-
-  const response = await fetch(request);
-  if (response.ok) {
-    const cache = await caches.open(STATIC_CACHE);
-    cache.put(request, response.clone());
-  }
-  return response;
 }
 
 async function networkFirstStatic(request) {
   const cache = await caches.open(STATIC_CACHE);
   try {
     const response = await fetch(request);
-    if (response.ok) cache.put(request, response.clone());
+    await putIfCacheable(cache, request, response);
     return response;
   } catch {
-    return (await cache.match(request)) || Response.error();
+    return (await cache.match(request)) || offlineResponse();
   }
 }
 
-async function staleWhileRevalidate(request) {
+async function cacheFirstAsset(request) {
+  const cache = await caches.open(STATIC_CACHE);
+  const cached = await cache.match(request);
+  if (cached) return cached;
+
+  try {
+    const response = await fetch(request);
+    await putIfCacheable(cache, request, response);
+    return response;
+  } catch {
+    return offlineResponse();
+  }
+}
+
+async function staleWhileRevalidate(event) {
+  const { request } = event;
   const cache = await caches.open(PAGE_CACHE);
   const cached = await cache.match(request);
-  const fetchPromise = fetch(request)
-    .then((response) => {
-      if (response.ok) cache.put(request, response.clone());
+  const networkPromise = (async () => {
+    try {
+      const response = await fetch(request);
+      await putIfCacheable(cache, request, response);
       return response;
-    })
-    .catch(() => cached);
+    } catch {
+      return null;
+    }
+  })();
 
-  return cached || fetchPromise;
+  if (cached) {
+    event.waitUntil(networkPromise.then(() => undefined));
+    return cached;
+  }
+
+  return (await networkPromise) || offlineResponse();
 }
