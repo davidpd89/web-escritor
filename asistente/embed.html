@@ -9,42 +9,39 @@
   <link rel="stylesheet" href="/assets/v1-tokens.css" />
   <link rel="stylesheet" href="/assets/v1-base.css" />
   <link rel="stylesheet" href="/assets/v1-components.css" />
-  <link rel="stylesheet" href="/assets/v1-tools.css" />
   <link rel="stylesheet" href="/assets/assistant.css" />
   <link rel="stylesheet" href="/assets/assistant-embed.css" />
 </head>
 <body class="assistant-embed">
-  <main class="assistant-embed__main">
-    <header class="assistant-embed__intro">
-      <p class="eyebrow">Pregunta a la web</p>
-      <h1>Encuentra lo que necesitas.</h1>
-      <p>Libros, fragmentos, autor, prensa, eventos y recursos para escritores. Las respuestas se apoyan en páginas públicas de esta web.</p>
-    </header>
-
-    <section class="assistant-panel" aria-labelledby="assistant-embed-title">
-      <h2 id="assistant-embed-title" class="sr-only">Escribe tu pregunta</h2>
-      <div class="assistant-examples" aria-label="Preguntas sugeridas">
-        <button type="button" class="assistant-example" data-assistant-example="¿Qué puedo encontrar en esta web?">¿Qué puedo encontrar en esta web?</button>
-        <button type="button" class="assistant-example" data-assistant-example="¿Qué libros ha publicado David Porto Díaz?">¿Qué libros ha publicado David Porto Díaz?</button>
-        <button type="button" class="assistant-example" data-assistant-example="¿Qué herramientas gratuitas hay para escritores?">¿Qué herramientas gratuitas hay para escritores?</button>
-      </div>
-      <form class="assistant-form" data-assistant-form>
-        <label for="assistant-query">Tu pregunta</label>
-        <textarea id="assistant-query" name="query" maxlength="500" required autocomplete="off" placeholder="Escribe una pregunta…" data-assistant-query></textarea>
-        <div class="assistant-actions">
-          <button class="primary-action" type="submit" data-assistant-submit>Preguntar</button>
-          <button class="text-action" type="button" data-assistant-stop hidden>Detener</button>
+  <main class="assistant-chat" aria-label="Chat con el asistente">
+    <section class="assistant-chat__log" role="log" aria-live="polite" aria-relevant="additions" aria-label="Conversación" data-assistant-log>
+      <article class="assistant-message assistant-message--assistant">
+        <div class="assistant-message__bubble">
+          <p>Hola. Puedo ayudarte a encontrar libros, fragmentos, Noveris, herramientas, editoriales, eventos o información sobre David. ¿Qué buscas?</p>
         </div>
-        <p class="assistant-status" role="status" aria-live="polite" data-assistant-status>Puedo buscar en la web incluso si la respuesta con IA no está activa.</p>
-        <div class="assistant-turnstile" data-assistant-turnstile aria-hidden="true"></div>
-      </form>
-      <div class="assistant-answer" role="region" aria-live="polite" aria-label="Respuesta" data-assistant-answer hidden></div>
-      <div aria-label="Fuentes"><ol class="assistant-sources" data-assistant-sources></ol></div>
-      <div class="assistant-local" data-assistant-local hidden><strong>También puedes ir directamente a:</strong><ul data-assistant-local-list></ul></div>
-      <p class="assistant-privacy">La pregunta solo se envía al servicio remoto cuando está activo y pulsas «Preguntar». No se guarda una conversación en esta ventana.</p>
+      </article>
     </section>
 
-    <p class="assistant-embed__full"><a href="/asistente/" target="_top">Abrir el asistente en página completa →</a></p>
+    <div class="assistant-starters" aria-label="Preguntas sugeridas" data-assistant-starters>
+      <button type="button" class="assistant-example" data-assistant-example="¿Qué puedo encontrar en esta web?">¿Qué puedo encontrar?</button>
+      <button type="button" class="assistant-example" data-assistant-example="¿Qué libros ha publicado David Porto Díaz?">¿Qué libros hay?</button>
+      <button type="button" class="assistant-example" data-assistant-example="¿Qué herramientas gratuitas hay para escritores?">Herramientas para escritores</button>
+    </div>
+
+    <form class="assistant-composer" data-assistant-form>
+      <label class="sr-only" for="assistant-query">Escribe tu pregunta</label>
+      <div class="assistant-composer__row">
+        <textarea id="assistant-query" name="query" rows="1" maxlength="500" required autocomplete="off" enterkeyhint="send" placeholder="Escribe tu pregunta…" data-assistant-query></textarea>
+        <button class="assistant-send" type="submit" data-assistant-submit aria-label="Enviar pregunta" title="Enviar">
+          <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="m5 12 14-7-4 14-3-5-7-2Zm7 2 3-5"/></svg>
+        </button>
+        <button class="assistant-stop" type="button" data-assistant-stop hidden aria-label="Detener respuesta" title="Detener">
+          <span aria-hidden="true"></span>
+        </button>
+      </div>
+      <p class="assistant-status" role="status" aria-live="polite" data-assistant-status></p>
+      <div class="assistant-turnstile" data-assistant-turnstile aria-hidden="true"></div>
+    </form>
   </main>
   <script type="module" src="/assets/assistant-embed.js"></script>
   <script type="module" src="/assets/assistant.js"></script>

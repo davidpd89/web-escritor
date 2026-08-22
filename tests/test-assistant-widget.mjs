@@ -1,13 +1,13 @@
 import assert from "node:assert/strict";
 import {
-  ASSISTANT_WIDGET_AUTO_KEY,
+  ASSISTANT_WIDGET_HINT_KEY,
   normalizeWidgetPath,
   shouldMountAssistantWidget,
   assistantContextStarters,
   isTrustedWidgetMessage,
 } from "../assets/assistant-widget-core.mjs";
 
-assert.equal(ASSISTANT_WIDGET_AUTO_KEY, "davidporto-assistant-widget-auto-v1");
+assert.equal(ASSISTANT_WIDGET_HINT_KEY, "davidporto-assistant-widget-hint-v2");
 assert.equal(normalizeWidgetPath("//libros///samuel-entre-mundos/?x=1"), "/libros/samuel-entre-mundos/");
 assert.equal(shouldMountAssistantWidget("/"), true);
 assert.equal(shouldMountAssistantWidget("/autor.html"), true);

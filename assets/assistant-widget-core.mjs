@@ -1,4 +1,4 @@
-export const ASSISTANT_WIDGET_AUTO_KEY = "davidporto-assistant-widget-auto-v1";
+export const ASSISTANT_WIDGET_HINT_KEY = "davidporto-assistant-widget-hint-v2";
 
 export function normalizeWidgetPath(value) {
   const raw = String(value || "/").split(/[?#]/, 1)[0] || "/";
