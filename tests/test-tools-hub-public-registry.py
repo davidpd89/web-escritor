@@ -3,10 +3,14 @@
 from __future__ import annotations
 
 import json
+import re
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
 REGISTRY = ROOT / "data" / "tools-hub.json"
+PRIVATE_PRIMITIVES = re.compile(
+    r"\b(?:fetch|fetchLater|XMLHttpRequest|sendBeacon|WebSocket|EventSource|localStorage|sessionStorage|indexedDB)\b|document\.cookie"
+)
 
 
 def route_to_file(href: str) -> Path:
@@ -32,12 +36,25 @@ for internal_href in ("/herramientas/auditor-web/", "/publicar-web/"):
     html = html_path.read_text(encoding="utf-8").lower()
     assert 'name="robots"' in html and "noindex" in html, f"internal route lost noindex: {internal_href}"
 
-# Every public registry target and tool implementation asset must exist.
+# Every public registry target and implementation asset must exist. A route
+# advertised by the public hub must not itself be noindex. For tools whose
+# registry contract says "local", enforce the two static properties that
+# protect private input: connect-src none on the page and no network/persistent
+# storage primitive in the tool implementation source.
 for item in tools:
     page = route_to_file(item["href"])
     assert page.exists(), f"public tool target missing: {item['href']}"
+    html = page.read_text(encoding="utf-8")
+    html_lower = html.lower()
+    assert not ('name="robots"' in html_lower and "noindex" in html_lower), f"noindex route exposed as public tool: {item['href']}"
+
     source = ROOT / item["source_doc"]
     assert source.exists(), f"tool implementation source missing: {item['slug']} -> {item['source_doc']}"
+    if item.get("privacy") == "local":
+        assert "connect-src 'none'" in html, f"local tool lacks connect-src 'none': {item['href']}"
+        source_text = source.read_text(encoding="utf-8")
+        match = PRIVATE_PRIMITIVES.search(source_text)
+        assert not match, f"local tool source uses forbidden network/storage primitive {match.group(0)!r}: {item['source_doc']}"
 
 for item in directories:
     page = route_to_file(item["href"])
@@ -51,4 +68,7 @@ assert "/herramientas/auditor-web/" not in hub
 assert "/publicar-web/" not in hub
 assert f">{len(tools)} herramientas<" in hub
 
-print(f"PASS tools-hub boundary: {len(tools)} public tools, {len(directories)} public directories; internal routes preserved and hidden")
+print(
+    f"PASS tools-hub boundary: {len(tools)} public tools, {len(directories)} public directories; "
+    "public routes are indexable, local tool sources avoid network/persistent storage, internal routes stay preserved and hidden"
+)
