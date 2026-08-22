@@ -296,7 +296,7 @@ async function runAccessibility(browser, report) {
 
 await fs.mkdir(OUT, { recursive: true });
 const report = { privacy: {}, responsive: {}, noJs: {}, manuscript: {}, accessibility: {}, cls: {}, screenshots: [] };
-const browser = await chromium.launch({ headless: true });
+const browser = await chromium.launch({ headless: true, ...(process.env.QA_CHROMIUM_EXECUTABLE_PATH ? { executablePath: process.env.QA_CHROMIUM_EXECUTABLE_PATH } : {}) });
 try {
   await runCls(browser, report);
   await runPrivacy(browser, report);

@@ -167,7 +167,7 @@ const server = createServer((req, res) => {
 await new Promise((resolveListen) => server.listen(0, '127.0.0.1', resolveListen));
 const port = server.address().port;
 const origin = `http://127.0.0.1:${port}`;
-const browser = await chromium.launch({ headless: true });
+const browser = await chromium.launch({ headless: true, ...(process.env.QA_CHROMIUM_EXECUTABLE_PATH ? { executablePath: process.env.QA_CHROMIUM_EXECUTABLE_PATH } : {}) });
 const report = {
   baseContract: `implementacion-web-2026@${BASE_SHA}`,
   appShell,

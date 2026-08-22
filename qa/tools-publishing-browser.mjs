@@ -73,7 +73,7 @@ async function downloadKit(page,file){const p=page.waitForEvent('download');awai
 
 await fs.mkdir(OUT,{recursive:true});
 const report={privacy:{},functional:{jsonld:{},auditor:{}},noJs:{},responsive:{},accessibility:{},cls:{},fallbackFonts:{},screenshots:[]};
-const browser=await chromium.launch({headless:true});
+const browser=await chromium.launch({ headless: true, ...(process.env.QA_CHROMIUM_EXECUTABLE_PATH ? { executablePath: process.env.QA_CHROMIUM_EXECUTABLE_PATH } : {}) });
 try{
   for(const[key,url]of tools){
     const c=await browser.newContext({viewport:{width:1024,height:900},acceptDownloads:true});const p=await c.newPage();const errors=[];p.on('pageerror',e=>errors.push(String(e)));let dialogs=0;p.on('dialog',d=>{dialogs++;d.dismiss();});

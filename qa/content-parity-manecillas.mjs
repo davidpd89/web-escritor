@@ -168,7 +168,7 @@ const viewports = [
   { width: 844, height: 390 }
 ];
 
-const browser = await chromium.launch({ headless: true });
+const browser = await chromium.launch({ headless: true, ...(process.env.QA_CHROMIUM_EXECUTABLE_PATH ? { executablePath: process.env.QA_CHROMIUM_EXECUTABLE_PATH } : {}) });
 try {
   for (const viewport of viewports) {
     const viewportKey = `${viewport.width}x${viewport.height}`;

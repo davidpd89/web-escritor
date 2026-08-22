@@ -12,10 +12,12 @@ const ORIGIN = process.env.QA_ORIGIN || 'http://127.0.0.1:4173';
 const OUT = process.env.QA_OUT || 'qa-artifacts';
 const BASE_SHA = process.env.BASE_SHA || process.env.PR_BASE_SHA;
 
+const normalizeEol = value => value.replace(/\r\n?/g, '\n');
+
 assert(BASE_SHA, 'BASE_SHA/PR_BASE_SHA es obligatorio para verificar preservación literaria');
 fs.mkdirSync(path.join(ROOT, OUT), { recursive: true });
 
-const currentHtml = fs.readFileSync(path.join(ROOT, PAGE_PATH), 'utf8');
+const currentHtml = normalizeEol(fs.readFileSync(path.join(ROOT, PAGE_PATH), 'utf8'));
 
 // La pagina puede no existir en la base. Pasa de verdad en la PR de
 // integracion (implementacion-web-2026 -> main): /fragmentos/ es nueva en la
@@ -36,7 +38,7 @@ const existsInBase = (() => {
   }
 })();
 const baseHtml = existsInBase
-  ? execFileSync('git', ['show', `${BASE_SHA}:${PAGE_PATH}`], { encoding: 'utf8' })
+  ? normalizeEol(execFileSync('git', ['show', `${BASE_SHA}:${PAGE_PATH}`], { encoding: 'utf8' }))
   : null;
 const navJs = fs.readFileSync(path.join(ROOT, JS_PATH), 'utf8');
 
@@ -162,7 +164,7 @@ async function assertTargetBelowHeader(page, id, label) {
   assert(values.top >= values.headerBottom - 1, `${label}: heading queda bajo header sticky (${values.top} < ${values.headerBottom})`);
 }
 
-const browser = await chromium.launch({ headless: true });
+const browser = await chromium.launch({ headless: true, ...(process.env.QA_CHROMIUM_EXECUTABLE_PATH ? { executablePath: process.env.QA_CHROMIUM_EXECUTABLE_PATH } : {}) });
 try {
   for (const viewport of [
     { width: 320, height: 900 },

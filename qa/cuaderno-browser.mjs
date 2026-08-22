@@ -29,7 +29,7 @@ const viewports = [
 ];
 
 await fs.mkdir(OUT, { recursive: true });
-const browser = await chromium.launch({ headless: true });
+const browser = await chromium.launch({ headless: true, ...(process.env.QA_CHROMIUM_EXECUTABLE_PATH ? { executablePath: process.env.QA_CHROMIUM_EXECUTABLE_PATH } : {}) });
 const inventory = {};
 const report = { pages: {}, responsive: {}, keyboard: {}, zoom: {}, textSpacing: {}, noJs: {}, reducedMotion: {}, share: {}, print: {} };
 

@@ -16,7 +16,7 @@ const CASES = [
   ['Objeto', '/recursos/ficha-historia-objeto-heredado/', 'https://davidportodiaz.com/recursos/ficha-historia-objeto-heredado/', 'Privacidad:', 'no sustituye asesoramiento profesional'],
 ];
 
-const browser = await chromium.launch({ headless: true });
+const browser = await chromium.launch({ headless: true, ...(process.env.QA_CHROMIUM_EXECUTABLE_PATH ? { executablePath: process.env.QA_CHROMIUM_EXECUTABLE_PATH } : {}) });
 const failures = [];
 const runtime = new Map();
 
