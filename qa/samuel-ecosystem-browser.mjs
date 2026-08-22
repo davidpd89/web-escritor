@@ -1,8 +1,7 @@
 import assert from 'node:assert/strict';
 import fs from 'node:fs/promises';
 import path from 'node:path';
-import { execFileSync } from 'node:child_process';
-import { spawnSync } from 'node:child_process';
+import { execFileSync, spawnSync } from 'node:child_process';
 import { chromium } from 'playwright';
 
 const BASE = process.env.QA_BASE_URL || 'http://127.0.0.1:4173';
@@ -13,6 +12,19 @@ function commandExists(cmd) {
   const probe = process.platform === 'win32' ? 'where' : 'which';
   const result = spawnSync(probe, [cmd], { stdio: 'ignore' });
   return result.status === 0;
+}
+
+// Poppler solo se puede omitir en una maquina de desarrollo. En CI el workflow
+// instala poppler-utils a proposito, asi que si aqui no esta es que la
+// instalacion se rompio: fallar es lo correcto. Sin esta linea la ausencia de
+// poppler se veria exactamente igual que un PDF correcto, que es el modo de
+// fallo que ya nos ha mordido varias veces en este repo.
+function requirePdfTools() {
+  const available = commandExists('pdfinfo') && commandExists('pdftotext');
+  if (!available && process.env.CI) {
+    throw new Error('print: pdfinfo/pdftotext ausentes en CI; el workflow debe instalar poppler-utils');
+  }
+  return available;
 }
 
 const URLS = {
@@ -258,7 +270,7 @@ for(const [key,width,file] of [
   const pdf=path.join(OUT,'samuel-guia-imprimible.pdf');
   await page.pdf({path:pdf,format:'A4',printBackground:false,preferCSSPageSize:true});
   const stat=await fs.stat(pdf); assert.ok(stat.size>20000,`print: PDF útil (${stat.size} bytes)`);
-  const canInspectPdf = commandExists('pdfinfo') && commandExists('pdftotext');
+  const canInspectPdf = requirePdfTools();
   if (canInspectPdf) {
     const info=execFileSync('pdfinfo',[pdf],{encoding:'utf8'});
     const pages=Number(info.match(/^Pages:\s+(\d+)/m)?.[1]);

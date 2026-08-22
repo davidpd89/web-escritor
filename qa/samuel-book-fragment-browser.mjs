@@ -19,9 +19,13 @@ const ROUTES = [
 await fs.mkdir(OUT, { recursive: true });
 
 // The literary chapter is immutable in this task.
+// `git show` siempre devuelve LF; el fichero en disco puede estar en CRLF en
+// Windows. Normalizar los dos lados deja la comparacion mirando la prosa y no
+// el final de linea. Un cambio real de texto sigue fallando.
+const normalizeEol = value => value.replace(/\r\n?/g, '\n');
 if (BASE_SHA) {
-  const current = await fs.readFile('fragmento/index.html', 'utf8');
-  const before = execFileSync('git', ['show', `${BASE_SHA}:fragmento/index.html`], { encoding: 'utf8' });
+  const current = normalizeEol(await fs.readFile('fragmento/index.html', 'utf8'));
+  const before = normalizeEol(execFileSync('git', ['show', `${BASE_SHA}:fragmento/index.html`], { encoding: 'utf8' }));
   const pattern = /<article class="fragment-reading fragment-text" data-nosnippet>([\s\S]*?)<\/article>/;
   const currentText = current.match(pattern)?.[1];
   const baseText = before.match(pattern)?.[1];
