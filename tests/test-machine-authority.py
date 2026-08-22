@@ -230,11 +230,11 @@ def build_after_matrix(facts: dict, author_press: dict, man_press: dict, sam_pre
                 "drift": False,
             },
             {
-                "fact": "juanAndresTeno2026",
+                "fact": "juanAndresTeno2026.authorRecognition",
                 "values": {
                     "editorial-facts.json": exact_finalist_label(facts),
                     "press-kit/david-porto-diaz.json": f'{author_press["recognitions"][0]["result"]} · {author_press["recognitions"][0]["name"]} ({author_press["recognitions"][0]["year"]})',
-                    "press-kit/samuel-entre-mundos.json": f'{sam_press["recognitions"][0]["result"]} · {sam_press["recognitions"][0]["name"]} ({sam_press["recognitions"][0]["year"]})',
+                    "press-kit/samuel-entre-mundos.json": "not attributed to book",
                 },
                 "drift": False,
             },
@@ -310,11 +310,14 @@ def main() -> int:
     award = facts["recognitions"]["letrasComoEspada2026"]
     finalist = facts["recognitions"]["juanAndresTeno2026"]
     check(award["type"] == "award" and award["holder"] == author["name"] and award["submittedWork"] is None, "Letras award ownership drift")
-    check(finalist["type"] == "finalistSelection" and finalist["submittedWork"] == sam["title"], "Juan Andrés Teno recognition relation drift")
+    check(finalist["type"] == "finalistSelection" and finalist["submittedWork"] is None, "Juan Andrés Teno must remain an author-level recognition without an unverified submitted work")
+    check(finalist.get("sourceUrl") == "https://www.babidibulibros.com/premio-literatura-juan-andres-teno-2026/", "Juan Andrés Teno official call source drift")
+    check(bool(finalist.get("sourceLimitation")), "Juan Andrés Teno source limitation must be explicit")
     check(len(author_press["awards"]) == 1 and "Letras Como Espada" in author_press["awards"][0]["name"], "author press-kit awards must contain only the true award")
-    check(len(author_press["recognitions"]) == 1 and author_press["recognitions"][0]["submittedWork"] == sam["title"], "author press-kit finalist recognition missing/ambiguous")
+    check(len(author_press["recognitions"]) == 1 and author_press["recognitions"][0]["submittedWork"] is None, "author press-kit finalist recognition must not invent a submitted work")
+    check(bool(author_press["recognitions"][0].get("sourceLimitation")), "author press-kit finalist source limitation missing")
     check(sam_press["award"] is None, "Samuel must not carry a book award")
-    check(sam_press["recognitions"][0]["submittedWork"] == sam["title"], "Samuel finalist relation missing")
+    check(sam_press["recognitions"] == [], "Samuel must not carry an unverified Juan Andrés Teno relation")
     check(all(item.get("type") == "anthologyParticipation" for item in facts["contributions"]), "anthology contribution modeled as something other than participation")
 
     machine_copy = "\n".join((texts["ai/index.html"], texts["llms.txt"], texts["llms-full.txt"]))
@@ -339,6 +342,9 @@ def main() -> int:
         "¿Qué habitante de Noveris serías?",
         "optimizada para modelos de lenguaje",
         "estándar reconocido por todos",
+        "la obra presentada fue Samuel entre mundos",
+        "Samuel entre mundos fue la obra presentada",
+        "Obra presentada: Samuel entre mundos",
     ):
         check(stale.casefold() not in machine_copy.casefold(), f"stale/unsupported machine claim remains: {stale}")
 
