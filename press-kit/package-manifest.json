@@ -1,0 +1,48 @@
+{
+  "version": 1,
+  "output": "press-kit/david-porto-diaz-las-manecillas-del-recuerdo.zip",
+  "bookFacts": "press-kit/las-manecillas-del-recuerdo.json",
+  "authorFacts": "press-kit/david-porto-diaz.json",
+  "editorialFacts": "editorial-facts.json",
+  "maxPackageBytes": 25000000,
+  "documents": [
+    {
+      "source": "press-kit/david-porto-diaz.json",
+      "archivePath": "datos/david-porto-diaz.json"
+    },
+    {
+      "source": "press-kit/las-manecillas-del-recuerdo.json",
+      "archivePath": "datos/las-manecillas-del-recuerdo.json"
+    }
+  ],
+  "assets": [
+    {
+      "source": "assets/david-porto-diaz-retrato-editorial-prensa.webp",
+      "archivePath": "media/david-porto-diaz-retrato-editorial-prensa.webp",
+      "label": "Retrato editorial del autor",
+      "required": true,
+      "releaseStatus": "approved"
+    },
+    {
+      "source": "assets/og-manecillas.webp",
+      "archivePath": "media/las-manecillas-del-recuerdo-visual-prensa-horizontal.webp",
+      "label": "Visual horizontal de prensa",
+      "required": false,
+      "releaseStatus": "approved"
+    },
+    {
+      "source": "assets/manecillas-book-mockup.webp",
+      "archivePath": "media/las-manecillas-del-recuerdo-mockup-3d.webp",
+      "label": "Mockup 3D del libro",
+      "required": false,
+      "releaseStatus": "approved"
+    },
+    {
+      "source": "assets/portada-las-manecillas-del-recuerdo-1024.webp",
+      "archivePath": "media/las-manecillas-del-recuerdo-portada-alta-resolucion.webp",
+      "label": "Cubierta en alta resolución",
+      "required": true,
+      "releaseStatus": "blocked-pending-editorial-clearance"
+    }
+  ]
+}
