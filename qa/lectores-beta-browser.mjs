@@ -52,7 +52,7 @@ try {
     let requestBody = null;
     await page.route(/subscribe\.davidpd89\.workers\.dev/, (route) => {
       requestBody = route.request().postDataJSON();
-      route.fulfill({ status: 201, contentType: 'application/json', body: JSON.stringify({ ok: true }) });
+      route.fulfill({ status: 201, contentType: 'application/json', body: JSON.stringify({ ok: true, state: 'pending_confirmation' }) });
     });
     await page.goto(`${ORIGIN}/lectores-beta/`, { waitUntil: 'load' });
     await page.fill('#lectores-beta-email', 'beta2@example.com');
@@ -60,7 +60,7 @@ try {
     await page.click('#lectores-beta-form [type=submit]');
     await page.waitForTimeout(300);
 
-    assert.deepEqual(requestBody, { email: 'beta2@example.com', source: 'lectores-beta' }, 'debe enviar exactamente { email, source: "lectores-beta" }');
+    assert.deepEqual(requestBody, { email: 'beta2@example.com', source: 'lectores-beta', website: '' }, 'debe enviar exactamente { email, source: "lectores-beta", website } (honeypot DOI)');
     const successText = await page.locator('#lectores-beta-form').textContent();
     assert.match(successText || '', /lectores beta/i, 'el copy de éxito debe mencionar el programa de lectores beta, no la newsletter general');
     assert.doesNotMatch(successText || '', /novedades de David Porto Díaz/i, 'no debe reutilizar el copy de éxito de la newsletter general');

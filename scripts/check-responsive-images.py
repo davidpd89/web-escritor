@@ -42,7 +42,7 @@ ROOT = Path(__file__).resolve().parent.parent
 
 SKIP_PARTS = {
     ".git", "node_modules", "WEB DAVID PORTO nuevas ideas", "archive",
-    ".codex_work", ".preview-dist", "dist", "lab",
+    ".codex_work", ".preview-dist", "dist", "lab", "tests", "scripts",
 }
 
 IMG_TAG_RE = re.compile(r"<img\b([^>]*)>", re.I)

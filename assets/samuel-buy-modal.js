@@ -103,8 +103,8 @@
     lastBuyTrigger = trigger;
 
     // #63 es owner de la taxonomía analítica global: se conserva el nombre
-    // existente y solo se mantiene la identidad Samuel en la etiqueta.
-    _gcEvent("abrir-modal-comprar", "Modal: abrir dónde comprar (book=samuel)");
+    // existente (registrado en data/analytics-events.json).
+    _gcEvent("abrir-modal-comprar-samuel", "Modal: abrir dónde comprar (book=samuel)");
     document.documentElement.classList.add("modal-open");
     history.pushState({ buyModal: true }, "", "#comprar");
     dialog.showModal();
