@@ -16,6 +16,10 @@ jobs:
         run: python scripts/build-feed.py --check
       - name: Check sitemap is generated from canonical indexable HTML
         run: python scripts/build-sitemap.py --check
+      - name: Check scheduled-event calendars match eventos.html
+        run: python scripts/build-event-calendars.py --check
+      - name: Test scheduled-event calendar generation
+        run: python tests/test-event-calendars.py
       - name: Check canonical navigation coverage
         run: python scripts/check-navigation-coverage.py
       - name: Check site shell is generated from navigation contract
