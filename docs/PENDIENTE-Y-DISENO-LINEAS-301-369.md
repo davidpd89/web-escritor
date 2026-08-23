@@ -67,13 +67,55 @@ Debe hacerse después de:
 
 - #82 Home/cartografía/motion/materialidad;
 - #83 procedencia/media/color;
-- cualquier otra PR de diseño final que salga del cruce posterior con `DISEÑO Y DEMÁS`;
+- #85 familia Libro;
+- #86 Cuaderno + artículos;
+- #87 Autor + Prensa + Eventos;
+- #88 Herramientas;
+- cualquier otra PR transversal de diseño final que salga del cruce posterior con `DISEÑO Y DEMÁS`;
 - integración de navegación/shell/runtime que afecten la experiencia;
 - QA técnico principal en verde.
 
+## Scorecard oficial de producción — autoridad doc 18
+
+El cruce posterior con `DISEÑO Y DEMÁS` ya ha resuelto el umbral. La autoridad más específica es:
+
+`18 — QA DE NIVEL PREMIO — SCORECARD · TEST DE IDENTIDAD · UX · RESPONSIVE · MOTION`.
+
+### BLOQUE A — Webby-like
+
+- Content presentation: **≥ 8.5/10**
+- Structure & Navigation: **≥ 8.5/10**
+- Visual Design: **≥ 8.7/10**
+- Functionality: **≥ 8.5/10**
+- Interactivity: **≥ 8.0/10**
+- Innovation: **≥ 8.0/10**
+- Overall Experience: **≥ 8.7/10**
+
+### BLOQUE B — CSSDA-like
+
+- UI: **≥ 8.7/10**
+- UX: **≥ 8.5/10**
+- Innovation: **≥ 8.0/10**
+
+### BLOQUE C — gates NO compensables
+
+Todos deben ser PASS:
+
+- Accesibilidad;
+- Responsive;
+- contenido SEO preservado;
+- sin JavaScript esencial;
+- reduced motion;
+- presupuesto de rendimiento;
+- procedencia final de media.
+
+En lab, procedencia de media puede quedar `PENDING`; **en producción debe ser PASS**.
+
+Una media alta NO salva un fallo en un gate no compensable.
+
 ## Scorecard reproducible
 
-Crear una scorecard versionada y un protocolo de evidencia que cubra, como mínimo, los tests citados en este tramo/documentos 18/25:
+Crear una scorecard versionada y un protocolo de evidencia que cubra, como mínimo:
 
 ### Identidad y comprensión
 
@@ -81,6 +123,7 @@ Crear una scorecard versionada y un protocolo de evidencia que cubra, como míni
 - **modelo mental a 30 segundos:** si se entiende qué puede hacer/leer el usuario y cómo se estructura el sitio;
 - **test sin logo/nombre:** si el sistema visual sigue teniendo identidad propia;
 - **test sin motion:** si la identidad y jerarquía sobreviven sin animación;
+- **test sin imágenes decorativas:** si tipografía/espacio/estructura sostienen la interfaz aunque se retiren assets no esenciales;
 - coherencia entre Home y páginas internas sin que todas parezcan la misma plantilla.
 
 ### Originalidad y craft
@@ -91,7 +134,12 @@ Crear una scorecard versionada y un protocolo de evidencia que cubra, como míni
 - uso deliberado de espacio, líneas, materialidad y media;
 - calidad de detalles, estados y transiciones;
 - consistencia sin monotonía;
-- relación real entre diseño y obra/autor, no decoración intercambiable.
+- relación real entre diseño y obra/autor, no decoración intercambiable;
+- cualquier textura/sombra/anotación/documento final debe poder explicar su origen material o volver a una solución tipográfica neutral.
+
+### Variantes / deuda de artificio
+
+Si sigue existiendo una comparación entre soluciones V1-A/V1-B o equivalentes, no decidir por gusto. Comparar claridad, impacto, deuda de artificio, extensibilidad a internas, rendimiento y complejidad. Una mejora visual pequeña no compensa una complejidad muy superior o una peor extensión al resto del sitio.
 
 ### Memoria
 
@@ -110,10 +158,24 @@ La muestra mínima debe incluir:
 - Herramientas + al menos una herramienta interactiva;
 - Prensa/Eventos;
 - Explorar;
-- móvil 320/390 y escritorio amplio;
+- móvil 320/390, tablet 768, 1024, desktop 1440 y ultrawide 1728+;
 - reduced motion para comprobar que el diseño no depende del efecto.
 
-El conjunto exacto se puede ampliar al cruzar la carpeta `DISEÑO Y DEMÁS`.
+### Tareas de navegación
+
+Registrar éxito/fracaso, primer click, dudas y ruta real para al menos:
+
+1. descubrir Manecillas;
+2. encontrar Samuel;
+3. saber quién es David;
+4. abrir un artículo del Cuaderno;
+5. encontrar una herramienta;
+6. localizar próximos eventos/prensa;
+7. volver al inicio;
+8. abrir/cerrar Explorar;
+9. repetir las tareas esenciales solo con teclado en desktop.
+
+No optimizar solo número de clicks: comprensión y modelo mental pesan más.
 
 ## Evidencia
 
@@ -128,9 +190,8 @@ Debe dejar:
 - puntuaciones/observaciones por criterio;
 - defectos encontrados y owner;
 - resultado final PASS/BLOCKED;
-- threshold global exacto tomado de la autoridad de Drive si allí está definido.
-
-**No inventar ahora un umbral numérico** si el documento maestro todavía no se ha cruzado en esta fase. Cuando revisemos `DISEÑO Y DEMÁS`, incorporar el umbral real de la autoridad vigente.
+- resultado de cada gate no compensable;
+- excepciones explícitas, si alguna, sin rebajar los mínimos anteriores.
 
 ## Regla de aprobación
 
@@ -143,7 +204,9 @@ Tampoco se puede aprobar si:
 - móvil parece una versión degradada;
 - la identidad depende de una imagen hero aislada;
 - hay problemas de legibilidad, foco, reflow o rendimiento que el diseño introdujo;
-- una pieza visual clave carece de procedencia/gobierno cuando #83 la exige.
+- una pieza visual clave carece de procedencia/gobierno cuando #83 la exige;
+- se incumple cualquier threshold del scorecard;
+- falla cualquier gate no compensable.
 
 ## Relación con release #1
 
@@ -154,12 +217,13 @@ Tampoco se puede aprobar si:
 Esta PR no estará lista hasta que:
 
 1. CSS ownership global tenga checker + tests de mutación y pase sobre el HEAD integrado;
-2. exista scorecard final versionada;
+2. exista scorecard final versionada con los umbrales del doc 18;
 3. el conjunto de páginas/viewports esté definido;
 4. se haya ejecutado realmente sobre el HEAD final, no sobre una rama antigua;
 5. defectos encontrados estén corregidos o explícitamente bloqueen release;
 6. la revisión se repita tras cambios visuales sustanciales posteriores;
-7. el resultado humano y los gates automáticos coincidan en un único paquete de evidencia de release.
+7. el resultado humano y los gates automáticos coincidan en un único paquete de evidencia de release;
+8. todos los gates no compensables estén en PASS para producción.
 
 ## Estado
 
