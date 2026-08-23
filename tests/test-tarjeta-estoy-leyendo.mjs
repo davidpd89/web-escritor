@@ -29,10 +29,10 @@ const hostile = buildReadingCardOutputs({
 });
 assert.ok(hostile.html.includes('&lt;script&gt;'));
 assert.ok(hostile.html.includes('&lt;img'));
+assert.ok(hostile.html.includes('onerror=alert(1)'), 'hostile source text should be preserved as escaped text');
 assert.ok(hostile.html.includes('&amp;'));
 assert.ok(!hostile.html.includes('<script'));
 assert.ok(!hostile.html.includes('<img'));
-assert.ok(!hostile.html.includes('onerror='));
 assert.ok(!hostile.html.includes('href="javascript:'));
 assert.ok(!/<(?:script|iframe)\b/i.test(hostile.html));
 
