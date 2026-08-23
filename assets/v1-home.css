@@ -332,29 +332,24 @@ html.v1 .map-stage[data-focus-active="autor"]{--route-work-opacity:.92;--route-p
     top:2rem;
     bottom:1.5rem;
     width:1px;
-    background:color-mix(in srgb,var(--color-accent-strong) 44%,transparent);
+    background:linear-gradient(to bottom,var(--dp-copper) 0 var(--map-timeline-progress,0%),color-mix(in srgb,var(--color-accent-strong) 44%,transparent) 0);
   }
   /* Timeline progress — pure CSS scroll-driven enhancement over the static
-     line above. No JS, no scroll-jacking: it just reads how far .map-nodes
-     has scrolled through the viewport. Unsupported browsers and reduced
-     motion both keep the plain static line from ::before. */
+     line's own background gradient (::after on .map-nodes is reserved by
+     the desktop preview dock above; qa/home-map-interaction.mjs asserts
+     it stays content:none outside 1200px, so the fill has to live on
+     ::before instead). No JS, no scroll-jacking: it just reads how far
+     .map-nodes has scrolled through the viewport. Unsupported browsers
+     and reduced motion both keep the plain static two-tone line. */
   @supports (animation-timeline:view()){
     @media (prefers-reduced-motion:no-preference){
-      html.v1 .map-nodes::after{
-        content:"";
-        position:absolute;
-        left:.43rem;
-        top:2rem;
-        bottom:1.5rem;
-        width:1px;
-        background:var(--dp-copper);
-        transform-origin:top;
-        transform:scaleY(0);
+      @property --map-timeline-progress{syntax:'<percentage>';inherits:true;initial-value:0%}
+      html.v1 .map-nodes::before{
         animation:map-timeline-progress linear;
         animation-timeline:view();
         animation-range:entry 0% cover 85%;
       }
-      @keyframes map-timeline-progress{to{transform:scaleY(1)}}
+      @keyframes map-timeline-progress{to{--map-timeline-progress:100%}}
     }
   }
   html.v1 .map-node,
@@ -477,31 +472,12 @@ html.v1 .map-stage[data-focus-active="autor"]{--route-work-opacity:.92;--route-p
     opacity:1;
     background-image:url('/assets/samuel-entre-mundos.webp');
   }
-  html.v1 .map-stage:has([data-map-node="autor"]:is(:hover,:focus-visible)) .map-nodes::before{
-    opacity:1;
-    background-image:url('/assets/david-porto-autor-400.webp');
-  }
-  /* Cuaderno/Herramientas/Prensa have no portrait or cover to show — the
-     contract explicitly allows territory materiality via texture/color
-     instead of forcing an unrelated photo into every node's preview. */
-  html.v1 .map-stage:has([data-map-node="cuaderno"]:is(:hover,:focus-visible)) .map-nodes::before{
-    opacity:1;
-    background-size:auto;
-    background-color:var(--dp-sand);
-    background-image:repeating-linear-gradient(to bottom,color-mix(in srgb,var(--dp-ink) 12%,transparent) 0 1px,transparent 1px 12px);
-  }
-  html.v1 .map-stage:has([data-map-node="herramientas"]:is(:hover,:focus-visible)) .map-nodes::before{
-    opacity:1;
-    background-size:9px 9px;
-    background-color:var(--dp-paper);
-    background-image:radial-gradient(circle,color-mix(in srgb,var(--dp-copper) 65%,transparent) 1.3px,transparent 1.6px);
-  }
-  html.v1 .map-stage:has([data-map-node="prensa"]:is(:hover,:focus-visible)) .map-nodes::before{
-    opacity:1;
-    background-size:auto;
-    background-color:var(--dp-sand);
-    background-image:repeating-linear-gradient(115deg,color-mix(in srgb,var(--dp-ink) 8%,transparent) 0 2px,transparent 2px 9px);
-  }
+  /* Autor/Cuaderno/Herramientas/Prensa stay typographic-only in this dock —
+     qa/home-map-interaction.mjs asserts mediaOpacity < .1 for all four
+     ("preview tipográfico sin media inventada"): only Manecillas and
+     Samuel have real approved cover art, and manufacturing a texture as
+     a stand-in for the other four reads as invented visual authority the
+     rest of the site explicitly avoids. */
   html.v1 .map-stage:has([data-map-node="manecillas"]:is(:hover,:focus-visible)) .map-nodes::after{content:"Las manecillas del recuerdo\A Obra actual" / ""}
   html.v1 .map-stage:has([data-map-node="autor"]:is(:hover,:focus-visible)) .map-nodes::after{content:"Autor\A Biografía y trayectoria" / ""}
   html.v1 .map-stage:has([data-map-node="samuel"]:is(:hover,:focus-visible)) .map-nodes::after{content:"Samuel entre mundos\A Primera novela" / ""}
