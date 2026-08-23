@@ -5,7 +5,7 @@ on:
     branches:
       - pendiente-b-brevo-worker-doi
     paths:
-      - 'scripts/_apply-pr55-doi-fixes.py'
+      - 'scripts/_apply-pr55-final.py'
 
 permissions:
   contents: write
@@ -26,7 +26,7 @@ jobs:
           node-version: '22'
 
       - name: Apply asserted fixes
-        run: python scripts/_apply-pr55-doi-fixes.py
+        run: python scripts/_apply-pr55-final.py
 
       - name: Run focused tests before push
         run: |
@@ -41,7 +41,7 @@ jobs:
         run: |
           git config user.name github-actions[bot]
           git config user.email 41898282+github-actions[bot]@users.noreply.github.com
-          git add -- cloudflare-worker-subscribe.js script.js tests/test-cloudflare-worker-subscribe.mjs tests/test-newsletter-doi-frontend.mjs docs/BREVO-WORKER-DEPLOY.md docs/PENDIENTE-B-BREVO-WORKER-DOI.md qa/privacy-contract-browser.mjs qa/newsletter-worker-contract.mjs
+          git add -- cloudflare-worker-subscribe.js script.js tests/test-cloudflare-worker-subscribe.mjs tests/test-newsletter-doi-frontend.mjs qa/privacy-contract-browser.mjs
           git diff --cached --check
           git commit -m "fix(newsletter): close DOI review findings"
           git push origin HEAD:pendiente-b-brevo-worker-doi
