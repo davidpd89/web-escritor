@@ -251,8 +251,8 @@ real_legibilidad = json.loads(json.dumps(real_manifest))
 for t in real_legibilidad["tools"]:
     t["export"] = (t["slug"] == "legibilidad")
 try:
-    tools_real = bose.validate(real_legibilidad, real_source)
-    real_files = {str(f.relative_to(real_source)) for _, files in tools_real for _, f in files}
+    tools_real = bose.validate(real_legibilidad, real_source, ROOT / "tests")
+    real_files = {str(f.relative_to(real_source)) for _, files, _ in tools_real for _, f in files}
     check(
         real_files == {"legibilidad-engine.js", "silabajs-lite-2.1.0.js"},
         "13. el grafo real de legibilidad resuelve engine + silabajs-lite exactamente",
@@ -260,6 +260,125 @@ try:
     )
 except ValueError as exc:
     check(False, "13. el grafo real de legibilidad resuelve sin error", str(exc))
+
+# 63-C (requisito anadido a P.2 por #74/Q.1): empaquetar y poder ejecutar los
+# tests reproducibles de una herramienta exportada, de forma aislada del
+# repo completo (imports reescritos a rutas planas dentro del propio paquete).
+import subprocess
+
+with tempfile.TemporaryDirectory() as tmp:
+    root = Path(tmp)
+    source = setup_source(root)
+    tests_source = root / "tests"
+    tests_source.mkdir()
+    (tests_source / "test-tool-a.mjs").write_text(
+        "import assert from 'node:assert/strict';\n"
+        "import { add } from '../source/assets/tool-a-engine.js';\n"
+        "assert.equal(add(2,3), 5);\n"
+        "console.log('test-tool-a: OK');\n",
+        encoding="utf-8",
+    )
+    manifest_with_tests = json.loads(json.dumps(BASE_MANIFEST))
+    manifest_with_tests["tools"][0]["tests"] = ["test-tool-a.mjs"]
+    manifest_path = write_manifest(root, manifest_with_tests, name="manifest_tests.json")
+
+    # 14. test declarado cuyo import SI esta en 'files' -> valida sin error.
+    try:
+        tools_t = bose.validate(manifest_with_tests, source, tests_source)
+        tool_a_tests = next(tf for t, _, tf in tools_t if t["slug"] == "tool-a")
+        check(len(tool_a_tests) == 1, "14. test declarado con dependencia exportada valida sin error", str(tool_a_tests))
+    except ValueError as exc:
+        check(False, "14. test declarado con dependencia exportada valida sin error", str(exc))
+
+    # 15. test cuya dependencia NO esta en 'files' -> se rechaza explicitamente.
+    manifest_bad_test = json.loads(json.dumps(manifest_with_tests))
+    (tests_source / "test-tool-a-bad.mjs").write_text(
+        "import { helper } from '../source/assets/does-not-exist.js';\n", encoding="utf-8",
+    )
+    manifest_bad_test["tools"][0]["tests"] = ["test-tool-a-bad.mjs"]
+    try:
+        bose.validate(manifest_bad_test, source, tests_source)
+        check(False, "15. test que depende de un fichero no exportado debe rechazarse")
+    except ValueError as exc:
+        check("does-not-exist.js" in str(exc), "15. test con dependencia no exportada se rechaza", str(exc))
+
+    # 16. generar el staging real con --tests-source y ejecutar de verdad el
+    # test empaquetado (node real, proceso aparte) para demostrar que el
+    # import reescrito funciona sin el repo completo, no solo que el texto
+    # contenga la cadena esperada.
+    out = root / "out-tests"
+    sys.argv = [
+        "build-open-source-export.py", str(manifest_path),
+        "--source", str(source), "--tests-source", str(tests_source),
+        "--output", str(out),
+    ]
+    bose.main()
+    staged_test = out / "tools" / "tool-a" / "tests" / "test-tool-a.mjs"
+    check(staged_test.exists(), "16a. el test empaquetado existe en el staging", str(list((out/'tools'/'tool-a').rglob('*'))))
+    rewritten_text = staged_test.read_text(encoding="utf-8")
+    check("../tool-a-engine.js" in rewritten_text, "16b. el import se reescribe a ruta plana dentro del paquete", rewritten_text)
+    proc = subprocess.run(["node", str(staged_test)], capture_output=True, text=True, cwd=str(staged_test.parent))
+    check(proc.returncode == 0 and "OK" in proc.stdout, "16c. el test empaquetado se ejecuta de verdad y pasa de forma aislada", f"rc={proc.returncode} stdout={proc.stdout!r} stderr={proc.stderr!r}")
+
+# 17. Grafo + test REALES de legibilidad: exporta de verdad (a un directorio
+# temporal, nunca al repo) declarando su test real, y ejecuta ese test ya
+# reescrito con node para demostrar que el paquete generado es reproducible
+# fuera del repositorio, tal y como exige 63-C punto 5.
+with tempfile.TemporaryDirectory() as tmp:
+    out = Path(tmp) / "out-legibilidad"
+    real_legibilidad_tests = json.loads(json.dumps(real_manifest))
+    for t in real_legibilidad_tests["tools"]:
+        t["export"] = (t["slug"] == "legibilidad")
+        if t["slug"] == "legibilidad":
+            t["tests"] = ["test-legibilidad.mjs"]
+    manifest_path = write_manifest(Path(tmp), real_legibilidad_tests, name="manifest_legibilidad.json")
+    sys.argv = [
+        "build-open-source-export.py", str(manifest_path),
+        "--source", str(ROOT / "assets"), "--tests-source", str(ROOT / "tests"),
+        "--output", str(out),
+    ]
+    try:
+        rc = bose.main()
+        staged_test = out / "tools" / "legibilidad" / "tests" / "test-legibilidad.mjs"
+        proc = subprocess.run(["node", str(staged_test)], capture_output=True, text=True, cwd=str(staged_test.parent))
+        check(
+            rc == 0 and proc.returncode == 0 and "OK" in proc.stdout,
+            "17. el test REAL de legibilidad se ejecuta de verdad desde el staging aislado y pasa",
+            f"build_rc={rc} test_rc={proc.returncode} stdout={proc.stdout!r} stderr={proc.stderr!r}",
+        )
+    except ValueError as exc:
+        check(False, "17. el test real de legibilidad se empaqueta y ejecuta sin error", str(exc))
+
+# 18. Generaliza el caso 17 a TODAS las herramientas del manifest real que
+# declaran 'tests', una por una (export:true solo en memoria, nunca en
+# disco), para detectar cualquier declaracion rota antes de que alguien
+# active export:true de verdad.
+tools_with_tests = [t["slug"] for t in real_manifest.get("tools", []) if t.get("tests")]
+check(len(tools_with_tests) >= 5, "18. hay al menos 5 herramientas reales con tests declarados", str(tools_with_tests))
+for slug in tools_with_tests:
+    with tempfile.TemporaryDirectory() as tmp:
+        out = Path(tmp) / "out"
+        one_tool_manifest = json.loads(json.dumps(real_manifest))
+        for t in one_tool_manifest["tools"]:
+            t["export"] = (t["slug"] == slug)
+        manifest_path = write_manifest(Path(tmp), one_tool_manifest, name="manifest.json")
+        sys.argv = [
+            "build-open-source-export.py", str(manifest_path),
+            "--source", str(ROOT / "assets"), "--tests-source", str(ROOT / "tests"),
+            "--output", str(out),
+        ]
+        try:
+            rc = bose.main()
+            test_name = next(t for t in real_manifest["tools"] if t["slug"] == slug)["tests"][0]
+            staged_test = out / "tools" / slug / "tests" / test_name
+            proc = subprocess.run(["node", str(staged_test)], capture_output=True, text=True, cwd=str(staged_test.parent))
+            check(
+                rc == 0 and proc.returncode == 0,
+                f"18. {slug}: su test real se empaqueta y ejecuta aislado sin error",
+                f"build_rc={rc} test_rc={proc.returncode} stdout={proc.stdout!r} stderr={proc.stderr!r}",
+            )
+        except ValueError as exc:
+            check(False, f"18. {slug}: su test real se empaqueta y ejecuta aislado sin error", str(exc))
 
 print("tests/test-build-open-source-export: " + ("OK" if not failures else f"{len(failures)} FALLO(S)"))
 raise SystemExit(1 if failures else 0)

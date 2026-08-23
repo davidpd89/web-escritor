@@ -289,3 +289,60 @@ tests/test-build-open-source-export: OK   [13/13 casos, antes 8/8]
 ## CI
 
 `qa/tipo-lector-browser.mjs` wireado en `tools-browser-qa.yml` (nuevas rutas `herramientas/que-tipo-de-lector-eres/**`, `assets/tipo-lector*`). `tests/test-tipo-lector.mjs` y `tests/test-build-open-source-export.py` ya cubiertos por el barrido genérico de `tool-tests.yml` (`tests/*.mjs` / `tests/test-*.py`), sin necesidad de tocar su trigger.
+
+---
+
+## Actualización tras revisión del propietario (2026-08-23, segunda ronda)
+
+La revisión pre-merge del propietario en #73 pidió tres cosas antes de fiarse de esta PR. Las tres están cerradas:
+
+### 1. 63-C — empaquetar y ejecutar tests reproducibles del export (requisito añadido por #74/Q.1)
+
+`scripts/build-open-source-export.py` ampliado:
+
+- nuevo campo opcional `tests` por herramienta (`data/open-source-tools.json`), rutas relativas a `--tests-source` (por defecto `<source>/../tests`);
+- cada test declarado se valida igual que un `files`: debe existir, no puede contener secretos, y **toda dependencia local estática que use** (`import`, `require`, y también `readFileSync(new URL('./x.js', import.meta.url))`) debe resolver a un fichero **ya declarado en `files`** de esa misma herramienta — si no, `validate()` falla nombrando la dependencia que falta;
+- al generar el export real, cada test declarado se copia a `tools/<slug>/tests/` con sus imports **reescritos** a la ruta plana real dentro del paquete (`rewrite_local_imports()`), y el `README.md` de la herramienta documenta cómo ejecutarlo (`node tests/<archivo>`);
+- **bug real detectado por el propio checker al declarar los tests reales**: `test-variedad-lexica.mjs` (igual que `test-repeticiones.mjs`) lee además el fichero de wiring de UI acoplado al DOM vía `readFileSync(new URL(...))`, que no forma parte del engine exportable. El validador lo rechazó correctamente; se dejó **sin declarar** `tests` para `variedad-lexica` y `repeticiones` (documentado con `_tests_note` en el propio manifest), en vez de forzar una declaración incorrecta.
+- `data/open-source-tools.json` declara `tests` reales y verificados para **6 herramientas**: `legibilidad`, `dialogo`, `nombres-personajes`, `distribucion-pov`, `tiempo-lectura-voz-alta`, `json-ld-escritores`.
+- `license: null` y `export: false` siguen intactos en las 8 herramientas — esta ronda tampoco activa ninguna publicación.
+
+**Tests deterministas** (`tests/test-build-open-source-export.py`, ampliado de 13 a 18 casos):
+
+- **14–15**: test declarado con dependencia exportada valida; test con dependencia no exportada se rechaza explícitamente;
+- **16**: genera un staging real con `--tests-source`, confirma que el import se reescribió a ruta plana, y **ejecuta de verdad el test empaquetado con `node` en un proceso aparte** (no solo comprueba texto) para demostrar que funciona aislado del repo;
+- **17**: lo mismo pero contra el **grafo real** de `legibilidad` (motor + SilabaJS + su test real), generando el paquete a un directorio temporal y ejecutándolo con `node` — prueba de extremo a extremo de que 63-C funciona con código real, no solo con fixtures sintéticos;
+- **18**: generaliza el caso 17 a **las 6 herramientas reales** que declaran `tests`, una por una (`export:true` solo en memoria, nunca escrito a disco), empaquetando y ejecutando cada test real con `node` — esta prueba fue la que encontró el bug de `variedad-lexica` antes de que llegara a mezclarse con el resto.
+
+### 2. Diferenciación del quiz de lector frente al quiz de Noveris
+
+`libros/samuel-entre-mundos/index.html` ya tiene un quiz distinto («¿Qué habitante de Noveris serías?», `assets/samuel-quiz.js`, sección `#quiz-noveris`): un cierre promocional ligado a ese libro, con «compartir resultado» y CTA de compra. Verificado que no hay colisión técnica (clases `.quiz-*` no compartidas en CSS común) y añadida una aclaración explícita en `/herramientas/que-tipo-de-lector-eres/` («No es tampoco el quiz…») para que la distinción de producto quede clara también para el lector, no solo en el código.
+
+### 3. Alcance de licencia del export (ya cumplido, verificado de nuevo)
+
+`root_readme()` ya deja explícito: «La web de demostración y el contenido editorial de davidportodiaz.com no forman parte automáticamente de esta licencia» — cubre solo el código exportado en `tools/`, nunca novelas, copy editorial ni activos del sitio. Sin cambios necesarios.
+
+## Evidencia de ejecución adicional (real)
+
+```
+$ python tests/test-build-open-source-export.py
+  ok   14. test declarado con dependencia exportada valida sin error
+  ok   15. test con dependencia no exportada se rechaza
+  ok   16a/16b/16c. test empaquetado, reescrito y EJECUTADO con node -> OK
+  ok   17. test REAL de legibilidad ejecutado desde staging aislado -> OK
+  ok   18. legibilidad / dialogo / nombres-personajes / distribucion-pov /
+           tiempo-lectura-voz-alta / json-ld-escritores: cada uno empaquetado
+           y ejecutado con node de forma aislada -> OK (18/18)
+tests/test-build-open-source-export: OK
+
+$ python scripts/check-heading-structure.py
+Heading/skip-link structure: 69 ficheros HTML revisados; 0 problema(s).
+
+$ python scripts/check-local-assets.py
+Local asset check: 89 HTML files scanned; 0 broken local reference(s).
+
+$ python scripts/check-secrets.py
+No obvious secrets found in tracked files.
+```
+
+**Prueba en rojo real**: el caso 18 rechazó `variedad-lexica` en el primer intento («depende de variedad-lexica.js, que no viaja en 'files'») antes de corregir el manifest — exactamente el tipo de regresión que 63-C existe para atrapar.
