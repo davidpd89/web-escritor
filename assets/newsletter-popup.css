@@ -1,40 +1,22 @@
-#nl-popup-overlay{position:fixed;inset:0;z-index:9000;display:flex;align-items:center;justify-content:center;padding:16px;background:rgba(8,10,12,0.84);backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px);animation:nl-in 0.28s ease}
-@keyframes nl-in{from{opacity:0;transform:translateY(8px)}
-to{opacity:1;transform:none}
-}
-#nl-popup-panel{position:relative;width:100%;max-width:460px;padding:40px 36px 32px;background:#18140e;border:1px solid rgba(196,148,77,0.38);border-radius:20px;box-shadow:0 32px 120px rgba(0,0,0,0.72)}
-#nl-popup-close{position:absolute;top:14px;right:14px;width:38px;height:38px;border:none;background:transparent;color:#b6a894;font-size:1.5rem;line-height:1;cursor:pointer;border-radius:50%;display:flex;align-items:center;justify-content:center;padding:0;transition:color 0.18s}
-#nl-popup-close:hover,#nl-popup-close:focus-visible{color:#f2e8d8;outline:none}
-#nl-popup-panel .eyebrow{margin:0 0 12px;color:#c4944d;font-size:0.68rem;font-weight:700;letter-spacing:0.26em;text-transform:uppercase;font-family:var(--font-ui,Inter,system-ui,sans-serif)}
+#nl-popup-dialog{width:min(460px,calc(100vw - 32px));max-width:460px;max-height:calc(100dvh - 32px);padding:0;border:0;background:transparent;color:inherit;overflow:visible;animation:nl-in .28s ease}
+#nl-popup-dialog::backdrop{background:rgba(8,10,12,.84);backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px)}
+@keyframes nl-in{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
+#nl-popup-panel{position:relative;width:100%;max-height:calc(100dvh - 32px);overflow:auto;padding:40px 36px 32px;background:#18140e;border:1px solid rgba(196,148,77,.38);border-radius:20px;box-shadow:0 32px 120px rgba(0,0,0,.72)}
+#nl-popup-close{position:absolute;top:14px;right:14px;width:38px;height:38px;border:none;background:transparent;color:#b6a894;font-size:1.5rem;line-height:1;cursor:pointer;border-radius:50%;display:flex;align-items:center;justify-content:center;padding:0;transition:color .18s}
+#nl-popup-close:hover,#nl-popup-close:focus-visible{color:#f2e8d8;outline:2px solid #c4944d;outline-offset:2px}
+#nl-popup-panel .eyebrow{margin:0 0 12px;color:#c4944d;font-size:.68rem;font-weight:700;letter-spacing:.26em;text-transform:uppercase;font-family:var(--font-ui,Inter,system-ui,sans-serif)}
 #nl-popup-title{font-family:var(--font-display,Georgia,serif);margin:0 0 12px;font-size:clamp(1.55rem,4vw,2.1rem);line-height:1.08;color:#f2e8d8;font-weight:600}
-#nl-popup-body{margin:0 0 22px;color:#b6a894;font-size:0.96rem;line-height:1.7}
-#nl-popup-email{width:100%;padding:12px 18px;border:1px solid rgba(196,148,77,0.28);border-radius:999px;background:rgba(255,255,255,0.04);color:#f2e8d8;font-size:0.95rem;font-family:inherit;outline:none;box-sizing:border-box;margin-bottom:10px;transition:border-color 0.2s}
-#nl-popup-email:focus{border-color:#c4944d}
+#nl-popup-body{margin:0 0 22px;color:#b6a894;font-size:.96rem;line-height:1.7}
+#nl-popup-email{width:100%;padding:12px 18px;border:1px solid rgba(196,148,77,.28);border-radius:999px;background:rgba(255,255,255,.04);color:#f2e8d8;font-size:.95rem;font-family:inherit;outline:none;box-sizing:border-box;margin-bottom:10px;transition:border-color .2s}
+#nl-popup-email:focus{border-color:#c4944d;outline:2px solid #c4944d;outline-offset:2px}
 #nl-popup-submit{width:100%;justify-content:center;margin-bottom:0}
-#nl-popup-gdpr-row{display:flex;align-items:flex-start;gap:8px;margin-top:12px;font-size:0.79rem;color:#8e8170;line-height:1.5;cursor:pointer}
+#nl-popup-gdpr-row{display:flex;align-items:flex-start;gap:8px;margin-top:12px;font-size:.79rem;color:#8e8170;line-height:1.5;cursor:pointer}
 #nl-popup-gdpr-row input{margin-top:3px;flex-shrink:0}
 #nl-popup-gdpr-row a{color:#c4944d}
-#nl-popup-status{margin:8px 0 0;font-size:0.84rem;color:#b6a894;min-height:1.2em}
-#nl-popup-skip{display:block;margin:14px auto 0;background:none;border:none;color:#8e8170;font-size:0.82rem;cursor:pointer;text-decoration:underline;text-underline-offset:3px;font-family:inherit;transition:color 0.2s;padding:0}
-#nl-popup-skip:hover{color:#b6a894}
-@media(max-width:520px){#nl-popup-panel{padding:32px 22px 26px}
-}
-
-/* Estados de exito/duplicado tras enviar el formulario. Sustituyen el
-   style="font-family:Cormorant Garamond,Georgia,serif" inline que llevaba
-   este bloque antes de H.1 (2026-08-23) -- usan var(--font-display), el
-   mismo token que ya usa #nl-popup-title arriba, en vez de una tipografia
-   legacy hardcodeada. */
-.nl-popup-result-title{
-  font-family:var(--font-display,Georgia,serif);
-  font-size:1.5rem;
-  color:#e0b979;
-  text-align:center;
-  margin:0 0 10px;
-}
-.nl-popup-result-body{
-  color:#b6a894;
-  text-align:center;
-  font-size:0.94rem;
-  margin:0;
-}
+#nl-popup-status{margin:8px 0 0;font-size:.84rem;color:#b6a894;min-height:1.2em}
+#nl-popup-skip{display:block;margin:14px auto 0;background:none;border:none;color:#8e8170;font-size:.82rem;cursor:pointer;text-decoration:underline;text-underline-offset:3px;font-family:inherit;transition:color .2s;padding:8px}
+#nl-popup-skip:hover,#nl-popup-skip:focus-visible{color:#b6a894;outline:2px solid #c4944d;outline-offset:2px}
+.nl-popup-result-title{font-family:var(--font-display,Georgia,serif);font-size:1.5rem;color:#e0b979;text-align:center;margin:0 0 10px}
+.nl-popup-result-body{color:#b6a894;text-align:center;font-size:.94rem;margin:0}
+@media(max-width:520px){#nl-popup-dialog{width:calc(100vw - 16px);max-height:calc(100dvh - 16px)}#nl-popup-panel{max-height:calc(100dvh - 16px);padding:32px 22px 26px}}
+@media(prefers-reduced-motion:reduce){#nl-popup-dialog{animation:none}#nl-popup-close,#nl-popup-email,#nl-popup-skip{transition:none}}
