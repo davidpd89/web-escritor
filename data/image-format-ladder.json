@@ -1,0 +1,35 @@
+{
+  "schema_version": 2,
+  "note": "Politica de elegibilidad y procedencia para la escalera AVIF->WebP (L.1, 2026-08-23). Solo estas fuentes WebP publicas y realmente consumidas reciben un AVIF hermano. No es una lista de assets a convertir masivamente. Cada pareja fija SHA-256 de fuente y derivada; si cambia cualquiera de los dos ficheros, el gate falla hasta regenerar/registrar la pareja con el builder canónico. No se usa mtime, fecha de ejecucion ni solo dimensiones como señal de frescura.",
+  "encoder": {
+    "format": "AVIF",
+    "quality": 60,
+    "pillow_version": "12.3.0"
+  },
+  "eligible_sources": [
+    {
+      "source": "assets/portada-las-manecillas-del-recuerdo-320.webp",
+      "derivative": "assets/portada-las-manecillas-del-recuerdo-320.avif",
+      "source_sha256": "8e5c057344f84bd9cf967d85e84d4ea062ed1ebc30d1c7f4cddadafda3bb3f2a",
+      "derivative_sha256": "50d3a2d2b4e1dd2e3bc2a726882b17d1d698aa24ef6f2e113b8194c1a00a2541"
+    },
+    {
+      "source": "assets/portada-las-manecillas-del-recuerdo-512.webp",
+      "derivative": "assets/portada-las-manecillas-del-recuerdo-512.avif",
+      "source_sha256": "0ca7c4efcf2df2ed7358a0886766ec0e393543f99779892b8c8f337b999c4766",
+      "derivative_sha256": "ba091de85c8bc916f1871716103002ec21263ac084c9f644abc1b2b6c4b1b8d9"
+    },
+    {
+      "source": "assets/portada-las-manecillas-del-recuerdo-768.webp",
+      "derivative": "assets/portada-las-manecillas-del-recuerdo-768.avif",
+      "source_sha256": "0dacea9ab1c107847b526f060b9ac35c3661dbbde984d411b2d3dc7278b0dadd",
+      "derivative_sha256": "823c6d5363766a6a1901a8ee86c07850d574e5dbac3f59d7175b7cbd46724687"
+    },
+    {
+      "source": "assets/portada-las-manecillas-del-recuerdo-1024.webp",
+      "derivative": "assets/portada-las-manecillas-del-recuerdo-1024.avif",
+      "source_sha256": "e1d3d0f0475740200d64ad3bf2aed5068a5e64e8c1f31d5e31a2d7543bebcdd8",
+      "derivative_sha256": "c93788a20005b1b6660df9bc9bef2734b5362bd319f4ddaf22011c367594bd14"
+    }
+  ]
+}
