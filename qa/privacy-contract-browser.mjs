@@ -26,6 +26,8 @@ async function capture(route, viewport={width:1440,height:1000}, js=true){
   page.on('console',m=>consoleMessages.push(m.text()));
   await page.route(/https?:\/\/(?:gc\.zgo\.at|tracker\.metricool\.com)\/.*/, async r=>r.fulfill({status:200,contentType:'application/javascript',body:''}));
   await page.goto(BASE+route,{waitUntil:'networkidle'});
+  const introEnter=page.locator('[data-intro-enter]').first();
+  if(await introEnter.count()>0){ await introEnter.click(); await page.waitForTimeout(900); }
   return {context,page,requests,consoleMessages};
 }
 const expected={
@@ -104,6 +106,17 @@ await newsletterErrorCase('legacyDuplicate400',r=>r.fulfill({status:400,contentT
 await newsletterErrorCase('rateLimit429',r=>r.fulfill({status:429,contentType:'application/json',body:'{"error":"rate_limited"}'}));
 await newsletterErrorCase('server500',r=>r.fulfill({status:500,contentType:'application/json',body:'{"error":"upstream"}'}));
 await newsletterErrorCase('timeout',r=>r.abort('timedout'));
+
+// Repeated submit events while the first request is pending must yield one POST.
+{
+  const state=await capture('/',{width:390,height:844}); let calls=0;
+  await state.page.route(WORKER_RE,async r=>{ calls++; await new Promise(resolve=>setTimeout(resolve,180)); await r.fulfill({status:201,contentType:'application/json',body:'{"ok":true,"state":"pending_confirmation"}'}); });
+  await state.page.locator('#nl-email-home').fill('qa-double-submit@example.test'); await state.page.locator('#nl-gdpr-home').check();
+  await state.page.locator('#newsletter-form-home').evaluate(formEl=>{ formEl.dispatchEvent(new Event('submit',{bubbles:true,cancelable:true})); formEl.dispatchEvent(new Event('submit',{bubbles:true,cancelable:true})); });
+  await state.page.waitForTimeout(450); assert(calls===1,`Newsletter double submit: expected one Worker request, got ${calls}`);
+  assert(await state.page.locator('#newsletter-form-home input[type="email"]').count()===0,'Newsletter double submit: pending state not rendered');
+  report.newsletter.doubleSubmit={calls}; await state.context.close();
+}
 
 // Assistant read-only: a local query must not load Turnstile or create the remote session id.
 const assistant=await capture('/asistente/',{width:390,height:844});

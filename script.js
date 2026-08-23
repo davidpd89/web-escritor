@@ -271,7 +271,10 @@ function fallbackCopy(text, done) {
 // explicitamente ese id porque el quiz real vigente es otro: id=
 // "samuel-quiz-app" + assets/samuel-quiz.js, cargado solo en
 // libros/samuel-entre-mundos/index.html. Este bloque (~220 lineas) nunca
-// se ejecutaba en produccion.
+// se ejecutaba en produccion. PR55 lo habia actualizado al patron DOI
+// (installNewsletterHoneypot + pending_confirmation) antes de saberlo
+// muerto; si "quiz-noveris-app" vuelve a activarse alguna vez, replicar
+// ese patron DOI, no el _SUCCESS_COPY antiguo.
 
 // Generic newsletter forms (home, fragmento, manecillas pages)
 (function () {
@@ -287,7 +290,8 @@ function fallbackCopy(text, done) {
     home: "Revisa tu correo y confirma la suscripción para recibir las novedades de David Porto Díaz.",
     fragmento: "Revisa tu correo y confirma la suscripción para recibir las novedades de David Porto Díaz.",
     manecillas: "Revisa tu correo y confirma la suscripción. Después te avisaré cuando Las manecillas del recuerdo esté disponible.",
-    cuaderno: "Revisa tu correo y confirma la suscripción para recibir las novedades de David Porto Díaz."
+    cuaderno: "Revisa tu correo y confirma la suscripción para recibir las novedades de David Porto Díaz.",
+    explore: "Revisa tu correo y confirma la suscripción para recibir las novedades de David Porto Díaz."
   };
 
   async function submitNewsletter(formId, emailId, gdprId, statusId, sourceLabel) {
