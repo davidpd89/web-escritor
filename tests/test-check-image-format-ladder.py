@@ -79,9 +79,8 @@ def make_repo(tmp: Path, html: str | None = None) -> None:
     (tmp / "data").mkdir(parents=True, exist_ok=True)
     (tmp / "assets").mkdir(parents=True, exist_ok=True)
     Image.new("RGB", (8, 8), "red").save(tmp / "assets" / "foto-320.webp", format="WEBP")
-    Image.open(tmp / "assets" / "foto-320.webp").save(
-        tmp / "assets" / "foto-320.avif", format="AVIF", quality=QUALITY
-    )
+    with Image.open(tmp / "assets" / "foto-320.webp") as source:
+        source.save(tmp / "assets" / "foto-320.avif", format="AVIF", quality=QUALITY)
     write_manifest(tmp)
     (tmp / "page.html").write_text(html or html_ok(), encoding="utf-8")
     subprocess.run(["git", "init", "-q"], cwd=tmp, check=True)
@@ -153,6 +152,39 @@ def run() -> None:
         Image.new("RGB", (8, 8), "green").save(tmp / "assets" / "foto-320.avif", format="AVIF", quality=QUALITY)
         result = run_tool(CHECKER, tmp)
         check(result.returncode != 0 and "derivative_sha256 no coincide" in result.stdout, "AVIF reemplazado mismo tamaño falla por hash", result.stdout)
+
+    # Un AVIF corrupto no puede quedar registrado ni bloquear la reparacion:
+    # checker falla y builder lo regenera desde el WebP canónico.
+    with tempfile.TemporaryDirectory() as directory:
+        tmp = Path(directory)
+        make_repo(tmp)
+        (tmp / "assets" / "foto-320.avif").write_bytes(b"not-an-avif")
+        broken = run_tool(CHECKER, tmp)
+        check(broken.returncode != 0 and "derivative_sha256 no coincide" in broken.stdout, "AVIF corrupto falla antes de repararse", broken.stdout)
+        repaired = run_tool(BUILDER, tmp, check_only=False)
+        check(repaired.returncode == 0 and "REGENERATED assets/foto-320.avif" in repaired.stdout, "builder repara AVIF corrupto", repaired.stdout)
+        repaired_check = run_tool(CHECKER, tmp)
+        check(repaired_check.returncode == 0, "AVIF reparado vuelve a PASS", repaired_check.stdout)
+
+    # Una pareja nueva puede inicializarse sin hashes ni derivada: el builder
+    # genera solo ese AVIF y escribe ambos SHA-256; --check exige los hashes.
+    with tempfile.TemporaryDirectory() as directory:
+        tmp = Path(directory)
+        make_repo(tmp)
+        manifest_path = tmp / "data" / "image-format-ladder.json"
+        manifest = json.loads(manifest_path.read_text(encoding="utf-8"))
+        manifest["eligible_sources"][0].pop("source_sha256")
+        manifest["eligible_sources"][0].pop("derivative_sha256")
+        manifest_path.write_text(json.dumps(manifest, indent=2) + "\n", encoding="utf-8")
+        (tmp / "assets" / "foto-320.avif").unlink()
+        uninitialized = run_tool(BUILDER, tmp)
+        check(uninitialized.returncode != 0 and "falta source_sha256 valido" in uninitialized.stdout, "--check rechaza pareja sin procedencia", uninitialized.stdout)
+        initialized = run_tool(BUILDER, tmp, check_only=False)
+        check(initialized.returncode == 0 and "REGENERATED assets/foto-320.avif" in initialized.stdout, "builder inicializa pareja nueva", initialized.stdout)
+        initialized_manifest = json.loads(manifest_path.read_text(encoding="utf-8"))["eligible_sources"][0]
+        check(len(initialized_manifest.get("source_sha256", "")) == 64 and len(initialized_manifest.get("derivative_sha256", "")) == 64, "builder registra ambos SHA-256")
+        initialized_check = run_tool(CHECKER, tmp)
+        check(initialized_check.returncode == 0, "pareja inicializada pasa checker", initialized_check.stdout)
 
     # La escalera debe apuntar al hermano correspondiente, no a cualquier AVIF.
     with tempfile.TemporaryDirectory() as directory:
