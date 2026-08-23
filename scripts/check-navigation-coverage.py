@@ -194,6 +194,27 @@ def main() -> int:
         if item.get("status") != "public":
             errors.append(f"{surface}: non-public registry id exposed: {ref}")
 
+    # Explorar debe representar exactamente los 5 territorios estables
+    # (M.1, 2026-08-23): antes de esta regla, la capa de presentación podía
+    # elevar obras individuales del catálogo a la categoría de territorio
+    # sin que ningún gate lo detectara -- el checker solo validaba que cada
+    # ID resolviera a una entrada pública, no que la jerarquía semántica
+    # fuese correcta.
+    CANONICAL_EXPLORE_TERRITORIES = ["works-hub", "author", "notebook-hub", "tools-hub", "press"]
+    FORBIDDEN_EXPLORE_TERRITORY_IDS = {"work-manecillas", "work-samuel"}
+    explore_territory_ids = [item.get("id", "") for item in nav.get("exploreTerritories", [])]
+    if explore_territory_ids != CANONICAL_EXPLORE_TERRITORIES:
+        errors.append(
+            "exploreTerritories must be exactly the 5 stable territories "
+            f"{CANONICAL_EXPLORE_TERRITORIES} in that order; got {explore_territory_ids}"
+        )
+    forbidden_found = FORBIDDEN_EXPLORE_TERRITORY_IDS & set(explore_territory_ids)
+    if forbidden_found:
+        errors.append(
+            f"exploreTerritories reintroduces individual works as top-level territories: {sorted(forbidden_found)} "
+            "-- individual works belong under works-hub, not as their own Explorar territory"
+        )
+
     # Header V1 is intentionally compact and contains only primary territories.
     header = nav.get("header", [])
     if len(header) > 4:

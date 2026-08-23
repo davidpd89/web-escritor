@@ -114,3 +114,81 @@ No duplicar el trabajo del checker global de discoverability ni crear una segund
 # 4. Límite de la ronda
 
 La auditoría termina **exactamente en la línea 1200**. El documento 38 continúa después; no incorporar en esta PR hallazgos que solo aparezcan a partir de la línea 1201. Si el siguiente bloque modifica o contradice este diagnóstico con autoridad posterior, deberá revisarse en la ronda 1201–1400 antes de integrar.
+
+---
+
+# 5. Estado de implementación (2026-08-23)
+
+- `data/navigation.json`: `exploreTerritories` pasa de 6 entradas
+  (`work-manecillas`, `author`, `work-samuel`, `notebook-hub`, `tools-hub`,
+  `press`) a exactamente los 5 territorios estables acordados: `works-hub`,
+  `author`, `notebook-hub`, `tools-hub`, `press`.
+- `scripts/build-site-shell.py`: el copy de `works-hub` (fila y aside del
+  preview) ya existía preparado desde antes («La obra actual.», idéntico
+  al de `work-manecillas`) pero sin usarse. Se redacta un copy propio que
+  describe el territorio Obras en plural **sin degradar** a Manecillas
+  como obra actual: «Las manecillas del recuerdo, la obra actual, y el
+  resto de novelas publicadas.»
+- Shell regenerado en las 59 páginas V1 (`python scripts/build-site-shell.py`).
+- Manecillas y Samuel entre mundos **siguen siendo alcanzables**: Manecillas
+  vía el atajo «Leer un fragmento» y ambos dentro de Obras (`/libros/`).
+  No se ha tocado `exploreShortcuts`, `footer`, `homeMap` ni
+  `localNavSets`.
+- **Gate reforzado**: `scripts/check-navigation-coverage.py` (ya wireado en
+  3 workflows existentes: `content-index-check.yml`,
+  `findability-browser-qa.yml`, `global-discoverability-closure-qa.yml`,
+  sin duplicar ninguno) ahora exige exactamente los 5 territorios en el
+  orden acordado y bloquea explícitamente que `work-manecillas`/
+  `work-samuel` vuelvan a aparecer como territorios de primer nivel.
+- **Test nuevo**: `tests/test-check-navigation-coverage-territories.py`
+  (5 casos, contra el checker real y el `navigation.json` real con
+  backup/restauración) + `qa/explore-territories-browser.mjs` (Chromium
+  real): confirma los 5 territorios y sus `href`, que Manecillas no es
+  territorio de primer nivel pero sigue siendo alcanzable, y que
+  apertura/cierre, foco de entrada y retorno de foco con Escape del
+  diálogo Explorar siguen intactos.
+
+## Evidencia de ejecución (real)
+
+```
+$ python scripts/check-navigation-coverage.py
+PASS: navigation coverage (60 registry routes, 54 sitemap routes, 17 interactive tools)
+
+$ python scripts/build-site-shell.py --check
+CHECK: shell en 59 páginas
+
+$ python tests/test-check-navigation-coverage-territories.py
+  ok   navigation.json real con los 5 territorios estables pasa
+  ok   reintroducir work-manecillas como territorio se detecta
+  ok   reintroducir work-samuel como territorio se detecta
+  ok   menos de 5 territorios se detecta
+  ok   orden distinto de los 5 territorios se detecta
+tests/test-check-navigation-coverage-territories: OK
+
+$ QA_CHROMIUM_EXECUTABLE_PATH=... node qa/explore-territories-browser.mjs
+explore-territories-browser: PASS
+
+$ python scripts/check-heading-structure.py
+Heading/skip-link structure: 68 ficheros HTML revisados; 0 problema(s).
+
+$ python scripts/check-local-assets.py
+Local asset check: 88 HTML files scanned; 0 broken local reference(s).
+
+$ python scripts/check-internal-graph.py
+Summary: 0 error(s), 0 warning(s)
+
+$ python scripts/build-sitemap.py --check
+SITEMAP OK: 54 URLs
+
+$ node qa/sitewide-reflow-browser.mjs
+sitewide-reflow-browser: OK (67 routes, 2 viewports, 134 checks)
+
+$ python tests/test-samuel-ecosystem-parity.py
+samuel-ecosystem-parity: OK
+```
+
+**Prueba en rojo real**: el propio test
+`test-check-navigation-coverage-territories.py` reintroduce
+`work-manecillas`/`work-samuel` como territorios y confirma que
+`check-navigation-coverage.py` lo bloquea, sobre el `navigation.json` real
+del repo (con backup/restauración automática, nunca queda modificado).
