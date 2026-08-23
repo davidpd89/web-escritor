@@ -13,6 +13,9 @@ on:
       - 'cloudflare-worker-subscribe.js'
       - 'assets/assistant.js'
       - 'asistente/**'
+      - 'lectores-beta/**'
+      - 'qa/lectores-beta-browser.mjs'
+      - 'scripts/check-no-stale-contact-email.py'
   workflow_dispatch:
 
 permissions:
@@ -47,6 +50,12 @@ jobs:
       - name: Newsletter client contract
         if: always()
         run: node tests/test-newsletter-client-contract.mjs
+      - name: Lectores beta browser QA
+        if: always()
+        run: node qa/lectores-beta-browser.mjs
+      - name: Check no stale contact email
+        if: always()
+        run: python3 scripts/check-no-stale-contact-email.py --check
       - name: Install Lighthouse CI
         if: always()
         run: npm install --global @lhci/cli@0.15.1

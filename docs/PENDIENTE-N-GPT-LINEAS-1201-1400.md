@@ -194,3 +194,156 @@ Esta PR es un **brief de deuda**, no la implementación final. Para cerrarla com
 - publicación de una comunidad beta vacía;
 - duplicar la taxonomía analítica de #63;
 - duplicar Atlas (#59) o navegación (#68).
+
+---
+
+# Estado de implementación (2026-08-23)
+
+## N.2 — Validación empírica del Auditor de página de libro (hecho primero)
+
+- Corpus reproducible de **5 estructuras suficientemente distintas** en
+  `tests/fixtures/book-page-audit-corpus/`: 2 páginas **reales y
+  publicadas** del propio sitio (leídas directamente de
+  `libros/samuel-entre-mundos/index.html` y
+  `las-manecillas-del-recuerdo/index.html` — si la página real cambia,
+  este test lo nota) + 3 fixtures representativos derivados de patrones
+  reales (autopublicación mínima, editorial tradicional rica, y un bug de
+  CMS real y frecuente: JSON-LD desactualizado tras un cambio de título de
+  última hora).
+- `expectations.json` documenta, por cada estructura, qué debería y qué
+  NO debería detectar el motor — no se ha convertido ningún campo
+  opcional (ISBN, editorial, páginas, formato) en requisito para que un
+  fixture "pase".
+- **Hallazgo real durante la validación** (no un fallo, un comportamiento
+  correcto documentado): sin `expectedTitle` explícito, el motor usa el
+  título del `Book` JSON-LD como referencia, así que un caso de schema
+  desactualizado produce una señal doble (`book_title` en `review` +
+  `book_title_mismatch`) en vez de una sola — reforzado, no roto.
+- **0 falsos positivos, 0 falsos negativos** en las 5 estructuras: la
+  inconsistencia real (`book_title_mismatch`/`book_author_mismatch`) se
+  detecta; la que no existe (`book_isbn_mismatch`, ISBN idéntico en ambos
+  sitios) no se marca.
+- `tests/test-book-page-audit-corpus.mjs` (nuevo) ejecuta el motor real
+  contra las 5 estructuras y compara con `expectations.json`. Cubierto
+  automáticamente por `tool-tests.yml` (`for f in tests/*.mjs`), sin
+  necesidad de tocar ningún workflow.
+- La medición anónima de uso (`dp:analytics`) sigue delegada a #63, tal y
+  como pedía esta misma PR; no se ha implementado aquí.
+
+## N.1 — Fundación Lectores Beta V1+
+
+- **Landing propia**: `/lectores-beta/` (`noindex, follow` — operación
+  privada/semi-asistida, no promocionada en Explorar/header/footer;
+  registrada en `data/content-registry.json` como `status: "noindex"`,
+  mismo patrón que `work-jaula-staging`). Enlazada de forma discreta desde
+  la sección de contacto de `/autor.html` («Programa de lectores beta»).
+- **Consentimiento propio**, textualmente distinto de "recibir novedades
+  del autor": explica que implica recibir material sin publicar y que se
+  puede pedir opinión, y que es una lista separada de la newsletter
+  general.
+- **Lista de Brevo separada**: `cloudflare-worker-subscribe.js` añade
+  `source: "lectores-beta"` al whitelist y lo enruta a
+  `env.BREVO_BETA_LIST_ID` (nunca a `env.BREVO_LIST_ID`) — si esa
+  variable no está configurada, falla cerrado con 500, nunca cae a la
+  lista general. El Worker sigue siendo el mismo endpoint compartido, con
+  un contrato de fuente/lista claramente separado (explícitamente
+  permitido por el propio criterio de aceptación de esta PR).
+- **Flujo de alta propio en `script.js`**: mismo mecanismo de envío que el
+  resto de formularios, pero copy de éxito propio («programa de lectores
+  beta», nunca «novedades de David Porto Díaz»).
+- **Privacidad**: nueva finalidad específica en `privacidad.html`
+  (`#finalidad`), separada de la newsletter general, con enlace a
+  `/lectores-beta/`; base legal y derechos sin cambios; fecha de
+  actualización y changelog de la página revisados.
+- **Sin comunidad pública**: no se ha creado `/lectores-beta/comunidad/`,
+  ni directorios, ni perfiles, ni métricas decorativas — exactamente lo
+  que esta PR prohíbe explícitamente.
+- **QA determinista**:
+  - `tests/test-cloudflare-worker-subscribe.mjs` — 3 casos nuevos: lista
+    separada correcta, fallo cerrado sin `BREVO_BETA_LIST_ID`, fuentes
+    generales no afectadas.
+  - `qa/lectores-beta-browser.mjs` (navegador real) — sin consentimiento
+    no se envía nada; con consentimiento se envía exactamente
+    `{ email, source: "lectores-beta" }` y el copy de éxito no reutiliza
+    el de la newsletter general.
+  - Ambos wireados en `privacy-legal-browser-qa.yml` (ya cubría
+    `cloudflare-worker-subscribe.js`/`privacidad.html`, tema correcto para
+    esta pieza).
+
+## Hallazgo colateral corregido: email de contacto obsoleto
+
+Mientras se auditaba `autor.html` para N.1 se encontró que el documento
+1201–1400 daba por resuelto un bug que en realidad seguía vivo en **7
+sitios reales**, en dos formas que el grep literal de auditorías previas
+no atrapaba:
+
+- texto visible codificado con la entidad HTML `&#64;` (`samuelentremundos&#64;gmail.com`)
+  en `index.html` (×3), `libros/samuel-entre-mundos/index.html` (×2),
+  `autor.html` (×1) y `prensa.html` (×1) — el `href` real ya era correcto,
+  pero el texto copiable/legible no lo era;
+- `data-n="samuelentremundos"` en `clubes-de-lectura/samuel-entre-mundos/index.html`
+  — este SÍ era un bug funcional real: `script.js` reconstruye `href` en
+  tiempo de ejecución a partir de `data-n`, así que el enlace "Contactar
+  al autor" abría un `mailto:` a la dirección equivocada.
+
+Corregidas las 7 instancias a `davidportodiaz@gmail.com` (la dirección
+que ya usaban todos los `href` hardcodeados). **Gate nuevo**:
+`scripts/check-no-stale-contact-email.py` (+
+`tests/test-check-no-stale-contact-email.py`, 3 casos) impide que
+reaparezca, wireado en el mismo workflow.
+
+## Evidencia de ejecución (real)
+
+```
+$ node tests/test-book-page-audit-corpus.mjs
+[5/5 estructuras, 0 fallos]
+tests/test-book-page-audit-corpus: OK
+
+$ node tests/test-book-page-audit-rules.mjs
+tests/test-book-page-audit-rules: OK
+
+$ node tests/test-cloudflare-worker-subscribe.mjs
+test-cloudflare-worker-subscribe: all assertions passed
+
+$ node qa/newsletter-worker-contract.mjs
+newsletter Worker contract: PASS
+
+$ node tests/test-newsletter-client-contract.mjs
+test-newsletter-client-contract: all assertions passed
+
+$ QA_CHROMIUM_EXECUTABLE_PATH=... node qa/lectores-beta-browser.mjs
+lectores-beta-browser: PASS
+
+$ python scripts/check-no-stale-contact-email.py --check
+Stale contact email check: 0 incumplimiento(s).
+
+$ python tests/test-check-no-stale-contact-email.py
+[3/3 OK]
+
+$ python scripts/check-navigation-coverage.py
+PASS: navigation coverage (61 registry routes, 54 sitemap routes, 17 interactive tools)
+
+$ python scripts/check-internal-graph.py
+Summary: 0 error(s), 0 warning(s)   (lectores-beta/index.html correctamente excluido como noindex, no huérfano)
+
+$ python scripts/check-heading-structure.py
+Heading/skip-link structure: 69 ficheros HTML revisados; 0 problema(s).
+
+$ python scripts/check-local-assets.py
+Local asset check: 89 HTML files scanned; 0 broken local reference(s).
+
+$ python scripts/build-sitemap.py --check
+SITEMAP OK: 54 URLs
+
+$ python scripts/check-secrets.py
+No obvious secrets found in tracked files.
+
+$ node qa/sitewide-reflow-browser.mjs
+sitewide-reflow-browser: OK (68 routes, 2 viewports, 136 checks)
+```
+
+**Pruebas en rojo reales**: `check-no-stale-contact-email.py` detectó una
+reinyección de texto de prueba en `autor.html` (restaurado); el Worker
+real (`test-cloudflare-worker-subscribe.mjs`) confirma que
+`source: "lectores-beta"` sin `BREVO_BETA_LIST_ID` falla con 500 en vez
+de caer silenciosamente a la lista general.
