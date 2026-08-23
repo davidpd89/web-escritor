@@ -8,7 +8,8 @@ import path from 'node:path';
 const ROOT = process.cwd();
 const MIME = new Map([
   ['.html', 'text/html; charset=utf-8'], ['.css', 'text/css; charset=utf-8'],
-  ['.js', 'text/javascript; charset=utf-8'], ['.webp', 'image/webp'], ['.png', 'image/png'],
+  ['.js', 'text/javascript; charset=utf-8'], ['.mjs', 'text/javascript; charset=utf-8'],
+  ['.webp', 'image/webp'], ['.png', 'image/png'],
   ['.jpg', 'image/jpeg'], ['.svg', 'image/svg+xml'], ['.woff2', 'font/woff2'], ['.ico', 'image/x-icon'],
 ]);
 const server = createServer((req, res) => {
@@ -216,11 +217,21 @@ try {
     await context.close();
   }
 
+  // Volver arriba es opt-in (data-back-to-top, mismo contrato que
+  // data-reading-progress): la home no lo lleva, una página larga sí.
+  {
+    const context = await browser.newContext();
+    const page = await context.newPage();
+    await page.goto(`${ORIGIN}/`, { waitUntil: 'load' });
+    assert.equal(await page.locator('.back-to-top').count(), 0, 'home no debe inyectar back-to-top sin opt-in');
+    await context.close();
+  }
+
   // Volver arriba es inmediato en el mismo turno y respeta reduced motion.
   for (const [motion, expected] of [['no-preference', 'smooth'], ['reduce', 'auto']]) {
     const context = await browser.newContext({ reducedMotion: motion });
     const page = await context.newPage();
-    await page.goto(`${ORIGIN}/`, { waitUntil: 'load' });
+    await page.goto(`${ORIGIN}/fragmento/`, { waitUntil: 'load' });
     const result = await page.evaluate(() => {
       const calls = [];
       window.scrollTo = (options) => calls.push(options);
@@ -241,7 +252,7 @@ try {
     await page.locator('#nl-popup-dialog[open]').waitFor({ state: 'visible' });
     await noOverflow(page, 'popup-320');
     const animation = await page.locator('#nl-popup-dialog').evaluate((el) => getComputedStyle(el).animationDuration);
-    assert(['0s', '0.001ms'].includes(animation) || parseFloat(animation) === 0, `reduced motion popup: ${animation}`);
+    assert(parseFloat(animation) < 0.001, `reduced motion popup: ${animation}`);
     await context.close();
   }
   {

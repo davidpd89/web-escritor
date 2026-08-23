@@ -31,6 +31,28 @@
     }
   }
 
+  // El <dialog> nativo hace inerte el resto del documento, pero no garantiza
+  // el ciclo de Tab en todos los motores: tras el último elemento, un Tab
+  // puede mandar el foco a <body> antes de reciclar al primero. Trap manual.
+  function trapTabCycle(d) {
+    d.addEventListener("keydown", (event) => {
+      if (event.key !== "Tab") return;
+      const focusable = Array.from(
+        d.querySelectorAll('a[href], button:not([disabled]), input:not([disabled])')
+      ).filter((el) => el.offsetParent !== null);
+      if (!focusable.length) return;
+      const first = focusable[0];
+      const last = focusable[focusable.length - 1];
+      if (event.shiftKey && document.activeElement === first) {
+        event.preventDefault();
+        last.focus();
+      } else if (!event.shiftKey && document.activeElement === last) {
+        event.preventDefault();
+        first.focus();
+      }
+    });
+  }
+
   function buildDialog() {
     const d = document.createElement("dialog");
     d.id = "buy-dialog";
@@ -61,8 +83,6 @@
     d.addEventListener("click", (event) => {
       if (event.target === d) d.close();
     });
-    // No hay focus trap manual: showModal() hace modal el resto del documento
-    // y el navegador mantiene el ciclo de teclado dentro del <dialog>.
     d.addEventListener("close", () => {
       document.documentElement.classList.remove("modal-open");
       restoreFocus();
@@ -71,6 +91,7 @@
     d.querySelectorAll("[data-gc]").forEach((element) => {
       element.addEventListener("click", () => _gcEvent(element.dataset.gc, "Clic: " + element.dataset.gc));
     });
+    trapTabCycle(d);
     return d;
   }
 

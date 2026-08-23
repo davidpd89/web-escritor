@@ -96,8 +96,8 @@ def check_buy_modal_scope(root: Path, pages: list[Path]) -> list[str]:
     for token in required:
         if token not in js:
             errors.append(f"assets/samuel-buy-modal.js: falta contrato fail-closed: {token}")
-    if 'addEventListener("keydown"' in js:
-        errors.append("assets/samuel-buy-modal.js: focus trap manual reintroducido")
+    if 'document.addEventListener("keydown"' in js:
+        errors.append("assets/samuel-buy-modal.js: listener global de teclado/focus trap manual reintroducido")
     return errors
 
 

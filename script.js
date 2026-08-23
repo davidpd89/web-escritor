@@ -157,8 +157,11 @@ window.addEventListener("load", () => {
   document.body.appendChild(nav);
 })();
 
-// Back-to-top button — create, inject, and wire up
+// Back-to-top button — opt-in only (data-back-to-top on <body>), not
+// injected on every page. Long-form reading pages opt in explicitly, same
+// contract as data-reading-progress; utility/tool/legal pages don't need it.
 (function () {
+  if (!document.body.hasAttribute("data-back-to-top")) return;
   const btn = document.createElement("button");
   btn.className = "back-to-top";
   btn.setAttribute("aria-label", "Volver al inicio de la página");
@@ -177,10 +180,8 @@ window.addEventListener("load", () => {
   }, { passive: true });
 
   btn.addEventListener("click", () => {
-    scheduleTask(() => {
-      const reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-      window.scrollTo({ top: 0, behavior: reduced ? "auto" : "smooth" });
-    }, "user-visible");
+    const reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    window.scrollTo({ top: 0, behavior: reduced ? "auto" : "smooth" });
   });
 })();
 

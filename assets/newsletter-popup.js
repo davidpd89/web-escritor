@@ -62,6 +62,28 @@
     if (dialog?.open) dialog.close();
   }
 
+  // El <dialog> nativo hace inerte el resto del documento, pero no garantiza
+  // el ciclo de Tab en todos los motores: tras el último elemento, un Tab
+  // puede mandar el foco a <body> antes de reciclar al primero. Trap manual.
+  function trapTabCycle(d) {
+    d.addEventListener("keydown", (event) => {
+      if (event.key !== "Tab") return;
+      const focusable = Array.from(
+        d.querySelectorAll('a[href], button:not([disabled]), input:not([disabled])')
+      ).filter((el) => el.offsetParent !== null);
+      if (!focusable.length) return;
+      const first = focusable[0];
+      const last = focusable[focusable.length - 1];
+      if (event.shiftKey && document.activeElement === first) {
+        event.preventDefault();
+        last.focus();
+      } else if (!event.shiftKey && document.activeElement === last) {
+        event.preventDefault();
+        first.focus();
+      }
+    });
+  }
+
   function buildDialog(copy) {
     const d = document.createElement("dialog");
     d.id = "nl-popup-dialog";
@@ -139,6 +161,7 @@
       }, "user-blocking");
     });
 
+    trapTabCycle(d);
     return d;
   }
 
