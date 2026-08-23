@@ -97,6 +97,11 @@ jobs:
           --output data/site-human-stats.generated.html
           --json-output data/site-human-stats.generated.json
           --inject-into autor.html --check
+      # Solo verifica que la lista de paginas elegibles (derivada de
+      # content-registry.json) coincida con pagefind/eligible-manifest.json;
+      # no necesita Node/pagefind CLI para esto, solo para regenerar.
+      - name: Check the local Pagefind search index is not stale
+        run: python scripts/build-pagefind-index.py --check
       - name: Check /cuaderno/temas/ topic collections are up to date
         run: python scripts/build-topic-collections.py --data data/topic-collections.json --root . --check
       # El contrato "el texto no sale del navegador" es el argumento de venta
