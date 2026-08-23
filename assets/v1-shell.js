@@ -180,8 +180,21 @@
     if (!src) return;
     leaf.textContent = '';
     const n = 6;
-    const w = window.innerWidth;
-    const h = window.innerHeight;
+    const vw = window.innerWidth;
+    const vh = window.innerHeight;
+    // La foto final es retrato (720x1280, igual que el video). Sin este
+    // calculo, background-size a pantalla completa ESTIRA una imagen
+    // vertical al ancho de un viewport panoramico -- eso era la cara
+    // "deformandose a pantalla completa" en desktop que se veia antes de
+    // que arrancara el giro. object-fit:contain manual: mismo rectangulo
+    // que ya ocupaba el video (con barras negras a los lados si toca).
+    const PHOTO_W = 720;
+    const PHOTO_H = 1280;
+    const scale = Math.min(vw / PHOTO_W, vh / PHOTO_H);
+    const w = PHOTO_W * scale;
+    const h = PHOTO_H * scale;
+    const offsetX = (vw - w) / 2;
+    const offsetY = (vh - h) / 2;
     const stripW = w / n;
     // Rotacion incremental igual en cada tira: acumulada a lo largo de las
     // n tiras anidadas suma unos -168deg en la ultima (el borde libre),
@@ -191,7 +204,9 @@
     for (let i = 0; i < n; i += 1) {
       const strip = document.createElement('div');
       strip.className = 'intro__leaf-strip';
-      strip.style.left = i === 0 ? '0' : '100%';
+      strip.style.top = `${offsetY}px`;
+      strip.style.height = `${h}px`;
+      strip.style.left = i === 0 ? `${offsetX}px` : '100%';
       strip.style.width = `${stripW}px`;
       strip.style.backgroundImage = `url('${src}')`;
       strip.style.backgroundSize = `${w}px ${h}px`;
@@ -212,30 +227,48 @@
     }
   }
 
-  // Sonido de pagina sintetizado con Web Audio (rafaga corta de ruido
-  // filtrado) para no depender de un fichero de audio con licencia dudosa.
-  // Solo suena aqui, tras el clic de Entrar -- no en el resto de la web.
+  // Sonido de pagina sintetizado con Web Audio (rafaga de ruido filtrado
+  // con textura, no un solo golpe) para no depender de un fichero de audio
+  // con licencia dudosa. Solo suena aqui, tras el clic de Entrar -- no en
+  // el resto de la web. Un bandpass estrecho + una sola caida suave da un
+  // "chasquido" reconocible; el papel real es ruido de banda ancha con
+  // aleteo irregular (varias micro-rafagas), de ahi la modulacion de
+  // amplitud con varias frecuencias no relacionadas dentro del propio
+  // buffer, en vez de un unico envelope de ganancia.
   function playPageTurnSound() {
     try {
       const Ctx = window.AudioContext || window.webkitAudioContext;
       if (!Ctx) return;
       const ctx = new Ctx();
-      const duration = 0.45;
-      const buffer = ctx.createBuffer(1, ctx.sampleRate * duration, ctx.sampleRate);
+      const duration = 0.4;
+      const sr = ctx.sampleRate;
+      const buffer = ctx.createBuffer(1, Math.floor(sr * duration), sr);
       const data = buffer.getChannelData(0);
-      for (let i = 0; i < data.length; i += 1) data[i] = Math.random() * 2 - 1;
+      const flutterFreqs = [35 + Math.random() * 15, 85 + Math.random() * 25, 170 + Math.random() * 40];
+      for (let i = 0; i < data.length; i += 1) {
+        const t = i / sr;
+        const overall = Math.exp(-t * 4.5) * (1 - Math.exp(-t * 140));
+        let flutter = 0;
+        for (let f = 0; f < flutterFreqs.length; f += 1) flutter += Math.abs(Math.sin(2 * Math.PI * flutterFreqs[f] * t));
+        flutter = 0.35 + 0.65 * (flutter / flutterFreqs.length);
+        data[i] = (Math.random() * 2 - 1) * overall * flutter;
+      }
       const noise = ctx.createBufferSource();
       noise.buffer = buffer;
-      const bandpass = ctx.createBiquadFilter();
-      bandpass.type = 'bandpass';
-      bandpass.frequency.value = 2600;
-      bandpass.Q.value = 0.6;
+      // highpass quita el "thump" grave; peaking realza el brillo tipico
+      // del papel sin dejarlo todo en un solo tono como el bandpass antiguo.
+      const highpass = ctx.createBiquadFilter();
+      highpass.type = 'highpass';
+      highpass.frequency.value = 1700;
+      const peaking = ctx.createBiquadFilter();
+      peaking.type = 'peaking';
+      peaking.frequency.value = 4500;
+      peaking.Q.value = 0.8;
+      peaking.gain.value = 5;
       const gain = ctx.createGain();
+      gain.gain.value = 0.3;
+      noise.connect(highpass).connect(peaking).connect(gain).connect(ctx.destination);
       const now = ctx.currentTime;
-      gain.gain.setValueAtTime(0.0001, now);
-      gain.gain.exponentialRampToValueAtTime(0.28, now + 0.03);
-      gain.gain.exponentialRampToValueAtTime(0.0001, now + duration);
-      noise.connect(bandpass).connect(gain).connect(ctx.destination);
       noise.start(now);
       noise.stop(now + duration);
       noise.onended = () => ctx.close().catch(() => {});
