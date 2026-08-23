@@ -140,7 +140,11 @@ def count_sample_words(root: Path) -> tuple[int, int]:
 
 
 def verify_public_page(root: Path, rel: str, origin: str) -> Path:
-    """Comprueba que una ruta declarada por un registro es realmente pública."""
+    """Comprueba que una ruta declarada por un registro es realmente pública.
+
+    El registro dice qué cuenta; el HTML dice si de verdad está publicado. Las
+    dos cosas tienen que coincidir, o la cifra publicada miente.
+    """
     path = (root / rel).resolve()
     if not path.exists():
         raise ValueError(f'{origin}: la página declarada no existe: {rel}')
@@ -157,6 +161,18 @@ def verify_public_page(root: Path, rel: str, origin: str) -> Path:
 
 
 def count_works(root: Path) -> int:
+    """Obras publicadas, contadas desde data/content-registry.json.
+
+    Antes esto era `libros/*/index.html`, y por eso el sitio publicaba
+    «Libros publicados: 1»: Las manecillas del recuerdo vive en
+    /las-manecillas-del-recuerdo/, fuera de ese prefijo. El prefijo de URL es
+    una decisión de rutas, no la definición de qué es una obra publicada. La
+    autoridad es el registro de contenido.
+
+    Cuenta las entradas type=work que no son el propio hub de Obras y cuyo
+    estado efectivo es público — así Dónde empieza la jaula (status noindex)
+    queda fuera sola, y entra sola el día que se publique.
+    """
     registry = json.loads(read_text(root / 'data' / 'content-registry.json'))
     default_status = registry.get('defaults', {}).get('status', 'public')
     count = 0
@@ -164,7 +180,7 @@ def count_works(root: Path) -> int:
         if entry.get('type') != 'work':
             continue
         if entry.get('id') == entry.get('hubId'):
-            continue
+            continue  # el hub /libros/ no es una obra
         if entry.get('status', default_status) != 'public':
             continue
         source = entry.get('sourceFile')
@@ -176,6 +192,13 @@ def count_works(root: Path) -> int:
 
 
 def count_public_tools(root: Path) -> int:
+    """Herramientas públicas, contadas desde data/tools-hub.json.
+
+    Es la misma fuente que usa el titular de /herramientas/, así que los dos
+    números del sitio ya no pueden divergir. Contarlas por
+    `herramientas/*/index.html` daba 15 frente a las 17 del hub, porque hay
+    rutas internas bajo ese prefijo y herramientas publicadas fuera de él.
+    """
     hub = json.loads(read_text(root / 'data' / 'tools-hub.json'))
     tools = hub.get('tools', [])
     if not tools:
