@@ -12,8 +12,20 @@ const shots = new Set(["320x900","390x900","768x1000","1024x900","1440x1000","17
 const failures = [];
 const check = (cond, msg) => { if (!cond) failures.push(msg); };
 
-function watchRuntime(page) {
-  const state = { pageErrors: [], consoleErrors: [] };
+async function watchRuntime(page) {
+  const state = { pageErrors: [], consoleErrors: [], cspViolations: [] };
+  await page.exposeFunction("__recordAssistantCspViolation", violation => state.cspViolations.push(violation));
+  await page.addInitScript(() => {
+    document.addEventListener("securitypolicyviolation", event => {
+      void globalThis.__recordAssistantCspViolation({
+        effectiveDirective: event.effectiveDirective,
+        violatedDirective: event.violatedDirective,
+        blockedURI: event.blockedURI,
+        sourceFile: event.sourceFile,
+        lineNumber: event.lineNumber,
+      });
+    });
+  });
   page.on("pageerror", error => state.pageErrors.push(String(error)));
   page.on("console", msg => {
     if (msg.type() !== "error") return;
@@ -37,7 +49,7 @@ async function lastAssistantText(page) {
 for (const [width, height] of viewports) {
   const context = await browser.newContext({ viewport: { width, height }, reducedMotion: "reduce" });
   const page = await context.newPage();
-  const runtime = watchRuntime(page);
+  const runtime = await watchRuntime(page);
   let assistantPosts = 0;
   let turnstileRequests = 0;
   const sentinel = "ASSISTANT_LOCAL_QUERY_SENTINEL_582931";
@@ -98,6 +110,7 @@ for (const [width, height] of viewports) {
   check(textResilience <= 1, `${width}x${height}: long-token overflow ${textResilience}px`);
   check(runtime.pageErrors.length === 0, `${width}x${height}: pageerrors ${runtime.pageErrors.join(" | ")}`);
   check(runtime.consoleErrors.length === 0, `${width}x${height}: console errors ${runtime.consoleErrors.join(" | ")}`);
+  check(runtime.cspViolations.length === 0, `${width}x${height}: CSP violations ${JSON.stringify(runtime.cspViolations)}`);
   await context.close();
 }
 
@@ -105,7 +118,7 @@ for (const [width, height] of viewports) {
 {
   const context = await browser.newContext({ viewport: { width: 390, height: 900 } });
   const page = await context.newPage();
-  const runtime = watchRuntime(page);
+  const runtime = await watchRuntime(page);
   let posts = 0;
   page.on("request", request => { if (request.url().includes("/api/assistant") && request.method() === "POST") posts += 1; });
   await page.goto(`${origin}/asistente/`, { waitUntil: "networkidle" });
@@ -117,6 +130,7 @@ for (const [width, height] of viewports) {
   check(await page.locator('[data-assistant-log] .assistant-message__sources a').count() >= 1, 'local knowledge: canonical source missing');
   check(posts === 0, 'local knowledge: should not POST remotely');
   check(runtime.pageErrors.length === 0, `local knowledge: pageerrors ${runtime.pageErrors.join(" | ")}`);
+  check(runtime.cspViolations.length === 0, `local knowledge: CSP violations ${JSON.stringify(runtime.cspViolations)}`);
   await context.close();
 }
 
@@ -125,7 +139,7 @@ for (const [width, height] of viewports) {
 {
   const context = await browser.newContext({ viewport: { width: 390, height: 900 }, reducedMotion: "reduce" });
   const page = await context.newPage();
-  const runtime = watchRuntime(page);
+  const runtime = await watchRuntime(page);
   const remoteQuery = "ASSISTANT_REMOTE_QUERY_SENTINEL_482731";
   let posts = 0;
   let invalidMode = false;
@@ -166,7 +180,12 @@ for (const [width, height] of viewports) {
   check(answerText.includes('<img src=x onerror="alert(1)">'), "remote mock: HTML payload not rendered as literal text");
   check(await page.locator('[data-assistant-log] img').count() === 0, "remote mock: XSS created an element");
   check(answerText.includes("[1]"), "remote mock: citation marker not numbered");
-  check(await page.locator('[data-assistant-log] .assistant-message__sources a').last().getAttribute("href") === "/autor.html", "remote mock: source href drift");
+  const remoteSources = page.locator('[data-assistant-log] .assistant-message__sources a');
+  const remoteSourceCount = await remoteSources.count();
+  check(remoteSourceCount >= 1, `remote mock: source link missing; CSP violations ${JSON.stringify(runtime.cspViolations)}`);
+  if (remoteSourceCount >= 1) {
+    check(await remoteSources.last().getAttribute("href") === "/autor.html", "remote mock: source href drift");
+  }
   check(posts === 1, `remote mock: expected exactly one POST, got ${posts}`);
   check(leaked.length === 0, `remote mock: query leaked outside assistant POST ${JSON.stringify(leaked)}`);
 
@@ -180,6 +199,7 @@ for (const [width, height] of viewports) {
   check(posts === 2, `remote invalid payload: expected second POST, got ${posts}`);
   check(runtime.pageErrors.length === 0, `remote mock: pageerrors ${runtime.pageErrors.join(" | ")}`);
   check(runtime.consoleErrors.length === 0, `remote mock: console errors ${runtime.consoleErrors.join(" | ")}`);
+  check(runtime.cspViolations.length === 0, `remote mock: CSP violations ${JSON.stringify(runtime.cspViolations)}`);
   await context.close();
 }
 
@@ -232,4 +252,4 @@ if (failures.length) {
   console.error("Assistant browser QA FAILED:\n- " + failures.join("\n- "));
   process.exit(1);
 }
-console.log(`assistant-browser: OK (${viewports.length} viewports, 6 screenshots, local knowledge, remote mock, XSS, privacy sentinel, keyboard, no-JS, reduced-motion, text-spacing)`);
+console.log(`assistant-browser: OK (${viewports.length} viewports, 6 screenshots, local knowledge, remote mock, XSS, privacy sentinel, keyboard, no-JS, reduced-motion, text-spacing, CSP violations)`);
