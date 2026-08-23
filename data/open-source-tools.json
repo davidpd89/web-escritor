@@ -9,8 +9,9 @@
       "name": "Analizador de legibilidad en español",
       "description": "Métricas descriptivas de legibilidad (Inflesz, Fernández-Huerta) procesadas localmente, sin enviar el texto a un servidor.",
       "demo_url": "https://davidportodiaz.com/herramientas/legibilidad/",
-      "files": ["legibilidad-engine.js"],
-      "third_party": [],
+      "files": ["legibilidad-engine.js", "silabajs-lite-2.1.0.js"],
+      "third_party": ["silabajs-lite-2.1.0.js: adaptación de silabajs 2.1.0 (https://github.com/nicofrem/silabajs), autor Nicolás Cofré Méndez, licencia MIT"],
+      "tests": ["test-legibilidad.mjs"],
       "export": false
     },
     {
@@ -20,6 +21,7 @@
       "demo_url": "https://davidportodiaz.com/herramientas/dialogo/",
       "files": ["dialogo-espanol.js"],
       "third_party": [],
+      "tests": ["test-dialogo.mjs"],
       "export": false
     },
     {
@@ -29,7 +31,8 @@
       "demo_url": "https://davidportodiaz.com/herramientas/repeticiones/",
       "files": ["repeticiones-engine.js"],
       "third_party": [],
-      "export": false
+      "export": false,
+      "_tests_note": "tests/test-repeticiones.mjs no se declara aqui: ademas del engine, lee repeticiones-espanol.js (wiring acoplado al DOM) via readFileSync(new URL(...)), que no forma parte de este export."
     },
     {
       "slug": "variedad-lexica",
@@ -38,7 +41,8 @@
       "demo_url": "https://davidportodiaz.com/herramientas/variedad-lexica/",
       "files": ["variedad-lexica-engine.js"],
       "third_party": [],
-      "export": false
+      "export": false,
+      "_tests_note": "tests/test-variedad-lexica.mjs no se declara aqui: ademas del engine, lee variedad-lexica.js (wiring acoplado al DOM) via readFileSync(new URL(...)), que no forma parte de este export."
     },
     {
       "slug": "nombres-personajes",
@@ -47,6 +51,7 @@
       "demo_url": "https://davidportodiaz.com/herramientas/nombres-personajes/",
       "files": ["nombres-personajes-engine.js"],
       "third_party": [],
+      "tests": ["test-nombres-personajes.mjs"],
       "export": false
     },
     {
@@ -56,6 +61,7 @@
       "demo_url": "https://davidportodiaz.com/herramientas/distribucion-pov/",
       "files": ["pov-distribucion-engine.js", "pov-distribucion.js"],
       "third_party": [],
+      "tests": ["test-pov-distribucion.mjs"],
       "export": false
     },
     {
@@ -65,6 +71,7 @@
       "demo_url": "https://davidportodiaz.com/herramientas/tiempo-lectura-voz-alta/",
       "files": ["tiempo-lectura-voz-alta.js"],
       "third_party": [],
+      "tests": ["test-tiempo-lectura-voz-alta.mjs"],
       "export": false
     },
     {
@@ -74,6 +81,7 @@
       "demo_url": "https://davidportodiaz.com/herramientas/json-ld-escritores/",
       "files": ["jsonld-escritores-core.js"],
       "third_party": [],
+      "tests": ["test-jsonld-escritores-core.mjs"],
       "export": false
     }
   ]

@@ -21,7 +21,7 @@ ROOT = Path(__file__).resolve().parents[1]
 ORIGIN = "https://davidportodiaz.com"
 OUT = ROOT / "artifacts" / "global-discoverability" / "inventory.json"
 
-INTERNAL_PREFIXES = ("publicar-web/", "lecturas/", "herramientas/auditor-web/")
+INTERNAL_PREFIXES = ("publicar-web/", "lecturas/", "herramientas/auditor-web/", "tests/")
 LAB_PREFIXES = ("lab/",)
 GATED_PREFIXES = ("donde-empieza-la-jaula/",)
 GENERATED_ROUTE_PREFIXES = (
