@@ -153,6 +153,18 @@ html.v1 .map-routes path:first-child{
   opacity:var(--route-work-opacity);
   transition:opacity var(--motion-state) var(--ease-standard),stroke var(--motion-state) var(--ease-standard),stroke-width var(--motion-state) var(--ease-standard);
 }
+/* W.3 — entrance reveal, once, when the map scrolls into view. The "work"
+   route is a real stroked path and draws with dasharray; "process"/"public"
+   are CSS mask-image bars (opacity already carries the hover-emphasis
+   variable), so they sweep in via clip-path instead so the two mechanisms
+   don't fight over the same property. No JS / reduced-motion: everything
+   just renders fully visible, matching the map's static/no-JS contract. */
+@media (prefers-reduced-motion:no-preference){
+  html.v1 .map-stage[data-armed] .map-routes path:first-child{stroke-dasharray:2600;stroke-dashoffset:2600;transition:stroke-dashoffset 1.15s var(--ease-standard),opacity var(--motion-state) var(--ease-standard),stroke var(--motion-state) var(--ease-standard),stroke-width var(--motion-state) var(--ease-standard)}
+  html.v1 .map-stage[data-revealed] .map-routes path:first-child{stroke-dashoffset:0}
+  html.v1 .map-stage[data-armed]::before,html.v1 .map-stage[data-armed]::after{clip-path:inset(0 100% 0 0);transition:clip-path 1.15s var(--ease-standard),opacity var(--motion-state) var(--ease-standard)}
+  html.v1 .map-stage[data-revealed]::before,html.v1 .map-stage[data-revealed]::after{clip-path:inset(0 0 0 0)}
+}
 html.v1 .map-nodes{z-index:1}
 html.v1 .map-node{
   min-block-size:52px;

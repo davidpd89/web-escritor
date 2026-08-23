@@ -164,6 +164,21 @@
         sync();
       });
     });
+
+    // One-time route reveal once the map enters view. CSS gates the actual
+    // animation behind prefers-reduced-motion, so armed-but-unsupported
+    // browsers and reduced-motion users both just see the routes as-is.
+    if ('IntersectionObserver' in window) {
+      map.dataset.armed = 'true';
+      const io = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+          if (!entry.isIntersecting) return;
+          map.dataset.revealed = 'true';
+          io.disconnect();
+        });
+      }, { threshold: 0.3 });
+      io.observe(map);
+    }
   }
 
   function initAssistantWidget() {
