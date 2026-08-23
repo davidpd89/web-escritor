@@ -1,219 +1,68 @@
 # Pendiente B — Completar el flujo de doble confirmación de Brevo
 
-> **Actualización de revisión 23/08/2026.** La implementación final de esta PR usa el endpoint DOI oficial `POST /v3/contacts/doubleOptinConfirmation`, con `BREVO_DOI_TEMPLATE_ID`, `BREVO_LIST_ID` y `BREVO_DOI_REDIRECT_URL` configurados server-side. El rate limit KV descrito en el borrador original queda sustituido por el binding nativo `RATE_LIMITER` de Cloudflare Workers. El honeypot ya no se desplaza a `left:-9999px`: usa clipping + `inert` sin overflow. Tras el POST el estado es `pending_confirmation`; `nl-subscribed=1` solo se fija en la página de retorno tras confirmar el email.
+Fecha de revisión final: 2026-08-23 · Base: `implementacion-web-2026` · Rama: `pendiente-b-brevo-worker-doi`
 
-Fecha: 2026-08-22 · Rama base: `implementacion-web-2026` · Rama de esta tarea: `pendiente-b-brevo-worker-doi`
+## Alcance
 
-> **Alcance de esta PR y solo esta.** Toca `cloudflare-worker-subscribe.js`,
-> `scripts/test-worker-subscribe.mjs` y una página nueva
-> `/gracias-suscripcion/`. No toques `script.js` salvo la única línea que se
-> indica abajo (ya existe y solo hay que confirmarla, no reescribirla) — el
-> resto de `script.js` lo tocan otras PRs (C) y no deben pisarse.
->
-> **No requiere claves reales de Brevo/Cloudflare.** Todo esto se escribe y se
-> prueba con los tests existentes del Worker, que no llaman a la API real
-> (`scripts/test-worker-subscribe.mjs` ya tiene 16 casos sin red). El
-> **despliegue** del Worker con las variables de entorno reales queda fuera de
-> esta PR — eso lo hace David con sus propias claves, aquí después.
->
-> **No es diseño final.** La página `/gracias-suscripcion/` es funcional (un
-> mensaje de confirmación + reintento), no necesita acabado visual — usa los
-> componentes/clases que ya existen en `styles.css` para mensajes de estado.
-> Si el resultado no encaja visualmente, se retoca aquí con David delante;
-> lo importante es que la lógica y el contrato funcionen.
+Esta PR cierra el flujo de newsletter desde el formulario hasta el retorno de confirmación sin desplegar nada ni guardar credenciales reales. Los cambios se limitan al Worker de suscripción, el cliente de newsletter en `script.js`, la página `/gracias-suscripcion/`, tests mockeados y documentación operativa.
 
----
+## DOI real de Brevo
 
-## B.1 — Falta la página de retorno del DOI
+El alta inicial usa `POST https://api.brevo.com/v3/contacts/doubleOptinConfirmation`.
 
-### El problema
+El navegador solo envía `{ email, source, result?, website? }`. El Worker construye server-side:
 
-```bash
-$ ls gracias-suscripcion/
-ls: cannot access 'gracias-suscripcion/': No such file or directory
+- `includeListIds` desde `BREVO_LIST_ID`;
+- `templateId` desde `BREVO_DOI_TEMPLATE_ID`;
+- `redirectionUrl` desde `BREVO_DOI_REDIRECT_URL`;
+- `attributes` desde listas cerradas de source y resultado del quiz.
 
-$ grep -n "gracias-suscripcion" script.js
-645:  if (path.startsWith("/empieza-aqui/") || path.startsWith("/gracias-suscripcion/")) return false;
-```
+Solo una respuesta Brevo `201 Created` se traduce a `{ "ok": true, "state": "pending_confirmation" }`. Ningún 2xx inesperado ni un error de «contacto existente» se interpreta como confirmación.
 
-`script.js` ya tiene lógica que reconoce la ruta `/gracias-suscripcion/` (para
-no reabrir el popup de newsletter en esa página), pero la página nunca se
-construyó. Sin ella, cualquier lector que confirme su email desde Brevo cae en
-un 404 real.
+El frontend no escribe `nl-subscribed=1` al enviar. Muestra «Revisa tu correo» y considera la suscripción pendiente. `nl-subscribed=1` se fija únicamente en `/gracias-suscripcion/`, la página de retorno tras el clic del usuario en el email DOI.
 
-El dossier de propuestas ya documentaba el orden exacto en
-`WEB DAVID PORTO nuevas ideas/22_BREVO_GUIA_TECNICA_API_Y_OPERACION.md`
-(sección "Actualización 16/08/2026 — página de retorno DOI"):
+## Página de retorno
 
-1. crear `/gracias-suscripcion/index.html` — **esta PR**;
-2. desplegar el Worker con `BREVO_DOI_REDIRECT_URL` apuntando a esa URL —
-   **fuera de esta PR**, requiere claves reales;
-3. probar el recorrido completo con una dirección de prueba — **fuera de esta
-   PR**, requiere el Worker desplegado.
+`/gracias-suscripcion/index.html` es `noindex, follow`, declara la confirmación y fija el estado local antes de cargar el runtime global para impedir que el popup reaparezca. Usa el shell del sitio y queda sujeto al builder existente.
 
-### Qué hacer
+## Honeypot
 
-Crear `/gracias-suscripcion/index.html`:
+`website` sigue siendo un input de texto para bots simples, pero vive en un wrapper `aria-hidden` + `inert`, fuera de tabulación y recortado con `clip`/`clip-path`. No usa `left:-9999px` ni crea overflow horizontal.
 
-- `<meta name="robots" content="noindex, follow">` — no es una página que deba
-  indexarse.
-- Antes de cargar `script.js`, fija el estado local igual que ya hace el
-  propio `script.js` en los otros puntos de confirmación (busca
-  `localStorage.setItem("nl-subscribed", "1")` en `script.js` líneas ~429,
-  435, 510, 514 y replica el mismo patrón inline en el `<head>` de esta
-  página, para que el estado quede fijado antes de que el runtime global
-  decida si reabre el popup).
-- Mensaje claro: confirmación recibida, ya está suscrito. Un enlace de vuelta
-  a inicio y, si tiene sentido, a la ficha de Las manecillas.
-- Reutiliza el shell del sitio (usa `scripts/site_shell.py` /
-  `build-site-shell.py` como el resto de páginas generadas, o el patrón HTML a
-  mano si esta página se mantiene simple y fuera del generador — revisa cómo
-  están hechas páginas equivalentes como `/gracias/` si existe alguna, o si
-  no, sigue el patrón de `empieza-aqui/index.html` como referencia de
-  estructura mínima con shell).
-- No necesita GoatCounter especial más allá de lo que ya carga el shell común.
+Si llega relleno, el Worker devuelve el mismo `201 pending_confirmation` externo que una petición DOI aceptada y no llama ni al limiter ni a Brevo.
 
-### Criterio de aceptación
+## Rate limiting
 
-- `/gracias-suscripcion/index.html` existe, es `noindex,follow`, pasa por
-  `scripts/build-site-shell.py --check` si aplica al patrón que sigas.
-- Visitarla en local con `nl-subscribed` sin fijar previamente hace que quede
-  fijado (compruébalo con el propio flujo del popup: tras visitar esta
-  página, recarga otra página del sitio y confirma que el popup no aparece).
+No se usa KV `get → put`. Se usa el binding nativo de Cloudflare Workers Rate Limiting `RATE_LIMITER`.
 
----
+- key: `newsletter:` + SHA-256 del email normalizado; el limiter no recibe el email en claro;
+- no se usa una IP compartida como única clave;
+- `success:false` → `429` antes de Brevo;
+- binding ausente, inválido o con excepción → log explícito y fail-open para no bloquear lectores por un error de despliegue. En ese estado la protección está desactivada y el despliegue no debe considerarse completo.
 
-## B.2 — El Worker no tiene honeypot
+El límite y `namespace_id` se configuran con valores reales en Cloudflare; no se inventan en el repositorio.
 
-### El problema
+## Validación, privacidad y errores
 
-```bash
-$ grep -n "honeypot" cloudflare-worker-subscribe.js
-(sin resultados)
-```
+- Origin distinto del sitio → `403`; CORS solo expone `Access-Control-Allow-Origin` al origen permitido y añade `Vary: Origin`.
+- JSON, email o source inválidos → `400` sin Brevo.
+- Configuración Brevo incompleta → `500` genérico, sin Brevo.
+- Rate limit → `429`.
+- Error de red, error HTTP de Brevo o 2xx inesperado → `502` genérico.
+- El body de error de Brevo no debe reenviarse ni registrarse: puede contener PII o detalles del proveedor.
+- Las respuestas JSON llevan `Cache-Control: no-store`.
+- Quiz, formularios y popup usan una guardia de envío para impedir POST simultáneos.
 
-El contrato de cliente documentado en el dossier incluye un campo `website`
-que actúa de honeypot (formulario invisible que un humano nunca rellena, pero
-un bot sí). No existe ni el campo ni la validación en el Worker actual.
+## Tests mockeados
 
-### Qué hacer
+Sin red ni credenciales reales. Cobertura exigida: DOI happy path y payload, CORS, email/source inválidos, honeypot, limiter permitido/bloqueado/degradado, configuración incompleta, error/duplicado de Brevo sin fuga, quiz válido/inválido/no-quiz, semántica `pending_confirmation`, retorno confirmado, honeypot sin overflow, doble envío, Sitewide Reflow y tests generales afectados.
 
-1. En `cloudflare-worker-subscribe.js`, añadir al contrato de entrada un campo
-   opcional `website` (string).
-2. Si `website` llega con cualquier contenido no vacío, el Worker debe
-   responder **igual que un alta legítima** (mismo código de estado, mismo
-   cuerpo de respuesta genérico) pero **no debe llamar a la API de Brevo ni
-   crear ningún contacto**. No reveles al llamante que fue detectado como bot
-   — eso es lo que hace útil al honeypot.
-3. En el frontend (probablemente en el formulario de newsletter dentro de
-   `index.html` / donde esté el `<form>` que llama al Worker), añade el campo
-   oculto `website` si no existe ya, con las técnicas habituales para que sea
-   invisible a un humano pero visible a un bot simple (`position: absolute;
-   left: -9999px` o `tabindex="-1" aria-hidden="true"` + `autocomplete="off"`
-   — no uses `display:none` ni `type="hidden"`, algunos bots los ignoran a
-   propósito).
-4. Añade casos de prueba en `scripts/test-worker-subscribe.mjs`:
-   - `website` vacío o ausente → comportamiento normal, sin cambios.
-   - `website` con contenido → respuesta idéntica a un alta válida en forma,
-     pero verificable (con un mock/spy) que no se llamó a la API de Brevo.
+## Configuración externa pendiente antes de desplegar
 
-### Criterio de aceptación
+1. elegir o crear un template DOI real en Brevo y verificar que su detalle tenga `doiTemplate: true`;
+2. configurar `BREVO_API_KEY`, `BREVO_LIST_ID`, `BREVO_DOI_TEMPLATE_ID` y `BREVO_DOI_REDIRECT_URL` en Cloudflare;
+3. crear/configurar `RATE_LIMITER` con `namespace_id` real y el límite acordado;
+4. publicar primero el frontend compatible y después desplegar manualmente el Worker;
+5. smoke test real: envío → email DOI → clic → `/gracias-suscripcion/`.
 
-- Test nuevo en `scripts/test-worker-subscribe.mjs` cubre ambos casos y pasa.
-- La respuesta HTTP a un intento con honeypot relleno es indistinguible de un
-  alta exitosa desde fuera (mismo status, mismo cuerpo).
-
----
-
-## B.3 — Sin rate limiting
-
-### El problema
-
-El propio Worker lo admite en un comentario:
-
-```js
-// cross-site browser requests, but they are NOT rate limiting or bot
-// ...
-// add Turnstile and/or a KV-backed rate limit; neither is implemented here
-```
-
-Confirmado repetidamente en el dossier como puerta de publicación pendiente.
-
-### Qué hacer
-
-No hace falta activar Turnstile (necesita clave/sitekey de Cloudflare, fuera
-de esta PR). Sí puedes dejar preparado un **rate limit mediante el binding nativo de Cloudflare Workers Rate Limiting**:
-
-1. Define un límite razonable (por ejemplo, N intentos por IP por ventana de
-   tiempo — decide un valor conservador y documéntalo, p. ej. 5 intentos/10
-   minutos).
-2. Si el Worker no tiene ya un binding de KV en `wrangler.toml`/config
-   equivalente, añade el binding necesario (nombre descriptivo,
-   `RATE_LIMIT_KV` o similar) y documenta en la PR que hace falta crear el
-   namespace real en Cloudflare antes de desplegar — eso es responsabilidad
-   de quien tenga las claves, no tuya aquí.
-3. Implementa la lógica: leer contador por IP, incrementar, expirar por TTL,
-   devolver un 429 genérico si se supera el límite (sin dar detalles que
-   ayuden a un atacante a calibrar el límite exacto).
-4. Test: como no hay KV real en local, escribe el test con un mock/stub del binding `RATE_LIMITER`
-   (objeto en memoria con `get`/`put` compatibles) para verificar la lógica de
-   conteo y expiración sin depender de Cloudflare real.
-
-### Criterio de aceptación
-
-- Código de rate limiting existe, con su propio test usando un KV simulado.
-- La PR documenta explícitamente qué falta configurar en Cloudflare
-  (namespace KV real) antes de que esto funcione en producción — no lo dejes
-  implícito.
-
----
-
-## Reglas de la casa
-
-1. No se toca `main` ni se despliega el Worker.
-2. No pongas ni menciones ninguna clave real en el código, tests, ni en la
-   descripción de la PR.
-3. Si un test necesita simular la API de Brevo, usa un mock — nunca apuntes a
-   la API real, ni siquiera con una clave de prueba.
-4. No debilites ningún test existente de `scripts/test-worker-subscribe.mjs`
-   para que pasen los nuevos casos — deben sumar, no reemplazar cobertura.
-5. No inventes un PASS: pega en la PR la salida real de
-   `node scripts/test-worker-subscribe.mjs`.
-
-## Test plan
-
-- [x] `node scripts/test-worker-subscribe.mjs` — todos los casos anteriores + los nuevos de honeypot y rate limit, en verde
-- [x] `/gracias-suscripcion/` responde 200 en local (`python -m http.server 4173`), `noindex,follow` confirmado en el HTML
-- [x] Documentado en la PR qué falta configurar en Cloudflare (KV namespace, `BREVO_DOI_REDIRECT_URL`) antes del despliegue real
-
----
-
-## Estado de implementación (revisión externa 2026-08-22)
-
-- [x] B.1: `/gracias-suscripcion/index.html` existe, `noindex,follow`, fija
-  `nl-subscribed` antes de cargar `script.js`, pasa `build-site-shell.py --check`
-  y no aparece en `sitemap.xml` (correcto, al ser noindex).
-- [x] B.2: honeypot `website` implementado en `cloudflare-worker-subscribe.js`
-  (devuelve `{ ok: true }` sin llamar a Brevo) e inyectado en los tres flujos
-  del frontend (`quiz`, popup, `submitNewsletter` genérico) vía
-  `honeypotValue()` en `script.js`.
-- [x] B.3: rate limit KV-backed (`RATE_LIMIT_KV`, 5 intentos/10 min) con
-  degradación segura a "sin límite" si el binding no existe todavía en
-  Cloudflare. Documentado en el propio Worker (deploy steps 15-21) y en
-  `docs/BREVO-WORKER-DEPLOY.md`.
-
-### Evidencia de ejecución (verificado en revisión externa)
-
-```text
-$ node tests/test-cloudflare-worker-subscribe.mjs
-test-cloudflare-worker-subscribe: all assertions passed
-
-$ node tests/test-newsletter-client-contract.mjs
-test-newsletter-client-contract: all assertions passed
-
-$ python scripts/build-sitemap.py --check
-SITEMAP OK: 54 URLs
-
-$ python scripts/check-global-discoverability.py
-PASS: global discoverability (89 tracked HTML artifacts; 54 indexable; search=POSPUESTO; map=60 human destinations)
-```
+Nada de lo anterior se despliega desde esta PR.
