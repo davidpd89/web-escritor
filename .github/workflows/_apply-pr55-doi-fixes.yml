@@ -1,0 +1,46 @@
+name: Apply PR55 DOI fixes
+
+on:
+  push:
+    branches:
+      - pendiente-b-brevo-worker-doi
+    paths:
+      - 'scripts/_apply-pr55-doi-fixes.py'
+      - '.github/workflows/_apply-pr55-doi-fixes.yml'
+
+permissions:
+  contents: write
+
+jobs:
+  apply:
+    if: github.actor != 'github-actions[bot]'
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: pendiente-b-brevo-worker-doi
+          fetch-depth: 0
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+
+      - name: Apply asserted fixes
+        run: python scripts/_apply-pr55-doi-fixes.py
+
+      - name: Run focused tests before push
+        run: |
+          node tests/test-cloudflare-worker-subscribe.mjs
+          node tests/test-newsletter-doi-frontend.mjs
+          node scripts/test-worker-subscribe.mjs
+          git diff --check
+
+      - name: Commit product changes only
+        run: |
+          git config user.name github-actions[bot]
+          git config user.email 41898282+github-actions[bot]@users.noreply.github.com
+          git add -- cloudflare-worker-subscribe.js script.js tests/test-cloudflare-worker-subscribe.mjs tests/test-newsletter-doi-frontend.mjs docs/BREVO-WORKER-DEPLOY.md docs/PENDIENTE-B-BREVO-WORKER-DOI.md
+          git diff --cached --check
+          git commit -m "fix(newsletter): implement real Brevo DOI flow"
+          git push origin HEAD:pendiente-b-brevo-worker-doi
