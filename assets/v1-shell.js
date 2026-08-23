@@ -171,7 +171,7 @@
   }
 
   // Trocea .intro__leaf en N tiras verticales anidadas (cada una dentro de
-  // la anterior) para que el giro de "pasar pagina" se vea curvado en vez
+  // la anterior) para que el giro de "pasar página" se vea curvado en vez
   // de una tabla rigida girando de una pieza: al estar anidadas, la
   // rotacion de cada tira se suma a la de sus antecesoras, asi que la
   // hoja se va "enrollando" de derecha (borde libre) a izquierda (lomo).
