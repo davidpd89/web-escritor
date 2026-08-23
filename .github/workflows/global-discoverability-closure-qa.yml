@@ -23,7 +23,9 @@ on:
       - 'scripts/build-sitemap.py'
       - 'scripts/check-internal-graph.py'
       - 'scripts/check-global-discoverability.py'
+      - 'scripts/build-public-dist.py'
       - 'tests/test-pwa-api-bypass.mjs'
+      - 'tests/test-staging-publication-gate.py'
       - 'qa/global-discoverability-browser.mjs'
       - '.github/workflows/global-discoverability-closure-qa.yml'
   workflow_dispatch:
@@ -53,6 +55,13 @@ jobs:
 
       - name: Global public-route and shell contract
         run: python scripts/check-global-discoverability.py
+
+      - name: Staging/gated publication gate (real dist + fixture regression)
+        run: |
+          python tests/test-staging-publication-gate.py
+          python scripts/build-public-dist.py --out .preview-dist-ci
+          python scripts/build-public-dist.py --out .preview-dist-ci --check-contents
+          rm -rf .preview-dist-ci
 
       - name: Existing navigation coverage contract
         run: python scripts/check-navigation-coverage.py

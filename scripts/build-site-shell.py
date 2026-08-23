@@ -53,14 +53,14 @@ SOCIAL_ROW = (
 
 # Copy exacto de las 59 páginas escritas a mano, antes de que este builder
 # existiera (recuperado de origin/implementacion-web-2026 con `git show`), no
-# una redacción nueva. `works-hub`/`notebook-hub`/`tools-hub` no forman parte
-# del Explorar de ninguna página real hoy —viven aquí para el día en que
-# `exploreTerritories` los declare— y llevan copy equivalente a su territorio,
-# no una entrada por separado inventada.
+# una redacción nueva -- excepto `works-hub`, redactado para M.1 cuando pasó
+# a sustituir a los dos libros individuales como territorio estable de
+# Explorar (antes vivía aquí sin usarse, con el mismo copy que
+# `work-manecillas`, a la espera de que `exploreTerritories` lo declarase).
 PREVIEW_COPY = {
     "work-manecillas": "La obra actual.",
     "work-samuel": "Primera novela publicada.",
-    "works-hub": "La obra actual.",
+    "works-hub": "Las manecillas del recuerdo, la obra actual, y el resto de novelas publicadas.",
     "notebook-hub": "Artículos y piezas editoriales.",
     "tools-hub": "Utilidades gratuitas para escritores.",
     "author": "Biografía, obra y trayectoria.",
@@ -72,7 +72,7 @@ PREVIEW_COPY = {
 PREVIEW_ASIDE_COPY = {
     "work-manecillas": "La obra actual y punto de entrada editorial.",
     "work-samuel": "Primera novela publicada.",
-    "works-hub": "La obra actual y punto de entrada editorial.",
+    "works-hub": "Las manecillas del recuerdo es la obra actual y el punto de entrada editorial; aquí también está Samuel entre mundos.",
     "notebook-hub": "Artículos, crónicas y piezas editoriales.",
     "tools-hub": "Utilidades gratuitas para escritores.",
     "author": "Biografía, obra y trayectoria.",

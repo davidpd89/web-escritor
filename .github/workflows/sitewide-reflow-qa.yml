@@ -57,6 +57,14 @@ jobs:
           QA_OUT: artifacts/sitewide-reflow
         run: node qa/sitewide-reflow-browser.mjs
 
+      - name: POV distribution format QA (O.2)
+        if: always()
+        run: node qa/pov-distribucion-format-browser.mjs
+
+      - name: New base tools QA (O.1)
+        if: always()
+        run: node qa/o1-new-tools-browser.mjs
+
       - name: Save server log
         if: always()
         run: |

@@ -12,7 +12,13 @@ const pages = [
   { key: 'feria', route: '/cuaderno/feria-libro-madrid-2026-samuel-entre-mundos/', kind: 'article' },
   { key: 'portal', route: '/cuaderno/que-es-el-portal-fantasy/', kind: 'article' },
   { key: 'comparativa', route: '/cuaderno/portal-fantasy-vs-fantasia-epica/', kind: 'article' },
-  { key: 'magia', route: '/cuaderno/sistema-de-magia-noveris/', kind: 'article' },
+  // K.1 (cuarentena Noveris): esta pagina paso deliberadamente de Article a
+  // un stub WebPage ("contenido temporalmente retirado") porque su version
+  // anterior contenia afirmaciones de worldbuilding sin respaldo editorial
+  // verificable. La URL se conserva (no rompe enlaces) pero ya no declara
+  // Article -- 'retracted' valida lo que SI sigue siendo cierto (WebPage,
+  // BreadcrumbList, dateModified) sin exigirle el esquema Article completo.
+  { key: 'magia', route: '/cuaderno/sistema-de-magia-noveris/', kind: 'retracted' },
   { key: 'fantasia', route: '/cuaderno/fantasia-juvenil-espanola-portales-magia-coste/', kind: 'article' },
   { key: 'libros', route: '/cuaderno/libros-fantasia-juvenil-espanola-2025-2026/', kind: 'article' },
   { key: 'worldbuilding', route: '/cuaderno/worldbuilding-noveris-ciudad-magica/', kind: 'article' },
@@ -172,6 +178,14 @@ async function validateCore(spec, page) {
 
   if (spec.kind === 'index') {
     assert.ok(data.jsonLdTypes.includes('CollectionPage'), 'index: falta CollectionPage');
+  } else if (spec.kind === 'retracted') {
+    assert.ok(data.jsonLdTypes.includes('WebPage'), `${spec.key}: falta WebPage`);
+    assert.ok(data.jsonLdTypes.includes('BreadcrumbList'), `${spec.key}: falta BreadcrumbList`);
+    assert.ok(!data.jsonLdTypes.includes('Article'), `${spec.key}: retracted no debe declarar Article`);
+    const webPageSchema = flattenNodes(parsed).find(node => node['@type'] === 'WebPage');
+    assert.ok(webPageSchema?.dateModified, `${spec.key}: WebPage dateModified`);
+    assert.ok(webPageSchema?.author?.['@id'], `${spec.key}: WebPage author`);
+    assert.ok(webPageSchema?.isPartOf?.['@id'], `${spec.key}: WebPage isPartOf`);
   } else {
     assert.ok(data.jsonLdTypes.includes('Article'), `${spec.key}: falta Article`);
     assert.ok(data.jsonLdTypes.includes('BreadcrumbList'), `${spec.key}: falta BreadcrumbList`);
@@ -204,7 +218,7 @@ async function validateCore(spec, page) {
     assert.deepEqual(missing, [], `${spec.key}: TOC apunta a destino inexistente`);
   }
 
-  if (spec.kind === 'article') {
+  if (spec.kind === 'article' || spec.kind === 'retracted') {
     const relatedCount = await page.locator('.article-related a').count();
     assert.ok(relatedCount >= 1 && relatedCount <= 3, `${spec.key}: conexiones editoriales ${relatedCount}, esperado 1–3`);
   }
