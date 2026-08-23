@@ -176,3 +176,83 @@ Los workflows asociados consultados para ese SHA aparecen completados con `succe
 La auditoría termina en la **línea 400** del TXT. La sección `10_RECOMENDACIONES_Y_AUTORIDAD.md` empieza en la línea 395, pero sus tres carencias concretas continúan después de la línea 400 y quedan deliberadamente para la siguiente ronda; no se anticipan aquí.
 
 **DRAFT / NO MAIN / NO AUTO-MERGE / NO PRODUCCIÓN.**
+
+---
+
+# 6. Estado de implementación (2026-08-23)
+
+- **Inventario completo** de los eventos emitidos hoy (paso 1 del orden
+  recomendado): 16 nombres literales directos (`_gcEvent`/`data-gc`) + 25
+  nombres crudos disparados vía el bridge `dp:analytics` desde 12 módulos
+  distintos de herramientas del Cuaderno.
+- **Autoridad única**: `data/analytics-events.json` — cada nombre literal
+  documentado con `action`/`context`/nota, incluida la aclaración
+  explícita de que `newsletter-*` es aceptación del Worker, **no**
+  confirmación DOI real (criterio de aceptación #8).
+- **Checker nuevo**: `scripts/check-analytics-taxonomy.py` (+
+  `tests/test-check-analytics-taxonomy.py`, 6 casos) — falla si aparece un
+  evento `_gcEvent`/`data-gc` no registrado, o un nombre `dp:analytics` no
+  registrado para su módulo. Probado en rojo contra el repo real (ver
+  evidencia abajo).
+- **Migraciones aplicadas** (sin doble disparo, un solo commit, no queda
+  compatibilidad legacy paralela):
+  - `abrir-modal-comprar` → `abrir-modal-comprar-samuel` (identidad de
+    libro explícita en el nombre).
+  - `leer-fragmento` → `leer-fragmento-samuel` / `leer-fragmento-manecillas`.
+    **Bug real corregido de paso**: el patrón `/fragmento/` (singular)
+    nunca coincidía con la ruta real de Manecillas
+    (`/las-manecillas-del-recuerdo/fragmentos/`, plural) — esos clics no
+    se contaban en absoluto antes de esta PR.
+- **Retailers ya distinguidos** sin nombres ad hoc nuevos:
+  `comprar-amazon` (genérico) vs `comprar-amazon-papel`/`comprar-casadellibro`
+  (`data-gc` específicos del modal de Samuel) — documentados, no
+  renombrados (ya seguían la convención `{acción}-{contexto}`).
+- **Coordinación con #61 H.2**: los nombres `leer-fragmento-samuel`/
+  `leer-fragmento-manecillas` y la convención de identidad de libro en el
+  nombre son los mismos que ya usa #61 (desarrollada en paralelo) — al
+  fusionar ambas ramas sobre `implementacion-web-2026`, el conflicto en
+  `script.js` es el mismo cambio por ambos lados, trivial de resolver.
+- **`dp:analytics`/bridge**: sin cambios de contrato — ya usaba un prefijo
+  (`article-`) uniforme; se documenta explícitamente en el registro en vez
+  de dejarlo implícito.
+- No se ha introducido ningún proveedor de analítica nuevo ni se ha
+  tocado GoatCounter.
+
+## Evidencia de ejecución (real)
+
+```
+$ python scripts/check-analytics-taxonomy.py --check
+Analytics taxonomy check: 64 ficheros JS revisados, 0 incumplimiento(s).
+
+$ python tests/test-check-analytics-taxonomy.py
+  ok   evento _gcEvent registrado no genera error
+  ok   evento _gcEvent NO registrado se detecta
+  ok   data-gc no registrado se detecta
+  ok   nombre dp:analytics no registrado se detecta
+  ok   nombre dp:analytics registrado no genera error
+  ok   fichero nuevo con dp:analytics sin registrar se detecta
+tests/test-check-analytics-taxonomy: OK
+
+$ node qa/analytics-taxonomy-browser.mjs
+analytics-taxonomy-browser: PASS
+
+$ node --check script.js
+(sin errores)
+
+$ python scripts/check-heading-structure.py
+Heading/skip-link structure: 68 ficheros HTML revisados; 0 problema(s).
+
+$ python scripts/check-local-assets.py
+Local asset check: 88 HTML files scanned; 0 broken local reference(s).
+
+$ python scripts/check-secrets.py
+No obvious secrets found in tracked files.
+
+$ python scripts/build-sitemap.py --check
+SITEMAP OK: 54 URLs
+```
+
+**Prueba en rojo real** (regla de la casa: no inventar un PASS): se añadió
+temporalmente `_gcEvent("evento-jamas-registrado", "x")` a `script.js` →
+`check-analytics-taxonomy.py --check` lo detectó y falló como se esperaba
+→ revertido antes de continuar.
