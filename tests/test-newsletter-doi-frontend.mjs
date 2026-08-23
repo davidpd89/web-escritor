@@ -11,6 +11,10 @@ assert.ok(!script.includes('localStorage.setItem(SUBSCRIBED_KEY, "1")'), 'popup 
 assert.ok(!script.includes('left:-9999px'), 'honeypot must not create offscreen reflow');
 assert.ok(script.includes('clip-path:inset(50%)'), 'honeypot uses clipped in-layout geometry');
 assert.ok(script.includes('setAttribute("inert", "")'), 'dynamic honeypot must be removed from focus/a11y interaction');
+assert.ok(script.includes('normalized.length <= 254'), 'client must reject overlong email locally');
+assert.equal((script.match(/dataset\.submitting === "true"/g) || []).length, 3, 'quiz, generic and popup must guard duplicate submits');
+assert.equal((script.match(/delete .*dataset\.submitting/g) || []).length, 3, 'all submit guards must reset after failure');
+assert.ok(!script.includes('dupeTitle:'), 'legacy duplicate-success copy must not survive DOI migration');
 
 assert.match(thanks, /<meta name="robots" content="noindex, follow"/);
 assert.ok(thanks.includes('localStorage.setItem("nl-subscribed", "1")'), 'DOI return marks browser confirmed');
