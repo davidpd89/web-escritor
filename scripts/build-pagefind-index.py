@@ -75,14 +75,23 @@ def is_noindex(text: str) -> bool:
     return bool(ROBOTS_NOINDEX_RE.search(text))
 
 
+# Internal, non-page HTML: build-time fragments, test fixtures/templates --
+# never real site content, whatever content-registry.json says or doesn't
+# say. Same notion as build-public-dist.py's EXCLUDE_DIR_PREFIXES (this
+# doesn't import that list directly since its scope is "what's on disk in
+# the public dist", not "what's a searchable page" -- e.g. scripts/ has no
+# HTML there either way, but tests/fixtures/*.html does).
+INTERNAL_DIR_PREFIXES = ("data/", "tests/", "scripts/")
+
+
 def eligible_pages(root: Path) -> list[str]:
     """Return git-tracked *.html paths eligible for the local search index,
     sorted for deterministic manifest output."""
     by_source = load_registry_by_source(root)
     eligible: list[str] = []
     for rel in git_tracked_html(root):
-        if rel.startswith("data/"):
-            continue  # build-time fragment (e.g. injected into autor.html), not a standalone page
+        if rel.startswith(INTERNAL_DIR_PREFIXES):
+            continue
         entry = by_source.get(rel)
         if entry is not None:
             if entry.get("status", "public") != "public":
