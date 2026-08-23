@@ -95,7 +95,7 @@ def layout(title: str, description: str, body: str, canonical: str, jsonld: dict
 <main id="contenido" tabindex="-1">
 {body}
 </main>
-<footer class="autores-footer">
+<footer class="site-footer">
 <p><a href="/">David Porto Díaz</a> · literatura, lectura y escritura.</p>
 </footer>
 </div>

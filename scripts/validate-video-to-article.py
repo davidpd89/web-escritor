@@ -2,7 +2,7 @@
 from pathlib import Path
 import sys
 
-STATUS={'captured','triaged','hold','ready','published','discarded'}
+STATUS={'captured','triaged','review','hold','ready','published','discarded'}
 PLAT={'instagram','tiktok','youtube','facebook','threads','x','other'}
 DEST={'existing_page','cuaderno_article','source_for_future','discard'}
 BASIS={'search_demand','reader_question','first_hand','catalog_gap','editorial_value'}
@@ -34,7 +34,7 @@ def validate(path):
     st=m.get('status','');dest=m.get('destination','')
     if st not in STATUS:errs.append('status inválido')
     if dest not in DEST:errs.append('destination inválido')
-    strict=st in {'triaged','hold','ready','published','discarded'}
+    strict=st in {'triaged','review','hold','ready','published','discarded'}
     if strict:
         if m.get('platform') not in PLAT:errs.append('platform inválida')
         for k in ('original_url','published_at','selection_basis'):
