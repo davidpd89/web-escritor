@@ -3,62 +3,194 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
 
-
 def one(text, old, new, label):
-    count = text.count(old)
-    if count != 1:
-        raise SystemExit(f"{label}: expected 1 match, found {count}")
+    n = text.count(old)
+    if n != 1:
+        raise SystemExit(f"{label}: expected 1 match, found {n}")
     return text.replace(old, new, 1)
 
-# Worker: tighten validation/logging and remove stale single-opt-in comment.
+# Worker: validation/privacy only.
 p = ROOT / 'cloudflare-worker-subscribe.js'
 s = p.read_text(encoding='utf-8')
-s = one(s, ''' *   - `listIds`, `attributes`, and `updateEnabled` are never read from the\n *     client at all — listIds comes from env.BREVO_LIST_ID, attributes is\n *     built entirely server-side from the validated source/result, and\n *     updateEnabled is hardcoded to true below.\n''', ''' *   - `includeListIds`, `templateId`, `redirectionUrl` and `attributes` are\n *     never accepted from the client. The list/template/redirect come from\n *     server-side configuration and attributes are built from validated enums.\n''', 'worker stale comment')
-s = one(s, '''    if (!EMAIL_RE.test(normalizedEmail)) {\n      return jsonResponse(origin, 400, { ok: false, message: "Dirección de email no válida." });\n    }\n''', '''    if (normalizedEmail.length > 254 || !EMAIL_RE.test(normalizedEmail)) {\n      return jsonResponse(origin, 400, { ok: false, message: "Dirección de email no válida." });\n    }\n''', 'worker email length')
-s = one(s, '''    } catch (err) {\n      console.error("Brevo DOI request failed:", err);\n      return jsonResponse(origin, 502, {\n''', '''    } catch {\n      console.error("Brevo DOI request failed");\n      return jsonResponse(origin, 502, {\n''', 'worker network log')
-s = one(s, '''    let brevoBodyText = "";\n    try {\n      brevoBodyText = await brevoRes.text();\n    } catch {\n      // Best effort only. Upstream details are never forwarded to the browser.\n    }\n    console.error(`Brevo DOI error ${brevoRes.status}:`, brevoBodyText.slice(0, 500));\n''', '''    // The provider body may echo contact data; never log it. Status is enough.\n    console.error(`Brevo DOI error ${brevoRes.status}`);\n''', 'worker upstream log')
+s = one(s,
+''' *   - `listIds`, `attributes`, and `updateEnabled` are never read from the
+ *     client at all — listIds comes from env.BREVO_LIST_ID, attributes is
+ *     built entirely server-side from the validated source/result, and
+ *     updateEnabled is hardcoded to true below.
+''',
+''' *   - `includeListIds`, `templateId`, `redirectionUrl` and `attributes` are
+ *     never accepted from the client. The list/template/redirect come from
+ *     server-side configuration and attributes are built from validated enums.
+''', 'worker stale comment')
+s = one(s,
+'''    if (!EMAIL_RE.test(normalizedEmail)) {
+      return jsonResponse(origin, 400, { ok: false, message: "Dirección de email no válida." });
+    }
+''',
+'''    if (normalizedEmail.length > 254 || !EMAIL_RE.test(normalizedEmail)) {
+      return jsonResponse(origin, 400, { ok: false, message: "Dirección de email no válida." });
+    }
+''', 'worker email length')
+s = one(s,
+'''    } catch (err) {
+      console.error("Brevo DOI request failed:", err);
+      return jsonResponse(origin, 502, {
+''',
+'''    } catch {
+      console.error("Brevo DOI request failed");
+      return jsonResponse(origin, 502, {
+''', 'worker network log')
+s = one(s,
+'''    let brevoBodyText = "";
+    try {
+      brevoBodyText = await brevoRes.text();
+    } catch {
+      // Best effort only. Upstream details are never forwarded to the browser.
+    }
+    console.error(`Brevo DOI error ${brevoRes.status}:`, brevoBodyText.slice(0, 500));
+''',
+'''    // Brevo may echo contact data: never log the provider response body.
+    console.error(`Brevo DOI error ${brevoRes.status}`);
+''', 'worker upstream log')
 p.write_text(s, encoding='utf-8')
 
-# Frontend: close double-submit race and align local email validation.
+# Frontend: local length validation + one in-flight POST per form.
 p = ROOT / 'script.js'
 s = p.read_text(encoding='utf-8')
-s = one(s, '''// listIds/attributes/templateId/redirectionUrl are never client-controlled.\n// client-controlled — the Worker validates `source` against its own\n''', '''// listIds/attributes/templateId/redirectionUrl are never client-controlled.\n// The Worker validates `source` against its own\n''', 'script comment')
-s = one(s, '''function isValidNewsletterEmail(value) {\n  return NEWSLETTER_EMAIL_RE.test(String(value || "").trim());\n}\n''', '''function isValidNewsletterEmail(value) {\n  const normalized = String(value || "").trim();\n  return normalized.length <= 254 && NEWSLETTER_EMAIL_RE.test(normalized);\n}\n''', 'frontend email length')
-s = one(s, '''        statusEl.textContent = "";\n        submitBtn.disabled = true;\n        submitBtn.textContent = "Enviando…";\n        try {\n''', '''        if (subscribeForm.dataset.submitting === "true") return;\n        subscribeForm.dataset.submitting = "true";\n        statusEl.textContent = "";\n        submitBtn.disabled = true;\n        submitBtn.textContent = "Enviando…";\n        try {\n''', 'quiz submitting guard')
-s = one(s, '''        } catch (err) {\n          statusEl.textContent = newsletterErrorMessage(err.message);\n          submitBtn.disabled = false;\n          submitBtn.textContent = "Desbloquear mi arquetipo";\n        }\n''', '''        } catch (err) {\n          delete subscribeForm.dataset.submitting;\n          statusEl.textContent = newsletterErrorMessage(err.message);\n          submitBtn.disabled = false;\n          submitBtn.textContent = "Desbloquear mi arquetipo";\n        }\n''', 'quiz reset')
-s = one(s, '''        if (statusEl) statusEl.textContent = "";\n        submitBtn.disabled = true;\n        submitBtn.textContent = "Enviando…";\n        try {\n''', '''        if (form.dataset.submitting === "true") return;\n        form.dataset.submitting = "true";\n        if (statusEl) statusEl.textContent = "";\n        submitBtn.disabled = true;\n        submitBtn.textContent = "Enviando…";\n        try {\n''', 'generic submitting guard')
-s = one(s, '''        } catch (err) {\n          if (statusEl) statusEl.textContent = newsletterErrorMessage(err.message);\n          submitBtn.disabled = false;\n          submitBtn.textContent = "Suscribirme";\n        }\n''', '''        } catch (err) {\n          delete form.dataset.submitting;\n          if (statusEl) statusEl.textContent = newsletterErrorMessage(err.message);\n          submitBtn.disabled = false;\n          submitBtn.textContent = "Suscribirme";\n        }\n''', 'generic reset')
-s = one(s, '''        okTitle: "Revisa tu correo",\n        okBody: "Te hemos enviado un mensaje de confirmación. Abre el enlace para completar la suscripción.",\n        dupeTitle: "✓ Ya estás suscrito.",\n        dupeBody: "¡Gracias por seguir a David Porto Díaz!"\n''', '''        okTitle: "Revisa tu correo",\n        okBody: "Te hemos enviado un mensaje de confirmación. Abre el enlace para completar la suscripción."\n''', 'popup Noveris duplicate copy')
-s = one(s, '''      okTitle: "Revisa tu correo",\n      okBody: "Te hemos enviado un mensaje de confirmación. Abre el enlace para completar la suscripción.",\n      dupeTitle: "✓ Ya estás suscrito.",\n      dupeBody: "¡Gracias por seguir a David Porto Díaz!"\n''', '''      okTitle: "Revisa tu correo",\n      okBody: "Te hemos enviado un mensaje de confirmación. Abre el enlace para completar la suscripción."\n''', 'popup generic duplicate copy')
-s = one(s, '''    document.getElementById("nl-popup-form").addEventListener("submit", function (e) {\n      e.preventDefault();\n      scheduleTask(async function () {\n''', '''    document.getElementById("nl-popup-form").addEventListener("submit", function (e) {\n      e.preventDefault();\n      const popupForm = e.currentTarget;\n      scheduleTask(async function () {\n''', 'popup capture form')
-s = one(s, '''        statusEl.textContent = "";\n        submitBtn.disabled = true;\n        submitBtn.textContent = "Enviando…";\n        try {\n          const result = await postNewsletter({\n            email: emailEl.value.trim(),\n            source: "popup",\n            website: honeypotValue(document.getElementById("nl-popup-form"))\n''', '''        if (popupForm.dataset.submitting === "true") return;\n        popupForm.dataset.submitting = "true";\n        statusEl.textContent = "";\n        submitBtn.disabled = true;\n        submitBtn.textContent = "Enviando…";\n        try {\n          const result = await postNewsletter({\n            email: emailEl.value.trim(),\n            source: "popup",\n            website: honeypotValue(popupForm)\n''', 'popup submitting guard')
-s = one(s, '''        } catch (err) {\n          statusEl.textContent = newsletterErrorMessage(err.message);\n          submitBtn.disabled = false;\n          submitBtn.textContent = copy.cta;\n        }\n''', '''        } catch (err) {\n          delete popupForm.dataset.submitting;\n          statusEl.textContent = newsletterErrorMessage(err.message);\n          submitBtn.disabled = false;\n          submitBtn.textContent = copy.cta;\n        }\n''', 'popup reset')
+s = one(s,
+'''// listIds/attributes/templateId/redirectionUrl are never client-controlled.
+// client-controlled — the Worker validates `source` against its own
+''',
+'''// listIds/attributes/templateId/redirectionUrl are never client-controlled.
+// The Worker validates `source` against its own
+''', 'client comment')
+s = one(s,
+'''function isValidNewsletterEmail(value) {
+  return NEWSLETTER_EMAIL_RE.test(String(value || "").trim());
+}
+''',
+'''function isValidNewsletterEmail(value) {
+  const normalized = String(value || "").trim();
+  return normalized.length <= 254 && NEWSLETTER_EMAIL_RE.test(normalized);
+}
+''', 'client email length')
+s = one(s,
+'''        statusEl.textContent = "";
+        submitBtn.disabled = true;
+        submitBtn.textContent = "Enviando…";
+        try {
+''',
+'''        if (subscribeForm.dataset.submitting === "true") return;
+        subscribeForm.dataset.submitting = "true";
+        statusEl.textContent = "";
+        submitBtn.disabled = true;
+        submitBtn.textContent = "Enviando…";
+        try {
+''', 'quiz guard')
+s = one(s,
+'''        } catch (err) {
+          statusEl.textContent = newsletterErrorMessage(err.message);
+          submitBtn.disabled = false;
+          submitBtn.textContent = "Desbloquear mi arquetipo";
+        }
+''',
+'''        } catch (err) {
+          delete subscribeForm.dataset.submitting;
+          statusEl.textContent = newsletterErrorMessage(err.message);
+          submitBtn.disabled = false;
+          submitBtn.textContent = "Desbloquear mi arquetipo";
+        }
+''', 'quiz reset')
+s = one(s,
+'''        if (statusEl) statusEl.textContent = "";
+        submitBtn.disabled = true;
+        submitBtn.textContent = "Enviando…";
+        try {
+''',
+'''        if (form.dataset.submitting === "true") return;
+        form.dataset.submitting = "true";
+        if (statusEl) statusEl.textContent = "";
+        submitBtn.disabled = true;
+        submitBtn.textContent = "Enviando…";
+        try {
+''', 'generic guard')
+s = one(s,
+'''        } catch (err) {
+          if (statusEl) statusEl.textContent = newsletterErrorMessage(err.message);
+          submitBtn.disabled = false;
+          submitBtn.textContent = "Suscribirme";
+        }
+''',
+'''        } catch (err) {
+          delete form.dataset.submitting;
+          if (statusEl) statusEl.textContent = newsletterErrorMessage(err.message);
+          submitBtn.disabled = false;
+          submitBtn.textContent = "Suscribirme";
+        }
+''', 'generic reset')
+s = one(s,
+'''        okTitle: "Revisa tu correo",
+        okBody: "Te hemos enviado un mensaje de confirmación. Abre el enlace para completar la suscripción.",
+        dupeTitle: "✓ Ya estás suscrito.",
+        dupeBody: "¡Gracias por seguir a David Porto Díaz!"
+''',
+'''        okTitle: "Revisa tu correo",
+        okBody: "Te hemos enviado un mensaje de confirmación. Abre el enlace para completar la suscripción."
+''', 'popup copy Noveris')
+s = one(s,
+'''      okTitle: "Revisa tu correo",
+      okBody: "Te hemos enviado un mensaje de confirmación. Abre el enlace para completar la suscripción.",
+      dupeTitle: "✓ Ya estás suscrito.",
+      dupeBody: "¡Gracias por seguir a David Porto Díaz!"
+''',
+'''      okTitle: "Revisa tu correo",
+      okBody: "Te hemos enviado un mensaje de confirmación. Abre el enlace para completar la suscripción."
+''', 'popup copy generic')
+s = one(s,
+'''    document.getElementById("nl-popup-form").addEventListener("submit", function (e) {
+      e.preventDefault();
+      scheduleTask(async function () {
+''',
+'''    document.getElementById("nl-popup-form").addEventListener("submit", function (e) {
+      e.preventDefault();
+      const popupForm = e.currentTarget;
+      scheduleTask(async function () {
+''', 'popup capture')
+s = one(s,
+'''        statusEl.textContent = "";
+        submitBtn.disabled = true;
+        submitBtn.textContent = "Enviando…";
+        try {
+          const result = await postNewsletter({
+            email: emailEl.value.trim(),
+            source: "popup",
+            website: honeypotValue(document.getElementById("nl-popup-form"))
+''',
+'''        if (popupForm.dataset.submitting === "true") return;
+        popupForm.dataset.submitting = "true";
+        statusEl.textContent = "";
+        submitBtn.disabled = true;
+        submitBtn.textContent = "Enviando…";
+        try {
+          const result = await postNewsletter({
+            email: emailEl.value.trim(),
+            source: "popup",
+            website: honeypotValue(popupForm)
+''', 'popup guard')
+s = one(s,
+'''        } catch (err) {
+          statusEl.textContent = newsletterErrorMessage(err.message);
+          submitBtn.disabled = false;
+          submitBtn.textContent = copy.cta;
+        }
+''',
+'''        } catch (err) {
+          delete popupForm.dataset.submitting;
+          statusEl.textContent = newsletterErrorMessage(err.message);
+          submitBtn.disabled = false;
+          submitBtn.textContent = copy.cta;
+        }
+''', 'popup reset')
 p.write_text(s, encoding='utf-8')
 
-# Unit tests: preserve applicable prior coverage and add privacy/length checks.
-p = ROOT / 'tests/test-cloudflare-worker-subscribe.mjs'
-s = p.read_text(encoding='utf-8')
-s = one(s, '''  assert.ok(!source.includes('fetch("https://api.brevo.com/v3/contacts"'));\n''', '''  assert.ok(!source.includes('fetch("https://api.brevo.com/v3/contacts"'));\n  assert.ok(!source.includes('brevoBodyText'), 'upstream Brevo bodies must not be logged');\n''', 'unit log assertion')
-s = one(s, '''    { source: 'home' },\n    { email: 'not-an-email', source: 'home' },\n    { email: 'a@b.com', source: 'unknown-source' },\n''', '''    { source: 'home' },\n    { email: 'not-an-email', source: 'home' },\n    { email: 'a@b.com' },\n    { email: 'a@b.com', source: 'unknown-source' },\n    { email: `${'a'.repeat(64)}@${'b'.repeat(180)}.example`, source: 'home' },\n''', 'unit invalid cases')
-s = one(s, '''  await withMockedBrevoFetch(201, {}, async calls => {\n    await worker.fetch(makeRequest({ email: 'quiz2@example.com', source: 'quiz', result: '<script>' }), makeEnv());\n    assert.deepEqual(JSON.parse(calls[0].init.body).attributes, { SOURCE: 'quiz-noveris' });\n  });\n\n  const hpLimiter = makeRateLimiter({ success: false });\n''', '''  await withMockedBrevoFetch(201, {}, async calls => {\n    await worker.fetch(makeRequest({ email: 'quiz2@example.com', source: 'quiz', result: '<script>' }), makeEnv());\n    assert.deepEqual(JSON.parse(calls[0].init.body).attributes, { SOURCE: 'quiz-noveris' });\n  });\n  await withMockedBrevoFetch(201, {}, async calls => {\n    await worker.fetch(makeRequest({ email: 'popup@example.com', source: 'popup', result: 'sabio' }), makeEnv());\n    assert.deepEqual(JSON.parse(calls[0].init.body).attributes, { SOURCE: 'popup' });\n  });\n\n  const hpLimiter = makeRateLimiter({ success: false });\n''', 'unit nonquiz result')
-s = one(s, '''  res = await withMockedBrevoFetch(401, { code: 'unauthorized', message: 'xkeysib-SECRETVALUE' }, () =>\n''', '''  res = await withMockedBrevoFetch(400, { code: 'duplicate_parameter', message: 'Contact already exists' }, () =>\n    worker.fetch(makeRequest({ email: 'dupe@example.com', source: 'home' }), makeEnv())\n  );\n  assert.equal(res.status, 502);\n\n  res = await withMockedBrevoFetch(401, { code: 'unauthorized', message: 'xkeysib-SECRETVALUE' }, () =>\n''', 'unit duplicate DOI semantics')
-p.write_text(s, encoding='utf-8')
-
-# Static frontend contract: no premature confirmation, overlong email or duplicate-submit regression.
-p = ROOT / 'tests/test-newsletter-doi-frontend.mjs'
-s = p.read_text(encoding='utf-8')
-s = one(s, '''assert.ok(script.includes('setAttribute("inert", "")'), 'dynamic honeypot must be removed from focus/a11y interaction');\n''', '''assert.ok(script.includes('setAttribute("inert", "")'), 'dynamic honeypot must be removed from focus/a11y interaction');\nassert.ok(script.includes('normalized.length <= 254'), 'client must reject overlong email locally');\nassert.equal((script.match(/dataset\\.submitting === "true"/g) || []).length, 3, 'quiz, generic and popup must guard duplicate submits');\nassert.equal((script.match(/delete .*dataset\\.submitting/g) || []).length, 3, 'all submit guards must reset after failure');\nassert.ok(!script.includes('dupeTitle:'), 'legacy duplicate-success copy must not survive DOI migration');\n''', 'frontend guard assertions')
-p.write_text(s, encoding='utf-8')
-
-# General privacy browser contract: DOI pending is success of the initial request,
-# but never a confirmed subscription. Legacy duplicate 400 is recoverable error.
-p = ROOT / 'qa/privacy-contract-browser.mjs'
-s = p.read_text(encoding='utf-8')
-s = one(s, '''await home.page.route(WORKER_RE,async r=>{ workerBodies.push(r.request().postData()||''); await r.fulfill({status:201,contentType:'application/json',body:'{"ok":true}'}); });\n''', '''await home.page.route(WORKER_RE,async r=>{ workerBodies.push(r.request().postData()||''); await r.fulfill({status:201,contentType:'application/json',body:'{"ok":true,"state":"pending_confirmation"}'}); });\n''', 'privacy happy response')
-s = one(s, '''await checkbox.check(); await form.locator('button[type="submit"]').click(); await home.page.waitForTimeout(250); assert(workerBodies.length===1,'Checked newsletter did not submit exactly once');\nconst payload=JSON.parse(workerBodies[0]); assert(payload.email===SENTINEL,'Newsletter email mismatch'); assert(payload.source==='home','Newsletter source mismatch'); assert(!('consent' in payload),'Unexpected consent field sent to Worker');\n''', '''await checkbox.check(); await form.locator('button[type="submit"]').click(); await home.page.waitForTimeout(250); assert(workerBodies.length===1,'Checked newsletter did not submit exactly once');\nassert(await home.page.locator('#newsletter-form-home input[type="email"]').count()===0,'Pending DOI state not rendered');\nassert((await home.page.locator('#newsletter-form-home').textContent()||'').includes('confirma'),'Pending DOI copy does not ask for confirmation');\nconst pendingStorage=await storageSnapshot(home.page); assert(!('nl-subscribed' in pendingStorage.localStorage),'Initial DOI request marked user as subscribed');\nconst payload=JSON.parse(workerBodies[0]); assert(payload.email===SENTINEL,'Newsletter email mismatch'); assert(payload.source==='home','Newsletter source mismatch'); assert(!('consent' in payload),'Unexpected consent field sent to Worker');\n''', 'privacy pending assertions')
-s = one(s, '''report.newsletter.success={payloadKeys:Object.keys(payload),source:payload.source,uncheckedBlocked:true,invalidBlocked:true,sentinelLeak:false};\n''', '''report.newsletter.pending={payloadKeys:Object.keys(payload),source:payload.source,uncheckedBlocked:true,invalidBlocked:true,sentinelLeak:false,prematureSubscribed:false};\n''', 'privacy report')
-s = one(s, '''await newsletterErrorCase('duplicate',r=>r.fulfill({status:400,contentType:'application/json',body:'{"duplicate":true}'}),true);\n''', '''await newsletterErrorCase('legacyDuplicate400',r=>r.fulfill({status:400,contentType:'application/json',body:'{"duplicate":true}'}));\n''', 'privacy duplicate semantics')
-s = one(s, '''await newsletterErrorCase('timeout',r=>r.abort('timedout'));\n\n// Assistant read-only: a local query must not load Turnstile or create the remote session id.\n''', '''await newsletterErrorCase('timeout',r=>r.abort('timedout'));\n\n// Repeated submit events while the first mocked request is pending must yield one POST.\n{\n  const state=await capture('/',{width:390,height:844}); let calls=0;\n  await state.page.route(WORKER_RE,async r=>{ calls++; await new Promise(resolve=>setTimeout(resolve,180)); await r.fulfill({status:201,contentType:'application/json',body:'{"ok":true,"state":"pending_confirmation"}'}); });\n  await state.page.locator('#nl-email-home').fill('qa-double-submit@example.test'); await state.page.locator('#nl-gdpr-home').check();\n  await state.page.locator('#newsletter-form-home').evaluate(formEl=>{ formEl.dispatchEvent(new Event('submit',{bubbles:true,cancelable:true})); formEl.dispatchEvent(new Event('submit',{bubbles:true,cancelable:true})); });\n  await state.page.waitForTimeout(450); assert(calls===1,`Newsletter double submit: expected one Worker request, got ${calls}`);\n  report.newsletter.doubleSubmit={calls}; await state.context.close();\n}\n\n// Assistant read-only: a local query must not load Turnstile or create the remote session id.\n''', 'privacy double-submit case')
-p.write_text(s, encoding='utf-8')
-
-print('PR55 final asserted patch applied')
+print('PR55 atomic product patch applied')
