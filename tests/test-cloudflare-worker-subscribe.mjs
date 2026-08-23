@@ -170,6 +170,49 @@ async function run() {
   ));
   assert.equal(res.status, 502);
 
+  // Lectores Beta (N.1): usa BREVO_BETA_LIST_ID, no BREVO_LIST_ID -- listas
+  // separadas para no mezclar consentimiento/proposito.
+  {
+    const calls = [];
+    await withMockedBrevoFetch(201, { id: 1 }, async (capturedCalls) => {
+      await worker.fetch(
+        makeRequest({ email: 'beta@example.com', source: 'lectores-beta' }),
+        makeEnv({ BREVO_LIST_ID: '3', BREVO_BETA_LIST_ID: '7' }),
+      );
+      calls.push(...capturedCalls);
+    });
+    const forwarded = JSON.parse(calls[0].init.body);
+    assert.deepEqual(forwarded.includeListIds, [7], 'lectores-beta debe usar BREVO_BETA_LIST_ID, no BREVO_LIST_ID');
+    assert.deepEqual(forwarded.attributes, { SOURCE: 'lectores-beta' });
+  }
+
+  // Lectores Beta sin BREVO_BETA_LIST_ID configurado -> 500, NUNCA cae a la
+  // lista general (fallar cerrado, no mezclar listas).
+  {
+    const res = await withMockedBrevoFetch(201, {}, () =>
+      worker.fetch(
+        makeRequest({ email: 'beta2@example.com', source: 'lectores-beta' }),
+        makeEnv({ BREVO_LIST_ID: '3', BREVO_BETA_LIST_ID: undefined }),
+      )
+    );
+    assert.equal(res.status, 500);
+  }
+
+  // Las fuentes generales siguen usando BREVO_LIST_ID sin verse afectadas
+  // por la nueva variable BREVO_BETA_LIST_ID.
+  {
+    const calls = [];
+    await withMockedBrevoFetch(201, { id: 1 }, async (capturedCalls) => {
+      await worker.fetch(
+        makeRequest({ email: 'general@example.com', source: 'home' }),
+        makeEnv({ BREVO_LIST_ID: '3', BREVO_BETA_LIST_ID: '7' }),
+      );
+      calls.push(...capturedCalls);
+    });
+    const forwarded = JSON.parse(calls[0].init.body);
+    assert.deepEqual(forwarded.includeListIds, [3], 'home debe seguir usando BREVO_LIST_ID');
+  }
+
   console.log('test-cloudflare-worker-subscribe: all assertions passed');
 }
 await run();

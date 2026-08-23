@@ -135,5 +135,65 @@
     return '80+';
   }
 
-  return { parse, analyze, bucketSceneCount, MAX_SCENES, MAX_POVS };
+  // Formato V1 documentado "POV | palabras" (O.2, 2026-08-23): totales ya
+  // agregados por punto de vista, no escenas individuales. Es un formato
+  // DISTINTO y explicito (el usuario lo elige en la UI, no se infiere por
+  // el numero de columnas): "escena | POV" y "POV | palabras" son ambos de
+  // 2 columnas, así que adivinar cuál es cuál a partir del contenido sería
+  // una heurística opaca. parse()/analyze() (escenas) no se tocan.
+  function parseTotals(text) {
+    const rawLines = String(text ?? '').split(/\r?\n/);
+    const totals = [];
+    const errors = [];
+    const seenPovs = new Set();
+
+    rawLines.forEach((raw, lineIndex) => {
+      const line = raw.trim();
+      if (!line || line.startsWith('#')) return;
+      const parts = splitRow(raw).map(clean);
+      if (parts.length !== 2) {
+        errors.push(`Línea ${lineIndex + 1}: usa «POV | palabras».`);
+        return;
+      }
+      const [pov, wordsRaw] = parts;
+      if (!pov || pov.length > MAX_POV) {
+        errors.push(`Línea ${lineIndex + 1}: POV ausente o demasiado largo.`);
+        return;
+      }
+      if (!/^\d+$/.test(wordsRaw)) {
+        errors.push(`Línea ${lineIndex + 1}: las palabras deben ser un entero positivo.`);
+        return;
+      }
+      const words = Number(wordsRaw);
+      if (!Number.isSafeInteger(words) || words < 1 || words > 10000000) {
+        errors.push(`Línea ${lineIndex + 1}: palabras fuera del rango 1–10000000.`);
+        return;
+      }
+      if (seenPovs.has(pov)) {
+        errors.push(`Línea ${lineIndex + 1}: el POV «${pov}» ya aparece antes; usa una sola línea por POV.`);
+        return;
+      }
+      seenPovs.add(pov);
+      totals.push({ pov, words });
+    });
+
+    if (totals.length > MAX_POVS) errors.push(`Máximo ${MAX_POVS} POV distintos por análisis.`);
+    if (!totals.length && !errors.length) errors.push('Añade al menos un POV con sus palabras.');
+
+    return { totals: errors.length ? [] : totals, errors };
+  }
+
+  function analyzeTotals(totals) {
+    if (!Array.isArray(totals) || !totals.length) throw new Error('Se requiere al menos un POV con palabras.');
+    const totalWords = totals.reduce((sum, t) => sum + t.words, 0);
+    const povs = totals.map((t, order) => ({
+      pov: t.pov,
+      order,
+      wordCount: t.words,
+      wordShare: totalWords ? t.words / totalWords : 0,
+    }));
+    return { mode: 'totals', povs, totalPovs: povs.length, totalWords };
+  }
+
+  return { parse, analyze, parseTotals, analyzeTotals, bucketSceneCount, MAX_SCENES, MAX_POVS };
 });

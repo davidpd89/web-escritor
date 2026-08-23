@@ -67,6 +67,18 @@
  * devuelven 404). Hay que mirarlo en el panel de Brevo. Por eso el copy de la
  * web sigue sin prometer entrega de capítulo: no está verificado.
  *
+ * LECTORES BETA (N.1, 2026-08-23): `source: "lectores-beta"` is a
+ * DELIBERATELY separate Brevo list from the general newsletter
+ * (`env.BREVO_BETA_LIST_ID`, not `env.BREVO_LIST_ID`). The consent copy on
+ * /lectores-beta/ is its own, distinct from "recibir novedades del autor" --
+ * joining the beta program means receiving unpublished material and being
+ * asked for feedback, a materially different purpose that must not share a
+ * list/consent record with the general newsletter. Configure
+ * BREVO_BETA_LIST_ID as its own Cloudflare secret/variable when the real
+ * Brevo list exists; until then, POSTs with source="lectores-beta" fail
+ * closed with 500 (same pattern as a missing BREVO_LIST_ID), never silently
+ * falling back to the general list.
+ *
  * SECURITY NOTE (2026-08-19): listIds is no longer accepted from the client.
  *
  * SECURITY NOTE (2026-08-20): the client input contract is now minimal by
@@ -109,6 +121,15 @@ const SOURCE_MAP = {
   manecillas: "manecillas",
   cuaderno: "cuaderno",
   popup: "popup",
+  "lectores-beta": "lectores-beta",
+};
+
+// Fuentes que deben aterrizar en una lista de Brevo DISTINTA de la general
+// (env.BREVO_LIST_ID), porque su proposito/consentimiento es materialmente
+// distinto de "recibir novedades del autor" (N.1, 2026-08-23). Anadir aqui
+// cualquier fuente futura que necesite la misma separacion.
+const SEPARATE_LIST_ENV_KEY = {
+  "lectores-beta": "BREVO_BETA_LIST_ID",
 };
 
 // Bounded enum for the Noveris quiz result attribute. script.js computes
@@ -167,7 +188,7 @@ export default {
       return jsonResponse(origin, 400, { ok: false, message: "Origen de suscripción no válido." });
     }
 
-    const config = validateBrevoConfig(env);
+    const config = validateBrevoConfig(env, source);
     if (!config.ok) {
       console.error(`Worker misconfigured: ${config.reason}`);
       return jsonResponse(origin, 500, { ok: false, message: "Servicio no disponible temporalmente." });
@@ -234,13 +255,17 @@ export default {
   },
 };
 
-function validateBrevoConfig(env) {
+function validateBrevoConfig(env, source) {
   const apiKey = typeof env?.BREVO_API_KEY === "string" ? env.BREVO_API_KEY.trim() : "";
   if (!apiKey) return { ok: false, reason: "BREVO_API_KEY missing" };
 
-  const listId = Number(env?.BREVO_LIST_ID);
+  // La mayoria de fuentes usan la lista general; las declaradas en
+  // SEPARATE_LIST_ENV_KEY usan su propia variable de entorno y NUNCA caen
+  // de vuelta a BREVO_LIST_ID si falta -- fallar cerrado, no mezclar listas.
+  const listEnvKey = SEPARATE_LIST_ENV_KEY[source] || "BREVO_LIST_ID";
+  const listId = Number(env?.[listEnvKey]);
   if (!Number.isInteger(listId) || listId <= 0) {
-    return { ok: false, reason: "BREVO_LIST_ID must be a positive integer" };
+    return { ok: false, reason: `${listEnvKey} must be a positive integer` };
   }
 
   const templateId = Number(env?.BREVO_DOI_TEMPLATE_ID);
