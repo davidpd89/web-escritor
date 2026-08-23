@@ -132,6 +132,16 @@
       "source_doc": "assets/kit-prensa-core.js"
     },
     {
+      "slug": "tarjeta-estoy-leyendo",
+      "name": "Tarjeta «Estoy leyendo»",
+      "href": "/herramientas/tarjeta-estoy-leyendo/",
+      "category": "publicar-promocionar",
+      "summary": "Genera una tarjeta HTML o Markdown portable para compartir qué estás leyendo, sin subir ni guardar el contenido y sin backlink obligatorio.",
+      "privacy": "local",
+      "input": "form",
+      "source_doc": "assets/tarjeta-estoy-leyendo.js"
+    },
+    {
       "slug": "entrevista-familiar",
       "name": "Preparador de entrevista familiar",
       "href": "/herramientas/entrevista-familiar/",
