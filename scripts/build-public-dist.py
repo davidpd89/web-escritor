@@ -69,6 +69,7 @@ pasaron de HTTP 200 a 404 en la preview sin tocar el dashboard.
 from __future__ import annotations
 
 import argparse
+import json
 import shutil
 import subprocess
 import sys
@@ -76,6 +77,39 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
 DEFAULT_OUT = ROOT / ".preview-dist"
+
+# Estados del content-registry que significan "no debe llegar a produccion
+# publica", a diferencia de status="public" (que puede tener searchIndex o
+# sitemap en false -- p.ej. /privacidad.html -- pero SI debe ser accesible
+# por URL). "noindex" no es un control de publicacion por si solo: aqui es
+# la unica senal que SI lo es, derivada de una unica autoridad.
+GATED_REGISTRY_STATUS = {"noindex", "internal", "gated", "deprecated"}
+
+
+def gated_prefixes_from_registry(root: Path) -> tuple[str, ...]:
+    """Deriva las rutas/directorios que NO deben llegar al dist publico a
+    partir de la unica autoridad editorial (data/content-registry.json),
+    en vez de mantener una segunda lista manual que pueda desincronizarse.
+    Devuelve el directorio contenedor del sourceFile de cada entrada gated
+    (p.ej. 'donde-empieza-la-jaula/index.html' -> 'donde-empieza-la-jaula/'),
+    para que tambien queden fuera assets hermanos no registrados uno a uno.
+    """
+    registry_path = root / "data" / "content-registry.json"
+    if not registry_path.exists():
+        return ()
+    data = json.loads(registry_path.read_text(encoding="utf-8"))
+    defaults = data.get("defaults", {})
+    prefixes = set()
+    for entry in data.get("entries", []):
+        status = entry.get("status", defaults.get("status", "public"))
+        if status not in GATED_REGISTRY_STATUS:
+            continue
+        source_file = entry.get("sourceFile")
+        if not source_file:
+            continue
+        parent = str(Path(source_file).parent)
+        prefixes.add("" if parent == "." else parent.replace("\\", "/") + "/")
+    return tuple(sorted(p for p in prefixes if p))
 # Piezas de campana para redes (4:5 y 9:16). NINGUNA pagina las referencia
 # -- comprobado con git grep sobre *.html/*.css/*.js: cero referencias --, se
 # suben a mano a Instagram/Facebook desde el repo local. Por tanto no son
@@ -120,29 +154,32 @@ EXCLUDE_FILES = {
 }
 
 
-def git_tracked_files() -> list[str]:
-    result = subprocess.run(["git", "ls-files"], cwd=ROOT, capture_output=True, text=True, check=True)
+def git_tracked_files(root: Path = ROOT) -> list[str]:
+    result = subprocess.run(["git", "ls-files"], cwd=root, capture_output=True, text=True, check=True)
     return [line.strip() for line in result.stdout.splitlines() if line.strip()]
 
 
-def is_excluded(rel_path: str) -> bool:
+def is_excluded(rel_path: str, gated_prefixes: tuple[str, ...] = ()) -> bool:
     if rel_path in EXCLUDE_FILES or rel_path in CAMPAIGN_SOCIAL_ASSETS:
         return True
-    return any(rel_path.startswith(prefix) for prefix in EXCLUDE_DIR_PREFIXES)
+    if any(rel_path.startswith(prefix) for prefix in EXCLUDE_DIR_PREFIXES):
+        return True
+    return any(rel_path.startswith(prefix) for prefix in gated_prefixes)
 
 
-def build(out_dir: Path) -> tuple[int, int]:
+def build(out_dir: Path, root: Path = ROOT) -> tuple[int, int]:
     if out_dir.exists():
         shutil.rmtree(out_dir)
     out_dir.mkdir(parents=True)
 
+    gated_prefixes = gated_prefixes_from_registry(root)
     included, excluded = 0, 0
 
-    for rel in git_tracked_files():
-        if is_excluded(rel):
+    for rel in git_tracked_files(root):
+        if is_excluded(rel, gated_prefixes):
             excluded += 1
             continue
-        src = ROOT / rel
+        src = root / rel
         if not src.exists():
             continue  # tracked but not on disk locally (shouldn't happen, but don't crash)
         dst = out_dir / rel
@@ -153,7 +190,7 @@ def build(out_dir: Path) -> tuple[int, int]:
     return included, excluded
 
 
-def check_contents(out_dir: Path) -> int:
+def check_contents(out_dir: Path, root: Path = ROOT) -> int:
     if not out_dir.exists():
         print(f"FAIL: {out_dir} does not exist — run the builder first.", file=sys.stderr)
         return 1
@@ -167,6 +204,14 @@ def check_contents(out_dir: Path) -> int:
     for asset in CAMPAIGN_SOCIAL_ASSETS:
         if (out_dir / asset).exists():
             failures.append(f"campaign social asset present in public dist: {asset}")
+    # Deuda 2/3: la comprobacion de publicabilidad se deriva de la MISMA
+    # autoridad (content-registry.json), no de una lista paralela. Si una
+    # ruta gated (status != public) aparece en el arbol publico -- aunque su
+    # propio HTML declare <meta name="robots" content="noindex">, que no es
+    # un control de acceso -- el gate falla.
+    for prefix in gated_prefixes_from_registry(root):
+        if (out_dir / prefix).exists():
+            failures.append(f"gated/staging route present in public dist (content-registry status != public): {prefix}")
 
     if failures:
         print(f"FAIL — {len(failures)} issue(s) in {out_dir}:")
@@ -203,6 +248,13 @@ def assetsignore_lines() -> list[str]:
     lines.append("# mano desde el repo local. Permanentes, sin fecha: no hay nada que")
     lines.append("# 'liberar' el dia del lanzamiento.")
     lines += list(CAMPAIGN_SOCIAL_ASSETS)
+    gated = gated_prefixes_from_registry(ROOT)
+    if gated:
+        lines.append("")
+        lines.append("# Rutas gated/staging derivadas de data/content-registry.json (status !=")
+        lines.append("# public): el staging real de Cloudflare tambien debe respetarlas, no solo")
+        lines.append("# el .preview-dist local.")
+        lines += [p.rstrip("/") + "/" for p in gated]
     return lines
 
 
@@ -227,27 +279,29 @@ def emit_assetsignore(check_only: bool) -> int:
 
 def main() -> int:
     ap = argparse.ArgumentParser()
+    ap.add_argument("--root", default=str(ROOT), help="Repo root to read git-tracked files and content-registry.json from (default: real repo root; override only for isolated tests)")
     ap.add_argument("--out", default=str(DEFAULT_OUT))
     ap.add_argument("--check-contents", action="store_true", help="Verify an already-built dist, don't rebuild")
     ap.add_argument("--emit-assetsignore", action="store_true", help="Write .assetsignore from this builder's exclude list")
     ap.add_argument("--check-assetsignore", action="store_true", help="Verify .assetsignore matches the exclude list")
     args = ap.parse_args()
 
+    root = Path(args.root).resolve()
     out_dir = Path(args.out)
     if not out_dir.is_absolute():
-        out_dir = ROOT / out_dir
+        out_dir = root / out_dir
 
 
     if args.emit_assetsignore or args.check_assetsignore:
         return emit_assetsignore(check_only=args.check_assetsignore)
 
     if args.check_contents:
-        return check_contents(out_dir)
+        return check_contents(out_dir, root)
 
-    included, excluded = build(out_dir)
+    included, excluded = build(out_dir, root)
     gate_note = ""
     print(f"BUILT {out_dir}: {included} file(s) included, {excluded} excluded{gate_note}")
-    return check_contents(out_dir)
+    return check_contents(out_dir, root)
 
 
 if __name__ == "__main__":

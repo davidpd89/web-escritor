@@ -113,52 +113,48 @@
 
     <div class="explore-dialog__grid">
       <nav class="explore-list" aria-label="Destinos de la web">
-          <a class="explore-row" href="/las-manecillas-del-recuerdo/" data-preview="work-manecillas">
+          <a class="explore-row" href="/libros/" data-preview="works-hub">
             <span class="explore-row__index">01</span>
-            <span class="explore-row__body"><strong>Las manecillas del recuerdo</strong><small>La obra actual.</small></span>
+            <span class="explore-row__body"><strong>Obras</strong><small>Las manecillas del recuerdo, la obra actual, y el resto de novelas publicadas.</small></span>
           </a>
           <a class="explore-row" href="/autor.html" data-preview="author">
             <span class="explore-row__index">02</span>
             <span class="explore-row__body"><strong>Autor</strong><small>Biografía, obra y trayectoria.</small></span>
           </a>
-          <a class="explore-row" href="/libros/samuel-entre-mundos/" data-preview="work-samuel">
-            <span class="explore-row__index">03</span>
-            <span class="explore-row__body"><strong>Samuel entre mundos</strong><small>Primera novela publicada.</small></span>
-          </a>
           <a class="explore-row" href="/cuaderno/" data-preview="notebook-hub">
-            <span class="explore-row__index">04</span>
+            <span class="explore-row__index">03</span>
             <span class="explore-row__body"><strong>Cuaderno</strong><small>Artículos y piezas editoriales.</small></span>
           </a>
           <a class="explore-row" href="/herramientas/" data-preview="tools-hub">
-            <span class="explore-row__index">05</span>
+            <span class="explore-row__index">04</span>
             <span class="explore-row__body"><strong>Herramientas</strong><small>Utilidades gratuitas para escritores.</small></span>
           </a>
           <a class="explore-row" href="/prensa.html" data-preview="press">
-            <span class="explore-row__index">06</span>
+            <span class="explore-row__index">05</span>
             <span class="explore-row__body"><strong>Prensa</strong><small>Apariciones, materiales y agenda.</small></span>
           </a>
           <a class="explore-row" href="/las-manecillas-del-recuerdo/fragmentos/" data-preview="work-manecillas-fragments">
-            <span class="explore-row__index">07</span>
+            <span class="explore-row__index">06</span>
             <span class="explore-row__body"><strong>Leer un fragmento</strong><small>Fragmentos de Las manecillas del recuerdo</small></span>
           </a>
           <a class="explore-row" href="/herramientas/" data-preview="tools-hub">
-            <span class="explore-row__index">08</span>
+            <span class="explore-row__index">07</span>
             <span class="explore-row__body"><strong>Revisar un texto</strong><small>Herramientas para escritores</small></span>
           </a>
           <a class="explore-row" href="/editoriales/" data-preview="editorials-hub">
-            <span class="explore-row__index">09</span>
+            <span class="explore-row__index">08</span>
             <span class="explore-row__body"><strong>Buscar editorial o convocatoria</strong><small>Editoriales que aceptan manuscritos</small></span>
           </a>
           <a class="explore-row" href="/herramientas/metadatos-libro/" data-preview="tool-book-metadata">
-            <span class="explore-row__index">10</span>
+            <span class="explore-row__index">09</span>
             <span class="explore-row__body"><strong>Preparar publicación o promoción</strong><small>Preview de metadatos para libros</small></span>
           </a>
           <a class="explore-row" href="/prensa.html" data-preview="press">
-            <span class="explore-row__index">11</span>
+            <span class="explore-row__index">10</span>
             <span class="explore-row__body"><strong>Recursos para prensa</strong><small>Prensa y kit de prensa</small></span>
           </a>
           <a class="explore-row" href="/mapa-del-sitio/" data-preview="site-map">
-            <span class="explore-row__index">12</span>
+            <span class="explore-row__index">11</span>
             <span class="explore-row__body"><strong>Mapa del sitio</strong><small>Mapa del sitio</small></span>
           </a>
       </nav>
@@ -169,6 +165,19 @@
         <p class="explore-preview__copy" data-preview-copy>Apariciones, materiales y agenda.</p>
       </aside>
     </div>
+
+    <form class="explore-subscribe" id="newsletter-form-explore" novalidate data-newsletter-source="explore">
+      <label class="sr-only" for="nl-email-explore">Email</label>
+      <div class="form-row">
+        <input class="form-input" id="nl-email-explore" name="email" type="email" autocomplete="email" inputmode="email" required placeholder="Tu email" aria-describedby="nl-status-explore">
+        <button class="form-submit" type="submit">Suscribirme</button>
+      </div>
+      <label class="form-consent" for="nl-gdpr-explore">
+        <input id="nl-gdpr-explore" name="consent" type="checkbox" required aria-describedby="nl-status-explore">
+        <span>Acepto recibir novedades del autor. <a href="/privacidad.html" target="_blank" rel="noopener">Privacidad</a>.</span>
+      </label>
+      <p id="nl-status-explore" class="form-status" role="status" aria-live="polite"></p>
+    </form>
   </div>
 </dialog>
 <!-- site-shell:dialog:end -->
@@ -266,7 +275,7 @@
         <a class="social-icon" href="https://www.pinterest.com/davidportodiaz/" target="_blank" rel="noopener noreferrer me" aria-label="Pinterest" title="Pinterest"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" focusable="false"><path d="M12 2C6.5 2 3 5.6 3 10c0 3.2 1.8 5.1 3 5.7.2.1.4 0 .4-.3l.4-1.5c0-.2 0-.3-.1-.5-.4-.5-.7-1.4-.7-2.3 0-3 2.2-5.7 5.8-5.7 3.1 0 4.9 1.9 4.9 4.5 0 3.4-1.5 5.6-3.5 5.6-1.1 0-2-.9-1.7-2.1.3-1.3.9-2.7.9-3.7 0-.8-.5-1.5-1.4-1.5-1.1 0-2 1.2-2 2.7 0 1 .3 1.7.3 1.7s-1.2 4.9-1.4 5.8c-.4 1.6-.1 3.6 0 3.8.1.1.2.1.3 0 .1-.2 1.5-1.9 2-3.5.1-.4.6-2.3.6-2.3.3.6 1.2 1.1 2.2 1.1 2.9 0 5-2.7 5-6.4C20 5.7 16.5 2 12 2z"/></svg></a>
         <a class="social-icon" href="https://www.linkedin.com/in/davidportodiaz/" target="_blank" rel="noopener noreferrer me" aria-label="LinkedIn" title="LinkedIn"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" focusable="false"><path d="M5 3a2 2 0 1 0 0 4 2 2 0 0 0 0-4zM3.5 9h3v12h-3V9zm6.5 0h2.9v1.6c.5-.9 1.7-1.9 3.4-1.9 3.6 0 4.6 2.3 4.6 5.4V21h-3v-6.1c0-1.5-.5-2.5-1.9-2.5-1.4 0-2 1-2 2.4V21h-3V9z"/></svg></a>
       </div>
-          <p class="press-contact-direct">Contacto directo: <a href="mailto:davidportodiaz@gmail.com">samuelentremundos&#64;gmail.com</a></p>
+          <p class="press-contact-direct">Contacto directo: <a href="mailto:davidportodiaz@gmail.com">davidportodiaz&#64;gmail.com</a></p>
 </section>
   </main>
 

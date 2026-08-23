@@ -1,0 +1,63 @@
+name: Explore territories QA
+
+on:
+  pull_request:
+    paths:
+      - 'data/navigation.json'
+      - 'scripts/build-site-shell.py'
+      - 'scripts/check-navigation-coverage.py'
+      - 'qa/explore-territories-browser.mjs'
+      - 'tests/test-check-navigation-coverage-territories.py'
+      - '.github/workflows/explore-territories-qa.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  territories-qa:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Check the 5 stable Explorar territories contract
+        run: python scripts/check-navigation-coverage.py
+
+      - name: Check the generated shell matches the navigation contract
+        run: python scripts/build-site-shell.py --check
+
+      - name: Run the territories regression test suite
+        run: python tests/test-check-navigation-coverage-territories.py
+
+      - name: Set up Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+
+      - name: Install CI/QA dependencies (Node)
+        run: npm ci
+
+      - name: Cache Playwright browsers
+        id: playwright-cache
+        uses: actions/cache@v4
+        with:
+          path: ~/.cache/ms-playwright
+          key: playwright-chromium-${{ hashFiles('package-lock.json') }}
+
+      - name: Install Playwright Chromium (with OS deps)
+        if: steps.playwright-cache.outputs.cache-hit != 'true'
+        run: npx playwright install --with-deps chromium
+
+      - name: Install Playwright OS deps only (browser cached)
+        if: steps.playwright-cache.outputs.cache-hit == 'true'
+        run: npx playwright install-deps chromium
+
+      - name: Run Explorar territories browser QA
+        run: node qa/explore-territories-browser.mjs

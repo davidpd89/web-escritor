@@ -28,6 +28,10 @@ jobs:
         run: python scripts/check-heading-structure.py
       - name: Check .assetsignore still matches the public-dist exclude list
         run: python scripts/build-public-dist.py --check-assetsignore
+      - name: Check public dist excludes internal-only content
+        run: |
+          python scripts/build-public-dist.py
+          python scripts/build-public-dist.py --check-contents
       - name: Check shared JSON-LD entities use one canonical @id
         run: python scripts/check-canonical-entity-ids.py
       - name: Check the pre-rendered article-tools block matches current headings
@@ -40,6 +44,8 @@ jobs:
         run: python scripts/check-ai-discoverability.py
       - name: Check social cards (Open Graph / Twitter) on every indexable page
         run: python scripts/check-social-cards.py --strict
+      - name: Check visible article dates match JSON-LD dates
+        run: python scripts/check-article-dates.py --check
       - name: Check key article pages keep non-generic social cards
         run: python tests/test-social-card-article-specific.py
       - name: Check the editorial methodology page is date-independent
@@ -58,6 +64,11 @@ jobs:
       # workflow.
       - name: Check no tracked file leaks an API key
         run: python scripts/check-secrets.py
+      # Gate reproducible de imagenes responsive (H.3): dimensiones
+      # intrinsecas para evitar CLS, srcset/sizes coherentes, y candidatos
+      # de srcset que apuntan a ficheros reales. Ver docs/PENDIENTE-H-*.md.
+      - name: Check responsive image policy
+        run: python scripts/check-responsive-images.py --check
       # Sin este check, un cambio en data/writer-tools.json (o en el propio
       # builder) puede fusionarse sin regenerar el HTML publicado, y nada lo
       # avisaria: paso exactamente eso con el CSP y el JSON-LD de esta pagina,
