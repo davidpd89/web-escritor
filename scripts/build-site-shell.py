@@ -75,6 +75,10 @@ INLINE_SCRIPT_RE = re.compile(
 #   - connect-src subscribe.davidpd89.workers.dev: Worker de alta de
 #     newsletter (NEWSLETTER_CONFIG.endpoint en script.js).
 #   - El asistente usa rutas same-origin (/api/assistant*), cubiertas por 'self'.
+#   - script-src/frame-src challenges.cloudflare.com: el widget Turnstile que
+#     assets/assistant.js carga (challenges.cloudflare.com/turnstile/v0/api.js)
+#     antes de enviar una pregunta; sin esto el script se bloquea y, si se
+#     cargara, el iframe del propio widget tambien caeria contra frame-src.
 #   - style-src necesita 'unsafe-inline': hay estilos inline puntuales en
 #     paginas generadas por builders (p. ej. build-writer-tools.py). Se deja
 #     anotado como deuda conocida en vez de silenciada.
@@ -96,7 +100,7 @@ INLINE_SCRIPT_RE = re.compile(
 #     que el navegador nunca aplica por esta via.
 PUBLIC_CSP = (
     "default-src 'self'; "
-    "script-src 'self' gc.zgo.at davidportodiaz.goatcounter.com tracker.metricool.com; "
+    "script-src 'self' gc.zgo.at davidportodiaz.goatcounter.com tracker.metricool.com challenges.cloudflare.com; "
     "connect-src 'self' gc.zgo.at davidportodiaz.goatcounter.com tracker.metricool.com https://subscribe.davidpd89.workers.dev; "
     "img-src 'self' data: tracker.metricool.com; "
     "style-src 'self' 'unsafe-inline'; "
@@ -106,7 +110,7 @@ PUBLIC_CSP = (
     "object-src 'none'; "
     "base-uri 'self'; "
     "form-action 'self'; "
-    "frame-src 'none'; "
+    "frame-src challenges.cloudflare.com; "
     "manifest-src 'self'"
 )
 
