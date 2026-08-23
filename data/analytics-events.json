@@ -18,6 +18,8 @@
 
     { "name": "leer-fragmento-samuel",     "action": "sample_open", "context": "samuel",     "note": "Clic a cualquier enlace /fragmento/ que NO sea de Manecillas." },
     { "name": "leer-fragmento-manecillas", "action": "sample_open", "context": "manecillas", "note": "Clic a /las-manecillas-del-recuerdo/fragmentos/. Antes de I.1 este clic no se contaba: el patron legacy /fragmento/ (singular) nunca coincidia con esta ruta (plural)." },
+    { "name": "sample-start-manecillas",    "action": "sample_start",    "context": "manecillas", "note": "assets/manecillas-funnel.js: el lector abre la pagina de la muestra real (no la ficha del libro)." },
+    { "name": "sample-complete-manecillas", "action": "sample_complete", "context": "manecillas", "note": "assets/manecillas-funnel.js: el lector llega al final de la muestra (CTA final visible), umbral de consumo significativo." },
 
     { "name": "explorar-noveris",    "action": "navigate_editorial", "context": "noveris",    "note": "Clic a cualquier enlace /universo/noveris/." },
     { "name": "ver-prensa",          "action": "navigate_editorial", "context": "prensa",     "note": "Clic a cualquier enlace /prensa*." },

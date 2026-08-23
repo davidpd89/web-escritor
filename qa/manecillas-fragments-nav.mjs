@@ -106,7 +106,7 @@ if (existsInBase) {
   assert.ok(parts.og.length > 0, 'pagina nueva: faltan metadatos Open Graph');
   assert.ok(parts.twitter.length > 0, 'pagina nueva: faltan metadatos Twitter');
 }
-assert(currentHtml.includes('<body data-reading-progress>'), 'debe conservar body[data-reading-progress]');
+assert(/<body\b[^>]*\bdata-reading-progress\b/.test(currentHtml), 'debe conservar body[data-reading-progress]');
 
 const pageErrors = [];
 const report = {
