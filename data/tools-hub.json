@@ -162,6 +162,16 @@
       "source_doc": "assets/club-session-engine.js"
     },
     {
+      "slug": "tipo-lector",
+      "name": "¿Qué tipo de lector eres?",
+      "href": "/herramientas/que-tipo-de-lector-eres/",
+      "category": "lectores",
+      "summary": "Test breve de 6 preguntas sobre tus preferencias de lectura, con 6 perfiles posibles y resultado calculado en tu navegador.",
+      "privacy": "local",
+      "input": "form",
+      "source_doc": "assets/tipo-lector-engine.js"
+    },
+    {
       "slug": "auditor-pagina-libro",
       "name": "Auditor de página de libro",
       "href": "/herramientas/auditor-pagina-libro/",

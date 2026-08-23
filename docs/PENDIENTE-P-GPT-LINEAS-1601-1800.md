@@ -212,3 +212,80 @@ Gated correctamente:
 - elección/publicación de licencia open-source.
 
 **STOP exacto: línea 1800.** No se interpreta la continuación del documento 63 desde la línea 1801 en esta ronda.
+
+---
+
+# Estado de implementación (2026-08-23)
+
+## P.1 — «¿Qué tipo de lector eres?»
+
+- **Ruta**: `/herramientas/que-tipo-de-lector-eres/`, `noscript` explicativo, CSP local-only (`connect-src 'none'`, sin `/script.js`).
+- **6 perfiles** (`assets/tipo-lector-engine.js`: `PROFILES`): detector de pistas, explorador de mundos, lector de personajes, lector de ritmo, lector emocional, lector de estilo — el conjunto compacto de 5–7 que pedía el documento 59, ninguno presentado como rasgo de personalidad ni diagnóstico.
+- **6 preguntas × 6 opciones** (una opción por perfil y pregunta, simetría exacta): preguntas y puntuación (`QUESTIONS`, `score()`) completamente separadas de la capa de presentación (`assets/tipo-lector.js` solo renderiza y lee el DOM).
+- **Reproducibilidad y desempate deterministas**: `score()` es una función pura de las respuestas; en empate exacto gana el perfil que aparece antes en el array `PROFILES` (regla fija, documentada en el propio código y visible en la página: «un empate se resuelve mostrando el que aparece primero en esta lista, siempre en el mismo orden»), nunca `Math.random` ni orden de inserción.
+- **Sin envío de datos**: sin `fetch`/`XHR`, sin `localStorage`/`sessionStorage`, sin email para ver el resultado, sin perfil guardado; verificado con `scripts/audit-private-tools.py` y con un QA de navegador que confirma **cero peticiones de red externas**.
+- **Accesible**: preguntas como `<fieldset>`/`<legend>` con radios reales (foco y lector de pantalla nativos, no un widget custom), resultado anunciado vía `role="status"`/`aria-live`, sin depender solo del color.
+- **Integrado sin segunda fuente de verdad**: nueva categoría `lectores` en `data/tools-hub.json`/`scripts/build-tools-hub.py` (las categorías existentes son todas para escritores; forzar este quiz en una de ellas habría sido una mala categorización) + `data/content-registry.json`; hub regenerado (18 herramientas, antes 17); sitemap regenerado (55 URLs).
+- **Tests**: `tests/test-tipo-lector.mjs` (estructura 6+6, elegir siempre el mismo perfil da la puntuación máxima a ese perfil y 0 al resto, reproducibilidad exacta, desempate determinista construido explícitamente, respuestas incompletas y opción desconocida fallan con error en vez de puntuar a medias en silencio).
+- **QA de navegador real**: `qa/tipo-lector-browser.mjs` — envío incompleto no muestra resultado, responder todo sí, perfil calculado correcto, desglose de 6 perfiles, «Repetir el test» limpia respuestas, 0 peticiones externas, 0 excepciones JS. Wireado en `tools-browser-qa.yml` (ya cubre el resto de herramientas de texto de `/herramientas/`).
+
+## P.2 — Cierre de dependencias y avisos de terceros en el export open-source
+
+- **Bug real confirmado y corregido**: `data/open-source-tools.json` → `legibilidad` declaraba `files: ["legibilidad-engine.js"]` y `third_party: []`, pero `legibilidad-engine.js` importa `silabajs-lite-2.1.0.js` (adaptación MIT de `silabajs` de Nicolás Cofré Méndez) que no viajaba en el paquete y cuya licencia no se avisaba. Corregido: `files` ahora incluye `silabajs-lite-2.1.0.js` y `third_party` declara la adaptación con origen y licencia. `license: null` y `export: false` **sin tocar** (la elección de licencia sigue siendo una decisión humana fuera de esta PR).
+- **Cierre de dependencias real, no solo declarativo** (`scripts/build-open-source-export.py`): `closure_files()` sigue imports relativos estáticos (`import ... from './x.js'`, `import './x.js'`, `require('./x.js')`) de forma transitiva a partir de los ficheros declarados. Si el cierre real encuentra un fichero que no está en `files`, `validate()` falla con un mensaje que nombra el fichero que falta — no se auto-incluye en silencio, se exige declaración humana explícita en el manifest (punto 2 del contrato).
+- **Detección de adaptaciones de terceros no declaradas**: `looks_like_adaptation()` detecta cabeceras tipo «Adaptación…Upstream:…Licencia upstream:» (el patrón real que ya usa `silabajs-lite-2.1.0.js`); si un fichero del cierre las tiene y no aparece mencionado en `third_party`, `validate()` falla explicando por qué (puntos 3–4 del contrato).
+- **`THIRD_PARTY_NOTICES.md`** se sigue generando desde `third_party` (ya era la autoridad correcta); con el cierre y la detección de adaptaciones, ahora ese campo no puede quedar vacío por omisión para una herramienta que sí tiene una adaptación real (punto 4).
+- **`--check` ampliado** (punto 7): además de la integridad de hashes ya existente (detecta ficheros alterados tras generar), ahora también compara el conjunto de slugs `export:true` del manifest **actual** contra los slugs realmente presentes en el `EXPORT-MANIFEST.json` del staging, y falla si difieren (por ejemplo, si alguien activa `export:true` en una herramienta nueva y olvida regenerar el staging).
+- **`license: null` y `export: false` se mantienen** en todo `data/open-source-tools.json` (punto 8): esta PR construye la red de seguridad, no activa ninguna publicación.
+- **Tests deterministas** (`tests/test-build-open-source-export.py`, ampliado de 8 a 13 casos, todos los anteriores siguen en verde):
+  - **caso 9**: import local transitivo no declarado en `files` → rechazado, nombrando el fichero que falta;
+  - **caso 10**: import declarado pero adaptación de terceros no reflejada en `third_party` → rechazado;
+  - **caso 11**: con `files` y `third_party` completos → valida sin error;
+  - **caso 12**: `--check` detecta que el manifest actual (herramientas `export:true` ahora mismo) ya no corresponde al staging generado previamente;
+  - **caso 13**: ejecuta `validate()` contra el **grafo real** de `assets/legibilidad-engine.js` en el propio repo (activando `export:true` solo en memoria para la prueba, nunca escrito a disco) y confirma que el cierre resuelve exactamente `{legibilidad-engine.js, silabajs-lite-2.1.0.js}` sin error — la prueba que demuestra que el fix real funciona, no solo el fixture sintético.
+
+## Evidencia de ejecución (real)
+
+```
+$ node tests/test-tipo-lector.mjs
+tests/test-tipo-lector: OK
+
+$ QA_CHROMIUM_EXECUTABLE_PATH=... node qa/tipo-lector-browser.mjs
+tipo-lector-browser: PASS
+
+$ python scripts/audit-private-tools.py herramientas/*/index.html ...
+PASS — 20 file(s) satisfy the static private-tool preflight
+
+$ python scripts/build-tools-hub.py data/tools-hub.json herramientas/index.html --check
+OK: 18 herramientas, 2 directorios
+
+$ python scripts/check-navigation-coverage.py
+PASS: navigation coverage (61 registry routes, 55 sitemap routes, 18 interactive tools)
+
+$ python scripts/check-internal-graph.py
+Summary: 0 error(s), 0 warning(s)
+
+$ python scripts/check-heading-structure.py
+Heading/skip-link structure: 69 ficheros HTML revisados; 0 problema(s).
+
+$ python scripts/check-local-assets.py
+Local asset check: 89 HTML files scanned; 0 broken local reference(s).
+
+$ python scripts/build-sitemap.py --check
+SITEMAP OK: 55 URLs
+
+$ python scripts/check-secrets.py
+No obvious secrets found in tracked files.
+
+$ node qa/sitewide-reflow-browser.mjs
+sitewide-reflow-browser: OK (68 routes, 2 viewports, 136 checks)
+
+$ python tests/test-build-open-source-export.py
+tests/test-build-open-source-export: OK   [13/13 casos, antes 8/8]
+```
+
+**Pruebas en rojo reales**: caso 9 y 10 de `test-build-open-source-export.py` confirmaron que, ANTES de este fix, el manifest real de `legibilidad` habría producido exactamente el paquete incompleto que describe el documento 63 (motor sin su dependencia MIT, aviso de terceros falso por omisión) si alguien hubiera activado `export:true` sin las correcciones de este PR.
+
+## CI
+
+`qa/tipo-lector-browser.mjs` wireado en `tools-browser-qa.yml` (nuevas rutas `herramientas/que-tipo-de-lector-eres/**`, `assets/tipo-lector*`). `tests/test-tipo-lector.mjs` y `tests/test-build-open-source-export.py` ya cubiertos por el barrido genérico de `tool-tests.yml` (`tests/*.mjs` / `tests/test-*.py`), sin necesidad de tocar su trigger.

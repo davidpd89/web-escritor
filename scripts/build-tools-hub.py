@@ -13,12 +13,14 @@ CATEGORIES = {
     "publicar-web": ("Publicar en la web", "Metadatos, marcado y comprobaciones orientadas a una web de escritor."),
     "publicar-promocionar": ("Prensa y promoción", "Recursos para empaquetar material profesional sin convertirlo en una fábrica de copy."),
     "investigar-recordar": ("Investigar y recordar", "Prepara conversaciones y fichas para recoger historia real antes de convertirla en material narrativo."),
+    "lectores": ("Para lectores", "No todo aquí es para quien escribe: alguna herramienta está pensada para quien solo quiere leer."),
 }
 FILTER_GROUPS = {
     "revisar": ("Revisar texto", {"revisar-texto", "revisar-manuscrito"}),
     "estructura": ("Personajes y estructura", {"personajes-estructura"}),
     "publicar": ("Publicar y promocionar", {"publicar-web", "publicar-promocionar", "lectura-eventos"}),
     "investigar": ("Investigar y recordar", {"investigar-recordar"}),
+    "lectores": ("Para lectores", {"lectores"}),
 }
 PRIVACY = {
     "local": "En tu navegador",

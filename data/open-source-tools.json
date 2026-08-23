@@ -9,8 +9,8 @@
       "name": "Analizador de legibilidad en español",
       "description": "Métricas descriptivas de legibilidad (Inflesz, Fernández-Huerta) procesadas localmente, sin enviar el texto a un servidor.",
       "demo_url": "https://davidportodiaz.com/herramientas/legibilidad/",
-      "files": ["legibilidad-engine.js"],
-      "third_party": [],
+      "files": ["legibilidad-engine.js", "silabajs-lite-2.1.0.js"],
+      "third_party": ["silabajs-lite-2.1.0.js: adaptación de silabajs 2.1.0 (https://github.com/nicofrem/silabajs), autor Nicolás Cofré Méndez, licencia MIT"],
       "export": false
     },
     {

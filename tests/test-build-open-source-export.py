@@ -179,5 +179,87 @@ check(
     "el manifest real (data/open-source-tools.json) no tiene ninguna herramienta export:true todavía",
 )
 
+# P.2 (2026-08-23): cierre de dependencias locales + adaptaciones de
+# terceros no declaradas. Caso real que motivó esto: legibilidad-engine.js
+# importa silabajs-lite-2.1.0.js (adaptación MIT de terceros) y el manifest
+# no lo declaraba ni en 'files' ni en 'third_party'.
+with tempfile.TemporaryDirectory() as tmp:
+    root = Path(tmp)
+    source = root / "assets"
+    source.mkdir(parents=True)
+    (source / "engine.js").write_text("import { helper } from './helper.js';\nexport function run(){return helper();}", encoding="utf-8")
+    (source / "helper.js").write_text(
+        "/* Adaptación mínima a partir de upstream-lib 1.0.0. Upstream: https://example.com/upstream-lib. Licencia upstream: MIT. */\nexport function helper(){return 1;}",
+        encoding="utf-8",
+    )
+
+    # 9. import local transitivo no declarado en 'files' -> se rechaza.
+    manifest_missing_file = {
+        "repository_name": "r", "repository_description": "d", "license": None, "topics": [],
+        "tools": [{
+            "slug": "tool-c", "name": "Tool C",
+            "description": "Herramienta de prueba C con descripción suficientemente larga para pasar la validación.",
+            "demo_url": "https://davidportodiaz.com/herramientas/tool-c/",
+            "export": True, "files": ["engine.js"], "third_party": [],
+        }],
+    }
+    try:
+        bose.validate(manifest_missing_file, source)
+        check(False, "9. import local no declarado en 'files' debe rechazarse")
+    except ValueError as exc:
+        check("helper.js" in str(exc) and "faltan en 'files'" in str(exc), "9. import local no declarado en 'files' se rechaza", str(exc))
+
+    # 10. con el import declarado pero sin third_party -> se rechaza por adaptación no declarada.
+    manifest_missing_notice = json.loads(json.dumps(manifest_missing_file))
+    manifest_missing_notice["tools"][0]["files"] = ["engine.js", "helper.js"]
+    try:
+        bose.validate(manifest_missing_notice, source)
+        check(False, "10. adaptación de terceros sin declarar en third_party debe rechazarse")
+    except ValueError as exc:
+        check("helper.js" in str(exc) and "third_party" in str(exc), "10. adaptación no declarada en third_party se rechaza", str(exc))
+
+    # 11. con 'files' y 'third_party' completos -> valida sin error.
+    manifest_complete = json.loads(json.dumps(manifest_missing_notice))
+    manifest_complete["tools"][0]["third_party"] = ["helper.js: adaptación de upstream-lib 1.0.0, licencia MIT"]
+    try:
+        tools_ok = bose.validate(manifest_complete, source)
+        check(len(tools_ok) == 1 and len(tools_ok[0][1]) == 2, "11. cierre + third_party completos validan sin error")
+    except ValueError as exc:
+        check(False, "11. cierre + third_party completos validan sin error", str(exc))
+
+# 12. --check detecta drift entre el manifest actual y el staging ya generado
+# (además de la integridad de hashes ya cubierta en 5a/5b).
+with tempfile.TemporaryDirectory() as tmp:
+    root = Path(tmp)
+    source = setup_source(root)
+    out = root / "out"
+    manifest = write_manifest(root, BASE_MANIFEST)
+    sys.argv = ["build-open-source-export.py", str(manifest), "--source", str(source), "--output", str(out)]
+    bose.main()
+    only_tool_a = json.loads(json.dumps(BASE_MANIFEST))
+    only_tool_a["tools"][1]["export"] = False
+    manifest2 = write_manifest(root, only_tool_a, name="manifest2.json")
+    sys.argv = ["build-open-source-export.py", str(manifest2), "--source", str(source), "--output", str(out), "--check"]
+    check(bose.main() == 1, "12. --check detecta que el manifest actual (1 tool) ya no corresponde al staging (2 tools)")
+
+# 13. Grafo REAL de legibilidad: confirma que, con el manifest real (tal como
+# está en el repo, solo activando export:true en memoria para esta prueba,
+# SIN escribirlo nunca a disco), el cierre resuelve exactamente
+# legibilidad-engine.js + silabajs-lite-2.1.0.js y no falla.
+real_source = ROOT / "assets"
+real_legibilidad = json.loads(json.dumps(real_manifest))
+for t in real_legibilidad["tools"]:
+    t["export"] = (t["slug"] == "legibilidad")
+try:
+    tools_real = bose.validate(real_legibilidad, real_source)
+    real_files = {str(f.relative_to(real_source)) for _, files in tools_real for _, f in files}
+    check(
+        real_files == {"legibilidad-engine.js", "silabajs-lite-2.1.0.js"},
+        "13. el grafo real de legibilidad resuelve engine + silabajs-lite exactamente",
+        str(real_files),
+    )
+except ValueError as exc:
+    check(False, "13. el grafo real de legibilidad resuelve sin error", str(exc))
+
 print("tests/test-build-open-source-export: " + ("OK" if not failures else f"{len(failures)} FALLO(S)"))
 raise SystemExit(1 if failures else 0)

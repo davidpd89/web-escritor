@@ -8,8 +8,52 @@ BLOCKED_NAMES={'.env','script.js','editorial-facts.json','private-tools-privacy-
 BLOCKED_FRAGMENTS=('api_key','apikey','secret','password','authorization: bearer','xkeysib-','private manus','@davidpuede')
 ALLOWED_EXT={'.js','.mjs','.css','.html','.json','.md','.py'}
 
+# P.2 (2026-08-23): cierre de dependencias locales. Un tool.files incompleto
+# (declara el motor pero no un modulo local que ese motor importa de verdad)
+# produce un export que no funciona fuera de este repo -- el caso real
+# encontrado fue legibilidad-engine.js -> silabajs-lite-2.1.0.js. Solo
+# seguimos imports relativos locales ('./x' o '../x'); imports de paquetes
+# npm no existen en este repo y no se contemplan aqui.
+LOCAL_IMPORT_RE=re.compile(r"""(?:import\s+(?:[^'"();]*?from\s+)?|export\s+(?:[^'"();]*?from\s+)?|require\(\s*)['"](\.{1,2}/[^'"]+)['"]""")
+
+# Marcadores heuristicos de que un fichero es una adaptacion/copia de codigo
+# de terceros y por tanto DEBE aparecer en third_party. Basado en el patron
+# real ya usado en este repo (silabajs-lite-2.1.0.js declara "Adaptación
+# ... Upstream: ... Licencia upstream: ..." en su cabecera).
+ADAPTATION_MARKERS=('adaptación','adaptacion','upstream:','adapted from','licencia upstream')
+
 def sha256(p):
     h=hashlib.sha256();h.update(p.read_bytes());return h.hexdigest()
+
+def local_imports(path):
+    try: text=path.read_text(encoding='utf-8',errors='ignore')
+    except OSError: return []
+    return [m.group(1) for m in LOCAL_IMPORT_RE.finditer(text)]
+
+def closure_files(entry_files, source):
+    """BFS sobre imports relativos locales a partir de entry_files (Path
+    resueltos). Devuelve el conjunto completo de ficheros locales alcanzados
+    (incluidos los propios entry_files). Ignora imports que resuelven fuera
+    de source (no deberian existir en este repo; si aparecen, se ignoran en
+    vez de fallar aqui -- el confinamiento de path ya se valida por separado
+    para los ficheros declarados)."""
+    source_resolved=source.resolve()
+    seen={f.resolve() for f in entry_files}
+    queue=list(seen)
+    while queue:
+        current=queue.pop()
+        for rel in local_imports(current):
+            resolved=(current.parent/rel).resolve()
+            if source_resolved!=resolved and source_resolved not in resolved.parents: continue
+            if not resolved.is_file(): continue
+            if resolved not in seen:
+                seen.add(resolved); queue.append(resolved)
+    return seen
+
+def looks_like_adaptation(path):
+    try: head=path.read_text(encoding='utf-8',errors='ignore')[:2000].lower()
+    except OSError: return False
+    return any(marker in head for marker in ADAPTATION_MARKERS)
 
 def validate(data, source):
     if data.get('license') not in {None,'MIT','Apache-2.0'}: raise ValueError('license debe ser null, MIT o Apache-2.0')
@@ -35,6 +79,28 @@ def validate(data, source):
             if any(x in low for x in BLOCKED_FRAGMENTS): raise ValueError(f'{slug}: posible secreto/dato privado en {rel}')
             files.append((rel,f))
         if not files: raise ValueError(f'{slug}: sin archivos')
+
+        # Cierre de dependencias locales (P.2): cualquier import relativo
+        # estatico alcanzable desde los ficheros declarados debe estar EL
+        # MISMO declarado en 'files'. No se auto-incluye en silencio: se
+        # exige declaracion explicita humana en el manifest.
+        declared_resolved={f.resolve() for _,f in files}
+        full_closure=closure_files([f for _,f in files], source)
+        missing=full_closure-declared_resolved
+        if missing:
+            missing_rel=sorted(str(m.relative_to(source.resolve())) for m in missing)
+            raise ValueError(f"{slug}: faltan en 'files' dependencias locales importadas: {', '.join(missing_rel)}")
+
+        # Adaptaciones de terceros (P.2): si algun fichero del cierre (declarado
+        # o transitivo) declara en su propia cabecera que es una adaptacion de
+        # codigo de terceros, esa adaptacion debe reflejarse en third_party.
+        third_party_text=' | '.join(t.get('third_party') or []).lower()
+        for resolved_file in full_closure:
+            if looks_like_adaptation(resolved_file):
+                name=resolved_file.name
+                if name.lower() not in third_party_text:
+                    raise ValueError(f"{slug}: {name} parece una adaptación de código de terceros (cabecera con 'Upstream'/'Adaptación') pero no está declarada en third_party")
+
         tools.append((t,files))
     if not tools: raise ValueError('no hay herramientas export=true')
     return tools
@@ -58,6 +124,14 @@ def main():
         for item in current.get('files',[]):
             p=a.output/item['path']
             if not p.exists() or sha256(p)!=item['sha256']: print(f'FAIL: deriva {item["path"]}',file=sys.stderr);return 1
+        # P.2, requisito 7: --check tambien debe detectar que el manifest
+        # fuente actual (que herramientas tienen export:true ahora mismo) ya
+        # no corresponde con lo que el staging tiene generado, no solo que
+        # los ficheros ya copiados no hayan cambiado de contenido.
+        current_slugs=set(current.get('tools',[]))
+        expected_slugs={t['slug'] for t,_ in tools}
+        if current_slugs!=expected_slugs:
+            print(f'FAIL: el staging no corresponde al manifest actual (staging={sorted(current_slugs)}, manifest={sorted(expected_slugs)}); regenera con build-open-source-export.py sin --check',file=sys.stderr);return 1
         print(f'PASS: staging íntegro ({len(tools)} herramientas)');return 0
     if a.output.exists(): shutil.rmtree(a.output)
     a.output.mkdir(parents=True)
