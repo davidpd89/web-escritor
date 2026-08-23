@@ -5,6 +5,12 @@
 // exclusions hold for the real, committed index — not just the Python
 // eligibility function in isolation (see tests/test-build-pagefind-index.py
 // for that unit-level coverage).
+//
+// Lives under qa/ (not tests/) because it needs `playwright`: tool-tests.yml
+// runs every tests/*.mjs with plain Node and no npm install, so a Playwright
+// import there fails with ERR_MODULE_NOT_FOUND. qa/*.mjs browser suites are
+// only run by workflows that already do `npm ci` first (here:
+// assistant-hardening-qa.yml's browser-qa job).
 import assert from 'node:assert/strict';
 import { chromium } from 'playwright';
 import { createServer } from 'node:http';
@@ -48,7 +54,8 @@ try {
   await page.goto(`${ORIGIN}/`, { waitUntil: 'load' });
 
   // pagefind.js itself and its manifest are served with 200 (staging/prod
-  // parity for this is covered separately by tests/test-staging-smoke.mjs).
+  // parity for this is a follow-up once staging redeploys with this commit;
+  // see docs/PENDIENTE-AF-ASSISTANT-PAGEFIND-LOCAL-SEARCH.md).
   const pfResponse = await page.request.get(`${ORIGIN}/pagefind/pagefind.js`);
   assert.equal(pfResponse.status(), 200, '/pagefind/pagefind.js must be servable');
 
@@ -84,7 +91,7 @@ try {
 
   await context.close();
 
-  console.log('test-pagefind-search: PASS');
+  console.log('pagefind-search-browser: PASS');
 } finally {
   await browser.close();
   await new Promise((resolve) => server.close(resolve));

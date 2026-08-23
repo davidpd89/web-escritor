@@ -16,7 +16,7 @@ on:
       - 'qa/assistant-browser.mjs'
       - 'scripts/build-pagefind-index.py'
       - 'tests/test-build-pagefind-index.py'
-      - 'tests/test-pagefind-search.mjs'
+      - 'qa/pagefind-search-browser.mjs'
       - 'pagefind/**'
       - 'data/content-registry.json'
       - '.github/workflows/assistant-hardening-qa.yml'
@@ -98,7 +98,7 @@ jobs:
       - name: Pagefind eligibility + build/check cycle
         run: python3 tests/test-build-pagefind-index.py
       - name: Pagefind real search (gates + no external requests)
-        run: node tests/test-pagefind-search.mjs
+        run: node qa/pagefind-search-browser.mjs
       - name: Upload six viewport screenshots
         if: always()
         uses: actions/upload-artifact@v4

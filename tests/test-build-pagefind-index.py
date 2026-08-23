@@ -18,6 +18,7 @@ from __future__ import annotations
 import importlib.util
 import io
 import json
+import shutil
 import subprocess
 import sys
 import tempfile
@@ -109,6 +110,19 @@ def run() -> None:
         check(pages == sorted(pages), "7. eligible_pages() devuelve orden determinista (sorted)")
 
     # --- ciclo build() / --check sobre un pagefind real, sin red externa ---
+    # tool-tests.yml ejecuta tests/test-*.py sin Node/npm instalados (a
+    # diferencia de assistant-hardening-qa.yml, que si lo tiene). Sin `npx`
+    # en el PATH esta parte no es comprobable aqui -- se omite explicitamente
+    # en vez de contarla como fallo, para que este mismo fichero sirva en
+    # ambos workflows sin duplicar el test de elegibilidad.
+    if shutil.which("npx") is None:
+        print("  skip 8-12. npx no disponible en este entorno (ver assistant-hardening-qa.yml para el ciclo build/--check completo)")
+        if failures:
+            print(f"\nFAIL: {len(failures)} check(s) de test-build-pagefind-index")
+            raise SystemExit(1)
+        print("\ntest-build-pagefind-index: OK (elegibilidad; ciclo build/--check omitido sin npx)")
+        return
+
     with tempfile.TemporaryDirectory() as tmp_str2:
         tmp2 = make_fixture_repo(Path(tmp_str2))
         out_dir = tmp2 / "pagefind"
