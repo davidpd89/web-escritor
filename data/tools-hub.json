@@ -32,6 +32,16 @@
       "source_doc": "assets/dialogo-espanol.js"
     },
     {
+      "slug": "dialogo-convenciones",
+      "name": "Revisor de convenciones de diálogo",
+      "href": "/herramientas/dialogo-convenciones/",
+      "category": "revisar-texto",
+      "summary": "Detecta guion en lugar de raya, mezcla de estilos de comillas y posibles acotaciones con puntuación problemática en diálogo en español.",
+      "privacy": "local",
+      "input": "text",
+      "source_doc": "assets/dialogo-convenciones.js"
+    },
+    {
       "slug": "legibilidad",
       "name": "Legibilidad en español",
       "href": "/herramientas/legibilidad/",

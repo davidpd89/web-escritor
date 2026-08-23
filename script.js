@@ -528,6 +528,52 @@ function fallbackCopy(text, done) {
   submitNewsletter("newsletter-form-fragmento",  "nl-email-fragmento",  "nl-gdpr-fragmento",  "nl-status-fragmento",  "fragmento");
   submitNewsletter("newsletter-form-manecillas", "nl-email-manecillas", "nl-gdpr-manecillas", "nl-status-manecillas", "manecillas");
   submitNewsletter("newsletter-form-cuaderno",   "nl-email-cuaderno",   "nl-gdpr-cuaderno",   "nl-status-cuaderno",   "cuaderno");
+  // Lectores beta (N.1, 2026-08-23): mismo mecanismo de envio, pero fuente,
+  // lista de Brevo y consentimiento propios -- ver /lectores-beta/ y
+  // cloudflare-worker-subscribe.js (BREVO_BETA_LIST_ID). El copy de exito no
+  // reutiliza NEWSLETTER_SUCCESS_COPY porque no es "recibir novedades del
+  // autor", es la confirmacion del programa de lectores beta.
+  (function () {
+    const form = document.getElementById("lectores-beta-form");
+    if (!form) return;
+    form.addEventListener("submit", (e) => {
+      e.preventDefault();
+      scheduleTask(async () => {
+        const emailEl = document.getElementById("lectores-beta-email");
+        const gdprEl = document.getElementById("lectores-beta-gdpr");
+        const statusEl = document.getElementById("lectores-beta-status");
+        const submitBtn = form.querySelector("[type=submit]");
+        if (IS_STAGING) {
+          if (statusEl) statusEl.textContent = STAGING_DISABLED_MESSAGE;
+          return;
+        }
+        if (!emailEl || !isValidNewsletterEmail(emailEl.value) || !gdprEl || !gdprEl.checked) {
+          if (statusEl) statusEl.textContent = gdprEl && !gdprEl.checked
+            ? "Acepta el consentimiento del programa de lectores beta para continuar."
+            : "Introduce un email válido.";
+          return;
+        }
+        if (statusEl) statusEl.textContent = "";
+        submitBtn.disabled = true;
+        submitBtn.textContent = "Enviando…";
+        try {
+          const result = await postNewsletter({ email: emailEl.value.trim(), source: "lectores-beta" });
+          if (result.ok && !result.duplicate) {
+            form.innerHTML = '<p class="quiz-subscribe-ok">✓ ¡Apuntado! Te escribiré cuando tenga material listo para lectores beta.</p>';
+            _gcEvent("newsletter-lectores-beta", "Newsletter: lectores beta");
+          } else if (result.ok && result.duplicate) {
+            form.innerHTML = '<p class="quiz-subscribe-ok">✓ Ya estás en la lista de lectores beta. ¡Gracias!</p>';
+          } else {
+            throw new Error(result.code || "request_failed");
+          }
+        } catch (err) {
+          if (statusEl) statusEl.textContent = newsletterErrorMessage(err.message);
+          submitBtn.disabled = false;
+          submitBtn.textContent = "Quiero apuntarme";
+        }
+      }, "user-blocking");
+    });
+  })();
 })();
 
 // Modo lectura desactivado temporalmente: limpia estados antiguos guardados en el navegador.
@@ -866,7 +912,7 @@ document.addEventListener('dp:analytics', _dpAnalyticsBridge);
         _lastBuyTrigger?.focus?.();
       });
     }
-    _gcEvent("abrir-modal-comprar", "Modal: abrir dónde comprar");
+    _gcEvent("abrir-modal-comprar-samuel", "Modal: abrir dónde comprar (Samuel entre mundos)");
     document.documentElement.classList.add("modal-open");
     // Back button support: push state so Back closes modal instead of leaving page
     history.pushState({ buyModal: true }, "", "#comprar");
@@ -895,9 +941,16 @@ document.querySelectorAll('a[href*="amazon.es"]:not(#buy-dialog a)').forEach(lin
   link.addEventListener("click", () => _gcEvent("comprar-amazon", "Clic: Comprar Amazon"));
 });
 
-// Leer fragmento gratis
-document.querySelectorAll('a[href*="/fragmento/"]').forEach(link => {
-  link.addEventListener("click", () => _gcEvent("leer-fragmento", "Clic: Leer fragmento"));
+// Leer fragmento gratis -- eventos separados por identidad de libro (I.1):
+// un unico nombre "leer-fragmento" no distinguia Samuel de Manecillas, y
+// ademas el patron `/fragmento/` (singular) nunca coincidia con la ruta
+// real de Manecillas (`/las-manecillas-del-recuerdo/fragmentos/`, plural),
+// asi que esos clics no se contaban en absoluto.
+document.querySelectorAll('a[href*="/fragmento/"]:not([href*="/las-manecillas-del-recuerdo/"])').forEach(link => {
+  link.addEventListener("click", () => _gcEvent("leer-fragmento-samuel", "Clic: Leer fragmento (Samuel entre mundos)"));
+});
+document.querySelectorAll('a[href*="/las-manecillas-del-recuerdo/fragmentos/"]').forEach(link => {
+  link.addEventListener("click", () => _gcEvent("leer-fragmento-manecillas", "Clic: Leer fragmento (Las manecillas del recuerdo)"));
 });
 
 // Explorar Noveris

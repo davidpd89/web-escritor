@@ -1,0 +1,56 @@
+{
+  "note": "Corpus de validacion empirica del auditor de pagina de libro (N.2, 2026-08-23). Documenta, por cada una de 5 estructuras suficientemente distintas -- 2 paginas REALES publicadas del propio sitio + 3 fixtures representativos derivados de patrones reales de paginas de libro -- que deberia y que NO deberia detectar el motor (assets/book-page-audit-rules.js). Sirve de base a tests/test-book-page-audit-corpus.mjs.",
+  "cases": [
+    {
+      "id": "real-samuel-entre-mundos",
+      "kind": "real",
+      "sourceFile": "libros/samuel-entre-mundos/index.html",
+      "description": "Pagina real, publicada, del propio sitio: ficha rica de una novela con tienda, fragmento, prensa, club de lectura y JSON-LD Book completo.",
+      "expectOk": ["book_title", "book_author", "book_cover", "book_description", "book_availability", "book_purchase", "book_isbn", "book_publisher", "book_date", "book_format", "book_pages", "book_excerpt", "book_press", "book_club", "book_series"],
+      "expectSchemaOk": true,
+      "expectNoConsistencyIssues": true
+    },
+    {
+      "id": "real-las-manecillas-del-recuerdo",
+      "kind": "real",
+      "sourceFile": "las-manecillas-del-recuerdo/index.html",
+      "description": "Pagina real, publicada, del propio sitio: ficha de la obra actual, sin club de lectura ni serie todavia (correcto: son obras que no existen para este libro, no un fallo del auditor).",
+      "expectOk": ["book_title", "book_author", "book_cover", "book_description", "book_availability", "book_purchase", "book_isbn", "book_publisher", "book_date", "book_format", "book_pages", "book_excerpt", "book_press"],
+      "expectOptional": ["book_club", "book_series"],
+      "expectSchemaOk": true,
+      "expectNoConsistencyIssues": true
+    },
+    {
+      "id": "sparse-self-published",
+      "kind": "representative",
+      "sourceFile": "tests/fixtures/book-page-audit-corpus/sparse-self-published.html",
+      "description": "Patron representativo de una ficha de autor autopublicado minima: titulo, autor, un parrafo corto y un enlace de compra. Sin ISBN, sin JSON-LD, sin prensa/club/serie.",
+      "expectOk": ["book_title", "book_author", "book_purchase"],
+      "expectReview": ["book_cover", "book_description", "book_availability"],
+      "expectInfo": ["book_isbn", "book_publisher", "book_date", "book_schema"],
+      "expectOptional": ["book_format", "book_pages", "book_excerpt", "book_press", "book_club", "book_series", "book_asset_rights"],
+      "expectNoConsistencyIssues": true,
+      "guardAgainstFalsePositive": "no debe inventarse ISBN/editorial/fecha porque el texto menciona la obra: deben quedar en 'info', no en 'ok' ni en 'review' urgente."
+    },
+    {
+      "id": "rich-traditional-publisher",
+      "kind": "representative",
+      "sourceFile": "tests/fixtures/book-page-audit-corpus/rich-traditional-publisher.html",
+      "description": "Patron representativo de una ficha de editorial tradicional: JSON-LD Book completo, ISBN, editorial, formato, paginas, fecha, prensa, club, serie y creditos de imagen coherentes con el contenido visible.",
+      "expectOk": ["book_title", "book_author", "book_cover", "book_description", "book_availability", "book_purchase", "book_isbn", "book_publisher", "book_date", "book_format", "book_pages", "book_excerpt", "book_press", "book_club", "book_series", "book_asset_rights"],
+      "expectSchemaOk": true,
+      "expectNoConsistencyIssues": true
+    },
+    {
+      "id": "stale-schema-mismatch",
+      "kind": "representative",
+      "sourceFile": "tests/fixtures/book-page-audit-corpus/stale-schema-mismatch.html",
+      "description": "Patron representativo de un bug real y frecuente de CMS: el bloque JSON-LD quedo desactualizado (titulo y autor antiguos) tras un cambio editorial de ultima hora, mientras el contenido visible (H1, byline) ya muestra el titulo/autor definitivos. El ISBN SI coincide en ambos sitios, para aislar que el auditor distingue una inconsistencia real de otra que no existe. Hallazgo real durante la validacion: sin expectedTitle explicito, el motor usa el titulo del schema como referencia (comportamiento correcto y documentado del motor), asi que aqui produce una senal DOBLE del mismo problema real -- book_title en 'review' ademas de book_title_mismatch -- en vez de una sola. Eso no es un fallo, es una senal reforzada.",
+      "expectOk": ["book_author", "book_cover", "book_isbn"],
+      "expectReview": ["book_title"],
+      "expectConsistencyIssues": ["book_title_mismatch", "book_author_mismatch"],
+      "expectNoConsistencyIssueIds": ["book_isbn_mismatch"],
+      "guardAgainstFalseNegative": "si el auditor dejase de detectar book_title_mismatch/book_author_mismatch aqui, un cambio de titulo de ultima hora podria publicarse con schema.org afirmando un titulo o autor distinto al que ve el lector, sin ningun aviso."
+    }
+  ]
+}
