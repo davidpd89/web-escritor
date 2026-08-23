@@ -35,42 +35,41 @@ Criterio de cierre añadido a #73: el paquete debe poder incluir tests reproduci
 
 ## 2. Documento 64 — criterio útil, fotografía operativa obsoleta
 
-**Clasificación: PARCIAL / DEUDA NUEVA — Q.1.**
+**Clasificación: DEUDA NUEVA Q.1 — IMPLEMENTADA EN ESTA PR.**
 
 El criterio metodológico del documento 64 sigue siendo válido: una ruta o un fichero parecido no demuestra que el contrato esté implementado.
 
-La fotografía operativa que aparece en las líneas 1830–1883 ya estaba obsoleta incluso al escribirse y hoy lo está todavía más: hablaba de ocho PR (#54–#60 y #1), mientras en esta auditoría se han refrescado #1 y #54–#73.
+La fotografía operativa de las líneas 1830–1883 ya estaba obsoleta: hablaba de ocho PR (#54–#60 y #1). Antes de abrir #74 se refrescaron #1 y #54–#73; la propia apertura de #74 demuestra por qué una lista manual nunca puede ser la autoridad viva.
 
-El Google Doc 64 de Drive ya fue saneado el 23/08 con un addendum que establece repo + PR abiertas como autoridad viva y registra la auditoría hasta 1800. Eso resuelve la deriva de Drive, pero **el handoff del repositorio sigue siendo falso como fuente operativa**.
+El Google Doc 64 de Drive ya fue saneado el 23/08 y ahora registra la auditoría **completa hasta EOF 1969**, incluyendo #74 y la reutilización de #73/#61/#58.
 
-### Evidencia reproducible
+### Evidencia reproducible de la deuda original
 
-`docs/WEB-2026-HANDOFF-REMAINING-WORK.md` se presenta como:
+El antiguo `docs/WEB-2026-HANDOFF-REMAINING-WORK.md` se presentaba como:
 
 > `HANDOFF AUTORITATIVO DE TRABAJO PENDIENTE`
 
-pero contiene todavía:
+pero contenía:
 
 - snapshot `e9207278747646b76a0f22ebf3703b3e19c0c3db`;
 - «Ahora mismo, ninguno» como trabajo activo;
 - «La única PR viva es la #1»;
 - un orden de ejecución construido para un estado anterior.
 
-Es legítimo conservar todo ese material como cronología, pero no mantenerlo simultáneamente como autoridad operativa.
+### Q.1 — implementación realizada
 
-### Q.1 — cerrar la autoridad del handoff del repo
+Se ha cerrado sin destruir historia:
 
-Modificar `docs/WEB-2026-HANDOFF-REMAINING-WORK.md` sin borrar su historial útil para que:
+1. el blob antiguo completo (`9f3944c9ea0c872c95c8b35918488ae4105788eb`) se conserva **sin modificar** en `docs/archive/WEB-2026-HANDOFF-REMAINING-WORK-2026-08-22.md`;
+2. `docs/WEB-2026-HANDOFF-REMAINING-WORK.md` se sustituye por un handoff corto y estable;
+3. autoridad operativa = HEAD actual de `implementacion-web-2026` + todas las PR abiertas con esa base + CI/QA del SHA concreto;
+4. los SHA, listados de PR y «siguiente orden» escritos quedan definidos como snapshots históricos;
+5. toda tarea antigua debe reclasificarse `HECHO / YA DETECTADO / DEUDA NUEVA / PARCIAL / GATED / SUPERADO / OUT OF SCOPE` antes de programar;
+6. si una PR ya posee la deuda, se reutiliza y no se duplica;
+7. Metricool/publicación social queda `OUT OF SCOPE` del proyecto web;
+8. el nuevo handoff no mantiene una cola manual de PR que haya que editar cada vez que cambia GitHub.
 
-1. el encabezado indique que los snapshots/listas de PR son históricos y nunca sustituyen una consulta viva;
-2. la autoridad operativa sea `implementacion-web-2026` HEAD + todas las PR abiertas + CI/QA del SHA vigente;
-3. antes de usar cualquier «orden actual», se obligue a refrescar HEAD y PR abiertas y reclasificar la tarea;
-4. las frases absolutas «ninguna PR activa», «única PR viva», etc. queden marcadas como snapshots fechados, no como verdad actual;
-5. el fichero deje de mandar repetir bloques ya absorbidos por #54–#73;
-6. Metricool/publicación social quede fuera del alcance del proyecto web aunque sobrevivan referencias históricas;
-7. no se convierta el handoff en otro tracker manual que haya que editar por cada nueva PR: debe apuntar a la consulta viva de GitHub.
-
-La PR #1 también debe dejar de copiar un HEAD/listado de blockers antiguos como si fueran el estado vigente. Puede mantener criterios de salida y `DO NOT MERGE`, pero debe remitir a la enumeración viva de PR contra `implementacion-web-2026`.
+Además, el body de la PR #1 se actualizó para que tampoco funcione como tracker estático: exige refrescar HEAD + PR abiertas + CI/QA antes de cualquier release y conserva `DRAFT / DO NOT MERGE / NO PRODUCCIÓN`.
 
 ---
 
@@ -101,7 +100,7 @@ Las líneas 1911–1953 detectaban una ambigüedad real: el documento histórico
 - §50 queda absorbido parcialmente por #61 H.1; no se deben reconstruir nombres/scripts históricos por fidelidad documental;
 - §51 queda PARCIAL y se coordina con #61: el contrato que importa es decidir el CSS del modal de Samuel por alcance con evidencia, no cumplir literalmente el antiguo script ni una cifra arbitraria de bytes.
 
-Se ha dejado comentario de coordinación en #61 para que §51 no quede huérfano.
+Se dejó comentario de coordinación en #61 para que §51 no quede huérfano.
 
 No abrir deuda paralela.
 
@@ -125,9 +124,9 @@ No duplicar.
 
 La fuente termina en la línea 1969. No hay un bloque posterior 1970–2000 que auditar.
 
-Deuda nueva independiente real de este tramo:
+Deuda nueva independiente real del tramo:
 
-- **Q.1 — sanear la autoridad del handoff del repositorio y PR #1 para que no presenten snapshots antiguos como estado vivo.**
+- **Q.1 — handoff vivo:** IMPLEMENTADA en #74, manteniendo el snapshot antiguo íntegro en `docs/archive/`.
 
 Reutilizado sin duplicar:
 
@@ -138,7 +137,8 @@ Reutilizado sin duplicar:
 Superado durante la auditoría documental:
 
 - MASTER-00 en Drive;
-- ambigüedad documental de MASTER-16, ahora reencaminada a owners reales;
-- estado operativo del Google Doc 64, corregido mediante addendum 23/08.
+- ambigüedad documental de MASTER-16, reencaminada a owners reales;
+- estado operativo del Google Doc 64, corregido mediante addendum 23/08 y actualizado hasta EOF;
+- body obsoleto de #1, ahora basado en autoridad viva.
 
 **EOF exacto: línea 1969.**
