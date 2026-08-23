@@ -23,7 +23,8 @@ const NEWSLETTER_TIMEOUT_MS = 12000;
 // so obviously-invalid input never leaves the browser, not just the empty case.
 const NEWSLETTER_EMAIL_RE = /^[^\s@]{1,64}@[^\s@]{1,253}\.[^\s@]{2,}$/;
 function isValidNewsletterEmail(value) {
-  return NEWSLETTER_EMAIL_RE.test(String(value || "").trim());
+  const normalized = String(value || "").trim();
+  return normalized.length <= 254 && NEWSLETTER_EMAIL_RE.test(normalized);
 }
 
 function honeypotValue(form) {
@@ -432,6 +433,7 @@ function fallbackCopy(text, done) {
         const gdprEl = document.getElementById("quiz-gdpr");
         const statusEl = document.getElementById("quiz-subscribe-status");
         const submitBtn = subscribeForm.querySelector("[type=submit]");
+        if (submitBtn.dataset.submitting === "true") return;
         if (IS_STAGING) {
           statusEl.textContent = STAGING_DISABLED_MESSAGE;
           return;
@@ -441,6 +443,7 @@ function fallbackCopy(text, done) {
           return;
         }
         statusEl.textContent = "";
+        submitBtn.dataset.submitting = "true";
         submitBtn.disabled = true;
         submitBtn.textContent = "Enviando…";
         try {
@@ -460,6 +463,7 @@ function fallbackCopy(text, done) {
           }
         } catch (err) {
           statusEl.textContent = newsletterErrorMessage(err.message);
+          delete submitBtn.dataset.submitting;
           submitBtn.disabled = false;
           submitBtn.textContent = "Desbloquear mi arquetipo";
         }
@@ -508,6 +512,7 @@ function fallbackCopy(text, done) {
         const gdprEl = document.getElementById(gdprId);
         const statusEl = document.getElementById(statusId);
         const submitBtn = form.querySelector("[type=submit]");
+        if (submitBtn.dataset.submitting === "true") return;
         if (IS_STAGING) {
           if (statusEl) statusEl.textContent = STAGING_DISABLED_MESSAGE;
           return;
@@ -519,6 +524,7 @@ function fallbackCopy(text, done) {
           return;
         }
         if (statusEl) statusEl.textContent = "";
+        submitBtn.dataset.submitting = "true";
         submitBtn.disabled = true;
         submitBtn.textContent = "Enviando…";
         try {
@@ -535,6 +541,7 @@ function fallbackCopy(text, done) {
           }
         } catch (err) {
           if (statusEl) statusEl.textContent = newsletterErrorMessage(err.message);
+          delete submitBtn.dataset.submitting;
           submitBtn.disabled = false;
           submitBtn.textContent = "Suscribirme";
         }
@@ -683,9 +690,7 @@ document.addEventListener('dp:analytics', _dpAnalyticsBridge);
         body: "Novedades sobre el universo de Noveris y avisos de nuevas firmas o lecturas. Un email cuando haya algo que valga la pena.",
         cta: "Suscribirme",
         okTitle: "Revisa tu correo",
-        okBody: "Te hemos enviado un mensaje de confirmación. Abre el enlace para completar la suscripción.",
-        dupeTitle: "✓ Ya estás suscrito.",
-        dupeBody: "¡Gracias por seguir a David Porto Díaz!"
+        okBody: "Te hemos enviado un mensaje de confirmación. Abre el enlace para completar la suscripción."
       };
     }
     return {
@@ -694,9 +699,7 @@ document.addEventListener('dp:analytics', _dpAnalyticsBridge);
       body: "Nuevas publicaciones, artículos, firmas y recursos para lectores. Solo cuando haya algo que contar.",
       cta: "Suscribirme",
       okTitle: "Revisa tu correo",
-      okBody: "Te hemos enviado un mensaje de confirmación. Abre el enlace para completar la suscripción.",
-      dupeTitle: "✓ Ya estás suscrito.",
-      dupeBody: "¡Gracias por seguir a David Porto Díaz!"
+      okBody: "Te hemos enviado un mensaje de confirmación. Abre el enlace para completar la suscripción."
     };
   }
 
@@ -762,10 +765,12 @@ document.addEventListener('dp:analytics', _dpAnalyticsBridge);
         const gdprEl = document.getElementById("nl-popup-gdpr");
         const statusEl = document.getElementById("nl-popup-status");
         const submitBtn = document.getElementById("nl-popup-submit");
+        if (submitBtn.dataset.submitting === "true") return;
         if (IS_STAGING) { statusEl.textContent = STAGING_DISABLED_MESSAGE; return; }
         if (!isValidNewsletterEmail(emailEl.value)) { statusEl.textContent = "Introduce un email válido."; return; }
         if (!gdprEl.checked) { statusEl.textContent = "Acepta la política de privacidad para continuar."; return; }
         statusEl.textContent = "";
+        submitBtn.dataset.submitting = "true";
         submitBtn.disabled = true;
         submitBtn.textContent = "Enviando…";
         try {
@@ -784,6 +789,7 @@ document.addEventListener('dp:analytics', _dpAnalyticsBridge);
           }
         } catch (err) {
           statusEl.textContent = newsletterErrorMessage(err.message);
+          delete submitBtn.dataset.submitting;
           submitBtn.disabled = false;
           submitBtn.textContent = copy.cta;
         }
