@@ -17,6 +17,7 @@ on:
       - 'docs/assistant-deploy.md'
       - 'migrations/assistant-quota.sql'
       - 'scripts/check-assistant-contract.py'
+      - 'scripts/requirements.txt'
       - 'wrangler.assistant.example.jsonc'
       - 'lighthouserc.json'
       - '.github/workflows/tool-tests.yml'
@@ -54,6 +55,8 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: '3.12'
+      - name: Install shared Python dependencies
+        run: python -m pip install --requirement scripts/requirements.txt
       - name: Run every tests/test-*.py
         run: |
           set -e

@@ -125,14 +125,14 @@ SOCIAL_ROW = (
 
 # Copy exacto de las 59 páginas escritas a mano, antes de que este builder
 # existiera (recuperado de origin/implementacion-web-2026 con `git show`), no
-# una redacción nueva. `works-hub`/`notebook-hub`/`tools-hub` no forman parte
-# del Explorar de ninguna página real hoy —viven aquí para el día en que
-# `exploreTerritories` los declare— y llevan copy equivalente a su territorio,
-# no una entrada por separado inventada.
+# una redacción nueva -- excepto `works-hub`, redactado para M.1 cuando pasó
+# a sustituir a los dos libros individuales como territorio estable de
+# Explorar (antes vivía aquí sin usarse, con el mismo copy que
+# `work-manecillas`, a la espera de que `exploreTerritories` lo declarase).
 PREVIEW_COPY = {
     "work-manecillas": "La obra actual.",
     "work-samuel": "Primera novela publicada.",
-    "works-hub": "La obra actual.",
+    "works-hub": "Las manecillas del recuerdo, la obra actual, y el resto de novelas publicadas.",
     "notebook-hub": "Artículos y piezas editoriales.",
     "tools-hub": "Utilidades gratuitas para escritores.",
     "author": "Biografía, obra y trayectoria.",
@@ -144,7 +144,7 @@ PREVIEW_COPY = {
 PREVIEW_ASIDE_COPY = {
     "work-manecillas": "La obra actual y punto de entrada editorial.",
     "work-samuel": "Primera novela publicada.",
-    "works-hub": "La obra actual y punto de entrada editorial.",
+    "works-hub": "Las manecillas del recuerdo es la obra actual y el punto de entrada editorial; aquí también está Samuel entre mundos.",
     "notebook-hub": "Artículos, crónicas y piezas editoriales.",
     "tools-hub": "Utilidades gratuitas para escritores.",
     "author": "Biografía, obra y trayectoria.",
@@ -368,7 +368,19 @@ def render_explore(nav: dict, by_id: dict[str, Entry], current_path: str) -> str
         f'        <p class="explore-preview__label" data-preview-label>{default_label}</p>\n'
         f'        <p class="explore-preview__copy" data-preview-copy>{default_copy}</p>\n'
         '      </aside>\n'
-        '    </div>\n'
+        '    </div>\n\n'
+        '    <form class="explore-subscribe" id="newsletter-form-explore" novalidate data-newsletter-source="explore">\n'
+        '      <label class="sr-only" for="nl-email-explore">Email</label>\n'
+        '      <div class="form-row">\n'
+        '        <input class="form-input" id="nl-email-explore" name="email" type="email" autocomplete="email" inputmode="email" required placeholder="Tu email" aria-describedby="nl-status-explore">\n'
+        '        <button class="form-submit" type="submit">Suscribirme</button>\n'
+        '      </div>\n'
+        '      <label class="form-consent" for="nl-gdpr-explore">\n'
+        '        <input id="nl-gdpr-explore" name="consent" type="checkbox" required aria-describedby="nl-status-explore">\n'
+        '        <span>Acepto recibir novedades del autor. <a href="/privacidad.html" target="_blank" rel="noopener">Privacidad</a>.</span>\n'
+        '      </label>\n'
+        '      <p id="nl-status-explore" class="form-status" role="status" aria-live="polite"></p>\n'
+        '    </form>\n'
         '  </div>\n'
         '</dialog>'
     )

@@ -67,79 +67,88 @@
 
     <div class="explore-dialog__grid">
       <nav class="explore-list" aria-label="Destinos de la web">
-          <a class="explore-row" href="/las-manecillas-del-recuerdo/" data-preview="work-manecillas">
+          <a class="explore-row" href="/libros/" data-preview="works-hub">
             <span class="explore-row__index">01</span>
-            <span class="explore-row__body"><strong>Las manecillas del recuerdo</strong><small>La obra actual.</small></span>
+            <span class="explore-row__body"><strong>Obras</strong><small>Las manecillas del recuerdo, la obra actual, y el resto de novelas publicadas.</small></span>
           </a>
           <a class="explore-row" href="/autor.html" data-preview="author">
             <span class="explore-row__index">02</span>
             <span class="explore-row__body"><strong>Autor</strong><small>Biografía, obra y trayectoria.</small></span>
           </a>
-          <a class="explore-row" href="/libros/samuel-entre-mundos/" data-preview="work-samuel">
-            <span class="explore-row__index">03</span>
-            <span class="explore-row__body"><strong>Samuel entre mundos</strong><small>Primera novela publicada.</small></span>
-          </a>
           <a class="explore-row" href="/cuaderno/" data-preview="notebook-hub">
-            <span class="explore-row__index">04</span>
+            <span class="explore-row__index">03</span>
             <span class="explore-row__body"><strong>Cuaderno</strong><small>Artículos y piezas editoriales.</small></span>
           </a>
           <a class="explore-row" href="/herramientas/" data-preview="tools-hub">
-            <span class="explore-row__index">05</span>
+            <span class="explore-row__index">04</span>
             <span class="explore-row__body"><strong>Herramientas</strong><small>Utilidades gratuitas para escritores.</small></span>
           </a>
           <a class="explore-row" href="/prensa.html" data-preview="press">
-            <span class="explore-row__index">06</span>
+            <span class="explore-row__index">05</span>
             <span class="explore-row__body"><strong>Prensa</strong><small>Apariciones, materiales y agenda.</small></span>
           </a>
           <a class="explore-row" href="/las-manecillas-del-recuerdo/fragmentos/" data-preview="work-manecillas-fragments">
-            <span class="explore-row__index">07</span>
+            <span class="explore-row__index">06</span>
             <span class="explore-row__body"><strong>Leer un fragmento</strong><small>Fragmentos de Las manecillas del recuerdo</small></span>
           </a>
           <a class="explore-row" href="/herramientas/" data-preview="tools-hub">
-            <span class="explore-row__index">08</span>
+            <span class="explore-row__index">07</span>
             <span class="explore-row__body"><strong>Revisar un texto</strong><small>Herramientas para escritores</small></span>
           </a>
           <a class="explore-row" href="/editoriales/" data-preview="editorials-hub">
-            <span class="explore-row__index">09</span>
+            <span class="explore-row__index">08</span>
             <span class="explore-row__body"><strong>Buscar editorial o convocatoria</strong><small>Editoriales que aceptan manuscritos</small></span>
           </a>
           <a class="explore-row" href="/herramientas/metadatos-libro/" data-preview="tool-book-metadata">
-            <span class="explore-row__index">10</span>
+            <span class="explore-row__index">09</span>
             <span class="explore-row__body"><strong>Preparar publicación o promoción</strong><small>Preview de metadatos para libros</small></span>
           </a>
           <a class="explore-row" href="/prensa.html" data-preview="press">
-            <span class="explore-row__index">11</span>
+            <span class="explore-row__index">10</span>
             <span class="explore-row__body"><strong>Recursos para prensa</strong><small>Prensa y kit de prensa</small></span>
           </a>
           <a class="explore-row" href="/mapa-del-sitio/" data-preview="site-map">
-            <span class="explore-row__index">12</span>
+            <span class="explore-row__index">11</span>
             <span class="explore-row__body"><strong>Mapa del sitio</strong><small>Mapa del sitio</small></span>
           </a>
       </nav>
 
       <aside class="explore-preview" data-explore-preview>
         <div class="explore-preview__media" aria-hidden="true" data-preview-media></div>
-        <p class="explore-preview__label" data-preview-label>Las manecillas del recuerdo</p>
-        <p class="explore-preview__copy" data-preview-copy>La obra actual y punto de entrada editorial.</p>
+        <p class="explore-preview__label" data-preview-label>Obras</p>
+        <p class="explore-preview__copy" data-preview-copy>Las manecillas del recuerdo es la obra actual y el punto de entrada editorial; aquí también está Samuel entre mundos.</p>
       </aside>
     </div>
+
+    <form class="explore-subscribe" id="newsletter-form-explore" novalidate data-newsletter-source="explore">
+      <label class="sr-only" for="nl-email-explore">Email</label>
+      <div class="form-row">
+        <input class="form-input" id="nl-email-explore" name="email" type="email" autocomplete="email" inputmode="email" required placeholder="Tu email" aria-describedby="nl-status-explore">
+        <button class="form-submit" type="submit">Suscribirme</button>
+      </div>
+      <label class="form-consent" for="nl-gdpr-explore">
+        <input id="nl-gdpr-explore" name="consent" type="checkbox" required aria-describedby="nl-status-explore">
+        <span>Acepto recibir novedades del autor. <a href="/privacidad.html" target="_blank" rel="noopener">Privacidad</a>.</span>
+      </label>
+      <p id="nl-status-explore" class="form-status" role="status" aria-live="polite"></p>
+    </form>
   </div>
 </dialog>
 <!-- site-shell:dialog:end -->
   <main id="contenido" tabindex="-1" class="v1-main assistant-shell" data-family="assistant">
     <nav class="book-breadcrumb" aria-label="Ruta de navegación"><ol><li><a href="/">Inicio</a></li><li aria-current="page">Asistente</li></ol></nav>
-    <header class="tool-hero"><p class="eyebrow">Buscar en la web</p><h1>Pregunta a esta web.</h1><p class="tool-hero__lead">Sobre los libros, David, Noveris, artículos, herramientas, editoriales o convocatorias. El buscador local funciona siempre; cuando la respuesta con IA está activada, usa únicamente contenido público permitido y muestra sus fuentes.</p></header>
+    <header class="tool-hero"><p class="eyebrow">Buscar en la web</p><h1>¿Qué buscas?</h1><p class="tool-hero__lead">Pregúntame por los libros, fragmentos, Noveris, herramientas, editoriales, eventos o información sobre David. El buscador local funciona siempre; cuando la respuesta con IA está activada, usa únicamente contenido público permitido y muestra sus fuentes.</p></header>
     <section class="assistant-panel" aria-labelledby="assistant-title">
-      <h2 id="assistant-title">¿Qué quieres encontrar?</h2>
+      <h2 id="assistant-title">Escribe tu pregunta</h2>
       <div class="assistant-examples" aria-label="Preguntas de ejemplo">
         <button class="assistant-example" type="button" data-assistant-example="¿De qué trata Las manecillas del recuerdo?">¿De qué trata <em>Las manecillas</em>?</button>
         <button class="assistant-example" type="button" data-assistant-example="¿Dónde puedo leer un fragmento gratis?">¿Dónde leo un fragmento?</button>
         <button class="assistant-example" type="button" data-assistant-example="¿Qué herramientas gratuitas hay para escritores?">¿Qué herramientas hay?</button>
       </div>
       <form class="assistant-form" data-assistant-form>
-        <label for="assistant-query">Tu pregunta</label>
-        <textarea id="assistant-query" name="query" maxlength="500" required autocomplete="off" placeholder="Por ejemplo: ¿de qué trata Las manecillas del recuerdo?" data-assistant-query></textarea>
-        <div class="assistant-actions"><button class="primary-action" type="submit" data-assistant-submit>Buscar respuesta</button><button class="text-action assistant-stop" type="button" data-assistant-stop hidden>Detener</button><a class="text-action" href="/mapa-del-sitio/">Ver mapa del sitio</a></div>
+        <label for="assistant-query">Escribe tu pregunta</label>
+        <textarea id="assistant-query" name="query" maxlength="500" required autocomplete="off" placeholder="Escribe tu pregunta…" data-assistant-query></textarea>
+        <div class="assistant-actions"><button class="primary-action" type="submit" data-assistant-submit aria-label="Enviar pregunta" title="Enviar">Enviar pregunta</button><button class="text-action assistant-stop" type="button" data-assistant-stop hidden aria-label="Detener respuesta">Detener</button><a class="text-action" href="/mapa-del-sitio/">Ver mapa del sitio</a></div>
         <div class="assistant-turnstile" data-assistant-turnstile role="group" aria-label="Verificación antiabuso"></div>
         <p class="assistant-status" role="status" aria-live="polite" data-assistant-status>La búsqueda local funciona aunque la respuesta con IA esté desactivada.</p>
       </form>

@@ -1,4 +1,5 @@
 import { ASSISTANT_PUBLIC_CONFIG } from "/assets/assistant-config.js";
+import { ASSISTANT_COPY } from "/assets/assistant-copy.js";
 import {
   PROTOCOL_VERSION,
   QUERY_MIN_LENGTH,
@@ -37,21 +38,21 @@ function upgradeStandaloneMarkup() {
   const hero = document.querySelector(".tool-hero");
   const heroTitle = hero?.querySelector("h1");
   const heroLead = hero?.querySelector(".tool-hero__lead");
-  if (heroTitle) heroTitle.textContent = "¿Qué buscas?";
-  if (heroLead) heroLead.textContent = "Pregúntame por los libros, fragmentos, Noveris, herramientas, editoriales, eventos o información sobre David.";
+  if (heroTitle) heroTitle.textContent = ASSISTANT_COPY.heroTitle;
+  if (heroLead) heroLead.textContent = ASSISTANT_COPY.heroLead;
   document.getElementById("limites-title")?.closest(".v1-section")?.remove();
 
   panel.classList.remove("assistant-panel");
   panel.classList.add("assistant-chat");
   panel.removeAttribute("aria-labelledby");
-  panel.setAttribute("aria-label", "Chat con el asistente");
+  panel.setAttribute("aria-label", ASSISTANT_COPY.chatPanelLabel);
 
   const chatLog = document.createElement("section");
   chatLog.className = "assistant-chat__log";
   chatLog.setAttribute("role", "log");
   chatLog.setAttribute("aria-live", "polite");
   chatLog.setAttribute("aria-relevant", "additions");
-  chatLog.setAttribute("aria-label", "Conversación");
+  chatLog.setAttribute("aria-label", ASSISTANT_COPY.chatLogLabel);
   chatLog.dataset.assistantLog = "";
 
   const welcome = document.createElement("article");
@@ -59,7 +60,7 @@ function upgradeStandaloneMarkup() {
   const welcomeBubble = document.createElement("div");
   welcomeBubble.className = "assistant-message__bubble";
   const welcomeText = document.createElement("p");
-  welcomeText.textContent = "Hola. Dime qué buscas y te ayudo a encontrarlo en la web.";
+  welcomeText.textContent = ASSISTANT_COPY.welcomeMessage;
   welcomeBubble.append(welcomeText);
   welcome.append(welcomeBubble);
   chatLog.append(welcome);
@@ -83,7 +84,7 @@ function upgradeStandaloneMarkup() {
   const label = document.createElement("label");
   label.className = "sr-only";
   label.htmlFor = "assistant-query";
-  label.textContent = "Escribe tu pregunta";
+  label.textContent = ASSISTANT_COPY.queryLabel;
   const row = document.createElement("div");
   row.className = "assistant-composer__row";
   const textarea = document.createElement("textarea");
@@ -94,21 +95,21 @@ function upgradeStandaloneMarkup() {
   textarea.required = true;
   textarea.autocomplete = "off";
   textarea.enterKeyHint = "send";
-  textarea.placeholder = "Escribe tu pregunta…";
+  textarea.placeholder = ASSISTANT_COPY.placeholder;
   textarea.dataset.assistantQuery = "";
   const send = document.createElement("button");
   send.className = "assistant-send";
   send.type = "submit";
   send.dataset.assistantSubmit = "";
-  send.setAttribute("aria-label", "Enviar pregunta");
-  send.title = "Enviar";
+  send.setAttribute("aria-label", ASSISTANT_COPY.submitAriaLabel);
+  send.title = ASSISTANT_COPY.submitTitle;
   send.append(makeSendIcon());
   const cancel = document.createElement("button");
   cancel.className = "assistant-stop";
   cancel.type = "button";
   cancel.dataset.assistantStop = "";
   cancel.hidden = true;
-  cancel.setAttribute("aria-label", "Detener respuesta");
+  cancel.setAttribute("aria-label", ASSISTANT_COPY.stopAriaLabel);
   const stopShape = document.createElement("span");
   stopShape.setAttribute("aria-hidden", "true");
   cancel.append(stopShape);
