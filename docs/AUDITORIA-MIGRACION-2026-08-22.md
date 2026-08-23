@@ -240,11 +240,43 @@ cuenta:
 | # | Asunto | Por qué no se ha tocado |
 |---|---|---|
 | 12 | `/cuaderno/sistema-de-magia-noveris/` sigue afirmando como hecho una mecánica de canon que la propia auditoría de agosto marcó como no resuelta (varias versiones incompatibles), a pesar de estar `noindex` por esa razón exacta | Reescribir el FAQ/artículo en un tono neutral es una decisión de canon, no un arreglo de código — hay que decidir la mecánica real o el tono de "en revisión" con el autor |
-| 13 | El Worker de newsletter (`cloudflare-worker-subscribe.js`) no tiene rate limiting ni Turnstile/KV — el propio fichero lo dice en un comentario propio | Cambiar el Worker es infraestructura de producción; no se toca sin autorización explícita (ver limitación permanente al pie de este documento) |
-| 14 | La integración con Brevo es de alta directa (single opt-in): guarda `nl-subscribed=1` nada más recibir 200 del Worker, sin doble confirmación por email, sin atributos `DP_CONSENT_*`/`DP_INTEREST_*` ni página de preferencias — la arquitectura original preveía más de esto | Implementarlo requiere una automatización nueva en el panel de Brevo (fuera del repo) además de código; es un bloque de trabajo real, pero coordinado con un servicio externo, no un fix aislado |
 
-Los puntos 12–14 no bloquean el paso a diseño — son deuda de producto/seguridad,
-no defectos visibles para un lector. Se anotan aquí para que no se pierdan.
+Los puntos 13 y 14 (rate limiting del Worker y DOI de Brevo) que estaban aquí
+se cerraron en código en PR #55 — ver más abajo. El punto 12 sigue abierto,
+no bloquea el paso a diseño.
+
+### Brevo — deliberadamente aplazado hasta después del lanzamiento (23/08/2026)
+
+Decisión del autor: la prioridad ahora es cerrar migración/estabilidad/diseño;
+sacarle partido a Brevo (automatizaciones, segmentos, plantillas) se retoma
+cuando la web nueva ya esté en producción. Queda anotado aquí para no
+perderlo, con el estado real verificado por API+dashboard el 23/08/2026:
+
+**Ya hecho en código (PR #55, pendiente de merge):**
+- Flujo DOI real (doble confirmación) sustituye la alta directa de single opt-in.
+- Rate limiting vía el binding nativo `RATE_LIMITER` de Cloudflare + honeypot `website`.
+- `/gracias-suscripcion/` como página de retorno tras confirmar el email.
+
+**Ya existe en la cuenta real de Brevo (verificado por API, sin tocar nada):**
+- Dominio `davidportodiaz.com` ya autenticado y verificado (DKIM/DMARC, desde el 27/05/2026) — no hace falta ninguna acción de DNS.
+- Lista `Lectores web` (id `3`, 2 suscriptores) — coincide con lo que espera `BREVO_LIST_ID` en el Worker.
+- Atributo de contacto `SOURCE` ya creado.
+
+**Pendiente de verdad para sacarle partido (todo del lado de Brevo, no de código):**
+- No existe ninguna plantilla de confirmación DOI: las 8 plantillas actuales son
+  `Bienvenida_Samuel_Email1/2/3` y `Automatización #2_step_#2/3/5/7`, todas de
+  la campaña de Samuel — ninguna sirve como confirmación DOI multi-libro.
+  Falta crear la plantilla y su `BREVO_DOI_TEMPLATE_ID`.
+- Sin automatización de bienvenida tras confirmar.
+- Sin formulario de preferencias (Manecillas/Samuel/Cuaderno) para no dar de baja de todo.
+- Los remitentes activos incluyen `samuelentremundos@gmail.com` ("David Porto
+  Díaz") además de `davidpd89@gmail.com` ("DAVIDPORTODIAZ") — revisar contra
+  la decisión ya tomada en el punto 6 de este documento (un solo email
+  personal visible, `samuelentremundos@gmail.com` fuera) antes de usar
+  cualquiera de los dos como remitente de las nuevas plantillas.
+
+No es una lista para hacer ahora. Es la fotografía exacta de dónde se queda
+Brevo para no tener que volver a auditarlo desde cero cuando se retome.
 
 ## 7. Conclusión
 

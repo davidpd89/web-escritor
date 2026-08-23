@@ -1,0 +1,48 @@
+name: Runtime scoping QA
+
+on:
+  pull_request:
+  push:
+    branches:
+      - pendiente-h-gpt-lineas-1-200
+  workflow_dispatch:
+
+jobs:
+  runtime-scoping:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Check static runtime scoping contract
+        run: python scripts/check-runtime-scoping.py
+
+      - name: Test static runtime checker
+        run: python tests/test-check-runtime-scoping.py
+
+      - name: Set up Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+
+      - name: Install CI/QA dependencies (Node)
+        run: npm ci
+
+      - name: Cache Playwright browsers
+        id: playwright-cache
+        uses: actions/cache@v4
+        with:
+          path: ~/.cache/ms-playwright
+          key: playwright-chromium-${{ hashFiles('package-lock.json') }}
+
+      - name: Install Playwright Chromium (with OS deps)
+        if: steps.playwright-cache.outputs.cache-hit != 'true'
+        run: npx playwright install --with-deps chromium
+
+      - name: Install Playwright OS deps only (browser cached)
+        if: steps.playwright-cache.outputs.cache-hit == 'true'
+        run: npx playwright install-deps chromium
+
+      - name: Run runtime scoping browser QA
+        run: node qa/runtime-scoping-browser.mjs

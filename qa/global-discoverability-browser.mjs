@@ -70,6 +70,11 @@ async function open(page, route) {
   });
   const response = await page.goto(`${ORIGIN}${route}`, { waitUntil: 'load' });
   assert(response && response.status() < 400, `${route}: HTTP ${response?.status()}`);
+  const introEnter = page.locator('[data-intro-enter]').first();
+  if ((await introEnter.count()) > 0) {
+    await introEnter.click();
+    await page.waitForTimeout(900);
+  }
   await page.waitForTimeout(180);
   assert.equal(await page.locator('main').count(), 1, `${route}: main missing`);
   assert.equal(await page.locator('header.site-header').count(), 1, `${route}: V1 header missing`);

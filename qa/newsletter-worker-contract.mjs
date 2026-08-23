@@ -6,8 +6,30 @@ const moduleUrl = `data:text/javascript;base64,${Buffer.from(source).toString('b
 const worker = (await import(moduleUrl)).default;
 const ORIGIN = 'https://davidportodiaz.com';
 const ENDPOINT = 'https://subscribe.davidpd89.workers.dev';
-const ENV = { BREVO_API_KEY: 'qa-secret-never-live', BREVO_LIST_ID: '3' };
+const DOI_ENDPOINT = 'https://api.brevo.com/v3/contacts/doubleOptinConfirmation';
+const REDIRECT = 'https://davidportodiaz.com/gracias-suscripcion/';
 const EMAIL = 'qa-newsletter@example.test';
+
+function limiter(success = true) {
+  return {
+    calls: [],
+    async limit(arg) {
+      this.calls.push(arg);
+      return { success };
+    },
+  };
+}
+
+function env(overrides = {}) {
+  return {
+    BREVO_API_KEY: 'qa-secret-never-live',
+    BREVO_LIST_ID: '3',
+    BREVO_DOI_TEMPLATE_ID: '42',
+    BREVO_DOI_REDIRECT_URL: REDIRECT,
+    RATE_LIMITER: limiter(),
+    ...overrides,
+  };
+}
 
 function req(body, { method = 'POST', origin = ORIGIN } = {}) {
   return new Request(ENDPOINT, {
@@ -30,90 +52,137 @@ async function withFetch(responseFactory, fn) {
 
 // CORS / method / origin gates are intrinsic and never call Brevo.
 {
-  const res = await worker.fetch(req(null, { method: 'OPTIONS' }), ENV);
+  const res = await worker.fetch(req(null, { method: 'OPTIONS' }), env());
   assert.equal(res.status, 204);
   assert.equal(res.headers.get('access-control-allow-origin'), ORIGIN);
+  assert.equal(res.headers.get('vary'), 'Origin');
 }
 {
-  const res = await worker.fetch(new Request(ENDPOINT, { method: 'GET', headers: { Origin: ORIGIN } }), ENV);
+  const res = await worker.fetch(new Request(ENDPOINT, { method: 'GET', headers: { Origin: ORIGIN } }), env());
   assert.equal(res.status, 405);
 }
 {
-  const res = await worker.fetch(req({ email: EMAIL, source: 'home' }, { origin: 'https://example.test' }), ENV);
+  const res = await worker.fetch(req({ email: EMAIL, source: 'home' }, { origin: 'https://example.test' }), env());
   assert.equal(res.status, 403);
 }
 
 for (const body of [
   {},
   { email: 'not-an-email', source: 'home' },
+  { email: EMAIL },
   { email: EMAIL, source: 'unknown' },
 ]) {
-  await withFetch(() => { throw new Error('Brevo must not be called for invalid input'); }, async (calls) => {
-    const res = await worker.fetch(req(body), ENV);
+  await withFetch(() => { throw new Error('Brevo must not be called for invalid input'); }, async calls => {
+    const res = await worker.fetch(req(body), env());
     assert.equal(res.status, 400);
     assert.equal(calls.length, 0);
   });
 }
 
-// Browser-controlled fields beyond {email, source, result?} must be ignored.
+// Server-side DOI fields cannot be overridden by the browser.
 await withFetch(async (_url, init) => {
-  const brevoBody = JSON.parse(init.body);
-  assert.deepEqual(brevoBody, {
+  const payload = JSON.parse(init.body);
+  assert.deepEqual(payload, {
     email: EMAIL,
-    listIds: [3],
+    includeListIds: [3],
+    redirectionUrl: REDIRECT,
+    templateId: 42,
     attributes: { SOURCE: 'home' },
-    updateEnabled: true,
   });
-  assert.equal(init.headers['api-key'], ENV.BREVO_API_KEY);
-  return new Response(JSON.stringify({ id: 1 }), { status: 201, headers: { 'Content-Type': 'application/json' } });
-}, async (calls) => {
+  assert.equal(init.headers['api-key'], 'qa-secret-never-live');
+  return new Response('{}', { status: 201, headers: { 'Content-Type': 'application/json' } });
+}, async calls => {
   const res = await worker.fetch(req({
     email: EMAIL,
     source: 'home',
     consent: true,
-    consent_timestamp: '2099-01-01T00:00:00Z',
     listIds: [999],
+    includeListIds: [999],
+    templateId: 999,
+    redirectionUrl: 'https://evil.test/',
     attributes: { ADMIN: 'yes' },
     updateEnabled: false,
-  }), ENV);
+  }), env());
   assert.equal(res.status, 201);
-  assert.deepEqual(await res.json(), { ok: true });
+  assert.deepEqual(await res.json(), { ok: true, state: 'pending_confirmation' });
   assert.equal(calls.length, 1);
-  assert.equal(calls[0].url, 'https://api.brevo.com/v3/contacts');
+  assert.equal(calls[0].url, DOI_ENDPOINT);
 });
 
-// Quiz result is bounded server-side.
+// Quiz result remains bounded server-side; non-quiz result is ignored.
 await withFetch(async (_url, init) => {
   assert.deepEqual(JSON.parse(init.body).attributes, { SOURCE: 'quiz-noveris', NOVERIS: 'guardian' });
-  return new Response(null, { status: 204 });
+  return new Response('{}', { status: 201 });
 }, async () => {
-  const res = await worker.fetch(req({ email: EMAIL, source: 'quiz', result: 'guardian' }), ENV);
-  assert.equal(res.status, 204);
-  assert.equal(await res.text(), '');
+  const res = await worker.fetch(req({ email: EMAIL, source: 'quiz', result: 'guardian' }), env());
+  assert.equal(res.status, 201);
 });
-
 await withFetch(async (_url, init) => {
   assert.deepEqual(JSON.parse(init.body).attributes, { SOURCE: 'quiz-noveris' });
-  return new Response(JSON.stringify({ id: 1 }), { status: 201 });
+  return new Response('{}', { status: 201 });
 }, async () => {
-  const res = await worker.fetch(req({ email: EMAIL, source: 'quiz', result: '<script>' }), ENV);
+  const res = await worker.fetch(req({ email: EMAIL, source: 'quiz', result: '<script>' }), env());
+  assert.equal(res.status, 201);
+});
+await withFetch(async (_url, init) => {
+  assert.deepEqual(JSON.parse(init.body).attributes, { SOURCE: 'popup' });
+  return new Response('{}', { status: 201 });
+}, async () => {
+  const res = await worker.fetch(req({ email: EMAIL, source: 'popup', result: 'guardian' }), env());
   assert.equal(res.status, 201);
 });
 
-// Duplicate is the only Brevo 400 exposed as a distinct browser-safe condition.
-await withFetch(async () => new Response(JSON.stringify({ message: 'Contact already exists' }), { status: 400 }), async () => {
-  const res = await worker.fetch(req({ email: EMAIL, source: 'home' }), ENV);
-  assert.equal(res.status, 400);
-  assert.deepEqual(await res.json(), { ok: false, duplicate: true });
+// Honeypot and limiter are deterministic and never require real Cloudflare.
+{
+  const blocked = limiter(false);
+  await withFetch(() => { throw new Error('Brevo must not be called while limited'); }, async calls => {
+    const res = await worker.fetch(req({ email: EMAIL, source: 'home' }), env({ RATE_LIMITER: blocked }));
+    assert.equal(res.status, 429);
+    assert.equal(calls.length, 0);
+    assert.equal(blocked.calls.length, 1);
+  });
+}
+{
+  const blocked = limiter(false);
+  await withFetch(() => { throw new Error('Brevo must not be called for honeypot'); }, async calls => {
+    const res = await worker.fetch(req({ email: EMAIL, source: 'home', website: 'bot' }), env({ RATE_LIMITER: blocked }));
+    assert.equal(res.status, 201);
+    assert.deepEqual(await res.json(), { ok: true, state: 'pending_confirmation' });
+    assert.equal(calls.length, 0);
+    assert.equal(blocked.calls.length, 0);
+  });
+}
+
+// Missing DOI configuration must fail closed before Brevo.
+for (const overrides of [
+  { BREVO_DOI_TEMPLATE_ID: undefined },
+  { BREVO_DOI_REDIRECT_URL: undefined },
+  { BREVO_LIST_ID: undefined },
+  { BREVO_API_KEY: undefined },
+]) {
+  await withFetch(() => { throw new Error('Brevo must not be called with incomplete config'); }, async calls => {
+    const res = await worker.fetch(req({ email: EMAIL, source: 'home' }), env(overrides));
+    assert.equal(res.status, 500);
+    assert.equal(calls.length, 0);
+  });
+}
+
+// A legacy duplicate response is not confirmation under DOI.
+await withFetch(async () => new Response(JSON.stringify({ message: 'Contact already exists', email: EMAIL }), { status: 400 }), async () => {
+  const res = await worker.fetch(req({ email: EMAIL, source: 'home' }), env());
+  assert.equal(res.status, 502);
+  const text = await res.text();
+  assert(!text.includes(EMAIL));
+  assert(!text.includes('already exists'));
 });
 
 // Other upstream failures are normalized; raw provider detail/API key never leaks.
 await withFetch(async () => new Response('secret upstream detail', { status: 500 }), async () => {
-  const res = await worker.fetch(req({ email: EMAIL, source: 'home' }), ENV);
+  const res = await worker.fetch(req({ email: EMAIL, source: 'home' }), env());
   assert.equal(res.status, 502);
   const text = await res.text();
   assert(!text.includes('secret upstream detail'));
-  assert(!text.includes(ENV.BREVO_API_KEY));
+  assert(!text.includes('qa-secret-never-live'));
 });
 
 console.log('newsletter Worker contract: PASS');

@@ -11,6 +11,7 @@ non-public content from leaking into navigation/search surfaces.
 from __future__ import annotations
 
 import json
+import re
 import sys
 import xml.etree.ElementTree as ET
 from pathlib import Path
@@ -29,6 +30,8 @@ REQUIRED_EFFECTIVE_FIELDS = {
     "hubId", "status", "discoverability", "searchIndex", "sitemap",
     "footerEligible", "audience", "jobs", "relatedIds", "sourceFile", "aliases",
 }
+CANONICAL_EXPLORE_TERRITORIES = ["works-hub", "author", "notebook-hub", "tools-hub", "press"]
+REQUIRED_WORK_IDS = ("work-manecillas", "work-samuel")
 
 
 def load_json(path: Path):
@@ -41,6 +44,17 @@ def load_json(path: Path):
 def normalize_public_url(value: str) -> str:
     parsed = urlparse(value)
     return parsed.path or "/"
+
+
+def hrefs_in(source: str) -> list[str]:
+    return [
+        match.group(1).strip()
+        for match in re.finditer(
+            r"<a\b[^>]*\bhref\s*=\s*['\"]([^'\"]+)['\"]",
+            source,
+            re.I,
+        )
+    ]
 
 
 def navigation_refs(nav: dict) -> list[tuple[str, str]]:
@@ -193,6 +207,78 @@ def main() -> int:
             continue
         if item.get("status") != "public":
             errors.append(f"{surface}: non-public registry id exposed: {ref}")
+
+    # Explorar representa exactamente cinco territorios estables. Las obras
+    # individuales son destinos de contenido dentro del territorio Obras, no
+    # territorios paralelos. Su acceso directo se preserva en el footer global
+    # y su jerarquía/rastreabilidad se comprueba contra registry + /libros/.
+    explore_territory_ids = [item.get("id", "") for item in nav.get("exploreTerritories", [])]
+    if explore_territory_ids != CANONICAL_EXPLORE_TERRITORIES:
+        errors.append(
+            "exploreTerritories must be exactly the 5 stable territories "
+            f"{CANONICAL_EXPLORE_TERRITORIES} in that order; got {explore_territory_ids}"
+        )
+
+    forbidden_found = set(REQUIRED_WORK_IDS) & set(explore_territory_ids)
+    if forbidden_found:
+        errors.append(
+            f"exploreTerritories reintroduces individual works as top-level territories: {sorted(forbidden_found)} "
+            "-- individual works belong under works-hub, not as their own Explorar territory"
+        )
+
+    works_hub = by_id.get("works-hub")
+    if not works_hub:
+        errors.append("works-hub missing from registry")
+    else:
+        if works_hub.get("url") != "/libros/":
+            errors.append(f"works-hub canonical URL must be /libros/, got {works_hub.get('url')!r}")
+        if works_hub.get("status") != "public":
+            errors.append("works-hub must remain public")
+        if works_hub.get("discoverability") != "primary":
+            errors.append("works-hub must remain primary")
+        if works_hub.get("parentId") != "home" or works_hub.get("hubId") != "works-hub":
+            errors.append("works-hub hierarchy drift")
+
+    required_work_urls: list[str] = []
+    for work_id in REQUIRED_WORK_IDS:
+        item = by_id.get(work_id)
+        if not item:
+            errors.append(f"required work missing from registry: {work_id}")
+            continue
+        required_work_urls.append(item["url"])
+        if item.get("status") != "public":
+            errors.append(f"{work_id}: required work must remain public")
+        if item.get("type") != "work" or item.get("territory") != "obras":
+            errors.append(f"{work_id}: required work must remain classified in Obras")
+        if item.get("parentId") != "works-hub" or item.get("hubId") != "works-hub":
+            errors.append(f"{work_id}: required work must remain a child of works-hub")
+        if item.get("discoverability") != "secondary":
+            errors.append(f"{work_id}: required work must remain a secondary destination inside Obras")
+        if item.get("searchIndex") is not True or item.get("sitemap") is not True:
+            errors.append(f"{work_id}: required work must remain indexable and in sitemap")
+        if item["url"] not in sitemap_urls:
+            errors.append(f"{work_id}: canonical URL missing from sitemap: {item['url']}")
+
+    footer_obras = nav.get("footer", {}).get("Obra", [])
+    for work_id in REQUIRED_WORK_IDS:
+        if work_id not in footer_obras:
+            errors.append(f"footer.Obra must keep direct canonical access to {work_id}")
+
+    if works_hub and works_hub.get("sourceFile"):
+        works_source = ROOT / works_hub["sourceFile"]
+        if works_source.is_file():
+            works_html = works_source.read_text(encoding="utf-8", errors="replace")
+            main_match = re.search(r"<main\b[\s\S]*?</main>", works_html, re.I)
+            main_hrefs = {
+                normalize_public_url(href)
+                for href in hrefs_in(main_match.group(0) if main_match else "")
+                if not urlparse(href).netloc or urlparse(href).netloc == "davidportodiaz.com"
+            }
+            missing_works = sorted(set(required_work_urls) - main_hrefs)
+            if missing_works:
+                errors.append("works-hub main content missing direct canonical work links: " + ", ".join(missing_works))
+        else:
+            errors.append(f"works-hub sourceFile does not exist: {works_hub['sourceFile']}")
 
     # Header V1 is intentionally compact and contains only primary territories.
     header = nav.get("header", [])
