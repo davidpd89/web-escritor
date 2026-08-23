@@ -2,225 +2,145 @@
 
 Fecha de contraste: 2026-08-23  
 Base auditada: `implementacion-web-2026` @ `4694799edc6d9c9e729b896cadda1eef9726d083`  
-Fuente primaria del bloque: `claude pending.txt`, líneas 1–200 exactas.
+Fuente primaria: `claude pending.txt`, líneas 1–200 exactas.
 
 ## Regla de alcance
 
-El bloque se auditó inicialmente sin leer 201+ y se contrastó contra HEAD, PR abiertas, código/workflows actuales y documentación histórica solo cuando era necesaria para entender un contrato.
+Este cierre usa únicamente el bloque 1–200 para la auditoría del TXT. La documentación histórica se consulta solo para reconstruir el contrato funcional de nombres antiguos; no sustituye al código vivo.
 
-Después de completar secuencialmente **todo** `claude pending.txt` hasta su EOF real (línea 746), se hizo una reconciliación entre bloques para corregir contradicciones internas de la propia fuente. Esa reconciliación no cambia qué se leyó para decidir originalmente 1–200; evita conservar como deuda una sospecha que el propio fichero aclara más adelante.
+Autoridad: HEAD de `implementacion-web-2026` + PR abiertas + código/builders/tests/workflows reales.
 
 No tocar `main`, no desplegar producción y no activar auto-merge.
 
 ---
 
-## T.1 — Agenda oficial / «Añadir al calendario»
+## T.1 — Agenda oficial / `.ics`
 
-**Clasificación final: GATED / NO DEUDA DE CÓDIGO ACTUAL.**
+**Clasificación: PARCIAL en #77 — infraestructura implementada; activación pública GATED.**
 
-### Por qué apareció como sospecha en 1–200
+### Problema real
 
-Las líneas 59 y 69 mencionan `build-event-calendars.py` entre los scripts propuestos que no llegaron a `scripts/` y cuyo efecto debía comprobarse antes de decidir si había backlog real.
+Las líneas 59/69 mencionan `build-event-calendars.py`. El nombre no era la exigencia, pero la función sí seguía faltando en HEAD.
 
-La propuesta histórica describía una integración razonable:
+La especificación histórica de agenda distingue dos capas:
 
-- fuente de verdad en los `Event` JSON-LD de `eventos.html`;
-- `.ics` solo para eventos futuros reales con `EventScheduled`;
-- enlace visible «Añadir al calendario» únicamente para esos eventos;
-- ningún duplicado manual de fechas;
-- comprobación de sincronía cuando la funcionalidad esté activa.
+1. **infraestructura interna**: leer los `Event` JSON-LD canónicos de `eventos.html`, generar `.ics` solo para `EventScheduled` y comprobar sincronía/huérfanos;
+2. **activación pública**: publicar `.ics` y el enlace «Añadir al calendario» solo cuando exista un evento futuro real y confirmado.
 
-En el HEAD auditado no existe `build-event-calendars.py` y los eventos reales comprobados están en `EventCompleted`.
+La herramienta pública `/herramientas/eventos-ics/` no sustituye esa capa interna: sirve para que cualquier escritor genere manualmente HTML + JSON-LD + ICS en el navegador.
 
-### Reconciliación al llegar a 401–600
+En el HEAD auditado `eventos.html` solo contiene `EventCompleted`, por lo que **0 `.ics` y 0 botones públicos sigue siendo el resultado correcto hoy**. Eso no impide tener preparada y testeada la infraestructura.
 
-La propia fuente resuelve la ambigüedad más adelante:
+### Implementación añadida a #77
 
-- línea 461: «add-to-calendar .ics» está **correctamente no activado**, porque su gate exige un `EventScheduled` real;
-- línea 493: vuelve a clasificar «add-to-calendar» como **correctamente no integrado pendiente de un evento futuro real**, explícitamente «not a code gap».
+- `scripts/build-event-calendars.py`
+  - fuente única: JSON-LD de `eventos.html`;
+  - solo exporta `EventScheduled`;
+  - ignora eventos completados/cancelados;
+  - DATE → evento de día completo;
+  - DATE-TIME exige offset/Z y se normaliza a UTC;
+  - UID determinista desde `@id`;
+  - DTSTAMP estable desde `dateModified`/`startDate`;
+  - escaping RFC 5545;
+  - CRLF y plegado de líneas UTF-8 a 75 octetos;
+  - salida `/assets/events/calendar/<fragmento>.ics`;
+  - `--check` detecta archivos ausentes, desactualizados y huérfanos;
+  - exige que todo `EventScheduled` tenga el enlace visible canónico con `data-calendar-download`;
+  - cero dependencias externas.
+- `tests/test-event-calendars.py`
+  - datetime con offset;
+  - día completo y DTEND exclusivo;
+  - eventos completados ignorados;
+  - enlace visible obligatorio para `EventScheduled`;
+  - missing/stale/orphan;
+  - rechazo de datetime sin offset;
+  - límite físico de 75 octetos.
+- `.github/workflows/content-index-check.yml`
+  - ejecuta `build-event-calendars.py --check`;
+  - ejecuta la suite específica.
 
-Por tanto, construir ahora un builder sin ningún evento futuro real sería convertir una receta histórica en infraestructura prematura.
+### Gates que permanecen
 
-### Contrato que debe conservarse para el futuro
+No se añade ningún evento ficticio. El primer `EventScheduled` real exige datos confirmados y QA humano de importación en Apple Calendar/iOS, Google Calendar/Android y Outlook, además de hora, ubicación, tildes, teclado/táctil.
 
-Cuando exista el primer `EventScheduled` real, entonces sí habrá que decidir/implementar una solución reproducible. El contrato deseable queda registrado para no perderlo:
+La analítica `event_calendar_open`, si se activa, debe coordinarse con la taxonomía canónica de #63 y medir solo la apertura del recurso, nunca afirmar que el usuario añadió el evento.
 
-1. derivar el `.ics` de la autoridad canónica del evento, no copiar fechas a otro sistema;
-2. no mostrar enlace en `EventCompleted`;
-3. salida determinista y con escaping RFC 5545 correcto;
-4. detectar `.ics` desincronizados o huérfanos si se adopta generación estática;
-5. tests de día completo, datetime/zona, escaping y retirada/cancelación;
-6. ningún evento ficticio para satisfacer CI.
+### Criterio de cierre T.1
 
-Hasta entonces: **cero `.ics` y cero botones es el estado correcto**.
-
-No abrir/implementar una PR independiente por T.1 antes de que cambie ese gate editorial.
+- CI verde con builder y tests;
+- ningún `.ics` falso para los `EventCompleted` actuales;
+- al existir el primer evento real: JSON-LD `EventScheduled`, enlace visible y `.ics` derivado de la misma autoridad.
 
 ---
 
-## T.2 — Reconciliar el presupuesto de rendimiento documentado con Lighthouse CI
+## T.2 — Presupuesto Lighthouse vs arquitectura documentada
 
-**Clasificación final: DEUDA NUEVA / inconsistencia de contrato y QA.**
+**Clasificación: DEUDA NUEVA / GATED POR DECISIÓN DE CONTRATO. Owner: #77.**
 
-### Evidencia
+### Evidencia reproducible
 
-Las líneas 162–170 detectan una discrepancia reproducible entre `07_ARQUITECTURA_TECNICA_Y_CODIGO.md` y `lighthouserc.json`.
+Las líneas 162–170 señalan una discrepancia real. `07_ARQUITECTURA_TECNICA_Y_CODIGO.md` documenta como objetivos móviles:
 
-La arquitectura documenta como objetivos móviles:
-
-- rendimiento ≥ 90;
+- performance ≥ 90;
 - LCP ≤ 2,5 s;
 - CLS < 0,1;
-- TBT < 200 ms;
-- JavaScript propio inicial < 50 KiB comprimido como objetivo;
-- imagen LCP dimensionada y preferiblemente < 200 KiB.
+- TBT < 200 ms.
 
-El HEAD actual aplica:
+El `lighthouserc.json` del HEAD aplica:
 
-- performance `minScore: 0.85` → `warn`;
-- LCP `maxNumericValue: 3500` → `warn`;
+- performance `0.85` → `warn`;
+- LCP `3500 ms` → `warn`;
 - CLS `0.1` → `error`;
-- TBT `400` → `warn`.
+- TBT `400 ms` → `warn`.
 
-CLS coincide; performance, LCP y TBT permiten resultados peores que los objetivos documentados.
+CLS está alineado; performance, LCP y TBT permiten resultados peores que los objetivos documentados.
 
-### Lo que NO debe hacerse
+### Por qué no se cambia a ciegas
 
-No cambiar 0.85→0.90, 3500→2500 y 400→200 a ciegas.
+El documento denomina esas cifras **objetivos**. Eso no prueba por sí solo que deban convertirse en gates bloqueantes de CI. Endurecer valores sin medir el HEAD podría transformar un target editorial en un bloqueo ruidoso y sin autoridad.
 
-Hay que distinguir:
+### Contrato de cierre
 
-- target aspiracional/editorial;
-- warning de regresión;
-- gate bloqueante.
+1. Obtener evidencia Lighthouse reproducible sobre las URLs clave y los runs configurados.
+2. Separar explícitamente `target`, `warning` y `gate`.
+3. Decidir una única autoridad para esos niveles.
+4. Alinear `lighthouserc.json` y documentación con esa decisión.
+5. Añadir protección contra drift si ambos artefactos expresan el mismo contrato.
+6. No relajar CLS, accesibilidad, SEO ni otros gates para compensar.
+7. Mantener CWV reales, cuando existan, por encima de una medición de laboratorio aislada para evaluar experiencia real.
 
-Además, los CWV reales, cuando existan, tienen más valor para impacto de usuario que una única ejecución de laboratorio.
-
-### Implementación correcta
-
-1. Ejecutar Lighthouse CI sobre las URLs clave actuales con los runs configurados y conservar evidencia reproducible.
-2. Medir medianas/dispersión, no reaccionar a una sola ejecución ruidosa.
-3. Decidir y documentar una sola autoridad para `target / warning / gate`.
-4. Si 90 / 2,5 s / 200 ms siguen siendo objetivos vigentes, acercar CI a ellos con evidencia y, si hace falta, por fases.
-5. Si eran aspiracionales, declararlo expresamente y justificar los límites CI actuales.
-6. No relajar CLS, accesibilidad, SEO u otros gates para compensar.
-7. Añadir una comprobación que evite drift silencioso entre documentación y configuración cuando ambas pretendan expresar el mismo contrato.
-8. Las excepciones temporales deben ser explícitas, fechadas y con causa/owner.
-
-### Coordinación
-
-- runtime e imágenes → #61;
-- minificación/medición → #70;
-- post-deploy/readiness → #58/#1;
-- T.2 solo posee la autoridad de presupuesto/gates, no esos scopes.
-
-### Criterio de cierre
-
-- evidencia Lighthouse del HEAD relevante;
-- decisión explícita target vs warning vs gate;
-- `lighthouserc.json` y documentación alineados;
-- ninguna relajación silenciosa;
-- QA que impida drift futuro.
+Coordinación: runtime/imágenes → #61; medición/minificación → #70; post-deploy/release → #58/#1. T.2 no duplica esos scopes.
 
 ---
 
-## Hallazgos reutilizados — NO abrir deuda paralela
+## Hallazgos absorbidos o no accionables
 
-### Assets sin referenciar — líneas 4–17
-
-**YA DETECTADO → #60.**
-
-El snapshot de ~394 MiB sigue siendo evidencia útil, pero #60 ya posee el informe y la decisión de no borrar nada sin revisión humana.
-
-### BRAINSTORMING — líneas 18–40
-
-**SUPERADO COMO BACKLOG / BANCO DE IDEAS.**
-
-El propio documento dice que no todo debe implementarse. No crear hubs/rutas vacías solo porque una idea exista.
-
-### Runtime JS/CSS — líneas 53, 58, 69, 131, 137, 148–166
-
-**YA DETECTADO → #61 H.1.**
-
-No reconstruir literalmente `split-runtime.py`, `split-runtime-css.py` o `optimize-critical-interactions.py`; importa el contrato moderno de scoping.
-
-### `check-production-launch.py`
-
-**YA DETECTADO / SUSTITUIDO → #58 + #1 + #74.**
-
-El objetivo es evidencia real de release y smoke, no preservar un filename histórico.
-
-### `check-runtime-scoping.py`
-
-**YA DETECTADO → #61 H.1.**
-
-### `check-article-dates.py`
-
-**YA DETECTADO → #57 D.1.**
-
-### `submit-indexnow.py`
-
-**GATED / NO IMPLEMENTAR A CIEGAS.**
-
-La propia propuesta exige comprobar primero si Cloudflare/Bing ya resuelve IndexNow. El bloque 401–600 refuerza esa cautela.
-
-### `validate-article-correction.py`
-
-**YA DETECTADO → #66 K.1 + #75.**
-
-### FAQPage
-
-**YA DETECTADO → #66 K.2.**
-
-### Newsletter honeypot / rate limit / DOI
-
-**YA DETECTADO → #55.**
-
-### Analítica
-
-**YA DETECTADO → #63.**
-
-No restaurar literalmente una nomenclatura histórica fuera de la taxonomía canónica.
-
-### Baseline / compatibilidad
-
-**YA DETECTADO → #66 K.3.**
-
-La carencia útil es compatibilidad práctica/cross-engine, no un checker por nombre.
-
-### Arquitectura genérica `DP_BOOKS` / buy-dialog Manecillas
-
-**SUPERADA/OPCIONAL.**
-
-Manecillas ya evita destinos comerciales falsos mediante su flujo específico; no introducir una abstracción genérica sin necesidad real.
-
-### Pagefind / búsqueda interna
-
-**GATED / REEVALUAR.**
-
-Puede merecer una decisión de UX por volumen, pero no es deuda automática de este bloque.
-
-### Datos editoriales, legales y externos
-
-**GATED / NO CÓDIGO AUTÓNOMO.**
-
-Compra real, retailers, portada, revisión jurídica, citas de prensa, eventos futuros y Search Console dependen de hechos/decisiones externas.
-
-Noveris/canon → #66 K.4.  
-Metricool/publicación social → `OUT OF SCOPE`.
+- Assets sin referenciar/peso → **YA DETECTADO #60**. No borrar automáticamente.
+- BRAINSTORMING → **SUPERADO COMO BACKLOG**. Es banco de ideas, no cola de ejecución.
+- Runtime/scoping y nombres históricos `split-runtime*` / `check-runtime-scoping.py` → **YA DETECTADO #61 H.1**.
+- `check-production-launch.py` → **YA DETECTADO / FUNCIÓN ABSORBIDA #58 + #1**. Importa el smoke/readiness real, no el filename.
+- `check-article-dates.py` → **YA DETECTADO #57**.
+- `submit-indexnow.py` → **GATED**. La propia propuesta exige verificar antes si Cloudflare/Bing ya lo resuelve; no se crea una integración paralela sin evidencia.
+- `validate-article-correction.py` → **YA DETECTADO #66 K.1 + #57** para el contrato verificado de evidencia, fechas y corrección pública. No se infiere un sistema más amplio solo por el nombre histórico.
+- FAQPage legacy → **YA DETECTADO #66 K.2**.
+- Newsletter honeypot/rate limit/DOI → **YA DETECTADO #55**.
+- Analítica → **YA DETECTADO #63**.
+- Baseline/compatibilidad → **YA DETECTADO #66 K.3**. El contrato útil es compatibilidad práctica/cross-engine; los datos Baseline pueden ser señal adicional, no un owner paralelo.
+- `DP_BOOKS` / configuración genérica de compras → **SUPERADO/OPCIONAL** mientras no exista necesidad real distinta del flujo actual.
+- Pagefind/búsqueda interna → **GATED / REEVALUAR POR ESCALA Y UX**, no defecto actual demostrado.
+- Datos comerciales, legales, citas, eventos futuros y Search Console → **GATED** por hechos/decisiones externas.
+- Noveris/canon → **YA DETECTADO #66 K.4**.
+- Metricool/publicación social → **OUT OF SCOPE**.
 
 ---
 
-## Resultado final del bloque 1–200 tras reconciliar el fichero completo
+## Cierre del bloque 1–200
 
-Deuda nueva independiente real:
+Deuda independiente demostrada:
 
-- **T.2 — reconciliar objetivos de rendimiento con Lighthouse CI mediante medición y una autoridad única.**
+- **T.1**: infraestructura de calendarios del sitio. Implementada en esta misma PR; activación pública sigue gated hasta un evento real.
+- **T.2**: incoherencia entre objetivos de rendimiento documentados y límites de Lighthouse CI. Sigue abierta hasta medir y fijar la autoridad `target/warning/gate`.
 
-Reclasificado tras evidencia posterior de la propia fuente:
+No se justifica otra PR para este bloque. #77 es el owner único de T.1/T.2.
 
-- **T.1 — agenda `.ics`: GATED hasta existir un `EventScheduled` real; no es deuda de código actual.**
-
-Todo lo demás queda absorbido, superado, gated o fuera de alcance según lo indicado arriba.
-
-**Corte original respetado: línea 200. Reconciliación posterior hecha únicamente después de completar secuencialmente el fichero hasta EOF 746.**
+**Corte respetado: línea 200. No se necesita leer la 201 para este cierre.**
