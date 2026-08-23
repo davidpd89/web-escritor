@@ -1,7 +1,7 @@
-// Verifica en un navegador real que el dialogo Explorar representa
-// exactamente los 5 territorios estables (M.1, 2026-08-23), que Obras
-// enlaza a /libros/, que Manecillas y Samuel siguen siendo alcanzables, y
-// que el comportamiento de teclado/foco/Escape sigue intacto.
+// Browser contract for the five stable Explorar territories and effective
+// findability of both published works. Books are children of Obras, not
+// top-level territories, but remain direct static links in the global footer
+// and in /libros/ so JS is not required to discover or navigate to them.
 import assert from 'node:assert/strict';
 import { chromium } from 'playwright';
 import { createServer } from 'node:http';
@@ -22,56 +22,137 @@ const server = createServer((req, res) => {
   res.writeHead(200, { 'Content-Type': MIME.get(path.extname(file).toLowerCase()) || 'application/octet-stream' });
   res.end(fs.readFileSync(file));
 });
-await new Promise((r) => server.listen(0, '127.0.0.1', r));
+await new Promise((resolve) => server.listen(0, '127.0.0.1', resolve));
 const ORIGIN = `http://127.0.0.1:${server.address().port}`;
-const browser = await chromium.launch({ headless: true, ...(process.env.QA_CHROMIUM_EXECUTABLE_PATH ? { executablePath: process.env.QA_CHROMIUM_EXECUTABLE_PATH } : {}) });
+const browser = await chromium.launch({
+  headless: true,
+  ...(process.env.QA_CHROMIUM_EXECUTABLE_PATH ? { executablePath: process.env.QA_CHROMIUM_EXECUTABLE_PATH } : {}),
+});
+
+const TOP_LEVEL = [
+  ['/libros/', 'Obras'],
+  ['/autor.html', 'Autor'],
+  ['/cuaderno/', 'Cuaderno'],
+  ['/herramientas/', 'Herramientas'],
+  ['/prensa.html', 'Prensa'],
+];
+const WORKS = [
+  '/las-manecillas-del-recuerdo/',
+  '/libros/samuel-entre-mundos/',
+];
+
+async function assertVisibleDirectWorkLinks(page, scope) {
+  for (const href of WORKS) {
+    const link = page.locator(`${scope} a[href="${href}"]`).first();
+    assert(await link.count() > 0, `${scope}: falta enlace directo ${href}`);
+    assert(await link.isVisible(), `${scope}: el enlace ${href} no es visible`);
+  }
+}
 
 try {
-  const context = await browser.newContext();
-  const page = await context.newPage();
-  await page.goto(`${ORIGIN}/`, { waitUntil: 'load' });
+  // Mobile + keyboard contract.
+  {
+    const context = await browser.newContext({ viewport: { width: 390, height: 900 }, hasTouch: true });
+    const page = await context.newPage();
+    await page.goto(`${ORIGIN}/`, { waitUntil: 'load' });
 
-  const trigger = page.locator('[data-explore-open]');
-  await trigger.click();
-  await page.waitForTimeout(150);
+    // Direct one-click fallback is static and visible even outside Explorar.
+    await assertVisibleDirectWorkLinks(page, 'footer.site-footer nav[aria-label="Obra"]');
 
-  const dialog = page.locator('[data-explore-dialog]');
-  assert(await dialog.evaluate((el) => el.open), 'Explorar debe abrirse tras el clic');
+    const trigger = page.locator('[data-explore-open]');
+    await trigger.focus();
+    await trigger.click();
+    await page.waitForTimeout(80);
 
-  // 1) Exactamente 5 territorios, en el orden y con los hrefs correctos.
-  const territoryLinks = page.locator('.explore-list > a').locator('nth=0, nth=1, nth=2, nth=3, nth=4');
-  const rows = page.locator('.explore-list > a');
-  const firstFive = [];
-  for (let i = 0; i < 5; i++) {
-    const href = await rows.nth(i).getAttribute('href');
-    const label = (await rows.nth(i).locator('strong').textContent())?.trim();
-    firstFive.push({ href, label });
+    const dialog = page.locator('[data-explore-dialog]');
+    assert(await dialog.evaluate((el) => el.open), 'Explorar debe abrirse tras el clic');
+    assert.equal(await page.locator('.explore-list').getAttribute('aria-label'), 'Destinos de la web', 'Explorar debe conservar nombre accesible');
+
+    const rows = page.locator('.explore-list > a');
+    const firstFive = [];
+    for (let i = 0; i < TOP_LEVEL.length; i++) {
+      firstFive.push({
+        href: await rows.nth(i).getAttribute('href'),
+        label: (await rows.nth(i).locator('strong').textContent())?.trim(),
+      });
+    }
+    assert.deepEqual(
+      firstFive,
+      TOP_LEVEL.map(([href, label]) => ({ href, label })),
+      `los cinco primeros destinos deben ser los territorios estables: ${JSON.stringify(firstFive)}`,
+    );
+    assert(!firstFive.some(({ href }) => WORKS.includes(href)), 'ningún libro individual puede ser territorio top-level');
+
+    // Focus remains trapped in the modal; Escape closes and restores opener.
+    for (let i = 0; i < 8; i++) {
+      await page.keyboard.press('Tab');
+      const inside = await page.evaluate(() => {
+        const dialogNode = document.querySelector('[data-explore-dialog]');
+        return Boolean(dialogNode && (dialogNode === document.activeElement || dialogNode.contains(document.activeElement)));
+      });
+      assert(inside, `el foco salió de Explorar en Tab ${i + 1}`);
+    }
+    await page.keyboard.press('Escape');
+    await page.waitForTimeout(60);
+    assert(!(await dialog.evaluate((el) => el.open)), 'Escape debe cerrar el diálogo');
+    assert.equal(
+      await page.evaluate(() => document.activeElement?.hasAttribute?.('data-explore-open')),
+      true,
+      'el foco debe volver al trigger tras Escape',
+    );
+
+    // Obras is the stable territory entry; one tap reaches its hub.
+    await trigger.click();
+    await page.locator('.explore-list > a[href="/libros/"]').click();
+    await page.waitForLoadState('load');
+    assert.equal(new URL(page.url()).pathname, '/libros/', 'Obras debe navegar a /libros/ con un toque');
+    await assertVisibleDirectWorkLinks(page, 'main');
+
+    // Each canonical work is navigable from the Obras hub with a real anchor.
+    for (const href of WORKS) {
+      await page.goto(`${ORIGIN}/libros/`, { waitUntil: 'load' });
+      const link = page.locator(`main a[href="${href}"]`).first();
+      await link.click();
+      await page.waitForLoadState('load');
+      assert.equal(new URL(page.url()).pathname, href, `Obras no navegó correctamente a ${href}`);
+    }
+    await context.close();
   }
-  assert.deepEqual(
-    firstFive.map((r) => r.href),
-    ['/libros/', '/autor.html', '/cuaderno/', '/herramientas/', '/prensa.html'],
-    `los primeros 5 destinos deben ser los territorios estables en orden, obtenido: ${JSON.stringify(firstFive)}`,
-  );
-  assert.equal(firstFive[0].label, 'Obras', 'el primer territorio debe etiquetarse "Obras"');
 
-  // 2) Manecillas ya no es un territorio de primer nivel, pero sigue
-  //    siendo alcanzable (atajo "Leer un fragmento").
-  const allHrefs = await rows.evaluateAll((els) => els.map((el) => el.getAttribute('href')));
-  assert(!allHrefs.slice(0, 5).includes('/las-manecillas-del-recuerdo/'), 'Manecillas no debe ser un territorio de primer nivel');
-  assert(allHrefs.includes('/las-manecillas-del-recuerdo/fragmentos/'), 'Manecillas debe seguir siendo alcanzable vía el atajo de fragmento');
+  // No-JS: Explorar itself is progressive enhancement, but both works must
+  // still have visible one-click navigation and the Obras hub must expose them.
+  {
+    const context = await browser.newContext({ viewport: { width: 390, height: 900 }, javaScriptEnabled: false });
+    const page = await context.newPage();
+    await page.goto(`${ORIGIN}/`, { waitUntil: 'load' });
+    await assertVisibleDirectWorkLinks(page, 'footer.site-footer nav[aria-label="Obra"]');
+    await page.goto(`${ORIGIN}/libros/`, { waitUntil: 'load' });
+    await assertVisibleDirectWorkLinks(page, 'main');
+    await context.close();
+  }
 
-  // 3) Foco: al abrir, el foco entra en el diálogo.
-  const focusedInDialog = await page.evaluate(() => document.activeElement?.closest('[data-explore-dialog]') != null);
-  assert(focusedInDialog, 'el foco debe entrar en el diálogo al abrirlo');
+  // 320px + 200% text zoom: opening Explorar must not create horizontal
+  // overflow and its top-level Obras destination remains reachable.
+  {
+    const context = await browser.newContext({ viewport: { width: 320, height: 900 }, reducedMotion: 'reduce' });
+    const page = await context.newPage();
+    await page.goto(`${ORIGIN}/`, { waitUntil: 'load' });
+    await page.locator('[data-explore-open]').click();
+    await page.evaluate(() => { document.documentElement.style.fontSize = '200%'; });
+    await page.waitForTimeout(80);
+    const dimensions = await page.evaluate(() => ({
+      documentScroll: document.documentElement.scrollWidth,
+      documentClient: document.documentElement.clientWidth,
+      dialogScroll: document.querySelector('[data-explore-dialog]')?.scrollWidth ?? 0,
+      dialogClient: document.querySelector('[data-explore-dialog]')?.clientWidth ?? 0,
+    }));
+    assert(dimensions.documentScroll <= dimensions.documentClient + 1, `320px/200%: overflow documento ${JSON.stringify(dimensions)}`);
+    assert(dimensions.dialogScroll <= dimensions.dialogClient + 1, `320px/200%: overflow diálogo ${JSON.stringify(dimensions)}`);
+    assert(await page.locator('.explore-list > a[href="/libros/"]').isVisible(), '320px/200%: Obras debe seguir visible en Explorar');
+    await page.keyboard.press('Escape');
+    await context.close();
+  }
 
-  // 4) Escape cierra y devuelve el foco al trigger.
-  await page.keyboard.press('Escape');
-  await page.waitForTimeout(150);
-  assert(!(await dialog.evaluate((el) => el.open)), 'Escape debe cerrar el diálogo');
-  const focusReturned = await page.evaluate(() => document.activeElement?.hasAttribute?.('data-explore-open'));
-  assert(focusReturned, 'el foco debe volver al trigger tras cerrar con Escape');
-
-  await context.close();
   console.log('explore-territories-browser: PASS');
 } finally {
   await browser.close();
