@@ -32,7 +32,9 @@ La herramienta está registrada en `data/tools-hub.json` y `data/content-registr
 - `data/site-human-stats.generated.json`;
 - bloque generado de `autor.html`.
 
-No se conserva ningún workflow temporal de generación en el diff final.
+El gate global de discoverability detectó en su primera ejecución final que faltaba la ruta nueva en el mapa humano. Se corrigió en `mapa-del-sitio/index.html` dentro de la misma PR y `scripts/check-global-discoverability.py` pasó antes de comprometer la corrección.
+
+No se conserva ningún workflow temporal de generación/sincronización en el diff final.
 
 ## QA permanente
 
@@ -40,6 +42,7 @@ No se conserva ningún workflow temporal de generación en el diff final.
 - `qa/tarjeta-estoy-leyendo-browser.mjs`: 320 px + escritorio, ausencia de requests externos durante la acción, XSS inerte, Clipboard API, fallback manual y referencia opt-in.
 - `.github/workflows/tools-publishing-browser-qa.yml`: ejecuta el browser QA nuevo dentro del workflow de herramientas ya existente.
 - `scripts/audit-private-tools.py` cubre la nueva ruta mediante el wildcard global de CI.
+- `scripts/check-global-discoverability.py` exige que toda ruta humana pública aparezca también en `/mapa-del-sitio/`.
 
 ## Coordinación
 
