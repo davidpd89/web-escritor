@@ -1,0 +1,44 @@
+{
+  "schema_version": 1,
+  "provider": "goatcounter",
+  "note": "Autoridad unica de nombres de evento (I.1, 2026-08-23). Todo nombre literal que _gcEvent()/data-gc/el bridge dp:analytics puedan emitir en las superficies auditadas debe estar aqui -- scripts/check-analytics-taxonomy.py falla si aparece uno que no lo esta. Convencion: {accion}-{contexto}, con contexto = identidad de libro/proveedor/fuente cuando aplica, en snake_case dentro del contexto de dp:analytics (ver 'article-{name}' mas abajo) y kebab-case en el resto (ya establecido por el runtime existente, no se reescribe todo el histórico sin motivo).",
+  "events": [
+    { "name": "newsletter-home",       "action": "newsletter_submit", "context": "home",       "note": "El Worker acepto el alta. NO implica confirmacion DOI real -- Brevo no tiene automatizacion de doble opt-in verificada (ver PR #55)." },
+    { "name": "newsletter-fragmento",  "action": "newsletter_submit", "context": "fragmento",  "note": "Igual que newsletter-home; fuente = formulario en /fragmento/." },
+    { "name": "newsletter-manecillas", "action": "newsletter_submit", "context": "manecillas", "note": "Igual que newsletter-home; es el evento de conversion real de Manecillas mientras no exista retailer verificado (ver PR #61 H.2)." },
+    { "name": "newsletter-cuaderno",   "action": "newsletter_submit", "context": "cuaderno",   "note": "Igual que newsletter-home; fuente = formulario embebido en articulos de /cuaderno/." },
+    { "name": "newsletter-quiz",       "action": "newsletter_submit", "context": "quiz",       "note": "Igual que newsletter-home; fuente = quiz de Noveris. NO confundir con un evento de resultado del quiz." },
+    { "name": "newsletter-popup",      "action": "newsletter_submit", "context": "popup",      "note": "Igual que newsletter-home; fuente = popup de captura (ver PR #56/#61)." },
+
+    { "name": "abrir-modal-comprar-samuel", "action": "buy_open",  "context": "samuel", "note": "Apertura del selector de tienda. Identidad de libro explicita en el nombre para no mezclarse nunca con un futuro buy_open de Manecillas." },
+    { "name": "comprar-amazon",             "action": "buy_click", "context": "amazon", "note": "Clic generico a cualquier enlace amazon.es fuera del modal de Samuel (p. ej. desde una tarjeta de libro). Retailer = amazon." },
+    { "name": "comprar-amazon-papel",       "action": "buy_click", "context": "amazon-samuel-papel", "note": "data-gc en el CTA principal del modal de Samuel (tapa blanda)." },
+    { "name": "comprar-casadellibro",       "action": "buy_click", "context": "casadellibro-samuel", "note": "data-gc en el CTA secundario del modal de Samuel." },
+    { "name": "fragmento-desde-modal",      "action": "sample_open", "context": "samuel-desde-modal", "note": "data-gc: clic a leer el fragmento gratis desde dentro del modal de compra de Samuel." },
+
+    { "name": "leer-fragmento-samuel",     "action": "sample_open", "context": "samuel",     "note": "Clic a cualquier enlace /fragmento/ que NO sea de Manecillas." },
+    { "name": "leer-fragmento-manecillas", "action": "sample_open", "context": "manecillas", "note": "Clic a /las-manecillas-del-recuerdo/fragmentos/. Antes de I.1 este clic no se contaba: el patron legacy /fragmento/ (singular) nunca coincidia con esta ruta (plural)." },
+
+    { "name": "explorar-noveris",    "action": "navigate_editorial", "context": "noveris",    "note": "Clic a cualquier enlace /universo/noveris/." },
+    { "name": "ver-prensa",          "action": "navigate_editorial", "context": "prensa",     "note": "Clic a cualquier enlace /prensa*." },
+    { "name": "download-press-kit",  "action": "download_resource",  "context": "press-kit",  "note": "Clic a cualquier enlace /press-kit/." }
+  ],
+  "article_bridge": {
+    "note": "assets/*.js (herramientas del Cuaderno y afines) nunca llaman a _gcEvent directamente: disparan un CustomEvent 'dp:analytics' local con {event:<nombre_snake_case>, target?}, y _dpAnalyticsBridge() en script.js lo valida (regex /^[a-z0-9_-]{1,64}$/i) y lo reenvia a GoatCounter como 'article-<nombre_snake_case>'. El checker valida el <nombre_snake_case> tal como aparece en cada fichero (antes del prefijo), no el nombre final con prefijo, porque asi es como se emite en el codigo fuente.",
+    "wire_prefix": "article-",
+    "names_by_module": {
+      "assets/article-tools.js": ["share", "copy", "prompt", "print"],
+      "assets/club-session-builder.js": ["club_session_generate", "club_session_copy", "club_session_print"],
+      "assets/entrevista-familiar.js": ["family_interview_generate", "family_interview_print"],
+      "assets/generador-evento-escritor.js": ["event_builder", "event_builder_ics"],
+      "assets/mapa-personajes.js": ["character_map_add_character", "character_map_add_relation", "character_map_focus", "character_map_export", "character_map_import", "character_map_clear"],
+      "assets/radar-convocatorias.js": ["radar_source_click", "radar_calendar_click"],
+      "assets/repeticiones-espanol.js": ["repetition_analyze", "repetition_sample", "repetition_clear"],
+      "assets/analizador-capitulos.js": ["chapter_analyzer_run"],
+      "assets/jsonld-escritores.js": ["jsonld_tool_copy"],
+      "assets/legibilidad-espanol.js": ["readability_analyze"],
+      "assets/objeto-heredado.js": ["object_record_export", "object_record_print", "object_record_import"],
+      "assets/surprise-me.js": ["surprise_me"]
+    }
+  }
+}
