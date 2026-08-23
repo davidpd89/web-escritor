@@ -37,8 +37,10 @@ try {
 
     const html = await page.locator('[data-reading-card-html]').inputValue();
     assert(html.includes('&lt;script&gt;'));
+    assert(html.includes('&lt;img'));
+    assert(html.includes('onerror=window.__xss=2'), 'hostile attribute text should remain visible only as escaped text');
     assert(!html.includes('<script'));
-    assert(!html.includes('onerror='));
+    assert(!html.includes('<img'));
     assert(!html.includes('davidportodiaz.com/herramientas/tarjeta-estoy-leyendo/'));
     assert.equal(await page.evaluate(() => window.__xss), undefined);
     assert((await page.locator('[data-reading-card-preview]').textContent()).includes('<script>window.__xss=1</script>'));
