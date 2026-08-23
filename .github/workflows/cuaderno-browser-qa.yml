@@ -38,10 +38,23 @@ jobs:
         with:
           node-version: 22
 
-      - name: Install browser QA dependencies
-        run: |
-          npm install --no-save --package-lock=false playwright@1.55.0 pa11y-ci@4.1.1 @lhci/cli@0.15.1
-          npx playwright install --with-deps chromium
+      - name: Install CI/QA dependencies (Node)
+        run: npm ci
+
+      - name: Cache Playwright browsers
+        id: playwright-cache
+        uses: actions/cache@v4
+        with:
+          path: ~/.cache/ms-playwright
+          key: playwright-chromium-${{ hashFiles('package-lock.json') }}
+
+      - name: Install Playwright Chromium (with OS deps)
+        if: steps.playwright-cache.outputs.cache-hit != 'true'
+        run: npx playwright install --with-deps chromium
+
+      - name: Install Playwright OS deps only (browser cached)
+        if: steps.playwright-cache.outputs.cache-hit == 'true'
+        run: npx playwright install-deps chromium
 
       - name: Start local site
         run: |
