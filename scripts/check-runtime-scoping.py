@@ -15,6 +15,10 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parent.parent
 SAMUEL_PAGE = "libros/samuel-entre-mundos/index.html"
 POPUP_SCOPE_PREFIXES = ("cuaderno/", "recomendaciones/", "universo/noveris/", "clubes-de-lectura/")
+# Paginas de politica/metodologia bajo un prefijo de scope que NO son
+# contenido editorial de lectura (mismo trato que privacidad.html/
+# aviso-legal.html): no tiene sentido pedir suscripcion ahi.
+POPUP_SCOPE_EXCEPTIONS = ("recomendaciones/politica-de-recomendaciones/index.html",)
 MOJIBAKE_MARKERS = ("Ã", "Â", "â€", "â‚", "ï¿½", "\ufffd")
 MOJIBAKE_PATHS = (
     "styles.css",
@@ -109,7 +113,7 @@ def check_popup_scope(root: Path, pages: list[Path]) -> list[str]:
         loads_core = bool(re.search(r'src=["\']?/script\.js', text))
         if not loads_core:
             continue
-        in_scope = rel.startswith(POPUP_SCOPE_PREFIXES)
+        in_scope = rel.startswith(POPUP_SCOPE_PREFIXES) and rel not in POPUP_SCOPE_EXCEPTIONS
         loads_js = bool(re.search(r'src=["\']?/assets/newsletter-popup\.js', text))
         loads_css = bool(re.search(r'href=["\']?/assets/newsletter-popup\.css', text))
         if in_scope and not (loads_js and loads_css):

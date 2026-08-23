@@ -8,8 +8,9 @@
 // solo con (hover: hover) and (pointer: fine).
 //
 // Depende de scheduleTask/postNewsletter/isValidNewsletterEmail/
-// newsletterErrorMessage/IS_STAGING/STAGING_DISABLED_MESSAGE/_gcEvent, ya
-// definidos por script.js, que se carga antes que este fichero.
+// installNewsletterHoneypot/honeypotValue/newsletterErrorMessage/IS_STAGING/
+// STAGING_DISABLED_MESSAGE/_gcEvent, ya definidos por script.js, que se
+// carga antes que este fichero.
 (function () {
   const DISMISSED_KEY = "nl-popup-ts";
   const SUBSCRIBED_KEY = "nl-subscribed";
@@ -27,10 +28,8 @@
         title: "Sigue el universo de Noveris.",
         body: "Novedades sobre el universo de Noveris y avisos de nuevas firmas o lecturas. Un email cuando haya algo que valga la pena.",
         cta: "Suscribirme",
-        okTitle: "✓ ¡Apuntado!",
-        okBody: "Recibirás las novedades de David Porto Díaz sobre el universo de Noveris.",
-        dupeTitle: "✓ Ya estás suscrito.",
-        dupeBody: "¡Gracias por seguir a David Porto Díaz!"
+        okTitle: "Revisa tu correo",
+        okBody: "Te hemos enviado un mensaje de confirmación. Abre el enlace para completar la suscripción."
       };
     }
     return {
@@ -38,10 +37,8 @@
       title: "Sigue los próximos libros y artículos.",
       body: "Nuevas publicaciones, artículos, firmas y recursos para lectores. Solo cuando haya algo que contar.",
       cta: "Suscribirme",
-      okTitle: "✓ ¡Apuntado!",
-      okBody: "Recibirás las novedades de David Porto Díaz.",
-      dupeTitle: "✓ Ya estás suscrito.",
-      dupeBody: "¡Gracias por seguir a David Porto Díaz!"
+      okTitle: "Revisa tu correo",
+      okBody: "Te hemos enviado un mensaje de confirmación. Abre el enlace para completar la suscripción."
     };
   }
 
@@ -99,6 +96,7 @@
       '<label class="sr-only" for="nl-popup-email">Correo electrónico</label>' +
       '<input type="email" id="nl-popup-email" name="email" placeholder="tu@email.com" autocomplete="email" required />' +
       '<button type="submit" class="button primary" id="nl-popup-submit">' + copy.cta + '</button>' +
+      '<div aria-hidden="true" inert style="position:absolute;width:1px;height:1px;padding:0;overflow:hidden;clip:rect(0 0 0 0);clip-path:inset(50%);white-space:nowrap;border:0;"><input type="text" name="website" autocomplete="off" tabindex="-1" /></div>' +
       '<label id="nl-popup-gdpr-row"><input type="checkbox" id="nl-popup-gdpr" required />Acepto recibir novedades del autor. <a href="/privacidad.html" target="_blank" rel="noopener">Privacidad</a>.</label>' +
       '<p id="nl-popup-status" role="status" aria-live="polite"></p>' +
       '</form>' +
@@ -120,6 +118,7 @@
       if (dialog === d) dialog = null;
     }, { once: true });
 
+    installNewsletterHoneypot(d.querySelector("#nl-popup-form"));
     d.querySelector("#nl-popup-form").addEventListener("submit", function (event) {
       event.preventDefault();
       scheduleTask(async function () {
@@ -128,33 +127,33 @@
         const statusEl = d.querySelector("#nl-popup-status");
         const submitBtn = d.querySelector("#nl-popup-submit");
         if (!emailEl || !gdprEl || !statusEl || !submitBtn) return;
+        if (submitBtn.dataset.submitting === "true") return;
         if (IS_STAGING) { statusEl.textContent = STAGING_DISABLED_MESSAGE; return; }
         if (!isValidNewsletterEmail(emailEl.value)) { statusEl.textContent = "Introduce un email válido."; return; }
         if (!gdprEl.checked) { statusEl.textContent = "Acepta la política de privacidad para continuar."; return; }
         statusEl.textContent = "";
+        submitBtn.dataset.submitting = "true";
         submitBtn.disabled = true;
         submitBtn.textContent = "Enviando…";
         try {
-          const result = await postNewsletter({ email: emailEl.value.trim(), source: "popup" });
+          const result = await postNewsletter({
+            email: emailEl.value.trim(),
+            source: "popup",
+            website: honeypotValue(d.querySelector("#nl-popup-form"))
+          });
           const panel = d.querySelector("#nl-popup-panel");
-          if (result.ok && !result.duplicate) {
-            localStorage.setItem(SUBSCRIBED_KEY, "1");
+          if (result.ok && result.state === "pending_confirmation") {
             panel.innerHTML = '<p class="nl-popup-result-title">' + copy.okTitle + '</p><p class="nl-popup-result-body">' + copy.okBody + '</p>';
             panel.tabIndex = -1;
             panel.focus({ preventScroll: true });
-            _gcEvent("newsletter-popup", "Newsletter: popup");
-            setTimeout(dismiss, 3200);
-          } else if (result.ok && result.duplicate) {
-            localStorage.setItem(SUBSCRIBED_KEY, "1");
-            panel.innerHTML = '<p class="nl-popup-result-title">' + copy.dupeTitle + '</p><p class="nl-popup-result-body">' + copy.dupeBody + '</p>';
-            panel.tabIndex = -1;
-            panel.focus({ preventScroll: true });
-            setTimeout(dismiss, 3200);
+            _gcEvent("newsletter-pending-popup", "Newsletter DOI pendiente: popup");
+            setTimeout(dismiss, 5000);
           } else {
             throw new Error(result.code || "request_failed");
           }
         } catch (err) {
           statusEl.textContent = newsletterErrorMessage(err.message);
+          delete submitBtn.dataset.submitting;
           submitBtn.disabled = false;
           submitBtn.textContent = copy.cta;
         }

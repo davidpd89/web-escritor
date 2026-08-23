@@ -6,13 +6,13 @@ function scheduleTask(fn, priority = "background") {
   return Promise.resolve().then(fn);
 }
 
-// Client contract (2026-08-20): only { email, source, result? } is ever
-// sent to the Worker. listIds/attributes/updateEnabled are no longer
-// client-controlled — the Worker validates `source` against its own
-// server-side whitelist and builds the Brevo attributes itself. See
-// cloudflare-worker-subscribe.js. The `source` values used below (home,
-// fragmento, manecillas, cuaderno, popup, quiz) must match the Worker's
-// SOURCE_MAP keys exactly.
+// Client contract (2026-08-23): only { email, source, result?, website? } is ever
+// sent to the Worker. `website` is a honeypot and is never forwarded by the Worker.
+// listIds/attributes/templateId/redirectionUrl are never client-controlled —
+// the Worker validates `source` against its own server-side whitelist and
+// builds the Brevo attributes itself. See cloudflare-worker-subscribe.js.
+// The `source` values used below (home, fragmento, manecillas, cuaderno,
+// popup, quiz, lectores-beta) must match the Worker's SOURCE_MAP keys exactly.
 const NEWSLETTER_CONFIG = {
   endpoint: "https://subscribe.davidpd89.workers.dev"
 };
@@ -22,7 +22,28 @@ const NEWSLETTER_TIMEOUT_MS = 12000;
 // so obviously-invalid input never leaves the browser, not just the empty case.
 const NEWSLETTER_EMAIL_RE = /^[^\s@]{1,64}@[^\s@]{1,253}\.[^\s@]{2,}$/;
 function isValidNewsletterEmail(value) {
-  return NEWSLETTER_EMAIL_RE.test(String(value || "").trim());
+  const normalized = String(value || "").trim();
+  return normalized.length <= 254 && NEWSLETTER_EMAIL_RE.test(normalized);
+}
+
+function honeypotValue(form) {
+  const field = form?.querySelector('input[name="website"]');
+  return field ? String(field.value || "").trim() : "";
+}
+
+function installNewsletterHoneypot(form) {
+  if (!form || form.querySelector('input[name="website"]')) return;
+  const wrapper = document.createElement("div");
+  wrapper.setAttribute("aria-hidden", "true");
+  wrapper.setAttribute("inert", "");
+  wrapper.style.cssText = "position:absolute;width:1px;height:1px;padding:0;overflow:hidden;clip:rect(0 0 0 0);clip-path:inset(50%);white-space:nowrap;border:0;";
+  const field = document.createElement("input");
+  field.type = "text";
+  field.name = "website";
+  field.autocomplete = "off";
+  field.tabIndex = -1;
+  wrapper.appendChild(field);
+  form.appendChild(wrapper);
 }
 
 function newsletterErrorMessage(code) {
@@ -46,13 +67,15 @@ async function postNewsletter(payload) {
       signal: controller.signal
     });
 
-    if (res.ok || res.status === 204) return { ok: true, code: "ok" };
-
-    if (res.status === 400) {
+    if (res.ok) {
       const body = await res.json().catch(() => ({}));
-      if (body.duplicate === true) return { ok: true, duplicate: true, code: "duplicate" };
-      return { ok: false, code: "invalid_request" };
+      if (body && body.ok === true && body.state === "pending_confirmation") {
+        return { ok: true, state: "pending_confirmation", code: "pending_confirmation" };
+      }
+      return { ok: false, code: "invalid_response" };
     }
+
+    if (res.status === 400) return { ok: false, code: "invalid_request" };
 
     if (res.status === 429) return { ok: false, code: "rate_limited" };
     if (res.status >= 500) return { ok: false, code: "server_error" };
@@ -260,17 +283,18 @@ function fallbackCopy(text, done) {
   // must not promise specific automatic content delivery (2026-08-20).
   // Manecillas keeps its own promise because that one is just "I'll notify
   // you" (a real, simple thing this list can do), not a content delivery.
-  const NEWSLETTER_SUCCESS_COPY = {
-    home: "Te has suscrito correctamente. Recibirás las novedades de David Porto Díaz.",
-    fragmento: "Te has suscrito correctamente. Recibirás las novedades de David Porto Díaz.",
-    manecillas: "Te avisaré cuando Las manecillas del recuerdo esté disponible.",
-    cuaderno: "Te has suscrito correctamente. Recibirás las novedades de David Porto Díaz."
+  const NEWSLETTER_PENDING_COPY = {
+    home: "Revisa tu correo y confirma la suscripción para recibir las novedades de David Porto Díaz.",
+    fragmento: "Revisa tu correo y confirma la suscripción para recibir las novedades de David Porto Díaz.",
+    manecillas: "Revisa tu correo y confirma la suscripción. Después te avisaré cuando Las manecillas del recuerdo esté disponible.",
+    cuaderno: "Revisa tu correo y confirma la suscripción para recibir las novedades de David Porto Díaz."
   };
 
   async function submitNewsletter(formId, emailId, gdprId, statusId, sourceLabel) {
     const form = document.getElementById(formId);
     if (!form) return;
-    const successBody = NEWSLETTER_SUCCESS_COPY[sourceLabel] || "Recibirás las novedades de David Porto Díaz.";
+    installNewsletterHoneypot(form);
+    const pendingBody = NEWSLETTER_PENDING_COPY[sourceLabel] || "Revisa tu correo y confirma la suscripción para completarla.";
     form.addEventListener("submit", (e) => {
       e.preventDefault();
       scheduleTask(async () => {
@@ -278,6 +302,7 @@ function fallbackCopy(text, done) {
         const gdprEl = document.getElementById(gdprId);
         const statusEl = document.getElementById(statusId);
         const submitBtn = form.querySelector("[type=submit]");
+        if (submitBtn.dataset.submitting === "true") return;
         if (IS_STAGING) {
           if (statusEl) statusEl.textContent = STAGING_DISABLED_MESSAGE;
           return;
@@ -289,25 +314,24 @@ function fallbackCopy(text, done) {
           return;
         }
         if (statusEl) statusEl.textContent = "";
+        submitBtn.dataset.submitting = "true";
         submitBtn.disabled = true;
         submitBtn.textContent = "Enviando…";
         try {
           const result = await postNewsletter({
             email: emailEl.value.trim(),
-            source: sourceLabel
+            source: sourceLabel,
+            website: honeypotValue(form)
           });
-          if (result.ok && !result.duplicate) {
-            localStorage.setItem("nl-subscribed", "1");
-            form.innerHTML = '<p class="quiz-subscribe-ok">✓ ¡Apuntado! ' + successBody + '</p>';
-            _gcEvent("newsletter-" + sourceLabel, "Newsletter: " + sourceLabel);
-          } else if (result.ok && result.duplicate) {
-            localStorage.setItem("nl-subscribed", "1");
-            form.innerHTML = '<p class="quiz-subscribe-ok">\u2714 Ya est\u00e1s suscrito a la lista. \u00a1Gracias!</p>';
+          if (result.ok && result.state === "pending_confirmation") {
+            form.innerHTML = '<p class="quiz-subscribe-ok">✓ ' + pendingBody + '</p>';
+            _gcEvent("newsletter-pending-" + sourceLabel, "Newsletter DOI pendiente: " + sourceLabel);
           } else {
             throw new Error(result.code || "request_failed");
           }
         } catch (err) {
           if (statusEl) statusEl.textContent = newsletterErrorMessage(err.message);
+          delete submitBtn.dataset.submitting;
           submitBtn.disabled = false;
           submitBtn.textContent = "Suscribirme";
         }
@@ -318,6 +342,58 @@ function fallbackCopy(text, done) {
   submitNewsletter("newsletter-form-fragmento",  "nl-email-fragmento",  "nl-gdpr-fragmento",  "nl-status-fragmento",  "fragmento");
   submitNewsletter("newsletter-form-manecillas", "nl-email-manecillas", "nl-gdpr-manecillas", "nl-status-manecillas", "manecillas");
   submitNewsletter("newsletter-form-cuaderno",   "nl-email-cuaderno",   "nl-gdpr-cuaderno",   "nl-status-cuaderno",   "cuaderno");
+  // Lectores beta (N.1, 2026-08-23): mismo mecanismo de envio, pero fuente,
+  // lista de Brevo y consentimiento propios -- ver /lectores-beta/ y
+  // cloudflare-worker-subscribe.js (BREVO_BETA_LIST_ID). El copy de exito no
+  // reutiliza NEWSLETTER_SUCCESS_COPY porque no es "recibir novedades del
+  // autor", es la confirmacion del programa de lectores beta.
+  (function () {
+    const form = document.getElementById("lectores-beta-form");
+    if (!form) return;
+    installNewsletterHoneypot(form);
+    form.addEventListener("submit", (e) => {
+      e.preventDefault();
+      scheduleTask(async () => {
+        const emailEl = document.getElementById("lectores-beta-email");
+        const gdprEl = document.getElementById("lectores-beta-gdpr");
+        const statusEl = document.getElementById("lectores-beta-status");
+        const submitBtn = form.querySelector("[type=submit]");
+        if (submitBtn.dataset.submitting === "true") return;
+        if (IS_STAGING) {
+          if (statusEl) statusEl.textContent = STAGING_DISABLED_MESSAGE;
+          return;
+        }
+        if (!emailEl || !isValidNewsletterEmail(emailEl.value) || !gdprEl || !gdprEl.checked) {
+          if (statusEl) statusEl.textContent = gdprEl && !gdprEl.checked
+            ? "Acepta el consentimiento del programa de lectores beta para continuar."
+            : "Introduce un email válido.";
+          return;
+        }
+        if (statusEl) statusEl.textContent = "";
+        submitBtn.dataset.submitting = "true";
+        submitBtn.disabled = true;
+        submitBtn.textContent = "Enviando…";
+        try {
+          const result = await postNewsletter({
+            email: emailEl.value.trim(),
+            source: "lectores-beta",
+            website: honeypotValue(form)
+          });
+          if (result.ok && result.state === "pending_confirmation") {
+            form.innerHTML = '<p class="quiz-subscribe-ok">✓ Revisa tu correo y confirma la suscripción. Te escribiré cuando tenga material listo para lectores beta.</p>';
+            _gcEvent("newsletter-pending-lectores-beta", "Newsletter DOI pendiente: lectores beta");
+          } else {
+            throw new Error(result.code || "request_failed");
+          }
+        } catch (err) {
+          if (statusEl) statusEl.textContent = newsletterErrorMessage(err.message);
+          delete submitBtn.dataset.submitting;
+          submitBtn.disabled = false;
+          submitBtn.textContent = "Quiero apuntarme";
+        }
+      }, "user-blocking");
+    });
+  })();
 })();
 
 // Modo lectura desactivado temporalmente: limpia estados antiguos guardados en el navegador.
