@@ -27,10 +27,23 @@ jobs:
         with:
           node-version: '22'
 
-      - name: Install Playwright and browsers (Chromium + Firefox + WebKit)
-        run: |
-          npm install --no-save --no-package-lock playwright@1.55.0
-          npx playwright install --with-deps chromium firefox webkit
+      - name: Install CI/QA dependencies (Node)
+        run: npm ci
+
+      - name: Cache Playwright browsers
+        id: playwright-cache
+        uses: actions/cache@v4
+        with:
+          path: ~/.cache/ms-playwright
+          key: playwright-cross-engine-${{ hashFiles('package-lock.json') }}
+
+      - name: Install Playwright browsers (Chromium + Firefox + WebKit, with OS deps)
+        if: steps.playwright-cache.outputs.cache-hit != 'true'
+        run: npx playwright install --with-deps chromium firefox webkit
+
+      - name: Install Playwright OS deps only (browsers cached)
+        if: steps.playwright-cache.outputs.cache-hit == 'true'
+        run: npx playwright install-deps chromium firefox webkit
 
       - name: Run cross-engine smoke (Chromium + Firefox + WebKit)
         run: node qa/cross-engine-smoke.mjs
