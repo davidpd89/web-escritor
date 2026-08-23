@@ -158,7 +158,7 @@ async function runNoJs(browser, report) {
     assert(rawHtml.includes('JavaScript está desactivado.'), `${tool.key}: falta mensaje no-JS`);
     assert((await page.locator('noscript').count()) >= 1, `${tool.key}: no hay noscript en DOM`);
     assert(await page.locator('h1').isVisible(), `${tool.key}: H1 no visible sin JS`);
-    assert(await page.locator('form').isVisible(), `${tool.key}: form no conserva geometría sin JS`);
+    assert(await page.locator('form:not(#newsletter-form-explore)').first().isVisible(), `${tool.key}: form no conserva geometría sin JS`);
     assert.equal(await page.locator('[data-header]').getAttribute('data-scrolled'), null, `${tool.key}: shell JS se ejecutó con JS desactivado`);
     await assertNoBodyOverflow(page, `${tool.key}@no-js`);
     report.noJs[tool.key] = { pass: true, semanticNoscript: true, scriptsExecuted: false };

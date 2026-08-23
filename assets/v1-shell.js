@@ -47,18 +47,22 @@
 
   function initExplore() {
     const dialog = q('[data-explore-dialog]');
-    const open = q('[data-explore-open]');
+    // Puede haber mas de un disparador (el del header y, en la home
+    // cinematica, el del panel del hero) que abren el mismo dialogo.
+    const opens = qa('[data-explore-open]');
     const close = q('[data-explore-close]');
-    if (!dialog || !open || !close || typeof dialog.showModal !== 'function') return;
+    if (!dialog || !opens.length || !close || typeof dialog.showModal !== 'function') return;
 
     ensureAssistantExploreLink(dialog);
 
     let opener = null;
-    open.addEventListener('click', () => {
-      opener = document.activeElement;
-      open.setAttribute('aria-expanded', 'true');
-      dialog.showModal();
-      close.focus();
+    opens.forEach((open) => {
+      open.addEventListener('click', () => {
+        opener = document.activeElement;
+        opens.forEach((o) => o.setAttribute('aria-expanded', 'true'));
+        dialog.showModal();
+        close.focus();
+      });
     });
     // aria-expanded se pone a false aqui ademas de en el evento 'close'. El
     // <dialog> quita su atributo open de forma sincrona, pero 'close' se
@@ -68,12 +72,12 @@
     // ~la mitad de las veces. Marcarlo tambien al cerrar cierra el hueco; el
     // handler de 'close' se queda como red de seguridad para los cierres que
     // no pasan por aqui y es quien devuelve el foco.
-    const markClosed = () => open.setAttribute('aria-expanded', 'false');
+    const markClosed = () => opens.forEach((o) => o.setAttribute('aria-expanded', 'false'));
     close.addEventListener('click', () => { markClosed(); dialog.close(); });
     dialog.addEventListener('cancel', markClosed);
     dialog.addEventListener('click', (event) => { if (event.target === dialog) { markClosed(); dialog.close(); } });
     dialog.addEventListener('close', () => {
-      open.setAttribute('aria-expanded', 'false');
+      markClosed();
       if (opener instanceof HTMLElement) opener.focus({ preventScroll: true });
     });
 
@@ -166,6 +170,48 @@
     });
   }
 
+  function initIntro() {
+    const intro = q('[data-intro]');
+    if (!intro) return;
+    const enter = q('[data-intro-enter]', intro);
+    // La Home normal esta en el DOM desde el inicio (SEO/no-JS ven contenido
+    // real), pero mientras la intro cubre la pantalla no debe poder
+    // recibir foco por teclado ni scroll.
+    const behind = qa('.site-header, main, .site-footer');
+    behind.forEach((el) => el.setAttribute('inert', ''));
+    document.documentElement.classList.add('intro-lock');
+    if (!enter) return;
+    let entered = false;
+    const doEnter = () => {
+      if (entered) return;
+      entered = true;
+      const reduced = matchMedia('(prefers-reduced-motion: reduce)').matches;
+      intro.classList.add('intro--leaving');
+      setTimeout(() => {
+        intro.hidden = true;
+        document.documentElement.classList.remove('intro-lock');
+        behind.forEach((el) => el.removeAttribute('inert'));
+        const main = q('#contenido');
+        if (main) main.focus();
+      }, reduced ? 350 : 820);
+    };
+    enter.addEventListener('click', doEnter);
+    // Si nadie pulsa Entrar, pasados 5s desde que el boton aparece (el
+    // final del reveal de tinta, ~4.6s) se entra solo -- la intro no debe
+    // dejar a nadie atascado mirando la foto indefinidamente.
+    const reduced = matchMedia('(prefers-reduced-motion: reduce)').matches;
+    setTimeout(doEnter, reduced ? 5000 : 4600 + 5000);
+  }
+
+  function initHeroVideo() {
+    const video = q('[data-hero-video]');
+    if (!video) return;
+    if (matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+    const play = () => video.play().catch(() => {});
+    if (video.readyState >= 2) play();
+    else video.addEventListener('loadeddata', play, { once: true });
+  }
+
   function initAssistantWidget() {
     if (/^\/asistente(?:\/|$)/.test(location.pathname)) return;
     // The widget runs the assistant inside a same-origin iframe, so pages that
@@ -198,5 +244,7 @@
   initHeader();
   initExplore();
   initMap();
+  initIntro();
+  initHeroVideo();
   initAssistantWidget();
 })();

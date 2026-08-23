@@ -12,8 +12,18 @@
  *        Value: 3   (el ID numerico de la lista de Brevo a la que se suscribe
  *                     todo el sitio; ver NEWSLETTER_CONFIG.endpoint en
  *                     script.js)
- *   5. Copy the Worker URL (e.g. https://subscribe.davidportodiaz.workers.dev)
- *   6. Update WORKER_URL in script.js with that URL
+ *   5. Settings → Variables and Secrets → Add variable:
+ *        Name:  BREVO_DOI_REDIRECT_URL
+ *        Value: https://davidportodiaz.com/gracias-suscripcion/
+ *        (la URL de retorno de doble confirmacion configurada en Brevo)
+ *   6. Settings → Variables and Secrets → Add variable:
+ *        Name:  BREVO_DOI_TEMPLATE_ID
+ *        Value: (ID numérico de un template Brevo válido para DOI; no se guarda en el repo)
+ *   7. Add a Cloudflare Workers Rate Limiting binding:
+ *        Binding name: RATE_LIMITER
+ *        Configure e.g. 5 requests / 60 s and choose the namespace_id in Cloudflare.
+ *   8. Copy the Worker URL (e.g. https://subscribe.davidportodiaz.workers.dev)
+ *   9. Update WORKER_URL in script.js with that URL
  *
  * The script.js file already has WORKER_URL ready — just update the placeholder.
  *
@@ -57,10 +67,23 @@
  * devuelven 404). Hay que mirarlo en el panel de Brevo. Por eso el copy de la
  * web sigue sin prometer entrega de capítulo: no está verificado.
  *
+ * LECTORES BETA (N.1, 2026-08-23): `source: "lectores-beta"` is a
+ * DELIBERATELY separate Brevo list from the general newsletter
+ * (`env.BREVO_BETA_LIST_ID`, not `env.BREVO_LIST_ID`). The consent copy on
+ * /lectores-beta/ is its own, distinct from "recibir novedades del autor" --
+ * joining the beta program means receiving unpublished material and being
+ * asked for feedback, a materially different purpose that must not share a
+ * list/consent record with the general newsletter. Configure
+ * BREVO_BETA_LIST_ID as its own Cloudflare secret/variable when the real
+ * Brevo list exists; until then, POSTs with source="lectores-beta" fail
+ * closed with 500 (same pattern as a missing BREVO_LIST_ID), never silently
+ * falling back to the general list.
+ *
  * SECURITY NOTE (2026-08-19): listIds is no longer accepted from the client.
  *
  * SECURITY NOTE (2026-08-20): the client input contract is now minimal by
- * design — the browser sends only { email, source, result? }. Previously
+ * design — the browser sends only { email, source, result?, website? }. `website`
+ * is a honeypot and is never forwarded. Previously
  * this Worker destructured and forwarded `attributes` straight from the
  * client's POST body to Brevo unchecked, so a malicious client could have
  * attached arbitrary Brevo contact attributes (or, before the 08-19 fix,
@@ -75,17 +98,17 @@
  *     built entirely server-side from the validated source/result, and
  *     updateEnabled is hardcoded to true below.
  *
- * NOTE ON ABUSE PROTECTION: the Origin check + CORS headers below stop
- * cross-site browser requests, but they are NOT rate limiting or bot
- * protection — a direct POST from a script (no browser, no Origin header
- * enforcement bypassable by omitting Origin entirely triggers the 403
- * below, but a non-browser client can still just spoof the Origin header)
- * can still hit this endpoint repeatedly. If abuse becomes a real problem,
- * add Turnstile and/or a KV-backed rate limit; neither is implemented here
- * to keep this pass scoped to the input-contract fix.
+ * NOTE ON ABUSE PROTECTION: Origin/CORS are not bot protection. This Worker
+ * uses a honeypot plus Cloudflare's native Rate Limiting binding. If RATE_LIMITER
+ * is missing, malformed or throws, the Worker logs the degraded state and fails
+ * open so a configuration error does not block legitimate readers; production
+ * deployment must therefore verify the binding instead of assuming it exists.
  */
 
 const ALLOWED_ORIGIN = "https://davidportodiaz.com";
+const BREVO_DOI_ENDPOINT = "https://api.brevo.com/v3/contacts/doubleOptinConfirmation";
+const PENDING_CONFIRMATION_BODY = Object.freeze({ ok: true, state: "pending_confirmation" });
+const EMAIL_RE = /^[^\s@]{1,64}@[^\s@]{1,253}\.[^\s@]{2,}$/;
 
 // Server-side whitelist: maps a client-supplied `source` label to the exact
 // Brevo SOURCE attribute value. Must stay in sync with the source labels
@@ -98,6 +121,16 @@ const SOURCE_MAP = {
   manecillas: "manecillas",
   cuaderno: "cuaderno",
   popup: "popup",
+  explore: "explore",
+  "lectores-beta": "lectores-beta",
+};
+
+// Fuentes que deben aterrizar en una lista de Brevo DISTINTA de la general
+// (env.BREVO_LIST_ID), porque su proposito/consentimiento es materialmente
+// distinto de "recibir novedades del autor" (N.1, 2026-08-23). Anadir aqui
+// cualquier fuente futura que necesite la misma separacion.
+const SEPARATE_LIST_ENV_KEY = {
+  "lectores-beta": "BREVO_BETA_LIST_ID",
 };
 
 // Bounded enum for the Noveris quiz result attribute. script.js computes
@@ -130,36 +163,43 @@ export default {
     try {
       body = await request.json();
     } catch {
-      return new Response("Bad Request", { status: 400 });
+      return jsonResponse(origin, 400, { ok: false, message: "Solicitud no válida." });
     }
 
-    // Minimal client contract: only email/source/result are ever read from
-    // the request body. Anything else the client sends (listIds, attributes,
-    // updateEnabled, ...) is silently ignored, not forwarded to Brevo.
-    const { email, source, result } = body;
-    if (!email) {
-      return new Response(JSON.stringify({ message: "Missing required fields" }), {
-        status: 400,
-        headers: { "Content-Type": "application/json", ...corsHeaders(origin) },
-      });
+    if (!body || typeof body !== "object" || Array.isArray(body)) {
+      return jsonResponse(origin, 400, { ok: false, message: "Solicitud no válida." });
     }
 
-    // Basic email format validation to avoid forwarding garbage to Brevo
-    const emailRe = /^[^\s@]{1,64}@[^\s@]{1,253}\.[^\s@]{2,}$/;
-    if (!emailRe.test(email)) {
-      return new Response(JSON.stringify({ message: "Invalid email address" }), {
-        status: 400,
-        headers: { "Content-Type": "application/json", ...corsHeaders(origin) },
-      });
+    // Minimal client contract: email/source/result/website only. `website` is
+    // the honeypot and is never forwarded to Brevo.
+    const { email, source, result, website } = body;
+
+    // Honeypot responses intentionally match a legitimate accepted DOI request,
+    // while skipping both Brevo and rate limiting.
+    if (typeof website === "string" && website.trim() !== "") {
+      return pendingConfirmationResponse(origin);
     }
 
-    // `source` must be one of the known whitelist keys. The client only
-    // ever sends this short label; the actual Brevo attribute value is
-    // looked up server-side from SOURCE_MAP, never taken from the client.
+    const normalizedEmail = typeof email === "string" ? email.trim() : "";
+    if (!EMAIL_RE.test(normalizedEmail)) {
+      return jsonResponse(origin, 400, { ok: false, message: "Dirección de email no válida." });
+    }
+
     if (typeof source !== "string" || !Object.prototype.hasOwnProperty.call(SOURCE_MAP, source)) {
-      return new Response(JSON.stringify({ message: "Invalid or missing source" }), {
-        status: 400,
-        headers: { "Content-Type": "application/json", ...corsHeaders(origin) },
+      return jsonResponse(origin, 400, { ok: false, message: "Origen de suscripción no válido." });
+    }
+
+    const config = validateBrevoConfig(env, source);
+    if (!config.ok) {
+      console.error(`Worker misconfigured: ${config.reason}`);
+      return jsonResponse(origin, 500, { ok: false, message: "Servicio no disponible temporalmente." });
+    }
+
+    const rateLimit = await checkRateLimit(env, normalizedEmail);
+    if (!rateLimit.allowed) {
+      return jsonResponse(origin, 429, {
+        ok: false,
+        message: "Has hecho demasiados intentos. Inténtalo de nuevo más tarde.",
       });
     }
 
@@ -168,83 +208,140 @@ export default {
       attributes.NOVERIS = result;
     }
 
-    // Explicit server-config validation (point 22 of the 2026-08-20
-    // corrective audit): both env values are checked for presence AND
-    // shape before ever calling Brevo, instead of only checking BREVO_LIST_ID
-    // truthiness and letting a malformed value silently become NaN.
-    if (!env.BREVO_API_KEY || typeof env.BREVO_API_KEY !== "string") {
-      console.error("Worker misconfigured: BREVO_API_KEY missing");
-      return jsonResponse(origin, 500, { ok: false, message: "Servicio no disponible temporalmente." });
-    }
-    const listIdNumber = Number(env.BREVO_LIST_ID);
-    if (!env.BREVO_LIST_ID || !Number.isInteger(listIdNumber) || listIdNumber <= 0) {
-      console.error("Worker misconfigured: BREVO_LIST_ID is not a positive integer");
-      return jsonResponse(origin, 500, { ok: false, message: "Servicio no disponible temporalmente." });
-    }
-    const listIds = [listIdNumber];
+    const brevoPayload = {
+      email: normalizedEmail,
+      includeListIds: [config.listId],
+      redirectionUrl: config.redirectUrl,
+      templateId: config.templateId,
+      attributes,
+    };
 
-    // updateEnabled is hardcoded true (not read from the client): resubmitting
-    // the same email should update attributes/list membership rather than error.
     let brevoRes;
     try {
-      brevoRes = await fetch("https://api.brevo.com/v3/contacts", {
+      brevoRes = await fetch(BREVO_DOI_ENDPOINT, {
         method: "POST",
         headers: {
-          "api-key": env.BREVO_API_KEY,
+          "api-key": config.apiKey,
           "Content-Type": "application/json",
           Accept: "application/json",
         },
-        body: JSON.stringify({ email, listIds, attributes, updateEnabled: true }),
+        body: JSON.stringify(brevoPayload),
       });
     } catch (err) {
-      console.error("Brevo request failed:", err);
-      return jsonResponse(origin, 502, { ok: false, message: "No se ha podido completar la suscripción. Inténtalo de nuevo más tarde." });
+      console.error("Brevo DOI request failed:", err);
+      return jsonResponse(origin, 502, {
+        ok: false,
+        message: "No se ha podido iniciar la confirmación. Inténtalo de nuevo más tarde.",
+      });
     }
 
-    // Never forward Brevo's raw response body to the client — it can carry
-    // internal error detail that's not meant for a public API consumer.
-    // Log the real response server-side (Cloudflare Worker logs only) and
-    // return a minimal, safe, structured body instead. The one case the
-    // client genuinely needs to distinguish is "this email is already
-    // subscribed" (Brevo returns 400 for that), surfaced here as a clean
-    // { duplicate: true } flag instead of asking the client to string-search
-    // Brevo's raw error message.
-    if (brevoRes.status === 204) {
-      // HTTP 204 must not carry a response body. Returning JSON here makes
-      // the Fetch Response constructor throw in standards-compliant runtimes.
-      return new Response(null, { status: 204, headers: corsHeaders(origin) });
-    }
-    if (brevoRes.ok) {
-      return jsonResponse(origin, 201, { ok: true });
+    // Brevo documents 201 Created for createDoiContact. Do not accept another
+    // 2xx as a valid DOI transition: an unexpected upstream contract must not
+    // become a false pending/confirmed state in the browser.
+    if (brevoRes.status === 201) {
+      return pendingConfirmationResponse(origin);
     }
 
     let brevoBodyText = "";
     try {
       brevoBodyText = await brevoRes.text();
     } catch {
-      // ignore — brevoBodyText stays empty, we only needed it for the duplicate check
+      // Best effort only. Upstream details are never forwarded to the browser.
     }
-    if (brevoRes.status === 400 && brevoBodyText.toLowerCase().includes("already exist")) {
-      return jsonResponse(origin, 400, { ok: false, duplicate: true });
-    }
-
-    console.error(`Brevo error ${brevoRes.status}:`, brevoBodyText.slice(0, 500));
-    return jsonResponse(origin, 502, { ok: false, message: "No se ha podido completar la suscripción. Inténtalo de nuevo más tarde." });
+    console.error(`Brevo DOI error ${brevoRes.status}:`, brevoBodyText.slice(0, 500));
+    return jsonResponse(origin, 502, {
+      ok: false,
+      message: "No se ha podido iniciar la confirmación. Inténtalo de nuevo más tarde.",
+    });
   },
 };
+
+function validateBrevoConfig(env, source) {
+  const apiKey = typeof env?.BREVO_API_KEY === "string" ? env.BREVO_API_KEY.trim() : "";
+  if (!apiKey) return { ok: false, reason: "BREVO_API_KEY missing" };
+
+  // La mayoria de fuentes usan la lista general; las declaradas en
+  // SEPARATE_LIST_ENV_KEY usan su propia variable de entorno y NUNCA caen
+  // de vuelta a BREVO_LIST_ID si falta -- fallar cerrado, no mezclar listas.
+  const listEnvKey = SEPARATE_LIST_ENV_KEY[source] || "BREVO_LIST_ID";
+  const listId = Number(env?.[listEnvKey]);
+  if (!Number.isInteger(listId) || listId <= 0) {
+    return { ok: false, reason: `${listEnvKey} must be a positive integer` };
+  }
+
+  const templateId = Number(env?.BREVO_DOI_TEMPLATE_ID);
+  if (!Number.isInteger(templateId) || templateId <= 0) {
+    return { ok: false, reason: "BREVO_DOI_TEMPLATE_ID must be a positive integer" };
+  }
+
+  const redirectValue = typeof env?.BREVO_DOI_REDIRECT_URL === "string"
+    ? env.BREVO_DOI_REDIRECT_URL.trim()
+    : "";
+  let redirect;
+  try {
+    redirect = new URL(redirectValue);
+  } catch {
+    return { ok: false, reason: "BREVO_DOI_REDIRECT_URL must be a valid HTTPS URL" };
+  }
+  if (redirect.protocol !== "https:" || redirect.username || redirect.password) {
+    return { ok: false, reason: "BREVO_DOI_REDIRECT_URL must be a credential-free HTTPS URL" };
+  }
+
+  return { ok: true, apiKey, listId, templateId, redirectUrl: redirect.href };
+}
+
+async function checkRateLimit(env, email) {
+  const limiter = env?.RATE_LIMITER;
+  if (!limiter || typeof limiter.limit !== "function") {
+    console.error("Worker misconfigured: RATE_LIMITER binding missing; continuing without rate limiting");
+    return { allowed: true, enforced: false };
+  }
+
+  const key = await rateLimitKey(email);
+  try {
+    const result = await limiter.limit({ key });
+    if (!result || typeof result.success !== "boolean") {
+      console.error("RATE_LIMITER returned an invalid result; continuing without rate limiting");
+      return { allowed: true, enforced: false };
+    }
+    return { allowed: result.success, enforced: true };
+  } catch (err) {
+    console.error("RATE_LIMITER failed; continuing without rate limiting:", err);
+    return { allowed: true, enforced: false };
+  }
+}
+
+async function rateLimitKey(email) {
+  const normalized = email.trim().toLowerCase();
+  const digest = await crypto.subtle.digest("SHA-256", new TextEncoder().encode(normalized));
+  const hash = Array.from(new Uint8Array(digest), byte => byte.toString(16).padStart(2, "0")).join("");
+  return `newsletter:${hash}`;
+}
+
+function pendingConfirmationResponse(origin) {
+  return jsonResponse(origin, 201, PENDING_CONFIRMATION_BODY);
+}
 
 function jsonResponse(origin, status, bodyObj) {
   return new Response(JSON.stringify(bodyObj), {
     status,
-    headers: { "Content-Type": "application/json", ...corsHeaders(origin) },
+    headers: {
+      "Content-Type": "application/json; charset=utf-8",
+      "Cache-Control": "no-store",
+      ...corsHeaders(origin),
+    },
   });
 }
 
 function corsHeaders(origin) {
-  return {
-    "Access-Control-Allow-Origin": origin === ALLOWED_ORIGIN ? ALLOWED_ORIGIN : "",
+  const headers = {
     "Access-Control-Allow-Methods": "POST, OPTIONS",
     "Access-Control-Allow-Headers": "Content-Type",
     "Access-Control-Max-Age": "86400",
+    Vary: "Origin",
   };
+  if (origin === ALLOWED_ORIGIN) {
+    headers["Access-Control-Allow-Origin"] = ALLOWED_ORIGIN;
+  }
+  return headers;
 }
