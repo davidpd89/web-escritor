@@ -332,12 +332,12 @@ async function qaNombres() {
   const { context, page } = await open('nombres');
   await checkMetadata(page, 'nombres');
   await checkCls(page, 'nombres carga inicial');
-  await minTarget(page, 'button[type="submit"]', 'nombres: analizar');
+  await minTarget(page, 'main button[type="submit"]', 'nombres: analizar');
   assert.equal(await page.locator('[data-results]').isHidden(), true, 'nombres: resultados deben iniciar ocultos');
 
   const analyze = async text => {
     await page.fill('[data-names-input]', text);
-    await page.locator('form').evaluate(form => form.requestSubmit());
+    await page.locator('form:not(#newsletter-form-explore)').first().evaluate(form => form.requestSubmit());
     await page.waitForTimeout(30);
   };
 
@@ -469,8 +469,8 @@ async function responsiveAndA11y() {
     const nojs = await open(key, { width: 390, height: 900 }, false);
     assert.ok(await nojs.page.locator('h1').isVisible());
     assert.ok(await nojs.page.locator('noscript').isVisible());
-    assert.ok(await nojs.page.getByText(/Privacidad|Privado por diseño/).first().isVisible());
-    assert.ok(await nojs.page.getByRole('heading', { name: /Qué|Cómo|Qué no hace/ }).first().isVisible());
+    assert.ok(await nojs.page.locator('main').getByText(/Privacidad|Privado por diseño/).first().isVisible());
+    assert.ok(await nojs.page.locator('main').getByRole('heading', { name: /Qué|Cómo|Qué no hace/ }).first().isVisible());
     await noOverflow(nojs.page, `${key} no-js`);
     await nojs.context.close();
   }

@@ -8,6 +8,7 @@ on:
       - 'herramientas/legibilidad/**'
       - 'herramientas/repeticiones/**'
       - 'herramientas/variedad-lexica/**'
+      - 'herramientas/que-tipo-de-lector-eres/**'
       - 'assets/v1-shell.js'
       - 'assets/v1-tools.css'
       - 'assets/analizador-capitulos*'
@@ -15,7 +16,9 @@ on:
       - 'assets/legibilidad-*'
       - 'assets/repeticiones-*'
       - 'assets/variedad-lexica*'
+      - 'assets/tipo-lector*'
       - 'qa/tools-browser.mjs'
+      - 'qa/tipo-lector-browser.mjs'
       - 'qa/text-spacing.css'
       - '.github/workflows/tools-browser-qa.yml'
   workflow_dispatch:
@@ -36,10 +39,23 @@ jobs:
         with:
           node-version: '22'
 
-      - name: Install Playwright
-        run: |
-          npm install --no-save --no-package-lock playwright@1.55.0
-          npx playwright install --with-deps chromium
+      - name: Install CI/QA dependencies (Node)
+        run: npm ci
+
+      - name: Cache Playwright browsers
+        id: playwright-cache
+        uses: actions/cache@v4
+        with:
+          path: ~/.cache/ms-playwright
+          key: playwright-chromium-${{ hashFiles('package-lock.json') }}
+
+      - name: Install Playwright Chromium (with OS deps)
+        if: steps.playwright-cache.outputs.cache-hit != 'true'
+        run: npx playwright install --with-deps chromium
+
+      - name: Install Playwright OS deps only (browser cached)
+        if: steps.playwright-cache.outputs.cache-hit == 'true'
+        run: npx playwright install-deps chromium
 
       - name: Start local static server
         run: |
@@ -59,6 +75,10 @@ jobs:
           QA_ORIGIN: http://127.0.0.1:4173
           QA_OUT: qa-artifacts
         run: node qa/tools-browser.mjs
+
+      - name: Reader type quiz browser QA
+        if: always()
+        run: node qa/tipo-lector-browser.mjs
 
       - name: Upload browser QA evidence
         if: always()

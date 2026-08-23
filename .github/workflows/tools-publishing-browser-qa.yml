@@ -49,10 +49,23 @@ jobs:
           BASE_SHA: ${{ github.event.pull_request.base.sha || 'origin/implementacion-web-2026' }}
         run: node qa/publishing-metadata-preservation.mjs
 
-      - name: Install Playwright
-        run: |
-          npm install --no-save --no-package-lock playwright@1.55.0
-          npx playwright install --with-deps chromium
+      - name: Install CI/QA dependencies (Node)
+        run: npm ci
+
+      - name: Cache Playwright browsers
+        id: playwright-cache
+        uses: actions/cache@v4
+        with:
+          path: ~/.cache/ms-playwright
+          key: playwright-chromium-${{ hashFiles('package-lock.json') }}
+
+      - name: Install Playwright Chromium (with OS deps)
+        if: steps.playwright-cache.outputs.cache-hit != 'true'
+        run: npx playwright install --with-deps chromium
+
+      - name: Install Playwright OS deps only (browser cached)
+        if: steps.playwright-cache.outputs.cache-hit == 'true'
+        run: npx playwright install-deps chromium
 
       - name: Start local static server
         run: |
