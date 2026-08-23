@@ -10,22 +10,24 @@ html.v1 .home-hero .primary-action:hover{background:var(--dp-sand)}
 
 /* Intro — pantalla de entrada cinematica (video de tinta), fija sobre la
    Home normal que ya esta cargada debajo. Solo tiene el video y un boton
-   "Entrar"; al pulsarlo la foto final se abre en dos mitades que se
-   separan a los lados y aparece la Home real. La Home nunca deja de
-   existir en el DOM (SEO/no-JS ven contenido real, no un duplicado). */
-html.v1 .intro{position:fixed;inset:0;z-index:900;background:#000;overflow:hidden}
+   "Entrar"; al pulsarlo la foto final se levanta como la pagina de un
+   libro (giro 3D sobre el borde izquierdo) y aparece la Home real debajo.
+   La Home nunca deja de existir en el DOM (SEO/no-JS ven contenido real,
+   no un duplicado). */
+html.v1 .intro{position:fixed;inset:0;z-index:900;background:#000;overflow:hidden;perspective:1800px}
 html.v1 .intro[hidden]{display:none}
 html.v1 .intro__stage{position:absolute;inset:0;display:grid;place-items:center;background:#000}
 html.v1 .intro__video{max-width:100%;max-height:100%;width:auto;height:100%;object-fit:contain;display:block;background:#000}
-html.v1 .intro__panel{position:absolute;inset:0;background-image:url('hero-tinta-poster.jpg');background-size:cover;background-position:center;opacity:0;pointer-events:none}
-html.v1 .intro__panel--l{clip-path:inset(0 50% 0 0)}
-html.v1 .intro__panel--r{clip-path:inset(0 0 0 50%)}
+/* .intro__leaf: la foto final, quieta hasta que se pulsa Entrar. Gira
+   sobre su borde izquierdo (el "lomo" del libro) igual que una pagina. */
+html.v1 .intro__leaf{position:absolute;inset:0;background-image:url('hero-tinta-final.jpg');background-size:cover;background-position:center;opacity:0;pointer-events:none;transform-style:preserve-3d;transform-origin:0% 50%;backface-visibility:hidden;box-shadow:0 30px 80px rgba(0,0,0,.5)}
+html.v1 .intro__leaf::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(0,0,0,.6),transparent 40%);opacity:0;transition:opacity .85s ease}
 
 /* El boton de entrar aparece recien cuando la tinta ya se ha ido (T_END del
    video ~4.5s), para no competir con el momento cinematografico; con
    reduced-motion se muestra ya desde el principio, sin animacion. */
 @keyframes intro-enter-in{from{opacity:0;transform:translate(-50%,6px)}to{opacity:1;transform:translate(-50%,0)}}
-html.v1 .intro__enter{position:absolute;left:50%;bottom:clamp(2.5rem,8vh,5rem);z-index:2;transform:translate(-50%,6px);appearance:none;font-family:var(--font-ui);font-weight:600;font-size:.85rem;letter-spacing:.08em;text-transform:uppercase;color:var(--dp-paper);background:color-mix(in srgb,#000 25%,transparent);border:1px solid color-mix(in srgb,var(--dp-paper) 55%,transparent);border-radius:999px;padding:.75rem 2.4rem;cursor:pointer;opacity:0;transition:background .2s ease,border-color .2s ease}
+html.v1 .intro__enter{position:absolute;left:50%;bottom:clamp(4.5rem,15vh,7.5rem);z-index:2;transform:translate(-50%,6px);appearance:none;font-family:var(--font-ui);font-weight:600;font-size:1rem;letter-spacing:.08em;text-transform:uppercase;color:var(--dp-paper);background:color-mix(in srgb,#000 25%,transparent);border:1px solid color-mix(in srgb,var(--dp-paper) 55%,transparent);border-radius:999px;padding:.9rem 3rem;cursor:pointer;opacity:0;transition:background .2s ease,border-color .2s ease}
 html.v1 .intro__enter:hover,html.v1 .intro__enter:focus-visible{background:color-mix(in srgb,var(--dp-paper) 16%,transparent);border-color:var(--dp-paper)}
 @media(prefers-reduced-motion:no-preference){
   html.v1 .intro__enter{animation:intro-enter-in .9s ease-out 4.6s forwards}
@@ -34,24 +36,22 @@ html.v1 .intro__enter:hover,html.v1 .intro__enter:focus-visible{background:color
   html.v1 .intro__enter{opacity:1;transform:translate(-50%,0)}
 }
 
-/* Salida: la foto se parte en dos y cada mitad se desliza a un lado. El
-   fondo negro de .intro se vuelve transparente en cuanto empieza a salir,
-   para que la Home real (ya cargada detras) se vea por el hueco que dejan
-   las mitades al separarse, en vez de quedar un vacio negro. */
-/* pointer-events:none desde el primer instante de la salida: el hueco entre
-   las dos mitades ya deja ver (y usar) la Home real por debajo, no hace
-   falta esperar a que .intro se oculte del todo para poder pulsar ahi. */
+/* Salida: la foto final gira como una pagina (eje en el borde izquierdo,
+   igual que el lomo de un libro) y descubre la Home real que ya estaba
+   cargada detras. El fondo negro de .intro se vuelve transparente en
+   cuanto empieza a salir, para que se vea (y se pueda usar) la Home por
+   debajo sin esperar a que .intro se oculte del todo. */
 html.v1 .intro--leaving{background:transparent;pointer-events:none;transition:background .3s ease}
 html.v1 .intro--leaving .intro__stage{opacity:0;transition:opacity .25s ease}
 /* animation:none corta la animacion de entrada (que sigue "rellenando" con
    forwards y, sin esto, gana con mayor prioridad que este opacity:0). */
 html.v1 .intro--leaving .intro__enter{animation:none;opacity:0;transition:opacity .2s ease}
-html.v1 .intro--leaving .intro__panel{opacity:1;transition:transform .8s cubic-bezier(.65,0,.35,1),opacity .2s ease}
-html.v1 .intro--leaving .intro__panel--l{transform:translateX(-100%) rotate(-2deg)}
-html.v1 .intro--leaving .intro__panel--r{transform:translateX(100%) rotate(2deg)}
+html.v1 .intro--leaving .intro__leaf{opacity:1;transition:transform .95s cubic-bezier(.55,0,.1,1),opacity .2s ease}
+html.v1 .intro--leaving .intro__leaf{transform:rotateY(-115deg)}
+html.v1 .intro--leaving .intro__leaf::after{opacity:1}
 @media(prefers-reduced-motion:reduce){
   html.v1 .intro--leaving{transition:opacity .3s ease;opacity:0}
-  html.v1 .intro--leaving .intro__panel{display:none}
+  html.v1 .intro--leaving .intro__leaf{display:none}
 }
 
 html.intro-lock{overflow:hidden;height:100%}
