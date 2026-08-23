@@ -7,18 +7,23 @@ on:
       - 'assets/tarjeta-estoy-leyendo*.js'
       - 'tests/test-tarjeta-estoy-leyendo.mjs'
       - 'qa/tarjeta-estoy-leyendo-browser.mjs'
+      - 'data/tools-hub.json'
       - '.github/workflows/u-generate-reading-card-derived.yml'
   workflow_dispatch:
 
 permissions:
-  contents: read
+  contents: write
 
 jobs:
   generate:
+    if: github.event_name == 'pull_request' && github.event.pull_request.head.repo.full_name == github.repository
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout
+      - name: Checkout exact PR head
         uses: actions/checkout@v4
+        with:
+          ref: ${{ github.event.pull_request.head.sha }}
+          fetch-depth: 0
 
       - name: Set up Python
         uses: actions/setup-python@v5
@@ -46,33 +51,23 @@ jobs:
           if not any(item.get('slug') == record['slug'] for item in data['tools']):
               index = next(i for i, item in enumerate(data['tools']) if item.get('slug') == 'kit-prensa-escritores') + 1
               data['tools'].insert(index, record)
-          tools_path.write_text(json.dumps(data, ensure_ascii=False, indent=2) + '\n', encoding='utf-8')
+              tools_path.write_text(json.dumps(data, ensure_ascii=False, indent=2) + '\n', encoding='utf-8')
 
           registry_path = Path('data/content-registry.json')
           lines = registry_path.read_text(encoding='utf-8').splitlines()
-          entry_id = 'tool-reading-card'
-          if not any(f'"id":"{entry_id}"' in line for line in lines):
+          if not any('"id":"tool-reading-card"' in line for line in lines):
               after = next(i for i, line in enumerate(lines) if '"id":"tool-family-interview"' in line)
               entry = '    {"id":"tool-reading-card","url":"/herramientas/tarjeta-estoy-leyendo/","label":"Tarjeta «Estoy leyendo»","shortLabel":"Tarjeta «Estoy leyendo»","type":"tool","territory":"herramientas","parentId":"tools-hub","hubId":"tools-hub","discoverability":"contextual","audience":["writer","reader"],"jobs":["publicar-presentar"],"sourceFile":"herramientas/tarjeta-estoy-leyendo/index.html"},'
               lines.insert(after + 1, entry)
-          registry_path.write_text('\n'.join(lines) + '\n', encoding='utf-8')
+              registry_path.write_text('\n'.join(lines) + '\n', encoding='utf-8')
           PY
 
-      - name: Generate tools hub
-        run: python scripts/build-tools-hub.py data/tools-hub.json herramientas/index.html
-
-      - name: Regenerate human site stats for the real tool-count change
-        run: >
-          python scripts/build-human-site-stats.py --root .
-          --output data/site-human-stats.generated.html
-          --json-output data/site-human-stats.generated.json
-          --inject-into autor.html --date 2026-08-23
-
-      - name: Generate canonical site shell
-        run: python scripts/build-site-shell.py
-
-      - name: Generate sitemap
-        run: python scripts/build-sitemap.py --root . --output sitemap.xml
+      - name: Generate derived site files
+        run: |
+          python scripts/build-tools-hub.py data/tools-hub.json herramientas/index.html
+          python scripts/build-human-site-stats.py --root . --output data/site-human-stats.generated.html --json-output data/site-human-stats.generated.json --inject-into autor.html --date 2026-08-23
+          python scripts/build-site-shell.py
+          python scripts/build-sitemap.py --root . --output sitemap.xml
 
       - name: Verify generated outputs and U.1 core
         run: |
@@ -83,18 +78,18 @@ jobs:
           python scripts/audit-private-tools.py herramientas/tarjeta-estoy-leyendo/index.html assets/tarjeta-estoy-leyendo.js assets/tarjeta-estoy-leyendo-core.js
           node tests/test-tarjeta-estoy-leyendo.mjs
 
-      - name: Upload derived files
-        uses: actions/upload-artifact@v4
-        with:
-          name: u-reading-card-derived
-          retention-days: 1
-          if-no-files-found: error
-          path: |
-            data/tools-hub.json
-            data/content-registry.json
-            herramientas/index.html
-            herramientas/tarjeta-estoy-leyendo/index.html
-            sitemap.xml
-            data/site-human-stats.generated.html
-            data/site-human-stats.generated.json
-            autor.html
+      - name: Commit generated outputs and remove this temporary workflow
+        env:
+          HEAD_BRANCH: ${{ github.event.pull_request.head.ref }}
+        run: |
+          rm .github/workflows/u-generate-reading-card-derived.yml
+          git add data/tools-hub.json data/content-registry.json herramientas/index.html herramientas/tarjeta-estoy-leyendo/index.html sitemap.xml data/site-human-stats.generated.html data/site-human-stats.generated.json autor.html .github/workflows/u-generate-reading-card-derived.yml
+          git diff --cached --check
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          if git diff --cached --quiet; then
+            echo 'No generated changes to commit.'
+            exit 0
+          fi
+          git commit -m 'U.1: generate reading card registry artifacts'
+          git push origin "HEAD:${HEAD_BRANCH}"
