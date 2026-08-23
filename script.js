@@ -497,7 +497,8 @@ function fallbackCopy(text, done) {
     home: "Revisa tu correo y confirma la suscripción para recibir las novedades de David Porto Díaz.",
     fragmento: "Revisa tu correo y confirma la suscripción para recibir las novedades de David Porto Díaz.",
     manecillas: "Revisa tu correo y confirma la suscripción. Después te avisaré cuando Las manecillas del recuerdo esté disponible.",
-    cuaderno: "Revisa tu correo y confirma la suscripción para recibir las novedades de David Porto Díaz."
+    cuaderno: "Revisa tu correo y confirma la suscripción para recibir las novedades de David Porto Díaz.",
+    explore: "Revisa tu correo y confirma la suscripción para recibir las novedades de David Porto Díaz."
   };
 
   async function submitNewsletter(formId, emailId, gdprId, statusId, sourceLabel) {

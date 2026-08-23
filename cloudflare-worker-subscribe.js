@@ -121,6 +121,7 @@ const SOURCE_MAP = {
   manecillas: "manecillas",
   cuaderno: "cuaderno",
   popup: "popup",
+  explore: "explore",
   "lectores-beta": "lectores-beta",
 };
 

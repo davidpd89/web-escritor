@@ -77,7 +77,7 @@
     dialog.addEventListener('cancel', markClosed);
     dialog.addEventListener('click', (event) => { if (event.target === dialog) { markClosed(); dialog.close(); } });
     dialog.addEventListener('close', () => {
-      open.setAttribute('aria-expanded', 'false');
+      markClosed();
       if (opener instanceof HTMLElement) opener.focus({ preventScroll: true });
     });
 

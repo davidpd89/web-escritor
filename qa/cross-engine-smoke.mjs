@@ -80,6 +80,15 @@ async function checkRoute(page, engineName, routePath) {
     errors.push(`HTTP ${response.status()} al cargar la ruta`);
   }
 
+  // Intro cinematica de la Home (data-intro): tapa el resto de la pagina
+  // hasta que se pulsa "Entrar". Cerrarla antes de interactuar con el resto,
+  // igual que haria un usuario real.
+  const introEnter = page.locator('[data-intro-enter]').first();
+  if ((await introEnter.count()) > 0) {
+    await introEnter.click();
+    await page.waitForTimeout(900);
+  }
+
   // Shell de navegación utilizable.
   const header = await page.locator('header.site-header, header').first();
   if ((await header.count()) === 0) errors.push('no existe header de navegación');
