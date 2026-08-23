@@ -55,6 +55,14 @@ async function open(context) {
     }).observe({ type: 'layout-shift', buffered: true });
   });
   await page.goto(`${BASE}/`, { waitUntil: 'networkidle' });
+  // La Home cubre el mapa de cartografia con el overlay de intro (video +
+  // boton Entrar) hasta que se descarta; sin esto los hover/focus sobre
+  // .map-node fallan por "subtree intercepts pointer events".
+  const introEnter = page.locator('[data-intro-enter]').first();
+  if ((await introEnter.count()) > 0 && (await introEnter.isVisible())) {
+    await introEnter.click();
+    await page.waitForTimeout(900);
+  }
   await page.waitForTimeout(250);
   return { page, errors };
 }
