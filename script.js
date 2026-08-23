@@ -6,8 +6,9 @@ function scheduleTask(fn, priority = "background") {
   return Promise.resolve().then(fn);
 }
 
-// Client contract (2026-08-20): only { email, source, result? } is ever
-// sent to the Worker. listIds/attributes/updateEnabled are no longer
+// Client contract (2026-08-23): only { email, source, result?, website? } is ever
+// sent to the Worker. `website` is a honeypot and is never forwarded by the Worker.
+// listIds/attributes/templateId/redirectionUrl are never client-controlled.
 // client-controlled — the Worker validates `source` against its own
 // server-side whitelist and builds the Brevo attributes itself. See
 // cloudflare-worker-subscribe.js. The `source` values used below (home,
@@ -28,6 +29,21 @@ function isValidNewsletterEmail(value) {
 function honeypotValue(form) {
   const field = form?.querySelector('input[name="website"]');
   return field ? String(field.value || "").trim() : "";
+}
+
+function installNewsletterHoneypot(form) {
+  if (!form || form.querySelector('input[name="website"]')) return;
+  const wrapper = document.createElement("div");
+  wrapper.setAttribute("aria-hidden", "true");
+  wrapper.setAttribute("inert", "");
+  wrapper.style.cssText = "position:absolute;width:1px;height:1px;padding:0;overflow:hidden;clip:rect(0 0 0 0);clip-path:inset(50%);white-space:nowrap;border:0;";
+  const field = document.createElement("input");
+  field.type = "text";
+  field.name = "website";
+  field.autocomplete = "off";
+  field.tabIndex = -1;
+  wrapper.appendChild(field);
+  form.appendChild(wrapper);
 }
 
 function newsletterErrorMessage(code) {
@@ -51,13 +67,15 @@ async function postNewsletter(payload) {
       signal: controller.signal
     });
 
-    if (res.ok || res.status === 204) return { ok: true, code: "ok" };
-
-    if (res.status === 400) {
+    if (res.ok) {
       const body = await res.json().catch(() => ({}));
-      if (body.duplicate === true) return { ok: true, duplicate: true, code: "duplicate" };
-      return { ok: false, code: "invalid_request" };
+      if (body && body.ok === true && body.state === "pending_confirmation") {
+        return { ok: true, state: "pending_confirmation", code: "pending_confirmation" };
+      }
+      return { ok: false, code: "invalid_response" };
     }
+
+    if (res.status === 400) return { ok: false, code: "invalid_request" };
 
     if (res.status === 429) return { ok: false, code: "rate_limited" };
     if (res.status >= 500) return { ok: false, code: "server_error" };
@@ -406,6 +424,7 @@ function fallbackCopy(text, done) {
 
   // Brevo email subscription
   if (subscribeForm) {
+    installNewsletterHoneypot(subscribeForm);
     subscribeForm.addEventListener("submit", (e) => {
       e.preventDefault();
       scheduleTask(async () => {
@@ -431,16 +450,10 @@ function fallbackCopy(text, done) {
             result: resultEl._resultKey || "",
             website: honeypotValue(subscribeForm)
           });
-          if (result.ok && !result.duplicate) {
-            localStorage.setItem("nl-subscribed", "1");
+          if (result.ok && result.state === "pending_confirmation") {
             subscribeForm.dataset.done = "true";
-            subscribeForm.innerHTML = '<p class="quiz-subscribe-ok">✓ ¡Apuntado! Recibirás las novedades de Noveris.</p>';
-            _gcEvent("newsletter-quiz", "Newsletter: quiz Noveris");
-            setResultLocked(false);
-          } else if (result.ok && result.duplicate) {
-            localStorage.setItem("nl-subscribed", "1");
-            subscribeForm.dataset.done = "true";
-            subscribeForm.innerHTML = '<p class="quiz-subscribe-ok">✓ Ya estás suscrito. ¡Gracias!</p>';
+            subscribeForm.innerHTML = '<p class="quiz-subscribe-ok">✓ Revisa tu correo y abre el enlace de confirmación para completar la suscripción.</p>';
+            _gcEvent("newsletter-pending-quiz", "Newsletter DOI pendiente: quiz Noveris");
             setResultLocked(false);
           } else {
             throw new Error(result.code || "request_failed");
@@ -476,27 +489,18 @@ function fallbackCopy(text, done) {
   // must not promise specific automatic content delivery (2026-08-20).
   // Manecillas keeps its own promise because that one is just "I'll notify
   // you" (a real, simple thing this list can do), not a content delivery.
-  const NEWSLETTER_SUCCESS_COPY = {
-    home: "Te has suscrito correctamente. Recibirás las novedades de David Porto Díaz.",
-    fragmento: "Te has suscrito correctamente. Recibirás las novedades de David Porto Díaz.",
-    manecillas: "Te avisaré cuando Las manecillas del recuerdo esté disponible.",
-    cuaderno: "Te has suscrito correctamente. Recibirás las novedades de David Porto Díaz."
+  const NEWSLETTER_PENDING_COPY = {
+    home: "Revisa tu correo y confirma la suscripción para recibir las novedades de David Porto Díaz.",
+    fragmento: "Revisa tu correo y confirma la suscripción para recibir las novedades de David Porto Díaz.",
+    manecillas: "Revisa tu correo y confirma la suscripción. Después te avisaré cuando Las manecillas del recuerdo esté disponible.",
+    cuaderno: "Revisa tu correo y confirma la suscripción para recibir las novedades de David Porto Díaz."
   };
 
   async function submitNewsletter(formId, emailId, gdprId, statusId, sourceLabel) {
     const form = document.getElementById(formId);
     if (!form) return;
-    if (!form.querySelector('input[name="website"]')) {
-      const hp = document.createElement("input");
-      hp.type = "text";
-      hp.name = "website";
-      hp.autocomplete = "off";
-      hp.tabIndex = -1;
-      hp.setAttribute("aria-hidden", "true");
-      hp.style.cssText = "position:absolute;left:-9999px;top:auto;width:1px;height:1px;overflow:hidden;";
-      form.appendChild(hp);
-    }
-    const successBody = NEWSLETTER_SUCCESS_COPY[sourceLabel] || "Recibirás las novedades de David Porto Díaz.";
+    installNewsletterHoneypot(form);
+    const pendingBody = NEWSLETTER_PENDING_COPY[sourceLabel] || "Revisa tu correo y confirma la suscripción para completarla.";
     form.addEventListener("submit", (e) => {
       e.preventDefault();
       scheduleTask(async () => {
@@ -523,13 +527,9 @@ function fallbackCopy(text, done) {
             source: sourceLabel,
             website: honeypotValue(form)
           });
-          if (result.ok && !result.duplicate) {
-            localStorage.setItem("nl-subscribed", "1");
-            form.innerHTML = '<p class="quiz-subscribe-ok">✓ ¡Apuntado! ' + successBody + '</p>';
-            _gcEvent("newsletter-" + sourceLabel, "Newsletter: " + sourceLabel);
-          } else if (result.ok && result.duplicate) {
-            localStorage.setItem("nl-subscribed", "1");
-            form.innerHTML = '<p class="quiz-subscribe-ok">\u2714 Ya est\u00e1s suscrito a la lista. \u00a1Gracias!</p>';
+          if (result.ok && result.state === "pending_confirmation") {
+            form.innerHTML = '<p class="quiz-subscribe-ok">✓ ' + pendingBody + '</p>';
+            _gcEvent("newsletter-pending-" + sourceLabel, "Newsletter DOI pendiente: " + sourceLabel);
           } else {
             throw new Error(result.code || "request_failed");
           }
@@ -682,8 +682,8 @@ document.addEventListener('dp:analytics', _dpAnalyticsBridge);
         title: "Sigue el universo de Noveris.",
         body: "Novedades sobre el universo de Noveris y avisos de nuevas firmas o lecturas. Un email cuando haya algo que valga la pena.",
         cta: "Suscribirme",
-        okTitle: "✓ ¡Apuntado!",
-        okBody: "Recibirás las novedades de David Porto Díaz sobre el universo de Noveris.",
+        okTitle: "Revisa tu correo",
+        okBody: "Te hemos enviado un mensaje de confirmación. Abre el enlace para completar la suscripción.",
         dupeTitle: "✓ Ya estás suscrito.",
         dupeBody: "¡Gracias por seguir a David Porto Díaz!"
       };
@@ -693,8 +693,8 @@ document.addEventListener('dp:analytics', _dpAnalyticsBridge);
       title: "Sigue los próximos libros y artículos.",
       body: "Nuevas publicaciones, artículos, firmas y recursos para lectores. Solo cuando haya algo que contar.",
       cta: "Suscribirme",
-      okTitle: "✓ ¡Apuntado!",
-      okBody: "Recibirás las novedades de David Porto Díaz.",
+      okTitle: "Revisa tu correo",
+      okBody: "Te hemos enviado un mensaje de confirmación. Abre el enlace para completar la suscripción.",
       dupeTitle: "✓ Ya estás suscrito.",
       dupeBody: "¡Gracias por seguir a David Porto Díaz!"
     };
@@ -734,7 +734,7 @@ document.addEventListener('dp:analytics', _dpAnalyticsBridge);
       '<p id="nl-popup-body">' + copy.body + '</p>' +
       '<form id="nl-popup-form" novalidate>' +
       '<input type="email" id="nl-popup-email" name="email" placeholder="tu@email.com" autocomplete="email" required />' +
-      '<input type="text" id="nl-popup-website" name="website" autocomplete="off" tabindex="-1" aria-hidden="true" style="position:absolute;left:-9999px;top:auto;width:1px;height:1px;overflow:hidden;" />' +
+      '<div aria-hidden="true" inert style="position:absolute;width:1px;height:1px;padding:0;overflow:hidden;clip:rect(0 0 0 0);clip-path:inset(50%);white-space:nowrap;border:0;"><input type="text" id="nl-popup-website" name="website" autocomplete="off" tabindex="-1" /></div>' +
       '<button type="submit" class="button primary" id="nl-popup-submit">' + copy.cta + '</button>' +
       '<label id="nl-popup-gdpr-row"><input type="checkbox" id="nl-popup-gdpr" required />Acepto recibir novedades del autor. <a href="/privacidad.html" target="_blank" rel="noopener">Privacidad</a>.</label>' +
       '<p id="nl-popup-status" role="status" aria-live="polite"></p>' +
@@ -774,17 +774,11 @@ document.addEventListener('dp:analytics', _dpAnalyticsBridge);
             source: "popup",
             website: honeypotValue(document.getElementById("nl-popup-form"))
           });
-          if (result.ok && !result.duplicate) {
-            localStorage.setItem(SUBSCRIBED_KEY, "1");
+          if (result.ok && result.state === "pending_confirmation") {
             const panel = document.getElementById("nl-popup-panel");
             panel.innerHTML = '<p style="font-family:Cormorant Garamond,Georgia,serif;font-size:1.5rem;color:#e0b979;text-align:center;margin:0 0 10px">' + copy.okTitle + '</p><p style="color:#b6a894;text-align:center;font-size:0.94rem;margin:0">' + copy.okBody + '</p>';
-            _gcEvent("newsletter-popup", "Newsletter: popup");
-            setTimeout(dismiss, 3200);
-          } else if (result.ok && result.duplicate) {
-            localStorage.setItem(SUBSCRIBED_KEY, "1");
-            const panel = document.getElementById("nl-popup-panel");
-            panel.innerHTML = '<p style="font-family:Cormorant Garamond,Georgia,serif;font-size:1.5rem;color:#e0b979;text-align:center;margin:0 0 10px">' + copy.dupeTitle + '</p><p style="color:#b6a894;text-align:center;font-size:0.94rem;margin:0">' + copy.dupeBody + '</p>';
-            setTimeout(dismiss, 3200);
+            _gcEvent("newsletter-pending-popup", "Newsletter DOI pendiente: popup");
+            setTimeout(dismiss, 5000);
           } else {
             throw new Error(result.code || "request_failed");
           }

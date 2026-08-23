@@ -1,5 +1,7 @@
 # Pendiente B — Completar el flujo de doble confirmación de Brevo
 
+> **Actualización de revisión 23/08/2026.** La implementación final de esta PR usa el endpoint DOI oficial `POST /v3/contacts/doubleOptinConfirmation`, con `BREVO_DOI_TEMPLATE_ID`, `BREVO_LIST_ID` y `BREVO_DOI_REDIRECT_URL` configurados server-side. El rate limit KV descrito en el borrador original queda sustituido por el binding nativo `RATE_LIMITER` de Cloudflare Workers. El honeypot ya no se desplaza a `left:-9999px`: usa clipping + `inert` sin overflow. Tras el POST el estado es `pending_confirmation`; `nl-subscribed=1` solo se fija en la página de retorno tras confirmar el email.
+
 Fecha: 2026-08-22 · Rama base: `implementacion-web-2026` · Rama de esta tarea: `pendiente-b-brevo-worker-doi`
 
 > **Alcance de esta PR y solo esta.** Toca `cloudflare-worker-subscribe.js`,
@@ -140,7 +142,7 @@ Confirmado repetidamente en el dossier como puerta de publicación pendiente.
 ### Qué hacer
 
 No hace falta activar Turnstile (necesita clave/sitekey de Cloudflare, fuera
-de esta PR). Sí puedes dejar preparado un **rate limit básico KV-backed**:
+de esta PR). Sí puedes dejar preparado un **rate limit mediante el binding nativo de Cloudflare Workers Rate Limiting**:
 
 1. Define un límite razonable (por ejemplo, N intentos por IP por ventana de
    tiempo — decide un valor conservador y documéntalo, p. ej. 5 intentos/10
@@ -153,7 +155,7 @@ de esta PR). Sí puedes dejar preparado un **rate limit básico KV-backed**:
 3. Implementa la lógica: leer contador por IP, incrementar, expirar por TTL,
    devolver un 429 genérico si se supera el límite (sin dar detalles que
    ayuden a un atacante a calibrar el límite exacto).
-4. Test: como no hay KV real en local, escribe el test con un mock/stub de KV
+4. Test: como no hay KV real en local, escribe el test con un mock/stub del binding `RATE_LIMITER`
    (objeto en memoria con `get`/`put` compatibles) para verificar la lógica de
    conteo y expiración sin depender de Cloudflare real.
 
