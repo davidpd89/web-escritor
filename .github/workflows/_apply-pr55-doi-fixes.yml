@@ -6,7 +6,6 @@ on:
       - pendiente-b-brevo-worker-doi
     paths:
       - 'scripts/_apply-pr55-doi-fixes.py'
-      - '.github/workflows/_apply-pr55-doi-fixes.yml'
 
 permissions:
   contents: write
@@ -34,13 +33,15 @@ jobs:
           node tests/test-cloudflare-worker-subscribe.mjs
           node tests/test-newsletter-doi-frontend.mjs
           node scripts/test-worker-subscribe.mjs
+          node qa/newsletter-worker-contract.mjs
+          node tests/test-newsletter-client-contract.mjs
           git diff --check
 
-      - name: Commit product changes only
+      - name: Commit scoped changes only
         run: |
           git config user.name github-actions[bot]
           git config user.email 41898282+github-actions[bot]@users.noreply.github.com
-          git add -- cloudflare-worker-subscribe.js script.js tests/test-cloudflare-worker-subscribe.mjs tests/test-newsletter-doi-frontend.mjs docs/BREVO-WORKER-DEPLOY.md docs/PENDIENTE-B-BREVO-WORKER-DOI.md
+          git add -- cloudflare-worker-subscribe.js script.js tests/test-cloudflare-worker-subscribe.mjs tests/test-newsletter-doi-frontend.mjs docs/BREVO-WORKER-DEPLOY.md docs/PENDIENTE-B-BREVO-WORKER-DOI.md qa/privacy-contract-browser.mjs qa/newsletter-worker-contract.mjs
           git diff --cached --check
-          git commit -m "fix(newsletter): implement real Brevo DOI flow"
+          git commit -m "fix(newsletter): close DOI review findings"
           git push origin HEAD:pendiente-b-brevo-worker-doi
