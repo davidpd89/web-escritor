@@ -170,116 +170,10 @@
     });
   }
 
-  // Trocea .intro__leaf en N tiras verticales anidadas (cada una dentro de
-  // la anterior) para que el giro de "pasar pagina" se vea curvado en vez
-  // de una tabla rigida girando de una pieza: al estar anidadas, la
-  // rotacion de cada tira se suma a la de sus antecesoras, asi que la
-  // hoja se va "enrollando" de derecha (borde libre) a izquierda (lomo).
-  function buildCurlStrips(leaf) {
-    const src = leaf.dataset.src;
-    if (!src) return;
-    leaf.textContent = '';
-    const n = 6;
-    const vw = window.innerWidth;
-    const vh = window.innerHeight;
-    // La foto final es retrato (720x1280, igual que el video). Sin este
-    // calculo, background-size a pantalla completa ESTIRA una imagen
-    // vertical al ancho de un viewport panoramico -- eso era la cara
-    // "deformandose a pantalla completa" en desktop que se veia antes de
-    // que arrancara el giro. object-fit:contain manual: mismo rectangulo
-    // que ya ocupaba el video (con barras negras a los lados si toca).
-    const PHOTO_W = 720;
-    const PHOTO_H = 1280;
-    const scale = Math.min(vw / PHOTO_W, vh / PHOTO_H);
-    const w = PHOTO_W * scale;
-    const h = PHOTO_H * scale;
-    const offsetX = (vw - w) / 2;
-    const offsetY = (vh - h) / 2;
-    const stripW = w / n;
-    // Rotacion incremental igual en cada tira: acumulada a lo largo de las
-    // n tiras anidadas suma unos -168deg en la ultima (el borde libre),
-    // suficiente para que backface-visibility:hidden la haga desaparecer.
-    const rotatePerStrip = -168 / n;
-    let parent = leaf;
-    for (let i = 0; i < n; i += 1) {
-      const strip = document.createElement('div');
-      strip.className = 'intro__leaf-strip';
-      strip.style.top = `${offsetY}px`;
-      strip.style.height = `${h}px`;
-      strip.style.left = i === 0 ? `${offsetX}px` : '100%';
-      strip.style.width = `${stripW}px`;
-      strip.style.backgroundImage = `url('${src}')`;
-      strip.style.backgroundSize = `${w}px ${h}px`;
-      strip.style.backgroundPosition = `${-i * stripW}px 0`;
-      // El borde libre (tira n-1) empieza a moverse casi de inmediato; el
-      // lomo (tira 0) se retrasa: la curva "viaja" de derecha a izquierda.
-      strip.style.setProperty('--curl-delay', `${(n - 1 - i) * 18}ms`);
-      strip.style.setProperty('--curl-rotate', `${rotatePerStrip}deg`);
-      // Tiras mas giradas (mas cerca del borde libre) quedan mas de canto
-      // y reciben menos luz: una sombra propia progresiva por tira.
-      const shade = document.createElement('div');
-      shade.className = 'intro__leaf-strip__shade';
-      shade.style.setProperty('--curl-delay', `${(n - 1 - i) * 18}ms`);
-      shade.style.setProperty('--curl-shade', String(0.12 + (i / (n - 1)) * 0.5));
-      strip.append(shade);
-      parent.append(strip);
-      parent = strip;
-    }
-  }
-
-  // Sonido de pagina sintetizado con Web Audio (rafaga de ruido filtrado
-  // con textura, no un solo golpe) para no depender de un fichero de audio
-  // con licencia dudosa. Solo suena aqui, tras el clic de Entrar -- no en
-  // el resto de la web. Un bandpass estrecho + una sola caida suave da un
-  // "chasquido" reconocible; el papel real es ruido de banda ancha con
-  // aleteo irregular (varias micro-rafagas), de ahi la modulacion de
-  // amplitud con varias frecuencias no relacionadas dentro del propio
-  // buffer, en vez de un unico envelope de ganancia.
-  function playPageTurnSound() {
-    try {
-      const Ctx = window.AudioContext || window.webkitAudioContext;
-      if (!Ctx) return;
-      const ctx = new Ctx();
-      const duration = 0.4;
-      const sr = ctx.sampleRate;
-      const buffer = ctx.createBuffer(1, Math.floor(sr * duration), sr);
-      const data = buffer.getChannelData(0);
-      const flutterFreqs = [35 + Math.random() * 15, 85 + Math.random() * 25, 170 + Math.random() * 40];
-      for (let i = 0; i < data.length; i += 1) {
-        const t = i / sr;
-        const overall = Math.exp(-t * 4.5) * (1 - Math.exp(-t * 140));
-        let flutter = 0;
-        for (let f = 0; f < flutterFreqs.length; f += 1) flutter += Math.abs(Math.sin(2 * Math.PI * flutterFreqs[f] * t));
-        flutter = 0.35 + 0.65 * (flutter / flutterFreqs.length);
-        data[i] = (Math.random() * 2 - 1) * overall * flutter;
-      }
-      const noise = ctx.createBufferSource();
-      noise.buffer = buffer;
-      // highpass quita el "thump" grave; peaking realza el brillo tipico
-      // del papel sin dejarlo todo en un solo tono como el bandpass antiguo.
-      const highpass = ctx.createBiquadFilter();
-      highpass.type = 'highpass';
-      highpass.frequency.value = 1700;
-      const peaking = ctx.createBiquadFilter();
-      peaking.type = 'peaking';
-      peaking.frequency.value = 4500;
-      peaking.Q.value = 0.8;
-      peaking.gain.value = 5;
-      const gain = ctx.createGain();
-      gain.gain.value = 0.3;
-      noise.connect(highpass).connect(peaking).connect(gain).connect(ctx.destination);
-      const now = ctx.currentTime;
-      noise.start(now);
-      noise.stop(now + duration);
-      noise.onended = () => ctx.close().catch(() => {});
-    } catch (_) { /* audio no critico: si falla, la transicion sigue igual */ }
-  }
-
   function initIntro() {
     const intro = q('[data-intro]');
     if (!intro) return;
     const enter = q('[data-intro-enter]', intro);
-    const leaf = q('[data-intro-leaf]', intro);
     // La Home normal esta en el DOM desde el inicio (SEO/no-JS ven contenido
     // real), pero mientras la intro cubre la pantalla no debe poder
     // recibir foco por teclado ni scroll.
@@ -287,19 +181,11 @@
     behind.forEach((el) => el.setAttribute('inert', ''));
     document.documentElement.classList.add('intro-lock');
     if (!enter) return;
-    enter.addEventListener('click', () => {
+    let entered = false;
+    const doEnter = () => {
+      if (entered) return;
+      entered = true;
       const reduced = matchMedia('(prefers-reduced-motion: reduce)').matches;
-      if (!reduced) {
-        if (leaf) buildCurlStrips(leaf);
-        playPageTurnSound();
-      }
-      // Las tiras se acaban de insertar en su estado de reposo (rotateY 0).
-      // Sin forzar un reflow aqui, anadir la clase que dispara el giro en
-      // el mismo tick hace que el navegador nunca "vea" ese estado previo
-      // y salte directo al final: la transicion de las tiras no se
-      // reproduce, solo aparecen ya giradas. offsetWidth fuerza el layout
-      // sincrono antes del cambio de clase para que el giro si se anime.
-      if (leaf) void leaf.offsetWidth;
       intro.classList.add('intro--leaving');
       setTimeout(() => {
         intro.hidden = true;
@@ -307,8 +193,14 @@
         behind.forEach((el) => el.removeAttribute('inert'));
         const main = q('#contenido');
         if (main) main.focus();
-      }, reduced ? 350 : 850);
-    });
+      }, reduced ? 350 : 820);
+    };
+    enter.addEventListener('click', doEnter);
+    // Si nadie pulsa Entrar, pasados 5s desde que el boton aparece (el
+    // final del reveal de tinta, ~4.6s) se entra solo -- la intro no debe
+    // dejar a nadie atascado mirando la foto indefinidamente.
+    const reduced = matchMedia('(prefers-reduced-motion: reduce)').matches;
+    setTimeout(doEnter, reduced ? 5000 : 4600 + 5000);
   }
 
   function initHeroVideo() {

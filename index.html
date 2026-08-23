@@ -298,9 +298,8 @@
 
   <!-- Intro cinematica: solo video + boton "Entrar". Debajo, siempre en el
        DOM, esta la Home normal (site-shell + main + footer de mas abajo);
-       al pulsar Entrar la foto final gira como una pagina (JS trocea
-       .intro__leaf en tiras anidadas para el efecto de curvado, ver
-       initIntro() en v1-shell.js) y aparece esa Home. -->
+       al pulsar Entrar (o pasados 5s sin pulsar) la foto final se abre en
+       dos mitades que se separan a los lados y aparece esa Home. -->
   <div class="intro" data-intro>
     <div class="intro__stage">
       <video class="intro__video" muted playsinline preload="auto" poster="assets/hero-tinta-poster.jpg?v=2" data-hero-video>
@@ -308,7 +307,8 @@
         <source src="assets/video/hero-tinta-david-porto.mp4?v=2" type="video/mp4" />
       </video>
     </div>
-    <div class="intro__leaf" data-intro-leaf data-src="assets/hero-tinta-final.jpg?v=2" aria-hidden="true"></div>
+    <div class="intro__panel intro__panel--l" aria-hidden="true"></div>
+    <div class="intro__panel intro__panel--r" aria-hidden="true"></div>
     <button class="intro__enter" type="button" data-intro-enter>Entrar</button>
   </div>
 

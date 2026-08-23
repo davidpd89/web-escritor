@@ -10,28 +10,17 @@ html.v1 .home-hero .primary-action:hover{background:var(--dp-sand)}
 
 /* Intro — pantalla de entrada cinematica (video de tinta), fija sobre la
    Home normal que ya esta cargada debajo. Solo tiene el video y un boton
-   "Entrar"; al pulsarlo la foto final se curva y gira como una pagina de
-   verdad (borde derecho levantandose primero, giro de derecha a
-   izquierda) y aparece la Home real debajo. La Home nunca deja de existir
-   en el DOM (SEO/no-JS ven contenido real, no un duplicado). */
+   "Entrar"; al pulsarlo (o pasados 5s sin pulsar, ver initIntro() en
+   v1-shell.js) la foto final se abre en dos mitades que se separan a los
+   lados y aparece la Home real debajo. La Home nunca deja de existir en
+   el DOM (SEO/no-JS ven contenido real, no un duplicado). */
 html.v1 .intro{position:fixed;inset:0;z-index:900;background:#000;overflow:hidden}
 html.v1 .intro[hidden]{display:none}
 html.v1 .intro__stage{position:absolute;inset:0;display:grid;place-items:center;background:#000}
 html.v1 .intro__video{max-width:100%;max-height:100%;width:auto;height:100%;object-fit:contain;display:block;background:#000}
-/* .intro__leaf: contenedor de la foto final, quieto hasta pulsar Entrar.
-   initIntro() (v1-shell.js) lo trocea en tiras verticales anidadas
-   (.intro__leaf-strip dentro de .intro__leaf-strip) justo antes de salir:
-   cada tira gira un poco mas que la anterior — al estar anidadas, sus
-   rotaciones se acumulan — asi la hoja se curva en vez de girar como una
-   tabla rigida de una sola pieza. */
-html.v1 .intro__leaf{position:absolute;inset:0;opacity:0;pointer-events:none;perspective:2000px;transform-style:preserve-3d}
-/* opacity ademas de transform: las tiras cercanas al lomo (indice 0) solo
-   giran ~28deg, no lo bastante para que backface-visibility las oculte
-   por si sola -- sin este fade quedaria un resto de la foto vieja pegado
-   al borde izquierdo para siempre. El fade llega tarde (los ultimos ~250ms
-   de cada tira) para no restar fisicidad al giro. */
-html.v1 .intro__leaf-strip{position:absolute;top:0;height:100%;background-repeat:no-repeat;transform-style:preserve-3d;transform-origin:0% 50%;backface-visibility:hidden;transition:transform .7s cubic-bezier(.45,0,.2,1) var(--curl-delay,0ms),opacity .25s ease calc(var(--curl-delay, 0ms) + .45s)}
-html.v1 .intro__leaf-strip__shade{position:absolute;inset:0;background:#000;opacity:0;pointer-events:none;transition:opacity .7s ease var(--curl-delay,0ms)}
+html.v1 .intro__panel{position:absolute;inset:0;background-image:url('hero-tinta-final.jpg?v=2');background-size:cover;background-position:center;opacity:0;pointer-events:none}
+html.v1 .intro__panel--l{clip-path:inset(0 50% 0 0)}
+html.v1 .intro__panel--r{clip-path:inset(0 0 0 50%)}
 
 /* El boton de entrar aparece recien cuando la tinta ya se ha ido (T_END del
    video ~4.5s), para no competir con el momento cinematografico; con
@@ -46,21 +35,21 @@ html.v1 .intro__enter:hover,html.v1 .intro__enter:focus-visible{background:color
   html.v1 .intro__enter{opacity:1;transform:translate(-50%,0)}
 }
 
-/* Salida: la hoja (ya troceada por JS) se curva y gira de derecha a
-   izquierda, borde derecho primero. El fondo negro de .intro se vuelve
-   transparente en cuanto empieza a salir, para que se vea (y se pueda
-   usar) la Home por debajo sin esperar a que .intro se oculte del todo. */
+/* Salida: la foto se parte en dos y cada mitad se desliza a un lado. El
+   fondo negro de .intro se vuelve transparente en cuanto empieza a salir,
+   para que se vea (y se pueda usar) la Home por debajo sin esperar a que
+   .intro se oculte del todo. */
 html.v1 .intro--leaving{background:transparent;pointer-events:none;transition:background .3s ease}
 html.v1 .intro--leaving .intro__stage{opacity:0;transition:opacity .25s ease}
 /* animation:none corta la animacion de entrada (que sigue "rellenando" con
    forwards y, sin esto, gana con mayor prioridad que este opacity:0). */
 html.v1 .intro--leaving .intro__enter{animation:none;opacity:0;transition:opacity .2s ease}
-html.v1 .intro--leaving .intro__leaf{opacity:1}
-html.v1 .intro--leaving .intro__leaf-strip{transform:rotateY(var(--curl-rotate,-28deg));opacity:0}
-html.v1 .intro--leaving .intro__leaf-strip__shade{opacity:var(--curl-shade,.3)}
+html.v1 .intro--leaving .intro__panel{opacity:1;transition:transform .8s cubic-bezier(.65,0,.35,1),opacity .2s ease}
+html.v1 .intro--leaving .intro__panel--l{transform:translateX(-100%) rotate(-2deg)}
+html.v1 .intro--leaving .intro__panel--r{transform:translateX(100%) rotate(2deg)}
 @media(prefers-reduced-motion:reduce){
   html.v1 .intro--leaving{transition:opacity .3s ease;opacity:0}
-  html.v1 .intro--leaving .intro__leaf{display:none}
+  html.v1 .intro--leaving .intro__panel{display:none}
 }
 
 html.intro-lock{overflow:hidden;height:100%}
