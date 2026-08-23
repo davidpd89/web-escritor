@@ -150,3 +150,106 @@ Esta PR es un brief de auditoría, no implementación. Solo puede considerarse r
 - no se reabren radios/email antiguos ni relationship graph como tareas duplicadas;
 - QA aplicable está en verde;
 - no se toca `main`, no se despliega producción y no se activa auto-merge desde esta rama.
+
+---
+
+# 6. Estado de implementación (2026-08-23)
+
+## L.2 — Microcopy del asistente (hecho primero, según el orden recomendado)
+
+- **Autoridad única**: `assets/assistant-copy.js` (`ASSISTANT_COPY`) —
+  hero, lead, label del campo, placeholder, aria-labels de enviar/detener,
+  labels del chat y mensaje de bienvenida.
+- `assets/assistant.js` consume `ASSISTANT_COPY.*` en vez de los literales
+  hardcodeados que reescribían el HTML en tiempo de ejecución.
+- `asistente/index.html` se alinea **literalmente** con esos mismos
+  valores: se elimina la tercera formulación divergente («¿Qué quieres
+  encontrar?» → «Escribe tu pregunta», el H2 pasa a coincidir con el label
+  real del composer) y el H1 pasa de «Pregunta a esta web.» a «¿Qué
+  buscas?» (lo que ya veía el 100% de los usuarios reales tras el arranque
+  de JS). Resultado: el estado pre-JS/no-JS ya es idéntico al runtime, sin
+  parpadeo de contenido.
+- **Gate nuevo**: `scripts/check-assistant-copy.py` (+
+  `tests/test-check-assistant-copy.py`, 6 casos) falla si `assistant.js`
+  vuelve a hardcodear un literal de la autoridad, o si el HTML diverge de
+  `ASSISTANT_COPY` en cualquiera de sus campos. Probado en rojo contra el
+  repo real.
+- **QA de navegador real** (`qa/assistant-copy-browser.mjs`): confirma H1,
+  placeholder, aria-label de envío y mensaje de bienvenida tras
+  inicializar, y que la funcionalidad conversacional (envío, fallback
+  local, sin autoapertura) sigue intacta.
+- No se ha tocado la navegación/newsletter del documento 31 (fuera de
+  alcance, ya superadas por decisiones posteriores).
+
+## L.1 — Escalera de formatos AVIF → WebP
+
+- Política documentada en `docs/formato-imagenes-avif-webp.md`: alcance
+  explícito frente a #61 H.3 (geometría vs. formato), regla de
+  elegibilidad por *allowlist* (no conversión indiscriminada de
+  `/assets/`), exclusiones por diseño (OG/social, materiales de trabajo).
+- `data/image-format-ladder.json`: autoridad de elegibilidad — las 4
+  variantes responsive (320/512/768/1024px) de la cubierta de *Las
+  manecillas del recuerdo*.
+- **AVIF generado de verdad** (no solo infraestructura) con Pillow
+  (`scripts/build-image-format-ladder.py`), mismas dimensiones exactas que
+  el WebP de origen, ahorro real medido: 320px −41 %, 512px −38 %, 768px
+  −36 %, 1024px −35 %.
+- HTML actualizado en las 4 superficies públicas reales que usan esa
+  cubierta (`index.html`, `las-manecillas-del-recuerdo/index.html`,
+  `las-manecillas-del-recuerdo/fragmentos/index.html`, `libros/index.html`):
+  cada `<source>`/`<img>` WebP existente recibe un `<source
+  type="image/avif">` con el mismo `media` inmediatamente antes, sin tocar
+  `width`/`height`/`srcset`/`sizes` (autoridad de #61 H.3 intacta) ni las
+  URLs de `og:image`/JSON-LD `image` (siguen en WebP, estables para
+  scrapers externos).
+- **Gate nuevo**: `scripts/check-image-format-ladder.py` (+
+  `tests/test-check-image-format-ladder.py`, 5 casos) verifica AVIF en
+  disco con dimensiones coincidentes y el orden correcto de `<source>` en
+  cada referencia HTML. Se detectó y corrigió un bug real del propio
+  checker durante el desarrollo (una excepción de Pillow sin capturar
+  tumbaba todo el gate en vez de fallar el check concreto).
+- **QA de navegador real** (`qa/image-format-ladder-browser.mjs`,
+  Chromium): confirma que la Home solicita efectivamente el `.avif` de la
+  cubierta (no el `.webp`) y que el aspect ratio renderizado no cambia.
+- El retrato de Home, que ya tenía AVIF antes de esta PR, sigue el mismo
+  patrón y no ha requerido cambios.
+
+## Evidencia de ejecución (real)
+
+```
+$ python scripts/check-assistant-copy.py --check
+Assistant copy check: 0 incumplimiento(s).
+
+$ python scripts/check-image-format-ladder.py --check
+Image format ladder check: 4 fuente(s) elegibles, 0 incumplimiento(s).
+
+$ python tests/test-check-assistant-copy.py        # 6/6 OK
+$ python tests/test-check-image-format-ladder.py   # 5/5 OK
+
+$ QA_CHROMIUM_EXECUTABLE_PATH=... node qa/assistant-copy-browser.mjs
+assistant-copy-browser: PASS
+
+$ QA_CHROMIUM_EXECUTABLE_PATH=... node qa/image-format-ladder-browser.mjs
+image-format-ladder-browser: PASS
+
+$ python scripts/check-heading-structure.py
+Heading/skip-link structure: 68 ficheros HTML revisados; 0 problema(s).
+
+$ python scripts/check-local-assets.py
+Local asset check: 88 HTML files scanned; 0 broken local reference(s).
+
+$ python scripts/check-internal-graph.py
+Summary: 0 error(s), 0 warning(s)
+
+$ node qa/sitewide-reflow-browser.mjs
+sitewide-reflow-browser: OK (67 routes, 2 viewports, 134 checks)
+
+$ python tests/test-samuel-ecosystem-parity.py
+samuel-ecosystem-parity: OK
+```
+
+**Pruebas en rojo reales**: `check-assistant-copy.py` detectó un H1
+reinyectado con el texto legacy; `check-image-format-ladder.py` detectó un
+AVIF eliminado del disco (y, durante el desarrollo, un crash real del
+propio checker con un fixture no decodificable, corregido). Todos los
+ficheros se restauraron antes de continuar.

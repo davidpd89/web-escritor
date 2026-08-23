@@ -1,0 +1,52 @@
+name: Image format ladder QA
+
+on:
+  pull_request:
+    paths:
+      - 'data/image-format-ladder.json'
+      - 'scripts/build-image-format-ladder.py'
+      - 'scripts/check-image-format-ladder.py'
+      - 'assets/portada-las-manecillas-del-recuerdo-*'
+      - 'index.html'
+      - 'las-manecillas-del-recuerdo/**'
+      - 'libros/index.html'
+      - '.github/workflows/image-format-ladder-qa.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  ladder-qa:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Install Pillow
+        run: pip install pillow
+
+      - name: Check every eligible source has an AVIF sibling
+        run: python scripts/build-image-format-ladder.py --check
+
+      - name: Check the format ladder HTML contract
+        run: python scripts/check-image-format-ladder.py --check
+
+      - name: Set up Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+
+      - name: Install Playwright
+        run: |
+          npm install --no-save --no-package-lock playwright@1.55.0
+          npx playwright install --with-deps chromium
+
+      - name: Run image format ladder browser QA
+        run: node qa/image-format-ladder-browser.mjs

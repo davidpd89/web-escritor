@@ -1,0 +1,44 @@
+name: Assistant copy QA
+
+on:
+  pull_request:
+    paths:
+      - 'asistente/**'
+      - 'assets/assistant.js'
+      - 'assets/assistant-copy.js'
+      - 'scripts/check-assistant-copy.py'
+      - 'qa/assistant-copy-browser.mjs'
+      - '.github/workflows/assistant-copy-qa.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  copy-qa:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Check assistant copy single source of truth
+        run: python scripts/check-assistant-copy.py --check
+
+      - name: Set up Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+
+      - name: Install Playwright
+        run: |
+          npm install --no-save --no-package-lock playwright@1.55.0
+          npx playwright install --with-deps chromium
+
+      - name: Run assistant copy browser QA
+        run: node qa/assistant-copy-browser.mjs

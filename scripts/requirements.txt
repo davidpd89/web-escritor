@@ -1,0 +1,6 @@
+# Todos los demas scripts de este directorio usan solo la libreria
+# estandar de Python a proposito. Pillow es la unica excepcion, necesaria
+# solo para scripts/build-image-format-ladder.py y
+# scripts/check-image-format-ladder.py (L.1, 2026-08-23): generar/comparar
+# imagenes AVIF.
+Pillow>=10.0

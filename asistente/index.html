@@ -125,18 +125,18 @@
 <!-- site-shell:dialog:end -->
   <main id="contenido" tabindex="-1" class="v1-main assistant-shell" data-family="assistant">
     <nav class="book-breadcrumb" aria-label="Ruta de navegación"><ol><li><a href="/">Inicio</a></li><li aria-current="page">Asistente</li></ol></nav>
-    <header class="tool-hero"><p class="eyebrow">Buscar en la web</p><h1>Pregunta a esta web.</h1><p class="tool-hero__lead">Sobre los libros, David, Noveris, artículos, herramientas, editoriales o convocatorias. El buscador local funciona siempre; cuando la respuesta con IA está activada, usa únicamente contenido público permitido y muestra sus fuentes.</p></header>
+    <header class="tool-hero"><p class="eyebrow">Buscar en la web</p><h1>¿Qué buscas?</h1><p class="tool-hero__lead">Pregúntame por los libros, fragmentos, Noveris, herramientas, editoriales, eventos o información sobre David. El buscador local funciona siempre; cuando la respuesta con IA está activada, usa únicamente contenido público permitido y muestra sus fuentes.</p></header>
     <section class="assistant-panel" aria-labelledby="assistant-title">
-      <h2 id="assistant-title">¿Qué quieres encontrar?</h2>
+      <h2 id="assistant-title">Escribe tu pregunta</h2>
       <div class="assistant-examples" aria-label="Preguntas de ejemplo">
         <button class="assistant-example" type="button" data-assistant-example="¿De qué trata Las manecillas del recuerdo?">¿De qué trata <em>Las manecillas</em>?</button>
         <button class="assistant-example" type="button" data-assistant-example="¿Dónde puedo leer un fragmento gratis?">¿Dónde leo un fragmento?</button>
         <button class="assistant-example" type="button" data-assistant-example="¿Qué herramientas gratuitas hay para escritores?">¿Qué herramientas hay?</button>
       </div>
       <form class="assistant-form" data-assistant-form>
-        <label for="assistant-query">Tu pregunta</label>
-        <textarea id="assistant-query" name="query" maxlength="500" required autocomplete="off" placeholder="Por ejemplo: ¿de qué trata Las manecillas del recuerdo?" data-assistant-query></textarea>
-        <div class="assistant-actions"><button class="primary-action" type="submit" data-assistant-submit>Buscar respuesta</button><button class="text-action assistant-stop" type="button" data-assistant-stop hidden>Detener</button><a class="text-action" href="/mapa-del-sitio/">Ver mapa del sitio</a></div>
+        <label for="assistant-query">Escribe tu pregunta</label>
+        <textarea id="assistant-query" name="query" maxlength="500" required autocomplete="off" placeholder="Escribe tu pregunta…" data-assistant-query></textarea>
+        <div class="assistant-actions"><button class="primary-action" type="submit" data-assistant-submit aria-label="Enviar pregunta" title="Enviar">Enviar pregunta</button><button class="text-action assistant-stop" type="button" data-assistant-stop hidden aria-label="Detener respuesta">Detener</button><a class="text-action" href="/mapa-del-sitio/">Ver mapa del sitio</a></div>
         <div class="assistant-turnstile" data-assistant-turnstile role="group" aria-label="Verificación antiabuso"></div>
         <p class="assistant-status" role="status" aria-live="polite" data-assistant-status>La búsqueda local funciona aunque la respuesta con IA esté desactivada.</p>
       </form>

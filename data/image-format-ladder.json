@@ -1,0 +1,10 @@
+{
+  "schema_version": 1,
+  "note": "Politica de elegibilidad para la escalera de formatos AVIF->WebP (L.1, 2026-08-23). Solo estas rutas WebP (relativas a la raiz del repo) reciben un AVIF hermano generado por scripts/build-image-format-ladder.py. No es una lista de assets a convertir masivamente: son las superficies criticas de Home y Manecillas donde el ahorro de peso importa para LCP. Assets sociales/OG, materiales de trabajo e imagenes no publicadas quedan excluidos por diseno (no aparecen aqui).",
+  "eligible_sources": [
+    "assets/portada-las-manecillas-del-recuerdo-320.webp",
+    "assets/portada-las-manecillas-del-recuerdo-512.webp",
+    "assets/portada-las-manecillas-del-recuerdo-768.webp",
+    "assets/portada-las-manecillas-del-recuerdo-1024.webp"
+  ]
+}
