@@ -172,6 +172,26 @@
       "source_doc": "assets/club-session-engine.js"
     },
     {
+      "slug": "contador-palabras",
+      "name": "Contador de palabras",
+      "href": "/herramientas/contador-palabras/",
+      "category": "revisar-texto",
+      "summary": "Cuenta palabras, caracteres, frases y párrafos de un texto pegado, y estima el tiempo de lectura.",
+      "privacy": "local",
+      "input": "text",
+      "source_doc": "assets/contador-palabras-engine.js"
+    },
+    {
+      "slug": "limpiador-manuscritos",
+      "name": "Limpiador de manuscritos",
+      "href": "/herramientas/limpiador-manuscritos/",
+      "category": "revisar-texto",
+      "summary": "Corrige espacios dobles, comillas rectas, guiones de diálogo y otros artefactos habituales al pegar un manuscrito.",
+      "privacy": "local",
+      "input": "text",
+      "source_doc": "assets/limpiador-manuscritos-engine.js"
+    },
+    {
       "slug": "auditor-pagina-libro",
       "name": "Auditor de página de libro",
       "href": "/herramientas/auditor-pagina-libro/",
