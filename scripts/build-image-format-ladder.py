@@ -35,6 +35,14 @@ def sha256_file(path: Path) -> str:
     return digest.hexdigest()
 
 
+def valid_sha256(value: object) -> bool:
+    return (
+        isinstance(value, str)
+        and len(value) == 64
+        and all(char in "0123456789abcdef" for char in value)
+    )
+
+
 def load_manifest(root: Path) -> tuple[Path, dict]:
     path = root / "data" / "image-format-ladder.json"
     return path, json.loads(path.read_text(encoding="utf-8"))
@@ -66,7 +74,7 @@ def manifest_contract_errors(manifest: dict) -> list[str]:
     return errors
 
 
-def entry_errors(entry: object, index: int) -> list[str]:
+def entry_structure_errors(entry: object, index: int) -> list[str]:
     if not isinstance(entry, dict):
         return [f"manifest: eligible_sources[{index}] debe ser un objeto"]
     errors: list[str] = []
@@ -80,10 +88,6 @@ def entry_errors(entry: object, index: int) -> list[str]:
         expected = Path(source).with_suffix(".avif").as_posix()
         if derivative != expected:
             errors.append(f"{source}: derivative debe ser el hermano {expected}")
-    for field in ("source_sha256", "derivative_sha256"):
-        value = entry.get(field)
-        if not isinstance(value, str) or len(value) != 64 or any(c not in "0123456789abcdef" for c in value):
-            errors.append(f"manifest: eligible_sources[{index}].{field} debe ser SHA-256 hexadecimal")
     return errors
 
 
@@ -118,7 +122,7 @@ def main() -> int:
     changed_manifest = False
 
     for index, entry in enumerate(entries):
-        structural = entry_errors(entry, index)
+        structural = entry_structure_errors(entry, index)
         if structural:
             errors.extend(structural)
             continue
@@ -133,30 +137,34 @@ def main() -> int:
             continue
 
         source_hash = sha256_file(source)
-        source_stale = source_hash != entry["source_sha256"]
+        expected_source_hash = entry.get("source_sha256")
+        expected_derivative_hash = entry.get("derivative_sha256")
+        source_stale = source_hash != expected_source_hash
         derivative_missing = not derivative.exists()
-        derivative_stale = False
+        derivative_stale = derivative_missing or not valid_sha256(expected_derivative_hash)
         dimensions_stale = False
 
         if not derivative_missing:
-            derivative_stale = sha256_file(derivative) != entry["derivative_sha256"]
+            derivative_stale = sha256_file(derivative) != expected_derivative_hash
             try:
                 with Image.open(source) as webp, Image.open(derivative) as avif:
                     dimensions_stale = webp.size != avif.size
             except Exception as exc:  # noqa: BLE001
                 derivative_stale = True
-                errors.append(f"{source_rel}: derivada AVIF no decodificable ({exc})")
                 if args.check:
-                    continue
+                    errors.append(f"{source_rel}: derivada AVIF no decodificable ({exc})")
 
-        stale = source_stale or derivative_missing or derivative_stale or dimensions_stale
         if args.check:
-            if source_stale:
+            if not valid_sha256(expected_source_hash):
+                errors.append(f"{source_rel}: falta source_sha256 valido en el manifest")
+            elif source_stale:
                 errors.append(
                     f"{source_rel}: source_sha256 obsoleto; el WebP cambio y la derivada debe regenerarse"
                 )
             if derivative_missing:
                 errors.append(f"{source_rel}: falta la derivada AVIF ({derivative_rel})")
+            elif not valid_sha256(expected_derivative_hash):
+                errors.append(f"{source_rel}: falta derivative_sha256 valido en el manifest")
             elif derivative_stale:
                 errors.append(
                     f"{source_rel}: derivative_sha256 no coincide; el AVIF fue reemplazado/corrompido o esta obsoleto"
@@ -165,6 +173,7 @@ def main() -> int:
                 errors.append(f"{source_rel}: dimensiones WebP/AVIF no coinciden")
             continue
 
+        stale = source_stale or derivative_missing or derivative_stale or dimensions_stale
         if stale:
             try:
                 generate(source, derivative, quality)
@@ -177,10 +186,10 @@ def main() -> int:
         # actualiza con los bytes reales. No depende de reloj ni metadata FS.
         new_source_hash = sha256_file(source)
         new_derivative_hash = sha256_file(derivative)
-        if entry["source_sha256"] != new_source_hash:
+        if entry.get("source_sha256") != new_source_hash:
             entry["source_sha256"] = new_source_hash
             changed_manifest = True
-        if entry["derivative_sha256"] != new_derivative_hash:
+        if entry.get("derivative_sha256") != new_derivative_hash:
             entry["derivative_sha256"] = new_derivative_hash
             changed_manifest = True
 
