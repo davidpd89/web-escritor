@@ -1,11 +1,5 @@
 #!/usr/bin/env python3
-"""Verifica scripts/check-runtime-scoping.py contra un repo git de fixture
-aislado: confirma que detecta cada una de las 3 violaciones que existian
-antes de H.1 (2026-08-23) y que un repo correctamente scoped pasa limpio.
-
-Uso:
-  python tests/test-check-runtime-scoping.py
-"""
+"""Unit fixtures for scripts/check-runtime-scoping.py."""
 from __future__ import annotations
 
 import importlib.util
@@ -24,7 +18,6 @@ _spec = importlib.util.spec_from_file_location("crs", ROOT / "scripts" / "check-
 crs = importlib.util.module_from_spec(_spec)
 sys.modules[_spec.name] = crs
 _spec.loader.exec_module(crs)
-
 failures: list[str] = []
 
 
@@ -39,84 +32,78 @@ def check(condition: bool, label: str, detail: str = "") -> None:
 def git_init(tmp: Path) -> None:
     subprocess.run(["git", "init", "-q"], cwd=tmp, check=True)
     subprocess.run(["git", "add", "-A"], cwd=tmp, check=True)
-    subprocess.run(
-        ["git", "-c", "user.email=t@t.com", "-c", "user.name=t", "commit", "-q", "-m", "fixture"],
-        cwd=tmp, check=True,
-    )
+    subprocess.run(["git", "-c", "user.email=t@t.com", "-c", "user.name=t", "commit", "-q", "-m", "fixture"], cwd=tmp, check=True)
 
 
-def base_pages(tmp: Path) -> None:
-    (tmp / "script.js").write_text("console.log('core');\n", encoding="utf-8")
-    (tmp / "cuaderno").mkdir()
-    (tmp / "recomendaciones").mkdir()
-    (tmp / "libros").mkdir()
-    (tmp / "index.html").write_text('<html><body></body></html>', encoding="utf-8")
+def write(tmp: Path, rel: str, text: str) -> None:
+    path = tmp / rel
+    path.parent.mkdir(parents=True, exist_ok=True)
+    path.write_text(text, encoding="utf-8")
+
+
+def base_repo(tmp: Path) -> None:
+    write(tmp, "script.js", '''function scheduleTask(fn){return Promise.resolve().then(fn)}\n// Back-to-top button\n(function(){const btn=document.createElement("button");btn.addEventListener("click", () => {\n  const reduced=window.matchMedia("(prefers-reduced-motion: reduce)").matches;\n  window.scrollTo({top:0,behavior:reduced?"auto":"smooth"});\n});})();\n''')
+    write(tmp, "styles.css", ".ok{display:block}\n")
+    write(tmp, "assets/samuel-buy-modal.css", "#buy-dialog{} .buy-dialog-inner{} .buy-option{}\n")
+    write(tmp, "assets/samuel-buy-modal.js", '''(function(){const EXPECTED_PATH = "/libros/samuel-entre-mundos/";const pageRoot=document.querySelector('main[data-family="book-samuel"]');const STYLE_HREF = "/assets/samuel-buy-modal.css";if(!pageRoot)return;pageRoot.addEventListener("click",()=>{});})();\n''')
+    write(tmp, "assets/newsletter-popup.js", '''(function(){const d=document.createElement("dialog");d.showModal();})();\n''')
+    write(tmp, "assets/newsletter-popup.css", "#nl-popup-dialog{}\n")
+    write(tmp, "index.html", "<html><body></body></html>")
+    write(tmp, "cuaderno/index.html", '<script src="/script.js"></script><link href="/assets/newsletter-popup.css"><script src="/assets/newsletter-popup.js"></script>')
+    write(tmp, crs.SAMUEL_PAGE, '<main data-family="book-samuel"><button data-buy-modal></button></main><script src="/assets/samuel-buy-modal.js"></script>')
+
+
+def all_checks(tmp: Path) -> list[str]:
+    pages = crs.tracked_html(tmp)
+    return (crs.check_script_js(tmp) + crs.check_buy_modal_scope(tmp, pages) + crs.check_popup_scope(tmp, pages) + crs.check_global_css(tmp) + crs.check_mojibake(tmp))
 
 
 def run() -> None:
-    # Caso 1: todo correctamente scoped -> PASS.
     with tempfile.TemporaryDirectory() as d:
-        tmp = Path(d)
-        base_pages(tmp)
-        (tmp / "cuaderno" / "index.html").write_text(
-            '<html><body><script src="/script.js"></script>'
-            '<script src="/assets/newsletter-popup.js"></script>'
-            '<link href="/assets/newsletter-popup.css">'
-            '</body></html>', encoding="utf-8",
-        )
-        (tmp / "libros" / "index.html").write_text(
-            '<html><body><button data-buy-modal></button>'
-            '<script src="/assets/samuel-buy-modal.js"></script>'
-            '</body></html>', encoding="utf-8",
-        )
-        git_init(tmp)
-        pages = crs.tracked_html(tmp)
-        errors = crs.check_script_js(tmp) + crs.check_buy_modal_scope(tmp, pages) + crs.check_popup_scope(tmp, pages)
-        check(errors == [], "repo correctamente scoped no reporta errores", str(errors))
+        tmp = Path(d); base_repo(tmp); git_init(tmp)
+        check(all_checks(tmp) == [], "repo correctamente scoped pasa", str(all_checks(tmp)))
 
-    # Caso 2: popup reimplementado dentro de script.js -> detectado.
     with tempfile.TemporaryDirectory() as d:
-        tmp = Path(d)
-        base_pages(tmp)
-        (tmp / "script.js").write_text('overlay.id = "nl-popup-overlay";\n', encoding="utf-8")
+        tmp = Path(d); base_repo(tmp)
+        write(tmp, "script.js", 'd.id = "buy-dialog";\n')
         git_init(tmp)
-        errors = crs.check_script_js(tmp)
-        check(any("popup" in e for e in errors), "popup reimplementado en script.js se detecta")
+        check(any("modal Samuel" in e for e in crs.check_script_js(tmp)), "modal reimplementado en script.js se detecta")
 
-    # Caso 3: modal de Samuel reimplementado dentro de script.js -> detectado.
     with tempfile.TemporaryDirectory() as d:
-        tmp = Path(d)
-        base_pages(tmp)
-        (tmp / "script.js").write_text('d.id = "buy-dialog";\n', encoding="utf-8")
+        tmp = Path(d); base_repo(tmp)
+        write(tmp, "otra.html", '<button data-buy-modal></button><script src="/assets/samuel-buy-modal.js"></script>')
         git_init(tmp)
-        errors = crs.check_script_js(tmp)
-        check(any("Samuel" in e for e in errors), "modal de Samuel reimplementado en script.js se detecta")
+        check(any("fuera de su única página" in e for e in crs.check_buy_modal_scope(tmp, crs.tracked_html(tmp))), "runtime Samuel fuera de scope se detecta")
 
-    # Caso 4: pagina con [data-buy-modal] pero SIN cargar samuel-buy-modal.js -> detectado.
     with tempfile.TemporaryDirectory() as d:
-        tmp = Path(d)
-        base_pages(tmp)
-        (tmp / "libros" / "index.html").write_text(
-            '<html><body><button data-buy-modal></button></body></html>', encoding="utf-8",
-        )
+        tmp = Path(d); base_repo(tmp)
+        write(tmp, "styles.css", "#buy-dialog{display:block}\n")
         git_init(tmp)
-        pages = crs.tracked_html(tmp)
-        errors = crs.check_buy_modal_scope(tmp, pages)
-        check(any("no carga" in e for e in errors), "trigger sin script del modal se detecta")
+        check(any("CSS específico" in e for e in crs.check_global_css(tmp)), "CSS Samuel global se detecta")
 
-    # Caso 5: pagina fuera de ambito cargando el popup de mas -> detectado.
     with tempfile.TemporaryDirectory() as d:
-        tmp = Path(d)
-        base_pages(tmp)
-        (tmp / "index.html").write_text(
-            '<html><body><script src="/script.js"></script>'
-            '<script src="/assets/newsletter-popup.js"></script>'
-            '</body></html>', encoding="utf-8",
-        )
+        tmp = Path(d); base_repo(tmp)
+        write(tmp, "styles.css", ".x::before{content:'Ã¢â‚¬â€'}\n")
         git_init(tmp)
-        pages = crs.tracked_html(tmp)
-        errors = crs.check_popup_scope(tmp, pages)
-        check(any("fuera de ambito" in e for e in errors), "popup cargado fuera de ambito se detecta")
+        check(any("mojibake" in e for e in crs.check_mojibake(tmp)), "mojibake se detecta")
+
+    with tempfile.TemporaryDirectory() as d:
+        tmp = Path(d); base_repo(tmp)
+        write(tmp, "index.html", '<script src="/script.js"></script><link href="/assets/newsletter-popup.css"><script src="/assets/newsletter-popup.js"></script>')
+        git_init(tmp)
+        check(any("fuera de scope" in e for e in crs.check_popup_scope(tmp, crs.tracked_html(tmp))), "popup fuera de scope se detecta")
+
+    with tempfile.TemporaryDirectory() as d:
+        tmp = Path(d); base_repo(tmp)
+        text = (tmp / "script.js").read_text(encoding="utf-8").replace('const reduced=window.matchMedia', 'scheduleTask(()=>{});const reduced=window.matchMedia')
+        write(tmp, "script.js", text); git_init(tmp)
+        check(any("difiere scrollTo" in e for e in crs.check_script_js(tmp)), "back-to-top diferido se detecta")
+
+    with tempfile.TemporaryDirectory() as d:
+        tmp = Path(d); base_repo(tmp)
+        write(tmp, "assets/samuel-buy-modal.js", '(function(){document.addEventListener("keydown",()=>{});})();\n')
+        git_init(tmp)
+        check(any("focus trap manual" in e for e in crs.check_buy_modal_scope(tmp, crs.tracked_html(tmp))), "focus trap manual Samuel se detecta")
 
     if failures:
         print(f"\n{len(failures)} FALLO(S)")
