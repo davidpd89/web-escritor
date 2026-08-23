@@ -32,6 +32,16 @@
       "source_doc": "assets/dialogo-espanol.js"
     },
     {
+      "slug": "dialogo-convenciones",
+      "name": "Revisor de convenciones de diálogo",
+      "href": "/herramientas/dialogo-convenciones/",
+      "category": "revisar-texto",
+      "summary": "Detecta guion en lugar de raya, mezcla de estilos de comillas y posibles acotaciones con puntuación problemática en diálogo en español.",
+      "privacy": "local",
+      "input": "text",
+      "source_doc": "assets/dialogo-convenciones.js"
+    },
+    {
       "slug": "legibilidad",
       "name": "Legibilidad en español",
       "href": "/herramientas/legibilidad/",
@@ -160,6 +170,36 @@
       "privacy": "local",
       "input": "form",
       "source_doc": "assets/club-session-engine.js"
+    },
+    {
+      "slug": "tipo-lector",
+      "name": "¿Qué tipo de lector eres?",
+      "href": "/herramientas/que-tipo-de-lector-eres/",
+      "category": "lectores",
+      "summary": "Test breve de 6 preguntas sobre tus preferencias de lectura, con 6 perfiles posibles y resultado calculado en tu navegador.",
+      "privacy": "local",
+      "input": "form",
+      "source_doc": "assets/tipo-lector-engine.js"
+    },
+    {
+      "slug": "contador-palabras",
+      "name": "Contador de palabras",
+      "href": "/herramientas/contador-palabras/",
+      "category": "revisar-texto",
+      "summary": "Cuenta palabras, caracteres, frases y párrafos de un texto pegado, y estima el tiempo de lectura.",
+      "privacy": "local",
+      "input": "text",
+      "source_doc": "assets/contador-palabras-engine.js"
+    },
+    {
+      "slug": "limpiador-manuscritos",
+      "name": "Limpiador de manuscritos",
+      "href": "/herramientas/limpiador-manuscritos/",
+      "category": "revisar-texto",
+      "summary": "Corrige espacios dobles, comillas rectas, guiones de diálogo y otros artefactos habituales al pegar un manuscrito.",
+      "privacy": "local",
+      "input": "text",
+      "source_doc": "assets/limpiador-manuscritos-engine.js"
     },
     {
       "slug": "auditor-pagina-libro",
