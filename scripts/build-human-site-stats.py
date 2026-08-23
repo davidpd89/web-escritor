@@ -140,11 +140,7 @@ def count_sample_words(root: Path) -> tuple[int, int]:
 
 
 def verify_public_page(root: Path, rel: str, origin: str) -> Path:
-    """Comprueba que una ruta declarada por un registro es realmente pública.
-
-    El registro dice qué cuenta; el HTML dice si de verdad está publicado. Las
-    dos cosas tienen que coincidir, o la cifra publicada miente.
-    """
+    """Comprueba que una ruta declarada por un registro es realmente pública."""
     path = (root / rel).resolve()
     if not path.exists():
         raise ValueError(f'{origin}: la página declarada no existe: {rel}')
@@ -161,18 +157,6 @@ def verify_public_page(root: Path, rel: str, origin: str) -> Path:
 
 
 def count_works(root: Path) -> int:
-    """Obras publicadas, contadas desde data/content-registry.json.
-
-    Antes esto era `libros/*/index.html`, y por eso el sitio publicaba
-    «Libros publicados: 1»: Las manecillas del recuerdo vive en
-    /las-manecillas-del-recuerdo/, fuera de ese prefijo. El prefijo de URL es
-    una decisión de rutas, no la definición de qué es una obra publicada. La
-    autoridad es el registro de contenido.
-
-    Cuenta las entradas type=work que no son el propio hub de Obras y cuyo
-    estado efectivo es público — así Dónde empieza la jaula (status noindex)
-    queda fuera sola, y entra sola el día que se publique.
-    """
     registry = json.loads(read_text(root / 'data' / 'content-registry.json'))
     default_status = registry.get('defaults', {}).get('status', 'public')
     count = 0
@@ -180,7 +164,7 @@ def count_works(root: Path) -> int:
         if entry.get('type') != 'work':
             continue
         if entry.get('id') == entry.get('hubId'):
-            continue  # el hub /libros/ no es una obra
+            continue
         if entry.get('status', default_status) != 'public':
             continue
         source = entry.get('sourceFile')
@@ -192,13 +176,6 @@ def count_works(root: Path) -> int:
 
 
 def count_public_tools(root: Path) -> int:
-    """Herramientas públicas, contadas desde data/tools-hub.json.
-
-    Es la misma fuente que usa el titular de /herramientas/, así que los dos
-    números del sitio ya no pueden divergir. Contarlas por
-    `herramientas/*/index.html` daba 15 frente a las 17 del hub, porque hay
-    rutas internas bajo ese prefijo y herramientas publicadas fuera de él.
-    """
     hub = json.loads(read_text(root / 'data' / 'tools-hub.json'))
     tools = hub.get('tools', [])
     if not tools:
@@ -273,20 +250,50 @@ def inject(target: Path, fragment: str, check: bool) -> int:
     return 0
 
 
+def resolve_generated_on(explicit_date: str | None, check: bool, json_output: Path | None) -> str:
+    """Resolve the display date without making --check fail just because midnight passed.
+
+    A normal regeneration records today's date. In check mode, however, the
+    existing generated JSON is the artifact being verified, so its own
+    generated_on value is reused. That makes the check a comparison of content
+    against content, not a hidden comparison against the runner's wall clock.
+    """
+    if explicit_date:
+        date.fromisoformat(explicit_date)
+        return explicit_date
+
+    if check and json_output and json_output.exists():
+        try:
+            payload = json.loads(read_text(json_output))
+        except json.JSONDecodeError as exc:
+            raise ValueError(f'{json_output}: JSON generado inválido') from exc
+        generated_on = payload.get('generated_on')
+        if not isinstance(generated_on, str):
+            raise ValueError(f'{json_output}: falta generated_on válido')
+        try:
+            date.fromisoformat(generated_on)
+        except ValueError as exc:
+            raise ValueError(f'{json_output}: generated_on no es fecha ISO: {generated_on!r}') from exc
+        return generated_on
+
+    return date.today().isoformat()
+
+
 def main() -> int:
     ap = argparse.ArgumentParser()
     ap.add_argument('--root', required=True, type=Path)
     ap.add_argument('--output', required=True, type=Path)
     ap.add_argument('--json-output', type=Path)
     ap.add_argument('--inject-into', type=Path, help='Página donde sustituir el bloque entre marcadores human-site-stats:start/end')
-    ap.add_argument('--date', default=date.today().isoformat())
+    ap.add_argument('--date', default=None, help='Fecha ISO explícita para una regeneración reproducible')
     ap.add_argument('--check', action='store_true')
     args = ap.parse_args()
 
     root = args.root.resolve()
+    generated_on = resolve_generated_on(args.date, args.check, args.json_output)
     items = stats(root)
-    markup = render(items, args.date)
-    payload = json.dumps({'generated_on': args.date, 'stats': items}, ensure_ascii=False, indent=2) + '\n'
+    markup = render(items, generated_on)
+    payload = json.dumps({'generated_on': generated_on, 'stats': items}, ensure_ascii=False, indent=2) + '\n'
 
     if args.check:
         ok = True
