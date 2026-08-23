@@ -1,0 +1,70 @@
+name: Image format ladder QA
+
+on:
+  pull_request:
+    paths:
+      - 'data/image-format-ladder.json'
+      - 'scripts/build-image-format-ladder.py'
+      - 'scripts/check-image-format-ladder.py'
+      - 'scripts/requirements.txt'
+      - 'tests/test-check-image-format-ladder.py'
+      - 'assets/portada-las-manecillas-del-recuerdo-*'
+      - 'index.html'
+      - 'las-manecillas-del-recuerdo/**'
+      - 'libros/index.html'
+      - '.github/workflows/image-format-ladder-qa.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  ladder-qa:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Install shared Python dependencies
+        run: python -m pip install --requirement scripts/requirements.txt
+
+      - name: Run image format ladder mutation/unit tests
+        run: python tests/test-check-image-format-ladder.py
+
+      - name: Check every eligible source has a fresh AVIF derivative
+        run: python scripts/build-image-format-ladder.py --check
+
+      - name: Check the format ladder HTML contract
+        run: python scripts/check-image-format-ladder.py --check
+
+      - name: Set up Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+
+      - name: Install CI/QA dependencies (Node)
+        run: npm ci
+
+      - name: Cache Playwright browsers
+        id: playwright-cache
+        uses: actions/cache@v4
+        with:
+          path: ~/.cache/ms-playwright
+          key: playwright-chromium-${{ hashFiles('package-lock.json') }}
+
+      - name: Install Playwright Chromium (with OS deps)
+        if: steps.playwright-cache.outputs.cache-hit != 'true'
+        run: npx playwright install --with-deps chromium
+
+      - name: Install Playwright OS deps only (browser cached)
+        if: steps.playwright-cache.outputs.cache-hit == 'true'
+        run: npx playwright install-deps chromium
+
+      - name: Run image format ladder browser QA
+        run: node qa/image-format-ladder-browser.mjs

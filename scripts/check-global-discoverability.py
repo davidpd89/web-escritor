@@ -29,7 +29,7 @@ _bpd_spec.loader.exec_module(_bpd)
 ORIGIN = "https://davidportodiaz.com"
 OUT = ROOT / "artifacts" / "global-discoverability" / "inventory.json"
 
-INTERNAL_PREFIXES = ("publicar-web/", "lecturas/", "herramientas/auditor-web/")
+INTERNAL_PREFIXES = ("publicar-web/", "lecturas/", "herramientas/auditor-web/", "tests/")
 LAB_PREFIXES = ("lab/",)
 # Autoridad unica (staging-publication-gate): las rutas gated/staging se
 # derivan de data/content-registry.json (status != public), NO de una
@@ -48,14 +48,14 @@ MINIMAL_SHELL_EXCEPTIONS = {
     "clubes-de-lectura/samuel-entre-mundos/guia-imprimible/index.html": "print-first public utility with intentional minimal shell",
 }
 EXPECTED_HEADER = ["/libros/", "/cuaderno/", "/herramientas/"]
-EXPECTED_EXPLORE = {
-    "/las-manecillas-del-recuerdo/",
-    "/autor.html",
-    "/libros/samuel-entre-mundos/",
-    "/cuaderno/",
-    "/herramientas/",
-    "/prensa.html",
-}
+EXPECTED_EXPLORE_TERRITORY_IDS = [
+    "works-hub",
+    "author",
+    "notebook-hub",
+    "tools-hub",
+    "press",
+]
+REQUIRED_WORK_IDS = ("work-manecillas", "work-samuel")
 LEGAL_PUBLIC_NOINDEX = {"/privacidad.html", "/aviso-legal.html"}
 
 
@@ -233,6 +233,77 @@ def main() -> int:
     if navigation.get("runtimeOwnership", {}).get("shell") != "authored-static-v1-html":
         errors.append("navigation runtime ownership is not documented")
 
+    # Explorar owns five stable top-level territories. Individual books are
+    # not promoted to territory status; their findability is guaranteed by
+    # the Obras hierarchy + direct static links in the Obras hub and global
+    # footer. This keeps one semantic IA instead of duplicating a second menu.
+    territory_ids = [item.get("id") for item in navigation.get("exploreTerritories", [])]
+    if territory_ids != EXPECTED_EXPLORE_TERRITORY_IDS:
+        errors.append(
+            "navigation Explore territories drift: "
+            f"{territory_ids}, expected {EXPECTED_EXPLORE_TERRITORY_IDS}"
+        )
+
+    territory_urls: list[str] = []
+    for item_id in EXPECTED_EXPLORE_TERRITORY_IDS:
+        item = by_id.get(item_id)
+        if not item:
+            errors.append(f"Explore territory missing from registry: {item_id}")
+            continue
+        if item.get("status") != "public":
+            errors.append(f"Explore territory is not public: {item_id}")
+        territory_urls.append(item["url"])
+
+    works_hub = by_id.get("works-hub")
+    required_work_urls: list[str] = []
+    if not works_hub:
+        errors.append("works-hub missing from registry")
+    else:
+        if works_hub.get("url") != "/libros/":
+            errors.append(f"works-hub canonical URL drift: {works_hub.get('url')}")
+        if works_hub.get("status") != "public" or works_hub.get("discoverability") != "primary":
+            errors.append("works-hub must remain a public primary destination")
+
+    for work_id in REQUIRED_WORK_IDS:
+        work = by_id.get(work_id)
+        if not work:
+            errors.append(f"required work missing from registry: {work_id}")
+            continue
+        required_work_urls.append(work["url"])
+        if work.get("status") != "public":
+            errors.append(f"{work_id}: required work is not public")
+        if work.get("type") != "work" or work.get("territory") != "obras":
+            errors.append(f"{work_id}: required work is not classified inside Obras")
+        if work.get("parentId") != "works-hub" or work.get("hubId") != "works-hub":
+            errors.append(f"{work_id}: required work is not a child of works-hub")
+        if work.get("searchIndex") is not True or work.get("sitemap") is not True:
+            errors.append(f"{work_id}: required work must remain indexable and in sitemap")
+        if work["url"] not in sitemap:
+            errors.append(f"{work_id}: canonical work URL missing from sitemap: {work['url']}")
+
+    footer_work_ids = navigation.get("footer", {}).get("Obra", [])
+    for work_id in REQUIRED_WORK_IDS:
+        if work_id not in footer_work_ids:
+            errors.append(f"footer.Obra must keep direct access to {work_id}")
+
+    if works_hub and works_hub.get("sourceFile") in tracked:
+        works_html = read(works_hub["sourceFile"])
+        works_main = re.search(r"<main\b[\s\S]*?</main>", works_html, re.I)
+        works_main_hrefs = {
+            normalize_local_href(href)
+            for href in hrefs_in(works_main.group(0) if works_main else "")
+        }
+        works_main_hrefs.discard(None)
+        missing_work_links = sorted(set(required_work_urls) - works_main_hrefs)
+        if missing_work_links:
+            errors.append("works-hub main content missing direct work links: " + ", ".join(missing_work_links))
+    elif works_hub:
+        errors.append(f"works-hub source missing from git: {works_hub.get('sourceFile')}")
+
+    missing_work_map = sorted(set(required_work_urls) - map_hrefs)
+    if missing_work_map:
+        errors.append("site map missing canonical works: " + ", ".join(missing_work_map))
+
     registry_sources = {
         item["sourceFile"]
         for item in entries
@@ -259,15 +330,41 @@ def main() -> int:
                 errors.append(f"{path}: primary nav drift {actual}")
         else:
             errors.append(f"{path}: primary nav missing")
+
         explore_match = re.search(r"<nav\b[^>]*class=['\"][^'\"]*explore-list[^'\"]*['\"][^>]*>([\s\S]*?)</nav>", html, re.I)
         if explore_match:
-            actual_explore = {normalize_local_href(href) for href in hrefs_in(explore_match.group(1))}
-            actual_explore.discard(None)
-            missing = EXPECTED_EXPLORE - actual_explore
-            if missing:
-                errors.append(f"{path}: Explore missing canonical destinations {sorted(missing)}")
+            actual_explore = [normalize_local_href(href) for href in hrefs_in(explore_match.group(1))]
+            actual_explore = [href for href in actual_explore if href]
+            actual_territories = actual_explore[: len(territory_urls)]
+            if actual_territories != territory_urls:
+                errors.append(
+                    f"{path}: Explore top-level territories drift {actual_territories}; "
+                    f"expected {territory_urls}"
+                )
+            promoted_works = sorted(set(required_work_urls) & set(actual_territories))
+            if promoted_works:
+                errors.append(f"{path}: individual works promoted to top-level Explore territories {promoted_works}")
         else:
             errors.append(f"{path}: Explore list missing")
+
+        footer_match = re.search(
+            r"<nav\b[^>]*aria-label=['\"]Obra['\"][^>]*>([\s\S]*?)</nav>",
+            html,
+            re.I,
+        )
+        if footer_match:
+            footer_hrefs = {
+                normalize_local_href(href)
+                for href in hrefs_in(footer_match.group(1))
+            }
+            footer_hrefs.discard(None)
+            missing_footer_works = sorted(set(required_work_urls) - footer_hrefs)
+            if missing_footer_works:
+                errors.append(
+                    f"{path}: global Obra footer missing direct canonical works {missing_footer_works}"
+                )
+        else:
+            errors.append(f"{path}: global Obra footer missing")
 
     shell_js = read("assets/v1-shell.js")
     for token in ("showModal()", "data-explore-close", "opener", "/asistente/"):
