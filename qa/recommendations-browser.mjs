@@ -130,7 +130,6 @@ async function inspectList(route, expectedCount) {
     const docs = [...document.querySelectorAll('script[type="application/ld+json"]')].map((s) => JSON.parse(s.textContent));
     const nodes = docs.flatMap((d) => d['@graph'] || [d]);
     const itemList = nodes.find((n) => n['@type'] === 'ItemList');
-    const faq = nodes.find((n) => n['@type'] === 'FAQPage');
     const visible = [...document.querySelectorAll('[data-recommendation-list] > .rec-item')].map((el) => ({
       pos: Number(el.dataset.position),
       isbn: el.dataset.isbn || '',
@@ -146,8 +145,11 @@ async function inspectList(route, expectedCount) {
       authors: Array.isArray(entry.item?.author) ? entry.item.author.map((a) => a.name) : [entry.item?.author?.name].filter(Boolean),
       url: entry.item?.url || '',
     }));
-    const visibleFaq = [...document.querySelectorAll('#faq details')].map((d) => ({ q: d.querySelector('summary')?.textContent || '', a: d.querySelector('p')?.textContent || '' }));
-    const schemaFaq = (faq?.mainEntity || []).map((q) => ({ q: q.name || '', a: q.acceptedAnswer?.text || '' }));
+    const visibleFaq = [...document.querySelectorAll('#faq details')].map((d) => ({
+      q: d.querySelector('summary')?.textContent || '',
+      a: [...d.querySelectorAll(':scope > p, :scope > div, :scope > ul, :scope > ol')].map((el) => el.textContent || '').join(' '),
+      hasSummary: Boolean(d.querySelector(':scope > summary')),
+    }));
     const firstAffiliateTop = document.querySelector('.rec-item a[href*="amazon.es"]')?.getBoundingClientRect().top ?? Infinity;
     const disclosureBottom = document.querySelector('.rec-disclosures')?.getBoundingClientRect().bottom ?? -Infinity;
     return {
@@ -155,7 +157,7 @@ async function inspectList(route, expectedCount) {
       schema,
       itemListCount: itemList?.numberOfItems,
       visibleFaq,
-      schemaFaq,
+      hasFaqPage: nodes.some((n) => n['@type'] === 'FAQPage'),
       primaryCurrent: [...document.querySelectorAll('.primary-nav [aria-current="page"]')].map((a) => a.getAttribute('href')),
       affiliateLinks: [...document.querySelectorAll('a[href*="amazon.es"]')].map((a) => ({ href: a.href, rel: a.rel, target: a.target })),
       affiliateDisclosure: document.querySelector('.rec-disclosures')?.innerText || '',
@@ -191,11 +193,22 @@ async function inspectList(route, expectedCount) {
     check(v.url === s.url, `${route} #${i + 1}: visible/schema external URL mismatch`);
   }
 
-  check(data.visibleFaq.length === data.schemaFaq.length, `${route}: FAQ visible/schema count mismatch ${data.visibleFaq.length}/${data.schemaFaq.length}`);
+  // FAQ is intentionally human-visible only. FAQPage legacy must stay absent;
+  // the browser contract validates the visible FAQ as content/structure,
+  // rather than comparing it with a schema node that no longer exists.
+  check(data.hasFaqPage === false, `${route}: legacy FAQPage schema must be absent`);
+  check(data.visibleFaq.length > 0, `${route}: visible FAQ unexpectedly missing`);
+  const faqQuestions = new Set();
   for (let i = 0; i < data.visibleFaq.length; i++) {
-    check(norm(data.visibleFaq[i].q) === norm(data.schemaFaq[i].q), `${route}: FAQ question ${i + 1} mismatch`);
-    check(norm(data.visibleFaq[i].a) === norm(data.schemaFaq[i].a), `${route}: FAQ answer ${i + 1} mismatch`);
+    const item = data.visibleFaq[i];
+    check(item.hasSummary, `${route}: FAQ item ${i + 1} has no direct summary`);
+    check(norm(item.q).length >= 8, `${route}: FAQ question ${i + 1} is empty/too short`);
+    check(norm(item.a).length >= 20, `${route}: FAQ answer ${i + 1} is empty/too short`);
+    const key = loose(item.q);
+    check(!faqQuestions.has(key), `${route}: duplicate visible FAQ question ${i + 1}`);
+    faqQuestions.add(key);
   }
+
   check(data.primaryCurrent.length === 0, `${route}: false primary-nav aria-current ${data.primaryCurrent.join(', ')}`);
   check(data.affiliateLinks.length >= expectedCount, `${route}: expected affiliate links for each entry`);
   for (const link of data.affiliateLinks) {
