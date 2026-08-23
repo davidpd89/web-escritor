@@ -7,6 +7,58 @@ html.v1 .home-hero{--color-muted:var(--territory-muted);--color-border:var(--ter
 html.v1 .home-hero::after{content:"";position:absolute;inset:0 0 0 52%;background:linear-gradient(120deg,transparent 0 40%,rgba(244,239,231,.045) 70%,transparent 100%);pointer-events:none}
 html.v1 .home-hero .primary-action{background:var(--dp-paper);color:var(--dp-ink)}
 html.v1 .home-hero .primary-action:hover{background:var(--dp-sand)}
+
+/* Intro — pantalla de entrada cinematica (video de tinta), fija sobre la
+   Home normal que ya esta cargada debajo. Solo tiene el video y un boton
+   "Entrar"; al pulsarlo la foto final se levanta como la pagina de un
+   libro (giro 3D sobre el borde izquierdo) y aparece la Home real debajo.
+   La Home nunca deja de existir en el DOM (SEO/no-JS ven contenido real,
+   no un duplicado). */
+html.v1 .intro{position:fixed;inset:0;z-index:900;background:#000;overflow:hidden;perspective:1800px}
+html.v1 .intro[hidden]{display:none}
+html.v1 .intro__stage{position:absolute;inset:0;display:grid;place-items:center;background:#000}
+html.v1 .intro__video{max-width:100%;max-height:100%;width:auto;height:100%;object-fit:contain;display:block;background:#000}
+/* .intro__leaf: la foto final, quieta hasta que se pulsa Entrar. Gira
+   sobre su borde izquierdo (el "lomo" del libro) igual que una pagina. */
+html.v1 .intro__leaf{position:absolute;inset:0;background-image:url('hero-tinta-final.jpg');background-size:cover;background-position:center;opacity:0;pointer-events:none;transform-style:preserve-3d;transform-origin:0% 50%;backface-visibility:hidden;box-shadow:0 30px 80px rgba(0,0,0,.5)}
+html.v1 .intro__leaf::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(0,0,0,.6),transparent 40%);opacity:0;transition:opacity .85s ease}
+
+/* El boton de entrar aparece recien cuando la tinta ya se ha ido (T_END del
+   video ~4.5s), para no competir con el momento cinematografico; con
+   reduced-motion se muestra ya desde el principio, sin animacion. */
+@keyframes intro-enter-in{from{opacity:0;transform:translate(-50%,6px)}to{opacity:1;transform:translate(-50%,0)}}
+html.v1 .intro__enter{position:absolute;left:50%;bottom:clamp(4.5rem,15vh,7.5rem);z-index:2;transform:translate(-50%,6px);appearance:none;font-family:var(--font-ui);font-weight:600;font-size:1rem;letter-spacing:.08em;text-transform:uppercase;color:var(--dp-paper);background:color-mix(in srgb,#000 25%,transparent);border:1px solid color-mix(in srgb,var(--dp-paper) 55%,transparent);border-radius:999px;padding:.9rem 3rem;cursor:pointer;opacity:0;transition:background .2s ease,border-color .2s ease}
+html.v1 .intro__enter:hover,html.v1 .intro__enter:focus-visible{background:color-mix(in srgb,var(--dp-paper) 16%,transparent);border-color:var(--dp-paper)}
+@media(prefers-reduced-motion:no-preference){
+  html.v1 .intro__enter{animation:intro-enter-in .9s ease-out 4.6s forwards}
+}
+@media(prefers-reduced-motion:reduce){
+  html.v1 .intro__enter{opacity:1;transform:translate(-50%,0)}
+}
+
+/* Salida: la foto final gira como una pagina (eje en el borde izquierdo,
+   igual que el lomo de un libro) y descubre la Home real que ya estaba
+   cargada detras. El fondo negro de .intro se vuelve transparente en
+   cuanto empieza a salir, para que se vea (y se pueda usar) la Home por
+   debajo sin esperar a que .intro se oculte del todo. */
+html.v1 .intro--leaving{background:transparent;pointer-events:none;transition:background .3s ease}
+html.v1 .intro--leaving .intro__stage{opacity:0;transition:opacity .25s ease}
+/* animation:none corta la animacion de entrada (que sigue "rellenando" con
+   forwards y, sin esto, gana con mayor prioridad que este opacity:0). */
+html.v1 .intro--leaving .intro__enter{animation:none;opacity:0;transition:opacity .2s ease}
+html.v1 .intro--leaving .intro__leaf{opacity:1;transition:transform .95s cubic-bezier(.55,0,.1,1),opacity .2s ease}
+html.v1 .intro--leaving .intro__leaf{transform:rotateY(-115deg)}
+html.v1 .intro--leaving .intro__leaf::after{opacity:1}
+@media(prefers-reduced-motion:reduce){
+  html.v1 .intro--leaving{transition:opacity .3s ease;opacity:0}
+  html.v1 .intro--leaving .intro__leaf{display:none}
+}
+
+html.intro-lock{overflow:hidden;height:100%}
+/* El widget de asistente (z-index:950) queda por encima de la intro
+   (z-index:900) y su "hint" puede aparecer con un timer propio: mientras
+   la intro esta activa, no debe verse en absoluto. */
+html.intro-lock .assistant-widget{display:none}
 html.v1 .home-hero__inner{width:100%;max-width:var(--layout-max);margin:auto;padding:clamp(3rem,6vw,6rem) var(--page-gutter);display:grid;grid-template-columns:repeat(12,minmax(0,1fr));gap:var(--grid-gap);align-items:center}
 html.v1 .home-hero__copy{grid-column:1/span 6;min-width:0;position:relative;z-index:2}
 html.v1 .hero-kicker{text-transform:uppercase;letter-spacing:.11em;font-size:.72rem;font-weight:600;margin:0;color:var(--color-muted)}

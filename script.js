@@ -552,6 +552,7 @@ function fallbackCopy(text, done) {
   submitNewsletter("newsletter-form-fragmento",  "nl-email-fragmento",  "nl-gdpr-fragmento",  "nl-status-fragmento",  "fragmento");
   submitNewsletter("newsletter-form-manecillas", "nl-email-manecillas", "nl-gdpr-manecillas", "nl-status-manecillas", "manecillas");
   submitNewsletter("newsletter-form-cuaderno",   "nl-email-cuaderno",   "nl-gdpr-cuaderno",   "nl-status-cuaderno",   "cuaderno");
+  submitNewsletter("newsletter-form-explore",    "nl-email-explore",    "nl-gdpr-explore",    "nl-status-explore",    "explore");
   // Lectores beta (N.1, 2026-08-23): mismo mecanismo de envio, pero fuente,
   // lista de Brevo y consentimiento propios -- ver /lectores-beta/ y
   // cloudflare-worker-subscribe.js (BREVO_BETA_LIST_ID). El copy de exito no

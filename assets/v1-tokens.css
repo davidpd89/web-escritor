@@ -29,6 +29,7 @@
   --font-display:"Instrument Serif","Iowan Old Style","Palatino Linotype",Palatino,Georgia,serif;
   --font-ui:"Manrope","Avenir Next",Avenir,"Segoe UI",sans-serif;
   --font-reading:"Newsreader","Iowan Old Style",Charter,Georgia,serif;
+  --font-script:"Allura","Segoe Script","Bradley Hand",cursive;
 
   --text-xs:clamp(.78rem,.75rem + .12vw,.86rem);
   --text-sm:clamp(.88rem,.84rem + .16vw,.98rem);
