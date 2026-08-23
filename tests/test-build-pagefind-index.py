@@ -115,8 +115,9 @@ def run() -> None:
     # en el PATH esta parte no es comprobable aqui -- se omite explicitamente
     # en vez de contarla como fallo, para que este mismo fichero sirva en
     # ambos workflows sin duplicar el test de elegibilidad.
-    if shutil.which("npx") is None:
-        print("  skip 8-12. npx no disponible en este entorno (ver assistant-hardening-qa.yml para el ciclo build/--check completo)")
+    pagefind_installed = (ROOT / "node_modules" / "pagefind").exists()
+    if shutil.which("npx") is None or not pagefind_installed:
+        print("  skip 8-12. pagefind no instalado en node_modules en este entorno (ver assistant-hardening-qa.yml, que corre `npm ci` antes, para el ciclo build/--check completo)")
         if failures:
             print(f"\nFAIL: {len(failures)} check(s) de test-build-pagefind-index")
             raise SystemExit(1)
