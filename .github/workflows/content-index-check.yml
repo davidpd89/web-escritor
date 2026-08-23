@@ -58,6 +58,11 @@ jobs:
       # workflow.
       - name: Check no tracked file leaks an API key
         run: python scripts/check-secrets.py
+      # Gate reproducible de imagenes responsive (H.3): dimensiones
+      # intrinsecas para evitar CLS, srcset/sizes coherentes, y candidatos
+      # de srcset que apuntan a ficheros reales. Ver docs/PENDIENTE-H-*.md.
+      - name: Check responsive image policy
+        run: python scripts/check-responsive-images.py --check
       # Sin este check, un cambio en data/writer-tools.json (o en el propio
       # builder) puede fusionarse sin regenerar el HTML publicado, y nada lo
       # avisaria: paso exactamente eso con el CSP y el JSON-LD de esta pagina,

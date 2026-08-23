@@ -178,3 +178,125 @@ Antes de declarar implementado:
 - comprobar que la PR no reintroduce ningún punto ya resuelto en #54–#60.
 
 **No mergear esta PR automáticamente. No tocar `main`. No desplegar producción.**
+
+---
+
+# 5. Estado de implementación (2026-08-23)
+
+## H.1 — Runtime scoping
+
+- **Quiz de Noveris eliminado por completo** (no extraído: verificado por
+  grep en todo el sitio que `id="quiz-noveris-app"` no existe en ningún
+  HTML real, y `tests/test-samuel-ecosystem-parity.py:89` ya prohibía ese
+  id explícitamente porque el quiz vigente es otro —
+  `assets/samuel-quiz.js`, cargado solo en
+  `libros/samuel-entre-mundos/index.html`—). Código muerto desde su
+  creación, ~220 líneas retiradas.
+- **Modal de compra de Samuel** extraído a `assets/samuel-buy-modal.js`,
+  cargado únicamente donde existe `[data-buy-modal]`
+  (`libros/samuel-entre-mundos/index.html`).
+- **Popup de newsletter** extraído a `assets/newsletter-popup.js` +
+  `assets/newsletter-popup.css` (ya no crea su hoja con
+  `style.textContent`), cargado solo en las 13 páginas reales bajo
+  `/cuaderno/`, `/recomendaciones/`, `/universo/noveris/` y
+  `/clubes-de-lectura/`. Triggers alineados con la spec (70 % scroll, sin
+  temporizador de 30 s, exit-intent gateado a `hover:hover`+`pointer:fine`).
+  Estados de éxito/duplicado migrados de `style` inline con
+  `Cormorant Garamond` hardcodeado a clases (`.nl-popup-result-title/-body`)
+  con `var(--font-display)`.
+- **Gate de runtime scoping nuevo**: `scripts/check-runtime-scoping.py`
+  (+ `tests/test-check-runtime-scoping.py`, 5 casos) falla si el popup o el
+  modal vuelven a reimplementarse en `script.js`, o si el contrato
+  página↔script se rompe en cualquier dirección. Probado en rojo contra el
+  repo real (ver evidencia abajo).
+- `script.js`: 917 → 456 líneas.
+
+## H.2 — Funnel de Manecillas
+
+- `assets/manecillas-funnel.js` (cargado solo en
+  `las-manecillas-del-recuerdo/fragmentos/index.html`): eventos
+  `sample-start-manecillas` / `sample-complete-manecillas` con identidad de
+  libro explícita en el nombre, sin doble conteo (`IntersectionObserver` +
+  guard, verificado con scroll repetido).
+- **Bug real corregido**: el tracker de clics de "leer fragmento" buscaba
+  la subcadena `/fragmento/` (singular), que nunca coincidía con la ruta
+  real de Manecillas (`/las-manecillas-del-recuerdo/fragmentos/`, plural) —
+  esos clics no se contaban en absoluto. Separado en dos eventos con
+  identidad de libro: `leer-fragmento-samuel` / `leer-fragmento-manecillas`.
+- Sin `buy-open`/`buy-click` para Manecillas: no existe tienda real
+  verificable todavía (documentado explícitamente en el propio código). El
+  evento de conversión sigue siendo `newsletter-manecillas` (ya existente,
+  ya con identidad de libro).
+
+## H.3 — Gate de imágenes responsive
+
+- `scripts/check-responsive-images.py` (+ `tests/test-check-responsive-images.py`,
+  10 casos con fixtures positivos/negativos): clasifica `MISSING_DIMENSIONS`,
+  `SRCSET_WITHOUT_SIZES`, `BROKEN_SRCSET_CANDIDATE` e `INCOHERENT_LOADING`
+  en HTML público (excluye iconos/SVG/decorativos/noindex).
+- **Inventario real**: 68 páginas públicas, 48 `<img>` en todo el repo,
+  **0 incumplimientos** — el sitio ya declara `width`/`height` en todas sus
+  imágenes de contenido reales. No hizo falta corregir nada; se deja el
+  gate wireado para que no pueda regresar sin que CI lo detecte.
+- Wireado en `.github/workflows/content-index-check.yml`.
+
+## Evidencia de ejecución (real, pegada de las ejecuciones)
+
+```
+$ python scripts/check-runtime-scoping.py
+PASS: runtime scoping OK (88 paginas HTML revisadas).
+
+$ python scripts/check-responsive-images.py --check
+Responsive images check: 68 paginas publicas revisadas, 0 incumplimiento(s).
+
+$ python tests/test-check-runtime-scoping.py
+  ok   repo correctamente scoped no reporta errores
+  ok   popup reimplementado en script.js se detecta
+  ok   modal de Samuel reimplementado en script.js se detecta
+  ok   trigger sin script del modal se detecta
+  ok   popup cargado fuera de ambito se detecta
+tests/test-check-runtime-scoping: OK
+
+$ python tests/test-check-responsive-images.py
+  [10/10 casos OK]
+tests/test-check-responsive-images: OK
+
+$ node qa/runtime-scoping-browser.mjs
+runtime-scoping-browser: PASS
+
+$ node qa/manecillas-funnel-browser.mjs
+manecillas-funnel-browser: PASS
+
+$ node --check script.js && node --check assets/newsletter-popup.js && node --check assets/samuel-buy-modal.js && node --check assets/manecillas-funnel.js
+(sin errores)
+
+$ python scripts/check-heading-structure.py
+Heading/skip-link structure: 68 ficheros HTML revisados; 0 problema(s).
+
+$ python scripts/check-local-assets.py
+Local asset check: 88 HTML files scanned; 0 broken local reference(s).
+
+$ python scripts/check-internal-graph.py
+Summary: 0 error(s), 0 warning(s)
+
+$ python scripts/build-sitemap.py --check
+SITEMAP OK: 54 URLs
+
+$ python scripts/check-secrets.py
+No obvious secrets found in tracked files.
+
+$ python tests/test-samuel-ecosystem-parity.py   # exit 0
+$ node tests/test-newsletter-client-contract.mjs
+test-newsletter-client-contract: all assertions passed
+```
+
+**Pruebas en rojo realizadas antes de confiar en los checkers** (regla de
+la casa #3 de este documento):
+- `check-runtime-scoping.py`: se reintrodujo `document.getElementById("quiz-noveris-app")`
+  en `script.js` → detectado y revertido.
+- `check-responsive-images.py`: se quitó `width`/`height` de una imagen
+  real de `ferias.html` → detectado (`MISSING_DIMENSIONS`) y revertido.
+- `qa/manecillas-funnel-browser.mjs`: durante el desarrollo se detectó una
+  condición de carrera real (el script externo `gc.zgo.at/count.js`
+  sobrescribía el mock de GoatCounter a mitad de test) — corregida
+  bloqueando esa red en el propio test, no es un bug de producción.
