@@ -1,28 +1,177 @@
 {
-  "schema_version": 1,
-  "note": "Autoridad de evidencia para /recomendaciones/ (K.1, 2026-08-23). Fuente unica de verdad, machine-checkable via scripts/check-recommendations-evidence.py. Cada obra listada en cualquier guia de Recomendaciones debe tener una entrada aqui, indexada por ISBN.",
+  "schema_version": 2,
+  "note": "Autoridad de evidencia para /recomendaciones/ (K.1, 2026-08-23). Cada obra listada debe tener procedencia bibliografica reproducible cuando se afirma una edicion verificada. La autoria, la presencia en una lista o la existencia de una ficha nunca prueban lectura personal.",
   "evidence_status_enum": ["leido", "consultado", "verificado", "pendiente"],
   "evidence_status_meaning": {
-    "leido": "David Porto Diaz ha leido la obra. Solo se usa cuando hay evidencia de ello en el propio repositorio (p. ej. es autor de la obra).",
-    "verificado": "La edicion en espanol (ISBN, editorial, formato) se ha comprobado como real y correcta. No implica que David haya leido la obra personalmente.",
-    "consultado": "Los datos de la obra proceden de una fuente secundaria consultada (ficha editorial, reseña, bibliografia publica), sin verificacion adicional propia.",
-    "pendiente": "Sin evidencia suficiente todavia. Decision humana pendiente antes de afirmar nada mas fuerte."
+    "leido": "Lectura personal confirmada mediante una declaracion o referencia humana explicita y reproducible. No se infiere por autoria, propiedad de la web, inclusion en una lista ni existencia de una ficha.",
+    "verificado": "Los hechos bibliograficos indicados en verificationScope se han contrastado con la fuente reproducible declarada. No implica lectura personal ni valida por si solo juicios sobre el contenido.",
+    "consultado": "Existe una fuente reproducible consultada, pero no se eleva el dato a edicion verificada o la fuente solo respalda parte de lo descrito.",
+    "pendiente": "No hay evidencia suficiente para una afirmacion mas fuerte. Requiere decision o comprobacion humana."
   },
+  "personal_reading_status_enum": ["leido", "pendiente"],
+  "corrections": [
+    {
+      "correction_id": "rec-evidence-authorship-is-not-reading-2026-08-23",
+      "status": "applied",
+      "page_url": "https://davidportodiaz.com/recomendaciones/politica-de-recomendaciones/",
+      "corrected_at": "2026-08-23",
+      "significant_update": true,
+      "public_note": true,
+      "source": "Auditoria editorial K.1 de la PR #66: la autoria no constituye evidencia de lectura personal.",
+      "summary": "Se separa la relacion de autoria de la evidencia de lectura personal y se sustituyen referencias bibliograficas vagas por fuentes reproducibles."
+    }
+  ],
   "works": [
-    { "isbn": "9788408099031", "title": "El león, la bruja y el armario", "author": "C. S. Lewis", "evidenceStatus": "verificado", "verifiedDate": "2026-08-23", "editionSource": "Ficha de la edición en Amazon España (ISBN visible en la ficha del producto).", "factsSource": "Sinopsis y datos generales ampliamente documentados en fuentes públicas (editorial, reseñas). No implica lectura personal confirmada de David Porto Díaz." },
-    { "isbn": "9788418173004", "title": "Harry Potter y la piedra filosofal", "author": "J. K. Rowling", "evidenceStatus": "verificado", "verifiedDate": "2026-08-23", "editionSource": "Ficha de la edición en Amazon España (ISBN visible en la ficha del producto).", "factsSource": "Sinopsis y datos generales ampliamente documentados en fuentes públicas (editorial, reseñas). No implica lectura personal confirmada de David Porto Díaz." },
-    { "isbn": "9788420451862", "title": "El laberinto del fauno", "author": "Guillermo del Toro y Cornelia Funke", "evidenceStatus": "verificado", "verifiedDate": "2026-08-23", "editionSource": "Ficha de la edición Alfaguara en Amazon España (ISBN visible en la ficha del producto).", "factsSource": "Sinopsis y datos generales ampliamente documentados en fuentes públicas (editorial, reseñas). No implica lectura personal confirmada de David Porto Díaz." },
-    { "isbn": "9791387659776", "title": "Samuel entre mundos", "author": "David Porto Díaz", "evidenceStatus": "leido", "verifiedDate": "2026-08-23", "editionSource": "Obra propia, publicada por Libros Indie (2025). ISBN de la ficha oficial del libro.", "factsSource": "Obra propia: David Porto Díaz es su autor. Relación declarada explícitamente en cada guía (rec-item--self / rec-disclosures)." },
-    { "isbn": "9786073822626", "title": "La historia interminable", "author": "Michael Ende", "evidenceStatus": "verificado", "verifiedDate": "2026-08-23", "editionSource": "Ficha de la edición en Amazon España (ISBN visible en la ficha del producto).", "factsSource": "Sinopsis y datos generales ampliamente documentados en fuentes públicas (editorial, reseñas). No implica lectura personal confirmada de David Porto Díaz." },
-    { "isbn": "9788408182542", "title": "La puerta de los tres cerrojos", "author": "Sónia Fernández-Vidal", "evidenceStatus": "verificado", "verifiedDate": "2026-08-23", "editionSource": "Ficha de la edición Destino Infantil & Juvenil en Amazon España (ISBN visible en la ficha del producto).", "factsSource": "Sinopsis y datos generales ampliamente documentados en fuentes públicas (editorial, reseñas). No implica lectura personal confirmada de David Porto Díaz." },
-    { "isbn": "9788467535938", "title": "Memorias de Idhún I: La Resistencia", "author": "Laura Gallego", "evidenceStatus": "verificado", "verifiedDate": "2026-08-23", "editionSource": "Ficha de la edición SM en Amazon España (ISBN visible en la ficha del producto).", "factsSource": "Sinopsis y datos generales ampliamente documentados en fuentes públicas (editorial, reseñas). No implica lectura personal confirmada de David Porto Díaz." },
-    { "isbn": "9788445001394", "title": "El libro de los portales", "author": "Laura Gallego", "evidenceStatus": "verificado", "verifiedDate": "2026-08-23", "editionSource": "Ficha de la edición digital Minotauro en Amazon España (ISBN visible en la ficha del producto).", "factsSource": "Sinopsis y datos generales ampliamente documentados en fuentes públicas (editorial, reseñas). No implica lectura personal confirmada de David Porto Díaz." },
-    { "isbn": "9788491057772", "title": "Alicia en el País de las Maravillas", "author": "Lewis Carroll", "evidenceStatus": "verificado", "verifiedDate": "2026-08-23", "editionSource": "Ficha de la edición en Amazon España (ISBN visible en la ficha del producto).", "factsSource": "Sinopsis y datos generales ampliamente documentados en fuentes públicas (editorial, reseñas). No implica lectura personal confirmada de David Porto Díaz." },
-    { "isbn": "9788466636223", "title": "La brújula dorada", "author": "Philip Pullman", "evidenceStatus": "verificado", "verifiedDate": "2026-08-23", "editionSource": "Ficha de la edición en Amazon España (ISBN visible en la ficha del producto).", "factsSource": "Sinopsis y datos generales ampliamente documentados en fuentes públicas (editorial, reseñas). No implica lectura personal confirmada de David Porto Díaz." },
-    { "isbn": "9788419260444", "title": "Nacidos de la Bruma (Mistborn, vol. 1)", "author": "Brandon Sanderson", "evidenceStatus": "verificado", "verifiedDate": "2026-08-23", "editionSource": "Ficha de la edición en Amazon España (ISBN visible en la ficha del producto).", "factsSource": "Sinopsis y datos generales ampliamente documentados en fuentes públicas (editorial, reseñas). No implica lectura personal confirmada de David Porto Díaz." },
-    { "isbn": "9788466657662", "title": "El camino de los reyes (El Archivo de las Tormentas, vol. 1)", "author": "Brandon Sanderson", "evidenceStatus": "verificado", "verifiedDate": "2026-08-23", "editionSource": "Ficha de la edición en Amazon España (ISBN visible en la ficha del producto).", "factsSource": "Sinopsis y datos generales ampliamente documentados en fuentes públicas (editorial, reseñas). No implica lectura personal confirmada de David Porto Díaz." },
-    { "isbn": "9788498148749", "title": "Fullmetal Alchemist, vol. 1", "author": "Hiromu Arakawa", "evidenceStatus": "verificado", "verifiedDate": "2026-08-23", "editionSource": "Ficha de la edición en Amazon España (ISBN visible en la ficha del producto).", "factsSource": "Sinopsis y datos generales ampliamente documentados en fuentes públicas (editorial, reseñas). No implica lectura personal confirmada de David Porto Díaz." },
-    { "isbn": "9788401337208", "title": "El nombre del viento (Crónica del Asesino de Reyes, vol. 1)", "author": "Patrick Rothfuss", "evidenceStatus": "verificado", "verifiedDate": "2026-08-23", "editionSource": "Ficha de la edición en Amazon España (ISBN visible en la ficha del producto).", "factsSource": "Sinopsis y datos generales ampliamente documentados en fuentes públicas (editorial, reseñas). No implica lectura personal confirmada de David Porto Díaz." },
-    { "isbn": "9788445006016", "title": "Una magia más oscura (Shades of Magic, vol. 1)", "author": "V. E. Schwab", "evidenceStatus": "verificado", "verifiedDate": "2026-08-23", "editionSource": "Ficha del listado en Amazon España (ISBN visible en la ficha del producto).", "factsSource": "Sinopsis y datos generales ampliamente documentados en fuentes públicas (editorial, reseñas). No implica lectura personal confirmada de David Porto Díaz." }
+    {
+      "isbn": "9788408099031",
+      "title": "El león, la bruja y el armario",
+      "author": "C. S. Lewis",
+      "evidenceStatus": "verificado",
+      "verifiedDate": "2026-08-23",
+      "verificationScope": ["title", "author", "isbn", "edition"],
+      "editionSource": {"type": "retailer-catalog", "url": "https://www.fnac.es/a425440/Gemma-Gallart-El-leon-la-bruja-y-el-armario"},
+      "personalReadingStatus": "pendiente"
+    },
+    {
+      "isbn": "9788418173004",
+      "title": "Harry Potter y la piedra filosofal",
+      "author": "J. K. Rowling",
+      "evidenceStatus": "verificado",
+      "verifiedDate": "2026-08-23",
+      "verificationScope": ["title", "author", "isbn", "edition"],
+      "editionSource": {"type": "publisher-catalog", "url": "https://www.penguinlibros.com/es/libros-ninos-9-anos/37439-libro-harry-potter-y-la-piedra-filosofal-harry-potter-edicion-con-la-portada-ilustrada-por-johnny-duddle-1-9788418173004"},
+      "personalReadingStatus": "pendiente"
+    },
+    {
+      "isbn": "9788420451862",
+      "title": "El laberinto del fauno",
+      "author": "Guillermo del Toro y Cornelia Funke",
+      "evidenceStatus": "verificado",
+      "verifiedDate": "2026-08-23",
+      "verificationScope": ["title", "author", "isbn", "publisher", "edition"],
+      "editionSource": {"type": "retailer-catalog", "url": "https://www.casadellibro.com/libro-el-laberinto-del-fauno/9788420451862/9634916"},
+      "personalReadingStatus": "pendiente"
+    },
+    {
+      "isbn": "9791387659776",
+      "title": "Samuel entre mundos",
+      "author": "David Porto Díaz",
+      "relationship": "obra-propia",
+      "evidenceStatus": "verificado",
+      "verifiedDate": "2026-08-23",
+      "verificationScope": ["title", "author", "isbn", "publisher", "publicationYear"],
+      "editionSource": {"type": "publisher-catalog", "url": "https://librosindie.net/product/samuel-entre-mundos/"},
+      "personalReadingStatus": "pendiente"
+    },
+    {
+      "isbn": "9786073822626",
+      "title": "La historia interminable",
+      "author": "Michael Ende",
+      "evidenceStatus": "verificado",
+      "verifiedDate": "2026-08-23",
+      "verificationScope": ["title", "author", "isbn", "edition"],
+      "editionSource": {"type": "retailer-catalog", "url": "https://www.elpalaciodehierro.com/gandhi-la-historia-interminable-42886528.html"},
+      "personalReadingStatus": "pendiente"
+    },
+    {
+      "isbn": "9788408182542",
+      "title": "La puerta de los tres cerrojos",
+      "author": "Sónia Fernández-Vidal",
+      "evidenceStatus": "verificado",
+      "verifiedDate": "2026-08-23",
+      "verificationScope": ["title", "author", "isbn", "publisher", "edition"],
+      "editionSource": {"type": "retailer-catalog", "url": "https://www.casadellibro.com/libro-la-puerta-de-los-tres-cerrojos/9788408182542/6226357"},
+      "personalReadingStatus": "pendiente"
+    },
+    {
+      "isbn": "9788467535938",
+      "title": "Memorias de Idhún I: La Resistencia",
+      "author": "Laura Gallego",
+      "evidenceStatus": "verificado",
+      "verifiedDate": "2026-08-23",
+      "verificationScope": ["title", "author", "isbn", "publisher", "edition"],
+      "editionSource": {"type": "publisher-catalog", "url": "https://es.literaturasm.com/sites/default/files/documentos/catalogo_sm0.pdf"},
+      "personalReadingStatus": "pendiente"
+    },
+    {
+      "isbn": "9788445001394",
+      "title": "El libro de los portales",
+      "author": "Laura Gallego",
+      "evidenceStatus": "verificado",
+      "verifiedDate": "2026-08-23",
+      "verificationScope": ["title", "author", "isbn", "publisher", "edition"],
+      "editionSource": {"type": "retailer-catalog", "url": "https://www.casadellibro.com/ebook-el-libro-de-los-portales-ne-ebook/9788445001394/2097910"},
+      "personalReadingStatus": "pendiente"
+    },
+    {
+      "isbn": "9788491057772",
+      "title": "Alicia en el País de las Maravillas",
+      "author": "Lewis Carroll",
+      "evidenceStatus": "verificado",
+      "verifiedDate": "2026-08-23",
+      "verificationScope": ["title", "author", "isbn", "publisher", "edition"],
+      "editionSource": {"type": "retailer-catalog", "url": "https://www.casadellibro.com/libro-alicia-en-el-pais-de-las-maravillas-edicion-conmemorativa/9788491057772/17140814"},
+      "personalReadingStatus": "pendiente"
+    },
+    {
+      "isbn": "9788466636223",
+      "title": "La brújula dorada",
+      "author": "Philip Pullman",
+      "evidenceStatus": "verificado",
+      "verifiedDate": "2026-08-23",
+      "verificationScope": ["title", "author", "isbn", "publisher", "edition"],
+      "editionSource": {"type": "retailer-catalog", "url": "https://www.casadellibro.com/libro-la-brujula-dorada-la-materia-oscura-i/9788466636223/1164575"},
+      "personalReadingStatus": "pendiente"
+    },
+    {
+      "isbn": "9788419260444",
+      "title": "Nacidos de la Bruma (Mistborn, vol. 1)",
+      "author": "Brandon Sanderson",
+      "evidenceStatus": "verificado",
+      "verifiedDate": "2026-08-23",
+      "verificationScope": ["title", "author", "isbn", "publisher", "edition"],
+      "editionSource": {"type": "publisher-catalog", "url": "https://www.penguinrandomhouse.com/books/772354/nacidos-de-la-bruma-el-imperio-final--mistbornthe-final-empire-by-brandon-sanderson/hardcover/"},
+      "personalReadingStatus": "pendiente"
+    },
+    {
+      "isbn": "9788466657662",
+      "title": "El camino de los reyes (El Archivo de las Tormentas, vol. 1)",
+      "author": "Brandon Sanderson",
+      "evidenceStatus": "verificado",
+      "verifiedDate": "2026-08-23",
+      "verificationScope": ["title", "author", "isbn", "publisher", "edition"],
+      "editionSource": {"type": "bibliographic-catalog", "url": "https://martinfierrolibros.com/es/articles/pdf/280421"},
+      "personalReadingStatus": "pendiente"
+    },
+    {
+      "isbn": "9788498148749",
+      "title": "Fullmetal Alchemist, vol. 1",
+      "author": "Hiromu Arakawa",
+      "evidenceStatus": "verificado",
+      "verifiedDate": "2026-08-23",
+      "verificationScope": ["title", "author", "isbn", "publisher", "edition"],
+      "editionSource": {"type": "publisher-catalog", "url": "https://www.normacomics.com/comics/manga/fullmetal-alchemist-01.html"},
+      "personalReadingStatus": "pendiente"
+    },
+    {
+      "isbn": "9788401337208",
+      "title": "El nombre del viento (Crónica del Asesino de Reyes, vol. 1)",
+      "author": "Patrick Rothfuss",
+      "evidenceStatus": "verificado",
+      "verifiedDate": "2026-08-23",
+      "verificationScope": ["title", "author", "isbn", "publisher", "edition"],
+      "editionSource": {"type": "publisher-catalog", "url": "https://www.penguinlibros.com/es/libros-de-fantasia/31325-libro-el-nombre-del-viento-cronica-del-asesino-de-reyes-1-9788401337208"},
+      "personalReadingStatus": "pendiente"
+    },
+    {
+      "isbn": "9788445006016",
+      "title": "Una magia más oscura (Shades of Magic, vol. 1)",
+      "author": "V. E. Schwab",
+      "evidenceStatus": "verificado",
+      "verifiedDate": "2026-08-23",
+      "verificationScope": ["title", "author", "isbn", "publisher", "edition"],
+      "editionSource": {"type": "retailer-catalog", "url": "https://www.casadellibro.com/libro-una-magia-mas-oscura-trilogia-sombras-de-magia-1/9788445006016/9198633"},
+      "personalReadingStatus": "pendiente"
+    }
   ]
 }
