@@ -40,6 +40,12 @@ assets/*/source/*.png
 dist/
 lh.html
 
+# Ephemeral copy scripts/build-pagefind-index.py feeds to the pagefind CLI --
+# deleted again as soon as the build finishes. pagefind/ itself (the actual
+# search index) IS committed: `import('/pagefind/pagefind.js')` needs to
+# resolve on a repo that ships as static files with no build step.
+.pagefind-src/
+
 # QA evidence written by the browser suites and uploaded by CI — generated,
 # never tracked.
 artifacts/

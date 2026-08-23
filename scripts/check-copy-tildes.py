@@ -39,6 +39,7 @@ ROOT = Path(__file__).resolve().parents[1]
 SKIP_PARTS = {
     ".git", ".github", "node_modules", "tests", "archive",
     "WEB DAVID PORTO nuevas ideas", ".codex_work", ".preview-dist", "dist",
+    "pagefind",  # vendored JS from the `pagefind` npm package, not our copy
 }
 
 # Solo formas que siempre llevan tilde. Ver el docstring: nada con homografo.
