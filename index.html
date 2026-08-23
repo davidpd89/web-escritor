@@ -291,6 +291,13 @@
   <link rel="stylesheet" href="assets/v1-shell.css" />
   <link rel="stylesheet" href="assets/v1-home.css" />
   <link rel="stylesheet" href="assets/v1-book.css" />
+  <!-- W.4 — View Transitions opt-in, scoped to this document only. Only
+       fires when the destination document also opts in (Las manecillas
+       del recuerdo, Autor); every other page stays a plain navigation. -->
+  <style>
+    @view-transition{navigation:auto}
+    @media (prefers-reduced-motion:reduce){::view-transition-group(*),::view-transition-old(*),::view-transition-new(*){animation:none !important}}
+  </style>
 </head>
 
 <body>

@@ -1,5 +1,13 @@
 /* V1 editorial system — Book family (Manecillas piloto). Ported from
    lab/diseno-home-v1/css/book.css, scoped to html.v1 pages. */
+
+/* W.4 — View Transitions naming, Home <-> Manecillas pair (cover). This
+   file is also loaded by donde-empieza-la-jaula/ and the fragmentos page,
+   so the actual @view-transition navigation opt-in is NOT declared here —
+   it lives inline in Home's and the book page's <head> only, keeping
+   transitions scoped to the one demonstrated pair the contract names.
+   The name below is inert on any page that doesn't also opt in. */
+html.v1 [data-media="cover"] img{view-transition-name:manecillas-cover}
 html.v1 .book-page{max-width:var(--layout-max);margin:auto;padding-inline:var(--page-gutter)}
 html.v1 .book-hero{min-height:clamp(720px,72vw,900px);display:grid;grid-template-columns:repeat(12,minmax(0,1fr));gap:var(--grid-gap);align-items:center;padding:clamp(3rem,6vw,6rem) 0 clamp(5rem,8vw,8rem)}
 html.v1 .book-cover-zone{grid-column:1/span 4;position:relative;align-self:center;display:grid;place-items:center;min-width:0}

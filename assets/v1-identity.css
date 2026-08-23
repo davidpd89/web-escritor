@@ -3,6 +3,14 @@
    in v1-families.css; this file corrects the public/documentary treatment
    without changing other families. */
 
+/* W.4 — View Transitions naming, Home <-> Autor pair (portrait). This
+   file is shared by Prensa/Premios/Eventos too, so the actual
+   @view-transition navigation opt-in is NOT declared here — it lives
+   inline in Home's and Autor's <head> only, keeping transitions scoped
+   to the one demonstrated pair. The name below is inert on the other
+   three identity pages, which never opt in. */
+html.v1 [data-family="identity"] .author-portrait img{view-transition-name:author-portrait}
+
 /* Author: keep the real portrait editorial, reserve its geometry and avoid a
    corporate card treatment. Intrinsic HTML dimensions remain the CLS source. */
 html.v1 [data-family="identity"] .author-portrait{

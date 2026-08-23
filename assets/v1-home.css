@@ -2,6 +2,14 @@
    lab/diseno-home-v1/css/home.css + variants.css html[data-variant="b"].
    Shell/nav/footer stay light; only .home-hero goes dark territory —
    this is the approved contrast, not a global dark-mode switch. */
+
+/* W.4 — View Transitions naming, Home <-> Autor pair (portrait). The
+   @view-transition navigation opt-in itself lives inline in this page's
+   <head> (and the Autor page's), not here: v1-book.css/v1-identity.css
+   are shared by more pages than just the two intended endpoints, and the
+   contract restricts transitions to demonstrated pairs only — a shared
+   family stylesheet would silently opt in every page that loads it. */
+html.v1 .hero-portrait[data-media="portrait"] img{view-transition-name:author-portrait}
 html.v1 .home-hero{min-height:max(760px,calc(100svh - 76px));display:grid;grid-template-columns:minmax(0,1fr);align-items:center;position:relative;overflow:clip;background:var(--territory-bg);color:var(--territory-text)}
 html.v1 .home-hero{--color-muted:var(--territory-muted);--color-border:var(--territory-border);--focus-color:var(--territory-focus)}
 html.v1 .home-hero::after{content:"";position:absolute;inset:0 0 0 52%;background:linear-gradient(120deg,transparent 0 40%,rgba(244,239,231,.045) 70%,transparent 100%);pointer-events:none}

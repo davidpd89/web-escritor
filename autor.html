@@ -59,6 +59,12 @@
   <link rel="stylesheet" href="/assets/v1-components.css" />
   <link rel="stylesheet" href="/assets/v1-families.css" />
   <link rel="stylesheet" href="/assets/v1-identity.css" />
+  <!-- W.4 — View Transitions opt-in, scoped to this document only. Only
+       fires when the origin document also opts in (Home). -->
+  <style>
+    @view-transition{navigation:auto}
+    @media (prefers-reduced-motion:reduce){::view-transition-group(*),::view-transition-old(*),::view-transition-new(*){animation:none !important}}
+  </style>
 
   <script type="application/ld+json">
   {
