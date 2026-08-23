@@ -7,6 +7,7 @@ on:
       - 'herramientas/json-ld-escritores/**'
       - 'herramientas/kit-prensa-escritores/**'
       - 'herramientas/auditor-pagina-libro/**'
+      - 'herramientas/tarjeta-estoy-leyendo/**'
       - 'assets/metadatos-libro.js'
       - 'assets/jsonld-escritores-core.js'
       - 'assets/jsonld-escritores.js'
@@ -14,12 +15,16 @@ on:
       - 'assets/kit-prensa-escritor.js'
       - 'assets/book-page-audit-rules.js'
       - 'assets/auditor-pagina-libro.js'
+      - 'assets/tarjeta-estoy-leyendo-core.js'
+      - 'assets/tarjeta-estoy-leyendo.js'
       - 'assets/v1-tools-publishing.css'
       - 'tests/test-metadatos-libro.mjs'
       - 'tests/test-jsonld-escritores-core.mjs'
       - 'tests/test-kit-prensa-core.mjs'
       - 'tests/test-book-page-audit-rules.mjs'
+      - 'tests/test-tarjeta-estoy-leyendo.mjs'
       - 'qa/tools-publishing-browser.mjs'
+      - 'qa/tarjeta-estoy-leyendo-browser.mjs'
       - 'qa/text-spacing-publishing.css'
       - 'qa/validate-press-kit.py'
       - 'qa/publishing-metadata-preservation.mjs'
@@ -70,6 +75,11 @@ jobs:
           QA_ORIGIN: http://127.0.0.1:4173
           QA_OUT: qa-artifacts
         run: node qa/tools-publishing-browser.mjs
+
+      - name: Run embeddable reading card QA
+        env:
+          QA_ORIGIN: http://127.0.0.1:4173
+        run: node qa/tarjeta-estoy-leyendo-browser.mjs
 
       - name: Inspect generated press-kit ZIP
         run: python3 qa/validate-press-kit.py qa-artifacts/press-kit-qa.zip
