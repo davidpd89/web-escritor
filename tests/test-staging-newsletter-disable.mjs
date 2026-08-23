@@ -55,9 +55,11 @@ assert.match(popupSource, STAGING_GUARD_RE, 'newsletter popup must stop on stagi
 
 for (const [label, text] of [['generic newsletter forms', source], ['newsletter popup', popupSource]]) {
   const guard = text.search(/if\s*\(IS_STAGING\)/);
-  const request = text.search(/postNewsletter\s*\(/);
+  // Match the real network-call site, not the async function declaration in
+  // script.js, which necessarily appears earlier in the file.
+  const request = text.search(/await\s+postNewsletter\s*\(/);
   assert.ok(guard >= 0, `${label}: staging guard missing`);
-  assert.ok(request >= 0, `${label}: postNewsletter call missing`);
+  assert.ok(request >= 0, `${label}: awaited postNewsletter call missing`);
   assert.ok(guard < request, `${label}: staging guard must execute before postNewsletter`);
 }
 
