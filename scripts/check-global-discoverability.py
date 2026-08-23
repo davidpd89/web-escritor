@@ -8,6 +8,7 @@ those exceptions instead of silently forcing them into the general template.
 """
 from __future__ import annotations
 
+import importlib.util
 import json
 import re
 import subprocess
@@ -18,12 +19,24 @@ from pathlib import Path
 from urllib.parse import urlparse
 
 ROOT = Path(__file__).resolve().parents[1]
+
+_bpd_spec = importlib.util.spec_from_file_location(
+    "build_public_dist", ROOT / "scripts" / "build-public-dist.py"
+)
+_bpd = importlib.util.module_from_spec(_bpd_spec)
+_bpd_spec.loader.exec_module(_bpd)
+
 ORIGIN = "https://davidportodiaz.com"
 OUT = ROOT / "artifacts" / "global-discoverability" / "inventory.json"
 
 INTERNAL_PREFIXES = ("publicar-web/", "lecturas/", "herramientas/auditor-web/")
 LAB_PREFIXES = ("lab/",)
-GATED_PREFIXES = ("donde-empieza-la-jaula/",)
+# Autoridad unica (staging-publication-gate): las rutas gated/staging se
+# derivan de data/content-registry.json (status != public), NO de una
+# segunda lista manual que build-public-dist.py mantiene por separado. Antes
+# esto era una tupla hardcoded aqui que podia desincronizarse en silencio de
+# la que de verdad controla que llega al dist publico.
+GATED_PREFIXES = _bpd.gated_prefixes_from_registry(ROOT)
 GENERATED_ROUTE_PREFIXES = (
     "editoriales/duermevela-ediciones/",
     "editoriales/minotauro/",
