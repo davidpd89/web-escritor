@@ -434,6 +434,31 @@ html.v1 .map-stage[data-focus-active="autor"]{--route-work-opacity:.92;--route-p
     opacity:1;
     background-image:url('/assets/samuel-entre-mundos.webp');
   }
+  html.v1 .map-stage:has([data-map-node="autor"]:is(:hover,:focus-visible)) .map-nodes::before{
+    opacity:1;
+    background-image:url('/assets/david-porto-autor-400.webp');
+  }
+  /* Cuaderno/Herramientas/Prensa have no portrait or cover to show — the
+     contract explicitly allows territory materiality via texture/color
+     instead of forcing an unrelated photo into every node's preview. */
+  html.v1 .map-stage:has([data-map-node="cuaderno"]:is(:hover,:focus-visible)) .map-nodes::before{
+    opacity:1;
+    background-size:auto;
+    background-color:var(--dp-sand);
+    background-image:repeating-linear-gradient(to bottom,color-mix(in srgb,var(--dp-ink) 12%,transparent) 0 1px,transparent 1px 12px);
+  }
+  html.v1 .map-stage:has([data-map-node="herramientas"]:is(:hover,:focus-visible)) .map-nodes::before{
+    opacity:1;
+    background-size:9px 9px;
+    background-color:var(--dp-paper);
+    background-image:radial-gradient(circle,color-mix(in srgb,var(--dp-copper) 65%,transparent) 1.3px,transparent 1.6px);
+  }
+  html.v1 .map-stage:has([data-map-node="prensa"]:is(:hover,:focus-visible)) .map-nodes::before{
+    opacity:1;
+    background-size:auto;
+    background-color:var(--dp-sand);
+    background-image:repeating-linear-gradient(115deg,color-mix(in srgb,var(--dp-ink) 8%,transparent) 0 2px,transparent 2px 9px);
+  }
   html.v1 .map-stage:has([data-map-node="manecillas"]:is(:hover,:focus-visible)) .map-nodes::after{content:"Las manecillas del recuerdo\A Obra actual" / ""}
   html.v1 .map-stage:has([data-map-node="autor"]:is(:hover,:focus-visible)) .map-nodes::after{content:"Autor\A Biografía y trayectoria" / ""}
   html.v1 .map-stage:has([data-map-node="samuel"]:is(:hover,:focus-visible)) .map-nodes::after{content:"Samuel entre mundos\A Primera novela" / ""}
