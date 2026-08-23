@@ -290,3 +290,140 @@ Antes de declarar esta PR resuelta:
 - revisar el diff final completo.
 
 **No tocar `main`. No desplegar producción. No auto-merge.**
+
+---
+
+# 6. Estado de implementación (2026-08-23)
+
+## K.4 — Cuarentena Noveris (hecho primero, según el orden recomendado)
+
+- `/cuaderno/sistema-de-magia-noveris/` neutralizada por completo: title,
+  meta description, OG, Twitter, `Article` JSON-LD y todo el contenido
+  visible (H1, deck, prosa, FAQ) sustituidos por una nota editorial neutral
+  que **no afirma como hecho** ninguna mecánica del sistema de magia en
+  disputa. No se inventa una explicación intermedia.
+- Nodo JSON-LD `FAQPage` retirado por completo de esa URL.
+- Se confirmó y corrigió la contradicción interna real señalada por la
+  auditoría: el deck/nota afirmaban «coste físico proporcional» mientras el
+  FAQ afirmaba «no la energía física del canalizado, sino pérdida de
+  memoria» — ambas afirmaciones convivían en la misma página.
+- Sigue `noindex, follow`, fuera del sitemap, canonical propio preservado.
+- Verificado que ninguna otra página del repo repite las frases factuales
+  conflictivas (grep sitewide, 0 coincidencias) — la contradicción estaba
+  aislada a esta única URL.
+- **Gate nuevo**: `scripts/check-noveris-magic-quarantine.py` (+
+  `tests/test-check-noveris-magic-quarantine.py`, 5 casos) bloquea que
+  reaparezcan noindex→index, las frases conflictivas conocidas, `FAQPage`,
+  o la URL en el sitemap.
+- No se ha tocado `/universo/noveris/` (fuera de alcance explícito de esta
+  ronda).
+
+## K.2 — FAQPage legacy en Recomendaciones
+
+- Nodo `FAQPage` retirado del JSON-LD en `/recomendaciones/portal-fantasy-espanol/`
+  y `/recomendaciones/magia-con-coste/`. El FAQ visible (`<details>`) se
+  conserva sin cambios. `WebPage`/`ItemList`/`Book`/breadcrumb intactos.
+- **Gate nuevo**: `scripts/check-recomendaciones-no-faqpage.py` impide que
+  reaparezca `FAQPage` en `/recomendaciones/`.
+
+## K.1 — Autoridad de evidencia de Recomendaciones
+
+- `data/recommendations-evidence.json`: autoridad única para las 15 obras
+  únicas (16 entradas de lista) de las dos guías, indexada por ISBN, con
+  `evidenceStatus` (`leido|consultado|verificado|pendiente`),
+  `verifiedDate`, `editionSource` y `factsSource` explícitos y separados.
+- **Ningún `leído` se infiere**: solo *Samuel entre mundos* (obra propia)
+  tiene `evidenceStatus: "leido"`. Las 14 obras restantes son
+  `"verificado"` — la edición/ISBN se ha comprobado como real, lo cual es
+  una afirmación distinta y más débil que «David la ha leído», tal y como
+  exige el criterio de aceptación.
+- El enlace de compra de Amazon se usa únicamente como evidencia de que
+  **la edición existe** (`editionSource`), nunca como fuente de los hechos
+  del libro (`factsSource` es una nota separada que lo aclara
+  explícitamente).
+- Cada ficha de cada guía muestra ahora un enlace visible («Cómo se
+  verifica» / «Obra propia — leído») a la nueva página
+  `/recomendaciones/politica-de-recomendaciones/`, que explica los cuatro
+  estados, cómo se verifican ediciones, qué es juicio editorial vs. hecho,
+  afiliación/obra propia, y cómo pedir una corrección. Enlazada también
+  desde el hub `/recomendaciones/` y desde el bloque de transparencia de
+  cada guía.
+- **Gate nuevo**: `scripts/check-recommendations-evidence.py` (+
+  `tests/test-check-recommendations-evidence.py`, 7 casos) falla si: un
+  ISBN listado no tiene entrada de evidencia; el ISBN visible no coincide
+  con `data-isbn`; el HTML afirma «verificada» sin respaldo de la
+  autoridad; una entrada `rec-item--self` no tiene `evidenceStatus:
+  "leido"`; falta la declaración de afiliación; o `evidenceStatus` no
+  pertenece al enum permitido.
+
+## K.3 — Compatibilidad cross-browser
+
+- Política documentada en `docs/compatibilidad-cross-browser.md`:
+  funcionalidad esencial vs. progressive enhancement, inventario de
+  feature-detection ya existente (`scheduler.postTask` con fallback,
+  `prefers-reduced-motion`, `<dialog>`).
+- **Smoke nuevo** `qa/cross-engine-smoke.mjs`: Chromium + Firefox + WebKit
+  sobre 10 rutas críticas (home, Manecillas, Samuel, Cuaderno,
+  Recomendaciones ×2, Herramientas ×2, Asistente en modo local). Verifica
+  carga, shell de navegación, apertura/cierre y foco del diálogo Explorar,
+  enlaces críticos con `href`, ausencia de excepciones JS, ausencia de
+  overflow horizontal móvil y formularios no deshabilitados.
+- El reflow profundo en Chromium/CDP (`qa/sitewide-reflow-browser.mjs`) no
+  se ha tocado ni degradado; sigue siendo un gate independiente.
+- **Limitación real de este entorno de desarrollo, documentada sin
+  maquillarla**: este sandbox local bloquea la descarga de los binarios de
+  Firefox/WebKit de Playwright (mismo proxy TLS autofirmado que ya bloqueaba
+  Puppeteer). Solo se ha podido ejecutar y verificar en rojo/verde la pata
+  **Chromium** en local (con el Edge portable, igual que el resto de la
+  suite). Las patas Firefox/WebKit se ejecutarán en
+  `.github/workflows/cross-engine-smoke.yml`, en un runner de GitHub
+  Actions sin esa restricción de red.
+- **Regresión deliberada real**: al desarrollar el smoke se detectó y
+  corrigió un bug genuino del propio test — si `[data-explore-open]` no
+  existía en una página, el test lo saltaba en silencio en vez de fallar.
+  Corregido para que la ausencia del trigger sea un fallo explícito, y
+  verificado en rojo rompiendo el atributo en `index.html` (detectado) y
+  restaurado.
+
+## Evidencia de ejecución (real)
+
+```
+$ python scripts/check-noveris-magic-quarantine.py --check
+Noveris magic quarantine check: 0 incumplimiento(s).
+
+$ python scripts/check-recomendaciones-no-faqpage.py --check
+Recomendaciones FAQPage check: 3 ficheros revisados, 0 incumplimiento(s).
+
+$ python scripts/check-recommendations-evidence.py --check
+Recommendations evidence check: 2 guía(s) revisada(s), 0 incumplimiento(s).
+
+$ python tests/test-check-noveris-magic-quarantine.py        # 5/5 OK
+$ python tests/test-check-recommendations-evidence.py        # 7/7 OK
+
+$ QA_CHROMIUM_EXECUTABLE_PATH=... node qa/cross-engine-smoke.mjs --engines=chromium
+ok   [chromium] / ... (10/10 rutas)
+cross-engine-smoke: PASS
+
+$ python scripts/check-heading-structure.py
+Heading/skip-link structure: 69 ficheros HTML revisados; 0 problema(s).
+
+$ python scripts/check-local-assets.py
+Local asset check: 89 HTML files scanned; 0 broken local reference(s).
+
+$ python scripts/check-internal-graph.py
+Summary: 0 error(s), 0 warning(s)
+
+$ python scripts/build-sitemap.py --check   # 55 URLs (nueva página de política incluida)
+
+$ node qa/sitewide-reflow-browser.mjs
+sitewide-reflow-browser: OK (68 routes, 2 viewports, 136 checks)
+```
+
+**Pruebas en rojo reales** (regla de la casa): `check-noveris-magic-quarantine.py`
+detectó una frase factual conflictiva reinyectada como fixture;
+`check-recomendaciones-no-faqpage.py` detectó un `FAQPage` reinyectado en
+`magia-con-coste`; `check-recommendations-evidence.py` detectó un ISBN
+eliminado de la autoridad; `cross-engine-smoke.mjs` detectó (y motivó
+corregir) la ausencia del trigger de Explorar tras romperlo
+deliberadamente en `index.html`. Todos los ficheros de prueba se
+restauraron antes de continuar.

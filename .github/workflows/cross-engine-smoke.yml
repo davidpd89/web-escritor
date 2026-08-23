@@ -1,0 +1,36 @@
+name: Cross-engine smoke
+
+on:
+  pull_request:
+    paths:
+      - '**/*.html'
+      - 'assets/**'
+      - 'script.js'
+      - 'qa/cross-engine-smoke.mjs'
+      - 'docs/compatibilidad-cross-browser.md'
+      - '.github/workflows/cross-engine-smoke.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  smoke:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+
+      - name: Install Playwright and browsers (Chromium + Firefox + WebKit)
+        run: |
+          npm install --no-save --no-package-lock playwright@1.55.0
+          npx playwright install --with-deps chromium firefox webkit
+
+      - name: Run cross-engine smoke (Chromium + Firefox + WebKit)
+        run: node qa/cross-engine-smoke.mjs
