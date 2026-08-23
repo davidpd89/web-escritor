@@ -3,19 +3,19 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
-  <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
+  <meta name="robots" content="noindex, follow" />
   <title>Política de Recomendaciones | David Porto Díaz</title>
-  <meta name="description" content="Cómo se construyen las listas de Recomendaciones: qué significan los estados de evidencia (leído, verificado, consultado, pendiente), cómo se comprueban ediciones e ISBN, qué es juicio editorial y cómo pedir una corrección." />
+  <meta name="description" content="Cómo se construyen las listas de Recomendaciones: qué significan los estados de evidencia, cómo se comprueban ediciones e ISBN, qué es lectura personal y cómo pedir una corrección." />
   <meta name="author" content="David Porto Díaz" />
   <meta property="og:title" content="Política de Recomendaciones — David Porto Díaz" />
-  <meta property="og:description" content="Qué significan los estados de evidencia de Recomendaciones y cómo se verifican las ediciones y los hechos de cada obra." />
+  <meta property="og:description" content="Qué significan los estados de evidencia de Recomendaciones y cómo se separan los hechos bibliográficos de la lectura personal." />
   <meta property="og:type" content="article" />
   <meta property="og:url" content="https://davidportodiaz.com/recomendaciones/politica-de-recomendaciones/" />
   <meta property="og:locale" content="es_ES" />
   <meta property="og:site_name" content="David Porto Díaz" />
   <meta name="twitter:card" content="summary" />
   <meta name="twitter:title" content="Política de Recomendaciones — David Porto Díaz" />
-  <meta name="twitter:description" content="Qué significan los estados de evidencia de Recomendaciones y cómo se verifican las ediciones y los hechos de cada obra." />
+  <meta name="twitter:description" content="Qué significan los estados de evidencia y cómo se separan hechos bibliográficos de lectura personal." />
   <meta name="theme-color" content="#F4EFE7" />
   <link rel="canonical" href="https://davidportodiaz.com/recomendaciones/politica-de-recomendaciones/" />
   <link rel="icon" type="image/png" href="/assets/david-porto-favicon.png" />
@@ -35,8 +35,9 @@
         "@id": "https://davidportodiaz.com/recomendaciones/politica-de-recomendaciones/",
         "name": "Política de Recomendaciones",
         "url": "https://davidportodiaz.com/recomendaciones/politica-de-recomendaciones/",
-        "description": "Cómo se construyen las listas de Recomendaciones: estados de evidencia, verificación de ediciones y proceso de corrección.",
+        "description": "Cómo se construyen las listas de Recomendaciones: estados de evidencia, verificación bibliográfica, lectura personal y proceso de corrección.",
         "inLanguage": "es",
+        "dateModified": "2026-08-23",
         "isPartOf": { "@id": "https://davidportodiaz.com/#website" },
         "author": { "@id": "https://davidportodiaz.com/#author" },
         "breadcrumb": {
@@ -155,36 +156,39 @@
       </div>
       <div class="article-meta">
         <p>Por <a href="/autor.html">David Porto Díaz</a></p>
-        <p><time datetime="2026-08-23">23 de agosto de 2026</time></p>
+        <p><time datetime="2026-08-23">Actualizado el 23 de agosto de 2026</time></p>
       </div>
     </header>
     <div class="article-layout">
       <div class="article-prose" data-article-body>
-        <p>Las listas de <a href="/recomendaciones/">Recomendaciones</a> son selecciones editoriales, no un catálogo bibliográfico académico. Esta página explica con qué criterio se afirma cada dato sobre cada obra, para que puedas distinguir qué está comprobado, qué es de fuente secundaria y qué es simplemente el criterio editorial de David sobre por qué una obra encaja en una lista.</p>
+        <aside class="article-note" role="note" data-correction-id="rec-evidence-authorship-is-not-reading-2026-08-23">
+          <p><strong>Corrección de evidencia — 23 de agosto de 2026.</strong> La autoría de una obra, su presencia en una lista o la existencia de una ficha no se consideran prueba de lectura personal. Desde esta revisión, la relación de autoría y la lectura personal se registran por separado, y una edición marcada como verificada debe contar con una fuente bibliográfica reproducible.</p>
+        </aside>
+        <p>Las listas de <a href="/recomendaciones/">Recomendaciones</a> son selecciones editoriales, no un catálogo bibliográfico académico. Esta página explica con qué criterio se afirma cada dato sobre cada obra, para que puedas distinguir qué está comprobado, qué procede de una fuente consultada, qué sería experiencia personal y qué es criterio editorial sobre por qué una obra encaja en una lista.</p>
 
         <h2 id="estados">Los cuatro estados de evidencia</h2>
         <p>Cada obra listada tiene, en un registro interno propio, uno de estos cuatro estados:</p>
         <ul>
-          <li id="leido"><strong>Leído.</strong> Solo se usa cuando hay una razón verificable para afirmarlo — por ejemplo, cuando la obra es del propio David Porto Díaz. No se marca como «leído» ningún libro de terceros solo porque aparezca en una lista curada por él.</li>
-          <li id="verificado"><strong>Verificado.</strong> La edición en español citada (título, autor, ISBN, editorial o formato) se ha comprobado como real y correcta contra la ficha pública de la edición. Verificado se refiere a la <em>edición</em>, no equivale a que David haya leído personalmente la obra.</li>
-          <li id="consultado"><strong>Consultado.</strong> Los datos proceden de una fuente secundaria consultada (ficha editorial, reseña, bibliografía pública) sin una comprobación adicional propia.</li>
-          <li id="pendiente"><strong>Pendiente.</strong> Todavía no hay evidencia suficiente. Es una decisión humana pendiente, no una afirmación.</li>
+          <li id="leido"><strong>Leído.</strong> Solo se usa cuando existe una declaración o referencia humana explícita que permita sostener una lectura personal. No se infiere porque David sea autor de la obra, porque el libro aparezca en una lista o porque exista una ficha en esta web.</li>
+          <li id="verificado"><strong>Verificado.</strong> Los hechos bibliográficos indicados para esa edición —por ejemplo título, autor, ISBN o editorial— se han contrastado con una fuente reproducible. No equivale a lectura personal ni convierte una ficha comercial en prueba de calidad o experiencia de lectura.</li>
+          <li id="consultado"><strong>Consultado.</strong> Existe una fuente identificable que respalda parte de la información, pero no se eleva el dato a edición verificada o la fuente no cubre todo lo descrito.</li>
+          <li id="pendiente"><strong>Pendiente.</strong> Todavía no hay evidencia suficiente para una afirmación más fuerte. Requiere comprobación o decisión humana.</li>
         </ul>
-        <p>El enlace «Cómo se verifica» o «Obra propia — leído» que acompaña a cada libro de las listas indica cuál de estos estados le corresponde.</p>
+        <p>El enlace «Cómo se verifica» indica el criterio y la procedencia bibliográfica. La condición de obra propia se declara aparte y nunca sustituye a una evidencia de lectura personal.</p>
 
         <h2 id="como-se-verifica">Cómo se comprueban las ediciones</h2>
-        <p>Para el estado «Verificado», la edición y el ISBN se comprueban contra la ficha pública del producto en la librería enlazada (o la ficha de la editorial cuando está disponible). Ese enlace de compra sirve como evidencia de que <strong>esa edición concreta existe</strong> con ese ISBN; no se usa, por sí solo, como fuente suficiente para afirmar hechos sobre el contenido o la calidad de la obra.</p>
-        <p>Los datos generales sobre el argumento, el género o el encaje temático de cada obra —cuando no proceden de una lectura propia— se apoyan en información ampliamente documentada y públicamente disponible sobre esa obra (sinopsis editorial, reseñas, bibliografía). Esto corresponde al estado «Consultado» o forma parte del criterio editorial que se explica a continuación.</p>
+        <p>Para el estado «Verificado», el registro de evidencia conserva una URL concreta de editorial, catálogo bibliográfico o librería donde pueden reproducirse los datos de la edición. Esa fuente respalda únicamente el alcance declarado —por ejemplo ISBN, autor, editorial o formato— y no se usa por sí sola para afirmar experiencia personal, valoración o calidad.</p>
+        <p>Los datos sobre argumento, género o encaje temático se separan de esos hechos bibliográficos. Cuando no existe evidencia de lectura personal, la explicación de por qué un título entra en una lista es criterio editorial apoyado, cuando corresponde, por fuentes públicas consultables; no se presenta como una experiencia de lectura que no esté acreditada.</p>
 
         <h2 id="juicio-editorial">Qué es juicio editorial y qué es un hecho verificable</h2>
-        <p>Que una obra <em>encaje</em> en una lista —por qué se incluye, qué etiqueta descriptiva recibe, en qué posición aparece— es una decisión editorial de David, no un hecho que una fuente externa demuestre por sí sola. Los hechos verificables (ISBN, editorial, idioma de la edición) se distinguen expresamente del criterio editorial (por qué esta obra ilustra bien un recurso narrativo, cómo se compara con otras de la lista).</p>
+        <p>Que una obra <em>encaje</em> en una lista —por qué se incluye, qué etiqueta descriptiva recibe, en qué posición aparece— es una decisión editorial, no un hecho que una fuente externa demuestre por sí sola. Los hechos verificables de una edición se distinguen expresamente del criterio editorial y de cualquier experiencia personal.</p>
 
         <h2 id="afiliacion">Afiliación y obra propia</h2>
         <p>Cuando una lista incluye enlaces de compra con el tag <code>davidporto-21</code>, son enlaces afiliados: una compra puede generar una pequeña comisión sin coste adicional para quien compra. La afiliación no determina qué obras se incluyen ni en qué orden aparecen.</p>
-        <p>Cuando una lista incluye <em>Samuel entre mundos</em>, se declara expresamente que es una obra de David Porto Díaz, autor de esta web, para que puedas valorar esa recomendación con ese contexto explícito.</p>
+        <p>Cuando una lista incluye <em>Samuel entre mundos</em>, se declara expresamente que es una obra de David Porto Díaz, autor de esta web, para que puedas valorar esa recomendación con ese contexto. Esa autoría no se registra como lectura personal.</p>
 
         <h2 id="correcciones">Cómo pedir una corrección</h2>
-        <p>Si detectas un ISBN incorrecto, una edición descatalogada, un dato equivocado sobre una obra o cualquier otra imprecisión en una de las listas, puedes escribir indicando la obra concreta y el dato afectado a través de los canales de contacto de <a href="/autor.html">la página del autor</a>. Las correcciones de hechos verificables se revisan y aplican; los cambios de criterio editorial (por qué una obra está o no en una lista) se consideran, pero no se resuelven automáticamente aceptando cada solicitud.</p>
+        <p>Si detectas un ISBN incorrecto, una edición descatalogada, un dato equivocado sobre una obra o cualquier otra imprecisión en una de las listas, puedes escribir indicando la obra concreta y el dato afectado a través de los canales de contacto de <a href="/autor.html">la página del autor</a>. Las correcciones de hechos verificables se revisan y aplican; los cambios de criterio editorial se consideran, pero no se resuelven automáticamente aceptando cada solicitud.</p>
       </div>
       <aside class="article-folio" aria-hidden="true">
         <strong>Recomendaciones</strong>
