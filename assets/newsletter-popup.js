@@ -1,18 +1,15 @@
 // Email capture popup -- EXTRAIDO de script.js (H.1, 2026-08-23).
 // Solo se necesita en /cuaderno/*, /recomendaciones/*, /universo/noveris/*
-// y /clubes-de-lectura/* (antes se descargaba/ejecutaba en TODAS las
-// paginas y se autoexcluia via allowedPath() en runtime). Su CSS vive
-// ahora en assets/newsletter-popup.css (enlazada desde el <head> de cada
-// pagina que carga este script) en vez de inyectarse con
-// style.textContent -- ver criterios de aceptacion de H.1.
+// y /clubes-de-lectura/*. Usa <dialog> nativo: el navegador gestiona la
+// modalidad y el ciclo de Tab; este módulo solo decide apertura/cierre y
+// devuelve el foco al elemento que lo tenía antes de abrir cuando procede.
 //
-// Triggers alineados con la spec del dossier (no reintroducir los
-// antiguos): 70% de scroll (no 60%), sin temporizador de 30s, exit-intent
-// solo en dispositivos con hover real + puntero fino.
+// Triggers de producto: 70% de scroll, SIN temporizador de 30 s y exit-intent
+// solo con (hover: hover) and (pointer: fine).
 //
 // Depende de scheduleTask/postNewsletter/isValidNewsletterEmail/
 // newsletterErrorMessage/IS_STAGING/STAGING_DISABLED_MESSAGE/_gcEvent, ya
-// globales (definidos por script.js, cargado antes que este fichero).
+// definidos por script.js, que se carga antes que este fichero.
 (function () {
   const DISMISSED_KEY = "nl-popup-ts";
   const SUBSCRIBED_KEY = "nl-subscribed";
@@ -23,14 +20,8 @@
   const ts = localStorage.getItem(DISMISSED_KEY);
   if (ts && Date.now() - Number(ts) < COOLDOWN) return;
 
-  // Copy varies by context: the Noveris/Samuel-specific pitch only makes
-  // sense on pages actually about that book. Elsewhere it stays generic.
   function popupCopy() {
     if (path.startsWith("/universo/noveris/") || path.startsWith("/clubes-de-lectura/")) {
-      // BREVO AUTOMATION VERIFICATION REQUIRED (2026-08-20): no confirmed
-      // Brevo automation in this repo actually emails a map/chapter PDF on
-      // signup, so this copy no longer promises specific automatic content
-      // delivery — only what a plain list subscription genuinely does.
       return {
         eyebrow: "Primeros lectores de Noveris",
         title: "Sigue el universo de Noveris.",
@@ -55,34 +46,35 @@
   }
 
   let shown = false;
+  let dialog = null;
+  let returnFocus = null;
+
+  function restoreFocus() {
+    const target = returnFocus;
+    returnFocus = null;
+    if (target instanceof HTMLElement && target.isConnected) {
+      target.focus({ preventScroll: true });
+    }
+  }
 
   function dismiss() {
     localStorage.setItem(DISMISSED_KEY, String(Date.now()));
-    const el = document.getElementById("nl-popup-overlay");
-    if (!el) return;
-    el.style.transition = "opacity 0.25s ease";
-    el.style.opacity = "0";
-    setTimeout(() => { if (el.parentNode) el.parentNode.removeChild(el); }, 260);
+    if (dialog?.open) dialog.close();
   }
 
-  function showPopup() {
-    if (shown || document.getElementById("nl-popup-overlay")) return;
-    shown = true;
-    localStorage.setItem(DISMISSED_KEY, String(Date.now()));
-    const copy = popupCopy();
-
-    const overlay = document.createElement("div");
-    overlay.id = "nl-popup-overlay";
-    overlay.setAttribute("role", "dialog");
-    overlay.setAttribute("aria-modal", "true");
-    overlay.setAttribute("aria-labelledby", "nl-popup-title");
-    overlay.innerHTML =
+  function buildDialog(copy) {
+    const d = document.createElement("dialog");
+    d.id = "nl-popup-dialog";
+    d.setAttribute("aria-labelledby", "nl-popup-title");
+    d.setAttribute("aria-describedby", "nl-popup-body");
+    d.innerHTML =
       '<div id="nl-popup-panel">' +
       '<button id="nl-popup-close" type="button" aria-label="Cerrar">&times;</button>' +
       '<p class="eyebrow">' + copy.eyebrow + '</p>' +
       '<h2 id="nl-popup-title">' + copy.title + '</h2>' +
       '<p id="nl-popup-body">' + copy.body + '</p>' +
       '<form id="nl-popup-form" novalidate>' +
+      '<label class="sr-only" for="nl-popup-email">Correo electrónico</label>' +
       '<input type="email" id="nl-popup-email" name="email" placeholder="tu@email.com" autocomplete="email" required />' +
       '<button type="submit" class="button primary" id="nl-popup-submit">' + copy.cta + '</button>' +
       '<label id="nl-popup-gdpr-row"><input type="checkbox" id="nl-popup-gdpr" required />Acepto recibir novedades del autor. <a href="/privacidad.html" target="_blank" rel="noopener">Privacidad</a>.</label>' +
@@ -90,27 +82,30 @@
       '</form>' +
       '<button id="nl-popup-skip" type="button">No, gracias</button>' +
       '</div>';
-    document.body.appendChild(overlay);
 
-    // Focus first field
-    scheduleTask(() => { const f = document.getElementById("nl-popup-email"); if (f) f.focus(); }, "user-visible");
-
-    // Close handlers
-    document.getElementById("nl-popup-close").addEventListener("click", dismiss);
-    document.getElementById("nl-popup-skip").addEventListener("click", dismiss);
-    overlay.addEventListener("click", function (e) { if (e.target === overlay) dismiss(); });
-    document.addEventListener("keydown", function escClose(e) {
-      if (e.key === "Escape") { dismiss(); document.removeEventListener("keydown", escClose); }
+    d.querySelector("#nl-popup-close").addEventListener("click", dismiss);
+    d.querySelector("#nl-popup-skip").addEventListener("click", dismiss);
+    d.addEventListener("click", (event) => {
+      if (event.target === d) dismiss();
     });
+    d.addEventListener("cancel", (event) => {
+      event.preventDefault();
+      dismiss();
+    });
+    d.addEventListener("close", () => {
+      restoreFocus();
+      d.remove();
+      if (dialog === d) dialog = null;
+    }, { once: true });
 
-    // Form submit
-    document.getElementById("nl-popup-form").addEventListener("submit", function (e) {
-      e.preventDefault();
+    d.querySelector("#nl-popup-form").addEventListener("submit", function (event) {
+      event.preventDefault();
       scheduleTask(async function () {
-        const emailEl = document.getElementById("nl-popup-email");
-        const gdprEl = document.getElementById("nl-popup-gdpr");
-        const statusEl = document.getElementById("nl-popup-status");
-        const submitBtn = document.getElementById("nl-popup-submit");
+        const emailEl = d.querySelector("#nl-popup-email");
+        const gdprEl = d.querySelector("#nl-popup-gdpr");
+        const statusEl = d.querySelector("#nl-popup-status");
+        const submitBtn = d.querySelector("#nl-popup-submit");
+        if (!emailEl || !gdprEl || !statusEl || !submitBtn) return;
         if (IS_STAGING) { statusEl.textContent = STAGING_DISABLED_MESSAGE; return; }
         if (!isValidNewsletterEmail(emailEl.value)) { statusEl.textContent = "Introduce un email válido."; return; }
         if (!gdprEl.checked) { statusEl.textContent = "Acepta la política de privacidad para continuar."; return; }
@@ -119,16 +114,19 @@
         submitBtn.textContent = "Enviando…";
         try {
           const result = await postNewsletter({ email: emailEl.value.trim(), source: "popup" });
+          const panel = d.querySelector("#nl-popup-panel");
           if (result.ok && !result.duplicate) {
             localStorage.setItem(SUBSCRIBED_KEY, "1");
-            const panel = document.getElementById("nl-popup-panel");
             panel.innerHTML = '<p class="nl-popup-result-title">' + copy.okTitle + '</p><p class="nl-popup-result-body">' + copy.okBody + '</p>';
+            panel.tabIndex = -1;
+            panel.focus({ preventScroll: true });
             _gcEvent("newsletter-popup", "Newsletter: popup");
             setTimeout(dismiss, 3200);
           } else if (result.ok && result.duplicate) {
             localStorage.setItem(SUBSCRIBED_KEY, "1");
-            const panel = document.getElementById("nl-popup-panel");
             panel.innerHTML = '<p class="nl-popup-result-title">' + copy.dupeTitle + '</p><p class="nl-popup-result-body">' + copy.dupeBody + '</p>';
+            panel.tabIndex = -1;
+            panel.focus({ preventScroll: true });
             setTimeout(dismiss, 3200);
           } else {
             throw new Error(result.code || "request_failed");
@@ -140,24 +138,50 @@
         }
       }, "user-blocking");
     });
+
+    return d;
   }
 
-  // Trigger 1: 70% scroll depth (alineado con la spec del dossier, no el
-  // 60% legacy).
-  window.addEventListener("scroll", function onScroll() {
+  function showPopup() {
+    if (shown || dialog?.open) return false;
+    // No apilar un segundo modal sobre Explorar, compra u otro <dialog> nativo.
+    if (document.querySelector("dialog[open]")) return false;
+
+    const active = document.activeElement;
+    returnFocus = active instanceof HTMLElement && active !== document.body && active !== document.documentElement
+      ? active
+      : null;
+
+    const copy = popupCopy();
+    dialog = buildDialog(copy);
+    document.body.appendChild(dialog);
+    try {
+      dialog.showModal();
+    } catch {
+      dialog.remove();
+      dialog = null;
+      returnFocus = null;
+      return false;
+    }
+
+    shown = true;
+    localStorage.setItem(DISMISSED_KEY, String(Date.now()));
+    dialog.querySelector("#nl-popup-email")?.focus({ preventScroll: true });
+    return true;
+  }
+
+  function onScroll() {
     const ratio = window.scrollY / Math.max(1, document.documentElement.scrollHeight - window.innerHeight);
-    if (ratio >= 0.7) { window.removeEventListener("scroll", onScroll); showPopup(); }
-  }, { passive: true });
+    if (ratio >= 0.7 && showPopup()) window.removeEventListener("scroll", onScroll);
+  }
+  window.addEventListener("scroll", onScroll, { passive: true });
 
-  // Trigger 2: exit-intent, solo en dispositivos con hover real + puntero
-  // fino -- un scroll/touch que el navegador interprete como mouseleave en
-  // movil no debe disparar el popup.
   if (window.matchMedia("(hover: hover) and (pointer: fine)").matches) {
-    document.addEventListener("mouseleave", function onLeave(e) {
-      if (e.clientY <= 0) { document.removeEventListener("mouseleave", onLeave); showPopup(); }
-    });
+    function onLeave(event) {
+      if (event.clientY <= 0 && showPopup()) document.removeEventListener("mouseleave", onLeave);
+    }
+    document.addEventListener("mouseleave", onLeave);
   }
 
-  // NO hay Trigger 3 (temporizador de 30s): retirado por spec, no
-  // reintroducir.
+  // Deliberadamente no hay trigger temporal de 30 s.
 })();
