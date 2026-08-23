@@ -1,0 +1,32 @@
+name: CSP public shell QA
+
+on:
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  csp-browser-qa:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+
+      - name: Install Playwright
+        run: |
+          npm install --no-save --no-package-lock playwright@1.55.0
+          npx playwright install --with-deps chromium
+
+      - name: Check public shell is generated from navigation contract
+        run: python3 scripts/build-site-shell.py --check
+
+      - name: Run CSP browser QA
+        run: node qa/csp-public-shell-browser.mjs
