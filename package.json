@@ -1,0 +1,13 @@
+{
+  "name": "web-escritor-ci-tools",
+  "private": true,
+  "description": "Herramientas de CI/QA de este repo (navegador headless, accesibilidad, Lighthouse). No es una app Node -- el sitio publicado es HTML/CSS/JS estatico sin build step. Este package.json existe solo para fijar una unica version de cada dependencia de CI en un lockfile compartido, en vez de que cada workflow de .github/workflows instale la suya por su cuenta con `npm install --no-save` (lo que llevo a 13 workflows en playwright@1.55.0 y 8 en playwright@1.62.1 -- motores Chromium distintos corriendo los mismos gates).",
+  "scripts": {
+    "postinstall:chromium": "playwright install --with-deps chromium"
+  },
+  "devDependencies": {
+    "playwright": "1.62.1",
+    "pa11y-ci": "4.1.1",
+    "@lhci/cli": "0.15.1"
+  }
+}

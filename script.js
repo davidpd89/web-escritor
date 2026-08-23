@@ -912,7 +912,7 @@ document.addEventListener('dp:analytics', _dpAnalyticsBridge);
         _lastBuyTrigger?.focus?.();
       });
     }
-    _gcEvent("abrir-modal-comprar", "Modal: abrir dónde comprar");
+    _gcEvent("abrir-modal-comprar-samuel", "Modal: abrir dónde comprar (Samuel entre mundos)");
     document.documentElement.classList.add("modal-open");
     // Back button support: push state so Back closes modal instead of leaving page
     history.pushState({ buyModal: true }, "", "#comprar");
@@ -941,9 +941,16 @@ document.querySelectorAll('a[href*="amazon.es"]:not(#buy-dialog a)').forEach(lin
   link.addEventListener("click", () => _gcEvent("comprar-amazon", "Clic: Comprar Amazon"));
 });
 
-// Leer fragmento gratis
-document.querySelectorAll('a[href*="/fragmento/"]').forEach(link => {
-  link.addEventListener("click", () => _gcEvent("leer-fragmento", "Clic: Leer fragmento"));
+// Leer fragmento gratis -- eventos separados por identidad de libro (I.1):
+// un unico nombre "leer-fragmento" no distinguia Samuel de Manecillas, y
+// ademas el patron `/fragmento/` (singular) nunca coincidia con la ruta
+// real de Manecillas (`/las-manecillas-del-recuerdo/fragmentos/`, plural),
+// asi que esos clics no se contaban en absoluto.
+document.querySelectorAll('a[href*="/fragmento/"]:not([href*="/las-manecillas-del-recuerdo/"])').forEach(link => {
+  link.addEventListener("click", () => _gcEvent("leer-fragmento-samuel", "Clic: Leer fragmento (Samuel entre mundos)"));
+});
+document.querySelectorAll('a[href*="/las-manecillas-del-recuerdo/fragmentos/"]').forEach(link => {
+  link.addEventListener("click", () => _gcEvent("leer-fragmento-manecillas", "Clic: Leer fragmento (Las manecillas del recuerdo)"));
 });
 
 // Explorar Noveris
