@@ -6,13 +6,13 @@ function scheduleTask(fn, priority = "background") {
   return Promise.resolve().then(fn);
 }
 
-// Client contract (2026-08-20): only { email, source, result? } is ever
-// sent to the Worker. listIds/attributes/updateEnabled are no longer
-// client-controlled — the Worker validates `source` against its own
-// server-side whitelist and builds the Brevo attributes itself. See
-// cloudflare-worker-subscribe.js. The `source` values used below (home,
-// fragmento, manecillas, cuaderno, popup, quiz) must match the Worker's
-// SOURCE_MAP keys exactly.
+// Client contract (2026-08-23): only { email, source, result?, website? } is ever
+// sent to the Worker. `website` is a honeypot and is never forwarded by the Worker.
+// listIds/attributes/templateId/redirectionUrl are never client-controlled —
+// the Worker validates `source` against its own server-side whitelist and
+// builds the Brevo attributes itself. See cloudflare-worker-subscribe.js.
+// The `source` values used below (home, fragmento, manecillas, cuaderno,
+// popup, quiz, lectores-beta) must match the Worker's SOURCE_MAP keys exactly.
 const NEWSLETTER_CONFIG = {
   endpoint: "https://subscribe.davidpd89.workers.dev"
 };
@@ -22,7 +22,28 @@ const NEWSLETTER_TIMEOUT_MS = 12000;
 // so obviously-invalid input never leaves the browser, not just the empty case.
 const NEWSLETTER_EMAIL_RE = /^[^\s@]{1,64}@[^\s@]{1,253}\.[^\s@]{2,}$/;
 function isValidNewsletterEmail(value) {
-  return NEWSLETTER_EMAIL_RE.test(String(value || "").trim());
+  const normalized = String(value || "").trim();
+  return normalized.length <= 254 && NEWSLETTER_EMAIL_RE.test(normalized);
+}
+
+function honeypotValue(form) {
+  const field = form?.querySelector('input[name="website"]');
+  return field ? String(field.value || "").trim() : "";
+}
+
+function installNewsletterHoneypot(form) {
+  if (!form || form.querySelector('input[name="website"]')) return;
+  const wrapper = document.createElement("div");
+  wrapper.setAttribute("aria-hidden", "true");
+  wrapper.setAttribute("inert", "");
+  wrapper.style.cssText = "position:absolute;width:1px;height:1px;padding:0;overflow:hidden;clip:rect(0 0 0 0);clip-path:inset(50%);white-space:nowrap;border:0;";
+  const field = document.createElement("input");
+  field.type = "text";
+  field.name = "website";
+  field.autocomplete = "off";
+  field.tabIndex = -1;
+  wrapper.appendChild(field);
+  form.appendChild(wrapper);
 }
 
 function newsletterErrorMessage(code) {
@@ -46,13 +67,15 @@ async function postNewsletter(payload) {
       signal: controller.signal
     });
 
-    if (res.ok || res.status === 204) return { ok: true, code: "ok" };
-
-    if (res.status === 400) {
+    if (res.ok) {
       const body = await res.json().catch(() => ({}));
-      if (body.duplicate === true) return { ok: true, duplicate: true, code: "duplicate" };
-      return { ok: false, code: "invalid_request" };
+      if (body && body.ok === true && body.state === "pending_confirmation") {
+        return { ok: true, state: "pending_confirmation", code: "pending_confirmation" };
+      }
+      return { ok: false, code: "invalid_response" };
     }
+
+    if (res.status === 400) return { ok: false, code: "invalid_request" };
 
     if (res.status === 429) return { ok: false, code: "rate_limited" };
     if (res.status >= 500) return { ok: false, code: "server_error" };
@@ -157,8 +180,11 @@ window.addEventListener("load", () => {
   document.body.appendChild(nav);
 })();
 
-// Back-to-top button — create, inject, and wire up
+// Back-to-top button — opt-in only (data-back-to-top on <body>), not
+// injected on every page. Long-form reading pages opt in explicitly, same
+// contract as data-reading-progress; utility/tool/legal pages don't need it.
 (function () {
+  if (!document.body.hasAttribute("data-back-to-top")) return;
   const btn = document.createElement("button");
   btn.className = "back-to-top";
   btn.setAttribute("aria-label", "Volver al inicio de la página");
@@ -177,10 +203,8 @@ window.addEventListener("load", () => {
   }, { passive: true });
 
   btn.addEventListener("click", () => {
-    scheduleTask(() => {
-      const reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-      window.scrollTo({ top: 0, behavior: reduced ? "auto" : "smooth" });
-    }, "user-visible");
+    const reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    window.scrollTo({ top: 0, behavior: reduced ? "auto" : "smooth" });
   });
 })();
 
@@ -241,224 +265,16 @@ function fallbackCopy(text, done) {
   }, { passive: true });
 })();
 
-// Quiz "¿Qué habitante de Noveris serías?"
-(function () {
-  const app = document.getElementById("quiz-noveris-app");
-  if (!app) return;
-
-  const QUESTIONS = [
-    {
-      text: "Encuentras una puerta que no debería existir. ¿Qué haces?",
-      options: [
-        { text: "La cruzo. Tengo que saber qué hay al otro lado.", key: "mensajero" },
-        { text: "Estudio sus mecanismos antes de decidir nada.", key: "sabio" },
-        { text: "Me aseguro de que nadie más la cruce.", key: "silenciadora" },
-        { text: "La protejo. Hay puertas que existen por algo.", key: "guardian" }
-      ]
-    },
-    {
-      text: "¿Cuál es tu mayor defecto?",
-      options: [
-        { text: "No sé cuándo parar de buscar.", key: "mensajero" },
-        { text: "Analizo tanto que a veces no actúo.", key: "sabio" },
-        { text: "Soy demasiado estricto/a, conmigo y con los demás.", key: "silenciadora" },
-        { text: "Me cuesta soltar lo que protejo.", key: "guardian" }
-      ]
-    },
-    {
-      text: "La magia que siempre tiene un precio representa para ti…",
-      options: [
-        { text: "Una aventura con consecuencias reales.", key: "mensajero" },
-        { text: "Un sistema que hay que comprender antes de usar.", key: "sabio" },
-        { text: "Una responsabilidad que la mayoría ignora.", key: "silenciadora" },
-        { text: "Una razón para ser cauteloso con el poder.", key: "guardian" }
-      ]
-    },
-    {
-      text: "Una verdad que podría destruirte: ¿preferirías conocerla o ignorarla?",
-      options: [
-        { text: "Conocerla siempre. La incertidumbre es peor.", key: "mensajero" },
-        { text: "Conocerla, pero en el momento justo.", key: "sabio" },
-        { text: "Conocerla, para poder actuar en consecuencia.", key: "silenciadora" },
-        { text: "Depende de cuántas personas proteja esa verdad.", key: "guardian" }
-      ]
-    },
-    {
-      text: "¿Qué te llevarías a Noveris?",
-      options: [
-        { text: "Nada. Las manos vacías son más honestas.", key: "mensajero" },
-        { text: "Un cuaderno donde anotar todo lo que descubra.", key: "sabio" },
-        { text: "Algo que me recuerde las normas del mundo al que vuelvo.", key: "silenciadora" },
-        { text: "Algo que pertenezca a alguien que quiero proteger.", key: "guardian" }
-      ]
-    }
-  ];
-
-  const RESULTS = {
-    mensajero: {
-      name: "El Mensajero",
-      desc: "Eres el tipo de habitante que Noveris no esperaba. Curioso hasta el riesgo, incapaz de dejar una pregunta sin responder, cruzarías la barrera aunque todo te dijera que no. Como Samuel, tu fuerza no es la fuerza: es la necesidad de saber. Noveris te necesita aunque no lo sepa todavía.",
-      share: "He descubierto mi perfil de Noveris: El Mensajero. Hazlo aquí: https://davidportodiaz.com/universo/noveris/#quiz"
-    },
-    sabio: {
-      name: "El Sabio del Espejo",
-      desc: "Observas más de lo que hablas. El Espejo Ancestral no revela lo que ves: revela lo que eres, y tú llevas tiempo mirándote. En Noveris guardarías el conocimiento como se guarda el fuego — con cuidado, para que no queme lo que no debe. La paciencia es tu poder más subestimado.",
-      share: "He descubierto mi perfil de Noveris: El Sabio del Espejo. Hazlo aquí: https://davidportodiaz.com/universo/noveris/#quiz"
-    },
-    silenciadora: {
-      name: "La Silenciadora",
-      desc: "Disciplina absoluta. Conoces los costes de la magia mejor que nadie — y te aseguras de que nadie los olvide. En Noveris no eres el villano: eres la consecuencia necesaria. Lo que otros llaman frialdad, tú lo llamas honestidad. Noveris funciona porque hay gente como tú dispuesta a mantener el precio real.",
-      share: "He descubierto mi perfil de Noveris: La Silenciadora. Hazlo aquí: https://davidportodiaz.com/universo/noveris/#quiz"
-    },
-    guardian: {
-      name: "El Guardián",
-      desc: "Firme, leal, con el peso de lo que cuidas grabado en cada decisión. En Noveris entenderías que la barrera existe por algo y que no todo lo que está al otro lado merece cruzar. Tu fortaleza no está en atacar: está en lo que decides no soltar nunca, cueste lo que cueste.",
-      share: "He descubierto mi perfil de Noveris: El Guardián. Hazlo aquí: https://davidportodiaz.com/universo/noveris/#quiz"
-    }
-  };
-
-  let current = 0;
-  const scores = { mensajero: 0, sabio: 0, silenciadora: 0, guardian: 0 };
-
-  const stage = document.getElementById("quiz-stage");
-  const stepLabel = document.getElementById("quiz-step-label");
-  const questionText = document.getElementById("quiz-question-text");
-  const optionsEl = document.getElementById("quiz-options");
-  const resultEl = document.getElementById("quiz-result");
-  const resultName = document.getElementById("quiz-result-name");
-  const resultDesc = document.getElementById("quiz-result-desc");
-  const progressBar = document.getElementById("quiz-progress-bar");
-  const shareBtn = document.getElementById("quiz-share-btn");
-  const restartBtn = document.getElementById("quiz-restart-btn");
-  const subscribeForm = document.getElementById("quiz-subscribe-form");
-  const resultActions = resultEl.querySelector(".quiz-result-actions");
-
-  function shuffle(arr) {
-    return arr.slice().sort(() => Math.random() - 0.5);
-  }
-
-  function showQuestion(idx) {
-    const q = QUESTIONS[idx];
-    stepLabel.textContent = `Pregunta ${idx + 1} de ${QUESTIONS.length}`;
-    questionText.textContent = q.text;
-    progressBar.style.width = (idx / QUESTIONS.length * 100) + "%";
-    optionsEl.innerHTML = "";
-    shuffle(q.options).forEach(opt => {
-      const btn = document.createElement("button");
-      btn.className = "quiz-option";
-      btn.type = "button";
-      btn.textContent = opt.text;
-      btn.addEventListener("click", () => choose(opt.key));
-      optionsEl.appendChild(btn);
-    });
-  }
-
-  function choose(key) {
-    scheduleTask(() => {
-      scores[key]++;
-      current++;
-      if (current < QUESTIONS.length) {
-        showQuestion(current);
-      } else {
-        showResult();
-      }
-    }, "user-visible");
-  }
-
-  function showResult() {
-    progressBar.style.width = "100%";
-    stage.hidden = true;
-    resultEl.hidden = false;
-    const winner = Object.entries(scores).reduce((a, b) => b[1] > a[1] ? b : a)[0];
-    const res = RESULTS[winner];
-    resultName.textContent = res.name;
-    resultDesc.textContent = res.desc;
-    resultEl._shareText = res.share;
-    resultEl._resultKey = winner;
-    setResultLocked(false);
-    resultEl.scrollIntoView({ behavior: "smooth", block: "nearest" });
-  }
-
-  function setResultLocked(isLocked) {
-    resultEl.classList.toggle("is-locked", isLocked);
-    resultName.hidden = isLocked;
-    resultDesc.hidden = isLocked;
-    if (resultActions) resultActions.hidden = isLocked;
-  }
-
-  shareBtn.addEventListener("click", () => {
-    const text = resultEl._shareText || "";
-    if (navigator.share) {
-      navigator.share({ text }).catch(() => {});
-    } else if (navigator.clipboard?.writeText) {
-      navigator.clipboard.writeText(text).then(() => {
-        const orig = shareBtn.textContent;
-        shareBtn.textContent = "✓ Texto copiado";
-        setTimeout(() => { shareBtn.textContent = orig; }, 2200);
-      });
-    }
-  });
-
-  // Brevo email subscription
-  if (subscribeForm) {
-    subscribeForm.addEventListener("submit", (e) => {
-      e.preventDefault();
-      scheduleTask(async () => {
-        const emailEl = document.getElementById("quiz-email");
-        const gdprEl = document.getElementById("quiz-gdpr");
-        const statusEl = document.getElementById("quiz-subscribe-status");
-        const submitBtn = subscribeForm.querySelector("[type=submit]");
-        if (IS_STAGING) {
-          statusEl.textContent = STAGING_DISABLED_MESSAGE;
-          return;
-        }
-        if (!isValidNewsletterEmail(emailEl.value) || !gdprEl.checked) {
-          statusEl.textContent = gdprEl.checked ? "Introduce un email válido." : "Acepta la política de privacidad para continuar.";
-          return;
-        }
-        statusEl.textContent = "";
-        submitBtn.disabled = true;
-        submitBtn.textContent = "Enviando…";
-        try {
-          const result = await postNewsletter({
-            email: emailEl.value.trim(),
-            source: "quiz",
-            result: resultEl._resultKey || ""
-          });
-          if (result.ok && !result.duplicate) {
-            localStorage.setItem("nl-subscribed", "1");
-            subscribeForm.dataset.done = "true";
-            subscribeForm.innerHTML = '<p class="quiz-subscribe-ok">✓ ¡Apuntado! Recibirás las novedades de Noveris.</p>';
-            _gcEvent("newsletter-quiz", "Newsletter: quiz Noveris");
-            setResultLocked(false);
-          } else if (result.ok && result.duplicate) {
-            localStorage.setItem("nl-subscribed", "1");
-            subscribeForm.dataset.done = "true";
-            subscribeForm.innerHTML = '<p class="quiz-subscribe-ok">✓ Ya estás suscrito. ¡Gracias!</p>';
-            setResultLocked(false);
-          } else {
-            throw new Error(result.code || "request_failed");
-          }
-        } catch (err) {
-          statusEl.textContent = newsletterErrorMessage(err.message);
-          submitBtn.disabled = false;
-          submitBtn.textContent = "Desbloquear mi arquetipo";
-        }
-      }, "user-blocking");
-    });
-  }
-
-  restartBtn.addEventListener("click", () => {
-    current = 0;
-    Object.keys(scores).forEach(k => { scores[k] = 0; });
-    resultEl.hidden = true;
-    stage.hidden = false;
-    setResultLocked(false);
-    showQuestion(0);
-  });
-
-  showQuestion(0);
-})();
+// Quiz "¿Qué habitante de Noveris serías?" -- ELIMINADO (H.1, 2026-08-23):
+// id="quiz-noveris-app" no aparecia en ningun HTML real del repo (grep
+// completo del sitio), y tests/test-samuel-ecosystem-parity.py:89 prohibe
+// explicitamente ese id porque el quiz real vigente es otro: id=
+// "samuel-quiz-app" + assets/samuel-quiz.js, cargado solo en
+// libros/samuel-entre-mundos/index.html. Este bloque (~220 lineas) nunca
+// se ejecutaba en produccion. PR55 lo habia actualizado al patron DOI
+// (installNewsletterHoneypot + pending_confirmation) antes de saberlo
+// muerto; si "quiz-noveris-app" vuelve a activarse alguna vez, replicar
+// ese patron DOI, no el _SUCCESS_COPY antiguo.
 
 // Generic newsletter forms (home, fragmento, manecillas pages)
 (function () {
@@ -470,17 +286,19 @@ function fallbackCopy(text, done) {
   // must not promise specific automatic content delivery (2026-08-20).
   // Manecillas keeps its own promise because that one is just "I'll notify
   // you" (a real, simple thing this list can do), not a content delivery.
-  const NEWSLETTER_SUCCESS_COPY = {
-    home: "Te has suscrito correctamente. Recibirás las novedades de David Porto Díaz.",
-    fragmento: "Te has suscrito correctamente. Recibirás las novedades de David Porto Díaz.",
-    manecillas: "Te avisaré cuando Las manecillas del recuerdo esté disponible.",
-    cuaderno: "Te has suscrito correctamente. Recibirás las novedades de David Porto Díaz."
+  const NEWSLETTER_PENDING_COPY = {
+    home: "Revisa tu correo y confirma la suscripción para recibir las novedades de David Porto Díaz.",
+    fragmento: "Revisa tu correo y confirma la suscripción para recibir las novedades de David Porto Díaz.",
+    manecillas: "Revisa tu correo y confirma la suscripción. Después te avisaré cuando Las manecillas del recuerdo esté disponible.",
+    cuaderno: "Revisa tu correo y confirma la suscripción para recibir las novedades de David Porto Díaz.",
+    explore: "Revisa tu correo y confirma la suscripción para recibir las novedades de David Porto Díaz."
   };
 
   async function submitNewsletter(formId, emailId, gdprId, statusId, sourceLabel) {
     const form = document.getElementById(formId);
     if (!form) return;
-    const successBody = NEWSLETTER_SUCCESS_COPY[sourceLabel] || "Recibirás las novedades de David Porto Díaz.";
+    installNewsletterHoneypot(form);
+    const pendingBody = NEWSLETTER_PENDING_COPY[sourceLabel] || "Revisa tu correo y confirma la suscripción para completarla.";
     form.addEventListener("submit", (e) => {
       e.preventDefault();
       scheduleTask(async () => {
@@ -488,6 +306,7 @@ function fallbackCopy(text, done) {
         const gdprEl = document.getElementById(gdprId);
         const statusEl = document.getElementById(statusId);
         const submitBtn = form.querySelector("[type=submit]");
+        if (submitBtn.dataset.submitting === "true") return;
         if (IS_STAGING) {
           if (statusEl) statusEl.textContent = STAGING_DISABLED_MESSAGE;
           return;
@@ -499,25 +318,24 @@ function fallbackCopy(text, done) {
           return;
         }
         if (statusEl) statusEl.textContent = "";
+        submitBtn.dataset.submitting = "true";
         submitBtn.disabled = true;
         submitBtn.textContent = "Enviando…";
         try {
           const result = await postNewsletter({
             email: emailEl.value.trim(),
-            source: sourceLabel
+            source: sourceLabel,
+            website: honeypotValue(form)
           });
-          if (result.ok && !result.duplicate) {
-            localStorage.setItem("nl-subscribed", "1");
-            form.innerHTML = '<p class="quiz-subscribe-ok">✓ ¡Apuntado! ' + successBody + '</p>';
-            _gcEvent("newsletter-" + sourceLabel, "Newsletter: " + sourceLabel);
-          } else if (result.ok && result.duplicate) {
-            localStorage.setItem("nl-subscribed", "1");
-            form.innerHTML = '<p class="quiz-subscribe-ok">\u2714 Ya est\u00e1s suscrito a la lista. \u00a1Gracias!</p>';
+          if (result.ok && result.state === "pending_confirmation") {
+            form.innerHTML = '<p class="quiz-subscribe-ok">✓ ' + pendingBody + '</p>';
+            _gcEvent("newsletter-pending-" + sourceLabel, "Newsletter DOI pendiente: " + sourceLabel);
           } else {
             throw new Error(result.code || "request_failed");
           }
         } catch (err) {
           if (statusEl) statusEl.textContent = newsletterErrorMessage(err.message);
+          delete submitBtn.dataset.submitting;
           submitBtn.disabled = false;
           submitBtn.textContent = "Suscribirme";
         }
@@ -528,6 +346,7 @@ function fallbackCopy(text, done) {
   submitNewsletter("newsletter-form-fragmento",  "nl-email-fragmento",  "nl-gdpr-fragmento",  "nl-status-fragmento",  "fragmento");
   submitNewsletter("newsletter-form-manecillas", "nl-email-manecillas", "nl-gdpr-manecillas", "nl-status-manecillas", "manecillas");
   submitNewsletter("newsletter-form-cuaderno",   "nl-email-cuaderno",   "nl-gdpr-cuaderno",   "nl-status-cuaderno",   "cuaderno");
+  submitNewsletter("newsletter-form-explore",    "nl-email-explore",    "nl-gdpr-explore",    "nl-status-explore",    "explore");
   // Lectores beta (N.1, 2026-08-23): mismo mecanismo de envio, pero fuente,
   // lista de Brevo y consentimiento propios -- ver /lectores-beta/ y
   // cloudflare-worker-subscribe.js (BREVO_BETA_LIST_ID). El copy de exito no
@@ -536,6 +355,7 @@ function fallbackCopy(text, done) {
   (function () {
     const form = document.getElementById("lectores-beta-form");
     if (!form) return;
+    installNewsletterHoneypot(form);
     form.addEventListener("submit", (e) => {
       e.preventDefault();
       scheduleTask(async () => {
@@ -543,6 +363,7 @@ function fallbackCopy(text, done) {
         const gdprEl = document.getElementById("lectores-beta-gdpr");
         const statusEl = document.getElementById("lectores-beta-status");
         const submitBtn = form.querySelector("[type=submit]");
+        if (submitBtn.dataset.submitting === "true") return;
         if (IS_STAGING) {
           if (statusEl) statusEl.textContent = STAGING_DISABLED_MESSAGE;
           return;
@@ -554,20 +375,24 @@ function fallbackCopy(text, done) {
           return;
         }
         if (statusEl) statusEl.textContent = "";
+        submitBtn.dataset.submitting = "true";
         submitBtn.disabled = true;
         submitBtn.textContent = "Enviando…";
         try {
-          const result = await postNewsletter({ email: emailEl.value.trim(), source: "lectores-beta" });
-          if (result.ok && !result.duplicate) {
-            form.innerHTML = '<p class="quiz-subscribe-ok">✓ ¡Apuntado! Te escribiré cuando tenga material listo para lectores beta.</p>';
-            _gcEvent("newsletter-lectores-beta", "Newsletter: lectores beta");
-          } else if (result.ok && result.duplicate) {
-            form.innerHTML = '<p class="quiz-subscribe-ok">✓ Ya estás en la lista de lectores beta. ¡Gracias!</p>';
+          const result = await postNewsletter({
+            email: emailEl.value.trim(),
+            source: "lectores-beta",
+            website: honeypotValue(form)
+          });
+          if (result.ok && result.state === "pending_confirmation") {
+            form.innerHTML = '<p class="quiz-subscribe-ok">✓ Revisa tu correo y confirma la suscripción. Te escribiré cuando tenga material listo para lectores beta.</p>';
+            _gcEvent("newsletter-pending-lectores-beta", "Newsletter DOI pendiente: lectores beta");
           } else {
             throw new Error(result.code || "request_failed");
           }
         } catch (err) {
           if (statusEl) statusEl.textContent = newsletterErrorMessage(err.message);
+          delete submitBtn.dataset.submitting;
           submitBtn.disabled = false;
           submitBtn.textContent = "Quiero apuntarme";
         }
@@ -670,282 +495,33 @@ function _dpAnalyticsBridge(event) {
 window.addEventListener('dp:analytics', _dpAnalyticsBridge);
 document.addEventListener('dp:analytics', _dpAnalyticsBridge);
 
-// Email capture popup
-// Triggers: 60% scroll depth OR exit-intent (desktop). Once per 7 days, never if subscribed.
-// Scope (C-022): only shown on pages that have no newsletter form of their own
-// (Cuaderno articles, recomendaciones, Noveris universe, clubes de lectura).
-// Home, /libros/, /fragmento/ and /las-manecillas-del-recuerdo/ already embed
-// their own inline forms (see "Generic newsletter forms" above) - showing this
-// popup there too would be a double-ask, and on Manecillas' own page the
-// Noveris-themed copy would also be a branding mismatch.
-(function () {
-  const DISMISSED_KEY = "nl-popup-ts";
-  const SUBSCRIBED_KEY = "nl-subscribed";
-  const COOLDOWN = 7 * 24 * 60 * 60 * 1000;
-  const path = window.location.pathname.replace(/\/index\.html$/, "/");
+// Popup de newsletter -- EXTRAIDO (H.1, 2026-08-23) a
+// assets/newsletter-popup.js + assets/newsletter-popup.css: solo se
+// necesitaba en /cuaderno/*, /recomendaciones/*, /universo/noveris/* y
+// /clubes-de-lectura/* (verificado con grep en todo el sitio), pero este
+// bloque se descargaba/ejecutaba en TODAS las paginas y se auto-excluia
+// en runtime via allowedPath(). Esas 13 paginas ahora cargan
+// assets/newsletter-popup.js + assets/newsletter-popup.css directamente.
+// Triggers actualizados a la vez (no reintroducir los antiguos): 70% de
+// scroll, sin temporizador de 30s, exit-intent solo con hover real.
 
-  function allowedPath() {
-    if (path === "/" || path === "/libros/" || path === "/fragmento/") return false;
-    if (path.startsWith("/las-manecillas-del-recuerdo")) return false;
-    if (["/autor.html", "/prensa.html", "/eventos.html", "/privacidad.html", "/aviso-legal.html"].includes(path)) return false;
-    if (path.startsWith("/empieza-aqui/") || path.startsWith("/gracias-suscripcion/")) return false;
-    return path.startsWith("/cuaderno/") || path.startsWith("/recomendaciones/") ||
-      path.startsWith("/universo/noveris/") || path.startsWith("/clubes-de-lectura/");
-  }
-
-  if (!allowedPath()) return;
-  if (localStorage.getItem(SUBSCRIBED_KEY) === "1") return;
-  const ts = localStorage.getItem(DISMISSED_KEY);
-  if (ts && Date.now() - Number(ts) < COOLDOWN) return;
-
-  // Copy varies by context: the Noveris/Samuel-specific pitch only makes
-  // sense on pages actually about that book. Elsewhere it stays generic.
-  function popupCopy() {
-    if (path.startsWith("/universo/noveris/") || path.startsWith("/clubes-de-lectura/")) {
-      // BREVO AUTOMATION VERIFICATION REQUIRED (2026-08-20): no confirmed
-      // Brevo automation in this repo actually emails a map/chapter PDF on
-      // signup, so this copy no longer promises specific automatic content
-      // delivery — only what a plain list subscription genuinely does.
-      return {
-        eyebrow: "Primeros lectores de Noveris",
-        title: "Sigue el universo de Noveris.",
-        body: "Novedades sobre el universo de Noveris y avisos de nuevas firmas o lecturas. Un email cuando haya algo que valga la pena.",
-        cta: "Suscribirme",
-        okTitle: "✓ ¡Apuntado!",
-        okBody: "Recibirás las novedades de David Porto Díaz sobre el universo de Noveris.",
-        dupeTitle: "✓ Ya estás suscrito.",
-        dupeBody: "¡Gracias por seguir a David Porto Díaz!"
-      };
-    }
-    return {
-      eyebrow: "Novedades de David Porto Díaz",
-      title: "Sigue los próximos libros y artículos.",
-      body: "Nuevas publicaciones, artículos, firmas y recursos para lectores. Solo cuando haya algo que contar.",
-      cta: "Suscribirme",
-      okTitle: "✓ ¡Apuntado!",
-      okBody: "Recibirás las novedades de David Porto Díaz.",
-      dupeTitle: "✓ Ya estás suscrito.",
-      dupeBody: "¡Gracias por seguir a David Porto Díaz!"
-    };
-  }
-
-  let shown = false;
-
-  function dismiss() {
-    localStorage.setItem(DISMISSED_KEY, String(Date.now()));
-    const el = document.getElementById("nl-popup-overlay");
-    if (!el) return;
-    el.style.transition = "opacity 0.25s ease";
-    el.style.opacity = "0";
-    setTimeout(() => { if (el.parentNode) el.parentNode.removeChild(el); }, 260);
-  }
-
-  function showPopup() {
-    if (shown || document.getElementById("nl-popup-overlay")) return;
-    shown = true;
-    localStorage.setItem(DISMISSED_KEY, String(Date.now()));
-    const copy = popupCopy();
-
-    const style = document.createElement("style");
-    style.textContent = "#nl-popup-overlay{position:fixed;inset:0;z-index:9000;display:flex;align-items:center;justify-content:center;padding:16px;background:rgba(8,10,12,0.84);backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px);animation:nl-in 0.28s ease}@keyframes nl-in{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}#nl-popup-panel{position:relative;width:100%;max-width:460px;padding:40px 36px 32px;background:#18140e;border:1px solid rgba(196,148,77,0.38);border-radius:20px;box-shadow:0 32px 120px rgba(0,0,0,0.72)}#nl-popup-close{position:absolute;top:14px;right:14px;width:38px;height:38px;border:none;background:transparent;color:#b6a894;font-size:1.5rem;line-height:1;cursor:pointer;border-radius:50%;display:flex;align-items:center;justify-content:center;padding:0;transition:color 0.18s}#nl-popup-close:hover,#nl-popup-close:focus-visible{color:#f2e8d8;outline:none}#nl-popup-panel .eyebrow{margin:0 0 12px;color:#c4944d;font-size:0.68rem;font-weight:700;letter-spacing:0.26em;text-transform:uppercase;font-family:var(--font-ui,Inter,system-ui,sans-serif)}#nl-popup-title{font-family:var(--font-display,Georgia,serif);margin:0 0 12px;font-size:clamp(1.55rem,4vw,2.1rem);line-height:1.08;color:#f2e8d8;font-weight:600}#nl-popup-body{margin:0 0 22px;color:#b6a894;font-size:0.96rem;line-height:1.7}#nl-popup-email{width:100%;padding:12px 18px;border:1px solid rgba(196,148,77,0.28);border-radius:999px;background:rgba(255,255,255,0.04);color:#f2e8d8;font-size:0.95rem;font-family:inherit;outline:none;box-sizing:border-box;margin-bottom:10px;transition:border-color 0.2s}#nl-popup-email:focus{border-color:#c4944d}#nl-popup-submit{width:100%;justify-content:center;margin-bottom:0}#nl-popup-gdpr-row{display:flex;align-items:flex-start;gap:8px;margin-top:12px;font-size:0.79rem;color:#8e8170;line-height:1.5;cursor:pointer}#nl-popup-gdpr-row input{margin-top:3px;flex-shrink:0}#nl-popup-gdpr-row a{color:#c4944d}#nl-popup-status{margin:8px 0 0;font-size:0.84rem;color:#b6a894;min-height:1.2em}#nl-popup-skip{display:block;margin:14px auto 0;background:none;border:none;color:#8e8170;font-size:0.82rem;cursor:pointer;text-decoration:underline;text-underline-offset:3px;font-family:inherit;transition:color 0.2s;padding:0}#nl-popup-skip:hover{color:#b6a894}@media(max-width:520px){#nl-popup-panel{padding:32px 22px 26px}}";
-    document.head.appendChild(style);
-
-    const overlay = document.createElement("div");
-    overlay.id = "nl-popup-overlay";
-    overlay.setAttribute("role", "dialog");
-    overlay.setAttribute("aria-modal", "true");
-    overlay.setAttribute("aria-labelledby", "nl-popup-title");
-    overlay.innerHTML =
-      '<div id="nl-popup-panel">' +
-      '<button id="nl-popup-close" type="button" aria-label="Cerrar">&times;</button>' +
-      '<p class="eyebrow">' + copy.eyebrow + '</p>' +
-      '<h2 id="nl-popup-title">' + copy.title + '</h2>' +
-      '<p id="nl-popup-body">' + copy.body + '</p>' +
-      '<form id="nl-popup-form" novalidate>' +
-      '<input type="email" id="nl-popup-email" name="email" placeholder="tu@email.com" autocomplete="email" required />' +
-      '<button type="submit" class="button primary" id="nl-popup-submit">' + copy.cta + '</button>' +
-      '<label id="nl-popup-gdpr-row"><input type="checkbox" id="nl-popup-gdpr" required />Acepto recibir novedades del autor. <a href="/privacidad.html" target="_blank" rel="noopener">Privacidad</a>.</label>' +
-      '<p id="nl-popup-status" role="status" aria-live="polite"></p>' +
-      '</form>' +
-      '<button id="nl-popup-skip" type="button">No, gracias</button>' +
-      '</div>';
-    document.body.appendChild(overlay);
-
-    // Focus first field
-    scheduleTask(() => { const f = document.getElementById("nl-popup-email"); if (f) f.focus(); }, "user-visible");
-
-    // Close handlers
-    document.getElementById("nl-popup-close").addEventListener("click", dismiss);
-    document.getElementById("nl-popup-skip").addEventListener("click", dismiss);
-    overlay.addEventListener("click", function (e) { if (e.target === overlay) dismiss(); });
-    document.addEventListener("keydown", function escClose(e) {
-      if (e.key === "Escape") { dismiss(); document.removeEventListener("keydown", escClose); }
-    });
-
-    // Form submit
-    document.getElementById("nl-popup-form").addEventListener("submit", function (e) {
-      e.preventDefault();
-      scheduleTask(async function () {
-        const emailEl = document.getElementById("nl-popup-email");
-        const gdprEl = document.getElementById("nl-popup-gdpr");
-        const statusEl = document.getElementById("nl-popup-status");
-        const submitBtn = document.getElementById("nl-popup-submit");
-        if (IS_STAGING) { statusEl.textContent = STAGING_DISABLED_MESSAGE; return; }
-        if (!isValidNewsletterEmail(emailEl.value)) { statusEl.textContent = "Introduce un email válido."; return; }
-        if (!gdprEl.checked) { statusEl.textContent = "Acepta la política de privacidad para continuar."; return; }
-        statusEl.textContent = "";
-        submitBtn.disabled = true;
-        submitBtn.textContent = "Enviando…";
-        try {
-          const result = await postNewsletter({ email: emailEl.value.trim(), source: "popup" });
-          if (result.ok && !result.duplicate) {
-            localStorage.setItem(SUBSCRIBED_KEY, "1");
-            const panel = document.getElementById("nl-popup-panel");
-            panel.innerHTML = '<p style="font-family:Cormorant Garamond,Georgia,serif;font-size:1.5rem;color:#e0b979;text-align:center;margin:0 0 10px">' + copy.okTitle + '</p><p style="color:#b6a894;text-align:center;font-size:0.94rem;margin:0">' + copy.okBody + '</p>';
-            _gcEvent("newsletter-popup", "Newsletter: popup");
-            setTimeout(dismiss, 3200);
-          } else if (result.ok && result.duplicate) {
-            localStorage.setItem(SUBSCRIBED_KEY, "1");
-            const panel = document.getElementById("nl-popup-panel");
-            panel.innerHTML = '<p style="font-family:Cormorant Garamond,Georgia,serif;font-size:1.5rem;color:#e0b979;text-align:center;margin:0 0 10px">' + copy.dupeTitle + '</p><p style="color:#b6a894;text-align:center;font-size:0.94rem;margin:0">' + copy.dupeBody + '</p>';
-            setTimeout(dismiss, 3200);
-          } else {
-            throw new Error(result.code || "request_failed");
-          }
-        } catch (err) {
-          statusEl.textContent = newsletterErrorMessage(err.message);
-          submitBtn.disabled = false;
-          submitBtn.textContent = copy.cta;
-        }
-      }, "user-blocking");
-    });
-  }
-
-  // Trigger 1: 60% scroll depth
-  window.addEventListener("scroll", function onScroll() {
-    const ratio = window.scrollY / Math.max(1, document.documentElement.scrollHeight - window.innerHeight);
-    if (ratio >= 0.6) { window.removeEventListener("scroll", onScroll); showPopup(); }
-  }, { passive: true });
-
-  // Trigger 2: exit-intent — mouse leaves from top of viewport
-  document.addEventListener("mouseleave", function onLeave(e) {
-    if (e.clientY <= 0) { document.removeEventListener("mouseleave", onLeave); showPopup(); }
-  });
-
-  // Trigger 3: 30-second fallback for passive readers
-  setTimeout(showPopup, 30000);
-})();
-
-// ── MODAL "¿DÓNDE COMPRAR?" ────────────────────────────────────────────────
-// Crea el <dialog> una sola vez y lo abre cuando se pulsa cualquier
-// botón/enlace con el atributo data-buy-modal. Funciona en Android,
-// iOS (Safari 15.4+) y escritorio. ESC y clic fuera cierran el modal.
-(function () {
-  const AMAZON_URL = "https://www.amazon.es/dp/B0GB6LGQFH?tag=davidporto-21";
-  const CASADELLIBRO_URL = "https://www.casadellibro.com/libro-samuel-entre-mundos/9791387659776/17856720";
-
-  function buildDialog() {
-    const d = document.createElement("dialog");
-    d.id = "buy-dialog";
-    d.setAttribute("aria-modal", "true");
-    d.setAttribute("aria-labelledby", "buy-dialog-title");
-    d.innerHTML = `
-      <div class="buy-dialog-inner">
-        <button class="buy-dialog-close" id="buy-dialog-close" aria-label="Cerrar">✕</button>
-        <p class="buy-dialog-eyebrow">Samuel entre mundos · David Porto Díaz</p>
-        <h2 id="buy-dialog-title" class="buy-dialog-title">¿Dónde quieres leerlo?</h2>
-        <div class="buy-dialog-options">
-          <a class="buy-option buy-option--primary" href="${AMAZON_URL}" target="_blank" rel="sponsored nofollow noopener noreferrer" data-gc="comprar-amazon-papel">
-            <span class="buy-option-vendor">Amazon España</span>
-            <span class="buy-option-format">Tapa blanda</span>
-            <span class="buy-option-cta">Comprar →</span>
-          </a>
-          <a class="buy-option" href="${CASADELLIBRO_URL}" target="_blank" rel="noopener noreferrer" data-gc="comprar-casadellibro">
-            <span class="buy-option-vendor">Casa del Libro</span>
-            <span class="buy-option-format">Papel</span>
-            <span class="buy-option-cta">Comprar →</span>
-          </a>
-        </div>
-        <p class="buy-dialog-note">Amazon ofrece 30 días de devolución en papel. ¿Prefieres probarlo antes? <a href="/fragmento/" class="text-link" data-gc="fragmento-desde-modal">Lee el capítulo 1 gratis →</a></p>
-        <p class="buy-dialog-affiliate-note">Algunos enlaces son de afiliado; no cambian el precio.</p>
-      </div>`;
-    document.body.appendChild(d);
-
-    // Cerrar con el botón X
-    d.querySelector("#buy-dialog-close").addEventListener("click", () => d.close());
-
-    // Cerrar al clicar el backdrop (fuera del inner)
-    d.addEventListener("click", e => {
-      if (e.target === d) d.close();
-    });
-
-    // Focus trap: Tab dentro del diálogo
-    d.addEventListener("keydown", e => {
-      if (e.key !== "Tab") return;
-      const focusable = Array.from(d.querySelectorAll("a, button")).filter(el => !el.disabled);
-      const first = focusable[0], last = focusable[focusable.length - 1];
-      if (e.shiftKey ? document.activeElement === first : document.activeElement === last) {
-        e.preventDefault();
-        (e.shiftKey ? last : first).focus();
-      }
-    });
-
-    // GoatCounter por opción
-    d.querySelectorAll("[data-gc]").forEach(el => {
-      el.addEventListener("click", () => _gcEvent(el.dataset.gc, "Clic: " + el.dataset.gc));
-    });
-
-    return d;
-  }
-
-  let _dialog = null;
-  let _lastBuyTrigger = null;
-
-  function openBuyDialog(trigger) {
-    _lastBuyTrigger = trigger || document.activeElement;
-    if (!_dialog) {
-      _dialog = buildDialog();
-      _dialog.setAttribute("role", "dialog");
-      // Restaurar foco al cerrar
-      _dialog.addEventListener("close", () => {
-        document.documentElement.classList.remove("modal-open");
-        _lastBuyTrigger?.focus?.();
-      });
-    }
-    _gcEvent("abrir-modal-comprar-samuel", "Modal: abrir dónde comprar (Samuel entre mundos)");
-    document.documentElement.classList.add("modal-open");
-    // Back button support: push state so Back closes modal instead of leaving page
-    history.pushState({ buyModal: true }, "", "#comprar");
-    _dialog.showModal();
-    // Enfocar la opción principal de compra
-    setTimeout(() => (_dialog.querySelector(".buy-option--primary") || _dialog.querySelector("a, button"))?.focus(), 50);
-  }
-
-  // Activar en todos los elementos con data-buy-modal
-  document.addEventListener("click", e => {
-    const trigger = e.target.closest("[data-buy-modal]");
-    if (trigger) {
-      e.preventDefault();
-      openBuyDialog(trigger);
-    }
-  });
-
-  // Cerrar modal con el botón Atrás del navegador
-  window.addEventListener("popstate", () => {
-    if (_dialog && _dialog.open) _dialog.close();
-  });
-})();
+// Modal "¿DÓNDE COMPRAR?" (Samuel entre mundos) -- EXTRAIDO (H.1,
+// 2026-08-23) a assets/samuel-buy-modal.js: data-buy-modal solo existe en
+// libros/samuel-entre-mundos/index.html (verificado con grep en todo el
+// sitio), pero este bloque se descargaba y ejecutaba en TODAS las paginas.
+// Esa pagina ahora carga assets/samuel-buy-modal.js directamente.
 
 
 document.querySelectorAll('a[href*="amazon.es"]:not(#buy-dialog a)').forEach(link => {
   link.addEventListener("click", () => _gcEvent("comprar-amazon", "Clic: Comprar Amazon"));
 });
 
-// Leer fragmento gratis -- eventos separados por identidad de libro (I.1):
-// un unico nombre "leer-fragmento" no distinguia Samuel de Manecillas, y
-// ademas el patron `/fragmento/` (singular) nunca coincidia con la ruta
-// real de Manecillas (`/las-manecillas-del-recuerdo/fragmentos/`, plural),
-// asi que esos clics no se contaban en absoluto.
+// Leer fragmento gratis -- eventos separados por libro (H.2, 2026-08-23):
+// antes un unico tracker con el patron `/fragmento/` (singular) mezclaba
+// implicitamente todo bajo "leer-fragmento" sin identidad de libro, y
+// ademas ese patron nunca coincidia con la ruta real de Manecillas
+// (`/las-manecillas-del-recuerdo/fragmentos/`, en plural) por lo que esos
+// clics no se contaban en absoluto.
 document.querySelectorAll('a[href*="/fragmento/"]:not([href*="/las-manecillas-del-recuerdo/"])').forEach(link => {
   link.addEventListener("click", () => _gcEvent("leer-fragmento-samuel", "Clic: Leer fragmento (Samuel entre mundos)"));
 });

@@ -1,225 +1,174 @@
-// Contract test for cloudflare-worker-subscribe.js.
-//
-// This does NOT deploy or call the real Cloudflare Worker — it imports the
-// module's `fetch` handler directly (Cloudflare Workers use the same
-// Request/Response/fetch globals Node provides) and exercises it in-process,
-// with global fetch mocked so no real network call to Brevo happens.
-//
-// What this guards against: the client input contract must stay minimal
-// ({ email, source, result? } only). If someone reintroduces reading
-// listIds/attributes/updateEnabled from the client body, or removes the
-// source whitelist, this test should catch it.
-
+// Contract tests for the newsletter Worker. No real Brevo or Cloudflare calls.
 import assert from 'node:assert/strict';
+import fs from 'node:fs/promises';
 import worker from '../cloudflare-worker-subscribe.js';
 
 const ALLOWED_ORIGIN = 'https://davidportodiaz.com';
+const DOI_ENDPOINT = 'https://api.brevo.com/v3/contacts/doubleOptinConfirmation';
+const REDIRECT_URL = 'https://davidportodiaz.com/gracias-suscripcion/';
 
-function makeEnv(overrides = {}) {
-  return { BREVO_API_KEY: 'test-api-key', BREVO_LIST_ID: '3', ...overrides };
+function makeRateLimiter({ success = true, throwError = null, result = null } = {}) {
+  const calls = [];
+  return {
+    calls,
+    async limit(input) {
+      calls.push(input);
+      if (throwError) throw throwError;
+      return result ?? { success };
+    },
+  };
 }
 
-function makeRequest(body, { method = 'POST', origin = ALLOWED_ORIGIN, headers = {} } = {}) {
-  const init = {
-    method,
-    headers: { Origin: origin, 'Content-Type': 'application/json', ...headers },
+function makeEnv(overrides = {}) {
+  return {
+    BREVO_API_KEY: 'test-api-key',
+    BREVO_LIST_ID: '3',
+    BREVO_DOI_TEMPLATE_ID: '42',
+    BREVO_DOI_REDIRECT_URL: REDIRECT_URL,
+    RATE_LIMITER: makeRateLimiter(),
+    ...overrides,
   };
+}
+
+function makeRequest(body, { method = 'POST', origin = ALLOWED_ORIGIN } = {}) {
+  const init = { method, headers: { Origin: origin, 'Content-Type': 'application/json' } };
   if (body !== undefined && method !== 'OPTIONS' && method !== 'GET') {
     init.body = typeof body === 'string' ? body : JSON.stringify(body);
   }
   return new Request('https://subscribe.example.workers.dev/', init);
 }
 
-// Capture whatever the Worker would have sent to Brevo, without hitting the
-// network. Restored after each call site below via try/finally.
-function withMockedBrevoFetch(fakeStatus, fakeBody, fn) {
+function withMockedBrevoFetch(fakeStatus, fakeBody, fn, { throwError = null } = {}) {
   const calls = [];
   const originalFetch = globalThis.fetch;
   globalThis.fetch = async (url, init) => {
     calls.push({ url, init });
-    return new Response(JSON.stringify(fakeBody ?? {}), {
-      status: fakeStatus ?? 201,
-      headers: { 'Content-Type': 'application/json' },
-    });
+    if (throwError) throw throwError;
+    const body = fakeStatus === 204 ? null : JSON.stringify(fakeBody ?? {});
+    return new Response(body, { status: fakeStatus, headers: { 'Content-Type': 'application/json' } });
   };
-  return Promise.resolve(fn(calls)).finally(() => {
-    globalThis.fetch = originalFetch;
-  });
+  return Promise.resolve(fn(calls)).finally(() => { globalThis.fetch = originalFetch; });
 }
 
 async function run() {
-  // OPTIONS preflight
-  {
-    const res = await worker.fetch(makeRequest(undefined, { method: 'OPTIONS' }), makeEnv());
-    assert.equal(res.status, 204);
-    assert.equal(res.headers.get('Access-Control-Allow-Origin'), ALLOWED_ORIGIN);
-  }
+  const source = await fs.readFile(new URL('../cloudflare-worker-subscribe.js', import.meta.url), 'utf8');
+  assert.ok(source.includes('/v3/contacts/doubleOptinConfirmation'));
+  assert.ok(!source.includes('fetch("https://api.brevo.com/v3/contacts"'));
 
-  // Wrong method
-  {
-    const res = await worker.fetch(makeRequest(undefined, { method: 'GET' }), makeEnv());
-    assert.equal(res.status, 405);
-  }
+  let res = await worker.fetch(makeRequest(undefined, { method: 'OPTIONS' }), makeEnv());
+  assert.equal(res.status, 204);
+  assert.equal(res.headers.get('Access-Control-Allow-Origin'), ALLOWED_ORIGIN);
+  assert.equal(res.headers.get('Vary'), 'Origin');
 
-  // Wrong origin
-  {
-    const res = await worker.fetch(
-      makeRequest({ email: 'a@b.com', source: 'home' }, { origin: 'https://evil.example.com' }),
-      makeEnv()
-    );
-    assert.equal(res.status, 403);
-  }
+  res = await worker.fetch(makeRequest(undefined, { method: 'OPTIONS', origin: 'https://evil.example' }), makeEnv());
+  assert.equal(res.status, 204);
+  assert.equal(res.headers.get('Access-Control-Allow-Origin'), null);
 
-  // Missing email
-  {
-    const res = await worker.fetch(makeRequest({ source: 'home' }), makeEnv());
+  res = await worker.fetch(makeRequest(undefined, { method: 'GET' }), makeEnv());
+  assert.equal(res.status, 405);
+  res = await worker.fetch(makeRequest({ email: 'a@b.com', source: 'home' }, { origin: 'https://evil.example' }), makeEnv());
+  assert.equal(res.status, 403);
+
+  res = await worker.fetch(makeRequest('{not json'), makeEnv());
+  assert.equal(res.status, 400);
+  for (const invalid of [
+    { source: 'home' },
+    { email: 'not-an-email', source: 'home' },
+    { email: 'a@b.com', source: 'unknown-source' },
+  ]) {
+    res = await withMockedBrevoFetch(201, {}, calls => worker.fetch(makeRequest(invalid), makeEnv()).then(r => {
+      assert.equal(calls.length, 0); return r;
+    }));
     assert.equal(res.status, 400);
   }
 
-  // Invalid email format
-  {
-    const res = await worker.fetch(makeRequest({ email: 'not-an-email', source: 'home' }), makeEnv());
-    assert.equal(res.status, 400);
+  for (const [name, value] of [
+    ['BREVO_API_KEY', undefined],
+    ['BREVO_LIST_ID', undefined], ['BREVO_LIST_ID', 'bad'],
+    ['BREVO_DOI_TEMPLATE_ID', undefined], ['BREVO_DOI_TEMPLATE_ID', '0'],
+    ['BREVO_DOI_REDIRECT_URL', undefined],
+    ['BREVO_DOI_REDIRECT_URL', 'http://davidportodiaz.com/gracias-suscripcion/'],
+    ['BREVO_DOI_REDIRECT_URL', 'not-a-url'],
+  ]) {
+    res = await withMockedBrevoFetch(201, {}, calls => worker.fetch(
+      makeRequest({ email: 'config@example.com', source: 'home' }), makeEnv({ [name]: value })
+    ).then(r => { assert.equal(calls.length, 0); return r; }));
+    assert.equal(res.status, 500, `${name}=${String(value)}`);
   }
 
-  // Missing source
-  {
-    const res = await worker.fetch(makeRequest({ email: 'a@b.com' }), makeEnv());
-    assert.equal(res.status, 400);
-  }
-
-  // Unknown / not-whitelisted source is rejected
-  {
-    const res = await worker.fetch(makeRequest({ email: 'a@b.com', source: 'not-a-real-source' }), makeEnv());
-    assert.equal(res.status, 400);
-  }
-
-  // BREVO_LIST_ID missing server-side -> 500, never falls back to a client value
-  {
-    const res = await withMockedBrevoFetch(201, {}, () =>
-      worker.fetch(makeRequest({ email: 'a@b.com', source: 'home' }), makeEnv({ BREVO_LIST_ID: undefined }))
-    );
-    assert.equal(res.status, 500);
-    const body = await res.json();
-    assert.equal(body.ok, false);
-  }
-
-  // BREVO_LIST_ID present but not a positive integer -> 500, not silently NaN
-  {
-    const res = await withMockedBrevoFetch(201, {}, () =>
-      worker.fetch(makeRequest({ email: 'a@b.com', source: 'home' }), makeEnv({ BREVO_LIST_ID: 'not-a-number' }))
-    );
-    assert.equal(res.status, 500);
-  }
-
-  // BREVO_API_KEY missing server-side -> 500, explicit check (point 22)
-  {
-    const res = await withMockedBrevoFetch(201, {}, () =>
-      worker.fetch(makeRequest({ email: 'a@b.com', source: 'home' }), makeEnv({ BREVO_API_KEY: undefined }))
-    );
-    assert.equal(res.status, 500);
-  }
-
-  // Success response body is minimal and does not leak Brevo's raw contact
-  // payload (id, createdAt, etc.) to the client.
-  {
-    const res = await withMockedBrevoFetch(201, { id: 42, createdAt: '2026-08-20T00:00:00Z' }, () =>
-      worker.fetch(makeRequest({ email: 'reader2@example.com', source: 'home' }), makeEnv())
-    );
-    assert.equal(res.status, 201);
-    const body = await res.json();
-    assert.deepEqual(body, { ok: true });
-  }
-
-  // Duplicate contact: Brevo's actual error text is never forwarded to the
-  // client, only a clean structured flag script.js can check directly.
-  {
-    const res = await withMockedBrevoFetch(400, { code: 'duplicate_parameter', message: 'Contact already exist' }, () =>
-      worker.fetch(makeRequest({ email: 'dupe@example.com', source: 'home' }), makeEnv())
-    );
-    assert.equal(res.status, 400);
-    const body = await res.json();
-    assert.deepEqual(body, { ok: false, duplicate: true });
-  }
-
-  // Any other Brevo failure (e.g. auth/rate-limit/internal error): the raw
-  // Brevo body must never reach the client, and the client-visible message
-  // must not contain anything from it.
-  {
-    const res = await withMockedBrevoFetch(401, { code: 'unauthorized', message: 'Key not found: xkeysib-SECRETVALUE' }, () =>
-      worker.fetch(makeRequest({ email: 'reader3@example.com', source: 'home' }), makeEnv())
-    );
-    assert.equal(res.status, 502);
-    const body = await res.json();
-    assert.equal(body.ok, false);
-    const bodyText = JSON.stringify(body);
-    assert.ok(!bodyText.includes('SECRETVALUE'), 'Brevo error detail must not leak to the client');
-    assert.ok(!bodyText.includes('unauthorized'), 'Brevo error code must not leak to the client');
-  }
-
-  // Valid request: listIds comes from env, not from the client, even when
-  // the client tries to smuggle its own listIds/attributes/updateEnabled.
-  {
-    const calls = [];
-    const res = await withMockedBrevoFetch(201, { id: 1 }, async (capturedCalls) => {
-      const r = await worker.fetch(
-        makeRequest({
-          email: 'reader@example.com',
-          source: 'home',
-          // Attempted contract violation: none of this should reach Brevo.
-          listIds: [999],
-          attributes: { SOURCE: 'attacker-controlled', ADMIN: true },
-          updateEnabled: false,
-        }),
-        makeEnv()
-      );
-      calls.push(...capturedCalls);
-      return r;
-    });
-    assert.equal(res.status, 201);
+  const limiter = makeRateLimiter();
+  res = await withMockedBrevoFetch(201, {}, async calls => {
+    const response = await worker.fetch(makeRequest({
+      email: ' Reader@Example.com ', source: 'home', listIds: [999], includeListIds: [999],
+      templateId: 999, redirectionUrl: 'https://evil.example/',
+      attributes: { SOURCE: 'attacker', ADMIN: true }, updateEnabled: true,
+    }), makeEnv({ RATE_LIMITER: limiter }));
     assert.equal(calls.length, 1);
+    assert.equal(calls[0].url, DOI_ENDPOINT);
     const forwarded = JSON.parse(calls[0].init.body);
-    assert.equal(forwarded.email, 'reader@example.com');
-    assert.deepEqual(forwarded.listIds, [3]); // from env.BREVO_LIST_ID, not the client's [999]
-    assert.deepEqual(forwarded.attributes, { SOURCE: 'home' }); // server-derived, not attacker-controlled
-    assert.equal(forwarded.updateEnabled, true); // hardcoded server-side, not the client's false
+    assert.deepEqual(forwarded, {
+      email: 'Reader@Example.com', includeListIds: [3], redirectionUrl: REDIRECT_URL,
+      templateId: 42, attributes: { SOURCE: 'home' },
+    });
+    assert.equal('listIds' in forwarded, false);
+    assert.equal('updateEnabled' in forwarded, false);
+    return response;
+  });
+  assert.equal(res.status, 201);
+  assert.deepEqual(await res.json(), { ok: true, state: 'pending_confirmation' });
+  assert.equal(limiter.calls.length, 1);
+  assert.match(limiter.calls[0].key, /^newsletter:[a-f0-9]{64}$/);
+  assert.ok(!limiter.calls[0].key.includes('Reader@Example.com'));
+
+  await withMockedBrevoFetch(201, {}, async calls => {
+    await worker.fetch(makeRequest({ email: 'quiz@example.com', source: 'quiz', result: 'sabio' }), makeEnv());
+    assert.deepEqual(JSON.parse(calls[0].init.body).attributes, { SOURCE: 'quiz-noveris', NOVERIS: 'sabio' });
+  });
+  await withMockedBrevoFetch(201, {}, async calls => {
+    await worker.fetch(makeRequest({ email: 'quiz2@example.com', source: 'quiz', result: '<script>' }), makeEnv());
+    assert.deepEqual(JSON.parse(calls[0].init.body).attributes, { SOURCE: 'quiz-noveris' });
+  });
+
+  const hpLimiter = makeRateLimiter({ success: false });
+  res = await withMockedBrevoFetch(201, {}, async calls => {
+    const response = await worker.fetch(makeRequest({ email: 'bot@example.com', source: 'home', website: 'spam' }), makeEnv({ RATE_LIMITER: hpLimiter }));
+    assert.equal(calls.length, 0); return response;
+  });
+  assert.equal(hpLimiter.calls.length, 0);
+  assert.equal(res.status, 201);
+  assert.deepEqual(await res.json(), { ok: true, state: 'pending_confirmation' });
+
+  const blockedLimiter = makeRateLimiter({ success: false });
+  res = await withMockedBrevoFetch(201, {}, async calls => {
+    const response = await worker.fetch(makeRequest({ email: 'limited@example.com', source: 'home' }), makeEnv({ RATE_LIMITER: blockedLimiter }));
+    assert.equal(calls.length, 0); return response;
+  });
+  assert.equal(res.status, 429);
+
+  for (const rateOverride of [undefined, {}, makeRateLimiter({ throwError: new Error('binding unavailable') }), makeRateLimiter({ result: {} })]) {
+    res = await withMockedBrevoFetch(201, {}, calls => worker.fetch(
+      makeRequest({ email: 'degraded@example.com', source: 'home' }), makeEnv({ RATE_LIMITER: rateOverride })
+    ).then(r => { assert.equal(calls.length, 1); return r; }));
+    assert.equal(res.status, 201);
   }
 
-  // Quiz source: a valid result is included as the NOVERIS attribute.
-  {
-    const calls = [];
-    await withMockedBrevoFetch(201, { id: 1 }, async (capturedCalls) => {
-      await worker.fetch(makeRequest({ email: 'quiz@example.com', source: 'quiz', result: 'sabio' }), makeEnv());
-      calls.push(...capturedCalls);
-    });
-    const forwarded = JSON.parse(calls[0].init.body);
-    assert.deepEqual(forwarded.attributes, { SOURCE: 'quiz-noveris', NOVERIS: 'sabio' });
-  }
+  res = await withMockedBrevoFetch(401, { code: 'unauthorized', message: 'xkeysib-SECRETVALUE' }, () =>
+    worker.fetch(makeRequest({ email: 'reader@example.com', source: 'home' }), makeEnv())
+  );
+  assert.equal(res.status, 502);
+  const safeError = JSON.stringify(await res.json());
+  assert.ok(!safeError.includes('SECRETVALUE'));
+  assert.ok(!safeError.includes('unauthorized'));
 
-  // Quiz source with an out-of-enum result: dropped, not forwarded as-is.
-  {
-    const calls = [];
-    await withMockedBrevoFetch(201, { id: 1 }, async (capturedCalls) => {
-      await worker.fetch(
-        makeRequest({ email: 'quiz2@example.com', source: 'quiz', result: '<script>alert(1)</script>' }),
-        makeEnv()
-      );
-      calls.push(...capturedCalls);
-    });
-    const forwarded = JSON.parse(calls[0].init.body);
-    assert.deepEqual(forwarded.attributes, { SOURCE: 'quiz-noveris' });
-  }
+  res = await withMockedBrevoFetch(201, {}, () => worker.fetch(
+    makeRequest({ email: 'reader@example.com', source: 'home' }), makeEnv()
+  ), { throwError: new Error('network down') });
+  assert.equal(res.status, 502);
 
-  // Non-quiz source: result is ignored even if present.
-  {
-    const calls = [];
-    await withMockedBrevoFetch(201, { id: 1 }, async (capturedCalls) => {
-      await worker.fetch(makeRequest({ email: 'pop@example.com', source: 'popup', result: 'sabio' }), makeEnv());
-      calls.push(...capturedCalls);
-    });
-    const forwarded = JSON.parse(calls[0].init.body);
-    assert.deepEqual(forwarded.attributes, { SOURCE: 'popup' });
-  }
+  res = await withMockedBrevoFetch(204, undefined, () => worker.fetch(
+    makeRequest({ email: 'reader@example.com', source: 'home' }), makeEnv()
+  ));
+  assert.equal(res.status, 502);
 
   // Lectores Beta (N.1): usa BREVO_BETA_LIST_ID, no BREVO_LIST_ID -- listas
   // separadas para no mezclar consentimiento/proposito.
@@ -233,7 +182,7 @@ async function run() {
       calls.push(...capturedCalls);
     });
     const forwarded = JSON.parse(calls[0].init.body);
-    assert.deepEqual(forwarded.listIds, [7], 'lectores-beta debe usar BREVO_BETA_LIST_ID, no BREVO_LIST_ID');
+    assert.deepEqual(forwarded.includeListIds, [7], 'lectores-beta debe usar BREVO_BETA_LIST_ID, no BREVO_LIST_ID');
     assert.deepEqual(forwarded.attributes, { SOURCE: 'lectores-beta' });
   }
 
@@ -261,10 +210,9 @@ async function run() {
       calls.push(...capturedCalls);
     });
     const forwarded = JSON.parse(calls[0].init.body);
-    assert.deepEqual(forwarded.listIds, [3], 'home debe seguir usando BREVO_LIST_ID');
+    assert.deepEqual(forwarded.includeListIds, [3], 'home debe seguir usando BREVO_LIST_ID');
   }
 
   console.log('test-cloudflare-worker-subscribe: all assertions passed');
 }
-
 await run();

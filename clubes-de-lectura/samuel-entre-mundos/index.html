@@ -37,6 +37,7 @@
   <link rel="stylesheet" href="/assets/v1-tools.css" />
   <link rel="stylesheet" href="/assets/noveris.css" />
   <link rel="stylesheet" href="/assets/clubes-samuel.css" />
+  <link rel="stylesheet" href="/assets/newsletter-popup.css" />
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -184,6 +185,19 @@
         <p class="explore-preview__copy" data-preview-copy>Las manecillas del recuerdo es la obra actual y el punto de entrada editorial; aquí también está Samuel entre mundos.</p>
       </aside>
     </div>
+
+    <form class="explore-subscribe" id="newsletter-form-explore" novalidate data-newsletter-source="explore">
+      <label class="sr-only" for="nl-email-explore">Email</label>
+      <div class="form-row">
+        <input class="form-input" id="nl-email-explore" name="email" type="email" autocomplete="email" inputmode="email" required placeholder="Tu email" aria-describedby="nl-status-explore">
+        <button class="form-submit" type="submit">Suscribirme</button>
+      </div>
+      <label class="form-consent" for="nl-gdpr-explore">
+        <input id="nl-gdpr-explore" name="consent" type="checkbox" required aria-describedby="nl-status-explore">
+        <span>Acepto recibir novedades del autor. <a href="/privacidad.html" target="_blank" rel="noopener">Privacidad</a>.</span>
+      </label>
+      <p id="nl-status-explore" class="form-status" role="status" aria-live="polite"></p>
+    </form>
   </div>
 </dialog>
 <!-- site-shell:dialog:end -->
@@ -384,6 +398,7 @@
 
   <script defer src="/assets/v1-shell.js"></script>
   <script defer src="/script.js?v=202609-launch-1"></script>
+  <script defer src="/assets/newsletter-popup.js"></script>
 
 </body>
 </html>

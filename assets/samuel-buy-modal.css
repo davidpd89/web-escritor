@@ -1,0 +1,39 @@
+/* Samuel entre mundos — modal de compra. Cargado solo por samuel-buy-modal.js
+   tras validar la identidad de la página; no pertenece al CSS global. */
+#buy-dialog{
+  width:min(480px,calc(100vw - 32px));
+  max-width:480px;
+  max-height:calc(100dvh - 32px);
+  padding:0;
+  border:1px solid rgba(122,92,42,.32);
+  border-radius:12px;
+  background:#f4eadb;
+  color:#21170e;
+  box-shadow:0 32px 90px rgba(0,0,0,.55);
+  overflow:auto;
+}
+#buy-dialog::backdrop{background:rgba(0,0,0,.68);backdrop-filter:blur(4px);-webkit-backdrop-filter:blur(4px)}
+#buy-dialog .buy-dialog-inner{position:relative;padding:2rem 1.75rem 1.75rem;background:linear-gradient(180deg,#fff8ee 0%,#f4eadb 100%);border-radius:12px}
+#buy-dialog .buy-dialog-close{position:absolute;top:1rem;right:1rem;padding:.25rem .5rem;border:0;border-radius:4px;background:rgba(33,23,14,.03);color:#6e5b44;font-size:1.1rem;line-height:1;cursor:pointer;transition:color .2s,background .2s}
+#buy-dialog .buy-dialog-close:hover,#buy-dialog .buy-dialog-close:focus-visible{background:rgba(122,92,42,.12);color:#21170e;outline:2px solid #9b6b28;outline-offset:2px}
+#buy-dialog .buy-dialog-eyebrow{margin:0 0 .5rem;color:#7d581f;font-size:.72rem;letter-spacing:.08em;text-transform:uppercase}
+#buy-dialog .buy-dialog-title{margin:0 0 1.5rem;color:#21170e;font-size:1.25rem;font-weight:700;line-height:1.2}
+#buy-dialog .buy-dialog-options{display:flex;flex-direction:column;gap:.75rem;margin-bottom:1.25rem}
+#buy-dialog .buy-option{display:grid;grid-template-columns:minmax(0,1fr) auto;grid-template-rows:auto auto;align-items:center;gap:.1rem .75rem;padding:1rem 1.25rem;border:1px solid rgba(122,92,42,.22);border-radius:8px;background:#fffaf2;color:#21170e;text-decoration:none;transition:border-color .2s,background .2s,transform .15s}
+#buy-dialog .buy-option:hover,#buy-dialog .buy-option:focus-visible{border-color:#9b6b28;background:#fff3dd;outline:2px solid #9b6b28;outline-offset:2px;transform:translateY(-1px)}
+#buy-dialog .buy-option--primary{border-color:transparent;background:linear-gradient(135deg,#f0c979 0%,#d7a34f 100%);color:#140d06}
+#buy-dialog .buy-option-vendor{grid-column:1;grid-row:1;color:#21170e;font-size:.95rem;font-weight:600}
+#buy-dialog .buy-option-format{grid-column:1;grid-row:2;margin-top:.1rem;color:#64533e;font-size:.78rem}
+#buy-dialog .buy-option-cta{grid-column:2;grid-row:1/3;color:#7a4f12;font-size:.85rem;font-weight:600;white-space:nowrap}
+#buy-dialog .buy-dialog-note{margin:0;color:#64533e;font-size:.82rem;text-align:center}
+#buy-dialog .buy-dialog-note .text-link{color:#7a4f12;text-decoration:underline}
+#buy-dialog .buy-dialog-affiliate-note{margin:10px 0 0;color:#64533e;font-size:.78rem;line-height:1.45}
+@media(max-width:420px){
+  #buy-dialog{width:calc(100vw - 16px);max-height:calc(100dvh - 16px)}
+  #buy-dialog .buy-dialog-inner{padding:1.75rem 1rem 1.25rem}
+  #buy-dialog .buy-option{padding:.9rem 1rem}
+}
+@media(prefers-reduced-motion:reduce){
+  #buy-dialog .buy-dialog-close,#buy-dialog .buy-option{transition:none}
+  #buy-dialog .buy-option:hover,#buy-dialog .buy-option:focus-visible{transform:none}
+}
