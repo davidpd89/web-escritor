@@ -1,25 +1,43 @@
-// ── MODAL "¿DÓNDE COMPRAR?" (Samuel entre mundos) ──────────────────────────
-// Extraido de script.js (H.1, 2026-08-23): solo se cargaba y ejecutaba
-// realmente en libros/samuel-entre-mundos/index.html (unico HTML del repo
-// con data-buy-modal), pero antes se descargaba/ejecutaba en TODAS las
-// paginas via script.js. Depende de scheduleTask/_gcEvent, ya globales
-// (definidos por script.js, cargado antes que este fichero).
-//
-// Crea el <dialog> una sola vez y lo abre cuando se pulsa cualquier
-// botón/enlace con el atributo data-buy-modal. Funciona en Android,
-// iOS (Safari 15.4+) y escritorio. ESC y clic fuera cierran el modal.
+// Modal «¿Dónde comprar?» de Samuel entre mundos.
+// Runtime deliberadamente fail-closed: aunque este asset se cargase por error
+// en otra URL, no registra listeners, no carga CSS y no expone retailers si no
+// existe la identidad exacta de la página Samuel.
 (function () {
+  const EXPECTED_PATH = "/libros/samuel-entre-mundos/";
+  const path = window.location.pathname.replace(/\/index\.html$/, "/");
+  const pageRoot = document.querySelector('main[data-family="book-samuel"]');
+  if (path !== EXPECTED_PATH || !pageRoot) return;
+
+  const STYLE_HREF = "/assets/samuel-buy-modal.css";
   const AMAZON_URL = "https://www.amazon.es/dp/B0GB6LGQFH?tag=davidporto-21";
   const CASADELLIBRO_URL = "https://www.casadellibro.com/libro-samuel-entre-mundos/9791387659776/17856720";
+
+  if (!document.querySelector('link[data-samuel-buy-modal-style]')) {
+    const style = document.createElement("link");
+    style.rel = "stylesheet";
+    style.href = STYLE_HREF;
+    style.dataset.samuelBuyModalStyle = "true";
+    document.head.appendChild(style);
+  }
+
+  let dialog = null;
+  let lastBuyTrigger = null;
+
+  function restoreFocus() {
+    const target = lastBuyTrigger;
+    lastBuyTrigger = null;
+    if (target instanceof HTMLElement && target.isConnected) {
+      target.focus({ preventScroll: true });
+    }
+  }
 
   function buildDialog() {
     const d = document.createElement("dialog");
     d.id = "buy-dialog";
-    d.setAttribute("aria-modal", "true");
     d.setAttribute("aria-labelledby", "buy-dialog-title");
     d.innerHTML = `
       <div class="buy-dialog-inner">
-        <button class="buy-dialog-close" id="buy-dialog-close" aria-label="Cerrar">✕</button>
+        <button class="buy-dialog-close" id="buy-dialog-close" type="button" aria-label="Cerrar">✕</button>
         <p class="buy-dialog-eyebrow">Samuel entre mundos · David Porto Díaz</p>
         <h2 id="buy-dialog-title" class="buy-dialog-title">¿Dónde quieres leerlo?</h2>
         <div class="buy-dialog-options">
@@ -39,69 +57,49 @@
       </div>`;
     document.body.appendChild(d);
 
-    // Cerrar con el botón X
     d.querySelector("#buy-dialog-close").addEventListener("click", () => d.close());
-
-    // Cerrar al clicar el backdrop (fuera del inner)
-    d.addEventListener("click", e => {
-      if (e.target === d) d.close();
+    d.addEventListener("click", (event) => {
+      if (event.target === d) d.close();
+    });
+    // No hay focus trap manual: showModal() hace modal el resto del documento
+    // y el navegador mantiene el ciclo de teclado dentro del <dialog>.
+    d.addEventListener("close", () => {
+      document.documentElement.classList.remove("modal-open");
+      restoreFocus();
     });
 
-    // Focus trap: Tab dentro del diálogo
-    d.addEventListener("keydown", e => {
-      if (e.key !== "Tab") return;
-      const focusable = Array.from(d.querySelectorAll("a, button")).filter(el => !el.disabled);
-      const first = focusable[0], last = focusable[focusable.length - 1];
-      if (e.shiftKey ? document.activeElement === first : document.activeElement === last) {
-        e.preventDefault();
-        (e.shiftKey ? last : first).focus();
-      }
+    d.querySelectorAll("[data-gc]").forEach((element) => {
+      element.addEventListener("click", () => _gcEvent(element.dataset.gc, "Clic: " + element.dataset.gc));
     });
-
-    // GoatCounter por opción
-    d.querySelectorAll("[data-gc]").forEach(el => {
-      el.addEventListener("click", () => _gcEvent(el.dataset.gc, "Clic: " + el.dataset.gc));
-    });
-
     return d;
   }
 
-  let _dialog = null;
-  let _lastBuyTrigger = null;
-
   function openBuyDialog(trigger) {
-    _lastBuyTrigger = trigger || document.activeElement;
-    if (!_dialog) {
-      _dialog = buildDialog();
-      _dialog.setAttribute("role", "dialog");
-      // Restaurar foco al cerrar
-      _dialog.addEventListener("close", () => {
-        document.documentElement.classList.remove("modal-open");
-        _lastBuyTrigger?.focus?.();
-      });
-    }
-    // book=samuel (H.2): identidad de libro explicita para no mezclar este
-    // funnel con el de Manecillas bajo el mismo nombre de evento generico.
+    if (!(trigger instanceof HTMLElement) || !pageRoot.contains(trigger)) return false;
+    if (dialog?.open || document.querySelector("dialog[open]")) return false;
+
+    if (!dialog) dialog = buildDialog();
+    lastBuyTrigger = trigger;
+
+    // #63 es owner de la taxonomía analítica global: se conserva el nombre
+    // existente y solo se mantiene la identidad Samuel en la etiqueta.
     _gcEvent("abrir-modal-comprar", "Modal: abrir dónde comprar (book=samuel)");
     document.documentElement.classList.add("modal-open");
-    // Back button support: push state so Back closes modal instead of leaving page
     history.pushState({ buyModal: true }, "", "#comprar");
-    _dialog.showModal();
-    // Enfocar la opción principal de compra
-    setTimeout(() => (_dialog.querySelector(".buy-option--primary") || _dialog.querySelector("a, button"))?.focus(), 50);
+    dialog.showModal();
+    (dialog.querySelector(".buy-option--primary") || dialog.querySelector("a, button"))?.focus({ preventScroll: true });
+    return true;
   }
 
-  // Activar en todos los elementos con data-buy-modal
-  document.addEventListener("click", e => {
-    const trigger = e.target.closest("[data-buy-modal]");
-    if (trigger) {
-      e.preventDefault();
-      openBuyDialog(trigger);
-    }
+  pageRoot.addEventListener("click", (event) => {
+    if (!(event.target instanceof Element)) return;
+    const trigger = event.target.closest("[data-buy-modal]");
+    if (!trigger || !pageRoot.contains(trigger)) return;
+    event.preventDefault();
+    openBuyDialog(trigger);
   });
 
-  // Cerrar modal con el botón Atrás del navegador
   window.addEventListener("popstate", () => {
-    if (_dialog && _dialog.open) _dialog.close();
+    if (dialog?.open) dialog.close();
   });
 })();
