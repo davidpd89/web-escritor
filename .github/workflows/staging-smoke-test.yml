@@ -1,0 +1,23 @@
+name: Staging smoke test
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: '25 6 * * *'
+
+permissions:
+  contents: read
+
+jobs:
+  smoke:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Run HTTP smoke checks against staging
+        env:
+          STAGING_BASE_URL: https://david-porto-preview.davidpd89.workers.dev
+        run: node tests/test-staging-smoke.mjs

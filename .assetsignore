@@ -35,3 +35,9 @@ lighthouserc.json
 assets/manecillas-social-4x5-aviso.webp
 assets/manecillas-social-4x5-disponible.webp
 assets/manecillas-social-story-9x16.webp
+
+# Rutas gated/staging derivadas de data/content-registry.json (status !=
+# public): el staging real de Cloudflare tambien debe respetarlas, no solo
+# el .preview-dist local.
+donde-empieza-la-jaula/
+lectores-beta/
