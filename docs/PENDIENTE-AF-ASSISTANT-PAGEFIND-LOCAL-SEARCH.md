@@ -113,12 +113,28 @@ Añadir pruebas que demuestren:
 
 ## Definition of Done
 
-- Pagefind deja de ser un import que falla sistemáticamente;
-- build/index source está documentado y reproducible;
-- elegibilidad deriva de authorities actuales;
-- exclusiones de privacidad/publicación tienen regresiones;
-- fallback local sigue probado;
-- staging evidencia recursos Pagefind 200 + búsqueda real;
-- no se altera `main`, no deploy de producción y no auto-merge.
+- [x] Pagefind deja de ser un import que falla sistemáticamente;
+- [x] build/index source está documentado y reproducible;
+- [x] elegibilidad deriva de authorities actuales;
+- [x] exclusiones de privacidad/publicación tienen regresiones;
+- [x] fallback local sigue probado (código preexistente en `pagefindFallback()`, sin cambios; ver nota abajo);
+- [ ] staging evidencia recursos Pagefind 200 + búsqueda real (código listo — `tests/test-staging-smoke.mjs` ya lo comprueba — pero requiere el próximo deploy real a staging, que esta PR no ejecuta);
+- [x] no se altera `main`, no deploy de producción y no auto-merge.
 
 PR DRAFT / owner técnico. No es bloque de diseño visual.
+
+## Estado de implementación (código, sin deploy)
+
+Implementado en esta rama, 100% código/CI, sin generación de imagen ni IA:
+
+- `scripts/build-pagefind-index.py`: `eligible_pages()` deriva la elegibilidad de `data/content-registry.json` (`status`/`searchIndex`) **más** el propio `<meta name="robots" content="noindex">` de cada página (sin lista manual paralela: esto captura gratis `404.html`, `offline.html`, el stub de redirección `samuel-entre-mundos.html`, `lab/**` y `herramientas/auditor-web/`, todos ya `noindex` por otros motivos). `--check` es puro Python (compara `pagefind/eligible-manifest.json` contra el corpus recalculado); solo el build real necesita Node+`pagefind`.
+- `pagefind/` generado y **commiteado** (no en CI/deploy): consistente con que este repo no tiene build step y sirve exactamente lo que hay en git. `.pagefind-src/` (la copia efímera que se le pasa al CLI) va a `.gitignore`.
+- `--exclude-selectors "header.site-header, dialog.explore-dialog, footer.site-footer"` evita indexar el chrome repetido del shell (el diálogo Explorar no es `<nav>`/`<footer>`, así que Pagefind no lo excluye solo).
+- `assets/assistant.js` — **sin cambios**: `pagefindFallback()` ya hacía `import('/pagefind/pagefind.js')` + `pagefind.search()` con la API real correcta; el único gap era que `/pagefind/` no existía.
+- Tests: `tests/test-build-pagefind-index.py` (fixture git aislado: página pública sin registro → incluida; `searchIndex:false` → excluida; `status!=public` → excluida; página sin registro pero con `noindex` propio → excluida; fragmento `data/*` → excluida siempre; ciclo `build()`/`--check` detecta desincronización real) y `tests/test-pagefind-search.mjs` (navegador real contra el índice comprometido: consulta real devuelve URL interna real, `/privacidad.html` y la ruta gated no aparecen, cero requests externos).
+- CI: `content-index-check.yml` (gate `--check`, sin Node) y `assistant-hardening-qa.yml` (build real + ambos tests nuevos, en el job que ya tiene Node/Playwright).
+
+Pendiente para el propietario (no código, o depende de un deploy real):
+
+- Confirmar en el próximo deploy de staging que `/pagefind/pagefind.js` sirve 200 (el test ya existe en `test-staging-smoke.mjs`, solo falta que corra contra un staging con este commit).
+- AF.4 (UX/findability, launcher en shell) queda explícitamente fuera de esta PR, tal y como pedía el propio doc.

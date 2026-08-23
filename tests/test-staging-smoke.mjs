@@ -25,6 +25,15 @@ const INTERNAL_ROUTES = [
   '/cloudflare-worker-subscribe.js',
 ];
 
+// AF -- assets/assistant.js does `import('/pagefind/pagefind.js')` before
+// falling back to local ranking; if staging doesn't actually serve these,
+// the fallback masks it silently in the UI and nothing else here would
+// notice. Asset routes only (no <title>, unlike PUBLIC_ROUTES).
+const PAGEFIND_ASSET_ROUTES = [
+  '/pagefind/pagefind.js',
+  '/pagefind/eligible-manifest.json',
+];
+
 function requestText(url, timeoutMs) {
   const target = new URL(url);
   const client = target.protocol === 'https:' ? https : http;
@@ -110,6 +119,18 @@ async function checkPublicRoute(pathname) {
   return response.body;
 }
 
+async function checkAssetRoute(pathname) {
+  const url = `${BASE_URL}${pathname}`;
+  let response;
+  try {
+    response = await requestText(url, REQUEST_TIMEOUT_MS);
+  } catch (err) {
+    throw new Error(`${pathname}: request failed (${err?.name || 'error'}: ${err?.message || err})`);
+  }
+  assert.equal(response.status, 200, `${pathname}: expected HTTP 200, got ${response.status}`);
+  assert.ok(response.body.length > 0, `${pathname}: empty body`);
+}
+
 async function checkInternalRoute(pathname) {
   const url = `${BASE_URL}${pathname}`;
   let response;
@@ -137,6 +158,16 @@ async function main() {
     } catch (err) {
       failures.push(String(err?.message || err));
       console.error(`FAIL public ${route}: ${err?.message || err}`);
+    }
+  }
+
+  for (const route of PAGEFIND_ASSET_ROUTES) {
+    try {
+      await checkAssetRoute(route);
+      console.log(`OK asset ${route}`);
+    } catch (err) {
+      failures.push(String(err?.message || err));
+      console.error(`FAIL asset ${route}: ${err?.message || err}`);
     }
   }
 
