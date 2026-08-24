@@ -137,39 +137,6 @@
     });
   }
 
-  function initMap() {
-    const map = q('[data-map]');
-    if (!map) return;
-    let focusKey = '';
-    let hoverKey = '';
-    const sync = () => {
-      const active = focusKey || hoverKey;
-      if (active) map.dataset.active = active;
-      else delete map.dataset.active;
-      if (focusKey) map.dataset.focusActive = focusKey;
-      else delete map.dataset.focusActive;
-    };
-    qa('[data-map-node]', map).forEach((node) => {
-      const key = node.dataset.mapNode || '';
-      node.addEventListener('mouseenter', () => {
-        hoverKey = key;
-        sync();
-      });
-      node.addEventListener('mouseleave', () => {
-        if (hoverKey === key) hoverKey = '';
-        sync();
-      });
-      node.addEventListener('focus', () => {
-        focusKey = key;
-        sync();
-      });
-      node.addEventListener('blur', () => {
-        if (focusKey === key) focusKey = '';
-        sync();
-      });
-    });
-  }
-
   function initIntro() {
     const intro = q('[data-intro]');
     if (!intro) return;
@@ -241,10 +208,39 @@
     else addEventListener('load', schedule, { once: true });
   }
 
+  function initHeaderSearch() {
+    const triggers = qa('[data-assistant-search-open]');
+    if (!triggers.length) return;
+    const csp = document.querySelector('meta[http-equiv="Content-Security-Policy"]')?.content || '';
+    // Mismo criterio que initAssistantWidget(): paginas con frame-src 'none'
+    // (herramientas de manuscrito) o la propia /asistente/ no montan el
+    // iframe flotante. El boton de busqueda en esas paginas lleva a la
+    // version de pagina completa en vez de intentar abrir un widget que
+    // nunca se monta.
+    const widgetBlocked = /frame-src\s+'none'/i.test(csp) || /^\/asistente(?:\/|$)/.test(location.pathname);
+    triggers.forEach((btn) => {
+      btn.addEventListener('click', () => {
+        if (widgetBlocked) { location.href = '/asistente/'; return; }
+        const launcher = q('.assistant-widget__launcher');
+        if (launcher) { launcher.click(); return; }
+        if (!q('link[data-assistant-widget-style]')) {
+          const style = document.createElement('link');
+          style.rel = 'stylesheet';
+          style.href = '/assets/assistant-widget.css';
+          style.dataset.assistantWidgetStyle = 'true';
+          document.head.append(style);
+        }
+        import('/assets/assistant-widget.js')
+          .then(() => q('.assistant-widget__launcher')?.click())
+          .catch(() => { location.href = '/asistente/'; });
+      });
+    });
+  }
+
   initHeader();
   initExplore();
-  initMap();
   initIntro();
   initHeroVideo();
   initAssistantWidget();
+  initHeaderSearch();
 })();

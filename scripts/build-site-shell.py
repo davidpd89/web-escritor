@@ -301,9 +301,15 @@ def render_header(nav: dict, by_id: dict[str, Entry], current_path: str) -> str:
         '    <nav class="primary-nav" aria-label="Navegación principal">\n'
         f"{links}\n"
         '    </nav>\n'
-        '    <button class="explore-trigger" type="button" aria-haspopup="dialog" aria-controls="explore-dialog" aria-expanded="false" data-explore-open>\n'
-        '      Explorar\n'
-        '    </button>\n'
+        '    <div class="site-header__actions">\n'
+        '      <button class="header-search" type="button" data-assistant-search-open aria-label="Buscar (abre el asistente)">\n'
+        '        <svg aria-hidden="true" viewBox="0 0 24 24" width="17" height="17"><circle cx="11" cy="11" r="7"/><path d="M20 20l-4.35-4.35"/></svg>\n'
+        '        <span>Buscar</span>\n'
+        '      </button>\n'
+        '      <button class="explore-trigger" type="button" aria-haspopup="dialog" aria-controls="explore-dialog" aria-expanded="false" data-explore-open>\n'
+        '        Explorar\n'
+        '      </button>\n'
+        '    </div>\n'
         '  </div>\n'
         '</header>'
     )

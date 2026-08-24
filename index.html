@@ -328,9 +328,15 @@
         <a href="/cuaderno/">Cuaderno</a>
         <a href="/herramientas/">Herramientas</a>
     </nav>
-    <button class="explore-trigger" type="button" aria-haspopup="dialog" aria-controls="explore-dialog" aria-expanded="false" data-explore-open>
-      Explorar
-    </button>
+    <div class="site-header__actions">
+      <button class="header-search" type="button" data-assistant-search-open aria-label="Buscar (abre el asistente)">
+        <svg aria-hidden="true" viewBox="0 0 24 24" width="17" height="17"><circle cx="11" cy="11" r="7"/><path d="M20 20l-4.35-4.35"/></svg>
+        <span>Buscar</span>
+      </button>
+      <button class="explore-trigger" type="button" aria-haspopup="dialog" aria-controls="explore-dialog" aria-expanded="false" data-explore-open>
+        Explorar
+      </button>
+    </div>
   </div>
 </header>
 <!-- site-shell:header:end -->
@@ -420,77 +426,65 @@
 <!-- site-shell:dialog:end -->
 
   <main id="contenido" tabindex="-1">
-    <section class="home-hero" aria-labelledby="home-title" data-home-hero>
-      <div class="home-hero__inner">
-        <div class="home-hero__copy">
-          <p class="hero-kicker">Escritor</p>
-          <h1 id="home-title">David Porto Díaz</h1>
-          <div class="hero-work">
-            <p class="hero-work__label">Obra actual</p>
-            <p class="hero-work__title">Las manecillas del recuerdo</p>
-            <time class="hero-work__date" datetime="2026-09-03">Publicada el 3 de septiembre de 2026 · Monza Ediciones</time>
-          </div>
-          <a class="primary-action" href="/las-manecillas-del-recuerdo/">Descubrir Las manecillas</a>
-        </div>
-
-        <div class="hero-media" aria-label="David Porto Díaz y Las manecillas del recuerdo" data-hero-media>
-          <figure class="hero-portrait media-object" data-media="portrait">
-            <picture>
-              <source type="image/avif" srcset="assets/david-porto-foto-portada-sinfondo.avif" />
-              <img src="assets/david-porto-foto-portada-sinfondo.webp" alt="David Porto Díaz, escritor" width="433" height="577" fetchpriority="high" loading="eager" decoding="sync" />
-            </picture>
-          </figure>
-          <figure class="hero-cover media-object" data-media="cover">
-            <picture>
-              <source type="image/avif" media="(max-width: 420px)" srcset="assets/portada-las-manecillas-del-recuerdo-320.avif"><source media="(max-width: 420px)" srcset="assets/portada-las-manecillas-del-recuerdo-320.webp">
-              <source type="image/avif" media="(max-width: 820px)" srcset="assets/portada-las-manecillas-del-recuerdo-512.avif"><source media="(max-width: 820px)" srcset="assets/portada-las-manecillas-del-recuerdo-512.webp">
-              <source type="image/avif" media="(max-width: 1280px)" srcset="assets/portada-las-manecillas-del-recuerdo-768.avif"><source media="(max-width: 1280px)" srcset="assets/portada-las-manecillas-del-recuerdo-768.webp">
-              <source type="image/avif" srcset="assets/portada-las-manecillas-del-recuerdo-1024.avif"><img src="assets/portada-las-manecillas-del-recuerdo-1024.webp" alt="Portada de Las manecillas del recuerdo, de David Porto Díaz" width="1024" height="1536" loading="eager" decoding="async" />
-            </picture>
-          </figure>
-        </div>
+    <section class="masthead" aria-labelledby="masthead-title">
+      <p class="masthead__kicker">Escritor</p>
+      <h1 id="masthead-title" class="masthead__name">David Porto Díaz</h1>
+      <figure class="masthead__portrait">
+        <picture>
+          <source type="image/avif" srcset="assets/david-porto-foto-portada-sinfondo.avif" />
+          <img src="assets/david-porto-foto-portada-sinfondo.webp" alt="David Porto Díaz, escritor" width="433" height="577" fetchpriority="high" loading="eager" decoding="sync" />
+        </picture>
+      </figure>
+      <div class="masthead__work">
+        <p class="masthead__work-label">Obra actual</p>
+        <p class="masthead__work-title">Las manecillas del recuerdo</p>
+        <time class="masthead__work-date" datetime="2026-09-03">3 de septiembre de 2026 · Monza Ediciones</time>
+        <a class="primary-action" href="/las-manecillas-del-recuerdo/">Descubrir Las manecillas</a>
       </div>
     </section>
 
-    <div class="editorial-seam" aria-hidden="true"><span></span></div>
-
-    <section class="cartography" aria-labelledby="cartography-title">
-      <div class="section-intro">
-        <p class="eyebrow">Índice visual</p>
-        <h2 id="cartography-title">Explorar la web</h2>
-        <p>Obra, autor, artículos, herramientas y prensa conectados por una misma estructura.</p>
+    <nav class="masthead-nav" aria-label="Territorios de la web">
+      <ul class="masthead-nav__list">
+        <li><a href="/las-manecillas-del-recuerdo/" data-territory="manecillas">Las manecillas</a></li>
+        <li><a href="/autor.html" data-territory="autor">Autor</a></li>
+        <li><a href="/libros/samuel-entre-mundos/" data-territory="samuel">Samuel entre mundos</a></li>
+        <li><a href="/cuaderno/" data-territory="cuaderno">Cuaderno</a></li>
+        <li><a href="/herramientas/" data-territory="herramientas">Herramientas</a></li>
+        <li><a href="/prensa.html" data-territory="prensa">Prensa y eventos</a></li>
+      </ul>
+      <div class="masthead-nav__preview">
+        <div class="masthead-nav__preview-panel" data-preview-panel="manecillas">
+          <div class="masthead-nav__preview-media" style="background-image:url('assets/portada-las-manecillas-del-recuerdo-512.webp')"></div>
+          <p class="masthead-nav__preview-label">Las manecillas del recuerdo</p>
+          <p class="masthead-nav__preview-text">La obra actual y punto de entrada editorial.</p>
+        </div>
+        <div class="masthead-nav__preview-panel" data-preview-panel="autor">
+          <div class="masthead-nav__preview-media" style="background-image:url('assets/david-porto-diaz-retrato-editorial-prensa.webp')"></div>
+          <p class="masthead-nav__preview-label">Autor</p>
+          <p class="masthead-nav__preview-text">Biografía, obra y trayectoria.</p>
+        </div>
+        <div class="masthead-nav__preview-panel" data-preview-panel="samuel">
+          <div class="masthead-nav__preview-media" style="background-image:url('assets/samuel-entre-mundos.webp')"></div>
+          <p class="masthead-nav__preview-label">Samuel entre mundos</p>
+          <p class="masthead-nav__preview-text">Primera novela publicada.</p>
+        </div>
+        <div class="masthead-nav__preview-panel" data-preview-panel="cuaderno">
+          <div class="masthead-nav__preview-media" style="background-image:url('assets/noveris-ciudad-fantasia-david-porto-diaz.webp')"></div>
+          <p class="masthead-nav__preview-label">Cuaderno</p>
+          <p class="masthead-nav__preview-text">Artículos y piezas editoriales.</p>
+        </div>
+        <div class="masthead-nav__preview-panel" data-preview-panel="herramientas">
+          <div class="masthead-nav__preview-media" style="background-image:url('assets/david-porto-llave-libro.webp')"></div>
+          <p class="masthead-nav__preview-label">Herramientas</p>
+          <p class="masthead-nav__preview-text">Utilidades gratuitas para escritores.</p>
+        </div>
+        <div class="masthead-nav__preview-panel" data-preview-panel="prensa">
+          <div class="masthead-nav__preview-media" style="background-image:url('assets/feria-aranjuez-2026-david-porto-diaz-firma-caseta.webp')"></div>
+          <p class="masthead-nav__preview-label">Prensa y eventos</p>
+          <p class="masthead-nav__preview-text">Apariciones, materiales y agenda.</p>
+        </div>
       </div>
-
-      <div class="map-stage" data-map>
-        <svg class="map-routes" viewBox="0 0 1440 820" preserveAspectRatio="none" aria-hidden="true">
-          <path d="M1037 197 C850 198 790 120 662 148 C512 182 470 265 346 312"/>
-          <path d="M1037 197 C1160 260 1194 360 1152 467 C1102 592 1012 622 893 631"/>
-          <path d="M346 312 C410 430 438 498 504 566 C412 616 350 651 259 672"/>
-          <path d="M504 566 C648 548 742 586 893 631"/>
-        </svg>
-
-        <nav class="map-nodes" aria-label="Territorios de la web">
-          <a class="map-node map-node--primary" href="/las-manecillas-del-recuerdo/" style="--x:72%;--y:24%;" data-map-node="manecillas">
-            <span class="map-node__marker" aria-hidden="true"></span><strong>Las manecillas del recuerdo</strong><small>Obra actual</small>
-          </a>
-          <a class="map-node" href="/autor.html" style="--x:46%;--y:18%;" data-map-node="autor">
-            <span class="map-node__marker" aria-hidden="true"></span><strong>Autor</strong><small>Biografía y trayectoria</small>
-          </a>
-          <a class="map-node" href="/libros/samuel-entre-mundos/" style="--x:24%;--y:38%;" data-map-node="samuel">
-            <span class="map-node__marker" aria-hidden="true"></span><strong>Samuel entre mundos</strong><small>Primera novela</small>
-          </a>
-          <a class="map-node" href="/cuaderno/" style="--x:35%;--y:69%;" data-map-node="cuaderno">
-            <span class="map-node__marker" aria-hidden="true"></span><strong>Cuaderno</strong><small>Artículos</small>
-          </a>
-          <a class="map-node" href="/herramientas/" style="--x:62%;--y:77%;" data-map-node="herramientas">
-            <span class="map-node__marker" aria-hidden="true"></span><strong>Herramientas</strong><small>Utilidades para escritores</small>
-          </a>
-          <a class="map-node" href="/prensa.html" style="--x:18%;--y:82%;" data-map-node="prensa">
-            <span class="map-node__marker" aria-hidden="true"></span><strong>Prensa y eventos</strong><small>Archivo y agenda</small>
-          </a>
-        </nav>
-      </div>
-    </section>
+    </nav>
 
     <!-- Preserva el ensayo íntegro "Sobre Samuel entre mundos": no se
          duplica en ninguna otra página, así que se conserva completo aquí
@@ -514,24 +508,33 @@
       </div>
       <div class="river-list" data-river-list>
         <article class="river-item river-item--lead" data-signal="1">
+          <a class="river-item__media" href="/las-manecillas-del-recuerdo/" aria-hidden="true" tabindex="-1">
+            <img src="assets/manecillas-book-mockup-768.webp" alt="" loading="lazy" decoding="async" />
+          </a>
           <p class="river-item__meta">Las manecillas del recuerdo · 3 septiembre 2026</p>
           <h3><a href="/las-manecillas-del-recuerdo/">La nueva novela de David Porto Díaz</a></h3>
           <p>Ficha, publicación, fragmentos y materiales de la obra.</p>
         </article>
         <article class="river-item" data-signal="2">
+          <a class="river-item__media" href="/autor.html" aria-hidden="true" tabindex="-1">
+            <img src="assets/david-porto-diaz-retrato-editorial-prensa.webp" alt="" loading="lazy" decoding="async" />
+          </a>
           <p class="river-item__meta">Autor</p>
           <h3><a href="/autor.html">Sobre David Porto Díaz</a></h3>
           <p>Biografía, formación y trayectoria del escritor.</p>
         </article>
         <article class="river-item" data-signal="3">
+          <a class="river-item__media" href="/libros/" aria-hidden="true" tabindex="-1">
+            <img src="assets/samuel_entre_mundos_3d.webp" alt="" loading="lazy" decoding="async" />
+          </a>
           <p class="river-item__meta">Libros</p>
           <h3><a href="/libros/">Las dos novelas, comparadas</a></h3>
         </article>
-        <article class="river-item" data-signal="7">
+        <article class="river-item river-item--text" data-signal="7">
           <p class="river-item__meta">Reconocimientos</p>
           <h3><a href="/premios.html">Premios y distinciones</a></h3>
         </article>
-        <article class="river-item" data-signal="9">
+        <article class="river-item river-item--text" data-signal="9">
           <p class="river-item__meta">Antología colaborativa</p>
           <h3><a href="https://www.diversidadliteraria.com/la-memoria-de-las-tierras-del-norte" target="_blank" rel="noopener noreferrer">La memoria de las tierras del norte</a></h3>
           <p>Relato de David Porto Díaz en una antología de fantasía editada por Diversidad Literaria.</p>
