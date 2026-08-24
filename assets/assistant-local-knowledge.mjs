@@ -15,9 +15,62 @@ function result(intent, answer, sourceIds, options = {}) {
   };
 }
 
+const STARTER_SUGGESTIONS = Object.freeze([
+  { label: "Ver los libros", query: "¿Qué libros ha publicado David Porto Díaz?" },
+  { label: "Leer un fragmento", query: "¿Dónde puedo leer un fragmento gratis?" },
+  { label: "Herramientas", query: "¿Qué herramientas gratuitas hay para escritores?" },
+]);
+
+function isGreetingOnly(text) {
+  return /^(?:hola|buenas|buenos dias|buenas tardes|buenas noches|hey|ey)(?:[ ,.!¡¿?]*(?:que tal|como estas))?[ ,.!¡¿?]*$/u.test(text);
+}
+
+function isThanksOnly(text) {
+  return /^(?:gracias|muchas gracias|mil gracias|genial,? gracias|perfecto,? gracias|vale,? gracias)[ ,.!¡¿?]*$/u.test(text);
+}
+
+function isFarewellOnly(text) {
+  return /^(?:adios|hasta luego|hasta pronto|nos vemos|chao|ciao)[ ,.!¡¿?]*$/u.test(text);
+}
+
 export function resolveLocalAnswer(query, context = {}) {
   const q = foldQuery(query);
   if (!q) return null;
+
+  // Small talk is resolved before any document search. These turns do not
+  // need (and therefore must not fabricate) documentary sources. Keeping them
+  // local also avoids sending a simple greeting to Pagefind or the remote
+  // assistant, which previously produced unrelated "resultados relacionados".
+  if (isGreetingOnly(q)) {
+    return result(
+      "greeting",
+      "Hola. Puedo ayudarte a moverte por esta web: libros, fragmentos, Noveris, artículos, herramientas, editoriales, convocatorias, eventos o prensa. ¿Qué te interesa?",
+      [],
+      { suggestions: STARTER_SUGGESTIONS },
+    );
+  }
+
+  if (hasAny(q, ["quien eres", "que puedes hacer", "para que sirves", "como puedes ayudarme", "en que puedes ayudarme"])) {
+    return result(
+      "capabilities",
+      "Soy el asistente de esta web. Mi función es ayudarte a encontrar y resumir contenido que ya está publicado aquí y llevarte a la fuente adecuada. Puedes preguntarme por los libros, fragmentos, artículos, herramientas, editoriales, convocatorias, eventos, premios o prensa.",
+      [],
+      { suggestions: STARTER_SUGGESTIONS },
+    );
+  }
+
+  if (isThanksOnly(q)) {
+    return result(
+      "thanks",
+      "De nada. Si quieres seguir, dime qué necesitas encontrar y lo buscamos desde aquí.",
+      [],
+      { suggestions: STARTER_SUGGESTIONS },
+    );
+  }
+
+  if (isFarewellOnly(q)) {
+    return result("farewell", "Hasta luego. Cuando vuelvas, puedes preguntarme directamente por cualquier parte de la web.", []);
+  }
 
   if (context.pending === "fragment-choice") {
     if (hasAny(q, ["samuel", "noveris", "primer capitulo", "capitulo 1"])) {

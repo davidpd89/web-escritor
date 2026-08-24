@@ -1,8 +1,23 @@
-html,body.assistant-embed{height:100%;min-height:0;background:var(--color-paper,#fff)}
+html,body.assistant-embed{height:100%;min-height:0;background:var(--surface-page,#fff)}
 body.assistant-embed{margin:0;overflow:hidden}
 .assistant-embed .assistant-chat{height:100%;min-height:0;max-height:none;border:0;border-radius:0;box-shadow:none}
-.assistant-embed .assistant-chat__log{padding:.8rem .85rem .45rem}
-.assistant-embed .assistant-starters{padding:.05rem .85rem .55rem}
-.assistant-embed .assistant-composer{padding:.55rem .65rem calc(.55rem + env(safe-area-inset-bottom))}
-.assistant-embed .assistant-message__bubble{font-size:.89rem}
-@media(max-width:420px){.assistant-embed .assistant-chat__log{padding:.7rem .72rem .4rem}.assistant-embed .assistant-starters{padding-inline:.72rem}.assistant-embed .assistant-composer{padding-inline:.55rem}.assistant-embed .assistant-message__bubble{max-width:93%}}
+.assistant-embed .assistant-chat__log{padding:0 .9rem}
+.assistant-embed .assistant-message__bubble{padding-block:.95rem 1.05rem}
+.assistant-embed .assistant-message__bubble p{font-size:.96rem;line-height:1.5}
+.assistant-embed .assistant-message--user{padding-block:.75rem}
+.assistant-embed .assistant-message--user .assistant-message__bubble{width:min(88%,28rem);padding:.72rem .8rem}
+.assistant-embed .assistant-message__sources{margin-top:.75rem}
+.assistant-embed .assistant-message__sources a{min-height:42px;font-size:.74rem}
+.assistant-embed .assistant-starters{grid-template-columns:1fr;margin:0 .9rem}
+.assistant-embed .assistant-example{min-height:46px;border-right:0;border-bottom:1px solid color-mix(in srgb,var(--dp-ink,#171412) 15%,transparent);font-size:.84rem}
+.assistant-embed .assistant-example:last-child{border-bottom:0}
+.assistant-embed .assistant-message__suggestions{grid-template-columns:1fr}
+.assistant-embed .assistant-reply-chip{min-height:46px;border-right:0;border-bottom:1px solid color-mix(in srgb,var(--dp-ink,#171412) 15%,transparent)}
+.assistant-embed .assistant-reply-chip:last-child{border-bottom:0}
+.assistant-embed .assistant-composer{padding:.75rem .9rem calc(.75rem + env(safe-area-inset-bottom))}
+@media(max-width:420px){
+  .assistant-embed .assistant-chat__log{padding-inline:.72rem}
+  .assistant-embed .assistant-starters{margin-inline:.72rem}
+  .assistant-embed .assistant-composer{padding-inline:.72rem}
+  .assistant-embed .assistant-message--user .assistant-message__bubble{width:93%}
+}

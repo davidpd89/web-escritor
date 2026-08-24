@@ -14,6 +14,7 @@ on:
       - 'tests/test-assistant-*.mjs'
       - 'tests/test-assistant-contract.py'
       - 'qa/assistant-browser.mjs'
+      - 'qa/assistant-widget-navigation-browser.mjs'
       - 'scripts/build-pagefind-index.py'
       - 'tests/test-build-pagefind-index.py'
       - 'qa/pagefind-search-browser.mjs'
@@ -46,6 +47,8 @@ jobs:
         run: node tests/test-assistant-worker.mjs
       - name: Hardening boundaries
         run: node tests/test-assistant-hardening.mjs
+      - name: Editorial UX V2
+        run: node tests/test-assistant-editorial-ux.mjs
       - name: Secrets and dangerous sinks
         shell: bash
         run: |
@@ -90,6 +93,10 @@ jobs:
           QA_ORIGIN: http://127.0.0.1:4173
           QA_OUT: qa-artifacts/assistant
         run: node qa/assistant-browser.mjs
+      - name: Widget source navigation QA
+        env:
+          QA_ORIGIN: http://127.0.0.1:4173
+        run: node qa/assistant-widget-navigation-browser.mjs
       # AF -- materializar busqueda local Pagefind. build-pagefind-index.py
       # (no --check) ya usa Node/pagefind desde este mismo job; el test
       # unitario cubre la regla de elegibilidad + el ciclo build/--check, y
