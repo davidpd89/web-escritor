@@ -25,7 +25,16 @@ html.v1 .explore-trigger{border-radius:0;border-color:transparent}
 html.v1 .explore-trigger:hover,html.v1 .explore-trigger:focus-visible{background:#d7e9ef;border-color:rgba(37,79,96,.18);color:#254f60}
 html.v1 .header-buy{min-height:36px;padding:.25rem .85rem;border-radius:0;font-size:.76rem;letter-spacing:.015em}
 html.v1 .site-header__left .explore-trigger{order:3}
-html.v1[data-lrb-home="true"]:not(.lrb-compact) .site-header__left .explore-trigger{display:none}
+/* Estado A only hides the hamburger on desktop Home, before any scroll
+   compacts the header. Below 900px the hamburger is the only entry point
+   into Explorar (the territory row and its dropdowns don't fit), so it must
+   stay visible from the first paint regardless of scroll state -- this rule
+   is scoped to >=900px so its :not(.lrb-compact) can't outrank the <900px
+   override further down by specificity (both single-class-equivalent
+   selectors, same file: source order alone isn't enough to win). */
+@media (min-width:900px){
+  html.v1[data-lrb-home="true"]:not(.lrb-compact) .site-header__left .explore-trigger{display:none}
+}
 html.v1.lrb-compact .site-header__left .explore-trigger,
 html.v1:not([data-lrb-home="true"]) .site-header__left .explore-trigger{display:inline-flex}
 
@@ -40,13 +49,16 @@ html.v1[data-lrb-home="true"] .masthead-sticky__inner{background:var(--surface-p
 html.v1[data-lrb-home="true"].lrb-compact .masthead-sticky{background:transparent;border-bottom-color:transparent;pointer-events:none}
 html.v1[data-lrb-home="true"].lrb-compact .masthead-sticky__inner{transform:translateY(calc(-100% - var(--dp-lrb-utility-h)));opacity:0}
 
-/* Central supplied brand image. Text remains an accessible/failure fallback. */
-html.v1[data-lrb-home="true"] .masthead{padding:1rem var(--page-gutter) .7rem;gap:.1rem}
-html.v1[data-lrb-home="true"] .masthead__name{display:grid;place-items:center;min-height:76px;font-size:clamp(2.35rem,1.95rem + 2vw,4rem)}
+/* Central supplied brand image. Text remains an accessible/failure fallback.
+   The real asset (assets/london-david-porto-logo-central.png) is a two-line
+   stacked wordmark, ratio ~1.91:1 -- not the single-line lockup the first
+   pass assumed, so it needs real height, not an 86px cap. */
+html.v1[data-lrb-home="true"] .masthead{padding:1.1rem var(--page-gutter) .5rem;gap:.1rem}
+html.v1[data-lrb-home="true"] .masthead__name{display:grid;place-items:center;min-height:210px;font-size:clamp(2.35rem,1.95rem + 2vw,4rem)}
 html.v1[data-lrb-home="true"] .masthead__name-text{display:block}
 html.v1[data-lrb-home="true"] .masthead__name.has-logo-image .masthead__name-text{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
-html.v1[data-lrb-home="true"] .masthead__logo-image{display:block;width:min(70vw,800px);max-height:86px;height:auto;object-fit:contain;object-position:center;margin:0 auto}
-html.v1[data-lrb-home="true"] .masthead__kicker{font-size:.64rem;letter-spacing:.19em}
+html.v1[data-lrb-home="true"] .masthead__logo-image{display:block;width:min(46vw,420px);height:auto;margin:0 auto}
+html.v1[data-lrb-home="true"] .masthead__kicker{display:none}
 
 /* Tight editorial section row. The clickable area stays >=40px while labels read small. */
 html.v1[data-lrb-home="true"] .masthead-nav{position:relative;border-top:1px solid var(--color-border);border-bottom:0;background:var(--surface-page)}
@@ -77,19 +89,20 @@ html.v1[data-lrb-home="true"] .masthead-nav__item:nth-last-child(-n+2)>.masthead
   html.v1 .site-header__inner,html.v1 .site-header[data-scrolled="true"] .site-header__inner{padding-block:0;min-height:var(--dp-lrb-utility-h)}
   html.v1[data-lrb-home="true"] .site-header__left .explore-trigger{display:inline-flex}
   html.v1[data-lrb-home="true"] .masthead-sticky{top:var(--dp-lrb-utility-h)}
-  html.v1[data-lrb-home="true"] .masthead-nav__list{justify-content:center;flex-wrap:nowrap;overflow:visible;padding-inline:max(.4rem,var(--page-gutter))}
-  html.v1[data-lrb-home="true"] .masthead-nav__item>a{font-size:.78rem;padding-inline:.4rem}
-  html.v1[data-lrb-home="true"] .masthead-nav__submenu-trigger{width:22px}
+  html.v1[data-lrb-home="true"] .masthead__name{min-height:178px}
+  html.v1[data-lrb-home="true"] .masthead__logo-image{width:min(58vw,360px)}
+  html.v1[data-lrb-home="true"] .masthead-nav__list{justify-content:center;flex-wrap:nowrap;overflow:visible;padding-inline:max(.15rem,var(--page-gutter))}
+  html.v1[data-lrb-home="true"] .masthead-nav__item>a{font-size:.68rem;padding-inline:.16rem}
+  html.v1[data-lrb-home="true"] .masthead-nav__submenu-trigger{width:14px}
 }
 
 @media (max-width:639px){
   :root{--dp-lrb-utility-h:54px}
   html.v1 .site-header__inner,html.v1 .site-header[data-scrolled="true"] .site-header__inner{min-height:var(--dp-lrb-utility-h);padding-top:max(0px,env(safe-area-inset-top));padding-bottom:0}
   html.v1 .header-buy{font-size:.68rem;padding-inline:.55rem}
-  html.v1[data-lrb-home="true"] .masthead{padding:.72rem var(--page-gutter) .55rem}
-  html.v1[data-lrb-home="true"] .masthead__name{min-height:58px}
-  html.v1[data-lrb-home="true"] .masthead__logo-image{width:min(88vw,560px);max-height:68px}
-  html.v1[data-lrb-home="true"] .masthead__kicker{font-size:.6rem}
+  html.v1[data-lrb-home="true"] .masthead{padding:.85rem var(--page-gutter) .6rem}
+  html.v1[data-lrb-home="true"] .masthead__name{min-height:150px}
+  html.v1[data-lrb-home="true"] .masthead__logo-image{width:min(78vw,300px)}
   /* Five territory labels are intentionally removed on phone; hamburger/Explore owns global navigation. */
   html.v1[data-lrb-home="true"] .masthead-nav{display:none}
 }

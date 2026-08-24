@@ -147,7 +147,11 @@ async function overflow(page,label,scripting=true){
   assert.deepEqual(schemaQ,visibleQ,'Noveris: FAQ visible/schema parity');
   assert.ok(faq.mainEntity.every(q=>norm(q.acceptedAnswer?.text)), 'Noveris: respuestas FAQ schema no vacías');
   assert.equal(termSet.hasDefinedTerm.find(x=>x.name==='Noveris').sameAs,'https://www.wikidata.org/wiki/Q139927664','Noveris: sameAs preservado');
-  assert.equal(await page.locator('a[href="/clubes-de-lectura/samuel-entre-mundos/"]').count(),1,'Noveris: enlace contextual al club');
+  // Scoped to main: PR95's persistent .section-context strip (2026-08-24)
+  // now repeats this same destination sitewide as chrome navigation, so a
+  // page-wide count would also catch that unrelated nav layer instead of
+  // the page's own contextual content link this assertion actually checks.
+  assert.equal(await page.locator('main a[href="/clubes-de-lectura/samuel-entre-mundos/"]').count(),1,'Noveris: enlace contextual al club');
   const media=await page.locator('main img').evaluateAll(imgs=>imgs.map(i=>({alt:i.alt,w:i.getAttribute('width'),h:i.getAttribute('height'),src:i.getAttribute('src')})));
   for(const m of media){assert.ok(m.alt.trim(),`Noveris media alt ${m.src}`); assert.ok(m.w&&m.h,`Noveris media dimensions ${m.src}`);}
   await closeClean(run,'Noveris');

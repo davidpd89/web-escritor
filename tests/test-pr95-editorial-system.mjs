@@ -16,7 +16,11 @@ assert(shellJs.includes("/assets/v1-editorial-interior-v4.js"), 'V1 shell must l
 
 assert(headerCss.includes('--dp-lrb-utility-h:50px'), 'desktop utility bar must remain 50px');
 assert(headerCss.includes('--dp-lrb-nav-h:40px'), 'desktop editorial nav must remain 40px');
-assert(headerCss.includes('max-height:86px'), 'desktop supplied logo must stay compact');
+// The real supplied logo (assets/london-david-porto-logo-central.png) is a
+// two-line stacked wordmark, ratio ~1.91:1 -- the original 800x86 single-line
+// assumption was wrong (finalization doc: "el asset real manda"). It is
+// sized by width with natural height instead of a squashing max-height.
+assert(headerCss.includes('.masthead__logo-image{display:block;width:min(46vw,420px);height:auto'), 'desktop supplied logo must size from its real proportions');
 assert(headerCss.includes('font-size:.82rem'), 'desktop Home territory navigation must stay publication-sized');
 assert(headerCss.includes('@media (max-width:639px)'), 'phone navigation breakpoint missing');
 assert(headerCss.includes('.masthead-nav{display:none}'), 'phone must hand global navigation to the hamburger/Explore drawer');

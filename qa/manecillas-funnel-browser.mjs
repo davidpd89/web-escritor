@@ -96,7 +96,12 @@ try {
     const page = await context.newPage();
     await withGoatcounterSpy(page);
     await page.goto(`${ORIGIN}/libros/samuel-entre-mundos/`, { waitUntil: 'load' });
-    const link = page.locator('a[href*="/fragmento/"]:not([href*="/las-manecillas-del-recuerdo/"]):visible').first();
+    // :not(.section-context a) excludes PR95's persistent contextual-nav strip
+    // (2026-08-24, injected async by v1-editorial-interior-v4.js): script.js
+    // binds this tracker once at initial load, before that strip exists, so
+    // its links never get the click listener -- picking one via :first()
+    // would assert on an untracked link instead of the real content CTA.
+    const link = page.locator('a[href*="/fragmento/"]:not([href*="/las-manecillas-del-recuerdo/"]):not(.section-context a):visible').first();
     assert((await link.count()) > 0, 'debe existir al menos un enlace real y visible a /fragmento/ (Samuel) en su propia pagina');
     await link.scrollIntoViewIfNeeded();
     // El enlace no lleva preventDefault (navega de verdad, es un enlace
@@ -119,7 +124,8 @@ try {
     const page = await context.newPage();
     await withGoatcounterSpy(page);
     await page.goto(`${ORIGIN}/las-manecillas-del-recuerdo/`, { waitUntil: 'load' });
-    const link = page.locator('a[href*="/las-manecillas-del-recuerdo/fragmentos/"]:visible').first();
+    // :not(.section-context a): see the identical note in check 4 above.
+    const link = page.locator('a[href*="/las-manecillas-del-recuerdo/fragmentos/"]:not(.section-context a):visible').first();
     assert((await link.count()) > 0, 'debe existir al menos un enlace real y visible a la muestra de Manecillas en su propia ficha');
     await link.scrollIntoViewIfNeeded();
     await page.evaluate(() => document.addEventListener('click', (e) => e.preventDefault(), { capture: true, once: true }));

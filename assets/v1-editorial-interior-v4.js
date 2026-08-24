@@ -131,7 +131,21 @@
     header.insertAdjacentElement('afterend', nav);
 
     const active = links.querySelector('[aria-current="page"]');
-    if (active) requestAnimationFrame(() => active.scrollIntoView({ block: 'nearest', inline: 'nearest' }));
+    if (active) requestAnimationFrame(() => {
+      // Element.scrollIntoView() here (even with block/inline:'nearest') was
+      // shifting Chromium's sequential focus-navigation starting point to
+      // this link on page load, so the very first real Tab press landed on
+      // it instead of the skip-link -- a serious a11y regression. Adjusting
+      // the strip's own scrollLeft directly reveals the active item in its
+      // horizontally-scrollable row without touching document-level scroll
+      // or focus navigation at all.
+      const linkLeft = active.offsetLeft;
+      const linkRight = linkLeft + active.offsetWidth;
+      const viewLeft = links.scrollLeft;
+      const viewRight = viewLeft + links.clientWidth;
+      if (linkLeft < viewLeft) links.scrollLeft = linkLeft;
+      else if (linkRight > viewRight) links.scrollLeft = linkRight - links.clientWidth;
+    });
   }
 
   function auditBannerAsset(banner) {

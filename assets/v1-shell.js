@@ -228,40 +228,9 @@
       <path d="M5.5 9.2V20h13V9.2"/>
       <path d="M9.5 20v-6h5v6"/>
     </svg>`;
-  const chevronSvg = `
-    <svg aria-hidden="true" viewBox="0 0 16 16" focusable="false">
-      <path d="m4 6 4 4 4-4"/>
-    </svg>`;
-
-  const submenuData = {
-    'works-hub': [
-      ['/libros/', 'Todas las obras'],
-      ['/las-manecillas-del-recuerdo/', 'Las manecillas del recuerdo'],
-      ['/libros/samuel-entre-mundos/', 'Samuel entre mundos']
-    ],
-    author: [
-      ['/autor.html', 'Sobre David Porto Díaz'],
-      ['/premios.html', 'Premios y reconocimientos'],
-      ['/eventos.html', 'Eventos y firmas'],
-      ['/prensa.html', 'Prensa y kit de prensa']
-    ],
-    'notebook-hub': [
-      ['/cuaderno/', 'Todos los artículos'],
-      ['/cuaderno/temas/', 'Temas'],
-      ['/recomendaciones/', 'Lecturas y recomendaciones']
-    ],
-    'tools-hub': [
-      ['/herramientas/', 'Todas las herramientas'],
-      ['/herramientas/manuscrito/', 'Analizador de manuscrito'],
-      ['/herramientas/dialogo/', 'Medidor de diálogo'],
-      ['/herramientas/repeticiones/', 'Detector de repeticiones']
-    ],
-    press: [
-      ['/prensa.html', 'Prensa y materiales'],
-      ['/eventos.html', 'Agenda de eventos'],
-      ['/premios.html', 'Premios y reconocimientos']
-    ]
-  };
+  // Submenu content (chevron + dropdown links) is now emitted directly in
+  // index.html so it exists before first paint; this layer only wires the
+  // click/keyboard behaviour onto that static markup.
 
   function emit(name, detail = {}) {
     document.dispatchEvent(new CustomEvent('dp:analytics', {
@@ -270,20 +239,23 @@
   }
 
   function enhanceUtilityHeader() {
+    // The left group (Asistente + Inicio + hamburger) is now emitted directly
+    // by scripts/build-site-shell.py's render_header() -- this only wires
+    // analytics and covers any legacy/unbuilt markup as a defensive fallback,
+    // it must not rearrange nodes that already paint in the right order.
     document.querySelectorAll('.site-header__inner').forEach((inner) => {
       if (inner.dataset.lrbEnhanced === 'true') return;
       const assistant = inner.querySelector('.header-search');
-      const actions = inner.querySelector('.site-header__actions');
       const menu = inner.querySelector('.explore-trigger');
-      if (!assistant || !actions || !menu) return;
+      if (!assistant || !menu) return;
 
       let left = inner.querySelector('.site-header__left');
       if (!left) {
         left = document.createElement('div');
         left.className = 'site-header__left';
         assistant.before(left);
+        left.append(assistant);
       }
-      if (assistant.parentElement !== left) left.append(assistant);
 
       let home = left.querySelector('.header-home');
       if (!home) {
@@ -293,11 +265,11 @@
         home.setAttribute('aria-label', 'Volver a inicio');
         home.title = 'Inicio';
         home.innerHTML = houseSvg;
-        home.addEventListener('click', () => emit('header_home_click'));
+        left.append(home);
       }
-      if (home.parentElement !== left) left.append(home);
       if (menu.parentElement !== left) left.append(menu);
 
+      home.addEventListener('click', () => emit('header_home_click'));
       menu.addEventListener('click', () => emit('header_menu_click', { side: 'left' }));
       inner.dataset.lrbEnhanced = 'true';
     });
@@ -351,36 +323,11 @@
     const list = nav.querySelector('.masthead-nav__list');
     if (!list) return;
 
-    list.querySelectorAll(':scope > li').forEach((li, position) => {
+    list.querySelectorAll(':scope > .masthead-nav__item').forEach((li, position) => {
       const anchor = li.querySelector(':scope > a[data-territory]');
-      if (!anchor) return;
+      const trigger = li.querySelector(':scope > .masthead-nav__submenu-trigger');
+      if (!anchor || !trigger) return;
       const key = anchor.dataset.territory;
-      const entries = submenuData[key];
-      li.classList.add('masthead-nav__item');
-      if (!entries?.length) return;
-
-      const id = `masthead-submenu-${key}`;
-      const trigger = document.createElement('button');
-      trigger.type = 'button';
-      trigger.className = 'masthead-nav__submenu-trigger';
-      trigger.setAttribute('aria-label', `Ver opciones de ${anchor.textContent.trim()}`);
-      trigger.setAttribute('aria-expanded', 'false');
-      trigger.setAttribute('aria-controls', id);
-      trigger.innerHTML = chevronSvg;
-
-      const submenu = document.createElement('div');
-      submenu.className = 'masthead-nav__submenu';
-      submenu.id = id;
-      submenu.setAttribute('aria-label', `Opciones de ${anchor.textContent.trim()}`);
-      entries.forEach(([href, label]) => {
-        const link = document.createElement('a');
-        link.href = href;
-        link.textContent = label;
-        submenu.append(link);
-      });
-
-      anchor.after(trigger);
-      li.append(submenu);
       trigger.addEventListener('click', (event) => {
         event.stopPropagation();
         const willOpen = !li.classList.contains('is-open');
@@ -438,6 +385,15 @@
     };
     const update = () => {
       const compact = window.scrollY > compactAt;
+      // Chromium resets the whole page's scroll position to 0 when focus
+      // lands on a descendant of a position:sticky ancestor (the utility
+      // bar) -- a long-standing browser quirk, not something this site
+      // triggers. Left alone, that reset fires this same scroll handler,
+      // computes compact=false and hides the very hamburger that just
+      // received focus, so a keyboard user tabbing to it mid-scroll would
+      // watch their target vanish under them. While focus sits inside the
+      // header, only allow entering compact, never leaving it.
+      if (!compact && document.activeElement?.closest?.('.site-header')) return;
       root.classList.toggle('lrb-compact', compact);
       if (compact) closeSubmenus();
     };

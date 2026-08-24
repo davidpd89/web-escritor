@@ -21,11 +21,13 @@
     ],
     memoria: [
       '/assets/banners/memoria-tierras-norte-home-banner.webp',
-      '/assets/banners/memoria-tierras-norte-home-banner.jpg'
+      '/assets/banners/memoria-tierras-norte-home-banner.jpg',
+      '/assets/la-memoria-de-las-tierras-del-norte-libro.jpg'
     ],
     tools: [
       '/assets/banners/herramientas-home-banner.webp',
-      '/assets/banners/herramientas-home-banner.jpg'
+      '/assets/banners/herramientas-home-banner.jpg',
+      '/assets/manuscrito-herramientas-placeholder.webp'
     ]
   };
 
@@ -66,8 +68,12 @@
       const probe = new Image();
       probe.decoding = 'async';
       probe.alt = '';
-      probe.loading = eager ? 'eager' : 'lazy';
-      if (eager) probe.fetchPriority = 'high';
+      // This probe is a detached Image() -- native loading="lazy" needs the
+      // element connected to the DOM to compute viewport intersection, so it
+      // would never fire and the banner would sit "pendiente" forever.
+      // fetchPriority is still meaningful for a detached fetch, so that part
+      // of the eager/lazy distinction is kept.
+      probe.fetchPriority = eager ? 'high' : 'low';
       probe.addEventListener('load', () => {
         probe.className = 'feature-banner__image';
         container.append(probe);
