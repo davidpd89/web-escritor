@@ -1,0 +1,363 @@
+/* PR95 V4 — shared editorial texture for inner V1 pages.
+   Reference patterns: LRB density/local navigation + MUBI Notebook image rhythm.
+   Original implementation for davidportodiaz.com; no third-party code copied. */
+
+:root{
+  --dp-v4-paper:#f6f2e9;
+  --dp-v4-paper-soft:#fbf9f4;
+  --dp-v4-stone:#e6e1d7;
+  --dp-v4-stone-deep:#d9d3c8;
+  --dp-v4-ink:#1b1917;
+  --dp-v4-muted:#6b6761;
+  --dp-v4-rule:rgba(27,25,23,.22);
+  --dp-v4-rule-soft:rgba(27,25,23,.11);
+  --dp-v4-blue:#d7e9ef;
+  --dp-v4-blue-ink:#254f60;
+  --dp-v4-sage:#dfe6dc;
+  --dp-v4-sage-ink:#3d5747;
+  --dp-v4-blush:#eadedb;
+  --dp-v4-sand:#eee8dc;
+  --dp-v4-context-h:42px;
+  --dp-v4-reading:68ch;
+}
+
+/* The whole V1 site should read as one publication, not as unrelated white pages. */
+html.v1 body{
+  background:var(--dp-v4-paper);
+  color:var(--dp-v4-ink);
+  font-size:clamp(1rem,.985rem + .08vw,1.06rem);
+  line-height:1.58;
+}
+html.v1 main{min-width:0}
+html.v1 .v1-main{background:var(--dp-v4-paper)}
+html.v1:not([data-lrb-home="true"]){scroll-padding-top:calc(var(--dp-lrb-utility-h,50px) + var(--dp-v4-context-h) + 12px)}
+
+/* ---------------------------------------------------------------------
+   Persistent contextual navigation on inner pages.
+   It is deliberately a slim publication strip, not a second mega-menu. */
+html.v1 .section-context{
+  position:sticky;
+  top:var(--dp-lrb-utility-h,50px);
+  z-index:calc(var(--z-header) + 1);
+  min-height:var(--dp-v4-context-h);
+  background:var(--dp-v4-stone);
+  border-top:1px solid rgba(255,255,255,.45);
+  border-bottom:1px solid var(--dp-v4-rule);
+  box-shadow:0 5px 14px rgba(27,25,23,.045);
+}
+html.v1 .section-context__inner{
+  width:min(100%,var(--layout-wide));
+  min-height:var(--dp-v4-context-h);
+  margin:0 auto;
+  padding:0 max(.8rem,var(--page-gutter));
+  display:grid;
+  grid-template-columns:auto minmax(0,1fr);
+  align-items:stretch;
+}
+html.v1 .section-context__title{
+  display:flex;
+  align-items:center;
+  min-height:var(--dp-v4-context-h);
+  padding:0 .85rem 0 0;
+  margin-right:.35rem;
+  border-right:1px solid var(--dp-v4-rule);
+  color:var(--dp-v4-ink);
+  font-family:var(--font-ui);
+  font-size:.69rem;
+  font-weight:700;
+  letter-spacing:.105em;
+  text-transform:uppercase;
+  text-decoration:none;
+  white-space:nowrap;
+}
+html.v1 .section-context__links{
+  display:flex;
+  align-items:stretch;
+  min-width:0;
+  overflow-x:auto;
+  scrollbar-width:none;
+  overscroll-behavior-inline:contain;
+}
+html.v1 .section-context__links::-webkit-scrollbar{display:none}
+html.v1 .section-context__links a{
+  display:flex;
+  align-items:center;
+  min-height:var(--dp-v4-context-h);
+  padding:0 .72rem;
+  color:#3e3a35;
+  font-family:var(--font-reading);
+  font-size:.84rem;
+  line-height:1;
+  text-decoration:none;
+  white-space:nowrap;
+  border-right:1px solid transparent;
+  border-left:1px solid transparent;
+  transition:background 140ms ease,color 140ms ease,border-color 140ms ease;
+}
+html.v1 .section-context__links a:hover,
+html.v1 .section-context__links a:focus-visible{
+  background:var(--dp-context-hover,var(--dp-v4-blue));
+  color:var(--dp-context-ink,var(--dp-v4-blue-ink));
+  border-color:color-mix(in srgb,var(--dp-context-ink,var(--dp-v4-blue-ink)) 18%,transparent);
+}
+html.v1 .section-context__links a[aria-current="page"]{
+  background:var(--dp-context-active,var(--dp-v4-blue));
+  color:var(--dp-context-ink,var(--dp-v4-blue-ink));
+  font-weight:600;
+}
+html.v1[data-editorial-context="manecillas"]{--dp-context-hover:#eadedb;--dp-context-active:#e5d4d0;--dp-context-ink:#67473c}
+html.v1[data-editorial-context="samuel"]{--dp-context-hover:#d7e9ef;--dp-context-active:#c9e1e8;--dp-context-ink:#254f60}
+html.v1[data-editorial-context="obras"]{--dp-context-hover:#eee8dc;--dp-context-active:#e5ddcf;--dp-context-ink:#56473b}
+html.v1[data-editorial-context="cuaderno"]{--dp-context-hover:#eee8dc;--dp-context-active:#e5ddcf;--dp-context-ink:#574d41}
+html.v1[data-editorial-context="herramientas"]{--dp-context-hover:#dfe6dc;--dp-context-active:#d3ddd0;--dp-context-ink:#3d5747}
+html.v1[data-editorial-context="autor"]{--dp-context-hover:#eadedb;--dp-context-active:#e4d3cf;--dp-context-ink:#69483f}
+html.v1[data-editorial-context="prensa"]{--dp-context-hover:#d7e9ef;--dp-context-active:#c9e1e8;--dp-context-ink:#254f60}
+
+/* ---------------------------------------------------------------------
+   Compact type scale: readable at publication density, never billboard UI. */
+html.v1 .book-breadcrumb{
+  font-family:var(--font-ui);
+  font-size:.72rem;
+  line-height:1.3;
+  color:var(--dp-v4-muted);
+}
+html.v1 .v1-masthead{
+  padding-top:clamp(2rem,4vw,3.6rem);
+  padding-bottom:clamp(2rem,4vw,3.4rem);
+  background:var(--dp-v4-paper-soft);
+  border-top:1px solid var(--dp-v4-rule-soft);
+  border-bottom:1px solid var(--dp-v4-rule);
+}
+html.v1 .v1-masthead>div{max-width:min(100%,76rem)}
+html.v1 .v1-masthead h1{
+  max-width:22ch;
+  margin:.28rem 0 .7rem;
+  font-family:var(--font-display);
+  font-size:clamp(2.05rem,1.62rem + 1.7vw,3.25rem);
+  font-weight:400;
+  line-height:.98;
+  letter-spacing:-.018em;
+  text-wrap:balance;
+}
+html.v1 .v1-masthead__lead{
+  max-width:66ch;
+  margin:0;
+  font-family:var(--font-reading);
+  font-size:clamp(1.02rem,.96rem + .28vw,1.18rem);
+  line-height:1.5;
+  color:#57524d;
+}
+html.v1 .v1-masthead__actions{gap:.55rem 1rem;margin-top:1.25rem}
+html.v1 .v1-masthead .primary-action{min-height:42px;padding:.4rem 1rem;font-size:.84rem}
+html.v1 .coordinate{font-size:.68rem;letter-spacing:.11em}
+html.v1 .eyebrow{font-size:.68rem;letter-spacing:.105em}
+
+html.v1 .v1-section,
+html.v1 .tools-section,
+html.v1 .tool-finder,
+html.v1 .cuaderno-feature,
+html.v1 .cuaderno-archive,
+html.v1 .editorial-continuity,
+html.v1 .editorial-newsletter{
+  border-color:var(--dp-v4-rule-soft);
+}
+html.v1 .v1-section{
+  padding-top:clamp(2.4rem,4.2vw,4rem);
+  padding-bottom:clamp(2.4rem,4.2vw,4rem);
+}
+html.v1 .v1-section__head h2,
+html.v1 .tools-section>h2,
+html.v1 .tool-finder>h2,
+html.v1 .cuaderno-archive__head h2,
+html.v1 .editorial-continuity h2,
+html.v1 .editorial-newsletter h2{
+  font-family:var(--font-display);
+  font-weight:400;
+  font-size:clamp(1.65rem,1.42rem + .9vw,2.35rem);
+  line-height:1.02;
+  letter-spacing:-.012em;
+  text-wrap:balance;
+}
+html.v1 .v1-section__head p,
+html.v1 .tools-section>p{font-family:var(--font-reading);max-width:var(--dp-v4-reading);line-height:1.5;color:#625d57}
+
+/* Identity, press and tools cards become editorial cells rather than SaaS cards. */
+html.v1 :is(.press-card,.id-card,.book-theme,.trust-item){
+  border-radius:0;
+  box-shadow:none;
+  border-color:var(--dp-v4-rule);
+}
+html.v1 :is(.press-card,.id-card){
+  background:var(--dp-v4-paper-soft);
+  transition:background 140ms ease,border-color 140ms ease;
+}
+html.v1 :is(.press-card,.id-card):hover,
+html.v1 :is(.press-card,.id-card):focus-within{
+  background:color-mix(in srgb,var(--dp-context-hover,var(--dp-v4-blue)) 52%,var(--dp-v4-paper-soft));
+  border-color:color-mix(in srgb,var(--dp-context-ink,var(--dp-v4-blue-ink)) 28%,transparent);
+}
+html.v1 :is(.press-card,.id-card) h3{
+  font-family:var(--font-display);
+  font-size:clamp(1.22rem,1.12rem + .38vw,1.55rem);
+  line-height:1.05;
+  font-weight:400;
+}
+html.v1 .id-card>p:not(.tool-meta),
+html.v1 .press-card>p{font-family:var(--font-reading);line-height:1.48}
+
+/* Tool filtering keeps 44px tap targets, but visually becomes much lighter. */
+html.v1 .tool-filters{gap:.35rem}
+html.v1 .tool-filters button{
+  min-height:38px;
+  padding:.38rem .72rem;
+  border-radius:0;
+  border:1px solid var(--dp-v4-rule);
+  background:transparent;
+  color:var(--dp-v4-ink);
+  font-size:.75rem;
+  font-weight:600;
+  transition:background 140ms ease,color 140ms ease;
+}
+html.v1 .tool-filters button:hover,
+html.v1 .tool-filters button:focus-visible,
+html.v1 .tool-filters button[aria-pressed="true"]{
+  background:var(--dp-context-hover,var(--dp-v4-sage));
+  color:var(--dp-context-ink,var(--dp-v4-sage-ink));
+}
+
+/* Book pages keep their distinct identity but use the same compact scale. */
+html.v1 .book-hero__copy h1{
+  font-size:clamp(2.1rem,1.58rem + 2vw,3.55rem);
+  line-height:.96;
+  letter-spacing:-.02em;
+}
+html.v1 .book-lead{font-size:clamp(1rem,.95rem + .24vw,1.16rem);line-height:1.46}
+html.v1 .book-section h2,
+html.v1 .book-related h2,
+html.v1 .book-newsletter h2{
+  font-size:clamp(1.65rem,1.35rem + 1.1vw,2.45rem);
+  line-height:1.02;
+}
+html.v1 .book-theme h3,
+html.v1 .book-related h3{font-size:clamp(1.25rem,1.12rem + .5vw,1.7rem);line-height:1.05}
+
+/* Cuaderno: closer to a review/archive than a landing-page hero. */
+html.v1 .cuaderno-masthead h1{
+  font-size:clamp(2.05rem,1.58rem + 1.8vw,3.35rem);
+  line-height:.98;
+}
+html.v1 .cuaderno-masthead__lead{font-family:var(--font-reading);font-size:1.08rem;line-height:1.48}
+html.v1 .cuaderno-feature h2{font-size:clamp(1.65rem,1.38rem + 1vw,2.4rem);line-height:1.02}
+html.v1 .cuaderno-entry h3{font-size:clamp(1.3rem,1.18rem + .45vw,1.68rem);line-height:1.08}
+html.v1 .cuaderno-entry__body>p{font-family:var(--font-reading);line-height:1.48}
+
+/* Images behave as editorial objects with consistent ratios and no decorative radius. */
+html.v1 :is(.author-portrait,.press-author-photo,.event-photo-card,.editorial-card__media){border-radius:0;overflow:hidden}
+html.v1 :is(.author-portrait,.press-author-photo,.event-photo-card) img{width:100%;height:100%;object-fit:cover}
+html.v1 .author-portrait{aspect-ratio:3/4;background:var(--dp-v4-stone-deep)}
+html.v1 .press-author-photo{aspect-ratio:4/5;background:var(--dp-v4-stone-deep)}
+html.v1 .event-photo-card{background:var(--dp-v4-stone-deep)}
+
+/* Prepared image slot component for future photographs. */
+html.v1 .editorial-media-slot{
+  position:relative;
+  display:grid;
+  place-items:center;
+  min-height:180px;
+  overflow:hidden;
+  background:
+    linear-gradient(135deg,transparent 49.7%,rgba(27,25,23,.08) 50%,transparent 50.3%),
+    linear-gradient(45deg,transparent 49.7%,rgba(27,25,23,.08) 50%,transparent 50.3%),
+    var(--dp-v4-stone);
+  border:1px solid var(--dp-v4-rule);
+  color:var(--dp-v4-muted);
+  font-family:var(--font-ui);
+  font-size:.7rem;
+  letter-spacing:.08em;
+  text-transform:uppercase;
+}
+html.v1 .editorial-media-slot>img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+
+/* ---------------------------------------------------------------------
+   Home V3 measurement corrections: image-led but not oversized. */
+html.v1[data-lrb-home="true"] .feature-banner{min-height:320px;height:320px}
+html.v1[data-lrb-home="true"] .feature-banner h2{
+  max-width:15ch;
+  font-size:clamp(2.1rem,1.7rem + 2.15vw,3.6rem);
+  line-height:.95;
+}
+html.v1[data-lrb-home="true"] .feature-banner__copy{max-width:min(42rem,76vw)}
+html.v1[data-lrb-home="true"] .editorial-cluster__head h2{font-size:clamp(1.65rem,1.42rem + .9vw,2.35rem)}
+html.v1[data-lrb-home="true"] .editorial-card h3{font-size:clamp(1.3rem,1.16rem + .52vw,1.72rem);line-height:1.04}
+html.v1[data-lrb-home="true"] .editorial-card--lead h3{font-size:clamp(1.72rem,1.43rem + 1.05vw,2.45rem)}
+html.v1[data-lrb-home="true"] .editorial-card__text{font-size:.98rem;line-height:1.46}
+
+/* If a banner asset is not present yet, the finished geometry remains visible. */
+html.v1[data-lrb-home="true"] .feature-banner__placeholder{
+  position:absolute;
+  inset:0;
+  z-index:0;
+  display:grid;
+  place-items:center;
+  padding:1rem;
+  color:rgba(255,255,255,.66);
+  font-family:var(--font-ui);
+  font-size:.69rem;
+  font-weight:600;
+  letter-spacing:.1em;
+  text-align:center;
+  text-transform:uppercase;
+  pointer-events:none;
+}
+html.v1[data-lrb-home="true"] .feature-banner--asset-loaded .feature-banner__placeholder{display:none}
+html.v1[data-lrb-home="true"] .feature-banner--asset-missing::after{background:linear-gradient(90deg,rgba(10,10,10,.36),rgba(10,10,10,.12))}
+
+@media (min-width:1440px){
+  html.v1[data-lrb-home="true"] .feature-banner{height:400px;min-height:400px}
+}
+@media (min-width:1200px) and (max-width:1439px){
+  html.v1[data-lrb-home="true"] .feature-banner{height:360px;min-height:360px}
+}
+@media (min-width:900px) and (max-width:1199px){
+  html.v1[data-lrb-home="true"] .feature-banner{height:320px;min-height:320px}
+}
+@media (min-width:640px) and (max-width:899px){
+  html.v1[data-lrb-home="true"] .feature-banner{height:290px;min-height:290px}
+}
+@media (max-width:639px){
+  :root{--dp-v4-context-h:40px}
+  html.v1 .section-context__inner{padding-inline:0;grid-template-columns:auto minmax(0,1fr)}
+  html.v1 .section-context__title{padding-inline:.8rem;margin:0;font-size:.64rem;background:var(--dp-v4-stone-deep)}
+  html.v1 .section-context__links a{padding-inline:.65rem;font-size:.8rem}
+  html.v1 .v1-masthead{padding-top:1.65rem;padding-bottom:1.7rem}
+  html.v1 .v1-masthead h1{font-size:clamp(1.95rem,8.4vw,2.55rem)}
+  html.v1 .v1-masthead__lead{font-size:1rem}
+  html.v1 .v1-section{padding-top:2rem;padding-bottom:2rem}
+  html.v1[data-lrb-home="true"] .feature-banner{height:250px;min-height:250px}
+  html.v1[data-lrb-home="true"] .feature-banner__inner{padding-block:1.45rem}
+  html.v1[data-lrb-home="true"] .feature-banner h2{font-size:clamp(1.9rem,9vw,2.55rem)}
+  html.v1[data-lrb-home="true"] .feature-banner__deck{font-size:.94rem;line-height:1.38}
+}
+@media (max-width:349px){
+  html.v1[data-lrb-home="true"] .feature-banner{height:230px;min-height:230px}
+  html.v1 .section-context__title{padding-inline:.6rem}
+  html.v1 .section-context__links a{padding-inline:.55rem}
+}
+
+@media (hover:hover) and (pointer:fine){
+  html.v1 :is(.v1-section a,.tools-section a,.cuaderno-entry a,.book-section a):not(.primary-action):hover{
+    text-decoration-color:var(--dp-context-ink,var(--dp-v4-blue-ink));
+  }
+}
+
+@media (prefers-reduced-motion:reduce){
+  html.v1 .section-context__links a,
+  html.v1 :is(.press-card,.id-card),
+  html.v1 .tool-filters button{transition:none}
+}
+
+@media print{
+  html.v1 .section-context{display:none!important}
+  html.v1 body{background:#fff}
+  html.v1 .v1-main{background:#fff}
+}
