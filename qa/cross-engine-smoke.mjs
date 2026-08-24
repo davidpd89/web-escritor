@@ -53,18 +53,25 @@ function parseEngines() {
 }
 
 async function blockExternalNetwork(page) {
-  // "Modo local/inactivo seguro": nada de red externa real durante el
-  // smoke (GoatCounter, Metricool, Worker del asistente, etc.).
   await page.route(/gc\.zgo\.at/, (route) => route.abort());
   await page.route(/metricool\.com/, (route) => route.abort());
   await page.route(/workers\.dev/, (route) => route.abort());
   await page.route(/^https?:\/\/(?!127\.0\.0\.1)/, (route) => {
-    // Cualquier otro host externo (fuentes de terceros, APIs, etc.) se
-    // aborta; el smoke solo necesita el propio servidor local.
     const url = route.request().url();
     if (url.startsWith(ORIGIN)) return route.continue();
     route.abort();
   });
+}
+
+async function ensureExploreTriggerVisible(page, trigger) {
+  if (await trigger.isVisible().catch(() => false)) return true;
+  // Home V3 sigue la referencia LRB: en estado expandido el hamburger no se
+  // muestra; aparece al superar el umbral de cabecera compacta. El smoke debe
+  // probar el estado real donde ese control existe visualmente, no forzar una
+  // decisión de diseño antigua que lo exigía ya en top=0.
+  await page.evaluate(() => window.scrollTo(0, 360));
+  await page.waitForTimeout(220);
+  return trigger.isVisible().catch(() => false);
 }
 
 async function checkRoute(page, engineName, routePath) {
@@ -76,24 +83,17 @@ async function checkRoute(page, engineName, routePath) {
     errors.push(`goto falló: ${e.message}`);
     return null;
   });
-  if (response && !response.ok()) {
-    errors.push(`HTTP ${response.status()} al cargar la ruta`);
-  }
+  if (response && !response.ok()) errors.push(`HTTP ${response.status()} al cargar la ruta`);
 
-  // Intro cinematica de la Home (data-intro): tapa el resto de la pagina
-  // hasta que se pulsa "Entrar". Cerrarla antes de interactuar con el resto,
-  // igual que haria un usuario real.
   const introEnter = page.locator('[data-intro-enter]').first();
   if ((await introEnter.count()) > 0) {
     await introEnter.click();
     await page.waitForTimeout(900);
   }
 
-  // Shell de navegación utilizable.
   const header = await page.locator('header.site-header, header').first();
   if ((await header.count()) === 0) errors.push('no existe header de navegación');
 
-  // Enlaces criticos: primary-nav (si existe) deben tener href no vacio.
   const navLinks = page.locator('.primary-nav a, nav[aria-label="Navegación principal"] a');
   const navCount = await navLinks.count();
   for (let i = 0; i < navCount; i++) {
@@ -101,11 +101,11 @@ async function checkRoute(page, engineName, routePath) {
     if (!href) errors.push(`enlace de navegación #${i} sin href`);
   }
 
-  // Explorar: abre, gestiona foco, cierra. Toda página con el shell v1
-  // debe tener este trigger; si no existe, es un fallo, no un "no aplica".
   const exploreTrigger = page.locator('[data-explore-open]').first();
   if ((await exploreTrigger.count()) === 0) {
     errors.push('no existe el trigger [data-explore-open] de Explorar');
+  } else if (!(await ensureExploreTriggerVisible(page, exploreTrigger))) {
+    errors.push('el trigger de Explorar existe pero no llega a ser visible en su estado compacto');
   } else {
     await exploreTrigger.click();
     await page.waitForTimeout(150);
@@ -123,14 +123,12 @@ async function checkRoute(page, engineName, routePath) {
     }
   }
 
-  // Overflow horizontal en viewport móvil representativo.
   await page.setViewportSize({ width: 375, height: 812 });
   await page.waitForTimeout(100);
   const overflow = await page.evaluate(() => document.documentElement.scrollWidth - window.innerWidth);
   if (overflow > 1) errors.push(`overflow horizontal móvil: ${overflow}px`);
   await page.setViewportSize({ width: 1280, height: 800 });
 
-  // Formularios esenciales no deshabilitados por completo.
   const forms = page.locator('form');
   const formCount = await forms.count();
   for (let i = 0; i < formCount; i++) {
@@ -141,10 +139,7 @@ async function checkRoute(page, engineName, routePath) {
     }
   }
 
-  if (jsErrors.length > 0) {
-    errors.push(`excepciones JS no capturadas: ${jsErrors.slice(0, 3).join(' | ')}`);
-  }
-
+  if (jsErrors.length > 0) errors.push(`excepciones JS no capturadas: ${jsErrors.slice(0, 3).join(' | ')}`);
   return errors;
 }
 
@@ -167,9 +162,7 @@ async function main() {
         await blockExternalNetwork(page);
         const errors = await checkRoute(page, engineName, routePath);
         await context.close();
-        if (errors.length > 0) {
-          results.push({ engineName, routePath, errors });
-        }
+        if (errors.length > 0) results.push({ engineName, routePath, errors });
         console.log(`${errors.length === 0 ? 'ok  ' : 'FAIL'} [${engineName}] ${routePath}${errors.length ? ' -> ' + errors.join('; ') : ''}`);
       }
     } finally {
@@ -178,7 +171,6 @@ async function main() {
   }
 
   server.close();
-
   if (results.length > 0) {
     console.error(`\ncross-engine-smoke: ${results.length} fallo(s)`);
     process.exitCode = 1;
