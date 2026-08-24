@@ -250,3 +250,18 @@ Esta PR debe servir como biblioteca de decisiones, no como un depósito de inspi
 - convertir los patrones aprobados en componentes reales usando los tokens V1;
 - comparar cada adaptación con la web actual y con los contratos de diseño existentes;
 - documentar qué referencia motivó cada decisión, pero mantener el resultado visual inequívocamente propio.
+
+## Nota de decisión — 2026-08-24 (override explícito)
+
+El propietario del proyecto pidió explícitamente, en sesión de producto, la máxima fidelidad visual posible a MUBI para `assets/v1-tokens.css` y el resto del sistema V1 ("réplica visual máxima, asumiendo el riesgo"), aceptando conscientemente que esto **contradice** la sección "Qué NO trasladar" de `MUBI-NOTEBOOK.md` (en particular "no usar negro + cinematografía en todas las páginas" y "no debería hacer que alguien diga esto es MUBI") y la regla de propiedad intelectual de este documento.
+
+Qué se hizo bajo este override:
+
+- paleta B/N pura + MUBI Blue (`#001489`) como único acento, tomado de fuentes públicas de terceros que documentan la identidad de marca de MUBI (no de su código fuente);
+- pila tipográfica igual al *fallback* que el propio MUBI sirve quien no tiene licencia de Riforma (`Arial, Helvetica, "Lucida Grande", sans-serif`) — no se ha copiado ni distribuido la fuente Riforma, que es de pago;
+- radio 0 y sin sombras en todo el sistema;
+- mayúsculas + binario de peso 300/500 en titulares, navegación y botones.
+
+Qué se mantiene sin cambios respecto a la regla de propiedad intelectual original: no se ha copiado CSS/JS de mubi.com, ni assets, ni fotografías, ni copy editorial. El código de `assets/v1-*.css` sigue siendo escrito desde cero para este repo.
+
+Este override es una decisión de producto puntual para esta iteración, no una revocación de la política clean-room para futuras referencias (LRB, Paris Review, Yale Review) ni para trabajo futuro sobre MUBI Notebook como referencia editorial (ver `MUBI-NOTEBOOK.md`).

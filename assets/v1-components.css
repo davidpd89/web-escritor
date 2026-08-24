@@ -7,14 +7,14 @@ html.v1 .book-breadcrumb{padding-top:clamp(1.5rem,3vw,2.5rem)}
 html.v1 .book-breadcrumb ol{display:flex;flex-wrap:wrap;gap:.35rem .7rem;margin:0;padding:0;list-style:none;font-size:.78rem;color:var(--color-muted)}
 html.v1 .book-breadcrumb li:not(:last-child)::after{content:"/";margin-left:.7rem;color:var(--color-border)}
 html.v1 .book-breadcrumb a{color:var(--color-text)}
-html.v1 .coordinate{display:inline-flex;align-items:center;gap:.6rem;font:600 .74rem/1 var(--font-ui);letter-spacing:.12em;text-transform:uppercase;color:var(--color-muted)}
+html.v1 .coordinate{display:inline-flex;align-items:center;gap:.6rem;font:500 .74rem/1 var(--font-ui);letter-spacing:.12em;text-transform:uppercase;color:var(--color-muted)}
 html.v1 .coordinate::after{content:"";inline-size:clamp(2.5rem,8vw,7rem);block-size:1px;background:currentColor;opacity:.45}
-html.v1 .folio{font:600 .72rem/1 var(--font-ui);letter-spacing:.12em;text-transform:uppercase;color:var(--color-muted)}
+html.v1 .folio{font:500 .72rem/1 var(--font-ui);letter-spacing:.12em;text-transform:uppercase;color:var(--color-muted)}
 html.v1 .ledger{margin:0;padding:0;list-style:none;border-top:1px solid var(--color-border)}
 html.v1 .ledger__row{display:grid;grid-template-columns:minmax(3.5rem,7rem) minmax(0,1.25fr) minmax(10rem,.75fr) auto;gap:clamp(.75rem,2vw,2rem);align-items:baseline;min-height:4.6rem;padding:1rem 0;border-bottom:1px solid var(--color-border)}
 html.v1 .ledger__row:focus-within,html.v1 .ledger__row:hover{border-bottom-color:var(--color-text)}
-html.v1 .ledger__index{font:600 .72rem/1 var(--font-ui);letter-spacing:.1em;color:var(--color-muted)}
-html.v1 .ledger__primary{font:500 clamp(1.08rem,1rem + .45vw,1.5rem)/1.15 var(--font-display)}
+html.v1 .ledger__index{font:500 .72rem/1 var(--font-ui);letter-spacing:.1em;color:var(--color-muted)}
+html.v1 .ledger__primary{font:500 clamp(1.08rem,1rem + .45vw,1.5rem)/1.15 var(--font-display);text-transform:uppercase}
 html.v1 .ledger__secondary{font-size:.88rem;line-height:1.45;color:var(--color-muted)}
 html.v1 .ledger__action{justify-self:end;white-space:normal;overflow-wrap:anywhere;text-align:right}
 html.v1 .ledger__row a{text-underline-offset:.22em}
@@ -38,7 +38,7 @@ html.v1 .route-spine>li:last-child{padding-bottom:0}
    sitio es esta hoja. Samuel sigue cargando v1-components.css antes que v1-samuel.css
    y ninguna regla intermedia redefine .button, de modo que su render no cambia. */
 html.v1 .button{display:inline-flex;align-items:center;justify-content:center;min-height:var(--control-min-height);padding:.8rem 1.5rem;border:1px solid var(--color-border);border-radius:var(--radius-control);background:transparent;color:var(--color-text);text-decoration:none;font:500 .9rem/1 var(--font-ui);letter-spacing:.02em;cursor:pointer;transition:background var(--motion-state) var(--ease-standard),border-color var(--motion-state) var(--ease-standard),transform var(--motion-feedback) var(--ease-standard)}
-html.v1 .button.primary{color:var(--color-on-inverse);background:var(--surface-inverse);border-color:var(--surface-inverse);font-weight:600}
+html.v1 .button.primary{color:var(--color-on-inverse);background:var(--surface-inverse);border-color:var(--surface-inverse);font-weight:500}
 html.v1 .button.primary:hover,html.v1 .button.primary:focus-visible{background:color-mix(in srgb,var(--surface-inverse) 88%,var(--color-accent-strong))}
 html.v1 .button.secondary{background:transparent;border-color:var(--color-border)}
 html.v1 .button.secondary:hover,html.v1 .button.secondary:focus-visible{background:color-mix(in srgb,var(--color-text) 5%,transparent);border-color:var(--color-accent)}

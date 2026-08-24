@@ -3,12 +3,17 @@
    longer needed once a variant is chosen (doc 25 §7 Gate 2). Only pages that opt
    in via <html class="v1"> load this file, so it never touches unmigrated pages.
 
-   MUBI-inspired reskin (PR #93): same token names/formulas as before, new
-   values — high-contrast black/white canvas, cool grays, a single deep-cobalt
-   accent, zero radius, no drop shadows, sans display type instead of serif.
-   Clean-room: no MUBI code, assets, copy or exact brand hex reused. */
+   Maximum-fidelity MUBI pass (PR #93, explicit product decision 2026-08-24):
+   pure black/white canvas, MUBI Blue as the single accent, geometric sans
+   with the same fallback stack MUBI itself ships to unlicensed viewers
+   (Arial/Helvetica, since Riforma is a paid proprietary license we don't
+   hold), zero radius, no drop shadows. This intentionally supersedes the
+   "should not read as MUBI" guidance in docs/referencias-editoriales for
+   this iteration — see that folder's README for the tradeoff on record.
+   No MUBI code, fonts, assets or copy are copied; only the publicly
+   documented color value and typographic system are referenced. */
 :root {
-  --dp-ink:#0d0d0d;
+  --dp-ink:#000000;
   --dp-paper:#ffffff;
   --dp-sand:#eaeaea;
   --dp-petrol:#55798A;
@@ -16,8 +21,8 @@
      reaches 4.08:1, which fails WCAG AA for small text like badges. */
   --dp-petrol-ink:#4A6B7A;
   --dp-brass:#B99A63;
-  --dp-copper:#1D2B64;
-  --dp-walnut:#10173a;
+  --dp-copper:#001489;
+  --dp-walnut:#000d52;
 
   --surface-page:var(--dp-paper);
   --surface-quiet:color-mix(in srgb,var(--dp-paper) 72%,var(--dp-sand));
@@ -29,10 +34,10 @@
   --color-accent:var(--dp-copper);
   --color-accent-strong:var(--dp-walnut);
   --color-on-inverse:var(--dp-paper);
-  --focus-color:var(--dp-walnut);
+  --focus-color:var(--dp-copper);
 
-  --font-display:"Manrope","Avenir Next",Avenir,"Helvetica Neue",Helvetica,Arial,sans-serif;
-  --font-ui:"Manrope","Avenir Next",Avenir,"Segoe UI",sans-serif;
+  --font-display:Arial,Helvetica,"Lucida Grande",sans-serif;
+  --font-ui:Arial,Helvetica,"Lucida Grande",sans-serif;
   --font-reading:"Newsreader","Iowan Old Style",Charter,Georgia,serif;
   --font-script:"Allura","Segoe Script","Bradley Hand",cursive;
 

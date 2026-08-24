@@ -6,10 +6,10 @@ html.v1 .site-header{position:sticky;top:0;z-index:var(--z-header);background:co
 html.v1 .site-header[data-scrolled="true"]{border-color:var(--color-border);background:var(--surface-page)}
 html.v1 .site-header__inner{min-height:76px;max-width:var(--layout-max);margin:auto;padding-inline:var(--page-gutter);display:grid;grid-template-columns:1fr auto auto;align-items:center;gap:clamp(1rem,3vw,3rem)}
 html.v1 .brand{text-decoration:none;display:inline-flex;align-items:baseline;gap:.75rem;width:max-content;min-width:0}
-html.v1 .brand__name{font-weight:600;font-size:.95rem;letter-spacing:-.01em}
+html.v1 .brand__name{font-weight:500;font-size:.95rem;letter-spacing:-.01em}
 html.v1 .brand__role{font-size:.72rem;letter-spacing:.09em;text-transform:uppercase;color:var(--color-muted)}
 html.v1 .primary-nav{display:flex;align-items:center;gap:clamp(1.25rem,2.4vw,2rem)}
-html.v1 .primary-nav a,html.v1 .explore-trigger{font-size:.92rem;font-weight:500;text-decoration:none}
+html.v1 .primary-nav a,html.v1 .explore-trigger{font-size:.82rem;font-weight:500;text-decoration:none;text-transform:uppercase;letter-spacing:.06em}
 html.v1 .primary-nav a{position:relative;min-height:44px;display:grid;place-items:center}
 html.v1 .primary-nav a::after{content:"";position:absolute;left:0;right:100%;bottom:6px;height:1px;background:currentColor;transition:right var(--motion-state) var(--ease-standard)}
 html.v1 .primary-nav a:hover::after,html.v1 .primary-nav a:focus-visible::after{right:0}
@@ -20,7 +20,7 @@ html.v1 .explore-dialog{width:min(calc(100vw - 32px),1400px);max-width:none;max-
 html.v1 .explore-dialog::backdrop{background:color-mix(in srgb,var(--surface-inverse) 66%,transparent)}
 html.v1 .explore-dialog__shell{padding:clamp(2rem,4vw,3.5rem)}
 html.v1 .explore-dialog__head{display:flex;align-items:flex-start;justify-content:space-between;gap:2rem;padding-bottom:2rem;border-bottom:1px solid var(--color-border)}
-html.v1 .explore-dialog__head h2{margin:.2rem 0 0;font-family:var(--font-display);font-weight:600;font-size:clamp(3rem,5vw,5.25rem);line-height:.95;letter-spacing:-.025em}
+html.v1 .explore-dialog__head h2{margin:.2rem 0 0;font-family:var(--font-display);font-weight:500;font-size:clamp(3rem,5vw,5.25rem);line-height:.95;letter-spacing:-.025em;text-transform:uppercase}
 html.v1 .icon-button{width:44px;height:44px;border:1px solid var(--color-border);border-radius:var(--radius-control);background:transparent;color:inherit;display:grid;place-items:center;cursor:pointer;flex:0 0 auto}
 html.v1 .icon-button svg{fill:none;stroke:currentColor;stroke-width:1.6}
 html.v1 .explore-dialog__grid{display:grid;grid-template-columns:minmax(0,6fr) minmax(280px,5fr);gap:clamp(2rem,5vw,5rem);padding-top:1.5rem}
@@ -28,7 +28,7 @@ html.v1 .explore-list{display:grid}
 html.v1 .explore-row{display:grid;grid-template-columns:2.8rem minmax(0,1fr);gap:1rem;align-items:start;min-height:64px;padding:1rem 0;text-decoration:none;border-bottom:1px solid var(--color-border)}
 html.v1 .explore-row__index{font-size:.72rem;color:var(--color-muted);padding-top:.45rem;font-variant-numeric:tabular-nums}
 html.v1 .explore-row__body{display:grid;gap:.15rem;min-width:0}
-html.v1 .explore-row__body strong{font-family:var(--font-display);font-weight:600;font-size:clamp(1.75rem,2.6vw,2.65rem);line-height:1.02;text-wrap:balance}
+html.v1 .explore-row__body strong{font-family:var(--font-display);font-weight:500;font-size:clamp(1.75rem,2.6vw,2.65rem);line-height:1.02;text-wrap:balance;text-transform:uppercase}
 html.v1 .explore-row__body small{font-size:.82rem;color:var(--color-muted);line-height:1.45}
 html.v1 .explore-row:hover .explore-row__body strong,html.v1 .explore-row:focus-visible .explore-row__body strong{color:var(--color-accent-strong)}
 html.v1 .explore-preview{align-self:stretch;border-left:1px solid var(--color-border);padding-left:clamp(1.5rem,3vw,3rem);display:grid;align-content:end;min-height:420px}
@@ -37,7 +37,7 @@ html.v1 .explore-subscribe .form-row{display:flex;gap:.6rem;flex-wrap:wrap}
 html.v1 .explore-subscribe .form-input{flex:1;min-width:12rem}
 html.v1 .explore-subscribe .form-consent{margin-top:.6rem;font-size:.8rem}
 html.v1 .explore-preview__media{min-height:240px;margin-bottom:2rem;background:var(--surface-quiet);border-bottom:1px solid var(--color-border)}
-html.v1 .explore-preview__label{font-family:var(--font-display);font-weight:600;font-size:clamp(2rem,3vw,3.2rem);line-height:1;margin:0 0 .75rem;text-wrap:balance}
+html.v1 .explore-preview__label{font-family:var(--font-display);font-weight:500;font-size:clamp(2rem,3vw,3.2rem);line-height:1;margin:0 0 .75rem;text-wrap:balance;text-transform:uppercase}
 html.v1 .explore-preview__copy{margin:0;color:var(--color-muted);max-width:36ch}
 html.v1 .site-footer{border-top:1px solid var(--color-border);padding:clamp(3rem,5vw,4.5rem) var(--page-gutter);max-width:var(--layout-max);margin:auto}
 html.v1 .site-footer__grid{display:grid;grid-template-columns:4fr repeat(3,2fr);gap:var(--grid-gap)}
@@ -51,7 +51,7 @@ html.v1 .site-footer__grid>*{overflow-wrap:break-word}
 html.v1 .site-footer p{color:var(--color-muted);margin:.5rem 0}
 html.v1 .site-footer nav{display:grid;align-content:start;gap:.55rem}
 html.v1 .site-footer h2{font-family:var(--font-ui);font-size:.72rem;text-transform:uppercase;letter-spacing:.08em;margin:0 0 .5rem}
-html.v1 .site-footer a{font-size:.88rem;text-decoration:none;min-height:32px}
+html.v1 .site-footer a{font-size:.88rem;text-decoration:none;min-height:32px;color:var(--color-accent)}
 html.v1 .site-footer a:hover,html.v1 .site-footer a:focus-visible{text-decoration:underline}
 /* Social profiles. Lives here rather than in v1-families.css because the
    footer row is part of the shell every V1 page loads, while families is

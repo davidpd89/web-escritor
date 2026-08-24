@@ -3,28 +3,28 @@
 html.v1 .fairs-page{--fair-rail:clamp(5.25rem,10vw,9.5rem)}
 html.v1 .fairs-masthead{align-items:start}
 html.v1 .fairs-index{align-self:end;border-top:1px solid var(--color-border);padding-top:1rem;max-width:22rem}
-html.v1 .fairs-index__year{margin:0 0 .9rem;font:600 clamp(2.5rem,5vw,4.75rem)/.85 var(--font-display);letter-spacing:-.04em}
+html.v1 .fairs-index__year{margin:0 0 .9rem;font:500 clamp(2.5rem,5vw,4.75rem)/.85 var(--font-display);letter-spacing:-.04em;text-transform:uppercase}
 html.v1 .fairs-index ol{list-style:none;margin:0;padding:0;border-bottom:1px solid var(--color-border)}
 html.v1 .fairs-index li{border-top:1px solid var(--color-border)}
 html.v1 .fairs-index a{display:grid;grid-template-columns:4.5rem minmax(0,1fr);gap:1rem;align-items:baseline;padding:.8rem 0;color:var(--color-text);text-decoration:none;font:500 .96rem/1.35 var(--font-reading)}
-html.v1 .fairs-index a span{font:600 .68rem/1 var(--font-ui);letter-spacing:.08em;color:var(--color-muted)}
+html.v1 .fairs-index a span{font:500 .68rem/1 var(--font-ui);letter-spacing:.08em;color:var(--color-muted)}
 html.v1 .fairs-index a:hover{text-decoration:underline;text-underline-offset:.2em}
 
 html.v1 .fairs-year{display:grid;grid-template-columns:var(--fair-rail) minmax(0,1fr);gap:clamp(1.5rem,5vw,5rem);padding-top:clamp(3.5rem,7vw,7rem)}
-html.v1 .fairs-year__label{position:sticky;top:7rem;align-self:start;margin:0;font:600 clamp(2.5rem,6vw,5.5rem)/.84 var(--font-display);letter-spacing:-.04em;color:var(--color-muted)}
+html.v1 .fairs-year__label{position:sticky;top:7rem;align-self:start;margin:0;font:500 clamp(2.5rem,6vw,5.5rem)/.84 var(--font-display);letter-spacing:-.04em;color:var(--color-muted);text-transform:uppercase}
 html.v1 .fairs-year__records{min-width:0}
 html.v1 .fair-anchor-alias{display:block;height:0;scroll-margin-top:7rem}
 html.v1 .fair-record{position:relative;padding:0 0 clamp(4.5rem,9vw,9rem);margin:0 0 clamp(4.5rem,9vw,9rem);border-bottom:1px solid var(--color-border);scroll-margin-top:7rem}
 html.v1 .fair-record:last-of-type{margin-bottom:0}
 html.v1 .fair-record__header{display:grid;grid-template-columns:minmax(5rem,.23fr) minmax(0,1fr);gap:clamp(1.25rem,4vw,4rem);align-items:start;padding-top:.2rem}
-html.v1 .fair-record__folio{margin:.35rem 0 0;font:600 .68rem/1.25 var(--font-ui);letter-spacing:.1em;text-transform:uppercase;color:var(--color-muted)}
-html.v1 .fair-record__header h2{margin:.7rem 0 1.25rem;font:600 clamp(2.4rem,5vw,5rem)/.9 var(--font-display);letter-spacing:-.035em;max-width:13ch;text-wrap:balance}
+html.v1 .fair-record__folio{margin:.35rem 0 0;font:500 .68rem/1.25 var(--font-ui);letter-spacing:.1em;text-transform:uppercase;color:var(--color-muted)}
+html.v1 .fair-record__header h2{margin:.7rem 0 1.25rem;font:500 clamp(2.4rem,5vw,5rem)/.9 var(--font-display);letter-spacing:-.035em;max-width:13ch;text-wrap:balance;text-transform:uppercase}
 html.v1 .fair-record__summary{margin:0;max-width:58ch;font:400 clamp(1.08rem,1rem + .25vw,1.3rem)/1.65 var(--font-reading)}
 
 html.v1 .fair-record__body{display:grid;grid-template-columns:minmax(15rem,.95fr) minmax(15rem,1.05fr);gap:clamp(2rem,5vw,5rem);align-items:start;margin:clamp(2.25rem,5vw,4rem) 0}
 html.v1 .fair-ledger{margin:0;border-top:1px solid var(--color-border)}
 html.v1 .fair-ledger>div{display:grid;grid-template-columns:minmax(5.5rem,.32fr) minmax(0,1fr);gap:1rem;padding:.8rem 0;border-bottom:1px solid var(--color-border)}
-html.v1 .fair-ledger dt{font:600 .68rem/1.35 var(--font-ui);letter-spacing:.08em;text-transform:uppercase;color:var(--color-muted)}
+html.v1 .fair-ledger dt{font:500 .68rem/1.35 var(--font-ui);letter-spacing:.08em;text-transform:uppercase;color:var(--color-muted)}
 html.v1 .fair-ledger dd{margin:0;font:400 .97rem/1.5 var(--font-reading);overflow-wrap:anywhere}
 html.v1 .fair-ledger a{color:inherit;text-decoration-thickness:1px;text-underline-offset:.18em}
 html.v1 .fair-source-note{margin:0;padding:1.25rem 0;border-top:1px solid var(--color-border);border-bottom:1px solid var(--color-border);font:400 .94rem/1.6 var(--font-reading);color:var(--color-muted)}
@@ -37,11 +37,11 @@ html.v1 .fair-media--madrid{grid-template-columns:repeat(3,minmax(0,1fr))}
 html.v1 .fair-media figure{margin:0;min-width:0}
 html.v1 .fair-media img{display:block;width:100%;height:auto;border:1px solid var(--color-border);background:var(--surface-page)}
 html.v1 .fair-media figcaption{display:grid;grid-template-columns:2rem minmax(0,1fr);gap:.6rem;margin-top:.65rem;font:400 .78rem/1.45 var(--font-reading);color:var(--color-muted)}
-html.v1 .fair-media figcaption span{font:600 .66rem/1.4 var(--font-ui);letter-spacing:.08em;color:var(--color-text)}
+html.v1 .fair-media figcaption span{font:500 .66rem/1.4 var(--font-ui);letter-spacing:.08em;color:var(--color-text)}
 
 html.v1 .fairs-agenda-exit{display:grid;grid-template-columns:var(--fair-rail) minmax(0,1fr);gap:clamp(1.5rem,5vw,5rem);padding:clamp(4rem,8vw,8rem) 0 0}
 html.v1 .fairs-agenda-exit>.eyebrow{margin:.25rem 0 0}
-html.v1 .fairs-agenda-exit h2{margin:0 0 1rem;font:600 clamp(2rem,4vw,3.75rem)/.98 var(--font-display);letter-spacing:-.025em;max-width:18ch;text-wrap:balance}
+html.v1 .fairs-agenda-exit h2{margin:0 0 1rem;font:500 clamp(2rem,4vw,3.75rem)/.98 var(--font-display);letter-spacing:-.025em;max-width:18ch;text-wrap:balance;text-transform:uppercase}
 html.v1 .fairs-agenda-exit p{max-width:58ch;font-family:var(--font-reading);line-height:1.65;color:var(--color-muted)}
 html.v1 .fairs-agenda-exit .primary-action{margin-top:.65rem}
 
