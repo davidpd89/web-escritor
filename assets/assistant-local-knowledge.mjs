@@ -8,6 +8,11 @@ function words(text) {
   return [...new Set(String(text || "").split(/[^\p{L}\p{N}]+/u).filter(Boolean))];
 }
 
+function includesWordFrom(text, candidates) {
+  const tokens = new Set(words(text));
+  return candidates.some((candidate) => tokens.has(candidate));
+}
+
 function boundedEditDistance(left, right, maxDistance = 2) {
   const a = String(left || "");
   const b = String(right || "");
@@ -112,6 +117,35 @@ const NAVIGATION_TERMS = Object.freeze([
   "pagina",
   "seccion",
 ]);
+
+const EDITORIAL_SUBMISSION_PHRASES = Object.freeze([
+  "editorial",
+  "editoriales",
+  "mandar manuscrito",
+  "mandar un manuscrito",
+  "mandar mi manuscrito",
+  "mando manuscrito",
+  "mando un manuscrito",
+  "enviar manuscrito",
+  "enviar mi manuscrito",
+  "enviar novela",
+  "enviar mi novela",
+  "mandar novela",
+  "mandar mi novela",
+  "mando novela",
+  "publicar manuscrito",
+  "publicar novela",
+  "presentar obra",
+  "presentar mi obra",
+  "aceptan manuscritos",
+]);
+
+function asksEditorialSubmission(text) {
+  if (includesAny(text, EDITORIAL_SUBMISSION_PHRASES)) return true;
+  const hasSubmissionAction = includesWordFrom(text, ["mandar", "mando", "enviar", "envio", "publicar", "presentar", "presento"]);
+  const hasManuscriptObject = includesWordFrom(text, ["manuscrito", "novela", "obra", "libro", "texto"]);
+  return hasSubmissionAction && hasManuscriptObject;
+}
 
 function isGreetingOnly(text) {
   return /^(?:hola|buenas|buenos dias|buenas tardes|buenas noches|hey|ey)(?:[ ,.!¡¿?]*(?:que tal|como estas))?[ ,.!¡¿?]*$/u.test(text);
@@ -246,7 +280,7 @@ export function resolveLocalAnswer(query, context = {}) {
     return result("awards", "Los premios y reconocimientos están reunidos en una página específica para poder comprobar cada mención con su contexto.", ["awards"]);
   }
 
-  if (includesAny(q, ["editorial", "editoriales", "mandar manuscrito", "mandar un manuscrito", "mando manuscrito", "mando un manuscrito", "enviar manuscrito", "enviar novela", "mandar novela", "mando novela", "publicar manuscrito", "publicar novela", "presentar obra", "aceptan manuscritos"])) {
+  if (asksEditorialSubmission(q)) {
     return result("editorials", "Hay un directorio de editoriales que aceptan manuscritos. Úsalo para localizar opciones y comprobar sus condiciones antes de enviar una obra.", ["editorials-hub"]);
   }
 
@@ -283,8 +317,8 @@ export function resolveLocalAnswer(query, context = {}) {
   ])) {
     return result(
       "site-overview",
-      "La web se organiza en cuatro rutas principales: Obras, Cuaderno, Herramientas y la zona de Autor/Prensa. Si me dices si vienes a leer, escribir o buscar información sobre David, puedo afinar el camino.",
-      ["works-hub", "notebook-hub", "tools-hub", "press"],
+      "La web se organiza en cinco territorios principales: Obras, Autor, Cuaderno, Herramientas y Prensa. Si quieres verlo todo de una vez, el Mapa del sitio reúne los destinos públicos; si me dices si vienes a leer, escribir o buscar información sobre David, puedo afinar el camino.",
+      ["site-map", "works-hub", "author", "notebook-hub", "tools-hub", "press"],
       { suggestions: SITE_SUGGESTIONS },
     );
   }
