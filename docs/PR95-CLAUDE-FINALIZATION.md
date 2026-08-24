@@ -60,7 +60,38 @@ Después de disponer del fichero, medir sus dimensiones reales y ajustar el CSS 
 
 El icono de casa debe existir en el header en páginas interiores para volver siempre a `/` sin tener que abrir Explorar.
 
-## 5. Importante: integrar la estructura en el generador
+## 5. Materialidad editorial — no dejar la Home plana
+
+La referencia LRB tiene profundidad visual sin recurrir a tarjetas pesadas. La PR incorpora una primera capa en `assets/v1-lrb-material-v2.css`; Claude debe validarla visualmente con el navegador y ajustar valores si el asset real del logo cambia las proporciones.
+
+### Capas superiores
+
+- Barra de utilidad: casi blanca y limpia.
+- Separación inferior: hairline + sombra muy leve.
+- Masthead/logo: papel cálido/crudo, claramente distinto del blanco superior.
+- Navegación editorial: un tono ligeramente más profundo que el masthead.
+- La suma debe leerse como `blanco → sombra/regla → papel cálido → nav algo más oscura`, no como cuatro cajas.
+
+### River / cuadrícula de periódico
+
+- El fondo de esta zona debe extenderse a todo el ancho del viewport.
+- La cuadrícula de lectura sigue limitada a `layout-max` por dentro.
+- No volver a una isla blanca centrada sobre blanco puro.
+- Desktop: 3 columnas; tablet: 2; móvil: 1.
+- Recalcular reglas por breakpoint: nunca conservar bordes de tres columnas cuando ya hay dos o una.
+- Separadores finos y coherentes colocados en los bordes de celda; evitar rayas que atraviesen visualmente el copy.
+- Más respiración entre regla y texto.
+- Variaciones de papel muy sutiles entre módulos para romper la uniformidad sin convertirlo en un mosaico de tarjetas.
+- El módulo `Del cuaderno` debe ser el acento azul: fondo azul claro con variación tonal, título petrol más oscuro y metadatos/copy en azul-gris.
+- Título, byline y resumen deben tener jerarquías distintas. El subtítulo/byline se percibe más pequeño, más bajo y más gris que el título.
+- Las imágenes de lead/Feria deben respetar exactamente la geometría de su columna y sangrar solo hasta su borde de celda.
+- Usar sombras a nivel de capa/sección, no una sombra independiente fuerte en cada noticia.
+
+### Criterio visual
+
+La prueba no es “hay colores”. La zona debe dejar de sentirse plana incluso en una captura sin interacción. Debe haber profundidad por diferencias pequeñas de luminancia, espaciado, hairlines, tipografía y una interrupción azul controlada.
+
+## 6. Importante: integrar la estructura en el generador
 
 La PR actual puede mejorar el DOM en runtime desde `v1-shell.js`, pero antes de mergear Claude debe preferentemente consolidar la estructura definitiva en:
 
@@ -72,7 +103,7 @@ Motivo: evitar que, durante la carga, el hamburger nazca a la derecha y JavaScri
 
 Si al comparar con LRB el hamburger debe ocultarse en Estado A de Home y mostrarse solo en Estado C, mantenerlo en el DOM y resolver visibilidad por estado/CSS, no moviéndolo entre contenedores.
 
-## 6. QA obligatorio antes de merge
+## 7. QA obligatorio antes de merge
 
 Comparar lado a lado con `https://www.lrb.co.uk/` y con el preview local/staging en:
 
@@ -87,6 +118,12 @@ Verificar:
 - altura total de cabecera;
 - distancia logo ↔ navegación;
 - navegación suficientemente junta;
+- diferencia perceptible pero sobria entre blanco de utility bar, papel del masthead y tono de navegación;
+- sombra/regla entre capas sin aspecto de tarjeta flotante;
+- river de ancho completo con contenido interior correctamente limitado;
+- gutters coherentes y reglas alineadas;
+- módulo azul integrado y jerarquía tonal de título/byline/resumen;
+- geometría correcta 3 → 2 → 1 columnas;
 - estado sticky inicial;
 - umbral y transición a compacta;
 - hamburger izquierdo;
@@ -103,8 +140,8 @@ Verificar:
 - `python scripts/build-site-shell.py --check` (o comando equivalente del repo);
 - tests Playwright/pa11y/reflow que ya existan en el repositorio para shell y navegación.
 
-## 7. Criterio de aceptación
+## 8. Criterio de aceptación
 
-No dar la PR por terminada por “parecerse” a LRB en una captura estática. Se acepta cuando los tres estados de scroll, la composición, el asset central exacto, la navegación y las interacciones reproducen el mismo patrón de uso con la identidad de David Porto Díaz.
+No dar la PR por terminada por “parecerse” a LRB en una captura estática. Se acepta cuando los tres estados de scroll, la composición, el asset central exacto, la navegación, la materialidad del bloque editorial y las interacciones reproducen el mismo patrón de uso con la identidad de David Porto Díaz.
 
-La referencia manda en comportamiento y proporciones; el contenido, enlaces, colores y branding siguen siendo propios de David.
+La referencia manda en comportamiento, proporciones y sensación de profundidad; el contenido, enlaces y branding siguen siendo propios de David.
