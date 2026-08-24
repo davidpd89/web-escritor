@@ -286,3 +286,13 @@ Los tokens de esta sección se construyeron a partir de una reconstrucción de t
 - **El acento único MUBI Blue (`#001489`) no es un hecho de marca**: según la propia agencia que rediseñó la identidad de MUBI (Spin, vía itsnicethat.com), MUBI introdujo deliberadamente una **paleta variada y cambiante por campaña** ("why can't we have many colours!"), no un único color fijo. El `#001489` que usamos como acento es una simplificación nuestra tomada de una sola captura de página, no "el color de MUBI". Se mantiene como decisión de diseño propia porque funciona bien visualmente en este sistema, no como afirmación de fidelidad de marca.
 
 Fuentes consultadas en esta verificación: `mubi.com` y `mubi.com/en/notebook` (HTML real, en vivo), `spin.co.uk/projects/mubi`, `itsnicethat.com` (entrevista con Spin y Efe Cakarel sobre el rediseño), `lineto.com` (especimen de LL Riforma).
+
+### Verificación de London Review of Books contra fuente primaria — 2026-08-24
+
+A diferencia de MUBI, `LONDON-REVIEW-OF-BOOKS.md` sí se redactó ya contra el sitio en vivo. Se ha vuelto a cargar `lrb.co.uk` para confirmarlo: la home real mezcla en la misma pantalla piezas de "In the latest issue", "From the blog" y "Podcasts & Videos" con pesos visuales distintos — exactamente el patrón que el documento describe. No hace falta corregir nada del documento.
+
+Aplicado a contenido real en esta sesión:
+
+- El patrón de "ledger, no cuadrícula de tarjetas iguales" (`## Patrones observables · 4`) ya estaba implementado en `.press-grid`/`.press-card` de `assets/v1-identity.css` (comentario propio: *"turn the generic equal-card grid into a document ledger"*), usado en `#bios` y `#cobertura` de `prensa.html`. No requería cambios.
+- **Hueco real encontrado y corregido en `eventos.html`**: el JSON-LD del evento de Aranjuez ya declaraba `image: .../feria-aranjuez-2026-david-porto-diaz-colocando-samuel.webp`, pero esa foto real nunca se mostraba en el `<li class="event-entry" id="feria-libro-aranjuez-2026">` visible — quedaba solo texto. Añadida la misma imagen (dimensiones 800×600 verificadas contra su uso real en `ferias.html`) a la entrada del archivo de eventos.
+- Herramientas (`herramientas/index.html`) se deja sin imágenes: es la única sección ya documentada en `v1-families.css` como "el único lugar donde la cuadrícula de tarjetas es el patrón correcto" (17 utilidades sin relación entre sí, no un archivo editorial); forzar fotografía ahí iría contra esa decisión ya tomada.
