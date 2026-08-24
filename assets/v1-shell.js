@@ -1,21 +1,232 @@
-/* V1 shell loader + LRB-inspired header enhancement.
-   The original production shell is preserved byte-for-byte as
-   /assets/v1-shell-base.js; this file loads it first, then adds the new
-   header behaviour without duplicating the existing dialog/assistant logic. */
+// V1 editorial shell — Explorar <dialog>, header scroll state, intro and assistant.
+// Base runtime + LRB-inspired header enhancement live in one production file
+// so static contracts, CSP review and browser behaviour all inspect the same source.
+(() => {
+  'use strict';
+  const q = (s, c = document) => c.querySelector(s);
+  const qa = (s, c = document) => [...c.querySelectorAll(s)];
+
+  function initHeader() {
+    const header = q('[data-header]');
+    if (!header) return;
+    let ticking = false;
+    const update = () => {
+      header.dataset.scrolled = window.scrollY > 18 ? 'true' : 'false';
+      ticking = false;
+    };
+    addEventListener('scroll', () => {
+      if (!ticking) { requestAnimationFrame(update); ticking = true; }
+    }, { passive: true });
+    update();
+  }
+
+  function ensureAssistantExploreLink(dialog) {
+    const list = q('.explore-list', dialog);
+    if (!list || q('[data-assistant-menu-link]', list)) return;
+    const link = document.createElement('a');
+    link.className = 'explore-row';
+    link.href = '/asistente/';
+    link.dataset.preview = 'asistente';
+    link.dataset.assistantMenuLink = 'true';
+
+    const index = document.createElement('span');
+    index.className = 'explore-row__index';
+    index.textContent = String(qa('.explore-row__index', list).length + 1).padStart(2, '0');
+    const body = document.createElement('span');
+    body.className = 'explore-row__body';
+    const strong = document.createElement('strong');
+    strong.textContent = 'Asistente';
+    const small = document.createElement('small');
+    small.textContent = 'Pregunta y encuentra la página que necesitas.';
+    body.append(strong, small);
+    link.append(index, body);
+    list.append(link);
+  }
+
+  function initExplore() {
+    const dialog = q('[data-explore-dialog]');
+    const opens = qa('[data-explore-open]');
+    const close = q('[data-explore-close]');
+    if (!dialog || !opens.length || !close || typeof dialog.showModal !== 'function') return;
+
+    ensureAssistantExploreLink(dialog);
+    let opener = null;
+    opens.forEach((open) => {
+      open.addEventListener('click', () => {
+        opener = document.activeElement;
+        opens.forEach((o) => o.setAttribute('aria-expanded', 'true'));
+        dialog.showModal();
+        close.focus();
+      });
+    });
+    const markClosed = () => opens.forEach((o) => o.setAttribute('aria-expanded', 'false'));
+    close.addEventListener('click', () => { markClosed(); dialog.close(); });
+    dialog.addEventListener('cancel', markClosed);
+    dialog.addEventListener('click', (event) => { if (event.target === dialog) { markClosed(); dialog.close(); } });
+    dialog.addEventListener('close', () => {
+      markClosed();
+      if (opener instanceof HTMLElement) opener.focus({ preventScroll: true });
+    });
+
+    const FOCUSABLE = 'a[href],button:not([disabled]),input:not([disabled]),select:not([disabled]),textarea:not([disabled]),[tabindex]:not([tabindex="-1"])';
+    dialog.addEventListener('keydown', (event) => {
+      if (event.key !== 'Tab') return;
+      const items = [...dialog.querySelectorAll(FOCUSABLE)]
+        .filter((el) => el.offsetWidth > 0 || el.offsetHeight > 0 || el.getClientRects().length);
+      if (!items.length) return;
+      const first = items[0];
+      const last = items[items.length - 1];
+      const active = document.activeElement;
+      if (event.shiftKey && (active === first || active === dialog)) {
+        event.preventDefault();
+        last.focus();
+      } else if (!event.shiftKey && active === last) {
+        event.preventDefault();
+        first.focus();
+      }
+    });
+
+    const preview = q('[data-explore-preview]', dialog);
+    const label = q('[data-preview-label]', dialog);
+    const copy = q('[data-preview-copy]', dialog);
+    const media = q('[data-preview-media]', dialog);
+    const content = {
+      'works-hub': ['Obras', 'Las dos novelas publicadas, fragmentos y rutas de lectura.'],
+      'notebook-hub': ['Cuaderno', 'Artículos y piezas editoriales sobre proceso y lecturas.'],
+      'tools-hub': ['Herramientas', 'Utilidades gratuitas para problemas concretos de escritura.'],
+      author: ['Autor', 'Biografía, obra y trayectoria de David Porto Díaz.'],
+      press: ['Prensa', 'Material de prensa, agenda y apariciones verificables.'],
+      'site-map': ['Mapa del sitio', 'Índice completo para recorrer la web por secciones.'],
+      manecillas: ['Las manecillas del recuerdo', 'La obra actual y punto de entrada editorial.'],
+      autor: ['Autor', 'Biografía, obra y trayectoria de David Porto Díaz.'],
+      samuel: ['Samuel entre mundos', 'Primera novela publicada.'],
+      cuaderno: ['Cuaderno', 'Artículos y piezas editoriales.'],
+      herramientas: ['Herramientas', 'Utilidades gratuitas para problemas concretos de escritura y publicación.'],
+      prensa: ['Prensa y eventos', 'Apariciones, materiales de prensa y agenda.'],
+      asistente: ['Asistente', 'Pregunta y encuentra la página que necesitas.']
+    };
+    const setPreview = (key) => {
+      if (!preview || !content[key]) return;
+      label.textContent = content[key][0];
+      copy.textContent = content[key][1];
+      media.dataset.preview = key;
+    };
+    qa('[data-preview]', dialog).forEach((link) => {
+      link.addEventListener('mouseenter', () => setPreview(link.dataset.preview));
+      link.addEventListener('focus', () => setPreview(link.dataset.preview));
+    });
+  }
+
+  function initIntro() {
+    const intro = q('[data-intro]');
+    if (!intro) return;
+    let seen = false;
+    try { seen = sessionStorage.getItem('dp-intro-seen') === '1'; } catch {}
+    if (seen) { intro.hidden = true; return; }
+    try { sessionStorage.setItem('dp-intro-seen', '1'); } catch {}
+    const enter = q('[data-intro-enter]', intro);
+    const behind = qa('.site-header, main, .site-footer');
+    behind.forEach((el) => el.setAttribute('inert', ''));
+    document.documentElement.classList.add('intro-lock');
+    if (!enter) return;
+    let entered = false;
+    const doEnter = () => {
+      if (entered) return;
+      entered = true;
+      const reduced = matchMedia('(prefers-reduced-motion: reduce)').matches;
+      intro.classList.add('intro--leaving');
+      setTimeout(() => {
+        intro.hidden = true;
+        document.documentElement.classList.remove('intro-lock');
+        behind.forEach((el) => el.removeAttribute('inert'));
+        const main = q('#contenido');
+        if (main) main.focus();
+      }, reduced ? 350 : 820);
+    };
+    enter.addEventListener('click', doEnter);
+    const reduced = matchMedia('(prefers-reduced-motion: reduce)').matches;
+    setTimeout(doEnter, reduced ? 5000 : 9600);
+  }
+
+  function initHeroVideo() {
+    const video = q('[data-hero-video]');
+    if (!video) return;
+    if (video.closest('[data-intro]')?.hidden) return;
+    if (matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+    const play = () => video.play().catch(() => {});
+    if (video.readyState >= 2) play();
+    else video.addEventListener('loadeddata', play, { once: true });
+  }
+
+  function initAssistantWidget() {
+    if (/^\/asistente(?:\/|$)/.test(location.pathname)) return;
+    const csp = document.querySelector('meta[http-equiv="Content-Security-Policy"]')?.content || '';
+    if (/frame-src\s+'none'/i.test(csp)) return;
+    let scheduled = false;
+    const load = () => {
+      if (scheduled) return;
+      scheduled = true;
+      if (!q('link[data-assistant-widget-style]')) {
+        const style = document.createElement('link');
+        style.rel = 'stylesheet';
+        style.href = '/assets/assistant-widget.css';
+        style.dataset.assistantWidgetStyle = 'true';
+        document.head.append(style);
+      }
+      import('/assets/assistant-widget.js').catch(() => {});
+    };
+    const schedule = () => {
+      if ('requestIdleCallback' in window) requestIdleCallback(load, { timeout: 1400 });
+      else setTimeout(load, 350);
+    };
+    if (document.readyState === 'complete') schedule();
+    else addEventListener('load', schedule, { once: true });
+  }
+
+  function initHeaderSearch() {
+    const triggers = qa('[data-assistant-search-open]');
+    if (!triggers.length) return;
+    const csp = document.querySelector('meta[http-equiv="Content-Security-Policy"]')?.content || '';
+    const widgetBlocked = /frame-src\s+'none'/i.test(csp) || /^\/asistente(?:\/|$)/.test(location.pathname);
+    triggers.forEach((btn) => {
+      btn.addEventListener('click', () => {
+        if (widgetBlocked) { location.href = '/asistente/'; return; }
+        const launcher = q('.assistant-widget__launcher');
+        if (launcher) { launcher.click(); return; }
+        if (!q('link[data-assistant-widget-style]')) {
+          const style = document.createElement('link');
+          style.rel = 'stylesheet';
+          style.href = '/assets/assistant-widget.css';
+          style.dataset.assistantWidgetStyle = 'true';
+          document.head.append(style);
+        }
+        import('/assets/assistant-widget.js')
+          .then(() => q('.assistant-widget__launcher')?.click())
+          .catch(() => { location.href = '/asistente/'; });
+      });
+    });
+  }
+
+  initHeader();
+  initExplore();
+  initIntro();
+  initHeroVideo();
+  initAssistantWidget();
+  initHeaderSearch();
+})();
+
+// LRB-inspired utility/header + Home editorial enhancement.
 (() => {
   'use strict';
 
-  const BASE_SRC = '/assets/v1-shell-base.js';
   const HOME_EDITORIAL_SRC = '/assets/v1-home-editorial-v3.js';
   const root = document.documentElement;
-
   const houseSvg = `
     <svg aria-hidden="true" viewBox="0 0 24 24" focusable="false">
       <path d="M3.5 10.5 12 3.7l8.5 6.8"/>
       <path d="M5.5 9.2V20h13V9.2"/>
       <path d="M9.5 20v-6h5v6"/>
     </svg>`;
-
   const chevronSvg = `
     <svg aria-hidden="true" viewBox="0 0 16 16" focusable="false">
       <path d="m4 6 4 4 4-4"/>
@@ -93,10 +304,6 @@
     text.textContent = originalText;
     name.append(text);
 
-    /* The exact user-supplied binary is local and is intentionally not
-       fabricated here. Once it is versioned with this canonical filename,
-       the masthead switches to it automatically; a failed request leaves the
-       accessible text fallback visible instead of a broken-image icon. */
     const candidates = [
       '/assets/london-david-porto-logo-central.png',
       '/assets/london-david-porto-logo-central.webp'
@@ -166,7 +373,6 @@
 
       anchor.after(trigger);
       li.append(submenu);
-
       trigger.addEventListener('click', (event) => {
         event.stopPropagation();
         const willOpen = !li.classList.contains('is-open');
@@ -175,7 +381,6 @@
         trigger.setAttribute('aria-expanded', String(willOpen));
         if (willOpen) emit('masthead_submenu_open', { territory: key, position: position + 1 });
       });
-
       li.addEventListener('keydown', (event) => {
         if (event.key !== 'Escape') return;
         li.classList.remove('is-open');
@@ -243,11 +448,9 @@
     });
   }
 
-  const base = document.createElement('script');
-  base.src = BASE_SRC;
-  base.async = false;
-  base.dataset.shellBase = 'true';
-  base.addEventListener('load', initLrbHeaderV2, { once: true });
-  base.addEventListener('error', initLrbHeaderV2, { once: true });
-  document.head.append(base);
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initLrbHeaderV2, { once: true });
+  } else {
+    initLrbHeaderV2();
+  }
 })();
