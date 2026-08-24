@@ -1,0 +1,259 @@
+/* LRB-inspired material layer for Home (2026-08-24).
+   Goal: reproduce the reference's sense of paper depth, editorial spacing
+   and tonal hierarchy without copying its brand palette or code.
+   Loaded after v1-shell-lrb-v2.css and intentionally uses higher-specificity
+   Home selectors so it also wins over the older flat rules in v1-home.css. */
+
+:root{
+  --dp-editorial-white:#fffefa;
+  --dp-editorial-paper:#f5f1e9;
+  --dp-editorial-paper-soft:#faf8f3;
+  --dp-editorial-paper-mid:#eee9df;
+  --dp-editorial-field:#e8e3d9;
+  --dp-editorial-rule:rgba(23,20,18,.22);
+  --dp-editorial-rule-soft:rgba(23,20,18,.12);
+  --dp-editorial-shadow:0 10px 28px rgba(23,20,18,.07),0 1px 0 rgba(23,20,18,.10);
+  --dp-editorial-blue:#d7e9ef;
+  --dp-editorial-blue-deep:#c6e0e8;
+  --dp-editorial-blue-ink:#2f5b6b;
+  --dp-editorial-blue-muted:#59737d;
+  --dp-river-cell-x:clamp(1.35rem,2.1vw,2.15rem);
+  --dp-river-cell-y:clamp(1.55rem,2.35vw,2.4rem);
+}
+
+/* 1. Utility bar = the clean white top sheet. The small shadow is what
+   visually separates it from the warmer editorial layer below. */
+html.v1 .site-header{
+  background:var(--dp-editorial-white);
+  border-bottom-color:var(--dp-editorial-rule-soft);
+  box-shadow:0 1px 0 rgba(23,20,18,.08),0 5px 16px rgba(23,20,18,.045);
+}
+html.v1 .site-header[data-scrolled="true"]{
+  background:var(--dp-editorial-white);
+  border-bottom-color:var(--dp-editorial-rule-soft);
+}
+
+/* 2. Masthead = warm paper, nav = one shade deeper. This creates the
+   "white / shadow / cream" stack visible in the reference instead of one
+   uninterrupted white plane. */
+html.v1[data-lrb-home="true"] .masthead-sticky{
+  background:var(--dp-editorial-paper);
+  border-bottom-color:var(--dp-editorial-rule-soft);
+  box-shadow:var(--dp-editorial-shadow);
+}
+html.v1[data-lrb-home="true"] .masthead-sticky__inner,
+html.v1[data-lrb-home="true"] .masthead{
+  background:var(--dp-editorial-paper);
+}
+html.v1[data-lrb-home="true"] .masthead-nav{
+  background:var(--dp-editorial-paper-mid);
+  border-top:1px solid var(--dp-editorial-rule-soft);
+  border-bottom:1px solid var(--dp-editorial-rule-soft);
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.42),inset 0 -1px 0 rgba(23,20,18,.035);
+}
+html.v1[data-lrb-home="true"] .masthead-nav__item>a{
+  color:#393530;
+}
+html.v1[data-lrb-home="true"] .masthead-nav__item>a:hover,
+html.v1[data-lrb-home="true"] .masthead-nav__item>a:focus-visible{
+  color:var(--dp-editorial-blue-ink);
+}
+html.v1[data-lrb-home="true"] .masthead-nav__submenu{
+  background:var(--dp-editorial-paper-soft);
+  border-color:var(--dp-editorial-rule);
+  box-shadow:0 14px 34px rgba(23,20,18,.12),0 1px 0 rgba(23,20,18,.09);
+}
+
+/* 3. Newspaper river = a full-width tonal field containing a disciplined
+   grid. The content no longer stops in a white island: the background runs
+   edge-to-edge while the actual reading columns remain capped at layout-max.
+   Column gutters create breathing room; hairlines sit on cell edges rather
+   than floating randomly through the text. */
+html.v1[data-lrb-home="true"] .river-grid{
+  width:100%;
+  max-width:none;
+  margin:0;
+  padding:clamp(1.6rem,2.8vw,3rem) max(var(--page-gutter),calc((100vw - var(--layout-max))/2));
+  grid-template-columns:repeat(3,minmax(0,1fr));
+  grid-template-areas:"lead samuel premios" "antologia blog feria";
+  column-gap:clamp(1.05rem,2vw,2.25rem);
+  row-gap:0;
+  border:0;
+  background:linear-gradient(180deg,var(--dp-editorial-field) 0%,#ebe7de 58%,var(--dp-editorial-field) 100%);
+  box-shadow:inset 0 1px 0 rgba(23,20,18,.10),inset 0 -1px 0 rgba(23,20,18,.10);
+}
+
+html.v1[data-lrb-home="true"] .river-cell{
+  min-width:0;
+  padding:var(--dp-river-cell-y) var(--dp-river-cell-x);
+  background:var(--dp-editorial-paper-soft);
+  border:0;
+  border-right:1px solid var(--dp-editorial-rule);
+  border-bottom:1px solid var(--dp-editorial-rule);
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.55);
+}
+
+/* Top row / bottom row rule map. */
+html.v1[data-lrb-home="true"] .river-cell--premios,
+html.v1[data-lrb-home="true"] .river-cell--feria{
+  border-right:0;
+}
+html.v1[data-lrb-home="true"] .river-cell--antologia,
+html.v1[data-lrb-home="true"] .river-cell--blog,
+html.v1[data-lrb-home="true"] .river-cell--feria{
+  border-bottom:0;
+}
+
+/* A subtle change in the middle cell prevents the whole river reading as
+   six identical white boxes. The blue block is deliberately stronger. */
+html.v1[data-lrb-home="true"] .river-cell--samuel{
+  background:linear-gradient(180deg,#f1ede5 0%,var(--dp-editorial-paper-mid) 100%);
+}
+html.v1[data-lrb-home="true"] .river-cell--antologia{
+  background:#f7f4ee;
+}
+html.v1[data-lrb-home="true"] .river-cell--blog{
+  background:linear-gradient(155deg,var(--dp-editorial-blue) 0%,var(--dp-editorial-blue-deep) 100%);
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.45),inset 0 -1px 0 rgba(47,91,107,.08);
+}
+
+/* Image cells still bleed to their own column edge, but the bleed now keys
+   off the actual cell padding instead of the global page gutter. */
+html.v1[data-lrb-home="true"] .river-cell--lead,
+html.v1[data-lrb-home="true"] .river-cell--feria{
+  padding-top:0;
+}
+html.v1[data-lrb-home="true"] .river-cell__media{
+  margin:0 calc(-1 * var(--dp-river-cell-x)) clamp(1.2rem,2vw,1.7rem);
+  background:#ded9cf;
+  box-shadow:0 1px 0 rgba(23,20,18,.10);
+}
+html.v1[data-lrb-home="true"] .river-cell__media img{
+  transform:translateZ(0);
+}
+html.v1[data-lrb-home="true"] .river-cell:hover .river-cell__media img{
+  transform:scale(1.018);
+}
+
+/* 4. Typographic depth: title, byline and summary no longer share the same
+   visual weight. Blue panel gets its own tonal family. */
+html.v1[data-lrb-home="true"] .river-cell h3{
+  margin:0 0 .58rem;
+  font-family:var(--font-display);
+  font-size:clamp(1.48rem,1.18rem + 1.05vw,2rem);
+  line-height:1.02;
+  letter-spacing:-.012em;
+}
+html.v1[data-lrb-home="true"] .river-cell--lead h3{
+  font-size:clamp(2rem,1.45rem + 2vw,2.9rem);
+  line-height:.98;
+}
+html.v1[data-lrb-home="true"] .river-cell h3 a{
+  color:#201d1a;
+}
+html.v1[data-lrb-home="true"] .river-cell__byline{
+  margin:.05rem 0 .62rem;
+  color:#76736f;
+  font-size:.82rem;
+  line-height:1.35;
+}
+html.v1[data-lrb-home="true"] .river-cell>p:last-of-type{
+  color:#68635e;
+  line-height:1.48;
+}
+html.v1[data-lrb-home="true"] .river-cell .eyebrow{
+  margin-bottom:.72rem;
+  color:#6d6964;
+}
+html.v1[data-lrb-home="true"] .river-cell--blog .eyebrow{
+  color:var(--dp-editorial-blue-ink);
+}
+html.v1[data-lrb-home="true"] .river-cell--blog h3 a{
+  color:#214b5b;
+}
+html.v1[data-lrb-home="true"] .river-cell--blog .river-cell__byline{
+  color:var(--dp-editorial-blue-muted);
+}
+html.v1[data-lrb-home="true"] .river-cell--blog>p:last-of-type{
+  color:#46636e;
+}
+html.v1[data-lrb-home="true"] .river-cell--blog .river-cell__arrow{
+  color:var(--dp-editorial-blue-ink);
+  border-color:rgba(47,91,107,.35);
+  background:rgba(255,255,255,.17);
+}
+html.v1[data-lrb-home="true"] .river-cell__arrow{
+  border-color:rgba(23,20,18,.24);
+  background:rgba(255,255,255,.22);
+  transition:transform var(--motion-state) var(--ease-standard),background var(--motion-state) var(--ease-standard);
+}
+html.v1[data-lrb-home="true"] .river-cell__arrow:hover,
+html.v1[data-lrb-home="true"] .river-cell__arrow:focus-visible{
+  transform:translateX(2px);
+  background:rgba(255,255,255,.5);
+}
+
+/* Tablet: same tonal field, two reading columns. Rules are recalculated for
+   the actual two-column geometry instead of inheriting desktop separators. */
+@media (max-width:1023px){
+  html.v1[data-lrb-home="true"] .river-grid{
+    grid-template-columns:repeat(2,minmax(0,1fr));
+    grid-template-areas:"lead lead" "samuel premios" "antologia blog" "feria feria";
+    column-gap:clamp(.9rem,2vw,1.5rem);
+    padding:clamp(1.35rem,3vw,2.25rem) max(var(--page-gutter),calc((100vw - 76rem)/2));
+  }
+  html.v1[data-lrb-home="true"] .river-cell{
+    border-right:0;
+    border-bottom:1px solid var(--dp-editorial-rule);
+  }
+  html.v1[data-lrb-home="true"] .river-cell--samuel,
+  html.v1[data-lrb-home="true"] .river-cell--antologia{
+    border-right:1px solid var(--dp-editorial-rule);
+  }
+  html.v1[data-lrb-home="true"] .river-cell--feria{
+    border-bottom:0;
+  }
+}
+
+/* Mobile: newspaper becomes one continuous vertical column. Keep the paper
+   field around it, preserve tonal changes, and avoid tiny card-like gaps. */
+@media (max-width:599px){
+  :root{
+    --dp-river-cell-x:1.15rem;
+    --dp-river-cell-y:1.45rem;
+  }
+  html.v1[data-lrb-home="true"] .river-grid{
+    grid-template-columns:minmax(0,1fr);
+    grid-template-areas:"lead" "samuel" "premios" "antologia" "blog" "feria";
+    column-gap:0;
+    row-gap:.7rem;
+    padding:1rem var(--page-gutter) 1.2rem;
+  }
+  html.v1[data-lrb-home="true"] .river-cell,
+  html.v1[data-lrb-home="true"] .river-cell--samuel,
+  html.v1[data-lrb-home="true"] .river-cell--antologia{
+    border-right:0;
+    border-bottom:1px solid var(--dp-editorial-rule);
+  }
+  html.v1[data-lrb-home="true"] .river-cell--feria{
+    border-bottom:0;
+  }
+  html.v1[data-lrb-home="true"] .river-cell h3{
+    font-size:clamp(1.55rem,6vw,1.95rem);
+  }
+  html.v1[data-lrb-home="true"] .river-cell--lead h3{
+    font-size:clamp(2rem,8vw,2.55rem);
+  }
+}
+
+@media (prefers-reduced-motion:reduce){
+  html.v1[data-lrb-home="true"] .river-cell__media img,
+  html.v1[data-lrb-home="true"] .river-cell__arrow{
+    transition:none;
+  }
+  html.v1[data-lrb-home="true"] .river-cell:hover .river-cell__media img,
+  html.v1[data-lrb-home="true"] .river-cell__arrow:hover,
+  html.v1[data-lrb-home="true"] .river-cell__arrow:focus-visible{
+    transform:none;
+  }
+}
