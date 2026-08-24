@@ -1,0 +1,188 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Prototipo editorial clean-room — David Porto Díaz</title>
+  <link rel="stylesheet" href="prototype.css">
+</head>
+<body>
+  <!--
+    PROTOTIPO DE INVESTIGACIÓN, NO PRODUCCIÓN.
+
+    Este HTML es original del proyecto y sirve para materializar principios
+    estudiados en MUBI Notebook, LRB, The Paris Review y The Yale Review.
+    No reproduce el DOM de esas webs ni contiene sus textos/assets.
+  -->
+
+  <a class="skip-link" href="#contenido">Saltar al contenido</a>
+
+  <header class="ed-masthead">
+    <div class="ed-masthead__utility">
+      <p>Edición digital · 2026</p>
+      <a href="/autor/">Sobre el autor</a>
+    </div>
+
+    <a class="ed-masthead__name" href="/">David Porto Díaz</a>
+
+    <nav class="ed-nav" aria-label="Principal">
+      <a href="/libros/">Obras</a>
+      <a href="/autor/">Autor</a>
+      <a href="/cuaderno/">Cuaderno</a>
+      <a href="/herramientas/">Herramientas</a>
+      <a href="/prensa/">Prensa</a>
+    </nav>
+  </header>
+
+  <main id="contenido" class="ed-page">
+    <section class="ed-front" aria-labelledby="front-title">
+      <div class="ed-front__lead">
+        <p class="ed-kicker">Obra actual</p>
+        <h1 id="front-title" class="ed-headline ed-headline--lead">Las manecillas del recuerdo</h1>
+        <p class="ed-dek">Espacio reservado para la descripción editorial factual de la obra. El objetivo del prototipo es estudiar jerarquía y composición, no fijar copy.</p>
+        <div class="ed-actions">
+          <a class="ed-action" href="/las-manecillas-del-recuerdo/">Entrar en la obra</a>
+          <a class="ed-action ed-action--quiet" href="/las-manecillas-del-recuerdo/fragmentos/">Leer fragmentos</a>
+        </div>
+      </div>
+
+      <aside class="ed-front__ledger" aria-labelledby="works-title">
+        <p class="ed-kicker">Obras</p>
+        <h2 id="works-title" class="visually-hidden">Obras publicadas</h2>
+        <ol class="ed-work-index">
+          <li>
+            <span class="ed-work-index__number">01</span>
+            <a href="/las-manecillas-del-recuerdo/">
+              <strong>Las manecillas del recuerdo</strong>
+              <span>Obra actual</span>
+            </a>
+          </li>
+          <li>
+            <span class="ed-work-index__number">02</span>
+            <a href="/libros/samuel-entre-mundos/">
+              <strong>Samuel entre mundos</strong>
+              <span>Archivo de obra</span>
+            </a>
+          </li>
+        </ol>
+      </aside>
+    </section>
+
+    <section class="ed-strip" aria-label="Selección editorial">
+      <article class="ed-strip__item">
+        <p class="ed-kicker">Ahora</p>
+        <h2><a href="/cuaderno/">Cuaderno</a></h2>
+        <p>Notas recientes sobre escritura, lectura y proceso.</p>
+      </article>
+
+      <article class="ed-strip__item ed-strip__item--wide">
+        <p class="ed-kicker">Dossier</p>
+        <h2><a href="/las-manecillas-del-recuerdo/">Entrar en el universo de la obra actual</a></h2>
+        <p>Libro, fragmentos, contexto y piezas relacionadas reunidas por afinidad real.</p>
+      </article>
+
+      <article class="ed-strip__item">
+        <p class="ed-kicker">Del archivo</p>
+        <h2><a href="/libros/samuel-entre-mundos/">Samuel entre mundos</a></h2>
+        <p>Una obra anterior vuelve a la superficie sin competir con el foco actual.</p>
+      </article>
+    </section>
+
+    <section class="ed-section" aria-labelledby="cuaderno-title">
+      <header class="ed-section__head">
+        <div>
+          <p class="ed-kicker">Publicación</p>
+          <h2 id="cuaderno-title">Cuaderno</h2>
+        </div>
+        <a href="/cuaderno/">Ver archivo</a>
+      </header>
+
+      <ol class="ed-rule-list">
+        <li class="ed-rule-list__item">
+          <p class="ed-meta">Oficio · Lectura</p>
+          <h3><a href="#">Un titular editorial puede funcionar sin miniatura</a></h3>
+          <p>La imagen deja de ser un requisito mecánico y aparece solo cuando aporta información o dirección de arte.</p>
+        </li>
+        <li class="ed-rule-list__item">
+          <p class="ed-meta">Proceso · Obra</p>
+          <h3><a href="#">Una segunda pieza puede tener menos escala sin parecer secundaria</a></h3>
+          <p>Jerarquía tipográfica, reglas y posición construyen prioridad sin recurrir a cajas o badges.</p>
+        </li>
+        <li class="ed-rule-list__item">
+          <p class="ed-meta">Archivo · Contexto</p>
+          <h3><a href="#">Recuperar el fondo editorial por relación, no por azar</a></h3>
+          <p>Las piezas antiguas vuelven cuando tienen relación con la obra, el tema o el recorrido actual.</p>
+        </li>
+      </ol>
+    </section>
+
+    <section class="ed-dossier" aria-labelledby="dossier-title">
+      <header class="ed-dossier__head">
+        <p class="ed-kicker">Especial</p>
+        <h2 id="dossier-title">Una obra puede actuar como dossier</h2>
+        <p>El sistema reúne piezas diferentes bajo una relación editorial comprensible sin inventar un “número de revista”.</p>
+      </header>
+      <div class="ed-dossier__links">
+        <a href="/las-manecillas-del-recuerdo/">
+          <span>01</span>
+          <strong>La obra</strong>
+        </a>
+        <a href="/las-manecillas-del-recuerdo/fragmentos/">
+          <span>02</span>
+          <strong>Fragmentos</strong>
+        </a>
+        <a href="/cuaderno/">
+          <span>03</span>
+          <strong>Cuaderno relacionado</strong>
+        </a>
+      </div>
+    </section>
+
+    <section class="ed-section" aria-labelledby="archive-title">
+      <header class="ed-section__head">
+        <div>
+          <p class="ed-kicker">Del archivo</p>
+          <h2 id="archive-title">Volver a encontrar</h2>
+        </div>
+      </header>
+
+      <div class="ed-archive-grid">
+        <article>
+          <p class="ed-meta">Obra</p>
+          <h3><a href="/libros/samuel-entre-mundos/">Samuel entre mundos</a></h3>
+          <p>El archivo no se presenta como una papelera cronológica, sino como una entrada contextual.</p>
+        </article>
+        <article>
+          <p class="ed-meta">Prensa</p>
+          <h3><a href="/prensa/">Entrevistas y apariciones</a></h3>
+          <p>Documentación real y verificable, organizada para lectura y consulta.</p>
+        </article>
+        <article>
+          <p class="ed-meta">Autor</p>
+          <h3><a href="/autor/">Perfil y trayectoria</a></h3>
+          <p>La identidad se integra en la publicación sin convertirse en un bloque corporativo.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="ed-newsletter" aria-labelledby="newsletter-title">
+      <div>
+        <p class="ed-kicker">Correspondencia</p>
+        <h2 id="newsletter-title">Newsletter</h2>
+        <p>Un cierre editorial no invasivo. En producción se reutilizará la integración real y sus estados de consentimiento.</p>
+      </div>
+      <form action="#" method="post" onsubmit="return false">
+        <label for="prototype-email">Correo electrónico</label>
+        <div class="ed-newsletter__field">
+          <input id="prototype-email" type="email" autocomplete="email" placeholder="tu@email.com">
+          <button type="submit">Suscribirme</button>
+        </div>
+      </form>
+    </section>
+  </main>
+
+  <footer class="ed-footer">
+    <p>Prototipo de investigación clean-room. No contiene código ni assets de las webs de referencia.</p>
+  </footer>
+</body>
+</html>
