@@ -215,11 +215,12 @@
   initHeaderSearch();
 })();
 
-// LRB-inspired utility/header + Home editorial enhancement.
+// LRB-inspired utility/header + Home/inner editorial enhancement.
 (() => {
   'use strict';
 
   const HOME_EDITORIAL_SRC = '/assets/v1-home-editorial-v3.js';
+  const EDITORIAL_INTERIOR_SRC = '/assets/v1-editorial-interior-v4.js';
   const root = document.documentElement;
   const houseSvg = `
     <svg aria-hidden="true" viewBox="0 0 24 24" focusable="false">
@@ -273,23 +274,30 @@
       if (inner.dataset.lrbEnhanced === 'true') return;
       const assistant = inner.querySelector('.header-search');
       const actions = inner.querySelector('.site-header__actions');
-      const menu = actions?.querySelector('.explore-trigger');
+      const menu = inner.querySelector('.explore-trigger');
       if (!assistant || !actions || !menu) return;
 
-      const left = document.createElement('div');
-      left.className = 'site-header__left';
-      assistant.before(left);
-      left.append(assistant);
+      let left = inner.querySelector('.site-header__left');
+      if (!left) {
+        left = document.createElement('div');
+        left.className = 'site-header__left';
+        assistant.before(left);
+      }
+      if (assistant.parentElement !== left) left.append(assistant);
 
-      const home = document.createElement('a');
-      home.className = 'header-home';
-      home.href = '/';
-      home.setAttribute('aria-label', 'Volver a inicio');
-      home.title = 'Inicio';
-      home.innerHTML = houseSvg;
-      left.append(home, menu);
+      let home = left.querySelector('.header-home');
+      if (!home) {
+        home = document.createElement('a');
+        home.className = 'header-home';
+        home.href = '/';
+        home.setAttribute('aria-label', 'Volver a inicio');
+        home.title = 'Inicio';
+        home.innerHTML = houseSvg;
+        home.addEventListener('click', () => emit('header_home_click'));
+      }
+      if (home.parentElement !== left) left.append(home);
+      if (menu.parentElement !== left) left.append(menu);
 
-      home.addEventListener('click', () => emit('header_home_click'));
       menu.addEventListener('click', () => emit('header_menu_click', { side: 'left' }));
       inner.dataset.lrbEnhanced = 'true';
     });
@@ -392,12 +400,12 @@
     nav.dataset.lrbEnhanced = 'true';
   }
 
-  function loadHomeEditorialV3() {
-    if (document.querySelector(`script[src="${HOME_EDITORIAL_SRC}"]`)) return;
+  function loadScript(src, dataKey) {
+    if (document.querySelector(`script[src="${src}"]`)) return;
     const script = document.createElement('script');
-    script.src = HOME_EDITORIAL_SRC;
+    script.src = src;
     script.async = false;
-    script.dataset.homeEditorialV3 = 'true';
+    if (dataKey) script.dataset[dataKey] = 'true';
     document.head.append(script);
   }
 
@@ -437,12 +445,13 @@
     update();
     addEventListener('resize', () => { measure(); update(); }, { passive: true });
     addEventListener('scroll', update, { passive: true });
-    loadHomeEditorialV3();
+    loadScript(HOME_EDITORIAL_SRC, 'homeEditorialV3');
   }
 
   function initLrbHeaderV2() {
     enhanceUtilityHeader();
     enhanceHomeMasthead();
+    loadScript(EDITORIAL_INTERIOR_SRC, 'editorialInteriorV4');
     document.addEventListener('click', (event) => {
       if (!event.target.closest('.masthead-nav__item')) closeSubmenus();
     });
