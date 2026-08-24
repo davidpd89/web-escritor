@@ -40,7 +40,9 @@
       "assets/jsonld-escritores.js": ["jsonld_tool_copy"],
       "assets/legibilidad-espanol.js": ["readability_analyze"],
       "assets/objeto-heredado.js": ["object_record_export", "object_record_print", "object_record_import"],
-      "assets/surprise-me.js": ["surprise_me"]
+      "assets/surprise-me.js": ["surprise_me"],
+      "assets/v1-shell.js": ["header_home_click", "header_menu_click", "masthead_submenu_open"],
+      "assets/v1-home-editorial-v3.js": ["home_banner_click", "home_editorial_card_click", "home_interlude_click", "home_event_contact_click", "home_install_accept", "home_install_dismiss", "home_install_help", "home_install_complete", "home_back_to_top"]
     }
   }
 }
