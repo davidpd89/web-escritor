@@ -63,7 +63,6 @@ async function assertFocusInside(page, selector, presses = 8) {
 }
 
 try {
-  // Popup desktop: 70%, CSS scoped, focus inicial, ciclo nativo, Escape y retorno.
   {
     const context = await browser.newContext({ viewport: { width: 1280, height: 900 } });
     const page = await context.newPage();
@@ -93,7 +92,6 @@ try {
     await context.close();
   }
 
-  // Si Explorar ya es modal, newsletter espera; al cerrarlo puede abrir después.
   {
     const context = await browser.newContext({ viewport: { width: 1280, height: 900 } });
     const page = await context.newPage();
@@ -112,7 +110,6 @@ try {
     await context.close();
   }
 
-  // Sin temporizador legacy de 30 s.
   {
     const context = await browser.newContext();
     await context.addInitScript(() => {
@@ -127,7 +124,6 @@ try {
     await context.close();
   }
 
-  // Touch: no exit-intent. Desktop/fine pointer: sí.
   {
     const context = await browser.newContext({ viewport: { width: 390, height: 844 }, hasTouch: true });
     await context.addInitScript(() => {
@@ -153,7 +149,6 @@ try {
     await context.close();
   }
 
-  // Samuel: JS+CSS solo aquí, diálogo nativo, foco/restauración y una sola instancia.
   {
     const context = await browser.newContext({ viewport: { width: 1280, height: 900 } });
     const page = await context.newPage();
@@ -189,7 +184,6 @@ try {
     await context.close();
   }
 
-  // Fail-closed: incluso si el asset Samuel se carga por accidente en Home.
   {
     const context = await browser.newContext();
     const page = await context.newPage();
@@ -217,17 +211,18 @@ try {
     await context.close();
   }
 
-  // Volver arriba es opt-in (data-back-to-top, mismo contrato que
-  // data-reading-progress): la home no lo lleva, una página larga sí.
+  // Home V3 es ahora un opt-in explícito de producto para volver arriba. El
+  // contrato antiguo de PR #61 prohibía este control en Home; la decisión de
+  // diseño del 24/08/2026 lo cambia deliberadamente para una portada larga.
   {
     const context = await browser.newContext();
     const page = await context.newPage();
     await page.goto(`${ORIGIN}/`, { waitUntil: 'load' });
-    assert.equal(await page.locator('.back-to-top').count(), 0, 'home no debe inyectar back-to-top sin opt-in');
+    await page.locator('.back-to-top').waitFor({ state: 'attached' });
+    assert.equal(await page.locator('.back-to-top').count(), 1, 'Home V3 debe tener una sola instancia de volver arriba');
     await context.close();
   }
 
-  // Volver arriba es inmediato en el mismo turno y respeta reduced motion.
   for (const [motion, expected] of [['no-preference', 'smooth'], ['reduce', 'auto']]) {
     const context = await browser.newContext({ reducedMotion: motion });
     const page = await context.newPage();
@@ -243,7 +238,6 @@ try {
     await context.close();
   }
 
-  // 320 px, reduced motion y no-JS: sin reflow horizontal ni runtime ficticio.
   {
     const context = await browser.newContext({ viewport: { width: 320, height: 800 }, reducedMotion: 'reduce' });
     const page = await context.newPage();
