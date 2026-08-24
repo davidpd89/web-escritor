@@ -276,3 +276,13 @@ El propietario pidió ir más allá de color/tipografía y llevar también los p
 - **Folios grandes en el archivo de texto**: `.cuaderno-entry__index` (las 4 guías sin foto propia) pasa a un numeral tipográfico grande (`var(--font-display)`, peso 500) como recurso gráfico en vez de una imagen inventada.
 
 Ningún cambio toca `.id-cards`/`.id-card` de forma global: la miniatura de `#libros .id-card__media` está scopeada a esa sección concreta de `autor.html` para no afectar a herramientas, editoriales, mapa del sitio ni el resto de usos compartidos de esa clase.
+
+### Verificación contra fuente primaria — 2026-08-24
+
+Los tokens de esta sección se construyeron a partir de una reconstrucción de terceros (una página tipo "design system" de shadcn.io que extrae valores de una única captura de la home de MUBI), no de una inspección directa de `mubi.com`. Se ha hecho ahora esa comprobación directa, con estos resultados:
+
+- **Pila tipográfica**: el HTML real de `mubi.com/en/notebook` usa `Riforma,Helvetica,Arial,"Lucida Grande",sans-serif`. Teníamos el fallback en el orden equivocado (`Arial,Helvetica,...`); corregido en `assets/v1-tokens.css` a `Helvetica,Arial,"Lucida Grande",sans-serif`.
+- **Color de texto real**: el Notebook real usa `#323232` (gris muy oscuro) para texto y `#7d7d7d`/`#9B9B9B` para navegación y subtítulos — no negro puro `#000000`. Decisión explícita del propietario del proyecto: mantener `--dp-ink:#000000` / `--dp-paper:#ffffff` puros tal cual están, por preferencia propia de la web ("blancos y negros puro"), no por fidelidad a MUBI.
+- **El acento único MUBI Blue (`#001489`) no es un hecho de marca**: según la propia agencia que rediseñó la identidad de MUBI (Spin, vía itsnicethat.com), MUBI introdujo deliberadamente una **paleta variada y cambiante por campaña** ("why can't we have many colours!"), no un único color fijo. El `#001489` que usamos como acento es una simplificación nuestra tomada de una sola captura de página, no "el color de MUBI". Se mantiene como decisión de diseño propia porque funciona bien visualmente en este sistema, no como afirmación de fidelidad de marca.
+
+Fuentes consultadas en esta verificación: `mubi.com` y `mubi.com/en/notebook` (HTML real, en vivo), `spin.co.uk/projects/mubi`, `itsnicethat.com` (entrevista con Spin y Efe Cakarel sobre el rediseño), `lineto.com` (especimen de LL Riforma).

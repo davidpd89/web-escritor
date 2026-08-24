@@ -36,8 +36,8 @@
   --color-on-inverse:var(--dp-paper);
   --focus-color:var(--dp-copper);
 
-  --font-display:Arial,Helvetica,"Lucida Grande",sans-serif;
-  --font-ui:Arial,Helvetica,"Lucida Grande",sans-serif;
+  --font-display:Helvetica,Arial,"Lucida Grande",sans-serif;
+  --font-ui:Helvetica,Arial,"Lucida Grande",sans-serif;
   --font-reading:"Newsreader","Iowan Old Style",Charter,Georgia,serif;
   --font-script:"Allura","Segoe Script","Bradley Hand",cursive;
 
