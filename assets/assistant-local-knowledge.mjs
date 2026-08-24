@@ -1,7 +1,48 @@
 import { foldQuery } from "./assistant-core.mjs";
 
-function hasAny(text, phrases) {
+function includesAny(text, phrases) {
   return phrases.some((phrase) => text.includes(phrase));
+}
+
+function words(text) {
+  return [...new Set(String(text || "").split(/[^\p{L}\p{N}]+/u).filter(Boolean))];
+}
+
+function boundedEditDistance(left, right, maxDistance = 2) {
+  const a = String(left || "");
+  const b = String(right || "");
+  if (a === b) return 0;
+  if (Math.abs(a.length - b.length) > maxDistance) return maxDistance + 1;
+  const previous = Array.from({ length: b.length + 1 }, (_, index) => index);
+  for (let row = 1; row <= a.length; row += 1) {
+    const current = [row];
+    let rowMin = row;
+    for (let column = 1; column <= b.length; column += 1) {
+      const cost = a[row - 1] === b[column - 1] ? 0 : 1;
+      const value = Math.min(
+        current[column - 1] + 1,
+        previous[column] + 1,
+        previous[column - 1] + cost,
+      );
+      current[column] = value;
+      rowMin = Math.min(rowMin, value);
+    }
+    if (rowMin > maxDistance) return maxDistance + 1;
+    previous.splice(0, previous.length, ...current);
+  }
+  return previous[b.length];
+}
+
+function entityMatch(text, aliases) {
+  const foldedAliases = aliases.map(foldQuery).filter(Boolean);
+  if (includesAny(text, foldedAliases)) return true;
+
+  const queryWords = words(text);
+  return foldedAliases.some((alias) => {
+    if (alias.includes(" ") || alias.length < 5) return false;
+    const maxDistance = alias.length >= 8 ? 2 : 1;
+    return queryWords.some((token) => token.length >= 5 && boundedEditDistance(token, alias, maxDistance) <= maxDistance);
+  });
 }
 
 function result(intent, answer, sourceIds, options = {}) {
@@ -21,6 +62,57 @@ const STARTER_SUGGESTIONS = Object.freeze([
   { label: "Herramientas", query: "¿Qué herramientas gratuitas hay para escritores?" },
 ]);
 
+const SITE_SUGGESTIONS = Object.freeze([
+  { label: "Obras", query: "Llévame a los libros" },
+  { label: "Cuaderno", query: "Quiero ver el Cuaderno" },
+  { label: "Herramientas", query: "Quiero ver las herramientas" },
+]);
+
+const MANECILLAS_ALIASES = Object.freeze([
+  "manecillas",
+  "las manecillas del recuerdo",
+  "libro de las manecillas",
+  "libro del reloj",
+  "reloj del recuerdo",
+]);
+
+const SAMUEL_ALIASES = Object.freeze([
+  "samuel",
+  "samuel entre mundos",
+  "libro de samuel",
+]);
+
+const NOVERIS_ALIASES = Object.freeze([
+  "noveris",
+  "mundo de samuel",
+  "universo de samuel",
+]);
+
+const READ_TERMS = Object.freeze([
+  "fragmento",
+  "fragmentos",
+  "capitulo",
+  "muestra",
+  "leer gratis",
+  "primeras paginas",
+  "primeras páginas",
+  "probar",
+  "echar un vistazo",
+  "leer algo",
+]);
+
+const NAVIGATION_TERMS = Object.freeze([
+  "donde esta",
+  "donde encuentro",
+  "como llego",
+  "llevame",
+  "ir a",
+  "abrir",
+  "enlace",
+  "pagina",
+  "seccion",
+]);
+
 function isGreetingOnly(text) {
   return /^(?:hola|buenas|buenos dias|buenas tardes|buenas noches|hey|ey)(?:[ ,.!¡¿?]*(?:que tal|como estas))?[ ,.!¡¿?]*$/u.test(text);
 }
@@ -37,23 +129,21 @@ export function resolveLocalAnswer(query, context = {}) {
   const q = foldQuery(query);
   if (!q) return null;
 
-  // Small talk is resolved before any document search. These turns do not
-  // need (and therefore must not fabricate) documentary sources. Keeping them
-  // local also avoids sending a simple greeting to Pagefind or the remote
-  // assistant, which previously produced unrelated "resultados relacionados".
+  // Small talk only wins when the whole turn is social. A prefix such as
+  // "Hola, ¿de qué trata Manecillas?" must continue to the real intent.
   if (isGreetingOnly(q)) {
     return result(
       "greeting",
-      "Hola. Puedo ayudarte a moverte por esta web: libros, fragmentos, Noveris, artículos, herramientas, editoriales, convocatorias, eventos o prensa. ¿Qué te interesa?",
+      "Hola. Puedes preguntarme por los libros, fragmentos, artículos, herramientas, editoriales, convocatorias, eventos o información sobre David.",
       [],
       { suggestions: STARTER_SUGGESTIONS },
     );
   }
 
-  if (hasAny(q, ["quien eres", "que puedes hacer", "para que sirves", "como puedes ayudarme", "en que puedes ayudarme"])) {
+  if (includesAny(q, ["quien eres", "que puedes hacer", "para que sirves", "como puedes ayudarme", "en que puedes ayudarme", "para que sirve esto"])) {
     return result(
       "capabilities",
-      "Soy el asistente de esta web. Mi función es ayudarte a encontrar y resumir contenido que ya está publicado aquí y llevarte a la fuente adecuada. Puedes preguntarme por los libros, fragmentos, artículos, herramientas, editoriales, convocatorias, eventos, premios o prensa.",
+      "Sirvo para encontrar contenido dentro de esta web. Puedo responder preguntas breves sobre lo publicado y, si no hay una respuesta exacta, llevarte a la página más útil.",
       [],
       { suggestions: STARTER_SUGGESTIONS },
     );
@@ -62,7 +152,7 @@ export function resolveLocalAnswer(query, context = {}) {
   if (isThanksOnly(q)) {
     return result(
       "thanks",
-      "De nada. Si quieres seguir, dime qué necesitas encontrar y lo buscamos desde aquí.",
+      "De nada. Si quieres seguir, dime qué necesitas encontrar y te llevo a la parte adecuada de la web.",
       [],
       { suggestions: STARTER_SUGGESTIONS },
     );
@@ -72,30 +162,32 @@ export function resolveLocalAnswer(query, context = {}) {
     return result("farewell", "Hasta luego. Cuando vuelvas, puedes preguntarme directamente por cualquier parte de la web.", []);
   }
 
+  const mentionsManecillas = entityMatch(q, MANECILLAS_ALIASES);
+  const mentionsSamuel = entityMatch(q, SAMUEL_ALIASES);
+  const mentionsNoveris = entityMatch(q, NOVERIS_ALIASES);
+  const asksFragment = includesAny(q, READ_TERMS);
+  const asksNavigation = includesAny(q, NAVIGATION_TERMS);
+  const asksAward = includesAny(q, ["premio", "premios", "premiado", "reconocimiento", "reconocimientos", "finalista", "letras como espada", "juan andres", "teno"]);
+
   if (context.pending === "fragment-choice") {
-    if (hasAny(q, ["samuel", "noveris", "primer capitulo", "capitulo 1"])) {
-      return result("samuel-fragment", "Sí. Puedes leer gratis el primer capítulo completo de «Samuel entre mundos» desde la web.", ["samuel-fragment"]);
+    if (mentionsSamuel || mentionsNoveris || includesAny(q, ["primer capitulo", "capitulo 1"])) {
+      return result("samuel-fragment", "Sí. El primer capítulo completo de «Samuel entre mundos» está disponible para leer en la web.", ["samuel-fragment"]);
     }
-    if (hasAny(q, ["manecillas", "reloj", "memoria"])) {
-      return result("manecillas-fragment", "Sí. Hay una página con fragmentos de «Las manecillas del recuerdo» para que puedas probar la lectura.", ["work-manecillas-fragments"]);
+    if (mentionsManecillas || includesAny(q, ["el del reloj", "el de la memoria"])) {
+      return result("manecillas-fragment", "Sí. Hay una página con fragmentos de «Las manecillas del recuerdo». Puedes leerlos aquí antes de ir a la ficha del libro.", ["work-manecillas-fragments"]);
     }
   }
-
-  const mentionsManecillas = hasAny(q, ["manecillas", "reloj del recuerdo"]);
-  const mentionsSamuel = hasAny(q, ["samuel", "noveris"]);
-  const asksFragment = hasAny(q, ["fragmento", "capitulo", "muestra", "leer gratis", "primeras paginas"]);
-  const asksAward = hasAny(q, ["premio", "premios", "premiado", "reconocimiento", "reconocimientos", "finalista", "letras como espada", "juan andres", "teno"]);
 
   if (asksFragment && mentionsManecillas) {
-    return result("manecillas-fragment", "Puedes leer varios fragmentos de «Las manecillas del recuerdo» directamente en la web.", ["work-manecillas-fragments"]);
+    return result("manecillas-fragment", "Sí. Hay una página con fragmentos de «Las manecillas del recuerdo». Puedes leerlos aquí antes de ir a la ficha del libro.", ["work-manecillas-fragments"]);
   }
-  if (asksFragment && mentionsSamuel) {
-    return result("samuel-fragment", "Puedes leer gratis el primer capítulo completo de «Samuel entre mundos» directamente en la web.", ["samuel-fragment"]);
+  if (asksFragment && (mentionsSamuel || mentionsNoveris)) {
+    return result("samuel-fragment", "Sí. El primer capítulo completo de «Samuel entre mundos» está disponible para leer en la web.", ["samuel-fragment"]);
   }
-  if (asksFragment && !mentionsManecillas && !mentionsSamuel) {
+  if (asksFragment && !mentionsManecillas && !mentionsSamuel && !mentionsNoveris) {
     return result(
       "fragment-choice",
-      "Tengo lectura gratuita de los dos libros. ¿Cuál buscas?",
+      "Sí. ¿Quieres leer «Las manecillas del recuerdo» o el primer capítulo de «Samuel entre mundos»?",
       ["work-manecillas-fragments", "samuel-fragment"],
       {
         pending: "fragment-choice",
@@ -107,69 +199,94 @@ export function resolveLocalAnswer(query, context = {}) {
     );
   }
 
-  if (mentionsManecillas && hasAny(q, ["cuando", "fecha", "publica", "sale", "lanzamiento"])) {
+  if (mentionsManecillas && includesAny(q, ["cuando", "fecha", "publica", "sale", "lanzamiento"])) {
     return result("manecillas-date", "La fecha de publicación de «Las manecillas del recuerdo» es el 3 de septiembre de 2026, con Monza Ediciones.", ["work-manecillas"]);
   }
   if (mentionsManecillas) {
+    if (asksNavigation) {
+      return result("manecillas", "La página de «Las manecillas del recuerdo» reúne la información principal del libro. Puedes abrirla desde aquí.", ["work-manecillas"]);
+    }
     return result("manecillas", "«Las manecillas del recuerdo» es una novela coral sobre el tiempo heredado y la memoria familiar, unida por un reloj que va pasando de mano en mano y adquiere significados distintos en cada vida.", ["work-manecillas"]);
   }
 
-  if (mentionsSamuel && asksAward) {
+  if ((mentionsSamuel || mentionsNoveris) && asksAward) {
     return result(
       "samuel-awards",
       "No se atribuye a «Samuel entre mundos» el Primer Premio Letras Como Espada de 2026: ese premio pertenece a David Porto Díaz por un certamen de microrrelatos. Tampoco se atribuye al libro la selección Top 10 — Finalista del I Premio de Literatura Infantil Juan Andrés Teno, porque la obra presentada no está identificada en la fuente pública oficial localizada.",
       ["awards", "work-samuel"],
     );
   }
-  if (mentionsSamuel && q.includes("noveris")) {
-    return result("noveris", "Noveris es la ciudad fantástica dimensional de «Samuel entre mundos». En su guía puedes explorar el mundo, las facciones, el sistema mágico y el glosario sin necesidad de buscarlo por distintas páginas.", ["samuel-noveris"]);
+  if (mentionsNoveris) {
+    return result("noveris", "Noveris es el mundo fantástico de «Samuel entre mundos». Su guía reúne el universo, las facciones, el sistema mágico y el glosario.", ["samuel-noveris"]);
   }
   if (mentionsSamuel) {
+    if (asksNavigation) {
+      return result("samuel", "La página de «Samuel entre mundos» reúne la información principal del libro y sus materiales relacionados. Puedes abrirla desde aquí.", ["work-samuel"]);
+    }
     return result("samuel", "«Samuel entre mundos» es una novela de fantasía juvenil y portal fantasy: Samuel Osborne descubre su vínculo con Noveris, un mundo donde la magia tiene reglas y exige un coste real.", ["work-samuel"]);
   }
 
-  if (hasAny(q, ["libros ha publicado", "libros tiene", "sus libros", "obras", "novelas", "que libros"])) {
-    return result("works", "En la web encontrarás las dos obras principales de David Porto Díaz: «Las manecillas del recuerdo», la obra actual, y «Samuel entre mundos», su primera novela publicada.", ["work-manecillas", "work-samuel", "works-hub"]);
+  if (includesAny(q, ["libros ha publicado", "libros tiene", "sus libros", "obras", "novelas", "que libros", "ver los libros", "llevame a los libros", "ir a los libros"])) {
+    return result("works", "Puedes empezar por Obras. Allí están «Las manecillas del recuerdo» y «Samuel entre mundos», con acceso a sus páginas y materiales de lectura.", ["works-hub", "work-manecillas", "work-samuel"]);
   }
 
-  if (hasAny(q, ["quien es david", "sobre david", "biografia", "autor", "trayectoria"])) {
-    return result("author", "Puedes consultar la biografía, trayectoria y obra de David Porto Díaz en su página de autor.", ["author"]);
+  if (includesAny(q, ["quien es david", "sobre david", "biografia", "autor", "trayectoria"])) {
+    return result("author", "La página de Autor reúne la biografía, trayectoria y obra de David Porto Díaz.", ["author"]);
   }
 
-  if (hasAny(q, ["contactar", "contacto", "email", "correo", "entrevista", "medio", "periodista", "prensa", "kit de prensa", "podcast"])) {
-    return result("press", "Para entrevistas, medios, reseñas o contacto profesional, la página de Prensa reúne el kit, los materiales y la vía de contacto adecuada.", ["press"]);
+  if (includesAny(q, ["contactar", "contacto", "email", "correo", "entrevista", "medio", "periodista", "prensa", "kit de prensa", "podcast"])) {
+    return result("press", "Para contacto profesional, entrevistas, reseñas o medios, la página de Prensa reúne los materiales y la vía de contacto adecuada.", ["press"]);
   }
 
-  if (hasAny(q, ["evento", "eventos", "firma", "firmas", "feria", "agenda", "presentacion"])) {
-    return result("events", "La agenda de Eventos y firmas reúne las apariciones, presentaciones y fechas públicas disponibles en la web.", ["events"]);
+  if (includesAny(q, ["evento", "eventos", "firma", "firmas", "feria", "agenda", "presentacion"])) {
+    return result("events", "La página de Eventos y firmas reúne las fechas públicas disponibles y su contexto.", ["events"]);
   }
 
   if (asksAward) {
-    return result("awards", "Los premios y reconocimientos de David están reunidos en una página específica para poder comprobarlos con su contexto.", ["awards"]);
+    return result("awards", "Los premios y reconocimientos están reunidos en una página específica para poder comprobar cada mención con su contexto.", ["awards"]);
   }
 
-  if (hasAny(q, ["editorial", "editoriales", "mandar manuscrito", "mandar un manuscrito", "mando manuscrito", "mando un manuscrito", "enviar manuscrito", "enviar novela", "mandar novela", "mando novela", "publicar manuscrito", "publicar novela"])) {
-    return result("editorials", "Hay un directorio de editoriales que aceptan manuscritos, pensado para ayudarte a localizar opciones y revisar sus condiciones antes de enviar una obra.", ["editorials-hub"]);
+  if (includesAny(q, ["editorial", "editoriales", "mandar manuscrito", "mandar un manuscrito", "mando manuscrito", "mando un manuscrito", "enviar manuscrito", "enviar novela", "mandar novela", "mando novela", "publicar manuscrito", "publicar novela", "presentar obra", "aceptan manuscritos"])) {
+    return result("editorials", "Hay un directorio de editoriales que aceptan manuscritos. Úsalo para localizar opciones y comprobar sus condiciones antes de enviar una obra.", ["editorials-hub"]);
   }
 
-  if (hasAny(q, ["convocatoria", "convocatorias", "concurso", "concursos", "certamen", "certamenes", "premios literarios"])) {
-    return result("opportunities", "La web tiene un directorio de convocatorias para escritores con concursos, premios y oportunidades que puedes revisar desde una sola página.", ["opportunities"]);
+  if (includesAny(q, ["convocatoria", "convocatorias", "concurso", "concursos", "certamen", "certamenes", "premios literarios", "presentar un relato", "presentar relato"])) {
+    return result("opportunities", "El directorio de convocatorias reúne concursos, premios y oportunidades para escritores en una sola página.", ["opportunities"]);
   }
 
-  if (hasAny(q, ["herramienta", "herramientas", "revisar texto", "revisar manuscrito", "escribir mejor", "recursos para escritores", "utilidades"])) {
-    return result("tools", "Sí. Hay herramientas gratuitas para escritores orientadas a revisar texto, estructura y personajes, y también a preparar publicación, promoción y materiales editoriales.", ["tools-hub"]);
+  if (includesAny(q, ["herramienta", "herramientas", "revisar texto", "revisar manuscrito", "escribir mejor", "recursos para escritores", "utilidades", "analizar texto", "analizar manuscrito"])) {
+    return result("tools", "La sección de Herramientas reúne utilidades gratuitas para revisar texto, estructura y personajes y preparar publicación o materiales editoriales.", ["tools-hub"]);
   }
 
-  if (hasAny(q, ["recomiend", "recomendacion", "recomendaciones", "que leer", "lecturas parecidas"])) {
-    return result("recommendations", "La sección de Recomendaciones reúne selecciones de lectura y artículos para encontrar libros por afinidades, temas y tipos de fantasía.", ["recommendations-hub"]);
+  if (includesAny(q, ["recomiend", "recomendacion", "recomendaciones", "que leer", "lecturas parecidas"])) {
+    return result("recommendations", "La sección de Recomendaciones organiza lecturas por afinidades, temas y tipos de fantasía.", ["recommendations-hub"]);
   }
 
-  if (hasAny(q, ["cuaderno", "articulo", "articulos", "blog", "escribe sobre"])) {
-    return result("notebook", "El Cuaderno reúne los artículos y piezas editoriales de la web: fantasía, escritura, Noveris, lecturas y otros contenidos relacionados.", ["notebook-hub"]);
+  if (includesAny(q, ["cuaderno", "articulo", "articulos", "blog", "escribe sobre", "ver el cuaderno", "ir al cuaderno"])) {
+    return result("notebook", "El Cuaderno reúne los artículos y piezas editoriales de la web. Puedes entrar por el índice y seguir por tema.", ["notebook-hub"]);
   }
 
-  if (hasAny(q, ["que puedo encontrar", "que hay en esta web", "ayuda", "por donde empiezo"])) {
-    return result("site-overview", "Puedo orientarte entre los libros y fragmentos, el universo de Noveris, artículos, herramientas para escritores, editoriales, convocatorias, eventos, premios y prensa. Dime qué estás buscando y te llevo a la parte adecuada.", ["works-hub", "tools-hub", "notebook-hub"]);
+  if (includesAny(q, [
+    "que puedo encontrar",
+    "que hay en esta web",
+    "por donde empiezo",
+    "por donde empezar",
+    "no se por donde empezar",
+    "orientame",
+    "orientar",
+    "mapa de la web",
+    "mapa del sitio",
+    "todos los enlaces",
+    "que enlaces",
+    "que secciones",
+    "secciones de la web",
+  ])) {
+    return result(
+      "site-overview",
+      "La web se organiza en cuatro rutas principales: Obras, Cuaderno, Herramientas y la zona de Autor/Prensa. Si me dices si vienes a leer, escribir o buscar información sobre David, puedo afinar el camino.",
+      ["works-hub", "notebook-hub", "tools-hub", "press"],
+      { suggestions: SITE_SUGGESTIONS },
+    );
   }
 
   return null;
