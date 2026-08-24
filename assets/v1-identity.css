@@ -56,6 +56,22 @@ html.v1 [data-family="identity"] .author-bio__copy{
   text-wrap:pretty;
 }
 
+/* Sus libros: portadas reales en las fichas de #libros unicamente (no
+   afecta a .id-card en el resto del sitio: herramientas, editoriales,
+   mapa del sitio, etc. siguen sin media por defecto). */
+html.v1 [data-family="identity"] #libros .id-card__media{
+  margin:0 0 1rem;
+  aspect-ratio:2/3;
+  overflow:hidden;
+  border:1px solid var(--color-border);
+}
+html.v1 [data-family="identity"] #libros .id-card__media img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  display:block;
+}
+
 /* Press kit: turn the generic equal-card grid into a document ledger. The
    semantic article markup stays intact; hierarchy comes from columns,
    hairlines and unequal media rather than repeated rectangles. */

@@ -16,8 +16,10 @@ html.v1 .cuaderno-masthead__folio{align-self:stretch;display:grid;align-content:
 html.v1 .cuaderno-masthead__folio strong{display:block;color:var(--color-text);font-family:var(--font-display);font-size:clamp(2.5rem,4vw,4.25rem);font-weight:500;line-height:1;text-transform:uppercase}
 html.v1 .cuaderno-masthead__folio span{font-size:var(--text-xs);text-transform:uppercase;letter-spacing:.1em}
 
-html.v1 .cuaderno-feature{display:grid;grid-template-columns:minmax(0,4fr) minmax(0,7fr);gap:clamp(2rem,5vw,6rem);align-items:start;max-width:var(--layout-wide);padding:clamp(4rem,7vw,7rem) 0;border-bottom:1px solid var(--color-border)}
+html.v1 .cuaderno-feature{display:grid;grid-template-columns:minmax(0,3fr) minmax(0,4fr) minmax(0,6fr);gap:clamp(2rem,4vw,4rem);align-items:start;max-width:var(--layout-wide);padding:clamp(4rem,7vw,7rem) 0;border-bottom:1px solid var(--color-border)}
 html.v1 .cuaderno-feature__meta{display:grid;gap:.75rem;position:sticky;top:110px}
+html.v1 .cuaderno-feature__media{margin:0;aspect-ratio:3/4;overflow:hidden;border:1px solid var(--color-border)}
+html.v1 .cuaderno-feature__media img{width:100%;height:100%;object-fit:cover;display:block}
 html.v1 .cuaderno-feature__index{font-variant-numeric:tabular-nums;color:var(--color-muted);font-size:var(--text-xs)}
 html.v1 .cuaderno-feature__body h2{max-width:17ch;margin:0 0 1.25rem;font-family:var(--font-display);font-size:clamp(2.5rem,4.8vw,5.25rem);font-weight:500;line-height:.98;letter-spacing:-.025em;text-wrap:balance;text-transform:uppercase}
 html.v1 .cuaderno-feature__body h2 a{text-decoration:none}
@@ -28,8 +30,8 @@ html.v1 .cuaderno-archive{max-width:var(--layout-wide);padding:clamp(3.5rem,6vw,
 html.v1 .cuaderno-archive__head{display:grid;grid-template-columns:minmax(0,4fr) minmax(0,7fr);gap:clamp(2rem,5vw,6rem);margin-bottom:1.5rem}
 html.v1 .cuaderno-archive__head h2{grid-column:2;margin:0;font-family:var(--font-display);font-size:clamp(2rem,3.5vw,3.5rem);font-weight:500;line-height:1;text-transform:uppercase}
 html.v1 .cuaderno-ledger{list-style:none;margin:0;padding:0;border-top:1px solid var(--color-border)}
-html.v1 .cuaderno-entry{display:grid;grid-template-columns:3rem minmax(110px,2fr) minmax(0,7fr);gap:clamp(1rem,2.5vw,2.5rem);padding:clamp(1.5rem,2.5vw,2.25rem) 0;border-bottom:1px solid var(--color-border);align-items:start}
-html.v1 .cuaderno-entry__index{font-size:var(--text-xs);font-variant-numeric:tabular-nums;color:var(--color-muted);padding-top:.25rem}
+html.v1 .cuaderno-entry{display:grid;grid-template-columns:5rem minmax(110px,2fr) minmax(0,7fr);gap:clamp(1rem,2.5vw,2.5rem);padding:clamp(1.5rem,2.5vw,2.25rem) 0;border-bottom:1px solid var(--color-border);align-items:start}
+html.v1 .cuaderno-entry__index{font-family:var(--font-display);font-size:clamp(1.8rem,3vw,2.6rem);font-weight:500;font-variant-numeric:tabular-nums;line-height:1;color:var(--color-muted)}
 html.v1 .cuaderno-entry__meta{display:grid;gap:.3rem;font-size:var(--text-xs);color:var(--color-muted);margin:0}
 html.v1 .cuaderno-entry__body h3{margin:0 0 .55rem;font-family:var(--font-display);font-size:clamp(1.55rem,2.3vw,2.35rem);font-weight:500;line-height:1.05;text-wrap:balance;text-transform:uppercase}
 html.v1 .cuaderno-entry__body h3 a{text-decoration:none}
@@ -153,8 +155,9 @@ html.v1 .article-related a:hover,html.v1 .article-related a:focus-visible{text-d
   html.v1 .cuaderno-masthead__folio{border-left:0;border-top:1px solid var(--color-border);padding:1rem 0 0;grid-template-columns:auto 1fr;gap:.75rem;align-items:baseline}
   html.v1 .cuaderno-feature{grid-template-columns:1fr;gap:1.2rem}
   html.v1 .cuaderno-feature__meta{grid-template-columns:auto 1fr;gap:.75rem;align-items:baseline;position:static}
+  html.v1 .cuaderno-feature__media{aspect-ratio:16/10;order:-1}
   html.v1 .cuaderno-feature__body h2{font-size:clamp(2.4rem,11vw,3.6rem);max-width:none;overflow-wrap:anywhere;text-wrap:pretty}
-  html.v1 .cuaderno-entry{grid-template-columns:2rem minmax(0,1fr);gap:.75rem 1rem}
+  html.v1 .cuaderno-entry{grid-template-columns:2.6rem minmax(0,1fr);gap:.75rem 1rem}
   html.v1 .cuaderno-entry__meta{grid-column:2;grid-row:1;display:flex;flex-wrap:wrap;gap:.5rem 1rem}
   html.v1 .cuaderno-entry__body{grid-column:2}
   html.v1 .cuaderno-entry__body h3{max-width:none;overflow-wrap:anywhere;text-wrap:pretty}
@@ -208,10 +211,11 @@ html.v1 .article-related a:hover,html.v1 .article-related a:focus-visible{text-d
   html.v1 .cuaderno-masthead__folio strong{font-size:2.3rem}
   html.v1 .cuaderno-feature{grid-template-columns:1fr;gap:1.2rem}
   html.v1 .cuaderno-feature__meta{grid-template-columns:auto 1fr;gap:.75rem;align-items:baseline}
+  html.v1 .cuaderno-feature__media{aspect-ratio:16/10;order:-1}
   html.v1 .cuaderno-feature__body h2{font-size:clamp(2.4rem,11vw,3.6rem)}
   html.v1 .cuaderno-archive__head{display:block}
   html.v1 .cuaderno-archive__head h2{font-size:2.4rem}
-  html.v1 .cuaderno-entry{grid-template-columns:2rem minmax(0,1fr);gap:.75rem 1rem}
+  html.v1 .cuaderno-entry{grid-template-columns:2.6rem minmax(0,1fr);gap:.75rem 1rem}
   html.v1 .cuaderno-entry__meta{grid-column:2;grid-row:1;display:flex;flex-wrap:wrap;gap:.5rem 1rem}
   html.v1 .cuaderno-entry__body{grid-column:2}
   html.v1 .cuaderno-utilities{align-items:flex-start;flex-direction:column;gap:.6rem}
@@ -245,7 +249,7 @@ html.v1 .article-related a:hover,html.v1 .article-related a:focus-visible{text-d
 }
 @media (max-width:389px){
   html.v1 .editorial-page{padding-inline:1rem}
-  html.v1 .cuaderno-entry{grid-template-columns:1.6rem minmax(0,1fr)}
+  html.v1 .cuaderno-entry{grid-template-columns:2.1rem minmax(0,1fr)}
   html.v1 .article-header h1{font-size:clamp(2.5rem,13vw,3.6rem)}
 }
 @media (prefers-reduced-motion:reduce){html.v1 .reading-progress__bar{transition:none}}
