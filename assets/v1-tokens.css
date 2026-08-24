@@ -5,7 +5,10 @@
 :root {
   --dp-ink:#171412;
   --dp-paper:#F4EFE7;
+  --dp-white:#FFFFFF;
   --dp-sand:#E7DED2;
+  --dp-sky:#DCE8EC;
+  --dp-blush:#F3DCDA;
   --dp-petrol:#55798A;
   /* Petrol darkened to clear 4.5:1 on the light surface; the base tone only
      reaches 4.08:1, which fails WCAG AA for small text like badges. */
@@ -14,8 +17,11 @@
   --dp-copper:#A8664A;
   --dp-walnut:#4D372C;
 
-  --surface-page:var(--dp-paper);
-  --surface-quiet:color-mix(in srgb,var(--dp-paper) 72%,var(--dp-sand));
+  /* LRB reference: page surface is white, not the site's original sepia
+     paper. --dp-paper stays defined (still used as text-on-inverse and by
+     the intro overlay) but no longer drives the visible background. */
+  --surface-page:var(--dp-white);
+  --surface-quiet:color-mix(in srgb,var(--dp-white) 92%,var(--dp-sand));
   --surface-inverse:var(--dp-ink);
   --surface-dialog:var(--dp-paper);
   --color-text:var(--dp-ink);

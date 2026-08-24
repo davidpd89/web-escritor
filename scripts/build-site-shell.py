@@ -110,9 +110,11 @@ PUBLIC_CSP = (
     "object-src 'none'; "
     "base-uri 'self'; "
     "form-action 'self'; "
-    "frame-src challenges.cloudflare.com; "
+    "frame-src 'self' challenges.cloudflare.com; "
     "manifest-src 'self'"
 )
+
+AMAZON_SAMUEL_URL = "https://www.amazon.es/dp/B0GB6LGQFH?tag=davidporto-21"
 
 SOCIAL_ROW = (
     '<div class="social-row">'
@@ -288,35 +290,40 @@ def link(entry: Entry, current_family: str | None) -> str:
 
 
 def render_header(nav: dict, by_id: dict[str, Entry], current_path: str) -> str:
-    current_entry = next((entry for entry in by_id.values() if entry.url == current_path), None)
-    current_family = current_entry.nav_family if current_entry else None
-    links = "\n".join(f"        {link(by_id[item_id], current_family)}" for item_id in nav["header"])
+    # El menú lateral (Explorar) es la única navegación del header y requiere
+    # JS (dialog.showModal()). Sin JS el <noscript> de abajo es la unica red
+    # de seguridad -- por eso repite los mismos destinos estables que la
+    # primera fila de Explorar (ver render_explore_rows), en vez de asumir
+    # que el pie de pagina basta.
+    links = "\n".join(f"        {link(by_id[item_id], None)}" for item_id in nav["header"])
     return (
         '<header class="site-header" data-header>\n'
         '  <div class="site-header__inner">\n'
-        '    <a class="brand" href="/" aria-label="David Porto Díaz — inicio">\n'
-        '      <span class="brand__name">David Porto Díaz</span>\n'
-        '      <span class="brand__role">Escritor</span>\n'
-        '    </a>\n'
-        '    <nav class="primary-nav" aria-label="Navegación principal">\n'
-        f"{links}\n"
-        '    </nav>\n'
+        '    <button class="header-search" type="button" data-assistant-search-open aria-label="Abrir asistente">\n'
+        '      <svg aria-hidden="true" viewBox="0 0 24 24" width="17" height="17"><circle cx="11" cy="11" r="7"/><path d="M20 20l-4.35-4.35"/></svg>\n'
+        '      <span>Asistente</span>\n'
+        '    </button>\n'
         '    <div class="site-header__actions">\n'
-        '      <button class="header-search" type="button" data-assistant-search-open aria-label="Buscar (abre el asistente)">\n'
-        '        <svg aria-hidden="true" viewBox="0 0 24 24" width="17" height="17"><circle cx="11" cy="11" r="7"/><path d="M20 20l-4.35-4.35"/></svg>\n'
-        '        <span>Buscar</span>\n'
-        '      </button>\n'
-        '      <button class="explore-trigger" type="button" aria-haspopup="dialog" aria-controls="explore-dialog" aria-expanded="false" data-explore-open>\n'
-        '        Explorar\n'
+        f'      <a class="header-buy" href="{AMAZON_SAMUEL_URL}" target="_blank" rel="sponsored nofollow noopener noreferrer">Comprar</a>\n'
+        '      <button class="explore-trigger" type="button" aria-haspopup="dialog" aria-controls="explore-dialog" aria-expanded="false" aria-label="Abrir menú" data-explore-open>\n'
+        '        <svg aria-hidden="true" viewBox="0 0 24 24" width="20" height="20"><path d="M4 7h16M4 12h16M4 17h16"/></svg>\n'
         '      </button>\n'
         '    </div>\n'
         '  </div>\n'
+        '  <noscript>\n'
+        '    <nav class="primary-nav" aria-label="Navegación principal">\n'
+        '        <a href="/">Inicio</a>\n'
+        f"{links}\n"
+        '    </nav>\n'
+        '  </noscript>\n'
         '</header>'
     )
 
 
 def render_explore_rows(nav: dict, by_id: dict[str, Entry]) -> list[tuple[str, str, str, str | None]]:
-    rows: list[tuple[str, str, str, str | None]] = []
+    rows: list[tuple[str, str, str, str | None]] = [
+        ("/", "Inicio", "Volver a la portada.", None),
+    ]
     for item in nav.get("exploreTerritories", []):
         entry = by_id[item["id"]]
         copy = PREVIEW_COPY.get(item["id"], entry.label)

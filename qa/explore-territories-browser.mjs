@@ -69,17 +69,25 @@ try {
     assert.equal(await page.locator('.explore-list').getAttribute('aria-label'), 'Destinos de la web', 'Explorar debe conservar nombre accesible');
 
     const rows = page.locator('.explore-list > a');
+    // Fila 0: el menú lateral sustituyó al enlace de marca en la cabecera
+    // (ya no hay logo/nombre clicable fuera del menú), así que "Inicio" es
+    // ahora la primera fila, antes de los territorios estables.
+    const first = {
+      href: await rows.nth(0).getAttribute('href'),
+      label: (await rows.nth(0).locator('strong').textContent())?.trim(),
+    };
+    assert.deepEqual(first, { href: '/', label: 'Inicio' }, `la primera fila debe ser Inicio: ${JSON.stringify(first)}`);
     const firstFive = [];
     for (let i = 0; i < TOP_LEVEL.length; i++) {
       firstFive.push({
-        href: await rows.nth(i).getAttribute('href'),
-        label: (await rows.nth(i).locator('strong').textContent())?.trim(),
+        href: await rows.nth(i + 1).getAttribute('href'),
+        label: (await rows.nth(i + 1).locator('strong').textContent())?.trim(),
       });
     }
     assert.deepEqual(
       firstFive,
       TOP_LEVEL.map(([href, label]) => ({ href, label })),
-      `los cinco primeros destinos deben ser los territorios estables: ${JSON.stringify(firstFive)}`,
+      `los territorios estables deben seguir a Inicio: ${JSON.stringify(firstFive)}`,
     );
     assert(!firstFive.some(({ href }) => WORKS.includes(href)), 'ningún libro individual puede ser territorio top-level');
 

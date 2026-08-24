@@ -42,35 +42,41 @@ html.v1 .intro--leaving .intro__panel--r{transform:translateX(100%) rotate(2deg)
 html.intro-lock{overflow:hidden;height:100%}
 html.intro-lock .assistant-widget{display:none}
 
-/* Masthead — centered editorial banner (LRB's centered logotype, adapted:
-   LRB has no portrait, we add one). Light paper surface, no dark territory
-   flip — the old two-tone hero/seam is gone with it. */
-html.v1 .masthead{max-width:var(--layout-wide);margin:0 auto;padding:clamp(3rem,7vw,5.5rem) var(--page-gutter) clamp(2.5rem,5vw,4rem);text-align:center;display:grid;grid-template-columns:minmax(0,1fr);justify-items:center}
-html.v1 .masthead__kicker{margin:0;text-transform:uppercase;letter-spacing:.14em;font-size:.76rem;font-weight:600;color:var(--color-muted)}
-html.v1 .masthead__name{width:100%;font-family:var(--font-display);font-weight:400;font-size:clamp(3.25rem,3.2rem + 4vw,6.5rem);line-height:.92;letter-spacing:-.02em;margin:.35rem 0 clamp(1.75rem,3.5vw,2.75rem);overflow-wrap:break-word;text-wrap:balance}
-html.v1 .masthead__portrait{margin:0 0 clamp(1.75rem,3.5vw,2.75rem);width:min(30vw,220px)}
-html.v1 .masthead__portrait picture,html.v1 .masthead__portrait img{display:block;width:100%;height:auto;border-radius:50%;aspect-ratio:1/1;object-fit:cover;object-position:top center;filter:saturate(.82) contrast(1.04)}
-html.v1 .masthead__work{display:grid;justify-items:center;gap:.3rem}
+/* Masthead — centered editorial banner (LRB's centered logotype). A small,
+   subtle portrait sits beside the name instead of LRB's plain wordmark —
+   the one addition the reference doesn't have. Light surface, no dark
+   territory flip — the old two-tone hero/seam is gone with it. */
+html.v1 .masthead{max-width:var(--layout-wide);margin:0 auto;padding:clamp(2.5rem,6vw,4.5rem) var(--page-gutter) clamp(2rem,4vw,3rem);text-align:center;display:grid;grid-template-columns:minmax(0,1fr);justify-items:center}
+html.v1 .masthead__lockup{display:flex;align-items:center;justify-content:center;gap:clamp(.85rem,2.5vw,1.5rem);flex-wrap:wrap;max-width:100%}
+html.v1 .masthead__title{min-width:0;max-width:100%;text-align:left}
+html.v1 .masthead__portrait{flex:0 0 auto;width:clamp(52px,8vw,88px)}
+html.v1 .masthead__portrait picture,html.v1 .masthead__portrait img{display:block;width:100%;height:auto;border-radius:50%;aspect-ratio:1/1;object-fit:cover;object-position:top center;filter:saturate(.85) contrast(1.03)}
+html.v1 .masthead__name{margin:0;font-family:var(--font-display);font-weight:400;font-size:clamp(2.6rem,2.15rem + 3.5vw,5.25rem);line-height:.94;letter-spacing:-.02em;overflow-wrap:break-word;text-wrap:balance}
+html.v1 .masthead__kicker{margin:.3rem 0 0;text-transform:uppercase;letter-spacing:.16em;font-size:.78rem;font-weight:600;color:var(--color-muted)}
+@media (max-width:599px){
+  html.v1 .masthead__lockup{flex-direction:column;align-items:stretch}
+  html.v1 .masthead__title{text-align:center}
+}
+html.v1 .masthead__work{margin-top:clamp(1.75rem,3.5vw,2.75rem);display:grid;justify-items:center;gap:.3rem}
 html.v1 .masthead__work-label{margin:0;text-transform:uppercase;letter-spacing:.09em;font-size:.72rem;font-weight:600;color:var(--color-muted)}
 html.v1 .masthead__work-title{margin:0;font-family:var(--font-display);font-size:clamp(1.7rem,1.3rem + 1.8vw,2.6rem);line-height:1}
 html.v1 .masthead__work-date{margin:0 0 .75rem;font-size:.88rem;color:var(--color-muted)}
 html.v1 .masthead__work .primary-action{margin-top:.5rem}
 
 /* Masthead nav — LRB's all-caps nav row, but each item can expand a preview
-   panel below (image + copy) on hover/focus. Reuses the same 6 territories
-   the Explorar dialog already documents; :has() drives the reveal, no JS —
-   without :has() support the row is still a fully working nav, just
-   without the preview flourish (progressive enhancement, same contract the
-   old cartography preview used). */
+   panel below (copy only, no image — point 6: menus/dropdowns stay text-only)
+   on hover/focus. Reuses the same 6 territories the Explorar dialog already
+   documents; :has() drives the reveal, no JS — without :has() support the
+   row is still a fully working nav, just without the preview flourish
+   (progressive enhancement, same contract the old cartography preview used). */
 html.v1 .masthead-nav{border-top:1px solid var(--color-border);border-bottom:1px solid var(--color-border)}
 html.v1 .masthead-nav__list{max-width:var(--layout-max);margin:0 auto;padding:0 var(--page-gutter);list-style:none;display:flex;flex-wrap:wrap;justify-content:center;gap:.5rem clamp(1.5rem,4vw,3.25rem)}
 html.v1 .masthead-nav__list a{display:inline-flex;align-items:center;min-height:56px;text-decoration:none;text-transform:uppercase;letter-spacing:.08em;font-size:.82rem;font-weight:600;color:var(--color-text);border-bottom:2px solid transparent}
 html.v1 .masthead-nav__list a:hover,html.v1 .masthead-nav__list a:focus-visible{color:var(--color-accent-strong);border-color:var(--color-accent-strong)}
 html.v1 .masthead-nav__preview-panel{display:none}
 @media (min-width:900px){
-  html.v1 .masthead-nav__preview{max-width:var(--layout-max);margin:0 auto;padding:0 var(--page-gutter)}
-  html.v1 .masthead-nav__preview-panel{grid-template-columns:auto minmax(0,1fr);align-items:center;gap:1.5rem;padding:1.5rem 0}
-  html.v1 .masthead-nav__preview-media{width:96px;height:96px;background-size:cover;background-position:center;border:1px solid var(--color-border)}
+  html.v1 .masthead-nav__preview{max-width:var(--layout-wide);margin:0 auto;padding:0 var(--page-gutter)}
+  html.v1 .masthead-nav__preview-panel{padding:1.25rem 0}
   html.v1 .masthead-nav__preview-label{margin:0;font-family:var(--font-display);font-size:1.5rem;line-height:1}
   html.v1 .masthead-nav__preview-text{margin:.35rem 0 0;color:var(--color-muted);max-width:52ch}
   html.v1 .masthead-nav:has([data-territory="manecillas"]:hover) [data-preview-panel="manecillas"],
@@ -118,10 +124,33 @@ html.v1 .river-item h3 a:hover,html.v1 .river-item h3 a:focus-visible{text-decor
 html.v1 .river-item p:last-child{color:var(--color-muted);margin:0;max-width:42ch}
 html.v1 .river-item--text{padding-top:1.5rem;border-top:1px solid var(--color-border)}
 
+/* Del cuaderno — flat blue band, LRB's "From the blog" strip. Plain text
+   links, no images (matches the no-images-in-menus rule applied to the
+   masthead-nav preview too — this band is a teaser list, not a card grid). */
+html.v1 .cuaderno-band{background:var(--dp-sky);border-top:1px solid var(--color-border);border-bottom:1px solid var(--color-border)}
+html.v1 .cuaderno-band__inner{max-width:var(--layout-wide);margin:0 auto;padding:clamp(2.5rem,5vw,4rem) var(--page-gutter)}
+html.v1 .cuaderno-band__inner h2{font-family:var(--font-display);font-weight:400;font-size:clamp(1.8rem,1.5rem + 1.4vw,2.6rem);margin:.35rem 0 1.5rem}
+html.v1 .cuaderno-band__list{display:grid;gap:1rem;margin-bottom:1.5rem}
+html.v1 .cuaderno-band__list a{font-family:var(--font-reading);font-size:1.05rem;line-height:1.4;text-decoration:none;border-bottom:1px solid color-mix(in srgb,var(--dp-ink) 25%,transparent);padding-bottom:1rem;display:block}
+html.v1 .cuaderno-band__list a:last-child{border-bottom:0;padding-bottom:0}
+html.v1 .cuaderno-band__list a:hover,html.v1 .cuaderno-band__list a:focus-visible{text-decoration:underline;text-underline-offset:.12em}
+
+/* Comprar — flash-sale-style pink promo band, pointing at the one product
+   there is to sell: Samuel entre mundos. */
+html.v1 .promo-band{background:var(--dp-blush);display:grid;grid-template-columns:auto minmax(0,1fr);align-items:center;gap:clamp(1.5rem,4vw,3rem);max-width:var(--layout-wide);margin:0 auto;padding:clamp(2.5rem,5vw,4rem) var(--page-gutter)}
+html.v1 .promo-band__cover{width:clamp(90px,14vw,160px);height:auto;box-shadow:var(--shadow-object)}
+html.v1 .promo-band__copy h2{font-family:var(--font-display);font-weight:400;font-size:clamp(1.8rem,1.5rem + 1.4vw,2.6rem);margin:.35rem 0 .6rem}
+html.v1 .promo-band__copy p{max-width:44ch;margin:0 0 1.25rem;color:color-mix(in srgb,var(--dp-ink) 80%,transparent)}
+@media (max-width:599px){
+  html.v1 .promo-band{grid-template-columns:minmax(0,1fr);justify-items:center;text-align:center}
+  html.v1 .promo-band__copy p{margin-inline:auto}
+}
+
 /* Newsletter — flat tinted band, centered, inline form: MUBI Notebook's
-   "DON'T MISS..." strip. Form markup/IDs untouched (DOI wiring in
-   script.js keys off them); only the shell around it changes. */
-html.v1 .newsletter{max-width:none;background:var(--surface-quiet);border-top:1px solid var(--color-border);border-bottom:1px solid var(--color-border);text-align:center;display:grid;grid-template-columns:minmax(0,1fr);justify-items:center;padding:clamp(3rem,6vw,5rem) var(--page-gutter)}
+   "DON'T MISS..." strip, in the warm tan LRB uses for its subscribe band.
+   Form markup/IDs untouched (DOI wiring in script.js keys off them); only
+   the shell around it changes. */
+html.v1 .newsletter{max-width:none;background:color-mix(in srgb,var(--dp-sand) 55%,var(--dp-white));border-top:1px solid var(--color-border);border-bottom:1px solid var(--color-border);text-align:center;display:grid;grid-template-columns:minmax(0,1fr);justify-items:center;padding:clamp(3rem,6vw,5rem) var(--page-gutter)}
 html.v1 .newsletter__copy{max-width:44ch}
 html.v1 .newsletter .eyebrow{text-transform:uppercase;letter-spacing:.1em;font-size:.76rem;font-weight:700;color:var(--color-muted)}
 html.v1 .newsletter h2{font-family:var(--font-ui);font-weight:700;text-transform:uppercase;letter-spacing:.02em;font-size:clamp(1.2rem,1.05rem + .8vw,1.6rem);line-height:1.15;margin:.6rem 0 .75rem}

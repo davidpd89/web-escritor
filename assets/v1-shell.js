@@ -140,6 +140,14 @@
   function initIntro() {
     const intro = q('[data-intro]');
     if (!intro) return;
+    // El video cinematografico solo se ve al entrar de cero en la web (primera
+    // carga de la pestana/sesion), no cada vez que se navega de vuelta a Home
+    // desde otra pagina. sessionStorage sobrevive a recargas dentro de la
+    // misma pestana y se borra al cerrarla, que es exactamente "de cero".
+    let seen = false;
+    try { seen = sessionStorage.getItem('dp-intro-seen') === '1'; } catch {}
+    if (seen) { intro.hidden = true; return; }
+    try { sessionStorage.setItem('dp-intro-seen', '1'); } catch {}
     const enter = q('[data-intro-enter]', intro);
     // La Home normal esta en el DOM desde el inicio (SEO/no-JS ven contenido
     // real), pero mientras la intro cubre la pantalla no debe poder
@@ -173,6 +181,7 @@
   function initHeroVideo() {
     const video = q('[data-hero-video]');
     if (!video) return;
+    if (video.closest('[data-intro]')?.hidden) return;
     if (matchMedia('(prefers-reduced-motion: reduce)').matches) return;
     const play = () => video.play().catch(() => {});
     if (video.readyState >= 2) play();
