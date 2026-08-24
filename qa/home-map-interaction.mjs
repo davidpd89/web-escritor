@@ -14,12 +14,11 @@ const OUT = path.resolve('qa-artifacts/home-map');
 await fs.mkdir(OUT, { recursive: true });
 
 const TERRITORIES = [
-  ['manecillas', '/las-manecillas-del-recuerdo/'],
-  ['autor', '/autor.html'],
-  ['samuel', '/libros/samuel-entre-mundos/'],
-  ['cuaderno', '/cuaderno/'],
-  ['herramientas', '/herramientas/'],
-  ['prensa', '/prensa.html'],
+  ['works-hub', '/libros/'],
+  ['author', '/autor.html'],
+  ['notebook-hub', '/cuaderno/'],
+  ['tools-hub', '/herramientas/'],
+  ['press', '/prensa.html'],
 ];
 const VIEWPORTS = [[1440,900],[1024,900],[768,1000],[390,900],[320,900]];
 
@@ -59,7 +58,7 @@ async function open(context) {
 }
 
 async function assertCore(page, label) {
-  assert.equal(await page.locator('.masthead-nav__list a[data-territory]').count(), 6, `${label}: seis territorios`);
+  assert.equal(await page.locator('.masthead-nav__list a[data-territory]').count(), 5, `${label}: cinco territorios`);
   for (const [key, href] of TERRITORIES) {
     const link = page.locator(`[data-territory="${key}"]`);
     assert.equal(await link.getAttribute('href'), href, `${label}: href ${key}`);
@@ -91,12 +90,12 @@ async function panelVisible(page, key) {
       if (other === key) continue;
       assert.equal(await panelVisible(page, other), false, `hover ${key}: panel ${other} sigue oculto`);
     }
-    if (key === 'manecillas') await page.screenshot({ path: path.join(OUT, '1440-manecillas-active.png') });
+    if (key === 'works-hub') await page.screenshot({ path: path.join(OUT, '1440-works-hub-active.png') });
   }
 
   await page.locator('body').focus();
   const seen = [];
-  for (let i = 0; i < 40 && seen.length < 6; i++) {
+  for (let i = 0; i < 40 && seen.length < 5; i++) {
     await page.keyboard.press('Tab');
     const key = await page.evaluate(() => document.activeElement?.getAttribute?.('data-territory') || '');
     if (key && !seen.includes(key)) {
@@ -104,7 +103,7 @@ async function panelVisible(page, key) {
       assert.equal(await panelVisible(page, key), true, `focus ${key}: panel visible`);
     }
   }
-  assert.deepEqual(new Set(seen), new Set(TERRITORIES.map(([key]) => key)), '1440: Tab alcanza los seis territorios');
+  assert.deepEqual(new Set(seen), new Set(TERRITORIES.map(([key]) => key)), '1440: Tab alcanza los cinco territorios');
   assert.ok((await page.evaluate(() => window.__homeMastheadCls || 0)) <= .1, '1440: CLS <= 0.1');
   assert.deepEqual(errors.pageErrors, [], `1440 pageerror: ${errors.pageErrors.join(' | ')}`);
   assert.deepEqual(errors.consoleErrors, [], `1440 console: ${errors.consoleErrors.join(' | ')}`);
@@ -142,9 +141,9 @@ for (const [width, height] of VIEWPORTS.slice(1)) {
   const context = await browser.newContext({ viewport: { width: 1440, height: 900 }, javaScriptEnabled: false });
   const { page, errors } = await open(context);
   await assertCore(page, 'no-js');
-  await page.locator('[data-territory="manecillas"]').hover();
+  await page.locator('[data-territory="works-hub"]').hover();
   await page.waitForTimeout(120);
-  assert.equal(await panelVisible(page, 'manecillas'), true, 'no-js: preview via :has() sigue activo');
+  assert.equal(await panelVisible(page, 'works-hub'), true, 'no-js: preview via :has() sigue activo');
   assert.deepEqual(errors.pageErrors, [], 'no-js: pageerror');
   assert.deepEqual(errors.consoleErrors, [], 'no-js: console error');
   await context.close();

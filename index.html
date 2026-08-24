@@ -431,143 +431,91 @@
 
   <main id="contenido" tabindex="-1">
     <section class="masthead" aria-labelledby="masthead-title">
-      <div class="masthead__lockup">
-        <figure class="masthead__portrait">
-          <picture>
-            <source type="image/avif" srcset="assets/david-porto-foto-portada-sinfondo.avif" />
-            <img src="assets/david-porto-foto-portada-sinfondo.webp" alt="David Porto Díaz, escritor" width="433" height="577" fetchpriority="high" loading="eager" decoding="sync" />
-          </picture>
-        </figure>
-        <div class="masthead__title">
-          <h1 id="masthead-title" class="masthead__name">David Porto Díaz</h1>
-          <p class="masthead__kicker">Escritor</p>
-        </div>
-      </div>
-      <div class="masthead__work">
-        <p class="masthead__work-label">Obra actual</p>
-        <p class="masthead__work-title">Las manecillas del recuerdo</p>
-        <time class="masthead__work-date" datetime="2026-09-03">3 de septiembre de 2026 · Monza Ediciones</time>
-        <a class="primary-action" href="/las-manecillas-del-recuerdo/">Descubrir Las manecillas</a>
-      </div>
+      <h1 id="masthead-title" class="masthead__name">David Porto Díaz</h1>
+      <p class="masthead__kicker">Escritor</p>
     </section>
 
     <nav class="masthead-nav" aria-label="Territorios de la web">
       <ul class="masthead-nav__list">
-        <li><a href="/las-manecillas-del-recuerdo/" data-territory="manecillas">Las manecillas</a></li>
-        <li><a href="/autor.html" data-territory="autor">Autor</a></li>
-        <li><a href="/libros/samuel-entre-mundos/" data-territory="samuel">Samuel entre mundos</a></li>
-        <li><a href="/cuaderno/" data-territory="cuaderno">Cuaderno</a></li>
-        <li><a href="/herramientas/" data-territory="herramientas">Herramientas</a></li>
-        <li><a href="/prensa.html" data-territory="prensa">Prensa y eventos</a></li>
+        <li><a href="/libros/" data-territory="works-hub">Obras</a></li>
+        <li><a href="/autor.html" data-territory="author">Autor</a></li>
+        <li><a href="/cuaderno/" data-territory="notebook-hub">Cuaderno</a></li>
+        <li><a href="/herramientas/" data-territory="tools-hub">Herramientas</a></li>
+        <li><a href="/prensa.html" data-territory="press">Prensa</a></li>
       </ul>
       <div class="masthead-nav__preview">
-        <div class="masthead-nav__preview-panel" data-preview-panel="manecillas">
-          <p class="masthead-nav__preview-label">Las manecillas del recuerdo</p>
-          <p class="masthead-nav__preview-text">La obra actual y punto de entrada editorial.</p>
+        <div class="masthead-nav__preview-panel" data-preview-panel="works-hub">
+          <p class="masthead-nav__preview-label">Obras</p>
+          <p class="masthead-nav__preview-text">Las manecillas del recuerdo, la obra actual, y el resto de novelas publicadas.</p>
         </div>
-        <div class="masthead-nav__preview-panel" data-preview-panel="autor">
+        <div class="masthead-nav__preview-panel" data-preview-panel="author">
           <p class="masthead-nav__preview-label">Autor</p>
           <p class="masthead-nav__preview-text">Biografía, obra y trayectoria.</p>
         </div>
-        <div class="masthead-nav__preview-panel" data-preview-panel="samuel">
-          <p class="masthead-nav__preview-label">Samuel entre mundos</p>
-          <p class="masthead-nav__preview-text">Primera novela publicada.</p>
-        </div>
-        <div class="masthead-nav__preview-panel" data-preview-panel="cuaderno">
+        <div class="masthead-nav__preview-panel" data-preview-panel="notebook-hub">
           <p class="masthead-nav__preview-label">Cuaderno</p>
           <p class="masthead-nav__preview-text">Artículos y piezas editoriales.</p>
         </div>
-        <div class="masthead-nav__preview-panel" data-preview-panel="herramientas">
+        <div class="masthead-nav__preview-panel" data-preview-panel="tools-hub">
           <p class="masthead-nav__preview-label">Herramientas</p>
           <p class="masthead-nav__preview-text">Utilidades gratuitas para escritores.</p>
         </div>
-        <div class="masthead-nav__preview-panel" data-preview-panel="prensa">
-          <p class="masthead-nav__preview-label">Prensa y eventos</p>
+        <div class="masthead-nav__preview-panel" data-preview-panel="press">
+          <p class="masthead-nav__preview-label">Prensa</p>
           <p class="masthead-nav__preview-text">Apariciones, materiales y agenda.</p>
         </div>
       </div>
     </nav>
 
-    <!-- Preserva el ensayo íntegro "Sobre Samuel entre mundos": no se
-         duplica en ninguna otra página, así que se conserva completo aquí
-         (MIGRATION-MATRIX.md prohíbe borrar contenido sin destino real). -->
-    <section class="book-section prose-section" aria-labelledby="samuel-essay-title">
-      <div class="book-section__label"><p class="eyebrow">Sobre Samuel entre mundos</p></div>
-      <div class="prose-field">
-        <h2 id="samuel-essay-title">Una fantasía juvenil menos cómoda de lo que parece.</h2>
-        <p>En <em>Samuel entre mundos</em>, la magia no aparece para cumplir deseos. Aparece para exigir respuestas. Noveris es una ciudad de portales, canalizadores y reglas antiguas, pero el verdadero peligro está más cerca: una familia que llama protección a lo que quizá siempre fue encierro.</p>
-      </div>
-      <aside class="book-margin-note">
-        <span>Leer</span>
-        <p><a href="/fragmento/">Primer capítulo gratis</a> · <a href="/libros/samuel-entre-mundos/">Ver Samuel entre mundos</a></p>
-      </aside>
-    </section>
+    <section class="river-grid" aria-labelledby="river-title" data-river>
+      <h2 id="river-title" class="sr-only">En la web</h2>
 
-    <section class="editorial-river" aria-labelledby="river-title" data-river>
-      <div class="section-intro section-intro--compact">
-        <p class="eyebrow">Ahora</p>
-        <h2 id="river-title">En la web</h2>
-      </div>
-      <div class="river-list" data-river-list>
-        <article class="river-item river-item--lead" data-signal="1">
-          <a class="river-item__media" href="/las-manecillas-del-recuerdo/" aria-hidden="true" tabindex="-1">
-            <img src="assets/manecillas-book-mockup-768.webp" alt="" loading="lazy" decoding="async" />
-          </a>
-          <p class="river-item__meta">Las manecillas del recuerdo · 3 septiembre 2026</p>
-          <h3><a href="/las-manecillas-del-recuerdo/">La nueva novela de David Porto Díaz</a></h3>
-          <p>Ficha, publicación, fragmentos y materiales de la obra.</p>
-        </article>
-        <article class="river-item" data-signal="2">
-          <a class="river-item__media" href="/cuaderno/feria-libro-madrid-2026-samuel-entre-mundos/" aria-hidden="true" tabindex="-1">
-            <img src="assets/eventos/og-feria-libro-madrid-2026-david-porto-samuel.webp" alt="" loading="lazy" decoding="async" />
-          </a>
-          <p class="river-item__meta">Crónica · 10 junio 2026</p>
-          <h3><a href="/cuaderno/feria-libro-madrid-2026-samuel-entre-mundos/">Samuel entre mundos en la Feria del Libro de Madrid</a></h3>
-          <p>Firma de ejemplares en el Parque del Retiro, caseta 337.</p>
-        </article>
-        <article class="river-item" data-signal="3">
-          <a class="river-item__media" href="/libros/samuel-entre-mundos/" aria-hidden="true" tabindex="-1">
-            <img src="assets/samuel_entre_mundos_3d.webp" alt="" loading="lazy" decoding="async" />
-          </a>
-          <p class="river-item__meta">Libros</p>
-          <h3><a href="/libros/samuel-entre-mundos/">Samuel entre mundos</a></h3>
-          <p>Primera novela publicada. Fantasía juvenil ambientada en Noveris.</p>
-        </article>
-        <article class="river-item" data-signal="4">
-          <a class="river-item__media" href="/autor.html" aria-hidden="true" tabindex="-1">
-            <img src="assets/david-porto-diaz-retrato-editorial-prensa.webp" alt="" loading="lazy" decoding="async" />
-          </a>
-          <p class="river-item__meta">Autor</p>
-          <h3><a href="/autor.html">Sobre David Porto Díaz</a></h3>
-          <p>Biografía, formación y trayectoria del escritor.</p>
-        </article>
-        <article class="river-item river-item--text" data-signal="5">
-          <p class="river-item__meta">Libros</p>
-          <h3><a href="/libros/">Las dos novelas, comparadas</a></h3>
-        </article>
-        <article class="river-item river-item--text" data-signal="9">
-          <p class="river-item__meta">Antología colaborativa</p>
-          <h3><a href="https://www.diversidadliteraria.com/la-memoria-de-las-tierras-del-norte" target="_blank" rel="noopener noreferrer">La memoria de las tierras del norte</a></h3>
-          <p>Relato de David Porto Díaz en una antología de fantasía editada por Diversidad Literaria.</p>
-        </article>
-        <article class="river-item river-item--text" data-signal="7">
-          <p class="river-item__meta">Reconocimientos</p>
-          <h3><a href="/premios.html">Premios y distinciones</a></h3>
-        </article>
-      </div>
-    </section>
+      <article class="river-cell river-cell--lead">
+        <a class="river-cell__media" href="/las-manecillas-del-recuerdo/" aria-hidden="true" tabindex="-1">
+          <img src="assets/portada-las-manecillas-del-recuerdo-768.webp" alt="" loading="lazy" decoding="async" />
+        </a>
+        <h3><a href="/las-manecillas-del-recuerdo/">La nueva novela de David Porto Díaz</a></h3>
+        <p class="river-cell__byline">Las manecillas del recuerdo · 3 septiembre 2026</p>
+        <p>Ficha, publicación, fragmentos y materiales de la obra.</p>
+      </article>
 
-    <section class="cuaderno-band" aria-labelledby="cuaderno-band-title">
-      <div class="cuaderno-band__inner">
+      <article class="river-cell river-cell--samuel">
+        <h3><a href="/libros/samuel-entre-mundos/">Samuel entre mundos</a></h3>
+        <p class="river-cell__byline">David Porto Díaz</p>
+        <p>Primera novela publicada. Fantasía juvenil ambientada en Noveris, donde la magia siempre exige un precio.</p>
+        <a class="river-cell__arrow" href="/libros/samuel-entre-mundos/" aria-hidden="true" tabindex="-1"><svg aria-hidden="true" viewBox="0 0 24 24" width="14" height="14"><path d="M9 5l7 7-7 7"/></svg></a>
+      </article>
+
+      <article class="river-cell river-cell--premios">
+        <p class="eyebrow">Reconocimientos</p>
+        <h3><a href="/premios.html">Premios y distinciones</a></h3>
+        <p>Primer Premio, XII Certamen de Microrrelatos «De amor», Letras Como Espada 2026.</p>
+        <a class="river-cell__arrow" href="/premios.html" aria-hidden="true" tabindex="-1"><svg aria-hidden="true" viewBox="0 0 24 24" width="14" height="14"><path d="M9 5l7 7-7 7"/></svg></a>
+      </article>
+
+      <article class="river-cell river-cell--antologia">
+        <h3><a href="https://www.diversidadliteraria.com/la-memoria-de-las-tierras-del-norte" target="_blank" rel="noopener noreferrer">La memoria de las tierras del norte</a></h3>
+        <p class="river-cell__byline">Antología colaborativa</p>
+        <p>Relato de David Porto Díaz en una antología de fantasía editada por Diversidad Literaria.</p>
+        <a class="river-cell__arrow" href="https://www.diversidadliteraria.com/la-memoria-de-las-tierras-del-norte" target="_blank" rel="noopener noreferrer" aria-hidden="true" tabindex="-1"><svg aria-hidden="true" viewBox="0 0 24 24" width="14" height="14"><path d="M9 5l7 7-7 7"/></svg></a>
+      </article>
+
+      <article class="river-cell river-cell--blog">
         <p class="eyebrow">Del cuaderno</p>
-        <h2 id="cuaderno-band-title">Artículos recientes</h2>
-        <div class="cuaderno-band__list">
-          <a href="/cuaderno/que-es-el-portal-fantasy/">¿Qué es el portal fantasy? La guía definitiva para lectores en español</a>
-          <a href="/cuaderno/worldbuilding-noveris-ciudad-magica/">Worldbuilding de una ciudad fantástica: cómo hacer que Noveris parezca viva</a>
-          <a href="/cuaderno/fantasia-juvenil-espanola-portales-magia-coste/">Fantasía juvenil española con portales y magia con coste</a>
-        </div>
-        <p><a class="text-action" href="/cuaderno/">Ver todo el cuaderno →</a></p>
-      </div>
+        <h3><a href="/cuaderno/que-es-el-portal-fantasy/">¿Qué es el portal fantasy? La guía definitiva para lectores en español</a></h3>
+        <p class="river-cell__byline">David Porto Díaz</p>
+        <p>El subgénero de fantasía que conecta nuestro mundo con otros a través de puertas, grietas y objetos que no deberían existir.</p>
+        <a class="river-cell__arrow" href="/cuaderno/que-es-el-portal-fantasy/" aria-hidden="true" tabindex="-1"><svg aria-hidden="true" viewBox="0 0 24 24" width="14" height="14"><path d="M9 5l7 7-7 7"/></svg></a>
+      </article>
+
+      <article class="river-cell river-cell--feria">
+        <a class="river-cell__media" href="/cuaderno/feria-libro-madrid-2026-samuel-entre-mundos/" aria-hidden="true" tabindex="-1">
+          <img src="assets/eventos/david-porto-diaz-firmando-samuel-entre-mundos-feria-libro-madrid.webp" alt="" loading="lazy" decoding="async" />
+        </a>
+        <h3><a href="/cuaderno/feria-libro-madrid-2026-samuel-entre-mundos/">Samuel entre mundos en la Feria del Libro de Madrid</a></h3>
+        <p class="river-cell__byline">Crónica · 10 junio 2026</p>
+        <p>Firma de ejemplares en el Parque del Retiro, caseta 337.</p>
+      </article>
     </section>
 
     <section class="promo-band" aria-labelledby="promo-band-title">
