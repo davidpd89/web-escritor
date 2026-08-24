@@ -59,6 +59,9 @@ const localCases = [
   ["¿Qué premio ganó Samuel entre mundos?", "samuel-awards"],
   ["¿Qué es Noveris?", "noveris"],
   ["¿Dónde mando un manuscrito?", "editorials"],
+  ["Busco dónde mandar mi novela", "editorials"],
+  ["Quiero enviar mi manuscrito a una editorial", "editorials"],
+  ["¿Dónde puedo presentar mi obra?", "editorials"],
   ["¿Qué concursos para escritores hay?", "opportunities"],
   ["¿Qué herramientas gratuitas hay?", "tools"],
   ["¿Cómo puedo contactar con David?", "press"],
@@ -71,7 +74,6 @@ const localCases = [
   ["¿Hay un mapa de la web?", "site-overview"],
   ["Quiero probar el libro del reloj", "manecillas-fragment"],
   ["Soy periodista y quiero contactar", "press"],
-  ["Busco dónde mandar mi novela", "editorials"],
   ["Quiero ver el Cuaderno", "notebook"],
 ];
 for (const [query, expectedIntent] of localCases) {
@@ -106,6 +108,12 @@ assert.equal(resolveLocalAnswer("Las manecillas", { pending: "fragment-choice" }
 const overview = resolveLocalAnswer("¿Qué enlaces hay?");
 assert.equal(overview?.intent, "site-overview");
 assert.ok(overview?.suggestions?.length >= 3);
+assert.match(overview?.answer || "", /cinco territorios/i, "site overview must match the current navigation architecture");
+for (const territory of ["Obras", "Autor", "Cuaderno", "Herramientas", "Prensa"]) {
+  assert.match(overview?.answer || "", new RegExp(`\\b${territory}\\b`, "i"));
+}
+assert.ok(overview?.sourceIds?.includes("site-map"), "site overview must expose the canonical public site map");
+assert.ok(registryIds.has("site-map"), "site-map must exist in the generated source registry");
 
 assert.equal(resolveLocalAnswer("Hola, ¿de qué trata Las manecillas del recuerdo?")?.intent, "manecillas", "social prefix must not hijack a real question");
 assert.equal(resolveLocalAnswer("¿Qué tiempo hace en Bilbao?"), null, "off-domain questions must remain outside the deterministic router");
