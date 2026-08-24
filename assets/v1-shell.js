@@ -6,6 +6,7 @@
   'use strict';
 
   const BASE_SRC = '/assets/v1-shell-base.js';
+  const HOME_EDITORIAL_SRC = '/assets/v1-home-editorial-v3.js';
   const root = document.documentElement;
 
   const houseSvg = `
@@ -186,6 +187,15 @@
     nav.dataset.lrbEnhanced = 'true';
   }
 
+  function loadHomeEditorialV3() {
+    if (document.querySelector(`script[src="${HOME_EDITORIAL_SRC}"]`)) return;
+    const script = document.createElement('script');
+    script.src = HOME_EDITORIAL_SRC;
+    script.async = false;
+    script.dataset.homeEditorialV3 = 'true';
+    document.head.append(script);
+  }
+
   function enhanceHomeMasthead() {
     const masthead = document.querySelector('.masthead');
     const nav = document.querySelector('.masthead-nav');
@@ -222,6 +232,7 @@
     update();
     addEventListener('resize', () => { measure(); update(); }, { passive: true });
     addEventListener('scroll', update, { passive: true });
+    loadHomeEditorialV3();
   }
 
   function initLrbHeaderV2() {
