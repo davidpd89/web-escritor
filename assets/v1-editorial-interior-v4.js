@@ -16,11 +16,13 @@
 
   const currentPath = normalise(location.pathname);
 
+  /* Mirrors data/navigation.json localNavSets, with labels chosen for the
+     compact visual strip. The canonical registry remains the source of truth
+     for destinations; this runtime layer only makes those existing routes
+     persist visually after navigation. */
   const contexts = [
     {
-      key: 'manecillas',
-      label: 'Manecillas',
-      home: '/las-manecillas-del-recuerdo/',
+      key: 'manecillas', label: 'Manecillas', home: '/las-manecillas-del-recuerdo/',
       matches: (path) => path.startsWith('/las-manecillas-del-recuerdo/'),
       links: [
         ['/las-manecillas-del-recuerdo/', 'La novela'],
@@ -29,9 +31,7 @@
       ]
     },
     {
-      key: 'samuel',
-      label: 'Samuel entre mundos',
-      home: '/libros/samuel-entre-mundos/',
+      key: 'samuel', label: 'Samuel entre mundos', home: '/libros/samuel-entre-mundos/',
       matches: (path) => path.startsWith('/libros/samuel-entre-mundos/') || path === '/fragmento/' || path.startsWith('/universo/noveris/') || path.startsWith('/clubes-de-lectura/samuel-entre-mundos/'),
       links: [
         ['/libros/samuel-entre-mundos/', 'El libro'],
@@ -42,9 +42,7 @@
       ]
     },
     {
-      key: 'obras',
-      label: 'Obras',
-      home: '/libros/',
+      key: 'obras', label: 'Obras', home: '/libros/',
       matches: (path) => path === '/libros/',
       links: [
         ['/libros/', 'Todas las obras'],
@@ -53,9 +51,7 @@
       ]
     },
     {
-      key: 'cuaderno',
-      label: 'Cuaderno',
-      home: '/cuaderno/',
+      key: 'cuaderno', label: 'Cuaderno', home: '/cuaderno/',
       matches: (path) => path.startsWith('/cuaderno/') || path.startsWith('/recomendaciones/'),
       links: [
         ['/cuaderno/', 'Archivo'],
@@ -64,9 +60,7 @@
       ]
     },
     {
-      key: 'herramientas',
-      label: 'Herramientas',
-      home: '/herramientas/',
+      key: 'herramientas', label: 'Herramientas', home: '/herramientas/',
       matches: (path) => path.startsWith('/herramientas/') || path.startsWith('/editoriales/') || path.startsWith('/convocatorias-escritores/') || path.startsWith('/metodologia-editorial/'),
       links: [
         ['/herramientas/', 'Herramientas'],
@@ -76,9 +70,7 @@
       ]
     },
     {
-      key: 'autor',
-      label: 'Autor',
-      home: '/autor.html',
+      key: 'autor', label: 'Autor', home: '/autor.html',
       matches: (path) => path === '/autor.html' || path === '/premios.html',
       links: [
         ['/autor.html', 'Autor'],
@@ -88,9 +80,7 @@
       ]
     },
     {
-      key: 'prensa',
-      label: 'Prensa y agenda',
-      home: '/prensa.html',
+      key: 'prensa', label: 'Prensa y agenda', home: '/prensa.html',
       matches: (path) => path === '/prensa.html' || path === '/eventos.html' || path === '/ferias.html',
       links: [
         ['/prensa.html', 'Prensa'],
@@ -144,36 +134,50 @@
     if (active) requestAnimationFrame(() => active.scrollIntoView({ block: 'nearest', inline: 'nearest' }));
   }
 
-  function ensureBannerPlaceholder(banner) {
-    if (!(banner instanceof HTMLElement) || banner.querySelector('.feature-banner__placeholder')) return;
-    const key = banner.dataset.bannerKey || 'editorial';
-    const labels = {
-      manecillas: 'Banner pendiente · Las manecillas del recuerdo',
-      samuel: 'Banner pendiente · Samuel entre mundos',
-      memoria: 'Banner pendiente · La memoria de las tierras del norte',
-      tools: 'Banner pendiente · Herramientas para escritores'
-    };
-    const placeholder = document.createElement('span');
-    placeholder.className = 'feature-banner__placeholder';
-    placeholder.setAttribute('aria-hidden', 'true');
-    placeholder.textContent = `${labels[key] || 'Banner pendiente'} · fuente 2400 × 900 px · foco central`;
-    banner.prepend(placeholder);
+  function auditBannerAsset(banner) {
+    if (!(banner instanceof HTMLElement)) return;
+    if (!banner.querySelector('.feature-banner__placeholder')) {
+      const key = banner.dataset.bannerKey || 'editorial';
+      const labels = {
+        manecillas: 'Banner pendiente · Las manecillas del recuerdo',
+        samuel: 'Banner pendiente · Samuel entre mundos',
+        memoria: 'Banner pendiente · La memoria de las tierras del norte',
+        tools: 'Banner pendiente · Herramientas para escritores'
+      };
+      const placeholder = document.createElement('span');
+      placeholder.className = 'feature-banner__placeholder';
+      placeholder.setAttribute('aria-hidden', 'true');
+      placeholder.textContent = `${labels[key] || 'Banner pendiente'} · 2400 × 900 px · foco central`;
+      banner.prepend(placeholder);
+    }
+
+    const image = banner.querySelector('.feature-banner__image');
+    if (!image) {
+      banner.classList.add('feature-banner--placeholder-only');
+      return;
+    }
+    const path = new URL(image.currentSrc || image.src, location.origin).pathname;
+    const isFinalBanner = path.startsWith('/assets/banners/');
+    banner.classList.toggle('feature-banner--placeholder-only', !isFinalBanner);
+    banner.classList.toggle('feature-banner--final-asset', isFinalBanner);
   }
 
   function prepareMediaSlots() {
-    document.querySelectorAll('.feature-banner').forEach(ensureBannerPlaceholder);
-    if (!root.dataset.lrbHome || root.dataset.lrbHome !== 'true') return;
+    document.querySelectorAll('.feature-banner').forEach(auditBannerAsset);
+    if (root.dataset.lrbHome !== 'true') return;
     const observer = new MutationObserver((mutations) => {
       for (const mutation of mutations) {
+        const ownerBanner = mutation.target instanceof Element ? mutation.target.closest?.('.feature-banner') : null;
+        if (ownerBanner) auditBannerAsset(ownerBanner);
         for (const node of mutation.addedNodes) {
           if (!(node instanceof Element)) continue;
-          if (node.matches?.('.feature-banner')) ensureBannerPlaceholder(node);
-          node.querySelectorAll?.('.feature-banner').forEach(ensureBannerPlaceholder);
+          if (node.matches?.('.feature-banner')) auditBannerAsset(node);
+          node.querySelectorAll?.('.feature-banner').forEach(auditBannerAsset);
         }
       }
     });
     observer.observe(document.body, { childList: true, subtree: true });
-    setTimeout(() => observer.disconnect(), 5000);
+    setTimeout(() => observer.disconnect(), 6000);
   }
 
   function init() {
