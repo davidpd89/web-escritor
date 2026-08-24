@@ -50,7 +50,7 @@ html.v1 .publishing-next{
   padding:clamp(2.5rem,5vw,4rem) 0;
   border-top:1px solid var(--color-border);
 }
-html.v1 .publishing-next h2{margin:0;font:400 var(--text-2xl)/1.15 var(--font-display)}
+html.v1 .publishing-next h2{margin:0;font:600 var(--text-2xl)/1.15 var(--font-display)}
 html.v1 .publishing-next__links{display:flex;flex-wrap:wrap;gap:.75rem 1.5rem;margin-top:1rem}
 html.v1 .publishing-next__links a{
   min-height:44px;

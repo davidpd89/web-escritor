@@ -8,13 +8,13 @@ html.v1 .recommendations-hero__lead{max-width:62ch;margin:0;font-size:clamp(1.05
 html.v1 .recommendations-index{list-style:none;margin:1.5rem 0 0;padding:0;border-top:1px solid var(--rec-rule,var(--color-border))}
 html.v1 .recommendations-index>li{display:grid;grid-template-columns:minmax(5rem,.18fr) minmax(0,1fr);gap:clamp(1.25rem,4vw,4rem);padding:clamp(1.7rem,3vw,2.6rem) 0;border-bottom:1px solid var(--rec-rule,var(--color-border))}
 html.v1 .recommendations-index__number{font-family:var(--font-display);font-size:clamp(2.4rem,5vw,4.8rem);line-height:.9;color:var(--color-muted);letter-spacing:-.04em}
-html.v1 .recommendations-index h3{max-width:24ch;margin:.25rem 0 .65rem;font:400 clamp(1.7rem,3vw,2.7rem)/1.02 var(--font-display);letter-spacing:-.025em;overflow-wrap:anywhere}
+html.v1 .recommendations-index h3{max-width:24ch;margin:.25rem 0 .65rem;font:600 clamp(1.7rem,3vw,2.7rem)/1.02 var(--font-display);letter-spacing:-.025em;overflow-wrap:anywhere}
 html.v1 .recommendations-index p:not(.tool-meta){max-width:62ch}
 
 html.v1 .recommendations-method__copy{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:clamp(1.5rem,4vw,4rem);border-top:1px solid var(--rec-rule,var(--color-border));padding-top:1.5rem}
 html.v1 .recommendations-method__copy p{margin:0;max-width:54ch}
 html.v1 .recommendations-context-row{display:grid;grid-template-columns:minmax(0,1fr) auto;align-items:center;gap:1.5rem 3rem;padding:1.5rem 0;border-top:1px solid var(--rec-rule,var(--color-border));border-bottom:1px solid var(--rec-rule,var(--color-border))}
-html.v1 .recommendations-context-row h3{margin:0 0 .5rem;font:400 clamp(1.5rem,2.4vw,2.1rem)/1.05 var(--font-display)}
+html.v1 .recommendations-context-row h3{margin:0 0 .5rem;font:600 clamp(1.5rem,2.4vw,2.1rem)/1.05 var(--font-display)}
 html.v1 .recommendations-context-row p{margin:0;max-width:62ch}
 
 html.v1 .recommendations-page .article-deck{max-width:64ch;text-wrap:pretty}
@@ -27,13 +27,13 @@ html.v1 .recommendations-page .rec-list{list-style:none;margin:1.5rem 0 0;paddin
 html.v1 .recommendations-page .rec-item,html.v1 .recommendations-page .rec-item--self{position:relative;display:grid;grid-template-columns:minmax(3.5rem,.12fr) minmax(0,1fr);column-gap:clamp(1.25rem,4vw,3.5rem);padding:clamp(1.7rem,3vw,2.5rem) 0;border:0;border-bottom:1px solid var(--rec-rule,var(--color-border));border-radius:0;background:transparent;box-shadow:none}
 html.v1 .recommendations-page .rec-item>*:not(.rec-position){grid-column:2;min-width:0}
 html.v1 .recommendations-page .rec-position{grid-column:1;grid-row:1/span 6;align-self:start;font-family:var(--font-display);font-size:clamp(2.3rem,4.5vw,4.25rem);line-height:.9;color:var(--color-muted);letter-spacing:-.04em}
-html.v1 .recommendations-page .rec-book-title{margin:0 0 .25rem;font:400 clamp(1.55rem,2.8vw,2.35rem)/1.04 var(--font-display);letter-spacing:-.025em;overflow-wrap:anywhere}
+html.v1 .recommendations-page .rec-book-title{margin:0 0 .25rem;font:600 clamp(1.55rem,2.8vw,2.35rem)/1.04 var(--font-display);letter-spacing:-.025em;overflow-wrap:anywhere}
 html.v1 .recommendations-page .rec-book-author{margin:.2rem 0 1rem;font-size:.9rem;color:var(--color-muted)}
 html.v1 .recommendations-page .rec-self-label{font-size:.76rem;font-weight:600;letter-spacing:.025em}
 html.v1 .recommendations-page .rec-book-desc{max-width:68ch;margin:.2rem 0 1rem;text-wrap:pretty}
 html.v1 .recommendations-page .rec-book-meta{max-width:68ch;margin:0 0 .85rem;font-size:.8rem;color:var(--color-muted);overflow-wrap:anywhere}
 html.v1 .recommendations-page .rec-book-footer{display:flex;flex-wrap:wrap;align-items:center;gap:.5rem 1rem;margin-top:.2rem}
-html.v1 .recommendations-page .rec-badge{display:inline-flex;align-items:center;min-height:1.9rem;padding:.15rem .55rem;border:1px solid var(--rec-rule,var(--color-border));border-radius:999px;background:transparent;font-size:.72rem;line-height:1.25}
+html.v1 .recommendations-page .rec-badge{display:inline-flex;align-items:center;min-height:1.9rem;padding:.15rem .55rem;border:1px solid var(--rec-rule,var(--color-border));border-radius:0;background:transparent;font-size:.72rem;line-height:1.25}
 html.v1 .recommendations-page .affiliate-disclosure{margin:1.75rem 0 0;padding-top:1.25rem;max-width:70ch;border-top:1px solid var(--rec-rule,var(--color-border));font-size:.88rem;color:var(--color-muted)}
 html.v1 .recommendations-page code{overflow-wrap:anywhere}
 
