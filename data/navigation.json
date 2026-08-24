@@ -87,6 +87,11 @@
     "press"
   ],
   "localNavSets": {
+    "obras": [
+      "works-hub",
+      "work-manecillas",
+      "work-samuel"
+    ],
     "manecillas": [
       "work-manecillas",
       "work-manecillas-fragments",
@@ -99,6 +104,11 @@
       "samuel-club",
       "samuel-club-guide"
     ],
+    "cuaderno": [
+      "notebook-hub",
+      "notebook-topics",
+      "recommendations-hub"
+    ],
     "herramientas": [
       "tools-hub",
       "editorials-hub",
@@ -110,6 +120,11 @@
       "awards",
       "events",
       "press"
+    ],
+    "prensa": [
+      "press",
+      "events",
+      "awards"
     ]
   }
 }
