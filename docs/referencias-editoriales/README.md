@@ -265,3 +265,14 @@ Qué se hizo bajo este override:
 Qué se mantiene sin cambios respecto a la regla de propiedad intelectual original: no se ha copiado CSS/JS de mubi.com, ni assets, ni fotografías, ni copy editorial. El código de `assets/v1-*.css` sigue siendo escrito desde cero para este repo.
 
 Este override es una decisión de producto puntual para esta iteración, no una revocación de la política clean-room para futuras referencias (LRB, Paris Review, Yale Review) ni para trabajo futuro sobre MUBI Notebook como referencia editorial (ver `MUBI-NOTEBOOK.md`).
+
+### Ampliación — misma sesión: estructura y colocación, no solo tokens
+
+El propietario pidió ir más allá de color/tipografía y llevar también los patrones estructurales de MUBI (bandas alternas negro/blanco a pantalla completa, tarjeta editorial con imagen, hero dominado por imagen) al **contenido real** del sitio. Aplicado en `index.html`, `cuaderno/index.html` y `autor.html`:
+
+- **Bandas alternas**: nueva sección `.declaration-band` en Home (`assets/v1-home.css`), banda negra a pantalla completa con foto real de evento (feria de Aranjuez, misma imagen/alt que `ferias.html`) entre el río editorial y las FAQ. No se ha inventado ninguna fotografía "de comunidad" genérica: se reutiliza contenido real del propio sitio.
+- **Tarjeta editorial con imagen**: `.river-item` (Home) y `.cuaderno-feature`/`.id-card` en `#libros` de `autor.html` ganan una miniatura real (portadas de los libros, foto de autor, foto real de la crónica de feria) donde existe un activo genuino; los ítems sin imagen real (antología externa, guías conceptuales del Cuaderno) se quedan en formato solo-texto, en línea con la mezcla de formatos heterogéneos documentada arriba para MUBI Notebook — no se fabrica imaginería para rellenar huecos.
+- **Hero más dominado por imagen**: `.home-hero__copy` pasa de 6 a 5 columnas de 12 en escritorio, dejando más peso visual a `.hero-media`.
+- **Folios grandes en el archivo de texto**: `.cuaderno-entry__index` (las 4 guías sin foto propia) pasa a un numeral tipográfico grande (`var(--font-display)`, peso 500) como recurso gráfico en vez de una imagen inventada.
+
+Ningún cambio toca `.id-cards`/`.id-card` de forma global: la miniatura de `#libros .id-card__media` está scopeada a esa sección concreta de `autor.html` para no afectar a herramientas, editoriales, mapa del sitio ni el resto de usos compartidos de esa clase.
