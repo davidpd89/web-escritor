@@ -87,6 +87,13 @@ async function open(page, route) {
   return dimensions;
 }
 
+async function revealExploreTrigger(page, trigger) {
+  if (await trigger.isVisible().catch(() => false)) return;
+  await page.evaluate(() => window.scrollTo(0, 360));
+  await page.waitForTimeout(240);
+  assert(await trigger.isVisible(), 'Explore: trigger no aparece al entrar en estado compacto');
+}
+
 try {
   for (const vp of [{ name: '390x900', width: 390, height: 900 }, { name: '1440x1000', width: 1440, height: 1000 }]) {
     report.representative[vp.name] = {};
@@ -129,7 +136,8 @@ try {
     const context = await browser.newContext({ viewport: { width: vp.width, height: vp.height }, hasTouch: vp.name === 'mobile' });
     const page = await context.newPage();
     await open(page, '/');
-    const trigger = page.locator('[data-explore-open]');
+    const trigger = page.locator('[data-explore-open]').first();
+    await revealExploreTrigger(page, trigger);
     await trigger.focus();
     await trigger.click();
     const dialog = page.locator('[data-explore-dialog]');
@@ -156,7 +164,9 @@ try {
     const context = await browser.newContext({ viewport: { width: 390, height: 900 }, hasTouch: true });
     const page = await context.newPage();
     await open(page, '/');
-    await page.locator('[data-explore-open]').click();
+    const trigger = page.locator('[data-explore-open]').first();
+    await revealExploreTrigger(page, trigger);
+    await trigger.click();
     await page.locator('.explore-row[href="/autor.html"]').click();
     await page.waitForLoadState('load');
     assert.equal(new URL(page.url()).pathname, '/autor.html', 'Explore mobile: one tap did not navigate');
@@ -203,10 +213,6 @@ try {
     const context = await browser.newContext({ viewport: { width: 320, height: 900 }, reducedMotion: 'reduce' });
     const page = await context.newPage();
     await open(page, route);
-    // addStyleTag inyecta una hoja inline y estas paginas llevan style-src 'self':
-    // el navegador la rechaza y la suite muere en /mapa-del-sitio/ antes de medir.
-    // Se inyecta como hoja de inspector por CDP, que no pasa por la CSP de la
-    // pagina. Es el mismo helper que ya usa qa/pro-resources-browser.mjs.
     await applyInspectorStyles(context, page, '*{line-height:1.5!important;letter-spacing:.12em!important;word-spacing:.16em!important}p{margin-bottom:2em!important}');
     await page.evaluate(() => { document.documentElement.style.fontSize = '200%'; });
     await page.waitForTimeout(80);
