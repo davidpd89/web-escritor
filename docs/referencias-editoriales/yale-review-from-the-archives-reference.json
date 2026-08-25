@@ -1,0 +1,160 @@
+{
+  "schema_version": 1,
+  "reference": {
+    "name": "The Yale Review — From the Archives",
+    "url": "https://yalereview.org/from-the-archives",
+    "inspected_at": "2026-08-25",
+    "purpose": "clean-room visual and editorial reference",
+    "implementation_copy_allowed": false
+  },
+  "confidence_levels": {
+    "A": "verified by current page or official Yale/Pentagram source",
+    "B": "observable structural or visual pattern",
+    "C": "clean-room reproduction estimate; not claimed as Yale Review computed CSS"
+  },
+  "typography": {
+    "brand_nameplate": {
+      "family": "GT Cinetype",
+      "confidence": "A",
+      "source": "Pentagram",
+      "use_in_project": "reference only; do not copy or bundle without license"
+    },
+    "editorial_serif": {
+      "family_lineage": ["Yale", "YaleNew", "Yale 2024"],
+      "designer": "Matthew Carter",
+      "confidence": "A",
+      "source": "Pentagram + Yale Identity",
+      "use_in_project": "reference for role/contrast only"
+    },
+    "display_characteristics": {
+      "traits": [
+        "sharp serifs",
+        "high thick-thin contrast",
+        "high x-height",
+        "tight letterspacing"
+      ],
+      "confidence": "A",
+      "source": "Yale Identity description of Yale Display"
+    },
+    "hierarchy": [
+      {"role": "page_h1", "character": "large serif display", "confidence": "B"},
+      {"role": "section_h2", "character": "serif display, clearly below H1", "confidence": "B"},
+      {"role": "item_title", "character": "serif display/semi-display, multiline allowed", "confidence": "B"},
+      {"role": "category", "character": "small repeated editorial metadata, not chip-like", "confidence": "B"},
+      {"role": "deck", "character": "secondary serif editorial copy", "confidence": "B"},
+      {"role": "author", "character": "separate scannable authorship line", "confidence": "B"},
+      {"role": "date", "character": "terminal low-priority metadata", "confidence": "B"}
+    ]
+  },
+  "official_identity_palettes": [
+    {
+      "confidence": "A",
+      "source": "Pentagram Archive item 28384",
+      "note": "identity project palette, not guaranteed current webpage CSS",
+      "colors": ["#0E0F0D", "#B4B3B2", "#565E57", "#888674", "#648376", "#CFA875", "#678D88", "#EDEDEC"]
+    },
+    {
+      "confidence": "A",
+      "source": "Pentagram Archive item 28383",
+      "note": "identity project palette, not guaranteed current webpage CSS",
+      "colors": ["#BCBBBC", "#131110", "#5D544F", "#956F59", "#D6661A", "#D0935B", "#E7D4B0", "#FAFCFC"]
+    }
+  ],
+  "clean_room_color_ranges": {
+    "confidence": "C",
+    "paper": ["#F7F6F1", "#FBFAF6"],
+    "ink": ["#11110F", "#1A1916"],
+    "rule": ["#C9C7C0", "#D8D5CC"],
+    "muted": ["#6E6B63", "#858176"],
+    "muted_teal_reference": ["#648376", "#678D88"],
+    "warm_reference": ["#CFA875", "#D0935B"],
+    "strong_warm_reference": "#D6661A"
+  },
+  "layout": {
+    "model": "continuous editorial surface rather than card grid",
+    "confidence": "B",
+    "patterns": [
+      "single-column page/section statements",
+      "featured editorial compositions with unequal weight",
+      "thematic clusters",
+      "regular browse/archive list after curated content",
+      "explicit pagination"
+    ],
+    "clean_room_measurement_ranges": {
+      "confidence": "C",
+      "layout_max_px": [1180, 1320],
+      "desktop_gutter_px": [40, 72],
+      "tablet_gutter_px": [28, 48],
+      "mobile_gutter_px": [16, 24],
+      "rule_px": 1,
+      "strong_rule_px": 2,
+      "body_px": [17, 20],
+      "body_line_height": [1.45, 1.65],
+      "metadata_px": [11, 14],
+      "touch_target_min_px": 44
+    }
+  },
+  "page_sequence": [
+    "global_header",
+    "page_title",
+    "featured_video",
+    "archival_feature_of_the_week",
+    "curated_archive_clusters",
+    "editorial_quote_interlude",
+    "continued_archive_cluster",
+    "browse_filters",
+    "regular_archive_listing",
+    "pagination",
+    "global_footer",
+    "current_issue_promotion"
+  ],
+  "micro_item_order": [
+    "category",
+    "title",
+    "deck_optional",
+    "author",
+    "date_when_listing"
+  ],
+  "rules_and_surfaces": {
+    "confidence": "B/C",
+    "dominant_separator": "hairline rules",
+    "card_radius": "minimal or none",
+    "box_shadow": "not a primary editorial grammar",
+    "color_usage": "accent/editorial rather than repeated decorative surfaces",
+    "image_edges": "rectilinear editorial treatment"
+  },
+  "ux_principles": [
+    "curate before filtering",
+    "irregular hierarchy above, regular listing below",
+    "do not truncate literary titles",
+    "use rules and alignment instead of containers where possible",
+    "treat footer as alternate information architecture",
+    "reserve button styling for transactional/instrumental actions",
+    "use explicit pagination for archives",
+    "place conversion after editorial value",
+    "keep motion subordinate to reading",
+    "allow brand and reading typography to have distinct voices"
+  ],
+  "explicit_non_copy": [
+    "GT Cinetype font files",
+    "The Yale Review logo/nameplate",
+    "third-party CSS",
+    "third-party JavaScript",
+    "third-party DOM structure verbatim",
+    "The Yale Review images or editorial text",
+    "unverified inferred measurements presented as exact"
+  ],
+  "sources": [
+    "https://yalereview.org/from-the-archives",
+    "https://yalereview.org/",
+    "https://yalereview.org/about",
+    "https://yalereview.org/back-issues",
+    "https://yalereview.org/annotating-the-archives",
+    "https://yalereview.org/article/editors-note",
+    "https://news.yale.edu/2021/06/28/tyr-gives-readers-digital-space-read-and-contemplate",
+    "https://www.pentagram.com/work/the-yale-review/story",
+    "https://www.pentagram.com/archive/item/28384",
+    "https://www.pentagram.com/archive/item/28383",
+    "https://yaleidentity.yale.edu/core-identity-elements/yale-typefaces"
+  ]
+}
