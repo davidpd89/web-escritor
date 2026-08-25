@@ -55,6 +55,7 @@
       open.addEventListener('click', () => {
         opener = document.activeElement;
         opens.forEach((o) => o.setAttribute('aria-expanded', 'true'));
+        document.documentElement.classList.add('explore-open');
         dialog.showModal();
         close.focus();
       });
@@ -65,6 +66,8 @@
     dialog.addEventListener('click', (event) => { if (event.target === dialog) { markClosed(); dialog.close(); } });
     dialog.addEventListener('close', () => {
       markClosed();
+      document.documentElement.classList.remove('explore-open');
+      dispatchEvent(new CustomEvent('dp:explore-close'));
       if (opener instanceof HTMLElement) opener.focus({ preventScroll: true });
     });
 
@@ -285,6 +288,7 @@
     name.append(text);
 
     const candidates = [
+      '/assets/david-porto-header-lettering-transparent.png',
       '/assets/london-david-porto-logo-central.png',
       '/assets/london-david-porto-logo-central.webp'
     ];
@@ -384,7 +388,7 @@
       compactAt = Math.max(140, Math.min(230, Math.round((sticky?.offsetHeight || 160) + 20)));
     };
     const update = () => {
-      const compact = window.scrollY > compactAt;
+      const compact = window.scrollY > compactAt || root.classList.contains('explore-open');
       // Chromium resets the whole page's scroll position to 0 when focus
       // lands on a descendant of a position:sticky ancestor (the utility
       // bar) -- a long-standing browser quirk, not something this site
@@ -393,7 +397,7 @@
       // received focus, so a keyboard user tabbing to it mid-scroll would
       // watch their target vanish under them. While focus sits inside the
       // header, only allow entering compact, never leaving it.
-      if (!compact && document.activeElement?.closest?.('.site-header')) return;
+      if (!compact && window.scrollY > 8 && document.activeElement?.closest?.('.site-header')) return;
       root.classList.toggle('lrb-compact', compact);
       if (compact) closeSubmenus();
     };
@@ -401,6 +405,12 @@
     update();
     addEventListener('resize', () => { measure(); update(); }, { passive: true });
     addEventListener('scroll', update, { passive: true });
+    addEventListener('dp:explore-close', () => {
+      requestAnimationFrame(() => {
+        measure();
+        update();
+      });
+    });
     loadScript(HOME_EDITORIAL_SRC, 'homeEditorialV3');
   }
 

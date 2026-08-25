@@ -10,6 +10,7 @@
 
   const bannerAssets = {
     manecillas: [
+      '/assets/banners/manecillas-home-banner-final.png',
       '/assets/banners/manecillas-home-banner.webp',
       '/assets/banners/manecillas-home-banner.jpg',
       '/assets/og-manecillas.webp'
@@ -30,6 +31,7 @@
       '/assets/manuscrito-herramientas-placeholder.webp'
     ]
   };
+  const SAMUEL_AMAZON_URL = 'https://www.amazon.es/dp/B0GB6LGQFH?tag=davidporto-21';
 
   const arrowSvg = `
     <svg aria-hidden="true" viewBox="0 0 24 24" focusable="false">
@@ -89,9 +91,26 @@
     const section = make('section', `feature-banner feature-banner--${config.key}`);
     section.setAttribute('aria-labelledby', `feature-banner-${config.key}`);
     section.dataset.bannerKey = config.key;
+    if (config.imageOnly) section.classList.add('feature-banner--image-only');
 
     const media = make('div', 'feature-banner__media');
     media.setAttribute('aria-hidden', 'true');
+    if (config.imageOnly) {
+      const title = make('h2', 'sr-only', config.title);
+      title.id = `feature-banner-${config.key}`;
+      const link = make('a', 'feature-banner__image-link');
+      link.href = config.href;
+      if (/^https?:\/\//.test(config.href)) {
+        link.target = '_blank';
+        link.rel = 'sponsored nofollow noopener noreferrer';
+      }
+      link.setAttribute('aria-label', config.cta || config.title);
+      link.append(media);
+      link.addEventListener('click', () => emit('home_banner_click', { banner: config.key }));
+      section.append(title, link);
+      loadFirstImage(media, bannerAssets[config.key], { eager: config.key === 'manecillas' });
+      return section;
+    }
     const inner = make('div', 'feature-banner__inner');
     const copy = make('div', 'feature-banner__copy');
     const eyebrow = make('p', 'feature-banner__eyebrow', config.eyebrow);
@@ -110,6 +129,7 @@
 
   function createCard(config) {
     const article = make('article', `editorial-card${config.lead ? ' editorial-card--lead' : ''}${config.tone ? ` editorial-card--${config.tone}` : ''}`);
+    if (config.key) article.dataset.cardKey = config.key;
 
     if (config.media) {
       const media = make('a', 'editorial-card__media');
@@ -317,8 +337,9 @@
       eyebrow: 'Lanzamiento · 3 septiembre 2026',
       title: 'Las manecillas del recuerdo',
       deck: 'Una novela coral de vidas conectadas por un reloj que cambia de significado en cada mano.',
-      href: '/las-manecillas-del-recuerdo/',
-      cta: 'Descubrir la novela →'
+      href: SAMUEL_AMAZON_URL,
+      cta: 'Comprar en Amazon',
+      imageOnly: true
     }));
 
     flow.append(createCluster({
@@ -329,18 +350,18 @@
       allLabel: 'Ver la obra →',
       cards: [
         {
-          key: 'manecillas-book', lead: true, media: '/assets/portada-las-manecillas-del-recuerdo-768.webp',
+          key: 'manecillas-book', lead: true, media: '/assets/manecillas-del-recuerdo-3d.png',
           eyebrow: 'Monza Ediciones', title: 'La nueva novela de David Porto Díaz',
           meta: '3 septiembre 2026', text: 'Ficha, publicación, fragmentos y materiales de la obra.',
           href: '/las-manecillas-del-recuerdo/'
         },
         {
-          key: 'manecillas-fragment', eyebrow: 'Leer', title: 'Entrar en la historia',
-          meta: 'Fragmentos', text: 'Una primera lectura del universo emocional de la novela antes de abrir el libro completo.',
-          href: '/las-manecillas-del-recuerdo/fragmentos/'
+          key: 'manecillas-notebook', tone: 'blue', eyebrow: 'Cuaderno', title: 'Notas de lectura y proceso',
+          meta: 'Artículos relacionados', text: 'Piezas para leer alrededor de la memoria, la fantasía y las decisiones de escritura que sostienen una obra.',
+          href: '/cuaderno/'
         },
         {
-          key: 'manecillas-press', tone: 'blue', eyebrow: 'Autor · Prensa', title: 'David Porto Díaz',
+          key: 'manecillas-author', eyebrow: 'Autor', title: 'David Porto Díaz',
           meta: 'Biografía · materiales · contacto', text: 'Trayectoria, fotografías y recursos para lectores, librerías y medios.',
           href: '/prensa.html'
         }

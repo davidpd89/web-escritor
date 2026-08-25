@@ -44,20 +44,19 @@ html.v1 .explore-dialog[open]{transform:translateX(0)}
 @starting-style{html.v1 .explore-dialog[open]{transform:translateX(-100%)}}
 
 /* Home masthead + territory row behave as one persistent editorial header. */
-html.v1[data-lrb-home="true"] .masthead-sticky{position:sticky;top:var(--dp-lrb-utility-h);z-index:calc(var(--z-header) + 1);background:var(--surface-page);border-bottom:1px solid var(--color-border);transition:background var(--motion-state) var(--ease-standard)}
-html.v1[data-lrb-home="true"] .masthead-sticky__inner{background:var(--surface-page);transform:translateY(0);opacity:1;transition:transform 240ms var(--ease-standard),opacity 150ms var(--ease-standard)}
-html.v1[data-lrb-home="true"].lrb-compact .masthead-sticky{background:transparent;border-bottom-color:transparent;pointer-events:none}
-html.v1[data-lrb-home="true"].lrb-compact .masthead-sticky__inner{transform:translateY(calc(-100% - var(--dp-lrb-utility-h)));opacity:0}
+html.v1[data-lrb-home="true"] .masthead-sticky{position:sticky;top:var(--dp-lrb-utility-h);z-index:calc(var(--z-header) + 1);background:var(--surface-page);border-bottom:1px solid var(--color-border);opacity:1;visibility:visible;transition:background 420ms var(--ease-standard),border-color 420ms var(--ease-standard),opacity 380ms var(--ease-standard),visibility 0s linear 0s}
+html.v1[data-lrb-home="true"] .masthead-sticky__inner{background:var(--surface-page);transform:translateY(0);opacity:1;transition:transform 520ms var(--ease-standard),opacity 420ms var(--ease-standard)}
+html.v1[data-lrb-home="true"].lrb-compact .masthead-sticky{background:transparent;border-bottom-color:transparent;opacity:0;visibility:hidden;pointer-events:none;transition-delay:0s,0s,80ms,520ms}
+html.v1[data-lrb-home="true"].lrb-compact .masthead-sticky__inner{transform:translateY(calc(-100% - .6rem));opacity:0}
 
 /* Central supplied brand image. Text remains an accessible/failure fallback.
-   The real asset (assets/london-david-porto-logo-central.png) is a two-line
-   stacked wordmark, ratio ~1.91:1 -- not the single-line lockup the first
-   pass assumed, so it needs real height, not an 86px cap. */
+   The preferred asset is transparent lettering over the paper layer, so the
+   surface remains warm and the text keeps a clean LRB-like presence. */
 html.v1[data-lrb-home="true"] .masthead{padding:1.1rem var(--page-gutter) .5rem;gap:.1rem}
-html.v1[data-lrb-home="true"] .masthead__name{display:grid;place-items:center;min-height:210px;font-size:clamp(2.35rem,1.95rem + 2vw,4rem)}
+html.v1[data-lrb-home="true"] .masthead__name{display:grid;place-items:center;min-height:170px;font-size:clamp(2.35rem,1.95rem + 2vw,4rem)}
 html.v1[data-lrb-home="true"] .masthead__name-text{display:block}
 html.v1[data-lrb-home="true"] .masthead__name.has-logo-image .masthead__name-text{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
-html.v1[data-lrb-home="true"] .masthead__logo-image{display:block;width:min(46vw,420px);height:auto;margin:0 auto}
+html.v1[data-lrb-home="true"] .masthead__logo-image{display:block;width:min(70vw,760px);height:auto;margin:0 auto}
 html.v1[data-lrb-home="true"] .masthead__kicker{display:none}
 
 /* Tight editorial section row. The clickable area stays >=40px while labels read small. */
@@ -89,8 +88,8 @@ html.v1[data-lrb-home="true"] .masthead-nav__item:nth-last-child(-n+2)>.masthead
   html.v1 .site-header__inner,html.v1 .site-header[data-scrolled="true"] .site-header__inner{padding-block:0;min-height:var(--dp-lrb-utility-h)}
   html.v1[data-lrb-home="true"] .site-header__left .explore-trigger{display:inline-flex}
   html.v1[data-lrb-home="true"] .masthead-sticky{top:var(--dp-lrb-utility-h)}
-  html.v1[data-lrb-home="true"] .masthead__name{min-height:178px}
-  html.v1[data-lrb-home="true"] .masthead__logo-image{width:min(58vw,360px)}
+  html.v1[data-lrb-home="true"] .masthead__name{min-height:142px}
+  html.v1[data-lrb-home="true"] .masthead__logo-image{width:min(76vw,560px)}
   html.v1[data-lrb-home="true"] .masthead-nav__list{justify-content:center;flex-wrap:nowrap;overflow:visible;padding-inline:max(.15rem,var(--page-gutter))}
   html.v1[data-lrb-home="true"] .masthead-nav__item>a{font-size:.68rem;padding-inline:.16rem}
   html.v1[data-lrb-home="true"] .masthead-nav__submenu-trigger{width:14px}
@@ -101,8 +100,8 @@ html.v1[data-lrb-home="true"] .masthead-nav__item:nth-last-child(-n+2)>.masthead
   html.v1 .site-header__inner,html.v1 .site-header[data-scrolled="true"] .site-header__inner{min-height:var(--dp-lrb-utility-h);padding-top:max(0px,env(safe-area-inset-top));padding-bottom:0}
   html.v1 .header-buy{font-size:.68rem;padding-inline:.55rem}
   html.v1[data-lrb-home="true"] .masthead{padding:.85rem var(--page-gutter) .6rem}
-  html.v1[data-lrb-home="true"] .masthead__name{min-height:150px}
-  html.v1[data-lrb-home="true"] .masthead__logo-image{width:min(78vw,300px)}
+  html.v1[data-lrb-home="true"] .masthead__name{min-height:105px}
+  html.v1[data-lrb-home="true"] .masthead__logo-image{width:min(88vw,350px)}
   /* Five territory labels are intentionally removed on phone; hamburger/Explore owns global navigation. */
   html.v1[data-lrb-home="true"] .masthead-nav{display:none}
 }

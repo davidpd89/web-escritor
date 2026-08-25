@@ -24,12 +24,12 @@
 /* 1. Utility bar = the clean white top sheet. The small shadow is what
    visually separates it from the warmer editorial layer below. */
 html.v1 .site-header{
-  background:var(--dp-editorial-white);
+  background:linear-gradient(180deg,#ffffff 0%,var(--dp-editorial-white) 72%,#f7f4ee 100%);
   border-bottom-color:var(--dp-editorial-rule-soft);
   box-shadow:0 1px 0 rgba(23,20,18,.08),0 5px 16px rgba(23,20,18,.045);
 }
 html.v1 .site-header[data-scrolled="true"]{
-  background:var(--dp-editorial-white);
+  background:linear-gradient(180deg,#ffffff 0%,#fffefa 100%);
   border-bottom-color:var(--dp-editorial-rule-soft);
 }
 
@@ -37,13 +37,13 @@ html.v1 .site-header[data-scrolled="true"]{
    "white / shadow / cream" stack visible in the reference instead of one
    uninterrupted white plane. */
 html.v1[data-lrb-home="true"] .masthead-sticky{
-  background:var(--dp-editorial-paper);
+  background:linear-gradient(180deg,var(--dp-editorial-paper-soft) 0%,var(--dp-editorial-paper) 64%,var(--dp-editorial-paper-mid) 100%);
   border-bottom-color:var(--dp-editorial-rule-soft);
   box-shadow:var(--dp-editorial-shadow);
 }
 html.v1[data-lrb-home="true"] .masthead-sticky__inner,
 html.v1[data-lrb-home="true"] .masthead{
-  background:var(--dp-editorial-paper);
+  background:linear-gradient(180deg,var(--dp-editorial-paper-soft) 0%,var(--dp-editorial-paper) 100%);
 }
 html.v1[data-lrb-home="true"] .masthead-nav{
   background:var(--dp-editorial-paper-mid);
@@ -76,8 +76,8 @@ html.v1[data-lrb-home="true"] .river-grid{
   padding:clamp(1.6rem,2.8vw,3rem) max(var(--page-gutter),calc((100vw - var(--layout-max))/2));
   grid-template-columns:repeat(3,minmax(0,1fr));
   grid-template-areas:"lead samuel premios" "antologia blog feria";
-  column-gap:clamp(1.05rem,2vw,2.25rem);
-  row-gap:0;
+  column-gap:clamp(.7rem,1.35vw,1.35rem);
+  row-gap:clamp(.7rem,1.25vw,1.2rem);
   border:0;
   background:linear-gradient(180deg,var(--dp-editorial-field) 0%,#ebe7de 58%,var(--dp-editorial-field) 100%);
   box-shadow:inset 0 1px 0 rgba(23,20,18,.10),inset 0 -1px 0 rgba(23,20,18,.10);
@@ -87,21 +87,19 @@ html.v1[data-lrb-home="true"] .river-cell{
   min-width:0;
   padding:var(--dp-river-cell-y) var(--dp-river-cell-x);
   background:var(--dp-editorial-paper-soft);
-  border:0;
-  border-right:1px solid var(--dp-editorial-rule);
-  border-bottom:1px solid var(--dp-editorial-rule);
-  box-shadow:inset 0 1px 0 rgba(255,255,255,.55);
+  border:1px solid var(--dp-editorial-rule);
+  box-shadow:0 1px 0 rgba(23,20,18,.08),inset 0 1px 0 rgba(255,255,255,.55);
 }
 
 /* Top row / bottom row rule map. */
 html.v1[data-lrb-home="true"] .river-cell--premios,
 html.v1[data-lrb-home="true"] .river-cell--feria{
-  border-right:0;
+  border-right:1px solid var(--dp-editorial-rule);
 }
 html.v1[data-lrb-home="true"] .river-cell--antologia,
 html.v1[data-lrb-home="true"] .river-cell--blog,
 html.v1[data-lrb-home="true"] .river-cell--feria{
-  border-bottom:0;
+  border-bottom:1px solid var(--dp-editorial-rule);
 }
 
 /* A subtle change in the middle cell prevents the whole river reading as
