@@ -286,7 +286,9 @@ def ensure_registry(registry_raw: dict) -> dict[str, Entry]:
 
 def link(entry: Entry, current_family: str | None) -> str:
     aria = ' aria-current="page"' if entry.item_id == current_family else ""
-    return f'<a href="{entry.url}"{aria}>{entry.short_label}</a>'
+    external = entry.url.startswith(("http://", "https://"))
+    attrs = ' target="_blank" rel="noopener noreferrer"' if external else ""
+    return f'<a href="{entry.url}"{aria}{attrs}>{entry.short_label}</a>'
 
 
 def render_header(nav: dict, by_id: dict[str, Entry], current_path: str) -> str:
@@ -430,7 +432,6 @@ def render_footer(nav: dict, by_id: dict[str, Entry], extras: dict, rel_path: st
         '      <div>\n'
         '        <strong class="brand__name">David Porto Díaz</strong>\n'
         '        <p>Autor de Las manecillas del recuerdo y Samuel entre mundos.</p>\n'
-        '        <button class="site-footer__subscribe" type="button" data-explore-open>Recibir novedades</button>\n'
         f'        {SOCIAL_ROW}\n'
         '      </div>'
     ]

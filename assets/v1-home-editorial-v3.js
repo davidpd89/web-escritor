@@ -145,7 +145,11 @@
     copy.prepend(eyebrow, title, deck);
     inner.append(copy);
     section.append(media, inner);
-    loadFirstImage(media, bannerAssets[config.key], { eager: config.key === 'manecillas' });
+    if (config.cssBackground) {
+      section.classList.add('feature-banner--final-asset');
+    } else {
+      loadFirstImage(media, bannerAssets[config.key], { eager: config.key === 'manecillas' });
+    }
     return section;
   }
 
@@ -160,7 +164,7 @@
       media.tabIndex = -1;
       const image = new Image();
       image.src = config.media;
-      image.alt = '';
+      image.alt = config.title || '';
       image.loading = config.loading || 'eager';
       image.decoding = 'async';
       media.append(image);
@@ -452,7 +456,7 @@
         {
           key: 'manecillas-author', tone: 'blue', eyebrow: 'Autor', title: 'David Porto Díaz',
           meta: 'Biografía · materiales · contacto', text: 'Trayectoria, fotografías y recursos para lectores, librerías y medios.',
-          href: '/prensa.html'
+          href: '/autor.html'
         },
         {
           type: 'action', key: 'manecillas-buy', eyebrow: 'Comprar', title: 'Comprar en Amazon',
@@ -521,7 +525,8 @@
       title: 'La memoria de las tierras del norte',
       deck: '',
       href: 'https://www.diversidadliteraria.com/la-memoria-de-las-tierras-del-norte',
-      cta: 'Conocer la novela →'
+      cta: 'Conocer la novela →',
+      cssBackground: true
     }));
 
     flow.append(createBanner({
@@ -539,7 +544,7 @@
       title: 'Herramientas gratuitas',
       allHref: '/herramientas/',
       allLabel: 'Ver todas →',
-      layout: 'tools-four',
+      layout: 'tools-three',
       cards: [
         {
           key: 'tools-hub', eyebrow: 'Hub', title: 'Revisa tu texto con herramientas concretas',
@@ -548,15 +553,11 @@
         },
         {
           key: 'tools-beta', tone: 'blue', eyebrow: 'Lectores beta', title: 'Tengo un manuscrito y me gustarían opiniones de lectores beta',
-          meta: 'Comunidad', text: 'Un acceso para autores que quieren preparar una lectura beta de su manuscrito.', href: '/lectores-beta/'
+          meta: 'Comunidad', text: 'Un acceso para autores que quieren preparar una lectura beta de su manuscrito.', href: '/lectores-beta/index.html'
         },
         {
           key: 'tools-manuscript', eyebrow: 'Manuscrito', title: 'Analizador de manuscrito',
           meta: 'Diagnóstico rápido', text: 'Comprueba señales útiles antes de una revisión más profunda.', href: '/herramientas/manuscrito/'
-        },
-        {
-          key: 'tools-repetition', eyebrow: 'Estilo', title: 'Repeticiones y diálogo',
-          meta: 'Dos comprobaciones frecuentes', text: 'Localiza repeticiones y revisa el equilibrio de diálogo desde la propia web.', href: '/herramientas/repeticiones/'
         }
       ]
     }));

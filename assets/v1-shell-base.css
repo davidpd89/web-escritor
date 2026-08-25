@@ -69,8 +69,6 @@ html.v1 .site-footer nav{display:grid;align-content:start;gap:.55rem}
 html.v1 .site-footer h2{font-family:var(--font-ui);font-size:.72rem;text-transform:uppercase;letter-spacing:.08em;margin:0 0 .5rem}
 html.v1 .site-footer a{font-size:.88rem;text-decoration:none;min-height:32px}
 html.v1 .site-footer a:hover,html.v1 .site-footer a:focus-visible{text-decoration:underline}
-html.v1 .site-footer__subscribe{appearance:none;display:inline-flex;align-items:center;min-height:32px;margin:.35rem 0 .25rem;padding:0;border:0;border-bottom:1px solid currentColor;background:transparent;color:var(--color-text);font:600 .82rem/1.2 var(--font-ui);cursor:pointer}
-html.v1 .site-footer__subscribe:hover,html.v1 .site-footer__subscribe:focus-visible{color:var(--color-accent)}
 /* Social profiles. Lives here rather than in v1-families.css because the
    footer row is part of the shell every V1 page loads, while families is
    only on 22 of them. Footer margin is a rule, not an inline style: 28
