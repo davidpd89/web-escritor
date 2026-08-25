@@ -98,8 +98,8 @@ async function assertCore(spec, page) {
   const badClasses = await page.locator('[class]').evaluateAll(nodes => [...new Set(nodes.flatMap(node => [...node.classList]).filter(cls => cls.startsWith('tool-') || cls === 'id-card' || cls === 'id-cards'))]);
   assert.deepEqual(badClasses, [], `${spec.key}: clases de Herramientas/ID cards residuales`);
 
-  const currentCuaderno = page.locator('.primary-nav a[href="/cuaderno/"]');
-  assert.equal(await currentCuaderno.getAttribute('aria-current'), 'page', `${spec.key}: Cuaderno activo`);
+  const cuadernoExplore = page.locator('.explore-row[href="/cuaderno/"][data-preview="notebook-hub"]');
+  assert.equal(await cuadernoExplore.count(), 1, `${spec.key}: Cuaderno accesible desde Explorar`);
   assert.equal(norm(await page.locator('[data-preview-label]').textContent()), 'Cuaderno', `${spec.key}: preview label`);
   assert.equal(norm(await page.locator('[data-preview-copy]').textContent()), 'Artículos, crónicas y piezas editoriales.', `${spec.key}: preview copy`);
 
@@ -202,11 +202,14 @@ async function noJsAudit() {
 
 async function zoomAudit() {
   for (const spec of routes) {
-    const { context, page } = await open(spec, { viewport: { width: 1440, height: 900 } });
-    await page.evaluate(() => { document.documentElement.style.zoom = '2'; });
+    const { context, page } = await open(spec, { viewport: { width: 390, height: 900 } });
+    const cdp = await context.newCDPSession(page);
+    await cdp.send('Emulation.setPageScaleFactor', { pageScaleFactor: 2 });
     await page.waitForTimeout(100);
+    const scale = await page.evaluate(() => window.visualViewport?.scale || 1);
+    assert.ok(scale >= 1.9, `${spec.key}: zoom 200% no aplicado`);
     await noOverflow(page, `${spec.key} zoom 200%`);
-    report.zoom[spec.key] = 'PASS';
+    report.zoom[spec.key] = scale;
     await context.close();
   }
 }

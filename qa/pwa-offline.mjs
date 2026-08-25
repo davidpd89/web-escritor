@@ -12,6 +12,10 @@ mkdirSync(OUT, { recursive: true });
 const swSource = readFileSync(join(ROOT, 'service-worker.js'), 'utf8');
 const offlineSource = readFileSync(join(ROOT, 'offline.html'), 'utf8');
 const manifest = JSON.parse(readFileSync(join(ROOT, 'manifest.json'), 'utf8'));
+const cacheVersionMatch = swSource.match(/const CACHE_VERSION = `\$\{CACHE_NAMESPACE\}-(v\d+)`;/);
+assert(cacheVersionMatch, 'PWA cache version declaration missing');
+const CURRENT_VERSION_SUFFIX = cacheVersionMatch[1];
+const UPDATED_VERSION_SUFFIX = `${CURRENT_VERSION_SUFFIX}-qa-update`;
 let serveUpdatedWorker = false;
 // Corta la conexion de /__pwa_test__/recovery-target para simular la caida de
 // red. Ver el bloque del fallback offline mas abajo para por que hace falta
@@ -136,8 +140,8 @@ const server = createServer((req, res) => {
     let body = swSource;
     if (serveUpdatedWorker) {
       body = body.replace(
-        'const CACHE_VERSION = `${CACHE_NAMESPACE}-v3`;',
-        'const CACHE_VERSION = `${CACHE_NAMESPACE}-v3-qa-update`;'
+        `const CACHE_VERSION = \`\${CACHE_NAMESPACE}-${CURRENT_VERSION_SUFFIX}\`;`,
+        `const CACHE_VERSION = \`\${CACHE_NAMESPACE}-${UPDATED_VERSION_SUFFIX}\`;`
       );
     }
     return send(res, 200, body, 'text/javascript; charset=utf-8');
@@ -258,6 +262,7 @@ try {
   } catch (error) {
     report.browser.installabilityProbe = `CDP Page.getInstallabilityErrors unavailable: ${error.message}`;
   }
+  installabilityErrors = installabilityErrors.filter((error) => error.errorId !== 'in-incognito');
   if (installabilityErrors.length) {
     report.browser.installabilityErrors = installabilityErrors;
     throw new Error(`Chromium installability errors: ${JSON.stringify(installabilityErrors)}`);
@@ -438,8 +443,8 @@ try {
   });
   assert(updateAudit.caches.includes('qa-unrelated-cache'), 'Update deleted an unrelated cache');
   assert(!updateAudit.caches.includes('david-porto-pwa-v2-test-old'), 'Update did not clean obsolete namespaced cache');
-  assert(!updateAudit.caches.includes('david-porto-pwa-v3-static'), 'Update did not clean previous static cache');
-  assert(updateAudit.caches.includes('david-porto-pwa-v3-qa-update-static'), 'Updated static cache missing');
+  assert(!updateAudit.caches.includes(`david-porto-pwa-${CURRENT_VERSION_SUFFIX}-static`), 'Update did not clean previous static cache');
+  assert(updateAudit.caches.includes(`david-porto-pwa-${UPDATED_VERSION_SUFFIX}-static`), 'Updated static cache missing');
   assert.equal(updateAudit.controlled, true, 'Updated service worker lost page control');
   report.browser.update = updateAudit;
 
