@@ -1,0 +1,208 @@
+/* Sitewide editorial cohesion V6.
+   Home remains the visual reference. Interior families keep their own
+   compositions, but share the same paper stack, hairlines, controls and
+   tonal hierarchy so navigation never feels like a jump to another site. */
+
+/* The LRB material layer is already loaded by v1-shell.css and owns these
+   tokens. Interiors opt into the same near-white paper instead of the older
+   pure-white plane. Home is explicitly excluded because its V3 flow already
+   has its own approved art-directed surfaces. */
+html.v1:not([data-lrb-home="true"]){
+  --surface-page:var(--dp-editorial-paper-soft);
+  --surface-quiet:var(--dp-editorial-paper-mid);
+  --color-border:var(--dp-editorial-rule);
+  background:var(--dp-editorial-paper-soft);
+}
+html.v1:not([data-lrb-home="true"]) body{
+  background:
+    linear-gradient(180deg,var(--dp-editorial-white) 0,var(--dp-editorial-paper-soft) 11rem,var(--dp-editorial-paper) 100%);
+}
+html.v1:not([data-lrb-home="true"]) :is(.v1-main,.editorial-page,.book-page,.samuel-page){
+  background:transparent;
+}
+
+/* Shared document rhythm. Families retain their grids/ledgers; only the
+   material, rule weight and vertical transitions are unified. */
+html.v1:not([data-lrb-home="true"]) :is(
+  .v1-masthead,.cuaderno-masthead,.article-header,.book-hero,.book-dedication,
+  .book-section,.book-related,.book-newsletter,.samuel-threshold,.samuel-section,
+  .v1-section,.editorial-continuity,.editorial-newsletter
+){
+  border-color:var(--dp-editorial-rule);
+}
+html.v1:not([data-lrb-home="true"]) :is(.v1-masthead,.cuaderno-masthead,.article-header){
+  position:relative;
+}
+html.v1:not([data-lrb-home="true"]) :is(.v1-masthead,.cuaderno-masthead,.article-header)::after{
+  content:"";
+  position:absolute;
+  left:0;
+  right:0;
+  bottom:-1px;
+  height:1px;
+  background:linear-gradient(90deg,var(--dp-editorial-rule),var(--dp-editorial-rule-soft) 72%,transparent);
+  pointer-events:none;
+}
+html.v1:not([data-lrb-home="true"]) :is(.book-breadcrumb,.editorial-breadcrumb){
+  color:color-mix(in srgb,var(--color-text) 56%,var(--dp-editorial-paper));
+}
+html.v1:not([data-lrb-home="true"]) .eyebrow,
+html.v1:not([data-lrb-home="true"]) :is(.folio,.coordinate){
+  color:color-mix(in srgb,var(--color-text) 58%,var(--dp-editorial-paper));
+}
+
+/* Controls should look identical whether they appear in a book, an article,
+   the beta page or a tool. No new pill language and no floating card shadow. */
+html.v1:not([data-lrb-home="true"]) :is(.form-input,input[type="search"],select,textarea){
+  background:var(--dp-editorial-white);
+  border-color:var(--dp-editorial-rule);
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.72);
+}
+html.v1:not([data-lrb-home="true"]) :is(.primary-action,.form-submit,.button.primary){
+  border-radius:var(--radius-control);
+  box-shadow:0 1px 0 rgba(23,20,18,.08);
+}
+html.v1:not([data-lrb-home="true"]) :is(.text-action,.ledger__action){
+  text-decoration-color:color-mix(in srgb,var(--dp-editorial-blue-ink) 52%,var(--color-accent));
+}
+
+/* Tool cards are the one family where separate cards are semantically useful.
+   Keep that grid, but make the surfaces read like pages from the same issue. */
+html.v1:not([data-lrb-home="true"]) [data-family="tools-hub"] .id-card{
+  background:linear-gradient(180deg,var(--dp-editorial-white),var(--dp-editorial-paper-soft));
+  border-color:var(--dp-editorial-rule);
+  box-shadow:0 1px 0 rgba(23,20,18,.055),inset 0 1px 0 rgba(255,255,255,.6);
+}
+html.v1:not([data-lrb-home="true"]) [data-family="tools-hub"] .tool-finder{
+  margin-top:clamp(1.5rem,3vw,2.5rem);
+  padding:clamp(1.25rem,2.4vw,1.8rem) 0;
+  border-top:1px solid var(--dp-editorial-rule);
+  border-bottom:1px solid var(--dp-editorial-rule);
+  background:linear-gradient(90deg,transparent,var(--dp-editorial-paper-mid) 8%,var(--dp-editorial-paper-mid) 92%,transparent);
+}
+
+/* Context strips and footer use the same slightly deeper sheet seen below the
+   Home masthead. This is the strongest cross-page continuity cue. */
+html.v1:not([data-lrb-home="true"]) .section-context{
+  background:color-mix(in srgb,var(--dp-editorial-paper-mid) 92%,var(--dp-editorial-white));
+  border-color:var(--dp-editorial-rule-soft);
+  box-shadow:0 1px 0 rgba(23,20,18,.055),0 5px 14px rgba(23,20,18,.035);
+}
+html.v1 .site-footer{
+  border-top-color:var(--dp-editorial-rule);
+  background:linear-gradient(180deg,var(--dp-editorial-paper-mid),var(--dp-editorial-field));
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.4);
+}
+html.v1 .site-footer :is(.footer-legal,.social-icon){
+  border-color:var(--dp-editorial-rule);
+}
+
+/* New destinations introduced by the navigation closure. They deliberately
+   use ledgers/hairlines, not a new card system. */
+html.v1 .editorial-anchor-target{
+  display:block;
+  height:0;
+  scroll-margin-top:9rem;
+}
+html.v1 .beta-author-panel{
+  scroll-margin-top:9rem;
+  margin-top:clamp(4rem,7vw,6rem);
+  padding:clamp(2rem,4vw,3.5rem);
+  border-top:1px solid var(--dp-editorial-rule);
+  border-bottom:1px solid var(--dp-editorial-rule);
+  background:linear-gradient(145deg,var(--dp-editorial-blue) 0%,color-mix(in srgb,var(--dp-editorial-blue) 54%,var(--dp-editorial-paper-soft)) 100%);
+}
+html.v1 .beta-author-panel h2{
+  margin:.55rem 0 1rem;
+  max-width:18ch;
+  font:400 clamp(2rem,4vw,3.5rem)/1 var(--font-display);
+  letter-spacing:-.022em;
+  color:var(--dp-editorial-blue-ink);
+}
+html.v1 .beta-author-panel>p:not(.eyebrow){
+  max-width:66ch;
+  font-family:var(--font-reading);
+  line-height:1.65;
+}
+html.v1 .beta-author-ledger{
+  list-style:none;
+  margin:clamp(1.75rem,3vw,2.5rem) 0 0;
+  padding:0;
+  border-top:1px solid color-mix(in srgb,var(--dp-editorial-blue-ink) 30%,transparent);
+}
+html.v1 .beta-author-ledger li{
+  display:grid;
+  grid-template-columns:3rem minmax(0,1fr);
+  gap:1rem;
+  padding:1.15rem 0;
+  border-bottom:1px solid color-mix(in srgb,var(--dp-editorial-blue-ink) 25%,transparent);
+}
+html.v1 .beta-author-ledger li>span{
+  font:600 .72rem/1.3 var(--font-ui);
+  color:var(--dp-editorial-blue-muted);
+}
+html.v1 .beta-author-ledger strong{
+  font-family:var(--font-display);
+  font-size:1.2rem;
+  font-weight:500;
+  color:var(--dp-editorial-blue-ink);
+}
+html.v1 .beta-author-ledger p{margin:.35rem 0 0;line-height:1.5}
+html.v1 .beta-author-panel__actions{
+  display:flex;
+  flex-wrap:wrap;
+  align-items:center;
+  gap:1rem 1.4rem;
+  margin-top:1.6rem;
+}
+
+html.v1 .work-record{
+  scroll-margin-top:9rem;
+  position:relative;
+  background:linear-gradient(90deg,transparent 0,var(--dp-editorial-paper-soft) 9%,var(--dp-editorial-paper-soft) 91%,transparent 100%);
+}
+html.v1 .work-record::before{
+  content:"";
+  position:absolute;
+  left:0;
+  top:clamp(3.5rem,7vw,7rem);
+  width:2px;
+  height:clamp(3.5rem,8vw,6rem);
+  background:var(--dp-editorial-blue-ink);
+}
+html.v1 .work-record__body{
+  max-width:68ch;
+  margin-left:min(35%,22rem);
+  font-family:var(--font-reading);
+  font-size:clamp(1.05rem,1rem + .2vw,1.22rem);
+  line-height:1.68;
+}
+html.v1 .work-record__actions{
+  display:flex;
+  flex-wrap:wrap;
+  gap:1rem 1.4rem;
+  align-items:center;
+  margin-top:1.5rem;
+}
+
+@media(max-width:900px){
+  html.v1 .work-record__body{margin-left:0}
+}
+@media(max-width:600px){
+  html.v1 .beta-author-panel{padding:1.4rem 1.1rem}
+  html.v1 .beta-author-panel__actions,
+  html.v1 .work-record__actions{display:grid;grid-template-columns:1fr;align-items:stretch}
+  html.v1 .beta-author-panel__actions .primary-action,
+  html.v1 .work-record__actions .primary-action{width:100%}
+}
+
+@media print{
+  html.v1:not([data-lrb-home="true"]),
+  html.v1:not([data-lrb-home="true"]) body,
+  html.v1 .site-footer,
+  html.v1 .beta-author-panel,
+  html.v1 .work-record{
+    background:#fff!important;
+    box-shadow:none!important;
+  }
+}

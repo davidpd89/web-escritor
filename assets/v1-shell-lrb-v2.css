@@ -90,9 +90,10 @@ html.v1[data-lrb-home="true"] .masthead-nav__item:nth-last-child(-n+2)>.masthead
   html.v1[data-lrb-home="true"] .masthead-sticky{top:var(--dp-lrb-utility-h)}
   html.v1[data-lrb-home="true"] .masthead__name{min-height:142px}
   html.v1[data-lrb-home="true"] .masthead__logo-image{width:min(76vw,560px)}
-  html.v1[data-lrb-home="true"] .masthead-nav__list{justify-content:center;flex-wrap:nowrap;overflow:visible;padding-inline:max(.15rem,var(--page-gutter))}
-  html.v1[data-lrb-home="true"] .masthead-nav__item>a{font-size:.68rem;padding-inline:.16rem}
-  html.v1[data-lrb-home="true"] .masthead-nav__submenu-trigger{width:14px}
+  /* Below desktop width the full territory row becomes fragile once a user
+     increases text spacing. The hamburger/Explore drawer is the canonical
+     navigation for this range and avoids clipped dropdowns. */
+  html.v1[data-lrb-home="true"] .masthead-nav{display:none}
 }
 
 @media (max-width:639px){
@@ -102,8 +103,7 @@ html.v1[data-lrb-home="true"] .masthead-nav__item:nth-last-child(-n+2)>.masthead
   html.v1[data-lrb-home="true"] .masthead{padding:.85rem var(--page-gutter) .6rem}
   html.v1[data-lrb-home="true"] .masthead__name{min-height:105px}
   html.v1[data-lrb-home="true"] .masthead__logo-image{width:min(88vw,350px)}
-  /* Five territory labels are intentionally removed on phone; hamburger/Explore owns global navigation. */
-  html.v1[data-lrb-home="true"] .masthead-nav{display:none}
+  /* The territory labels are intentionally removed on phone; hamburger/Explore owns global navigation. */
 }
 
 @media (prefers-reduced-motion:reduce){

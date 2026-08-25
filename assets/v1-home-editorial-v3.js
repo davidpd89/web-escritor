@@ -40,6 +40,10 @@
     tools: 'webp'
   };
   const SAMUEL_AMAZON_URL = 'https://www.amazon.es/dp/B0GB6LGQFH?tag=davidporto-21';
+  // PREPUBLICACIÓN: Manecillas reutiliza provisionalmente el destino de Samuel
+  // hasta que editorial-facts.json tenga purchaseUrl real. Mantener una constante
+  // distinta evita que el placeholder parezca una relación semántica entre obras.
+  const MANECILLAS_BUY_URL = SAMUEL_AMAZON_URL;
   const AUTHOR_EMAIL_URL = 'mailto:davidportodiaz@gmail.com?subject=Te%20leo%20%E2%80%94%20David%20Porto%20D%C3%ADaz';
 
   const arrowSvg = `
@@ -434,7 +438,7 @@
       eyebrow: 'Lanzamiento · 3 septiembre 2026',
       title: 'Las manecillas del recuerdo',
       deck: 'Una novela coral de vidas conectadas por un reloj que cambia de significado en cada mano.',
-      href: SAMUEL_AMAZON_URL,
+      href: MANECILLAS_BUY_URL,
       cta: 'Comprar en Amazon',
       imageOnly: true
     }));
@@ -460,15 +464,12 @@
         },
         {
           type: 'action', key: 'manecillas-buy', eyebrow: 'Comprar', title: 'Comprar en Amazon',
-          href: SAMUEL_AMAZON_URL
+          href: MANECILLAS_BUY_URL
         },
         {
           type: 'action', key: 'manecillas-beta', eyebrow: 'Comunidad', title: 'Lectores beta',
           text: 'Sé el primero en leer contenido y opina antes de que llegue a todos.',
-          href: '/lectores-beta/',
-          form: true,
-          newsletterSource: 'lectores-beta',
-          formCta: 'Unirme'
+          href: '/lectores-beta/#quiero-ser-lector'
         },
         {
           type: 'action', key: 'manecillas-email', eyebrow: 'Te leo', title: 'Escríbeme',
@@ -524,8 +525,8 @@
       eyebrow: 'Antología',
       title: 'La memoria de las tierras del norte',
       deck: '',
-      href: 'https://www.diversidadliteraria.com/la-memoria-de-las-tierras-del-norte',
-      cta: 'Conocer la novela →',
+      href: '/libros/#memoria-tierras-norte',
+      cta: 'Conocer la obra →',
       cssBackground: true
     }));
 
@@ -553,7 +554,7 @@
         },
         {
           key: 'tools-beta', tone: 'blue', eyebrow: 'Lectores beta', title: 'Tengo un manuscrito y me gustarían opiniones de lectores beta',
-          meta: 'Comunidad', text: 'Un acceso para autores que quieren preparar una lectura beta de su manuscrito.', href: '/lectores-beta/index.html'
+          meta: 'Para autores', text: 'Cómo iniciar una valoración beta y qué información enviar antes de compartir el manuscrito.', href: '/lectores-beta/#enviar-manuscrito'
         },
         {
           key: 'tools-manuscript', eyebrow: 'Manuscrito', title: 'Analizador de manuscrito',
@@ -584,4 +585,3 @@
     buildFlow();
   }
 })();
-

@@ -7,6 +7,11 @@
   const root = document.documentElement;
   if (!root.classList.contains('v1')) return;
 
+  const MEMORIA_EXTERNAL_URL = 'https://www.diversidadliteraria.com/la-memoria-de-las-tierras-del-norte';
+  const MEMORIA_INTERNAL_URL = '/libros/#memoria-tierras-norte';
+  const BETA_READER_URL = '/lectores-beta/#quiero-ser-lector';
+  const BETA_MANUSCRIPT_URL = '/lectores-beta/#enviar-manuscrito';
+
   const normalise = (value) => {
     const url = new URL(value, location.origin);
     let path = url.pathname.replace(/\/index\.html$/, '/');
@@ -71,10 +76,11 @@
     },
     {
       key: 'autor', label: 'Autor', home: '/autor.html',
-      matches: (path) => path === '/autor.html' || path === '/premios.html',
+      matches: (path) => path === '/autor.html' || path === '/premios.html' || path.startsWith('/lectores-beta/'),
       links: [
         ['/autor.html', 'Autor'],
         ['/premios.html', 'Premios'],
+        ['/lectores-beta/', 'Lectores beta'],
         ['/eventos.html', 'Eventos'],
         ['/prensa.html', 'Prensa']
       ]
@@ -148,6 +154,189 @@
     });
   }
 
+  function makeExploreRow({ href, label, copy, preview }) {
+    const link = document.createElement('a');
+    link.className = 'explore-row';
+    link.href = href;
+    link.dataset.preview = preview;
+    link.dataset.betaExplore = preview;
+
+    const index = document.createElement('span');
+    index.className = 'explore-row__index';
+    const body = document.createElement('span');
+    body.className = 'explore-row__body';
+    const strong = document.createElement('strong');
+    strong.textContent = label;
+    const small = document.createElement('small');
+    small.textContent = copy;
+    body.append(strong, small);
+    link.append(index, body);
+    return link;
+  }
+
+  function ensureBetaExploreRows() {
+    const dialog = document.querySelector('[data-explore-dialog]');
+    const list = dialog?.querySelector('.explore-list');
+    if (!dialog || !list || list.querySelector('[data-beta-explore]')) return;
+
+    const rows = [
+      makeExploreRow({
+        href: BETA_READER_URL,
+        label: 'Quiero ser lector beta',
+        copy: 'Apúntate para recibir materiales sin publicar y compartir una opinión honesta.',
+        preview: 'lectores-beta'
+      }),
+      makeExploreRow({
+        href: BETA_MANUSCRIPT_URL,
+        label: 'Quiero enviar mi manuscrito',
+        copy: 'Información para autores que quieren consultar una valoración beta antes de compartir el archivo.',
+        preview: 'lectores-beta-manuscrito'
+      })
+    ];
+    rows.forEach((row) => { row.dataset.betaExplore = row.dataset.preview; });
+    const assistant = list.querySelector('[data-assistant-menu-link]');
+    rows.forEach((row) => list.insertBefore(row, assistant || null));
+    [...list.querySelectorAll('.explore-row__index')].forEach((index, position) => {
+      index.textContent = String(position + 1).padStart(2, '0');
+    });
+
+    const labelNode = dialog.querySelector('[data-preview-label]');
+    const copyNode = dialog.querySelector('[data-preview-copy]');
+    const media = dialog.querySelector('[data-preview-media]');
+    const previews = {
+      'lectores-beta': ['Lectores beta', 'Lee material sin publicar y comparte una opinión honesta en una lista separada de la newsletter.'],
+      'lectores-beta-manuscrito': ['Enviar manuscrito', 'Consulta disponibilidad y condiciones antes de compartir un archivo para valoración beta.']
+    };
+    rows.forEach((row) => {
+      const show = () => {
+        const value = previews[row.dataset.preview];
+        if (!value) return;
+        if (labelNode) labelNode.textContent = value[0];
+        if (copyNode) copyNode.textContent = value[1];
+        if (media) media.dataset.preview = row.dataset.preview;
+      };
+      row.addEventListener('mouseenter', show);
+      row.addEventListener('focus', show);
+    });
+  }
+
+  function ensureHomeBetaNav() {
+    if (root.dataset.lrbHome !== 'true') return;
+    const nav = document.querySelector('.masthead-nav');
+    const list = nav?.querySelector('.masthead-nav__list');
+    if (!nav || !list || list.querySelector('[data-beta-masthead]')) return;
+
+    const item = document.createElement('li');
+    item.className = 'masthead-nav__item';
+    item.dataset.betaMasthead = 'true';
+    const submenuId = 'masthead-submenu-lectores-beta';
+    item.innerHTML = `
+      <a href="/lectores-beta/" data-territory="lectores-beta" aria-haspopup="true">Lectores beta</a>
+      <button type="button" class="masthead-nav__submenu-trigger" aria-label="Ver opciones de Lectores beta" aria-expanded="false" aria-controls="${submenuId}">
+        <svg aria-hidden="true" viewBox="0 0 16 16" focusable="false"><path d="m4 6 4 4 4-4"/></svg>
+      </button>
+      <div class="masthead-nav__submenu" id="${submenuId}" aria-label="Opciones de Lectores beta">
+        <a href="${BETA_READER_URL}">Quiero ser lector beta</a>
+        <a href="${BETA_MANUSCRIPT_URL}">Quiero enviar mi manuscrito</a>
+      </div>`;
+    list.append(item);
+
+    const trigger = item.querySelector('.masthead-nav__submenu-trigger');
+    trigger?.addEventListener('click', (event) => {
+      event.stopPropagation();
+      const willOpen = !item.classList.contains('is-open');
+      document.querySelectorAll('.masthead-nav__item.is-open').forEach((other) => {
+        if (other === item) return;
+        other.classList.remove('is-open');
+        other.querySelector('.masthead-nav__submenu-trigger')?.setAttribute('aria-expanded', 'false');
+      });
+      item.classList.toggle('is-open', willOpen);
+      trigger.setAttribute('aria-expanded', String(willOpen));
+    });
+    item.addEventListener('keydown', (event) => {
+      if (event.key !== 'Escape') return;
+      item.classList.remove('is-open');
+      trigger?.setAttribute('aria-expanded', 'false');
+      trigger?.focus({ preventScroll: true });
+    });
+  }
+
+  function normalizeMemoriaLinks(scope = document) {
+    scope.querySelectorAll?.(`a[href="${MEMORIA_EXTERNAL_URL}"]`).forEach((link) => {
+      if (link.hasAttribute('data-memoria-official-source')) return;
+      link.href = MEMORIA_INTERNAL_URL;
+      link.removeAttribute('target');
+      const rel = (link.getAttribute('rel') || '').split(/\s+/).filter(Boolean)
+        .filter((token) => !['noopener', 'noreferrer', 'sponsored', 'nofollow'].includes(token));
+      if (rel.length) link.setAttribute('rel', rel.join(' '));
+      else link.removeAttribute('rel');
+    });
+  }
+
+  function ensureMemoriaWorkRecord() {
+    if (currentPath !== '/libros/' || document.getElementById('memoria-tierras-norte')) return;
+    const main = document.querySelector('main');
+    if (!main) return;
+
+    const section = document.createElement('section');
+    section.className = 'v1-section work-record';
+    section.id = 'memoria-tierras-norte';
+    section.setAttribute('aria-labelledby', 'memoria-tierras-norte-title');
+    section.innerHTML = `
+      <div class="v1-section__head">
+        <p class="eyebrow">Obra · Antología</p>
+        <div>
+          <h2 id="memoria-tierras-norte-title">La memoria de las tierras del norte</h2>
+          <p>Antología de fantasía con relato de David Porto Díaz.</p>
+        </div>
+      </div>
+      <div class="work-record__body">
+        <div class="work-record__actions">
+          <a class="primary-action" href="${MEMORIA_EXTERNAL_URL}" target="_blank" rel="noopener noreferrer" data-memoria-official-source>Conocer la antología</a>
+          <a class="text-action" href="/libros/">Volver a todas las obras</a>
+        </div>
+      </div>`;
+    const noveris = main.querySelector('#noveris');
+    if (noveris) noveris.before(section);
+    else main.append(section);
+  }
+
+  function ensureBetaAuthorSection() {
+    if (currentPath !== '/lectores-beta/' || document.getElementById('enviar-manuscrito')) return;
+    const prose = document.querySelector('.article-prose');
+    const form = document.getElementById('lectores-beta-form');
+    if (!prose || !form) return;
+
+    const readerAnchor = document.createElement('span');
+    readerAnchor.id = 'quiero-ser-lector';
+    readerAnchor.className = 'editorial-anchor-target';
+    readerAnchor.setAttribute('aria-hidden', 'true');
+    form.before(readerAnchor);
+
+    const section = document.createElement('section');
+    section.className = 'beta-author-panel';
+    section.id = 'enviar-manuscrito';
+    section.setAttribute('aria-labelledby', 'enviar-manuscrito-title');
+    section.innerHTML = `
+      <p class="eyebrow">Para autores</p>
+      <h2 id="enviar-manuscrito-title">Quiero enviar mi manuscrito para una valoración beta</h2>
+      <p>Este acceso es distinto de apuntarse como lector beta. Si quieres consultar una lectura de tu manuscrito, escribe primero para confirmar disponibilidad, alcance, formato de devolución, plazos y condiciones antes de compartir ningún archivo.</p>
+      <ol class="beta-author-ledger">
+        <li><span>01</span><div><strong>Primer contacto</strong><p>Indica género, extensión aproximada, una sinopsis breve y qué tipo de feedback buscas.</p></div></li>
+        <li><span>02</span><div><strong>No envíes el archivo todavía</strong><p>El manuscrito se comparte únicamente después de confirmar que la valoración puede realizarse y cómo se gestionará.</p></div></li>
+        <li><span>03</span><div><strong>Condiciones claras antes de empezar</strong><p>La disponibilidad y cualquier condición concreta deben quedar acordadas antes de iniciar la lectura.</p></div></li>
+      </ol>
+      <div class="beta-author-panel__actions">
+        <a class="primary-action" href="mailto:davidportodiaz@gmail.com?subject=Consulta%20de%20valoraci%C3%B3n%20beta%20de%20manuscrito">Consultar valoración beta</a>
+        <a class="text-action" href="${BETA_READER_URL}">Quiero ser lector beta</a>
+      </div>`;
+    prose.append(section);
+
+    if (location.hash === '#enviar-manuscrito' || location.hash === '#quiero-ser-lector') {
+      requestAnimationFrame(() => document.querySelector(location.hash)?.scrollIntoView({ block: 'start' }));
+    }
+  }
+
   function auditBannerAsset(banner) {
     if (!(banner instanceof HTMLElement)) return;
     if (!banner.querySelector('.feature-banner__placeholder')) {
@@ -187,6 +376,7 @@
           if (!(node instanceof Element)) continue;
           if (node.matches?.('.feature-banner')) auditBannerAsset(node);
           node.querySelectorAll?.('.feature-banner').forEach(auditBannerAsset);
+          normalizeMemoriaLinks(node);
         }
       }
     });
@@ -195,6 +385,11 @@
   }
 
   function init() {
+    normalizeMemoriaLinks();
+    ensureMemoriaWorkRecord();
+    ensureBetaAuthorSection();
+    ensureBetaExploreRows();
+    ensureHomeBetaNav();
     buildContextNav();
     prepareMediaSlots();
   }
