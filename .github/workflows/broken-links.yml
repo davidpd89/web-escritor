@@ -45,8 +45,8 @@ jobs:
             --host-request-interval 250ms
             --max-concurrency 32
             --method get
-            --exclude-path './scripts/**'
-            --exclude-path './tests/**'
+            --exclude-path '(^|/)scripts/'
+            --exclude-path '(^|/)tests/'
             './**/*.html'
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
