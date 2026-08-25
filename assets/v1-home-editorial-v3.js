@@ -446,22 +446,27 @@
           href: '/las-manecillas-del-recuerdo/'
         },
         {
-          key: 'manecillas-author', eyebrow: 'Autor', title: 'David Porto Díaz',
+          key: 'manecillas-author', tone: 'blue', eyebrow: 'Autor', title: 'David Porto Díaz',
           meta: 'Biografía · materiales · contacto', text: 'Trayectoria, fotografías y recursos para lectores, librerías y medios.',
           href: '/prensa.html'
         },
         {
-          type: 'action', key: 'manecillas-buy', eyebrow: 'Comprar', title: 'Comprar en Amazon',
+          type: 'action', key: 'manecillas-buy', tone: 'sand', eyebrow: 'Comprar', title: 'Comprar en Amazon',
           href: SAMUEL_AMAZON_URL
         },
         {
-          type: 'action', key: 'manecillas-subscribe', eyebrow: 'Novedades', title: 'Suscribirte',
-          text: 'Deja tu email y recibe avisos de publicación, presentaciones y materiales nuevos.',
+          type: 'action', key: 'manecillas-beta', tone: 'sage', eyebrow: 'Comunidad', title: 'Lectores beta',
+          text: 'Para lectores y escritores que buscan lecturas beta con criterio.',
+          href: '/lectores-beta/'
+        },
+        {
+          type: 'action', key: 'manecillas-subscribe', tone: 'blue', eyebrow: 'Avisos', title: 'Suscribirte',
+          text: 'Recibe novedades de publicación, presentaciones y materiales nuevos.',
           form: true
         },
         {
-          type: 'action', key: 'manecillas-email', eyebrow: 'Te leo', title: 'Escríbeme',
-          text: 'Para lectores, librerías, prensa o clubes de lectura.',
+          type: 'action', key: 'manecillas-email', tone: 'blush', eyebrow: 'Te leo', title: 'Escríbeme',
+          text: 'davidportodiaz [arroba] gmail.com',
           href: AUTHOR_EMAIL_URL
         }
       ]
