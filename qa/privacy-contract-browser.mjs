@@ -72,34 +72,38 @@ report.storage.homeFresh=await storageSnapshot(home.page);
 const goatLoads=home.requests.filter(r=>r.url.includes('gc.zgo.at/count.js')).length;
 const metricoolLoads=home.requests.filter(r=>r.url.includes('tracker.metricool.com/resources/be.js')).length;
 assert(goatLoads<=1,'Duplicate GoatCounter script load'); assert(metricoolLoads<=1,'Duplicate Metricool script load');
+await home.context.close();
 
 // Newsletter DOI contract: invalid/unchecked block; accepted POST is pending, never confirmed locally.
+// Home no longer carries the footer newsletter fixture; lectores-beta keeps
+// the explicit consent flow and is the canonical privacy-critical form.
 let workerBodies=[];
-await home.page.route(WORKER_RE,async r=>{ workerBodies.push(r.request().postData()||''); await r.fulfill({status:201,contentType:'application/json',body:'{"ok":true,"state":"pending_confirmation"}'}); });
-const form=home.page.locator('#newsletter-form-home');
-assert(await form.count()===1,'Home newsletter fixture missing');
-const checkbox=home.page.locator('#nl-gdpr-home'); assert(!(await checkbox.isChecked()),'Newsletter checkbox prechecked');
-assert(await home.page.locator('label[for="nl-gdpr-home"]').count()===1,'Newsletter checkbox lacks explicit label');
-await home.page.locator('#nl-email-home').fill('not-an-email'); await checkbox.check(); await form.locator('button[type="submit"]').click(); await home.page.waitForTimeout(100); assert(workerBodies.length===0,'Invalid email submitted');
-await checkbox.uncheck(); await home.page.locator('#nl-email-home').fill(SENTINEL); await form.locator('button[type="submit"]').click(); await home.page.waitForTimeout(100); assert(workerBodies.length===0,'Unchecked newsletter submitted');
-await checkbox.check(); await form.locator('button[type="submit"]').click(); await home.page.waitForTimeout(250); assert(workerBodies.length===1,'Checked newsletter did not submit exactly once');
-assert(await home.page.locator('#newsletter-form-home input[type="email"]').count()===0,'Pending DOI state not rendered');
-assert((await home.page.locator('#newsletter-form-home').textContent()||'').includes('confirma'),'Pending DOI copy does not ask for confirmation');
-const pendingStorage=await storageSnapshot(home.page); assert(!('nl-subscribed' in pendingStorage.localStorage),'Initial DOI request marked user as subscribed');
-const payload=JSON.parse(workerBodies[0]); assert(payload.email===SENTINEL,'Newsletter email mismatch'); assert(payload.source==='home','Newsletter source mismatch'); assert(!('consent' in payload),'Unexpected consent field sent to Worker');
-const nonSubscriptionRequests=home.requests.filter(r=>!WORKER_RE.test(r.url));
-const leakHaystack=JSON.stringify({requests:nonSubscriptionRequests,console:home.consoleMessages,url:home.page.url(),storage:await storageSnapshot(home.page)});
+const newsletterRoute=await capture('/lectores-beta/',{width:390,height:844});
+await newsletterRoute.page.route(WORKER_RE,async r=>{ workerBodies.push(r.request().postData()||''); await r.fulfill({status:201,contentType:'application/json',body:'{"ok":true,"state":"pending_confirmation"}'}); });
+const form=newsletterRoute.page.locator('#lectores-beta-form');
+assert(await form.count()===1,'Lectores beta newsletter fixture missing');
+const checkbox=newsletterRoute.page.locator('#lectores-beta-gdpr'); assert(!(await checkbox.isChecked()),'Newsletter checkbox prechecked');
+assert(await newsletterRoute.page.locator('label[for="lectores-beta-gdpr"]').count()===1,'Newsletter checkbox lacks explicit label');
+await newsletterRoute.page.locator('#lectores-beta-email').fill('not-an-email'); await checkbox.check(); await form.locator('button[type="submit"]').click(); await newsletterRoute.page.waitForTimeout(100); assert(workerBodies.length===0,'Invalid email submitted');
+await checkbox.uncheck(); await newsletterRoute.page.locator('#lectores-beta-email').fill(SENTINEL); await form.locator('button[type="submit"]').click(); await newsletterRoute.page.waitForTimeout(100); assert(workerBodies.length===0,'Unchecked newsletter submitted');
+await checkbox.check(); await form.locator('button[type="submit"]').click(); await newsletterRoute.page.waitForTimeout(250); assert(workerBodies.length===1,'Checked newsletter did not submit exactly once');
+assert(await newsletterRoute.page.locator('#lectores-beta-form input[type="email"]').count()===0,'Pending DOI state not rendered');
+assert((await newsletterRoute.page.locator('#lectores-beta-form').textContent()||'').includes('confirma'),'Pending DOI copy does not ask for confirmation');
+const pendingStorage=await storageSnapshot(newsletterRoute.page); assert(!('nl-subscribed' in pendingStorage.localStorage),'Initial DOI request marked user as subscribed');
+const payload=JSON.parse(workerBodies[0]); assert(payload.email===SENTINEL,'Newsletter email mismatch'); assert(payload.source==='lectores-beta','Newsletter source mismatch'); assert(!('consent' in payload),'Unexpected consent field sent to Worker');
+const nonSubscriptionRequests=newsletterRoute.requests.filter(r=>!WORKER_RE.test(r.url));
+const leakHaystack=JSON.stringify({requests:nonSubscriptionRequests,console:newsletterRoute.consoleMessages,url:newsletterRoute.page.url(),storage:await storageSnapshot(newsletterRoute.page)});
 assert(!leakHaystack.includes(SENTINEL),'Email sentinel leaked outside intercepted subscription payload');
 report.newsletter.pending={payloadKeys:Object.keys(payload),source:payload.source,uncheckedBlocked:true,invalidBlocked:true,sentinelLeak:false,prematureSubscribed:false};
-report.storage.homeAfterSubscription=await storageSnapshot(home.page);
-report.storage.cookies=await home.context.cookies(); await home.context.close();
+report.storage.newsletterAfterSubscription=await storageSnapshot(newsletterRoute.page);
+report.storage.cookies=await newsletterRoute.context.cookies(); await newsletterRoute.context.close();
 
 async function newsletterErrorCase(name, handler, expectSuccess=false){
-  const state=await capture('/',{width:390,height:844}); let calls=0;
+  const state=await capture('/lectores-beta/',{width:390,height:844}); let calls=0;
   await state.page.route(WORKER_RE,async r=>{calls++; await handler(r);});
-  await state.page.locator('#nl-email-home').fill('qa-newsletter@example.test'); await state.page.locator('#nl-gdpr-home').check(); await state.page.locator('#newsletter-form-home button[type="submit"]').click(); await state.page.waitForTimeout(250);
-  if(expectSuccess){ assert(await state.page.locator('#newsletter-form-home input[type="email"]').count()===0,`Newsletter ${name}: success state not rendered`); }
-  else { assert(await state.page.locator('#nl-email-home').count()===1,`Newsletter ${name}: input lost on recoverable error`); assert((await state.page.locator('#nl-status-home').textContent()||'').trim().length>0,`Newsletter ${name}: no user-visible error`); }
+  await state.page.locator('#lectores-beta-email').fill('qa-newsletter@example.test'); await state.page.locator('#lectores-beta-gdpr').check(); await state.page.locator('#lectores-beta-form button[type="submit"]').click(); await state.page.waitForTimeout(250);
+  if(expectSuccess){ assert(await state.page.locator('#lectores-beta-form input[type="email"]').count()===0,`Newsletter ${name}: success state not rendered`); }
+  else { assert(await state.page.locator('#lectores-beta-email').count()===1,`Newsletter ${name}: input lost on recoverable error`); assert((await state.page.locator('#lectores-beta-status').textContent()||'').trim().length>0,`Newsletter ${name}: no user-visible error`); }
   assert(calls===1,`Newsletter ${name}: expected one Worker request, got ${calls}`); report.newsletter[name]={calls,successState:expectSuccess}; await state.context.close();
 }
 await newsletterErrorCase('legacyDuplicate400',r=>r.fulfill({status:400,contentType:'application/json',body:'{"duplicate":true}'}));
@@ -109,12 +113,12 @@ await newsletterErrorCase('timeout',r=>r.abort('timedout'));
 
 // Repeated submit events while the first request is pending must yield one POST.
 {
-  const state=await capture('/',{width:390,height:844}); let calls=0;
+  const state=await capture('/lectores-beta/',{width:390,height:844}); let calls=0;
   await state.page.route(WORKER_RE,async r=>{ calls++; await new Promise(resolve=>setTimeout(resolve,180)); await r.fulfill({status:201,contentType:'application/json',body:'{"ok":true,"state":"pending_confirmation"}'}); });
-  await state.page.locator('#nl-email-home').fill('qa-double-submit@example.test'); await state.page.locator('#nl-gdpr-home').check();
-  await state.page.locator('#newsletter-form-home').evaluate(formEl=>{ formEl.dispatchEvent(new Event('submit',{bubbles:true,cancelable:true})); formEl.dispatchEvent(new Event('submit',{bubbles:true,cancelable:true})); });
+  await state.page.locator('#lectores-beta-email').fill('qa-double-submit@example.test'); await state.page.locator('#lectores-beta-gdpr').check();
+  await state.page.locator('#lectores-beta-form').evaluate(formEl=>{ formEl.dispatchEvent(new Event('submit',{bubbles:true,cancelable:true})); formEl.dispatchEvent(new Event('submit',{bubbles:true,cancelable:true})); });
   await state.page.waitForTimeout(450); assert(calls===1,`Newsletter double submit: expected one Worker request, got ${calls}`);
-  assert(await state.page.locator('#newsletter-form-home input[type="email"]').count()===0,'Newsletter double submit: pending state not rendered');
+  assert(await state.page.locator('#lectores-beta-form input[type="email"]').count()===0,'Newsletter double submit: pending state not rendered');
   report.newsletter.doubleSubmit={calls}; await state.context.close();
 }
 
