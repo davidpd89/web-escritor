@@ -291,7 +291,7 @@
         </div>
       </div>
       <div class="work-record__body">
-        <p>Esta entrada mantiene la obra dentro del catálogo del autor y deja la ficha editorial externa como fuente de ampliación, en lugar de sacar al lector de la web desde el índice de Obras.</p>
+        <p>La participación forma parte del catálogo de obra del autor. La ficha editorial externa reúne la información ampliada de la edición.</p>
         <div class="work-record__actions">
           <a class="primary-action" href="${MEMORIA_EXTERNAL_URL}" target="_blank" rel="noopener noreferrer" data-memoria-official-source>Ver ficha editorial</a>
           <a class="text-action" href="/libros/">Volver a todas las obras</a>
@@ -336,6 +336,24 @@
     if (location.hash === '#enviar-manuscrito' || location.hash === '#quiero-ser-lector') {
       requestAnimationFrame(() => document.querySelector(location.hash)?.scrollIntoView({ block: 'start' }));
     }
+  }
+
+  function ensureInteriorBackToTop() {
+    if (root.dataset.lrbHome === 'true' || document.querySelector('.back-to-top')) return;
+    const button = document.createElement('button');
+    button.type = 'button';
+    button.className = 'back-to-top';
+    button.setAttribute('aria-label', 'Volver arriba');
+    button.title = 'Volver arriba';
+    button.innerHTML = '<svg aria-hidden="true" viewBox="0 0 24 24" focusable="false"><path d="M12 19V5"/><path d="m6 11 6-6 6 6"/></svg>';
+    const reduced = matchMedia('(prefers-reduced-motion: reduce)');
+    const update = () => button.classList.toggle('is-visible', window.scrollY > 720);
+    button.addEventListener('click', () => {
+      window.scrollTo({ top: 0, behavior: reduced.matches ? 'auto' : 'smooth' });
+    });
+    addEventListener('scroll', update, { passive: true });
+    update();
+    document.body.append(button);
   }
 
   function auditBannerAsset(banner) {
@@ -391,6 +409,7 @@
     ensureBetaAuthorSection();
     ensureBetaExploreRows();
     ensureHomeBetaNav();
+    ensureInteriorBackToTop();
     buildContextNav();
     prepareMediaSlots();
   }
