@@ -1,0 +1,192 @@
+{
+  "schemaVersion": 1,
+  "reference": "The Yale Review / From the Archives",
+  "mode": "clean-room",
+  "runtimeImpact": "none",
+  "principles": [
+    "one editorial grid across families",
+    "hierarchy through typography, alignment and rules before containers",
+    "curated irregular section before regular archive/list where applicable",
+    "metadata stays small and stable",
+    "color is accent, not the primary separator for every block",
+    "commercial conversion follows editorial value",
+    "mobile preserves semantic order in one column"
+  ],
+  "forbidden": [
+    "copy third-party DOM/CSS/JS",
+    "bundle GT Cinetype or Yale typefaces",
+    "import Pentagram palette as literal project tokens without project rationale",
+    "replace the current shell with a Yale clone",
+    "remove approved Home banners",
+    "change routes, schema or tool engines as part of a visual-only pass",
+    "use hover lift/zoom as the primary interaction language"
+  ],
+  "projectTypography": {
+    "display": "--font-display / Instrument Serif",
+    "reading": "--font-reading / Newsreader",
+    "ui": "--font-ui / Manrope",
+    "decision": "retain"
+  },
+  "projectGeometry": {
+    "layoutMax": "--layout-max",
+    "layoutWide": "--layout-wide",
+    "gutter": "--page-gutter",
+    "gap": "--grid-gap",
+    "decision": "retain and align families to the same master edges"
+  },
+  "families": [
+    {
+      "id": "cuaderno",
+      "priority": 1,
+      "role": "internal benchmark / closest existing implementation",
+      "productionFiles": ["assets/v1-editorial.css"],
+      "selectors": [
+        ".cuaderno-masthead",
+        ".cuaderno-feature",
+        ".cuaderno-ledger",
+        ".cuaderno-entry",
+        ".article-header",
+        ".article-layout",
+        ".article-prose"
+      ],
+      "retain": [
+        "asymmetric feature grid",
+        "ledger architecture",
+        "Newsreader reading column",
+        "metadata column",
+        "TOC/prose relationship"
+      ],
+      "test": [
+        "cap title scale only if browser evidence shows billboard behavior",
+        "unify rule color with V6",
+        "ensure related/continuity tail follows one stable order"
+      ],
+      "avoid": ["rebuilding Cuaderno as a new component system"]
+    },
+    {
+      "id": "home",
+      "priority": 2,
+      "role": "largest visual simplification opportunity",
+      "productionFiles": [
+        "assets/v1-home-editorial-v3.css",
+        "assets/v1-banner-art-direction-v5.css"
+      ],
+      "selectors": [
+        ".feature-banner",
+        ".editorial-cluster",
+        ".editorial-cluster__grid",
+        ".editorial-card"
+      ],
+      "retain": [
+        "section order",
+        "content and links",
+        "desktop/mobile banner art direction",
+        "lead versus supporting hierarchy"
+      ],
+      "test": [
+        "remove board-like grid background",
+        "replace visual gaps with hairline separation",
+        "remove non-functional card shadows/radii",
+        "use one paper surface for ordinary pieces",
+        "reserve colored surfaces for exceptional semantic/editorial moments"
+      ],
+      "avoid": [
+        "removing banners",
+        "flattening all piece sizes",
+        "changing link destinations during visual pass"
+      ]
+    },
+    {
+      "id": "books",
+      "priority": 3,
+      "role": "retain object/theatrical identity while sharing editorial grammar",
+      "productionFiles": ["assets/v1-book.css", "assets/v1-families.css"],
+      "selectors": [
+        ".books-stage",
+        ".books-stage__meta",
+        ".book-hero",
+        ".book-section",
+        ".book-related"
+      ],
+      "retain": ["cover as primary visual object", "book-specific art direction", "purchase/read actions"],
+      "test": [
+        "same rule family",
+        "same metadata hierarchy",
+        "related content as ledger where content permits",
+        "same gutter/master edges as editorial pages"
+      ],
+      "avoid": ["turning book pages into text-only archive pages"]
+    },
+    {
+      "id": "tools",
+      "priority": 4,
+      "role": "editorial directory outside; functional interface inside",
+      "productionFiles": ["assets/v1-site-cohesion-v6.css", "assets/v1-components.css"],
+      "selectors": ["[data-family=\"tools-hub\"] .id-card", ".tool-finder"],
+      "retain": ["clear affordance", "44px targets", "individual tool engines and privacy behavior"],
+      "test": [
+        "prominent tool as feature",
+        "remaining tools as calmer directory/ledger",
+        "square/low-radius surfaces",
+        "remove decorative elevation"
+      ],
+      "avoid": ["making controls look like plain prose", "changing tool engines"]
+    },
+    {
+      "id": "identity-press-events",
+      "priority": 5,
+      "role": "documentary archive",
+      "productionFiles": ["assets/v1-families.css", "assets/v1-site-cohesion-v6.css"],
+      "selectors": [".author-bio", ".press-copy", ".event-year", ".event-empty", ".v1-section"],
+      "retain": ["real portrait/event imagery", "chronology", "press actions"],
+      "test": [
+        "ledger rows instead of independent cards where possible",
+        "dates/years as secondary column",
+        "same H1 scale discipline",
+        "one stable footer/continuity pattern"
+      ],
+      "avoid": ["corporate landing-page grammar"]
+    },
+    {
+      "id": "findability-legal-auxiliary",
+      "priority": 6,
+      "role": "quiet utility surfaces",
+      "productionFiles": ["assets/v1-findability.css", "assets/v1-families.css"],
+      "selectors": ["[data-family=\"findability\"]", ".findability-recovery", ".findability-directory"],
+      "retain": ["clarity", "direct links", "recovery actions"],
+      "test": ["same gutter", "same paper", "same rule family", "controlled title scale"],
+      "avoid": ["adding decorative editorial complexity to utility tasks"]
+    }
+  ],
+  "tailOrder": {
+    "article": [
+      "article body",
+      "sources or notes when present",
+      "author/context when present",
+      "curated related reading",
+      "single next-step or newsletter conversion",
+      "global footer"
+    ],
+    "book": [
+      "book content",
+      "related/context",
+      "single strong conversion/continuation",
+      "global footer"
+    ]
+  },
+  "viewportMatrix": [320, 390, 768, 1024, 1440, 1728],
+  "mandatoryQA": [
+    "Pa11y",
+    "sitewide reflow",
+    "Chromium",
+    "Firefox",
+    "WebKit",
+    "Lighthouse",
+    "global discoverability",
+    "keyboard focus",
+    "200 percent zoom",
+    "prefers-reduced-motion",
+    "visual before/after screenshots"
+  ],
+  "promotionRule": "A lab rule may move to production only after it improves cross-family coherence without losing route access, semantics, affordance, WCAG or approved art direction."
+}
