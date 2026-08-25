@@ -1,0 +1,28 @@
+name: Yale reference lab
+
+on:
+  pull_request:
+    paths:
+      - 'docs/referencias-editoriales/YALE-REVIEW-*.md'
+      - 'docs/referencias-editoriales/yale-review-from-the-archives-reference.json'
+      - 'docs/referencias-editoriales/yale-review-lab/**'
+      - '.github/workflows/yale-reference-lab.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  contract:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Validate structured reference JSON
+        run: |
+          node -e "JSON.parse(require('fs').readFileSync('docs/referencias-editoriales/yale-review-from-the-archives-reference.json','utf8')); JSON.parse(require('fs').readFileSync('docs/referencias-editoriales/yale-review-lab/integration-map.json','utf8')); console.log('Yale reference JSON: PASS')"
+      - name: Validate clean-room implementation contract
+        run: node docs/referencias-editoriales/yale-review-lab/test-contract.mjs
