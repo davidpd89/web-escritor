@@ -1,6 +1,11 @@
 name: Check external links
 
 on:
+  pull_request:
+    paths:
+      - '**/*.html'
+      - '.lycheeignore'
+      - '.github/workflows/broken-links.yml'
   schedule:
     - cron: '0 6 * * 1'  # Every Monday at 06:00 UTC
   workflow_dispatch:      # Allow manual trigger
