@@ -3,25 +3,26 @@
    Original implementation for davidportodiaz.com; no third-party code copied. */
 
 :root{
-  --dp-v4-paper:#f6f2e9;
-  --dp-v4-paper-soft:#fbf9f4;
-  --dp-v4-stone:#e6e1d7;
-  --dp-v4-stone-deep:#d9d3c8;
+  --dp-v4-paper:#ffffff;
+  --dp-v4-paper-soft:#fbfcfd;
+  --dp-v4-stone:#eef2f5;
+  --dp-v4-stone-deep:#e1e7ec;
   --dp-v4-ink:#1b1917;
   --dp-v4-muted:#6b6761;
-  --dp-v4-rule:rgba(27,25,23,.22);
-  --dp-v4-rule-soft:rgba(27,25,23,.11);
+  --dp-v4-rule:rgba(0,0,0,.18);
+  --dp-v4-rule-soft:rgba(0,0,0,.10);
   --dp-v4-blue:#d7e9ef;
   --dp-v4-blue-ink:#254f60;
   --dp-v4-sage:#dfe6dc;
   --dp-v4-sage-ink:#3d5747;
   --dp-v4-blush:#eadedb;
-  --dp-v4-sand:#eee8dc;
+  --dp-v4-sand:#f3f5f7;
   --dp-v4-context-h:42px;
   --dp-v4-reading:68ch;
 }
 
-/* The whole V1 site should read as one publication, not as unrelated white pages. */
+/* The whole V1 site should read as one publication: white paper, black type,
+   blue accents and cool-gray rule depth. */
 html.v1 body{
   background:var(--dp-v4-paper);
   color:var(--dp-v4-ink);

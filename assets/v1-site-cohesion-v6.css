@@ -3,19 +3,18 @@
    compositions, but share the same paper stack, hairlines, controls and
    tonal hierarchy so navigation never feels like a jump to another site. */
 
-/* The LRB material layer is already loaded by v1-shell.css and owns these
-   tokens. Interiors opt into the same near-white paper instead of the older
-   pure-white plane. Home is explicitly excluded because its V3 flow already
-   has its own approved art-directed surfaces. */
+/* The material layer is already loaded by v1-shell.css and owns these tokens.
+   Interiors now share the same white/blue editorial base as the Home
+   prototype, with cool gray depth instead of the older cream paper. */
 html.v1:not([data-lrb-home="true"]){
-  --surface-page:var(--dp-editorial-paper-soft);
+  --surface-page:var(--dp-editorial-white);
   --surface-quiet:var(--dp-editorial-paper-mid);
   --color-border:var(--dp-editorial-rule);
-  background:var(--dp-editorial-paper-soft);
+  background:var(--dp-editorial-white);
 }
 html.v1:not([data-lrb-home="true"]) body{
   background:
-    linear-gradient(180deg,var(--dp-editorial-white) 0,var(--dp-editorial-paper-soft) 11rem,var(--dp-editorial-paper) 100%);
+    linear-gradient(180deg,var(--dp-editorial-white) 0,#f8fafb 11rem,var(--dp-editorial-white) 100%);
 }
 html.v1:not([data-lrb-home="true"]) :is(.v1-main,.editorial-page,.book-page,.samuel-page){
   background:transparent;
@@ -48,7 +47,7 @@ html.v1:not([data-lrb-home="true"]) :is(.book-breadcrumb,.editorial-breadcrumb){
 }
 html.v1:not([data-lrb-home="true"]) .eyebrow,
 html.v1:not([data-lrb-home="true"]) :is(.folio,.coordinate){
-  color:color-mix(in srgb,var(--color-text) 58%,var(--dp-editorial-paper));
+  color:var(--dp-editorial-blue-ink);
 }
 
 /* Controls should look identical whether they appear in a book, an article,
@@ -84,9 +83,33 @@ html.v1:not([data-lrb-home="true"]) [data-family="tools-hub"] .tool-finder{
 /* Context strips and footer use the same slightly deeper sheet seen below the
    Home masthead. This is the strongest cross-page continuity cue. */
 html.v1:not([data-lrb-home="true"]) .section-context{
-  background:color-mix(in srgb,var(--dp-editorial-paper-mid) 92%,var(--dp-editorial-white));
+  background:#fff;
   border-color:var(--dp-editorial-rule-soft);
   box-shadow:0 1px 0 rgba(23,20,18,.055),0 5px 14px rgba(23,20,18,.035);
+}
+html.v1:not([data-lrb-home="true"]) .section-context__links a[aria-current="page"]{
+  background:#e7f5fc;
+  color:var(--dp-editorial-blue-ink);
+}
+html.v1:not([data-lrb-home="true"]) .section-context__links a:hover,
+html.v1:not([data-lrb-home="true"]) .section-context__links a:focus-visible{
+  background:#e7f5fc;
+  color:var(--dp-editorial-blue-ink);
+}
+html.v1:not([data-lrb-home="true"]) .v1-masthead{
+  padding-top:clamp(2rem,4vw,3.5rem);
+  padding-bottom:clamp(2rem,4vw,3.5rem);
+  background:#fff;
+}
+html.v1:not([data-lrb-home="true"]) .v1-masthead h1{
+  font-family:var(--font-display);
+  font-size:clamp(2.6rem,5.4vw,5.6rem);
+  line-height:.92;
+  letter-spacing:-.025em;
+}
+html.v1:not([data-lrb-home="true"]) .v1-masthead__lead{
+  font-size:clamp(1.08rem,1rem + .55vw,1.55rem);
+  line-height:1.35;
 }
 html.v1 .site-footer{
   border-top-color:var(--dp-editorial-rule);
@@ -171,22 +194,67 @@ html.v1 .work-record::before{
   background:var(--dp-editorial-blue-ink);
 }
 html.v1 .work-record__body{
-  max-width:68ch;
-  margin-left:min(35%,22rem);
+  display:grid;
+  grid-template-columns:minmax(9rem,.34fr) minmax(0,1fr);
+  grid-template-areas:"media summary" "media actions";
+  gap:clamp(1.25rem,4vw,3rem);
+  max-width:58rem;
+  margin-left:min(18%,12rem);
   font-family:var(--font-reading);
   font-size:clamp(1.05rem,1rem + .2vw,1.22rem);
   line-height:1.68;
 }
+html.v1 .work-record__media{
+  display:grid;
+  grid-area:media;
+  place-items:end center;
+  align-self:start;
+  min-height:16rem;
+  background:var(--dp-editorial-white);
+  border:1px solid var(--dp-editorial-rule);
+  overflow:hidden;
+}
+html.v1 .work-record__media img{
+  width:min(70%,11rem);
+  height:auto;
+  object-fit:contain;
+  filter:drop-shadow(0 12px 16px rgba(0,0,0,.13));
+}
+html.v1 .work-record__summary{grid-area:summary;margin:0;color:var(--color-text)}
 html.v1 .work-record__actions{
+  grid-area:actions;
   display:flex;
   flex-wrap:wrap;
   gap:1rem 1.4rem;
   align-items:center;
-  margin-top:1.5rem;
+  align-self:start;
+  margin-top:0;
+}
+
+html.v1 [data-family="books-index"] #recursos .ledger__row{
+  grid-template-columns:3rem minmax(12rem,.48fr) minmax(0,1fr) minmax(7rem,auto);
+  gap:clamp(1rem,2.4vw,2rem);
+  align-items:start;
+}
+html.v1 [data-family="books-index"] #recursos .ledger__primary{
+  font-family:var(--font-ui);
+  font-weight:800;
+  letter-spacing:-.01em;
+}
+html.v1 [data-family="books-index"] #recursos .ledger__action{
+  font-family:var(--font-ui);
+  font-weight:800;
+  text-transform:uppercase;
+  letter-spacing:.045em;
+  color:var(--dp-editorial-blue-ink);
 }
 
 @media(max-width:900px){
-  html.v1 .work-record__body{margin-left:0}
+  html.v1 .work-record__body{margin-left:0;grid-template-columns:1fr;grid-template-areas:"media" "summary" "actions"}
+  html.v1 .work-record__media{max-width:13rem}
+  html.v1 [data-family="books-index"] #recursos .ledger__row{grid-template-columns:2.5rem minmax(0,1fr)}
+  html.v1 [data-family="books-index"] #recursos .ledger__secondary,
+  html.v1 [data-family="books-index"] #recursos .ledger__action{grid-column:2}
 }
 @media(max-width:600px){
   html.v1 .beta-author-panel{padding:1.4rem 1.1rem}

@@ -425,13 +425,194 @@
     document.body.append(button);
   }
 
+  function createYaleHero() {
+    const section = make('section', 'yale-home-issue');
+    section.setAttribute('aria-labelledby', 'yale-home-title');
+
+    const heading = make('header', 'yale-home-issue__heading');
+    heading.append(make('p', 'yale-home-issue__kicker', 'Obra actual'));
+    const title = make('h1', '', 'Las manecillas del recuerdo');
+    title.id = 'yale-home-title';
+    heading.append(title);
+
+    const grid = make('div', 'yale-home-issue__grid');
+    const lead = make('article', 'yale-lead');
+    const media = make('a', 'yale-lead__media');
+    media.href = '/las-manecillas-del-recuerdo/';
+    media.setAttribute('aria-label', 'Las manecillas del recuerdo');
+    const image = new Image();
+    image.src = '/assets/manecillas-del-recuerdo-3d-transparent.png';
+    image.alt = 'Portada de Las manecillas del recuerdo';
+    image.loading = 'eager';
+    image.decoding = 'async';
+    image.fetchPriority = 'high';
+    media.append(image);
+
+    const copy = make('div', 'yale-lead__copy');
+    copy.append(make('p', 'editorial-card__eyebrow', 'Monza Ediciones'));
+    const h = make('h2');
+    addTextLink(h, '/las-manecillas-del-recuerdo/', 'La nueva novela de David Porto Diaz');
+    copy.append(h);
+    copy.append(make('p', 'yale-lead__deck', 'Un reloj pasa de mano en mano y cambia de significado en cada vida que toca.'));
+    copy.append(make('p', 'editorial-card__meta', '3 septiembre 2026 · novela coral · memoria'));
+    const actions = make('div', 'yale-lead__actions');
+    addTextLink(actions, '/las-manecillas-del-recuerdo/', 'Ver la obra', 'yale-text-link');
+    addTextLink(actions, '/las-manecillas-del-recuerdo/fragmentos/', 'Leer fragmentos', 'yale-text-link');
+    copy.append(actions);
+    lead.append(media, copy);
+
+    const rail = make('aside', 'yale-rail');
+    rail.setAttribute('aria-label', 'Otros accesos destacados');
+    [
+      ['Primera novela', 'Samuel entre mundos', 'Noveris, portales y una magia que siempre exige un precio.', '/libros/samuel-entre-mundos/'],
+      ['Antologia', 'La memoria de las tierras del norte', 'Antologia colaborativa de fantasia con relato de David Porto Diaz.', '/libros/#memoria-tierras-norte'],
+      ['Comunidad', 'Lectores beta', 'Se el primero en leer contenido y opina antes de que llegue a todos.', '/lectores-beta/#quiero-ser-lector']
+    ].forEach(([eyebrow, cardTitle, text, href]) => {
+      const card = make('article', 'yale-rail-card');
+      card.append(make('p', 'editorial-card__eyebrow', eyebrow));
+      const cardHeading = make('h3');
+      addTextLink(cardHeading, href, cardTitle);
+      card.append(cardHeading, make('p', '', text));
+      addTextLink(card, href, 'Abrir', 'yale-text-link');
+      rail.append(card);
+    });
+
+    grid.append(lead, rail);
+    section.append(heading, grid);
+    return section;
+  }
+
+  function createYaleWorksGrid() {
+    const section = make('section', 'yale-home-section yale-home-section--works');
+    section.setAttribute('aria-labelledby', 'yale-works-title');
+    const head = make('div', 'yale-home-section__head');
+    head.append(make('p', 'editorial-card__eyebrow', 'Obras'));
+    const title = make('h2', '', 'Libros y territorios.');
+    title.id = 'yale-works-title';
+    head.append(title);
+    addTextLink(head, '/libros/', 'Todas las obras', 'yale-text-link');
+
+    const grid = make('div', 'yale-tile-grid yale-tile-grid--works');
+    [
+      ['Obra actual', 'Las manecillas del recuerdo', 'Novela coral de memoria, objetos heredados y vidas conectadas.', '/las-manecillas-del-recuerdo/', '/assets/manecillas-del-recuerdo-3d-transparent.png'],
+      ['Publicada', 'Samuel entre mundos', 'Fantasia juvenil espanola: portales, canalizadores y secretos familiares.', '/libros/samuel-entre-mundos/', '/assets/samuel_entre_mundos_3d.webp'],
+      ['Antologia', 'La memoria de las tierras del norte', 'Relato de David Porto Diaz en una antologia colaborativa de fantasia.', '/libros/#memoria-tierras-norte', '/assets/david-porto-memoria-sinfondo.webp']
+    ].forEach(([eyebrow, cardTitle, text, href, src]) => {
+      const card = make('article', 'yale-tile yale-tile--with-media');
+      const media = make('a', 'yale-tile__media');
+      media.href = href;
+      media.setAttribute('aria-label', cardTitle);
+      const img = new Image();
+      img.src = src;
+      img.alt = cardTitle;
+      img.loading = 'lazy';
+      img.decoding = 'async';
+      media.append(img);
+      const body = make('div', 'yale-tile__body');
+      body.append(make('p', 'editorial-card__eyebrow', eyebrow));
+      const h = make('h3');
+      addTextLink(h, href, cardTitle);
+      body.append(h, make('p', '', text));
+      addTextLink(body, href, 'Abrir', 'yale-text-link');
+      card.append(media, body);
+      grid.append(card);
+    });
+
+    section.append(head, grid);
+    return section;
+  }
+
+  function createYaleReadingGrid() {
+    const section = make('section', 'yale-home-section yale-home-section--reading');
+    section.setAttribute('aria-labelledby', 'yale-reading-title');
+    const head = make('div', 'yale-home-section__head');
+    head.append(make('p', 'editorial-card__eyebrow', 'Leer y recursos'));
+    const title = make('h2', '', 'Cuaderno, prensa y herramientas.');
+    title.id = 'yale-reading-title';
+    head.append(title);
+
+    const grid = make('div', 'yale-tile-grid yale-tile-grid--reading');
+    [
+      ['Del cuaderno', 'Que es el portal fantasy', 'Una guia para entender puertas, grietas y mundos conectados.', '/cuaderno/que-es-el-portal-fantasy/'],
+      ['Herramientas', 'Tengo un manuscrito y quiero opiniones', 'Acceso para autores que buscan lectores beta antes de mover su texto.', '/lectores-beta/#enviar-manuscrito'],
+      ['Prensa', 'Materiales para medios', 'Bio, fichas, portadas, fotos y datos verificados para entrevistas o librerias.', '/prensa.html'],
+      ['Agenda', 'Eventos y encuentros', 'Firmas, ferias, presentaciones y actividades con lectores.', '/eventos.html']
+    ].forEach(([eyebrow, cardTitle, text, href], index) => {
+      const card = make('article', `yale-tile${index === 1 ? ' yale-tile--blue' : ''}`);
+      card.append(make('p', 'editorial-card__eyebrow', eyebrow));
+      const h = make('h3');
+      addTextLink(h, href, cardTitle);
+      card.append(h, make('p', '', text));
+      addTextLink(card, href, 'Abrir', 'yale-text-link');
+      grid.append(card);
+    });
+    section.append(head, grid);
+    return section;
+  }
+
+  function createYaleSignupStrip() {
+    const section = make('section', 'yale-signup');
+    section.setAttribute('aria-labelledby', 'yale-signup-title');
+    const copy = make('div', 'yale-signup__copy');
+    copy.append(make('p', 'editorial-card__eyebrow', 'Novedades'));
+    const title = make('h2', '', 'Recibe solo lo importante.');
+    title.id = 'yale-signup-title';
+    copy.append(title, make('p', '', 'Publicaciones, fragmentos, fechas y recursos cuando haya algo que merezca llegar al correo.'));
+
+    const form = make('form', 'newsletter__form yale-signup__form');
+    form.id = 'newsletter-form-home-yale';
+    form.noValidate = true;
+    form.dataset.newsletterSource = 'home';
+    const label = make('label', 'sr-only', 'Email');
+    label.htmlFor = 'nl-email-home-yale';
+    const row = make('div', 'form-row');
+    const input = make('input', 'form-input');
+    input.id = 'nl-email-home-yale';
+    input.name = 'email';
+    input.type = 'email';
+    input.autocomplete = 'email';
+    input.inputMode = 'email';
+    input.required = true;
+    input.placeholder = 'tu@email.com';
+    input.setAttribute('aria-describedby', 'nl-status-home-yale');
+    const button = make('button', 'form-submit', 'Enviar');
+    button.type = 'submit';
+    row.append(input, button);
+    const status = make('p', 'form-status');
+    status.id = 'nl-status-home-yale';
+    status.setAttribute('role', 'status');
+    status.setAttribute('aria-live', 'polite');
+    form.append(label, row, status);
+    section.append(copy, form);
+    return section;
+  }
+
   function buildFlow() {
     if (!isHome() || root.dataset.homeEditorialV3 === 'true') return;
     const river = document.querySelector('.river-grid');
     if (!river) return;
 
-    const flow = make('div', 'editorial-home-flow');
+    const flow = make('div', 'editorial-home-flow yale-home-flow');
     flow.dataset.editorialHomeFlow = 'true';
+
+    flow.append(createYaleHero());
+    flow.append(createYaleWorksGrid());
+    flow.append(createYaleReadingGrid());
+    flow.append(createEvents());
+    flow.append(createYaleSignupStrip());
+    flow.append(createInstallBlock());
+    river.before(flow);
+    const yalePromo = document.querySelector('.promo-band');
+    const yaleFaq = document.getElementById('faq');
+    const yaleNewsletter = document.getElementById('newsletter');
+    river.remove();
+    yalePromo?.remove();
+    yaleFaq?.remove();
+    yaleNewsletter?.remove();
+    root.dataset.homeEditorialV3 = 'true';
+    document.dispatchEvent(new CustomEvent('dp:home-editorial-ready'));
+    createBackToTop();
+    return;
 
     flow.append(createBanner({
       key: 'manecillas',
