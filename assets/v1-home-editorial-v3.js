@@ -231,7 +231,7 @@
         arrow.rel = 'sponsored nofollow noopener noreferrer';
       }
       const arrowInner = make('span');
-      arrowInner.textContent = 'â†’';
+      arrowInner.textContent = '→';
       arrow.append(arrowInner);
       article.append(arrow);
     }
@@ -431,17 +431,16 @@
           href: '/las-manecillas-del-recuerdo/'
         },
         {
-          key: 'manecillas-author', tone: 'blue', eyebrow: 'Autor', title: 'David Porto Díaz',
+          key: 'manecillas-author', eyebrow: 'Autor', title: 'David Porto Díaz',
           meta: 'Biografía · materiales · contacto', text: 'Trayectoria, fotografías y recursos para lectores, librerías y medios.',
           href: '/prensa.html'
         },
         {
-          type: 'action', key: 'manecillas-buy', tone: 'sage', eyebrow: 'Comprar', title: 'Comprar en Amazon',
-          text: 'Enlace temporal hasta tener destino comercial definitivo de la novela.',
+          type: 'action', key: 'manecillas-buy', eyebrow: 'Comprar', title: 'Comprar en Amazon',
           href: SAMUEL_AMAZON_URL
         },
         {
-          type: 'action', key: 'manecillas-subscribe', tone: 'blush', eyebrow: 'Novedades', title: 'Suscribirte',
+          type: 'action', key: 'manecillas-subscribe', eyebrow: 'Novedades', title: 'Suscribirte',
           text: 'Deja tu email y recibe avisos de publicación, presentaciones y materiales nuevos.',
           form: true
         },
