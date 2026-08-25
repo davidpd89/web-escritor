@@ -297,6 +297,8 @@ function fallbackCopy(text, done) {
   async function submitNewsletter(formId, emailId, gdprId, statusId, sourceLabel) {
     const form = document.getElementById(formId);
     if (!form) return;
+    if (form.dataset.newsletterBound === "true") return;
+    form.dataset.newsletterBound = "true";
     installNewsletterHoneypot(form);
     const pendingBody = NEWSLETTER_PENDING_COPY[sourceLabel] || "Revisa tu correo y confirma la suscripción para completarla.";
     form.addEventListener("submit", (e) => {
@@ -345,6 +347,10 @@ function fallbackCopy(text, done) {
   submitNewsletter("newsletter-form-home",       "nl-email-home",       "nl-gdpr-home",       "nl-status-home",       "home");
   submitNewsletter("newsletter-form-fragmento",  "nl-email-fragmento",  "nl-gdpr-fragmento",  "nl-status-fragmento",  "fragmento");
   submitNewsletter("newsletter-form-manecillas", "nl-email-manecillas", "nl-gdpr-manecillas", "nl-status-manecillas", "manecillas");
+  submitNewsletter("newsletter-form-home-manecillas-card", "home-manecillas-card-email", "home-manecillas-card-gdpr", "home-manecillas-card-status", "manecillas");
+  document.addEventListener("dp:home-editorial-ready", () => {
+    submitNewsletter("newsletter-form-home-manecillas-card", "home-manecillas-card-email", "home-manecillas-card-gdpr", "home-manecillas-card-status", "manecillas");
+  }, { once: true });
   submitNewsletter("newsletter-form-cuaderno",   "nl-email-cuaderno",   "nl-gdpr-cuaderno",   "nl-status-cuaderno",   "cuaderno");
   submitNewsletter("newsletter-form-explore",    "nl-email-explore",    "nl-gdpr-explore",    "nl-status-explore",    "explore");
   // Lectores beta (N.1, 2026-08-23): mismo mecanismo de envio, pero fuente,

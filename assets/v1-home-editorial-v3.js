@@ -16,6 +16,7 @@
       '/assets/og-manecillas.webp'
     ],
     samuel: [
+      '/assets/banners/samuel-home-banner-final.png',
       '/assets/banners/samuel-home-banner.webp',
       '/assets/banners/samuel-home-banner.jpg',
       '/assets/samuel_entre_mundos_3d.webp'
@@ -32,6 +33,7 @@
     ]
   };
   const SAMUEL_AMAZON_URL = 'https://www.amazon.es/dp/B0GB6LGQFH?tag=davidporto-21';
+  const AUTHOR_EMAIL_URL = 'mailto:davidportodiaz@gmail.com?subject=Te%20leo%20%E2%80%94%20David%20Porto%20D%C3%ADaz';
 
   const arrowSvg = `
     <svg aria-hidden="true" viewBox="0 0 24 24" focusable="false">
@@ -165,6 +167,77 @@
     return article;
   }
 
+  function createActionCard(config) {
+    const article = make('article', `editorial-card editorial-card--action${config.tone ? ` editorial-card--${config.tone}` : ''}`);
+    if (config.key) article.dataset.cardKey = config.key;
+    if (config.eyebrow) article.append(make('p', 'editorial-card__eyebrow', config.eyebrow));
+
+    const heading = make('h3');
+    if (config.href) {
+      const link = addTextLink(heading, config.href, config.title);
+      if (/^https?:\/\//.test(config.href)) {
+        link.target = '_blank';
+        link.rel = 'sponsored nofollow noopener noreferrer';
+      }
+    } else {
+      heading.textContent = config.title;
+    }
+    article.append(heading);
+    if (config.text) article.append(make('p', 'editorial-card__text', config.text));
+
+    if (config.form) {
+      const form = make('form', 'newsletter__form editorial-mini-form');
+      form.id = 'newsletter-form-home-manecillas-card';
+      form.noValidate = true;
+      form.dataset.newsletterSource = 'manecillas';
+      const label = make('label', 'sr-only', 'Email para novedades');
+      label.htmlFor = 'home-manecillas-card-email';
+      const input = make('input', 'form-input');
+      input.id = 'home-manecillas-card-email';
+      input.name = 'email';
+      input.type = 'email';
+      input.inputMode = 'email';
+      input.autocomplete = 'email';
+      input.placeholder = 'tu@email.com';
+      input.required = true;
+      input.setAttribute('aria-describedby', 'home-manecillas-card-status');
+      const button = make('button', 'install-web__button', 'Suscribirme');
+      button.type = 'submit';
+      const consent = make('label', 'form-consent editorial-mini-form__consent');
+      consent.htmlFor = 'home-manecillas-card-gdpr';
+      const checkbox = make('input');
+      checkbox.id = 'home-manecillas-card-gdpr';
+      checkbox.name = 'consent';
+      checkbox.type = 'checkbox';
+      checkbox.required = true;
+      checkbox.setAttribute('aria-describedby', 'home-manecillas-card-status');
+      const consentText = make('span');
+      consentText.innerHTML = 'Acepto recibir novedades. <a href="/privacidad.html">Privacidad</a>.';
+      consent.append(checkbox, consentText);
+      const status = make('p', 'newsletter-status');
+      status.id = 'home-manecillas-card-status';
+      status.setAttribute('role', 'status');
+      status.setAttribute('aria-live', 'polite');
+      form.append(label, input, button, consent, status);
+      article.append(form);
+    }
+
+    if (config.href) {
+      const arrow = make('a', 'editorial-card__arrow');
+      arrow.href = config.href;
+      arrow.setAttribute('aria-label', `Abrir ${config.title}`);
+      if (/^https?:\/\//.test(config.href)) {
+        arrow.target = '_blank';
+        arrow.rel = 'sponsored nofollow noopener noreferrer';
+      }
+      const arrowInner = make('span');
+      arrowInner.textContent = 'â†’';
+      arrow.append(arrowInner);
+      article.append(arrow);
+    }
+    return article;
+  }
+
   function createCluster(config) {
     const section = make('section', 'editorial-cluster');
     section.setAttribute('aria-labelledby', `cluster-${config.key}`);
@@ -180,7 +253,8 @@
     if (config.allHref && config.allLabel) addTextLink(head, config.allHref, config.allLabel, 'editorial-cluster__all');
 
     const grid = make('div', 'editorial-cluster__grid');
-    config.cards.forEach((card) => grid.append(createCard(card)));
+    if (config.layout) grid.dataset.layout = config.layout;
+    config.cards.forEach((card) => grid.append(card.type === 'action' ? createActionCard(card) : createCard(card)));
     section.append(head, grid);
     return section;
   }
@@ -348,35 +422,45 @@
       title: 'Las manecillas del recuerdo',
       allHref: '/las-manecillas-del-recuerdo/',
       allLabel: 'Ver la obra →',
+      layout: 'book-actions',
       cards: [
         {
-          key: 'manecillas-book', lead: true, media: '/assets/manecillas-del-recuerdo-3d.png',
+          key: 'manecillas-book', media: '/assets/manecillas-del-recuerdo-3d-transparent.png',
           eyebrow: 'Monza Ediciones', title: 'La nueva novela de David Porto Díaz',
           meta: '3 septiembre 2026', text: 'Ficha, publicación, fragmentos y materiales de la obra.',
           href: '/las-manecillas-del-recuerdo/'
         },
         {
-          key: 'manecillas-notebook', tone: 'blue', eyebrow: 'Cuaderno', title: 'Notas de lectura y proceso',
-          meta: 'Artículos relacionados', text: 'Piezas para leer alrededor de la memoria, la fantasía y las decisiones de escritura que sostienen una obra.',
-          href: '/cuaderno/'
-        },
-        {
-          key: 'manecillas-author', eyebrow: 'Autor', title: 'David Porto Díaz',
+          key: 'manecillas-author', tone: 'blue', eyebrow: 'Autor', title: 'David Porto Díaz',
           meta: 'Biografía · materiales · contacto', text: 'Trayectoria, fotografías y recursos para lectores, librerías y medios.',
           href: '/prensa.html'
+        },
+        {
+          type: 'action', key: 'manecillas-buy', tone: 'sage', eyebrow: 'Comprar', title: 'Comprar en Amazon',
+          text: 'Enlace temporal hasta tener destino comercial definitivo de la novela.',
+          href: SAMUEL_AMAZON_URL
+        },
+        {
+          type: 'action', key: 'manecillas-subscribe', tone: 'blush', eyebrow: 'Novedades', title: 'Suscribirte',
+          text: 'Deja tu email y recibe avisos de publicación, presentaciones y materiales nuevos.',
+          form: true
+        },
+        {
+          type: 'action', key: 'manecillas-email', eyebrow: 'Te leo', title: 'Escríbeme',
+          text: 'Para lectores, librerías, prensa o clubes de lectura.',
+          href: AUTHOR_EMAIL_URL
         }
       ]
     }));
-
-    flow.append(createInterlude());
 
     flow.append(createBanner({
       key: 'samuel',
       eyebrow: 'Primera novela publicada',
       title: 'Samuel entre mundos',
       deck: 'Noveris, portales, canalizadores y una magia que siempre exige un precio.',
-      href: '/libros/samuel-entre-mundos/',
-      cta: 'Entrar en Noveris →'
+      href: SAMUEL_AMAZON_URL,
+      cta: 'Comprar en Amazon',
+      imageOnly: true
     }));
 
     flow.append(createCluster({
@@ -404,6 +488,8 @@
         }
       ]
     }));
+
+    flow.append(createInterlude());
 
     flow.append(createBanner({
       key: 'memoria',
@@ -477,6 +563,7 @@
     river.remove();
     promo?.remove();
     root.dataset.homeEditorialV3 = 'true';
+    document.dispatchEvent(new CustomEvent('dp:home-editorial-ready'));
     createBackToTop();
   }
 
@@ -486,3 +573,4 @@
     buildFlow();
   }
 })();
+
