@@ -18,30 +18,11 @@
         "recomendaciones/magia-con-coste/index.html",
         "recomendaciones/portal-fantasy-espanol/index.html"
       ]
-    },
-    "ferias": {
-      "id": "fairs",
-      "group": "Información",
-      "pages": [
-        "eventos.html",
-        "ferias.html"
-      ]
-    },
-    "premios": {
-      "id": "awards",
-      "group": "Información",
-      "pages": [
-        "eventos.html",
-        "ferias.html",
-        "premios.html",
-        "prensa.html"
-      ]
     }
   },
   "footerLegalAffiliatePages": [
     "autor.html",
     "ferias.html",
-    "index.html",
     "prensa.html",
     "clubes-de-lectura/samuel-entre-mundos/index.html",
     "fragmento/index.html",

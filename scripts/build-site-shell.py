@@ -430,6 +430,7 @@ def render_footer(nav: dict, by_id: dict[str, Entry], extras: dict, rel_path: st
         '      <div>\n'
         '        <strong class="brand__name">David Porto Díaz</strong>\n'
         '        <p>Autor de Las manecillas del recuerdo y Samuel entre mundos.</p>\n'
+        '        <button class="site-footer__subscribe" type="button" data-explore-open>Recibir novedades</button>\n'
         f'        {SOCIAL_ROW}\n'
         '      </div>'
     ]

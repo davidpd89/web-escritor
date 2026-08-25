@@ -22,7 +22,7 @@
       '/assets/samuel_entre_mundos_3d.webp'
     ],
     memoria: [
-      '/assets/david-porto-memoria-sinfondo.webp',
+      '/assets/banners/memoria-tierras-norte-home-background.png',
       '/assets/banners/memoria-tierras-norte-home-banner.webp',
       '/assets/banners/memoria-tierras-norte-home-banner.jpg',
       '/assets/la-memoria-de-las-tierras-del-norte-libro.jpg'
@@ -301,17 +301,20 @@
     addTextLink(head, '/eventos.html', 'Ver agenda completa →', 'editorial-cluster__all');
 
     const events = [
-      ['2026-06-10', '10 junio 2026', 'Feria del Libro de Madrid', 'Firma de Samuel entre mundos en el Parque del Retiro, caseta 337.'],
-      ['2026-05-23', '23 mayo 2026', 'Feria del Libro de Aranjuez', 'Firma de Samuel entre mundos en la Plaza de la Constitución.'],
-      ['2026-01-31', '31 enero 2026', 'Presentación en La Vecinal', 'Encuentro con lectores, coloquio y firma de ejemplares en Madrid.'],
-      ['2026-01-15', '15 enero 2026', 'Presentación oficial de Samuel entre mundos', 'Presentación del debut de David Porto Díaz en Bar Aleatorio, Madrid.']
+      ['2026-06-10', '10 junio 2026', 'Feria del Libro de Madrid', 'Firma de Samuel entre mundos en el Parque del Retiro, caseta 337.', '/eventos.html#feria-libro-madrid-2026'],
+      ['2026-05-23', '23 mayo 2026', 'Feria del Libro de Aranjuez', 'Firma de Samuel entre mundos en la Plaza de la Constitución.', '/eventos.html#feria-libro-aranjuez-2026'],
+      ['2026-01-31', '31 enero 2026', 'Presentación en La Vecinal', 'Encuentro con lectores, coloquio y firma de ejemplares en Madrid.', '/eventos.html#la-vecinal-2026'],
+      ['2026-01-15', '15 enero 2026', 'Presentación oficial de Samuel entre mundos', 'Presentación del debut de David Porto Díaz en Bar Aleatorio, Madrid.', '/eventos.html#bar-aleatorio-2026']
     ];
     const grid = make('div', 'home-events__grid');
-    events.forEach(([datetime, date, eventTitle, text]) => {
+    events.forEach(([datetime, date, eventTitle, text, href]) => {
       const item = make('article', 'home-event');
       const time = make('time', '', date);
       time.dateTime = datetime;
-      item.append(time, make('h3', '', eventTitle), make('p', '', text));
+      const heading = make('h3');
+      addTextLink(heading, href, eventTitle);
+      item.append(time, heading, make('p', '', text));
+      addTextLink(item, href, 'Abrir →', 'home-event__link');
       grid.append(item);
     });
 
@@ -464,11 +467,6 @@
           formCta: 'Unirme'
         },
         {
-          type: 'action', key: 'manecillas-subscribe', eyebrow: 'Avisos', title: 'Suscribirte',
-          text: 'Recibe novedades de publicación, presentaciones y materiales nuevos.',
-          form: true
-        },
-        {
           type: 'action', key: 'manecillas-email', eyebrow: 'Te leo', title: 'Escríbeme',
           emailParts: ['davidportodiaz', '@', 'gmail.com'],
           href: AUTHOR_EMAIL_URL
@@ -519,11 +517,11 @@
 
     flow.append(createBanner({
       key: 'memoria',
-      eyebrow: 'Relato · Antología',
+      eyebrow: 'Antología',
       title: 'La memoria de las tierras del norte',
-      deck: 'Un relato de David Porto Díaz dentro de una antología de fantasía.',
+      deck: '',
       href: 'https://www.diversidadliteraria.com/la-memoria-de-las-tierras-del-norte',
-      cta: 'Conocer el relato →'
+      cta: 'Conocer la novela →'
     }));
 
     flow.append(createBanner({
@@ -544,17 +542,17 @@
       layout: 'tools-four',
       cards: [
         {
-          key: 'tools-hub', lead: true, eyebrow: 'Hub', title: 'Revisa tu texto con herramientas concretas',
+          key: 'tools-hub', eyebrow: 'Hub', title: 'Revisa tu texto con herramientas concretas',
           meta: 'Sin registro', text: 'Un espacio para detectar problemas medibles sin convertir la escritura en una plantilla.',
           href: '/herramientas/'
         },
         {
-          key: 'tools-manuscript', eyebrow: 'Manuscrito', title: 'Analizador de manuscrito',
-          meta: 'Diagnóstico rápido', text: 'Comprueba señales útiles antes de una revisión más profunda.', href: '/herramientas/manuscrito/'
+          key: 'tools-beta', tone: 'blue', eyebrow: 'Lectores beta', title: 'Tengo un manuscrito y me gustarían opiniones de lectores beta',
+          meta: 'Comunidad', text: 'Un acceso para autores que quieren preparar una lectura beta de su manuscrito.', href: '/lectores-beta/'
         },
         {
-          key: 'tools-beta', eyebrow: 'Lectores beta', title: 'Tengo un manuscrito y me gustarían opiniones de lectores beta',
-          meta: 'Comunidad', text: 'Un acceso para autores que quieren preparar una lectura beta de su manuscrito.', href: '/lectores-beta/'
+          key: 'tools-manuscript', eyebrow: 'Manuscrito', title: 'Analizador de manuscrito',
+          meta: 'Diagnóstico rápido', text: 'Comprueba señales útiles antes de una revisión más profunda.', href: '/herramientas/manuscrito/'
         },
         {
           key: 'tools-repetition', eyebrow: 'Estilo', title: 'Repeticiones y diálogo',
@@ -568,8 +566,12 @@
 
     river.before(flow);
     const promo = document.querySelector('.promo-band');
+    const faq = document.getElementById('faq');
+    const newsletter = document.getElementById('newsletter');
     river.remove();
     promo?.remove();
+    faq?.remove();
+    newsletter?.remove();
     root.dataset.homeEditorialV3 = 'true';
     document.dispatchEvent(new CustomEvent('dp:home-editorial-ready'));
     createBackToTop();

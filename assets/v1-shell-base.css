@@ -56,7 +56,7 @@ html.v1 .explore-subscribe .form-row{display:flex;gap:.6rem;flex-wrap:wrap}
 html.v1 .explore-subscribe .form-input{flex:1;min-width:12rem}
 html.v1 .explore-subscribe .form-consent{margin-top:.6rem;font-size:.8rem}
 html.v1 .site-footer{border-top:1px solid var(--color-border);padding:clamp(3rem,5vw,4.5rem) var(--page-gutter);max-width:var(--layout-max);margin:auto}
-html.v1 .site-footer__grid{display:grid;grid-template-columns:4fr repeat(3,2fr);gap:var(--grid-gap)}
+html.v1 .site-footer__grid{display:grid;grid-template-columns:4fr repeat(4,2fr);gap:var(--grid-gap)}
 /* Las columnas del pie son <nav> con display:grid, asi que sus enlaces son
    grid items y arrastran min-width:auto, es decir min-content: con zoom 200%
    "Las manecillas del recuerdo" no cabe en su columna y no podia partirse.
@@ -69,6 +69,8 @@ html.v1 .site-footer nav{display:grid;align-content:start;gap:.55rem}
 html.v1 .site-footer h2{font-family:var(--font-ui);font-size:.72rem;text-transform:uppercase;letter-spacing:.08em;margin:0 0 .5rem}
 html.v1 .site-footer a{font-size:.88rem;text-decoration:none;min-height:32px}
 html.v1 .site-footer a:hover,html.v1 .site-footer a:focus-visible{text-decoration:underline}
+html.v1 .site-footer__subscribe{appearance:none;display:inline-flex;align-items:center;min-height:32px;margin:.35rem 0 .25rem;padding:0;border:0;border-bottom:1px solid currentColor;background:transparent;color:var(--color-text);font:600 .82rem/1.2 var(--font-ui);cursor:pointer}
+html.v1 .site-footer__subscribe:hover,html.v1 .site-footer__subscribe:focus-visible{color:var(--color-accent)}
 /* Social profiles. Lives here rather than in v1-families.css because the
    footer row is part of the shell every V1 page loads, while families is
    only on 22 of them. Footer margin is a rule, not an inline style: 28
