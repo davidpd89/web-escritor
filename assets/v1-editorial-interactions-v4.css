@@ -32,3 +32,15 @@ html.v1 .editorial-continuity__links a:focus-visible{
   html.v1 .editorial-continuity__links a,
   html.v1[data-lrb-home="true"] .editorial-card{transition:none}
 }
+
+html.v1[data-lrb-home="true"] .editorial-home-flow .feature-banner[data-banner-key="manecillas"].feature-banner--image-only{
+  height:calc(100vw * 821 / 1916);
+  min-height:0;
+  max-height:none;
+  aspect-ratio:1916/821;
+}
+
+html.v1[data-lrb-home="true"] .editorial-home-flow .feature-banner[data-banner-key="manecillas"].feature-banner--image-only .feature-banner__media img{
+  object-fit:cover;
+  object-position:center center;
+}
