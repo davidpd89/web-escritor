@@ -3,14 +3,33 @@ import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 
 const here = path.dirname(fileURLToPath(import.meta.url));
+const root = path.resolve(here, '..', '..', '..');
 const html = await fs.readFile(path.join(here, 'prototype.html'), 'utf8');
 const css = await fs.readFile(path.join(here, 'prototype.css'), 'utf8');
 const candidate = await fs.readFile(path.join(here, 'integration-candidate.css'), 'utf8');
+const integrationMap = JSON.parse(await fs.readFile(path.join(here, 'integration-map.json'), 'utf8'));
 
 const failures = [];
 const expect = (condition, message) => {
   if (!condition) failures.push(message);
 };
+
+async function exists(filePath) {
+  try {
+    await fs.access(filePath);
+    return true;
+  } catch {
+    return false;
+  }
+}
+
+function localHrefToFile(href) {
+  const pathname = href.split('#')[0].split('?')[0];
+  if (!pathname || pathname === '/') return path.join(root, 'index.html');
+  const clean = pathname.replace(/^\//, '');
+  if (/\.[a-z0-9]+$/i.test(clean)) return path.join(root, clean);
+  return path.join(root, clean, 'index.html');
+}
 
 expect(/<meta\s+name="robots"\s+content="noindex,nofollow"/i.test(html), 'prototype must be noindex,nofollow');
 expect(html.includes('/assets/v1-fonts.css'), 'prototype must consume project fonts');
@@ -44,6 +63,22 @@ expect(candidate.includes('[data-family="tools-hub"] .id-card'), 'integration ca
 expect(candidate.includes('@media(max-width:639px)'), 'integration candidate mobile contract missing');
 expect(candidate.includes('@media(prefers-reduced-motion:reduce)'), 'integration candidate reduced-motion contract missing');
 
+const hrefs = [...html.matchAll(/href="([^"]+)"/g)]
+  .map((match) => match[1])
+  .filter((href) => href.startsWith('/') && !href.startsWith('//'));
+for (const href of new Set(hrefs)) {
+  expect(await exists(localHrefToFile(href)), `prototype href does not resolve in repo: ${href}`);
+}
+
+expect(Array.isArray(integrationMap.families) && integrationMap.families.length >= 6, 'integration map must cover the main site families');
+for (const family of integrationMap.families || []) {
+  expect(Array.isArray(family.productionFiles) && family.productionFiles.length > 0, `integration map family ${family.id} has no productionFiles`);
+  for (const productionFile of family.productionFiles || []) {
+    expect(await exists(path.join(root, productionFile)), `mapped production file does not exist: ${productionFile}`);
+  }
+  expect(Array.isArray(family.selectors) && family.selectors.length > 0, `integration map family ${family.id} has no selectors`);
+}
+
 if (failures.length) {
   console.error(`Yale reference lab contract FAIL (${failures.length})`);
   for (const item of failures) console.error(`- ${item}`);
@@ -56,3 +91,5 @@ console.log('- project typography/tokens reused');
 console.log('- responsive + reduced-motion contracts present');
 console.log('- feature → browse → ledger → conversion pattern present');
 console.log('- real-selector integration candidate is opt-in scoped');
+console.log(`- ${new Set(hrefs).size} prototype internal route(s) resolve in repo`);
+console.log(`- ${integrationMap.families.length} integration family mappings point to real production files`);
