@@ -62,6 +62,10 @@
   function addTextLink(parent, href, text, className = '') {
     const link = make('a', className, text);
     link.href = href;
+    if (/^https?:\/\//.test(href)) {
+      link.target = '_blank';
+      link.rel = 'noopener noreferrer';
+    }
     parent.append(link);
     return link;
   }
@@ -198,42 +202,38 @@
       heading.textContent = config.title;
     }
     article.append(heading);
-    if (config.text) article.append(make('p', 'editorial-card__text', config.text));
+    if (config.emailParts) {
+      const text = make('p', 'editorial-card__text editorial-card__email');
+      config.emailParts.forEach((part) => text.append(make('span', '', part)));
+      article.append(text);
+    } else if (config.text) {
+      article.append(make('p', 'editorial-card__text', config.text));
+    }
 
     if (config.form) {
       const form = make('form', 'newsletter__form editorial-mini-form');
-      form.id = 'newsletter-form-home-manecillas-card';
+      const formId = config.key || 'home-card';
+      form.id = `newsletter-form-home-${formId}`;
       form.noValidate = true;
-      form.dataset.newsletterSource = 'manecillas';
-      const label = make('label', 'sr-only', 'Email para novedades');
-      label.htmlFor = 'home-manecillas-card-email';
+      form.dataset.newsletterSource = config.newsletterSource || 'manecillas';
+      const label = make('label', 'sr-only', config.inputLabel || 'Email');
+      label.htmlFor = `home-${formId}-email`;
       const input = make('input', 'form-input');
-      input.id = 'home-manecillas-card-email';
+      input.id = `home-${formId}-email`;
       input.name = 'email';
       input.type = 'email';
       input.inputMode = 'email';
       input.autocomplete = 'email';
       input.placeholder = 'tu@email.com';
       input.required = true;
-      input.setAttribute('aria-describedby', 'home-manecillas-card-status');
-      const button = make('button', 'install-web__button', 'Suscribirme');
+      input.setAttribute('aria-describedby', `home-${formId}-status`);
+      const button = make('button', 'install-web__button', config.formCta || 'Suscribirme');
       button.type = 'submit';
-      const consent = make('label', 'form-consent editorial-mini-form__consent');
-      consent.htmlFor = 'home-manecillas-card-gdpr';
-      const checkbox = make('input');
-      checkbox.id = 'home-manecillas-card-gdpr';
-      checkbox.name = 'consent';
-      checkbox.type = 'checkbox';
-      checkbox.required = true;
-      checkbox.setAttribute('aria-describedby', 'home-manecillas-card-status');
-      const consentText = make('span');
-      consentText.innerHTML = 'Acepto recibir novedades. <a href="/privacidad.html">Privacidad</a>.';
-      consent.append(checkbox, consentText);
       const status = make('p', 'newsletter-status');
-      status.id = 'home-manecillas-card-status';
+      status.id = `home-${formId}-status`;
       status.setAttribute('role', 'status');
       status.setAttribute('aria-live', 'polite');
-      form.append(label, input, button, consent, status);
+      form.append(label, input, button, status);
       article.append(form);
     }
 
@@ -456,17 +456,20 @@
         },
         {
           type: 'action', key: 'manecillas-beta', tone: 'sage', eyebrow: 'Comunidad', title: 'Lectores beta',
-          text: 'Para lectores y escritores que buscan lecturas beta con criterio.',
-          href: '/lectores-beta/'
+          text: 'Sé el primero en leer contenido y opina antes de que llegue a todos.',
+          href: '/lectores-beta/',
+          form: true,
+          newsletterSource: 'lectores-beta',
+          formCta: 'Unirme'
         },
         {
-          type: 'action', key: 'manecillas-subscribe', tone: 'blue', eyebrow: 'Avisos', title: 'Suscribirte',
+          type: 'action', key: 'manecillas-subscribe', tone: 'plain', eyebrow: 'Avisos', title: 'Suscribirte',
           text: 'Recibe novedades de publicación, presentaciones y materiales nuevos.',
           form: true
         },
         {
-          type: 'action', key: 'manecillas-email', tone: 'blush', eyebrow: 'Te leo', title: 'Escríbeme',
-          text: 'davidportodiaz [arroba] gmail.com',
+          type: 'action', key: 'manecillas-email', tone: 'cream', eyebrow: 'Te leo', title: 'Escríbeme',
+          emailParts: ['davidportodiaz', '@', 'gmail.com'],
           href: AUTHOR_EMAIL_URL
         }
       ]
