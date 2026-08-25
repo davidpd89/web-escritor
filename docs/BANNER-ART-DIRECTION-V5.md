@@ -8,6 +8,26 @@ Un banner corto de escritorio y un banner móvil cómodo tienen relaciones de as
 
 Por tanto, cada banner admite dos composiciones del mismo concepto.
 
+## Implementacion en codigo
+
+Cada banner `imageOnly` llama a `applyBannerArtDirection()` en
+`assets/v1-home-editorial-v3.js`. Esa funcion calcula el par de assets desde
+el `key` del banner y asigna estas variables CSS:
+
+- `--feature-banner-desktop-image`
+- `--feature-banner-mobile-image`
+
+`assets/v1-banner-art-direction-v5.css` lee esas variables de forma generica.
+No se deben anadir selectores nuevos por banner salvo que un caso necesite una
+excepcion justificada.
+
+Para un banner nuevo:
+
+1. Crear `<base>-desktop.<ext>` y `<base>-mobile.<ext>` en `assets/banners/`.
+2. Usar `imageOnly: true` en la configuracion del banner.
+3. Si el nombre no coincide con `${key}-home-banner`, pasar `artBase`.
+4. Si no es WebP, anadir la extension en `artDirectedBannerExtensions`.
+
 ## Desktop
 
 - maestro: **2400 × 600 px**;
@@ -21,11 +41,9 @@ Por tanto, cada banner admite dos composiciones del mismo concepto.
 - fondo real y continuo a ambos lados;
 - no cortar objetos clave en la parte superior/inferior.
 
-Nombres:
+Nombres activos:
 - `assets/banners/manecillas-home-banner-desktop.png` (activo; WebP recomendado si se convierte despues)
-- `assets/banners/samuel-home-banner-desktop.webp`
-- `assets/banners/memoria-tierras-norte-home-banner-desktop.webp`
-- `assets/banners/herramientas-home-banner-desktop.webp`
+- `assets/banners/samuel-home-banner-desktop.png` (activo; WebP recomendado si se convierte despues)
 
 Render desktop: `clamp(300px,25vw,400px)`.
 Render tablet: `clamp(230px,30vw,300px)`.
@@ -43,11 +61,9 @@ Render tablet: `clamp(230px,30vw,300px)`.
 - no primer plano, no zoom, no objetos tocando bordes;
 - sin texto incrustado.
 
-Nombres:
+Nombres activos:
 - `assets/banners/manecillas-home-banner-mobile.png` (activo; WebP recomendado si se convierte despues)
-- `assets/banners/samuel-home-banner-mobile.webp`
-- `assets/banners/memoria-tierras-norte-home-banner-mobile.webp`
-- `assets/banners/herramientas-home-banner-mobile.webp`
+- `assets/banners/samuel-home-banner-mobile.png` (activo; WebP recomendado si se convierte despues)
 
 Render <=599 px: `clamp(190px,56vw,240px)`.
 Render <=349 px: `185px`.

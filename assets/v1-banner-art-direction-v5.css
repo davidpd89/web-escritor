@@ -1,8 +1,16 @@
 /* V5 banner art direction.
-   A single source image cannot simultaneously be a short desktop panorama
-   and a comfortable mobile crop. Each banner may therefore have two authored
-   compositions: desktop (4:1) and mobile (16:9). The existing <img> remains
-   underneath as a fallback until the new files exist. */
+   Rule for every image-only Home banner:
+   - desktop/tablet use a deliberately wide master, normally 2400x600 (4:1);
+   - mobile uses a recomposed 1200x675 (16:9) master;
+   - the original <img> stays below as a fallback if a named art-directed file
+     does not exist yet.
+
+   JS sets these custom properties on each .feature-banner--image-only:
+   --feature-banner-desktop-image: url('/assets/banners/<base>-desktop.<ext>');
+   --feature-banner-mobile-image: url('/assets/banners/<base>-mobile.<ext>');
+
+   Do not solve a bad crop with object-position. Regenerate/recompose the
+   desktop/mobile asset so the essential objects live in the central area. */
 
 html.v1[data-lrb-home="true"] .editorial-home-flow .feature-banner--image-only{
   width:100%;
@@ -41,19 +49,7 @@ html.v1[data-lrb-home="true"] .editorial-home-flow .feature-banner--image-only .
   background-repeat:no-repeat;
   background-position:center center;
   background-size:cover;
-}
-
-html.v1[data-lrb-home="true"] .editorial-home-flow .feature-banner[data-banner-key="manecillas"] .feature-banner__media::after{
-  background-image:url('/assets/banners/manecillas-home-banner-desktop.png');
-}
-html.v1[data-lrb-home="true"] .editorial-home-flow .feature-banner[data-banner-key="samuel"] .feature-banner__media::after{
-  background-image:url('/assets/banners/samuel-home-banner-desktop.webp');
-}
-html.v1[data-lrb-home="true"] .editorial-home-flow .feature-banner[data-banner-key="memoria"] .feature-banner__media::after{
-  background-image:url('/assets/banners/memoria-tierras-norte-home-banner-desktop.webp');
-}
-html.v1[data-lrb-home="true"] .editorial-home-flow .feature-banner[data-banner-key="tools"] .feature-banner__media::after{
-  background-image:url('/assets/banners/herramientas-home-banner-desktop.webp');
+  background-image:var(--feature-banner-desktop-image,none);
 }
 
 /* Tablet keeps the desktop composition but lowers the strip height. The
@@ -70,17 +66,8 @@ html.v1[data-lrb-home="true"] .editorial-home-flow .feature-banner[data-banner-k
   html.v1[data-lrb-home="true"] .editorial-home-flow .feature-banner--image-only{
     height:clamp(190px,56vw,240px);
   }
-  html.v1[data-lrb-home="true"] .editorial-home-flow .feature-banner[data-banner-key="manecillas"] .feature-banner__media::after{
-    background-image:url('/assets/banners/manecillas-home-banner-mobile.png');
-  }
-  html.v1[data-lrb-home="true"] .editorial-home-flow .feature-banner[data-banner-key="samuel"] .feature-banner__media::after{
-    background-image:url('/assets/banners/samuel-home-banner-mobile.webp');
-  }
-  html.v1[data-lrb-home="true"] .editorial-home-flow .feature-banner[data-banner-key="memoria"] .feature-banner__media::after{
-    background-image:url('/assets/banners/memoria-tierras-norte-home-banner-mobile.webp');
-  }
-  html.v1[data-lrb-home="true"] .editorial-home-flow .feature-banner[data-banner-key="tools"] .feature-banner__media::after{
-    background-image:url('/assets/banners/herramientas-home-banner-mobile.webp');
+  html.v1[data-lrb-home="true"] .editorial-home-flow .feature-banner--image-only .feature-banner__media::after{
+    background-image:var(--feature-banner-mobile-image,var(--feature-banner-desktop-image,none));
   }
 }
 

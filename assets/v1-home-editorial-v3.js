@@ -32,6 +32,12 @@
       '/assets/manuscrito-herramientas-placeholder.webp'
     ]
   };
+  const artDirectedBannerExtensions = {
+    manecillas: 'png',
+    samuel: 'png',
+    memoria: 'webp',
+    tools: 'webp'
+  };
   const SAMUEL_AMAZON_URL = 'https://www.amazon.es/dp/B0GB6LGQFH?tag=davidporto-21';
   const AUTHOR_EMAIL_URL = 'mailto:davidportodiaz@gmail.com?subject=Te%20leo%20%E2%80%94%20David%20Porto%20D%C3%ADaz';
 
@@ -89,11 +95,20 @@
     next();
   }
 
+  function applyBannerArtDirection(section, config) {
+    if (!section || !config?.imageOnly) return;
+    const base = config.artBase || `${config.key}-home-banner`;
+    const ext = config.artExt || artDirectedBannerExtensions[config.key] || 'webp';
+    section.style.setProperty('--feature-banner-desktop-image', `url("/assets/banners/${base}-desktop.${ext}")`);
+    section.style.setProperty('--feature-banner-mobile-image', `url("/assets/banners/${base}-mobile.${ext}")`);
+  }
+
   function createBanner(config) {
     const section = make('section', `feature-banner feature-banner--${config.key}`);
     section.setAttribute('aria-labelledby', `feature-banner-${config.key}`);
     section.dataset.bannerKey = config.key;
     if (config.imageOnly) section.classList.add('feature-banner--image-only');
+    applyBannerArtDirection(section, config);
 
     const media = make('div', 'feature-banner__media');
     media.setAttribute('aria-hidden', 'true');

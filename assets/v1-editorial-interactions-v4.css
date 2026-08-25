@@ -32,26 +32,3 @@ html.v1 .editorial-continuity__links a:focus-visible{
   html.v1 .editorial-continuity__links a,
   html.v1[data-lrb-home="true"] .editorial-card{transition:none}
 }
-
-html.v1[data-lrb-home="true"] .editorial-home-flow .feature-banner[data-banner-key="manecillas"].feature-banner--image-only{
-  height:clamp(300px,28vw,430px);
-  min-height:0;
-  max-height:430px;
-  aspect-ratio:auto;
-}
-
-html.v1[data-lrb-home="true"] .editorial-home-flow .feature-banner[data-banner-key="manecillas"].feature-banner--image-only .feature-banner__media img{
-  object-fit:cover;
-  object-position:center 62%;
-}
-
-@media (max-width:699px){
-  html.v1[data-lrb-home="true"] .editorial-home-flow .feature-banner[data-banner-key="manecillas"].feature-banner--image-only{
-    height:clamp(170px,46vw,230px);
-    max-height:230px;
-  }
-
-  html.v1[data-lrb-home="true"] .editorial-home-flow .feature-banner[data-banner-key="manecillas"].feature-banner--image-only .feature-banner__media img{
-    object-position:center 58%;
-  }
-}
