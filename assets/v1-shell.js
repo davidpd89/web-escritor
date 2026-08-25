@@ -51,9 +51,11 @@
 
     ensureAssistantExploreLink(dialog);
     let opener = null;
+    let scrollBeforeOpen = 0;
     opens.forEach((open) => {
       open.addEventListener('click', () => {
-        opener = document.activeElement;
+        opener = open;
+        scrollBeforeOpen = window.scrollY;
         opens.forEach((o) => o.setAttribute('aria-expanded', 'true'));
         document.documentElement.classList.add('explore-open');
         dialog.showModal();
@@ -68,7 +70,14 @@
       markClosed();
       document.documentElement.classList.remove('explore-open');
       dispatchEvent(new CustomEvent('dp:explore-close'));
-      if (opener instanceof HTMLElement) opener.focus({ preventScroll: true });
+      if (opener instanceof HTMLElement) {
+        const restoreOpener = () => {
+          if (Math.abs(window.scrollY - scrollBeforeOpen) > 4) window.scrollTo(0, scrollBeforeOpen);
+          opener.focus({ preventScroll: true });
+        };
+        requestAnimationFrame(restoreOpener);
+        setTimeout(restoreOpener, 80);
+      }
     });
 
     const FOCUSABLE = 'a[href],button:not([disabled]),input:not([disabled]),select:not([disabled]),textarea:not([disabled]),[tabindex]:not([tabindex="-1"])';

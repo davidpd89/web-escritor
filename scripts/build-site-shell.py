@@ -298,6 +298,12 @@ def render_header(nav: dict, by_id: dict[str, Entry], current_path: str) -> str:
     # primera fila de Explorar (ver render_explore_rows), en vez de asumir
     # que el pie de pagina basta.
     links = "\n".join(f"        {link(by_id[item_id], None)}" for item_id in nav["header"])
+    buy_link = ""
+    if not current_path.startswith("/las-manecillas-del-recuerdo/"):
+        buy_link = (
+            f'      <a class="header-buy" href="{AMAZON_SAMUEL_URL}" '
+            'target="_blank" rel="sponsored nofollow noopener noreferrer">Comprar</a>\n'
+        )
     return (
         '<header class="site-header" data-header>\n'
         '  <div class="site-header__inner">\n'
@@ -314,12 +320,11 @@ def render_header(nav: dict, by_id: dict[str, Entry], current_path: str) -> str:
         '      </button>\n'
         '    </div>\n'
         '    <div class="site-header__actions">\n'
-        f'      <a class="header-buy" href="{AMAZON_SAMUEL_URL}" target="_blank" rel="sponsored nofollow noopener noreferrer">Comprar</a>\n'
+        f"{buy_link}"
         '    </div>\n'
         '  </div>\n'
         '  <noscript>\n'
         '    <nav class="primary-nav" aria-label="Navegación principal">\n'
-        '        <a href="/">Inicio</a>\n'
         f"{links}\n"
         '    </nav>\n'
         '  </noscript>\n'
@@ -328,9 +333,7 @@ def render_header(nav: dict, by_id: dict[str, Entry], current_path: str) -> str:
 
 
 def render_explore_rows(nav: dict, by_id: dict[str, Entry]) -> list[tuple[str, str, str, str | None]]:
-    rows: list[tuple[str, str, str, str | None]] = [
-        ("/", "Inicio", "Volver a la portada.", None),
-    ]
+    rows: list[tuple[str, str, str, str | None]] = []
     for item in nav.get("exploreTerritories", []):
         entry = by_id[item["id"]]
         copy = PREVIEW_COPY.get(item["id"], entry.label)
@@ -442,11 +445,6 @@ def render_footer(nav: dict, by_id: dict[str, Entry], extras: dict, rel_path: st
     legal = [
         '      <span>© 2026 David Porto Díaz. Todos los derechos reservados.</span>'
     ]
-    if rel_path in extras.get("footerLegalAffiliatePages", []):
-        legal.append(
-            '      <span>Algunos enlaces de compra son de afiliado del <a href="/aviso-legal.html#afiliado">programa Amazon Associates</a> (tag: davidporto-21).</span>'
-        )
-
     return (
         '<footer class="site-footer">\n'
         '  <div class="site-footer__grid">\n'
