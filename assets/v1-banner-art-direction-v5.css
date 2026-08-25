@@ -44,7 +44,7 @@ html.v1[data-lrb-home="true"] .editorial-home-flow .feature-banner--image-only .
 }
 
 html.v1[data-lrb-home="true"] .editorial-home-flow .feature-banner[data-banner-key="manecillas"] .feature-banner__media::after{
-  background-image:url('/assets/banners/manecillas-home-banner-desktop.webp');
+  background-image:url('/assets/banners/manecillas-home-banner-desktop.png');
 }
 html.v1[data-lrb-home="true"] .editorial-home-flow .feature-banner[data-banner-key="samuel"] .feature-banner__media::after{
   background-image:url('/assets/banners/samuel-home-banner-desktop.webp');
@@ -71,7 +71,7 @@ html.v1[data-lrb-home="true"] .editorial-home-flow .feature-banner[data-banner-k
     height:clamp(190px,56vw,240px);
   }
   html.v1[data-lrb-home="true"] .editorial-home-flow .feature-banner[data-banner-key="manecillas"] .feature-banner__media::after{
-    background-image:url('/assets/banners/manecillas-home-banner-mobile.webp');
+    background-image:url('/assets/banners/manecillas-home-banner-mobile.png');
   }
   html.v1[data-lrb-home="true"] .editorial-home-flow .feature-banner[data-banner-key="samuel"] .feature-banner__media::after{
     background-image:url('/assets/banners/samuel-home-banner-mobile.webp');

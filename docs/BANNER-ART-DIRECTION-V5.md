@@ -22,7 +22,7 @@ Por tanto, cada banner admite dos composiciones del mismo concepto.
 - no cortar objetos clave en la parte superior/inferior.
 
 Nombres:
-- `assets/banners/manecillas-home-banner-desktop.webp`
+- `assets/banners/manecillas-home-banner-desktop.png` (activo; WebP recomendado si se convierte despues)
 - `assets/banners/samuel-home-banner-desktop.webp`
 - `assets/banners/memoria-tierras-norte-home-banner-desktop.webp`
 - `assets/banners/herramientas-home-banner-desktop.webp`
@@ -44,7 +44,7 @@ Render tablet: `clamp(230px,30vw,300px)`.
 - sin texto incrustado.
 
 Nombres:
-- `assets/banners/manecillas-home-banner-mobile.webp`
+- `assets/banners/manecillas-home-banner-mobile.png` (activo; WebP recomendado si se convierte despues)
 - `assets/banners/samuel-home-banner-mobile.webp`
 - `assets/banners/memoria-tierras-norte-home-banner-mobile.webp`
 - `assets/banners/herramientas-home-banner-mobile.webp`
