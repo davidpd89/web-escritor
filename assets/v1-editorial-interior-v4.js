@@ -284,16 +284,15 @@
     section.setAttribute('aria-labelledby', 'memoria-tierras-norte-title');
     section.innerHTML = `
       <div class="v1-section__head">
-        <p class="eyebrow">Obra · Antología colaborativa</p>
+        <p class="eyebrow">Obra · Antología</p>
         <div>
           <h2 id="memoria-tierras-norte-title">La memoria de las tierras del norte</h2>
-          <p>Relato de David Porto Díaz incluido en una antología de fantasía editada por Diversidad Literaria.</p>
+          <p>Antología de fantasía con relato de David Porto Díaz.</p>
         </div>
       </div>
       <div class="work-record__body">
-        <p>La participación forma parte del catálogo de obra del autor. La ficha editorial externa reúne la información ampliada de la edición.</p>
         <div class="work-record__actions">
-          <a class="primary-action" href="${MEMORIA_EXTERNAL_URL}" target="_blank" rel="noopener noreferrer" data-memoria-official-source>Ver ficha editorial</a>
+          <a class="primary-action" href="${MEMORIA_EXTERNAL_URL}" target="_blank" rel="noopener noreferrer" data-memoria-official-source>Conocer la antología</a>
           <a class="text-action" href="/libros/">Volver a todas las obras</a>
         </div>
       </div>`;

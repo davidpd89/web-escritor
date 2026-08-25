@@ -469,10 +469,7 @@
         {
           type: 'action', key: 'manecillas-beta', eyebrow: 'Comunidad', title: 'Lectores beta',
           text: 'Sé el primero en leer contenido y opina antes de que llegue a todos.',
-          href: '/lectores-beta/#quiero-ser-lector',
-          form: true,
-          newsletterSource: 'lectores-beta',
-          formCta: 'Unirme'
+          href: '/lectores-beta/#quiero-ser-lector'
         },
         {
           type: 'action', key: 'manecillas-email', eyebrow: 'Te leo', title: 'Escríbeme',
