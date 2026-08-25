@@ -5,6 +5,7 @@ import { fileURLToPath } from 'node:url';
 const here = path.dirname(fileURLToPath(import.meta.url));
 const html = await fs.readFile(path.join(here, 'prototype.html'), 'utf8');
 const css = await fs.readFile(path.join(here, 'prototype.css'), 'utf8');
+const candidate = await fs.readFile(path.join(here, 'integration-candidate.css'), 'utf8');
 
 const failures = [];
 const expect = (condition, message) => {
@@ -16,7 +17,9 @@ expect(html.includes('/assets/v1-fonts.css'), 'prototype must consume project fo
 expect(html.includes('/assets/v1-tokens.css'), 'prototype must consume project tokens');
 expect(!/https?:\/\//i.test(html), 'prototype must not load external resources');
 expect(!/GT\s*Cinetype|YaleNew|Yale\s*2024/i.test(css), 'prototype CSS must not reference proprietary Yale/GT font families');
+expect(!/GT\s*Cinetype|YaleNew|Yale\s*2024/i.test(candidate), 'integration candidate must not reference proprietary Yale/GT font families');
 expect(!/url\(\s*["']?https?:\/\//i.test(css), 'prototype CSS must not load external assets');
+expect(!/url\(\s*["']?https?:\/\//i.test(candidate), 'integration candidate must not load external assets');
 expect(css.includes('var(--font-display)'), 'prototype must use project display font token');
 expect(css.includes('var(--font-reading)'), 'prototype must use project reading font token');
 expect(css.includes('var(--font-ui)'), 'prototype must use project UI font token');
@@ -32,6 +35,15 @@ expect(html.includes('yr-filters'), 'prototype must demonstrate Browse/filter ph
 expect(html.includes('yr-feature'), 'prototype must demonstrate asymmetric feature phase');
 expect(html.includes('yr-promo'), 'prototype must demonstrate post-value conversion phase');
 
+expect(candidate.includes('data-yale-reference-preview="true"'), 'integration candidate must be opt-in scoped');
+expect(!/^[^/\n]*html\.v1(?!\[data-yale-reference-preview)/m.test(candidate), 'integration candidate contains an unscoped html.v1 production selector');
+expect(candidate.includes('.v1-masthead h1'), 'integration candidate must test existing family mastheads');
+expect(candidate.includes('.cuaderno-masthead h1'), 'integration candidate must test Cuaderno bridge');
+expect(candidate.includes('.editorial-cluster__grid'), 'integration candidate must test Home cluster simplification');
+expect(candidate.includes('[data-family="tools-hub"] .id-card'), 'integration candidate must test tools-hub treatment');
+expect(candidate.includes('@media(max-width:639px)'), 'integration candidate mobile contract missing');
+expect(candidate.includes('@media(prefers-reduced-motion:reduce)'), 'integration candidate reduced-motion contract missing');
+
 if (failures.length) {
   console.error(`Yale reference lab contract FAIL (${failures.length})`);
   for (const item of failures) console.error(`- ${item}`);
@@ -43,3 +55,4 @@ console.log('- no external/proprietary runtime dependencies');
 console.log('- project typography/tokens reused');
 console.log('- responsive + reduced-motion contracts present');
 console.log('- feature → browse → ledger → conversion pattern present');
+console.log('- real-selector integration candidate is opt-in scoped');
