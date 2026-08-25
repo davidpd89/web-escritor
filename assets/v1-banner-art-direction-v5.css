@@ -1,0 +1,96 @@
+/* V5 banner art direction.
+   A single source image cannot simultaneously be a short desktop panorama
+   and a comfortable mobile crop. Each banner may therefore have two authored
+   compositions: desktop (4:1) and mobile (16:9). The existing <img> remains
+   underneath as a fallback until the new files exist. */
+
+html.v1[data-lrb-home="true"] .editorial-home-flow .feature-banner--image-only{
+  width:100%;
+  height:clamp(300px,25vw,400px);
+  min-height:0;
+  max-height:none;
+  aspect-ratio:auto;
+  overflow:hidden;
+}
+
+html.v1[data-lrb-home="true"] .editorial-home-flow .feature-banner--image-only .feature-banner__media{
+  position:absolute;
+  inset:0;
+  width:100%;
+  height:100%;
+  overflow:hidden;
+}
+
+html.v1[data-lrb-home="true"] .editorial-home-flow .feature-banner--image-only .feature-banner__media img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  object-position:center center;
+  transform:none;
+}
+
+/* The pseudo-element is the art-directed layer. If an authored file is not
+   present, a failed CSS background is transparent and the existing <img>
+   remains visible below it. */
+html.v1[data-lrb-home="true"] .editorial-home-flow .feature-banner--image-only .feature-banner__media::after{
+  content:"";
+  position:absolute;
+  inset:0;
+  z-index:1;
+  pointer-events:none;
+  background-repeat:no-repeat;
+  background-position:center center;
+  background-size:cover;
+}
+
+html.v1[data-lrb-home="true"] .editorial-home-flow .feature-banner[data-banner-key="manecillas"] .feature-banner__media::after{
+  background-image:url('/assets/banners/manecillas-home-banner-desktop.webp');
+}
+html.v1[data-lrb-home="true"] .editorial-home-flow .feature-banner[data-banner-key="samuel"] .feature-banner__media::after{
+  background-image:url('/assets/banners/samuel-home-banner-desktop.webp');
+}
+html.v1[data-lrb-home="true"] .editorial-home-flow .feature-banner[data-banner-key="memoria"] .feature-banner__media::after{
+  background-image:url('/assets/banners/memoria-tierras-norte-home-banner-desktop.webp');
+}
+html.v1[data-lrb-home="true"] .editorial-home-flow .feature-banner[data-banner-key="tools"] .feature-banner__media::after{
+  background-image:url('/assets/banners/herramientas-home-banner-desktop.webp');
+}
+
+/* Tablet keeps the desktop composition but lowers the strip height. The
+   desktop master must therefore keep all essential subjects inside the
+   central 50% of the canvas. */
+@media (min-width:600px) and (max-width:1023px){
+  html.v1[data-lrb-home="true"] .editorial-home-flow .feature-banner--image-only{
+    height:clamp(230px,30vw,300px);
+  }
+}
+
+/* Mobile uses a different composition rather than zooming the desktop one. */
+@media (max-width:599px){
+  html.v1[data-lrb-home="true"] .editorial-home-flow .feature-banner--image-only{
+    height:clamp(190px,56vw,240px);
+  }
+  html.v1[data-lrb-home="true"] .editorial-home-flow .feature-banner[data-banner-key="manecillas"] .feature-banner__media::after{
+    background-image:url('/assets/banners/manecillas-home-banner-mobile.webp');
+  }
+  html.v1[data-lrb-home="true"] .editorial-home-flow .feature-banner[data-banner-key="samuel"] .feature-banner__media::after{
+    background-image:url('/assets/banners/samuel-home-banner-mobile.webp');
+  }
+  html.v1[data-lrb-home="true"] .editorial-home-flow .feature-banner[data-banner-key="memoria"] .feature-banner__media::after{
+    background-image:url('/assets/banners/memoria-tierras-norte-home-banner-mobile.webp');
+  }
+  html.v1[data-lrb-home="true"] .editorial-home-flow .feature-banner[data-banner-key="tools"] .feature-banner__media::after{
+    background-image:url('/assets/banners/herramientas-home-banner-mobile.webp');
+  }
+}
+
+@media (max-width:349px){
+  html.v1[data-lrb-home="true"] .editorial-home-flow .feature-banner--image-only{
+    height:185px;
+  }
+}
+
+@media (prefers-reduced-motion:reduce){
+  html.v1[data-lrb-home="true"] .editorial-home-flow .feature-banner--image-only .feature-banner__media,
+  html.v1[data-lrb-home="true"] .editorial-home-flow .feature-banner--image-only .feature-banner__media::after{transition:none}
+}
