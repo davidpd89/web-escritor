@@ -22,6 +22,7 @@
       '/assets/samuel_entre_mundos_3d.webp'
     ],
     memoria: [
+      '/assets/david-porto-memoria-sinfondo.webp',
       '/assets/banners/memoria-tierras-norte-home-banner.webp',
       '/assets/banners/memoria-tierras-norte-home-banner.jpg',
       '/assets/la-memoria-de-las-tierras-del-norte-libro.jpg'
@@ -155,18 +156,18 @@
     if (config.media) {
       const media = make('a', 'editorial-card__media');
       media.href = config.href;
-      media.setAttribute('aria-hidden', 'true');
+      media.setAttribute('aria-label', config.title);
       media.tabIndex = -1;
       const image = new Image();
       image.src = config.media;
       image.alt = '';
-      image.loading = 'lazy';
+      image.loading = config.loading || 'eager';
       image.decoding = 'async';
       media.append(image);
       article.append(media);
     }
 
-    const body = make('div', config.lead ? 'editorial-card__body' : '');
+    const body = make('div', 'editorial-card__body');
     if (config.eyebrow) body.append(make('p', 'editorial-card__eyebrow', config.eyebrow));
     const heading = make('h3');
     addTextLink(heading, config.href, config.title);
@@ -451,11 +452,11 @@
           href: '/prensa.html'
         },
         {
-          type: 'action', key: 'manecillas-buy', tone: 'sand', eyebrow: 'Comprar', title: 'Comprar en Amazon',
+          type: 'action', key: 'manecillas-buy', eyebrow: 'Comprar', title: 'Comprar en Amazon',
           href: SAMUEL_AMAZON_URL
         },
         {
-          type: 'action', key: 'manecillas-beta', tone: 'sage', eyebrow: 'Comunidad', title: 'Lectores beta',
+          type: 'action', key: 'manecillas-beta', eyebrow: 'Comunidad', title: 'Lectores beta',
           text: 'Sé el primero en leer contenido y opina antes de que llegue a todos.',
           href: '/lectores-beta/',
           form: true,
@@ -463,12 +464,12 @@
           formCta: 'Unirme'
         },
         {
-          type: 'action', key: 'manecillas-subscribe', tone: 'plain', eyebrow: 'Avisos', title: 'Suscribirte',
+          type: 'action', key: 'manecillas-subscribe', eyebrow: 'Avisos', title: 'Suscribirte',
           text: 'Recibe novedades de publicación, presentaciones y materiales nuevos.',
           form: true
         },
         {
-          type: 'action', key: 'manecillas-email', tone: 'cream', eyebrow: 'Te leo', title: 'Escríbeme',
+          type: 'action', key: 'manecillas-email', eyebrow: 'Te leo', title: 'Escríbeme',
           emailParts: ['davidportodiaz', '@', 'gmail.com'],
           href: AUTHOR_EMAIL_URL
         }
@@ -491,6 +492,7 @@
       title: 'Samuel entre mundos',
       allHref: '/libros/samuel-entre-mundos/',
       allLabel: 'Ver el libro →',
+      layout: 'book-side-stack',
       cards: [
         {
           key: 'samuel-book', lead: true, media: '/assets/samuel_entre_mundos_3d.webp',
@@ -504,45 +506,24 @@
           href: '/cuaderno/que-es-el-portal-fantasy/'
         },
         {
-          key: 'samuel-feria', tone: 'sage', eyebrow: 'Crónica', title: 'Samuel en la Feria del Libro de Madrid',
+          key: 'samuel-feria', tone: 'blue', eyebrow: 'Crónica', title: 'Samuel en la Feria del Libro de Madrid',
           meta: '10 junio 2026', text: 'Firma de ejemplares en el Parque del Retiro, caseta 337.',
           href: '/cuaderno/feria-libro-madrid-2026-samuel-entre-mundos/'
+        },
+        {
+          type: 'action', key: 'samuel-buy', eyebrow: 'Comprar', title: 'Comprar en Amazon',
+          href: SAMUEL_AMAZON_URL
         }
       ]
     }));
-
-    flow.append(createInterlude());
 
     flow.append(createBanner({
       key: 'memoria',
       eyebrow: 'Relato · Antología',
       title: 'La memoria de las tierras del norte',
-      deck: 'Un relato de David Porto Díaz dentro de una antología de fantasía publicada por Diversidad Literaria.',
+      deck: 'Un relato de David Porto Díaz dentro de una antología de fantasía.',
       href: 'https://www.diversidadliteraria.com/la-memoria-de-las-tierras-del-norte',
       cta: 'Conocer el relato →'
-    }));
-
-    flow.append(createCluster({
-      key: 'memoria',
-      eyebrow: 'Otras historias',
-      title: 'La memoria de las tierras del norte',
-      allHref: '/libros/',
-      allLabel: 'Ver todas las obras →',
-      cards: [
-        {
-          key: 'memoria-main', lead: true, eyebrow: 'Antología colaborativa', title: 'La memoria de las tierras del norte',
-          meta: 'Diversidad Literaria', text: 'Relato de David Porto Díaz publicado en una antología de fantasía.',
-          href: 'https://www.diversidadliteraria.com/la-memoria-de-las-tierras-del-norte'
-        },
-        {
-          key: 'memoria-works', eyebrow: 'Biblioteca', title: 'Todas las obras', meta: 'Novelas · relatos',
-          text: 'Un acceso único a los libros y textos publicados de David Porto Díaz.', href: '/libros/'
-        },
-        {
-          key: 'memoria-author', tone: 'blush', eyebrow: 'Autor', title: 'Trayectoria y reconocimientos',
-          meta: 'Biografía · premios', text: 'El recorrido del autor, sus publicaciones y reconocimientos literarios.', href: '/autor.html'
-        }
-      ]
     }));
 
     flow.append(createBanner({
@@ -560,6 +541,7 @@
       title: 'Herramientas gratuitas',
       allHref: '/herramientas/',
       allLabel: 'Ver todas →',
+      layout: 'tools-four',
       cards: [
         {
           key: 'tools-hub', lead: true, eyebrow: 'Hub', title: 'Revisa tu texto con herramientas concretas',
@@ -571,7 +553,11 @@
           meta: 'Diagnóstico rápido', text: 'Comprueba señales útiles antes de una revisión más profunda.', href: '/herramientas/manuscrito/'
         },
         {
-          key: 'tools-repetition', tone: 'blue', eyebrow: 'Estilo', title: 'Repeticiones y diálogo',
+          key: 'tools-beta', eyebrow: 'Lectores beta', title: 'Tengo un manuscrito y me gustarían opiniones de lectores beta',
+          meta: 'Comunidad', text: 'Un acceso para autores que quieren preparar una lectura beta de su manuscrito.', href: '/lectores-beta/'
+        },
+        {
+          key: 'tools-repetition', eyebrow: 'Estilo', title: 'Repeticiones y diálogo',
           meta: 'Dos comprobaciones frecuentes', text: 'Localiza repeticiones y revisa el equilibrio de diálogo desde la propia web.', href: '/herramientas/repeticiones/'
         }
       ]

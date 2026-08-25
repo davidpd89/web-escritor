@@ -171,7 +171,7 @@
       return;
     }
     const path = new URL(image.currentSrc || image.src, location.origin).pathname;
-    const isFinalBanner = path.startsWith('/assets/banners/');
+    const isFinalBanner = path.startsWith('/assets/banners/') || path === '/assets/david-porto-memoria-sinfondo.webp';
     banner.classList.toggle('feature-banner--placeholder-only', !isFinalBanner);
     banner.classList.toggle('feature-banner--final-asset', isFinalBanner);
   }

@@ -142,6 +142,46 @@ html.v1[data-lrb-home="true"] .feature-banner--samuel{background:linear-gradient
 html.v1[data-lrb-home="true"] .feature-banner--memoria{background:linear-gradient(120deg,#29352f,#566b5d 62%,#869286)}
 html.v1[data-lrb-home="true"] .feature-banner--tools{background:linear-gradient(120deg,#38434a,#627681 62%,#9aa9ae)}
 html.v1[data-lrb-home="true"] .feature-banner--tools::after{background:linear-gradient(90deg,rgba(12,19,23,.67),rgba(12,19,23,.22) 60%,rgba(12,19,23,.07))}
+html.v1[data-lrb-home="true"] .feature-banner--memoria{
+  background:
+    radial-gradient(circle at 76% 50%,rgba(120,166,188,.34),transparent 28rem),
+    linear-gradient(120deg,#182638,#354a57 58%,#6e838a);
+}
+html.v1[data-lrb-home="true"] .feature-banner--memoria .feature-banner__media{
+  background:inherit;
+}
+html.v1[data-lrb-home="true"] .feature-banner--memoria .feature-banner__media img{
+  inset:auto clamp(3rem,10vw,9rem) 50% auto;
+  width:clamp(170px,20vw,285px);
+  height:auto;
+  max-height:78%;
+  object-fit:contain;
+  object-position:center;
+  transform:translateY(50%);
+  filter:drop-shadow(0 22px 28px rgba(8,14,20,.34));
+}
+html.v1[data-lrb-home="true"] .feature-banner--tools{
+  min-height:clamp(210px,25vw,320px);
+  place-items:center;
+  background:
+    linear-gradient(0deg,rgba(255,253,250,.22),rgba(255,253,250,.08)),
+    linear-gradient(120deg,#33414a,#637782 62%,#a4b1b5);
+}
+html.v1[data-lrb-home="true"] .feature-banner--tools::after{background:rgba(15,24,29,.34)}
+html.v1[data-lrb-home="true"] .feature-banner--tools .feature-banner__media{display:none}
+html.v1[data-lrb-home="true"] .feature-banner--tools .feature-banner__inner{
+  width:min(100%,var(--layout-max));
+  display:grid;
+  place-items:center;
+}
+html.v1[data-lrb-home="true"] .feature-banner--tools .feature-banner__copy{
+  max-width:min(46rem,82vw);
+  text-align:center;
+}
+html.v1[data-lrb-home="true"] .feature-banner--tools .feature-banner h2,
+html.v1[data-lrb-home="true"] .feature-banner--tools h2{
+  max-width:none;
+}
 
 /* --- Editorial clusters ------------------------------------------------ */
 html.v1[data-lrb-home="true"] .editorial-cluster{
@@ -193,7 +233,7 @@ html.v1[data-lrb-home="true"] .editorial-cluster__grid{
 }
 html.v1[data-lrb-home="true"] .editorial-cluster__grid[data-layout="book-actions"]{
   grid-template-columns:minmax(0,.95fr) repeat(3,minmax(0,1fr));
-  grid-template-rows:repeat(2,minmax(220px,auto));
+  grid-template-rows:repeat(2,minmax(205px,auto));
   min-height:0;
   align-items:stretch;
 }
@@ -203,6 +243,39 @@ html.v1[data-lrb-home="true"] .editorial-cluster__grid[data-layout="book-actions
 html.v1[data-lrb-home="true"] .editorial-cluster__grid[data-layout="book-actions"] .editorial-card[data-card-key="manecillas-beta"]{grid-column:2;grid-row:2}
 html.v1[data-lrb-home="true"] .editorial-cluster__grid[data-layout="book-actions"] .editorial-card[data-card-key="manecillas-subscribe"]{grid-column:3;grid-row:2}
 html.v1[data-lrb-home="true"] .editorial-cluster__grid[data-layout="book-actions"] .editorial-card[data-card-key="manecillas-email"]{grid-column:4;grid-row:2}
+html.v1[data-lrb-home="true"] .editorial-cluster__grid[data-layout="book-side-stack"]{
+  grid-template-columns:minmax(0,.82fr) minmax(0,1.18fr);
+  grid-template-rows:repeat(3,minmax(0,1fr));
+  height:clamp(455px,36vw,520px);
+  min-height:0;
+  align-items:stretch;
+}
+html.v1[data-lrb-home="true"] .editorial-cluster__grid[data-layout="book-side-stack"] .editorial-card[data-card-key="samuel-book"]{grid-column:1;grid-row:1 / span 3}
+html.v1[data-lrb-home="true"] .editorial-cluster__grid[data-layout="book-side-stack"] .editorial-card:not([data-card-key="samuel-book"]){
+  padding:clamp(.95rem,1.2vw,1.15rem);
+}
+html.v1[data-lrb-home="true"] .editorial-cluster__grid[data-layout="book-side-stack"] .editorial-card:not([data-card-key="samuel-book"]) h3{
+  font-size:clamp(1.22rem,1.45vw,1.6rem);
+}
+html.v1[data-lrb-home="true"] .editorial-cluster__grid[data-layout="book-side-stack"] .editorial-card:not([data-card-key="samuel-book"]) .editorial-card__text{
+  display:none;
+}
+html.v1[data-lrb-home="true"] .editorial-cluster__grid[data-layout="tools-four"]{
+  grid-template-columns:repeat(4,minmax(0,1fr));
+  grid-template-rows:minmax(190px,auto);
+  min-height:0;
+  align-items:stretch;
+}
+html.v1[data-lrb-home="true"] .editorial-cluster__grid[data-layout="tools-four"] .editorial-card--lead{
+  grid-row:auto;
+  padding:clamp(1rem,1.35vw,1.35rem);
+}
+html.v1[data-lrb-home="true"] .editorial-cluster__grid[data-layout="tools-four"] .editorial-card--lead h3{
+  font-size:clamp(1.25rem,1.6vw,1.75rem);
+}
+html.v1[data-lrb-home="true"] .editorial-cluster__grid[data-layout="tools-four"] .editorial-card__text{
+  font-size:.95rem;
+}
 html.v1[data-lrb-home="true"] .editorial-card{
   position:relative;
   min-width:0;
@@ -215,6 +288,12 @@ html.v1[data-lrb-home="true"] .editorial-card{
   overflow:hidden;
 }
 html.v1[data-lrb-home="true"] .editorial-card > .editorial-card__arrow{margin-top:auto}
+html.v1[data-lrb-home="true"] .editorial-card__body{
+  min-width:0;
+  display:flex;
+  flex:1;
+  flex-direction:column;
+}
 html.v1[data-lrb-home="true"] .editorial-card--lead{
   grid-row:1 / span 2;
   padding:0;
@@ -246,18 +325,38 @@ html.v1[data-lrb-home="true"] .editorial-card[data-card-key="samuel-book"] .edit
   place-items:center;
   background:transparent;
   border-bottom:1px solid var(--dp-home-rule-soft);
+  overflow:visible;
 }
 html.v1[data-lrb-home="true"] .editorial-card[data-card-key="manecillas-book"] .editorial-card__media img,
 html.v1[data-lrb-home="true"] .editorial-card[data-card-key="samuel-book"] .editorial-card__media img{
+  position:relative;
+  z-index:1;
   width:auto;
-  height:clamp(155px,13.5vw,210px);
-  max-width:56%;
+  height:clamp(145px,12.2vw,190px);
+  max-width:52%;
   max-height:none;
   object-fit:contain;
   padding:0;
   filter:drop-shadow(0 16px 24px rgba(23,20,18,.18));
 }
-html.v1[data-lrb-home="true"] .editorial-card[data-card-key="samuel-book"] .editorial-card__media img{height:clamp(230px,24vw,330px);max-width:64%}
+html.v1[data-lrb-home="true"] .editorial-card[data-card-key="manecillas-book"] .editorial-card__media{
+  aspect-ratio:1.34/1;
+  padding-top:.35rem;
+}
+html.v1[data-lrb-home="true"] .editorial-card[data-card-key="manecillas-book"] .editorial-card__body{
+  padding-top:.85rem;
+}
+html.v1[data-lrb-home="true"] .editorial-card[data-card-key="samuel-book"] .editorial-card__media{
+  aspect-ratio:1.95/1;
+  background:transparent url("/assets/samuel_entre_mundos_3d.webp") center center/contain no-repeat;
+}
+html.v1[data-lrb-home="true"] .editorial-card[data-card-key="samuel-book"] .editorial-card__media img{display:none}
+html.v1[data-lrb-home="true"] .editorial-card[data-card-key="samuel-book"] .editorial-card__body{
+  padding:clamp(1.05rem,1.45vw,1.45rem);
+}
+html.v1[data-lrb-home="true"] .editorial-card[data-card-key="samuel-book"] h3{
+  font-size:clamp(1.65rem,2.35vw,2.35rem);
+}
 html.v1[data-lrb-home="true"] .editorial-card__eyebrow{
   margin:0 0 .6rem;
   color:var(--dp-home-muted);
@@ -337,6 +436,21 @@ html.v1[data-lrb-home="true"] .editorial-card--plain .editorial-card__text{color
 html.v1[data-lrb-home="true"] .editorial-card--cream{background:#f7f3eb;color:#443c35}
 html.v1[data-lrb-home="true"] .editorial-card--cream .editorial-card__meta,
 html.v1[data-lrb-home="true"] .editorial-card--cream .editorial-card__text{color:#6c6258}
+html.v1[data-lrb-home="true"] .editorial-card--sage,
+html.v1[data-lrb-home="true"] .editorial-card--sand,
+html.v1[data-lrb-home="true"] .editorial-card--plain,
+html.v1[data-lrb-home="true"] .editorial-card--cream{
+  background:#fffdfa;
+  color:var(--dp-home-ink);
+}
+html.v1[data-lrb-home="true"] .editorial-card--sage .editorial-card__meta,
+html.v1[data-lrb-home="true"] .editorial-card--sage .editorial-card__text,
+html.v1[data-lrb-home="true"] .editorial-card--sand .editorial-card__meta,
+html.v1[data-lrb-home="true"] .editorial-card--sand .editorial-card__text,
+html.v1[data-lrb-home="true"] .editorial-card--plain .editorial-card__meta,
+html.v1[data-lrb-home="true"] .editorial-card--plain .editorial-card__text,
+html.v1[data-lrb-home="true"] .editorial-card--cream .editorial-card__meta,
+html.v1[data-lrb-home="true"] .editorial-card--cream .editorial-card__text{color:#625e59}
 html.v1[data-lrb-home="true"] .editorial-card--action h3{font-size:clamp(1.25rem,1.6vw,1.75rem)}
 html.v1[data-lrb-home="true"] .editorial-card--action{
   min-height:0;
@@ -534,14 +648,22 @@ html.v1 .back-to-top svg{width:18px;height:18px;fill:none;stroke:currentColor;st
 @media (max-width:1023px){
   html.v1[data-lrb-home="true"] .feature-banner{min-height:clamp(230px,38vw,340px)}
   html.v1[data-lrb-home="true"] .feature-banner--image-only{height:auto;min-height:0;aspect-ratio:2172/724}
+  html.v1[data-lrb-home="true"] .feature-banner--memoria .feature-banner__media img{
+    right:clamp(1.5rem,6vw,4rem);
+    width:clamp(145px,24vw,230px);
+  }
   html.v1[data-lrb-home="true"] .editorial-cluster__grid{min-height:460px;grid-template-columns:minmax(0,1fr) minmax(0,.9fr)}
-  html.v1[data-lrb-home="true"] .editorial-cluster__grid[data-layout="book-actions"]{grid-template-columns:repeat(2,minmax(0,1fr));grid-auto-rows:minmax(180px,auto);min-height:0}
+  html.v1[data-lrb-home="true"] .editorial-cluster__grid[data-layout="book-actions"],
+  html.v1[data-lrb-home="true"] .editorial-cluster__grid[data-layout="book-side-stack"],
+  html.v1[data-lrb-home="true"] .editorial-cluster__grid[data-layout="tools-four"]{grid-template-columns:repeat(2,minmax(0,1fr));grid-auto-rows:minmax(180px,auto);height:auto;min-height:0}
   html.v1[data-lrb-home="true"] .editorial-cluster__grid[data-layout="book-actions"] .editorial-card[data-card-key="manecillas-book"],
   html.v1[data-lrb-home="true"] .editorial-cluster__grid[data-layout="book-actions"] .editorial-card[data-card-key="manecillas-author"],
   html.v1[data-lrb-home="true"] .editorial-cluster__grid[data-layout="book-actions"] .editorial-card[data-card-key="manecillas-buy"],
   html.v1[data-lrb-home="true"] .editorial-cluster__grid[data-layout="book-actions"] .editorial-card[data-card-key="manecillas-beta"],
   html.v1[data-lrb-home="true"] .editorial-cluster__grid[data-layout="book-actions"] .editorial-card[data-card-key="manecillas-subscribe"],
-  html.v1[data-lrb-home="true"] .editorial-cluster__grid[data-layout="book-actions"] .editorial-card[data-card-key="manecillas-email"]{grid-column:auto;grid-row:auto}
+  html.v1[data-lrb-home="true"] .editorial-cluster__grid[data-layout="book-actions"] .editorial-card[data-card-key="manecillas-email"],
+  html.v1[data-lrb-home="true"] .editorial-cluster__grid[data-layout="book-side-stack"] .editorial-card[data-card-key="samuel-book"],
+  html.v1[data-lrb-home="true"] .editorial-cluster__grid[data-layout="tools-four"] .editorial-card{grid-column:auto;grid-row:auto}
   html.v1[data-lrb-home="true"] .home-events__grid{grid-template-columns:repeat(2,minmax(0,1fr));row-gap:1.6rem}
   html.v1[data-lrb-home="true"] .install-web{grid-template-columns:minmax(0,1fr) minmax(15rem,.8fr)}
 }
@@ -553,14 +675,27 @@ html.v1 .back-to-top svg{width:18px;height:18px;fill:none;stroke:currentColor;st
   html.v1[data-lrb-home="true"] .feature-banner__copy{max-width:100%}
   html.v1[data-lrb-home="true"] .feature-banner h2{font-size:clamp(2.15rem,11vw,3.35rem);max-width:11ch}
   html.v1[data-lrb-home="true"] .feature-banner__media img{object-position:center center}
+  html.v1[data-lrb-home="true"] .feature-banner--memoria{min-height:360px;align-items:end}
+  html.v1[data-lrb-home="true"] .feature-banner--memoria .feature-banner__media img{
+    right:50%;
+    bottom:44%;
+    width:clamp(126px,36vw,178px);
+    max-height:46%;
+    transform:translate(50%,50%);
+  }
+  html.v1[data-lrb-home="true"] .feature-banner--tools{min-height:260px}
   html.v1[data-lrb-home="true"] .editorial-cluster{padding:1.2rem var(--page-gutter) 1.5rem}
   html.v1[data-lrb-home="true"] .editorial-cluster__head{grid-template-columns:minmax(0,1fr);align-items:start}
   html.v1[data-lrb-home="true"] .editorial-cluster__all{justify-self:start}
   html.v1[data-lrb-home="true"] .editorial-cluster__grid,
-  html.v1[data-lrb-home="true"] .editorial-cluster__grid[data-layout="book-actions"]{display:grid;grid-template-columns:minmax(0,1fr);grid-template-rows:auto;min-height:0;gap:8px}
+  html.v1[data-lrb-home="true"] .editorial-cluster__grid[data-layout="book-actions"],
+  html.v1[data-lrb-home="true"] .editorial-cluster__grid[data-layout="book-side-stack"],
+  html.v1[data-lrb-home="true"] .editorial-cluster__grid[data-layout="tools-four"]{display:grid;grid-template-columns:minmax(0,1fr);grid-template-rows:auto;height:auto;min-height:0;gap:8px}
   html.v1[data-lrb-home="true"] .editorial-cluster__grid[data-layout="book-actions"] .editorial-card[data-card-key="manecillas-book"],
   html.v1[data-lrb-home="true"] .editorial-cluster__grid[data-layout="book-actions"] .editorial-card[data-card-key="manecillas-author"],
-  html.v1[data-lrb-home="true"] .editorial-cluster__grid[data-layout="book-actions"] .editorial-card--action{grid-column:auto}
+  html.v1[data-lrb-home="true"] .editorial-cluster__grid[data-layout="book-actions"] .editorial-card--action,
+  html.v1[data-lrb-home="true"] .editorial-cluster__grid[data-layout="book-side-stack"] .editorial-card,
+  html.v1[data-lrb-home="true"] .editorial-cluster__grid[data-layout="tools-four"] .editorial-card{grid-column:auto;grid-row:auto}
   html.v1[data-lrb-home="true"] .editorial-card--lead{grid-row:auto}
   html.v1[data-lrb-home="true"] .editorial-card__media{min-height:0;aspect-ratio:4/3}
   html.v1[data-lrb-home="true"] .editorial-card[data-card-key="manecillas-book"] .editorial-card__media,
