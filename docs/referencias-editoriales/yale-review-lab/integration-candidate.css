@@ -1,0 +1,189 @@
+/*
+  Scoped integration candidate for local experiments only.
+  NOTHING in production loads this file.
+
+  To preview locally on a real V1 page:
+  1) add data-yale-reference-preview="true" to <html class="v1">;
+  2) add a temporary local-only <link> to this file after production CSS;
+  3) capture 390/768/1440 before/after;
+  4) remove the temporary link/attribute before committing production code.
+
+  This file deliberately targets EXISTING project selectors so CODEX can test
+  the translation before deciding which rules deserve promotion into V1/V6.
+*/
+
+html.v1[data-yale-reference-preview="true"]{
+  --yr-preview-rule:var(--dp-editorial-rule,var(--color-border));
+  --yr-preview-rule-strong:color-mix(in srgb,var(--color-text) 65%,var(--yr-preview-rule));
+  --yr-preview-muted:color-mix(in srgb,var(--color-text) 58%,var(--surface-page));
+  --yr-preview-page-title:clamp(3rem,5vw,5.5rem);
+  --yr-preview-section-title:clamp(2rem,3.4vw,3.75rem);
+  --yr-preview-entry-title:clamp(1.35rem,1.8vw,2rem);
+}
+
+/* 1. Typography: reduce billboard behavior on interior mastheads without
+   touching banners, book art direction or the Home masthead. */
+html.v1[data-yale-reference-preview="true"]:not([data-lrb-home="true"]) :is(
+  .v1-masthead h1,
+  .cuaderno-masthead h1,
+  .article-header h1
+){
+  font-size:var(--yr-preview-page-title);
+  line-height:.94;
+  letter-spacing:-.025em;
+  max-width:15ch;
+}
+
+html.v1[data-yale-reference-preview="true"]:not([data-lrb-home="true"]) :is(
+  .v1-section__head h2,
+  .cuaderno-archive__head h2,
+  .editorial-continuity h2,
+  .editorial-newsletter h2
+){
+  font-size:var(--yr-preview-section-title);
+  line-height:.98;
+}
+
+/* 2. Metadata: same tone/role across families. */
+html.v1[data-yale-reference-preview="true"] :is(
+  .eyebrow,
+  .folio,
+  .coordinate,
+  .cuaderno-entry__meta,
+  .cuaderno-entry__index,
+  .article-meta,
+  .book-breadcrumb,
+  .editorial-breadcrumb,
+  .event-year>h3
+){
+  color:var(--yr-preview-muted);
+}
+
+/* 3. Rules: use one editorial rule family. */
+html.v1[data-yale-reference-preview="true"] :is(
+  .v1-masthead,
+  .v1-section,
+  .cuaderno-masthead,
+  .cuaderno-feature,
+  .cuaderno-ledger,
+  .cuaderno-entry,
+  .editorial-continuity,
+  .editorial-newsletter,
+  .article-header,
+  .article-toc,
+  .article-sources,
+  .books-stage,
+  .event-empty
+){
+  border-color:var(--yr-preview-rule);
+}
+
+/* 4. Editorial links: clarity through underline, never lift/zoom. */
+html.v1[data-yale-reference-preview="true"] :is(
+  .cuaderno-feature__body h2 a,
+  .cuaderno-entry__body h3 a,
+  .editorial-continuity__links a,
+  .books-stage__copy h2 a
+){
+  text-decoration-thickness:1px;
+  text-underline-offset:.17em;
+}
+html.v1[data-yale-reference-preview="true"] :is(
+  .cuaderno-feature__body h2 a,
+  .cuaderno-entry__body h3 a
+):hover,
+html.v1[data-yale-reference-preview="true"] :is(
+  .cuaderno-feature__body h2 a,
+  .cuaderno-entry__body h3 a
+):focus-visible{
+  text-decoration-line:underline;
+  text-decoration-color:var(--color-accent);
+}
+
+/* 5. Home experiment: keep layout/content/banners but make clusters read
+   more like one page surface than a board of independent tiles. */
+html.v1[data-yale-reference-preview="true"][data-lrb-home="true"] .editorial-cluster{
+  background:var(--dp-home-paper-soft);
+}
+html.v1[data-yale-reference-preview="true"][data-lrb-home="true"] .editorial-cluster__grid{
+  gap:0;
+  padding:0;
+  border-left:0;
+  border-right:0;
+  background:transparent;
+  min-height:0;
+}
+html.v1[data-yale-reference-preview="true"][data-lrb-home="true"] .editorial-card{
+  border-radius:0!important;
+  box-shadow:none!important;
+  border:0;
+  border-bottom:1px solid var(--dp-home-rule);
+  background:transparent;
+}
+html.v1[data-yale-reference-preview="true"][data-lrb-home="true"] .editorial-card+.editorial-card{
+  border-left:1px solid var(--dp-home-rule);
+}
+html.v1[data-yale-reference-preview="true"][data-lrb-home="true"] .editorial-card:hover,
+html.v1[data-yale-reference-preview="true"][data-lrb-home="true"] .editorial-card:focus-within{
+  transform:none!important;
+  box-shadow:none!important;
+  background:color-mix(in srgb,var(--dp-home-stone) 32%,transparent);
+}
+
+/* Do not flatten approved image-only banners. */
+html.v1[data-yale-reference-preview="true"][data-lrb-home="true"] .feature-banner{
+  border-color:var(--dp-home-rule);
+}
+
+/* 6. Tools hub: cards remain functionally separate, but the hub reads as a
+   publication index instead of an app marketplace. */
+html.v1[data-yale-reference-preview="true"] [data-family="tools-hub"] .id-card{
+  border-radius:0;
+  box-shadow:none;
+  background:transparent;
+  border-left:0;
+  border-right:0;
+  border-top:1px solid var(--yr-preview-rule);
+  border-bottom:1px solid var(--yr-preview-rule);
+}
+html.v1[data-yale-reference-preview="true"] [data-family="tools-hub"] .id-card:hover,
+html.v1[data-yale-reference-preview="true"] [data-family="tools-hub"] .id-card:focus-within{
+  transform:none!important;
+  box-shadow:none!important;
+  background:color-mix(in srgb,var(--surface-quiet) 60%,transparent);
+}
+
+/* 7. Footer / context: quiet closure, same rule language. */
+html.v1[data-yale-reference-preview="true"] .section-context{
+  box-shadow:none;
+  border-color:var(--yr-preview-rule);
+}
+html.v1[data-yale-reference-preview="true"] .site-footer{
+  box-shadow:none;
+  border-top:1px solid var(--yr-preview-rule-strong);
+}
+
+/* 8. Mobile: preserve one-column editorial order; never squeeze desktop
+   asymmetry into two miniature columns. */
+@media(max-width:639px){
+  html.v1[data-yale-reference-preview="true"]:not([data-lrb-home="true"]) :is(
+    .v1-masthead h1,.cuaderno-masthead h1,.article-header h1
+  ){
+    font-size:clamp(2.55rem,12vw,3.6rem);
+    max-width:none;
+  }
+  html.v1[data-yale-reference-preview="true"][data-lrb-home="true"] .editorial-cluster__grid{
+    display:block;
+  }
+  html.v1[data-yale-reference-preview="true"][data-lrb-home="true"] .editorial-card,
+  html.v1[data-yale-reference-preview="true"][data-lrb-home="true"] .editorial-card+.editorial-card{
+    border-left:0;
+    border-right:0;
+  }
+}
+
+@media(prefers-reduced-motion:reduce){
+  html.v1[data-yale-reference-preview="true"] *{
+    scroll-behavior:auto!important;
+  }
+}
