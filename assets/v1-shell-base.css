@@ -56,7 +56,7 @@ html.v1 .explore-subscribe .form-row{display:flex;gap:.6rem;flex-wrap:wrap}
 html.v1 .explore-subscribe .form-input{flex:1;min-width:12rem}
 html.v1 .explore-subscribe .form-consent{margin-top:.6rem;font-size:.8rem}
 html.v1 .site-footer{border-top:1px solid var(--color-border);padding:clamp(3rem,5vw,4.5rem) var(--page-gutter);max-width:var(--layout-max);margin:auto}
-html.v1 .site-footer__grid{display:grid;grid-template-columns:4fr repeat(4,2fr);gap:var(--grid-gap)}
+html.v1 .site-footer__grid{display:grid;grid-template-columns:minmax(16rem,2.2fr) repeat(4,minmax(8rem,1fr));column-gap:clamp(2rem,4vw,4.5rem);row-gap:var(--grid-gap);align-items:start}
 /* Las columnas del pie son <nav> con display:grid, asi que sus enlaces son
    grid items y arrastran min-width:auto, es decir min-content: con zoom 200%
    "Las manecillas del recuerdo" no cabe en su columna y no podia partirse.

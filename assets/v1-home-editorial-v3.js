@@ -342,7 +342,7 @@
     const title = make('h2', '', 'Lleva la web contigo.');
     title.id = 'install-web-title';
     copy.append(title);
-    copy.append(make('p', '', 'Instala davidportodiaz.com en tu pantalla de inicio para abrir la web como una aplicación, sin perder el acceso normal desde el navegador.'));
+    copy.append(make('p', '', 'Instala davidportodiaz.com en tu pantalla de inicio para abrir la web como una aplicación.'));
 
     const panel = make('div', 'install-web__panel');
     const button = make('button', 'install-web__button', 'Instalar web');

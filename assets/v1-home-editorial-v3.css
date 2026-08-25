@@ -169,7 +169,7 @@ html.v1[data-lrb-home="true"] .feature-banner--memoria::before{
   content:"";
   position:absolute;
   z-index:2;
-  right:clamp(2rem,10vw,10rem);
+  right:clamp(10rem,26vw,36rem);
   top:50%;
   width:clamp(145px,15vw,225px);
   height:78%;
@@ -744,7 +744,7 @@ html.v1 .back-to-top svg{width:18px;height:18px;fill:none;stroke:currentColor;st
   html.v1[data-lrb-home="true"] .feature-banner--memoria::before{
     right:clamp(.75rem,4vw,1.25rem);
     top:auto;
-    bottom:1rem;
+    bottom:2.1rem;
     width:clamp(86px,28vw,124px);
     height:66%;
     transform:none;
