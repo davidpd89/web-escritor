@@ -468,11 +468,17 @@ document.querySelectorAll(".faq-question").forEach((btn) => {
   });
 })();
 
-// GoatCounter custom event tracking — fire-and-forget, safe if GC not yet loaded
+// GoatCounter custom event tracking: send immediately when GC is ready so
+// navigation clicks are not lost; fall back to a background retry otherwise.
 function _gcEvent(path, title) {
+  const payload = { path, title, event: true };
+  if (window.goatcounter && window.goatcounter.count) {
+    window.goatcounter.count(payload);
+    return;
+  }
   scheduleTask(() => {
     if (window.goatcounter && window.goatcounter.count) {
-      window.goatcounter.count({ path, title, event: true });
+      window.goatcounter.count(payload);
     }
   }, "background");
 }
@@ -528,11 +534,15 @@ document.querySelectorAll('a[href*="amazon.es"]:not(#buy-dialog a)').forEach(lin
 // ademas ese patron nunca coincidia con la ruta real de Manecillas
 // (`/las-manecillas-del-recuerdo/fragmentos/`, en plural) por lo que esos
 // clics no se contaban en absoluto.
-document.querySelectorAll('a[href*="/fragmento/"]:not([href*="/las-manecillas-del-recuerdo/"])').forEach(link => {
-  link.addEventListener("click", () => _gcEvent("leer-fragmento-samuel", "Clic: Leer fragmento (Samuel entre mundos)"));
-});
-document.querySelectorAll('a[href*="/las-manecillas-del-recuerdo/fragmentos/"]').forEach(link => {
-  link.addEventListener("click", () => _gcEvent("leer-fragmento-manecillas", "Clic: Leer fragmento (Las manecillas del recuerdo)"));
+document.addEventListener("click", (event) => {
+  const link = event.target && event.target.closest ? event.target.closest('a[href]') : null;
+  if (!link) return;
+  const href = link.getAttribute("href") || "";
+  if (href.includes("/las-manecillas-del-recuerdo/fragmentos/")) {
+    _gcEvent("leer-fragmento-manecillas", "Clic: Leer fragmento (Las manecillas del recuerdo)");
+  } else if (href.includes("/fragmento/")) {
+    _gcEvent("leer-fragmento-samuel", "Clic: Leer fragmento (Samuel entre mundos)");
+  }
 });
 
 // Explorar Noveris

@@ -468,7 +468,7 @@ async function responsiveAndA11y() {
 
     const nojs = await open(key, { width: 390, height: 900 }, false);
     assert.ok(await nojs.page.locator('h1').isVisible());
-    assert.ok(await nojs.page.locator('noscript').isVisible());
+    assert.ok(await nojs.page.locator('main noscript').isVisible());
     assert.ok(await nojs.page.locator('main').getByText(/Privacidad|Privado por diseño/).first().isVisible());
     assert.ok(await nojs.page.locator('main').getByRole('heading', { name: /Qué|Cómo|Qué no hace/ }).first().isVisible());
     await noOverflow(nojs.page, `${key} no-js`);

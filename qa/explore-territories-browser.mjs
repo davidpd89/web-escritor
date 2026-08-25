@@ -76,18 +76,18 @@ try {
       href: await rows.nth(0).getAttribute('href'),
       label: (await rows.nth(0).locator('strong').textContent())?.trim(),
     };
-    assert.deepEqual(first, { href: '/', label: 'Inicio' }, `la primera fila debe ser Inicio: ${JSON.stringify(first)}`);
+    assert.deepEqual(first, { href: '/libros/', label: 'Obras' }, `la primera fila debe ser Obras: ${JSON.stringify(first)}`);
     const firstFive = [];
     for (let i = 0; i < TOP_LEVEL.length; i++) {
       firstFive.push({
-        href: await rows.nth(i + 1).getAttribute('href'),
-        label: (await rows.nth(i + 1).locator('strong').textContent())?.trim(),
+        href: await rows.nth(i).getAttribute('href'),
+        label: (await rows.nth(i).locator('strong').textContent())?.trim(),
       });
     }
     assert.deepEqual(
       firstFive,
       TOP_LEVEL.map(([href, label]) => ({ href, label })),
-      `los territorios estables deben seguir a Inicio: ${JSON.stringify(firstFive)}`,
+      `los territorios estables deben abrir Explorar: ${JSON.stringify(firstFive)}`,
     );
     assert(!firstFive.some(({ href }) => WORKS.includes(href)), 'ningún libro individual puede ser territorio top-level');
 
