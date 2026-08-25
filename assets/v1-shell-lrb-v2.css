@@ -36,6 +36,7 @@ html.v1 .site-header__left .explore-trigger{order:3}
   html.v1[data-lrb-home="true"]:not(.lrb-compact) .site-header__left .explore-trigger{display:none}
 }
 html.v1.lrb-compact .site-header__left .explore-trigger,
+html.v1[data-lrb-home="true"] .site-header[data-scrolled="true"] .site-header__left .explore-trigger,
 html.v1:not([data-lrb-home="true"]) .site-header__left .explore-trigger{display:inline-flex}
 
 /* Explore is a LEFT drawer. Modal semantics/focus handling stay in v1-shell.js. */
