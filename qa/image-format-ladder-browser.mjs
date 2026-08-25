@@ -26,7 +26,7 @@ const ORIGIN = `http://127.0.0.1:${server.address().port}`;
 const browser = await chromium.launch({ headless: true, ...(process.env.QA_CHROMIUM_EXECUTABLE_PATH ? { executablePath: process.env.QA_CHROMIUM_EXECUTABLE_PATH } : {}) });
 
 try {
-  const context = await browser.newContext({ viewport: { width: 1400, height: 900 } });
+  const context = await browser.newContext({ viewport: { width: 1400, height: 900 }, javaScriptEnabled: false });
   const page = await context.newPage();
   const requestedImages = [];
   page.on('requestfinished', (req) => {
@@ -41,11 +41,14 @@ try {
   assert(coverAvifRequested, `Chromium (soporta AVIF) debe solicitar el AVIF de la cubierta; solicitadas: ${requestedImages.join(', ')}`);
   assert(!coverWebpRequested, 'Chromium no debe solicitar el WebP si el AVIF está disponible y es soportado');
 
-  // Las dimensiones renderizadas del <img> de la cubierta no deben cambiar.
-  const box = await page.locator('.hero-cover img').boundingBox();
-  assert(box && box.width > 0 && box.height > 0, 'la cubierta debe renderizarse con dimensiones no nulas');
-  const aspect = box.height / box.width;
-  assert(Math.abs(aspect - 1536 / 1024) < 0.05, `el aspect ratio debe conservarse (~1.5), obtenido ${aspect.toFixed(2)}`);
+  // El derivado cargado conserva las proporciones de la cubierta original.
+  const natural = await page.locator('.river-cell--lead img').evaluate((img) => ({
+    width: img.naturalWidth,
+    height: img.naturalHeight,
+  }));
+  assert(natural.width > 0 && natural.height > 0, 'la cubierta debe cargarse con dimensiones naturales no nulas');
+  const aspect = natural.height / natural.width;
+  assert(Math.abs(aspect - 1536 / 1024) < 0.05, `el aspect ratio natural debe conservarse (~1.5), obtenido ${aspect.toFixed(2)}`);
 
   await context.close();
   console.log('image-format-ladder-browser: PASS');

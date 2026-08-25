@@ -6,8 +6,8 @@
      does not exist yet.
 
    JS sets these custom properties on each .feature-banner--image-only:
-   --feature-banner-desktop-image: url('/assets/banners/<base>-desktop.<ext>');
-   --feature-banner-mobile-image: url('/assets/banners/<base>-mobile.<ext>');
+   --feature-banner-desktop-image = /assets/banners/<base>-desktop.<ext>
+   --feature-banner-mobile-image = /assets/banners/<base>-mobile.<ext>
 
    Do not solve a bad crop with object-position. Regenerate/recompose the
    desktop/mobile asset so the essential objects live in the central area. */
