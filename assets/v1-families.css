@@ -34,8 +34,9 @@ html.v1 .v1-masthead__actions{display:flex;flex-wrap:wrap;gap:1.1rem;margin-top:
 html.v1 .v1-section{padding:clamp(3.5rem,7vw,7rem) 0;border-bottom:1px solid var(--color-border)}
 html.v1 .v1-section:last-child{border-bottom:0}
 html.v1 .v1-section__head{display:grid;grid-template-columns:minmax(min(8rem,100%),.35fr) minmax(0,1.65fr);gap:clamp(1.5rem,5vw,5rem);margin-bottom:clamp(2rem,5vw,4rem)}
-html.v1 .v1-section__head h2{margin:0;font:400 var(--text-4xl)/.95 var(--font-display);letter-spacing:-.025em;max-width:16ch}
+html.v1 .v1-section__head h2{margin:0;font:400 var(--text-4xl)/1.05 var(--font-display);letter-spacing:-.025em;max-width:16ch}
 html.v1 .v1-section__head p{margin:0;max-width:54ch}
+html.v1 .v1-section__head h2 + p{margin-top:.85rem}
 html.v1 .author-portrait{margin:0}
 html.v1 .author-portrait img{width:100%;height:auto;max-height:72svh;object-fit:cover;object-position:center}
 html.v1 .author-bio{display:grid;grid-template-columns:minmax(10rem,.45fr) minmax(0,1.2fr) minmax(10rem,.35fr);gap:clamp(1.5rem,4vw,4rem);align-items:start}
