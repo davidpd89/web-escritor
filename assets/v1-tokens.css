@@ -23,7 +23,7 @@
   --surface-page:#fff;
   --surface-quiet:#f7f8f9;
   --surface-inverse:var(--dp-ink);
-  --surface-dialog:var(--dp-paper);
+  --surface-dialog:var(--surface-page);
   --color-text:var(--dp-ink);
   --color-muted:#50565b;
   --color-border:rgba(0,0,0,.18);

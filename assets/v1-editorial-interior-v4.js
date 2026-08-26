@@ -30,6 +30,7 @@
       key: 'manecillas', label: 'Manecillas', home: '/las-manecillas-del-recuerdo/',
       matches: (path) => path.startsWith('/las-manecillas-del-recuerdo/'),
       links: [
+        ['/libros/', '← Obras'],
         ['/las-manecillas-del-recuerdo/', 'La novela'],
         ['/las-manecillas-del-recuerdo/fragmentos/', 'Fragmentos'],
         ['/prensa.html#ficha-manecillas', 'Ficha de prensa']
@@ -39,6 +40,7 @@
       key: 'samuel', label: 'Samuel entre mundos', home: '/libros/samuel-entre-mundos/',
       matches: (path) => path.startsWith('/libros/samuel-entre-mundos/') || path === '/fragmento/' || path.startsWith('/universo/noveris/') || path.startsWith('/clubes-de-lectura/samuel-entre-mundos/'),
       links: [
+        ['/libros/', '← Obras'],
         ['/libros/samuel-entre-mundos/', 'El libro'],
         ['/fragmento/', 'Capítulo 1'],
         ['/universo/noveris/', 'Noveris'],
@@ -154,9 +156,41 @@
     });
   }
 
+  // Mirrors ensureTrailingExploreGroup/renumberExploreRows in v1-shell.js:
+  // both files append into the same shared trailing "Más" group rather than
+  // flattening the Secciones/Accesos directos/Utilidades hierarchy back into
+  // one flat 01-11 run.
+  function ensureTrailingExploreGroup(list) {
+    let label = list.querySelector('[data-explore-extra-group]');
+    if (!label) {
+      label = document.createElement('p');
+      label.className = 'explore-group__label';
+      label.textContent = 'Más';
+      label.dataset.exploreExtraGroup = 'true';
+      list.append(label);
+    }
+    return label;
+  }
+
+  function renumberExploreRows(list) {
+    let group = 0;
+    let sub = 0;
+    [...list.children].forEach((child) => {
+      if (child.classList.contains('explore-group__label')) {
+        group += 1;
+        sub = 0;
+        return;
+      }
+      if (!child.classList.contains('explore-row')) return;
+      sub += 1;
+      const idx = child.querySelector('.explore-row__index');
+      if (idx) idx.textContent = `${group || 1}.${sub}`;
+    });
+  }
+
   function makeExploreRow({ href, label, copy, preview }) {
     const link = document.createElement('a');
-    link.className = 'explore-row';
+    link.className = 'explore-row explore-row--secondary';
     link.href = href;
     link.dataset.preview = preview;
     link.dataset.betaExplore = preview;
@@ -195,10 +229,9 @@
     ];
     rows.forEach((row) => { row.dataset.betaExplore = row.dataset.preview; });
     const assistant = list.querySelector('[data-assistant-menu-link]');
+    if (!assistant) ensureTrailingExploreGroup(list);
     rows.forEach((row) => list.insertBefore(row, assistant || null));
-    [...list.querySelectorAll('.explore-row__index')].forEach((index, position) => {
-      index.textContent = String(position + 1).padStart(2, '0');
-    });
+    renumberExploreRows(list);
 
     const labelNode = dialog.querySelector('[data-preview-label]');
     const copyNode = dialog.querySelector('[data-preview-copy]');

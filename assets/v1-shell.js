@@ -20,18 +20,51 @@
     update();
   }
 
+  // Rows are grouped under .explore-group__label headings (Secciones,
+  // Accesos directos, Utilidades, ...) with N.M numbering rather than one
+  // flat 01-11 run. JS-injected rows (this file, v1-editorial-interior-v4.js)
+  // append into a shared trailing "Más" group instead of flattening that
+  // hierarchy back out.
+  function ensureTrailingExploreGroup(list) {
+    let label = q('[data-explore-extra-group]', list);
+    if (!label) {
+      label = document.createElement('p');
+      label.className = 'explore-group__label';
+      label.textContent = 'Más';
+      label.dataset.exploreExtraGroup = 'true';
+      list.append(label);
+    }
+    return label;
+  }
+
+  function renumberExploreRows(list) {
+    let group = 0;
+    let sub = 0;
+    qa(':scope > *', list).forEach((child) => {
+      if (child.classList.contains('explore-group__label')) {
+        group += 1;
+        sub = 0;
+        return;
+      }
+      if (!child.classList.contains('explore-row')) return;
+      sub += 1;
+      const idx = q('.explore-row__index', child);
+      if (idx) idx.textContent = `${group || 1}.${sub}`;
+    });
+  }
+
   function ensureAssistantExploreLink(dialog) {
     const list = q('.explore-list', dialog);
     if (!list || q('[data-assistant-menu-link]', list)) return;
+    ensureTrailingExploreGroup(list);
     const link = document.createElement('a');
-    link.className = 'explore-row';
+    link.className = 'explore-row explore-row--secondary';
     link.href = '/asistente/';
     link.dataset.preview = 'asistente';
     link.dataset.assistantMenuLink = 'true';
 
     const index = document.createElement('span');
     index.className = 'explore-row__index';
-    index.textContent = String(qa('.explore-row__index', list).length + 1).padStart(2, '0');
     const body = document.createElement('span');
     body.className = 'explore-row__body';
     const strong = document.createElement('strong');
@@ -41,6 +74,7 @@
     body.append(strong, small);
     link.append(index, body);
     list.append(link);
+    renumberExploreRows(list);
   }
 
   function initExplore() {

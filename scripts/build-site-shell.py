@@ -333,6 +333,8 @@ def render_header(nav: dict, by_id: dict[str, Entry], current_path: str) -> str:
 
 
 def render_explore_rows(nav: dict, by_id: dict[str, Entry]) -> list[tuple[str, str, str, str | None]]:
+    """Flat fallback used only to pick the default preview row; grouped
+    rendering lives in render_explore_groups below."""
     rows: list[tuple[str, str, str, str | None]] = []
     for item in nav.get("exploreTerritories", []):
         entry = by_id[item["id"]]
@@ -345,6 +347,40 @@ def render_explore_rows(nav: dict, by_id: dict[str, Entry]) -> list[tuple[str, s
         entry = by_id[item_id]
         rows.append((entry.url, entry.short_label, entry.label, item_id))
     return rows
+
+
+# Three explore groups, each its own numbered tier (1, 1.1, 1.2 ...) instead
+# of one flat 01-11 list -- territories are the primary sections, shortcuts
+# and utilities are secondary/task-oriented entries subordinate to them.
+EXPLORE_GROUPS: list[tuple[str, str]] = [
+    ("exploreTerritories", "Secciones"),
+    ("exploreShortcuts", "Accesos directos"),
+    ("exploreUtilities", "Utilidades"),
+]
+
+
+def render_explore_groups(nav: dict, by_id: dict[str, Entry]) -> list[tuple[str, int, list[tuple[str, str, str, str | None]]]]:
+    groups: list[tuple[str, int, list[tuple[str, str, str, str | None]]]] = []
+    for key, label in EXPLORE_GROUPS:
+        items = nav.get(key, [])
+        if not items:
+            continue
+        rows: list[tuple[str, str, str, str | None]] = []
+        if key == "exploreTerritories":
+            for item in items:
+                entry = by_id[item["id"]]
+                copy = PREVIEW_COPY.get(item["id"], entry.label)
+                rows.append((entry.url, entry.short_label, copy, item["id"]))
+        elif key == "exploreShortcuts":
+            for item in items:
+                target = by_id[item["targetId"]]
+                rows.append((target.url, item["label"], target.label, item["targetId"]))
+        else:
+            for item_id in items:
+                entry = by_id[item_id]
+                rows.append((entry.url, entry.short_label, entry.label, item_id))
+        groups.append((label, len(groups) + 1, rows))
+    return groups
 
 
 def render_explore(nav: dict, by_id: dict[str, Entry], current_path: str) -> str:
@@ -365,14 +401,19 @@ def render_explore(nav: dict, by_id: dict[str, Entry], current_path: str) -> str
     default_copy = PREVIEW_ASIDE_COPY.get(default_key, PREVIEW_COPY.get(default_key, "Destinos clave de la web."))
 
     row_markup: list[str] = []
-    for index, (href, title, text, preview_id) in enumerate(rows, 1):
-        preview_attr = f' data-preview="{preview_id}"' if preview_id else ""
+    for group_label, group_number, group_rows in render_explore_groups(nav, by_id):
         row_markup.append(
-            f'          <a class="explore-row" href="{href}"{preview_attr}>\n'
-            f'            <span class="explore-row__index">{index:02d}</span>\n'
-            f'            <span class="explore-row__body"><strong>{title}</strong><small>{text}</small></span>\n'
-            '          </a>'
+            f'          <p class="explore-group__label" id="explore-group-{group_number}">{group_label}</p>'
         )
+        row_class = "explore-row" if group_number == 1 else "explore-row explore-row--secondary"
+        for sub_index, (href, title, text, preview_id) in enumerate(group_rows, 1):
+            preview_attr = f' data-preview="{preview_id}"' if preview_id else ""
+            row_markup.append(
+                f'          <a class="{row_class}" href="{href}"{preview_attr} aria-describedby="explore-group-{group_number}">\n'
+                f'            <span class="explore-row__index">{group_number}.{sub_index}</span>\n'
+                f'            <span class="explore-row__body"><strong>{title}</strong><small>{text}</small></span>\n'
+                '          </a>'
+            )
 
     return (
         '<dialog class="explore-dialog" id="explore-dialog" aria-labelledby="explore-title" data-explore-dialog>\n'
