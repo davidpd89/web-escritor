@@ -4,6 +4,9 @@
   "main": "cloudflare-worker-assistant.js",
   "compatibility_date": "2026-08-21",
   "workers_dev": true,
+  "routes": [
+    { "pattern": "davidportodiaz.com/api/assistant*", "zone_name": "davidportodiaz.com" }
+  ],
   "ai": {
     "binding": "AI"
   },

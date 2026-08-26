@@ -4,7 +4,7 @@
    entirely, so there is no collision with styles.css on unmigrated pages. */
 html.v1 .site-header{position:sticky;top:0;z-index:var(--z-header);background:color-mix(in srgb,var(--surface-page) 97%,transparent);border-bottom:1px solid transparent;transition:border-color var(--motion-state) var(--ease-standard),background var(--motion-state) var(--ease-standard)}
 html.v1 .site-header[data-scrolled="true"]{border-color:var(--color-border);background:var(--surface-page)}
-html.v1 .site-header__inner{min-height:76px;max-width:var(--layout-max);margin:auto;padding-inline:var(--page-gutter);display:flex;align-items:center;justify-content:space-between;gap:clamp(1rem,3vw,3rem);transition:min-height var(--motion-state) var(--ease-standard)}
+html.v1 .site-header__inner{min-height:76px;max-width:var(--layout-max);margin:auto;padding-inline:var(--page-gutter);display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:clamp(1rem,3vw,3rem);row-gap:.4rem;transition:min-height var(--motion-state) var(--ease-standard)}
 html.v1 .site-header[data-scrolled="true"] .site-header__inner{min-height:56px}
 /* .brand__name is still used by the footer's <strong class="brand__name">;
    the header no longer carries a brand link at all (LRB's thin utility bar
