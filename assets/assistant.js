@@ -305,8 +305,21 @@ function appendMessage(role, text, { sources = [], suggestions = [], pending = f
 
   article.append(bubble);
   log.append(article);
-  log.scrollTop = log.scrollHeight;
+  scrollToMessageStart(article);
   return article;
+}
+
+function scrollToMessageStart(article) {
+  // A long reply (e.g. the "no encontré nada, prueba estas rutas" fallback
+  // with several sources) can be taller than the visible viewport, so
+  // scrolling to the bottom of the transcript lands the reader past the
+  // start of the reply instead of at it. scrollIntoView({block:"start"})
+  // handles both layouts this widget runs in: the embedded panel, where
+  // the log itself scrolls internally, and the standalone /asistente/
+  // page, where the log grows to fit its content and the document is
+  // what actually scrolls -- a manual scrollTop tweak only covers the
+  // first case.
+  article.scrollIntoView({ block: "start", inline: "nearest" });
 }
 
 function appendTyping() {
@@ -406,7 +419,7 @@ async function renderSearchFallback(query, message = "") {
   try { local = await pagefindFallback(query); } catch { local = []; }
   if (!local.length) {
     const registry = await getRegistry();
-    const stable = sourcesById(["site-map", "works-hub", "notebook-hub", "tools-hub", "press"], registry).slice(0, 4);
+    const stable = sourcesById(["site-map", "works-hub", "tools-hub", "notebook-hub", "press"], registry).slice(0, 3);
     appendMessage(
       "assistant",
       "No encuentro una coincidencia clara en el contenido de la web. Puedes orientarte desde estas rutas o abrir el mapa del sitio.",

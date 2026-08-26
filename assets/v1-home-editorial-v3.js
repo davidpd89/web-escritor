@@ -314,8 +314,8 @@
     leadMedia.href = '/eventos.html#feria-libro-madrid-2026';
     leadMedia.setAttribute('aria-label', 'Feria del Libro de Madrid');
     const leadImage = new Image();
-    leadImage.src = '/assets/eventos/samuel-entre-mundos-feria-libro-madrid-2026-caseta-337.webp';
-    leadImage.alt = 'David Porto Díaz firmando Samuel entre mundos en la Feria del Libro de Madrid';
+    leadImage.src = '/assets/eventos/david-porto-diaz-lectores-feria-libro-madrid-2026.webp';
+    leadImage.alt = 'David Porto Díaz sosteniendo Samuel entre mundos en su caseta de la Feria del Libro de Madrid';
     leadImage.loading = 'eager';
     leadImage.decoding = 'async';
     leadMedia.append(leadImage);
