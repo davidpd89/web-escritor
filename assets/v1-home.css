@@ -225,7 +225,7 @@ html.v1[data-lrb-home="true"] .masthead-nav{
   border-bottom:2px solid #0075b8;
   box-shadow:none;
 }
-html.v1[data-lrb-home="true"] .masthead-nav__list{justify-content:flex-start;gap:clamp(1.4rem,3.2vw,3rem)}
+html.v1[data-lrb-home="true"] .masthead-nav__list{justify-content:center;gap:clamp(1.4rem,3.2vw,3rem)}
 html.v1[data-lrb-home="true"] .masthead-nav__list a{
   min-height:48px;
   font-family:var(--font-ui);
@@ -464,23 +464,36 @@ html.v1[data-lrb-home="true"] .yale-feature__grid,
 html.v1[data-lrb-home="true"] .home-events__feature{
   display:grid;
   grid-template-columns:minmax(0,.92fr) minmax(0,1.08fr);
-  border-top:1px solid rgba(0,0,0,.18);
-  border-left:1px solid rgba(0,0,0,.18);
+  gap:clamp(1.75rem,4vw,3rem);
 }
 html.v1[data-lrb-home="true"] .yale-feature__grid--reverse{grid-template-columns:minmax(0,1.05fr) minmax(0,.95fr)}
+/* Stack + cards echo .yale-rail's single accent rule instead of the boxed
+   ledger grid used by the tile components -- this is the hero's own
+   "reversed" layout, not a spreadsheet of cells. */
 html.v1[data-lrb-home="true"] .yale-feature__stack,
-html.v1[data-lrb-home="true"] .home-events__grid{display:grid;grid-template-columns:1fr}
+html.v1[data-lrb-home="true"] .home-events__grid{
+  display:grid;
+  grid-template-columns:1fr;
+  border-left:2px solid #0075b8;
+  padding-left:clamp(1.2rem,2.6vw,2rem);
+}
 html.v1[data-lrb-home="true"] .yale-feature-card,
-html.v1[data-lrb-home="true"] .yale-feature-book{
+html.v1[data-lrb-home="true"] .home-events__grid .home-event{
   display:flex;
   flex-direction:column;
-  min-height:12rem;
-  padding:clamp(1.1rem,2vw,1.55rem);
-  background:#fff;
-  border-right:1px solid rgba(0,0,0,.18);
-  border-bottom:1px solid rgba(0,0,0,.18);
+  min-width:0;
+  min-height:0;
+  padding:clamp(1.2rem,2vw,1.7rem) 0;
+  background:transparent;
+  border-right:0;
+  border-bottom:2px solid #0075b8;
 }
-html.v1[data-lrb-home="true"] .yale-feature-card--blue{background:#e7f5fc}
+html.v1[data-lrb-home="true"] .yale-feature-card:first-child,
+html.v1[data-lrb-home="true"] .home-events__grid .home-event:first-child{padding-top:0}
+html.v1[data-lrb-home="true"] .yale-feature-book{
+  min-height:12rem;
+  background:transparent;
+}
 html.v1[data-lrb-home="true"] .yale-feature-card h3,
 html.v1[data-lrb-home="true"] .yale-feature-book h3{
   margin:.45rem 0 .45rem;
@@ -522,9 +535,8 @@ html.v1[data-lrb-home="true"] .yale-feature-book__media img{
 }
 html.v1[data-lrb-home="true"] .yale-feature-book__body{padding:clamp(1.1rem,2vw,1.55rem)}
 html.v1[data-lrb-home="true"] .home-events__feature{grid-template-columns:minmax(0,1.18fr) minmax(18rem,.82fr)}
-html.v1[data-lrb-home="true"] .home-events__grid{border:0}
-html.v1[data-lrb-home="true"] .home-events__grid .home-event{min-height:0;padding-top:clamp(1.1rem,2vw,1.55rem);padding-bottom:clamp(1.1rem,2vw,1.55rem)}
-html.v1[data-lrb-home="true"] .home-event--lead{padding:0;min-height:0}
+html.v1[data-lrb-home="true"] .home-events__grid{border-top:0}
+html.v1[data-lrb-home="true"] .home-event--lead{padding:0;min-height:0;background:transparent;border:0}
 html.v1[data-lrb-home="true"] .home-event--lead time,
 html.v1[data-lrb-home="true"] .home-event--lead h3,
 html.v1[data-lrb-home="true"] .home-event--lead p,
