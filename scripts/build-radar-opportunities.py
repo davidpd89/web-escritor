@@ -164,7 +164,7 @@ def render_page_body(items, today):
   <meta name="twitter:description" content="{DESCRIPTION}">
   <meta name="twitter:image" content="{SHARE_IMAGE}">
   <meta name="twitter:image:alt" content="{TITLE}">
-  <meta name="theme-color" content="#F4EFE7" />
+  <meta name="theme-color" content="#ffffff" />
   <link rel="canonical" href="{CANONICAL}">
   <link rel="icon" type="image/png" href="/assets/david-porto-favicon.png" />
   <link rel="apple-touch-icon" href="/assets/david-porto-favicon.png" />
