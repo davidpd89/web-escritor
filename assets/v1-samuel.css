@@ -72,7 +72,7 @@ html.v1 .quiz-wrap{max-width:46rem;margin:0 auto;background:var(--surface-quiet)
 html.v1 .quiz-progress-wrap{height:3px;background:var(--color-border)}
 html.v1 .quiz-progress-bar{height:100%;background:var(--color-accent-strong);transition:width .35s var(--ease-standard)}
 html.v1 .quiz-stage,html.v1 .quiz-result{padding:clamp(1.5rem,4vw,2.5rem)}
-html.v1 .quiz-step-label{font:600 .78rem/1 var(--font-ui);letter-spacing:.1em;text-transform:uppercase;color:var(--color-accent-strong);margin:0 0 .9rem}
+html.v1 .quiz-step-label{font:600 .78rem/1 var(--font-ui);letter-spacing:.1em;text-transform:uppercase;color:#0072b3;margin:0 0 .9rem}
 html.v1 .quiz-question-text{font:400 1.5rem/1.3 var(--font-display);color:var(--color-text);margin:0 0 1.75rem}
 html.v1 .quiz-options{display:grid;gap:.6rem}
 html.v1 .quiz-option{width:100%;min-height:48px;text-align:left;padding:.9rem 1.15rem;border-radius:var(--radius-input);border:1px solid var(--color-border);background:var(--surface-page);color:var(--color-text);font:400 .95rem/1.5 var(--font-ui);cursor:pointer;transition:border-color .18s,background .18s}
