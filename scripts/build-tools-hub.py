@@ -177,7 +177,7 @@ def render(data, tools, directories):
   <script type="application/ld+json">{{"@context":"https://schema.org","@type":"CollectionPage","name":"Herramientas gratuitas para escritores","url":"https://davidportodiaz.com/herramientas/","inLanguage":"es","mainEntity":{{"@type":"ItemList","numberOfItems":{len(tools)},"itemListElement":[{item_list_json}]}}}}</script>
 </head>
 
-<body>
+<body data-back-to-top>
   <a href="#contenido" class="skip-link">Saltar al contenido</a>
 
   <header class="site-header" data-header></header>
