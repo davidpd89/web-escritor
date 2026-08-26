@@ -45,6 +45,11 @@
     "ASSISTANT_DAILY_SESSION_LIMIT": "5",
     "ASSISTANT_DAILY_GLOBAL_LIMIT": "50",
     "TURNSTILE_SITE_KEY": "REPLACE_WITH_TURNSTILE_SITE_KEY",
-    "TURNSTILE_HOSTNAMES": "davidportodiaz.com"
+    "TURNSTILE_HOSTNAMES": "davidportodiaz.com",
+    "WORKERS_AI_DAILY_CAP": "500",
+    "GROQ_MODEL": "llama-3.3-70b-versatile",
+    "GROQ_DAILY_CAP": "200",
+    "OPENROUTER_MODEL": "meta-llama/llama-3.3-70b-instruct:free",
+    "OPENROUTER_DAILY_CAP": "50"
   }
 }

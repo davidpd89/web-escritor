@@ -16,11 +16,21 @@ let registryPayload = baseRegistry;
 let turnstileSuccess = true;
 let turnstileHostname = "davidportodiaz.com";
 let turnstileAction = "assistant_query";
+let groqHandler = null;
+let openrouterHandler = null;
 const originalFetch = globalThis.fetch;
-globalThis.fetch = async (input) => {
+globalThis.fetch = async (input, init) => {
   const url = String(input);
   if (url.includes("turnstile/v0/siteverify")) return Response.json({ success:turnstileSuccess, action:turnstileAction, hostname:turnstileHostname });
   if (url.includes("assistant-source-registry.json")) return Response.json(registryPayload);
+  if (url.includes("api.groq.com")) {
+    if (!groqHandler) throw new Error("unexpected groq call");
+    return groqHandler(init);
+  }
+  if (url.includes("openrouter.ai")) {
+    if (!openrouterHandler) throw new Error("unexpected openrouter call");
+    return openrouterHandler(init);
+  }
   throw new Error(`unexpected fetch ${url}`);
 };
 
@@ -34,9 +44,12 @@ function makeQuotaDb(seed = {}) {
         bind(...args) {
           return {
             async first() {
-              assert.match(sql, /INSERT INTO assistant_daily_quota/);
               const [bucket, day] = args;
               const key = `${bucket}|${day}`;
+              if (/^SELECT count FROM assistant_daily_quota/.test(sql)) {
+                return { count: counts.get(key) || 0 };
+              }
+              assert.match(sql, /INSERT INTO assistant_daily_quota/);
               const count = (counts.get(key) || 0) + 1;
               counts.set(key, count);
               return { count };
@@ -187,6 +200,86 @@ const failingDb = { prepare(){ throw new Error("db-down"); } };
 response = await worker.fetch(request(), makeEnv({ASSISTANT_QUOTA_DB:failingDb}));
 assert.equal(response.status, 503);
 assert.equal((await response.json()).code, "quota_unavailable");
+
+// --- Provider fallback chain -------------------------------------------
+
+// Workers AI's own bucket already at its cap for today: skip it without
+// calling env.AI.run, and with no other provider configured, fail closed.
+let aiCalls = 0;
+const exhaustedWorkersAiDb = makeQuotaDb({ [`provider:workers-ai|${today}`]: 1 });
+response = await worker.fetch(request(), makeEnv({
+  WORKERS_AI_DAILY_CAP: "1",
+  ASSISTANT_QUOTA_DB: exhaustedWorkersAiDb,
+  AI: { run: async () => { aiCalls++; return { response: "no debería llamarse [work-manecillas]" }; } },
+}));
+assert.equal(aiCalls, 0);
+assert.equal(response.status, 502);
+assert.equal((await response.json()).code, "generation_failed");
+
+// Workers AI exhausted, Groq configured: falls through to Groq and its
+// OpenAI-compatible response is parsed and cited exactly like Workers AI.
+groqHandler = async () => Response.json({ choices: [{ message: { content: "La novela sale en septiembre. [work-manecillas]" } }] });
+response = await worker.fetch(request(), makeEnv({
+  WORKERS_AI_DAILY_CAP: "1",
+  ASSISTANT_QUOTA_DB: makeQuotaDb({ [`provider:workers-ai|${today}`]: 1 }),
+  GROQ_API_KEY: "groq-secret",
+  AI: { run: async () => { throw new Error("should not be called"); } },
+}));
+assert.equal(response.status, 200);
+data = await response.json();
+assert.equal(data.abstained, false);
+assert.deepEqual(data.sources.map((source) => source.id), ["work-manecillas"]);
+groqHandler = null;
+
+// Groq itself reports a quota/rate-limit-shaped failure: falls through to
+// OpenRouter next in the chain.
+groqHandler = async () => new Response("rate limited", { status: 429 });
+openrouterHandler = async () => Response.json({ choices: [{ message: { content: "David es escritor. [author]" } }] });
+response = await worker.fetch(request(), makeEnv({
+  GROQ_API_KEY: "groq-secret",
+  OPENROUTER_API_KEY: "openrouter-secret",
+  ASSISTANT_SEARCH: { search: async () => ({ chunks: [{ text: "Bio", score: .7, item: { key: "https://davidportodiaz.com/autor.html", metadata: {} } }] }) },
+  AI: { run: async () => { throw new Error("should not be called"); } },
+}));
+assert.equal(response.status, 200);
+data = await response.json();
+assert.deepEqual(data.sources.map((source) => source.id), ["author"]);
+groqHandler = null;
+openrouterHandler = null;
+
+// A provider already at its own daily cap is skipped without a network
+// call at all — the chain moves straight to the next candidate.
+let groqCalls = 0;
+groqHandler = async () => { groqCalls++; return Response.json({ choices: [{ message: { content: "no debería llamarse" } }] }); };
+openrouterHandler = async () => Response.json({ choices: [{ message: { content: "El mismo objeto puede ser reliquia. [work-manecillas]" } }] });
+response = await worker.fetch(request(), makeEnv({
+  WORKERS_AI_DAILY_CAP: "1",
+  GROQ_DAILY_CAP: "1",
+  ASSISTANT_QUOTA_DB: makeQuotaDb({ [`provider:workers-ai|${today}`]: 1, [`provider:groq|${today}`]: 1 }),
+  GROQ_API_KEY: "groq-secret",
+  OPENROUTER_API_KEY: "openrouter-secret",
+  AI: { run: async () => { throw new Error("should not be called"); } },
+}));
+assert.equal(groqCalls, 0);
+assert.equal(response.status, 200);
+groqHandler = null;
+openrouterHandler = null;
+
+// Every provider in the chain fails: generation_failed, not a crash, and
+// each attempted provider's bucket is still recorded so the next request
+// today skips it immediately instead of retrying a dead backend.
+groqHandler = async () => new Response("server error", { status: 500 });
+const allFailDb = makeQuotaDb({ [`provider:workers-ai|${today}`]: 1 });
+response = await worker.fetch(request(), makeEnv({
+  WORKERS_AI_DAILY_CAP: "1",
+  ASSISTANT_QUOTA_DB: allFailDb,
+  GROQ_API_KEY: "groq-secret",
+  AI: { run: async () => { throw new Error("should not be called"); } },
+}));
+assert.equal(response.status, 502);
+assert.equal((await response.json()).code, "generation_failed");
+assert.equal(allFailDb.counts.get(`provider:groq|${today}`), 1);
+groqHandler = null;
 
 globalThis.fetch = originalFetch;
 console.log("assistant-worker: OK");
