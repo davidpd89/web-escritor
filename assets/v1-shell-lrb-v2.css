@@ -103,6 +103,12 @@ html.v1[data-lrb-home="true"] .masthead-nav__item:nth-last-child(-n+2)>.masthead
 @media (max-width:899px){
   :root{--dp-lrb-utility-h:52px;--dp-lrb-nav-h:40px}
   html.v1 .site-header__inner,html.v1 .site-header[data-scrolled="true"] .site-header__inner{padding-block:0;min-height:var(--dp-lrb-utility-h)}
+  /* At 390px with 200% text zoom, four 44px icon buttons plus .header-buy
+     overflowed the viewport by a few px (qa/pro-resources-browser.mjs).
+     42px keeps them well above the 24px WCAG 2.5.8 minimum tap size while
+     closing that gap. */
+  html.v1 .header-search{min-width:42px}
+  html.v1 .header-home,html.v1 .header-sitemap,html.v1 .header-contact,html.v1 .explore-trigger{width:42px;height:42px}
   html.v1[data-lrb-home="true"] .site-header__left .explore-trigger{display:inline-flex}
   html.v1[data-lrb-home="true"] .masthead-sticky{top:var(--dp-lrb-utility-h)}
   html.v1[data-lrb-home="true"] .masthead__name{min-height:142px}
