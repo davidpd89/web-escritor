@@ -1,30 +1,34 @@
-.assistant-widget{position:fixed;right:max(16px,env(safe-area-inset-right));bottom:max(16px,env(safe-area-inset-bottom));z-index:950;pointer-events:none;font-family:var(--font-sans,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif)}
+/* Assistant Editorial V2 — compact floating access; the shell header remains the primary entry. */
+.assistant-widget{position:fixed;right:max(16px,env(safe-area-inset-right));bottom:max(16px,env(safe-area-inset-bottom));z-index:950;pointer-events:none;font-family:var(--font-ui,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif)}
 .assistant-widget__launcher,.assistant-widget__panel,.assistant-widget__hint{pointer-events:auto}
-.assistant-widget__launcher{display:grid;place-items:center;width:50px;height:50px;border:2px solid color-mix(in srgb,#fff 82%,transparent);border-radius:50%;background:var(--color-ink,#181512);color:var(--color-paper,#fff);box-shadow:0 9px 26px rgba(20,17,13,.2);cursor:pointer;transition:transform .16s ease,box-shadow .16s ease;animation:assistant-widget-pulse 2.8s ease-in-out infinite}
-.assistant-widget__launcher:hover{transform:translateY(-1px);box-shadow:0 12px 30px rgba(20,17,13,.24)}
-.assistant-widget__launcher svg{width:23px;height:23px}
-.assistant-widget__launcher:focus-visible,.assistant-widget__icon-action:focus-visible,.assistant-widget__hint:focus-visible{outline:3px solid var(--color-accent,#9b6b31);outline-offset:3px}
-/* El globo de texto "¿Buscas algo?" quedaba demasiado protagonista al
-   abrir la web; el lanzador con anillo blanco + pulso ya es suficiente
-   invitacion. Se deja el markup/JS por si se reactiva mas adelante. */
+.assistant-widget__launcher{display:grid;place-items:center;width:50px;height:50px;border:1px solid var(--dp-ink,#171412);border-radius:50%;background:var(--surface-page,#fff);color:var(--dp-ink,#171412);box-shadow:0 7px 24px rgba(23,20,18,.11);cursor:pointer;transition:transform var(--motion-feedback,150ms) var(--ease-standard,ease),background var(--motion-feedback,150ms) ease,color var(--motion-feedback,150ms) ease}
+.assistant-widget__launcher:hover{transform:translateY(-1px);background:var(--dp-ink,#171412);color:var(--dp-white,#fff)}
+.assistant-widget__launcher svg{width:22px;height:22px}
+.assistant-widget__launcher:focus-visible,.assistant-widget__icon-action:focus-visible,.assistant-widget__hint:focus-visible{outline:3px solid var(--focus-color,#4D372C);outline-offset:3px}
 .assistant-widget__hint{display:none}
-.assistant-widget__panel{position:absolute;right:0;bottom:62px;display:flex;flex-direction:column;width:min(378px,calc(100vw - 28px));height:min(520px,calc(100dvh - 104px));overflow:hidden;border:1px solid color-mix(in srgb,var(--color-ink,#181512) 14%,transparent);border-radius:18px;background:var(--color-paper,#fff);box-shadow:0 20px 60px rgba(20,17,13,.2);transform-origin:bottom right}
+
+.assistant-widget__panel{position:absolute;right:0;bottom:62px;display:flex;flex-direction:column;width:min(378px,calc(100vw - 28px));height:min(520px,calc(100dvh - 104px));overflow:hidden;border:1px solid var(--dp-ink,#171412);border-radius:var(--radius-none,0);background:var(--surface-page,#fff);box-shadow:0 18px 48px rgba(23,20,18,.13);transform-origin:bottom right}
 .assistant-widget__panel[hidden]{display:none}
-.assistant-widget[data-open="true"] .assistant-widget__panel{animation:assistant-widget-in .18s ease-out}
-.assistant-widget__header{display:flex;align-items:center;justify-content:space-between;gap:.75rem;min-height:54px;padding:.55rem .6rem .5rem .85rem;border-bottom:1px solid var(--color-border,#ddd4c8);background:var(--color-surface,#f6f0e8)}
-.assistant-widget__header>div:first-child{display:grid;gap:0;min-width:0}
-.assistant-widget__header strong{font-family:var(--font-serif,Georgia,serif);font-size:.96rem;line-height:1.2}
-.assistant-widget__subtitle{font-size:.7rem;line-height:1.25;color:var(--color-muted,#6f675d)}
-.assistant-widget__header-actions{display:flex;gap:.12rem;flex:none}
-.assistant-widget__icon-action{display:grid;place-items:center;width:36px;height:36px;border:0;border-radius:999px;background:transparent;color:inherit;cursor:pointer;text-decoration:none}
-.assistant-widget__icon-action:hover{background:color-mix(in srgb,var(--color-ink,#181512) 8%,transparent)}
-.assistant-widget__icon-action svg{width:18px;height:18px}
-.assistant-widget__body{display:flex;min-height:0;flex:1;background:var(--color-paper,#fff)}
-.assistant-widget__frame{display:block;width:100%;height:100%;border:0;background:var(--color-paper,#fff)}
-.assistant-widget__loading{margin:auto;padding:1rem;color:var(--color-muted,#6f675d);font-size:.85rem}
-@keyframes assistant-widget-in{from{opacity:0;transform:translateY(6px) scale(.988)}to{opacity:1;transform:none}}
-@keyframes assistant-widget-pulse{0%,100%{box-shadow:0 9px 26px rgba(20,17,13,.2),0 0 0 0 rgba(255,255,255,.4)}50%{box-shadow:0 9px 26px rgba(20,17,13,.2),0 0 0 7px rgba(255,255,255,0)}}
-@media(max-width:640px){.assistant-widget{right:max(10px,env(safe-area-inset-right));bottom:max(10px,env(safe-area-inset-bottom))}.assistant-widget__launcher{width:48px;height:48px}.assistant-widget__panel{position:fixed;left:10px;right:10px;bottom:calc(68px + env(safe-area-inset-bottom));width:auto;height:min(58dvh,500px);min-height:min(330px,calc(100dvh - 92px));border-radius:16px;transform-origin:bottom center}.assistant-widget__header{min-height:50px;padding-block:.45rem}.assistant-widget__hint{right:56px;bottom:3px;font-size:.78rem}}
-@media(max-width:360px){.assistant-widget__hint{max-width:200px;overflow:hidden;text-overflow:ellipsis}.assistant-widget__panel{left:7px;right:7px}}
-@media(prefers-reduced-motion:reduce){.assistant-widget__launcher{transition:none;animation:none}.assistant-widget[data-open="true"] .assistant-widget__panel{animation:none}}
+.assistant-widget[data-open="true"] .assistant-widget__panel{animation:assistant-widget-in var(--motion-state,220ms) var(--ease-enter,ease-out)}
+.assistant-widget__header{display:flex;align-items:center;justify-content:space-between;gap:.75rem;min-height:58px;padding:.6rem .55rem .55rem .85rem;border-bottom:2px solid var(--dp-ink,#171412);background:var(--surface-page,#fff)}
+.assistant-widget__header>div:first-child{display:grid;gap:.08rem;min-width:0}
+.assistant-widget__header strong{font-family:var(--font-display,Georgia,serif);font-size:1.08rem;font-weight:400;line-height:1.1}
+.assistant-widget__subtitle{font-size:.63rem;font-weight:700;line-height:1.25;letter-spacing:.08em;text-transform:uppercase;color:var(--color-muted,#6f675d)}
+.assistant-widget__header-actions{display:flex;gap:.1rem;flex:none}
+.assistant-widget__icon-action{display:grid;place-items:center;width:38px;height:38px;border:0;border-left:1px solid color-mix(in srgb,var(--dp-ink,#171412) 14%,transparent);border-radius:0;background:transparent;color:inherit;cursor:pointer;text-decoration:none}
+.assistant-widget__icon-action:hover{background:var(--surface-quiet,#f7f5f2)}
+.assistant-widget__icon-action svg{width:17px;height:17px}
+.assistant-widget__body{display:flex;min-height:0;flex:1;background:var(--surface-page,#fff)}
+.assistant-widget__frame{display:block;width:100%;height:100%;border:0;background:var(--surface-page,#fff)}
+.assistant-widget__loading{margin:auto;padding:1rem;color:var(--color-muted,#6f675d);font-family:var(--font-reading,Georgia,serif);font-size:.9rem}
+
+@keyframes assistant-widget-in{from{opacity:0;transform:translateY(7px)}to{opacity:1;transform:none}}
+@media(max-width:640px){
+  .assistant-widget{right:max(10px,env(safe-area-inset-right));bottom:max(10px,env(safe-area-inset-bottom))}
+  .assistant-widget__launcher{width:48px;height:48px}
+  .assistant-widget__panel{position:fixed;left:10px;right:10px;bottom:calc(68px + env(safe-area-inset-bottom));width:auto;height:min(58dvh,500px);min-height:min(330px,calc(100dvh - 92px));border-radius:0;transform-origin:bottom center}
+  .assistant-widget__header{min-height:52px;padding-block:.45rem}
+}
+@media(max-width:360px){.assistant-widget__panel{left:7px;right:7px}}
+@media(prefers-reduced-motion:reduce){.assistant-widget__launcher{transition:none}.assistant-widget[data-open="true"] .assistant-widget__panel{animation:none}}
 @media print{.assistant-widget{display:none!important}}

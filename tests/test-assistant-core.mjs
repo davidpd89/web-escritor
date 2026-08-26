@@ -59,6 +59,9 @@ const localCases = [
   ["¿Qué premio ganó Samuel entre mundos?", "samuel-awards"],
   ["¿Qué es Noveris?", "noveris"],
   ["¿Dónde mando un manuscrito?", "editorials"],
+  ["Busco dónde mandar mi novela", "editorials"],
+  ["Quiero enviar mi manuscrito a una editorial", "editorials"],
+  ["¿Dónde puedo presentar mi obra?", "editorials"],
   ["¿Qué concursos para escritores hay?", "opportunities"],
   ["¿Qué herramientas gratuitas hay?", "tools"],
   ["¿Cómo puedo contactar con David?", "press"],
@@ -66,6 +69,12 @@ const localCases = [
   ["¿Qué premios tiene?", "awards"],
   ["¿Qué libros hay?", "works"],
   ["¿Qué puedo encontrar en esta web?", "site-overview"],
+  ["Llévame a los libros", "works"],
+  ["No sé por dónde empezar", "site-overview"],
+  ["¿Hay un mapa de la web?", "site-overview"],
+  ["Quiero probar el libro del reloj", "manecillas-fragment"],
+  ["Soy periodista y quiero contactar", "press"],
+  ["Quiero ver el Cuaderno", "notebook"],
 ];
 for (const [query, expectedIntent] of localCases) {
   const answer = resolveLocalAnswer(query);
@@ -73,6 +82,11 @@ for (const [query, expectedIntent] of localCases) {
   assert.ok(answer?.answer?.length > 15, `local answer is too thin for: ${query}`);
   for (const sourceId of answer?.sourceIds || []) assert.ok(registryIds.has(sourceId), `${expectedIntent}: unknown source_id ${sourceId}`);
 }
+
+const typoManecillas = resolveLocalAnswer("¿De qué trata maneciyas?");
+assert.equal(typoManecillas?.intent, "manecillas", "known work names should tolerate a small typo");
+const typoManecillasFragment = resolveLocalAnswer("quiero leer un fragmento de maneciyas");
+assert.equal(typoManecillasFragment?.intent, "manecillas-fragment");
 
 const manecillasDate = resolveLocalAnswer("¿Cuándo se publica Las manecillas del recuerdo?");
 assert.match(manecillasDate?.answer || "", /La fecha de publicación .*3 de septiembre de 2026.*Monza Ediciones/i);
@@ -90,6 +104,19 @@ assert.equal(choice?.pending, "fragment-choice");
 assert.equal(choice?.suggestions?.length, 2);
 assert.equal(resolveLocalAnswer("Samuel", { pending: "fragment-choice" })?.intent, "samuel-fragment");
 assert.equal(resolveLocalAnswer("Las manecillas", { pending: "fragment-choice" })?.intent, "manecillas-fragment");
+
+const overview = resolveLocalAnswer("¿Qué enlaces hay?");
+assert.equal(overview?.intent, "site-overview");
+assert.ok(overview?.suggestions?.length >= 3);
+assert.match(overview?.answer || "", /cinco territorios/i, "site overview must match the current navigation architecture");
+for (const territory of ["Obras", "Autor", "Cuaderno", "Herramientas", "Prensa"]) {
+  assert.match(overview?.answer || "", new RegExp(`\\b${territory}\\b`, "i"));
+}
+assert.ok(overview?.sourceIds?.includes("site-map"), "site overview must expose the canonical public site map");
+assert.ok(registryIds.has("site-map"), "site-map must exist in the generated source registry");
+
+assert.equal(resolveLocalAnswer("Hola, ¿de qué trata Las manecillas del recuerdo?")?.intent, "manecillas", "social prefix must not hijack a real question");
+assert.equal(resolveLocalAnswer("¿Qué tiempo hace en Bilbao?"), null, "off-domain questions must remain outside the deterministic router");
 assert.equal(resolveLocalAnswer("algo completamente ajeno que no está previsto"), null);
 
 console.log("assistant-core: OK");
