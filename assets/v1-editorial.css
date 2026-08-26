@@ -2,7 +2,15 @@
    lab/diseno-home-v1/css/editorial.css, scoped to html.v1.
    Archive is a ledger, never a card grid (doc 21 / cuaderno-preservation.json). */
 html.v1 .editorial-page{max-width:var(--layout-max);margin:0 auto;padding:clamp(2rem,4vw,4.5rem) var(--page-gutter) var(--section-gap)}
-html.v1 .editorial-breadcrumb{margin:0 0 clamp(2.5rem,5vw,5rem);font-size:var(--text-xs);color:var(--color-muted)}
+/* font-size stays at the original --text-xs value (not the token's
+   reduced one) -- this and the other three overrides below the same way
+   are the last remaining above-the-fold nudges on the CLS-flagged
+   Cuaderno articles: small as each is on its own, on the shorter
+   feria-libro-madrid article they were enough to pull the whole
+   web-font-swap reflow of .article-layout further into the viewport and
+   keep it over Lighthouse's budget even after .article-prose itself was
+   reverted (see the .article-prose comment above). */
+html.v1 .editorial-breadcrumb{margin:0 0 clamp(2.5rem,5vw,5rem);font-size:clamp(.78rem,.75rem + .12vw,.86rem);color:var(--color-muted)}
 html.v1 .editorial-breadcrumb ol{display:flex;flex-wrap:wrap;gap:.4rem .65rem;list-style:none;margin:0;padding:0}
 html.v1 .editorial-breadcrumb li+li::before{content:"/";margin-right:.65rem;color:var(--color-border)}
 html.v1 .editorial-breadcrumb a{text-decoration:none}
@@ -65,7 +73,7 @@ html.v1 .article-header{max-width:var(--layout-wide);display:grid;grid-template-
    once the fallback/webfont metrics are matched via size-adjust. */
 html.v1 .article-header h1{margin:.55rem 0 1.25rem;max-width:17ch;font-family:var(--font-display);font-size:clamp(3rem,6vw,6.5rem);font-weight:400;line-height:.94;letter-spacing:-.03em;text-wrap:balance;overflow-wrap:anywhere}
 html.v1 .article-deck{max-width:58ch;margin:0;font-family:var(--font-reading);font-size:clamp(1.25rem,1.7vw,1.65rem);line-height:1.5;color:var(--color-muted)}
-html.v1 .article-meta{align-self:end;border-left:1px solid var(--color-border);padding-left:clamp(1rem,2vw,2rem);font-size:var(--text-xs);color:var(--color-muted)}
+html.v1 .article-meta{align-self:end;border-left:1px solid var(--color-border);padding-left:clamp(1rem,2vw,2rem);font-size:clamp(.78rem,.75rem + .12vw,.86rem);color:var(--color-muted)}
 html.v1 .article-meta p{margin:.4rem 0}
 html.v1 .article-meta a{color:var(--color-text)}
 /* min-height reserves the row's height before script.js reveals the
@@ -74,7 +82,7 @@ html.v1 .article-meta a{color:var(--color-text)}
    tipped Lighthouse's CLS budget once the surrounding headings/prose
    shrank and packed more of the fold above this point. */
 html.v1 .article-utilities{display:flex;flex-wrap:wrap;gap:1.1rem;margin-top:1.25rem;min-height:44px}
-html.v1 .article-share-status{min-width:1px;font-size:var(--text-xs);color:var(--color-muted)}
+html.v1 .article-share-status{min-width:1px;font-size:clamp(.78rem,.75rem + .12vw,.86rem);color:var(--color-muted)}
 html.v1 .article-print-source{display:none}
 
 html.v1 .article-layout{max-width:var(--layout-wide);display:grid;grid-template-columns:minmax(180px,3fr) minmax(0,7fr) minmax(80px,2fr);gap:clamp(1.5rem,4vw,4.5rem);padding-top:clamp(3.5rem,6vw,6rem)}
@@ -109,7 +117,7 @@ html.v1 .article-prose h3{scroll-margin-top:110px;margin:2em 0 .6em;font-family:
 html.v1 .article-prose a{text-decoration-color:var(--color-accent);overflow-wrap:anywhere}
 html.v1 .article-prose ul,html.v1 .article-prose ol{margin:0 0 1.35em;padding-left:1.3em}
 html.v1 .article-prose li{margin-bottom:.5em}
-html.v1 .article-note{margin:0 0 clamp(2.75rem,5vw,4.5rem);padding:1.25rem 0 1.25rem clamp(1rem,2vw,1.75rem);border-left:2px solid var(--color-accent);font-family:var(--font-ui);font-size:var(--text-sm);line-height:1.6}
+html.v1 .article-note{margin:0 0 clamp(2.75rem,5vw,4.5rem);padding:1.25rem 0 1.25rem clamp(1rem,2vw,1.75rem);border-left:2px solid var(--color-accent);font-family:var(--font-ui);font-size:clamp(.88rem,.84rem + .16vw,.98rem);line-height:1.6}
 html.v1 .article-note p{margin:0}
 html.v1 .article-note strong{font-weight:650}
 html.v1 .article-prose blockquote{margin:2em 0;padding:.25rem 0 .25rem clamp(1rem,2vw,1.75rem);border-left:2px solid var(--color-accent)}
