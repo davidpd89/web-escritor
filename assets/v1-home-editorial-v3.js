@@ -236,7 +236,7 @@
       input.placeholder = 'tu@email.com';
       input.required = true;
       input.setAttribute('aria-describedby', `home-${formId}-status`);
-      const button = make('button', 'install-web__button', config.formCta || 'Suscribirme');
+      const button = make('button', 'install-web__button', config.formCta || 'Recibir novedades');
       button.type = 'submit';
       const status = make('p', 'newsletter-status');
       status.id = `home-${formId}-status`;
@@ -314,8 +314,8 @@
     leadMedia.href = '/eventos.html#feria-libro-madrid-2026';
     leadMedia.setAttribute('aria-label', 'Feria del Libro de Madrid');
     const leadImage = new Image();
-    leadImage.src = '/assets/eventos/david-porto-diaz-lectores-feria-libro-madrid-2026.webp';
-    leadImage.alt = 'David Porto Díaz firmando Samuel entre mundos en la Feria del Libro de Madrid';
+    leadImage.src = '/assets/eventos/david-porto-diaz-lectores-feria-libro-madrid-2026-samuel.webp';
+    leadImage.alt = 'David Porto Díaz sosteniendo Samuel entre mundos en su caseta de la Feria del Libro de Madrid';
     leadImage.loading = 'eager';
     leadImage.decoding = 'async';
     leadMedia.append(leadImage);
@@ -370,7 +370,7 @@
     const button = make('button', 'install-web__button', 'Instalar web');
     button.type = 'button';
     button.dataset.installWeb = 'true';
-    const status = make('p', 'install-web__status', 'Si tu navegador admite instalación, aparecerá el diálogo nativo.');
+    const status = make('p', 'install-web__status', '');
     status.setAttribute('role', 'status');
     status.setAttribute('aria-live', 'polite');
     panel.append(button, status);

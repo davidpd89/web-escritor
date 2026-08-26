@@ -15,7 +15,7 @@ html.v1 .site-header__actions{display:flex;align-items:center;gap:.6rem}
 html.v1 .header-search{display:inline-flex;align-items:center;gap:.5rem;min-height:44px;padding:.3rem .9rem .3rem .7rem;border:1px solid transparent;border-radius:var(--radius-control);background:transparent;color:var(--color-muted);font-size:.92rem;font-weight:500;cursor:pointer;transition:background var(--motion-state) var(--ease-standard),color var(--motion-state) var(--ease-standard)}
 html.v1 .header-search svg{fill:none;stroke:currentColor;stroke-width:1.7;stroke-linecap:round;flex:0 0 auto}
 html.v1 .header-search:hover,html.v1 .header-search:focus-visible{color:var(--color-text);background:color-mix(in srgb,var(--color-text) 5%,transparent)}
-html.v1 .header-buy{display:inline-flex;align-items:center;min-height:44px;padding:.3rem 1.15rem;border:1px solid var(--color-accent-strong);border-radius:var(--radius-control);background:var(--color-accent-strong);color:var(--color-on-inverse);font-size:.88rem;font-weight:600;text-decoration:none;white-space:nowrap;transition:background var(--motion-state) var(--ease-standard),border-color var(--motion-state) var(--ease-standard)}
+html.v1 .header-buy{display:inline-flex;align-items:center;min-height:44px;padding:.3rem 1.15rem;border:1px solid var(--color-accent-strong);border-radius:var(--radius-control);background:var(--color-accent-strong);color:#fff;font-size:.88rem;font-weight:600;text-decoration:none;white-space:nowrap;transition:background var(--motion-state) var(--ease-standard),border-color var(--motion-state) var(--ease-standard)}
 html.v1 .header-buy:hover,html.v1 .header-buy:focus-visible{background:var(--dp-ink);border-color:var(--dp-ink)}
 html.v1 .explore-trigger{display:inline-flex;align-items:center;justify-content:center;width:44px;height:44px;flex:0 0 auto;border:1px solid var(--color-border);border-radius:var(--radius-control);background:transparent;color:inherit;cursor:pointer;transition:background var(--motion-state) var(--ease-standard),border-color var(--motion-state) var(--ease-standard)}
 html.v1 .explore-trigger svg{fill:none;stroke:currentColor;stroke-width:1.6;stroke-linecap:round}
@@ -45,12 +45,25 @@ html.v1 .icon-button svg{fill:none;stroke:currentColor;stroke-width:1.6}
 html.v1 .explore-dialog__grid{display:grid;grid-template-columns:1fr;padding-top:.5rem}
 html.v1 .explore-preview{display:none}
 html.v1 .explore-list{display:grid}
-html.v1 .explore-row{display:grid;grid-template-columns:2.8rem minmax(0,1fr);gap:1rem;align-items:start;min-height:64px;padding:1rem 0;text-decoration:none;border-bottom:1px solid var(--color-border)}
-html.v1 .explore-row__index{font-size:.72rem;color:var(--color-muted);padding-top:.45rem;font-variant-numeric:tabular-nums}
-html.v1 .explore-row__body{display:grid;gap:.15rem;min-width:0}
-html.v1 .explore-row__body strong{font-family:var(--font-display);font-weight:400;font-size:clamp(1.75rem,2.6vw,2.65rem);line-height:1.02;text-wrap:balance}
-html.v1 .explore-row__body small{font-size:.82rem;color:var(--color-muted);line-height:1.45}
+html.v1 .explore-item{display:grid;grid-template-columns:minmax(0,1fr) auto;border-bottom:1px solid var(--color-border)}
+html.v1 .explore-item:first-child{border-top:0}
+html.v1 .explore-row{grid-column:1;display:grid;grid-template-columns:1.6rem minmax(0,1fr);gap:.75rem;align-items:start;min-height:52px;padding:.85rem 0;text-decoration:none}
+html.v1 .explore-row__index{font-size:.7rem;color:var(--color-accent-strong);padding-top:.3rem;font-variant-numeric:tabular-nums;font-weight:700}
+html.v1 .explore-row__body{display:grid;gap:.1rem;min-width:0}
+html.v1 .explore-row__body strong{font-family:var(--font-ui);font-weight:800;font-size:clamp(1.05rem,1.4vw,1.3rem);line-height:1.15;letter-spacing:-.005em}
+html.v1 .explore-row__body small{font-size:.82rem;color:var(--color-muted);line-height:1.4}
 html.v1 .explore-row:hover .explore-row__body strong,html.v1 .explore-row:focus-visible .explore-row__body strong{color:var(--color-accent-strong)}
+/* Expand/collapse control for territories that carry nested shortcuts --
+   same disclosure pattern as .masthead-nav__submenu-trigger, adapted to a
+   vertical list. */
+html.v1 .explore-row__toggle{grid-column:2;align-self:center;width:2.1rem;height:2.1rem;display:grid;place-items:center;border:1px solid var(--color-border);border-radius:50%;background:transparent;color:var(--color-accent-strong);cursor:pointer;transition:background var(--motion-state) var(--ease-standard),border-color var(--motion-state) var(--ease-standard)}
+html.v1 .explore-row__toggle svg{fill:none;stroke:currentColor;stroke-width:1.8;transition:transform var(--motion-state) var(--ease-standard)}
+html.v1 .explore-row__toggle:hover,html.v1 .explore-row__toggle:focus-visible{background:#e7f5fc;border-color:var(--color-accent-strong)}
+html.v1 .explore-row__toggle[aria-expanded="true"] svg{transform:rotate(180deg)}
+html.v1 .explore-children{grid-column:1/-1;display:grid;gap:.15rem;margin:0 0 .85rem 2.35rem;padding-left:.85rem;border-left:2px solid #e7f5fc}
+html.v1 .explore-children a{display:block;padding:.4rem 0;font-family:var(--font-reading);font-size:.92rem;color:var(--color-text);text-decoration:none;border-bottom:1px solid var(--color-border)}
+html.v1 .explore-children a:last-child{border-bottom:0}
+html.v1 .explore-children a:hover,html.v1 .explore-children a:focus-visible{color:var(--color-accent-strong)}
 html.v1 .explore-subscribe{margin-top:clamp(1.5rem,3vw,2.5rem);padding-top:clamp(1.5rem,3vw,2.5rem);border-top:1px solid var(--color-border);max-width:32rem}
 html.v1 .explore-subscribe .form-row{display:flex;gap:.6rem;flex-wrap:wrap}
 html.v1 .explore-subscribe .form-input{flex:1;min-width:12rem}
@@ -74,10 +87,12 @@ html.v1 .site-footer a:hover,html.v1 .site-footer a:focus-visible{text-decoratio
    only on 22 of them. Footer margin is a rule, not an inline style: 28
    pages declare style-src 'self', which blocks inline style attributes. */
 html.v1 .social-row{display:flex;flex-wrap:wrap;align-items:center;gap:.85rem;margin-top:1.75rem}
-html.v1 .social-icon{display:inline-flex;align-items:center;justify-content:center;width:2.35rem;height:2.35rem;border:1px solid var(--color-border);border-radius:50%;color:var(--color-text);text-decoration:none;transition:border-color var(--motion-state) var(--ease-standard),color var(--motion-state) var(--ease-standard)}
+html.v1 .social-icon{display:inline-flex;align-items:center;justify-content:center;width:2.35rem;height:2.35rem;border:1px solid var(--color-accent-strong);border-radius:50%;color:var(--color-text);text-decoration:none;transition:background var(--motion-state) var(--ease-standard),color var(--motion-state) var(--ease-standard)}
 html.v1 .social-icon svg{width:1.05rem;height:1.05rem}
-html.v1 .social-icon:hover,html.v1 .social-icon:focus-visible{border-color:var(--color-accent-strong);color:var(--color-accent-strong)}
+html.v1 .social-icon:hover,html.v1 .social-icon:focus-visible{background:var(--color-accent-strong);color:#fff}
 html.v1 .site-footer .social-row{margin-top:1rem}
+html.v1 .footer-email{display:inline-block;margin-top:1rem;font-size:.88rem;color:var(--color-accent-strong);text-decoration:none;border-bottom:1px solid currentColor}
+html.v1 .footer-email:hover,html.v1 .footer-email:focus-visible{color:var(--color-accent-hover)}
 html.v1 .footer-legal{grid-column:1/-1;margin-top:1.5rem;padding-top:1.5rem;border-top:1px solid var(--color-border);display:flex;flex-wrap:wrap;gap:.4rem 1.2rem;align-items:center}
 html.v1 .footer-legal a{font-size:.82rem}
 @media (max-width:1023px){html.v1 .site-header__inner{padding-top:.55rem;padding-bottom:.55rem}html.v1 .site-footer__grid{grid-template-columns:repeat(2,minmax(0,1fr));column-gap:2rem}html.v1 .site-footer__grid>div{grid-column:1/-1}}

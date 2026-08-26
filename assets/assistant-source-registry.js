@@ -13,7 +13,38 @@ export const ASSISTANT_SOURCE_REGISTRY = [
       "david porto díaz",
       "escritor",
       "libros"
-    ]
+    ],
+    "aliases": [
+      "inicio",
+      "portada",
+      "home"
+    ],
+    "summary": "Portada principal y punto de entrada a la web.",
+    "action": "Ir al inicio"
+  },
+  {
+    "id": "site-map",
+    "url": "/mapa-del-sitio/",
+    "title": "Mapa del sitio",
+    "territory": "sitio",
+    "priority": 1,
+    "visibility": "public",
+    "keywords": [
+      "mapa del sitio",
+      "mapa web",
+      "secciones",
+      "enlaces",
+      "índice general",
+      "navegación"
+    ],
+    "aliases": [
+      "mapa",
+      "indice general",
+      "todos los enlaces",
+      "secciones de la web"
+    ],
+    "summary": "Índice general con los destinos públicos principales de la web.",
+    "action": "Abrir el mapa"
   },
   {
     "id": "author",
@@ -27,7 +58,14 @@ export const ASSISTANT_SOURCE_REGISTRY = [
       "autor",
       "trayectoria",
       "david porto díaz"
-    ]
+    ],
+    "aliases": [
+      "sobre david",
+      "quien es david",
+      "biografia"
+    ],
+    "summary": "Biografía, trayectoria y obra del autor.",
+    "action": "Ver autor"
   },
   {
     "id": "works-hub",
@@ -40,7 +78,14 @@ export const ASSISTANT_SOURCE_REGISTRY = [
       "libros",
       "obras",
       "novelas"
-    ]
+    ],
+    "aliases": [
+      "libros de david",
+      "sus libros",
+      "novelas de david"
+    ],
+    "summary": "Índice de las obras y sus páginas principales.",
+    "action": "Ver obras"
   },
   {
     "id": "work-manecillas",
@@ -57,7 +102,15 @@ export const ASSISTANT_SOURCE_REGISTRY = [
       "reloj",
       "memoria",
       "familia"
-    ]
+    ],
+    "aliases": [
+      "manecillas",
+      "libro de las manecillas",
+      "libro del reloj",
+      "reloj del recuerdo"
+    ],
+    "summary": "Página principal de «Las manecillas del recuerdo».",
+    "action": "Abrir el libro"
   },
   {
     "id": "work-manecillas-fragments",
@@ -72,7 +125,14 @@ export const ASSISTANT_SOURCE_REGISTRY = [
       "leer",
       "muestra",
       "las manecillas del recuerdo"
-    ]
+    ],
+    "aliases": [
+      "probar manecillas",
+      "leer manecillas",
+      "fragmento manecillas"
+    ],
+    "summary": "Lectura de fragmentos de «Las manecillas del recuerdo».",
+    "action": "Leer fragmentos"
   },
   {
     "id": "work-samuel",
@@ -87,7 +147,13 @@ export const ASSISTANT_SOURCE_REGISTRY = [
       "fantasía juvenil",
       "portal fantasy",
       "noveris"
-    ]
+    ],
+    "aliases": [
+      "samuel",
+      "libro de samuel"
+    ],
+    "summary": "Página principal de «Samuel entre mundos».",
+    "action": "Abrir el libro"
   },
   {
     "id": "samuel-fragment",
@@ -102,7 +168,14 @@ export const ASSISTANT_SOURCE_REGISTRY = [
       "capítulo 1",
       "samuel entre mundos",
       "leer gratis"
-    ]
+    ],
+    "aliases": [
+      "primer capítulo de samuel",
+      "leer samuel",
+      "probar samuel"
+    ],
+    "summary": "Primer capítulo completo de «Samuel entre mundos».",
+    "action": "Leer capítulo"
   },
   {
     "id": "samuel-noveris",
@@ -118,7 +191,13 @@ export const ASSISTANT_SOURCE_REGISTRY = [
       "magia",
       "facciones",
       "worldbuilding"
-    ]
+    ],
+    "aliases": [
+      "mundo de samuel",
+      "universo de samuel"
+    ],
+    "summary": "Guía del universo de Noveris y sus materiales relacionados.",
+    "action": "Explorar Noveris"
   },
   {
     "id": "notebook-hub",
@@ -132,7 +211,14 @@ export const ASSISTANT_SOURCE_REGISTRY = [
       "artículos",
       "escritura",
       "fantasía"
-    ]
+    ],
+    "aliases": [
+      "blog",
+      "articulos",
+      "artículos de david"
+    ],
+    "summary": "Índice de artículos y piezas editoriales.",
+    "action": "Abrir el Cuaderno"
   },
   {
     "id": "recommendations-hub",
@@ -146,7 +232,14 @@ export const ASSISTANT_SOURCE_REGISTRY = [
       "libros",
       "lecturas",
       "fantasía"
-    ]
+    ],
+    "aliases": [
+      "que leer",
+      "libros parecidos",
+      "recomiendame libros"
+    ],
+    "summary": "Selecciones de lectura organizadas por afinidades y temas.",
+    "action": "Ver recomendaciones"
   },
   {
     "id": "tools-hub",
@@ -160,7 +253,15 @@ export const ASSISTANT_SOURCE_REGISTRY = [
       "escritores",
       "manuscrito",
       "revisión"
-    ]
+    ],
+    "aliases": [
+      "recursos para escritores",
+      "utilidades",
+      "revisar texto",
+      "analizar manuscrito"
+    ],
+    "summary": "Índice de herramientas gratuitas para escritura, revisión y publicación.",
+    "action": "Abrir herramientas"
   },
   {
     "id": "editorials-hub",
@@ -174,7 +275,14 @@ export const ASSISTANT_SOURCE_REGISTRY = [
       "manuscritos",
       "enviar novela",
       "publicar"
-    ]
+    ],
+    "aliases": [
+      "donde mando mi novela",
+      "enviar manuscrito",
+      "buscar editorial"
+    ],
+    "summary": "Directorio de editoriales y vías de envío de manuscritos.",
+    "action": "Ver editoriales"
   },
   {
     "id": "opportunities",
@@ -188,7 +296,14 @@ export const ASSISTANT_SOURCE_REGISTRY = [
       "convocatorias",
       "premios",
       "escritores"
-    ]
+    ],
+    "aliases": [
+      "concursos literarios",
+      "premios literarios",
+      "certamenes"
+    ],
+    "summary": "Directorio de concursos, premios y oportunidades para escritores.",
+    "action": "Ver convocatorias"
   },
   {
     "id": "external-tools",
@@ -202,7 +317,13 @@ export const ASSISTANT_SOURCE_REGISTRY = [
       "software",
       "herramientas",
       "escritura"
-    ]
+    ],
+    "aliases": [
+      "software para escritores",
+      "programas para escritores"
+    ],
+    "summary": "Directorio de recursos y software externos útiles para escritores.",
+    "action": "Abrir directorio"
   },
   {
     "id": "awards",
@@ -215,7 +336,13 @@ export const ASSISTANT_SOURCE_REGISTRY = [
       "premios",
       "reconocimientos",
       "letras como espada"
-    ]
+    ],
+    "aliases": [
+      "premios de david",
+      "reconocimientos de david"
+    ],
+    "summary": "Página de premios y reconocimientos con su contexto verificable.",
+    "action": "Ver premios"
   },
   {
     "id": "events",
@@ -229,7 +356,14 @@ export const ASSISTANT_SOURCE_REGISTRY = [
       "firmas",
       "ferias",
       "agenda"
-    ]
+    ],
+    "aliases": [
+      "agenda",
+      "donde firma",
+      "presentaciones"
+    ],
+    "summary": "Agenda pública de eventos, firmas y apariciones.",
+    "action": "Ver eventos"
   },
   {
     "id": "press",
@@ -243,7 +377,15 @@ export const ASSISTANT_SOURCE_REGISTRY = [
       "entrevistas",
       "kit de prensa",
       "medios"
-    ]
+    ],
+    "aliases": [
+      "contactar con david",
+      "contacto profesional",
+      "soy periodista",
+      "entrevista"
+    ],
+    "summary": "Materiales y vía de contacto para prensa y colaboraciones profesionales.",
+    "action": "Abrir prensa"
   },
   {
     "id": "site-ai",
@@ -258,6 +400,12 @@ export const ASSISTANT_SOURCE_REGISTRY = [
       "ia",
       "autor",
       "libros"
-    ]
+    ],
+    "aliases": [
+      "información para ia",
+      "datos para ia"
+    ],
+    "summary": "Información canónica del sitio destinada a sistemas automáticos.",
+    "action": "Ver información canónica"
   }
 ];

@@ -14,7 +14,7 @@ html.v1:not([data-lrb-home="true"]){
 }
 html.v1:not([data-lrb-home="true"]) body{
   background:
-    linear-gradient(180deg,var(--dp-editorial-white) 0,#f8fafb 11rem,var(--dp-editorial-white) 100%);
+    linear-gradient(180deg,var(--dp-editorial-white) 0,#f8fafb 11rem,var(--dp-editorial-white) 32rem);
 }
 html.v1:not([data-lrb-home="true"]) :is(.v1-main,.editorial-page,.book-page,.samuel-page){
   background:transparent;
@@ -97,8 +97,8 @@ html.v1:not([data-lrb-home="true"]) .section-context__links a:focus-visible{
   color:var(--dp-editorial-blue-ink);
 }
 html.v1:not([data-lrb-home="true"]) .v1-masthead{
-  padding-top:clamp(2rem,4vw,3.5rem);
-  padding-bottom:clamp(2rem,4vw,3.5rem);
+  padding-top:clamp(2.75rem,5.5vw,5rem);
+  padding-bottom:clamp(2.75rem,5.5vw,5rem);
   background:#fff;
 }
 html.v1:not([data-lrb-home="true"]) .v1-masthead h1{

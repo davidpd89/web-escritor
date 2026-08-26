@@ -137,6 +137,7 @@ EXCLUDE_DIR_PREFIXES = (
     "tests/",
     "data/",
     "assets/manecillas/source/",
+    "assets/no usadas/",  # confirmed-orphan assets parked for cleanup, never referenced
     "publicar-web/",  # internal build checklist, noindex (point 12)
     "lecturas/",  # fixture content, noindex (point 13)
 )

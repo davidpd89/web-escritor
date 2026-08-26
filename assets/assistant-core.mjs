@@ -54,24 +54,49 @@ export function formatCitationMarkers(value, sources) {
   });
 }
 
+function foldedList(value) {
+  return (Array.isArray(value) ? value : []).map((item) => foldQuery(String(item))).filter(Boolean);
+}
+
 export function rankLocalSources(query, sources, limit = 5) {
   const q = foldQuery(query);
   if (!q) return [];
   const terms = [...new Set(q.split(/[^\p{L}\p{N}]+/u).filter((term) => term.length > 1))];
+
   return sources
     .filter((source) => source.visibility === "public" && isSafeInternalPath(source.url))
     .map((source) => {
-      const title = String(source.title || "");
-      const keywords = Array.isArray(source.keywords) ? source.keywords.map(String) : [];
-      const titleFolded = foldQuery(title);
-      const keywordFolded = keywords.map(foldQuery);
-      const haystack = [titleFolded, foldQuery(source.territory), ...keywordFolded].join(" ");
-      let score = haystack.includes(q) ? 20 : 0;
+      const titleFolded = foldQuery(source.title || "");
+      const territoryFolded = foldQuery(source.territory || "");
+      const summaryFolded = foldQuery(source.summary || "");
+      const actionFolded = foldQuery(source.action || "");
+      const keywordFolded = foldedList(source.keywords);
+      const aliasFolded = foldedList(source.aliases);
+      const searchable = [titleFolded, territoryFolded, summaryFolded, actionFolded, ...keywordFolded, ...aliasFolded].filter(Boolean);
+      const haystack = searchable.join(" ");
+
+      let score = 0;
+      if (titleFolded === q) score += 40;
+      if (aliasFolded.includes(q)) score += 36;
+      if (titleFolded.includes(q)) score += 24;
+      if (aliasFolded.some((alias) => alias.includes(q) || q.includes(alias))) score += 20;
+      if (haystack.includes(q)) score += 12;
+
+      let matchedTerms = 0;
       for (const term of terms) {
-        if (titleFolded.includes(term)) score += 5;
-        if (keywordFolded.some((keyword) => keyword.includes(term))) score += 3;
-        if (haystack.includes(term)) score += 1;
+        let matched = false;
+        if (titleFolded.includes(term)) { score += 7; matched = true; }
+        if (aliasFolded.some((alias) => alias.includes(term))) { score += 6; matched = true; }
+        if (keywordFolded.some((keyword) => keyword.includes(term))) { score += 4; matched = true; }
+        if (summaryFolded.includes(term)) { score += 2; matched = true; }
+        if (actionFolded.includes(term)) { score += 2; matched = true; }
+        if (territoryFolded.includes(term)) { score += 1; matched = true; }
+        if (matched) matchedTerms += 1;
       }
+
+      if (terms.length > 1 && matchedTerms === terms.length) score += 8;
+      else if (terms.length > 2 && matchedTerms / terms.length >= 0.6) score += 3;
+
       score -= Number(source.priority || 3) * 0.1;
       return { source, score };
     })

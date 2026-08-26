@@ -7,17 +7,11 @@
   "ai": {
     "binding": "AI"
   },
-  "ai_search": [
-    {
-      "binding": "ASSISTANT_SEARCH",
-      "instance_name": "REPLACE_WITH_AI_SEARCH_INSTANCE"
-    }
-  ],
   "d1_databases": [
     {
       "binding": "ASSISTANT_QUOTA_DB",
-      "database_name": "REPLACE_WITH_D1_DATABASE_NAME",
-      "database_id": "REPLACE_WITH_D1_DATABASE_ID"
+      "database_name": "david-porto-assistant-quota",
+      "database_id": "02dd6e93-7bf2-421d-abdd-fd16f73508d7"
     }
   ],
   "ratelimits": [
@@ -44,7 +38,7 @@
     "ASSISTANT_REQUIRE_METADATA_FILTER": "false",
     "ASSISTANT_DAILY_SESSION_LIMIT": "5",
     "ASSISTANT_DAILY_GLOBAL_LIMIT": "50",
-    "TURNSTILE_SITE_KEY": "REPLACE_WITH_TURNSTILE_SITE_KEY",
+    "TURNSTILE_SITE_KEY": "0x4AAAAAAEdBsnHlu76Hm75M",
     "TURNSTILE_HOSTNAMES": "davidportodiaz.com",
     "WORKERS_AI_DAILY_CAP": "500",
     "GROQ_MODEL": "llama-3.3-70b-versatile",

@@ -20,9 +20,21 @@
     update();
   }
 
+  // Territories are plain, flat, sequentially-numbered rows (no "Secciones /
+  // Accesos directos" grouping); JS-injected rows just continue that same
+  // numbering appended at the end, each wrapped in its own .explore-item so
+  // the divider styling matches the static rows exactly.
+  function renumberExploreRows(list) {
+    qa('.explore-row__index', list).forEach((idx, position) => {
+      idx.textContent = String(position + 1);
+    });
+  }
+
   function ensureAssistantExploreLink(dialog) {
     const list = q('.explore-list', dialog);
     if (!list || q('[data-assistant-menu-link]', list)) return;
+    const item = document.createElement('div');
+    item.className = 'explore-item';
     const link = document.createElement('a');
     link.className = 'explore-row';
     link.href = '/asistente/';
@@ -31,7 +43,6 @@
 
     const index = document.createElement('span');
     index.className = 'explore-row__index';
-    index.textContent = String(qa('.explore-row__index', list).length + 1).padStart(2, '0');
     const body = document.createElement('span');
     body.className = 'explore-row__body';
     const strong = document.createElement('strong');
@@ -40,7 +51,23 @@
     small.textContent = 'Pregunta y encuentra la página que necesitas.';
     body.append(strong, small);
     link.append(index, body);
-    list.append(link);
+    item.append(link);
+    list.append(item);
+    renumberExploreRows(list);
+  }
+
+  function initExploreToggles(dialog) {
+    qa('.explore-row__toggle', dialog).forEach((button) => {
+      if (button.dataset.exploreToggleBound) return;
+      button.dataset.exploreToggleBound = 'true';
+      button.addEventListener('click', () => {
+        const panel = q('#' + button.getAttribute('aria-controls'), dialog);
+        if (!panel) return;
+        const open = button.getAttribute('aria-expanded') === 'true';
+        button.setAttribute('aria-expanded', String(!open));
+        panel.hidden = open;
+      });
+    });
   }
 
   function initExplore() {
@@ -50,6 +77,7 @@
     if (!dialog || !opens.length || !close || typeof dialog.showModal !== 'function') return;
 
     ensureAssistantExploreLink(dialog);
+    initExploreToggles(dialog);
     let opener = null;
     let scrollBeforeOpen = 0;
     opens.forEach((open) => {

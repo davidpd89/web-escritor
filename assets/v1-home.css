@@ -225,7 +225,7 @@ html.v1[data-lrb-home="true"] .masthead-nav{
   border-bottom:2px solid #0075b8;
   box-shadow:none;
 }
-html.v1[data-lrb-home="true"] .masthead-nav__list{justify-content:flex-start;gap:clamp(1.4rem,3.2vw,3rem)}
+html.v1[data-lrb-home="true"] .masthead-nav__list{justify-content:center;gap:clamp(1.4rem,3.2vw,3rem)}
 html.v1[data-lrb-home="true"] .masthead-nav__list a{
   min-height:48px;
   font-family:var(--font-ui);
@@ -388,6 +388,14 @@ html.v1[data-lrb-home="true"] .yale-signup{
   margin-top:clamp(3rem,6vw,5rem);
   border-top:2px solid #0075b8;
 }
+/* .home-events's own horizontal padding (v1-home-editorial-v3.css) assumes
+   it spans a full 100vw band and recenters itself with
+   (100vw - layout-max)/2. It actually sits inside .yale-home-flow, which is
+   already capped and centered at --layout-max, so on very wide viewports
+   (2560px+) that recentering math double-applies and collapses the
+   section's inner width to 0. Neutralize the horizontal component here,
+   same as .install-web/.yale-signup already do below. */
+html.v1[data-lrb-home="true"] .home-events{padding-left:0;padding-right:0}
 html.v1[data-lrb-home="true"] .yale-home-section__head,
 html.v1[data-lrb-home="true"] .home-events__head{
   display:grid;
@@ -411,6 +419,39 @@ html.v1[data-lrb-home="true"] .home-events__grid{
 }
 html.v1[data-lrb-home="true"] .yale-tile-grid--reading{grid-template-columns:repeat(4,minmax(0,1fr))}
 html.v1[data-lrb-home="true"] .yale-tile-grid--tools{grid-template-columns:repeat(3,minmax(0,1fr))}
+/* Libros y territorios: only the two flagship books (Manecillas, Samuel)
+   get an L accent (a real capital "L": left + bottom, not left + top); the
+   antología stays completely unlined. The grid has no gap between cells
+   (see .yale-tile-grid above -- no gap: declared, so it defaults to 0), so
+   a full-height/width border on each cell would butt straight into the
+   neighbouring cell's own border with zero seam and read as one continuous
+   line instead of two separate marks. A short, fixed-length corner bracket
+   anchored to each tile's own bottom-left corner has no such dependency on
+   gap math -- it physically cannot touch the next tile's bracket. */
+html.v1[data-lrb-home="true"] .yale-tile-grid--works{border-top:0;border-left:0}
+html.v1[data-lrb-home="true"] .yale-tile-grid--works .yale-tile{background:transparent;border:0}
+html.v1[data-lrb-home="true"] .yale-tile-grid--works .yale-tile:nth-child(1),
+html.v1[data-lrb-home="true"] .yale-tile-grid--works .yale-tile:nth-child(2){position:relative}
+html.v1[data-lrb-home="true"] .yale-tile-grid--works .yale-tile:nth-child(1)::before,
+html.v1[data-lrb-home="true"] .yale-tile-grid--works .yale-tile:nth-child(2)::before{
+  content:"";
+  position:absolute;
+  left:0;
+  bottom:0;
+  width:1px;
+  height:2.25rem;
+  background:rgba(0,0,0,.18);
+}
+html.v1[data-lrb-home="true"] .yale-tile-grid--works .yale-tile:nth-child(1)::after,
+html.v1[data-lrb-home="true"] .yale-tile-grid--works .yale-tile:nth-child(2)::after{
+  content:"";
+  position:absolute;
+  left:0;
+  bottom:0;
+  width:2.25rem;
+  height:1px;
+  background:rgba(0,0,0,.18);
+}
 html.v1[data-lrb-home="true"] .yale-tile,
 html.v1[data-lrb-home="true"] .home-event{
   display:flex;
@@ -422,7 +463,7 @@ html.v1[data-lrb-home="true"] .home-event{
   border-right:1px solid rgba(0,0,0,.18);
   border-bottom:1px solid rgba(0,0,0,.18);
 }
-html.v1[data-lrb-home="true"] .yale-tile--blue{background:#e7f5fc}
+html.v1[data-lrb-home="true"] .yale-tile--blue{background:#eefaff}
 html.v1[data-lrb-home="true"] .yale-tile__media{
   display:grid;
   place-items:end center;
@@ -456,23 +497,48 @@ html.v1[data-lrb-home="true"] .yale-feature__grid,
 html.v1[data-lrb-home="true"] .home-events__feature{
   display:grid;
   grid-template-columns:minmax(0,.92fr) minmax(0,1.08fr);
-  border-top:1px solid rgba(0,0,0,.18);
-  border-left:1px solid rgba(0,0,0,.18);
+  gap:clamp(1.75rem,4vw,3rem);
 }
-html.v1[data-lrb-home="true"] .yale-feature__grid--reverse{grid-template-columns:minmax(0,1.05fr) minmax(0,.95fr)}
+html.v1[data-lrb-home="true"] .yale-feature__grid--reverse{grid-template-columns:minmax(0,.78fr) minmax(0,1.22fr)}
+/* Stack + cards echo .yale-rail's single accent rule instead of the boxed
+   ledger grid used by the tile components -- this is the hero's own
+   "reversed" layout, not a spreadsheet of cells. */
 html.v1[data-lrb-home="true"] .yale-feature__stack,
-html.v1[data-lrb-home="true"] .home-events__grid{display:grid;grid-template-columns:1fr}
+html.v1[data-lrb-home="true"] .home-events__grid{
+  display:grid;
+  grid-template-columns:1fr;
+  border-left:2px solid #0075b8;
+  padding-left:clamp(1.2rem,2.6vw,2rem);
+}
 html.v1[data-lrb-home="true"] .yale-feature-card,
-html.v1[data-lrb-home="true"] .yale-feature-book{
+html.v1[data-lrb-home="true"] .home-events__grid .home-event{
   display:flex;
   flex-direction:column;
-  min-height:12rem;
-  padding:clamp(1.1rem,2vw,1.55rem);
-  background:#fff;
-  border-right:1px solid rgba(0,0,0,.18);
-  border-bottom:1px solid rgba(0,0,0,.18);
+  min-width:0;
+  min-height:0;
+  padding:clamp(1.2rem,2vw,1.7rem) 0;
+  background:transparent;
+  border-right:0;
+  border-bottom:2px solid #0075b8;
 }
-html.v1[data-lrb-home="true"] .yale-feature-card--blue{background:#e7f5fc}
+html.v1[data-lrb-home="true"] .yale-feature-card:first-child,
+html.v1[data-lrb-home="true"] .home-events__grid .home-event:first-child{padding-top:0}
+/* Mirrors .yale-lead's own media|copy split (photo beside text) instead of
+   stacking the cover above the description -- same system as the hero, but
+   reversed at BOTH levels: the book card sits on the opposite side of the
+   section from the hero's lead (see .yale-feature__grid--reverse), and the
+   media/copy order inside the card is flipped too (text first, cover last)
+   so the whole read is a true mirror end to end, not just an outer swap. */
+html.v1[data-lrb-home="true"] .yale-feature-book{
+  display:grid;
+  grid-template-columns:minmax(0,1.1fr) minmax(11rem,.9fr);
+  gap:clamp(1.2rem,2.6vw,2rem);
+  align-items:start;
+  min-height:12rem;
+  background:transparent;
+}
+html.v1[data-lrb-home="true"] .yale-feature-book__body{order:1}
+html.v1[data-lrb-home="true"] .yale-feature-book__media{order:2}
 html.v1[data-lrb-home="true"] .yale-feature-card h3,
 html.v1[data-lrb-home="true"] .yale-feature-book h3{
   margin:.45rem 0 .45rem;
@@ -496,7 +562,6 @@ html.v1[data-lrb-home="true"] .yale-feature-book p:not(.editorial-card__eyebrow)
 }
 html.v1[data-lrb-home="true"] .yale-feature-card .yale-text-link,
 html.v1[data-lrb-home="true"] .yale-feature-book .yale-text-link{margin-top:auto;align-self:flex-start}
-html.v1[data-lrb-home="true"] .yale-feature-book{display:grid;grid-template-rows:auto minmax(0,1fr);padding:0}
 html.v1[data-lrb-home="true"] .yale-feature-book__media{
   display:grid;
   min-height:clamp(18rem,28vw,24rem);
@@ -512,10 +577,10 @@ html.v1[data-lrb-home="true"] .yale-feature-book__media img{
   object-fit:contain;
   filter:drop-shadow(0 14px 20px rgba(0,0,0,.15));
 }
-html.v1[data-lrb-home="true"] .yale-feature-book__body{padding:clamp(1.1rem,2vw,1.55rem)}
+html.v1[data-lrb-home="true"] .yale-feature-book__body{min-width:0}
 html.v1[data-lrb-home="true"] .home-events__feature{grid-template-columns:minmax(0,1.18fr) minmax(18rem,.82fr)}
-html.v1[data-lrb-home="true"] .home-events__grid{border:0}
-html.v1[data-lrb-home="true"] .home-event--lead{padding:0;min-height:0}
+html.v1[data-lrb-home="true"] .home-events__grid{border-top:0}
+html.v1[data-lrb-home="true"] .home-event--lead{padding:0;min-height:0;background:transparent;border:0}
 html.v1[data-lrb-home="true"] .home-event--lead time,
 html.v1[data-lrb-home="true"] .home-event--lead h3,
 html.v1[data-lrb-home="true"] .home-event--lead p,
@@ -529,6 +594,7 @@ html.v1[data-lrb-home="true"] .home-event__media{
   border-bottom:1px solid rgba(0,0,0,.18);
   overflow:hidden;
 }
+html.v1[data-lrb-home="true"] .home-event--lead .home-event__media{aspect-ratio:3/4}
 html.v1[data-lrb-home="true"] .home-event__media img{
   width:100%;
   height:100%;
@@ -585,6 +651,7 @@ html.v1[data-lrb-home="true"] .header-buy{
   html.v1[data-lrb-home="true"] .yale-lead,
   html.v1[data-lrb-home="true"] .yale-feature__grid,
   html.v1[data-lrb-home="true"] .yale-feature__grid--reverse,
+  html.v1[data-lrb-home="true"] .yale-feature-book,
   html.v1[data-lrb-home="true"] .home-events__feature{grid-template-columns:1fr}
   html.v1[data-lrb-home="true"] .yale-rail{border-left:0;border-top:2px solid #0075b8;padding-left:0;padding-top:1rem}
   html.v1[data-lrb-home="true"] .yale-tile-grid,

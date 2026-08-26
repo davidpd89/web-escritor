@@ -116,6 +116,18 @@ PUBLIC_CSP = (
 
 AMAZON_SAMUEL_URL = "https://www.amazon.es/dp/B0GB6LGQFH?tag=davidporto-21"
 
+AUTHOR_EMAIL = "davidportodiaz@gmail.com"
+
+
+def obfuscated_mailto(address: str) -> str:
+    """Numeric-character-reference encoding of a mailto link: renders and
+    reads identically to a plain mailto for humans and screen readers (no JS
+    required), but a bot scraping raw HTML for '@'/'mailto:' text patterns
+    sees only &#100;&#97;... escapes instead of the literal address."""
+    encoded = "".join(f"&#{ord(c)};" for c in address)
+    href = "".join(f"&#{ord(c)};" for c in f"mailto:{address}")
+    return f'<a class="footer-email" href="{href}">{encoded}</a>'
+
 SOCIAL_ROW = (
     '<div class="social-row">'
     '<a class="social-icon" href="https://www.instagram.com/davidportodiaz/" target="_blank" rel="noopener noreferrer me" aria-label="Instagram" title="Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true" focusable="false"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="3.8"/><circle cx="17.3" cy="6.7" r="0.6" fill="currentColor" stroke="none"/></svg></a>'
@@ -315,11 +327,17 @@ def render_header(nav: dict, by_id: dict[str, Entry], current_path: str) -> str:
         '      <a class="header-home" href="/" aria-label="Volver a inicio" title="Inicio">\n'
         '        <svg aria-hidden="true" viewBox="0 0 24 24" width="17" height="17"><path d="M3.5 10.5 12 3.7l8.5 6.8"/><path d="M5.5 9.2V20h13V9.2"/><path d="M9.5 20v-6h5v6"/></svg>\n'
         '      </a>\n'
+        '      <a class="header-sitemap" href="/mapa-del-sitio/" aria-label="Mapa del sitio" title="Mapa del sitio">\n'
+        '        <svg aria-hidden="true" viewBox="0 0 24 24" width="17" height="17"><path d="M3 6.5 9 4l6 2.5 6-2.5v13.5l-6 2.5-6-2.5-6 2.5z"/><path d="M9 4v13.5M15 6.5V20"/></svg>\n'
+        '      </a>\n'
         '      <button class="explore-trigger" type="button" aria-haspopup="dialog" aria-controls="explore-dialog" aria-expanded="false" aria-label="Abrir menú" data-explore-open>\n'
         '        <svg aria-hidden="true" viewBox="0 0 24 24" width="20" height="20"><path d="M4 7h16M4 12h16M4 17h16"/></svg>\n'
         '      </button>\n'
         '    </div>\n'
         '    <div class="site-header__actions">\n'
+        '      <a class="header-contact" href="/prensa.html#contacto" aria-label="Contactar" title="Contactar">\n'
+        '        <svg aria-hidden="true" viewBox="0 0 24 24" width="17" height="17"><path d="M4 6.5h16v11H4z"/><path d="m4.5 7 7.5 6 7.5-6"/></svg>\n'
+        '      </a>\n'
         f"{buy_link}"
         '    </div>\n'
         '  </div>\n'
@@ -333,6 +351,8 @@ def render_header(nav: dict, by_id: dict[str, Entry], current_path: str) -> str:
 
 
 def render_explore_rows(nav: dict, by_id: dict[str, Entry]) -> list[tuple[str, str, str, str | None]]:
+    """Flat list used only to pick the default preview row; the nested,
+    territory-first rendering lives in render_explore_territories below."""
     rows: list[tuple[str, str, str, str | None]] = []
     for item in nav.get("exploreTerritories", []):
         entry = by_id[item["id"]]
@@ -345,6 +365,58 @@ def render_explore_rows(nav: dict, by_id: dict[str, Entry]) -> list[tuple[str, s
         entry = by_id[item_id]
         rows.append((entry.url, entry.short_label, entry.label, item_id))
     return rows
+
+
+# Each shortcut nests under the territory it actually belongs to (its own
+# small link, not a same-weight sibling row) instead of sitting in a
+# separate "Accesos directos" list -- e.g. "Leer un fragmento" is a child of
+# Obras, not its own numbered entry. exploreUtilities (site-map) isn't
+# rendered here at all: it now lives as its own header button.
+EXPLORE_SHORTCUT_PARENTS = {
+    "work-manecillas-fragments": "works-hub",
+    "tools-hub": "tools-hub",
+    "editorials-hub": "tools-hub",
+    "tool-book-metadata": "tools-hub",
+    "press": "press",
+}
+
+
+def render_explore_territories(nav: dict, by_id: dict[str, Entry]) -> str:
+    children_by_parent: dict[str, list[tuple[str, str]]] = {}
+    for item in nav.get("exploreShortcuts", []):
+        parent = EXPLORE_SHORTCUT_PARENTS.get(item["targetId"])
+        if not parent:
+            continue
+        target = by_id[item["targetId"]]
+        children_by_parent.setdefault(parent, []).append((target.url, item["label"]))
+
+    markup: list[str] = []
+    for index, item in enumerate(nav.get("exploreTerritories", []), 1):
+        entry = by_id[item["id"]]
+        copy = PREVIEW_COPY.get(item["id"], entry.label)
+        children = children_by_parent.get(item["id"], [])
+        expand_button = ""
+        children_markup = ""
+        if children:
+            panel_id = f"explore-children-{item['id']}"
+            expand_button = (
+                f'\n            <button type="button" class="explore-row__toggle" aria-expanded="false" '
+                f'aria-controls="{panel_id}" aria-label="Mostrar más de {entry.short_label}">'
+                '<svg aria-hidden="true" viewBox="0 0 24 24" width="14" height="14"><path d="M6 9l6 6 6-6"/></svg></button>'
+            )
+            child_links = "".join(
+                f'<a href="{href}">{label}</a>' for href, label in children
+            )
+            children_markup = f'\n            <div class="explore-children" id="{panel_id}" hidden>{child_links}</div>'
+        markup.append(
+            f'          <div class="explore-item">\n'
+            f'            <a class="explore-row" href="{entry.url}" data-preview="{item["id"]}">\n'
+            f'              <span class="explore-row__index">{index}</span>\n'
+            f'              <span class="explore-row__body"><strong>{entry.short_label}</strong><small>{copy}</small></span>\n'
+            f'            </a>{expand_button}{children_markup}\n'
+            f'          </div>'
+        )
+    return "\n".join(markup)
 
 
 def render_explore(nav: dict, by_id: dict[str, Entry], current_path: str) -> str:
@@ -364,15 +436,7 @@ def render_explore(nav: dict, by_id: dict[str, Entry], current_path: str) -> str
     default_label = by_id[default_key].short_label if default_key in by_id else "Explorar"
     default_copy = PREVIEW_ASIDE_COPY.get(default_key, PREVIEW_COPY.get(default_key, "Destinos clave de la web."))
 
-    row_markup: list[str] = []
-    for index, (href, title, text, preview_id) in enumerate(rows, 1):
-        preview_attr = f' data-preview="{preview_id}"' if preview_id else ""
-        row_markup.append(
-            f'          <a class="explore-row" href="{href}"{preview_attr}>\n'
-            f'            <span class="explore-row__index">{index:02d}</span>\n'
-            f'            <span class="explore-row__body"><strong>{title}</strong><small>{text}</small></span>\n'
-            '          </a>'
-        )
+    territories_markup = render_explore_territories(nav, by_id)
 
     return (
         '<dialog class="explore-dialog" id="explore-dialog" aria-labelledby="explore-title" data-explore-dialog>\n'
@@ -388,7 +452,7 @@ def render_explore(nav: dict, by_id: dict[str, Entry], current_path: str) -> str
         '    </div>\n\n'
         '    <div class="explore-dialog__grid">\n'
         '      <nav class="explore-list" aria-label="Destinos de la web">\n'
-        + "\n".join(row_markup)
+        + territories_markup
         + '\n      </nav>\n\n'
         '      <aside class="explore-preview" data-explore-preview>\n'
         '        <div class="explore-preview__media" aria-hidden="true" data-preview-media></div>\n'
@@ -400,12 +464,8 @@ def render_explore(nav: dict, by_id: dict[str, Entry], current_path: str) -> str
         '      <label class="sr-only" for="nl-email-explore">Email</label>\n'
         '      <div class="form-row">\n'
         '        <input class="form-input" id="nl-email-explore" name="email" type="email" autocomplete="email" inputmode="email" required placeholder="Tu email" aria-describedby="nl-status-explore">\n'
-        '        <button class="form-submit" type="submit">Suscribirme</button>\n'
+        '        <button class="form-submit" type="submit">Recibir novedades</button>\n'
         '      </div>\n'
-        '      <label class="form-consent" for="nl-gdpr-explore">\n'
-        '        <input id="nl-gdpr-explore" name="consent" type="checkbox" required aria-describedby="nl-status-explore">\n'
-        '        <span>Acepto recibir novedades del autor. <a href="/privacidad.html" target="_blank" rel="noopener">Privacidad</a>.</span>\n'
-        '      </label>\n'
         '      <p id="nl-status-explore" class="form-status" role="status" aria-live="polite"></p>\n'
         '    </form>\n'
         '  </div>\n'
@@ -436,6 +496,7 @@ def render_footer(nav: dict, by_id: dict[str, Entry], extras: dict, rel_path: st
         '        <strong class="brand__name">David Porto Díaz</strong>\n'
         '        <p>Autor de Las manecillas del recuerdo y Samuel entre mundos.</p>\n'
         f'        {SOCIAL_ROW}\n'
+        f'        {obfuscated_mailto(AUTHOR_EMAIL)}\n'
         '      </div>'
     ]
     for group_name, entries in groups.items():

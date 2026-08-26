@@ -44,10 +44,25 @@ Las preguntas ambiguas sobre fragmentos generan una aclaración («¿cuál de lo
 
 - Endpoint preferido: Worker Route same-origin `https://davidportodiaz.com/api/assistant*`.
 - Recuperación remota: Cloudflare AI Search con búsqueda híbrida/RRF y allowlist pública.
-- Generación: Workers AI, modelo fijado en servidor.
+- Generación: Workers AI como generador primario, modelo fijado en servidor.
 - Fuentes: cada chunk usa `source_id`; las URLs solo pueden proceder del registro canónico.
 - Antiabuso: Turnstile + límites por sesión/IP/global + cuota exacta D1.
 - La respuesta remota nunca es requisito para que el widget sea funcional.
+
+### Cadena de generación gratuita (opcional)
+
+El límite diario de sesión/global (D1) sigue siendo el techo real de tráfico
+permitido; esto no lo cambia. Lo que hace es dar más resistencia dentro de
+ese tráfico ya aprobado: si el proveedor primario (Workers AI) agota su
+propio presupuesto del día, el Worker puede rotar a otros proveedores
+gratuitos en vez de fallar el resto del día UTC.
+
+- Definida en `PROVIDER_CHAIN` dentro de `cloudflare-worker-assistant.js`, en orden de prioridad: Workers AI → Groq → OpenRouter.
+- Cada proveedor extra es opcional y queda inactivo hasta que se configure su secret (`GROQ_API_KEY`, `OPENROUTER_API_KEY`); sin ellos el comportamiento es idéntico al de antes de esta cadena.
+- El presupuesto diario de cada proveedor se cuenta en el mismo `ASSISTANT_QUOTA_DB` (bucket `provider:<id>`, reinicio a medianoche UTC), no requiere una migración nueva.
+- El contrato de seguridad (system prompt, citas obligatorias, `NO_EVIDENCE`, sin URLs del modelo, deny-by-default del registro) se aplica igual sea cual sea el proveedor que respondió; el cliente nunca sabe ni elige cuál fue.
+- Groq y OpenRouter se integran vía el adaptador genérico `openai-compatible` (misma forma de petición/respuesta que la API de chat completions de OpenAI), así que añadir un proveedor nuevo compatible solo requiere una entrada más en `PROVIDER_CHAIN` y su secret.
+- **Antes de activar cada proveedor**: crear la cuenta gratuita correspondiente (Groq, OpenRouter…) y guardar la API key como secret de Wrangler (`wrangler secret put GROQ_API_KEY`, nunca en el repositorio ni en `vars`). Verificar en la documentación oficial de cada proveedor el límite gratuito **vigente en ese momento** (cambian con el tiempo) y ajustar `GROQ_DAILY_CAP`/`OPENROUTER_DAILY_CAP` a un valor igual o por debajo de ese límite real.
 
 ## Configuración mínima de Cloudflare
 

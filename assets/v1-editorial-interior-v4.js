@@ -30,6 +30,7 @@
       key: 'manecillas', label: 'Manecillas', home: '/las-manecillas-del-recuerdo/',
       matches: (path) => path.startsWith('/las-manecillas-del-recuerdo/'),
       links: [
+        ['/libros/', '← Obras'],
         ['/las-manecillas-del-recuerdo/', 'La novela'],
         ['/las-manecillas-del-recuerdo/fragmentos/', 'Fragmentos'],
         ['/prensa.html#ficha-manecillas', 'Ficha de prensa']
@@ -39,6 +40,7 @@
       key: 'samuel', label: 'Samuel entre mundos', home: '/libros/samuel-entre-mundos/',
       matches: (path) => path.startsWith('/libros/samuel-entre-mundos/') || path === '/fragmento/' || path.startsWith('/universo/noveris/') || path.startsWith('/clubes-de-lectura/samuel-entre-mundos/'),
       links: [
+        ['/libros/', '← Obras'],
         ['/libros/samuel-entre-mundos/', 'El libro'],
         ['/fragmento/', 'Capítulo 1'],
         ['/universo/noveris/', 'Noveris'],
@@ -154,7 +156,17 @@
     });
   }
 
+  // Mirrors renumberExploreRows in v1-shell.js: flat sequential numbering,
+  // no Secciones/Accesos directos grouping.
+  function renumberExploreRows(list) {
+    [...list.querySelectorAll('.explore-row__index')].forEach((idx, position) => {
+      idx.textContent = String(position + 1);
+    });
+  }
+
   function makeExploreRow({ href, label, copy, preview }) {
+    const item = document.createElement('div');
+    item.className = 'explore-item';
     const link = document.createElement('a');
     link.className = 'explore-row';
     link.href = href;
@@ -171,7 +183,8 @@
     small.textContent = copy;
     body.append(strong, small);
     link.append(index, body);
-    return link;
+    item.append(link);
+    return item;
   }
 
   function ensureBetaExploreRows() {
@@ -193,12 +206,10 @@
         preview: 'lectores-beta-manuscrito'
       })
     ];
-    rows.forEach((row) => { row.dataset.betaExplore = row.dataset.preview; });
-    const assistant = list.querySelector('[data-assistant-menu-link]');
-    rows.forEach((row) => list.insertBefore(row, assistant || null));
-    [...list.querySelectorAll('.explore-row__index')].forEach((index, position) => {
-      index.textContent = String(position + 1).padStart(2, '0');
-    });
+    const assistantLink = list.querySelector('[data-assistant-menu-link]');
+    const assistantItem = assistantLink ? assistantLink.closest('.explore-item') : null;
+    rows.forEach((row) => list.insertBefore(row, assistantItem || null));
+    renumberExploreRows(list);
 
     const labelNode = dialog.querySelector('[data-preview-label]');
     const copyNode = dialog.querySelector('[data-preview-copy]');
@@ -208,15 +219,17 @@
       'lectores-beta-manuscrito': ['Enviar manuscrito', 'Consulta disponibilidad y condiciones antes de compartir un archivo para valoración beta.']
     };
     rows.forEach((row) => {
+      const link = row.querySelector('a');
+      if (!link) return;
       const show = () => {
-        const value = previews[row.dataset.preview];
+        const value = previews[link.dataset.preview];
         if (!value) return;
         if (labelNode) labelNode.textContent = value[0];
         if (copyNode) copyNode.textContent = value[1];
-        if (media) media.dataset.preview = row.dataset.preview;
+        if (media) media.dataset.preview = link.dataset.preview;
       };
-      row.addEventListener('mouseenter', show);
-      row.addEventListener('focus', show);
+      link.addEventListener('mouseenter', show);
+      link.addEventListener('focus', show);
     });
   }
 
@@ -271,41 +284,6 @@
       if (rel.length) link.setAttribute('rel', rel.join(' '));
       else link.removeAttribute('rel');
     });
-  }
-
-  function ensureMemoriaWorkRecord() {
-    if (currentPath !== '/libros/' || document.getElementById('memoria-tierras-norte')) return;
-    const main = document.querySelector('main');
-    if (!main) return;
-
-    const section = document.createElement('section');
-    section.className = 'v1-section work-record';
-    section.id = 'memoria-tierras-norte';
-    section.setAttribute('aria-labelledby', 'memoria-tierras-norte-title');
-    section.innerHTML = `
-      <div class="v1-section__head">
-        <p class="eyebrow">Obra · Antología</p>
-        <div>
-          <h2 id="memoria-tierras-norte-title">La memoria de las tierras del norte</h2>
-          <p>Antología de fantasía con relato de David Porto Díaz.</p>
-        </div>
-      </div>
-      <div class="work-record__body">
-        <a class="work-record__media" href="${MEMORIA_EXTERNAL_URL}" target="_blank" rel="noopener noreferrer" data-memoria-official-source aria-label="Conocer La memoria de las tierras del norte">
-          <picture>
-            <source srcset="/assets/david-porto-memoria-sinfondo.avif" type="image/avif">
-            <img src="/assets/david-porto-memoria-sinfondo.webp" width="420" height="640" alt="Portada de La memoria de las tierras del norte" loading="lazy" decoding="async">
-          </picture>
-        </a>
-        <p class="work-record__summary">Relato de David Porto Díaz dentro de una antología colaborativa de fantasía.</p>
-        <div class="work-record__actions">
-          <a class="primary-action" href="${MEMORIA_EXTERNAL_URL}" target="_blank" rel="noopener noreferrer" data-memoria-official-source>Conocer la antología</a>
-          <a class="text-action" href="/libros/">Volver a todas las obras</a>
-        </div>
-      </div>`;
-    const noveris = main.querySelector('#noveris');
-    if (noveris) noveris.before(section);
-    else main.append(section);
   }
 
   function ensureBetaAuthorSection() {
@@ -393,7 +371,6 @@
 
   function init() {
     normalizeMemoriaLinks();
-    ensureMemoriaWorkRecord();
     ensureBetaAuthorSection();
     ensureBetaExploreRows();
     ensureHomeBetaNav();

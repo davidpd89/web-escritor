@@ -25,13 +25,12 @@
     :root {
       color-scheme: light;
       --ink: #191716;
-      --paper: #F4EFE7;
-      --paper-2: #FBF8F2;
+      --paper: #ffffff;
+      --paper-2: #f7f8f9;
       --muted: rgba(25, 23, 22, .70);
-      --rule: rgba(25, 23, 22, .16);
+      --rule: rgba(0, 0, 0, .18);
       --soft: rgba(25, 23, 22, .08);
-      --gold: #C6A866;
-      --wine: #722F37;
+      --accent: #0075b8;
     }
     * { box-sizing: border-box; }
     html { background: var(--paper); }
@@ -46,7 +45,7 @@
         max(24px, env(safe-area-inset-bottom))
         max(20px, env(safe-area-inset-left));
       background:
-        radial-gradient(circle at 50% 14%, rgba(198, 168, 102, .14), transparent 34rem),
+        radial-gradient(circle at 50% 14%, rgba(0, 117, 184, .08), transparent 34rem),
         var(--paper);
       color: var(--ink);
       font-family: "Manrope", ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
@@ -55,7 +54,7 @@
     main { width: min(100%, 680px); }
     .offline-card {
       border: 1px solid var(--rule);
-      background: rgba(251, 248, 242, .94);
+      background: rgba(255, 255, 255, .94);
       padding: clamp(28px, 6vw, 56px);
       box-shadow: 0 24px 70px var(--soft);
     }
@@ -71,9 +70,9 @@
       display: grid;
       place-items: center;
       flex: 0 0 auto;
-      border: 1px solid rgba(114, 47, 55, .45);
+      border: 1px solid rgba(0, 117, 184, .45);
       border-radius: 50%;
-      color: var(--wine);
+      color: var(--accent);
       font-family: "Instrument Serif", Georgia, "Times New Roman", serif;
       font-size: 1.2rem;
       letter-spacing: -.06em;
@@ -84,7 +83,7 @@
     .brand-text span { margin-top: 1px; color: var(--muted); font-size: .76rem; }
     .eyebrow {
       margin: 0 0 10px;
-      color: var(--wine);
+      color: var(--accent);
       font-size: .76rem;
       font-weight: 700;
       letter-spacing: .14em;
@@ -132,7 +131,7 @@
     .primary { background: var(--ink); color: var(--paper-2); }
     .secondary { background: transparent; color: var(--ink); border-color: var(--rule); }
     button:focus-visible {
-      outline: 3px solid var(--wine);
+      outline: 3px solid var(--accent);
       outline-offset: 3px;
     }
     .note {

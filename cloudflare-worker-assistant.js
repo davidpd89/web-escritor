@@ -24,6 +24,31 @@
  *   ASSISTANT_DAILY_SESSION_LIMIT   1..5 (default/max 5)
  *   ASSISTANT_DAILY_GLOBAL_LIMIT    1..50 (default/max 50)
  *
+ * Optional free-tier generation fallback chain (see PROVIDER_CHAIN below):
+ * once the primary Workers AI budget for the day is spent, the Worker can
+ * keep answering by rotating to other providers' own separate free
+ * quotas instead of failing closed for the rest of the UTC day. Each
+ * extra provider is entirely opt-in: it is skipped unless its secret is
+ * present, never replaces the RAG/citation/safety contract above, and
+ * its own daily budget is tracked in ASSISTANT_QUOTA_DB exactly like the
+ * existing session/global buckets (bucket key `provider:<id>`, reset at
+ * UTC midnight). Nothing here lets the browser pick a provider or model.
+ *
+ *   WORKERS_AI_DAILY_CAP   soft cap for the `provider:workers-ai` bucket
+ *                          (default 500; the real ceiling is still
+ *                          whatever Cloudflare's account-wide Workers AI
+ *                          free neuron budget allows)
+ *   GROQ_API_KEY           secret; omit to leave Groq out of the chain
+ *   GROQ_MODEL             default "llama-3.3-70b-versatile"
+ *   GROQ_DAILY_CAP         default 200 — verify Groq's current published
+ *                          free-tier request/token limits at signup and
+ *                          set this at or below them; they change over time
+ *   OPENROUTER_API_KEY     secret; omit to leave OpenRouter out of the chain
+ *   OPENROUTER_MODEL       default "meta-llama/llama-3.3-70b-instruct:free"
+ *                          (an OpenRouter `:free`-suffixed model)
+ *   OPENROUTER_DAILY_CAP   default 50 — verify OpenRouter's current
+ *                          published free-model daily limits at signup
+ *
  * The Worker fails closed. The browser never selects model, provider,
  * source URLs, retrieval settings or side effects.
  */
@@ -40,6 +65,41 @@ const TURNSTILE_ACTION = "assistant_query";
 const FREE_V1_MODELS = new Set(["@cf/qwen/qwen3-30b-a3b-fp8"]);
 const MAX_CONTEXT_CHUNKS = 6;
 const MAX_CHUNK_CHARS = 1200;
+
+// Ordered free-tier fallback chain. Workers AI stays first (same trust
+// boundary as the rest of the Worker, no extra secret). Each later entry
+// is an independent third-party free tier that only activates once its
+// own API key secret is configured, and is otherwise a no-op. "kind"
+// selects the adapter in runProvider(); "openai-compatible" covers any
+// provider that implements the OpenAI chat-completions request/response
+// shape (Groq and OpenRouter both do).
+const PROVIDER_CHAIN = [
+  {
+    id: "workers-ai",
+    kind: "workers-ai",
+    available: (env) => Boolean(env.AI) && FREE_V1_MODELS.has(String(env.ASSISTANT_MODEL || "")),
+    dailyCap: (env) => clampInt(env.WORKERS_AI_DAILY_CAP, 500, 100000),
+  },
+  {
+    id: "groq",
+    kind: "openai-compatible",
+    endpoint: "https://api.groq.com/openai/v1/chat/completions",
+    apiKey: (env) => env.GROQ_API_KEY,
+    model: (env) => String(env.GROQ_MODEL || "llama-3.3-70b-versatile"),
+    available: (env) => Boolean(env.GROQ_API_KEY),
+    dailyCap: (env) => clampInt(env.GROQ_DAILY_CAP, 200, 100000),
+  },
+  {
+    id: "openrouter",
+    kind: "openai-compatible",
+    endpoint: "https://openrouter.ai/api/v1/chat/completions",
+    apiKey: (env) => env.OPENROUTER_API_KEY,
+    model: (env) => String(env.OPENROUTER_MODEL || "meta-llama/llama-3.3-70b-instruct:free"),
+    available: (env) => Boolean(env.OPENROUTER_API_KEY),
+    dailyCap: (env) => clampInt(env.OPENROUTER_DAILY_CAP, 50, 100000),
+    extraHeaders: () => ({ "HTTP-Referer": CANONICAL_ORIGIN, "X-Title": "davidportodiaz.com" }),
+  },
+];
 
 export default {
   async fetch(request, env) {
@@ -171,20 +231,8 @@ export default {
     ].join(" ");
     const user = `PREGUNTA DEL VISITANTE:\n${query}\n\nCONTEXTO RECUPERADO:\n${context}`;
 
-    let modelResult;
-    try {
-      modelResult = await withTimeout(env.AI.run(String(env.ASSISTANT_MODEL), {
-        messages: [{ role: "system", content: system }, { role: "user", content: user }],
-        max_tokens: 350,
-        temperature: 0.1,
-      }), 5000);
-    } catch (error) {
-      console.error("Workers AI generation failed", safeError(error));
-      return json(origin, 502, { ok: false, code: "generation_failed" });
-    }
-
-    const answer = extractText(modelResult).trim();
-    if (!answer) return json(origin, 502, { ok: false, code: "empty_generation" });
+    const answer = await generateWithFallback(env, system, user);
+    if (!answer) return json(origin, 502, { ok: false, code: "generation_failed" });
     if (/^NO_EVIDENCE[.!]?$/i.test(answer)) return abstained(origin, sourceOrder.slice(0, 3));
     if (answer.length > 6000 || containsUrlLike(answer)) return json(origin, 502, { ok: false, code: "unsafe_generation" });
 
@@ -264,6 +312,68 @@ function utcDay(now = new Date()) { return now.toISOString().slice(0, 10); }
 function secondsUntilUtcMidnight(now = new Date()) {
   const next = Date.UTC(now.getUTCFullYear(), now.getUTCMonth(), now.getUTCDate() + 1);
   return Math.max(1, Math.ceil((next - now.getTime()) / 1000));
+}
+async function peekQuota(db, bucket, day) {
+  // Read-only budget check used only to order the provider chain; never
+  // the sole gate on total daily spend (consumeDailyQuota already ran
+  // before generation started). A failed read just means "try it" —
+  // the provider's own response (or lack of one) still decides the
+  // outcome, so failing open here can't bypass a real safety limit.
+  try {
+    const row = await db.prepare(`SELECT count FROM assistant_daily_quota WHERE bucket = ? AND day_utc = ?`).bind(bucket, day).first();
+    return Number(row?.count || 0);
+  } catch { return 0; }
+}
+async function runProvider(provider, env, system, user) {
+  if (provider.kind === "workers-ai") {
+    const result = await env.AI.run(String(env.ASSISTANT_MODEL), {
+      messages: [{ role: "system", content: system }, { role: "user", content: user }],
+      max_tokens: 350,
+      temperature: 0.1,
+    });
+    return extractText(result).trim();
+  }
+  if (provider.kind === "openai-compatible") {
+    const apiKey = provider.apiKey(env);
+    if (!apiKey) throw new Error("missing_api_key");
+    const response = await fetch(provider.endpoint, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${apiKey}`,
+        ...(provider.extraHeaders ? provider.extraHeaders(env) : {}),
+      },
+      body: JSON.stringify({
+        model: provider.model(env),
+        messages: [{ role: "system", content: system }, { role: "user", content: user }],
+        max_tokens: 350,
+        temperature: 0.1,
+      }),
+    });
+    if (response.status === 429 || response.status === 402) throw new Error(`provider_quota_${response.status}`);
+    if (!response.ok) throw new Error(`provider_http_${response.status}`);
+    const data = await response.json();
+    return String(data?.choices?.[0]?.message?.content ?? "").trim();
+  }
+  throw new Error("unknown_provider_kind");
+}
+async function generateWithFallback(env, system, user) {
+  const day = utcDay();
+  for (const provider of PROVIDER_CHAIN) {
+    if (!provider.available(env)) continue;
+    const bucket = `provider:${provider.id}`;
+    const used = await peekQuota(env.ASSISTANT_QUOTA_DB, bucket, day);
+    if (used >= provider.dailyCap(env)) continue;
+    try {
+      const text = await withTimeout(runProvider(provider, env, system, user), 6000);
+      await incrementQuota(env.ASSISTANT_QUOTA_DB, bucket, day).catch(() => {});
+      if (text) return text;
+    } catch (error) {
+      console.error(`Provider ${provider.id} failed`, safeError(error));
+      await incrementQuota(env.ASSISTANT_QUOTA_DB, bucket, day).catch(() => {});
+    }
+  }
+  return null;
 }
 async function incrementQuota(db, bucket, day) {
   const row = await db.prepare(`INSERT INTO assistant_daily_quota (bucket, day_utc, count) VALUES (?, ?, 1) ON CONFLICT(bucket, day_utc) DO UPDATE SET count = count + 1 RETURNING count`).bind(bucket, day).first();

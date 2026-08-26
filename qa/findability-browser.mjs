@@ -21,8 +21,13 @@ const defaults=registryRaw.defaults||{};
 const registry=new Map(registryRaw.entries.map(e=>[e.url,{...defaults,...e}]));
 
 const cleanHref=h=>String(h||'').trim();
+// Obfuscated mailto hrefs (see obfuscated_mailto() in scripts/build-site-shell.py)
+// spell "mailto:" out as per-character numeric entities (&#109;&#97;...) to
+// resist scraping. Decode those before the scheme check below, or every such
+// link is misread as an internal path and fails as "destino interno inexistente".
+const decodeNumericEntities=h=>h.replace(/&#(\d+);/g,(_,code)=>String.fromCharCode(Number(code)));
 function localTarget(href){
-  const h=cleanHref(href);
+  const h=decodeNumericEntities(cleanHref(href));
   if(!h||h.startsWith('#')||/^(?:https?:|mailto:|tel:|javascript:|data:)/i.test(h))return null;
   const u=new URL(h,ORIGIN);
   if(u.origin!==ORIGIN)return null;

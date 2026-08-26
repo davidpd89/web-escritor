@@ -203,7 +203,15 @@ function normalizeLocalResult(item) {
   if (!item || !isSafeInternalPath(item.url)) return null;
   const title = String(item.title || item.url).trim();
   if (!title) return null;
-  return { id: String(item.id || item.url), url: item.url, title: title.slice(0, 180) };
+  const excerpt = String(item.plain_excerpt || item.excerpt || item.summary || "").replace(/\s+/g, " ").trim();
+  const action = String(item.action || "").replace(/\s+/g, " ").trim();
+  return {
+    id: String(item.id || item.url),
+    url: item.url,
+    title: title.slice(0, 180),
+    excerpt: excerpt.slice(0, 240),
+    action: action.slice(0, 80),
+  };
 }
 
 async function pagefindFallback(query) {
@@ -215,6 +223,8 @@ async function pagefindFallback(query) {
       id: item.meta?.source_id || item.url,
       url: item.url,
       title: item.meta?.title || item.meta?.source_title || item.url,
+      plain_excerpt: item.plain_excerpt || item.sub_results?.[0]?.plain_excerpt || "",
+      action: "Abrir página",
     })).filter(Boolean);
   } catch {
     const sources = await getRegistry();
@@ -238,7 +248,24 @@ function createSourceLinks(sources) {
   safe.forEach((source, index) => {
     const link = document.createElement("a");
     link.href = source.url;
-    link.textContent = safe.length === 1 ? source.title : `${index + 1}. ${source.title}`;
+
+    const copy = document.createElement("span");
+    copy.className = "assistant-source__copy";
+    const title = document.createElement("span");
+    title.className = "assistant-source__title";
+    title.textContent = safe.length === 1 ? source.title : `${index + 1}. ${source.title}`;
+    copy.append(title);
+    if (source.excerpt) {
+      const excerpt = document.createElement("span");
+      excerpt.className = "assistant-source__excerpt";
+      excerpt.textContent = source.excerpt;
+      copy.append(excerpt);
+    }
+
+    const action = document.createElement("span");
+    action.className = "assistant-source__action";
+    action.textContent = source.action || "Abrir";
+    link.append(copy, action);
     nav.append(link);
   });
   return nav;
@@ -278,8 +305,21 @@ function appendMessage(role, text, { sources = [], suggestions = [], pending = f
 
   article.append(bubble);
   log.append(article);
-  log.scrollTop = log.scrollHeight;
+  scrollToMessageStart(article);
   return article;
+}
+
+function scrollToMessageStart(article) {
+  // A long reply (e.g. the "no encontré nada, prueba estas rutas" fallback
+  // with several sources) can be taller than the visible viewport, so
+  // scrolling to the bottom of the transcript lands the reader past the
+  // start of the reply instead of at it. scrollIntoView({block:"start"})
+  // handles both layouts this widget runs in: the embedded panel, where
+  // the log itself scrolls internally, and the standalone /asistente/
+  // page, where the log grows to fit its content and the document is
+  // what actually scrolls -- a manual scrollTop tweak only covers the
+  // first case.
+  article.scrollIntoView({ block: "start", inline: "nearest" });
 }
 
 function appendTyping() {
@@ -374,14 +414,23 @@ function cancelCurrentRequest(message = "Respuesta detenida.") {
   setStatus(message);
 }
 
-async function renderSearchFallback(query, message = "No tengo una respuesta exacta a eso, pero estas páginas son las más relacionadas.") {
+async function renderSearchFallback(query, message = "") {
   let local = [];
   try { local = await pagefindFallback(query); } catch { local = []; }
   if (!local.length) {
-    appendMessage("assistant", "No he encontrado eso en la web. Prueba con el nombre de un libro, una herramienta, un evento o una sección concreta.");
+    const registry = await getRegistry();
+    const stable = sourcesById(["site-map", "works-hub", "tools-hub", "notebook-hub", "press"], registry).slice(0, 3);
+    appendMessage(
+      "assistant",
+      "No encuentro una coincidencia clara en el contenido de la web. Puedes orientarte desde estas rutas o abrir el mapa del sitio.",
+      { sources: stable },
+    );
     return;
   }
-  appendMessage("assistant", message, { sources: local.slice(0, 3) });
+  const fallbackMessage = message || (local.length === 1
+    ? "He encontrado una página que encaja con lo que buscas. Empezaría por esta:"
+    : "He encontrado varias páginas relacionadas. Empezaría por estas:");
+  appendMessage("assistant", fallbackMessage, { sources: local.slice(0, 3) });
 }
 
 async function queryRemote(query, config, serial) {

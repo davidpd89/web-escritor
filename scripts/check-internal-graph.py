@@ -10,6 +10,7 @@ See 27_REPOSITORIOS_Y_MEJORAS_IMPLEMENTABLES_2026-08-16.md §14.
 from __future__ import annotations
 
 import argparse
+import html
 import re
 import sys
 from collections import defaultdict
@@ -125,7 +126,11 @@ def has_noindex(text: str) -> bool:
 def extract_anchor_links(text: str) -> list[str]:
     links = []
     for m in re.finditer(r'<a[^>]+href=["\']([^"\']+)["\']', text, flags=re.I):
-        href = m.group(1).strip()
+        # The footer email link is numeric-character-reference obfuscated
+        # (&#109;&#97;...) so bots scraping raw HTML can't lift a plain
+        # mailto: address; decode before classifying so it still resolves
+        # as the mailto: link it renders as, not a bogus relative path.
+        href = html.unescape(m.group(1).strip())
         if not href or href.startswith("#"):
             continue
         links.append(href.split("#", 1)[0])
