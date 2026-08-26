@@ -1,7 +1,7 @@
 /* V1 editorial system — Cuaderno + Artículo family. Ported from
    lab/diseno-home-v1/css/editorial.css, scoped to html.v1.
    Archive is a ledger, never a card grid (doc 21 / cuaderno-preservation.json). */
-html.v1 .editorial-page{max-width:var(--layout-max);margin:0 auto;padding:clamp(1.7rem,3.4vw,3.6rem) var(--page-gutter) var(--section-gap)}
+html.v1 .editorial-page{max-width:var(--layout-max);margin:0 auto;padding:clamp(2rem,4vw,4.5rem) var(--page-gutter) var(--section-gap)}
 html.v1 .editorial-breadcrumb{margin:0 0 clamp(2.5rem,5vw,5rem);font-size:var(--text-xs);color:var(--color-muted)}
 html.v1 .editorial-breadcrumb ol{display:flex;flex-wrap:wrap;gap:.4rem .65rem;list-style:none;margin:0;padding:0}
 html.v1 .editorial-breadcrumb li+li::before{content:"/";margin-right:.65rem;color:var(--color-border)}
@@ -54,7 +54,7 @@ html.v1 .article-page{position:relative}
    marker and drives it with an inline width percentage — style it as the bar
    itself rather than adding a second, competing progress implementation. */
 html.v1 .reading-progress{position:fixed;left:0;top:0;z-index:calc(var(--z-header) + 1);width:0;height:2px;background:var(--color-accent-strong);pointer-events:none}
-html.v1 .article-header{max-width:var(--layout-wide);display:grid;grid-template-columns:minmax(0,9fr) minmax(210px,3fr);gap:var(--grid-gap);padding-bottom:clamp(2.4rem,4.8vw,4.4rem);border-bottom:1px solid var(--color-border)}
+html.v1 .article-header{max-width:var(--layout-wide);display:grid;grid-template-columns:minmax(0,9fr) minmax(210px,3fr);gap:var(--grid-gap);padding-bottom:clamp(3rem,6vw,5.5rem);border-bottom:1px solid var(--color-border)}
 /* font-size/line-height here stay at the pre-reduction values (not the
    ~17%/~8% cuts applied to every other display heading and lead
    paragraph in this file) -- this element sits directly above
@@ -77,7 +77,7 @@ html.v1 .article-utilities{display:flex;flex-wrap:wrap;gap:1.1rem;margin-top:1.2
 html.v1 .article-share-status{min-width:1px;font-size:var(--text-xs);color:var(--color-muted)}
 html.v1 .article-print-source{display:none}
 
-html.v1 .article-layout{max-width:var(--layout-wide);display:grid;grid-template-columns:minmax(180px,3fr) minmax(0,7fr) minmax(80px,2fr);gap:clamp(1.5rem,4vw,4.5rem);padding-top:clamp(2.8rem,4.8vw,4.8rem)}
+html.v1 .article-layout{max-width:var(--layout-wide);display:grid;grid-template-columns:minmax(180px,3fr) minmax(0,7fr) minmax(80px,2fr);gap:clamp(1.5rem,4vw,4.5rem);padding-top:clamp(3.5rem,6vw,6rem)}
 html.v1 .article-toc{grid-column:1;align-self:start;position:sticky;top:110px;max-height:calc(100dvh - 140px);overflow:auto;border-top:1px solid var(--color-border);padding-top:1rem}
 html.v1 .article-toc__label{display:block;margin-bottom:1rem;font-size:.7rem;text-transform:uppercase;letter-spacing:.1em;color:var(--color-muted)}
 html.v1 .article-toc ol{list-style:none;margin:0;padding:0;display:grid;gap:.65rem}
