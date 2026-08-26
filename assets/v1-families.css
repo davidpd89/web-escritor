@@ -46,7 +46,7 @@ html.v1 .press-copy__actions{display:flex;gap:1rem;flex-wrap:wrap;margin-top:1re
 html.v1 .event-year{display:grid;grid-template-columns:minmax(4rem,.22fr) minmax(0,1.78fr);gap:clamp(1.5rem,5vw,5rem);align-items:start}
 html.v1 .event-year>h3{position:sticky;top:7rem;margin:0;font:400 clamp(2rem,5vw,4rem)/.9 var(--font-display)}
 html.v1 .event-empty{padding:2.25rem 0;border-top:1px solid var(--color-border);border-bottom:1px solid var(--color-border);max-width:58rem}
-html.v1 .books-stage{display:grid;grid-template-columns:minmax(14rem,.8fr) minmax(0,1.2fr);gap:clamp(2rem,7vw,8rem);align-items:center;min-height:min(72rem,82svh);padding:clamp(3rem,7vw,7rem) 0;border-bottom:1px solid var(--color-border)}
+html.v1 .books-stage,html.v1 .books-stage-anthology{display:grid;grid-template-columns:minmax(14rem,.8fr) minmax(0,1.2fr);gap:clamp(2rem,7vw,8rem);align-items:center;min-height:min(72rem,82svh);padding:clamp(3rem,7vw,7rem) 0;border-bottom:1px solid var(--color-border)}
 html.v1 .books-stage--reverse{grid-template-columns:minmax(0,1.2fr) minmax(14rem,.8fr)}
 html.v1 .books-stage--reverse .books-stage__media{order:2}
 html.v1 .books-stage__copy h2{font:400 var(--text-5xl)/.9 var(--font-display);letter-spacing:-.035em;margin:.5rem 0 1.25rem;max-width:12ch}
@@ -65,7 +65,7 @@ html.v1 .archive-media figcaption{font-size:.74rem;color:var(--color-muted);marg
   html.v1 .archive-scene[data-enhance="sticky"] .archive-media{position:sticky;top:8rem}
 }
 @media(max-width:900px){
-  html.v1 .v1-masthead,html.v1 .author-bio,html.v1 .books-stage,html.v1 .books-stage--reverse{grid-template-columns:1fr}
+  html.v1 .v1-masthead,html.v1 .author-bio,html.v1 .books-stage,html.v1 .books-stage-anthology,html.v1 .books-stage--reverse{grid-template-columns:1fr}
   html.v1 .books-stage--reverse .books-stage__media{order:0}
   html.v1 .author-bio__aside{max-width:42rem}
   html.v1 .event-year{grid-template-columns:1fr}
@@ -149,7 +149,7 @@ html.v1 .human-stats__method li+li{margin-top:.4rem}
   html.v1 .quote-stream{grid-template-columns:1fr}
 }
 @media (max-width:900px){
-   html.v1 .books-stage{grid-template-columns:1fr;min-height:0;gap:1.5rem;padding:clamp(2.5rem,8vw,4rem) 0 clamp(3rem,8vw,5rem)}
+   html.v1 .books-stage,html.v1 .books-stage-anthology{grid-template-columns:1fr;min-height:0;gap:1.5rem;padding:clamp(2.5rem,8vw,4rem) 0 clamp(3rem,8vw,5rem)}
    html.v1 .books-stage--reverse{grid-template-columns:1fr}
    html.v1 .books-stage__media{width:100%;max-width:16rem;margin-inline:auto}
    html.v1 .books-stage__media figure{max-width:16rem;margin-inline:auto}
