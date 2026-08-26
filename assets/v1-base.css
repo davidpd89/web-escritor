@@ -35,8 +35,12 @@ html.v1 [hidden]{display:none!important}
 html.v1 :is(h1,h2,h3,h4,h5,h6,p,li,dt,dd,figcaption,blockquote,summary,label,strong,small){overflow-wrap:break-word}
 html.v1 :is(.section-intro,.hero-work,.river-item,.book-section__label,.map-node,.faq-native)>*{min-width:0}
 
-html.v1 .text-action{display:inline-flex;align-items:center;min-height:44px;border:0;background:none;padding:0;color:inherit;cursor:pointer;font-weight:600;text-decoration-line:underline;text-decoration-color:var(--color-accent);text-decoration-thickness:1px;text-underline-offset:.35em}
-html.v1 .text-action:hover,html.v1 .text-action:focus-visible{text-decoration-thickness:2px}
+html.v1 .text-action,
+html.v1 .ledger__action{display:inline-flex;align-items:center;gap:.35rem;min-height:44px;border:0;background:none;padding:0;color:var(--color-accent);cursor:pointer;font-family:var(--font-ui);font-weight:800;font-size:.82rem;letter-spacing:.05em;text-transform:uppercase;text-decoration:none;border-bottom:1px solid currentColor}
+html.v1 .text-action:hover,html.v1 .text-action:focus-visible,
+html.v1 .ledger__action:hover,html.v1 .ledger__action:focus-visible{color:var(--color-accent-hover)}
+html.v1 a.text-action::after,
+html.v1 a.ledger__action::after{content:"\2192";color:currentColor}
 html.v1 .form-field-label{display:block;font-size:.84rem;font-weight:600;margin-bottom:.5rem}
 html.v1 .form-row{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:.75rem}
 html.v1 .form-input{min-width:0;min-height:48px;width:100%;border:1px solid var(--color-border);border-radius:var(--radius-input);background:transparent;color:inherit;padding:.65rem .9rem;font-size:1rem}
