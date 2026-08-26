@@ -435,8 +435,9 @@
       // computes compact=false and hides the very hamburger that just
       // received focus, so a keyboard user tabbing to it mid-scroll would
       // watch their target vanish under them. While focus sits inside the
-      // header, only allow entering compact, never leaving it.
-      if (!compact && window.scrollY > 8 && document.activeElement?.closest?.('.site-header')) return;
+      // header, only allow entering compact, never leaving it -- checked
+      // against the reset-to-0 case too, not just a partial scroll-up.
+      if (!compact && root.classList.contains('lrb-compact') && document.activeElement?.closest?.('.site-header')) return;
       root.classList.toggle('lrb-compact', compact);
       if (compact) closeSubmenus();
     };
