@@ -20,45 +20,23 @@
     update();
   }
 
-  // Rows are grouped under .explore-group__label headings (Secciones,
-  // Accesos directos, Utilidades, ...) with N.M numbering rather than one
-  // flat 01-11 run. JS-injected rows (this file, v1-editorial-interior-v4.js)
-  // append into a shared trailing "Más" group instead of flattening that
-  // hierarchy back out.
-  function ensureTrailingExploreGroup(list) {
-    let label = q('[data-explore-extra-group]', list);
-    if (!label) {
-      label = document.createElement('p');
-      label.className = 'explore-group__label';
-      label.textContent = 'Más';
-      label.dataset.exploreExtraGroup = 'true';
-      list.append(label);
-    }
-    return label;
-  }
-
+  // Territories are plain, flat, sequentially-numbered rows (no "Secciones /
+  // Accesos directos" grouping); JS-injected rows just continue that same
+  // numbering appended at the end, each wrapped in its own .explore-item so
+  // the divider styling matches the static rows exactly.
   function renumberExploreRows(list) {
-    let group = 0;
-    let sub = 0;
-    qa(':scope > *', list).forEach((child) => {
-      if (child.classList.contains('explore-group__label')) {
-        group += 1;
-        sub = 0;
-        return;
-      }
-      if (!child.classList.contains('explore-row')) return;
-      sub += 1;
-      const idx = q('.explore-row__index', child);
-      if (idx) idx.textContent = `${group || 1}.${sub}`;
+    qa('.explore-row__index', list).forEach((idx, position) => {
+      idx.textContent = String(position + 1);
     });
   }
 
   function ensureAssistantExploreLink(dialog) {
     const list = q('.explore-list', dialog);
     if (!list || q('[data-assistant-menu-link]', list)) return;
-    ensureTrailingExploreGroup(list);
+    const item = document.createElement('div');
+    item.className = 'explore-item';
     const link = document.createElement('a');
-    link.className = 'explore-row explore-row--secondary';
+    link.className = 'explore-row';
     link.href = '/asistente/';
     link.dataset.preview = 'asistente';
     link.dataset.assistantMenuLink = 'true';
@@ -73,8 +51,23 @@
     small.textContent = 'Pregunta y encuentra la página que necesitas.';
     body.append(strong, small);
     link.append(index, body);
-    list.append(link);
+    item.append(link);
+    list.append(item);
     renumberExploreRows(list);
+  }
+
+  function initExploreToggles(dialog) {
+    qa('.explore-row__toggle', dialog).forEach((button) => {
+      if (button.dataset.exploreToggleBound) return;
+      button.dataset.exploreToggleBound = 'true';
+      button.addEventListener('click', () => {
+        const panel = q('#' + button.getAttribute('aria-controls'), dialog);
+        if (!panel) return;
+        const open = button.getAttribute('aria-expanded') === 'true';
+        button.setAttribute('aria-expanded', String(!open));
+        panel.hidden = open;
+      });
+    });
   }
 
   function initExplore() {
@@ -84,6 +77,7 @@
     if (!dialog || !opens.length || !close || typeof dialog.showModal !== 'function') return;
 
     ensureAssistantExploreLink(dialog);
+    initExploreToggles(dialog);
     let opener = null;
     let scrollBeforeOpen = 0;
     opens.forEach((open) => {

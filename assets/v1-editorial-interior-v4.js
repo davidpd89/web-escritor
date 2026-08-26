@@ -156,41 +156,19 @@
     });
   }
 
-  // Mirrors ensureTrailingExploreGroup/renumberExploreRows in v1-shell.js:
-  // both files append into the same shared trailing "Más" group rather than
-  // flattening the Secciones/Accesos directos/Utilidades hierarchy back into
-  // one flat 01-11 run.
-  function ensureTrailingExploreGroup(list) {
-    let label = list.querySelector('[data-explore-extra-group]');
-    if (!label) {
-      label = document.createElement('p');
-      label.className = 'explore-group__label';
-      label.textContent = 'Más';
-      label.dataset.exploreExtraGroup = 'true';
-      list.append(label);
-    }
-    return label;
-  }
-
+  // Mirrors renumberExploreRows in v1-shell.js: flat sequential numbering,
+  // no Secciones/Accesos directos grouping.
   function renumberExploreRows(list) {
-    let group = 0;
-    let sub = 0;
-    [...list.children].forEach((child) => {
-      if (child.classList.contains('explore-group__label')) {
-        group += 1;
-        sub = 0;
-        return;
-      }
-      if (!child.classList.contains('explore-row')) return;
-      sub += 1;
-      const idx = child.querySelector('.explore-row__index');
-      if (idx) idx.textContent = `${group || 1}.${sub}`;
+    [...list.querySelectorAll('.explore-row__index')].forEach((idx, position) => {
+      idx.textContent = String(position + 1);
     });
   }
 
   function makeExploreRow({ href, label, copy, preview }) {
+    const item = document.createElement('div');
+    item.className = 'explore-item';
     const link = document.createElement('a');
-    link.className = 'explore-row explore-row--secondary';
+    link.className = 'explore-row';
     link.href = href;
     link.dataset.preview = preview;
     link.dataset.betaExplore = preview;
@@ -205,7 +183,8 @@
     small.textContent = copy;
     body.append(strong, small);
     link.append(index, body);
-    return link;
+    item.append(link);
+    return item;
   }
 
   function ensureBetaExploreRows() {
@@ -227,10 +206,9 @@
         preview: 'lectores-beta-manuscrito'
       })
     ];
-    rows.forEach((row) => { row.dataset.betaExplore = row.dataset.preview; });
-    const assistant = list.querySelector('[data-assistant-menu-link]');
-    if (!assistant) ensureTrailingExploreGroup(list);
-    rows.forEach((row) => list.insertBefore(row, assistant || null));
+    const assistantLink = list.querySelector('[data-assistant-menu-link]');
+    const assistantItem = assistantLink ? assistantLink.closest('.explore-item') : null;
+    rows.forEach((row) => list.insertBefore(row, assistantItem || null));
     renumberExploreRows(list);
 
     const labelNode = dialog.querySelector('[data-preview-label]');
@@ -241,15 +219,17 @@
       'lectores-beta-manuscrito': ['Enviar manuscrito', 'Consulta disponibilidad y condiciones antes de compartir un archivo para valoración beta.']
     };
     rows.forEach((row) => {
+      const link = row.querySelector('a');
+      if (!link) return;
       const show = () => {
-        const value = previews[row.dataset.preview];
+        const value = previews[link.dataset.preview];
         if (!value) return;
         if (labelNode) labelNode.textContent = value[0];
         if (copyNode) copyNode.textContent = value[1];
-        if (media) media.dataset.preview = row.dataset.preview;
+        if (media) media.dataset.preview = link.dataset.preview;
       };
-      row.addEventListener('mouseenter', show);
-      row.addEventListener('focus', show);
+      link.addEventListener('mouseenter', show);
+      link.addEventListener('focus', show);
     });
   }
 

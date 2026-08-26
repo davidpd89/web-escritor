@@ -14,7 +14,7 @@ html.v1:not([data-lrb-home="true"]){
 }
 html.v1:not([data-lrb-home="true"]) body{
   background:
-    linear-gradient(180deg,var(--dp-editorial-white) 0,#f8fafb 11rem,var(--dp-editorial-white) 100%);
+    linear-gradient(180deg,var(--dp-editorial-white) 0,#f8fafb 11rem,var(--dp-editorial-white) 32rem);
 }
 html.v1:not([data-lrb-home="true"]) :is(.v1-main,.editorial-page,.book-page,.samuel-page){
   background:transparent;
