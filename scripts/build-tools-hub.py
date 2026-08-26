@@ -143,7 +143,7 @@ def render(data, tools, directories):
   <meta property="og:description" content="Herramientas gratuitas para revisar manuscritos, personajes, metadatos, eventos y webs de escritor. Sin registro; las herramientas de texto indican cuándo todo se procesa en tu navegador." />
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://davidportodiaz.com/herramientas/" />
-  <meta property="og:image" content="https://davidportodiaz.com/assets/david-porto-imagen-compartir.webp" />
+  <meta property="og:image" content="https://davidportodiaz.com/assets/david-porto-imagen-compartir.jpg" />
   <meta property="og:image:width" content="1731" />
   <meta property="og:image:height" content="909" />
   <meta property="og:image:alt" content="Herramientas gratuitas para escritores | David Porto Díaz" />
@@ -152,7 +152,7 @@ def render(data, tools, directories):
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="Herramientas gratuitas para escritores | David Porto Díaz" />
   <meta name="twitter:description" content="Herramientas gratuitas para revisar manuscritos, personajes, metadatos, eventos y webs de escritor. Sin registro; las herramientas de texto indican cuándo todo se procesa en tu navegador." />
-  <meta name="twitter:image" content="https://davidportodiaz.com/assets/david-porto-imagen-compartir.webp" />
+  <meta name="twitter:image" content="https://davidportodiaz.com/assets/david-porto-imagen-compartir.jpg" />
   <meta name="twitter:image:alt" content="Herramientas gratuitas para escritores | David Porto Díaz" />
 
   <meta name="theme-color" content="#F4EFE7" />

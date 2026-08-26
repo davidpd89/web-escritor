@@ -247,12 +247,44 @@
     });
   }
 
+  // A visitor without a mail client configured (common on desktop browsers
+  // that use webmail) sees a mailto: link do nothing when clicked. Copy the
+  // address to the clipboard alongside the native mailto attempt and show a
+  // brief confirmation, so there's always a usable fallback either way.
+  function initMailtoCopyFallback() {
+    if (!navigator.clipboard?.writeText) return;
+    let toast = null;
+    let hideTimer = null;
+    const showToast = (link, email) => {
+      if (!toast) {
+        toast = document.createElement('div');
+        toast.className = 'mailto-copy-toast';
+        toast.setAttribute('role', 'status');
+        toast.setAttribute('aria-live', 'polite');
+        toast.style.cssText = 'position:fixed;left:50%;bottom:1.5rem;transform:translateX(-50%);z-index:9999;background:var(--dp-ink,#171614);color:#fff;font:500 .85rem/1.4 var(--font-ui,system-ui,sans-serif);padding:.65rem 1.1rem;border-radius:.5rem;box-shadow:0 8px 24px rgba(0,0,0,.25);max-width:min(90vw,26rem);text-align:center;opacity:0;transition:opacity .2s ease';
+        document.body.append(toast);
+      }
+      toast.textContent = `Email copiado: ${email}`;
+      requestAnimationFrame(() => { toast.style.opacity = '1'; });
+      clearTimeout(hideTimer);
+      hideTimer = setTimeout(() => { if (toast) toast.style.opacity = '0'; }, 4000);
+    };
+    document.addEventListener('click', (event) => {
+      const link = event.target.closest('a[href^="mailto:"]');
+      if (!link) return;
+      const email = decodeURIComponent(link.href.replace(/^mailto:/, '').split('?')[0]);
+      if (!email) return;
+      navigator.clipboard.writeText(email).then(() => showToast(link, email)).catch(() => {});
+    });
+  }
+
   initHeader();
   initExplore();
   initIntro();
   initHeroVideo();
   initAssistantWidget();
   initHeaderSearch();
+  initMailtoCopyFallback();
 })();
 
 // LRB-inspired utility/header + Home/inner editorial enhancement.

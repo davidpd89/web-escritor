@@ -22,7 +22,7 @@ CANONICAL="https://davidportodiaz.com/recursos/herramientas-para-escritores/"
 # Las etiquetas Open Graph / Twitter estaban escritas a mano en el HTML
 # generado, no aqui: la primera regeneracion del fichero se las llevo por
 # delante. Viven en el builder para que no vuelva a pasar.
-SHARE_IMAGE="https://davidportodiaz.com/assets/david-porto-imagen-compartir.webp"
+SHARE_IMAGE="https://davidportodiaz.com/assets/david-porto-imagen-compartir.jpg"
 SHARE_IMAGE_WIDTH=1731
 SHARE_IMAGE_HEIGHT=909
 

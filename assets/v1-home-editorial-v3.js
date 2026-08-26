@@ -389,7 +389,7 @@
       installPrompt = event;
       if (!button.disabled) {
         button.textContent = 'Instalar web';
-        status.textContent = 'Disponible para instalar en este dispositivo.';
+        status.textContent = '';
       }
     });
 

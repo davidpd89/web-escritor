@@ -202,7 +202,7 @@
       makeExploreRow({
         href: BETA_MANUSCRIPT_URL,
         label: 'Quiero enviar mi manuscrito',
-        copy: 'Información para autores que quieren consultar una valoración beta antes de compartir el archivo.',
+        copy: 'Envía tu manuscrito y los lectores beta te dan su opinión sincera antes de publicar.',
         preview: 'lectores-beta-manuscrito'
       })
     ];
@@ -216,7 +216,7 @@
     const media = dialog.querySelector('[data-preview-media]');
     const previews = {
       'lectores-beta': ['Lectores beta', 'Lee material sin publicar y comparte una opinión honesta en una lista separada de la newsletter.'],
-      'lectores-beta-manuscrito': ['Enviar manuscrito', 'Consulta disponibilidad y condiciones antes de compartir un archivo para valoración beta.']
+      'lectores-beta-manuscrito': ['Enviar manuscrito', 'Envía tu manuscrito y los lectores beta te dan su opinión sincera antes de publicar.']
     };
     rows.forEach((row) => {
       const link = row.querySelector('a');
