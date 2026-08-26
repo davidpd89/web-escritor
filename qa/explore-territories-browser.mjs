@@ -68,7 +68,7 @@ try {
     assert(await dialog.evaluate((el) => el.open), 'Explorar debe abrirse tras el clic');
     assert.equal(await page.locator('.explore-list').getAttribute('aria-label'), 'Destinos de la web', 'Explorar debe conservar nombre accesible');
 
-    const rows = page.locator('.explore-list > a');
+    const rows = page.locator('.explore-list a.explore-row');
     // Fila 0: el menú lateral sustituyó al enlace de marca en la cabecera
     // (ya no hay logo/nombre clicable fuera del menú), así que "Inicio" es
     // ahora la primera fila, antes de los territorios estables.
@@ -111,7 +111,7 @@ try {
 
     // Obras is the stable territory entry; one tap reaches its hub.
     await trigger.click();
-    await page.locator('.explore-list > a[href="/libros/"]').click();
+    await page.locator('.explore-list a.explore-row[href="/libros/"]').click();
     await page.waitForLoadState('load');
     assert.equal(new URL(page.url()).pathname, '/libros/', 'Obras debe navegar a /libros/ con un toque');
     await assertVisibleDirectWorkLinks(page, 'main');
@@ -156,7 +156,7 @@ try {
     }));
     assert(dimensions.documentScroll <= dimensions.documentClient + 1, `320px/200%: overflow documento ${JSON.stringify(dimensions)}`);
     assert(dimensions.dialogScroll <= dimensions.dialogClient + 1, `320px/200%: overflow diálogo ${JSON.stringify(dimensions)}`);
-    assert(await page.locator('.explore-list > a[href="/libros/"]').isVisible(), '320px/200%: Obras debe seguir visible en Explorar');
+    assert(await page.locator('.explore-list a.explore-row[href="/libros/"]').isVisible(), '320px/200%: Obras debe seguir visible en Explorar');
     await page.keyboard.press('Escape');
     await context.close();
   }

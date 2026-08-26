@@ -651,6 +651,7 @@ html.v1[data-lrb-home="true"] .header-buy{
   html.v1[data-lrb-home="true"] .yale-lead,
   html.v1[data-lrb-home="true"] .yale-feature__grid,
   html.v1[data-lrb-home="true"] .yale-feature__grid--reverse,
+  html.v1[data-lrb-home="true"] .yale-feature-book,
   html.v1[data-lrb-home="true"] .home-events__feature{grid-template-columns:1fr}
   html.v1[data-lrb-home="true"] .yale-rail{border-left:0;border-top:2px solid #0075b8;padding-left:0;padding-top:1rem}
   html.v1[data-lrb-home="true"] .yale-tile-grid,
