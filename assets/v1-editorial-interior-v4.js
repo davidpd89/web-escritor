@@ -9,8 +9,8 @@
 
   const MEMORIA_EXTERNAL_URL = 'https://www.diversidadliteraria.com/la-memoria-de-las-tierras-del-norte';
   const MEMORIA_INTERNAL_URL = '/libros/#memoria-tierras-norte';
-  const BETA_READER_URL = '/lectores-beta/#quiero-ser-lector';
-  const BETA_MANUSCRIPT_URL = '/lectores-beta/#enviar-manuscrito';
+  const BETA_READER_URL = '/lectores-beta/';
+  const BETA_MANUSCRIPT_URL = '/lectores-beta/enviar-manuscrito/';
 
   const normalise = (value) => {
     const url = new URL(value, location.origin);
@@ -286,42 +286,6 @@
     });
   }
 
-  function ensureBetaAuthorSection() {
-    if (currentPath !== '/lectores-beta/' || document.getElementById('enviar-manuscrito')) return;
-    const prose = document.querySelector('.article-prose');
-    const form = document.getElementById('lectores-beta-form');
-    if (!prose || !form) return;
-
-    const readerAnchor = document.createElement('span');
-    readerAnchor.id = 'quiero-ser-lector';
-    readerAnchor.className = 'editorial-anchor-target';
-    readerAnchor.setAttribute('aria-hidden', 'true');
-    form.before(readerAnchor);
-
-    const section = document.createElement('section');
-    section.className = 'beta-author-panel';
-    section.id = 'enviar-manuscrito';
-    section.setAttribute('aria-labelledby', 'enviar-manuscrito-title');
-    section.innerHTML = `
-      <p class="eyebrow">Para autores</p>
-      <h2 id="enviar-manuscrito-title">Quiero enviar mi manuscrito para una valoración beta</h2>
-      <p>Este acceso es distinto de apuntarse como lector beta. Si quieres consultar una lectura de tu manuscrito, escribe primero para confirmar disponibilidad, alcance, formato de devolución, plazos y condiciones antes de compartir ningún archivo.</p>
-      <ol class="beta-author-ledger">
-        <li><span>01</span><div><strong>Primer contacto</strong><p>Indica género, extensión aproximada, una sinopsis breve y qué tipo de feedback buscas.</p></div></li>
-        <li><span>02</span><div><strong>No envíes el archivo todavía</strong><p>El manuscrito se comparte únicamente después de confirmar que la valoración puede realizarse y cómo se gestionará.</p></div></li>
-        <li><span>03</span><div><strong>Condiciones claras antes de empezar</strong><p>La disponibilidad y cualquier condición concreta deben quedar acordadas antes de iniciar la lectura.</p></div></li>
-      </ol>
-      <div class="beta-author-panel__actions">
-        <a class="primary-action" href="mailto:davidportodiaz@gmail.com?subject=Consulta%20de%20valoraci%C3%B3n%20beta%20de%20manuscrito">Consultar valoración beta</a>
-        <a class="text-action" href="${BETA_READER_URL}">Quiero ser lector beta</a>
-      </div>`;
-    prose.append(section);
-
-    if (location.hash === '#enviar-manuscrito' || location.hash === '#quiero-ser-lector') {
-      requestAnimationFrame(() => document.querySelector(location.hash)?.scrollIntoView({ block: 'start' }));
-    }
-  }
-
   function auditBannerAsset(banner) {
     if (!(banner instanceof HTMLElement)) return;
     if (!banner.querySelector('.feature-banner__placeholder')) {
@@ -371,7 +335,6 @@
 
   function init() {
     normalizeMemoriaLinks();
-    ensureBetaAuthorSection();
     ensureBetaExploreRows();
     ensureHomeBetaNav();
     buildContextNav();
