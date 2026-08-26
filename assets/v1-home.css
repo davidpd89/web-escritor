@@ -420,13 +420,37 @@ html.v1[data-lrb-home="true"] .home-events__grid{
 html.v1[data-lrb-home="true"] .yale-tile-grid--reading{grid-template-columns:repeat(4,minmax(0,1fr))}
 html.v1[data-lrb-home="true"] .yale-tile-grid--tools{grid-template-columns:repeat(3,minmax(0,1fr))}
 /* Libros y territorios: only the two flagship books (Manecillas, Samuel)
-   get an L (top+left) accent; the antología stays completely unlined. */
+   get an L accent (a real capital "L": left + bottom, not left + top); the
+   antología stays completely unlined. The grid has no gap between cells
+   (see .yale-tile-grid above -- no gap: declared, so it defaults to 0), so
+   a full-height/width border on each cell would butt straight into the
+   neighbouring cell's own border with zero seam and read as one continuous
+   line instead of two separate marks. A short, fixed-length corner bracket
+   anchored to each tile's own bottom-left corner has no such dependency on
+   gap math -- it physically cannot touch the next tile's bracket. */
 html.v1[data-lrb-home="true"] .yale-tile-grid--works{border-top:0;border-left:0}
 html.v1[data-lrb-home="true"] .yale-tile-grid--works .yale-tile{background:transparent;border:0}
 html.v1[data-lrb-home="true"] .yale-tile-grid--works .yale-tile:nth-child(1),
-html.v1[data-lrb-home="true"] .yale-tile-grid--works .yale-tile:nth-child(2){
-  border-top:1px solid rgba(0,0,0,.18);
-  border-left:1px solid rgba(0,0,0,.18);
+html.v1[data-lrb-home="true"] .yale-tile-grid--works .yale-tile:nth-child(2){position:relative}
+html.v1[data-lrb-home="true"] .yale-tile-grid--works .yale-tile:nth-child(1)::before,
+html.v1[data-lrb-home="true"] .yale-tile-grid--works .yale-tile:nth-child(2)::before{
+  content:"";
+  position:absolute;
+  left:0;
+  bottom:0;
+  width:1px;
+  height:2.25rem;
+  background:rgba(0,0,0,.18);
+}
+html.v1[data-lrb-home="true"] .yale-tile-grid--works .yale-tile:nth-child(1)::after,
+html.v1[data-lrb-home="true"] .yale-tile-grid--works .yale-tile:nth-child(2)::after{
+  content:"";
+  position:absolute;
+  left:0;
+  bottom:0;
+  width:2.25rem;
+  height:1px;
+  background:rgba(0,0,0,.18);
 }
 html.v1[data-lrb-home="true"] .yale-tile,
 html.v1[data-lrb-home="true"] .home-event{
