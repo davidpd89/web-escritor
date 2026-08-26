@@ -91,7 +91,9 @@ function render(data) {
   const denseFirst = data.densestParagraphs[0];
   let summaryText = `En conjunto, Inflesz sitúa este fragmento en «${data.inflesz.label.toLowerCase()}» (${data.inflesz.score}).`;
   if (denseFirst) summaryText += ` El párrafo ${denseFirst.index} es el bloque formalmente más denso de la muestra.`;
-  summary.innerHTML = `<p class="readability-summary__eyebrow">Lectura rápida</p><h2>${escapeHTML(summaryText)}</h2><p>${data.wordCount.toLocaleString('es-ES')} palabras · ${data.sentenceCount} frases · ${data.paragraphCount} párrafos · media de ${data.avgWordsPerSentence} palabras por frase.</p>`;
+  const frasesLabel = data.sentenceCount === 1 ? 'frase' : 'frases';
+  const parrafosLabel = data.paragraphCount === 1 ? 'párrafo' : 'párrafos';
+  summary.innerHTML = `<p class="readability-summary__eyebrow">Lectura rápida</p><h2>${escapeHTML(summaryText)}</h2><p>${data.wordCount.toLocaleString('es-ES')} palabras · ${data.sentenceCount} ${frasesLabel} · ${data.paragraphCount} ${parrafosLabel} · media de ${data.avgWordsPerSentence} palabras por frase.</p>`;
 
   metrics.innerHTML = [
     metricCard('Inflesz', data.inflesz.score, data.inflesz.label, 'La referencia principal de esta herramienta. Describe facilidad formal; no calidad.', true),

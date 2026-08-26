@@ -31,6 +31,13 @@ function ok(cond, msg) { if (!cond) throw new Error(msg); }
   ok(r.text.includes('Texto normal - con guion en medio.'), 'el guion en medio de línea no debe tocarse');
 }
 
+// Guion de diálogo sin espacio tras el guion (la forma más común al escribir raya de diálogo).
+{
+  const r = api.clean('-Hola, dijo Ana.\n-Adiós, dijo Juan.', ['dashDialogue']);
+  ok(r.text.startsWith('— Hola'), `esperado inicio "— Hola" en "${r.text}"`);
+  ok(r.text.includes('\n— Adiós'), `esperado "— Adiós" tras salto de línea en "${r.text}"`);
+}
+
 // Puntos suspensivos: 4+ puntos -> exactamente 3.
 {
   const r = api.clean('Esperaba....', ['ellipsis']);

@@ -85,7 +85,7 @@
       label: 'Guion simple («- Dijo») a raya de diálogo («— Dijo»)',
       apply(text) {
         let n = 0;
-        const out = text.replace(/(^|\n)[ \t]*-[ \t]+(?=\S)/g, (m, pre) => { n += 1; return `${pre}— `; });
+        const out = text.replace(/(^|\n)[ \t]*-[ \t]*(?=\S)/g, (m, pre) => { n += 1; return `${pre}— `; });
         return { text: out, count: n };
       },
     },
