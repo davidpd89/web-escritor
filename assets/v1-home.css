@@ -431,9 +431,11 @@ html.v1[data-lrb-home="true"] .yale-tile-grid--tools{grid-template-columns:repea
 html.v1[data-lrb-home="true"] .yale-tile-grid--works{border-top:0;border-left:0}
 html.v1[data-lrb-home="true"] .yale-tile-grid--works .yale-tile{background:transparent;border:0}
 html.v1[data-lrb-home="true"] .yale-tile-grid--works .yale-tile:nth-child(1),
-html.v1[data-lrb-home="true"] .yale-tile-grid--works .yale-tile:nth-child(2){position:relative}
+html.v1[data-lrb-home="true"] .yale-tile-grid--works .yale-tile:nth-child(2),
+html.v1[data-lrb-home="true"] .yale-tile-grid--works .yale-tile:nth-child(3){position:relative}
 html.v1[data-lrb-home="true"] .yale-tile-grid--works .yale-tile:nth-child(1)::before,
-html.v1[data-lrb-home="true"] .yale-tile-grid--works .yale-tile:nth-child(2)::before{
+html.v1[data-lrb-home="true"] .yale-tile-grid--works .yale-tile:nth-child(2)::before,
+html.v1[data-lrb-home="true"] .yale-tile-grid--works .yale-tile:nth-child(3)::before{
   content:"";
   position:absolute;
   left:0;
@@ -443,7 +445,8 @@ html.v1[data-lrb-home="true"] .yale-tile-grid--works .yale-tile:nth-child(2)::be
   background:rgba(0,0,0,.18);
 }
 html.v1[data-lrb-home="true"] .yale-tile-grid--works .yale-tile:nth-child(1)::after,
-html.v1[data-lrb-home="true"] .yale-tile-grid--works .yale-tile:nth-child(2)::after{
+html.v1[data-lrb-home="true"] .yale-tile-grid--works .yale-tile:nth-child(2)::after,
+html.v1[data-lrb-home="true"] .yale-tile-grid--works .yale-tile:nth-child(3)::after{
   content:"";
   position:absolute;
   left:0;
@@ -507,6 +510,16 @@ html.v1[data-lrb-home="true"] .yale-feature__stack,
 html.v1[data-lrb-home="true"] .home-events__grid{
   display:grid;
   grid-template-columns:1fr;
+}
+html.v1[data-lrb-home="true"] .home-events__grid{
+  border-left:2px solid #0075b8;
+  padding-left:clamp(1.2rem,2.6vw,2rem);
+}
+/* The accent rail sits between the two columns (as it does for Manecillas'
+   own .yale-lead/.yale-rail pair), not at the section's outer edge -- for
+   Samuel's mirrored layout the book card is the second/right column, so it
+   carries the border instead of the stack. */
+html.v1[data-lrb-home="true"] .yale-feature-book{
   border-left:2px solid #0075b8;
   padding-left:clamp(1.2rem,2.6vw,2rem);
 }
@@ -654,6 +667,7 @@ html.v1[data-lrb-home="true"] .header-buy{
   html.v1[data-lrb-home="true"] .yale-feature-book,
   html.v1[data-lrb-home="true"] .home-events__feature{grid-template-columns:1fr}
   html.v1[data-lrb-home="true"] .yale-rail{border-left:0;border-top:2px solid #0075b8;padding-left:0;padding-top:1rem}
+  html.v1[data-lrb-home="true"] .yale-feature-book{border-left:0;padding-left:0}
   html.v1[data-lrb-home="true"] .yale-tile-grid,
   html.v1[data-lrb-home="true"] .yale-tile-grid--reading,
   html.v1[data-lrb-home="true"] .yale-tile-grid--tools,

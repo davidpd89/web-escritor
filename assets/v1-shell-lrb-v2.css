@@ -19,9 +19,9 @@ html.v1 .header-home,
 html.v1 .header-sitemap,
 html.v1 .explore-trigger{min-height:44px}
 html.v1 .header-search{font-size:.8rem;padding-inline:.55rem .72rem}
-html.v1 .header-search{color:#050505}
+html.v1 .header-search{color:#0075b8}
 html.v1 .header-search span{color:#0075b8;font-weight:600}
-html.v1 .header-search svg{color:#050505}
+html.v1 .header-search svg{color:#0075b8}
 html.v1 .header-home,
 html.v1 .header-sitemap,
 html.v1 .header-contact{display:inline-flex;align-items:center;justify-content:center;width:44px;height:44px;flex:0 0 auto;border:1px solid transparent;border-radius:0;color:var(--color-muted);text-decoration:none;background:transparent;transition:background var(--motion-state) var(--ease-standard),color var(--motion-state) var(--ease-standard),border-color var(--motion-state) var(--ease-standard)}
