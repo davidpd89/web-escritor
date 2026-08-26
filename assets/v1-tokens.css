@@ -35,6 +35,14 @@
   --home-image-blue:#f1f8fc;
   --home-image-blue-deep:#e5f3fa;
 
+  /* Aliases for the assistant widget's own --color-* names (assets/assistant*.css),
+     which never matched this file's token names and so always rendered on their
+     hardcoded warm fallbacks (#f5f0e8 surface, #ddd4c8 border) regardless of the
+     rest of the page. */
+  --color-ink:var(--color-text);
+  --color-paper:var(--surface-page);
+  --color-surface:var(--surface-quiet);
+
   --font-display:"Instrument Serif","Iowan Old Style","Palatino Linotype",Palatino,Georgia,serif;
   --font-ui:"Manrope","Avenir Next",Avenir,"Segoe UI",sans-serif;
   --font-reading:"Newsreader","Iowan Old Style",Charter,Georgia,serif;
