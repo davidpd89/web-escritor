@@ -202,7 +202,7 @@ export function render(result, root) {
     ['Diálogo / texto', `${fmt(result.dialoguePercentage, 1)} %`],
     ['Intervenciones detectadas', fmt(result.interventions)],
     ['Media por intervención', `${fmt(result.avgInterventionWords, 1)} palabras`],
-    ['Racha sin diálogo máxima', `${fmt(result.maxNarrativeStreak)} párrafos`],
+    ['Racha sin diálogo máxima', `${fmt(result.maxNarrativeStreak)} ${result.maxNarrativeStreak === 1 ? 'párrafo' : 'párrafos'}`],
   ].map(([label, value]) => `<div class="dialogue-metric"><dt>${label}</dt><dd>${value}</dd></div>`).join('');
 
   const conventionList = Object.entries(result.conventions)

@@ -48,14 +48,14 @@
   --font-reading:"Newsreader","Iowan Old Style",Charter,Georgia,serif;
   --font-script:"Allura","Segoe Script","Bradley Hand",cursive;
 
-  --text-xs:clamp(.78rem,.75rem + .12vw,.86rem);
-  --text-sm:clamp(.88rem,.84rem + .16vw,.98rem);
-  --text-base:clamp(1rem,.97rem + .15vw,1.1rem);
-  --text-lg:clamp(1.13rem,1.07rem + .28vw,1.3rem);
-  --text-2xl:clamp(1.6rem,1.38rem + 1vw,2.2rem);
-  --text-4xl:clamp(2.5rem,1.9rem + 2.8vw,4.25rem);
-  --text-5xl:clamp(3.25rem,2.15rem + 4.5vw,6rem);
-  --text-hero:clamp(4rem,2.2rem + 7vw,8rem);
+  --text-xs:clamp(.72rem,.7rem + .1vw,.78rem);
+  --text-sm:clamp(.8rem,.77rem + .14vw,.89rem);
+  --text-base:clamp(.93rem,.9rem + .14vw,1.02rem);
+  --text-lg:clamp(1.03rem,.98rem + .25vw,1.18rem);
+  --text-2xl:clamp(1.35rem,1.16rem + .84vw,1.85rem);
+  --text-4xl:clamp(2.05rem,1.56rem + 2.3vw,3.5rem);
+  --text-5xl:clamp(2.7rem,1.78rem + 3.7vw,4.95rem);
+  --text-hero:clamp(3.3rem,1.8rem + 5.8vw,6.6rem);
 
   --space-1:.25rem;
   --space-2:.5rem;
@@ -63,17 +63,17 @@
   --space-4:1rem;
   --space-5:1.5rem;
   --space-6:2rem;
-  --space-7:3rem;
-  --space-8:4rem;
-  --space-9:6rem;
-  --space-10:8rem;
+  --space-7:2.5rem;
+  --space-8:3.25rem;
+  --space-9:4.75rem;
+  --space-10:6rem;
 
   --layout-max:90rem;
   --layout-wide:76rem;
   --reading-max:68ch;
   --page-gutter:clamp(1.25rem,4vw,4rem);
   --grid-gap:clamp(1rem,2vw,2rem);
-  --section-gap:clamp(4rem,8vw,8rem);
+  --section-gap:clamp(3rem,6vw,6rem);
 
   --radius-none:0;
   --radius-control:4px;

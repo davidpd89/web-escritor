@@ -157,6 +157,14 @@ function escapeHtml(value) {
   }[ch]));
 }
 
+function pluralPersonajes(n) {
+  return n === 1 ? 'personaje' : 'personajes';
+}
+
+function pluralRelaciones(n) {
+  return n === 1 ? 'relación' : 'relaciones';
+}
+
 function activeTypes() {
   return [...els.filters].filter(el => el.checked).map(el => el.value);
 }
@@ -286,9 +294,9 @@ function render(resetPositions = false) {
   const visible = relationshipSummary(graph);
   const filtered = total.characters !== visible.characters || total.relations !== visible.relations;
   if (filtered) {
-    els.stats.innerHTML = `<strong>${visible.characters}</strong> personajes visibles · <strong>${visible.relations}</strong> relaciones visibles · total: <strong>${total.characters}</strong> personajes · <strong>${total.relations}</strong> relaciones`;
+    els.stats.innerHTML = `<strong>${visible.characters}</strong> ${pluralPersonajes(visible.characters)} visibles · <strong>${visible.relations}</strong> ${pluralRelaciones(visible.relations)} visibles · total: <strong>${total.characters}</strong> ${pluralPersonajes(total.characters)} · <strong>${total.relations}</strong> ${pluralRelaciones(total.relations)}`;
   } else {
-    els.stats.innerHTML = `<strong>${total.characters}</strong> personajes · <strong>${total.relations}</strong> relaciones` +
+    els.stats.innerHTML = `<strong>${total.characters}</strong> ${pluralPersonajes(total.characters)} · <strong>${total.relations}</strong> ${pluralRelaciones(total.relations)}` +
       (total.mostConnected[0]
         ? ` · más conectado: <strong>${escapeHtml(total.mostConnected[0].character)}</strong> (${total.mostConnected[0].count})`
         : '');

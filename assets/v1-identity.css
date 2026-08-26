@@ -85,8 +85,8 @@ html.v1 [data-family="identity"] .press-card > .press-card-head{
   align-self:start;
 }
 html.v1 [data-family="identity"] .press-card-head h3{
-  font-size:clamp(1.22rem,1.6vw,1.55rem);
-  line-height:1.08;
+  font-size:clamp(1.1rem,1.44vw,1.4rem);
+  line-height:1.1;
 }
 html.v1 [data-family="identity"] .press-card-head .status-badge{
   display:inline-flex;
@@ -124,7 +124,7 @@ html.v1 [data-family="identity"] .awards-ledger li{
 }
 html.v1 [data-family="identity"] .awards-ledger li > span{
   font-family:var(--font-display);
-  font-size:clamp(1.05rem,1.8vw,1.45rem);
+  font-size:clamp(.97rem,1.65vw,1.33rem);
   font-weight:400;
   color:var(--color-text);
   letter-spacing:-.015em;
@@ -158,7 +158,7 @@ html.v1 [data-family="identity"] .event-empty::before{
 html.v1 [data-family="identity"] .event-empty__title{
   margin:0 0 .75rem;
   max-width:22ch;
-  font:400 clamp(1.45rem,2.2vw,2rem)/1.05 var(--font-display);
+  font:400 clamp(1.3rem,2vw,1.8rem)/1.08 var(--font-display);
   letter-spacing:-.02em;
 }
 html.v1 [data-family="identity"] .event-empty__actions{

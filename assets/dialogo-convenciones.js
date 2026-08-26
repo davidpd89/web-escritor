@@ -1,4 +1,4 @@
-const OPENING_HYPHEN_RE = /^\s*-\s+\S/m;
+const OPENING_HYPHEN_RE = /^\s*-\s*\S/m;
 const OPENING_DASH_RE = /^\s*—\s*\S/m;
 const ANGLE_QUOTES_RE = /«[^»]*»/g;
 const CURLY_QUOTES_RE = /“[^”]*”/g;
@@ -26,7 +26,7 @@ export function analyzeDialogueConventions(input) {
   const issues = [];
   const warnings = [];
 
-  const openingHyphenLines = findLineNumbers(text, /^\s*-\s+\S/);
+  const openingHyphenLines = findLineNumbers(text, OPENING_HYPHEN_RE);
   const openingDashCount = matches(OPENING_DASH_RE, text).length;
   if (openingHyphenLines.length > 0) {
     issues.push({

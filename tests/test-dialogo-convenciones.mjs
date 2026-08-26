@@ -13,6 +13,13 @@ assert.equal(resMixed.issues.some((x) => x.code === 'hyphen-instead-of-dash'), t
 assert.equal(resMixed.issues.some((x) => x.code === 'mixed-quotes'), true, 'must detect mixed quote styles');
 assert.equal(resMixed.warnings.some((x) => x.code === 'punctuation-after-dialogue-tag'), true, 'must flag suspicious narration punctuation');
 
+const sampleHyphenNoSpace = [
+  '-Hola, ¿qué tal? -dijo Juan.',
+  '-Bien -respondió ella.',
+].join('\n');
+const resHyphenNoSpace = analyzeDialogueConventions(sampleHyphenNoSpace);
+assert.equal(resHyphenNoSpace.issues.some((x) => x.code === 'hyphen-instead-of-dash'), true, 'must detect hyphen openers with no space after the hyphen (the same spacing convention as em-dash dialogue)');
+
 const sampleClean = [
   '—No deberías entrar —dijo Ana—. Volveré mañana.',
   '—Te espero en la puerta.',
