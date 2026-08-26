@@ -690,7 +690,10 @@ html.v1[data-lrb-home="true"] .install-web__status{margin:.7rem 0 0;font-size:.8
 html.v1 .back-to-top{
   position:fixed;
   right:max(1rem,env(safe-area-inset-right));
-  bottom:max(1rem,env(safe-area-inset-bottom));
+  /* The assistant launcher sits fixed at the same corner (50px, 16px from
+     the edge) with a higher z-index; stack this button above it instead of
+     letting the two fight over the same 44px square. */
+  bottom:calc(max(1rem,env(safe-area-inset-bottom)) + 62px);
   z-index:calc(var(--z-sticky) + 5);
   width:44px;
   height:44px;

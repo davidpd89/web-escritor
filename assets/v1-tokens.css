@@ -20,17 +20,20 @@
   /* LRB reference: page surface is white, not the site's original sepia
      paper. --dp-paper stays defined (still used as text-on-inverse and by
      the intro overlay) but no longer drives the visible background. */
-  --surface-page:var(--dp-white);
-  --surface-quiet:color-mix(in srgb,var(--dp-white) 92%,var(--dp-sand));
+  --surface-page:#fff;
+  --surface-quiet:#f7f8f9;
   --surface-inverse:var(--dp-ink);
   --surface-dialog:var(--dp-paper);
   --color-text:var(--dp-ink);
-  --color-muted:color-mix(in srgb,var(--dp-ink) 65%,var(--dp-paper));
-  --color-border:color-mix(in srgb,var(--dp-ink) 20%,var(--dp-paper));
-  --color-accent:var(--dp-copper);
-  --color-accent-strong:var(--dp-walnut);
+  --color-muted:#50565b;
+  --color-border:rgba(0,0,0,.18);
+  --color-accent:#0075b8;
+  --color-accent-strong:#0075b8;
+  --color-accent-hover:#004f73;
   --color-on-inverse:var(--dp-paper);
   --focus-color:var(--dp-walnut);
+  --home-image-blue:#f1f8fc;
+  --home-image-blue-deep:#e5f3fa;
 
   --font-display:"Instrument Serif","Iowan Old Style","Palatino Linotype",Palatino,Georgia,serif;
   --font-ui:"Manrope","Avenir Next",Avenir,"Segoe UI",sans-serif;
