@@ -305,7 +305,6 @@ function fallbackCopy(text, done) {
       e.preventDefault();
       scheduleTask(async () => {
         const emailEl = document.getElementById(emailId);
-        const gdprEl = document.getElementById(gdprId);
         const statusEl = document.getElementById(statusId);
         const submitBtn = form.querySelector("[type=submit]");
         if (submitBtn.dataset.submitting === "true") return;
@@ -313,10 +312,8 @@ function fallbackCopy(text, done) {
           if (statusEl) statusEl.textContent = STAGING_DISABLED_MESSAGE;
           return;
         }
-        if (!emailEl || !isValidNewsletterEmail(emailEl.value) || !gdprEl || !gdprEl.checked) {
-          if (statusEl) statusEl.textContent = gdprEl && !gdprEl.checked
-            ? "Acepta la política de privacidad para continuar."
-            : "Introduce un email válido.";
+        if (!emailEl || !isValidNewsletterEmail(emailEl.value)) {
+          if (statusEl) statusEl.textContent = "Introduce un email válido.";
           return;
         }
         if (statusEl) statusEl.textContent = "";

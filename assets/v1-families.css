@@ -151,8 +151,8 @@ html.v1 .human-stats__method li+li{margin-top:.4rem}
 @media (max-width:900px){
    html.v1 .books-stage{grid-template-columns:1fr;min-height:0;gap:1.5rem;padding:clamp(2.5rem,8vw,4rem) 0 clamp(3rem,8vw,5rem)}
    html.v1 .books-stage--reverse{grid-template-columns:1fr}
-   html.v1 .books-stage__media{width:100%;max-width:11rem}
-   html.v1 .books-stage__media figure{max-width:11rem}
+   html.v1 .books-stage__media{width:100%;max-width:16rem;margin-inline:auto}
+   html.v1 .books-stage__media figure{max-width:16rem;margin-inline:auto}
    html.v1 .books-stage__media img{width:100%;height:auto}
    html.v1 .books-stage__copy{min-width:0}
    html.v1 .books-stage__copy h2{max-width:none;overflow-wrap:anywhere;text-wrap:pretty;font-size:clamp(2.4rem,10vw,3.8rem)}

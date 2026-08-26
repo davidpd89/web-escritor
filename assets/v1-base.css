@@ -45,8 +45,8 @@ html.v1 .form-field-label{display:block;font-size:.84rem;font-weight:600;margin-
 html.v1 .form-row{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:.75rem}
 html.v1 .form-input{min-width:0;min-height:48px;width:100%;border:1px solid var(--color-border);border-radius:var(--radius-input);background:transparent;color:inherit;padding:.65rem .9rem;font-size:1rem}
 html.v1 .form-input[aria-invalid="true"],html.v1 .form-consent input[aria-invalid="true"]{border-color:var(--color-text)}
-html.v1 .form-submit{min-height:48px;border:1px solid var(--surface-inverse);border-radius:var(--radius-control);background:var(--surface-inverse);color:var(--color-on-inverse);padding:.65rem 1.15rem;font-weight:600;cursor:pointer}
-html.v1 .form-submit:hover,html.v1 .form-submit:focus-visible{background:color-mix(in srgb,var(--surface-inverse) 88%,var(--color-accent-strong))}
+html.v1 .form-submit{min-height:48px;border:1px solid var(--color-accent-strong);border-radius:var(--radius-control);background:var(--color-accent-strong);color:#fff;padding:.65rem 1.15rem;font-weight:600;cursor:pointer}
+html.v1 .form-submit:hover,html.v1 .form-submit:focus-visible{background:color-mix(in srgb,var(--color-accent-strong) 85%,black)}
 html.v1 .form-help,html.v1 .form-status{font-size:.82rem;line-height:1.5;color:var(--color-muted)}
 html.v1 .form-help{margin:.65rem 0 .75rem}
 html.v1 .form-status{min-height:1.5em;margin:.65rem 0 0}

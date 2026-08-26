@@ -236,7 +236,7 @@
       input.placeholder = 'tu@email.com';
       input.required = true;
       input.setAttribute('aria-describedby', `home-${formId}-status`);
-      const button = make('button', 'install-web__button', config.formCta || 'Suscribirme');
+      const button = make('button', 'install-web__button', config.formCta || 'Recibir novedades');
       button.type = 'submit';
       const status = make('p', 'newsletter-status');
       status.id = `home-${formId}-status`;

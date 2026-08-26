@@ -286,41 +286,6 @@
     });
   }
 
-  function ensureMemoriaWorkRecord() {
-    if (currentPath !== '/libros/' || document.getElementById('memoria-tierras-norte')) return;
-    const main = document.querySelector('main');
-    if (!main) return;
-
-    const section = document.createElement('section');
-    section.className = 'v1-section work-record';
-    section.id = 'memoria-tierras-norte';
-    section.setAttribute('aria-labelledby', 'memoria-tierras-norte-title');
-    section.innerHTML = `
-      <div class="v1-section__head">
-        <p class="eyebrow">Obra · Antología</p>
-        <div>
-          <h2 id="memoria-tierras-norte-title">La memoria de las tierras del norte</h2>
-          <p>Antología de fantasía con relato de David Porto Díaz.</p>
-        </div>
-      </div>
-      <div class="work-record__body">
-        <a class="work-record__media" href="${MEMORIA_EXTERNAL_URL}" target="_blank" rel="noopener noreferrer" data-memoria-official-source aria-label="Conocer La memoria de las tierras del norte">
-          <picture>
-            <source srcset="/assets/david-porto-memoria-sinfondo.avif" type="image/avif">
-            <img src="/assets/david-porto-memoria-sinfondo.webp" width="420" height="640" alt="Portada de La memoria de las tierras del norte" loading="lazy" decoding="async">
-          </picture>
-        </a>
-        <p class="work-record__summary">Relato de David Porto Díaz dentro de una antología colaborativa de fantasía.</p>
-        <div class="work-record__actions">
-          <a class="primary-action" href="${MEMORIA_EXTERNAL_URL}" target="_blank" rel="noopener noreferrer" data-memoria-official-source>Conocer la antología</a>
-          <a class="text-action" href="/libros/">Volver a todas las obras</a>
-        </div>
-      </div>`;
-    const noveris = main.querySelector('#noveris');
-    if (noveris) noveris.before(section);
-    else main.append(section);
-  }
-
   function ensureBetaAuthorSection() {
     if (currentPath !== '/lectores-beta/' || document.getElementById('enviar-manuscrito')) return;
     const prose = document.querySelector('.article-prose');
@@ -406,7 +371,6 @@
 
   function init() {
     normalizeMemoriaLinks();
-    ensureMemoriaWorkRecord();
     ensureBetaAuthorSection();
     ensureBetaExploreRows();
     ensureHomeBetaNav();

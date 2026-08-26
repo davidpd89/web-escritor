@@ -7,7 +7,8 @@ html.v1 .fragment-index__link::before{content:"";position:absolute;inset-block:.
 html.v1 .fragment-index__link[data-current="true"]{background:color-mix(in srgb,var(--surface-page) 72%,var(--dp-sand))}
 html.v1 .fragment-index__link[data-current="true"]::before{background:var(--color-accent-strong)}
 html.v1 .fragment-index__register{font:600 var(--text-xs)/1.25 var(--font-ui);letter-spacing:.08em;text-transform:uppercase;color:var(--color-muted)}
-html.v1 .fragment-index__title{font:400 clamp(1.05rem,1rem + .3vw,1.3rem)/1.25 var(--font-reading)}
+html.v1 .fragment-index__title{font:400 clamp(1.05rem,1rem + .3vw,1.3rem)/1.25 var(--font-reading);text-decoration:underline;text-decoration-color:transparent;text-underline-offset:.15em;transition:text-decoration-color .15s ease,color .15s ease}
+html.v1 .fragment-index__link:hover .fragment-index__title,html.v1 .fragment-index__link:focus-visible .fragment-index__title{color:var(--color-accent-strong);text-decoration-color:var(--color-accent-strong)}
 html.v1 .excerpt-section,html.v1 #cta-final{scroll-margin-top:calc(88px + var(--space-4))}
 html.v1 .fragment-pager{grid-column:2;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:var(--grid-gap);margin-top:clamp(2rem,4vw,3.5rem);padding-top:var(--space-4);border-top:1px solid var(--color-border)}
 html.v1 .fragment-pager--single{grid-template-columns:minmax(0,1fr) minmax(0,1fr)}
