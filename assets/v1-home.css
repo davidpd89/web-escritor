@@ -419,13 +419,12 @@ html.v1[data-lrb-home="true"] .home-events__grid{
 }
 html.v1[data-lrb-home="true"] .yale-tile-grid--reading{grid-template-columns:repeat(4,minmax(0,1fr))}
 html.v1[data-lrb-home="true"] .yale-tile-grid--tools{grid-template-columns:repeat(3,minmax(0,1fr))}
-/* Libros y territorios: an L (top+left) per card instead of a filled,
-   fully-boxed cell -- lighter than the ledger grid used elsewhere. */
+/* Libros y territorios: only the two flagship books (Manecillas, Samuel)
+   get an L (top+left) accent; the antología stays completely unlined. */
 html.v1[data-lrb-home="true"] .yale-tile-grid--works{border-top:0;border-left:0}
-html.v1[data-lrb-home="true"] .yale-tile-grid--works .yale-tile{
-  background:transparent;
-  border-right:0;
-  border-bottom:0;
+html.v1[data-lrb-home="true"] .yale-tile-grid--works .yale-tile{background:transparent;border:0}
+html.v1[data-lrb-home="true"] .yale-tile-grid--works .yale-tile:nth-child(1),
+html.v1[data-lrb-home="true"] .yale-tile-grid--works .yale-tile:nth-child(2){
   border-top:1px solid rgba(0,0,0,.18);
   border-left:1px solid rgba(0,0,0,.18);
 }
@@ -501,16 +500,21 @@ html.v1[data-lrb-home="true"] .home-events__grid .home-event{
 html.v1[data-lrb-home="true"] .yale-feature-card:first-child,
 html.v1[data-lrb-home="true"] .home-events__grid .home-event:first-child{padding-top:0}
 /* Mirrors .yale-lead's own media|copy split (photo beside text) instead of
-   stacking the cover above the description -- same system as the hero,
-   reversed order at the outer-grid level. */
+   stacking the cover above the description -- same system as the hero, but
+   reversed at BOTH levels: the book card sits on the opposite side of the
+   section from the hero's lead (see .yale-feature__grid--reverse), and the
+   media/copy order inside the card is flipped too (text first, cover last)
+   so the whole read is a true mirror end to end, not just an outer swap. */
 html.v1[data-lrb-home="true"] .yale-feature-book{
   display:grid;
-  grid-template-columns:minmax(11rem,.9fr) minmax(0,1.1fr);
+  grid-template-columns:minmax(0,1.1fr) minmax(11rem,.9fr);
   gap:clamp(1.2rem,2.6vw,2rem);
   align-items:start;
   min-height:12rem;
   background:transparent;
 }
+html.v1[data-lrb-home="true"] .yale-feature-book__body{order:1}
+html.v1[data-lrb-home="true"] .yale-feature-book__media{order:2}
 html.v1[data-lrb-home="true"] .yale-feature-card h3,
 html.v1[data-lrb-home="true"] .yale-feature-book h3{
   margin:.45rem 0 .45rem;

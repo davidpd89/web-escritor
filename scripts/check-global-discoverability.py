@@ -116,6 +116,17 @@ def hrefs_in(source: str) -> list[str]:
     return [m.group(1).strip() for m in re.finditer(r"<a\b[^>]*\bhref\s*=\s*['\"]([^'\"]+)['\"]", source, re.I)]
 
 
+def explore_row_hrefs_in(source: str) -> list[str]:
+    """Top-level Explore rows only (one per .explore-item): each nested
+    .explore-children block holds its own <a> shortcuts (e.g. "Leer un
+    fragmento" under Obras) that are not top-level territories and must
+    not shift the territory-order slice below."""
+    return [
+        m.group(1).strip()
+        for m in re.finditer(r"<a\b[^>]*\bclass=['\"][^'\"]*\bexplore-row\b[^'\"]*['\"][^>]*\bhref\s*=\s*['\"]([^'\"]+)['\"]", source, re.I)
+    ]
+
+
 def normalize_local_href(value: str) -> str | None:
     value = value.strip()
     if not value or value.startswith("#") or re.match(r"^(?:mailto:|tel:|javascript:|data:)", value, re.I):
@@ -333,7 +344,7 @@ def main() -> int:
 
         explore_match = re.search(r"<nav\b[^>]*class=['\"][^'\"]*explore-list[^'\"]*['\"][^>]*>([\s\S]*?)</nav>", html, re.I)
         if explore_match:
-            actual_explore = [normalize_local_href(href) for href in hrefs_in(explore_match.group(1))]
+            actual_explore = [normalize_local_href(href) for href in explore_row_hrefs_in(explore_match.group(1))]
             actual_explore = [href for href in actual_explore if href]
             actual_territories = actual_explore[: len(territory_urls)]
             if actual_territories != territory_urls:

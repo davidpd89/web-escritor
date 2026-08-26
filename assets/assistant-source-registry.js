@@ -170,7 +170,7 @@ export const ASSISTANT_SOURCE_REGISTRY = [
       "leer gratis"
     ],
     "aliases": [
-      "primer capitulo de samuel",
+      "primer capítulo de samuel",
       "leer samuel",
       "probar samuel"
     ],
@@ -402,7 +402,7 @@ export const ASSISTANT_SOURCE_REGISTRY = [
       "libros"
     ],
     "aliases": [
-      "informacion para ia",
+      "información para ia",
       "datos para ia"
     ],
     "summary": "Información canónica del sitio destinada a sistemas automáticos.",
