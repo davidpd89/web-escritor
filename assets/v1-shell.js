@@ -297,6 +297,8 @@
     name.append(text);
 
     const candidates = [
+      '/assets/david-porto-diaz-escritor-banner-cropped.png',
+      '/assets/david-porto-diaz-escritor-banner.png',
       '/assets/david-porto-header-lettering-transparent.png',
       '/assets/london-david-porto-logo-central.png',
       '/assets/london-david-porto-logo-central.webp'

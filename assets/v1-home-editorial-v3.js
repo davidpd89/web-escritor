@@ -306,10 +306,27 @@
     title.id = 'home-events-title';
     titleWrap.append(title);
     head.append(titleWrap);
-    addTextLink(head, '/eventos.html', 'Ver agenda completa →', 'editorial-cluster__all');
+    addTextLink(head, '/eventos.html', 'Ver agenda completa', 'yale-text-link');
+
+    const wrap = make('div', 'home-events__feature');
+    const lead = make('article', 'home-event home-event--lead');
+    const leadMedia = make('a', 'home-event__media');
+    leadMedia.href = '/eventos.html#feria-libro-madrid-2026';
+    leadMedia.setAttribute('aria-label', 'Feria del Libro de Madrid');
+    const leadImage = new Image();
+    leadImage.src = '/assets/eventos/david-porto-diaz-lectores-feria-libro-madrid-2026.webp';
+    leadImage.alt = 'David Porto Díaz firmando Samuel entre mundos en la Feria del Libro de Madrid';
+    leadImage.loading = 'eager';
+    leadImage.decoding = 'async';
+    leadMedia.append(leadImage);
+    const leadTime = make('time', '', '10 junio 2026');
+    leadTime.dateTime = '2026-06-10';
+    const leadTitle = make('h3');
+    addTextLink(leadTitle, '/eventos.html#feria-libro-madrid-2026', 'Feria del Libro de Madrid');
+    lead.append(leadMedia, leadTime, leadTitle, make('p', '', 'Firma de Samuel entre mundos en el Parque del Retiro, caseta 337.'));
+    addTextLink(lead, '/eventos.html#feria-libro-madrid-2026', 'Abrir', 'home-event__link');
 
     const events = [
-      ['2026-06-10', '10 junio 2026', 'Feria del Libro de Madrid', 'Firma de Samuel entre mundos en el Parque del Retiro, caseta 337.', '/eventos.html#feria-libro-madrid-2026'],
       ['2026-05-23', '23 mayo 2026', 'Feria del Libro de Aranjuez', 'Firma de Samuel entre mundos en la Plaza de la Constitución.', '/eventos.html#feria-libro-aranjuez-2026'],
       ['2026-01-31', '31 enero 2026', 'Presentación en La Vecinal', 'Encuentro con lectores, coloquio y firma de ejemplares en Madrid.', '/eventos.html#la-vecinal-2026'],
       ['2026-01-15', '15 enero 2026', 'Presentación oficial de Samuel entre mundos', 'Presentación del debut de David Porto Díaz en Bar Aleatorio, Madrid.', '/eventos.html#bar-aleatorio-2026']
@@ -322,19 +339,20 @@
       const heading = make('h3');
       addTextLink(heading, href, eventTitle);
       item.append(time, heading, make('p', '', text));
-      addTextLink(item, href, 'Abrir →', 'home-event__link');
+      addTextLink(item, href, 'Abrir', 'home-event__link');
       grid.append(item);
     });
+    wrap.append(lead, grid);
 
     const cta = make('div', 'home-events__cta');
     const ctaCopy = make('div');
     ctaCopy.append(make('h3', '', '¿Quieres organizar una presentación, firma o club de lectura?'));
     ctaCopy.append(make('p', '', 'Para librerías, ferias, centros culturales, institutos y clubes de lectura.'));
     cta.append(ctaCopy);
-    const mail = addTextLink(cta, 'mailto:davidportodiaz@gmail.com?subject=Solicitud%20de%20presentaci%C3%B3n%20%E2%80%94%20David%20Porto%20D%C3%ADaz', 'Escribir →');
+    const mail = addTextLink(cta, 'mailto:davidportodiaz@gmail.com?subject=Solicitud%20de%20presentaci%C3%B3n%20%E2%80%94%20David%20Porto%20D%C3%ADaz', 'Escribir');
     mail.addEventListener('click', () => emit('home_event_contact_click'));
 
-    section.append(head, grid, cta);
+    section.append(head, wrap, cta);
     return section;
   }
 
@@ -451,7 +469,7 @@
     const copy = make('div', 'yale-lead__copy');
     copy.append(make('p', 'editorial-card__eyebrow', 'Monza Ediciones'));
     const h = make('h2');
-    addTextLink(h, '/las-manecillas-del-recuerdo/', 'La nueva novela de David Porto Diaz');
+    addTextLink(h, '/las-manecillas-del-recuerdo/', 'La nueva novela de David Porto Díaz');
     copy.append(h);
     copy.append(make('p', 'yale-lead__deck', 'Un reloj pasa de mano en mano y cambia de significado en cada vida que toca.'));
     copy.append(make('p', 'editorial-card__meta', '3 septiembre 2026 · novela coral · memoria'));
@@ -464,15 +482,17 @@
     const rail = make('aside', 'yale-rail');
     rail.setAttribute('aria-label', 'Otros accesos destacados');
     [
-      ['Primera novela', 'Samuel entre mundos', 'Noveris, portales y una magia que siempre exige un precio.', '/libros/samuel-entre-mundos/'],
-      ['Antologia', 'La memoria de las tierras del norte', 'Antologia colaborativa de fantasia con relato de David Porto Diaz.', '/libros/#memoria-tierras-norte'],
-      ['Comunidad', 'Lectores beta', 'Se el primero en leer contenido y opina antes de que llegue a todos.', '/lectores-beta/#quiero-ser-lector']
+      ['Autor', 'David Porto Díaz', 'Biografía, fotografías y recursos para lectores, librerías y medios.', '/autor.html'],
+      ['Comunidad', 'Lectores beta', 'Sé el primero en leer contenido y opina antes de que llegue a todos.', '/lectores-beta/#quiero-ser-lector'],
+      ['Comprar', 'Comprar en Amazon', '', MANECILLAS_BUY_URL],
+      ['Te leo', 'Escríbeme', '', AUTHOR_EMAIL_URL]
     ].forEach(([eyebrow, cardTitle, text, href]) => {
       const card = make('article', 'yale-rail-card');
       card.append(make('p', 'editorial-card__eyebrow', eyebrow));
       const cardHeading = make('h3');
       addTextLink(cardHeading, href, cardTitle);
-      card.append(cardHeading, make('p', '', text));
+      card.append(cardHeading);
+      if (text) card.append(make('p', '', text));
       addTextLink(card, href, 'Abrir', 'yale-text-link');
       rail.append(card);
     });
@@ -486,17 +506,19 @@
     const section = make('section', 'yale-home-section yale-home-section--works');
     section.setAttribute('aria-labelledby', 'yale-works-title');
     const head = make('div', 'yale-home-section__head');
-    head.append(make('p', 'editorial-card__eyebrow', 'Obras'));
+    const titleWrap = make('div');
+    titleWrap.append(make('p', 'editorial-card__eyebrow', 'Obras'));
     const title = make('h2', '', 'Libros y territorios.');
     title.id = 'yale-works-title';
-    head.append(title);
+    titleWrap.append(title);
+    head.append(titleWrap);
     addTextLink(head, '/libros/', 'Todas las obras', 'yale-text-link');
 
     const grid = make('div', 'yale-tile-grid yale-tile-grid--works');
     [
       ['Obra actual', 'Las manecillas del recuerdo', 'Novela coral de memoria, objetos heredados y vidas conectadas.', '/las-manecillas-del-recuerdo/', '/assets/manecillas-del-recuerdo-3d-transparent.png'],
-      ['Publicada', 'Samuel entre mundos', 'Fantasia juvenil espanola: portales, canalizadores y secretos familiares.', '/libros/samuel-entre-mundos/', '/assets/samuel_entre_mundos_3d.webp'],
-      ['Antologia', 'La memoria de las tierras del norte', 'Relato de David Porto Diaz en una antologia colaborativa de fantasia.', '/libros/#memoria-tierras-norte', '/assets/david-porto-memoria-sinfondo.webp']
+      ['Publicada', 'Samuel entre mundos', 'Fantasía juvenil española: portales, canalizadores y secretos familiares.', '/libros/samuel-entre-mundos/', '/assets/samuel_entre_mundos_3d.webp'],
+      ['Antología', 'La memoria de las tierras del norte', 'Antología colaborativa de fantasía.', '/libros/#memoria-tierras-norte', '/assets/david-porto-memoria-sinfondo.webp']
     ].forEach(([eyebrow, cardTitle, text, href, src]) => {
       const card = make('article', 'yale-tile yale-tile--with-media');
       const media = make('a', 'yale-tile__media');
@@ -522,6 +544,91 @@
     return section;
   }
 
+  function createYaleSamuelFeature() {
+    const section = make('section', 'yale-home-section yale-feature yale-feature--samuel');
+    section.setAttribute('aria-labelledby', 'yale-samuel-title');
+    const head = make('div', 'yale-home-section__head');
+    const titleWrap = make('div');
+    titleWrap.append(make('p', 'editorial-card__eyebrow', 'Universo publicado'));
+    const title = make('h2', '', 'Samuel entre mundos.');
+    title.id = 'yale-samuel-title';
+    titleWrap.append(title);
+    head.append(titleWrap);
+    addTextLink(head, '/libros/samuel-entre-mundos/', 'Ver el libro', 'yale-text-link');
+
+    const grid = make('div', 'yale-feature__grid yale-feature__grid--reverse');
+    const stack = make('div', 'yale-feature__stack');
+    [
+      ['Del cuaderno', 'Qué es el portal fantasy', 'Guía para lectores.', '/cuaderno/que-es-el-portal-fantasy/', ''],
+      ['Crónica', 'Samuel en la Feria del Libro de Madrid', '10 junio 2026.', '/eventos.html#feria-libro-madrid-2026', 'yale-feature-card--blue'],
+      ['Comprar', 'Comprar en Amazon', '', SAMUEL_AMAZON_URL, '']
+    ].forEach(([eyebrow, cardTitle, text, href, className]) => {
+      const card = make('article', `yale-feature-card ${className}`.trim());
+      card.append(make('p', 'editorial-card__eyebrow', eyebrow));
+      const h = make('h3');
+      addTextLink(h, href, cardTitle);
+      card.append(h);
+      if (text) card.append(make('p', '', text));
+      addTextLink(card, href, 'Abrir', 'yale-text-link');
+      stack.append(card);
+    });
+
+    const book = make('article', 'yale-feature-book');
+    const media = make('a', 'yale-feature-book__media');
+    media.href = '/libros/samuel-entre-mundos/';
+    media.setAttribute('aria-label', 'Samuel entre mundos');
+    const image = new Image();
+    image.src = '/assets/samuel_entre_mundos_3d.webp';
+    image.alt = 'Portada de Samuel entre mundos';
+    image.loading = 'eager';
+    image.decoding = 'async';
+    media.append(image);
+    const body = make('div', 'yale-feature-book__body');
+    body.append(make('p', 'editorial-card__eyebrow', 'Libros Indie'));
+    const h = make('h3');
+    addTextLink(h, '/libros/samuel-entre-mundos/', 'Samuel entre mundos');
+    body.append(h);
+    body.append(make('p', 'editorial-card__meta', '422 páginas · fantasía juvenil'));
+    body.append(make('p', '', 'Una ciudad atravesada por fisuras entre dimensiones y un niño que descubre que su existencia podría estar en el centro de todo.'));
+    addTextLink(body, '/libros/samuel-entre-mundos/', 'Abrir', 'yale-text-link');
+    book.append(media, body);
+
+    grid.append(stack, book);
+    section.append(head, grid);
+    return section;
+  }
+
+  function createYaleToolsFeature() {
+    const section = make('section', 'yale-home-section yale-home-section--tools');
+    section.setAttribute('aria-labelledby', 'yale-tools-title');
+    const head = make('div', 'yale-home-section__head');
+    const titleWrap = make('div');
+    titleWrap.append(make('p', 'editorial-card__eyebrow', 'Para escribir'));
+    const title = make('h2', '', 'Herramientas gratuitas.');
+    title.id = 'yale-tools-title';
+    titleWrap.append(title);
+    head.append(titleWrap);
+    addTextLink(head, '/herramientas/', 'Todas las herramientas', 'yale-text-link');
+
+    const grid = make('div', 'yale-tile-grid yale-tile-grid--tools');
+    [
+      ['Hub', 'Recursos gratuitos', 'Utilidades para revisar textos, preparar materiales y trabajar una obra desde el navegador.', '/herramientas/', ''],
+      ['Lectores beta', 'Tengo un manuscrito y me gustarían opiniones de lectores beta', 'Un punto de entrada para autores que buscan primeras lecturas antes de mover el texto.', '/lectores-beta/#enviar-manuscrito', 'yale-tile--blue'],
+      ['Manuscrito', 'Analizador de manuscrito', 'Una herramienta para ordenar capítulos, detectar señales del texto y revisar estructura.', '/herramientas/manuscrito/', '']
+    ].forEach(([eyebrow, cardTitle, text, href, className]) => {
+      const card = make('article', `yale-tile ${className}`.trim());
+      card.append(make('p', 'editorial-card__eyebrow', eyebrow));
+      const h = make('h3');
+      addTextLink(h, href, cardTitle);
+      card.append(h, make('p', '', text));
+      addTextLink(card, href, 'Abrir', 'yale-text-link');
+      grid.append(card);
+    });
+
+    section.append(head, grid);
+    return section;
+  }
+
   function createYaleReadingGrid() {
     const section = make('section', 'yale-home-section yale-home-section--reading');
     section.setAttribute('aria-labelledby', 'yale-reading-title');
@@ -533,9 +640,9 @@
 
     const grid = make('div', 'yale-tile-grid yale-tile-grid--reading');
     [
-      ['Del cuaderno', 'Que es el portal fantasy', 'Una guia para entender puertas, grietas y mundos conectados.', '/cuaderno/que-es-el-portal-fantasy/'],
+      ['Del cuaderno', 'Qué es el portal fantasy', 'Una guía para entender puertas, grietas y mundos conectados.', '/cuaderno/que-es-el-portal-fantasy/'],
       ['Herramientas', 'Tengo un manuscrito y quiero opiniones', 'Acceso para autores que buscan lectores beta antes de mover su texto.', '/lectores-beta/#enviar-manuscrito'],
-      ['Prensa', 'Materiales para medios', 'Bio, fichas, portadas, fotos y datos verificados para entrevistas o librerias.', '/prensa.html'],
+      ['Prensa', 'Materiales para medios', 'Bio, fichas, portadas, fotos y datos verificados para entrevistas o librerías.', '/prensa.html'],
       ['Agenda', 'Eventos y encuentros', 'Firmas, ferias, presentaciones y actividades con lectores.', '/eventos.html']
     ].forEach(([eyebrow, cardTitle, text, href], index) => {
       const card = make('article', `yale-tile${index === 1 ? ' yale-tile--blue' : ''}`);
@@ -597,9 +704,9 @@
 
     flow.append(createYaleHero());
     flow.append(createYaleWorksGrid());
-    flow.append(createYaleReadingGrid());
+    flow.append(createYaleSamuelFeature());
+    flow.append(createYaleToolsFeature());
     flow.append(createEvents());
-    flow.append(createYaleSignupStrip());
     flow.append(createInstallBlock());
     river.before(flow);
     const yalePromo = document.querySelector('.promo-band');
@@ -609,152 +716,6 @@
     yalePromo?.remove();
     yaleFaq?.remove();
     yaleNewsletter?.remove();
-    root.dataset.homeEditorialV3 = 'true';
-    document.dispatchEvent(new CustomEvent('dp:home-editorial-ready'));
-    createBackToTop();
-    return;
-
-    flow.append(createBanner({
-      key: 'manecillas',
-      eyebrow: 'Lanzamiento · 3 septiembre 2026',
-      title: 'Las manecillas del recuerdo',
-      deck: 'Una novela coral de vidas conectadas por un reloj que cambia de significado en cada mano.',
-      href: MANECILLAS_BUY_URL,
-      cta: 'Comprar en Amazon',
-      imageOnly: true
-    }));
-
-    flow.append(createCluster({
-      key: 'manecillas',
-      eyebrow: 'Obra actual',
-      title: 'Las manecillas del recuerdo',
-      allHref: '/las-manecillas-del-recuerdo/',
-      allLabel: 'Ver la obra →',
-      layout: 'book-actions',
-      cards: [
-        {
-          key: 'manecillas-book', media: '/assets/manecillas-del-recuerdo-3d-transparent.png',
-          eyebrow: 'Monza Ediciones', title: 'La nueva novela de David Porto Díaz',
-          meta: '3 septiembre 2026', text: 'Ficha, publicación, fragmentos y materiales de la obra.',
-          href: '/las-manecillas-del-recuerdo/'
-        },
-        {
-          key: 'manecillas-author', tone: 'blue', eyebrow: 'Autor', title: 'David Porto Díaz',
-          meta: 'Biografía · materiales · contacto', text: 'Trayectoria, fotografías y recursos para lectores, librerías y medios.',
-          href: '/autor.html'
-        },
-        {
-          type: 'action', key: 'manecillas-buy', eyebrow: 'Comprar', title: 'Comprar en Amazon',
-          href: MANECILLAS_BUY_URL
-        },
-        {
-          type: 'action', key: 'manecillas-beta', eyebrow: 'Comunidad', title: 'Lectores beta',
-          text: 'Sé el primero en leer contenido y opina antes de que llegue a todos.',
-          href: '/lectores-beta/#quiero-ser-lector'
-        },
-        {
-          type: 'action', key: 'manecillas-email', eyebrow: 'Te leo', title: 'Escríbeme',
-          emailParts: ['davidportodiaz', '@', 'gmail.com'],
-          href: AUTHOR_EMAIL_URL
-        }
-      ]
-    }));
-
-    flow.append(createBanner({
-      key: 'samuel',
-      eyebrow: 'Primera novela publicada',
-      title: 'Samuel entre mundos',
-      deck: 'Noveris, portales, canalizadores y una magia que siempre exige un precio.',
-      href: SAMUEL_AMAZON_URL,
-      cta: 'Comprar en Amazon',
-      imageOnly: true
-    }));
-
-    flow.append(createCluster({
-      key: 'samuel',
-      eyebrow: 'Universo publicado',
-      title: 'Samuel entre mundos',
-      allHref: '/libros/samuel-entre-mundos/',
-      allLabel: 'Ver el libro →',
-      layout: 'book-side-stack',
-      cards: [
-        {
-          key: 'samuel-book', lead: true, media: '/assets/samuel_entre_mundos_3d.webp',
-          eyebrow: 'Libros Indie', title: 'Samuel entre mundos', meta: '422 páginas · fantasía juvenil',
-          text: 'Una ciudad atravesada por fisuras entre dimensiones y un niño que descubre que su existencia podría estar en el centro de todo.',
-          href: '/libros/samuel-entre-mundos/'
-        },
-        {
-          key: 'samuel-portal', eyebrow: 'Del cuaderno', title: '¿Qué es el portal fantasy?',
-          meta: 'Guía para lectores', text: 'Puertas, grietas y objetos que conectan nuestro mundo con otros.',
-          href: '/cuaderno/que-es-el-portal-fantasy/'
-        },
-        {
-          key: 'samuel-feria', tone: 'blue', eyebrow: 'Crónica', title: 'Samuel en la Feria del Libro de Madrid',
-          meta: '10 junio 2026', text: 'Firma de ejemplares en el Parque del Retiro, caseta 337.',
-          href: '/cuaderno/feria-libro-madrid-2026-samuel-entre-mundos/'
-        },
-        {
-          type: 'action', key: 'samuel-buy', eyebrow: 'Comprar', title: 'Comprar en Amazon',
-          href: SAMUEL_AMAZON_URL
-        }
-      ]
-    }));
-
-    flow.append(createBanner({
-      key: 'memoria',
-      eyebrow: 'Antología',
-      title: 'La memoria de las tierras del norte',
-      deck: '',
-      href: '/libros/#memoria-tierras-norte',
-      cta: 'Conocer la obra →',
-      cssBackground: true
-    }));
-
-    flow.append(createBanner({
-      key: 'tools',
-      eyebrow: 'Recursos gratuitos',
-      title: 'Herramientas para escritores',
-      deck: 'Utilidades para revisar manuscritos, detectar repeticiones, medir diálogo y preparar mejor un texto.',
-      href: '/herramientas/',
-      cta: 'Explorar herramientas →'
-    }));
-
-    flow.append(createCluster({
-      key: 'tools',
-      eyebrow: 'Para escribir y revisar',
-      title: 'Herramientas gratuitas',
-      allHref: '/herramientas/',
-      allLabel: 'Ver todas →',
-      layout: 'tools-three',
-      cards: [
-        {
-          key: 'tools-hub', eyebrow: 'Hub', title: 'Revisa tu texto con herramientas concretas',
-          meta: 'Sin registro', text: 'Un espacio para detectar problemas medibles sin convertir la escritura en una plantilla.',
-          href: '/herramientas/'
-        },
-        {
-          key: 'tools-beta', tone: 'blue', eyebrow: 'Lectores beta', title: 'Tengo un manuscrito y me gustarían opiniones de lectores beta',
-          meta: 'Para autores', text: 'Cómo iniciar una valoración beta y qué información enviar antes de compartir el manuscrito.', href: '/lectores-beta/#enviar-manuscrito'
-        },
-        {
-          key: 'tools-manuscript', eyebrow: 'Manuscrito', title: 'Analizador de manuscrito',
-          meta: 'Diagnóstico rápido', text: 'Comprueba señales útiles antes de una revisión más profunda.', href: '/herramientas/manuscrito/'
-        }
-      ]
-    }));
-
-    flow.append(createEvents());
-    flow.append(createInstallBlock());
-
-    river.before(flow);
-    const promo = document.querySelector('.promo-band');
-    const faq = document.getElementById('faq');
-    const newsletter = document.getElementById('newsletter');
-    river.remove();
-    promo?.remove();
-    faq?.remove();
-    newsletter?.remove();
     root.dataset.homeEditorialV3 = 'true';
     document.dispatchEvent(new CustomEvent('dp:home-editorial-ready'));
     createBackToTop();

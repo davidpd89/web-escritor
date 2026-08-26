@@ -18,7 +18,11 @@ html.v1 .header-search,
 html.v1 .header-home,
 html.v1 .explore-trigger{min-height:44px}
 html.v1 .header-search{font-size:.8rem;padding-inline:.55rem .72rem}
+html.v1 .header-search{color:#050505}
+html.v1 .header-search span{color:#0075b8;font-weight:600}
+html.v1 .header-search svg{color:#050505}
 html.v1 .header-home{display:inline-flex;align-items:center;justify-content:center;width:44px;height:44px;flex:0 0 auto;border:1px solid transparent;border-radius:0;color:var(--color-muted);text-decoration:none;background:transparent;transition:background var(--motion-state) var(--ease-standard),color var(--motion-state) var(--ease-standard),border-color var(--motion-state) var(--ease-standard)}
+html.v1 .header-home{color:#050505}
 html.v1 .header-home svg{width:17px;height:17px;fill:none;stroke:currentColor;stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round}
 html.v1 .header-home:hover,html.v1 .header-home:focus-visible{color:#254f60;background:#d7e9ef;border-color:rgba(37,79,96,.18)}
 html.v1 .explore-trigger{border-radius:0;border-color:transparent}
@@ -76,6 +80,8 @@ html.v1[data-lrb-home="true"] .masthead-nav__submenu{position:absolute;z-index:8
 /* Seven-pixel interaction bridge: pointer can travel from label to submenu without closing it. */
 html.v1[data-lrb-home="true"] .masthead-nav__submenu::before{content:"";position:absolute;left:-1px;right:-1px;top:-8px;height:8px}
 html.v1[data-lrb-home="true"] .masthead-nav__submenu a{display:flex;align-items:center;min-height:38px;padding:.48rem .72rem;font-family:var(--font-reading);font-size:.86rem;line-height:1.18;text-transform:none;letter-spacing:0;white-space:normal;border:0;color:var(--color-text);text-decoration:none;width:auto;transition:background 110ms ease,color 110ms ease}
+html.v1[data-lrb-home="true"] .masthead-nav__submenu a:first-child{color:#0075b8;font-weight:600}
+html.v1[data-lrb-home="true"] .masthead-nav__submenu a:not(:first-child){color:#6d7377}
 html.v1[data-lrb-home="true"] .masthead-nav__submenu a:hover,
 html.v1[data-lrb-home="true"] .masthead-nav__submenu a:focus-visible{background:#d7e9ef;color:#254f60}
 html.v1[data-lrb-home="true"] .masthead-nav__item:hover>.masthead-nav__submenu,
