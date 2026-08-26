@@ -594,6 +594,7 @@ html.v1[data-lrb-home="true"] .home-event__media{
   border-bottom:1px solid rgba(0,0,0,.18);
   overflow:hidden;
 }
+html.v1[data-lrb-home="true"] .home-event--lead .home-event__media{aspect-ratio:3/4}
 html.v1[data-lrb-home="true"] .home-event__media img{
   width:100%;
   height:100%;
