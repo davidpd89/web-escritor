@@ -81,6 +81,14 @@ html.v1 .book-theme h3{margin:0 0 .6rem;font-family:var(--font-display);font-wei
 html.v1 .book-theme p{margin:0;color:var(--color-muted);font-size:.92rem;line-height:1.5}
 @media(max-width:1199px){html.v1 .book-theme-list{grid-column:1/-1}}
 @media(max-width:767px){html.v1 .book-theme-list{grid-column:1;grid-template-columns:1fr;gap:2rem}}
+/* .book-themes carries its own 2-column base (line above, 3fr/minmax(9fr))
+   instead of .book-section's 3-column one. The @media(max-width:899px)
+   block further up already tries to collapse it to grid-template-columns:1fr,
+   but that base rule sits AFTER that block in source order with equal
+   specificity, so it silently won the cascade and .book-section__label h2
+   ("Memoria, valor y futuro.") was breaking mid-word in an ~80px column.
+   Re-asserting the collapse here, after the base rule, fixes the order. */
+@media(max-width:899px){html.v1 .book-themes{grid-template-columns:1fr}}
 html.v1 .book-crosspromo{grid-template-columns:3fr minmax(0,6fr) 3fr}
 html.v1 .book-crosspromo-media{grid-column:3;align-self:start}
 html.v1 .book-crosspromo-media picture{display:block;position:relative;isolation:isolate}
