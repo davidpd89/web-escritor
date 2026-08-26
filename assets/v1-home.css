@@ -388,6 +388,14 @@ html.v1[data-lrb-home="true"] .yale-signup{
   margin-top:clamp(3rem,6vw,5rem);
   border-top:2px solid #0075b8;
 }
+/* .home-events's own horizontal padding (v1-home-editorial-v3.css) assumes
+   it spans a full 100vw band and recenters itself with
+   (100vw - layout-max)/2. It actually sits inside .yale-home-flow, which is
+   already capped and centered at --layout-max, so on very wide viewports
+   (2560px+) that recentering math double-applies and collapses the
+   section's inner width to 0. Neutralize the horizontal component here,
+   same as .install-web/.yale-signup already do below. */
+html.v1[data-lrb-home="true"] .home-events{padding-left:0;padding-right:0}
 html.v1[data-lrb-home="true"] .yale-home-section__head,
 html.v1[data-lrb-home="true"] .home-events__head{
   display:grid;
