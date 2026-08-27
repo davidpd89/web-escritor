@@ -1,0 +1,68 @@
+name: Required merge gate
+
+on:
+  pull_request:
+    branches:
+      - main
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  required-merge-gate:
+    name: Required merge gate
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Set up Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+
+      - name: Generate consolidated static release evidence
+        run: python scripts/release-readiness.py --output "$RUNNER_TEMP/release-readiness.md"
+
+      - name: Verify generated site shell is current
+        run: python scripts/build-site-shell.py --check
+
+      - name: Verify sitemap is current
+        run: python scripts/build-sitemap.py --check
+
+      - name: Verify public editorial facts projection is current
+        run: python scripts/build-public-editorial-facts.py --check
+
+      - name: Verify assistant source-index parity
+        run: node scripts/test-assistant-index-parity.mjs
+
+      - name: Run public-artifact boundary regression tests
+        run: python tests/test-public-artifact-contract.py
+
+      - name: Run staging/publication boundary regression tests
+        run: python tests/test-staging-publication-gate.py
+
+      - name: Verify generated staging publication policy
+        run: python scripts/build-public-dist.py --check-assetsignore
+
+      - name: Build final public artifact
+        run: python scripts/build-public-dist.py --out .preview-dist
+
+      - name: Re-check final public artifact contents
+        run: python scripts/build-public-dist.py --check-contents --out .preview-dist
+
+      - name: Upload release-readiness evidence
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: required-merge-gate-evidence
+          path: ${{ runner.temp }}/release-readiness.md
+          if-no-files-found: warn
+          retention-days: 14
