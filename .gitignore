@@ -28,6 +28,11 @@ _david/
 __pycache__/
 **/__pycache__/
 
+# Claude Code: permisos, rutas y configuración específica de cada máquina.
+# La configuración compartida debe vivir en ficheros deliberadamente versionados;
+# settings.local.json nunca debe entrar al repositorio.
+.claude/settings.local.json
+
 # Large lossless source masters for the visual-asset pipeline (SOURCE -> MASTER
 # -> WEB OPTIMIZED per WEB DAVID PORTO nuevas ideas/26_.../section 16). Only
 # the final web-optimized outputs (assets/*.webp) are tracked; the PNG
