@@ -2,9 +2,28 @@ import assert from 'node:assert/strict';
 import http from 'node:http';
 import https from 'node:https';
 
-const BASE_URL = (process.env.STAGING_BASE_URL || 'https://david-porto-preview.davidpd89.workers.dev').replace(/\/$/, '');
+// Generic HTTP smoke used by both staging and the post-deploy production gate.
+// SITE_BASE_URL is the new neutral contract; STAGING_BASE_URL is kept for
+// backwards compatibility with the existing scheduled staging workflow.
+const SITE_BASE_URL = process.env.SITE_BASE_URL || '';
+const BASE_URL = (
+  SITE_BASE_URL ||
+  process.env.STAGING_BASE_URL ||
+  'https://david-porto-preview.davidpd89.workers.dev'
+).replace(/\/$/, '');
+const SMOKE_LABEL = (
+  process.env.SMOKE_LABEL || (SITE_BASE_URL ? 'PRODUCTION' : 'STAGING')
+).trim().toUpperCase();
+const CANONICAL_ORIGIN = (process.env.CANONICAL_ORIGIN || 'https://davidportodiaz.com').replace(/\/$/, '');
+const EXPECTED_RELEASE_SHA = (process.env.EXPECTED_RELEASE_SHA || '').trim().toLowerCase();
 const REQUEST_TIMEOUT_MS = 10_000;
-const INSECURE_TLS = process.env.STAGING_SMOKE_INSECURE_TLS === '1';
+const INSECURE_TLS =
+  process.env.SMOKE_INSECURE_TLS === '1' ||
+  process.env.STAGING_SMOKE_INSECURE_TLS === '1';
+
+if (EXPECTED_RELEASE_SHA && !/^[0-9a-f]{40}$/.test(EXPECTED_RELEASE_SHA)) {
+  throw new Error('EXPECTED_RELEASE_SHA must be exactly 40 hexadecimal characters');
+}
 
 const PUBLIC_ROUTES = [
   '/',
@@ -14,15 +33,35 @@ const PUBLIC_ROUTES = [
   '/herramientas/',
 ];
 
+// These classes are deliberately broader than the historical staging list.
+// The public artifact is allowlist-first; if one of these becomes HTTP 200,
+// production has crossed the repo -> public boundary incorrectly.
 const INTERNAL_ROUTES = [
   '/scripts/',
   '/tests/',
   '/data/',
+  '/docs/',
+  '/qa/',
+  '/lab/',
+  '/migrations/',
   '/.env.example',
   '/lecturas/',
   '/publicar-web/',
   '/editorial-facts.json',
   '/cloudflare-worker-subscribe.js',
+  '/cloudflare-worker-assistant.js',
+  '/wrangler.assistant.jsonc',
+  '/package.json',
+  '/package-lock.json',
+  '/lighthouserc.json',
+  '/press-kit/package-manifest.json',
+  '/donde-empieza-la-jaula/',
+];
+
+const MACHINE_ROUTES = [
+  ['/robots.txt', 'Sitemap:'],
+  ['/sitemap.xml', '<urlset'],
+  ['/llms.txt', 'David Porto'],
 ];
 
 function requestText(url, timeoutMs) {
@@ -36,8 +75,12 @@ function requestText(url, timeoutMs) {
         method: 'GET',
         rejectUnauthorized: target.protocol === 'https:' ? !INSECURE_TLS : undefined,
         headers: {
-          'user-agent': 'staging-smoke-test/1.0',
-          accept: 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
+          'user-agent': `david-porto-${SMOKE_LABEL.toLowerCase()}-smoke/2.1`,
+          accept: 'text/html,application/xhtml+xml,application/xml,application/json,text/plain;q=0.9,*/*;q=0.8',
+          // Per-SHA marker URLs should not need this, but explicit no-cache makes
+          // the intent clear to intermediaries and avoids validating a stale
+          // browser/proxy object when this smoke is reused elsewhere.
+          'cache-control': 'no-cache',
         },
       },
       (res) => {
@@ -66,6 +109,20 @@ function extractTitle(html) {
     return '';
   }
   return m[1].replace(/\s+/g, ' ').trim();
+}
+
+function extractCanonical(html) {
+  const tags = html.match(/<link\b[^>]*>/gi) || [];
+  for (const tag of tags) {
+    if (!/\brel=["']canonical["']/i.test(tag)) {
+      continue;
+    }
+    const href = tag.match(/\bhref=["']([^"']+)["']/i);
+    if (href) {
+      return href[1].trim();
+    }
+  }
+  return '';
 }
 
 function extractJsonLdBlocks(html) {
@@ -121,11 +178,53 @@ async function checkInternalRoute(pathname) {
   assert.equal(response.status, 404, `${pathname}: expected HTTP 404, got ${response.status}`);
 }
 
-async function main() {
-  if (INSECURE_TLS) {
-    console.warn('WARN: STAGING_SMOKE_INSECURE_TLS=1 enabled (certificate validation disabled for this run).');
+async function checkMachineRoute(pathname, marker) {
+  const url = `${BASE_URL}${pathname}`;
+  let response;
+  try {
+    response = await requestText(url, REQUEST_TIMEOUT_MS);
+  } catch (err) {
+    throw new Error(`${pathname}: request failed (${err?.name || 'error'}: ${err?.message || err})`);
+  }
+  assert.equal(response.status, 200, `${pathname}: expected HTTP 200, got ${response.status}`);
+  assert.ok(response.body.includes(marker), `${pathname}: missing expected marker ${JSON.stringify(marker)}`);
+}
+
+async function checkReleaseIdentity() {
+  if (!EXPECTED_RELEASE_SHA) {
+    console.log('SKIP release identity (EXPECTED_RELEASE_SHA not set)');
+    return;
   }
 
+  const pathname = `/_release/${EXPECTED_RELEASE_SHA}.json`;
+  let response;
+  try {
+    response = await requestText(`${BASE_URL}${pathname}`, REQUEST_TIMEOUT_MS);
+  } catch (err) {
+    throw new Error(`${pathname}: request failed (${err?.name || 'error'}: ${err?.message || err})`);
+  }
+
+  assert.equal(response.status, 200, `${pathname}: expected HTTP 200, got ${response.status}`);
+  let payload;
+  try {
+    payload = JSON.parse(response.body);
+  } catch (err) {
+    throw new Error(`${pathname}: invalid JSON (${err?.message || err})`);
+  }
+  assert.deepEqual(
+    payload,
+    { schemaVersion: 1, sha: EXPECTED_RELEASE_SHA },
+    `${pathname}: release identity does not match deployed SHA`,
+  );
+  console.log(`OK exact release ${EXPECTED_RELEASE_SHA}`);
+}
+
+async function main() {
+  if (INSECURE_TLS) {
+    console.warn(`WARN: ${SMOKE_LABEL} smoke has certificate validation disabled for this run.`);
+  }
+
+  console.log(`${SMOKE_LABEL} smoke target: ${BASE_URL}`);
   const failures = [];
   const htmlByRoute = new Map();
 
@@ -150,27 +249,49 @@ async function main() {
     }
   }
 
-  for (const route of ['/', '/las-manecillas-del-recuerdo/']) {
+  for (const [route, marker] of MACHINE_ROUTES) {
     try {
-      const html = htmlByRoute.get(route);
-      assert.ok(typeof html === 'string' && html.length > 0, `${route}: missing HTML for JSON-LD check`);
-      parseAnyJsonLd(html);
-      console.log(`OK jsonld ${route}`);
+      await checkMachineRoute(route, marker);
+      console.log(`OK machine ${route}`);
     } catch (err) {
-      failures.push(`${route}: ${err?.message || err}`);
-      console.error(`FAIL jsonld ${route}: ${err?.message || err}`);
+      failures.push(String(err?.message || err));
+      console.error(`FAIL machine ${route}: ${err?.message || err}`);
     }
   }
 
+  for (const route of ['/', '/las-manecillas-del-recuerdo/']) {
+    try {
+      const html = htmlByRoute.get(route);
+      assert.ok(typeof html === 'string' && html.length > 0, `${route}: missing HTML for machine checks`);
+      parseAnyJsonLd(html);
+      console.log(`OK jsonld ${route}`);
+
+      const canonical = extractCanonical(html);
+      const expected = `${CANONICAL_ORIGIN}${route}`;
+      assert.equal(canonical, expected, `${route}: expected canonical ${expected}, got ${canonical || '(missing)'}`);
+      console.log(`OK canonical ${route}`);
+    } catch (err) {
+      failures.push(`${route}: ${err?.message || err}`);
+      console.error(`FAIL machine-contract ${route}: ${err?.message || err}`);
+    }
+  }
+
+  try {
+    await checkReleaseIdentity();
+  } catch (err) {
+    failures.push(String(err?.message || err));
+    console.error(`FAIL release-identity: ${err?.message || err}`);
+  }
+
   if (failures.length > 0) {
-    console.error(`\nSTAGING SMOKE FAIL (${failures.length} issue(s))`);
+    console.error(`\n${SMOKE_LABEL} SMOKE FAIL (${failures.length} issue(s))`);
     for (const item of failures) {
       console.error(` - ${item}`);
     }
     process.exit(1);
   }
 
-  console.log('\nSTAGING SMOKE PASS');
+  console.log(`\n${SMOKE_LABEL} SMOKE PASS`);
 }
 
 main().catch((err) => {

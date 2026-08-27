@@ -34,6 +34,11 @@ jobs:
       - name: Verify built artifact satisfies the public-artifact contract
         run: python scripts/build-public-dist.py --check-contents --out .preview-dist
 
+      - name: Stamp exact release identity
+        run: |
+          python scripts/stamp-release-identity.py --out .preview-dist --sha "$GITHUB_SHA"
+          python scripts/stamp-release-identity.py --check --out .preview-dist --sha "$GITHUB_SHA"
+
       - name: Stop Pages from Jekyll-processing the artifact
         run: touch .preview-dist/.nojekyll
 
@@ -55,3 +60,41 @@ jobs:
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
+
+  verify-production:
+    name: Verify production after deploy
+    needs: deploy
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - name: Checkout deployed SHA
+        uses: actions/checkout@v4
+
+      - name: Set up Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+
+      - name: Smoke test exact public production release
+        env:
+          SITE_BASE_URL: https://davidportodiaz.com
+          CANONICAL_ORIGIN: https://davidportodiaz.com
+          SMOKE_LABEL: PRODUCTION
+          EXPECTED_RELEASE_SHA: ${{ github.sha }}
+        shell: bash
+        run: |
+          # GitHub Pages/CDN propagation can take a few seconds after the
+          # deployment action returns. Retry the complete deterministic smoke
+          # a bounded number of times. The per-SHA marker path means an older
+          # but otherwise healthy release cannot satisfy this check.
+          for attempt in 1 2 3; do
+            echo "Production verification attempt ${attempt}/3 for ${EXPECTED_RELEASE_SHA}"
+            if node tests/test-staging-smoke.mjs; then
+              exit 0
+            fi
+            if [ "$attempt" -lt 3 ]; then
+              sleep 15
+            fi
+          done
+          echo "Production verification failed after 3 attempts."
+          exit 1
