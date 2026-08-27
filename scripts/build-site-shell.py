@@ -63,10 +63,16 @@ INLINE_SCRIPT_RE = re.compile(
 # (2026-08-22), no solo lectura de codigo -- ese smoke test ya cazo dos
 # origenes que una lectura manual de script.js no habria detectado a la
 # primera (Metricool, y gc.zgo.at cargado por protocolo relativo //):
-#   - script-src/connect-src gc.zgo.at: analytics GoatCounter, cargado por
-#     protocolo relativo (`//gc.zgo.at/count.js`) en script.js -- sin
-#     esquema explicito aqui tampoco, para que encaje con el esquema real
-#     de la pagina en vez de forzar https y romper en pruebas locales http.
+#   - script-src/connect-src gc.zgo.at: analytics GoatCounter. Antes se
+#     cargaba con protocolo relativo (`//gc.zgo.at/count.js`); eso resolvia
+#     a http:// en cualquier build estatico auditado por Lighthouse CI
+#     (staticDistDir sirve por http://localhost), disparando is-on-https
+#     en todas las paginas (best-practices atascado en 0.82 sitewide). El
+#     esquema aqui va sin prefijo porque un host-source de CSP sin esquema
+#     ya hace match con http: y https: por igual (no hacia falta para
+#     "encajar" con nada) -- confirmado al hardcodear https:// en el <script>
+#     src de las 16 paginas afectadas + script.js sin que este smoke test
+#     ni el de CSP dejaran de pasar.
 #   - script-src/connect-src davidportodiaz.goatcounter.com: destino del
 #     beacon de GoatCounter.
 #   - script-src/connect-src/img-src tracker.metricool.com: script de
