@@ -62,10 +62,25 @@ Cambiar nameservers → volver a poner `henrik.ns.cloudflare.com` /
 `nora.ns.cloudflare.com`. No se ha tocado nada del lado de GitHub Pages ni
 de los Workers existentes.
 
-## Pendiente / siguiente paso
+## Verificado — cerrado, 2026-08-27 ~20:15
 
-- Confirmar en unas horas/días que `dig NS davidportodiaz.com` ya
-  devuelve `lamar`/`sonia` y que el sitio sigue accesible.
-- Decidir, ya con la zona propia estable, si activar el proxy (nube
-  naranja) en los registros A/CNAME del apex — hoy deliberadamente en DNS
-  only para no cambiar comportamiento de golpe.
+Segunda pasada de verificación, con la API y el dashboard:
+
+- `dig`/DoH NS ya devuelve `lamar.ns.cloudflare.com` / `sonia.ns.cloudflare.com`
+  desde tres resolvers públicos independientes (1.1.1.1, 8.8.8.8, 9.9.9.9) —
+  propagado por completo, mucho antes del plazo de 48h que avisó Spaceship.
+- Dashboard de Cloudflare: "Your domain is now protected by Cloudflare" ✓
+  (zona activa, no Pending).
+- DNS records: **13 de 13** presentes y correctos (confirmado en la tabla
+  del dashboard, "Showing 1-13 of 13").
+- Sitio en vivo: `curl -I https://davidportodiaz.com/` → 200 OK vía GitHub
+  Pages, 27ms. `www.davidportodiaz.com` → 301 correcto. DKIM
+  (`brevo1._domainkey`), DMARC y las dos verificaciones TXT del apex,
+  todas resolviendo con el valor exacto esperado.
+- Todo sigue en modo DNS only tal como se dejó — Cloudflare avisa que
+  "proxying is required for most security/performance features", aviso
+  esperado, no un error.
+
+No queda ninguna duda pendiente sobre esta migración. El único punto
+abierto real es una decisión de producto, no técnica: si activar el proxy
+(nube naranja) en algún momento — se deja sin decidir a propósito.
