@@ -1,6 +1,11 @@
 # Tareas bloqueadas para el asistente — requieren acción manual del autor
 
-Fecha: 2026-08-26
+Fecha: 2026-08-26 (actualizado 2026-08-27: los tres pendientes de abajo ya
+están resueltos — Cloudflare AI Search token puesto en `.env`, Brevo con la
+IP ya autorizada y funcionando por API, Search Console ya verificado con
+sitemap enviado. Se deja el documento como referencia histórica del motivo
+de la cautela con paneles de terceros logueados; no repetir el mismo patrón
+si vuelve a pasar.)
 
 ## Por qué existe este documento
 
