@@ -37,6 +37,19 @@
    next/font): sizeAdjust = (target xAvgCharWidth/unitsPerEm) / (Georgia
    xAvgCharWidth/unitsPerEm); overrides = (target metric/unitsPerEm) /
    sizeAdjust. Referenced first in --font-reading/--font-display, ahead
-   of the other named fallbacks. */
-@font-face{font-family:'Newsreader Fallback';src:local('Georgia');size-adjust:123.53%;ascent-override:59.51%;descent-override:21.45%;line-gap-override:0%}
-@font-face{font-family:'Instrument Serif Fallback';src:local('Georgia');size-adjust:95.91%;ascent-override:103.23%;descent-override:32.32%;line-gap-override:0%}
+   of the other named fallbacks.
+
+   `local('Georgia')` alone silently fails to resolve on Linux (GitHub
+   Actions runners and most desktop-Linux visitors don't have Georgia
+   installed) -- the whole @font-face then has no usable src, so the
+   browser skips straight to the next unmatched fallback in the stack
+   and the swap-proof guarantee above is lost exactly where CI runs.
+   ascent-override/descent-override/line-gap-override force the SAME
+   line-box height no matter which local() resolves, so chaining
+   Liberation Serif (fonts-liberation, on virtually every Linux distro
+   incl. GH Actions' ubuntu-latest image) and DejaVu Serif keeps the
+   height guarantee cross-platform; only size-adjust's glyph-width match
+   stays Georgia-specific when a different font resolves, a much smaller
+   residual effect than the reflow this exists to prevent. */
+@font-face{font-family:'Newsreader Fallback';src:local('Georgia'),local('Liberation Serif'),local('DejaVu Serif');size-adjust:123.53%;ascent-override:59.51%;descent-override:21.45%;line-gap-override:0%}
+@font-face{font-family:'Instrument Serif Fallback';src:local('Georgia'),local('Liberation Serif'),local('DejaVu Serif');size-adjust:95.91%;ascent-override:103.23%;descent-override:32.32%;line-gap-override:0%}

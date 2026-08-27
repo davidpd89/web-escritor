@@ -90,8 +90,8 @@ assert.equal(manifest.short_name, 'David Porto');
 assert.equal(manifest.start_url, '/');
 assert.equal(manifest.scope, '/');
 assert.equal(manifest.display, 'standalone');
-assert.equal(manifest.background_color, '#080a0c');
-assert.equal(manifest.theme_color, '#080a0c');
+assert.equal(manifest.background_color, '#ffffff');
+assert.equal(manifest.theme_color, '#ffffff');
 assert(Array.isArray(manifest.icons) && manifest.icons.length >= 2, 'Manifest icons missing');
 assert(manifest.icons.some((icon) => String(icon.purpose || '').split(/\s+/).includes('maskable')), 'Maskable icon declaration missing');
 
