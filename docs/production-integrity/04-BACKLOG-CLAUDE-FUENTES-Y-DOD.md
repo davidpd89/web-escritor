@@ -2,6 +2,31 @@
 
 ## 1. Estado al crear esta PR
 
+### PRINCIPIO OPERATIVO NO NEGOCIABLE
+
+La protección de `main` debe ser **agent-operable end to end**.
+
+Claude/ChatGPT/agentes autorizados deben poder:
+
+1. crear rama;
+2. crear/actualizar PR;
+3. leer CI;
+4. corregir fallos;
+5. reejecutar checks;
+6. actualizar la rama si `main` avanzó;
+7. mergear la PR verde;
+8. comprobar el deploy.
+
+El propietario **no debe tener que aprobar, resolver conversaciones, pulsar Merge ni hacer mantenimiento rutinario de GitHub**.
+
+Por tanto, al configurar el ruleset:
+
+- `required approvals = 0`;
+- `Require conversation resolution = OFF` en el modelo actual;
+- ninguna restricción de actor que impida a los agentes autorizados mergear;
+- auto-merge es compatible y puede usarse cuando resulte conveniente;
+- cualquier regla que en la práctica obligue al propietario a intervenir se considera una regresión operacional y debe retirarse o rediseñarse.
+
 ### IMPLEMENTADO EN CÓDIGO DE ESTA PR
 
 - [x] smoke HTTP reutilizable para staging/producción;
@@ -12,6 +37,7 @@
 - [x] `Deploy Pages` con `verify-production` posterior;
 - [x] reintentos de propagación acotados;
 - [x] nuevo workflow universal `Required merge gate`;
+- [x] validación sintáctica del smoke dentro del gate;
 - [x] evidencia de release estática subida como artifact;
 - [x] builder/public-artifact revalidado dentro del gate universal.
 
@@ -29,9 +55,12 @@
 - [ ] crear/activar ruleset de `main`;
 - [ ] seleccionar contexts exactos ya observados;
 - [ ] exigir PR;
+- [ ] `required approvals = 0`;
+- [ ] `conversation resolution = OFF`;
 - [ ] bloquear force push/deletion;
+- [ ] no restringir merge a un actor que excluya Claude/ChatGPT;
 - [ ] probar push directo rechazado;
-- [ ] probar PR verde permitida.
+- [ ] probar PR verde **mergeada por un agente sin intervención del propietario**.
 
 No ejecutar esa parte antes de conocer el context real del nuevo workflow.
 
@@ -43,13 +72,13 @@ No ejecutar esa parte antes de conocer el context real del nuevo workflow.
 
 ## PI-001 — CI real del nuevo gate
 
-**Actor:** REPO / GitHub Actions  
+**Actor:** REPO / GitHub Actions / agente  
 **Estado inicial:** pendiente hasta que esta PR ejecute.
 
 ### Pasos
 
 1. abrir PR con esta rama;
-2. esperar a que GitHub cree los checks;
+2. dejar que GitHub cree los checks;
 3. inspeccionar el job `Required merge gate`;
 4. si falla, leer el paso exacto;
 5. corregir causa real;
@@ -64,7 +93,7 @@ No ejecutar esa parte antes de conocer el context real del nuevo workflow.
 
 ## PI-002 — comprobar compatibilidad staging del smoke generalizado
 
-**Actor:** REPO / CI
+**Actor:** REPO / CI / agente
 
 El script mantiene `STAGING_BASE_URL`, por lo que el workflow existente no necesita cambiar.
 
@@ -86,7 +115,7 @@ Si el staging actual devuelve un status distinto en una ruta privada, investigar
 
 ## PI-003 — primera verificación de producción post-merge
 
-**Actor:** GitHub Actions / HUMAN REVIEW
+**Actor:** GitHub Actions / agente
 
 Al mergear la PR, `Deploy Pages` debe ejecutar:
 
@@ -96,37 +125,42 @@ build
      -> Verify production after deploy
 ```
 
+El agente que realiza el merge debe consultar el resultado. No se exige que el propietario vigile el workflow manualmente.
+
 ### Aceptación
 
 - los tres jobs se ejecutan en el mismo SHA;
 - production smoke queda verde;
-- si queda rojo, tratar como incidente y no declarar iniciativa cerrada.
+- si queda rojo, el agente lo trata como incidente y no declara iniciativa cerrada.
 
 ---
 
 ## PI-004 — activar `main-production-integrity`
 
-**Actor:** ACCOUNT / HUMAN  
+**Actor:** agente autorizado con capacidad de configuración del repo  
 **Dependencia:** PI-001 verde y nombres de contexts confirmados.
+
+Si la integración disponible no permite escribir rulesets, dejar la configuración exacta documentada para un agente que sí disponga de esa capacidad. **No convertirlo en una aprobación por-PR del propietario.**
 
 ### Config recomendada
 
 - target `main`;
 - require pull request;
-- 0 approvals mientras solo haya un revisor operativo;
-- conversation resolution;
+- `required approvals = 0`;
+- `Require conversation resolution = OFF`;
 - no force push;
 - no delete;
+- sin restricciones de actor que impidan a Claude/ChatGPT mergear PR verdes;
 - required status checks:
   - `Required merge gate`;
   - `Public artifact contract`;
   - `reflow-sitewide` / nombre real mostrado;
   - `pa11y-baseline` / nombre real mostrado;
-- branch up-to-date después de una prueba inicial estable.
+- branch up-to-date solo después de demostrar que los agentes pueden actualizar la rama automáticamente sin intervención del propietario.
 
 ### Aceptación
 
-API/UI debe dejar de mostrar:
+La configuración efectiva debe dejar de representar el estado sin protección:
 
 ```text
 protected:false
@@ -136,30 +170,37 @@ rulesets: []
 
 No es obligatorio que la API legacy `protected` refleje exactamente un ruleset moderno de la misma forma; la autoridad final es el ruleset activo + prueba conductual.
 
+Además debe cumplirse:
+
+```text
+PR verde -> merge ejecutable por agente autorizado -> sin aprobación manual
+```
+
 ---
 
 ## PI-005 — prueba conductual de protección
 
-**Actor:** HUMAN / GIT
+**Actor:** agente / Git
 
 ### Caso 1
 
-Push normal directo a `main` con un commit inocuo/no real de producción.
+Push normal directo a `main` con una prueba inocua y controlada.
 
 Esperado: GitHub rechaza.
 
-No dejar el commit de prueba en main.
+No dejar el commit de prueba en `main`.
 
 ### Caso 2
 
-PR verde.
+PR verde creada por agente.
 
-Esperado: merge habilitado.
+Esperado: el mismo agente o un agente autorizado puede ejecutar `merge pull request` o auto-merge sin aprobación del propietario.
 
 ### Aceptación
 
-- evidencia textual del rechazo del push;
-- evidencia de PR protegida funcionando.
+- evidencia textual del rechazo del push directo;
+- evidencia de PR protegida funcionando;
+- evidencia de merge por agente sin paso humano obligatorio.
 
 ---
 
@@ -220,7 +261,7 @@ Requisito: no introducir clock-driven content que cause diffs espurios ni filtra
 
 Cerrar la diferencia entre contrato mock y backend live sin contaminar CRM.
 
-Primero investigar soporte de canary/no-op. Si no existe, mantener prueba live manual controlada en hitos importantes.
+Primero investigar soporte de canary/no-op. Si no existe, mantener prueba live controlada solo en hitos importantes y ejecutable por agente cuando exista autorización/capacidad.
 
 No crear contactos ficticios en cada deploy.
 
@@ -236,7 +277,7 @@ release/manecillas-2026-09-03
 release/postlaunch-stable-YYYY-MM-DD
 ```
 
-Los nombres exactos pueden simplificarse. Lo importante es disponer de targets humanos conocidos y evidencia asociada.
+Los nombres exactos pueden simplificarse. Lo importante es disponer de targets conocidos y evidencia asociada.
 
 No convertir cada commit en release.
 
@@ -251,6 +292,8 @@ Evaluar notificación/issue solo cuando:
 - un internal leak smoke falle.
 
 Evitar spam por fallos de una sola petición transitoria.
+
+El objetivo es que el sistema y los agentes detecten el incidente; no que el propietario tenga que revisar Actions después de cada cambio.
 
 ---
 
@@ -274,19 +317,21 @@ Coordinar con PR #115 de higiene del repo.
 
 Solo si crece el paralelismo de PR y aparecen carreras por base desactualizada.
 
+Debe estudiarse como automatización, no como nueva tarea manual.
+
 ---
 
 ## PI-203 — signed commits
 
-Investigar después. El estado actual contiene commits unsigned; necesita transición real, no switch súbito.
+Investigar después. El estado actual contiene commits unsigned; necesita transición real, no switch súbito que bloquee a los agentes.
 
 ---
 
 ## PI-204 — environment protection avanzada
 
-Evaluar restrictions/approvals del environment `github-pages` si aparece un segundo mantenedor o una necesidad de separación release/merge.
+No activar approvals/reviewers de `github-pages` en el modelo operativo actual.
 
-No duplicar aprobación sin propósito.
+Solo reevaluar si aparece una necesidad real de separación de funciones y existe un mecanismo automatizable que no convierta al propietario en aprobador de cada despliegue.
 
 ---
 
@@ -300,10 +345,11 @@ Antes de tocar código:
 4. revisar PR abiertas para evitar duplicar ownership;
 5. trabajar en rama nueva o continuar esta PR solo si sigue abierta y es la dueña clara;
 6. añadir fixture rojo antes de endurecer un gate cuando sea razonable;
-7. no desplegar producción para «probar» salvo autorización explícita;
+7. no desplegar producción para «probar» salvo autorización explícita cuando la acción implique infraestructura externa no reversible;
 8. no cambiar DNS/Cloudflare/Brevo como efecto lateral de release integrity;
 9. no tocar hechos/editorial de Manecillas salvo que el propio gate descubra drift real;
-10. dejar evidencia de ejecución, no solo descripción teórica.
+10. dejar evidencia de ejecución, no solo descripción teórica;
+11. **si los checks están verdes y el trabajo está completo, mergear la PR desde el agente cuando el encargo incluya dejarlo integrado; no derivar al propietario una tarea administrativa de GitHub**.
 
 ## 4. Antipatrones
 
@@ -318,6 +364,14 @@ Solo demuestra éxito del workflow de deployment hasta el punto que ese workflow
 ### «Hagamos required todos los checks»
 
 No. Puede introducir deadlocks por path filters, terceros o jobs especializados.
+
+### «Para estar seguros, que David apruebe cada PR»
+
+No. Contradice el modelo operativo del proyecto. Seguridad debe venir de CI y trazabilidad, no de trasladar clics rutinarios al propietario.
+
+### «Require conversation resolution siempre es más seguro»
+
+No en este flujo. Puede crear un bloqueo administrativo residual sin añadir una verificación técnica equivalente. Se mantiene OFF mientras no sea completamente automatizable y útil.
 
 ### «Si production smoke falla por TLS, desactivamos TLS»
 
@@ -335,9 +389,9 @@ No sustituye no versionar secretos. Es defensa adicional.
 
 No sin comprender failure modes y compatibilidad del release anterior.
 
-### «La protección de main nos impide hotfixes»
+### «La protección de main nos impide trabajar con agentes»
 
-Debe existir un procedimiento de emergencia excepcional; eso no justifica dejar el camino ordinario abierto.
+No debe hacerlo. El diseño correcto bloquea bypass y rojo, pero permite `agente -> PR -> verde -> merge`.
 
 ## 5. Fuentes oficiales investigadas
 
@@ -377,7 +431,7 @@ Uso: artifact/deploy Pages y environment.
 
 `https://docs.github.com/en/actions/deployment/targeting-different-environments/managing-environments-for-deployment`
 
-Uso: deployment protection / branch restrictions / reviewers cuando proceda.
+Uso: deployment protection / branch restrictions / reviewers cuando proceda. En este proyecto no activar reviewers de environment de forma rutinaria.
 
 ## 6. Fuentes internas del repo que deben leerse junto a esta iniciativa
 
@@ -413,19 +467,23 @@ Uso: deployment protection / branch restrictions / reviewers cuando proceda.
 
 - [ ] ruleset activo sobre `main`;
 - [ ] PR obligatoria;
+- [ ] `required approvals = 0`;
+- [ ] `Require conversation resolution = OFF`;
 - [ ] required checks configurados con nombres reales;
 - [ ] no path-filtered check requerido por error;
 - [ ] force pushes bloqueados;
 - [ ] deletions bloqueadas;
+- [ ] ninguna restricción de actor impide merge a Claude/ChatGPT;
 - [ ] prueba de push directo rechazada;
-- [ ] prueba de PR verde realizada.
+- [ ] prueba de PR verde **mergeada por agente sin intervención del propietario** realizada.
 
 ### Operación
 
 - [ ] primer Deploy Pages post-merge completo verde incluido production verify;
 - [ ] rollback entendido/documentado;
 - [ ] no auto-rollback opaco;
-- [ ] un fallo del production smoke se trata como incidente y no como warning.
+- [ ] un fallo del production smoke se trata como incidente y no como warning;
+- [ ] el propietario no necesita vigilar ni aprobar cada release.
 
 ### Disciplina
 
@@ -447,4 +505,6 @@ Esta PR puede mergearse cuando:
 7. el diff final contiene únicamente release integrity y documentación asociada;
 8. no hay despliegue/configuración live no autorizada.
 
-Después del merge queda una acción P0 inmediata: **activar el ruleset de `main` usando los contexts observados en esta PR**.
+Cuando se cumpla, **el agente autorizado puede mergear esta PR a `main`; no se requiere aprobación manual del propietario**.
+
+Después del merge queda una acción P0 inmediata: activar el ruleset de `main` usando los contexts observados en esta PR y validar que conserva el flujo agent-operable.
