@@ -10,6 +10,7 @@ on:
       - "assets/fonts/is-normal-400-latin.woff2"
       - "assets/fonts/mr-normal-400-700-latin.woff2"
       - "qa/pwa-offline.mjs"
+      - "qa/pwa-cache-freshness-contract.mjs"
       - ".github/workflows/pwa-offline-qa.yml"
   workflow_dispatch:
 
@@ -28,6 +29,9 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: "22"
+
+      - name: Verify cache freshness / media-range policy
+        run: node qa/pwa-cache-freshness-contract.mjs
 
       - name: Install CI/QA dependencies (Node)
         run: npm ci
