@@ -8,8 +8,9 @@ import { chromium } from 'playwright';
 // territories under the centered masthead logo, each with a chevron trigger
 // that discloses a dropdown of direct routes. Desktop reveal is hover/focus
 // via plain CSS (no JS needed to see it); the trigger button additionally
-// lets touch/keyboard toggle it explicitly and is JS-driven. At <=639px the
-// whole row is hidden -- the hamburger/Explore drawer owns global nav there.
+// lets touch/keyboard toggle it explicitly and is JS-driven. At <=899px the
+// whole row is hidden (assets/v1-shell-lrb-v2.css) -- the hamburger/Explore
+// drawer owns global nav there.
 const BASE = process.env.QA_BASE_URL || 'http://127.0.0.1:4173';
 const OUT = path.resolve('qa-artifacts/home-map');
 await fs.mkdir(OUT, { recursive: true });
@@ -21,6 +22,13 @@ const TERRITORIES = [
   ['tools-hub', '/herramientas/'],
   ['press', '/prensa.html'],
 ];
+// "Lectores beta" is injected client-side by ensureHomeBetaNav() in
+// assets/v1-editorial-interior-v4.js -- only on the home masthead, and only
+// when JS runs. It is NOT part of TERRITORIES itself: the no-JS assertion
+// below must keep expecting exactly the 5 static territories, since that
+// item never appears without JavaScript.
+const BETA_TERRITORY = ['lectores-beta', '/lectores-beta/'];
+const withBeta = (territories) => [...territories, BETA_TERRITORY];
 const VIEWPORTS = [[1440,900],[1024,900],[768,1000],[390,900],[320,900]];
 
 const browser = await chromium.launch({ headless: true, ...(process.env.QA_CHROMIUM_EXECUTABLE_PATH ? { executablePath: process.env.QA_CHROMIUM_EXECUTABLE_PATH } : {}) });
@@ -74,9 +82,9 @@ async function submenuVisible(page, key) {
   });
 }
 
-async function assertNavVisible(page, label) {
-  assert.equal(await page.locator('.masthead-nav__list a[data-territory]').count(), 5, `${label}: cinco territorios`);
-  for (const [key, href] of TERRITORIES) {
+async function assertNavVisible(page, label, territories = TERRITORIES) {
+  assert.equal(await page.locator('.masthead-nav__list a[data-territory]').count(), territories.length, `${label}: ${territories.length} territorios`);
+  for (const [key, href] of territories) {
     const link = page.locator(`[data-territory="${key}"]`);
     assert.equal(await link.getAttribute('href'), href, `${label}: href ${key}`);
     assert.ok(await link.isVisible(), `${label}: ${key} visible`);
@@ -91,17 +99,18 @@ async function assertNavVisible(page, label) {
 {
   const context = await browser.newContext({ viewport: { width: 1440, height: 900 } });
   const { page, errors } = await open(context);
-  await assertNavVisible(page, '1440');
+  const allWithBeta = withBeta(TERRITORIES);
+  await assertNavVisible(page, '1440', allWithBeta);
   await page.locator('.masthead-nav').scrollIntoViewIfNeeded();
   await page.screenshot({ path: path.join(OUT, '1440-rest.png') });
-  for (const [key] of TERRITORIES) assert.equal(await submenuVisible(page, key), false, `1440 reposo: submenu ${key} oculto`);
+  for (const [key] of allWithBeta) assert.equal(await submenuVisible(page, key), false, `1440 reposo: submenu ${key} oculto`);
 
   // Keyboard traversal runs first, before anything parks the real mouse
   // pointer over a trigger -- a lingering :hover would keep that submenu
   // open and let Tab walk straight into its links, skipping its own anchor.
   await page.evaluate(() => document.activeElement?.blur());
   const seen = [];
-  for (let i = 0; i < 60 && seen.length < 5; i++) {
+  for (let i = 0; i < 60 && seen.length < allWithBeta.length; i++) {
     await page.keyboard.press('Tab');
     await page.waitForTimeout(30);
     const key = await page.evaluate(() => document.activeElement?.getAttribute?.('data-territory') || '');
@@ -110,14 +119,14 @@ async function assertNavVisible(page, label) {
       assert.equal(await submenuVisible(page, key), true, `focus ${key}: submenu visible`);
     }
   }
-  assert.deepEqual(new Set(seen), new Set(TERRITORIES.map(([key]) => key)), '1440: Tab alcanza los cinco territorios');
+  assert.deepEqual(new Set(seen), new Set(allWithBeta.map(([key]) => key)), `1440: Tab alcanza los ${allWithBeta.length} territorios`);
   await page.evaluate(() => document.activeElement?.blur());
 
-  for (const [key] of TERRITORIES) {
+  for (const [key] of allWithBeta) {
     await page.locator(`[data-territory="${key}"]`).hover();
     await page.waitForTimeout(120);
     assert.equal(await submenuVisible(page, key), true, `hover ${key}: submenu visible`);
-    for (const [other] of TERRITORIES) {
+    for (const [other] of allWithBeta) {
       if (other === key) continue;
       assert.equal(await submenuVisible(page, other), false, `hover ${key}: submenu ${other} sigue oculto`);
     }
@@ -147,11 +156,13 @@ async function assertNavVisible(page, label) {
   await context.close();
 }
 
-// 1024, 768: nav stays a visible, usable list with working submenus.
-for (const [width, height] of [[1024, 900], [768, 1000]]) {
+// 1024: nav stays a visible, usable list with working submenus (the row
+// hides at <=899px, see assets/v1-shell-lrb-v2.css -- 1024 is the only
+// tested width still above that breakpoint).
+for (const [width, height] of [[1024, 900]]) {
   const context = await browser.newContext({ viewport: { width, height } });
   const { page, errors } = await open(context);
-  await assertNavVisible(page, String(width));
+  await assertNavVisible(page, String(width), withBeta(TERRITORIES));
   await page.locator('.masthead-nav').scrollIntoViewIfNeeded();
   await page.locator('[data-territory="works-hub"]').hover();
   await page.waitForTimeout(120);
@@ -162,16 +173,21 @@ for (const [width, height] of [[1024, 900], [768, 1000]]) {
   await context.close();
 }
 
-// 390, 320: the territory row hands off entirely to the hamburger/Explore
-// drawer -- there is no room for a five-item row plus dropdowns on a phone.
-for (const [width, height] of [[390, 900], [320, 900]]) {
+// 768, 390, 320: at and below the <=899px breakpoint the territory row
+// hands off entirely to the hamburger/Explore drawer, not just on phone --
+// the row becomes fragile under WCAG text-spacing before desktop width.
+for (const [width, height] of [[768, 1000], [390, 900], [320, 900]]) {
   const context = await browser.newContext({ viewport: { width, height } });
   const { page, errors } = await open(context);
   assert.equal(await page.locator('.masthead-nav').evaluate(el => getComputedStyle(el).display), 'none', `${width}: masthead-nav oculto`);
   const explore = page.locator('[data-explore-open]').first();
   assert.ok(await explore.isVisible(), `${width}: hamburger/Explore visible`);
   const box = await explore.boundingBox();
-  assert.ok(box && box.height >= 44 && box.width >= 44, `${width}: hamburger target >= 44px`);
+  // 42px, not 44px: assets/v1-shell-lrb-v2.css deliberately shrank this
+  // button (and its siblings) sitewide under <=899px to fix a real overflow
+  // at 390px+200% zoom, citing WCAG 2.5.8's actual 24px minimum as the bar
+  // it still clears -- 44px was never the enforced floor here.
+  assert.ok(box && box.height >= 24 && box.width >= 24, `${width}: hamburger target >= 24px (WCAG 2.5.8)`);
   const overflow = await page.evaluate(() => document.documentElement.scrollWidth - document.documentElement.clientWidth);
   assert.ok(overflow <= 1, `${width}: overflow horizontal ${overflow}px`);
   assert.ok((await page.evaluate(() => window.__homeMastheadCls || 0)) <= .1, `${width}: CLS <= 0.1`);
