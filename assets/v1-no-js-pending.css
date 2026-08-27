@@ -1,0 +1,7 @@
+/* Loaded only inside <noscript> on pages using [data-js-pending] (see
+   assets/v1-editorial.css). External file, not an inline <style>, so it
+   works under this site's CSP (style-src 'self', no unsafe-inline). Without
+   JavaScript these buttons never lose [data-js-pending], so they would stay
+   in-flow but permanently invisible (visibility:hidden) -- this removes them
+   from layout entirely for that case instead. */
+html.v1 .article-utilities [data-js-pending]{display:none}
