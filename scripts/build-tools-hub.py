@@ -217,12 +217,6 @@ def render(data, tools, directories):
       <p class="samuel-narrow" style="max-width:64ch">Las herramientas marcadas «En tu navegador» no necesitan enviar el texto o los datos introducidos a nuestro servidor para calcular el resultado. Las que necesitan consultar una URL pública lo dicen de forma distinta. No usamos «privada» como sello de seguridad genérico.</p>
     </section>
 
-    <section class="v1-section" id="externas">
-      <div class="v1-section__head"><p class="eyebrow">¿Buscas software externo?</p><h2>Este hub reúne herramientas propias.</h2></div>
-      <p class="samuel-narrow" style="max-width:64ch">La selección de programas y servicios de terceros vive aparte para poder verificar precio, plataforma, idioma y tratamiento del manuscrito sin mezclar recomendaciones con producto propio.</p>
-      <p style="margin-top:1rem"><a class="text-action" href="/recursos/herramientas-para-escritores/">Ver directorio curado de herramientas para autores</a></p>
-    </section>
-
     <noscript>
       <section class="v1-section">
         <div class="v1-section__head"><p class="eyebrow">Sin JavaScript</p><h2>Todas las herramientas.</h2></div>
