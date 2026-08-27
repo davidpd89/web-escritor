@@ -43,8 +43,8 @@ def main() -> None:
     ):
         assert_public(path)
 
-    # Operational material is private by default; none of these need an exact
-    # denylist entry to stay out because their top-level family is not public.
+    # Operational material is private by default. The final six cases prove
+    # defense in depth even when a technical file is placed under /assets/.
     for path in (
         "docs/new-runbook.md",
         "qa/new-browser-check.mjs",
@@ -63,12 +63,6 @@ def main() -> None:
         "editorial-facts.json",
         "press-kit/package-manifest.json",
         "donde-empieza-la-jaula/index.html",
-    ):
-        assert_private(path)
-
-    # A forbidden class remains detectable even if somebody later puts it
-    # under an otherwise-public namespace; check_contents() must reject it.
-    for path in (
         "assets/internal.sql",
         "assets/wrangler.future.jsonc",
         "assets/cloudflare-worker-future.js",
@@ -76,7 +70,7 @@ def main() -> None:
         "assets/private.key",
         "assets/terraform.tfstate",
     ):
-        assert builder.forbidden_reason(path), f"expected forbidden class: {path}"
+        assert_private(path)
 
     rendered = builder.render_assetsignore(ROOT)
     current = (ROOT / ".assetsignore").read_text(encoding="utf-8")
@@ -85,6 +79,8 @@ def main() -> None:
     assert "!/assets/" in rendered
     assert "!/pagefind/" in rendered
     assert "/press-kit/package-manifest.json" in rendered
+    assert "**/wrangler*.jsonc" in rendered
+    assert "**/*.sql" in rendered
 
     print("OK: public artifact contract regression tests passed.")
 
