@@ -1,10 +1,11 @@
 name: Tool engine tests
 
 # Por que existe: los test-*.mjs de tests/ (motores de herramientas y
-# contratos del asistente) deben ejecutarse en cada PR que pueda alterar su
-# comportamiento. El bucle con `|| exit 1` por fichero es deliberado: este
-# repositorio no tiene un test runner npm central y cada test es un script
-# independiente que imprime OK o lanza una assertion.
+# contratos del asistente) y los test-*.py de contratos compartidos deben
+# ejecutarse en cada PR que pueda alterar su comportamiento. El bucle con
+# `|| exit 1` por fichero es deliberado: este repositorio no tiene un test
+# runner central y cada test es un script independiente que imprime OK o lanza
+# una assertion.
 
 on:
   pull_request:
@@ -17,6 +18,7 @@ on:
       - 'docs/assistant-deploy.md'
       - 'migrations/assistant-quota.sql'
       - 'scripts/check-assistant-contract.py'
+      - 'scripts/brevo/snapshot-brevo.py'
       - 'scripts/requirements.txt'
       - 'wrangler.assistant.example.jsonc'
       - 'lighthouserc.json'
