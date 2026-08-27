@@ -307,29 +307,41 @@ Por tanto:
 - modificar account-level Cloudflare/Brevo/Search Console u otro servicio si no estaba ya autorizado;
 - ejecutar una operación externa irreversible o materialmente sensible.
 
-### Estado real hoy
+### Estado real hoy (actualizado tras el refresco de esta rama, 27/08/2026)
 
-PR #116 todavía está abierta. `main` sigue sin protección. Por tanto esta gobernanza es **IMPLEMENTED-IN-PR / TARGET**, no `CONFIGURED-LIVE`.
+PR #116 está mergeada. El ruleset `main-production-integrity` se activó con autorización explícita del propietario y está verificado como real, no solo documentado:
 
-Ningún documento debe decir que `main` ya está protegido hasta que el ruleset se active y se haga la prueba conductual.
+```text
+GET /repos/davidpd89/web-escritor/rules/branches/main
+  -> deletion: ON
+  -> non_fast_forward (block force pushes): ON
+  -> pull_request: required_approving_review_count=0
+  -> required_status_checks: Required merge gate, public-artifact-contract,
+     reflow-sitewide, pa11y-baseline
+current_user_can_bypass: never
+```
+
+Esta gobernanza es **CONFIGURED_LIVE** (`data/implementation-truth-ledger.json`), no `VERIFIED_E2E` todavía: se ha demostrado Caso A (push directo bloqueado) y Caso C (PR verde #125 mergeada por el agente sin intervención del propietario, bajo el ruleset ya activo), pero no Caso B (un required check deliberadamente en rojo debe bloquear el merge) -- no inflar el estado más allá de la evidencia real.
+
+Nota operativa: el endpoint clásico `GET /repos/.../branches/main/protection` sigue devolviendo 404 "Branch not protected" -- eso es un falso negativo esperado (ese endpoint no ve rulesets nuevos), no una señal de que el ruleset no esté activo. Consultar siempre `/rules/branches/main`.
 
 ## 10. Corrección sobre `.claude/settings.local.json`
 
 La rama original observó correctamente que `.claude/settings.local.json` estaba versionado con permisos/rutas locales.
 
-La PR #115 ya implementa:
+La PR #115 implementó:
 
 - eliminación del fichero versionado;
 - exclusión en `.gitignore`.
 
-Pero #115 sigue abierta.
+#115 está mergeada (actualizado 27/08/2026). #115 también introdujo, sin querer, una regresión real: borró `/herramientas/auditor-web/` y `/publicar-web/`, que `tests/test-tools-hub-public-registry.py` exige preservar como rutas internas noindex -- ese contrato no se disparó porque esas rutas no estaban en el filtro de paths de `tool-tests.yml`. PR #123 restauró los ficheros; PR #125 amplió el filtro de paths para que el mismo patrón de regresión no pueda volver a entrar en silencio.
 
 Estado correcto:
 
 ```text
 DOCUMENTED: yes
-IMPLEMENTED-IN-PR: yes (#115)
-MERGED-MAIN: no
+IMPLEMENTED-IN-PR: no (ya mergeada)
+MERGED-MAIN: yes (#115, con regresión detectada y corregida por #123/#125)
 ```
 
 No duplicar la corrección en esta PR.
@@ -368,6 +380,12 @@ Regla:
 > No ejecutar `npm audit fix --force` como respuesta automática a un contador.
 
 Se debe abrir una auditoría separada de dependencias con evidencia.
+
+### Actualización (27/08/2026): esa auditoría ya se hizo
+
+Las 13 advisories viven todas en dependencias transitivas de `@lhci/cli` y `pa11y-ci` (`extract-zip`, `tmp`, `uuid`, `inquirer`/`external-editor`, `puppeteer`/`puppeteer-core`/`@puppeteer/browsers`, `lighthouse`). Ambos paquetes directos ya están en su última versión publicada (`@lhci/cli@0.15.1`, `pa11y-ci@4.1.1`) y ambos fijan internamente las versiones transitivas señaladas -- no existe upgrade seguro hoy; `npm audit fix --force` solo forzaría un downgrade a versiones de hace años (0.1.0/3.1.0), que no es una mejora. Ninguna de las rutas de codigo señaladas (extracción de archivos durante la instalación de binarios de navegador, prompts interactivos de CLI, edge case de buffer en `uuid`) es alcanzable en cómo este repo invoca estas herramientas (no interactivo, en CI, contra las propias páginas del sitio).
+
+De paso se encontró y corrigió una inconsistencia real relacionada: 3 workflows (`analytics-taxonomy-qa.yml`, `csp-public-shell-qa.yml`, `manecillas-funnel-qa.yml`) instalaban Playwright 1.55.0 ad-hoc en vez de usar el 1.62.1 pinneado en `package.json` -- exactamente la inconsistencia que ese fichero dice evitar. Unificado en PR #127.
 
 ## 12. Herramientas de diseño vs problemas actuales
 

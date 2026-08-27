@@ -5,7 +5,12 @@
   "cutoff": "2026-08-27",
   "principles": {
     "defaultSource": "official-or-vendor",
-    "authPreference": ["oauth", "keychain", "scoped-api-key", "anonymous"],
+    "authPreference": [
+      "oauth",
+      "keychain",
+      "scoped-api-key",
+      "anonymous"
+    ],
     "secretInRepository": false,
     "productionWriteRequiresExplicitAuthorization": true,
     "installEverything": false
@@ -22,8 +27,18 @@
       "auth": "none",
       "secret": null,
       "uniqueValue": "Current web-platform guidance, Baseline and progressive enhancement without external API calls.",
-      "useWhen": ["CSS", "HTML", "Web APIs", "responsive", "performance", "accessibility"],
-      "avoidWhen": ["editorial facts", "design taste"],
+      "useWhen": [
+        "CSS",
+        "HTML",
+        "Web APIs",
+        "responsive",
+        "performance",
+        "accessibility"
+      ],
+      "avoidWhen": [
+        "editorial facts",
+        "design taste"
+      ],
       "source": "https://claude.com/plugins/modern-web-guidance",
       "lastVerified": "2026-08-27"
     },
@@ -38,8 +53,17 @@
       "auth": "local-browser",
       "secret": null,
       "uniqueValue": "Live DOM/CSS/browser/network/performance evidence and mobile emulation.",
-      "useWhen": ["visual diagnosis", "performance trace", "network", "console", "DOM", "screenshots"],
-      "avoidWhen": ["claiming real iOS behavior without real-device validation"],
+      "useWhen": [
+        "visual diagnosis",
+        "performance trace",
+        "network",
+        "console",
+        "DOM",
+        "screenshots"
+      ],
+      "avoidWhen": [
+        "claiming real iOS behavior without real-device validation"
+      ],
       "source": "https://claude.com/plugins/chrome-devtools-mcp",
       "lastVerified": "2026-08-27"
     },
@@ -54,8 +78,16 @@
       "auth": "none-local",
       "secret": null,
       "uniqueValue": "Deterministic browser journeys and accessibility-tree interaction.",
-      "useWhen": ["navigation", "forms", "dialogs", "assertions", "browser journeys"],
-      "avoidWhen": ["replacing versioned Playwright CI tests"],
+      "useWhen": [
+        "navigation",
+        "forms",
+        "dialogs",
+        "assertions",
+        "browser journeys"
+      ],
+      "avoidWhen": [
+        "replacing versioned Playwright CI tests"
+      ],
       "source": "https://claude.com/plugins/playwright",
       "lastVerified": "2026-08-27"
     },
@@ -70,8 +102,17 @@
       "auth": "official-provider-auth",
       "secret": null,
       "uniqueValue": "Direct repository, PR, issue and workflow state.",
-      "useWhen": ["PR review", "CI", "repo search", "issues", "commits"],
-      "avoidWhen": ["automatic merge", "broad mutation without task"],
+      "useWhen": [
+        "PR review",
+        "CI",
+        "repo search",
+        "issues",
+        "commits"
+      ],
+      "avoidWhen": [
+        "automatic merge",
+        "broad mutation without task"
+      ],
       "source": "https://claude.com/plugins/",
       "lastVerified": "2026-08-27"
     },
@@ -86,8 +127,12 @@
       "auth": "none",
       "secret": null,
       "uniqueValue": "Pre-write warnings for common injection and unsafe-code patterns.",
-      "useWhen": ["all code editing"],
-      "avoidWhen": ["treating no warning as security certification"],
+      "useWhen": [
+        "all code editing"
+      ],
+      "avoidWhen": [
+        "treating no warning as security certification"
+      ],
       "source": "https://claude.com/plugins/security-guidance",
       "lastVerified": "2026-08-27"
     },
@@ -102,10 +147,17 @@
       "auth": "none",
       "secret": null,
       "uniqueValue": "Definitions, references and diagnostics for JS/TS including .js and .mjs.",
-      "useWhen": ["JavaScript", "MJS", "refactor"],
-      "avoidWhen": ["replacing runtime tests"],
+      "useWhen": [
+        "JavaScript",
+        "MJS",
+        "refactor"
+      ],
+      "avoidWhen": [
+        "replacing runtime tests"
+      ],
       "source": "https://claude.com/plugins/typescript-lsp",
-      "lastVerified": "2026-08-27"
+      "lastVerified": "2026-08-27",
+      "prerequisites": "Este repo no tiene tsconfig.json ni jsconfig.json. Sin uno, el LSP puede operar en modo degradado por-fichero (sin resolucion de modulos a nivel de proyecto) sobre assets/*.js y qa/*.mjs. Si se instala, crear un jsconfig.json minimo (checkJs:false, allowJs:true) es un prerequisito real para el valor completo, no un detalle opcional."
     },
     {
       "id": "pyright-lsp",
@@ -118,10 +170,17 @@
       "auth": "none",
       "secret": null,
       "uniqueValue": "Python diagnostics and type intelligence without execution.",
-      "useWhen": ["Python scripts", "Python tests", "builders"],
-      "avoidWhen": ["forcing full typing rewrite"],
+      "useWhen": [
+        "Python scripts",
+        "Python tests",
+        "builders"
+      ],
+      "avoidWhen": [
+        "forcing full typing rewrite"
+      ],
       "source": "https://claude.com/plugins/pyright-lsp",
-      "lastVerified": "2026-08-27"
+      "lastVerified": "2026-08-27",
+      "prerequisites": "Este repo tiene scripts Python sueltos en scripts/ y tests/ sin un pyproject.toml/paquete formal. Pyright funciona sin configuracion sobre ficheros individuales, pero sin un pyrightconfig.json o pyproject.toml no hay resolucion de imports entre scripts/ y tests/ a nivel de proyecto -- verificar antes de asumir cobertura completa."
     },
     {
       "id": "claude-md-management",
@@ -134,8 +193,14 @@
       "auth": "none",
       "secret": null,
       "uniqueValue": "Audit and curate durable project memory.",
-      "useWhen": ["after major phases", "project onboarding", "memory cleanup"],
-      "avoidWhen": ["turning CLAUDE.md into session log"],
+      "useWhen": [
+        "after major phases",
+        "project onboarding",
+        "memory cleanup"
+      ],
+      "avoidWhen": [
+        "turning CLAUDE.md into session log"
+      ],
       "source": "https://claude.com/plugins/claude-md-management",
       "lastVerified": "2026-08-27"
     },
@@ -150,8 +215,14 @@
       "auth": "none",
       "secret": null,
       "uniqueValue": "Create, evaluate, improve and benchmark project-specific Skills.",
-      "useWhen": ["project skill creation", "evals", "benchmarks"],
-      "avoidWhen": ["assuming a skill is better without eval"],
+      "useWhen": [
+        "project skill creation",
+        "evals",
+        "benchmarks"
+      ],
+      "avoidWhen": [
+        "assuming a skill is better without eval"
+      ],
       "source": "https://claude.com/plugins/skill-creator",
       "lastVerified": "2026-08-27"
     },
@@ -166,8 +237,15 @@
       "auth": "none",
       "secret": null,
       "uniqueValue": "Project guardrails without custom hook code.",
-      "useWhen": ["no-main", "no-secrets", "deploy warnings", "QA reminders"],
-      "avoidWhen": ["unreviewed auto-generated blocking rules"],
+      "useWhen": [
+        "no-main",
+        "no-secrets",
+        "deploy warnings",
+        "QA reminders"
+      ],
+      "avoidWhen": [
+        "unreviewed auto-generated blocking rules"
+      ],
       "source": "https://claude.com/plugins/hookify",
       "lastVerified": "2026-08-27"
     },
@@ -182,8 +260,13 @@
       "auth": "none",
       "secret": null,
       "uniqueValue": "Six targeted PR review agents for tests, failures, comments, types and simplification.",
-      "useWhen": ["pre-PR review", "targeted code review"],
-      "avoidWhen": ["running every agent on every trivial diff"],
+      "useWhen": [
+        "pre-PR review",
+        "targeted code review"
+      ],
+      "avoidWhen": [
+        "running every agent on every trivial diff"
+      ],
       "source": "https://claude.com/plugins/pr-review-toolkit",
       "lastVerified": "2026-08-27"
     },
@@ -198,8 +281,13 @@
       "auth": "anonymous-first-api-key-optional",
       "secret": "CONTEXT7_API_KEY optional",
       "uniqueValue": "Current version-specific library documentation.",
-      "useWhen": ["library API changed", "version-specific docs"],
-      "avoidWhen": ["replacing vendor primary docs for policy"],
+      "useWhen": [
+        "library API changed",
+        "version-specific docs"
+      ],
+      "avoidWhen": [
+        "replacing vendor primary docs for policy"
+      ],
       "source": "https://claude.com/plugins/",
       "lastVerified": "2026-08-27"
     },
@@ -214,8 +302,13 @@
       "auth": "none",
       "secret": null,
       "uniqueValue": "Read-only meta-audit of useful MCPs, skills, hooks and agents for a codebase.",
-      "useWhen": ["quarterly tool audit", "major stack change"],
-      "avoidWhen": ["auto-installing every recommendation"],
+      "useWhen": [
+        "quarterly tool audit",
+        "major stack change"
+      ],
+      "avoidWhen": [
+        "auto-installing every recommendation"
+      ],
       "source": "https://claude.com/plugins/claude-code-setup",
       "lastVerified": "2026-08-27"
     },
@@ -230,8 +323,13 @@
       "auth": "none",
       "secret": null,
       "uniqueValue": "Generate non-generic frontend hypotheses under explicit constraints.",
-      "useWhen": ["controlled design exploration"],
-      "avoidWhen": ["whole-site redesign prompt", "design authority"],
+      "useWhen": [
+        "controlled design exploration"
+      ],
+      "avoidWhen": [
+        "whole-site redesign prompt",
+        "design authority"
+      ],
       "source": "https://claude.com/plugins/frontend-design",
       "lastVerified": "2026-08-27"
     },
@@ -246,8 +344,15 @@
       "auth": "oauth",
       "secret": null,
       "uniqueValue": "Structured design context, variables/components, canvas read/write and design-to-code workflows.",
-      "useWhen": ["design lab", "tokens", "redlines", "design context"],
-      "avoidWhen": ["treating Figma as browser QA"],
+      "useWhen": [
+        "design lab",
+        "tokens",
+        "redlines",
+        "design context"
+      ],
+      "avoidWhen": [
+        "treating Figma as browser QA"
+      ],
       "source": "https://developers.figma.com/docs/figma-mcp-server/remote-server-installation/",
       "lastVerified": "2026-08-27"
     },
@@ -262,8 +367,14 @@
       "auth": "none",
       "secret": null,
       "uniqueValue": "Self-contained interactive prototypes before touching production.",
-      "useWhen": ["layout hypothesis", "motion prototype", "component exploration"],
-      "avoidWhen": ["copying prototype directly to production"],
+      "useWhen": [
+        "layout hypothesis",
+        "motion prototype",
+        "component exploration"
+      ],
+      "avoidWhen": [
+        "copying prototype directly to production"
+      ],
       "source": "https://github.com/anthropics/claude-plugins-official",
       "lastVerified": "2026-08-27"
     },
@@ -278,8 +389,16 @@
       "auth": "oauth-preferred-or-access-key",
       "secret": "BROWSERSTACK_USERNAME/BROWSERSTACK_ACCESS_KEY for local only",
       "uniqueValue": "Real iOS/Android/browser device cloud and testing workflows.",
-      "useWhen": ["real-device QA", "Safari iOS", "Android", "orientation", "touch"],
-      "avoidWhen": ["duplicating local Chromium tests"],
+      "useWhen": [
+        "real-device QA",
+        "Safari iOS",
+        "Android",
+        "orientation",
+        "touch"
+      ],
+      "avoidWhen": [
+        "duplicating local Chromium tests"
+      ],
       "source": "https://www.browserstack.com/docs/browserstack-mcp-server/overview",
       "lastVerified": "2026-08-27"
     },
@@ -294,8 +413,12 @@
       "auth": "oauth-preferred-or-api-key",
       "secret": "AXE_API_KEY fallback",
       "uniqueValue": "Deque accessibility analyze-remediate-verify workflow inside agent.",
-      "useWhen": ["specialized accessibility pilot"],
-      "avoidWhen": ["duplicating Pa11y without incremental value"],
+      "useWhen": [
+        "specialized accessibility pilot"
+      ],
+      "avoidWhen": [
+        "duplicating Pa11y without incremental value"
+      ],
       "source": "https://github.com/dequelabs/axe-accessibility",
       "lastVerified": "2026-08-27"
     },
@@ -310,8 +433,12 @@
       "auth": "reverify",
       "secret": null,
       "uniqueValue": "Potential accessibility workflow across Figma/live URL/source.",
-      "useWhen": ["accessibility pilot after availability check"],
-      "avoidWhen": ["assuming current Claude Code install method"],
+      "useWhen": [
+        "accessibility pilot after availability check"
+      ],
+      "avoidWhen": [
+        "assuming current Claude Code install method"
+      ],
       "source": "vendor documentation to reverify",
       "lastVerified": "2026-08-27"
     },
@@ -326,8 +453,16 @@
       "auth": "official-login-or-scoped-token",
       "secret": "CLOUDFLARE_API_TOKEN only if needed",
       "uniqueValue": "Current Workers/Wrangler/Cloudflare product guidance and operations.",
-      "useWhen": ["Worker", "Wrangler", "Cloudflare diagnostics"],
-      "avoidWhen": ["unauthorized deploy", "DNS mutation", "secret mutation"],
+      "useWhen": [
+        "Worker",
+        "Wrangler",
+        "Cloudflare diagnostics"
+      ],
+      "avoidWhen": [
+        "unauthorized deploy",
+        "DNS mutation",
+        "secret mutation"
+      ],
       "source": "https://developers.cloudflare.com/agent-setup/claude-code/",
       "lastVerified": "2026-08-27"
     },
@@ -342,8 +477,13 @@
       "auth": "none",
       "secret": null,
       "uniqueValue": "Structured multi-phase feature development with explorer/architect/reviewer.",
-      "useWhen": ["large feature", "architecture change"],
-      "avoidWhen": ["tiny CSS/content fix"],
+      "useWhen": [
+        "large feature",
+        "architecture change"
+      ],
+      "avoidWhen": [
+        "tiny CSS/content fix"
+      ],
       "source": "https://claude.com/plugins/feature-dev",
       "lastVerified": "2026-08-27"
     },
@@ -358,8 +498,13 @@
       "auth": "none",
       "secret": null,
       "uniqueValue": "Systematic debugging, TDD, brainstorming and subagent workflows.",
-      "useWhen": ["hard debugging", "structured development"],
-      "avoidWhen": ["ceremony on trivial change"],
+      "useWhen": [
+        "hard debugging",
+        "structured development"
+      ],
+      "avoidWhen": [
+        "ceremony on trivial change"
+      ],
       "source": "https://claude.com/plugins/superpowers",
       "lastVerified": "2026-08-27"
     },
@@ -374,8 +519,12 @@
       "auth": "none",
       "secret": null,
       "uniqueValue": "Targeted code clarity improvements preserving behavior.",
-      "useWhen": ["post-refactor JS/Python"],
-      "avoidWhen": ["bulk V1 CSS simplification"],
+      "useWhen": [
+        "post-refactor JS/Python"
+      ],
+      "avoidWhen": [
+        "bulk V1 CSS simplification"
+      ],
       "source": "https://claude.com/plugins/code-simplifier",
       "lastVerified": "2026-08-27"
     },
@@ -390,8 +539,12 @@
       "auth": "none-or-provider-specific",
       "secret": null,
       "uniqueValue": "Multi-agent confidence-filtered PR review.",
-      "useWhen": ["A/B against PR Review Toolkit"],
-      "avoidWhen": ["duplicating every review on every PR"],
+      "useWhen": [
+        "A/B against PR Review Toolkit"
+      ],
+      "avoidWhen": [
+        "duplicating every review on every PR"
+      ],
       "source": "https://claude.com/plugins/code-review",
       "lastVerified": "2026-08-27"
     },
@@ -406,8 +559,15 @@
       "auth": "claude-account",
       "secret": null,
       "uniqueValue": "Adversarial security review for sensitive changes.",
-      "useWhen": ["Worker", "webhook", "input handling", "release security"],
-      "avoidWhen": ["every visual microchange"],
+      "useWhen": [
+        "Worker",
+        "webhook",
+        "input handling",
+        "release security"
+      ],
+      "avoidWhen": [
+        "every visual microchange"
+      ],
       "source": "https://claude.com/plugins/",
       "lastVerified": "2026-08-27"
     },
@@ -422,8 +582,12 @@
       "auth": "local-or-service-token-depending-mode",
       "secret": "service token only if SaaS mode",
       "uniqueValue": "Deterministic SAST rules for JS/Python/YAML and security patterns.",
-      "useWhen": ["security scanner pilot"],
-      "avoidWhen": ["scanner soup"],
+      "useWhen": [
+        "security scanner pilot"
+      ],
+      "avoidWhen": [
+        "scanner soup"
+      ],
       "source": "vendor official documentation",
       "lastVerified": "2026-08-27"
     },
@@ -438,8 +602,12 @@
       "auth": "requires-platform",
       "secret": null,
       "uniqueValue": "Broad quality and security governance.",
-      "useWhen": ["organization adopts Sonar platform"],
-      "avoidWhen": ["adding a dashboard without a governance need"],
+      "useWhen": [
+        "organization adopts Sonar platform"
+      ],
+      "avoidWhen": [
+        "adding a dashboard without a governance need"
+      ],
       "source": "vendor official documentation",
       "lastVerified": "2026-08-27"
     },
@@ -454,8 +622,12 @@
       "auth": "api-key",
       "secret": "vendor token",
       "uniqueValue": "SAST, secrets and IaC scanning.",
-      "useWhen": ["only if selected instead of other scanner"],
-      "avoidWhen": ["scanner duplication"],
+      "useWhen": [
+        "only if selected instead of other scanner"
+      ],
+      "avoidWhen": [
+        "scanner duplication"
+      ],
       "source": "vendor official repository/documentation",
       "lastVerified": "2026-08-27"
     },
@@ -470,8 +642,12 @@
       "auth": "local",
       "secret": null,
       "uniqueValue": "Symbol-level semantic code navigation/refactoring.",
-      "useWhen": ["cross-file JS/Python refactor"],
-      "avoidWhen": ["simple HTML/CSS task"],
+      "useWhen": [
+        "cross-file JS/Python refactor"
+      ],
+      "avoidWhen": [
+        "simple HTML/CSS task"
+      ],
       "source": "upstream project documentation",
       "lastVerified": "2026-08-27"
     },
@@ -486,8 +662,14 @@
       "auth": "api-key",
       "secret": "FIRECRAWL_API_KEY",
       "uniqueValue": "Structured crawl/map/scrape/search for research.",
-      "useWhen": ["reference architecture research", "vendor doc mapping"],
-      "avoidWhen": ["copying designs", "bulk scraping without purpose"],
+      "useWhen": [
+        "reference architecture research",
+        "vendor doc mapping"
+      ],
+      "avoidWhen": [
+        "copying designs",
+        "bulk scraping without purpose"
+      ],
       "source": "vendor official documentation",
       "lastVerified": "2026-08-27"
     },
@@ -502,8 +684,13 @@
       "auth": "api-key-or-provider-auth",
       "secret": "EXA_API_KEY if required",
       "uniqueValue": "Deep semantic web research and source discovery.",
-      "useWhen": ["hard research queries", "source discovery"],
-      "avoidWhen": ["treating retrieval as primary-source verification"],
+      "useWhen": [
+        "hard research queries",
+        "source discovery"
+      ],
+      "avoidWhen": [
+        "treating retrieval as primary-source verification"
+      ],
       "source": "vendor official documentation",
       "lastVerified": "2026-08-27"
     },
@@ -518,8 +705,15 @@
       "auth": "oauth-provider-flow",
       "secret": null,
       "uniqueValue": "Media/social/press design editing and brand feedback with preview/approve.",
-      "useWhen": ["social assets", "press assets", "brand-check", "resizes"],
-      "avoidWhen": ["web responsive layout authority"],
+      "useWhen": [
+        "social assets",
+        "press assets",
+        "brand-check",
+        "resizes"
+      ],
+      "avoidWhen": [
+        "web responsive layout authority"
+      ],
       "source": "https://claude.com/plugins/canva",
       "lastVerified": "2026-08-27"
     },
@@ -534,8 +728,15 @@
       "auth": "vendor-account",
       "secret": null,
       "uniqueValue": "Professional image editing, vectorization and retouch workflows.",
-      "useWhen": ["real asset retouch", "vectorization", "background removal"],
-      "avoidWhen": ["fake documentary imagery", "web layout authority"],
+      "useWhen": [
+        "real asset retouch",
+        "vectorization",
+        "background removal"
+      ],
+      "avoidWhen": [
+        "fake documentary imagery",
+        "web layout authority"
+      ],
       "source": "https://github.com/adobe/skills",
       "lastVerified": "2026-08-27"
     },
@@ -550,8 +751,12 @@
       "auth": "oauth-or-token",
       "secret": null,
       "uniqueValue": "Product analytics, experiments, surveys and error context.",
-      "useWhen": ["only after product/privacy adoption"],
-      "avoidWhen": ["adding tracking just to give Claude data"],
+      "useWhen": [
+        "only after product/privacy adoption"
+      ],
+      "avoidWhen": [
+        "adding tracking just to give Claude data"
+      ],
       "source": "vendor official documentation",
       "lastVerified": "2026-08-27"
     },
@@ -566,8 +771,12 @@
       "auth": "provider-account",
       "secret": null,
       "uniqueValue": "Runtime error and trace investigation if Sentry is adopted by the site.",
-      "useWhen": ["real production error-observability need"],
-      "avoidWhen": ["introducing SDK solely because plugin exists"],
+      "useWhen": [
+        "real production error-observability need"
+      ],
+      "avoidWhen": [
+        "introducing SDK solely because plugin exists"
+      ],
       "source": "vendor official documentation",
       "lastVerified": "2026-08-27"
     },
@@ -583,7 +792,9 @@
       "secret": null,
       "uniqueValue": "Browser automation, but redundant for current stack.",
       "useWhen": [],
-      "avoidWhen": ["Chrome DevTools + Playwright already cover need"],
+      "avoidWhen": [
+        "Chrome DevTools + Playwright already cover need"
+      ],
       "source": "vendor official documentation",
       "lastVerified": "2026-08-27"
     },
@@ -598,8 +809,12 @@
       "auth": "varies",
       "secret": null,
       "uniqueValue": "Secondary SEO checks only.",
-      "useWhen": ["cross-check after primary SEO sources"],
-      "avoidWhen": ["using proprietary score as authority"],
+      "useWhen": [
+        "cross-check after primary SEO sources"
+      ],
+      "avoidWhen": [
+        "using proprietary score as authority"
+      ],
       "source": "vendor/plugin documentation",
       "lastVerified": "2026-08-27"
     },
@@ -614,10 +829,16 @@
       "auth": "none",
       "secret": null,
       "uniqueValue": "Reassess tool gaps without blindly adding new plugins.",
-      "useWhen": ["quarterly", "major architecture change"],
-      "avoidWhen": ["every session"],
+      "useWhen": [
+        "quarterly",
+        "major architecture change"
+      ],
+      "avoidWhen": [
+        "every session"
+      ],
       "source": "docs/claude-toolbox/12-RUNBOOK-INSTALACION-CLAUDE.md",
       "lastVerified": "2026-08-27"
     }
-  ]
+  ],
+  "relatedCatalog": "docs/design-ux-tooling/tools-catalog.json cubre el mismo tipo de herramientas con foco estrecho en diseno/UX/QA visual (RECOMMENDED/PILOT/DEFER/NOT_APPLICABLE), creado el mismo dia que este refresco. No son la misma fuente de verdad: si un tool aparece en ambos (chrome-devtools-mcp, playwright, figma, browserstack, axe, canva), y los dos catalogos alguna vez discrepan, este fichero (mas amplio, agent-tooling general) es la autoridad de instalacion real; el otro es la autoridad de contexto de diseno especifico."
 }
