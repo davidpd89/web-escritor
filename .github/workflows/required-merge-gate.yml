@@ -28,6 +28,9 @@ jobs:
         with:
           node-version: '22'
 
+      - name: Validate release smoke syntax
+        run: node --check tests/test-staging-smoke.mjs
+
       - name: Generate consolidated static release evidence
         run: python scripts/release-readiness.py --output .ci/release-readiness.md
 
