@@ -29,7 +29,7 @@ jobs:
           node-version: '22'
 
       - name: Generate consolidated static release evidence
-        run: python scripts/release-readiness.py --output "$RUNNER_TEMP/release-readiness.md"
+        run: python scripts/release-readiness.py --output .ci/release-readiness.md
 
       - name: Verify generated site shell is current
         run: python scripts/build-site-shell.py --check
@@ -63,6 +63,6 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: required-merge-gate-evidence
-          path: ${{ runner.temp }}/release-readiness.md
+          path: .ci/release-readiness.md
           if-no-files-found: warn
           retention-days: 14
