@@ -60,10 +60,18 @@ html.v1 .article-deck{max-width:58ch;margin:0;font-family:var(--font-reading);fo
 html.v1 .article-meta{align-self:end;border-left:1px solid var(--color-border);padding-left:clamp(1rem,2vw,2rem);font-size:var(--text-xs);color:var(--color-muted)}
 html.v1 .article-meta p{margin:.4rem 0}
 html.v1 .article-meta a{color:var(--color-text)}
-/* min-height reserves the row's height before script.js reveals the
-   [hidden] share/print buttons -- without it the empty flex container
-   collapses to 0 and then jumps to 44px on reveal, a layout shift. */
+/* min-height reserves the row's height before v1-editorial.js reveals the
+   share/print buttons -- without it the empty flex container collapses to 0
+   and then jumps to 44px on reveal, a layout shift. That alone left the
+   *width* uncovered: buttons using the [hidden] attribute contribute zero
+   width to the flex row too, so it still collapsed sideways (down to the
+   width of the empty status span) and then jumped wide once JS cleared
+   [hidden] -- the actual CLS source measured on the recommendations pages.
+   [data-js-pending] buttons stay in normal flow (real width from first
+   paint) but visibility:hidden until v1-editorial.js clears the attribute,
+   so the reveal repaints in place with no box-model change left to shift. */
 html.v1 .article-utilities{display:flex;flex-wrap:wrap;gap:1.1rem;margin-top:1.25rem;min-height:44px}
+html.v1 .article-utilities [data-js-pending]{visibility:hidden}
 html.v1 .article-share-status{min-width:1px;font-size:var(--text-xs);color:var(--color-muted)}
 html.v1 .article-print-source{display:none}
 

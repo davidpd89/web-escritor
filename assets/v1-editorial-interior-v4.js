@@ -123,14 +123,27 @@
 
     const links = document.createElement('div');
     links.className = 'section-context__links';
-    context.links.forEach(([href, label]) => {
-      const link = document.createElement('a');
-      link.href = href;
-      link.textContent = label;
+    // At most one link is ever "current": an exact match always wins over a
+    // family/prefix match, and among family matches only the longest (most
+    // specific) prefix qualifies. Scoring every link independently used to
+    // let an exact match ("El libro") and its own ancestor family link
+    // ("← Obras") both claim aria-current="page" on the same page.
+    const scored = context.links.map(([href, label]) => {
       const linkPath = normalise(href);
       const exact = currentPath === linkPath;
-      const familyCurrent = !exact && linkPath.endsWith('/') && linkPath !== '/' && currentPath.startsWith(linkPath);
-      if (exact || familyCurrent) link.setAttribute('aria-current', 'page');
+      const familyMatch = !exact && linkPath.endsWith('/') && linkPath !== '/' && currentPath.startsWith(linkPath);
+      return { href, label, linkPath, exact, familyMatch };
+    });
+    const exactMatch = scored.find((item) => item.exact);
+    const bestFamilyMatch = !exactMatch && scored
+      .filter((item) => item.familyMatch)
+      .sort((a, b) => b.linkPath.length - a.linkPath.length)[0];
+    const currentItem = exactMatch || bestFamilyMatch || null;
+    scored.forEach((item) => {
+      const link = document.createElement('a');
+      link.href = item.href;
+      link.textContent = item.label;
+      if (item === currentItem) link.setAttribute('aria-current', 'page');
       links.append(link);
     });
 

@@ -38,12 +38,28 @@
   }
   html.v1 .section-context__inner{
     min-width:0;
+    /* Base layout (assets/v1-editorial-interior-v4.css) is a 2-column grid,
+       `auto minmax(0,1fr)` -- title column sized to its own content, links
+       column takes the rest. min-width:0 alone only lets the *links* column
+       shrink; the title's `auto` track never does, so a long title (e.g.
+       "Samuel entre mundos") at 200% zoom can by itself claim close to the
+       full viewport width, leaving ~0px for links and pushing their wrapped
+       content out the right edge (confirmed on libros/samuel-entre-mundos/,
+       universo/noveris/ and clubes-de-lectura/samuel-entre-mundos/ alike --
+       this was never page-specific). Stacking to one column removes the
+       competition entirely instead of trying to out-shrink an auto track.
+       Sitewide reflow QA is what caught the width fix already covered
+       here for the wrong root cause; this is the actual missing piece. */
+    grid-template-columns:minmax(0,1fr);
   }
   html.v1 .section-context__title{
     min-width:0;
     white-space:normal;
     overflow-wrap:anywhere;
     line-height:1.2;
+    border-right:0;
+    padding:.5rem 0 0;
+    margin-right:0;
   }
   html.v1 .section-context__links{
     min-width:0;

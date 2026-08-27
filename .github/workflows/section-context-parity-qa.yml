@@ -1,0 +1,55 @@
+name: Section context parity QA
+
+# .section-context is pre-rendered by hand on a few pages (to avoid a CLS
+# regression from inserting it via JS after first paint -- see PR #129) and
+# also generated at runtime by assets/v1-editorial-interior-v4.js's
+# buildContextNav() on every other page sharing an editorial context. That
+# is two copies of the same output; qa/section-context-parity.mjs derives
+# the JS-generated version fresh and diffs it against each pre-rendered
+# copy so they can't silently drift. This needs Playwright (a real page,
+# real script execution), which is why it lives in qa/ with its own
+# npm ci + browser setup rather than in tests/ (those are dependency-free
+# by design -- see .github/workflows/tool-tests.yml).
+
+on:
+  pull_request:
+    paths:
+      - 'assets/v1-editorial-interior-v4.js'
+      - 'assets/v1-editorial-interior-v4.css'
+      - 'libros/samuel-entre-mundos/index.html'
+      - 'recomendaciones/magia-con-coste/index.html'
+      - 'recomendaciones/portal-fantasy-espanol/index.html'
+      - 'universo/noveris/index.html'
+      - 'clubes-de-lectura/samuel-entre-mundos/index.html'
+      - 'qa/section-context-parity.mjs'
+      - '.github/workflows/section-context-parity-qa.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  parity:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Install CI/QA dependencies (Node)
+        run: npm ci
+      - name: Cache Playwright browsers
+        id: playwright-cache
+        uses: actions/cache@v4
+        with:
+          path: ~/.cache/ms-playwright
+          key: playwright-chromium-${{ hashFiles('package-lock.json') }}
+      - name: Install Playwright Chromium (with OS deps)
+        if: steps.playwright-cache.outputs.cache-hit != 'true'
+        run: npx playwright install --with-deps chromium
+      - name: Install Playwright OS deps only (browser cached)
+        if: steps.playwright-cache.outputs.cache-hit == 'true'
+        run: npx playwright install-deps chromium
+      - name: Run section-context parity check
+        run: node qa/section-context-parity.mjs
