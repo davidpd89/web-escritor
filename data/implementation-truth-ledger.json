@@ -43,8 +43,8 @@
       "id": "production-release-integrity",
       "title": "PR obligatoria → CI → deploy → producción verificada",
       "area": "release-security",
-      "stage": "MERGED_MAIN",
-      "owner": "PR #116 (merged)",
+      "stage": "CONFIGURED_LIVE",
+      "owner": "PR #116 (merged) + ruleset activado manualmente 2026-08-27",
       "evidence": [
         "https://github.com/davidpd89/web-escritor/pull/116",
         ".github/workflows/required-merge-gate.yml",
@@ -52,11 +52,16 @@
         "scripts/stamp-release-identity.py",
         "tests/test-release-identity.py",
         "tests/test-staging-smoke.mjs",
-        "https://github.com/davidpd89/web-escritor/pull/125"
+        "https://github.com/davidpd89/web-escritor/pull/125",
+        "https://github.com/davidpd89/web-escritor/rulesets/21661257"
       ],
-      "externalEvidence": [],
-      "falseCompletionTrap": "Estar en main solo prueba que el codigo del gate/release marker existe. main sigue protected:false y sin required status checks: nada bloquea todavia un merge directo o sin CI verde.",
-      "nextAction": "Configurar y probar el ruleset real de main segun docs/production-integrity/02-RULESET-MAIN-Y-CHECKS-OBLIGATORIOS.md (PR obligatoria, checks minimos obligatorios, 0 aprobaciones requeridas, force-push/deletion bloqueados) solo con autorizacion/capacidad de cuenta adecuada; luego probar conducta real (push directo rechazado, PR verde mergeable sin aprobacion manual).",
+      "externalEvidence": [
+        "GET /repos/davidpd89/web-escritor/rules/branches/main (2026-08-27) devuelve las 4 reglas activas del ruleset 21661257.",
+        "Caso C real: PR #125 (green, required checks OK) mergeada por el agente via `gh pr merge` sin aprobacion ni accion manual del propietario, con el ruleset ya activo.",
+        "Caso A real: un intento de `git push origin main` directo fue bloqueado por el propio harness del agente antes de llegar a GitHub -- refuerza la misma politica, no la sustituye; el ruleset por si solo tambien lo habria rechazado via `non_fast_forward`/`pull_request` required."
+      ],
+      "falseCompletionTrap": "El ruleset existe y esta activo (verificado via GET /repos/.../rules/branches/main), pero solo se ha demostrado Caso A (push directo bloqueado por el propio harness antes de llegar a GitHub) y Caso C (PR verde #125 mergeada por el agente sin intervencion del propietario, bajo el ruleset ya activo). Caso B (PR con required check en rojo debe quedar bloqueada) no se ha probado explicitamente todavia -- no marcar VERIFIED_E2E hasta demostrarlo.",
+      "nextAction": "Probar Caso B explicitamente (PR con un required check deliberadamente en rojo debe quedar bloqueada para merge) antes de marcar VERIFIED_E2E. Evaluar tras un periodo de uso real si strict_required_status_checks_policy (Require branches to be up to date) debe pasar a ON, segun la guia de la seccion 8 del doc.",
       "closureCriterion": "PR mergeada; push directo normal rechazado; PR verde mergeable por agente autorizado sin aprobación rutinaria; deploy verifica por HTTP el mismo SHA.",
       "lastVerified": "2026-08-27"
     },
@@ -64,16 +69,20 @@
       "id": "github-main-ruleset",
       "title": "Protección efectiva de main",
       "area": "release-security",
-      "stage": "DOCUMENTED",
-      "owner": "PR #116",
+      "stage": "CONFIGURED_LIVE",
+      "owner": "Activado manualmente 2026-08-27, autorizado explicitamente por el propietario en chat",
       "evidence": [
-        "docs/production-integrity/02-RULESET-MAIN-Y-CHECKS-OBLIGATORIOS.md"
+        "docs/production-integrity/02-RULESET-MAIN-Y-CHECKS-OBLIGATORIOS.md",
+        "https://github.com/davidpd89/web-escritor/rulesets/21661257",
+        "GET /repos/davidpd89/web-escritor/rules/branches/main confirma 4 reglas activas: deletion, non_fast_forward, pull_request (0 aprobaciones), required_status_checks (Required merge gate, public-artifact-contract, reflow-sitewide, pa11y-baseline)"
       ],
       "externalEvidence": [
-        "GitHub branch snapshot 2026-08-27: main protected=false; no active repository ruleset observed during audit."
+        "GET /repos/davidpd89/web-escritor/rules/branches/main (2026-08-27) devuelve las 4 reglas activas del ruleset 21661257.",
+        "Caso C real: PR #125 (green, required checks OK) mergeada por el agente via `gh pr merge` sin aprobacion ni accion manual del propietario, con el ruleset ya activo.",
+        "Caso A real: un intento de `git push origin main` directo fue bloqueado por el propio harness del agente antes de llegar a GitHub -- refuerza la misma politica, no la sustituye; el ruleset por si solo tambien lo habria rechazado via `non_fast_forward`/`pull_request` required."
       ],
-      "falseCompletionTrap": "Tener una configuración recomendada en Markdown no protege la rama.",
-      "nextAction": "Mismo ruleset que production-release-integrity: aplicar solo con autorizacion explicita del propietario de la cuenta/repositorio; no marcar CONFIGURED_LIVE hasta confirmar main protected:true con los checks minimos.",
+      "falseCompletionTrap": "main protected:true segun el endpoint de rulesets, pero el endpoint clasico /branches/main/protection sigue devolviendo 404 \"Branch not protected\" -- ese endpoint no ve rulesets nuevos, es un falso negativo esperado, no un indicio de que el ruleset no este activo. Consultar siempre /rules/branches/main, no /branches/main/protection.",
+      "nextAction": "Probar Caso B (required check en rojo bloquea merge) para poder marcar VERIFIED_E2E. current_user_can_bypass=never confirmado -- ni el propio owner puede saltarselo, coherente con la regla de \"bypass no necesario para el flujo normal\".",
       "closureCriterion": "Regla activa demostrada por comportamiento, no solo por captura/config declarada.",
       "lastVerified": "2026-08-27"
     },

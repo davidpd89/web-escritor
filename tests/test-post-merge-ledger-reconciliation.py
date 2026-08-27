@@ -16,8 +16,8 @@ payload = json.loads(LEDGER.read_text(encoding="utf-8"))
 items = {item["id"]: item for item in payload.get("items", [])}
 
 expected = {
-    "production-release-integrity": "MERGED_MAIN",
-    "github-main-ruleset": "DOCUMENTED",
+    "production-release-integrity": "CONFIGURED_LIVE",
+    "github-main-ruleset": "CONFIGURED_LIVE",
     "pwa-asset-freshness": "MERGED_MAIN",
     "mobile-reflow-shared-components": "MERGED_MAIN",
     "design-ux-tooling-system": "MERGED_MAIN",
@@ -34,9 +34,17 @@ for item_id, expected_stage in expected.items():
         "after the audited #114-#124 merge batch"
     )
 
-# Keep the protection gap honest. A documented ruleset is not live protection.
+# Keep the protection gap honest. A CONFIGURED_LIVE ruleset needs real
+# evidence it exists (not just a claim), and must not silently jump to
+# VERIFIED_E2E before Case B (a red required check actually blocks merge)
+# has been demonstrated -- Case A (direct push) and Case C (agent merges a
+# green PR unattended) were verified when this stage changed; Case B is
+# still open, which is exactly why nextAction must stay explicit.
 ruleset = items["github-main-ruleset"]
-assert ruleset.get("stage") == "DOCUMENTED"
+assert ruleset.get("stage") == "CONFIGURED_LIVE"
+assert any("rulesets/" in e for e in ruleset.get("evidence", [])), (
+    "github-main-ruleset must cite the actual ruleset URL/id as evidence, not just a claim"
+)
 assert ruleset.get("nextAction"), "main ruleset gap must keep an explicit nextAction"
 
 # Merged documentation can still be incomplete. The design/tooling item should
