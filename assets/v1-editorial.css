@@ -1,16 +1,8 @@
 /* V1 editorial system — Cuaderno + Artículo family. Ported from
    lab/diseno-home-v1/css/editorial.css, scoped to html.v1.
    Archive is a ledger, never a card grid (doc 21 / cuaderno-preservation.json). */
-html.v1 .editorial-page{max-width:var(--layout-max);margin:0 auto;padding:clamp(2rem,4vw,4.5rem) var(--page-gutter) var(--section-gap)}
-/* font-size stays at the original --text-xs value (not the token's
-   reduced one) -- this and the other three overrides below the same way
-   are the last remaining above-the-fold nudges on the CLS-flagged
-   Cuaderno articles: small as each is on its own, on the shorter
-   feria-libro-madrid article they were enough to pull the whole
-   web-font-swap reflow of .article-layout further into the viewport and
-   keep it over Lighthouse's budget even after .article-prose itself was
-   reverted (see the .article-prose comment above). */
-html.v1 .editorial-breadcrumb{margin:0 0 clamp(2.5rem,5vw,5rem);font-size:clamp(.78rem,.75rem + .12vw,.86rem);color:var(--color-muted)}
+html.v1 .editorial-page{max-width:var(--layout-max);margin:0 auto;padding:clamp(1.7rem,3.4vw,3.6rem) var(--page-gutter) var(--section-gap)}
+html.v1 .editorial-breadcrumb{margin:0 0 clamp(2.5rem,5vw,5rem);font-size:var(--text-xs);color:var(--color-muted)}
 html.v1 .editorial-breadcrumb ol{display:flex;flex-wrap:wrap;gap:.4rem .65rem;list-style:none;margin:0;padding:0}
 html.v1 .editorial-breadcrumb li+li::before{content:"/";margin-right:.65rem;color:var(--color-border)}
 html.v1 .editorial-breadcrumb a{text-decoration:none}
@@ -62,40 +54,26 @@ html.v1 .article-page{position:relative}
    marker and drives it with an inline width percentage — style it as the bar
    itself rather than adding a second, competing progress implementation. */
 html.v1 .reading-progress{position:fixed;left:0;top:0;z-index:calc(var(--z-header) + 1);width:0;height:2px;background:var(--color-accent-strong);pointer-events:none}
-html.v1 .article-header{max-width:var(--layout-wide);display:grid;grid-template-columns:minmax(0,9fr) minmax(210px,3fr);gap:var(--grid-gap);padding-bottom:clamp(3rem,6vw,5.5rem);border-bottom:1px solid var(--color-border)}
-/* font-size/line-height here stay at the pre-reduction values (not the
-   ~17%/~8% cuts applied to every other display heading and lead
-   paragraph in this file) -- this element sits directly above
-   .article-layout, whose ~68ch reading column re-measures against
-   whichever font is active on font-swap, and shrinking it packed more
-   of that reflow into the fold, tipping Lighthouse's CLS budget on the
-   two longest Cuaderno articles (see .article-prose below). Revisit
-   once the fallback/webfont metrics are matched via size-adjust. */
-html.v1 .article-header h1{margin:.55rem 0 1.25rem;max-width:17ch;font-family:var(--font-display);font-size:clamp(3rem,6vw,6.5rem);font-weight:400;line-height:.94;letter-spacing:-.03em;text-wrap:balance;overflow-wrap:anywhere}
-html.v1 .article-deck{max-width:58ch;margin:0;font-family:var(--font-reading);font-size:clamp(1.25rem,1.7vw,1.65rem);line-height:1.5;color:var(--color-muted)}
-html.v1 .article-meta{align-self:end;border-left:1px solid var(--color-border);padding-left:clamp(1rem,2vw,2rem);font-size:clamp(.78rem,.75rem + .12vw,.86rem);color:var(--color-muted)}
+html.v1 .article-header{max-width:var(--layout-wide);display:grid;grid-template-columns:minmax(0,9fr) minmax(210px,3fr);gap:var(--grid-gap);padding-bottom:clamp(2.4rem,4.8vw,4.4rem);border-bottom:1px solid var(--color-border)}
+html.v1 .article-header h1{margin:.55rem 0 1.25rem;max-width:17ch;font-family:var(--font-display);font-size:clamp(2.5rem,5vw,5.4rem);font-weight:400;line-height:.94;letter-spacing:-.03em;text-wrap:balance;overflow-wrap:anywhere}
+html.v1 .article-deck{max-width:58ch;margin:0;font-family:var(--font-reading);font-size:clamp(1.15rem,1.55vw,1.5rem);line-height:1.48;color:var(--color-muted)}
+html.v1 .article-meta{align-self:end;border-left:1px solid var(--color-border);padding-left:clamp(1rem,2vw,2rem);font-size:var(--text-xs);color:var(--color-muted)}
 html.v1 .article-meta p{margin:.4rem 0}
 html.v1 .article-meta a{color:var(--color-text)}
 /* min-height reserves the row's height before script.js reveals the
    [hidden] share/print buttons -- without it the empty flex container
-   collapses to 0 and then jumps to 44px on reveal, a layout shift that
-   tipped Lighthouse's CLS budget once the surrounding headings/prose
-   shrank and packed more of the fold above this point. */
+   collapses to 0 and then jumps to 44px on reveal, a layout shift. */
 html.v1 .article-utilities{display:flex;flex-wrap:wrap;gap:1.1rem;margin-top:1.25rem;min-height:44px}
-html.v1 .article-share-status{min-width:1px;font-size:clamp(.78rem,.75rem + .12vw,.86rem);color:var(--color-muted)}
+html.v1 .article-share-status{min-width:1px;font-size:var(--text-xs);color:var(--color-muted)}
 html.v1 .article-print-source{display:none}
 
-html.v1 .article-layout{max-width:var(--layout-wide);display:grid;grid-template-columns:minmax(180px,3fr) minmax(0,7fr) minmax(80px,2fr);gap:clamp(1.5rem,4vw,4.5rem);padding-top:clamp(3.5rem,6vw,6rem)}
+html.v1 .article-layout{max-width:var(--layout-wide);display:grid;grid-template-columns:minmax(180px,3fr) minmax(0,7fr) minmax(80px,2fr);gap:clamp(1.5rem,4vw,4.5rem);padding-top:clamp(2.8rem,4.8vw,4.8rem)}
 html.v1 .article-toc{grid-column:1;align-self:start;position:sticky;top:110px;max-height:calc(100dvh - 140px);overflow:auto;border-top:1px solid var(--color-border);padding-top:1rem}
 html.v1 .article-toc__label{display:block;margin-bottom:1rem;font-size:.7rem;text-transform:uppercase;letter-spacing:.1em;color:var(--color-muted)}
 html.v1 .article-toc ol{list-style:none;margin:0;padding:0;display:grid;gap:.65rem}
 html.v1 .article-toc a{font-size:var(--text-xs);line-height:1.35;text-decoration:none;color:var(--color-muted)}
 html.v1 .article-toc a:hover,html.v1 .article-toc a:focus-visible,html.v1 .article-toc a[aria-current="location"]{color:var(--color-text);text-decoration:underline;text-decoration-color:var(--color-accent)}
-/* font-size/line-height revert to the pre-reduction values -- see the
-   comment on .article-header h1 above. This is the box the CLS
-   regression traced to (the reflow of the whole ~68ch reading column on
-   web-font swap), so it's the one rule in this pass that stays put. */
-html.v1 .article-prose{grid-column:2;min-width:0;max-width:var(--reading-max);font-family:var(--font-reading);font-size:clamp(1.12rem,1.15rem + .15vw,1.28rem);line-height:1.68}
+html.v1 .article-prose{grid-column:2;min-width:0;max-width:var(--reading-max);font-family:var(--font-reading);font-size:clamp(1.05rem,1.08rem + .12vw,1.18rem);line-height:1.58}
 html.v1 .article-prose>p{margin:0 0 1.35em}
 html.v1 .article-prose>p:first-of-type::first-letter{
   font-family:var(--font-script);
@@ -112,12 +90,12 @@ html.v1 .article-prose>p:first-of-type::first-letter{
 @supports not (initial-letter:3){
   html.v1 .article-prose>p:first-of-type::first-letter{margin-top:.02em}
 }
-html.v1 .article-prose h2{scroll-margin-top:110px;margin:2.5em 0 .7em;font-family:var(--font-display);font-size:clamp(2.2rem,3.5vw,3.5rem);font-weight:400;line-height:1.02;letter-spacing:-.018em;text-wrap:balance;overflow-wrap:anywhere}
-html.v1 .article-prose h3{scroll-margin-top:110px;margin:2em 0 .6em;font-family:var(--font-display);font-size:clamp(1.55rem,2.2vw,2.15rem);font-weight:400;line-height:1.1;text-wrap:balance;overflow-wrap:anywhere}
+html.v1 .article-prose h2{scroll-margin-top:110px;margin:2.5em 0 .7em;font-family:var(--font-display);font-size:clamp(1.8rem,2.9vw,2.9rem);font-weight:400;line-height:1.05;letter-spacing:-.018em;text-wrap:balance;overflow-wrap:anywhere}
+html.v1 .article-prose h3{scroll-margin-top:110px;margin:2em 0 .6em;font-family:var(--font-display);font-size:clamp(1.35rem,1.9vw,1.85rem);font-weight:400;line-height:1.12;text-wrap:balance;overflow-wrap:anywhere}
 html.v1 .article-prose a{text-decoration-color:var(--color-accent);overflow-wrap:anywhere}
 html.v1 .article-prose ul,html.v1 .article-prose ol{margin:0 0 1.35em;padding-left:1.3em}
 html.v1 .article-prose li{margin-bottom:.5em}
-html.v1 .article-note{margin:0 0 clamp(2.75rem,5vw,4.5rem);padding:1.25rem 0 1.25rem clamp(1rem,2vw,1.75rem);border-left:2px solid var(--color-accent);font-family:var(--font-ui);font-size:clamp(.88rem,.84rem + .16vw,.98rem);line-height:1.6}
+html.v1 .article-note{margin:0 0 clamp(2.75rem,5vw,4.5rem);padding:1.25rem 0 1.25rem clamp(1rem,2vw,1.75rem);border-left:2px solid var(--color-accent);font-family:var(--font-ui);font-size:var(--text-sm);line-height:1.6}
 html.v1 .article-note p{margin:0}
 html.v1 .article-note strong{font-weight:650}
 html.v1 .article-prose blockquote{margin:2em 0;padding:.25rem 0 .25rem clamp(1rem,2vw,1.75rem);border-left:2px solid var(--color-accent)}
@@ -262,13 +240,13 @@ html.v1 .article-related a:hover,html.v1 .article-related a:focus-visible{text-d
   html.v1 .cuaderno-utilities{align-items:flex-start;flex-direction:column;gap:.6rem}
   html.v1 .editorial-continuity,html.v1 .editorial-newsletter{grid-template-columns:1fr;gap:1.5rem}
   html.v1 .article-header{grid-template-columns:1fr}
-  html.v1 .article-header h1{font-size:clamp(2.8rem,13vw,4.6rem)}
+  html.v1 .article-header h1{font-size:clamp(2.3rem,10.8vw,3.8rem)}
   html.v1 .article-meta{border-left:0;border-top:1px solid var(--color-border);padding:1rem 0 0;display:flex;flex-wrap:wrap;gap:.25rem 1rem}
   html.v1 .article-layout{display:block;padding-top:2.5rem}
   html.v1 .article-toc{position:static;max-height:none;margin-bottom:2.5rem;padding:1rem 0;border-bottom:1px solid var(--color-border);overflow:visible}
   html.v1 .article-toc ol{display:grid;gap:.65rem;min-width:0}
   html.v1 .article-toc a{display:block;max-width:none}
-  html.v1 .article-prose{font-size:clamp(1.08rem,4.7vw,1.2rem);max-width:none}
+  html.v1 .article-prose{font-size:clamp(1rem,4.3vw,1.1rem);max-width:none}
   html.v1 .article-table-wrap{max-width:100%;overflow:hidden}
   html.v1 .article-table-wrap table,
   html.v1 .article-table-wrap thead,
@@ -282,7 +260,7 @@ html.v1 .article-related a:hover,html.v1 .article-related a:focus-visible{text-d
   html.v1 .article-prose td{min-width:0;padding:.35rem 0;border-bottom:0;overflow-wrap:break-word}
   html.v1 .article-prose th:first-child,
   html.v1 .article-prose td:first-child{font-weight:650}
-  html.v1 .article-prose h2{scroll-margin-top:120px;font-size:clamp(2.1rem,9vw,3rem)}
+  html.v1 .article-prose h2{scroll-margin-top:120px;font-size:clamp(1.75rem,7.5vw,2.5rem)}
   html.v1 .article-prose h3{scroll-margin-top:120px}
   html.v1 .article-faq,html.v1 .article-end{display:block}
   html.v1 .article-faq__head,html.v1 .article-end__label{margin-bottom:1.5rem}
@@ -291,7 +269,7 @@ html.v1 .article-related a:hover,html.v1 .article-related a:focus-visible{text-d
 @media (max-width:389px){
   html.v1 .editorial-page{padding-inline:1rem}
   html.v1 .cuaderno-entry{grid-template-columns:1.6rem minmax(0,1fr)}
-  html.v1 .article-header h1{font-size:clamp(2.5rem,13vw,3.6rem)}
+  html.v1 .article-header h1{font-size:clamp(2.1rem,10.8vw,3rem)}
 }
 @media (prefers-reduced-motion:reduce){html.v1 .reading-progress__bar{transition:none}}
 @media print{

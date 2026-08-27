@@ -3,6 +3,14 @@
    in v1-families.css; this file corrects the public/documentary treatment
    without changing other families. */
 
+/* Small avatar next to the masthead h1 on /autor.html only -- a cropped,
+   background-removed still of the same portrait used elsewhere, sized well
+   below the heading's own huge type scale so it reads as an identity mark,
+   not a second hero image (that job stays with .author-portrait below). */
+html.v1 [data-family="identity"] .masthead-name-row{display:flex;align-items:center;gap:clamp(.85rem,1.6vw,1.35rem);margin:.45rem 0 clamp(1.25rem,2vw,2.75rem)}
+html.v1 [data-family="identity"] .masthead-name-row h1{margin:0}
+html.v1 [data-family="identity"] .masthead-name-row__avatar{width:clamp(3.4rem,6vw,4.8rem);height:clamp(3.4rem,6vw,4.8rem);border-radius:50%;object-fit:cover;object-position:50% 12%;border:1px solid var(--color-border);flex-shrink:0}
+
 /* Author: keep the real portrait editorial, reserve its geometry and avoid a
    corporate card treatment. Intrinsic HTML dimensions remain the CLS source. */
 html.v1 [data-family="identity"] .author-portrait{

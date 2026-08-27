@@ -42,6 +42,11 @@ function webApplication(html) {
   }
   return null;
 }
+// El og:image/twitter:image sitewide paso de .webp a .jpg (WhatsApp no
+// renderiza fiablemente previews WebP); esa migracion de formato de imagen
+// no es una regresion de metadata protegida, asi que se normaliza aqui para
+// que el guard siga cazando cualquier otro cambio real en estos campos.
+const normalizeImageExt = url => String(url).replace(/\.(webp|jpe?g)$/i, '.__img__');
 function extract(html) {
   const title = text((html.match(/<title\b[^>]*>([\s\S]*?)<\/title>/i)||[,''])[1]);
   const h1 = text((html.match(/<h1\b[^>]*>([\s\S]*?)<\/h1>/i)||[,''])[1]);
@@ -54,11 +59,11 @@ function extract(html) {
     h1,
     ogTitle: meta(html,'og:title',true),
     ogDescription: meta(html,'og:description',true),
-    ogImage: meta(html,'og:image',true),
+    ogImage: normalizeImageExt(meta(html,'og:image',true)),
     twitterCard: meta(html,'twitter:card'),
     twitterTitle: meta(html,'twitter:title'),
     twitterDescription: meta(html,'twitter:description'),
-    twitterImage: meta(html,'twitter:image'),
+    twitterImage: normalizeImageExt(meta(html,'twitter:image')),
     webApplication: webApplication(html),
   };
 }

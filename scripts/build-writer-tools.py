@@ -22,7 +22,7 @@ CANONICAL="https://davidportodiaz.com/recursos/herramientas-para-escritores/"
 # Las etiquetas Open Graph / Twitter estaban escritas a mano en el HTML
 # generado, no aqui: la primera regeneracion del fichero se las llevo por
 # delante. Viven en el builder para que no vuelva a pasar.
-SHARE_IMAGE="https://davidportodiaz.com/assets/david-porto-imagen-compartir.webp"
+SHARE_IMAGE="https://davidportodiaz.com/assets/david-porto-imagen-compartir.jpg"
 SHARE_IMAGE_WIDTH=1731
 SHARE_IMAGE_HEIGHT=909
 
@@ -119,7 +119,7 @@ def render(data):
   <meta charset="UTF-8" />
   <meta http-equiv="Content-Security-Policy" content="default-src 'self'; connect-src 'none'; img-src 'self'; style-src 'self'; font-src 'self'; script-src 'self'; object-src 'none'; base-uri 'self'; form-action 'none'; frame-src 'none'">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
-  <meta name="robots" content="index,follow,max-image-preview:large" />
+  <meta name="robots" content="noindex,nofollow" />
   <title>{PAGE_TITLE}</title>
   <meta name="description" content="{DESCRIPTION}">
   <meta property="og:title" content="{PAGE_TITLE}">

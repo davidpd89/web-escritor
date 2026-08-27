@@ -617,21 +617,23 @@ html.v1[data-lrb-home="true"] .home-event__media img{
   filter:saturate(.9) contrast(.98);
 }
 html.v1[data-lrb-home="true"] .home-event time{font-family:var(--font-ui);font-size:.72rem;font-weight:800;letter-spacing:.06em;text-transform:uppercase;color:#0075b8}
+/* Lives inside .home-events__grid, as a 4th stacked item after the three
+   event cards -- not a separate full-width bar below the whole feature
+   grid. Its own copy is short enough not to need the events' time/link
+   layout, so it keeps a compact block layout instead of the row's flex. */
 html.v1[data-lrb-home="true"] .home-events__cta{
   display:flex;
-  flex-wrap:wrap;
-  align-items:center;
-  justify-content:space-between;
-  gap:1rem;
-  margin-top:1px;
-  padding:clamp(1.2rem,2.5vw,1.7rem);
+  flex-direction:column;
+  align-items:flex-start;
+  gap:.6rem;
+  padding:clamp(1.1rem,2vw,1.55rem);
   background:#eefaff;
-  border:1px solid rgba(0,0,0,.18);
-  border-top:0;
+  border-right:1px solid rgba(0,0,0,.18);
+  border-bottom:1px solid rgba(0,0,0,.18);
 }
-html.v1[data-lrb-home="true"] .home-events__cta h3{margin:0 0 .3rem;font-size:clamp(1.1rem,1.6vw,1.35rem);line-height:1.15;font-weight:600}
-html.v1[data-lrb-home="true"] .home-events__cta p{margin:0;font-family:var(--font-reading);color:#2a2e31}
-html.v1[data-lrb-home="true"] .home-events__cta .yale-text-link{flex:0 0 auto;font-weight:700}
+html.v1[data-lrb-home="true"] .home-events__cta h3{margin:0;font-size:clamp(1rem,1.4vw,1.18rem);line-height:1.2;font-weight:600}
+html.v1[data-lrb-home="true"] .home-events__cta p{margin:0;font-family:var(--font-reading);font-size:.92rem;line-height:1.4;color:#2a2e31}
+html.v1[data-lrb-home="true"] .home-events__cta .yale-text-link{font-weight:700}
 html.v1[data-lrb-home="true"] .install-web{
   background:#fff;
   color:#050505;
@@ -687,6 +689,12 @@ html.v1[data-lrb-home="true"] .header-buy{
   html.v1[data-lrb-home="true"] .yale-tile-grid--reading,
   html.v1[data-lrb-home="true"] .yale-tile-grid--tools,
   html.v1[data-lrb-home="true"] .home-events__grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+  html.v1[data-lrb-home="true"] .home-events__cta{grid-column:1 / -1}
+  /* 4/5 (a tall portrait crop) makes sense filling the left column's own
+     height next to the right column's stacked list at desktop widths, but
+     once the feature grid collapses to one column this same ratio reads
+     as an oversized photo relative to the caption beneath it. */
+  html.v1[data-lrb-home="true"] .home-event--lead .home-event__media{aspect-ratio:16/9}
 }
 @media(max-width:640px){
   html.v1[data-lrb-home="true"] .yale-home-flow{padding-top:1.4rem}

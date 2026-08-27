@@ -32,7 +32,10 @@ ROOT = Path(__file__).resolve().parents[1]
 # non-reproducible from a clean checkout. Versioned input + this builder
 # = reproducible output, per project convention.
 COVER = ROOT / "assets" / "portada-las-manecillas-del-recuerdo-1024.webp"
-OUT = ROOT / "assets" / "og-manecillas.webp"
+# JPEG, not WEBP: WhatsApp's link-preview crawler doesn't reliably render
+# WebP og:image thumbnails (confirmed -- a share of the live site showed
+# no image at all), while every social crawler renders JPEG.
+OUT = ROOT / "assets" / "og-manecillas.jpg"
 
 FONT_SERIF = ROOT / "assets" / "fonts" / "cg-normal-latin.woff2"  # Cormorant Garamond
 FONT_SANS = ROOT / "assets" / "fonts" / "inter-normal-latin.woff2"  # Inter
@@ -159,13 +162,13 @@ def main() -> None:
     final = draw_text(composed, cover_x)
 
     OUT.parent.mkdir(parents=True, exist_ok=True)
-    for q in (86, 82, 78, 74):
-        final.save(OUT, "WEBP", quality=q, method=6)
+    for q in (88, 84, 80, 76):
+        final.save(OUT, "JPEG", quality=q, optimize=True)
         size = OUT.stat().st_size
         if size <= 300 * 1024:
             print(f"Saved {OUT} at quality={q}: {size} bytes ({size/1024:.1f} KiB)")
             return
-    print(f"WARNING: could not get under 300 KiB even at quality=74 ({OUT.stat().st_size} bytes)")
+    print(f"WARNING: could not get under 300 KiB even at quality=76 ({OUT.stat().st_size} bytes)")
 
 
 if __name__ == "__main__":

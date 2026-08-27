@@ -306,26 +306,6 @@ export const ASSISTANT_SOURCE_REGISTRY = [
     "action": "Ver convocatorias"
   },
   {
-    "id": "external-tools",
-    "url": "/recursos/herramientas-para-escritores/",
-    "title": "Directorio de herramientas para escritores",
-    "territory": "herramientas",
-    "priority": 3,
-    "visibility": "public",
-    "keywords": [
-      "recursos",
-      "software",
-      "herramientas",
-      "escritura"
-    ],
-    "aliases": [
-      "software para escritores",
-      "programas para escritores"
-    ],
-    "summary": "Directorio de recursos y software externos útiles para escritores.",
-    "action": "Abrir directorio"
-  },
-  {
     "id": "awards",
     "url": "/premios.html",
     "title": "Premios y reconocimientos",

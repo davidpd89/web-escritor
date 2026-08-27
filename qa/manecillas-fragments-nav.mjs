@@ -85,12 +85,17 @@ assert(!/\bfetch\s*\(/.test(navJs), 'v1-fragments.js no debe hacer fetch');
 assert(!/history\.(pushState|replaceState)/.test(navJs), 'no se debe implementar router/historial JS');
 assert(!/aria-current/.test(indexBlock), 'el índice no debe usar aria-current');
 
+// El og:image/twitter:image sitewide paso de .webp a .jpg (WhatsApp no
+// renderiza fiablemente previews WebP); esa migracion de formato de imagen
+// no es una regresion de contenido protegido, asi que se normaliza aqui para
+// que el guard siga cazando cualquier otro cambio real en estos campos.
+const normalizeImageExt = tag => tag.replace(/\.(webp|jpe?g)(["'])/i, '.__img__$2');
 const protectedParts = html => ({
   title: html.match(/<title>[\s\S]*?<\/title>/)?.[0],
   description: html.match(/<meta name="description"[^>]*>/)?.[0],
   canonical: html.match(/<link rel="canonical"[^>]*>/)?.[0],
-  og: [...html.matchAll(/<meta property="og:[^>]+>/g)].map(m => m[0]),
-  twitter: [...html.matchAll(/<meta name="twitter:[^>]+>/g)].map(m => m[0]),
+  og: [...html.matchAll(/<meta property="og:[^>]+>/g)].map(m => normalizeImageExt(m[0])),
+  twitter: [...html.matchAll(/<meta name="twitter:[^>]+>/g)].map(m => normalizeImageExt(m[0])),
   jsonld: html.match(/<script type="application\/ld\+json">[\s\S]*?<\/script>/)?.[0]
 });
 // Misma condicion que arriba: contra una base sin la pagina no hay metadatos

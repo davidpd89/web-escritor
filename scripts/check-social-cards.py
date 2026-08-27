@@ -20,7 +20,7 @@ from pathlib import Path
 from urllib.parse import urlparse, unquote
 
 SITE_ORIGIN = "https://davidportodiaz.com"
-DEFAULT_ARTICLE_CARD = "/assets/david-porto-imagen-compartir.webp"
+DEFAULT_ARTICLE_CARD = "/assets/david-porto-imagen-compartir.jpg"
 
 
 class MetaParser(HTMLParser):

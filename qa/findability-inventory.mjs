@@ -55,6 +55,28 @@ function skipTarget(html){
   return m?m[1]:null;
 }
 
+// A link can also be legitimately dropped because its destination was
+// deliberately taken out of publication (data/content-registry.json status
+// moved into the same gated/deprecated set build-public-dist.py excludes
+// from the deployed site) -- the file may still exist in the repo, so
+// brokenInBaseline() alone would not catch this, but the page it points to
+// no longer exists in production either way.
+const GATED_REGISTRY_STATUS = new Set(['noindex', 'internal', 'gated', 'deprecated']);
+const registryStatusByUrl = (() => {
+  const map = new Map();
+  try {
+    const data = JSON.parse(fs.readFileSync('data/content-registry.json', 'utf8'));
+    const defaultStatus = data.defaults?.status || 'public';
+    for (const entry of data.entries || []) map.set(entry.url, entry.status || defaultStatus);
+  } catch {}
+  return map;
+})();
+function deprecatedDestination(href) {
+  const url = href.split('#')[0];
+  const status = registryStatusByUrl.get(url);
+  return status && GATED_REGISTRY_STATUS.has(status) ? `destino retirado de publicación (status: ${status})` : null;
+}
+
 // AIII-11: the registry's canonical URL for "La memoria de las tierras del
 // norte" moved from the anthology publisher's external page to the book's
 // own internal section (/libros/#memoria-tierras-norte), which now appears
@@ -106,7 +128,7 @@ for(const p of paths){
   const beforeHtml=baseText(p),afterHtml=fs.readFileSync(p,'utf8');
   const before=inventory(beforeHtml),after=inventory(afterHtml);
   const removed=before.hrefs.filter(x=>!after.hrefs.includes(x)),added=after.hrefs.filter(x=>!before.hrefs.includes(x));
-  const removedJustification=Object.fromEntries(removed.map(h=>[h,brokenInBaseline(h)||landmarkRenamed(h,beforeHtml,afterHtml)||knownEditorialMigration(h)]));
+  const removedJustification=Object.fromEntries(removed.map(h=>[h,brokenInBaseline(h)||landmarkRenamed(h,beforeHtml,afterHtml)||deprecatedDestination(h)||knownEditorialMigration(h)]));
   const unjustified=removed.filter(h=>!removedJustification[h]);
   assert.deepEqual(unjustified,[],`${p}: destinos eliminados sin preservar: ${unjustified.join(', ')}`);
   report.pages[p]={before,after,addedDestinations:added,removedDestinations:removed,removedJustification,metadataChanges:{title:before.title===after.title?null:[before.title,after.title],description:before.description===after.description?null:[before.description,after.description],robots:before.robots===after.robots?null:[before.robots,after.robots],canonical:before.canonical===after.canonical?null:[before.canonical,after.canonical]}};
