@@ -111,8 +111,8 @@ PUBLIC_EXCLUDED_FILES = {
     *CAMPAIGN_SOCIAL_ASSETS,
 }
 
-# Final-output defense. These classes must never appear even if somebody later
-# places one inside an approved public namespace.
+# Defense in depth inside otherwise-public namespaces. These classes are
+# operational/configuration material, never browser-served runtime.
 FORBIDDEN_BASENAME_PATTERNS = (
     "wrangler*.jsonc",
     "cloudflare-worker-*.js",
@@ -124,6 +124,21 @@ FORBIDDEN_BASENAME_PATTERNS = (
     ".env.*",
 )
 FORBIDDEN_SUFFIXES = (".sql", ".pem", ".key")
+
+# Equivalent gitignore-style patterns emitted after public namespace negations.
+ASSETSIGNORE_FORBIDDEN_PATTERNS = (
+    "**/wrangler*.jsonc",
+    "**/cloudflare-worker-*.js",
+    "**/package.json",
+    "**/package-lock.json",
+    "**/lighthouserc*.json",
+    "**/*.tfstate",
+    "**/.env",
+    "**/.env.*",
+    "**/*.sql",
+    "**/*.pem",
+    "**/*.key",
+)
 
 REQUIRED_PUBLIC_FILES = (
     "index.html",
@@ -202,20 +217,8 @@ def git_tracked_files(root: Path = ROOT) -> list[str]:
     return [line.strip() for line in result.stdout.splitlines() if line.strip()]
 
 
-def is_publishable(rel_path: str, root: Path = ROOT) -> bool:
-    rel_path = rel_path.replace("\\", "/").lstrip("./")
-    if rel_path in PUBLIC_EXCLUDED_FILES:
-        return False
-    if any(rel_path.startswith(prefix) for prefix in PUBLIC_EXCLUDED_DIR_PREFIXES):
-        return False
-    if any(rel_path.startswith(prefix) for prefix in gated_prefixes_from_registry(root)):
-        return False
-    return rel_path in PUBLIC_ROOT_FILES or any(
-        rel_path.startswith(prefix) for prefix in PUBLIC_DIR_PREFIXES
-    )
-
-
 def forbidden_reason(rel_path: str) -> str | None:
+    rel_path = rel_path.replace("\\", "/").lstrip("./")
     path = Path(rel_path)
     basename = path.name
     for pattern in FORBIDDEN_BASENAME_PATTERNS:
@@ -228,6 +231,21 @@ def forbidden_reason(rel_path: str) -> str | None:
     if rel_path == "press-kit/package-manifest.json":
         return "internal press-kit build manifest"
     return None
+
+
+def is_publishable(rel_path: str, root: Path = ROOT) -> bool:
+    rel_path = rel_path.replace("\\", "/").lstrip("./")
+    if forbidden_reason(rel_path):
+        return False
+    if rel_path in PUBLIC_EXCLUDED_FILES:
+        return False
+    if any(rel_path.startswith(prefix) for prefix in PUBLIC_EXCLUDED_DIR_PREFIXES):
+        return False
+    if any(rel_path.startswith(prefix) for prefix in gated_prefixes_from_registry(root)):
+        return False
+    return rel_path in PUBLIC_ROOT_FILES or any(
+        rel_path.startswith(prefix) for prefix in PUBLIC_DIR_PREFIXES
+    )
 
 
 def classify_public_artifact(rel_path: str) -> str:
@@ -282,7 +300,17 @@ def write_manifest(out_dir: Path) -> Path:
     return manifest_path
 
 
-def check_contents(out_dir: Path, root: Path = ROOT) -> int:
+def check_contents(
+    out_dir: Path,
+    root: Path = ROOT,
+    *,
+    require_runtime: bool = True,
+) -> int:
+    """Validate a built tree.
+
+    `require_runtime=False` is only for focused fixture tests that intentionally
+    model a partial repository. Production/CLI checks remain strict by default.
+    """
     if not out_dir.exists():
         print(f"FAIL: {out_dir} does not exist — run the builder first.", file=sys.stderr)
         return 1
@@ -301,9 +329,10 @@ def check_contents(out_dir: Path, root: Path = ROOT) -> int:
         if category not in ALLOWED_MANIFEST_CATEGORIES:
             failures.append(f"artifact has no approved manifest category: {rel}")
 
-    for required in REQUIRED_PUBLIC_FILES:
-        if required not in rel_files:
-            failures.append(f"required public runtime artifact missing: {required}")
+    if require_runtime:
+        for required in REQUIRED_PUBLIC_FILES:
+            if required not in rel_files:
+                failures.append(f"required public runtime artifact missing: {required}")
 
     # Every public registry source must survive the build; every gated source
     # must stay out. This prevents an allowlist change from silently dropping a
@@ -355,6 +384,7 @@ def assetsignore_lines(root: Path = ROOT) -> list[str]:
         "# Exclusiones dentro de namespaces públicos.",
         *[f"/{prefix}" for prefix in PUBLIC_EXCLUDED_DIR_PREFIXES],
         *[f"/{name}" for name in sorted(PUBLIC_EXCLUDED_FILES)],
+        *ASSETSIGNORE_FORBIDDEN_PATTERNS,
     ]
     gated = gated_prefixes_from_registry(root)
     if gated:
