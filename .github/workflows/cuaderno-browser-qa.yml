@@ -23,6 +23,7 @@ on:
       - 'assets/article-tools.js'
       - 'qa/cuaderno-browser.mjs'
       - '.github/workflows/cuaderno-browser-qa.yml'
+  workflow_dispatch:
 
 permissions:
   contents: read
