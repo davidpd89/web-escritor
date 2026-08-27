@@ -64,6 +64,17 @@
 /assets/manecillas-social-4x5-disponible.webp
 /assets/manecillas-social-story-9x16.webp
 /press-kit/package-manifest.json
+**/wrangler*.jsonc
+**/cloudflare-worker-*.js
+**/package.json
+**/package-lock.json
+**/lighthouserc*.json
+**/*.tfstate
+**/.env
+**/.env.*
+**/*.sql
+**/*.pem
+**/*.key
 
 # Rutas gated derivadas de data/content-registry.json.
 /donde-empieza-la-jaula/
