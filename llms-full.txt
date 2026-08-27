@@ -2,7 +2,7 @@
 
 > Recurso editorial complementario del sitio oficial, inspirado en la propuesta de formato llms.txt. Reúne hechos verificables, contexto de las obras y rutas de comprobación. No es un estándar editorial universal y su publicación no implica que ningún buscador o modelo lo ingiera automáticamente.
 >
-> Última actualización: 2026-08-22
+> Última actualización: 2026-08-27
 
 ---
 
@@ -51,7 +51,7 @@ Estos enlaces identifican perfiles del autor. Las fichas de libros que aparecen 
 
 ### Contrato temporal y disponibilidad
 
-La decisión editorial vigente presenta la obra como «publicada el 3 de septiembre de 2026» también en los artefactos preparados antes de esa fecha. No existe una transición automática de copy basada en el reloj del cliente ni en la fecha del runner.
+La decisión editorial vigente presenta la obra como «publicada el 3 de septiembre de 2026», también en el material preparado antes de esa fecha. Esta redacción no cambia automáticamente según la fecha del dispositivo del lector.
 
 La disponibilidad comercial se gobierna por un hecho distinto: todavía no existe una URL de compra verificada en el contrato editorial. El PVP de 16 € es un dato editorial y no debe convertirse en una `Offer`, disponibilidad o retailer supuesto. No afirmar presencia en Amazon, Casa del Libro u otra tienda hasta que se incorpore una URL comercial verificada.
 
@@ -259,7 +259,7 @@ Estas URLs son referencias sobre el autor o la obra; no son identificadores de i
 Es un escritor nacido en Pontevedra y residente en Madrid, autor de Las manecillas del recuerdo y Samuel entre mundos.
 
 ### ¿Cuándo se publica Las manecillas del recuerdo?
-La fecha de publicación es el 3 de septiembre de 2026. Por decisión editorial, las superficies de esta rama la presentan como «publicada el 3 de septiembre de 2026» incluso antes de esa fecha.
+La fecha de publicación es el 3 de septiembre de 2026. Por decisión editorial, el sitio la presenta como «publicada el 3 de septiembre de 2026» incluso antes de esa fecha.
 
 ### ¿Dónde se compra Las manecillas del recuerdo?
 No existe todavía una URL de compra verificada en el contrato editorial. No debe inferirse una tienda a partir de la fecha, el PVP o búsquedas genéricas.
@@ -277,7 +277,7 @@ Una ciudad ficticia de Samuel entre mundos, no una empresa ni un lugar real.
 
 ## 11. Jerarquía de verificación
 
-Para hechos atómicos del sitio, la autoridad de mantenimiento es el contrato interno `editorial-facts.json`. Ese fichero es de build/QA y no se publica en el artefacto web.
+Para hechos atómicos del sitio, la fuente de referencia del equipo editorial es un fichero de trabajo interno que no se publica en el sitio.
 
 Para verificación pública:
 
