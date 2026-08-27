@@ -38,6 +38,7 @@ assets/*/source/*.png
 # Build output of scripts/build-public-dist.py — generated, never tracked.
 .preview-dist/
 .preview-dist-manifest.json
+scripts/brevo/.snapshot-local.json
 dist/
 lh.html
 
