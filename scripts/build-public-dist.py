@@ -1,74 +1,30 @@
 #!/usr/bin/env python3
-"""Build a safe public-output tree (default: .preview-dist/) containing
-ONLY what should actually be served to a browser — not the full
-`git archive HEAD` the staging deploy currently uses, which also ships
-scripts/, tests/, data/ (build-time sources), internal docs, etc.
+"""Build and validate the browser-served artifact for davidportodiaz.com.
 
-Architecture: default-INCLUDE every git-tracked file, then subtract a
-short, explicit, reviewed EXCLUDE list — never the other way around.
-An allowlist risks silently dropping something a runtime page actually
-needs; a reviewed denylist, checked by `--check-contents` below, is
-safer and matches this project's "no excluyas datos a ciegas" rule.
+Security/publication model: ALLOWLIST-FIRST.
+
+A tracked repository file is not public merely because nobody remembered to
+exclude it. The public artifact is composed from explicitly classified web
+roots/files, then narrowed by editorial gates and nested exclusions. This keeps
+new operational material (docs, QA, migrations, Worker/Wrangler config, package
+metadata, etc.) private by default while preserving the existing static runtime.
+
+The same policy renders `.assetsignore` for Cloudflare staging. Staging currently
+archives the repository root before Wrangler uploads static assets, so the
+`.assetsignore` uses a root deny (`/*`) plus explicit negations for approved
+public roots. Cloudflare documents `.assetsignore` as `.gitignore`-format.
 
 Usage:
-  python scripts/build-public-dist.py                 # build .preview-dist/
-  python scripts/build-public-dist.py --out dist       # custom output dir
-  python scripts/build-public-dist.py --check-contents # verify an already
-      -built dist dir contains none of the excluded categories (does not
-      rebuild; run build first)
-  python scripts/build-public-dist.py --emit-assetsignore  # regenerar
-      .assetsignore desde estas mismas constantes
-  python scripts/build-public-dist.py --check-assetsignore # (en CI) avisar
-      si .assetsignore se ha desincronizado de estas constantes
-
-Las piezas de campana para redes (CAMPAIGN_SOCIAL_ASSETS) quedan siempre
-fuera del output publico: ninguna pagina las referencia, se suben a mano a
-las redes desde el repo local. No hay ningun gate por fecha aqui -- ver el
-comentario de esa constante para por que el anterior era una tarea manual
-escondida disfrazada de automatismo.
-
-PRODUCTION OPTIONS (documented only — NOT implemented, GitHub Pages
-production is untouched by this script):
-
-  A) Jekyll `exclude:` in a new `_config.yml` at repo root. GitHub Pages
-     runs Jekyll by default on a plain repo, and a `_config.yml` with an
-     `exclude:` list (mirroring EXCLUDE_DIR_PREFIXES/EXCLUDE_FILES above)
-     would stop Pages from publishing scripts/tests/data/etc. Real risk:
-     Jekyll processes some file types (front-matter, liquid tags) even
-     when not asked to, and a repo with ~550 already-static HTML files
-     has not been tested end-to-end under Jekyll's build - a wrong
-     exclude or an unexpected Jekyll transform could break pages in
-     production with no local warning. Must be tested against a full
-     branch preview (e.g. this same Cloudflare Pages staging setup
-     pointed at a Jekyll-built output) before ever touching the real
-     `main` Pages deploy.
-
-  B) A GitHub Actions workflow that runs this script and deploys
-     .preview-dist/ (via actions/upload-pages-artifact +
-     actions/deploy-pages, replacing the current implicit "serve the
-     branch root" GitHub Pages behavior). Cleaner and more explicit than
-     option A (no Jekyll surprises, this exact script is what runs),
-     but changes the deploy mechanism itself, which needs a deliberate,
-     tested cutover, not a silent switch.
-
-  Both require a human decision and a tested rollout plan; neither is
-  wired into any workflow by this pass.
-
-STAGING (INTENTIONALLY_CHANGED respecto al plan original): el staging de
-Cloudflare sigue construyendo con `git archive HEAD`, porque cambiar su
-build command es un ajuste del dashboard y la Workers Builds API rechaza
-tanto los tokens de cuenta como el OAuth de wrangler. Pero este script SI
-afecta ya al staging real, de forma indirecta: `--emit-assetsignore` genera
-el `.assetsignore` de la raiz del repo a partir de las MISMAS constantes de
-exclusion de aqui abajo, `git archive` lo deposita en la raiz del directorio
-de assets, y ahi `wrangler deploy --assets` lo respeta y no sube nada que
-coincida. Verificado en vivo: scripts/, tests/, data/, .env.example,
-lecturas/, publicar-web/, editorial-facts.json y cloudflare-worker-subscribe.js
-pasaron de HTTP 200 a 404 en la preview sin tocar el dashboard.
+  python scripts/build-public-dist.py
+  python scripts/build-public-dist.py --out dist
+  python scripts/build-public-dist.py --check-contents --out dist
+  python scripts/build-public-dist.py --emit-assetsignore
+  python scripts/build-public-dist.py --check-assetsignore
 """
 from __future__ import annotations
 
 import argparse
+import fnmatch
 import json
 import shutil
 import subprocess
@@ -78,94 +34,233 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parents[1]
 DEFAULT_OUT = ROOT / ".preview-dist"
 
-# Estados del content-registry que significan "no debe llegar a produccion
-# publica", a diferencia de status="public" (que puede tener searchIndex o
-# sitemap en false -- p.ej. /privacidad.html -- pero SI debe ser accesible
-# por URL). "noindex" no es un control de publicacion por si solo: aqui es
-# la unica senal que SI lo es, derivada de una unica autoridad.
 GATED_REGISTRY_STATUS = {"noindex", "internal", "gated", "deprecated"}
 
+# Approved public namespaces. Adding a new top-level repository directory does
+# NOT publish it. A new public content family must be classified here explicitly.
+PUBLIC_DIR_PREFIXES = (
+    "accesibilidad/",
+    "ai/",
+    "asistente/",
+    "assets/",
+    "clubes-de-lectura/",
+    "convocatorias-escritores/",
+    "cuaderno/",
+    "editoriales/",
+    "empieza-aqui/",
+    "fragmento/",
+    "gracias-suscripcion/",
+    "herramientas/",
+    "las-manecillas-del-recuerdo/",
+    "lectores-beta/",
+    "libros/",
+    "mapa-del-sitio/",
+    "metodologia-editorial/",
+    "pagefind/",
+    "press-kit/",
+    "recomendaciones/",
+    "recursos/",
+    "universo/",
+)
 
-def gated_prefixes_from_registry(root: Path) -> tuple[str, ...]:
-    """Deriva las rutas/directorios que NO deben llegar al dist publico a
-    partir de la unica autoridad editorial (data/content-registry.json),
-    en vez de mantener una segunda lista manual que pueda desincronizarse.
-    Devuelve el directorio contenedor del sourceFile de cada entrada gated
-    (p.ej. 'donde-empieza-la-jaula/index.html' -> 'donde-empieza-la-jaula/'),
-    para que tambien queden fuera assets hermanos no registrados uno a uno.
-    """
-    registry_path = root / "data" / "content-registry.json"
-    if not registry_path.exists():
-        return ()
-    data = json.loads(registry_path.read_text(encoding="utf-8"))
-    defaults = data.get("defaults", {})
-    prefixes = set()
-    for entry in data.get("entries", []):
-        status = entry.get("status", defaults.get("status", "public"))
-        if status not in GATED_REGISTRY_STATUS:
-            continue
-        source_file = entry.get("sourceFile")
-        if not source_file:
-            continue
-        parent = str(Path(source_file).parent)
-        prefixes.add("" if parent == "." else parent.replace("\\", "/") + "/")
-    return tuple(sorted(p for p in prefixes if p))
-# Piezas de campana para redes (4:5 y 9:16). NINGUNA pagina las referencia
-# -- comprobado con git grep sobre *.html/*.css/*.js: cero referencias --, se
-# suben a mano a Instagram/Facebook desde el repo local. Por tanto no son
-# runtime web y se quedan FUERA del output publico de forma permanente.
-#
-# Antes la variante "disponible" estaba excluida solo hasta la fecha de
-# publicacion, como si el 03/09 fuera a hacerse publica sola. No era cierto:
-# Cloudflare construye con `git archive HEAD` y nunca ejecuta este generador,
-# asi que el .assetsignore desplegado es el que este commiteado. Eso convertia
-# el "gate" en una tarea manual escondida justo el dia del lanzamiento --
-# exactamente lo que se queria evitar. Como el asset no necesita ser publico
-# NUNCA, el gate temporal desaparece en vez de automatizarse.
+# Public root files with a concrete browser, SEO, PWA, legacy-route,
+# verification or licensing purpose. Root HTML pages are explicit too: a new
+# arbitrary root file cannot become public accidentally.
+PUBLIC_ROOT_FILES = {
+    "404.html",
+    "59347d39b5684876a7ccc84382f31758.txt",
+    "CNAME",
+    "THIRD_PARTY_NOTICE_SILABAJS.md",
+    "autor.html",
+    "aviso-legal.html",
+    "editoriales-sitemap.xml",
+    "eventos.html",
+    "favicon.ico",
+    "ferias.html",
+    "humans.txt",
+    "index.html",
+    "llms-full.txt",
+    "llms.txt",
+    "manifest.json",
+    "offline.html",
+    "premios.html",
+    "prensa.html",
+    "privacidad.html",
+    "robots.txt",
+    "samuel-entre-mundos.html",
+    "script.js",
+    "service-worker.js",
+    "sitemap.xml",
+    "styles.css",
+}
+
+# These live inside otherwise-public namespaces but are build/source material.
+PUBLIC_EXCLUDED_DIR_PREFIXES = (
+    "assets/manecillas/source/",
+    "assets/no usadas/",
+)
+
 CAMPAIGN_SOCIAL_ASSETS = (
     "assets/manecillas-social-4x5-aviso.webp",
     "assets/manecillas-social-4x5-disponible.webp",
     "assets/manecillas-social-story-9x16.webp",
 )
 
-# Directories excluded wholesale (any tracked file whose path starts with
-# one of these, using posix-style forward slashes).
-EXCLUDE_DIR_PREFIXES = (
-    ".claude/",
-    ".github/",
-    "scripts/",
-    "tests/",
-    "data/",
-    "assets/manecillas/source/",
-    "assets/no usadas/",  # confirmed-orphan assets parked for cleanup, never referenced
-    "publicar-web/",  # internal build checklist, noindex (point 12)
-    "lecturas/",  # fixture content, noindex (point 13)
+PUBLIC_EXCLUDED_FILES = {
+    "press-kit/package-manifest.json",  # packaging contract, not press content
+    *CAMPAIGN_SOCIAL_ASSETS,
+}
+
+# Defense in depth inside otherwise-public namespaces. These classes are
+# operational/configuration material, never browser-served runtime.
+FORBIDDEN_BASENAME_PATTERNS = (
+    "wrangler*.jsonc",
+    "cloudflare-worker-*.js",
+    "package.json",
+    "package-lock.json",
+    "lighthouserc*.json",
+    "*.tfstate",
+    ".env",
+    ".env.*",
+)
+FORBIDDEN_SUFFIXES = (".sql", ".pem", ".key")
+
+# Equivalent gitignore-style patterns emitted after public namespace negations.
+ASSETSIGNORE_FORBIDDEN_PATTERNS = (
+    "**/wrangler*.jsonc",
+    "**/cloudflare-worker-*.js",
+    "**/package.json",
+    "**/package-lock.json",
+    "**/lighthouserc*.json",
+    "**/*.tfstate",
+    "**/.env",
+    "**/.env.*",
+    "**/*.sql",
+    "**/*.pem",
+    "**/*.key",
 )
 
-# Individual files excluded by exact repo-relative path.
-EXCLUDE_FILES = {
-    ".env.example",
-    ".gitignore",
-    ".lycheeignore",
-    ".pa11yci",
-    "lighthouserc.json",
-    "README.md",
-    "editorial-facts.json",  # build-time canonical facts, not fetched by any runtime JS (verified)
-    "cloudflare-worker-subscribe.js",  # Cloudflare Worker source, deployed separately, never served by the web host
+REQUIRED_PUBLIC_FILES = (
+    "index.html",
+    "ai/index.html",
+    "assets/v1-shell.css",
+    "manifest.json",
+    "service-worker.js",
+    "offline.html",
+    "robots.txt",
+    "sitemap.xml",
+    "llms.txt",
+    "llms-full.txt",
+    "pagefind/pagefind-ui.js",
+    "press-kit/david-porto-diaz.json",
+    "press-kit/las-manecillas-del-recuerdo.json",
+    "press-kit/samuel-entre-mundos.json",
+)
+
+ALLOWED_MANIFEST_CATEGORIES = {
+    "page",
+    "runtime-asset",
+    "machine-readable",
+    "verification",
+    "license",
 }
 
 
+def registry_data(root: Path) -> dict:
+    path = root / "data" / "content-registry.json"
+    if not path.exists():
+        return {}
+    return json.loads(path.read_text(encoding="utf-8"))
+
+
+def registry_entries(root: Path) -> list[dict]:
+    return registry_data(root).get("entries", [])
+
+
+def registry_status(entry: dict, data: dict) -> str:
+    defaults = data.get("defaults", {})
+    return entry.get("status", defaults.get("status", "public"))
+
+
+def gated_prefixes_from_registry(root: Path) -> tuple[str, ...]:
+    """Directories whose registry status says they must not be published."""
+    data = registry_data(root)
+    prefixes: set[str] = set()
+    for entry in data.get("entries", []):
+        if registry_status(entry, data) not in GATED_REGISTRY_STATUS:
+            continue
+        source_file = entry.get("sourceFile")
+        if not source_file:
+            continue
+        parent = str(Path(source_file).parent).replace("\\", "/")
+        if parent != ".":
+            prefixes.add(parent.rstrip("/") + "/")
+    return tuple(sorted(prefixes))
+
+
+def public_registry_sources(root: Path) -> tuple[str, ...]:
+    data = registry_data(root)
+    sources: set[str] = set()
+    for entry in data.get("entries", []):
+        if registry_status(entry, data) in GATED_REGISTRY_STATUS:
+            continue
+        source_file = entry.get("sourceFile")
+        if source_file:
+            sources.add(source_file.replace("\\", "/"))
+    return tuple(sorted(sources))
+
+
 def git_tracked_files(root: Path = ROOT) -> list[str]:
-    result = subprocess.run(["git", "ls-files"], cwd=root, capture_output=True, text=True, check=True)
+    result = subprocess.run(
+        ["git", "ls-files"], cwd=root, capture_output=True, text=True, check=True
+    )
     return [line.strip() for line in result.stdout.splitlines() if line.strip()]
 
 
-def is_excluded(rel_path: str, gated_prefixes: tuple[str, ...] = ()) -> bool:
-    if rel_path in EXCLUDE_FILES or rel_path in CAMPAIGN_SOCIAL_ASSETS:
-        return True
-    if any(rel_path.startswith(prefix) for prefix in EXCLUDE_DIR_PREFIXES):
-        return True
-    return any(rel_path.startswith(prefix) for prefix in gated_prefixes)
+def forbidden_reason(rel_path: str) -> str | None:
+    rel_path = rel_path.replace("\\", "/").lstrip("./")
+    path = Path(rel_path)
+    basename = path.name
+    for pattern in FORBIDDEN_BASENAME_PATTERNS:
+        if fnmatch.fnmatch(basename, pattern):
+            return f"forbidden tooling/infra class {pattern}"
+    if basename.lower().endswith(FORBIDDEN_SUFFIXES):
+        return f"forbidden suffix {path.suffix.lower()}"
+    if rel_path == "editorial-facts.json":
+        return "internal editorial contract"
+    if rel_path == "press-kit/package-manifest.json":
+        return "internal press-kit build manifest"
+    return None
+
+
+def is_publishable(rel_path: str, root: Path = ROOT) -> bool:
+    rel_path = rel_path.replace("\\", "/").lstrip("./")
+    if forbidden_reason(rel_path):
+        return False
+    if rel_path in PUBLIC_EXCLUDED_FILES:
+        return False
+    if any(rel_path.startswith(prefix) for prefix in PUBLIC_EXCLUDED_DIR_PREFIXES):
+        return False
+    if any(rel_path.startswith(prefix) for prefix in gated_prefixes_from_registry(root)):
+        return False
+    return rel_path in PUBLIC_ROOT_FILES or any(
+        rel_path.startswith(prefix) for prefix in PUBLIC_DIR_PREFIXES
+    )
+
+
+def classify_public_artifact(rel_path: str) -> str:
+    if rel_path == "THIRD_PARTY_NOTICE_SILABAJS.md":
+        return "license"
+    if rel_path in {"CNAME", "59347d39b5684876a7ccc84382f31758.txt"}:
+        return "verification"
+    if (
+        rel_path.startswith("press-kit/")
+        or rel_path in {"robots.txt", "sitemap.xml", "editoriales-sitemap.xml", "humans.txt", "llms.txt", "llms-full.txt"}
+    ):
+        return "machine-readable"
+    if rel_path.endswith(".html"):
+        return "page"
+    return "runtime-asset"
 
 
 def build(out_dir: Path, root: Path = ROOT) -> tuple[int, int]:
@@ -173,118 +268,161 @@ def build(out_dir: Path, root: Path = ROOT) -> tuple[int, int]:
         shutil.rmtree(out_dir)
     out_dir.mkdir(parents=True)
 
-    gated_prefixes = gated_prefixes_from_registry(root)
-    included, excluded = 0, 0
-
+    included = 0
+    excluded = 0
     for rel in git_tracked_files(root):
-        if is_excluded(rel, gated_prefixes):
+        if not is_publishable(rel, root):
             excluded += 1
             continue
         src = root / rel
         if not src.exists():
-            continue  # tracked but not on disk locally (shouldn't happen, but don't crash)
+            continue
         dst = out_dir / rel
         dst.parent.mkdir(parents=True, exist_ok=True)
         shutil.copy2(src, dst)
         included += 1
-
     return included, excluded
 
 
-def check_contents(out_dir: Path, root: Path = ROOT) -> int:
+def write_manifest(out_dir: Path) -> Path:
+    manifest_path = out_dir.with_name(out_dir.name + "-manifest.json")
+    items = []
+    for file_path in sorted(p for p in out_dir.rglob("*") if p.is_file()):
+        rel = file_path.relative_to(out_dir).as_posix()
+        category = classify_public_artifact(rel)
+        if category not in ALLOWED_MANIFEST_CATEGORIES:
+            raise RuntimeError(f"unclassified public artifact: {rel}")
+        items.append({"path": rel, "category": category})
+    manifest_path.write_text(
+        json.dumps({"schemaVersion": 1, "files": items}, ensure_ascii=False, indent=2) + "\n",
+        encoding="utf-8",
+    )
+    return manifest_path
+
+
+def check_contents(
+    out_dir: Path,
+    root: Path = ROOT,
+    *,
+    require_runtime: bool = True,
+) -> int:
+    """Validate a built tree.
+
+    `require_runtime=False` is only for focused fixture tests that intentionally
+    model a partial repository. Production/CLI checks remain strict by default.
+    """
     if not out_dir.exists():
         print(f"FAIL: {out_dir} does not exist — run the builder first.", file=sys.stderr)
         return 1
-    failures = []
-    for prefix in EXCLUDE_DIR_PREFIXES:
-        if (out_dir / prefix).exists():
-            failures.append(f"excluded directory present in dist: {prefix}")
-    for fname in EXCLUDE_FILES:
-        if (out_dir / fname).exists():
-            failures.append(f"excluded file present in dist: {fname}")
-    for asset in CAMPAIGN_SOCIAL_ASSETS:
-        if (out_dir / asset).exists():
-            failures.append(f"campaign social asset present in public dist: {asset}")
-    # Deuda 2/3: la comprobacion de publicabilidad se deriva de la MISMA
-    # autoridad (content-registry.json), no de una lista paralela. Si una
-    # ruta gated (status != public) aparece en el arbol publico -- aunque su
-    # propio HTML declare <meta name="robots" content="noindex">, que no es
-    # un control de acceso -- el gate falla.
-    for prefix in gated_prefixes_from_registry(root):
-        if (out_dir / prefix).exists():
-            failures.append(f"gated/staging route present in public dist (content-registry status != public): {prefix}")
+
+    failures: list[str] = []
+    files = [p for p in out_dir.rglob("*") if p.is_file()]
+    rel_files = {p.relative_to(out_dir).as_posix() for p in files}
+
+    for rel in sorted(rel_files):
+        if not is_publishable(rel, root):
+            failures.append(f"unclassified/non-public artifact present in dist: {rel}")
+        reason = forbidden_reason(rel)
+        if reason:
+            failures.append(f"forbidden artifact present in dist: {rel} ({reason})")
+        category = classify_public_artifact(rel)
+        if category not in ALLOWED_MANIFEST_CATEGORIES:
+            failures.append(f"artifact has no approved manifest category: {rel}")
+
+    if require_runtime:
+        for required in REQUIRED_PUBLIC_FILES:
+            if required not in rel_files:
+                failures.append(f"required public runtime artifact missing: {required}")
+
+    # Every public registry source must survive the build; every gated source
+    # must stay out. This prevents an allowlist change from silently dropping a
+    # legitimate page while still enforcing editorial publication status.
+    data = registry_data(root)
+    for entry in data.get("entries", []):
+        source_file = entry.get("sourceFile")
+        if not source_file:
+            continue
+        source_file = source_file.replace("\\", "/")
+        status = registry_status(entry, data)
+        if status in GATED_REGISTRY_STATUS:
+            if source_file in rel_files:
+                failures.append(f"gated registry source present in dist: {source_file}")
+        elif source_file not in rel_files:
+            failures.append(f"public registry source missing from dist: {source_file}")
 
     if failures:
-        print(f"FAIL — {len(failures)} issue(s) in {out_dir}:")
-        for f in failures:
-            print(f"- {f}")
+        print(f"FAIL — {len(failures)} public-artifact contract issue(s) in {out_dir}:")
+        for failure in failures:
+            print(f"- {failure}")
         return 1
-    print(f"OK: {out_dir} contains none of the excluded categories.")
+
+    print(
+        f"OK: {out_dir} satisfies the allowlist-first public-artifact contract "
+        f"({len(rel_files)} files)."
+    )
     return 0
 
 
-ASSETSIGNORE = ROOT / ".assetsignore"
 ASSETSIGNORE_HEADER = """# GENERADO por scripts/build-public-dist.py --emit-assetsignore — no editar a mano.
 #
-# Por qué existe: el build de staging en Cloudflare hace `git archive HEAD` a
-# .preview-dist y despliega esa carpeta con `wrangler deploy --assets`, así que
-# hasta ahora subía TODO el repo trackeado (scripts/, tests/, data/, ...).
-# Cambiar ese comando de build es un ajuste del dashboard de Cloudflare, y la
-# Builds API no acepta tokens de cuenta ni OAuth de wrangler. Pero wrangler sí
-# respeta un .assetsignore (sintaxis .gitignore) en la raíz del directorio de
-# assets, y `git archive` deposita este archivo exactamente ahí. Resultado: las
-# mismas exclusiones que build-public-dist.py, aplicadas en el despliegue real,
-# sin depender de que nadie toque el dashboard.
+# Política allowlist-first. Cloudflare Wrangler documenta `.assetsignore` con
+# formato `.gitignore`. Se ignora todo el root y se reabren únicamente los
+# namespaces/ficheros clasificados como web pública. Un fichero técnico nuevo
+# queda fuera por defecto, aunque nadie conozca todavía su nombre.
 #
 # Mantener sincronizado: python scripts/build-public-dist.py --check-assetsignore
 """
 
 
-def assetsignore_lines() -> list[str]:
-    lines = [p.rstrip("/") + "/" for p in EXCLUDE_DIR_PREFIXES]
-    lines += sorted(EXCLUDE_FILES)
-    lines.append(".assetsignore")
+def assetsignore_lines(root: Path = ROOT) -> list[str]:
+    lines = ["/*", ""]
+    lines += [f"!/{name}" for name in sorted(PUBLIC_ROOT_FILES)]
     lines.append("")
-    lines.append("# Piezas de campana para redes: no las usa ninguna pagina, se suben a")
-    lines.append("# mano desde el repo local. Permanentes, sin fecha: no hay nada que")
-    lines.append("# 'liberar' el dia del lanzamiento.")
-    lines += list(CAMPAIGN_SOCIAL_ASSETS)
-    gated = gated_prefixes_from_registry(ROOT)
+    lines += [f"!/{prefix.rstrip('/')}/" for prefix in PUBLIC_DIR_PREFIXES]
+    lines += [
+        "",
+        "# Exclusiones dentro de namespaces públicos.",
+        *[f"/{prefix}" for prefix in PUBLIC_EXCLUDED_DIR_PREFIXES],
+        *[f"/{name}" for name in sorted(PUBLIC_EXCLUDED_FILES)],
+        *ASSETSIGNORE_FORBIDDEN_PATTERNS,
+    ]
+    gated = gated_prefixes_from_registry(root)
     if gated:
-        lines.append("")
-        lines.append("# Rutas gated/staging derivadas de data/content-registry.json (status !=")
-        lines.append("# public): el staging real de Cloudflare tambien debe respetarlas, no solo")
-        lines.append("# el .preview-dist local.")
-        lines += [p.rstrip("/") + "/" for p in gated]
+        lines += [
+            "",
+            "# Rutas gated derivadas de data/content-registry.json.",
+            *[f"/{prefix}" for prefix in gated],
+        ]
     return lines
 
 
-def render_assetsignore() -> str:
-    return ASSETSIGNORE_HEADER + "\n".join(assetsignore_lines()) + "\n"
+def render_assetsignore(root: Path = ROOT) -> str:
+    return ASSETSIGNORE_HEADER + "\n".join(assetsignore_lines(root)) + "\n"
 
 
-def emit_assetsignore(check_only: bool) -> int:
-    expected = render_assetsignore()
-    current = ASSETSIGNORE.read_text(encoding="utf-8") if ASSETSIGNORE.exists() else None
+def emit_assetsignore(root: Path, check_only: bool) -> int:
+    path = root / ".assetsignore"
+    expected = render_assetsignore(root)
+    current = path.read_text(encoding="utf-8") if path.exists() else None
     if check_only:
         if current == expected:
-            print("OK: .assetsignore coincide con las exclusiones de este builder.")
+            print("OK: .assetsignore coincide con la allowlist pública del builder.")
             return 0
         reason = "no existe" if current is None else "está desincronizado"
         print(f"FAIL: .assetsignore {reason}. Regenera con --emit-assetsignore.")
         return 1
-    ASSETSIGNORE.write_text(expected, encoding="utf-8")
-    print(f"ESCRITO {ASSETSIGNORE} ({len(assetsignore_lines())} reglas).")
+    path.write_text(expected, encoding="utf-8")
+    print(f"ESCRITO {path} ({len(assetsignore_lines(root))} reglas).")
     return 0
 
 
 def main() -> int:
     ap = argparse.ArgumentParser()
-    ap.add_argument("--root", default=str(ROOT), help="Repo root to read git-tracked files and content-registry.json from (default: real repo root; override only for isolated tests)")
+    ap.add_argument("--root", default=str(ROOT))
     ap.add_argument("--out", default=str(DEFAULT_OUT))
-    ap.add_argument("--check-contents", action="store_true", help="Verify an already-built dist, don't rebuild")
-    ap.add_argument("--emit-assetsignore", action="store_true", help="Write .assetsignore from this builder's exclude list")
-    ap.add_argument("--check-assetsignore", action="store_true", help="Verify .assetsignore matches the exclude list")
+    ap.add_argument("--check-contents", action="store_true")
+    ap.add_argument("--emit-assetsignore", action="store_true")
+    ap.add_argument("--check-assetsignore", action="store_true")
     args = ap.parse_args()
 
     root = Path(args.root).resolve()
@@ -292,16 +430,17 @@ def main() -> int:
     if not out_dir.is_absolute():
         out_dir = root / out_dir
 
-
     if args.emit_assetsignore or args.check_assetsignore:
-        return emit_assetsignore(check_only=args.check_assetsignore)
-
+        return emit_assetsignore(root, check_only=args.check_assetsignore)
     if args.check_contents:
         return check_contents(out_dir, root)
 
     included, excluded = build(out_dir, root)
-    gate_note = ""
-    print(f"BUILT {out_dir}: {included} file(s) included, {excluded} excluded{gate_note}")
+    manifest_path = write_manifest(out_dir)
+    print(
+        f"BUILT {out_dir}: {included} file(s) included, {excluded} excluded; "
+        f"manifest={manifest_path.name}"
+    )
     return check_contents(out_dir, root)
 
 

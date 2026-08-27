@@ -1,0 +1,38 @@
+name: Public artifact contract
+
+on:
+  pull_request:
+    branches:
+      - main
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  public-artifact-contract:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Compile public artifact builder
+        run: python -m py_compile scripts/build-public-dist.py tests/test-public-artifact-contract.py
+
+      - name: Run boundary regression tests
+        run: python tests/test-public-artifact-contract.py
+
+      - name: Verify generated staging policy
+        run: python scripts/build-public-dist.py --check-assetsignore
+
+      - name: Build and inspect final public artifact
+        run: python scripts/build-public-dist.py --out .preview-dist
+
+      - name: Re-check built output explicitly
+        run: python scripts/build-public-dist.py --check-contents --out .preview-dist

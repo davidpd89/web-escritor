@@ -1,43 +1,80 @@
 # GENERADO por scripts/build-public-dist.py --emit-assetsignore — no editar a mano.
 #
-# Por qué existe: el build de staging en Cloudflare hace `git archive HEAD` a
-# .preview-dist y despliega esa carpeta con `wrangler deploy --assets`, así que
-# hasta ahora subía TODO el repo trackeado (scripts/, tests/, data/, ...).
-# Cambiar ese comando de build es un ajuste del dashboard de Cloudflare, y la
-# Builds API no acepta tokens de cuenta ni OAuth de wrangler. Pero wrangler sí
-# respeta un .assetsignore (sintaxis .gitignore) en la raíz del directorio de
-# assets, y `git archive` deposita este archivo exactamente ahí. Resultado: las
-# mismas exclusiones que build-public-dist.py, aplicadas en el despliegue real,
-# sin depender de que nadie toque el dashboard.
+# Política allowlist-first. Cloudflare Wrangler documenta `.assetsignore` con
+# formato `.gitignore`. Se ignora todo el root y se reabren únicamente los
+# namespaces/ficheros clasificados como web pública. Un fichero técnico nuevo
+# queda fuera por defecto, aunque nadie conozca todavía su nombre.
 #
 # Mantener sincronizado: python scripts/build-public-dist.py --check-assetsignore
-.claude/
-.github/
-scripts/
-tests/
-data/
-assets/manecillas/source/
-assets/no usadas/
-publicar-web/
-lecturas/
-.env.example
-.gitignore
-.lycheeignore
-.pa11yci
-README.md
-cloudflare-worker-subscribe.js
-editorial-facts.json
-lighthouserc.json
-.assetsignore
+/*
 
-# Piezas de campana para redes: no las usa ninguna pagina, se suben a
-# mano desde el repo local. Permanentes, sin fecha: no hay nada que
-# 'liberar' el dia del lanzamiento.
-assets/manecillas-social-4x5-aviso.webp
-assets/manecillas-social-4x5-disponible.webp
-assets/manecillas-social-story-9x16.webp
+!/404.html
+!/59347d39b5684876a7ccc84382f31758.txt
+!/CNAME
+!/THIRD_PARTY_NOTICE_SILABAJS.md
+!/autor.html
+!/aviso-legal.html
+!/editoriales-sitemap.xml
+!/eventos.html
+!/favicon.ico
+!/ferias.html
+!/humans.txt
+!/index.html
+!/llms-full.txt
+!/llms.txt
+!/manifest.json
+!/offline.html
+!/premios.html
+!/prensa.html
+!/privacidad.html
+!/robots.txt
+!/samuel-entre-mundos.html
+!/script.js
+!/service-worker.js
+!/sitemap.xml
+!/styles.css
 
-# Rutas gated/staging derivadas de data/content-registry.json (status !=
-# public): el staging real de Cloudflare tambien debe respetarlas, no solo
-# el .preview-dist local.
-donde-empieza-la-jaula/
+!/accesibilidad/
+!/ai/
+!/asistente/
+!/assets/
+!/clubes-de-lectura/
+!/convocatorias-escritores/
+!/cuaderno/
+!/editoriales/
+!/empieza-aqui/
+!/fragmento/
+!/gracias-suscripcion/
+!/herramientas/
+!/las-manecillas-del-recuerdo/
+!/lectores-beta/
+!/libros/
+!/mapa-del-sitio/
+!/metodologia-editorial/
+!/pagefind/
+!/press-kit/
+!/recomendaciones/
+!/recursos/
+!/universo/
+
+# Exclusiones dentro de namespaces públicos.
+/assets/manecillas/source/
+/assets/no usadas/
+/assets/manecillas-social-4x5-aviso.webp
+/assets/manecillas-social-4x5-disponible.webp
+/assets/manecillas-social-story-9x16.webp
+/press-kit/package-manifest.json
+**/wrangler*.jsonc
+**/cloudflare-worker-*.js
+**/package.json
+**/package-lock.json
+**/lighthouserc*.json
+**/*.tfstate
+**/.env
+**/.env.*
+**/*.sql
+**/*.pem
+**/*.key
+
+# Rutas gated derivadas de data/content-registry.json.
+/donde-empieza-la-jaula/

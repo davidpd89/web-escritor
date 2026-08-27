@@ -132,17 +132,17 @@ with tempfile.TemporaryDirectory() as tmp:
     check((out_dir / "privacidad.html").exists(), "3. una ruta noindex pero status=public SI se incluye en el dist (noindex no es control de acceso)")
     check((out_dir / "index.html").exists(), "3b. la home normal se incluye")
 
-    # 4. check_contents() pasa sobre un dist correctamente construido.
-    check(bpd.check_contents(out_dir, fixture_root) == 0, "4. check_contents() pasa sobre un dist ya filtrado correctamente")
+    # 4. Este fixture modela solo la frontera de publicación, no el shell/PWA
+    # completo; por eso desactiva exclusivamente la comprobación de runtime.
+    check(bpd.check_contents(out_dir, fixture_root, require_runtime=False) == 0, "4. check_contents() pasa sobre un dist ya filtrado correctamente")
 
-    # 5. REGRESIÓN (Deuda 3): si la ruta staging se cuela en el dist de todos
-    # modos -- simulando un bug futuro en build() o una copia manual --,
-    # check_contents() debe detectarla y fallar, aunque su HTML declare
-    # noindex.
+    # 5. REGRESIÓN: si la ruta staging se cuela en el dist de todos modos --
+    # simulando un bug futuro en build() o una copia manual --, el checker
+    # debe detectarla y fallar aunque su HTML declare noindex.
     leaked = out_dir / "donde-empieza-la-jaula"
     leaked.mkdir()
     (leaked / "index.html").write_text((fixture_root / "donde-empieza-la-jaula" / "index.html").read_text(encoding="utf-8"), encoding="utf-8")
-    check(bpd.check_contents(out_dir, fixture_root) == 1, "5. check_contents() detecta y falla si la ruta staging se cuela en el dist (aunque tenga noindex)")
+    check(bpd.check_contents(out_dir, fixture_root, require_runtime=False) == 1, "5. check_contents() detecta y falla si la ruta staging se cuela en el dist (aunque tenga noindex)")
 
 # 6. Contra el repositorio REAL (sin escribir nada en él): confirmar que
 # donde-empieza-la-jaula/ ya está en la autoridad derivada del registry real.
@@ -150,7 +150,7 @@ real_prefixes = bpd.gated_prefixes_from_registry(ROOT)
 check("donde-empieza-la-jaula/" in real_prefixes, "6. el registry REAL del repo ya declara donde-empieza-la-jaula/ como gated", str(real_prefixes))
 
 # 7. Construir el dist REAL a un directorio temporal (nunca en el repo) y
-# confirmar que la ruta gated queda fuera y el gate pasa.
+# confirmar que la ruta gated queda fuera y el gate estricto pasa.
 with tempfile.TemporaryDirectory() as tmp:
     real_out = Path(tmp) / "real-dist"
     bpd.build(real_out, ROOT)
