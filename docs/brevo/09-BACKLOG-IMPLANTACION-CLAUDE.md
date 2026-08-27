@@ -139,9 +139,9 @@ No guardar datos de pago.
 
 P0 · `ACCOUNT + CLOUDFLARE`
 
-1. Crear/verificar lista dedicada `Lectores beta`.
-2. Obtener ID.
-3. Configurar `BREVO_BETA_LIST_ID` como variable/secret adecuada.
+1. ✅ 2026-08-27 — Creada lista dedicada `Lectores beta`, **id `6`**, carpeta `Your first folder` (misma que `Lectores web`, id 3). Ver `docs/brevo/SNAPSHOT-LIVE.md`.
+2. ✅ Obtenida ID: `6`.
+3. ⏳ Pendiente — Configurar `BREVO_BETA_LIST_ID=6` como variable/secret del Worker en Cloudflare. No hecho por Claude: requiere tocar la config del Worker en producción (fuera del alcance sin autorización explícita, ver "Deploy" abajo).
 4. No cambiar `BREVO_LIST_ID` general.
 5. Smoke test con email controlado.
 6. Confirmar contacto beta no entra en general.
