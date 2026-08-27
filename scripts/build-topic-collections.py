@@ -29,7 +29,7 @@ ALLOWED_STATUS = {"draft", "ready"}
 ALLOWED_MODE = {"collection", "series"}
 ALLOWED_ITEM_TYPE = {"articulo", "proceso", "recomendacion", "recurso"}
 
-SHARE_IMAGE = f"{SITE}/assets/david-porto-imagen-compartir.webp"
+SHARE_IMAGE = f"{SITE}/assets/david-porto-imagen-compartir.jpg"
 SHARE_IMAGE_WIDTH = 1731
 SHARE_IMAGE_HEIGHT = 909
 

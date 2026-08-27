@@ -342,8 +342,6 @@
       addTextLink(item, href, 'Abrir', 'home-event__link');
       grid.append(item);
     });
-    wrap.append(lead, grid);
-
     const cta = make('div', 'home-events__cta');
     const ctaCopy = make('div');
     ctaCopy.append(make('h3', '', '¿Quieres organizar una presentación, firma o club de lectura?'));
@@ -351,8 +349,10 @@
     cta.append(ctaCopy);
     const mail = addTextLink(cta, 'mailto:davidportodiaz@gmail.com?subject=Solicitud%20de%20presentaci%C3%B3n%20%E2%80%94%20David%20Porto%20D%C3%ADaz', 'Escribir');
     mail.addEventListener('click', () => emit('home_event_contact_click'));
+    grid.append(cta);
 
-    section.append(head, wrap, cta);
+    wrap.append(lead, grid);
+    section.append(head, wrap);
     return section;
   }
 
@@ -389,7 +389,7 @@
       installPrompt = event;
       if (!button.disabled) {
         button.textContent = 'Instalar web';
-        status.textContent = 'Disponible para instalar en este dispositivo.';
+        status.textContent = '';
       }
     });
 

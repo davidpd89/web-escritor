@@ -189,7 +189,7 @@ def load_and_validate(path: Path, today: date) -> tuple[dict, list[dict], list[s
     return raw, published, warnings
 
 
-SHARE_IMAGE = "https://davidportodiaz.com/assets/david-porto-imagen-compartir.webp"
+SHARE_IMAGE = "https://davidportodiaz.com/assets/david-porto-imagen-compartir.jpg"
 # Dimensiones reales del fichero, no las recomendadas. check-social-cards.py
 # compara lo declarado con los bytes de la imagen y marca dimension-drift si no
 # coinciden: declarar 1200x630 "porque es lo que pide Open Graph" seria mentir

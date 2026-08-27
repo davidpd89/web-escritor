@@ -13,7 +13,7 @@ from html.parser import HTMLParser
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
-EXPECTED_CARD = "https://davidportodiaz.com/assets/og-worldbuilding-noveris-ciudad-fantastica.webp"
+EXPECTED_CARD = "https://davidportodiaz.com/assets/og-worldbuilding-noveris-ciudad-fantastica.jpg"
 EXPECTED_WIDTH = "1200"
 EXPECTED_HEIGHT = "630"
 TARGETS = [
