@@ -43,19 +43,20 @@
       "id": "production-release-integrity",
       "title": "PR obligatoria → CI → deploy → producción verificada",
       "area": "release-security",
-      "stage": "IMPLEMENTED_IN_PR",
-      "owner": "PR #116",
+      "stage": "MERGED_MAIN",
+      "owner": "PR #116 (merged)",
       "evidence": [
         "https://github.com/davidpd89/web-escritor/pull/116",
         ".github/workflows/required-merge-gate.yml",
         ".github/workflows/deploy-pages.yml",
         "scripts/stamp-release-identity.py",
         "tests/test-release-identity.py",
-        "tests/test-staging-smoke.mjs"
+        "tests/test-staging-smoke.mjs",
+        "https://github.com/davidpd89/web-escritor/pull/125"
       ],
       "externalEvidence": [],
-      "falseCompletionTrap": "Required gate y release marker existen en la PR, pero main sigue sin ruleset y el flujo no está activo hasta merge/configuración/prueba conductual.",
-      "nextAction": "Cerrar el fallo basal de reflow (#119), reconciliar docs/copy antiguos de revisión humana, dejar #116 verde y después configurar/probar el ruleset de main con autorización/capacidad adecuada.",
+      "falseCompletionTrap": "Estar en main solo prueba que el codigo del gate/release marker existe. main sigue protected:false y sin required status checks: nada bloquea todavia un merge directo o sin CI verde.",
+      "nextAction": "Configurar y probar el ruleset real de main segun docs/production-integrity/02-RULESET-MAIN-Y-CHECKS-OBLIGATORIOS.md (PR obligatoria, checks minimos obligatorios, 0 aprobaciones requeridas, force-push/deletion bloqueados) solo con autorizacion/capacidad de cuenta adecuada; luego probar conducta real (push directo rechazado, PR verde mergeable sin aprobacion manual).",
       "closureCriterion": "PR mergeada; push directo normal rechazado; PR verde mergeable por agente autorizado sin aprobación rutinaria; deploy verifica por HTTP el mismo SHA.",
       "lastVerified": "2026-08-27"
     },
@@ -72,7 +73,7 @@
         "GitHub branch snapshot 2026-08-27: main protected=false; no active repository ruleset observed during audit."
       ],
       "falseCompletionTrap": "Tener una configuración recomendada en Markdown no protege la rama.",
-      "nextAction": "Tras merge de #116, crear/activar el ruleset con contexts observados y ejecutar prueba conductual de push rechazado + merge por agente.",
+      "nextAction": "Mismo ruleset que production-release-integrity: aplicar solo con autorizacion explicita del propietario de la cuenta/repositorio; no marcar CONFIGURED_LIVE hasta confirmar main protected:true con los checks minimos.",
       "closureCriterion": "Regla activa demostrada por comportamiento, no solo por captura/config declarada.",
       "lastVerified": "2026-08-27"
     },
@@ -80,8 +81,8 @@
       "id": "pwa-asset-freshness",
       "title": "PWA sin assets obsoletos por cache-first permanente",
       "area": "pwa-performance",
-      "stage": "IMPLEMENTED_IN_PR",
-      "owner": "PR #117",
+      "stage": "MERGED_MAIN",
+      "owner": "PR #117 (merged)",
       "evidence": [
         "https://github.com/davidpd89/web-escritor/pull/117",
         "service-worker.js",
@@ -92,8 +93,8 @@
         "Incidente real documentado en historial: móvil sirvió vídeo/fuentes/avatar antiguos mientras Incognito veía bytes nuevos.",
         "MDN/Chrome Workbox: cache-first sobre recursos mutables/no versionados puede conservar respuestas antiguas; media Range requiere tratamiento dedicado."
       ],
-      "falseCompletionTrap": "Subir CACHE_VERSION arregla una caché concreta, no la estrategia que permitía repetir el incidente.",
-      "nextAction": "Investigar el fallo Global Discoverability del HEAD de #117, absorber/cerrar el fallo de reflow basal mediante #119 y verificar PWA browser QA final.",
+      "falseCompletionTrap": "Estar en main no prueba por si solo que produccion nunca sirvio un asset obsoleto desde el merge; solo trafico real a lo largo del tiempo lo demuestra.",
+      "nextAction": "Sin cambio de codigo pendiente identificado. Si vuelve a reportarse un asset obsoleto en produccion, verificar primero si es Range/media (bypass ya cubierto) o un recurso mutable fuera de la politica SWR.",
       "closureCriterion": "#117 mergeada; cache policy durable protegida por test; PWA/offline QA verde; producción ya no depende de bump manual para refrescar assets mutables.",
       "lastVerified": "2026-08-27"
     },
@@ -101,8 +102,8 @@
       "id": "mobile-reflow-shared-components",
       "title": "Reflow 200% + text spacing en Home/Samuel/Noveris",
       "area": "accessibility-responsive",
-      "stage": "IMPLEMENTED_IN_PR",
-      "owner": "PR #119",
+      "stage": "MERGED_MAIN",
+      "owner": "PR #119 (merged)",
       "evidence": [
         "https://github.com/davidpd89/web-escritor/pull/119",
         "qa/sitewide-reflow-browser.mjs",
@@ -111,8 +112,8 @@
       "externalEvidence": [
         "CI reprodujo overflow en main/base: Home avatar + section-context nowrap en Fragmento/Samuel/Noveris bajo 200% zoom y text-spacing."
       ],
-      "falseCompletionTrap": "Ocultar overflow o recortar contenido haría verde el síntoma sin cumplir reflow.",
-      "nextAction": "Cargar V7 desde v1-shell.css, ejecutar CI, iterar sobre los offenders exactos y conservar contenido/reflow sin overflow-x:hidden global.",
+      "falseCompletionTrap": "El alcance de esta iniciativa es Home/Samuel/Noveris. El residual de /mapa-del-sitio/ vive en un item propio (findability-sitemap-reflow); no reabrir este item por ese residual.",
+      "nextAction": "Cerrado para su alcance original. Sitewide Reflow QA pasa 76 rutas x 2 viewports (152 checks) tras #119 + el fix de findability-sitemap-reflow.",
       "closureCriterion": "Sitewide Reflow QA = 0 px de overflow en viewports auditados; Pa11y y QA visual afectado verdes.",
       "lastVerified": "2026-08-27"
     },
@@ -120,15 +121,18 @@
       "id": "design-ux-tooling-system",
       "title": "Sistema profesional de diseño/UX/tooling para Claude",
       "area": "design-ux",
-      "stage": "IMPLEMENTED_IN_PR",
-      "owner": "PR #114",
+      "stage": "MERGED_MAIN",
+      "owner": "PR #114 (merged)",
       "evidence": [
         "https://github.com/davidpd89/web-escritor/pull/114",
-        "docs/design-ux-tooling/README.md"
+        "docs/design-ux-tooling/README.md",
+        "docs/design-ux-tooling/14-FUENTES-Y-ESTADO-2026-08-27.md",
+        "docs/design-ux-tooling/15-ANTI-SLOP-DESIGN-REVIEW.md",
+        "docs/design-ux-tooling/tools-catalog.json"
       ],
       "externalEvidence": [],
-      "falseCompletionTrap": "El README enumera tres artefactos todavía inexistentes en la rama y parte de la gobernanza quedó anterior al modelo agent-operable.",
-      "nextAction": "Crear 14-FUENTES, 15-ANTI-SLOP y tools-catalog.json; corregir precedencia de merge/deploy; revalidar herramientas con fuente primaria actual.",
+      "falseCompletionTrap": "El README enumeraba 16 documentos pero solo 13+README llegaron a main con #114; los 3 restantes (14-FUENTES, 15-ANTI-SLOP, tools-catalog.json) se completaron en esta misma reconciliacion (PR #125), no en #114.",
+      "nextAction": "Corpus completo (16/16). Pendiente real: decidir la via canonica entre Chrome DevTools MCP y Playwright MCP para QA de diseno (ambos disponibles, redundantes en parte); resto de herramientas marcadas PILOT/DEFER en tools-catalog.json se activan solo bajo demanda concreta, no por defecto.",
       "closureCriterion": "Índice y ficheros coinciden; catálogo machine-readable validado; fuentes/corte explícitos; ninguna herramienta se presenta como instalada por estar documentada.",
       "lastVerified": "2026-08-27"
     },
@@ -136,15 +140,15 @@
       "id": "repo-hygiene-round-1",
       "title": "Limpieza conservadora del repositorio",
       "area": "maintainability",
-      "stage": "IMPLEMENTED_IN_PR",
-      "owner": "PR #115",
+      "stage": "MERGED_MAIN",
+      "owner": "PR #115 (merged)",
       "evidence": [
         "https://github.com/davidpd89/web-escritor/pull/115",
         "docs/REPO-HYGIENE-AUDIT-2026-08-27.md"
       ],
       "externalEvidence": [],
-      "falseCompletionTrap": "El rojo de Sitewide Reflow no procede del diff de limpieza; tampoco debe usarse para ignorar el fallo basal.",
-      "nextAction": "Resolver dependencia de #119/rebasear cuando corresponda y continuar segunda ronda fichero a fichero sin borrar por nombre.",
+      "falseCompletionTrap": "#115 borro /herramientas/auditor-web/ y /publicar-web/, que tests/test-tools-hub-public-registry.py exige preservar; ese contrato no se disparo porque tool-tests.yml no incluia esas rutas en su filtro. #123 restauro los ficheros y esta PR amplia el filtro para que el mismo tipo de regresion no pueda repetirse en silencio.",
+      "nextAction": "Segunda ronda de limpieza fichero a fichero (REVIEW/ARCHIVE-CANDIDATE restantes de docs/REPO-HYGIENE-AUDIT-2026-08-27.md) sigue abierta sin urgencia; no borrar por nombre, verificar cada ruta contra los contratos existentes antes de borrar.",
       "closureCriterion": "Borrados demostrablemente seguros; CI verde sobre base corregida; REVIEW/ARCHIVE-CANDIDATE restantes conservan owner y criterio.",
       "lastVerified": "2026-08-27"
     },
@@ -153,7 +157,7 @@
       "title": "Claude Toolbox: plugins/MCP/Skills/APIs",
       "area": "agent-tooling",
       "stage": "IMPLEMENTED_IN_PR",
-      "owner": "PR #120",
+      "owner": "PR #120 (draft, mergeable=false)",
       "evidence": [
         "https://github.com/davidpd89/web-escritor/pull/120",
         "docs/claude-toolbox/README.md",
@@ -164,8 +168,8 @@
         "Rama huérfana original estaba 7 commits detrás de main; contenido docs recuperado sobre base fresca.",
         "Figma/BrowserStack/Canva/Chrome/Claude marketplace revalidados contra documentación oficial actual."
       ],
-      "falseCompletionTrap": "INSTALL_NOW/PILOT en catálogo significa recomendación, no plugin instalado, OAuth conectado ni servicio activo.",
-      "nextAction": "Revisar catálogo machine-readable, prerequisites LSP y existencia/origen de cada INSTALL_NOW; añadir validador del catálogo.",
+      "falseCompletionTrap": "INSTALL_NOW/PILOT en el catalogo significa recomendacion, no plugin instalado, OAuth conectado ni servicio activo. #120 sigue draft y su base documentada (main@b3db6b6) esta ~70 commits detras del main actual.",
+      "nextAction": "Actualizar/rebasear la rama contra main actual antes de tocar contenido; no arrastrar runtime de la rama huerfana original; corregir frases que describen #115/#116/#119/#124 como pendientes; revalidar tools-catalog.json (prerequisites LSP, cada INSTALL_NOW); mantener CI transversal verde en el HEAD final antes de mergear.",
       "closureCriterion": "#120 mergeada con catálogo coherente y validado; cualquier instalación real se registra por separado con estado y evidencia.",
       "lastVerified": "2026-08-27"
     },
@@ -173,18 +177,19 @@
       "id": "brevo-snapshot-list-counts",
       "title": "Conteos fiables de listas Brevo",
       "area": "crm-email",
-      "stage": "IMPLEMENTED_IN_PR",
-      "owner": "PR #118",
+      "stage": "MERGED_MAIN",
+      "owner": "PR #118 (merged)",
       "evidence": [
         "https://github.com/davidpd89/web-escritor/pull/118",
         "scripts/brevo/snapshot-brevo.py",
-        "tests/test-brevo-snapshot-contract.py"
+        "tests/test-brevo-snapshot-contract.py",
+        "docs/brevo/SNAPSHOT-LIVE.md"
       ],
       "externalEvidence": [
         "Brevo documenta retirada de totalSubscribers/totalBlacklisted en GET /contacts/lists y default 0; detalle de lista sigue siendo autoridad de conteo."
       ],
-      "falseCompletionTrap": "Los 0 actuales de SNAPSHOT-LIVE.md no prueban que las listas estén vacías.",
-      "nextAction": "Mergear la corrección cuando CI/base estén verdes y regenerar el snapshot con acceso real a la API; no editar conteos a mano.",
+      "falseCompletionTrap": "El parser corregido no prueba por si solo el estado real de las listas; hacia falta regenerar el snapshot contra la API en vivo.",
+      "nextAction": "Snapshot live ya regenerado en 2026-08-27T15:11:51Z con el fix aplicado: \"Lectores web\" pasa de 0 (endpoint agregado obsoleto) a 4 suscriptores reales (detalle de lista). \"Lectores beta\" e \"identified_contacts\" siguen en 0 -- sin evidencia de journey E2E de la beta (ver brevo-beta-worker-routing / brevo-newsletter-samuel-chapter-delivery, que siguen BLOCKED).",
       "closureCriterion": "Snapshot live regenerado con detalle por lista; errores de detalle aparecen como unknown y no como cero inventado.",
       "lastVerified": "2026-08-27"
     },
@@ -349,6 +354,27 @@
       "falseCompletionTrap": "El contador npm audit no equivale a 10 vulnerabilidades high explotables en la web pública; tampoco debe ignorarse porque node_modules no se publique.",
       "nextAction": "Abrir PR de supply-chain y clasificar advisory por advisory: directo/transitivo, introducido por, reachability, runtime/build/CI, fixed version y upgrade mínimo; no usar --force a ciegas.",
       "closureCriterion": "Cada advisory tiene decisión/evidencia; upgrades seguros aplicados con CI; riesgos aceptados tienen rationale/review date.",
+      "lastVerified": "2026-08-27"
+    },
+    {
+      "id": "findability-sitemap-reflow",
+      "title": "Reflow 200% + text spacing en /mapa-del-sitio/",
+      "area": "accessibility-responsive",
+      "stage": "MERGED_MAIN",
+      "owner": "PR #125 (merged)",
+      "evidence": [
+        "https://github.com/davidpd89/web-escritor/pull/125",
+        "assets/v1-findability.css",
+        "qa/sitewide-reflow-browser.mjs",
+        "docs/PENDIENTE-REFLOW-MAPA-DEL-SITIO-2026-08-27.md"
+      ],
+      "externalEvidence": [
+        "CI reprodujo el residual dejado por #119: /mapa-del-sitio/ a 320px + 200% zoom + text-spacing media scrollWidth/clientWidth = 349/320.",
+        "Causa: .directory-group__label y sus <li>/<a> sin min-width:0, con una palabra sin punto de ruptura (\"Orientacion\") que no podia envolver."
+      ],
+      "falseCompletionTrap": "Ocultar el overflow con overflow-x:hidden o recortar contenido haria verde el sintoma sin cumplir reflow real.",
+      "nextAction": "Sin accion pendiente identificada. Sitewide Reflow QA confirma 76 rutas x 2 viewports (152 checks) OK tras el fix; no reabrir salvo nueva evidencia de overflow.",
+      "closureCriterion": "Global Discoverability y Sitewide Reflow QA verdes con /mapa-del-sitio/ a 320px + 200% + text-spacing; sin overflow-x:hidden ni recorte de contenido.",
       "lastVerified": "2026-08-27"
     }
   ]
