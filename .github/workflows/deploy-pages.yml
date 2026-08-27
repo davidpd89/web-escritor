@@ -55,3 +55,40 @@ jobs:
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
+
+  verify-production:
+    name: Verify production after deploy
+    needs: deploy
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - name: Checkout deployed SHA
+        uses: actions/checkout@v4
+
+      - name: Set up Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+
+      - name: Smoke test public production surface
+        env:
+          SITE_BASE_URL: https://davidportodiaz.com
+          CANONICAL_ORIGIN: https://davidportodiaz.com
+          SMOKE_LABEL: PRODUCTION
+        shell: bash
+        run: |
+          # GitHub Pages/CDN propagation can take a few seconds after the
+          # deployment action returns. Retry the complete deterministic smoke
+          # a bounded number of times; never disable TLS and never turn a real
+          # persistent failure into a warning.
+          for attempt in 1 2 3; do
+            echo "Production verification attempt ${attempt}/3"
+            if node tests/test-staging-smoke.mjs; then
+              exit 0
+            fi
+            if [ "$attempt" -lt 3 ]; then
+              sleep 15
+            fi
+          done
+          echo "Production verification failed after 3 attempts."
+          exit 1
