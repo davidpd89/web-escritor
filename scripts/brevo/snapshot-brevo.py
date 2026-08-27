@@ -10,6 +10,15 @@ Never writes: contact emails/names/phones, the API key itself, SMTP
 credentials, any MCP token, or campaign/template HTML bodies (subject
 lines and metadata are kept -- content is not).
 
+Important 2026 API contract:
+`GET /v3/contacts/lists` is dropping support for `totalSubscribers` and
+`totalBlacklisted`; Brevo documents that their default value will be 0.
+A zero from that collection endpoint is therefore NOT evidence that a list
+has zero contacts. When counts are requested this script fetches each
+`GET /v3/contacts/lists/{listId}` detail endpoint, where Brevo still
+documents subscriber counts. If that detail cannot be read, count is
+reported as unknown rather than silently as 0.
+
 Usage:
     python scripts/brevo/snapshot-brevo.py --output snapshot.json --sanitized-output docs/brevo/SNAPSHOT.md
     python scripts/brevo/snapshot-brevo.py --check   # verify committed sanitized snapshot is current
@@ -49,7 +58,7 @@ def api_get(path: str, api_key: str) -> dict | list | None:
     # urllib User-Agent with a bare 403, even though the same key/path works
     # fine via curl -- a WAF/bot-filter quirk, not an auth problem. A plain
     # UA string sidesteps it without pretending to be a browser.
-    headers = {"api-key": api_key, "accept": "application/json", "User-Agent": "web-escritor-brevo-snapshot/1.0"}
+    headers = {"api-key": api_key, "accept": "application/json", "User-Agent": "web-escritor-brevo-snapshot/1.1"}
     req = urllib.request.Request(f"{API_BASE}/{path}", headers=headers)
     try:
         with urllib.request.urlopen(req, timeout=20) as resp:
@@ -59,6 +68,31 @@ def api_get(path: str, api_key: str) -> dict | list | None:
         return {"_error": True, "status": e.code, "body": body[:300]}
     except urllib.error.URLError as e:
         return {"_error": True, "status": None, "body": str(e)}
+
+
+def collect_lists(api_key: str, include_contacts: bool) -> list[dict] | dict | list | None:
+    """Collect list metadata without trusting deprecated collection counts."""
+    payload = api_get("contacts/lists?limit=50", api_key) or {}
+    if not isinstance(payload, dict) or payload.get("_error"):
+        return payload
+
+    rows: list[dict] = []
+    for item in payload.get("lists", []):
+        row = {
+            "id": item.get("id"),
+            "name": item.get("name"),
+            "totalSubscribers": None,
+            "subscriberCountStatus": "omitted" if not include_contacts else "unavailable",
+        }
+        if include_contacts and item.get("id") is not None:
+            detail = api_get(f"contacts/lists/{item['id']}", api_key) or {}
+            if isinstance(detail, dict) and not detail.get("_error"):
+                count = detail.get("totalSubscribers")
+                if isinstance(count, int) and not isinstance(count, bool):
+                    row["totalSubscribers"] = count
+                    row["subscriberCountStatus"] = "verified-list-detail"
+        rows.append(row)
+    return rows
 
 
 def collect(api_key: str, include_contacts: bool) -> dict:
@@ -76,11 +110,7 @@ def collect(api_key: str, include_contacts: bool) -> dict:
         "relayEnabled": bool(account.get("relay", {}).get("enabled")),
     }
 
-    lists = api_get("contacts/lists?limit=50", api_key) or {}
-    snapshot["lists"] = [
-        {"id": l.get("id"), "name": l.get("name"), "totalSubscribers": l.get("totalSubscribers") if include_contacts else None}
-        for l in lists.get("lists", [])
-    ] if isinstance(lists, dict) else lists
+    snapshot["lists"] = collect_lists(api_key, include_contacts)
 
     attrs = api_get("contacts/attributes", api_key) or {}
     snapshot["contactAttributes"] = [
@@ -139,6 +169,7 @@ def render_sanitized(snapshot: dict) -> str:
         "",
         "> AUTO-GENERADO por `scripts/brevo/snapshot-brevo.py`. No editar a mano.",
         "> No contiene emails/nombres de contactos, API keys, credenciales SMTP, tokens MCP ni cuerpos de plantillas/campañas.",
+        "> Los conteos de listas se leen del endpoint de detalle de cada lista. Un conteo no disponible se muestra como desconocido, nunca como cero inferido del endpoint agregado deprecado.",
         "",
         "## Cuenta",
         f"- Plan: `{snapshot['account'].get('planType')}` ({snapshot['account'].get('planCredits')} {snapshot['account'].get('planCreditsType')})",
@@ -148,7 +179,13 @@ def render_sanitized(snapshot: dict) -> str:
         "## Listas",
     ]
     for l in snapshot.get("lists", []):
-        lines.append(f"- `{l.get('id')}` {l.get('name')} — {l.get('totalSubscribers')} suscriptores" if l.get("totalSubscribers") is not None else f"- `{l.get('id')}` {l.get('name')}")
+        status = l.get("subscriberCountStatus")
+        if status == "verified-list-detail":
+            lines.append(f"- `{l.get('id')}` {l.get('name')} — {l.get('totalSubscribers')} suscriptores (detalle de lista)")
+        elif status == "unavailable":
+            lines.append(f"- `{l.get('id')}` {l.get('name')} — suscriptores: desconocido (detalle API no disponible)")
+        else:
+            lines.append(f"- `{l.get('id')}` {l.get('name')}")
 
     lines += ["", "## Dominios de envío"]
     for d in snapshot.get("domains", []):

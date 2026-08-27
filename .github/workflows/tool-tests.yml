@@ -19,6 +19,7 @@ on:
       - 'docs/IMPLEMENTATION-TRUTH-LEDGER-2026-08-27.md'
       - 'migrations/assistant-quota.sql'
       - 'scripts/check-assistant-contract.py'
+      - 'scripts/brevo/snapshot-brevo.py'
       - 'scripts/requirements.txt'
       - 'wrangler.assistant.example.jsonc'
       - 'lighthouserc.json'
