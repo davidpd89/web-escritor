@@ -408,10 +408,26 @@
         return;
       }
 
-      const isIos = /iphone|ipad|ipod/i.test(navigator.userAgent);
-      status.textContent = isIos
-        ? 'En iPhone o iPad: Compartir → Añadir a pantalla de inicio.'
-        : 'Abre el menú del navegador y elige “Instalar aplicación” o “Añadir a pantalla de inicio” si aparece disponible.';
+      // No beforeinstallprompt to replay: either the browser never offered
+      // one (Safari/iOS never does; Chrome/Edge withhold it after a recent
+      // dismissal or once already installed), or this device doesn't meet
+      // the platform's install criteria this session. No JS can force the
+      // native install flow past that -- it's a browser security boundary
+      // by design, the same for every PWA on the web -- so this points at
+      // the closest thing to a one-click path each platform actually has.
+      const ua = navigator.userAgent;
+      const isIos = /iphone|ipad|ipod/i.test(ua);
+      const isAndroid = /android/i.test(ua);
+      const isMobile = isIos || isAndroid || /mobile/i.test(ua);
+      if (isIos) {
+        status.textContent = 'En iPhone o iPad: pulsa el icono Compartir (el cuadrado con la flecha) y elige "Añadir a pantalla de inicio".';
+      } else if (isAndroid) {
+        status.textContent = 'Si no ha aparecido un aviso para instalar, es que Chrome ya la tiene instalada o descartaste el aviso hace poco: abre el menú ⋮ (arriba a la derecha) y busca "Instalar aplicación".';
+      } else if (isMobile) {
+        status.textContent = 'Abre el menú del navegador y busca "Instalar aplicación" o "Añadir a pantalla de inicio".';
+      } else {
+        status.textContent = 'Busca el icono de instalar junto a la barra de direcciones (a la derecha, cerca de la ⭐) y haz clic ahí.';
+      }
       emit('home_install_help');
     });
 
