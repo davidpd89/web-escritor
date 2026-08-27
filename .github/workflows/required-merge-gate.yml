@@ -31,6 +31,9 @@ jobs:
       - name: Validate release smoke syntax
         run: node --check tests/test-staging-smoke.mjs
 
+      - name: Verify exact-release identity contract
+        run: python tests/test-release-identity.py
+
       - name: Generate consolidated static release evidence
         run: python scripts/release-readiness.py --output .ci/release-readiness.md
 
@@ -60,6 +63,13 @@ jobs:
 
       - name: Re-check final public artifact contents
         run: python scripts/build-public-dist.py --check-contents --out .preview-dist
+
+      - name: Prove marker can be stamped into built artifact
+        shell: bash
+        run: |
+          SHA="${{ github.event.pull_request.head.sha || github.sha }}"
+          python scripts/stamp-release-identity.py --out .preview-dist --sha "$SHA"
+          python scripts/stamp-release-identity.py --check --out .preview-dist --sha "$SHA"
 
       - name: Upload release-readiness evidence
         if: always()
