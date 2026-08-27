@@ -16,6 +16,7 @@ Leer en este orden:
 5. [`05-BACKLOG-DE-IMPLANTACION.md`](./05-BACKLOG-DE-IMPLANTACION.md) — backlog ejecutable separado entre tareas dentro de la cuenta Google, BigQuery y trabajo que Claude puede implementar en el repositorio.
 6. [`06-CATALOGO-COMPLETO-Y-NO-APLICABLES.md`](./06-CATALOGO-COMPLETO-Y-NO-APLICABLES.md) — funciones actuales/legacy/condicionales que hoy no debemos implantar a ciegas: Video Indexing, AMP, Shopping/Merchant, Shipping & Returns, Data Highlighter, asociaciones, etc.
 7. [`07-ANOMALIAS-DATOS-2026.md`](./07-ANOMALIAS-DATOS-2026.md) — calendario de anomalías oficiales de datos de 2026 y reglas para no confundir fallos de logging con caídas SEO reales.
+8. [`08-HERRAMIENTAS-RETIRADAS-Y-ANTI-PATRONES.md`](./08-HERRAMIENTAS-RETIRADAS-Y-ANTI-PATRONES.md) — funciones retiradas y recetas que hoy serían obsoletas o peligrosas: Indexing API generalizada, crawl-rate manual, International Targeting, URL Parameters, Disavow automático, etc.
 
 ## Resumen ejecutivo
 
