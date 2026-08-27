@@ -31,7 +31,7 @@ assert.equal(typeof fetchHandler, 'function', 'service worker fetch handler miss
 function dispatch(path, mode = 'cors') {
   let responded = false;
   const event = {
-    request: { method: 'GET', url: `https://davidportodiaz.com${path}`, mode },
+    request: { method: 'GET', url: `https://davidportodiaz.com${path}`, mode, headers: new Headers(), destination: '' },
     respondWith() { responded = true; },
     waitUntil() {},
   };
