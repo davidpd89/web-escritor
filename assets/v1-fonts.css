@@ -54,6 +54,18 @@
 @font-face{font-family:'Newsreader Fallback';src:local('Georgia'),local('Liberation Serif'),local('DejaVu Serif');size-adjust:123.53%;ascent-override:59.51%;descent-override:21.45%;line-gap-override:0%}
 @font-face{font-family:'Instrument Serif Fallback';src:local('Georgia'),local('Liberation Serif'),local('DejaVu Serif');size-adjust:95.91%;ascent-override:103.23%;descent-override:32.32%;line-gap-override:0%}
 
+/* The two faces above only cover font-style:normal. An unmatched *italic*
+   entry in the same family isn't synthesized against these metrics -- the
+   cascade skips straight past the family to the next stack entry (Iowan Old
+   Style/Charter/Georgia, none resolving on Linux either), landing on
+   unmatched generic serif. Articles with an italic blockquote (Instrument
+   Serif italic) or italic emphasis in body copy (Newsreader italic) hit
+   this; que-es-el-portal-fantasy does, feria-libro-madrid mostly doesn't,
+   which is why fixing only the normal faces above closed CLS on one
+   article page but not the other. */
+@font-face{font-family:'Newsreader Fallback';font-style:italic;src:local('Georgia'),local('Liberation Serif'),local('DejaVu Serif');size-adjust:111.95%;ascent-override:65.66%;descent-override:23.67%;line-gap-override:0%}
+@font-face{font-family:'Instrument Serif Fallback';font-style:italic;src:local('Georgia'),local('Liberation Serif'),local('DejaVu Serif');size-adjust:98.88%;ascent-override:100.12%;descent-override:31.35%;line-gap-override:0%}
+
 /* Same technique, Arial as the width reference instead of Georgia (Manrope
    and Allura's own stacks are sans/cursive, not serif) -- Manrope backs
    --font-ui (used inside .article-note/figcaption/table, i.e. inside the
