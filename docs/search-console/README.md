@@ -12,7 +12,10 @@ Leer en este orden:
 1. [`01-PLAN-MAESTRO.md`](./01-PLAN-MAESTRO.md) — inventario completo de funciones vigentes y qué hacer con cada una en esta web.
 2. [`02-RUNBOOK-OPERATIVO.md`](./02-RUNBOOK-OPERATIVO.md) — qué revisar a diario, semanalmente, mensualmente, trimestralmente y después de cada lanzamiento o cambio técnico.
 3. [`03-AUTOMATIZACION-API-BIGQUERY.md`](./03-AUTOMATIZACION-API-BIGQUERY.md) — cómo dejar de depender de la interfaz: exportación diaria a BigQuery, Search Console API, URL Inspection API, modelos de datos, alertas y consultas.
-4. [`04-FUENTES-Y-ESTADO-2026.md`](./04-FUENTES-Y-ESTADO-2026.md) — fuentes oficiales de Google, funciones en rollout/experimental y anomalías de datos conocidas a la fecha de corte.
+4. [`04-FUENTES-Y-ESTADO-2026.md`](./04-FUENTES-Y-ESTADO-2026.md) — registro de fuentes oficiales de Google y estado GA/rollout/experimental/condicional de cada capacidad.
+5. [`05-BACKLOG-DE-IMPLANTACION.md`](./05-BACKLOG-DE-IMPLANTACION.md) — backlog ejecutable separado entre tareas dentro de la cuenta Google, BigQuery y trabajo que Claude puede implementar en el repositorio.
+6. [`06-CATALOGO-COMPLETO-Y-NO-APLICABLES.md`](./06-CATALOGO-COMPLETO-Y-NO-APLICABLES.md) — funciones actuales/legacy/condicionales que hoy no debemos implantar a ciegas: Video Indexing, AMP, Shopping/Merchant, Shipping & Returns, Data Highlighter, asociaciones, etc.
+7. [`07-ANOMALIAS-DATOS-2026.md`](./07-ANOMALIAS-DATOS-2026.md) — calendario de anomalías oficiales de datos de 2026 y reglas para no confundir fallos de logging con caídas SEO reales.
 
 ## Resumen ejecutivo
 
