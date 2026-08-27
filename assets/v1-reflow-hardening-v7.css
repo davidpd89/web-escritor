@@ -59,3 +59,42 @@
     padding-block:.5rem;
   }
 }
+
+/* Footer social row: .text-action is display:inline-flex, and as a flex
+   child of .social-row its default min-width:auto floors it at its content's
+   min-content width -- normally invisible, but at 200% zoom + WCAG text
+   spacing "Goodreads" alone measured 315px, wider than the row itself,
+   pushing it ~27px past the viewport on every page's footer. min-width:0
+   lets it size down; flex-wrap lets the trailing arrow (a second flex item,
+   same shape as .yale-text-link below) drop under the label instead of
+   trailing off past the edge once the label itself has shrunk. */
+html.v1 .social-row .text-action{min-width:0;flex-wrap:wrap}
+
+/* Home intro overlay: .intro__enter is centered via left:50% + a negative
+   translate, so its own width (driven by 3rem of horizontal padding plus
+   WCAG text-spacing widening "ENTRAR") grows symmetrically past both edges
+   of a narrow viewport at 200% zoom, even though it looks centered. Cut the
+   padding at the one width where that matters -- the button's fixed
+   position and pill shape are otherwise unaffected. The extra attribute
+   selector isn't decorative: v1-home.css defines the base rule and loads
+   after this file (imported from v1-shell.css, itself before v1-home.css
+   in every page's <link> order), so at equal specificity it would
+   otherwise win regardless of this media query matching. */
+@media (max-width:399px){
+  html.v1[data-lrb-home="true"] .intro__enter{padding-inline:1.2rem}
+}
+
+/* Section-head "see all" links: .yale-text-link is inline-flex with the
+   trailing arrow as a second flex item (nowrap by default), so it never
+   drops below the label even once the label's own text has wrapped to two
+   lines to fit -- at 200% zoom + WCAG text spacing the arrow then sits to
+   the right of whichever wrapped line is longest, past the viewport edge.
+   Letting the flex line wrap puts the arrow on its own row when needed. */
+html.v1[data-lrb-home="true"] .yale-text-link{flex-wrap:wrap}
+
+/* Sitemap directory group labels: "01 Orientación"-style headers use
+   justify-content:space-between with no min-width:0 on either span, so the
+   category name doesn't shrink and, being a single word, can't wrap either
+   -- at 200% zoom + WCAG text spacing it ran past the row's own edge. */
+html.v1 [data-family="findability"] .directory-group__label{flex-wrap:wrap}
+html.v1 [data-family="findability"] .directory-group__label span{min-width:0;overflow-wrap:anywhere}
