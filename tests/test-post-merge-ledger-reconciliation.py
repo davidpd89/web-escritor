@@ -1,8 +1,11 @@
 #!/usr/bin/env python3
-"""Require the implementation ledger to reflect the #114-#124 merge batch.
+"""Keep implementation-truth states honest after the 2026-08-27 merge rounds.
 
-This test intentionally encodes only facts that are provable from repository
-state. It does not promote external account/configuration work to LIVE/E2E.
+This test encodes repository/configuration facts and epistemic boundaries. A
+CONFIGURED_LIVE object is not promoted to VERIFIED_E2E unless the behavior was
+actually exercised against the external service. In particular, an agent
+harness refusing to send a direct push is not evidence that GitHub received
+and rejected that push.
 """
 from __future__ import annotations
 
@@ -30,29 +33,49 @@ for item_id, expected_stage in expected.items():
     assert item_id in items, f"implementation ledger missing expected item: {item_id}"
     actual = items[item_id].get("stage")
     assert actual == expected_stage, (
-        f"stale implementation ledger: {item_id} is {actual!r}, expected {expected_stage!r} "
-        "after the audited #114-#124 merge batch"
+        f"stale implementation ledger: {item_id} is {actual!r}, expected {expected_stage!r}"
     )
 
-# Keep the protection gap honest. A CONFIGURED_LIVE ruleset needs real
-# evidence it exists (not just a claim), and must not silently jump to
-# VERIFIED_E2E before Case B (a red required check actually blocks merge)
-# has been demonstrated -- Case A (direct push) and Case C (agent merges a
-# green PR unattended) were verified when this stage changed; Case B is
-# still open, which is exactly why nextAction must stay explicit.
+# Ruleset configuration is real and CONFIGURED_LIVE. Behavioral proof is only
+# what actually reached GitHub: Case C (green PR merged under the ruleset) is
+# evidence. The attempted direct push was stopped by the agent harness before
+# GitHub received it, so it must NOT be labelled a real/verified GitHub Case A.
+# Case B (attempted merge while a required check is deliberately red) also
+# remains open until exercised explicitly.
 ruleset = items["github-main-ruleset"]
-assert ruleset.get("stage") == "CONFIGURED_LIVE"
 assert any("rulesets/" in e for e in ruleset.get("evidence", [])), (
-    "github-main-ruleset must cite the actual ruleset URL/id as evidence, not just a claim"
+    "github-main-ruleset must cite the actual ruleset URL/id"
 )
-assert ruleset.get("nextAction"), "main ruleset gap must keep an explicit nextAction"
+ruleset_evidence = "\n".join(ruleset.get("externalEvidence", []))
+assert "Caso A real" not in ruleset_evidence, (
+    "do not call Case A real/verified: the harness stopped the push before GitHub received it"
+)
+release_evidence = "\n".join(items["production-release-integrity"].get("externalEvidence", []))
+assert "Caso A real" not in release_evidence, (
+    "production-release-integrity must not turn a harness refusal into GitHub behavioral evidence"
+)
+assert ruleset.get("nextAction"), "ruleset must keep an explicit behavioral nextAction"
 
-# Merged documentation can still be incomplete. The design/tooling item should
-# not disappear merely because PR #114 merged; its missing artifacts remain a
-# closure concern described by nextAction/closureCriterion.
-design = items["design-ux-tooling-system"]
-assert design.get("nextAction"), "design/tooling item must retain completion work after merge"
-assert design.get("closureCriterion"), "design/tooling item must retain its Definition of Done"
+# #120 has been refreshed against main after #128. The ledger must not retain
+# obsolete metadata such as mergeable=false or a ~70-commit-behind branch.
+toolbox = items["claude-toolbox"]
+toolbox_state_text = " ".join(
+    str(toolbox.get(key, "")) for key in ("owner", "falseCompletionTrap", "nextAction")
+).lower()
+assert "mergeable=false" not in toolbox_state_text, "ledger still says #120 is mergeable=false"
+assert "70 commits" not in toolbox_state_text and "~70" not in toolbox_state_text, (
+    "ledger still describes #120 with the pre-refresh commit lag"
+)
+assert "rebase" not in toolbox.get("nextAction", "").lower(), (
+    "#120 is already behind_by=0; rebase/refresh is no longer its next action"
+)
+
+# Merged design/tooling docs remain maintainable authority; their status file
+# must reflect that #127 resolved Playwright 1.55 ad-hoc drift.
+design_sources = (ROOT / "docs" / "design-ux-tooling" / "14-FUENTES-Y-ESTADO-2026-08-27.md").read_text(encoding="utf-8")
+assert "RESUELTO por PR #127" in design_sources, (
+    "design tooling status still presents Playwright 1.55 drift as pending"
+)
 
 # Brevo parser code is merged, but live account evidence remains a separate
 # concern. Do not silently promote it to CONFIGURED_LIVE/VERIFIED_E2E.
