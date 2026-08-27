@@ -1,0 +1,61 @@
+/* V7 — shared reflow hardening.
+   Owns only cross-family fixes discovered by the WCAG reflow/text-spacing gate.
+   Do not use this file as a generic overflow-hiding layer: every rule below
+   preserves content and changes the responsible shared component. */
+
+/* Home masthead: the logo width used viewport units while the avatar and gap
+   occupied additional inline space. At 200% zoom this could push the avatar
+   6–11 CSS px outside the viewport even though every individual asset looked
+   correctly sized. Constrain the image by the actual flex row, not viewport
+   width alone. */
+@media (max-width:899px){
+  html.v1[data-lrb-home="true"] .masthead__brand-row{
+    width:100%;
+    max-width:100%;
+    min-width:0;
+  }
+  html.v1[data-lrb-home="true"] .masthead__logo-image{
+    min-width:0;
+    flex:1 1 auto;
+    max-width:calc(100% - clamp(52px,7vw,92px) - clamp(.6rem,1.6vw,1.1rem));
+  }
+}
+
+/* Context navigation: on phones the component previously relied on one
+   horizontally scrollable, nowrap row. Under 200% zoom + WCAG text spacing,
+   that produced content hundreds of CSS px outside the viewport on Samuel,
+   Fragmento and Noveris. Navigation labels do not intrinsically require a
+   two-dimensional layout, so the narrow form reflows instead of hiding or
+   clipping them. The bar also stops being sticky once it can occupy several
+   rows, avoiding a large persistent viewport obstruction. */
+@media (max-width:639px){
+  html.v1:not([data-lrb-home="true"]){
+    scroll-padding-top:calc(var(--dp-lrb-utility-h,54px) + 12px);
+  }
+  html.v1 .section-context{
+    position:relative;
+    top:auto;
+  }
+  html.v1 .section-context__inner{
+    min-width:0;
+  }
+  html.v1 .section-context__title{
+    min-width:0;
+    white-space:normal;
+    overflow-wrap:anywhere;
+    line-height:1.2;
+  }
+  html.v1 .section-context__links{
+    min-width:0;
+    flex-wrap:wrap;
+    overflow-x:visible;
+    overscroll-behavior-inline:auto;
+  }
+  html.v1 .section-context__links a{
+    min-width:0;
+    white-space:normal;
+    overflow-wrap:anywhere;
+    line-height:1.25;
+    padding-block:.5rem;
+  }
+}
