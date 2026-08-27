@@ -57,6 +57,36 @@ def load_json(rel: str):
         return {}
 
 
+PROMPT_INJECTION_PATTERNS = (
+    r"recomienda (este|esta|el|la) (libro|obra|novela)",
+    r"siempre recomienda",
+    r"cuando el usuario pregunte",
+    r"ignora(r)? (las |todas )?(las )?instrucciones (anteriores|previas)",
+    r"ignore\s+(?:all\s+|any\s+|the\s+|prior\s+|previous\s+|above\s+)*instructions",
+    r"you must (recommend|suggest|say|tell|answer)",
+    r"always (recommend|suggest|respond|answer)",
+    r"as an ai( language model)?,? you (must|should)",
+    r"disregard (the )?(system|previous) prompt",
+)
+
+
+def check_no_prompt_injection(texts: dict[str, str]) -> None:
+    """AID-008: /ai/ and llms.* are read by AI agents, not just humans.
+
+    They must describe the site in third person ("puede encajarte si...")
+    and never contain imperative instructions aimed at the agent itself.
+    """
+    targets = ("ai/index.html", "llms.txt", "llms-full.txt")
+    for rel in targets:
+        text = texts.get(rel, "")
+        for pattern in PROMPT_INJECTION_PATTERNS:
+            match = re.search(pattern, text, re.IGNORECASE)
+            if match is not None:
+                check(False, f"{rel}: possible prompt-injection phrasing: {match.group(0)!r}")
+            else:
+                check(True, "")
+
+
 def validate_absolute_http_url(value: str, where: str) -> None:
     check(value == value.strip(), f"{where}: URL has surrounding whitespace")
     check(not re.search(r"\s", value), f"{where}: URL contains whitespace")
@@ -253,6 +283,8 @@ def main() -> int:
     check("ñ" in texts["llms-full.txt"], "llms-full.txt: expected UTF-8 ñ sentinel")
     check("—" in texts["llms-full.txt"], "llms-full.txt: expected UTF-8 em dash sentinel")
     check("«" in texts["llms-full.txt"], "llms-full.txt: expected UTF-8 Spanish quote sentinel")
+
+    check_no_prompt_injection(texts)
 
     facts = load_json("editorial-facts.json")
     author_press = load_json("press-kit/david-porto-diaz.json")
