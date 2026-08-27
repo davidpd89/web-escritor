@@ -44,9 +44,9 @@
   --color-surface:var(--surface-quiet);
 
   --font-display:"Instrument Serif","Instrument Serif Fallback","Iowan Old Style","Palatino Linotype",Palatino,Georgia,serif;
-  --font-ui:"Manrope","Avenir Next",Avenir,"Segoe UI",sans-serif;
+  --font-ui:"Manrope","Manrope Fallback","Avenir Next",Avenir,"Segoe UI",sans-serif;
   --font-reading:"Newsreader","Newsreader Fallback","Iowan Old Style",Charter,Georgia,serif;
-  --font-script:"Allura","Segoe Script","Bradley Hand",cursive;
+  --font-script:"Allura","Allura Fallback","Segoe Script","Bradley Hand",cursive;
 
   --text-xs:clamp(.72rem,.7rem + .1vw,.78rem);
   --text-sm:clamp(.8rem,.77rem + .14vw,.89rem);

@@ -53,3 +53,18 @@
    residual effect than the reflow this exists to prevent. */
 @font-face{font-family:'Newsreader Fallback';src:local('Georgia'),local('Liberation Serif'),local('DejaVu Serif');size-adjust:123.53%;ascent-override:59.51%;descent-override:21.45%;line-gap-override:0%}
 @font-face{font-family:'Instrument Serif Fallback';src:local('Georgia'),local('Liberation Serif'),local('DejaVu Serif');size-adjust:95.91%;ascent-override:103.23%;descent-override:32.32%;line-gap-override:0%}
+
+/* Same technique, Arial as the width reference instead of Georgia (Manrope
+   and Allura's own stacks are sans/cursive, not serif) -- Manrope backs
+   --font-ui (used inside .article-note/figcaption/table, i.e. inside the
+   article reading column) and Allura backs --font-script (the 3-line
+   initial-letter drop cap at the top of every article's first paragraph).
+   Both were missing this fallback entirely, which is what CI's Lighthouse
+   run was actually catching as the CLS regression on Cuaderno articles --
+   the reading/display fonts above were already swap-proof, these weren't.
+   The drop cap especially amplifies any mismatch: a single 3.4em glyph
+   floated into the paragraph, so even a modest metric gap moves a lot of
+   text. Liberation Sans/DejaVu Sans are the ubuntu-latest-safe pair here,
+   same role Liberation/DejaVu Serif play above. */
+@font-face{font-family:'Manrope Fallback';src:local('Arial'),local('Liberation Sans'),local('DejaVu Sans'),local('Helvetica');size-adjust:128.11%;ascent-override:83.21%;descent-override:23.42%;line-gap-override:0%}
+@font-face{font-family:'Allura Fallback';src:local('Arial'),local('Liberation Sans'),local('DejaVu Sans'),local('Helvetica');size-adjust:130.27%;ascent-override:61.41%;descent-override:34.54%;line-gap-override:0%}
