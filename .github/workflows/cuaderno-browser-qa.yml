@@ -93,6 +93,9 @@ jobs:
             http://127.0.0.1:4173/cuaderno/libros-fantasia-juvenil-espanola-2025-2026/ \
             http://127.0.0.1:4173/cuaderno/worldbuilding-noveris-ciudad-magica/
 
+      - name: TEMP diagnostic - CLS source probe
+        run: node scripts/debug/cls-source-probe.mjs http://127.0.0.1:4173/cuaderno/que-es-el-portal-fantasy/
+
       - name: Run Cuaderno Lighthouse
         run: |
           cat > /tmp/cuaderno-lhci.json <<'JSON'
