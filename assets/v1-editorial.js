@@ -47,6 +47,7 @@
 
   document.querySelectorAll('[data-print]').forEach(button => {
     button.hidden = false;
+    button.removeAttribute('data-js-pending');
     button.addEventListener('click', () => {
       ensurePrintSource();
       window.print();
@@ -55,6 +56,7 @@
 
   document.querySelectorAll('[data-share-url]').forEach(button => {
     button.hidden = false;
+    button.removeAttribute('data-js-pending');
     const statusId = button.getAttribute('aria-describedby');
     const status = statusId ? document.getElementById(statusId) : null;
     button.addEventListener('click', async () => {
