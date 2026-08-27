@@ -134,9 +134,13 @@ jobs:
         run: npx playwright install-deps chromium
 
       - name: Shell, Explore, map, 404 and no-JS browser QA
+        shell: bash
         env:
           GLOBAL_QA_OUT: artifacts/global-discoverability
-        run: node qa/global-discoverability-browser.mjs
+        run: |
+          set -o pipefail
+          mkdir -p artifacts/global-discoverability
+          node qa/global-discoverability-browser.mjs 2>&1 | tee artifacts/global-discoverability/browser.log
 
       - name: Start static server for existing sitewide reflow gate
         shell: bash
@@ -151,10 +155,14 @@ jobs:
           exit 1
 
       - name: Existing sitewide reflow gate
+        shell: bash
         env:
           QA_ORIGIN: http://127.0.0.1:4173
           QA_OUT: artifacts/sitewide-reflow
-        run: node qa/sitewide-reflow-browser.mjs
+        run: |
+          set -o pipefail
+          mkdir -p artifacts/sitewide-reflow
+          node qa/sitewide-reflow-browser.mjs 2>&1 | tee artifacts/sitewide-reflow/reflow.log
 
       - name: Upload browser evidence
         if: always()
@@ -165,5 +173,5 @@ jobs:
             artifacts/global-discoverability/
             artifacts/sitewide-reflow/
             /tmp/global-discoverability-http.log
-          if-no-files-found: warn
+          if-no-files-found: error
           retention-days: 14
