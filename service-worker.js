@@ -1,5 +1,5 @@
 const CACHE_NAMESPACE = "david-porto-pwa";
-const CACHE_VERSION = `${CACHE_NAMESPACE}-v12`;
+const CACHE_VERSION = `${CACHE_NAMESPACE}-v13`;
 const STATIC_CACHE = `${CACHE_VERSION}-static`;
 const PAGE_CACHE = `${CACHE_VERSION}-pages`;
 const CURRENT_CACHES = new Set([STATIC_CACHE, PAGE_CACHE]);
@@ -70,6 +70,10 @@ function isSameOriginGet(request) {
   return new URL(request.url).origin === self.location.origin;
 }
 
+function isRangeOrMediaRequest(request) {
+  return request.headers.has("Range") || request.destination === "video" || request.destination === "audio";
+}
+
 self.addEventListener("fetch", (event) => {
   const { request } = event;
   if (!isSameOriginGet(request)) return;
@@ -82,6 +86,12 @@ self.addEventListener("fetch", (event) => {
   // served stale or copied into PAGE_CACHE.
   if (url.pathname === "/api" || url.pathname.startsWith("/api/")) return;
 
+  // Do not put media/range traffic through the generic Cache API path. Video and
+  // audio commonly use Range requests (206). Correctly serving partial responses
+  // from CacheStorage needs dedicated range handling; these large resources are
+  // not part of the offline contract, so normal browser/network caching owns them.
+  if (isRangeOrMediaRequest(request)) return;
+
   if (request.mode === "navigate") {
     event.respondWith(networkFirstPage(request));
     return;
@@ -93,14 +103,18 @@ self.addEventListener("fetch", (event) => {
     return;
   }
 
-  // Images and fonts under /assets/ are cache-first.
+  // Most /assets/ URLs are deliberately human-readable rather than content-
+  // hashed. Cache-first would therefore keep the first bytes forever until a
+  // manual CACHE_VERSION bump. That already caused a real stale-video incident.
+  // Stale-while-revalidate preserves fast/offline image+font reuse but refreshes
+  // the cache in the background whenever the resource is requested online.
   if (url.pathname.startsWith("/assets/")) {
-    event.respondWith(cacheFirstAsset(request));
+    event.respondWith(staleWhileRevalidate(event, STATIC_CACHE));
     return;
   }
 
   // Other same-origin GET requests remain stale-while-revalidate.
-  event.respondWith(staleWhileRevalidate(event));
+  event.respondWith(staleWhileRevalidate(event, PAGE_CACHE));
 });
 
 async function networkFirstPage(request) {
@@ -128,23 +142,9 @@ async function networkFirstStatic(request) {
   }
 }
 
-async function cacheFirstAsset(request) {
-  const cache = await caches.open(STATIC_CACHE);
-  const cached = await cache.match(request);
-  if (cached) return cached;
-
-  try {
-    const response = await fetch(request);
-    await putIfCacheable(cache, request, response);
-    return response;
-  } catch {
-    return offlineResponse();
-  }
-}
-
-async function staleWhileRevalidate(event) {
+async function staleWhileRevalidate(event, cacheName) {
   const { request } = event;
-  const cache = await caches.open(PAGE_CACHE);
+  const cache = await caches.open(cacheName);
   const cached = await cache.match(request);
   const networkPromise = (async () => {
     try {
