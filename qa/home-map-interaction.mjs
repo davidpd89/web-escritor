@@ -185,9 +185,11 @@ for (const [width, height] of [[768, 1000], [390, 900], [320, 900]]) {
   const box = await explore.boundingBox();
   // 42px, not 44px: assets/v1-shell-lrb-v2.css deliberately shrank this
   // button (and its siblings) sitewide under <=899px to fix a real overflow
-  // at 390px+200% zoom, citing WCAG 2.5.8's actual 24px minimum as the bar
-  // it still clears -- 44px was never the enforced floor here.
-  assert.ok(box && box.height >= 24 && box.width >= 24, `${width}: hamburger target >= 24px (WCAG 2.5.8)`);
+  // at 390px+200% zoom. 42px is this project's actual regression baseline
+  // here -- WCAG 2.5.8's 24px is only the normative floor this also clears,
+  // not the contract to assert. A silent 42->24 weakening would pass WCAG
+  // while still hiding a real shrink of the implemented control.
+  assert.ok(box && box.height >= 42 && box.width >= 42, `${width}: hamburger target >= 42px (project contract)`);
   const overflow = await page.evaluate(() => document.documentElement.scrollWidth - document.documentElement.clientWidth);
   assert.ok(overflow <= 1, `${width}: overflow horizontal ${overflow}px`);
   assert.ok((await page.evaluate(() => window.__homeMastheadCls || 0)) <= .1, `${width}: CLS <= 0.1`);
