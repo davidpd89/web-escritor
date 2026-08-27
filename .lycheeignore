@@ -16,6 +16,7 @@ https?://([^/]+\.)?reddit\.com/.*
 https?://([^/]+\.)?thestorygraph\.com/.*
 https?://([^/]+\.)?siarchives\.si\.edu/.*
 https?://([^/]+\.)?tandfonline\.com/.*
+https?://([^/]+\.)?planetadelibros\.com/.*
 
 # URLs canónicas del propio sitio. Este workflow comprueba enlaces EXTERNOS
 # contra la web en vivo, y toda página nueva de una rama de integración

@@ -77,6 +77,23 @@ function deprecatedDestination(href) {
   return status && GATED_REGISTRY_STATUS.has(status) ? `destino retirado de publicación (status: ${status})` : null;
 }
 
+// AIII-11: the registry's canonical URL for "La memoria de las tierras del
+// norte" moved from the anthology publisher's external page to the book's
+// own internal section (/libros/#memoria-tierras-norte), which now appears
+// in `added`. The external URL isn't gone from the site -- it still lives
+// as visible editorial content inside that same section ("Conocer la
+// antología") -- it just stopped being the destination these three pages'
+// nav links point at. A generic "was this replaced by something reachable"
+// check would be broad enough to hide real silent removals, so this is a
+// one-entry, dated allowlist instead: extend it deliberately, don't loosen
+// the matching.
+const KNOWN_EDITORIAL_URL_MIGRATIONS = new Map([
+  ['https://www.diversidadliteraria.com/la-memoria-de-las-tierras-del-norte', 'AIII-11 2026-08-27: canonical URL moved to /libros/#memoria-tierras-norte'],
+]);
+function knownEditorialMigration(href) {
+  return KNOWN_EDITORIAL_URL_MIGRATIONS.get(href) || null;
+}
+
 // The one same-page case that is a rename rather than a removal: the fragment
 // named this page's <main> landmark, and the page still exposes that landmark
 // under a new id with its skip link resolving to it. Deliberately narrow — it
@@ -111,7 +128,7 @@ for(const p of paths){
   const beforeHtml=baseText(p),afterHtml=fs.readFileSync(p,'utf8');
   const before=inventory(beforeHtml),after=inventory(afterHtml);
   const removed=before.hrefs.filter(x=>!after.hrefs.includes(x)),added=after.hrefs.filter(x=>!before.hrefs.includes(x));
-  const removedJustification=Object.fromEntries(removed.map(h=>[h,brokenInBaseline(h)||landmarkRenamed(h,beforeHtml,afterHtml)||deprecatedDestination(h)]));
+  const removedJustification=Object.fromEntries(removed.map(h=>[h,brokenInBaseline(h)||landmarkRenamed(h,beforeHtml,afterHtml)||deprecatedDestination(h)||knownEditorialMigration(h)]));
   const unjustified=removed.filter(h=>!removedJustification[h]);
   assert.deepEqual(unjustified,[],`${p}: destinos eliminados sin preservar: ${unjustified.join(', ')}`);
   report.pages[p]={before,after,addedDestinations:added,removedDestinations:removed,removedJustification,metadataChanges:{title:before.title===after.title?null:[before.title,after.title],description:before.description===after.description?null:[before.description,after.description],robots:before.robots===after.robots?null:[before.robots,after.robots],canonical:before.canonical===after.canonical?null:[before.canonical,after.canonical]}};
