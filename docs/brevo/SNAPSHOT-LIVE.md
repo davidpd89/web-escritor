@@ -1,19 +1,20 @@
 # Brevo — snapshot en vivo (sanitizado, sin PII)
 
-Generado: 2026-08-27T01:43:50.895428+00:00
+Generado: 2026-08-27T15:11:51.135262+00:00
 
 > AUTO-GENERADO por `scripts/brevo/snapshot-brevo.py`. No editar a mano.
 > No contiene emails/nombres de contactos, API keys, credenciales SMTP, tokens MCP ni cuerpos de plantillas/campañas.
+> Los conteos de listas se leen del endpoint de detalle de cada lista. Un conteo no disponible se muestra como desconocido, nunca como cero inferido del endpoint agregado deprecado.
 
 ## Cuenta
-- Plan: `free` (300 sendLimit)
+- Plan: `free` (298 sendLimit)
 - Marketing Automation habilitado: True
 - Relay SMTP habilitado: True
 
 ## Listas
-- `6` Lectores beta — 0 suscriptores
-- `4` identified_contacts — 0 suscriptores
-- `3` Lectores web — 0 suscriptores
+- `6` Lectores beta — 0 suscriptores (detalle de lista)
+- `4` identified_contacts — 0 suscriptores (detalle de lista)
+- `3` Lectores web — 4 suscriptores (detalle de lista)
 
 ## Dominios de envío
 - davidportodiaz.com — autenticado: True, verificado: True
