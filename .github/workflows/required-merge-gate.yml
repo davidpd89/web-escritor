@@ -28,6 +28,45 @@ jobs:
         with:
           node-version: '22'
 
+      # This workflow is a required ruleset context. Universal repository
+      # contracts must therefore execute here too; otherwise a red optional
+      # workflow (for example Tool engine tests) can coexist with a green
+      # Required merge gate and GitHub itself would not enforce the red test.
+      - name: Install shared Python dependencies
+        run: python -m pip install --requirement scripts/requirements.txt
+
+      - name: Run universal Python contracts
+        shell: bash
+        run: |
+          set -e
+          fail=0
+          for f in tests/test-*.py; do
+            [ -e "$f" ] || continue
+            echo "::group::$f"
+            if ! python "$f"; then
+              echo "FALLA: $f"
+              fail=1
+            fi
+            echo "::endgroup::"
+          done
+          exit $fail
+
+      - name: Run universal Node engine contracts
+        shell: bash
+        run: |
+          set -e
+          fail=0
+          for f in tests/*.mjs; do
+            [ -e "$f" ] || continue
+            echo "::group::$f"
+            if ! node "$f"; then
+              echo "FALLA: $f"
+              fail=1
+            fi
+            echo "::endgroup::"
+          done
+          exit $fail
+
       - name: Validate release smoke syntax
         run: node --check tests/test-staging-smoke.mjs
 

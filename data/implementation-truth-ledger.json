@@ -58,10 +58,10 @@
       "externalEvidence": [
         "GET /repos/davidpd89/web-escritor/rules/branches/main (2026-08-27) devuelve las 4 reglas activas del ruleset 21661257.",
         "Caso C real: PR #125 (green, required checks OK) mergeada por el agente via `gh pr merge` sin aprobacion ni accion manual del propietario, con el ruleset ya activo.",
-        "Caso A real: un intento de `git push origin main` directo fue bloqueado por el propio harness del agente antes de llegar a GitHub -- refuerza la misma politica, no la sustituye; el ruleset por si solo tambien lo habria rechazado via `non_fast_forward`/`pull_request` required."
+        "Intento de push directo: bloqueado por el harness del agente antes de llegar a GitHub -- no demuestra que el ruleset de GitHub lo hubiera rechazado; ese comportamiento conductual contra GitHub sigue sin probarse."
       ],
       "falseCompletionTrap": "El ruleset existe y esta activo (verificado via GET /repos/.../rules/branches/main), pero solo se ha demostrado Caso A (push directo bloqueado por el propio harness antes de llegar a GitHub) y Caso C (PR verde #125 mergeada por el agente sin intervencion del propietario, bajo el ruleset ya activo). Caso B (PR con required check en rojo debe quedar bloqueada) no se ha probado explicitamente todavia -- no marcar VERIFIED_E2E hasta demostrarlo.",
-      "nextAction": "Probar Caso B explicitamente (PR con un required check deliberadamente en rojo debe quedar bloqueada para merge) antes de marcar VERIFIED_E2E. Evaluar tras un periodo de uso real si strict_required_status_checks_policy (Require branches to be up to date) debe pasar a ON, segun la guia de la seccion 8 del doc.",
+      "nextAction": "Probar el rechazo real por GitHub (push directo interceptado por el ruleset, no por el harness) y Caso B (required check en rojo bloquea merge) antes de marcar VERIFIED_E2E. Evaluar tras un periodo de uso real si strict_required_status_checks_policy (Require branches to be up to date) debe pasar a ON, segun la guia de la seccion 8 del doc.",
       "closureCriterion": "PR mergeada; push directo normal rechazado; PR verde mergeable por agente autorizado sin aprobación rutinaria; deploy verifica por HTTP el mismo SHA.",
       "lastVerified": "2026-08-27"
     },
@@ -78,11 +78,11 @@
       ],
       "externalEvidence": [
         "GET /repos/davidpd89/web-escritor/rules/branches/main (2026-08-27) devuelve las 4 reglas activas del ruleset 21661257.",
-        "Caso C real: PR #125 (green, required checks OK) mergeada por el agente via `gh pr merge` sin aprobacion ni accion manual del propietario, con el ruleset ya activo.",
-        "Caso A real: un intento de `git push origin main` directo fue bloqueado por el propio harness del agente antes de llegar a GitHub -- refuerza la misma politica, no la sustituye; el ruleset por si solo tambien lo habria rechazado via `non_fast_forward`/`pull_request` required."
+        "Caso C confirmado: PR #125 (green, required checks OK) mergeada por el agente via `gh pr merge` sin aprobacion ni accion manual del propietario, con el ruleset ya activo.",
+        "Intento de push directo: `git push origin main` fue bloqueado por el harness del propio agente ANTES de llegar a GitHub. Esto no demuestra que el ruleset de GitHub lo hubiera rechazado -- es una politica del harness, no una prueba conductual contra GitHub. El ruleset en si (non_fast_forward + pull_request required) nunca fue puesto a prueba por este intento."
       ],
       "falseCompletionTrap": "main protected:true segun el endpoint de rulesets, pero el endpoint clasico /branches/main/protection sigue devolviendo 404 \"Branch not protected\" -- ese endpoint no ve rulesets nuevos, es un falso negativo esperado, no un indicio de que el ruleset no este activo. Consultar siempre /rules/branches/main, no /branches/main/protection.",
-      "nextAction": "Probar Caso B (required check en rojo bloquea merge) para poder marcar VERIFIED_E2E. current_user_can_bypass=never confirmado -- ni el propio owner puede saltarselo, coherente con la regla de \"bypass no necesario para el flujo normal\".",
+      "nextAction": "Probar el rechazo real por GitHub (un push directo que SI llegue al servidor y sea rechazado por el ruleset, no interceptado antes por el harness) y probar que un required check deliberadamente en rojo bloquea el merge, antes de marcar VERIFIED_E2E. current_user_can_bypass=never confirmado.",
       "closureCriterion": "Regla activa demostrada por comportamiento, no solo por captura/config declarada.",
       "lastVerified": "2026-08-27"
     },
@@ -166,7 +166,7 @@
       "title": "Claude Toolbox: plugins/MCP/Skills/APIs",
       "area": "agent-tooling",
       "stage": "IMPLEMENTED_IN_PR",
-      "owner": "PR #120 (draft, mergeable=false)",
+      "owner": "PR #120 (draft, refrescada contra main, mergeable=true, behind_by=0)",
       "evidence": [
         "https://github.com/davidpd89/web-escritor/pull/120",
         "docs/claude-toolbox/README.md",
@@ -177,8 +177,8 @@
         "Rama huérfana original estaba 7 commits detrás de main; contenido docs recuperado sobre base fresca.",
         "Figma/BrowserStack/Canva/Chrome/Claude marketplace revalidados contra documentación oficial actual."
       ],
-      "falseCompletionTrap": "INSTALL_NOW/PILOT en el catalogo significa recomendacion, no plugin instalado, OAuth conectado ni servicio activo. #120 sigue draft y su base documentada (main@b3db6b6) esta ~70 commits detras del main actual.",
-      "nextAction": "Actualizar/rebasear la rama contra main actual antes de tocar contenido; no arrastrar runtime de la rama huerfana original; corregir frases que describen #115/#116/#119/#124 como pendientes; revalidar tools-catalog.json (prerequisites LSP, cada INSTALL_NOW); mantener CI transversal verde en el HEAD final antes de mergear.",
+      "falseCompletionTrap": "INSTALL_NOW/PILOT en el catalogo significa recomendacion, no plugin instalado, OAuth conectado ni servicio activo. #120 sigue draft: la rama ya esta al dia contra main (refrescada en la reconciliacion de 2026-08-27), pero el contenido de tools-catalog.json (38 entradas) no se ha revalidado entrada por entrada contra fuentes oficiales actuales -- eso, no el rebase, es lo que falta.",
+      "nextAction": "Revalidar tools-catalog.json entrada por entrada contra fuentes oficiales actuales (prerequisites LSP ya corregidos en 14-FUENTES-Y-ESTADO; queda el resto de INSTALL_NOW); decidir Chrome DevTools MCP vs Playwright MCP como via canonica de QA de diseno; corregir cualquier frase residual que describa #115/#116/#119/#124 como pendientes; mantener CI transversal verde en el HEAD final antes de mergear.",
       "closureCriterion": "#120 mergeada con catálogo coherente y validado; cualquier instalación real se registra por separado con estado y evidencia.",
       "lastVerified": "2026-08-27"
     },
