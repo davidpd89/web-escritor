@@ -6,6 +6,33 @@ Convertir `main` en una rama de producción gobernada: los cambios normales debe
 
 La configuración de GitHub es una acción de cuenta/repositorio, no código versionado. Esta PR deja el contrato exacto, pero **no activa el ruleset automáticamente**.
 
+### Principio operativo obligatorio del proyecto
+
+La protección de `main` **NO debe convertir al propietario en aprobador o operador manual de cada cambio**.
+
+El flujo objetivo es:
+
+```text
+Claude / ChatGPT / agente
+        ↓
+crea o actualiza PR
+        ↓
+CI obligatorio
+        ↓
+agente corrige si falla
+        ↓
+agente mergea cuando está verde
+        ↓
+main → deploy → verificación de producción
+```
+
+Por tanto, cualquier ruleset final debe cumplir simultáneamente estas dos propiedades:
+
+1. impedir que un cambio normal llegue a `main` saltándose los gates;
+2. permitir que los agentes autorizados creen, mantengan y **mergeen** la PR sin exigir una aprobación manual del propietario.
+
+**PR obligatoria no significa aprobación humana obligatoria.** La PR es el contenedor de trazabilidad y CI; el merge puede ejecutarlo el propio agente autorizado cuando se cumplen los gates.
+
 ## 2. Por qué ruleset y no «acordarnos de usar PR»
 
 Un convenio humano sirve hasta que hay prisa, un agente tiene permisos de push o una corrección aparentemente trivial parece segura.
@@ -14,14 +41,16 @@ El estado observado el 27/08 demuestra que el camino directo existe y se usa.
 
 La protección debe estar en la plataforma que controla el ref, no solo en documentación.
 
+Pero esa protección no debe introducir burocracia humana. El objetivo es **automatizar seguridad**, no trasladar trabajo al propietario.
+
 ## 3. Orden seguro de implantación
 
 1. Mergear esta PR solo cuando sus checks estén verdes.
 2. Confirmar en GitHub el nombre real del nuevo context `Required merge gate`.
 3. Confirmar que `Public artifact contract`, `Sitewide Reflow QA` y `Accessibility baseline (Pa11y)` aparecen en una PR normal.
 4. Crear el ruleset para `main` en modo `Evaluate` si la UI/plan lo permite y resulta útil; si no, configurarlo en `Active` solo después de verificar los contexts.
-5. Probar con una PR mínima no destructiva.
-6. Confirmar que el push directo normal queda bloqueado y que una PR verde sí puede mergearse.
+5. Probar con una PR mínima no destructiva creada y mergeada por un agente autorizado.
+6. Confirmar que el push directo normal queda bloqueado y que una PR verde **puede ser mergeada por Claude/ChatGPT sin intervención manual del propietario**.
 7. Registrar fecha y settings finales en este documento o en evidencia operativa.
 
 ## 4. Ruleset recomendado
@@ -62,31 +91,45 @@ El historial de producción no debe reescribirse como flujo normal.
 
 **ON**.
 
-Objetivo: cerrar el camino ordinario `push -> main -> deploy`.
+Objetivo: cerrar el camino ordinario `push -> main -> deploy` sin cerrar el camino automatizado `agente -> PR -> checks -> merge`.
 
 #### Aprobaciones
 
-Mientras el repositorio tenga un único mantenedor operativo:
+Para el modelo operativo actual:
 
 ```text
 required approvals: 0
 ```
 
-La seguridad aquí proviene de la PR + CI + trazabilidad, no de obligar al propietario a conseguir una aprobación que quizá no exista.
+Esto es una **decisión de arquitectura del flujo**, no una concesión temporal menor.
 
-Si en el futuro hay un segundo revisor real y estable, subir a 1 aprobación puede tener sentido.
+La seguridad aquí proviene de:
 
-No crear un requisito decorativo que termine generando bypass sistemático.
+- PR;
+- CI obligatorio;
+- artifact reproducible;
+- trazabilidad del SHA;
+- verificación post-deploy.
+
+No debe depender de que el propietario entre en GitHub a aprobar cada cambio.
+
+Si en el futuro se incorpora una segunda persona que de verdad tenga la función de code reviewer humano, se podrá reconsiderar. No subir a `1` simplemente porque GitHub ofrezca la opción.
 
 ### 5.4 Require conversation resolution before merging
 
-**ON** si GitHub permite combinarlo con el modelo actual de PR.
+**OFF en el modelo actual.**
 
-Un hilo de revisión abierto debe resolverse o quedar explícitamente tratado antes de promover.
+Motivo: esta regla puede convertir un hilo de revisión residual en un bloqueo administrativo aunque el código y los gates estén correctos. No aporta suficiente señal adicional para compensar el riesgo de requerir una intervención manual que Claude/ChatGPT quizá no puedan ejecutar desde todas sus integraciones.
+
+Los comentarios y findings reales deben seguir tratándose por proceso: el agente lee la revisión, corrige lo válido y vuelve a ejecutar CI. Pero **GitHub no debe exigir la acción administrativa de marcar cada hilo como resuelto para permitir el merge**.
+
+Si más adelante el flujo dispone de resolución de threads fiable y completamente automatizable, se puede revaluar.
 
 ### 5.5 Require status checks to pass
 
 **ON**.
+
+Este es el núcleo de la protección: sustituir aprobación humana rutinaria por evidencia técnica reproducible.
 
 ## 6. Set de required checks recomendado
 
@@ -96,7 +139,8 @@ El objetivo no es convertir todos los workflows en required. Deben elegirse cont
 - sean deterministas;
 - tengan señal alta;
 - no dependan de servicios externos inestables;
-- no se salten por path filters.
+- no se salten por path filters;
+- puedan ser corregidos y reejecutados por los propios agentes.
 
 ### P0 — Required merge gate
 
@@ -200,33 +244,66 @@ Cuaderno, Samuel, herramientas, recomendaciones, etc. deben seguir corriendo cua
 
 Recomendación:
 
-**ON después de que el required gate haya demostrado estabilidad.**
+**ON después de que el required gate haya demostrado estabilidad**, siempre que Claude/ChatGPT puedan actualizar/rebasear la rama de forma autónoma en el flujo real.
 
 Ventaja: el SHA que se mergea está probado contra el `main` más reciente.
 
 Coste: con mucha actividad paralela puede obligar a actualizar ramas frecuentemente.
 
-Dado que `main` despliega directamente, la propiedad vale la pena, especialmente durante la semana de lanzamiento.
+Este coste es aceptable solo si lo absorben los agentes. **Si empieza a requerir intervención manual del propietario, dejar OFF y confiar en el merge commit + CI del PR hasta diseñar un merge queue/flujo mejor.**
 
-## 9. Bypass
+## 9. Actores, bypass y capacidad de merge
 
 ### Regla normal
 
-Ningún actor/agente debe tener bypass como camino habitual.
+Claude/ChatGPT/agentes autorizados deben poder:
 
-### Emergencia real
+1. crear ramas;
+2. crear y actualizar PR;
+3. leer CI;
+4. corregir fallos;
+5. reejecutar checks cuando proceda;
+6. mergear una PR verde a `main` mediante la API/UI autorizada.
 
-Puede definirse una vía de propietario/admin solo si GitHub lo exige para recuperación operacional, con estas condiciones:
+No configurar restricciones de actor que conviertan cualquiera de esos pasos en una tarea del propietario.
+
+### Bypass
+
+El flujo habitual **no necesita bypass**: los agentes deben mergear por el camino normal de PR + checks.
+
+Puede existir una vía de propietario/admin para recuperación operacional real, pero no debe ser necesaria para el trabajo diario ni convertirse en el único modo de mergear desde agentes.
+
+Condiciones de emergencia:
 
 1. incidente de producción real;
 2. razón registrada;
 3. cambio mínimo;
-4. ejecutar el required gate en la rama de hotfix antes del push/bypass siempre que sea técnicamente posible;
+4. ejecutar el required gate en la rama de hotfix antes del bypass siempre que sea técnicamente posible;
 5. verificar producción inmediatamente después;
 6. abrir PR retrospectiva o registro del hotfix si el mecanismo de emergencia no produjo PR;
 7. no usar bypass para «esto es solo CSS» o «solo cambia una imagen».
 
-## 10. Reglas que no son P0 ahora
+## 10. Auto-merge y merge ejecutado por agente
+
+Son compatibles con este diseño.
+
+Si la integración dispone de `merge pull request`, el agente puede ejecutar el merge cuando los required checks están verdes.
+
+Si dispone de `auto-merge`, puede habilitarlo después de terminar los cambios para que GitHub haga el merge automáticamente cuando terminen los required checks.
+
+Ninguna de las dos opciones debe exigir aprobación humana mientras `required approvals = 0`.
+
+Regla recomendada para agentes:
+
+```text
+si CI obligatorio está verde y no hay un finding real conocido pendiente:
+    mergear / permitir auto-merge
+si CI falla:
+    diagnosticar → corregir → reejecutar
+no pedir al propietario que haga de operador de GitHub
+```
+
+## 11. Reglas que no son P0 ahora
 
 ### Signed commits
 
@@ -244,13 +321,15 @@ Mejora legibilidad, pero no protege tanto como PR + required checks + no force p
 
 ### Merge queue
 
-No necesaria para el volumen actual salvo que empiecen a convivir muchas PR aprobadas simultáneamente.
+No necesaria para el volumen actual salvo que empiecen a convivir muchas PR listas simultáneamente.
 
 ### Required reviewer
 
-No imponer 1 si no existe realmente una segunda persona que pueda aprobar de forma sostenida.
+**No imponerlo en el modelo actual.**
 
-## 11. Por qué no requerir 30 checks
+No hay razón para convertir una revisión humana en requisito administrativo rutinario si los agentes son quienes implementan, validan y mergean bajo CI.
+
+## 12. Por qué no requerir 30 checks
 
 Una lista enorme de required contexts genera:
 
@@ -283,7 +362,7 @@ La estrategia es una pirámide:
  └─────────────────────────────────────┘
 ```
 
-## 12. Validación del ruleset
+## 13. Validación del ruleset
 
 Después de activarlo, crear una rama de prueba y confirmar:
 
@@ -303,19 +382,21 @@ Resultado esperado: merge bloqueado.
 
 Revertir el fixture antes de cerrar la prueba.
 
-### Caso C — PR verde
+### Caso C — PR verde mergeada por agente
 
 Todos los required contexts pasan.
 
-Resultado esperado: merge habilitado.
+Resultado esperado: Claude/ChatGPT puede ejecutar el merge sin aprobación ni acción del propietario.
+
+Este caso es **obligatorio** antes de considerar cerrado el ruleset.
 
 ### Caso D — specialized workflow rojo
 
-Si el workflow no es required, GitHub puede permitir merge. La regla humana sigue siendo no mergear un rojo real atribuible al cambio.
+Si el workflow no es required, GitHub puede permitir merge. La regla del agente sigue siendo no mergear un rojo real atribuible al cambio.
 
 Esto es deliberado: los required checks son el suelo técnico, no una licencia para ignorar el resto del CI.
 
-## 13. Fuente oficial
+## 14. Fuente oficial
 
 Consultar siempre documentación actual de GitHub antes de cambiar el ruleset, especialmente si cambia el producto/plan:
 
@@ -326,12 +407,14 @@ Consultar siempre documentación actual de GitHub antes de cambiar el ruleset, e
 
 Punto operativo importante de la documentación oficial: no diseñar required checks alrededor de workflows que puedan omitirse por filtros y quedarse sin un resultado utilizable para la regla.
 
-## 14. Definition of Done del ruleset
+## 15. Definition of Done del ruleset
 
 - [ ] esta PR ha producido al menos una ejecución real del nuevo context;
 - [ ] el context exacto se ha verificado en GitHub;
 - [ ] ruleset `main-production-integrity` creado;
 - [ ] PR obligatoria para `main`;
+- [ ] `required approvals = 0`;
+- [ ] `Require conversation resolution = OFF` en el modelo actual;
 - [ ] force push bloqueado;
 - [ ] branch deletion bloqueado;
 - [ ] required status checks activos;
@@ -340,7 +423,8 @@ Punto operativo importante de la documentación oficial: no diseñar required ch
 - [ ] Sitewide Reflow seleccionado;
 - [ ] Pa11y seleccionado;
 - [ ] path-filtered workflows NO seleccionados accidentalmente;
+- [ ] ninguna restricción de actor impide a Claude/ChatGPT crear/actualizar/mergear PR;
 - [ ] prueba de direct push rechazada;
-- [ ] prueba de PR verde completada;
-- [ ] bypass normal inexistente o restringido al propietario para emergencia real;
+- [ ] **prueba de PR verde mergeada por un agente sin intervención del propietario** completada;
+- [ ] bypass normal innecesario; emergencia documentada si existe;
 - [ ] fecha/config final registrada.
