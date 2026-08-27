@@ -1,4 +1,5 @@
 import { foldQuery } from "./assistant-core.mjs";
+import { EDITORIAL_PUBLIC_FACTS } from "./editorial-public-facts.mjs";
 
 function includesAny(text, phrases) {
   return phrases.some((phrase) => text.includes(phrase));
@@ -234,7 +235,8 @@ export function resolveLocalAnswer(query, context = {}) {
   }
 
   if (mentionsManecillas && includesAny(q, ["cuando", "fecha", "publica", "sale", "lanzamiento"])) {
-    return result("manecillas-date", "La fecha de publicación de «Las manecillas del recuerdo» es el 3 de septiembre de 2026, con Monza Ediciones.", ["work-manecillas"]);
+    const { manecillas } = EDITORIAL_PUBLIC_FACTS;
+    return result("manecillas-date", `La fecha de publicación de «${manecillas.title}» es el ${manecillas.publicationDateHuman}, con ${manecillas.publisher}.`, ["work-manecillas"]);
   }
   if (mentionsManecillas) {
     if (asksNavigation) {
@@ -244,9 +246,10 @@ export function resolveLocalAnswer(query, context = {}) {
   }
 
   if ((mentionsSamuel || mentionsNoveris) && asksAward) {
+    const { letrasComoEspada, juanAndresTeno } = EDITORIAL_PUBLIC_FACTS.recognitions;
     return result(
       "samuel-awards",
-      "No se atribuye a «Samuel entre mundos» el Primer Premio Letras Como Espada de 2026: ese premio pertenece a David Porto Díaz por un certamen de microrrelatos. Tampoco se atribuye al libro la selección Top 10 — Finalista del I Premio de Literatura Infantil Juan Andrés Teno, porque la obra presentada no está identificada en la fuente pública oficial localizada.",
+      `No se atribuye a «Samuel entre mundos» el ${letrasComoEspada.result} ${letrasComoEspada.organizer} de ${letrasComoEspada.year}: ese premio pertenece a ${letrasComoEspada.holder} por un certamen de microrrelatos. Tampoco se atribuye al libro la selección ${juanAndresTeno.result} del ${juanAndresTeno.name}, porque la obra presentada no está identificada en la fuente pública oficial localizada.`,
       ["awards", "work-samuel"],
     );
   }

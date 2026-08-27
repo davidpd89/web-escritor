@@ -394,6 +394,22 @@ def main() -> int:
         if incident.get("status") != "resolved":
             errors.append("editorial-facts.json: incidencia @davidpuede no está marcada como resolved")
 
+    # AIII-09: el sello "Revisión factual" de /ai/ es un <time> escrito a mano;
+    # sin este check puede envejecer en silencio sin representar una revisión
+    # real. Se ata a editorial-facts.json.lastReviewed -- el campo que un
+    # humano ya actualiza cuando de verdad revisa los hechos -- en vez de
+    # derivarlo del reloj del runner (no determinista) o dejarlo decorativo.
+    ai_text = read("ai/index.html")
+    if ai_text is not None:
+        stamp_match = re.search(r'class="authority-stamp"[^>]*>[^<]*<time datetime="(\d{4}-\d{2}-\d{2})"', ai_text)
+        if not stamp_match:
+            errors.append("ai/index.html: falta el sello 'Revisión factual' con <time datetime>")
+        elif stamp_match.group(1) != FACTS.get("lastReviewed"):
+            errors.append(
+                f"ai/index.html: sello de revisión factual ({stamp_match.group(1)}) desincronizado de "
+                f"editorial-facts.json.lastReviewed ({FACTS.get('lastReviewed')})"
+            )
+
     # Ningún placeholder estructurado debe llegar a superficies públicas, en ningún modo.
     for rel, text in public_surfaces:
         for pattern, reason in PLACEHOLDERS:
