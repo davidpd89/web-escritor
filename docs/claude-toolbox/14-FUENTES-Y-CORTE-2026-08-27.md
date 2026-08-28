@@ -92,7 +92,7 @@ Todos: VERIFIED como plugins existentes al corte; la clasificación para David e
 Instalación preferida al corte:
 
 ```bash
-claude plugin install figma@claude-plugins-official
+/plugin install figma@claude-plugins-official
 ```
 
 MCP remoto:

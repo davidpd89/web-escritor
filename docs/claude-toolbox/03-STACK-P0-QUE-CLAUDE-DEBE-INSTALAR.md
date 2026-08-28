@@ -29,7 +29,7 @@ Y corregir el problema de `settings.local.json` versionado mediante una PR separ
 ## P0-01 — Modern Web Guidance
 
 ```bash
-claude plugin install modern-web-guidance@claude-plugins-official
+/plugin install modern-web-guidance@claude-plugins-official
 ```
 
 ### Por qué aquí
@@ -67,7 +67,7 @@ o equivalente persistente/local; nunca hace falta guardarlo como secreto.
 ## P0-02 — Chrome DevTools MCP
 
 ```bash
-claude plugin install chrome-devtools-mcp@claude-plugins-official
+/plugin install chrome-devtools-mcp@claude-plugins-official
 ```
 
 ### Por qué
@@ -91,7 +91,7 @@ Primero observar, luego proponer. No usar `evaluate_script` para mutar producci�
 ## P0-03 — Playwright
 
 ```bash
-claude plugin install playwright@claude-plugins-official
+/plugin install playwright@claude-plugins-official
 ```
 
 ### Por qué
@@ -114,7 +114,7 @@ Hallazgo exploratorio importante → reproducir → escribir test Playwright nor
 ## P0-04 — GitHub
 
 ```bash
-claude plugin install github@claude-plugins-official
+/plugin install github@claude-plugins-official
 ```
 
 ### Por qué
@@ -130,7 +130,7 @@ Comenzar read-first. Crear branch/commit/PR cuando la tarea lo exija. Merge y ac
 ## P0-05 — Security Guidance
 
 ```bash
-claude plugin install security-guidance@claude-plugins-official
+/plugin install security-guidance@claude-plugins-official
 ```
 
 ### Por qué
@@ -150,7 +150,7 @@ Es barato porque trabaja antes de escribir. No sustituye security review ni CSP 
 ## P0-06 — TypeScript LSP
 
 ```bash
-claude plugin install typescript-lsp@claude-plugins-official
+/plugin install typescript-lsp@claude-plugins-official
 ```
 
 Aunque el sitio no sea TypeScript, el LSP soporta `.js`, `.mjs`, `.cjs`, etc. Aporta definitions, references y diagnostics.
@@ -162,7 +162,7 @@ Usarlo antes de refactors de `script.js`, assistant modules, Workers o builders 
 ## P0-07 — Pyright LSP
 
 ```bash
-claude plugin install pyright-lsp@claude-plugins-official
+/plugin install pyright-lsp@claude-plugins-official
 ```
 
 El repo tiene muchos scripts/tests Python. Pyright aporta diagnósticos y type inference sin ejecutar los scripts.
@@ -174,7 +174,7 @@ No exigir que todo Python antiguo se convierta a typed Python como condición ar
 ## P0-08 — CLAUDE.md Management
 
 ```bash
-claude plugin install claude-md-management@claude-plugins-official
+/plugin install claude-md-management@claude-plugins-official
 ```
 
 ### Por qué
@@ -196,7 +196,7 @@ No duplicar dentro de `CLAUDE.md` las 15 guías extensas: debe enlazar/condensar
 ## P0-09 — Skill Creator
 
 ```bash
-claude plugin install skill-creator@claude-plugins-official
+/plugin install skill-creator@claude-plugins-official
 ```
 
 ### Por qué
@@ -218,7 +218,7 @@ Cada una con casos de evaluación positivos y negativos. Ejemplo: el design crit
 ## P0-10 — Hookify
 
 ```bash
-claude plugin install hookify@claude-plugins-official
+/plugin install hookify@claude-plugins-official
 ```
 
 ### Primeras reglas propuestas
@@ -237,7 +237,7 @@ No generar reglas a ciegas desde toda la conversación. Revisar cada hook como c
 ## P0-11 — PR Review Toolkit
 
 ```bash
-claude plugin install pr-review-toolkit@claude-plugins-official
+/plugin install pr-review-toolkit@claude-plugins-official
 ```
 
 Seis agentes especializados: comments, tests, silent failures, types, guidelines y simplification.
@@ -256,7 +256,7 @@ Antes de declarar un PR listo:
 ## P0-12 — Context7
 
 ```bash
-claude plugin install context7@claude-plugins-official
+/plugin install context7@claude-plugins-official
 ```
 
 ### Por qué

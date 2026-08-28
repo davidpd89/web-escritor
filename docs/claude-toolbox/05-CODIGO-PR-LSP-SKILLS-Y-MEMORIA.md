@@ -5,7 +5,7 @@
 Instalación:
 
 ```bash
-claude plugin install github@claude-plugins-official
+/plugin install github@claude-plugins-official
 ```
 
 ### Casos de uso
@@ -24,7 +24,7 @@ No usar `git push`/`gh api *` como sustituto automático del MCP si GitHub ofrec
 ## 2. PR Review Toolkit — revisión local modular
 
 ```bash
-claude plugin install pr-review-toolkit@claude-plugins-official
+/plugin install pr-review-toolkit@claude-plugins-official
 ```
 
 Los agentes publicados actualmente cubren:
@@ -53,7 +53,7 @@ No ejecutar los seis por ritual si cuatro no tienen sentido.
 ## 3. Code Review — A/B, no acumulación
 
 ```bash
-claude plugin install code-review@claude-plugins-official
+/plugin install code-review@claude-plugins-official
 ```
 
 Anthropic lo describe como revisión de PR multiagente con filtering por confianza. Es un buen candidato, pero solapa PR Review Toolkit.
@@ -84,7 +84,7 @@ Elegir una política:
 ## 4. TypeScript LSP — JS también
 
 ```bash
-claude plugin install typescript-lsp@claude-plugins-official
+/plugin install typescript-lsp@claude-plugins-official
 ```
 
 Soporta `.js`, `.jsx`, `.mjs`, `.cjs`, TS variants. Debe convertirse en primer paso para:
@@ -100,7 +100,7 @@ Antes de reemplazar una función, pedir referencias. Antes de borrar una export,
 ## 5. Pyright LSP
 
 ```bash
-claude plugin install pyright-lsp@claude-plugins-official
+/plugin install pyright-lsp@claude-plugins-official
 ```
 
 Casos:
@@ -127,7 +127,7 @@ Un refactor transversal JS/Python con símbolos y referencias. Si reduce lectura
 ## 7. Feature Dev — solo cambios con arquitectura
 
 ```bash
-claude plugin install feature-dev@claude-plugins-official
+/plugin install feature-dev@claude-plugins-official
 ```
 
 Flujo actual de siete fases y subagents explorer/architect/reviewer.
@@ -150,7 +150,7 @@ No para:
 ## 8. Superpowers — metodología opcional
 
 ```bash
-claude plugin install superpowers@claude-plugins-official
+/plugin install superpowers@claude-plugins-official
 ```
 
 Aporta TDD, debugging sistemático, brainstorming y subagent development.
@@ -170,7 +170,7 @@ Forzar TDD ceremonioso para cada cambio documental/CSS cuando el test apropiado 
 ## 9. Code Simplifier
 
 ```bash
-claude plugin install code-simplifier@claude-plugins-official
+/plugin install code-simplifier@claude-plugins-official
 ```
 
 Uso ON_DEMAND al final de JS/Python complejo.
@@ -189,7 +189,7 @@ Por tanto:
 ## 10. Skill Creator — convertir criterio en tests
 
 ```bash
-claude plugin install skill-creator@claude-plugins-official
+/plugin install skill-creator@claude-plugins-official
 ```
 
 Capacidades publicadas: Create, Eval, Improve, Benchmark con Executor/Grader/Comparator/Analyzer.
@@ -245,7 +245,7 @@ No mergea; decide `PASS / BLOCK / NEEDS_HUMAN` con evidencia.
 ## 11. CLAUDE.md Management
 
 ```bash
-claude plugin install claude-md-management@claude-plugins-official
+/plugin install claude-md-management@claude-plugins-official
 ```
 
 ### Objetivo
@@ -264,7 +264,7 @@ No pegar allí toda esta documentación. El plugin debe detectar duplicidad/obso
 ## 12. Claude Code Setup — meta-auditor read-only
 
 ```bash
-claude plugin install claude-code-setup@claude-plugins-official
+/plugin install claude-code-setup@claude-plugins-official
 ```
 
 El plugin actual analiza repo y recomienda top integrations por MCP/skills/hooks/subagents/commands sin escribir.
@@ -282,7 +282,7 @@ Sus sugerencias no se instalan automáticamente. Cada recomendación vuelve a la
 ## 13. Plugin Developer Toolkit
 
 ```bash
-claude plugin install plugin-dev@claude-plugins-official
+/plugin install plugin-dev@claude-plugins-official
 ```
 
 Instalar ON_DEMAND durante creación/mantenimiento del plugin propio del proyecto. Incluye skills para hooks, MCP, commands, agents y validación.

@@ -7,9 +7,9 @@ Claude Code dispone de marketplace de plugins y la extensión de VS Code expone 
 El marketplace oficial de Anthropic es `claude-plugins-official`. Debe ser la primera fuente de instalación. Para un plugin oficial/curado:
 
 ```bash
-claude plugin install modern-web-guidance@claude-plugins-official
-claude plugin install chrome-devtools-mcp@claude-plugins-official
-claude plugin install playwright@claude-plugins-official
+/plugin install modern-web-guidance@claude-plugins-official
+/plugin install chrome-devtools-mcp@claude-plugins-official
+/plugin install playwright@claude-plugins-official
 ```
 
 También se puede usar dentro de una sesión:

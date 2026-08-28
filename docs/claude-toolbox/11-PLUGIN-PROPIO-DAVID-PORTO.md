@@ -17,9 +17,9 @@ No publicar en marketplace inicialmente. Debe vivir como proyecto interno y pode
 Durante desarrollo:
 
 ```bash
-claude plugin install plugin-dev@claude-plugins-official
-claude plugin install skill-creator@claude-plugins-official
-claude plugin install hookify@claude-plugins-official
+/plugin install plugin-dev@claude-plugins-official
+/plugin install skill-creator@claude-plugins-official
+/plugin install hookify@claude-plugins-official
 ```
 
 `plugin-dev` ayuda con estructura/manifests/hooks/MCP/agents; `skill-creator` evalúa las Skills; Hookify cubre guardrails sin escribir infraestructura innecesaria.

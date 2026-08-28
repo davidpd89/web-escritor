@@ -21,15 +21,15 @@ Gate: ningún secreto nuevo hasta cerrar Fase 0.
 Instalar:
 
 ```bash
-claude plugin install modern-web-guidance@claude-plugins-official
-claude plugin install security-guidance@claude-plugins-official
-claude plugin install typescript-lsp@claude-plugins-official
-claude plugin install pyright-lsp@claude-plugins-official
-claude plugin install claude-md-management@claude-plugins-official
-claude plugin install skill-creator@claude-plugins-official
-claude plugin install hookify@claude-plugins-official
-claude plugin install pr-review-toolkit@claude-plugins-official
-claude plugin install context7@claude-plugins-official
+/plugin install modern-web-guidance@claude-plugins-official
+/plugin install security-guidance@claude-plugins-official
+/plugin install typescript-lsp@claude-plugins-official
+/plugin install pyright-lsp@claude-plugins-official
+/plugin install claude-md-management@claude-plugins-official
+/plugin install skill-creator@claude-plugins-official
+/plugin install hookify@claude-plugins-official
+/plugin install pr-review-toolkit@claude-plugins-official
+/plugin install context7@claude-plugins-official
 ```
 
 No instalar todavía SaaS ni keys.
@@ -51,8 +51,8 @@ Gate: cada plugin tiene al menos una prueba exitosa; cualquier duplicación/ruid
 ## Fase 2 — browser agentic
 
 ```bash
-claude plugin install chrome-devtools-mcp@claude-plugins-official
-claude plugin install playwright@claude-plugins-official
+/plugin install chrome-devtools-mcp@claude-plugins-official
+/plugin install playwright@claude-plugins-official
 ```
 
 ### Test 2A — Chrome
@@ -80,7 +80,7 @@ Gate: Claude puede explicar qué tool usaría para inspección vs journey.
 ## Fase 3 — GitHub
 
 ```bash
-claude plugin install github@claude-plugins-official
+/plugin install github@claude-plugins-official
 ```
 
 ### Test
@@ -110,7 +110,7 @@ No activar bloqueos que impidan comandos legítimos sin escape claro.
 Instalar temporalmente:
 
 ```bash
-claude plugin install plugin-dev@claude-plugins-official
+/plugin install plugin-dev@claude-plugins-official
 ```
 
 Crear primero:
@@ -134,7 +134,7 @@ Gate: no expandir a siete skills hasta demostrar que las tres primeras mejoran o
 Solo cuando exista/preparemos fichero/lab Figma concreto:
 
 ```bash
-claude plugin install figma@claude-plugins-official
+/plugin install figma@claude-plugins-official
 ```
 
 Autenticar OAuth.
@@ -152,8 +152,8 @@ No dar “rediseña todo el archivo” como primer test.
 ## Fase 7 — Frontend Design + Playground
 
 ```bash
-claude plugin install frontend-design@claude-plugins-official
-claude plugin install playground@claude-plugins-official
+/plugin install frontend-design@claude-plugins-official
+/plugin install playground@claude-plugins-official
 ```
 
 ### Pilot

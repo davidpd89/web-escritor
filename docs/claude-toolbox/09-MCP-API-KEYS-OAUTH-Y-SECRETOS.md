@@ -39,7 +39,7 @@ Los nombres pueden cambiar según la documentación del proveedor en la fecha de
 Preferencia:
 
 ```bash
-claude plugin install figma@claude-plugins-official
+/plugin install figma@claude-plugins-official
 ```
 
 El plugin configura MCP/Skills y permite autenticar mediante flujo oficial.

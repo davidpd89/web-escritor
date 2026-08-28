@@ -35,7 +35,7 @@ El marketplace oficial tampoco elimina la necesidad de revisar permisos y finali
 ## 3. Security Guidance — siempre activo
 
 ```bash
-claude plugin install security-guidance@claude-plugins-official
+/plugin install security-guidance@claude-plugins-official
 ```
 
 Hook Anthropic Verified para advertir antes de introducir patrones peligrosos. Especialmente relevante:
@@ -53,7 +53,7 @@ Es prevención contextual, no scanner exhaustivo. Un warning que no salta no cer
 ## 4. Hookify — seguridad del workflow
 
 ```bash
-claude plugin install hookify@claude-plugins-official
+/plugin install hookify@claude-plugins-official
 ```
 
 Reglas propias propuestas:
@@ -99,7 +99,7 @@ Solo una autorización explícita de la tarea debe permitirlo.
 ## 5. Claude Security — gate de alto riesgo
 
 ```bash
-claude plugin install claude-security@claude-plugins-official
+/plugin install claude-security@claude-plugins-official
 ```
 
 Clasificación: ON_DEMAND.

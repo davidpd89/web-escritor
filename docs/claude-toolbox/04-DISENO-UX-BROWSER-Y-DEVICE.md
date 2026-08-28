@@ -5,7 +5,7 @@ Este capítulo no define cómo debe verse la web. Define qué herramientas puede
 ## 1. Frontend Design — generador de hipótesis, no director de arte
 
 ```bash
-claude plugin install frontend-design@claude-plugins-official
+/plugin install frontend-design@claude-plugins-official
 ```
 
 Anthropic lo presenta como un plugin para producir frontends con carácter y evitar estética genérica de IA. Eso lo hace relevante para este proyecto, pero también peligroso si se usa como “hazme algo bonito”.
@@ -100,7 +100,7 @@ Una prueba exploratoria que encuentra una regresión repetible debe convertirse 
 Instalación preferida actual según Figma:
 
 ```bash
-claude plugin install figma@claude-plugins-official
+/plugin install figma@claude-plugins-official
 ```
 
 Alternativa MCP remoto:
@@ -146,7 +146,7 @@ Por eso nunca se aprueba una familia porque “se ve bien en Figma”.
 ## 5. Canva plugin — media, no layout web
 
 ```bash
-claude plugin install canva@claude-plugins-official
+/plugin install canva@claude-plugins-official
 ```
 
 El plugin actual de Canva integra su MCP y skills para editar, resize, bulk create, brand check, design feedback e implementar comments con preview/approve.
@@ -170,7 +170,7 @@ El plugin actual de Canva integra su MCP y skills para editar, resize, bulk crea
 ## 6. Playground — prototipo aislado
 
 ```bash
-claude plugin install playground@claude-plugins-official
+/plugin install playground@claude-plugins-official
 ```
 
 Útil para explorar en un HTML autocontenido:

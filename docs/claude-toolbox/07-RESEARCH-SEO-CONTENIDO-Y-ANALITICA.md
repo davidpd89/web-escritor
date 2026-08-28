@@ -5,7 +5,7 @@ Este capítulo cubre herramientas que ayudan a Claude a **obtener mejores fuente
 ## 1. Context7 — documentación de software actual
 
 ```bash
-claude plugin install context7@claude-plugins-official
+/plugin install context7@claude-plugins-official
 ```
 
 ### Cuándo usar
