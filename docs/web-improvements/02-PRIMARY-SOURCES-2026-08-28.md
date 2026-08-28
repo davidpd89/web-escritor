@@ -8,7 +8,7 @@ Solo se consideran autoridad normativa/funcional las fuentes del proveedor/está
 | Clave | Fuente | Uso |
 |---|---|---|
 | S-GOOGLE-BREADCRUMB | https://developers.google.com/search/docs/appearance/structured-data/breadcrumb | `BreadcrumbList`; elegibilidad/guías. Google documenta que breadcrumbs aparecen en desktop, no deben venderse como mejora móvil. |
-| S-GOOGLE-FAQ | https://developers.google.com/search/docs/appearance/structured-data/faqpage | `FAQPage`; disponibilidad restringida, no táctica general de autor. |
+| S-GOOGLE-FAQ | https://developers.google.com/search/updates | Google dejó de mostrar FAQ rich results en mayo de 2026 y retiró la documentación específica en junio de 2026; no es una táctica de Search a implementar. |
 | S-GOOGLE-REVIEWS | https://developers.google.com/search/docs/appearance/structured-data/review-snippet | `Review`/`AggregateRating`; contenido visible, genuino; **no agregar reviews/ratings de otros sitios**. |
 | S-GOOGLE-CANONICAL | https://developers.google.com/search/docs/crawling-indexing/canonicalization | canonicalización; redirect/canonical/sitemap como señales, Google puede elegir otra canonical. |
 | S-GOOGLE-CANONICAL-TROUBLE | https://developers.google.com/search/docs/crawling-indexing/canonicalization-troubleshooting | diagnóstico con URL Inspection; re-evaluación puede tardar. |
@@ -24,7 +24,7 @@ Solo se consideran autoridad normativa/funcional las fuentes del proveedor/está
 
 ### Decisiones derivadas
 
-- A.7 se rechaza como táctica de rich results general.
+- A.7 se rechaza como táctica de rich results: Google retiró la feature/documentación en 2026.
 - A.12 nunca usa Amazon/Goodreads/Babelio como `AggregateRating` propio.
 - C.5 no genera una URL por variante de keyword.
 - K.3 marca relaciones pagadas/afiliadas.
@@ -88,7 +88,7 @@ No subir de plan por H.1 salvo que el preference center/consent model justifique
 | S-CLARITY-MCP-REPO | https://github.com/microsoft/clarity-mcp-server | repo oficial, paquete `@microsoft/clarity-mcp-server`, actividad 2026. |
 | S-MICROSOFT-MCP-CATALOG | https://github.com/microsoft/mcp | catálogo oficial incluye Microsoft Clarity. |
 
-**Corrección crítica:** cualquier documento que afirme “Clarity MCP fue retirado el 16/01/2026” es incorrecto. A 2026-08-28 el servidor oficial sigue documentado/activo (package 2.0.x y actividad 2026). La razón para no instalar Clarity por defecto es privacidad/hipótesis de investigación, no inexistencia del MCP.
+**Corrección crítica:** una pasada histórica llegó a tratar erróneamente el MCP como retirado. A 2026-08-28 el servidor oficial sigue documentado/activo (package 2.0.x y actividad 2026). La razón para no instalar Clarity por defecto es privacidad/hipótesis de investigación, no inexistencia del MCP.
 
 ## Herramientas de segunda opinión
 
