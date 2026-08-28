@@ -490,8 +490,8 @@
     copy.append(make('p', 'yale-lead__deck', 'Un reloj pasa de mano en mano y cambia de significado en cada vida que toca.'));
     copy.append(make('p', 'editorial-card__meta', '3 septiembre 2026 · novela coral · memoria'));
     const actions = make('div', 'yale-lead__actions');
-    addTextLink(actions, '/las-manecillas-del-recuerdo/', 'Ver la obra', 'yale-text-link');
-    addTextLink(actions, '/las-manecillas-del-recuerdo/fragmentos/', 'Leer fragmentos', 'yale-text-link');
+    addTextLink(actions, '/las-manecillas-del-recuerdo/', 'Ver la obra', 'yale-text-link yale-text-link--gradient');
+    addTextLink(actions, '/las-manecillas-del-recuerdo/fragmentos/', 'Leer fragmentos', 'yale-text-link yale-text-link--gradient');
     copy.append(actions);
     lead.append(media, copy);
 
