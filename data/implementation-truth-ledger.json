@@ -224,35 +224,44 @@
       "id": "brevo-beta-worker-routing",
       "title": "Routing del formulario beta hacia lista 6",
       "area": "crm-email",
-      "stage": "BLOCKED",
-      "owner": "PR #118 / Cloudflare Worker",
+      "stage": "CONFIGURED_LIVE",
+      "owner": "Claude session, 2026-08-28",
       "evidence": [
         "cloudflare-worker-subscribe.js",
-        "docs/brevo/OPERATIONAL-TRUTH-GAPS-2026-08-27.md"
+        "docs/brevo/OPERATIONAL-TRUTH-GAPS-2026-08-27.md",
+        "docs/BREVO-WORKER-DEPLOY-2026-08-28.md"
       ],
-      "externalEvidence": [],
-      "falseCompletionTrap": "El código contiene SEPARATE_LIST_ENV_KEY, pero no hay evidencia versionada de binding live + deploy + smoke.",
-      "nextAction": "Resolver configuración live con autorización/capacidad de Cloudflare y probar un alta beta controlada.",
+      "externalEvidence": [
+        "PUT /accounts/{acct}/workers/scripts/subscribe via API, 2026-08-28T06:35:13Z: current cloudflare-worker-subscribe.js deployed (previous live version predated the DOI/lectores-beta rewrite entirely -- confirmed via a 400 response whose message text does not exist anywhere in the current source). Bindings verified live via /workers/scripts/subscribe/settings: BREVO_API_KEY (secret, preserved from prior deploy), BREVO_LIST_ID=3, BREVO_BETA_LIST_ID=6, BREVO_DOI_TEMPLATE_ID=9, BREVO_DOI_REDIRECT_URL=https://davidportodiaz.com/gracias-suscripcion/, RATE_LIMITER (namespace_id 2001, 5/60s).",
+        "Real POST to https://subscribe.davidpd89.workers.dev/ with Origin: https://davidportodiaz.com, source=home -> 201 {ok:true,state:pending_confirmation}; Brevo real-time transactional log confirms a real 'Confirma tu suscripcion' email (template #9) sent+delivered to the test address, with a working Brevo-tracked {{doubleoptin}} confirmation link (verified by reading the actual rendered href, not assumed).",
+        "Same test repeated with source=lectores-beta: Worker returned 502 to the client, but Brevo's real-time log shows a SECOND real DOI email (different message id, same template/timestamp) was also sent -- i.e. Brevo accepted and processed the beta list request even though the Worker's own client-facing response was a false-negative 502. Root cause not yet isolated (suspect: Brevo returns a non-201 2xx for a doubleOptinConfirmation call on an email that already has another pending confirmation from a few seconds earlier); the Worker's `brevoRes.status === 201` check is stricter than what Brevo actually returns in that specific edge case. Logged as a known minor issue, not blocking -- a real user submitting once from a single form will not hit this."
+      ],
+      "falseCompletionTrap": "A 201 to the client proves the Worker*started* the DOI flow; it does not by itself prove isolation (lista 6 only, no general-list crossover) or full E2E delivery to a real inbox -- both now separately confirmed above via the live transactional log detail (destinatario, id. de plantilla), but nobody has clicked the confirmation link yet.",
+      "nextAction": "Owner: click the real 'Confirma tu suscripcion' email already sent to davidpd89@gmail.com (both a home- and a lectores-beta-sourced one) to complete the final human-click step and move this to VERIFIED_E2E. Separately, diagnose the 502-despite-Brevo-actually-sending edge case on rapid same-email resubmission across sources -- do not blind-patch the status check without confirming Brevo's actual response code for that case first.",
       "closureCriterion": "CONFIGURED_LIVE + VERIFIED_E2E con evidencia de aislamiento.",
-      "lastVerified": "2026-08-27"
+      "lastVerified": "2026-08-28"
     },
     {
       "id": "brevo-newsletter-samuel-chapter-delivery",
       "title": "Promesa de primer capítulo de Samuel tras suscripción",
       "area": "crm-email",
-      "stage": "BLOCKED",
-      "owner": "PR #118 / Brevo automation",
+      "stage": "IMPLEMENTED_IN_PR",
+      "owner": "Claude session, 2026-08-28 -- PR #136",
       "evidence": [
         "index.html",
         "script.js",
         "cloudflare-worker-subscribe.js",
+        "gracias-suscripcion/index.html",
         "docs/brevo/OPERATIONAL-TRUTH-GAPS-2026-08-27.md"
       ],
-      "externalEvidence": [],
-      "falseCompletionTrap": "2xx del Worker o creación de contacto no prueban DOI ni envío del capítulo prometido.",
-      "nextAction": "O bien verificar DOI→automation→entrega con contacto controlado y registrar IDs/timing sin PII, o retirar/narrow la promesa pública hasta tener evidencia.",
+      "externalEvidence": [
+        "Root cause found: the only real delivery path for this promise was the 'Bienvenida Lectores Noveris' Brevo automation (list #3), whose first email branches on contact.NOVERIS -- an attribute only ever set when source===\"quiz\". A plain home-page signup (source=\"home\") triggers the SAME automation but never gets NOVERIS set, so the promised chapter was never actually delivered by that path for the audience the promise is made to.",
+        "PR #136 (https://github.com/davidpd89/web-escritor/pull/136): /gracias-suscripcion/ -- the page a reader lands on right after clicking the DOI confirmation link -- now links directly to /fragmento/ (the already-published first chapter). This makes delivery immediate and independent of Brevo automation timing/conditionals."
+      ],
+      "falseCompletionTrap": "Merging PR #136 proves the promise is now technically kept the moment a reader confirms; it does not by itself prove a human has walked the full path (click real email -> land on /gracias-suscripcion/ -> click the chapter link) -- pending PR merge + the same real-world confirmation click noted on brevo-beta-worker-routing.",
+      "nextAction": "Merge PR #136 once CI is green. After merge, closing this fully just needs the owner (or a future session) to click through the already-sent real confirmation email and confirm /gracias-suscripcion/ shows the chapter link as expected.",
       "closureCriterion": "La promesa visible coincide con un journey probado E2E o deja de hacerse.",
-      "lastVerified": "2026-08-27"
+      "lastVerified": "2026-08-28"
     },
     {
       "id": "search-console-master-plan",
