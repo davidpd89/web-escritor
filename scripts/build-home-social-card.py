@@ -3,11 +3,17 @@
 using the author's own portrait instead of the book cover -- more personal
 for a bare-domain share, where the book-specific card reads oddly.
 
+Full-bleed photo, not a side panel: the face sits centered in the frame with
+text on a bottom gradient scrim. A previous version confined the photo to a
+520px right-hand panel, which meant WhatsApp's own (much tighter, roughly
+square) preview crop -- unlike Facebook/Twitter's wider crop -- showed mostly
+the blurred left panel and cut the face off. A centered, full-bleed photo
+survives any reasonable crop window instead of only the 1.91:1 one.
+
 Same technique as build-manecillas-social-card.py: real photo pixels used
-as published (no AI redraw), background is a local blur/tint of the same
-photo, title/author text drawn with the site's own bundled fonts. JPEG,
-not WEBP -- WhatsApp's link-preview crawler doesn't reliably render WEBP
-og:image thumbnails.
+as published (no AI redraw), title/author text drawn with the site's own
+bundled fonts. JPEG, not WEBP -- WhatsApp's link-preview crawler doesn't
+reliably render WEBP og:image thumbnails.
 
 Usage:
   python scripts/build-home-social-card.py
@@ -25,7 +31,6 @@ FONT_SERIF = ROOT / "assets" / "fonts" / "cg-normal-latin.woff2"  # Cormorant Ga
 FONT_SANS = ROOT / "assets" / "fonts" / "inter-normal-latin.woff2"  # Inter
 
 W, H = 1200, 630
-PORTRAIT_W = 520  # right-hand photo panel
 
 TINTA = (0x17, 0x12, 0x0B)
 BRONCE = (0x93, 0x66, 0x31)
@@ -34,37 +39,52 @@ MARFIL = (0xF2, 0xE8, 0xD8)
 
 
 def make_background(portrait: Image.Image) -> Image.Image:
-    """Blurred, tinted enlargement of the portrait itself -- same technique
-    as the Manecillas card's cover-derived background."""
-    bg = ImageOps.fit(portrait, (W * 2, H * 2), method=Image.LANCZOS)
-    bg = bg.filter(ImageFilter.GaussianBlur(40))
+    """Blurred, tinted enlargement of the portrait itself, as atmosphere
+    behind the sharp centered photo -- same technique as the Manecillas
+    card's cover-derived background."""
+    bg = ImageOps.fit(portrait, (W * 2, H * 2), method=Image.LANCZOS, centering=(0.5, 0.3))
+    bg = bg.filter(ImageFilter.GaussianBlur(50))
     tint = Image.new("RGB", bg.size, TINTA)
-    bg = Image.blend(bg, tint, 0.72)
+    bg = Image.blend(bg, tint, 0.6)
     bg = ImageOps.fit(bg, (W, H), method=Image.LANCZOS)
     return bg
 
 
-def paste_portrait(bg: Image.Image, portrait: Image.Image) -> int:
-    """Fit-crop the real portrait into the right-hand panel, full bleed to
-    the card's top/bottom/right edges. Returns the panel's left edge x."""
-    px = W - PORTRAIT_W
-    panel = ImageOps.fit(portrait, (PORTRAIT_W, H), method=Image.LANCZOS)
-    bg.paste(panel, (px, 0))
-    # Soft gradient seam so the photo doesn't hard-cut against the text panel.
-    seam_w = 90
-    seam = Image.new("L", (seam_w, H), 0)
-    for x in range(seam_w):
-        seam.putpixel((x, 0), int(255 * (x / seam_w)))
-    seam = seam.resize((seam_w, H))
-    dark = Image.new("RGB", (seam_w, H), TINTA)
-    bg.paste(dark, (px - seam_w // 2, 0), seam.point(lambda v: 255 - v))
-    return px
+def paste_portrait(bg: Image.Image, portrait: Image.Image) -> Image.Image:
+    """Sharp portrait, centered horizontally, feathered into the blurred
+    background -- not confined to a side panel, so the face is centered in
+    the frame and survives any crop window (WhatsApp's tight square
+    included), unlike the wide 1.91:1-only layout this replaces."""
+    photo_h = 560
+    photo_w = round(photo_h * portrait.width / portrait.height)
+    panel = ImageOps.fit(portrait, (photo_w, photo_h), method=Image.LANCZOS, centering=(0.5, 0.22))
+    px = (W - photo_w) // 2
+
+    feather = 60
+    mask = Image.new("L", (photo_w, photo_h), 0)
+    mdraw = ImageDraw.Draw(mask)
+    mdraw.rectangle([feather, feather, photo_w - 1 - feather, photo_h - 1 - feather], fill=255)
+    mask = mask.filter(ImageFilter.GaussianBlur(feather / 2))
+
+    bg.paste(panel, (px, 0), mask)
+    return bg
 
 
-def draw_text(im: Image.Image, panel_x: int) -> Image.Image:
+def add_scrim(bg: Image.Image) -> Image.Image:
+    """Bottom gradient scrim for text legibility, without hiding the face."""
+    scrim_h = 320
+    gradient = Image.new("L", (1, scrim_h), 0)
+    for y in range(scrim_h):
+        gradient.putpixel((0, y), int(235 * (y / scrim_h) ** 1.4))
+    gradient = gradient.resize((W, scrim_h))
+    dark = Image.new("RGB", (W, scrim_h), TINTA)
+    bg.paste(dark, (0, H - scrim_h), gradient)
+    return bg
+
+
+def draw_text(im: Image.Image) -> Image.Image:
     draw = ImageDraw.Draw(im)
     left = 70
-    max_text_w = panel_x - 40 - left
 
     def fit_font(path, text, start_size, min_size, max_w):
         size = start_size
@@ -76,20 +96,24 @@ def draw_text(im: Image.Image, panel_x: int) -> Image.Image:
             size -= 2
         return ImageFont.truetype(str(path), min_size)
 
-    eyebrow_font = ImageFont.truetype(str(FONT_SANS), 21)
-    draw.text((left, 150), "ESCRITOR", font=eyebrow_font, fill=ORO)
+    max_text_w = W - left - 60
 
-    title_font = fit_font(FONT_SERIF, "David Porto Díaz", 72, 44, max_text_w)
-    draw.text((left, 190), "David Porto Díaz", font=title_font, fill=MARFIL)
+    eyebrow_font = ImageFont.truetype(str(FONT_SANS), 20)
+    eyebrow_y = H - 232
+    draw.text((left, eyebrow_y), "ESCRITOR", font=eyebrow_font, fill=ORO)
 
-    rule_y = 190 + title_font.size + 34
+    title_font = fit_font(FONT_SERIF, "David Porto Díaz", 62, 40, max_text_w)
+    title_y = eyebrow_y + 32
+    draw.text((left, title_y), "David Porto Díaz", font=title_font, fill=MARFIL)
+
+    rule_y = title_y + title_font.size + 26
     draw.line([(left, rule_y), (left + 96, rule_y)], fill=BRONCE, width=2)
 
-    book_font = ImageFont.truetype(str(FONT_SANS), 25)
-    draw.text((left, rule_y + 22), "Las manecillas del recuerdo", font=book_font, fill=MARFIL)
+    book_font = ImageFont.truetype(str(FONT_SANS), 24)
+    draw.text((left, rule_y + 18), "Las manecillas del recuerdo", font=book_font, fill=MARFIL)
 
-    meta_font = ImageFont.truetype(str(FONT_SANS), 21)
-    draw.text((left, rule_y + 22 + 34), "Monza Ediciones · 3 de septiembre de 2026", font=meta_font, fill=(0xB6, 0xA8, 0x94))
+    meta_font = ImageFont.truetype(str(FONT_SANS), 20)
+    draw.text((left, rule_y + 18 + 32), "Monza Ediciones · 3 de septiembre de 2026", font=meta_font, fill=(0xB6, 0xA8, 0x94))
 
     return im
 
@@ -97,8 +121,9 @@ def draw_text(im: Image.Image, panel_x: int) -> Image.Image:
 def main() -> None:
     portrait = Image.open(PORTRAIT).convert("RGB")
     bg = make_background(portrait)
-    panel_x = paste_portrait(bg, portrait)
-    final = draw_text(bg, panel_x)
+    bg = paste_portrait(bg, portrait)
+    bg = add_scrim(bg)
+    final = draw_text(bg)
 
     OUT.parent.mkdir(parents=True, exist_ok=True)
     for q in (88, 84, 80, 76):
