@@ -1,0 +1,24 @@
+{
+  "version": "2026-08-28",
+  "baseSha": "c70852eeaac9fcdc0e73811687e62ab731f352a9",
+  "authority": "docs/web-improvements/01-FINAL-AUTHORITY-108.md",
+  "items": [
+    {"id":"A.1","status":"ALREADY_COVERED"},{"id":"A.2","status":"ALREADY_COVERED"},{"id":"A.3","status":"ALREADY_COVERED"},{"id":"A.4","status":"IMPLEMENT_AFTER_CURRENT_DEBT"},{"id":"A.5","status":"CONDITIONAL"},{"id":"A.6","status":"PARTIAL_AUDIT"},{"id":"A.7","status":"REJECT"},{"id":"A.8","status":"REJECT"},{"id":"A.9","status":"ALREADY_COVERED"},{"id":"A.10","status":"ALREADY_COVERED"},{"id":"A.11","status":"CONDITIONAL"},{"id":"A.12","status":"REJECT"},
+    {"id":"B.1","status":"ALREADY_COVERED"},{"id":"B.2","status":"ALREADY_COVERED"},{"id":"B.3","status":"CONDITIONAL"},{"id":"B.4","status":"ALREADY_COVERED"},{"id":"B.5","status":"ALREADY_COVERED"},{"id":"B.6","status":"EXTERNAL_OPERATION"},{"id":"B.7","status":"IMPLEMENT_AFTER_CURRENT_DEBT"},{"id":"B.8","status":"CONDITIONAL"},{"id":"B.9","status":"CONDITIONAL"},
+    {"id":"C.1","status":"ALREADY_COVERED"},{"id":"C.2","status":"CONDITIONAL"},{"id":"C.3","status":"IMPLEMENT_AFTER_CURRENT_DEBT"},{"id":"C.4","status":"CONDITIONAL"},{"id":"C.5","status":"REJECT"},{"id":"C.6","status":"REJECT"},{"id":"C.7","status":"CONDITIONAL"},{"id":"C.8","status":"PARTIAL_AUDIT"},{"id":"C.9","status":"DEFER"},{"id":"C.10","status":"IMPLEMENT_AFTER_CURRENT_DEBT"},
+    {"id":"D.1","status":"CONDITIONAL"},{"id":"D.2","status":"REJECT"},{"id":"D.3","status":"PARTIAL_AUDIT"},{"id":"D.4","status":"CONDITIONAL"},{"id":"D.5","status":"ALREADY_COVERED"},{"id":"D.6","status":"REJECT"},{"id":"D.7","status":"REJECT"},{"id":"D.8","status":"DEFER"},{"id":"D.9","status":"CONDITIONAL"},{"id":"D.10","status":"REJECT"},{"id":"D.11","status":"IMPLEMENT_AFTER_CURRENT_DEBT"},{"id":"D.12","status":"CONDITIONAL"},
+    {"id":"E.1","status":"PARTIAL_AUDIT"},{"id":"E.2","status":"IMPLEMENT_AFTER_CURRENT_DEBT"},{"id":"E.3","status":"CONDITIONAL"},{"id":"E.4","status":"CONDITIONAL"},{"id":"E.5","status":"IMPLEMENT_AFTER_CURRENT_DEBT"},{"id":"E.6","status":"PARTIAL_AUDIT"},{"id":"E.7","status":"PARTIAL_AUDIT"},{"id":"E.8","status":"IMPLEMENT_NOW"},
+    {"id":"F.1","status":"IMPLEMENT_NOW"},{"id":"F.2","status":"IMPLEMENT_NOW"},{"id":"F.3","status":"CONDITIONAL"},{"id":"F.4","status":"IMPLEMENT_AFTER_CURRENT_DEBT"},{"id":"F.5","status":"REJECT"},{"id":"F.6","status":"PARTIAL_AUDIT"},
+    {"id":"G.1","status":"PARTIAL_AUDIT"},{"id":"G.2","status":"CONDITIONAL"},{"id":"G.3","status":"CONDITIONAL"},{"id":"G.4","status":"REJECT"},{"id":"G.5","status":"DEFER"},
+    {"id":"H.1","status":"IMPLEMENT_AFTER_CURRENT_DEBT"},{"id":"H.2","status":"IMPLEMENT_AFTER_CURRENT_DEBT"},{"id":"H.3","status":"CONDITIONAL"},{"id":"H.4","status":"DEFER"},{"id":"H.5","status":"DEFER"},{"id":"H.6","status":"CONDITIONAL"},
+    {"id":"I.1","status":"REJECT"},{"id":"I.2","status":"IMPLEMENT_NOW"},{"id":"I.3","status":"DEFER"},{"id":"I.4","status":"IMPLEMENT_AFTER_CURRENT_DEBT"},{"id":"I.5","status":"IMPLEMENT_AFTER_CURRENT_DEBT"},
+    {"id":"J.1","status":"DEFER"},{"id":"J.2","status":"CONDITIONAL"},{"id":"J.3","status":"PARTIAL_AUDIT"},{"id":"J.4","status":"REJECT"},{"id":"J.5","status":"CONDITIONAL"},{"id":"J.6","status":"PARTIAL_AUDIT"},
+    {"id":"K.1","status":"CONDITIONAL"},{"id":"K.2","status":"DEFER"},{"id":"K.3","status":"CONDITIONAL"},{"id":"K.4","status":"DEFER"},{"id":"K.5","status":"DEFER"},
+    {"id":"L.1","status":"REJECT"},{"id":"L.2","status":"ALREADY_COVERED"},{"id":"L.3","status":"ALREADY_COVERED"},{"id":"L.4","status":"DEFER"},
+    {"id":"M.1","status":"PARTIAL_AUDIT"},{"id":"M.2","status":"DEFER"},{"id":"M.3","status":"IMPLEMENT_AFTER_CURRENT_DEBT"},{"id":"M.4","status":"CONDITIONAL"},{"id":"M.5","status":"CONDITIONAL"},
+    {"id":"N.1","status":"DEFER"},{"id":"N.2","status":"DEFER"},{"id":"N.3","status":"CONDITIONAL"},
+    {"id":"O.1","status":"ALREADY_COVERED"},{"id":"O.2","status":"IMPLEMENT_AFTER_CURRENT_DEBT"},{"id":"O.3","status":"REJECT"},{"id":"O.4","status":"CONDITIONAL"},
+    {"id":"P.1","status":"CONDITIONAL"},{"id":"P.2","status":"CONDITIONAL"},{"id":"P.3","status":"REJECT"},{"id":"P.4","status":"IMPLEMENT_AFTER_CURRENT_DEBT"},
+    {"id":"Q.1","status":"PARTIAL_AUDIT"},{"id":"Q.2","status":"IMPLEMENT_AFTER_CURRENT_DEBT"},{"id":"Q.3","status":"IMPLEMENT_NOW"},{"id":"Q.4","status":"ALREADY_COVERED"}
+  ]
+}
