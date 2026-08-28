@@ -188,8 +188,8 @@ html.v1[data-lrb-home="true"]{
   --surface-quiet:#f7f8f9;
   --color-border:rgba(0,0,0,.18);
   --color-muted:#50565b;
-  --color-accent:#0075b8;
-  --color-accent-strong:#0075b8;
+  --color-accent:#1d4f96;
+  --color-accent-strong:#1d4f96;
   --home-image-blue:#f1f8fc;
   --home-image-blue-deep:#e5f3fa;
   background:#fff;
@@ -225,7 +225,7 @@ html.v1[data-lrb-home="true"] .masthead__logo-image{
   object-position:center center;
   margin:0 auto;
 }
-html.v1[data-lrb-home="true"] .masthead__kicker{font-family:var(--font-ui);font-weight:800;color:#0075b8;letter-spacing:.15em}
+html.v1[data-lrb-home="true"] .masthead__kicker{font-family:var(--font-ui);font-weight:800;color:#1d4f96;letter-spacing:.15em}
 /* The wavy version (a repeated sine-wave SVG tile) was tried and rejected
    by the author -- "no me gustan las ondas, mejor igual que el section
    break de abajo para que encaje" -- so this is now the exact same
@@ -264,13 +264,13 @@ html.v1[data-lrb-home="true"] .masthead-nav__list a{
   color:#050505;
 }
 html.v1[data-lrb-home="true"] .masthead-nav__list a:hover,
-html.v1[data-lrb-home="true"] .masthead-nav__list a:focus-visible{color:#0075b8;border-color:#0075b8}
+html.v1[data-lrb-home="true"] .masthead-nav__list a:focus-visible{color:#1d4f96;border-color:#1d4f96}
 
 html.v1[data-lrb-home="true"] .yale-home-flow{
   box-sizing:border-box;
   width:min(100%,var(--layout-max));
   margin:0 auto;
-  padding:clamp(1.7rem,3.4vw,2.7rem) var(--page-gutter) clamp(4rem,6.4vw,5.6rem);
+  padding:clamp(1.7rem,3.4vw,2.7rem) var(--page-gutter) clamp(2.2rem,4.4vw,3.6rem);
   background:#fff;
 }
 html.v1[data-lrb-home="true"] .yale-home-flow :is(section,article,aside,div,header,h1,h2,h3,p,a){
@@ -280,7 +280,7 @@ html.v1[data-lrb-home="true"] .yale-home-flow :is(section,article,aside,div,head
 html.v1[data-lrb-home="true"] .yale-home-issue__heading{
   display:grid;
   gap:.4rem;
-  margin-bottom:clamp(2rem,4vw,3rem);
+  margin-bottom:clamp(1.4rem,2.8vw,2.2rem);
 }
 html.v1[data-lrb-home="true"] .yale-home-issue__kicker{
   position:relative;
@@ -435,7 +435,7 @@ html.v1[data-lrb-home="true"] .home-event h3 a{color:inherit;text-decoration:non
 html.v1[data-lrb-home="true"] .yale-lead__copy h2 a:hover,
 html.v1[data-lrb-home="true"] .yale-tile h3 a:hover,
 html.v1[data-lrb-home="true"] .yale-rail-card h3 a:hover,
-html.v1[data-lrb-home="true"] .home-event h3 a:hover{text-decoration:underline;text-decoration-color:#0075b8;text-underline-offset:.12em}
+html.v1[data-lrb-home="true"] .home-event h3 a:hover{text-decoration:underline;text-decoration-color:#1d4f96;text-underline-offset:.12em}
 html.v1[data-lrb-home="true"] .yale-lead__deck{
   margin:.2rem 0 .75rem;
   max-width:19ch;
@@ -455,9 +455,8 @@ html.v1[data-lrb-home="true"] .yale-text-link{
   font-weight:800;
   letter-spacing:.05em;
   text-transform:uppercase;
-  color:#0075b8;
+  color:#1d4f96;
   text-decoration:none;
-  border-bottom:1px solid #0075b8;
 }
 html.v1[data-lrb-home="true"] .yale-lead__copy .editorial-card__meta{display:block;margin-top:.85rem}
 html.v1[data-lrb-home="true"] .yale-text-link:hover,
@@ -469,23 +468,17 @@ html.v1[data-lrb-home="true"] .yale-text-link--gradient{
   font-weight:400;
   letter-spacing:0;
   text-transform:none;
-  border-bottom-color:#1d4f96;
 }
+/* Flat #1d4f96 (the one blue used for the ring/dividers/title elsewhere on
+   this page) instead of the old 3-stop blue gradient -- part of unifying
+   the page's colour system (author request). */
 html.v1[data-lrb-home="true"] .yale-text-link--gradient,
 html.v1[data-lrb-home="true"] .yale-text-link--gradient::after{
-  background:linear-gradient(115deg,#6fa3e0,#1d4f96 55%,#0d2c57);
-  -webkit-background-clip:text;
-  background-clip:text;
-  -webkit-text-fill-color:transparent;
-  color:transparent;
+  color:#1d4f96;
 }
 html.v1[data-lrb-home="true"] .yale-text-link--gradient:hover,
 html.v1[data-lrb-home="true"] .yale-text-link--gradient:focus-visible{
-  background:linear-gradient(115deg,#4d86cc,#0d2c57 55%,#081b38);
-  -webkit-background-clip:text;
-  background-clip:text;
-  -webkit-text-fill-color:transparent;
-  color:transparent;
+  color:#0d2c57;
 }
 html.v1[data-lrb-home="true"] .home-event__link{
   font-family:var(--font-ui);
@@ -493,9 +486,8 @@ html.v1[data-lrb-home="true"] .home-event__link{
   font-weight:800;
   letter-spacing:.05em;
   text-transform:uppercase;
-  color:#0075b8;
+  color:#1d4f96;
   text-decoration:none;
-  border-bottom:1px solid currentColor;
 }
 html.v1[data-lrb-home="true"] .home-event__link:hover,
 html.v1[data-lrb-home="true"] .home-event__link:focus-visible{color:#004f73}
@@ -510,8 +502,17 @@ html.v1[data-lrb-home="true"] .home-event__link::after{content:"\2192";margin-le
    the stack actually touches the rail's border-left at the corner instead
    of stopping short at the padding gap -- the "join the two lines" part of
    the request. */
+/* background-image instead of border-left: browsers round sub-pixel
+   border-width to the nearest device pixel (2.5px was rendering as 2px),
+   so it never actually matched the 2.5px gold horizontal lines it was
+   supposed to equal (author's "es del mismo grosor?" question -- it
+   wasn't). A background gradient isn't rounded the same way, so this now
+   renders at the same true thickness. */
 html.v1[data-lrb-home="true"] .yale-rail{
-  border-left:2.5px solid #1d4f96;
+  background-image:linear-gradient(90deg,#1d4f96,#1d4f96);
+  background-repeat:no-repeat;
+  background-size:2.5px 100%;
+  background-position:top left;
   padding-left:clamp(1.2rem,2.6vw,2rem);
 }
 html.v1[data-lrb-home="true"] .yale-rail-card{
@@ -543,7 +544,7 @@ html.v1[data-lrb-home="true"] .home-events,
 html.v1[data-lrb-home="true"] .install-web,
 html.v1[data-lrb-home="true"] .yale-signup{
   position:relative;
-  margin-top:clamp(2.4rem,4.8vw,4rem);
+  margin-top:clamp(1.4rem,2.8vw,2.2rem);
   border-top:0;
   padding-top:8px;
   background-image:linear-gradient(#1d4f96,#1d4f96),linear-gradient(#b8860b,#b8860b);
@@ -551,6 +552,11 @@ html.v1[data-lrb-home="true"] .yale-signup{
   background-size:100% 1.5px,100% 1.5px;
   background-position:top left,left 5px;
 }
+/* Zero margin specifically right after the hero, so this divider's top
+   edge is flush with the bottom of .yale-rail's border-left (itself
+   stretched to match .yale-lead via align-items:stretch above) -- a true
+   join, not just "close", matching the author's "que se unan" request. */
+html.v1[data-lrb-home="true"] .yale-home-issue + .yale-home-section{margin-top:0}
 html.v1[data-lrb-home="true"] .yale-home-section::after,
 html.v1[data-lrb-home="true"] .home-events::after,
 html.v1[data-lrb-home="true"] .install-web::after,
@@ -689,8 +695,17 @@ html.v1[data-lrb-home="true"] .home-events__grid{
   display:grid;
   grid-template-columns:1fr;
 }
+/* Unified with .yale-rail's system (author request: apply the new
+   blue/gold motif across the whole home page, not just the hero) --
+   background-image instead of border-left (border-width rounds to the
+   nearest device pixel and wouldn't reliably match the gold line weight),
+   #1d4f96 instead of #0075b8, and the same 3-line blue/gold/blue stack
+   under each card instead of a single flat border-bottom. */
 html.v1[data-lrb-home="true"] .home-events__grid{
-  border-left:2px solid #0075b8;
+  background-image:linear-gradient(90deg,#1d4f96,#1d4f96);
+  background-repeat:no-repeat;
+  background-size:2.5px 100%;
+  background-position:top left;
   padding-left:clamp(1.2rem,2.6vw,2rem);
 }
 /* The accent rail sits between the two columns (as it does for Manecillas'
@@ -698,7 +713,10 @@ html.v1[data-lrb-home="true"] .home-events__grid{
    Samuel's mirrored layout the book card is the second/right column, so it
    carries the border instead of the stack. */
 html.v1[data-lrb-home="true"] .yale-feature-book{
-  border-left:2px solid #0075b8;
+  background-image:linear-gradient(90deg,#1d4f96,#1d4f96);
+  background-repeat:no-repeat;
+  background-size:2.5px 100%;
+  background-position:top left;
   padding-left:clamp(1.2rem,2.6vw,2rem);
 }
 html.v1[data-lrb-home="true"] .yale-feature-card,
@@ -707,11 +725,16 @@ html.v1[data-lrb-home="true"] .home-events__grid .home-event{
   flex-direction:column;
   min-width:0;
   min-height:0;
-  padding:clamp(1.2rem,2vw,1.7rem) 0;
-  background:transparent;
+  margin-left:calc(-1 * clamp(1.2rem,2.6vw,2rem));
+  padding:clamp(1.2rem,2vw,1.7rem) 0 clamp(1.2rem,2vw,1.7rem) clamp(1.2rem,2.6vw,2rem);
+  background-image:linear-gradient(#1d4f96,#1d4f96),linear-gradient(#b8860b,#b8860b),linear-gradient(#1d4f96,#1d4f96);
+  background-repeat:no-repeat,no-repeat,no-repeat;
+  background-size:100% 1.5px,100% 2.5px,100% 1.5px;
+  background-position:left bottom 8px,left bottom 4px,left bottom 0;
   border-right:0;
-  border-bottom:2px solid #0075b8;
 }
+html.v1[data-lrb-home="true"] .yale-feature-card:last-child,
+html.v1[data-lrb-home="true"] .home-events__grid .home-event:last-child{background-image:none}
 html.v1[data-lrb-home="true"] .yale-feature-card:first-child,
 html.v1[data-lrb-home="true"] .home-events__grid .home-event:first-child{padding-top:0}
 /* Mirrors .yale-lead's own media|copy split (photo beside text) instead of
@@ -726,7 +749,10 @@ html.v1[data-lrb-home="true"] .yale-feature-book{
   gap:clamp(1.2rem,2.6vw,2rem);
   align-items:start;
   min-height:12rem;
-  background:transparent;
+  /* NOT background:transparent -- that's a shorthand and clobbers the
+     accent-rail background-image set on this same selector earlier in the
+     file (same specificity, this rule wins by being later), which is
+     exactly what was silently breaking Samuel's vertical divider. */
 }
 html.v1[data-lrb-home="true"] .yale-feature-book__body{order:1}
 html.v1[data-lrb-home="true"] .yale-feature-book__media{order:2}
@@ -743,7 +769,7 @@ html.v1[data-lrb-home="true"] .yale-feature-book h3{
 html.v1[data-lrb-home="true"] .yale-feature-card h3 a,
 html.v1[data-lrb-home="true"] .yale-feature-book h3 a{color:inherit;text-decoration:none}
 html.v1[data-lrb-home="true"] .yale-feature-card h3 a:hover,
-html.v1[data-lrb-home="true"] .yale-feature-book h3 a:hover{text-decoration:underline;text-decoration-color:#0075b8;text-underline-offset:.12em}
+html.v1[data-lrb-home="true"] .yale-feature-book h3 a:hover{text-decoration:underline;text-decoration-color:#1d4f96;text-underline-offset:.12em}
 html.v1[data-lrb-home="true"] .yale-feature-card p:not(.editorial-card__eyebrow),
 html.v1[data-lrb-home="true"] .yale-feature-book p:not(.editorial-card__eyebrow){
   margin:0 0 1rem;
@@ -793,7 +819,7 @@ html.v1[data-lrb-home="true"] .home-event__media img{
   object-position:center 40%;
   filter:saturate(.9) contrast(.98);
 }
-html.v1[data-lrb-home="true"] .home-event time{font-family:var(--font-ui);font-size:.72rem;font-weight:800;letter-spacing:.06em;text-transform:uppercase;color:#0075b8}
+html.v1[data-lrb-home="true"] .home-event time{font-family:var(--font-ui);font-size:.72rem;font-weight:800;letter-spacing:.06em;text-transform:uppercase;color:#1d4f96}
 /* Lives inside .home-events__grid, as a 4th stacked item after the three
    event cards -- not a separate full-width bar below the whole feature
    grid. Its own copy is short enough not to need the events' time/link
@@ -873,8 +899,13 @@ html.v1[data-lrb-home="true"] .header-buy{
   html.v1[data-lrb-home="true"] .yale-feature__grid--reverse,
   html.v1[data-lrb-home="true"] .yale-feature-book,
   html.v1[data-lrb-home="true"] .home-events__feature{grid-template-columns:1fr}
-  html.v1[data-lrb-home="true"] .yale-rail{border-left:0;border-top:2.5px solid #1d4f96;padding-left:0;padding-top:1rem}
-  html.v1[data-lrb-home="true"] .yale-feature-book{border-left:0;padding-left:0}
+  /* .yale-rail and .yale-feature-book's vertical dividers are both
+     background-images now (see their base rules above), not borders, so
+     they keep working correctly at this width with no override needed
+     here -- the old rules that swapped border-left for border-top (and
+     zeroed padding-left) are gone; border-top rendering was unreliable
+     anyway, and the line persisting through the stacked layout, joining
+     the section divider below it, reads fine as-is. */
   html.v1[data-lrb-home="true"] .yale-tile-grid,
   html.v1[data-lrb-home="true"] .yale-tile-grid--reading,
   html.v1[data-lrb-home="true"] .yale-tile-grid--tools,

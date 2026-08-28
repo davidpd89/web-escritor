@@ -454,9 +454,8 @@ html.v1[data-lrb-home="true"] .editorial-card__arrow span{
   font-weight:700;
   letter-spacing:.08em;
   text-transform:uppercase;
-  border-bottom:1px solid currentColor;
   opacity:.68;
-  transition:transform var(--motion-state) var(--ease-standard),opacity var(--motion-state) var(--ease-standard),border-color var(--motion-state) var(--ease-standard);
+  transition:transform var(--motion-state) var(--ease-standard),opacity var(--motion-state) var(--ease-standard);
 }
 html.v1[data-lrb-home="true"] .editorial-card__arrow span::before{content:"Abrir"}
 html.v1[data-lrb-home="true"] .editorial-card__arrow:hover span,
@@ -616,7 +615,6 @@ html.v1[data-lrb-home="true"] .home-event__link{
   text-transform:uppercase;
   text-decoration:none;
   align-self:flex-start;
-  border-bottom:1px solid currentColor;
   opacity:.68;
 }
 html.v1[data-lrb-home="true"] .home-events__cta{
