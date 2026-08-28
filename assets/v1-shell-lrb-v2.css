@@ -81,7 +81,7 @@ html.v1[data-lrb-home="true"] .masthead__avatar{width:clamp(52px,7vw,92px);heigh
    the same double-ring/diamond-accent motif used across the site's other
    separator/frame assets. Sized slightly larger than the photo so the ring
    sits just outside its edge rather than clipping the portrait. */
-html.v1[data-lrb-home="true"] .masthead__avatar-frame::after{content:"";position:absolute;inset:-12%;background:url(/assets/masthead-avatar-frame-blue.png) center/contain no-repeat;pointer-events:none}
+html.v1[data-lrb-home="true"] .masthead__avatar-frame::after{content:"";position:absolute;inset:-18%;background:url(/assets/masthead-avatar-frame-blue.png) center/contain no-repeat;pointer-events:none}
 
 /* Tight editorial section row. The clickable area stays >=40px while labels read small. */
 html.v1[data-lrb-home="true"] .masthead-nav{position:relative;border-top:1px solid var(--color-border);border-bottom:0;background:var(--surface-page)}

@@ -212,8 +212,15 @@ html.v1[data-lrb-home="true"] .masthead{
 html.v1[data-lrb-home="true"] .masthead__name{font-family:var(--font-ui);font-weight:800;letter-spacing:.02em;text-transform:uppercase;color:#060606}
 html.v1[data-lrb-home="true"] .masthead__name.has-logo-image{min-height:clamp(96px,9.2vw,132px);place-items:center}
 html.v1[data-lrb-home="true"] .masthead__logo-image{
-  width:min(48vw,560px);
-  max-height:128px;
+  /* height first, width derived from the image's real 1208x353 ratio (not a
+     separate viewport-relative width) -- a box wider than that ratio made
+     object-fit:contain letterbox ~61px of empty space on each side, which
+     read as the avatar sitting much farther from the wordmark than the
+     8.8px flex gap alone would suggest. max-width is only a safety cap for
+     very narrow containers, not the normal sizing driver. */
+  width:auto;
+  max-width:min(48vw,560px);
+  height:128px;
   object-fit:contain;
   object-position:center center;
   margin:0 auto;
@@ -254,17 +261,44 @@ html.v1[data-lrb-home="true"] .yale-home-issue__heading{
   margin-bottom:clamp(2rem,4vw,3rem);
 }
 html.v1[data-lrb-home="true"] .yale-home-issue__kicker{
+  position:relative;
+  display:inline-block;
   margin:0 0 -.1rem;
   font-family:'Yellowtail',var(--font-ui),cursive;
-  font-size:clamp(1.3rem,2.4vw,1.7rem);
+  /* Floor raised from 1.3rem to 1.5rem (24px): WCAG 1.4.3's relaxed 3:1
+     contrast minimum for "large text" only applies at >=24px regular
+     weight -- below that this needs the full 4.5:1, which a gold-on-white
+     gradient can't clear at its lighter end without losing the gold look
+     entirely (verified: #f0c467 was 1.64:1 against white, failing even the
+     large-text floor). */
+  font-size:clamp(1.5rem,2.4vw,1.7rem);
   font-weight:400;
   letter-spacing:0;
   text-transform:none;
-  background:linear-gradient(115deg,#f0c467,#a8681f 58%,#7a4a15);
+  /* Darkened from #f0c467 to #b8860b (darkgoldenrod) at the light end --
+     #f0c467 measured 1.64:1 against white (fails even the large-text 3:1
+     floor); #b8860b measures 3.25:1, clearing it. The other two stops
+     already cleared 4.5:1 (normal-text AA) unchanged. */
+  background:linear-gradient(115deg,#b8860b,#a8681f 58%,#7a4a15);
   -webkit-background-clip:text;
   background-clip:text;
   -webkit-text-fill-color:transparent;
   color:transparent;
+}
+/* Subtle underline highlight spanning the full "Obra actual" width, cropped
+   from the same reference sheet as the header avatar frame ("Recursos
+   diseño web" > highlights, thin diagonal streak), recolored to the site's
+   blue (matches the h1 gradient below it) instead of its original gold. */
+html.v1[data-lrb-home="true"] .yale-home-issue__kicker::before{
+  content:"";
+  position:absolute;
+  left:2%;
+  right:2%;
+  bottom:.02em;
+  height:.32em;
+  background:url(/assets/highlight-thin-blue.png) center/100% 100% no-repeat;
+  opacity:.85;
+  pointer-events:none;
 }
 html.v1[data-lrb-home="true"] .yale-home-issue h1{
   margin:0;
@@ -731,7 +765,7 @@ html.v1[data-lrb-home="true"] .header-buy{
 @media(max-width:640px){
   html.v1[data-lrb-home="true"] .yale-home-flow{padding-top:1.4rem}
   html.v1[data-lrb-home="true"] .masthead__name.has-logo-image{min-height:78px}
-  html.v1[data-lrb-home="true"] .masthead__logo-image{width:min(80vw,340px);max-height:92px}
+  html.v1[data-lrb-home="true"] .masthead__logo-image{width:auto;max-width:min(80vw,340px);height:92px}
   html.v1[data-lrb-home="true"] .masthead-nav__list{display:none}
   html.v1[data-lrb-home="true"] .yale-lead__media{min-height:18rem}
   html.v1[data-lrb-home="true"] .yale-home-issue h1{font-size:clamp(1.8rem,9vw,2.65rem)}
