@@ -226,11 +226,26 @@ html.v1[data-lrb-home="true"] .masthead__logo-image{
   margin:0 auto;
 }
 html.v1[data-lrb-home="true"] .masthead__kicker{font-family:var(--font-ui);font-weight:800;color:#0075b8;letter-spacing:.15em}
+/* Wavy blue-gold-blue rule (author request) replacing the plain straight
+   2px blue border -- a seamless sine-wave SVG tile, repeated horizontally,
+   instead of a border so it can carry both the irregular shape and the
+   gradient at once. */
 html.v1[data-lrb-home="true"] .masthead-nav{
   background:#fff;
   border-top:0;
-  border-bottom:2px solid #0075b8;
+  border-bottom:0;
   box-shadow:none;
+  position:relative;
+}
+html.v1[data-lrb-home="true"] .masthead-nav::after{
+  content:"";
+  position:absolute;
+  left:0;
+  right:0;
+  bottom:-8px;
+  height:16px;
+  background:url(/assets/masthead-nav-wave.svg) repeat-x center/auto 100%;
+  pointer-events:none;
 }
 html.v1[data-lrb-home="true"] .masthead-nav__list{justify-content:center;gap:clamp(1.4rem,3.2vw,3rem)}
 html.v1[data-lrb-home="true"] .masthead-nav__list a{
@@ -263,6 +278,16 @@ html.v1[data-lrb-home="true"] .yale-home-issue__heading{
 html.v1[data-lrb-home="true"] .yale-home-issue__kicker{
   position:relative;
   display:inline-block;
+  /* .yale-home-issue__heading is display:grid, and a grid item's default
+     justify-self is stretch -- so despite display:inline-block, this <p>
+     was stretching to the full grid-column width (way past the "Obra
+     actual" text), and the ::before underline below (sized relative to
+     this box) stretched with it into the stray line the underline was
+     supposed to not be. justify-self:start (plus width:fit-content as a
+     belt-and-suspenders for non-grid contexts) keeps the box shrunk to
+     its own text. */
+  justify-self:start;
+  width:fit-content;
   margin:0 0 -.1rem;
   font-family:'Yellowtail',var(--font-ui),cursive;
   /* Floor raised from 1.3rem to 1.5rem (24px): WCAG 1.4.3's relaxed 3:1
@@ -275,15 +300,15 @@ html.v1[data-lrb-home="true"] .yale-home-issue__kicker{
   font-weight:400;
   letter-spacing:0;
   text-transform:none;
-  /* Darkened from #f0c467 to #b8860b (darkgoldenrod) at the light end --
-     #f0c467 measured 1.64:1 against white (fails even the large-text 3:1
-     floor); #b8860b measures 3.25:1, clearing it. The other two stops
-     already cleared 4.5:1 (normal-text AA) unchanged. */
-  background:linear-gradient(115deg,#b8860b,#a8681f 58%,#7a4a15);
-  -webkit-background-clip:text;
-  background-clip:text;
-  -webkit-text-fill-color:transparent;
-  color:transparent;
+  /* Darkened from #f0c467 to #b8860b (darkgoldenrod) -- #f0c467 measured
+     1.64:1 against white (fails even the large-text 3:1 floor); #b8860b
+     measures 3.25:1, clearing it. Flat colour, not the previous 3-stop
+     gradient into #a8681f/#7a4a15 -- those are orange/brown, the same
+     off-hue mistake fixed on the h1 below, and having the kicker on a
+     different gold than everywhere else (h1 stroke, avatar ring, nav wave)
+     was exactly the inconsistency the author flagged. #b8860b is now the
+     one gold used everywhere; #1d4f96 is the one blue. */
+  color:#b8860b;
 }
 /* Subtle underline highlight spanning the full "Obra actual" width, cropped
    from the same reference sheet as the header avatar frame ("Recursos
@@ -302,21 +327,22 @@ html.v1[data-lrb-home="true"] .yale-home-issue__kicker::before{
 }
 html.v1[data-lrb-home="true"] .yale-home-issue h1{
   margin:0;
+  /* .yale-home-issue__heading is display:grid, so like the kicker above,
+     this h1 was stretching to the full grid-column width -- width:fit-content
+     keeps its box matched to the actual text instead. */
+  width:fit-content;
   font-family:var(--font-ui);
   font-weight:800;
   font-size:clamp(1.9rem,3.8vw,3.6rem);
   line-height:.96;
   letter-spacing:-.018em;
-  /* Blue-to-gold blend (picked from the 5-way comparison) instead of the
-     blue-only gradient. Every stop still clears >=3:1 against white (large
-     text, this h1 is always >=30px): #1d4f96 8.04:1, #3a6bb0 5.37:1,
-     #a8681f 4.5:1, #7a4a15 7.45:1 -- the same gold pair already used for
-     the kicker fix, reused here for a consistent accessible palette. */
-  background:linear-gradient(100deg,#1d4f96 0%,#3a6bb0 32%,#a8681f 68%,#7a4a15 100%);
-  -webkit-background-clip:text;
-  background-clip:text;
-  -webkit-text-fill-color:transparent;
-  color:transparent;
+  /* Solid blue + thin gold outline (option 3 of the 5-way comparison) --
+     a blue-to-gold gradient was tried at several splits (50/50, 70/30) and
+     a vertical version, all rejected by the author. #1d4f96 (8.04:1
+     against white) for the fill, #b8860b (goldenrod, already validated for
+     the kicker) for the stroke. */
+  color:#1d4f96;
+  -webkit-text-stroke:0.35px rgba(184,134,11,.55);
   overflow-wrap:anywhere;
   text-wrap:balance;
 }
@@ -332,16 +358,33 @@ html.v1[data-lrb-home="true"] .yale-lead{
   gap:clamp(1.4rem,3vw,2.4rem);
   align-items:start;
 }
+/* Corner-bracket frame (author request) instead of the plain gray
+   left+bottom border -- two nested L-brackets per corner (outer blue,
+   inner gold, matching the avatar ring/section-break palette), top-left
+   and bottom-right, from the same reference sheet as the ring. One SVG
+   asset drawn for the top-left orientation; the bottom-right copy is just
+   that image rotated 180deg, since a top-left bracket rotated a half-turn
+   is exactly a bottom-right one. */
 html.v1[data-lrb-home="true"] .yale-lead__media{
   display:grid;
   min-height:clamp(19rem,33vw,28rem);
   place-items:center;
   background:transparent;
   border:0;
-  border-left:1px solid #d5d4d0;
-  border-bottom:1px solid #d5d4d0;
+  position:relative;
   overflow:hidden;
 }
+html.v1[data-lrb-home="true"] .yale-lead__media::before,
+html.v1[data-lrb-home="true"] .yale-lead__media::after{
+  content:"";
+  position:absolute;
+  width:34px;
+  height:34px;
+  background:url(/assets/corner-bracket-blue-gold.svg) center/contain no-repeat;
+  pointer-events:none;
+}
+html.v1[data-lrb-home="true"] .yale-lead__media::before{top:0;left:0}
+html.v1[data-lrb-home="true"] .yale-lead__media::after{bottom:0;right:0;transform:rotate(180deg)}
 html.v1[data-lrb-home="true"] .yale-lead__media img{
   width:min(68%,20rem);
   height:auto;
@@ -440,24 +483,70 @@ html.v1[data-lrb-home="true"] .home-event__link{
 html.v1[data-lrb-home="true"] .home-event__link:hover,
 html.v1[data-lrb-home="true"] .home-event__link:focus-visible{color:#004f73}
 html.v1[data-lrb-home="true"] .home-event__link::after{content:"\2192";margin-left:.35rem;color:currentColor}
+/* Rail dividers unified to the page's blue/gold palette (author request) --
+   #1d4f96 replaces the plain #0075b8. Clarified after the first pass: not
+   one divider blue and the next gold, but every divider is its own 3-line
+   stack (blue, then a slightly wider gold, then blue again) directly under
+   each card's "Abrir" link. Each card is pulled flush to the rail's own
+   left edge (negative margin-left cancelling the rail's padding-left,
+   padding-left re-added on the card so the text keeps the same indent) so
+   the stack actually touches the rail's border-left at the corner instead
+   of stopping short at the padding gap -- the "join the two lines" part of
+   the request. */
 html.v1[data-lrb-home="true"] .yale-rail{
-  border-left:2px solid #0075b8;
+  border-left:2px solid #1d4f96;
   padding-left:clamp(1.2rem,2.6vw,2rem);
 }
 html.v1[data-lrb-home="true"] .yale-rail-card{
-  padding:clamp(1.2rem,2vw,1.7rem) 0;
-  border-bottom:2px solid #0075b8;
+  margin-left:calc(-1 * clamp(1.2rem,2.6vw,2rem));
+  padding:clamp(1.2rem,2vw,1.7rem) 0 clamp(1.2rem,2vw,1.7rem) clamp(1.2rem,2.6vw,2rem);
+  border-bottom:0;
+  background-image:linear-gradient(#1d4f96,#1d4f96),linear-gradient(#b8860b,#b8860b),linear-gradient(#1d4f96,#1d4f96);
+  background-repeat:no-repeat,no-repeat,no-repeat;
+  background-size:100% 1.5px,100% 2.5px,100% 1.5px;
+  background-position:left bottom 8px,left bottom 4px,left bottom 0;
 }
+html.v1[data-lrb-home="true"] .yale-rail-card:last-child{background-image:none}
 html.v1[data-lrb-home="true"] .yale-rail-card:first-child{padding-top:0}
 html.v1[data-lrb-home="true"] .yale-rail-card h3{margin:.4rem 0 .35rem;font-size:clamp(1.2rem,1.75vw,1.6rem);line-height:1.1}
 html.v1[data-lrb-home="true"] .yale-rail-card p:not(.editorial-card__eyebrow){margin:0 0 .75rem;font-family:var(--font-reading);font-size:1.05rem;line-height:1.35}
 
+/* Section-break rule redone in the same double-line/diamond-accent motif as
+   the header avatar ring and the masthead-nav wave (author request: "usa lo
+   mismo que has usado para el anillo de la foto... en formato línea recta
+   no círculo") -- two thin horizontal lines (via layered background
+   gradients, so they stretch cleanly to any section width with no
+   distortion) plus a small diamond centered on top via ::after (a fixed
+   px size, not stretched, so it stays a true diamond instead of an
+   ellipse). #1d4f96 (blue, top line) and #b8860b (gold, bottom line) --
+   the same two tones used everywhere else on this page now -- replace the
+   plain #0075b8 border for consistency. */
 html.v1[data-lrb-home="true"] .yale-home-section,
 html.v1[data-lrb-home="true"] .home-events,
 html.v1[data-lrb-home="true"] .install-web,
 html.v1[data-lrb-home="true"] .yale-signup{
+  position:relative;
   margin-top:clamp(2.4rem,4.8vw,4rem);
-  border-top:2px solid #0075b8;
+  border-top:0;
+  padding-top:8px;
+  background-image:linear-gradient(#1d4f96,#1d4f96),linear-gradient(#b8860b,#b8860b);
+  background-repeat:no-repeat,no-repeat;
+  background-size:100% 1.5px,100% 1.5px;
+  background-position:top left,left 5px;
+}
+html.v1[data-lrb-home="true"] .yale-home-section::after,
+html.v1[data-lrb-home="true"] .home-events::after,
+html.v1[data-lrb-home="true"] .install-web::after,
+html.v1[data-lrb-home="true"] .yale-signup::after{
+  content:"";
+  position:absolute;
+  top:1.3px;
+  left:50%;
+  width:8px;
+  height:8px;
+  background:#1d4f96;
+  transform:translate(-50%,-50%) rotate(45deg);
+  pointer-events:none;
 }
 /* .home-events's own horizontal padding (v1-home-editorial-v3.css) assumes
    it spans a full 100vw band and recenters itself with
@@ -710,8 +799,21 @@ html.v1[data-lrb-home="true"] .install-web{
   color:#050505;
   border-bottom:1px solid rgba(0,0,0,.18);
 }
-html.v1[data-lrb-home="true"] .install-web::before,
-html.v1[data-lrb-home="true"] .install-web::after{display:none}
+html.v1[data-lrb-home="true"] .install-web::before{display:none}
+/* .install-web's own background:#fff above (line ~764) clears the section-
+   break gradient lines set earlier in this file (background is a shorthand
+   that resets background-image when not repeated), and this rule used to
+   blanket-disable ::after too, which took the new divider diamond out with
+   it. Re-applied here, after both of those, so this section keeps the same
+   section-break motif as the others instead of silently reverting to no
+   divider at all. */
+html.v1[data-lrb-home="true"] .install-web{
+  background-image:linear-gradient(#1d4f96,#1d4f96),linear-gradient(#b8860b,#b8860b);
+  background-repeat:no-repeat,no-repeat;
+  background-size:100% 1.5px,100% 1.5px;
+  background-position:top left,left 5px;
+}
+html.v1[data-lrb-home="true"] .install-web::after{display:block}
 html.v1[data-lrb-home="true"] .install-web h2{color:#050505}
 html.v1[data-lrb-home="true"] .install-web__status{color:#2a2e31}
 html.v1[data-lrb-home="true"] .install-web,
@@ -735,10 +837,10 @@ html.v1[data-lrb-home="true"] .yale-signup .form-submit{
 html.v1[data-lrb-home="true"] .install-web__button,
 html.v1[data-lrb-home="true"] .form-submit,
 html.v1[data-lrb-home="true"] .header-buy{
-  border:1px solid #0075b8;
+  border:1px solid #0a4d9f;
   border-radius:4px;
   background:#fff;
-  color:#0075b8;
+  color:#0a4d9f;
   font-family:var(--font-ui);
   font-weight:800;
   text-transform:uppercase;
