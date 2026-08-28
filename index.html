@@ -322,7 +322,13 @@
   <link rel="preload" as="style" href="assets/v1-reflow-hardening-v7.css" />
   <!-- v1-shell-preload:end -->
   <link rel="stylesheet" href="assets/v1-shell.css" />
-  <link rel="stylesheet" href="assets/v1-home.css" />
+  <!-- ?v= bump on every edit to this file: without it, the URL never
+       changes, so any cache layer (browser or CDN) that doesn't aggressively
+       revalidate keeps serving old bytes under this same path indefinitely --
+       this was the "sigue saliendo la versión anterior, tengo que recargar
+       varias veces, hasta en incógnito" bug this round. A new query string is
+       a guaranteed cache miss regardless of whatever TTL a CDN has set. -->
+  <link rel="stylesheet" href="assets/v1-home.css?v=6" />
   <link rel="stylesheet" href="assets/v1-book.css" />
 </head>
 
