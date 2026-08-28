@@ -27,23 +27,26 @@ PR #133, cuyo único cambio es un grid de Samuel, vuelve a producir exactamente 
 - no es ruido de una ejecución aislada;
 - no quedó resuelto por #129.
 
-### Causa más probable, consistente con #129
+### CORRECCIÓN 28/08/2026 — la hipótesis de causa de abajo es incorrecta, verificado
 
-`assets/v1-editorial-interior-v4.js::buildContextNav()` inserta `.section-context` después del header cuando el JS ya corre. #129 demostró que esa inserción post-paint era causa de CLS y pre-renderizó varias rutas.
+Sesión de Claude del 28/08/2026: comprobé directamente `herramientas/index.html` y `herramientas/manuscrito/index.html` (`grep -n "section-context\|editorial-interior-v4"`) y **ninguna de las dos páginas carga `assets/v1-editorial-interior-v4.js` ni contiene `.section-context` en ningún sitio**. Sus únicos scripts son `/assets/v1-shell.js`, `/script.js` y `/assets/herramientas-hub.js`. `buildContextNav()` nunca se ejecuta en estas páginas — no puede ser la causa.
 
-`/herramientas/` sigue llegando sin `.section-context` en el HTML inicial y la obtiene por runtime. Además ese HTML declara que es generado por `scripts/build-tools-hub.py`. Arreglar el fichero generado a mano sería incorrecto.
+El patrón de #129 (inserción post-paint de `.section-context`) **no aplica aquí**. La causa real de los 0.1383 de CLS está en otro componente — casi con toda seguridad en `assets/herramientas-hub.js` (que renderiza/filtra el grid de 22 tarjetas de herramientas) o en el hero/cabecera de `scripts/build-tools-hub.py`. **No asumir la causa: instrumentar con `PerformanceObserver('layout-shift')` en local contra `/herramientas/` para identificar qué elemento concreto se mueve y en qué momento del ciclo de carga**, antes de proponer ningún fix.
+
+### Causa original hipotetizada (no confirmada, mantenida solo como referencia histórica — no usar)
+
+~~`assets/v1-editorial-interior-v4.js::buildContextNav()` inserta `.section-context`...~~ — descartada, ver corrección arriba.
 
 ### Solución requerida
 
 No hacer otro parche de «dos URLs» manuales. Resolver el patrón de manera sistémica:
 
-1. identificar **todas** las rutas públicas que `buildContextNav()` clasifica en un contexto y que todavía dependen de inserción post-paint;
-2. elegir una autoridad única para generar/pre-renderizar el componente antes del primer paint;
-3. incluir builders/generadores (`scripts/build-tools-hub.py` y los que correspondan), no editar outputs a mano;
-4. mantener el algoritmo de `aria-current` de #129 (máximo uno, exact > prefijo más específico);
-5. ampliar `qa/section-context-parity.mjs` para cubrir las nuevas rutas/generadores;
-6. medir Lighthouse de `/herramientas/` y `/herramientas/manuscrito/` 3/3 tras el fix;
-7. revisar otras familias (`autor`, `prensa`, `editoriales`, `convocatorias`, etc.) para que el cierre sea de patrón, no de muestra.
+1. instrumentar `/herramientas/` y `/herramientas/manuscrito/` con `PerformanceObserver('layout-shift')` para identificar el elemento/selector exacto que causa el shift (ver corrección arriba — no es `.section-context`);
+2. una vez identificada la causa real, decidir si es un patrón compartido con otras páginas o específico del hub de herramientas;
+3. si toca HTML generado, arreglar el builder (`scripts/build-tools-hub.py` y los que correspondan), no editar outputs a mano;
+4. si el trabajo de #129 sobre `.section-context`/`aria-current` resulta relevante en otras rutas (`autor`, `prensa`, `editoriales`, `convocatorias`), tratarlo como un frente aparte — no mezclarlo con el fix de Herramientas;
+5. ampliar `qa/section-context-parity.mjs` solo si la causa real resulta estar relacionada con ese componente; si no, crear el QA que corresponda a la causa real;
+6. medir Lighthouse de `/herramientas/` y `/herramientas/manuscrito/` 3/3 tras el fix.
 
 ### Definition of Done
 
@@ -206,6 +209,19 @@ El snapshot live sí está corregido y la lista beta existe; eso no prueba:
 - DOI/automation/entrega real del capítulo prometido tras suscripción.
 
 Si estos journeys ya fueron probados después del último snapshot, actualizar ledger con evidencia sanitizada. Si no, siguen siendo pendientes reales. No inventar cierre a partir de que Cloudflare DNS esté terminado: DNS/zone y Workers/Brevo son capas distintas.
+
+### Verificación en vivo 28/08/2026 — confirma que sigue BLOCKED, y por qué
+
+El propietario pidió expresamente completar "lo pendiente de la migración" sobre Brevo. Antes de tocar nada en producción, verifiqué el estado real:
+
+- **El Worker `subscribe.davidpd89.workers.dev` vive en `workers.dev`, no en una ruta de zona** (`script.js` línea 17: `endpoint: "https://subscribe.davidpd89.workers.dev"`). Los subdominios `workers.dev` no dependen de que exista una zona Cloudflare para el dominio — **la migración DNS de hoy no desbloquea nada aquí**. La columna "Cloudflare" del ledger se refería a que crear bindings/secrets/deploy requiere el dashboard de Cloudflare (categoría de actor `CLOUDFLARE` del backlog), no a la zona DNS.
+- `curl -X POST` con `Origin: https://davidportodiaz.com` y payload `{email, source:"home"}` devolvió `400 {"message":"Missing required fields"}` — **ese mensaje no existe en el código actual del repo** (`cloudflare-worker-subscribe.js` solo devuelve `"Solicitud no válida."`, `"Dirección de email no válida."`, `"Origen de suscripción no válido."`). Conclusión dura: **el Worker desplegado en producción es una versión antigua, anterior a la reescritura DOI/`lectores-beta` de PENDIENTE-B (23/08/2026). El paso "deploy" del backlog nunca se ha ejecutado con el código actual.**
+- En el dashboard de Brevo (cuenta real, vía navegador ya autenticado): la lista **`Lectores beta` existe con ID `#6`**, creada 27/08/2026, 0 contactos — coincide con lo que ya decía este documento. **No existe ningún template marcado/reconocible como DOI** en Transaccional → Plantillas: las 4 plantillas activas son `Bienvenida_Samuel_Email1` (×2), `Bienvenida_Samuel_Email2` — la secuencia de bienvenida del capítulo, no un email de confirmación de doble opt-in.
+- La API key `BREVO_API_KEY` guardada en `.env` de este repo devuelve `401 Unauthorized` contra `api.brevo.com` — está caducada o no es la misma que la que Cloudflare tiene como secret. No usable para automatizar esto sin renovarla en el propio dashboard de Brevo.
+
+**No se ha desplegado ni configurado nada en esta pasada.** Falta una decisión de contenido (texto del email DOI) y de producto (qué automatización dispara el capítulo prometido) que no me correspondía inventar solo con un "hazlo" genérico sobre "lo pendiente de la migración" — porque, verificado, nada de esto estaba realmente pendiente de la migración. Sigue exactamente `BLOCKED`, con la causa real ahora documentada en vez de asumida.
+
+**Antes de que otra sesión toque esto, necesita del propietario:** (1) confirmar/crear un template Brevo real para el email de confirmación DOI y decidir su copy, (2) decidir qué automatización de Brevo entrega el capítulo de Samuel tras la confirmación, (3) renovar `BREVO_API_KEY` si se quiere automatizar la creación del template vía API en vez de a mano en el dashboard.
 
 ---
 
