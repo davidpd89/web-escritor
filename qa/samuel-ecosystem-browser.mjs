@@ -27,12 +27,23 @@ function requirePdfTools() {
   return available;
 }
 
+// 'samuel' (the book's own hub page, with the testimonial/proof strip) was
+// missing from this map entirely until #133's audit: none of the generic
+// loops below (overflow per viewport, long-content stress, keyboard, and
+// critically the qa-text-200/qa-text-spacing 390px loop) ever ran against
+// it, so a real ~19px overflow in .samuel-proof__stream under font-size:200%
+// (assets/v1-samuel.css's <=620px breakpoint missing minmax(0,1fr), same
+// class of bug as .samuel-route-list) went undetected until a manual repro
+// found it. Added here instead of a new dedicated QA file so it inherits
+// every existing generic check for free.
 const URLS = {
+  samuel: '/libros/samuel-entre-mundos/',
   noveris: '/universo/noveris/',
   club: '/clubes-de-lectura/samuel-entre-mundos/',
   guide: '/clubes-de-lectura/samuel-entre-mundos/guia-imprimible/',
 };
 const CANONICAL = {
+  samuel: 'https://davidportodiaz.com/libros/samuel-entre-mundos/',
   noveris: 'https://davidportodiaz.com/universo/noveris/',
   club: 'https://davidportodiaz.com/clubes-de-lectura/samuel-entre-mundos/',
   guide: 'https://davidportodiaz.com/clubes-de-lectura/samuel-entre-mundos/guia-imprimible/',
