@@ -19,9 +19,22 @@ html.v1 .header-home,
 html.v1 .header-sitemap,
 html.v1 .explore-trigger{min-height:44px}
 html.v1 .header-search{font-size:.8rem;padding-inline:.55rem .72rem}
-html.v1 .header-search{color:#0075b8}
-html.v1 .header-search span{color:#0075b8;font-weight:600}
-html.v1 .header-search svg{color:#0075b8}
+/* #0a4d9f is the exact blue baked into the header wordmark image's own
+   "ESCRITOR" text/rule (assets/david-porto-diaz-escritor-banner-cropped.png,
+   sampled from its solid stroke pixels) -- author request to match Asistente,
+   the search icon, and Comprar to that same tone instead of the generic
+   #0075b8 accent blue. */
+html.v1 .header-search{color:#0a4d9f}
+html.v1 .header-search span{color:#0a4d9f;font-weight:600}
+html.v1 .header-search svg{color:#0a4d9f}
+/* Icon sizes were inconsistent (17px on search/home/sitemap/contact, 20px on
+   the hamburger) inside identically-sized 44px buttons -- unified to 18px,
+   which also makes the search icon "un poquito más grande" as requested. */
+html.v1 .header-search svg,
+html.v1 .header-home svg,
+html.v1 .header-sitemap svg,
+html.v1 .header-contact svg,
+html.v1 .explore-trigger svg{width:18px;height:18px}
 html.v1 .header-home,
 html.v1 .header-sitemap,
 html.v1 .header-contact{display:inline-flex;align-items:center;justify-content:center;width:44px;height:44px;flex:0 0 auto;border:1px solid transparent;border-radius:0;color:var(--color-muted);text-decoration:none;background:transparent;transition:background var(--motion-state) var(--ease-standard),color var(--motion-state) var(--ease-standard),border-color var(--motion-state) var(--ease-standard)}
@@ -36,7 +49,8 @@ html.v1 .header-sitemap:hover,html.v1 .header-sitemap:focus-visible,
 html.v1 .header-contact:hover,html.v1 .header-contact:focus-visible{color:#254f60;background:#d7e9ef;border-color:rgba(37,79,96,.18)}
 html.v1 .explore-trigger{border-radius:0;border-color:transparent}
 html.v1 .explore-trigger:hover,html.v1 .explore-trigger:focus-visible{background:#d7e9ef;border-color:rgba(37,79,96,.18);color:#254f60}
-html.v1 .header-buy{min-height:36px;padding:.25rem .85rem;border-radius:0;font-size:.76rem;letter-spacing:.015em}
+html.v1 .header-buy{min-height:36px;padding:.25rem .85rem;border-radius:0;font-size:.76rem;letter-spacing:.015em;background:#0a4d9f;border-color:#0a4d9f}
+html.v1 .header-buy:hover,html.v1 .header-buy:focus-visible{background:#083c7d;border-color:#083c7d}
 html.v1 .site-header__left .explore-trigger{order:3}
 /* Estado A only hides the hamburger on desktop Home, before any scroll
    compacts the header. Below 900px the hamburger is the only entry point
@@ -76,12 +90,14 @@ html.v1[data-lrb-home="true"] .masthead__kicker{display:none}
 html.v1[data-lrb-home="true"] .masthead__brand-row{display:flex;align-items:center;justify-content:center;gap:clamp(.3rem,.8vw,.55rem)}
 html.v1[data-lrb-home="true"] .masthead__avatar-frame{position:relative;display:inline-flex;flex-shrink:0}
 html.v1[data-lrb-home="true"] .masthead__avatar{width:clamp(52px,7vw,92px);height:clamp(52px,7vw,92px);border-radius:50%;object-fit:cover;object-position:50% 18%;display:block}
-/* Decorative ring cropped from the author's own reference sheet (blue frame
-   asset, "Recursos diseño web") -- replaces the plain 1px gray border with
-   the same double-ring/diamond-accent motif used across the site's other
-   separator/frame assets. Sized slightly larger than the photo so the ring
-   sits just outside its edge rather than clipping the portrait. */
-html.v1[data-lrb-home="true"] .masthead__avatar-frame::after{content:"";position:absolute;inset:-18%;background:url(/assets/masthead-avatar-frame-blue.png) center/contain no-repeat;pointer-events:none}
+/* Decorative ring in the same double-ring/diamond-accent motif as the
+   author's reference sheet ("Recursos diseño web" > frames > blue circle),
+   replacing the plain 1px gray border. Originally a raster crop from that
+   sheet, but the source PNG's circle was only ~95px native -- upscaling it
+   (even after tightening the crop to fix the padding/gap bug) still read as
+   soft/pixelated at retina sizes. Rebuilt as a plain SVG (two concentric
+   circle strokes + two diamond accents) so it's crisp at any size and DPI. */
+html.v1[data-lrb-home="true"] .masthead__avatar-frame::after{content:"";position:absolute;inset:-20%;background:url(/assets/masthead-avatar-frame-blue.svg) center/contain no-repeat;pointer-events:none}
 
 /* Tight editorial section row. The clickable area stays >=40px while labels read small. */
 html.v1[data-lrb-home="true"] .masthead-nav{position:relative;border-top:1px solid var(--color-border);border-bottom:0;background:var(--surface-page)}
