@@ -12,11 +12,16 @@
        Between first paint and that removal, this old content was genuinely
        visible: a real Ctrl+Shift+R flash, not a caching artifact (confirmed
        both via a from-scratch browser session and a screen recording of the
-       actual reload). Hiding it here, render-blocking and before any JS
-       runs, closes that gap outright; the noscript rule below restores it
-       for the real no-JS case this fallback exists for. -->
-  <style>html.v1[data-lrb-home="true"] .river-grid,html.v1[data-lrb-home="true"] .promo-band,html.v1[data-lrb-home="true"] #faq,html.v1[data-lrb-home="true"] #newsletter{display:none}</style>
-  <noscript><style>html.v1[data-lrb-home="true"] .river-grid,html.v1[data-lrb-home="true"] .promo-band,html.v1[data-lrb-home="true"] #faq,html.v1[data-lrb-home="true"] #newsletter{display:revert}</style></noscript>
+       actual reload). visibility:hidden (not display:none) hides it without
+       collapsing its layout box, so buildFlow() inserting the new design
+       before it doesn't shift anything into previously-zero space -- an
+       earlier display:none version of this fix passed the flash check but
+       regressed home CLS to 0.81 (budget 0.1) in Lighthouse CI, because the
+       new content then had no reserved space to appear into. The noscript
+       rule below restores full visibility for the real no-JS case this
+       fallback exists for. -->
+  <style>html.v1[data-lrb-home="true"] .river-grid,html.v1[data-lrb-home="true"] .promo-band,html.v1[data-lrb-home="true"] #faq,html.v1[data-lrb-home="true"] #newsletter{visibility:hidden}</style>
+  <noscript><style>html.v1[data-lrb-home="true"] .river-grid,html.v1[data-lrb-home="true"] .promo-band,html.v1[data-lrb-home="true"] #faq,html.v1[data-lrb-home="true"] #newsletter{visibility:visible}</style></noscript>
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
   <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
 
