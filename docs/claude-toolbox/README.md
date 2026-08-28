@@ -3,6 +3,7 @@
 **Corte de investigación original:** 27 de agosto de 2026  
 **Revalidación transversal:** 27 de agosto de 2026, después de PR #114–#119  
 **Segundo refresco (esta rama):** 27 de agosto de 2026, rama actualizada contra `main` tras el merge de PR #114–#128 (83 commits de diferencia con la base original de esta PR). Ver correcciones puntuales más abajo -- no se ha reescrito el resto del corpus, que sigue fechado 27/08.  
+**Tercer refresco (esta rama):** 28 de agosto de 2026, rebasada de nuevo contra `main` (incorpora PR #129–#138) y con los 12 `INSTALL_NOW` de `tools-catalog.json` revalidados contra fuente primaria -- ver `18-REVALIDACION-2026-08-27.md` §16.  
 **Ámbito:** `davidpd89/web-escritor`  
 **Estado:** autoridad operativa y backlog; no instala nada por sí sola, no despliega y no contiene credenciales.
 
@@ -45,7 +46,7 @@ Por tanto:
 
 Esta carpeta fue recuperada de la rama huérfana `docs/claude-plugins-mcp-toolbox-2026`, que había quedado 7 commits por detrás de `main` y sin PR. Solo se han trasladado los 19 artefactos `docs/claude-toolbox/*` sobre una rama fresca de `main`; no se han arrastrado cambios de runtime de la rama antigua.
 
-Esta misma rama (PR #120) quedó después otros 83 commits por detrás mientras seguía en draft. Se ha vuelto a actualizar contra `main` el 27/08/2026 (tras el merge de PR #114-#128) y se han corregido las afirmaciones que describían #115/#116/#119/#124 como pendientes -- ver los cambios puntuales en este README y en `18-REVALIDACION-2026-08-27.md`. Sigue sin mergearse: falta revalidar el resto de `tools-catalog.json` (los `INSTALL_NOW` no tocados en este refresco) contra fuentes oficiales actuales antes de darla por cerrada.
+Esta misma rama (PR #120) quedó después otros 83 commits por detrás mientras seguía en draft. Se ha vuelto a actualizar contra `main` el 27/08/2026 (tras el merge de PR #114-#128) y se han corregido las afirmaciones que describían #115/#116/#119/#124 como pendientes -- ver los cambios puntuales en este README y en `18-REVALIDACION-2026-08-27.md`. Rebasada de nuevo el 28/08/2026 (incorpora PR #129-#138) y con los 12 `INSTALL_NOW` de `tools-catalog.json` ya revalidados contra fuente primaria -- ver `18-REVALIDACION-2026-08-27.md` §16 para el detalle (sintaxis de instalación real, `source` de cada uno, y las dos correcciones de gobernanza/mapeo de catálogo que salieron de esa revalidación).
 
 La vigencia de las integraciones con mayor riesgo de caducidad se vuelve a contrastar en `18-REVALIDACION-2026-08-27.md`. Si un documento anterior contradice ese fichero en una cuestión de disponibilidad, autenticación, alcance o gobernanza, prevalece la revalidación hasta actualizar el documento original.
 

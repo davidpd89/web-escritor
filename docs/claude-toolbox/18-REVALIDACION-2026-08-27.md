@@ -442,7 +442,23 @@ Debe comprobarse:
 - [x] README deja de afirmar como realidad futura decisiones ya cambiadas por #115/#116/#119;
 - [x] Figma remote/write, BrowserStack remote OAuth, Canva MCP y Claude plugin marketplace se contrastan con fuente primaria vigente;
 - [x] se registra el nuevo gap de supply-chain sin exagerar el riesgo;
-- [ ] revisar `tools-catalog.json` contra estas correcciones y actualizar entradas conflictivas;
-- [ ] comprobar que ningún comando `INSTALL_NOW` apunta a paquete/repo inexistente o tercero no confiable;
+- [x] revisar `tools-catalog.json` contra estas correcciones y actualizar entradas conflictivas (ver §16, 28/08/2026: sintaxis de instalación, dos `source` genéricos, `avoidWhen` de `github`, mapeo de `relatedCatalog`);
+- [x] comprobar que ningún comando `INSTALL_NOW` apunta a paquete/repo inexistente o tercero no confiable (los 12 reverificados 28/08/2026, ver §16);
 - [ ] CI transversal verde salvo fallos basales ya poseídos por otra PR y documentados con evidencia;
 - [ ] PR real abierta; la rama huérfana anterior deja de ser la autoridad operativa.
+
+## 16. Revalidación de los 12 `INSTALL_NOW` contra fuente primaria — 28/08/2026
+
+La sección 1 de este documento (27/08/2026) ya había confirmado, contra `https://code.claude.com/docs/en/discover-plugins` y `https://code.claude.com/docs/en/plugins-reference`, que la sintaxis real de instalación es `/plugin install <plugin>@claude-plugins-official` (comando dentro de una sesión interactiva de Claude Code). `docs/claude-toolbox/tools-catalog.json` nunca se actualizó para reflejarlo: sus 22 apariciones del campo `install` seguían usando `claude plugin install <id>@claude-plugins-official`, una forma de CLI que ninguna fuente primaria de este documento respalda. Corregido en esta pasada, no solo documentado aquí.
+
+Verificación independiente adicional (sesión de Claude del 28/08/2026, agente `claude-code-guide` con WebSearch/WebFetch real, no memoria del modelo): confirma que los 12 ids con `status: INSTALL_NOW` (`modern-web-guidance`, `chrome-devtools-mcp`, `playwright`, `github`, `security-guidance`, `typescript-lsp`, `pyright-lsp`, `claude-md-management`, `skill-creator`, `hookify`, `pr-review-toolkit`, `context7`) siguen existiendo hoy en el marketplace `claude-plugins-official` bajo ese id exacto, y que `/plugin install <id>@claude-plugins-official` sigue siendo la sintaxis correcta para los 12. `lastVerified` de esos 12 se actualizó a `2026-08-28` en el catálogo con esa evidencia real, no por rutina.
+
+También corregidos en esta pasada:
+
+- `github` y `context7` tenían `source` apuntando a la raíz genérica `https://claude.com/plugins/` en vez de su página de plugin específica -- ahora `https://claude.com/plugins/github` y `https://claude.com/plugins/context7`, mismo patrón que los otros 10.
+- El `avoidWhen` de `github` decía literalmente `"automatic merge"`, contradiciendo la sección 9 de este mismo documento (el flujo agente-autorizado → PR → checks verdes → merge SÍ está permitido). Reescrito para prohibir merge sin autorización/con checks rojos/saltándose revisión exigida, no "merge automático" como concepto genérico.
+- `relatedCatalog` (pie del fichero) afirmaba que `playwright`, `figma`, `browserstack` y `axe-accessibility`/`canva` comparten id literal con `docs/design-ux-tooling/tools-catalog.json`. Verificado id por id: falso para esos cinco (`playwright-mcp-cli`, `figma-mcp-remote`, `browserstack-mcp`, `axe-mcp`, `canva-mcp` en el otro catálogo) -- solo `chrome-devtools-mcp` comparte id literal. Corregido con el mapeo real, para que una futura comprobación automática de solapamiento no confíe en una intersección de ids que nunca encontraría estos cinco pares.
+
+### Chrome DevTools MCP vs Playwright — decisión ya tomada en la sección 4, no reabierta
+
+La auditoría de cierre (`docs/FINAL-CLOSURE-AUDIT-2026-08-27.md` §4) pedía "resolver Chrome DevTools MCP vs Playwright MCP como default/fallback o justificar ambos con eval". La sección 4 de este mismo documento ya lo resuelve, con fuente primaria, desde el 27/08: mantener ambos con papeles distintos, no default/fallback -- MCP interactivo (exploración/diagnóstico en vivo, de cualquiera de los dos) frente a la suite Playwright ya versionada del propio repo (regresión determinista en CI). Una verificación independiente adicional del 28/08 (agente `claude-code-guide`) llega a la misma conclusión práctica desde ángulo distinto (Playwright como automatización por defecto, Chrome DevTools MCP como debugging de rendimiento/red especializado) -- compatible con, no contradictorio con, la sección 4. No hay un "default" que elegir entre los dos porque no compiten por el mismo trabajo.

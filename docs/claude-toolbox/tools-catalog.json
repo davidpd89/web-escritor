@@ -23,7 +23,7 @@
       "vendor": "Google Chrome",
       "status": "INSTALL_NOW",
       "priority": "P0",
-      "install": "claude plugin install modern-web-guidance@claude-plugins-official",
+      "install": "/plugin install modern-web-guidance@claude-plugins-official",
       "auth": "none",
       "secret": null,
       "uniqueValue": "Current web-platform guidance, Baseline and progressive enhancement without external API calls.",
@@ -40,7 +40,7 @@
         "design taste"
       ],
       "source": "https://claude.com/plugins/modern-web-guidance",
-      "lastVerified": "2026-08-27"
+      "lastVerified": "2026-08-28"
     },
     {
       "id": "chrome-devtools-mcp",
@@ -49,7 +49,7 @@
       "vendor": "Google",
       "status": "INSTALL_NOW",
       "priority": "P0",
-      "install": "claude plugin install chrome-devtools-mcp@claude-plugins-official",
+      "install": "/plugin install chrome-devtools-mcp@claude-plugins-official",
       "auth": "local-browser",
       "secret": null,
       "uniqueValue": "Live DOM/CSS/browser/network/performance evidence and mobile emulation.",
@@ -65,7 +65,7 @@
         "claiming real iOS behavior without real-device validation"
       ],
       "source": "https://claude.com/plugins/chrome-devtools-mcp",
-      "lastVerified": "2026-08-27"
+      "lastVerified": "2026-08-28"
     },
     {
       "id": "playwright",
@@ -74,7 +74,7 @@
       "vendor": "Microsoft",
       "status": "INSTALL_NOW",
       "priority": "P0",
-      "install": "claude plugin install playwright@claude-plugins-official",
+      "install": "/plugin install playwright@claude-plugins-official",
       "auth": "none-local",
       "secret": null,
       "uniqueValue": "Deterministic browser journeys and accessibility-tree interaction.",
@@ -89,7 +89,7 @@
         "replacing versioned Playwright CI tests"
       ],
       "source": "https://claude.com/plugins/playwright",
-      "lastVerified": "2026-08-27"
+      "lastVerified": "2026-08-28"
     },
     {
       "id": "github",
@@ -98,7 +98,7 @@
       "vendor": "GitHub",
       "status": "INSTALL_NOW",
       "priority": "P0",
-      "install": "claude plugin install github@claude-plugins-official",
+      "install": "/plugin install github@claude-plugins-official",
       "auth": "official-provider-auth",
       "secret": null,
       "uniqueValue": "Direct repository, PR, issue and workflow state.",
@@ -110,11 +110,11 @@
         "commits"
       ],
       "avoidWhen": [
-        "automatic merge",
+        "merge sin autorizacion explicita, con checks duros rojos, o saltandose una revision que la gobernanza del repo exige -- el flujo agente-autorizado -> PR -> checks verdes -> merge SI esta permitido, no es 'merge automatico' generico",
         "broad mutation without task"
       ],
-      "source": "https://claude.com/plugins/",
-      "lastVerified": "2026-08-27"
+      "source": "https://claude.com/plugins/github",
+      "lastVerified": "2026-08-28"
     },
     {
       "id": "security-guidance",
@@ -123,7 +123,7 @@
       "vendor": "Anthropic",
       "status": "INSTALL_NOW",
       "priority": "P0",
-      "install": "claude plugin install security-guidance@claude-plugins-official",
+      "install": "/plugin install security-guidance@claude-plugins-official",
       "auth": "none",
       "secret": null,
       "uniqueValue": "Pre-write warnings for common injection and unsafe-code patterns.",
@@ -134,7 +134,7 @@
         "treating no warning as security certification"
       ],
       "source": "https://claude.com/plugins/security-guidance",
-      "lastVerified": "2026-08-27"
+      "lastVerified": "2026-08-28"
     },
     {
       "id": "typescript-lsp",
@@ -143,7 +143,7 @@
       "vendor": "Anthropic",
       "status": "INSTALL_NOW",
       "priority": "P0",
-      "install": "claude plugin install typescript-lsp@claude-plugins-official",
+      "install": "/plugin install typescript-lsp@claude-plugins-official",
       "auth": "none",
       "secret": null,
       "uniqueValue": "Definitions, references and diagnostics for JS/TS including .js and .mjs.",
@@ -156,7 +156,7 @@
         "replacing runtime tests"
       ],
       "source": "https://claude.com/plugins/typescript-lsp",
-      "lastVerified": "2026-08-27",
+      "lastVerified": "2026-08-28",
       "prerequisites": "Este repo no tiene tsconfig.json ni jsconfig.json. Sin uno, el LSP puede operar en modo degradado por-fichero (sin resolucion de modulos a nivel de proyecto) sobre assets/*.js y qa/*.mjs. Si se instala, crear un jsconfig.json minimo (checkJs:false, allowJs:true) es un prerequisito real para el valor completo, no un detalle opcional."
     },
     {
@@ -166,7 +166,7 @@
       "vendor": "Anthropic",
       "status": "INSTALL_NOW",
       "priority": "P0",
-      "install": "claude plugin install pyright-lsp@claude-plugins-official",
+      "install": "/plugin install pyright-lsp@claude-plugins-official",
       "auth": "none",
       "secret": null,
       "uniqueValue": "Python diagnostics and type intelligence without execution.",
@@ -179,7 +179,7 @@
         "forcing full typing rewrite"
       ],
       "source": "https://claude.com/plugins/pyright-lsp",
-      "lastVerified": "2026-08-27",
+      "lastVerified": "2026-08-28",
       "prerequisites": "Este repo tiene scripts Python sueltos en scripts/ y tests/ sin un pyproject.toml/paquete formal. Pyright funciona sin configuracion sobre ficheros individuales, pero sin un pyrightconfig.json o pyproject.toml no hay resolucion de imports entre scripts/ y tests/ a nivel de proyecto -- verificar antes de asumir cobertura completa."
     },
     {
@@ -189,7 +189,7 @@
       "vendor": "Anthropic",
       "status": "INSTALL_NOW",
       "priority": "P0",
-      "install": "claude plugin install claude-md-management@claude-plugins-official",
+      "install": "/plugin install claude-md-management@claude-plugins-official",
       "auth": "none",
       "secret": null,
       "uniqueValue": "Audit and curate durable project memory.",
@@ -202,7 +202,7 @@
         "turning CLAUDE.md into session log"
       ],
       "source": "https://claude.com/plugins/claude-md-management",
-      "lastVerified": "2026-08-27"
+      "lastVerified": "2026-08-28"
     },
     {
       "id": "skill-creator",
@@ -211,7 +211,7 @@
       "vendor": "Anthropic",
       "status": "INSTALL_NOW",
       "priority": "P0",
-      "install": "claude plugin install skill-creator@claude-plugins-official",
+      "install": "/plugin install skill-creator@claude-plugins-official",
       "auth": "none",
       "secret": null,
       "uniqueValue": "Create, evaluate, improve and benchmark project-specific Skills.",
@@ -224,7 +224,7 @@
         "assuming a skill is better without eval"
       ],
       "source": "https://claude.com/plugins/skill-creator",
-      "lastVerified": "2026-08-27"
+      "lastVerified": "2026-08-28"
     },
     {
       "id": "hookify",
@@ -233,7 +233,7 @@
       "vendor": "Anthropic",
       "status": "INSTALL_NOW",
       "priority": "P0",
-      "install": "claude plugin install hookify@claude-plugins-official",
+      "install": "/plugin install hookify@claude-plugins-official",
       "auth": "none",
       "secret": null,
       "uniqueValue": "Project guardrails without custom hook code.",
@@ -247,7 +247,7 @@
         "unreviewed auto-generated blocking rules"
       ],
       "source": "https://claude.com/plugins/hookify",
-      "lastVerified": "2026-08-27"
+      "lastVerified": "2026-08-28"
     },
     {
       "id": "pr-review-toolkit",
@@ -256,7 +256,7 @@
       "vendor": "Anthropic",
       "status": "INSTALL_NOW",
       "priority": "P0",
-      "install": "claude plugin install pr-review-toolkit@claude-plugins-official",
+      "install": "/plugin install pr-review-toolkit@claude-plugins-official",
       "auth": "none",
       "secret": null,
       "uniqueValue": "Six targeted PR review agents for tests, failures, comments, types and simplification.",
@@ -268,7 +268,7 @@
         "running every agent on every trivial diff"
       ],
       "source": "https://claude.com/plugins/pr-review-toolkit",
-      "lastVerified": "2026-08-27"
+      "lastVerified": "2026-08-28"
     },
     {
       "id": "context7",
@@ -277,7 +277,7 @@
       "vendor": "Upstash",
       "status": "INSTALL_NOW",
       "priority": "P0",
-      "install": "claude plugin install context7@claude-plugins-official",
+      "install": "/plugin install context7@claude-plugins-official",
       "auth": "anonymous-first-api-key-optional",
       "secret": "CONTEXT7_API_KEY optional",
       "uniqueValue": "Current version-specific library documentation.",
@@ -288,8 +288,8 @@
       "avoidWhen": [
         "replacing vendor primary docs for policy"
       ],
-      "source": "https://claude.com/plugins/",
-      "lastVerified": "2026-08-27"
+      "source": "https://claude.com/plugins/context7",
+      "lastVerified": "2026-08-28"
     },
     {
       "id": "claude-code-setup",
@@ -298,7 +298,7 @@
       "vendor": "Anthropic",
       "status": "ON_DEMAND",
       "priority": "P1",
-      "install": "claude plugin install claude-code-setup@claude-plugins-official",
+      "install": "/plugin install claude-code-setup@claude-plugins-official",
       "auth": "none",
       "secret": null,
       "uniqueValue": "Read-only meta-audit of useful MCPs, skills, hooks and agents for a codebase.",
@@ -319,7 +319,7 @@
       "vendor": "Anthropic",
       "status": "PILOT",
       "priority": "P1",
-      "install": "claude plugin install frontend-design@claude-plugins-official",
+      "install": "/plugin install frontend-design@claude-plugins-official",
       "auth": "none",
       "secret": null,
       "uniqueValue": "Generate non-generic frontend hypotheses under explicit constraints.",
@@ -340,7 +340,7 @@
       "vendor": "Figma",
       "status": "PILOT",
       "priority": "P1",
-      "install": "claude plugin install figma@claude-plugins-official",
+      "install": "/plugin install figma@claude-plugins-official",
       "auth": "oauth",
       "secret": null,
       "uniqueValue": "Structured design context, variables/components, canvas read/write and design-to-code workflows.",
@@ -363,7 +363,7 @@
       "vendor": "Anthropic",
       "status": "PILOT",
       "priority": "P1",
-      "install": "claude plugin install playground@claude-plugins-official",
+      "install": "/plugin install playground@claude-plugins-official",
       "auth": "none",
       "secret": null,
       "uniqueValue": "Self-contained interactive prototypes before touching production.",
@@ -473,7 +473,7 @@
       "vendor": "Anthropic",
       "status": "ON_DEMAND",
       "priority": "P1",
-      "install": "claude plugin install feature-dev@claude-plugins-official",
+      "install": "/plugin install feature-dev@claude-plugins-official",
       "auth": "none",
       "secret": null,
       "uniqueValue": "Structured multi-phase feature development with explorer/architect/reviewer.",
@@ -494,7 +494,7 @@
       "vendor": "Jesse Vincent",
       "status": "PILOT",
       "priority": "P2",
-      "install": "claude plugin install superpowers@claude-plugins-official",
+      "install": "/plugin install superpowers@claude-plugins-official",
       "auth": "none",
       "secret": null,
       "uniqueValue": "Systematic debugging, TDD, brainstorming and subagent workflows.",
@@ -515,7 +515,7 @@
       "vendor": "Anthropic",
       "status": "ON_DEMAND",
       "priority": "P2",
-      "install": "claude plugin install code-simplifier@claude-plugins-official",
+      "install": "/plugin install code-simplifier@claude-plugins-official",
       "auth": "none",
       "secret": null,
       "uniqueValue": "Targeted code clarity improvements preserving behavior.",
@@ -535,7 +535,7 @@
       "vendor": "Anthropic",
       "status": "PILOT",
       "priority": "P2",
-      "install": "claude plugin install code-review@claude-plugins-official",
+      "install": "/plugin install code-review@claude-plugins-official",
       "auth": "none-or-provider-specific",
       "secret": null,
       "uniqueValue": "Multi-agent confidence-filtered PR review.",
@@ -555,7 +555,7 @@
       "vendor": "Anthropic",
       "status": "ON_DEMAND",
       "priority": "P1",
-      "install": "claude plugin install claude-security@claude-plugins-official",
+      "install": "/plugin install claude-security@claude-plugins-official",
       "auth": "claude-account",
       "secret": null,
       "uniqueValue": "Adversarial security review for sensitive changes.",
@@ -701,7 +701,7 @@
       "vendor": "Canva",
       "status": "PILOT",
       "priority": "P2",
-      "install": "claude plugin install canva@claude-plugins-official",
+      "install": "/plugin install canva@claude-plugins-official",
       "auth": "oauth-provider-flow",
       "secret": null,
       "uniqueValue": "Media/social/press design editing and brand feedback with preview/approve.",
@@ -840,5 +840,5 @@
       "lastVerified": "2026-08-27"
     }
   ],
-  "relatedCatalog": "docs/design-ux-tooling/tools-catalog.json cubre el mismo tipo de herramientas con foco estrecho en diseno/UX/QA visual (RECOMMENDED/PILOT/DEFER/NOT_APPLICABLE), creado el mismo dia que este refresco. No son la misma fuente de verdad: si un tool aparece en ambos (chrome-devtools-mcp, playwright, figma, browserstack, axe, canva), y los dos catalogos alguna vez discrepan, este fichero (mas amplio, agent-tooling general) es la autoridad de instalacion real; el otro es la autoridad de contexto de diseno especifico."
+  "relatedCatalog": "docs/design-ux-tooling/tools-catalog.json cubre el mismo tipo de herramientas con foco estrecho en diseno/UX/QA visual (RECOMMENDED/PILOT/DEFER/NOT_APPLICABLE), creado el mismo dia que este refresco. No son la misma fuente de verdad. Verificado id por id (2026-08-28): solo 'chrome-devtools-mcp' comparte id literal entre ambos ficheros; los otros cinco pares que describen la misma herramienta usan ids distintos por convencion de cada catalogo, no un id compartido -- 'playwright' aqui es 'playwright-mcp-cli' alla, 'figma' es 'figma-mcp-remote', 'browserstack' es 'browserstack-mcp', 'axe-accessibility' es 'axe-mcp', 'canva' es 'canva-mcp'. Un chequeo automatico de ids duplicados entre ambos ficheros NO detectaria estos cinco solapamientos; si alguna vez se automatiza esa comprobacion, tiene que usar este mapeo, no una interseccion de ids. Si los dos catalogos alguna vez discrepan en el mismo par de herramientas, este fichero (mas amplio, agent-tooling general) es la autoridad de instalacion real; el otro es la autoridad de contexto de diseno especifico."
 }
