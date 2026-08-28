@@ -1,87 +1,189 @@
 # A.7 · `FAQPage` en páginas de libro
 
-Fecha de revisión: 2026-08-28
-Idea original: añadir preguntas frecuentes reales a las páginas de cada obra y marcarlas con `FAQPage` para mejorar rich snippets.
+Fecha de reconstrucción: 2026-08-29  
+Idea original: añadir preguntas frecuentes reales a las páginas de cada obra y marcarlas con `FAQPage` para mejorar rich snippets.  
+Fuente histórica principal: PR #135, snapshot `8e72321d047c0445c5ac411ebe242af8a0386929`.  
+Estado de esta PR: decisión `REJECT` para la táctica SEO; no elimina FAQs humanas útiles.
 
-## Veredicto
+## Veredicto reconciliado
 
-**REJECT como táctica SEO/Google rich results. CONSERVAR FAQs visibles solo si ayudan al lector.**
+**REJECT como táctica SEO/Google rich results. CONSERVAR FAQs visibles solo cuando ayudan al lector.**
 
-La idea original está desactualizada. Google retiró la función de resultados enriquecidos de FAQ de Search a partir del **7 de mayo de 2026** y posteriormente retiró su documentación específica porque ya no se muestra. Por tanto, añadir `FAQPage` a las páginas de Samuel o Manecillas con la expectativa de ocupar más SERP no aporta ese beneficio.
+La idea original quedó obsoleta durante la propia investigación de #135. Primero Google ya restringía fuertemente FAQ rich results a sitios gubernamentales/sanitarios reconocidos; después, desde el **7 de mayo de 2026**, retiró los FAQ rich results generales de Search. Por tanto, añadir `FAQPage` a Samuel o Manecillas esperando ganar espacio en SERP no tiene el beneficio que motivaba A.7.
 
-## Fuente primaria y fecha
+## 1. Regla de reconstrucción
 
-Google Search Central · Documentation updates
+Esta PR reconstruye A.7 desde el corpus histórico directo de #135. Conserva:
+
+- preguntas/uso original previsto;
+- primera razón de rechazo;
+- cambio oficial de Google de mayo de 2026;
+- evidencia del repo sobre `FAQPage` legacy;
+- alternativa de FAQ visible;
+- estados de la matriz y autoridad final;
+- guardrail propuesto;
+- revalidación independiente.
+
+## 2. Hipótesis original
+
+`docs/IDEAS-MEJORA-WEB-2026-08-27.md` proponía añadir `FAQPage` JSON-LD a páginas de libro con preguntas como:
+
+- ¿es apta para X edad?;
+- ¿hay versión audiolibro?;
+- ¿en qué orden leer la saga?;
+
+La intención era mejorar rich snippets y responder dudas de lectores.
+
+#135 corrigió dos problemas:
+
+1. el rich result ya no era una oportunidad válida para este sitio;
+2. varias preguntas sugeridas no pueden responderse/inventarse si edad, audiolibro, saga, retailer o disponibilidad no son hechos canónicos confirmados.
+
+## 3. Evolución cronológica en #135
+
+### 3.1 · Primera revisión → `REJECT`
+
+`docs/IDEAS-MEJORA-WEB-REVISION-2026-08-27.md` ya rechazó A.7 como táctica SERP porque, en la documentación entonces vigente, Google limitaba la elegibilidad de FAQ rich results a sitios gubernamentales y sanitarios conocidos/autorizados.
+
+La revisión preservó una distinción esencial:
+
+> FAQs humanas sí; schema para “ganar espacio” no.
+
+### 3.2 · Fuente primaria inicial
+
+`docs/IDEAS-MEJORA-WEB-FUENTES-PRIMARIAS-2026-08-27.md` citaba:
+
+Google · FAQPage structured data  
+https://developers.google.com/search/docs/appearance/structured-data/faqpage
+
+En ese punto histórico la guía ya hacía inviable el beneficio general esperado para una web de autor.
+
+### 3.3 · Cambio oficial 2026 → retirada completa del rich result
+
+La investigación posterior de #135 incorporó el changelog oficial:
+
+Google Search Central · Documentation updates  
 https://developers.google.com/search/updates
 
-Registro de mayo/junio de 2026:
+Cronología registrada:
 
-- 8 mayo: anuncio de retirada; los FAQ rich results dejan de aparecer desde el 7 de mayo de 2026.
-- posteriormente Google retiró la documentación de la función porque ya no aparece en Search.
+- desde **7 mayo 2026** los FAQ rich results dejan de aparecer en Search;
+- 8 mayo: Google comunica/documenta la retirada;
+- posteriormente retira la documentación específica de la feature porque ya no se muestra.
 
-Referencia histórica del cambio previo de 2023:
+Referencia histórica previa:
+
 https://developers.google.com/search/blog/2023/08/howto-faq-changes
 
-En 2023 Google ya había restringido fuertemente FAQ rich results a sitios gubernamentales/salud de alta autoridad. En 2026 la feature de rich result fue retirada completamente de Google Search.
+En 2023 ya se había reducido drásticamente la exposición de FAQ rich results. El cambio de 2026 cerró el caso para A.7 como táctica de Google Search.
 
-## Importante: FAQ visible ≠ FAQ schema
+### 3.4 · Repo cross-check → premisa falsa que no debe volver al backlog
 
-Una sección visible de preguntas frecuentes puede seguir siendo excelente contenido si responde dudas reales:
+`docs/IDEAS-MEJORA-WEB-REPO-CROSSCHECK-2026-08-27.md` clasifica A.7 entre las premisas falsas/ideas que no deben volver al backlog:
 
-- ¿de qué género es el libro?;
-- ¿puedo leer un fragmento?;
-- ¿es autoconclusivo? **solo si esto está confirmado**;
-- ¿qué edición/formato existe?;
-- ¿dónde comprar? solo con retailer/URL real verificado;
-- ¿hay guía para club de lectura?
+> Google retiró FAQ rich results de Search a partir del 7 de mayo de 2026 para este uso general. Preguntas humanas pueden seguir siendo útiles; `FAQPage` como hack SERP no.
 
-Lo que se rechaza es añadir `FAQPage` **por SEO** o generar preguntas inventadas para producir schema.
+### 3.5 · Overrides → alternativa concreta
 
-## Estado del proyecto
+`docs/IDEAS-MEJORA-WEB-OVERRIDES-2026-08-28.md` conserva la alternativa:
 
-El historial del repo ya había detectado esta deuda:
+> mantener preguntas/respuestas humanas cuando ayudan al lector, sin `FAQPage` como hack; usar headings claros y contenido verificable.
 
-- PR #66: identificó `FAQPage` legacy en recomendaciones y pidió retirar el schema preservando el FAQ visible.
-- PR #75 y #76 reutilizaron explícitamente esa decisión en auditorías posteriores.
+No convertir el rechazo de schema en rechazo de una buena sección editorial de preguntas.
 
-Esto es coherente con la evolución oficial de Google.
+### 3.6 · Matriz intermedia → `DESCARTAR como SEO rich-result`
 
-## Qué haría en las páginas de libros
+`docs/IDEAS-MEJORA-WEB-MATRIZ-FINAL-2026-08-28.md` mantuvo:
+
+> FAQ visible puede ser útil para lectores, pero Google retiró FAQ rich results generales el 07/05/2026. No añadir schema esperando SERP expandida.
+
+### 3.7 · Autoridad machine-readable final → `REJECT`
+
+`data/web-improvement-decisions-2026-08-28.json`:
+
+```json
+{"id":"A.7","area":"seo","status":"REJECT"}
+```
+
+### 3.8 · Autoridad humana final → `REJECT`
+
+`docs/PR135-FINAL-AUTHORITY-2026-08-28.md`:
+
+> no añadir `FAQPage` esperando rich results: Google retiró el FAQ rich result general el 07/05/2026. FAQ visible solo si ayuda al lector.
+
+### 3.9 · Revalidación independiente
+
+`docs/PR135-INDEPENDENT-REVALIDATION-2026-08-28.md` volvió a contrastar A.1–A.12 y confirmó expresamente que A.7 estaba correctamente rechazada por políticas/cambios de Google.
+
+Secuencia histórica:
+
+```text
+hipótesis: FAQPage para rich snippets
+→ REJECT por elegibilidad restringida
+→ Google retira FAQ rich results generales 07/05/2026
+→ cross-check: no devolver al backlog
+→ matriz: DESCARTAR como táctica SERP
+→ final JSON/humano = REJECT
+→ revalidación confirma
+```
+
+## 4. Estado/historial del proyecto
+
+La decisión no es solo teórica. El historial ya había tratado `FAQPage` legacy:
+
+- PR #66: identificó `FAQPage` legacy en recomendaciones y pidió retirar el schema preservando el FAQ visible;
+- PR #75 y #76 reutilizaron esa decisión en auditorías posteriores.
+
+Esto refuerza la necesidad de un guardrail anti-regresión: no reintroducir por una recomendación SEO antigua algo que el proyecto ya retiró deliberadamente.
+
+## 5. FAQ visible ≠ FAQ schema
+
+Una sección visible puede tener alto valor si responde preguntas reales y verificadas:
+
+- género/tono de la obra;
+- dónde leer un fragmento;
+- independencia o continuidad **solo si está confirmada**;
+- edición/formato real;
+- dónde comprar solo con destino real verificado;
+- recursos de club de lectura;
+- cuestiones reales repetidas por lectores.
+
+No hace falta `FAQPage` para presentar esa información de forma útil.
+
+## 6. Aplicación por superficie
 
 ### Samuel
 
-Si hay preguntas reales y verificadas, mostrarlas como HTML normal dentro de la ficha o enlazar a recursos existentes. No añadir `FAQPage`.
+Preguntas reales pueden vivir como HTML normal o enlazar a recursos existentes. No añadir `FAQPage` por Google.
 
-### Manecillas
+### Las manecillas del recuerdo
 
-Lo mismo. Evitar especialmente preguntas comerciales anticipadas (`¿dónde comprar?`) mientras no exista URL real verificable.
+Mismo criterio. Especial cuidado con disponibilidad/retailer/formatos antes de que existan hechos comerciales confirmados.
 
-### Noveris / club de lectura
+### Noveris / club
 
-Puede haber formato pregunta-respuesta por razones editoriales. Eso no obliga a `FAQPage`. Si el contenido es realmente una página comunitaria con una pregunta y múltiples respuestas de usuarios, eso sería otro tipo (`QAPage`) y requiere cumplir sus condiciones; no aplica automáticamente a FAQs redactadas por el autor.
+Un formato pregunta-respuesta editorial no implica `FAQPage`.
 
-## Structured data que sí merece prioridad
+`QAPage` tampoco es sustituto automático: corresponde a páginas de una pregunta con respuestas de usuarios según su contrato, no a FAQ redactada por el autor.
 
-En fichas de libro, priorizar exactitud de:
+## 7. Structured data que sí merece prioridad
+
+En páginas de obra la exactitud de estos tipos/relaciones tiene más valor que sumar schema por cantidad:
 
 - `Book`;
 - `WebPage`;
-- `Person`/author por `@id`;
+- `Person`/author mediante `@id`;
 - publisher real;
-- ISBN/páginas/fecha/formatos reales;
+- ISBN, páginas, fecha, formatos reales;
 - `BreadcrumbList` donde corresponda;
 - `ImageObject`;
-- relaciones `hasPart`/fragmentos cuando sean factuales.
+- relaciones factuales con fragmentos/partes.
 
-No añadir schema por tener más tipos.
+## 8. Guardrail anti-regresión
 
-## Guardrail propuesto
+Si no existe ya un test equivalente, #135 deja justificación para uno pequeño.
 
-Añadir un test simple para evitar reintroducirlo por una futura recomendación SEO desactualizada:
-
-`tests/test-no-faqpage-seo-regression.py`
-
-Pseudocódigo:
+Ejemplo:
 
 ```python
 for html in public_indexable_html():
@@ -92,43 +194,79 @@ for html in public_indexable_html():
     )
 ```
 
-### Excepción
+### Excepción futura
 
-No convertirlo en prohibición dogmática del vocabulario Schema.org. Si en el futuro existe un consumidor real/no-Google que requiera `FAQPage`, la excepción debe documentar:
+No convertir esto en una prohibición metafísica del vocabulario Schema.org. Si un consumidor real/no-Google exige `FAQPage`, documentar:
 
 - consumidor;
 - beneficio;
 - páginas;
 - fecha de verificación;
-- por qué compensa mantenerlo.
+- mantenimiento;
+- por qué compensa.
 
-Pero no se autoriza por “quizá ayuda a las IA”.
+“Quizá ayuda a las IA” no es evidencia suficiente.
 
-## Qué NO hacer
+## 9. Qué NO hacer
 
-- añadir 8–12 preguntas genéricas a cada libro para SEO;
-- generar FAQ automáticamente desde People Also Ask;
-- repetir la sinopsis en forma de preguntas;
-- añadir `FAQPage` esperando snippets grandes;
+- generar 8–12 preguntas genéricas por libro;
+- copiar People Also Ask automáticamente;
+- convertir sinopsis en preguntas repetidas;
+- añadir schema esperando snippets grandes;
 - confundir `QAPage` con FAQ editorial;
-- marcar preguntas/respuestas que no son visibles;
-- inventar edades, audiolibro, saga, disponibilidad o retailer.
+- marcar contenido no visible;
+- inventar edad, audiolibro, saga, retailer, formatos o disponibilidad;
+- conservar schema obsoleto porque “Schema.org aún define el tipo”;
+- usar A.7 para aumentar volumen de structured data sin consumidor.
 
-## Impacto
+## 10. Impacto
 
-Implementar la idea original: **valor SEO nulo/obsoleto + mantenimiento innecesario**.
-Mantener FAQs visibles útiles: **valor UX/contenido potencialmente alto**.
-Añadir guardrail anti-regresión: **coste bajo / valor alto** porque ya hubo FAQPage legacy en el repo.
+Idea original como táctica SEO: valor nulo/obsoleto + mantenimiento.  
+FAQ visible útil: valor UX/editorial potencialmente alto.  
+Guardrail: bajo coste y valor preventivo razonable dado el historial legacy.
 
-## Definition of Done
+## 11. Tests / Definition of Done
 
-- [x] confirmar retirada oficial de FAQ rich results en 2026;
-- [ ] escanear `main` actual por `"@type": "FAQPage"`;
-- [ ] si quedan instancias públicas, clasificarlas y retirar solo el schema cuando no tenga consumidor vigente;
+### Historia ya recuperada
+
+- [x] preguntas/hipótesis original preservadas;
+- [x] primera razón de `REJECT` preservada;
+- [x] retirada oficial del 07/05/2026 preservada;
+- [x] repo cross-check y alternativa visibles preservados;
+- [x] `DESCARTAR` de matriz intermedia preservado;
+- [x] autoridad JSON final = `REJECT`;
+- [x] autoridad humana final = `REJECT`;
+- [x] revalidación independiente confirmó la decisión;
+- [x] historial #66/#75/#76 registrado.
+
+### Futuro mantenimiento
+
+- [ ] escanear el `main` que vaya a revisar Clara/Claude por `FAQPage`;
+- [ ] retirar solo schema sin consumidor vigente;
 - [ ] preservar preguntas visibles útiles;
-- [ ] añadir guardrail si no existe ya uno equivalente;
-- [ ] no introducir FAQs ficticias en Samuel/Manecillas.
+- [ ] añadir guardrail si no existe equivalente;
+- [ ] documentar cualquier excepción no-Google real.
 
-## Recomendación de merge
+## 12. Trazabilidad del corpus histórico de #135 revisado para A.7
 
-**MERGE como `REJECT` documentado + guardrail recomendado.** Esta PR evita que Claude implemente una práctica de Google retirada en 2026.
+### Evidencia/decisión específica
+
+- `docs/IDEAS-MEJORA-WEB-2026-08-27.md` — hipótesis/preguntas originales.
+- `docs/IDEAS-MEJORA-WEB-REVISION-2026-08-27.md` — `REJECT` inicial por elegibilidad.
+- `docs/IDEAS-MEJORA-WEB-FUENTES-PRIMARIAS-2026-08-27.md` — FAQPage oficial histórica.
+- `docs/IDEAS-MEJORA-WEB-REPO-CROSSCHECK-2026-08-27.md` — retirada 2026 y premisa falsa.
+- `docs/IDEAS-MEJORA-WEB-OVERRIDES-2026-08-28.md` — alternativa visible sin schema.
+- `docs/IDEAS-MEJORA-WEB-MATRIZ-FINAL-2026-08-28.md` — `DESCARTAR` como rich-result.
+- `data/web-improvement-decisions-2026-08-28.json` — `REJECT` final.
+- `docs/PR135-FINAL-AUTHORITY-2026-08-28.md` — autoridad humana.
+- `docs/PR135-INDEPENDENT-REVALIDATION-2026-08-28.md` — confirmación independiente.
+
+### Revisados sin cambio específico adicional
+
+Blueprints netos, overrides de repo no aplicables, cuarta a decimoquinta pasada, casos/evidencia/límites, fuentes adicionales, repos evaluados y policy watch fueron revisados; no añaden un cambio de decisión para A.7.
+
+## 13. Recomendación de merge
+
+**MERGE como reconstrucción completa de un `REJECT` documentado.**
+
+La PR deja a Clara/Claude la alternativa válida —FAQ humana útil— y evita reintroducir una táctica de Google retirada.
