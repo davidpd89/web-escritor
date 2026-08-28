@@ -25,7 +25,7 @@ expected = {
     "mobile-reflow-shared-components": "MERGED_MAIN",
     "design-ux-tooling-system": "MERGED_MAIN",
     "repo-hygiene-round-1": "MERGED_MAIN",
-    "claude-toolbox": "IMPLEMENTED_IN_PR",
+    "claude-toolbox": "MERGED_MAIN",
     "brevo-snapshot-list-counts": "MERGED_MAIN",
 }
 
@@ -56,8 +56,8 @@ assert "Caso A real" not in release_evidence, (
 )
 assert ruleset.get("nextAction"), "ruleset must keep an explicit behavioral nextAction"
 
-# #120 has been refreshed against main after #128. The ledger must not retain
-# obsolete metadata such as mergeable=false or a ~70-commit-behind branch.
+# #120 merged 2026-08-28. The ledger must not retain obsolete pre-merge
+# metadata such as mergeable=false or a ~70-commit-behind branch.
 toolbox = items["claude-toolbox"]
 toolbox_state_text = " ".join(
     str(toolbox.get(key, "")) for key in ("owner", "falseCompletionTrap", "nextAction")

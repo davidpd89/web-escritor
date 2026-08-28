@@ -165,22 +165,23 @@
       "id": "claude-toolbox",
       "title": "Claude Toolbox: plugins/MCP/Skills/APIs",
       "area": "agent-tooling",
-      "stage": "IMPLEMENTED_IN_PR",
-      "owner": "PR #120 (draft, refrescada contra main, mergeable=true, behind_by=0)",
+      "stage": "MERGED_MAIN",
+      "owner": "PR #120 (mergeada 28/08/2026)",
       "evidence": [
         "https://github.com/davidpd89/web-escritor/pull/120",
         "docs/claude-toolbox/README.md",
-        "docs/claude-toolbox/18-REVALIDACION-2026-08-27.md",
+        "docs/claude-toolbox/18-REVALIDACION-2026-08-27.md#16-revalidaci%C3%B3n-de-los-12-install_now-contra-fuente-primaria--28082026",
         "docs/claude-toolbox/tools-catalog.json"
       ],
       "externalEvidence": [
         "Rama huérfana original estaba 7 commits detrás de main; contenido docs recuperado sobre base fresca.",
-        "Figma/BrowserStack/Canva/Chrome/Claude marketplace revalidados contra documentación oficial actual."
+        "Figma/BrowserStack/Canva/Chrome/Claude marketplace revalidados contra documentación oficial actual (27/08).",
+        "Los 12 `INSTALL_NOW` de tools-catalog.json revalidados de nuevo el 28/08/2026 (agente claude-code-guide, WebSearch/WebFetch real): sintaxis de instalación corregida de `claude plugin install` (no respaldado por ninguna fuente primaria) a `/plugin install <id>@claude-plugins-official` (confirmado en code.claude.com/docs/en/plugins-reference); los 12 ids siguen existiendo en el marketplace bajo ese nombre exacto."
       ],
-      "falseCompletionTrap": "INSTALL_NOW/PILOT en el catalogo significa recomendacion, no plugin instalado, OAuth conectado ni servicio activo. #120 sigue draft: la rama ya esta al dia contra main (refrescada en la reconciliacion de 2026-08-27), pero el contenido de tools-catalog.json (38 entradas) no se ha revalidado entrada por entrada contra fuentes oficiales actuales -- eso, no el rebase, es lo que falta.",
-      "nextAction": "Revalidar tools-catalog.json entrada por entrada contra fuentes oficiales actuales (prerequisites LSP ya corregidos en 14-FUENTES-Y-ESTADO; queda el resto de INSTALL_NOW); decidir Chrome DevTools MCP vs Playwright MCP como via canonica de QA de diseno; corregir cualquier frase residual que describa #115/#116/#119/#124 como pendientes; mantener CI transversal verde en el HEAD final antes de mergear.",
+      "falseCompletionTrap": "INSTALL_NOW/PILOT en el catalogo significa recomendacion, no plugin instalado, OAuth conectado ni servicio activo -- mergear #120 no instala nada. El catalogo tiene 38 entradas; solo las 12 INSTALL_NOW fueron revalidadas contra fuente primaria (el alcance que pedia la auditoria de cierre). Las 26 PILOT/ON_DEMAND/DEFER/MONITOR/REJECT restantes no se han vuelto a contrastar en esta pasada -- no asumir que 'catalogo revalidado' cubre las 38.",
+      "nextAction": "Si en el futuro se decide promover alguna entrada PILOT/ON_DEMAND/DEFER a INSTALL_NOW, revalidarla contra fuente primaria en ese momento, no asumir que sigue vigente por estar en este catalogo. Sin acción pendiente propia de #120 en este corte.",
       "closureCriterion": "#120 mergeada con catálogo coherente y validado; cualquier instalación real se registra por separado con estado y evidencia.",
-      "lastVerified": "2026-08-27"
+      "lastVerified": "2026-08-28"
     },
     {
       "id": "brevo-snapshot-list-counts",
