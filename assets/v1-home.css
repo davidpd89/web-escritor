@@ -226,25 +226,32 @@ html.v1[data-lrb-home="true"] .masthead__logo-image{
   margin:0 auto;
 }
 html.v1[data-lrb-home="true"] .masthead__kicker{font-family:var(--font-ui);font-weight:800;color:#0075b8;letter-spacing:.15em}
-/* Wavy blue-gold-blue rule (author request) replacing the plain straight
-   2px blue border -- a seamless sine-wave SVG tile, repeated horizontally,
-   instead of a border so it can carry both the irregular shape and the
-   gradient at once. */
+/* The wavy version (a repeated sine-wave SVG tile) was tried and rejected
+   by the author -- "no me gustan las ondas, mejor igual que el section
+   break de abajo para que encaje" -- so this is now the exact same
+   double-line + diamond motif as .yale-home-section etc. below, just
+   anchored to the bottom of the nav instead of the top of a section. */
 html.v1[data-lrb-home="true"] .masthead-nav{
   background:#fff;
   border-top:0;
   border-bottom:0;
   box-shadow:none;
   position:relative;
+  padding-bottom:8px;
+  background-image:linear-gradient(#1d4f96,#1d4f96),linear-gradient(#b8860b,#b8860b);
+  background-repeat:no-repeat,no-repeat;
+  background-size:100% 1.5px,100% 1.5px;
+  background-position:left bottom 5px,left bottom;
 }
 html.v1[data-lrb-home="true"] .masthead-nav::after{
   content:"";
   position:absolute;
-  left:0;
-  right:0;
-  bottom:-8px;
-  height:16px;
-  background:url(/assets/masthead-nav-wave.svg) repeat-x center/auto 100%;
+  bottom:1.3px;
+  left:50%;
+  width:8px;
+  height:8px;
+  background:#1d4f96;
+  transform:translate(-50%,50%) rotate(45deg);
   pointer-events:none;
 }
 html.v1[data-lrb-home="true"] .masthead-nav__list{justify-content:center;gap:clamp(1.4rem,3.2vw,3rem)}
@@ -346,17 +353,27 @@ html.v1[data-lrb-home="true"] .yale-home-issue h1{
   overflow-wrap:anywhere;
   text-wrap:balance;
 }
+/* align-items:stretch (author request) so .yale-rail's box -- and its
+   border-left -- stretches down to match the taller .yale-lead column,
+   instead of stopping short at the rail's own (shorter) content and
+   leaving a gap before the next section's top divider. That gap was the
+   "sube la section break para que se una con la línea vertical" ask: with
+   align-items:start the two grid items sized independently, so the rail's
+   border-left ended well above where the divider actually sat. */
 html.v1[data-lrb-home="true"] .yale-home-issue__grid{
   display:grid;
   grid-template-columns:minmax(0,2.15fr) minmax(18rem,.85fr);
   gap:clamp(1.75rem,4vw,3rem);
-  align-items:start;
+  align-items:stretch;
 }
+/* align-items:center (author request) so the "La nueva novela..." copy
+   centers against the book cover image instead of both just starting flush
+   at the top when the image is taller than the text. */
 html.v1[data-lrb-home="true"] .yale-lead{
   display:grid;
   grid-template-columns:minmax(13rem,.88fr) minmax(0,1.12fr);
   gap:clamp(1.4rem,3vw,2.4rem);
-  align-items:start;
+  align-items:center;
 }
 /* Corner-bracket frame (author request) instead of the plain gray
    left+bottom border -- two nested L-brackets per corner (outer blue,
@@ -494,7 +511,7 @@ html.v1[data-lrb-home="true"] .home-event__link::after{content:"\2192";margin-le
    of stopping short at the padding gap -- the "join the two lines" part of
    the request. */
 html.v1[data-lrb-home="true"] .yale-rail{
-  border-left:2px solid #1d4f96;
+  border-left:2.5px solid #1d4f96;
   padding-left:clamp(1.2rem,2.6vw,2rem);
 }
 html.v1[data-lrb-home="true"] .yale-rail-card{
@@ -856,7 +873,7 @@ html.v1[data-lrb-home="true"] .header-buy{
   html.v1[data-lrb-home="true"] .yale-feature__grid--reverse,
   html.v1[data-lrb-home="true"] .yale-feature-book,
   html.v1[data-lrb-home="true"] .home-events__feature{grid-template-columns:1fr}
-  html.v1[data-lrb-home="true"] .yale-rail{border-left:0;border-top:2px solid #0075b8;padding-left:0;padding-top:1rem}
+  html.v1[data-lrb-home="true"] .yale-rail{border-left:0;border-top:2.5px solid #1d4f96;padding-left:0;padding-top:1rem}
   html.v1[data-lrb-home="true"] .yale-feature-book{border-left:0;padding-left:0}
   html.v1[data-lrb-home="true"] .yale-tile-grid,
   html.v1[data-lrb-home="true"] .yale-tile-grid--reading,
