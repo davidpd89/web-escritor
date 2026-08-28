@@ -555,12 +555,23 @@ html.v1[data-lrb-home="true"] .yale-rail-card p:not(.editorial-card__eyebrow){ma
    ellipse). #1d4f96 (blue, top line) and #b8860b (gold, bottom line) --
    the same two tones used everywhere else on this page now -- replace the
    plain #0075b8 border for consistency. */
+/* margin-top:0, not clamp(): every one of these sections is always
+   preceded by another one (hero/works/samuel/tools/reading/events/install-
+   web), never the page's own top, so a nonzero margin-top here just
+   reopened the gap between a preceding vertical divider (.yale-rail,
+   .yale-feature-book, .home-events__grid) and this section's own top
+   divider -- confirmed via measurement: Samuel's book stretched correctly
+   to match its sibling column (align-items:stretch is the grid default
+   here, no override needed), but a 35px gap still opened up before
+   Herramientas' divider purely from this margin. Zeroing it here fixes
+   every section transition at once instead of special-casing the one
+   after the hero. */
 html.v1[data-lrb-home="true"] .yale-home-section,
 html.v1[data-lrb-home="true"] .home-events,
 html.v1[data-lrb-home="true"] .install-web,
 html.v1[data-lrb-home="true"] .yale-signup{
   position:relative;
-  margin-top:clamp(1.4rem,2.8vw,2.2rem);
+  margin-top:0;
   border-top:0;
   padding-top:8px;
   background-image:linear-gradient(#1d4f96,#1d4f96),linear-gradient(#b8860b,#b8860b);
@@ -568,11 +579,6 @@ html.v1[data-lrb-home="true"] .yale-signup{
   background-size:100% 1.5px,100% 1.5px;
   background-position:top left,left 5px;
 }
-/* Zero margin specifically right after the hero, so this divider's top
-   edge is flush with the bottom of .yale-rail's border-left (itself
-   stretched to match .yale-lead via align-items:stretch above) -- a true
-   join, not just "close", matching the author's "que se unan" request. */
-html.v1[data-lrb-home="true"] .yale-home-issue + .yale-home-section{margin-top:0}
 html.v1[data-lrb-home="true"] .yale-home-section::after,
 html.v1[data-lrb-home="true"] .home-events::after,
 html.v1[data-lrb-home="true"] .install-web::after,
@@ -595,13 +601,16 @@ html.v1[data-lrb-home="true"] .yale-signup::after{
    section's inner width to 0. Neutralize the horizontal component here,
    same as .install-web/.yale-signup already do below. */
 html.v1[data-lrb-home="true"] .home-events{padding-left:0;padding-right:0}
+/* Extra bottom padding (author: "en herramientas hace falta un pelín de
+   margen entre las cajas y el título") -- most noticeable on the bordered
+   tool-card grid, but applied to every section head for consistency. */
 html.v1[data-lrb-home="true"] .yale-home-section__head,
 html.v1[data-lrb-home="true"] .home-events__head{
   display:grid;
   grid-template-columns:minmax(0,1fr) auto;
   gap:1rem;
   align-items:end;
-  padding:1.1rem 0;
+  padding:1.1rem 0 1.7rem;
 }
 /* Same blue-fill + gold-outline treatment as the hero h1 (author request:
    "Libros y territorios como las manecillas") -- colour/effect only, kept
@@ -677,16 +686,32 @@ html.v1[data-lrb-home="true"] .home-event{
 html.v1[data-lrb-home="true"] .yale-tile{min-height:18rem}
 html.v1[data-lrb-home="true"] .home-event{gap:.35rem}
 html.v1[data-lrb-home="true"] .yale-tile--blue{background:#eefaff}
+/* Same corner-bracket frame as .yale-lead__media/.yale-feature-book__media
+   (author: "los 3 libros siguen con el marco gris") -- a third, independent
+   instance of the same plain gray border, on the image container nested
+   inside each works-grid tile (separate from that tile's own small
+   bottom-left accent near "Abrir", which stays as its own thing). */
 html.v1[data-lrb-home="true"] .yale-tile__media{
   display:grid;
   place-items:end center;
   min-height:13rem;
   margin:calc(-1 * clamp(1.1rem,2vw,1.55rem)) calc(-1 * clamp(1.1rem,2vw,1.55rem)) 1rem;
   background:transparent;
-  border-left:1px solid #d5d4d0;
-  border-bottom:1px solid #d5d4d0;
+  border:0;
+  position:relative;
   overflow:hidden;
 }
+html.v1[data-lrb-home="true"] .yale-tile__media::before,
+html.v1[data-lrb-home="true"] .yale-tile__media::after{
+  content:"";
+  position:absolute;
+  width:28px;
+  height:28px;
+  background:url(/assets/corner-bracket-blue-gold.svg) center/contain no-repeat;
+  pointer-events:none;
+}
+html.v1[data-lrb-home="true"] .yale-tile__media::before{top:0;left:0}
+html.v1[data-lrb-home="true"] .yale-tile__media::after{bottom:0;right:0;transform:rotate(180deg)}
 html.v1[data-lrb-home="true"] .yale-tile__media img{
   width:min(58%,12rem);
   max-height:14rem;
@@ -805,14 +830,30 @@ html.v1[data-lrb-home="true"] .yale-feature-book p:not(.editorial-card__eyebrow)
 }
 html.v1[data-lrb-home="true"] .yale-feature-card .yale-text-link,
 html.v1[data-lrb-home="true"] .yale-feature-book .yale-text-link{margin-top:auto;align-self:flex-start}
+/* Same corner-bracket frame as the hero's .yale-lead__media (author: "la
+   foto del libro no tiene el marco") -- this was still the old plain gray
+   border, missed when the hero's own version was fixed since the two use
+   different class names despite looking identical. */
 html.v1[data-lrb-home="true"] .yale-feature-book__media{
   display:grid;
   min-height:clamp(18rem,28vw,24rem);
   place-items:center;
   background:transparent;
-  border-left:1px solid #d5d4d0;
-  border-bottom:1px solid #d5d4d0;
+  border:0;
+  position:relative;
+  overflow:hidden;
 }
+html.v1[data-lrb-home="true"] .yale-feature-book__media::before,
+html.v1[data-lrb-home="true"] .yale-feature-book__media::after{
+  content:"";
+  position:absolute;
+  width:34px;
+  height:34px;
+  background:url(/assets/corner-bracket-blue-gold.svg) center/contain no-repeat;
+  pointer-events:none;
+}
+html.v1[data-lrb-home="true"] .yale-feature-book__media::before{top:0;left:0}
+html.v1[data-lrb-home="true"] .yale-feature-book__media::after{bottom:0;right:0;transform:rotate(180deg)}
 html.v1[data-lrb-home="true"] .yale-feature-book__media img{
   width:min(54%,13rem);
   height:auto;
@@ -971,3 +1012,9 @@ html.v1[data-lrb-home="true"] .header-buy{
   html.v1[data-lrb-home="true"] .install-web__panel,
   html.v1[data-lrb-home="true"] .yale-signup__form{justify-self:stretch;width:100%}
 }
+/* Social icon circles alternate blue/gold/blue (author request), subtly --
+   same two tones as everywhere else on the page, home-scoped since
+   .social-icon itself (v1-shell-base.css) is shared sitewide and this is
+   a home-page-only treatment for now. */
+html.v1[data-lrb-home="true"] .social-icon:nth-child(odd){border-color:#1d4f96}
+html.v1[data-lrb-home="true"] .social-icon:nth-child(even){border-color:#b8860b}
