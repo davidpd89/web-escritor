@@ -33,6 +33,21 @@ _SPEC.loader.exec_module(_MODULE)
 
 inject_shell = _MODULE.inject_shell
 
+# Mismo rodeo, para scripts/build-section-context-nav.py: los seis builders
+# que llaman a inject_shell_auto() generan páginas que también pueden caer en
+# uno de sus `CONTEXTS` (editoriales, convocatorias, temas del Cuaderno,
+# herramientas...). Sin este segundo puente, cada builder regenera su propia
+# página sin el nav de sección, y el propio --check de ese builder consideraba
+# "drift" el nav que build-section-context-nav.py insertaba por fuera después
+# -- dos generadores escribiendo el mismo fichero y discrepando, el mismo
+# problema que este módulo ya resuelve para el shell.
+_CONTEXT_SPEC = importlib.util.spec_from_file_location(
+    "build_section_context_nav", _ROOT / "scripts" / "build-section-context-nav.py"
+)
+_CONTEXT_MODULE = importlib.util.module_from_spec(_CONTEXT_SPEC)
+sys.modules[_CONTEXT_SPEC.name] = _CONTEXT_MODULE
+_CONTEXT_SPEC.loader.exec_module(_CONTEXT_MODULE)
+
 
 def rel_path_from_canonical(canonical: str) -> str:
     """`https://davidportodiaz.com/editoriales/` -> `editoriales/index.html`."""
@@ -52,4 +67,7 @@ def inject_shell_auto(html: str) -> str:
     match = _MODULE.CANONICAL_RE.search(html)
     if not match:
         raise ValueError("no se puede inyectar el shell: la página no declara canonical")
-    return inject_shell(html, rel_path_from_canonical(match.group(1)))
+    rel_path = rel_path_from_canonical(match.group(1))
+    html = inject_shell(html, rel_path)
+    updated = _CONTEXT_MODULE.apply_page(html, rel_path)
+    return html if updated is None else updated
