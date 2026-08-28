@@ -1,56 +1,165 @@
 # A.8 · Página “¿En qué orden leer las obras de David Porto?”
 
-Fecha de revisión: 2026-08-28
-Idea original: crear una página específica de orden de lectura por ser un formato frecuente en búsquedas de sagas.
+Fecha de reconstrucción: 2026-08-29  
+Idea original: crear una página específica de orden de lectura por ser un formato frecuente en búsquedas de sagas.  
+Fuente histórica principal: PR #135, snapshot `8e72321d047c0445c5ac411ebe242af8a0386929`.  
+Estado de esta PR: decisión `REJECT`; no crea URL.
 
-## Veredicto
+## Veredicto reconciliado
 
-**DEFER / REJECT NOW.**
+**REJECT en el estado actual.**
 
-Actualmente no existe un problema real de orden de lectura que resolver. Samuel entre mundos y Las manecillas del recuerdo son obras diferenciadas; el repo no documenta una relación de saga/continuidad que exija leer una antes que otra. Crear una página de “orden de lectura” ahora fabricaría una intención que el catálogo no tiene.
+La primera versión individual decía `DEFER / REJECT NOW`, pero la autoridad final humana y machine-readable de #135 es inequívoca: **`REJECT`**. Samuel entre mundos y Las manecillas del recuerdo no forman una saga ni tienen un orden obligatorio documentado. Crear ahora una página de “orden de lectura” fabricaría una intención que el catálogo no tiene.
 
-La web ya dispone de dos superficies más honestas para la tarea real de descubrimiento:
+El hecho de que la matriz intermedia usase `DEFERIR` se conserva como historia de investigación, no como estado final.
 
-- `/libros/` → catálogo de obras;
-- `/empieza-aqui/` → orientación para lectores nuevos.
+A.8 puede reabrirse como una nueva evaluación futura si cambian los hechos —por ejemplo, aparece una saga/orden real o demanda recurrente—, pero eso no convierte el estado histórico actual en `DEFER`.
 
-## Fuentes primarias
+## 1. Regla de reconstrucción
 
-1. Google Search Central · Creating helpful, reliable, people-first content
-   https://developers.google.com/search/docs/fundamentals/creating-helpful-content
-   - El contenido debe ser útil para la audiencia incluso si llegara directamente al sitio.
-   - Google desaconseja producir contenido principalmente para atraer visitas de buscadores.
+Esta PR usa el corpus directo de #135. Conserva:
 
-2. Google Search spam policies
-   https://developers.google.com/search/docs/essentials/spam-policies
-   - Doorway abuse y scaled content abuse cubren páginas creadas principalmente para capturar consultas similares sin valor independiente suficiente.
+- hipótesis original y su argumento de demanda genérica en sagas;
+- primera decisión `REJECT`;
+- estado intermedio `DEFERIR`;
+- cross-check del catálogo/registry;
+- alternativa `/empieza-aqui/`;
+- autoridad final `REJECT`;
+- triggers que justificarían una nueva evaluación;
+- revalidación independiente.
 
-No existe una guía de Google que diga que toda web de autor deba tener una página “reading order”.
+## 2. Hipótesis original
 
-## Evidencia del proyecto
+`docs/IDEAS-MEJORA-WEB-2026-08-27.md` proponía una página tipo:
 
-- `work-samuel` y `work-manecillas` son entradas separadas del registry bajo `works-hub`.
-- No están modeladas como episodios/volúmenes de una misma `BookSeries`.
-- `/libros/` ya permite comparar/descubrir obras.
-- `/empieza-aqui/` ya es el punto de orientación humana.
-- La información de Search Console aportada en la auditoría reciente mostró consultas como “david porto”, “portal fantasy” y “noveris”; no se aportó evidencia de demanda “orden de lectura”.
-- Una búsqueda web exploratoria de “David Porto Díaz orden de lectura” / “Samuel entre mundos orden de lectura” no encontró una necesidad clara asociada al autor. Esto **no sustituye GSC**, pero tampoco aporta una señal para construir la URL.
+> “¿En qué orden leer las obras de David Porto?”
 
-## Cuándo sí tendría sentido
+La justificación era que el formato tiene demanda para sagas y puede ser citable por motores de IA.
 
-Reabrir A.8 solo si aparece uno de estos triggers:
+La hipótesis tenía que superar una pregunta básica: **¿existe realmente un orden de lectura en este catálogo?**
 
-1. se publica una secuela/precuela de Samuel con orden recomendado;
-2. existe una `BookSeries` real con 2+ volúmenes y orden factual;
-3. Search Console registra consultas significativas/recurrentes preguntando por orden;
-4. lectores reales preguntan repetidamente por dónde empezar y `/empieza-aqui/` no resuelve bien la tarea;
-5. el catálogo crece lo suficiente para que haya itinerarios genuinos (no inventados).
+## 3. Evolución cronológica en #135
 
-## Qué haría entonces
+### 3.1 · Primera revisión → `REJECT`
 
-No crear una página por fórmula SEO. Primero decidir si basta con mejorar `/libros/` o `/empieza-aqui/`.
+`docs/IDEAS-MEJORA-WEB-REVISION-2026-08-27.md` concluyó:
 
-Si una URL propia está justificada:
+> Samuel y Manecillas no son una saga con orden. Crear “orden de lectura” sería thin/artificial. Usar `/empieza-aqui/` para orientar por interés.
+
+Este fue el primer veredicto material.
+
+### 3.2 · Fuentes primarias
+
+Google · Creating helpful, reliable, people-first content  
+https://developers.google.com/search/docs/fundamentals/creating-helpful-content
+
+Google Search spam policies  
+https://developers.google.com/search/docs/essentials/spam-policies
+
+Aplicación de #135:
+
+- una página debe resolver una necesidad real de la audiencia;
+- no crear superficies principalmente porque una keyword/formato funciona para otros sitios;
+- evitar contenido thin/doorway/scaled que solo reformula páginas existentes.
+
+No existe una regla de Google ni de IA que obligue a una web de autor a tener “reading order”.
+
+### 3.3 · Repo cross-check → premisa artificial
+
+`docs/IDEAS-MEJORA-WEB-REPO-CROSSCHECK-2026-08-27.md` incluye A.8 entre las ideas que no deben volver al backlog sin nueva evidencia:
+
+- Samuel y Manecillas no forman saga/orden obligatorio;
+- crear la URL sería intención artificial;
+- alternativa: mejorar `/empieza-aqui/` por interés/tono.
+
+### 3.4 · Overrides → alternativa conservada
+
+`docs/IDEAS-MEJORA-WEB-OVERRIDES-2026-08-28.md` mantiene A.8 rechazado y propone:
+
+> mejorar `/empieza-aqui/` con rutas por interés/tono y enlaces a ambas obras.
+
+La alternativa resuelve la pregunta legítima “¿por dónde empiezo?” sin afirmar una secuencia inexistente.
+
+### 3.5 · Matriz intermedia → `DEFERIR`
+
+`docs/IDEAS-MEJORA-WEB-MATRIZ-FINAL-2026-08-28.md` introdujo una formulación menos tajante:
+
+> `DEFERIR`: con dos libros no relacionados, “orden de lectura” tiene baja utilidad. Recuperar si aparece saga/orden real o demanda en queries.
+
+Esta fue una oscilación intermedia. El argumento de reapertura futura sobrevivió; el estado `DEFERIR` no.
+
+### 3.6 · Autoridad machine-readable final → `REJECT`
+
+`data/web-improvement-decisions-2026-08-28.json` fija:
+
+```json
+{"id":"A.8","area":"seo","status":"REJECT"}
+```
+
+### 3.7 · Autoridad humana final → `REJECT`
+
+`docs/PR135-FINAL-AUTHORITY-2026-08-28.md`:
+
+> con dos libros no relacionados, una página “orden de lectura” sería artificial. Reabrir solo si existe saga/orden real o demanda demostrada.
+
+La cláusula “reabrir” es un trigger futuro; no rebaja el estado actual.
+
+### 3.8 · Revalidación independiente
+
+`docs/PR135-INDEPENDENT-REVALIDATION-2026-08-28.md` volvió a revisar A.1–A.12 y mantuvo A.8. No apareció una necesidad nueva que justificase cambiar el rechazo.
+
+Secuencia completa:
+
+```text
+hipótesis de reading-order por patrón de sagas
+→ REJECT
+→ repo confirma obras independientes
+→ alternativa /empieza-aqui/
+→ matriz intermedia DEFERIR
+→ final JSON/humano REJECT
+→ revalidación confirma
+```
+
+## 4. Evidencia del proyecto
+
+- `work-samuel` y `work-manecillas` son entradas separadas del registry bajo el catálogo de obras;
+- no están modeladas como volúmenes de una misma `BookSeries`;
+- `/libros/` ya permite descubrir/comparar las obras;
+- `/empieza-aqui/` ya resuelve orientación inicial;
+- la auditoría de Search Console citada en #135 mostró consultas como “david porto”, “portal fantasy” y “noveris”, no evidencia material de “orden de lectura”.
+
+Una exploración web histórica tampoco encontró una necesidad clara asociada al autor. #135 fue cuidadosa: eso no sustituye Search Console, pero tampoco aporta trigger para una URL nueva.
+
+## 5. Tarea real que sí existe hoy
+
+No “orden”, sino **orientación**.
+
+La web puede ayudar a elegir entre obras independientes mediante `/empieza-aqui/` o `/libros/`, usando hechos editoriales canónicos:
+
+```text
+si buscas fantasía juvenil / portal fantasy → Samuel entre mundos
+si buscas la propuesta editorial/temática propia de Manecillas → Las manecillas del recuerdo
+```
+
+El copy exacto debe derivarse de la información factual del libro; no inventar posicionamientos para rellenar la ruta.
+
+## 6. Triggers para reabrir una evaluación futura
+
+Una nueva PR puede volver a evaluar A.8 si ocurre al menos uno:
+
+1. secuela/precuela con orden recomendado;
+2. `BookSeries` real con dos o más volúmenes;
+3. queries significativas/recurrentes de Search Console sobre orden;
+4. preguntas repetidas de lectores que `/empieza-aqui/` no resuelve;
+5. catálogo suficientemente amplio para itinerarios genuinos.
+
+El trigger debe estar documentado con evidencia. No basta “estas páginas funcionan en SEO para otros autores”.
+
+## 7. Si algún día se reactiva
+
+Primero comprobar si basta con ampliar `/libros/` o `/empieza-aqui/`.
+
+Solo con necesidad independiente podría considerarse una URL como:
 
 ```text
 /orden-de-lectura/
@@ -59,67 +168,94 @@ Si una URL propia está justificada:
 Contenido mínimo legítimo:
 
 - respuesta directa al orden real;
-- explicación de independencia/dependencia entre libros;
-- enlaces canónicos a cada obra;
+- explicación de dependencia/independencia;
+- links canónicos;
 - estado de publicación real;
-- sinopsis diferencial breve;
-- aclaración cuando el orden sea opcional.
+- diferencias útiles entre libros;
+- aclaración si el orden es opcional.
 
-Structured data:
+Structured data solo factual:
 
 - `ItemList` si aporta claridad;
-- `Book` referenciando entidades existentes;
-- `BookSeries` solo si la serie existe realmente;
-- nunca inventar `position` narrativa si los libros son independientes.
+- referencias a entidades `Book` existentes;
+- `BookSeries` únicamente si la serie existe;
+- nunca `position` narrativa inventada para libros independientes.
 
-## Alternativa mejor hoy
+## 8. Qué NO hacer
 
-Mejorar `/empieza-aqui/` con decisiones reales de descubrimiento, por ejemplo:
-
-```text
-Si buscas fantasía juvenil y portal fantasy → Samuel entre mundos
-Si buscas una novela coral sobre memoria/tiempo → Las manecillas del recuerdo
-```
-
-Solo si esos posicionamientos están respaldados por la información canónica del libro. Esto resuelve “¿por dónde empiezo?” sin fingir que existe un orden cronológico.
-
-## Tests si se activa en el futuro
-
-- la URL solo entra en registry/sitemap cuando existe trigger documentado;
-- todos los libros enlazados existen/canonicalizan correctamente;
-- `BookSeries` solo se usa con una serie factual;
-- ItemList y orden visible coinciden;
-- no duplicar contenido de `/libros/`;
-- internal graph sin canibalización/huérfanas;
-- query intent y propósito editorial registrados en el PR.
-
-## Qué NO hacer
-
-- crear “orden de lectura” porque es una keyword habitual para otros autores;
-- afirmar que Samuel debe leerse antes que Manecillas;
+- crear la URL porque “reading order” es keyword común en autores con sagas;
+- afirmar que Samuel debe ir antes que Manecillas;
 - llamar saga a obras independientes;
-- generar páginas tipo “por dónde empezar”, “orden de libros”, “orden de novelas” con contenido casi idéntico;
-- añadir schema de serie ficticia;
-- llenar la página con sinopsis duplicadas para alcanzar longitud.
+- generar variantes “por dónde empezar”, “orden de libros”, “orden de novelas” casi idénticas;
+- `BookSeries` ficticia;
+- llenar con sinopsis duplicadas;
+- usar “citable por IA” como razón independiente para fabricar una página;
+- tratar `DEFERIR` de la matriz como estado final ignorando las autoridades posteriores.
 
-## Coste / beneficio
+## 9. Tests si una futura reevaluación la aprobara
+
+- trigger documentado antes de crear URL;
+- registry/sitemap solo se modifican tras aprobación;
+- libros/canonicals correctos;
+- `BookSeries` factual;
+- `ItemList` y orden visible coinciden;
+- no duplicación significativa de `/libros/`;
+- internal graph correcto;
+- query intent/propósito editorial explícitos en la PR.
+
+## 10. Coste / beneficio
 
 Ahora:
+
 - beneficio: bajo/no demostrado;
-- riesgo de thin/duplicative content: medio;
-- coste de mantenimiento/otra URL: innecesario.
+- riesgo thin/duplicative: medio;
+- mantenimiento: innecesario.
 
-Con saga real/demanda demostrada:
-- beneficio potencial: alto y legítimo.
+Con saga/demanda real:
 
-## Definition of Done
+- beneficio potencial: alto;
+- evaluación futura legítima.
 
-- [x] confirmar que las obras actuales no requieren orden documentado;
-- [x] comprobar que ya existen `/libros/` y `/empieza-aqui/`;
-- [ ] no crear URL ahora;
-- [ ] registrar trigger futuro si aparece serie/demanda;
-- [ ] si el problema es “por dónde empiezo”, evaluar primero mejorar `empieza-aqui`.
+## 11. Definition of Done
 
-## Recomendación de merge
+### Historia ya recuperada
 
-**MERGE como `DEFER`.** Evita crear contenido artificial hoy y deja criterios objetivos para reabrir la idea cuando el catálogo realmente lo necesite.
+- [x] hipótesis original preservada;
+- [x] `REJECT` inicial preservado;
+- [x] repo cross-check sobre independencia de obras preservado;
+- [x] alternativa `/empieza-aqui/` preservada;
+- [x] `DEFERIR` intermedio registrado sin confundirlo con final;
+- [x] autoridad JSON final = `REJECT`;
+- [x] autoridad humana final = `REJECT`;
+- [x] triggers futuros preservados;
+- [x] revalidación independiente confirmó.
+
+### Ahora
+
+- [ ] no crear URL de orden de lectura;
+- [ ] usar `/libros/`/`/empieza-aqui/` si hay necesidad de orientación;
+- [ ] reabrir solo con evidencia nueva.
+
+## 12. Trazabilidad del corpus histórico de #135 revisado para A.8
+
+### Evidencia/decisión específica
+
+- `docs/IDEAS-MEJORA-WEB-2026-08-27.md` — hipótesis original.
+- `docs/IDEAS-MEJORA-WEB-REVISION-2026-08-27.md` — `REJECT` inicial.
+- `docs/IDEAS-MEJORA-WEB-FUENTES-PRIMARIAS-2026-08-27.md` — people-first/spam policy.
+- `docs/IDEAS-MEJORA-WEB-REPO-CROSSCHECK-2026-08-27.md` — premisa artificial + alternativa.
+- `docs/IDEAS-MEJORA-WEB-OVERRIDES-2026-08-28.md` — alternativa `/empieza-aqui/`.
+- `docs/IDEAS-MEJORA-WEB-MATRIZ-FINAL-2026-08-28.md` — `DEFERIR` histórico.
+- `data/web-improvement-decisions-2026-08-28.json` — `REJECT` final.
+- `docs/PR135-FINAL-AUTHORITY-2026-08-28.md` — autoridad humana final/triggers.
+- `docs/PR135-INDEPENDENT-REVALIDATION-2026-08-28.md` — falsación independiente.
+
+### Revisados sin cambio específico adicional
+
+Blueprints netos, overrides de repo no aplicables, cuarta a decimoquinta pasada, casos/evidencia/límites, fuentes adicionales, repos evaluados y policy watch fueron revisados; no contienen una decisión posterior que sustituya `REJECT`.
+
+## 13. Recomendación de merge
+
+**MERGE como reconstrucción completa de `REJECT`.**
+
+La PR deja documentado qué tendría que cambiar en el mundo real para volver a evaluar la idea, sin fingir que hoy queda “pendiente” de implementación.
