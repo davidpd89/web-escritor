@@ -1,5 +1,6 @@
 #!/usr/bin/env python3
 import json
+import re
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -48,8 +49,21 @@ for item_id in plan_ids:
 
 text = AUTHORITY.read_text(encoding="utf-8")
 source_text = SOURCES.read_text(encoding="utf-8")
-for item_id in EXPECTED_IDS:
-    assert item_id in text, f"human authority missing {item_id}"
+
+# Human and machine authorities must agree exactly, not merely mention every ID.
+rows = re.findall(
+    r"^\|\s*([A-Q]\.\d+)\s*\|\s*(IMPLEMENT_NOW|IMPLEMENT_AFTER_CURRENT_DEBT|ALREADY_COVERED|PARTIAL_AUDIT|CONDITIONAL|EXTERNAL_OPERATION|DEFER|REJECT)\s*\|",
+    text,
+    flags=re.MULTILINE,
+)
+markdown_by_id = dict(rows)
+assert len(rows) == 108, f"expected 108 decision table rows, got {len(rows)}"
+assert len(markdown_by_id) == 108, "duplicate decision rows in human authority"
+assert set(markdown_by_id) == set(EXPECTED_IDS), f"human authority missing/extra ids: {set(EXPECTED_IDS)^set(markdown_by_id)}"
+for item_id, item in by_id.items():
+    assert markdown_by_id[item_id] == item["status"], (
+        f"human/machine status mismatch for {item_id}: {markdown_by_id[item_id]} != {item['status']}"
+    )
 
 lower = (text + "\n" + source_text).lower()
 assert "clarity mcp fue retirado" not in lower
@@ -65,4 +79,4 @@ assert "https://developers.google.com/search/docs/appearance/structured-data/rev
 assert "https://www.w3.org/TR/WCAG22/" in source_text
 assert "https://blogs.bing.com/webmaster/February-2026/Introducing-AI-Performance" in source_text
 
-print("web-improvement-authority: OK (108 decisions, execution gates and freshness corrections)")
+print("web-improvement-authority: OK (108 decisions, markdown/JSON parity, execution gates, freshness corrections)")
