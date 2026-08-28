@@ -292,12 +292,12 @@ html.v1[data-lrb-home="true"] .yale-home-issue__kicker{
 html.v1[data-lrb-home="true"] .yale-home-issue__kicker::before{
   content:"";
   position:absolute;
-  left:2%;
-  right:2%;
-  bottom:.02em;
-  height:.32em;
-  background:url(/assets/highlight-thin-blue.png) center/100% 100% no-repeat;
-  opacity:.85;
+  left:-3%;
+  right:-3%;
+  bottom:.06em;
+  height:.55em;
+  background:url(/assets/highlight-8-blue-rect.png) center/100% 100% no-repeat;
+  opacity:.8;
   pointer-events:none;
 }
 html.v1[data-lrb-home="true"] .yale-home-issue h1{
@@ -307,7 +307,12 @@ html.v1[data-lrb-home="true"] .yale-home-issue h1{
   font-size:clamp(1.9rem,3.8vw,3.6rem);
   line-height:.96;
   letter-spacing:-.018em;
-  background:linear-gradient(115deg,#6fa3e0,#1d4f96 55%,#0d2c57);
+  /* Blue-to-gold blend (picked from the 5-way comparison) instead of the
+     blue-only gradient. Every stop still clears >=3:1 against white (large
+     text, this h1 is always >=30px): #1d4f96 8.04:1, #3a6bb0 5.37:1,
+     #a8681f 4.5:1, #7a4a15 7.45:1 -- the same gold pair already used for
+     the kicker fix, reused here for a consistent accessible palette. */
+  background:linear-gradient(100deg,#1d4f96 0%,#3a6bb0 32%,#a8681f 68%,#7a4a15 100%);
   -webkit-background-clip:text;
   background-clip:text;
   -webkit-text-fill-color:transparent;
