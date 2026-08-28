@@ -280,9 +280,21 @@ html.v1[data-lrb-home="true"] .yale-home-flow :is(section,article,aside,div,head
 html.v1[data-lrb-home="true"] .yale-home-issue__heading{
   display:grid;
   gap:.4rem;
-  margin-bottom:clamp(1.4rem,2.8vw,2.2rem);
+  margin-bottom:clamp(.6rem,1.2vw,1rem);
 }
-html.v1[data-lrb-home="true"] .yale-home-issue__kicker{
+/* Every other section eyebrow on the page ("Obras", "Universo publicado",
+   "Para escribir", "Leer y recursos", "Agenda · Archivo") now shares the
+   hero kicker's exact style (author request: "OBRAS ponerlo como obra
+   actual" -- unify text-by-text, not just colours) -- same font, size,
+   gold, and underline highlight. Scoped to the section-head eyebrow only
+   (.yale-home-section__head/.home-events__head), not every card-level
+   .editorial-card__eyebrow sitewide, which would be far too heavy applied
+   to every small label in a dense grid. */
+html.v1[data-lrb-home="true"] .yale-home-issue__kicker,
+html.v1[data-lrb-home="true"] .yale-home-section__head .editorial-card__eyebrow,
+html.v1[data-lrb-home="true"] .home-events__head .editorial-card__eyebrow,
+html.v1[data-lrb-home="true"] .install-web .editorial-card__eyebrow,
+html.v1[data-lrb-home="true"] .yale-signup__copy .editorial-card__eyebrow{
   position:relative;
   display:inline-block;
   /* .yale-home-issue__heading is display:grid, and a grid item's default
@@ -321,7 +333,11 @@ html.v1[data-lrb-home="true"] .yale-home-issue__kicker{
    from the same reference sheet as the header avatar frame ("Recursos
    diseño web" > highlights, thin diagonal streak), recolored to the site's
    blue (matches the h1 gradient below it) instead of its original gold. */
-html.v1[data-lrb-home="true"] .yale-home-issue__kicker::before{
+html.v1[data-lrb-home="true"] .yale-home-issue__kicker::before,
+html.v1[data-lrb-home="true"] .yale-home-section__head .editorial-card__eyebrow::before,
+html.v1[data-lrb-home="true"] .home-events__head .editorial-card__eyebrow::before,
+html.v1[data-lrb-home="true"] .install-web .editorial-card__eyebrow::before,
+html.v1[data-lrb-home="true"] .yale-signup__copy .editorial-card__eyebrow::before{
   content:"";
   position:absolute;
   left:-3%;
@@ -587,18 +603,24 @@ html.v1[data-lrb-home="true"] .home-events__head{
   align-items:end;
   padding:1.1rem 0;
 }
+/* Same blue-fill + gold-outline treatment as the hero h1 (author request:
+   "Libros y territorios como las manecillas") -- colour/effect only, kept
+   at each section's own (smaller) font-size rather than also matching the
+   hero's much larger one. */
 html.v1[data-lrb-home="true"] .yale-home-section__head h2,
 html.v1[data-lrb-home="true"] .home-events h2{
   margin:.35rem 0 0;
   font-size:clamp(1.55rem,2.6vw,2.3rem);
   line-height:1.05;
+  color:#1d4f96;
+  -webkit-text-stroke:0.35px rgba(184,134,11,.55);
 }
 html.v1[data-lrb-home="true"] .yale-tile-grid,
 html.v1[data-lrb-home="true"] .home-events__grid{
   display:grid;
   grid-template-columns:repeat(3,minmax(0,1fr));
-  border-top:1px solid rgba(0,0,0,.18);
-  border-left:1px solid rgba(0,0,0,.18);
+  border-top:1px solid #b8860b;
+  border-left:1px solid #1d4f96;
 }
 html.v1[data-lrb-home="true"] .yale-tile-grid--reading{grid-template-columns:repeat(4,minmax(0,1fr))}
 html.v1[data-lrb-home="true"] .yale-tile-grid--tools{grid-template-columns:repeat(3,minmax(0,1fr))}
@@ -625,7 +647,7 @@ html.v1[data-lrb-home="true"] .yale-tile-grid--works .yale-tile:nth-child(3)::be
   bottom:0;
   width:1px;
   height:2.25rem;
-  background:rgba(0,0,0,.18);
+  background:#1d4f96;
 }
 html.v1[data-lrb-home="true"] .yale-tile-grid--works .yale-tile:nth-child(1)::after,
 html.v1[data-lrb-home="true"] .yale-tile-grid--works .yale-tile:nth-child(2)::after,
@@ -636,8 +658,12 @@ html.v1[data-lrb-home="true"] .yale-tile-grid--works .yale-tile:nth-child(3)::af
   bottom:0;
   width:2.25rem;
   height:1px;
-  background:rgba(0,0,0,.18);
+  background:#b8860b;
 }
+/* Gray grid lines (rgba(0,0,0,.18)) recoloured to the page's blue/gold
+   (author request: "los cuadros grises como el azul y amarillo") -- the
+   vertical separators between cards in blue, the horizontal ones in gold,
+   so both tones show rather than picking just one. */
 html.v1[data-lrb-home="true"] .yale-tile,
 html.v1[data-lrb-home="true"] .home-event{
   display:flex;
@@ -645,8 +671,8 @@ html.v1[data-lrb-home="true"] .home-event{
   min-width:0;
   padding:clamp(1.1rem,2vw,1.55rem);
   background:#fff;
-  border-right:1px solid rgba(0,0,0,.18);
-  border-bottom:1px solid rgba(0,0,0,.18);
+  border-right:1px solid #1d4f96;
+  border-bottom:1px solid #b8860b;
 }
 html.v1[data-lrb-home="true"] .yale-tile{min-height:18rem}
 html.v1[data-lrb-home="true"] .home-event{gap:.35rem}
@@ -808,7 +834,7 @@ html.v1[data-lrb-home="true"] .home-event__media{
   display:block;
   aspect-ratio:16/10;
   background:#eef8fc;
-  border-bottom:1px solid rgba(0,0,0,.18);
+  border-bottom:1px solid #b8860b;
   overflow:hidden;
 }
 html.v1[data-lrb-home="true"] .home-event--lead .home-event__media{aspect-ratio:4/5}
@@ -831,8 +857,8 @@ html.v1[data-lrb-home="true"] .home-events__cta{
   gap:.6rem;
   padding:clamp(1.1rem,2vw,1.55rem);
   background:#eefaff;
-  border-right:1px solid rgba(0,0,0,.18);
-  border-bottom:1px solid rgba(0,0,0,.18);
+  border-right:1px solid #1d4f96;
+  border-bottom:1px solid #b8860b;
 }
 html.v1[data-lrb-home="true"] .home-events__cta h3{margin:0;font-size:clamp(1rem,1.4vw,1.18rem);line-height:1.2;font-weight:600}
 html.v1[data-lrb-home="true"] .home-events__cta p{margin:0;font-family:var(--font-reading);font-size:.92rem;line-height:1.4;color:#2a2e31}
@@ -840,7 +866,7 @@ html.v1[data-lrb-home="true"] .home-events__cta .yale-text-link{font-weight:700}
 html.v1[data-lrb-home="true"] .install-web{
   background:#fff;
   color:#050505;
-  border-bottom:1px solid rgba(0,0,0,.18);
+  border-bottom:1px solid #1d4f96;
 }
 html.v1[data-lrb-home="true"] .install-web::before{display:none}
 /* .install-web's own background:#fff above (line ~764) clears the section-
@@ -857,7 +883,10 @@ html.v1[data-lrb-home="true"] .install-web{
   background-position:top left,left 5px;
 }
 html.v1[data-lrb-home="true"] .install-web::after{display:block}
-html.v1[data-lrb-home="true"] .install-web h2{color:#050505}
+/* Same blue-fill + gold-outline treatment as every other section title
+   (author request to unify text-by-text) instead of plain black. */
+html.v1[data-lrb-home="true"] .install-web h2,
+html.v1[data-lrb-home="true"] .yale-signup h2{color:#1d4f96;-webkit-text-stroke:0.35px rgba(184,134,11,.55)}
 html.v1[data-lrb-home="true"] .install-web__status{color:#2a2e31}
 html.v1[data-lrb-home="true"] .install-web,
 html.v1[data-lrb-home="true"] .yale-signup{
