@@ -260,7 +260,11 @@ html.v1[data-lrb-home="true"] .yale-home-issue__kicker{
   font-weight:800;
   letter-spacing:.08em;
   text-transform:uppercase;
-  color:#050505;
+  background:linear-gradient(115deg,#f0c467,#a8681f 58%,#7a4a15);
+  -webkit-background-clip:text;
+  background-clip:text;
+  -webkit-text-fill-color:transparent;
+  color:transparent;
 }
 html.v1[data-lrb-home="true"] .yale-home-issue h1{
   margin:0;
@@ -269,7 +273,7 @@ html.v1[data-lrb-home="true"] .yale-home-issue h1{
   font-size:clamp(1.9rem,3.8vw,3.6rem);
   line-height:.96;
   letter-spacing:-.018em;
-  color:#0075b8;
+  color:#1d4f96;
   overflow-wrap:anywhere;
   text-wrap:balance;
 }
@@ -356,6 +360,22 @@ html.v1[data-lrb-home="true"] .yale-lead__copy .editorial-card__meta{display:blo
 html.v1[data-lrb-home="true"] .yale-text-link:hover,
 html.v1[data-lrb-home="true"] .yale-text-link:focus-visible{color:#004f73}
 html.v1[data-lrb-home="true"] .yale-text-link::after{content:"\2192";color:currentColor}
+html.v1[data-lrb-home="true"] .yale-text-link--gradient,
+html.v1[data-lrb-home="true"] .yale-text-link--gradient::after{
+  background:linear-gradient(115deg,#6fa3e0,#1d4f96 55%,#0d2c57);
+  -webkit-background-clip:text;
+  background-clip:text;
+  -webkit-text-fill-color:transparent;
+  color:transparent;
+}
+html.v1[data-lrb-home="true"] .yale-text-link--gradient:hover,
+html.v1[data-lrb-home="true"] .yale-text-link--gradient:focus-visible{
+  background:linear-gradient(115deg,#4d86cc,#0d2c57 55%,#081b38);
+  -webkit-background-clip:text;
+  background-clip:text;
+  -webkit-text-fill-color:transparent;
+  color:transparent;
+}
 html.v1[data-lrb-home="true"] .home-event__link{
   font-family:var(--font-ui);
   font-size:.78rem;
