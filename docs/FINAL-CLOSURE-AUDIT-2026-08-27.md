@@ -35,29 +35,43 @@ El patrón de #129 (inserción post-paint de `.section-context`) **no aplica aqu
 
 ### Causa original hipotetizada (no confirmada, mantenida solo como referencia histórica — no usar)
 
-~~`assets/v1-editorial-interior-v4.js::buildContextNav()` inserta `.section-context`...~~ — descartada, ver corrección arriba.
+~~`assets/v1-editorial-interior-v4.js::buildContextNav()` inserta `.section-context`...~~ — descartada por la corrección de arriba, y luego **la corrección de arriba también resultó incorrecta** (ver RESOLUCIÓN abajo). Se deja toda la cadena visible a propósito: el error real no fue la hipótesis original, fue el método usado para descartarla.
 
-### Solución requerida
+### RESOLUCIÓN 28/08/2026 — `.section-context` sí era la causa; el grep de la corrección anterior tenía un punto ciego
+
+Sesión de Claude del 28/08/2026 (posterior a la corrección de arriba, misma fecha): instrumenté `/herramientas/` en vivo con `PerformanceObserver('layout-shift')` tal y como pedía el punto 1 de la solución de abajo, en vez de seguir razonando desde un grep estático. Resultado: **un único shift de 0.128**, `source: MAIN#contenido.v1-main`, con `main` empujado 122px hacia abajo y la altura del `.site-header` sin cambiar entre el frame anterior y el posterior — exactamente la firma de "algo se insertó entre header y main después del primer paint", no un reflow del propio grid de tarjetas.
+
+La corrección de arriba comprobó correctamente que **el HTML fuente** de `herramientas/index.html` no referencia `v1-editorial-interior-v4.js` ni contiene `.section-context` — pero de ahí concluyó que el script nunca corre en esta página, y esa inferencia era el error: `assets/v1-shell.js` (que sí carga toda página V1 vía `<script defer src="/assets/v1-shell.js">`) inyecta `v1-editorial-interior-v4.js` **dinámicamente** en runtime (`document.head.append(script)` dentro de `initLrbHeaderV2()`), sin dejar ningún rastro en el HTML fuente. Un `grep` del HTML nunca iba a encontrarlo. Comprobado leyendo `assets/v1-shell.js` línea por línea: `loadScript(EDITORIAL_INTERIOR_SRC, 'editorialInteriorV4')` se llama incondicionalmente, no solo en Home.
+
+Y dentro de `v1-editorial-interior-v4.js`, el array `contexts` **sí** tiene una entrada `herramientas` (`matches: path.startsWith('/herramientas/') || ...`) que #129 nunca pre-renderizó — solo pre-renderizó `samuel` (3 páginas) y `cuaderno` (2 páginas). `herramientas`, `obras`, `autor`, `prensa` y `manecillas` se quedaron dependiendo de la inserción JS post-paint, el mismo patrón que #129 arregló para las otras 5.
+
+Escaneando las 7 entradas de `contexts` contra las rutas reales del sitio (comparando cada `<link rel="canonical">` contra las mismas reglas de match): **55 páginas** tenían este patrón, no 2. Arreglado en [PR #138](https://github.com/davidpd89/web-escritor/pull/138) con un builder nuevo (`scripts/build-section-context-nav.py`, mismo contrato marcador + `--check` que `build-site-shell.py`) que pre-renderiza el nav para las 55, más `scripts/site_shell.py` actualizado para que los 6 builders que generan algunas de esas páginas (editoriales, radar, temas del Cuaderno, writer-tools, tools-hub, autores-red) lo apliquen también desde su propio `inject_shell_auto()`, y `qa/section-context-parity.mjs` generalizado para descubrir las páginas desde git en vez de una lista de 5 hardcodeada.
+
+Verificado tras el fix: `PerformanceObserver('layout-shift')` devuelve `[]` en `/herramientas/`, `/herramientas/manuscrito/` y `/autor.html`; los 4 puntos de la solución de abajo quedan resueltos por esa PR. **No fue necesario tocar `assets/herramientas-hub.js` ni `scripts/build-tools-hub.py`** — la hipótesis de la corrección anterior sobre esos ficheros tampoco era correcta.
+
+**Lección para la próxima sesión que dude si un script "corre" en una página:** un grep del HTML fuente solo ve `<script src>` estático; no ve `document.createElement('script')`/`.append()` en runtime. Comprobar con `PerformanceObserver`/DevTools en vivo antes de descartar un componente por su ausencia en el HTML.
+
+### Solución requerida (histórico — resuelta por PR #138, ver RESOLUCIÓN arriba)
 
 No hacer otro parche de «dos URLs» manuales. Resolver el patrón de manera sistémica:
 
-1. instrumentar `/herramientas/` y `/herramientas/manuscrito/` con `PerformanceObserver('layout-shift')` para identificar el elemento/selector exacto que causa el shift (ver corrección arriba — no es `.section-context`);
-2. una vez identificada la causa real, decidir si es un patrón compartido con otras páginas o específico del hub de herramientas;
-3. si toca HTML generado, arreglar el builder (`scripts/build-tools-hub.py` y los que correspondan), no editar outputs a mano;
-4. si el trabajo de #129 sobre `.section-context`/`aria-current` resulta relevante en otras rutas (`autor`, `prensa`, `editoriales`, `convocatorias`), tratarlo como un frente aparte — no mezclarlo con el fix de Herramientas;
-5. ampliar `qa/section-context-parity.mjs` solo si la causa real resulta estar relacionada con ese componente; si no, crear el QA que corresponda a la causa real;
-6. medir Lighthouse de `/herramientas/` y `/herramientas/manuscrito/` 3/3 tras el fix.
+1. instrumentar `/herramientas/` y `/herramientas/manuscrito/` con `PerformanceObserver('layout-shift')` para identificar el elemento/selector exacto que causa el shift — **hecho, ver RESOLUCIÓN arriba: sí era `.section-context`**;
+2. una vez identificada la causa real, decidir si es un patrón compartido con otras páginas o específico del hub de herramientas — **compartido, 55 páginas**;
+3. si toca HTML generado, arreglar el builder (`scripts/build-tools-hub.py` y los que correspondan), no editar outputs a mano — **hecho vía `site_shell.py`, no tocó `build-tools-hub.py` directamente**;
+4. si el trabajo de #129 sobre `.section-context`/`aria-current` resulta relevante en otras rutas (`autor`, `prensa`, `editoriales`, `convocatorias`), tratarlo como un frente aparte — **resuelto en la misma PR, no aparte, por ser la misma causa raíz**;
+5. ampliar `qa/section-context-parity.mjs` solo si la causa real resulta estar relacionada con ese componente — **sí lo estaba; generalizado a descubrimiento por git**;
+6. medir Lighthouse de `/herramientas/` y `/herramientas/manuscrito/` 3/3 tras el fix — **PerformanceObserver en vivo confirma 0 shifts; pendiente de que CI vuelva a correr Lighthouse tras mergear #138 para el número oficial 3/3**.
 
 ### Definition of Done
 
-- [ ] ninguna ruta pública con contexto añade una barra completa post-paint sin espacio estable;
-- [ ] Herramientas y Manuscrito tienen CLS <=0.1 en 3/3 Lighthouse runs;
-- [ ] parity QA cubre las variantes pre-renderizadas/generadas;
-- [ ] builders `--check` pasan;
-- [ ] CSP/Pa11y/Reflow/Cross-engine/Runtime verdes;
-- [ ] no copias manuales sin contrato de paridad.
+- [x] ninguna ruta pública con contexto añade una barra completa post-paint sin espacio estable (las 55 páginas con contexto quedan pre-renderizadas en #138);
+- [ ] Herramientas y Manuscrito tienen CLS <=0.1 en 3/3 Lighthouse runs (verificado 0 shifts vía `PerformanceObserver` local; falta la corrida oficial de Lighthouse en CI tras mergear #138);
+- [x] parity QA cubre las variantes pre-renderizadas/generadas (generalizada a 55 páginas descubiertas por git);
+- [x] builders `--check` pasan (`build-site-shell.py`, `build-section-context-nav.py`, y los 6 builders de página que ahora comparten `inject_shell_auto()`);
+- [ ] CSP/Pa11y/Reflow/Cross-engine/Runtime verdes (no re-ejecutados en esta pasada, solo `tests/*.{py,mjs}` + parity QA);
+- [x] no copias manuales sin contrato de paridad (generado por script, no a mano).
 
-**Owner recomendado:** PR propia `fix/section-context-first-paint-sitewide-*`.
+**Owner recomendado:** PR propia `fix/section-context-first-paint-sitewide-*` — abierta como [PR #138](https://github.com/davidpd89/web-escritor/pull/138).
 
 ---
 
