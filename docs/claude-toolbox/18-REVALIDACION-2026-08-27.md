@@ -387,6 +387,10 @@ Las 13 advisories viven todas en dependencias transitivas de `@lhci/cli` y `pa11
 
 De paso se encontró y corrigió una inconsistencia real relacionada: 3 workflows (`analytics-taxonomy-qa.yml`, `csp-public-shell-qa.yml`, `manecillas-funnel-qa.yml`) instalaban Playwright 1.55.0 ad-hoc en vez de usar el 1.62.1 pinneado en `package.json` -- exactamente la inconsistencia que ese fichero dice evitar. Unificado en PR #127.
 
+### Autoridad actual (no duplicar más aquí)
+
+`docs/supply-chain/NPM-AUDIT-BASELINE-2026-08-27.md` es ahora la autoridad advisory-por-advisory de este gap, más detallada que el resumen de arriba (que se deja como contexto histórico de cómo se descubrió, no como el estado vigente). Cualquier actualización futura del estado de estas 13 advisories se hace en ese fichero, no aquí. Del mismo modo, `docs/ci/GITHUB-ACTIONS-NODE24-MIGRATION-2026-08-27.md` es la autoridad sobre el warning de Node 20 deprecado en `actions/checkout@v4`/`actions/setup-node@v4`/`actions/upload-artifact@v4` que aparece en los runs de CI -- no repetir su DoD aquí.
+
 ## 12. Herramientas de diseño vs problemas actuales
 
 No instalar herramientas para evitar reparar bugs que ya tenemos diagnosticados.
