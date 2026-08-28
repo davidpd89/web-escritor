@@ -1,82 +1,160 @@
 # A.5 · Enlaces salientes a fuentes de autoridad
 
-Fecha de revisión: 2026-08-28
-Idea original: añadir enlaces/citas a fuentes externas prestigiosas donde sea natural, presentándolo como mejora E-E-A-T/SEO.
+Fecha de reconstrucción: 2026-08-29  
+Idea original: añadir citas/enlaces salientes a fuentes externas prestigiosas donde sea natural, presentándolo como mejora E-E-A-T/SEO.  
+Fuente histórica principal: PR #135, snapshot `8e72321d047c0445c5ac411ebe242af8a0386929`.  
+Estado de esta PR: documentación/criterio condicional; no ordena un rollout sitewide.
 
-## Veredicto
+## Veredicto reconciliado
 
-**IMPLEMENTAR COMO POLÍTICA DE CITACIÓN Y CONFIANZA; RECHAZAR LA IDEA DE “OUTBOUND LINKS = BOOST”.**
+**CONDITIONAL.**
 
-Enlazar fuentes primarias mejora verificabilidad, utilidad y confianza cuando un texto hace afirmaciones externas. Google recomienda enlazar recursos externos cuando aportan contexto y dice que citar fuentes puede ayudar a demostrar trustworthiness. Eso no equivale a un factor de ranking mecánico ni a que cuantos más enlaces a “dominios de autoridad” pongamos, mejor posicionemos.
+Enlazar una fuente primaria puede mejorar verificabilidad, contexto y confianza **cuando una afirmación concreta lo necesita**. #135 rechazó convertir esa práctica en una táctica mecánica de SEO/E-E-A-T o en una política de “añadir enlaces de autoridad” a todas las páginas.
 
-## Fuentes primarias
+La versión anterior de esta PR decía `IMPLEMENTAR COMO POLÍTICA`. Eso era más fuerte que la autoridad histórica final. La decisión correcta es:
 
-1. Google Search Central · Link best practices
-   https://developers.google.com/search/docs/crawling-indexing/links-crawlable
-   - Google indica que los enlaces externos pueden ayudar a establecer confiabilidad al citar fuentes.
-   - Recomienda enlazar cuando tiene sentido para dar contexto.
-   - Si no confías en una fuente, `nofollow`; si existe relación pagada, `sponsored`.
+```text
+hay hecho/afirmación externa que necesita evidencia → citar la mejor fuente
+no existe esa necesidad → no añadir un enlace por cumplir A.5
+```
 
-2. Google Search Central · Creating helpful, reliable, people-first content
-   https://developers.google.com/search/docs/fundamentals/creating-helpful-content
-   - La confianza es central en el marco E-E-A-T.
-   - E-E-A-T no es un ranking factor único que pueda “optimizarse” añadiendo links.
+## 1. Regla de reconstrucción
 
-3. Google Search spam policies · Link spam
-   https://developers.google.com/search/docs/essentials/spam-policies#link-spam
-   - Intercambios excesivos, enlaces pagados que pasan crédito de ranking y esquemas artificiales violan políticas.
-   - Los enlaces publicitarios/pagados deben calificarse con `nofollow` o `sponsored`.
+Esta PR usa directamente el corpus de #135 en `8e72321...`. Conserva hipótesis, fuentes, estados intermedios, decisión final, relación con A.4, anti-patrones y cualquier diseño técnico que sobreviva al gate condicional.
 
-## Qué problema resuelve realmente
+## 2. Hipótesis original
 
-En este proyecto hay páginas de distinta naturaleza:
+`docs/IDEAS-MEJORA-WEB-2026-08-27.md` planteaba:
+
+> añadir citas/enlaces a fuentes externas de prestigio —editoriales, prensa literaria, otros autores— porque el “outbound linking” a fuentes fiables seguiría siendo señal de calidad E-E-A-T.
+
+La parte problemática era presentar el outbound linking como una palanca directa de ranking/autoridad. La parte válida era la verificabilidad.
+
+## 3. Evolución cronológica en #135
+
+### 3.1 · Primera revisión → `CONDITIONAL`
+
+`docs/IDEAS-MEJORA-WEB-REVISION-2026-08-27.md` corrigió la premisa:
+
+> enlazar fuentes útiles mejora verificabilidad/contexto, pero no afirmar “outbound link = señal E-E-A-T/ranking”. Añadir solo donde ayuda al lector o sustenta una afirmación.
+
+Desde esta primera revisión A.5 ya era condicional, no una tarea sitewide.
+
+### 3.2 · Fuentes primarias
+
+`docs/IDEAS-MEJORA-WEB-FUENTES-PRIMARIAS-2026-08-27.md` fijó:
+
+Google Search Central · Link best practices  
+https://developers.google.com/search/docs/crawling-indexing/links-crawlable
+
+Google · Creating helpful, reliable, people-first content  
+https://developers.google.com/search/docs/fundamentals/creating-helpful-content
+
+Google Search spam policies · Link spam  
+https://developers.google.com/search/docs/essentials/spam-policies#link-spam
+
+Lectura de #135:
+
+- enlaces externos pueden aportar contexto/verificabilidad;
+- E-E-A-T no es un score único que se optimice añadiendo dominios “fuertes”;
+- no hay cuota de outbound links;
+- enlaces pagados/afiliados deben calificarse correctamente;
+- esquemas/intercambios orientados a ranking son un riesgo.
+
+### 3.3 · Matriz intermedia → `PILOTAR`
+
+`docs/IDEAS-MEJORA-WEB-MATRIZ-FINAL-2026-08-28.md` usó `PILOTAR`:
+
+> enlazar fuentes primarias cuando mejoren la pieza; no tratar outbound links como factor directo de ranking/E-E-A-T.
+
+Ese lenguaje no significaba implantar enlaces en masa. Era compatible con probar el criterio donde hubiera una afirmación que necesitase evidencia.
+
+### 3.4 · Repo cross-check → se mantiene `CONDITIONAL`
+
+`docs/IDEAS-MEJORA-WEB-REPO-CROSSCHECK-2026-08-27.md` incluye A.5 entre los condicionales:
+
+> enlaces salientes: solo donde una fuente mejora verificabilidad/lectura; no por “E-E-A-T boost”.
+
+No apareció un gap transversal que justificase una nueva infraestructura global.
+
+### 3.5 · Autoridad machine-readable final → `CONDITIONAL`
+
+`data/web-improvement-decisions-2026-08-28.json` fija:
+
+```json
+{"id":"A.5","area":"seo","status":"CONDITIONAL"}
+```
+
+Y exige que todo `CONDITIONAL` tenga un trigger explícito antes de código.
+
+### 3.6 · Autoridad humana final → trigger por afirmación
+
+`docs/PR135-FINAL-AUTHORITY-2026-08-28.md` consolida:
+
+> enlazar fuentes primarias cuando ayuden al lector o acrediten una afirmación; no vender outbound links como factor directo E-E-A-T/ranking.
+
+### 3.7 · Revalidación independiente → decisión mantenida
+
+`docs/PR135-INDEPENDENT-REVALIDATION-2026-08-28.md` mantuvo A.1–A.12. No reabrió A.5 como implementación obligatoria.
+
+Secuencia histórica:
+
+```text
+hipótesis: authority outbound links / E-E-A-T
+→ CONDITIONAL
+→ PILOTAR donde aporta evidencia
+→ repo cross-check mantiene CONDITIONAL
+→ final JSON/humano = CONDITIONAL
+→ revalidación independiente mantiene
+```
+
+## 4. Trigger exacto
+
+A.5 se activa cuando una página realiza una afirmación externa cuya verificabilidad mejora con una fuente.
+
+Ejemplos:
 
 ### Hechos propios
 
-Libro, autor, fragmento, proceso creativo. La fuente primaria puede ser el propio sitio, editorial o documento oficial.
+Libro, autor, fragmento, proceso creativo: normalmente la autoridad primaria es el propio proyecto, editorial o documentación contractual/factual correspondiente. No hace falta añadir una bibliografía externa por estética.
 
 ### Hechos externos cambiantes
 
-Editoriales que aceptan manuscritos, convocatorias, políticas de Google/Brevo, fechas de eventos, características de plataformas. Aquí una fuente externa primaria es especialmente valiosa.
+- editorial acepta/no acepta manuscritos;
+- convocatoria y sus bases;
+- fecha/condición de un evento externo;
+- comportamiento de Google/Brevo/otra plataforma;
+- política o estándar técnico.
+
+Aquí citar la fuente responsable suele ser útil.
 
 ### Recomendaciones/opinión
 
-No hace falta convertir cada opinión en una bibliografía. Sí debe quedar claro cuándo un dato (ISBN, edición, disponibilidad, premio, editorial) proviene de una fuente verificable.
+La opinión no necesita fingir objetividad mediante referencias. Los hechos bibliográficos, disponibilidad, edición, premio o editorial sí pueden necesitar fuente.
 
-## Prioridad de fuentes
+## 5. Jerarquía de evidencia que sobrevive a #135
 
-Cuando se haga una afirmación factual externa, preferir:
+Cuando el trigger se cumple:
 
 1. fuente oficial/primaria;
 2. organismo/entidad responsable;
 3. documentación técnica oficial;
-4. fuente secundaria reputada solo cuando no existe primaria o para contexto;
-5. evitar agregadores SEO para justificar decisiones técnicas si existe documentación del proveedor.
+4. fuente secundaria reputada cuando la primaria no existe o para contexto;
+5. evitar blogs SEO/agregadores para justificar decisiones que tienen documentación oficial.
 
 Ejemplos:
 
-- Google Search → developers.google.com/search;
-- Brevo → help.brevo.com / developers.brevo.com;
-- ISBN/editorial → editorial/retailer/catálogo oficial según el hecho;
-- convocatoria → bases del organizador;
-- WCAG → W3C/WAI.
+- Google Search → `developers.google.com/search`;
+- Brevo → Help/Developers de Brevo;
+- WCAG → W3C/WAI;
+- convocatoria → organizador/bases;
+- editorial/edición → editorial/catálogo responsable según el hecho.
 
-## Plan de integración
+## 6. Integración técnica: solo donde ya haya una autoridad de datos
 
-### A. Política editorial
+No crear un sistema global de citas porque A.5 existe.
 
-Añadir una sección a la autoridad de metodología editorial existente en lugar de crear una página SEO nueva:
-
-```text
-Hecho externo verificable → fuente primaria visible o registrada.
-Opinión/recomendación → no fingir objetividad ni autoridad externa.
-Enlace comercial/afiliado → rel="sponsored nofollow" cuando corresponda.
-Fuente no confiable pero necesaria → rel="nofollow".
-```
-
-### B. Source records machine-readable solo donde ya exista un dataset
-
-No añadir un sistema global de citas a todos los HTML. Para directorios/datos generados, un registro como:
+En datasets que ya modelan hechos verificados, puede ser apropiado reutilizar o introducir campos equivalentes a:
 
 ```json
 {
@@ -87,80 +165,128 @@ No añadir un sistema global de citas a todos los HTML. Para directorios/datos g
 }
 ```
 
-es preferible porque builder/UI pueden derivar de una misma evidencia.
+Pero antes de añadir campos hay que inspeccionar si la autoridad concreta ya tiene `source`, `sourceUrl`, `verifiedAt` u otro equivalente.
 
-### C. Links visibles en contenido
+Esto se cruza con A.4: `verifiedAt` y revisión factual deben compartir semántica, no crear dos calendarios de verificación.
 
-Usar anchors descriptivos:
+## 7. Enlaces visibles
+
+Cuando una fuente merece mostrarse:
 
 ```html
-<a href="https://developers.google.com/search/docs/...">documentación oficial de Google sobre ...</a>
+<a href="https://developers.google.com/search/docs/...">
+  documentación oficial de Google sobre …
+</a>
 ```
 
-No “fuente”, “más info”, “click aquí” si se puede explicar el destino.
+Preferir anchors que expliquen el destino frente a “clic aquí”, salvo contexto donde una etiqueta corta sea más natural.
 
-## Auditoría propuesta
+## 8. Calificación de enlaces
 
-No contar links. Clasificar afirmaciones que realmente requieren fuente:
+No usar `nofollow` por defecto en todos los enlaces externos.
 
-- directorios/convocatorias: obligatorio;
-- artículos técnicos: recomendable por afirmación relevante;
-- prensa/premios: obligatorio cuando se presenta como reconocimiento externo;
-- recomendaciones: fuente para datos bibliográficos/verificación, no para la opinión personal;
-- páginas de obra: fuentes comerciales/editoriales solo para hechos que el sitio no controla.
+- relación pagada/afiliada → `rel="sponsored"` es la calificación preferida por Google; `nofollow` puede acompañar según el contrato/política;
+- fuente que no se desea respaldar → `nofollow` cuando corresponda;
+- enlace editorial normal y confiable → no necesita `nofollow` automático.
 
-## Código / QA
+La calificación debe reflejar la relación real, no una teoría de PageRank interno.
 
-Aprovechar el checker de enlaces externo existente (Lychee/check external links). No construir otro crawler.
+## 9. QA condicional
 
-Posible checker semántico específico para datasets:
+Reutilizar el checker externo existente (Lychee/QA de enlaces). No crear otro crawler solo para A.5.
 
-`scripts/check-source-evidence.py`
+Si un dataset concreto declara registros “verified”, un checker semántico puede validar su contrato:
 
 ```python
 for item in externally_verified_records:
     assert item.get("sourceUrl")
     assert item.get("verifiedAt")
-    assert item.get("sourceType") in {"official", "primary", "secondary"}
 ```
 
-Debe validar presencia/formato/paridad; **no** decidir automáticamente que un dominio es “autoritativo”.
+Solo si esa autoridad realmente adopta esos campos.
 
-## Qué NO hacer
+No programar un algoritmo que decida por DA/DR si un dominio es “autoridad”.
 
-- insertar enlaces a Wikipedia, periódicos o universidades solo para “pasar autoridad”;
-- fijar una cuota de 3–5 outbound links por artículo;
-- intercambiar enlaces con autores para ranking;
-- añadir enlaces irrelevantes a dominios con DR/DA alto;
-- usar `nofollow` en todos los enlaces externos por miedo;
-- confundir `rel=sponsored` con una penalización: es la calificación correcta para relaciones pagadas/afiliadas;
-- citar blogs SEO como fuente primaria si existe documentación oficial;
-- añadir bibliografías falsas a contenido literario/opinión.
+## 10. Auditoría correcta
 
-## Beneficio esperado
+No contar links por página. Preguntar dónde hay afirmaciones que necesitan evidencia:
 
-- verificabilidad: alto en directorios/guías técnicas;
-- confianza editorial: alto;
-- SEO directo cuantificable por “link saliente”: **no demostrado**;
-- mantenimiento: mejora si fuente + `verifiedAt` se integran con la política A.4.
+- directorios/convocatorias → normalmente sí;
+- artículos técnicos → afirmaciones materiales;
+- prensa/premios → fuente real cuando se presenta reconocimiento externo;
+- recomendaciones → datos verificables, no la opinión;
+- obra → hechos comerciales/editoriales externos cuando corresponda.
 
-## Tests
+## 11. Qué NO hacer
 
-- datasets que afirman `verified` requieren `sourceUrl` + `verifiedAt`;
-- enlaces `sponsored`/afiliados conservan el `rel` requerido;
-- Lychee/external-link QA sigue verde;
-- no introducir fuente externa como canonical del contenido propio;
-- builders preservan fuente/evidencia visible cuando el contrato lo exige.
+- insertar Wikipedia/universidades/prensa solo para “pasar autoridad”;
+- cuota 3–5 links por artículo;
+- intercambiar links con autores para ranking;
+- elegir dominios por DA/DR;
+- `nofollow` en todos los enlaces externos;
+- bibliografías falsas en literatura/opinión;
+- citar blogs SEO cuando existe documentación oficial;
+- crear un nuevo registry global de fuentes sin necesidad;
+- marcar A.5 como implementada porque algunas páginas ya enlazan fuera.
 
-## Definition of Done
+## 12. Beneficio / coste
 
-- [ ] identificar datasets/páginas con hechos externos verificables;
-- [ ] reutilizar campos de fuentes ya existentes antes de inventar otros;
-- [ ] documentar jerarquía de fuentes;
-- [ ] auditar afiliados/comerciales para `sponsored`;
-- [ ] integrar con A.4 cuando haya `verifiedAt`/review cadence;
-- [ ] no fijar cuotas de enlaces ni KPI de “authority links”.
+Verificabilidad: alto cuando hay hechos externos.  
+Confianza editorial: alto en directorios/guías.  
+SEO directo atribuible a “poner enlaces salientes”: no demostrado.  
+Coste: bajo por caso; alto e inútil si se convierte en auditoría sitewide sin trigger.
 
-## Recomendación de merge
+## 13. Tests si se implementa en una autoridad concreta
 
-**MERGE como política editorial/técnica.** Mejora calidad y trazabilidad. No debe venderse como una receta de ranking basada en enlazar dominios “fuertes”.
+- registro `verified` exige evidencia conforme al schema elegido;
+- `verifiedAt` mantiene semántica compatible con A.4;
+- afiliados/comerciales conservan `sponsored` cuando aplique;
+- links siguen verdes en QA externo;
+- una fuente externa nunca se convierte accidentalmente en canonical del contenido propio;
+- builder/UI preservan fuente visible solo cuando el contrato la requiere.
+
+## 14. Definition of Done de A.5
+
+### Historia ya recuperada
+
+- [x] hipótesis de “authority outbound links” preservada;
+- [x] corrección del supuesto boost E-E-A-T preservada;
+- [x] estado inicial `CONDITIONAL` preservado;
+- [x] `PILOTAR` de matriz intermedia documentado como formulación histórica;
+- [x] cross-check mantuvo trigger estricto;
+- [x] autoridad JSON final = `CONDITIONAL`;
+- [x] autoridad humana final = `CONDITIONAL`;
+- [x] revalidación independiente no cambió A.5;
+- [x] relación con A.4 y fuentes primarias conservada.
+
+### Para cada activación futura
+
+- [ ] identificar la afirmación exacta que necesita evidencia;
+- [ ] elegir fuente primaria si existe;
+- [ ] reutilizar schema/campos actuales;
+- [ ] calificar relación comercial cuando proceda;
+- [ ] no fijar KPI de número de enlaces;
+- [ ] ejecutar QA correspondiente.
+
+## 15. Trazabilidad del corpus histórico de #135 revisado para A.5
+
+### Evidencia/decisión específica
+
+- `docs/IDEAS-MEJORA-WEB-2026-08-27.md` — hipótesis original.
+- `docs/IDEAS-MEJORA-WEB-REVISION-2026-08-27.md` — `CONDITIONAL` y corrección del boost.
+- `docs/IDEAS-MEJORA-WEB-FUENTES-PRIMARIAS-2026-08-27.md` — links/people-first/spam.
+- `docs/IDEAS-MEJORA-WEB-MATRIZ-FINAL-2026-08-28.md` — `PILOTAR` histórico.
+- `docs/IDEAS-MEJORA-WEB-REPO-CROSSCHECK-2026-08-27.md` — condición estricta por utilidad/verificabilidad.
+- `data/web-improvement-decisions-2026-08-28.json` — estado final machine-readable.
+- `docs/PR135-FINAL-AUTHORITY-2026-08-28.md` — autoridad humana final.
+- `docs/PR135-INDEPENDENT-REVALIDATION-2026-08-28.md` — revalidación independiente.
+
+### Revisados sin cambio específico adicional
+
+Overrides de repo, blueprints netos, cuarta a decimoquinta pasada, casos/evidencia/límites, fuentes adicionales, repos evaluados y policy watch se revisaron. No añaden una decisión A.5 que sustituya el trigger final `CONDITIONAL`.
+
+## 16. Recomendación de merge
+
+**MERGE como reconstrucción completa de una decisión `CONDITIONAL`.**
+
+No significa “implementar enlaces externos”. Significa que Clara/Claude dispone del criterio exacto de cuándo y cómo hacerlo sin repetir la investigación ni convertirlo en una receta SEO.
