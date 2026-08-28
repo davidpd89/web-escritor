@@ -509,7 +509,7 @@
       addTextLink(cardHeading, href, cardTitle);
       card.append(cardHeading);
       if (text) card.append(make('p', '', text));
-      addTextLink(card, href, 'Abrir', 'yale-text-link');
+      addTextLink(card, href, 'Abrir', 'yale-text-link yale-text-link--gradient');
       rail.append(card);
     });
 
