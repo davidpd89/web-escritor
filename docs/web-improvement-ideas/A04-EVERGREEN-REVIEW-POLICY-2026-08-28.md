@@ -1,177 +1,299 @@
 # A.4 · Revisión programada de contenido evergreen
 
-Fecha de revisión: 2026-08-28
-Idea original: añadir una fecha de revisión objetivo a `content-registry.json` y refrescar fechas visibles al actualizar contenido evergreen.
+Fecha de reconstrucción: 2026-08-29  
+Idea original: añadir una fecha de revisión objetivo a `content-registry.json` y refrescar fechas visibles tras cambios sustantivos en contenido evergreen.  
+Fuente histórica principal: PR #135, snapshot `8e72321d047c0445c5ac411ebe242af8a0386929`.  
+Estado de esta PR: plan/documentación; no implementa todavía el lifecycle.
 
-## Veredicto
+## Veredicto reconciliado
 
-**IMPLEMENTAR, PERO CON UNA CORRECCIÓN IMPORTANTE: revisar contenido sí; “refrescar fechas” automáticamente no.**
+**IMPLEMENT_AFTER_CURRENT_DEBT.**
 
-El problema real existe: directorios, recomendaciones, convocatorias, recursos y guías con hechos externos pueden quedarse obsoletos. Un calendario de revisión reduce stale facts y mejora confianza editorial.
+La capacidad aporta valor real, especialmente para contenido que depende de hechos externos, pero #135 no la dejó como implementación inmediata. Debe integrarse en las autoridades ya existentes y, de forma explícita, **extender `scripts/check-article-dates.py` en lugar de crear otro checker paralelo**.
 
-La parte peligrosa de la idea original es usar cambios de fecha como “señal de frescura”. Google desaconseja cambiar fechas o hacer cambios superficiales para aparentar contenido reciente. `dateModified` y la fecha visible deben representar una actualización significativa, no el paso del calendario.
+La idea original contenía una premisa peligrosa: tratar el cambio de fecha visible como señal de frescura. #135 la corrigió. La fecha pública y `dateModified` solo cambian después de una modificación material; revisar una pieza y confirmar que sigue correcta no autoriza un “freshness bump”.
 
-## Fuentes primarias
+## 1. Regla de reconstrucción de #135
 
-1. Google Search Central · Creating helpful, reliable, people-first content
-   https://developers.google.com/search/docs/fundamentals/creating-helpful-content
-   - Google pregunta explícitamente si se cambia la fecha de páginas para hacerlas parecer recientes aunque el contenido no haya cambiado sustancialmente.
-   - Añadir/eliminar mucho contenido para aparentar frescura no ayuda por sí mismo.
+Esta PR recupera A.4 directamente desde el snapshot histórico de #135, no solo desde #148.
 
-2. Google Search Central · Article publication date best practices
-   https://developers.google.com/search/docs/appearance/publication-dates
-   - Google estima fechas usando múltiples señales.
-   - Puede utilizar fechas visibles y `datePublished` / `dateModified`.
-   - La fecha visible y structured data deben ser coherentes.
-   - `dateModified` debe corresponder a una modificación real/relevante.
+Se preservan:
 
-3. Schema.org `dateModified`
-   https://schema.org/dateModified
-   - Propiedad para la fecha de última modificación real de la CreativeWork/WebPage.
+- hipótesis original;
+- estado inicial y final;
+- corrección contra fake freshness;
+- fuente primaria sobre fechas;
+- hallazgo del checker ya existente;
+- blueprint técnico neto;
+- variantes históricas de nomenclatura (`reviewAt`, `reviewBy`, `reviewCadence`, `verifiedAt`);
+- autoridad humana/JSON final;
+- revalidación independiente;
+- tests y límites.
 
-## Estado del repo
+## 2. Hipótesis original
 
-`data/content-registry.json` ya es el inventario canónico de contenido y contiene `id`, `url`, `type`, `territory`, `parentId`, `hubId`, `discoverability`, `sourceFile`, etc. **No contiene actualmente una política de revisión temporal genérica.**
+`docs/IDEAS-MEJORA-WEB-2026-08-27.md` proponía:
 
-Hay familias con distinta volatilidad:
+> marcar en `content-registry.json` una fecha de revisión objetivo para artículos de recomendaciones/guías y refrescar la fecha visible después de cambios sustantivos, presentado en parte como señal de frescura para Google.
+
+Había dos ideas mezcladas:
+
+1. una buena: controlar obsolescencia editorial;
+2. una que requería corrección: convertir fechas en una táctica SEO de “frescura”.
+
+## 3. Evolución cronológica en #135
+
+### 3.1 · Primera revisión → `IMPLEMENT_AFTER_CURRENT_DEBT`
+
+`docs/IDEAS-MEJORA-WEB-REVISION-2026-08-27.md` aprobó el problema real y corrigió la semántica:
+
+- añadir `reviewAt`/`verifiedAt` a evergreen;
+- `dateModified` solo tras actualización sustantiva;
+- **no refrescar `datePublished` artificialmente**.
+
+A.4 quedó como trabajo válido, de alto valor, pero posterior a la deuda técnica/QA activa.
+
+### 3.2 · Fuentes primarias → no fake freshness
+
+`docs/IDEAS-MEJORA-WEB-FUENTES-PRIMARIAS-2026-08-27.md` fijó como autoridad:
+
+Google Search Central · Article publication date best practices  
+https://developers.google.com/search/docs/appearance/publication-dates
+
+Y, en la investigación posterior:
+
+Google · Creating helpful, reliable, people-first content  
+https://developers.google.com/search/docs/fundamentals/creating-helpful-content
+
+Schema.org · `dateModified`  
+https://schema.org/dateModified
+
+Conclusión de #135:
+
+- `datePublished` representa publicación original;
+- `dateModified` representa cambio material real;
+- fecha visible y structured data deben mantener coherencia;
+- revisar contenido sin cambiarlo no justifica simular actualización pública.
+
+### 3.3 · Matriz intermedia → `IMPLEMENTAR`
+
+`docs/IDEAS-MEJORA-WEB-MATRIZ-FINAL-2026-08-28.md` resumió A.4 como:
+
+> añadir `reviewBy/reviewCadence` a contenido evergreen; fecha visible solo cambia tras actualización material; nunca “freshness bump” automático.
+
+Ese `IMPLEMENTAR` describía una mejora aprobada, pero la autoridad final machine-readable conservó la prioridad `IMPLEMENT_AFTER_CURRENT_DEBT`.
+
+### 3.4 · Inspección profunda del repo → extender `check-article-dates.py`
+
+Este es un hallazgo crítico que la primera versión de esta PR individual había perdido.
+
+`docs/IDEAS-MEJORA-WEB-OVERRIDES-REPO-2026-08-28.md` dice expresamente:
+
+> A.4 sigue pendiente, pero debe extender `scripts/check-article-dates.py` y la autoridad actual; no crear otro validador independiente.
+
+Además fija la semántica que debe distinguirse:
+
+- `publishedAt`;
+- `modifiedAt`;
+- `verifiedAt`;
+- `reviewAt`.
+
+Por tanto **queda descartada** la propuesta anterior de esta PR de crear `scripts/check-content-review-dates.py` como sistema paralelo.
+
+### 3.5 · Blueprint neto W5 → implementación concreta
+
+`docs/IDEAS-MEJORA-WEB-CODE-BLUEPRINTS-2026-08-28.md` dedica W5 a A.4.
+
+Autoridad existente a reutilizar:
+
+- `scripts/check-article-dates.py`;
+- `data/content-registry.json` cuando corresponda;
+- builders que ya renderizan fechas visibles/JSON-LD.
+
+Modelo orientativo histórico:
+
+```json
+{
+  "publishedAt": "2026-08-01",
+  "modifiedAt": "2026-08-28",
+  "verifiedAt": "2026-08-28",
+  "reviewAt": "2027-02-28"
+}
+```
+
+Semántica:
+
+- `publishedAt`: publicación original;
+- `modifiedAt`: modificación material publicada;
+- `verifiedAt`: fecha de comprobación factual aunque no haya cambio textual;
+- `reviewAt`: deuda/fecha objetivo interna, nunca mostrada automáticamente como “actualizado”.
+
+Validaciones mínimas propuestas:
+
+```python
+assert published_at <= modified_at
+assert verified_at <= review_at
+```
+
+El blueprint también descarta usar un hash ingenuo del HTML completo para decidir si hubo cambio material: shell, CSS, analytics o regeneración pueden cambiar bytes sin alterar contenido editorial.
+
+### 3.6 · Variación de nombres en la autoridad final
+
+En documentos posteriores aparecen `reviewBy/reviewCadence` en lugar de `reviewAt`. Esto no cambia la capacidad: es una diferencia de diseño de esquema todavía no implementado.
+
+La PR de implementación futura debe escoger **una sola nomenclatura compatible con la autoridad de datos actual**, migrarla de forma explícita y testearla. No mantener simultáneamente `reviewAt`, `reviewBy`, `lastReviewed` y `reviewPolicy` sin una razón.
+
+### 3.7 · Autoridad machine-readable final
+
+`data/web-improvement-decisions-2026-08-28.json` fija:
+
+```json
+{"id":"A.4","area":"seo","status":"IMPLEMENT_AFTER_CURRENT_DEBT"}
+```
+
+Este es el estado final histórico que debe gobernar esta PR.
+
+### 3.8 · Autoridad humana final
+
+`docs/PR135-FINAL-AUTHORITY-2026-08-28.md` consolida:
+
+> añadir `reviewBy/reviewCadence` a evergreen y actualizar fechas visibles solo tras cambios materiales.
+
+### 3.9 · Revalidación independiente
+
+`docs/PR135-INDEPENDENT-REVALIDATION-2026-08-28.md` volvió a revisar las 108 ideas y mantuvo A.4. También volvió a citar la guía oficial de fechas de Google. No surgió una corrección que invalidase la capacidad.
+
+Secuencia histórica:
+
+```text
+hipótesis de revisión + frescura
+→ IMPLEMENT_AFTER_CURRENT_DEBT
+→ corrección: no fake freshness
+→ matriz: IMPLEMENTAR
+→ repo override: extender check-article-dates.py
+→ blueprint W5
+→ final: IMPLEMENT_AFTER_CURRENT_DEBT
+```
+
+## 4. Problema real que resuelve
+
+Hay contenido con volatilidad muy distinta.
 
 ### Alta volatilidad
 
-- `/convocatorias-escritores/` y datos de oportunidades;
-- directorios de editoriales cuando se afirma “recibe manuscritos”/estado verificable;
+- convocatorias y oportunidades;
+- directorios de editoriales cuando se afirma estado de recepción de manuscritos;
 - eventos futuros;
-- recursos que dependen de APIs/plataformas/funciones externas.
+- datos dependientes de plataformas/API/políticas externas.
 
 ### Media
 
-- recomendaciones cuando citan disponibilidad/ediciones/datos externos;
-- artículos prácticos sobre plataformas/SEO/herramientas;
-- metodología con enlaces a políticas que pueden cambiar.
+- recomendaciones con disponibilidad/ediciones/datos externos;
+- artículos prácticos sobre plataformas, SEO o herramientas;
+- metodología con enlaces a políticas cambiantes.
 
-### Baja/estable
+### Baja o event-driven
 
-- fichas de libros publicados (salvo hechos comerciales);
-- biografía estable del autor;
+- fichas de libros estables salvo hechos comerciales;
+- biografía estable;
 - fragmentos literarios;
-- artículos de proceso/ensayo que no dependen de información cambiante.
+- ensayos/proceso creativo sin datos externos perecederos.
 
-Aplicar una cadencia uniforme sería ruido.
+Una cadencia uniforme sería ruido. Debe aplicarse solo donde el coste de quedar obsoleto sea material.
 
-## Modelo propuesto
+## 5. Diseño de datos que sobrevive a #135
 
-No reutilizar `dateModified` como deadline. Añadir metadata explícita y separada:
+La intención no es imponer un objeto `reviewPolicy` nuevo si el registry puede resolverlo con campos simples/defaults por familia.
+
+Una implementación válida podría terminar, tras revisar el schema real, en algo equivalente a:
 
 ```json
 {
   "id": "recommend-portal-es",
-  "reviewPolicy": {
-    "class": "medium",
-    "lastReviewed": "2026-08-28",
-    "reviewBy": "2026-11-28",
-    "reason": "ediciones, enlaces y disponibilidad externa pueden cambiar",
-    "owner": "editorial"
-  }
+  "verifiedAt": "2026-08-28",
+  "reviewBy": "2026-11-28",
+  "reviewCadenceDays": 90
 }
 ```
 
-Para contenido estable:
+O usar `reviewAt` si esa es la nomenclatura elegida en la PR final.
 
-```json
-{
-  "id": "work-samuel",
-  "reviewPolicy": {
-    "class": "event-driven",
-    "triggers": ["new-edition", "retailer-change", "publisher-change"]
-  }
-}
+Para contenido estable puede bastar un comportamiento event-driven sin deadline artificial.
+
+Regla: **una sola fuente de verdad y un solo vocabulario final**.
+
+## 6. Implementación correcta
+
+### 6.1 · Extender `scripts/check-article-dates.py`
+
+No crear `check-content-review-dates.py` en paralelo salvo que una limitación concreta del checker existente lo haga imposible y se documente.
+
+El checker existente debe ampliarse para:
+
+- validar campos de lifecycle cuando existan;
+- distinguir error de fecha pública frente a deuda editorial interna;
+- reportar revisiones próximas/vencidas;
+- no mutar contenido;
+- no actualizar `verifiedAt` por el mero hecho de ejecutarse;
+- conservar sus contratos actuales de `datePublished`/`dateModified`.
+
+### 6.2 · Modo read-only
+
+Comportamiento orientativo:
+
+```text
+INFO    review due within 30 days
+WARNING review target overdue
+ERROR   solo si una familia se declara release-critical y el contrato lo exige
 ```
 
-No hace falta añadir `reviewPolicy` a cada entrada si se pueden definir defaults por `type`/familia y overrides concretos.
+No hacer commits automáticos de fechas.
 
-## Script propuesto
+### 6.3 · Flujo editorial
 
-`scripts/check-content-review-dates.py`
+1. el checker identifica una pieza pendiente de revisión;
+2. persona/Claude revisa fuentes primarias y datos;
+3. si todo sigue correcto:
+   - actualizar solo la evidencia interna elegida (`verifiedAt` y siguiente revisión);
+   - no cambiar `dateModified` ni fecha visible;
+4. si cambia contenido sustancial:
+   - actualizar texto/datos;
+   - actualizar `modifiedAt`/`dateModified`;
+   - actualizar fecha visible si la plantilla la muestra;
+   - conservar `publishedAt`/`datePublished` original.
 
-Modos:
+## 7. Qué es una modificación material
 
-```bash
-python scripts/check-content-review-dates.py
-python scripts/check-content-review-dates.py --json artifacts/content-review.json
-python scripts/check-content-review-dates.py --strict
-```
+Sí puede justificar `dateModified`:
 
-Comportamiento:
+- reescritura de una sección sustancial;
+- altas/bajas de recomendaciones por hechos reales;
+- cambio de metodología/criterios;
+- corrección factual relevante;
+- actualización de datos que cambia la utilidad de la página.
 
-- `INFO`: próxima revisión dentro de 30 días;
-- `WARNING`: `reviewBy` vencido;
-- `ERROR` en `--strict` solo para contenido con política que el proyecto haya declarado release-critical;
-- nunca modifica HTML/JSON automáticamente;
-- nunca actualiza `lastReviewed` por el mero hecho de ejecutar el script.
+No:
 
-Pseudocódigo:
+- una tilde;
+- regeneración de HTML;
+- CSS/shell;
+- renovar el deadline tras comprobar que nada cambió;
+- tocar fecha para parecer reciente.
 
-```python
-for entry in registry["entries"]:
-    policy = resolve_review_policy(entry)
-    if not policy or policy["class"] == "event-driven":
-        continue
-    if date.today() > parse(policy["reviewBy"]):
-        findings.append({"id": entry["id"], "status": "OVERDUE"})
-```
+## 8. Builders y paridad
 
-## Flujo editorial correcto
+Si una familia generada muestra fecha pública:
 
-1. El checker dice que una pieza toca revisión.
-2. Claude/persona revisa fuentes primarias y enlaces.
-3. Si no cambia nada sustancial:
-   - actualizar `lastReviewed`/`reviewBy` del registry;
-   - **no** cambiar fecha visible ni `dateModified` del artículo.
-4. Si cambia contenido sustancial:
-   - actualizar texto;
-   - actualizar `dateModified` y, si el diseño lo muestra, “Actualizado el …”;
-   - mantener `datePublished` original;
-   - registrar fuente/evidencia cuando proceda.
+- datos canónicos → builder → HTML + JSON-LD;
+- `--check` o test equivalente debe detectar drift;
+- no dispersar fechas manualmente por plantillas;
+- una comprobación editorial interna no debe alterar por efecto colateral el markup público.
 
-## Qué significa “sustancial”
+## 9. Automatización opcional
 
-Ejemplos válidos para `dateModified`:
+#135 permitía automatización **informativa**, no edición automática. Un workflow semanal puede reportar vencimientos si existe utilidad operativa.
 
-- se reescribe una sección material;
-- se añaden/eliminan recomendaciones por cambios reales;
-- cambia metodología o criterios;
-- se corrige un hecho relevante;
-- se actualizan datos que cambian la utilidad de la página.
-
-No válido:
-
-- corregir una tilde;
-- regenerar HTML;
-- cambiar CSS;
-- renovar `reviewBy` tras comprobar que todo sigue igual;
-- cambiar la fecha para que Google vea contenido “fresco”.
-
-## Integración con builders
-
-No dispersar fechas en plantillas manuales. Si una familia generada muestra fecha de actualización:
-
-- el source of truth debe ser su data/registry;
-- el builder debe generar HTML + JSON-LD desde ese mismo valor;
-- `--check` debe detectar drift.
-
-## Tests
-
-1. schema de `reviewPolicy` válido;
-2. `reviewBy >= lastReviewed`;
-3. ninguna fecha futura usada como `lastReviewed`;
-4. entries `event-driven` no requieren deadline artificial;
-5. checker no muta ficheros;
-6. fixture overdue genera warning/error esperado;
-7. cuando una página expone `dateModified`, structured data y fecha visible deben coincidir si existe fecha visible;
-8. `datePublished` no se reemplaza por `dateModified`.
-
-## Automatización
-
-Recomendación: workflow semanal **informativo**, no bot de edición:
+Ejemplo:
 
 ```yaml
 name: Content review due
@@ -181,25 +303,84 @@ on:
   workflow_dispatch:
 ```
 
-Puede generar summary/artifact o issue solo cuando existan vencimientos. Evitar commits automáticos de fechas.
+Debe consumir el checker existente ampliado. No abrir PRs que solo cambien fechas ni crear issues cada semana si no hay vencimientos.
 
-## Coste / beneficio
+## 10. Tests
 
-Beneficio: **alto** para directorios/oportunidades y contenido externo cambiante; medio para recomendaciones; bajo para contenido literario estable.
-Coste: bajo/medio.
-Riesgo si se implementa mal: fake freshness y ruido editorial.
+- `publishedAt <= modifiedAt` cuando ambos existan;
+- `verifiedAt <= reviewAt/reviewBy` según schema final;
+- ninguna verificación futura;
+- contenido event-driven no recibe deadline artificial;
+- checker read-only no muta ficheros;
+- fixture overdue genera salida esperada;
+- `dateModified` estructurado y fecha visible mantienen paridad cuando existe fecha visible;
+- `datePublished` nunca se reemplaza por `dateModified`;
+- cambios de shell/build no se confunden con modificación editorial material;
+- tests actuales de `check-article-dates.py` siguen verdes.
 
-## Definition of Done
+## 11. Qué NO hacer
 
-- [ ] clasificar familias por volatilidad real;
-- [ ] añadir policy solo donde aporte valor;
-- [ ] implementar checker read-only;
-- [ ] test de fechas/schema;
-- [ ] documentar diferencia `lastReviewed` vs `dateModified`;
-- [ ] workflow informativo opcional;
-- [ ] ninguna actualización automática de fecha visible;
-- [ ] validar con 3 casos reales: convocatoria/editorial, recomendación y página estable.
+- crear un segundo checker sin demostrar que el existente no puede extenderse;
+- usar `dateModified` como deadline;
+- cambiar `datePublished` para “refrescar” una URL;
+- actualizar fechas automáticamente en CI;
+- imponer revisión trimestral a contenido literario estable;
+- mantener cuatro nombres equivalentes sin migración/contrato;
+- usar hash del HTML completo como prueba de materialidad;
+- vender la cadencia como factor de ranking.
 
-## Recomendación de merge
+## 12. Coste / beneficio
 
-**MERGE como plan de implementación.** Es una de las primeras diez ideas que sí aporta una capacidad nueva clara, siempre que se implemente como control de obsolescencia y no como manipulación de frescura SEO.
+Beneficio alto para directorios/oportunidades y datos externos; medio para recomendaciones; bajo para contenido estable.  
+Coste bajo/medio si extiende la autoridad existente.  
+Riesgo principal: fake freshness, ruido editorial y una segunda fuente de verdad si se implementa mal.
+
+## 13. Definition of Done
+
+### Historia/decisión ya recuperada
+
+- [x] hipótesis original preservada;
+- [x] `IMPLEMENT_AFTER_CURRENT_DEBT` inicial preservado;
+- [x] corrección de fake freshness preservada;
+- [x] estado `IMPLEMENTAR` de matriz intermedia identificado como histórico;
+- [x] override de repo que exige extender `check-article-dates.py` recuperado;
+- [x] blueprint W5 recuperado;
+- [x] variación `reviewAt` vs `reviewBy/reviewCadence` documentada;
+- [x] autoridad JSON final = `IMPLEMENT_AFTER_CURRENT_DEBT`;
+- [x] autoridad humana final preservada;
+- [x] revalidación independiente mantuvo A.4.
+
+### Para una futura PR de implementación
+
+- [ ] auditar schema/campos actuales antes de elegir nombres;
+- [ ] clasificar solo familias realmente volátiles;
+- [ ] extender `scripts/check-article-dates.py`;
+- [ ] implementar metadata en una autoridad existente;
+- [ ] añadir tests de lifecycle y paridad;
+- [ ] mantener checker read-only;
+- [ ] no tocar fecha visible sin cambio material;
+- [ ] validar al menos un caso volátil, uno medio y uno estable/event-driven.
+
+## 14. Trazabilidad del corpus histórico de #135 revisado para A.4
+
+### Evidencia/decisión específica
+
+- `docs/IDEAS-MEJORA-WEB-2026-08-27.md` — hipótesis original.
+- `docs/IDEAS-MEJORA-WEB-REVISION-2026-08-27.md` — estado inicial y corrección de fechas.
+- `docs/IDEAS-MEJORA-WEB-FUENTES-PRIMARIAS-2026-08-27.md` — fechas/publication updates.
+- `docs/IDEAS-MEJORA-WEB-MATRIZ-FINAL-2026-08-28.md` — `IMPLEMENTAR` histórico.
+- `docs/IDEAS-MEJORA-WEB-OVERRIDES-REPO-2026-08-28.md` — extender `check-article-dates.py`.
+- `docs/IDEAS-MEJORA-WEB-CODE-BLUEPRINTS-2026-08-28.md` — W5 completo.
+- `data/web-improvement-decisions-2026-08-28.json` — estado final machine-readable.
+- `docs/PR135-FINAL-AUTHORITY-2026-08-28.md` — autoridad humana final.
+- `docs/PR135-INDEPENDENT-REVALIDATION-2026-08-28.md` — revalidación/fuente de fechas.
+
+### Revisados sin cambio específico adicional
+
+Cuarta y quinta pasada, sexta y revisión crítica, séptima a decimoquinta pasada, casos/evidencia/límites, fuentes adicionales, repos evaluados y policy watch fueron revisados; no añaden una decisión única adicional para A.4 más allá de lo consolidado arriba.
+
+## 15. Recomendación de merge
+
+**MERGE como reconstrucción completa y plan `IMPLEMENT_AFTER_CURRENT_DEBT`.**
+
+Esta PR no implementa la capacidad. Deja a Clara/Claude la autoridad exacta para desarrollarla después sin repetir la investigación ni crear un checker duplicado.
