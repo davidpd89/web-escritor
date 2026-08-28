@@ -73,8 +73,15 @@ html.v1[data-lrb-home="true"] .masthead__name-text{display:block}
 html.v1[data-lrb-home="true"] .masthead__name.has-logo-image .masthead__name-text{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
 html.v1[data-lrb-home="true"] .masthead__logo-image{display:block;width:min(70vw,760px);height:auto;margin:0 auto}
 html.v1[data-lrb-home="true"] .masthead__kicker{display:none}
-html.v1[data-lrb-home="true"] .masthead__brand-row{display:flex;align-items:center;justify-content:center;gap:clamp(.6rem,1.6vw,1.1rem)}
-html.v1[data-lrb-home="true"] .masthead__avatar{width:clamp(52px,7vw,92px);height:clamp(52px,7vw,92px);border-radius:50%;object-fit:cover;object-position:50% 18%;border:1px solid var(--color-border);flex-shrink:0}
+html.v1[data-lrb-home="true"] .masthead__brand-row{display:flex;align-items:center;justify-content:center;gap:clamp(.3rem,.8vw,.55rem)}
+html.v1[data-lrb-home="true"] .masthead__avatar-frame{position:relative;display:inline-flex;flex-shrink:0}
+html.v1[data-lrb-home="true"] .masthead__avatar{width:clamp(52px,7vw,92px);height:clamp(52px,7vw,92px);border-radius:50%;object-fit:cover;object-position:50% 18%;display:block}
+/* Decorative ring cropped from the author's own reference sheet (blue frame
+   asset, "Recursos diseño web") -- replaces the plain 1px gray border with
+   the same double-ring/diamond-accent motif used across the site's other
+   separator/frame assets. Sized slightly larger than the photo so the ring
+   sits just outside its edge rather than clipping the portrait. */
+html.v1[data-lrb-home="true"] .masthead__avatar-frame::after{content:"";position:absolute;inset:-12%;background:url(/assets/masthead-avatar-frame-blue.png) center/contain no-repeat;pointer-events:none}
 
 /* Tight editorial section row. The clickable area stays >=40px while labels read small. */
 html.v1[data-lrb-home="true"] .masthead-nav{position:relative;border-top:1px solid var(--color-border);border-bottom:0;background:var(--surface-page)}
