@@ -85,7 +85,8 @@ jobs:
             fi
             sleep 0.5
           done
-          node qa/samuel-cls-diagnostic.mjs
+          mkdir -p "$QA_OUT"
+          node qa/samuel-cls-diagnostic.mjs | tee "$QA_OUT/samuel-cls-diagnostic.log"
           node qa/samuel-book-fragment-browser.mjs
           node qa/samuel-ecosystem-browser.mjs
 
