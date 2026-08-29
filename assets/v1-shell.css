@@ -53,3 +53,71 @@ html.v1[data-editorial-context="samuel"] body .quiz-step-label{
   letter-spacing:0;
   text-transform:none;
 }
+
+/* Noveris loads the shared Samuel shell but not v1-samuel.css. Keep the
+   archive's navigation/header/Explore states in the same approved blue-gold
+   language without leaking them into the Club page, which also loads
+   noveris.css and shares data-family="lore". The #respuesta+lore-figure
+   signature is unique to /universo/noveris/ and is cross-engine tested. */
+html.v1[data-editorial-context="samuel"]:has(main[data-family="lore"]>#respuesta .lore-figure) .section-context{
+  border-color:rgba(29,79,150,.22);
+  background:#fff;
+  box-shadow:0 1px 0 rgba(29,79,150,.08),0 5px 14px rgba(23,20,18,.025);
+}
+html.v1[data-editorial-context="samuel"]:has(main[data-family="lore"]>#respuesta .lore-figure) .section-context__title{color:#1d4f96}
+html.v1[data-editorial-context="samuel"]:has(main[data-family="lore"]>#respuesta .lore-figure) .section-context__links a[aria-current="page"]{
+  color:#1d4f96;
+  background:#eefaff;
+  box-shadow:inset 0 -2px 0 #b8860b;
+}
+html.v1[data-editorial-context="samuel"]:has(main[data-family="lore"]>#respuesta .lore-figure) .section-context__links a:hover,
+html.v1[data-editorial-context="samuel"]:has(main[data-family="lore"]>#respuesta .lore-figure) .section-context__links a:focus-visible{
+  color:#0d2c57;
+  background:#eefaff;
+  border-color:rgba(29,79,150,.18);
+}
+html.v1[data-editorial-context="samuel"]:has(main[data-family="lore"]>#respuesta .lore-figure) :is(.header-search,.header-home,.header-sitemap,.header-contact,.explore-trigger):hover,
+html.v1[data-editorial-context="samuel"]:has(main[data-family="lore"]>#respuesta .lore-figure) :is(.header-search,.header-home,.header-sitemap,.header-contact,.explore-trigger):focus-visible{
+  color:#0a4d9f;
+  background:#eefaff;
+  border-color:rgba(10,77,159,.22);
+}
+html.v1[data-editorial-context="samuel"]:has(main[data-family="lore"]>#respuesta .lore-figure) .header-buy:hover,
+html.v1[data-editorial-context="samuel"]:has(main[data-family="lore"]>#respuesta .lore-figure) .header-buy:focus-visible{
+  border-color:#0a4d9f;
+  background:#0a4d9f;
+  color:#fff;
+}
+html.v1[data-editorial-context="samuel"]:has(main[data-family="lore"]>#respuesta .lore-figure) .explore-dialog{border-right-color:#1d4f96}
+html.v1[data-editorial-context="samuel"]:has(main[data-family="lore"]>#respuesta .lore-figure) .explore-dialog__head{border-bottom-color:#b8860b}
+html.v1[data-editorial-context="samuel"]:has(main[data-family="lore"]>#respuesta .lore-figure) :is(.explore-dialog__head h2,.explore-row__index){color:#1d4f96}
+html.v1[data-editorial-context="samuel"]:has(main[data-family="lore"]>#respuesta .lore-figure) .explore-row:hover .explore-row__body strong,
+html.v1[data-editorial-context="samuel"]:has(main[data-family="lore"]>#respuesta .lore-figure) .explore-row:focus-visible .explore-row__body strong,
+html.v1[data-editorial-context="samuel"]:has(main[data-family="lore"]>#respuesta .lore-figure) .explore-children a:hover,
+html.v1[data-editorial-context="samuel"]:has(main[data-family="lore"]>#respuesta .lore-figure) .explore-children a:focus-visible{color:#1d4f96}
+html.v1[data-editorial-context="samuel"]:has(main[data-family="lore"]>#respuesta .lore-figure) .explore-row__toggle{
+  color:#1d4f96;
+  border-color:rgba(29,79,150,.35);
+}
+html.v1[data-editorial-context="samuel"]:has(main[data-family="lore"]>#respuesta .lore-figure) .explore-row__toggle:hover,
+html.v1[data-editorial-context="samuel"]:has(main[data-family="lore"]>#respuesta .lore-figure) .explore-row__toggle:focus-visible{
+  color:#fff;
+  background:#1d4f96;
+  border-color:#1d4f96;
+}
+html.v1[data-editorial-context="samuel"]:has(main[data-family="lore"]>#respuesta .lore-figure) .explore-children{border-left-color:#b8860b}
+html.v1[data-editorial-context="samuel"]:has(main[data-family="lore"]>#respuesta .lore-figure) .explore-subscribe .form-input:focus{
+  border-color:#1d4f96;
+  outline-color:#b8860b;
+}
+html.v1[data-editorial-context="samuel"]:has(main[data-family="lore"]>#respuesta .lore-figure) .explore-subscribe .form-submit{
+  border-color:#1d4f96;
+  background:#1d4f96;
+  color:#fff;
+}
+html.v1[data-editorial-context="samuel"]:has(main[data-family="lore"]>#respuesta .lore-figure) .explore-subscribe .form-submit:hover,
+html.v1[data-editorial-context="samuel"]:has(main[data-family="lore"]>#respuesta .lore-figure) .explore-subscribe .form-submit:focus-visible{
+  border-color:#0d2c57;
+  background:#0d2c57;
+  color:#fff;
+}
