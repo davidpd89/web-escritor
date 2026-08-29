@@ -149,6 +149,19 @@ Las capturas muestran que en una ficha de lectura el launcher fijo puede pasar s
 
 El QA espera explícitamente ese contrato.
 
+### MAN-14 · costura tablet 899/768/767
+
+La revisión humana de capturas detectó que el `@media(max-width:899px)` compartido pisaba la composición tablet previa y reducía demasiado la portada. La corrección se mantiene exclusivamente en la ficha principal:
+
+- `768–899px`: hero explícito de dos columnas, portada editorial izquierda y copy/ledger derecha;
+- se neutralizan propiedades residuales del antiguo layout móvil (`order`, colocaciones grid y anchuras);
+- la portada queda fluida respecto a su columna, sin invadir lectura;
+- `<=767px`: se conserva el apilado móvil deliberado.
+
+El QA se endureció para medir prominencia y separación física. Durante el diagnóstico apareció un falso fallo del propio test: Playwright `locator.boundingBox()` devuelve `x/y/width/height`, no `right`; la comparación original trataba `right` como existente. Se sustituyó por una caja completa basada en `getBoundingClientRect()`. Las cajas reales de 899 demostraron aproximadamente 57 px de separación entre portada y copy. No se rebajó el criterio visual.
+
+Las capturas finales del HEAD de diseño `4cae543bd9d48e4e7f998f65768ef95aae680209` fueron revisadas expresamente en 899 y 768: portada visible/prominente, copy separado, ledger legible y cambio limpio a móvil en 767.
+
 ## 6. Responsive validado por contrato
 
 `qa/manecillas-design-browser.mjs` ejecuta:
@@ -179,6 +192,7 @@ Se prueban expresamente las costuras `1200/1199`, `900/899` y `768/767`. El shel
 - rail de cita `2.5px` efectivo;
 - tres puertas;
 - geometría de `#muestra`;
+- composición tablet 768–899, prominencia de portada y ausencia de invasión del copy;
 - disponibilidad y newsletter;
 - context nav móvil;
 - footer;
@@ -205,13 +219,13 @@ Se prueban expresamente las costuras `1200/1199`, `900/899` y `768/767`. El shel
 
 `.github/workflows/cross-engine-smoke.yml` ejecuta este smoke específico después del smoke general y del de Libros.
 
-### Gates generales
+### Gates generales — cierre técnico
 
-Deben quedar verdes sobre el HEAD definitivo:
+Sobre el HEAD de diseño `4cae543bd9d48e4e7f998f65768ef95aae680209` quedaron verdes:
 
 - Lighthouse CI;
 - Accessibility baseline (Pa11y);
-- Sitewide Reflow QA;
+- Sitewide Reflow QA, incluido Manecillas visual-system QA y aislamiento de Fragmentos;
 - Cross-engine smoke;
 - CSP public shell QA;
 - Runtime scoping QA;
@@ -219,6 +233,8 @@ Deben quedar verdes sobre el HEAD definitivo:
 - Check content indexes;
 - Tool engine tests;
 - Content parity — Libros + Manecillas.
+
+Cualquier commit posterior exclusivamente documental puede volver a disparar los workflows, pero no modifica el runtime validado.
 
 ## 8. Fuera de alcance
 
@@ -238,6 +254,7 @@ El QA automatizado no sustituye una inspección humana final. Revisar en navegad
 - legibilidad real de Yellowtail y del stroke dorado en distintos DPI;
 - conexión visual de rails/separadores;
 - transición `Muestra de lectura` tras sacar `#muestra` del grid;
+- hero tablet 899/768 frente al cambio a móvil en 767;
 - hover/focus con teclado en header, Explorar, CTAs, formulario, footer y back-to-top;
 - que ocultar el launcher `<=1300` no reduzca discoverability porque `Asistente` sigue visible en el header;
 - newsletter con endpoint/configuración real de staging si se dispone;
@@ -255,7 +272,8 @@ Si aparece una preferencia estética nueva, tratarla como decisión separada. Si
 - [x] QA de Manecillas con capturas en breakpoints críticos.
 - [x] Estados interactivos principales incorporados al QA.
 - [x] Smoke de diseño específico en Chromium/Firefox/WebKit añadido.
-- [ ] Todos los gates verdes sobre el HEAD definitivo de #205.
+- [x] Costura tablet 899/768/767 corregida y revisada visualmente.
+- [x] Todos los gates verdes sobre el HEAD de diseño definitivo de #205.
 - [ ] Revisión humana final de Claude/mantenedor antes del merge.
 
-No marcar la PR como cerrada técnicamente hasta que el primer punto pendiente quede verde. Puede permanecer Draft incluso después, para la revisión humana/apilado de PRs.
+#205 queda **cerrada técnicamente y lista para revisión**, aunque permanezca Draft por el flujo de PRs apiladas. No mergear antes de #163 y #174.
