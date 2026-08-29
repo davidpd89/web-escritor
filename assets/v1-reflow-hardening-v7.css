@@ -191,3 +191,15 @@ html.v1[data-editorial-context="obras"] main[data-family="books-index"] :is(
   min-width:0;
   flex-wrap:wrap;
 }
+
+/* /libros/: the 50px floating assistant launcher sits 16px from the viewport
+   edge. Between 1280px and tablet widths the books copy itself reaches that
+   same edge, so the launcher covers several words in the first and third
+   stages. The sticky header already retains the full-size Asistente entry;
+   keep the floating duplicate available, but reduce only its footprint on
+   this dense catalogue. 32px remains above WCAG 2.5.8's 24px target floor. */
+@media (max-width:1300px){
+  html.v1[data-editorial-context="obras"] .assistant-widget{right:max(0px,env(safe-area-inset-right))}
+  html.v1[data-editorial-context="obras"] .assistant-widget__launcher{width:32px;height:32px}
+  html.v1[data-editorial-context="obras"] .assistant-widget__launcher svg{width:16px;height:16px}
+}
