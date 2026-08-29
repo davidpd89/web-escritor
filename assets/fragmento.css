@@ -4,7 +4,9 @@
    La prioridad es la lectura: serif negra, medida estable y cero cards dentro
    del capítulo. Azul/dorado se reservan para orientación, rails y acciones. */
 
-html.v1[data-editorial-context="samuel"] .article-page{
+/* Los tokens viven en el contexto raíz, no dentro de .article-page: el CTA
+   persistente es hermano del main y necesita los mismos materiales de Samuel. */
+html.v1[data-editorial-context="samuel"]{
   --frag-blue:#1d4f96;
   --frag-blue-deep:#0d2c57;
   --frag-gold:#b8860b;
