@@ -338,6 +338,12 @@ html.v1[data-editorial-context="samuel"] #sticky-cta-close:focus-visible{
   outline-offset:2px;
 }
 
+/* El launcher flotante y el CTA persistente comparten la esquina inferior.
+   Mientras el CTA está visible se prioriza la conversión y se evita cualquier
+   solapamiento; el Asistente del header sigue disponible y el launcher reaparece
+   al cerrar o abandonar la franja de activación. */
+html.v1[data-editorial-context="samuel"]:has(#sticky-cta.visible) .assistant-widget__launcher{display:none!important}
+
 @media(min-width:900px){
   html.v1[data-editorial-context="samuel"] #sticky-cta p{display:block}
 }
