@@ -164,6 +164,15 @@ try {
       const maxStickyHeight = width <= 620 ? 76 : 88;
       assert.ok(stickyBox.height <= maxStickyHeight, `${name}: sticky demasiado alto (${stickyBox.height}px > ${maxStickyHeight}px)`);
 
+      // El launcher no puede cubrir el cierre del CTA persistente. En <=1300 ya
+      // está oculto por breakpoint; en desktop ancho lo oculta solo el estado
+      // .visible del sticky y debe reaparecer después del dismiss.
+      await page.waitForTimeout(120);
+      const launcherDuringSticky = page.locator('.assistant-widget__launcher');
+      if (await launcherDuringSticky.count()) {
+        assert.equal((await computed(launcherDuringSticky)).display, 'none', `${name}: launcher intercepta el sticky visible`);
+      }
+
       if (width === 1280 || width === 390) {
         await page.screenshot({ path: path.join(OUT, `samuel-fragmento-sticky-${name}.png`), fullPage: false });
       }
@@ -172,8 +181,9 @@ try {
       assert.equal(await sticky.evaluate(el => el.classList.contains('visible')), false, `${name}: cerrar sticky no lo oculta`);
       assert.equal(await page.evaluate(() => sessionStorage.getItem('sticky-cta-dismissed')), '1', `${name}: dismiss sticky no persiste`);
 
-      // El widget es asíncrono. Si ya ha cargado, <=1300 debe ocultar solo el
-      // launcher flotante; el botón Asistente del header permanece visible.
+      // El widget es asíncrono. <=1300 mantiene oculto solo el launcher flotante;
+      // >1300 debe recuperarlo al cerrar el sticky. El Asistente del header nunca
+      // desaparece.
       await page.waitForTimeout(80);
       const headerAssistant = page.locator('.header-search');
       assert.notEqual((await computed(headerAssistant)).display, 'none', `${name}: Asistente desapareció del header`);
@@ -181,6 +191,7 @@ try {
       if (await launcher.count()) {
         const launcherCss = await computed(launcher);
         if (width <= 1300) assert.equal(launcherCss.display, 'none', `${name}: launcher flotante invade lectura <=1300`);
+        else assert.notEqual(launcherCss.display, 'none', `${name}: launcher no reaparece tras cerrar sticky`);
       }
 
       await page.evaluate(() => scrollTo(0, 0));
