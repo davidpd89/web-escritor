@@ -143,3 +143,51 @@ html.v1 [data-family="findability"] .directory-group__label span{min-width:0;ove
     padding-left:0;
   }
 }
+
+/* /libros/: the stage transition reserves 10px below the ordinary stage
+   padding for the blue/gold separator stack. The first design pass extended
+   the copy rail by only --books-stage-pad, so on desktop it necessarily
+   stopped 10px before that separator. Match the bottom compensation to the
+   actual parent padding so the rail reaches the transition physically. */
+@media (min-width:901px){
+  html.v1[data-editorial-context="obras"] main[data-family="books-index"] .books-stage__copy{
+    margin-top:calc(-1 * var(--books-stage-pad));
+    margin-bottom:calc(-1 * (var(--books-stage-pad) + 10px));
+    padding-top:var(--books-stage-pad);
+    padding-bottom:calc(var(--books-stage-pad) + 10px);
+  }
+}
+
+/* /libros/: base .books-stage keeps a desktop-scale grid gap after it changes
+   to one column at 900px. Combined with the media margin from the new stacked
+   composition that produced a large accidental void between cover and copy
+   on tablets. The stacked layout owns one deliberate gap only. */
+@media (max-width:900px){
+  html.v1[data-editorial-context="obras"] main[data-family="books-index"] :is(.books-stage,.books-stage-anthology){
+    gap:clamp(1.35rem,4vw,2.2rem);
+  }
+  html.v1[data-editorial-context="obras"] main[data-family="books-index"] .books-stage__media{margin-bottom:0}
+}
+
+/* The Obras context strip is deliberately sticky on larger screens, but the
+   page-specific selector has higher specificity than the generic <=639px
+   reflow rule above. Reassert the narrow non-sticky form explicitly so a
+   wrapped multi-row context menu never becomes a tall viewport obstruction. */
+@media (max-width:639px){
+  html.v1[data-editorial-context="obras"] .section-context{
+    position:relative;
+    top:auto;
+  }
+}
+
+/* Handwritten catalogue actions still need to survive 200% zoom/text spacing.
+   The arrow is a separate flex item, so permit it to wrap rather than forcing
+   an otherwise valid label past the inline edge. */
+html.v1[data-editorial-context="obras"] main[data-family="books-index"] :is(
+  .books-stage__actions .primary-action,
+  .books-stage__actions .text-action,
+  #recursos .ledger__action
+){
+  min-width:0;
+  flex-wrap:wrap;
+}
