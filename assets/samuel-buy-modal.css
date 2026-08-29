@@ -39,11 +39,11 @@
 }
 #buy-dialog .buy-dialog-eyebrow{
   width:fit-content;margin:0 3.2rem .7rem 0;padding:0 .08em .08em;color:var(--sam-gold);
-  font-family:'Yellowtail',cursive;font-size:1.28rem;font-weight:400;line-height:1.05;letter-spacing:0;text-transform:none
+  font-family:'Yellowtail','Samuel Yellowtail Fallback',cursive;font-size:1.28rem;font-weight:400;line-height:1.05;letter-spacing:0;text-transform:none
 }
 #buy-dialog .buy-dialog-title{
   max-width:15ch;margin:0 0 1.6rem;color:var(--sam-blue);
-  font-family:Inter,system-ui,-apple-system,sans-serif;font-size:clamp(1.7rem,5vw,2.35rem);font-weight:800;line-height:1;letter-spacing:-.025em;
+  font-family:var(--font-ui);font-size:clamp(1.7rem,5vw,2.35rem);font-weight:800;line-height:1;letter-spacing:-.025em;
   -webkit-text-stroke:.25px rgba(184,134,11,.5)
 }
 #buy-dialog .buy-dialog-options{
@@ -63,12 +63,12 @@
 #buy-dialog .buy-option-vendor{grid-column:1;grid-row:1;color:var(--sam-ink);font-size:.95rem;font-weight:700}
 #buy-dialog .buy-option-format{grid-column:1;grid-row:2;margin-top:.1rem;color:var(--sam-neutral);font-size:.78rem}
 #buy-dialog .buy-option-cta{
-  grid-column:2;grid-row:1/3;color:var(--sam-blue);font-family:'Yellowtail',cursive;font-size:1.05rem;font-weight:400;white-space:nowrap
+  grid-column:2;grid-row:1/3;color:var(--sam-blue);font-family:'Yellowtail','Samuel Yellowtail Fallback',cursive;font-size:1.05rem;font-weight:400;white-space:nowrap
 }
 #buy-dialog .buy-option:hover .buy-option-cta,#buy-dialog .buy-option:focus-visible .buy-option-cta{color:var(--sam-blue-deep)}
 #buy-dialog .buy-dialog-note{margin:0;color:var(--sam-neutral);font-size:.82rem;line-height:1.55;text-align:left}
 #buy-dialog .buy-dialog-note .text-link{
-  color:var(--sam-blue);font-family:'Yellowtail',cursive;font-size:1rem;text-decoration:none;border:0
+  color:var(--sam-blue);font-family:'Yellowtail','Samuel Yellowtail Fallback',cursive;font-size:1rem;text-decoration:none;border:0
 }
 #buy-dialog .buy-dialog-note .text-link:hover,#buy-dialog .buy-dialog-note .text-link:focus-visible{color:var(--sam-blue-deep)}
 #buy-dialog .buy-dialog-affiliate-note{margin:10px 0 0;color:var(--sam-neutral);font-size:.76rem;line-height:1.45}
