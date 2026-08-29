@@ -10,7 +10,7 @@ Cadena:
 2. #174 — `DISEÑO - Libros · unificación visual del hub de Obras`.
 3. #205 — `DISEÑO - Manecillas · unificación visual de la ficha principal`.
 4. #264 — `DISEÑO - Fragmentos · unificación visual de la página de lectura`.
-5. PR Samuel — `/libros/samuel-entre-mundos/`.
+5. #265 — `DISEÑO - Samuel entre mundos · unificación visual de la ficha principal`.
 
 La rama `design/samuel-visual-unification-2026-08-29` nace exactamente de `746c75a551babc3811d932aa2392fd2623f81dcb`, HEAD cerrado de #264. No mergear fuera de orden. Después de fusionar las bases, retargetear sucesivamente a `main` y comprobar que el diff propio permanece limitado al diseño/QA de Samuel.
 
@@ -47,11 +47,11 @@ Esta PR es diseño/UX. No modifica:
 
 Los QA `samuel-book-fragment-browser.mjs` y `samuel-ecosystem-browser.mjs` siguen siendo autoridad funcional y no se sustituyen por el QA visual.
 
-## 4. Implementación visual inicial
+## 4. Implementación visual
 
 ### SAM-01 · shell y navegación contextual
 
-Header, context nav, Explorar, footer y Volver arriba usan el contrato azul/dorado ya aprobado. Hover/focus no debe volver a teal.
+Header, context nav, Explorar, footer y Volver arriba usan el contrato azul/dorado ya aprobado. Hover/focus no vuelve a teal.
 
 ### SAM-02 · umbral/hero
 
@@ -68,9 +68,9 @@ Header, context nav, Explorar, footer y Volver arriba usan el contrato azul/dora
 
 ### SAM-03 · responsive del umbral
 
-La ficha es más densa que Fragmentos, por lo que el contrato inicial mantiene dos columnas solo por encima de 900 px. En `<=900` se apila deliberadamente y se elimina la vieja línea horizontal dibujada al 48% de altura: un rail exterior vertical azul acompaña portada + copy.
+La ficha es más densa que Fragmentos, por lo que mantiene dos columnas solo por encima de 900 px. En `<=900` se apila deliberadamente y se elimina la vieja línea horizontal dibujada al 48% de altura: un rail exterior vertical azul acompaña portada + copy.
 
-Se validará expresamente la costura 901/900 antes de cerrar la PR.
+La costura 901/900 queda validada en capturas y QA geométrico: 901 mantiene dos columnas; 900 apila sin columna implícita, salto de 1px, doble rail ni overflow.
 
 ### SAM-04 · registros S/01…S/14
 
@@ -125,7 +125,7 @@ No se altera el cálculo, privacidad, navegación por teclado, share ni restart.
 
 - blanco / azul pálido;
 - borde azul + acento dorado;
-- título azul;
+- título azul con la familia UI canónica;
 - eyebrow Yellowtail/dorado;
 - retailers como filas editoriales, no cards redondeadas;
 - CTA manuscrita azul;
@@ -138,11 +138,21 @@ Se conserva dialog nativo, focus trap, cierre, restauración de foco, analytics,
 
 En `<=1300px` se oculta solo el launcher flotante para evitar que pise una página muy larga. `Asistente` sigue disponible en el header.
 
+### SAM-13 · estabilidad geométrica y tipográfica
+
+La auditoría final encontró tres defectos objetivos que no eran decisiones estéticas:
+
+1. La imagen del medallón conservaba la altura presentacional intrínseca cuando su anchura se reducía y podía estirarse en la costura 901/900. Se fuerza `height:auto` solo en la imagen contextual de Samuel.
+2. El label dorado del quiz era texto pequeño sobre blanco. Se convierte en una apertura editorial Yellowtail de tamaño grande para que el dorado siga siendo decorativo y cumpla el contrato de contraste.
+3. El CLS del hero (`0.20296145`) procedía del fallback de Yellowtail: `Manrope Fallback` usa `size-adjust:128.11%`, ensanchaba el eyebrow y las acciones, creaba líneas/filas extra y colapsaba al cargar Yellowtail. Un fallback local `Samuel Yellowtail Fallback`, con huella horizontal próxima a Yellowtail, reduce el CLS medido a `0.00136518` sin cambiar la tipografía final ni relajar ningún gate. El mismo fallback se aplica a aperturas y acciones manuscritas de Samuel para estabilizar también cargas por deep link.
+
+La instrumentación temporal usada para aislar la causa del CLS se eliminó antes del HEAD candidato; no forma parte del diff final.
+
 ## 5. QA añadido
 
 ### `qa/samuel-design-browser.mjs`
 
-Viewports iniciales:
+Viewports finales:
 
 - 1440×1000;
 - 1280×800;
@@ -178,19 +188,38 @@ Comprueba:
 
 Smoke visual específico en Chromium, Firefox y WebKit para hero, brackets, rail, registros, quiz, modal y reflow móvil.
 
-### Gates existentes que deben permanecer verdes
+### Evidencia final revisada
 
-- `samuel-book-fragment-browser.mjs`;
-- `samuel-ecosystem-browser.mjs` y sus workflows;
-- Lighthouse;
-- Pa11y;
-- Sitewide Reflow;
-- Cross-engine;
-- CSP;
-- Runtime scoping;
-- Analytics;
-- content indexes;
-- tool tests y demás gates generales aplicables.
+Artefacto `sitewide-reflow-qa` del runtime HEAD `1b2c996461dae68d82b01ab2997a12723c37f4af`:
+
+- `samuel-desktop-1440.png`;
+- `samuel-desktop-1280.png`;
+- `samuel-tablet-1024.png`;
+- `samuel-seam-901.png`;
+- `samuel-seam-900.png`;
+- `samuel-tablet-768.png`;
+- `samuel-seam-620.png`;
+- `samuel-mobile-390.png`;
+- `samuel-mobile-360.png`;
+- modal 1280 y 390.
+
+La inspección de esas capturas no detecta defectos objetivos de overflow, columnas implícitas, rails partidos, jerarquía, footer, modal ni seam responsive. `samuel-design-report.json` devuelve `failures: []`; el Sitewide Reflow general cubre 76 rutas × 2 viewports y también devuelve `failures: []`.
+
+### Gates verdes sobre el runtime HEAD `1b2c996461dae68d82b01ab2997a12723c37f4af`
+
+- Samuel ecosystem browser QA #73;
+- Lighthouse CI #825;
+- Accessibility baseline (Pa11y) #956;
+- Sitewide Reflow QA #857;
+- Cross-engine smoke #319;
+- Global discoverability closure QA #234;
+- CSP public shell QA #575;
+- Runtime scoping QA #615;
+- Analytics taxonomy QA #635;
+- Check content indexes #1221;
+- Tool engine tests #946.
+
+El Lighthouse focalizado del ecosistema ejecuta 15 auditorías (5 URLs × 3 runs). Su única observación es un warning no bloqueante de LCP en `/fragmento/` (`3642.2835ms` frente al warning `<=3500ms`); no pertenece a la ficha principal de Samuel y el gate concluye `success`.
 
 ## 6. Fuera de alcance de esta PR
 
@@ -205,33 +234,28 @@ Tampoco se reescriben reseñas, SEO, schema, datos comerciales ni copy.
 
 ## 7. Revisión manual pendiente antes del merge
 
-Después de cerrar QA automático, Claude/mantenedor debe comprobar en navegador real:
+Claude/mantenedor debe hacer una última comprobación en navegador/dispositivo real de lo que no puede certificarse de forma equivalente desde capturas headless:
 
-- 1440/1280/1024;
-- seam 901/900;
-- 768/620;
-- 390/360;
-- ritmo real de los 14 registros;
-- portada/brackets y rail del umbral;
-- legibilidad Yellowtail/stroke dorado en distintos DPI;
-- quiz completo y focus visible;
-- modal de compra con Tab/Shift+Tab/Escape/click backdrop/volver del navegador;
-- zoom 200% y text-spacing;
-- ausencia efectiva de beige/teal en estados interactivos;
-- que ocultar el launcher <=1300 no reduzca discoverability porque `Asistente` permanece en header.
+- percepción del ritmo vertical de los 14 registros;
+- legibilidad subjetiva de Yellowtail y del stroke dorado en distintos DPI/subpixel rendering;
+- quiz completo con uso real de ratón y teclado;
+- modal con Tab/Shift+Tab/Escape/click backdrop/volver del navegador;
+- zoom 200% y text-spacing en navegador real, aunque los gates automáticos correspondientes ya pasan;
+- percepción de la ocultación del launcher <=1300, confirmando que `Asistente` en header conserva suficiente discoverability;
+- hard reload/cache real y staging cuando la cadena se publique.
 
-Lo reproducible automáticamente se codifica como gate. Lo que depende de percepción/DPI/staging queda documentado aquí.
+Si esa revisión revela una preferencia estética nueva, se trata como decisión de diseño separada. Solo un defecto reproducible de geometría, accesibilidad o funcionalidad debe reabrir esta PR.
 
 ## 8. Definition of Done
 
 - [x] Rama apilada sobre #264.
-- [x] Primera implementación visual de ficha, quiz y modal.
+- [x] Implementación visual de ficha, quiz y modal.
 - [x] QA visual Chromium añadido.
 - [x] QA visual cross-engine añadido.
 - [x] Workflows conectados.
-- [ ] Revisar capturas reales de todos los breakpoints.
-- [ ] Corregir defectos objetivos que aparezcan.
-- [ ] Todos los gates verdes en HEAD definitivo.
+- [x] Capturas reales de todos los breakpoints revisadas.
+- [x] Defectos objetivos encontrados durante la auditoría corregidos.
+- [x] Todos los gates verdes en el HEAD de runtime definitivo.
 - [ ] Revisión humana final antes del merge.
 
-No marcar Samuel como cerrada técnicamente hasta completar las tres casillas automáticas pendientes.
+**Estado: cerrada técnicamente y lista para revisión.** La única casilla pendiente es deliberadamente humana/perceptiva y no representa deuda automática de código.
