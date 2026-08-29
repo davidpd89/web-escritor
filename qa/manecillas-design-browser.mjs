@@ -45,6 +45,13 @@ async function style(locator, pseudo = null) {
   }, pseudo);
 }
 
+async function box(locator) {
+  return locator.evaluate((el) => {
+    const r = el.getBoundingClientRect();
+    return { top: r.top, bottom: r.bottom, left: r.left, right: r.right, width: r.width, height: r.height };
+  });
+}
+
 const browser = await chromium.launch({ headless: true });
 const failures = [];
 try {
@@ -111,6 +118,18 @@ try {
 
       const anchor = await style(page.locator('.book-anchor-alias').first());
       assert.equal(anchor.position, 'absolute', `${name}: el alias #muestra vuelve a participar en el grid`);
+
+      const fragmentSection = page.locator('#fragmento');
+      const fragmentLabel = fragmentSection.locator('.book-section__label');
+      const fragmentProse = fragmentSection.locator('.prose-field');
+      const labelBox = await box(fragmentLabel);
+      const proseBox = await box(fragmentProse);
+      if (width >= 900) {
+        assert.ok(labelBox.right <= proseBox.left + 2, `${name}: Muestra vuelve a solapar/intercambiar columnas`);
+        assert.ok(Math.abs(labelBox.top - proseBox.top) <= 4, `${name}: Muestra pierde alineación superior entre label y prosa`);
+      } else {
+        assert.ok(proseBox.top >= labelBox.bottom - 1, `${name}: Muestra no se apila label→prosa`);
+      }
 
       const note = await style(page.locator('.book-margin-note'));
       assert.equal(note.backgroundColor, PALE);
