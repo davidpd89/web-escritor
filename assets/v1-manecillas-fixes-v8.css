@@ -9,3 +9,13 @@ html.v1[data-editorial-context="manecillas"] body:not([data-reading-progress]) .
   top:0;
   left:0;
 }
+
+/* The floating launcher duplicates the persistent Asistente entry in the
+   utility header. At <=1300px the fixed bubble can overlap reading copy while
+   scrolling, so hide only that duplicate control. The assistant remains
+   mounted and the header entry continues to open the same panel. */
+@media (max-width:1300px){
+  html.v1[data-editorial-context="manecillas"] body:not([data-reading-progress]) .assistant-widget__launcher{
+    display:none;
+  }
+}
