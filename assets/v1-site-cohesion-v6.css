@@ -170,6 +170,48 @@ html.v1[data-lrb-home="true"] .back-to-top:focus-visible{
   color:#fff;
 }
 
+/* HOME header interaction closure. The static header keeps its intentionally
+   restrained black/gray labels, while interaction states use only the
+   approved header blue or canonical content blue — no legacy teal. */
+html.v1[data-lrb-home="true"] body .header-search:hover,
+html.v1[data-lrb-home="true"] body .header-search:focus-visible,
+html.v1[data-lrb-home="true"] body .header-home:hover,
+html.v1[data-lrb-home="true"] body .header-home:focus-visible,
+html.v1[data-lrb-home="true"] body .header-sitemap:hover,
+html.v1[data-lrb-home="true"] body .header-sitemap:focus-visible,
+html.v1[data-lrb-home="true"] body .header-contact:hover,
+html.v1[data-lrb-home="true"] body .header-contact:focus-visible,
+html.v1[data-lrb-home="true"] body .explore-trigger:hover,
+html.v1[data-lrb-home="true"] body .explore-trigger:focus-visible{
+  color:#0a4d9f;
+  background:#eefaff;
+  border-color:rgba(10,77,159,.22);
+}
+html.v1[data-lrb-home="true"] body .header-buy:hover,
+html.v1[data-lrb-home="true"] body .header-buy:focus-visible{
+  color:#fff;
+  background:#0a4d9f;
+  border-color:#0a4d9f;
+}
+html.v1[data-lrb-home="true"] .masthead-nav__item>a:hover,
+html.v1[data-lrb-home="true"] .masthead-nav__item>a:focus-visible,
+html.v1[data-lrb-home="true"] .masthead-nav__submenu-trigger:hover,
+html.v1[data-lrb-home="true"] .masthead-nav__submenu-trigger:focus-visible,
+html.v1[data-lrb-home="true"] .masthead-nav__submenu a:hover,
+html.v1[data-lrb-home="true"] .masthead-nav__submenu a:focus-visible{
+  color:#1d4f96;
+  background:#eefaff;
+}
+
+/* HOME Events inherited four properties from the previous composition even
+   after its visible design was migrated: duplicated heading margin, faded
+   action opacity, and section-bottom whitespace outside the rail. Keep the
+   breathing room INSIDE the grid so the 2.5px rail reaches the next break. */
+html.v1[data-lrb-home="true"] .home-events__head{margin-bottom:0}
+html.v1[data-lrb-home="true"] .home-event__link{opacity:1}
+html.v1[data-lrb-home="true"] .home-events{padding-bottom:0}
+html.v1[data-lrb-home="true"] .home-events__grid{padding-bottom:clamp(.85rem,1.6vw,1.15rem)}
+
 /* New destinations introduced by the navigation closure. They deliberately
    use ledgers/hairlines, not a new card system. */
 html.v1 .editorial-anchor-target{
