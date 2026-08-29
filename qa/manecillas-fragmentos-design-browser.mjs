@@ -183,8 +183,8 @@ try {
 
       const cta = page.locator('#cta-final');
       const ctaCss = await style(cta);
-      const ctaOpening = await style(cta.locator('>.eyebrow'));
-      const ctaH2 = await style(cta.locator('>h2'));
+      const ctaOpening = await style(cta.locator(':scope > .eyebrow'));
+      const ctaH2 = await style(cta.locator(':scope > h2'));
       const ctaAction = await style(cta.locator('.primary-action'));
       assert.equal(ctaCss.backgroundColor, PALE);
       assert.notEqual(ctaCss.borderTopWidth, '0px');
