@@ -17,7 +17,6 @@ on:
       - 'tests/test-samuel-ecosystem-parity.py'
       - 'qa/samuel-book-fragment-browser.mjs'
       - 'qa/samuel-ecosystem-browser.mjs'
-      - 'qa/samuel-cls-diagnostic.mjs'
       - 'qa/samuel-design-browser.mjs'
       - 'qa/samuel-design-cross-engine.mjs'
       - 'qa/samuel-ecosystem-text-resilience.css'
@@ -85,8 +84,6 @@ jobs:
             fi
             sleep 0.5
           done
-          mkdir -p "$QA_OUT"
-          node qa/samuel-cls-diagnostic.mjs | tee "$QA_OUT/samuel-cls-diagnostic.log"
           node qa/samuel-book-fragment-browser.mjs
           node qa/samuel-ecosystem-browser.mjs
 
