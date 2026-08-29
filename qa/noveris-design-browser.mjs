@@ -11,6 +11,7 @@ const BLUE = 'rgb(29, 79, 150)';
 const GOLD = 'rgb(184, 134, 11)';
 const PALE = 'rgb(238, 250, 255)';
 const TRANSPARENT = 'rgba(0, 0, 0, 0)';
+const MAP_FRAME = 'rgba(29, 79, 150, 0.5)';
 
 const viewports = [
   ['desktop-1440', 1440, 1000],
@@ -130,7 +131,7 @@ try {
       assert.match(mapFrame.backgroundImage, /linear-gradient/, `${name}: mapa sin rail`);
       assert.match(mapFrame.backgroundSize, /2\.5px\s+100%/, `${name}: rail de mapa no es 2.5px`);
       const mapImg = await css(mapFigure.locator('img'));
-      assert.equal(mapImg.borderTopColor, BLUE, `${name}: mapa sin marco azul`);
+      assert.equal(mapImg.borderTopColor, MAP_FRAME, `${name}: mapa no conserva el marco azul documental al 50%`);
       const mapBox = await rect(mapFigure.locator('img'));
       assert.ok(mapBox.width > Math.min(260, width * .55), `${name}: mapa pierde presencia visual (${mapBox.width}px)`);
 
