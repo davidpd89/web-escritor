@@ -15,6 +15,16 @@ for (const [name, launcher] of Object.entries(engines)) {
     assert.equal(await page.locator('html').getAttribute('data-editorial-context'), 'manecillas', `${name}: contexto editorial incorrecto`);
     assert.equal(await page.locator('body').getAttribute('data-reading-progress'), null, `${name}: la ficha principal no debe confundirse con Fragmentos`);
 
+    const mainTokens = await page.locator('body').evaluate((el) => {
+      const cs = getComputedStyle(el);
+      return {
+        man: cs.getPropertyValue('--man-blue').trim(),
+        frag: cs.getPropertyValue('--frag-blue').trim(),
+      };
+    });
+    assert.equal(mainTokens.man, '#1d4f96', `${name}: falta token main`);
+    assert.equal(mainTokens.frag, '', `${name}: Fragmentos contamina main`);
+
     const h1Color = await page.locator('.book-hero h1').evaluate((el) => getComputedStyle(el).color);
     assert.equal(h1Color, 'rgb(29, 79, 150)', `${name}: H1 fuera del azul canónico`);
 
@@ -42,12 +52,38 @@ for (const [name, launcher] of Object.entries(engines)) {
 
     response = await page.goto(`${ORIGIN}/las-manecillas-del-recuerdo/fragmentos/`, { waitUntil: 'domcontentloaded', timeout: 20000 });
     assert.equal(response?.ok(), true, `${name}: Fragmentos no cargó correctamente`);
-    const fragmentScope = await page.locator('body').evaluate((el) => getComputedStyle(el).getPropertyValue('--man-blue').trim());
-    assert.equal(fragmentScope, '', `${name}: V8 de la ficha principal contamina Fragmentos`);
-    const fragmentCoverBefore = await page.locator('.book-cover').first().evaluate((el) => getComputedStyle(el, '::before').backgroundImage);
-    assert.doesNotMatch(fragmentCoverBefore, /corner-bracket-blue-gold\.svg/, `${name}: brackets de la ficha principal contaminan Fragmentos`);
+    await page.evaluate(() => document.fonts?.ready);
 
-    console.log(`ok [${name}] Manecillas + aislamiento Fragmentos`);
+    assert.equal(await page.locator('body').getAttribute('data-reading-progress'), '', `${name}: falta data-reading-progress`);
+    const fragmentTokens = await page.locator('body').evaluate((el) => {
+      const cs = getComputedStyle(el);
+      return {
+        man: cs.getPropertyValue('--man-blue').trim(),
+        frag: cs.getPropertyValue('--frag-blue').trim(),
+      };
+    });
+    assert.equal(fragmentTokens.man, '', `${name}: V8 de la ficha principal contamina Fragmentos`);
+    assert.equal(fragmentTokens.frag, '#1d4f96', `${name}: capa propia de Fragmentos no está activa`);
+
+    const fragmentCoverBefore = await page.locator('.book-cover').first().evaluate((el) => getComputedStyle(el, '::before').backgroundImage);
+    assert.match(fragmentCoverBefore, /corner-bracket-blue-gold\.svg/, `${name}: Fragmentos no recibe sus brackets propios`);
+    const fragmentH1 = await page.locator('.book-hero h1').evaluate((el) => getComputedStyle(el).color);
+    assert.equal(fragmentH1, 'rgb(29, 79, 150)', `${name}: H1 Fragmentos fuera del azul canónico`);
+    const fragmentOpening = await page.locator('.book-hero__copy>.eyebrow').evaluate((el) => getComputedStyle(el).fontFamily);
+    assert.match(fragmentOpening.toLowerCase(), /yellowtail/, `${name}: apertura Fragmentos no usa Yellowtail`);
+
+    await page.setViewportSize({ width: 390, height: 844 });
+    await page.waitForTimeout(100);
+    const fragmentOverflow = await page.evaluate(() => document.documentElement.scrollWidth - window.innerWidth);
+    assert.ok(fragmentOverflow <= 1, `${name}: Fragmentos overflow móvil ${fragmentOverflow}px`);
+    const excerptRail = await page.locator('.excerpt-field').first().evaluate((el) => {
+      const cs = getComputedStyle(el);
+      return { image: cs.backgroundImage, size: cs.backgroundSize };
+    });
+    assert.match(excerptRail.image, /linear-gradient/, `${name}: Fragmentos sin rail de lectura`);
+    assert.match(excerptRail.size, /2\.5px\s+100%/, `${name}: rail de lectura Fragmentos no conserva 2.5px`);
+
+    console.log(`ok [${name}] Manecillas + Fragmentos + aislamiento bidireccional`);
   } finally {
     await browser.close();
   }
