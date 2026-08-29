@@ -37,6 +37,7 @@ async function computed(locator, pseudo = null) {
       textTransform: cs.textTransform,
       position: cs.position,
       width: cs.width,
+      height: cs.height,
       content: cs.content,
     };
   }, pseudo);
@@ -129,6 +130,14 @@ try {
 
       const footerHeading = await computed(page.locator('.site-footer h2').first());
       assert.equal(footerHeading.color, BLUE);
+
+      if (width <= 1300) {
+        const launcher = page.locator('.assistant-widget__launcher');
+        await launcher.waitFor({ state: 'attached', timeout: 4000 });
+        const launcherCss = await computed(launcher);
+        assert.equal(launcherCss.width, '32px', `${name}: launcher vuelve a ocupar más de 32px`);
+        assert.equal(launcherCss.height, '32px', `${name}: launcher vuelve a ocupar más de 32px`);
+      }
 
       await page.screenshot({ path: path.join(OUT, `libros-${name}.png`), fullPage: true });
       console.log(`ok /libros/ ${width}x${height}`);
