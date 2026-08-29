@@ -10,6 +10,22 @@ html.v1[data-editorial-context="manecillas"] body:not([data-reading-progress]) .
   left:0;
 }
 
+/* Explore disclosure controls still inherited the previous accent treatment.
+   Close the remaining shell leak without changing drawer structure or JS. */
+html.v1[data-editorial-context="manecillas"] body:not([data-reading-progress]) .explore-row__toggle{
+  color:var(--man-blue);
+  border-color:color-mix(in srgb,var(--man-blue) 40%,#fff);
+}
+html.v1[data-editorial-context="manecillas"] body:not([data-reading-progress]) .explore-row__toggle:hover,
+html.v1[data-editorial-context="manecillas"] body:not([data-reading-progress]) .explore-row__toggle:focus-visible{
+  color:#fff;
+  background:var(--man-blue);
+  border-color:var(--man-blue);
+}
+html.v1[data-editorial-context="manecillas"] body:not([data-reading-progress]) .explore-children{
+  border-left-color:var(--man-gold);
+}
+
 /* The floating launcher duplicates the persistent Asistente entry in the
    utility header. At <=1300px the fixed bubble can overlap reading copy while
    scrolling, so hide only that duplicate control. The assistant remains
