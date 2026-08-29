@@ -8,6 +8,8 @@ const OUT = process.env.QA_OUT || 'artifacts/sitewide-reflow';
 fs.mkdirSync(OUT, { recursive: true });
 
 const BLUE = 'rgb(29, 79, 150)';
+const DEEP = 'rgb(13, 44, 87)';
+const HEADER_BLUE = 'rgb(10, 77, 159)';
 const GOLD = 'rgb(184, 134, 11)';
 const NEUTRAL = 'rgb(111, 106, 100)';
 const PALE = 'rgb(238, 250, 255)';
@@ -96,7 +98,8 @@ try {
       assert.ok(coverBox && coverBox.width > 60 && coverBox.height > 90, `${name}: portada sin caja visible`);
       assert.ok(await coverImg.evaluate((img) => img.naturalWidth > 0), `${name}: portada no cargada`);
 
-      const primary = await style(page.locator('.book-actions .primary-action'));
+      const primaryLocator = page.locator('.book-actions .primary-action');
+      const primary = await style(primaryLocator);
       assert.match(primary.fontFamily.toLowerCase(), /yellowtail/);
       assert.equal(primary.color, BLUE);
       assert.equal(primary.backgroundColor, 'rgba(0, 0, 0, 0)');
@@ -149,7 +152,8 @@ try {
 
       const newsletter = await style(page.locator('.book-newsletter'));
       assert.notEqual(newsletter.borderTopWidth, '0px');
-      const submit = await style(page.locator('.book-newsletter .form-submit'));
+      const submitLocator = page.locator('.book-newsletter .form-submit');
+      const submit = await style(submitLocator);
       assert.equal(submit.backgroundColor, BLUE);
 
       if (width <= 639) {
@@ -171,6 +175,46 @@ try {
       if (width <= 1300) assert.equal(launcherCss.display, 'none', `${name}: launcher duplicado vuelve a cubrir lectura`);
       else assert.notEqual(launcherCss.display, 'none', `${name}: launcher desktop debería seguir disponible`);
 
+      /* Interaction-state closure: inherited shell rules must not reintroduce
+         teal/legacy accents once pointer/focus states are active. */
+      const headerHome = page.locator('.header-home');
+      await headerHome.hover();
+      await page.waitForTimeout(180);
+      const headerHover = await style(headerHome);
+      assert.equal(headerHover.color, HEADER_BLUE, `${name}: header hover fuera del azul de marca`);
+      assert.equal(headerHover.backgroundColor, PALE, `${name}: header hover recupera fondo legacy`);
+
+      await primaryLocator.hover();
+      await page.waitForTimeout(180);
+      assert.equal((await style(primaryLocator)).color, DEEP, `${name}: CTA hover fuera del azul profundo`);
+
+      await submitLocator.hover();
+      await page.waitForTimeout(180);
+      const submitHover = await style(submitLocator);
+      assert.equal(submitHover.backgroundColor, DEEP, `${name}: newsletter hover fuera del azul profundo`);
+      assert.equal(submitHover.color, 'rgb(255, 255, 255)');
+
+      const social = page.locator('.site-footer .social-icon').first();
+      await social.hover();
+      await page.waitForTimeout(180);
+      const socialHover = await style(social);
+      assert.equal(socialHover.backgroundColor, BLUE, `${name}: social hover fuera del sistema`);
+      assert.equal(socialHover.color, 'rgb(255, 255, 255)');
+
+      await page.locator('[data-explore-open]').click();
+      const dialog = page.locator('[data-explore-dialog]');
+      await dialog.waitFor({ state: 'visible', timeout: 3000 });
+      const toggle = dialog.locator('.explore-row__toggle').first();
+      assert.equal((await style(toggle)).color, BLUE, `${name}: toggle Explorar conserva acento legacy`);
+      await toggle.hover();
+      await page.waitForTimeout(180);
+      const toggleHover = await style(toggle);
+      assert.equal(toggleHover.backgroundColor, BLUE, `${name}: hover toggle Explorar conserva acento legacy`);
+      assert.equal(toggleHover.color, 'rgb(255, 255, 255)');
+      await dialog.locator('[data-explore-close]').click();
+      await page.waitForTimeout(100);
+
+      await page.mouse.move(0, 0);
       await page.screenshot({ path: path.join(OUT, `manecillas-${name}.png`), fullPage: true });
       console.log(`ok /las-manecillas-del-recuerdo/ ${width}x${height}`);
     } catch (error) {
