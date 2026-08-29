@@ -139,7 +139,7 @@ try {
       const after = await style(cover, '::after');
       assert.match(before.backgroundImage, /corner-bracket-blue-gold\.svg/);
       assert.match(after.backgroundImage, /corner-bracket-blue-gold\.svg/);
-      const coverBox = await coverImg.boundingBox();
+      const coverBox = await box(coverImg);
       assert.ok(coverBox && coverBox.width > 60 && coverBox.height > 90, `${name}: portada sin caja visible`);
       assert.ok(await coverImg.evaluate((img) => img.naturalWidth > 0), `${name}: portada no cargada`);
 
