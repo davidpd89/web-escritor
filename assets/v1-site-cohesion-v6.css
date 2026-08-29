@@ -148,6 +148,10 @@ html.v1[data-lrb-home="true"] .site-footer a:focus-visible{
   color:#1d4f96;
   text-decoration-color:#b8860b;
 }
+/* Social icons fill blue on interaction; keep their glyphs white rather than
+   letting the generic footer-link hover colour produce blue on blue. */
+html.v1[data-lrb-home="true"] .site-footer .social-icon:hover,
+html.v1[data-lrb-home="true"] .site-footer .social-icon:focus-visible{color:#fff}
 html.v1[data-lrb-home="true"] .site-footer .footer-legal{border-top-color:#b8860b}
 html.v1[data-lrb-home="true"] .site-footer .footer-email{
   color:#1d4f96;
