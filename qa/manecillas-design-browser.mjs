@@ -54,6 +54,21 @@ async function box(locator) {
   });
 }
 
+/* Interaction rules use transitions. Assert the settled state rather than
+   sampling an arbitrary intermediate frame, which can quantize one RGB channel
+   by a point while the transition is still running. */
+async function waitForStyle(locator, property, expected, timeout = 1200) {
+  await locator.evaluate(async (el, args) => {
+    const started = performance.now();
+    while (getComputedStyle(el)[args.property] !== args.expected) {
+      if (performance.now() - started > args.timeout) {
+        throw new Error(`${args.property} did not settle to ${args.expected}; got ${getComputedStyle(el)[args.property]}`);
+      }
+      await new Promise((resolve) => requestAnimationFrame(resolve));
+    }
+  }, { property, expected, timeout });
+}
+
 const browser = await chromium.launch({ headless: true });
 const failures = [];
 try {
@@ -176,30 +191,23 @@ try {
       else assert.notEqual(launcherCss.display, 'none', `${name}: launcher desktop debería seguir disponible`);
 
       /* Interaction-state closure: inherited shell rules must not reintroduce
-         teal/legacy accents once pointer/focus states are active. */
+         teal/legacy accents once pointer/focus states have settled. */
       const headerHome = page.locator('.header-home');
       await headerHome.hover();
-      await page.waitForTimeout(180);
-      const headerHover = await style(headerHome);
-      assert.equal(headerHover.color, HEADER_BLUE, `${name}: header hover fuera del azul de marca`);
-      assert.equal(headerHover.backgroundColor, PALE, `${name}: header hover recupera fondo legacy`);
+      await waitForStyle(headerHome, 'color', HEADER_BLUE);
+      await waitForStyle(headerHome, 'backgroundColor', PALE);
 
       await primaryLocator.hover();
-      await page.waitForTimeout(180);
-      assert.equal((await style(primaryLocator)).color, DEEP, `${name}: CTA hover fuera del azul profundo`);
+      await waitForStyle(primaryLocator, 'color', DEEP);
 
       await submitLocator.hover();
-      await page.waitForTimeout(180);
-      const submitHover = await style(submitLocator);
-      assert.equal(submitHover.backgroundColor, DEEP, `${name}: newsletter hover fuera del azul profundo`);
-      assert.equal(submitHover.color, 'rgb(255, 255, 255)');
+      await waitForStyle(submitLocator, 'backgroundColor', DEEP);
+      assert.equal((await style(submitLocator)).color, 'rgb(255, 255, 255)');
 
       const social = page.locator('.site-footer .social-icon').first();
       await social.hover();
-      await page.waitForTimeout(180);
-      const socialHover = await style(social);
-      assert.equal(socialHover.backgroundColor, BLUE, `${name}: social hover fuera del sistema`);
-      assert.equal(socialHover.color, 'rgb(255, 255, 255)');
+      await waitForStyle(social, 'backgroundColor', BLUE);
+      assert.equal((await style(social)).color, 'rgb(255, 255, 255)');
 
       await page.locator('[data-explore-open]').click();
       const dialog = page.locator('[data-explore-dialog]');
@@ -207,10 +215,8 @@ try {
       const toggle = dialog.locator('.explore-row__toggle').first();
       assert.equal((await style(toggle)).color, BLUE, `${name}: toggle Explorar conserva acento legacy`);
       await toggle.hover();
-      await page.waitForTimeout(180);
-      const toggleHover = await style(toggle);
-      assert.equal(toggleHover.backgroundColor, BLUE, `${name}: hover toggle Explorar conserva acento legacy`);
-      assert.equal(toggleHover.color, 'rgb(255, 255, 255)');
+      await waitForStyle(toggle, 'backgroundColor', BLUE);
+      await waitForStyle(toggle, 'color', 'rgb(255, 255, 255)');
       await dialog.locator('[data-explore-close]').click();
       await page.waitForTimeout(100);
 
