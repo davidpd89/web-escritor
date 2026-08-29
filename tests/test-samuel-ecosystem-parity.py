@@ -67,7 +67,7 @@ assert "review" not in book, "third-party marketplace reviews must remain attrib
 assert "typicalAgeRange" not in book
 assert "suggestedMinAge" not in book
 assert "Ninguna ha sido resumida ni editada" not in book_html, "abbreviated review excerpts must not be described as unedited/full reviews"
-assert "Extractos de reseñas reales" in book_html, "visible review stream must disclose that marketplace quotes are excerpts"
+assert "Extractos abreviados de reseñas publicadas en Amazon España" in book_html, "visible review stream must disclose that marketplace quotes are excerpts"
 
 for html, label in ((book_html, "book"), (club_html, "club"), (guide_html, "print guide")):
     lowered = html.lower()
