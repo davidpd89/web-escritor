@@ -1,0 +1,37 @@
+/* Manecillas V8 — closure overrides discovered after the first browser pass. */
+
+/* CSS borders at half-pixel widths are quantized by Chromium in computed
+   layout (2.5px declared -> 2px effective). Use the same background rail
+   technique as HOME/Libros so the visual axis really stays 2.5px. */
+html.v1[data-editorial-context="manecillas"] .book-page--manecillas .book-margin-note{
+  border-left:0;
+  background-color:var(--man-pale);
+  background-image:linear-gradient(var(--man-blue),var(--man-blue));
+  background-repeat:no-repeat;
+  background-size:2.5px 100%;
+  background-position:left top;
+}
+
+/* The Explore drawer is part of the page shell and must not fall back to the
+   previous teal/neutral interaction palette while the rest of the page is
+   blue/gold. Structure and behaviour remain untouched. */
+html.v1[data-editorial-context="manecillas"] .explore-dialog{border-right-color:var(--man-blue)}
+html.v1[data-editorial-context="manecillas"] .explore-dialog__head{border-bottom-color:var(--man-gold)}
+html.v1[data-editorial-context="manecillas"] .explore-dialog__head h2{color:var(--man-blue)}
+html.v1[data-editorial-context="manecillas"] .explore-row__index{color:var(--man-blue)}
+html.v1[data-editorial-context="manecillas"] .explore-row:hover .explore-row__body strong,
+html.v1[data-editorial-context="manecillas"] .explore-row:focus-visible .explore-row__body strong,
+html.v1[data-editorial-context="manecillas"] .explore-children a:hover,
+html.v1[data-editorial-context="manecillas"] .explore-children a:focus-visible{color:var(--man-blue)}
+html.v1[data-editorial-context="manecillas"] .explore-subscribe .form-input:focus{border-color:var(--man-blue);outline-color:var(--man-gold)}
+html.v1[data-editorial-context="manecillas"] .explore-subscribe .form-submit{
+  border-color:var(--man-blue);
+  background:var(--man-blue);
+  color:#fff;
+}
+html.v1[data-editorial-context="manecillas"] .explore-subscribe .form-submit:hover,
+html.v1[data-editorial-context="manecillas"] .explore-subscribe .form-submit:focus-visible{
+  border-color:var(--man-blue-deep);
+  background:var(--man-blue-deep);
+  color:#fff;
+}
