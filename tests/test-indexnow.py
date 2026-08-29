@@ -8,6 +8,7 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
 SCRIPT = ROOT / "scripts" / "indexnow.py"
+PUBLIC_KEY = "59347d39b5684876a7ccc84382f31758"
 spec = importlib.util.spec_from_file_location("indexnow", SCRIPT)
 indexnow = importlib.util.module_from_spec(spec)
 assert spec and spec.loader
@@ -42,6 +43,11 @@ def main() -> int:
     def check(condition: bool, message: str) -> None:
         if not condition:
             failures.append(message)
+
+    published_key_file = ROOT / f"{PUBLIC_KEY}.txt"
+    check(published_key_file.is_file(), "published IndexNow root key file is missing")
+    if published_key_file.is_file():
+        check(indexnow.read_key(published_key_file) == PUBLIC_KEY, "published IndexNow root key contract drift")
 
     with tempfile.TemporaryDirectory() as tmp:
         t = Path(tmp)
@@ -90,13 +96,12 @@ def main() -> int:
         )
         check(counts == {"added": 1, "modified": 1, "deleted": 1}, f"unexpected counts: {counts}")
 
-        key = "59347d39b5684876a7ccc84382f31758"
-        key_file = t / f"{key}.txt"
-        key_file.write_text(key + "\n", encoding="utf-8")
-        check(indexnow.read_key(key_file) == key, "valid public key rejected")
-        payload = indexnow.payload_for(urls, key)
+        key_file = t / f"{PUBLIC_KEY}.txt"
+        key_file.write_text(PUBLIC_KEY + "\n", encoding="utf-8")
+        check(indexnow.read_key(key_file) == PUBLIC_KEY, "valid public key rejected")
+        payload = indexnow.payload_for(urls, PUBLIC_KEY)
         check(payload["host"] == "davidportodiaz.com", "payload host drift")
-        check(payload["keyLocation"] == f"https://davidportodiaz.com/{key}.txt", "keyLocation drift")
+        check(payload["keyLocation"] == f"https://davidportodiaz.com/{PUBLIC_KEY}.txt", "keyLocation drift")
         check(payload["urlList"] == urls, "payload URL list drift")
 
         for bad in (
@@ -111,7 +116,7 @@ def main() -> int:
                 pass
 
         wrong_name = t / "wrong.txt"
-        wrong_name.write_text(key, encoding="utf-8")
+        wrong_name.write_text(PUBLIC_KEY, encoding="utf-8")
         try:
             indexnow.read_key(wrong_name)
             failures.append("key file with wrong filename accepted")
