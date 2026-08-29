@@ -4,16 +4,18 @@
 
 Cadena de diseño:
 
-1. #163 — `Diseño - HOME · unificación visual azul/dorado`.
+1. #163 — `DISEÑO - HOME · unificación visual azul/dorado`.
 2. #174 — `DISEÑO - Libros · unificación visual del hub de Obras`.
 3. #205 — `DISEÑO - Manecillas · unificación visual de la ficha principal`.
 4. #264 — `DISEÑO - Fragmentos · unificación visual de la página de lectura`.
-5. #265 — `Diseño - Samuel entre mundos · unificación visual de la ficha principal`.
-6. Esta rama — `/fragmento/`, capítulo 1 gratuito de Samuel.
+5. #265 — `DISEÑO - Samuel entre mundos · unificación visual de la ficha principal`.
+6. #266 — `DISEÑO - Samuel · unificación visual del capítulo 1`.
 
-La rama `design/samuel-fragmento-visual-unification-2026-08-29` nace exactamente de `5c5190d5c135710cbd33169ba7f11ee8aaf36f40`, HEAD documental de cierre de #265. El runtime certificado inmediatamente anterior de #265 es `1b2c996461dae68d82b01ab2997a12723c37f4af`.
+PR raíz de toda la cadena: **#163**.
 
-No mergear fuera de orden. Esta PR debe permanecer apilada sobre `design/samuel-visual-unification-2026-08-29` hasta que las bases anteriores se integren.
+La rama `design/samuel-fragmento-visual-unification-2026-08-29` nace del HEAD documental de cierre de #265 y permanece apilada sobre `design/samuel-visual-unification-2026-08-29` hasta que las bases anteriores se integren.
+
+No mergear fuera de orden. Tras integrar cada base, retargetear la siguiente PR a `main` y verificar que su diff propio continúe limpio.
 
 ## 2. Objetivo
 
@@ -30,7 +32,8 @@ Principios:
 - dobles reglas azul/dorado para transiciones;
 - azul pálido `#eefaff` solo en bloques prácticos/conversión;
 - sin cards dentro del capítulo;
-- CTA persistente compacto: nunca debe tapar varias líneas de lectura en móvil.
+- CTA persistente compacto: nunca debe tapar varias líneas de lectura en móvil;
+- elementos `fixed` compatibles con las safe areas de iPhone cuando `viewport-fit=cover` está activo.
 
 ## 3. Invariantes de contenido y funcionalidad
 
@@ -55,8 +58,8 @@ No se modifica:
 
 Evidencia recuperada del artefacto final de #265:
 
-- `fragmento-1440x1000.png` — 1440 × 11777;
-- `fragmento-390x900.png` — 390 × 14976.
+- `fragmento-1440x1000.png` — desktop;
+- `fragmento-390x900.png` — móvil.
 
 Defectos objetivos de coherencia/superposición observados:
 
@@ -81,6 +84,16 @@ El bloque `¿Qué pasa después?` era una caja blanca con borde neutral y botón
 ### FRG-05 · divisores y continuidad
 
 El separador interno del capítulo, Article End y newsletter conservaban reglas neutras genéricas. Se trasladan a dobles reglas azul/dorado manteniendo la jerarquía y el flujo.
+
+### FRG-06 · tokens del sticky fuera de scope
+
+La primera implementación declaró `--frag-*` dentro de `.article-page`, pero `#sticky-cta` vive fuera de `<main>`. El QA cross-engine detectó que el sticky seguía resolviendo el material legacy negro. Los tokens se elevaron a `html[data-editorial-context="samuel"]`; el test no se relajó.
+
+### FRG-07 · safe area inferior de iPhone
+
+`/fragmento/` ya usa `viewport-fit=cover`, pero el CTA `position:fixed` terminaba en `bottom:0` sin reservar `env(safe-area-inset-bottom)`. Se mantiene la misma altura en navegadores con inset `0` y se suma únicamente la safe area cuando iOS la expone.
+
+La corrección automática no sustituye la comprobación en un iPhone físico.
 
 ## 5. Implementación visual
 
@@ -124,15 +137,17 @@ El separador interno del capítulo, Article End y newsletter conservaban reglas 
 - acciones Yellowtail azules sin material negro;
 - cierre circular azul/dorado;
 - en móvil las dos acciones permanecen en una fila compacta cuando el ancho lo permite;
-- la lógica de visibilidad/dismiss no cambia.
+- la lógica de visibilidad/dismiss no cambia;
+- sus tokens se resuelven desde el contexto raíz de la página;
+- padding inferior suma `env(safe-area-inset-bottom)` para iPhone con indicador Home.
 
 ### Reading progress
 
 Se conserva el elemento funcional existente y solo se cambia su material a gradiente azul→dorado.
 
-## 6. Responsive que debe certificarse
+## 6. Responsive certificado automáticamente
 
-Viewports de diseño:
+Viewports del QA específico:
 
 - 1440×1000;
 - 1280×800;
@@ -144,16 +159,17 @@ Viewports de diseño:
 - 390×844;
 - 360×800.
 
-Comprobar especialmente:
+Se comprueba:
 
 - hero metadata desktop vs apilado `<=900`;
 - rail continuo figura→fin del capítulo;
 - medida de prosa estable;
 - sticky CTA compacto y sin overflow a 390/360;
-- launcher ausente `<=1300` y presente en desktop ancho si carga el widget;
+- launcher ausente `<=1300` y ausencia de colisión con sticky;
 - CTA final y newsletter sin compresión/columnas implícitas;
 - footer sin superposición con sticky;
-- texto 200% y text spacing por QA existente.
+- sticky visible tras el scroll esperado y dismiss persistente por `sessionStorage`;
+- texto 200% y text spacing por QA funcional existente.
 
 ## 7. Rendimiento
 
@@ -162,11 +178,13 @@ Baseline conocido del Lighthouse focalizado de #265 para `/fragmento/`:
 - warning no bloqueante de LCP: mediana observada `3642.2835ms` con warning `<=3500ms`;
 - workflow general `success`.
 
-Esta PR no debe empeorar de forma material ese dato. No se añadirán nuevas imágenes, JS ni fuentes; el cambio se limita a CSS y QA/documentación salvo que aparezca un defecto funcional reproducible.
+Esta PR no añade imágenes, JS ni fuentes. La implementación se mantiene en CSS, QA y documentación. Lighthouse general y el gate focalizado de Samuel deben permanecer verdes en el HEAD definitivo.
 
-## 8. QA previsto
+## 8. QA implementado
 
-Añadir `qa/samuel-fragmento-design-browser.mjs` para validar:
+### Chromium / capturas
+
+`qa/samuel-fragmento-design-browser.mjs` valida:
 
 - token/colores de página;
 - eyebrow/H1/meta;
@@ -178,37 +196,69 @@ Añadir `qa/samuel-fragmento-design-browser.mjs` para validar:
 - reading-progress;
 - sticky CTA visible y compacto tras activarlo;
 - dismiss del sticky;
-- launcher oculto `<=1300`;
+- launcher y colisiones;
 - overflow en todos los viewports;
-- capturas full-page.
+- capturas full-page y capturas específicas del sticky.
 
-Añadir smoke cross-engine específico si los contratos existentes no cubren suficientemente los materiales nuevos.
+El script está integrado en `Sitewide Reflow QA`.
 
-Los QA funcionales de Samuel/fragmento permanecen activos y no se sustituyen.
+### Cross-engine
 
-## 9. Revisión humana pendiente antes del merge
+`qa/samuel-fragmento-design-cross-engine.mjs` se ejecuta dentro del smoke de diseño de Samuel y comprueba la misma identidad básica en Chromium, Firefox y WebKit, incluido sticky y dismiss.
 
-Tras cerrar QA automático, Claude/mantenedor debe comprobar:
+### Autoridad funcional
 
-- ritmo real de lectura prolongada;
+Los QA previos de Samuel/fragmento permanecen activos y no se sustituyen. El gate `Samuel ecosystem browser QA` debe pasar completo.
+
+## 9. Revisión real multi-dispositivo pendiente antes del merge
+
+Esta PR hereda `docs/design-system/REAL-DEVICE-REVIEW-CONTRACT-2026-08-29.md`.
+
+Claude/mantenedor debe comprobar como mínimo:
+
+### iPhone físico + Safari/iOS
+
+- carga y scroll largo del capítulo;
+- rail, figura y caption;
+- sticky CTA durante scroll real, altura, cierre y persistencia;
+- safe area inferior con indicador Home/Dynamic Island;
+- orientación vertical/horizontal;
+- teclado/focus en newsletter;
+- back-forward cache y vuelta desde background;
+- `Reducir movimiento` activado/desactivado;
+- que el sticky no tape contenido ni controles de Safari.
+
+### Otros dispositivos
+
+- Android/Chrome real cuando esté disponible;
+- tablet real si es posible;
+- desktop Chrome/Firefox y Safari/Edge en la revisión global de publicación.
+
+La incidencia de vídeo/tinta de HOME reproducida en iPhone pertenece a #163 y no debe corregirse mezclándola en esta PR.
+
+## 10. Revisión humana perceptiva
+
+Además del hardware real, revisar:
+
+- ritmo de lectura prolongada;
 - percepción del rail durante scroll largo;
 - Yellowtail/stroke a distintos DPI;
-- sticky CTA durante scroll real y al cerrarlo;
-- teclado/focus en CTA/newsletter;
 - hard reload/cache/staging;
 - que la conversión no resulte intrusiva frente al texto.
 
 Una preferencia estética nueva no reabre automáticamente la PR; un defecto reproducible sí.
 
-## 10. Definition of Done
+## 11. Definition of Done
 
 - [x] Rama apilada exactamente sobre #265.
 - [x] Baseline desktop/móvil recuperado e inspeccionado.
-- [x] Primera capa visual específica aplicada en `assets/fragmento.css`.
-- [ ] QA visual dedicado añadido.
-- [ ] Capturas finales revisadas en todos los breakpoints.
-- [ ] Defectos objetivos encontrados corregidos.
-- [ ] Gates verdes en HEAD definitivo.
+- [x] Capa visual específica aplicada en `assets/fragmento.css`.
+- [x] QA visual dedicado añadido.
+- [x] QA cross-engine específico añadido.
+- [x] Capturas automatizadas revisadas en todos los breakpoints antes del ajuste de safe-area; el HEAD final debe volver a generarlas.
+- [x] Defectos objetivos detectados en implementación inicial corregidos, incluidos tokens del sticky y safe-area.
+- [ ] Gates verdes en HEAD definitivo posterior al ajuste de safe-area/documentación.
+- [ ] Revisión iPhone/Safari en hardware real.
 - [ ] Revisión humana final antes del merge.
 
-No declarar `/fragmento/` cerrada técnicamente hasta completar las casillas automáticas.
+`/fragmento/` puede declararse cerrada técnicamente cuando los gates del HEAD definitivo estén verdes. No declararla lista para merge hasta completar la revisión real/humana pendiente.
