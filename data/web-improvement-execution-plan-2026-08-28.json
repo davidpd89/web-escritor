@@ -1,5 +1,5 @@
 {
-  "version": "2026-08-28",
+  "version": "2026-08-29-audited",
   "authority": "data/web-improvement-decisions-2026-08-28.json",
   "rules": {
     "externalWritesRequireAuthorization": true,
@@ -8,25 +8,11 @@
     "alreadyCoveredMeansAuditNotDuplicate": true
   },
   "phases": [
-    {
-      "id": "phase-0-contracts",
-      "description": "Bajo riesgo, medición y contratos que reducen deuda futura.",
-      "items": ["E.8", "F.1", "F.2", "I.2", "Q.3"]
-    },
-    {
-      "id": "phase-1-audit-before-change",
-      "description": "Medir primero; solo implementar el hallazgo demostrado.",
-      "items": ["A.6", "C.8", "E.1", "E.6", "E.7", "F.6", "G.1", "J.3", "J.6", "M.1", "Q.1"]
-    },
-    {
-      "id": "phase-2-approved-after-debt",
-      "description": "Mejoras válidas cuando los gates actuales estén estables.",
-      "items": ["A.4", "B.7", "C.3", "C.10", "D.11", "E.2", "E.5", "F.4", "H.1", "H.2", "I.4", "I.5", "M.3", "O.2", "P.4", "Q.2"]
-    },
-    {
-      "id": "external",
-      "description": "Operaciones en cuentas externas; no se ejecutan desde una PR documental.",
-      "items": ["B.6"]
-    }
-  ]
+    {"id":"phase-0-contracts","description":"Bajo riesgo, medición y contratos que reducen deuda futura.","items":["E.8","F.1","F.2","I.2","Q.3"]},
+    {"id":"phase-1-audit-before-change","description":"Medir primero; solo implementar el hallazgo demostrado.","items":["A.6","C.8","E.1","E.6","E.7","F.6","G.1","J.3","J.6","M.1","O.2"]},
+    {"id":"phase-2-approved-after-debt","description":"Mejoras válidas cuando los gates actuales estén estables.","items":["A.4","B.7","C.3","C.10","D.11","E.2","E.5","F.4","H.1","H.2","I.4","I.5","M.3","P.4"]},
+    {"id":"external","description":"Operaciones en cuentas externas; no se ejecutan desde una PR documental.","items":["B.6","O.4","Q.2"]}
+  ],
+  "conditionalNotScheduled": ["Q.1"],
+  "note": "Q.1 permanece fuera del plan activo hasta que CrUX tenga muestra; los CONDITIONAL no se programan sin trigger."
 }
