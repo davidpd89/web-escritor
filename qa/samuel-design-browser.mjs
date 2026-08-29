@@ -144,10 +144,11 @@ try {
 
       const heads = page.locator('.samuel-section__head');
       assert.ok(await heads.count() >= 14, `${name}: faltan registros Samuel`);
-      const firstFolio = await css(heads.first().locator('>.folio'));
-      const firstEyebrow = await css(heads.first().locator('>div>.eyebrow'));
-      const firstH2 = await css(heads.first().locator('h2'));
-      const firstHeadBody = await css(heads.first().locator('>div'));
+      const firstHead = heads.first();
+      const firstFolio = await css(firstHead.locator(':scope > .folio'));
+      const firstEyebrow = await css(firstHead.locator(':scope > div > .eyebrow'));
+      const firstH2 = await css(firstHead.locator('h2'));
+      const firstHeadBody = await css(firstHead.locator(':scope > div'));
       assert.equal(firstFolio.color, NEUTRAL, `${name}: folio no neutral`);
       assert.match(firstEyebrow.fontFamily.toLowerCase(), /yellowtail/, `${name}: apertura de registro sin Yellowtail`);
       assert.equal(firstEyebrow.color, GOLD, `${name}: apertura de registro no dorada`);
