@@ -68,6 +68,16 @@ La guía 2026 para Search generativa mantiene los fundamentos normales de crawli
 
 Además, el workflow `content-index-check.yml` ejecuta estas comprobaciones en CI, de forma que la capacidad no es solo código muerto.
 
+## Extensiones históricas evaluadas y resueltas hoy
+
+#135 dejó tres extensiones plausibles solo si aparecía un consumidor real. Se han reevaluado contra `main` y no se implementa ninguna:
+
+- **`global-nav` vs `contextual`**: técnicamente posible, pero hoy no existe un contrato de producto que defina qué páginas deben recibir qué clase de inbound ni una decisión automatizable que consuma esa etiqueta. El mapa del sitio y la navegación global hacen que una clasificación puramente topológica pueda producir deuda artificial sin demostrar un fallo humano de discoverability.
+- **`discoverabilityRequired`**: sería una segunda representación de obligaciones ya expresadas mediante `status`, `indexable`, `sitemap`, `discoverability`, relaciones del registry y checks globales. Añadir otro booleano aumentaría estados incoherentes.
+- **salida JSON/familias**: no existe un consumidor CI, dashboard o proceso editorial que la necesite. Generar artefactos sin consumidor es mantenimiento neto.
+
+Por tanto, estas tres ideas quedan **REJECTED_FOR_NOW por falta de contrato/consumidor**, no “pendientes de completar”. Solo pueden reaparecer si un caso reproducible demuestra que la señal cambia una decisión real.
+
 ## Alternativas descartadas definitivamente
 
 1. **Segundo crawler** — produciría findings duplicados y dos definiciones de “orphan”.
@@ -75,10 +85,13 @@ Además, el workflow `content-index-check.yml` ejecuta estas comprobaciones en C
 3. **Número mínimo de enlaces internos por página** — Google declara que no existe un número ideal mágico.
 4. **Meter el `content-registry` dentro de `check-internal-graph.py`** — duplicaría validaciones que ya pertenecen a `check-navigation-coverage.py` y `check-global-discoverability.py`.
 5. **Auto-insertar enlaces** — puede degradar copy y relevancia contextual; los enlaces editoriales deben existir por utilidad humana.
+6. **Clasificar global/contextual sin consumidor** — añade complejidad y potenciales falsos positivos sin aumentar cobertura accionable hoy.
+7. **Añadir `discoverabilityRequired`** — duplicaría estados y autoridades ya existentes.
+8. **Emitir JSON “por si acaso”** — artefacto sin consumidor ni decisión asociada.
 
 ## Trigger de reapertura
 
-Solo se modifica esta arquitectura si aparece un fallo reproducible que los tres checks actuales no pueden detectar o clasificar, con un consumidor claro para la nueva señal. La mejora debe extender el checker propietario de esa responsabilidad, no crear un cuarto auditor genérico.
+Solo se modifica esta arquitectura si aparece un fallo reproducible que los tres checks actuales no pueden detectar o clasificar **y** existe un consumidor claro para la nueva señal. Por ejemplo, una exigencia editorial explícita que necesite distinguir inbound contextual de shell y cuya ausencia provoque un fallo verificable de navegación/descubrimiento. La mejora debe extender el checker propietario de esa responsabilidad, no crear un cuarto auditor genérico.
 
 ## Definition of Done final
 
@@ -87,6 +100,7 @@ Solo se modifica esta arquitectura si aparece un fallo reproducible que los tres
 - [x] checker global de discoverability revalidado;
 - [x] ejecución en CI confirmada por workflow;
 - [x] guía Google actual contrastada;
+- [x] extensiones históricas global/contextual, `discoverabilityRequired` y JSON evaluadas y rechazadas hoy;
 - [x] no existe gap de código neto;
 - [x] scope de cada autoridad queda definido para evitar duplicaciones futuras.
 
