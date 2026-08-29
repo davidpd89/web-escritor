@@ -54,6 +54,36 @@ async function box(locator) {
   });
 }
 
+async function tabletGeometry(page) {
+  return page.evaluate(() => {
+    const pick = (selector) => {
+      const el = document.querySelector(selector);
+      if (!el) return null;
+      const r = el.getBoundingClientRect();
+      const cs = getComputedStyle(el);
+      return {
+        box: { top:r.top,bottom:r.bottom,left:r.left,right:r.right,width:r.width,height:r.height },
+        display:cs.display,
+        order:cs.order,
+        gridColumn:cs.gridColumn,
+        gridRow:cs.gridRow,
+        width:cs.width,
+        maxWidth:cs.maxWidth,
+        margin:cs.margin,
+        padding:cs.padding,
+      };
+    };
+    return {
+      hero:pick('.book-hero'),
+      coverZone:pick('.book-cover-zone'),
+      cover:pick('.book-cover img'),
+      copy:pick('.book-hero__copy'),
+      lead:pick('.book-lead'),
+      ledger:pick('.book-meta-ledger'),
+    };
+  });
+}
+
 /* Interaction rules use transitions. Assert the settled state rather than
    sampling an arbitrary intermediate frame, which can quantize one RGB channel
    by a point while the transition is still running. */
@@ -115,13 +145,18 @@ try {
 
       /* 768–899 is a distinct tablet composition. A later generic mobile rule
          used to override it and shrink the cover to an incidental thumbnail.
-         Keep the hero as a grid and the book visually important in this band. */
+         Keep the hero as a grid and the book visually important in this band.
+         Always capture this band before assertions so a failing seam remains
+         inspectable in the uploaded artifact. */
       if (width >= 768 && width <= 899) {
         const heroCss = await style(page.locator('.book-hero'));
-        assert.equal(heroCss.display, 'grid', `${name}: el hero tablet vuelve al layout móvil`);
-        assert.ok(coverBox.width >= 180, `${name}: portada tablet demasiado pequeña (${coverBox.width}px)`);
         const leadBox = await box(page.locator('.book-lead'));
-        assert.ok(coverBox.right <= leadBox.left + 3, `${name}: portada tablet invade el bloque de lectura`);
+        const geometry = await tabletGeometry(page);
+        await page.screenshot({ path: path.join(OUT, `manecillas-${name}-tablet-debug.png`), fullPage: true });
+        const detail = JSON.stringify(geometry);
+        assert.equal(heroCss.display, 'grid', `${name}: el hero tablet vuelve al layout móvil · ${detail}`);
+        assert.ok(coverBox.width >= 180, `${name}: portada tablet demasiado pequeña (${coverBox.width}px) · ${detail}`);
+        assert.ok(coverBox.right <= leadBox.left + 3, `${name}: portada tablet invade el bloque de lectura · ${detail}`);
       }
 
       const primaryLocator = page.locator('.book-actions .primary-action');
