@@ -7,7 +7,7 @@ const GOLD = 'rgb(184, 134, 11)';
 const PALE = 'rgb(238, 250, 255)';
 const engines = { chromium, firefox, webkit };
 const viewports = [
-  ['desktop', 1280, 850],
+  ['desktop', 1440, 900],
   ['mobile', 390, 844],
 ];
 
@@ -69,8 +69,19 @@ for (const [engineName, launcher] of Object.entries(engines)) {
         assert.match(stickyData.actionFamily.toLowerCase(), /yellowtail/, `${engineName}/${mode}: sticky action sin Yellowtail`);
         assert.ok(stickyData.height <= (width <= 620 ? 76 : 88), `${engineName}/${mode}: sticky demasiado alto ${stickyData.height}px`);
 
+        const assistantLauncher = page.locator('.assistant-widget__launcher');
+        await assistantLauncher.waitFor({ state: 'attached', timeout: 2500 }).catch(() => {});
+        if (await assistantLauncher.count()) {
+          assert.equal(await assistantLauncher.evaluate(el => getComputedStyle(el).display), 'none', `${engineName}/${mode}: launcher intercepta sticky visible`);
+        }
+
         await sticky.locator('#sticky-cta-close').click();
         assert.equal(await sticky.evaluate(el => el.classList.contains('visible')), false, `${engineName}/${mode}: sticky no cierra`);
+        if (await assistantLauncher.count()) {
+          const afterClose = await assistantLauncher.evaluate(el => getComputedStyle(el).display);
+          if (width <= 1300) assert.equal(afterClose, 'none', `${engineName}/${mode}: launcher invade lectura <=1300`);
+          else assert.notEqual(afterClose, 'none', `${engineName}/${mode}: launcher no reaparece tras cerrar sticky`);
+        }
         console.log(`ok [${engineName}] Samuel fragmento ${mode}`);
       } finally {
         await context.close();
