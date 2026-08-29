@@ -111,7 +111,9 @@ try {
 
       const note = await style(page.locator('.book-margin-note'));
       assert.equal(note.backgroundColor, PALE);
-      assert.equal(note.borderLeftWidth, '2.5px');
+      assert.equal(note.borderLeftWidth, '0px');
+      assert.match(note.backgroundImage, /linear-gradient/);
+      assert.match(note.backgroundSize, /2\.5px\s+100%/);
 
       const themes = page.locator('.book-theme');
       assert.equal(await themes.count(), 3);
