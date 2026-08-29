@@ -3,13 +3,13 @@
 Fecha: 2026-08-29  
 Base inspeccionada: `main@291c8c677aaa7df635142687d1a6848e80ffcaa2`  
 PR: #181  
-Estado: **REJECT_LINK_SWAP · AUTHENTIC_COLLAB_INFRA_STAGED · PUBLICATION_TRIGGER_NOT_MET · NO_CODE**
+Estado: **REJECT_LINK_SWAP · AUTHENTIC_COLLAB_INFRA_STAGED · DRAFT_FIXTURE_ONLY · PUBLICATION_TRIGGER_NOT_MET · NO_CODE**
 
 ## Veredicto
 
 Se mantiene el rechazo de cualquier programa de reseñas/backlinks recíprocos pactados como táctica SEO.
 
-La alternativa legítima —colaboraciones editoriales auténticas— ya tiene infraestructura parcial y un contrato editorial bien definido, pero no debe activarse hasta contar con participantes reales y el umbral editorial previsto.
+La alternativa legítima —colaboraciones editoriales auténticas— ya tiene infraestructura parcial, un fixture de datos y un contrato editorial bien definido, pero no debe activarse hasta contar con participantes reales y el umbral editorial previsto.
 
 ## Evidencia directa de `main`
 
@@ -39,12 +39,28 @@ El builder:
 - usa `ProfilePage`/`Person` y `CollectionPage`/`ItemList`;
 - integra el shell común.
 
-Sin embargo, en la base inspeccionada:
+La ruta pública `/autores/` no existe en la base inspeccionada.
 
-- `/autores/` no existe;
-- `content/autores-red.json` no existe.
+### Dataset existente, pero solo como fixture
 
-Por tanto, la infraestructura está **staged**, no publicada.
+`data/autores-red.json` sí existe. Contiene exactamente un autor con:
+
+- `status: "draft"`;
+- slug `autor-ejemplo-no-publicar`;
+- nombre `AUTOR DE EJEMPLO — NO PUBLICAR`;
+- descripción que ordena sustituirlo por una persona real autorizada;
+- URLs `example.com`;
+- cuatro respuestas de ejemplo que dicen que no deben publicarse.
+
+Por tanto, no existe ningún perfil real aprobado. El builder hace correctamente que ese registro no se publique.
+
+### Inconsistencia dormant de ruta de datos
+
+El docstring de `scripts/build-autores-red.py` muestra como ejemplo `--data content/autores-red.json`, mientras el fixture real actual está en `data/autores-red.json`.
+
+No se corrige ahora porque la feature no está activada y no existe un consumidor/publicación real. Antes de activarla debe normalizarse una única ruta de datos y actualizar script/docs/tests de forma conjunta.
+
+Esto es deuda de activación, no motivo para publicar C.6.
 
 ## Owner editorial de Drive
 
@@ -109,10 +125,11 @@ AND explicit participation permission
 AND original first-person answers
 AND editorial review owner
 AND no backlink obligation
+AND canonical data path normalized
 AND launch/maintenance plan
 ```
 
-El hecho de que exista el script no es motivo suficiente para generar una colección vacía.
+El hecho de que existan script y fixture no es motivo suficiente para generar una colección pública.
 
 ## Qué NO implementar
 
@@ -122,6 +139,7 @@ El hecho de que exista el script no es motivo suficiente para generar una colecc
 - anchors pactados;
 - perfiles sintéticos para llenar `/autores/`;
 - scraping de bios;
+- publicar el fixture `AUTOR DE EJEMPLO — NO PUBLICAR`;
 - publicación de un único invitado para activar la ruta;
 - nueva landing de prensa paralela.
 
@@ -130,8 +148,10 @@ El hecho de que exista el script no es motivo suficiente para generar una colecc
 - [x] política Google vigente revalidada;
 - [x] press kit inspeccionado directamente;
 - [x] `/autores/` comprobado directamente como no publicado;
-- [x] `content/autores-red.json` comprobado directamente como ausente;
+- [x] `data/autores-red.json` inspeccionado directamente;
+- [x] fixture confirmado como draft/no-publicar;
 - [x] builder existente inspeccionado directamente;
+- [x] inconsistencia `content/` vs `data/` documentada para activación;
 - [x] owner de Drive revisado;
 - [x] trigger editorial separado de infraestructura;
 - [x] no se crea contenido ficticio;
@@ -139,4 +159,4 @@ El hecho de que exista el script no es motivo suficiente para generar una colecc
 
 ## Decisión final
 
-**REJECT_LINK_SWAP · AUTHENTIC_COLLAB_INFRA_STAGED · PUBLICATION_TRIGGER_NOT_MET · NO_CODE**
+**REJECT_LINK_SWAP · AUTHENTIC_COLLAB_INFRA_STAGED · DRAFT_FIXTURE_ONLY · PUBLICATION_TRIGGER_NOT_MET · NO_CODE**
