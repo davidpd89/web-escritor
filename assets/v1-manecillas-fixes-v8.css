@@ -44,7 +44,7 @@ html.v1[data-editorial-context="manecillas"] body:not([data-reading-progress]) .
     margin-top:2.5rem;
   }
   html.v1[data-editorial-context="manecillas"] body:not([data-reading-progress]) .book-page--manecillas :is(.book-cover,.book-cover-fallback){
-    width:min(100%,280px);
+    width:min(86%,260px);
     max-width:none;
   }
   html.v1[data-editorial-context="manecillas"] body:not([data-reading-progress]) .book-page--manecillas .book-lead{
