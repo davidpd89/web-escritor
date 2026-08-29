@@ -171,6 +171,20 @@ try {
       const pagerTitle = await style(pagers.first().locator('.fragment-pager__title'));
       assert.match(pagerTitle.fontFamily.toLowerCase(), /yellowtail/);
       assert.equal(pagerTitle.color, BLUE);
+
+      /* v1-book.css collapses excerpt sections to one column at <=899px. A
+         pager left on grid-column:2 silently creates an implicit second track,
+         compressing prose to half-width. Guard the actual geometry. */
+      if (width <= 899) {
+        const sectionBox = await box(excerpts.first());
+        const fieldBox = await box(excerpts.first().locator('.excerpt-field'));
+        const pagerBox = await box(pagers.first());
+        assert.ok(fieldBox.width >= sectionBox.width * .88, `${name}: prosa comprimida por columna implícita (${fieldBox.width}/${sectionBox.width})`);
+        assert.ok(Math.abs(fieldBox.left - sectionBox.left) <= 4, `${name}: prosa desplazada respecto a la sección`);
+        assert.ok(pagerBox.width >= sectionBox.width * .88, `${name}: pager no ocupa el ancho de lectura (${pagerBox.width}/${sectionBox.width})`);
+        assert.ok(Math.abs(pagerBox.left - sectionBox.left) <= 4, `${name}: pager sigue en una columna implícita`);
+      }
+
       if (width <= 767) {
         const pagerCss = await style(pagers.nth(1));
         assert.equal(pagerCss.gridTemplateColumns.split(' ').length, 1, `${name}: pager móvil no se apila`);
