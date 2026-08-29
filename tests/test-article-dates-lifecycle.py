@@ -192,4 +192,4 @@ with tempfile.TemporaryDirectory() as tmp:
     )
 
 print("tests/test-article-dates-lifecycle: " + ("OK" if not failures else f"{len(failures)} FALLO(S)"))
-raise SystemExit(1 if failures else 1 if failures else 0)
+raise SystemExit(1 if failures else 0)
