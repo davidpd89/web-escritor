@@ -3,13 +3,15 @@
 Fecha de reconstrucción: 2026-08-29  
 Idea original: añadir breadcrumbs visibles y schema `BreadcrumbList` a rutas profundas si faltan.  
 Fuente histórica principal: PR #135, snapshot `8e72321d047c0445c5ac411ebe242af8a0386929`.  
-Estado de esta PR: auditoría/plan; no añade breadcrumbs indiscriminadamente.
+Estado histórico reconstruido: `PARTIAL_AUDIT`.
 
-## Veredicto reconciliado
+> **Nota de autoridad:** este documento conserva la arqueología y el blueprint histórico de #135. La implementación y semántica de producción actuales viven en `A06-PRODUCTION-REVALIDATION-2026-08-29.md` y `scripts/check-breadcrumb-parity.py`. La documentación oficial vigente de Google permite omitir Home y/o la página actual del `BreadcrumbList`, por lo que cualquier frase histórica que exija siempre “último item = canonical” debe leerse como blueprint previo, no como regla de producción.
+
+## Veredicto histórico reconciliado
 
 **PARTIAL_AUDIT. YA EXISTE EN SUPERFICIES IMPORTANTES; MEDIR COBERTURA Y PARIDAD ANTES DE MODIFICAR HTML.**
 
-Google mantiene soporte para `BreadcrumbList`, pero #135 encontró que la web ya lo usa en rutas importantes. La mejora neta es auditar qué familias realmente necesitan breadcrumb, comprobar visible ↔ JSON-LD ↔ canonical/registry y corregir únicamente gaps reales.
+Google mantiene soporte para `BreadcrumbList`, pero #135 encontró que la web ya lo usa en rutas importantes. La mejora neta era auditar qué familias realmente necesitan breadcrumb, comprobar visible ↔ JSON-LD ↔ canonical/registry y corregir únicamente gaps reales.
 
 ## 1. Regla de reconstrucción
 
@@ -73,21 +75,19 @@ La autoridad final volvió a `PARTIAL_AUDIT`, que es más precisa: primero inven
 
 ### 3.5 · Blueprint neto W4 → especificación técnica recuperada
 
-`docs/IDEAS-MEJORA-WEB-CODE-BLUEPRINTS-2026-08-28.md` sí dejó un blueprint específico para A.6.
+`docs/IDEAS-MEJORA-WEB-CODE-BLUEPRINTS-2026-08-28.md` dejó un blueprint específico para A.6.
 
 Nombre propuesto históricamente:
 
 `scripts/check-breadcrumb-parity.py`
 
-La versión corta de esta PR había sugerido `check-breadcrumb-coverage.py`; ambos nombres describen el mismo objetivo, pero **si se implementa debe preferirse/reevaluarse el nombre histórico W4 y evitar dos scripts**.
-
-W4 exige:
+W4 proponía:
 
 1. seleccionar rutas profundas públicas/indexables;
 2. detectar breadcrumb visible solo si la plantilla/familia lo pretende;
 3. extraer `BreadcrumbList`;
 4. comparar ordered URLs/names;
-5. exigir que el último item resuelva a la URL canónica actual;
+5. comprobar relación con la URL canónica;
 6. reportar:
    - `missing-visible`;
    - `missing-jsonld`;
@@ -102,9 +102,10 @@ for route in public_indexable_routes:
     visible = parse_visible_breadcrumb(html)
     jsonld = find_breadcrumb_list(html)
     if not visible and not jsonld:
-        continue  # después clasificar si esa familia debe llevar breadcrumb
+        continue
     assert [x.url for x in visible] == [x.url for x in jsonld]
-    assert jsonld[-1].url == route.canonical
+    # La implementación final reevalúa la relación con canonical conforme
+    # a la documentación Google vigente; current no es obligatorio.
 ```
 
 W4 también prohíbe:
@@ -121,7 +122,7 @@ W4 también prohíbe:
 {"id":"A.6","area":"seo","status":"PARTIAL_AUDIT"}
 ```
 
-Semántica de #135: un `PARTIAL_AUDIT` necesita evidencia del gap antes de código.
+Semántica de #135: un `PARTIAL_AUDIT` necesitaba evidencia del gap antes de código.
 
 ### 3.7 · Autoridad humana final
 
@@ -143,155 +144,77 @@ hipótesis: añadir si falta
 → blueprint W4 de paridad
 → final: PARTIAL_AUDIT
 → revalidación mantiene
+→ 29/08: gap de QA confirmado e implementado en #155
 ```
 
 ## 4. Evidencia del repo preservada
 
 ### Samuel
 
-`/libros/samuel-entre-mundos/` contiene:
+`/libros/samuel-entre-mundos/` contiene `BreadcrumbList`:
 
 ```text
 Inicio → Libros → Samuel entre mundos
 ```
 
-integrado en el grafo JSON-LD.
+pero no una barra de breadcrumb visual dedicada. La implementación final no lo trata como fallo automático porque la UI ya ofrece navegación contextual y Google no obliga a duplicarla.
 
 ### Las manecillas del recuerdo
 
-`/las-manecillas-del-recuerdo/` contiene:
-
-```text
-Inicio → Libros → Las manecillas del recuerdo
-```
+`/las-manecillas-del-recuerdo/` contiene structured breadcrumb dentro de su grafo JSON-LD.
 
 ### Topic collections
 
-El trabajo histórico de topic collections preservó `BreadcrumbList` en `/cuaderno/temas/` y `/cuaderno/temas/fantasia-de-portales/`.
+El trabajo histórico de topic collections preservó `BreadcrumbList` y breadcrumb visible en `/cuaderno/temas/fantasia-de-portales/`.
+
+### Recomendaciones
+
+`/recomendaciones/portal-fantasy-espanol/` mantiene breadcrumb visible + `BreadcrumbList`.
 
 Por tanto A.6 nunca debe redactarse como “la web no tiene breadcrumbs”.
 
-## 5. Preguntas que debe responder el audit
+## 5. Preguntas que resolvió el audit de producción
 
-1. ¿qué familias tienen una jerarquía editorial donde breadcrumb ayuda?;
-2. ¿cuáles ya tienen visible + JSON-LD?;
-3. ¿visible y JSON-LD expresan el mismo orden/destinos?;
-4. ¿el último item coincide con canonical actual?;
-5. ¿`parentId`/`hubId` contradice la cadena?;
-6. ¿un builder produce drift dentro de una misma familia?;
-7. ¿el breadcrumb visual duplicaría sin valor el `section-context`?
+1. ¿qué páginas ya tienen breadcrumb visible?;
+2. ¿cuáles publican `BreadcrumbList`?;
+3. ¿visible y JSON-LD expresan los mismos destinos intermedios cuando ambos existen?;
+4. ¿las URLs son canónicas, same-origin y públicas?;
+5. ¿el current page aparece en una posición imposible?;
+6. ¿hay varias rutas estructuradas válidas?;
+7. ¿un breadcrumb visual adicional sería redundante con navegación contextual existente?
 
-## 6. Familias candidatas
+## 6. Fuente de verdad
 
-Auditar:
-
-- libros/obras;
-- Cuaderno/colecciones;
-- recomendaciones;
-- herramientas individuales;
-- directorios/recursos profundos;
-- clubes/guías hijas.
-
-No imponer por defecto:
-
-- Home;
-- 404;
-- legales/noindex;
-- machine/utility;
-- páginas de un solo nivel donde la UI añadiría ruido.
-
-## 7. Fuente de verdad
-
-La jerarquía ya vive en autoridades como `data/content-registry.json` (`parentId`, `hubId`) y navegación/builders existentes.
+La jerarquía ya vive en autoridades como `data/content-registry.json` (`parentId`, `hubId`, labels, aliases) y navegación/builders existentes.
 
 **No crear `data/breadcrumbs.json`.**
 
 La estructura de carpetas tampoco es una autoridad semántica suficiente.
 
-Ejemplo de cadena derivada:
+## 7. Implementación materializada
 
-```text
-child.parentId -> parent
-parent.parentId -> hub
-hub.parentId -> root family
-```
-
-El checker debe comparar lo derivable con markup real solo donde la familia tenga contrato de breadcrumb.
-
-## 8. Implementación propuesta, si el audit demuestra gaps
-
-Preferencia histórica:
+El blueprint se convirtió en:
 
 ```bash
 python scripts/check-breadcrumb-parity.py
 python scripts/check-breadcrumb-parity.py --json artifacts/breadcrumbs.json
 ```
 
-Salida mínima:
+La implementación final:
 
-```text
-PASS  work-samuel
-PASS  work-manecillas
-WARN  tool-x missing-jsonld
-ERROR article-y url-drift expected=/cuaderno/ actual=/otra/
-```
+- inventaría rutas públicas/indexables HTML del registry;
+- detecta visible + structured;
+- valida posiciones y URLs;
+- compara rutas intermedias de forma semántica;
+- acepta múltiples trails;
+- acepta structured sin barra visual dedicada;
+- acepta omitir Home/current en structured data;
+- usa aliases del registry para labels equivalentes;
+- bloquea drift objetivo, no preferencias de diseño.
 
-Reglas:
+El JSON opcional es evidencia de auditoría, no una segunda fuente de verdad.
 
-- JSON-LD parseable;
-- posiciones consecutivas;
-- URLs same-origin/absolutas cuando aplique;
-- destinos conocidos/canónicos;
-- último item representa la página actual;
-- visible ↔ JSON-LD comparados de forma semántica razonable;
-- exclusiones explícitas;
-- no inferir jerarquía solo por URL.
-
-## 9. Breadcrumb visible vs JSON-LD
-
-Si la familia usa breadcrumb visual:
-
-```html
-<nav aria-label="Migas de pan">…</nav>
-```
-
-- enlaces `<a href>` reales;
-- último item como texto o `aria-current="page"`;
-- navegación útil para personas;
-- evitar duplicación gratuita con `section-context`.
-
-No asumir que tener `BreadcrumbList` obliga a una segunda fila visual en todas las plantillas.
-
-## 10. Ejemplo de structured data
-
-```json
-{
-  "@type": "BreadcrumbList",
-  "itemListElement": [
-    {
-      "@type": "ListItem",
-      "position": 1,
-      "name": "Inicio",
-      "item": "https://davidportodiaz.com/"
-    },
-    {
-      "@type": "ListItem",
-      "position": 2,
-      "name": "Cuaderno",
-      "item": "https://davidportodiaz.com/cuaderno/"
-    },
-    {
-      "@type": "ListItem",
-      "position": 3,
-      "name": "Qué es el portal fantasy"
-    }
-  ]
-}
-```
-
-Es ejemplo, no plantilla a copiar indiscriminadamente.
-
-## 11. Qué NO hacer
+## 8. Qué NO hacer
 
 - generar breadcrumbs por slugs/carpetas sin autoridad editorial;
 - añadirlos a Home/404 para “tener schema”;
@@ -301,71 +224,47 @@ Es ejemplo, no plantilla a copiar indiscriminadamente.
 - inventar páginas para completar una cadena;
 - crear un segundo registro manual de breadcrumbs;
 - mezclar esta tarea con Person/Book entity IDs;
-- convertir `PARTIAL_AUDIT` en cambios HTML antes del inventario.
+- exigir que toda página con `BreadcrumbList` renderice una segunda fila visible;
+- exigir Home/current en structured data contra la documentación vigente.
 
-## 12. Tests
+## 9. Tests materializados
 
-- fixture `missing-visible`;
-- fixture `missing-jsonld`;
-- `order-drift`;
-- `url-drift`/canonical final incorrecto;
-- `parentId` inexistente/ciclo;
-- familia required sin breadcrumb;
-- familia exempt sin falso fallo;
-- JSON-LD parseable;
-- URLs absolutas/canónicas según contrato;
-- builder parity si se modifica una familia generada.
+`tests/test-breadcrumb-parity.py` cubre:
 
-## 13. Coste / beneficio
+- visible + structured correcto;
+- JSON-LD-only válido;
+- visible-only sin structured;
+- omisión válida Home/current;
+- aliases;
+- order/url drift;
+- URLs externas;
+- current en posición intermedia;
+- posiciones no consecutivas;
+- múltiples trails;
+- JSON-LD breadcrumb malformado;
+- páginas sin contrato;
+- enlaces relativos ambiguos.
 
-Auditar: bajo coste / valor medio.  
-Corregir gaps reales: bajo/medio.  
-Añadir barra visual sitewide sin evidence: coste visual/UX y mantenimiento potencialmente mayor que beneficio.
+## 10. Definition of Done histórica vs actual
 
-## 14. Definition of Done
+### Historia recuperada
 
-### Historia ya recuperada
+- [x] hipótesis original;
+- [x] primera revisión;
+- [x] repo cross-check;
+- [x] matriz intermedia;
+- [x] blueprint W4;
+- [x] autoridad final humana/JSON;
+- [x] revalidación independiente.
 
-- [x] hipótesis original preservada;
-- [x] `PARTIAL_AUDIT` inicial preservado;
-- [x] evidencia de breadcrumbs existentes recuperada;
-- [x] `IMPLEMENTAR/VERIFICAR` de matriz registrado como estado intermedio condicionado;
-- [x] blueprint W4 completo recuperado;
-- [x] nombre histórico `check-breadcrumb-parity.py` recuperado;
-- [x] estados de error W4 preservados;
-- [x] autoridad JSON final = `PARTIAL_AUDIT`;
-- [x] autoridad humana final preservada;
-- [x] revalidación independiente mantuvo A.6.
+### Producción 29/08/2026
 
-### Futuro audit/implementación
+- [x] gap real de QA demostrado;
+- [x] documentación oficial actual revalidada;
+- [x] checker W4 implementado sin segundo registry;
+- [x] semántica actual corrige el supuesto histórico de current obligatorio;
+- [x] tests de regresión;
+- [x] integración CI;
+- [x] no rollout visual indiscriminado.
 
-- [ ] definir familias `required / optional / exempt` desde autoridades actuales;
-- [ ] ejecutar inventario antes de cambios;
-- [ ] corregir solo gaps/contradicciones;
-- [ ] reutilizar builders/registry;
-- [ ] añadir checker/parity solo una vez;
-- [ ] mantener structured-data/UX QA verde.
-
-## 15. Trazabilidad del corpus histórico de #135 revisado para A.6
-
-### Evidencia/decisión específica
-
-- `docs/IDEAS-MEJORA-WEB-2026-08-27.md` — hipótesis original.
-- `docs/IDEAS-MEJORA-WEB-REVISION-2026-08-27.md` — `PARTIAL_AUDIT`.
-- `docs/IDEAS-MEJORA-WEB-FUENTES-PRIMARIAS-2026-08-27.md` — BreadcrumbList oficial.
-- `docs/IDEAS-MEJORA-WEB-REPO-CROSSCHECK-2026-08-27.md` — capacidad parcial ya existente.
-- `docs/IDEAS-MEJORA-WEB-MATRIZ-FINAL-2026-08-28.md` — `IMPLEMENTAR/VERIFICAR` histórico.
-- `docs/IDEAS-MEJORA-WEB-CODE-BLUEPRINTS-2026-08-28.md` — W4 de coverage/parity.
-- `data/web-improvement-decisions-2026-08-28.json` — estado final machine-readable.
-- `docs/PR135-FINAL-AUTHORITY-2026-08-28.md` — autoridad humana final.
-- `docs/PR135-INDEPENDENT-REVALIDATION-2026-08-28.md` — decisión/fuente revalidadas.
-
-### Revisados sin cambio específico adicional
-
-Overrides no aplicables a A.6, cuarta a decimoquinta pasada, casos/evidencia/límites, fuentes adicionales, repos evaluados y policy watch fueron revisados y no contienen una modificación única adicional para esta idea.
-
-## 16. Recomendación de merge
-
-**MERGE como reconstrucción completa + `PARTIAL_AUDIT`.**
-
-Clara/Claude debe empezar ejecutando/creando el audit de paridad, no modificando todas las páginas. Solo después de evidencia concreta se corrigen familias o builders.
+**Conclusión:** #135 hizo bien en dejar A.6 como `PARTIAL_AUDIT`. La revisión de producción encontró finalmente el gap concreto: faltaba un guardrail reproducible de paridad. Ese gap se implementa en #155 sin convertir breadcrumbs en decoración SEO sitewide.
