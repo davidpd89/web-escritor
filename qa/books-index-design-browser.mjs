@@ -13,9 +13,14 @@ const NEUTRAL = 'rgb(111, 106, 100)';
 const PALE_BLUE = 'rgb(238, 250, 255)';
 const viewports = [
   ['desktop-1440', 1440, 1000],
+  ['desktop-1280', 1280, 800],
+  ['tablet-1024', 1024, 768],
   ['seam-901', 901, 800],
   ['seam-900', 900, 800],
+  ['tablet-768', 768, 1024],
+  ['stack-600', 600, 900],
   ['mobile-390', 390, 844],
+  ['mobile-360', 360, 800],
 ];
 
 async function computed(locator, pseudo = null) {
