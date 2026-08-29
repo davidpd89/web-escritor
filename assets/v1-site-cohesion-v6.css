@@ -370,3 +370,522 @@ html.v1 [data-family="books-index"] #recursos .ledger__action{
     box-shadow:none!important;
   }
 }
+
+/* -------------------------------------------------------------------------
+   DESIGN / LIBROS INDEX — continuation of PR #163 (HOME visual contract).
+   Scoped to data-editorial-context="obras", whose public hub is /libros/.
+   This is a visual migration only: content, URLs, JSON-LD and page order stay
+   untouched. Blue #1d4f96 + gold #b8860b carry the same semantics as HOME. */
+html.v1[data-editorial-context="obras"]{
+  --books-blue:#1d4f96;
+  --books-blue-deep:#0d2c57;
+  --books-gold:#b8860b;
+  --books-neutral:#6f6a64;
+  --dp-context-hover:#eefaff;
+  --dp-context-active:#e8f4fb;
+  --dp-context-ink:#1d4f96;
+}
+html.v1[data-editorial-context="obras"] body{background:#fff}
+
+/* Context navigation: remove the old beige/brown Obras treatment while
+   keeping the compact sticky strip and its horizontal-scroll behaviour. */
+html.v1[data-editorial-context="obras"] .section-context{
+  position:sticky;
+  isolation:isolate;
+  border-top:0;
+  border-bottom:0;
+  background:#fff;
+  box-shadow:none;
+}
+html.v1[data-editorial-context="obras"] .section-context::after{
+  content:"";
+  position:absolute;
+  z-index:2;
+  left:0;
+  right:0;
+  bottom:0;
+  height:5px;
+  background-image:linear-gradient(var(--books-blue),var(--books-blue)),linear-gradient(var(--books-gold),var(--books-gold));
+  background-repeat:no-repeat,no-repeat;
+  background-size:100% 1.5px,100% 1.5px;
+  background-position:left top,left bottom;
+  pointer-events:none;
+}
+html.v1[data-editorial-context="obras"] .section-context__title{
+  position:relative;
+  color:var(--books-blue);
+  border-right-color:color-mix(in srgb,var(--books-blue) 22%,transparent);
+}
+html.v1[data-editorial-context="obras"] .section-context__links a{
+  position:relative;
+  color:#050505;
+  border-left:0;
+  border-right:0;
+}
+html.v1[data-editorial-context="obras"] .section-context__links a:hover,
+html.v1[data-editorial-context="obras"] .section-context__links a:focus-visible,
+html.v1[data-editorial-context="obras"] .section-context__links a[aria-current="page"]{
+  color:var(--books-blue);
+  background:#eefaff;
+}
+html.v1[data-editorial-context="obras"] .section-context__links a[aria-current="page"]::after{
+  content:"";
+  position:absolute;
+  left:.72rem;
+  right:.72rem;
+  bottom:5px;
+  height:1.5px;
+  background:var(--books-gold);
+  pointer-events:none;
+}
+
+/* Header + drawer interaction states match HOME. #0a4d9f remains the brand
+   blue only for utility-header controls; content uses --books-blue. */
+html.v1[data-editorial-context="obras"] body .header-search:hover,
+html.v1[data-editorial-context="obras"] body .header-search:focus-visible,
+html.v1[data-editorial-context="obras"] body .header-home:hover,
+html.v1[data-editorial-context="obras"] body .header-home:focus-visible,
+html.v1[data-editorial-context="obras"] body .header-sitemap:hover,
+html.v1[data-editorial-context="obras"] body .header-sitemap:focus-visible,
+html.v1[data-editorial-context="obras"] body .header-contact:hover,
+html.v1[data-editorial-context="obras"] body .header-contact:focus-visible,
+html.v1[data-editorial-context="obras"] body .explore-trigger:hover,
+html.v1[data-editorial-context="obras"] body .explore-trigger:focus-visible{
+  color:#0a4d9f;
+  background:#eefaff;
+  border-color:rgba(10,77,159,.22);
+}
+html.v1[data-editorial-context="obras"] body .header-buy:hover,
+html.v1[data-editorial-context="obras"] body .header-buy:focus-visible{
+  color:#fff;
+  background:#0a4d9f;
+  border-color:#0a4d9f;
+}
+html.v1[data-editorial-context="obras"] .explore-dialog{border-right-color:var(--books-blue)}
+html.v1[data-editorial-context="obras"] .explore-dialog__head{border-bottom-color:var(--books-gold)}
+html.v1[data-editorial-context="obras"] .explore-dialog__head h2{color:var(--books-blue)}
+html.v1[data-editorial-context="obras"] .explore-row__index{color:var(--books-blue)}
+html.v1[data-editorial-context="obras"] .explore-row:hover .explore-row__body strong,
+html.v1[data-editorial-context="obras"] .explore-row:focus-visible .explore-row__body strong,
+html.v1[data-editorial-context="obras"] .explore-children a:hover,
+html.v1[data-editorial-context="obras"] .explore-children a:focus-visible{color:var(--books-blue)}
+html.v1[data-editorial-context="obras"] .explore-row__toggle{
+  color:var(--books-blue);
+  border-color:color-mix(in srgb,var(--books-blue) 40%,#fff);
+}
+html.v1[data-editorial-context="obras"] .explore-row__toggle:hover,
+html.v1[data-editorial-context="obras"] .explore-row__toggle:focus-visible{
+  color:#fff;
+  background:var(--books-blue);
+  border-color:var(--books-blue);
+}
+html.v1[data-editorial-context="obras"] .explore-children{border-left-color:var(--books-gold)}
+
+/* Breadcrumb remains quiet; only its navigational cue and slash pick up the
+   new system. Internal metadata is intentionally not recoloured gold. */
+html.v1[data-editorial-context="obras"] main[data-family="books-index"] .book-breadcrumb a{color:var(--books-blue)}
+html.v1[data-editorial-context="obras"] main[data-family="books-index"] .book-breadcrumb li:not(:last-child)::after{color:var(--books-gold)}
+
+/* Masthead: HOME's opening-label and title treatment, translated to the
+   interior catalogue. The supporting date line remains neutral metadata. */
+html.v1[data-editorial-context="obras"] main[data-family="books-index"] .v1-masthead{
+  position:relative;
+  border:0;
+  background:#fff;
+  padding-top:clamp(2.3rem,4.7vw,4.5rem);
+  padding-bottom:clamp(2.8rem,5.2vw,4.8rem);
+  background-image:linear-gradient(var(--books-blue),var(--books-blue)),linear-gradient(var(--books-gold),var(--books-gold));
+  background-repeat:no-repeat,no-repeat;
+  background-size:100% 1.5px,100% 1.5px;
+  background-position:left bottom 5px,left bottom;
+}
+html.v1[data-editorial-context="obras"] main[data-family="books-index"] .v1-masthead::after{
+  content:"";
+  position:absolute;
+  left:50%;
+  right:auto;
+  bottom:1.2px;
+  width:8px;
+  height:8px;
+  background:var(--books-blue);
+  transform:translate(-50%,50%) rotate(45deg);
+  pointer-events:none;
+}
+html.v1[data-editorial-context="obras"] main[data-family="books-index"] .coordinate{
+  display:inline-block;
+  width:fit-content;
+  margin:0 0 .18rem;
+  padding:0 .08em .08em;
+  font-family:'Yellowtail',var(--font-ui),cursive;
+  font-size:clamp(1.5rem,2.4vw,1.7rem);
+  font-weight:400;
+  line-height:1.05;
+  letter-spacing:0;
+  text-transform:none;
+  color:var(--books-gold);
+  background:url(/assets/highlight-8-blue-rect.png) center bottom .02em/106% .55em no-repeat;
+}
+html.v1[data-editorial-context="obras"] main[data-family="books-index"] .coordinate::after{content:none}
+html.v1[data-editorial-context="obras"] main[data-family="books-index"] .v1-masthead .eyebrow{
+  margin-top:.35rem;
+  color:var(--books-neutral);
+}
+html.v1[data-editorial-context="obras"] main[data-family="books-index"] .v1-masthead h1{
+  width:fit-content;
+  max-width:18ch;
+  min-width:0;
+  margin:.45rem 0 1rem;
+  font-family:var(--font-ui);
+  font-size:clamp(2.15rem,4.7vw,4.35rem);
+  font-weight:800;
+  line-height:.96;
+  letter-spacing:-.022em;
+  color:var(--books-blue);
+  -webkit-text-stroke:.35px rgba(184,134,11,.55);
+  overflow-wrap:anywhere;
+  text-wrap:balance;
+}
+html.v1[data-editorial-context="obras"] main[data-family="books-index"] .v1-masthead__lead{
+  max-width:46ch;
+  color:#35312d;
+  font-family:var(--font-reading);
+  font-size:clamp(1.08rem,1rem + .55vw,1.5rem);
+  line-height:1.42;
+}
+
+/* Book stages keep the alternating catalogue composition, but replace the
+   old 82svh minimum and single gray border with HOME's connected rail/rule
+   language. --books-stage-pad is reused by the copy rail so it reaches the
+   section divider instead of stopping at the text's own height. */
+html.v1[data-editorial-context="obras"] main[data-family="books-index"] :is(.books-stage,.books-stage-anthology){
+  --books-stage-pad:clamp(2.8rem,5.4vw,5.4rem);
+  position:relative;
+  min-height:0;
+  align-items:stretch;
+  padding:var(--books-stage-pad) 0 calc(var(--books-stage-pad) + 10px);
+  border-bottom:0;
+  background-image:linear-gradient(var(--books-blue),var(--books-blue)),linear-gradient(var(--books-gold),var(--books-gold));
+  background-repeat:no-repeat,no-repeat;
+  background-size:100% 1.5px,100% 1.5px;
+  background-position:left bottom 5px,left bottom;
+}
+html.v1[data-editorial-context="obras"] main[data-family="books-index"] :is(.books-stage,.books-stage-anthology)::after{
+  content:"";
+  position:absolute;
+  left:50%;
+  bottom:1.2px;
+  width:8px;
+  height:8px;
+  background:var(--books-blue);
+  transform:translate(-50%,50%) rotate(45deg);
+  pointer-events:none;
+}
+html.v1[data-editorial-context="obras"] main[data-family="books-index"] :is(.books-stage,.books-stage-anthology)::before{content:none}
+
+/* Covers use the exact same bracket asset as HOME book objects; photography
+   framing is deliberately not reused here. */
+html.v1[data-editorial-context="obras"] main[data-family="books-index"] .books-stage__media{
+  position:relative;
+  display:grid;
+  place-items:center;
+  align-self:stretch;
+  min-height:clamp(20rem,34vw,31rem);
+  padding:clamp(1rem,2.2vw,1.55rem);
+  overflow:hidden;
+}
+html.v1[data-editorial-context="obras"] main[data-family="books-index"] .books-stage__media::before,
+html.v1[data-editorial-context="obras"] main[data-family="books-index"] .books-stage__media::after{
+  content:"";
+  position:absolute;
+  z-index:2;
+  width:34px;
+  height:34px;
+  background:url(/assets/corner-bracket-blue-gold.svg) center/contain no-repeat;
+  pointer-events:none;
+}
+html.v1[data-editorial-context="obras"] main[data-family="books-index"] .books-stage__media::before{top:0;left:0}
+html.v1[data-editorial-context="obras"] main[data-family="books-index"] .books-stage__media::after{right:0;bottom:0;transform:rotate(180deg)}
+html.v1[data-editorial-context="obras"] main[data-family="books-index"] .books-stage__media :is(picture,figure){max-width:100%}
+html.v1[data-editorial-context="obras"] main[data-family="books-index"] .books-stage__media .object-cover{
+  width:min(72%,22rem);
+  max-height:min(70svh,34rem);
+  object-fit:contain;
+  box-shadow:none;
+  filter:drop-shadow(0 16px 22px rgba(0,0,0,.15));
+}
+
+/* Desktop rail lives on the physical copy/media seam. Stretch + negative
+   block margin lets the 2.5px gradient cross the stage's quiet padding and
+   touch both transition rules. */
+html.v1[data-editorial-context="obras"] main[data-family="books-index"] .books-stage__copy{
+  --books-copy-rail-space:clamp(1.25rem,2.8vw,2.1rem);
+  align-self:stretch;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  margin-block:calc(-1 * var(--books-stage-pad));
+  padding-block:var(--books-stage-pad);
+  padding-left:var(--books-copy-rail-space);
+  background-image:linear-gradient(90deg,var(--books-blue),var(--books-blue));
+  background-repeat:no-repeat;
+  background-size:2.5px 100%;
+  background-position:left top;
+}
+html.v1[data-editorial-context="obras"] main[data-family="books-index"] .books-stage--reverse .books-stage__copy{
+  padding-left:0;
+  padding-right:var(--books-copy-rail-space);
+  background-position:right top;
+}
+html.v1[data-editorial-context="obras"] main[data-family="books-index"] .folio{
+  color:var(--books-neutral);
+}
+html.v1[data-editorial-context="obras"] main[data-family="books-index"] .books-stage__copy h2{
+  max-width:13ch;
+  margin:.45rem 0 .7rem;
+  font-family:var(--font-ui);
+  font-size:clamp(1.85rem,3.3vw,3.25rem);
+  font-weight:800;
+  line-height:.98;
+  letter-spacing:-.02em;
+  color:#050505;
+  overflow-wrap:anywhere;
+}
+html.v1[data-editorial-context="obras"] main[data-family="books-index"] .books-stage__copy>p{
+  margin:.25rem 0 .85rem;
+  color:#292622;
+  font-family:var(--font-reading);
+  font-size:clamp(1.02rem,.96rem + .28vw,1.19rem);
+  line-height:1.48;
+}
+html.v1[data-editorial-context="obras"] main[data-family="books-index"] .books-stage__meta{
+  border-top:1px solid var(--books-blue);
+  border-bottom:1px solid var(--books-gold);
+  background:linear-gradient(90deg,#fff,#fbfdff 48%,#fff);
+}
+html.v1[data-editorial-context="obras"] main[data-family="books-index"] .books-stage__meta dt{color:var(--books-neutral)}
+html.v1[data-editorial-context="obras"] main[data-family="books-index"] .books-stage__meta dd{color:#050505}
+
+/* CTAs: same handwritten action grammar as HOME. Primary order is preserved
+   in the DOM, but no black rectangular control reintroduces the old system. */
+html.v1[data-editorial-context="obras"] main[data-family="books-index"] .books-stage__actions{
+  gap:.6rem 1.35rem;
+  align-items:center;
+}
+html.v1[data-editorial-context="obras"] main[data-family="books-index"] .books-stage__actions :is(.primary-action,.text-action){
+  display:inline-flex;
+  align-items:center;
+  min-height:30px;
+  padding:0;
+  border:0;
+  border-radius:0;
+  background:transparent;
+  box-shadow:none;
+  color:var(--books-blue);
+  font-family:'Yellowtail',var(--font-ui),cursive;
+  font-size:1.15rem;
+  font-weight:400;
+  line-height:1.15;
+  letter-spacing:0;
+  text-transform:none;
+  text-decoration:none;
+}
+html.v1[data-editorial-context="obras"] main[data-family="books-index"] .books-stage__actions :is(.primary-action,.text-action):hover,
+html.v1[data-editorial-context="obras"] main[data-family="books-index"] .books-stage__actions :is(.primary-action,.text-action):focus-visible{
+  color:var(--books-blue-deep);
+  background:transparent;
+}
+html.v1[data-editorial-context="obras"] main[data-family="books-index"] .books-stage__actions .primary-action::after{
+  content:"\2192";
+  margin-left:.35rem;
+  color:currentColor;
+}
+html.v1[data-editorial-context="obras"] main[data-family="books-index"] .books-stage__actions .primary-action[target="_blank"]::after{content:"\2197"}
+
+/* Resources is the next editorial block after the anthology separator. Its
+   opening label/title copy HOME's hierarchy; row-level labels stay neutral. */
+html.v1[data-editorial-context="obras"] main[data-family="books-index"] #recursos{
+  border:0;
+  padding-top:clamp(2.3rem,4.2vw,3.7rem);
+  padding-bottom:clamp(2.8rem,5vw,4.6rem);
+}
+html.v1[data-editorial-context="obras"] main[data-family="books-index"] #recursos .v1-section__head{
+  align-items:end;
+  margin-bottom:clamp(1.45rem,3vw,2.5rem);
+}
+html.v1[data-editorial-context="obras"] main[data-family="books-index"] #recursos .v1-section__head>.eyebrow{
+  width:fit-content;
+  margin:0;
+  padding:0 .08em .08em;
+  font-family:'Yellowtail',var(--font-ui),cursive;
+  font-size:clamp(1.5rem,2.4vw,1.7rem);
+  font-weight:400;
+  line-height:1.05;
+  letter-spacing:0;
+  text-transform:none;
+  color:var(--books-gold);
+  background:url(/assets/highlight-8-blue-rect.png) center bottom .02em/106% .55em no-repeat;
+}
+html.v1[data-editorial-context="obras"] main[data-family="books-index"] #recursos .v1-section__head h2{
+  margin:.35rem 0 0;
+  max-width:18ch;
+  font-family:var(--font-ui);
+  font-size:clamp(1.7rem,3vw,2.55rem);
+  font-weight:800;
+  line-height:1;
+  letter-spacing:-.018em;
+  color:var(--books-blue);
+  -webkit-text-stroke:.35px rgba(184,134,11,.55);
+}
+html.v1[data-editorial-context="obras"] main[data-family="books-index"] #recursos .ledger{
+  --books-ledger-rail-space:clamp(1.1rem,2.4vw,1.8rem);
+  border-top:0;
+  padding-left:var(--books-ledger-rail-space);
+  background-image:linear-gradient(90deg,var(--books-blue),var(--books-blue));
+  background-repeat:no-repeat;
+  background-size:2.5px 100%;
+  background-position:left top;
+}
+html.v1[data-editorial-context="obras"] main[data-family="books-index"] #recursos .ledger__row{
+  margin-left:calc(-1 * var(--books-ledger-rail-space));
+  padding:clamp(1.15rem,2vw,1.55rem) 0 clamp(1.3rem,2.2vw,1.7rem) var(--books-ledger-rail-space);
+  border-bottom:0;
+  background-image:linear-gradient(var(--books-blue),var(--books-blue)),linear-gradient(var(--books-gold),var(--books-gold)),linear-gradient(var(--books-blue),var(--books-blue));
+  background-repeat:no-repeat,no-repeat,no-repeat;
+  background-size:100% 1.5px,100% 2.5px,100% 1.5px;
+  background-position:left bottom 8px,left bottom 4px,left bottom;
+}
+html.v1[data-editorial-context="obras"] main[data-family="books-index"] #recursos .ledger__row:last-child{background-image:none}
+html.v1[data-editorial-context="obras"] main[data-family="books-index"] #recursos .ledger__row:first-child{padding-top:0}
+html.v1[data-editorial-context="obras"] main[data-family="books-index"] #recursos .ledger__index,
+html.v1[data-editorial-context="obras"] main[data-family="books-index"] #recursos .ledger__secondary{color:var(--books-neutral)}
+html.v1[data-editorial-context="obras"] main[data-family="books-index"] #recursos .ledger__action{
+  min-height:30px;
+  border-bottom:0;
+  color:var(--books-blue);
+  font-family:'Yellowtail',var(--font-ui),cursive;
+  font-size:1.15rem;
+  font-weight:400;
+  letter-spacing:0;
+  text-transform:none;
+  text-decoration:none;
+}
+html.v1[data-editorial-context="obras"] main[data-family="books-index"] #recursos .ledger__action:hover,
+html.v1[data-editorial-context="obras"] main[data-family="books-index"] #recursos .ledger__action:focus-visible{color:var(--books-blue-deep)}
+
+/* Footer and floating return control use the same page accents as HOME. */
+html.v1[data-editorial-context="obras"] .site-footer{
+  position:relative;
+  border-top:0;
+  background:linear-gradient(180deg,#fff 0%,#f7fbfe 100%);
+  box-shadow:none;
+}
+html.v1[data-editorial-context="obras"] .site-footer::before{
+  content:"";
+  position:absolute;
+  top:0;
+  left:0;
+  right:0;
+  height:6.5px;
+  background-image:linear-gradient(var(--books-blue),var(--books-blue)),linear-gradient(var(--books-gold),var(--books-gold));
+  background-repeat:no-repeat,no-repeat;
+  background-size:100% 1.5px,100% 1.5px;
+  background-position:left top,left bottom;
+  pointer-events:none;
+}
+html.v1[data-editorial-context="obras"] .site-footer h2{color:var(--books-blue)}
+html.v1[data-editorial-context="obras"] .site-footer a:hover,
+html.v1[data-editorial-context="obras"] .site-footer a:focus-visible{
+  color:var(--books-blue);
+  text-decoration-color:var(--books-gold);
+}
+html.v1[data-editorial-context="obras"] .site-footer .social-icon:nth-child(odd){border-color:var(--books-blue)}
+html.v1[data-editorial-context="obras"] .site-footer .social-icon:nth-child(even){border-color:var(--books-gold)}
+html.v1[data-editorial-context="obras"] .site-footer .social-icon:hover,
+html.v1[data-editorial-context="obras"] .site-footer .social-icon:focus-visible{
+  color:#fff;
+  background:var(--books-blue);
+  border-color:var(--books-blue);
+}
+html.v1[data-editorial-context="obras"] .site-footer .footer-legal{border-top-color:var(--books-gold)}
+html.v1[data-editorial-context="obras"] .site-footer .footer-email{
+  color:var(--books-blue);
+  border-bottom-color:var(--books-gold);
+}
+html.v1[data-editorial-context="obras"] .back-to-top{
+  border-color:var(--books-blue);
+  background:#fff;
+  color:var(--books-blue);
+  box-shadow:0 0 0 2px #fff,0 0 0 3px var(--books-gold),0 5px 18px rgba(23,20,18,.09);
+}
+html.v1[data-editorial-context="obras"] .back-to-top:hover,
+html.v1[data-editorial-context="obras"] .back-to-top:focus-visible{
+  border-color:var(--books-blue);
+  background:var(--books-blue);
+  color:#fff;
+}
+
+/* Stacked stages: one continuous outer rail is more honest than pretending
+   the desktop seam still exists once media and copy are separate rows. */
+@media(max-width:900px){
+  html.v1[data-editorial-context="obras"] main[data-family="books-index"] :is(.books-stage,.books-stage-anthology){
+    --books-stacked-rail-space:clamp(1.05rem,3.5vw,1.65rem);
+    padding-left:var(--books-stacked-rail-space);
+  }
+  html.v1[data-editorial-context="obras"] main[data-family="books-index"] :is(.books-stage,.books-stage-anthology)::before{
+    content:"";
+    position:absolute;
+    top:0;
+    bottom:0;
+    left:0;
+    width:2.5px;
+    background:var(--books-blue);
+    pointer-events:none;
+  }
+  html.v1[data-editorial-context="obras"] main[data-family="books-index"] .books-stage__copy,
+  html.v1[data-editorial-context="obras"] main[data-family="books-index"] .books-stage--reverse .books-stage__copy{
+    margin-block:0;
+    padding:0;
+    background-image:none;
+  }
+  html.v1[data-editorial-context="obras"] main[data-family="books-index"] .books-stage__media{
+    min-height:0;
+    margin-bottom:clamp(1.4rem,3vw,2.1rem);
+  }
+  html.v1[data-editorial-context="obras"] main[data-family="books-index"] .books-stage__media .object-cover{
+    width:min(72%,18rem);
+    max-height:none;
+  }
+}
+
+@media(max-width:600px){
+  html.v1[data-editorial-context="obras"] main[data-family="books-index"] .v1-masthead h1{
+    max-width:none;
+    font-size:clamp(2.05rem,10.5vw,3rem);
+  }
+  html.v1[data-editorial-context="obras"] main[data-family="books-index"] :is(.books-stage,.books-stage-anthology){
+    --books-stage-pad:clamp(2rem,7vw,2.8rem);
+    gap:clamp(1.1rem,4vw,1.6rem);
+  }
+  html.v1[data-editorial-context="obras"] main[data-family="books-index"] .books-stage__media{
+    padding:.8rem;
+  }
+  html.v1[data-editorial-context="obras"] main[data-family="books-index"] .books-stage__media::before,
+  html.v1[data-editorial-context="obras"] main[data-family="books-index"] .books-stage__media::after{
+    width:28px;
+    height:28px;
+  }
+  html.v1[data-editorial-context="obras"] main[data-family="books-index"] .books-stage__media .object-cover{width:min(78%,16rem)}
+  html.v1[data-editorial-context="obras"] main[data-family="books-index"] .books-stage__copy h2{max-width:none}
+  html.v1[data-editorial-context="obras"] main[data-family="books-index"] #recursos .v1-section__head{gap:.65rem}
+}
+
+@media print{
+  html.v1[data-editorial-context="obras"] main[data-family="books-index"] :is(.v1-masthead,.books-stage,.books-stage-anthology,#recursos),
+  html.v1[data-editorial-context="obras"] .site-footer{
+    background:#fff!important;
+    box-shadow:none!important;
+  }
+  html.v1[data-editorial-context="obras"] main[data-family="books-index"] .books-stage__media::before,
+  html.v1[data-editorial-context="obras"] main[data-family="books-index"] .books-stage__media::after,
+  html.v1[data-editorial-context="obras"] .back-to-top{display:none!important}
+}
