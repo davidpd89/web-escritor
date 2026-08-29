@@ -6,6 +6,15 @@ const context = await browser.newContext({ viewport: { width: 1024, height: 900 
 
 await context.addInitScript(() => {
   window.__samuelClsEntries = [];
+  window.__samuelFrameSamples = [];
+
+  const rect = selector => {
+    const node = document.querySelector(selector);
+    if (!node) return null;
+    const r = node.getBoundingClientRect();
+    return { x: r.x, y: r.y, width: r.width, height: r.height };
+  };
+
   new PerformanceObserver(list => {
     for (const entry of list.getEntries()) {
       if (entry.hadRecentInput) continue;
@@ -28,6 +37,55 @@ await context.addInitScript(() => {
       });
     }
   }).observe({ type: 'layout-shift', buffered: true });
+
+  addEventListener('DOMContentLoaded', () => {
+    const started = performance.now();
+    let previousSignature = '';
+    const sample = () => {
+      const snapshot = {
+        t: Math.round(performance.now() * 10) / 10,
+        htmlClass: document.documentElement.className,
+        bodyClass: document.body?.className || '',
+        fonts: document.fonts?.status || null,
+        header: rect('.site-header'),
+        context: rect('.section-context'),
+        threshold: rect('.samuel-threshold'),
+        object: rect('.samuel-threshold__object'),
+        cover: rect('.samuel-object'),
+        copy: rect('.samuel-threshold__copy'),
+        eyebrow: rect('.samuel-threshold__copy>.eyebrow'),
+        h1: rect('#samuel-title'),
+        lead: rect('.samuel-lead'),
+        facts: rect('.samuel-facts'),
+        actions: rect('.samuel-actions'),
+        hook: rect('.samuel-hook'),
+        route: rect('.samuel-threshold__route'),
+      };
+      const signature = JSON.stringify({
+        hc: snapshot.header && [snapshot.header.y, snapshot.header.height],
+        cc: snapshot.context && [snapshot.context.y, snapshot.context.height],
+        th: snapshot.threshold && [snapshot.threshold.y, snapshot.threshold.height],
+        ob: snapshot.object && [snapshot.object.y, snapshot.object.height],
+        cp: snapshot.copy && [snapshot.copy.y, snapshot.copy.height],
+        ey: snapshot.eyebrow && [snapshot.eyebrow.y, snapshot.eyebrow.height],
+        h1: snapshot.h1 && [snapshot.h1.y, snapshot.h1.height],
+        le: snapshot.lead && [snapshot.lead.y, snapshot.lead.height],
+        fa: snapshot.facts && [snapshot.facts.y, snapshot.facts.height],
+        ac: snapshot.actions && [snapshot.actions.y, snapshot.actions.height],
+        ho: snapshot.hook && [snapshot.hook.y, snapshot.hook.height],
+        ro: snapshot.route && [snapshot.route.y, snapshot.route.height],
+        fonts: snapshot.fonts,
+        htmlClass: snapshot.htmlClass,
+        bodyClass: snapshot.bodyClass,
+      });
+      if (signature !== previousSignature) {
+        window.__samuelFrameSamples.push(snapshot);
+        previousSignature = signature;
+      }
+      if (performance.now() - started < 650) requestAnimationFrame(sample);
+    };
+    requestAnimationFrame(sample);
+  }, { once: true });
 });
 
 const page = await context.newPage();
@@ -46,6 +104,7 @@ const report = await page.evaluate(() => {
   return {
     cls: entries.reduce((sum, entry) => sum + entry.value, 0),
     entries,
+    frameSamples: window.__samuelFrameSamples || [],
     fonts: {
       status: document.fonts?.status || null,
       yellowtail: document.fonts?.check('16px "Yellowtail"') ?? null,
