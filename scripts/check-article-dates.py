@@ -10,9 +10,13 @@ Two clocks are intentionally separate:
   debt without pretending that a verification-only pass modified the page.
 
 Lifecycle metadata is source-agnostic: any registry entry with a real
-``sourceFile`` may opt in. An overdue review is editorial debt (warning), not a
-build-integrity failure. Invalid dates, impossible ordering, missing sources,
-or a substantive page modification newer than ``verifiedAt`` are errors.
+``sourceFile`` may opt in. Lifecycle dates must be declared per entry, never in
+registry defaults. Legacy experimental field names are rejected so the repo has
+one authoritative schema.
+
+An overdue review is editorial debt (warning), not a build-integrity failure.
+Invalid dates, impossible ordering, missing sources, schema drift, or a
+substantive page modification newer than ``verifiedAt`` are errors.
 
 Run from the repository root:
     python scripts/check-article-dates.py --check
@@ -34,6 +38,15 @@ ROOT = Path(__file__).resolve().parent.parent
 ARTICLE_GLOB = "cuaderno/**/index.html"
 DEFAULT_REGISTRY = "data/content-registry.json"
 REVIEW_DUE_SOON_DAYS = 30
+LIFECYCLE_FIELDS = {"verifiedAt", "reviewBy"}
+LEGACY_LIFECYCLE_FIELDS = {
+    "lastVerified",
+    "lastVerifiedAt",
+    "lastReviewed",
+    "lastReviewedAt",
+    "reviewAt",
+    "reviewCadence",
+}
 
 JSONLD_RE = re.compile(
     r'<script[^>]*type=["\']application/ld\+json["\'][^>]*>(.*?)</script>',
@@ -147,14 +160,17 @@ def load_review_lifecycle(
 ]:
     """Load optional ``verifiedAt`` / ``reviewBy`` lifecycle metadata.
 
-    The pair is all-or-nothing. ``verifiedAt`` may be newer than a page's
-    ``dateModified``: checking facts without substantively changing the page
-    must not manufacture freshness.
+    The pair is all-or-nothing and must be declared on individual entries.
+    Registry defaults are forbidden for lifecycle dates because verification
+    and review targets describe an actual editorial act on a specific source.
+
+    ``verifiedAt`` may be newer than a page's ``dateModified``: checking facts
+    without substantively changing the page must not manufacture freshness.
 
     Review debt is deliberately non-blocking:
     - due within 30 days -> INFO;
     - overdue -> WARNING;
-    - malformed/impossible metadata -> ERROR.
+    - malformed/impossible metadata or schema drift -> ERROR.
 
     A future blocking policy would require an explicit release-critical
     contract; A.4 does not invent one.
@@ -169,9 +185,25 @@ def load_review_lifecycle(
     except (OSError, json.JSONDecodeError) as exc:
         return {}, [f"{registry_path}: cannot read lifecycle registry: {exc}"], [], []
 
+    defaults = raw.get("defaults", {})
+    if defaults is None:
+        defaults = {}
+    if not isinstance(defaults, dict):
+        errors.append(f"{registry_path}: content-registry defaults must be an object")
+    else:
+        default_lifecycle = sorted(
+            set(defaults) & (LIFECYCLE_FIELDS | LEGACY_LIFECYCLE_FIELDS)
+        )
+        if default_lifecycle:
+            errors.append(
+                "content-registry defaults: lifecycle fields must be per-entry, "
+                "not defaults: " + ", ".join(default_lifecycle)
+            )
+
     entries = raw.get("entries")
     if not isinstance(entries, list):
-        return {}, [f"{registry_path}: content-registry must contain an entries array"], [], []
+        errors.append(f"{registry_path}: content-registry must contain an entries array")
+        return {}, errors, warnings, infos
 
     for index, item in enumerate(entries):
         if not isinstance(item, dict):
@@ -179,6 +211,13 @@ def load_review_lifecycle(
 
         source = item.get("sourceFile")
         item_id = item.get("id", f"entry-{index + 1}")
+        legacy_fields = sorted(set(item) & LEGACY_LIFECYCLE_FIELDS)
+        if legacy_fields:
+            errors.append(
+                f"{item_id}: unsupported legacy lifecycle field(s) "
+                f"{', '.join(legacy_fields)}; use verifiedAt + reviewBy"
+            )
+
         verified_raw = item.get("verifiedAt")
         review_raw = item.get("reviewBy")
         has_verified = verified_raw not in (None, "")
