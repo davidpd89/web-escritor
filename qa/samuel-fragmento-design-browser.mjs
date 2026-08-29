@@ -145,6 +145,16 @@ try {
       assert.match(progress.backgroundImage, /linear-gradient/, `${name}: progreso sin gradiente azul\/dorado`);
       assert.equal(progress.height, '2.5px', `${name}: progreso no conserva 2.5px`);
 
+      // El launcher flotante es un acceso duplicado en esta página de lectura y
+      // no puede competir con el CTA persistente. Asistente sigue en el header.
+      await page.waitForTimeout(80);
+      const headerAssistant = page.locator('.header-search');
+      assert.notEqual((await computed(headerAssistant)).display, 'none', `${name}: Asistente desapareció del header`);
+      const launcher = page.locator('.assistant-widget__launcher');
+      if (await launcher.count()) {
+        assert.equal((await computed(launcher)).display, 'none', `${name}: launcher flotante invade la lectura`);
+      }
+
       // El sticky real se activa al 65% del documento; se prueba el comportamiento,
       // no solo la clase visual. El cierre debe persistir en sessionStorage.
       await page.evaluate(() => {
@@ -164,15 +174,6 @@ try {
       const maxStickyHeight = width <= 620 ? 76 : 88;
       assert.ok(stickyBox.height <= maxStickyHeight, `${name}: sticky demasiado alto (${stickyBox.height}px > ${maxStickyHeight}px)`);
 
-      // El launcher no puede cubrir el cierre del CTA persistente. En <=1300 ya
-      // está oculto por breakpoint; en desktop ancho lo oculta solo el estado
-      // .visible del sticky y debe reaparecer después del dismiss.
-      await page.waitForTimeout(120);
-      const launcherDuringSticky = page.locator('.assistant-widget__launcher');
-      if (await launcherDuringSticky.count()) {
-        assert.equal((await computed(launcherDuringSticky)).display, 'none', `${name}: launcher intercepta el sticky visible`);
-      }
-
       if (width === 1280 || width === 390) {
         await page.screenshot({ path: path.join(OUT, `samuel-fragmento-sticky-${name}.png`), fullPage: false });
       }
@@ -181,18 +182,13 @@ try {
       assert.equal(await sticky.evaluate(el => el.classList.contains('visible')), false, `${name}: cerrar sticky no lo oculta`);
       assert.equal(await page.evaluate(() => sessionStorage.getItem('sticky-cta-dismissed')), '1', `${name}: dismiss sticky no persiste`);
 
-      // El widget es asíncrono. <=1300 mantiene oculto solo el launcher flotante;
-      // >1300 debe recuperarlo al cerrar el sticky. El Asistente del header nunca
-      // desaparece.
+      // El launcher sigue ausente tras cerrar: no debe aparecer un control flotante
+      // nuevo al desaparecer el CTA. El acceso del header permanece disponible.
       await page.waitForTimeout(80);
-      const headerAssistant = page.locator('.header-search');
-      assert.notEqual((await computed(headerAssistant)).display, 'none', `${name}: Asistente desapareció del header`);
-      const launcher = page.locator('.assistant-widget__launcher');
       if (await launcher.count()) {
-        const launcherCss = await computed(launcher);
-        if (width <= 1300) assert.equal(launcherCss.display, 'none', `${name}: launcher flotante invade lectura <=1300`);
-        else assert.notEqual(launcherCss.display, 'none', `${name}: launcher no reaparece tras cerrar sticky`);
+        assert.equal((await computed(launcher)).display, 'none', `${name}: launcher reaparece tras cerrar sticky`);
       }
+      assert.notEqual((await computed(headerAssistant)).display, 'none', `${name}: Asistente del header no disponible tras cerrar sticky`);
 
       await page.evaluate(() => scrollTo(0, 0));
       await page.screenshot({ path: path.join(OUT, `samuel-fragmento-${name}.png`), fullPage: true });
