@@ -3,6 +3,7 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
 MANIFEST = ROOT / "data" / "web-improvement-individual-prs-2026-08-29.json"
+DECISIONS = ROOT / "data" / "web-improvement-decisions-2026-08-28.json"
 
 CATEGORY_COUNTS = {
     "A": 12, "B": 9, "C": 10, "D": 12, "E": 8, "F": 6, "G": 5,
@@ -58,6 +59,24 @@ def test_pr135_individual_pr_manifest_is_complete_and_unique():
 
     for item in ideas:
         assert item["decisionStatus"] in ALLOWED_STATUSES
+
+
+def test_pr135_global_and_individual_statuses_cannot_diverge():
+    manifest = json.loads(MANIFEST.read_text(encoding="utf-8"))
+    decisions = json.loads(DECISIONS.read_text(encoding="utf-8"))
+
+    manifest_by_id = {
+        item["id"]: item["decisionStatus"]
+        for item in manifest["ideas"]
+    }
+    decisions_by_id = {
+        item["id"]: item["status"]
+        for item in decisions["items"]
+    }
+
+    assert manifest_by_id == decisions_by_id, (
+        "coordinator status map diverged from individual PR audit manifest"
+    )
 
 
 def test_pr135_handoff_preserves_truth_state_distinctions():
