@@ -1,0 +1,510 @@
+/* Manecillas V8 — page-scoped visual unification.
+   Loaded by v1-book.css, but every selector is restricted to the canonical
+   Manecillas context so this layer cannot redesign other book families. */
+
+html.v1[data-editorial-context="manecillas"]{
+  --man-blue:#1d4f96;
+  --man-blue-deep:#0d2c57;
+  --man-header-blue:#0a4d9f;
+  --man-gold:#b8860b;
+  --man-neutral:#6f6a64;
+  --man-pale:#eefaff;
+  --man-ink:#050505;
+}
+
+/* Context navigation and shell continuity. */
+html.v1[data-editorial-context="manecillas"] .section-context{
+  border-color:rgba(29,79,150,.22);
+  background:#fff;
+  box-shadow:0 1px 0 rgba(29,79,150,.08),0 5px 14px rgba(23,20,18,.025);
+}
+html.v1[data-editorial-context="manecillas"] .section-context__title{color:var(--man-blue)}
+html.v1[data-editorial-context="manecillas"] .section-context__links a[aria-current="page"]{
+  color:var(--man-blue);
+  background:var(--man-pale);
+  box-shadow:inset 0 -2px 0 var(--man-gold);
+}
+html.v1[data-editorial-context="manecillas"] .section-context__links a:hover,
+html.v1[data-editorial-context="manecillas"] .section-context__links a:focus-visible{
+  color:var(--man-blue-deep);
+  background:var(--man-pale);
+}
+html.v1[data-editorial-context="manecillas"] body :is(
+  .header-search,.header-home,.header-sitemap,.header-contact,.explore-trigger
+):hover,
+html.v1[data-editorial-context="manecillas"] body :is(
+  .header-search,.header-home,.header-sitemap,.header-contact,.explore-trigger
+):focus-visible{
+  color:var(--man-header-blue);
+  background:var(--man-pale);
+  border-color:rgba(10,77,159,.22);
+}
+
+/* Breadcrumb remains utility navigation, not a gold section opener. */
+html.v1[data-editorial-context="manecillas"] .book-breadcrumb{
+  color:var(--man-neutral);
+}
+html.v1[data-editorial-context="manecillas"] .book-breadcrumb a{
+  color:var(--man-blue);
+  text-decoration-color:rgba(184,134,11,.55);
+}
+
+/* Hero: preserve the book-specific three-part composition but migrate its
+   hierarchy, cover framing, actions and technical ledger. */
+html.v1[data-editorial-context="manecillas"] .book-page--manecillas .book-hero{
+  min-height:0;
+  padding-top:clamp(3rem,5vw,4.8rem);
+  padding-bottom:clamp(3.4rem,5.5vw,5.2rem);
+}
+html.v1[data-editorial-context="manecillas"] .book-page--manecillas .book-cover-zone{
+  padding:clamp(.85rem,1.8vw,1.35rem);
+}
+html.v1[data-editorial-context="manecillas"] .book-page--manecillas .book-cover{
+  isolation:isolate;
+  overflow:visible;
+}
+html.v1[data-editorial-context="manecillas"] .book-page--manecillas .book-cover::before,
+html.v1[data-editorial-context="manecillas"] .book-page--manecillas .book-cover::after{
+  content:"";
+  position:absolute;
+  z-index:2;
+  width:38px;
+  height:38px;
+  inset:auto;
+  border:0;
+  background:url('/assets/corner-bracket-blue-gold.svg') center/contain no-repeat;
+  pointer-events:none;
+}
+html.v1[data-editorial-context="manecillas"] .book-page--manecillas .book-cover::before{
+  top:-12px;
+  left:-12px;
+}
+html.v1[data-editorial-context="manecillas"] .book-page--manecillas .book-cover::after{
+  right:-12px;
+  bottom:-12px;
+  transform:rotate(180deg);
+}
+html.v1[data-editorial-context="manecillas"] .book-page--manecillas .book-cover picture{
+  display:block;
+  width:100%;
+}
+html.v1[data-editorial-context="manecillas"] .book-page--manecillas .book-cover img{
+  display:block;
+  width:100%;
+  height:auto;
+  border:0;
+  box-shadow:0 16px 34px rgba(23,20,18,.14);
+}
+html.v1[data-editorial-context="manecillas"] .book-page--manecillas .book-hero__copy>.eyebrow{
+  width:fit-content;
+  margin:0;
+  padding:0 .08em .08em;
+  color:var(--man-gold);
+  font-family:'Yellowtail',var(--font-ui),cursive;
+  font-size:clamp(1.3rem,1.75vw,1.65rem);
+  font-weight:400;
+  line-height:1.05;
+  letter-spacing:0;
+  text-transform:none;
+  background:url('/assets/highlight-8-blue-rect.png') center bottom .02em/106% .52em no-repeat;
+}
+html.v1[data-editorial-context="manecillas"] .book-page--manecillas .book-hero h1{
+  max-width:10ch;
+  margin:.65rem 0 1rem;
+  color:var(--man-blue);
+  font-family:var(--font-ui);
+  font-size:clamp(3.25rem,5.2vw,5.2rem);
+  font-weight:800;
+  line-height:.9;
+  letter-spacing:-.038em;
+  -webkit-text-stroke:.4px rgba(184,134,11,.62);
+  text-wrap:balance;
+}
+html.v1[data-editorial-context="manecillas"] .book-page--manecillas .book-author{
+  color:var(--man-ink);
+  font-family:var(--font-ui);
+  font-weight:650;
+}
+html.v1[data-editorial-context="manecillas"] .book-page--manecillas .book-lead{
+  color:var(--man-ink);
+}
+html.v1[data-editorial-context="manecillas"] .book-page--manecillas .book-date{color:var(--man-neutral)}
+
+/* Desktop seam rail belongs to the copy column. At stacked widths it is
+   removed rather than pretending that two independent rows still share a seam. */
+@media(min-width:900px){
+  html.v1[data-editorial-context="manecillas"] .book-page--manecillas .book-hero__copy{
+    --man-hero-rail-space:clamp(1.1rem,2vw,1.7rem);
+    padding-left:var(--man-hero-rail-space);
+    background-image:linear-gradient(var(--man-blue),var(--man-blue));
+    background-repeat:no-repeat;
+    background-size:2.5px 100%;
+    background-position:left top;
+  }
+}
+
+/* Actions follow HOME/Libros handwritten grammar, not black rectangular buttons. */
+html.v1[data-editorial-context="manecillas"] .book-page--manecillas :is(
+  .book-actions .primary-action,.book-actions .text-action,
+  .prose-field .text-action,.availability-list .text-action,
+  .book-utility-actions .text-action
+){
+  display:inline-flex;
+  align-items:center;
+  width:fit-content;
+  min-width:0;
+  min-height:30px;
+  padding:0;
+  border:0;
+  border-radius:0;
+  background:transparent;
+  box-shadow:none;
+  color:var(--man-blue);
+  font-family:'Yellowtail',var(--font-ui),cursive;
+  font-size:1.16rem;
+  font-weight:400;
+  line-height:1.15;
+  letter-spacing:0;
+  text-transform:none;
+  text-decoration:none;
+  flex-wrap:wrap;
+}
+html.v1[data-editorial-context="manecillas"] .book-page--manecillas :is(
+  .book-actions .primary-action,.book-actions .text-action,
+  .prose-field .text-action,.availability-list .text-action,
+  .book-utility-actions .text-action
+):hover,
+html.v1[data-editorial-context="manecillas"] .book-page--manecillas :is(
+  .book-actions .primary-action,.book-actions .text-action,
+  .prose-field .text-action,.availability-list .text-action,
+  .book-utility-actions .text-action
+):focus-visible{
+  color:var(--man-blue-deep);
+  background:transparent;
+}
+html.v1[data-editorial-context="manecillas"] .book-page--manecillas .book-actions .primary-action::after{
+  content:"\2192";
+  margin-left:.35rem;
+}
+
+/* Technical ledger: neutral keys, black values, blue/gold rule stack. */
+html.v1[data-editorial-context="manecillas"] .book-page--manecillas .book-meta-ledger{
+  border-top:0;
+}
+html.v1[data-editorial-context="manecillas"] .book-page--manecillas .book-meta-ledger>div{
+  border:0;
+  padding:.9rem 0 1.15rem;
+  background-image:
+    linear-gradient(var(--man-blue),var(--man-blue)),
+    linear-gradient(var(--man-gold),var(--man-gold));
+  background-repeat:no-repeat,no-repeat;
+  background-size:100% 1.25px,100% 1.5px;
+  background-position:left bottom 4px,left bottom;
+}
+html.v1[data-editorial-context="manecillas"] .book-page--manecillas .book-meta-ledger dt{color:var(--man-neutral)}
+html.v1[data-editorial-context="manecillas"] .book-page--manecillas .book-meta-ledger dd{color:var(--man-ink)}
+
+/* Hero-to-body transition uses the established double rule + diamond. */
+html.v1[data-editorial-context="manecillas"] .book-page--manecillas .book-seam{
+  height:clamp(42px,5vw,68px);
+  align-items:center;
+}
+html.v1[data-editorial-context="manecillas"] .book-page--manecillas .book-seam span{
+  position:relative;
+  width:100%;
+  height:7px;
+  background-image:
+    linear-gradient(var(--man-blue),var(--man-blue)),
+    linear-gradient(var(--man-gold),var(--man-gold));
+  background-repeat:no-repeat,no-repeat;
+  background-size:100% 1.5px,100% 1.5px;
+  background-position:left top,left bottom;
+}
+html.v1[data-editorial-context="manecillas"] .book-page--manecillas .book-seam span::after{
+  content:"";
+  position:absolute;
+  left:50%;
+  top:50%;
+  width:8px;
+  height:8px;
+  background:var(--man-blue);
+  transform:translate(-50%,-50%) rotate(45deg);
+}
+
+/* Section structure. Reading prose stays serif/black; only hierarchy changes. */
+html.v1[data-editorial-context="manecillas"] .book-page--manecillas :is(.book-section,.book-dedication,.book-newsletter,.book-utility-actions){
+  position:relative;
+  border-top:0;
+  background-image:
+    linear-gradient(var(--man-blue),var(--man-blue)),
+    linear-gradient(var(--man-gold),var(--man-gold));
+  background-repeat:no-repeat,no-repeat;
+  background-size:100% 1.25px,100% 1.5px;
+  background-position:left top,left 4px;
+}
+html.v1[data-editorial-context="manecillas"] .book-page--manecillas .book-section__label>.eyebrow,
+html.v1[data-editorial-context="manecillas"] .book-page--manecillas .book-dedication>.eyebrow,
+html.v1[data-editorial-context="manecillas"] .book-page--manecillas .book-newsletter>div>.eyebrow{
+  width:fit-content;
+  margin:0;
+  padding:0 .08em .08em;
+  color:var(--man-gold);
+  font-family:'Yellowtail',var(--font-ui),cursive;
+  font-size:clamp(1.3rem,1.8vw,1.6rem);
+  font-weight:400;
+  line-height:1.05;
+  letter-spacing:0;
+  text-transform:none;
+  background:url('/assets/highlight-8-blue-rect.png') center bottom .02em/106% .52em no-repeat;
+}
+html.v1[data-editorial-context="manecillas"] .book-page--manecillas :is(
+  .book-section__label h2,.prose-field h2,.book-newsletter h2
+){
+  color:var(--man-blue);
+  font-family:var(--font-ui);
+  font-weight:800;
+  line-height:1.02;
+  letter-spacing:-.025em;
+  -webkit-text-stroke:.3px rgba(184,134,11,.5);
+}
+html.v1[data-editorial-context="manecillas"] .book-page--manecillas .prose-field{
+  color:var(--man-ink);
+}
+
+/* Margin note: secondary callout, not a heavy card. */
+html.v1[data-editorial-context="manecillas"] .book-page--manecillas .book-margin-note{
+  padding:1rem 1.05rem 1.1rem 1.2rem;
+  border:0;
+  border-left:2.5px solid var(--man-blue);
+  border-bottom:1.5px solid var(--man-gold);
+  background:var(--man-pale);
+  color:#3f3b37;
+}
+html.v1[data-editorial-context="manecillas"] .book-page--manecillas .book-margin-note span{
+  color:var(--man-neutral);
+}
+
+/* Three entry doors stay a deliberate three-column rupture on desktop. */
+html.v1[data-editorial-context="manecillas"] .book-page--manecillas .book-theme-list{
+  border-top:0;
+  gap:0;
+  background-image:
+    linear-gradient(var(--man-blue),var(--man-blue)),
+    linear-gradient(var(--man-gold),var(--man-gold));
+  background-repeat:no-repeat,no-repeat;
+  background-size:100% 1.25px,100% 1.5px;
+  background-position:left top,left 4px;
+}
+html.v1[data-editorial-context="manecillas"] .book-page--manecillas .book-theme{
+  min-width:0;
+  padding:clamp(1.25rem,2.2vw,1.7rem) clamp(1rem,2.1vw,1.55rem) clamp(1.4rem,2.4vw,1.8rem);
+  border:0;
+  background:#fff;
+}
+html.v1[data-editorial-context="manecillas"] .book-page--manecillas .book-theme+.book-theme{
+  border-left:1px solid var(--man-blue);
+}
+html.v1[data-editorial-context="manecillas"] .book-page--manecillas .book-theme .eyebrow{
+  color:var(--man-neutral);
+  font-family:var(--font-ui);
+}
+html.v1[data-editorial-context="manecillas"] .book-page--manecillas .book-theme h3{
+  color:var(--man-ink);
+  font-family:var(--font-ui);
+  font-weight:750;
+  text-decoration:none;
+}
+html.v1[data-editorial-context="manecillas"] .book-page--manecillas .book-theme:hover h3,
+html.v1[data-editorial-context="manecillas"] .book-page--manecillas .book-theme:focus-visible h3{
+  color:var(--man-blue);
+  text-decoration:none;
+}
+
+/* Dedication is a pause: one rail, not a box. */
+html.v1[data-editorial-context="manecillas"] .book-page--manecillas .book-dedication{
+  padding-left:clamp(1.1rem,2.2vw,1.7rem);
+}
+html.v1[data-editorial-context="manecillas"] .book-page--manecillas .book-dedication::before{
+  content:"";
+  position:absolute;
+  left:0;
+  top:clamp(2.8rem,5.6vw,4.8rem);
+  bottom:clamp(2.8rem,5.6vw,4.8rem);
+  width:2.5px;
+  background:var(--man-blue);
+}
+html.v1[data-editorial-context="manecillas"] .book-page--manecillas .book-dedication blockquote{
+  color:var(--man-ink);
+}
+
+/* Availability is practical information and intentionally receives the pale
+   blue emphasis used by other approved utility blocks. */
+html.v1[data-editorial-context="manecillas"] .book-page--manecillas .availability-section{
+  margin-block:clamp(1.2rem,2.5vw,2rem);
+  padding-inline:clamp(1rem,2.4vw,1.8rem);
+  border:1px solid var(--man-blue);
+  border-bottom:2px solid var(--man-gold);
+  background:var(--man-pale);
+  background-image:none;
+}
+html.v1[data-editorial-context="manecillas"] .book-page--manecillas .availability-list dl{
+  border-top:1.5px solid var(--man-blue);
+}
+html.v1[data-editorial-context="manecillas"] .book-page--manecillas .availability-list dl>div{
+  border-bottom:1px solid rgba(29,79,150,.45);
+}
+html.v1[data-editorial-context="manecillas"] .book-page--manecillas .availability-list dt{color:var(--man-neutral)}
+html.v1[data-editorial-context="manecillas"] .book-page--manecillas .availability-list dd{color:var(--man-ink)}
+
+/* Newsletter keeps its form logic and becomes the closing blue/gold utility block. */
+html.v1[data-editorial-context="manecillas"] .book-page--manecillas .book-newsletter{
+  margin-top:clamp(1rem,2vw,1.6rem);
+  padding:clamp(2rem,4vw,3.2rem) clamp(1rem,2.4vw,1.8rem);
+  border:1px solid var(--man-blue);
+  border-bottom:2px solid var(--man-gold);
+  background:linear-gradient(180deg,#fff,var(--man-pale));
+  background-image:linear-gradient(180deg,#fff,var(--man-pale));
+}
+html.v1[data-editorial-context="manecillas"] .book-page--manecillas .book-newsletter .form-input{
+  border-color:rgba(29,79,150,.55);
+  background:#fff;
+}
+html.v1[data-editorial-context="manecillas"] .book-page--manecillas .book-newsletter .form-input:focus{
+  border-color:var(--man-blue);
+  outline-color:var(--man-gold);
+}
+html.v1[data-editorial-context="manecillas"] .book-page--manecillas .book-newsletter .form-submit{
+  border-color:var(--man-blue);
+  background:var(--man-blue);
+  color:#fff;
+}
+html.v1[data-editorial-context="manecillas"] .book-page--manecillas .book-newsletter .form-submit:hover,
+html.v1[data-editorial-context="manecillas"] .book-page--manecillas .book-newsletter .form-submit:focus-visible{
+  border-color:var(--man-blue-deep);
+  background:var(--man-blue-deep);
+  color:#fff;
+}
+
+/* Footer and return control match HOME/Libros without changing shared markup. */
+html.v1[data-editorial-context="manecillas"] .site-footer{
+  position:relative;
+  border-top:0;
+  background:linear-gradient(180deg,#fff 0%,#f7fbfe 100%);
+  box-shadow:none;
+}
+html.v1[data-editorial-context="manecillas"] .site-footer::before{
+  content:"";
+  position:absolute;
+  top:0;
+  left:0;
+  right:0;
+  height:6.5px;
+  background-image:linear-gradient(var(--man-blue),var(--man-blue)),linear-gradient(var(--man-gold),var(--man-gold));
+  background-repeat:no-repeat,no-repeat;
+  background-size:100% 1.5px,100% 1.5px;
+  background-position:left top,left bottom;
+  pointer-events:none;
+}
+html.v1[data-editorial-context="manecillas"] .site-footer h2{color:var(--man-blue)}
+html.v1[data-editorial-context="manecillas"] .site-footer a:hover,
+html.v1[data-editorial-context="manecillas"] .site-footer a:focus-visible{
+  color:var(--man-blue);
+  text-decoration-color:var(--man-gold);
+}
+html.v1[data-editorial-context="manecillas"] .site-footer .social-icon:nth-child(odd){border-color:var(--man-blue)}
+html.v1[data-editorial-context="manecillas"] .site-footer .social-icon:nth-child(even){border-color:var(--man-gold)}
+html.v1[data-editorial-context="manecillas"] .site-footer .social-icon:hover,
+html.v1[data-editorial-context="manecillas"] .site-footer .social-icon:focus-visible{
+  color:#fff;
+  background:var(--man-blue);
+  border-color:var(--man-blue);
+}
+html.v1[data-editorial-context="manecillas"] .site-footer .footer-legal{border-top-color:var(--man-gold)}
+html.v1[data-editorial-context="manecillas"] .site-footer .footer-email{
+  color:var(--man-blue);
+  border-bottom-color:var(--man-gold);
+}
+html.v1[data-editorial-context="manecillas"] .back-to-top{
+  border-color:var(--man-blue);
+  background:#fff;
+  color:var(--man-blue);
+  box-shadow:0 0 0 2px #fff,0 0 0 3px var(--man-gold),0 5px 18px rgba(23,20,18,.09);
+}
+html.v1[data-editorial-context="manecillas"] .back-to-top:hover,
+html.v1[data-editorial-context="manecillas"] .back-to-top:focus-visible{
+  border-color:var(--man-blue);
+  background:var(--man-blue);
+  color:#fff;
+}
+
+/* Reflow closure. */
+@media(max-width:1199px){
+  html.v1[data-editorial-context="manecillas"] .book-page--manecillas .book-meta-ledger>div:nth-child(even){
+    border-left:0;
+    padding-left:0;
+  }
+}
+@media(max-width:899px){
+  html.v1[data-editorial-context="manecillas"] .book-page--manecillas .book-hero{
+    padding-left:clamp(1rem,3vw,1.4rem);
+    position:relative;
+  }
+  html.v1[data-editorial-context="manecillas"] .book-page--manecillas .book-hero::before{
+    content:"";
+    position:absolute;
+    left:0;
+    top:clamp(2.5rem,8vw,4rem);
+    bottom:clamp(4rem,10vw,6rem);
+    width:2.5px;
+    background:var(--man-blue);
+  }
+  html.v1[data-editorial-context="manecillas"] .book-page--manecillas .book-hero h1{
+    max-width:none;
+    font-size:clamp(2.8rem,10vw,4.15rem);
+  }
+  html.v1[data-editorial-context="manecillas"] .book-page--manecillas .book-cover-zone{
+    padding:.75rem;
+  }
+  html.v1[data-editorial-context="manecillas"] .book-page--manecillas .book-theme-list{
+    grid-template-columns:1fr;
+  }
+  html.v1[data-editorial-context="manecillas"] .book-page--manecillas .book-theme+.book-theme{
+    border-left:0;
+    border-top:1px solid var(--man-blue);
+  }
+  html.v1[data-editorial-context="manecillas"] .book-page--manecillas .book-dedication{
+    padding-left:clamp(1rem,3vw,1.4rem);
+  }
+  html.v1[data-editorial-context="manecillas"] .book-page--manecillas .book-dedication::before{
+    top:clamp(3rem,10vw,4.5rem);
+    bottom:clamp(3rem,10vw,4.5rem);
+  }
+  html.v1[data-editorial-context="manecillas"] .book-page--manecillas .book-section__label h2,
+  html.v1[data-editorial-context="manecillas"] .book-page--manecillas .prose-field h2,
+  html.v1[data-editorial-context="manecillas"] .book-page--manecillas .book-newsletter h2{
+    font-size:clamp(2rem,7.4vw,3rem);
+  }
+}
+@media(max-width:639px){
+  html.v1[data-editorial-context="manecillas"] .section-context{
+    position:relative;
+    top:auto;
+  }
+  html.v1[data-editorial-context="manecillas"] .book-page--manecillas .book-cover::before,
+  html.v1[data-editorial-context="manecillas"] .book-page--manecillas .book-cover::after{
+    width:28px;
+    height:28px;
+  }
+  html.v1[data-editorial-context="manecillas"] .book-page--manecillas .availability-section,
+  html.v1[data-editorial-context="manecillas"] .book-page--manecillas .book-newsletter{
+    padding-inline:clamp(.8rem,3vw,1rem);
+  }
+  html.v1[data-editorial-context="manecillas"] .book-page--manecillas .book-actions{
+    align-items:start;
+  }
+}
+
+@media print{
+  html.v1[data-editorial-context="manecillas"] .book-page--manecillas :is(.book-cover::before,.book-cover::after,.book-seam span::after){display:none!important}
+  html.v1[data-editorial-context="manecillas"] .book-page--manecillas :is(.availability-section,.book-newsletter){background:#fff!important}
+}
