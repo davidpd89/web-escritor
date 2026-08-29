@@ -259,6 +259,15 @@ html.v1[data-editorial-context="manecillas"] body[data-reading-progress] .back-t
   html.v1[data-editorial-context="manecillas"] body[data-reading-progress] .book-page--manecillas .book-actions .primary-action{width:auto}
 }
 
+/* At <=899px v1-book.css collapses excerpts to one column. Keep the pager in
+   that same explicit track; leaving grid-column:2 creates an implicit second
+   column that compresses prose and places pager rules beside the text. */
+@media(max-width:899px){
+  html.v1[data-editorial-context="manecillas"] body[data-reading-progress] .book-page--manecillas .excerpt-section{grid-template-columns:minmax(0,1fr)}
+  html.v1[data-editorial-context="manecillas"] body[data-reading-progress] .excerpt-section :is(.book-section__label,.excerpt-field),
+  html.v1[data-editorial-context="manecillas"] body[data-reading-progress] .fragment-pager{grid-column:1;min-width:0;width:100%}
+}
+
 @media(max-width:767px){
   html.v1[data-editorial-context="manecillas"] body[data-reading-progress] .book-page--manecillas .book-hero{
     position:relative;padding-left:clamp(1rem,3vw,1.4rem)
