@@ -8,8 +8,10 @@ const OUT = process.env.QA_OUT || 'artifacts/sitewide-reflow';
 fs.mkdirSync(OUT, { recursive: true });
 
 const BLUE = 'rgb(29, 79, 150)';
+const HEADER_BLUE = 'rgb(10, 77, 159)';
 const GOLD = 'rgb(184, 134, 11)';
 const PALE = 'rgb(238, 250, 255)';
+const WHITE = 'rgb(255, 255, 255)';
 const TRANSPARENT = 'rgba(0, 0, 0, 0)';
 const MAP_FRAME = 'rgba(29, 79, 150, 0.5)';
 
@@ -38,10 +40,13 @@ async function css(locator, pseudo = null) {
       backgroundSize: s.backgroundSize,
       borderTopColor: s.borderTopColor,
       borderTopWidth: s.borderTopWidth,
+      borderRightColor: s.borderRightColor,
+      borderRightWidth: s.borderRightWidth,
       borderBottomColor: s.borderBottomColor,
       borderBottomWidth: s.borderBottomWidth,
       borderLeftColor: s.borderLeftColor,
       borderLeftWidth: s.borderLeftWidth,
+      boxShadow: s.boxShadow,
       display: s.display,
       fontFamily: s.fontFamily,
       fontSize: s.fontSize,
@@ -101,6 +106,37 @@ try {
 
       const token = await page.locator('html').evaluate(el => getComputedStyle(el).getPropertyValue('--nov-blue').trim());
       assert.equal(token, '#1d4f96', `${name}: capa visual Noveris no aplicada`);
+
+      const currentContext = await css(page.locator('.section-context [aria-current="page"]'));
+      assert.equal(currentContext.color, BLUE, `${name}: navegación contextual activa no azul`);
+      assert.equal(currentContext.backgroundColor, PALE, `${name}: navegación contextual activa no usa azul pálido`);
+      assert.match(currentContext.boxShadow, /rgb\(184, 134, 11\)/, `${name}: navegación contextual activa pierde subrayado dorado`);
+      assert.equal((await css(page.locator('.section-context__title'))).color, BLUE, `${name}: título contextual no azul`);
+
+      if (name === 'desktop-1440' || name === 'mobile-390') {
+        const headerSearch = page.locator('.header-search');
+        await headerSearch.hover();
+        const headerHover = await css(headerSearch);
+        assert.equal(headerHover.color, HEADER_BLUE, `${name}: hover Asistente no usa azul especial de header`);
+        assert.equal(headerHover.backgroundColor, PALE, `${name}: hover Asistente no usa superficie pálida`);
+        await page.mouse.move(Math.max(1, width - 2), Math.max(1, height - 2));
+
+        const exploreTrigger = page.locator('.explore-trigger');
+        await exploreTrigger.click();
+        const dialog = page.locator('#explore-dialog');
+        await dialog.waitFor({ state: 'visible', timeout: 3000 });
+        assert.equal((await css(dialog)).borderRightColor, BLUE, `${name}: Explorar no tiene borde azul`);
+        assert.equal((await css(dialog.locator('.explore-dialog__head'))).borderBottomColor, GOLD, `${name}: cabecera Explorar no cierra en dorado`);
+        assert.equal((await css(dialog.locator('.explore-dialog__head h2'))).color, BLUE, `${name}: título Explorar no azul`);
+        const toggle = dialog.locator('.explore-row__toggle').first();
+        assert.equal((await css(toggle)).color, BLUE, `${name}: toggle Explorar en reposo no azul`);
+        await toggle.hover();
+        const toggleHover = await css(toggle);
+        assert.equal(toggleHover.color, WHITE, `${name}: toggle Explorar hover no blanco`);
+        assert.equal(toggleHover.backgroundColor, BLUE, `${name}: toggle Explorar hover no azul`);
+        await dialog.locator('[data-explore-close]').click();
+        await dialog.waitFor({ state: 'hidden', timeout: 3000 });
+      }
 
       const overflow = await page.evaluate(() => document.documentElement.scrollWidth - innerWidth);
       assert.ok(overflow <= 1, `${name}: overflow horizontal ${overflow}px`);
