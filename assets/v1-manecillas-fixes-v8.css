@@ -1,4 +1,11 @@
-/* Manecillas V8 closure file.
-   Browser-pass fixes were folded into v1-manecillas-design-v8.css so every
-   declaration shares the same main-page-only scope. Kept as an empty import
-   to avoid churn in v1-book.css during this PR. */
+/* Manecillas V8 — browser-pass closure, MAIN page only. */
+
+/* #muestra is a zero-height alias immediately before the visible section
+   label. As a normal grid item it consumed column 1, shifting the label and
+   prose into the wrong tracks (and wrapping prose back to column 1 at 1199/900).
+   Keep the anchor at the section start but remove it from grid auto-placement. */
+html.v1[data-editorial-context="manecillas"] body:not([data-reading-progress]) .book-page--manecillas .book-anchor-alias{
+  position:absolute;
+  top:0;
+  left:0;
+}
