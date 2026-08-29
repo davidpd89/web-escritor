@@ -50,7 +50,19 @@ https://developers.google.com/search/docs/essentials/spam-policies
 
 Google define link spam como enlaces creados principalmente para manipular rankings e incluye intercambios excesivos, automatización de enlaces y colocaciones pagadas que transmiten señales de ranking. También aclara que publicidad y sponsorship son normales si sus enlaces se califican adecuadamente.
 
-Esto descarta definitivamente link swaps, cuotas de enlaces y cualquier programa de outbound linking diseñado como palanca algorítmica.
+Las políticas vigentes distinguen además la **thin affiliation**: una página de afiliación es problemática cuando replica contenido del merchant sin valor añadido; en cambio, una página afiliada con contenido significativo/original puede ser legítima. Y, dentro de site reputation abuse, Google enumera como caso no abusivo el uso de affiliate links correctamente tratados.
+
+Esto descarta definitivamente link swaps, cuotas de enlaces y cualquier programa de outbound linking diseñado como palanca algorítmica, pero también evita sobrerreaccionar tratando la afiliación editorial legítima como spam por definición.
+
+### Google · actualización de Site Reputation Policy del 28/08/2026
+
+https://developers.google.com/search/blog/2026/08/update-site-reputation-policy
+
+Se revisó expresamente la actualización publicada **ayer, 28 de agosto de 2026**, porque modifica desde el 30 de agosto el efecto de determinadas manual actions en el EEA y clarifica la aplicación de la política a contenido de terceros.
+
+No cambia la decisión A.5 ni convierte la página de recomendaciones actual en un problema: el riesgo descrito es publicar contenido de terceros principalmente para explotar las señales ya establecidas del host. La superficie revisada de `davidportodiaz.com` es contenido editorial first-party del propio sitio y sus enlaces afiliados están calificados. La política de spam de Google continúa citando explícitamente los affiliate links correctamente tratados como ejemplo que no constituye site reputation abuse por sí mismo.
+
+Por tanto, no se añade infraestructura reactiva por esta actualización. El trigger sí queda claro: si en el futuro la web aloja contenido comercial/editorial producido por terceros, deberá evaluarse esa superficie por finalidad, control editorial, disclosure y política vigente antes de publicarla.
 
 ### Google · people-first content / E-E-A-T
 
@@ -116,6 +128,7 @@ Lo que sí es objetivamente automatizable —integridad de enlaces, atributos co
 7. **Autoenlazado sitewide a autoridades externas** — coste de UX, mantenimiento y privacidad sin beneficio humano demostrado.
 8. **Validator por lista blanca de dominios** — una URL de un dominio oficial puede no apoyar la afirmación y una fuente secundaria puede ser la evidencia correcta.
 9. **Checker de “calidad” semántica por IA como merge gate** — resultado no determinista y sin contrato objetivo suficiente para bloquear releases.
+10. **Crear un gate específico por la actualización Site Reputation del 28/08/2026** — la superficie actual es first-party y no existe el patrón de abuso que la política pretende resolver.
 
 ## Trigger de reapertura
 
@@ -123,6 +136,7 @@ A.5 solo requiere nuevo runtime/test si aparece uno de estos hechos concretos:
 
 - se crea una autoridad estructurada que identifique enlaces afiliados/pagados y sea necesario garantizar su `rel="sponsored"`;
 - se añade UGC con enlaces externos;
+- se incorpora contenido comercial/editorial producido por terceros y hay que evaluar site reputation abuse/disclosure;
 - aparece un fallo reproducible de disclosure/rel comercial no cubierto por los checks propietarios de esa superficie;
 - una familia editorial de alta volatilidad activa A.4 y necesita un contrato de fuentes estructurado que pueda validarse objetivamente.
 
@@ -135,6 +149,7 @@ En esos casos se extiende la autoridad que posea los datos; no se crea un “SEO
 - [x] Google Link Best Practices revalidado;
 - [x] Google outbound link qualification revalidado;
 - [x] spam policies revalidadas;
+- [x] actualización Site Reputation Policy de 28/08/2026 revalidada y clasificada como no aplicable a la superficie first-party actual;
 - [x] interpretación E-E-A-T como cuota de enlaces descartada;
 - [x] jerarquía de fuentes definida;
 - [x] afiliación/sponsorship definido;
@@ -143,4 +158,4 @@ En esos casos se extiende la autoridad que posea los datos; no se crea un “SEO
 - [x] no existe un gap de runtime demostrable dentro de A.5;
 - [x] triggers objetivos de reapertura definidos.
 
-**Conclusión:** A.5 queda cerrada como política editorial condicional y completa. No hay desarrollo pendiente hoy: implementar un contador, crawler paralelo o clasificador de “autoridad” empeoraría la precisión y la mantenibilidad. Si en el futuro aparece un dato estructurado o una superficie comercial/UGC nueva, se automatiza ese contrato concreto y nada más.
+**Conclusión:** A.5 queda cerrada como política editorial condicional y completa. No hay desarrollo pendiente hoy: implementar un contador, crawler paralelo o clasificador de “autoridad” empeoraría la precisión y la mantenibilidad. Si en el futuro aparece un dato estructurado o una superficie comercial/UGC/third-party nueva, se automatiza el contrato concreto que corresponda y nada más.
