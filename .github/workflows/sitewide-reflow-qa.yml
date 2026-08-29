@@ -69,6 +69,11 @@ jobs:
           QA_OUT: artifacts/sitewide-reflow
         run: node qa/manecillas-design-browser.mjs
 
+      - name: Manecillas scope isolation (Fragmentos unchanged)
+        env:
+          QA_ORIGIN: http://127.0.0.1:4173
+        run: node qa/manecillas-scope-isolation.mjs
+
       - name: POV distribution format QA (O.2)
         if: always()
         run: node qa/pov-distribucion-format-browser.mjs
