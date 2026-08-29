@@ -9,34 +9,60 @@
 @import url('/assets/v1-site-cohesion-v6.css');
 @import url('/assets/v1-reflow-hardening-v7.css');
 
-/* Samuel now uses Yellowtail across a much larger editorial surface than the
-   original Home kicker: hero actions, 14 register openings and route/commerce
-   actions. The generic Yellowtail face is deliberately `swap` so Home always
-   reaches the intended lettering, but that visible swap can reflow a long
-   Samuel page on a cold cache. Reuse the same self-hosted 18 KB font with a
-   Samuel-only face whose block period lets the local font arrive before the
-   first painted fallback. No extra font asset or external request is added. */
-@font-face{
-  font-family:'Yellowtail Samuel Stable';
-  font-style:normal;
-  font-weight:400;
-  font-display:block;
-  src:url('fonts/yellowtail-normal-400-latin.woff2') format('woff2');
-  unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD;
+/* Samuel's visual-unification layer lives later inside v1-samuel.css, after
+   the original threshold rules. Chromium can account for the intermediate
+   geometry while that stylesheet is parsed: the old threshold used a tall
+   viewport min-height, a 25rem object and an Instrument Serif hero, whereas
+   the final Samuel composition uses a compact threshold, 23rem object and
+   Manrope title. Keep the final desktop geometry at the shell level with one
+   extra element of specificity so there is no old-layout frame to shift from.
+   These declarations intentionally mirror the final Samuel rules rather than
+   introducing a third layout. The <=900px family media rules remain canonical
+   and are not touched here. */
+@media (min-width:901px){
+  html.v1[data-editorial-context="samuel"] body .samuel-threshold{
+    min-height:0;
+    padding:clamp(3.4rem,6vw,5.8rem) 0 clamp(4rem,7vw,6.4rem);
+    border-bottom:0;
+  }
+  html.v1[data-editorial-context="samuel"] body .samuel-threshold::before{
+    top:clamp(2.8rem,5vw,4.5rem);
+    bottom:clamp(3.4rem,6vw,5.5rem);
+    left:calc(36% + 1rem);
+    width:2.5px;
+    height:auto;
+  }
+  html.v1[data-editorial-context="samuel"] body .samuel-threshold__object{align-self:center}
+  html.v1[data-editorial-context="samuel"] body .samuel-object{
+    margin:clamp(1.2rem,3vw,2.5rem) 0 1rem;
+    width:min(100%,23rem);
+  }
+  html.v1[data-editorial-context="samuel"] body .samuel-threshold h1{
+    max-width:10ch;
+    margin:.7rem 0 1.1rem;
+    font-family:var(--font-ui);
+    font-size:clamp(3.5rem,6.2vw,6.5rem);
+    font-weight:800;
+    line-height:.88;
+    letter-spacing:-.045em;
+    text-wrap:balance;
+  }
+  html.v1[data-editorial-context="samuel"] body .samuel-lead{max-width:34ch}
+  html.v1[data-editorial-context="samuel"] body .samuel-actions :is(.primary-action,.text-action){
+    display:inline-flex;
+    align-items:center;
+    width:fit-content;
+    min-width:0;
+    min-height:30px;
+    padding:0;
+    font-family:'Yellowtail',var(--font-ui),cursive;
+    font-size:1.17rem;
+    font-weight:400;
+    line-height:1.15;
+    letter-spacing:0;
+    text-transform:none;
+  }
 }
-
-/* The extra `body` deliberately gives these hardening rules one element of
-   specificity over the later page-family stylesheet without !important. */
-html.v1[data-editorial-context="samuel"] body :is(
-  .samuel-threshold__copy>.eyebrow,
-  .samuel-actions .primary-action,
-  .samuel-actions .text-action,
-  .samuel-section__head .eyebrow,
-  .samuel-route-list li>a,
-  .samuel-world__split .text-action,
-  .samuel-proof__contract .text-action,
-  #comprar .ledger__action
-){font-family:'Yellowtail Samuel Stable',var(--font-ui),cursive}
 
 /* The medallion carries width/height attributes for intrinsic reservation and
    an inline responsive width. V1 base historically omitted height:auto, so
@@ -51,7 +77,7 @@ html.v1[data-editorial-context="samuel"] body .samuel-register__split>div>img{
    promoted to a genuine large-text editorial opening (>=24px normal weight). */
 html.v1[data-editorial-context="samuel"] body .quiz-step-label{
   color:#b8860b;
-  font-family:'Yellowtail Samuel Stable',var(--font-ui),cursive;
+  font-family:'Yellowtail',var(--font-ui),cursive;
   font-size:1.6rem;
   font-weight:400;
   line-height:1.2;
