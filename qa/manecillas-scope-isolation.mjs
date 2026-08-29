@@ -8,17 +8,36 @@ try {
     const context = await browser.newContext({ viewport });
     const page = await context.newPage();
     try {
-      const response = await page.goto(`${ORIGIN}/las-manecillas-del-recuerdo/fragmentos/`, { waitUntil: 'domcontentloaded', timeout: 20000 });
+      let response = await page.goto(`${ORIGIN}/las-manecillas-del-recuerdo/`, { waitUntil: 'domcontentloaded', timeout: 20000 });
+      assert.ok(response?.ok(), 'Ficha principal no carga');
+      const mainTokens = await page.locator('body').evaluate((body) => {
+        const cs = getComputedStyle(body);
+        return {
+          man: cs.getPropertyValue('--man-blue').trim(),
+          frag: cs.getPropertyValue('--frag-blue').trim(),
+        };
+      });
+      assert.equal(mainTokens.man, '#1d4f96', `Main scope perdido: --man-blue=${mainTokens.man}`);
+      assert.equal(mainTokens.frag, '', `Leak Fragmentos -> main: --frag-blue=${mainTokens.frag}`);
+
+      response = await page.goto(`${ORIGIN}/las-manecillas-del-recuerdo/fragmentos/`, { waitUntil: 'domcontentloaded', timeout: 20000 });
       assert.ok(response?.ok(), 'Fragmentos no carga');
       assert.equal(await page.locator('body').getAttribute('data-reading-progress'), '');
 
-      const leakedToken = await page.locator('body').evaluate((body) => getComputedStyle(body).getPropertyValue('--man-blue').trim());
-      assert.equal(leakedToken, '', `V8 leak: --man-blue=${leakedToken}`);
+      const fragmentTokens = await page.locator('body').evaluate((body) => {
+        const cs = getComputedStyle(body);
+        return {
+          man: cs.getPropertyValue('--man-blue').trim(),
+          frag: cs.getPropertyValue('--frag-blue').trim(),
+        };
+      });
+      assert.equal(fragmentTokens.man, '', `Leak main -> Fragmentos: --man-blue=${fragmentTokens.man}`);
+      assert.equal(fragmentTokens.frag, '#1d4f96', `Fragmentos scope perdido: --frag-blue=${fragmentTokens.frag}`);
 
       const coverBefore = await page.locator('.book-cover').first().evaluate((el) => getComputedStyle(el, '::before').backgroundImage);
-      assert.doesNotMatch(coverBefore, /corner-bracket-blue-gold\.svg/, 'V8 leak: Fragmentos recibió brackets de la ficha principal');
+      assert.match(coverBefore, /corner-bracket-blue-gold\.svg/, 'Fragmentos debe recibir sus brackets propios');
 
-      console.log(`ok scope isolation Fragmentos ${viewport.width}x${viewport.height}`);
+      console.log(`ok scope isolation Main/Fragmentos ${viewport.width}x${viewport.height}`);
     } finally {
       await context.close();
     }
