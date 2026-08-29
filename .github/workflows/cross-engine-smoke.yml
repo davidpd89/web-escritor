@@ -7,6 +7,7 @@ on:
       - 'assets/**'
       - 'script.js'
       - 'qa/cross-engine-smoke.mjs'
+      - 'qa/books-index-cross-engine.mjs'
       - 'docs/compatibilidad-cross-browser.md'
       - '.github/workflows/cross-engine-smoke.yml'
   workflow_dispatch:
@@ -47,3 +48,18 @@ jobs:
 
       - name: Run cross-engine smoke (Chromium + Firefox + WebKit)
         run: node qa/cross-engine-smoke.mjs
+
+      - name: Run Books index cross-engine design smoke
+        shell: bash
+        env:
+          QA_ORIGIN: http://127.0.0.1:4173
+        run: |
+          python -m http.server 4173 --bind 127.0.0.1 > /tmp/books-cross-engine-server.log 2>&1 &
+          server_pid=$!
+          trap 'kill $server_pid || true' EXIT
+          for i in {1..30}; do
+            if curl --fail --silent http://127.0.0.1:4173/libros/ >/dev/null; then break; fi
+            sleep 1
+          done
+          curl --fail --silent http://127.0.0.1:4173/libros/ >/dev/null
+          node qa/books-index-cross-engine.mjs
