@@ -90,7 +90,7 @@ def main() -> int:
         )
         check(counts == {"added": 1, "modified": 1, "deleted": 1}, f"unexpected counts: {counts}")
 
-        key = "20c025c30536df9ee9bfa38406e7dd72"
+        key = "59347d39b5684876a7ccc84382f31758"
         key_file = t / f"{key}.txt"
         key_file.write_text(key + "\n", encoding="utf-8")
         check(indexnow.read_key(key_file) == key, "valid public key rejected")
