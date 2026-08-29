@@ -1064,3 +1064,80 @@ html.v1[data-lrb-home="true"] .form-submit{
    a home-page-only treatment for now. */
 html.v1[data-lrb-home="true"] .social-icon:nth-child(odd){border-color:#1d4f96}
 html.v1[data-lrb-home="true"] .social-icon:nth-child(even){border-color:#b8860b}
+
+/* HOME finalization — corrective geometry, not a new visual direction. */
+html.v1[data-lrb-home="true"] .yale-home-section--tools{
+  padding-bottom:clamp(1rem,2vw,1.4rem);
+}
+
+/* The events rail used to be a parent background hidden underneath the
+   opaque white event cards, leaving only the old 1px border-left visible.
+   Draw it above the cards instead, at the same 2.5px CSS thickness as the
+   gold stroke in the horizontal rule stack. */
+html.v1[data-lrb-home="true"] .home-events__grid{
+  --home-events-rail-inset:clamp(1.2rem,2.6vw,2rem);
+  position:relative;
+  isolation:isolate;
+  border-left:0;
+  background-image:none;
+  padding-left:var(--home-events-rail-inset);
+}
+html.v1[data-lrb-home="true"] .home-events__grid::before{
+  content:"";
+  position:absolute;
+  top:0;
+  bottom:0;
+  left:0;
+  width:2.5px;
+  background:#1d4f96;
+  pointer-events:none;
+  z-index:2;
+}
+html.v1[data-lrb-home="true"] .home-events__grid .home-event,
+html.v1[data-lrb-home="true"] .home-events__cta{
+  position:relative;
+  z-index:1;
+  margin-left:calc(-1 * var(--home-events-rail-inset));
+}
+/* Keep the intentional blue callout, but make its box start on the same
+   rail axis as the event rules. The overlay rail becomes its left edge. */
+html.v1[data-lrb-home="true"] .home-events__cta{
+  border-top:0;
+  border-left:0;
+}
+/* v1-home-editorial-v3.css has a more specific legacy CTA anchor rule that
+   was restoring sans-serif text and a conventional underline. */
+html.v1[data-lrb-home="true"] .home-events__cta .yale-text-link{
+  font-family:'Yellowtail',var(--font-ui),cursive;
+  font-size:1.15rem;
+  font-weight:400;
+  letter-spacing:0;
+  text-transform:none;
+  color:#1d4f96;
+  text-decoration:none;
+  border-bottom:0;
+  padding-bottom:0;
+}
+html.v1[data-lrb-home="true"] .home-events__cta .yale-text-link:hover,
+html.v1[data-lrb-home="true"] .home-events__cta .yale-text-link:focus-visible{color:#0d2c57}
+
+/* The install block was switched from the old dark panel to white, but its
+   panel lines and hover state still came from that dark version. */
+html.v1[data-lrb-home="true"] .install-web__panel{
+  border-top:1px solid #1d4f96;
+  border-bottom:1px solid #b8860b;
+}
+html.v1[data-lrb-home="true"] .install-web__button:hover,
+html.v1[data-lrb-home="true"] .install-web__button:focus-visible,
+html.v1[data-lrb-home="true"] .form-submit:hover,
+html.v1[data-lrb-home="true"] .form-submit:focus-visible{
+  background:#eefaff;
+  border-color:#1d4f96;
+  color:#0d2c57;
+}
+
+/* Once the outer events feature stacks, the chronological rail stays one
+   dimensional. The previous broad tablet rule accidentally made it 2-col. */
+@media(max-width:1100px){
+  html.v1[data-lrb-home="true"] .home-events__grid{grid-template-columns:1fr}
+}
