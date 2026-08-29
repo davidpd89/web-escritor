@@ -278,6 +278,38 @@ with tempfile.TemporaryDirectory() as tmp:
         "checker does not mutate lifecycle registry",
     )
 
+# 12. Lifecycle dates cannot be hidden in registry defaults.
+with tempfile.TemporaryDirectory() as tmp:
+    root = Path(tmp)
+    _, registry = make_fixture(root)
+    payload = json.loads(registry.read_text(encoding="utf-8"))
+    payload["defaults"] = {
+        "verifiedAt": "2026-08-20",
+        "reviewBy": "2026-11-20",
+    }
+    registry.write_text(json.dumps(payload), encoding="utf-8")
+    errors, _, _, _, _ = mod.run_checks(root, registry, as_of)
+    check(
+        any("lifecycle fields must be per-entry" in err for err in errors),
+        "lifecycle defaults are rejected",
+        str(errors),
+    )
+
+# 13. Historical experimental field names are rejected to prevent schema drift.
+with tempfile.TemporaryDirectory() as tmp:
+    root = Path(tmp)
+    _, registry = make_fixture(root)
+    payload = json.loads(registry.read_text(encoding="utf-8"))
+    payload["entries"][0]["lastVerified"] = "2026-08-20"
+    payload["entries"][0]["reviewAt"] = "2026-11-20"
+    registry.write_text(json.dumps(payload), encoding="utf-8")
+    errors, _, _, _, _ = mod.run_checks(root, registry, as_of)
+    check(
+        any("unsupported legacy lifecycle field" in err for err in errors),
+        "legacy lifecycle aliases are rejected",
+        str(errors),
+    )
+
 print(
     "tests/test-article-dates-lifecycle: "
     + ("OK" if not failures else f"{len(failures)} FALLO(S)")
