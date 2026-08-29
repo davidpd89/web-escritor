@@ -47,7 +47,7 @@ async function computed(locator, pseudo = null) {
 async function box(locator) {
   return locator.evaluate((el) => {
     const r = el.getBoundingClientRect();
-    return { top: r.top, bottom: r.bottom, left: r.left, right: r.right };
+    return { top: r.top, bottom: r.bottom, left: r.left, right: r.right, width: r.width, height: r.height };
   });
 }
 
@@ -99,6 +99,8 @@ try {
         assert.match(after.backgroundImage, /corner-bracket-blue-gold\.svg/);
         const image = media.nth(i).locator('img');
         assert.equal(await image.evaluate((img) => img.complete && img.naturalWidth > 0), true, `${name}: portada ${i + 1} no cargada`);
+        const imageBox = await box(image);
+        assert.ok(imageBox.width >= 80 && imageBox.height >= 120, `${name}: portada ${i + 1} cargada pero sin caja visible (${imageBox.width}x${imageBox.height})`);
       }
 
       const primary = await computed(page.locator('.books-stage__actions .primary-action').first());
