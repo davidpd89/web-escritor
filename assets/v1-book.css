@@ -1,5 +1,6 @@
 /* V1 editorial system — Book family (Manecillas piloto). Ported from
    lab/diseno-home-v1/css/book.css, scoped to html.v1 pages. */
+@import url('/assets/v1-manecillas-design-v8.css');
 html.v1 .book-page{max-width:var(--layout-max);margin:auto;padding-inline:var(--page-gutter)}
 html.v1 .book-hero{min-height:clamp(680px,68vw,840px);display:grid;grid-template-columns:repeat(12,minmax(0,1fr));gap:var(--grid-gap);align-items:center;padding:clamp(2.4rem,4.8vw,4.8rem) 0 clamp(4rem,6.4vw,6.4rem)}
 html.v1 .book-cover-zone{grid-column:1/span 4;position:relative;align-self:center;display:grid;place-items:center;min-width:0}
