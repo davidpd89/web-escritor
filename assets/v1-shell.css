@@ -38,6 +38,14 @@ html.v1[data-editorial-context="samuel"] body :is(
   #comprar .ledger__action
 ){font-family:'Yellowtail Samuel Stable',var(--font-ui),cursive}
 
+/* The medallion carries width/height attributes for intrinsic reservation and
+   an inline responsive width. V1 base historically omitted height:auto, so
+   the height presentational hint survived and stretched the 14rem image to
+   1536 CSS px at the 901/900 seam. Keep its intrinsic ratio when width shrinks. */
+html.v1[data-editorial-context="samuel"] body .samuel-register__split>div>img{
+  height:auto;
+}
+
 /* #b8860b is a decorative brand gold and is intentionally not used for small
    body/UI text. Keeping the quiz step in gold is valid at WCAG AA once it is
    promoted to a genuine large-text editorial opening (>=24px normal weight). */
