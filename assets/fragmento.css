@@ -264,7 +264,7 @@ html.v1[data-editorial-context="samuel"] #sticky-cta{
   align-items:center;
   justify-content:space-between;
   gap:.8rem;
-  padding:.8rem clamp(.8rem,3vw,1.5rem) .55rem;
+  padding:.8rem clamp(.8rem,3vw,1.5rem) calc(.55rem + env(safe-area-inset-bottom));
   color:var(--frag-ink);
   background:
     linear-gradient(var(--frag-blue),var(--frag-blue)) left top/100% 1.5px no-repeat,
@@ -370,7 +370,7 @@ html.v1[data-editorial-context="samuel"]:has(#sticky-cta.visible) .assistant-wid
   }
   html.v1[data-editorial-context="samuel"] #sticky-cta{
     gap:.55rem;
-    padding:.72rem .7rem .48rem;
+    padding:.72rem .7rem calc(.48rem + env(safe-area-inset-bottom));
   }
   html.v1[data-editorial-context="samuel"] .sticky-cta-buttons{gap:.45rem .75rem}
   html.v1[data-editorial-context="samuel"] #sticky-cta :is(.primary-action,.text-action){font-size:.96rem}
