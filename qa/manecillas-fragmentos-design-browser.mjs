@@ -93,6 +93,17 @@ try {
       const fragBlue = await page.locator('body').evaluate((el) => getComputedStyle(el).getPropertyValue('--frag-blue').trim());
       assert.equal(fragBlue, '#1d4f96', `${name}: capa Fragmentos no aplicada`);
 
+      const progress = page.locator('.reading-progress');
+      await progress.waitFor({ state:'attached', timeout:4000 });
+      const progressCss = await style(progress);
+      assert.match(progressCss.backgroundImage, /rgb\(29, 79, 150\)/, `${name}: progreso no usa azul canónico`);
+      assert.match(progressCss.backgroundImage, /rgb\(184, 134, 11\)/, `${name}: progreso no usa dorado canónico`);
+      await page.evaluate(() => window.scrollTo({ top: Math.min(700, document.documentElement.scrollHeight / 4), behavior:'instant' }));
+      await page.waitForTimeout(140);
+      assert.ok(parseFloat((await style(progress)).width) > 0, `${name}: barra de progreso no avanza al hacer scroll`);
+      await page.evaluate(() => window.scrollTo({ top:0, left:0, behavior:'instant' }));
+      await page.waitForTimeout(80);
+
       const overflow = await page.evaluate(() => document.documentElement.scrollWidth - window.innerWidth);
       assert.ok(overflow <= 1, `${name}: overflow horizontal ${overflow}px`);
 
