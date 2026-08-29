@@ -120,6 +120,56 @@ html.v1 .site-footer :is(.footer-legal,.social-icon){
   border-color:var(--dp-editorial-rule);
 }
 
+/* HOME shell accents: keep the footer structurally shared, but use the same
+   blue/gold language already established in the Home content instead of the
+   neutral editorial-rule treatment inherited from the sitewide shell. */
+html.v1[data-lrb-home="true"] .site-footer{
+  position:relative;
+  border-top:0;
+  background:linear-gradient(180deg,#fff 0%,#f7fbfe 100%);
+  box-shadow:none;
+}
+html.v1[data-lrb-home="true"] .site-footer::before{
+  content:"";
+  position:absolute;
+  top:0;
+  left:0;
+  right:0;
+  height:6.5px;
+  background-image:linear-gradient(#1d4f96,#1d4f96),linear-gradient(#b8860b,#b8860b);
+  background-repeat:no-repeat,no-repeat;
+  background-size:100% 1.5px,100% 1.5px;
+  background-position:left top,left bottom;
+  pointer-events:none;
+}
+html.v1[data-lrb-home="true"] .site-footer h2{color:#1d4f96}
+html.v1[data-lrb-home="true"] .site-footer a:hover,
+html.v1[data-lrb-home="true"] .site-footer a:focus-visible{
+  color:#1d4f96;
+  text-decoration-color:#b8860b;
+}
+html.v1[data-lrb-home="true"] .site-footer .footer-legal{border-top-color:#b8860b}
+html.v1[data-lrb-home="true"] .site-footer .footer-email{
+  color:#1d4f96;
+  border-bottom-color:#b8860b;
+}
+
+/* The floating return control is part of the Home shell too. A white centre,
+   blue primary ring and thin gold outer ring echo the avatar/photo framing
+   without introducing another shape or colour system. */
+html.v1[data-lrb-home="true"] .back-to-top{
+  border-color:#1d4f96;
+  background:#fff;
+  color:#1d4f96;
+  box-shadow:0 0 0 2px #fff,0 0 0 3px #b8860b,0 5px 18px rgba(23,20,18,.09);
+}
+html.v1[data-lrb-home="true"] .back-to-top:hover,
+html.v1[data-lrb-home="true"] .back-to-top:focus-visible{
+  border-color:#1d4f96;
+  background:#1d4f96;
+  color:#fff;
+}
+
 /* New destinations introduced by the navigation closure. They deliberately
    use ledgers/hairlines, not a new card system. */
 html.v1 .editorial-anchor-target{
