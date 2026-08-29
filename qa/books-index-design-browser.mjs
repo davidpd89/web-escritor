@@ -36,6 +36,7 @@ async function computed(locator, pseudo = null) {
       fontWeight: cs.fontWeight,
       textTransform: cs.textTransform,
       position: cs.position,
+      display: cs.display,
       width: cs.width,
       height: cs.height,
       content: cs.content,
@@ -59,7 +60,14 @@ try {
     try {
       const response = await page.goto(`${ORIGIN}/libros/`, { waitUntil: 'domcontentloaded', timeout: 20000 });
       assert.ok(response?.ok(), `${name}: /libros/ no carga`);
-      await page.evaluate(() => document.fonts?.ready);
+      await page.evaluate(async () => {
+        await document.fonts?.ready;
+        const images = [...document.querySelectorAll('main[data-family="books-index"] .books-stage__media img')];
+        await Promise.all(images.map(async (img) => {
+          if (!img.complete) await new Promise((resolve) => img.addEventListener('load', resolve, { once: true }));
+          if (typeof img.decode === 'function') await img.decode().catch(() => {});
+        }));
+      });
 
       assert.equal(await page.locator('html').getAttribute('data-editorial-context'), 'obras');
       assert.equal(await page.locator('main[data-family="books-index"]').count(), 1);
@@ -89,6 +97,8 @@ try {
         const after = await computed(media.nth(i), '::after');
         assert.match(before.backgroundImage, /corner-bracket-blue-gold\.svg/);
         assert.match(after.backgroundImage, /corner-bracket-blue-gold\.svg/);
+        const image = media.nth(i).locator('img');
+        assert.equal(await image.evaluate((img) => img.complete && img.naturalWidth > 0), true, `${name}: portada ${i + 1} no cargada`);
       }
 
       const primary = await computed(page.locator('.books-stage__actions .primary-action').first());
@@ -131,13 +141,11 @@ try {
       const footerHeading = await computed(page.locator('.site-footer h2').first());
       assert.equal(footerHeading.color, BLUE);
 
-      if (width <= 1300) {
-        const launcher = page.locator('.assistant-widget__launcher');
-        await launcher.waitFor({ state: 'attached', timeout: 4000 });
-        const launcherCss = await computed(launcher);
-        assert.equal(launcherCss.width, '32px', `${name}: launcher vuelve a ocupar más de 32px`);
-        assert.equal(launcherCss.height, '32px', `${name}: launcher vuelve a ocupar más de 32px`);
-      }
+      const launcher = page.locator('.assistant-widget__launcher');
+      await launcher.waitFor({ state: 'attached', timeout: 4000 });
+      const launcherCss = await computed(launcher);
+      if (width <= 1300) assert.equal(launcherCss.display, 'none', `${name}: launcher duplicado vuelve a cubrir lectura`);
+      else assert.notEqual(launcherCss.display, 'none', `${name}: launcher desktop debería seguir disponible`);
 
       await page.screenshot({ path: path.join(OUT, `libros-${name}.png`), fullPage: true });
       console.log(`ok /libros/ ${width}x${height}`);
