@@ -109,6 +109,9 @@ try {
       assert.match(sectionOpening.fontFamily.toLowerCase(), /yellowtail/);
       assert.equal(sectionOpening.color, GOLD);
 
+      const anchor = await style(page.locator('.book-anchor-alias').first());
+      assert.equal(anchor.position, 'absolute', `${name}: el alias #muestra vuelve a participar en el grid`);
+
       const note = await style(page.locator('.book-margin-note'));
       assert.equal(note.backgroundColor, PALE);
       assert.equal(note.borderLeftWidth, '0px');
