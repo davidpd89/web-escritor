@@ -13,27 +13,27 @@ Cadena de diseño:
 
 PR raíz de toda la cadena: **#163**.
 
-La rama `design/samuel-fragmento-visual-unification-2026-08-29` nace del HEAD documental de cierre de #265 y permanece apilada sobre `design/samuel-visual-unification-2026-08-29` hasta que las bases anteriores se integren.
+La rama `design/samuel-fragmento-visual-unification-2026-08-29` nace de #265 y permanece apilada sobre `design/samuel-visual-unification-2026-08-29` hasta que las bases anteriores se integren.
 
 No mergear fuera de orden. Tras integrar cada base, retargetear la siguiente PR a `main` y verificar que su diff propio continúe limpio.
 
 ## 2. Objetivo
 
-`/fragmento/` no es una ficha de libro ni un artículo de Cuaderno: es una superficie de lectura de ficción larga. Debe conservar la arquitectura funcional de Article que ya resuelve medida de lectura, responsive, progreso, newsletter y shell, pero adquirir continuidad inequívoca con Samuel mediante materiales azul/negro/dorado.
+`/fragmento/` no es una ficha de libro ni un artículo de Cuaderno: es una superficie de lectura de ficción larga. Conserva la arquitectura funcional de Article que ya resuelve medida de lectura, responsive, progreso, newsletter y shell, pero adquiere continuidad inequívoca con Samuel mediante materiales azul/negro/dorado.
 
-Principios:
+Principios cerrados:
 
 - prosa serif negra como protagonista;
-- ancho de lectura actual preservado;
+- ancho de lectura existente preservado;
 - azul `#1d4f96` para orientación/jerarquía;
 - dorado `#b8860b` solo como acento editorial y aperturas grandes;
-- Yellowtail para aperturas y acciones, no para el texto literario;
+- Yellowtail para aperturas y acciones, nunca para la prosa literaria;
 - rail azul real de `2.5px` acompañando figura + capítulo;
 - dobles reglas azul/dorado para transiciones;
 - azul pálido `#eefaff` solo en bloques prácticos/conversión;
-- sin cards dentro del capítulo;
-- CTA persistente compacto: nunca debe tapar varias líneas de lectura en móvil;
-- elementos `fixed` compatibles con las safe areas de iPhone cuando `viewport-fit=cover` está activo.
+- cero cards dentro del capítulo;
+- CTA persistente compacto y compatible con safe areas;
+- un solo acceso flotante/persistente por zona: en esta página el launcher flotante del asistente se desactiva y `Asistente` permanece en el header.
 
 ## 3. Invariantes de contenido y funcionalidad
 
@@ -50,52 +50,66 @@ No se modifica:
 - formulario/newsletter ni endpoint;
 - `data-reading-progress` ni el runtime que mueve la barra;
 - lógica inline de `#sticky-cta`, dismissal en `sessionStorage` ni sus destinos;
-- no-JS/cross-engine/reflow cubiertos por los QA existentes.
+- contratos no-JS/cross-engine/reflow previos.
 
 `qa/samuel-book-fragment-browser.mjs` y `qa/samuel-ecosystem-browser.mjs` siguen siendo autoridad funcional.
 
-## 4. Auditoría visual de baseline
+## 4. Auditoría visual de baseline y defectos encontrados
 
-Evidencia recuperada del artefacto final de #265:
+Evidencia inicial recuperada del artefacto final de #265:
 
 - `fragmento-1440x1000.png` — desktop;
 - `fragmento-390x900.png` — móvil.
 
-Defectos objetivos de coherencia/superposición observados:
-
 ### FRG-01 · identidad genérica de Article
 
-Hero, figura y capítulo se percibían como un artículo genérico del Cuaderno. No había rail de lectura ni transiciones azul/dorado que lo conectasen visualmente con la ficha Samuel.
+Hero, figura y capítulo se percibían como un artículo genérico del Cuaderno. No existía una continuidad material clara con la ficha Samuel.
+
+**Cierre:** apertura, H1, rails, figura, separadores, CTA final, continuidad y newsletter usan ya el vocabulario Samuel sin alterar la medida de lectura.
 
 ### FRG-02 · sticky CTA negro
 
-`#sticky-cta` usaba `--surface-inverse` negro y botones invertidos. Era el mayor material legacy de la página y rompía el sistema ya cerrado en #265.
+`#sticky-cta` utilizaba `--surface-inverse` negro y botones invertidos. En móvil ocupaba además una franja excesiva de lectura.
 
-En 390 px aparecía como una franja de gran altura justo al empezar la lectura, ocupando varias líneas útiles y compitiendo con el capítulo.
+**Cierre:** banda blanca compacta con reglas azul/dorado, acciones Yellowtail azules, cierre circular y límite de altura automatizado.
 
-### FRG-03 · launcher flotante sobre lectura
+### FRG-03 · launcher flotante en conflicto con la lectura/sticky
 
-La captura móvil mostraba el launcher del asistente solapando el área de figura/caption. La misma decisión ya cerrada en #265 se replica: ocultar solo el launcher flotante `<=1300px`, manteniendo `Asistente` accesible en el header.
+El baseline móvil ya mostraba el launcher invadiendo figura/caption. La primera implementación lo ocultó solo `<=1300px`, pero el QA real de 1440 descubrió un defecto adicional: el launcher coincidía exactamente con `#sticky-cta-close` e interceptaba el clic.
+
+**Cierre definitivo:** el launcher flotante queda desactivado en **todos los anchos de `/fragmento/`**. No se elimina el asistente: `Asistente` permanece disponible en el header y el QA comprueba que siga visible antes y después de cerrar el sticky.
 
 ### FRG-04 · CTA final genérica
 
-El bloque `¿Qué pasa después?` era una caja blanca con borde neutral y botón negro. Se convierte en un bloque práctico azul pálido con dobles reglas y acciones manuscritas, sin alterar copy ni URLs.
+`¿Qué pasa después?` era una caja blanca con borde neutral y botón negro.
 
-### FRG-05 · divisores y continuidad
+**Cierre:** bloque práctico azul pálido con dobles reglas y acciones manuscritas, manteniendo copy, ISBN y destinos.
 
-El separador interno del capítulo, Article End y newsletter conservaban reglas neutras genéricas. Se trasladan a dobles reglas azul/dorado manteniendo la jerarquía y el flujo.
+### FRG-05 · divisores y continuidad neutros
+
+Divider interno, Article End y newsletter conservaban reglas del Article genérico.
+
+**Cierre:** dobles reglas azul/dorado y jerarquía cromática de Samuel.
 
 ### FRG-06 · tokens del sticky fuera de scope
 
-La primera implementación declaró `--frag-*` dentro de `.article-page`, pero `#sticky-cta` vive fuera de `<main>`. El QA cross-engine detectó que el sticky seguía resolviendo el material legacy negro. Los tokens se elevaron a `html[data-editorial-context="samuel"]`; el test no se relajó.
+La primera implementación declaró `--frag-*` dentro de `.article-page`, pero `#sticky-cta` vive fuera de `<main>`. Cross-engine detectó que el sticky seguía resolviendo el material legacy negro.
+
+**Cierre:** los tokens se elevaron a `html[data-editorial-context="samuel"]`. El test no se relajó; ahora exige el material azul/dorado efectivo.
 
 ### FRG-07 · safe area inferior de iPhone
 
-`/fragmento/` ya usa `viewport-fit=cover`, pero el CTA `position:fixed` terminaba en `bottom:0` sin reservar `env(safe-area-inset-bottom)`. Se mantiene la misma altura en navegadores con inset `0` y se suma únicamente la safe area cuando iOS la expone.
+`/fragmento/` ya usa `viewport-fit=cover`, pero el CTA `position:fixed` no reservaba `env(safe-area-inset-bottom)`.
 
-La corrección automática no sustituye la comprobación en un iPhone físico.
+**Cierre automático:** el padding inferior suma la safe area cuando el navegador la expone, sin aumentar la altura donde el inset es `0`.
 
-## 5. Implementación visual
+**Pendiente físico:** verificar el resultado en Safari/iOS real.
+
+### FRG-08 · evidencia full-page y elementos fixed
+
+Las capturas full-page pueden representar un elemento `fixed` en una posición intermedia del documento durante el stitching aunque el contrato funcional lo haya cerrado. Por eso el QA no usa la miniatura full-page como única evidencia del sticky: genera capturas viewport específicas en 1280 y 390 y prueba clase `visible`, estilo efectivo, altura, clic de cierre y `sessionStorage`.
+
+## 5. Implementación visual final
 
 ### Apertura
 
@@ -107,20 +121,20 @@ La corrección automática no sustituye la comprobación en un iPhone físico.
 
 ### Lectura
 
-- `article-layout` deja de reservar columnas vacías que no tienen TOC en esta ruta;
-- `article-prose` conserva `--reading-max`, centrado;
+- `article-layout` deja de reservar columnas sin TOC;
+- `article-prose` conserva `--reading-max` y permanece centrado;
 - rail azul `2.5px` acompaña figura + capítulo;
-- figura recibe borde azul/acento dorado mínimo;
-- título repetido del capítulo permanece pequeño/UI, pero azul y con regla azul: orienta sin competir con el H1;
-- párrafos, sangrías, diálogos y aside literario conservan la tipografía/ritmo de lectura;
-- divider interno pasa a doble regla azul/dorado.
+- figura con borde azul/acento dorado mínimo;
+- título repetido del capítulo pequeño/UI, azul y con regla azul;
+- párrafos, sangrías, diálogos y aside literario mantienen tipografía/ritmo;
+- divider interno con doble regla azul/dorado.
 
 ### Conversión final
 
 - bloque azul pálido, sin card redondeada;
 - apertura Yellowtail/dorada;
 - H2 azul;
-- acciones Amazon/ficha/guía pasan a Yellowtail azul, sin botón negro;
+- acciones Amazon/ficha/guía en Yellowtail azul, sin botón negro;
 - ISBN neutral.
 
 ### Continuidad/newsletter
@@ -136,18 +150,19 @@ La corrección automática no sustituye la comprobación en un iPhone físico.
 - blanco semitransparente, regla azul + oro y sombra azul mínima;
 - acciones Yellowtail azules sin material negro;
 - cierre circular azul/dorado;
-- en móvil las dos acciones permanecen en una fila compacta cuando el ancho lo permite;
-- la lógica de visibilidad/dismiss no cambia;
-- sus tokens se resuelven desde el contexto raíz de la página;
-- padding inferior suma `env(safe-area-inset-bottom)` para iPhone con indicador Home.
+- composición móvil compacta;
+- lógica de visibilidad/dismiss intacta;
+- tokens disponibles desde el contexto raíz;
+- padding inferior con `env(safe-area-inset-bottom)`;
+- launcher flotante del asistente desactivado en toda la ruta; acceso del header preservado.
 
 ### Reading progress
 
-Se conserva el elemento funcional existente y solo se cambia su material a gradiente azul→dorado.
+Se conserva el elemento funcional existente y únicamente cambia su material a gradiente azul→dorado.
 
 ## 6. Responsive certificado automáticamente
 
-Viewports del QA específico:
+Viewports del QA específico final:
 
 - 1440×1000;
 - 1280×800;
@@ -159,17 +174,17 @@ Viewports del QA específico:
 - 390×844;
 - 360×800.
 
-Se comprueba:
+El HEAD final automatiza:
 
-- hero metadata desktop vs apilado `<=900`;
-- rail continuo figura→fin del capítulo;
+- metadata desktop vs apilada `<=900`;
+- rail continuo figura→fin de capítulo;
 - medida de prosa estable;
-- sticky CTA compacto y sin overflow a 390/360;
-- launcher ausente `<=1300` y ausencia de colisión con sticky;
-- CTA final y newsletter sin compresión/columnas implícitas;
-- footer sin superposición con sticky;
-- sticky visible tras el scroll esperado y dismiss persistente por `sessionStorage`;
-- texto 200% y text spacing por QA funcional existente.
+- CTA sticky compacto y sin overflow;
+- launcher flotante ausente en todos los anchos y `Asistente` del header disponible;
+- CTA final/newsletter sin compresión ni columnas implícitas;
+- sticky visible tras scroll real y dismiss persistente en `sessionStorage`;
+- safe-area compatible por CSS;
+- Sitewide Reflow sin fallos.
 
 ## 7. Rendimiento
 
@@ -178,37 +193,58 @@ Baseline conocido del Lighthouse focalizado de #265 para `/fragmento/`:
 - warning no bloqueante de LCP: mediana observada `3642.2835ms` con warning `<=3500ms`;
 - workflow general `success`.
 
-Esta PR no añade imágenes, JS ni fuentes. La implementación se mantiene en CSS, QA y documentación. Lighthouse general y el gate focalizado de Samuel deben permanecer verdes en el HEAD definitivo.
+#266 no añade imágenes, JavaScript ni fuentes. Lighthouse general y el gate focalizado de Samuel pasan en el HEAD técnico final.
 
-## 8. QA implementado
+## 8. QA final
 
 ### Chromium / capturas
 
 `qa/samuel-fragmento-design-browser.mjs` valida:
 
-- token/colores de página;
-- eyebrow/H1/meta;
+- identidad/canonical/data-nosnippet;
+- apertura/H1/meta;
 - rail `2.5px`;
 - figura azul/dorada;
-- capítulo y divider;
+- capítulo/divider;
 - CTA final;
 - Article End/newsletter;
 - reading-progress;
-- sticky CTA visible y compacto tras activarlo;
-- dismiss del sticky;
-- launcher y colisiones;
-- overflow en todos los viewports;
-- capturas full-page y capturas específicas del sticky.
+- sticky real, altura y materiales;
+- dismiss + `sessionStorage`;
+- ausencia del launcher y disponibilidad del asistente del header;
+- overflow;
+- capturas full-page de nueve viewports;
+- capturas viewport específicas del sticky en 1280 y 390.
 
-El script está integrado en `Sitewide Reflow QA`.
+Artefacto final `sitewide-reflow-qa` del HEAD técnico `b9e4a98d…`:
+
+- `samuel-fragmento-design-report.json`: `failures: []`;
+- `sitewide-reflow-report.json`: `failures: []`;
+- las nueve capturas y los dos estados sticky fueron inspeccionados manualmente en esta revisión y no muestran un defecto objetivo pendiente de geometría, seam u overflow.
 
 ### Cross-engine
 
-`qa/samuel-fragmento-design-cross-engine.mjs` se ejecuta dentro del smoke de diseño de Samuel y comprueba la misma identidad básica en Chromium, Firefox y WebKit, incluido sticky y dismiss.
+`qa/samuel-fragmento-design-cross-engine.mjs` comprueba Chromium, Firefox y WebKit en desktop/móvil, incluido sticky, cierre y ausencia permanente del launcher flotante.
 
 ### Autoridad funcional
 
-Los QA previos de Samuel/fragmento permanecen activos y no se sustituyen. El gate `Samuel ecosystem browser QA` debe pasar completo.
+`Samuel ecosystem browser QA` permanece verde. Los contratos previos de Samuel/fragmento no se sustituyen.
+
+### Estado de CI del HEAD técnico final
+
+Verificados en `success`:
+
+- Sitewide Reflow QA;
+- Cross-engine smoke;
+- Samuel ecosystem browser QA;
+- Accessibility baseline / Pa11y;
+- Runtime scoping QA;
+- CSP public shell QA;
+- Analytics taxonomy QA;
+- Check content indexes;
+- Tool engine tests;
+- Check external links;
+- Lighthouse CI / budgets.
 
 ## 9. Revisión real multi-dispositivo pendiente antes del merge
 
@@ -226,7 +262,8 @@ Claude/mantenedor debe comprobar como mínimo:
 - teclado/focus en newsletter;
 - back-forward cache y vuelta desde background;
 - `Reducir movimiento` activado/desactivado;
-- que el sticky no tape contenido ni controles de Safari.
+- que el sticky no tape contenido ni controles de Safari;
+- que `Asistente` del header siga siendo un acceso suficiente al no existir launcher flotante.
 
 ### Otros dispositivos
 
@@ -236,7 +273,7 @@ Claude/mantenedor debe comprobar como mínimo:
 
 La incidencia de vídeo/tinta de HOME reproducida en iPhone pertenece a #163 y no debe corregirse mezclándola en esta PR.
 
-## 10. Revisión humana perceptiva
+## 10. Revisión humana perceptiva pendiente
 
 Además del hardware real, revisar:
 
@@ -250,15 +287,17 @@ Una preferencia estética nueva no reabre automáticamente la PR; un defecto rep
 
 ## 11. Definition of Done
 
-- [x] Rama apilada exactamente sobre #265.
+- [x] Rama apilada sobre #265 y enlazada a #163.
 - [x] Baseline desktop/móvil recuperado e inspeccionado.
 - [x] Capa visual específica aplicada en `assets/fragmento.css`.
 - [x] QA visual dedicado añadido.
 - [x] QA cross-engine específico añadido.
-- [x] Capturas automatizadas revisadas en todos los breakpoints antes del ajuste de safe-area; el HEAD final debe volver a generarlas.
-- [x] Defectos objetivos detectados en implementación inicial corregidos, incluidos tokens del sticky y safe-area.
-- [ ] Gates verdes en HEAD definitivo posterior al ajuste de safe-area/documentación.
+- [x] Defecto de tokens del sticky fuera de scope corregido.
+- [x] Safe-area inferior incorporada.
+- [x] Colisión launcher/sticky detectada y corregida sin duplicar accesos.
+- [x] Capturas finales revisadas en nueve breakpoints + sticky 1280/390.
+- [x] Gates verdes en HEAD técnico final.
 - [ ] Revisión iPhone/Safari en hardware real.
 - [ ] Revisión humana final antes del merge.
 
-`/fragmento/` puede declararse cerrada técnicamente cuando los gates del HEAD definitivo estén verdes. No declararla lista para merge hasta completar la revisión real/humana pendiente.
+`/fragmento/` queda **cerrada técnicamente**. La PR permanece Draft y no debe declararse lista para merge hasta completar la revisión real/humana pendiente.
