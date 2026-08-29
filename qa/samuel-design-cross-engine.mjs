@@ -89,3 +89,9 @@ for (const [name, launcher] of Object.entries(engines)) {
 }
 
 console.log('samuel-design-cross-engine: PASS');
+
+// La misma familia editorial incluye /fragmento/. Mantener el smoke en un
+// módulo separado permite evolucionar la página de lectura sin mezclar sus
+// contratos con la ficha, pero este import hace que el workflow cross-engine
+// ya existente lo ejecute en Chromium, Firefox y WebKit.
+await import('./samuel-fragmento-design-cross-engine.mjs');
