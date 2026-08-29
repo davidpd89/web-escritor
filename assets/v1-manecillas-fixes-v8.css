@@ -26,6 +26,45 @@ html.v1[data-editorial-context="manecillas"] body:not([data-reading-progress]) .
   border-left-color:var(--man-gold);
 }
 
+/* v1-book.css defines a deliberate 768–899 tablet composition, then a later
+   max-width:899 mobile rule accidentally wins because it appears afterwards.
+   Restore the intended grid only on the main Manecillas page: cover at a real
+   editorial scale on the left, reading copy + ledger on the right. <=767px
+   keeps the compact single-column mobile composition unchanged. */
+@media (min-width:768px) and (max-width:899px){
+  html.v1[data-editorial-context="manecillas"] body:not([data-reading-progress]) .book-page--manecillas .book-hero{
+    display:grid;
+    grid-template-columns:repeat(12,minmax(0,1fr));
+    gap:var(--grid-gap);
+    align-items:start;
+  }
+  html.v1[data-editorial-context="manecillas"] body:not([data-reading-progress]) .book-page--manecillas .book-cover-zone{
+    width:auto;
+    max-width:none;
+    margin-top:2.5rem;
+  }
+  html.v1[data-editorial-context="manecillas"] body:not([data-reading-progress]) .book-page--manecillas :is(.book-cover,.book-cover-fallback){
+    width:min(100%,280px);
+    max-width:none;
+  }
+  html.v1[data-editorial-context="manecillas"] body:not([data-reading-progress]) .book-page--manecillas .book-lead{
+    max-width:42ch;
+  }
+  html.v1[data-editorial-context="manecillas"] body:not([data-reading-progress]) .book-page--manecillas .book-actions{
+    display:flex;
+    grid-template-columns:none;
+    align-items:center;
+  }
+  html.v1[data-editorial-context="manecillas"] body:not([data-reading-progress]) .book-page--manecillas .book-actions .primary-action{
+    width:auto;
+  }
+  html.v1[data-editorial-context="manecillas"] body:not([data-reading-progress]) .book-page--manecillas .book-meta-ledger{
+    display:grid;
+    grid-template-columns:repeat(2,minmax(0,1fr));
+    margin:2rem 0 0;
+  }
+}
+
 /* The floating launcher duplicates the persistent Asistente entry in the
    utility header. At <=1300px the fixed bubble can overlap reading copy while
    scrolling, so hide only that duplicate control. The assistant remains
