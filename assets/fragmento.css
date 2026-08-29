@@ -338,11 +338,10 @@ html.v1[data-editorial-context="samuel"] #sticky-cta-close:focus-visible{
   outline-offset:2px;
 }
 
-/* El launcher flotante y el CTA persistente comparten la esquina inferior.
-   Mientras el CTA está visible se prioriza la conversión y se evita cualquier
-   solapamiento; el Asistente del header sigue disponible y el launcher reaparece
-   al cerrar o abandonar la franja de activación. */
-html.v1[data-editorial-context="samuel"]:has(#sticky-cta.visible) .assistant-widget__launcher{display:none!important}
+/* En esta página de lectura el launcher flotante es un acceso duplicado y entra
+   en conflicto geométrico con el CTA persistente. Se elimina en todos los
+   anchos; el acceso Asistente del header permanece disponible. */
+html.v1[data-editorial-context="samuel"] .assistant-widget__launcher{display:none!important}
 
 @media(min-width:900px){
   html.v1[data-editorial-context="samuel"] #sticky-cta p{display:block}
@@ -375,13 +374,6 @@ html.v1[data-editorial-context="samuel"]:has(#sticky-cta.visible) .assistant-wid
   html.v1[data-editorial-context="samuel"] .sticky-cta-buttons{gap:.45rem .75rem}
   html.v1[data-editorial-context="samuel"] #sticky-cta :is(.primary-action,.text-action){font-size:.96rem}
   html.v1[data-editorial-context="samuel"] #sticky-cta .primary-action{font-size:1.02rem}
-}
-
-/* El launcher flotante ya solapaba figura/caption en la captura móvil de
-   referencia. Asistente sigue disponible en el header; se replica aquí el
-   criterio de la ficha principal para la lectura larga. */
-@media(max-width:1300px){
-  html.v1[data-editorial-context="samuel"] .assistant-widget__launcher{display:none!important}
 }
 
 @media(prefers-reduced-motion:reduce){
