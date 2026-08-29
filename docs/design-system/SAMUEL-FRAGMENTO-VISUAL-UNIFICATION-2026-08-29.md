@@ -77,7 +77,7 @@ Hero, figura y capítulo se percibían como un artículo genérico del Cuaderno.
 
 El baseline móvil ya mostraba el launcher invadiendo figura/caption. La primera implementación lo ocultó solo `<=1300px`, pero el QA real de 1440 descubrió un defecto adicional: el launcher coincidía exactamente con `#sticky-cta-close` e interceptaba el clic.
 
-**Cierre definitivo:** el launcher flotante queda desactivado en **todos los anchos de `/fragmento/`**. No se elimina el asistente: `Asistente` permanece disponible en el header y el QA comprueba que siga visible antes y después de cerrar el sticky.
+**Cierre definitivo:** el launcher flotante queda desactivado en **todos los anchos de `/fragmento/`**. No se elimina el asistente: `Asistente` permanece disponible en el header y el QA comprueba que siga visible antes y después de cerrar el sticky. La regla compartida está estrictamente acotada a `html[data-editorial-context="samuel"] body[data-reading-progress]`, por lo que no afecta a la ficha principal ni a Manecillas.
 
 ### FRG-04 · CTA final genérica
 
@@ -216,7 +216,7 @@ Baseline conocido del Lighthouse focalizado de #265 para `/fragmento/`:
 - capturas full-page de nueve viewports;
 - capturas viewport específicas del sticky en 1280 y 390.
 
-Artefacto final `sitewide-reflow-qa` del HEAD técnico `b9e4a98d…`:
+Artefacto final `sitewide-reflow-qa` del último HEAD runtime certificado:
 
 - `samuel-fragmento-design-report.json`: `failures: []`;
 - `sitewide-reflow-report.json`: `failures: []`;
@@ -230,7 +230,7 @@ Artefacto final `sitewide-reflow-qa` del HEAD técnico `b9e4a98d…`:
 
 `Samuel ecosystem browser QA` permanece verde. Los contratos previos de Samuel/fragmento no se sustituyen.
 
-### Estado de CI del HEAD técnico final
+### Estado de CI del HEAD runtime certificado
 
 Verificados en `success`:
 
@@ -296,7 +296,7 @@ Una preferencia estética nueva no reabre automáticamente la PR; un defecto rep
 - [x] Safe-area inferior incorporada.
 - [x] Colisión launcher/sticky detectada y corregida sin duplicar accesos.
 - [x] Capturas finales revisadas en nueve breakpoints + sticky 1280/390.
-- [x] Gates verdes en HEAD técnico final.
+- [x] Gates verdes en HEAD runtime certificado.
 - [ ] Revisión iPhone/Safari en hardware real.
 - [ ] Revisión humana final antes del merge.
 
