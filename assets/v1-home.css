@@ -500,8 +500,11 @@ html.v1[data-lrb-home="true"] .home-event__link{
   color:#1d4f96;
   text-decoration:none;
 }
+/* Keep the events-only action class on the exact same interaction colour as
+   the base .yale-text-link. #004f73 belonged to the previous palette and was
+   the last visible hover-state leak after round 7 unified the normal state. */
 html.v1[data-lrb-home="true"] .home-event__link:hover,
-html.v1[data-lrb-home="true"] .home-event__link:focus-visible{color:#004f73}
+html.v1[data-lrb-home="true"] .home-event__link:focus-visible{color:#0d2c57}
 html.v1[data-lrb-home="true"] .home-event__link::after{content:"\2192";margin-left:.35rem;color:currentColor}
 /* Rail dividers unified to the page's blue/gold palette (author request) --
    #1d4f96 replaces the plain #0075b8. Clarified after the first pass: not
@@ -763,7 +766,9 @@ html.v1[data-lrb-home="true"] .home-events__grid{
 /* The accent rail sits between the two columns (as it does for Manecillas'
    own .yale-lead/.yale-rail pair), not at the section's outer edge -- for
    Samuel's mirrored layout the book card is the second/right column, so it
-   carries the border instead of the stack. */
+   carries the border instead of the stack. At <=1100px this remains the
+   intended stacked behaviour; desktop overrides below move the visual rail
+   to the actual seam where the stack's horizontal rules end. */
 html.v1[data-lrb-home="true"] .yale-feature-book{
   background-image:linear-gradient(90deg,#1d4f96,#1d4f96);
   background-repeat:no-repeat;
@@ -789,6 +794,30 @@ html.v1[data-lrb-home="true"] .yale-feature-card:last-child,
 html.v1[data-lrb-home="true"] .home-events__grid .home-event:last-child{background-image:none}
 html.v1[data-lrb-home="true"] .yale-feature-card:first-child,
 html.v1[data-lrb-home="true"] .home-events__grid .home-event:first-child{padding-top:0}
+/* Give Samuel a small amount of breathing room before the following
+   section-break without restoring section margin-top (which would reopen a
+   physical gap in the rail). Padding belongs to both columns so the row
+   stays balanced; whichever column owns the rail at the active breakpoint
+   keeps drawing it through this quiet space up to the next divider. */
+html.v1[data-lrb-home="true"] .yale-feature--samuel .yale-feature__stack,
+html.v1[data-lrb-home="true"] .yale-feature--samuel .yale-feature-book{
+  padding-bottom:clamp(.85rem,1.6vw,1.15rem);
+}
+/* Desktop Samuel seam fix. The horizontal rules live on cards inside the
+   left stack, while the old vertical rail lived on the right book card with
+   the outer grid gap between them, so those strokes could never physically
+   join. Draw the rail on the stack's right edge where the horizontal rules
+   actually terminate; preserve the book's padding, and preserve the old
+   book-left rail below 1101px where the feature becomes a single column. */
+@media(min-width:1101px){
+  html.v1[data-lrb-home="true"] .yale-feature--samuel .yale-feature__stack{
+    background-image:linear-gradient(90deg,#1d4f96,#1d4f96);
+    background-repeat:no-repeat;
+    background-size:2.5px 100%;
+    background-position:top right;
+  }
+  html.v1[data-lrb-home="true"] .yale-feature--samuel .yale-feature-book{background-image:none}
+}
 /* Mirrors .yale-lead's own media|copy split (photo beside text) instead of
    stacking the cover above the description -- same system as the hero, but
    reversed at BOTH levels: the book card sits on the opposite side of the
@@ -879,7 +908,15 @@ html.v1[data-lrb-home="true"] .home-event__media{
   border-bottom:1px solid #b8860b;
   overflow:hidden;
 }
-html.v1[data-lrb-home="true"] .home-event--lead .home-event__media{aspect-ratio:4/5}
+/* Events use a restrained rectangular translation of the avatar's double
+   blue/gold frame, not the corner brackets reserved for book covers. The
+   white separator keeps the two 1px colour strokes legible without turning
+   the photo into a heavy card. */
+html.v1[data-lrb-home="true"] .home-event--lead .home-event__media{
+  aspect-ratio:4/5;
+  border:1px solid #1d4f96;
+  box-shadow:0 0 0 2px #fff,0 0 0 3px #b8860b;
+}
 html.v1[data-lrb-home="true"] .home-event__media img{
   width:100%;
   height:100%;
@@ -961,6 +998,14 @@ html.v1[data-lrb-home="true"] .header-buy{
   letter-spacing:.05em;
   white-space:normal;
   overflow-wrap:anywhere;
+}
+/* #0a4d9f is deliberately the logo/header blue. Content controls return to
+   the canonical page blue so the body does not carry two competing blues;
+   .header-buy intentionally remains untouched above. */
+html.v1[data-lrb-home="true"] .install-web__button,
+html.v1[data-lrb-home="true"] .form-submit{
+  border-color:#1d4f96;
+  color:#1d4f96;
 }
 
 @media(max-width:1100px){
