@@ -146,6 +146,12 @@ try {
       const footerHeading = await style(page.locator('.site-footer h2').first());
       assert.equal(footerHeading.color, BLUE);
 
+      const launcher = page.locator('.assistant-widget__launcher');
+      await launcher.waitFor({ state: 'attached', timeout: 4000 });
+      const launcherCss = await style(launcher);
+      if (width <= 1300) assert.equal(launcherCss.display, 'none', `${name}: launcher duplicado vuelve a cubrir lectura`);
+      else assert.notEqual(launcherCss.display, 'none', `${name}: launcher desktop debería seguir disponible`);
+
       await page.screenshot({ path: path.join(OUT, `manecillas-${name}.png`), fullPage: true });
       console.log(`ok /las-manecillas-del-recuerdo/ ${width}x${height}`);
     } catch (error) {
