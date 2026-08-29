@@ -15,7 +15,7 @@
    hero eyebrow wraps to two lines and the action row to two rows, then both
    collapse when Yellowtail arrives. Keep a Samuel-only fallback close to the
    script face's horizontal footprint so the swap cannot change row count.
-   Explicit line-height/min-height already reserve the vertical metrics. */
+   Reuse it on every Samuel script treatment so deep-link loads are stable too. */
 @font-face{
   font-family:'Samuel Yellowtail Fallback';
   font-style:normal;
@@ -24,7 +24,12 @@
   size-adjust:72%;
 }
 html.v1[data-editorial-context="samuel"] body .samuel-threshold__copy>.eyebrow,
-html.v1[data-editorial-context="samuel"] body .samuel-actions :is(.primary-action,.text-action){
+html.v1[data-editorial-context="samuel"] body .samuel-actions :is(.primary-action,.text-action),
+html.v1[data-editorial-context="samuel"] body .samuel-section__head .eyebrow,
+html.v1[data-editorial-context="samuel"] body .samuel-route-list li>a,
+html.v1[data-editorial-context="samuel"] body .samuel-world__split .text-action,
+html.v1[data-editorial-context="samuel"] body .samuel-proof__contract .text-action,
+html.v1[data-editorial-context="samuel"] body #comprar .ledger__action{
   font-family:'Yellowtail','Samuel Yellowtail Fallback',cursive;
 }
 
