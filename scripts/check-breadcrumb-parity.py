@@ -1,15 +1,17 @@
 #!/usr/bin/env python3
-"""Audit existing breadcrumb markup without forcing a sitewide visual pattern.
+"""Audit breadcrumb integrity without forcing one visual pattern sitewide.
 
-A.6 has two distinct concerns:
+A.6 deliberately separates three things:
 
-* visible breadcrumb navigation, when a page family intentionally renders it;
-* ``BreadcrumbList`` structured data, when a page publishes it.
+* human breadcrumb navigation, when a page chooses to render it;
+* ``BreadcrumbList`` structured data, when a page chooses to publish it;
+* canonical hierarchy, owned by ``data/content-registry.json``.
 
-The checker validates objective parity and URL integrity. It does NOT require a
-visible breadcrumb on every page merely because JSON-LD exists: Google allows
-breadcrumb structured data without prescribing a duplicate visual row, and the
-site already has contextual navigation on several families.
+Google allows multiple breadcrumb trails and does not require the host or the
+current page to be listed. It also requires at least two ``ListItem`` objects
+when ``BreadcrumbList`` is used. This checker therefore blocks objective
+invalidity/drift, but treats visible-only and JSON-LD-only coverage as
+informational rather than manufacturing a sitewide rollout requirement.
 
 Run from the repository root:
     python scripts/check-breadcrumb-parity.py
@@ -27,7 +29,6 @@ from pathlib import Path
 from urllib.parse import urlparse
 
 ROOT = Path(__file__).resolve().parents[1]
-REGISTRY_PATH = ROOT / "data/content-registry.json"
 ORIGIN = "https://davidportodiaz.com"
 
 JSONLD_RE = re.compile(
@@ -60,18 +61,15 @@ def attr_value(attrs: str, name: str) -> str | None:
 
 
 def plain_text(value: str) -> str:
-    value = TAG_RE.sub(" ", value)
-    return " ".join(html_lib.unescape(value).split())
-
-
-def normalize_label(value: str) -> str:
-    return " ".join(value.casefold().split())
+    return " ".join(html_lib.unescape(TAG_RE.sub(" ", value)).split())
 
 
 def normalize_url(value: str | None) -> tuple[str | None, str | None]:
     """Return ``(local_path, problem)`` for a breadcrumb URL.
 
-    A missing URL is valid for a breadcrumb item, especially the current page.
+    A missing URL can be valid for the final structured item/current page.
+    Relative breadcrumb URLs are rejected rather than resolved heuristically:
+    canonical public navigation in this repo uses root-relative/absolute URLs.
     """
     if value is None:
         return None, None
@@ -133,16 +131,17 @@ def item_url_value(value) -> str | None:
 def extract_jsonld_breadcrumbs(html: str) -> tuple[list[list[dict]], list[str]]:
     trails: list[list[dict]] = []
     parse_errors: list[str] = []
-    for index, match in enumerate(JSONLD_RE.finditer(html), start=1):
+
+    for block_index, match in enumerate(JSONLD_RE.finditer(html), start=1):
         raw = match.group(1).strip()
         try:
             data = json.loads(raw)
         except json.JSONDecodeError as exc:
-            # Broader JSON-LD QA owns unrelated malformed blocks. This audit
-            # only claims malformed data when the block is breadcrumb-shaped.
+            # Broader JSON-LD QA owns unrelated malformed blocks. A.6 claims
+            # malformed data only when the block itself is breadcrumb-shaped.
             if "BreadcrumbList" in raw:
                 parse_errors.append(
-                    f"breadcrumb JSON-LD block #{index} is not parseable: {exc.msg}"
+                    f"breadcrumb JSON-LD block #{block_index} is not parseable: {exc.msg}"
                 )
             continue
 
@@ -153,13 +152,21 @@ def extract_jsonld_breadcrumbs(html: str) -> tuple[list[list[dict]], list[str]]:
             if not isinstance(items, list):
                 parse_errors.append("BreadcrumbList itemListElement is not an array")
                 continue
-            trail = []
+
+            trail: list[dict] = []
             for raw_item in items:
                 if not isinstance(raw_item, dict):
                     trail.append(
-                        {"position": None, "name": "", "raw_url": None, "url": None}
+                        {
+                            "position": None,
+                            "name": "",
+                            "raw_url": None,
+                            "url": None,
+                            "url_problem": None,
+                        }
                     )
                     continue
+
                 raw_url = item_url_value(raw_item.get("item"))
                 url, problem = normalize_url(raw_url)
                 raw_name = raw_item.get("name")
@@ -173,6 +180,7 @@ def extract_jsonld_breadcrumbs(html: str) -> tuple[list[list[dict]], list[str]]:
                     }
                 )
             trails.append(trail)
+
     return trails, parse_errors
 
 
@@ -184,11 +192,13 @@ def is_breadcrumb_nav(attrs: str) -> bool:
 
 def extract_visible_breadcrumbs(html: str) -> list[list[dict]]:
     trails: list[list[dict]] = []
+
     for nav in NAV_RE.finditer(html):
         attrs = nav.group("attrs")
         if not is_breadcrumb_nav(attrs):
             continue
-        items = []
+
+        items: list[dict] = []
         for li in LI_RE.finditer(nav.group("body")):
             li_attrs = li.group("attrs")
             body = li.group("body")
@@ -200,6 +210,7 @@ def extract_visible_breadcrumbs(html: str) -> list[list[dict]]:
                 aria_current = (
                     attr_value(anchor.group("attrs"), "aria-current") or ""
                 ).casefold()
+
             items.append(
                 {
                     "position": len(items) + 1,
@@ -210,42 +221,23 @@ def extract_visible_breadcrumbs(html: str) -> list[list[dict]]:
                     "current": aria_current == "page",
                 }
             )
+
         if items:
             trails.append(items)
+
     return trails
 
 
-def load_registry(path: Path) -> tuple[list[dict], dict[str, dict], dict[str, dict]]:
+def load_registry(path: Path) -> tuple[list[dict], dict[str, dict]]:
     raw = json.loads(path.read_text(encoding="utf-8"))
     defaults = raw.get("defaults", {})
     entries = [{**defaults, **item} for item in raw.get("entries", [])]
-    by_id = {item["id"]: item for item in entries if item.get("id")}
     by_url = {item["url"]: item for item in entries if item.get("url")}
-    return entries, by_id, by_url
+    return entries, by_url
 
 
-def allowed_labels(entry: dict | None) -> set[str]:
-    if not entry:
-        return set()
-    values = {
-        entry.get("label"),
-        entry.get("shortLabel"),
-        *(entry.get("aliases") or []),
-    }
-    return {
-        normalize_label(value)
-        for value in values
-        if isinstance(value, str) and value.strip()
-    }
-
-
-def names_equivalent(a: str, b: str, url: str | None, by_url: dict[str, dict]) -> bool:
-    norm_a = normalize_label(a)
-    norm_b = normalize_label(b)
-    if norm_a == norm_b:
-        return True
-    allowed = allowed_labels(by_url.get(url)) if url else set()
-    return bool(allowed and norm_a in allowed and norm_b in allowed)
+def finding(severity: str, code: str, message: str) -> dict:
+    return {"severity": severity, "code": code, "message": message}
 
 
 def validate_trail(
@@ -259,77 +251,88 @@ def validate_trail(
     findings: list[dict] = []
 
     if kind == "jsonld":
+        # Google Search requires at least two ListItems for BreadcrumbList.
+        if len(trail) < 2:
+            findings.append(
+                finding(
+                    "error",
+                    "invalid-jsonld",
+                    f"{route_id}: BreadcrumbList has {len(trail)} ListItem(s); Google requires at least 2",
+                )
+            )
+
         positions = [item.get("position") for item in trail]
         expected = list(range(1, len(trail) + 1))
         if positions != expected:
             findings.append(
-                {
-                    "severity": "error",
-                    "code": "order-drift",
-                    "message": (
-                        f"{route_id}: BreadcrumbList positions {positions!r}, "
-                        f"expected {expected!r}"
-                    ),
-                }
+                finding(
+                    "error",
+                    "order-drift",
+                    f"{route_id}: BreadcrumbList positions {positions!r}, expected {expected!r}",
+                )
             )
 
     seen_urls: set[str] = set()
     current_indexes: list[int] = []
     current_flags: list[int] = []
+
     for index, item in enumerate(trail):
         if not item.get("name"):
             findings.append(
-                {
-                    "severity": "error",
-                    "code": "missing-name",
-                    "message": f"{route_id}: {kind} breadcrumb item #{index + 1} has no name",
-                }
+                finding(
+                    "error",
+                    "missing-name",
+                    f"{route_id}: {kind} breadcrumb item #{index + 1} has no name",
+                )
+            )
+
+        # In Google's BreadcrumbList contract, every non-final ListItem needs
+        # ``item``. The final item may omit it and inherit the containing page.
+        if kind == "jsonld" and index < len(trail) - 1 and not item.get("raw_url"):
+            findings.append(
+                finding(
+                    "error",
+                    "missing-item",
+                    f"{route_id}: BreadcrumbList item #{index + 1} is not final and has no item URL",
+                )
             )
 
         problem = item.get("url_problem")
         if problem:
-            findings.append(
-                {
-                    "severity": "error",
-                    "code": "url-drift",
-                    "message": f"{route_id}: {problem}",
-                }
-            )
+            findings.append(finding("error", "url-drift", f"{route_id}: {problem}"))
             continue
 
         url = item.get("url")
         if url:
             if url in seen_urls:
                 findings.append(
-                    {
-                        "severity": "error",
-                        "code": "order-drift",
-                        "message": f"{route_id}: {kind} breadcrumb repeats {url}",
-                    }
+                    finding(
+                        "error",
+                        "order-drift",
+                        f"{route_id}: {kind} breadcrumb repeats {url}",
+                    )
                 )
             seen_urls.add(url)
+
             if url == current_url:
                 current_indexes.append(index)
-            if url not in by_url and url != current_url:
+
+            registry_item = by_url.get(url)
+            if registry_item is None and url != current_url:
                 findings.append(
-                    {
-                        "severity": "error",
-                        "code": "url-drift",
-                        "message": (
-                            f"{route_id}: {kind} breadcrumb points to unknown "
-                            f"canonical route {url}"
-                        ),
-                    }
+                    finding(
+                        "error",
+                        "url-drift",
+                        f"{route_id}: {kind} breadcrumb points to unknown canonical route {url}",
+                    )
                 )
-            elif url in by_url and by_url[url].get("status") != "public":
+            elif registry_item is not None and registry_item.get("status") != "public":
                 findings.append(
-                    {
-                        "severity": "error",
-                        "code": "url-drift",
-                        "message": (
-                            f"{route_id}: {kind} breadcrumb exposes non-public route {url}"
-                        ),
-                    }
+                    finding(
+                        "error",
+                        "url-drift",
+                        f"{route_id}: {kind} breadcrumb exposes non-public route {url}",
+                    )
                 )
 
         if item.get("current"):
@@ -337,84 +340,68 @@ def validate_trail(
 
     if current_indexes and any(index != len(trail) - 1 for index in current_indexes):
         findings.append(
-            {
-                "severity": "error",
-                "code": "order-drift",
-                "message": (
-                    f"{route_id}: current canonical {current_url} appears before "
-                    f"the end of {kind} breadcrumb"
-                ),
-            }
+            finding(
+                "error",
+                "order-drift",
+                f"{route_id}: current canonical {current_url} appears before the end of {kind} breadcrumb",
+            )
         )
 
     if kind == "visible":
         if len(current_flags) > 1:
             findings.append(
-                {
-                    "severity": "error",
-                    "code": "order-drift",
-                    "message": (
-                        f"{route_id}: visible breadcrumb has multiple "
-                        "aria-current=page items"
-                    ),
-                }
+                finding(
+                    "error",
+                    "order-drift",
+                    f"{route_id}: visible breadcrumb has multiple aria-current=page items",
+                )
             )
         elif current_flags and current_flags[0] != len(trail) - 1:
             findings.append(
-                {
-                    "severity": "error",
-                    "code": "order-drift",
-                    "message": (
-                        f"{route_id}: visible aria-current=page is not the last "
-                        "breadcrumb item"
-                    ),
-                }
+                finding(
+                    "error",
+                    "order-drift",
+                    f"{route_id}: visible aria-current=page is not the last breadcrumb item",
+                )
             )
 
     return findings
 
 
-def comparable_items(trail: list[dict], current_url: str) -> list[dict]:
-    """Return intermediate linked items, ignoring optional Home/current items."""
-    result = []
-    for item in trail:
-        url = item.get("url")
-        if not url or url in {"/", current_url}:
-            continue
-        result.append(item)
-    return result
+def linked_intermediate_urls(trail: list[dict], current_url: str) -> list[str]:
+    """Return linked intermediate destinations, excluding optional host/current."""
+    return [
+        item["url"]
+        for item in trail
+        if item.get("url") and item["url"] not in {"/", current_url}
+    ]
 
 
-def trails_match(
+def trails_order_compatible(
     visible: list[dict],
     structured: list[dict],
     *,
     current_url: str,
-    by_url: dict[str, dict],
 ) -> bool:
-    a = comparable_items(visible, current_url)
-    b = comparable_items(structured, current_url)
-    if len(a) != len(b):
-        return False
-    for left, right in zip(a, b):
-        if left.get("url") != right.get("url"):
-            return False
-        if not names_equivalent(
-            left.get("name", ""),
-            right.get("name", ""),
-            left.get("url"),
-            by_url,
-        ):
-            return False
-    return True
+    """Detect an objective ordering contradiction without demanding identity.
+
+    Google explicitly allows multiple/alternative breadcrumb trails and does
+    not require every hierarchy level. Therefore different lengths or labels
+    are not drift by themselves. We only fail when at least two destinations
+    occur in both trails but their relative order conflicts.
+    """
+    visible_urls = linked_intermediate_urls(visible, current_url)
+    structured_urls = linked_intermediate_urls(structured, current_url)
+    common = set(visible_urls) & set(structured_urls)
+    if len(common) < 2:
+        return True
+    return (
+        [url for url in visible_urls if url in common]
+        == [url for url in structured_urls if url in common]
+    )
 
 
-def audit_route(
-    item: dict,
-    *,
-    root: Path,
-    by_url: dict[str, dict],
-) -> dict:
+def audit_route(item: dict, *, root: Path, by_url: dict[str, dict]) -> dict:
     route_id = item["id"]
     source_file = item.get("sourceFile")
     result = {
@@ -433,11 +420,7 @@ def audit_route(
     source_path = root / source_file
     if not source_path.is_file():
         result["findings"].append(
-            {
-                "severity": "error",
-                "code": "missing-source",
-                "message": f"{route_id}: sourceFile does not exist: {source_file}",
-            }
+            finding("error", "missing-source", f"{route_id}: sourceFile does not exist: {source_file}")
         )
         return result
 
@@ -445,14 +428,11 @@ def audit_route(
     current_url = canonical_path(html) or item["url"]
     if current_url != item["url"]:
         result["findings"].append(
-            {
-                "severity": "error",
-                "code": "url-drift",
-                "message": (
-                    f"{route_id}: canonical path {current_url!r} differs from "
-                    f"registry {item['url']!r}"
-                ),
-            }
+            finding(
+                "error",
+                "url-drift",
+                f"{route_id}: canonical path {current_url!r} differs from registry {item['url']!r}",
+            )
         )
 
     visible = extract_visible_breadcrumbs(html)
@@ -469,11 +449,7 @@ def audit_route(
 
     for message in json_errors:
         result["findings"].append(
-            {
-                "severity": "error",
-                "code": "invalid-jsonld",
-                "message": f"{route_id}: {message}",
-            }
+            finding("error", "invalid-jsonld", f"{route_id}: {message}")
         )
 
     for trail in visible:
@@ -499,60 +475,48 @@ def audit_route(
 
     if visible and not structured:
         result["findings"].append(
-            {
-                "severity": "error",
-                "code": "missing-jsonld",
-                "message": (
-                    f"{route_id}: visible breadcrumb exists but "
-                    "BreadcrumbList JSON-LD is missing"
-                ),
-            }
+            finding(
+                "info",
+                "missing-jsonld",
+                f"{route_id}: visible breadcrumb exists without BreadcrumbList; structured data is optional",
+            )
         )
     elif structured and not visible:
         result["findings"].append(
-            {
-                "severity": "info",
-                "code": "missing-visible",
-                "message": (
-                    f"{route_id}: BreadcrumbList exists without a dedicated visible "
-                    "breadcrumb; this is allowed when the family uses another useful "
-                    "contextual navigation"
-                ),
-            }
+            finding(
+                "info",
+                "missing-visible",
+                f"{route_id}: BreadcrumbList exists without a dedicated visible breadcrumb; this is allowed",
+            )
         )
 
     if visible and structured:
-        for index, visible_trail in enumerate(visible, start=1):
+        for visible_index, visible_trail in enumerate(visible, start=1):
             if not any(
-                trails_match(
+                trails_order_compatible(
                     visible_trail,
                     structured_trail,
                     current_url=current_url,
-                    by_url=by_url,
                 )
                 for structured_trail in structured
             ):
                 result["findings"].append(
-                    {
-                        "severity": "error",
-                        "code": "order-drift",
-                        "message": (
-                            f"{route_id}: visible breadcrumb trail #{index} does not "
-                            "match any BreadcrumbList intermediate URL/name sequence"
-                        ),
-                    }
+                    finding(
+                        "error",
+                        "order-drift",
+                        f"{route_id}: visible breadcrumb trail #{visible_index} conflicts with every BreadcrumbList ordering",
+                    )
                 )
 
     return result
 
 
 def run_audit(root: Path, registry_path: Path) -> dict:
-    entries, _, by_url = load_registry(registry_path)
+    entries, by_url = load_registry(registry_path)
     routes = []
+
     for item in entries:
-        if item.get("status") != "public":
-            continue
-        if item.get("searchIndex") is not True:
+        if item.get("status") != "public" or item.get("searchIndex") is not True:
             continue
         source = item.get("sourceFile")
         if not isinstance(source, str) or not source.endswith(".html"):
@@ -561,24 +525,24 @@ def run_audit(root: Path, registry_path: Path) -> dict:
             continue
         routes.append(audit_route(item, root=root, by_url=by_url))
 
-    counts = {
+    summary = {
         "routes": len(routes),
         "visible+jsonld": sum(r["coverage"] == "visible+jsonld" for r in routes),
         "visible-only": sum(r["coverage"] == "visible-only" for r in routes),
         "jsonld-only": sum(r["coverage"] == "jsonld-only" for r in routes),
         "none": sum(r["coverage"] == "none" for r in routes),
         "errors": sum(
-            f["severity"] == "error" for r in routes for f in r["findings"]
+            f["severity"] == "error" for route in routes for f in route["findings"]
         ),
         "infos": sum(
-            f["severity"] == "info" for r in routes for f in r["findings"]
+            f["severity"] == "info" for route in routes for f in route["findings"]
         ),
     }
-    return {"schemaVersion": 1, "origin": ORIGIN, "summary": counts, "routes": routes}
+    return {"schemaVersion": 1, "origin": ORIGIN, "summary": summary, "routes": routes}
 
 
 def main() -> int:
-    parser = argparse.ArgumentParser(description="Audit visible/JSON-LD breadcrumb parity")
+    parser = argparse.ArgumentParser(description="Audit visible/JSON-LD breadcrumb integrity")
     parser.add_argument("--root", default=str(ROOT), help="Repository root")
     parser.add_argument(
         "--registry",
@@ -600,10 +564,10 @@ def main() -> int:
         return 2
 
     for route in report["routes"]:
-        for finding in route["findings"]:
-            prefix = "ERROR" if finding["severity"] == "error" else "INFO"
-            stream = sys.stderr if finding["severity"] == "error" else sys.stdout
-            print(f"{prefix}: {finding['code']}: {finding['message']}", file=stream)
+        for item in route["findings"]:
+            prefix = "ERROR" if item["severity"] == "error" else "INFO"
+            stream = sys.stderr if item["severity"] == "error" else sys.stdout
+            print(f"{prefix}: {item['code']}: {item['message']}", file=stream)
 
     if args.json:
         out = Path(args.json)
@@ -618,19 +582,19 @@ def main() -> int:
     summary = report["summary"]
     if summary["errors"]:
         print(
-            "FAIL: breadcrumb parity "
-            f"({summary['errors']} error(s), {summary['routes']} routes audited)",
+            f"FAIL: breadcrumb integrity ({summary['errors']} error(s), {summary['routes']} routes audited)",
             file=sys.stderr,
         )
         return 1
 
     print(
-        "PASS: breadcrumb parity "
+        "PASS: breadcrumb integrity "
         f"({summary['routes']} routes; "
         f"{summary['visible+jsonld']} visible+jsonld, "
         f"{summary['jsonld-only']} jsonld-only, "
         f"{summary['visible-only']} visible-only, "
-        f"{summary['none']} without breadcrumb contract)"
+        f"{summary['none']} without breadcrumb contract, "
+        f"{summary['infos']} info finding(s))"
     )
     return 0
 
