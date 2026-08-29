@@ -26,39 +26,77 @@ html.v1[data-editorial-context="manecillas"] body:not([data-reading-progress]) .
   border-left-color:var(--man-gold);
 }
 
-/* v1-book.css defines a deliberate 768–899 tablet composition, then a later
-   max-width:899 mobile rule accidentally wins because it appears afterwards.
-   Restore the intended grid only on the main Manecillas page: cover at a real
-   editorial scale on the left, reading copy + ledger on the right. <=767px
-   keeps the compact single-column mobile composition unchanged. */
+/* v1-book.css contains two overlapping tablet/mobile media queries. Rather
+   than inherit residual grid-column values from both, define the 768–899
+   composition explicitly for the main Manecillas page. Opening/title span the
+   width; the actual reading row is cover left + copy/ledger right. <=767px
+   remains the intentionally compact single-column mobile form. */
 @media (min-width:768px) and (max-width:899px){
   html.v1[data-editorial-context="manecillas"] body:not([data-reading-progress]) .book-page--manecillas .book-hero{
     display:grid;
-    grid-template-columns:repeat(12,minmax(0,1fr));
-    gap:var(--grid-gap);
+    grid-template-columns:minmax(13rem,.8fr) minmax(0,1.35fr);
+    column-gap:clamp(1.5rem,4vw,2.25rem);
+    row-gap:var(--grid-gap);
     align-items:start;
   }
+  html.v1[data-editorial-context="manecillas"] body:not([data-reading-progress]) .book-page--manecillas .book-hero__copy{
+    display:contents;
+  }
+  html.v1[data-editorial-context="manecillas"] body:not([data-reading-progress]) .book-page--manecillas .book-hero__copy>.eyebrow{
+    grid-column:1/-1;
+    grid-row:1;
+  }
+  html.v1[data-editorial-context="manecillas"] body:not([data-reading-progress]) .book-page--manecillas .book-hero h1{
+    grid-column:1/-1;
+    grid-row:2;
+    max-width:11ch;
+    margin:.5rem 0 .7rem;
+    font-size:clamp(3rem,7vw,4rem);
+  }
+  html.v1[data-editorial-context="manecillas"] body:not([data-reading-progress]) .book-page--manecillas .book-author{
+    grid-column:1;
+    grid-row:3;
+  }
+  html.v1[data-editorial-context="manecillas"] body:not([data-reading-progress]) .book-page--manecillas .book-date{
+    grid-column:2;
+    grid-row:3;
+    justify-self:start;
+    align-self:end;
+    margin:0;
+  }
   html.v1[data-editorial-context="manecillas"] body:not([data-reading-progress]) .book-page--manecillas .book-cover-zone{
+    grid-column:1;
+    grid-row:4/span 3;
     width:auto;
     max-width:none;
     margin-top:2.5rem;
+    align-self:start;
   }
   html.v1[data-editorial-context="manecillas"] body:not([data-reading-progress]) .book-page--manecillas :is(.book-cover,.book-cover-fallback){
-    width:min(86%,260px);
+    width:min(88%,250px);
     max-width:none;
   }
   html.v1[data-editorial-context="manecillas"] body:not([data-reading-progress]) .book-page--manecillas .book-lead{
+    grid-column:2;
+    grid-row:4;
+    margin:2.5rem 0 0;
     max-width:42ch;
+    font-size:clamp(1.2rem,2.55vw,1.45rem);
   }
   html.v1[data-editorial-context="manecillas"] body:not([data-reading-progress]) .book-page--manecillas .book-actions{
+    grid-column:2;
+    grid-row:5;
     display:flex;
     grid-template-columns:none;
     align-items:center;
+    margin-top:1.5rem;
   }
   html.v1[data-editorial-context="manecillas"] body:not([data-reading-progress]) .book-page--manecillas .book-actions .primary-action{
     width:auto;
   }
   html.v1[data-editorial-context="manecillas"] body:not([data-reading-progress]) .book-page--manecillas .book-meta-ledger{
+    grid-column:2;
+    grid-row:6;
     display:grid;
     grid-template-columns:repeat(2,minmax(0,1fr));
     margin:2rem 0 0;
