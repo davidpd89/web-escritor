@@ -19,7 +19,25 @@ Sí deben corregirse sus defectos de ejecución:
 - el rail vertical debe conservar el grosor visual del sistema azul/dorado y no quedar tapado por el fondo de las tarjetas;
 - el CTA «Escribir» debe respetar el contrato tipográfico de los enlaces de acción de la HOME, sin recuperar el subrayado convencional del sistema anterior.
 
-## 3. Regla de trabajo
+## 3. «Obras» y «Para escribir» siguen siendo bloques
+
+Las secciones «Libros y territorios» y «Herramientas gratuitas» **mantienen su composición en tarjetas/bloques**. Esa variación es deliberada: rompe la monotonía de los tramos anteriores construidos con rails y columnas.
+
+No deben reconvertirse a la composición lineal de Samuel o Eventos solo para homogeneizar la página. Se pueden corregir defectos objetivos de `padding`, separación, alineación o responsive, pero sin eliminar su carácter de bloque ni el destaque azul de «Lectores beta».
+
+La composición mostrada de las tres obras se considera válida, incluidos los tres libros y sus acentos gráficos actuales.
+
+## 4. Jerarquía cromática de los rótulos
+
+El dorado con subrayado gráfico se reserva para los **rótulos de apertura de bloque/sección**, como «Obra actual», «Obras», «Universo publicado», «Para escribir» o «Agenda · Archivo».
+
+Los rótulos internos de contenido —por ejemplo «Autor», «Comunidad», «Hub», «Lectores beta», «Manuscrito», «Publicada», «Antología», «Crónica» o «Comprar»— **permanecen neutros/grises**. No deben convertirse todos a dorado ni a azul.
+
+## 5. Footer y «Volver arriba» en HOME
+
+En la HOME, el footer y el control flotante «Volver arriba» deben utilizar los mismos acentos azul `#1d4f96` y dorado `#b8860b` del sistema visual de la página, manteniendo la estructura compartida del shell y sin introducir una tercera paleta.
+
+## 6. Regla de trabajo
 
 Durante esta migración se corrigen directamente errores objetivos de geometría, responsive, accesibilidad, estados de interacción, herencias CSS y restos inequívocos del sistema anterior.
 
