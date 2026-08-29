@@ -461,47 +461,42 @@ html.v1[data-lrb-home="true"] .yale-lead__deck{
   letter-spacing:-.02em;
 }
 html.v1[data-lrb-home="true"] .yale-lead__actions{display:flex;flex-wrap:wrap;gap:.75rem 1.25rem;margin-top:1.35rem}
+/* The cursive/gradient treatment used to be a separate --gradient modifier
+   class, only ever added to the hero's "Ver la obra"/"Leer fragmentos" and
+   the sidebar rail's "Abrir" links. Every other "Abrir"/"Todas las X"/"Ver
+   X" link on the page kept the plain uppercase-sans style, which is what
+   the author meant by "Abrir todo sin cambiar la letra... como los de las
+   manecillas" -- the hero's own links already had this look, nothing else
+   did. Folded straight into the base .yale-text-link rule instead of
+   requiring the modifier class at every call site, since manually adding
+   it to each of the ~12 other addTextLink() calls is exactly the kind of
+   thing that's already been missed more than once this session. */
 html.v1[data-lrb-home="true"] .yale-text-link{
   display:inline-flex;
   align-items:center;
   gap:.35rem;
   min-height:30px;
-  font-family:var(--font-ui);
-  font-size:.78rem;
-  font-weight:800;
-  letter-spacing:.05em;
-  text-transform:uppercase;
-  color:#1d4f96;
-  text-decoration:none;
-}
-html.v1[data-lrb-home="true"] .yale-lead__copy .editorial-card__meta{display:block;margin-top:.85rem}
-html.v1[data-lrb-home="true"] .yale-text-link:hover,
-html.v1[data-lrb-home="true"] .yale-text-link:focus-visible{color:#004f73}
-html.v1[data-lrb-home="true"] .yale-text-link::after{content:"\2192";color:currentColor}
-html.v1[data-lrb-home="true"] .yale-text-link--gradient{
   font-family:'Yellowtail',var(--font-ui),cursive;
   font-size:1.15rem;
   font-weight:400;
   letter-spacing:0;
   text-transform:none;
-}
-/* Flat #1d4f96 (the one blue used for the ring/dividers/title elsewhere on
-   this page) instead of the old 3-stop blue gradient -- part of unifying
-   the page's colour system (author request). */
-html.v1[data-lrb-home="true"] .yale-text-link--gradient,
-html.v1[data-lrb-home="true"] .yale-text-link--gradient::after{
   color:#1d4f96;
+  text-decoration:none;
 }
-html.v1[data-lrb-home="true"] .yale-text-link--gradient:hover,
-html.v1[data-lrb-home="true"] .yale-text-link--gradient:focus-visible{
-  color:#0d2c57;
-}
+html.v1[data-lrb-home="true"] .yale-lead__copy .editorial-card__meta{display:block;margin-top:.85rem}
+html.v1[data-lrb-home="true"] .yale-text-link:hover,
+html.v1[data-lrb-home="true"] .yale-text-link:focus-visible{color:#0d2c57}
+html.v1[data-lrb-home="true"] .yale-text-link::after{content:"\2192";color:currentColor}
+/* Same cursive treatment as .yale-text-link (author: "agenda archivo
+   tampoco has hecho todo lo que he pedido") -- .home-event__link is a
+   separate class for the same "Abrir" role inside the events cards. */
 html.v1[data-lrb-home="true"] .home-event__link{
-  font-family:var(--font-ui);
-  font-size:.78rem;
-  font-weight:800;
-  letter-spacing:.05em;
-  text-transform:uppercase;
+  font-family:'Yellowtail',var(--font-ui),cursive;
+  font-size:1.15rem;
+  font-weight:400;
+  letter-spacing:0;
+  text-transform:none;
   color:#1d4f96;
   text-decoration:none;
 }
@@ -566,6 +561,12 @@ html.v1[data-lrb-home="true"] .yale-rail-card p:not(.editorial-card__eyebrow){ma
    Herramientas' divider purely from this margin. Zeroing it here fixes
    every section transition at once instead of special-casing the one
    after the hero. */
+/* padding-top raised from 8px (barely more than the divider lines'
+   own height) to 28px -- author: "Libros y territorios está muy pegado a
+   universo publicado, no dejas mínimo margen". margin-top stays 0 (that's
+   what keeps the divider flush with the previous section's vertical
+   line); this is a separate space, AFTER the divider, before this
+   section's own heading content starts. */
 html.v1[data-lrb-home="true"] .yale-home-section,
 html.v1[data-lrb-home="true"] .home-events,
 html.v1[data-lrb-home="true"] .install-web,
@@ -573,7 +574,7 @@ html.v1[data-lrb-home="true"] .yale-signup{
   position:relative;
   margin-top:0;
   border-top:0;
-  padding-top:8px;
+  padding-top:28px;
   background-image:linear-gradient(#1d4f96,#1d4f96),linear-gradient(#b8860b,#b8860b);
   background-repeat:no-repeat,no-repeat;
   background-size:100% 1.5px,100% 1.5px;
