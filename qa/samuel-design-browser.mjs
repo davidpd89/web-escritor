@@ -46,6 +46,8 @@ async function css(locator, pseudo = null) {
       fontFamily: cs.fontFamily,
       fontWeight: cs.fontWeight,
       gridTemplateColumns: cs.gridTemplateColumns,
+      paddingLeft: cs.paddingLeft,
+      paddingRight: cs.paddingRight,
       position: cs.position,
       width: cs.width,
       height: cs.height,
@@ -166,6 +168,13 @@ try {
       const fitCss = await css(fit);
       assert.equal(fitCss.borderTopColor, BLUE, `${name}: fit sin azul superior`);
       assert.equal(fitCss.borderBottomColor, GOLD, `${name}: fit sin dorado inferior`);
+      if (width <= 900) {
+        const fitSecond = await css(fit.locator(':scope > div').nth(1));
+        assert.equal(fitSecond.paddingLeft, '0px', `${name}: segunda mitad del fit conserva sangría desktop`);
+        assert.equal(fitSecond.paddingRight, '0px', `${name}: segunda mitad del fit conserva padding desktop`);
+        assert.equal(fitSecond.borderLeftWidth, '0px', `${name}: split apilado conserva borde vertical`);
+        assert.equal(fitSecond.borderTopColor, BLUE, `${name}: split apilado pierde regla azul horizontal`);
+      }
 
       const routeList = page.locator('.samuel-route-list').first();
       assert.equal((await css(routeList)).borderTopColor, BLUE, `${name}: route ledger sin azul`);
@@ -189,8 +198,9 @@ try {
 
       const signed = await css(page.locator('#ejemplar-firmado .samuel-narrow'));
       assert.equal(signed.backgroundColor, PALE, `${name}: firmado sin énfasis práctico`);
-      assert.equal(signed.borderLeftWidth, '2.5px', `${name}: firmado sin rail 2.5px`);
-      assert.equal(signed.borderLeftColor, BLUE, `${name}: firmado sin rail azul`);
+      assert.equal(signed.borderLeftWidth, '0px', `${name}: firmado vuelve a border fraccional cuantizable`);
+      assert.match(signed.backgroundImage, /linear-gradient/, `${name}: firmado sin rail robusto`);
+      assert.match(signed.backgroundSize, /2\.5px\s+100%/, `${name}: rail firmado no conserva 2.5px efectivos`);
 
       const worldAction = page.locator('.samuel-world__split .text-action');
       assert.match((await css(worldAction)).fontFamily.toLowerCase(), /yellowtail/, `${name}: Noveris sin acción manuscrita`);
@@ -230,6 +240,9 @@ try {
       assert.equal(modalEyebrow.color, GOLD, `${name}: eyebrow modal no dorado`);
       const modalPrimary = await css(dialog.locator('.buy-option--primary'));
       assert.equal(modalPrimary.backgroundColor, PALE, `${name}: opción primaria modal no azul pálido`);
+      if (width === 1280 || width === 390) {
+        await page.screenshot({ path: path.join(OUT, `samuel-modal-${name}.png`), fullPage: false });
+      }
       await dialog.locator('.buy-dialog-close').click();
       await dialog.waitFor({ state: 'hidden', timeout: 2000 });
       assert.equal(await modalTrigger.evaluate(el => el === document.activeElement), true, `${name}: modal no restaura foco`);
