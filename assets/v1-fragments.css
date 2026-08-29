@@ -13,6 +13,12 @@ html.v1[data-editorial-context="manecillas"] body[data-reading-progress]{
   --frag-ink:#050505;
 }
 
+/* The global reading-progress primitive predates the V1 palette and uses the
+   legacy --accent variables. Keep its behavior/JS intact, only reskin the bar. */
+html.v1[data-editorial-context="manecillas"] body[data-reading-progress] .reading-progress{
+  background:linear-gradient(90deg,var(--frag-blue),var(--frag-gold));
+}
+
 /* Context navigation and shared shell, matching the approved Manecillas page. */
 html.v1[data-editorial-context="manecillas"] body[data-reading-progress] .section-context{
   border-color:rgba(29,79,150,.22);
