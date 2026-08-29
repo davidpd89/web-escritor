@@ -63,6 +63,26 @@ for (const [engineName, launcher] of Object.entries(engines)) {
         await context.close();
       }
     }
+
+    // noveris.css is shared with the Samuel reading-club page. Prove that the
+    // archive V2 :has() guard does not leak its --nov-* tokens into that family.
+    for (const [mode, width, height] of [['club-desktop', 1280, 850], ['club-mobile', 390, 844]]) {
+      const context = await browser.newContext({ viewport: { width, height }, reducedMotion: 'reduce' });
+      const page = await context.newPage();
+      try {
+        const response = await page.goto(`${ORIGIN}/clubes-de-lectura/samuel-entre-mundos/`, { waitUntil: 'domcontentloaded', timeout: 20000 });
+        assert.equal(response?.ok(), true, `${engineName}/${mode}: Club Samuel no carga`);
+        assert.equal(await page.locator('main').getAttribute('data-family'), 'lore', `${engineName}/${mode}: familia lore del Club cambió`);
+        const leakedToken = await page.locator('html').evaluate(el => getComputedStyle(el).getPropertyValue('--nov-blue').trim());
+        assert.equal(leakedToken, '', `${engineName}/${mode}: la capa Noveris se filtró al Club`);
+        assert.equal(await page.locator('link[href="/assets/noveris.css"]').count(), 1, `${engineName}/${mode}: el contrato de aislamiento ya no prueba una hoja compartida`);
+        const overflow = await page.evaluate(() => document.documentElement.scrollWidth - innerWidth);
+        assert.ok(overflow <= 1, `${engineName}/${mode}: overflow del Club tras cargar noveris.css (${overflow}px)`);
+        console.log(`ok [${engineName}] Noveris scope isolation ${mode}`);
+      } finally {
+        await context.close();
+      }
+    }
   } finally {
     await browser.close();
   }
