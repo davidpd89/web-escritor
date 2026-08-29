@@ -113,6 +113,17 @@ try {
       assert.ok(coverBox && coverBox.width > 60 && coverBox.height > 90, `${name}: portada sin caja visible`);
       assert.ok(await coverImg.evaluate((img) => img.naturalWidth > 0), `${name}: portada no cargada`);
 
+      /* 768–899 is a distinct tablet composition. A later generic mobile rule
+         used to override it and shrink the cover to an incidental thumbnail.
+         Keep the hero as a grid and the book visually important in this band. */
+      if (width >= 768 && width <= 899) {
+        const heroCss = await style(page.locator('.book-hero'));
+        assert.equal(heroCss.display, 'grid', `${name}: el hero tablet vuelve al layout móvil`);
+        assert.ok(coverBox.width >= 180, `${name}: portada tablet demasiado pequeña (${coverBox.width}px)`);
+        const leadBox = await box(page.locator('.book-lead'));
+        assert.ok(coverBox.right <= leadBox.left + 3, `${name}: portada tablet invade el bloque de lectura`);
+      }
+
       const primaryLocator = page.locator('.book-actions .primary-action');
       const primary = await style(primaryLocator);
       assert.match(primary.fontFamily.toLowerCase(), /yellowtail/);
