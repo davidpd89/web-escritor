@@ -220,7 +220,13 @@ try {
       await dialog.locator('[data-explore-close]').click();
       await page.waitForTimeout(100);
 
+      /* Hover/click assertions auto-scroll distant targets into view. Return to
+         the canonical top position so the sticky shell is captured where a
+         human reviewer expects it instead of being pasted over a mid-page block
+         by Playwright's full-page screenshot compositor. */
       await page.mouse.move(0, 0);
+      await page.evaluate(() => window.scrollTo({ top: 0, left: 0, behavior: 'instant' }));
+      await page.waitForTimeout(120);
       await page.screenshot({ path: path.join(OUT, `manecillas-${name}.png`), fullPage: true });
       console.log(`ok /las-manecillas-del-recuerdo/ ${width}x${height}`);
     } catch (error) {
