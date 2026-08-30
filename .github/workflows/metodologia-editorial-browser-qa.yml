@@ -1,0 +1,74 @@
+name: Metodología editorial browser QA
+
+on:
+  pull_request:
+    paths:
+      - 'metodologia-editorial/**'
+      - 'assets/editoriales.css'
+      - 'assets/metodologia-editorial.css'
+      - 'assets/v1-tools.css'
+      - 'qa/metodologia-editorial-design-browser.mjs'
+      - '.github/workflows/metodologia-editorial-browser-qa.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  browser-qa:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+
+      - name: Install CI/QA dependencies (Node)
+        run: npm ci
+
+      - name: Cache Playwright browsers
+        id: playwright-cache
+        uses: actions/cache@v4
+        with:
+          path: ~/.cache/ms-playwright
+          key: playwright-chromium-${{ hashFiles('package-lock.json') }}
+
+      - name: Install Playwright Chromium (with OS deps)
+        if: steps.playwright-cache.outputs.cache-hit != 'true'
+        run: npx playwright install --with-deps chromium
+
+      - name: Install Playwright OS deps only (browser cached)
+        if: steps.playwright-cache.outputs.cache-hit == 'true'
+        run: npx playwright install-deps chromium
+
+      - name: Start local static server
+        run: |
+          python3 -m http.server 4173 --bind 127.0.0.1 > /tmp/metodologia-qa-server.log 2>&1 &
+          echo $! > /tmp/metodologia-qa-server.pid
+          for i in {1..30}; do
+            if curl --fail --silent http://127.0.0.1:4173/metodologia-editorial/ > /dev/null; then
+              exit 0
+            fi
+            sleep 1
+          done
+          cat /tmp/metodologia-qa-server.log
+          exit 1
+
+      - name: Capture Metodología editorial inherited baseline
+        env:
+          QA_ORIGIN: http://127.0.0.1:4173
+          QA_OUT: qa-artifacts/metodologia-editorial
+        run: node qa/metodologia-editorial-design-browser.mjs
+
+      - name: Upload Metodología baseline evidence
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: metodologia-editorial-evidence
+          path: qa-artifacts/metodologia-editorial/
+          if-no-files-found: warn
+          retention-days: 14
