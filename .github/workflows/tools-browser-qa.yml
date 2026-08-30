@@ -60,6 +60,11 @@ jobs:
         if: steps.playwright-cache.outputs.cache-hit == 'true'
         run: npx playwright install-deps chromium
 
+      - name: Generate Herramientas hub build evidence
+        run: |
+          mkdir -p qa-artifacts/herramientas-hub
+          python scripts/build-tools-hub.py data/tools-hub.json qa-artifacts/herramientas-hub/generated-index.html
+
       - name: Start local static server
         run: |
           python3 -m http.server 4173 --bind 127.0.0.1 > /tmp/tools-qa-server.log 2>&1 &
