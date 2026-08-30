@@ -2,21 +2,31 @@
 
 **Fecha:** 2026-08-30  
 **Base inspeccionada:** `main@291c8c677aaa7df635142687d1a6848e80ffcaa2`  
-**Decisión:** `PARTIAL_COVERAGE · BASE_FOCUS_STYLE_EXISTS · KEYBOARD_JOURNEY_EXISTS · GEOMETRY_AND_RETURN_FOCUS_GAP · SEQUENCE_AFTER_F2 · NO_CODE_YET`
+**Decisión:** `PARTIAL_COVERAGE · BASE_FOCUS_STYLE_EXISTS · KEYBOARD_AND_RETURN_FOCUS_EXIST · GEOMETRY_GAP · WAIT_FOR_SHARED_F1_F2_HARNESS · NO_CODE`
 
-## 1. Conclusión
+## 1. Conclusión corregida
 
-F.4 no parte de cero. El sistema V1 ya define un indicador global `:focus-visible` y el QA de Cuaderno ejecuta un journey real de teclado sobre skip-link, TOC y el diálogo Explorar.
+F.4 no parte de cero y la primera revalidación de esta PR todavía sobreestimaba el gap.
 
-Lo que no queda demostrado por la cobertura inspeccionada es la parte madura de F.4: que el foco no quede oculto por UI sticky/fixed/overlay y que un overlay devuelva explícitamente el foco al trigger después de cerrarse.
+El sistema V1 ya tiene:
 
-Por tanto el gap es geométrico/de journey, no un problema de «falta outline» ni una ausencia total de keyboard QA.
+- indicador global `:focus-visible`;
+- skip-link visible al recibir foco;
+- keyboard journey real en Cuaderno;
+- `<dialog>` modal para Explorar;
+- focus trap explícito dentro de Explorar;
+- foco inicial en el botón de cierre al abrir;
+- **retorno explícito del foco al opener al cerrar el diálogo**.
+
+Por tanto el retorno de foco ya NO es deuda de F.4.
+
+El único gap material que queda es geométrico: no existe todavía una prueba transversal que demuestre que el componente enfocado no queda completamente oculto por sticky/fixed/overlay author-created UI.
 
 ## 2. Cobertura real existente
 
-### CSS base
+### Focus visible
 
-`assets/v1-base.css` elimina el outline nativo de controles V1 pero lo sustituye globalmente con:
+`assets/v1-base.css` define el indicador global V1:
 
 ```css
 html.v1 :focus-visible {
@@ -25,62 +35,101 @@ html.v1 :focus-visible {
 }
 ```
 
-También existe skip-link visible al recibir foco.
+La existencia del outline no certifica Focus Not Obscured, pero sí invalida cualquier diagnóstico de “falta focus visible global”.
 
-### Browser QA existente
+### Journey keyboard
 
-`qa/cuaderno-browser.mjs` ya comprueba en un artículo representativo:
+`qa/cuaderno-browser.mjs` comprueba en una superficie editorial representativa:
 
 - ausencia de `tabindex` positivo;
 - skip-link como primer foco;
 - activación del skip-link;
-- navegación de TOC por teclado;
+- navegación desde TOC;
 - apertura de Explorar con Enter;
-- cierre del diálogo con Escape;
-- disponibilidad por teclado de acciones de compartir/imprimir.
+- cierre con Escape;
+- disponibilidad por teclado de compartir/imprimir.
 
-Esto invalida cualquier conclusión de «no hay journey de teclado».
+### Focus management de Explorar
 
-## 3. Gap que sí permanece
+`assets/v1-shell.js` mantiene un `opener` real. Al abrir:
 
-En el QA inspeccionado no se mide, durante cada paso del journey:
+- guarda el trigger;
+- llama `dialog.showModal()`;
+- mueve foco a `[data-explore-close]`;
+- confina Tab/Shift+Tab dentro del diálogo.
 
-- `getBoundingClientRect()` del elemento enfocado;
-- intersección del target con viewport visible;
-- solapamiento con header/sticky CTA/overlay persistente;
-- ocultación completa por contenido creado por el autor;
-- retorno explícito del foco al trigger después de cerrar Explorar;
-- el mismo contrato tras 200%/Text Spacing cuando la composición crece.
+Al evento `close`:
 
-Pa11y/axe y la mera existencia de `:focus-visible` no sustituyen estas comprobaciones geométricas.
+- restaura el estado del shell;
+- recupera el scroll previo si procede;
+- ejecuta `opener.focus({ preventScroll: true })` en `requestAnimationFrame` y una segunda pasada defensiva.
 
-## 4. Secuenciación
+El supuesto “return-focus gap” de la revalidación anterior queda por tanto descartado.
 
-La autoridad histórica colocó F.4 después de la deuda de accesibilidad inmediata. F.2 está convirtiendo precisamente Text Resilience en un gate sitewide y puede modificar geometría de componentes bajo estrés.
+## 3. Requisito vigente
 
-Por ello no se abre en paralelo un segundo crawler ni se duplica Sitewide Reflow. La implementación de F.4 debe reutilizar el harness browser estabilizado por F.1/F.2 una vez F.2 quede en enforcement.
+Referencia: WCAG 2.2, SC 2.4.11 Focus Not Obscured (Minimum), Level AA:  
+<https://www.w3.org/WAI/WCAG22/Understanding/focus-not-obscured-minimum.html>
 
-## 5. Implementación siguiente cuando F.2 cierre
+El mínimo AA exige que, cuando un componente recibe foco por teclado, no quede **enteramente oculto** por contenido creado por el autor.
 
-1. Reusar route discovery/harness browser existente.
-2. Definir un conjunto pequeño de journeys representativos: shell/Explorar, formulario, herramienta, sticky CTA y cualquier diálogo real.
-3. En cada foco, guardar selector/rect/viewport y regiones persistentes que puedan taparlo.
-4. Fallar si el target queda enteramente oculto por contenido del autor; mantener además el estándar interno preferente de foco plenamente visible cuando sea razonable.
-5. Comprobar que cerrar overlays devuelve el foco al trigger que los abrió.
-6. Producir artifact diagnóstico con URL, paso, target y screenshot/rects.
-7. Ejecutar también bajo los escenarios F.2 relevantes, sin duplicar su crawler.
+W3C identifica como riesgos típicos sticky headers, sticky footers y overlays. También explica que un modal correctamente construido no presenta ese problema porque toma foco y confina la interacción hasta cerrarse.
 
-## 6. Guardrails
+El estándar interno puede aspirar a que el foco quede completamente visible, pero no debe etiquetarse ese objetivo más estricto como requisito AA 2.4.11.
 
-- No añadir otro `outline` global y declarar F.4 terminado.
-- No eliminar sticky UI únicamente durante tests.
+## 4. Gap real restante
+
+Falta una medición browser que, durante journeys representativos, registre:
+
+- `getBoundingClientRect()` del target enfocado;
+- intersección con viewport visible;
+- cobertura por regiones sticky/fixed/overlay creadas por el sitio;
+- si queda al menos una parte visible del componente;
+- screenshot/rects cuando existe ocultación total.
+
+Debe incluir al menos:
+
+- shell/header;
+- skip-link;
+- navegación/editorial TOC;
+- Explorar modal;
+- sticky CTA real cuando exista en la ruta;
+- formularios/herramientas representativos;
+- asistente/widget si su overlay está activo en el escenario.
+
+## 5. Por qué no se añade código todavía en esta PR
+
+F.1 y F.2 están implementando sus respectivos contratos sobre el mismo owner sitewide (`qa/sitewide-reflow-browser.mjs` + `Sitewide Reflow QA`) desde ramas DRAFT independientes.
+
+F.4 debe reutilizar esa autoridad una vez las dos piezas estén reconciliadas en un único harness. Crear ahora otro route discovery/crawler para Focus Not Obscured produciría exactamente la duplicidad que #135 intentó evitar.
+
+Además, el conector disponible en esta revisión no permite aplicar hunks sobre `qa/cuaderno-browser.mjs`; solo permite reemplazar el fichero completo. No se reconstruye manualmente un QA browser grande solo para insertar unas líneas, porque el riesgo de corrupción/regresión supera el beneficio.
+
+Esto no invalida F.4; fija correctamente su punto de integración.
+
+## 6. Plan de implementación tras reconciliar F.1/F.2
+
+1. Reusar el route discovery y navegador del harness común.
+2. Añadir un helper geométrico de foco, no otro crawler.
+3. Ejecutar un conjunto reducido de journeys por familia/owner, no tabular ciegamente miles de nodos sin contexto.
+4. Fallar cuando el componente enfocado quede totalmente fuera de viewport o totalmente cubierto por author-created sticky/fixed UI.
+5. Mantener como señal diagnóstica adicional cuánto del target queda visible.
+6. Conservar el focus-return existente de Explorar y añadir una regresión explícita sobre él si el mismo harness puede hacerlo sin duplicación.
+7. Ejecutar los journeys relevantes también bajo F.2 cuando la composición expandida pueda cambiar la geometría.
+8. Generar artifact con URL, step, selector, rect del target, rect del blocker y screenshot.
+
+## 7. Guardrails
+
+- No añadir otro outline global y declarar F.4 terminado.
+- No eliminar sticky UI durante tests.
 - No usar `tabindex` positivo para forzar orden.
-- No mover foco programáticamente en cada render.
-- No crear un segundo crawler sitewide.
-- No declarar `VERIFIED_E2E` sin geometría y retorno de foco.
+- No mover foco programáticamente a cada render.
+- No duplicar route discovery.
+- No confundir “100% visible” con el mínimo AA, aunque sea objetivo interno preferente.
+- No volver a implementar focus return: ya existe en el shell owner.
 
-## 7. Estado final
+## 8. Estado final
 
-`PARTIAL_COVERAGE · BASE_FOCUS_STYLE_EXISTS · KEYBOARD_JOURNEY_EXISTS · GEOMETRY_AND_RETURN_FOCUS_GAP · SEQUENCE_AFTER_F2 · NO_CODE_YET`
+`PARTIAL_COVERAGE · BASE_FOCUS_STYLE_EXISTS · KEYBOARD_AND_RETURN_FOCUS_EXIST · GEOMETRY_GAP · WAIT_FOR_SHARED_F1_F2_HARNESS · NO_CODE`
 
-F.4 sigue siendo trabajo válido, pero el alcance exacto es menor y más preciso que el descrito inicialmente: extender el QA browser existente con geometría/obscuration y focus return una vez F.2 sea autoridad estable.
+F.4 sigue siendo trabajo válido, pero su alcance se reduce a una sola pieza bien definida: **medir Focus Not Obscured con geometría real dentro del harness común cuando F.1/F.2 estén integradas**.
