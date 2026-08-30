@@ -1,12 +1,17 @@
 # L.3 · Atajos PWA en `manifest.json`
 
 Fecha de reconstrucción: 2026-08-29  
+Revalidación: 2026-08-30  
 Fuente histórica primaria: PR #135, snapshot `8e72321d047c0445c5ac411ebe242af8a0386929`.  
 Estado histórico final: `ALREADY_COVERED`.
 
 ## Veredicto
 
-#135 terminó concluyendo que los shortcuts ya existen en `manifest.json`. No hay que abrir una implementación nueva ni tratarlos como navegación esencial porque el soporte no es universal.
+**`IMPLEMENTED_IN_PR · CANONICAL_SHORTCUT_CONTRACT · EXISTING_PWA_QA_OWNER · ENFORCEMENT_ACTIVE_IN_PR`.**
+
+La funcionalidad L.3 ya estaba materialmente implementada en `main`: `manifest.json` publica cuatro shortcuts reales. La revalidación detectó, sin embargo, un hueco de regresión pequeño y concreto: el QA existente validaba los shortcuts presentes, pero no obligaba a que el conjunto canónico siguiera existiendo. Eliminar accidentalmente `shortcuts` podía dejar pasar esa parte del contrato.
+
+La PR no crea otro manifest ni otro sistema de quick actions. Endurece el owner PWA ya existente con un contrato determinista del conjunto canónico.
 
 ## Hipótesis original
 
@@ -30,7 +35,9 @@ El cross-check del repositorio confirmó que el manifest ya publica shortcuts re
 
 ## Estado actual de `main`
 
-`manifest.json` continúa declarando cuatro shortcuts:
+Revalidado sobre `main@291c8c677aaa7df635142687d1a6848e80ffcaa2` (tree `68d02e1fe8ac2cfa239f4a716929e992abb672fd`).
+
+`manifest.json` declara cuatro shortcuts:
 
 1. **Las manecillas del recuerdo** → `/las-manecillas-del-recuerdo/`
 2. **Todos los libros** → `/libros/`
@@ -39,15 +46,53 @@ El cross-check del repositorio confirmó que el manifest ya publica shortcuts re
 
 Cada entrada incluye `name`, `short_name`, `url` y `description`.
 
-Por tanto L.3 está materialmente implementada.
+La funcionalidad estaba cubierta, pero la permanencia del conjunto no estaba cerrada por un gate explícito.
 
-## Qué significa `ALREADY_COVERED`
+## Owner QA existente
+
+El repositorio ya dispone de un owner PWA específico:
+
+- `.github/workflows/pwa-offline-qa.yml`
+- `qa/pwa-offline.mjs`
+- `qa/pwa-cache-freshness-contract.mjs`
+
+`qa/pwa-offline.mjs` comprueba installability y que los shortcuts presentes tengan destinos válidos. Ese comportamiento debe conservarse; no se crea un harness paralelo.
+
+## Gap de regresión localizado
+
+La validación iteraba `manifest.shortcuts`, pero no fijaba el conjunto esperado. Si un cambio eliminaba toda la propiedad `shortcuts`, no quedaba una aserción dedicada que expresase que los cuatro accesos actuales forman parte del contrato PWA.
+
+Ese es el único cambio de implementación de L.3.
+
+## Implementación en esta PR
+
+Se añade `qa/pwa-shortcuts-contract.mjs` y se integra en `.github/workflows/pwa-offline-qa.yml`.
+
+El contrato exige:
+
+- `manifest.shortcuts` como array;
+- exactamente cuatro shortcuts canónicos;
+- URLs únicas;
+- destinos exactos actuales;
+- `name`, `short_name`, `url` y `description` no vacíos;
+- URLs internas/root-relative;
+- inexistencia de URLs protocol-relative;
+- existencia física de cada destino en el repositorio.
+
+La prueba se ejecuta dentro del workflow PWA existente, antes del QA de navegador.
+
+## Evidencia de CI
+
+En el HEAD `6ce88674026abdb75edb7c5fe05971f9d925b0fb`, el run de **PWA offline QA** terminó en `success`, incluyendo el nuevo contrato de shortcuts. Required merge gate, Pa11y, content indexes, CSP public shell, runtime scoping, analytics y artefactos públicos también han completado correctamente. Sitewide Reflow seguía ejecutándose en la última comprobación y debe revalidarse antes de cerrar el bloque.
+
+## Qué significa ahora el contrato
 
 - no crear otro manifest;
 - no duplicar shortcuts con JS;
-- no abrir un sistema de «quick actions» propio;
-- mantener los shortcuts actuales cuando cambien prioridades;
-- comprobar que las URLs continúan siendo canónicas y públicas.
+- no abrir un sistema propio de «quick actions»;
+- mantener el conjunto canónico mientras siga siendo decisión de producto;
+- cambiar el contrato y el manifest juntos si una prioridad estable cambia;
+- no hacer que los shortcuts sean navegación esencial.
 
 ## Soporte y arquitectura
 
@@ -78,23 +123,9 @@ No rotarlos por campañas de pocos días si eso degrada estabilidad.
 - no requiere sesión/estado;
 - aporta incluso sin contexto previo.
 
-## Relación con C.1
-
-El lanzamiento de Manecillas puede justificar que la obra figure entre los shortcuts, pero C.1 no debe convertir el manifest en espacio publicitario rotatorio.
-
 ## Relación con L.1/L.2/L.4
 
-Los shortcuts no implican Push, Badging ni offline-first. Son una capacidad independiente ya cubierta.
-
-## QA futuro
-
-- JSON válido;
-- URLs internas existentes;
-- `start_url`/`scope` coherentes;
-- iconos válidos;
-- nombres legibles;
-- no más shortcuts de los que la plataforma pueda presentar útilmente;
-- navegación normal equivalente.
+Los shortcuts no implican Push, Badging ni offline-first. Son una capacidad independiente cuya funcionalidad ya existía y cuya regresión queda ahora explicitada en QA.
 
 ## Qué NO hacer
 
@@ -103,7 +134,8 @@ Los shortcuts no implican Push, Badging ni offline-first. Son una capacidad inde
 - depender de ellos para tareas esenciales;
 - crear iconos nuevos solo por completar checklist;
 - cambiar el manifest en cada campaña;
-- confundir shortcuts con enlaces del header/footer.
+- confundir shortcuts con enlaces del header/footer;
+- crear un segundo workflow PWA para comprobar lo mismo.
 
 ## Trazabilidad preservada
 
@@ -113,8 +145,9 @@ Los shortcuts no implican Push, Badging ni offline-first. Son una capacidad inde
 - override profundo de repo;
 - autoridad final `ALREADY_COVERED`;
 - manifest actual con cuatro shortcuts;
-- revalidación independiente.
+- gap de regresión localizado;
+- contrato determinista añadido al owner QA existente.
 
 ## Recomendación para Clara/Claude
 
-**No implementar nada nuevo para L.3.** Mantener `manifest.json` como autoridad y revisar shortcuts únicamente cuando cambien destinos estables o una auditoría PWA detecte un problema real.
+**No añadir nuevos shortcuts por L.3.** Mantener los cuatro destinos actuales mientras sigan siendo canónicos y conservar `qa/pwa-shortcuts-contract.mjs` como guardrail. Si la selección cambia por una decisión editorial estable, actualizar manifest y contrato en el mismo cambio.
