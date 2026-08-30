@@ -199,7 +199,6 @@ try{
     const c=await context(browser,{width:390,height:900},false);const page=await c.newPage();
     try{
       const r=await page.goto(`${ORIGIN}/prensa.html`,{waitUntil:'load'});assert.ok(r?.ok(),'no-js: Prensa no carga');
-      await settleTypography(page,'no-js 390');
       assert.equal(await page.locator('#bios .press-card').count(),4,'no-js: bios/materiales incompletos');
       assert.equal(await page.locator('#entrevistas details').count(),5,'no-js: entrevistas incompletas');
       assert.ok((await page.locator('#contacto').innerText()).includes('davidportodiaz@gmail.com'),'no-js: contacto ausente');
