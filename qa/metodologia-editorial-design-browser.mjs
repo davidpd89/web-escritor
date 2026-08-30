@@ -70,7 +70,7 @@ try {
       assert.equal(await page.locator('.tool-findings-block').count(), 5, `${name}: no conserva cinco bloques metodológicos`);
       assert.equal(await page.locator('.spec-ledger .editorial-fact').count(), 5, `${name}: ledger de estados alterado`);
       assert.equal(await page.locator('.tool-note').count(), 1, `${name}: nota legal ausente`);
-      assert.equal(await page.locator('a[href="mailto:davidportodiaz@gmail.com"]').count(), 1, `${name}: canal de correcciones alterado`);
+      assert.equal(await page.locator('main#contenido a[href="mailto:davidportodiaz@gmail.com"]').count(), 1, `${name}: canal de correcciones alterado`);
 
       const statusTerms = await page.locator('.spec-ledger dt').allTextContents();
       assert.deepEqual(statusTerms.map(value => value.trim()), ['open', 'closed', 'indirect', 'award_only', 'unknown'], `${name}: estados cerrados alterados`);
