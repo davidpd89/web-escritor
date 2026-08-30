@@ -7,6 +7,7 @@ on:
       - 'assets/v1-families.css'
       - 'assets/v1-ferias.css'
       - 'qa/ferias-design-browser.mjs'
+      - 'qa/ferias-overflow-diagnostic.mjs'
       - '.github/workflows/ferias-browser-qa.yml'
   workflow_dispatch:
 
@@ -49,6 +50,10 @@ jobs:
           done
           cat /tmp/ferias-qa-server.log
           exit 1
+      - name: Diagnose Ferias zoom overflow
+        run: node qa/ferias-overflow-diagnostic.mjs
+        env:
+          QA_ORIGIN: http://127.0.0.1:4173
       - name: Capture Ferias inherited baseline
         run: node qa/ferias-design-browser.mjs
         env:
