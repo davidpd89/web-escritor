@@ -98,6 +98,12 @@ jobs:
           QA_OUT: artifacts/sitewide-reflow
         run: node qa/noveris-design-browser.mjs
 
+      - name: Samuel reading-club visual-system QA
+        env:
+          QA_ORIGIN: http://127.0.0.1:4173
+          QA_OUT: artifacts/sitewide-reflow
+        run: node qa/club-samuel-design-browser.mjs
+
       - name: POV distribution format QA (O.2)
         if: always()
         run: node qa/pov-distribucion-format-browser.mjs
