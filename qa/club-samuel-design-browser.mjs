@@ -126,7 +126,12 @@ try {
       const quickCard = quick.locator('.id-card').first();
       assert.equal((await css(quickCard)).borderTopWidth, '0px', `${name}: briefing vuelve a card boxed`);
       assert.equal((await css(quickCard.locator('h3'))).color, BLUE, `${name}: briefing H3 no azul`);
-      assert.match((await css(quickCard, '::before')).content, /01/, `${name}: briefing pierde numeración editorial`);
+      const quickCounter = await quick.evaluate(el => getComputedStyle(el).counterReset);
+      const quickIncrement = await quickCard.evaluate(el => getComputedStyle(el).counterIncrement);
+      const quickContent = (await css(quickCard, '::before')).content;
+      assert.match(quickCounter, /club-brief/, `${name}: briefing pierde counter-reset`);
+      assert.match(quickIncrement, /club-brief/, `${name}: briefing pierde counter-increment`);
+      assert.match(quickContent, /counter\(club-brief/, `${name}: briefing pierde numeración editorial`);
 
       const sessionCols = (await css(page.locator('#guia-rapida .tool-two-col'))).gridTemplateColumns.split(' ').filter(Boolean).length;
       if (width > 767) assert.equal(sessionCols, 2, `${name}: plan de sesión no conserva pareja de dossiers`);
@@ -145,7 +150,12 @@ try {
       const firstDetail = faq.locator('details').first();
       const firstSummary = firstDetail.locator('summary');
       assert.equal((await css(firstSummary)).color, BLUE, `${name}: pregunta no azul`);
-      assert.match((await css(firstSummary, '::before')).content, /01/, `${name}: pregunta pierde índice 01`);
+      const questionCounter = await faq.evaluate(el => getComputedStyle(el).counterReset);
+      const questionIncrement = await firstDetail.evaluate(el => getComputedStyle(el).counterIncrement);
+      const questionContent = (await css(firstSummary, '::before')).content;
+      assert.match(questionCounter, /club-question/, `${name}: debate pierde counter-reset`);
+      assert.match(questionIncrement, /club-question/, `${name}: debate pierde counter-increment`);
+      assert.match(questionContent, /counter\(club-question/, `${name}: pregunta pierde índice editorial`);
       await firstSummary.click();
       assert.equal(await firstDetail.getAttribute('open'), '', `${name}: primera pregunta no abre`);
       await page.waitForTimeout(STATE_SETTLE_MS);
