@@ -14,6 +14,7 @@ const PALE = 'rgb(238, 250, 255)';
 const WHITE = 'rgb(255, 255, 255)';
 const TRANSPARENT = 'rgba(0, 0, 0, 0)';
 const MAP_FRAME = 'rgba(29, 79, 150, 0.5)';
+const STATE_SETTLE_MS = 260;
 
 const viewports = [
   ['desktop-1440', 1440, 1000],
@@ -119,6 +120,7 @@ try {
       if (name === 'desktop-1440' || name === 'mobile-390') {
         const headerSearch = page.locator('.header-search');
         await headerSearch.hover();
+        await page.waitForTimeout(STATE_SETTLE_MS);
         const headerHover = await css(headerSearch);
         assert.equal(headerHover.color, HEADER_BLUE, `${name}: hover Asistente no usa azul especial de header`);
         assert.equal(headerHover.backgroundColor, PALE, `${name}: hover Asistente no usa superficie pálida`);
@@ -134,6 +136,7 @@ try {
         const toggle = dialog.locator('.explore-row__toggle').first();
         assert.equal((await css(toggle)).color, BLUE, `${name}: toggle Explorar en reposo no azul`);
         await toggle.hover();
+        await page.waitForTimeout(STATE_SETTLE_MS);
         const toggleHover = await css(toggle);
         assert.equal(toggleHover.color, WHITE, `${name}: toggle Explorar hover no blanco`);
         assert.equal(toggleHover.backgroundColor, BLUE, `${name}: toggle Explorar hover no azul`);
