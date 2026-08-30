@@ -54,16 +54,16 @@ jobs:
           cat /tmp/reflow-server.log
           exit 1
 
-      - name: Run sitewide reflow gate + F.2 baseline
+      - name: Run sitewide reflow gate + F.2 collector
         env:
           QA_ORIGIN: http://127.0.0.1:4173
           QA_OUT: artifacts/sitewide-reflow
           TEXT_RESILIENCE_MODE: report
         run: node qa/sitewide-reflow-browser.mjs
 
-      - name: Reconcile F.2 text-resilience findings
+      - name: Enforce F.2 text-resilience findings
         env:
-          TEXT_RESILIENCE_GATE_MODE: report
+          TEXT_RESILIENCE_GATE_MODE: enforce
         run: node qa/text-resilience-report-gate.mjs
 
       - name: POV distribution format QA (O.2)
