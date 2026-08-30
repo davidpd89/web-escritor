@@ -63,6 +63,52 @@ function columnCount(value) {
   return value.trim().split(/\s+/).length;
 }
 
+async function settleTypography(page, label) {
+  const state = await page.evaluate(async () => {
+    if (!document.fonts) return { supported: false, loaded: true, before: null, after: null };
+
+    const requested = [
+      ['400 64px "Instrument Serif"', 'Editoriales y recepción de manuscritos, verificadas.'],
+      ['400 28px "Yellowtail"', 'Recurso para escritores Ver requisitos y fuentes'],
+      ['400 18px "Newsreader"', 'No es una lista copiada de contactos.'],
+      ['400 16px "Manrope"', 'Editoriales Estado Género'],
+    ];
+    await Promise.all(requested.map(([font, text]) => document.fonts.load(font, text)));
+    await document.fonts.ready;
+
+    const waitFrames = () => new Promise(resolve => requestAnimationFrame(() => requestAnimationFrame(resolve)));
+    const readTitleGeometry = () => {
+      const title = document.querySelector('.tool-hero h1');
+      if (!(title instanceof HTMLElement)) return null;
+      const s = getComputedStyle(title);
+      const r = title.getBoundingClientRect();
+      return { width: r.width, height: r.height, maxWidth: s.maxWidth, fontSize: s.fontSize };
+    };
+
+    await waitFrames();
+    const before = readTitleGeometry();
+    await new Promise(resolve => setTimeout(resolve, 80));
+    await waitFrames();
+    const after = readTitleGeometry();
+
+    return {
+      supported: true,
+      loaded: requested.every(([font, text]) => document.fonts.check(font, text)),
+      before,
+      after,
+    };
+  });
+
+  assert.ok(!state.supported || state.loaded, `${label}: tipografías editoriales no cargadas antes de medir`);
+  if (state.before && state.after) {
+    assert.ok(Math.abs(state.after.width - state.before.width) <= 0.1, `${label}: ancho del H1 inestable antes de medir`);
+    assert.ok(Math.abs(state.after.height - state.before.height) <= 0.1, `${label}: alto del H1 inestable antes de medir`);
+    assert.equal(state.after.maxWidth, state.before.maxWidth, `${label}: max-width del H1 cambia antes de medir`);
+    assert.equal(state.after.fontSize, state.before.fontSize, `${label}: font-size del H1 cambia antes de medir`);
+  }
+  return state;
+}
+
 const browser = await chromium.launch({
   headless: true,
   ...(process.env.QA_CHROMIUM_EXECUTABLE_PATH ? { executablePath: process.env.QA_CHROMIUM_EXECUTABLE_PATH } : {}),
@@ -82,8 +128,7 @@ try {
     try {
       const response = await page.goto(`${ORIGIN}/editoriales/`, { waitUntil: 'networkidle', timeout: 20000 });
       assert.ok(response?.ok(), `${name}: /editoriales/ no carga`);
-      await page.evaluate(() => document.fonts?.ready);
-      await page.waitForTimeout(120);
+      const typographyState = await settleTypography(page, name);
 
       assert.equal(await page.locator('html').getAttribute('data-editorial-context'), 'herramientas', `${name}: contexto Herramientas perdido`);
       assert.equal(await page.locator('main#contenido').getAttribute('data-family'), 'tool', `${name}: familia tool alterada`);
@@ -168,7 +213,7 @@ try {
       assert.ok(footerRule.includes(BLUE) && footerRule.includes(GOLD), `${name}: footer pierde la doble regla editorial`);
 
       measurements.push({
-        name, width, height, overflow, directoryToken, methodToken,
+        name, width, height, overflow, directoryToken, methodToken, typographyState,
         hero, heroTitle, heroEyebrow, heroNote, finder, options, directory, cardsWrap,
         firstCard, firstCardHead, firstCardTitle, firstBadge, firstGenres, firstVerified, firstAction,
         ordinal, activeContext, footer, footerRule,
@@ -195,6 +240,7 @@ try {
   try {
     const response = await interactionPage.goto(`${ORIGIN}/editoriales/`, { waitUntil: 'networkidle', timeout: 20000 });
     assert.ok(response?.ok(), 'interaction: /editoriales/ no carga');
+    await settleTypography(interactionPage, 'interaction-mobile-390');
     await interactionPage.locator('[data-editoriales-status]').selectOption('closed');
     assert.equal(await interactionPage.locator('[data-editorial-card]:visible').count(), 1, 'interaction: filtro closed deja de devolver una ficha');
     assert.equal((await interactionPage.locator('[data-editoriales-count]').textContent()).trim(), '1 editorial', 'interaction: contador filtrado incorrecto');
@@ -231,6 +277,7 @@ try {
   try {
     const response = await isolationPage.goto(`${ORIGIN}/editoriales/minotauro/`, { waitUntil: 'networkidle', timeout: 20000 });
     assert.ok(response?.ok(), 'isolation: /editoriales/minotauro/ no carga');
+    await settleTypography(isolationPage, 'publisher-isolation-1280');
     assert.equal(await isolationPage.locator('main#contenido').getAttribute('data-editoriales-directory'), null, 'isolation: una ficha individual finge ser el directorio');
     assert.equal(await isolationPage.locator('html').evaluate(el => getComputedStyle(el).getPropertyValue('--directory-blue').trim()), '', 'isolation: Minotauro hereda tokens del directorio');
     assert.equal(await isolationPage.locator('html').evaluate(el => getComputedStyle(el).getPropertyValue('--method-blue').trim()), '', 'isolation: Minotauro hereda tokens de Metodología');
