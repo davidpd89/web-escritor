@@ -1,0 +1,82 @@
+name: Autor browser QA
+
+on:
+  pull_request:
+    paths:
+      - 'autor.html'
+      - 'assets/v1-identity.css'
+      - 'assets/autor-identity.css'
+      - 'qa/autor-design-browser.mjs'
+      - '.github/workflows/autor-browser-qa.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  browser-qa:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 25
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+
+      - name: Install CI/QA dependencies (Node)
+        run: npm ci
+
+      - name: Cache Playwright browsers
+        id: playwright-cache
+        uses: actions/cache@v4
+        with:
+          path: ~/.cache/ms-playwright
+          key: playwright-chromium-${{ hashFiles('package-lock.json') }}
+
+      - name: Install Playwright Chromium (with OS deps)
+        if: steps.playwright-cache.outputs.cache-hit != 'true'
+        run: npx playwright install --with-deps chromium
+
+      - name: Install Playwright OS deps only (browser cached)
+        if: steps.playwright-cache.outputs.cache-hit == 'true'
+        run: npx playwright install-deps chromium
+
+      - name: Start local static server
+        shell: bash
+        run: |
+          python3 -m http.server 4173 --bind 127.0.0.1 > /tmp/autor-qa-server.log 2>&1 &
+          echo $! > /tmp/autor-qa-server.pid
+          for i in {1..30}; do
+            if curl --fail --silent http://127.0.0.1:4173/autor.html > /dev/null; then
+              exit 0
+            fi
+            sleep 1
+          done
+          cat /tmp/autor-qa-server.log
+          exit 1
+
+      - name: Run inherited Identity authority
+        env:
+          IDENTITY_BASE_URL: http://127.0.0.1:4173
+          IDENTITY_ARTIFACT_DIR: qa-artifacts/autor-identity-authority
+        run: node qa/identity-public-browser.mjs
+
+      - name: Capture Autor inherited baseline
+        env:
+          QA_ORIGIN: http://127.0.0.1:4173
+          QA_OUT: qa-artifacts/autor-design
+        run: node qa/autor-design-browser.mjs
+
+      - name: Upload Autor visual evidence
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: autor-visual-evidence
+          path: |
+            qa-artifacts/autor-design/
+            qa-artifacts/autor-identity-authority/
+          if-no-files-found: warn
+          retention-days: 14
