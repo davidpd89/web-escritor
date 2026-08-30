@@ -6,6 +6,7 @@ const engines = { chromium, firefox, webkit };
 const BLUE = 'rgb(29, 79, 150)';
 const GOLD = 'rgb(184, 134, 11)';
 const PALE = 'rgb(238, 250, 255)';
+const STATE_SETTLE_MS = 260;
 
 for (const [name, launcher] of Object.entries(engines)) {
   const browser = await launcher.launch({ headless: true });
@@ -36,6 +37,7 @@ for (const [name, launcher] of Object.entries(engines)) {
     const first = page.locator('#guia details').first();
     await first.locator('summary').click();
     assert.equal(await first.getAttribute('open'), '', `${name}: details no abre`);
+    await page.waitForTimeout(STATE_SETTLE_MS);
     const open = await first.evaluate(el => ({ bg: getComputedStyle(el).backgroundImage, shadow: getComputedStyle(el).boxShadow }));
     assert.match(open.bg, /linear-gradient/, `${name}: pregunta abierta sin fondo`);
     assert.match(open.shadow, /rgb\(29, 79, 150\)/, `${name}: pregunta abierta sin rail azul`);
