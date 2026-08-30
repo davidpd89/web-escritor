@@ -61,14 +61,34 @@
     overflow-wrap:anywhere;
   }
 
-  /* Fragment sticky CTA close control is absolutely positioned. Doubling its
-     label/control metrics can push the control beyond the physical viewport;
-     pin the same control to the safe inline edge. */
-  html.v1 #sticky-cta-close{
-    left:auto!important;
-    right:max(4px,env(safe-area-inset-right))!important;
-    inset-inline-end:max(4px,env(safe-area-inset-right))!important;
-    max-width:calc(100vw - 8px);
+  /* Fragment sticky CTA is a flex row in its local stylesheet, which loads
+     after the shell. At 200% the close control plus CTA cluster can exceed a
+     320px viewport. Use a higher-specificity narrow-layout grid rather than
+     clipping or moving the close button outside normal flow. */
+  html.v1 body #sticky-cta{
+    display:grid;
+    grid-template-columns:minmax(0,1fr) auto;
+    gap:.5rem;
+    padding-inline:clamp(8px,4vw,16px);
+    box-sizing:border-box;
+    max-width:100vw;
+  }
+  html.v1 body #sticky-cta p{
+    grid-column:1 / -1;
+  }
+  html.v1 body #sticky-cta .sticky-cta-buttons{
+    min-width:0;
+    max-width:100%;
+    gap:.5rem;
+  }
+  html.v1 body #sticky-cta-close{
+    position:static;
+    left:auto;
+    right:auto;
+    inset-inline-end:auto;
+    justify-self:end;
+    align-self:center;
+    max-width:100%;
     box-sizing:border-box;
   }
 
@@ -101,6 +121,32 @@
     width:100%;
     max-width:100%;
     box-sizing:border-box;
+  }
+
+  /* Prensa's local identity sheet loads after the shell. Its mobile one-track
+     grid and max-content copy buttons can still retain an intrinsic floor at
+     200%. Higher specificity here keeps the ledger one-column and shrinkable
+     without changing its desktop treatment. */
+  html.v1 body [data-family="identity"] .press-card,
+  html.v1 body [data-family="identity"] .press-card--wide{
+    grid-template-columns:minmax(0,1fr);
+    min-width:0;
+    max-width:100%;
+    box-sizing:border-box;
+  }
+  html.v1 body [data-family="identity"] .press-card > *{
+    min-width:0;
+    width:auto;
+    max-width:100%;
+    box-sizing:border-box;
+    overflow-wrap:anywhere;
+  }
+  html.v1 body [data-family="identity"] .primary-action{
+    min-width:0;
+    max-width:100%;
+    box-sizing:border-box;
+    white-space:normal;
+    overflow-wrap:anywhere;
   }
 
   /* Resource findings are list items inside an indented list. Do not assign a
