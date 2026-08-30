@@ -3,12 +3,14 @@ name: Tools browser QA
 on:
   pull_request:
     paths:
+      - 'herramientas/index.html'
       - 'herramientas/manuscrito/**'
       - 'herramientas/dialogo/**'
       - 'herramientas/legibilidad/**'
       - 'herramientas/repeticiones/**'
       - 'herramientas/variedad-lexica/**'
       - 'herramientas/que-tipo-de-lector-eres/**'
+      - 'assets/herramientas-index.css'
       - 'assets/v1-shell.js'
       - 'assets/v1-tools.css'
       - 'assets/analizador-capitulos*'
@@ -17,6 +19,7 @@ on:
       - 'assets/repeticiones-*'
       - 'assets/variedad-lexica*'
       - 'assets/tipo-lector*'
+      - 'qa/herramientas-index-design-browser.mjs'
       - 'qa/tools-browser.mjs'
       - 'qa/tipo-lector-browser.mjs'
       - 'qa/text-spacing.css'
@@ -75,6 +78,12 @@ jobs:
           QA_ORIGIN: http://127.0.0.1:4173
           QA_OUT: qa-artifacts
         run: node qa/tools-browser.mjs
+
+      - name: Capture Herramientas hub visual baseline
+        env:
+          QA_ORIGIN: http://127.0.0.1:4173
+          QA_OUT: qa-artifacts/herramientas-hub
+        run: node qa/herramientas-index-design-browser.mjs
 
       - name: Reader type quiz browser QA
         if: always()
