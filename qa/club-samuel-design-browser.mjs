@@ -184,6 +184,14 @@ try {
       if (width <= 1300 && await launcher.count()) assert.equal((await css(launcher)).display, 'none', `${name}: launcher invade Club <=1300`);
       assert.notEqual((await css(page.locator('.header-search'))).display, 'none', `${name}: Asistente del header no disponible`);
 
+      // Interactions above intentionally open the first question and may scroll it
+      // into view. Reset focus/scroll before full-page capture so fixed shell UI
+      // is recorded at the top of the page instead of stitched into mid-content.
+      await page.evaluate(() => {
+        if (document.activeElement instanceof HTMLElement) document.activeElement.blur();
+        window.scrollTo(0, 0);
+      });
+      await page.waitForTimeout(50);
       await page.screenshot({ path: path.join(OUT, `club-samuel-${name}.png`), fullPage: true });
     } catch (error) {
       failures.push({ viewport: name, width, height, error: error instanceof Error ? error.message : String(error) });
