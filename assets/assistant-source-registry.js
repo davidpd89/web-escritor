@@ -242,6 +242,48 @@ export const ASSISTANT_SOURCE_REGISTRY = [
     "action": "Ver recomendaciones"
   },
   {
+    "id": "recommendations-portal-fantasy",
+    "url": "/recomendaciones/portal-fantasy-espanol/",
+    "title": "Portal fantasy juvenil en español: 10 libros recomendados",
+    "territory": "cuaderno",
+    "priority": 2,
+    "visibility": "public",
+    "keywords": [
+      "portal fantasy",
+      "fantasía juvenil",
+      "fantasía de portales",
+      "libros recomendados"
+    ],
+    "aliases": [
+      "portal fantasy juvenil en español",
+      "fantasía de portales",
+      "libros parecidos a samuel"
+    ],
+    "summary": "Selección editorial de diez libros de portal fantasy juvenil disponibles en español.",
+    "action": "Ver selección"
+  },
+  {
+    "id": "recommendations-magic-cost",
+    "url": "/recomendaciones/magia-con-coste/",
+    "title": "Magia con coste: 6 libros de fantasía en español",
+    "territory": "cuaderno",
+    "priority": 2,
+    "visibility": "public",
+    "keywords": [
+      "magia con coste",
+      "magia con consecuencias",
+      "precio de la magia",
+      "libros recomendados"
+    ],
+    "aliases": [
+      "magia que exige un precio",
+      "usar magia cuesta",
+      "fantasía con coste"
+    ],
+    "summary": "Selección editorial de seis libros donde usar magia implica un coste o consecuencias.",
+    "action": "Ver selección"
+  },
+  {
     "id": "tools-hub",
     "url": "/herramientas/",
     "title": "Herramientas gratuitas para escritores",
