@@ -1,6 +1,7 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import {
+  DEFAULT_EQUIVALENT_TARGETS,
   DEFAULT_PRODUCT_CONTRACTS,
   contractApplies,
   contractPasses,
@@ -73,4 +74,20 @@ test('header search preserves its 44px height while allowing the intentional 42p
   const mobile = DEFAULT_PRODUCT_CONTRACTS.find((item) => item.selector === '.header-search' && contractApplies(item, 768));
   assert.equal(contractPasses({ width: 42, height: 44 }, mobile), true);
   assert.equal(contractPasses({ width: 42, height: 43.99 }, mobile), false);
+});
+
+test('desktop header search also preserves the historical 42px width regression bar', () => {
+  const desktop = DEFAULT_PRODUCT_CONTRACTS.find((item) => item.selector === '.header-search' && contractApplies(item, 1280));
+  assert.equal(contractPasses({ width: 42, height: 44 }, desktop), true);
+  assert.equal(contractPasses({ width: 24, height: 44 }, desktop), false);
+});
+
+test('the only declared equivalent target is source-backed object-record import -> visible open button', () => {
+  assert.deepEqual(DEFAULT_EQUIVALENT_TARGETS, [
+    {
+      selector: '[data-record-import]',
+      equivalentSelector: '[data-record-open]',
+      source: 'assets/objeto-heredado.js',
+    },
+  ]);
 });
