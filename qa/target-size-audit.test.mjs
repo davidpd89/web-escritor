@@ -1,5 +1,6 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
+import fs from 'node:fs';
 import {
   DEFAULT_EQUIVALENT_TARGETS,
   DEFAULT_PRODUCT_CONTRACTS,
@@ -90,4 +91,13 @@ test('the only declared equivalent target is source-backed object-record import 
       source: 'assets/objeto-heredado.js',
     },
   ]);
+});
+
+test('object-record Equivalent exception remains functionally true', () => {
+  const source = fs.readFileSync('assets/objeto-heredado.js', 'utf8');
+  assert.match(
+    source,
+    /\$\('\[data-record-open\]'\)\.addEventListener\('click', \(\) => fileInput\.click\(\)\);/,
+    'Abrir JSON must keep invoking the hidden file input while F.1 relies on Equivalent',
+  );
 });
