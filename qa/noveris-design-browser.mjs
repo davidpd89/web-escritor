@@ -91,6 +91,9 @@ const failures = [];
 try {
   for (const [name, width, height] of viewports) {
     const context = await browser.newContext({ viewport: { width, height }, reducedMotion: 'reduce' });
+    await context.addInitScript(() => {
+      try { localStorage.setItem('nl-popup-ts', String(Date.now())); } catch {}
+    });
     const page = await context.newPage();
     try {
       const response = await page.goto(`${ORIGIN}/universo/noveris/`, { waitUntil: 'domcontentloaded', timeout: 20000 });
@@ -197,6 +200,9 @@ try {
         assert.equal((await css(table.locator('tbody tr').first())).display, 'grid', `${name}: fila móvil de canalizadores no es grid`);
         const label = await table.locator('tbody tr').first().locator('td').nth(1).evaluate(el => getComputedStyle(el, '::before').content);
         assert.match(label, /Usuario o contexto/, `${name}: registro móvil pierde etiqueta de contexto`);
+        const captionBox = await rect(table.locator('caption'));
+        assert.ok(captionBox.width >= tableWrapBox.width * .9, `${name}: caption móvil colapsado (${captionBox.width}px de ${tableWrapBox.width}px)`);
+        assert.ok(captionBox.height < 80, `${name}: caption móvil se pinta en vertical (${captionBox.height}px)`);
       }
       const tableImage = await rect(table.locator('.lore-table-img').first());
       assert.ok(tableImage.width >= 60, `${name}: imagen de canalizador demasiado pequeña`);
@@ -233,6 +239,7 @@ try {
         assert.equal((await css(launcher)).display, 'none', `${name}: launcher invade archivo <=1300`);
       }
       assert.notEqual((await css(page.locator('.header-search'))).display, 'none', `${name}: Asistente del header no disponible`);
+      assert.equal(await page.locator('#nl-popup-dialog').count(), 0, `${name}: popup newsletter contamina la captura de diseño`);
 
       await page.evaluate(() => scrollTo(0, 0));
       await page.screenshot({ path: path.join(OUT, `noveris-${name}.png`), fullPage: true });
