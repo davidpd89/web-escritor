@@ -240,6 +240,13 @@ html.v1 [data-page="events"] #organizar .contact-card--featured h3{
     right:0;
     bottom:0;
   }
+  html.v1 [data-page="events"] .event-entry .text-action{
+    display:inline-block;
+    width:auto;
+    max-width:100%;
+    white-space:normal;
+    overflow-wrap:anywhere;
+  }
 }
 
 @media (max-width:600px){
