@@ -212,3 +212,9 @@ html.v1[data-editorial-context="samuel"]:has(main[data-family="lore"]>#respuesta
   html.v1 #glosario .id-card{break-inside:avoid;page-break-inside:avoid}
   html.v1[data-editorial-context="samuel"]:has(main[data-family="lore"]>#respuesta .lore-figure) .assistant-widget__launcher{display:none!important}
 }
+
+/* Contract hardening: keep Noveris shell states and documentary thumbnails
+   consistent at the breakpoints exercised by the visual QA. */
+html.v1[data-editorial-context="samuel"]:has(main[data-family="lore"]>#respuesta .lore-figure) .header-search:hover,
+html.v1[data-editorial-context="samuel"]:has(main[data-family="lore"]>#respuesta .lore-figure) .header-search:focus-visible{color:#0a4d9f;background:var(--nov-pale);border-color:rgba(29,79,150,.18)}
+html.v1[data-editorial-context="samuel"]:has(main[data-family="lore"]>#respuesta .lore-figure) [data-family="lore"] .lore-table-img{min-width:3.75rem}
