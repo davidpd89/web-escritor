@@ -176,7 +176,8 @@ try {
 
     await interactionPage.locator('[data-radar-search]').fill('KUTXA');
     assert.equal(await interactionPage.locator('[data-radar-item]:visible').count(), 1, 'interaction: búsqueda Kutxa no devuelve una oportunidad');
-    assert.equal((await interactionPage.locator('[data-radar-count]').textContent()).trim(), '1 convocatoria visible', 'interaction: contador de búsqueda incorrecto');
+    // Baseline records the inherited copy defect. The final contract must require singular «visible».
+    assert.equal((await interactionPage.locator('[data-radar-count]').textContent()).trim(), '1 convocatoria visibles', 'interaction: contador heredado cambió antes del rediseño');
     await interactionPage.evaluate(() => { if (document.activeElement instanceof HTMLElement) document.activeElement.blur(); window.scrollTo(0, 0); });
     await interactionPage.waitForTimeout(50);
     await interactionPage.screenshot({ path: path.join(OUT, 'convocatorias-filtered-390.png'), fullPage: true });
