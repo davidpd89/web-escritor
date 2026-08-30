@@ -91,6 +91,8 @@ El objetivo es impedir cualquier fuga a Noveris u otras superficies companion. E
 - acciones manuscritas azules sin botón negro;
 - doble cierre azul/dorado.
 
+En `<=900px` las acciones pasan a columna. Además de mejorar el ritmo de tablet/móvil, esta regla elimina el rewrap inestable observado cuando Yellowtail termina de cargar.
+
 ### Guía rápida
 
 Las tres cards se convierten en registros abiertos `01/02/03`, separados por reglas, con H3 azul y sin cajas decorativas. El registro pasa de 3 columnas a 1 en `901/900`.
@@ -140,7 +142,27 @@ Comprueba scope, canonical, navegación contextual, Asistente, overflow, hero, a
 
 El módulo cross-engine se importa desde `qa/samuel-design-cross-engine.mjs`, y Sitewide Reflow ejecuta el contrato visual del Club como step independiente.
 
-## 7. Definition of Done
+La evidencia automatizada de implementación quedó cerrada en `1f8f19ff66fca3e0decff18aa8a848f38b0ed515`: 10/10 workflows disparados por esta PR en verde, incluido Sitewide Reflow completo, Samuel ecosystem browser QA, Cross-engine smoke, Lighthouse CI y Accessibility baseline. El artefacto Sitewide del mismo SHA (`sitewide-reflow-qa`, digest `sha256:63a3d445474b8867e14d779267019094bbf1b4b5823562b5dd777fafad41d8f7`) contiene las 12 capturas y `club-samuel-design-report.json` con `failures: []`.
+
+## 7. Defectos encontrados y cierre
+
+La primera implementación no se aceptó por inercia; los gates detectaron y la revisión manual aisló cuatro problemas concretos:
+
+1. **CLS real en tablet:** `qa/samuel-ecosystem-browser.mjs` midió `0.1913` a 768 px frente al máximo contractual `0.1`. No se relajó el umbral. Las acciones manuscritas, todavía en `flex-wrap`, podían cambiar de fila al terminar de cargar Yellowtail. Se estabilizaron en columna para `<=900px`; el mismo gate volvió a verde manteniendo el límite original.
+2. **Lectura prematura del estado abierto:** el smoke cross-engine consultaba el rail azul del `<details>` inmediatamente después del click y alcanzaba el primer frame de la transición. El contrato espera 260 ms, por encima de los 220 ms de `--motion-state`, y valida el estado final real en Chromium, Firefox y WebKit.
+3. **CSS counters mal observados por el test:** CSSOM devuelve la expresión `counter(...)` en `content`, no el valor visual ya resuelto `01`. El QA se corrigió para comprobar el mecanismo completo —`counter-reset`, `counter-increment` y `content: counter(...)`— tanto en briefing como en preguntas, sin modificar la presentación.
+4. **Captura full-page contaminada por el estado del runner:** después de abrir la primera pregunta Playwright había desplazado la página; el shell `fixed`/sticky podía quedar cosido a media captura. Antes de fotografiar se limpia foco y se vuelve a `scrollTo(0,0)`. La evidencia final ya no contiene el bloque `Saltar al contenido` ni una cabecera duplicada en mitad de la página.
+
+Revisión manual final del artefacto limpio:
+
+- 1440/1280: jerarquía de dossier consistente y cierre/footer limpios;
+- 1024/768: transición coherente de acciones/briefing sin romper los dossiers que todavía deben permanecer en dos columnas;
+- 901/900: briefing y recursos 3→1, acciones horizontal→columna, sin overflow;
+- 761/760: ficha del coordinador 2→1 limpia;
+- 641/640: ajuste del gutter de preguntas sin salto ni desbordamiento;
+- 390/360: lectura, preguntas, autor, recursos, CTA final y footer estables.
+
+## 8. Definition of Done
 
 - [x] rama creada exactamente sobre #267 ya verde;
 - [x] baseline 1440/390 recuperado e inspeccionado;
@@ -149,13 +171,13 @@ El módulo cross-engine se importa desde `qa/samuel-design-cross-engine.mjs`, y 
 - [x] QA Chromium específico añadido;
 - [x] QA cross-engine y aislamiento añadidos;
 - [x] Sitewide Reflow conectado;
-- [ ] primera ejecución CI revisada;
-- [ ] defectos objetivos de navegador corregidos;
-- [ ] capturas finales y seams revisados;
-- [ ] todos los gates finales verdes;
+- [x] primera ejecución CI revisada;
+- [x] defectos objetivos de navegador corregidos;
+- [x] capturas finales y seams revisados;
+- [x] todos los gates de implementación/evidencia verdes;
 - [ ] revisión física/humana antes del merge.
 
-## 8. Revisión física pendiente
+## 9. Revisión física pendiente
 
 Antes de mergear, heredar `REAL-DEVICE-REVIEW-CONTRACT-2026-08-29.md` y comprobar en dispositivo real:
 
@@ -168,4 +190,4 @@ Antes de mergear, heredar `REAL-DEVICE-REVIEW-CONTRACT-2026-08-29.md` y comproba
 - hover/focus en desktop real;
 - cache, hard reload y back-forward cache.
 
-**Estado inicial:** implementación preparada para CI. Mantener Draft y no mergear hasta cerrar evidencia automatizada y revisión física.
+**Estado técnico:** evidencia automatizada y revisión visual de escritorio/headless cerradas. Mantener la PR en Draft y sin mergear hasta completar la revisión física/humana y respetar el orden de la cadena de PRs.
