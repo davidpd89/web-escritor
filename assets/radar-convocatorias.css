@@ -205,7 +205,15 @@ html.v1[data-editorial-context="herramientas"]:has(main#contenido [data-radar-gr
   html.v1[data-editorial-context="herramientas"]:has(main#contenido [data-radar-grid]) .radar-card{
     grid-template-columns:minmax(0,1fr);row-gap:.65rem;padding:clamp(2.8rem,5vw,3.8rem) 0
   }
-  html.v1[data-editorial-context="herramientas"]:has(main#contenido [data-radar-grid]) .radar-card>*{grid-column:1;grid-row:auto;min-width:0}
+  html.v1[data-editorial-context="herramientas"]:has(main#contenido [data-radar-grid]) .radar-card .radar-card__top,
+  html.v1[data-editorial-context="herramientas"]:has(main#contenido [data-radar-grid]) .radar-card h2,
+  html.v1[data-editorial-context="herramientas"]:has(main#contenido [data-radar-grid]) .radar-card .radar-org,
+  html.v1[data-editorial-context="herramientas"]:has(main#contenido [data-radar-grid]) .radar-card dl,
+  html.v1[data-editorial-context="herramientas"]:has(main#contenido [data-radar-grid]) .radar-card .radar-note,
+  html.v1[data-editorial-context="herramientas"]:has(main#contenido [data-radar-grid]) .radar-card .radar-verified,
+  html.v1[data-editorial-context="herramientas"]:has(main#contenido [data-radar-grid]) .radar-card>p:has([data-radar-source]){
+    grid-column:1;grid-row:auto;min-width:0
+  }
   html.v1[data-editorial-context="herramientas"]:has(main#contenido [data-radar-grid]) .radar-card__top{margin-bottom:.45rem}
   html.v1[data-editorial-context="herramientas"]:has(main#contenido [data-radar-grid]) .radar-card h2{max-width:24ch;margin-bottom:.2rem}
   html.v1[data-editorial-context="herramientas"]:has(main#contenido [data-radar-grid]) .radar-org{margin-bottom:.55rem}
