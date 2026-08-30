@@ -1,0 +1,95 @@
+name: Premios browser QA
+
+on:
+  pull_request:
+    paths:
+      - 'premios.html'
+      - 'assets/v1-awards.css'
+      - 'assets/v1-identity.css'
+      - 'tests/test-awards-evidence.py'
+      - 'qa/identity-public-browser.mjs'
+      - 'qa/awards-evidence-browser.mjs'
+      - 'qa/premios-design-browser.mjs'
+      - '.github/workflows/premios-browser-qa.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  browser-qa:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 25
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Awards evidence contract
+        run: python tests/test-awards-evidence.py
+
+      - name: Set up Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+
+      - name: Install CI/QA dependencies (Node)
+        run: npm ci
+
+      - name: Cache Playwright browsers
+        id: playwright-cache
+        uses: actions/cache@v4
+        with:
+          path: ~/.cache/ms-playwright
+          key: playwright-chromium-${{ hashFiles('package-lock.json') }}
+
+      - name: Install Playwright Chromium (with OS deps)
+        if: steps.playwright-cache.outputs.cache-hit != 'true'
+        run: npx playwright install --with-deps chromium
+
+      - name: Install Playwright OS deps only (browser cached)
+        if: steps.playwright-cache.outputs.cache-hit == 'true'
+        run: npx playwright install-deps chromium
+
+      - name: Start local static server
+        shell: bash
+        run: |
+          python3 -m http.server 4173 --bind 127.0.0.1 > /tmp/premios-qa-server.log 2>&1 &
+          echo $! > /tmp/premios-qa-server.pid
+          for i in {1..30}; do
+            if curl --fail --silent http://127.0.0.1:4173/premios.html > /dev/null; then
+              exit 0
+            fi
+            sleep 1
+          done
+          cat /tmp/premios-qa-server.log
+          exit 1
+
+      - name: Run inherited Identity authority
+        env:
+          IDENTITY_BASE_URL: http://127.0.0.1:4173
+          IDENTITY_ARTIFACT_DIR: qa-artifacts/premios-identity-authority
+        run: node qa/identity-public-browser.mjs
+
+      - name: Run inherited awards evidence authority
+        env:
+          IDENTITY_BASE_URL: http://127.0.0.1:4173
+          IDENTITY_ARTIFACT_DIR: qa-artifacts/premios-evidence-authority
+        run: node qa/awards-evidence-browser.mjs
+
+      - name: Capture Premios inherited baseline
+        env:
+          QA_ORIGIN: http://127.0.0.1:4173
+          QA_OUT: qa-artifacts/premios-design
+        run: node qa/premios-design-browser.mjs
+
+      - name: Upload Premios visual evidence
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: premios-visual-evidence
+          path: |
+            qa-artifacts/premios-design/
+            qa-artifacts/premios-identity-authority/
+            qa-artifacts/premios-evidence-authority/
+          if-no-files-found: warn
+          retention-days: 14
