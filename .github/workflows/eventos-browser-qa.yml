@@ -73,6 +73,36 @@ jobs:
           QA_OUT: qa-artifacts/eventos-design
         run: node qa/eventos-design-browser.mjs
 
+      - name: Check featured archive action stays intrinsic
+        env:
+          QA_ORIGIN: http://127.0.0.1:4173
+        run: |
+          node --input-type=module <<'NODE'
+          import assert from 'node:assert/strict';
+          import { chromium } from 'playwright';
+
+          const browser = await chromium.launch({ headless: true });
+          try {
+            for (const width of [1440, 767, 390]) {
+              const context = await browser.newContext({ viewport: { width, height: 900 }, reducedMotion: 'reduce' });
+              const page = await context.newPage();
+              const response = await page.goto(`${process.env.QA_ORIGIN}/eventos.html`, { waitUntil: 'networkidle' });
+              assert.ok(response?.ok(), `${width}: Eventos no carga`);
+              const geometry = await page.locator('#feria-libro-madrid-2026 .text-action').evaluate((el) => {
+                const rect = el.getBoundingClientRect();
+                const parent = el.parentElement.getBoundingClientRect();
+                return { width: rect.width, parentWidth: parent.width, justifySelf: getComputedStyle(el).justifySelf };
+              });
+              assert.equal(geometry.justifySelf, 'start', `${width}: el CTA destacado vuelve a estirarse como grid item`);
+              assert.ok(geometry.width < geometry.parentWidth - 24, `${width}: el subrayado del CTA vuelve a comportarse como divisor (${JSON.stringify(geometry)})`);
+              await context.close();
+            }
+          } finally {
+            await browser.close();
+          }
+          console.log('featured archive action: intrinsic at 1440/767/390');
+          NODE
+
       - name: Upload Eventos visual evidence
         if: always()
         uses: actions/upload-artifact@v4
