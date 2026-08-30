@@ -1,0 +1,116 @@
+/* V8 — F.2 text-resilience residuals.
+   Targeted fixes discovered by the sitewide 200% text/Text Spacing artifact.
+   This layer must never hide overflow: every rule lets the responsible
+   component reflow inside its own available inline size. */
+
+@media (max-width:639px){
+  /* Home feature cards preserve a small decorative lateral offset that becomes
+     real page overflow at 320px once text is doubled/spaced. The narrow layout
+     is already a one-column stack, so neutralise only the lateral offset. */
+  html.v1[data-lrb-home="true"] .yale-feature__stack .yale-feature-card{
+    margin-inline:0!important;
+    transform:none!important;
+    left:auto!important;
+    right:auto!important;
+    width:auto;
+    max-width:100%;
+    box-sizing:border-box;
+  }
+
+  /* Cuaderno folio and generic masthead coordinates are compact metadata, not
+     fixed-width badges. Allow the text box itself to shrink/wrap. */
+  html.v1 .cuaderno-masthead__folio,
+  html.v1 .cuaderno-masthead__folio span,
+  html.v1 .v1-masthead .coordinate{
+    min-width:0;
+    width:auto;
+    max-width:100%;
+    box-sizing:border-box;
+    overflow-wrap:anywhere;
+  }
+
+  /* One comparison table keeps an authored 608px min-width after the article
+     mobile transformation. At text-only 200% that minimum escapes the page.
+     The wrapper remains the owner; the table is fluid instead of clipped. */
+  html.v1 .article-table-wrap table{
+    min-width:0!important;
+    width:100%!important;
+    max-width:100%!important;
+    box-sizing:border-box;
+  }
+  html.v1 .article-table-wrap :is(thead,tbody,tr,th,td){
+    min-width:0!important;
+    max-width:100%;
+    box-sizing:border-box;
+    overflow-wrap:anywhere;
+  }
+
+  /* Article source lists inherit list indentation plus full-width descendants.
+     Keep indentation, but size each list item from the remaining inline space. */
+  html.v1 .article-sources ul{
+    min-width:0;
+    max-width:100%;
+    box-sizing:border-box;
+  }
+  html.v1 .article-sources li,
+  html.v1 .article-sources .source-kind{
+    min-width:0;
+    width:auto;
+    max-width:100%;
+    box-sizing:border-box;
+    overflow-wrap:anywhere;
+  }
+
+  /* Fragment sticky CTA close control is absolutely positioned. Doubling its
+     label/control metrics can push the control beyond the physical viewport;
+     pin the same control to the safe inline edge. */
+  html.v1 #sticky-cta-close{
+    left:auto!important;
+    right:max(4px,env(safe-area-inset-right))!important;
+    inset-inline-end:max(4px,env(safe-area-inset-right))!important;
+    max-width:calc(100vw - 8px);
+    box-sizing:border-box;
+  }
+
+  /* Manecillas availability rows use a two-column definition whose value track
+     can keep an intrinsic floor. Both tracks remain present but are shrinkable. */
+  html.v1 .availability-list dl>div{
+    min-width:0;
+    grid-template-columns:minmax(0,1fr) minmax(0,1fr);
+  }
+  html.v1 .availability-list dd{
+    min-width:0;
+    max-width:100%;
+    overflow-wrap:anywhere;
+  }
+
+  /* Samuel hero columns and press cards contain children authored at 100%
+     inside padded containers. Width:auto preserves the padding without adding
+     the child width on top of it under 200% text. */
+  html.v1 .samuel-threshold>* ,
+  html.v1 .samuel-threshold__object>* ,
+  html.v1 .samuel-threshold__copy>* ,
+  html.v1 .contact-card--featured>*{
+    min-width:0;
+    width:auto;
+    max-width:100%;
+    box-sizing:border-box;
+    overflow-wrap:anywhere;
+  }
+  html.v1 .samuel-threshold :is(picture,img){
+    width:100%;
+    max-width:100%;
+    box-sizing:border-box;
+  }
+
+  /* Resource findings are list items inside an indented list. Do not assign a
+     second 100% width after indentation; let normal list sizing determine it. */
+  html.v1 .tool-findings,
+  html.v1 .tool-findings li{
+    min-width:0;
+    width:auto;
+    max-width:100%;
+    box-sizing:border-box;
+    overflow-wrap:anywhere;
+  }
+}
