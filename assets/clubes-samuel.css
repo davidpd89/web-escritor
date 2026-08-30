@@ -186,6 +186,7 @@ html.v1[data-editorial-context="samuel"]:has(main[data-family="lore"]>#guia-rapi
   html.v1[data-editorial-context="samuel"]:has(main[data-family="lore"]>#guia-rapida) .assistant-widget__launcher{display:none!important}
 }
 @media(max-width:900px){
+  html.v1[data-editorial-context="samuel"]:has(main[data-family="lore"]>#guia-rapida) [data-family="lore"] .tool-actions{flex-direction:column;align-items:flex-start;gap:.55rem}
   html.v1[data-editorial-context="samuel"]:has(main[data-family="lore"]>#guia-rapida) #guia-rapida>.id-cards,
   html.v1[data-editorial-context="samuel"]:has(main[data-family="lore"]>#guia-rapida) #recursos>.id-cards{grid-template-columns:1fr}
   html.v1[data-editorial-context="samuel"]:has(main[data-family="lore"]>#guia-rapida) #guia-rapida>.id-cards>.id-card,
