@@ -94,6 +94,41 @@ const NOVERIS_ALIASES = Object.freeze([
   "universo de samuel",
 ]);
 
+const RECOMMENDATION_TERMS = Object.freeze([
+  "recomiend",
+  "recomendacion",
+  "recomendaciones",
+  "que leer",
+  "que puedo leer",
+  "que libros",
+  "lecturas",
+  "libros parecidos",
+  "busco libros",
+  "quiero libros",
+  "quiero leer",
+  "dame lecturas",
+]);
+
+const PORTAL_RECOMMENDATION_TERMS = Object.freeze([
+  "portal fantasy",
+  "fantasia de portales",
+  "cruzar a otro mundo",
+]);
+
+const MAGIC_COST_RECOMMENDATION_TERMS = Object.freeze([
+  "magia con coste",
+  "magia tenga un coste",
+  "magia tiene un coste",
+  "magia con consecuencias",
+  "magia que exige un precio",
+  "magia exige un precio",
+  "usar magia cueste",
+  "usar magia cuesta",
+  "magia cueste",
+  "precio real",
+  "precio de la magia",
+]);
+
 const READ_TERMS = Object.freeze([
   "fragmento",
   "fragmentos",
@@ -203,6 +238,12 @@ export function resolveLocalAnswer(query, context = {}) {
   const asksFragment = includesAny(q, READ_TERMS);
   const asksNavigation = includesAny(q, NAVIGATION_TERMS);
   const asksAward = includesAny(q, ["premio", "premios", "premiado", "reconocimiento", "reconocimientos", "finalista", "letras como espada", "juan andres", "teno"]);
+  const asksRecommendation = includesAny(q, RECOMMENDATION_TERMS);
+  const asksPortalRecommendation = asksRecommendation && (
+    includesAny(q, PORTAL_RECOMMENDATION_TERMS)
+    || (mentionsSamuel && includesAny(q, ["parecidos", "cruzar a otro mundo"]))
+  );
+  const asksMagicCostRecommendation = asksRecommendation && includesAny(q, MAGIC_COST_RECOMMENDATION_TERMS);
 
   if (context.pending === "fragment-choice") {
     if (mentionsSamuel || mentionsNoveris || includesAny(q, ["primer capitulo", "capitulo 1"])) {
@@ -231,6 +272,22 @@ export function resolveLocalAnswer(query, context = {}) {
           { label: "Samuel", query: "Quiero leer el primer capítulo de Samuel entre mundos" },
         ],
       },
+    );
+  }
+
+  if (asksPortalRecommendation) {
+    return result(
+      "recommendations-portal-fantasy",
+      "Si buscas portal fantasy juvenil en español, esta selección reúne diez libros recomendados y explica por qué encaja cada uno.",
+      ["recommendations-portal-fantasy"],
+    );
+  }
+
+  if (asksMagicCostRecommendation) {
+    return result(
+      "recommendations-magic-cost",
+      "Si buscas fantasía donde la magia tenga un coste o consecuencias, esta selección reúne seis libros en español centrados precisamente en ese criterio.",
+      ["recommendations-magic-cost"],
     );
   }
 
@@ -295,7 +352,7 @@ export function resolveLocalAnswer(query, context = {}) {
     return result("tools", "La sección de Herramientas reúne utilidades gratuitas para revisar texto, estructura y personajes y preparar publicación o materiales editoriales.", ["tools-hub"]);
   }
 
-  if (includesAny(q, ["recomiend", "recomendacion", "recomendaciones", "que leer", "lecturas parecidas"])) {
+  if (asksRecommendation) {
     return result("recommendations", "La sección de Recomendaciones organiza lecturas por afinidades, temas y tipos de fantasía.", ["recommendations-hub"]);
   }
 
