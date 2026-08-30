@@ -40,12 +40,12 @@ test('two undersized targets fail when their 24px circles intersect', () => {
 
 test('undersized target passes when its center is at least 12px from a compliant target', () => {
   const a = target(0, 0, 20, 20);
-  const b = target(36, 0, 24, 24);
+  const b = target(24, 0, 24, 24);
   assert.equal(spacingPasses(a, [b]), true);
 });
 
 test('undersized target fails when its 24px circle intersects a compliant target', () => {
   const a = target(0, 0, 20, 20);
-  const b = target(35.99, 0, 24, 24);
+  const b = target(23.99, 0, 24, 24);
   assert.equal(spacingPasses(a, [b]), false);
 });
