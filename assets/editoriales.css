@@ -368,3 +368,15 @@ html.v1[data-editorial-context="herramientas"]:has(main#contenido[data-editorial
     font-size:clamp(2.55rem,12.1vw,3.1rem)
   }
 }
+
+/* Preserve a monotonic title scale when crossing the compact layout seams. */
+@media(max-width:640px){
+  html.v1[data-editorial-context="herramientas"]:has(main#contenido[data-editoriales-directory]) .tool-hero h1{
+    font-size:clamp(2.6rem,8.125vw,3.25rem)
+  }
+}
+@media(max-width:389px){
+  html.v1[data-editorial-context="herramientas"]:has(main#contenido[data-editoriales-directory]) .tool-hero h1{
+    font-size:clamp(2.5rem,10.5vw,2.6rem)
+  }
+}
