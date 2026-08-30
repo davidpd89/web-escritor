@@ -54,11 +54,11 @@ jobs:
           cat /tmp/reflow-server.log
           exit 1
 
-      - name: Run sitewide reflow gate + target-size baseline
+      - name: Run sitewide reflow gate + target-size gate
         env:
           QA_ORIGIN: http://127.0.0.1:4173
           QA_OUT: artifacts/sitewide-reflow
-          TARGET_SIZE_MODE: report
+          TARGET_SIZE_MODE: enforce
         run: node qa/sitewide-reflow-browser.mjs
 
       - name: POV distribution format QA (O.2)
