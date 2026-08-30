@@ -148,6 +148,7 @@ try {
       assert.match((await css(firstSummary, '::before')).content, /01/, `${name}: pregunta pierde índice 01`);
       await firstSummary.click();
       assert.equal(await firstDetail.getAttribute('open'), '', `${name}: primera pregunta no abre`);
+      await page.waitForTimeout(STATE_SETTLE_MS);
       const openState = await css(firstDetail);
       assert.match(openState.backgroundImage, /linear-gradient/, `${name}: pregunta abierta sin superficie de lectura`);
       assert.match(openState.boxShadow, /rgb\(29, 79, 150\)/, `${name}: pregunta abierta sin rail azul`);
