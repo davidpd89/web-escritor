@@ -1,6 +1,12 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
-import { pointToRectDistance, spacingPasses } from './target-size-audit.mjs';
+import {
+  DEFAULT_PRODUCT_CONTRACTS,
+  contractApplies,
+  contractPasses,
+  pointToRectDistance,
+  spacingPasses,
+} from './target-size-audit.mjs';
 
 function target(cx, cy, width, height) {
   return {
@@ -48,4 +54,23 @@ test('undersized target fails when its 24px circle intersects a compliant target
   const a = target(0, 0, 20, 20);
   const b = target(23.99, 0, 24, 24);
   assert.equal(spacingPasses(a, [b]), false);
+});
+
+test('responsive product contracts select the intentional <=899px and desktop Explore bars', () => {
+  const mobile = DEFAULT_PRODUCT_CONTRACTS.find((item) => item.selector === '.explore-trigger' && contractApplies(item, 390));
+  const desktop = DEFAULT_PRODUCT_CONTRACTS.find((item) => item.selector === '.explore-trigger' && contractApplies(item, 1280));
+  assert.deepEqual({ minWidth: mobile?.minWidth, minHeight: mobile?.minHeight }, { minWidth: 42, minHeight: 42 });
+  assert.deepEqual({ minWidth: desktop?.minWidth, minHeight: desktop?.minHeight }, { minWidth: 44, minHeight: 44 });
+});
+
+test('42px mobile Explore remains valid while a silent 42->24 shrink fails the product contract', () => {
+  const mobile = DEFAULT_PRODUCT_CONTRACTS.find((item) => item.selector === '.explore-trigger' && contractApplies(item, 390));
+  assert.equal(contractPasses({ width: 42, height: 42 }, mobile), true);
+  assert.equal(contractPasses({ width: 24, height: 24 }, mobile), false);
+});
+
+test('header search preserves its 44px height while allowing the intentional 42px mobile width', () => {
+  const mobile = DEFAULT_PRODUCT_CONTRACTS.find((item) => item.selector === '.header-search' && contractApplies(item, 768));
+  assert.equal(contractPasses({ width: 42, height: 44 }, mobile), true);
+  assert.equal(contractPasses({ width: 42, height: 43.99 }, mobile), false);
 });
