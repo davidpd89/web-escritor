@@ -67,7 +67,7 @@ jobs:
           IDENTITY_ARTIFACT_DIR: qa-artifacts/eventos-identity-authority
         run: node qa/identity-public-browser.mjs
 
-      - name: Capture Eventos inherited baseline
+      - name: Run Eventos visual-system contract
         env:
           QA_ORIGIN: http://127.0.0.1:4173
           QA_OUT: qa-artifacts/eventos-design
