@@ -24,6 +24,9 @@ jobs:
       - name: Install CI/QA dependencies (Node)
         run: npm ci
 
+      - name: F.2 report classifier unit tests
+        run: node qa/text-resilience-report-gate.test.mjs
+
       - name: Cache Playwright browsers
         id: playwright-cache
         uses: actions/cache@v4
@@ -57,6 +60,11 @@ jobs:
           QA_OUT: artifacts/sitewide-reflow
           TEXT_RESILIENCE_MODE: report
         run: node qa/sitewide-reflow-browser.mjs
+
+      - name: Reconcile F.2 text-resilience findings
+        env:
+          TEXT_RESILIENCE_GATE_MODE: report
+        run: node qa/text-resilience-report-gate.mjs
 
       - name: POV distribution format QA (O.2)
         if: always()
