@@ -4,6 +4,7 @@ on:
   push:
     paths:
       - 'cuaderno/**'
+      - 'assets/cuaderno-index.css'
       - 'assets/v1-editorial.css'
       - 'assets/v1-editorial.js'
       - 'assets/article-print.css'
@@ -16,6 +17,7 @@ on:
   pull_request:
     paths:
       - 'cuaderno/**'
+      - 'assets/cuaderno-index.css'
       - 'assets/v1-editorial.css'
       - 'assets/v1-editorial.js'
       - 'assets/article-print.css'
@@ -76,7 +78,7 @@ jobs:
           QA_BASE_URL: http://127.0.0.1:4173
         run: node qa/cuaderno-browser.mjs
 
-      - name: Capture Cuaderno index visual baseline
+      - name: Run Cuaderno index visual-system QA
         env:
           QA_BASE_URL: http://127.0.0.1:4173
           QA_OUT: qa-artifacts/cuaderno
