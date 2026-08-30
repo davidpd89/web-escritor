@@ -12,6 +12,11 @@ const viewports = [
   ['press-901',901,900],['press-900',900,900],['entry-768',768,1024],['facts-701',701,950],['facts-700',700,950],
   ['head-601',601,950],['head-600',600,950],['hero-411',411,900],['hero-410',410,900],['mobile-390',390,900],['mobile-320',320,900],
 ];
+const typographyRequests=[
+  ['400 64px "Instrument Serif"','Kit de prensa Ficha técnica Apariciones recientes'],
+  ['400 18px "Newsreader"','Todo lo que necesitas para hablar de David Porto Díaz'],
+  ['600 16px "Manrope"','Medios Reseñas Librerías Disponible Contacto prensa'],
+];
 
 function columns(value){
   if(!value || value === 'none') return 0;
@@ -22,16 +27,19 @@ async function context(browser,{width,height},js=true){
   if(js) await c.addInitScript(()=>{try{localStorage.setItem('nl-popup-ts',String(Date.now()))}catch{}});
   return c;
 }
-async function settleTypography(page,label){
-  const state=await page.evaluate(async()=>{
-    if(!document.fonts) return {supported:false,loaded:true,before:null,after:null};
-    const requested=[
-      ['400 64px "Instrument Serif"','Kit de prensa Ficha técnica Apariciones recientes'],
-      ['400 18px "Newsreader"','Todo lo que necesitas para hablar de David Porto Díaz'],
-      ['600 16px "Manrope"','Medios Reseñas Librerías Disponible Contacto prensa'],
-    ];
+async function ensureTypographyLoaded(page,label){
+  const state=await page.evaluate(async requested=>{
+    if(!document.fonts) return {supported:false,loaded:true};
     await Promise.all(requested.map(([font,text])=>document.fonts.load(font,text)));
     await document.fonts.ready;
+    return {supported:true,loaded:requested.every(([font,text])=>document.fonts.check(font,text))};
+  },typographyRequests);
+  assert.ok(!state.supported||state.loaded,`${label}: tipografías de Prensa no cargadas`);
+  return state;
+}
+async function settleTypography(page,label){
+  const fontState=await ensureTypographyLoaded(page,label);
+  const state=await page.evaluate(async()=>{
     const waitFrames=()=>new Promise(resolve=>requestAnimationFrame(()=>requestAnimationFrame(resolve)));
     const geometry=()=>{
       const title=document.querySelector('.v1-masthead h1');
@@ -49,12 +57,12 @@ async function settleTypography(page,label){
     await new Promise(resolve=>setTimeout(resolve,80));
     await waitFrames();
     const after=geometry();
-    return {supported:true,loaded:requested.every(([font,text])=>document.fonts.check(font,text)),before,after};
+    return {before,after};
   });
-  assert.ok(!state.supported||state.loaded,`${label}: tipografías de Prensa no cargadas antes de medir`);
-  if(state.before&&state.after){
+  const result={...fontState,...state};
+  if(result.before&&result.after){
     for(const key of ['title','reading','fact']){
-      const before=state.before[key],after=state.after[key];
+      const before=result.before[key],after=result.after[key];
       if(!before||!after) continue;
       assert.ok(Math.abs(after.width-before.width)<=0.1,`${label}: ancho de ${key} inestable antes de medir`);
       assert.ok(Math.abs(after.height-before.height)<=0.1,`${label}: alto de ${key} inestable antes de medir`);
@@ -64,11 +72,14 @@ async function settleTypography(page,label){
       assert.equal(after.maxWidth,before.maxWidth,`${label}: max-width de ${key} cambia antes de medir`);
     }
   }
-  return state;
+  return result;
 }
 async function open(page,label='Prensa'){
   const r=await page.goto(`${ORIGIN}/prensa.html`,{waitUntil:'load',timeout:20000});
   assert.ok(r?.ok(),'Prensa no carga');
+  await ensureTypographyLoaded(page,`${label} warmup`);
+  const reloaded=await page.reload({waitUntil:'load',timeout:20000});
+  assert.ok(reloaded?.ok(),`${label}: Prensa no recarga tras calentar tipografías`);
   return settleTypography(page,label);
 }
 async function overflowState(page){
