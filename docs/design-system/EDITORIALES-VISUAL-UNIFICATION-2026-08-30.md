@@ -87,6 +87,10 @@ No se modifica ningún HTML.
 
 2. **Contrato responsive insuficientemente explícito.** Después de corregir la escala se endureció `qa/editoriales-index-design-browser.mjs` para comprobar de forma explícita `901/900`, `768/767`, `641/640` y `390/389`, además de exigir que el tamaño del H1 nunca aumente al estrechar un píxel en esos pares. El HEAD de código/QA resultante fue `1bc214178b7d507c41aff754fa9ba543eb4cdb7b`.
 
+3. **Medición tipográfica no estabilizada al regenerar evidencia.** Durante el cierre documental se regeneró `editoriales-visual-evidence` en el HEAD `4019447e8ac131b478964c138c70b8484eb6e1e4`. Al comparar ese artefacto con el anterior, las capturas de 768 y 389 px eran píxel a píxel idénticas en todo el contenido común, pero el JSON había registrado geometría distinta del H1 antes de la screenshot y el PNG conservaba únicamente una cola vacía adicional de 49/39 px. No era una regresión visual de producción: era una carrera de medición del propio QA, compatible con las métricas transitorias de las fuentes `font-display:optional` antes de que el layout quedara estabilizado.
+
+   Se corrigió en `3a020d4beed3e69b3dfaf5df1bb67931253be7eb` (`test(editoriales): stabilize typography before visual measurements`). El contrato carga explícitamente Instrument Serif, Yellowtail, Newsreader y Manrope con `document.fonts.load()`, espera `document.fonts.ready`, dos ciclos de `requestAnimationFrame`, una segunda ventana de estabilidad y exige que ancho, alto, `max-width` y `font-size` del H1 no cambien antes de tomar medidas. Esta corrección endurece la fiabilidad del QA; no relaja ningún gate ni modifica producción.
+
 No se relajaron thresholds ni gates para conseguir verde.
 
 ## Contrato visual final
@@ -126,13 +130,15 @@ El contrato exige, entre otras condiciones:
 - seams de filtros;
 - seam `641/640` del expediente;
 - escala tipográfica no creciente al estrechar en `901/900`, `768/767`, `641/640` y `390/389`;
+- tipografías editoriales explícitamente cargadas antes de medir;
+- geometría del H1 estable antes de registrar el snapshot;
 - aislamiento de `/editoriales/minotauro/`.
 
 `qa/pro-resources-browser.mjs` continúa siendo la autoridad funcional existente y no se sustituye ni debilita.
 
-## Evidencia automática del HEAD de código/QA
+## Evidencia automática del HEAD de código/QA previo al cierre documental
 
-HEAD de código/QA revisado antes del commit documental: `1bc214178b7d507c41aff754fa9ba543eb4cdb7b`.
+HEAD de código/QA revisado antes del primer commit documental: `1bc214178b7d507c41aff754fa9ba543eb4cdb7b`.
 
 En ese HEAD: **12/12 workflows completados con success**:
 
@@ -149,17 +155,19 @@ En ese HEAD: **12/12 workflows completados con success**:
 - Professional resources QA;
 - Lighthouse CI.
 
-El run específico de Editoriales es `33312957046`.
+El run específico de Editoriales fue `33312957046`.
 
 Artefacto: `editoriales-visual-evidence`, ID `9732581576`.
 
 Digest verificado: `sha256:5170742f2a821531e99e1c5853b40e361873174dd50640f64fec3faec25b7786`.
 
-`editoriales-index-design-report.json` declara `phase: visual-system-contract`, `viewports: 14`, `failures: []` y `overflow: 0` en las 14 anchuras.
+`editoriales-index-design-report.json` declaró `phase: visual-system-contract`, `viewports: 14`, `failures: []` y `overflow: 0` en las 14 anchuras.
 
-## Revisión visual final del artefacto
+Durante el cierre documental se generó además el run `33317366334`, artifact `9733876217`, digest `sha256:a12b9dcb884f87b428cc1c075a676c94cc5e3abcf0b0fc1a718748052a83fbe2`, sobre `4019447e8ac131b478964c138c70b8484eb6e1e4`. La comparación de ambos artefactos permitió detectar la carrera de medición descrita arriba y motivó el endurecimiento posterior del contrato.
 
-Se revisaron las capturas completas y estados incluidos en el artefacto, con atención específica a:
+## Revisión visual del artefacto
+
+Se revisaron las capturas completas y estados incluidos en la evidencia, con atención específica a:
 
 - desktop 1728, 1440 y 1280;
 - tablet 1024;
@@ -169,7 +177,7 @@ Se revisaron las capturas completas y estados incluidos en el artefacto, con ate
 - estado vacío móvil;
 - control de aislamiento de Minotauro a 1280.
 
-Resultado:
+Resultado visual previo al endurecimiento final del QA:
 
 - desktop: hero, bloque de confianza, mesa de consulta y expedientes tienen jerarquía editorial clara sin apariencia de dashboard;
 - `901→900`: el hero pasa de dos columnas a una sin ruptura;
@@ -179,7 +187,9 @@ Resultado:
 - estado filtrado: Duermevela queda como único expediente y el contador muestra una editorial;
 - estado vacío: permanece integrado en el sistema visual y conserva los rails del registro;
 - Minotauro: no recibe tokens, numeración ni gramática visual del hub;
-- no se detecta otro defecto visual objetivo pendiente en las capturas finales.
+- no se detectó una regresión visual entre los dos artefactos comparados; la anomalía encontrada pertenecía al momento de medición del QA, no a los píxeles renderizados de la superficie.
+
+El artefacto del HEAD documental/QA final debe volver a descargarse y revisarse antes de cerrar técnicamente #272.
 
 ## Definition of Done
 
@@ -195,20 +205,23 @@ Resultado:
 - [x] interacción de filtros y estado vacío cubierta;
 - [x] cero overflow en 14 viewports;
 - [x] 12/12 workflows verdes en el HEAD de código/QA `1bc214178b7d507c41aff754fa9ba543eb4cdb7b`;
-- [x] artefacto final descargado, digest verificado y capturas revisadas;
-- [ ] CI del HEAD documental final, posterior a este documento y al renombrado del workflow;
+- [x] artefacto de código/QA descargado, digest verificado y capturas revisadas;
+- [x] carrera de medición tipográfica diagnosticada sin confundirla con una regresión visual;
+- [x] contrato endurecido para exigir tipografías cargadas y geometría estable antes de medir;
+- [ ] CI completo del HEAD final posterior a `3a020d4beed3e69b3dfaf5df1bb67931253be7eb` y a este documento;
+- [ ] artefacto del HEAD final descargado y revisado;
 - [ ] revisión humana/física según `REAL-DEVICE-REVIEW-CONTRACT-2026-08-29.md`.
 
 ## Revisión real multi-dispositivo
 
-Pendiente. Los QA headless y la revisión de capturas permiten declarar la superficie cerrada técnicamente cuando el HEAD documental final vuelva a quedar completamente verde, pero no sustituyen la revisión humana/física exigida por `REAL-DEVICE-REVIEW-CONTRACT-2026-08-29.md`.
+Pendiente. Los QA headless y la revisión de capturas permiten declarar la superficie cerrada técnicamente cuando el HEAD documental final vuelva a quedar completamente verde y su evidencia final sea limpia, pero no sustituyen la revisión humana/física exigida por `REAL-DEVICE-REVIEW-CONTRACT-2026-08-29.md`.
 
 No se debe marcar la PR como Ready ni mergearla antes de completar esa revisión y respetar el orden de la cadena.
 
 ## Estado
 
-**Código, QA y revisión visual del HEAD `1bc214178b7d507c41aff754fa9ba543eb4cdb7b` están técnicamente limpios.**
+**Producción, contenido y dirección visual permanecen estables; el contrato QA se ha endurecido antes del cierre.**
 
-Este documento y el renombrado de los pasos del workflow constituyen el cierre documental. El HEAD resultante debe volver a ejecutar y superar todos los workflows aplicables antes de declarar #272 técnicamente cerrada de forma definitiva.
+El HEAD resultante de este documento debe volver a ejecutar y superar todos los workflows aplicables. Solo entonces #272 podrá declararse técnicamente cerrada de forma definitiva.
 
 La PR debe permanecer **Draft, abierta y sin merge**.
