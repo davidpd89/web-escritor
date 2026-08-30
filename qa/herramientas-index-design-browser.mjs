@@ -67,7 +67,7 @@ async function assertFilters(page, name) {
     assert.equal(await page.locator('[data-tool]:not([hidden])').count(), expectedTools, `${name}: ${filter} muestra un número incorrecto de herramientas`);
     assert.equal(await page.locator('[data-tool-section]:not([hidden])').count(), expectedSections, `${name}: ${filter} muestra un número incorrecto de familias`);
     assert.equal(
-      (await page.locator('[data-tool-count]').innerText()).trim(),
+      (await page.locator('[data-tool-count]').textContent()).trim(),
       `${expectedTools} ${expectedTools === 1 ? 'herramienta' : 'herramientas'}`,
       `${name}: contador incorrecto para ${filter}`,
     );
