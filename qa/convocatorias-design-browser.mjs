@@ -8,6 +8,12 @@ const OUT = process.env.QA_OUT || 'qa-artifacts/convocatorias';
 const FIXED_TODAY = '2026-08-21';
 fs.mkdirSync(OUT, { recursive: true });
 
+const BLUE = 'rgb(29, 79, 150)';
+const BLUE_DEEP = 'rgb(13, 44, 87)';
+const GOLD = 'rgb(184, 134, 11)';
+const GOLD_TEXT = 'rgb(155, 110, 0)';
+const PALE = 'rgb(238, 250, 255)';
+
 const viewports = [
   ['wide-1728', 1728, 1000],
   ['desktop-1440', 1440, 1000],
@@ -46,6 +52,7 @@ async function snapshot(locator) {
       borderTopWidth: s.borderTopWidth,
       borderBottomWidth: s.borderBottomWidth,
       borderLeftWidth: s.borderLeftWidth,
+      borderColor: s.borderColor,
       borderRadius: s.borderRadius,
       boxShadow: s.boxShadow,
       fontFamily: s.fontFamily,
@@ -72,6 +79,26 @@ async function prepareContext(browser, viewport, javaScriptEnabled = true) {
   return context;
 }
 
+async function stabilizeTypography(page) {
+  const loaded = await page.evaluate(async () => {
+    if (!document.fonts) return { instrument: false, newsreader: false, manrope: false };
+    await Promise.all([
+      document.fonts.load('400 64px "Instrument Serif"', 'Convocatorias'),
+      document.fonts.load('400 18px Newsreader', 'Concursos premios ayudas becas'),
+      document.fonts.load('700 14px Manrope', 'FECHA LÍMITE EN PLAZO'),
+    ]);
+    await document.fonts.ready;
+    await new Promise(resolve => requestAnimationFrame(() => requestAnimationFrame(resolve)));
+    return {
+      instrument: document.fonts.check('400 64px "Instrument Serif"', 'Convocatorias'),
+      newsreader: document.fonts.check('400 18px Newsreader', 'Concursos premios ayudas becas'),
+      manrope: document.fonts.check('700 14px Manrope', 'FECHA LÍMITE EN PLAZO'),
+    };
+  });
+  assert.deepEqual(loaded, { instrument: true, newsreader: true, manrope: true }, 'tipografías editoriales no cargadas');
+  return loaded;
+}
+
 const browser = await chromium.launch({
   headless: true,
   ...(process.env.QA_CHROMIUM_EXECUTABLE_PATH ? { executablePath: process.env.QA_CHROMIUM_EXECUTABLE_PATH } : {}),
@@ -87,8 +114,7 @@ try {
     try {
       const response = await page.goto(`${ORIGIN}/convocatorias-escritores/`, { waitUntil: 'networkidle', timeout: 20000 });
       assert.ok(response?.ok(), `${name}: /convocatorias-escritores/ no carga`);
-      await page.evaluate(() => document.fonts?.ready);
-      await page.waitForTimeout(120);
+      const fontChecks = await stabilizeTypography(page);
 
       assert.equal(await page.locator('html').getAttribute('data-editorial-context'), 'herramientas', `${name}: contexto Herramientas perdido`);
       assert.equal(await page.locator('main#contenido').getAttribute('data-family'), 'tool', `${name}: familia tool alterada`);
@@ -122,11 +148,25 @@ try {
       const relatives = await page.locator('[data-radar-relative]').allTextContents();
       assert.ok(relatives.every(value => value.includes('faltan')), `${name}: fechas relativas no calculadas`);
 
+      const radarToken = await page.locator('html').evaluate(el => getComputedStyle(el).getPropertyValue('--radar-blue').trim());
+      const directoryToken = await page.locator('html').evaluate(el => getComputedStyle(el).getPropertyValue('--directory-blue').trim());
+      const methodToken = await page.locator('html').evaluate(el => getComputedStyle(el).getPropertyValue('--method-blue').trim());
+      assert.equal(radarToken.toLowerCase(), '#1d4f96', `${name}: tokens del radar no activos`);
+      assert.equal(directoryToken, '', `${name}: Convocatorias hereda tokens del directorio`);
+      assert.equal(methodToken, '', `${name}: Convocatorias hereda tokens de Metodología`);
+
       const overflow = await page.evaluate(() => document.documentElement.scrollWidth - innerWidth);
       assert.ok(overflow <= 1, `${name}: overflow horizontal ${overflow}px`);
 
       const hero = await snapshot(page.locator('.tool-hero'));
       const heroTitle = await snapshot(page.locator('.tool-hero h1'));
+      const titleStableBefore = { width: heroTitle.width, height: heroTitle.height, fontSize: heroTitle.fontSize, maxWidth: heroTitle.maxWidth };
+      await page.waitForTimeout(140);
+      await page.evaluate(() => new Promise(resolve => requestAnimationFrame(() => requestAnimationFrame(resolve))));
+      const titleStableAfterRaw = await snapshot(page.locator('.tool-hero h1'));
+      const titleStableAfter = { width: titleStableAfterRaw.width, height: titleStableAfterRaw.height, fontSize: titleStableAfterRaw.fontSize, maxWidth: titleStableAfterRaw.maxWidth };
+      assert.deepEqual(titleStableAfter, titleStableBefore, `${name}: geometría del H1 no estable antes de medir`);
+
       const heroEyebrow = await snapshot(page.locator('.tool-hero .eyebrow'));
       const heroNote = await snapshot(page.locator('.tool-hero > .tool-note'));
       const heroActions = await snapshot(page.locator('.tool-hero__actions'));
@@ -139,20 +179,49 @@ try {
       const firstTitle = await snapshot(items.first().locator('h2'));
       const firstBadge = await snapshot(items.first().locator('.radar-badge'));
       const firstLedger = await snapshot(items.first().locator('dl'));
+      const firstDeadline = await snapshot(items.first().locator('dl>div').first());
+      const firstDeadlineTerm = await snapshot(items.first().locator('dl>div').first().locator('dt'));
+      const firstDeadlineTime = await snapshot(items.first().locator('dl>div').first().locator('time'));
       const firstSource = await snapshot(items.first().locator('[data-radar-source]'));
       const method = await snapshot(page.locator('.tool-findings-block'));
       const activeContext = await snapshot(page.locator('.section-context [aria-current="page"]'));
       const footer = await snapshot(page.locator('.site-footer'));
+      const footerRule = await page.locator('.site-footer').evaluate(el => getComputedStyle(el, '::before').backgroundImage);
 
-      // Capture the inherited responsive grammar before any production redesign.
-      assert.equal(columnCount(firstLedger.gridTemplateColumns), width > 860 ? 4 : width > 520 ? 2 : 1, `${name}: seam heredado 861/860/520 del ledger cambió`);
-      assert.equal(firstTop.display, width > 520 ? 'flex' : 'grid', `${name}: seam heredado 521/520 del encabezado cambió`);
+      assert.equal(hero.display, 'grid', `${name}: hero deja de ser grid`);
+      assert.equal(columnCount(hero.gridTemplateColumns), width > 900 ? 2 : 1, `${name}: seam 901/900 del hero incorrecto`);
+      assert.ok(hero.backgroundImage.includes(BLUE) && hero.backgroundImage.includes(GOLD), `${name}: hero pierde la doble regla azul/dorado`);
+      assert.equal(heroTitle.color, BLUE, `${name}: H1 pierde el azul del radar`);
+      assert.ok(heroTitle.fontFamily.includes('Instrument Serif'), `${name}: H1 pierde la tipografía editorial`);
+      assert.equal(heroEyebrow.color, GOLD_TEXT, `${name}: eyebrow pierde el dorado AA`);
+      assert.ok(heroNote.boxShadow.includes(BLUE) && heroNote.boxShadow.includes(GOLD), `${name}: aviso de confianza pierde rails`);
+      assert.ok(calendar.boxShadow.includes(GOLD), `${name}: acción de calendario pierde acento temporal`);
+
+      assert.equal(finder.display, 'grid', `${name}: finder deja de ser grid`);
+      assert.ok(finder.backgroundImage.includes(BLUE) && finder.backgroundImage.includes(GOLD), `${name}: finder pierde su doble línea temporal`);
+      assert.equal(columnCount(options.gridTemplateColumns), width > 900 ? 3 : width > 640 ? 2 : 1, `${name}: seam de filtros incorrecto`);
+
+      assert.equal(firstCard.display, 'grid', `${name}: expediente temporal deja de ser grid`);
+      assert.equal(columnCount(firstCard.gridTemplateColumns), width > 900 ? 2 : 1, `${name}: seam 901/900 del expediente incorrecto`);
+      assert.equal(firstTitle.color, BLUE, `${name}: título de convocatoria pierde azul`);
+      assert.equal(firstBadge.color, BLUE_DEEP, `${name}: badge pierde azul profundo`);
+      assert.equal(firstBadge.backgroundColor, PALE, `${name}: badge pierde fondo pálido`);
+      assert.equal(columnCount(firstLedger.gridTemplateColumns), width > 640 ? 3 : 1, `${name}: seam 641/640 del ledger incorrecto`);
+      assert.ok(firstDeadline.boxShadow.includes(BLUE) && firstDeadline.boxShadow.includes(GOLD), `${name}: fecha límite pierde rails`);
+      assert.equal(firstDeadlineTerm.color, GOLD_TEXT, `${name}: etiqueta Fecha límite pierde dorado AA`);
+      assert.equal(firstDeadlineTime.color, BLUE, `${name}: fecha límite pierde jerarquía azul`);
+      assert.ok(firstDeadlineTime.fontFamily.includes('Instrument Serif'), `${name}: fecha límite pierde tipografía editorial`);
+      assert.equal(firstSource.color, BLUE, `${name}: fuente oficial pierde acción azul`);
+      assert.ok(method.boxShadow.includes(BLUE) && method.boxShadow.includes(GOLD), `${name}: bloque de método pierde rails`);
+      assert.equal(activeContext.color, BLUE, `${name}: navegación contextual pierde azul`);
+      assert.ok(activeContext.boxShadow.includes(GOLD), `${name}: navegación contextual pierde cierre dorado`);
+      assert.ok(footerRule.includes(BLUE) && footerRule.includes(GOLD), `${name}: footer pierde doble regla`);
 
       measurements.push({
-        name, width, height, overflow,
-        hero, heroTitle, heroEyebrow, heroNote, heroActions, calendar,
-        finder, options, grid, firstCard, firstTop, firstTitle, firstBadge,
-        firstLedger, firstSource, method, activeContext, footer,
+        name, width, height, overflow, radarToken, directoryToken, methodToken, fontChecks,
+        hero, heroTitle, titleStableBefore, titleStableAfter, heroEyebrow, heroNote, heroActions, calendar,
+        finder, options, grid, firstCard, firstTop, firstTitle, firstBadge, firstLedger,
+        firstDeadline, firstDeadlineTerm, firstDeadlineTime, firstSource, method, activeContext, footer, footerRule,
       });
 
       await page.evaluate(() => {
@@ -173,11 +242,11 @@ try {
   try {
     const response = await interactionPage.goto(`${ORIGIN}/convocatorias-escritores/`, { waitUntil: 'networkidle', timeout: 20000 });
     assert.ok(response?.ok(), 'interaction: radar no carga');
+    await stabilizeTypography(interactionPage);
 
     await interactionPage.locator('[data-radar-search]').fill('KUTXA');
     assert.equal(await interactionPage.locator('[data-radar-item]:visible').count(), 1, 'interaction: búsqueda Kutxa no devuelve una oportunidad');
-    // Baseline records the inherited copy defect. The final contract must require singular «visible».
-    assert.equal((await interactionPage.locator('[data-radar-count]').textContent()).trim(), '1 convocatoria visibles', 'interaction: contador heredado cambió antes del rediseño');
+    assert.equal((await interactionPage.locator('[data-radar-count]').textContent()).trim(), '1 convocatoria visible', 'interaction: singular del contador no corregido');
     await interactionPage.evaluate(() => { if (document.activeElement instanceof HTMLElement) document.activeElement.blur(); window.scrollTo(0, 0); });
     await interactionPage.waitForTimeout(50);
     await interactionPage.screenshot({ path: path.join(OUT, 'convocatorias-filtered-390.png'), fullPage: true });
@@ -190,6 +259,8 @@ try {
     await interactionPage.locator('[data-radar-soon]').check();
     assert.equal(await interactionPage.locator('[data-radar-item]:visible').count(), 0, 'interaction: cierre en 7 días debería quedar vacío en fecha fija');
     assert.equal(await interactionPage.locator('[data-radar-filter-empty]').isVisible(), true, 'interaction: estado vacío no aparece');
+    const emptyStyle = await snapshot(interactionPage.locator('[data-radar-filter-empty]'));
+    assert.ok(emptyStyle.boxShadow.includes(BLUE) && emptyStyle.boxShadow.includes(GOLD), 'interaction: empty state pierde rails');
     await interactionPage.evaluate(() => { if (document.activeElement instanceof HTMLElement) document.activeElement.blur(); window.scrollTo(0, 0); });
     await interactionPage.waitForTimeout(50);
     await interactionPage.screenshot({ path: path.join(OUT, 'convocatorias-empty-390.png'), fullPage: true });
@@ -212,20 +283,55 @@ try {
     assert.equal(await noJsPage.locator('[data-radar-calendar]').getAttribute('href'), '/convocatorias-escritores/deadlines.ics', 'no-js: enlace ICS perdido');
     const dates = await noJsPage.locator('[data-radar-item] time').allTextContents();
     assert.ok(dates.includes('21/09/2026') && dates.includes('09/10/2026'), 'no-js: fechas activas no visibles');
+    const overflow = await noJsPage.evaluate(() => document.documentElement.scrollWidth - innerWidth);
+    assert.ok(overflow <= 1, `no-js: overflow horizontal ${overflow}px`);
     await noJsPage.screenshot({ path: path.join(OUT, 'convocatorias-no-js-390.png'), fullPage: true });
   } catch (error) {
     failures.push({ viewport: 'no-js-mobile-390', width: 390, height: 844, error: error instanceof Error ? error.message : String(error) });
   } finally {
     await noJsContext.close();
   }
+
+  const isolationContext = await prepareContext(browser, { width: 1280, height: 800 });
+  const isolationPage = await isolationContext.newPage();
+  try {
+    const response = await isolationPage.goto(`${ORIGIN}/editoriales/`, { waitUntil: 'networkidle', timeout: 20000 });
+    assert.ok(response?.ok(), 'isolation: /editoriales/ no carga');
+    assert.equal(await isolationPage.locator('html').evaluate(el => getComputedStyle(el).getPropertyValue('--radar-blue').trim()), '', 'isolation: Editoriales hereda tokens del radar');
+    assert.equal((await isolationPage.locator('html').evaluate(el => getComputedStyle(el).getPropertyValue('--directory-blue').trim())).toLowerCase(), '#1d4f96', 'isolation: Editoriales pierde sus tokens propios');
+    assert.equal(await isolationPage.locator('[data-radar-grid]').count(), 0, 'isolation: Editoriales contiene grid del radar');
+    await isolationPage.evaluate(() => window.scrollTo(0, 0));
+    await isolationPage.waitForTimeout(50);
+    await isolationPage.screenshot({ path: path.join(OUT, 'editoriales-control-1280.png'), fullPage: true });
+  } catch (error) {
+    failures.push({ viewport: 'editoriales-isolation-1280', width: 1280, height: 800, error: error instanceof Error ? error.message : String(error) });
+  } finally {
+    await isolationContext.close();
+  }
 } finally {
   await browser.close();
 }
 
+const byName = Object.fromEntries(measurements.map(item => [item.name, item]));
+for (const [wider, narrower] of [
+  ['layout-901', 'layout-900'],
+  ['ledger-861', 'ledger-860'],
+  ['layout-641', 'layout-640'],
+  ['record-521', 'record-520'],
+  ['mobile-390', 'mobile-389'],
+]) {
+  if (byName[wider] && byName[narrower]) {
+    assert.ok(
+      parseFloat(byName[narrower].heroTitle.fontSize) <= parseFloat(byName[wider].heroTitle.fontSize) + 0.1,
+      `${narrower}: el H1 crece al estrechar desde ${wider}`,
+    );
+  }
+}
+
 fs.writeFileSync(
   path.join(OUT, 'convocatorias-design-report.json'),
-  JSON.stringify({ route: '/convocatorias-escritores/', phase: 'inherited-baseline', fixedToday: FIXED_TODAY, viewports: viewports.length, measurements, failures }, null, 2),
+  JSON.stringify({ route: '/convocatorias-escritores/', phase: 'visual-system-contract', fixedToday: FIXED_TODAY, viewports: viewports.length, measurements, failures }, null, 2),
 );
 
-assert.deepEqual(failures, [], `Convocatorias inherited-baseline failures:\n${JSON.stringify(failures, null, 2)}`);
-console.log(`Convocatorias inherited baseline: PASS (${viewports.length} viewports + interaction states + no-JS)`);
+assert.deepEqual(failures, [], `Convocatorias visual-system failures:\n${JSON.stringify(failures, null, 2)}`);
+console.log(`Convocatorias visual-system QA: PASS (${viewports.length} viewports + interaction states + no-JS + Editoriales isolation)`);
