@@ -51,10 +51,11 @@ jobs:
           cat /tmp/reflow-server.log
           exit 1
 
-      - name: Run sitewide reflow gate
+      - name: Run sitewide reflow gate + F.2 baseline
         env:
           QA_ORIGIN: http://127.0.0.1:4173
           QA_OUT: artifacts/sitewide-reflow
+          TEXT_RESILIENCE_MODE: report
         run: node qa/sitewide-reflow-browser.mjs
 
       - name: POV distribution format QA (O.2)
