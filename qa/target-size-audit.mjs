@@ -31,6 +31,19 @@ export const DEFAULT_PRODUCT_CONTRACTS = [
   },
 ];
 
+// WCAG 2.5.8 includes an Equivalent exception when the same function is
+// available through another target that meets the minimum. Keep this list
+// deliberately tiny and source-backed: do not use it as a generic `.sr-only`
+// escape hatch. The object-record page's visible "Abrir JSON" button calls
+// fileInput.click() for this exact hidden file input in objeto-heredado.js.
+export const DEFAULT_EQUIVALENT_TARGETS = [
+  {
+    selector: '[data-record-import]',
+    equivalentSelector: '[data-record-open]',
+    source: 'assets/objeto-heredado.js',
+  },
+];
+
 export function pointToRectDistance(x, y, rect) {
   const dx = Math.max(rect.left - x, 0, x - rect.right);
   const dy = Math.max(rect.top - y, 0, y - rect.bottom);
@@ -65,9 +78,13 @@ export function contractPasses(rect, contract) {
 
 export async function auditTargetSizes(
   page,
-  { minimum = DEFAULT_MINIMUM, productContracts = DEFAULT_PRODUCT_CONTRACTS } = {},
+  {
+    minimum = DEFAULT_MINIMUM,
+    productContracts = DEFAULT_PRODUCT_CONTRACTS,
+    equivalentTargets = DEFAULT_EQUIVALENT_TARGETS,
+  } = {},
 ) {
-  return page.evaluate(({ min, contracts }) => {
+  return page.evaluate(({ min, contracts, equivalents }) => {
     const TARGET_SELECTOR = [
       'a[href]',
       'button',
@@ -142,19 +159,40 @@ export async function auditTargetSizes(
       return Boolean(el.closest('p, dd, dt, figcaption, blockquote'));
     }
 
-    function hasCompliantAssociatedLabel(el) {
-      if (!(el instanceof HTMLInputElement)) return false;
+    function compliantRect(el) {
+      if (!isRenderedPointerTarget(el)) return false;
+      const rect = el.getBoundingClientRect();
+      return rect.width >= min && rect.height >= min;
+    }
+
+    function associatedLabelException(el) {
+      if (!(el instanceof HTMLInputElement)) return null;
       // A label for checkbox/radio toggles that control; a label for a file
       // input opens the same file picker. These are verifiable equivalent
       // pointer targets. Labels for ordinary text inputs merely move focus,
       // so they are not treated as a blanket Equivalent exception here.
-      if (!['checkbox', 'radio', 'file'].includes(el.type)) return false;
+      if (!['checkbox', 'radio', 'file'].includes(el.type)) return null;
       for (const label of el.labels || []) {
-        if (!isRenderedPointerTarget(label)) continue;
-        const rect = label.getBoundingClientRect();
-        if (rect.width >= min && rect.height >= min) return true;
+        if (!compliantRect(label)) continue;
+        return {
+          selector: selectorFor(label),
+          source: 'associated <label>',
+        };
       }
-      return false;
+      return null;
+    }
+
+    function declaredEquivalentException(el) {
+      for (const equivalent of equivalents) {
+        if (!el.matches(equivalent.selector)) continue;
+        const candidate = document.querySelector(equivalent.equivalentSelector);
+        if (!candidate || !compliantRect(candidate)) continue;
+        return {
+          selector: selectorFor(candidate),
+          source: equivalent.source || null,
+        };
+      }
+      return null;
     }
 
     function pointToRectDistance(x, y, rect) {
@@ -200,6 +238,7 @@ export async function auditTargetSizes(
     for (const target of targets) {
       let status = 'pass';
       let reason = 'size';
+      let equivalentTarget = null;
 
       if (target.productContract) {
         const { minWidth, minHeight } = target.productContract;
@@ -214,29 +253,34 @@ export async function auditTargetSizes(
       if (status === 'pass' && target.undersized) {
         if (isInlineException(target.el)) {
           reason = 'inline_exception';
-        } else if (hasCompliantAssociatedLabel(target.el)) {
-          reason = 'associated_label_target';
         } else {
-          const radius = min / 2;
-          let spacingPass = true;
-          for (const other of targets) {
-            if (other === target) continue;
-            if (other.undersized) {
-              const distance = Math.hypot(target.cx - other.cx, target.cy - other.cy);
-              if (distance < min) {
+          const associatedLabel = associatedLabelException(target.el);
+          const declaredEquivalent = associatedLabel || declaredEquivalentException(target.el);
+          if (declaredEquivalent) {
+            reason = associatedLabel ? 'associated_label_target' : 'equivalent_target';
+            equivalentTarget = declaredEquivalent;
+          } else {
+            const radius = min / 2;
+            let spacingPass = true;
+            for (const other of targets) {
+              if (other === target) continue;
+              if (other.undersized) {
+                const distance = Math.hypot(target.cx - other.cx, target.cy - other.cy);
+                if (distance < min) {
+                  spacingPass = false;
+                  break;
+                }
+              } else if (pointToRectDistance(target.cx, target.cy, other.rect) < radius) {
                 spacingPass = false;
                 break;
               }
-            } else if (pointToRectDistance(target.cx, target.cy, other.rect) < radius) {
-              spacingPass = false;
-              break;
             }
-          }
-          if (spacingPass) {
-            reason = 'spacing_exception';
-          } else {
-            status = 'fail';
-            reason = 'undersized_and_too_close';
+            if (spacingPass) {
+              reason = 'spacing_exception';
+            } else {
+              status = 'fail';
+              reason = 'undersized_and_too_close';
+            }
           }
         }
       }
@@ -251,6 +295,7 @@ export async function auditTargetSizes(
         height: Math.round(target.rect.height * 100) / 100,
         status,
         reason,
+        equivalentTarget,
         productContract: target.productContract ? {
           selector: target.productContract.selector,
           minWidth: target.productContract.minWidth ?? null,
@@ -273,5 +318,5 @@ export async function auditTargetSizes(
       exceptions,
       productContractChecks,
     };
-  }, { min: minimum, contracts: productContracts });
+  }, { min: minimum, contracts: productContracts, equivalents: equivalentTargets });
 }
