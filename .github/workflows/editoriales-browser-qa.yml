@@ -58,13 +58,13 @@ jobs:
           cat /tmp/editoriales-qa-server.log
           exit 1
 
-      - name: Capture Editoriales inherited baseline
+      - name: Run Editoriales visual-system contract
         env:
           QA_ORIGIN: http://127.0.0.1:4173
           QA_OUT: qa-artifacts/editoriales-index
         run: node qa/editoriales-index-design-browser.mjs
 
-      - name: Upload Editoriales baseline evidence
+      - name: Upload Editoriales visual evidence
         if: always()
         uses: actions/upload-artifact@v4
         with:
