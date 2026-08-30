@@ -58,6 +58,7 @@ try{
       assert.equal(await p.locator('h1').count(),1,`${name}: H1 no único`);
       assert.equal((await p.locator('h1').textContent()).trim(),'Premios y reconocimientos',`${name}: H1 alterado`);
       assert.equal(await p.locator('.section-context [aria-current="page"]').getAttribute('href'),'/premios.html',`${name}: navegación contextual no marca Premios`);
+      assert.equal(await p.evaluate(()=>getComputedStyle(document.documentElement).getPropertyValue('--awards-blue').trim()),'#1d4f96',`${name}: token azul documental perdido`);
 
       const records=p.locator('#reconocimientos [data-award-record]');
       assert.equal(await records.count(),2,`${name}: deben existir exactamente dos reconocimientos`);
@@ -82,13 +83,17 @@ try{
       const masthead=await style(p.locator('.v1-masthead'));
       const title=await style(p.locator('.v1-masthead h1'));
       const sectionHead=await style(p.locator('#reconocimientos .v1-section__head'));
+      const recognitionHeading=await style(p.locator('#reconocimientos .v1-section__head h2'));
       const ledger=await style(p.locator('#reconocimientos .awards-ledger'));
       const firstRecord=await style(records.nth(0));
       const secondRecord=await style(records.nth(1));
+      const firstResult=await style(records.nth(0).locator('[data-award-result]'));
+      const secondResult=await style(records.nth(1).locator('[data-award-result]'));
       const attribution=await style(records.nth(0).locator('.award-attribution'));
       const sourceRail=await style(records.nth(0).locator('.award-source-rail'));
       const trajectory=await style(p.locator('#colaboraciones .awards-ledger'));
       const reception=await style(p.locator('#recepcion .awards-ledger'));
+      const receptionHeading=await style(p.locator('#recepcion .v1-section__head h2'));
       const next=await style(p.locator('#conocer .awards-next'));
       const activeContext=await style(p.locator('.section-context [aria-current="page"]'));
       const footer=await style(p.locator('.site-footer'));
@@ -99,8 +104,15 @@ try{
       assert.equal(columns(attribution.gridTemplateColumns),expectedAttribution,`${name}: seam 761/760/601/600 de atribución cambió`);
       assert.equal(columns(sourceRail.gridTemplateColumns),expectedSource,`${name}: seam 601/600 de fuentes cambió`);
       assert.equal(columns(sectionHead.gridTemplateColumns),expectedHead,`${name}: seam 601/600 de cabecera cambió`);
+      assert.equal(masthead.display,'block',`${name}: masthead vuelve a plantilla genérica de dos columnas`);
+      assert.equal(title.color,'rgb(29, 79, 150)',`${name}: H1 pierde azul canónico`);
+      assert.notEqual(firstRecord.backgroundImage,'none',`${name}: Primer Premio pierde tratamiento documental destacado`);
+      assert.notEqual(firstRecord.boxShadow,'none',`${name}: Primer Premio pierde filete jerárquico`);
+      assert.ok(parseFloat(firstResult.fontSize)>parseFloat(secondResult.fontSize),`${name}: Primer Premio deja de tener jerarquía tipográfica sobre el Top 10`);
+      assert.equal(sourceRail.borderTopWidth,'2px',`${name}: procedencia pierde rail de evidencia`);
+      assert.notEqual(receptionHeading.color,recognitionHeading.color,`${name}: Recepción vuelve a tener el mismo peso cromático que Reconocimientos`);
 
-      measurements.push({name,width,height,overflow,masthead,title,sectionHead,ledger,firstRecord,secondRecord,attribution,sourceRail,trajectory,reception,next,activeContext,footer});
+      measurements.push({name,width,height,overflow,masthead,title,sectionHead,recognitionHeading,ledger,firstRecord,secondRecord,firstResult,secondResult,attribution,sourceRail,trajectory,reception,receptionHeading,next,activeContext,footer});
       await p.evaluate(()=>window.scrollTo(0,0));await p.screenshot({path:path.join(OUT,`premios-${name}.png`),fullPage:true});
     }catch(error){failures.push({viewport:name,width,height,error:error instanceof Error?error.message:String(error)});}finally{await c.close();}
   }
@@ -111,6 +123,8 @@ try{
       const r=await p.goto(ORIGIN+route,{waitUntil:'networkidle'});assert.ok(r?.ok(),`${route}: control de aislamiento no carga`);
       assert.equal(await p.locator('main#contenido').getAttribute('data-family'),'identity',`${route}: familia identity perdida`);
       assert.notEqual(await p.locator('main#contenido').getAttribute('data-page'),'awards',`${route}: scope awards contamina una página hermana`);
+      assert.equal(await p.locator('link[href="/assets/v1-awards.css"]').count(),0,`${route}: hoja local de Premios cargada fuera de su página`);
+      assert.equal(await p.evaluate(()=>getComputedStyle(document.documentElement).getPropertyValue('--awards-blue').trim()),'',`${route}: tokens visuales de Premios contaminan una página hermana`);
       await noOverflow(p,`${route} isolation`);
       await p.screenshot({path:path.join(OUT,`isolation-${route.slice(1,-5)}-1440.png`),fullPage:true});
     }catch(error){failures.push({viewport:`isolation-${route}`,width:1440,height:1000,error:error instanceof Error?error.message:String(error)});}finally{await c.close();}
@@ -139,6 +153,6 @@ try{
   }
 }finally{await browser.close();}
 
-fs.writeFileSync(path.join(OUT,'premios-design-report.json'),JSON.stringify({route:'/premios.html',phase:'inherited-baseline',viewports:viewports.length,measurements,failures},null,2));
-assert.deepEqual(failures,[],`Premios inherited-baseline failures:\n${JSON.stringify(failures,null,2)}`);
-console.log(`Premios inherited baseline: PASS (${viewports.length} viewports + 3 isolation controls + no-JS + WCAG stress)`);
+fs.writeFileSync(path.join(OUT,'premios-design-report.json'),JSON.stringify({route:'/premios.html',phase:'visual-system-contract',viewports:viewports.length,measurements,failures},null,2));
+assert.deepEqual(failures,[],`Premios visual-system failures:\n${JSON.stringify(failures,null,2)}`);
+console.log(`Premios visual system: PASS (${viewports.length} viewports + 3 isolation controls + no-JS + WCAG stress)`);
