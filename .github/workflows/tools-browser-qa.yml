@@ -11,6 +11,7 @@ on:
       - 'herramientas/variedad-lexica/**'
       - 'herramientas/que-tipo-de-lector-eres/**'
       - 'assets/herramientas-index.css'
+      - 'assets/herramientas-hub.js'
       - 'assets/v1-shell.js'
       - 'assets/v1-tools.css'
       - 'assets/analizador-capitulos*'
@@ -19,6 +20,8 @@ on:
       - 'assets/repeticiones-*'
       - 'assets/variedad-lexica*'
       - 'assets/tipo-lector*'
+      - 'data/tools-hub.json'
+      - 'scripts/build-tools-hub.py'
       - 'qa/herramientas-index-design-browser.mjs'
       - 'qa/tools-browser.mjs'
       - 'qa/tipo-lector-browser.mjs'
@@ -27,18 +30,15 @@ on:
   workflow_dispatch:
 
 permissions:
-  contents: write
+  contents: read
 
 jobs:
   browser-qa:
     runs-on: ubuntu-latest
     timeout-minutes: 20
     steps:
-      - name: Checkout PR head
+      - name: Checkout
         uses: actions/checkout@v4
-        with:
-          ref: ${{ github.event.pull_request.head.sha }}
-          fetch-depth: 0
 
       - name: Set up Node
         uses: actions/setup-node@v4
@@ -63,19 +63,9 @@ jobs:
         if: steps.playwright-cache.outputs.cache-hit == 'true'
         run: npx playwright install-deps chromium
 
-      - name: Sync generated Herramientas hub once
+      - name: Check generated Herramientas hub parity
         run: |
-          python scripts/build-tools-hub.py data/tools-hub.json herramientas/index.html
-          if ! git diff --quiet -- herramientas/index.html; then
-            git config user.name "github-actions[bot]"
-            git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-            git add herramientas/index.html
-            git commit -m "build(herramientas): sync generated hub"
-            git push origin "HEAD:${GITHUB_HEAD_REF}"
-          fi
-
-      - name: Generate Herramientas hub build evidence
-        run: |
+          python scripts/build-tools-hub.py data/tools-hub.json herramientas/index.html --check
           mkdir -p qa-artifacts/herramientas-hub
           cp herramientas/index.html qa-artifacts/herramientas-hub/generated-index.html
 
@@ -98,7 +88,7 @@ jobs:
           QA_OUT: qa-artifacts
         run: node qa/tools-browser.mjs
 
-      - name: Capture Herramientas hub visual baseline
+      - name: Herramientas hub visual-system QA
         env:
           QA_ORIGIN: http://127.0.0.1:4173
           QA_OUT: qa-artifacts/herramientas-hub
