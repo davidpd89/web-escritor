@@ -109,18 +109,17 @@ html.v1[data-editorial-context="herramientas"]:has(main[data-family="tools-hub"]
   margin:0 0 .18rem;max-width:58ch;color:var(--tools-muted);font-size:1rem;line-height:1.52
 }
 html.v1[data-editorial-context="herramientas"]:has(main[data-family="tools-hub"]) .tools-section>.id-cards{
-  grid-column:1/-1;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:1px;
-  margin-top:1.2rem;border:1px solid var(--tools-rule);background:var(--tools-rule)
+  grid-column:1/-1;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:clamp(.55rem,1.2vw,.9rem);
+  margin-top:1.2rem;border:0;background:transparent
 }
 html.v1[data-editorial-context="herramientas"]:has(main[data-family="tools-hub"]) .tools-section:has(.id-card:only-child)>.id-cards{
-  grid-template-columns:minmax(0,2fr) minmax(0,1fr);background:linear-gradient(90deg,var(--tools-rule) 0 calc(66.666% + 1px),transparent calc(66.666% + 1px));
-  border-right-color:transparent
+  grid-template-columns:minmax(0,2fr) minmax(0,1fr);border:0;background:transparent
 }
 html.v1[data-editorial-context="herramientas"]:has(main[data-family="tools-hub"]) .tools-section:has(.id-card:nth-child(2):last-child)>.id-cards{
   grid-template-columns:repeat(2,minmax(0,1fr));max-width:none
 }
 html.v1[data-editorial-context="herramientas"]:has(main[data-family="tools-hub"]) .tools-section .id-card{
-  position:relative;min-width:0;padding:clamp(1.35rem,2vw,1.8rem);border:0;border-radius:0;background:#fff;box-shadow:none;
+  position:relative;min-width:0;padding:clamp(1.35rem,2vw,1.8rem);border:1px solid var(--tools-rule-soft);border-radius:0;background:#fff;box-shadow:none;
   transition:background 150ms ease,box-shadow 150ms ease
 }
 html.v1[data-editorial-context="herramientas"]:has(main[data-family="tools-hub"]) .tools-section .id-card::before{
@@ -190,7 +189,7 @@ html.v1[data-editorial-context="herramientas"]:has(main[data-family="tools-hub"]
   html.v1[data-editorial-context="herramientas"]:has(main[data-family="tools-hub"]) .tool-filters{grid-template-columns:repeat(2,minmax(0,1fr))}
   html.v1[data-editorial-context="herramientas"]:has(main[data-family="tools-hub"]) .tools-section>.id-cards{grid-template-columns:repeat(2,minmax(0,1fr))}
   html.v1[data-editorial-context="herramientas"]:has(main[data-family="tools-hub"]) .tools-section:has(.id-card:only-child)>.id-cards{
-    grid-template-columns:minmax(0,1fr);max-width:min(100%,48rem);background:var(--tools-rule);border-right-color:var(--tools-rule)
+    grid-template-columns:minmax(0,1fr);max-width:min(100%,48rem);background:transparent;border:0
   }
 }
 
