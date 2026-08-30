@@ -141,7 +141,7 @@ html.v1[data-editorial-context="herramientas"]:has(main#contenido[data-family="t
 @media(max-width:767px){
   html.v1[data-editorial-context="herramientas"]:has(main#contenido[data-family="tool"] .spec-ledger .editorial-fact) .spec-ledger{grid-template-columns:1fr}
   html.v1[data-editorial-context="herramientas"]:has(main#contenido[data-family="tool"] .spec-ledger .editorial-fact) .tool-hero h1{
-    font-size:clamp(3rem,12vw,4.45rem)
+    font-size:clamp(3rem,7.3vw,3.5rem)
   }
 }
 
