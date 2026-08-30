@@ -79,6 +79,8 @@ try{
       await open(page);
       assert.equal(await page.locator('html').getAttribute('data-editorial-context'),'prensa',`${name}: contexto prensa perdido`);
       assert.equal(await page.locator('main#contenido').getAttribute('data-family'),'identity',`${name}: familia identity alterada`);
+      assert.equal(await page.locator('main#contenido').getAttribute('data-page'),'press',`${name}: owner local de Prensa no está activado`);
+      assert.equal(await page.locator('link[rel="stylesheet"][href="/assets/v1-press.css"]').count(),1,`${name}: stylesheet owner v1-press.css ausente o duplicado`);
       assert.equal(await page.locator('link[rel="canonical"]').getAttribute('href'),'https://davidportodiaz.com/prensa.html',`${name}: canonical alterado`);
       assert.equal(await page.locator('h1').count(),1,`${name}: H1 no único`);
       assert.equal((await page.locator('h1').textContent()).trim(),'Kit de prensa',`${name}: H1 alterado`);
@@ -130,6 +132,7 @@ try{
         galleryColumns:getComputedStyle(document.querySelector('.event-photo-grid')).gridTemplateColumns,
         inlineStyles:document.querySelectorAll('main [style]').length,
       }));
+      assert.equal(state.titleColor,'rgb(29, 79, 150)',`${name}: owner visual de Prensa no controla el H1 (${state.titleColor})`);
       measurements.push({name,width,height,overflow,...state});
       await loadDocumentaryImages(page);
       await page.evaluate(()=>window.scrollTo(0,0));
@@ -183,6 +186,6 @@ try{
   }
 }finally{await browser.close();}
 
-fs.writeFileSync(path.join(OUT,'prensa-design-report.json'),JSON.stringify({route:'/prensa.html',phase:'inherited-baseline',viewports:viewports.length,measurements,failures},null,2));
-assert.deepEqual(failures,[],`Prensa inherited-baseline failures:\n${JSON.stringify(failures,null,2)}`);
-console.log(`Prensa inherited baseline: PASS (${viewports.length} viewports + 3 isolation controls + no-JS + separated WCAG stress)`);
+fs.writeFileSync(path.join(OUT,'prensa-design-report.json'),JSON.stringify({route:'/prensa.html',phase:'visual-system-contract',viewports:viewports.length,measurements,failures},null,2));
+assert.deepEqual(failures,[],`Prensa visual-system contract failures:\n${JSON.stringify(failures,null,2)}`);
+console.log(`Prensa visual-system contract: PASS (${viewports.length} viewports + 3 isolation controls + no-JS + separated WCAG stress)`);
