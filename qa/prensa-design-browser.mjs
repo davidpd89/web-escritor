@@ -22,11 +22,54 @@ async function context(browser,{width,height},js=true){
   if(js) await c.addInitScript(()=>{try{localStorage.setItem('nl-popup-ts',String(Date.now()))}catch{}});
   return c;
 }
-async function open(page){
+async function settleTypography(page,label){
+  const state=await page.evaluate(async()=>{
+    if(!document.fonts) return {supported:false,loaded:true,before:null,after:null};
+    const requested=[
+      ['400 64px "Instrument Serif"','Kit de prensa Ficha técnica Apariciones recientes'],
+      ['400 18px "Newsreader"','Todo lo que necesitas para hablar de David Porto Díaz'],
+      ['600 16px "Manrope"','Medios Reseñas Librerías Disponible Contacto prensa'],
+    ];
+    await Promise.all(requested.map(([font,text])=>document.fonts.load(font,text)));
+    await document.fonts.ready;
+    const waitFrames=()=>new Promise(resolve=>requestAnimationFrame(()=>requestAnimationFrame(resolve)));
+    const geometry=()=>{
+      const title=document.querySelector('.v1-masthead h1');
+      const reading=document.querySelector('.v1-masthead__lead');
+      const fact=document.querySelector('#datos-rapidos .trust-item p');
+      const read=el=>{
+        if(!(el instanceof HTMLElement)) return null;
+        const s=getComputedStyle(el);const r=el.getBoundingClientRect();
+        return {width:r.width,height:r.height,fontFamily:s.fontFamily,fontSize:s.fontSize,lineHeight:s.lineHeight,maxWidth:s.maxWidth};
+      };
+      return {title:read(title),reading:read(reading),fact:read(fact)};
+    };
+    await waitFrames();
+    const before=geometry();
+    await new Promise(resolve=>setTimeout(resolve,80));
+    await waitFrames();
+    const after=geometry();
+    return {supported:true,loaded:requested.every(([font,text])=>document.fonts.check(font,text)),before,after};
+  });
+  assert.ok(!state.supported||state.loaded,`${label}: tipografías de Prensa no cargadas antes de medir`);
+  if(state.before&&state.after){
+    for(const key of ['title','reading','fact']){
+      const before=state.before[key],after=state.after[key];
+      if(!before||!after) continue;
+      assert.ok(Math.abs(after.width-before.width)<=0.1,`${label}: ancho de ${key} inestable antes de medir`);
+      assert.ok(Math.abs(after.height-before.height)<=0.1,`${label}: alto de ${key} inestable antes de medir`);
+      assert.equal(after.fontFamily,before.fontFamily,`${label}: font-family de ${key} cambia antes de medir`);
+      assert.equal(after.fontSize,before.fontSize,`${label}: font-size de ${key} cambia antes de medir`);
+      assert.equal(after.lineHeight,before.lineHeight,`${label}: line-height de ${key} cambia antes de medir`);
+      assert.equal(after.maxWidth,before.maxWidth,`${label}: max-width de ${key} cambia antes de medir`);
+    }
+  }
+  return state;
+}
+async function open(page,label='Prensa'){
   const r=await page.goto(`${ORIGIN}/prensa.html`,{waitUntil:'load',timeout:20000});
   assert.ok(r?.ok(),'Prensa no carga');
-  await page.evaluate(()=>document.fonts?.ready);
-  await page.waitForTimeout(120);
+  return settleTypography(page,label);
 }
 async function overflowState(page){
   return page.evaluate(()=>({
@@ -76,7 +119,7 @@ try{
     const c=await context(browser,{width,height});
     const page=await c.newPage();
     try{
-      await open(page);
+      const typographyState=await open(page,name);
       assert.equal(await page.locator('html').getAttribute('data-editorial-context'),'prensa',`${name}: contexto prensa perdido`);
       assert.equal(await page.locator('main#contenido').getAttribute('data-family'),'identity',`${name}: familia identity alterada`);
       assert.equal(await page.locator('main#contenido').getAttribute('data-page'),'press',`${name}: owner local de Prensa no está activado`);
@@ -133,7 +176,7 @@ try{
         inlineStyles:document.querySelectorAll('main [style]').length,
       }));
       assert.equal(state.titleColor,'rgb(29, 79, 150)',`${name}: owner visual de Prensa no controla el H1 (${state.titleColor})`);
-      measurements.push({name,width,height,overflow,...state});
+      measurements.push({name,width,height,overflow,typographyState,...state});
       await loadDocumentaryImages(page);
       await page.evaluate(()=>window.scrollTo(0,0));
       await page.screenshot({path:path.join(OUT,`prensa-${name}.png`),fullPage:true});
@@ -156,6 +199,7 @@ try{
     const c=await context(browser,{width:390,height:900},false);const page=await c.newPage();
     try{
       const r=await page.goto(`${ORIGIN}/prensa.html`,{waitUntil:'load'});assert.ok(r?.ok(),'no-js: Prensa no carga');
+      await settleTypography(page,'no-js 390');
       assert.equal(await page.locator('#bios .press-card').count(),4,'no-js: bios/materiales incompletos');
       assert.equal(await page.locator('#entrevistas details').count(),5,'no-js: entrevistas incompletas');
       assert.ok((await page.locator('#contacto').innerText()).includes('davidportodiaz@gmail.com'),'no-js: contacto ausente');
@@ -167,7 +211,7 @@ try{
   {
     const c=await context(browser,{width:390,height:900});const page=await c.newPage();
     try{
-      await open(page);await addTextSpacing(c,page);
+      await open(page,'text spacing precondition');await addTextSpacing(c,page);
       await page.evaluate(()=>new Promise(r=>requestAnimationFrame(()=>requestAnimationFrame(r))));
       await noOverflow(page,'text spacing');
       await page.keyboard.press('Tab');
@@ -178,7 +222,7 @@ try{
   {
     const c=await context(browser,{width:390,height:900});const page=await c.newPage();
     try{
-      await open(page);
+      await open(page,'zoom precondition');
       await page.evaluate(()=>document.documentElement.style.zoom='2');
       await page.evaluate(()=>new Promise(r=>requestAnimationFrame(()=>requestAnimationFrame(r))));
       await noOverflow(page,'zoom 200%');
