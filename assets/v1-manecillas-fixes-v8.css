@@ -26,28 +26,20 @@ html.v1[data-editorial-context="manecillas"] body:not([data-reading-progress]) .
   border-left-color:var(--man-gold);
 }
 
-/* WCAG contrast closure for the handwritten gold openings shared by the main
-   book page and Fragmentos. #b8860b is intentionally retained as the visual
-   gold, but it only reaches the AA 3:1 threshold as large text. The previous
-   dark-blue bitmap highlight also sat behind part of the glyphs, where the
-   pair was below 3:1 and automatic contrast tools could not resolve the image.
-   Keep these labels >=24 CSS px and use a very pale blue highlight instead.
-   This file is imported by v1-book.css on both routes; !important is limited to
-   these accessibility properties so Fragmentos can keep its own visual layer. */
+/* WCAG contrast closure for the handwritten gold openings on the main page.
+   #b8860b is intentionally retained as the visual gold, but it only reaches
+   the AA 3:1 threshold as large text. The previous dark-blue bitmap highlight
+   also sat behind part of the glyphs, where the pair was below 3:1 and
+   automatic contrast tools could not resolve the image. Keep these labels
+   >=24 CSS px and use a very pale blue highlight instead. */
 html.v1[data-editorial-context="manecillas"] body:not([data-reading-progress]) .book-page--manecillas :is(
   .book-hero__copy>.eyebrow,
   .book-section__label>.eyebrow,
   .book-dedication>.eyebrow,
   .book-newsletter>div>.eyebrow
-),
-html.v1[data-editorial-context="manecillas"] body[data-reading-progress] .book-page--manecillas :is(
-  .book-hero__copy>.eyebrow,
-  .book-hero + .v1-section>.eyebrow,
-  .excerpt-section .book-section__label>.eyebrow,
-  #cta-final>.eyebrow
 ){
-  font-size:clamp(1.5rem,1.8vw,1.65rem)!important;
-  background-image:linear-gradient(#f7fbfe,#f7fbfe)!important;
+  font-size:clamp(1.5rem,1.8vw,1.65rem);
+  background-image:linear-gradient(#f7fbfe,#f7fbfe);
 }
 
 /* v1-book.css contains overlapping tablet/mobile media queries and the later
