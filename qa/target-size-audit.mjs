@@ -56,10 +56,24 @@ export async function auditTargetSizes(page, { minimum = DEFAULT_MINIMUM } = {})
       return parts.join(' > ');
     }
 
-    function isRendered(el) {
+    function isRenderedPointerTarget(el) {
       if (!(el instanceof HTMLElement) && !(el instanceof SVGElement)) return false;
       if (el.closest('[inert]')) return false;
       if ('disabled' in el && el.disabled) return false;
+
+      // `.sr-only` controls are intentionally removed from the visual/pointer
+      // surface and operated through an equivalent visible control. Measuring
+      // their 1px accessibility box as a pointer target creates false failures.
+      if (el.classList?.contains('sr-only')) return false;
+
+      // Browsers may still return geometry for descendants of a closed
+      // <details>. Only its summary is exposed as a pointer target until open.
+      const closedDetails = el.closest('details:not([open])');
+      if (closedDetails) {
+        const visibleSummary = closedDetails.querySelector(':scope > summary');
+        if (el !== visibleSummary && !visibleSummary?.contains(el)) return false;
+      }
+
       const style = window.getComputedStyle(el);
       if (style.display === 'none' || style.visibility === 'hidden' || style.visibility === 'collapse') return false;
       if (style.pointerEvents === 'none') return false;
@@ -89,7 +103,7 @@ export async function auditTargetSizes(page, { minimum = DEFAULT_MINIMUM } = {})
       if (!(el instanceof HTMLInputElement)) return false;
       if (!['checkbox', 'radio'].includes(el.type)) return false;
       for (const label of el.labels || []) {
-        if (!isRendered(label)) continue;
+        if (!isRenderedPointerTarget(label)) continue;
         const rect = label.getBoundingClientRect();
         if (rect.width >= min && rect.height >= min) return true;
       }
@@ -102,7 +116,7 @@ export async function auditTargetSizes(page, { minimum = DEFAULT_MINIMUM } = {})
       return Math.hypot(dx, dy);
     }
 
-    const nodes = [...document.querySelectorAll(TARGET_SELECTOR)].filter(isRendered);
+    const nodes = [...document.querySelectorAll(TARGET_SELECTOR)].filter(isRenderedPointerTarget);
     const targets = nodes.map((el) => {
       const rect = el.getBoundingClientRect();
       const data = rectData(rect);
