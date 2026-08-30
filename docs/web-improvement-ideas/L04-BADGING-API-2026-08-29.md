@@ -7,65 +7,72 @@ Estado histórico final: `REJECT`.
 
 ## Veredicto
 
-**`REJECT · NO_CANONICAL_UNREAD_STATE · LIMITED_PLATFORM_COVERAGE · NO_CODE`.**
+**`REJECT · NO_CANONICAL_UNREAD_STATE · LIMITED_PLATFORM_COVERAGE · RSS_ALREADY_COVERED · NO_CODE`.**
 
-#135 rechazó usar Badging API por beneficio bajo y soporte desigual, pero la razón decisiva sigue siendo de producto: el sitio no mantiene un estado canónico de «contenido nuevo/no leído» que justifique mostrar una insignia persistente.
+#135 rechazó Badging API por beneficio bajo y soporte desigual. La razón decisiva sigue siendo de producto: el sitio no mantiene un estado canónico de «contenido nuevo/no leído» que justifique mostrar una insignia persistente.
 
 La tecnología no debe convertirse en producto por existir.
 
 ## Hipótesis original
 
-Usar Badging API para señalar contenido nuevo en el icono de la PWA instalada, con menos intrusión que una notificación push.
+Usar Badging API para señalar contenido nuevo en el icono de la PWA instalada, con menos intrusión que una notificación Push.
 
 ## Evolución histórica
 
-### Revisión 108/108 → `REJECT`
+- revisión 108/108 → `REJECT`;
+- matriz intermedia → `DEFERIR`;
+- autoridad final → `REJECT`;
+- revalidación independiente → rechazo mantenido.
 
-- disponibilidad no universal;
-- no existe estado «no leído» fiable;
-- coste de mantener estado mayor que el valor.
-
-### Matriz intermedia → `DEFERIR`
-
-La matriz lo suavizó temporalmente:
-
-> soporte limitado/beneficio bajo; requiere estado de novedades.
-
-### Autoridad final → `REJECT`
-
-> «Badging API sigue Limited Availability y no existe un estado de “novedad” suficientemente útil que justifique mantenerlo.»
-
-La revalidación independiente mantiene L.4 rechazada.
+El hilo constante es el mismo: soporte desigual + ausencia de semántica útil de «no leído» + coste de mantener estado mayor que el valor demostrado.
 
 ## Revalidación oficial actual
 
-MDN continúa marcando `Navigator.setAppBadge()` y Badging API como **Limited availability / no Baseline** porque no funcionan en algunos navegadores ampliamente usados:
+MDN continúa marcando `Navigator.setAppBadge()` y Badging API como **Limited availability / no Baseline**:
 
 - https://developer.mozilla.org/en-US/docs/Web/API/Badging_API
 - https://developer.mozilla.org/en-US/docs/Web/API/Navigator/setAppBadge
 - https://developer.mozilla.org/en-US/docs/Web/Progressive_web_apps/How_to/Display_badge_on_app_icon
 
-El soporte no es simplemente «sí/no»: Apple soporta Badging en web apps añadidas a Home Screen desde iOS/iPadOS 16.4; en escritorio MDN documenta soporte al instalar desde Chrome/Edge en Windows y macOS; Android puede mostrar badges ligados a notificaciones pero no expone actualmente este API en Chromium.
+El soporte no es simplemente «sí/no»: Apple soporta Badging en web apps añadidas a Home Screen desde iOS/iPadOS 16.4; en escritorio existen entornos Chrome/Edge compatibles; Android puede mostrar badges ligados a notificaciones pero no expone el API de forma equivalente en todos los entornos.
 
-Por tanto la compatibilidad desigual es una restricción, no el argumento principal para rechazar L.4.
+La compatibilidad es una restricción, no el argumento principal para rechazar L.4.
 
 ## Estado actual de `main`
 
 Revalidado sobre `main@291c8c677aaa7df635142687d1a6848e80ffcaa2` (tree `68d02e1fe8ac2cfa239f4a716929e992abb672fd`).
 
-El sitio sí dispone de:
+El sitio dispone de:
 
 - `manifest.json`;
 - `service-worker.js`;
 - modo `standalone`;
 - shortcuts PWA;
-- contenido editorial con fechas.
+- newsletter;
+- RSS real del Cuaderno;
+- contenido editorial público.
 
-La búsqueda del repositorio no localiza uso de `setAppBadge`/`clearAppBadge` ni un owner de estado equivalente a `lastSeenAt`, `readAt`, `unreadCount`, `newContentSinceLastVisit` o `badgeAcknowledgedAt`.
+No se localiza uso de `setAppBadge`/`clearAppBadge` ni un owner de estado equivalente a `lastSeenAt`, `readAt`, `unreadCount`, `newContentSinceLastVisit` o `badgeAcknowledgedAt`.
 
-No hace falta una cuenta de usuario para implementar un badge local, pero sí hace falta una definición y un owner de estado. Ese contrato no existe hoy.
+No hace falta una cuenta de usuario para implementar un badge local, pero sí una definición y un owner de estado. Ese contrato no existe hoy. Inventarlo únicamente para colocar un número o punto en el icono sería arquitectura al servicio de una decoración.
 
-Inventarlo únicamente para colocar un número o punto en el icono sería arquitectura al servicio de una decoración.
+## Corrección de revalidación · RSS sí existe
+
+Una búsqueda inicial no devolvió el feed y llevó a documentar RSS erróneamente como ausente. La comprobación directa posterior de O.1 corrige ese punto.
+
+`main` contiene:
+
+```text
+scripts/build-feed.py
+cuaderno/feed.xml
+assets/rss.xsl
+/cuaderno/ -> rel=alternate application/rss+xml
+footer -> RSS del Cuaderno
+```
+
+El builder ofrece `--check`, excluye `noindex` y `CollectionPage`, limita y ordena el output de forma determinista.
+
+RSS es por tanto un canal real de distribución pull. Esto no resuelve por sí solo la semántica de un badge, pero sí ofrece una alternativa abierta para descubrir novedades sin crear estado unread.
 
 ## Por qué una fecha global no basta
 
@@ -76,27 +83,26 @@ Inventarlo únicamente para colocar un número o punto en el icono sería arquit
 - borrar storage reiniciaría el estado;
 - una actualización editorial no equivale a una pieza nueva;
 - eventos, noticias, libros y artículos tienen semánticas distintas;
-- un contador requiere una regla inequívoca de cuándo incrementa y cuándo se limpia.
+- un contador requiere una regla inequívoca de incremento y limpieza.
 
-## Alternativa más simple
+## Alternativas más simples
 
-Si aparece una necesidad real de destacar una novedad, probar primero una señal visible **in-page** basada en hechos simples:
+Si aparece una necesidad real de destacar una novedad, empezar por mecanismos que no requieran estado unread persistente:
 
-- etiqueta editorial temporal «Nuevo»;
+- etiqueta temporal «Nuevo»;
 - fecha visible;
 - bloque de novedades;
 - actualización en Home;
-- newsletter, donde el journey sea coherente con el contrato de privacidad/consentimiento.
-
-Corrección de revalidación: **no se ha localizado RSS/Atom en `main`**, por lo que RSS no debe presentarse como canal existente. Podría evaluarse como alternativa futura de distribución pull, pero no es cobertura actual.
+- RSS del Cuaderno;
+- newsletter, una vez estabilizado el crossfinding #206.
 
 ## Relación con L.1
 
-Badging no debe usarse para esquivar el rechazo de Push. Ambos requieren primero definir qué evento merece señalarse al usuario y quién mantiene ese estado.
+Badging no debe usarse para esquivar el rechazo de Push. Ambos requieren definir primero qué evento merece señalarse al usuario y quién mantiene su estado. L.1 además confirma que RSS ya cubre la distribución pull editorial.
 
 ## Relación con L.3
 
-Tener una PWA instalada y shortcuts no convierte automáticamente el sitio en una aplicación con estado unread.
+Tener PWA instalada y shortcuts no convierte automáticamente el sitio en una aplicación con estado unread.
 
 ## Trigger de reapertura
 
@@ -105,10 +111,10 @@ Solo reconsiderar si concurren estas condiciones:
 1. existe una conducta recurrente real que el badge ayudaría a resolver;
 2. «nuevo/no leído» tiene definición canónica;
 3. existe un owner de estado comprensible y testeable;
-4. se define cuándo se incrementa, caduca y limpia;
-5. la cobertura de plataformas objetivo es suficiente para el caso real;
+4. se define cuándo incrementa, caduca y limpia;
+5. la cobertura de plataformas objetivo es suficiente;
 6. hay fallback visible para entornos sin soporte;
-7. pruebas con usuarios demuestran que la insignia aporta valor;
+7. pruebas con usuarios demuestran valor;
 8. almacenamiento y privacidad están documentados si se persiste estado.
 
 En el proyecto actual estos triggers no se cumplen.
@@ -122,11 +128,11 @@ En el proyecto actual estos triggers no se cumplen.
 - combinarlo con Push sin estrategia de notificaciones;
 - degradar navegación si no hay soporte;
 - polyfillar una señal de sistema que la plataforma no expone;
-- presentar RSS como infraestructura actual cuando no existe.
+- volver a afirmar que RSS no existe sin inspeccionar `/cuaderno/feed.xml` y su builder.
 
 ## Si algún día existiera un modelo de estado
 
-Debe definirse antes de código:
+Definir antes de código:
 
 ```text
 what counts as new
@@ -150,8 +156,8 @@ fallback UI
 - revalidación independiente;
 - estado PWA actual;
 - soporte oficial actual;
-- corrección de la falsa cobertura RSS.
+- corrección RSS basada en inspección directa de O.1.
 
 ## Recomendación para Clara/Claude
 
-**No implementar Badging API.** Si aparece una necesidad real de señalar novedades, empezar por una solución visible in-page y definir primero el modelo de estado. Reabrir Badging únicamente cuando exista ese producto, no para crearlo alrededor del API.
+**No implementar Badging API.** El sitio ya dispone de RSS para distribución pull; si aparece una necesidad distinta de señalizar «no leído», definir primero el modelo de estado y demostrar valor antes de incorporar Badging.
