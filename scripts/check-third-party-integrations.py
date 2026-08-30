@@ -25,8 +25,12 @@ DEFAULT_MANIFEST = Path("data/third-party-integrations.json")
 ALLOWED_STATUS = {"active", "conditional", "optional_disabled", "retired"}
 ALLOWED_LAYER = {"browser", "browser_to_edge", "server_side"}
 
+# El CSP generado usa content="..." y contiene tokens con comillas simples
+# ('self', 'none', hashes). No se puede capturar el valor con una clase que
+# trate ambos tipos de comilla como terminadores: debe respetarse el delimitador
+# real del atributo HTML.
 CSP_META_RE = re.compile(
-    r'<meta\s+http-equiv=["\']Content-Security-Policy["\']\s+content=["\']([^"\']+)["\']',
+    r'<meta\s+http-equiv=["\']Content-Security-Policy["\'][^>]*\scontent=(?:"([^"]*)"|\'([^\']*)\')',
     re.IGNORECASE,
 )
 
@@ -52,7 +56,7 @@ def parse_csp(text: str) -> dict[str, set[str]]:
     match = CSP_META_RE.search(text)
     if not match:
         return {}
-    policy = html.unescape(match.group(1))
+    policy = html.unescape(match.group(1) if match.group(1) is not None else match.group(2) or "")
     directives: dict[str, set[str]] = {}
     for chunk in policy.split(";"):
         parts = chunk.strip().split()
