@@ -13,6 +13,10 @@ const viewports = [
   ['head-601',601,950],['head-600',600,950],['hero-411',411,900],['hero-410',410,900],['mobile-390',390,900],['mobile-360',360,900],['mobile-320',320,900],
 ];
 
+const BLUE='rgb(29, 79, 150)';
+const BLUE_DEEP='rgb(13, 44, 87)';
+const GOLD_TEXT='rgb(149, 105, 0)';
+
 function columns(value){
   if(!value || value === 'none') return 0;
   return value.trim().split(/\s+/).length;
@@ -22,11 +26,17 @@ async function style(locator){
     const s=getComputedStyle(el),r=el.getBoundingClientRect();
     return {
       display:s.display,gridTemplateColumns:s.gridTemplateColumns,color:s.color,backgroundColor:s.backgroundColor,
-      borderTopWidth:s.borderTopWidth,borderBottomWidth:s.borderBottomWidth,borderLeftWidth:s.borderLeftWidth,
-      borderRadius:s.borderRadius,fontFamily:s.fontFamily,fontSize:s.fontSize,lineHeight:s.lineHeight,
-      position:s.position,maxWidth:s.maxWidth,width:r.width,height:r.height,left:r.left,top:r.top,
+      backgroundImage:s.backgroundImage,borderTopWidth:s.borderTopWidth,borderBottomWidth:s.borderBottomWidth,
+      borderLeftWidth:s.borderLeftWidth,borderRadius:s.borderRadius,fontFamily:s.fontFamily,fontSize:s.fontSize,
+      lineHeight:s.lineHeight,position:s.position,maxWidth:s.maxWidth,width:r.width,height:r.height,left:r.left,top:r.top,
     };
   });
+}
+async function pseudoStyle(locator,pseudo='::before'){
+  return locator.evaluate((el,pseudoName)=>{
+    const s=getComputedStyle(el,pseudoName);
+    return {content:s.content,width:s.width,height:s.height,backgroundColor:s.backgroundColor,display:s.display,position:s.position};
+  },pseudo);
 }
 async function context(browser,{width,height},js=true){
   const c=await browser.newContext({viewport:{width,height},javaScriptEnabled:js,reducedMotion:'reduce'});
@@ -78,6 +88,8 @@ try{
       await open(p);
       assert.equal(await p.locator('html').getAttribute('data-editorial-context'),'prensa',`${name}: contexto prensa/agenda perdido`);
       assert.equal(await p.locator('main#contenido').getAttribute('data-family'),'identity',`${name}: familia identity alterada`);
+      assert.equal(await p.locator('main#contenido').getAttribute('data-page'),'events',`${name}: scope estático events perdido`);
+      assert.equal(await p.locator('link[href="/assets/v1-events.css"]').count(),1,`${name}: owner CSS de Eventos ausente o duplicado`);
       assert.equal(await p.locator('link[rel="canonical"]').getAttribute('href'),'https://davidportodiaz.com/eventos.html',`${name}: canonical alterado`);
       assert.equal(await p.locator('h1').count(),1,`${name}: H1 no único`);
       assert.equal((await p.locator('h1').textContent()).trim(),'Eventos',`${name}: H1 alterado`);
@@ -118,23 +130,42 @@ try{
       const title=await style(p.locator('.v1-masthead h1'));
       const futureHead=await style(upcoming.locator('.v1-section__head'));
       const empty=await style(upcoming.locator('.event-empty'));
+      const emptyTitle=await style(upcoming.locator('.event-empty__title'));
       const year=await style(archive.locator('.event-year'));
       const yearLabel=await style(archive.locator('.event-year > h3'));
       const firstEntry=await style(archive.locator('.event-entry').first());
       const archiveList=await style(archive.locator('.event-list'));
+      const madridBody=await style(p.locator('#feria-libro-madrid-2026 > div'));
       const milestoneList=await style(milestone.locator('.event-list'));
+      const milestoneTime=await style(milestone.locator('.event-entry time'));
       const contacts=await style(organize.locator('.contact-grid'));
+      const featuredRail=await pseudoStyle(organize.locator('.contact-card--featured'));
       const activeContext=await style(p.locator('.section-context [aria-current="page"]'));
       const footer=await style(p.locator('.site-footer'));
 
       const expectedEntry=width>767?2:1;
       const expectedHead=width>600?2:1;
+      const expectedMadridBody=width>900?2:1;
       assert.equal(columns(firstEntry.gridTemplateColumns),expectedEntry,`${name}: seam 768/767 de entrada cambió`);
       assert.equal(columns(futureHead.gridTemplateColumns),expectedHead,`${name}: seam 601/600 de cabecera cambió`);
+      assert.equal(columns(madridBody.gridTemplateColumns),expectedMadridBody,`${name}: seam 901/900 de composición documental de Madrid cambió`);
       if(width>900) assert.equal(yearLabel.position,'sticky',`${name}: año de archivo perdió sticky desktop`);
       if(width<=900) assert.equal(yearLabel.position,'static',`${name}: año de archivo no libera sticky en tablet/móvil`);
 
-      measurements.push({name,width,height,overflow,masthead,title,futureHead,empty,year,yearLabel,firstEntry,archiveList,milestoneList,contacts,activeContext,footer});
+      // Contrato visual: proteger jerarquía, no geometría accidental.
+      assert.equal(title.color,BLUE,`${name}: H1 perdió el azul editorial`);
+      assert.equal(masthead.borderBottomWidth,'2px',`${name}: masthead perdió la regla principal`);
+      assert.notEqual(empty.backgroundImage,'none',`${name}: estado futuro perdió su fondo editorial`);
+      assert.equal(emptyTitle.color,BLUE_DEEP,`${name}: estado futuro perdió jerarquía azul`);
+      assert.equal(archiveList.borderTopWidth,'2px',`${name}: archivo perdió la regla cronológica fuerte`);
+      assert.equal(yearLabel.color,BLUE,`${name}: año del archivo perdió la jerarquía azul`);
+      assert.equal(milestoneList.borderTopWidth,'1px',`${name}: hito editorial dejó de ser secundario respecto al archivo`);
+      assert.equal(milestoneTime.color,GOLD_TEXT,`${name}: hito editorial perdió su código dorado`);
+      assert.equal(contacts.borderTopWidth,'2px',`${name}: directorio de contacto perdió su regla de entrada`);
+      assert.equal(featuredRail.width,'2px',`${name}: contacto principal perdió su rail editorial`);
+      assert.equal(featuredRail.backgroundColor,BLUE,`${name}: contacto principal perdió el acento azul`);
+
+      measurements.push({name,width,height,overflow,masthead,title,futureHead,empty,emptyTitle,year,yearLabel,firstEntry,archiveList,madridBody,milestoneList,milestoneTime,contacts,featuredRail,activeContext,footer});
       await loadDocumentaryPhoto(p);
       await p.evaluate(()=>window.scrollTo(0,0));
       await p.screenshot({path:path.join(OUT,`eventos-${name}.png`),fullPage:true});
@@ -146,6 +177,8 @@ try{
     try{
       const r=await p.goto(ORIGIN+route,{waitUntil:'networkidle'});assert.ok(r?.ok(),`${route}: control de aislamiento no carga`);
       assert.equal(await p.locator('main#contenido').getAttribute('data-family'),'identity',`${route}: familia identity perdida`);
+      assert.notEqual(await p.locator('main#contenido').getAttribute('data-page'),'events',`${route}: scope events contamina una página hermana`);
+      assert.equal(await p.locator('link[href="/assets/v1-events.css"]').count(),0,`${route}: owner CSS de Eventos cargado fuera de su página`);
       await noOverflow(p,`${route} isolation`);
       await p.screenshot({path:path.join(OUT,`isolation-${route.slice(1,-5)}-1440.png`),fullPage:true});
     }catch(error){failures.push({viewport:`isolation-${route}`,width:1440,height:1000,error:error instanceof Error?error.message:String(error)});}finally{await c.close();}
@@ -155,6 +188,7 @@ try{
     const c=await context(browser,{width:390,height:900},false);const p=await c.newPage();
     try{
       const r=await p.goto(`${ORIGIN}/eventos.html`,{waitUntil:'load'});assert.ok(r?.ok(),'no-js: Eventos no carga');
+      assert.equal(await p.locator('main#contenido').getAttribute('data-page'),'events','no-js: scope events ausente');
       assert.equal(await p.locator('#pasados .event-entry').count(),4,'no-js: archivo incompleto');
       assert.equal(await p.locator('#hitos-editoriales .event-entry').count(),1,'no-js: hito editorial ausente');
       assert.equal(await p.locator('#organizar .contact-card').count(),3,'no-js: vías de contacto ausentes');
@@ -184,6 +218,6 @@ try{
   }
 }finally{await browser.close();}
 
-fs.writeFileSync(path.join(OUT,'eventos-design-report.json'),JSON.stringify({route:'/eventos.html',phase:'inherited-baseline',viewports:viewports.length,measurements,failures},null,2));
-assert.deepEqual(failures,[],`Eventos inherited-baseline failures:\n${JSON.stringify(failures,null,2)}`);
-console.log(`Eventos inherited baseline: PASS (${viewports.length} viewports + 3 isolation controls + no-JS + separated WCAG stress)`);
+fs.writeFileSync(path.join(OUT,'eventos-design-report.json'),JSON.stringify({route:'/eventos.html',phase:'visual-system-contract',viewports:viewports.length,measurements,failures},null,2));
+assert.deepEqual(failures,[],`Eventos visual-system-contract failures:\n${JSON.stringify(failures,null,2)}`);
+console.log(`Eventos visual-system contract: PASS (${viewports.length} viewports + 3 isolation controls + no-JS + separated WCAG stress)`);
