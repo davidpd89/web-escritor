@@ -7,6 +7,9 @@ const ORIGIN = process.env.QA_ORIGIN || process.env.QA_BASE_URL || 'http://127.0
 const OUT = process.env.QA_OUT || 'qa-artifacts/metodologia-editorial';
 fs.mkdirSync(OUT, { recursive: true });
 
+const BLUE = 'rgb(29, 79, 150)';
+const GOLD = 'rgb(184, 134, 11)';
+
 const viewports = [
   ['wide-1728', 1728, 1000],
   ['desktop-1440', 1440, 1000],
@@ -31,6 +34,7 @@ async function snapshot(locator) {
       gridTemplateColumns: s.gridTemplateColumns,
       color: s.color,
       backgroundColor: s.backgroundColor,
+      backgroundImage: s.backgroundImage,
       borderTopWidth: s.borderTopWidth,
       borderBottomWidth: s.borderBottomWidth,
       borderRadius: s.borderRadius,
@@ -39,8 +43,14 @@ async function snapshot(locator) {
       lineHeight: s.lineHeight,
       maxWidth: s.maxWidth,
       position: s.position,
+      counterIncrement: s.counterIncrement,
     };
   });
+}
+
+function columnCount(value) {
+  if (!value || value === 'none') return 0;
+  return value.trim().split(/\s+/).length;
 }
 
 const browser = await chromium.launch({ headless: true });
@@ -80,13 +90,29 @@ try {
 
       const hero = await snapshot(page.locator('.tool-hero'));
       const heroTitle = await snapshot(page.locator('.tool-hero h1'));
+      const activeContext = await snapshot(page.locator('.section-context [aria-current="page"]'));
       const section = await snapshot(page.locator('main#contenido > .v1-section'));
       const firstFinding = await snapshot(page.locator('.tool-findings-block').first());
+      const firstFindingTitle = await snapshot(page.locator('.tool-findings-block h2').first());
       const ledger = await snapshot(page.locator('.spec-ledger'));
       const firstFact = await snapshot(page.locator('.editorial-fact').first());
       const note = await snapshot(page.locator('.tool-note'));
+      const stepMarker = await page.locator('.tool-findings-block h2').first().evaluate(el => getComputedStyle(el, '::before').content);
 
-      measurements.push({ name, width, height, overflow, hero, heroTitle, section, firstFinding, ledger, firstFact, note });
+      assert.equal(heroTitle.color, BLUE, `${name}: H1 pierde el azul editorial`);
+      assert.ok(hero.backgroundImage.includes('rgb(29, 79, 150)') && hero.backgroundImage.includes('rgb(184, 134, 11)'), `${name}: hero pierde la doble regla azul/dorado`);
+      assert.equal(activeContext.color, BLUE, `${name}: navegación contextual pierde el azul`);
+      assert.ok(activeContext.boxShadow.includes(GOLD), `${name}: navegación contextual pierde el cierre dorado`);
+      assert.equal(firstFinding.display, 'grid', `${name}: los pasos dejan de ser una rejilla editorial`);
+      assert.ok(firstFinding.counterIncrement.includes('method-step'), `${name}: los pasos pierden el contador`);
+      assert.ok(stepMarker.includes('counter(method-step'), `${name}: la numeración 01–05 deja de usar el contador editorial`);
+      assert.equal(firstFindingTitle.color, BLUE, `${name}: títulos de paso pierden el azul`);
+      assert.equal(columnCount(firstFinding.gridTemplateColumns), width > 900 ? 2 : 1, `${name}: seam 901/900 del protocolo incorrecto`);
+      assert.equal(columnCount(ledger.gridTemplateColumns), width > 767 ? 2 : 1, `${name}: seam 768/767 del diccionario de estados incorrecto`);
+      assert.equal(columnCount(firstFact.gridTemplateColumns), width > 640 ? 2 : 1, `${name}: seam 640 del registro de estado incorrecto`);
+      assert.ok(note.boxShadow.includes(BLUE) && note.boxShadow.includes(GOLD), `${name}: cierre de confianza pierde los rails azul/dorado`);
+
+      measurements.push({ name, width, height, overflow, hero, heroTitle, activeContext, section, firstFinding, firstFindingTitle, ledger, firstFact, note, stepMarker });
 
       await page.evaluate(() => {
         if (document.activeElement instanceof HTMLElement) document.activeElement.blur();
@@ -104,10 +130,18 @@ try {
   await browser.close();
 }
 
+const byName = Object.fromEntries(measurements.map(item => [item.name, item]));
+if (byName['tablet-768'] && byName['tablet-767']) {
+  assert.ok(parseFloat(byName['tablet-767'].heroTitle.fontSize) <= parseFloat(byName['tablet-768'].heroTitle.fontSize) + 0.1, '767px: el H1 crece al estrechar el viewport');
+}
+if (byName['mobile-390'] && byName['mobile-389']) {
+  assert.ok(parseFloat(byName['mobile-389'].heroTitle.fontSize) <= parseFloat(byName['mobile-390'].heroTitle.fontSize) + 0.1, '389px: el H1 crece al estrechar el viewport');
+}
+
 fs.writeFileSync(
   path.join(OUT, 'metodologia-editorial-design-report.json'),
   JSON.stringify({ route: '/metodologia-editorial/', viewports: viewports.length, measurements, failures }, null, 2),
 );
 
-assert.deepEqual(failures, [], `Metodología editorial baseline failures:\n${JSON.stringify(failures, null, 2)}`);
-console.log(`Metodología editorial baseline: PASS (${viewports.length} viewports)`);
+assert.deepEqual(failures, [], `Metodología editorial visual-system failures:\n${JSON.stringify(failures, null, 2)}`);
+console.log(`Metodología editorial visual-system QA: PASS (${viewports.length} viewports)`);
