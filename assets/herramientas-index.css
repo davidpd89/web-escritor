@@ -1,0 +1,221 @@
+/* Herramientas hub — editorial workbench/catalog identity.
+   Loaded only by /herramientas/. Individual tools keep v1-tools.css and their
+   own bespoke styles; this sheet must never be linked from tool pages. */
+
+html.v1[data-editorial-context="herramientas"]:has(main[data-family="tools-hub"]){
+  --tools-blue:#1d4f96;
+  --tools-blue-deep:#0d2c57;
+  --tools-gold:#b8860b;
+  --tools-pale:#eefaff;
+  --tools-ink:#050505;
+  --tools-muted:#67635e;
+  --tools-rule:rgba(29,79,150,.24);
+  --tools-rule-soft:rgba(29,79,150,.13);
+}
+
+html.v1[data-editorial-context="herramientas"]:has(main[data-family="tools-hub"]) .section-context__title{color:var(--tools-blue)}
+html.v1[data-editorial-context="herramientas"]:has(main[data-family="tools-hub"]) .section-context[data-editorial-context-nav="herramientas"] .section-context__links a[aria-current="page"]{
+  color:var(--tools-blue);background:var(--tools-pale);box-shadow:inset 0 -2px 0 var(--tools-gold)
+}
+html.v1[data-editorial-context="herramientas"]:has(main[data-family="tools-hub"]) .section-context__links a:hover,
+html.v1[data-editorial-context="herramientas"]:has(main[data-family="tools-hub"]) .section-context__links a:focus-visible{
+  color:var(--tools-blue-deep);background:var(--tools-pale);border-color:rgba(29,79,150,.18)
+}
+
+html.v1[data-editorial-context="herramientas"]:has(main[data-family="tools-hub"]) main[data-family="tools-hub"]{
+  counter-reset:tools-family;
+}
+html.v1[data-editorial-context="herramientas"]:has(main[data-family="tools-hub"]) main[data-family="tools-hub"]>.book-breadcrumb{
+  color:var(--tools-muted)
+}
+html.v1[data-editorial-context="herramientas"]:has(main[data-family="tools-hub"]) main[data-family="tools-hub"]>.book-breadcrumb a{
+  color:var(--tools-blue);text-decoration-color:rgba(184,134,11,.58)
+}
+
+html.v1[data-editorial-context="herramientas"]:has(main[data-family="tools-hub"]) main[data-family="tools-hub"]>.v1-masthead{
+  grid-template-columns:minmax(0,1fr);gap:0;align-items:start;
+  padding-top:clamp(2rem,4vw,3.4rem);padding-bottom:clamp(3.8rem,6.4vw,6.4rem);
+  border-top:0;border-bottom:0;
+  background:linear-gradient(var(--tools-blue),var(--tools-blue)) left calc(100% - 4px)/100% 1.5px no-repeat,
+             linear-gradient(var(--tools-gold),var(--tools-gold)) left bottom/100% 1.5px no-repeat
+}
+html.v1[data-editorial-context="herramientas"]:has(main[data-family="tools-hub"]) main[data-family="tools-hub"]>.v1-masthead>div{
+  max-width:min(100%,72rem)
+}
+html.v1[data-editorial-context="herramientas"]:has(main[data-family="tools-hub"]) .v1-masthead .coordinate{
+  color:var(--tools-muted);font-weight:650;letter-spacing:.12em
+}
+html.v1[data-editorial-context="herramientas"]:has(main[data-family="tools-hub"]) .v1-masthead .eyebrow{
+  width:fit-content;margin:.75rem 0 .55rem;padding:0 .08em .08em;
+  color:var(--tools-gold);font-family:'Yellowtail','Samuel Yellowtail Fallback',cursive;
+  font-size:clamp(1.45rem,1.28rem + .48vw,1.85rem);font-weight:400;line-height:1.05;
+  letter-spacing:0;text-transform:none;
+  background:url('/assets/highlight-8-blue-rect.png') left 94%/100% .32em no-repeat
+}
+html.v1[data-editorial-context="herramientas"]:has(main[data-family="tools-hub"]) .v1-masthead h1{
+  max-width:13ch;min-width:0;margin:.45rem 0 1.35rem;
+  color:var(--tools-blue);font-size:clamp(3.35rem,6.1vw,6.5rem);line-height:.91;letter-spacing:-.042em;
+  overflow-wrap:normal;text-wrap:balance;-webkit-text-stroke:.12px rgba(184,134,11,.32)
+}
+html.v1[data-editorial-context="herramientas"]:has(main[data-family="tools-hub"]) .v1-masthead__lead{
+  max-width:58ch;color:var(--tools-ink);font-size:clamp(1.08rem,1rem + .34vw,1.35rem);line-height:1.48
+}
+
+html.v1[data-editorial-context="herramientas"]:has(main[data-family="tools-hub"]) .tool-finder{
+  display:grid;grid-template-columns:minmax(0,1fr) auto;gap:.9rem 2rem;align-items:end;
+  margin-top:clamp(2.5rem,4.5vw,4rem);padding:clamp(1.6rem,2.5vw,2.2rem);
+  border:0;
+  background:linear-gradient(135deg,var(--tools-pale),#fff 72%);
+  box-shadow:inset 3px 0 0 var(--tools-blue),inset 5px 0 0 var(--tools-gold)
+}
+html.v1[data-editorial-context="herramientas"]:has(main[data-family="tools-hub"]) .tool-finder h2{
+  margin:0;color:var(--tools-blue);font-size:clamp(2rem,3vw,3rem);letter-spacing:-.025em
+}
+html.v1[data-editorial-context="herramientas"]:has(main[data-family="tools-hub"]) .tool-count{
+  grid-column:2;grid-row:1;margin:0;color:var(--tools-blue);
+  font:650 .78rem/1.2 var(--font-ui);letter-spacing:.08em;text-transform:uppercase;white-space:nowrap
+}
+html.v1[data-editorial-context="herramientas"]:has(main[data-family="tools-hub"]) .tool-filters{
+  grid-column:1/-1;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:1px;
+  border:1px solid var(--tools-rule);background:var(--tools-rule)
+}
+html.v1[data-editorial-context="herramientas"]:has(main[data-family="tools-hub"]) .tool-filters button{
+  min-height:46px;padding:.65rem .85rem;border:0;border-radius:0;background:#fff;color:var(--tools-blue-deep);
+  font-size:.78rem;font-weight:650;line-height:1.25;text-align:left
+}
+html.v1[data-editorial-context="herramientas"]:has(main[data-family="tools-hub"]) .tool-filters button:hover,
+html.v1[data-editorial-context="herramientas"]:has(main[data-family="tools-hub"]) .tool-filters button:focus-visible{
+  background:#f7fbfe;color:var(--tools-blue)
+}
+html.v1[data-editorial-context="herramientas"]:has(main[data-family="tools-hub"]) .tool-filters button[aria-pressed="true"]{
+  background:var(--tools-blue);color:#fff;box-shadow:inset 0 -3px 0 var(--tools-gold)
+}
+
+html.v1[data-editorial-context="herramientas"]:has(main[data-family="tools-hub"]) .tools-section{
+  counter-increment:tools-family;
+  display:grid;grid-template-columns:minmax(14rem,.34fr) minmax(0,1fr);gap:.65rem clamp(2rem,5vw,5rem);align-items:end;
+  padding:clamp(3.8rem,6vw,6rem) 0;border-bottom:0;
+  background:linear-gradient(var(--tools-rule),var(--tools-rule)) left bottom/100% 1px no-repeat
+}
+html.v1[data-editorial-context="herramientas"]:has(main[data-family="tools-hub"]) .tools-section>h2{
+  margin:0;color:var(--tools-blue);font-size:clamp(2rem,3vw,3rem);letter-spacing:-.026em
+}
+html.v1[data-editorial-context="herramientas"]:has(main[data-family="tools-hub"]) .tools-section>h2::before{
+  content:counter(tools-family,decimal-leading-zero) " / ";
+  display:block;margin-bottom:.45rem;color:var(--tools-muted);
+  font:650 .7rem/1 var(--font-ui);letter-spacing:.12em
+}
+html.v1[data-editorial-context="herramientas"]:has(main[data-family="tools-hub"]) .tools-section>p{
+  margin:0 0 .18rem;max-width:58ch;color:var(--tools-muted);font-size:1rem;line-height:1.52
+}
+html.v1[data-editorial-context="herramientas"]:has(main[data-family="tools-hub"]) .tools-section>.id-cards{
+  grid-column:1/-1;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:1px;
+  margin-top:1.2rem;border:1px solid var(--tools-rule);background:var(--tools-rule)
+}
+html.v1[data-editorial-context="herramientas"]:has(main[data-family="tools-hub"]) .tools-section:has(.id-card:only-child)>.id-cards{
+  grid-template-columns:minmax(0,2fr) minmax(0,1fr);background:linear-gradient(90deg,var(--tools-rule) 0 calc(66.666% + 1px),transparent calc(66.666% + 1px));
+  border-right-color:transparent
+}
+html.v1[data-editorial-context="herramientas"]:has(main[data-family="tools-hub"]) .tools-section:has(.id-card:nth-child(2):last-child)>.id-cards{
+  grid-template-columns:repeat(2,minmax(0,1fr));max-width:none
+}
+html.v1[data-editorial-context="herramientas"]:has(main[data-family="tools-hub"]) .tools-section .id-card{
+  position:relative;min-width:0;padding:clamp(1.35rem,2vw,1.8rem);border:0;border-radius:0;background:#fff;box-shadow:none;
+  transition:background 150ms ease,box-shadow 150ms ease
+}
+html.v1[data-editorial-context="herramientas"]:has(main[data-family="tools-hub"]) .tools-section .id-card::before{
+  content:"";position:absolute;left:0;top:0;right:0;height:2px;background:rgba(29,79,150,.36)
+}
+html.v1[data-editorial-context="herramientas"]:has(main[data-family="tools-hub"]) .tools-section .id-card:hover,
+html.v1[data-editorial-context="herramientas"]:has(main[data-family="tools-hub"]) .tools-section .id-card:focus-within{
+  background:var(--tools-pale);box-shadow:inset 0 2px 0 var(--tools-gold)
+}
+html.v1[data-editorial-context="herramientas"]:has(main[data-family="tools-hub"]) .tools-section .tool-meta{
+  margin-bottom:.65rem;color:var(--tools-muted);font-size:.68rem;letter-spacing:.09em
+}
+html.v1[data-editorial-context="herramientas"]:has(main[data-family="tools-hub"]) .tools-section .id-card h3{
+  font-size:clamp(1.35rem,1.18rem + .42vw,1.72rem);line-height:1.04
+}
+html.v1[data-editorial-context="herramientas"]:has(main[data-family="tools-hub"]) .tools-section .id-card h3 a{
+  color:var(--tools-blue);text-decoration:none
+}
+html.v1[data-editorial-context="herramientas"]:has(main[data-family="tools-hub"]) .tools-section .id-card h3 a:hover,
+html.v1[data-editorial-context="herramientas"]:has(main[data-family="tools-hub"]) .tools-section .id-card h3 a:focus-visible{
+  color:var(--tools-blue-deep);text-decoration:underline;text-decoration-color:var(--tools-gold);text-decoration-thickness:1.5px;text-underline-offset:.15em
+}
+html.v1[data-editorial-context="herramientas"]:has(main[data-family="tools-hub"]) .tools-section .id-card>p:not(.tool-meta){
+  color:var(--tools-ink);line-height:1.5
+}
+html.v1[data-editorial-context="herramientas"]:has(main[data-family="tools-hub"]) .tools-section .id-card .text-action{
+  min-height:0;padding:.2rem 0;border:0;border-radius:0;background:transparent;color:var(--tools-blue);
+  font-size:.78rem;font-weight:700;letter-spacing:.04em;text-transform:uppercase;text-decoration:none;
+  box-shadow:inset 0 -1.5px 0 rgba(184,134,11,.7)
+}
+html.v1[data-editorial-context="herramientas"]:has(main[data-family="tools-hub"]) .tools-section .id-card .text-action:hover,
+html.v1[data-editorial-context="herramientas"]:has(main[data-family="tools-hub"]) .tools-section .id-card .text-action:focus-visible{
+  color:var(--tools-blue-deep);box-shadow:inset 0 -2px 0 var(--tools-gold)
+}
+
+html.v1[data-editorial-context="herramientas"]:has(main[data-family="tools-hub"]) #directorios,
+html.v1[data-editorial-context="herramientas"]:has(main[data-family="tools-hub"]) #metodo{
+  border-bottom:0;padding:clamp(3.8rem,5.5vw,5.5rem) 0;
+  background:linear-gradient(var(--tools-blue),var(--tools-blue)) left top/100% 1.5px no-repeat,
+             linear-gradient(var(--tools-gold),var(--tools-gold)) left 4px/100% 1.5px no-repeat
+}
+html.v1[data-editorial-context="herramientas"]:has(main[data-family="tools-hub"]) #directorios .eyebrow,
+html.v1[data-editorial-context="herramientas"]:has(main[data-family="tools-hub"]) #metodo .eyebrow{
+  color:var(--tools-blue);font-weight:700
+}
+html.v1[data-editorial-context="herramientas"]:has(main[data-family="tools-hub"]) #directorios h2,
+html.v1[data-editorial-context="herramientas"]:has(main[data-family="tools-hub"]) #metodo h2{
+  color:var(--tools-blue)
+}
+html.v1[data-editorial-context="herramientas"]:has(main[data-family="tools-hub"]) #directorios>.id-cards{
+  gap:1px;border:1px solid var(--tools-rule);background:var(--tools-rule)
+}
+html.v1[data-editorial-context="herramientas"]:has(main[data-family="tools-hub"]) #directorios .id-card{
+  border:0;background:#fff
+}
+html.v1[data-editorial-context="herramientas"]:has(main[data-family="tools-hub"]) #directorios .id-card h3 a{color:var(--tools-blue)}
+html.v1[data-editorial-context="herramientas"]:has(main[data-family="tools-hub"]) #metodo>p{color:var(--tools-ink)}
+
+html.v1[data-editorial-context="herramientas"]:has(main[data-family="tools-hub"]) .site-footer{position:relative}
+html.v1[data-editorial-context="herramientas"]:has(main[data-family="tools-hub"]) .site-footer::before{
+  content:"";display:block;height:5px;background:linear-gradient(to bottom,var(--tools-blue) 0 1.5px,transparent 1.5px 3.5px,var(--tools-gold) 3.5px 5px)
+}
+html.v1[data-editorial-context="herramientas"]:has(main[data-family="tools-hub"]) .site-footer h2,
+html.v1[data-editorial-context="herramientas"]:has(main[data-family="tools-hub"]) .site-footer .brand__name{color:var(--tools-blue)}
+
+@media(max-width:900px){
+  html.v1[data-editorial-context="herramientas"]:has(main[data-family="tools-hub"]) .tool-filters{grid-template-columns:repeat(2,minmax(0,1fr))}
+  html.v1[data-editorial-context="herramientas"]:has(main[data-family="tools-hub"]) .tools-section>.id-cards{grid-template-columns:repeat(2,minmax(0,1fr))}
+  html.v1[data-editorial-context="herramientas"]:has(main[data-family="tools-hub"]) .tools-section:has(.id-card:only-child)>.id-cards{
+    grid-template-columns:minmax(0,1fr);max-width:min(100%,48rem);background:var(--tools-rule);border-right-color:var(--tools-rule)
+  }
+}
+
+@media(max-width:767px){
+  html.v1[data-editorial-context="herramientas"]:has(main[data-family="tools-hub"]) .v1-masthead h1{font-size:clamp(2.9rem,12.3vw,4.5rem)}
+  html.v1[data-editorial-context="herramientas"]:has(main[data-family="tools-hub"]) .tools-section{
+    grid-template-columns:1fr;gap:.55rem;padding-block:3.6rem
+  }
+  html.v1[data-editorial-context="herramientas"]:has(main[data-family="tools-hub"]) .tools-section>p{margin-bottom:.4rem}
+}
+
+@media(max-width:640px){
+  html.v1[data-editorial-context="herramientas"]:has(main[data-family="tools-hub"]) .tool-finder{
+    grid-template-columns:1fr;padding:1.35rem 1.2rem
+  }
+  html.v1[data-editorial-context="herramientas"]:has(main[data-family="tools-hub"]) .tool-count{grid-column:1;grid-row:auto}
+  html.v1[data-editorial-context="herramientas"]:has(main[data-family="tools-hub"]) .tool-filters{grid-column:1;grid-template-columns:repeat(2,minmax(0,1fr))}
+  html.v1[data-editorial-context="herramientas"]:has(main[data-family="tools-hub"]) .tools-section>.id-cards,
+  html.v1[data-editorial-context="herramientas"]:has(main[data-family="tools-hub"]) .tools-section:has(.id-card:nth-child(2):last-child)>.id-cards{
+    grid-template-columns:1fr
+  }
+  html.v1[data-editorial-context="herramientas"]:has(main[data-family="tools-hub"]) #directorios>.id-cards{grid-template-columns:1fr}
+}
+
+@media(max-width:389px){
+  html.v1[data-editorial-context="herramientas"]:has(main[data-family="tools-hub"]) .v1-masthead h1{font-size:clamp(2.55rem,12vw,3.4rem)}
+  html.v1[data-editorial-context="herramientas"]:has(main[data-family="tools-hub"]) .tool-filters{grid-template-columns:1fr}
+}
