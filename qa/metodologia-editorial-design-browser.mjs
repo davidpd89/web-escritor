@@ -9,6 +9,7 @@ fs.mkdirSync(OUT, { recursive: true });
 
 const BLUE = 'rgb(29, 79, 150)';
 const GOLD = 'rgb(184, 134, 11)';
+const GOLD_TEXT = 'rgb(155, 110, 0)';
 
 const viewports = [
   ['wide-1728', 1728, 1000],
@@ -88,6 +89,7 @@ try {
       const overflow = await page.evaluate(() => document.documentElement.scrollWidth - innerWidth);
       assert.ok(overflow <= 1, `${name}: overflow horizontal ${overflow}px`);
 
+      const methodToken = await page.locator('html').evaluate(el => getComputedStyle(el).getPropertyValue('--method-blue').trim());
       const hero = await snapshot(page.locator('.tool-hero'));
       const heroTitle = await snapshot(page.locator('.tool-hero h1'));
       const activeContext = await snapshot(page.locator('.section-context [aria-current="page"]'));
@@ -96,9 +98,11 @@ try {
       const firstFindingTitle = await snapshot(page.locator('.tool-findings-block h2').first());
       const ledger = await snapshot(page.locator('.spec-ledger'));
       const firstFact = await snapshot(page.locator('.editorial-fact').first());
+      const firstStateTerm = await snapshot(page.locator('.spec-ledger dt').first());
       const note = await snapshot(page.locator('.tool-note'));
       const stepMarker = await page.locator('.tool-findings-block h2').first().evaluate(el => getComputedStyle(el, '::before').content);
 
+      assert.equal(methodToken.toLowerCase(), '#1d4f96', `${name}: el scope de Metodología no activa sus tokens`);
       assert.equal(heroTitle.color, BLUE, `${name}: H1 pierde el azul editorial`);
       assert.ok(hero.backgroundImage.includes('rgb(29, 79, 150)') && hero.backgroundImage.includes('rgb(184, 134, 11)'), `${name}: hero pierde la doble regla azul/dorado`);
       assert.equal(activeContext.color, BLUE, `${name}: navegación contextual pierde el azul`);
@@ -107,12 +111,13 @@ try {
       assert.ok(firstFinding.counterIncrement.includes('method-step'), `${name}: los pasos pierden el contador`);
       assert.ok(stepMarker.includes('counter(method-step'), `${name}: la numeración 01–05 deja de usar el contador editorial`);
       assert.equal(firstFindingTitle.color, BLUE, `${name}: títulos de paso pierden el azul`);
+      assert.equal(firstStateTerm.color, GOLD_TEXT, `${name}: texto dorado pequeño pierde el tono AA`);
       assert.equal(columnCount(firstFinding.gridTemplateColumns), width > 900 ? 2 : 1, `${name}: seam 901/900 del protocolo incorrecto`);
       assert.equal(columnCount(ledger.gridTemplateColumns), width > 767 ? 2 : 1, `${name}: seam 768/767 del diccionario de estados incorrecto`);
       assert.equal(columnCount(firstFact.gridTemplateColumns), width > 640 ? 2 : 1, `${name}: seam 640 del registro de estado incorrecto`);
       assert.ok(note.boxShadow.includes(BLUE) && note.boxShadow.includes(GOLD), `${name}: cierre de confianza pierde los rails azul/dorado`);
 
-      measurements.push({ name, width, height, overflow, hero, heroTitle, activeContext, section, firstFinding, firstFindingTitle, ledger, firstFact, note, stepMarker });
+      measurements.push({ name, width, height, overflow, methodToken, hero, heroTitle, activeContext, section, firstFinding, firstFindingTitle, ledger, firstFact, firstStateTerm, note, stepMarker });
 
       await page.evaluate(() => {
         if (document.activeElement instanceof HTMLElement) document.activeElement.blur();
@@ -125,6 +130,27 @@ try {
     } finally {
       await context.close();
     }
+  }
+
+  const isolationContext = await browser.newContext({ viewport: { width: 1280, height: 800 }, reducedMotion: 'reduce' });
+  const isolationPage = await isolationContext.newPage();
+  try {
+    const response = await isolationPage.goto(`${ORIGIN}/editoriales/minotauro/`, { waitUntil: 'domcontentloaded', timeout: 20000 });
+    assert.ok(response?.ok(), 'isolation: /editoriales/minotauro/ no carga');
+    await isolationPage.evaluate(() => document.fonts?.ready);
+    await isolationPage.waitForTimeout(120);
+
+    const leakedToken = await isolationPage.locator('html').evaluate(el => getComputedStyle(el).getPropertyValue('--method-blue').trim());
+    const publisherStepMarker = await isolationPage.locator('.tool-findings-block h2').first().evaluate(el => getComputedStyle(el, '::before').content);
+    assert.equal(leakedToken, '', 'isolation: una ficha editorial hereda los tokens exclusivos de Metodología');
+    assert.ok(!publisherStepMarker.includes('method-step'), 'isolation: una ficha editorial hereda la numeración del protocolo');
+
+    await isolationPage.evaluate(() => window.scrollTo(0, 0));
+    await isolationPage.screenshot({ path: path.join(OUT, 'publisher-control-1280.png'), fullPage: true });
+  } catch (error) {
+    failures.push({ viewport: 'publisher-isolation-1280', width: 1280, height: 800, error: error instanceof Error ? error.message : String(error) });
+  } finally {
+    await isolationContext.close();
   }
 } finally {
   await browser.close();
@@ -144,4 +170,4 @@ fs.writeFileSync(
 );
 
 assert.deepEqual(failures, [], `Metodología editorial visual-system failures:\n${JSON.stringify(failures, null, 2)}`);
-console.log(`Metodología editorial visual-system QA: PASS (${viewports.length} viewports)`);
+console.log(`Metodología editorial visual-system QA: PASS (${viewports.length} viewports + publisher isolation)`);
