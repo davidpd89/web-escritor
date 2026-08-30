@@ -8,8 +8,17 @@ export const ASSISTANT_SOURCE_REGISTRY = [
     "territory": "sitio",
     "priority": 1,
     "visibility": "public",
-    "keywords": ["inicio", "david porto díaz", "escritor", "libros"],
-    "aliases": ["inicio", "portada", "home"],
+    "keywords": [
+      "inicio",
+      "david porto díaz",
+      "escritor",
+      "libros"
+    ],
+    "aliases": [
+      "inicio",
+      "portada",
+      "home"
+    ],
     "summary": "Portada principal y punto de entrada a la web.",
     "action": "Ir al inicio"
   },
@@ -20,8 +29,20 @@ export const ASSISTANT_SOURCE_REGISTRY = [
     "territory": "sitio",
     "priority": 1,
     "visibility": "public",
-    "keywords": ["mapa del sitio", "mapa web", "secciones", "enlaces", "índice general", "navegación"],
-    "aliases": ["mapa", "indice general", "todos los enlaces", "secciones de la web"],
+    "keywords": [
+      "mapa del sitio",
+      "mapa web",
+      "secciones",
+      "enlaces",
+      "índice general",
+      "navegación"
+    ],
+    "aliases": [
+      "mapa",
+      "indice general",
+      "todos los enlaces",
+      "secciones de la web"
+    ],
     "summary": "Índice general con los destinos públicos principales de la web.",
     "action": "Abrir el mapa"
   },
@@ -32,8 +53,17 @@ export const ASSISTANT_SOURCE_REGISTRY = [
     "territory": "autor",
     "priority": 1,
     "visibility": "public",
-    "keywords": ["biografía", "autor", "trayectoria", "david porto díaz"],
-    "aliases": ["sobre david", "quien es david", "biografia"],
+    "keywords": [
+      "biografía",
+      "autor",
+      "trayectoria",
+      "david porto díaz"
+    ],
+    "aliases": [
+      "sobre david",
+      "quien es david",
+      "biografia"
+    ],
     "summary": "Biografía, trayectoria y obra del autor.",
     "action": "Ver autor"
   },
@@ -44,8 +74,16 @@ export const ASSISTANT_SOURCE_REGISTRY = [
     "territory": "obras",
     "priority": 1,
     "visibility": "public",
-    "keywords": ["libros", "obras", "novelas"],
-    "aliases": ["libros de david", "sus libros", "novelas de david"],
+    "keywords": [
+      "libros",
+      "obras",
+      "novelas"
+    ],
+    "aliases": [
+      "libros de david",
+      "sus libros",
+      "novelas de david"
+    ],
     "summary": "Índice de las obras y sus páginas principales.",
     "action": "Ver obras"
   },
@@ -57,8 +95,20 @@ export const ASSISTANT_SOURCE_REGISTRY = [
     "work": "manecillas",
     "priority": 1,
     "visibility": "public",
-    "keywords": ["las manecillas del recuerdo", "monza", "novela coral", "reloj", "memoria", "familia"],
-    "aliases": ["manecillas", "libro de las manecillas", "libro del reloj", "reloj del recuerdo"],
+    "keywords": [
+      "las manecillas del recuerdo",
+      "monza",
+      "novela coral",
+      "reloj",
+      "memoria",
+      "familia"
+    ],
+    "aliases": [
+      "manecillas",
+      "libro de las manecillas",
+      "libro del reloj",
+      "reloj del recuerdo"
+    ],
     "summary": "Página principal de «Las manecillas del recuerdo».",
     "action": "Abrir el libro"
   },
@@ -70,8 +120,17 @@ export const ASSISTANT_SOURCE_REGISTRY = [
     "work": "manecillas",
     "priority": 2,
     "visibility": "public",
-    "keywords": ["fragmentos", "leer", "muestra", "las manecillas del recuerdo"],
-    "aliases": ["probar manecillas", "leer manecillas", "fragmento manecillas"],
+    "keywords": [
+      "fragmentos",
+      "leer",
+      "muestra",
+      "las manecillas del recuerdo"
+    ],
+    "aliases": [
+      "probar manecillas",
+      "leer manecillas",
+      "fragmento manecillas"
+    ],
     "summary": "Lectura de fragmentos de «Las manecillas del recuerdo».",
     "action": "Leer fragmentos"
   },
@@ -83,8 +142,16 @@ export const ASSISTANT_SOURCE_REGISTRY = [
     "work": "samuel",
     "priority": 1,
     "visibility": "public",
-    "keywords": ["samuel entre mundos", "fantasía juvenil", "portal fantasy", "noveris"],
-    "aliases": ["samuel", "libro de samuel"],
+    "keywords": [
+      "samuel entre mundos",
+      "fantasía juvenil",
+      "portal fantasy",
+      "noveris"
+    ],
+    "aliases": [
+      "samuel",
+      "libro de samuel"
+    ],
     "summary": "Página principal de «Samuel entre mundos».",
     "action": "Abrir el libro"
   },
@@ -96,8 +163,17 @@ export const ASSISTANT_SOURCE_REGISTRY = [
     "work": "samuel",
     "priority": 2,
     "visibility": "public",
-    "keywords": ["fragmento", "capítulo 1", "samuel entre mundos", "leer gratis"],
-    "aliases": ["primer capítulo de samuel", "leer samuel", "probar samuel"],
+    "keywords": [
+      "fragmento",
+      "capítulo 1",
+      "samuel entre mundos",
+      "leer gratis"
+    ],
+    "aliases": [
+      "primer capítulo de samuel",
+      "leer samuel",
+      "probar samuel"
+    ],
     "summary": "Primer capítulo completo de «Samuel entre mundos».",
     "action": "Leer capítulo"
   },
@@ -109,8 +185,17 @@ export const ASSISTANT_SOURCE_REGISTRY = [
     "work": "samuel",
     "priority": 2,
     "visibility": "public",
-    "keywords": ["noveris", "mundo", "magia", "facciones", "worldbuilding"],
-    "aliases": ["mundo de samuel", "universo de samuel"],
+    "keywords": [
+      "noveris",
+      "mundo",
+      "magia",
+      "facciones",
+      "worldbuilding"
+    ],
+    "aliases": [
+      "mundo de samuel",
+      "universo de samuel"
+    ],
     "summary": "Guía del universo de Noveris y sus materiales relacionados.",
     "action": "Explorar Noveris"
   },
@@ -121,8 +206,17 @@ export const ASSISTANT_SOURCE_REGISTRY = [
     "territory": "cuaderno",
     "priority": 2,
     "visibility": "public",
-    "keywords": ["cuaderno", "artículos", "escritura", "fantasía"],
-    "aliases": ["blog", "articulos", "artículos de david"],
+    "keywords": [
+      "cuaderno",
+      "artículos",
+      "escritura",
+      "fantasía"
+    ],
+    "aliases": [
+      "blog",
+      "articulos",
+      "artículos de david"
+    ],
     "summary": "Índice de artículos y piezas editoriales.",
     "action": "Abrir el Cuaderno"
   },
@@ -133,8 +227,17 @@ export const ASSISTANT_SOURCE_REGISTRY = [
     "territory": "cuaderno",
     "priority": 2,
     "visibility": "public",
-    "keywords": ["recomendaciones", "libros", "lecturas", "fantasía"],
-    "aliases": ["que leer", "libros parecidos", "recomiendame libros"],
+    "keywords": [
+      "recomendaciones",
+      "libros",
+      "lecturas",
+      "fantasía"
+    ],
+    "aliases": [
+      "que leer",
+      "libros parecidos",
+      "recomiendame libros"
+    ],
     "summary": "Selecciones de lectura organizadas por afinidades y temas.",
     "action": "Ver recomendaciones"
   },
@@ -145,8 +248,17 @@ export const ASSISTANT_SOURCE_REGISTRY = [
     "territory": "cuaderno",
     "priority": 2,
     "visibility": "public",
-    "keywords": ["portal fantasy", "fantasía juvenil", "fantasía de portales", "libros recomendados"],
-    "aliases": ["portal fantasy juvenil en español", "fantasía de portales", "libros parecidos a samuel"],
+    "keywords": [
+      "portal fantasy",
+      "fantasía juvenil",
+      "fantasía de portales",
+      "libros recomendados"
+    ],
+    "aliases": [
+      "portal fantasy juvenil en español",
+      "fantasía de portales",
+      "libros parecidos a samuel"
+    ],
     "summary": "Selección editorial de diez libros de portal fantasy juvenil disponibles en español.",
     "action": "Ver selección"
   },
@@ -157,8 +269,17 @@ export const ASSISTANT_SOURCE_REGISTRY = [
     "territory": "cuaderno",
     "priority": 2,
     "visibility": "public",
-    "keywords": ["magia con coste", "magia con consecuencias", "precio de la magia", "libros recomendados"],
-    "aliases": ["magia que exige un precio", "usar magia cuesta", "fantasía con coste"],
+    "keywords": [
+      "magia con coste",
+      "magia con consecuencias",
+      "precio de la magia",
+      "libros recomendados"
+    ],
+    "aliases": [
+      "magia que exige un precio",
+      "usar magia cuesta",
+      "fantasía con coste"
+    ],
     "summary": "Selección editorial de seis libros donde usar magia implica un coste o consecuencias.",
     "action": "Ver selección"
   },
@@ -169,8 +290,18 @@ export const ASSISTANT_SOURCE_REGISTRY = [
     "territory": "herramientas",
     "priority": 2,
     "visibility": "public",
-    "keywords": ["herramientas", "escritores", "manuscrito", "revisión"],
-    "aliases": ["recursos para escritores", "utilidades", "revisar texto", "analizar manuscrito"],
+    "keywords": [
+      "herramientas",
+      "escritores",
+      "manuscrito",
+      "revisión"
+    ],
+    "aliases": [
+      "recursos para escritores",
+      "utilidades",
+      "revisar texto",
+      "analizar manuscrito"
+    ],
     "summary": "Índice de herramientas gratuitas para escritura, revisión y publicación.",
     "action": "Abrir herramientas"
   },
@@ -181,8 +312,17 @@ export const ASSISTANT_SOURCE_REGISTRY = [
     "territory": "herramientas",
     "priority": 2,
     "visibility": "public",
-    "keywords": ["editoriales", "manuscritos", "enviar novela", "publicar"],
-    "aliases": ["donde mando mi novela", "enviar manuscrito", "buscar editorial"],
+    "keywords": [
+      "editoriales",
+      "manuscritos",
+      "enviar novela",
+      "publicar"
+    ],
+    "aliases": [
+      "donde mando mi novela",
+      "enviar manuscrito",
+      "buscar editorial"
+    ],
     "summary": "Directorio de editoriales y vías de envío de manuscritos.",
     "action": "Ver editoriales"
   },
@@ -193,8 +333,17 @@ export const ASSISTANT_SOURCE_REGISTRY = [
     "territory": "herramientas",
     "priority": 2,
     "visibility": "public",
-    "keywords": ["concursos", "convocatorias", "premios", "escritores"],
-    "aliases": ["concursos literarios", "premios literarios", "certamenes"],
+    "keywords": [
+      "concursos",
+      "convocatorias",
+      "premios",
+      "escritores"
+    ],
+    "aliases": [
+      "concursos literarios",
+      "premios literarios",
+      "certamenes"
+    ],
     "summary": "Directorio de concursos, premios y oportunidades para escritores.",
     "action": "Ver convocatorias"
   },
@@ -205,8 +354,15 @@ export const ASSISTANT_SOURCE_REGISTRY = [
     "territory": "autor",
     "priority": 2,
     "visibility": "public",
-    "keywords": ["premios", "reconocimientos", "letras como espada"],
-    "aliases": ["premios de david", "reconocimientos de david"],
+    "keywords": [
+      "premios",
+      "reconocimientos",
+      "letras como espada"
+    ],
+    "aliases": [
+      "premios de david",
+      "reconocimientos de david"
+    ],
     "summary": "Página de premios y reconocimientos con su contexto verificable.",
     "action": "Ver premios"
   },
@@ -217,8 +373,17 @@ export const ASSISTANT_SOURCE_REGISTRY = [
     "territory": "prensa-eventos",
     "priority": 2,
     "visibility": "public",
-    "keywords": ["eventos", "firmas", "ferias", "agenda"],
-    "aliases": ["agenda", "donde firma", "presentaciones"],
+    "keywords": [
+      "eventos",
+      "firmas",
+      "ferias",
+      "agenda"
+    ],
+    "aliases": [
+      "agenda",
+      "donde firma",
+      "presentaciones"
+    ],
     "summary": "Agenda pública de eventos, firmas y apariciones.",
     "action": "Ver eventos"
   },
@@ -229,8 +394,18 @@ export const ASSISTANT_SOURCE_REGISTRY = [
     "territory": "prensa-eventos",
     "priority": 2,
     "visibility": "public",
-    "keywords": ["prensa", "entrevistas", "kit de prensa", "medios"],
-    "aliases": ["contactar con david", "contacto profesional", "soy periodista", "entrevista"],
+    "keywords": [
+      "prensa",
+      "entrevistas",
+      "kit de prensa",
+      "medios"
+    ],
+    "aliases": [
+      "contactar con david",
+      "contacto profesional",
+      "soy periodista",
+      "entrevista"
+    ],
     "summary": "Materiales y vía de contacto para prensa y colaboraciones profesionales.",
     "action": "Abrir prensa"
   },
@@ -241,8 +416,17 @@ export const ASSISTANT_SOURCE_REGISTRY = [
     "territory": "sitio",
     "priority": 3,
     "visibility": "public",
-    "keywords": ["datos canónicos", "llm", "ia", "autor", "libros"],
-    "aliases": ["información para ia", "datos para ia"],
+    "keywords": [
+      "datos canónicos",
+      "llm",
+      "ia",
+      "autor",
+      "libros"
+    ],
+    "aliases": [
+      "información para ia",
+      "datos para ia"
+    ],
     "summary": "Información canónica del sitio destinada a sistemas automáticos.",
     "action": "Ver información canónica"
   }
