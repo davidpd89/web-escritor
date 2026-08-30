@@ -199,8 +199,6 @@ export function resolveLocalAnswer(query, context = {}) {
   const q = foldQuery(query);
   if (!q) return null;
 
-  // Small talk only wins when the whole turn is social. A prefix such as
-  // "Hola, ¿de qué trata Manecillas?" must continue to the real intent.
   if (isGreetingOnly(q)) {
     return result(
       "greeting",
@@ -279,7 +277,7 @@ export function resolveLocalAnswer(query, context = {}) {
     return result(
       "recommendations-portal-fantasy",
       "Si buscas portal fantasy juvenil en español, esta selección reúne diez libros recomendados y explica por qué encaja cada uno.",
-      ["recommendations-portal-fantasy"],
+      ["recommend-portal-es"],
     );
   }
 
@@ -287,7 +285,7 @@ export function resolveLocalAnswer(query, context = {}) {
     return result(
       "recommendations-magic-cost",
       "Si buscas fantasía donde la magia tenga un coste o consecuencias, esta selección reúne seis libros en español centrados precisamente en ese criterio.",
-      ["recommendations-magic-cost"],
+      ["recommend-magic-cost"],
     );
   }
 
