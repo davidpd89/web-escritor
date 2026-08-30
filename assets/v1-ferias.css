@@ -53,7 +53,8 @@ html.v1 .fair-record:target::before{content:"";position:absolute;inset-block:0 a
   html.v1 .fairs-index{max-width:none;width:100%;margin-top:2rem}
   html.v1 .fairs-year,html.v1 .fairs-agenda-exit{grid-template-columns:1fr}
   html.v1 .fairs-year__label{position:static;border-bottom:1px solid var(--color-border);padding-bottom:.75rem}
-  html.v1 .fair-record__body{grid-template-columns:1fr}
+  html.v1 .fair-record__body{grid-template-columns:minmax(0,1fr)}
+  html.v1 .fair-record__body>*{min-width:0}
   html.v1 .fair-media--madrid{grid-template-columns:repeat(2,minmax(0,1fr))}
 }
 
