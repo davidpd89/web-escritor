@@ -138,6 +138,14 @@ html.v1 [data-page="events"] #feria-libro-madrid-2026 figure img{
 html.v1 [data-page="events"] #feria-libro-madrid-2026 figcaption{
   color:var(--color-muted);
 }
+/* The featured Madrid body is itself a grid. Without an explicit self-alignment,
+   its text action stretches across the track and turns the underline into a
+   second full-width divider immediately above the event border. */
+html.v1 [data-page="events"] #feria-libro-madrid-2026 .text-action{
+  justify-self:start;
+  width:auto;
+  max-width:100%;
+}
 
 /* El hito editorial no se presenta como otro evento realizado. */
 html.v1 [data-page="events"] #hitos-editoriales{
