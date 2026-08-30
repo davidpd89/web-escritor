@@ -58,13 +58,13 @@ jobs:
           cat /tmp/metodologia-qa-server.log
           exit 1
 
-      - name: Capture Metodología editorial inherited baseline
+      - name: Run Metodología editorial visual-system contract
         env:
           QA_ORIGIN: http://127.0.0.1:4173
           QA_OUT: qa-artifacts/metodologia-editorial
         run: node qa/metodologia-editorial-design-browser.mjs
 
-      - name: Upload Metodología baseline evidence
+      - name: Upload Metodología visual evidence
         if: always()
         uses: actions/upload-artifact@v4
         with:
