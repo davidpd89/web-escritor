@@ -38,14 +38,35 @@ async function inspectorStyles(c,p,css){
   const {frameTree}=await cdp.send('Page.getFrameTree');const {styleSheetId}=await cdp.send('CSS.createStyleSheet',{frameId:frameTree.frame.id});
   await cdp.send('CSS.setStyleSheetText',{styleSheetId,text:css});
 }
+async function overflowState(p){
+  return p.evaluate(()=>{
+    const viewportWidth=document.documentElement.clientWidth;
+    const overflow=document.documentElement.scrollWidth-viewportWidth;
+    const offenders=[...document.body.querySelectorAll('*')].map(el=>{
+      const r=el.getBoundingClientRect(),s=getComputedStyle(el);
+      return {tag:el.tagName.toLowerCase(),id:el.id||'',className:typeof el.className==='string'?el.className:'',text:(el.textContent||'').trim().replace(/\s+/g,' ').slice(0,70),left:+r.left.toFixed(1),right:+r.right.toFixed(1),width:+r.width.toFixed(1),scrollWidth:el.scrollWidth,clientWidth:el.clientWidth,display:s.display,overflowX:s.overflowX};
+    }).filter(x=>x.display!=='none'&&(x.right>viewportWidth+1||x.left< -1||x.scrollWidth>x.clientWidth+1)).slice(0,12);
+    return {overflow,offenders};
+  });
+}
 async function noOverflow(p,label){
-  const x=await p.evaluate(()=>document.documentElement.scrollWidth-document.documentElement.clientWidth);
-  assert.ok(x<=1,`${label}: overflow ${x}px`);return x;
+  const state=await overflowState(p);
+  assert.ok(state.overflow<=1,`${label}: overflow ${state.overflow}px; offenders=${JSON.stringify(state.offenders)}`);return state.overflow;
 }
 async function open(page){
   const r=await page.goto(`${ORIGIN}/eventos.html`,{waitUntil:'networkidle',timeout:20000});
   assert.ok(r?.ok(),'Eventos no carga');
   await page.evaluate(()=>document.fonts?.ready);await page.waitForTimeout(100);
+}
+async function loadDocumentaryPhoto(page){
+  const photo=page.locator('#feria-libro-madrid-2026 img');
+  await photo.scrollIntoViewIfNeeded();
+  await photo.evaluate(async img=>{
+    if(!img.complete) await new Promise((resolve,reject)=>{img.addEventListener('load',resolve,{once:true});img.addEventListener('error',reject,{once:true});});
+    if(img.decode){try{await img.decode();}catch{}}
+  });
+  const natural=await photo.evaluate(img=>({width:img.naturalWidth,height:img.naturalHeight}));
+  assert.ok(natural.width>0&&natural.height>0,`foto documental no decodifica (${natural.width}x${natural.height})`);
 }
 
 const browser=await chromium.launch({headless:true,...(process.env.QA_CHROMIUM_EXECUTABLE_PATH?{executablePath:process.env.QA_CHROMIUM_EXECUTABLE_PATH}:{})});
@@ -114,7 +135,9 @@ try{
       if(width<=900) assert.equal(yearLabel.position,'static',`${name}: año de archivo no libera sticky en tablet/móvil`);
 
       measurements.push({name,width,height,overflow,masthead,title,futureHead,empty,year,yearLabel,firstEntry,archiveList,milestoneList,contacts,activeContext,footer});
-      await p.evaluate(()=>window.scrollTo(0,0));await p.screenshot({path:path.join(OUT,`eventos-${name}.png`),fullPage:true});
+      await loadDocumentaryPhoto(p);
+      await p.evaluate(()=>window.scrollTo(0,0));
+      await p.screenshot({path:path.join(OUT,`eventos-${name}.png`),fullPage:true});
     }catch(error){failures.push({viewport:name,width,height,error:error instanceof Error?error.message:String(error)});}finally{await c.close();}
   }
 
@@ -144,13 +167,23 @@ try{
     try{
       await open(p);
       await inspectorStyles(c,p,'*{line-height:1.5!important;letter-spacing:.12em!important;word-spacing:.16em!important}p{margin-bottom:2em!important}');
-      await p.evaluate(()=>new Promise(r=>requestAnimationFrame(()=>requestAnimationFrame(r))));await noOverflow(p,'text spacing');
-      await p.evaluate(()=>document.documentElement.style.zoom='2');await noOverflow(p,'zoom 200%');
+      await p.evaluate(()=>new Promise(r=>requestAnimationFrame(()=>requestAnimationFrame(r))));
+      await noOverflow(p,'text spacing');
       await p.keyboard.press('Tab');assert.notEqual(await p.evaluate(()=>document.activeElement?.tagName),'BODY','keyboard: foco no avanza');
-    }catch(error){failures.push({viewport:'wcag-stress-390',width:390,height:900,error:error instanceof Error?error.message:String(error)});}finally{await c.close();}
+    }catch(error){failures.push({viewport:'text-spacing-390',width:390,height:900,error:error instanceof Error?error.message:String(error)});}finally{await c.close();}
+  }
+
+  {
+    const c=await context(browser,{width:390,height:900});const p=await c.newPage();
+    try{
+      await open(p);
+      await p.evaluate(()=>document.documentElement.style.zoom='2');
+      await p.evaluate(()=>new Promise(r=>requestAnimationFrame(()=>requestAnimationFrame(r))));
+      await noOverflow(p,'zoom 200%');
+    }catch(error){failures.push({viewport:'zoom-200-390',width:390,height:900,error:error instanceof Error?error.message:String(error)});}finally{await c.close();}
   }
 }finally{await browser.close();}
 
 fs.writeFileSync(path.join(OUT,'eventos-design-report.json'),JSON.stringify({route:'/eventos.html',phase:'inherited-baseline',viewports:viewports.length,measurements,failures},null,2));
 assert.deepEqual(failures,[],`Eventos inherited-baseline failures:\n${JSON.stringify(failures,null,2)}`);
-console.log(`Eventos inherited baseline: PASS (${viewports.length} viewports + 3 isolation controls + no-JS + WCAG stress)`);
+console.log(`Eventos inherited baseline: PASS (${viewports.length} viewports + 3 isolation controls + no-JS + separated WCAG stress)`);
