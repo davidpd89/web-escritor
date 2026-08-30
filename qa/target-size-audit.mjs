@@ -25,8 +25,9 @@ export const DEFAULT_PRODUCT_CONTRACTS = [
   {
     selector: '.header-search',
     minViewportWidth: 900,
+    minWidth: 42,
     minHeight: 44,
-    source: 'assets/v1-shell-base.css + assets/v1-shell-lrb-v2.css',
+    source: 'F01 blueprint + assets/v1-shell-base.css + assets/v1-shell-lrb-v2.css',
   },
 ];
 
