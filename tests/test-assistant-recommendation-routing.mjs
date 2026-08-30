@@ -5,14 +5,14 @@ import { ASSISTANT_SOURCE_REGISTRY } from "../assets/assistant-source-registry.j
 const registryIds = new Set(ASSISTANT_SOURCE_REGISTRY.map((source) => source.id));
 
 const cases = [
-  ["Recomiéndame portal fantasy juvenil en español", "recommendations-portal-fantasy", "recommendations-portal-fantasy"],
-  ["¿Qué puedo leer si busco fantasía de portales en español?", "recommendations-portal-fantasy", "recommendations-portal-fantasy"],
-  ["Quiero libros parecidos a Samuel por lo de cruzar a otro mundo", "recommendations-portal-fantasy", "recommendations-portal-fantasy"],
-  ["Dame lecturas de portal fantasy", "recommendations-portal-fantasy", "recommendations-portal-fantasy"],
-  ["Recomiéndame fantasía donde la magia tenga un coste", "recommendations-magic-cost", "recommendations-magic-cost"],
-  ["¿Qué libros tienen magia con consecuencias o precio?", "recommendations-magic-cost", "recommendations-magic-cost"],
-  ["Busco libros donde usar magia cueste algo", "recommendations-magic-cost", "recommendations-magic-cost"],
-  ["Quiero leer fantasía con magia que exige un precio real", "recommendations-magic-cost", "recommendations-magic-cost"],
+  ["Recomiéndame portal fantasy juvenil en español", "recommendations-portal-fantasy", "recommend-portal-es"],
+  ["¿Qué puedo leer si busco fantasía de portales en español?", "recommendations-portal-fantasy", "recommend-portal-es"],
+  ["Quiero libros parecidos a Samuel por lo de cruzar a otro mundo", "recommendations-portal-fantasy", "recommend-portal-es"],
+  ["Dame lecturas de portal fantasy", "recommendations-portal-fantasy", "recommend-portal-es"],
+  ["Recomiéndame fantasía donde la magia tenga un coste", "recommendations-magic-cost", "recommend-magic-cost"],
+  ["¿Qué libros tienen magia con consecuencias o precio?", "recommendations-magic-cost", "recommend-magic-cost"],
+  ["Busco libros donde usar magia cueste algo", "recommendations-magic-cost", "recommend-magic-cost"],
+  ["Quiero leer fantasía con magia que exige un precio real", "recommendations-magic-cost", "recommend-magic-cost"],
 ];
 
 for (const [query, expectedIntent, expectedSource] of cases) {
