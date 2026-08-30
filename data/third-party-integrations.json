@@ -1,0 +1,181 @@
+{
+  "schema_version": 1,
+  "reviewed_at": "2026-08-30",
+  "note": "Autoridad de gobernanza para integraciones de red/proveedores externos del sitio y sus Workers. No incluye enlaces salientes (Amazon, redes sociales), dependencias vendorizadas que no hacen red ni servicios de correo usados manualmente. browser_hosts debe cuadrar con el CSP publico; server_side no se añade al CSP del navegador. optional_disabled no puede activarse sin completar activation_gate y actualizar este registro antes del despliegue.",
+  "integrations": [
+    {
+      "id": "goatcounter",
+      "provider": "GoatCounter",
+      "layer": "browser",
+      "status": "active",
+      "purpose": "Analítica agregada y eventos de navegación sin cookies.",
+      "trigger": "Carga de script.js en superficies públicas que lo incluyen.",
+      "failure_mode": "Fail-open: la web y las acciones continúan si la analítica no carga.",
+      "data_scope": "Pageviews, referencia y eventos agregados; no contenido de manuscritos.",
+      "decision": "keep",
+      "owner_files": ["script.js", "scripts/build-site-shell.py", "privacidad.html"],
+      "evidence": [
+        {"file": "script.js", "contains": ["https://gc.zgo.at/count.js", "https://davidportodiaz.goatcounter.com/count"]},
+        {"file": "scripts/build-site-shell.py", "contains": ["gc.zgo.at", "davidportodiaz.goatcounter.com"]},
+        {"file": "privacidad.html", "contains": ["<strong>GoatCounter</strong>"]}
+      ],
+      "browser_hosts": [
+        {"host": "gc.zgo.at", "directives": ["script-src", "connect-src"]},
+        {"host": "davidportodiaz.goatcounter.com", "directives": ["script-src", "connect-src"]}
+      ],
+      "privacy_evidence": ["<strong>GoatCounter</strong>", "GoatCounter tampoco instala cookies"]
+    },
+    {
+      "id": "metricool",
+      "provider": "Metricool",
+      "layer": "browser",
+      "status": "active",
+      "purpose": "Analítica web agregada y apoyo a la gestión de redes sociales.",
+      "trigger": "Carga de script.js en superficies públicas que lo incluyen.",
+      "failure_mode": "Fail-open: la web continúa si el tracker no carga.",
+      "data_scope": "Datos agregados de página/navegación descritos en privacidad; no contenido de manuscritos.",
+      "decision": "keep_review",
+      "owner_files": ["script.js", "scripts/build-site-shell.py", "privacidad.html"],
+      "evidence": [
+        {"file": "script.js", "contains": ["https://tracker.metricool.com/resources/be.js", "beTracker.t"]},
+        {"file": "scripts/build-site-shell.py", "contains": ["tracker.metricool.com"]},
+        {"file": "privacidad.html", "contains": ["<strong>Metricool</strong>"]}
+      ],
+      "browser_hosts": [
+        {"host": "tracker.metricool.com", "directives": ["script-src", "connect-src", "img-src"]}
+      ],
+      "privacy_evidence": ["<strong>Metricool</strong>", "tracker.metricool.com/resources/be.js"]
+    },
+    {
+      "id": "newsletter-cloudflare-worker",
+      "provider": "Cloudflare Workers",
+      "layer": "browser_to_edge",
+      "status": "active",
+      "purpose": "Proxy de suscripción: valida la petición del navegador y media el alta DOI en Brevo.",
+      "trigger": "Solo tras envío explícito de un formulario de suscripción en producción.",
+      "failure_mode": "Recoverable: offline/timeout/rate-limit/server errors se comunican en el formulario; staging no crea contactos.",
+      "data_scope": "Email, source y honeypot; el Worker construye atributos/lista server-side.",
+      "decision": "keep",
+      "owner_files": ["script.js", "cloudflare-worker-subscribe.js", "scripts/build-site-shell.py", "privacidad.html"],
+      "evidence": [
+        {"file": "script.js", "contains": ["https://subscribe.davidpd89.workers.dev", "postNewsletter"]},
+        {"file": "cloudflare-worker-subscribe.js", "contains": ["ALLOWED_ORIGIN", "BREVO_DOI_ENDPOINT"]},
+        {"file": "scripts/build-site-shell.py", "contains": ["https://subscribe.davidpd89.workers.dev"]},
+        {"file": "privacidad.html", "contains": ["<strong>Cloudflare</strong>", "Worker propio"]}
+      ],
+      "browser_hosts": [
+        {"host": "subscribe.davidpd89.workers.dev", "directives": ["connect-src"]}
+      ],
+      "privacy_evidence": ["<strong>Cloudflare</strong>", "lo reenvía a Brevo sin almacenarlo de forma permanente"]
+    },
+    {
+      "id": "brevo-doi",
+      "provider": "Brevo",
+      "layer": "server_side",
+      "status": "active",
+      "purpose": "Gestionar doble opt-in y listas de newsletter/lectores beta tras validación del Worker propio.",
+      "trigger": "Solo después de una petición de suscripción válida aceptada por el Worker.",
+      "failure_mode": "Fail-closed para configuración inválida; upstream no válido devuelve error recuperable al navegador.",
+      "data_scope": "Email, lista seleccionada server-side y atributos SOURCE/NOVERIS validados.",
+      "decision": "keep",
+      "owner_files": ["cloudflare-worker-subscribe.js", "privacidad.html"],
+      "evidence": [
+        {"file": "cloudflare-worker-subscribe.js", "contains": ["https://api.brevo.com/v3/contacts/doubleOptinConfirmation", "BREVO_API_KEY", "SOURCE_MAP"]},
+        {"file": "privacidad.html", "contains": ["<strong>Brevo (Sendinblue)</strong>"]}
+      ],
+      "browser_hosts": [],
+      "privacy_evidence": ["<strong>Brevo (Sendinblue)</strong>", "gestión de suscripciones por correo electrónico"]
+    },
+    {
+      "id": "cloudflare-turnstile",
+      "provider": "Cloudflare Turnstile",
+      "layer": "browser",
+      "status": "conditional",
+      "purpose": "Verificación antiabuso del modo remoto del asistente.",
+      "trigger": "Solo cuando la configuración remota del asistente devuelve enabled=true y se envía una consulta que requiere modo remoto.",
+      "failure_mode": "Fail-soft en cliente: si Turnstile falla, el asistente cae a búsqueda local/Pagefind.",
+      "data_scope": "Token de verificación antiabuso; la consulta se envía después al endpoint same-origin del asistente.",
+      "decision": "keep_conditional",
+      "owner_files": ["assets/assistant.js", "scripts/build-site-shell.py", "privacidad.html", "wrangler.assistant.jsonc"],
+      "evidence": [
+        {"file": "assets/assistant.js", "contains": ["https://challenges.cloudflare.com/turnstile/v0/api.js?render=explicit", "getTurnstileToken"]},
+        {"file": "scripts/build-site-shell.py", "contains": ["challenges.cloudflare.com"]},
+        {"file": "wrangler.assistant.jsonc", "contains": ["\"ASSISTANT_ENABLED\": \"false\"", "TURNSTILE_SITE_KEY"]},
+        {"file": "privacidad.html", "contains": ["Cloudflare Turnstile / Workers AI / AI Search"]}
+      ],
+      "browser_hosts": [
+        {"host": "challenges.cloudflare.com", "directives": ["script-src", "frame-src"]}
+      ],
+      "privacy_evidence": ["Cloudflare Turnstile / Workers AI / AI Search", "actualmente desactivado en producción"]
+    },
+    {
+      "id": "cloudflare-assistant-ai",
+      "provider": "Cloudflare AI Search + Workers AI",
+      "layer": "server_side",
+      "status": "conditional",
+      "purpose": "Recuperación sobre fuentes públicas autorizadas y generación del modo remoto del asistente.",
+      "trigger": "ASSISTANT_ENABLED=true, bindings configurados y consulta remota validada.",
+      "failure_mode": "Fail-closed en Worker; el cliente usa fallback local cuando la capa remota no está disponible.",
+      "data_scope": "Consulta del visitante, contexto recuperado de contenido público permitido, session id temporal y metadatos de control.",
+      "decision": "hold_disabled_until_explicit_enable",
+      "owner_files": ["cloudflare-worker-assistant.js", "wrangler.assistant.jsonc", "privacidad.html"],
+      "evidence": [
+        {"file": "cloudflare-worker-assistant.js", "contains": ["ASSISTANT_SEARCH", "env.AI", "workers-ai"]},
+        {"file": "wrangler.assistant.jsonc", "contains": ["\"ASSISTANT_ENABLED\": \"false\"", "\"binding\": \"AI\""]},
+        {"file": "privacidad.html", "contains": ["Cloudflare Turnstile / Workers AI / AI Search"]}
+      ],
+      "browser_hosts": [],
+      "privacy_evidence": ["Cloudflare Turnstile / Workers AI / AI Search", "actualmente desactivado en producción"]
+    },
+    {
+      "id": "groq-assistant-fallback",
+      "provider": "Groq",
+      "layer": "server_side",
+      "status": "optional_disabled",
+      "purpose": "Fallback opcional de generación del asistente cuando se configure explícitamente una API key.",
+      "trigger": "Solo si existe GROQ_API_KEY y el asistente remoto está habilitado.",
+      "failure_mode": "El proveedor se omite si no hay secret; errores permiten continuar con la cadena según el Worker.",
+      "data_scope": "Prompt de sistema + pregunta + contexto público recuperado, si llegara a activarse.",
+      "decision": "do_not_activate_without_review",
+      "owner_files": ["cloudflare-worker-assistant.js", "wrangler.assistant.jsonc"],
+      "evidence": [
+        {"file": "cloudflare-worker-assistant.js", "contains": ["https://api.groq.com/openai/v1/chat/completions", "GROQ_API_KEY"]},
+        {"file": "wrangler.assistant.jsonc", "contains": ["GROQ_MODEL", "GROQ_DAILY_CAP", "\"ASSISTANT_ENABLED\": \"false\""]}
+      ],
+      "browser_hosts": [],
+      "privacy_evidence": [],
+      "activation_gate": [
+        "Actualizar privacidad para identificar Groq y el flujo de datos.",
+        "Confirmar base/transferencias/condiciones aplicables antes de activación.",
+        "Configurar secret fuera del repositorio.",
+        "Habilitar el asistente solo tras QA E2E y revisión de calidad/coste.",
+        "Actualizar status de este registro en la misma PR/cambio operativo previo al despliegue."
+      ]
+    },
+    {
+      "id": "openrouter-assistant-fallback",
+      "provider": "OpenRouter",
+      "layer": "server_side",
+      "status": "optional_disabled",
+      "purpose": "Fallback opcional de generación del asistente cuando se configure explícitamente una API key.",
+      "trigger": "Solo si existe OPENROUTER_API_KEY y el asistente remoto está habilitado.",
+      "failure_mode": "El proveedor se omite si no hay secret; errores permiten continuar con la cadena según el Worker.",
+      "data_scope": "Prompt de sistema + pregunta + contexto público recuperado, si llegara a activarse.",
+      "decision": "do_not_activate_without_review",
+      "owner_files": ["cloudflare-worker-assistant.js", "wrangler.assistant.jsonc"],
+      "evidence": [
+        {"file": "cloudflare-worker-assistant.js", "contains": ["https://openrouter.ai/api/v1/chat/completions", "OPENROUTER_API_KEY"]},
+        {"file": "wrangler.assistant.jsonc", "contains": ["OPENROUTER_MODEL", "OPENROUTER_DAILY_CAP", "\"ASSISTANT_ENABLED\": \"false\""]}
+      ],
+      "browser_hosts": [],
+      "privacy_evidence": [],
+      "activation_gate": [
+        "Actualizar privacidad para identificar OpenRouter y el flujo de datos.",
+        "Confirmar base/transferencias/condiciones aplicables antes de activación.",
+        "Configurar secret fuera del repositorio.",
+        "Habilitar el asistente solo tras QA E2E y revisión de calidad/coste.",
+        "Actualizar status de este registro en la misma PR/cambio operativo previo al despliegue."
+      ]
+    }
+  ]
+}
