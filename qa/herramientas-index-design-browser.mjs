@@ -8,7 +8,6 @@ const OUT = process.env.QA_OUT || 'qa-artifacts/herramientas-hub';
 fs.mkdirSync(OUT, { recursive: true });
 
 const BLUE = 'rgb(29, 79, 150)';
-const DEEP_BLUE = 'rgb(13, 44, 87)';
 const GOLD = 'rgb(184, 134, 11)';
 const TRANSPARENT = 'rgba(0, 0, 0, 0)';
 
@@ -54,6 +53,7 @@ async function snapshot(locator, pseudo = null) {
       borderRadius: s.borderRadius,
       fontSize: s.fontSize,
       content: s.content,
+      counterIncrement: s.counterIncrement,
       position: s.position,
     };
   }, pseudo);
@@ -64,16 +64,8 @@ async function assertFilters(page, name) {
     const button = page.locator(`.tool-filters button[data-filter="${filter}"]`);
     await button.click();
     assert.equal(await button.getAttribute('aria-pressed'), 'true', `${name}: ${filter} no queda activo`);
-    assert.equal(
-      await page.locator('[data-tool]:not([hidden])').count(),
-      expectedTools,
-      `${name}: ${filter} muestra un número incorrecto de herramientas`,
-    );
-    assert.equal(
-      await page.locator('[data-tool-section]:not([hidden])').count(),
-      expectedSections,
-      `${name}: ${filter} muestra un número incorrecto de familias`,
-    );
+    assert.equal(await page.locator('[data-tool]:not([hidden])').count(), expectedTools, `${name}: ${filter} muestra un número incorrecto de herramientas`);
+    assert.equal(await page.locator('[data-tool-section]:not([hidden])').count(), expectedSections, `${name}: ${filter} muestra un número incorrecto de familias`);
     assert.equal(
       (await page.locator('[data-tool-count]').innerText()).trim(),
       `${expectedTools} ${expectedTools === 1 ? 'herramienta' : 'herramientas'}`,
@@ -143,7 +135,8 @@ try {
       assert.equal(firstAction.color, BLUE, `${name}: acción de herramienta no usa azul`);
       assert.equal(firstAction.backgroundColor, TRANSPARENT, `${name}: acción vuelve a botón relleno`);
       assert.equal(firstAction.borderRadius, '0px', `${name}: acción vuelve a tratamiento SaaS redondeado`);
-      assert.ok(firstFamilyIndex.content.includes('01 /'), `${name}: numeración editorial de familias perdida`);
+      assert.ok(firstSection.counterIncrement.includes('tools-family'), `${name}: contador de familias no incrementa`);
+      assert.ok(firstFamilyIndex.content.includes('counter(tools-family') && firstFamilyIndex.content.includes('/'), `${name}: expresión visual de numeración de familias perdida`);
 
       const expectedFilterColumns = width > 900 ? 4 : width > 389 ? 2 : 1;
       const expectedToolColumns = width > 900 ? 3 : width > 640 ? 2 : 1;
@@ -165,6 +158,8 @@ try {
         toolColumns: columns(firstGrid.gridTemplateColumns),
         familyColumns: columns(firstSection.gridTemplateColumns),
         singleToolColumns: columns(singleGrid.gridTemplateColumns),
+        familyCounter: firstSection.counterIncrement,
+        familyIndexExpression: firstFamilyIndex.content,
         masthead,
         finder,
         firstTitle,
