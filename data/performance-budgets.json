@@ -1,0 +1,52 @@
+{
+  "schema_version": 1,
+  "enforcement": "report",
+  "note": "E.5. Baseline determinista de bytes del artifact. Los imports CSS y los imports JS estaticos se resuelven transitivamente; import() dinamico no se sigue automaticamente y debe tener su propio budget si forma una familia/carga diferida relevante. En fase report no existen thresholds aprobados: primero se miden los bytes reales del branch.",
+  "budgets": [
+    {
+      "id": "shell-v1",
+      "label": "Shell V1 comun",
+      "entrypoints": [
+        "assets/v1-shell.css",
+        "assets/v1-shell.js"
+      ]
+    },
+    {
+      "id": "home-runtime",
+      "label": "Runtime editorial de Home",
+      "entrypoints": [
+        "assets/v1-home-editorial-v3.js"
+      ]
+    },
+    {
+      "id": "interior-runtime",
+      "label": "Runtime editorial de interiores",
+      "entrypoints": [
+        "assets/v1-editorial-interior-v4.js"
+      ]
+    },
+    {
+      "id": "article-runtime",
+      "label": "Runtime progresivo de articulos",
+      "entrypoints": [
+        "assets/v1-editorial.js"
+      ]
+    },
+    {
+      "id": "assistant-runtime",
+      "label": "Asistente standalone",
+      "entrypoints": [
+        "assets/assistant.css",
+        "assets/assistant.js"
+      ]
+    },
+    {
+      "id": "assistant-widget-runtime",
+      "label": "Widget diferido del asistente",
+      "entrypoints": [
+        "assets/assistant-widget.css",
+        "assets/assistant-widget.js"
+      ]
+    }
+  ]
+}
