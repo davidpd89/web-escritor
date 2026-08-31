@@ -85,6 +85,45 @@ async function checkRoute(page, engineName, routePath) {
   });
   if (response && !response.ok()) errors.push(`HTTP ${response.status()} al cargar la ruta`);
 
+  // Regression guard for the physical-iPhone Safari freeze fixed in #163.
+  // The cross-engine smoke used to click "Entrar" immediately and therefore
+  // could stay green even if the problematic WebM source was reintroduced.
+  // Keep this deliberately structural: real iPhone playback remains a manual
+  // hardware gate, but CI now protects the exact media-source contract that
+  // avoids Safari selecting the bad source before the MP4 fallback.
+  if (routePath === '/') {
+    const videos = page.locator('[data-hero-video]');
+    const videoCount = await videos.count();
+    if (videoCount !== 1) {
+      errors.push(`HOME intro debe tener exactamente 1 [data-hero-video], tiene ${videoCount}`);
+    } else {
+      const media = await videos.first().evaluate((video) => ({
+        muted: video.muted,
+        // Firefox does not reliably reflect the HTML `playsinline` attribute
+        // through HTMLVideoElement.playsInline. The Safari contract we need to
+        // protect is the actual markup, so inspect attribute presence instead.
+        hasPlaysInline: video.hasAttribute('playsinline'),
+        preload: video.preload,
+        poster: video.getAttribute('poster') || '',
+        sources: Array.from(video.querySelectorAll('source')).map((source) => ({
+          src: source.getAttribute('src') || '',
+          type: source.getAttribute('type') || '',
+        })),
+      }));
+      if (!media.muted) errors.push('HOME intro pierde muted');
+      if (!media.hasPlaysInline) errors.push('HOME intro pierde atributo playsinline');
+      if (media.preload !== 'auto') errors.push(`HOME intro preload inesperado: ${media.preload || '(vacío)'}`);
+      if (!media.poster) errors.push('HOME intro pierde poster/fallback visual');
+      if (media.sources.length !== 1) errors.push(`HOME intro debe conservar 1 source MP4, tiene ${media.sources.length}`);
+      const source = media.sources[0];
+      if (source && source.type !== 'video/mp4') errors.push(`HOME intro source type inesperado: ${source.type || '(vacío)'}`);
+      if (source && !/hero-tinta-david-porto\.mp4(?:\?|$)/.test(source.src)) errors.push(`HOME intro source no apunta al MP4 canónico: ${source.src}`);
+      if (media.sources.some((item) => /webm/i.test(item.type) || /\.webm(?:\?|$)/i.test(item.src))) {
+        errors.push('HOME intro reintroduce WebM y reabre la regresión Safari/iPhone');
+      }
+    }
+  }
+
   const introEnter = page.locator('[data-intro-enter]').first();
   if ((await introEnter.count()) > 0) {
     await introEnter.click();

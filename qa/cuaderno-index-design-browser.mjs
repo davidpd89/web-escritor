@@ -195,9 +195,13 @@ try {
     const response = await article.goto(`${ORIGIN}/cuaderno/que-es-el-portal-fantasy/`, { waitUntil: 'domcontentloaded', timeout: 20000 });
     assert.ok(response?.ok(), 'isolation: artículo no carga');
     await article.evaluate(() => document.fonts?.ready);
-    assert.equal(await article.locator('link[href="/assets/cuaderno-index.css"]').count(), 0, 'isolation: hoja del índice se filtra al artículo');
-    const articleToken = await article.locator('html').evaluate(el => getComputedStyle(el).getPropertyValue('--cuaderno-blue').trim());
-    assert.equal(articleToken, '', 'isolation: tokens del índice se filtran al artículo');
+    // #279 deliberately extended cuaderno-index.css to article headers and Temas,
+    // superseding the original #269 boundary that kept it index-only. The
+    // invariant that still matters is the reading prose: headers/rails may take
+    // azul/dorado, but .article-prose must stay on the neutral serif/black system.
+    const proseColor = await article.locator('.article-prose > p').first().evaluate(el => getComputedStyle(el).color);
+    assert.notEqual(proseColor, BLUE, 'isolation: la prosa del artículo se recoloreó de azul');
+    assert.notEqual(proseColor, GOLD, 'isolation: la prosa del artículo se recoloreó de dorado');
   } catch (error) {
     failures.push({ viewport: 'article-isolation', width: 1280, height: 800, error: error instanceof Error ? error.message : String(error) });
   } finally {

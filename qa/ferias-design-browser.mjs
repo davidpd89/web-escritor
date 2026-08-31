@@ -119,6 +119,11 @@ try{
       assert.equal(columns(aranjuez),width>600?2:1,`${name}: seam 601/600 Aranjuez cambió (${aranjuez})`);
       assert.equal(columns(madrid),width>900?3:(width>600?2:1),`${name}: seam Madrid 901/900 o 601/600 cambió (${madrid})`);
 
+      const BRAND='rgb(29, 79, 150)';
+      const brandColors=await page.evaluate(()=>['.fairs-masthead .eyebrow','.fairs-masthead h1','.fairs-index__year','.fair-record__header .eyebrow']
+        .map(sel=>({sel,color:getComputedStyle(document.querySelector(sel)).color})));
+      for(const {sel,color} of brandColors) assert.equal(color,BRAND,`${name}: ${sel} no resuelve --color-brand (${color})`);
+
       const overflow=await noOverflow(page,name);const typography=await stableTypography(page);
       assert.ok(typography.loaded,`${name}: fuentes no estabilizadas`);assert.deepEqual(typography.before,typography.after,`${name}: geometría tipográfica inestable`);
       measurements.push({name,width,height,overflow,typography,mastheadColumns:masthead,yearColumns:year,bodyColumns:body,headerColumns:header,ledgerColumns:ledger,aranjuezColumns:aranjuez,madridColumns:madrid});
