@@ -1,0 +1,115 @@
+name: Eventos browser QA
+
+on:
+  pull_request:
+    paths:
+      - 'eventos.html'
+      - 'assets/v1-families.css'
+      - 'assets/v1-identity.css'
+      - 'assets/v1-events.css'
+      - 'qa/identity-public-browser.mjs'
+      - 'qa/eventos-design-browser.mjs'
+      - '.github/workflows/eventos-browser-qa.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  browser-qa:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 25
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+
+      - name: Install CI/QA dependencies (Node)
+        run: npm ci
+
+      - name: Cache Playwright browsers
+        id: playwright-cache
+        uses: actions/cache@v4
+        with:
+          path: ~/.cache/ms-playwright
+          key: playwright-chromium-${{ hashFiles('package-lock.json') }}
+
+      - name: Install Playwright Chromium (with OS deps)
+        if: steps.playwright-cache.outputs.cache-hit != 'true'
+        run: npx playwright install --with-deps chromium
+
+      - name: Install Playwright OS deps only (browser cached)
+        if: steps.playwright-cache.outputs.cache-hit == 'true'
+        run: npx playwright install-deps chromium
+
+      - name: Start local static server
+        shell: bash
+        run: |
+          python3 -m http.server 4173 --bind 127.0.0.1 > /tmp/eventos-qa-server.log 2>&1 &
+          echo $! > /tmp/eventos-qa-server.pid
+          for i in {1..30}; do
+            if curl --fail --silent http://127.0.0.1:4173/eventos.html > /dev/null; then
+              exit 0
+            fi
+            sleep 1
+          done
+          cat /tmp/eventos-qa-server.log
+          exit 1
+
+      - name: Run inherited Identity authority
+        env:
+          IDENTITY_BASE_URL: http://127.0.0.1:4173
+          IDENTITY_ARTIFACT_DIR: qa-artifacts/eventos-identity-authority
+        run: node qa/identity-public-browser.mjs
+
+      - name: Run Eventos visual-system contract
+        env:
+          QA_ORIGIN: http://127.0.0.1:4173
+          QA_OUT: qa-artifacts/eventos-design
+        run: node qa/eventos-design-browser.mjs
+
+      - name: Check featured archive action stays intrinsic
+        env:
+          QA_ORIGIN: http://127.0.0.1:4173
+        run: |
+          node --input-type=module <<'NODE'
+          import assert from 'node:assert/strict';
+          import { chromium } from 'playwright';
+
+          const browser = await chromium.launch({ headless: true });
+          try {
+            for (const width of [1440, 767, 390]) {
+              const context = await browser.newContext({ viewport: { width, height: 900 }, reducedMotion: 'reduce' });
+              const page = await context.newPage();
+              const response = await page.goto(`${process.env.QA_ORIGIN}/eventos.html`, { waitUntil: 'networkidle' });
+              assert.ok(response?.ok(), `${width}: Eventos no carga`);
+              const geometry = await page.locator('#feria-libro-madrid-2026 .text-action').evaluate((el) => {
+                const rect = el.getBoundingClientRect();
+                const parent = el.parentElement.getBoundingClientRect();
+                return { width: rect.width, parentWidth: parent.width, justifySelf: getComputedStyle(el).justifySelf };
+              });
+              assert.equal(geometry.justifySelf, 'start', `${width}: el CTA destacado vuelve a estirarse como grid item`);
+              assert.ok(geometry.width < geometry.parentWidth - 24, `${width}: el subrayado del CTA vuelve a comportarse como divisor (${JSON.stringify(geometry)})`);
+              await context.close();
+            }
+          } finally {
+            await browser.close();
+          }
+          console.log('featured archive action: intrinsic at 1440/767/390');
+          NODE
+
+      - name: Upload Eventos visual evidence
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: eventos-visual-evidence
+          path: |
+            qa-artifacts/eventos-design/
+            qa-artifacts/eventos-identity-authority/
+          if-no-files-found: warn
+          retention-days: 14
