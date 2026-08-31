@@ -191,9 +191,20 @@
   function initHeroVideo() {
     const video = q('[data-hero-video]');
     if (!video) return;
-    if (video.closest('[data-intro]')?.hidden) return;
+    const intro = video.closest('[data-intro]');
+    if (intro?.hidden) return;
     if (matchMedia('(prefers-reduced-motion: reduce)').matches) return;
-    const play = () => video.play().catch(() => {});
+    // Low Power Mode (and similar battery/data-saver states) can silently
+    // reject a muted+playsinline autoplay call even once the video has
+    // loaded correctly. That's not recoverable programmatically, but a real
+    // user gesture is exempt from that restriction -- retry once on the
+    // first tap/click anywhere on the intro, in case the visitor interacts
+    // with it (e.g. tapping "Entrar") before the video has started.
+    const play = () => video.play().catch(() => {
+      if (!intro) return;
+      const retry = () => video.play().catch(() => {});
+      intro.addEventListener('pointerdown', retry, { once: true, passive: true });
+    });
     if (video.readyState >= 2) play();
     else video.addEventListener('loadeddata', play, { once: true });
   }
