@@ -98,6 +98,29 @@ Esto no implica necesariamente un conflicto textual ni obliga a reescribir ahora
 
 No se modifica desde esta PR. Sigue existiendo un bloqueo manual real ya documentado: intro inicial congelada/primer frame en iPhone Safari físico. Debe resolverse/revisarse en #163, no desde el hardening de cola.
 
+## Corrección de diagnóstico factual — #289 / Manecillas
+
+Una primera lectura de la fecha `2026-09-03` llevó a interpretar como inconsistencia la redacción `published` / `Publicada el 3 de septiembre de 2026` antes de esa fecha. Esa interpretación queda descartada tras revisar la autoridad canónica completa.
+
+`editorial-facts.json` contiene una decisión editorial explícita del 20/08/2026, autorizada por David y deliberadamente independiente del calendario:
+
+- `statusBeforePublication: "published"`;
+- `statusFromPublicationDate: "published"`;
+- el copy público autorizado mantiene `Publicada el 3 de septiembre de 2026` también antes del 03/09;
+- `purchaseUrl` permanece `null` y la disponibilidad comercial se gobierna por separado.
+
+`tests/test-machine-authority.py` refuerza exactamente ese contrato: exige que el press-kit mantenga `status: published` y que los estados antes/después de la fecha sigan siendo `published`.
+
+Por tanto, la propagación de ese wording a `/ai/`, `llms.txt`, `llms-full.txt`, press-kit, HOME, Libros, Autor, Prensa y la ficha de Manecillas es coherencia con la fuente de verdad, no drift accidental.
+
+Regla de cierre:
+
+- no convertir el estado a `forthcoming`, `scheduled`, `se publica` ni equivalente por fecha del runner;
+- no inventar retailer, `Offer` ni disponibilidad mientras no exista URL comercial verificada;
+- cualquier QA de #289 debe validar coherencia con `editorial-facts.json`, no sustituir la política editorial por una inferencia calendárica.
+
+La sección previa del contrato de #289 que trataba esta redacción como bloqueo factual queda superseded por la corrección registrada en el body de #289 y por este documento de cierre.
+
 ## Hardening implementado aquí
 
 `qa/design-evidence-hardening.mjs` añade cuatro casos suplementarios:
@@ -118,7 +141,11 @@ Cada imagen:
 - mantiene cero overflow.
 
 Workflow: `.github/workflows/design-evidence-hardening.yml`.
-Artefacto esperado: `design-evidence-hardening`.
+Artefacto: `design-evidence-hardening`.
+
+HEAD certificado antes de esta corrección documental: `859b1d167b6c87e46ddbf064a13254857013cf7e`, 7/7 workflows `success`, incluido `Design evidence hardening` run `33379847958`, artifact digest `sha256:23b9616ea638c3a35fb4bc390fc51fbddd0ee5eb8286a25edb06dd6aa5278d7f`.
+
+La corrección de diagnóstico de este commit es documental; el nuevo HEAD debe volver a completar sus workflows antes de considerarse certificado.
 
 ## Procedimiento obligatorio de reconciliación antes de merge
 
@@ -143,12 +170,15 @@ Punto de atención principal al llegar a #265:
 
 Después, el mismo principio se aplica a #266–#290 y a esta PR final.
 
-## Bloqueos de cierre conocidos fuera de esta PR
+## Bloqueos / comprobaciones de cierre conocidos fuera de esta PR
 
 - #163: Safari/iPhone físico, intro.
-- #289: estado temporal incoherente de `Las manecillas del recuerdo` antes del 03/09/2026 entre `/ai/`, `llms.txt`, `llms-full.txt` y press-kit JSON.
+- #286: verificar el baseline real de robots de la guía imprimible antes de implementar su contrato visual.
+- #287: verificar el posible drift entre el texto de Privacidad y el consentimiento real del newsletter antes de decidir si requiere corrección funcional separada.
 - #290: demostrar upgrade real del service worker/cache al cambiar `offline.html`.
 - revisión física global de dispositivos según `REAL-DEVICE-REVIEW-CONTRACT-2026-08-29.md`.
+
+#289 **ya no figura como bloqueo temporal**: el wording `published/publicada` es una decisión canónica confirmada y protegida.
 
 ## Definition of Done de esta PR
 
@@ -157,4 +187,5 @@ Después, el mismo principio se aplica a #266–#290 y a esta PR final.
 - CI general sin regresiones;
 - ningún cambio de producción introducido por conveniencia;
 - procedimiento de reconciliación documentado;
+- diagnóstico factual #289 corregido sin alterar la política editorial autorizada;
 - PR Draft, abierta y sin merge hasta que su base #290 y toda la pila previa estén integradas/revalidadas en orden.
