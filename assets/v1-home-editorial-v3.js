@@ -40,10 +40,6 @@
     tools: 'webp'
   };
   const SAMUEL_AMAZON_URL = 'https://www.amazon.es/dp/B0GB6LGQFH?tag=davidporto-21';
-  // PREPUBLICACIÓN: Manecillas reutiliza provisionalmente el destino de Samuel
-  // hasta que editorial-facts.json tenga purchaseUrl real. Mantener una constante
-  // distinta evita que el placeholder parezca una relación semántica entre obras.
-  const MANECILLAS_BUY_URL = SAMUEL_AMAZON_URL;
   const AUTHOR_EMAIL_URL = 'mailto:davidportodiaz@gmail.com?subject=Te%20leo%20%E2%80%94%20David%20Porto%20D%C3%ADaz';
 
   const arrowSvg = `
@@ -500,7 +496,10 @@
     [
       ['Autor', 'David Porto Díaz', 'Biografía, fotografías y recursos para lectores, librerías y medios.', '/autor.html'],
       ['Comunidad', 'Lectores beta', 'Sé el primero en leer contenido y opina antes de que llegue a todos.', '/lectores-beta/#quiero-ser-lector'],
-      ['Comprar', 'Comprar en Amazon', '', MANECILLAS_BUY_URL],
+      // No commercial CTA here while editorial-facts.json's purchaseUrl for
+      // Manecillas is null (#293): the old placeholder pointed to Samuel's
+      // own Amazon ASIN, presenting a purchase of the wrong book. Re-add
+      // this slot only once a verified Manecillas purchase URL exists.
       ['Te leo', 'Escríbeme', '', AUTHOR_EMAIL_URL]
     ].forEach(([eyebrow, cardTitle, text, href]) => {
       const card = make('article', 'yale-rail-card');

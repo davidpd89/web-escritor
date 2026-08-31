@@ -85,6 +85,28 @@ async function checkRoute(page, engineName, routePath) {
   });
   if (response && !response.ok()) errors.push(`HTTP ${response.status()} al cargar la ruta`);
 
+  // Regression guard for #293: editorial-facts.json's purchaseUrl for
+  // Manecillas is null, so HOME must not present a "Comprar" CTA in its
+  // rail that actually points to Samuel's own Amazon ASIN. Samuel's own
+  // feature keeps its own legitimate Amazon link untouched.
+  if (routePath === '/') {
+    const manecillasRailLinks = await page.locator('.yale-home-issue .yale-rail a[href]').evaluateAll(
+      (links) => links.map((a) => a.getAttribute('href') || '')
+    );
+    if (manecillasRailLinks.some((href) => /amazon\./i.test(href))) {
+      errors.push('el rail de Manecillas conserva un CTA de compra pese a purchaseUrl:null (#293)');
+    }
+    const samuelBuyLinks = await page.locator('.yale-feature--samuel a[href*="amazon."]').count();
+    if (samuelBuyLinks === 0) {
+      errors.push('Samuel entre mundos perdió su propio enlace de compra en Amazon');
+    }
+    const nonCommercialActions = await page.locator('.yale-home-issue .yale-lead__actions a').evaluateAll(
+      (links) => links.map((a) => a.textContent.trim())
+    );
+    if (!nonCommercialActions.some((t) => /ver la obra/i.test(t))) errors.push('Manecillas perdió el enlace "Ver la obra"');
+    if (!nonCommercialActions.some((t) => /leer fragmentos/i.test(t))) errors.push('Manecillas perdió el enlace "Leer fragmentos"');
+  }
+
   const introEnter = page.locator('[data-intro-enter]').first();
   if ((await introEnter.count()) > 0) {
     await introEnter.click();
