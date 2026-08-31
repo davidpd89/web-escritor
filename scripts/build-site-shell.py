@@ -472,10 +472,15 @@ def render_explore(nav: dict, by_id: dict[str, Entry], current_path: str) -> str
         '        <input class="form-input" id="nl-email-explore" name="email" type="email" autocomplete="email" inputmode="email" required placeholder="Tu email" aria-describedby="nl-status-explore">\n'
         '        <button class="form-submit" type="submit">Recibir novedades</button>\n'
         '      </div>\n'
+        '      <label class="form-consent" for="nl-gdpr-explore">\n'
+        '        <input id="nl-gdpr-explore" name="consent" type="checkbox" required aria-describedby="nl-status-explore">\n'
+        '        <span>He leído y acepto la <a href="/privacidad.html">política de privacidad</a>.</span>\n'
+        '      </label>\n'
         '      <p id="nl-status-explore" class="form-status" role="status" aria-live="polite"></p>\n'
         '    </form>\n'
         '  </div>\n'
-        '</dialog>'
+        '</dialog>\n'
+        '<script defer src="/assets/newsletter-general.js"></script>'
     )
 
 

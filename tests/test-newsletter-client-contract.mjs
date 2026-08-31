@@ -4,47 +4,83 @@ import { fileURLToPath } from 'node:url';
 import path from 'node:path';
 
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
-const scriptSource = readFileSync(path.join(ROOT, 'script.js'), 'utf8');
-const popupSource = readFileSync(path.join(ROOT, 'assets', 'newsletter-popup.js'), 'utf8');
-const workerSource = readFileSync(path.join(ROOT, 'cloudflare-worker-subscribe.js'), 'utf8');
+const read = (...parts) => readFileSync(path.join(ROOT, ...parts), 'utf8');
+const scriptSource = read('script.js');
+const generalSource = read('assets', 'newsletter-general.js');
+const popupSource = read('assets', 'newsletter-popup.js');
+const workerSource = read('cloudflare-worker-subscribe.js');
+const builderSource = read('scripts', 'build-site-shell.py');
 
 function setFromArrayLiteral(content, label) {
   const re = new RegExp(`${label}\\s*=\\s*\\{([\\s\\S]*?)\\n\\}`);
   const match = content.match(re);
   assert.ok(match, `${label} not found`);
-  const body = match[1];
-  const keys = [...body.matchAll(/\n\s*([a-z_][a-z0-9_-]*)\s*:/gi)].map((m) => m[1]);
+  const keys = [...match[1].matchAll(/\n\s*([a-z_][a-z0-9_-]*)\s*:/gi)].map((m) => m[1]);
   return new Set(keys);
 }
 
 function setFromSubmitCalls(content) {
-  const calls = [...content.matchAll(/submitNewsletter\([^\)]*?"([a-z]+)"\)\s*;/g)].map((m) => m[1]);
+  const calls = [...content.matchAll(/submitNewsletter\([^\)]*?"([a-z-]+)"\)\s*;/g)].map((m) => m[1]);
   return new Set(calls);
 }
 
 assert.match(scriptSource, /NEWSLETTER_CONFIG\s*=\s*\{\s*endpoint:\s*"https:\/\/subscribe\.davidpd89\.workers\.dev"\s*\}/s,
-  'newsletter endpoint must stay on the production Worker URL');
+  'legacy newsletter fallback must keep the production Worker URL');
+assert.match(scriptSource, /window\.DPNewsletterGeneral\?\.postNewsletter/,
+  'script.js must delegate POSTs to the shared V1 newsletter transport when available');
+assert.match(scriptSource, /const gdprEl = document\.getElementById\(gdprId\)/,
+  'generic legacy helper must resolve gdprId instead of leaving it dead');
+assert.match(scriptSource, /if \(!gdprEl \|\| !gdprEl\.checked\)/,
+  'generic legacy helper must block unchecked privacy consent');
+assert.doesNotMatch(scriptSource, /postNewsletter\(\{[^}]*consent\s*:/s,
+  'legacy client must not add consent to the Worker payload');
 
-assert.match(scriptSource, /NEWSLETTER_TIMEOUT_MS\s*=\s*12000/, 'newsletter timeout constant must exist');
-assert.match(scriptSource, /function postNewsletter\(payload\)/, 'postNewsletter helper must exist');
-assert.match(scriptSource, /new AbortController\(\)/, 'newsletter flow must use AbortController timeout');
-assert.match(scriptSource, /if \(res\.status === 429\)/, 'newsletter flow must handle 429 explicitly');
-assert.match(scriptSource, /navigator\.onLine === false/, 'newsletter flow must detect offline state');
+assert.match(generalSource, /const ENDPOINT = 'https:\/\/subscribe\.davidpd89\.workers\.dev'/,
+  'shared general client must use the canonical Worker');
+assert.match(generalSource, /TIMEOUT_MS = 12000/,
+  'shared general client must preserve timeout contract');
+assert.match(generalSource, /response\.status === 429/,
+  'shared general client must preserve explicit rate-limit handling');
+assert.match(generalSource, /navigator\.onLine === false/,
+  'shared general client must preserve offline handling');
+assert.match(generalSource, /form\.dataset\.newsletterBound === 'true'/,
+  'shared client must protect against double binding');
+assert.match(generalSource, /input\[name="consent"\]/,
+  'shared client must resolve the privacy checkbox');
+assert.match(generalSource, /!consent \|\| !consent\.checked/,
+  'shared client must block missing or unchecked consent');
+assert.doesNotMatch(generalSource, /postNewsletter\(\{[^}]*consent\s*:/s,
+  'shared client must preserve the existing Worker payload without consent field');
 
 const workerSources = setFromArrayLiteral(workerSource, 'SOURCE_MAP');
 const formSources = setFromSubmitCalls(scriptSource);
-assert.ok(formSources.has('home') && formSources.has('fragmento') && formSources.has('manecillas') && formSources.has('cuaderno'),
-  'generic forms must keep all expected source labels');
-
+assert.ok(formSources.has('home') && formSources.has('fragmento') && formSources.has('manecillas') && formSources.has('cuaderno') && formSources.has('explore'),
+  'legacy fallback must keep all general source labels');
 const specialSources = new Set(['quiz', 'popup']);
 const clientSources = new Set([...formSources, ...specialSources]);
 assert.deepEqual([...clientSources].sort(), [...workerSources].sort(),
   'client source labels must stay in parity with Worker SOURCE_MAP keys');
 
-assert.ok(!/localStorage\.setItem\([^\)]*emailEl\.value/i.test(scriptSource),
-  'email value must never be stored in localStorage');
-assert.ok(!/sessionStorage\.setItem\([^\)]*emailEl\.value/i.test(scriptSource),
-  'email value must never be stored in sessionStorage');
+assert.ok(!/localStorage\.setItem\([^\)]*email/i.test(generalSource),
+  'shared client must never persist email in localStorage');
+assert.ok(!/sessionStorage\.setItem\([^\)]*email/i.test(generalSource),
+  'shared client must never persist email in sessionStorage');
+
+for (const [file, suffix] of [
+  ['index.html', 'home'],
+  ['fragmento/index.html', 'fragmento'],
+  ['las-manecillas-del-recuerdo/index.html', 'manecillas'],
+  ['cuaderno/index.html', 'cuaderno']
+]) {
+  const html = read(...file.split('/'));
+  assert.match(html, new RegExp(`id="nl-gdpr-${suffix}"[^>]*name="consent"[^>]*required`), `${file} must render required consent`);
+  assert.match(html, /href="\/privacidad\.html"/, `${file} consent must link to privacy policy`);
+}
+
+assert.ok(builderSource.includes('nl-gdpr-explore'),
+  'shell builder must generate Explore consent');
+assert.match(builderSource, /newsletter-general\.js/,
+  'shell builder must load the shared general newsletter runtime');
 
 assert.match(popupSource, /id=\\?"nl-popup-gdpr\\?"[^>]*name=\\?"consent\\?"[^>]*required/,
   'newsletter popup must render a required privacy-consent checkbox');
@@ -55,6 +91,6 @@ assert.match(popupSource, /const gdprEl = d\.querySelector\("#nl-popup-gdpr"\)/,
 assert.match(popupSource, /if \(!gdprEl\.checked\)/,
   'newsletter popup must block submission when privacy consent is unchecked');
 assert.doesNotMatch(popupSource, /postNewsletter\(\{[^}]*consent\s*:/s,
-  'privacy consent must not be silently added to the existing Worker payload contract');
+  'popup must not add consent to the Worker payload');
 
 console.log('test-newsletter-client-contract: all assertions passed');
