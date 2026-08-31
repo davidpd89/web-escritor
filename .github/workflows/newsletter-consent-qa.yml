@@ -1,0 +1,43 @@
+name: Newsletter consent QA
+
+on:
+  pull_request:
+    paths:
+      - 'script.js'
+      - 'assets/v1-shell.js'
+      - 'assets/newsletter-popup.js'
+      - 'scripts/build-site-shell.py'
+      - 'index.html'
+      - 'fragmento/**'
+      - 'las-manecillas-del-recuerdo/**'
+      - 'cuaderno/**'
+      - 'privacidad.html'
+      - 'tests/test-newsletter-client-contract.mjs'
+      - 'qa/newsletter-consent-browser.mjs'
+      - '.github/workflows/newsletter-consent-qa.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  newsletter-contract:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+
+      - name: Install CI/QA dependencies (Node)
+        run: npm ci
+
+      - name: Validate newsletter client contract
+        run: node tests/test-newsletter-client-contract.mjs
+
+      - name: Validate generated shell parity
+        run: python3 scripts/build-site-shell.py --check
