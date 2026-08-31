@@ -69,7 +69,13 @@ jobs:
           QA_OUT: artifacts/sitewide-reflow
         run: node qa/manecillas-design-browser.mjs
 
-      - name: Manecillas scope isolation (Fragmentos unchanged)
+      - name: Manecillas Fragmentos visual-system QA
+        env:
+          QA_ORIGIN: http://127.0.0.1:4173
+          QA_OUT: artifacts/sitewide-reflow
+        run: node qa/manecillas-fragmentos-design-browser.mjs
+
+      - name: Manecillas scope isolation (main vs Fragmentos)
         env:
           QA_ORIGIN: http://127.0.0.1:4173
         run: node qa/manecillas-scope-isolation.mjs
