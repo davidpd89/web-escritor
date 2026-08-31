@@ -114,3 +114,32 @@ html.v1[data-lrb-home="true"] .yale-text-link{flex-wrap:wrap}
    -- at 200% zoom + WCAG text spacing it ran past the row's own edge. */
 html.v1 [data-family="findability"] .directory-group__label{flex-wrap:wrap}
 html.v1 [data-family="findability"] .directory-group__label span{min-width:0;overflow-wrap:anywhere}
+
+/* Samuel: at <=1100px the feature reflows to one column. The horizontal
+   card rules live in the first child while the old vertical rail lived on
+   the later book child, so the same seam that is joined on desktop opened
+   again on tablet/mobile. Put one continuous rail on the outer stacked
+   feature: it spans cards, inter-row gap and book. The cards already use a
+   negative left margin equal to this inset, so their rules meet this axis. */
+@media (max-width:1100px){
+  html.v1[data-lrb-home="true"] .yale-feature--samuel .yale-feature__grid--reverse{
+    --samuel-responsive-rail-inset:clamp(1.2rem,2.6vw,2rem);
+    position:relative;
+    padding-left:var(--samuel-responsive-rail-inset);
+  }
+  html.v1[data-lrb-home="true"] .yale-feature--samuel .yale-feature__grid--reverse::before{
+    content:"";
+    position:absolute;
+    top:0;
+    bottom:0;
+    left:0;
+    width:2.5px;
+    background:#1d4f96;
+    pointer-events:none;
+    z-index:2;
+  }
+  html.v1[data-lrb-home="true"] .yale-feature--samuel .yale-feature-book{
+    background-image:none;
+    padding-left:0;
+  }
+}
