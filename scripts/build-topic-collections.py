@@ -244,7 +244,7 @@ def head(title: str, description: str, canonical: str, jsonld: dict) -> str:
         f'<meta name="twitter:description" content="{esc(description)}">'
         f'<meta name="twitter:image" content="{SHARE_IMAGE}">'
         f'<meta name="twitter:image:alt" content="{esc(title)}">'
-        '<meta name="theme-color" content="#F4EFE7">'
+        '<meta name="theme-color" content="#ffffff">'
         f'<link rel="canonical" href="{esc(canonical)}">'
         '<link rel="icon" type="image/png" href="/assets/david-porto-favicon.png">'
         '<link rel="apple-touch-icon" href="/assets/david-porto-favicon.png">'
