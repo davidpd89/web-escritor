@@ -18,7 +18,9 @@ try {
     requestCount += 1;
     lastPayload = route.request().postDataJSON();
     await route.fulfill({
-      status: 200,
+      // The production Worker returns 201 Created for a DOI contact pending
+      // confirmation. Mirror that contract here instead of a permissive 200.
+      status: 201,
       contentType: 'application/json',
       body: JSON.stringify({ ok: true, state: 'pending_confirmation' })
     });
@@ -49,9 +51,13 @@ try {
   assert.equal(await consent.getAttribute('required'), '', 'privacy consent must be required');
 
   await submit.click();
-  await assert.doesNotReject(async () => {
-    await status.waitFor({ state: 'visible' });
-  });
+  // The handler runs through scheduleTask()/scheduler.postTask. The status
+  // element is already visible before submit, so waiting for visibility races
+  // the async handler and can read the initial empty string. Wait for the
+  // observable message instead.
+  await page.waitForFunction(() => /Acepta la política de privacidad/i.test(
+    document.querySelector('#nl-popup-status')?.textContent || ''
+  ));
   assert.match(await status.textContent(), /Acepta la política de privacidad/i,
     'unchecked submit must explain that privacy consent is required');
   assert.equal(requestCount, 0, 'unchecked popup must not contact the subscription Worker');
