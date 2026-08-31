@@ -134,16 +134,9 @@
       </aside>
     </div>
 
-    <form class="explore-subscribe" id="newsletter-form-explore" novalidate data-newsletter-source="explore">
-      <label class="sr-only" for="nl-email-explore">Email</label>
-      <div class="form-row">
-        <input class="form-input" id="nl-email-explore" name="email" type="email" autocomplete="email" inputmode="email" required placeholder="Tu email" aria-describedby="nl-status-explore">
-        <button class="form-submit" type="submit">Recibir novedades</button>
-      </div>
-      <p id="nl-status-explore" class="form-status" role="status" aria-live="polite"></p>
-    </form>
   </div>
 </dialog>
+
 <!-- site-shell:dialog:end -->
   <main id="contenido" tabindex="-1" class="v1-main" data-family="tool"><nav class="book-breadcrumb" aria-label="Ruta de navegación"><ol><li><a href="/">Inicio</a></li><li><a href="/herramientas/">Herramientas</a></li><li aria-current="page">Detector de repeticiones</li></ol></nav><header class="tool-hero"><p class="eyebrow">Herramienta gratuita · escritura</p><h1>Encuentra los ecos que ya no ves.</h1><p class="tool-hero__lead">Pega un capítulo o fragmento y localiza duplicados, palabras demasiado próximas, comienzos repetidos, frases que vuelven y tus propios tics. El texto no sale de tu navegador.</p></header>
     <section class="tool-panel"><noscript><p class="tool-note" role="status">JavaScript está desactivado. Puedes leer esta página y su metodología, pero el cálculo necesita JavaScript para ejecutarse localmente en tu navegador.</p></noscript><form data-repetition-form><div class="tool-field"><label class="tool-field-label" for="repetition-text">Tu texto</label><textarea id="repetition-text" class="tool-textarea" data-repetition-input spellcheck="true" placeholder="Pega aquí el texto. Se procesa en este dispositivo; no se envía al servidor."></textarea></div><div class="tool-options"><div class="tool-field"><label class="tool-field-label" for="repetition-window">Ventana para considerar un eco</label><select id="repetition-window" class="tool-select" data-repetition-window><option value="15">15 palabras</option><option value="30" selected>30 palabras</option><option value="50">50 palabras</option><option value="80">80 palabras</option></select></div><div class="tool-field"><label class="tool-field-label" for="repetition-tics">Tics que quieres vigilar</label><textarea id="repetition-tics" class="tool-textarea tool-textarea--small" data-repetition-tics placeholder="parecía, como si, de pronto, entonces"></textarea></div><div class="tool-field"><label class="tool-field-label" for="repetition-ignore">Palabras que quieres ignorar</label><textarea id="repetition-ignore" class="tool-textarea tool-textarea--small" data-repetition-ignore placeholder="Ana, Bruno, Madrid"></textarea></div></div><label class="tool-check"><input type="checkbox" data-repetition-common> Incluir también palabras funcionales muy comunes</label><div class="tool-actions"><button type="submit" class="primary-action">Analizar repeticiones</button><button type="button" class="text-action" data-repetition-sample>Probar un ejemplo</button><button type="button" class="text-action" data-repetition-clear>Borrar</button></div><p class="tool-status" data-repetition-status role="status" aria-live="polite">Nada de lo que pegues se guarda ni se envía.</p></form></section>
