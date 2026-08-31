@@ -6,6 +6,7 @@ on:
       - 'script.js'
       - 'assets/v1-shell.js'
       - 'assets/newsletter-popup.js'
+      - 'assets/newsletter-popup.css'
       - 'scripts/build-site-shell.py'
       - 'index.html'
       - 'fragmento/**'
@@ -23,7 +24,7 @@ permissions:
 jobs:
   newsletter-contract:
     runs-on: ubuntu-latest
-    timeout-minutes: 20
+    timeout-minutes: 25
     steps:
       - name: Checkout
         uses: actions/checkout@v4
@@ -41,3 +42,37 @@ jobs:
 
       - name: Validate generated shell parity
         run: python3 scripts/build-site-shell.py --check
+
+      - name: Cache Playwright browser
+        id: playwright-cache
+        uses: actions/cache@v4
+        with:
+          path: ~/.cache/ms-playwright
+          key: playwright-chromium-${{ hashFiles('package-lock.json') }}
+
+      - name: Install Playwright Chromium (with OS deps)
+        if: steps.playwright-cache.outputs.cache-hit != 'true'
+        run: npx playwright install --with-deps chromium
+
+      - name: Install Playwright OS deps only (browser cached)
+        if: steps.playwright-cache.outputs.cache-hit == 'true'
+        run: npx playwright install-deps chromium
+
+      - name: Start local static server
+        shell: bash
+        run: |
+          python3 -m http.server 4173 --bind 127.0.0.1 > /tmp/newsletter-consent-server.log 2>&1 &
+          echo $! > /tmp/newsletter-consent-server.pid
+          for i in {1..30}; do
+            if curl --fail --silent http://127.0.0.1:4173/cuaderno/que-es-el-portal-fantasy/ > /dev/null; then
+              exit 0
+            fi
+            sleep 1
+          done
+          cat /tmp/newsletter-consent-server.log
+          exit 1
+
+      - name: Run newsletter consent browser contract
+        env:
+          QA_ORIGIN: http://127.0.0.1:4173
+        run: node qa/newsletter-consent-browser.mjs
