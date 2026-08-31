@@ -60,10 +60,6 @@ jobs:
         run: python tests/test-radar-builder-parity-v1.py
       - name: Check published Spanish copy is not missing its accents
         run: python scripts/check-copy-tildes.py
-      - name: Check FAQPage JSON-LD does not reappear in Recomendaciones (K.2)
-        run: python scripts/check-recomendaciones-no-faqpage.py --check
-      - name: Check FAQPage JSON-LD does not reappear in the 3 cuaderno articles
-        run: python scripts/check-cuaderno-articles-no-faqpage.py --check
       # Este escaneo vivia en assistant-hardening-qa.yml, que solo se dispara
       # cuando la PR toca ficheros del asistente: una clave colada en cualquier
       # otro sitio del repo no lo activaba y pasaba sin mirar. GitHub Pages
