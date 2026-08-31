@@ -64,7 +64,7 @@ jobs:
           IDENTITY_ARTIFACT_DIR: qa-artifacts/autor-identity-authority
         run: node qa/identity-public-browser.mjs
 
-      - name: Capture Autor inherited baseline
+      - name: Run Autor visual-system contract
         env:
           QA_ORIGIN: http://127.0.0.1:4173
           QA_OUT: qa-artifacts/autor-design
