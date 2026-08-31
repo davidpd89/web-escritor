@@ -99,7 +99,10 @@ async function checkRoute(page, engineName, routePath) {
     } else {
       const media = await videos.first().evaluate((video) => ({
         muted: video.muted,
-        playsInline: video.playsInline,
+        // Firefox does not reliably reflect the HTML `playsinline` attribute
+        // through HTMLVideoElement.playsInline. The Safari contract we need to
+        // protect is the actual markup, so inspect attribute presence instead.
+        hasPlaysInline: video.hasAttribute('playsinline'),
         preload: video.preload,
         poster: video.getAttribute('poster') || '',
         sources: Array.from(video.querySelectorAll('source')).map((source) => ({
@@ -108,7 +111,7 @@ async function checkRoute(page, engineName, routePath) {
         })),
       }));
       if (!media.muted) errors.push('HOME intro pierde muted');
-      if (!media.playsInline) errors.push('HOME intro pierde playsinline');
+      if (!media.hasPlaysInline) errors.push('HOME intro pierde atributo playsinline');
       if (media.preload !== 'auto') errors.push(`HOME intro preload inesperado: ${media.preload || '(vacío)'}`);
       if (!media.poster) errors.push('HOME intro pierde poster/fallback visual');
       if (media.sources.length !== 1) errors.push(`HOME intro debe conservar 1 source MP4, tiene ${media.sources.length}`);
