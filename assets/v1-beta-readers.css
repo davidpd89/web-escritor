@@ -1,0 +1,8 @@
+/* Lectores beta — capa de identidad azul/negro/dorado (#285).
+   Enlazada unicamente desde /lectores-beta/ y /lectores-beta/enviar-manuscrito/.
+   Ambas paginas comparten el sistema generico .article-header/.eyebrow de
+   v1-editorial.css; este fichero solo anade color, sin tocar estructura,
+   formulario ni el runtime de consentimiento de script.js. */
+html.v1 [data-family="lectores-beta"] .eyebrow{color:#b8860b}
+html.v1 [data-family="lectores-beta"] .article-header h1{color:#1d4f96}
+html.v1 [data-family="lectores-beta"] .article-note{border-left-color:#1d4f96}
