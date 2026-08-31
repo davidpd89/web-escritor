@@ -70,13 +70,13 @@ jobs:
           QA_OUT: qa-artifacts/convocatorias-functional
         run: node qa/pro-resources-browser.mjs
 
-      - name: Capture Convocatorias inherited baseline
+      - name: Validate Convocatorias visual-system contract
         env:
           QA_ORIGIN: http://127.0.0.1:4173
           QA_OUT: qa-artifacts/convocatorias-design
         run: node qa/convocatorias-design-browser.mjs
 
-      - name: Upload Convocatorias baseline evidence
+      - name: Upload Convocatorias visual evidence
         if: always()
         uses: actions/upload-artifact@v4
         with:
