@@ -94,3 +94,4 @@ console.log('samuel-design-cross-engine: PASS');
 // un módulo propio y se ejecuta desde el smoke ya conectado al workflow.
 await import('./samuel-fragmento-design-cross-engine.mjs');
 await import('./noveris-design-cross-engine.mjs');
+await import('./club-samuel-design-cross-engine.mjs');
