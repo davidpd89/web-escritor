@@ -1,4 +1,6 @@
-/* Manecillas V8 — browser-pass closure, MAIN page only. */
+/* Manecillas V8 — browser-pass closure. Main-page fixes stay scoped with
+   body:not([data-reading-progress]); the Fragmentos contrast closure is scoped
+   explicitly to body[data-reading-progress]. */
 
 /* #muestra is a zero-height alias immediately before the visible section
    label. As a normal grid item it consumed column 1, shifting the label and
@@ -24,6 +26,34 @@ html.v1[data-editorial-context="manecillas"] body:not([data-reading-progress]) .
 }
 html.v1[data-editorial-context="manecillas"] body:not([data-reading-progress]) .explore-children{
   border-left-color:var(--man-gold);
+}
+
+/* WCAG contrast closure for handwritten gold openings. #b8860b stays as the
+   canonical visual gold, but it only reaches the AA 3:1 threshold as large
+   text. The previous dark-blue bitmap highlight sat behind part of the glyphs,
+   where the pair was below 3:1 and automated tools could not resolve the image.
+   Keep these labels >=24 CSS px and use a very pale blue highlight instead. */
+html.v1[data-editorial-context="manecillas"] body:not([data-reading-progress]) .book-page--manecillas :is(
+  .book-hero__copy>.eyebrow,
+  .book-section__label>.eyebrow,
+  .book-dedication>.eyebrow,
+  .book-newsletter>div>.eyebrow
+){
+  font-size:clamp(1.5rem,1.8vw,1.65rem);
+  background-image:linear-gradient(#f7fbfe,#f7fbfe);
+}
+
+/* v1-fragments.css loads after v1-book.css, so these two properties are the
+   only deliberate important overrides: they close the same contrast contract
+   without moving Fragmentos layout or replacing its page-scoped palette. */
+html.v1[data-editorial-context="manecillas"] body[data-reading-progress] .book-page--manecillas :is(
+  .book-hero__copy>.eyebrow,
+  .book-hero + .v1-section>.eyebrow,
+  .excerpt-section .book-section__label>.eyebrow,
+  #cta-final>.eyebrow
+){
+  font-size:clamp(1.5rem,1.8vw,1.65rem)!important;
+  background-image:linear-gradient(#f7fbfe,#f7fbfe)!important;
 }
 
 /* v1-book.css contains overlapping tablet/mobile media queries and the later
