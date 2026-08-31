@@ -1,0 +1,126 @@
+/* Manecillas V8 — browser-pass closure, MAIN page only. */
+
+/* #muestra is a zero-height alias immediately before the visible section
+   label. As a normal grid item it consumed column 1, shifting the label and
+   prose into the wrong tracks (and wrapping prose back to column 1 at 1199/900).
+   Keep the anchor at the section start but remove it from grid auto-placement. */
+html.v1[data-editorial-context="manecillas"] body:not([data-reading-progress]) .book-page--manecillas .book-anchor-alias{
+  position:absolute;
+  top:0;
+  left:0;
+}
+
+/* Explore disclosure controls still inherited the previous accent treatment.
+   Close the remaining shell leak without changing drawer structure or JS. */
+html.v1[data-editorial-context="manecillas"] body:not([data-reading-progress]) .explore-row__toggle{
+  color:var(--man-blue);
+  border-color:color-mix(in srgb,var(--man-blue) 40%,#fff);
+}
+html.v1[data-editorial-context="manecillas"] body:not([data-reading-progress]) .explore-row__toggle:hover,
+html.v1[data-editorial-context="manecillas"] body:not([data-reading-progress]) .explore-row__toggle:focus-visible{
+  color:#fff;
+  background:var(--man-blue);
+  border-color:var(--man-blue);
+}
+html.v1[data-editorial-context="manecillas"] body:not([data-reading-progress]) .explore-children{
+  border-left-color:var(--man-gold);
+}
+
+/* WCAG contrast closure for the handwritten gold openings on the main page.
+   #b8860b is intentionally retained as the visual gold, but it only reaches
+   the AA 3:1 threshold as large text. The previous dark-blue bitmap highlight
+   also sat behind part of the glyphs, where the pair was below 3:1 and
+   automatic contrast tools could not resolve the image. Keep these labels
+   >=24 CSS px and use a very pale blue highlight instead. */
+html.v1[data-editorial-context="manecillas"] body:not([data-reading-progress]) .book-page--manecillas :is(
+  .book-hero__copy>.eyebrow,
+  .book-section__label>.eyebrow,
+  .book-dedication>.eyebrow,
+  .book-newsletter>div>.eyebrow
+){
+  font-size:clamp(1.5rem,1.8vw,1.65rem);
+  background-image:linear-gradient(#f7fbfe,#f7fbfe);
+}
+
+/* v1-book.css contains overlapping tablet/mobile media queries and the later
+   max-width:899 rule turns .book-hero__copy into display:contents and assigns
+   mobile order/grid values to descendants. For the MAIN Manecillas page, make
+   tablet deliberately simple: cover is one editorial column; the complete copy
+   is the other; the metadata ledger follows the copy in that same right column.
+   Explicitly neutralize the residual mobile placement values in this band.
+   <=767px retains the compact single-column mobile composition. */
+@media (min-width:768px) and (max-width:899px){
+  html.v1[data-editorial-context="manecillas"] body:not([data-reading-progress]) .book-page--manecillas .book-hero{
+    display:grid;
+    grid-template-columns:minmax(12.5rem,.72fr) minmax(0,1.45fr);
+    column-gap:clamp(1.5rem,4vw,2.25rem);
+    row-gap:clamp(1.4rem,3vw,2rem);
+    align-items:start;
+  }
+  html.v1[data-editorial-context="manecillas"] body:not([data-reading-progress]) .book-page--manecillas :is(.book-cover-zone,.book-hero__copy,.book-meta-ledger){
+    order:0;
+  }
+  html.v1[data-editorial-context="manecillas"] body:not([data-reading-progress]) .book-page--manecillas .book-cover-zone{
+    grid-column:1;
+    grid-row:1/span 2;
+    width:auto;
+    max-width:none;
+    margin:0;
+    padding:.75rem;
+    align-self:start;
+  }
+  html.v1[data-editorial-context="manecillas"] body:not([data-reading-progress]) .book-page--manecillas :is(.book-cover,.book-cover-fallback){
+    width:min(96%,230px);
+    max-width:none;
+  }
+  html.v1[data-editorial-context="manecillas"] body:not([data-reading-progress]) .book-page--manecillas .book-hero__copy{
+    grid-column:2;
+    grid-row:1;
+    display:block;
+    min-width:0;
+  }
+  html.v1[data-editorial-context="manecillas"] body:not([data-reading-progress]) .book-page--manecillas .book-hero__copy>*{
+    order:initial;
+    grid-column:auto;
+    grid-row:auto;
+  }
+  html.v1[data-editorial-context="manecillas"] body:not([data-reading-progress]) .book-page--manecillas .book-hero h1{
+    max-width:10ch;
+    margin:.55rem 0 .85rem;
+    font-size:clamp(2.75rem,6.5vw,3.75rem);
+  }
+  html.v1[data-editorial-context="manecillas"] body:not([data-reading-progress]) .book-page--manecillas .book-date{
+    margin-top:.6rem;
+  }
+  html.v1[data-editorial-context="manecillas"] body:not([data-reading-progress]) .book-page--manecillas .book-lead{
+    margin:clamp(1.35rem,3vw,1.8rem) 0 0;
+    max-width:42ch;
+    font-size:clamp(1.16rem,2.45vw,1.4rem);
+  }
+  html.v1[data-editorial-context="manecillas"] body:not([data-reading-progress]) .book-page--manecillas .book-actions{
+    display:flex;
+    grid-template-columns:none;
+    align-items:center;
+    margin-top:1.35rem;
+  }
+  html.v1[data-editorial-context="manecillas"] body:not([data-reading-progress]) .book-page--manecillas .book-actions .primary-action{
+    width:auto;
+  }
+  html.v1[data-editorial-context="manecillas"] body:not([data-reading-progress]) .book-page--manecillas .book-meta-ledger{
+    grid-column:2;
+    grid-row:2;
+    display:grid;
+    grid-template-columns:repeat(2,minmax(0,1fr));
+    margin:0;
+  }
+}
+
+/* The floating launcher duplicates the persistent Asistente entry in the
+   utility header. At <=1300px the fixed bubble can overlap reading copy while
+   scrolling, so hide only that duplicate control. The assistant remains
+   mounted and the header entry continues to open the same panel. */
+@media (max-width:1300px){
+  html.v1[data-editorial-context="manecillas"] body:not([data-reading-progress]) .assistant-widget__launcher{
+    display:none;
+  }
+}
