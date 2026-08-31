@@ -76,7 +76,7 @@ jobs:
           IDENTITY_ARTIFACT_DIR: qa-artifacts/premios-evidence-authority
         run: node qa/awards-evidence-browser.mjs
 
-      - name: Capture Premios inherited baseline
+      - name: Run Premios visual-system contract
         env:
           QA_ORIGIN: http://127.0.0.1:4173
           QA_OUT: qa-artifacts/premios-design
