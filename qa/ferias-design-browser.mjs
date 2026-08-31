@@ -133,6 +133,7 @@ try{
       await open(page,'#feria-libro-madrid-2026');
       const target=await page.locator('#feria-libro-madrid-2026').evaluate(el=>({border:getComputedStyle(el).borderBottomColor,before:getComputedStyle(el,'::before').backgroundColor,height:getComputedStyle(el,'::before').height}));
       assert.notEqual(target.before,'rgba(0, 0, 0, 0)','target Madrid sin rail de foco documental');
+      await loadImages(page);await page.evaluate(()=>window.scrollTo(0,0));
       await page.screenshot({path:path.join(OUT,'ferias-target-madrid-1440.png'),fullPage:true});
     }catch(error){failures.push({viewport:'target-madrid-1440',width:1440,height:1000,error:error instanceof Error?error.message:String(error)});}finally{await c.close();}
   }
@@ -151,6 +152,7 @@ try{
     try{
       const r=await page.goto(`${ORIGIN}/ferias.html`,{waitUntil:'load'});assert.ok(r?.ok(),'no-js: Ferias no carga');
       assert.equal(await page.locator('.fair-record').count(),2,'no-js: registros incompletos');assert.equal(await page.locator('.fair-media figure').count(),8,'no-js: galería incompleta');
+      await loadImages(page);await page.evaluate(()=>window.scrollTo(0,0));
       await noOverflow(page,'no-js 390');await page.screenshot({path:path.join(OUT,'ferias-no-js-390.png'),fullPage:true});
     }catch(error){failures.push({viewport:'no-js-390',width:390,height:900,error:error instanceof Error?error.message:String(error)});}finally{await c.close();}
   }
@@ -168,6 +170,6 @@ try{
   }
 }finally{await browser.close();}
 
-fs.writeFileSync(path.join(OUT,'ferias-design-report.json'),JSON.stringify({route:'/ferias.html',phase:'inherited-baseline',viewports:viewports.length,measurements,failures},null,2));
-assert.deepEqual(failures,[],`Ferias inherited-baseline failures:\n${JSON.stringify(failures,null,2)}`);
-console.log(`Ferias inherited baseline: PASS (${viewports.length} viewports + target + 3 isolation controls + no-JS + WCAG stress)`);
+fs.writeFileSync(path.join(OUT,'ferias-design-report.json'),JSON.stringify({route:'/ferias.html',phase:'visual-system-contract',viewports:viewports.length,measurements,failures},null,2));
+assert.deepEqual(failures,[],`Ferias visual-system contract failures:\n${JSON.stringify(failures,null,2)}`);
+console.log(`Ferias visual-system contract: PASS (${viewports.length} viewports + target + 3 isolation controls + no-JS + WCAG stress)`);
