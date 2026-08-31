@@ -55,6 +55,8 @@ html.v1 .fair-record:target::before{content:"";position:absolute;inset-block:0 a
   html.v1 .fairs-year__label{position:static;border-bottom:1px solid var(--color-border);padding-bottom:.75rem}
   html.v1 .fair-record__body{grid-template-columns:minmax(0,1fr)}
   html.v1 .fair-record__body>*{min-width:0}
+  html.v1 .fair-record__references{min-width:0;max-width:100%}
+  html.v1 .fair-record__references .text-action{min-width:0;max-width:100%;overflow-wrap:anywhere}
   html.v1 .fair-media--madrid{grid-template-columns:repeat(2,minmax(0,1fr))}
 }
 
