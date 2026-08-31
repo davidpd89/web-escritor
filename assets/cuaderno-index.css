@@ -1,5 +1,7 @@
-/* Cuaderno index — editorial publication identity.
-   Loaded only by /cuaderno/: articles keep the shared v1-editorial.css reading system. */
+/* Cuaderno editorial publication identity.
+   Loaded by /cuaderno/, individual articles and the Temas family (#279):
+   the prose itself stays on the shared v1-editorial.css reading system --
+   only headers, rails, breadcrumbs and index chrome take azul/dorado. */
 
 html.v1[data-editorial-context="cuaderno"]{
   --cuaderno-blue:#1d4f96;
@@ -128,6 +130,44 @@ html.v1[data-editorial-context="cuaderno"] .site-footer::before{
 html.v1[data-editorial-context="cuaderno"] .site-footer h2,
 html.v1[data-editorial-context="cuaderno"] .site-footer .brand__name{color:var(--cuaderno-blue)}
 html.v1[data-editorial-context="cuaderno"] .back-to-top{border-color:var(--cuaderno-blue);box-shadow:inset 0 -2px 0 var(--cuaderno-gold)}
+
+/* Article headers (#279): same masthead identity as the hub, article-title scale. */
+html.v1[data-editorial-context="cuaderno"] .article-header{
+  border-bottom:0;
+  background:linear-gradient(var(--cuaderno-blue),var(--cuaderno-blue)) left calc(100% - 4px)/100% 1.5px no-repeat,
+             linear-gradient(var(--cuaderno-gold),var(--cuaderno-gold)) left bottom/100% 1.5px no-repeat
+}
+html.v1[data-editorial-context="cuaderno"] .article-header .eyebrow{
+  width:fit-content;padding:0 .08em .08em;color:var(--cuaderno-gold);
+  font-family:'Yellowtail','Samuel Yellowtail Fallback',cursive;font-size:clamp(1.3rem,1.18rem + .35vw,1.55rem);font-weight:400;line-height:1.05;
+  letter-spacing:0;text-transform:none;background:url('/assets/highlight-8-blue-rect.png') left 94%/100% .32em no-repeat
+}
+html.v1[data-editorial-context="cuaderno"] .article-header h1{color:var(--cuaderno-blue);-webkit-text-stroke:.1px rgba(184,134,11,.34)}
+
+/* Temas family (#279): collections hub + topic detail share the same identity. */
+html.v1[data-editorial-context="cuaderno"] .cuaderno-topics-breadcrumb a{color:var(--cuaderno-blue)}
+html.v1[data-editorial-context="cuaderno"] .cuaderno-topics-breadcrumb a:hover{text-decoration-color:var(--cuaderno-gold)}
+html.v1[data-editorial-context="cuaderno"] .cuaderno-topics-hero{
+  border-bottom:0;
+  background:linear-gradient(var(--cuaderno-blue),var(--cuaderno-blue)) left calc(100% - 4px)/100% 1.5px no-repeat,
+             linear-gradient(var(--cuaderno-gold),var(--cuaderno-gold)) left bottom/100% 1.5px no-repeat
+}
+html.v1[data-editorial-context="cuaderno"] .cuaderno-topics-hero .eyebrow{
+  width:fit-content;padding:0 .08em .08em;color:var(--cuaderno-gold);
+  font-family:'Yellowtail','Samuel Yellowtail Fallback',cursive;font-size:clamp(1.3rem,1.18rem + .35vw,1.55rem);font-weight:400;line-height:1.05;
+  letter-spacing:0;text-transform:none;background:url('/assets/highlight-8-blue-rect.png') left 94%/100% .32em no-repeat
+}
+html.v1[data-editorial-context="cuaderno"] .cuaderno-topics-hero h1{color:var(--cuaderno-blue);-webkit-text-stroke:.1px rgba(184,134,11,.34)}
+html.v1[data-editorial-context="cuaderno"] .cuaderno-topics-hero__folio{border-color:var(--cuaderno-blue);box-shadow:-4px 0 0 -2.5px var(--cuaderno-gold);color:var(--cuaderno-neutral)}
+html.v1[data-editorial-context="cuaderno"] .cuaderno-topics-hero__folio strong{color:var(--cuaderno-blue)}
+html.v1[data-editorial-context="cuaderno"] .cuaderno-topics-entry__index{color:var(--cuaderno-gold)}
+html.v1[data-editorial-context="cuaderno"] :is(.cuaderno-topics-entry__body,.cuaderno-topic-step__body) h2 a{color:var(--cuaderno-blue);text-decoration-color:var(--cuaderno-rule)}
+html.v1[data-editorial-context="cuaderno"] :is(.cuaderno-topics-entry__body,.cuaderno-topic-step__body) h2 a:hover,
+html.v1[data-editorial-context="cuaderno"] :is(.cuaderno-topics-entry__body,.cuaderno-topic-step__body) h2 a:focus-visible{text-decoration-color:var(--cuaderno-gold)}
+html.v1[data-editorial-context="cuaderno"] .cuaderno-topics-ledger{border-top-color:var(--cuaderno-blue);border-bottom-color:var(--cuaderno-gold)}
+html.v1[data-editorial-context="cuaderno"] .cuaderno-topics-link{color:var(--cuaderno-blue);text-decoration-color:var(--cuaderno-rule)}
+html.v1[data-editorial-context="cuaderno"] .cuaderno-topics-link:hover,
+html.v1[data-editorial-context="cuaderno"] .cuaderno-topics-link:focus-visible{text-decoration-color:var(--cuaderno-gold)}
 
 @media(max-width:900px){
   html.v1[data-editorial-context="cuaderno"] .cuaderno-masthead>.cuaderno-masthead__folio{

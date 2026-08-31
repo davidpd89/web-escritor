@@ -268,6 +268,7 @@ def head(title: str, description: str, canonical: str, jsonld: dict) -> str:
         '<link rel="stylesheet" href="/assets/v1-components.css">'
         '<link rel="stylesheet" href="/assets/v1-families.css">'
         '<link rel="stylesheet" href="/assets/v1-cuaderno-topics.css">'
+        '<link rel="stylesheet" href="/assets/cuaderno-index.css">'
         f'<script type="application/ld+json">{schema}</script></head><body>'
         + SHELL_HEADER
     )
