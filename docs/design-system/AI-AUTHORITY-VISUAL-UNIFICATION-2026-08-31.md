@@ -33,11 +33,22 @@ A fecha de este contrato, **31 de agosto de 2026**, el HTML afirma sobre `Las ma
 
 El 3 de septiembre todavía es futuro. En una superficie que se define como fuente verificable, el tiempo verbal/estado no puede presentar como ocurrido un hecho futuro.
 
+### Propagación verificada
+
+La inconsistencia no está aislada en `/ai/`. También se ha comprobado en:
+
+- `/llms.txt`: `Estado editorial autorizado: publicada el 3 de septiembre de 2026`;
+- `/llms-full.txt`: repite ese estado y añade un “contrato temporal” que reconoce expresamente que la redacción `publicada` se mantiene incluso en material preparado antes de la fecha;
+- `/press-kit/las-manecillas-del-recuerdo.json`: `publicationDate: 2026-09-03`, `status: published` y sinopsis atómica que dice `publicada el 3 de septiembre de 2026`.
+
+Por tanto, no basta con corregir una frase visible: hay que definir una única fuente de verdad temporal y evitar divergencias entre HTML, llms y press-kit.
+
 Antes de cerrar esta PR hay que reconciliar ese estado con una fuente editorial válida y con la fecha real del despliegue:
 
 - antes de la publicación, usar formulación factual de estado futuro/programado solo si está documentalmente respaldada;
 - desde el día efectivo de publicación, actualizar a estado publicado únicamente tras verificar que el lanzamiento ocurrió;
-- sincronizar, si procede, las superficies machine-readable relacionadas (`llms*.txt`, press-kit/JSON, schema/páginas canónicas) mediante el flujo factual correspondiente.
+- sincronizar las superficies machine-readable afectadas mediante el flujo factual correspondiente;
+- revisar si otras páginas/schema repiten el mismo estado antes de declarar el problema cerrado.
 
 No inventar un nuevo estado ni asumir que una fecha prevista equivale a publicación efectiva.
 
@@ -103,12 +114,14 @@ Revisar:
 
 ### QA temporal
 
-El contrato debe impedir estados imposibles del tipo `publicada` con una fecha futura respecto a la fecha efectiva de build/deploy, salvo que el término se use en un contexto inequívocamente futuro. La prueba no debe falsificar la fecha actual ni hardcodear un PASS que dejará de tener sentido tras el lanzamiento.
+El contrato debe impedir estados imposibles del tipo `publicada`/`published` con una fecha futura respecto a la fecha efectiva de build/deploy, salvo que el término aparezca dentro de una cita o contexto inequívocamente futuro. La prueba no debe falsificar la fecha actual ni hardcodear un PASS que dejará de tener sentido tras el lanzamiento.
+
+La cobertura debe incluir al menos `/ai/`, `llms.txt`, `llms-full.txt` y `press-kit/las-manecillas-del-recuerdo.json`, y ampliarse a cualquier otra superficie que la auditoría encuentre con el mismo hecho.
 
 ## Aislamiento
 
-No alterar Autor, Manecillas, Samuel, Press-kit, `llms*.txt` ni otras fuentes factuales de manera incidental. Si el bloqueo factual exige sincronización transversal, documentar exactamente qué superficies se actualizan y por qué.
+No alterar Autor, Manecillas, Samuel ni otras fuentes factuales de manera incidental. Si el bloqueo factual exige sincronización transversal, documentar exactamente qué superficies se actualizan y por qué.
 
 ## Cierre
 
-Mantener Draft y sin merge. Esta PR no puede considerarse cerrada mientras la incoherencia temporal pre-lanzamiento siga presente. Revisión física final bajo `REAL-DEVICE-REVIEW-CONTRACT-2026-08-29.md`.
+Mantener Draft y sin merge. Esta PR no puede considerarse cerrada mientras la incoherencia temporal pre-lanzamiento siga presente o las superficies canónicas discrepen entre sí. Revisión física final bajo `REAL-DEVICE-REVIEW-CONTRACT-2026-08-29.md`.
