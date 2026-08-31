@@ -1,0 +1,36 @@
+name: Live compression origin audit
+
+on:
+  pull_request:
+    paths:
+      - "qa/live-compression-origin.mjs"
+      - ".github/workflows/live-compression-origin-audit.yml"
+      - "docs/web-improvement-ideas/E07-PRODUCTION-REVALIDATION-2026-08-30.md"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  live-compression-origin:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+
+      - name: Observe production compression negotiation
+        run: node qa/live-compression-origin.mjs
+
+      - name: Upload report-only evidence
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: live-compression-origin-report
+          path: artifacts/compression/live-compression-origin.json
+          if-no-files-found: warn
