@@ -80,6 +80,12 @@ jobs:
           QA_ORIGIN: http://127.0.0.1:4173
         run: node qa/manecillas-scope-isolation.mjs
 
+      - name: Samuel visual-system QA
+        env:
+          QA_ORIGIN: http://127.0.0.1:4173
+          QA_OUT: artifacts/sitewide-reflow
+        run: node qa/samuel-design-browser.mjs
+
       - name: POV distribution format QA (O.2)
         if: always()
         run: node qa/pov-distribucion-format-browser.mjs
