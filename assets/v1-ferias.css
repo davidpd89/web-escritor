@@ -1,6 +1,6 @@
 /* Ferias del libro — documentary archive layer.
    Local to /ferias.html: no global identity or shell ownership. */
-html.v1 .fairs-page{--fair-rail:clamp(5.25rem,10vw,9.5rem)}
+html.v1 .fairs-page{--fair-rail:clamp(5.25rem,10vw,9.5rem);--color-brand:#1d4f96}
 html.v1 .fairs-masthead{align-items:start}
 html.v1 .fairs-masthead .coordinate{color:var(--color-accent-strong)}
 html.v1 .fairs-masthead .eyebrow{color:var(--color-brand)}
