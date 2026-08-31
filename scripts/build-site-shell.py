@@ -425,7 +425,7 @@ def render_explore_territories(nav: dict, by_id: dict[str, Entry]) -> str:
     return "\n".join(markup)
 
 
-def render_explore(nav: dict, by_id: dict[str, Entry], current_path: str) -> str:
+def render_explore(nav: dict, by_id: dict[str, Entry], current_path: str, allow_newsletter: bool = True) -> str:
     rows = render_explore_rows(nav, by_id)
     current_entry = next((entry for entry in by_id.values() if entry.url == current_path), None)
     # El preview por defecto describe el territorio en el que ya está el
@@ -443,6 +443,22 @@ def render_explore(nav: dict, by_id: dict[str, Entry], current_path: str) -> str
     default_copy = PREVIEW_ASIDE_COPY.get(default_key, PREVIEW_COPY.get(default_key, "Destinos clave de la web."))
 
     territories_markup = render_explore_territories(nav, by_id)
+
+    subscribe_markup = (
+        '    <form class="explore-subscribe" id="newsletter-form-explore" novalidate data-newsletter-source="explore">\n'
+        '      <label class="sr-only" for="nl-email-explore">Email</label>\n'
+        '      <div class="form-row">\n'
+        '        <input class="form-input" id="nl-email-explore" name="email" type="email" autocomplete="email" inputmode="email" required placeholder="Tu email" aria-describedby="nl-status-explore">\n'
+        '        <button class="form-submit" type="submit">Recibir novedades</button>\n'
+        '      </div>\n'
+        '      <label class="form-consent" for="nl-gdpr-explore">\n'
+        '        <input id="nl-gdpr-explore" name="consent" type="checkbox" required aria-describedby="nl-status-explore">\n'
+        '        <span>He leído y acepto la <a href="/privacidad.html">política de privacidad</a>.</span>\n'
+        '      </label>\n'
+        '      <p id="nl-status-explore" class="form-status" role="status" aria-live="polite"></p>\n'
+        '    </form>\n'
+    ) if allow_newsletter else ''
+    runtime_markup = '<script defer src="/assets/newsletter-general.js"></script>' if allow_newsletter else ''
 
     return (
         '<dialog class="explore-dialog" id="explore-dialog" aria-labelledby="explore-title" data-explore-dialog>\n'
@@ -466,21 +482,10 @@ def render_explore(nav: dict, by_id: dict[str, Entry], current_path: str) -> str
         f'        <p class="explore-preview__copy" data-preview-copy>{default_copy}</p>\n'
         '      </aside>\n'
         '    </div>\n\n'
-        '    <form class="explore-subscribe" id="newsletter-form-explore" novalidate data-newsletter-source="explore">\n'
-        '      <label class="sr-only" for="nl-email-explore">Email</label>\n'
-        '      <div class="form-row">\n'
-        '        <input class="form-input" id="nl-email-explore" name="email" type="email" autocomplete="email" inputmode="email" required placeholder="Tu email" aria-describedby="nl-status-explore">\n'
-        '        <button class="form-submit" type="submit">Recibir novedades</button>\n'
-        '      </div>\n'
-        '      <label class="form-consent" for="nl-gdpr-explore">\n'
-        '        <input id="nl-gdpr-explore" name="consent" type="checkbox" required aria-describedby="nl-status-explore">\n'
-        '        <span>He leído y acepto la <a href="/privacidad.html">política de privacidad</a>.</span>\n'
-        '      </label>\n'
-        '      <p id="nl-status-explore" class="form-status" role="status" aria-live="polite"></p>\n'
-        '    </form>\n'
+        + subscribe_markup +
         '  </div>\n'
         '</dialog>\n'
-        '<script defer src="/assets/newsletter-general.js"></script>'
+        + runtime_markup
     )
 
 
@@ -630,7 +635,13 @@ def apply_shell(original: str, rel_path: str, nav: dict, by_id: dict[str, Entry]
 
     new_text = original
     header_html = render_header(nav, by_id, current_path)
-    dialog_html = render_explore(nav, by_id, current_path)
+    # El CSP publico/generado permite el Worker de suscripcion. Las
+    # herramientas con CSP local (a menudo connect-src 'none') mantienen su
+    # frontera mas estricta escrita a mano: nunca debilitarla solo para que
+    # el formulario global de Explorar pueda hacer POST.
+    custom_csp = bool(EXISTING_CSP_RE.search(original)) and CSP_START not in original
+    allow_newsletter = (not custom_csp) or ("subscribe.davidpd89.workers.dev" in original)
+    dialog_html = render_explore(nav, by_id, current_path, allow_newsletter=allow_newsletter)
     footer_html = render_footer(nav, by_id, extras, rel_path, current_path)
 
     new_text, ok_header = replace_or_insert_block(new_text, HEADER_RE, header_html, HEADER_START, HEADER_END)

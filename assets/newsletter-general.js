@@ -30,7 +30,7 @@
     const wrapper = document.createElement('div');
     wrapper.setAttribute('aria-hidden', 'true');
     wrapper.setAttribute('inert', '');
-    wrapper.style.cssText = 'position:absolute;width:1px;height:1px;padding:0;overflow:hidden;clip:rect(0 0 0 0);clip-path:inset(50%);white-space:nowrap;border:0;';
+    wrapper.className = 'sr-only';
     const field = document.createElement('input');
     field.type = 'text';
     field.name = 'website';

@@ -111,8 +111,19 @@ try {
   assert.deepEqual(requests[0], { email: 'qa-newsletter@example.com', source: 'popup', website: '' }, 'popup payload stays exact');
   await page.close();
 
+  const strict = await context.newPage();
+  const strictResponse = await strict.goto(`${ORIGIN}/herramientas/manuscrito/`, { waitUntil: 'domcontentloaded' });
+  assert.ok(strictResponse?.ok(), 'local-only manuscript tool must load');
+  await strict.locator('[data-explore-open]').first().click();
+  await strict.locator('[data-explore-dialog]').waitFor({ state: 'visible' });
+  assert.equal(await strict.locator('#newsletter-form-explore').count(), 0,
+    'local-only CSP page must not expose an unusable newsletter form');
+  assert.equal(await strict.locator('script[src*="newsletter-general.js"]').count(), 0,
+    'local-only CSP page must not load the newsletter runtime');
+  await strict.close();
+
   await context.close();
-  console.log('newsletter-consent-browser: inline + Explore + shell-only + popup contracts passed');
+  console.log('newsletter-consent-browser: inline + Explore + shell-only + popup + local-only CSP contracts passed');
 } finally {
   await browser.close();
 }

@@ -81,6 +81,10 @@ assert.ok(builderSource.includes('nl-gdpr-explore'),
   'shell builder must generate Explore consent');
 assert.match(builderSource, /newsletter-general\.js/,
   'shell builder must load the shared general newsletter runtime');
+assert.match(builderSource, /allow_newsletter/,
+  'shell builder must conditionally omit newsletter UI for stricter custom CSP pages');
+assert.match(builderSource, /subscribe\.davidpd89\.workers\.dev/,
+  'shell builder CSP boundary must key off the canonical subscription Worker');
 
 assert.match(popupSource, /id=\\?"nl-popup-gdpr\\?"[^>]*name=\\?"consent\\?"[^>]*required/,
   'newsletter popup must render a required privacy-consent checkbox');
