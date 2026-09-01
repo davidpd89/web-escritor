@@ -57,7 +57,14 @@ for (const item of CASES) {
   const last = page.locator('[data-assistant-log] .assistant-message--assistant').last();
   const answer = (await last.locator(".assistant-message__bubble p").innerText()).trim();
   const hrefs = (await last.locator(".assistant-message__sources a").evaluateAll(links => links.map(link => link.getAttribute("href")))).map(normalizeHref);
-  const matched = item.accepted.some(expected => hrefs.includes(expected));
+  // Exact-set match, not "one of the accepted hrefs is present": a reply
+  // that also drags in an unrelated or wrongly-specialized extra source
+  // (e.g. a generic query's answer also citing a specific sub-topic page)
+  // must fail here, not slip through because the right link was merely
+  // among several returned.
+  const uniqueHrefs = [...new Set(hrefs)];
+  const matched = uniqueHrefs.length === item.accepted.length
+    && item.accepted.every(expected => uniqueHrefs.includes(expected));
 
   results.push({
     id: item.id,
