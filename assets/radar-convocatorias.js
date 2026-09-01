@@ -119,7 +119,7 @@
       if (matches) visible += 1;
     });
 
-    if (count) count.textContent = `${visible} ${visible === 1 ? 'convocatoria' : 'convocatorias'} visibles`;
+    if (count) count.textContent = `${visible} ${visible === 1 ? 'convocatoria' : 'convocatorias'} ${visible === 1 ? 'visible' : 'visibles'}`;
     if (empty) empty.hidden = visible !== 0;
   };
 

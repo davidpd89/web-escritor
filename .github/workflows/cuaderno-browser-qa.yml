@@ -4,6 +4,7 @@ on:
   push:
     paths:
       - 'cuaderno/**'
+      - 'assets/cuaderno-index.css'
       - 'assets/v1-editorial.css'
       - 'assets/v1-editorial.js'
       - 'assets/article-print.css'
@@ -11,10 +12,12 @@ on:
       - 'assets/article-tools.css'
       - 'assets/article-tools.js'
       - 'qa/cuaderno-browser.mjs'
+      - 'qa/cuaderno-index-design-browser.mjs'
       - '.github/workflows/cuaderno-browser-qa.yml'
   pull_request:
     paths:
       - 'cuaderno/**'
+      - 'assets/cuaderno-index.css'
       - 'assets/v1-editorial.css'
       - 'assets/v1-editorial.js'
       - 'assets/article-print.css'
@@ -22,6 +25,7 @@ on:
       - 'assets/article-tools.css'
       - 'assets/article-tools.js'
       - 'qa/cuaderno-browser.mjs'
+      - 'qa/cuaderno-index-design-browser.mjs'
       - '.github/workflows/cuaderno-browser-qa.yml'
   workflow_dispatch:
 
@@ -73,6 +77,12 @@ jobs:
         env:
           QA_BASE_URL: http://127.0.0.1:4173
         run: node qa/cuaderno-browser.mjs
+
+      - name: Run Cuaderno index visual-system QA
+        env:
+          QA_BASE_URL: http://127.0.0.1:4173
+          QA_OUT: qa-artifacts/cuaderno
+        run: node qa/cuaderno-index-design-browser.mjs
 
       - name: Check generated editorial outputs
         run: |
