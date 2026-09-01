@@ -185,6 +185,7 @@ def render(data, tools, directories):
   <link rel="stylesheet" href="/assets/v1-shell.css" />
   <link rel="stylesheet" href="/assets/v1-components.css" />
   <link rel="stylesheet" href="/assets/v1-families.css" />
+  <link rel="stylesheet" href="/assets/herramientas-index.css" />
 
   <script type="application/ld+json">{{"@context":"https://schema.org","@type":"CollectionPage","name":"Herramientas gratuitas para escritores","url":"https://davidportodiaz.com/herramientas/","inLanguage":"es","mainEntity":{{"@type":"ItemList","numberOfItems":{len(tools)},"itemListElement":[{item_list_json}]}}}}</script>
 </head>

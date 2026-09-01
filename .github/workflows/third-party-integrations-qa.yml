@@ -1,0 +1,40 @@
+name: Third-party integrations QA
+
+on:
+  pull_request:
+    paths:
+      - 'data/third-party-integrations.json'
+      - 'scripts/check-third-party-integrations.py'
+      - 'tests/test-third-party-integrations.py'
+      - 'script.js'
+      - 'assets/assistant.js'
+      - 'cloudflare-worker-subscribe.js'
+      - 'cloudflare-worker-assistant.js'
+      - 'wrangler.assistant.jsonc'
+      - 'scripts/build-site-shell.py'
+      - 'privacidad.html'
+      - 'index.html'
+      - '.github/workflows/third-party-integrations-qa.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  third-party-integrations:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Run third-party integration unit tests
+        run: python tests/test-third-party-integrations.py
+
+      - name: Verify integration registry, evidence, privacy and CSP
+        run: python scripts/check-third-party-integrations.py --check

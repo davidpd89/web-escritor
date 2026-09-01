@@ -196,10 +196,15 @@
         <input class="form-input" id="nl-email-explore" name="email" type="email" autocomplete="email" inputmode="email" required placeholder="Tu email" aria-describedby="nl-status-explore">
         <button class="form-submit" type="submit">Recibir novedades</button>
       </div>
+      <label class="form-consent" for="nl-gdpr-explore">
+        <input id="nl-gdpr-explore" name="consent" type="checkbox" required aria-describedby="nl-status-explore">
+        <span>He leído y acepto la <a href="/privacidad.html">política de privacidad</a>.</span>
+      </label>
       <p id="nl-status-explore" class="form-status" role="status" aria-live="polite"></p>
     </form>
   </div>
 </dialog>
+<script defer src="/assets/newsletter-general.js"></script>
 <!-- site-shell:dialog:end -->
 
   <main class="editorial-page article-page" id="contenido" tabindex="-1">
@@ -229,7 +234,7 @@
       <div class="article-layout">
         <div class="article-prose" data-article-body>
           <figure class="visual-figure visual-figure--fragment">
-            <img src="/assets/fragmento-capitulo-1-samuel-entre-mundos-noveris.webp" alt="Umbral de Noveris al inicio de Samuel entre mundos" loading="lazy" decoding="async" width="1774" height="887" />
+            <img src="/assets/fragmento-capitulo-1-samuel-entre-mundos-noveris.webp" alt="Umbral de Noveris al inicio de Samuel entre mundos" loading="eager" fetchpriority="high" decoding="async" width="1774" height="887" />
             <figcaption>Capítulo 1 — El principio del salto</figcaption>
           </figure>
 
@@ -415,6 +420,10 @@
           <input class="form-input" id="nl-email-fragmento" name="email" type="email" autocomplete="email" inputmode="email" placeholder="tu@email.com" required aria-describedby="nl-status-fragmento">
           <button class="form-submit" type="submit">Recibir novedades</button>
         </div>
+        <label class="form-consent" for="nl-gdpr-fragmento">
+          <input id="nl-gdpr-fragmento" name="consent" type="checkbox" required aria-describedby="nl-status-fragmento">
+          <span>He leído y acepto la <a href="/privacidad.html">política de privacidad</a>.</span>
+        </label>
         <p id="nl-status-fragmento" class="form-status" role="status" aria-live="polite"></p>
       </form>
     </section>

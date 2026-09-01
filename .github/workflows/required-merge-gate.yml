@@ -51,6 +51,12 @@ jobs:
           done
           exit $fail
 
+      - name: Verify third-party integration governance
+        run: python scripts/check-third-party-integrations.py --check
+
+      - name: Verify deterministic performance budgets
+        run: python scripts/check-performance-budgets.py --check --json .ci/performance-budget.json
+
       - name: Run universal Node engine contracts
         shell: bash
         run: |
@@ -115,6 +121,8 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: required-merge-gate-evidence
-          path: .ci/release-readiness.md
+          path: |
+            .ci/release-readiness.md
+            .ci/performance-budget.json
           if-no-files-found: warn
           retention-days: 14

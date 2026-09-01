@@ -193,7 +193,7 @@ for (const route of ['/libros/samuel-entre-mundos/', '/fragmento/']) {
   check(await page.locator('h1').isVisible(), `${route} no-JS: H1 unavailable`);
   check(await overflow(page) <= 1, `${route} no-JS: overflow ${await overflow(page)}px`);
   if (route.includes('samuel-entre-mundos')) {
-    check((await page.locator('noscript').innerText()).includes('necesita JavaScript'), 'book no-JS: quiz fallback missing');
+    check((await page.locator('#quiz-noveris noscript').innerText()).includes('necesita JavaScript'), 'book no-JS: quiz fallback missing');
     check(await page.locator('a[href="/fragmento/"]').count() > 0, 'book no-JS: fragment route missing');
   } else {
     check((await page.locator('.fragment-reading').innerText()).length > 5000, 'fragment no-JS: literary text unavailable');
