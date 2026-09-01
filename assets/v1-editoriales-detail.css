@@ -1,0 +1,16 @@
+/* Editoriales — fichas individuales, capa de identidad azul/negro/dorado (#281).
+   Enlazada unicamente desde las 3 fichas generadas por render_detail() en
+   scripts/build-editoriales.py. El directorio /editoriales/ (#272),
+   /convocatorias-escritores/ y /metodologia-editorial/ comparten .tool-*
+   y editoriales.css pero nunca cargan este fichero. */
+html.v1{--editorial-blue:#1d4f96;--editorial-blue-deep:#0d2c57;--editorial-gold:#b8860b;--editorial-pale:#eefaff}
+
+html.v1 main[data-family="tool"] .tool-hero .eyebrow{color:var(--editorial-gold)}
+html.v1 main[data-family="tool"] .tool-hero h1{color:var(--editorial-blue)}
+html.v1 main[data-family="tool"] .tool-hero{border-bottom-color:var(--editorial-blue)}
+
+html.v1 main[data-family="tool"] .tool-note{border-left-color:var(--editorial-blue);background:var(--editorial-pale)}
+
+html.v1 main[data-family="tool"] .tool-findings-block>h2{color:var(--editorial-blue)}
+
+html.v1 main[data-family="tool"] .tool-source-list a:hover{color:var(--editorial-blue)}
