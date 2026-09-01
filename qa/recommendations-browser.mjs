@@ -123,6 +123,56 @@ for (const vp of viewports) {
   await context.close();
 }
 
+// #282: azul/dorado como jerarquia editorial, no como fondo de producto.
+// Ledger metrics stay neutral; disclosure/positions/eyebrows/h1 take the
+// family palette. Also confirms the layer never leaks outside its 4 routes.
+const REC_BLUE = 'rgb(29, 79, 150)';
+const REC_GOLD = 'rgb(184, 134, 11)';
+{
+  const context = await contextFor({ width: 1440, height: 1000 });
+  const { page } = await openChecked(context, '/recomendaciones/');
+  const hubColors = await page.evaluate(() => ({
+    h1: getComputedStyle(document.querySelector('.recommendations-hero h1')).color,
+    eyebrow: getComputedStyle(document.querySelector('.recommendations-hero .eyebrow')).color,
+    number: getComputedStyle(document.querySelector('.recommendations-index__number')).color,
+  }));
+  check(hubColors.h1 === REC_BLUE, `hub: h1 should use editorial blue, got ${hubColors.h1}`);
+  check(hubColors.eyebrow === REC_GOLD, `hub: eyebrow should use editorial gold, got ${hubColors.eyebrow}`);
+  check(hubColors.number === REC_BLUE, `hub: folio number should use editorial blue, got ${hubColors.number}`);
+  await context.close();
+}
+for (const route of ['/recomendaciones/portal-fantasy-espanol/', '/recomendaciones/magia-con-coste/', '/recomendaciones/politica-de-recomendaciones/']) {
+  const context = await contextFor({ width: 1440, height: 1000 });
+  const { page } = await openChecked(context, route);
+  const colors = await page.evaluate(() => ({
+    h1: getComputedStyle(document.querySelector('.article-header h1')).color,
+    eyebrow: getComputedStyle(document.querySelector('.article-header .eyebrow')).color,
+    hasIdentity: !!document.querySelector('link[href="/assets/v1-recommendations.css"]'),
+  }));
+  check(colors.h1 === REC_BLUE, `${route}: h1 should use editorial blue, got ${colors.h1}`);
+  check(colors.eyebrow === REC_GOLD, `${route}: eyebrow should use editorial gold, got ${colors.eyebrow}`);
+  check(colors.hasIdentity, `${route}: must load v1-recommendations.css`);
+  if (route !== '/recomendaciones/politica-de-recomendaciones/') {
+    const listColors = await page.evaluate(() => ({
+      position: getComputedStyle(document.querySelector('.rec-position')).color,
+      disclosureBorder: getComputedStyle(document.querySelector('.rec-disclosures')).borderLeftColor,
+      firstBookValue: getComputedStyle(document.querySelector('.rec-book-title')).color,
+    }));
+    check(listColors.position === REC_BLUE, `${route}: position number should use editorial blue, got ${listColors.position}`);
+    check(listColors.disclosureBorder === REC_BLUE, `${route}: disclosure rail should use editorial blue, got ${listColors.disclosureBorder}`);
+    check(listColors.firstBookValue !== REC_BLUE && listColors.firstBookValue !== REC_GOLD, `${route}: book titles must stay neutral, not recolored`);
+  }
+  await context.close();
+}
+// Isolation: real /cuaderno/ articles and the hub /herramientas/ never load this layer.
+for (const outOfScope of ['/cuaderno/', '/herramientas/']) {
+  const context = await contextFor({ width: 1440, height: 1000 });
+  const { page } = await openChecked(context, outOfScope);
+  const leaked = await page.evaluate(() => !!document.querySelector('link[href="/assets/v1-recommendations.css"]'));
+  check(!leaked, `${outOfScope}: must NOT load v1-recommendations.css`);
+  await context.close();
+}
+
 async function inspectList(route, expectedCount) {
   const context = await contextFor({ width: 1440, height: 1000 });
   const { page } = await openChecked(context, route);
