@@ -1,0 +1,36 @@
+name: Live security headers audit
+
+on:
+  pull_request:
+    paths:
+      - "qa/live-security-headers.mjs"
+      - ".github/workflows/live-security-headers-audit.yml"
+      - "docs/web-improvement-ideas/M01-LIVE-SECURITY-HEADERS-2026-08-29.md"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  live-security-headers:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+
+      - name: Observe production security headers
+        run: node qa/live-security-headers.mjs
+
+      - name: Upload report-only evidence
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: live-security-headers-report
+          path: artifacts/security-headers/live-security-headers.json
+          if-no-files-found: warn
