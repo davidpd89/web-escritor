@@ -703,11 +703,24 @@
     const button = make('button', 'form-submit', 'Enviar');
     button.type = 'submit';
     row.append(input, button);
+    const consentLabel = make('label', 'form-consent');
+    consentLabel.htmlFor = 'nl-gdpr-home-yale';
+    const consentInput = document.createElement('input');
+    consentInput.id = 'nl-gdpr-home-yale';
+    consentInput.name = 'consent';
+    consentInput.type = 'checkbox';
+    consentInput.required = true;
+    consentInput.setAttribute('aria-describedby', 'nl-status-home-yale');
+    const consentText = make('span');
+    const consentLink = make('a', '', 'política de privacidad');
+    consentLink.href = '/privacidad.html';
+    consentText.append('He leído y acepto la ', consentLink, '.');
+    consentLabel.append(consentInput, consentText);
     const status = make('p', 'form-status');
     status.id = 'nl-status-home-yale';
     status.setAttribute('role', 'status');
     status.setAttribute('aria-live', 'polite');
-    form.append(label, row, status);
+    form.append(label, row, consentLabel, status);
     section.append(copy, form);
     return section;
   }
@@ -725,6 +738,7 @@
     flow.append(createYaleSamuelFeature());
     flow.append(createYaleToolsFeature());
     flow.append(createEvents());
+    flow.append(createYaleSignupStrip());
     flow.append(createInstallBlock());
     river.before(flow);
     const yalePromo = document.querySelector('.promo-band');
