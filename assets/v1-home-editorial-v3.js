@@ -69,7 +69,9 @@
     link.href = href;
     if (/^https?:\/\//.test(href)) {
       link.target = '_blank';
-      link.rel = 'noopener noreferrer';
+      // Amazon Associates tag=... is an affiliate link (K.3): needs
+      // sponsored/nofollow, not just noopener/noreferrer.
+      link.rel = /[?&]tag=/.test(href) ? 'sponsored nofollow noopener noreferrer' : 'noopener noreferrer';
     }
     parent.append(link);
     return link;
