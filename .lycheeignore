@@ -18,14 +18,11 @@ https?://([^/]+\.)?siarchives\.si\.edu/.*
 https?://([^/]+\.)?tandfonline\.com/.*
 https?://([^/]+\.)?planetadelibros\.com/.*
 
-# doi.org resuelve estas dos citas de herramientas/variedad-lexica/ a
-# ScienceDirect (Elsevier) y Cambridge Core, que igual que tandfonline.com
-# arriba bloquean/limitan clientes automatizados en sus redirecciones
-# finales. No hay otros enlaces doi.org en el repo, así que se excluye el
-# dominio completo en vez de mantener la referencia DOI (estable, la forma
-# correcta de citar) apuntando directamente a una URL de editor que puede
-# cambiar.
-https?://([^/]+\.)?doi\.org/.*
+# Estas dos referencias DOI resuelven a proveedores que bloquean/limitan
+# clientes automatizados en sus redirecciones finales. Se ignoran únicamente
+# las citas conocidas: futuros enlaces doi.org siguen sometidos a Lychee.
+https://doi\.org/10\.1016/j\.rmal\.2024\.100168
+https://doi\.org/10\.1017/S0272263123000384
 
 # URLs canónicas del propio sitio. Este workflow comprueba enlaces EXTERNOS
 # contra la web en vivo, y toda página nueva de una rama de integración
