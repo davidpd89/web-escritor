@@ -12,6 +12,10 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: '3.12'
+      - name: Check versioned experiment registry
+        run: python scripts/check-experiment-registry.py
+      - name: Test experiment registry checker failure modes
+        run: python tests/test-experiment-registry.py
       - name: Check RSS is generated from current articles
         run: python scripts/build-feed.py --check
       - name: Check sitemap is generated from canonical indexable HTML

@@ -1,0 +1,6 @@
+{
+  "schemaVersion": 1,
+  "description": "Registro de experimentos medibles de SEO/UX/performance. Un experimento no autoriza cambios por sí solo.",
+  "allowedDecisions": ["KEEP", "REVERT", "ITERATE", "INCONCLUSIVE"],
+  "experiments": []
+}
