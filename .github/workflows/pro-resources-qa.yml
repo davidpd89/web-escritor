@@ -34,14 +34,14 @@ jobs:
         run: python3 scripts/build-radar-opportunities.py --data data/radar-opportunities.json --out convocatorias-escritores --today 2026-08-21 --check
       - name: Check source/output/ICS parity
         run: python3 scripts/check-professional-resources.py
-      - uses: actions/setup-node@v4
+      - uses: actions/setup-node@v5
         with: {node-version: '22'}
       - name: Install CI/QA dependencies (Node)
         run: npm ci
 
       - name: Cache Playwright browsers
         id: playwright-cache
-        uses: actions/cache@v4
+        uses: actions/cache@v5
         with:
           path: ~/.cache/ms-playwright
           key: playwright-chromium-${{ hashFiles('package-lock.json') }}
@@ -74,7 +74,7 @@ jobs:
     timeout-minutes: 20
     steps:
       - uses: actions/checkout@v5
-      - uses: actions/setup-node@v4
+      - uses: actions/setup-node@v5
         with: {node-version: '22'}
       - name: Install Lighthouse CI
         run: npm install --global @lhci/cli@0.15.1
