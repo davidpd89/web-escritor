@@ -42,7 +42,6 @@ function installNewsletterHoneypot(form) {
   field.name = "website";
   field.autocomplete = "off";
   field.tabIndex = -1;
-  field.style.cssText = "width:1px;height:1px;";
   wrapper.appendChild(field);
   form.appendChild(wrapper);
 }
