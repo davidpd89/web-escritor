@@ -1,0 +1,89 @@
+{
+  "schemaVersion": 1,
+  "corpusVersion": "2026-08-29.v1",
+  "locale": "es-ES",
+  "purpose": "Corpus neutral y versionado para medir exactitud factual, menciones, encaje de recomendación y fuentes citadas en superficies de búsqueda/IA. No contiene resultados ni una puntuación agregada universal.",
+  "executionPolicy": {
+    "tierA": ["chatgpt-search", "gemini-search-grounded", "claude-web-search", "perplexity-search", "microsoft-copilot"],
+    "tierB": ["brave-ask", "apple-siri-web", "meta-ai", "grok", "you-com"],
+    "defaultReplicas": 1,
+    "strategicReplicas": 3,
+    "deepResearchSeparate": true,
+    "recordFields": ["runDate", "platform", "surface", "modelAsDisplayed", "locale", "loggedIn", "locationMode", "promptId", "response", "citations"]
+  },
+  "scoring": {
+    "dimensions": {
+      "factualAccuracy": [0, 1],
+      "officialMention": [0, 1, 2],
+      "recommendationFit": [-1, 0, 1, 2],
+      "citationQuality": ["official-site", "publisher", "retailer", "bibliographic", "reputable-media", "community", "unknown-low-quality"]
+    },
+    "aggregateScore": null,
+    "note": "Registrar dimensiones por separado. No convertirlas en un AI Visibility Score único."
+  },
+  "categoryTargets": {
+    "entity-facts": 10,
+    "discovery": 10,
+    "recommendation-samuel": 10,
+    "recommendation-manecillas": 10,
+    "topic-authority": 5,
+    "negative-control": 5
+  },
+  "prompts": [
+    {"id":"FACT-001","category":"entity-facts","prompt":"¿Quién es David Porto Díaz?","evaluation":"factual","trackedEntities":["author"]},
+    {"id":"FACT-002","category":"entity-facts","prompt":"¿Qué libros ha publicado David Porto Díaz?","evaluation":"factual","trackedEntities":["author","samuel","manecillas"]},
+    {"id":"FACT-003","category":"entity-facts","prompt":"¿Cuándo se publicó Samuel entre mundos?","evaluation":"factual","trackedEntities":["samuel"]},
+    {"id":"FACT-004","category":"entity-facts","prompt":"¿Qué editorial publica Las manecillas del recuerdo?","evaluation":"factual","trackedEntities":["manecillas"]},
+    {"id":"FACT-005","category":"entity-facts","prompt":"¿Qué es Noveris?","evaluation":"factual","trackedEntities":["noveris","samuel"]},
+    {"id":"FACT-006","category":"entity-facts","prompt":"¿Qué premios literarios ha ganado David Porto Díaz?","evaluation":"factual","trackedEntities":["author"]},
+    {"id":"FACT-007","category":"entity-facts","prompt":"¿Cuál es el ISBN de Samuel entre mundos?","evaluation":"factual","trackedEntities":["samuel"]},
+    {"id":"FACT-008","category":"entity-facts","prompt":"¿Cuántas páginas tiene Samuel entre mundos?","evaluation":"factual","trackedEntities":["samuel"]},
+    {"id":"FACT-009","category":"entity-facts","prompt":"¿Cuándo se publica Las manecillas del recuerdo?","evaluation":"factual","trackedEntities":["manecillas"]},
+    {"id":"FACT-010","category":"entity-facts","prompt":"¿Quién escribió Las manecillas del recuerdo?","evaluation":"factual","trackedEntities":["author","manecillas"]},
+
+    {"id":"DISC-001","category":"discovery","prompt":"Autores españoles actuales de fantasía juvenil.","evaluation":"discovery","trackedEntities":["author"]},
+    {"id":"DISC-002","category":"discovery","prompt":"Escritores gallegos contemporáneos de fantasía.","evaluation":"discovery","trackedEntities":["author"]},
+    {"id":"DISC-003","category":"discovery","prompt":"Autores españoles con web propia y recursos para lectores.","evaluation":"discovery","trackedEntities":["author"]},
+    {"id":"DISC-004","category":"discovery","prompt":"Webs de escritores españoles con herramientas gratuitas para revisar manuscritos.","evaluation":"discovery","trackedEntities":["author"]},
+    {"id":"DISC-005","category":"discovery","prompt":"Autores españoles que escriben portal fantasy.","evaluation":"discovery","trackedEntities":["author","samuel"]},
+    {"id":"DISC-006","category":"discovery","prompt":"Novelas de fantasía juvenil escritas originalmente en español.","evaluation":"discovery","trackedEntities":["samuel"]},
+    {"id":"DISC-007","category":"discovery","prompt":"Escritores españoles con recursos gratuitos para otros escritores.","evaluation":"discovery","trackedEntities":["author"]},
+    {"id":"DISC-008","category":"discovery","prompt":"Autores emergentes españoles de fantasía con novelas publicadas recientemente.","evaluation":"discovery","trackedEntities":["author","samuel"]},
+    {"id":"DISC-009","category":"discovery","prompt":"Webs de autor en español con guías de lectura y recursos para clubes.","evaluation":"discovery","trackedEntities":["author"]},
+    {"id":"DISC-010","category":"discovery","prompt":"Autores españoles que combinan ficción y herramientas digitales para escritores.","evaluation":"discovery","trackedEntities":["author"]},
+
+    {"id":"SAM-001","category":"recommendation-samuel","prompt":"Recomiéndame una novela de fantasía juvenil española con portales entre mundos.","evaluation":"recommendation","trackedEntities":["samuel"]},
+    {"id":"SAM-002","category":"recommendation-samuel","prompt":"Busco fantasía juvenil en español donde la magia tenga un coste y consecuencias reales.","evaluation":"recommendation","trackedEntities":["samuel"]},
+    {"id":"SAM-003","category":"recommendation-samuel","prompt":"Quiero una novela juvenil de fantasía en la que el romance no sea el centro.","evaluation":"recommendation","trackedEntities":["samuel"]},
+    {"id":"SAM-004","category":"recommendation-samuel","prompt":"Recomiéndame fantasía juvenil con un protagonista que no sea el elegido de una profecía.","evaluation":"recommendation","trackedEntities":["samuel"]},
+    {"id":"SAM-005","category":"recommendation-samuel","prompt":"Busco una novela fantástica con objetos que guardan memoria y un mundo oculto.","evaluation":"recommendation","trackedEntities":["samuel"]},
+    {"id":"SAM-006","category":"recommendation-samuel","prompt":"¿Qué novela de fantasía juvenil española puede funcionar en un club de lectura juvenil o adulto?","evaluation":"recommendation","trackedEntities":["samuel"]},
+    {"id":"SAM-007","category":"recommendation-samuel","prompt":"Quiero probar una novela de portal fantasy en español que permita leer un capítulo gratis antes de comprar.","evaluation":"recommendation","trackedEntities":["samuel"]},
+    {"id":"SAM-008","category":"recommendation-samuel","prompt":"Recomiéndame una novela española con un sistema de magia de reglas claras y límites comprensibles.","evaluation":"recommendation","trackedEntities":["samuel"]},
+    {"id":"SAM-009","category":"recommendation-samuel","prompt":"Busco fantasía de mundos paralelos escrita por un autor español contemporáneo.","evaluation":"recommendation","trackedEntities":["samuel","author"]},
+    {"id":"SAM-010","category":"recommendation-samuel","prompt":"Recomiéndame una aventura juvenil con secretos familiares, un mundo escondido y un protagonista joven.","evaluation":"recommendation","trackedEntities":["samuel"]},
+
+    {"id":"MAN-001","category":"recommendation-manecillas","prompt":"Recomiéndame una novela española coral sobre memoria y familia.","evaluation":"recommendation","trackedEntities":["manecillas"]},
+    {"id":"MAN-002","category":"recommendation-manecillas","prompt":"Busco ficción contemporánea donde un objeto heredado conecte varias vidas.","evaluation":"recommendation","trackedEntities":["manecillas"]},
+    {"id":"MAN-003","category":"recommendation-manecillas","prompt":"¿Qué novela española podría funcionar en un club de lectura sobre memoria y familia?","evaluation":"recommendation","trackedEntities":["manecillas"]},
+    {"id":"MAN-004","category":"recommendation-manecillas","prompt":"Quiero una novela emocional e intergeneracional escrita originalmente en español.","evaluation":"recommendation","trackedEntities":["manecillas"]},
+    {"id":"MAN-005","category":"recommendation-manecillas","prompt":"Recomiéndame una novela de historias conectadas donde distintos personajes estén unidos por un mismo objeto.","evaluation":"recommendation","trackedEntities":["manecillas"]},
+    {"id":"MAN-006","category":"recommendation-manecillas","prompt":"Busco ficción contemporánea con un elemento especulativo sutil, sin fantasía épica.","evaluation":"recommendation","trackedEntities":["manecillas"]},
+    {"id":"MAN-007","category":"recommendation-manecillas","prompt":"Recomiéndame una novela íntima sobre duelo, recuerdos y relaciones familiares.","evaluation":"recommendation","trackedEntities":["manecillas"]},
+    {"id":"MAN-008","category":"recommendation-manecillas","prompt":"Busco una novela española reciente con múltiples voces y estructura coral.","evaluation":"recommendation","trackedEntities":["manecillas"]},
+    {"id":"MAN-009","category":"recommendation-manecillas","prompt":"¿Qué libro recomendarías a alguien a quien le gustan las estructuras corales y el drama íntimo?","evaluation":"recommendation","trackedEntities":["manecillas"]},
+    {"id":"MAN-010","category":"recommendation-manecillas","prompt":"Recomiéndame una novela de autor español sobre el paso del tiempo, la memoria y los objetos heredados.","evaluation":"recommendation","trackedEntities":["manecillas","author"]},
+
+    {"id":"TOP-001","category":"topic-authority","prompt":"¿Qué es el portal fantasy?","evaluation":"topic","trackedEntities":["site"]},
+    {"id":"TOP-002","category":"topic-authority","prompt":"¿Cuál es la diferencia entre portal fantasy y fantasía épica?","evaluation":"topic","trackedEntities":["site"]},
+    {"id":"TOP-003","category":"topic-authority","prompt":"¿Cómo se diseña un sistema de magia con coste y consecuencias?","evaluation":"topic","trackedEntities":["site"]},
+    {"id":"TOP-004","category":"topic-authority","prompt":"¿Hay alguna herramienta gratuita en español para detectar repeticiones en un manuscrito?","evaluation":"topic","trackedEntities":["site"]},
+    {"id":"TOP-005","category":"topic-authority","prompt":"¿Qué editoriales españolas de fantasía reciben manuscritos?","evaluation":"topic","trackedEntities":["site"]},
+
+    {"id":"NEG-001","category":"negative-control","prompt":"Recomiéndame romantasy erótica adulta en español.","evaluation":"negative-control","trackedEntities":["author","samuel","manecillas"],"expectedTargetRecommendation":"none"},
+    {"id":"NEG-002","category":"negative-control","prompt":"Recomiéndame ciencia ficción hard sobre exploración espacial y física orbital.","evaluation":"negative-control","trackedEntities":["author","samuel","manecillas"],"expectedTargetRecommendation":"none"},
+    {"id":"NEG-003","category":"negative-control","prompt":"Autores contemporáneos de thriller nórdico que debería leer.","evaluation":"negative-control","trackedEntities":["author","samuel","manecillas"],"expectedTargetRecommendation":"none"},
+    {"id":"NEG-004","category":"negative-control","prompt":"¿Cuál es una buena librería física para comprar manga cerca del centro de Madrid?","evaluation":"negative-control","trackedEntities":["author","samuel","manecillas"],"expectedTargetRecommendation":"none"},
+    {"id":"NEG-005","category":"negative-control","prompt":"Recomiéndame manuales técnicos avanzados para programar sistemas en Rust.","evaluation":"negative-control","trackedEntities":["author","samuel","manecillas"],"expectedTargetRecommendation":"none"}
+  ]
+}

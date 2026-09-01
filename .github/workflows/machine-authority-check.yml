@@ -11,6 +11,8 @@ on:
       - 'robots.txt'
       - 'editorial-facts.json'
       - 'sitemap.xml'
+      - 'data/ai-discoverability-benchmark.json'
+      - 'tests/test-ai-discoverability-benchmark.py'
       - 'tests/test-machine-authority.py'
       - 'qa/machine-authority-browser.mjs'
       - 'tests/fixtures/machine-authority-drift-before.json'
@@ -36,6 +38,9 @@ jobs:
 
       - name: Validate machine authority contract
         run: python tests/test-machine-authority.py --artifact-dir artifacts/machine-authority
+
+      - name: Validate AI discoverability benchmark corpus
+        run: python tests/test-ai-discoverability-benchmark.py
 
       - name: Set up Node
         uses: actions/setup-node@v4

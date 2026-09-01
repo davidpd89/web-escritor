@@ -1,27 +1,304 @@
-/* Manecillas fragments — local reading navigation only. */
-html.v1 .fragment-index{margin:clamp(1rem,2vw,2rem) 0 var(--section-gap);border-block:1px solid var(--color-border)}
-html.v1 .fragment-index__list{list-style:none;margin:0;padding:0;display:grid}
-html.v1 .fragment-index__item+ .fragment-index__item{border-top:1px solid var(--color-border)}
-html.v1 .fragment-index__link{position:relative;display:grid;grid-template-columns:minmax(6.75rem,8rem) minmax(0,1fr);align-items:center;gap:clamp(.75rem,2vw,1.5rem);min-height:56px;padding:.8rem .25rem;text-decoration:none;overflow-wrap:anywhere}
-html.v1 .fragment-index__link::before{content:"";position:absolute;inset-block:.55rem;left:-.65rem;width:2px;background:transparent}
-html.v1 .fragment-index__link[data-current="true"]{background:color-mix(in srgb,var(--surface-page) 72%,var(--dp-sand))}
-html.v1 .fragment-index__link[data-current="true"]::before{background:var(--color-accent-strong)}
-html.v1 .fragment-index__register{font:600 var(--text-xs)/1.25 var(--font-ui);letter-spacing:.08em;text-transform:uppercase;color:var(--color-muted)}
-html.v1 .fragment-index__title{font:400 clamp(1.05rem,1rem + .3vw,1.3rem)/1.25 var(--font-reading);text-decoration:underline;text-decoration-color:transparent;text-underline-offset:.15em;transition:text-decoration-color .15s ease,color .15s ease}
-html.v1 .fragment-index__link:hover .fragment-index__title,html.v1 .fragment-index__link:focus-visible .fragment-index__title{color:var(--color-accent-strong);text-decoration-color:var(--color-accent-strong)}
-html.v1 .excerpt-section,html.v1 #cta-final{scroll-margin-top:calc(88px + var(--space-4))}
-html.v1 .fragment-pager{grid-column:2;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:var(--grid-gap);margin-top:clamp(2rem,4vw,3.5rem);padding-top:var(--space-4);border-top:1px solid var(--color-border)}
-html.v1 .fragment-pager--single{grid-template-columns:minmax(0,1fr) minmax(0,1fr)}
-html.v1 .fragment-pager--single .fragment-pager__link{grid-column:2}
-html.v1 .fragment-pager__link{display:grid;gap:.2rem;align-content:center;min-height:56px;padding:.7rem 0;text-decoration:none;overflow-wrap:anywhere}
-html.v1 .fragment-pager__link--next{text-align:right}
-html.v1 .fragment-pager__direction{font:600 var(--text-xs)/1.3 var(--font-ui);letter-spacing:.07em;text-transform:uppercase;color:var(--color-muted)}
-html.v1 .fragment-pager__title{font:400 var(--text-base)/1.35 var(--font-reading);text-decoration:underline;text-decoration-color:var(--color-accent);text-underline-offset:.28em}
-html.v1 .fragment-pager__link:hover .fragment-pager__title,html.v1 .fragment-pager__link:focus-visible .fragment-pager__title{text-decoration-thickness:2px}
+/* Manecillas Fragmentos — page-scoped visual system.
+   This page intentionally carries body[data-reading-progress], while the main
+   Manecillas V8 explicitly excludes it. Keep every rule scoped so each page can
+   evolve/review in its own PR. */
+
+html.v1[data-editorial-context="manecillas"] body[data-reading-progress]{
+  --frag-blue:#1d4f96;
+  --frag-blue-deep:#0d2c57;
+  --frag-header-blue:#0a4d9f;
+  --frag-gold:#b8860b;
+  --frag-neutral:#6f6a64;
+  --frag-pale:#eefaff;
+  --frag-ink:#050505;
+}
+
+/* The global reading-progress primitive predates the V1 palette and uses the
+   legacy --accent variables. Keep its behavior/JS intact, only reskin the bar. */
+html.v1[data-editorial-context="manecillas"] body[data-reading-progress] .reading-progress{
+  background:linear-gradient(90deg,var(--frag-blue),var(--frag-gold));
+}
+
+/* Context navigation and shared shell, matching the approved Manecillas page. */
+html.v1[data-editorial-context="manecillas"] body[data-reading-progress] .section-context{
+  border-color:rgba(29,79,150,.22);
+  background:#fff;
+  box-shadow:0 1px 0 rgba(29,79,150,.08),0 5px 14px rgba(23,20,18,.025);
+}
+html.v1[data-editorial-context="manecillas"] body[data-reading-progress] .section-context__title{color:var(--frag-blue)}
+html.v1[data-editorial-context="manecillas"] body[data-reading-progress] .section-context__links a[aria-current="page"]{
+  color:var(--frag-blue);background:var(--frag-pale);box-shadow:inset 0 -2px 0 var(--frag-gold)
+}
+html.v1[data-editorial-context="manecillas"] body[data-reading-progress] .section-context__links a:hover,
+html.v1[data-editorial-context="manecillas"] body[data-reading-progress] .section-context__links a:focus-visible{
+  color:var(--frag-blue-deep);background:var(--frag-pale)
+}
+html.v1[data-editorial-context="manecillas"] body[data-reading-progress] :is(.header-search,.header-home,.header-sitemap,.header-contact,.explore-trigger):hover,
+html.v1[data-editorial-context="manecillas"] body[data-reading-progress] :is(.header-search,.header-home,.header-sitemap,.header-contact,.explore-trigger):focus-visible{
+  color:var(--frag-header-blue);background:var(--frag-pale);border-color:rgba(10,77,159,.22)
+}
+html.v1[data-editorial-context="manecillas"] body[data-reading-progress] .explore-dialog{border-right-color:var(--frag-blue)}
+html.v1[data-editorial-context="manecillas"] body[data-reading-progress] .explore-dialog__head{border-bottom-color:var(--frag-gold)}
+html.v1[data-editorial-context="manecillas"] body[data-reading-progress] .explore-dialog__head h2,
+html.v1[data-editorial-context="manecillas"] body[data-reading-progress] .explore-row__index{color:var(--frag-blue)}
+html.v1[data-editorial-context="manecillas"] body[data-reading-progress] .explore-row:hover .explore-row__body strong,
+html.v1[data-editorial-context="manecillas"] body[data-reading-progress] .explore-row:focus-visible .explore-row__body strong,
+html.v1[data-editorial-context="manecillas"] body[data-reading-progress] .explore-children a:hover,
+html.v1[data-editorial-context="manecillas"] body[data-reading-progress] .explore-children a:focus-visible{color:var(--frag-blue)}
+html.v1[data-editorial-context="manecillas"] body[data-reading-progress] .explore-row__toggle{color:var(--frag-blue);border-color:rgba(29,79,150,.35)}
+html.v1[data-editorial-context="manecillas"] body[data-reading-progress] .explore-row__toggle:hover,
+html.v1[data-editorial-context="manecillas"] body[data-reading-progress] .explore-row__toggle:focus-visible{color:#fff;background:var(--frag-blue);border-color:var(--frag-blue)}
+html.v1[data-editorial-context="manecillas"] body[data-reading-progress] .explore-children{border-left-color:var(--frag-gold)}
+html.v1[data-editorial-context="manecillas"] body[data-reading-progress] .explore-subscribe .form-input:focus{border-color:var(--frag-blue);outline-color:var(--frag-gold)}
+html.v1[data-editorial-context="manecillas"] body[data-reading-progress] .explore-subscribe .form-submit{border-color:var(--frag-blue);background:var(--frag-blue);color:#fff}
+html.v1[data-editorial-context="manecillas"] body[data-reading-progress] .explore-subscribe .form-submit:hover,
+html.v1[data-editorial-context="manecillas"] body[data-reading-progress] .explore-subscribe .form-submit:focus-visible{border-color:var(--frag-blue-deep);background:var(--frag-blue-deep);color:#fff}
+
+html.v1[data-editorial-context="manecillas"] body[data-reading-progress] .book-breadcrumb{color:var(--frag-neutral)}
+html.v1[data-editorial-context="manecillas"] body[data-reading-progress] .book-breadcrumb a{color:var(--frag-blue);text-decoration-color:rgba(184,134,11,.55)}
+
+/* Hero: same family language as the book page, but intentionally lighter and
+   reading-oriented: cover + copy, no metadata ledger. */
+html.v1[data-editorial-context="manecillas"] body[data-reading-progress] .book-page--manecillas .book-hero{
+  min-height:0;padding-top:clamp(2.7rem,4.5vw,4.3rem);padding-bottom:clamp(3rem,5vw,4.6rem);align-items:center
+}
+html.v1[data-editorial-context="manecillas"] body[data-reading-progress] .book-page--manecillas .book-cover-zone{padding:clamp(.8rem,1.7vw,1.25rem)}
+html.v1[data-editorial-context="manecillas"] body[data-reading-progress] .book-page--manecillas .book-cover{isolation:isolate;overflow:visible}
+html.v1[data-editorial-context="manecillas"] body[data-reading-progress] .book-page--manecillas .book-cover::before,
+html.v1[data-editorial-context="manecillas"] body[data-reading-progress] .book-page--manecillas .book-cover::after{
+  content:"";position:absolute;z-index:2;width:38px;height:38px;inset:auto;border:0;
+  background:url('/assets/corner-bracket-blue-gold.svg') center/contain no-repeat;pointer-events:none
+}
+html.v1[data-editorial-context="manecillas"] body[data-reading-progress] .book-page--manecillas .book-cover::before{top:-12px;left:-12px}
+html.v1[data-editorial-context="manecillas"] body[data-reading-progress] .book-page--manecillas .book-cover::after{right:-12px;bottom:-12px;transform:rotate(180deg)}
+html.v1[data-editorial-context="manecillas"] body[data-reading-progress] .book-page--manecillas .book-cover picture,
+html.v1[data-editorial-context="manecillas"] body[data-reading-progress] .book-page--manecillas .book-cover img{display:block;width:100%;height:auto}
+html.v1[data-editorial-context="manecillas"] body[data-reading-progress] .book-page--manecillas .book-cover img{border:0;box-shadow:0 16px 34px rgba(23,20,18,.14)}
+html.v1[data-editorial-context="manecillas"] body[data-reading-progress] .book-page--manecillas .book-hero__copy>.eyebrow{
+  width:fit-content;margin:0;padding:0 .08em .08em;color:var(--frag-gold);
+  font-family:'Yellowtail',var(--font-ui),cursive;font-size:clamp(1.3rem,1.75vw,1.65rem);font-weight:400;
+  line-height:1.05;letter-spacing:0;text-transform:none;
+  background:url('/assets/highlight-8-blue-rect.png') center bottom .02em/106% .52em no-repeat
+}
+html.v1[data-editorial-context="manecillas"] body[data-reading-progress] .book-page--manecillas .book-hero h1{
+  max-width:11ch;margin:.65rem 0 1rem;color:var(--frag-blue);font-family:var(--font-ui);
+  font-size:clamp(3.1rem,5.1vw,5rem);font-weight:800;line-height:.9;letter-spacing:-.038em;
+  -webkit-text-stroke:.4px rgba(184,134,11,.62);text-wrap:balance
+}
+html.v1[data-editorial-context="manecillas"] body[data-reading-progress] .book-page--manecillas .book-lead{color:var(--frag-ink);max-width:43ch}
+
+@media(min-width:900px){
+  html.v1[data-editorial-context="manecillas"] body[data-reading-progress] .book-page--manecillas .book-hero__copy{
+    --frag-hero-rail-space:clamp(1.1rem,2vw,1.7rem);padding-left:var(--frag-hero-rail-space);
+    background-image:linear-gradient(var(--frag-blue),var(--frag-blue));background-repeat:no-repeat;
+    background-size:2.5px 100%;background-position:left top
+  }
+}
+
+/* Handwritten actions. */
+html.v1[data-editorial-context="manecillas"] body[data-reading-progress] .book-page--manecillas :is(.book-actions .primary-action,.book-actions .text-action,.tool-actions .primary-action,.tool-actions .text-action){
+  display:inline-flex;align-items:center;width:fit-content;min-width:0;min-height:30px;padding:0;border:0;border-radius:0;
+  background:transparent;box-shadow:none;color:var(--frag-blue);font-family:'Yellowtail',var(--font-ui),cursive;
+  font-size:1.16rem;font-weight:400;line-height:1.15;letter-spacing:0;text-transform:none;text-decoration:none;flex-wrap:wrap
+}
+html.v1[data-editorial-context="manecillas"] body[data-reading-progress] .book-page--manecillas :is(.book-actions .primary-action,.book-actions .text-action,.tool-actions .primary-action,.tool-actions .text-action):hover,
+html.v1[data-editorial-context="manecillas"] body[data-reading-progress] .book-page--manecillas :is(.book-actions .primary-action,.book-actions .text-action,.tool-actions .primary-action,.tool-actions .text-action):focus-visible{color:var(--frag-blue-deep);background:transparent}
+html.v1[data-editorial-context="manecillas"] body[data-reading-progress] .book-actions .primary-action::after,
+html.v1[data-editorial-context="manecillas"] body[data-reading-progress] #cta-final .primary-action::after{content:"\2192";margin-left:.35rem}
+
+/* Introductory editorial pause between hero and index. */
+html.v1[data-editorial-context="manecillas"] body[data-reading-progress] .book-hero + .v1-section{
+  position:relative;padding:clamp(2.6rem,4.5vw,4.1rem) 0 clamp(2.2rem,4vw,3.5rem);border:0;
+  background-image:linear-gradient(var(--frag-blue),var(--frag-blue)),linear-gradient(var(--frag-gold),var(--frag-gold));
+  background-repeat:no-repeat,no-repeat;background-size:100% 1.25px,100% 1.5px;background-position:left top,left 4px
+}
+html.v1[data-editorial-context="manecillas"] body[data-reading-progress] .book-hero + .v1-section>.eyebrow,
+html.v1[data-editorial-context="manecillas"] body[data-reading-progress] #cta-final>.eyebrow{
+  width:fit-content;margin:0;padding:0 .08em .08em;color:var(--frag-gold);
+  font-family:'Yellowtail',var(--font-ui),cursive;font-size:clamp(1.3rem,1.8vw,1.6rem);font-weight:400;
+  line-height:1.05;letter-spacing:0;text-transform:none;
+  background:url('/assets/highlight-8-blue-rect.png') center bottom .02em/106% .52em no-repeat
+}
+html.v1[data-editorial-context="manecillas"] body[data-reading-progress] .book-hero + .v1-section>h2,
+html.v1[data-editorial-context="manecillas"] body[data-reading-progress] #cta-final>h2{
+  margin:.65rem 0 1rem;color:var(--frag-blue);font-family:var(--font-ui);font-weight:800;line-height:1;
+  letter-spacing:-.025em;-webkit-text-stroke:.3px rgba(184,134,11,.5)
+}
+html.v1[data-editorial-context="manecillas"] body[data-reading-progress] .book-hero + .v1-section .lore-prose,
+html.v1[data-editorial-context="manecillas"] body[data-reading-progress] #cta-final .lore-prose{color:var(--frag-ink);max-width:68ch}
+
+/* Reading index: this is navigation, not a beige utility table. */
+html.v1[data-editorial-context="manecillas"] body[data-reading-progress] .fragment-index{
+  margin:0 0 var(--section-gap);border:0;position:relative;padding-block:8px;
+  background-image:linear-gradient(var(--frag-blue),var(--frag-blue)),linear-gradient(var(--frag-gold),var(--frag-gold));
+  background-repeat:no-repeat,no-repeat;background-size:100% 1.5px,100% 1.5px;background-position:left top,left bottom
+}
+html.v1[data-editorial-context="manecillas"] body[data-reading-progress] .fragment-index__list{list-style:none;margin:0;padding:0;display:grid}
+html.v1[data-editorial-context="manecillas"] body[data-reading-progress] .fragment-index__item+.fragment-index__item{border-top:1px solid rgba(29,79,150,.42)}
+html.v1[data-editorial-context="manecillas"] body[data-reading-progress] .fragment-index__link{
+  position:relative;display:grid;grid-template-columns:minmax(6.75rem,8rem) minmax(0,1fr);align-items:center;
+  gap:clamp(.75rem,2vw,1.5rem);min-height:64px;padding:.95rem .9rem;text-decoration:none;overflow-wrap:anywhere;background:#fff
+}
+html.v1[data-editorial-context="manecillas"] body[data-reading-progress] .fragment-index__link::before{
+  content:"";position:absolute;inset-block:0;left:0;width:2.5px;background:transparent
+}
+html.v1[data-editorial-context="manecillas"] body[data-reading-progress] .fragment-index__link[data-current="true"]{background:var(--frag-pale)}
+html.v1[data-editorial-context="manecillas"] body[data-reading-progress] .fragment-index__link[data-current="true"]::before{background:var(--frag-blue)}
+html.v1[data-editorial-context="manecillas"] body[data-reading-progress] .fragment-index__register{
+  font:600 var(--text-xs)/1.25 var(--font-ui);letter-spacing:.08em;text-transform:uppercase;color:var(--frag-neutral)
+}
+html.v1[data-editorial-context="manecillas"] body[data-reading-progress] .fragment-index__title{
+  color:var(--frag-ink);font:400 clamp(1.08rem,1rem + .3vw,1.3rem)/1.25 var(--font-reading);
+  text-decoration:underline;text-decoration-color:transparent;text-underline-offset:.2em;transition:text-decoration-color .15s ease,color .15s ease
+}
+html.v1[data-editorial-context="manecillas"] body[data-reading-progress] .fragment-index__link[data-current="true"] .fragment-index__title{color:var(--frag-blue)}
+html.v1[data-editorial-context="manecillas"] body[data-reading-progress] .fragment-index__link:hover .fragment-index__title,
+html.v1[data-editorial-context="manecillas"] body[data-reading-progress] .fragment-index__link:focus-visible .fragment-index__title{color:var(--frag-blue-deep);text-decoration-color:var(--frag-gold)}
+
+/* Excerpts: preserve long-form serif reading while adapting hierarchy/rules. */
+html.v1[data-editorial-context="manecillas"] body[data-reading-progress] .excerpt-section,
+html.v1[data-editorial-context="manecillas"] body[data-reading-progress] #cta-final{scroll-margin-top:calc(88px + var(--space-4))}
+html.v1[data-editorial-context="manecillas"] body[data-reading-progress] .book-page--manecillas .excerpt-section{
+  position:relative;border-top:0;
+  background-image:linear-gradient(var(--frag-blue),var(--frag-blue)),linear-gradient(var(--frag-gold),var(--frag-gold));
+  background-repeat:no-repeat,no-repeat;background-size:100% 1.25px,100% 1.5px;background-position:left top,left 4px
+}
+html.v1[data-editorial-context="manecillas"] body[data-reading-progress] .excerpt-section .book-section__label>.eyebrow{
+  width:fit-content;margin:0;padding:0 .08em .08em;color:var(--frag-gold);
+  font-family:'Yellowtail',var(--font-ui),cursive;font-size:clamp(1.28rem,1.7vw,1.55rem);font-weight:400;
+  line-height:1.05;letter-spacing:0;text-transform:none;
+  background:url('/assets/highlight-8-blue-rect.png') center bottom .02em/106% .52em no-repeat
+}
+html.v1[data-editorial-context="manecillas"] body[data-reading-progress] .excerpt-section .book-section__label h2{
+  color:var(--frag-blue);font-family:var(--font-ui);font-weight:800;line-height:1.02;letter-spacing:-.025em;
+  -webkit-text-stroke:.3px rgba(184,134,11,.5)
+}
+html.v1[data-editorial-context="manecillas"] body[data-reading-progress] .excerpt-section .tool-meta{color:var(--frag-neutral)}
+html.v1[data-editorial-context="manecillas"] body[data-reading-progress] .excerpt-section .excerpt-field{
+  color:var(--frag-ink);padding-left:clamp(1.2rem,2.2vw,1.8rem);border-left:0;
+  background-image:linear-gradient(var(--frag-blue),var(--frag-blue));background-repeat:no-repeat;background-size:2.5px 100%;background-position:left top
+}
+html.v1[data-editorial-context="manecillas"] body[data-reading-progress] .excerpt-section .excerpt-field p{margin-top:0}
+
+/* Pager belongs to the reading rhythm. Direction stays neutral; destination is
+   handwritten blue to match the action grammar without making body copy UI-like. */
+html.v1[data-editorial-context="manecillas"] body[data-reading-progress] .fragment-pager{
+  grid-column:2;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:var(--grid-gap);
+  margin-top:clamp(2rem,4vw,3.5rem);padding-top:12px;border-top:0;
+  background-image:linear-gradient(var(--frag-blue),var(--frag-blue)),linear-gradient(var(--frag-gold),var(--frag-gold));
+  background-repeat:no-repeat,no-repeat;background-size:100% 1.25px,100% 1.5px;background-position:left top,left 4px
+}
+html.v1[data-editorial-context="manecillas"] body[data-reading-progress] .fragment-pager--single{grid-template-columns:minmax(0,1fr) minmax(0,1fr)}
+html.v1[data-editorial-context="manecillas"] body[data-reading-progress] .fragment-pager--single .fragment-pager__link{grid-column:2}
+html.v1[data-editorial-context="manecillas"] body[data-reading-progress] .fragment-pager__link{display:grid;gap:.25rem;align-content:center;min-height:60px;padding:.75rem 0;text-decoration:none;overflow-wrap:anywhere}
+html.v1[data-editorial-context="manecillas"] body[data-reading-progress] .fragment-pager__link--next{text-align:right}
+html.v1[data-editorial-context="manecillas"] body[data-reading-progress] .fragment-pager__direction{
+  font:600 var(--text-xs)/1.3 var(--font-ui);letter-spacing:.07em;text-transform:uppercase;color:var(--frag-neutral)
+}
+html.v1[data-editorial-context="manecillas"] body[data-reading-progress] .fragment-pager__title{
+  color:var(--frag-blue);font:400 1.12rem/1.2 'Yellowtail',var(--font-ui),cursive;text-decoration:none
+}
+html.v1[data-editorial-context="manecillas"] body[data-reading-progress] .fragment-pager__link:hover .fragment-pager__title,
+html.v1[data-editorial-context="manecillas"] body[data-reading-progress] .fragment-pager__link:focus-visible .fragment-pager__title{color:var(--frag-blue-deep)}
+
+/* Mid-reading quote: a pause, not a card. */
+html.v1[data-editorial-context="manecillas"] body[data-reading-progress] .book-page--manecillas .book-dedication{
+  position:relative;border-top:0;padding-left:clamp(1rem,2.4vw,1.5rem);
+  background-image:linear-gradient(var(--frag-blue),var(--frag-blue)),linear-gradient(var(--frag-gold),var(--frag-gold));
+  background-repeat:no-repeat,no-repeat;background-size:2.5px calc(100% - 5rem),100% 1.5px;background-position:left center,left bottom
+}
+html.v1[data-editorial-context="manecillas"] body[data-reading-progress] .book-page--manecillas .book-dedication blockquote{
+  color:var(--frag-ink);font-family:var(--font-reading);font-weight:400;max-width:25ch
+}
+
+/* Final conversion block: same pale practical emphasis used elsewhere, but
+   still editorial and connected to the page rules. */
+html.v1[data-editorial-context="manecillas"] body[data-reading-progress] #cta-final{
+  position:relative;margin-top:0;padding:clamp(2.3rem,4vw,3.6rem) clamp(1rem,2.4vw,1.6rem);
+  border:1px solid var(--frag-blue);border-bottom-color:var(--frag-gold);background:var(--frag-pale)
+}
+html.v1[data-editorial-context="manecillas"] body[data-reading-progress] #cta-final .tool-actions{margin-top:1.4rem}
+
+/* Footer and return control. */
+html.v1[data-editorial-context="manecillas"] body[data-reading-progress] .site-footer{position:relative;border-top:0;background:linear-gradient(180deg,#fff 0%,#f7fbfe 100%);box-shadow:none}
+html.v1[data-editorial-context="manecillas"] body[data-reading-progress] .site-footer::before{
+  content:"";position:absolute;top:0;left:0;right:0;height:6.5px;
+  background-image:linear-gradient(var(--frag-blue),var(--frag-blue)),linear-gradient(var(--frag-gold),var(--frag-gold));
+  background-repeat:no-repeat,no-repeat;background-size:100% 1.5px,100% 1.5px;background-position:left top,left bottom;pointer-events:none
+}
+html.v1[data-editorial-context="manecillas"] body[data-reading-progress] .site-footer h2{color:var(--frag-blue)}
+html.v1[data-editorial-context="manecillas"] body[data-reading-progress] .site-footer a:hover,
+html.v1[data-editorial-context="manecillas"] body[data-reading-progress] .site-footer a:focus-visible{color:var(--frag-blue);text-decoration-color:var(--frag-gold)}
+html.v1[data-editorial-context="manecillas"] body[data-reading-progress] .site-footer .social-icon:nth-child(odd){border-color:var(--frag-blue)}
+html.v1[data-editorial-context="manecillas"] body[data-reading-progress] .site-footer .social-icon:nth-child(even){border-color:var(--frag-gold)}
+html.v1[data-editorial-context="manecillas"] body[data-reading-progress] .site-footer .social-icon:hover,
+html.v1[data-editorial-context="manecillas"] body[data-reading-progress] .site-footer .social-icon:focus-visible{color:#fff;background:var(--frag-blue);border-color:var(--frag-blue)}
+html.v1[data-editorial-context="manecillas"] body[data-reading-progress] .site-footer .footer-legal{border-top-color:var(--frag-gold)}
+html.v1[data-editorial-context="manecillas"] body[data-reading-progress] .site-footer .footer-email{color:var(--frag-blue);border-bottom-color:var(--frag-gold)}
+html.v1[data-editorial-context="manecillas"] body[data-reading-progress] .back-to-top{border-color:var(--frag-blue);background:#fff;color:var(--frag-blue);box-shadow:0 0 0 2px #fff,0 0 0 3px var(--frag-gold),0 5px 18px rgba(23,20,18,.09)}
+html.v1[data-editorial-context="manecillas"] body[data-reading-progress] .back-to-top:hover,
+html.v1[data-editorial-context="manecillas"] body[data-reading-progress] .back-to-top:focus-visible{border-color:var(--frag-blue);background:var(--frag-blue);color:#fff}
+
+/* Reading pages already expose Asistente in the sticky utility header. Avoid a
+   duplicate fixed bubble over long-form prose on portable widths. */
+@media(max-width:1300px){
+  html.v1[data-editorial-context="manecillas"] body[data-reading-progress] .assistant-widget__launcher{display:none}
+}
+
+/* Tablet: retain a meaningful cover + copy composition through 768px, then
+   switch deliberately to single-column reading at 767px. */
+@media(min-width:768px) and (max-width:899px){
+  html.v1[data-editorial-context="manecillas"] body[data-reading-progress] .book-page--manecillas .book-hero{
+    display:grid;grid-template-columns:minmax(12rem,.72fr) minmax(0,1.45fr);column-gap:clamp(1.5rem,4vw,2.25rem);
+    row-gap:clamp(1.3rem,3vw,1.8rem);align-items:start
+  }
+  html.v1[data-editorial-context="manecillas"] body[data-reading-progress] .book-page--manecillas .book-cover-zone{
+    grid-column:1;grid-row:1;width:auto;max-width:none;margin:0;padding:.75rem;align-self:start;order:0
+  }
+  html.v1[data-editorial-context="manecillas"] body[data-reading-progress] .book-page--manecillas :is(.book-cover,.book-cover-fallback){width:min(96%,240px);max-width:none}
+  html.v1[data-editorial-context="manecillas"] body[data-reading-progress] .book-page--manecillas .book-hero__copy{
+    grid-column:2;grid-row:1;display:block;min-width:0;order:0
+  }
+  html.v1[data-editorial-context="manecillas"] body[data-reading-progress] .book-page--manecillas .book-hero__copy>*{order:0;grid-column:auto;grid-row:auto}
+  html.v1[data-editorial-context="manecillas"] body[data-reading-progress] .book-page--manecillas .book-hero h1{max-width:10ch;font-size:clamp(2.7rem,6.3vw,3.7rem)}
+  html.v1[data-editorial-context="manecillas"] body[data-reading-progress] .book-page--manecillas .book-actions{display:flex;grid-template-columns:none;align-items:center;margin-top:1.35rem}
+  html.v1[data-editorial-context="manecillas"] body[data-reading-progress] .book-page--manecillas .book-actions .primary-action{width:auto}
+}
+
+/* At <=899px v1-book.css collapses excerpts to one column. Keep the pager in
+   that same explicit track; leaving grid-column:2 creates an implicit second
+   column that compresses prose and places pager rules beside the text. */
+@media(max-width:899px){
+  html.v1[data-editorial-context="manecillas"] body[data-reading-progress] .book-page--manecillas .excerpt-section{grid-template-columns:minmax(0,1fr)}
+  html.v1[data-editorial-context="manecillas"] body[data-reading-progress] .excerpt-section :is(.book-section__label,.excerpt-field),
+  html.v1[data-editorial-context="manecillas"] body[data-reading-progress] .fragment-pager{grid-column:1;min-width:0;width:100%}
+}
+
 @media(max-width:767px){
-  html.v1 .fragment-index__link{grid-template-columns:1fr;gap:.2rem;padding:.85rem .15rem}
-  html.v1 .fragment-index__link::before{left:-.35rem}
-  html.v1 .fragment-pager,html.v1 .fragment-pager--single{grid-column:1;grid-template-columns:1fr;gap:.35rem}
-  html.v1 .fragment-pager--single .fragment-pager__link{grid-column:1}
-  html.v1 .fragment-pager__link--next{text-align:left}
+  html.v1[data-editorial-context="manecillas"] body[data-reading-progress] .book-page--manecillas .book-hero{
+    position:relative;padding-left:clamp(1rem,3vw,1.4rem)
+  }
+  html.v1[data-editorial-context="manecillas"] body[data-reading-progress] .book-page--manecillas .book-hero::before{
+    content:"";position:absolute;left:0;top:clamp(2.3rem,8vw,3.7rem);bottom:clamp(3.6rem,10vw,5.3rem);width:2.5px;background:var(--frag-blue)
+  }
+  html.v1[data-editorial-context="manecillas"] body[data-reading-progress] .book-page--manecillas .book-cover-zone{max-width:14rem;padding:.65rem}
+  html.v1[data-editorial-context="manecillas"] body[data-reading-progress] .book-page--manecillas .book-cover::before,
+  html.v1[data-editorial-context="manecillas"] body[data-reading-progress] .book-page--manecillas .book-cover::after{width:28px;height:28px}
+  html.v1[data-editorial-context="manecillas"] body[data-reading-progress] .book-page--manecillas .book-hero h1{max-width:none;font-size:clamp(2.7rem,10vw,4rem)}
+  html.v1[data-editorial-context="manecillas"] body[data-reading-progress] .fragment-index__link{grid-template-columns:1fr;gap:.22rem;padding:.9rem .8rem}
+  html.v1[data-editorial-context="manecillas"] body[data-reading-progress] .fragment-pager,
+  html.v1[data-editorial-context="manecillas"] body[data-reading-progress] .fragment-pager--single{grid-column:1;grid-template-columns:1fr;gap:.35rem}
+  html.v1[data-editorial-context="manecillas"] body[data-reading-progress] .fragment-pager--single .fragment-pager__link{grid-column:1}
+  html.v1[data-editorial-context="manecillas"] body[data-reading-progress] .fragment-pager__link--next{text-align:left}
+  html.v1[data-editorial-context="manecillas"] body[data-reading-progress] .excerpt-section .excerpt-field{padding-left:1rem}
+  html.v1[data-editorial-context="manecillas"] body[data-reading-progress] #cta-final{padding-inline:clamp(.85rem,3vw,1rem)}
+}
+
+@media(max-width:639px){
+  html.v1[data-editorial-context="manecillas"] body[data-reading-progress] .section-context{position:relative;top:auto}
+}
+
+@media print{
+  html.v1[data-editorial-context="manecillas"] body[data-reading-progress] .book-page--manecillas :is(.book-cover::before,.book-cover::after){display:none!important}
+  html.v1[data-editorial-context="manecillas"] body[data-reading-progress] #cta-final{background:#fff!important}
 }

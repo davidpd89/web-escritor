@@ -7,7 +7,8 @@
     revisar: new Set(['revisar-texto','revisar-manuscrito']),
     estructura: new Set(['personajes-estructura']),
     publicar: new Set(['publicar-web','publicar-promocionar','lectura-eventos']),
-    investigar: new Set(['investigar-recordar'])
+    investigar: new Set(['investigar-recordar']),
+    lectores: new Set(['lectores'])
   };
   function matches(card, filter) {
     if (filter === 'all') return true;

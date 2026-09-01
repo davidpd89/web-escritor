@@ -2,8 +2,6 @@ name: Samuel ecosystem browser QA
 
 on:
   pull_request:
-    branches:
-      - implementacion-web-2026
     paths:
       - 'libros/samuel-entre-mundos/**'
       - 'fragmento/**'
@@ -12,11 +10,15 @@ on:
       - 'assets/v1-samuel.css'
       - 'assets/fragmento.css'
       - 'assets/samuel-quiz.js'
+      - 'assets/samuel-buy-modal.js'
+      - 'assets/samuel-buy-modal.css'
       - 'assets/noveris.css'
       - 'assets/clubes-samuel.css'
       - 'tests/test-samuel-ecosystem-parity.py'
       - 'qa/samuel-book-fragment-browser.mjs'
       - 'qa/samuel-ecosystem-browser.mjs'
+      - 'qa/samuel-design-browser.mjs'
+      - 'qa/samuel-design-cross-engine.mjs'
       - 'qa/samuel-ecosystem-text-resilience.css'
       - 'qa/samuel-ecosystem-lighthouserc.json'
       - '.github/workflows/samuel-ecosystem-browser-qa.yml'

@@ -95,6 +95,7 @@
       '<form id="nl-popup-form" novalidate>' +
       '<label class="sr-only" for="nl-popup-email">Correo electrónico</label>' +
       '<input type="email" id="nl-popup-email" name="email" placeholder="tu@email.com" autocomplete="email" required />' +
+      '<label class="nl-popup-consent" for="nl-popup-gdpr"><input type="checkbox" id="nl-popup-gdpr" name="consent" required /> He leído y acepto la <a href="/privacidad.html">política de privacidad</a>.</label>' +
       '<button type="submit" class="button primary" id="nl-popup-submit">' + copy.cta + '</button>' +
       '<div aria-hidden="true" inert style="position:absolute;width:1px;height:1px;padding:0;overflow:hidden;clip:rect(0 0 0 0);clip-path:inset(50%);white-space:nowrap;border:0;"><input type="text" name="website" autocomplete="off" tabindex="-1" /></div>' +
       '<p id="nl-popup-status" role="status" aria-live="polite"></p>' +
@@ -122,12 +123,18 @@
       event.preventDefault();
       scheduleTask(async function () {
         const emailEl = d.querySelector("#nl-popup-email");
+        const gdprEl = d.querySelector("#nl-popup-gdpr");
         const statusEl = d.querySelector("#nl-popup-status");
         const submitBtn = d.querySelector("#nl-popup-submit");
-        if (!emailEl || !statusEl || !submitBtn) return;
+        if (!emailEl || !gdprEl || !statusEl || !submitBtn) return;
         if (submitBtn.dataset.submitting === "true") return;
         if (IS_STAGING) { statusEl.textContent = STAGING_DISABLED_MESSAGE; return; }
         if (!isValidNewsletterEmail(emailEl.value)) { statusEl.textContent = "Introduce un email válido."; return; }
+        if (!gdprEl.checked) {
+          statusEl.textContent = "Acepta la política de privacidad para continuar.";
+          gdprEl.focus({ preventScroll: true });
+          return;
+        }
         statusEl.textContent = "";
         submitBtn.dataset.submitting = "true";
         submitBtn.disabled = true;
