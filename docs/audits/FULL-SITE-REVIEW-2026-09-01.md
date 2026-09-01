@@ -158,6 +158,56 @@ automática)
 
 ## Hallazgos
 
+0. **[URGENTE — decisión del autor, no corregido]**
+   `/cuaderno/libros-fantasia-juvenil-espanola-2025-2026/` ("selección
+   2025-2026" de libros de fantasía juvenil española de OTROS autores,
+   no de David). Contrastadas las 6 entradas que no son de David contra
+   fuentes externas (búsqueda web):
+
+   - **Laura Gallego · "Cuatro Lunas" · fechado 2024 en la web.** Real,
+     pero el año está mal: el libro 1 de esta saga ("Mareas de magia")
+     se publicó el 2 de abril de **2025** (Editorial SM), no 2024.
+     Además "Cuatro Lunas" es el nombre de la SAGA (tetralogía), no de
+     un libro suelto — el título exacto sería "Cuatro Lunas 1: Mareas
+     de magia".
+   - **José Antonio Cotrina · "El ciclo de la Luna Roja" · fechado 2025
+     en la web.** Real, pero es una trilogía de **2009-2011** (Alfaguara/
+     Hidra, reeditada en 2018) — no una novedad de 2025. Presentarla en
+     una lista de "selección 2025-2026" es factualmente incorrecto.
+   - **Clara Cortijo · "Los hijos del sol negro".** Búsqueda web no
+     encuentra ninguna autora con ese nombre ni ese libro; solo aparece
+     una autora distinta y real ("Clara Cortés", con bibliografía
+     distinta). No he podido confirmar que esta autora o este libro
+     existan.
+   - **Ana Ballabriga · "El umbral de plata" · fechado 2026.** Ballabriga
+     es autora real, pero de thriller/novela negra (con David Zaplana,
+     "La ley del hambre"), no de fantasía juvenil; no se encuentra
+     ningún libro con ese título en su bibliografía.
+   - **Anabel Botella · "El último cántico".** Autora real con obra
+     reciente confirmada (p. ej. "Después del ruido", oct. 2025), pero
+     ese título específico no aparece en ninguna fuente encontrada, y
+     su perfil conocido es más romántico/contemporáneo que fantasía
+     oscura.
+   - **Iria G. Parente & Selene M. Pascual · "Paralelo 40".** Autoras
+     reales y muy prolíficas; no se ha podido confirmar ni descartar
+     este título concreto (podría ser simplemente muy reciente/poco
+     indexado — es el caso más dudoso, no el más grave).
+
+   En resumen: de 6 recomendaciones de terceros, 2 tienen datos
+   verificablemente incorrectos (año/naturaleza de la obra) sobre
+   autores reales, y 2-3 no se pueden verificar en absoluto pese a que
+   los autores sí son reales. Esto no es un matiz de estilo: es un
+   artículo que atribuye libros/fechas a personas reales y con nombre,
+   en la web profesional del autor. Si estos datos no vienen de una
+   fuente que David confirmó personalmente al escribir el artículo,
+   deberían corregirse o retirarse — no los he tocado porque no tengo
+   forma de saber cuál era la intención/fuente original y no quiero
+   sustituir una lista posiblemente inventada por otra lista que yo
+   mismo tendría que inventar. Necesito que el autor confirme si esta
+   lista se basó en investigación real y, si no, decida si prefiere
+   corregir los datos (con fuente) o retirar las entradas no
+   verificables.
+
 1. **[Corregido]** `prensa.html`, FAQ de entrevistas ("¿En qué está
    trabajando ahora?"): usaba "se publica el 3 de septiembre de 2026" en
    vez de la redacción autorizada sitewide "publicada el 3 de septiembre
