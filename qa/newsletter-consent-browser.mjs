@@ -18,6 +18,10 @@ async function pageWithWorker(context) {
   return { page, requests };
 }
 
+// Author decision (2026-09-01): no consent checkbox anywhere -- every
+// newsletter surface just needs a valid email to submit successfully, with
+// a plain non-blocking privacy-policy note next to the button instead of a
+// required checkbox.
 async function assertGeneralFlow(context, spec) {
   const { page, requests } = await pageWithWorker(context);
   await page.addInitScript(() => {
@@ -38,27 +42,19 @@ async function assertGeneralFlow(context, spec) {
 
   const form = page.locator(spec.form);
   const email = page.locator(spec.email);
-  const consent = page.locator(spec.consent);
   const status = page.locator(spec.status);
   await form.waitFor({ state: 'attached' });
+  assert.equal(await page.locator(spec.consentCheckbox).count(), 0,
+    `${spec.name}: must not render a consent checkbox`);
+  assert.match(await form.locator('a[href="/privacidad.html"]').innerText(), /pol[ií]tica de privacidad/i,
+    `${spec.name}: keeps a plain privacy-policy link`);
   await email.fill(`qa-${spec.source}@example.com`);
-  assert.equal(await consent.isChecked(), false, `${spec.name}: consent starts unchecked`);
-  assert.equal(await consent.getAttribute('required'), '', `${spec.name}: consent is required`);
 
-  await form.locator('[type="submit"]').click();
-  await page.waitForFunction((selector) => /Acepta la política de privacidad/i.test(
-    document.querySelector(selector)?.textContent || ''
-  ), spec.status);
-  assert.match(await status.textContent(), /Acepta la política de privacidad/i,
-    `${spec.name}: unchecked submit explains consent`);
-  assert.equal(requests.length, 0, `${spec.name}: unchecked submit must make zero requests`);
-
-  await consent.check();
   await form.locator('[type="submit"]').click();
   await page.waitForFunction((selector) => /Revisa tu correo/i.test(
     document.querySelector(selector)?.textContent || ''
   ), spec.form);
-  assert.equal(requests.length, 1, `${spec.name}: checked submit must make exactly one request`);
+  assert.equal(requests.length, 1, `${spec.name}: submit must make exactly one request`);
   assert.deepEqual(requests[0], {
     email: `qa-${spec.source}@example.com`,
     source: spec.source,
@@ -73,11 +69,11 @@ try {
   const context = await browser.newContext({ viewport: { width: 1280, height: 900 }, reducedMotion: 'reduce' });
 
   for (const spec of [
-    { name: 'Fragmento inline', path: '/fragmento/', form: '#newsletter-form-fragmento', email: '#nl-email-fragmento', consent: '#nl-gdpr-fragmento', status: '#nl-status-fragmento', source: 'fragmento' },
-    { name: 'Manecillas inline', path: '/las-manecillas-del-recuerdo/', form: '#newsletter-form-manecillas', email: '#nl-email-manecillas', consent: '#nl-gdpr-manecillas', status: '#nl-status-manecillas', source: 'manecillas' },
-    { name: 'Cuaderno inline', path: '/cuaderno/', form: '#newsletter-form-cuaderno', email: '#nl-email-cuaderno', consent: '#nl-gdpr-cuaderno', status: '#nl-status-cuaderno', source: 'cuaderno' },
-    { name: 'Explore with script.js', path: '/fragmento/', form: '#newsletter-form-explore', email: '#nl-email-explore', consent: '#nl-gdpr-explore', status: '#nl-status-explore', source: 'explore', openExplore: true },
-    { name: 'Explore shell-only', path: '/privacidad.html', form: '#newsletter-form-explore', email: '#nl-email-explore', consent: '#nl-gdpr-explore', status: '#nl-status-explore', source: 'explore', openExplore: true, shellOnly: true }
+    { name: 'Fragmento inline', path: '/fragmento/', form: '#newsletter-form-fragmento', email: '#nl-email-fragmento', consentCheckbox: '#nl-gdpr-fragmento', status: '#nl-status-fragmento', source: 'fragmento' },
+    { name: 'Manecillas inline', path: '/las-manecillas-del-recuerdo/', form: '#newsletter-form-manecillas', email: '#nl-email-manecillas', consentCheckbox: '#nl-gdpr-manecillas', status: '#nl-status-manecillas', source: 'manecillas' },
+    { name: 'Cuaderno inline', path: '/cuaderno/', form: '#newsletter-form-cuaderno', email: '#nl-email-cuaderno', consentCheckbox: '#nl-gdpr-cuaderno', status: '#nl-status-cuaderno', source: 'cuaderno' },
+    { name: 'Explore with script.js', path: '/fragmento/', form: '#newsletter-form-explore', email: '#nl-email-explore', consentCheckbox: '#nl-gdpr-explore', status: '#nl-status-explore', source: 'explore', openExplore: true },
+    { name: 'Explore shell-only', path: '/privacidad.html', form: '#newsletter-form-explore', email: '#nl-email-explore', consentCheckbox: '#nl-gdpr-explore', status: '#nl-status-explore', source: 'explore', openExplore: true, shellOnly: true }
   ]) {
     await assertGeneralFlow(context, spec);
   }
@@ -95,19 +91,14 @@ try {
   const dialog = page.locator('#nl-popup-dialog');
   await dialog.waitFor({ state: 'visible' });
   const email = dialog.locator('#nl-popup-email');
-  const consent = dialog.locator('#nl-popup-gdpr');
-  const status = dialog.locator('#nl-popup-status');
   const submit = dialog.locator('#nl-popup-submit');
+  assert.equal(await dialog.locator('#nl-popup-gdpr').count(), 0, 'popup must not render a consent checkbox');
+  assert.match(await dialog.locator('.nl-popup-consent a[href="/privacidad.html"]').innerText(), /pol[ií]tica de privacidad/i,
+    'popup keeps a plain privacy-policy link');
   await email.fill('qa-newsletter@example.com');
-  assert.equal(await consent.isChecked(), false, 'popup consent starts unchecked');
-  await submit.click();
-  await page.waitForFunction(() => /Acepta la política de privacidad/i.test(document.querySelector('#nl-popup-status')?.textContent || ''));
-  assert.match(await status.textContent(), /Acepta la política de privacidad/i, 'popup unchecked submit explains consent');
-  assert.equal(requests.length, 0, 'popup unchecked submit makes zero requests');
-  await consent.check();
   await submit.click();
   await page.waitForFunction(() => document.querySelector('#nl-popup-panel')?.textContent?.includes('Revisa tu correo'));
-  assert.equal(requests.length, 1, 'popup checked submit makes exactly one request');
+  assert.equal(requests.length, 1, 'popup submit makes exactly one request');
   assert.deepEqual(requests[0], { email: 'qa-newsletter@example.com', source: 'popup', website: '' }, 'popup payload stays exact');
   await page.close();
 

@@ -28,12 +28,21 @@ assert.match(scriptSource, /NEWSLETTER_CONFIG\s*=\s*\{\s*endpoint:\s*"https:\/\/
   'legacy newsletter fallback must keep the production Worker URL');
 assert.match(scriptSource, /window\.DPNewsletterGeneral\?\.postNewsletter/,
   'script.js must delegate POSTs to the shared V1 newsletter transport when available');
+// Author decision (2026-09-01): no consent checkbox anywhere on the site --
+// every newsletter surface uses a plain privacy-policy note instead, so
+// submitNewsletter is always called with a null gdprId now. The gdprId
+// parameter/branch stays in the function as a general capability (harmless,
+// simply unused by every current call site) rather than being ripped out.
 assert.match(scriptSource, /const gdprEl = document\.getElementById\(gdprId\)/,
   'generic legacy helper must resolve gdprId instead of leaving it dead');
 assert.match(scriptSource, /if \(gdprId && \(!gdprEl \|\| !gdprEl\.checked\)\)/,
-  'generic legacy helper must block unchecked privacy consent for forms that declare a gdprId');
+  'generic legacy helper must still support blocking on an unchecked consent box, even though no current call site uses it');
 assert.doesNotMatch(scriptSource, /postNewsletter\(\{[^}]*consent\s*:/s,
   'legacy client must not add consent to the Worker payload');
+for (const source of ['home', 'fragmento', 'manecillas', 'cuaderno']) {
+  assert.match(scriptSource, new RegExp(`submitNewsletter\\("newsletter-form-${source}",\\s*"nl-email-${source}",\\s*null,`),
+    `legacy fallback wiring for ${source} must pass a null gdprId (no checkbox to resolve)`);
+}
 
 assert.match(generalSource, /const ENDPOINT = 'https:\/\/subscribe\.davidpd89\.workers\.dev'/,
   'shared general client must use the canonical Worker');
@@ -45,10 +54,8 @@ assert.match(generalSource, /navigator\.onLine === false/,
   'shared general client must preserve offline handling');
 assert.match(generalSource, /form\.dataset\.newsletterBound === 'true'/,
   'shared client must protect against double binding');
-assert.match(generalSource, /input\[name="consent"\]/,
-  'shared client must resolve the privacy checkbox');
-assert.match(generalSource, /!consent \|\| !consent\.checked/,
-  'shared client must block missing or unchecked consent');
+assert.doesNotMatch(generalSource, /input\[name="consent"\]/,
+  'shared client (Explore form) must not look for a consent checkbox that no longer exists');
 assert.doesNotMatch(generalSource, /postNewsletter\(\{[^}]*consent\s*:/s,
   'shared client must preserve the existing Worker payload without consent field');
 
@@ -66,30 +73,25 @@ assert.ok(!/localStorage\.setItem\([^\)]*email/i.test(generalSource),
 assert.ok(!/sessionStorage\.setItem\([^\)]*email/i.test(generalSource),
   'shared client must never persist email in sessionStorage');
 
+// Author decision (2026-09-01): no consent checkbox anywhere on the site --
+// friction-free "just email + submit", every surface uses the same plain
+// privacy-policy note instead of a required checkbox.
 for (const [file, suffix] of [
   ['fragmento/index.html', 'fragmento'],
   ['las-manecillas-del-recuerdo/index.html', 'manecillas'],
-  ['cuaderno/index.html', 'cuaderno']
+  ['cuaderno/index.html', 'cuaderno'],
+  ['index.html', 'home']
 ]) {
   const html = read(...file.split('/'));
-  assert.match(html, new RegExp(`id="nl-gdpr-${suffix}"[^>]*name="consent"[^>]*required`), `${file} must render required consent`);
-  assert.match(html, /href="\/privacidad\.html"/, `${file} consent must link to privacy policy`);
-}
-
-// Home (author decision, 2026-09-01): no consent checkbox in either the
-// JS-enhanced Yale strip or the static/no-JS fallback -- a plain privacy-policy
-// note replaces it in both, so submitNewsletter must resolve a null gdprId here.
-{
-  const html = read('index.html');
-  assert.doesNotMatch(html, /id="nl-gdpr-home"/, 'index.html fallback must not render a consent checkbox');
+  assert.doesNotMatch(html, new RegExp(`id="nl-gdpr-${suffix}"`), `${file} must not render a consent checkbox`);
   assert.match(html, /Al enviar tu email, aceptas la <a href="\/privacidad\.html">pol[ií]tica de privacidad<\/a>/,
-    'index.html fallback must keep the plain privacy-policy note');
-  assert.match(scriptSource, /submitNewsletter\("newsletter-form-home",\s*"nl-email-home",\s*null,\s*"nl-status-home",\s*"home"\)/,
-    'legacy fallback wiring for Home must pass a null gdprId (no checkbox to resolve)');
+    `${file} must keep the plain privacy-policy note`);
 }
 
-assert.ok(builderSource.includes('nl-gdpr-explore'),
-  'shell builder must generate Explore consent');
+assert.doesNotMatch(builderSource, /nl-gdpr-explore/,
+  'shell builder must not generate an Explore consent checkbox');
+assert.match(builderSource, /Al enviar tu email, aceptas la <a href="\/privacidad\.html">pol[ií]tica de privacidad<\/a>/,
+  'shell builder must generate the Explore privacy-policy note');
 assert.match(builderSource, /newsletter-general\.js/,
   'shell builder must load the shared general newsletter runtime');
 assert.match(builderSource, /allow_newsletter/,
@@ -97,14 +99,12 @@ assert.match(builderSource, /allow_newsletter/,
 assert.match(builderSource, /subscribe\.davidpd89\.workers\.dev/,
   'shell builder CSP boundary must key off the canonical subscription Worker');
 
-assert.match(popupSource, /id=\\?"nl-popup-gdpr\\?"[^>]*name=\\?"consent\\?"[^>]*required/,
-  'newsletter popup must render a required privacy-consent checkbox');
-assert.match(popupSource, /href=\\?"\/privacidad\.html\\?"/,
-  'newsletter popup consent must link to the privacy policy');
-assert.match(popupSource, /const gdprEl = d\.querySelector\("#nl-popup-gdpr"\)/,
-  'newsletter popup must resolve its consent checkbox before submission');
-assert.match(popupSource, /if \(!gdprEl\.checked\)/,
-  'newsletter popup must block submission when privacy consent is unchecked');
+assert.doesNotMatch(popupSource, /nl-popup-gdpr/,
+  'newsletter popup must not render a consent checkbox');
+assert.match(popupSource, /Al enviar tu email, aceptas la <a href="\/privacidad\.html">pol[ií]tica de privacidad<\/a>/,
+  'newsletter popup must keep the plain privacy-policy note');
+assert.doesNotMatch(popupSource, /if \(!gdprEl\.checked\)/,
+  'newsletter popup must not block submission on a checkbox that no longer exists');
 assert.doesNotMatch(popupSource, /postNewsletter\(\{[^}]*consent\s*:/s,
   'popup must not add consent to the Worker payload');
 

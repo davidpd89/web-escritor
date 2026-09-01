@@ -1,0 +1,107 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Diagnóstico de vídeo — no indexar</title>
+<style>
+  body{margin:0;background:#111;color:#0f0;font-family:ui-monospace,Menlo,Consolas,monospace;font-size:13px;line-height:1.5}
+  header{padding:12px 16px;background:#000;color:#fff;font-family:system-ui,sans-serif}
+  header h1{margin:0 0 4px;font-size:16px}
+  header p{margin:0;font-size:12px;color:#aaa}
+  video{display:block;width:100%;max-width:360px;margin:12px auto;background:#000}
+  #log{white-space:pre-wrap;word-break:break-all;padding:12px 16px;margin:0}
+  .row{display:flex;gap:8px;padding:0 16px 12px}
+  button{font:inherit;padding:10px 16px;background:#0a4d9f;color:#fff;border:0;border-radius:4px}
+</style>
+</head>
+<body>
+<header>
+  <h1>Diagnóstico de vídeo (aislado, sin intro/CSS/sessionStorage)</h1>
+  <p>Página deliberadamente mínima. Si el vídeo se reproduce aquí, el problema está en la intro real, no en el archivo/servidor/Safari. Si NO se reproduce aquí tampoco, el problema es anterior a nuestro runtime.</p>
+</header>
+<div class="row">
+  <button id="btn-play" type="button">Reproducir manualmente</button>
+  <button id="btn-copy" type="button">Copiar registro</button>
+</div>
+<video id="v" autoplay muted playsinline webkit-playsinline preload="auto" controls poster="/assets/hero-tinta-poster.jpg?v=2">
+  <source src="/assets/video/hero-tinta-david-porto.mp4?v=2" type="video/mp4">
+</video>
+<pre id="log">Cargando…</pre>
+<script>
+(function(){
+  var v = document.getElementById('v');
+  var logEl = document.getElementById('log');
+  var lines = [];
+  function ts(){ return (performance.now()/1000).toFixed(2) + 's'; }
+  function snapshot(label){
+    return label + ' @' + ts() +
+      ' | readyState=' + v.readyState +
+      ' networkState=' + v.networkState +
+      ' paused=' + v.paused +
+      ' currentTime=' + v.currentTime.toFixed(2) +
+      ' duration=' + (isNaN(v.duration) ? 'NaN' : v.duration.toFixed(2)) +
+      ' muted=' + v.muted +
+      ' defaultMuted=' + v.defaultMuted +
+      ' playsInline=' + v.playsInline +
+      ' error=' + (v.error ? ('code=' + v.error.code) : 'null') +
+      ' visibilityState=' + document.visibilityState;
+  }
+  function log(line){
+    lines.push(line);
+    logEl.textContent = lines.join('\n');
+    logEl.scrollTop = logEl.scrollHeight;
+  }
+  log('userAgent: ' + navigator.userAgent);
+  log('reduced-motion: ' + (matchMedia('(prefers-reduced-motion: reduce)').matches ? 'REDUCE (video will not autoplay by design elsewhere on the real site -- this test page ignores that on purpose)' : 'no-preference'));
+  log(snapshot('init'));
+
+  ['loadstart','loadedmetadata','loadeddata','canplay','canplaythrough','play','playing','waiting','stalled','suspend','pause','error','abort','emptied','ended','volumechange'].forEach(function(evt){
+    v.addEventListener(evt, function(){ log(snapshot(evt)); });
+  });
+  document.addEventListener('visibilitychange', function(){ log(snapshot('visibilitychange')); });
+
+  v.muted = true;
+  v.defaultMuted = true;
+  v.playsInline = true;
+  var p = v.play();
+  if (p && p.then) {
+    p.then(function(){ log('play() PROMISE RESOLVED @' + ts()); })
+     .catch(function(err){ log('play() PROMISE REJECTED @' + ts() + ' name=' + err.name + ' message=' + err.message); });
+  } else {
+    log('play() returned no promise (old browser)');
+  }
+
+  var lastTime = -1;
+  var frozenTicks = 0;
+  setInterval(function(){
+    if (!v.paused && v.currentTime === lastTime) {
+      frozenTicks++;
+      if (frozenTicks === 4) log('WARNING: currentTime has not advanced for ~1s while playing=' + !v.paused + ' -- possible paint/compositing freeze, not a loading problem');
+    } else {
+      frozenTicks = 0;
+    }
+    lastTime = v.currentTime;
+  }, 250);
+
+  document.getElementById('btn-play').addEventListener('click', function(){
+    log('manual play() button pressed @' + ts());
+    v.play().then(function(){ log('manual play() resolved'); }).catch(function(err){ log('manual play() rejected: ' + err.name + ' ' + err.message); });
+  });
+  document.getElementById('btn-copy').addEventListener('click', function(){
+    var text = lines.join('\n');
+    if (navigator.clipboard && navigator.clipboard.writeText) {
+      navigator.clipboard.writeText(text).then(function(){ alert('Registro copiado.'); }).catch(function(){ alert('No se pudo copiar automáticamente; selecciona el texto manualmente.'); });
+    } else {
+      alert('No se pudo copiar automáticamente; selecciona el texto manualmente.');
+    }
+  });
+
+  fetch('/assets/video/hero-tinta-david-porto.mp4?v=2', { method: 'HEAD' }).then(function(r){
+    log('HEAD /assets/video/hero-tinta-david-porto.mp4 -> status=' + r.status + ' content-type=' + r.headers.get('content-type') + ' content-length=' + r.headers.get('content-length') + ' accept-ranges=' + r.headers.get('accept-ranges'));
+  }).catch(function(err){ log('HEAD request failed: ' + err.message); });
+})();
+</script>
+</body>
+</html>

@@ -163,7 +163,6 @@
     let seen = false;
     try { seen = sessionStorage.getItem('dp-intro-seen') === '1'; } catch {}
     if (seen) { intro.hidden = true; return; }
-    try { sessionStorage.setItem('dp-intro-seen', '1'); } catch {}
     const enter = q('[data-intro-enter]', intro);
     const behind = qa('.site-header, main, .site-footer');
     behind.forEach((el) => el.setAttribute('inert', ''));
@@ -173,6 +172,12 @@
     const doEnter = () => {
       if (entered) return;
       entered = true;
+      // Marked "seen" only once the intro is actually being dismissed, not
+      // at page load -- if the visitor reloads while it's still stuck (e.g.
+      // a frozen poster on a device where the video never played), the next
+      // load gets a genuine fresh attempt instead of silently skipping the
+      // intro for the rest of the session.
+      try { sessionStorage.setItem('dp-intro-seen', '1'); } catch {}
       const reduced = matchMedia('(prefers-reduced-motion: reduce)').matches;
       intro.classList.add('intro--leaving');
       setTimeout(() => {
@@ -206,21 +211,50 @@
     const intro = video.closest('[data-intro]');
     if (intro?.hidden) return;
     if (matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+    // iOS Safari treats preload as a hint, not a guarantee: it can sit at
+    // readyState 0 (HAVE_NOTHING) indefinitely without ever firing
+    // loadeddata unless something actually calls play() first -- so gating
+    // play() behind "wait for loadeddata" can deadlock (reported live on a
+    // physical iPhone: frozen poster, nothing else, indefinitely). Call
+    // play() immediately instead of waiting on any readyState/event gate.
+    // Force the muted/playsinline state via properties too, not just the
+    // HTML attributes -- belt-and-suspenders per Apple's own guidance for
+    // autoplay(muted+playsinline) reliability across WebKit versions.
+    video.muted = true;
+    video.defaultMuted = true;
+    video.playsInline = true;
     // Low Power Mode (and similar battery/data-saver states) can silently
     // reject a muted+playsinline autoplay call even once the video has
     // loaded correctly. That's not recoverable programmatically, but a real
     // user gesture is exempt from that restriction -- retry once on the
     // first tap/click anywhere on the intro, in case the visitor interacts
     // with it (e.g. tapping "Entrar") before the video has started.
-    const play = () => video.play().catch(() => {
+    video.play().catch(() => {
       if (!intro) return;
       intro.classList.add('intro--stalled');
       intro.dispatchEvent(new Event('dp-hero-video-blocked'));
       const retry = () => video.play().catch(() => {});
       intro.addEventListener('pointerdown', retry, { once: true, passive: true });
     });
-    if (video.readyState >= 2) play();
-    else video.addEventListener('loadeddata', play, { once: true });
+    // Opt-in diagnostic overlay (?video-debug=1) for isolating a real-device
+    // report against the actual intro runtime, not just the isolated
+    // /video-ios-test/ page -- if that page plays fine but this overlay
+    // shows the same freeze, the bug is in this page's CSS/paint/layering,
+    // not in loading or autoplay policy. Never runs without the query flag.
+    if (/[?&]video-debug=1\b/.test(location.search)) {
+      const box = document.createElement('pre');
+      box.style.cssText = 'position:fixed;left:0;right:0;bottom:0;z-index:99999;max-height:40vh;overflow:auto;margin:0;padding:8px;background:rgba(0,0,0,.85);color:#0f0;font:11px/1.4 ui-monospace,Menlo,monospace;white-space:pre-wrap;word-break:break-all';
+      document.body.appendChild(box);
+      const lines = [];
+      const t0 = performance.now();
+      const snap = (label) => `${label} @${((performance.now() - t0) / 1000).toFixed(2)}s | readyState=${video.readyState} paused=${video.paused} currentTime=${video.currentTime.toFixed(2)} error=${video.error ? video.error.code : 'null'}`;
+      const log = (line) => { lines.push(line); box.textContent = lines.join('\n'); box.scrollTop = box.scrollHeight; };
+      log(snap('init'));
+      ['loadstart', 'loadedmetadata', 'loadeddata', 'canplay', 'playing', 'waiting', 'stalled', 'suspend', 'pause', 'error'].forEach((evt) => {
+        video.addEventListener(evt, () => log(snap(evt)));
+      });
+      video.play().then(() => log('play() resolved')).catch((err) => log(`play() rejected: ${err.name} ${err.message}`));
+    }
   }
 
   function initAssistantWidget() {
