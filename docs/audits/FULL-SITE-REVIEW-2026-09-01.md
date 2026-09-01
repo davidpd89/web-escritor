@@ -219,6 +219,23 @@ automática)
    encontrada ahora tiene toda la pinta de ser el mismo problema en un
    sitio distinto, todavía sin retirar.
 
+   Más aún: `/recomendaciones/politica-de-recomendaciones/` documenta que
+   este problema EXACTO ya ocurrió y se corrigió, con fecha explícita
+   ("Corrección de evidencia — 23 de agosto de 2026"): "La autoría de una
+   obra, su presencia en una lista o la existencia de una ficha no se
+   consideran prueba de lectura personal (...) una edición marcada como
+   verificada debe contar con una fuente bibliográfica reproducible."
+   Las dos listas reales de Recomendaciones (`/recomendaciones/portal-
+   fantasy-espanol/`, `/recomendaciones/magia-con-coste/`) sí cumplen ese
+   estándar: cito ISBN reales que he verificado por búsqueda web (p. ej.
+   9788408099031 = El león, la bruja y el armario, C.S. Lewis, correcto),
+   citan fuentes académicas reales (Farah Mendlesohn, Brandon Sanderson)
+   y declaran estado de evidencia por obra. El artículo del Cuaderno no
+   sigue nada de este estándar ya existente en el propio sitio: no cita
+   fuente, no declara estado de evidencia, no tiene ISBN. No es que falte
+   un proceso — es que ese artículo no usó el proceso que el propio sitio
+   ya tiene y ya aplicó correctamente en otro sitio.
+
 1. **[Corregido]** `prensa.html`, FAQ de entrevistas ("¿En qué está
    trabajando ahora?"): usaba "se publica el 3 de septiembre de 2026" en
    vez de la redacción autorizada sitewide "publicada el 3 de septiembre
