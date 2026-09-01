@@ -1,11 +1,16 @@
 #!/usr/bin/env python3
-"""K.3 regression: the global header affiliate CTA must carry a visible
-disclosure next to itself, not only the sitewide statement in aviso-legal.html.
+"""K.3 regression: the global header affiliate CTA must carry an accessible
+'afiliado' disclosure (aria-label), and must NOT show a visible label next
+to the button.
 
-scripts/build-site-shell.py stamps the same <a class="header-buy"> Amazon
-Associates link into the shared header of every V1 page. Amazon's disclosure
-policy requires the notice to be near the link itself, so this checks the
-disclosure markup is actually present sitewide, not just documented as done.
+Changed 2026-09-01 (author decision: "que el botón salga COMPRAR y debajo
+afiliado, no" -- no visible text under any buy CTA). The disclosure moved
+from a visible span next to every CTA to aria-label only (screen readers
+still get it) plus the required sitewide Amazon Associates statement in
+aviso-legal.html. scripts/build-site-shell.py stamps the same
+<a class="header-buy"> Amazon Associates link into the shared header of
+every V1 page, so this checks both halves of that contract sitewide, not
+just documented as done.
 """
 from __future__ import annotations
 
@@ -76,7 +81,7 @@ for path in sorted(ROOT.rglob("*.html")):
     has_visible_span = bool(re.search(r'header-buy__disclosure[^>]*>\s*\S', block))
     has_aria = "afiliado" in (re.search(r'aria-label="([^"]*)"', block).group(1).lower()
                                if re.search(r'aria-label="([^"]*)"', block) else "")
-    if not (has_visible_span and has_aria):
+    if has_visible_span or not has_aria:
         disclosure_offenders.append(rel)
 
 assert pages_with_header_buy, "no V1 page with a header-buy affiliate link was found -- test fixture assumption is stale"
@@ -87,8 +92,8 @@ assert not manecillas_offenders, (
 )
 
 assert not disclosure_offenders, (
-    "header-buy affiliate link is missing a visible + accessible 'afiliado' disclosure on: "
-    + ", ".join(disclosure_offenders)
+    "header-buy affiliate link must have an aria-label 'afiliado' disclosure and no visible "
+    "header-buy__disclosure span: " + ", ".join(disclosure_offenders)
 )
 
 print(f"header-buy-disclosure: OK ({len(pages_with_header_buy)} pages checked)")

@@ -674,6 +674,18 @@ html.v1[data-lrb-home="true"] .yale-tile-grid--works .yale-tile:nth-child(3)::af
   height:1px;
   background:#b8860b;
 }
+/* The corner bracket above reaches 2.25rem up from the tile's bottom-left
+   corner, but "Abrir" (bottom-left of the tile's own flex column) had no
+   guaranteed clearance from it -- only whatever slack happened to be left
+   after the title/description text, which shrinks to nothing on longer
+   titles or narrower widths (author: "se solapa la L con el final de
+   Abrir"). Reserve the bracket's own height as extra bottom padding so the
+   two can never touch regardless of content length or viewport. */
+html.v1[data-lrb-home="true"] .yale-tile-grid--works .yale-tile:nth-child(1),
+html.v1[data-lrb-home="true"] .yale-tile-grid--works .yale-tile:nth-child(2),
+html.v1[data-lrb-home="true"] .yale-tile-grid--works .yale-tile:nth-child(3){
+  padding-bottom:calc(clamp(1.1rem,2vw,1.55rem) + 2.25rem);
+}
 /* Gray grid lines (rgba(0,0,0,.18)) recoloured to the page's blue/gold
    (author request: "los cuadros grises como el azul y amarillo") -- the
    vertical separators between cards in blue, the horizontal ones in gold,
@@ -791,8 +803,16 @@ html.v1[data-lrb-home="true"] .home-events__grid .home-event{
   background-position:left bottom 8px,left bottom 4px,left bottom 0;
   border-right:0;
 }
-html.v1[data-lrb-home="true"] .yale-feature-card:last-child,
-html.v1[data-lrb-home="true"] .home-events__grid .home-event:last-child{background-image:none}
+html.v1[data-lrb-home="true"] .yale-feature-card:last-child{background-image:none}
+/* :last-of-type, not :last-child -- .home-events__cta is a real 4th sibling
+   after the three .home-event cards (see comment above .home-events__cta),
+   so :last-child never matched any .home-event at all and this rule was
+   silently dead: the 3rd/last event kept both its triple-line background
+   and the plain 1px gold border-bottom it inherits from the shared
+   ".yale-tile, .home-event" rule above, showing as a stray trailing line
+   right before the CTA box (author: "en agenda sigue apareciendo una
+   línea al final"). */
+html.v1[data-lrb-home="true"] .home-events__grid .home-event:last-of-type{background-image:none;border-bottom:0}
 html.v1[data-lrb-home="true"] .yale-feature-card:first-child,
 html.v1[data-lrb-home="true"] .home-events__grid .home-event:first-child{padding-top:0}
 /* Give Samuel a small amount of breathing room before the following
@@ -854,7 +874,11 @@ html.v1[data-lrb-home="true"] .yale-feature-book__body{order:1}
 html.v1[data-lrb-home="true"] .yale-feature-book__media{order:2}
 html.v1[data-lrb-home="true"] .yale-feature-card h3,
 html.v1[data-lrb-home="true"] .yale-feature-book h3{
-  margin:.45rem 0 .45rem;
+  /* Bottom margin widened from .45rem (author: "no hay margen ... debajo
+     Madrid" -- a 2-line wrapped title like "Samuel en la Feria del Libro
+     de Madrid" left barely any breathing room before the next line/the
+     card's own bottom divider on tighter widths). */
+  margin:.45rem 0 .75rem;
   font-family:var(--font-ui);
   font-size:clamp(1.28rem,2vw,1.78rem);
   font-weight:800;
@@ -960,7 +984,6 @@ html.v1[data-lrb-home="true"] .home-events__cta .yale-text-link{font-weight:700}
 html.v1[data-lrb-home="true"] .install-web{
   background:#fff;
   color:#050505;
-  border-bottom:1px solid #1d4f96;
 }
 html.v1[data-lrb-home="true"] .install-web::before{display:none}
 /* .install-web's own background:#fff above (line ~764) clears the section-
@@ -987,7 +1010,15 @@ html.v1[data-lrb-home="true"] .yale-signup{
   display:grid;
   grid-template-columns:minmax(0,1fr) minmax(18rem,.72fr);
   gap:clamp(1.25rem,3vw,2.5rem);
-  align-items:center;
+  /* align-items:start, not center: centering the two columns against each
+     other let the panel/form column (often shorter than the copy column)
+     drift away from the section's own top divider -- from that column's
+     side, the divider read as 2-3 unattached floating lines well above the
+     button/input row instead of a rule that visibly belongs to the
+     section's heading (author: "encima de instalar web [hay] 2 sueltas").
+     Starting both columns at the same top, right under the divider, ties
+     them back together regardless of which column is taller. */
+  align-items:start;
   padding:clamp(1.5rem,3vw,2.4rem) 0;
 }
 html.v1[data-lrb-home="true"] .install-web__panel,
@@ -1114,6 +1145,21 @@ html.v1[data-lrb-home="true"] .home-events__cta{
   z-index:1;
   margin-left:calc(-1 * var(--home-events-rail-inset));
 }
+/* The sitewide overflow guard (.yale-home-flow :is(section,article,div,...)
+   {max-width:100%}, specificity (0,2,2)) caps width at the pre-shift 100%,
+   so the negative margin-left above just moves the box left instead of
+   also growing its right edge to match -- same issue .yale-feature--samuel's
+   bleed hack already works around elsewhere in this file. Without this,
+   every card (and the CTA box most visibly, since its plain fill has
+   nothing else to mask the gap) fell short of the rail's own right edge by
+   exactly the inset (author: "no llega hasta el final de la barra azul").
+   Needs the extra .home-events-scoped class here (specificity (0,3,1)) to
+   actually outrank the guard -- .home-events__cta alone is only (0,2,1). */
+html.v1[data-lrb-home="true"] .home-events .home-events__grid .home-event,
+html.v1[data-lrb-home="true"] .home-events .home-events__cta{
+  width:calc(100% + var(--home-events-rail-inset));
+  max-width:calc(100% + var(--home-events-rail-inset));
+}
 /* Keep the intentional blue callout, but make its box start on the same
    rail axis as the event rules. The overlay rail becomes its left edge. */
 html.v1[data-lrb-home="true"] .home-events__cta{
@@ -1135,6 +1181,103 @@ html.v1[data-lrb-home="true"] .home-events__cta .yale-text-link{
 }
 html.v1[data-lrb-home="true"] .home-events__cta .yale-text-link:hover,
 html.v1[data-lrb-home="true"] .home-events__cta .yale-text-link:focus-visible{color:#0d2c57}
+
+/* #faq format parity with the rest of the flow (author: "Preguntas
+   frecuentes debería tener el mismo formato que novedades y acceso
+   directo"). v1-home-editorial-v3.js relocates the real #faq content into
+   this flow instead of deleting it, but it keeps its original
+   .book-section/.prose-section markup -- a sitewide 3-column
+   label/content/gutter grid meant for book detail pages, with .faq-native
+   itself capped at max-width:68ch inside the middle column. Next to the
+   full-width Novedades/Acceso directo strips that reads as a narrow,
+   off-format block with dead space on both sides. Scoped to #faq inside
+   the home flow only: .book-section/.prose-section/.faq-native are shared
+   components used on non-home pages, which must keep their own layout.
+   The <details>/<summary> accordion itself already works (native, no JS)
+   and needs no change -- only the outer container/heading format. */
+html.v1[data-lrb-home="true"] .yale-home-flow #faq{
+  display:block;
+  position:relative;
+  margin-top:0;
+  border-top:0;
+  padding:28px 0 clamp(1.5rem,3vw,2.4rem);
+  background-image:linear-gradient(#1d4f96,#1d4f96),linear-gradient(#b8860b,#b8860b);
+  background-repeat:no-repeat,no-repeat;
+  background-size:100% 1.5px,100% 1.5px;
+  background-position:top left,left 5px;
+}
+html.v1[data-lrb-home="true"] .yale-home-flow #faq::after{
+  content:"";
+  position:absolute;
+  top:1.3px;
+  left:50%;
+  width:8px;
+  height:8px;
+  background:#1d4f96;
+  transform:translate(-50%,-50%) rotate(45deg);
+  pointer-events:none;
+}
+html.v1[data-lrb-home="true"] .yale-home-flow #faq .book-section__label{
+  padding-bottom:1.7rem;
+}
+html.v1[data-lrb-home="true"] .yale-home-flow #faq .eyebrow{
+  position:relative;
+  display:inline-block;
+  width:fit-content;
+  margin:0 0 -.1rem;
+  font-family:'Yellowtail',var(--font-ui),cursive;
+  font-size:clamp(1.5rem,2.4vw,1.7rem);
+  font-weight:400;
+  letter-spacing:0;
+  text-transform:none;
+  color:#b8860b;
+}
+html.v1[data-lrb-home="true"] .yale-home-flow #faq .eyebrow::before{
+  content:"";
+  position:absolute;
+  left:-3%;
+  right:-3%;
+  bottom:.06em;
+  height:.55em;
+  background:url(/assets/highlight-8-blue-rect.png) center/100% 100% no-repeat;
+  opacity:.8;
+  pointer-events:none;
+}
+html.v1[data-lrb-home="true"] .yale-home-flow #faq .book-section__label h2{
+  margin:.35rem 0 0;
+  font-family:var(--font-ui);
+  font-size:clamp(1.55rem,2.6vw,2.3rem);
+  font-weight:800;
+  line-height:1.05;
+  letter-spacing:-.018em;
+  color:#1d4f96;
+  -webkit-text-stroke:0.35px rgba(184,134,11,.55);
+}
+html.v1[data-lrb-home="true"] .yale-home-flow #faq .faq-native{
+  grid-column:auto;
+  max-width:none;
+}
+
+/* Assistant launcher/panel recolour for Home only (author: "el menú de
+   asistente... el botón ni se ve ni encaja con los colores de la web").
+   assistant-widget.css's plain ink/white theme is the sitewide default and
+   still correct on every other page; only Home was reworked into the
+   blue/gold system, so only Home needs the launcher to match it. */
+html.v1[data-lrb-home="true"] .assistant-widget__launcher{
+  border-color:#1d4f96;
+  color:#1d4f96;
+}
+html.v1[data-lrb-home="true"] .assistant-widget__launcher:hover{
+  background:#1d4f96;
+  border-color:#1d4f96;
+  color:#fff;
+}
+html.v1[data-lrb-home="true"] .assistant-widget__panel{
+  border-color:#1d4f96;
+}
+html.v1[data-lrb-home="true"] .assistant-widget__header{
+  border-bottom-color:#b8860b;
+}
 
 /* The install block was switched from the old dark panel to white, but its
    panel lines and hover state still came from that dark version. */

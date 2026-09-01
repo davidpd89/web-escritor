@@ -318,11 +318,18 @@ def render_header(nav: dict, by_id: dict[str, Entry], current_path: str) -> str:
     links = "\n".join(f"        {link(by_id[item_id], None)}" for item_id in nav["header"])
     buy_link = ""
     if not current_path.startswith("/las-manecillas-del-recuerdo/"):
+        # No visible "Afiliado" label under the CTA (author decision,
+        # 2026-09-01: "que el botón salga COMPRAR y debajo afiliado, no").
+        # rel="sponsored" stays (the technical signal search engines read)
+        # and aria-label keeps the disclosure available to screen-reader
+        # users without adding visible text next to the button. The
+        # required sitewide Amazon Associates statement lives on
+        # aviso-legal.html, not repeated at every CTA.
         buy_link = (
             f'      <a class="header-buy" href="{AMAZON_SAMUEL_URL}" '
             'target="_blank" rel="sponsored nofollow noopener noreferrer" '
             'aria-label="Comprar en Amazon — enlace de afiliado">'
-            'Comprar<span class="header-buy__disclosure" aria-hidden="true">Afiliado</span></a>\n'
+            'Comprar</a>\n'
         )
     return (
         '<header class="site-header" data-header>\n'
