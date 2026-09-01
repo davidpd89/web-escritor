@@ -4,7 +4,7 @@
 **Corrección de evidencia:** 2026-08-31  
 **Verificación de audio:** 2026-09-01  
 **Base inspeccionada:** `main@291c8c677aaa7df635142687d1a6848e80ffcaa2`  
-**Decisión:** `CONDITIONAL · HOME_TEMPORAL_MEDIA_EXISTS · MUTED_INLINE_INTRO · NO_AUDIO_TRACK_VERIFIED_DECORATIVE · VISUAL_ESSENTIALITY_NOT_VERIFIED · MEDIA_OBLIGATION_PRESERVED · NO_CODE`
+**Decisión:** `CONDITIONAL · HOME_TEMPORAL_MEDIA_EXISTS · MUTED_INLINE_INTRO · NO_AUDIO_TRACK_VERIFIED · VISUAL_ESSENTIALITY_NOT_VERIFIED · MEDIA_OBLIGATION_PRESERVED · NO_CODE`
 
 ## 1. Conclusión
 
@@ -20,15 +20,16 @@ La presencia del vídeo activa **clasificación**, no una conclusión automátic
 
 ```html
 <video class="intro__video" muted playsinline preload="auto" poster="assets/hero-tinta-poster.jpg?v=2" data-hero-video>
-  <source src="assets/video/hero-tinta-david-porto.webm?v=2" type="video/webm" />
   <source src="assets/video/hero-tinta-david-porto.mp4?v=2" type="video/mp4" />
 </video>
 ```
 
+Desde el 31/08 (commit `e79f2637`) el MP4 es la única `<source>` activa — el WebM se retiró deliberadamente para evitar un fallo de selección en Safari/iPhone, no por ningún motivo de accesibilidad. El fichero WebM sigue existiendo en el repo como asset inspeccionado, pero no se sirve como fuente del `<video>` actual; no debe describirse como una segunda source activa.
+
 El directorio `assets/video/` contiene:
 
-- `hero-tinta-david-porto.mp4` (~630 KB);
-- `hero-tinta-david-porto.webm` (~602 KB).
+- `hero-tinta-david-porto.mp4` (~630 KB) — fuente activa;
+- `hero-tinta-david-porto.webm` (~602 KB) — asset existente, no referenciado como `<source>`.
 
 También existe poster estático y el runtime `assets/v1-shell.js` gobierna reproducción/salida. El elemento se declara `muted` + `playsinline`, y `<noscript>` oculta la intro para dejar accesible la HOME normal sin JavaScript.
 
@@ -45,7 +46,7 @@ La estructura del repo no certifica por sí sola:
 - si la animación contiene información visual esencial que no aparezca en otro lugar;
 - si la pieza es puramente decorativa/de identidad y no transmite contenido necesario.
 
-Estado corregido el 01/09: los dos primeros puntos (pista de audio, habla o sonido informativo) quedan `NO_AUDIO_TRACK_VERIFIED_DECORATIVE` — ver sección 7-bis. Los dos últimos (esencialidad de la información visual) siguen `VISUAL_ESSENTIALITY_NOT_VERIFIED`.
+Estado corregido el 01/09: los dos primeros puntos (pista de audio, habla o sonido informativo) quedan `NO_AUDIO_TRACK_VERIFIED` — ver sección 7-bis. Los dos últimos (esencialidad de la información visual) siguen `VISUAL_ESSENTIALITY_NOT_VERIFIED`; `NO_AUDIO_TRACK_VERIFIED` certifica solo la ausencia de pista de audio, no que el vídeo sea decorativo.
 
 No se etiqueta el vídeo como `captioned`, `transcript_required` ni `verified_accessible` hasta inspeccionar también la esencialidad visual real. Sí queda descartado `transcript_required` por audio, porque no existe pista de audio que transcribir.
 
@@ -85,7 +86,7 @@ Para futuras superficies: reabrir F.3 cuando aparezca audio/vídeo temporal real
 
 ## 7. Estado final de F.3
 
-`CONDITIONAL · HOME_TEMPORAL_MEDIA_EXISTS · MUTED_INLINE_INTRO · NO_AUDIO_TRACK_VERIFIED_DECORATIVE · VISUAL_ESSENTIALITY_NOT_VERIFIED · MEDIA_OBLIGATION_PRESERVED · NO_CODE`
+`CONDITIONAL · HOME_TEMPORAL_MEDIA_EXISTS · MUTED_INLINE_INTRO · NO_AUDIO_TRACK_VERIFIED · VISUAL_ESSENTIALITY_NOT_VERIFIED · MEDIA_OBLIGATION_PRESERVED · NO_CODE`
 
 La idea sigue siendo una obligación condicional. La deuda inmediata es de **clasificación correcta de la media existente**, no una infraestructura global de transcripciones.
 
@@ -112,6 +113,6 @@ nb_streams=1
 
 Ambos contenedores declaran `nb_streams=1` y ese único stream es de vídeo (`h264`/`avc1` en el MP4, `vp9` en el WebM; 720×1280, 24 fps, 5.00 s). Ninguno de los dos ficheros tiene una segunda pista, de audio o de otro tipo. No es una pista de audio silenciosa — es la ausencia total de pista de audio a nivel de contenedor, verificable sin reproducir ni "escuchar" el fichero.
 
-Consecuencia directa para la sección 3: no puede haber habla ni sonido informativo en un fichero sin pista de audio. Los puntos 1 y 2 de la sección 3 quedan cerrados como `NO_AUDIO_TRACK_VERIFIED_DECORATIVE`. WCAG 1.2.2 (captions) y 1.2.1/1.2.3 en su vertiente de audio no aplican porque no existe audio pregrabado que subtitular o transcribir.
+Consecuencia directa para la sección 3: no puede haber habla ni sonido informativo en un fichero sin pista de audio. Los puntos 1 y 2 de la sección 3 quedan cerrados como `NO_AUDIO_TRACK_VERIFIED`. WCAG 1.2.2 (captions) y 1.2.1/1.2.3 en su vertiente de audio no aplican porque no existe audio pregrabado que subtitular o transcribir. Esta verificación cubre únicamente la pista de audio; no implica ni certifica que el vídeo sea decorativo — esa clasificación depende de los puntos 3 y 4, que siguen `VISUAL_ESSENTIALITY_NOT_VERIFIED`.
 
 Esto **no** cierra F.3 por completo: los puntos 3 y 4 de la sección 3 (si la animación visual de 5 s transmite información esencial no disponible en otro lugar de la HOME, relevante para la vertiente vídeo-only de 1.2.1) siguen sin inspeccionarse visualmente y quedan `VISUAL_ESSENTIALITY_NOT_VERIFIED`. Dado el nombre del asset (`hero-tinta-david-porto`, animación de tinta de marca/identidad en el hero) y su brevedad (5 s, loop de intro), la hipótesis de trabajo es contenido decorativo/de marca redundante con el H1 y la identidad visual ya presentes en la HOME — pero esa hipótesis no se marca como verificada aquí porque requiere inspección visual humana, no solo de contenedor.
