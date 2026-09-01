@@ -275,14 +275,22 @@ def main() -> int:
         counts[f.severity] += 1
         print(f"{f.severity:7} {f.path}: {f.code}: {f.message}")
 
-    # Reuse inventory for editorial planning; not a hard error.
+    # Reuse inventory for editorial planning; not a hard error. These grouped
+    # notices are part of the same audit summary even though they are not tied
+    # to a single PageAudit finding.
     image_to_articles: dict[str, list[str]] = defaultdict(list)
     for a in audits:
         if a.og_type == "article" and a.og_image:
             image_to_articles[a.og_image].append(a.path)
+    shared_card_groups: list[tuple[str, list[str]]] = []
     for image, pages in sorted(image_to_articles.items()):
         if len(pages) >= 3:
-            print(f"NOTICE  shared article card used by {len(pages)} pages: {image}")
+            shared_card_groups.append((image, pages))
+            print(
+                f"NOTICE  shared article card used by {len(pages)} pages: {image} :: "
+                + ", ".join(pages)
+            )
+    counts["NOTICE"] += len(shared_card_groups)
 
     print(
         f"Social cards: {len(audits)} indexable HTML pages; "
