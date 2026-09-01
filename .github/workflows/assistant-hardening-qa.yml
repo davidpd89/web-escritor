@@ -15,6 +15,7 @@ on:
       - 'tests/test-assistant-contract.py'
       - 'qa/assistant-browser.mjs'
       - 'qa/assistant-widget-navigation-browser.mjs'
+      - 'qa/assistant-recommendation-benchmark.mjs'
       - 'scripts/build-pagefind-index.py'
       - 'tests/test-build-pagefind-index.py'
       - 'qa/pagefind-search-browser.mjs'
@@ -43,6 +44,8 @@ jobs:
         run: python3 tests/test-assistant-contract.py
       - name: Core
         run: node tests/test-assistant-core.mjs
+      - name: G.1 recommendation routing unit tests
+        run: node tests/test-assistant-recommendation-routing.mjs
       - name: Worker
         run: node tests/test-assistant-worker.mjs
       - name: Hardening boundaries
@@ -106,7 +109,13 @@ jobs:
         run: python3 tests/test-build-pagefind-index.py
       - name: Pagefind real search (gates + no external requests)
         run: node qa/pagefind-search-browser.mjs
-      - name: Upload six viewport screenshots
+      - name: G.1 recommendation benchmark (enforce)
+        env:
+          QA_ORIGIN: http://127.0.0.1:4173
+          QA_OUT: qa-artifacts/assistant
+          RECOMMENDATION_BENCHMARK_MODE: enforce
+        run: node qa/assistant-recommendation-benchmark.mjs
+      - name: Upload six viewport screenshots and benchmark
         if: always()
         uses: actions/upload-artifact@v4
         with:
