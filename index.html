@@ -569,9 +569,16 @@
     <!-- FAQ: contenido único de Home, no duplicado en ninguna otra página
          (verificado contra prensa.html, que tiene un FAQ propio y distinto,
          orientado a proceso editorial, no a estas preguntas de lector).
-         <details>/<summary> nativos: sin JS, sin toggle personalizado. -->
-    <section class="book-section prose-section" id="faq" aria-labelledby="faq-title">
-      <div class="book-section__label"><p class="eyebrow">Preguntas frecuentes</p><h2 id="faq-title">Dudas habituales</h2></div>
+         <details>/<summary> nativos: sin JS, sin toggle personalizado. La
+         sección entera es ahora un <details> maestro (author: "que sea UN
+         desplegable, y si se abre, salgan todas las dudas; si no, quede
+         recogido") -- .book-section__label pasa de <div> a <summary> sin
+         tocar sus clases, así que sigue siendo el mismo grid item de
+         .book-section (grid de 3 columnas) y el mismo bloque reformateado
+         dentro del flujo Yale de Home; las 8 preguntas conservan su propio
+         <details>/<summary> dentro de .faq-native. -->
+    <details class="book-section prose-section faq-master" id="faq" aria-labelledby="faq-title">
+      <summary class="book-section__label"><p class="eyebrow">Preguntas frecuentes</p><h2 id="faq-title">Dudas habituales</h2></summary>
       <div class="faq-native">
         <details>
           <summary>¿Dónde puedo comprar Samuel entre mundos?</summary>
@@ -606,7 +613,7 @@
           <p>Sí. David Porto Díaz firmó ejemplares de <em>Samuel entre mundos</em> el <strong>10 de junio de 2026</strong> en la <strong>Feria del Libro de Madrid</strong> (Parque del Retiro, <strong>caseta 337</strong>), de 19:00 a 20:00.</p>
         </details>
       </div>
-    </section>
+    </details>
 
     <section class="newsletter" id="newsletter" aria-labelledby="newsletter-title">
       <div class="newsletter__copy">

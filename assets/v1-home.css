@@ -181,6 +181,28 @@ html.v1 .faq-native details[open] summary::after{content:"–"}
 html.v1 .faq-native details p{margin:.85rem 0 0;color:var(--color-muted);font-family:var(--font-reading);font-size:1.02rem;line-height:1.6;max-width:60ch}
 @media(max-width:1199px){html.v1 .faq-native{grid-column:1/-1}}
 
+/* FAQ master toggle (author: "que sea UN desplegable, y si se abre, salgan
+   todas las dudas; si no, quede recogido") -- #faq itself is now a <details>
+   and .book-section__label is a <summary>, collapsed by default. Reusing the
+   same class names as before means the .book-section 3-column grid (no-JS
+   fallback) and the Home-flow reformat further down this file both keep
+   working unchanged; only the native marker/list-item styling needs
+   resetting here, same pattern as .faq-native summary above. */
+html.v1 .faq-master > summary.book-section__label{
+  display:block;
+  cursor:pointer;
+  list-style:none;
+}
+html.v1 .faq-master > summary.book-section__label::-webkit-details-marker{display:none}
+html.v1 .faq-master > summary.book-section__label h2::after{
+  content:"+";
+  margin-left:.5rem;
+  color:var(--color-muted);
+  font-weight:400;
+}
+html.v1 .faq-master[open] > summary.book-section__label h2::after{content:"–"}
+html.v1 .faq-master:not([open]) .faq-native{display:none}
+
 /* Yale Review prototype, 2026-08-25. This intentionally removes the banner
    rhythm from the enhanced Home and tests a cleaner magazine front page:
    white field, black/blue type, hairline grid and one strong lead story. */
