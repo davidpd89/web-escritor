@@ -57,7 +57,54 @@ PAGES = {
         "min_details": 4,
         "required_types": {"Article", "BreadcrumbList"},
     },
+    "Home": {
+        "path": ROOT / "index.html",
+        "human_marker": 'id="faq"',
+        "heading": "Preguntas frecuentes",
+        "min_details": 8,
+        "required_types": {"WebSite", "WebPage", "Person"},
+    },
 }
+
+# A.7 guardrail (docs/web-improvement-ideas/A07-FAQ-SCHEMA-BOOKS-2026-08-28.md,
+# section 8): FAQPage is retired sitewide, not just on the pages listed above.
+# Reuses the exclude/noindex conventions from scripts/check-internal-graph.py
+# instead of a parallel definition of "public HTML".
+EXCLUDE_DIRS = {
+    "node_modules",
+    ".git",
+    "assets",
+    "images",
+    "videos",
+    "android",
+    "tests",
+    "_tools",
+    "_reddit",
+    "_david",
+    "WEB DAVID PORTO nuevas ideas",
+    "press-kit",
+    "data",
+    ".preview-dist",
+    "dist",
+}
+NOINDEX_RE = re.compile(r'<meta\s+name="robots"\s+content="([^"]*)"', re.I)
+
+
+def should_skip_file(path: Path) -> bool:
+    rel = path.relative_to(ROOT)
+    if any(part in EXCLUDE_DIRS for part in rel.parts):
+        return True
+    lower = path.name.lower()
+    if lower in {"offline.html", "404.html"}:
+        return True
+    if lower.endswith((".example.html", ".template.html", ".component.html")):
+        return True
+    return False
+
+
+def has_noindex(html: str) -> bool:
+    match = NOINDEX_RE.search(html)
+    return bool(match and "noindex" in match.group(1).lower())
 
 
 def structured_nodes(html: str) -> list[dict]:
@@ -92,5 +139,25 @@ for label, contract in PAGES.items():
     }
     missing = contract["required_types"] - seen_types
     assert not missing, f"{label}: unrelated structured-data types removed accidentally: {sorted(missing)}"
+
+sitewide_offenders: list[str] = []
+for path in sorted(ROOT.rglob("*.html")):
+    if should_skip_file(path):
+        continue
+    html = path.read_text(encoding="utf-8", errors="ignore")
+    if has_noindex(html):
+        continue
+    if not re.search(r'"@type"\s*:\s*"FAQPage"', html) and '"FAQPage"' not in html:
+        continue
+    for node in structured_nodes(html):
+        node_type = node.get("@type")
+        types = node_type if isinstance(node_type, list) else [node_type]
+        if "FAQPage" in types:
+            sitewide_offenders.append(str(path.relative_to(ROOT)))
+            break
+
+assert not sitewide_offenders, (
+    "A.7 retired FAQPage sitewide but it reappeared in: " + ", ".join(sitewide_offenders)
+)
 
 print("faq-schema-retirement: OK")
