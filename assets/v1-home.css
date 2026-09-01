@@ -806,9 +806,9 @@ html.v1[data-lrb-home="true"] .yale-feature--samuel .yale-feature-book{
 /* Desktop Samuel seam fix. The horizontal rules live on cards inside the
    left stack, while the old vertical rail lived on the right book card with
    the outer grid gap between them, so those strokes could never physically
-   join. Draw the rail on the stack's right edge where the horizontal rules
-   actually terminate; preserve the book's padding, and preserve the old
-   book-left rail below 1101px where the feature becomes a single column. */
+   join. Draw the rail on the stack's right edge; preserve the book's
+   padding, and preserve the old book-left rail below 1101px where the
+   feature becomes a single column. */
 @media(min-width:1101px){
   html.v1[data-lrb-home="true"] .yale-feature--samuel .yale-feature__stack{
     background-image:linear-gradient(90deg,#1d4f96,#1d4f96);
@@ -817,6 +817,20 @@ html.v1[data-lrb-home="true"] .yale-feature--samuel .yale-feature-book{
     background-position:top right;
   }
   html.v1[data-lrb-home="true"] .yale-feature--samuel .yale-feature-book{background-image:none}
+  /* The card's left-bleed hack (margin-left:-clamp(...) + matching
+     padding-left, so its background rules and hit area extend past the
+     stack's own edge on the left) shifts the whole box left without
+     growing it -- so the right edge, and the double-rule painted at
+     background-size:100%, landed one clamp() short of the rail above
+     instead of touching it (measured ~30px gap at 1440px). Add that same
+     width back on the right so the rule's right end lands exactly on the
+     rail. max-width needs the same override: the sitewide overflow guard
+     (`.yale-home-flow :is(section,article,...){max-width:100%}`) otherwise
+     clamps this straight back down to the pre-bleed width. */
+  html.v1[data-lrb-home="true"] .yale-feature--samuel .yale-feature-card{
+    width:calc(100% + clamp(1.2rem,2.6vw,2rem));
+    max-width:calc(100% + clamp(1.2rem,2.6vw,2rem));
+  }
 }
 /* Mirrors .yale-lead's own media|copy split (photo beside text) instead of
    stacking the cover above the description -- same system as the hero, but

@@ -43,6 +43,14 @@ html.v1 .authority-footer__inner p{margin:0}
 html.v1 .authority-footer nav{display:flex;flex-wrap:wrap;gap:var(--space-5);min-width:0;max-width:100%}
 html.v1 .authority-footer a{overflow-wrap:anywhere}
 
+/* #289: azul/dorado con extrema contencion -- documento de autoridad/registro,
+   no landing. Solo apertura (eyebrow/h1) y la nota existente pasan del azul
+   legacy --color-accent-strong al azul editorial; ledgers/folios/records
+   siguen neutros, sin decoracion nueva. */
+html.v1 .authority-main .eyebrow{color:#b8860b}
+html.v1 .authority-hero h1{color:#1d4f96}
+html.v1 .authority-note{border-left-color:#1d4f96}
+
 @media (max-width:767px){
   html.v1 .authority-main{padding-bottom:var(--space-8)}
   html.v1 .authority-hero{padding-top:var(--space-8)}
