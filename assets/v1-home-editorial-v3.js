@@ -347,7 +347,7 @@
     ctaCopy.append(make('h3', '', '¿Quieres organizar una presentación, firma o club de lectura?'));
     ctaCopy.append(make('p', '', 'Para librerías, ferias, centros culturales, institutos y clubes de lectura.'));
     cta.append(ctaCopy);
-    const mail = addTextLink(cta, 'mailto:davidportodiaz@gmail.com?subject=Solicitud%20de%20presentaci%C3%B3n%20%E2%80%94%20David%20Porto%20D%C3%ADaz', 'Escribir');
+    const mail = addTextLink(cta, 'mailto:davidportodiaz@gmail.com?subject=Solicitud%20de%20presentaci%C3%B3n%20%E2%80%94%20David%20Porto%20D%C3%ADaz', 'Escribir', 'yale-text-link');
     mail.addEventListener('click', () => emit('home_event_contact_click'));
     grid.append(cta);
 

@@ -52,8 +52,10 @@ jobs:
         run: python scripts/check-ai-discoverability.py
       - name: Check social cards (Open Graph / Twitter) on every indexable page
         run: python scripts/check-social-cards.py --strict
-      - name: Check visible article dates match JSON-LD dates
+      - name: Check visible article dates and review lifecycle
         run: python scripts/check-article-dates.py --check
+      - name: Test article review lifecycle semantics
+        run: python tests/test-article-dates-lifecycle.py
       - name: Check key article pages keep non-generic social cards
         run: python tests/test-social-card-article-specific.py
       - name: Check the editorial methodology page is date-independent
@@ -64,6 +66,8 @@ jobs:
         run: python tests/test-radar-builder-parity-v1.py
       - name: Check published Spanish copy is not missing its accents
         run: python scripts/check-copy-tildes.py
+      - name: Check FAQPage JSON-LD does not reappear in Recomendaciones (K.2)
+        run: python scripts/check-recomendaciones-no-faqpage.py --check
       # Este escaneo vivia en assistant-hardening-qa.yml, que solo se dispara
       # cuando la PR toca ficheros del asistente: una clave colada en cualquier
       # otro sitio del repo no lo activaba y pasaba sin mirar. GitHub Pages
