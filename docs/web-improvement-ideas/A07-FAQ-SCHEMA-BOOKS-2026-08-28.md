@@ -175,10 +175,13 @@ visible genuina para el lector: ahí rige un contrato distinto y posterior,
 `qa/cuaderno-browser.mjs`, que exige paridad 1:1 entre el FAQ visible
 (`.article-faq details`) y su `FAQPage` — si un artículo muestra FAQ al
 lector, el schema debe reflejarlo exactamente; no se permite FAQ visible sin
-`FAQPage` ni desincronizado. Esta paridad es una decisión editorial posterior
-y más específica para esa superficie, no una regresión de A.7: no retirar el
+`FAQPage` ni desincronizado. Esta paridad es el contrato de QA vigente y más
+específico para esa superficie — una excepción explícita al veredicto general
+de A.7, no una regresión suya ni un intento de reinterpretarlo: no retirar el
 `FAQPage` de los artículos de Cuaderno que ya tienen FAQ visible sin retirar
-también el FAQ visible, y sin romper `qa/cuaderno-browser.mjs`.
+también el FAQ visible, y sin romper `qa/cuaderno-browser.mjs`. Ver también la
+nota de reconciliación dejada en #156, que documentaba estos tres `FAQPage`
+como residuos pendientes de retirada antes de esta excepción.
 
 ## 7. Structured data que sí merece prioridad
 
