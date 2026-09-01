@@ -104,6 +104,28 @@ def _is_conditional_availability(text: str, match: "re.Match") -> bool:
     preceding = match.group(0)[:idx]
     return bool(CONDITIONAL_AVAILABILITY_MARKERS.search(preceding))
 
+
+def _is_cross_entity_availability(match: "re.Match") -> bool:
+    """True if Samuel's title sits between the Manecillas mention and the
+    'disponible' claim inside this match -- i.e. the .{0,180} lookaround
+    window jumped from Manecillas to an availability claim that's actually
+    about Samuel entre mundos ("Las manecillas del recuerdo... Samuel entre
+    mundos ya está disponible" is correct copy, not a premature Manecillas
+    availability claim). Only Samuel needs this guard: it's the one other
+    book whose real, current availability text legitimately appears near a
+    Manecillas mention on the same surfaces (FAQ, obra actual, etc.)."""
+    lowered = match.group(0).lower()
+    manecillas_idx = lowered.find(BOOK["title"].lower())
+    samuel_title = SAMUEL.get("title", "")
+    disponible_idx = lowered.find("disponible")
+    if not samuel_title or manecillas_idx == -1 or disponible_idx == -1:
+        return False
+    samuel_idx = lowered.find(samuel_title.lower())
+    if samuel_idx == -1:
+        return False
+    lo, hi = sorted((manecillas_idx, disponible_idx))
+    return lo < samuel_idx < hi
+
 LAUNCH_STALE = [
     re.compile(r"Las manecillas del recuerdo.{0,220}(?:próxima novela|próximamente|en proceso de publicación|fecha de publicación por confirmar|avísame|avísame cuando)", re.I | re.S),
     re.compile(r"(?:próxima novela|próximamente|en proceso de publicación|fecha de publicación por confirmar|avísame|avísame cuando).{0,220}Las manecillas del recuerdo", re.I | re.S),
@@ -368,7 +390,7 @@ def main() -> int:
                 availability_text = _strip_asset_status_badges(text)
                 for pattern in PRELAUNCH_AVAILABLE:
                     m = pattern.search(availability_text)
-                    if m and not _is_conditional_availability(availability_text, m):
+                    if m and not _is_conditional_availability(availability_text, m) and not _is_cross_entity_availability(m):
                         errors.append(f"{rel}: estado de compra/disponibilidad prematuro para Manecillas")
                 if manecillas_offer_present(rel, text):
                     errors.append(f"{rel}: Offer de Manecillas antes de existir purchaseUrl canónica")
