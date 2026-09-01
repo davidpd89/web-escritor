@@ -136,6 +136,9 @@ try {
     const status = page.locator('#nl-status-home-yale');
     await form.waitFor({ state: 'attached' });
     assert.equal(await page.locator('#newsletter').count(), 0, 'Home: static #newsletter section must not linger alongside the yale strip');
+    assert.equal(await page.locator('#faq').count(), 1, 'Home: #faq must survive the JS-built editorial flow, not be deleted');
+    assert.ok(await page.locator('#faq').isVisible(), 'Home: #faq must stay visible (not just present in the DOM) after the JS flow runs');
+    assert.ok((await page.locator('#faq details').count()) >= 8, 'Home: #faq must keep its real reader-facing questions after moving into the flow');
     await email.fill('qa-home-yale@example.com');
     assert.equal(await consent.isChecked(), false, 'Home: consent starts unchecked');
 

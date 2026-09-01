@@ -17,6 +17,9 @@ html.v1 .header-search svg{fill:none;stroke:currentColor;stroke-width:1.7;stroke
 html.v1 .header-search:hover,html.v1 .header-search:focus-visible{color:var(--color-text);background:color-mix(in srgb,var(--color-text) 5%,transparent)}
 html.v1 .header-buy{display:inline-flex;align-items:center;min-height:44px;padding:.3rem 1.15rem;border:1px solid var(--color-accent-strong);border-radius:var(--radius-control);background:var(--color-accent-strong);color:#fff;font-size:.88rem;font-weight:600;text-decoration:none;white-space:nowrap;transition:background var(--motion-state) var(--ease-standard),border-color var(--motion-state) var(--ease-standard)}
 html.v1 .header-buy:hover,html.v1 .header-buy:focus-visible{background:var(--dp-ink);border-color:var(--dp-ink)}
+/* K.3: visible affiliate disclosure placed next to an Amazon CTA, anywhere
+   on the site (not just the sitewide statement in aviso-legal.html). */
+html.v1 .affiliate-disclosure{font-size:.78rem;line-height:1.4;color:color-mix(in srgb,var(--dp-ink) 62%,transparent)}
 html.v1 .explore-trigger{display:inline-flex;align-items:center;justify-content:center;width:44px;height:44px;flex:0 0 auto;border:1px solid var(--color-border);border-radius:var(--radius-control);background:transparent;color:inherit;cursor:pointer;transition:background var(--motion-state) var(--ease-standard),border-color var(--motion-state) var(--ease-standard)}
 html.v1 .explore-trigger svg{fill:none;stroke:currentColor;stroke-width:1.6;stroke-linecap:round}
 html.v1 .explore-trigger:hover{background:color-mix(in srgb,var(--color-text) 5%,transparent);border-color:color-mix(in srgb,var(--color-text) 36%,var(--surface-page))}

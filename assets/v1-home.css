@@ -142,6 +142,7 @@ html.v1 .promo-band{background:var(--dp-blush);display:grid;grid-template-column
 html.v1 .promo-band__cover{width:clamp(90px,14vw,160px);height:auto;box-shadow:var(--shadow-object)}
 html.v1 .promo-band__copy h2{font-family:var(--font-display);font-weight:400;font-size:clamp(1.58rem,1.32rem + 1.2vw,2.25rem);margin:.35rem 0 .6rem}
 html.v1 .promo-band__copy p{max-width:44ch;margin:0 0 1.25rem;color:color-mix(in srgb,var(--dp-ink) 80%,transparent)}
+html.v1 .promo-band__copy p.affiliate-disclosure{margin:.6rem 0 0;color:color-mix(in srgb,var(--dp-ink) 62%,transparent)}
 @media (max-width:599px){
   html.v1 .promo-band{grid-template-columns:minmax(0,1fr);justify-items:center;text-align:center}
   html.v1 .promo-band__copy p{margin-inline:auto}

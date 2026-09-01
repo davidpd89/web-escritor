@@ -46,6 +46,20 @@
   const MANECILLAS_BUY_URL = SAMUEL_AMAZON_URL;
   const AUTHOR_EMAIL_URL = 'mailto:davidportodiaz@gmail.com?subject=Te%20leo%20%E2%80%94%20David%20Porto%20D%C3%ADaz';
 
+  // Explicit host allowlist (K.3): a pattern like /amazon\.[a-z.]+/ would also
+  // match a lookalike host such as "amazon.evil.com". Parsing the URL and
+  // checking the real hostname avoids that.
+  const AMAZON_HOSTS = ['amazon.es'];
+  function isAmazonHost(href) {
+    try {
+      const { hostname, protocol } = new URL(href);
+      if (protocol !== 'http:' && protocol !== 'https:') return false;
+      return AMAZON_HOSTS.some((host) => hostname === host || hostname.endsWith(`.${host}`));
+    } catch {
+      return false;
+    }
+  }
+
   const arrowSvg = `
     <svg aria-hidden="true" viewBox="0 0 24 24" focusable="false">
       <path d="M12 19V5"/><path d="m6 11 6-6 6 6"/>
@@ -70,10 +84,10 @@
     if (/^https?:\/\//.test(href)) {
       link.target = '_blank';
       // Amazon Associates tag=... is an affiliate link (K.3): needs
-      // sponsored/nofollow, not just noopener/noreferrer. Scoped to Amazon
-      // hosts so an unrelated future ?tag= param on another domain isn't
-      // misclassified as affiliate.
-      const isAmazonAffiliate = /^https?:\/\/([^/]+\.)?amazon\.[a-z.]+\//i.test(href) && /[?&]tag=/.test(href);
+      // sponsored/nofollow, not just noopener/noreferrer. Scoped to the exact
+      // amazon.es host (not a pattern match) so a lookalike host such as
+      // amazon.evil.com can't be misclassified as affiliate.
+      const isAmazonAffiliate = isAmazonHost(href) && /[?&]tag=/.test(href);
       link.rel = isAmazonAffiliate ? 'sponsored nofollow noopener noreferrer' : 'noopener noreferrer';
     }
     parent.append(link);
@@ -505,7 +519,7 @@
     [
       ['Autor', 'David Porto Díaz', 'Biografía, fotografías y recursos para lectores, librerías y medios.', '/autor.html'],
       ['Comunidad', 'Lectores beta', 'Sé el primero en leer contenido y opina antes de que llegue a todos.', '/lectores-beta/#quiero-ser-lector'],
-      ['Comprar', 'Comprar en Amazon', '', MANECILLAS_BUY_URL],
+      ['Comprar', 'Comprar en Amazon', 'Enlace de afiliado: no cambia el precio.', MANECILLAS_BUY_URL],
       ['Te leo', 'Escríbeme', '', AUTHOR_EMAIL_URL]
     ].forEach(([eyebrow, cardTitle, text, href]) => {
       const card = make('article', 'yale-rail-card');
@@ -582,7 +596,7 @@
     [
       ['Del cuaderno', 'Qué es el portal fantasy', 'Guía para lectores.', '/cuaderno/que-es-el-portal-fantasy/', ''],
       ['Crónica', 'Samuel en la Feria del Libro de Madrid', '10 junio 2026.', '/eventos.html#feria-libro-madrid-2026', 'yale-feature-card--blue'],
-      ['Comprar', 'Comprar en Amazon', '', SAMUEL_AMAZON_URL, '']
+      ['Comprar', 'Comprar en Amazon', 'Enlace de afiliado: no cambia el precio.', SAMUEL_AMAZON_URL, '']
     ].forEach(([eyebrow, cardTitle, text, href, className]) => {
       const card = make('article', `yale-feature-card ${className}`.trim());
       card.append(make('p', 'editorial-card__eyebrow', eyebrow));
@@ -736,20 +750,24 @@
     const flow = make('div', 'editorial-home-flow yale-home-flow');
     flow.dataset.editorialHomeFlow = 'true';
 
+    // #faq holds real reader-facing content (buying options, events, press
+    // contact...), not just FAQPage schema -- move it into the flow instead
+    // of deleting it, so it stays visible for JS users too.
+    const yaleFaq = document.getElementById('faq');
+
     flow.append(createYaleHero());
     flow.append(createYaleWorksGrid());
     flow.append(createYaleSamuelFeature());
     flow.append(createYaleToolsFeature());
     flow.append(createEvents());
+    if (yaleFaq) flow.append(yaleFaq);
     flow.append(createYaleSignupStrip());
     flow.append(createInstallBlock());
     river.before(flow);
     const yalePromo = document.querySelector('.promo-band');
-    const yaleFaq = document.getElementById('faq');
     const yaleNewsletter = document.getElementById('newsletter');
     river.remove();
     yalePromo?.remove();
-    yaleFaq?.remove();
     yaleNewsletter?.remove();
     root.dataset.homeEditorialV3 = 'true';
     document.dispatchEvent(new CustomEvent('dp:home-editorial-ready'));
