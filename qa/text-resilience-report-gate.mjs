@@ -32,14 +32,12 @@ export function classifyIntentionalVisualHiding(entry) {
 // (a low-vision user can hit 200% zoom AND text-spacing at once) that no
 // prior scenario covered, and it immediately surfaced ~20 routes with real,
 // previously-invisible overflow -- sitewide pre-existing debt, not
-// anything introduced alongside it. Gating merges on that backlog on day
-// one would turn the required reflow-sitewide check permanently red before
-// anyone has had a chance to fix any of it. Pilot it in report-only mode
+// anything introduced alongside it. It was piloted in report-only mode
 // (tracked and visible in the artifact/console, not counted toward
-// failureCount) until that backlog gets its own dedicated remediation pass;
-// then flip it to enforced the same way resize-text-200/text-spacing
-// already are.
-const PILOT_SCENARIOS = new Set(['resize-text-200-plus-spacing']);
+// failureCount) while that backlog got its own dedicated remediation pass
+// (2026-09-01: every pilot finding fixed, 27 -> 0). Now enforced the same
+// way resize-text-200/text-spacing already are.
+const PILOT_SCENARIOS = new Set([]);
 
 export function reconcileTextResilience(report) {
   const checks = report?.textResilience?.checks || [];

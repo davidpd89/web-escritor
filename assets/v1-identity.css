@@ -241,6 +241,8 @@ html.v1 [data-family="identity"] .contact-card .text-action{
   html.v1 [data-family="identity"] .contact-card .text-action{
     grid-column:1;
     grid-row:auto;
+    min-width:0;
+    max-width:100%;
   }
   html.v1 [data-family="identity"] .press-card > .press-card-head{
     margin-bottom:.25rem;

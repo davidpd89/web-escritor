@@ -122,8 +122,13 @@ html.v1 [data-family="findability"] .directory-group__label span{min-width:0;ove
 @media (max-width:639px){
   /* Shared newsletter and compact forms: several input rules elsewhere use
      intrinsic/fixed widths. At 200% root text those widths can outgrow the
-     now narrower content column. Form controls are fluid by contract. */
-  html.v1 :is(.editorial-newsletter__form,.book-newsletter__form,.form__grid,.tool-workspace form,.record-row){
+     now narrower content column. Form controls are fluid by contract. The
+     form's sibling copy column (.editorial-newsletter__copy) is a grid item
+     in the same single-column track once .editorial-newsletter collapses to
+     grid-template-columns:1fr (v1-editorial.css); without min-width:0 its
+     default auto floor let the heading's own min-content width push the
+     page 30px past the viewport at 200% zoom + text spacing. */
+  html.v1 :is(.editorial-newsletter__copy,.editorial-newsletter__form,.book-newsletter__form,.form__grid,.tool-workspace form,.record-row){
     min-width:0;
     max-width:100%;
   }

@@ -29,8 +29,8 @@ html.v1 .publishing-flow li::before{
   letter-spacing:.06em;
   color:var(--color-accent-strong);
 }
-html.v1 .publishing-flow strong{grid-area:strong;font:600 .86rem/1.35 var(--font-ui)}
-html.v1 .publishing-flow span{grid-area:span;margin-top:.18rem;font:400 .86rem/1.5 var(--font-reading);color:var(--color-muted)}
+html.v1 .publishing-flow strong{grid-area:strong;min-width:0;max-width:100%;font:600 .86rem/1.35 var(--font-ui)}
+html.v1 .publishing-flow span{grid-area:span;min-width:0;max-width:100%;margin-top:.18rem;font:400 .86rem/1.5 var(--font-reading);color:var(--color-muted)}
 
 html.v1 [data-publishing-processor][inert]{opacity:.58}
 html.v1 .publishing-noscript{

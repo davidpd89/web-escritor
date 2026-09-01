@@ -45,6 +45,17 @@ html.v1:not([data-lrb-home="true"]) :is(.v1-masthead,.cuaderno-masthead,.article
 html.v1:not([data-lrb-home="true"]) :is(.book-breadcrumb,.editorial-breadcrumb){
   color:color-mix(in srgb,var(--color-text) 56%,var(--dp-editorial-paper));
 }
+/* Both breadcrumb variants render their ol as display:flex;flex-wrap:wrap
+   (v1-components.css / v1-editorial.css), making each li a flex item with
+   the default min-width:auto floor. A longer crumb label (e.g.
+   "Recomendaciones de lectura") can't shrink to wrap at 200% zoom + WCAG
+   text spacing and pushes past the viewport instead of dropping to its own
+   line within the wrapped row. */
+html.v1 :is(.book-breadcrumb,.editorial-breadcrumb) ol li{
+  min-width:0;
+  max-width:100%;
+  overflow-wrap:anywhere;
+}
 html.v1:not([data-lrb-home="true"]) .eyebrow,
 html.v1:not([data-lrb-home="true"]) :is(.folio,.coordinate){
   color:var(--dp-editorial-blue-ink);
