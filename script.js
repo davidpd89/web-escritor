@@ -42,6 +42,13 @@ function installNewsletterHoneypot(form) {
   field.name = "website";
   field.autocomplete = "off";
   field.tabIndex = -1;
+  // NOT redundant: the UA default text-input width (size=20) scales with
+  // font-size, so under 200% zoom (WCAG 1.4.4 reflow) this unstyled field
+  // grows past the wrapper's 1x1 clip box. The wrapper's overflow:hidden
+  // keeps it invisible to users (no real scrollWidth overflow), but
+  // per-element reflow audits measure the field's own box regardless of
+  // ancestor clipping, so it must stay physically contained too.
+  field.style.cssText = "width:1px;height:1px;";
   wrapper.appendChild(field);
   form.appendChild(wrapper);
 }
