@@ -40,6 +40,18 @@ const TEXT_RESILIENCE_SCENARIOS = [
     css: '*{line-height:1.5!important;letter-spacing:.12em!important;word-spacing:.16em!important}p{margin-bottom:2em!important}',
     wcag: '1.4.12',
   },
+  // Combined 1.4.4 + 1.4.12: resize-text-200 and text-spacing are each
+  // individually clean, but a real low-vision user can hit both at once, and
+  // the two mutations can interact (a field that survives 200% alone can
+  // still overflow once text-spacing's extra line-height/letter-spacing is
+  // layered on top). Run them together so that interaction is covered by the
+  // required gate instead of only by two separate, individually-passing
+  // scenarios (the class of bug #314 fixed).
+  {
+    id: 'resize-text-200-plus-spacing',
+    css: 'html{font-size:200%!important}*{line-height:1.5!important;letter-spacing:.12em!important;word-spacing:.16em!important}p{margin-bottom:2em!important}',
+    wcag: '1.4.4+1.4.12',
+  },
 ];
 
 const IGNORE_DIRS = new Set([
