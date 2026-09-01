@@ -3,15 +3,23 @@ import fs from 'node:fs';
 import { execFileSync } from 'node:child_process';
 import path from 'node:path';
 import { chromium } from 'playwright';
+import { auditTargetSizes } from './target-size-audit.mjs';
 
 const ORIGIN = process.env.QA_ORIGIN || 'http://127.0.0.1:4173';
 const ROOT = process.cwd();
 const OUT_DIR = process.env.QA_OUT || 'qa-artifacts';
 const REPORT_PATH = path.join(OUT_DIR, 'sitewide-reflow-report.json');
+const TARGET_REPORT_PATH = path.join(OUT_DIR, 'sitewide-target-size-report.json');
+const TARGET_SIZE_MODE = (process.env.TARGET_SIZE_MODE || 'report').toLowerCase();
 const VIEWPORTS = [
-  { width: 390, height: 900 },
-  { width: 768, height: 1000 },
+  { width: 390, height: 900, reflow: true },
+  { width: 768, height: 1000, reflow: true },
+  { width: 1280, height: 900, reflow: false },
 ];
+
+if (!['report', 'enforce'].includes(TARGET_SIZE_MODE)) {
+  throw new Error(`TARGET_SIZE_MODE must be report or enforce, got ${TARGET_SIZE_MODE}`);
+}
 
 const IGNORE_DIRS = new Set([
   '.git',
@@ -131,6 +139,22 @@ async function settle(page) {
   await page.evaluate(() => new Promise(resolve => requestAnimationFrame(() => requestAnimationFrame(resolve))));
 }
 
+async function expandClosedDetails(page) {
+  return page.evaluate(() => {
+    const changed = [...document.querySelectorAll('details')].filter((details) => !details.open);
+    window.__qaTargetSizeClosedDetails = changed;
+    for (const details of changed) details.open = true;
+    return changed.length;
+  });
+}
+
+async function restoreClosedDetails(page) {
+  await page.evaluate(() => {
+    for (const details of window.__qaTargetSizeClosedDetails || []) details.open = false;
+    window.__qaTargetSizeClosedDetails = [];
+  });
+}
+
 async function measureOverflow(page) {
   return page.evaluate(() => {
     function hasHorizontalScrollerAncestor(node) {
@@ -217,8 +241,24 @@ const browser = await chromium.launch({
 await fs.promises.mkdir(OUT_DIR, { recursive: true });
 
 const routes = collectRoutes();
-const failures = [];
-const checks = [];
+const reflowFailures = [];
+const reflowChecks = [];
+const targetFailures = [];
+const targetChecks = [];
+
+async function recordTargetAudit(page, route, vp, state) {
+  const measurement = await auditTargetSizes(page, { minimum: 24 });
+  const check = {
+    route,
+    viewport: `${vp.width}x${vp.height}`,
+    state,
+    ...measurement,
+  };
+  targetChecks.push(check);
+  for (const failure of measurement.failures) {
+    targetFailures.push({ route, viewport: `${vp.width}x${vp.height}`, state, ...failure });
+  }
+}
 
 for (const route of routes) {
   for (const vp of VIEWPORTS) {
@@ -229,10 +269,35 @@ for (const route of routes) {
     });
     const page = await context.newPage();
     const key = `${route}@${vp.width}x${vp.height}`;
+    let stage = 'page-load';
     try {
       const response = await page.goto(`${ORIGIN}${route}`, { waitUntil: 'networkidle' });
       assert.ok(response, `${key}: missing response`);
       assert.equal(response.status(), 200, `${key}: expected HTTP 200`);
+
+      // F.1 default state: inspect the unmodified rendered page before
+      // text-spacing/zoom mutations. 24x24 is WCAG 2.2 SC 2.5.8's minimum,
+      // with inline/equivalent/spacing exceptions classified separately and
+      // the small set of project-local product contracts checked as well.
+      stage = 'target-default';
+      await recordTargetAudit(page, route, vp, 'default');
+
+      // A closed <details> makes its descendants unavailable, so default-state
+      // geometry cannot audit the links/controls that appear after disclosure.
+      // Open every initially-closed details element, audit that real state,
+      // then restore it before the historical reflow mutation.
+      const expandedCount = await expandClosedDetails(page);
+      if (expandedCount > 0) {
+        await settle(page);
+        stage = 'target-expanded-details';
+        await recordTargetAudit(page, route, vp, 'expanded-details');
+        await restoreClosedDetails(page);
+        await settle(page);
+      }
+
+      if (!vp.reflow) continue;
+
+      stage = 'reflow';
       await applyInspectorStyles(
         context,
         page,
@@ -245,12 +310,22 @@ for (const route of routes) {
       await settle(page);
       const measurement = await measureOverflow(page);
       const { overflow, offenders } = measurement;
-      checks.push({ route, viewport: `${vp.width}x${vp.height}`, overflow, offenders });
+      reflowChecks.push({ route, viewport: `${vp.width}x${vp.height}`, overflow, offenders });
       if (overflow > 1) {
-        failures.push({ route, viewport: `${vp.width}x${vp.height}`, overflow, offenders });
+        reflowFailures.push({ route, viewport: `${vp.width}x${vp.height}`, overflow, offenders });
       }
     } catch (error) {
-      failures.push({ route, viewport: `${vp.width}x${vp.height}`, error: String(error?.message || error) });
+      const failure = {
+        route,
+        viewport: `${vp.width}x${vp.height}`,
+        stage,
+        error: String(error?.message || error),
+      };
+      if (stage.startsWith('target') || (!vp.reflow && stage !== 'reflow')) {
+        targetFailures.push(failure);
+      } else {
+        reflowFailures.push(failure);
+      }
     } finally {
       await context.close();
     }
@@ -259,20 +334,39 @@ for (const route of routes) {
 
 await browser.close();
 
-const report = {
+const reflowReport = {
   origin: ORIGIN,
   routeCount: routes.length,
-  viewportCount: VIEWPORTS.length,
-  checks,
-  failures,
+  viewportCount: VIEWPORTS.filter((item) => item.reflow).length,
+  checks: reflowChecks,
+  failures: reflowFailures,
 };
-fs.writeFileSync(REPORT_PATH, `${JSON.stringify(report, null, 2)}\n`, 'utf8');
+fs.writeFileSync(REPORT_PATH, `${JSON.stringify(reflowReport, null, 2)}\n`, 'utf8');
 
-if (failures.length) {
+const targetReport = {
+  origin: ORIGIN,
+  mode: TARGET_SIZE_MODE,
+  minimumCssPx: 24,
+  routeCount: routes.length,
+  viewportCount: VIEWPORTS.length,
+  viewports: VIEWPORTS.map(({ width, height }) => `${width}x${height}`),
+  states: [...new Set(targetChecks.map((item) => item.state))],
+  checkCount: targetChecks.length,
+  targetCount: targetChecks.reduce((sum, item) => sum + item.targetCount, 0),
+  exceptionCount: targetChecks.reduce((sum, item) => sum + item.exceptionCount, 0),
+  productContractCheckCount: targetChecks.reduce((sum, item) => sum + (item.productContractCheckCount || 0), 0),
+  failureCount: targetFailures.length,
+  checks: targetChecks,
+  failures: targetFailures,
+};
+fs.writeFileSync(TARGET_REPORT_PATH, `${JSON.stringify(targetReport, null, 2)}\n`, 'utf8');
+
+const errorSections = [];
+if (reflowFailures.length) {
   const lines = [];
-  for (const item of failures.slice(0, 30)) {
+  for (const item of reflowFailures.slice(0, 30)) {
     if (item.error) {
-      lines.push(`${item.route} ${item.viewport}: ${item.error}`);
+      lines.push(`${item.route} ${item.viewport} [${item.stage || 'reflow'}]: ${item.error}`);
       continue;
     }
     lines.push(`${item.route} ${item.viewport}: overflow ${item.overflow}px`);
@@ -280,7 +374,26 @@ if (failures.length) {
       lines.push(`  -> ${offender.overflow}px ${offender.selector} [width=${offender.width}, white-space=${offender.whiteSpace}, min-width=${offender.minWidth}] ${JSON.stringify(offender.text)}`);
     }
   }
-  throw new Error(`sitewide reflow failures (${failures.length})\n${lines.join('\n')}`);
+  errorSections.push(`sitewide reflow failures (${reflowFailures.length})\n${lines.join('\n')}`);
 }
 
-console.log(`sitewide-reflow-browser: OK (${routes.length} routes, ${VIEWPORTS.length} viewports, ${checks.length} checks)`);
+if (TARGET_SIZE_MODE === 'enforce' && targetFailures.length) {
+  const lines = targetFailures.slice(0, 40).map((item) => {
+    if (item.error) return `${item.route} ${item.viewport} [${item.state || item.stage || 'target'}]: ${item.error}`;
+    const contract = item.productContract
+      ? ` product-contract=${item.productContract.selector} min=${item.productContract.minWidth ?? '-'}x${item.productContract.minHeight ?? '-'}`
+      : '';
+    return `${item.route} ${item.viewport} [${item.state || 'default'}]: ${item.selector} ${item.width}x${item.height}px ` +
+      `reason=${item.reason}${contract} (${JSON.stringify(item.text)})`;
+  });
+  errorSections.push(`target-size failures (${targetFailures.length})\n${lines.join('\n')}`);
+}
+
+if (errorSections.length) {
+  throw new Error(errorSections.join('\n\n'));
+}
+
+console.log(
+  `sitewide-reflow-browser: OK (${routes.length} routes, ${reflowChecks.length} reflow checks; ` +
+  `target-size ${TARGET_SIZE_MODE}: ${targetChecks.length} state checks, ${targetFailures.length} findings)`
+);

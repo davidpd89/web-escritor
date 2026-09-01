@@ -24,6 +24,9 @@ jobs:
       - name: Install CI/QA dependencies (Node)
         run: npm ci
 
+      - name: Target-size geometry unit tests (F.1)
+        run: node --test qa/target-size-audit.test.mjs
+
       - name: Cache Playwright browsers
         id: playwright-cache
         uses: actions/cache@v4
@@ -51,10 +54,11 @@ jobs:
           cat /tmp/reflow-server.log
           exit 1
 
-      - name: Run sitewide reflow gate
+      - name: Run sitewide reflow gate + target-size gate
         env:
           QA_ORIGIN: http://127.0.0.1:4173
           QA_OUT: artifacts/sitewide-reflow
+          TARGET_SIZE_MODE: enforce
         run: node qa/sitewide-reflow-browser.mjs
 
       - name: Books index visual-system QA
