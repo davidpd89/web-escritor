@@ -9,7 +9,7 @@ html.v1 a[href^="mailto:"]{overflow-wrap:anywhere;word-break:break-word}
 html.v1 button,html.v1 input,html.v1 summary{font:inherit}
 html.v1 button,html.v1 a,html.v1 input,html.v1 summary{outline:none}
 html.v1 :focus-visible{outline:2px solid var(--focus-color);outline-offset:3px}
-html.v1 .skip-link{position:fixed;left:1rem;top:1rem;z-index:var(--z-dialog);background:var(--surface-inverse);color:var(--color-on-inverse);padding:.75rem 1rem;transform:translateY(-180%);transition:transform var(--motion-state) var(--ease-standard)}
+html.v1 .skip-link{position:fixed;left:1rem;top:1rem;z-index:var(--z-dialog);background:var(--surface-inverse);color:var(--color-on-inverse);padding:.75rem 1rem;transform:translateY(-180%);transition:transform var(--motion-state) var(--ease-standard);max-width:calc(100vw - 2rem);white-space:normal;overflow-wrap:anywhere}
 html.v1 .skip-link:focus{transform:none}
 html.v1 .sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
 html.v1 .eyebrow{margin:0;text-transform:uppercase;letter-spacing:.11em;font-size:.72rem;font-weight:600;color:var(--color-muted);overflow-wrap:anywhere}
