@@ -227,12 +227,11 @@ async function validateCore(spec, page) {
     q: item.querySelector('summary')?.textContent.replace(/\s+/g, ' ').trim() || '',
     a: item.querySelector('p')?.textContent.replace(/\s+/g, ' ').trim() || '',
   })));
+  // A.7 retira FAQPage en todo el sitio (incluido Cuaderno, ver
+  // tests/test-faq-schema-retirement.py): la FAQ humana se conserva visible,
+  // pero el schema no debe reaparecer.
   const faqSchema = flattenNodes(parsed).find(node => node['@type'] === 'FAQPage');
-  if (faqVisible.length || faqSchema) {
-    assert.ok(faqSchema, `${spec.key}: FAQ visible sin FAQPage`);
-    const schemaPairs = (faqSchema.mainEntity || []).map(item => ({ q: norm(item.name), a: norm(item.acceptedAnswer?.text) }));
-    assert.deepEqual(schemaPairs, faqVisible.map(item => ({ q: norm(item.q), a: norm(item.a) })), `${spec.key}: FAQ visible/schema no coincide 1:1`);
-  }
+  assert.ok(!faqSchema, `${spec.key}: FAQPage retirado por A.7 ha reaparecido`);
 
   const unsafeBlank = await page.locator('a[target="_blank"]').evaluateAll(links => links.filter(a => !/\bnoopener\b/.test(a.rel)).map(a => a.href));
   assert.deepEqual(unsafeBlank, [], `${spec.key}: target=_blank sin noopener`);

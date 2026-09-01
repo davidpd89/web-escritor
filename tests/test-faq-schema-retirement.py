@@ -11,14 +11,51 @@ PAGES = {
     "Samuel": {
         "path": ROOT / "libros/samuel-entre-mundos/index.html",
         "human_marker": 'id="faq"',
+        "heading": "Preguntas frecuentes.",
         "min_details": 8,
         "required_types": {"Book", "WebPage"},
     },
     "Noveris": {
         "path": ROOT / "universo/noveris/index.html",
         "human_marker": 'id="preguntas-frecuentes"',
+        "heading": "Preguntas frecuentes.",
         "min_details": 5,
         "required_types": {"WebPage", "DefinedTermSet"},
+    },
+    "Cuaderno / que-es-el-portal-fantasy": {
+        "path": ROOT / "cuaderno/que-es-el-portal-fantasy/index.html",
+        "human_marker": 'id="faq"',
+        "heading": "Preguntas frecuentes",
+        "min_details": 3,
+        "required_types": {"Article", "BreadcrumbList"},
+    },
+    "Cuaderno / portal-fantasy-vs-fantasia-epica": {
+        "path": ROOT / "cuaderno/portal-fantasy-vs-fantasia-epica/index.html",
+        "human_marker": 'id="faq"',
+        "heading": "Preguntas frecuentes",
+        "min_details": 3,
+        "required_types": {"Article", "BreadcrumbList"},
+    },
+    "Cuaderno / fantasia-juvenil-espanola-portales-magia-coste": {
+        "path": ROOT / "cuaderno/fantasia-juvenil-espanola-portales-magia-coste/index.html",
+        "human_marker": 'id="faq"',
+        "heading": "Preguntas frecuentes",
+        "min_details": 3,
+        "required_types": {"Article", "BreadcrumbList"},
+    },
+    "Cuaderno / libros-fantasia-juvenil-espanola-2025-2026": {
+        "path": ROOT / "cuaderno/libros-fantasia-juvenil-espanola-2025-2026/index.html",
+        "human_marker": 'id="faq"',
+        "heading": "Preguntas frecuentes",
+        "min_details": 3,
+        "required_types": {"Article", "BreadcrumbList"},
+    },
+    "Cuaderno / worldbuilding-noveris-ciudad-magica": {
+        "path": ROOT / "cuaderno/worldbuilding-noveris-ciudad-magica/index.html",
+        "human_marker": 'id="preguntas-frecuentes"',
+        "heading": "Preguntas frecuentes",
+        "min_details": 4,
+        "required_types": {"Article", "BreadcrumbList"},
     },
 }
 
@@ -38,8 +75,8 @@ def structured_nodes(html: str) -> list[dict]:
 for label, contract in PAGES.items():
     html = contract["path"].read_text(encoding="utf-8")
     assert contract["human_marker"] in html, f"{label}: human FAQ section disappeared"
-    assert "Preguntas frecuentes." in html, f"{label}: visible FAQ heading disappeared"
-    assert html.count("<details>") >= contract["min_details"], f"{label}: visible FAQ answers were removed with schema"
+    assert contract["heading"] in html, f"{label}: visible FAQ heading disappeared"
+    assert html.count("<details") >= contract["min_details"], f"{label}: visible FAQ answers were removed with schema"
 
     nodes = structured_nodes(html)
     for node in nodes:

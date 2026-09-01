@@ -166,22 +166,26 @@ Un formato pregunta-respuesta editorial no implica `FAQPage`.
 
 `QAPage` tampoco es sustituto automático: corresponde a páginas de una pregunta con respuestas de usuarios según su contrato, no a FAQ redactada por el autor.
 
-### Cuaderno (nota de reconciliación, 2026-09-01)
+### Cuaderno (cierre, 2026-09-01)
 
-Este veredicto rechaza `FAQPage` como táctica SEO en páginas de libro y en
-`/recomendaciones/` (gate vigente: `scripts/check-recomendaciones-no-faqpage.py`).
-No cubre los artículos de `/cuaderno/` que ya incluyen una sección de FAQ
-visible genuina para el lector: ahí rige un contrato distinto y posterior,
-`qa/cuaderno-browser.mjs`, que exige paridad 1:1 entre el FAQ visible
-(`.article-faq details`) y su `FAQPage` — si un artículo muestra FAQ al
-lector, el schema debe reflejarlo exactamente; no se permite FAQ visible sin
-`FAQPage` ni desincronizado. Esta paridad es el contrato de QA vigente y más
-específico para esa superficie — una excepción explícita al veredicto general
-de A.7, no una regresión suya ni un intento de reinterpretarlo: no retirar el
-`FAQPage` de los artículos de Cuaderno que ya tienen FAQ visible sin retirar
-también el FAQ visible, y sin romper `qa/cuaderno-browser.mjs`. Ver también la
-nota de reconciliación dejada en #156, que documentaba estos tres `FAQPage`
-como residuos pendientes de retirada antes de esta excepción.
+Entre el 2026-09-01 (#296/#299) y su corrección posterior el mismo día, este
+documento mantuvo una excepción para `/cuaderno/` que permitía conservar
+`FAQPage` en los artículos con FAQ visible, justificada porque
+`qa/cuaderno-browser.mjs` exigía esa paridad 1:1. Esa excepción era circular
+— el test codificaba una decisión previa a A.7, no una autoridad editorial
+nueva ni un consumidor real distinto de Google — y quedó revertida: no
+constituye una regresión de A.7, sino la corrección de un desvío suyo.
+
+`FAQPage` está retirado también en `/cuaderno/`, igual que en Samuel y
+Noveris, manteniendo el FAQ humano visible intacto en las cinco páginas
+afectadas (`que-es-el-portal-fantasy`, `portal-fantasy-vs-fantasia-epica`,
+`fantasia-juvenil-espanola-portales-magia-coste`,
+`libros-fantasia-juvenil-espanola-2025-2026`,
+`worldbuilding-noveris-ciudad-magica`). `qa/cuaderno-browser.mjs` ya no exige
+ni acepta `FAQPage`; el guardrail anti-regresión vive en
+`tests/test-faq-schema-retirement.py`, que ahora cubre las cinco páginas
+junto con Samuel y Noveris. La nota dejada en #156 sobre estos residuos queda
+resuelta: ya no son residuos pendientes, están retirados.
 
 ## 7. Structured data que sí merece prioridad
 
