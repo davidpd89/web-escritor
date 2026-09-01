@@ -28,5 +28,8 @@ assert "sponsored" in body and "nofollow" in body, (
     "addTextLink() no longer sets rel=sponsored/nofollow for affiliate (tag=...) links"
 )
 assert "tag=" in body, "addTextLink() rel branch is no longer keyed off the affiliate tag= param"
+assert "amazon" in body.lower(), (
+    "addTextLink() rel branch must be scoped to Amazon hosts, not any domain with ?tag="
+)
 
 print("home-amazon-rel-sponsored: OK")
