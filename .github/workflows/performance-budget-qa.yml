@@ -1,0 +1,42 @@
+name: Performance budget QA
+
+on:
+  pull_request:
+    paths:
+      - 'assets/**'
+      - 'data/performance-budgets.json'
+      - 'scripts/check-performance-budgets.py'
+      - 'tests/test-performance-budgets.py'
+      - '.github/workflows/performance-budget-qa.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  performance-budget:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Run performance budget unit tests
+        run: python tests/test-performance-budgets.py
+
+      - name: Measure and check deterministic artifact budgets
+        run: python scripts/check-performance-budgets.py --check --json reports/performance-budget.json
+
+      - name: Upload performance budget report
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: performance-budget-report
+          path: reports/performance-budget.json
+          if-no-files-found: warn
+          retention-days: 14
