@@ -1,0 +1,18 @@
+/* Declaracion de accesibilidad (#288) — capa local, enlazada solo desde
+   /accesibilidad/. El HTML heredado reutilizaba .samuel-narrow/.samuel-route-list
+   (owned por assets/v1-samuel.css bajo [data-editorial-context="samuel"], que
+   esta pagina no lleva y por tanto no aplicaba hoy) para texto y listas
+   simples. Renombradas a .a11y-narrow/.a11y-route-list para no depender de un
+   ownership ajeno que podria activarse sin querer si v1-samuel.css se enlazara
+   aqui en el futuro. .cuaderno-masthead se mantiene: es un patron generico ya
+   compartido por v1-editorial.css (junto a .v1-masthead/.article-header/.book-hero),
+   no exclusivo de /cuaderno/. */
+html.v1 [data-family="accesibilidad"] .a11y-narrow{max-width:68ch;font:400 1.05rem/1.72 var(--font-reading)}
+html.v1 [data-family="accesibilidad"] .a11y-route-list{list-style:none;margin:0;padding:0}
+html.v1 [data-family="accesibilidad"] .a11y-route-list li{padding:.6rem 0;border-top:1px solid var(--color-border);max-width:68ch}
+html.v1 [data-family="accesibilidad"] .a11y-route-list li:first-child{border-top:0}
+
+/* Azul/dorado solo como jerarquia/orientacion, sin convertir "WCAG 2.1 AA"
+   en sello de conformidad -- el copy factual no se toca en este PR. */
+html.v1 [data-family="accesibilidad"] .cuaderno-masthead h1{color:#1d4f96}
+html.v1 [data-family="accesibilidad"] .eyebrow{color:#b8860b}
