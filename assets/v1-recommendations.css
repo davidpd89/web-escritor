@@ -1,5 +1,5 @@
 /* Recommendations V1 — local editorial layer for the three recommendation routes. */
-html.v1 [data-family="recomendaciones"]{--rec-rule:var(--color-border)}
+html.v1 [data-family="recomendaciones"]{--rec-rule:var(--color-border);--rec-blue:#1d4f96;--rec-blue-deep:#0d2c57;--rec-gold:#b8860b}
 
 html.v1 .recommendations-hero{max-width:72rem;padding:clamp(3rem,7vw,7rem) 0 clamp(2.5rem,5vw,5rem);border-bottom:1px solid var(--rec-rule,var(--color-border))}
 html.v1 .recommendations-hero h1{max-width:12ch;margin:.2rem 0 1.15rem;font-size:clamp(3rem,8vw,7rem);line-height:.92;letter-spacing:-.045em;overflow-wrap:anywhere}
@@ -36,6 +36,19 @@ html.v1 .recommendations-page .rec-book-footer{display:flex;flex-wrap:wrap;align
 html.v1 .recommendations-page .rec-badge{display:inline-flex;align-items:center;min-height:1.9rem;padding:.15rem .55rem;border:1px solid var(--rec-rule,var(--color-border));border-radius:999px;background:transparent;font-size:.72rem;line-height:1.25}
 html.v1 .recommendations-page .affiliate-disclosure{margin:1.75rem 0 0;padding-top:1.25rem;max-width:70ch;border-top:1px solid var(--rec-rule,var(--color-border));font-size:.88rem;color:var(--color-muted)}
 html.v1 .recommendations-page code{overflow-wrap:anywhere}
+
+/* #282: azul/dorado como jerarquia y reglas, no como fondos de producto.
+   Escopado a [data-family="recomendaciones"] -- unico a estas 4 rutas -- para
+   no tocar el resto de .eyebrow/.article-header sitewide que comparten clase.
+   Colocado tras las reglas estructurales de arriba (misma especificidad,
+   gana por orden de cascada) en vez de subir especificidad con !important. */
+html.v1 [data-family="recomendaciones"] .eyebrow{color:var(--rec-gold)}
+html.v1 [data-family="recomendaciones"] .recommendations-hero{border-bottom-color:var(--rec-blue)}
+html.v1 [data-family="recomendaciones"] .recommendations-hero h1,
+html.v1 [data-family="recomendaciones"] .article-header h1{color:var(--rec-blue)}
+html.v1 [data-family="recomendaciones"] .recommendations-index__number{color:var(--rec-blue)}
+html.v1 [data-family="recomendaciones"] .rec-position{color:var(--rec-blue)}
+html.v1 [data-family="recomendaciones"] .rec-disclosures{border-left-color:var(--rec-blue)}
 
 @media(max-width:760px){
   html.v1 .recommendations-method__copy{grid-template-columns:1fr}
