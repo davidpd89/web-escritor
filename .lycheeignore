@@ -18,6 +18,12 @@ https?://([^/]+\.)?siarchives\.si\.edu/.*
 https?://([^/]+\.)?tandfonline\.com/.*
 https?://([^/]+\.)?planetadelibros\.com/.*
 
+# Estas dos referencias DOI resuelven a proveedores que bloquean/limitan
+# clientes automatizados en sus redirecciones finales. Se ignoran únicamente
+# las citas conocidas: futuros enlaces doi.org siguen sometidos a Lychee.
+https://doi\.org/10\.1016/j\.rmal\.2024\.100168
+https://doi\.org/10\.1017/S0272263123000384
+
 # URLs canónicas del propio sitio. Este workflow comprueba enlaces EXTERNOS
 # contra la web en vivo, y toda página nueva de una rama de integración
 # devuelve 404 en producción hasta que se mergea: las canónicas de
