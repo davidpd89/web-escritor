@@ -12,17 +12,17 @@ jobs:
   readiness:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-python@v5
+      - uses: actions/checkout@v5
+      - uses: actions/setup-python@v6
         with:
           python-version: '3.12'
-      - uses: actions/setup-node@v4
+      - uses: actions/setup-node@v5
         with:
           node-version: '22'
       - name: Generate release readiness report
         run: python scripts/release-readiness.py --output docs/RELEASE-READINESS-V1.md
       - name: Upload readiness report artifact
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v6
         with:
           name: release-readiness-report
           path: docs/RELEASE-READINESS-V1.md

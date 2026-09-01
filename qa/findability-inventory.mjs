@@ -89,6 +89,7 @@ function deprecatedDestination(href) {
 // the matching.
 const KNOWN_EDITORIAL_URL_MIGRATIONS = new Map([
   ['https://www.diversidadliteraria.com/la-memoria-de-las-tierras-del-norte', 'AIII-11 2026-08-27: canonical URL moved to /libros/#memoria-tierras-norte'],
+  ['https://www.threads.net/@davidportodiaz', '2026-09-01: Meta moved Threads profile URLs from threads.net to threads.com'],
 ]);
 function knownEditorialMigration(href) {
   return KNOWN_EDITORIAL_URL_MIGRATIONS.get(href) || null;
