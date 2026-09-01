@@ -166,6 +166,20 @@ Un formato pregunta-respuesta editorial no implica `FAQPage`.
 
 `QAPage` tampoco es sustituto automático: corresponde a páginas de una pregunta con respuestas de usuarios según su contrato, no a FAQ redactada por el autor.
 
+### Cuaderno (nota de reconciliación, 2026-09-01)
+
+Este veredicto rechaza `FAQPage` como táctica SEO en páginas de libro y en
+`/recomendaciones/` (gate vigente: `scripts/check-recomendaciones-no-faqpage.py`).
+No cubre los artículos de `/cuaderno/` que ya incluyen una sección de FAQ
+visible genuina para el lector: ahí rige un contrato distinto y posterior,
+`qa/cuaderno-browser.mjs`, que exige paridad 1:1 entre el FAQ visible
+(`.article-faq details`) y su `FAQPage` — si un artículo muestra FAQ al
+lector, el schema debe reflejarlo exactamente; no se permite FAQ visible sin
+`FAQPage` ni desincronizado. Esta paridad es una decisión editorial posterior
+y más específica para esa superficie, no una regresión de A.7: no retirar el
+`FAQPage` de los artículos de Cuaderno que ya tienen FAQ visible sin retirar
+también el FAQ visible, y sin romper `qa/cuaderno-browser.mjs`.
+
 ## 7. Structured data que sí merece prioridad
 
 En páginas de obra la exactitud de estos tipos/relaciones tiene más valor que sumar schema por cantidad:
