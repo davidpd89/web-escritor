@@ -54,6 +54,9 @@ function newsletterErrorMessage(code) {
 }
 
 async function postNewsletter(payload) {
+  if (window.DPNewsletterGeneral?.postNewsletter) {
+    return window.DPNewsletterGeneral.postNewsletter(payload);
+  }
   if (typeof navigator !== "undefined" && navigator.onLine === false) {
     return { ok: false, code: "offline" };
   }
@@ -305,6 +308,7 @@ function fallbackCopy(text, done) {
       e.preventDefault();
       scheduleTask(async () => {
         const emailEl = document.getElementById(emailId);
+        const gdprEl = document.getElementById(gdprId);
         const statusEl = document.getElementById(statusId);
         const submitBtn = form.querySelector("[type=submit]");
         if (submitBtn.dataset.submitting === "true") return;
@@ -314,6 +318,11 @@ function fallbackCopy(text, done) {
         }
         if (!emailEl || !isValidNewsletterEmail(emailEl.value)) {
           if (statusEl) statusEl.textContent = "Introduce un email válido.";
+          return;
+        }
+        if (!gdprEl || !gdprEl.checked) {
+          if (statusEl) statusEl.textContent = "Acepta la política de privacidad para continuar.";
+          gdprEl?.focus({ preventScroll: true });
           return;
         }
         if (statusEl) statusEl.textContent = "";

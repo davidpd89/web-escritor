@@ -57,6 +57,53 @@ jobs:
           QA_OUT: artifacts/sitewide-reflow
         run: node qa/sitewide-reflow-browser.mjs
 
+      - name: Books index visual-system QA
+        env:
+          QA_ORIGIN: http://127.0.0.1:4173
+          QA_OUT: artifacts/sitewide-reflow
+        run: node qa/books-index-design-browser.mjs
+
+      - name: Manecillas visual-system QA
+        env:
+          QA_ORIGIN: http://127.0.0.1:4173
+          QA_OUT: artifacts/sitewide-reflow
+        run: node qa/manecillas-design-browser.mjs
+
+      - name: Manecillas Fragmentos visual-system QA
+        env:
+          QA_ORIGIN: http://127.0.0.1:4173
+          QA_OUT: artifacts/sitewide-reflow
+        run: node qa/manecillas-fragmentos-design-browser.mjs
+
+      - name: Manecillas scope isolation (main vs Fragmentos)
+        env:
+          QA_ORIGIN: http://127.0.0.1:4173
+        run: node qa/manecillas-scope-isolation.mjs
+
+      - name: Samuel visual-system QA
+        env:
+          QA_ORIGIN: http://127.0.0.1:4173
+          QA_OUT: artifacts/sitewide-reflow
+        run: node qa/samuel-design-browser.mjs
+
+      - name: Samuel fragmento visual-system QA
+        env:
+          QA_ORIGIN: http://127.0.0.1:4173
+          QA_OUT: artifacts/sitewide-reflow
+        run: node qa/samuel-fragmento-design-browser.mjs
+
+      - name: Noveris world-archive visual-system QA
+        env:
+          QA_ORIGIN: http://127.0.0.1:4173
+          QA_OUT: artifacts/sitewide-reflow
+        run: node qa/noveris-design-browser.mjs
+
+      - name: Samuel reading-club visual-system QA
+        env:
+          QA_ORIGIN: http://127.0.0.1:4173
+          QA_OUT: artifacts/sitewide-reflow
+        run: node qa/club-samuel-design-browser.mjs
+
       - name: POV distribution format QA (O.2)
         if: always()
         run: node qa/pov-distribucion-format-browser.mjs
