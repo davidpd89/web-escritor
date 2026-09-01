@@ -127,16 +127,63 @@ de decisión del autor.
 - ⬜ `/convocatorias-escritores/`
 
 ### Legal / recursos / otros
-- ⬜ `/privacidad.html`
+- 🚩 `/privacidad.html` — ver hallazgo #2, texto legal no coincide con el
+  comportamiento real de 2 de los 9 formularios de newsletter del sitio.
 - ⬜ `/aviso-legal.html`
 - ⬜ `/accesibilidad/`
-- ⬜ `/publicar-web/`
+- ✅ `/publicar-web/` — página interna (noindex), checklist de desarrollo,
+  sin problemas.
 - ⬜ `/empieza-aqui/`
-- ⬜ `/gracias-suscripcion/`
+- ✅ `/gracias-suscripcion/` — sin hallazgos.
 - ⬜ `/recursos/ficha-historia-objeto-heredado/`
 - ⬜ `/recursos/herramientas-para-escritores/`
 
+### Otras páginas no cubiertas por pa11y-baseline (fuera de las
+categorías de arriba, revisadas por ser el hueco real de cobertura
+automática)
+- ✅ `/404.html` — sin hallazgos.
+- ✅ `/offline.html` — sin hallazgos, el mensaje de estado online/offline
+  es dinámico vía JS y funciona.
+- ✅ `/samuel-entre-mundos.html` — stub de redirección limpio (noindex +
+  canonical + refresh + enlace de respaldo).
+- ✅ `/donde-empieza-la-jaula/` — sin hallazgos; el "cover" gris con
+  "En desarrollo" es intencional (libro sin portada aún), contraste
+  correcto, correctamente oculto a lectores de pantalla porque la misma
+  información ya está en texto accesible cerca.
+- ✅ `/lectores-beta/` — sin hallazgos, copy claro sobre las dos listas de
+  consentimiento distintas (newsletter general vs lectores beta).
+- ✅ `/lectores-beta/enviar-manuscrito/` — sin hallazgos, mailto con
+  asunto/cuerpo precargados correctamente.
+- ⬜ `/asistente/` (pendiente auditoría completa más allá del hero)
+
 ## Hallazgos
 
-(se añaden aquí a medida que se confirman, con página, descripción,
-severidad y estado: corregido / pendiente de decisión)
+1. **[Corregido]** `prensa.html`, FAQ de entrevistas ("¿En qué está
+   trabajando ahora?"): usaba "se publica el 3 de septiembre de 2026" en
+   vez de la redacción autorizada sitewide "publicada el 3 de septiembre
+   de 2026" (contrato documentado explícitamente en `ai/index.html`).
+   Corregido para que coincida con el resto del sitio.
+
+2. **[Pendiente de decisión del autor]** Inconsistencia real entre
+   `privacidad.html` y el comportamiento en producción: la política dice
+   dos veces que "el formulario exige marcar la casilla de aceptación de
+   esta política antes de poder enviarlo" (afirmación general, sin
+   excepciones). Pero de los 9 formularios de newsletter del sitio
+   (`script.js`, llamadas a `submitNewsletter`), exactamente 2 —
+   `newsletter-form-home` (fallback estático) y `newsletter-form-home-yale`
+   (versión mejorada por JS) — pasan `gdprId: null`: no tienen casilla,
+   solo una nota "Al enviar tu email, aceptas la política de privacidad."
+   Es decir, el ÚNICO formulario de newsletter sin casilla es,
+   precisamente, el de la Home — la página con más tráfico del sitio.
+   Todos los demás (fragmento, manecillas, home-manecillas-card ×2,
+   cuaderno, explore) sí tienen casilla.
+   Esto no es un bug de código: es una decisión de base legal (consent
+   expreso vía checkbox de RGPD art. 6.1.a, tal y como dice la política,
+   frente a "consentimiento por acción inequívoca" sin checkbox, que
+   también es válido bajo RGPD pero requiere que el texto de la política
+   lo describa así, no como una casilla que en la Home no existe).
+   Dos salidas posibles, ninguna aplicada unilateralmente:
+   (a) devolver la casilla al formulario de Home, o
+   (b) reescribir esas dos frases de `privacidad.html` para describir con
+       precisión el mecanismo real (nota de consentimiento por envío en
+       Home, casilla en el resto).
