@@ -18,6 +18,15 @@ https?://([^/]+\.)?siarchives\.si\.edu/.*
 https?://([^/]+\.)?tandfonline\.com/.*
 https?://([^/]+\.)?planetadelibros\.com/.*
 
+# doi.org resuelve estas dos citas de herramientas/variedad-lexica/ a
+# ScienceDirect (Elsevier) y Cambridge Core, que igual que tandfonline.com
+# arriba bloquean/limitan clientes automatizados en sus redirecciones
+# finales. No hay otros enlaces doi.org en el repo, así que se excluye el
+# dominio completo en vez de mantener la referencia DOI (estable, la forma
+# correcta de citar) apuntando directamente a una URL de editor que puede
+# cambiar.
+https?://([^/]+\.)?doi\.org/.*
+
 # URLs canónicas del propio sitio. Este workflow comprueba enlaces EXTERNOS
 # contra la web en vivo, y toda página nueva de una rama de integración
 # devuelve 404 en producción hasta que se mergea: las canónicas de
