@@ -1,0 +1,70 @@
+name: Design evidence hardening
+
+on:
+  pull_request:
+    paths:
+      - 'autor.html'
+      - 'eventos.html'
+      - 'prensa.html'
+      - 'assets/v1-identity.css'
+      - 'assets/v1-events.css'
+      - 'assets/v1-press.css'
+      - 'qa/autor-design-browser.mjs'
+      - 'qa/eventos-design-browser.mjs'
+      - 'qa/prensa-design-browser.mjs'
+      - 'qa/design-evidence-hardening.mjs'
+      - '.github/workflows/design-evidence-hardening.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  inherited-evidence:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: Set up Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Install CI dependencies
+        run: npm ci
+      - name: Cache Playwright browser
+        id: playwright-cache
+        uses: actions/cache@v4
+        with:
+          path: ~/.cache/ms-playwright
+          key: playwright-chromium-${{ hashFiles('package-lock.json') }}
+      - name: Install Playwright Chromium with OS deps
+        if: steps.playwright-cache.outputs.cache-hit != 'true'
+        run: npx playwright install --with-deps chromium
+      - name: Install Playwright OS deps only
+        if: steps.playwright-cache.outputs.cache-hit == 'true'
+        run: npx playwright install-deps chromium
+      - name: Start local static server
+        shell: bash
+        run: |
+          python3 -m http.server 4173 --bind 127.0.0.1 > /tmp/design-evidence-hardening-server.log 2>&1 &
+          echo $! > /tmp/design-evidence-hardening-server.pid
+          for i in {1..30}; do
+            if curl --fail --silent http://127.0.0.1:4173/autor.html > /dev/null; then exit 0; fi
+            sleep 1
+          done
+          cat /tmp/design-evidence-hardening-server.log
+          exit 1
+      - name: Validate inherited documentary image evidence
+        run: node qa/design-evidence-hardening.mjs
+        env:
+          QA_ORIGIN: http://127.0.0.1:4173
+          QA_OUT: qa-artifacts/design-evidence-hardening
+      - name: Upload hardened visual evidence
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: design-evidence-hardening
+          path: qa-artifacts/design-evidence-hardening/
+          if-no-files-found: warn
+          retention-days: 14

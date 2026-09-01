@@ -45,3 +45,9 @@ html.v1 .button.secondary:hover,html.v1 .button.secondary:focus-visible{backgrou
 html.v1 .button.tertiary{background:transparent;border-color:var(--color-border);color:var(--color-muted);font-size:.86rem}
 html.v1 .button.tertiary:hover,html.v1 .button.tertiary:focus-visible{color:var(--color-text);border-color:color-mix(in srgb,var(--color-text) 36%,var(--surface-page))}
 html.v1 .button:active{transform:translateY(1px) scale(.99)}
+
+/* Samuel /fragmento/: el launcher flotante interceptaba el cierre del CTA
+   persistente en escritorio. En la lectura es un acceso duplicado: el control
+   Asistente del header permanece disponible en todos los anchos. El selector
+   exige contexto Samuel + reading progress para no alterar la ficha principal. */
+html.v1[data-editorial-context="samuel"] body[data-reading-progress] .assistant-widget__launcher{display:none!important}

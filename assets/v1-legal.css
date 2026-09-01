@@ -27,6 +27,15 @@ html.v1 .legal-prose li+li{margin-top:.55rem}
 html.v1 .legal-prose a{overflow-wrap:anywhere;text-underline-offset:.2em}
 html.v1 .legal-prose code{font:500 .88em/1.4 var(--font-ui);overflow-wrap:anywhere}
 html.v1 .legal-updated{max-width:68ch;margin:0;padding-top:1.25rem;border-top:1px solid var(--color-border);font:500 .78rem/1.55 var(--font-ui);color:var(--color-muted)}
+
+/* #287: azul/dorado solo para orientacion/reglas/foco/jerarquia -- documento
+   legal sobrio, no landing. Anadido tras las reglas de arriba (misma
+   especificidad, gana por orden de cascada). */
+html.v1 .legal-hero .coordinate{color:#b8860b}
+html.v1 .legal-hero h1{color:#1d4f96}
+html.v1 .legal-toc h2{color:#b8860b}
+html.v1 .legal-toc a::before{color:#1d4f96}
+html.v1 .legal-prose h2{color:#1d4f96}
 @media(max-width:900px){html.v1 .legal-hero{grid-template-columns:1fr;gap:2rem}html.v1 .legal-hero h1{font-size:clamp(2.75rem,13vw,5rem);max-width:none;overflow-wrap:anywhere;text-wrap:pretty}html.v1 .legal-hero__lead{max-width:none;overflow-wrap:anywhere}html.v1 .legal-meta{max-width:32rem}html.v1 .legal-layout{grid-template-columns:1fr;gap:2.75rem}html.v1 .legal-toc{max-width:32rem}html.v1 .legal-toc a{grid-template-columns:2rem minmax(0,1fr)}html.v1 .legal-prose{max-width:none}html.v1 .legal-prose p,html.v1 .legal-prose ul{max-width:none}}
 @media(max-width:767px){html.v1 .legal-hero{grid-template-columns:1fr;gap:2rem}html.v1 .legal-hero h1{font-size:clamp(2.75rem,15vw,4.7rem);max-width:none;overflow-wrap:anywhere;text-wrap:pretty}html.v1 .legal-hero__lead{max-width:none;overflow-wrap:anywhere}html.v1 .legal-layout{grid-template-columns:1fr;gap:2.75rem}html.v1 .legal-toc{max-width:32rem}.legal-meta{max-width:32rem}}
 @media(max-width:470px){html.v1 .legal-meta li{grid-template-columns:1fr;gap:.25rem}}

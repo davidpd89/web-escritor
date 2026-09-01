@@ -1,0 +1,28 @@
+/* Herramientas individuales — capa de identidad azul/negro/dorado (#280).
+   Se enlaza únicamente desde las rutas reales de la familia instrumental
+   (herramientas/* + clubes-de-lectura/preparar-sesion + ficha-historia-objeto-heredado).
+   El hub /herramientas/ (data-family="tools-hub"), Asistente, Editoriales y
+   Convocatorias comparten .tool-* / v1-tools.css pero NO cargan este fichero,
+   así que quedan fuera de esta capa sin necesidad de más scoping. */
+html.v1{--tool-blue:#1d4f96;--tool-blue-deep:#0d2c57;--tool-gold:#b8860b;--tool-pale:#eefaff}
+
+html.v1 .tool-hero{border-bottom-color:var(--tool-blue)}
+html.v1 .tool-hero .eyebrow{color:var(--tool-gold)}
+html.v1 .tool-hero h1{color:var(--tool-blue)}
+
+html.v1 .tool-note{border-left-color:var(--tool-blue);background:var(--tool-pale)}
+
+html.v1 .tool-results h2{margin:0 0 1.4rem;padding-top:.6rem;border-top:2px solid var(--tool-blue);color:var(--tool-blue)}
+html.v1 .tool-summary{border-color:var(--tool-blue)}
+html.v1 .tool-summary dt,html.v1 .tool-summary>div>span{color:var(--tool-blue-deep)}
+
+html.v1 .tool-findings-block>h2,html.v1 .tool-findings-block>h3{color:var(--tool-blue)}
+
+html.v1 .tool-table thead th{border-bottom-color:var(--tool-blue-deep)}
+
+html.v1 .tool-aside{border-top:2px solid var(--tool-blue)}
+
+html.v1 .tool-trust span{border-color:var(--tool-blue);color:var(--tool-blue-deep)}
+html.v1 .tool-source-list a:hover{color:var(--tool-blue)}
+
+html.v1 .tool-two-col{border-color:var(--tool-blue-deep)}
