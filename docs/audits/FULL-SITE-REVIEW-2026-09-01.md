@@ -187,3 +187,14 @@ automática)
    (b) reescribir esas dos frases de `privacidad.html` para describir con
        precisión el mecanismo real (nota de consentimiento por envío en
        Home, casilla en el resto).
+
+   **Decisión del autor (2026-09-01): ninguna casilla en ningún sitio,
+   solo email + enviar.** Implementado en PR #319: quitada la casilla de
+   `fragmento`, `las-manecillas-del-recuerdo`, `cuaderno`, el diálogo
+   Explorar compartido (regenerado en las 68 páginas vía
+   `scripts/build-site-shell.py`) y el popup de scroll/exit-intent.
+   Actualizada la validación en `assets/newsletter-general.js` y
+   `assets/newsletter-popup.js` (si no, habrían bloqueado el envío para
+   siempre al buscar una casilla que ya no existe). Corregida la frase de
+   `privacidad.html` sobre Brevo que ahora era inexacta para las 9
+   formularios, no solo 2. Tests actualizados y en verde en local.
