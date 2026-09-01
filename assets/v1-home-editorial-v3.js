@@ -70,8 +70,11 @@
     if (/^https?:\/\//.test(href)) {
       link.target = '_blank';
       // Amazon Associates tag=... is an affiliate link (K.3): needs
-      // sponsored/nofollow, not just noopener/noreferrer.
-      link.rel = /[?&]tag=/.test(href) ? 'sponsored nofollow noopener noreferrer' : 'noopener noreferrer';
+      // sponsored/nofollow, not just noopener/noreferrer. Scoped to Amazon
+      // hosts so an unrelated future ?tag= param on another domain isn't
+      // misclassified as affiliate.
+      const isAmazonAffiliate = /^https?:\/\/([^/]+\.)?amazon\.[a-z.]+\//i.test(href) && /[?&]tag=/.test(href);
+      link.rel = isAmazonAffiliate ? 'sponsored nofollow noopener noreferrer' : 'noopener noreferrer';
     }
     parent.append(link);
     return link;
