@@ -30,8 +30,8 @@ assert.match(scriptSource, /window\.DPNewsletterGeneral\?\.postNewsletter/,
   'script.js must delegate POSTs to the shared V1 newsletter transport when available');
 assert.match(scriptSource, /const gdprEl = document\.getElementById\(gdprId\)/,
   'generic legacy helper must resolve gdprId instead of leaving it dead');
-assert.match(scriptSource, /if \(!gdprEl \|\| !gdprEl\.checked\)/,
-  'generic legacy helper must block unchecked privacy consent');
+assert.match(scriptSource, /if \(gdprId && \(!gdprEl \|\| !gdprEl\.checked\)\)/,
+  'generic legacy helper must block unchecked privacy consent for forms that declare a gdprId');
 assert.doesNotMatch(scriptSource, /postNewsletter\(\{[^}]*consent\s*:/s,
   'legacy client must not add consent to the Worker payload');
 

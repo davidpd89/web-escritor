@@ -89,6 +89,12 @@
       // amazon.evil.com can't be misclassified as affiliate.
       const isAmazonAffiliate = isAmazonHost(href) && /[?&]tag=/.test(href);
       link.rel = isAmazonAffiliate ? 'sponsored nofollow noopener noreferrer' : 'noopener noreferrer';
+      // No visible "afiliado" text next to these CTAs (author decision,
+      // 2026-09-01) -- aria-label keeps the disclosure available to
+      // screen-reader users without adding visible copy. rel=sponsored
+      // above is the signal search engines read; the required sitewide
+      // Amazon Associates statement lives on aviso-legal.html.
+      if (isAmazonAffiliate) link.setAttribute('aria-label', `${text} — enlace de afiliado`);
     }
     parent.append(link);
     return link;
@@ -519,7 +525,7 @@
     [
       ['Autor', 'David Porto Díaz', 'Biografía, fotografías y recursos para lectores, librerías y medios.', '/autor.html'],
       ['Comunidad', 'Lectores beta', 'Sé el primero en leer contenido y opina antes de que llegue a todos.', '/lectores-beta/#quiero-ser-lector'],
-      ['Comprar', 'Comprar en Amazon', 'Enlace de afiliado: no cambia el precio.', MANECILLAS_BUY_URL],
+      ['Comprar', 'Comprar en Amazon', '', MANECILLAS_BUY_URL],
       ['Te leo', 'Escríbeme', '', AUTHOR_EMAIL_URL]
     ].forEach(([eyebrow, cardTitle, text, href]) => {
       const card = make('article', 'yale-rail-card');
@@ -596,7 +602,7 @@
     [
       ['Del cuaderno', 'Qué es el portal fantasy', 'Guía para lectores.', '/cuaderno/que-es-el-portal-fantasy/', ''],
       ['Crónica', 'Samuel en la Feria del Libro de Madrid', '10 junio 2026.', '/eventos.html#feria-libro-madrid-2026', 'yale-feature-card--blue'],
-      ['Comprar', 'Comprar en Amazon', 'Enlace de afiliado: no cambia el precio.', SAMUEL_AMAZON_URL, '']
+      ['Comprar', 'Comprar en Amazon', '', SAMUEL_AMAZON_URL, '']
     ].forEach(([eyebrow, cardTitle, text, href, className]) => {
       const card = make('article', `yale-feature-card ${className}`.trim());
       card.append(make('p', 'editorial-card__eyebrow', eyebrow));
@@ -720,24 +726,15 @@
     const button = make('button', 'form-submit', 'Enviar');
     button.type = 'submit';
     row.append(input, button);
-    const consentLabel = make('label', 'form-consent');
-    consentLabel.htmlFor = 'nl-gdpr-home-yale';
-    const consentInput = document.createElement('input');
-    consentInput.id = 'nl-gdpr-home-yale';
-    consentInput.name = 'consent';
-    consentInput.type = 'checkbox';
-    consentInput.required = true;
-    consentInput.setAttribute('aria-describedby', 'nl-status-home-yale');
-    const consentText = make('span');
+    const consentNote = make('p', 'yale-signup__consent-note');
     const consentLink = make('a', '', 'política de privacidad');
     consentLink.href = '/privacidad.html';
-    consentText.append('He leído y acepto la ', consentLink, '.');
-    consentLabel.append(consentInput, consentText);
+    consentNote.append('Al enviar tu email, aceptas la ', consentLink, '.');
     const status = make('p', 'form-status');
     status.id = 'nl-status-home-yale';
     status.setAttribute('role', 'status');
     status.setAttribute('aria-live', 'polite');
-    form.append(label, row, consentLabel, status);
+    form.append(label, row, consentNote, status);
     section.append(copy, form);
     return section;
   }

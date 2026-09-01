@@ -132,29 +132,24 @@ try {
     await page.waitForTimeout(250);
     const form = page.locator('#newsletter-form-home-yale');
     const email = page.locator('#nl-email-home-yale');
-    const consent = page.locator('#nl-gdpr-home-yale');
     const status = page.locator('#nl-status-home-yale');
     await form.waitFor({ state: 'attached' });
     assert.equal(await page.locator('#newsletter').count(), 0, 'Home: static #newsletter section must not linger alongside the yale strip');
     assert.equal(await page.locator('#faq').count(), 1, 'Home: #faq must survive the JS-built editorial flow, not be deleted');
     assert.ok(await page.locator('#faq').isVisible(), 'Home: #faq must stay visible (not just present in the DOM) after the JS flow runs');
     assert.ok((await page.locator('#faq details').count()) >= 8, 'Home: #faq must keep its real reader-facing questions after moving into the flow');
+    // No consent checkbox on this strip (author decision, 2026-09-01): a
+    // plain non-blocking privacy-policy note replaces it, so submit only
+    // needs a valid email.
+    assert.equal(await page.locator('#nl-gdpr-home-yale').count(), 0, 'Home: yale strip must not render a consent checkbox');
+    assert.match(await form.locator('.yale-signup__consent-note a[href="/privacidad.html"]').innerText(), /pol[ií]tica de privacidad/i, 'Home: yale strip keeps a plain privacy-policy link');
     await email.fill('qa-home-yale@example.com');
-    assert.equal(await consent.isChecked(), false, 'Home: consent starts unchecked');
 
-    await form.locator('[type="submit"]').click();
-    await page.waitForFunction((selector) => /Acepta la política de privacidad/i.test(
-      document.querySelector(selector)?.textContent || ''
-    ), '#nl-status-home-yale');
-    assert.match(await status.textContent(), /Acepta la política de privacidad/i, 'Home: unchecked submit explains consent');
-    assert.equal(requests.length, 0, 'Home: unchecked submit must make zero requests');
-
-    await consent.check();
     await form.locator('[type="submit"]').click();
     await page.waitForFunction((selector) => /Revisa tu correo/i.test(
       document.querySelector(selector)?.textContent || ''
     ), '#newsletter-form-home-yale');
-    assert.equal(requests.length, 1, 'Home: checked submit must make exactly one request');
+    assert.equal(requests.length, 1, 'Home: submit must make exactly one request');
     assert.deepEqual(requests[0], { email: 'qa-home-yale@example.com', source: 'home', website: '' }, 'Home: Worker payload must stay exact');
     await page.close();
   }

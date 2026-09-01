@@ -327,7 +327,7 @@ function fallbackCopy(text, done) {
           if (statusEl) statusEl.textContent = "Introduce un email válido.";
           return;
         }
-        if (!gdprEl || !gdprEl.checked) {
+        if (gdprId && (!gdprEl || !gdprEl.checked)) {
           if (statusEl) statusEl.textContent = "Acepta la política de privacidad para continuar.";
           gdprEl?.focus({ preventScroll: true });
           return;
@@ -363,7 +363,7 @@ function fallbackCopy(text, done) {
   submitNewsletter("newsletter-form-home-manecillas-card", "home-manecillas-card-email", "home-manecillas-card-gdpr", "home-manecillas-card-status", "manecillas");
   document.addEventListener("dp:home-editorial-ready", () => {
     submitNewsletter("newsletter-form-home-manecillas-card", "home-manecillas-card-email", "home-manecillas-card-gdpr", "home-manecillas-card-status", "manecillas");
-    submitNewsletter("newsletter-form-home-yale", "nl-email-home-yale", "nl-gdpr-home-yale", "nl-status-home-yale", "home");
+    submitNewsletter("newsletter-form-home-yale", "nl-email-home-yale", null, "nl-status-home-yale", "home");
   }, { once: true });
   submitNewsletter("newsletter-form-cuaderno",   "nl-email-cuaderno",   "nl-gdpr-cuaderno",   "nl-status-cuaderno",   "cuaderno");
   submitNewsletter("newsletter-form-explore",    "nl-email-explore",    "nl-gdpr-explore",    "nl-status-explore",    "explore");
