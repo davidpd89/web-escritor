@@ -6,9 +6,11 @@ Tree de la base: `68d02e1fe8ac2cfa239f4a716929e992abb672fd`
 
 ## Veredicto
 
-`PARTIAL_IMPLEMENTATION · AMAZON_AFFILIATION_PUBLICLY_DECLARED · LINK_LEVEL_DISCLOSURE_GAP · SITEWIDE_DISCLOSURE_GAP · EXPANSION_BLOCKED`
+Estado 2026-08-30: `PARTIAL_IMPLEMENTATION · AMAZON_AFFILIATION_PUBLICLY_DECLARED · LINK_LEVEL_DISCLOSURE_GAP · SITEWIDE_DISCLOSURE_GAP · EXPANSION_BLOCKED`
 
-K.3 no debe cerrarse como una implementación correcta. La afiliación Amazon ya existe y la propia web la declara, pero la auditoría actual detecta un gap entre la implementación pública y los requisitos de disclosure vigentes del Programa de Afiliados de Amazon España.
+Estado 2026-09-01 (tras #304 + esta PR): `SITEWIDE_DISCLOSURE_GAP` y `LINK_LEVEL_DISCLOSURE_GAP` cerrados — ver "Gap concreto" abajo. `EXPANSION_BLOCKED` se mantiene como política permanente (no una condición temporal): cualquier nuevo retailer/superficie afiliada debe repetir el contrato completo, no reutilizar este cierre como excepción.
+
+K.3 no debe cerrarse como una implementación correcta hasta verificar in situ (visualmente, en varios tamaños/dispositivos) que el disclosure del header es legible y no degrada el diseño — ver capturas y verificación de reflow/pa11y en la PR.
 
 ## Evidencia directa de `main`
 
@@ -69,7 +71,7 @@ La política actual de Recomendaciones explica la comisión, lo cual es positivo
 
 ## Gap concreto
 
-Estado actual:
+Estado en la revalidación original (2026-08-30):
 
 ```text
 tag affiliate                 = yes
@@ -79,7 +81,18 @@ link-level visible disclosure = no demostrado en header global
 required site statement       = no localizado
 ```
 
-Consecuencia: **no ampliar afiliación a ningún retailer ni nueva superficie** hasta cerrar este gap.
+Estado tras `docs/audits/K03-...` follow-up + esta PR (2026-09-01):
+
+```text
+tag affiliate                 = yes
+rel=sponsored                 = yes (scoped a host real amazon.es, no a un patrón que también acepta lookalikes)
+explicación editorial         = yes, en política de Recomendaciones
+required site statement       = yes, aviso-legal.html («En calidad de Afiliado de Amazon, obtengo ingresos...»), añadido en #304
+link-level visible disclosure = yes, header-buy global (scripts/build-site-shell.py): badge "Afiliado" visible bajo "Comprar" + aria-label
+                                 accesible; test-header-buy-disclosure.py cubre las 65 páginas V1 con el CTA
+```
+
+Consecuencia: gap cerrado para el CTA global del header. No ampliar afiliación a ningún retailer ni nueva superficie sin repetir este mismo contrato (tag real + `rel=sponsored` + disclosure próximo + declaración sitewide).
 
 ## Arreglo correcto cuando se edite código
 
