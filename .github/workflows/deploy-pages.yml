@@ -21,12 +21,12 @@ jobs:
     timeout-minutes: 15
     steps:
       - name: Checkout
-        uses: actions/checkout@v4
+        uses: actions/checkout@v5
         with:
           fetch-depth: 0
 
       - name: Set up Python
-        uses: actions/setup-python@v5
+        uses: actions/setup-python@v6
         with:
           python-version: '3.12'
 
@@ -62,7 +62,7 @@ jobs:
           git worktree remove --force "$before_root"
 
       - name: Upload IndexNow change set
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v6
         with:
           name: indexnow-change-set
           path: ${{ runner.temp }}/indexnow-urls.json
@@ -78,7 +78,7 @@ jobs:
         run: touch .preview-dist/.nojekyll
 
       - name: Configure Pages
-        uses: actions/configure-pages@v5
+        uses: actions/configure-pages@v6
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
@@ -103,7 +103,7 @@ jobs:
     timeout-minutes: 10
     steps:
       - name: Checkout deployed SHA
-        uses: actions/checkout@v4
+        uses: actions/checkout@v5
 
       - name: Set up Node
         uses: actions/setup-node@v4
@@ -143,10 +143,10 @@ jobs:
     timeout-minutes: 10
     steps:
       - name: Checkout deployed SHA
-        uses: actions/checkout@v4
+        uses: actions/checkout@v5
 
       - name: Set up Python
-        uses: actions/setup-python@v5
+        uses: actions/setup-python@v6
         with:
           python-version: '3.12'
 
