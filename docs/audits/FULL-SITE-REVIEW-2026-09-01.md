@@ -208,6 +208,17 @@ automática)
    corregir los datos (con fuente) o retirar las entradas no
    verificables.
 
+   Contexto que refuerza la sospecha: `/cuaderno/sistema-de-magia-noveris/`
+   ya pasó por esto exactamente. Su contenido fue retirado deliberadamente
+   (noindex, fuera de sitemap) con esta nota explícita: "La versión
+   anterior de esta página incluía detalles que no deben utilizarse aquí
+   como referencia confirmada. No se sustituyen por otra explicación
+   hasta disponer de respaldo editorial suficiente." Es decir: este
+   sitio ya tuvo, al menos una vez, contenido no verificado que alguien
+   detectó y retiró. La lista de libros de terceros con datos incorrectos
+   encontrada ahora tiene toda la pinta de ser el mismo problema en un
+   sitio distinto, todavía sin retirar.
+
 1. **[Corregido]** `prensa.html`, FAQ de entrevistas ("¿En qué está
    trabajando ahora?"): usaba "se publica el 3 de septiembre de 2026" en
    vez de la redacción autorizada sitewide "publicada el 3 de septiembre
