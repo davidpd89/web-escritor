@@ -320,7 +320,9 @@ def render_header(nav: dict, by_id: dict[str, Entry], current_path: str) -> str:
     if not current_path.startswith("/las-manecillas-del-recuerdo/"):
         buy_link = (
             f'      <a class="header-buy" href="{AMAZON_SAMUEL_URL}" '
-            'target="_blank" rel="sponsored nofollow noopener noreferrer">Comprar</a>\n'
+            'target="_blank" rel="sponsored nofollow noopener noreferrer" '
+            'aria-label="Comprar en Amazon — enlace de afiliado">'
+            'Comprar<span class="header-buy__disclosure" aria-hidden="true">Afiliado</span></a>\n'
         )
     return (
         '<header class="site-header" data-header>\n'
