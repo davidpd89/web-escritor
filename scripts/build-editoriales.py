@@ -199,7 +199,7 @@ SHARE_IMAGE_HEIGHT = 909
 SHARE_IMAGE_ALT = "David Porto Díaz, autor de Samuel entre mundos y Las manecillas del recuerdo"
 
 
-def page_shell(*, title: str, description: str, canonical: str, main_html: str, jsonld: dict, js: bool = False) -> str:
+def page_shell(*, title: str, description: str, canonical: str, main_html: str, jsonld: dict, js: bool = False, extra_css: str = "") -> str:
         # El shell (cabecera, Explorar y pie) no se escribe aqui: lo genera
         # scripts/build-site-shell.py desde data/navigation.json, igual que en las
         # 59 paginas escritas a mano. Las cadenas literales que habia debajo eran
@@ -256,7 +256,7 @@ def page_shell(*, title: str, description: str, canonical: str, main_html: str, 
     <link rel="stylesheet" href="/assets/v1-components.css" />
     <link rel="stylesheet" href="/assets/v1-families.css" />
     <link rel="stylesheet" href="/assets/v1-tools.css" />
-    <link rel="stylesheet" href="/assets/editoriales.css" />
+    <link rel="stylesheet" href="/assets/editoriales.css" />{"" if not extra_css else chr(10) + "    " + extra_css}
     <script type="application/ld+json">{html.escape(json.dumps(jsonld, ensure_ascii=False, separators=(',', ':')), quote=False)}</script>
 </head>
 
@@ -424,7 +424,7 @@ def render_detail(site: str, record: dict, today: date) -> str:
             ]),
         ],
     }
-    return page_shell(title=f"{record['name']}: manuscritos y requisitos | David Porto Díaz", description=description, canonical=canonical, main_html=main, jsonld=jsonld)
+    return page_shell(title=f"{record['name']}: manuscritos y requisitos | David Porto Díaz", description=description, canonical=canonical, main_html=main, jsonld=jsonld, extra_css='<link rel="stylesheet" href="/assets/v1-editoriales-detail.css" />')
 
 
 def render_sitemap(site: str, records: list[dict]) -> str:

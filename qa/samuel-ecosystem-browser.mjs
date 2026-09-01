@@ -152,11 +152,14 @@ async function overflow(page,label,scripting=true){
   for(const term of TERMS_BEFORE) assert.ok(defined.includes(term),`Noveris: DefinedTerm faltante ${term}`);
   assert.equal(new Set(defined).size,defined.length,'Noveris: DefinedTerm duplicado');
   assert.ok(termSet.hasDefinedTerm.every(x=>norm(x.name)&&norm(x.description)), 'Noveris: ningún DefinedTerm puede quedar vacío');
+  // A.7/#156 retired the FAQPage JSON-LD node here on purpose (REMOVE_KNOWN_FAQPAGE ·
+  // PRESERVE_HUMAN_FAQ): the visible FAQ must survive, the schema duplicate must not.
   const faq=graph.find(x=>x['@type']==='FAQPage');
+  assert.equal(faq,undefined,'Noveris: FAQPage schema debe seguir retirado (A.7)');
   const visibleQ=(await page.locator('#preguntas-frecuentes summary').allTextContents()).map(norm);
-  const schemaQ=faq.mainEntity.map(q=>norm(q.name));
-  assert.deepEqual(schemaQ,visibleQ,'Noveris: FAQ visible/schema parity');
-  assert.ok(faq.mainEntity.every(q=>norm(q.acceptedAnswer?.text)), 'Noveris: respuestas FAQ schema no vacías');
+  assert.ok(visibleQ.length>0,'Noveris: FAQ visible debe seguir presente tras retirar el schema');
+  const visibleA=(await page.locator('#preguntas-frecuentes p').allTextContents()).map(norm);
+  assert.ok(visibleA.every(a=>a.length>0),'Noveris: respuestas FAQ visibles no vacías');
   assert.equal(termSet.hasDefinedTerm.find(x=>x.name==='Noveris').sameAs,'https://www.wikidata.org/wiki/Q139927664','Noveris: sameAs preservado');
   // Scoped to main: PR95's persistent .section-context strip (2026-08-24)
   // now repeats this same destination sitewide as chrome navigation, so a
