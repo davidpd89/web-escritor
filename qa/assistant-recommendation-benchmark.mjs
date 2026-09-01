@@ -8,10 +8,10 @@ const mode = String(process.env.RECOMMENDATION_BENCHMARK_MODE || "report").toLow
 await fs.mkdir(out, { recursive: true });
 
 const CASES = [
-  { id: "generic-1", group: "generic", query: "¿Qué me recomiendas leer?", accepted: ["/recomendaciones/", "/recomendaciones/portal-fantasy-espanol/", "/recomendaciones/magia-con-coste/"] },
-  { id: "generic-2", group: "generic", query: "Quiero ver recomendaciones de lectura", accepted: ["/recomendaciones/", "/recomendaciones/portal-fantasy-espanol/", "/recomendaciones/magia-con-coste/"] },
-  { id: "generic-3", group: "generic", query: "¿Tienes libros recomendados de fantasía?", accepted: ["/recomendaciones/", "/recomendaciones/portal-fantasy-espanol/", "/recomendaciones/magia-con-coste/"] },
-  { id: "generic-4", group: "generic", query: "Busco lecturas parecidas a la fantasía juvenil", accepted: ["/recomendaciones/", "/recomendaciones/portal-fantasy-espanol/", "/recomendaciones/magia-con-coste/"] },
+  { id: "generic-1", group: "generic", query: "¿Qué me recomiendas leer?", accepted: ["/recomendaciones/"] },
+  { id: "generic-2", group: "generic", query: "Quiero ver recomendaciones de lectura", accepted: ["/recomendaciones/"] },
+  { id: "generic-3", group: "generic", query: "¿Tienes libros recomendados de fantasía?", accepted: ["/recomendaciones/"] },
+  { id: "generic-4", group: "generic", query: "Busco lecturas parecidas a la fantasía juvenil", accepted: ["/recomendaciones/"] },
 
   { id: "portal-1", group: "portal", query: "Recomiéndame portal fantasy juvenil en español", accepted: ["/recomendaciones/portal-fantasy-espanol/"] },
   { id: "portal-2", group: "portal", query: "¿Qué puedo leer si busco fantasía de portales en español?", accepted: ["/recomendaciones/portal-fantasy-espanol/"] },
