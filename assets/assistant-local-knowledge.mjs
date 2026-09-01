@@ -98,6 +98,8 @@ const RECOMMENDATION_TERMS = Object.freeze([
   "recomiend",
   "recomendacion",
   "recomendaciones",
+  "recomendado",
+  "recomendada",
   "que leer",
   "que puedo leer",
   "que libros",
