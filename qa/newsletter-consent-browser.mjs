@@ -111,6 +111,54 @@ try {
   assert.deepEqual(requests[0], { email: 'qa-newsletter@example.com', source: 'popup', website: '' }, 'popup payload stays exact');
   await page.close();
 
+  // Home's JS-enhanced flow (assets/v1-home-editorial-v3.js buildFlow())
+  // removes the static #newsletter section outright and replaces it with
+  // createYaleSignupStrip() -- this was previously built but never appended,
+  // silently dropping newsletter capture from the JS-enhanced Home for every
+  // real visitor. Covering it here the same way as the other inline forms
+  // guards against that wiring regressing again.
+  {
+    const { page, requests } = await pageWithWorker(context);
+    const response = await page.goto(`${ORIGIN}/`, { waitUntil: 'networkidle' });
+    assert.ok(response?.ok(), 'Home: page must load');
+    // The intro overlay (video + "Entrar") covers the whole page until
+    // dismissed -- same wait pattern as qa/home-map-interaction.mjs, needed
+    // before any click below can reach the real page underneath.
+    const introEnter = page.locator('[data-intro-enter]').first();
+    if ((await introEnter.count()) > 0 && (await introEnter.isVisible())) {
+      await introEnter.click();
+      await page.waitForTimeout(900);
+    }
+    await page.waitForTimeout(250);
+    const form = page.locator('#newsletter-form-home-yale');
+    const email = page.locator('#nl-email-home-yale');
+    const consent = page.locator('#nl-gdpr-home-yale');
+    const status = page.locator('#nl-status-home-yale');
+    await form.waitFor({ state: 'attached' });
+    assert.equal(await page.locator('#newsletter').count(), 0, 'Home: static #newsletter section must not linger alongside the yale strip');
+    assert.equal(await page.locator('#faq').count(), 1, 'Home: #faq must survive the JS-built editorial flow, not be deleted');
+    assert.ok(await page.locator('#faq').isVisible(), 'Home: #faq must stay visible (not just present in the DOM) after the JS flow runs');
+    assert.ok((await page.locator('#faq details').count()) >= 8, 'Home: #faq must keep its real reader-facing questions after moving into the flow');
+    await email.fill('qa-home-yale@example.com');
+    assert.equal(await consent.isChecked(), false, 'Home: consent starts unchecked');
+
+    await form.locator('[type="submit"]').click();
+    await page.waitForFunction((selector) => /Acepta la política de privacidad/i.test(
+      document.querySelector(selector)?.textContent || ''
+    ), '#nl-status-home-yale');
+    assert.match(await status.textContent(), /Acepta la política de privacidad/i, 'Home: unchecked submit explains consent');
+    assert.equal(requests.length, 0, 'Home: unchecked submit must make zero requests');
+
+    await consent.check();
+    await form.locator('[type="submit"]').click();
+    await page.waitForFunction((selector) => /Revisa tu correo/i.test(
+      document.querySelector(selector)?.textContent || ''
+    ), '#newsletter-form-home-yale');
+    assert.equal(requests.length, 1, 'Home: checked submit must make exactly one request');
+    assert.deepEqual(requests[0], { email: 'qa-home-yale@example.com', source: 'home', website: '' }, 'Home: Worker payload must stay exact');
+    await page.close();
+  }
+
   const strict = await context.newPage();
   const strictResponse = await strict.goto(`${ORIGIN}/herramientas/manuscrito/`, { waitUntil: 'domcontentloaded' });
   assert.ok(strictResponse?.ok(), 'local-only manuscript tool must load');
@@ -123,7 +171,7 @@ try {
   await strict.close();
 
   await context.close();
-  console.log('newsletter-consent-browser: inline + Explore + shell-only + popup + local-only CSP contracts passed');
+  console.log('newsletter-consent-browser: inline + Home yale strip + Explore + shell-only + popup + local-only CSP contracts passed');
 } finally {
   await browser.close();
 }

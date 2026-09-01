@@ -15,6 +15,16 @@ visibility:hidden instead, which keeps its layout box (so nothing shifts
 into new space) while still fully hiding the stale content from view;
 measured CLS with this fix is ~0.002. This test locks in visibility:hidden
 so a future "just hide it" edit can't reintroduce display:none here.
+
+buildFlow() later started relocating #faq into the new flow instead of
+removing it (it holds real reader-facing content). Because the hide rule
+matches #faq by id, it kept matching -- and hiding -- #faq forever after
+relocation, since the id-based selector doesn't care where in the DOM the
+element now lives. Fixed by scoping the whole hide rule with
+:not([data-home-editorial-v3="true"]), the attribute buildFlow() sets as
+its last step: the rule hides the fallback only until JS finishes, then
+gets out of the way. This test's SELECTOR includes that scoping so a future
+edit can't drop it and reintroduce the "#faq invisible forever" bug.
 """
 from __future__ import annotations
 
@@ -26,11 +36,12 @@ INDEX = ROOT / "index.html"
 
 html = INDEX.read_text(encoding="utf-8")
 
+NOT_READY = ':not([data-home-editorial-v3="true"])'
 SELECTOR = (
-    'html.v1[data-lrb-home="true"] .river-grid,'
-    'html.v1[data-lrb-home="true"] .promo-band,'
-    'html.v1[data-lrb-home="true"] #faq,'
-    'html.v1[data-lrb-home="true"] #newsletter'
+    f'html.v1[data-lrb-home="true"]{NOT_READY} .river-grid,'
+    f'html.v1[data-lrb-home="true"]{NOT_READY} .promo-band,'
+    f'html.v1[data-lrb-home="true"]{NOT_READY} #faq,'
+    f'html.v1[data-lrb-home="true"]{NOT_READY} #newsletter'
 )
 
 hide_rule = re.search(re.escape(SELECTOR) + r"\{([^}]*)\}", html)
