@@ -185,7 +185,19 @@
     };
     enter.addEventListener('click', doEnter);
     const reduced = matchMedia('(prefers-reduced-motion: reduce)').matches;
-    setTimeout(doEnter, reduced ? 5000 : 9600);
+    let fallback = setTimeout(doEnter, reduced ? 5000 : 9600);
+    // When initHeroVideo (below) confirms autoplay was rejected, the visitor
+    // is otherwise stuck looking at a frozen poster frame for up to 9.6s with
+    // "Entrar" still invisible (it's timed to fade in only once the ink
+    // reveal would have finished, ~4.6s in, so it doesn't fight the video for
+    // attention). Reported live on a physical iPhone in Low Power Mode: no
+    // motion ever starts, so the wait just reads as a broken/hung page.
+    // Skip that wait once we know there's nothing to wait for.
+    intro.addEventListener('dp-hero-video-blocked', () => {
+      if (entered) return;
+      clearTimeout(fallback);
+      fallback = setTimeout(doEnter, 2200);
+    }, { once: true });
   }
 
   function initHeroVideo() {
@@ -202,6 +214,8 @@
     // with it (e.g. tapping "Entrar") before the video has started.
     const play = () => video.play().catch(() => {
       if (!intro) return;
+      intro.classList.add('intro--stalled');
+      intro.dispatchEvent(new Event('dp-hero-video-blocked'));
       const retry = () => video.play().catch(() => {});
       intro.addEventListener('pointerdown', retry, { once: true, passive: true });
     });

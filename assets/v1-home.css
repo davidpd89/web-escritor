@@ -19,6 +19,10 @@ html.v1 .intro__enter{position:absolute;left:50%;bottom:clamp(4.5rem,15vh,7.5rem
 html.v1 .intro__enter:hover,html.v1 .intro__enter:focus-visible{background:color-mix(in srgb,var(--dp-paper) 16%,transparent);border-color:var(--dp-paper)}
 @media(prefers-reduced-motion:no-preference){
   html.v1 .intro__enter{animation:intro-enter-in .9s ease-out 4.6s forwards}
+  /* Autoplay rejected (e.g. iPhone Low Power Mode): there is no ink reveal
+     to wait for, so don't make the visitor stare at a frozen poster with an
+     invisible exit for 4.6s. Bring "Entrar" in right away. */
+  html.v1 .intro--stalled .intro__enter{animation-delay:.3s}
 }
 @media(prefers-reduced-motion:reduce){
   html.v1 .intro__enter{opacity:1;transform:translate(-50%,0)}
