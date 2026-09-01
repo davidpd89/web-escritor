@@ -296,7 +296,7 @@ html.v1[data-lrb-home="true"] .yale-home-flow{
   padding:clamp(1.7rem,3.4vw,2.7rem) var(--page-gutter) clamp(2.2rem,4.4vw,3.6rem);
   background:#fff;
 }
-html.v1[data-lrb-home="true"] .yale-home-flow :is(section,article,aside,div,header,h1,h2,h3,p,a){
+html.v1[data-lrb-home="true"] .yale-home-flow :is(section,article,aside,div,header,h1,h2,h3,p,a,details,summary){
   min-width:0;
   max-width:100%;
 }
