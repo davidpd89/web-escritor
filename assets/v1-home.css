@@ -500,8 +500,11 @@ html.v1[data-lrb-home="true"] .home-event__link{
   color:#1d4f96;
   text-decoration:none;
 }
+/* Keep the events-only action class on the exact same interaction colour as
+   the base .yale-text-link. #004f73 belonged to the previous palette and was
+   the last visible hover-state leak after round 7 unified the normal state. */
 html.v1[data-lrb-home="true"] .home-event__link:hover,
-html.v1[data-lrb-home="true"] .home-event__link:focus-visible{color:#004f73}
+html.v1[data-lrb-home="true"] .home-event__link:focus-visible{color:#0d2c57}
 html.v1[data-lrb-home="true"] .home-event__link::after{content:"\2192";margin-left:.35rem;color:currentColor}
 /* Rail dividers unified to the page's blue/gold palette (author request) --
    #1d4f96 replaces the plain #0075b8. Clarified after the first pass: not
@@ -763,7 +766,9 @@ html.v1[data-lrb-home="true"] .home-events__grid{
 /* The accent rail sits between the two columns (as it does for Manecillas'
    own .yale-lead/.yale-rail pair), not at the section's outer edge -- for
    Samuel's mirrored layout the book card is the second/right column, so it
-   carries the border instead of the stack. */
+   carries the border instead of the stack. At <=1100px this remains the
+   intended stacked behaviour; desktop overrides below move the visual rail
+   to the actual seam where the stack's horizontal rules end. */
 html.v1[data-lrb-home="true"] .yale-feature-book{
   background-image:linear-gradient(90deg,#1d4f96,#1d4f96);
   background-repeat:no-repeat;
@@ -789,6 +794,44 @@ html.v1[data-lrb-home="true"] .yale-feature-card:last-child,
 html.v1[data-lrb-home="true"] .home-events__grid .home-event:last-child{background-image:none}
 html.v1[data-lrb-home="true"] .yale-feature-card:first-child,
 html.v1[data-lrb-home="true"] .home-events__grid .home-event:first-child{padding-top:0}
+/* Give Samuel a small amount of breathing room before the following
+   section-break without restoring section margin-top (which would reopen a
+   physical gap in the rail). Padding belongs to both columns so the row
+   stays balanced; whichever column owns the rail at the active breakpoint
+   keeps drawing it through this quiet space up to the next divider. */
+html.v1[data-lrb-home="true"] .yale-feature--samuel .yale-feature__stack,
+html.v1[data-lrb-home="true"] .yale-feature--samuel .yale-feature-book{
+  padding-bottom:clamp(.85rem,1.6vw,1.15rem);
+}
+/* Desktop Samuel seam fix. The horizontal rules live on cards inside the
+   left stack, while the old vertical rail lived on the right book card with
+   the outer grid gap between them, so those strokes could never physically
+   join. Draw the rail on the stack's right edge; preserve the book's
+   padding, and preserve the old book-left rail below 1101px where the
+   feature becomes a single column. */
+@media(min-width:1101px){
+  html.v1[data-lrb-home="true"] .yale-feature--samuel .yale-feature__stack{
+    background-image:linear-gradient(90deg,#1d4f96,#1d4f96);
+    background-repeat:no-repeat;
+    background-size:2.5px 100%;
+    background-position:top right;
+  }
+  html.v1[data-lrb-home="true"] .yale-feature--samuel .yale-feature-book{background-image:none}
+  /* The card's left-bleed hack (margin-left:-clamp(...) + matching
+     padding-left, so its background rules and hit area extend past the
+     stack's own edge on the left) shifts the whole box left without
+     growing it -- so the right edge, and the double-rule painted at
+     background-size:100%, landed one clamp() short of the rail above
+     instead of touching it (measured ~30px gap at 1440px). Add that same
+     width back on the right so the rule's right end lands exactly on the
+     rail. max-width needs the same override: the sitewide overflow guard
+     (`.yale-home-flow :is(section,article,...){max-width:100%}`) otherwise
+     clamps this straight back down to the pre-bleed width. */
+  html.v1[data-lrb-home="true"] .yale-feature--samuel .yale-feature-card{
+    width:calc(100% + clamp(1.2rem,2.6vw,2rem));
+    max-width:calc(100% + clamp(1.2rem,2.6vw,2rem));
+  }
+}
 /* Mirrors .yale-lead's own media|copy split (photo beside text) instead of
    stacking the cover above the description -- same system as the hero, but
    reversed at BOTH levels: the book card sits on the opposite side of the
@@ -879,7 +922,15 @@ html.v1[data-lrb-home="true"] .home-event__media{
   border-bottom:1px solid #b8860b;
   overflow:hidden;
 }
-html.v1[data-lrb-home="true"] .home-event--lead .home-event__media{aspect-ratio:4/5}
+/* Events use a restrained rectangular translation of the avatar's double
+   blue/gold frame, not the corner brackets reserved for book covers. The
+   white separator keeps the two 1px colour strokes legible without turning
+   the photo into a heavy card. */
+html.v1[data-lrb-home="true"] .home-event--lead .home-event__media{
+  aspect-ratio:4/5;
+  border:1px solid #1d4f96;
+  box-shadow:0 0 0 2px #fff,0 0 0 3px #b8860b;
+}
 html.v1[data-lrb-home="true"] .home-event__media img{
   width:100%;
   height:100%;
@@ -962,6 +1013,14 @@ html.v1[data-lrb-home="true"] .header-buy{
   white-space:normal;
   overflow-wrap:anywhere;
 }
+/* #0a4d9f is deliberately the logo/header blue. Content controls return to
+   the canonical page blue so the body does not carry two competing blues;
+   .header-buy intentionally remains untouched above. */
+html.v1[data-lrb-home="true"] .install-web__button,
+html.v1[data-lrb-home="true"] .form-submit{
+  border-color:#1d4f96;
+  color:#1d4f96;
+}
 
 @media(max-width:1100px){
   html.v1[data-lrb-home="true"] .yale-home-issue__grid,
@@ -1019,3 +1078,80 @@ html.v1[data-lrb-home="true"] .header-buy{
    a home-page-only treatment for now. */
 html.v1[data-lrb-home="true"] .social-icon:nth-child(odd){border-color:#1d4f96}
 html.v1[data-lrb-home="true"] .social-icon:nth-child(even){border-color:#b8860b}
+
+/* HOME finalization — corrective geometry, not a new visual direction. */
+html.v1[data-lrb-home="true"] .yale-home-section--tools{
+  padding-bottom:clamp(1rem,2vw,1.4rem);
+}
+
+/* The events rail used to be a parent background hidden underneath the
+   opaque white event cards, leaving only the old 1px border-left visible.
+   Draw it above the cards instead, at the same 2.5px CSS thickness as the
+   gold stroke in the horizontal rule stack. */
+html.v1[data-lrb-home="true"] .home-events__grid{
+  --home-events-rail-inset:clamp(1.2rem,2.6vw,2rem);
+  position:relative;
+  isolation:isolate;
+  border-left:0;
+  background-image:none;
+  padding-left:var(--home-events-rail-inset);
+}
+html.v1[data-lrb-home="true"] .home-events__grid::before{
+  content:"";
+  position:absolute;
+  top:0;
+  bottom:0;
+  left:0;
+  width:2.5px;
+  background:#1d4f96;
+  pointer-events:none;
+  z-index:2;
+}
+html.v1[data-lrb-home="true"] .home-events__grid .home-event,
+html.v1[data-lrb-home="true"] .home-events__cta{
+  position:relative;
+  z-index:1;
+  margin-left:calc(-1 * var(--home-events-rail-inset));
+}
+/* Keep the intentional blue callout, but make its box start on the same
+   rail axis as the event rules. The overlay rail becomes its left edge. */
+html.v1[data-lrb-home="true"] .home-events__cta{
+  border-top:0;
+  border-left:0;
+}
+/* v1-home-editorial-v3.css has a more specific legacy CTA anchor rule that
+   was restoring sans-serif text and a conventional underline. */
+html.v1[data-lrb-home="true"] .home-events__cta .yale-text-link{
+  font-family:'Yellowtail',var(--font-ui),cursive;
+  font-size:1.15rem;
+  font-weight:400;
+  letter-spacing:0;
+  text-transform:none;
+  color:#1d4f96;
+  text-decoration:none;
+  border-bottom:0;
+  padding-bottom:0;
+}
+html.v1[data-lrb-home="true"] .home-events__cta .yale-text-link:hover,
+html.v1[data-lrb-home="true"] .home-events__cta .yale-text-link:focus-visible{color:#0d2c57}
+
+/* The install block was switched from the old dark panel to white, but its
+   panel lines and hover state still came from that dark version. */
+html.v1[data-lrb-home="true"] .install-web__panel{
+  border-top:1px solid #1d4f96;
+  border-bottom:1px solid #b8860b;
+}
+html.v1[data-lrb-home="true"] .install-web__button:hover,
+html.v1[data-lrb-home="true"] .install-web__button:focus-visible,
+html.v1[data-lrb-home="true"] .form-submit:hover,
+html.v1[data-lrb-home="true"] .form-submit:focus-visible{
+  background:#eefaff;
+  border-color:#1d4f96;
+  color:#0d2c57;
+}
+
+/* Once the outer events feature stacks, the chronological rail stays one
+   dimensional. The previous broad tablet rule accidentally made it 2-col. */
+@media(max-width:1100px){
+  html.v1[data-lrb-home="true"] .home-events__grid{grid-template-columns:1fr}
+}

@@ -137,51 +137,6 @@
         }
       },
       {
-        "@type": "FAQPage",
-        "mainEntity": [
-          {
-            "@type": "Question",
-            "name": "¿Para qué edad es Samuel entre mundos?",
-            "acceptedAnswer": { "@type": "Answer", "text": "Samuel entre mundos es fantasía juvenil española, pensada para lectores juveniles y adultos que disfrutan de la fantasía con profundidad. La editorial no publica un rango de edad oficial." }
-          },
-          {
-            "@type": "Question",
-            "name": "¿Es Samuel entre mundos romantasy?",
-            "acceptedAnswer": { "@type": "Answer", "text": "No. Samuel entre mundos es fantasía juvenil con portales, sistema de magia y misterio familiar. El romance no es el hilo principal de la historia." }
-          },
-          {
-            "@type": "Question",
-            "name": "¿De qué trata Samuel entre mundos?",
-            "acceptedAnswer": { "@type": "Answer", "text": "Samuel entre mundos (David Porto Díaz, Libros Indie, 2025) es una novela de fantasía juvenil española de 422 páginas. Narra la historia de Samuel Osborne, un chico de once años que descubre que su medalla esconde el poder de un canalizador y revela su vínculo con Noveris, una ciudad fantástica separada del mundo humano por una barrera dimensional donde la magia siempre exige un precio real. Portal fantasy, protagonista no-elegido, sistema de magia con reglas. ISBN: 9791387659776." }
-          },
-          {
-            "@type": "Question",
-            "name": "¿Quién es el autor de Samuel entre mundos?",
-            "acceptedAnswer": { "@type": "Answer", "text": "David Porto Díaz es un escritor español nacido en Pontevedra y residente en Madrid. Es autor de Samuel entre mundos (Libros Indie, 2025), su debut de fantasía juvenil, y ganador del Primer Premio — XII Certamen de Microrrelatos «De amor» · Letras Como Espada 2026, en la categoría de microrrelatos. Web oficial: davidportodiaz.com" }
-          },
-          {
-            "@type": "Question",
-            "name": "¿Dónde puedo comprar Samuel entre mundos?",
-            "acceptedAnswer": { "@type": "Answer", "text": "Samuel entre mundos está disponible en la editorial Libros Indie, Amazon España y Casa del Libro en tapa blanda; también puede pedirse en librerías físicas con el ISBN 9791387659776. No existe edición en ebook por ahora." }
-          },
-          {
-            "@type": "Question",
-            "name": "¿Puedo pedir un ejemplar firmado de Samuel entre mundos?",
-            "acceptedAnswer": { "@type": "Answer", "text": "Sí. Para pedir información sobre un ejemplar firmado o dedicado de Samuel entre mundos, escribe a davidportodiaz@gmail.com con el asunto Ejemplar firmado de Samuel entre mundos." }
-          },
-          {
-            "@type": "Question",
-            "name": "¿Qué es el sistema de magia de Noveris?",
-            "acceptedAnswer": { "@type": "Answer", "text": "La magia en Noveris funciona mediante canalizadores: objetos con memoria que permiten activar poderes, pero siempre a un coste real para el usuario. Es un sistema de magia de reglas duras (hard magic)." }
-          },
-          {
-            "@type": "Question",
-            "name": "¿Samuel entre mundos tendrá continuación?",
-            "acceptedAnswer": { "@type": "Answer", "text": "Samuel entre mundos es la primera novela publicada de David Porto Díaz. La historia de Samuel deja abierta la posibilidad de nuevas entregas, pero esta página recoge únicamente la información oficial de este libro." }
-          }
-        ]
-      },
-      {
         "@type": "Organization",
         "@id": "https://davidportodiaz.com/#publisher-libros-indie",
         "name": "Libros Indie",
@@ -309,10 +264,15 @@
         <input class="form-input" id="nl-email-explore" name="email" type="email" autocomplete="email" inputmode="email" required placeholder="Tu email" aria-describedby="nl-status-explore">
         <button class="form-submit" type="submit">Recibir novedades</button>
       </div>
+      <label class="form-consent" for="nl-gdpr-explore">
+        <input id="nl-gdpr-explore" name="consent" type="checkbox" required aria-describedby="nl-status-explore">
+        <span>He leído y acepto la <a href="/privacidad.html">política de privacidad</a>.</span>
+      </label>
       <p id="nl-status-explore" class="form-status" role="status" aria-live="polite"></p>
     </form>
   </div>
 </dialog>
+<script defer src="/assets/newsletter-general.js"></script>
 <!-- site-shell:dialog:end -->
 
   <main id="contenido" tabindex="-1" class="samuel-page" data-family="book-samuel">

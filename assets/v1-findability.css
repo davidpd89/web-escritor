@@ -1,5 +1,5 @@
 /* FINDABILITY V1 — editorial indexes for orientation, human sitemap and recovery. Scoped to this family only. */
-html.v1 [data-family="findability"]{min-width:0;overflow-wrap:normal;word-break:normal}
+html.v1 [data-family="findability"]{min-width:0;overflow-wrap:normal;word-break:normal;--findability-blue:#1d4f96;--findability-gold:#b8860b}
 html.v1 [data-family="findability"] .findability-hero{display:grid;grid-template-columns:minmax(0,8fr) minmax(12rem,4fr);gap:var(--grid-gap);align-items:end;padding:clamp(2rem,5vw,5rem) 0 clamp(2.5rem,6vw,6rem);border-bottom:1px solid var(--color-border)}
 html.v1 [data-family="findability"] .findability-hero__kicker{margin:0 0 .8rem;font:600 var(--text-xs)/1.4 var(--font-ui);letter-spacing:.09em;text-transform:uppercase;color:var(--color-muted)}
 html.v1 [data-family="findability"] .findability-hero h1{max-width:13ch;margin:0;font:400 var(--text-5xl)/.95 var(--font-display);letter-spacing:-.025em;text-wrap:balance}
@@ -36,8 +36,18 @@ html.v1 [data-family="findability"] .recovery-secondary h2{margin:0 0 .5rem;font
 html.v1 [data-family="findability"] .findability-plain-list{margin:.5rem 0 0;padding:0;list-style:none}
 html.v1 [data-family="findability"] .findability-plain-list a{display:flex;width:fit-content;max-width:100%;align-items:center;min-height:44px;font:500 var(--text-sm)/1.4 var(--font-ui);text-underline-offset:.28em}
 html.v1 [data-family="findability"] [id]{scroll-margin-top:7rem}
+
+/* #283: azul/dorado como jerarquia editorial en orientacion/mapa/recuperacion.
+   Anadido tras las reglas estructurales de arriba (misma especificidad, gana
+   por orden de cascada) -- ver la leccion de #282 sobre anteponer estas reglas. */
+html.v1 [data-family="findability"] .findability-hero__kicker{color:var(--findability-gold)}
+html.v1 [data-family="findability"] .findability-hero h1,
+html.v1 [data-family="findability"] .findability-recovery h1{color:var(--findability-blue)}
+html.v1 [data-family="findability"] .findability-entry__no{color:var(--findability-blue)}
+html.v1 [data-family="findability"] .directory-group{border-top-color:var(--findability-blue)}
+html.v1 [data-family="findability"] .findability-folio{color:var(--findability-blue)}
+
 @media (max-width:900px){html.v1 [data-family="findability"] .findability-hero,html.v1 [data-family="findability"] .findability-recovery{grid-template-columns:1fr}html.v1 [data-family="findability"] .findability-hero h1,html.v1 [data-family="findability"] .findability-hero__lead,html.v1 [data-family="findability"] .findability-recovery h1,html.v1 [data-family="findability"] .findability-recovery__copy{max-width:none;overflow-wrap:anywhere;text-wrap:pretty}html.v1 [data-family="findability"] .findability-entry{grid-template-columns:3rem minmax(0,1fr)}html.v1 [data-family="findability"] .findability-entry__body,html.v1 [data-family="findability"] .findability-entry__side{grid-column:2}html.v1 [data-family="findability"] .findability-directory{grid-template-columns:repeat(2,minmax(0,1fr))}html.v1 [data-family="findability"] .findability-links a,html.v1 [data-family="findability"] .findability-plain-list a{overflow-wrap:anywhere}html.v1 [data-family="findability"] .findability-primary{width:auto;max-width:100%}}
-@media (max-width:900px){html.v1 [data-family="findability"] .findability-hero,html.v1 [data-family="findability"] .findability-recovery{grid-template-columns:1fr}html.v1 [data-family="findability"] .findability-entry{grid-template-columns:3rem minmax(0,1fr)}html.v1 [data-family="findability"] .findability-entry__body{grid-column:2}html.v1 [data-family="findability"] .findability-entry__side{grid-column:2}html.v1 [data-family="findability"] .findability-directory{grid-template-columns:repeat(2,minmax(0,1fr))}}
 @media (max-width:620px){html.v1 [data-family="findability"] .findability-hero{padding-top:2rem}html.v1 [data-family="findability"] .findability-entry{grid-template-columns:2.25rem minmax(0,1fr)}html.v1 [data-family="findability"] .findability-entry__no{font-size:1.35rem}html.v1 [data-family="findability"] .findability-directory{grid-template-columns:1fr}html.v1 [data-family="findability"] .findability-recovery{padding-top:2.5rem}}
 @media (max-width:767px){html.v1 [data-family="findability"] .findability-hero h1,html.v1 [data-family="findability"] .findability-hero__lead,html.v1 [data-family="findability"] .findability-recovery h1,html.v1 [data-family="findability"] .findability-recovery__copy{max-width:none;overflow-wrap:anywhere;text-wrap:pretty}html.v1 [data-family="findability"] .findability-links a{overflow-wrap:anywhere}}
 @media (max-height:430px) and (orientation:landscape){html.v1 [data-family="findability"] .findability-hero,html.v1 [data-family="findability"] .findability-recovery{padding-top:1.5rem;padding-bottom:2rem}}
