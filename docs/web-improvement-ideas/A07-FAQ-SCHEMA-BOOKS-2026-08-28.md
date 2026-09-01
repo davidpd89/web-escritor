@@ -262,11 +262,11 @@ Guardrail: bajo coste y valor preventivo razonable dado el historial legacy.
 
 ### Futuro mantenimiento
 
-- [ ] escanear el `main` que vaya a revisar Clara/Claude por `FAQPage`;
-- [ ] retirar solo schema sin consumidor vigente;
-- [ ] preservar preguntas visibles útiles;
-- [ ] añadir guardrail si no existe equivalente;
-- [ ] documentar cualquier excepción no-Google real.
+- [x] escanear el `main` que vaya a revisar Clara/Claude por `FAQPage` — hecho en #303 (`tests/test-faq-schema-retirement.py`, guardrail sitewide, `rg FAQPage` solo en docs/tests);
+- [x] retirar solo schema sin consumidor vigente — #303 retiró el `FAQPage` residual de Home; el resto del JSON-LD de la página no se tocó;
+- [x] preservar preguntas visibles útiles — corregido en #306: `buildFlow()` (`assets/v1-home-editorial-v3.js`) eliminaba `#faq` del DOM para usuarios con JS aunque el fallback sin JS lo conservara intacto (incongruencia real detectada en auditoría posterior a #303). El fix mueve el nodo `#faq` real dentro del flujo Yale en vez de borrarlo, así el contenido humano sigue visible con y sin JS. Cubierto por una aserción de navegador en `qa/newsletter-consent-browser.mjs` (cuenta, visibilidad y número de `<details>` de `#faq` tras `buildFlow()`).
+- [x] añadir guardrail si no existe equivalente — guardrail sitewide de #303 + la aserción de `#faq` de #306 cubren, respectivamente, la reaparición de schema y la desaparición del contenido visible;
+- [ ] documentar cualquier excepción no-Google real — sin excepciones adicionales detectadas hasta la fecha.
 
 ## 12. Trazabilidad del corpus histórico de #135 revisado para A.7
 
