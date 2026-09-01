@@ -97,7 +97,6 @@
       event.preventDefault();
       schedule(async () => {
         const email = form.querySelector('input[type="email"]');
-        const consent = form.querySelector('input[name="consent"]');
         const status = form.querySelector('[role="status"]');
         const submit = form.querySelector('[type="submit"]');
         if (!submit || submit.dataset.submitting === 'true') return;
@@ -108,11 +107,6 @@
         if (!email || !isValidEmail(email.value)) {
           if (status) status.textContent = 'Introduce un email válido.';
           email?.focus({ preventScroll: true });
-          return;
-        }
-        if (!consent || !consent.checked) {
-          if (status) status.textContent = 'Acepta la política de privacidad para continuar.';
-          consent?.focus({ preventScroll: true });
           return;
         }
 
