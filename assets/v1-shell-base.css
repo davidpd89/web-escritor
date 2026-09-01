@@ -15,11 +15,16 @@ html.v1 .site-header__actions{display:flex;align-items:center;gap:.6rem}
 html.v1 .header-search{display:inline-flex;align-items:center;gap:.5rem;min-height:44px;padding:.3rem .9rem .3rem .7rem;border:1px solid transparent;border-radius:var(--radius-control);background:transparent;color:var(--color-muted);font-size:.92rem;font-weight:500;cursor:pointer;transition:background var(--motion-state) var(--ease-standard),color var(--motion-state) var(--ease-standard)}
 html.v1 .header-search svg{fill:none;stroke:currentColor;stroke-width:1.7;stroke-linecap:round;flex:0 0 auto}
 html.v1 .header-search:hover,html.v1 .header-search:focus-visible{color:var(--color-text);background:color-mix(in srgb,var(--color-text) 5%,transparent)}
-html.v1 .header-buy{display:inline-flex;align-items:center;min-height:44px;padding:.3rem 1.15rem;border:1px solid var(--color-accent-strong);border-radius:var(--radius-control);background:var(--color-accent-strong);color:#fff;font-size:.88rem;font-weight:600;text-decoration:none;white-space:nowrap;transition:background var(--motion-state) var(--ease-standard),border-color var(--motion-state) var(--ease-standard)}
+html.v1 .header-buy{display:inline-flex;flex-direction:column;align-items:center;justify-content:center;gap:.05rem;min-height:44px;padding:.25rem 1.15rem;border:1px solid var(--color-accent-strong);border-radius:var(--radius-control);background:var(--color-accent-strong);color:#fff;font-size:.88rem;font-weight:600;line-height:1.1;text-decoration:none;text-align:center;white-space:nowrap;transition:background var(--motion-state) var(--ease-standard),border-color var(--motion-state) var(--ease-standard)}
 html.v1 .header-buy:hover,html.v1 .header-buy:focus-visible{background:var(--dp-ink);border-color:var(--dp-ink)}
-/* K.3: visible affiliate disclosure placed next to an Amazon CTA, anywhere
-   on the site (not just the sitewide statement in aviso-legal.html). */
-html.v1 .affiliate-disclosure{font-size:.78rem;line-height:1.4;color:color-mix(in srgb,var(--dp-ink) 62%,transparent)}
+/* K.3: Amazon Associates requires disclosure visible near the affiliate
+   link itself, not only in a sitewide statement. Sized relative (em) to
+   the parent so it scales down automatically with every breakpoint/zoom
+   override of .header-buy's font-size instead of needing its own. */
+html.v1 .header-buy__disclosure{display:block;font-size:.58em;font-weight:500;letter-spacing:.02em;opacity:.85}
+/* K.3: same visible-disclosure requirement, for an affiliate CTA that isn't
+   the shared header (page-specific buy sections, feature cards...). */
+html.v1 .affiliate-disclosure{margin:.6rem 0 0;font-size:.78rem;line-height:1.4;color:color-mix(in srgb,var(--dp-ink) 62%,transparent)}
 html.v1 .explore-trigger{display:inline-flex;align-items:center;justify-content:center;width:44px;height:44px;flex:0 0 auto;border:1px solid var(--color-border);border-radius:var(--radius-control);background:transparent;color:inherit;cursor:pointer;transition:background var(--motion-state) var(--ease-standard),border-color var(--motion-state) var(--ease-standard)}
 html.v1 .explore-trigger svg{fill:none;stroke:currentColor;stroke-width:1.6;stroke-linecap:round}
 html.v1 .explore-trigger:hover{background:color-mix(in srgb,var(--color-text) 5%,transparent);border-color:color-mix(in srgb,var(--color-text) 36%,var(--surface-page))}
