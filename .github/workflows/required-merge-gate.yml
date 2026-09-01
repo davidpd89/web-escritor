@@ -51,6 +51,9 @@ jobs:
           done
           exit $fail
 
+      - name: Verify third-party integration governance
+        run: python scripts/check-third-party-integrations.py --check
+
       - name: Verify deterministic performance budgets
         run: python scripts/check-performance-budgets.py --check --json .ci/performance-budget.json
 
