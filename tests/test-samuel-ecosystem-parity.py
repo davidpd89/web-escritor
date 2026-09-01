@@ -63,8 +63,11 @@ assert book["numberOfPages"] == samuel["numberOfPages"] == 422
 assert book["bookFormat"] == "https://schema.org/Paperback"
 assert "award" not in book, "Juan Andrés Teno must not be attributed to Samuel without a verified submitted work"
 assert "aggregateRating" not in book
+assert "review" not in book, "third-party marketplace reviews must remain attributed editorial excerpts, not Book.review structured data"
 assert "typicalAgeRange" not in book
 assert "suggestedMinAge" not in book
+assert "Ninguna ha sido resumida ni editada" not in book_html, "abbreviated review excerpts must not be described as unedited/full reviews"
+assert "Extractos abreviados de reseñas publicadas en Amazon España" in book_html, "visible review stream must disclose that marketplace quotes are excerpts"
 
 for html, label in ((book_html, "book"), (club_html, "club"), (guide_html, "print guide")):
     lowered = html.lower()
@@ -83,7 +86,10 @@ assert amazon_url in book_html, "canonical Amazon purchase URL missing"
 assert casa_canonical in book_html, "Casa del Libro ISBN URL missing"
 assert re.search(r'href="https://www\.amazon\.es/dp/B0GB6LGQFH\?tag=davidporto-21"[^>]*rel="[^"]*sponsored[^"]*nofollow[^"]*noopener[^"]*noreferrer', book_html), "Amazon link rel contract missing"
 assert "Comprar en la editorial" in book_html
-assert "Libros Indie, Amazon España y Casa del Libro" in book_html, "visible/schema purchase copy must expose the verified channels"
+# Purchase-channel parity belongs to the visible human UI, not to FAQ/Review
+# structured data. Keep this contract valid even when obsolete schema is retired.
+for channel in ("Libros Indie", "Amazon España", "Casa del Libro"):
+    assert re.search(rf">\s*{re.escape(channel)}\s*<", book_html), f"visible purchase channel missing: {channel}"
 
 assert 'id="samuel-quiz-app"' in book_html and "data-samuel-quiz" in book_html
 assert 'id="quiz-noveris-app"' not in book_html, "legacy global quiz hook would double-initialize the local quiz"

@@ -1,0 +1,109 @@
+{
+  "schema_version": 1,
+  "enforcement": "enforce",
+  "note": "E.5. Budget determinista de bytes del artifact. Baseline capturado por Performance budget QA el 2026-08-30 sobre main@291c8c6 + esta PR en modo report. Los imports CSS y los imports JS estaticos se resuelven transitivamente; import() dinamico no se sigue automaticamente y debe tener su propio budget si forma una familia/carga diferida relevante. Los limites de bytes dejan aproximadamente un 10% de margen, redondeado a KiB; request_count no tiene margen silencioso: un nuevo fichero/request requiere revisar y justificar el budget.",
+  "budgets": [
+    {
+      "id": "shell-v1",
+      "label": "Shell V1 comun",
+      "entrypoints": [
+        "assets/v1-shell.css",
+        "assets/v1-shell.js"
+      ],
+      "baseline": {
+        "total_bytes": 169869,
+        "css_bytes": 147926,
+        "js_bytes": 21943,
+        "request_count": 12
+      },
+      "limits": {
+        "total_bytes": 187392,
+        "request_count": 12
+      }
+    },
+    {
+      "id": "home-runtime",
+      "label": "Runtime editorial de Home",
+      "entrypoints": [
+        "assets/v1-home-editorial-v3.js"
+      ],
+      "baseline": {
+        "total_bytes": 33769,
+        "js_bytes": 33769,
+        "request_count": 1
+      },
+      "limits": {
+        "total_bytes": 37888,
+        "request_count": 1
+      }
+    },
+    {
+      "id": "interior-runtime",
+      "label": "Runtime editorial de interiores",
+      "entrypoints": [
+        "assets/v1-editorial-interior-v4.js"
+      ],
+      "baseline": {
+        "total_bytes": 15673,
+        "js_bytes": 15673,
+        "request_count": 1
+      },
+      "limits": {
+        "total_bytes": 17408,
+        "request_count": 1
+      }
+    },
+    {
+      "id": "article-runtime",
+      "label": "Runtime progresivo de articulos",
+      "entrypoints": [
+        "assets/v1-editorial.js"
+      ],
+      "baseline": {
+        "total_bytes": 3629,
+        "js_bytes": 3629,
+        "request_count": 1
+      },
+      "limits": {
+        "total_bytes": 4096,
+        "request_count": 1
+      }
+    },
+    {
+      "id": "assistant-runtime",
+      "label": "Asistente standalone",
+      "entrypoints": [
+        "assets/assistant.css",
+        "assets/assistant.js"
+      ],
+      "baseline": {
+        "total_bytes": 54256,
+        "css_bytes": 9372,
+        "js_bytes": 44884,
+        "request_count": 7
+      },
+      "limits": {
+        "total_bytes": 60416,
+        "request_count": 7
+      }
+    },
+    {
+      "id": "assistant-widget-runtime",
+      "label": "Widget diferido del asistente",
+      "entrypoints": [
+        "assets/assistant-widget.css",
+        "assets/assistant-widget.js"
+      ],
+      "baseline": {
+        "total_bytes": 13795,
+        "css_bytes": 4139,
+        "js_bytes": 9656,
+        "request_count": 3
+      },
+      "limits": {
+        "total_bytes": 15360,
+        "request_count": 3
+      }
+    }
+  ]
+}

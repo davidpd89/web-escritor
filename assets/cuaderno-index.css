@@ -1,0 +1,190 @@
+/* Cuaderno editorial publication identity.
+   Loaded by /cuaderno/, individual articles and the Temas family (#279):
+   the prose itself stays on the shared v1-editorial.css reading system --
+   only headers, rails, breadcrumbs and index chrome take azul/dorado. */
+
+html.v1[data-editorial-context="cuaderno"]{
+  --cuaderno-blue:#1d4f96;
+  --cuaderno-blue-deep:#0d2c57;
+  --cuaderno-gold:#b8860b;
+  --cuaderno-pale:#eefaff;
+  --cuaderno-ink:#050505;
+  --cuaderno-neutral:#6f6a64;
+  --cuaderno-rule:rgba(29,79,150,.28);
+}
+
+html.v1[data-editorial-context="cuaderno"] .section-context__title{color:var(--cuaderno-blue)}
+html.v1[data-editorial-context="cuaderno"] .section-context[data-editorial-context-nav="cuaderno"] .section-context__links a[aria-current="page"]{
+  color:var(--cuaderno-blue);background:var(--cuaderno-pale);box-shadow:inset 0 -2px 0 var(--cuaderno-gold)
+}
+html.v1[data-editorial-context="cuaderno"] .editorial-breadcrumb{color:var(--cuaderno-neutral)}
+html.v1[data-editorial-context="cuaderno"] .editorial-breadcrumb a{color:var(--cuaderno-blue);text-decoration-color:rgba(184,134,11,.55)}
+
+html.v1[data-editorial-context="cuaderno"] .editorial-page>.cuaderno-masthead{
+  position:relative;padding-top:clamp(.6rem,1.2vw,1.1rem);padding-bottom:clamp(3.6rem,6.5vw,6.6rem);border-bottom:0;
+  background:linear-gradient(var(--cuaderno-blue),var(--cuaderno-blue)) left calc(100% - 4px)/100% 1.5px no-repeat,
+             linear-gradient(var(--cuaderno-gold),var(--cuaderno-gold)) left bottom/100% 1.5px no-repeat
+}
+html.v1[data-editorial-context="cuaderno"] .cuaderno-masthead>.cuaderno-masthead__folio{
+  border-left:1.5px solid var(--cuaderno-blue);box-shadow:-4px 0 0 -2.5px var(--cuaderno-gold);color:var(--cuaderno-neutral)
+}
+html.v1[data-editorial-context="cuaderno"] .cuaderno-masthead>.cuaderno-masthead__folio strong{color:var(--cuaderno-blue)}
+html.v1[data-editorial-context="cuaderno"] .cuaderno-masthead>.cuaderno-masthead__folio span{color:var(--cuaderno-neutral)}
+
+html.v1[data-editorial-context="cuaderno"] .cuaderno-masthead .eyebrow,
+html.v1[data-editorial-context="cuaderno"] .editorial-continuity .eyebrow,
+html.v1[data-editorial-context="cuaderno"] .editorial-newsletter .eyebrow{
+  width:fit-content;margin-bottom:.55rem;padding:0 .08em .08em;color:var(--cuaderno-gold);
+  font-family:'Yellowtail','Samuel Yellowtail Fallback',cursive;font-size:clamp(1.45rem,1.3rem + .4vw,1.78rem);font-weight:400;line-height:1.05;
+  letter-spacing:0;text-transform:none;background:url('/assets/highlight-8-blue-rect.png') left 94%/100% .32em no-repeat
+}
+html.v1[data-editorial-context="cuaderno"] .cuaderno-masthead h1{
+  max-width:11.5ch;color:var(--cuaderno-blue);font-size:clamp(3.2rem,6vw,6.25rem);line-height:.91;letter-spacing:-.042em;
+  -webkit-text-stroke:.14px rgba(184,134,11,.38)
+}
+html.v1[data-editorial-context="cuaderno"] .cuaderno-masthead__lead{color:var(--cuaderno-ink)}
+
+html.v1[data-editorial-context="cuaderno"] main.editorial-page .text-action{
+  min-height:0;padding:.2rem 0;border:0;border-radius:0;background:transparent;color:var(--cuaderno-blue);
+  font-family:'Yellowtail','Samuel Yellowtail Fallback',cursive;font-size:1.12rem;font-weight:400;line-height:1.2;letter-spacing:0;text-transform:none;
+  text-decoration:none;box-shadow:inset 0 -1.5px 0 rgba(184,134,11,.65)
+}
+html.v1[data-editorial-context="cuaderno"] main.editorial-page .text-action:hover,
+html.v1[data-editorial-context="cuaderno"] main.editorial-page .text-action:focus-visible{
+  color:var(--cuaderno-blue-deep);background:transparent;box-shadow:inset 0 -2px 0 var(--cuaderno-gold)
+}
+html.v1[data-editorial-context="cuaderno"] main.editorial-page a.text-action::after{color:var(--cuaderno-gold)}
+
+html.v1[data-editorial-context="cuaderno"] .cuaderno-feature{
+  position:relative;padding:clamp(3.8rem,6vw,6.2rem) 0;border-bottom:0;
+  background:linear-gradient(var(--cuaderno-blue),var(--cuaderno-blue)) left calc(100% - 4px)/100% 1.5px no-repeat,
+             linear-gradient(var(--cuaderno-gold),var(--cuaderno-gold)) left bottom/100% 1.5px no-repeat
+}
+html.v1[data-editorial-context="cuaderno"] .cuaderno-feature__meta{color:var(--cuaderno-neutral)}
+html.v1[data-editorial-context="cuaderno"] .cuaderno-feature__index{
+  color:var(--cuaderno-gold);font:650 .72rem/1 var(--font-ui);letter-spacing:.08em
+}
+html.v1[data-editorial-context="cuaderno"] .cuaderno-feature__meta .eyebrow{
+  color:var(--cuaderno-blue);font-size:.74rem;letter-spacing:.075em;text-transform:uppercase
+}
+html.v1[data-editorial-context="cuaderno"] .cuaderno-feature__body{
+  position:relative;padding-left:clamp(1.15rem,2.2vw,2rem);border-left:2px solid var(--cuaderno-blue)
+}
+html.v1[data-editorial-context="cuaderno"] .cuaderno-feature__body::before{
+  content:"";position:absolute;left:-5px;top:0;width:2px;height:clamp(3.2rem,6vw,5.6rem);background:var(--cuaderno-gold)
+}
+html.v1[data-editorial-context="cuaderno"] .cuaderno-feature__body h2{color:var(--cuaderno-blue)}
+html.v1[data-editorial-context="cuaderno"] .cuaderno-feature__body>p{color:var(--cuaderno-ink)}
+
+html.v1[data-editorial-context="cuaderno"] .cuaderno-archive{padding:clamp(3.7rem,5.8vw,5.8rem) 0}
+html.v1[data-editorial-context="cuaderno"] .cuaderno-archive__head{margin-bottom:1.2rem}
+html.v1[data-editorial-context="cuaderno"] .cuaderno-archive__head h2{
+  color:var(--cuaderno-blue);font-size:clamp(2.25rem,3.5vw,3.6rem);letter-spacing:-.025em
+}
+html.v1[data-editorial-context="cuaderno"] .cuaderno-ledger{
+  border-top:1.5px solid var(--cuaderno-blue);border-bottom:1.5px solid var(--cuaderno-gold)
+}
+html.v1[data-editorial-context="cuaderno"] .cuaderno-entry{border-bottom:1px solid var(--cuaderno-rule)}
+html.v1[data-editorial-context="cuaderno"] .cuaderno-entry:last-child{border-bottom:0}
+html.v1[data-editorial-context="cuaderno"] .cuaderno-entry__index{
+  color:var(--cuaderno-gold);font-weight:650;letter-spacing:.06em
+}
+html.v1[data-editorial-context="cuaderno"] .cuaderno-entry__meta{color:var(--cuaderno-neutral)}
+html.v1[data-editorial-context="cuaderno"] .cuaderno-entry__body h3 a{color:var(--cuaderno-blue)}
+html.v1[data-editorial-context="cuaderno"] .cuaderno-entry__body h3 a:hover,
+html.v1[data-editorial-context="cuaderno"] .cuaderno-entry__body h3 a:focus-visible{
+  color:var(--cuaderno-blue-deep);text-decoration-color:var(--cuaderno-gold);text-decoration-thickness:1.5px
+}
+html.v1[data-editorial-context="cuaderno"] .cuaderno-entry__body p{color:var(--cuaderno-ink)}
+html.v1[data-editorial-context="cuaderno"] .cuaderno-utilities{
+  padding-top:1.35rem;border-bottom:1px solid var(--cuaderno-rule);padding-bottom:clamp(2.6rem,4vw,3.7rem)
+}
+html.v1[data-editorial-context="cuaderno"] .cuaderno-utilities p{color:var(--cuaderno-neutral)}
+
+html.v1[data-editorial-context="cuaderno"] .editorial-continuity,
+html.v1[data-editorial-context="cuaderno"] .editorial-newsletter{
+  position:relative;border-top:0;padding:clamp(3.8rem,5.8vw,5.8rem) 0;
+  background:linear-gradient(var(--cuaderno-blue),var(--cuaderno-blue)) left top/100% 1.5px no-repeat,
+             linear-gradient(var(--cuaderno-gold),var(--cuaderno-gold)) left 4px/100% 1.5px no-repeat
+}
+html.v1[data-editorial-context="cuaderno"] .editorial-continuity h2,
+html.v1[data-editorial-context="cuaderno"] .editorial-newsletter h2{color:var(--cuaderno-blue);letter-spacing:-.02em}
+html.v1[data-editorial-context="cuaderno"] .editorial-continuity__links{border-top:1px solid var(--cuaderno-blue)}
+html.v1[data-editorial-context="cuaderno"] .editorial-continuity__links a{border-bottom:1px solid var(--cuaderno-rule);color:var(--cuaderno-blue)}
+html.v1[data-editorial-context="cuaderno"] .editorial-continuity__links a span:last-child{color:var(--cuaderno-neutral)}
+html.v1[data-editorial-context="cuaderno"] .editorial-continuity__links a:hover span:first-child,
+html.v1[data-editorial-context="cuaderno"] .editorial-continuity__links a:focus-visible span:first-child{text-decoration-color:var(--cuaderno-gold)}
+html.v1[data-editorial-context="cuaderno"] .editorial-newsletter__copy p{color:var(--cuaderno-ink)}
+html.v1[data-editorial-context="cuaderno"] .editorial-newsletter .form-input{border-color:var(--cuaderno-rule)}
+html.v1[data-editorial-context="cuaderno"] .editorial-newsletter .form-input:focus-visible{outline-color:var(--cuaderno-blue)}
+html.v1[data-editorial-context="cuaderno"] .editorial-newsletter .form-submit{
+  border-color:var(--cuaderno-blue);border-radius:0;background:var(--cuaderno-blue);box-shadow:inset 0 -2px 0 var(--cuaderno-gold)
+}
+html.v1[data-editorial-context="cuaderno"] .editorial-newsletter .form-submit:hover,
+html.v1[data-editorial-context="cuaderno"] .editorial-newsletter .form-submit:focus-visible{background:var(--cuaderno-blue-deep)}
+
+html.v1[data-editorial-context="cuaderno"] .site-footer{position:relative}
+html.v1[data-editorial-context="cuaderno"] .site-footer::before{
+  content:"";display:block;height:5px;background:linear-gradient(to bottom,var(--cuaderno-blue) 0 1.5px,transparent 1.5px 3.5px,var(--cuaderno-gold) 3.5px 5px)
+}
+html.v1[data-editorial-context="cuaderno"] .site-footer h2,
+html.v1[data-editorial-context="cuaderno"] .site-footer .brand__name{color:var(--cuaderno-blue)}
+html.v1[data-editorial-context="cuaderno"] .back-to-top{border-color:var(--cuaderno-blue);box-shadow:inset 0 -2px 0 var(--cuaderno-gold)}
+
+/* Article headers (#279): same masthead identity as the hub, article-title scale. */
+html.v1[data-editorial-context="cuaderno"] .article-header{
+  border-bottom:0;
+  background:linear-gradient(var(--cuaderno-blue),var(--cuaderno-blue)) left calc(100% - 4px)/100% 1.5px no-repeat,
+             linear-gradient(var(--cuaderno-gold),var(--cuaderno-gold)) left bottom/100% 1.5px no-repeat
+}
+html.v1[data-editorial-context="cuaderno"] .article-header .eyebrow{
+  width:fit-content;padding:0 .08em .08em;color:var(--cuaderno-gold);
+  font-family:'Yellowtail','Samuel Yellowtail Fallback',cursive;font-size:clamp(1.3rem,1.18rem + .35vw,1.55rem);font-weight:400;line-height:1.05;
+  letter-spacing:0;text-transform:none;background:url('/assets/highlight-8-blue-rect.png') left 94%/100% .32em no-repeat
+}
+html.v1[data-editorial-context="cuaderno"] .article-header h1{color:var(--cuaderno-blue);-webkit-text-stroke:.1px rgba(184,134,11,.34)}
+
+/* Temas family (#279): collections hub + topic detail share the same identity. */
+html.v1[data-editorial-context="cuaderno"] .cuaderno-topics-breadcrumb a{color:var(--cuaderno-blue)}
+html.v1[data-editorial-context="cuaderno"] .cuaderno-topics-breadcrumb a:hover{text-decoration-color:var(--cuaderno-gold)}
+html.v1[data-editorial-context="cuaderno"] .cuaderno-topics-hero{
+  border-bottom:0;
+  background:linear-gradient(var(--cuaderno-blue),var(--cuaderno-blue)) left calc(100% - 4px)/100% 1.5px no-repeat,
+             linear-gradient(var(--cuaderno-gold),var(--cuaderno-gold)) left bottom/100% 1.5px no-repeat
+}
+html.v1[data-editorial-context="cuaderno"] .cuaderno-topics-hero .eyebrow{
+  width:fit-content;padding:0 .08em .08em;color:var(--cuaderno-gold);
+  font-family:'Yellowtail','Samuel Yellowtail Fallback',cursive;font-size:clamp(1.3rem,1.18rem + .35vw,1.55rem);font-weight:400;line-height:1.05;
+  letter-spacing:0;text-transform:none;background:url('/assets/highlight-8-blue-rect.png') left 94%/100% .32em no-repeat
+}
+html.v1[data-editorial-context="cuaderno"] .cuaderno-topics-hero h1{color:var(--cuaderno-blue);-webkit-text-stroke:.1px rgba(184,134,11,.34)}
+html.v1[data-editorial-context="cuaderno"] .cuaderno-topics-hero__folio{border-color:var(--cuaderno-blue);box-shadow:-4px 0 0 -2.5px var(--cuaderno-gold);color:var(--cuaderno-neutral)}
+html.v1[data-editorial-context="cuaderno"] .cuaderno-topics-hero__folio strong{color:var(--cuaderno-blue)}
+html.v1[data-editorial-context="cuaderno"] .cuaderno-topics-entry__index{color:var(--cuaderno-gold)}
+html.v1[data-editorial-context="cuaderno"] :is(.cuaderno-topics-entry__body,.cuaderno-topic-step__body) h2 a{color:var(--cuaderno-blue);text-decoration-color:var(--cuaderno-rule)}
+html.v1[data-editorial-context="cuaderno"] :is(.cuaderno-topics-entry__body,.cuaderno-topic-step__body) h2 a:hover,
+html.v1[data-editorial-context="cuaderno"] :is(.cuaderno-topics-entry__body,.cuaderno-topic-step__body) h2 a:focus-visible{text-decoration-color:var(--cuaderno-gold)}
+html.v1[data-editorial-context="cuaderno"] .cuaderno-topics-ledger{border-top-color:var(--cuaderno-blue);border-bottom-color:var(--cuaderno-gold)}
+html.v1[data-editorial-context="cuaderno"] .cuaderno-topics-link{color:var(--cuaderno-blue);text-decoration-color:var(--cuaderno-rule)}
+html.v1[data-editorial-context="cuaderno"] .cuaderno-topics-link:hover,
+html.v1[data-editorial-context="cuaderno"] .cuaderno-topics-link:focus-visible{text-decoration-color:var(--cuaderno-gold)}
+
+@media(max-width:900px){
+  html.v1[data-editorial-context="cuaderno"] .cuaderno-masthead>.cuaderno-masthead__folio{
+    border-left:0;border-top:1.5px solid var(--cuaderno-blue);box-shadow:inset 0 4px 0 -2.5px var(--cuaderno-gold);padding-top:1.15rem
+  }
+  html.v1[data-editorial-context="cuaderno"] .cuaderno-feature__body{padding-left:0;border-left:0}
+  html.v1[data-editorial-context="cuaderno"] .cuaderno-feature__body::before{display:none}
+}
+
+@media(max-width:767px){
+  html.v1[data-editorial-context="cuaderno"] .cuaderno-masthead h1{font-size:clamp(2.75rem,12.2vw,4.35rem)}
+  html.v1[data-editorial-context="cuaderno"] .cuaderno-feature{padding-block:3.4rem}
+  html.v1[data-editorial-context="cuaderno"] .cuaderno-archive{padding-block:3.4rem}
+  html.v1[data-editorial-context="cuaderno"] .editorial-continuity,
+  html.v1[data-editorial-context="cuaderno"] .editorial-newsletter{padding-block:3.5rem}
+}
+
+@media(max-width:389px){
+  html.v1[data-editorial-context="cuaderno"] .cuaderno-masthead h1{font-size:clamp(2.5rem,12vw,3.35rem)}
+}

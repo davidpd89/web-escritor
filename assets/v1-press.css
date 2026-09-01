@@ -1,0 +1,318 @@
+/* Prensa V1 — dossier editorial / kit de medios.
+   Owner local de /prensa.html. La familia Identity conserva las primitivas
+   funcionales (copiar, impresión, ledgers y reflow); esta capa solo define
+   jerarquía y carácter visual para main[data-page="press"]. */
+
+@media screen{
+  html.v1 [data-page="press"]{
+    --press-blue:#1d4f96;
+    --press-blue-deep:#0d2c57;
+    --press-gold:#b8860b;
+    --press-gold-text:#956900;
+    --press-pale:#f1f9ff;
+    --press-rule:color-mix(in srgb,var(--press-blue) 24%,var(--color-border));
+    --press-rule-soft:color-mix(in srgb,var(--press-blue) 12%,var(--color-border));
+  }
+
+  html.v1 [data-page="press"] .v1-masthead{
+    display:block;
+    position:relative;
+    padding-bottom:clamp(2.8rem,5vw,4.8rem);
+    border-bottom:2px solid var(--press-blue);
+  }
+  html.v1 [data-page="press"] .v1-masthead::after{
+    content:"";
+    position:absolute;
+    left:0;
+    bottom:-2px;
+    width:clamp(4.5rem,12vw,9rem);
+    height:2px;
+    background:var(--press-gold);
+  }
+  html.v1 [data-page="press"] .v1-masthead h1{
+    max-width:12ch;
+    min-width:0;
+    color:var(--press-blue);
+  }
+  html.v1 [data-page="press"] .v1-masthead .coordinate{
+    color:var(--press-gold-text);
+  }
+  html.v1 [data-page="press"] .v1-masthead__lead{
+    max-width:43ch;
+  }
+  html.v1 [data-page="press"] .primary-action{
+    border-color:var(--press-blue-deep);
+    background:var(--press-blue-deep);
+  }
+  html.v1 [data-page="press"] .primary-action:hover,
+  html.v1 [data-page="press"] .primary-action:focus-visible{
+    background:var(--press-blue);
+  }
+  html.v1 [data-page="press"] .text-action,
+  html.v1 [data-page="press"] .copy-btn{
+    color:var(--press-blue);
+  }
+  html.v1 [data-page="press"] .text-action:hover,
+  html.v1 [data-page="press"] .text-action:focus-visible,
+  html.v1 [data-page="press"] .copy-btn:hover,
+  html.v1 [data-page="press"] .copy-btn:focus-visible{
+    color:var(--press-blue-deep);
+  }
+
+  /* Datos rápidos: ficha editorial compacta, no banda de KPIs. */
+  html.v1 [data-page="press"] #datos-rapidos .v1-section__head .eyebrow{
+    color:var(--press-blue);
+  }
+  html.v1 [data-page="press"] #datos-rapidos .trust-strip{
+    grid-template-columns:repeat(3,minmax(0,1fr));
+    gap:0;
+    border:0;
+    border-top:1px solid var(--press-rule);
+    border-bottom:1px solid var(--press-rule);
+    background:transparent;
+  }
+  html.v1 [data-page="press"] #datos-rapidos .trust-strip + .trust-strip{
+    border-top:0;
+  }
+  html.v1 [data-page="press"] #datos-rapidos .trust-item{
+    min-width:0;
+    padding:1.15rem clamp(.9rem,2vw,1.4rem);
+    border-right:1px solid var(--press-rule-soft);
+    background:transparent;
+  }
+  html.v1 [data-page="press"] #datos-rapidos .trust-item:last-child{
+    border-right:0;
+  }
+  html.v1 [data-page="press"] #datos-rapidos .trust-item p{
+    overflow-wrap:anywhere;
+  }
+  html.v1 [data-page="press"] #datos-rapidos .trust-label{
+    color:var(--press-blue);
+  }
+
+  /* Bios y materiales: piezas de dossier listas para reutilizar. */
+  html.v1 [data-page="press"] #bios .v1-section__head .eyebrow,
+  html.v1 [data-page="press"] #sinopsis .v1-section__head .eyebrow{
+    color:var(--press-blue);
+  }
+  html.v1 [data-page="press"] #bios .press-grid,
+  html.v1 [data-page="press"] #sinopsis .press-grid{
+    border-top:2px solid var(--press-blue);
+  }
+  html.v1 [data-page="press"] #bios .press-card,
+  html.v1 [data-page="press"] #sinopsis .press-card{
+    border-bottom-color:var(--press-rule);
+  }
+  html.v1 [data-page="press"] #bios .press-card-head h3,
+  html.v1 [data-page="press"] #sinopsis .press-card-head h3{
+    color:var(--press-blue-deep);
+  }
+  html.v1 [data-page="press"] .status-badge.status--available{
+    color:var(--press-blue);
+    border-color:var(--press-blue);
+  }
+  html.v1 [data-page="press"] .status-badge.status--request{
+    color:var(--press-gold-text);
+    border-color:color-mix(in srgb,var(--press-gold) 64%,var(--color-border));
+  }
+  html.v1 [data-page="press"] .press-author-photo::before,
+  html.v1 [data-page="press"] .event-photo-card::before{
+    border-color:var(--press-rule);
+  }
+  html.v1 [data-page="press"] .press-author-photo::after,
+  html.v1 [data-page="press"] .event-photo-card::after{
+    border-color:var(--press-gold);
+  }
+  html.v1 [data-page="press"] .event-photo-grid{
+    border-top:1px solid var(--press-rule-soft);
+    padding-top:1rem;
+  }
+
+  /* Fichas: Manecillas es la obra editorial actual; Samuel queda como ficha
+     completa secundaria, sin tocar disponibilidad, comercio ni metadatos. */
+  html.v1 [data-page="press"] #ficha-manecillas,
+  html.v1 [data-page="press"] #ficha{
+    position:relative;
+  }
+  html.v1 [data-page="press"] #ficha-manecillas::before,
+  html.v1 [data-page="press"] #ficha::before{
+    content:"";
+    position:absolute;
+    top:0;
+    left:0;
+    height:2px;
+  }
+  html.v1 [data-page="press"] #ficha-manecillas::before{
+    width:clamp(5rem,14vw,10rem);
+    background:var(--press-blue);
+  }
+  html.v1 [data-page="press"] #ficha::before{
+    width:clamp(3.5rem,9vw,6rem);
+    background:var(--press-gold);
+  }
+  html.v1 [data-page="press"] #ficha-manecillas .v1-section__head .eyebrow,
+  html.v1 [data-page="press"] #ficha-manecillas .v1-section__head h2{
+    color:var(--press-blue);
+  }
+  html.v1 [data-page="press"] #ficha .v1-section__head .eyebrow{
+    color:var(--press-gold-text);
+  }
+  html.v1 [data-page="press"] #ficha-manecillas .spec-ledger{
+    border-top:2px solid var(--press-blue);
+  }
+  html.v1 [data-page="press"] #ficha .spec-ledger{
+    border-top:1px solid var(--press-rule);
+  }
+  html.v1 [data-page="press"] #ficha-manecillas .spec-ledger div,
+  html.v1 [data-page="press"] #ficha .spec-ledger div{
+    border-bottom-color:var(--press-rule-soft);
+  }
+  html.v1 [data-page="press"] #ficha-manecillas .spec-ledger dt{
+    color:var(--press-blue);
+  }
+  html.v1 [data-page="press"] #ficha .spec-ledger dt{
+    color:var(--press-gold-text);
+  }
+
+  /* Entrevistas: índice de conversación nativo, no acordeones en tarjetas. */
+  html.v1 [data-page="press"] #entrevistas .v1-section__head .eyebrow{
+    color:var(--press-blue);
+  }
+  html.v1 [data-page="press"] #entrevistas .identity-faq{
+    max-width:76ch;
+    border-top:2px solid var(--press-blue);
+  }
+  html.v1 [data-page="press"] #entrevistas .identity-faq details{
+    border-bottom-color:var(--press-rule);
+  }
+  html.v1 [data-page="press"] #entrevistas .identity-faq summary{
+    color:var(--press-blue-deep);
+  }
+  html.v1 [data-page="press"] #entrevistas .identity-faq summary::after{
+    color:var(--press-gold-text);
+  }
+
+  /* Recursos y charlas: registros funcionales, no card soup. */
+  html.v1 [data-page="press"] #bookbloggers .v1-section__head .eyebrow,
+  html.v1 [data-page="press"] #charlas .v1-section__head .eyebrow{
+    color:var(--press-blue);
+  }
+  html.v1 [data-page="press"] #bookbloggers .id-cards,
+  html.v1 [data-page="press"] #charlas .id-cards{
+    display:block;
+    border-top:1px solid var(--press-rule);
+  }
+  html.v1 [data-page="press"] #bookbloggers .id-card,
+  html.v1 [data-page="press"] #charlas .id-card{
+    display:grid;
+    grid-template-columns:minmax(11rem,.38fr) minmax(0,1fr);
+    gap:.55rem clamp(1.5rem,4vw,4rem);
+    padding:1.35rem 0;
+    border:0;
+    border-bottom:1px solid var(--press-rule-soft);
+    background:transparent;
+  }
+  html.v1 [data-page="press"] #bookbloggers .id-card h3,
+  html.v1 [data-page="press"] #charlas .id-card h3{
+    grid-column:1;
+    grid-row:1 / span 3;
+    color:var(--press-blue-deep);
+  }
+  html.v1 [data-page="press"] #bookbloggers .id-card p,
+  html.v1 [data-page="press"] #charlas .id-card p,
+  html.v1 [data-page="press"] #bookbloggers .id-card__actions,
+  html.v1 [data-page="press"] #charlas .id-card__actions{
+    grid-column:2;
+    min-width:0;
+  }
+  html.v1 [data-page="press"] #bookbloggers .id-card__actions,
+  html.v1 [data-page="press"] #charlas .id-card__actions{
+    padding-top:.1rem;
+  }
+
+  /* Cobertura: índice documental mixto. Se mantiene deliberadamente más
+     silencioso para no presentar artículos de autor, catálogos y comunidad
+     como ocho impactos de prensa independiente. */
+  html.v1 [data-page="press"] #cobertura{
+    border-bottom-color:var(--press-rule-soft);
+  }
+  html.v1 [data-page="press"] #cobertura .v1-section__head .eyebrow{
+    color:var(--press-gold-text);
+  }
+  html.v1 [data-page="press"] #cobertura .press-grid{
+    border-top:1px solid var(--press-rule);
+  }
+  html.v1 [data-page="press"] #cobertura .press-card{
+    padding-top:1.2rem;
+    padding-bottom:1.2rem;
+    border-bottom-color:var(--press-rule-soft);
+  }
+  html.v1 [data-page="press"] #cobertura .press-card-head h3{
+    color:var(--color-text);
+  }
+  html.v1 [data-page="press"] #cobertura .status-badge{
+    color:var(--color-muted);
+    border-color:var(--color-border);
+  }
+
+  /* Contacto final: directorio de medios. */
+  html.v1 [data-page="press"] #contacto .v1-section__head .eyebrow{
+    color:var(--press-blue);
+  }
+  html.v1 [data-page="press"] #contacto .contact-grid{
+    border-top:2px solid var(--press-blue);
+  }
+  html.v1 [data-page="press"] #contacto .contact-card,
+  html.v1 [data-page="press"] #contacto .contact-card--featured{
+    border-bottom-color:var(--press-rule);
+  }
+  html.v1 [data-page="press"] #contacto .contact-card--featured{
+    position:relative;
+  }
+  html.v1 [data-page="press"] #contacto .contact-card--featured::before{
+    content:"";
+    position:absolute;
+    left:0;
+    top:.8rem;
+    bottom:.8rem;
+    width:2px;
+    background:var(--press-blue);
+  }
+  html.v1 [data-page="press"] #contacto .contact-card--featured .eyebrow,
+  html.v1 [data-page="press"] #contacto .contact-card--featured h3{
+    color:var(--press-blue-deep);
+  }
+
+  @media(max-width:900px){
+    html.v1 [data-page="press"] #datos-rapidos .trust-strip{
+      grid-template-columns:repeat(auto-fit,minmax(min(13rem,100%),1fr));
+    }
+    html.v1 [data-page="press"] #datos-rapidos .trust-item{
+      border-right:0;
+      border-bottom:1px solid var(--press-rule-soft);
+    }
+    html.v1 [data-page="press"] #datos-rapidos .trust-item:last-child{
+      border-bottom:0;
+    }
+    html.v1 [data-page="press"] #bookbloggers .id-card,
+    html.v1 [data-page="press"] #charlas .id-card{
+      grid-template-columns:minmax(0,1fr);
+      gap:.5rem;
+    }
+    html.v1 [data-page="press"] #bookbloggers .id-card h3,
+    html.v1 [data-page="press"] #charlas .id-card h3,
+    html.v1 [data-page="press"] #bookbloggers .id-card p,
+    html.v1 [data-page="press"] #charlas .id-card p,
+    html.v1 [data-page="press"] #bookbloggers .id-card__actions,
+    html.v1 [data-page="press"] #charlas .id-card__actions{
+      grid-column:1;
+      grid-row:auto;
+    }
+  }
+
+  @media(max-width:600px){
+    html.v1 [data-page="press"] #contacto .contact-card--featured{
+      padding-left:1rem;
+    }
+  }
+}

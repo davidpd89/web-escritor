@@ -27,6 +27,9 @@ jobs:
       - name: F.2 report classifier unit tests
         run: node qa/text-resilience-report-gate.test.mjs
 
+      - name: Target-size geometry unit tests (F.1)
+        run: node --test qa/target-size-audit.test.mjs
+
       - name: Cache Playwright browsers
         id: playwright-cache
         uses: actions/cache@v4
@@ -54,10 +57,11 @@ jobs:
           cat /tmp/reflow-server.log
           exit 1
 
-      - name: Run sitewide reflow gate + F.2 collector
+      - name: Run sitewide reflow gate + target-size gate + F.2 collector
         env:
           QA_ORIGIN: http://127.0.0.1:4173
           QA_OUT: artifacts/sitewide-reflow
+          TARGET_SIZE_MODE: enforce
           TEXT_RESILIENCE_MODE: report
         run: node qa/sitewide-reflow-browser.mjs
 
@@ -65,6 +69,53 @@ jobs:
         env:
           TEXT_RESILIENCE_GATE_MODE: enforce
         run: node qa/text-resilience-report-gate.mjs
+
+      - name: Books index visual-system QA
+        env:
+          QA_ORIGIN: http://127.0.0.1:4173
+          QA_OUT: artifacts/sitewide-reflow
+        run: node qa/books-index-design-browser.mjs
+
+      - name: Manecillas visual-system QA
+        env:
+          QA_ORIGIN: http://127.0.0.1:4173
+          QA_OUT: artifacts/sitewide-reflow
+        run: node qa/manecillas-design-browser.mjs
+
+      - name: Manecillas Fragmentos visual-system QA
+        env:
+          QA_ORIGIN: http://127.0.0.1:4173
+          QA_OUT: artifacts/sitewide-reflow
+        run: node qa/manecillas-fragmentos-design-browser.mjs
+
+      - name: Manecillas scope isolation (main vs Fragmentos)
+        env:
+          QA_ORIGIN: http://127.0.0.1:4173
+        run: node qa/manecillas-scope-isolation.mjs
+
+      - name: Samuel visual-system QA
+        env:
+          QA_ORIGIN: http://127.0.0.1:4173
+          QA_OUT: artifacts/sitewide-reflow
+        run: node qa/samuel-design-browser.mjs
+
+      - name: Samuel fragmento visual-system QA
+        env:
+          QA_ORIGIN: http://127.0.0.1:4173
+          QA_OUT: artifacts/sitewide-reflow
+        run: node qa/samuel-fragmento-design-browser.mjs
+
+      - name: Noveris world-archive visual-system QA
+        env:
+          QA_ORIGIN: http://127.0.0.1:4173
+          QA_OUT: artifacts/sitewide-reflow
+        run: node qa/noveris-design-browser.mjs
+
+      - name: Samuel reading-club visual-system QA
+        env:
+          QA_ORIGIN: http://127.0.0.1:4173
+          QA_OUT: artifacts/sitewide-reflow
+        run: node qa/club-samuel-design-browser.mjs
 
       - name: POV distribution format QA (O.2)
         if: always()

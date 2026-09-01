@@ -18,10 +18,12 @@ concurrency:
 jobs:
   build:
     runs-on: ubuntu-latest
-    timeout-minutes: 10
+    timeout-minutes: 15
     steps:
       - name: Checkout
         uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
 
       - name: Set up Python
         uses: actions/setup-python@v5
@@ -33,6 +35,39 @@ jobs:
 
       - name: Verify built artifact satisfies the public-artifact contract
         run: python scripts/build-public-dist.py --check-contents --out .preview-dist
+
+      - name: Derive changed public URLs for IndexNow
+        env:
+          EVENT_NAME: ${{ github.event_name }}
+          BEFORE_SHA: ${{ github.event.before }}
+        shell: bash
+        run: |
+          set -euo pipefail
+          out="$RUNNER_TEMP/indexnow-urls.json"
+          if [ "$EVENT_NAME" != "push" ] || [ -z "${BEFORE_SHA:-}" ] || [[ "$BEFORE_SHA" =~ ^0+$ ]]; then
+            python scripts/indexnow.py empty --output "$out"
+            exit 0
+          fi
+
+          before_root="$RUNNER_TEMP/indexnow-before-src"
+          before_dist="$RUNNER_TEMP/indexnow-before-dist"
+          git worktree add --detach "$before_root" "$BEFORE_SHA"
+          python "$before_root/scripts/build-public-dist.py" --out "$before_dist"
+          python scripts/indexnow.py derive \
+            --before-dist "$before_dist" \
+            --before-registry "$before_root/data/content-registry.json" \
+            --after-dist .preview-dist \
+            --after-registry data/content-registry.json \
+            --output "$out"
+          git worktree remove --force "$before_root"
+
+      - name: Upload IndexNow change set
+        uses: actions/upload-artifact@v4
+        with:
+          name: indexnow-change-set
+          path: ${{ runner.temp }}/indexnow-urls.json
+          if-no-files-found: error
+          retention-days: 7
 
       - name: Stamp exact release identity
         run: |
@@ -98,3 +133,44 @@ jobs:
           done
           echo "Production verification failed after 3 attempts."
           exit 1
+
+  notify-indexnow:
+    name: Notify IndexNow after verified deploy
+    needs:
+      - build
+      - verify-production
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - name: Checkout deployed SHA
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Download IndexNow change set
+        uses: actions/download-artifact@v4
+        with:
+          name: indexnow-change-set
+          path: .indexnow
+
+      - name: Verify public IndexNow ownership key
+        shell: bash
+        run: |
+          set -euo pipefail
+          key_file="59347d39b5684876a7ccc84382f31758.txt"
+          expected="$(tr -d '\r\n' < "$key_file")"
+          actual="$(curl --fail --silent --show-error --max-time 20 "https://davidportodiaz.com/$key_file" | tr -d '\r\n')"
+          if [ "$actual" != "$expected" ]; then
+            echo "IndexNow ownership key mismatch in production."
+            exit 1
+          fi
+          echo "IndexNow ownership key is live and matches the deployed contract."
+
+      - name: Submit changed URLs to IndexNow
+        run: |
+          python scripts/indexnow.py submit \
+            --url-file .indexnow/indexnow-urls.json \
+            --key-file 59347d39b5684876a7ccc84382f31758.txt

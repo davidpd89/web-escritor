@@ -212,3 +212,101 @@ html.v1 [data-family="findability"] .directory-group__label span{min-width:0;ove
     max-width:100%;
   }
 }
+
+/* Samuel: at <=1100px the feature reflows to one column. The horizontal
+   card rules live in the first child while the old vertical rail lived on
+   the later book child, so the same seam that is joined on desktop opened
+   again on tablet/mobile. Put one continuous rail on the outer stacked
+   feature: it spans cards, inter-row gap and book. The cards already use a
+   negative left margin equal to this inset, so their rules meet this axis. */
+@media (max-width:1100px){
+  html.v1[data-lrb-home="true"] .yale-feature--samuel .yale-feature__grid--reverse{
+    --samuel-responsive-rail-inset:clamp(1.2rem,2.6vw,2rem);
+    position:relative;
+    padding-left:var(--samuel-responsive-rail-inset);
+  }
+  html.v1[data-lrb-home="true"] .yale-feature--samuel .yale-feature__grid--reverse::before{
+    content:"";
+    position:absolute;
+    top:0;
+    bottom:0;
+    left:0;
+    width:2.5px;
+    background:#1d4f96;
+    pointer-events:none;
+    z-index:2;
+  }
+  html.v1[data-lrb-home="true"] .yale-feature--samuel .yale-feature-book{
+    background-image:none;
+    padding-left:0;
+  }
+}
+
+/* /libros/: the stage transition reserves 10px below the ordinary stage
+   padding for the blue/gold separator stack. The first design pass extended
+   the copy rail by only --books-stage-pad, so on desktop it necessarily
+   stopped 10px before that separator. Match the bottom compensation to the
+   actual parent padding so the rail reaches the transition physically. */
+@media (min-width:901px){
+  html.v1[data-editorial-context="obras"] main[data-family="books-index"] .books-stage__copy{
+    margin-top:calc(-1 * var(--books-stage-pad));
+    margin-bottom:calc(-1 * (var(--books-stage-pad) + 10px));
+    padding-top:var(--books-stage-pad);
+    padding-bottom:calc(var(--books-stage-pad) + 10px);
+  }
+}
+
+/* /libros/: base .books-stage keeps a desktop-scale grid gap after it changes
+   to one column at 900px. Combined with the media margin from the new stacked
+   composition that produced a large accidental void between cover and copy
+   on tablets. The stacked layout owns one deliberate gap only. */
+@media (max-width:900px){
+  html.v1[data-editorial-context="obras"] main[data-family="books-index"] :is(.books-stage,.books-stage-anthology){
+    gap:clamp(1.35rem,4vw,2.2rem);
+  }
+  html.v1[data-editorial-context="obras"] main[data-family="books-index"] .books-stage__media{margin-bottom:0}
+}
+
+/* The Obras context strip is deliberately sticky on larger screens, but the
+   page-specific selector has higher specificity than the generic <=639px
+   reflow rule above. Reassert the narrow non-sticky form explicitly so a
+   wrapped multi-row context menu never becomes a tall viewport obstruction. */
+@media (max-width:639px){
+  html.v1[data-editorial-context="obras"] .section-context{
+    position:relative;
+    top:auto;
+  }
+}
+
+/* Handwritten catalogue actions still need to survive 200% zoom/text spacing.
+   The arrow is a separate flex item, so permit it to wrap rather than forcing
+   an otherwise valid label past the inline edge. */
+html.v1[data-editorial-context="obras"] main[data-family="books-index"] :is(
+  .books-stage__actions .primary-action,
+  .books-stage__actions .text-action,
+  #recursos .ledger__action
+){
+  min-width:0;
+  flex-wrap:wrap;
+}
+
+/* /libros/: percentage-sized cover images used intrinsic shrink-to-fit figure
+   sizing. At exactly 1280px the Manecillas picture could therefore load with a
+   valid naturalWidth but collapse to a zero-width painted box. Give figure and
+   picture an explicit grid box before applying the image percentage; the same
+   rule keeps all three covers centered and removes the circular sizing path. */
+html.v1[data-editorial-context="obras"] main[data-family="books-index"] .books-stage__media figure,
+html.v1[data-editorial-context="obras"] main[data-family="books-index"] .books-stage__media picture{
+  display:grid;
+  place-items:center;
+  width:100%;
+}
+
+/* /libros/: the floating launcher is a duplicate of the sticky header's
+   Asistente entry. On <=1300px the catalogue copy reaches the viewport edge,
+   so any fixed launcher necessarily sits over reading content somewhere while
+   scrolling. Remove only this duplicate control; the widget remains mounted
+   and the sticky header still opens the same assistant panel. */
+@media (max-width:1300px){
+  html.v1[data-editorial-context="obras"] .assistant-widget__launcher{display:none}
+}
