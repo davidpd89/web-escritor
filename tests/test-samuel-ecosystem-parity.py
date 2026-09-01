@@ -63,8 +63,11 @@ assert book["numberOfPages"] == samuel["numberOfPages"] == 422
 assert book["bookFormat"] == "https://schema.org/Paperback"
 assert "award" not in book, "Juan Andrés Teno must not be attributed to Samuel without a verified submitted work"
 assert "aggregateRating" not in book
+assert "review" not in book, "third-party marketplace reviews must remain attributed editorial excerpts, not Book.review structured data"
 assert "typicalAgeRange" not in book
 assert "suggestedMinAge" not in book
+assert "Ninguna ha sido resumida ni editada" not in book_html, "abbreviated review excerpts must not be described as unedited/full reviews"
+assert "Extractos abreviados de reseñas publicadas en Amazon España" in book_html, "visible review stream must disclose that marketplace quotes are excerpts"
 
 for html, label in ((book_html, "book"), (club_html, "club"), (guide_html, "print guide")):
     lowered = html.lower()
