@@ -280,9 +280,21 @@ html.v1[data-lrb-home="true"] .yale-home-flow :is(section,article,aside,div,head
 html.v1[data-lrb-home="true"] .yale-home-issue__heading{
   display:grid;
   gap:.4rem;
-  margin-bottom:clamp(1.4rem,2.8vw,2.2rem);
+  margin-bottom:clamp(.6rem,1.2vw,1rem);
 }
-html.v1[data-lrb-home="true"] .yale-home-issue__kicker{
+/* Every other section eyebrow on the page ("Obras", "Universo publicado",
+   "Para escribir", "Leer y recursos", "Agenda · Archivo") now shares the
+   hero kicker's exact style (author request: "OBRAS ponerlo como obra
+   actual" -- unify text-by-text, not just colours) -- same font, size,
+   gold, and underline highlight. Scoped to the section-head eyebrow only
+   (.yale-home-section__head/.home-events__head), not every card-level
+   .editorial-card__eyebrow sitewide, which would be far too heavy applied
+   to every small label in a dense grid. */
+html.v1[data-lrb-home="true"] .yale-home-issue__kicker,
+html.v1[data-lrb-home="true"] .yale-home-section__head .editorial-card__eyebrow,
+html.v1[data-lrb-home="true"] .home-events__head .editorial-card__eyebrow,
+html.v1[data-lrb-home="true"] .install-web .editorial-card__eyebrow,
+html.v1[data-lrb-home="true"] .yale-signup__copy .editorial-card__eyebrow{
   position:relative;
   display:inline-block;
   /* .yale-home-issue__heading is display:grid, and a grid item's default
@@ -321,7 +333,11 @@ html.v1[data-lrb-home="true"] .yale-home-issue__kicker{
    from the same reference sheet as the header avatar frame ("Recursos
    diseño web" > highlights, thin diagonal streak), recolored to the site's
    blue (matches the h1 gradient below it) instead of its original gold. */
-html.v1[data-lrb-home="true"] .yale-home-issue__kicker::before{
+html.v1[data-lrb-home="true"] .yale-home-issue__kicker::before,
+html.v1[data-lrb-home="true"] .yale-home-section__head .editorial-card__eyebrow::before,
+html.v1[data-lrb-home="true"] .home-events__head .editorial-card__eyebrow::before,
+html.v1[data-lrb-home="true"] .install-web .editorial-card__eyebrow::before,
+html.v1[data-lrb-home="true"] .yale-signup__copy .editorial-card__eyebrow::before{
   content:"";
   position:absolute;
   left:-3%;
@@ -445,52 +461,50 @@ html.v1[data-lrb-home="true"] .yale-lead__deck{
   letter-spacing:-.02em;
 }
 html.v1[data-lrb-home="true"] .yale-lead__actions{display:flex;flex-wrap:wrap;gap:.75rem 1.25rem;margin-top:1.35rem}
+/* The cursive/gradient treatment used to be a separate --gradient modifier
+   class, only ever added to the hero's "Ver la obra"/"Leer fragmentos" and
+   the sidebar rail's "Abrir" links. Every other "Abrir"/"Todas las X"/"Ver
+   X" link on the page kept the plain uppercase-sans style, which is what
+   the author meant by "Abrir todo sin cambiar la letra... como los de las
+   manecillas" -- the hero's own links already had this look, nothing else
+   did. Folded straight into the base .yale-text-link rule instead of
+   requiring the modifier class at every call site, since manually adding
+   it to each of the ~12 other addTextLink() calls is exactly the kind of
+   thing that's already been missed more than once this session. */
 html.v1[data-lrb-home="true"] .yale-text-link{
   display:inline-flex;
   align-items:center;
   gap:.35rem;
   min-height:30px;
-  font-family:var(--font-ui);
-  font-size:.78rem;
-  font-weight:800;
-  letter-spacing:.05em;
-  text-transform:uppercase;
-  color:#1d4f96;
-  text-decoration:none;
-}
-html.v1[data-lrb-home="true"] .yale-lead__copy .editorial-card__meta{display:block;margin-top:.85rem}
-html.v1[data-lrb-home="true"] .yale-text-link:hover,
-html.v1[data-lrb-home="true"] .yale-text-link:focus-visible{color:#004f73}
-html.v1[data-lrb-home="true"] .yale-text-link::after{content:"\2192";color:currentColor}
-html.v1[data-lrb-home="true"] .yale-text-link--gradient{
   font-family:'Yellowtail',var(--font-ui),cursive;
   font-size:1.15rem;
   font-weight:400;
   letter-spacing:0;
   text-transform:none;
-}
-/* Flat #1d4f96 (the one blue used for the ring/dividers/title elsewhere on
-   this page) instead of the old 3-stop blue gradient -- part of unifying
-   the page's colour system (author request). */
-html.v1[data-lrb-home="true"] .yale-text-link--gradient,
-html.v1[data-lrb-home="true"] .yale-text-link--gradient::after{
-  color:#1d4f96;
-}
-html.v1[data-lrb-home="true"] .yale-text-link--gradient:hover,
-html.v1[data-lrb-home="true"] .yale-text-link--gradient:focus-visible{
-  color:#0d2c57;
-}
-html.v1[data-lrb-home="true"] .home-event__link{
-  font-family:var(--font-ui);
-  font-size:.78rem;
-  font-weight:800;
-  letter-spacing:.05em;
-  text-transform:uppercase;
   color:#1d4f96;
   text-decoration:none;
 }
+html.v1[data-lrb-home="true"] .yale-lead__copy .editorial-card__meta{display:block;margin-top:.85rem}
+html.v1[data-lrb-home="true"] .yale-text-link:hover,
+html.v1[data-lrb-home="true"] .yale-text-link:focus-visible{color:#0d2c57}
+html.v1[data-lrb-home="true"] .yale-text-link::after{content:"\2192";color:currentColor}
+/* Same cursive treatment as .yale-text-link (author: "agenda archivo
+   tampoco has hecho todo lo que he pedido") -- .home-event__link is a
+   separate class for the same "Abrir" role inside the events cards. */
+html.v1[data-lrb-home="true"] .home-event__link{
+  font-family:'Yellowtail',var(--font-ui),cursive;
+  font-size:1.15rem;
+  font-weight:400;
+  letter-spacing:0;
+  text-transform:none;
+  color:#1d4f96;
+  text-decoration:none;
+}
+/* Keep the events-only action class on the exact same interaction colour as
+   the base .yale-text-link. #004f73 belonged to the previous palette and was
+   the last visible hover-state leak after round 7 unified the normal state. */
 html.v1[data-lrb-home="true"] .home-event__link:hover,
-html.v1[data-lrb-home="true"] .home-event__link:focus-visible{color:#004f73}
+html.v1[data-lrb-home="true"] .home-event__link:focus-visible{color:#0d2c57}
 html.v1[data-lrb-home="true"] .home-event__link::after{content:"\2192";margin-left:.35rem;color:currentColor}
 /* Rail dividers unified to the page's blue/gold palette (author request) --
    #1d4f96 replaces the plain #0075b8. Clarified after the first pass: not
@@ -539,24 +553,36 @@ html.v1[data-lrb-home="true"] .yale-rail-card p:not(.editorial-card__eyebrow){ma
    ellipse). #1d4f96 (blue, top line) and #b8860b (gold, bottom line) --
    the same two tones used everywhere else on this page now -- replace the
    plain #0075b8 border for consistency. */
+/* margin-top:0, not clamp(): every one of these sections is always
+   preceded by another one (hero/works/samuel/tools/reading/events/install-
+   web), never the page's own top, so a nonzero margin-top here just
+   reopened the gap between a preceding vertical divider (.yale-rail,
+   .yale-feature-book, .home-events__grid) and this section's own top
+   divider -- confirmed via measurement: Samuel's book stretched correctly
+   to match its sibling column (align-items:stretch is the grid default
+   here, no override needed), but a 35px gap still opened up before
+   Herramientas' divider purely from this margin. Zeroing it here fixes
+   every section transition at once instead of special-casing the one
+   after the hero. */
+/* padding-top raised from 8px (barely more than the divider lines'
+   own height) to 28px -- author: "Libros y territorios está muy pegado a
+   universo publicado, no dejas mínimo margen". margin-top stays 0 (that's
+   what keeps the divider flush with the previous section's vertical
+   line); this is a separate space, AFTER the divider, before this
+   section's own heading content starts. */
 html.v1[data-lrb-home="true"] .yale-home-section,
 html.v1[data-lrb-home="true"] .home-events,
 html.v1[data-lrb-home="true"] .install-web,
 html.v1[data-lrb-home="true"] .yale-signup{
   position:relative;
-  margin-top:clamp(1.4rem,2.8vw,2.2rem);
+  margin-top:0;
   border-top:0;
-  padding-top:8px;
+  padding-top:28px;
   background-image:linear-gradient(#1d4f96,#1d4f96),linear-gradient(#b8860b,#b8860b);
   background-repeat:no-repeat,no-repeat;
   background-size:100% 1.5px,100% 1.5px;
   background-position:top left,left 5px;
 }
-/* Zero margin specifically right after the hero, so this divider's top
-   edge is flush with the bottom of .yale-rail's border-left (itself
-   stretched to match .yale-lead via align-items:stretch above) -- a true
-   join, not just "close", matching the author's "que se unan" request. */
-html.v1[data-lrb-home="true"] .yale-home-issue + .yale-home-section{margin-top:0}
 html.v1[data-lrb-home="true"] .yale-home-section::after,
 html.v1[data-lrb-home="true"] .home-events::after,
 html.v1[data-lrb-home="true"] .install-web::after,
@@ -579,26 +605,35 @@ html.v1[data-lrb-home="true"] .yale-signup::after{
    section's inner width to 0. Neutralize the horizontal component here,
    same as .install-web/.yale-signup already do below. */
 html.v1[data-lrb-home="true"] .home-events{padding-left:0;padding-right:0}
+/* Extra bottom padding (author: "en herramientas hace falta un pelín de
+   margen entre las cajas y el título") -- most noticeable on the bordered
+   tool-card grid, but applied to every section head for consistency. */
 html.v1[data-lrb-home="true"] .yale-home-section__head,
 html.v1[data-lrb-home="true"] .home-events__head{
   display:grid;
   grid-template-columns:minmax(0,1fr) auto;
   gap:1rem;
   align-items:end;
-  padding:1.1rem 0;
+  padding:1.1rem 0 1.7rem;
 }
+/* Same blue-fill + gold-outline treatment as the hero h1 (author request:
+   "Libros y territorios como las manecillas") -- colour/effect only, kept
+   at each section's own (smaller) font-size rather than also matching the
+   hero's much larger one. */
 html.v1[data-lrb-home="true"] .yale-home-section__head h2,
 html.v1[data-lrb-home="true"] .home-events h2{
   margin:.35rem 0 0;
   font-size:clamp(1.55rem,2.6vw,2.3rem);
   line-height:1.05;
+  color:#1d4f96;
+  -webkit-text-stroke:0.35px rgba(184,134,11,.55);
 }
 html.v1[data-lrb-home="true"] .yale-tile-grid,
 html.v1[data-lrb-home="true"] .home-events__grid{
   display:grid;
   grid-template-columns:repeat(3,minmax(0,1fr));
-  border-top:1px solid rgba(0,0,0,.18);
-  border-left:1px solid rgba(0,0,0,.18);
+  border-top:1px solid #b8860b;
+  border-left:1px solid #1d4f96;
 }
 html.v1[data-lrb-home="true"] .yale-tile-grid--reading{grid-template-columns:repeat(4,minmax(0,1fr))}
 html.v1[data-lrb-home="true"] .yale-tile-grid--tools{grid-template-columns:repeat(3,minmax(0,1fr))}
@@ -625,7 +660,7 @@ html.v1[data-lrb-home="true"] .yale-tile-grid--works .yale-tile:nth-child(3)::be
   bottom:0;
   width:1px;
   height:2.25rem;
-  background:rgba(0,0,0,.18);
+  background:#1d4f96;
 }
 html.v1[data-lrb-home="true"] .yale-tile-grid--works .yale-tile:nth-child(1)::after,
 html.v1[data-lrb-home="true"] .yale-tile-grid--works .yale-tile:nth-child(2)::after,
@@ -636,8 +671,12 @@ html.v1[data-lrb-home="true"] .yale-tile-grid--works .yale-tile:nth-child(3)::af
   bottom:0;
   width:2.25rem;
   height:1px;
-  background:rgba(0,0,0,.18);
+  background:#b8860b;
 }
+/* Gray grid lines (rgba(0,0,0,.18)) recoloured to the page's blue/gold
+   (author request: "los cuadros grises como el azul y amarillo") -- the
+   vertical separators between cards in blue, the horizontal ones in gold,
+   so both tones show rather than picking just one. */
 html.v1[data-lrb-home="true"] .yale-tile,
 html.v1[data-lrb-home="true"] .home-event{
   display:flex;
@@ -645,22 +684,38 @@ html.v1[data-lrb-home="true"] .home-event{
   min-width:0;
   padding:clamp(1.1rem,2vw,1.55rem);
   background:#fff;
-  border-right:1px solid rgba(0,0,0,.18);
-  border-bottom:1px solid rgba(0,0,0,.18);
+  border-right:1px solid #1d4f96;
+  border-bottom:1px solid #b8860b;
 }
 html.v1[data-lrb-home="true"] .yale-tile{min-height:18rem}
 html.v1[data-lrb-home="true"] .home-event{gap:.35rem}
 html.v1[data-lrb-home="true"] .yale-tile--blue{background:#eefaff}
+/* Same corner-bracket frame as .yale-lead__media/.yale-feature-book__media
+   (author: "los 3 libros siguen con el marco gris") -- a third, independent
+   instance of the same plain gray border, on the image container nested
+   inside each works-grid tile (separate from that tile's own small
+   bottom-left accent near "Abrir", which stays as its own thing). */
 html.v1[data-lrb-home="true"] .yale-tile__media{
   display:grid;
   place-items:end center;
   min-height:13rem;
   margin:calc(-1 * clamp(1.1rem,2vw,1.55rem)) calc(-1 * clamp(1.1rem,2vw,1.55rem)) 1rem;
   background:transparent;
-  border-left:1px solid #d5d4d0;
-  border-bottom:1px solid #d5d4d0;
+  border:0;
+  position:relative;
   overflow:hidden;
 }
+html.v1[data-lrb-home="true"] .yale-tile__media::before,
+html.v1[data-lrb-home="true"] .yale-tile__media::after{
+  content:"";
+  position:absolute;
+  width:28px;
+  height:28px;
+  background:url(/assets/corner-bracket-blue-gold.svg) center/contain no-repeat;
+  pointer-events:none;
+}
+html.v1[data-lrb-home="true"] .yale-tile__media::before{top:0;left:0}
+html.v1[data-lrb-home="true"] .yale-tile__media::after{bottom:0;right:0;transform:rotate(180deg)}
 html.v1[data-lrb-home="true"] .yale-tile__media img{
   width:min(58%,12rem);
   max-height:14rem;
@@ -711,7 +766,9 @@ html.v1[data-lrb-home="true"] .home-events__grid{
 /* The accent rail sits between the two columns (as it does for Manecillas'
    own .yale-lead/.yale-rail pair), not at the section's outer edge -- for
    Samuel's mirrored layout the book card is the second/right column, so it
-   carries the border instead of the stack. */
+   carries the border instead of the stack. At <=1100px this remains the
+   intended stacked behaviour; desktop overrides below move the visual rail
+   to the actual seam where the stack's horizontal rules end. */
 html.v1[data-lrb-home="true"] .yale-feature-book{
   background-image:linear-gradient(90deg,#1d4f96,#1d4f96);
   background-repeat:no-repeat;
@@ -737,6 +794,44 @@ html.v1[data-lrb-home="true"] .yale-feature-card:last-child,
 html.v1[data-lrb-home="true"] .home-events__grid .home-event:last-child{background-image:none}
 html.v1[data-lrb-home="true"] .yale-feature-card:first-child,
 html.v1[data-lrb-home="true"] .home-events__grid .home-event:first-child{padding-top:0}
+/* Give Samuel a small amount of breathing room before the following
+   section-break without restoring section margin-top (which would reopen a
+   physical gap in the rail). Padding belongs to both columns so the row
+   stays balanced; whichever column owns the rail at the active breakpoint
+   keeps drawing it through this quiet space up to the next divider. */
+html.v1[data-lrb-home="true"] .yale-feature--samuel .yale-feature__stack,
+html.v1[data-lrb-home="true"] .yale-feature--samuel .yale-feature-book{
+  padding-bottom:clamp(.85rem,1.6vw,1.15rem);
+}
+/* Desktop Samuel seam fix. The horizontal rules live on cards inside the
+   left stack, while the old vertical rail lived on the right book card with
+   the outer grid gap between them, so those strokes could never physically
+   join. Draw the rail on the stack's right edge; preserve the book's
+   padding, and preserve the old book-left rail below 1101px where the
+   feature becomes a single column. */
+@media(min-width:1101px){
+  html.v1[data-lrb-home="true"] .yale-feature--samuel .yale-feature__stack{
+    background-image:linear-gradient(90deg,#1d4f96,#1d4f96);
+    background-repeat:no-repeat;
+    background-size:2.5px 100%;
+    background-position:top right;
+  }
+  html.v1[data-lrb-home="true"] .yale-feature--samuel .yale-feature-book{background-image:none}
+  /* The card's left-bleed hack (margin-left:-clamp(...) + matching
+     padding-left, so its background rules and hit area extend past the
+     stack's own edge on the left) shifts the whole box left without
+     growing it -- so the right edge, and the double-rule painted at
+     background-size:100%, landed one clamp() short of the rail above
+     instead of touching it (measured ~30px gap at 1440px). Add that same
+     width back on the right so the rule's right end lands exactly on the
+     rail. max-width needs the same override: the sitewide overflow guard
+     (`.yale-home-flow :is(section,article,...){max-width:100%}`) otherwise
+     clamps this straight back down to the pre-bleed width. */
+  html.v1[data-lrb-home="true"] .yale-feature--samuel .yale-feature-card{
+    width:calc(100% + clamp(1.2rem,2.6vw,2rem));
+    max-width:calc(100% + clamp(1.2rem,2.6vw,2rem));
+  }
+}
 /* Mirrors .yale-lead's own media|copy split (photo beside text) instead of
    stacking the cover above the description -- same system as the hero, but
    reversed at BOTH levels: the book card sits on the opposite side of the
@@ -779,14 +874,30 @@ html.v1[data-lrb-home="true"] .yale-feature-book p:not(.editorial-card__eyebrow)
 }
 html.v1[data-lrb-home="true"] .yale-feature-card .yale-text-link,
 html.v1[data-lrb-home="true"] .yale-feature-book .yale-text-link{margin-top:auto;align-self:flex-start}
+/* Same corner-bracket frame as the hero's .yale-lead__media (author: "la
+   foto del libro no tiene el marco") -- this was still the old plain gray
+   border, missed when the hero's own version was fixed since the two use
+   different class names despite looking identical. */
 html.v1[data-lrb-home="true"] .yale-feature-book__media{
   display:grid;
   min-height:clamp(18rem,28vw,24rem);
   place-items:center;
   background:transparent;
-  border-left:1px solid #d5d4d0;
-  border-bottom:1px solid #d5d4d0;
+  border:0;
+  position:relative;
+  overflow:hidden;
 }
+html.v1[data-lrb-home="true"] .yale-feature-book__media::before,
+html.v1[data-lrb-home="true"] .yale-feature-book__media::after{
+  content:"";
+  position:absolute;
+  width:34px;
+  height:34px;
+  background:url(/assets/corner-bracket-blue-gold.svg) center/contain no-repeat;
+  pointer-events:none;
+}
+html.v1[data-lrb-home="true"] .yale-feature-book__media::before{top:0;left:0}
+html.v1[data-lrb-home="true"] .yale-feature-book__media::after{bottom:0;right:0;transform:rotate(180deg)}
 html.v1[data-lrb-home="true"] .yale-feature-book__media img{
   width:min(54%,13rem);
   height:auto;
@@ -808,10 +919,18 @@ html.v1[data-lrb-home="true"] .home-event__media{
   display:block;
   aspect-ratio:16/10;
   background:#eef8fc;
-  border-bottom:1px solid rgba(0,0,0,.18);
+  border-bottom:1px solid #b8860b;
   overflow:hidden;
 }
-html.v1[data-lrb-home="true"] .home-event--lead .home-event__media{aspect-ratio:4/5}
+/* Events use a restrained rectangular translation of the avatar's double
+   blue/gold frame, not the corner brackets reserved for book covers. The
+   white separator keeps the two 1px colour strokes legible without turning
+   the photo into a heavy card. */
+html.v1[data-lrb-home="true"] .home-event--lead .home-event__media{
+  aspect-ratio:4/5;
+  border:1px solid #1d4f96;
+  box-shadow:0 0 0 2px #fff,0 0 0 3px #b8860b;
+}
 html.v1[data-lrb-home="true"] .home-event__media img{
   width:100%;
   height:100%;
@@ -831,8 +950,8 @@ html.v1[data-lrb-home="true"] .home-events__cta{
   gap:.6rem;
   padding:clamp(1.1rem,2vw,1.55rem);
   background:#eefaff;
-  border-right:1px solid rgba(0,0,0,.18);
-  border-bottom:1px solid rgba(0,0,0,.18);
+  border-right:1px solid #1d4f96;
+  border-bottom:1px solid #b8860b;
 }
 html.v1[data-lrb-home="true"] .home-events__cta h3{margin:0;font-size:clamp(1rem,1.4vw,1.18rem);line-height:1.2;font-weight:600}
 html.v1[data-lrb-home="true"] .home-events__cta p{margin:0;font-family:var(--font-reading);font-size:.92rem;line-height:1.4;color:#2a2e31}
@@ -840,7 +959,7 @@ html.v1[data-lrb-home="true"] .home-events__cta .yale-text-link{font-weight:700}
 html.v1[data-lrb-home="true"] .install-web{
   background:#fff;
   color:#050505;
-  border-bottom:1px solid rgba(0,0,0,.18);
+  border-bottom:1px solid #1d4f96;
 }
 html.v1[data-lrb-home="true"] .install-web::before{display:none}
 /* .install-web's own background:#fff above (line ~764) clears the section-
@@ -857,7 +976,10 @@ html.v1[data-lrb-home="true"] .install-web{
   background-position:top left,left 5px;
 }
 html.v1[data-lrb-home="true"] .install-web::after{display:block}
-html.v1[data-lrb-home="true"] .install-web h2{color:#050505}
+/* Same blue-fill + gold-outline treatment as every other section title
+   (author request to unify text-by-text) instead of plain black. */
+html.v1[data-lrb-home="true"] .install-web h2,
+html.v1[data-lrb-home="true"] .yale-signup h2{color:#1d4f96;-webkit-text-stroke:0.35px rgba(184,134,11,.55)}
 html.v1[data-lrb-home="true"] .install-web__status{color:#2a2e31}
 html.v1[data-lrb-home="true"] .install-web,
 html.v1[data-lrb-home="true"] .yale-signup{
@@ -890,6 +1012,14 @@ html.v1[data-lrb-home="true"] .header-buy{
   letter-spacing:.05em;
   white-space:normal;
   overflow-wrap:anywhere;
+}
+/* #0a4d9f is deliberately the logo/header blue. Content controls return to
+   the canonical page blue so the body does not carry two competing blues;
+   .header-buy intentionally remains untouched above. */
+html.v1[data-lrb-home="true"] .install-web__button,
+html.v1[data-lrb-home="true"] .form-submit{
+  border-color:#1d4f96;
+  color:#1d4f96;
 }
 
 @media(max-width:1100px){
@@ -941,4 +1071,87 @@ html.v1[data-lrb-home="true"] .header-buy{
   html.v1[data-lrb-home="true"] .home-event{min-height:auto}
   html.v1[data-lrb-home="true"] .install-web__panel,
   html.v1[data-lrb-home="true"] .yale-signup__form{justify-self:stretch;width:100%}
+}
+/* Social icon circles alternate blue/gold/blue (author request), subtly --
+   same two tones as everywhere else on the page, home-scoped since
+   .social-icon itself (v1-shell-base.css) is shared sitewide and this is
+   a home-page-only treatment for now. */
+html.v1[data-lrb-home="true"] .social-icon:nth-child(odd){border-color:#1d4f96}
+html.v1[data-lrb-home="true"] .social-icon:nth-child(even){border-color:#b8860b}
+
+/* HOME finalization — corrective geometry, not a new visual direction. */
+html.v1[data-lrb-home="true"] .yale-home-section--tools{
+  padding-bottom:clamp(1rem,2vw,1.4rem);
+}
+
+/* The events rail used to be a parent background hidden underneath the
+   opaque white event cards, leaving only the old 1px border-left visible.
+   Draw it above the cards instead, at the same 2.5px CSS thickness as the
+   gold stroke in the horizontal rule stack. */
+html.v1[data-lrb-home="true"] .home-events__grid{
+  --home-events-rail-inset:clamp(1.2rem,2.6vw,2rem);
+  position:relative;
+  isolation:isolate;
+  border-left:0;
+  background-image:none;
+  padding-left:var(--home-events-rail-inset);
+}
+html.v1[data-lrb-home="true"] .home-events__grid::before{
+  content:"";
+  position:absolute;
+  top:0;
+  bottom:0;
+  left:0;
+  width:2.5px;
+  background:#1d4f96;
+  pointer-events:none;
+  z-index:2;
+}
+html.v1[data-lrb-home="true"] .home-events__grid .home-event,
+html.v1[data-lrb-home="true"] .home-events__cta{
+  position:relative;
+  z-index:1;
+  margin-left:calc(-1 * var(--home-events-rail-inset));
+}
+/* Keep the intentional blue callout, but make its box start on the same
+   rail axis as the event rules. The overlay rail becomes its left edge. */
+html.v1[data-lrb-home="true"] .home-events__cta{
+  border-top:0;
+  border-left:0;
+}
+/* v1-home-editorial-v3.css has a more specific legacy CTA anchor rule that
+   was restoring sans-serif text and a conventional underline. */
+html.v1[data-lrb-home="true"] .home-events__cta .yale-text-link{
+  font-family:'Yellowtail',var(--font-ui),cursive;
+  font-size:1.15rem;
+  font-weight:400;
+  letter-spacing:0;
+  text-transform:none;
+  color:#1d4f96;
+  text-decoration:none;
+  border-bottom:0;
+  padding-bottom:0;
+}
+html.v1[data-lrb-home="true"] .home-events__cta .yale-text-link:hover,
+html.v1[data-lrb-home="true"] .home-events__cta .yale-text-link:focus-visible{color:#0d2c57}
+
+/* The install block was switched from the old dark panel to white, but its
+   panel lines and hover state still came from that dark version. */
+html.v1[data-lrb-home="true"] .install-web__panel{
+  border-top:1px solid #1d4f96;
+  border-bottom:1px solid #b8860b;
+}
+html.v1[data-lrb-home="true"] .install-web__button:hover,
+html.v1[data-lrb-home="true"] .install-web__button:focus-visible,
+html.v1[data-lrb-home="true"] .form-submit:hover,
+html.v1[data-lrb-home="true"] .form-submit:focus-visible{
+  background:#eefaff;
+  border-color:#1d4f96;
+  color:#0d2c57;
+}
+
+/* Once the outer events feature stacks, the chronological rail stays one
+   dimensional. The previous broad tablet rule accidentally made it 2-col. */
+@media(max-width:1100px){
+  html.v1[data-lrb-home="true"] .home-events__grid{grid-template-columns:1fr}
 }

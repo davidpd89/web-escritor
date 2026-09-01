@@ -1,46 +1,387 @@
-/* V1 editorial system — bespoke pieces for the free-chapter reading page.
-   Structural chrome (article-header/article-layout/article-prose/editorial-
-   newsletter) lives in v1-editorial.css, shared with the Cuaderno article
-   family. This file only adds what's specific to reading real fiction
-   prose (novel-style paragraph indent, the chapter figure) and the two
-   purchase CTAs (inline box + scroll-triggered sticky bar). */
-html.v1 .fragment-notice{margin:0 0 2rem;padding:.9rem 1.25rem;border-left:2px solid var(--color-accent);background:var(--surface-quiet);font:400 .92rem/1.6 var(--font-ui);color:var(--color-muted)}
-html.v1 .fragment-intro-indexable{font:400 1rem/1.65 var(--font-reading);color:var(--color-muted);margin:0 0 2rem}
+/* Samuel entre mundos — capítulo 1 gratuito.
+   Esta hoja solo se carga en /fragmento/: conserva la arquitectura funcional
+   compartida con la familia Article y añade la firma visual propia de Samuel.
+   La prioridad es la lectura: serif negra, medida estable y cero cards dentro
+   del capítulo. Azul/dorado se reservan para orientación, rails y acciones. */
 
-html.v1 .visual-figure--fragment{margin:0 0 2.5rem}
-html.v1 .visual-figure--fragment img{width:100%;height:auto;border:1px solid var(--color-border)}
-html.v1 .visual-figure--fragment figcaption{margin-top:.6rem;font:400 .82rem/1.5 var(--font-ui);color:var(--color-muted);text-align:center}
-
-html.v1 .fragment-reading.fragment-text{font-family:var(--font-reading)}
-html.v1 .fragment-text h2{font:600 .82rem/1.4 var(--font-ui);letter-spacing:.1em;text-transform:uppercase;color:var(--color-muted);margin:0 0 2rem;scroll-margin-top:110px}
-html.v1 .fragment-text p{margin:0 0 1.4em;hanging-punctuation:first}
-html.v1 .fragment-text p+p{text-indent:1.5em}
-html.v1 .fragment-text p:first-of-type{text-indent:0}
-html.v1 .fragment-speech{text-align:center;font:400 1.15em/1.5 var(--font-display);color:var(--color-accent-strong);margin:2rem 0}
-html.v1 .fragment-aside{font-style:italic;color:var(--color-muted);text-align:center}
-html.v1 .fragment-divider{border:none;border-top:1px solid var(--color-border);margin:3rem 0}
-
-html.v1 .fragment-cta-box{margin:3.5rem 0 0;padding:clamp(2rem,4vw,3rem);border:1px solid var(--color-border);text-align:center}
-html.v1 .fragment-cta-box h2{font:400 var(--text-2xl)/1.15 var(--font-display);margin:.4rem 0 .9rem}
-html.v1 .fragment-cta-box>p{max-width:52ch;margin:0 auto 1.5rem;color:var(--color-muted);font-family:var(--font-reading)}
-html.v1 .fragment-cta-actions{display:flex;flex-direction:column;gap:.9rem;align-items:center}
-html.v1 .fragment-cta-actions .primary-action{min-width:260px}
-html.v1 .fragment-cta-isbn{margin-top:1.4rem;font:400 .8rem/1.5 var(--font-ui);color:var(--color-muted)}
-
-html.v1 #sticky-cta{position:fixed;left:0;right:0;bottom:0;z-index:var(--z-sticky);display:flex;align-items:center;justify-content:space-between;gap:1rem;padding:1rem clamp(1rem,4vw,2rem);background:var(--surface-inverse);color:var(--color-on-inverse);transform:translateY(110%);transition:transform var(--motion-state) var(--ease-standard)}
-html.v1 #sticky-cta.visible{transform:translateY(0)}
-html.v1 #sticky-cta p{margin:0;font:400 .95rem/1.4 var(--font-reading);display:none}
-html.v1 .sticky-cta-buttons{display:flex;gap:.75rem;flex-wrap:wrap;align-items:center}
-html.v1 #sticky-cta .primary-action{background:var(--color-on-inverse);color:var(--surface-inverse);border-color:var(--color-on-inverse)}
-html.v1 #sticky-cta .text-action{color:var(--color-on-inverse);text-decoration-color:var(--dp-brass)}
-html.v1 #sticky-cta-close{border:0;background:none;color:var(--color-on-inverse);font-size:1.3rem;line-height:1;cursor:pointer;padding:.25rem .5rem}
-
-@media(min-width:640px){
-  html.v1 #sticky-cta p{display:block}
+/* Los tokens viven en el contexto raíz, no dentro de .article-page: el CTA
+   persistente es hermano del main y necesita los mismos materiales de Samuel. */
+html.v1[data-editorial-context="samuel"]{
+  --frag-blue:#1d4f96;
+  --frag-blue-deep:#0d2c57;
+  --frag-gold:#b8860b;
+  --frag-neutral:#6f6a64;
+  --frag-pale:#eefaff;
+  --frag-ink:#050505;
 }
-@media(max-width:520px){
-  html.v1 .fragment-cta-actions .primary-action{min-width:0;width:100%}
+
+/* Barra de progreso: un único componente funcional, ahora en la firma de la obra. */
+html.v1[data-editorial-context="samuel"] .reading-progress{
+  height:2.5px;
+  background:linear-gradient(90deg,var(--frag-blue) 0 78%,var(--frag-gold) 100%);
 }
+
+/* Apertura del capítulo. El layout sigue siendo el Article existente; solo se
+   sustituyen materiales neutros por la jerarquía azul/dorada de Samuel. */
+html.v1[data-editorial-context="samuel"] .article-header{
+  position:relative;
+  border-bottom:0;
+  background:
+    linear-gradient(var(--frag-blue),var(--frag-blue)) left calc(100% - 4px)/100% 1.5px no-repeat,
+    linear-gradient(var(--frag-gold),var(--frag-gold)) left bottom/100% 1.5px no-repeat;
+}
+html.v1[data-editorial-context="samuel"] .article-header .eyebrow,
+html.v1[data-editorial-context="samuel"] .fragment-cta-box>.eyebrow,
+html.v1[data-editorial-context="samuel"] .article-end__label>.eyebrow,
+html.v1[data-editorial-context="samuel"] .editorial-newsletter__copy>.eyebrow{
+  width:fit-content;
+  margin:0 0 .45rem;
+  padding:0 .08em .08em;
+  color:var(--frag-gold);
+  font-family:'Yellowtail','Samuel Yellowtail Fallback',cursive;
+  font-size:clamp(1.5rem,1.35rem + .35vw,1.8rem);
+  font-weight:400;
+  line-height:1.05;
+  letter-spacing:0;
+  text-transform:none;
+  background:url('/assets/highlight-8-blue-rect.png') left 93%/100% .34em no-repeat;
+}
+html.v1[data-editorial-context="samuel"] .article-header h1{
+  color:var(--frag-blue);
+  -webkit-text-stroke:.22px rgba(184,134,11,.52);
+}
+html.v1[data-editorial-context="samuel"] .article-deck{color:var(--frag-ink)}
+html.v1[data-editorial-context="samuel"] .article-meta{
+  border-left:0;
+  color:var(--frag-neutral);
+  background:linear-gradient(var(--frag-blue),var(--frag-blue)) left top/2.5px 100% no-repeat;
+}
+
+/* La lectura queda centrada a la misma medida cómoda que ya tenía, pero deja de
+   ser una columna genérica de Cuaderno: un rail azul acompaña figura + capítulo
+   sin encajonarlos ni reducirlos a una card. */
+html.v1[data-editorial-context="samuel"] .article-layout{
+  display:block;
+  max-width:var(--layout-wide);
+}
+html.v1[data-editorial-context="samuel"] .article-prose{
+  width:100%;
+  max-width:var(--reading-max);
+  margin-inline:auto;
+  padding-left:clamp(.95rem,1.8vw,1.45rem);
+  color:var(--frag-ink);
+  background:linear-gradient(var(--frag-blue),var(--frag-blue)) left top/2.5px 100% no-repeat;
+}
+
+html.v1[data-editorial-context="samuel"] .fragment-notice{
+  margin:0 0 2rem;
+  padding:.95rem 1.15rem .95rem 1.35rem;
+  border:0;
+  color:var(--frag-neutral);
+  background:
+    linear-gradient(var(--frag-blue),var(--frag-blue)) left top/2.5px 100% no-repeat,
+    var(--frag-pale);
+  font:400 .92rem/1.6 var(--font-ui);
+}
+html.v1[data-editorial-context="samuel"] .fragment-intro-indexable{
+  margin:0 0 2rem;
+  color:var(--frag-neutral);
+  font:400 1rem/1.65 var(--font-reading);
+}
+
+/* Imagen de umbral: marco editorial mínimo, sin material/card. */
+html.v1[data-editorial-context="samuel"] .visual-figure--fragment{margin:0 0 clamp(2.5rem,5vw,3.6rem)}
+html.v1[data-editorial-context="samuel"] .article-prose .visual-figure--fragment::before{
+  border:1px solid var(--frag-blue);
+  box-shadow:inset 0 -2px 0 var(--frag-gold);
+}
+html.v1[data-editorial-context="samuel"] .visual-figure--fragment img{
+  width:100%;
+  height:auto;
+  border:0;
+}
+html.v1[data-editorial-context="samuel"] .article-prose .visual-figure--fragment figcaption{
+  margin-top:.6rem;
+  padding:.65rem .15rem 0;
+  border-top:1px solid var(--frag-blue);
+  color:var(--frag-neutral);
+  text-align:left;
+}
+
+/* Texto literario: la marca orienta; nunca compite con la prosa. */
+html.v1[data-editorial-context="samuel"] .fragment-reading.fragment-text{
+  color:var(--frag-ink);
+  font-family:var(--font-reading);
+}
+html.v1[data-editorial-context="samuel"] .fragment-text h2{
+  margin:0 0 2rem;
+  padding:0 0 .78rem;
+  border-bottom:1.5px solid var(--frag-blue);
+  color:var(--frag-blue);
+  font:650 .82rem/1.4 var(--font-ui);
+  letter-spacing:.09em;
+  text-transform:uppercase;
+  scroll-margin-top:110px;
+}
+html.v1[data-editorial-context="samuel"] .fragment-text p{margin:0 0 1.4em}
+html.v1[data-editorial-context="samuel"] .fragment-text p+p{text-indent:1.5em}
+html.v1[data-editorial-context="samuel"] .fragment-text p:first-of-type{text-indent:0}
+html.v1[data-editorial-context="samuel"] .fragment-speech{
+  margin:2rem 0;
+  color:var(--frag-blue-deep);
+  text-align:center;
+  font:400 1.15em/1.5 var(--font-display);
+}
+html.v1[data-editorial-context="samuel"] .fragment-aside{
+  color:var(--frag-neutral);
+  font-style:italic;
+  text-align:center;
+}
+html.v1[data-editorial-context="samuel"] .fragment-divider{
+  height:6px;
+  margin:clamp(2.7rem,5vw,3.5rem) 0;
+  border:0;
+  background:
+    linear-gradient(var(--frag-blue),var(--frag-blue)) left top/100% 1.5px no-repeat,
+    linear-gradient(var(--frag-gold),var(--frag-gold)) left bottom/100% 1.5px no-repeat;
+}
+
+/* Conversión al terminar de leer: bloque práctico, no card promocional. */
+html.v1[data-editorial-context="samuel"] .fragment-cta-box{
+  max-width:min(100%,56rem);
+  margin:clamp(3.5rem,7vw,6rem) auto 0;
+  padding:clamp(2rem,4vw,3rem);
+  border:0;
+  color:var(--frag-ink);
+  text-align:left;
+  background:
+    linear-gradient(var(--frag-blue),var(--frag-blue)) left top/100% 1.5px no-repeat,
+    linear-gradient(var(--frag-gold),var(--frag-gold)) left bottom/100% 1.5px no-repeat,
+    var(--frag-pale);
+}
+html.v1[data-editorial-context="samuel"] .fragment-cta-box h2{
+  margin:.2rem 0 .9rem;
+  color:var(--frag-blue);
+  font:400 clamp(2rem,3vw,3rem)/1.05 var(--font-display);
+  -webkit-text-stroke:.18px rgba(184,134,11,.45);
+}
+html.v1[data-editorial-context="samuel"] .fragment-cta-box>p{
+  max-width:52ch;
+  margin:0 0 1.5rem;
+  color:var(--frag-neutral);
+  font-family:var(--font-reading);
+}
+html.v1[data-editorial-context="samuel"] .fragment-cta-actions{
+  display:flex;
+  flex-direction:row;
+  flex-wrap:wrap;
+  align-items:baseline;
+  gap:.65rem 1.5rem;
+  padding-top:1rem;
+  border-top:1px solid rgba(29,79,150,.38);
+}
+html.v1[data-editorial-context="samuel"] .fragment-cta-actions :is(.primary-action,.text-action){
+  min-width:0;
+  min-height:0;
+  padding:.2rem 0;
+  border:0;
+  border-radius:0;
+  background:transparent;
+  color:var(--frag-blue);
+  box-shadow:none;
+  font-family:'Yellowtail','Samuel Yellowtail Fallback',cursive;
+  font-size:1.18rem;
+  font-weight:400;
+  line-height:1.2;
+  text-decoration:none;
+}
+html.v1[data-editorial-context="samuel"] .fragment-cta-actions .primary-action{font-size:1.32rem}
+html.v1[data-editorial-context="samuel"] .fragment-cta-actions :is(.primary-action,.text-action):hover,
+html.v1[data-editorial-context="samuel"] .fragment-cta-actions :is(.primary-action,.text-action):focus-visible{
+  color:var(--frag-blue-deep);
+  background:transparent;
+  text-decoration:underline;
+  text-decoration-color:var(--frag-gold);
+  text-decoration-thickness:1.5px;
+  text-underline-offset:.2em;
+}
+html.v1[data-editorial-context="samuel"] .fragment-cta-isbn{
+  margin-top:1.4rem!important;
+  color:var(--frag-neutral)!important;
+  font:400 .8rem/1.5 var(--font-ui)!important;
+}
+
+/* Continuidad tras el capítulo. */
+html.v1[data-editorial-context="samuel"] .article-end,
+html.v1[data-editorial-context="samuel"] .editorial-newsletter{
+  border-top:0;
+  background:
+    linear-gradient(var(--frag-blue),var(--frag-blue)) left top/100% 1.5px no-repeat,
+    linear-gradient(var(--frag-gold),var(--frag-gold)) left 4px/100% 1.5px no-repeat;
+}
+html.v1[data-editorial-context="samuel"] .article-end__label h2,
+html.v1[data-editorial-context="samuel"] .editorial-newsletter h2{color:var(--frag-blue)}
+html.v1[data-editorial-context="samuel"] .article-related{
+  border-top:1.5px solid var(--frag-blue);
+}
+html.v1[data-editorial-context="samuel"] .article-related a{
+  color:var(--frag-blue);
+  border-bottom-color:rgba(29,79,150,.35);
+  font-family:'Yellowtail','Samuel Yellowtail Fallback',cursive;
+  font-size:1.08rem;
+  text-decoration:none;
+}
+html.v1[data-editorial-context="samuel"] .article-related a:hover,
+html.v1[data-editorial-context="samuel"] .article-related a:focus-visible{
+  color:var(--frag-blue-deep);
+  text-decoration:underline;
+  text-decoration-color:var(--frag-gold);
+  text-underline-offset:.18em;
+}
+html.v1[data-editorial-context="samuel"] .editorial-newsletter__copy p{color:var(--frag-neutral)}
+html.v1[data-editorial-context="samuel"] .editorial-newsletter .form-submit{
+  border-color:var(--frag-blue);
+  background:var(--frag-blue);
+  color:#fff;
+}
+html.v1[data-editorial-context="samuel"] .editorial-newsletter .form-submit:hover,
+html.v1[data-editorial-context="samuel"] .editorial-newsletter .form-submit:focus-visible{
+  border-color:var(--frag-gold);
+  background:var(--frag-pale);
+  color:var(--frag-blue-deep);
+}
+
+/* CTA persistente. El antiguo inverso negro se sustituye por una banda editorial
+   compacta para no tapar varias líneas de ficción en móvil. La lógica de show,
+   dismiss y sessionStorage permanece intacta en index.html. */
+html.v1[data-editorial-context="samuel"] #sticky-cta{
+  position:fixed;
+  left:0;
+  right:0;
+  bottom:0;
+  z-index:var(--z-sticky);
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:.8rem;
+  padding:.8rem clamp(.8rem,3vw,1.5rem) calc(.55rem + env(safe-area-inset-bottom));
+  color:var(--frag-ink);
+  background:
+    linear-gradient(var(--frag-blue),var(--frag-blue)) left top/100% 1.5px no-repeat,
+    linear-gradient(var(--frag-gold),var(--frag-gold)) left 4px/100% 1.5px no-repeat,
+    rgba(255,255,255,.98);
+  box-shadow:0 -8px 28px rgba(13,44,87,.12);
+  transform:translateY(110%);
+  transition:transform var(--motion-state) var(--ease-standard);
+}
+html.v1[data-editorial-context="samuel"] #sticky-cta.visible{transform:translateY(0)}
+html.v1[data-editorial-context="samuel"] #sticky-cta p{
+  display:none;
+  margin:0;
+  color:var(--frag-neutral);
+  font:500 .82rem/1.3 var(--font-ui);
+}
+html.v1[data-editorial-context="samuel"] .sticky-cta-buttons{
+  min-width:0;
+  display:flex;
+  flex:1;
+  flex-wrap:nowrap;
+  align-items:center;
+  gap:.65rem 1rem;
+}
+html.v1[data-editorial-context="samuel"] #sticky-cta :is(.primary-action,.text-action){
+  min-width:0;
+  min-height:0;
+  padding:.2rem 0;
+  border:0;
+  border-radius:0;
+  background:transparent;
+  color:var(--frag-blue);
+  box-shadow:none;
+  font-family:'Yellowtail','Samuel Yellowtail Fallback',cursive;
+  font-size:1.08rem;
+  font-weight:400;
+  line-height:1.15;
+  text-decoration:none;
+  white-space:nowrap;
+}
+html.v1[data-editorial-context="samuel"] #sticky-cta .primary-action{font-size:1.18rem}
+html.v1[data-editorial-context="samuel"] #sticky-cta :is(.primary-action,.text-action):hover,
+html.v1[data-editorial-context="samuel"] #sticky-cta :is(.primary-action,.text-action):focus-visible{
+  color:var(--frag-blue-deep);
+  background:transparent;
+  text-decoration:underline;
+  text-decoration-color:var(--frag-gold);
+  text-underline-offset:.18em;
+}
+html.v1[data-editorial-context="samuel"] #sticky-cta-close{
+  width:36px;
+  height:36px;
+  flex:0 0 36px;
+  display:grid;
+  place-items:center;
+  padding:0;
+  border:1px solid var(--frag-blue);
+  border-radius:50%;
+  background:#fff;
+  color:var(--frag-blue);
+  font-size:1rem;
+  line-height:1;
+  cursor:pointer;
+}
+html.v1[data-editorial-context="samuel"] #sticky-cta-close:hover,
+html.v1[data-editorial-context="samuel"] #sticky-cta-close:focus-visible{
+  border-color:var(--frag-gold);
+  background:var(--frag-blue);
+  color:#fff;
+  outline:2px solid var(--frag-gold);
+  outline-offset:2px;
+}
+
+/* En esta página de lectura el launcher flotante es un acceso duplicado y entra
+   en conflicto geométrico con el CTA persistente. Se elimina en todos los
+   anchos; el acceso Asistente del header permanece disponible. */
+html.v1[data-editorial-context="samuel"] .assistant-widget__launcher{display:none!important}
+
+@media(min-width:900px){
+  html.v1[data-editorial-context="samuel"] #sticky-cta p{display:block}
+}
+
+@media(max-width:900px){
+  html.v1[data-editorial-context="samuel"] .article-header{grid-template-columns:1fr;gap:1.25rem}
+  html.v1[data-editorial-context="samuel"] .article-meta{
+    padding:1rem 0 0;
+    background:linear-gradient(var(--frag-blue),var(--frag-blue)) left top/100% 1.5px no-repeat;
+  }
+  html.v1[data-editorial-context="samuel"] .article-layout{padding-top:clamp(2.4rem,6vw,3.2rem)}
+}
+
+@media(max-width:620px){
+  html.v1[data-editorial-context="samuel"] .article-prose{padding-left:.8rem}
+  html.v1[data-editorial-context="samuel"] .fragment-cta-box{
+    margin-top:3.4rem;
+    padding:1.6rem 1.15rem;
+  }
+  html.v1[data-editorial-context="samuel"] .fragment-cta-actions{
+    flex-direction:column;
+    align-items:flex-start;
+    gap:.6rem;
+  }
+  html.v1[data-editorial-context="samuel"] #sticky-cta{
+    gap:.55rem;
+    padding:.72rem .7rem calc(.48rem + env(safe-area-inset-bottom));
+  }
+  html.v1[data-editorial-context="samuel"] .sticky-cta-buttons{gap:.45rem .75rem}
+  html.v1[data-editorial-context="samuel"] #sticky-cta :is(.primary-action,.text-action){font-size:.96rem}
+  html.v1[data-editorial-context="samuel"] #sticky-cta .primary-action{font-size:1.02rem}
+}
+
+@media(prefers-reduced-motion:reduce){
+  html.v1[data-editorial-context="samuel"] #sticky-cta{transition:none}
+}
+
 @media print{
-  html.v1 #sticky-cta,html.v1 .editorial-newsletter{display:none!important}
+  html.v1[data-editorial-context="samuel"] #sticky-cta,
+  html.v1[data-editorial-context="samuel"] .editorial-newsletter{display:none!important}
+  html.v1[data-editorial-context="samuel"] .article-prose{padding-left:0;background:none}
 }

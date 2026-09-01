@@ -32,9 +32,9 @@
   <meta property="og:title" content="David Porto Díaz — Las manecillas del recuerdo" />
   <meta property="og:description" content="Un reloj que pasa de mano en mano y cambia de significado en cada vida que toca. Novela coral de vidas conectadas. Monza Ediciones · 3 de septiembre de 2026." />
   <meta property="og:type" content="website" />
-  <meta property="og:image" content="https://davidportodiaz.com/assets/og-david-porto-sol.jpg" />
-  <meta property="og:image:width" content="1200" />
-  <meta property="og:image:height" content="630" />
+  <meta property="og:image" content="https://davidportodiaz.com/assets/david-porto-imagen-compartir.jpg" />
+  <meta property="og:image:width" content="1731" />
+  <meta property="og:image:height" content="909" />
   <meta property="og:image:alt" content="David Porto Díaz, escritor — autor de Las manecillas del recuerdo (Monza Ediciones, septiembre de 2026)" />
   <meta property="og:url" content="https://davidportodiaz.com/" />
   <meta property="og:locale" content="es_ES" />
@@ -52,7 +52,7 @@
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="David Porto Díaz — Las manecillas del recuerdo" />
   <meta name="twitter:description" content="Novela coral de vidas conectadas por un reloj que pasa de mano en mano. Monza Ediciones · 3 de septiembre de 2026." />
-  <meta name="twitter:image" content="https://davidportodiaz.com/assets/og-david-porto-sol.jpg" />
+  <meta name="twitter:image" content="https://davidportodiaz.com/assets/david-porto-imagen-compartir.jpg" />
   <meta name="twitter:image:alt" content="David Porto Díaz, escritor — autor de Las manecillas del recuerdo (Monza Ediciones, septiembre de 2026)" />
 
   <script type="speculationrules">
@@ -322,7 +322,13 @@
   <link rel="preload" as="style" href="assets/v1-reflow-hardening-v7.css" />
   <!-- v1-shell-preload:end -->
   <link rel="stylesheet" href="assets/v1-shell.css" />
-  <link rel="stylesheet" href="assets/v1-home.css" />
+  <!-- ?v= bump on every edit to this file: without it, the URL never
+       changes, so any cache layer (browser or CDN) that doesn't aggressively
+       revalidate keeps serving old bytes under this same path indefinitely --
+       this was the "sigue saliendo la versión anterior, tengo que recargar
+       varias veces, hasta en incógnito" bug this round. A new query string is
+       a guaranteed cache miss regardless of whatever TTL a CDN has set. -->
+  <link rel="stylesheet" href="assets/v1-home.css?v=9" />
   <link rel="stylesheet" href="assets/v1-book.css" />
 </head>
 
@@ -336,8 +342,16 @@
   <noscript><style>html.v1 .intro{display:none}</style></noscript>
   <div class="intro" data-intro role="region" aria-label="Introducción animada">
     <div class="intro__stage">
+      <!-- Single mp4 source only, deliberately no webm fallback: confirmed
+           via WebKit that Safari's canPlayType('video/webm') falsely reports
+           "probably" for this file, so the browser commits to that source
+           and never actually decodes it (stuck at readyState 0 indefinitely,
+           the "frozen on the first frame, no ink transition" bug reported on
+           a physical iPhone) instead of falling back to the working mp4.
+           H.264 High Profile + faststart (moov before mdat) plays natively
+           on every browser this site targets, so a second source only
+           reintroduces the failure mode with no real benefit. -->
       <video class="intro__video" muted playsinline preload="auto" poster="assets/hero-tinta-poster.jpg?v=2" data-hero-video>
-        <source src="assets/video/hero-tinta-david-porto.webm?v=2" type="video/webm" />
         <source src="assets/video/hero-tinta-david-porto.mp4?v=2" type="video/mp4" />
       </video>
     </div>
@@ -447,10 +461,15 @@
         <input class="form-input" id="nl-email-explore" name="email" type="email" autocomplete="email" inputmode="email" required placeholder="Tu email" aria-describedby="nl-status-explore">
         <button class="form-submit" type="submit">Recibir novedades</button>
       </div>
+      <label class="form-consent" for="nl-gdpr-explore">
+        <input id="nl-gdpr-explore" name="consent" type="checkbox" required aria-describedby="nl-status-explore">
+        <span>He leído y acepto la <a href="/privacidad.html">política de privacidad</a>.</span>
+      </label>
       <p id="nl-status-explore" class="form-status" role="status" aria-live="polite"></p>
     </form>
   </div>
 </dialog>
+<script defer src="/assets/newsletter-general.js"></script>
 <!-- site-shell:dialog:end -->
 
   <main id="contenido" tabindex="-1">
@@ -644,6 +663,10 @@
           <input class="form-input" id="nl-email-home" name="email" type="email" autocomplete="email" inputmode="email" required aria-describedby="nl-status-home">
           <button class="form-submit" type="submit">Quiero recibir novedades</button>
         </div>
+        <label class="form-consent" for="nl-gdpr-home">
+          <input id="nl-gdpr-home" name="consent" type="checkbox" required aria-describedby="nl-status-home">
+          <span>He leído y acepto la <a href="/privacidad.html">política de privacidad</a>.</span>
+        </label>
         <p id="nl-status-home" class="form-status" role="status" aria-live="polite"></p>
       </form>
     </section>

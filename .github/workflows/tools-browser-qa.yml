@@ -3,12 +3,15 @@ name: Tools browser QA
 on:
   pull_request:
     paths:
+      - 'herramientas/index.html'
       - 'herramientas/manuscrito/**'
       - 'herramientas/dialogo/**'
       - 'herramientas/legibilidad/**'
       - 'herramientas/repeticiones/**'
       - 'herramientas/variedad-lexica/**'
       - 'herramientas/que-tipo-de-lector-eres/**'
+      - 'assets/herramientas-index.css'
+      - 'assets/herramientas-hub.js'
       - 'assets/v1-shell.js'
       - 'assets/v1-tools.css'
       - 'assets/analizador-capitulos*'
@@ -17,6 +20,9 @@ on:
       - 'assets/repeticiones-*'
       - 'assets/variedad-lexica*'
       - 'assets/tipo-lector*'
+      - 'data/tools-hub.json'
+      - 'scripts/build-tools-hub.py'
+      - 'qa/herramientas-index-design-browser.mjs'
       - 'qa/tools-browser.mjs'
       - 'qa/tipo-lector-browser.mjs'
       - 'qa/text-spacing.css'
@@ -57,6 +63,12 @@ jobs:
         if: steps.playwright-cache.outputs.cache-hit == 'true'
         run: npx playwright install-deps chromium
 
+      - name: Check generated Herramientas hub parity
+        run: |
+          python scripts/build-tools-hub.py data/tools-hub.json herramientas/index.html --check
+          mkdir -p qa-artifacts/herramientas-hub
+          cp herramientas/index.html qa-artifacts/herramientas-hub/generated-index.html
+
       - name: Start local static server
         run: |
           python3 -m http.server 4173 --bind 127.0.0.1 > /tmp/tools-qa-server.log 2>&1 &
@@ -75,6 +87,12 @@ jobs:
           QA_ORIGIN: http://127.0.0.1:4173
           QA_OUT: qa-artifacts
         run: node qa/tools-browser.mjs
+
+      - name: Herramientas hub visual-system QA
+        env:
+          QA_ORIGIN: http://127.0.0.1:4173
+          QA_OUT: qa-artifacts/herramientas-hub
+        run: node qa/herramientas-index-design-browser.mjs
 
       - name: Reader type quiz browser QA
         if: always()

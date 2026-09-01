@@ -115,7 +115,7 @@ html.v1[data-lrb-home="true"] .masthead-nav__submenu{position:absolute;z-index:8
 /* Seven-pixel interaction bridge: pointer can travel from label to submenu without closing it. */
 html.v1[data-lrb-home="true"] .masthead-nav__submenu::before{content:"";position:absolute;left:-1px;right:-1px;top:-8px;height:8px}
 html.v1[data-lrb-home="true"] .masthead-nav__submenu a{display:flex;align-items:center;min-height:38px;padding:.48rem .72rem;font-family:var(--font-reading);font-size:.86rem;line-height:1.18;text-transform:none;letter-spacing:0;white-space:normal;border:0;color:var(--color-text);text-decoration:none;width:auto;transition:background 110ms ease,color 110ms ease}
-html.v1[data-lrb-home="true"] .masthead-nav__submenu a:first-child{color:#0075b8;font-weight:600}
+html.v1[data-lrb-home="true"] .masthead-nav__submenu a:first-child{color:#1d4f96;font-weight:600}
 html.v1[data-lrb-home="true"] .masthead-nav__submenu a:not(:first-child){color:#6d7377}
 html.v1[data-lrb-home="true"] .masthead-nav__submenu a:hover,
 html.v1[data-lrb-home="true"] .masthead-nav__submenu a:focus-visible{background:#d7e9ef;color:#254f60}
