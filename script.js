@@ -360,9 +360,7 @@ function fallbackCopy(text, done) {
   submitNewsletter("newsletter-form-home",       "nl-email-home",       null,                  "nl-status-home",       "home");
   submitNewsletter("newsletter-form-fragmento",  "nl-email-fragmento",  null,  "nl-status-fragmento",  "fragmento");
   submitNewsletter("newsletter-form-manecillas", "nl-email-manecillas", null, "nl-status-manecillas", "manecillas");
-  submitNewsletter("newsletter-form-home-manecillas-card", "home-manecillas-card-email", "home-manecillas-card-gdpr", "home-manecillas-card-status", "manecillas");
   document.addEventListener("dp:home-editorial-ready", () => {
-    submitNewsletter("newsletter-form-home-manecillas-card", "home-manecillas-card-email", "home-manecillas-card-gdpr", "home-manecillas-card-status", "manecillas");
     submitNewsletter("newsletter-form-home-yale", "nl-email-home-yale", null, "nl-status-home-yale", "home");
   }, { once: true });
   submitNewsletter("newsletter-form-cuaderno",   "nl-email-cuaderno",   null,   "nl-status-cuaderno",   "cuaderno");
