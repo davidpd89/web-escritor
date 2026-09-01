@@ -22,7 +22,7 @@ jobs:
     timeout-minutes: 25
     steps:
       - name: Checkout
-        uses: actions/checkout@v4
+        uses: actions/checkout@v5
 
       - name: Awards evidence contract
         run: python tests/test-awards-evidence.py
@@ -84,7 +84,7 @@ jobs:
 
       - name: Upload Premios visual evidence
         if: always()
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v6
         with:
           name: premios-visual-evidence
           path: |

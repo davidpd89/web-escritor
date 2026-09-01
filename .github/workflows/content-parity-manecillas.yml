@@ -27,7 +27,7 @@ jobs:
       PR_BASE_SHA: ${{ github.event.pull_request.base.sha }}
     steps:
       - name: Checkout
-        uses: actions/checkout@v4
+        uses: actions/checkout@v5
         with:
           fetch-depth: 0
       - name: Set up Node
@@ -68,7 +68,7 @@ jobs:
         run: node qa/manecillas-fragments-hash-regression.mjs
       - name: Upload QA evidence
         if: always()
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v6
         with:
           name: content-parity-manecillas-v1
           path: qa-artifacts/
