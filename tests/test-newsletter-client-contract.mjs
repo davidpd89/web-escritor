@@ -67,7 +67,6 @@ assert.ok(!/sessionStorage\.setItem\([^\)]*email/i.test(generalSource),
   'shared client must never persist email in sessionStorage');
 
 for (const [file, suffix] of [
-  ['index.html', 'home'],
   ['fragmento/index.html', 'fragmento'],
   ['las-manecillas-del-recuerdo/index.html', 'manecillas'],
   ['cuaderno/index.html', 'cuaderno']
@@ -75,6 +74,18 @@ for (const [file, suffix] of [
   const html = read(...file.split('/'));
   assert.match(html, new RegExp(`id="nl-gdpr-${suffix}"[^>]*name="consent"[^>]*required`), `${file} must render required consent`);
   assert.match(html, /href="\/privacidad\.html"/, `${file} consent must link to privacy policy`);
+}
+
+// Home (author decision, 2026-09-01): no consent checkbox in either the
+// JS-enhanced Yale strip or the static/no-JS fallback -- a plain privacy-policy
+// note replaces it in both, so submitNewsletter must resolve a null gdprId here.
+{
+  const html = read('index.html');
+  assert.doesNotMatch(html, /id="nl-gdpr-home"/, 'index.html fallback must not render a consent checkbox');
+  assert.match(html, /Al enviar tu email, aceptas la <a href="\/privacidad\.html">pol[ií]tica de privacidad<\/a>/,
+    'index.html fallback must keep the plain privacy-policy note');
+  assert.match(scriptSource, /submitNewsletter\("newsletter-form-home",\s*"nl-email-home",\s*null,\s*"nl-status-home",\s*"home"\)/,
+    'legacy fallback wiring for Home must pass a null gdprId (no checkbox to resolve)');
 }
 
 assert.ok(builderSource.includes('nl-gdpr-explore'),

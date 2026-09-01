@@ -357,7 +357,7 @@ function fallbackCopy(text, done) {
       }, "user-blocking");
     });
   }
-  submitNewsletter("newsletter-form-home",       "nl-email-home",       "nl-gdpr-home",       "nl-status-home",       "home");
+  submitNewsletter("newsletter-form-home",       "nl-email-home",       null,                  "nl-status-home",       "home");
   submitNewsletter("newsletter-form-fragmento",  "nl-email-fragmento",  "nl-gdpr-fragmento",  "nl-status-fragmento",  "fragmento");
   submitNewsletter("newsletter-form-manecillas", "nl-email-manecillas", "nl-gdpr-manecillas", "nl-status-manecillas", "manecillas");
   submitNewsletter("newsletter-form-home-manecillas-card", "home-manecillas-card-email", "home-manecillas-card-gdpr", "home-manecillas-card-status", "manecillas");

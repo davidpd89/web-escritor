@@ -19,6 +19,10 @@ html.v1 .intro__enter{position:absolute;left:50%;bottom:clamp(4.5rem,15vh,7.5rem
 html.v1 .intro__enter:hover,html.v1 .intro__enter:focus-visible{background:color-mix(in srgb,var(--dp-paper) 16%,transparent);border-color:var(--dp-paper)}
 @media(prefers-reduced-motion:no-preference){
   html.v1 .intro__enter{animation:intro-enter-in .9s ease-out 4.6s forwards}
+  /* Autoplay rejected (e.g. iPhone Low Power Mode): there is no ink reveal
+     to wait for, so don't make the visitor stare at a frozen poster with an
+     invisible exit for 4.6s. Bring "Entrar" in right away. */
+  html.v1 .intro--stalled .intro__enter{animation-delay:.3s}
 }
 @media(prefers-reduced-motion:reduce){
   html.v1 .intro__enter{opacity:1;transform:translate(-50%,0)}
@@ -181,6 +185,28 @@ html.v1 .faq-native details[open] summary::after{content:"–"}
 html.v1 .faq-native details p{margin:.85rem 0 0;color:var(--color-muted);font-family:var(--font-reading);font-size:1.02rem;line-height:1.6;max-width:60ch}
 @media(max-width:1199px){html.v1 .faq-native{grid-column:1/-1}}
 
+/* FAQ master toggle (author: "que sea UN desplegable, y si se abre, salgan
+   todas las dudas; si no, quede recogido") -- #faq itself is now a <details>
+   and .book-section__label is a <summary>, collapsed by default. Reusing the
+   same class names as before means the .book-section 3-column grid (no-JS
+   fallback) and the Home-flow reformat further down this file both keep
+   working unchanged; only the native marker/list-item styling needs
+   resetting here, same pattern as .faq-native summary above. */
+html.v1 .faq-master > summary.book-section__label{
+  display:block;
+  cursor:pointer;
+  list-style:none;
+}
+html.v1 .faq-master > summary.book-section__label::-webkit-details-marker{display:none}
+html.v1 .faq-master > summary.book-section__label h2::after{
+  content:"+";
+  margin-left:.5rem;
+  color:var(--color-muted);
+  font-weight:400;
+}
+html.v1 .faq-master[open] > summary.book-section__label h2::after{content:"–"}
+html.v1 .faq-master:not([open]) .faq-native{display:none}
+
 /* Yale Review prototype, 2026-08-25. This intentionally removes the banner
    rhythm from the enhanced Home and tests a cleaner magazine front page:
    white field, black/blue type, hairline grid and one strong lead story. */
@@ -274,7 +300,7 @@ html.v1[data-lrb-home="true"] .yale-home-flow{
   padding:clamp(1.7rem,3.4vw,2.7rem) var(--page-gutter) clamp(2.2rem,4.4vw,3.6rem);
   background:#fff;
 }
-html.v1[data-lrb-home="true"] .yale-home-flow :is(section,article,aside,div,header,h1,h2,h3,p,a){
+html.v1[data-lrb-home="true"] .yale-home-flow :is(section,article,aside,div,header,h1,h2,h3,p,a,details,summary){
   min-width:0;
   max-width:100%;
 }
@@ -364,9 +390,20 @@ html.v1[data-lrb-home="true"] .yale-home-issue h1{
      a blue-to-gold gradient was tried at several splits (50/50, 70/30) and
      a vertical version, all rejected by the author. #1d4f96 (8.04:1
      against white) for the fill, #b8860b (goldenrod, already validated for
-     the kicker) for the stroke. */
+     the kicker) for the stroke.
+     Width bumped from 0.35px to 1px (author: "pulsando F5 varias veces las
+     letras... cambian") -- a sub-device-pixel stroke width leaves the
+     rasterizer's per-glyph-edge antialiasing decision genuinely ambiguous,
+     so which pixels actually get any gold at all can flip between reloads
+     (confirmed live: computed style is a stable 0.35px every load, only the
+     *painted* stroke varies). 1px clears a full device pixel at 1x DPR and
+     above, so there's no ambiguous edge left to flip. Same value applied to
+     the other 3 headings sitewide on Home sharing this exact rule (Obras/
+     Herramientas/Agenda section heads, Novedades/Install heading, FAQ
+     heading) for consistency -- not to the ~20 other stroke instances on
+     other pages, which weren't reported and are a separate, larger change. */
   color:#1d4f96;
-  -webkit-text-stroke:0.35px rgba(184,134,11,.55);
+  -webkit-text-stroke:1px rgba(184,134,11,.55);
   overflow-wrap:anywhere;
   text-wrap:balance;
 }
@@ -627,7 +664,7 @@ html.v1[data-lrb-home="true"] .home-events h2{
   font-size:clamp(1.55rem,2.6vw,2.3rem);
   line-height:1.05;
   color:#1d4f96;
-  -webkit-text-stroke:0.35px rgba(184,134,11,.55);
+  -webkit-text-stroke:1px rgba(184,134,11,.55);
 }
 html.v1[data-lrb-home="true"] .yale-tile-grid,
 html.v1[data-lrb-home="true"] .home-events__grid{
@@ -680,11 +717,21 @@ html.v1[data-lrb-home="true"] .yale-tile-grid--works .yale-tile:nth-child(3)::af
    after the title/description text, which shrinks to nothing on longer
    titles or narrower widths (author: "se solapa la L con el final de
    Abrir"). Reserve the bracket's own height as extra bottom padding so the
-   two can never touch regardless of content length or viewport. */
+   two can never touch regardless of content length or viewport.
+   A further .75rem is added on top of the bracket's own height (author:
+   "el break sigue sin padding con las L de debajo de Abrir en Obras"):
+   .yale-home-section has margin-top:0/no padding-bottom of its own (by
+   design, so its top divider stays flush with the previous section), which
+   left this section's bottom edge -- and with it, the L's own gold
+   bottom line -- landing exactly on the next section's top divider with
+   zero gap (measured: 0px). Every other section gets its breathing room
+   for free from the *next* section's padding-top:28px, but that space sits
+   above the divider line, not below this tile's own decorative mark, so
+   Obras needed its own explicit clearance instead. */
 html.v1[data-lrb-home="true"] .yale-tile-grid--works .yale-tile:nth-child(1),
 html.v1[data-lrb-home="true"] .yale-tile-grid--works .yale-tile:nth-child(2),
 html.v1[data-lrb-home="true"] .yale-tile-grid--works .yale-tile:nth-child(3){
-  padding-bottom:calc(clamp(1.1rem,2vw,1.55rem) + 2.25rem);
+  padding-bottom:calc(clamp(1.1rem,2vw,1.55rem) + 2.25rem + .75rem);
 }
 /* Gray grid lines (rgba(0,0,0,.18)) recoloured to the page's blue/gold
    (author request: "los cuadros grises como el azul y amarillo") -- the
@@ -787,6 +834,22 @@ html.v1[data-lrb-home="true"] .yale-feature-book{
   background-repeat:no-repeat;
   background-size:2.5px 100%;
   background-position:top left;
+  padding-left:clamp(1.2rem,2.6vw,2rem);
+}
+/* .yale-feature-book carrying the rail's padding-left above only indents
+   the book column -- it does nothing for .yale-feature-card's own text,
+   which relies on margin-left:-clamp(...)/padding-left:clamp(...) to bleed
+   to whatever left edge its container already provides (exactly like
+   .yale-rail-card does against .yale-rail's own padding-left). .yale-rail
+   has that padding-left; .yale-feature__stack never did, so Samuel's cards
+   bled all the way to the section's raw outer edge with zero net inset --
+   "Comprar en Amazon" etc. sat flush against the page margin instead of
+   getting the same ~32px gutter Manecillas' equivalent cards get (author:
+   "la barra de universo publicado sigue siendo simple y sin márgenes").
+   Giving the stack the same padding-left as .yale-rail closes that gap at
+   every width, independent of where the desktop-only rail repositioning
+   below moves the visible line to. */
+html.v1[data-lrb-home="true"] .yale-feature__stack{
   padding-left:clamp(1.2rem,2.6vw,2rem);
 }
 html.v1[data-lrb-home="true"] .yale-feature-card,
@@ -1003,7 +1066,7 @@ html.v1[data-lrb-home="true"] .install-web::after{display:block}
 /* Same blue-fill + gold-outline treatment as every other section title
    (author request to unify text-by-text) instead of plain black. */
 html.v1[data-lrb-home="true"] .install-web h2,
-html.v1[data-lrb-home="true"] .yale-signup h2{color:#1d4f96;-webkit-text-stroke:0.35px rgba(184,134,11,.55)}
+html.v1[data-lrb-home="true"] .yale-signup h2{color:#1d4f96;-webkit-text-stroke:1px rgba(184,134,11,.55)}
 html.v1[data-lrb-home="true"] .install-web__status{color:#2a2e31}
 html.v1[data-lrb-home="true"] .install-web,
 html.v1[data-lrb-home="true"] .yale-signup{
@@ -1251,7 +1314,7 @@ html.v1[data-lrb-home="true"] .yale-home-flow #faq .book-section__label h2{
   line-height:1.05;
   letter-spacing:-.018em;
   color:#1d4f96;
-  -webkit-text-stroke:0.35px rgba(184,134,11,.55);
+  -webkit-text-stroke:1px rgba(184,134,11,.55);
 }
 html.v1[data-lrb-home="true"] .yale-home-flow #faq .faq-native{
   grid-column:auto;

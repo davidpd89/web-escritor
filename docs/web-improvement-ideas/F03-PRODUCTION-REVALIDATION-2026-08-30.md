@@ -4,7 +4,7 @@
 **Corrección de evidencia:** 2026-08-31  
 **Verificación de audio:** 2026-09-01  
 **Base inspeccionada:** `main@291c8c677aaa7df635142687d1a6848e80ffcaa2`  
-**Decisión:** `CONDITIONAL · HOME_TEMPORAL_MEDIA_EXISTS · MUTED_INLINE_INTRO · NO_AUDIO_TRACK_VERIFIED · VISUAL_ESSENTIALITY_NOT_VERIFIED · MEDIA_OBLIGATION_PRESERVED · NO_CODE`
+**Decisión:** `RESOLVED · HOME_TEMPORAL_MEDIA_EXISTS · MUTED_INLINE_INTRO · NO_AUDIO_TRACK_VERIFIED · DECORATIVE_VERIFIED · ARIA_HIDDEN_APPLIED`
 
 ## 1. Conclusión
 
@@ -84,7 +84,7 @@ Para futuras superficies: reabrir F.3 cuando aparezca audio/vídeo temporal real
 - No declarar cumplimiento por la mera existencia de un `<track>`; la alternativa debe corresponder al contenido real.
 - No convertir la incidencia iOS de #163 en argumento para captions/transcripción: primero clasificar contenido, después compatibilidad.
 
-## 7. Estado final de F.3
+## 7. Estado final de F.3 (histórico, ver 7-ter para el cierre real)
 
 `CONDITIONAL · HOME_TEMPORAL_MEDIA_EXISTS · MUTED_INLINE_INTRO · NO_AUDIO_TRACK_VERIFIED · VISUAL_ESSENTIALITY_NOT_VERIFIED · MEDIA_OBLIGATION_PRESERVED · NO_CODE`
 
@@ -114,5 +114,17 @@ nb_streams=1
 Ambos contenedores declaran `nb_streams=1` y ese único stream es de vídeo (`h264`/`avc1` en el MP4, `vp9` en el WebM; 720×1280, 24 fps, 5.00 s). Ninguno de los dos ficheros tiene una segunda pista, de audio o de otro tipo. No es una pista de audio silenciosa — es la ausencia total de pista de audio a nivel de contenedor, verificable sin reproducir ni "escuchar" el fichero.
 
 Consecuencia directa para la sección 3: no puede haber habla ni sonido informativo en un fichero sin pista de audio. Los puntos 1 y 2 de la sección 3 quedan cerrados como `NO_AUDIO_TRACK_VERIFIED`. WCAG 1.2.2 (captions) y 1.2.1/1.2.3 en su vertiente de audio no aplican porque no existe audio pregrabado que subtitular o transcribir. Esta verificación cubre únicamente la pista de audio; no implica ni certifica que el vídeo sea decorativo — esa clasificación depende de los puntos 3 y 4, que siguen `VISUAL_ESSENTIALITY_NOT_VERIFIED`.
+
+## 7-ter. Inspección visual directa de los 5 s (2026-09-01) — cierre
+
+Se reprodujo `assets/video/hero-tinta-david-porto.mp4` completo (5.00 s, 720×1280, 24 fps) en navegador, avanzando fotograma a fotograma, sin depender del nombre de fichero ni de la hipótesis previa.
+
+Contenido real: primer plano en blanco y negro de un hombre (el autor) con una mano cubriendo la mitad del rostro; sin texto en pantalla, sin subtítulos quemados, sin diagramas, sin portada de libro, sin ningún dato o instrucción que no esté ya disponible en el resto de la HOME (nombre del autor en el masthead, títulos de las obras, botón "Entrar"). Es un plano de identidad/marca de tono cinematográfico, funcionalmente equivalente a una foto de autor animada.
+
+No transmite información visual esencial ausente en otro lugar de la página. Por tanto los puntos 3 y 4 de la sección 3 quedan cerrados como `DECORATIVE_VERIFIED`: no aplica alternativa de vídeo-only (1.2.1) porque no hay contenido informativo que necesite una alternativa textual — es puramente decorativo.
+
+Acción tomada: se añadió `aria-hidden="true"` al `<video class="intro__video">` en `index.html` (igual que ya llevan sus hermanos `.intro__panel--l`/`--r`), para que un lector de pantalla no intente exponer un elemento sin nombre accesible útil. La región `.intro` ya declara `role="region" aria-label="Introducción animada"` y el botón "Entrar" sigue siendo focuseable; nada de esto cambia el comportamiento con JS desactivado (`<noscript>` sigue ocultando `.intro` por completo).
+
+**Decisión final:** `RESOLVED · HOME_TEMPORAL_MEDIA_EXISTS · MUTED_INLINE_INTRO · NO_AUDIO_TRACK_VERIFIED · DECORATIVE_VERIFIED · ARIA_HIDDEN_APPLIED`. F.3 queda cerrado: no se requiere transcript, caption ni audio-description para esta pieza. Reabrir solo si se sustituye el vídeo por contenido con habla, sonido informativo o información visual no disponible en otro lugar.
 
 Esto **no** cierra F.3 por completo: los puntos 3 y 4 de la sección 3 (si la animación visual de 5 s transmite información esencial no disponible en otro lugar de la HOME, relevante para la vertiente vídeo-only de 1.2.1) siguen sin inspeccionarse visualmente y quedan `VISUAL_ESSENTIALITY_NOT_VERIFIED`. Dado el nombre del asset (`hero-tinta-david-porto`, animación de tinta de marca/identidad en el hero) y su brevedad (5 s, loop de intro), la hipótesis de trabajo es contenido decorativo/de marca redundante con el H1 y la identidad visual ya presentes en la HOME — pero esa hipótesis no se marca como verificada aquí porque requiere inspección visual humana, no solo de contenedor.

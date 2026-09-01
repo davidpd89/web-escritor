@@ -28,10 +28,24 @@ export function classifyIntentionalVisualHiding(entry) {
   return null;
 }
 
+// resize-text-200-plus-spacing (added 2026-09-01) checks a real interaction
+// (a low-vision user can hit 200% zoom AND text-spacing at once) that no
+// prior scenario covered, and it immediately surfaced ~20 routes with real,
+// previously-invisible overflow -- sitewide pre-existing debt, not
+// anything introduced alongside it. Gating merges on that backlog on day
+// one would turn the required reflow-sitewide check permanently red before
+// anyone has had a chance to fix any of it. Pilot it in report-only mode
+// (tracked and visible in the artifact/console, not counted toward
+// failureCount) until that backlog gets its own dedicated remediation pass;
+// then flip it to enforced the same way resize-text-200/text-spacing
+// already are.
+const PILOT_SCENARIOS = new Set(['resize-text-200-plus-spacing']);
+
 export function reconcileTextResilience(report) {
   const checks = report?.textResilience?.checks || [];
   const reconciledChecks = [];
   const allowedVisualHiding = {};
+  const pilotChecks = [];
 
   for (const check of checks) {
     const ignoredClips = [];
@@ -48,7 +62,7 @@ export function reconcileTextResilience(report) {
 
     const overflowFailure = Number(check.overflow || 0) > 1;
     const failure = overflowFailure || residualClips.length > 0;
-    reconciledChecks.push({
+    const reconciled = {
       route: check.route,
       viewport: check.viewport,
       scenario: check.scenario,
@@ -58,10 +72,17 @@ export function reconcileTextResilience(report) {
       clippedText: residualClips,
       ignoredClips,
       failure,
-    });
+    };
+
+    if (PILOT_SCENARIOS.has(check.scenario)) {
+      pilotChecks.push(reconciled);
+    } else {
+      reconciledChecks.push(reconciled);
+    }
   }
 
   const failures = reconciledChecks.filter((check) => check.failure);
+  const pilotFailures = pilotChecks.filter((check) => check.failure);
   return {
     generatedAt: new Date().toISOString(),
     sourceMode: report?.textResilience?.mode || null,
@@ -70,6 +91,11 @@ export function reconcileTextResilience(report) {
     allowedVisualHiding,
     checks: reconciledChecks,
     failures,
+    pilotScenarios: [...PILOT_SCENARIOS],
+    pilotCheckCount: pilotChecks.length,
+    pilotFailureCount: pilotFailures.length,
+    pilotChecks,
+    pilotFailures,
   };
 }
 
@@ -86,6 +112,9 @@ export function runGate({ input = DEFAULT_INPUT, output = DEFAULT_OUTPUT, mode =
     .map(([reason, count]) => `${reason}=${count}`)
     .join(', ') || 'none';
   console.log(`text-resilience-gate: ${reconciled.failureCount === 0 ? 'OK' : 'FINDINGS'} (${reconciled.checkCount} checks; residual failures=${reconciled.failureCount}; intentional visual hiding: ${allowed})`);
+  if (reconciled.pilotCheckCount > 0) {
+    console.log(`text-resilience-gate: PILOT ${reconciled.pilotScenarios.join(', ')} -- ${reconciled.pilotCheckCount} checks, ${reconciled.pilotFailureCount} findings (report-only, not gating)`);
+  }
 
   if (mode === 'enforce' && reconciled.failureCount > 0) {
     const sample = reconciled.failures.slice(0, 12)

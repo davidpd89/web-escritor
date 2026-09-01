@@ -2,6 +2,50 @@
 .assistant-shell{max-width:980px;margin-inline:auto;--assistant-blue:#1d4f96;--assistant-blue-deep:#0d2c57;--assistant-gold:#b8860b;--assistant-pale:#eefaff}
 .assistant-shell .tool-hero{max-width:780px;margin:0 auto 2.25rem;text-align:left}
 .assistant-shell .tool-hero h1{max-width:none}
+/* Bring the same cursive-eyebrow + blue-heading brand treatment used
+   sitewide (Home's kickers, Manecillas/Samuel/Noveris H1s) to this page's
+   own hero (author: "la página del asistente expandida... no está
+   homogeneizada con el diseño") -- scoped to .assistant-shell only, so
+   other pages sharing the generic .tool-hero/.eyebrow classes are
+   untouched. Uses the page's own --assistant-blue/--assistant-gold, which
+   are already the sitewide brand blue/gold, not new colors.
+   html.v1 prefix is required, not decorative: v1-site-cohesion-v6.css's
+   "html.v1:not([data-lrb-home='true']) .eyebrow{color:...}" has specificity
+   (0,3,1) against this file's un-prefixed (0,3,0), so without the prefix
+   here the eyebrow's color silently lost to that rule's blue ink while
+   every other property on this same rule (font, size, margin) applied
+   fine -- confirmed live before adding this. */
+html.v1 .assistant-shell .tool-hero .eyebrow{
+  position:relative;
+  display:inline-block;
+  width:fit-content;
+  margin:0 0 .3rem;
+  font-family:'Yellowtail',var(--font-ui),cursive;
+  /* Floor is 1.5rem/24px, not smaller: WCAG 1.4.3's relaxed 3:1 contrast
+     minimum for "large text" only applies at >=24px regular weight, and
+     #b8860b measures 3.25:1 -- below that floor it would need the full
+     4.5:1 it can't clear. Same floor already used for this exact pattern
+     on Home (.yale-home-issue__kicker). */
+  font-size:clamp(1.5rem,2.2vw,1.6rem);
+  font-weight:400;
+  letter-spacing:0;
+  text-transform:none;
+  color:var(--assistant-gold);
+}
+html.v1 .assistant-shell .tool-hero .eyebrow::before{
+  content:"";
+  position:absolute;
+  left:-3%;
+  right:-3%;
+  bottom:.06em;
+  height:.55em;
+  background:url(/assets/highlight-8-blue-rect.png) center/100% 100% no-repeat;
+  opacity:.8;
+  pointer-events:none;
+}
+html.v1 .assistant-shell .tool-hero h1{
+  color:var(--assistant-blue);
+}
 .assistant-shell:not(.assistant-shell--ready) .tool-hero__lead{visibility:hidden}
 .assistant-shell .assistant-panel{visibility:hidden}
 .assistant-shell>.v1-section[aria-labelledby="limites-title"]{display:none}
