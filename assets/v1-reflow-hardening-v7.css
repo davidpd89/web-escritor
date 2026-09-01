@@ -115,6 +115,104 @@ html.v1[data-lrb-home="true"] .yale-text-link{flex-wrap:wrap}
 html.v1 [data-family="findability"] .directory-group__label{flex-wrap:wrap}
 html.v1 [data-family="findability"] .directory-group__label span{min-width:0;overflow-wrap:anywhere}
 
+/* F.2 — Resize Text 200% exposes min-content floors that normal reflow and
+   page zoom do not. These rules keep the existing component semantics and
+   merely allow their own tracks/controls to shrink inside the available
+   inline size. No overflow is hidden. */
+@media (max-width:639px){
+  /* Shared newsletter and compact forms: several input rules elsewhere use
+     intrinsic/fixed widths. At 200% root text those widths can outgrow the
+     now narrower content column. Form controls are fluid by contract. */
+  html.v1 :is(.editorial-newsletter__form,.book-newsletter__form,.form__grid,.tool-workspace form,.record-row){
+    min-width:0;
+    max-width:100%;
+  }
+  html.v1 :is(.editorial-newsletter__form,.book-newsletter__form,.form__grid,.tool-workspace form,.record-row) :is(input,textarea,select){
+    min-width:0;
+    width:100%;
+    max-width:100%;
+    box-sizing:border-box;
+  }
+
+  /* Shared mastheads/headers must let text-bearing children shrink instead
+     of retaining a min-content width larger than the viewport. */
+  html.v1 :is(.v1-masthead,.cuaderno-masthead,.article-header,.masthead-main)>*{
+    min-width:0;
+    max-width:100%;
+  }
+  html.v1 :is(.v1-masthead,.cuaderno-masthead,.article-header,.masthead-main) :is(h1,p,.eyebrow,.v1-masthead__lead,.article-deck){
+    min-width:0;
+    max-width:100%;
+    overflow-wrap:anywhere;
+  }
+
+  /* Text actions are flex controls with a trailing glyph. Let the label/glyph
+     wrap instead of preserving a min-content row that protrudes at 200%. */
+  html.v1 .text-action{
+    min-width:0;
+    max-width:100%;
+    flex-wrap:wrap;
+    white-space:normal;
+    overflow-wrap:anywhere;
+  }
+
+  /* Editorial continuation rows and recommendation navigation are ordinary
+     one-dimensional links; their labels may wrap without changing meaning. */
+  html.v1 :is(.article-end__body,.article-related,.recommendations-index,.recommendations-method,.recommendations-method__copy){
+    min-width:0;
+    max-width:100%;
+  }
+  html.v1 :is(.article-related a,.recommendations-index li,.recommendations-index a,.recommendations-method__copy p){
+    min-width:0;
+    max-width:100%;
+    overflow-wrap:anywhere;
+  }
+
+  /* Data/agenda/press grids: remove auto/min-content track floors on phones.
+     They remain grids where their owner defines grid display, but collapse to
+     one fluid track under the same breakpoint used by the site shell. */
+  html.v1 :is(.event-year,.event-list,.event-entry,.fair-record,.fair-record__body,.fair-ledger,.trust-strip,.trust-item,
+              .tool-grid,.tool-two-col,.tool-workspace,.jsonld-fields,.quiz-options,.record-rows,.record-row){
+    min-width:0;
+    max-width:100%;
+  }
+  html.v1 :is(.event-entry,.fair-ledger>div,.trust-strip,.tool-grid,.tool-two-col,.tool-workspace,.jsonld-fields,.quiz-options,.record-row){
+    grid-template-columns:minmax(0,1fr);
+  }
+  html.v1 :is(.event-entry,.fair-ledger>div,.trust-item,.tool-field,.tool-check,.quiz-options>li,.quiz-option,.record-row)>*{
+    min-width:0;
+    max-width:100%;
+    overflow-wrap:anywhere;
+  }
+
+  /* Tool and quiz controls are authored as full-row choices. Keep them full
+     row while allowing their internal label text to wrap. */
+  html.v1 :is(.quiz-option,button.quiz-option,.tool-check){
+    min-width:0;
+    width:100%;
+    max-width:100%;
+    white-space:normal;
+  }
+  html.v1 .tool-check span{min-width:0;max-width:100%;overflow-wrap:anywhere}
+
+  /* A table may scroll inside its explicit .article-table-wrap, but it must
+     not enlarge the page itself. At narrow widths the editorial owner already
+     converts wrapped tables to block rows; make every resulting box fluid. */
+  html.v1 .article-table-wrap,
+  html.v1 .article-table-wrap :is(table,thead,tbody,tr,th,td){
+    max-width:100%;
+    min-width:0;
+  }
+
+  /* Home feature stacks use reverse/offset composition at normal sizes. Text
+     resizing is a readability mode, so the cards must stay within the fluid
+     stack instead of preserving decorative lateral offsets. */
+  html.v1[data-lrb-home="true"] :is(.yale-feature__grid,.yale-feature__stack,.yale-feature-card){
+    min-width:0;
+    max-width:100%;
+  }
+}
+
 /* Samuel: at <=1100px the feature reflows to one column. The horizontal
    card rules live in the first child while the old vertical rail lived on
    the later book child, so the same seam that is joined on desktop opened

@@ -24,6 +24,9 @@ jobs:
       - name: Install CI/QA dependencies (Node)
         run: npm ci
 
+      - name: F.2 report classifier unit tests
+        run: node qa/text-resilience-report-gate.test.mjs
+
       - name: Target-size geometry unit tests (F.1)
         run: node --test qa/target-size-audit.test.mjs
 
@@ -54,12 +57,18 @@ jobs:
           cat /tmp/reflow-server.log
           exit 1
 
-      - name: Run sitewide reflow gate + target-size gate
+      - name: Run sitewide reflow gate + target-size gate + F.2 collector
         env:
           QA_ORIGIN: http://127.0.0.1:4173
           QA_OUT: artifacts/sitewide-reflow
           TARGET_SIZE_MODE: enforce
+          TEXT_RESILIENCE_MODE: report
         run: node qa/sitewide-reflow-browser.mjs
+
+      - name: Enforce F.2 text-resilience findings
+        env:
+          TEXT_RESILIENCE_GATE_MODE: enforce
+        run: node qa/text-resilience-report-gate.mjs
 
       - name: Books index visual-system QA
         env:

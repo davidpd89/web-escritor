@@ -54,5 +54,5 @@ html.v1 .quiz-subscribe-ok{font-family:var(--font-reading);font-size:1.05rem}
 html.v1 .form-consent{display:grid;grid-template-columns:auto minmax(0,1fr);align-items:start;gap:.65rem;margin:.35rem 0 0;font-size:.82rem;font-weight:400;line-height:1.5;color:var(--color-muted)}
 html.v1 .form-consent input{width:18px;min-height:18px;height:18px;margin:.15rem 0 0;padding:0;accent-color:var(--color-text)}
 html.v1 .form-consent a,html.v1 .form-help a{text-decoration:underline;text-underline-offset:.15em}
-@media (max-width:767px){html.v1 .form-row{grid-template-columns:1fr}html.v1 .form-submit{width:100%}}
+@media (max-width:767px){html.v1 .form-row{grid-template-columns:minmax(0,1fr)}html.v1 .form-submit{width:100%}}
 @media (prefers-reduced-motion:reduce){html.v1 *,html.v1 *::before,html.v1 *::after{scroll-behavior:auto!important;animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important}}

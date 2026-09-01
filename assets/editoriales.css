@@ -322,7 +322,7 @@ html.v1[data-editorial-context="herramientas"]:has(main#contenido[data-editorial
 
 @media(max-width:900px){
   html.v1[data-editorial-context="herramientas"]:has(main#contenido[data-editoriales-directory]) .tool-hero{
-    grid-template-columns:1fr;row-gap:1.25rem;padding-bottom:clamp(3.1rem,5vw,4.2rem)
+    grid-template-columns:minmax(0,1fr);row-gap:1.25rem;padding-bottom:clamp(3.1rem,5vw,4.2rem)
   }
   html.v1[data-editorial-context="herramientas"]:has(main#contenido[data-editoriales-directory]) .tool-hero .eyebrow,
   html.v1[data-editorial-context="herramientas"]:has(main#contenido[data-editoriales-directory]) .tool-hero h1,

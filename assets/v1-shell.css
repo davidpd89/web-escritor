@@ -8,6 +8,7 @@
 @import url('/assets/v1-banner-art-direction-v5.css');
 @import url('/assets/v1-site-cohesion-v6.css');
 @import url('/assets/v1-reflow-hardening-v7.css');
+@import url('/assets/v1-text-resilience-v8.css');
 
 /* Samuel uses Yellowtail for long editorial labels and action copy. The
    shared UI fallback is metric-adjusted for Manrope (128.11%), which makes
