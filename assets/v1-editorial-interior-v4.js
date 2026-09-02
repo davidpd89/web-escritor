@@ -299,45 +299,12 @@
     });
   }
 
-  function auditBannerAsset(banner) {
-    if (!(banner instanceof HTMLElement)) return;
-    if (!banner.querySelector('.feature-banner__placeholder')) {
-      const key = banner.dataset.bannerKey || 'editorial';
-      const labels = {
-        manecillas: 'Banner pendiente · Las manecillas del recuerdo',
-        samuel: 'Banner pendiente · Samuel entre mundos',
-        memoria: 'Banner pendiente · La memoria de las tierras del norte',
-        tools: 'Banner pendiente · Herramientas para escritores'
-      };
-      const placeholder = document.createElement('span');
-      placeholder.className = 'feature-banner__placeholder';
-      placeholder.setAttribute('aria-hidden', 'true');
-      placeholder.textContent = `${labels[key] || 'Banner pendiente'} · 2400 × 900 px · foco central`;
-      banner.prepend(placeholder);
-    }
-
-    const image = banner.querySelector('.feature-banner__image');
-    if (!image) {
-      banner.classList.add('feature-banner--placeholder-only');
-      return;
-    }
-    const path = new URL(image.currentSrc || image.src, location.origin).pathname;
-    const isFinalBanner = path.startsWith('/assets/banners/') || path === '/assets/david-porto-memoria-sinfondo.webp';
-    banner.classList.toggle('feature-banner--placeholder-only', !isFinalBanner);
-    banner.classList.toggle('feature-banner--final-asset', isFinalBanner);
-  }
-
   function prepareMediaSlots() {
-    document.querySelectorAll('.feature-banner').forEach(auditBannerAsset);
     if (root.dataset.lrbHome !== 'true') return;
     const observer = new MutationObserver((mutations) => {
       for (const mutation of mutations) {
-        const ownerBanner = mutation.target instanceof Element ? mutation.target.closest?.('.feature-banner') : null;
-        if (ownerBanner) auditBannerAsset(ownerBanner);
         for (const node of mutation.addedNodes) {
           if (!(node instanceof Element)) continue;
-          if (node.matches?.('.feature-banner')) auditBannerAsset(node);
-          node.querySelectorAll?.('.feature-banner').forEach(auditBannerAsset);
           normalizeMemoriaLinks(node);
         }
       }
