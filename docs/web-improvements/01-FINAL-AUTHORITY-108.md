@@ -211,12 +211,28 @@ Estados: `IMPLEMENT_NOW`, `IMPLEMENT_AFTER_CURRENT_DEBT`, `ALREADY_COVERED`, `PA
 ## Reconciliaciones críticas de la auditoría final
 
 - **E.7 = `PARTIAL_AUDIT`:** la antigua inferencia `NOT_APPLICABLE` por Cloudflare DNS-only era insuficiente. DNS-only demuestra que Cloudflare no proxifica; no demuestra el `Content-Encoding` del origen. Observarlo live antes de actuar.
-- **E.8 / I.2 / Q.3:** existieron como entregables dentro de #135, pero #135 no se fusionó. `IMPLEMENTED_IN_PR(#135)=true` y `MERGED_MAIN=false`. Recuperar los contratos históricos, no rediseñarlos ni marcarlos como live.
+- **E.8 / I.2 / Q.3 (histórico, ver adenda 2026-09-02 más abajo):** existieron como entregables dentro de #135, pero #135 no se fusionó. `IMPLEMENTED_IN_PR(#135)=true` y `MERGED_MAIN=false` en su momento. Recuperar los contratos históricos, no rediseñarlos ni marcarlos como live.
 - **B.9:** Noveris ya cumple sustancialmente el trigger del glosario; no crear un `/glosario/` paralelo.
 - **C.7:** Noveris ya tiene mapa funcional y explicación textual; no duplicarlo.
 - **J.3:** el tooling `.ics` ya existe; reutilizarlo cuando haya un evento real.
 - **J.6:** la infraestructura beta existe, pero código/configuración/E2E son estados distintos.
 - **Q.4:** a 2026-08-29 el lanzamiento de Manecillas del 2026-09-03 aún es futuro; la plantilla reusable se extrae después del postmortem real.
+
+## Adenda de reconciliación — 2026-09-02
+
+`main` en esa fecha: `6b78a5c87f6b1765e1426bda2f2a90a61bc15be5` (post-#319).
+Verificación mecánica: se consultó el estado real (MERGED/CLOSED/OPEN) de las 108 PR arqueológicas vía GitHub GraphQL, y se contrastó cada una de las 20 ideas con `decisionStatus` `IMPLEMENT_NOW`/`IMPLEMENT_AFTER_CURRENT_DEBT` contra su historial real de commits en `main` (no solo si su PR arqueológica se fusionó). Detalle completo y razonado por idea en `data/web-improvement-individual-prs-2026-08-29.json` → `practicalOverrides`; resumen aquí:
+
+**Confirmado como realmente entregado en `main` (la nota de 2026-08-29 estaba desactualizada):**
+- **E.8** — `third-party-integrations.json` + script + test + CI (`third-party-integrations-qa`) existen y el check pasa. Entregado directamente por su propia PR arqueológica, #206.
+- **Q.3** — `data/experiments.json` existe. Entregado por una PR de implementación separada, #298 (la arqueológica #262 quedó `CLOSED` sin mergear — exactamente el patrón previsto por el protocolo: arqueológica para la decisión, PR aparte para el código).
+- **G.1** (no listado en la adenda de 2026-08-29): su propia PR arqueológica #213 quedó `CLOSED`, pero una cadena de PRs de implementación posteriores, culminando en #305, sí entregó routing conversacional de recomendaciones con benchmark propio en CI (`qa/assistant-recommendation-benchmark.mjs`). Añadido a `practicalOverrides` para que no se reabra como pendiente.
+
+**Confirmado que sigue `REAL_PENDING` (la etiqueta `IMPLEMENT_NOW`/`IMPLEMENT_AFTER_CURRENT_DEBT` no debe leerse como "ya hecho"):**
+- **I.2** — su PR (#225) y todo su historial en `main` son solo `docs(I.2)`; no hay inventario de consentimiento/analytics verificable en código. A diferencia de E.8/Q.3, no se encontró ningún commit `feat(I.2)` posterior.
+- **C.3, C.10, D.11, I.4, I.5, M.3** — mismo patrón: solo commits `docs(X.Y)` de revalidación/reconstrucción en `main`, cero código. Dos de ellas tienen además un motivo explícito para seguir así, no solo pendencia: **C.10** exige 5-8 apariciones de prensa externas reales antes de construir el archivo (no fabricar contenido para rellenarlo); **I.4** debe seguir siendo revisión manual de la correlación contenido-newsletter, no tracking automatizado invasivo.
+
+**No verificado en esta pasada** (quedan con su `decisionStatus` de 2026-08-29 sin cambios, ni confirmados ni objetados): las 88 ideas restantes (`CONDITIONAL`, `DEFER`, `REJECT`, `ALREADY_COVERED`, `EXTERNAL_OPERATION`, `PARTIAL_AUDIT` no mencionadas arriba). Volver a verificar cada una contra `main` actual, con la misma metodología (estado real de PR + búsqueda de commits `feat(ID)`/`fix(ID)` posteriores a la arqueológica), es trabajo real pendiente, no completado aquí por límite de tiempo de esta sesión — no se ha marcado ninguna de las 88 como `IMPLEMENTED_MAIN` sin esa verificación.
 
 ## Guardrails que no deben regresar
 

@@ -58,7 +58,8 @@ html.v1 .authority-note{border-left-color:#1d4f96}
   html.v1 .authority-section__head{grid-template-columns:2.5rem minmax(0,1fr);gap:var(--space-4)}
   html.v1 .authority-files{grid-template-columns:1fr}
   html.v1 .authority-ledger>div{grid-template-columns:1fr;gap:var(--space-2)}
-  html.v1 .authority-records article{grid-template-columns:1fr}
+  html.v1 .authority-records article{grid-template-columns:1fr;min-width:0;max-width:100%}
+  html.v1 .authority-records article>*{min-width:0;max-width:100%}
   html.v1 .authority-records__result{grid-row:auto}
   html.v1 .authority-footer__inner{align-items:flex-start;flex-direction:column}
   html.v1 .authority-footer nav{width:100%}

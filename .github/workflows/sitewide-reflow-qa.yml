@@ -57,12 +57,13 @@ jobs:
           cat /tmp/reflow-server.log
           exit 1
 
-      - name: Run sitewide reflow gate + target-size gate + F.2 collector
+      - name: Run sitewide reflow gate + target-size gate + F.2 collector + F.4 focus-not-obscured gate
         env:
           QA_ORIGIN: http://127.0.0.1:4173
           QA_OUT: artifacts/sitewide-reflow
           TARGET_SIZE_MODE: enforce
           TEXT_RESILIENCE_MODE: report
+          FOCUS_OBSCURED_MODE: enforce
         run: node qa/sitewide-reflow-browser.mjs
 
       - name: Enforce F.2 text-resilience findings

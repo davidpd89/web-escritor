@@ -12,7 +12,7 @@ html.v1 .editorial-card__head>*{min-width:0}
 html.v1 .editorial-card__head h2{margin-block-start:0}
 html.v1 .editorial-badges,html.v1 .editorial-genres{display:flex;flex-wrap:wrap;gap:.4rem;margin:0}
 html.v1 .editorial-genres--spaced{margin:1rem 0 0}
-html.v1 .editorial-badge,html.v1 .editorial-genre{display:inline-flex;align-items:center;min-height:2rem;padding:.25rem .6rem;border:1px solid var(--color-border);border-radius:0;font:600 .72rem/1.4 var(--font-ui);letter-spacing:.02em;color:var(--color-muted)}
+html.v1 .editorial-badge,html.v1 .editorial-genre{display:inline-flex;align-items:center;min-width:0;max-width:100%;min-height:2rem;padding:.25rem .6rem;border:1px solid var(--color-border);border-radius:0;font:600 .72rem/1.4 var(--font-ui);letter-spacing:.02em;color:var(--color-muted);overflow-wrap:anywhere}
 html.v1 .editorial-badge--open{border-color:var(--dp-petrol);color:var(--dp-petrol-ink)}
 /* De-emphasise the closed state through the border, not opacity: opacity
    blended the label into the page (3.24:1, under the 4.5:1 AA minimum for
@@ -130,13 +130,13 @@ html.v1[data-editorial-context="herramientas"]:has(main#contenido[data-family="t
 
 @media(max-width:900px){
   html.v1[data-editorial-context="herramientas"]:has(main#contenido[data-family="tool"] .tool-findings-block > .spec-ledger) .tool-findings-block{
-    grid-template-columns:1fr;row-gap:1rem;padding-block:3.7rem
+    grid-template-columns:1fr;row-gap:1rem;padding-block:3.7rem;min-width:0;max-width:100%
   }
   html.v1[data-editorial-context="herramientas"]:has(main#contenido[data-family="tool"] .tool-findings-block > .spec-ledger) .tool-findings-block>h2{
-    grid-column:1;grid-row:auto;max-width:18ch
+    grid-column:1;grid-row:auto;max-width:18ch;min-width:0;overflow-wrap:anywhere
   }
   html.v1[data-editorial-context="herramientas"]:has(main#contenido[data-family="tool"] .tool-findings-block > .spec-ledger) .tool-findings-block>p,
-  html.v1[data-editorial-context="herramientas"]:has(main#contenido[data-family="tool"] .tool-findings-block > .spec-ledger) .spec-ledger{grid-column:1}
+  html.v1[data-editorial-context="herramientas"]:has(main#contenido[data-family="tool"] .tool-findings-block > .spec-ledger) .spec-ledger{grid-column:1;min-width:0;max-width:100%}
 }
 
 @media(max-width:767px){

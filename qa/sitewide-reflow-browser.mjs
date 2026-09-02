@@ -4,6 +4,7 @@ import { execFileSync } from 'node:child_process';
 import path from 'node:path';
 import { chromium } from 'playwright';
 import { auditTargetSizes } from './target-size-audit.mjs';
+import { auditFocusNotObscured } from './focus-not-obscured-audit.mjs';
 
 const ORIGIN = process.env.QA_ORIGIN || 'http://127.0.0.1:4173';
 const ROOT = process.cwd();
@@ -17,6 +18,16 @@ if (!['off', 'report', 'enforce'].includes(TEXT_RESILIENCE_MODE)) {
 }
 if (!['report', 'enforce'].includes(TARGET_SIZE_MODE)) {
   throw new Error(`TARGET_SIZE_MODE must be report or enforce, got ${TARGET_SIZE_MODE}`);
+}
+// F.4 (WCAG 2.4.11 Focus Not Obscured, AA): per
+// docs/web-improvement-ideas/F04-PRODUCTION-REVALIDATION-2026-08-30.md, this
+// reuses this same harness's browser/routing instead of a new crawler, and
+// deliberately runs a small curated set of representative journeys (defined
+// below as FOCUS_JOURNEYS) rather than tabbing through every focusable node
+// on every route.
+const FOCUS_OBSCURED_MODE = (process.env.FOCUS_OBSCURED_MODE || 'report').toLowerCase();
+if (!['report', 'enforce'].includes(FOCUS_OBSCURED_MODE)) {
+  throw new Error(`FOCUS_OBSCURED_MODE must be report or enforce, got ${FOCUS_OBSCURED_MODE}`);
 }
 
 const VIEWPORTS = [
@@ -498,6 +509,86 @@ if (TEXT_RESILIENCE_MODE !== 'off') {
   }
 }
 
+// F.4: curated Focus Not Obscured journeys. Each covers a distinct
+// author-created UI risk the W3C understanding doc calls out (sticky
+// header, sticky/rail navigation, a native <dialog> modal, an ordinary
+// form) plus the two viewports where sticky UI most often eats the most
+// vertical space (mobile) vs. width (desktop).
+const FOCUS_VIEWPORTS = [
+  { width: 390, height: 844 },
+  { width: 1280, height: 900 },
+];
+// Home's own intro overlay (video + "Entrar") covers the whole page and
+// makes the header/main/footer inert until dismissed -- same pattern other
+// qa/*.mjs scripts already use (see qa/home-map-interaction.mjs). Any Home
+// journey needs this or it only ever audits the intro overlay's own
+// controls, never the real shell underneath.
+async function dismissHomeIntro(page) {
+  const introEnter = page.locator('[data-intro-enter]').first();
+  if ((await introEnter.count()) > 0 && (await introEnter.isVisible())) {
+    await introEnter.click();
+    await page.waitForTimeout(900);
+  }
+}
+const FOCUS_JOURNEYS = [
+  { name: 'home-shell', route: '/', setup: dismissHomeIntro },
+  { name: 'cuaderno-article-toc', route: '/cuaderno/que-es-el-portal-fantasy/' },
+  { name: 'herramientas-tool-form', route: '/herramientas/contador-palabras/' },
+  { name: 'asistente-widget', route: '/asistente/' },
+  {
+    // Not Home: html.v1[data-lrb-home="true"]:not(.lrb-compact)
+    // .explore-trigger{display:none} deliberately hides this trigger on a
+    // fresh, unscrolled desktop Home (the full masthead nav covers that
+    // case there instead) -- every other page shows it unconditionally.
+    name: 'explorar-modal',
+    route: '/cuaderno/que-es-el-portal-fantasy/',
+    async setup(page) {
+      await page.locator('[data-explore-open]').first().click();
+      await page.locator('[data-explore-dialog]').waitFor({ state: 'visible', timeout: 5000 });
+    },
+  },
+];
+const focusChecks = [];
+const focusFailures = [];
+for (const journey of FOCUS_JOURNEYS) {
+  for (const vp of FOCUS_VIEWPORTS) {
+    const context = await browser.newContext({
+      viewport: { width: vp.width, height: vp.height },
+      reducedMotion: 'reduce',
+    });
+    const page = await context.newPage();
+    const key = `${journey.name}@${vp.width}x${vp.height}`;
+    try {
+      const response = await page.goto(`${ORIGIN}${journey.route}`, { waitUntil: 'networkidle' });
+      assert.ok(response?.ok(), `${key}: ${journey.route} failed to load`);
+      await settle(page);
+      if (journey.setup) await journey.setup(page);
+      const result = await auditFocusNotObscured(page);
+      const check = { journey: journey.name, route: journey.route, viewport: `${vp.width}x${vp.height}`, ...result };
+      focusChecks.push(check);
+      for (const failure of result.failures) {
+        focusFailures.push({ journey: journey.name, route: journey.route, viewport: `${vp.width}x${vp.height}`, ...failure });
+      }
+    } catch (error) {
+      focusFailures.push({ journey: journey.name, route: journey.route, viewport: `${vp.width}x${vp.height}`, error: error.message });
+    } finally {
+      await context.close();
+    }
+  }
+}
+const focusReport = {
+  origin: ORIGIN,
+  mode: FOCUS_OBSCURED_MODE,
+  journeyCount: FOCUS_JOURNEYS.length,
+  viewportCount: FOCUS_VIEWPORTS.length,
+  checkCount: focusChecks.length,
+  targetCount: focusChecks.reduce((sum, item) => sum + (item.total || 0), 0),
+  failureCount: focusFailures.length,
+  checks: focusChecks,
+  failures: focusFailures,
+};
+fs.writeFileSync(path.join(OUT_DIR, 'sitewide-focus-not-obscured-report.json'), `${JSON.stringify(focusReport, null, 2)}\n`, 'utf8');
+
 await browser.close();
 
 const reflowReport = {
@@ -568,6 +659,15 @@ if (TEXT_RESILIENCE_MODE === 'enforce' && textResilienceFailures.length) {
   errorSections.push(`sitewide text-resilience failures (${textResilienceFailures.length})\n${failureLines(textResilienceFailures).join('\n')}`);
 }
 
+if (FOCUS_OBSCURED_MODE === 'enforce' && focusFailures.length) {
+  const lines = focusFailures.slice(0, 40).map((item) => {
+    if (item.error) return `${item.journey} ${item.viewport} [${item.route}]: ${item.error}`;
+    return `${item.journey} ${item.viewport} [${item.route}]: ${item.selector} reason=${item.reason}` +
+      (item.blocker ? ` blocker=${item.blocker}` : '');
+  });
+  errorSections.push(`focus-not-obscured failures (${focusFailures.length})\n${lines.join('\n')}`);
+}
+
 if (errorSections.length) {
   throw new Error(errorSections.join('\n\n'));
 }
@@ -575,5 +675,6 @@ if (errorSections.length) {
 console.log(
   `sitewide-reflow-browser: OK (${routes.length} routes, ${reflowChecks.length} reflow checks; ` +
   `target-size ${TARGET_SIZE_MODE}: ${targetChecks.length} state checks, ${targetFailures.length} findings; ` +
-  `text-resilience ${TEXT_RESILIENCE_MODE}: ${textResilienceChecks.length} checks, ${textResilienceFailures.length} findings)`
+  `text-resilience ${TEXT_RESILIENCE_MODE}: ${textResilienceChecks.length} checks, ${textResilienceFailures.length} findings; ` +
+  `focus-not-obscured ${FOCUS_OBSCURED_MODE}: ${focusChecks.length} journey checks, ${focusFailures.length} findings)`
 );

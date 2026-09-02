@@ -46,3 +46,12 @@ No hace falta una tarea cron de código para cumplirlo: es gobernanza sobre un o
 ## Cierre
 
 I.5 sigue siendo válida, pero su implementación correcta es una revisión periódica sobre E.8, no otro sistema. El drift de privacidad/formulario es precisamente el tipo de incoherencia que esta revisión debe detectar y resolver en el owner adecuado.
+
+## Actualización — 2026-09-02
+
+Dos afirmaciones de este documento (líneas 12 y 15 arriba) ya no describen el estado real y quedan corregidas aquí en vez de reescribirse en su sitio original:
+
+- **Línea 12** ("`main` todavía no contiene el registro de terceros"): ya no es cierto. `data/third-party-integrations.json`, su script, su test y el workflow `third-party-integrations-qa` existen en `main` y el check pasa en CI (ver la adenda 2026-09-02 en `docs/web-improvements/01-FINAL-AUTHORITY-108.md`).
+- **Línea 15** ("el drift de la casilla... sigue pendiente; no debe darse por corregido"): resuelto. El autor decidió eliminar la casilla de consentimiento en **todos** los formularios de newsletter del sitio (no solo Home, que ya no la tenía) — email + enviar, sin excepción — en vez de añadirla de vuelta. `privacidad.html` se corrigió para describir ese mecanismo real. Implementado y en `main` vía PR #319.
+
+I.5 como "revisión periódica sobre E.8" sigue sin tener un proceso/cadencia real implementado (código o checklist recurrente) más allá de este documento — eso sigue siendo `REAL_PENDING`, ahora que el owner E.8 que necesitaba para poder empezar ya está listo.
