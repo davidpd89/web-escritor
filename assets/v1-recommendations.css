@@ -2,7 +2,7 @@
 html.v1 [data-family="recomendaciones"]{--rec-rule:var(--color-border);--rec-blue:#1d4f96;--rec-blue-deep:#0d2c57;--rec-gold:#b8860b}
 
 html.v1 .recommendations-hero{max-width:72rem;padding:clamp(3rem,7vw,7rem) 0 clamp(2.5rem,5vw,5rem);border-bottom:1px solid var(--rec-rule,var(--color-border))}
-html.v1 .recommendations-hero h1{max-width:12ch;margin:.2rem 0 1.15rem;font-size:clamp(3rem,8vw,7rem);line-height:.92;letter-spacing:-.045em;overflow-wrap:anywhere}
+html.v1 .recommendations-hero h1{max-width:12ch;margin:.2rem 0 1.15rem;font-family:var(--font-display);font-weight:400;font-size:clamp(3rem,8vw,7rem);line-height:.92;letter-spacing:-.045em;overflow-wrap:anywhere}
 html.v1 .recommendations-hero__lead{max-width:62ch;margin:0;font-size:clamp(1.05rem,1.6vw,1.25rem);line-height:1.55;text-wrap:pretty}
 
 html.v1 .recommendations-index{list-style:none;margin:1.5rem 0 0;padding:0;border-top:1px solid var(--rec-rule,var(--color-border))}
