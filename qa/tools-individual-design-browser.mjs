@@ -41,7 +41,7 @@ async function checkChrome(route) {
   const response = await page.goto(`${BASE}${route}`, { waitUntil: 'domcontentloaded' });
   assert.ok(response?.ok(), `${route}: debe cargar 200`);
 
-  const hasIdentity = await page.locator('link[href="/assets/v1-tools-identity.css"]').count();
+  const hasIdentity = await page.locator('link[href^="/assets/v1-tools-identity.css"]').count();
   assert.equal(hasIdentity, 1, `${route}: debe cargar la capa de identidad v1-tools-identity.css`);
 
   const h1Color = await page.locator('.tool-hero h1').evaluate(el => getComputedStyle(el).color);
@@ -98,7 +98,7 @@ async function checkIsolation(route) {
   const page = await context.newPage();
   const response = await page.goto(`${BASE}${route}`, { waitUntil: 'domcontentloaded' });
   assert.ok(response?.ok(), `${route}: debe cargar 200`);
-  const hasIdentity = await page.locator('link[href="/assets/v1-tools-identity.css"]').count();
+  const hasIdentity = await page.locator('link[href^="/assets/v1-tools-identity.css"]').count();
   assert.equal(hasIdentity, 0, `${route}: NO debe cargar v1-tools-identity.css (fuera de alcance #280)`);
   await context.close();
 }

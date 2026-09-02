@@ -75,7 +75,7 @@ try {
 
       assert.equal(await page.locator('html').getAttribute('data-editorial-context'), 'cuaderno', `${name}: contexto Cuaderno perdido`);
       assert.equal(await page.locator('link[rel="canonical"]').getAttribute('href'), 'https://davidportodiaz.com/cuaderno/', `${name}: canonical alterado`);
-      assert.equal(await page.locator('link[href="/assets/cuaderno-index.css"]').count(), 1, `${name}: capa visual exclusiva no cargada`);
+      assert.equal(await page.locator('link[href^="/assets/cuaderno-index.css"]').count(), 1, `${name}: capa visual exclusiva no cargada`);
       assert.equal(await page.locator('main#contenido.editorial-page').count(), 1, `${name}: main editorial ausente`);
       assert.equal(await page.locator('h1').count(), 1, `${name}: H1 no único`);
       assert.equal(await page.locator('.section-context [aria-current="page"]').getAttribute('href'), '/cuaderno/', `${name}: contexto no marca Archivo`);

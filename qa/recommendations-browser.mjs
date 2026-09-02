@@ -147,7 +147,7 @@ for (const route of ['/recomendaciones/portal-fantasy-espanol/', '/recomendacion
   const colors = await page.evaluate(() => ({
     h1: getComputedStyle(document.querySelector('.article-header h1')).color,
     eyebrow: getComputedStyle(document.querySelector('.article-header .eyebrow')).color,
-    hasIdentity: !!document.querySelector('link[href="/assets/v1-recommendations.css"]'),
+    hasIdentity: !!document.querySelector('link[href^="/assets/v1-recommendations.css"]'),
   }));
   check(colors.h1 === REC_BLUE, `${route}: h1 should use editorial blue, got ${colors.h1}`);
   check(colors.eyebrow === REC_GOLD, `${route}: eyebrow should use editorial gold, got ${colors.eyebrow}`);
@@ -168,7 +168,7 @@ for (const route of ['/recomendaciones/portal-fantasy-espanol/', '/recomendacion
 for (const outOfScope of ['/cuaderno/', '/herramientas/']) {
   const context = await contextFor({ width: 1440, height: 1000 });
   const { page } = await openChecked(context, outOfScope);
-  const leaked = await page.evaluate(() => !!document.querySelector('link[href="/assets/v1-recommendations.css"]'));
+  const leaked = await page.evaluate(() => !!document.querySelector('link[href^="/assets/v1-recommendations.css"]'));
   check(!leaked, `${outOfScope}: must NOT load v1-recommendations.css`);
   await context.close();
 }

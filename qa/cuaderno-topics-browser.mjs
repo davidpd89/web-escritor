@@ -92,7 +92,7 @@ async function jsonLd(page) {
 async function assertCore(spec, page) {
   assert.equal(await page.locator('h1').count(), 1, `${spec.key}: H1 único`);
   assert.equal(await page.locator('main[data-family="cuaderno-topics"]').count(), 1, `${spec.key}: family root`);
-  assert.equal(await page.locator('link[href="/assets/v1-cuaderno-topics.css"]').count(), 1, `${spec.key}: CSS family`);
+  assert.equal(await page.locator('link[href^="/assets/v1-cuaderno-topics.css"]').count(), 1, `${spec.key}: CSS family`);
   assert.equal(await page.locator('link[href$="/v1-tools.css"]').count(), 0, `${spec.key}: no v1-tools.css`);
 
   const badClasses = await page.locator('[class]').evaluateAll(nodes => [...new Set(nodes.flatMap(node => [...node.classList]).filter(cls => cls.startsWith('tool-') || cls === 'id-card' || cls === 'id-cards'))]);

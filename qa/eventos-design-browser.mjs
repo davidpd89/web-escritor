@@ -89,7 +89,7 @@ try{
       assert.equal(await p.locator('html').getAttribute('data-editorial-context'),'prensa',`${name}: contexto prensa/agenda perdido`);
       assert.equal(await p.locator('main#contenido').getAttribute('data-family'),'identity',`${name}: familia identity alterada`);
       assert.equal(await p.locator('main#contenido').getAttribute('data-page'),'events',`${name}: scope estático events perdido`);
-      assert.equal(await p.locator('link[href="/assets/v1-events.css"]').count(),1,`${name}: owner CSS de Eventos ausente o duplicado`);
+      assert.equal(await p.locator('link[href^="/assets/v1-events.css"]').count(),1,`${name}: owner CSS de Eventos ausente o duplicado`);
       assert.equal(await p.locator('link[rel="canonical"]').getAttribute('href'),'https://davidportodiaz.com/eventos.html',`${name}: canonical alterado`);
       assert.equal(await p.locator('h1').count(),1,`${name}: H1 no único`);
       assert.equal((await p.locator('h1').textContent()).trim(),'Eventos',`${name}: H1 alterado`);
@@ -178,7 +178,7 @@ try{
       const r=await p.goto(ORIGIN+route,{waitUntil:'networkidle'});assert.ok(r?.ok(),`${route}: control de aislamiento no carga`);
       assert.equal(await p.locator('main#contenido').getAttribute('data-family'),'identity',`${route}: familia identity perdida`);
       assert.notEqual(await p.locator('main#contenido').getAttribute('data-page'),'events',`${route}: scope events contamina una página hermana`);
-      assert.equal(await p.locator('link[href="/assets/v1-events.css"]').count(),0,`${route}: owner CSS de Eventos cargado fuera de su página`);
+      assert.equal(await p.locator('link[href^="/assets/v1-events.css"]').count(),0,`${route}: owner CSS de Eventos cargado fuera de su página`);
       await noOverflow(p,`${route} isolation`);
       await p.screenshot({path:path.join(OUT,`isolation-${route.slice(1,-5)}-1440.png`),fullPage:true});
     }catch(error){failures.push({viewport:`isolation-${route}`,width:1440,height:1000,error:error instanceof Error?error.message:String(error)});}finally{await c.close();}

@@ -94,7 +94,7 @@ try {
       assert.equal(await page.locator('html').getAttribute('data-editorial-context'), 'herramientas', `${name}: contexto Herramientas perdido`);
       assert.equal(await page.locator('main#contenido').getAttribute('data-family'), 'tools-hub', `${name}: familia tools-hub perdida`);
       assert.equal(await page.locator('link[rel="canonical"]').getAttribute('href'), 'https://davidportodiaz.com/herramientas/', `${name}: canonical alterado`);
-      assert.equal(await page.locator('link[href="/assets/herramientas-index.css"]').count(), 1, `${name}: capa visual exclusiva no cargada`);
+      assert.equal(await page.locator('link[href^="/assets/herramientas-index.css"]').count(), 1, `${name}: capa visual exclusiva no cargada`);
       assert.equal(await page.locator('h1').count(), 1, `${name}: H1 no único`);
       assert.equal(await page.locator('.section-context [aria-current="page"]').getAttribute('href'), '/herramientas/', `${name}: contexto no marca el hub`);
       assert.notEqual((await snapshot(page.locator('.header-search'))).display, 'none', `${name}: Asistente del header no disponible`);
@@ -185,7 +185,7 @@ try {
   try {
     const response = await isolationPage.goto(`${ORIGIN}/herramientas/manuscrito/`, { waitUntil: 'domcontentloaded', timeout: 20000 });
     assert.ok(response?.ok(), 'isolation: /herramientas/manuscrito/ no carga');
-    assert.equal(await isolationPage.locator('link[href="/assets/herramientas-index.css"]').count(), 0, 'isolation: hoja del hub contamina una herramienta individual');
+    assert.equal(await isolationPage.locator('link[href^="/assets/herramientas-index.css"]').count(), 0, 'isolation: hoja del hub contamina una herramienta individual');
     const token = await isolationPage.locator('html').evaluate(el => getComputedStyle(el).getPropertyValue('--tools-blue').trim());
     assert.equal(token, '', 'isolation: token del hub filtra a herramientas individuales');
   } catch (error) {

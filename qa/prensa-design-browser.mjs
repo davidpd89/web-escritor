@@ -134,7 +134,7 @@ try{
       assert.equal(await page.locator('html').getAttribute('data-editorial-context'),'prensa',`${name}: contexto prensa perdido`);
       assert.equal(await page.locator('main#contenido').getAttribute('data-family'),'identity',`${name}: familia identity alterada`);
       assert.equal(await page.locator('main#contenido').getAttribute('data-page'),'press',`${name}: owner local de Prensa no está activado`);
-      assert.equal(await page.locator('link[rel="stylesheet"][href="/assets/v1-press.css"]').count(),1,`${name}: stylesheet owner v1-press.css ausente o duplicado`);
+      assert.equal(await page.locator('link[rel="stylesheet"][href^="/assets/v1-press.css"]').count(),1,`${name}: stylesheet owner v1-press.css ausente o duplicado`);
       assert.equal(await page.locator('link[rel="canonical"]').getAttribute('href'),'https://davidportodiaz.com/prensa.html',`${name}: canonical alterado`);
       assert.equal(await page.locator('h1').count(),1,`${name}: H1 no único`);
       assert.equal((await page.locator('h1').textContent()).trim(),'Kit de prensa',`${name}: H1 alterado`);
