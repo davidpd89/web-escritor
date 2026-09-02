@@ -38,7 +38,7 @@ async function checkFacts(route) {
   const response = await page.goto(`${BASE}${route.path}`, { waitUntil: 'domcontentloaded' });
   assert.ok(response?.ok(), `${route.path}: debe cargar 200`);
 
-  const hasIdentity = await page.locator('link[href="/assets/v1-editoriales-detail.css"]').count();
+  const hasIdentity = await page.locator('link[href^="/assets/v1-editoriales-detail.css"]').count();
   assert.equal(hasIdentity, 1, `${route.path}: debe cargar v1-editoriales-detail.css`);
 
   const h1 = await page.locator('.tool-hero h1').innerText();
@@ -86,7 +86,7 @@ async function checkIsolation(route) {
   const page = await context.newPage();
   const response = await page.goto(`${BASE}${route}`, { waitUntil: 'domcontentloaded' });
   assert.ok(response?.ok(), `${route}: debe cargar 200`);
-  const hasIdentity = await page.locator('link[href="/assets/v1-editoriales-detail.css"]').count();
+  const hasIdentity = await page.locator('link[href^="/assets/v1-editoriales-detail.css"]').count();
   assert.equal(hasIdentity, 0, `${route}: NO debe cargar v1-editoriales-detail.css (fuera de alcance #281)`);
   await context.close();
 }

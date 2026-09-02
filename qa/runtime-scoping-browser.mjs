@@ -70,8 +70,8 @@ try {
     const requests = [];
     page.on('request', (req) => requests.push(req.url()));
     await page.goto(`${ORIGIN}/cuaderno/`, { waitUntil: 'networkidle' });
-    assert(requests.some((url) => url.endsWith('/assets/newsletter-popup.js')));
-    assert(requests.some((url) => url.endsWith('/assets/newsletter-popup.css')));
+    assert(requests.some((url) => url.includes('/assets/newsletter-popup.js')));
+    assert(requests.some((url) => url.includes('/assets/newsletter-popup.css')));
     assert(!requests.some((url) => url.includes('samuel-buy-modal')));
 
     const originFocus = page.locator('[data-explore-open]');
@@ -156,7 +156,7 @@ try {
     const requests = [];
     page.on('request', (req) => requests.push(req.url()));
     await page.goto(`${ORIGIN}/libros/samuel-entre-mundos/`, { waitUntil: 'networkidle' });
-    assert(requests.some((url) => url.endsWith('/assets/samuel-buy-modal.js')), 'Samuel debe cargar JS modal');
+    assert(requests.some((url) => url.includes('/assets/samuel-buy-modal.js')), 'Samuel debe cargar JS modal');
     assert(requests.some((url) => url.endsWith('/assets/samuel-buy-modal.css')), 'Samuel debe cargar CSS modal');
     assert(!requests.some((url) => url.includes('newsletter-popup')), 'Samuel no debe cargar popup newsletter');
 

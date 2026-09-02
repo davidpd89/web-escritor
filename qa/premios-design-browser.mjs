@@ -123,7 +123,7 @@ try{
       const r=await p.goto(ORIGIN+route,{waitUntil:'networkidle'});assert.ok(r?.ok(),`${route}: control de aislamiento no carga`);
       assert.equal(await p.locator('main#contenido').getAttribute('data-family'),'identity',`${route}: familia identity perdida`);
       assert.notEqual(await p.locator('main#contenido').getAttribute('data-page'),'awards',`${route}: scope awards contamina una página hermana`);
-      assert.equal(await p.locator('link[href="/assets/v1-awards.css"]').count(),0,`${route}: hoja local de Premios cargada fuera de su página`);
+      assert.equal(await p.locator('link[href^="/assets/v1-awards.css"]').count(),0,`${route}: hoja local de Premios cargada fuera de su página`);
       assert.equal(await p.evaluate(()=>getComputedStyle(document.documentElement).getPropertyValue('--awards-blue').trim()),'',`${route}: tokens visuales de Premios contaminan una página hermana`);
       await noOverflow(p,`${route} isolation`);
       await p.screenshot({path:path.join(OUT,`isolation-${route.slice(1,-5)}-1440.png`),fullPage:true});

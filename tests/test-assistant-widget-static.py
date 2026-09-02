@@ -48,7 +48,7 @@ need('content="noindex,nofollow"' in embed, "embed document must never be indexe
 need('data-assistant-log' in embed and 'role="log"' in embed, "embed must expose an actual chat transcript")
 need('assistant-composer' in embed and 'data-assistant-query' in embed and 'data-assistant-submit' in embed, "compact chat composer missing")
 need('data-assistant-turnstile' in embed, "embed must keep the anti-abuse control mount point")
-need('/assets/assistant.js' in embed and '/assets/assistant-embed.js' in embed, "embed must reuse the hardened assistant client")
+need('/assets/assistant.js?v=1' in embed and '/assets/assistant-embed.js?v=1' in embed, "embed must reuse the hardened assistant client")
 need(embed.count('data-assistant-example=') == 3, "embed must expose exactly three contextual starter questions")
 for forbidden in ('asistente remoto', 'respuesta con IA', 'Cloudflare Turnstile', 'repositorio', 'no se guarda una conversación', 'endpoint del propio sitio'):
     need(forbidden.lower() not in embed.lower(), f"embed must not expose internal implementation copy: {forbidden}")

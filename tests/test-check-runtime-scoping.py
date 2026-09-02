@@ -49,8 +49,8 @@ def base_repo(tmp: Path) -> None:
     write(tmp, "assets/newsletter-popup.js", '''(function(){const d=document.createElement("dialog");d.showModal();})();\n''')
     write(tmp, "assets/newsletter-popup.css", "#nl-popup-dialog{}\n")
     write(tmp, "index.html", "<html><body></body></html>")
-    write(tmp, "cuaderno/index.html", '<script src="/script.js"></script><link href="/assets/newsletter-popup.css"><script src="/assets/newsletter-popup.js"></script>')
-    write(tmp, crs.SAMUEL_PAGE, '<main data-family="book-samuel"><button data-buy-modal></button></main><script src="/assets/samuel-buy-modal.js"></script>')
+    write(tmp, "cuaderno/index.html", '<script src="/script.js"></script><link href="/assets/newsletter-popup.css?v=1"><script src="/assets/newsletter-popup.js?v=1"></script>')
+    write(tmp, crs.SAMUEL_PAGE, '<main data-family="book-samuel"><button data-buy-modal></button></main><script src="/assets/samuel-buy-modal.js?v=1"></script>')
 
 
 def all_checks(tmp: Path) -> list[str]:
@@ -71,7 +71,7 @@ def run() -> None:
 
     with tempfile.TemporaryDirectory() as d:
         tmp = Path(d); base_repo(tmp)
-        write(tmp, "otra.html", '<button data-buy-modal></button><script src="/assets/samuel-buy-modal.js"></script>')
+        write(tmp, "otra.html", '<button data-buy-modal></button><script src="/assets/samuel-buy-modal.js?v=1"></script>')
         git_init(tmp)
         check(any("fuera de su única página" in e for e in crs.check_buy_modal_scope(tmp, crs.tracked_html(tmp))), "runtime Samuel fuera de scope se detecta")
 
@@ -89,7 +89,7 @@ def run() -> None:
 
     with tempfile.TemporaryDirectory() as d:
         tmp = Path(d); base_repo(tmp)
-        write(tmp, "index.html", '<script src="/script.js"></script><link href="/assets/newsletter-popup.css"><script src="/assets/newsletter-popup.js"></script>')
+        write(tmp, "index.html", '<script src="/script.js"></script><link href="/assets/newsletter-popup.css?v=1"><script src="/assets/newsletter-popup.js?v=1"></script>')
         git_init(tmp)
         check(any("fuera de scope" in e for e in crs.check_popup_scope(tmp, crs.tracked_html(tmp))), "popup fuera de scope se detecta")
 

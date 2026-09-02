@@ -27,7 +27,7 @@ instances = [rel for rel in tracked_html if "article-utilities" in (ROOT / rel).
 assert instances, "no .article-utilities instances found -- update this test if the component was renamed/removed"
 
 OLD_PATTERN = re.compile(r"hidden\s+data-share-url|hidden\s+data-print")
-NOSCRIPT_LINK = '<noscript><link rel="stylesheet" href="/assets/v1-no-js-pending.css"></noscript>'
+NOSCRIPT_LINK = '<noscript><link rel="stylesheet" href="/assets/v1-no-js-pending.css?v=1"></noscript>'
 INLINE_STYLE_IN_NOSCRIPT = re.compile(r"<noscript>\s*<style>")
 
 for rel in instances:
