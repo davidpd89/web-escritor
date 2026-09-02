@@ -1,4 +1,12 @@
 html,body.assistant-embed{height:100%;min-height:0;background:var(--surface-page,#fff)}
+/* assistant.css scopes --assistant-* to .assistant-shell, which only exists
+   on /asistente/ itself -- this embed document (loaded in the widget's
+   iframe, see assets/assistant-widget.js) never gets that wrapper, so every
+   rule using those variables silently fell back to no color at all. Most
+   visibly, the send button rendered as a transparent square with a white
+   icon: invisible against the page background (reported live, screenshot
+   showed an empty box next to the textarea with no button visible). */
+body.assistant-embed{--assistant-blue:#1d4f96;--assistant-blue-deep:#0d2c57;--assistant-gold:#b8860b;--assistant-pale:#eefaff}
 body.assistant-embed{margin:0;overflow:hidden}
 .assistant-embed .assistant-chat{height:100%;min-height:0;max-height:none;border:0;border-radius:0;box-shadow:none}
 .assistant-embed .assistant-chat__log{padding:0 .9rem}

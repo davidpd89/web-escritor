@@ -86,7 +86,7 @@ TRACKED_ASSETS = {
     "v1-beta-readers.css": "1",
     "v1-accessibility-statement.css": "1",
     "v1-ai-authority.css": "1",
-    "assistant-embed.css": "1",
+    "assistant-embed.css": "2",
     "assistant-embed.js": "1",
     "club-session-builder.css": "1",
     "club-session-builder.js": "1",
