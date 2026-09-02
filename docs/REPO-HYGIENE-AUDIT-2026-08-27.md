@@ -99,6 +99,14 @@ Describe una refactorización one-shot ya aplicada para retirar boilerplate dupl
 
 Git conserva el cambio y su explicación histórica.
 
+### 3.8 `docs/BANNER-ART-DIRECTION-V5.md` — DELETE-NOW (cerrado en QA 2026-09-02)
+
+Especificaba `applyBannerArtDirection()`/`createBanner()` en `assets/v1-home-editorial-v3.js` y la capa `assets/v1-banner-art-direction-v5.css`. El commit `fd9d2dd4` ("Apply editorial home redesign", 2026-08-26) sustituyó la Home MUBI-banner + LRB-cluster por el diseño Yale actual y retiró las llamadas a `createBanner()`/`createCluster()`/`createInterlude()` de `buildFlow()`, pero dejó vivo el código, el CSS y los assets (`assets/banners/*`, ~7 MB) sin ningún punto de uso real. Confirmado sitewide: cero `class="feature-banner"` estático y cero llamadas a esas funciones.
+
+Eliminados en la misma limpieza: las funciones muertas citadas arriba, `assets/v1-banner-art-direction-v5.css`, `assets/v1-editorial-placeholders-v4.css` (mismo sistema), sus `@import`/preload en `assets/v1-shell.css` y `scripts/add_v1_shell_preloads.py`, las reglas `.feature-banner`/`.editorial-cluster`/`.editorial-card` (salvo `__eyebrow`/`__meta`, reutilizadas por el diseño Yale) en `v1-home-editorial-v3.css`, `v1-editorial-interior-v4.css` y `v1-editorial-interactions-v4.css`, el helper `auditBannerAsset()` en `v1-editorial-interior-v4.js`, `assets/banners/` completo, y el test `tests/test-pr95-design-assets.py` (gate de un asset que ya no existe). `tests/test-pr95-editorial-system.mjs` se actualizó para dejar de asertar sobre el sistema retirado.
+
+Git conserva el diseño original y su razonamiento; `docs/PR95-HOME-MUBI-LRB-V3.md` y `docs/PR95-DESIGN-MEASUREMENTS-V4.md` se conservan como registro histórico de esa decisión, no como documentación operativa vigente.
+
 ## 4. Carpetas y ficheros revisados que se conservan
 
 ### 4.1 `herramientas/` — KEEP salvo `auditor-web`
@@ -240,7 +248,6 @@ No se debe borrar toda la clase `AUDITORIA-*` o `PENDIENTE-*` por nombre.
 - `PENDIENTE-NUEVAS-IDEAS-MOBILE-CONTENT-RESILIENCE-QA.md`
 - `HOYMADRID-VERIFICACION-2026-08-22.md` — evidencia puntual; comprobar si facts/provenance ya están en autoridad canónica antes de retirar.
 - `CONTENT-PARITY-MANECILLAS-V1.md`
-- `BANNER-ART-DIRECTION-V5.md`
 - `DISENO-FINAL-AE-CONNECTION-SYSTEM.md`
 
 La segunda ronda de esta misma PR debe continuar esta tabla uno a uno antes de marcar la PR lista.

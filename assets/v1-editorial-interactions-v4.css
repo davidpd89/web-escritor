@@ -13,12 +13,6 @@
 
   html.v1 .editorial-continuity__links a{transition:background 120ms ease,color 120ms ease}
   html.v1 .editorial-continuity__links a:hover{background:var(--dp-context-hover,#d7e9ef);color:var(--dp-context-ink,#254f60)}
-
-  html.v1[data-lrb-home="true"] .editorial-card{transition:background 120ms ease,color 120ms ease}
-  html.v1[data-lrb-home="true"] .editorial-card:hover{background:color-mix(in srgb,#d7e9ef 35%,#fbf9f4)}
-  html.v1[data-lrb-home="true"] .editorial-card--blue:hover{background:#c9e1e8}
-  html.v1[data-lrb-home="true"] .editorial-card--sage:hover{background:#d3ddd0}
-  html.v1[data-lrb-home="true"] .editorial-card--blush:hover{background:#e4d3cf}
 }
 
 html.v1 :is(.cuaderno-entry,.book-theme,.related-primary,.spec-ledger>div,.book-meta-ledger>div):focus-within,
@@ -29,6 +23,5 @@ html.v1 .editorial-continuity__links a:focus-visible{
 @media (prefers-reduced-motion:reduce){
   html.v1 .explore-row,
   html.v1 :is(.cuaderno-entry,.book-theme,.related-primary,.spec-ledger>div,.book-meta-ledger>div),
-  html.v1 .editorial-continuity__links a,
-  html.v1[data-lrb-home="true"] .editorial-card{transition:none}
+  html.v1 .editorial-continuity__links a{transition:none}
 }

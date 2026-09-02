@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""One-time migration: add <link rel="preload" as="style"> hints for the 10
+"""One-time migration: add <link rel="preload" as="style"> hints for the
 stylesheets v1-shell.css @imports, so the browser's preload scanner starts
 fetching them immediately from the HTML parse instead of waiting ~70ms for
 v1-shell.css itself to download and parse before it can even discover their
@@ -20,6 +20,7 @@ the browser's preload cache instead of hitting the network again.
 """
 from __future__ import annotations
 
+import importlib.util
 import re
 import subprocess
 import sys
@@ -27,15 +28,21 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
 
+# check-asset-versions.py has a hyphen, so it isn't importable by name --
+# load it by file path instead, so this script's preload hrefs always carry
+# the same ?v= the checker expects, from one canonical version source.
+_spec = importlib.util.spec_from_file_location("check_asset_versions", Path(__file__).resolve().parent / "check-asset-versions.py")
+_check_asset_versions = importlib.util.module_from_spec(_spec)
+_spec.loader.exec_module(_check_asset_versions)
+TRACKED_ASSETS = _check_asset_versions.TRACKED_ASSETS
+
 IMPORTED = (
     "v1-shell-base.css",
     "v1-shell-lrb-v2.css",
     "v1-lrb-material-v2.css",
     "v1-home-editorial-v3.css",
     "v1-editorial-interior-v4.css",
-    "v1-editorial-placeholders-v4.css",
     "v1-editorial-interactions-v4.css",
-    "v1-banner-art-direction-v5.css",
     "v1-site-cohesion-v6.css",
     "v1-reflow-hardening-v7.css",
 )
@@ -48,14 +55,15 @@ END = "<!-- v1-shell-preload:end -->"
 # to back on one minified line with no newlines between them. A single,
 # bounded tag match with no wildcard spanning multiple tags -- no multi-line
 # backtracking risk like an earlier regex mistake this session.
-TAG_RE = re.compile(r'<link rel="stylesheet" href="(/?)assets/v1-shell\.css"\s*/?>')
+TAG_RE = re.compile(r'<link rel="stylesheet" href="(/?)assets/v1-shell\.css(?:\?v=[a-zA-Z0-9_.-]+)?"\s*/?>')
 MARKER_RE = re.compile(r"[ \t]*" + re.escape(START) + r"[\s\S]*?" + re.escape(END) + r"\n?")
 
 
 def preload_block(indent: str, leading_slash: str) -> str:
     lines = [f'{indent}{START}']
     for name in IMPORTED:
-        lines.append(f'{indent}<link rel="preload" as="style" href="{leading_slash}assets/{name}" />')
+        version = TRACKED_ASSETS[name]
+        lines.append(f'{indent}<link rel="preload" as="style" href="{leading_slash}assets/{name}?v={version}" />')
     lines.append(f'{indent}{END}')
     return "\n".join(lines) + "\n"
 

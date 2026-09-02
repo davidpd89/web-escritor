@@ -151,7 +151,7 @@ export function init() {
     fields.site.value = 'David Porto Díaz';
     fields.url.value = 'https://davidportodiaz.com/las-manecillas-del-recuerdo/';
     fields.description.value = 'Novela coral sobre memoria familiar, objetos heredados y las historias que sobreviven al paso del tiempo.';
-    fields.image.value = 'https://davidportodiaz.com/assets/las-manecillas-del-recuerdo-social.webp';
+    fields.image.value = 'https://davidportodiaz.com/assets/og-manecillas.jpg';
     fields.imageAlt.value = 'Portada de Las manecillas del recuerdo, de David Porto Díaz';
     render();
   });
