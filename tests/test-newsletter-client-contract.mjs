@@ -39,7 +39,7 @@ assert.match(scriptSource, /if \(gdprId && \(!gdprEl \|\| !gdprEl\.checked\)\)/,
   'generic legacy helper must still support blocking on an unchecked consent box, even though no current call site uses it');
 assert.doesNotMatch(scriptSource, /postNewsletter\(\{[^}]*consent\s*:/s,
   'legacy client must not add consent to the Worker payload');
-for (const source of ['home', 'fragmento', 'manecillas', 'cuaderno']) {
+for (const source of ['home', 'fragmento', 'manecillas', 'cuaderno', 'explore']) {
   assert.match(scriptSource, new RegExp(`submitNewsletter\\("newsletter-form-${source}",\\s*"nl-email-${source}",\\s*null,`),
     `legacy fallback wiring for ${source} must pass a null gdprId (no checkbox to resolve)`);
 }

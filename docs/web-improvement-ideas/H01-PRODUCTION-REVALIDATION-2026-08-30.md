@@ -53,3 +53,7 @@ Si Consent Groups no están disponibles, una solución con listas/atributos solo
 ## Cierre
 
 H.1 sigue siendo deseable a escala, pero no es una feature lista para código. El orden correcto es **consentimiento base → evidencia live → preferencias**, no segmentación primero.
+
+## Actualización — 2026-09-02
+
+El "Bloqueo previo detectado" de arriba (incongruencia entre `privacidad.html` y los formularios reales) está resuelto: el autor decidió que ningún formulario de newsletter del sitio exige casilla de consentimiento — email + enviar, sin excepción — y `privacidad.html` se corrigió para describir ese mecanismo real (PR #319). No fue una reconciliación "añadir la casilla que faltaba en Home"; fue "quitarla donde sobraba". Esto cierra el primer punto del "Definition of Done antes de implementar" de arriba; los puntos 2-8 (snapshot live, plan/feature availability, E2E, etc.) siguen sin evidencia y siguen bloqueando H.1 igual que antes. No reintroducir un checkbox de consentimiento como parte de trabajo futuro de H.1 sin una decisión explícita nueva del autor.

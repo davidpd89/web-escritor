@@ -73,3 +73,7 @@ I.2 actúa como **vista/privacy contract** sobre la autoridad E.8, no como segun
 ## Cierre
 
 I.2 ya no representa una implementación técnica paralela pendiente. Su owner técnico existe en E.8/#206. El estado correcto es **esperar/reutilizar esa autoridad y resolver aparte el drift factual de consentimiento**, no construir una segunda.
+
+## Actualización — 2026-09-02
+
+Las dos condiciones de este documento están cerradas: #206 (E.8) está `MERGED_MAIN` (verificado: `data/third-party-integrations.json` y su checker en `main`, CI en verde), y el "Gap todavía abierto: consentimiento factual" de arriba se resolvió en PR #319 — el autor eliminó la casilla de consentimiento en todos los formularios generales (no la añadió a los que le faltaba) y corrigió `privacidad.html` para describir ese mecanismo real. I.2 no tiene trabajo de repo pendiente por diseñar; lo que queda es la revisión periódica de la autoridad E.8 descrita en la sección anterior, gobernanza recurrente igual que I.5, no una feature.
