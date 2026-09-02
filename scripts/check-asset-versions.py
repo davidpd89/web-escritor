@@ -20,24 +20,52 @@ display change, then a corner-bracket/divider fix) -- so the author kept
 seeing the pre-fix behavior on every reload. Added both to TRACKED_ASSETS
 below rather than creating a second, separate checker for them.
 
-This checker has two things it can be pointed at:
+A third, distinct failure mode this checker did NOT cover until now
+(2026-09-02, GPT audit item 24): the version check above only confirms
+every page cites the SAME ?v= for a given asset -- it says nothing about
+whether that ?v= still matches the file's actual current bytes. Editing a
+tracked asset's content and forgetting to bump TRACKED_ASSETS below is
+exactly the same silent-stale-cache bug, just introduced from the other
+direction: every page would agree on ?v=1, correctly per this checker,
+while every returning visitor's cached ?v=1 response is now wrong. A
+content-hash guardrail closes that gap: see HASH_LOCK_PATH below.
+
+This checker has three things it can be pointed at:
   1. The current canonical version per asset, read from TRACKED_ASSETS
      below (kept here instead of a separate config file so there is
      exactly one place to bump each — update the relevant entry AND run
      this checker as part of any release that changes that asset).
   2. Every git-tracked HTML file's actual references to each asset.
+  3. A committed hash lockfile (scripts/asset-version-hashes.json) binding
+     each asset's *current* version number to a SHA-256 of its bytes at
+     the time that version was recorded, so a content edit under an
+     unchanged version number fails loudly instead of silently.
 
 Usage:
   python scripts/check-asset-versions.py
+    Validates (1)+(2)+(3). Fails if any HTML reference is missing/stale,
+    or if a tracked asset's bytes no longer match the hash recorded for
+    its current declared version.
+
+  python scripts/check-asset-versions.py --update-hashes
+    Recomputes the lockfile entry for every asset whose TRACKED_ASSETS
+    version has no matching recorded hash yet (i.e. you just bumped it).
+    Run this locally right after bumping a version and commit the
+    resulting scripts/asset-version-hashes.json alongside your change --
+    this mode never runs unattended in CI, it only ever records a hash
+    for a version transition a human just made on purpose.
 """
 from __future__ import annotations
 
+import hashlib
+import json
 import re
 import subprocess
 import sys
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
+HASH_LOCK_PATH = ROOT / "scripts" / "asset-version-hashes.json"
 
 # Bump the relevant entry — and only that entry — when cutting a release
 # that changes the given asset. Then run this checker; it will list every
@@ -172,7 +200,94 @@ def git_tracked_html():
             yield ROOT / line
 
 
+def sha256_of(path: Path) -> str:
+    # Normalize line endings before hashing: this repo's local checkouts use
+    # core.autocrlf=true (CRLF on disk on Windows), while GitHub Actions
+    # checks out the same git-stored LF blob as-is on Linux. Hashing raw
+    # bytes made every single text asset "fail" in CI on the very first run
+    # of this guardrail (same content, different line-ending bytes) --
+    # caught by actually running this PR's own CI, not just locally.
+    raw = path.read_bytes()
+    normalized = raw.replace(b"\r\n", b"\n")
+    return hashlib.sha256(normalized).hexdigest()
+
+
+def resolve_asset_path(asset: str) -> Path | None:
+    """Most tracked assets live under assets/, but script.js and styles.css
+    are served from the repo root -- REF_RE only ever matches /assets/...
+    references so it never touched these two, but the hash guardrail needs
+    the real file regardless of where each one lives."""
+    under_assets = ROOT / "assets" / asset
+    if under_assets.exists():
+        return under_assets
+    at_root = ROOT / asset
+    if at_root.exists():
+        return at_root
+    return None
+
+
+def load_hash_lock() -> dict[str, dict[str, str]]:
+    if not HASH_LOCK_PATH.exists():
+        return {}
+    return json.loads(HASH_LOCK_PATH.read_text(encoding="utf-8"))
+
+
+def update_hashes() -> int:
+    """Records a hash for every TRACKED_ASSETS entry whose current version
+    has no matching lockfile entry yet -- i.e. a version a human just
+    bumped. Never touches an already-recorded (asset, version) pair, so
+    running this can't paper over an actual content/version mismatch;
+    that always needs a real version bump first."""
+    lock = load_hash_lock()
+    updated = []
+    for asset, version in TRACKED_ASSETS.items():
+        asset_path = resolve_asset_path(asset)
+        if asset_path is None:
+            print(f"SKIP {asset}: file not found under assets/ or repo root", file=sys.stderr)
+            continue
+        entry = lock.get(asset)
+        if entry is not None and entry.get("version") == version:
+            continue  # already recorded for this exact version
+        lock[asset] = {"version": version, "sha256": sha256_of(asset_path)}
+        updated.append(f"{asset}?v={version}")
+
+    HASH_LOCK_PATH.write_text(json.dumps(lock, indent=2, sort_keys=True) + "\n", encoding="utf-8")
+    if updated:
+        print(f"Recorded {len(updated)} new hash(es): {', '.join(updated)}")
+        print(f"Commit {HASH_LOCK_PATH.relative_to(ROOT)} alongside your change.")
+    else:
+        print("No new versions to record; lockfile already up to date.")
+    return 0
+
+
+def check_hashes() -> list[str]:
+    lock = load_hash_lock()
+    errors = []
+    for asset, version in TRACKED_ASSETS.items():
+        asset_path = resolve_asset_path(asset)
+        if asset_path is None:
+            errors.append(f"{asset}: file referenced in TRACKED_ASSETS but does not exist under assets/ or repo root")
+            continue
+        entry = lock.get(asset)
+        if entry is None or entry.get("version") != version:
+            errors.append(
+                f"assets/{asset}: no recorded hash for ?v={version} in {HASH_LOCK_PATH.name} "
+                f"-- run `python {Path(__file__).name} --update-hashes` after bumping this version and commit the result"
+            )
+            continue
+        current_hash = sha256_of(asset_path)
+        if current_hash != entry.get("sha256"):
+            errors.append(
+                f"assets/{asset}: file content changed but ?v={version} was not bumped "
+                f"(hash {current_hash[:12]}... != recorded {entry.get('sha256', '?')[:12]}...)"
+            )
+    return errors
+
+
 def main() -> int:
+    if "--update-hashes" in sys.argv:
+        return update_hashes()
+
     errors = []
     scanned = 0
     for path in git_tracked_html():
@@ -192,14 +307,16 @@ def main() -> int:
             elif version != canonical:
                 errors.append(f"{rel}: {asset}?v={version} (expected ?v={canonical})")
 
+    errors.extend(check_hashes())
+
     if errors:
-        print(f"FAIL — {len(errors)} inconsistent/unversioned asset reference(s) across {scanned} page(s) checked:")
+        print(f"FAIL — {len(errors)} issue(s) across {scanned} page(s) checked:")
         for e in errors:
             print(f"- {e}")
         return 1
 
     versions = ", ".join(f"{a}?v={v}" for a, v in TRACKED_ASSETS.items())
-    print(f"OK — {scanned} page(s) checked, all tracked asset references match ({versions}).")
+    print(f"OK — {scanned} page(s) checked, all tracked asset references and content hashes match ({versions}).")
     return 0
 
 
