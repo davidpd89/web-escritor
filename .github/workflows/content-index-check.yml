@@ -133,3 +133,13 @@ jobs:
           clubes-de-lectura/preparar-sesion/index.html
           convocatorias-escritores/index.html
           recursos/ficha-historia-objeto-heredado/index.html
+      # This script already existed (built for a 2026-08-20 stale-cache
+      # incident) but nothing ran it in CI -- a second, unrelated instance
+      # of the exact same bug (2026-09-02: v1-fonts.css unversioned on 71
+      # pages, v1-home.css?v=9 never bumped across two real fixes to that
+      # file) shipped anyway. Wiring it in here so an unbumped/unversioned
+      # cache-busted asset reference fails the same required gate as
+      # everything else in this job, instead of only being catchable by
+      # someone remembering to run it by hand.
+      - name: Check runtime asset cache-busting versions are current and consistent
+        run: python scripts/check-asset-versions.py
