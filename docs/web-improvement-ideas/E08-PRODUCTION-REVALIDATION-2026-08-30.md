@@ -145,6 +145,8 @@ Alternativamente, si producto quiere recuperar una casilla explícita, debe impl
 
 El conector disponible reemplaza el HTML completo y `privacidad.html` es un fichero largo. No se reconstruye manualmente el documento entero para cambiar dos frases porque el riesgo de corrupción/regresión supera el valor de ese método. El crossfinding queda asignado para edición local/hunk segura y no se presenta como resuelto.
 
+**Actualización 2026-09-02:** resuelto en PR #319, por la vía de "quitar la casilla en todo el sitio" (ningún formulario de newsletter la exige, email + enviar únicamente), no por la vía alternativa de "recuperarla en todas las superficies" que este crossfinding también contemplaba. `privacidad.html` describe ahora el flujo real.
+
 ## 8. Qué no hace E.8
 
 - no añade banner de consentimiento;

@@ -3,6 +3,16 @@
 Petición del autor: revisar cada página, cada enlace, cada menú, en cada
 dispositivo/resolución, de principio a fin.
 
+> **Nota de estado — 2026-09-02.** Varios hallazgos de este documento se
+> corrigieron en trabajo posterior (PR #319, #320) y algunas afirmaciones
+> puntuales resultaron erróneas al reverificarlas en vivo. Este documento
+> NO se reescribe retroactivamente (es un log de sesión, no la fuente de
+> verdad del estado actual); en su lugar, cada bullet afectado lleva una
+> anotación en línea `[RESUELTO 2026-09-02]` o `[CORREGIDO 2026-09-02]`
+> con el estado real. Antes de reabrir cualquier hallazgo marcado 🚩 en
+> este documento, comprobar primero si tiene esa anotación. Estado real
+> agregado: `docs/RELEASE-READINESS-V2-2026-09-02.md`.
+
 ## Alcance real y lo que esta auditoría puede y no puede cubrir
 
 - Cobertura automática ya existente en CI (todo en verde sobre `main`
@@ -53,16 +63,18 @@ de decisión del autor.
 - ✅ `/autor.html` — sin hallazgos de código; el "typo" que parecía verse
   en pantalla ("Respuessta"/"Oué") es el renderizado de la fuente
   cursiva a tamaño pequeño, verificado contra el HTML fuente real.
-- 🚩 `/asistente/` — hero homogeneizado y verificado (colores/fuente del
+- ✅ `/asistente/` — hero homogeneizado y verificado (colores/fuente del
   botón de envío y el h1 usan ya el azul/Manrope/Instrument Serif del
   sitio). Búsqueda local probada end-to-end: responde con resultados
-  reales y enlaces correctos. Pero las burbujas de chat
-  (`.assistant-message--user`/`--assistant`) siguen sin ningún estilo
-  propio (fondo transparente, sin diferenciación visual entre usuario y
-  asistente) — confirma que el rediseño más allá del hero, ya señalado
-  como pendiente, sigue sin hacerse. No es un bug nuevo, es la misma
-  brecha ya conocida, ahora verificada con datos concretos en vez de
-  una impresión.
+  reales y enlaces correctos. **[CORREGIDO 2026-09-02]** La afirmación
+  de arriba sobre las burbujas de chat era errónea: reverificado en vivo
+  (query real + computed styles), `.assistant-message--user` sí tiene
+  fondo azul pálido real, borde izquierdo de 3px y etiqueta "Tú" en azul
+  oscuro; `.assistant-message--assistant` es transparente/full-width
+  *a propósito* ("la respuesta debe leerse como documento, no como
+  burbuja decorativa", `docs/design-system/ASSISTANT-VISUAL-UNIFICATION-
+  2026-08-31.md`, ya implementado en PR #284). No había brecha de
+  diseño que cerrar.
 - ✅ `/mapa-del-sitio/` — 67 enlaces internos, sin overflow; cobertura de
   enlaces rotos ya la hace `check-links` en CI (0 errores/5812 checks).
 - ✅ `/404.html` — sin hallazgos.
@@ -104,8 +116,10 @@ de decisión del autor.
 - ✅ `/cuaderno/portal-fantasy-vs-fantasia-epica/` — sin hallazgos.
 - ✅ `/cuaderno/fantasia-juvenil-espanola-portales-magia-coste/` — sin
   hallazgos.
-- 🚩 `/cuaderno/libros-fantasia-juvenil-espanola-2025-2026/` — ver
-  hallazgo #0, datos de terceros no verificables/incorrectos.
+- ✅ `/cuaderno/libros-fantasia-juvenil-espanola-2025-2026/` — **[RESUELTO
+  2026-09-02]** ver hallazgo #0 para el detalle original; corregido en
+  PR #320 (Laura Gallego con año/título correctos, las otras 5 entradas
+  retiradas por no verificables, nota de corrección fechada añadida).
 - ✅ `/cuaderno/sistema-de-magia-noveris/` — contenido retirado a
   propósito (ver hallazgo #0, contexto); la página en sí funciona bien
   y comunica el retiro con claridad.
@@ -134,12 +148,13 @@ estado de la web) — no es un huérfano por error, es intencional.
   bien un nombre repetido, no dio falsos positivos con "Elena"),
   generador de evento+calendario (JSON-LD Event válido con fechas ISO
   8601 y offset UTC correctos), "qué tipo de lector eres" (scoring 6/6
-  consistente). El resto (distribución POV, personajes, manuscrito,
-  limpiador, metadatos, JSON-LD escritores, auditor de página de libro,
-  kit de prensa, tarjeta "estoy leyendo", entrevista familiar,
-  convenciones de diálogo, tiempo de lectura en voz alta) verificadas en
-  carga y diseño, sin prueba funcional profunda por límite de tiempo de
-  esta sesión.
+  consistente). **[RESUELTO 2026-09-02]** El resto (distribución POV,
+  personajes, manuscrito, limpiador, metadatos, JSON-LD escritores,
+  auditor de página de libro, kit de prensa, tarjeta "estoy leyendo",
+  entrevista familiar, convenciones de diálogo, tiempo de lectura en voz
+  alta) recibió su propia prueba funcional profunda con datos reales de
+  entrada/salida en PR #320; cada cálculo verificado exacto, cero bugs
+  encontrados.
 
 ### Club de lectura / comunidad
 - ✅ `/clubes-de-lectura/samuel-entre-mundos/` — sin hallazgos.
@@ -187,9 +202,11 @@ estado de la web) — no es un huérfano por error, es intencional.
   contra la fuente oficial de la fundación.
 
 ### Legal / recursos / otros
-- 🚩 `/privacidad.html` — corregida parcialmente (ver hallazgo #2); el
-  párrafo de Brevo ya no afirma una casilla que no existe en ningún
-  sitio.
+- ✅ `/privacidad.html` — **[RESUELTO 2026-09-02]** ver hallazgo #2 para
+  el detalle original; corregida por completo en PR #319/#320: el autor
+  decidió no exigir casilla de consentimiento en ningún formulario del
+  sitio (email + enviar, sin excepción), y el párrafo de Brevo describe
+  ese mecanismo real, no uno intermedio.
 - ✅ `/aviso-legal.html` — sin hallazgos.
 - ✅ `/accesibilidad/` — sin hallazgos; declaración honesta, no
   sobreclama conformidad, lista limitaciones reales.
@@ -227,7 +244,7 @@ estado de la web) — no es un huérfano por error, es intencional.
 
 ## Hallazgos
 
-0. **[URGENTE — decisión del autor, no corregido]**
+0. **[RESUELTO 2026-09-02 — ver PR #320]**
    `/cuaderno/libros-fantasia-juvenil-espanola-2025-2026/` ("selección
    2025-2026" de libros de fantasía juvenil española de OTROS autores,
    no de David). Contrastadas las 6 entradas que no son de David contra
@@ -311,7 +328,13 @@ estado de la web) — no es un huérfano por error, es intencional.
    de 2026" (contrato documentado explícitamente en `ai/index.html`).
    Corregido para que coincida con el resto del sitio.
 
-2. **[Pendiente de decisión del autor]** Inconsistencia real entre
+2. **[RESUELTO 2026-09-02 — ver PR #319]** Decisión del autor: ningún
+   formulario de newsletter del sitio exige casilla, email + enviar
+   únicamente. `privacidad.html` se corrigió para describir ese
+   mecanismo real. Detalle original de la inconsistencia detectada
+   entonces, para contexto histórico:
+
+   Inconsistencia real entre
    `privacidad.html` y el comportamiento en producción: la política dice
    dos veces que "el formulario exige marcar la casilla de aceptación de
    esta política antes de poder enviarlo" (afirmación general, sin

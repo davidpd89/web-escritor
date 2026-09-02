@@ -53,3 +53,7 @@ Antes de código o activación externa:
 ## Cierre
 
 H.2 no está rechazada. Está bloqueada por una secuencia correcta de trabajo: **consentimiento base → E2E live → welcome mínimo**. La existencia de templates no es evidencia de funcionamiento.
+
+## Actualización — 2026-09-02
+
+El bloqueo 1 de arriba ("reconciliar la incongruencia actual de consentimiento") está resuelto: el autor decidió que ningún formulario de newsletter del sitio exige casilla — email + enviar, sin excepción — y `privacidad.html` se corrigió para describirlo (PR #319). Los bloqueos 2 (auditoría live/read-only de automatizaciones) y 3 (revisar templates legacy de Samuel) siguen abiertos y sin evidencia; H.2 sigue sin poder activarse hasta que ambos se cierren con evidencia real, no solo el primero.
