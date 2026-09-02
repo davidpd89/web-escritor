@@ -201,7 +201,15 @@ def git_tracked_html():
 
 
 def sha256_of(path: Path) -> str:
-    return hashlib.sha256(path.read_bytes()).hexdigest()
+    # Normalize line endings before hashing: this repo's local checkouts use
+    # core.autocrlf=true (CRLF on disk on Windows), while GitHub Actions
+    # checks out the same git-stored LF blob as-is on Linux. Hashing raw
+    # bytes made every single text asset "fail" in CI on the very first run
+    # of this guardrail (same content, different line-ending bytes) --
+    # caught by actually running this PR's own CI, not just locally.
+    raw = path.read_bytes()
+    normalized = raw.replace(b"\r\n", b"\n")
+    return hashlib.sha256(normalized).hexdigest()
 
 
 def resolve_asset_path(asset: str) -> Path | None:
