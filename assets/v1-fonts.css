@@ -10,18 +10,31 @@
 @font-face{font-family:'Instrument Serif';font-style:italic;font-weight:400;font-display:optional;src:url('fonts/is-italic-400-latin-ext.woff2') format('woff2');unicode-range:U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF}
 @font-face{font-family:'Instrument Serif';font-style:italic;font-weight:400;font-display:optional;src:url('fonts/is-italic-400-latin.woff2') format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
 
-/* font-display was 'optional' here too: same "a veces se ve mal esas
-   letras" bug as Yellowtail above, reproduced 2026-09-02 on Home's hero
-   h1 ("Las manecillas del recuerdo") -- on a slow/cold load the ~100ms
-   block window expires, the page commits to Manrope Fallback for that
-   whole view, and the gold -webkit-text-stroke tuned for Manrope's own
-   glyphs looks heavy/mismatched on the bolder fallback. Manrope Fallback
-   (below) is already metric-matched specifically to make a swap safe --
-   built for a real Lighthouse CLS fix on Cuaderno articles -- so 'swap'
-   just finishes using infrastructure that already existed instead of
-   discarding it via 'optional'. */
-@font-face{font-family:'Manrope';font-style:normal;font-weight:400 700;font-display:swap;src:url('fonts/mr-normal-400-700-latin-ext.woff2') format('woff2');unicode-range:U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF}
-@font-face{font-family:'Manrope';font-style:normal;font-weight:400 700;font-display:swap;src:url('fonts/mr-normal-400-700-latin.woff2') format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+/* font-display was tried as 'swap' here (2026-09-02) to fix the same
+   "a veces se ve mal esas letras" bug as Yellowtail above, reproduced on
+   Home's hero h1 ("Las manecillas del recuerdo"): on a slow/cold load the
+   ~100ms 'optional' block window expires, the page commits to Manrope
+   Fallback for that whole view and never swaps in Manrope even after it
+   finishes loading, and the gold -webkit-text-stroke tuned for Manrope's
+   glyphs looks heavy/mismatched on the bolder fallback.
+
+   Reverted: --font-ui (Manrope) is html.v1's own base font-family, not
+   just the hero heading -- CI's Lighthouse run caught a real CLS
+   regression on /las-manecillas-del-recuerdo/fragmentos/ (0.10 -> 0.215)
+   and /recomendaciones/portal-fantasy-espanol/ (-> 0.220), both well past
+   the 0.1 budget. Manrope Fallback's metric-matched size-adjust/ascent/
+   descent overrides only guarantee a single line keeps the same height
+   across the swap; they say nothing about a paragraph's LINE COUNT, and
+   Manrope renders visibly narrower per character than its fallback (the
+   hero h1 alone measured 752px on the fallback vs 627px once swapped) --
+   enough to change where running body/UI text wraps and shift everything
+   below it. Fixing the original bug needs a narrower mechanism (e.g. only
+   apply the decorative stroke once document.fonts confirms Manrope
+   itself, not just any font, is active) rather than a blanket
+   font-display change on a site-wide base font. Left as 'optional' again
+   until that exists. */
+@font-face{font-family:'Manrope';font-style:normal;font-weight:400 700;font-display:optional;src:url('fonts/mr-normal-400-700-latin-ext.woff2') format('woff2');unicode-range:U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF}
+@font-face{font-family:'Manrope';font-style:normal;font-weight:400 700;font-display:optional;src:url('fonts/mr-normal-400-700-latin.woff2') format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
 
 @font-face{font-family:'Newsreader';font-style:normal;font-weight:400 600;font-display:optional;src:url('fonts/nr-normal-400-600-latin-ext.woff2') format('woff2');unicode-range:U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF}
 @font-face{font-family:'Newsreader';font-style:normal;font-weight:400 600;font-display:optional;src:url('fonts/nr-normal-400-600-latin.woff2') format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
