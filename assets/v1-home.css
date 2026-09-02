@@ -198,13 +198,30 @@ html.v1 .faq-master > summary.book-section__label{
   list-style:none;
 }
 html.v1 .faq-master > summary.book-section__label::-webkit-details-marker{display:none}
+/* A bare "+"/"-" character didn't read as an interactive toggle at a
+   glance (author, 2026-09-02: "no se identifica como ello... algo más
+   claro que un + y ya"). Kept it a single generated-content marker (no
+   new DOM, no accessibility-tree change -- the real open/closed state is
+   already exposed natively by <details>/<summary>), but gave it an
+   explicit text label plus a bordered pill so it reads as a control
+   rather than punctuation. */
 html.v1 .faq-master > summary.book-section__label h2::after{
-  content:"+";
-  margin-left:.5rem;
-  color:var(--color-muted);
-  font-weight:400;
+  content:"+ Ver preguntas";
+  display:inline-block;
+  margin-left:.75rem;
+  padding:.15rem .65rem;
+  border:1px solid #1d4f96;
+  border-radius:999px;
+  color:#1d4f96;
+  font-family:var(--font-ui);
+  font-size:.68rem;
+  font-weight:700;
+  letter-spacing:.03em;
+  text-transform:uppercase;
+  vertical-align:middle;
+  -webkit-text-stroke:0;
 }
-html.v1 .faq-master[open] > summary.book-section__label h2::after{content:"–"}
+html.v1 .faq-master[open] > summary.book-section__label h2::after{content:"– Ocultar"}
 html.v1 .faq-master:not([open]) .faq-native{display:none}
 
 /* Yale Review prototype, 2026-08-25. This intentionally removes the banner
@@ -381,7 +398,7 @@ html.v1[data-lrb-home="true"] .yale-home-issue h1{
      this h1 was stretching to the full grid-column width -- width:fit-content
      keeps its box matched to the actual text instead. */
   width:fit-content;
-  font-family:var(--font-ui);
+  font-family:'Manrope Display','Manrope Fallback','Avenir Next',Avenir,'Segoe UI',sans-serif;
   font-weight:800;
   font-size:clamp(1.9rem,3.8vw,3.6rem);
   line-height:.96;
@@ -686,6 +703,7 @@ html.v1[data-lrb-home="true"] .home-events__head{
 html.v1[data-lrb-home="true"] .yale-home-section__head h2,
 html.v1[data-lrb-home="true"] .home-events h2{
   margin:.35rem 0 0;
+  font-family:'Manrope Display','Manrope Fallback','Avenir Next',Avenir,'Segoe UI',sans-serif;
   font-size:clamp(1.55rem,2.6vw,2.3rem);
   line-height:1.05;
   color:#1d4f96;
@@ -957,7 +975,13 @@ html.v1[data-lrb-home="true"] .yale-feature-book{
   display:grid;
   grid-template-columns:minmax(0,1.1fr) minmax(11rem,.9fr);
   gap:clamp(1.2rem,2.6vw,2rem);
-  align-items:start;
+  /* center, not start: this box stretches to match .yale-feature__stack's
+     taller height (align-items:stretch on the parent row), and its own
+     content (body copy + cover) is shorter than that -- start left it
+     pinned to the top with dead space below, reading as off-balance next
+     to the stack (author, 2026-09-02: "el libro... debería estar más
+     centrado con lo de la izquierda"). */
+  align-items:center;
   min-height:12rem;
   /* NOT background:transparent -- that's a shorthand and clobbers the
      accent-rail background-image set on this same selector earlier in the
@@ -1096,7 +1120,7 @@ html.v1[data-lrb-home="true"] .install-web::after{display:block}
 /* Same blue-fill + gold-outline treatment as every other section title
    (author request to unify text-by-text) instead of plain black. */
 html.v1[data-lrb-home="true"] .install-web h2,
-html.v1[data-lrb-home="true"] .yale-signup h2{color:#1d4f96;-webkit-text-stroke:1px rgba(184,134,11,.55)}
+html.v1[data-lrb-home="true"] .yale-signup h2{font-family:'Manrope Display','Manrope Fallback','Avenir Next',Avenir,'Segoe UI',sans-serif;color:#1d4f96;-webkit-text-stroke:1px rgba(184,134,11,.55)}
 html.v1[data-lrb-home="true"] .install-web__status{color:#2a2e31}
 html.v1[data-lrb-home="true"] .install-web,
 html.v1[data-lrb-home="true"] .yale-signup{
@@ -1116,6 +1140,22 @@ html.v1[data-lrb-home="true"] .yale-signup{
 }
 html.v1[data-lrb-home="true"] .install-web__panel,
 html.v1[data-lrb-home="true"] .yale-signup__form{justify-self:end;width:min(100%,30rem)}
+/* .yale-signup__consent-note is its own class (not .form-help, which
+   every other newsletter surface uses and which already renders this
+   exact sentence as small/muted fine print) and was never given any
+   styling of its own -- it fell back to the ambient reading-font body
+   size, reading as oversized, competing microcopy instead of a quiet
+   disclosure line (author, 2026-09-02: "demasiado grande ese texto de
+   al enviar tu email"). Matches .form-help's own values (v1-base.css)
+   rather than renaming the class, since qa/newsletter-consent-browser.mjs
+   already asserts against this exact selector. */
+html.v1[data-lrb-home="true"] .yale-signup__consent-note{
+  margin:.65rem 0 .75rem;
+  font-family:var(--font-ui);
+  font-size:.82rem;
+  line-height:1.5;
+  color:var(--color-muted);
+}
 html.v1[data-lrb-home="true"] .yale-signup__copy,
 html.v1[data-lrb-home="true"] .yale-signup__form,
 html.v1[data-lrb-home="true"] .yale-signup .form-row,
@@ -1338,7 +1378,7 @@ html.v1[data-lrb-home="true"] .yale-home-flow #faq .eyebrow::before{
 }
 html.v1[data-lrb-home="true"] .yale-home-flow #faq .book-section__label h2{
   margin:.35rem 0 0;
-  font-family:var(--font-ui);
+  font-family:'Manrope Display','Manrope Fallback','Avenir Next',Avenir,'Segoe UI',sans-serif;
   font-size:clamp(1.55rem,2.6vw,2.3rem);
   font-weight:800;
   line-height:1.05;
@@ -1372,12 +1412,13 @@ html.v1[data-lrb-home="true"] .assistant-widget__header{
   border-bottom-color:#b8860b;
 }
 
-/* The install block was switched from the old dark panel to white, but its
-   panel lines and hover state still came from that dark version. */
-html.v1[data-lrb-home="true"] .install-web__panel{
-  border-top:1px solid #1d4f96;
-  border-bottom:1px solid #b8860b;
-}
+/* The install block was switched from the old dark panel to white; these
+   panel lines still came from that dark version and outlived it, sitting
+   right above/below the button for no reason once the panel itself went
+   plain (author, 2026-09-02: "esas rayas encima y debajo de instalar web
+   que no se necesitan"). Removed -- the section already has its own
+   top-of-section blue/gold divider above "Novedades", matching every
+   other section break; this panel doesn't need a second, closer pair. */
 html.v1[data-lrb-home="true"] .install-web__button:hover,
 html.v1[data-lrb-home="true"] .install-web__button:focus-visible,
 html.v1[data-lrb-home="true"] .form-submit:hover,

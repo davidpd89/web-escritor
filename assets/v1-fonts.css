@@ -28,13 +28,27 @@
    Manrope renders visibly narrower per character than its fallback (the
    hero h1 alone measured 752px on the fallback vs 627px once swapped) --
    enough to change where running body/UI text wraps and shift everything
-   below it. Fixing the original bug needs a narrower mechanism (e.g. only
-   apply the decorative stroke once document.fonts confirms Manrope
-   itself, not just any font, is active) rather than a blanket
-   font-display change on a site-wide base font. Left as 'optional' again
-   until that exists. */
+   below it. --font-ui itself has to stay 'optional'.
+
+   Real fix (2026-09-02): a second, identically-sourced font-face named
+   'Manrope Display', font-display:swap, used ONLY by the four large,
+   single-line Home headings that carry the gold -webkit-text-stroke
+   (.yale-home-issue h1 and its 3 siblings, v1-home.css) instead of
+   --font-ui. Same .woff2 bytes as the family above -- the browser's HTTP
+   cache serves both from one fetch, this doesn't double the download --
+   just declared under a name nothing else references, so 'swap' can't
+   leak into any paragraph/UI text and can't reflow anything. A single,
+   short, isolated heading swapping width causes no CLS: nothing sits
+   beside it that depends on its exact wrapped line count. This is also
+   why the failed 2026-08-xx attempt at this same bug (bumping the stroke
+   from 0.35px to 1px, see the comment on .yale-home-issue h1) didn't
+   work -- it treated the symptom (which pixels the stroke lands on) as
+   the cause, when the actual cause was the fallback font never being
+   allowed to swap out to begin with. */
 @font-face{font-family:'Manrope';font-style:normal;font-weight:400 700;font-display:optional;src:url('fonts/mr-normal-400-700-latin-ext.woff2') format('woff2');unicode-range:U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF}
 @font-face{font-family:'Manrope';font-style:normal;font-weight:400 700;font-display:optional;src:url('fonts/mr-normal-400-700-latin.woff2') format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+@font-face{font-family:'Manrope Display';font-style:normal;font-weight:400 700;font-display:swap;src:url('fonts/mr-normal-400-700-latin-ext.woff2') format('woff2');unicode-range:U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF}
+@font-face{font-family:'Manrope Display';font-style:normal;font-weight:400 700;font-display:swap;src:url('fonts/mr-normal-400-700-latin.woff2') format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
 
 @font-face{font-family:'Newsreader';font-style:normal;font-weight:400 600;font-display:optional;src:url('fonts/nr-normal-400-600-latin-ext.woff2') format('woff2');unicode-range:U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF}
 @font-face{font-family:'Newsreader';font-style:normal;font-weight:400 600;font-display:optional;src:url('fonts/nr-normal-400-600-latin.woff2') format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
