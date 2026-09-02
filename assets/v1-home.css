@@ -435,18 +435,32 @@ html.v1[data-lrb-home="true"] .yale-lead{
    and bottom-right, from the same reference sheet as the ring. One SVG
    asset drawn for the top-left orientation; the bottom-right copy is just
    that image rotated 180deg, since a top-left bracket rotated a half-turn
-   is exactly a bottom-right one. */
-html.v1[data-lrb-home="true"] .yale-lead__media{
-  display:grid;
-  min-height:clamp(19rem,33vw,28rem);
-  place-items:center;
-  background:transparent;
-  border:0;
+   is exactly a bottom-right one.
+
+   Single shared .media-frame implementation (2026-09-02): the three
+   media containers below (.yale-lead__media, .yale-tile__media,
+   .yale-feature-book__media) all use display:grid+place-items to center
+   a variable-ratio image inside a fixed-height slot -- that slot is
+   deliberately larger than the image, which used to leave the bracket
+   (positioned on the slot's own corners) floating in real empty space,
+   visibly detached from the book cover it was meant to frame ("bracket
+   pegado a la L", reported against the hero specifically, reproduced at
+   every size). The three containers previously each duplicated their own
+   copy of this ::before/::after pair -- exactly the class-name-drift
+   pattern the .yale-feature-book__media comment below already warned
+   about ("fixed in one place, missed in the other since they use
+   different class names"). Now every image is wrapped in a shared
+   <span class="media-frame"> (assets/v1-home-editorial-v3.js,
+   wrapMediaFrame()) that shrink-wraps to the image's own rendered box via
+   display:inline-block, so the single shared rule below always sits on
+   the image itself, in every one of the three contexts, forever. */
+html.v1[data-lrb-home="true"] .media-frame{
   position:relative;
-  overflow:hidden;
+  display:inline-block;
+  line-height:0;
 }
-html.v1[data-lrb-home="true"] .yale-lead__media::before,
-html.v1[data-lrb-home="true"] .yale-lead__media::after{
+html.v1[data-lrb-home="true"] .media-frame::before,
+html.v1[data-lrb-home="true"] .media-frame::after{
   content:"";
   position:absolute;
   width:34px;
@@ -454,12 +468,23 @@ html.v1[data-lrb-home="true"] .yale-lead__media::after{
   background:url(/assets/corner-bracket-blue-gold.svg) center/contain no-repeat;
   pointer-events:none;
 }
-html.v1[data-lrb-home="true"] .yale-lead__media::before{top:0;left:0}
-html.v1[data-lrb-home="true"] .yale-lead__media::after{bottom:0;right:0;transform:rotate(180deg)}
-html.v1[data-lrb-home="true"] .yale-lead__media img{
+html.v1[data-lrb-home="true"] .media-frame::before{top:0;left:0}
+html.v1[data-lrb-home="true"] .media-frame::after{bottom:0;right:0;transform:rotate(180deg)}
+html.v1[data-lrb-home="true"] .yale-lead__media{
+  display:grid;
+  min-height:clamp(19rem,33vw,28rem);
+  place-items:center;
+  background:transparent;
+  border:0;
+  overflow:hidden;
+}
+html.v1[data-lrb-home="true"] .yale-lead__media .media-frame{
   width:min(68%,20rem);
+}
+html.v1[data-lrb-home="true"] .yale-lead__media img{
+  display:block;
+  width:100%;
   height:auto;
-  max-height:88%;
   object-fit:contain;
   filter:drop-shadow(0 16px 22px rgba(0,0,0,.16));
 }
@@ -750,11 +775,13 @@ html.v1[data-lrb-home="true"] .home-event{
 html.v1[data-lrb-home="true"] .yale-tile{min-height:18rem}
 html.v1[data-lrb-home="true"] .home-event{gap:.35rem}
 html.v1[data-lrb-home="true"] .yale-tile--blue{background:#eefaff}
-/* Same corner-bracket frame as .yale-lead__media/.yale-feature-book__media
-   (author: "los 3 libros siguen con el marco gris") -- a third, independent
-   instance of the same plain gray border, on the image container nested
-   inside each works-grid tile (separate from that tile's own small
-   bottom-left accent near "Abrir", which stays as its own thing). */
+/* Same shared .media-frame corner-bracket as .yale-lead__media above
+   (author: "los 3 libros siguen con el marco gris") -- a third instance
+   of the same image container, nested inside each works-grid tile
+   (separate from that tile's own small bottom-left accent near "Abrir",
+   which stays as its own thing). Smaller 28px brackets here (tighter
+   card real estate); .media-frame itself and its ::before/::after
+   positions are the single shared rule defined above. */
 html.v1[data-lrb-home="true"] .yale-tile__media{
   display:grid;
   place-items:end center;
@@ -762,22 +789,20 @@ html.v1[data-lrb-home="true"] .yale-tile__media{
   margin:calc(-1 * clamp(1.1rem,2vw,1.55rem)) calc(-1 * clamp(1.1rem,2vw,1.55rem)) 1rem;
   background:transparent;
   border:0;
-  position:relative;
   overflow:hidden;
 }
-html.v1[data-lrb-home="true"] .yale-tile__media::before,
-html.v1[data-lrb-home="true"] .yale-tile__media::after{
-  content:"";
-  position:absolute;
+html.v1[data-lrb-home="true"] .yale-tile__media .media-frame::before,
+html.v1[data-lrb-home="true"] .yale-tile__media .media-frame::after{
   width:28px;
   height:28px;
-  background:url(/assets/corner-bracket-blue-gold.svg) center/contain no-repeat;
-  pointer-events:none;
 }
-html.v1[data-lrb-home="true"] .yale-tile__media::before{top:0;left:0}
-html.v1[data-lrb-home="true"] .yale-tile__media::after{bottom:0;right:0;transform:rotate(180deg)}
-html.v1[data-lrb-home="true"] .yale-tile__media img{
+html.v1[data-lrb-home="true"] .yale-tile__media .media-frame{
   width:min(58%,12rem);
+}
+html.v1[data-lrb-home="true"] .yale-tile__media img{
+  display:block;
+  width:100%;
+  height:auto;
   max-height:14rem;
   object-fit:contain;
   filter:drop-shadow(0 11px 16px rgba(0,0,0,.14));
@@ -874,8 +899,14 @@ html.v1[data-lrb-home="true"] .yale-feature-card:last-child{background-image:non
    and the plain 1px gold border-bottom it inherits from the shared
    ".yale-tile, .home-event" rule above, showing as a stray trailing line
    right before the CTA box (author: "en agenda sigue apareciendo una
-   línea al final"). */
-html.v1[data-lrb-home="true"] .home-events__grid .home-event:last-of-type{background-image:none;border-bottom:0}
+   línea al final"). Zeroing border-bottom here was correct -- that's the
+   redundant extra line. Zeroing background-image too was an overcorrection
+   that deleted the triple-line divider itself, leaving nothing at all
+   between the last event and the CTA box (author, 2026-09-02: "arriba
+   deben salir las 3 separadoras"). Keep border-bottom:0, drop
+   background-image:none so the shared triple-line rule above applies here
+   same as every other card. */
+html.v1[data-lrb-home="true"] .home-events__grid .home-event:last-of-type{border-bottom:0}
 html.v1[data-lrb-home="true"] .yale-feature-card:first-child,
 html.v1[data-lrb-home="true"] .home-events__grid .home-event:first-child{padding-top:0}
 /* Give Samuel a small amount of breathing room before the following
@@ -962,32 +993,26 @@ html.v1[data-lrb-home="true"] .yale-feature-book p:not(.editorial-card__eyebrow)
 }
 html.v1[data-lrb-home="true"] .yale-feature-card .yale-text-link,
 html.v1[data-lrb-home="true"] .yale-feature-book .yale-text-link{margin-top:auto;align-self:flex-start}
-/* Same corner-bracket frame as the hero's .yale-lead__media (author: "la
-   foto del libro no tiene el marco") -- this was still the old plain gray
-   border, missed when the hero's own version was fixed since the two use
-   different class names despite looking identical. */
+/* Same shared .media-frame corner-bracket as the hero's .yale-lead__media
+   above (author: "la foto del libro no tiene el marco") -- this used to be
+   a separate ::before/::after copy that silently drifted out of sync with
+   the hero's own fix since the two used different class names despite
+   looking identical (that drift is exactly why this is now one shared
+   .media-frame rule instead of three). */
 html.v1[data-lrb-home="true"] .yale-feature-book__media{
   display:grid;
   min-height:clamp(18rem,28vw,24rem);
   place-items:center;
   background:transparent;
   border:0;
-  position:relative;
   overflow:hidden;
 }
-html.v1[data-lrb-home="true"] .yale-feature-book__media::before,
-html.v1[data-lrb-home="true"] .yale-feature-book__media::after{
-  content:"";
-  position:absolute;
-  width:34px;
-  height:34px;
-  background:url(/assets/corner-bracket-blue-gold.svg) center/contain no-repeat;
-  pointer-events:none;
-}
-html.v1[data-lrb-home="true"] .yale-feature-book__media::before{top:0;left:0}
-html.v1[data-lrb-home="true"] .yale-feature-book__media::after{bottom:0;right:0;transform:rotate(180deg)}
-html.v1[data-lrb-home="true"] .yale-feature-book__media img{
+html.v1[data-lrb-home="true"] .yale-feature-book__media .media-frame{
   width:min(54%,13rem);
+}
+html.v1[data-lrb-home="true"] .yale-feature-book__media img{
+  display:block;
+  width:100%;
   height:auto;
   max-height:20rem;
   object-fit:contain;
@@ -1039,7 +1064,12 @@ html.v1[data-lrb-home="true"] .home-events__cta{
   padding:clamp(1.1rem,2vw,1.55rem);
   background:#eefaff;
   border-right:1px solid #1d4f96;
-  border-bottom:1px solid #b8860b;
+  /* Blue, not gold -- the callout is "closed" by the same blue rail/border
+     that frames it on the left/right, not a stray gold accent line
+     (author, 2026-09-02: "esa amarilla desaparecer... la raya azul ser
+     cerrado"). Gold stays reserved for the triple-line dividers between
+     cards above; this box's own border is a single continuous blue box. */
+  border-bottom:1px solid #1d4f96;
 }
 html.v1[data-lrb-home="true"] .home-events__cta h3{margin:0;font-size:clamp(1rem,1.4vw,1.18rem);line-height:1.2;font-weight:600}
 html.v1[data-lrb-home="true"] .home-events__cta p{margin:0;font-family:var(--font-reading);font-size:.92rem;line-height:1.4;color:#2a2e31}
