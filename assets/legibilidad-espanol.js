@@ -47,9 +47,10 @@ function updateCounter() {
 }
 
 function metricCard(title, value, label, note, featured = false) {
+  const display = value === null || value === undefined ? '—' : value;
   return `<article class="readability-metric${featured ? ' readability-metric--main' : ''}">
     <p class="readability-metric__name">${escapeHTML(title)}</p>
-    <p class="readability-metric__score">${escapeHTML(value)}</p>
+    <p class="readability-metric__score">${escapeHTML(display)}</p>
     <p class="readability-metric__label">${escapeHTML(label)}</p>
     <p class="readability-metric__note">${escapeHTML(note)}</p>
   </article>`;
@@ -89,7 +90,9 @@ function renderFindings(list, rows, kind) {
 function render(data) {
   results.hidden = false;
   const denseFirst = data.densestParagraphs[0];
-  let summaryText = `En conjunto, Inflesz sitúa este fragmento en «${data.inflesz.label.toLowerCase()}» (${data.inflesz.score}).`;
+  let summaryText = data.reliableSample
+    ? `En conjunto, Inflesz sitúa este fragmento en «${data.inflesz.label.toLowerCase()}» (${data.inflesz.score}).`
+    : 'Necesito al menos 20 palabras con una frase real (con punto, exclamación o interrogación) para estimar la legibilidad.';
   if (denseFirst) summaryText += ` El párrafo ${denseFirst.index} es el bloque formalmente más denso de la muestra.`;
   const frasesLabel = data.sentenceCount === 1 ? 'frase' : 'frases';
   const parrafosLabel = data.paragraphCount === 1 ? 'párrafo' : 'párrafos';
@@ -105,7 +108,9 @@ function render(data) {
   renderStrip(data.paragraphRows);
   renderFindings(dense, data.densestParagraphs, 'paragraph');
   renderFindings(longest, data.longestSentences, 'sentence');
-  status.textContent = data.wordCount < 100
+  status.textContent = !data.reliableSample
+    ? 'La muestra es demasiado corta o no tiene una frase real: no se calculan las fórmulas.'
+    : data.wordCount < 100
     ? 'La muestra tiene menos de 100 palabras. Puedes mirar los resultados, pero compáralos con cautela.'
     : 'Análisis hecho en este navegador. El texto no se ha enviado a ningún servidor.';
   track(data.wordCount);

@@ -91,6 +91,21 @@ export function analyzeText(text) {
 
   const comparableParagraphs = paragraphRows.filter((p) => p.score !== null).sort((a, b) => a.score - b.score);
 
+  // Below ~10 words, or with no real sentence-ending punctuation at all, the
+  // "per 100 words" normalization these four formulas share amplifies a tiny
+  // sample into meaningless swings -- e.g. "hola mundo" (2 words, no period)
+  // scores Crawford at -3.86, a negative school grade level, and a single
+  // punctuated one-word "sentence" does the same (-19.01) since the maths
+  // only cares about the word/sentence ratio, not whether the period is
+  // real. 10 words is deliberately lower than the 20-word floor the
+  // per-paragraph rows below already use (paragraphRows) -- that threshold
+  // protects a *comparison across paragraphs*, this one only needs to keep
+  // the formulas out of their mathematically-degenerate range, and
+  // tests/test-legibilidad.mjs's own 15-word fixture is expected to still
+  // produce a real number.
+  const reliableSample = wordCount >= 10 && sentences.length > 0;
+  const shortSample = (label) => ({ score: null, raw: null, label });
+
   return {
     empty: false,
     wordCount,
@@ -101,10 +116,19 @@ export function analyzeText(text) {
     polysyllabicWords: polys,
     avgWordsPerSentence: round(wordsPerSentence),
     avgSyllablesPerWord: round(syllablesPerWord, 2),
-    fernandezHuerta: { score: round(clamp(fernandezHuertaRaw)), raw: round(fernandezHuertaRaw), label: classifyFernandezHuerta(fernandezHuertaRaw) },
-    inflesz: { score: round(clamp(szigrisztRaw)), raw: round(szigrisztRaw), label: classifyInflesz(szigrisztRaw) },
-    gutierrez: { score: round(gutierrezRaw), raw: round(gutierrezRaw), label: 'Úsalo para comparar versiones del mismo texto' },
-    crawford: { score: round(crawfordRaw, 2), raw: round(crawfordRaw, 2), label: 'Estimación escolar; no es una nota literaria' },
+    reliableSample,
+    fernandezHuerta: reliableSample
+      ? { score: round(clamp(fernandezHuertaRaw)), raw: round(fernandezHuertaRaw), label: classifyFernandezHuerta(fernandezHuertaRaw) }
+      : shortSample('Muestra corta'),
+    inflesz: reliableSample
+      ? { score: round(clamp(szigrisztRaw)), raw: round(szigrisztRaw), label: classifyInflesz(szigrisztRaw) }
+      : shortSample('Muestra corta'),
+    gutierrez: reliableSample
+      ? { score: round(gutierrezRaw), raw: round(gutierrezRaw), label: 'Úsalo para comparar versiones del mismo texto' }
+      : shortSample('Muestra corta'),
+    crawford: reliableSample
+      ? { score: round(crawfordRaw, 2), raw: round(crawfordRaw, 2), label: 'Estimación escolar; no es una nota literaria' }
+      : shortSample('Muestra corta'),
     longestSentences: sentenceRows.slice(0, 5),
     densestParagraphs: comparableParagraphs.slice(0, 5),
     paragraphRows,
