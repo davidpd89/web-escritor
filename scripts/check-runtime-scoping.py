@@ -83,7 +83,7 @@ def check_buy_modal_scope(root: Path, pages: list[Path]) -> list[str]:
                 errors.append(f"{rel}: falta [data-buy-modal]")
             if not loads_js:
                 errors.append(f"{rel}: falta assets/samuel-buy-modal.js")
-            if text.count("/assets/samuel-buy-modal.js") != 1:
+            if text.count("/assets/samuel-buy-modal.js?v=1") != 1:
                 errors.append(f"{rel}: samuel-buy-modal.js debe cargarse exactamente una vez")
             if loads_css:
                 errors.append(f"{rel}: el CSS del modal debe cargarlo el runtime validado, no el HTML")

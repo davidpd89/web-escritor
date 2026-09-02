@@ -464,7 +464,7 @@ def render_explore(nav: dict, by_id: dict[str, Entry], current_path: str, allow_
         '      <p id="nl-status-explore" class="form-status" role="status" aria-live="polite"></p>\n'
         '    </form>\n'
     ) if allow_newsletter else ''
-    runtime_markup = '<script defer src="/assets/newsletter-general.js"></script>' if allow_newsletter else ''
+    runtime_markup = '<script defer src="/assets/newsletter-general.js?v=1"></script>' if allow_newsletter else ''
 
     return (
         '<dialog class="explore-dialog" id="explore-dialog" aria-labelledby="explore-title" data-explore-dialog>\n'

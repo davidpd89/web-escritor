@@ -95,7 +95,7 @@ assert 'id="samuel-quiz-app"' in book_html and "data-samuel-quiz" in book_html
 assert 'id="quiz-noveris-app"' not in book_html, "legacy global quiz hook would double-initialize the local quiz"
 assert "quiz-subscribe-form" not in book_html, "quiz must not export result through newsletter subscription"
 assert "Tus respuestas y tu resultado no se envían a terceros" in book_html
-assert "/assets/samuel-quiz.js" in book_html
+assert "/assets/samuel-quiz.js?v=1" in book_html
 for forbidden in ("fetch(", "XMLHttpRequest", "sendBeacon", "WebSocket", "postNewsletter", "_gcEvent"):
     assert forbidden not in quiz_js, f"local quiz contains outbound/analytics primitive: {forbidden}"
 assert "https://davidportodiaz.com/libros/samuel-entre-mundos/#quiz-noveris" in quiz_js
