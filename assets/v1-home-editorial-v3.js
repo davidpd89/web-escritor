@@ -78,6 +78,21 @@
     return node;
   }
 
+  // The corner-bracket decoration (.media-frame::before/::after) must hug
+  // the image's own rendered box, not whatever larger centering container
+  // it sits inside -- .yale-lead__media/.yale-tile__media/.yale-feature-
+  // book__media all use display:grid+place-items to center a variable-
+  // ratio image inside a fixed-height slot, which leaves real empty space
+  // between the container's corners and the image's own corners. A shared
+  // inline-block wrapper naturally shrinks to the image's rendered size,
+  // so the brackets end up on the image, not floating in that gap
+  // (2026-09-02, reported: bracket appearing detached near the hero text).
+  function wrapMediaFrame(image) {
+    const frame = make('span', 'media-frame');
+    frame.append(image);
+    return frame;
+  }
+
   function addTextLink(parent, href, text, className = '') {
     const link = make('a', className, text);
     link.href = href;
@@ -505,7 +520,7 @@
     image.loading = 'eager';
     image.decoding = 'async';
     image.fetchPriority = 'high';
-    media.append(image);
+    media.append(wrapMediaFrame(image));
 
     const copy = make('div', 'yale-lead__copy');
     copy.append(make('p', 'editorial-card__eyebrow', 'Monza Ediciones'));
@@ -570,7 +585,7 @@
       img.alt = cardTitle;
       img.loading = 'lazy';
       img.decoding = 'async';
-      media.append(img);
+      media.append(wrapMediaFrame(img));
       const body = make('div', 'yale-tile__body');
       body.append(make('p', 'editorial-card__eyebrow', eyebrow));
       const h = make('h3');
@@ -623,7 +638,7 @@
     image.alt = 'Portada de Samuel entre mundos';
     image.loading = 'eager';
     image.decoding = 'async';
-    media.append(image);
+    media.append(wrapMediaFrame(image));
     const body = make('div', 'yale-feature-book__body');
     body.append(make('p', 'editorial-card__eyebrow', 'Libros Indie'));
     const h = make('h3');
