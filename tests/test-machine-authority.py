@@ -393,7 +393,12 @@ def main() -> int:
     check(ai.has_skip, "/ai/: skip link missing")
     check(ai.h1 == 1, f"/ai/: expected exactly one h1, got {ai.h1}")
     check(ai.h2 >= 5, f"/ai/: expected section headings, got {ai.h2} h2")
-    css_hrefs = {link.get("href") for link in ai.links if link.get("rel") == "stylesheet"}
+    # Strip any cache-busting ?v= query string before comparing -- this set
+    # should track whether the *stylesheet* is present, not its current
+    # version, which scripts/check-asset-versions.py already owns and which
+    # would otherwise go stale here every time that version bumps (as it
+    # did 2026-09-02: v1-fonts.css?v=1 failed this exact-string check).
+    css_hrefs = {link.get("href", "").split("?", 1)[0] for link in ai.links if link.get("rel") == "stylesheet"}
     expected_css = {
         "/assets/v1-fonts.css",
         "/assets/v1-tokens.css",
