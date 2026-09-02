@@ -155,7 +155,6 @@ TRACKED_ASSETS = {
     "v1-press.css": "1",
     "objeto-heredado.css": "1",
     "objeto-heredado.js": "1",
-    "writer-tools.css": "1",
     "writer-tools.js": "1",
 }
 
