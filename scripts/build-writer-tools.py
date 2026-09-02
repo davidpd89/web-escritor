@@ -157,7 +157,7 @@ def render(data):
   <link rel="preload" as="style" href="/assets/v1-reflow-hardening-v7.css?v=1" />
   <!-- v1-shell-preload:end -->
   <link rel="stylesheet" href="/assets/v1-shell.css?v=1" />
-  <link rel="stylesheet" href="/assets/v1-components.css?v=1" />
+  <link rel="stylesheet" href="/assets/v1-components.css?v=2" />
   <link rel="stylesheet" href="/assets/v1-families.css?v=1" />
   <link rel="stylesheet" href="/assets/v1-tools.css?v=1" />
   <link rel="stylesheet" href="/assets/editoriales.css?v=1" />
