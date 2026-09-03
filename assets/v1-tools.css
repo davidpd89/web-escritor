@@ -45,7 +45,7 @@ html.v1 .tool-note{padding:1rem 1.25rem;border-left:2px solid var(--color-accent
 
 html.v1 .tool-findings-block{margin:2.4rem 0 0}
 html.v1 .tool-findings-block:first-child{margin-top:0}
-html.v1 .tool-findings-block :is(h2,h3){font:600 1.1rem/1.3 var(--font-display);margin:0 0 .35rem}
+html.v1 .tool-findings-block :is(h2,h3){font:400 1.1rem/1.3 var(--font-display);margin:0 0 .35rem}
 html.v1 .tool-findings-block>p{font:400 .95rem/1.55 var(--font-reading);color:var(--color-muted);max-width:64ch;margin:0 0 1rem}
 html.v1 .tool-findings{list-style:none;margin:0;padding:0;display:grid;gap:.9rem}
 html.v1 .tool-findings li{padding:.9rem 0;border-top:1px solid var(--color-border)}
