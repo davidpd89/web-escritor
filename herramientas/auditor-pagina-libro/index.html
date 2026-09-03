@@ -187,7 +187,8 @@
       <form data-book-audit-form>
         <div class="tool-field">
           <label class="tool-field-label" for="book-audit-html">Código HTML de la página</label>
-          <textarea id="book-audit-html" class="tool-textarea" data-book-audit-html spellcheck="false" placeholder="Copia el HTML con «Ver código fuente de la página» (Ctrl/Cmd+U) y pégalo aquí."></textarea>
+          <span class="tool-field-hint" id="book-audit-html-hint">Cópialo con «Ver código fuente de la página» (Ctrl/Cmd+U) en la página del libro.</span>
+          <textarea id="book-audit-html" class="tool-textarea" data-book-audit-html spellcheck="false" aria-describedby="book-audit-html-hint" placeholder="Pega aquí el HTML."></textarea>
         </div>
         <div class="tool-row">
           <div class="tool-field">
