@@ -122,6 +122,14 @@ FORBIDDEN_BASENAME_PATTERNS = (
     "*.tfstate",
     ".env",
     ".env.*",
+    # Internal engineering docs (ownership, QA commands, env var names,
+    # activation architecture) never belong on the public site even when
+    # they sit inside an otherwise-public directory. Found live: asistente/
+    # README.md served 200 at davidportodiaz.com/asistente/README.md --
+    # nothing here blocked bare README.md by basename, only specific
+    # infra filenames. THIRD_PARTY_NOTICE_SILABAJS.md is a different
+    # basename and stays public via its own PUBLIC_ROOT_FILES entry.
+    "README.md",
 )
 FORBIDDEN_SUFFIXES = (".sql", ".pem", ".key")
 
@@ -138,6 +146,7 @@ ASSETSIGNORE_FORBIDDEN_PATTERNS = (
     "**/*.sql",
     "**/*.pem",
     "**/*.key",
+    "**/README.md",
 )
 
 REQUIRED_PUBLIC_FILES = (
