@@ -24,6 +24,33 @@ function ok(cond, msg) { if (!cond) throw new Error(msg); }
   ok(r.text === 'Dijo «hola» y luego «adiós».', `obtenido: ${r.text}`);
 }
 
+// Marca de pulgadas (6" de alto) tras un dígito: no es diálogo, debe quedar
+// intacta en lugar de consumir un turno de apertura/cierre.
+{
+  const r = api.clean('Medía 6" de alto.', ['straightQuotes']);
+  ok(r.text === 'Medía 6" de alto.', `la comilla tras dígito no debe convertirse: obtenido "${r.text}"`);
+}
+
+// Auditoría de casos límite de diálogo en español (2026-09): una comilla
+// suelta (marca de pulgadas u otro origen) en un párrafo NO debe invertir la
+// apertura/cierre de los diálogos de los párrafos SIGUIENTES -- confirmado en
+// vivo antes de este fix: "hola"/"adiós" en el segundo párrafo se convertían
+// en »hola«/»adiós« (invertido) por una comilla de pulgadas en el primero.
+{
+  const input = 'Medía 6" de alto.\n\nElla dijo "hola" y él respondió "adiós".';
+  const r = api.clean(input, ['straightQuotes']);
+  ok(r.text === 'Medía 6" de alto.\n\nElla dijo «hola» y él respondió «adiós».', `obtenido: ${JSON.stringify(r.text)}`);
+}
+
+// La misma contención debe aplicarse a una comilla suelta que NO es una
+// marca de pulgadas (un typo, o un artefacto de copiar/pegar): el error debe
+// quedar contenido en su propio párrafo, no propagarse al resto del texto.
+{
+  const input = 'Un texto raro con una comilla suelta " aquí.\n\nElla dijo "hola" y él "adiós".';
+  const r = api.clean(input, ['straightQuotes']);
+  ok(r.text.endsWith('Ella dijo «hola» y él «adiós».'), `el segundo párrafo debe quedar bien formado: obtenido "${r.text}"`);
+}
+
 // Guion de diálogo a raya larga, solo al inicio de línea.
 {
   const r = api.clean('- Hola, dijo Ana.\nTexto normal - con guion en medio.', ['dashDialogue']);
