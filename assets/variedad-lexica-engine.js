@@ -1,7 +1,11 @@
 const WORD_RE = /[\p{L}\p{M}]+(?:[’'\-][\p{L}\p{M}]+)*/gu;
+// Zero-width space/joiners and BOM match nothing in \p{L}\p{M} -- one landing
+// inside a word (a real artifact from some PDF/OCR extraction pipelines)
+// splits it into two tokens instead of one, inflating type/token counts.
+const INVISIBLE_RE = /[\u200B-\u200D\uFEFF]/g;
 
 export function tokenizeSpanish(text) {
-  return (String(text || '').normalize('NFC').match(WORD_RE) || [])
+  return (String(text || '').replace(INVISIBLE_RE, '').normalize('NFC').match(WORD_RE) || [])
     .map(token => token.toLocaleLowerCase('es-ES'));
 }
 

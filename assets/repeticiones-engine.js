@@ -1,6 +1,10 @@
 const BASIC_STOPWORDS = new Set(`a al algo algunas algunos ante antes como con contra cual cuando de del desde donde durante e el ella ellas ellos en entre era erais eramos eran eras eres es esa esas ese eso esos esta estaba estaban estas este esto estos fue fueron ha han hasta hay la las le les lo los mas me mi mis muy ni no nos o para pero por porque que quien se si sin sobre su sus te tu tus un una unas uno unos y ya yo`.split(/\s+/));
 
 const WORD_RE = /[\p{L}\p{M}]+(?:[’'][\p{L}\p{M}]+)*/gu;
+// Zero-width space/joiners and BOM match nothing in \p{L}\p{M} -- one landing
+// inside a word (a real artifact from some PDF/OCR extraction pipelines)
+// splits it into two tokens, inflating the repetition counts this tool reports.
+const INVISIBLE_RE = /[\u200B-\u200D\uFEFF]/g;
 
 function normalizeWord(value) {
   return String(value || '').toLocaleLowerCase('es-ES').replace(/’/g, "'");
@@ -8,7 +12,7 @@ function normalizeWord(value) {
 
 function tokenize(text) {
   const out = [];
-  for (const match of String(text || '').matchAll(WORD_RE)) {
+  for (const match of String(text || '').replace(INVISIBLE_RE, '').matchAll(WORD_RE)) {
     out.push({ raw: match[0], norm: normalizeWord(match[0]), start: match.index ?? 0 });
   }
   return out;

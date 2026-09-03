@@ -1,8 +1,13 @@
 const WORD_RE = /[A-Za-zÁÉÍÓÚÜÑáéíóúüñ0-9]+(?:['’\-][A-Za-zÁÉÍÓÚÜÑáéíóúüñ0-9]+)*/g;
 const SCENE_BREAK_RE = /^\s*(?:\*\s*\*\s*\*|\*{3,}|-{3,}|—\s*—\s*—|#{3,})\s*$/;
+// A zero-width space/joiner or BOM landing inside a word (a real artifact
+// from some PDF/OCR extraction pipelines) isn't in this character class
+// either, so it still splits one word into two matches -- stripped before
+// matching, since it must never count as a word boundary by itself.
+const INVISIBLE_RE = /[\u200B-\u200D\uFEFF]/g;
 
 export function words(text) {
-  return String(text || '').match(WORD_RE) || [];
+  return String(text || '').replace(INVISIBLE_RE, '').match(WORD_RE) || [];
 }
 
 export function splitParagraphs(text) {
