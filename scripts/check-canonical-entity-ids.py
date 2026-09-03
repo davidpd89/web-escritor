@@ -36,6 +36,7 @@ ROOT = Path(__file__).resolve().parents[1]
 SKIP_PARTS = {
     ".git", ".github", "node_modules", "tests", "scripts", "archive",
     "WEB DAVID PORTO nuevas ideas", ".codex_work", ".preview-dist", "dist",
+    ".claude",
 }
 WATCHED_TYPES = {"Book", "Person", "Organization"}
 LD_BLOCK = re.compile(r"<script[^>]*application/ld\+json[^>]*>(.*?)</script>", re.S | re.I)

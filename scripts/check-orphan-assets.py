@@ -78,7 +78,7 @@ HAYSTACK_EXTENSIONS = {
 # exists" nor as a source of "this file is referenced".
 SKIP_PARTS = {
     ".git", "node_modules", "WEB DAVID PORTO nuevas ideas", "archive",
-    ".codex_work", ".preview-dist", "dist",
+    ".codex_work", ".preview-dist", "dist", ".claude",
 }
 
 

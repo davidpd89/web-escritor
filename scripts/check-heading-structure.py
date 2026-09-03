@@ -32,7 +32,7 @@ from pathlib import Path
 SKIP_PARTS = {
     ".git", ".github", "node_modules", "tests", "vendor",
     "WEB DAVID PORTO nuevas ideas", "archive", ".codex_work",
-    ".preview-dist", "dist", "lab",
+    ".preview-dist", "dist", "lab", ".claude",
 }
 
 VOID = {

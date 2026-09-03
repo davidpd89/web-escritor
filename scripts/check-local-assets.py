@@ -25,7 +25,7 @@ from urllib.parse import urlparse, unquote
 SKIP_PARTS = {
     ".git", ".github", "node_modules", "tests", "vendor",
     "WEB DAVID PORTO nuevas ideas", "archive", ".codex_work",
-    ".preview-dist", "dist",
+    ".preview-dist", "dist", ".claude",
 }
 
 # Attributes worth checking, per (tag, attribute) -> "single" or "srcset"
