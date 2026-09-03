@@ -81,9 +81,25 @@ def extract_metadata(path):
             j=json.loads(m.group(1))
             if is_non_article_page(j):
                 return {'path': path, 'title': None, 'url': None, 'date': None, 'description': None, 'skip': True}
-            # try Article or WebPage
+            # Every article on the site emits its JSON-LD as a top-level
+            # @graph (Article + BreadcrumbList, etc), never a flat Article
+            # object -- so node = j always picked the @graph WRAPPER, whose
+            # .get('name')/.get('datePublished') are always None even though
+            # the real values sit one level down. That silently dropped
+            # every item's pubDate (confirmed empty in production feed.xml)
+            # and degraded the intended date sort to the alphabetical
+            # fallback below.
             node = None
-            if isinstance(j, dict):
+            if isinstance(j, dict) and isinstance(j.get('@graph'), list):
+                for candidate in j['@graph']:
+                    if not isinstance(candidate, dict):
+                        continue
+                    t = candidate.get('@type')
+                    types = {t} if isinstance(t, str) else set(t or [])
+                    if types & ARTICLE_TYPES:
+                        node = candidate
+                        break
+            elif isinstance(j, dict):
                 node = j
             elif isinstance(j, list) and j:
                 node = j[0]
