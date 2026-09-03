@@ -1,0 +1,139 @@
+// Property-based fuzz test (item 7 of the 2026-09 audit round): generate
+// hundreds of random/adversarial texts and check universal invariants on
+// every text-analysis tool engine -- no NaN/Infinity anywhere in the result,
+// no thrown exception, counts never negative, ratios kept inside [0,1].
+// These engines take arbitrary pasted manuscript text as input, so they
+// must never crash or emit a nonsensical value regardless of what a writer
+// pastes in (control characters, lone combining marks, huge repeats...).
+import contadorPkg from '../assets/contador-palabras-engine.js';
+const { count: countWords } = contadorPkg;
+import { analyzeText as analyzeReadability } from '../assets/legibilidad-engine.js';
+import { analyzeRepetitions } from '../assets/repeticiones-engine.js';
+import { analyzeLexicalDiversity } from '../assets/variedad-lexica-engine.js';
+
+function mulberry32(seed) {
+  return () => {
+    seed |= 0; seed = (seed + 0x6d2b79f5) | 0;
+    let t = Math.imul(seed ^ (seed >>> 15), 1 | seed);
+    t = (t + Math.imul(t ^ (t >>> 7), 61 | t)) ^ t;
+    return ((t ^ (t >>> 14)) >>> 0) / 4294967296;
+  };
+}
+
+// Every non-printable/invisible character is spelled out as \uXXXX on
+// purpose -- pasting the literal glyphs earlier made this file contain raw
+// NUL/SOH bytes, which made git misdetect the whole file as binary.
+const CHAR_POOLS = {
+  ascii: 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789',
+  spanish: 'áéíóúüñÁÉÍÓÚÜÑ ¿¡',
+  punctuation: '.,;:!?…«»“”‘’()-—–',
+  whitespace: ' \t\n\r',
+  combining: '́̀̃̈', // combining accents with no base letter
+  control: '\u0000\u0001\u200b\u200c\ufeff', // NUL, SOH, ZWSP, ZWNJ, BOM
+  emoji: '😀📚✍️🔥',
+};
+
+function randomText(rng, len) {
+  const pools = Object.values(CHAR_POOLS);
+  let out = '';
+  for (let i = 0; i < len; i++) {
+    const pool = pools[Math.floor(rng() * pools.length)];
+    out += pool[Math.floor(rng() * pool.length)];
+  }
+  return out;
+}
+
+function assertFiniteDeep(value, path, failures) {
+  if (typeof value === 'number') {
+    if (!Number.isFinite(value)) failures.push(`${path} = ${value} (not finite)`);
+    return;
+  }
+  if (value === null || value === undefined || typeof value !== 'object') return;
+  for (const [key, v] of Object.entries(value)) assertFiniteDeep(v, `${path}.${key}`, failures);
+}
+
+const rng = mulberry32(20260903);
+const failures = [];
+const SAMPLE_COUNT = 400;
+
+const structuredSamples = [
+  '',
+  ' ',
+  '\n\n\n',
+  'a'.repeat(50000),
+  'palabra '.repeat(20000),
+  '́'.repeat(5000), // only combining marks, no base letters
+  '.'.repeat(5000),
+  '¿'.repeat(5000) + '?'.repeat(5000),
+  ' '.repeat(1000) + 'texto normal' + ' '.repeat(1000),
+  'Word' + '-'.repeat(2000) + 'word',
+  '😀'.repeat(3000),
+  '\r\n'.repeat(5000),
+  ('a​'.repeat(10000)), // zero-width space fused into a run of words
+];
+
+const samples = [...structuredSamples];
+for (let i = 0; i < SAMPLE_COUNT; i++) {
+  samples.push(randomText(rng, Math.floor(rng() * 400)));
+}
+
+let checked = 0;
+for (const text of samples) {
+  checked++;
+  let wc, ra, rep, lex;
+  try {
+    wc = countWords(text);
+    ra = analyzeReadability(text);
+    rep = analyzeRepetitions(text);
+    lex = analyzeLexicalDiversity(text);
+  } catch (err) {
+    failures.push(`sample #${checked} (len=${text.length}) threw: ${err.stack || err}`);
+    continue;
+  }
+
+  assertFiniteDeep(wc, `contador#${checked}`, failures);
+  assertFiniteDeep(ra, `legibilidad#${checked}`, failures);
+  assertFiniteDeep(rep, `repeticiones#${checked}`, failures);
+  assertFiniteDeep(lex, `variedad-lexica#${checked}`, failures);
+
+  // Counts must never be negative.
+  for (const [k, v] of Object.entries(wc)) {
+    if (typeof v === 'number' && v < 0) failures.push(`contador#${checked}.${k} = ${v} (negative)`);
+  }
+  if (rep.wordCount < 0) failures.push(`repeticiones#${checked}.wordCount negative`);
+  if (lex.tokenCount < 0 || lex.typeCount < 0 || lex.hapaxCount < 0) {
+    failures.push(`variedad-lexica#${checked}: negative count`);
+  }
+  // typeCount can never exceed tokenCount (every type is backed by >=1 token).
+  if (lex.typeCount > lex.tokenCount) {
+    failures.push(`variedad-lexica#${checked}: typeCount ${lex.typeCount} > tokenCount ${lex.tokenCount}`);
+  }
+  if (lex.hapaxCount > lex.typeCount) {
+    failures.push(`variedad-lexica#${checked}: hapaxCount ${lex.hapaxCount} > typeCount ${lex.typeCount}`);
+  }
+  // Ratios must stay within [0,1] whenever they are computed (non-null).
+  // mtld is excluded here: it is a factor-length score (typically 30-150+
+  // for real text), not a proportion -- confirmed against its own UI label
+  // ("longitud media de factores hasta un umbral TTR de 0,72").
+  for (const key of ['ttr', 'mattr50', 'mattr100', 'hapaxShareOfTypes']) {
+    const v = lex[key];
+    if (v !== null && v !== undefined && (v < 0 || v > 1)) {
+      failures.push(`variedad-lexica#${checked}.${key} = ${v} (outside [0,1])`);
+    }
+  }
+  if (lex.mtld !== null && lex.mtld !== undefined && lex.mtld < 0) {
+    failures.push(`variedad-lexica#${checked}.mtld = ${lex.mtld} (negative)`);
+  }
+  // wordCount can never exceed the no-space character count (a word needs
+  // at least one non-space character).
+  if (wc.wordCount > wc.charsNoSpaces) {
+    failures.push(`contador#${checked}: wordCount ${wc.wordCount} > charsNoSpaces ${wc.charsNoSpaces}`);
+  }
+}
+
+console.log(`tests/test-tools-property-fuzz: checked ${checked} sample(s) across 4 engines`);
+if (failures.length) {
+  for (const f of failures.slice(0, 40)) console.log(`  FAIL ${f}`);
+  throw new Error(`tests/test-tools-property-fuzz: ${failures.length} invariant violation(s)`);
+}
+console.log('tests/test-tools-property-fuzz: OK');
