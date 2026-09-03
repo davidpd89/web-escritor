@@ -61,6 +61,18 @@
        end up consuming), removed rather than left in place wasting
        high-priority bandwidth on every home page load. -->
   <link rel="preload" as="font" type="font/woff2" href="assets/fonts/yellowtail-normal-400-latin.woff2" crossorigin />
+  <!-- The current LCP element on this page (confirmed live via
+       PerformanceObserver's largest-contentful-paint entry) is the hero
+       image createYaleHero() inserts -- but that function only runs after
+       v1-shell.js (deferred) executes and dynamically imports
+       v1-home-editorial-v3.js, so without this preload the browser doesn't
+       even learn the image exists until two sequential script loads finish,
+       adding their full round-trip to the critical path before the fetch
+       for the image itself can start. createYaleHero() hardcodes this exact
+       file unconditionally (assets/v1-home-editorial-v3.js:271) -- unlike
+       the old preload removed above, this one always matches what's
+       actually rendered, so it can't go stale the same way. -->
+  <link rel="preload" as="image" href="/assets/manecillas-del-recuerdo-3d-transparent.png" fetchpriority="high" />
   <link rel="canonical" href="https://davidportodiaz.com/" />
   <link rel="sitemap" type="application/xml" href="/sitemap.xml" />
 
