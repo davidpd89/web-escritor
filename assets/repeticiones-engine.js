@@ -12,7 +12,13 @@ function normalizeWord(value) {
 
 function tokenize(text) {
   const out = [];
-  for (const match of String(text || '').replace(INVISIBLE_RE, '').matchAll(WORD_RE)) {
+  // A name/word typed directly (NFC) and the same word arriving via pasted
+  // manuscript text that happens to be NFD-encoded (a real, observed paste
+  // artifact) are visually identical but byte-different -- confirmed live
+  // to split one real 4x repetition into two separate 2x "echoes" instead
+  // of flagging it as one, potentially hiding it below this tool's
+  // detection threshold entirely.
+  for (const match of String(text || '').normalize('NFC').replace(INVISIBLE_RE, '').matchAll(WORD_RE)) {
     out.push({ raw: match[0], norm: normalizeWord(match[0]), start: match.index ?? 0 });
   }
   return out;

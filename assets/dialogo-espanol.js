@@ -8,7 +8,7 @@ const CHAPTER_RE = /^(?:#{1,3}\s+.+|cap[ií]tulo\s+(?:\d+|[ivxlcdm]+|.+)|chapter
 const INVISIBLE_RE = /[\u200B-\u200D\uFEFF]/g;
 
 function words(text) {
-  return String(text || '').replace(INVISIBLE_RE, '').match(WORD_RE) || [];
+  return String(text || '').normalize('NFC').replace(INVISIBLE_RE, '').match(WORD_RE) || [];
 }
 
 function quotedSegments(text) {

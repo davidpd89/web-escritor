@@ -7,7 +7,7 @@ const SCENE_BREAK_RE = /^\s*(?:\*\s*\*\s*\*|\*{3,}|-{3,}|—\s*—\s*—|#{3,})\
 const INVISIBLE_RE = /[\u200B-\u200D\uFEFF]/g;
 
 export function words(text) {
-  return String(text || '').replace(INVISIBLE_RE, '').match(WORD_RE) || [];
+  return String(text || '').normalize('NFC').replace(INVISIBLE_RE, '').match(WORD_RE) || [];
 }
 
 export function splitParagraphs(text) {
@@ -34,14 +34,24 @@ function escapeRegExp(value) {
 }
 
 function countMentions(text, names) {
+  // A name typed directly (NFC, the normal case) and the same name arriving
+  // via pasted manuscript text that happens to be NFD-encoded (a real,
+  // observed artifact of some paste sources) are visually identical but
+  // byte-different -- confirmed live to make this miss every mention
+  // (0 found where the name appears 3 times) unless both sides are
+  // normalized to the same form before matching.
+  const normalizedText = String(text || '').normalize('NFC');
   const result = {};
   for (const raw of names) {
+    // Callers (analizador-capitulos.js) look results back up by this exact
+    // original string, so the result key must stay unnormalized -- only the
+    // matching itself needs both sides on the same form.
     const name = raw.trim();
     if (!name) continue;
-    const pattern = name.split(/\s+/).map(escapeRegExp).join('\\s+');
+    const pattern = name.normalize('NFC').split(/\s+/).map(escapeRegExp).join('\\s+');
     const re = new RegExp(`(^|[^\\p{L}\\p{N}_])(${pattern})(?=$|[^\\p{L}\\p{N}_])`, 'giu');
     let count = 0;
-    while (re.exec(text)) count += 1;
+    while (re.exec(normalizedText)) count += 1;
     result[name] = count;
   }
   return result;
