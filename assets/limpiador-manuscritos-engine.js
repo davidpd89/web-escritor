@@ -69,14 +69,32 @@
       id: 'straightQuotes',
       label: 'Comillas rectas dobles (") a comillas españolas «»',
       apply(text) {
+        // A straight quote immediately after a digit is virtually always an
+        // inches/feet mark (6" de alto), not dialogue -- left untouched
+        // rather than consumed by the open/close alternation below.
+        //
+        // The open/close alternation itself resets at each paragraph break
+        // rather than running once across the whole text: an unpaired quote
+        // of any other origin (an accidentally unclosed quote, an OCR/paste
+        // artifact) would otherwise flip open/close for every quote in the
+        // REST of the manuscript -- confirmed live before this fix: a single
+        // stray quote turned two clean "hola"/"adiós" pairs later in the same
+        // text into the backwards »hola« / »adiós«. Resetting per paragraph
+        // contains that kind of damage to the paragraph with the actual
+        // problem instead of the whole document.
         let n = 0;
-        let open = true;
-        const out = text.replace(/"/g, () => {
-          n += 1;
-          const ch = open ? '«' : '»';
-          open = !open;
-          return ch;
-        });
+        const paragraphs = text.split(/(\n\s*\n+)/);
+        const out = paragraphs.map((segment, i) => {
+          if (i % 2 === 1) return segment; // the separator itself, unchanged
+          let open = true;
+          return segment.replace(/(\d)?"/g, (m, digit) => {
+            if (digit) return m;
+            n += 1;
+            const ch = open ? '«' : '»';
+            open = !open;
+            return ch;
+          });
+        }).join('');
         return { text: out, count: n };
       },
     },
