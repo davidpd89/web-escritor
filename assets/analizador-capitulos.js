@@ -1,3 +1,5 @@
+import { csvDecimal } from '/assets/analizador-capitulos-engine.js';
+
 const MAX_BYTES = 8 * 1024 * 1024;
 const tool = document.querySelector('[data-chapter-analyzer]');
 
@@ -56,7 +58,7 @@ function render(result, names) {
 function csvEscape(v) { const s=String(v??''); return /[";\n]/.test(s)?`"${s.replace(/"/g,'""')}"`:s; }
 function exportCsv(result,names) {
   const headers=['capitulo','palabras','acumulado','porcentaje_acumulado','desviacion_mediana_pct','parrafos','parrafo_medio','parrafo_mediano','parrafo_mas_largo','dialogo_pct','separadores_escena',...names.map(n=>`menciones_${n}`)];
-  const rows=result.chapters.map(c=>[c.title,c.words,c.cumulativeWords,c.cumulativePercentage.toFixed(2),c.deviationFromMedianPct.toFixed(2),c.paragraphs,c.avgParagraphWords.toFixed(2),c.medianParagraphWords.toFixed(2),c.longestParagraphWords,c.dialoguePercentage.toFixed(2),c.explicitSceneBreaks,...names.map(n=>c.mentions[n]||0)]);
+  const rows=result.chapters.map(c=>[c.title,c.words,c.cumulativeWords,csvDecimal(c.cumulativePercentage),csvDecimal(c.deviationFromMedianPct),c.paragraphs,csvDecimal(c.avgParagraphWords),csvDecimal(c.medianParagraphWords),c.longestParagraphWords,csvDecimal(c.dialoguePercentage),c.explicitSceneBreaks,...names.map(n=>c.mentions[n]||0)]);
   const csv='\uFEFF'+[headers,...rows].map(r=>r.map(csvEscape).join(';')).join('\n');
   const url=URL.createObjectURL(new Blob([csv],{type:'text/csv;charset=utf-8'}));
   const a=document.createElement('a'); a.href=url; a.download='analisis-capitulos.csv'; a.click(); setTimeout(()=>URL.revokeObjectURL(url),0);

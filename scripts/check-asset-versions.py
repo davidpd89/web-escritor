@@ -151,7 +151,7 @@ TRACKED_ASSETS = {
     "limpiador-manuscritos-engine.js": "1",
     "limpiador-manuscritos.js": "1",
     "analizador-capitulos.css": "1",
-    "analizador-capitulos.js": "1",
+    "analizador-capitulos.js": "2",
     "metadatos-libro.css": "1",
     "metadatos-libro.js": "2",
     "nombres-personajes.css": "1",

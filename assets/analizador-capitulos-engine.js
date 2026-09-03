@@ -152,3 +152,15 @@ export function summarizeChapters(rows) {
 export function analyzeChapterBatch(chapters, names = []) {
   return summarizeChapters(chapters.map(c => analyzeChapter(c, names)));
 }
+
+// The CSV export uses ";" as the field delimiter and a UTF-8 BOM
+// specifically so it opens correctly in Excel under a Spanish/European
+// locale (where "," is the decimal separator, hence ";" instead of ","
+// for fields). toFixed() always returns a "." decimal regardless of
+// locale, so a raw toFixed() value in that same CSV reads as text (not
+// a number) once opened in that Excel locale -- confirmed by checking
+// this file's own on-screen fmt() helper, which already formats every
+// other number via toLocaleString('es-ES').
+export function csvDecimal(n, digits = 2) {
+  return Number(n || 0).toFixed(digits).replace('.', ',');
+}
