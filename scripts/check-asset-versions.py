@@ -86,7 +86,7 @@ TRACKED_ASSETS = {
     "v1-site-cohesion-v6.css": "1",
     "v1-reflow-hardening-v7.css": "1",
     "v1-shell.css": "1",
-    "v1-shell.js": "1",
+    "v1-shell.js": "2",
     "v1-components.css": "2",
     "v1-families.css": "1",
     "newsletter-general.js": "1",

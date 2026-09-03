@@ -240,7 +240,7 @@ def render(data, tools, directories):
 
   <footer class="site-footer"></footer>
 
-  <script defer src="/assets/v1-shell.js?v=1"></script>
+  <script defer src="/assets/v1-shell.js?v=2"></script>
   <script defer src="/script.js?v=202609-launch-1"></script>
   <script src="/assets/herramientas-hub.js?v=20260819-1" defer></script>
 </body>
