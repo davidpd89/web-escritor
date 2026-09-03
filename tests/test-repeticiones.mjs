@@ -62,6 +62,20 @@ assert(
   '"Noa" tampoco debe aparecer dentro de ninguna frase repetida cuando se pasa en ignored'
 );
 
+// Palabras compuestas con guion deben seguir siendo un solo token, igual
+// que en el resto de herramientas (contador-palabras, legibilidad,
+// analizador-capitulos, variedad-lexica). Antes de este fix WORD_RE no
+// incluía el guion, así que "político-social" se partía en "político" +
+// "social" y una repetición real de 2x de "político" (como palabra suelta)
+// aparecía inflada a un falso 3x en dominantWords -- confirmado en vivo.
+const hyphenSample = 'Tenía un plan político. Después firmó el acuerdo político-social con calma. Era un final político para todos.';
+const hyphenRes = analyzeRepetitions(hyphenSample);
+assert.equal(hyphenRes.wordCount, 17, 'político-social debe contar como una sola palabra, no dos');
+assert(
+  !hyphenRes.dominantWords.some((w) => w.word.toLowerCase() === 'político'),
+  '"político" no debe aparecer como dominante: solo se repite 2 veces como palabra suelta, no 3'
+);
+
 // Regresión de UI: el selector debe ser CSS válido. Este typo rompía la
 // inicialización completa de la herramienta antes de ejecutar el motor.
 const uiSource = readFileSync(new URL('../assets/repeticiones-espanol.js', import.meta.url), 'utf8');
