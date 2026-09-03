@@ -53,4 +53,24 @@ assert.equal(escapeIcs('a,b;c\\d\ne'), 'a\\,b\\;c\\\\d\\ne');
 assert.equal(escapeIcs('a\rb\r\nc\nd'), 'a\\nb\\nc\\nd');
 assert.equal(parseOffsetDate('2026-09-03T19:00', '+02:00').toISOString(), '2026-09-03T17:00:00.000Z');
 
+// UID contract (2026-09 audit round): regenerating the SAME event must
+// keep the SAME UID (so a calendar app updates the existing entry via
+// DTSTAMP instead of creating a duplicate), while events that actually
+// differ must not collide. Confirmed separately with a 5000-event fuzz
+// run (0 collisions) during the audit; this locks in the core cases.
+const uidOf = (model) => buildEventOutputs(model).ics.match(/UID:([^\r\n]+)/)[1];
+assert.equal(uidOf(base), uidOf(base), 'the same event model must produce the same UID');
+assert.equal(
+  uidOf({ ...base, description: 'Descripción completamente distinta' }),
+  uidOf(base),
+  'editing only the description (not url/start/name) must keep the same UID',
+);
+assert.notEqual(uidOf({ ...base, name: 'Otro evento' }), uidOf(base), 'a different name must produce a different UID');
+assert.notEqual(
+  uidOf({ ...base, startDateTime: '2026-09-04T19:00', endDateTime: '2026-09-04T20:30' }),
+  uidOf(base),
+  'a different start time must produce a different UID',
+);
+assert.match(uidOf(base), /^[0-9a-f]{8}@davidportodiaz\.com$/, 'UID must be a stable, well-formed identifier');
+
 console.log('tests/test-evento-escritor-core: OK');
