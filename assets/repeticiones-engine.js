@@ -1,6 +1,12 @@
 const BASIC_STOPWORDS = new Set(`a al algo algunas algunos ante antes como con contra cual cuando de del desde donde durante e el ella ellas ellos en entre era erais eramos eran eras eres es esa esas ese eso esos esta estaba estaban estas este esto estos fue fueron ha han hasta hay la las le les lo los mas me mi mis muy ni no nos o para pero por porque que quien se si sin sobre su sus te tu tus un una unas uno unos y ya yo`.split(/\s+/));
 
-const WORD_RE = /[\p{L}\p{M}]+(?:[’'][\p{L}\p{M}]+)*/gu;
+// Hyphenated compounds (e.g. "político-social") must stay one token, like
+// every sibling tokenizer in this codebase (contador-palabras, legibilidad,
+// analizador-capitulos, variedad-lexica all include the hyphen here) --
+// this one didn't, so "político-social" split into "político" + "social"
+// and inflated a genuine 2x repeat of the standalone word "político" into a
+// false 3x dominant-word hit, confirmed live.
+const WORD_RE = /[\p{L}\p{M}]+(?:[’'-][\p{L}\p{M}]+)*/gu;
 // Zero-width space/joiners and BOM match nothing in \p{L}\p{M} -- one landing
 // inside a word (a real artifact from some PDF/OCR extraction pipelines)
 // splits it into two tokens, inflating the repetition counts this tool reports.
