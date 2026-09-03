@@ -85,6 +85,11 @@ html.v1 .tool-table-wrap{overflow-x:auto;max-width:100%}
 html.v1 .tool-table{width:100%;border-collapse:collapse;font:400 .88rem/1.5 var(--font-ui)}
 html.v1 .tool-table th,html.v1 .tool-table td{text-align:left;padding:.6rem .75rem;border-bottom:1px solid var(--color-border)}
 html.v1 .tool-table thead th{font:600 .7rem/1.3 var(--font-ui);letter-spacing:.05em;text-transform:uppercase;color:var(--color-muted);border-bottom:1px solid var(--color-text)}
+/* tbody th (row headers, added for a11y -- scope="row" so screen readers can
+   announce which mode a cell belongs to) would otherwise pick up the
+   browser's default bold th styling and look different from the plain td
+   text it replaced. This is a semantics-only fix, not a design change. */
+html.v1 .tool-table tbody th{font-weight:400;text-align:left}
 
 html.v1 .meta-code{max-height:22rem;overflow:auto;padding:1rem;background:var(--surface-quiet);color:var(--color-text);white-space:pre-wrap;overflow-wrap:anywhere;font:400 .82rem/1.55 ui-monospace,SFMono-Regular,Menlo,monospace}
 

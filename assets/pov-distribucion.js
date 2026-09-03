@@ -2,8 +2,8 @@
   'use strict';
   const app = document.querySelector('[data-pov-app]'); if (!app || !window.PovDistribution) return;
   const form = app.querySelector('[data-pov-form]'), input = app.querySelector('[data-pov-input]'), inputTotals = app.querySelector('[data-pov-input-totals]'), formatMode = app.querySelector('[data-pov-format-mode]'), fieldScenes = app.querySelector('[data-pov-field-scenes]'), fieldTotals = app.querySelector('[data-pov-field-totals]'), sample = app.querySelector('[data-pov-sample]'), clear = app.querySelector('[data-pov-clear]'), status = app.querySelector('[data-pov-status]'), results = app.querySelector('[data-pov-results]'), metrics = app.querySelector('[data-pov-metrics]'), sequenceBlock = app.querySelector('[data-pov-sequence-block]'), lanesBlock = app.querySelector('[data-pov-lanes-block]'), sequence = app.querySelector('[data-pov-sequence]'), lanes = app.querySelector('[data-pov-lanes]'), summary = app.querySelector('[data-pov-summary]'), summaryHead = app.querySelector('[data-pov-summary-head]'), noteScenes = app.querySelector('[data-pov-note-scenes]'), noteTotals = app.querySelector('[data-pov-note-totals]');
-  const SCENES_HEAD = '<tr><th>POV</th><th>Escenas</th><th>% escenas</th><th>Palabras</th><th>% palabras</th><th>Racha máx.</th><th>Hueco interno máx.</th></tr>';
-  const TOTALS_HEAD = '<tr><th>POV</th><th>Palabras</th><th>% palabras</th></tr>';
+  const SCENES_HEAD = '<tr><th scope="col">POV</th><th scope="col">Escenas</th><th scope="col">% escenas</th><th scope="col">Palabras</th><th scope="col">% palabras</th><th scope="col">Racha máx.</th><th scope="col">Hueco interno máx.</th></tr>';
+  const TOTALS_HEAD = '<tr><th scope="col">POV</th><th scope="col">Palabras</th><th scope="col">% palabras</th></tr>';
   function activeInput() { return formatMode.value === 'totals' ? inputTotals : input; }
   function syncFormatUI() {
     const isTotals = formatMode.value === 'totals';
