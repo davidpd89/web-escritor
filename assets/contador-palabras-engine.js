@@ -16,7 +16,13 @@
   const INVISIBLE_RE = /[\u200B-\u200D\uFEFF]/g;
 
   function count(text) {
-    const raw = String(text ?? '').replace(INVISIBLE_RE, '');
+    // NFC vs NFD affects charsWithSpaces directly, not just word-splitting:
+    // an accented letter is 1 codepoint in NFC ("\u00E9") but 2 in NFD ("e" +
+    // combining acute) -- a writer perceives "\u00E9" as one character either
+    // way, so NFD-encoded paste input (a real artifact from some sources)
+    // would otherwise inflate the character count for text that looks
+    // identical on screen.
+    const raw = String(text ?? '').normalize('NFC').replace(INVISIBLE_RE, '');
     const trimmed = raw.trim();
 
     const words = trimmed ? (trimmed.match(/[\p{L}\p{N}'’-]+/gu) || []) : [];
