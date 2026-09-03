@@ -199,7 +199,7 @@ def render(data):
       <form data-wt-filters>
         <button type="submit" class="sr-only">Filtrar</button>
         <div class="tool-options">
-          <div class="tool-field"><label class="tool-field-label" for="wt-search">Buscar</label><input class="tool-input" id="wt-search" type="search" data-wt-search placeholder="Scrivener, EPUB, maquetación…"></div>
+          <div class="tool-field"><label class="tool-field-label" for="wt-search">Buscar</label><input class="tool-input" id="wt-search" type="search" autocomplete="off" enterkeyhint="search" data-wt-search placeholder="Scrivener, EPUB, maquetación…"></div>
           <div class="tool-field"><label class="tool-field-label" for="wt-stage">Etapa</label><select class="tool-select" id="wt-stage" data-wt-stage><option value="">Todas</option><option value="planificacion">Planificación</option><option value="escritura">Escritura</option><option value="revision">Revisión</option><option value="maquetacion">Maquetación</option><option value="epub">EPUB</option></select></div>
           <div class="tool-field"><label class="tool-field-label" for="wt-price">Precio</label><select class="tool-select" id="wt-price" data-wt-price><option value="">Todos</option><option value="gratis-open-source">Gratis / open source</option><option value="freemium">Freemium</option><option value="pago-unico">Pago único</option><option value="suscripcion">Suscripción</option></select></div>
         </div>
