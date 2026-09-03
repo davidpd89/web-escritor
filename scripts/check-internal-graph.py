@@ -35,6 +35,7 @@ EXCLUDE_DIRS = {
     "data",
     ".preview-dist",
     "dist",
+    ".claude",
 }
 
 ASSET_EXTENSIONS = {

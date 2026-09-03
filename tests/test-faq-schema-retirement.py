@@ -86,6 +86,7 @@ EXCLUDE_DIRS = {
     "data",
     ".preview-dist",
     "dist",
+    ".claude",
 }
 NOINDEX_RE = re.compile(r'<meta\s+name="robots"\s+content="([^"]*)"', re.I)
 

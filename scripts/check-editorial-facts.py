@@ -157,6 +157,7 @@ SKIP_PARTS = {
     # commercial states while building the real candidate pages, which is
     # not the same claim as a live public page asserting them.
     "lab",
+    ".claude",
 }
 
 
