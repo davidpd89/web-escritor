@@ -1095,7 +1095,7 @@ html.v1[data-lrb-home="true"] .home-events__cta{
      cards above; this box's own border is a single continuous blue box. */
   border-bottom:1px solid #1d4f96;
 }
-html.v1[data-lrb-home="true"] .home-events__cta h3{margin:0;font-size:clamp(1rem,1.4vw,1.18rem);line-height:1.2;font-weight:600}
+html.v1[data-lrb-home="true"] .home-events__cta h3{margin:0;font-size:clamp(1rem,1.4vw,1.18rem);line-height:1.2;font-weight:400}
 html.v1[data-lrb-home="true"] .home-events__cta p{margin:0;font-family:var(--font-reading);font-size:.92rem;line-height:1.4;color:#2a2e31}
 html.v1[data-lrb-home="true"] .home-events__cta .yale-text-link{font-weight:700}
 html.v1[data-lrb-home="true"] .install-web{

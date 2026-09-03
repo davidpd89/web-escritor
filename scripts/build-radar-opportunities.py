@@ -180,14 +180,14 @@ def render_page_body(items, today):
   <link rel="preload" as="style" href="/assets/v1-home-editorial-v3.css?v=1" />
   <link rel="preload" as="style" href="/assets/v1-editorial-interior-v4.css?v=1" />
   <link rel="preload" as="style" href="/assets/v1-editorial-interactions-v4.css?v=1" />
-  <link rel="preload" as="style" href="/assets/v1-site-cohesion-v6.css?v=1" />
+  <link rel="preload" as="style" href="/assets/v1-site-cohesion-v6.css?v=2" />
   <link rel="preload" as="style" href="/assets/v1-reflow-hardening-v7.css?v=1" />
   <link rel="preload" as="style" href="/assets/v1-text-resilience-v8.css?v=1" />
   <!-- v1-shell-preload:end -->
-  <link rel="stylesheet" href="/assets/v1-shell.css?v=2" />
-  <link rel="stylesheet" href="/assets/v1-components.css?v=2" />
-  <link rel="stylesheet" href="/assets/v1-families.css?v=1" />
-  <link rel="stylesheet" href="/assets/v1-tools.css?v=2" />
+  <link rel="stylesheet" href="/assets/v1-shell.css?v=3" />
+  <link rel="stylesheet" href="/assets/v1-components.css?v=3" />
+  <link rel="stylesheet" href="/assets/v1-families.css?v=2" />
+  <link rel="stylesheet" href="/assets/v1-tools.css?v=3" />
   <link rel="stylesheet" href="/assets/radar-convocatorias.css?v=1">
   <script type="application/ld+json">{schema}</script>
 </head>

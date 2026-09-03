@@ -55,7 +55,7 @@ with tempfile.TemporaryDirectory() as tmp_dir:
     check(normalized_generated_ics == normalized_expected_ics, "convocatorias-escritores/deadlines.ics está sincronizado")
 
     check('class="v1"' in generated_html, "el HTML generado mantiene shell V1")
-    check("/assets/v1-shell.css?v=2" in generated_html, "el HTML generado carga CSS V1")
+    check("/assets/v1-shell.css?v=3" in generated_html, "el HTML generado carga CSS V1")
     check("/styles.css?v=202609-launch-1" not in generated_html, "el HTML generado no vuelve al CSS legacy")
 
 print("tests/test-radar-builder-parity-v1: " + ("OK" if not failures else f"{len(failures)} FALLO(S)"))
