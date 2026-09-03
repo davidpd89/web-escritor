@@ -134,6 +134,15 @@ export function splitLines(value) {
   return String(value || "").split(/\r?\n/).map(x => x.trim()).filter(Boolean).slice(0, 20);
 }
 
+// The ZIP-size summary shown to the user used raw toFixed(2), which always
+// returns a "." decimal regardless of locale -- inconsistent with every
+// other number on this Spanish-language site (formatted via
+// toLocaleString('es-ES')). Confirmed live: a 2.35 MiB file showed "2.35
+// MiB" instead of "2,35 MiB".
+export function formatMiB(bytes) {
+  return (bytes / 1024 / 1024).toLocaleString('es-ES', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+}
+
 function clean(value) { const v = String(value || "").trim(); return v || undefined; }
 function cleanObject(obj) { return Object.fromEntries(Object.entries(obj).filter(([,v]) => v !== undefined && v !== "")); }
 function isEmail(v) { return /^[^\s@]{1,64}@[^\s@]{1,253}\.[^\s@]{2,}$/i.test(String(v || "").trim()); }

@@ -145,7 +145,7 @@ TRACKED_ASSETS = {
     "jsonld-escritores.css": "1",
     "jsonld-escritores.js": "1",
     "kit-prensa-escritor.css": "1",
-    "kit-prensa-escritor.js": "1",
+    "kit-prensa-escritor.js": "2",
     "legibilidad-espanol.css": "1",
     "legibilidad-espanol.js": "1",
     "limpiador-manuscritos-engine.js": "1",

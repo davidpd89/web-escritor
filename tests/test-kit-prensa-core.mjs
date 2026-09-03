@@ -1,5 +1,5 @@
 import assert from 'node:assert/strict';
-import { slugify, sanitizeFilename, validatePressKitModel, buildTextFiles, sha256Hex } from '../assets/kit-prensa-core.js';
+import { slugify, sanitizeFilename, validatePressKitModel, buildTextFiles, sha256Hex, formatMiB } from '../assets/kit-prensa-core.js';
 
 const model = {
   authorName: 'Ana Ejemplo', contactEmail: 'prensa@example.test', website: 'https://example.test',
@@ -56,5 +56,11 @@ assert.match(built.files['PERMISOS_ASSETS.txt'], /contactar previamente/i);
 
 const hash = await sha256Hex(new TextEncoder().encode('abc'));
 assert.equal(hash, 'ba7816bf8f01cfea414140de5dae2223b00361a396177a9cb410ff61f20015ad');
+
+// Decimal localization audit (2026-09 round): the ZIP-size summary must
+// use a comma decimal like every other number on this Spanish-language
+// site, not raw toFixed()'s locale-independent period.
+assert.equal(formatMiB(2.35 * 1024 * 1024), '2,35', 'usa coma decimal, no punto');
+assert.equal(formatMiB(0), '0,00', 'cero se formatea con dos decimales igual que cualquier otro valor');
 
 console.log('tests/test-kit-prensa-core: OK');
