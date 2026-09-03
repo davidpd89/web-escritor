@@ -57,6 +57,7 @@ function upgradeStandaloneMarkup() {
 
   const welcome = document.createElement("article");
   welcome.className = "assistant-message assistant-message--assistant";
+  welcome.setAttribute("aria-label", "Asistente");
   const welcomeBubble = document.createElement("div");
   welcomeBubble.className = "assistant-message__bubble";
   const welcomeText = document.createElement("p");
@@ -290,6 +291,7 @@ function appendMessage(role, text, { sources = [], suggestions = [], pending = f
   if (!log) return null;
   const article = document.createElement("article");
   article.className = `assistant-message assistant-message--${role}`;
+  article.setAttribute("aria-label", role === "user" ? "Tú" : "Asistente");
   if (pending) article.dataset.pending = "true";
 
   const bubble = document.createElement("div");
