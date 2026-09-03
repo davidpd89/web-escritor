@@ -85,7 +85,8 @@ TRACKED_ASSETS = {
     "v1-editorial-interactions-v4.css": "1",
     "v1-site-cohesion-v6.css": "1",
     "v1-reflow-hardening-v7.css": "1",
-    "v1-shell.css": "1",
+    "v1-text-resilience-v8.css": "1",
+    "v1-shell.css": "2",
     "v1-shell.js": "2",
     "v1-components.css": "2",
     "v1-families.css": "1",
@@ -184,12 +185,17 @@ TRACKED_ASSETS = {
     "writer-tools.js": "1",
 }
 
-# Anchored to an actual /assets/... attribute value (opening prefix +
-# closing quote), not a bare filename match: several pages mention asset
-# filenames in prose/comments (e.g. "Pre-rendered to match assets/
-# v1-editorial-interior-v4.js's buildContextNav()") that are not a real
-# <script>/<link> load and must not be flagged as unversioned.
-REF_RE = re.compile(r'/assets/(' + '|'.join(re.escape(a) for a in TRACKED_ASSETS) + r')(\?v=([a-zA-Z0-9_.-]+))?(["\'])')
+# Anchored to an actual href="..."/src="..." attribute value, not a bare
+# filename match: several pages mention asset filenames in prose/comments
+# (e.g. "Pre-rendered to match assets/v1-editorial-interior-v4.js's
+# buildContextNav()") that are not a real <script>/<link> load and must not
+# be flagged as unversioned. Anchoring on href=/src= (rather than requiring
+# a leading "/" before "assets/", as this used to) also catches root-relative
+# refs missing the leading slash -- confirmed live: index.html links
+# "assets/v1-shell.css" etc. with no leading "/", which the old /assets/-only
+# pattern silently never matched at all, so this script reported "OK" while
+# never actually checking a single asset reference on the homepage.
+REF_RE = re.compile(r'(?:href|src)=["\']\.?/?assets/(' + '|'.join(re.escape(a) for a in TRACKED_ASSETS) + r')(\?v=([a-zA-Z0-9_.-]+))?(["\'])')
 
 
 def git_tracked_html():

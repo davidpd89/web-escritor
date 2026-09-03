@@ -57,7 +57,7 @@ with tempfile.TemporaryDirectory() as tmp_dir:
 
     generated_index = (tmp / "editoriales/index.html").read_text(encoding="utf-8")
     check('class="v1"' in generated_index, "el índice generado mantiene shell V1")
-    check("/assets/v1-shell.css?v=1" in generated_index, "el índice generado carga CSS V1")
+    check("/assets/v1-shell.css?v=2" in generated_index, "el índice generado carga CSS V1")
     check("/styles.css?v=202609-launch-1" not in generated_index, "el índice generado no vuelve al CSS legacy")
 
 print("tests/test-editoriales-builder-parity-v1: " + ("OK" if not failures else f"{len(failures)} FALLO(S)"))
