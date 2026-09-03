@@ -1,0 +1,108 @@
+name: Visual regression
+
+# Baselines under qa/visual-baselines/ must be captured by the
+# "capture-baseline" job below (ubuntu-latest), never locally: local
+# Chromium on any other OS renders text with different anti-aliasing/hinting
+# than this runner, which would make every route fail on a purely
+# environmental mismatch rather than a real visual change. See the header
+# comment in qa/visual-regression-browser.mjs for the full story, including
+# the known soft-gated exception for dense long-form text pages.
+#
+# To (re)capture baselines after an intentional visual change:
+#   1. Run this workflow manually (workflow_dispatch) from the branch.
+#   2. Download the "visual-baselines" artifact from that run.
+#   3. Replace qa/visual-baselines/ with its contents and commit.
+
+on:
+  pull_request:
+    paths:
+      - '**/*.html'
+      - 'assets/**'
+      - 'script.js'
+      - 'qa/visual-regression-browser.mjs'
+      - 'qa/visual-baselines/**'
+      - '.github/workflows/visual-regression-qa.yml'
+  workflow_dispatch:
+    inputs:
+      capture_baseline:
+        description: 'Regenerate baselines instead of comparing (uploads them as an artifact; does not commit)'
+        type: boolean
+        default: false
+
+permissions:
+  contents: read
+
+jobs:
+  compare:
+    if: github.event_name == 'pull_request' || github.event.inputs.capture_baseline != 'true'
+    name: Compare against committed baselines
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v5
+
+      - name: Set up Node
+        uses: actions/setup-node@v5
+        with:
+          node-version: '22'
+
+      - name: Install CI/QA dependencies (Node)
+        run: npm ci
+
+      - name: Cache Playwright browsers
+        id: playwright-cache
+        uses: actions/cache@v5
+        with:
+          path: ~/.cache/ms-playwright
+          key: playwright-chromium-${{ hashFiles('package-lock.json') }}
+
+      - name: Install Playwright Chromium (with OS deps)
+        if: steps.playwright-cache.outputs.cache-hit != 'true'
+        run: npx playwright install --with-deps chromium
+
+      - name: Install Playwright OS deps only (browser cached)
+        if: steps.playwright-cache.outputs.cache-hit == 'true'
+        run: npx playwright install-deps chromium
+
+      - name: Run visual regression comparison
+        run: node qa/visual-regression-browser.mjs
+
+      - name: Upload screenshots and diffs
+        if: always()
+        uses: actions/upload-artifact@v6
+        with:
+          name: visual-regression-evidence
+          path: .ci/visual-regression/
+          if-no-files-found: warn
+          retention-days: 14
+
+  capture-baseline:
+    if: github.event_name == 'workflow_dispatch' && github.event.inputs.capture_baseline == 'true'
+    name: Capture baselines (manual only, uploads artifact — never commits)
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v5
+
+      - name: Set up Node
+        uses: actions/setup-node@v5
+        with:
+          node-version: '22'
+
+      - name: Install CI/QA dependencies (Node)
+        run: npm ci
+
+      - name: Install Playwright Chromium (with OS deps)
+        run: npx playwright install --with-deps chromium
+
+      - name: Capture baselines
+        run: node qa/visual-regression-browser.mjs --update-baseline
+
+      - name: Upload baselines
+        uses: actions/upload-artifact@v6
+        with:
+          name: visual-baselines
+          path: qa/visual-baselines/
+          retention-days: 14
