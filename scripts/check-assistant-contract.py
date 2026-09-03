@@ -22,7 +22,7 @@ parity_registry = (ROOT / "scripts/test-assistant-index-parity.mjs").read_text(e
 
 need('content="noindex,nofollow"' in page, "draft assistant page must remain noindex until activation review")
 need('<link rel="canonical" href="https://davidportodiaz.com/asistente/"' in page, "assistant canonical must be self-referential")
-need('/assets/v1-tools.css?v=1' in page, "assistant page must load shared tool styles")
+need('/assets/v1-tools.css?v=2' in page, "assistant page must load shared tool styles")
 need('data-assistant-turnstile' in page, "Turnstile container missing")
 need('data-assistant-stop' in page, "explicit stop control missing")
 need(page.count('data-assistant-example=') == 3, "assistant must expose exactly three starter questions")

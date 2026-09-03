@@ -186,7 +186,7 @@ def render_page_body(items, today):
   <link rel="stylesheet" href="/assets/v1-shell.css?v=1" />
   <link rel="stylesheet" href="/assets/v1-components.css?v=2" />
   <link rel="stylesheet" href="/assets/v1-families.css?v=1" />
-  <link rel="stylesheet" href="/assets/v1-tools.css?v=1" />
+  <link rel="stylesheet" href="/assets/v1-tools.css?v=2" />
   <link rel="stylesheet" href="/assets/radar-convocatorias.css?v=1">
   <script type="application/ld+json">{schema}</script>
 </head>

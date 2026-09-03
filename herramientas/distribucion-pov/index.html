@@ -20,7 +20,7 @@
   <link rel="preload" as="style" href="/assets/v1-site-cohesion-v6.css?v=1" />
   <link rel="preload" as="style" href="/assets/v1-reflow-hardening-v7.css?v=1" />
   <!-- v1-shell-preload:end -->
-<link rel="stylesheet" href="/assets/v1-shell.css?v=1" /><link rel="stylesheet" href="/assets/v1-components.css?v=2" /><link rel="stylesheet" href="/assets/v1-families.css?v=1" /><link rel="stylesheet" href="/assets/v1-tools.css?v=1" />
+<link rel="stylesheet" href="/assets/v1-shell.css?v=1" /><link rel="stylesheet" href="/assets/v1-components.css?v=2" /><link rel="stylesheet" href="/assets/v1-families.css?v=1" /><link rel="stylesheet" href="/assets/v1-tools.css?v=2" />
   <link rel="stylesheet" href="/assets/v1-tools-identity.css?v=1" /><link rel="stylesheet" href="/assets/pov-distribucion.css?v=1" />
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebApplication","name":"Distribución de POV por escenas","url":"https://davidportodiaz.com/herramientas/distribucion-pov/","applicationCategory":"UtilitiesApplication","operatingSystem":"Any","isAccessibleForFree":true,"inLanguage":"es","author":{"@id":"https://davidportodiaz.com/#author"}}</script>
 </head>
@@ -153,7 +153,7 @@
     <section class="tool-results" data-pov-results hidden aria-label="Resultados"><h2>Lectura estructural</h2><div class="tool-summary" data-pov-metrics></div>
       <div class="tool-findings-block" data-pov-sequence-block><h3>Secuencia de lectura</h3><p>La novela tal como la recibe el lector. El color ayuda, pero cada bloque conserva el nombre del POV.</p><div class="pov-sequence" data-pov-sequence tabindex="0" aria-label="Secuencia de escenas; desplazamiento horizontal si es necesario"></div></div>
       <div class="tool-findings-block" data-pov-lanes-block><h3>Carriles de POV</h3><p>Cada fila es un narrador; cada columna, una escena. Sirve para ver alternancias, concentraciones y ausencias sin releer el índice.</p><div class="pov-lanes" data-pov-lanes tabindex="0" aria-label="Carriles de POV; desplazamiento horizontal si es necesario"></div></div>
-      <div class="tool-findings-block"><h3>Resumen descriptivo</h3><div class="pov-table-wrap" tabindex="0" aria-label="Tabla resumen; desplazamiento horizontal si es necesario"><table class="pov-table"><thead data-pov-summary-head><tr><th>POV</th><th>Escenas</th><th>% escenas</th><th>Palabras</th><th>% palabras</th><th>Racha máx.</th><th>Hueco interno máx.</th></tr></thead><tbody data-pov-summary></tbody></table></div></div>
+      <div class="tool-findings-block"><h3>Resumen descriptivo</h3><div class="pov-table-wrap" tabindex="0" aria-label="Tabla resumen; desplazamiento horizontal si es necesario"><table class="pov-table"><thead data-pov-summary-head><tr><th scope="col">POV</th><th scope="col">Escenas</th><th scope="col">% escenas</th><th scope="col">Palabras</th><th scope="col">% palabras</th><th scope="col">Racha máx.</th><th scope="col">Hueco interno máx.</th></tr></thead><tbody data-pov-summary></tbody></table></div></div>
       <p class="tool-note" data-pov-note-scenes><strong>Cómo leerlo.</strong> Una distribución desigual puede ser exactamente la decisión correcta. «Hueco» significa escenas entre dos apariciones del mismo POV; no cuenta lo que ocurre antes de su primera entrada ni después de su última salida. La herramienta describe la estructura que has introducido: no detecta POV automáticamente ni juzga la calidad.</p>
       <p class="tool-note" data-pov-note-totals hidden><strong>Cómo leerlo.</strong> Estos son los totales de palabras que has introducido directamente, sin conocer el orden de las escenas: por eso no hay secuencia, carriles, racha ni hueco. Si quieres esa vista, usa el formato «Por escena».</p>
     </section>
@@ -179,6 +179,6 @@
   </p>
 </footer>
 <!-- site-shell:footer:end -->
-  <script defer src="/assets/v1-shell.js?v=1"></script><script src="/assets/pov-distribucion-engine.js?v=1" defer></script><script src="/assets/pov-distribucion.js?v=1" defer></script>
+  <script defer src="/assets/v1-shell.js?v=1"></script><script src="/assets/pov-distribucion-engine.js?v=1" defer></script><script src="/assets/pov-distribucion.js?v=2" defer></script>
 </body>
 </html>

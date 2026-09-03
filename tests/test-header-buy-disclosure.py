@@ -22,6 +22,7 @@ ROOT = Path(__file__).resolve().parents[1]
 EXCLUDE_DIRS = {
     "node_modules",
     ".git",
+    ".claude",
     "assets",
     "images",
     "videos",
