@@ -44,7 +44,7 @@
   <link rel="stylesheet" href="/assets/v1-shell.css?v=3" />
   <link rel="stylesheet" href="/assets/v1-components.css?v=3" />
   <link rel="stylesheet" href="/assets/v1-families.css?v=2" />
-  <link rel="stylesheet" href="/assets/v1-tools.css?v=3" />
+  <link rel="stylesheet" href="/assets/v1-tools.css?v=4" />
   <link rel="stylesheet" href="/assets/v1-tools-identity.css?v=1" />
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebApplication","name":"Tarjeta Estoy leyendo","url":"https://davidportodiaz.com/herramientas/tarjeta-estoy-leyendo/","applicationCategory":"UtilitiesApplication","operatingSystem":"Any","isAccessibleForFree":true,"inLanguage":"es","author":{"@id":"https://davidportodiaz.com/#author"},"description":"Herramienta local para generar una tarjeta HTML o Markdown portable sobre la lectura actual, sin guardar ni enviar el contenido introducido."}</script>
 </head>
@@ -214,14 +214,14 @@
       <div class="tool-field">
         <label class="tool-field-label" for="reading-card-html">HTML portable</label>
         <span class="tool-field-hint">Puedes pegarlo en una entrada o página que admita HTML. No carga nada desde davidportodiaz.com.</span>
-        <textarea class="tool-textarea tool-textarea--small" id="reading-card-html" data-reading-card-html readonly></textarea>
+        <textarea class="tool-textarea tool-textarea--small meta-code" id="reading-card-html" data-reading-card-html readonly></textarea>
         <div class="tool-actions"><button class="text-action" type="button" data-copy-target="#reading-card-html">Copiar HTML</button></div>
       </div>
 
       <div class="tool-field">
         <label class="tool-field-label" for="reading-card-markdown">Markdown</label>
         <span class="tool-field-hint">Úsalo en servicios o editores que acepten Markdown.</span>
-        <textarea class="tool-textarea tool-textarea--small" id="reading-card-markdown" data-reading-card-markdown readonly></textarea>
+        <textarea class="tool-textarea tool-textarea--small meta-code" id="reading-card-markdown" data-reading-card-markdown readonly></textarea>
         <div class="tool-actions"><button class="text-action" type="button" data-copy-target="#reading-card-markdown">Copiar Markdown</button></div>
       </div>
     </section>

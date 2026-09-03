@@ -18,6 +18,14 @@ html.v1 .tool-field-hint{display:block;font:400 .85rem/1.55 var(--font-ui);color
 html.v1 .tool-textarea,html.v1 .tool-select{width:100%;border:1px solid var(--color-border);border-radius:var(--radius-input);background:var(--surface-page);color:var(--color-text);padding:.9rem 1rem;font:400 1.02rem/1.6 var(--font-reading)}
 html.v1 .tool-textarea{min-height:280px;resize:vertical}
 html.v1 .tool-textarea--small{min-height:84px;resize:vertical;font-family:var(--font-ui);font-size:.92rem}
+/* A readonly output textarea (a tool's result, meant to be selected/copied
+   rather than edited) looked pixel-identical to an editable input -- a
+   sighted user had no visual cue that typing into it does nothing.
+   .meta-code already gave eventos-ics's readonly fields this same
+   treatment (plus a monospace font, appropriate for literal code); this
+   generic rule covers every other readonly textarea, including
+   limpiador-manuscritos's plain-prose "Texto limpio" output. */
+html.v1 .tool-textarea[readonly]{background:var(--surface-quiet)}
 html.v1 .tool-select{min-height:var(--control-min-height);font-family:var(--font-ui);font-size:.95rem;appearance:auto}
 html.v1 .tool-file{width:100%;font:400 .95rem/1.5 var(--font-ui);color:var(--color-text)}
 html.v1 .tool-textarea:focus-visible,html.v1 .tool-select:focus-visible,html.v1 .tool-file:focus-visible{outline:2px solid var(--focus-color);outline-offset:2px;box-shadow:0 0 0 1px var(--surface-page),0 0 0 3px var(--focus-color)}
