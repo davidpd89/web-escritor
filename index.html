@@ -49,9 +49,17 @@
 
   <meta name="theme-color" content="#ffffff" />
 
-  <link rel="preconnect" href="https://gc.zgo.at" />  <link rel="preload" as="image"
-    href="assets/david-porto-foto-portada-sinfondo.webp"
-    fetchpriority="high" />
+  <link rel="preconnect" href="https://gc.zgo.at" />
+  <!-- The high-priority image preload that used to be here
+       (david-porto-foto-portada-sinfondo.webp) predates the Yale home
+       redesign, which no longer displays that image anywhere on this page --
+       confirmed via a live console check (Chrome's own "preloaded but not
+       used" warning) and a sitewide grep (zero remaining references outside
+       docs/ and the lab/ prototype). Per this repo's own written policy
+       (docs/web-improvement-ideas/E03-PRODUCTION-REVALIDATION-2026-08-30.md,
+       "No hacer" #4: never leave a preload for a variant the browser doesn't
+       end up consuming), removed rather than left in place wasting
+       high-priority bandwidth on every home page load. -->
   <link rel="preload" as="font" type="font/woff2" href="assets/fonts/yellowtail-normal-400-latin.woff2" crossorigin />
   <link rel="canonical" href="https://davidportodiaz.com/" />
   <link rel="sitemap" type="application/xml" href="/sitemap.xml" />
