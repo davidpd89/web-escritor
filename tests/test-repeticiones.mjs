@@ -103,4 +103,19 @@ assert(
   '"está"/"son" son gramática básica, no deben aparecer como palabras dominantes por su sola frecuencia normal'
 );
 
+// Decimal localization audit (2026-09 round): per1000 (p.ej. 21.9) se
+// interpolaba sin formatear, mostrando "21.9 por 1000 palabras" (punto) en
+// lugar de "21,9 por 1000 palabras" (coma), inconsistente con el resto de
+// números de este mismo fichero, que ya usan toLocaleString('es-ES').
+assert.equal(
+  uiSource.includes('${x.per1000} por 1000 palabras'),
+  false,
+  'per1000 no debe interpolarse sin formatear (punto decimal, no coma)'
+);
+assert.match(
+  uiSource,
+  /fmtDecimal\(x\.per1000\)/,
+  'per1000 debe pasar por un formateador con coma decimal antes de mostrarse'
+);
+
 console.log('tests/test-repeticiones: OK');

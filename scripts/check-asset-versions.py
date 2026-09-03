@@ -163,7 +163,7 @@ TRACKED_ASSETS = {
     "tipo-lector-engine.js": "1",
     "tipo-lector.js": "1",
     "repeticiones-espanol.css": "1",
-    "repeticiones-espanol.js": "1",
+    "repeticiones-espanol.js": "2",
     "tarjeta-estoy-leyendo.js": "1",
     "tiempo-lectura-voz-alta.css": "1",
     "tiempo-lectura-voz-alta.js": "2",

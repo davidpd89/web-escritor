@@ -14,6 +14,13 @@ const status = $('[data-repetition-status]');
 function esc(value) {
   return String(value ?? '').replace(/[&<>'"]/g, ch => ({'&':'&amp;','<':'&lt;','>':'&gt;',"'":'&#39;','"':'&quot;'}[ch]));
 }
+// per1000 arrives as a plain number (e.g. 21.9) from the engine; every other
+// number in this file already goes through toLocaleString('es-ES') before
+// display, but this one didn't -- confirmed live showing "21.9 por 1000
+// palabras" (period) instead of "21,9 por 1000 palabras" (comma).
+function fmtDecimal(n) {
+  return Number(n).toLocaleString('es-ES', { minimumFractionDigits: 1, maximumFractionDigits: 1 });
+}
 function emit() { /* analytics disabled for privacy */ }
 function bucket(n) {
   if (n < 100) return '<100';
@@ -49,7 +56,7 @@ function render(data) {
     : empty('No se han detectado ecos con la ventana elegida.');
 
   $('[data-dominant]', results).innerHTML = data.dominantWords.length
-    ? data.dominantWords.slice(0, 20).map(x => `<li><strong>${esc(x.word)}</strong><span>${x.count} · ${x.per1000} por 1000 palabras</span></li>`).join('')
+    ? data.dominantWords.slice(0, 20).map(x => `<li><strong>${esc(x.word)}</strong><span>${x.count} · ${fmtDecimal(x.per1000)} por 1000 palabras</span></li>`).join('')
     : empty('No hay palabras de contenido con frecuencia suficiente para destacar.');
 
   const starts = [
