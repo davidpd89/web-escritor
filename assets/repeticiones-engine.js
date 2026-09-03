@@ -1,4 +1,13 @@
-const BASIC_STOPWORDS = new Set(`a al algo algunas algunos ante antes como con contra cual cuando de del desde donde durante e el ella ellas ellos en entre era erais eramos eran eras eres es esa esas ese eso esos esta estaba estaban estas este esto estos fue fueron ha han hasta hay la las le les lo los mas me mi mis muy ni no nos o para pero por porque que quien se si sin sobre su sus te tu tus un una unas uno unos y ya yo`.split(/\s+/));
+// "está"/"están"/"son" are conjugated forms of estar/ser, the same closed
+// class already covered here by "era/eran/eres/es/fue/fueron" -- omitting
+// them let completely ordinary text ("La ciudad está tranquila... está
+// llena... está bien construida") get its most basic grammar flagged as a
+// "dominant word" to fix, confirmed by running a realistic paragraph
+// through analyzeRepetitions() and seeing "está" (4x) and "son" (3x) listed
+// as overused. normalizeWord() only lowercases (no accent-stripping), so
+// "está" needs its own accented entry -- it does not collide with the
+// unaccented demonstrative "esta" already in this list.
+const BASIC_STOPWORDS = new Set(`a al algo algunas algunos ante antes como con contra cual cuando de del desde donde durante e el ella ellas ellos en entre era erais eramos eran eras eres es esa esas ese eso esos esta estaba estaban estas este esto estos está están fue fueron ha han hasta hay la las le les lo los mas me mi mis muy ni no nos o para pero por porque que quien se si sin sobre son su sus te tu tus un una unas uno unos y ya yo`.split(/\s+/));
 
 // Hyphenated compounds (e.g. "político-social") must stay one token, like
 // every sibling tokenizer in this codebase (contador-palabras, legibilidad,
