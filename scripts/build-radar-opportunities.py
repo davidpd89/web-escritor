@@ -213,7 +213,7 @@ def render_page_body(items, today):
 
     <section class="tool-finder" aria-label="Filtrar convocatorias">
       <div class="tool-options">
-        <div class="tool-field"><label class="tool-field-label" for="radar-search">Buscar</label><input class="tool-input" id="radar-search" type="search" data-radar-search placeholder="Entidad, premio, género…"></div>
+        <div class="tool-field"><label class="tool-field-label" for="radar-search">Buscar</label><input class="tool-input" id="radar-search" type="search" autocomplete="off" enterkeyhint="search" data-radar-search placeholder="Entidad, premio, género…"></div>
         <div class="tool-field"><label class="tool-field-label" for="radar-type">Tipo</label><select class="tool-select" id="radar-type" data-radar-type><option value="">Todos</option>{options(types)}</select></div>
         <div class="tool-field"><label class="tool-field-label" for="radar-genre">Género</label><select class="tool-select" id="radar-genre" data-radar-genre><option value="">Todos</option>{options(genres)}</select></div>
       </div>
