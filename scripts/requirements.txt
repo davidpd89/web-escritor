@@ -4,3 +4,9 @@
 # CI divergentes. Pillow 12.3.0 es la version validada para AVIF/WebP en
 # Python 3.12 (L.1, 2026-08-23).
 Pillow==12.3.0
+# icalendar: parser RFC 5545 independiente del generador propio (JS en
+# evento-escritor-core.js, Python en build-radar-opportunities.py). Usado
+# solo por tests/test-ics-roundtrip-independent-parser.py para comprobar que
+# los .ics generados de verdad se abren con un parser ajeno, no solo que
+# cumplen la forma esperada por sus propias aserciones estructurales.
+icalendar==7.3.0
