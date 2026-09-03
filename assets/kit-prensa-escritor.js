@@ -1,4 +1,4 @@
-import { slugify, sanitizeFilename, validatePressKitModel, buildTextFiles, sha256Hex } from './kit-prensa-core.js';
+import { slugify, sanitizeFilename, validatePressKitModel, buildTextFiles, sha256Hex, formatMiB } from './kit-prensa-core.js';
 import { strToU8, zipStoreSync, ZIP_EPOCH } from './zip-store-lite.js';
 
 const root = document.querySelector('[data-press-kit-builder]');
@@ -189,7 +189,7 @@ function download(blob, filename) {
 }
 
 function renderSummary(el, built, assets, size, filename) {
-  const mib = (size / 1024 / 1024).toFixed(2);
+  const mib = formatMiB(size);
   el.hidden = false;
   el.replaceChildren();
   const strong = document.createElement('strong');
