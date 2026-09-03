@@ -1,5 +1,5 @@
 import assert from 'node:assert/strict';
-import { analyzeChapterBatch, analyzeChapter } from '../assets/analizador-capitulos-engine.js';
+import { analyzeChapterBatch, analyzeChapter, csvDecimal } from '../assets/analizador-capitulos-engine.js';
 
 const chapters = [
   { id: 'c1', title: 'C1', text: 'Hola mundo.\n\n—Hola dijo Ana.\n\nContinuación.' },
@@ -45,5 +45,17 @@ assert.equal(batch.chapters[0].explicitSceneBreaks, 1, 'debe detectar el separad
 assert.equal(batch.chapters[0].mentions['Noa'], 1, 'debe contar la mención de "Noa"');
 assert.equal(batch.chapters[0].mentions['Brais'], 1, 'debe contar la mención de "Brais"');
 assert(batch.chapters[0].dialoguePercentage > 0, 'debe detectar el bloque dialogado del C1');
+
+// CSV export audit (2026-09 round): the CSV uses ";" as the delimiter and a
+// UTF-8 BOM specifically so it opens correctly in Excel under a Spanish
+// locale, where "," is the decimal separator. A raw toFixed() value keeps
+// the "." decimal regardless of locale, so it would land in that CSV as
+// text, not a number, once opened in Excel with that locale. csvDecimal()
+// must always produce a comma decimal.
+assert.equal(csvDecimal(12.3), '12,30', 'usa coma decimal, no punto');
+assert.equal(csvDecimal(-80), '-80,00', 'un valor negativo conserva el signo');
+assert.equal(csvDecimal(0), '0,00', 'cero se formatea igual que cualquier otro número');
+assert.equal(csvDecimal(33.335, 1), '33,3', 'respeta el número de decimales pedido');
+assert.equal(csvDecimal(NaN), '0,00', 'una entrada no numérica no debe romper la exportación');
 
 console.log('tests/test-analizador-capitulos: OK');
