@@ -29,6 +29,22 @@ assert.equal(sanitizeFilename('../../archivo.txt'), 'archivo.txt');
 assert.equal(sanitizeFilename('\"><svg onload=alert(1)>.PNG'), 'svg-onload-alert-1.png');
 assert.equal(sanitizeFilename('portada ñandú.webp'), 'portada-nandu.webp');
 
+// Windows reserved device names (item from the 2026-09 audit round): a
+// file whose sanitized stem is exactly one of these fails to extract, or
+// extracts to the wrong thing, on Windows regardless of extension -- must
+// never survive sanitization unmodified.
+for (const [input, expected] of [
+  ['CON.jpg', 'con-file.jpg'],
+  ['NUL.png', 'nul-file.png'],
+  ['con', 'con-file'],
+  ['lpt1.pdf', 'lpt1-file.pdf'],
+  ['COM3.docx', 'com3-file.docx'],
+  ['aux.txt', 'aux-file.txt'],
+  ['constable.jpg', 'constable.jpg'], // must not false-positive on a name that merely starts with a reserved prefix
+]) {
+  assert.equal(sanitizeFilename(input), expected, `reserved-name handling for ${input}`);
+}
+
 const built = buildTextFiles(model, [{ role: 'author' }, { role: 'cover' }]);
 for (const key of ['README.txt', 'datos/autor.json', 'datos/libro.json', 'textos/biografia-corta.txt', 'textos/sinopsis.txt', 'PERMISOS_ASSETS.txt']) {
   assert.ok(built.files[key], `missing ${key}`);
