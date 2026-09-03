@@ -26,6 +26,17 @@ assert.ok(assistantJs.includes("assistant-source__excerpt"), "source rows must e
 assert.ok(assistantJs.includes("site-map"), "empty retrieval must fall back to the canonical site map");
 assert.ok(!assistantJs.includes("innerHTML"), "assistant source rendering must stay textContent/DOM based, not raw HTML");
 
+// Pseudo-element content audit (2026-09 round): assets/assistant.css labels
+// each chat bubble's speaker purely via CSS ::before{content:"Asistente"/"Tú"}
+// -- generated content that copy-paste, find-in-page, translation tools and
+// some screen reader/browser combinations do not expose, unlike the sources
+// list a few lines below in the same file, which already pairs its CSS label
+// with a real aria-label. A chat transcript's speaker turns are meaningful
+// content, not decoration, so each message article needs the same real
+// accessible-name treatment.
+assert.ok(assistantJs.includes('article.setAttribute("aria-label", role === "user" ? "Tú" : "Asistente")'), "cada mensaje del chat debe exponer su hablante en el árbol de accesibilidad, no solo vía CSS ::before");
+assert.ok(assistantJs.includes('welcome.setAttribute("aria-label", "Asistente")'), "el mensaje de bienvenida estático también debe exponer su hablante de forma accesible");
+
 const assistantCss = fs.readFileSync(new URL("../assets/assistant.css", import.meta.url), "utf8");
 assert.ok(!assistantCss.includes("border-radius:999px"), "assistant must not regress to pill-shaped chat controls");
 assert.ok(assistantCss.includes(".assistant-source__action::after"), "sources must keep an explicit editorial navigation affordance");
