@@ -1,8 +1,14 @@
 const WORD_RE = /[A-Za-zÁÉÍÓÚÜÑáéíóúüñ0-9]+(?:['’\-][A-Za-zÁÉÍÓÚÜÑáéíóúüñ0-9]+)*/g;
 const CHAPTER_RE = /^(?:#{1,3}\s+.+|cap[ií]tulo\s+(?:\d+|[ivxlcdm]+|.+)|chapter\s+(?:\d+|[ivxlcdm]+|.+))$/iu;
+// A zero-width space/joiner or BOM landing inside a word (a real artifact
+// from some PDF/OCR extraction pipelines) isn't in this character class
+// either, so it still splits one word into two matches -- stripped before
+// matching rather than added to the class, since it must never count as a
+// word by itself.
+const INVISIBLE_RE = /[\u200B-\u200D\uFEFF]/g;
 
 function words(text) {
-  return String(text || '').match(WORD_RE) || [];
+  return String(text || '').replace(INVISIBLE_RE, '').match(WORD_RE) || [];
 }
 
 function quotedSegments(text) {

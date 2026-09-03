@@ -7,8 +7,16 @@
 
   const READING_WPM = 200; // velocidad de lectura silenciosa media en español
 
+  // Zero-width space/joiners and BOM are invisible in the textarea but match
+  // nothing in \p{L}\p{N} -- one landing inside a word (a real artifact from
+  // some PDF/OCR extraction pipelines) split it into two word-matches,
+  // confirmed live to inflate the count (e.g. 3 words -> 4 from a single
+  // stray character). Stripped once here so every derived count (words,
+  // chars, sentences) agrees with what the writer actually sees.
+  const INVISIBLE_RE = /[\u200B-\u200D\uFEFF]/g;
+
   function count(text) {
-    const raw = String(text ?? '');
+    const raw = String(text ?? '').replace(INVISIBLE_RE, '');
     const trimmed = raw.trim();
 
     const words = trimmed ? (trimmed.match(/[\p{L}\p{N}'’-]+/gu) || []) : [];

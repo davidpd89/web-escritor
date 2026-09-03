@@ -17,8 +17,17 @@
   const COOLDOWN = 7 * 24 * 60 * 60 * 1000;
   const path = window.location.pathname.replace(/\/index\.html$/, "/");
 
-  if (localStorage.getItem(SUBSCRIBED_KEY) === "1") return;
-  const ts = localStorage.getItem(DISMISSED_KEY);
+  // localStorage access throws (SecurityError) with storage blocked entirely
+  // -- some privacy settings, some enterprise policies -- unlike every other
+  // localStorage/sessionStorage call site in this codebase (assistant.js,
+  // assistant-widget.js, surprise-me.js, v1-shell.js), this one wasn't
+  // guarded: confirmed live, it threw an uncaught page error and silently
+  // disabled the popup for the rest of the session. Same fix as those.
+  function safeGet(key) { try { return localStorage.getItem(key); } catch { return null; } }
+  function safeSet(key, value) { try { localStorage.setItem(key, value); } catch {} }
+
+  if (safeGet(SUBSCRIBED_KEY) === "1") return;
+  const ts = safeGet(DISMISSED_KEY);
   if (ts && Date.now() - Number(ts) < COOLDOWN) return;
 
   function popupCopy() {
@@ -55,7 +64,7 @@
   }
 
   function dismiss() {
-    localStorage.setItem(DISMISSED_KEY, String(Date.now()));
+    safeSet(DISMISSED_KEY, String(Date.now()));
     if (dialog?.open) dialog.close();
   }
 
@@ -185,7 +194,7 @@
     }
 
     shown = true;
-    localStorage.setItem(DISMISSED_KEY, String(Date.now()));
+    safeSet(DISMISSED_KEY, String(Date.now()));
     dialog.querySelector("#nl-popup-email")?.focus({ preventScroll: true });
     return true;
   }

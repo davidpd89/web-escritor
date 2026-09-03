@@ -348,7 +348,12 @@ els.addCharacter.addEventListener('click', () => {
 });
 els.characterName.addEventListener('input', () => setCharacterError());
 els.characterName.addEventListener('keydown', event => {
-  if (event.key === 'Enter') {
+  // isComposing: an IME (e.g. entering a CJK name) also confirms its
+  // candidate with Enter -- without this guard that keypress both confirms
+  // the composition AND submits the still-incomplete text as a character
+  // name (confirmed live: defaultPrevented fired mid-composition). Same
+  // guard already used for this exact reason in assistant.js.
+  if (event.key === 'Enter' && !event.isComposing) {
     event.preventDefault();
     els.addCharacter.click();
   }

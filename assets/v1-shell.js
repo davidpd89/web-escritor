@@ -337,6 +337,23 @@
     });
   }
 
+  // A browser's default action for dropping a file anywhere on the page is
+  // to navigate away and display that file, discarding whatever the visitor
+  // was typing -- confirmed live (dragover/drop both fire with
+  // defaultPrevented:false today). The site's manuscript/text tools are all
+  // plain textareas with real writer input at stake, and there's no
+  // legitimate file-drop feature anywhere to preserve, so this is safe to
+  // block globally. Only blocks when the drag carries Files (an OS-level
+  // file drag) -- a same-page text drag (e.g. reordering a selection
+  // between two fields) reports other types and is left alone.
+  function initDropProtection() {
+    function isFileDrag(event) {
+      return Array.prototype.includes.call(event.dataTransfer?.types || [], 'Files');
+    }
+    window.addEventListener('dragover', (event) => { if (isFileDrag(event)) event.preventDefault(); });
+    window.addEventListener('drop', (event) => { if (isFileDrag(event)) event.preventDefault(); });
+  }
+
   initHeader();
   initExplore();
   initIntro();
@@ -344,6 +361,7 @@
   initAssistantWidget();
   initHeaderSearch();
   initMailtoCopyFallback();
+  initDropProtection();
 })();
 
 // LRB-inspired utility/header + Home/inner editorial enhancement.

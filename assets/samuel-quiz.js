@@ -149,12 +149,19 @@
       return;
     }
     if (!navigator.clipboard?.writeText) return;
+    const original = shareBtn.textContent;
     try {
       await navigator.clipboard.writeText(text);
-      const original = shareBtn.textContent;
       shareBtn.textContent = '✓ Texto copiado';
-      setTimeout(() => { shareBtn.textContent = original; }, 2200);
-    } catch {}
+    } catch {
+      // A denied/unsupported clipboard must not look like a successful click
+      // with no feedback at all -- same fix already applied to every other
+      // clipboard.writeText() call site in this codebase (club-session-
+      // builder.js, generador-evento-escritor.js, jsonld-escritores.js,
+      // limpiador-manuscritos.js, metadatos-libro.js, v1-editorial.js).
+      shareBtn.textContent = 'No se pudo copiar';
+    }
+    setTimeout(() => { shareBtn.textContent = original; }, 2200);
   }
 
   function restart() {

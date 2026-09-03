@@ -1,7 +1,12 @@
 const WORD_RE = /[\p{L}\p{M}\p{N}]+(?:['’-][\p{L}\p{M}\p{N}]+)*/gu;
+// Zero-width space/joiners and BOM match nothing in \p{L}\p{M}\p{N} -- one
+// landing inside a word (a real artifact from some PDF/OCR extraction
+// pipelines) splits it into two matches, inflating the word count that
+// drives this tool's reading-time estimate.
+const INVISIBLE_RE = /[\u200B-\u200D\uFEFF]/g;
 
 export function countWords(value) {
-  return (String(value || '').normalize('NFC').match(WORD_RE) || []).length;
+  return (String(value || '').replace(INVISIBLE_RE, '').normalize('NFC').match(WORD_RE) || []).length;
 }
 
 function clampNum(value, min, max, fallback) {
