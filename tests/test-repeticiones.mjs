@@ -90,4 +90,17 @@ assert.equal(
   'no debe reaparecer el selector incompleto que lanzaba DOMException'
 );
 
+// Stopword coverage audit (2026-09 round): "está"/"están"/"son" are
+// conjugated forms of estar/ser, the same closed class already covered by
+// "era/eran/eres/es/fue/fueron" in BASIC_STOPWORDS -- omitting them let
+// completely ordinary Spanish text get its most basic grammar flagged as a
+// "dominant word" to fix. Confirmed live before the fix: this paragraph's
+// "está" (4x) and "son" (3x) both showed up in dominantWords.
+const grammarSample = 'Los personajes de la novela son complejos. Todos ellos son distintos entre sí. La ciudad está tranquila por las noches, aunque de día está llena de gente. Está claro que la trama avanza, pero está bien construida.';
+const grammarRes = analyzeRepetitions(grammarSample);
+assert(
+  !grammarRes.dominantWords.some((w) => ['está', 'son'].includes(w.word.toLowerCase())),
+  '"está"/"son" son gramática básica, no deben aparecer como palabras dominantes por su sola frecuencia normal'
+);
+
 console.log('tests/test-repeticiones: OK');
