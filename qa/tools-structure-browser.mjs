@@ -22,7 +22,7 @@ const metadata = {
     h1: 'Mapa de relaciones de personajes',
   },
   nombres: {
-    title: 'Comprobador de nombres — Herramientas',
+    title: 'Comprobador de nombres | Herramientas',
     description: 'Detecta nombres de personajes parecidos que pueden confundir al lector. Análisis local en el navegador.',
     canonical: 'https://davidportodiaz.com/herramientas/nombres-personajes/',
     h1: 'Comprobador de nombres de personaje',
