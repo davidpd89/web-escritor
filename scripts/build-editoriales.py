@@ -254,7 +254,7 @@ def page_shell(*, title: str, description: str, canonical: str, main_html: str, 
     <link rel="stylesheet" href="/assets/v1-shell.css?v=3" />
     <link rel="stylesheet" href="/assets/v1-components.css?v=3" />
     <link rel="stylesheet" href="/assets/v1-families.css?v=2" />
-    <link rel="stylesheet" href="/assets/v1-tools.css?v=3" />
+    <link rel="stylesheet" href="/assets/v1-tools.css?v=4" />
     <link rel="stylesheet" href="/assets/editoriales.css?v=2" />{"" if not extra_css else chr(10) + "    " + extra_css}
     <script type="application/ld+json">{html.escape(json.dumps(jsonld, ensure_ascii=False, separators=(',', ':')), quote=False)}</script>
 </head>
