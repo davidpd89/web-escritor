@@ -12,7 +12,8 @@
   formatMode?.addEventListener('change', () => { syncFormatUI(); invalidateResult(activeInput().value.trim() ? 'Entrada modificada. Pulsa «Analizar distribución» para actualizar la vista.' : 'Introduce datos y pulsa «Analizar distribución».'); });
   syncFormatUI();
   const paletteClasses = Array.from({ length: 10 }, (_, i) => `pov-tone-${i + 1}`);
-  const pct = value => `${(value * 100).toFixed(value < 0.1 ? 1 : 0)} %`; const fmt = n => new Intl.NumberFormat('es-ES').format(n); const tone = order => paletteClasses[order % paletteClasses.length];
+  const fmt = n => new Intl.NumberFormat('es-ES').format(n); const tone = order => paletteClasses[order % paletteClasses.length];
+  const sharesToPercentLabels = shares => window.PovDistribution.sharesToWholePercent(shares).map(v => `${v} %`);
   function setStatus(message, isError = false) { status.textContent = message; status.classList.toggle('is-error', isError); app.dataset.state = isError ? 'invalid' : app.dataset.state; }
   function invalidateResult(message) { results.hidden = true; const field = activeInput(); field.setAttribute('aria-invalid', 'false'); app.dataset.state = field.value.trim() ? 'valid' : 'initial'; setStatus(message); }
   function renderScenes(data) {
@@ -21,7 +22,9 @@
     metrics.replaceChildren(); [['Escenas',fmt(data.totalScenes)],['POV',fmt(data.totalPovs)],['Palabras',data.completeWords?fmt(data.totalWords):'Opcionales'],['Medición',data.completeWords?'escenas + palabras':'por escenas']].forEach(([label,value]) => { const box=document.createElement('div'),dt=document.createElement('span'),dd=document.createElement('strong'); dt.textContent=label; dd.textContent=value; box.append(dt,dd); metrics.appendChild(box); });
     sequence.replaceChildren(); data.scenes.forEach(scene => { const item=document.createElement('div'); item.className=`pov-scene ${tone(scene.povOrder)}`; item.title=`${scene.label} · ${scene.pov}${scene.words?` · ${fmt(scene.words)} palabras`:''}`; const label=document.createElement('span'),who=document.createElement('strong'); label.textContent=scene.label; who.textContent=scene.pov; item.append(label,who); sequence.appendChild(item); });
     lanes.replaceChildren(); const grid=document.createElement('div'); grid.className='pov-lane-grid'; grid.style.setProperty('--scene-count',String(data.totalScenes)); data.povs.forEach(pov => { const row=document.createElement('div'); row.className='pov-lane-row'; const name=document.createElement('div'); name.className=`pov-lane-name ${tone(pov.order)}`; name.textContent=pov.pov; const track=document.createElement('div'); track.className='pov-lane-track'; track.style.gridTemplateColumns=`repeat(${data.totalScenes}, minmax(20px, 1fr))`; data.scenes.forEach(scene => { const cell=document.createElement('span'); cell.className='pov-lane-cell'; if(scene.pov===pov.pov){cell.classList.add('is-active',tone(pov.order));cell.textContent='●';cell.title=`${scene.label}: ${pov.pov}`;cell.setAttribute('aria-label',`${scene.label}: ${pov.pov}`);}else cell.setAttribute('aria-hidden','true'); track.appendChild(cell); }); row.append(name,track); grid.appendChild(row); }); lanes.appendChild(grid);
-    summary.replaceChildren(); data.povs.forEach(pov => { const tr=document.createElement('tr'); [pov.pov,fmt(pov.sceneCount),pct(pov.sceneShare),data.completeWords?fmt(pov.wordCount):'—',data.completeWords?pct(pov.wordShare):'—',fmt(pov.longestRun),fmt(pov.maxInternalGap)].forEach((value,i)=>{const cell=document.createElement(i===0?'th':'td');if(i===0)cell.scope='row';cell.textContent=value;if(i===0)cell.classList.add(tone(pov.order));tr.appendChild(cell);}); summary.appendChild(tr); });
+    const scenePcts = sharesToPercentLabels(data.povs.map(pov => pov.sceneShare));
+    const wordPcts = data.completeWords ? sharesToPercentLabels(data.povs.map(pov => pov.wordShare)) : null;
+    summary.replaceChildren(); data.povs.forEach((pov,rowIndex) => { const tr=document.createElement('tr'); [pov.pov,fmt(pov.sceneCount),scenePcts[rowIndex],data.completeWords?fmt(pov.wordCount):'—',wordPcts?wordPcts[rowIndex]:'—',fmt(pov.longestRun),fmt(pov.maxInternalGap)].forEach((value,i)=>{const cell=document.createElement(i===0?'th':'td');if(i===0)cell.scope='row';cell.textContent=value;if(i===0)cell.classList.add(tone(pov.order));tr.appendChild(cell);}); summary.appendChild(tr); });
     results.hidden=false; app.dataset.state='result'; setStatus(`Vista creada con ${data.totalScenes} escenas. No se ha enviado ningún dato.`);
   }
   function renderTotals(data) {
@@ -29,7 +32,8 @@
     sequenceBlock.hidden = true; lanesBlock.hidden = true; noteScenes.hidden = true; noteTotals.hidden = false;
     metrics.replaceChildren(); [['POV',fmt(data.totalPovs)],['Palabras',fmt(data.totalWords)],['Medición','totales por POV']].forEach(([label,value]) => { const box=document.createElement('div'),dt=document.createElement('span'),dd=document.createElement('strong'); dt.textContent=label; dd.textContent=value; box.append(dt,dd); metrics.appendChild(box); });
     sequence.replaceChildren(); lanes.replaceChildren();
-    summary.replaceChildren(); data.povs.forEach(pov => { const tr=document.createElement('tr'); [pov.pov,fmt(pov.wordCount),pct(pov.wordShare)].forEach((value,i)=>{const cell=document.createElement(i===0?'th':'td');if(i===0)cell.scope='row';cell.textContent=value;if(i===0)cell.classList.add(tone(pov.order));tr.appendChild(cell);}); summary.appendChild(tr); });
+    const wordPcts = sharesToPercentLabels(data.povs.map(pov => pov.wordShare));
+    summary.replaceChildren(); data.povs.forEach((pov,rowIndex) => { const tr=document.createElement('tr'); [pov.pov,fmt(pov.wordCount),wordPcts[rowIndex]].forEach((value,i)=>{const cell=document.createElement(i===0?'th':'td');if(i===0)cell.scope='row';cell.textContent=value;if(i===0)cell.classList.add(tone(pov.order));tr.appendChild(cell);}); summary.appendChild(tr); });
     results.hidden=false; app.dataset.state='result'; setStatus(`Vista creada con ${data.totalPovs} POV. No se ha enviado ningún dato.`);
   }
   function run() {

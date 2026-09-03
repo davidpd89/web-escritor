@@ -195,5 +195,20 @@
     return { mode: 'totals', povs, totalPovs: povs.length, totalWords };
   }
 
-  return { parse, analyze, parseTotals, analyzeTotals, bucketSceneCount, MAX_SCENES, MAX_POVS };
+  // Rounding each POV's share independently for display (e.g. a three-way
+  // 1/3 split -> 33 %, 33 %, 33 %) visibly sums to 99 %, which reads as a
+  // bug even though the underlying counts are exact -- confirmed live with
+  // a 3/7,2/7,2/7 scene split showing 43 %, 29 %, 29 % (sum 101 %).
+  // Largest-remainder allocation guarantees a set of shares always sums to
+  // exactly 100 as whole percentages.
+  function sharesToWholePercent(shares) {
+    const floors = shares.map(s => Math.floor(s * 100));
+    const remainder = 100 - floors.reduce((sum, v) => sum + v, 0);
+    const order = shares.map((s, i) => ({ i, frac: (s * 100) - floors[i] })).sort((a, b) => b.frac - a.frac);
+    const result = floors.slice();
+    for (let k = 0; k < remainder && k < order.length; k++) result[order[k].i]++;
+    return result;
+  }
+
+  return { parse, analyze, parseTotals, analyzeTotals, bucketSceneCount, sharesToWholePercent, MAX_SCENES, MAX_POVS };
 });
