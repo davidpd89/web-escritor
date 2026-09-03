@@ -6,7 +6,7 @@
 // independiente): parseo correcto, DTSTART 19:00+02:00 -> 17:00Z, 0 lineas de
 // mas de 75 octetos, CRLF, y descripcion desplegada identica con tildes y ñ.
 import assert from 'node:assert/strict';
-import { buildEventOutputs } from '../assets/evento-escritor-core.js';
+import { buildEventOutputs, foldIcsLine } from '../assets/evento-escritor-core.js';
 
 const model = {
   name: 'Presentación de Las manecillas del recuerdo',
@@ -62,5 +62,25 @@ for (const key of ['streetAddress', 'addressLocality', 'addressCountry']) {
   assert.ok(ld.location.address[key], `PostalAddress requiere ${key}`);
 }
 assert.equal(ld.eventStatus, 'https://schema.org/EventScheduled');
+
+// Adversarial line-folding (2026-09 audit round): the accented characters
+// above (ñ, á, é, ü) are all 2-byte UTF-8, the easy case. foldIcsLine()
+// iterates Array.from(String(line)) so it walks whole code points (correctly
+// treating a surrogate pair as one unit) and checks TextEncoder byte length
+// before deciding to fold -- but that combination is worth stress-testing
+// directly against 3-byte (CJK) and 4-byte (emoji, surrogate-pair) UTF-8
+// repeated across many fold boundaries, not just present once in a longer
+// string, to catch an off-by-one that only shows up at a boundary.
+function checkFoldRoundtrip(line) {
+  const folded = foldIcsLine(line);
+  for (const seg of folded.split('\r\n')) {
+    assert.ok(Buffer.byteLength(seg, 'utf8') <= 75, `segmento de ${Buffer.byteLength(seg, 'utf8')} octetos supera 75: ${seg}`);
+  }
+  assert.equal(folded.replace(/\r\n /g, ''), line, 'desplegar debe reconstruir el texto original exacto');
+}
+checkFoldRoundtrip('DESCRIPTION:' + '📚'.repeat(40)); // 4-byte UTF-8 (surrogate pair), repeated across many folds
+checkFoldRoundtrip('DESCRIPTION:' + '文'.repeat(40)); // 3-byte UTF-8, repeated across many folds
+checkFoldRoundtrip('DESCRIPTION:' + 'a'.repeat(73) + '📚📚📚📚'); // ASCII run landing exactly at the fold boundary, then emoji
+checkFoldRoundtrip('DESCRIPTION:' + 'a'.repeat(74) + '文文文文'); // same, one byte off, for CJK
 
 console.log('test-evento-ics-rfc5545: OK');
