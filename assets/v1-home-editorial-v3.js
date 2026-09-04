@@ -84,7 +84,7 @@ import { EDITORIAL_PUBLIC_FACTS } from './editorial-public-facts.mjs';
     return frame;
   }
 
-  function addTextLink(parent, href, text, className = '') {
+  function addTextLink(parent, href, text, className = '', bookContext = '') {
     const link = make('a', className, text);
     link.href = href;
     if (/^https?:\/\//.test(href)) {
@@ -100,7 +100,21 @@ import { EDITORIAL_PUBLIC_FACTS } from './editorial-public-facts.mjs';
       // screen-reader users without adding visible copy. rel=sponsored
       // above is the signal search engines read; the required sitewide
       // Amazon Associates statement lives on aviso-legal.html.
-      if (isAmazonAffiliate) link.setAttribute('aria-label', `${text} — enlace de afiliado`);
+      //
+      // bookContext (2026-09-05): Home has two separate "Comprar en Amazon"
+      // cards (Manecillas' rail card, Samuel's feature card), each with a
+      // generic-text heading link AND a generic "Abrir" link -- all four
+      // produced an *identical* accessible name ("Comprar en Amazon — enlace
+      // de afiliado" / "Abrir — enlace de afiliado") with no book named,
+      // indistinguishable out of visual context. A user scrolling fast on
+      // mobile (or navigating by screen reader) could easily tap/activate
+      // the wrong book's buy link while believing it was for the other --
+      // plausibly what a live report of "Comprar" leading to the wrong book
+      // was actually describing. Threading the book name into the
+      // aria-label (not the visible label, to avoid visual/design changes)
+      // disambiguates them without touching layout.
+      const suffix = bookContext ? ` — ${bookContext}` : '';
+      if (isAmazonAffiliate) link.setAttribute('aria-label', `${text}${suffix} — enlace de afiliado`);
     }
     parent.append(link);
     return link;
@@ -317,11 +331,12 @@ import { EDITORIAL_PUBLIC_FACTS } from './editorial-public-facts.mjs';
     ].forEach(([eyebrow, cardTitle, text, href]) => {
       const card = make('article', 'yale-rail-card');
       card.append(make('p', 'editorial-card__eyebrow', eyebrow));
+      const bookContext = href === MANECILLAS_BUY_URL ? 'Las manecillas del recuerdo' : '';
       const cardHeading = make('h3');
-      addTextLink(cardHeading, href, cardTitle);
+      addTextLink(cardHeading, href, cardTitle, '', bookContext);
       card.append(cardHeading);
       if (text) card.append(make('p', '', text));
-      addTextLink(card, href, 'Abrir', 'yale-text-link yale-text-link--gradient');
+      addTextLink(card, href, 'Abrir', 'yale-text-link yale-text-link--gradient', bookContext);
       rail.append(card);
     });
 
@@ -393,11 +408,12 @@ import { EDITORIAL_PUBLIC_FACTS } from './editorial-public-facts.mjs';
     ].forEach(([eyebrow, cardTitle, text, href, className]) => {
       const card = make('article', `yale-feature-card ${className}`.trim());
       card.append(make('p', 'editorial-card__eyebrow', eyebrow));
+      const bookContext = href === SAMUEL_AMAZON_URL ? 'Samuel entre mundos' : '';
       const h = make('h3');
-      addTextLink(h, href, cardTitle);
+      addTextLink(h, href, cardTitle, '', bookContext);
       card.append(h);
       if (text) card.append(make('p', '', text));
-      addTextLink(card, href, 'Abrir', 'yale-text-link');
+      addTextLink(card, href, 'Abrir', 'yale-text-link', bookContext);
       stack.append(card);
     });
 
