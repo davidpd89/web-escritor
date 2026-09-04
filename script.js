@@ -536,7 +536,12 @@ document.addEventListener('dp:analytics', _dpAnalyticsBridge);
 // Esa pagina ahora carga assets/samuel-buy-modal.js directamente.
 
 
-document.querySelectorAll('a[href*="amazon.es"]:not(#buy-dialog a)').forEach(link => {
+// Matches both amazon.es (Samuel's direct link) and amzn.to (Manecillas'
+// Kindle affiliate short link, since 2026-09-04) -- a selector scoped only
+// to "amazon.es" stopped tracking every Comprar click sitewide the moment
+// the header button's href became an amzn.to short link, confirmed live
+// before this fix.
+document.querySelectorAll('a[href*="amazon.es"]:not(#buy-dialog a), a[href*="amzn.to"]:not(#buy-dialog a)').forEach(link => {
   link.addEventListener("click", () => _gcEvent("comprar-amazon", "Clic: Comprar Amazon"));
 });
 

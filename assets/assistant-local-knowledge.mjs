@@ -302,9 +302,9 @@ export function resolveLocalAnswer(query, context = {}) {
     const { manecillas } = EDITORIAL_PUBLIC_FACTS;
     const kindle = manecillas.kindleEdition;
     const answer = kindle
-      ? `Sí, «${manecillas.title}» ya está disponible en Kindle por ${kindle.priceEUR.toFixed(2).replace(".", ",")} €. También puedes leer una muestra gratis antes de comprarlo.`
+      ? `Sí, «${manecillas.title}» ya está disponible en Kindle por ${kindle.priceEUR.toFixed(2).replace(".", ",")} €. También puedes descargar gratis una muestra del capítulo 1.1 antes de comprarlo.`
       : `«${manecillas.title}» todavía no tiene una URL de compra verificada.`;
-    return result("manecillas-buy", answer, ["work-manecillas", "work-manecillas-fragments"]);
+    return result("manecillas-buy", answer, ["work-manecillas-kindle", "work-manecillas"]);
   }
   if (mentionsManecillas) {
     if (asksNavigation) {
