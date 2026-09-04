@@ -149,7 +149,7 @@ TRACKED_ASSETS = {
     "kit-prensa-escritor.js": "2",
     "legibilidad-espanol.css": "1",
     "legibilidad-espanol.js": "1",
-    "limpiador-manuscritos-engine.js": "2",
+    "limpiador-manuscritos-engine.js": "3",
     "limpiador-manuscritos.js": "1",
     "analizador-capitulos.css": "1",
     "analizador-capitulos.js": "2",

@@ -69,30 +69,36 @@
       id: 'straightQuotes',
       label: 'Comillas rectas dobles (") a comillas españolas «»',
       apply(text) {
-        // A straight quote immediately after a digit is virtually always an
-        // inches/feet mark (6" de alto), not dialogue -- left untouched
-        // rather than consumed by the open/close alternation below.
+        // A straight quote immediately after a digit is treated as an
+        // inches/feet mark (6" de alto) ONLY while the alternation is
+        // expecting an OPENING quote (open === true) -- a real dialogue
+        // quote that happens to close right after a number (`"Capítulo 6"`,
+        // `"1984"`, `"Sala 101"`) is expected to CLOSE at that point
+        // (open === false) and must still convert normally. The earlier
+        // unconditional guard skipped that closing quote too, leaving an
+        // unpaired « with a stray straight " after it -- confirmed live
+        // before this fix.
         //
-        // The open/close alternation itself resets at each paragraph break
-        // rather than running once across the whole text: an unpaired quote
-        // of any other origin (an accidentally unclosed quote, an OCR/paste
-        // artifact) would otherwise flip open/close for every quote in the
-        // REST of the manuscript -- confirmed live before this fix: a single
-        // stray quote turned two clean "hola"/"adiós" pairs later in the same
-        // text into the backwards »hola« / »adiós«. Resetting per paragraph
-        // contains that kind of damage to the paragraph with the actual
-        // problem instead of the whole document.
+        // The open/close alternation resets at every line break, not only
+        // at blank-line paragraph breaks: a manuscript pasted with a single
+        // \n between paragraphs (no blank line) got no containment at all
+        // under the old blank-line-only reset, letting one stray quote flip
+        // every dialogue quote in the rest of the text. Word/Docs paste
+        // only ever inserts a literal \n at an actual line/paragraph break
+        // (soft-wrap is display-only, never a real \n in the stored text),
+        // so resetting on every \n does not split a quote that legitimately
+        // spans a soft-wrapped line.
         let n = 0;
-        const paragraphs = text.split(/(\n\s*\n+)/);
-        const out = paragraphs.map((segment, i) => {
-          if (i % 2 === 1) return segment; // the separator itself, unchanged
+        const lines = text.split(/(\n)/);
+        const out = lines.map((segment, i) => {
+          if (i % 2 === 1) return segment; // the newline itself, unchanged
           let open = true;
           return segment.replace(/(\d)?"/g, (m, digit) => {
-            if (digit) return m;
+            if (digit && open) return m;
             n += 1;
             const ch = open ? '«' : '»';
             open = !open;
-            return ch;
+            return (digit || '') + ch;
           });
         }).join('');
         return { text: out, count: n };
