@@ -1,0 +1,49 @@
+name: Home editorial fallback recovery QA
+
+on:
+  pull_request:
+    paths:
+      - 'index.html'
+      - 'assets/v1-shell.js'
+      - 'assets/v1-home-editorial-v3.js'
+      - 'assets/editorial-public-facts.mjs'
+      - 'qa/home-editorial-fallback-recovery.mjs'
+      - '.github/workflows/home-editorial-fallback-qa.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  fallback-recovery-qa:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v5
+
+      - name: Set up Node
+        uses: actions/setup-node@v5
+        with:
+          node-version: '22'
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Cache Playwright browsers
+        id: playwright-cache
+        uses: actions/cache@v5
+        with:
+          path: ~/.cache/ms-playwright
+          key: playwright-chromium-${{ hashFiles('package-lock.json') }}
+
+      - name: Install Playwright Chromium (with OS deps)
+        if: steps.playwright-cache.outputs.cache-hit != 'true'
+        run: npx playwright install --with-deps chromium
+
+      - name: Install Playwright OS deps only (browser cached)
+        if: steps.playwright-cache.outputs.cache-hit == 'true'
+        run: npx playwright install-deps chromium
+
+      - name: Run Home editorial fallback recovery QA
+        run: node qa/home-editorial-fallback-recovery.mjs

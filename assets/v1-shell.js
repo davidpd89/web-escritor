@@ -573,6 +573,34 @@
       });
     });
     loadScript(HOME_EDITORIAL_SRC, 'homeEditorialV3', { module: true });
+    scheduleHomeEditorialFallback();
+  }
+
+  // Safety net for a real failure mode index.html's hide rule never covered:
+  // it hides .river-grid/.promo-band/#faq/#newsletter until buildFlow() in
+  // the dynamically-loaded v1-home-editorial-v3.js module sets
+  // data-home-editorial-v3="true" as its last step, with <noscript> as the
+  // only escape hatch -- which only fires when JS itself is disabled. If
+  // that module (or its static `import` of editorial-public-facts.mjs)
+  // fails to load for a JS-enabled visitor -- network hiccup, ad/content
+  // blocker, CDN error -- buildFlow() never runs and the attribute never
+  // gets set, so Home's entire main content stays invisible forever with no
+  // fallback (confirmed live: blocking either file leaves .river-grid
+  // visibility:hidden permanently, zero visible buy CTA). 5s is comfortably
+  // above home-runtime's real load time (~29KB/2 requests per
+  // data/performance-budgets.json) so it never fires on a legitimately
+  // slow-but-working load and reintroduces the pre-JS-flash CLS regression
+  // this hide rule exists to prevent (see test-home-fallback-cls-contract.py).
+  function scheduleHomeEditorialFallback() {
+    setTimeout(() => {
+      if (root.dataset.homeEditorialV3 === 'true') return;
+      const style = document.createElement('style');
+      style.textContent = 'html.v1[data-lrb-home="true"]:not([data-home-editorial-v3="true"]) .river-grid,'
+        + 'html.v1[data-lrb-home="true"]:not([data-home-editorial-v3="true"]) .promo-band,'
+        + 'html.v1[data-lrb-home="true"]:not([data-home-editorial-v3="true"]) #faq,'
+        + 'html.v1[data-lrb-home="true"]:not([data-home-editorial-v3="true"]) #newsletter{visibility:visible}';
+      document.head.append(style);
+    }, 5000);
   }
 
   function initLrbHeaderV2() {

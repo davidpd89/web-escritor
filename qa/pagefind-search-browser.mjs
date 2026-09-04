@@ -81,7 +81,31 @@ try {
     `gated route must not appear in the local index, got: ${JSON.stringify(jaula)}`,
   );
 
-  // 4. No external network requests during a search (fully local/static).
+  // 4. Shell-chrome contamination guard (GPT audit item 43, 2026-09-04):
+  // header/Explorar/footer are identical on every page and excluded from the
+  // index via --exclude-selectors in scripts/build-pagefind-index.py
+  // specifically so a term that only appears in that shared chrome (e.g. the
+  // header's "Comprar" button, Explorar's "Comprar en Kindle" child link)
+  // doesn't return dozens of unrelated pages. This locks that behavior in
+  // functionally: if the exclusion selector ever regresses (e.g. a class
+  // rename), this is what would catch it, not a visual/manual check.
+  for (const q of ['Kindle', 'Comprar en Kindle']) {
+    const kindle = await search(page, q);
+    assert.ok(kindle.length > 0, `"${q}" must return at least one real result`);
+    // A generous ceiling, not an exact count: real pages legitimately mention
+    // Kindle now (the landing page itself, the book page, fragmentos,
+    // empieza-aqui, prensa's press kit). What this guards against is the
+    // header/Explorar/footer contamination bug specifically -- if the
+    // exclusion selectors ever regressed, EVERY page on the site would match
+    // (56 indexed pages), not a small, legitimate handful.
+    assert.ok(kindle.length <= 8, `"${q}" returned ${kindle.length} results -- looks like shell-chrome contamination (header/Explorar/footer text leaking into every page), got: ${JSON.stringify(kindle)}`);
+    assert.ok(
+      kindle.some((item) => item.url === '/las-manecillas-del-recuerdo/kindle/'),
+      `"${q}" must surface the Kindle landing page itself, got: ${JSON.stringify(kindle)}`,
+    );
+  }
+
+  // 5. No external network requests during a search (fully local/static).
   const external = [];
   page.on('request', (req) => {
     if (!req.url().startsWith(ORIGIN)) external.push(req.url());

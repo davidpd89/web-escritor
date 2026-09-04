@@ -97,8 +97,15 @@ self.addEventListener("fetch", (event) => {
     return;
   }
 
-  // Mutable code stays network-first.
-  if (url.pathname.endsWith(".css") || url.pathname.endsWith(".js")) {
+  // Mutable code stays network-first. .mjs modules (editorial-public-facts.mjs,
+  // assistant-*.mjs) are just as mutable as .js and were falling through to the
+  // /assets/ stale-while-revalidate branch below -- confirmed live as a real
+  // bug (2026-09-04): a visitor whose browser had cached editorial-public-
+  // facts.mjs from before Las manecillas del recuerdo's purchaseUrl was set
+  // (it was null before #384) got served that stale null value on their first
+  // load of the new module-based Home CTAs, rendering href="null" (a literal
+  // "/null" link) until the background revalidation caught up.
+  if (url.pathname.endsWith(".css") || url.pathname.endsWith(".js") || url.pathname.endsWith(".mjs")) {
     event.respondWith(networkFirstStatic(request));
     return;
   }
