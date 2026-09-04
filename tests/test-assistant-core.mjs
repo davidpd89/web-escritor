@@ -55,6 +55,8 @@ const registryIds = new Set(ASSISTANT_SOURCE_REGISTRY.map((source) => source.id)
 const localCases = [
   ["¿De qué trata Las manecillas del recuerdo?", "manecillas"],
   ["¿Cuándo se publica Las manecillas del recuerdo?", "manecillas-date"],
+  ["¿Dónde compro Las manecillas del recuerdo?", "manecillas-buy"],
+  ["¿Está Las manecillas del recuerdo en Kindle?", "manecillas-buy"],
   ["¿De qué trata Samuel entre mundos?", "samuel"],
   ["¿Qué premio ganó Samuel entre mundos?", "samuel-awards"],
   ["¿Qué es Noveris?", "noveris"],

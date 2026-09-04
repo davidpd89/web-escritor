@@ -93,6 +93,7 @@ CONTEXTS: tuple[Context, ...] = (
         links=(
             ("/libros/", "← Obras"),
             ("/las-manecillas-del-recuerdo/", "La novela"),
+            ("/las-manecillas-del-recuerdo/kindle/", "Kindle"),
             ("/las-manecillas-del-recuerdo/fragmentos/", "Fragmentos"),
             ("/prensa.html#ficha-manecillas", "Ficha de prensa"),
         ),

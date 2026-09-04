@@ -120,7 +120,16 @@ PUBLIC_CSP = (
     "manifest-src 'self'"
 )
 
-AMAZON_SAMUEL_URL = "https://www.amazon.es/dp/B0GB6LGQFH?tag=davidporto-21"
+EDITORIAL_FACTS_PATH = ROOT / "editorial-facts.json"
+_EDITORIAL_FACTS = json.loads(EDITORIAL_FACTS_PATH.read_text(encoding="utf-8"))
+# The global header "Comprar" button always targets the CURRENT headline
+# book (Las manecillas del recuerdo since its 2026-09 Kindle launch), read
+# live from editorial-facts.json rather than duplicated as a literal here --
+# a purchaseUrl change in the single source of truth propagates to every
+# page's header on the next build instead of needing a second edit here.
+# Samuel's own dedicated "Comprar Samuel entre mundos" CTAs elsewhere on the
+# site are untouched and keep pointing at Samuel specifically.
+PRIMARY_BUY_URL = _EDITORIAL_FACTS["books"]["lasManecillasDelRecuerdo"]["purchaseUrl"]
 
 AUTHOR_EMAIL = "davidportodiaz@gmail.com"
 
@@ -317,7 +326,15 @@ def render_header(nav: dict, by_id: dict[str, Entry], current_path: str) -> str:
     # que el pie de pagina basta.
     links = "\n".join(f"        {link(by_id[item_id], None)}" for item_id in nav["header"])
     buy_link = ""
-    if not current_path.startswith("/las-manecillas-del-recuerdo/"):
+    if PRIMARY_BUY_URL:
+        # Shown on every page, including /las-manecillas-del-recuerdo/ itself
+        # (2026-09-04): the button used to hardcode Samuel's link and was
+        # deliberately hidden on Manecillas' own pages to avoid a bait-and-
+        # switch (showing "Comprar" on the book's own page while silently
+        # selling a different book). Now that PRIMARY_BUY_URL points at
+        # Manecillas' real Kindle edition, that exception no longer applies
+        # anywhere -- showing it here is correct.
+        #
         # No visible "Afiliado" label under the CTA (author decision,
         # 2026-09-01: "que el botón salga COMPRAR y debajo afiliado, no").
         # rel="sponsored" stays (the technical signal search engines read)
@@ -326,9 +343,9 @@ def render_header(nav: dict, by_id: dict[str, Entry], current_path: str) -> str:
         # required sitewide Amazon Associates statement lives on
         # aviso-legal.html, not repeated at every CTA.
         buy_link = (
-            f'      <a class="header-buy" href="{AMAZON_SAMUEL_URL}" '
+            f'      <a class="header-buy" href="{PRIMARY_BUY_URL}" '
             'target="_blank" rel="sponsored nofollow noopener noreferrer" '
-            'aria-label="Comprar en Amazon — enlace de afiliado">'
+            'aria-label="Comprar Las manecillas del recuerdo en Kindle — enlace de afiliado">'
             'Comprar</a>\n'
         )
     return (

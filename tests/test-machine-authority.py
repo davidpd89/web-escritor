@@ -215,7 +215,7 @@ def build_after_matrix(facts: dict, author_press: dict, man_press: dict, sam_pre
                 "values": {
                     "editorial-facts.json": man["purchaseUrl"],
                     "press-kit/las-manecillas-del-recuerdo.json": man_press["purchase"]["purchaseUrl"],
-                    "machine copy": "Sin URL de compra verificada",
+                    "machine copy": man["purchaseUrl"],
                 },
                 "drift": False,
             },
@@ -325,7 +325,8 @@ def main() -> int:
     check(man_press["format"] == "Tapa blanda" and man["format"] == "Paperback", "Manecillas format mapping drift")
     check(man_press["status"] == author_man["status"] == "published", "Manecillas machine status must be published")
     check(man["statusBeforePublication"] == man["statusFromPublicationDate"] == "published", "Manecillas temporal contract must not switch publication wording by runner date")
-    check(man["purchaseUrl"] is None and man_press["purchase"]["purchaseUrl"] is None, "Manecillas purchase URL must stay null until verified")
+    check(man["purchaseUrl"] is not None, "Manecillas purchase URL must be set once verified (2026-09: Kindle edition)")
+    check(man["purchaseUrl"] == man_press["purchase"]["purchaseUrl"], "Manecillas purchase URL drift between editorial-facts.json and press-kit")
 
     author_sam = next(b for b in author_press["books"] if b["title"] == sam["title"])
     check(sam_press["title"] == sam["title"] == author_sam["title"], "Samuel title drift")
@@ -358,7 +359,8 @@ def main() -> int:
         man["title"], man["publisher"], man["publicationDate"], man["isbn"], str(man["numberOfPages"]),
         sam["title"], sam["publisher"], sam["isbn"], str(sam["numberOfPages"]), sam["asin"],
         "Publicada el 3 de septiembre de 2026",
-        "Sin URL de compra verificada",
+        man["purchaseUrl"],
+        man["kindleEdition"]["asin"],
         exact_award_label(facts),
         finalist["name"],
         "Noveris",

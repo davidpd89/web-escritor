@@ -135,6 +135,32 @@ export const ASSISTANT_SOURCE_REGISTRY = [
     "action": "Leer fragmentos"
   },
   {
+    "id": "work-manecillas-kindle",
+    "url": "/las-manecillas-del-recuerdo/kindle/",
+    "title": "Las manecillas del recuerdo en Kindle",
+    "territory": "obras",
+    "work": "manecillas",
+    "priority": 2,
+    "visibility": "public",
+    "keywords": [
+      "kindle",
+      "ebook",
+      "libro electrónico",
+      "comprar manecillas",
+      "amazon manecillas",
+      "epub manecillas",
+      "descargar muestra"
+    ],
+    "aliases": [
+      "kindle manecillas",
+      "ebook manecillas",
+      "comprar las manecillas del recuerdo",
+      "edición kindle"
+    ],
+    "summary": "Edición Kindle de «Las manecillas del recuerdo» y muestra gratuita descargable del capítulo 1.1.",
+    "action": "Ver edición Kindle"
+  },
+  {
     "id": "work-samuel",
     "url": "/libros/samuel-entre-mundos/",
     "title": "Samuel entre mundos",

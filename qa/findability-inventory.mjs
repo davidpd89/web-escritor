@@ -90,6 +90,7 @@ function deprecatedDestination(href) {
 const KNOWN_EDITORIAL_URL_MIGRATIONS = new Map([
   ['https://www.diversidadliteraria.com/la-memoria-de-las-tierras-del-norte', 'AIII-11 2026-08-27: canonical URL moved to /libros/#memoria-tierras-norte'],
   ['https://www.threads.net/@davidportodiaz', '2026-09-01: Meta moved Threads profile URLs from threads.net to threads.com'],
+  ['https://www.amazon.es/dp/B0GB6LGQFH?tag=davidporto-21', '2026-09-04: global header Comprar button retargeted from a hardcoded Samuel Amazon link to Las manecillas del recuerdo\'s real Kindle purchase URL (editorial-facts.json purchaseUrl, now https://amzn.to/3SM4Oxu) -- Samuel\'s own dedicated purchase links elsewhere on the site are unaffected'],
 ]);
 function knownEditorialMigration(href) {
   return KNOWN_EDITORIAL_URL_MIGRATIONS.get(href) || null;

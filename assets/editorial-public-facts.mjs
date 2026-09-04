@@ -10,8 +10,18 @@ export const EDITORIAL_PUBLIC_FACTS = {
     "isbn": "979-8-90514-935-1",
     "numberOfPages": 272,
     "priceEUR": 16,
-    "purchaseUrl": null,
-    "availabilityNote": "Sin URL de compra verificada"
+    "purchaseUrl": "https://amzn.to/3SM4Oxu",
+    "availabilityNote": "https://amzn.to/3SM4Oxu",
+    "kindleEdition": {
+      "format": "EBook",
+      "asin": "B0HHM71F46",
+      "isbn13": "979-8906781925",
+      "publicationDate": "2026-08-12",
+      "publicationDateHuman": "12 de agosto de 2026",
+      "priceEUR": 2.99,
+      "printLengthPages": 227,
+      "purchaseUrl": "https://amzn.to/3SM4Oxu"
+    }
   },
   "samuel": {
     "title": "Samuel entre mundos",

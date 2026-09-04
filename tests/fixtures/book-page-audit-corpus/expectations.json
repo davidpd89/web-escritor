@@ -14,9 +14,8 @@
       "id": "real-las-manecillas-del-recuerdo",
       "kind": "real",
       "sourceFile": "las-manecillas-del-recuerdo/index.html",
-      "description": "Pagina real, publicada, del propio sitio: ficha de la obra actual, sin club de lectura ni serie todavia (correcto: son obras que no existen para este libro, no un fallo del auditor).",
-      "expectOk": ["book_title", "book_author", "book_cover", "book_description", "book_availability", "book_isbn", "book_publisher", "book_date", "book_format", "book_pages", "book_excerpt", "book_press"],
-      "expectReview": ["book_purchase"],
+      "description": "Pagina real, publicada, del propio sitio: ficha de la obra actual, sin club de lectura ni serie todavia (correcto: son obras que no existen para este libro, no un fallo del auditor). book_purchase paso a 'ok' el 2026-09-04: la pagina ahora enlaza la edicion Kindle real (editorial-facts.json purchaseUrl) via el boton Comprar del header.",
+      "expectOk": ["book_title", "book_author", "book_cover", "book_description", "book_availability", "book_purchase", "book_isbn", "book_publisher", "book_date", "book_format", "book_pages", "book_excerpt", "book_press"],
       "expectOptional": ["book_club", "book_series"],
       "expectSchemaOk": true,
       "expectNoConsistencyIssues": true

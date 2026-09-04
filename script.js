@@ -536,7 +536,12 @@ document.addEventListener('dp:analytics', _dpAnalyticsBridge);
 // Esa pagina ahora carga assets/samuel-buy-modal.js directamente.
 
 
-document.querySelectorAll('a[href*="amazon.es"]:not(#buy-dialog a)').forEach(link => {
+// Matches both amazon.es (Samuel's direct link) and amzn.to (Manecillas'
+// Kindle affiliate short link, since 2026-09-04) -- a selector scoped only
+// to "amazon.es" stopped tracking every Comprar click sitewide the moment
+// the header button's href became an amzn.to short link, confirmed live
+// before this fix.
+document.querySelectorAll('a[href*="amazon.es"]:not(#buy-dialog a), a[href*="amzn.to"]:not(#buy-dialog a)').forEach(link => {
   link.addEventListener("click", () => _gcEvent("comprar-amazon", "Clic: Comprar Amazon"));
 });
 
@@ -570,4 +575,10 @@ document.querySelectorAll('a[href*="/prensa"]').forEach(link => {
 // Press kit JSON download
 document.querySelectorAll('a[href*="/press-kit/"]').forEach(link => {
   link.addEventListener("click", () => _gcEvent("download-press-kit", "Descarga: press kit JSON"));
+});
+
+// Muestra de Las manecillas del recuerdo (capítulo 1.1) descargada en EPUB/TXT
+document.querySelectorAll('a[data-sample-download]').forEach(link => {
+  const format = link.dataset.sampleDownload;
+  link.addEventListener("click", () => _gcEvent(`sample-download-manecillas-${format}`, `Descarga: muestra Manecillas (${format.toUpperCase()})`));
 });

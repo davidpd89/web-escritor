@@ -47,6 +47,7 @@ def build_projection(facts: dict) -> dict:
     finalist = facts["recognitions"]["juanAndresTeno2026"]
 
     manecillas_available = man["purchaseUrl"] is not None
+    kindle = man.get("kindleEdition")
     return {
         "manecillas": {
             "title": man["title"],
@@ -60,6 +61,16 @@ def build_projection(facts: dict) -> dict:
             "availabilityNote": (
                 man["purchaseUrl"] if manecillas_available else "Sin URL de compra verificada"
             ),
+            "kindleEdition": None if kindle is None else {
+                "format": kindle["format"],
+                "asin": kindle["asin"],
+                "isbn13": kindle["isbn13"],
+                "publicationDate": kindle["publicationDate"],
+                "publicationDateHuman": human_date_es(kindle["publicationDate"]),
+                "priceEUR": kindle["priceEUR"],
+                "printLengthPages": kindle["printLengthPages"],
+                "purchaseUrl": kindle["purchaseUrl"],
+            },
         },
         "samuel": {
             "title": sam["title"],

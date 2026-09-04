@@ -13,10 +13,12 @@
   const isHome = () => root.dataset.lrbHome === 'true' || Boolean(document.querySelector('.masthead-nav'));
 
   const SAMUEL_AMAZON_URL = 'https://www.amazon.es/dp/B0GB6LGQFH?tag=davidporto-21';
-  // PREPUBLICACIÓN: Manecillas reutiliza provisionalmente el destino de Samuel
-  // hasta que editorial-facts.json tenga purchaseUrl real. Mantener una constante
-  // distinta evita que el placeholder parezca una relación semántica entre obras.
-  const MANECILLAS_BUY_URL = SAMUEL_AMAZON_URL;
+  // 2026-09-04: Las manecillas del recuerdo now has its own real, verified
+  // purchase URL (its Kindle edition) -- editorial-facts.json
+  // books.lasManecillasDelRecuerdo.purchaseUrl is the single source of
+  // truth. This used to alias SAMUEL_AMAZON_URL as a provisional
+  // placeholder; that placeholder is gone now that the real link exists.
+  const MANECILLAS_BUY_URL = 'https://amzn.to/3SM4Oxu';
   const AUTHOR_EMAIL_URL = 'mailto:davidportodiaz@gmail.com?subject=Te%20leo%20%E2%80%94%20David%20Porto%20D%C3%ADaz';
 
   // Explicit host allowlist (K.3): a pattern like /amazon\.[a-z.]+/ would also
