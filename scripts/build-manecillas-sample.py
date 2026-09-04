@@ -260,7 +260,14 @@ def main() -> int:
 
     if args.check:
         errors = []
-        txt_on_disk = open(TXT_PATH, encoding="utf-8", newline="").read() if TXT_PATH.exists() else None
+        # Universal newlines on READ (the default): a local checkout on
+        # Windows applies git's normal autocrlf CRLF conversion to this
+        # plain text file, same as any other text file in the repo -- that
+        # is not staleness, so the comparison must not be sensitive to it.
+        # (The WRITE side below still forces newline="" so the bytes this
+        # script itself produces -- and what actually gets committed -- are
+        # always pure LF regardless of build platform.)
+        txt_on_disk = TXT_PATH.read_text(encoding="utf-8") if TXT_PATH.exists() else None
         if txt_on_disk != txt_rendered:
             errors.append(f"{TXT_PATH.relative_to(ROOT)} is stale or missing")
         if not EPUB_PATH.exists() or EPUB_PATH.read_bytes() != epub_rendered:
