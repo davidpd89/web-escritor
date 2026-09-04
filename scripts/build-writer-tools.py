@@ -85,10 +85,10 @@ def render_tool(t):
 <div class="editorial-card__head"><div><p class="tool-meta">{escape(tested_label)}</p><h2>{escape(t["name"])}</h2></div><span class="editorial-verified">Verificado {escape(t["verification"]["checked_at"])}</span></div>
 <div class="editorial-genres">{''.join(pill(STAGE_LABELS.get(x, x)) for x in t["stages"])}</div>
 <dl class="spec-ledger">
-<div><dt>Precio</dt><dd>{escape(t["price"]["display"])}</dd></div>
-<div><dt>Plataformas</dt><dd>{escape(", ".join(t["platforms"]))}</dd></div>
-<div><dt>Datos</dt><dd>{escape(t["data_note"])}</dd></div>
-<div><dt>Interfaz en español</dt><dd>{escape(str(t["interface_es"]))}</dd></div>
+<div><dt>Precio</dt> <dd>{escape(t["price"]["display"])}</dd></div>
+<div><dt>Plataformas</dt> <dd>{escape(", ".join(t["platforms"]))}</dd></div>
+<div><dt>Datos</dt> <dd>{escape(t["data_note"])}</dd></div>
+<div><dt>Interfaz en español</dt> <dd>{escape(str(t["interface_es"]))}</dd></div>
 </dl>
 <div class="tool-findings-block"><h3>Para qué sí</h3><p>{escape(t["best_for"])}</p></div>
 <div class="tool-findings-block"><h3>Para qué no</h3><p>{escape(t["not_for"])}</p></div>
