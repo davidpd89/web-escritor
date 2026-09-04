@@ -51,6 +51,37 @@ function ok(cond, msg) { if (!cond) throw new Error(msg); }
   ok(r.text.endsWith('Ella dijo «hola» y él «adiós».'), `el segundo párrafo debe quedar bien formado: obtenido "${r.text}"`);
 }
 
+// Auditoría de casos límite (2026-09, ronda GPT): un diálogo que CIERRA justo
+// tras un número ("Capítulo 6", "1984", "Sala 101") no es una marca de
+// pulgadas: la comilla de cierre debe convertirse igual que cualquier otra.
+// Antes de este fix el guard de dígito era incondicional y dejaba esa
+// comilla de cierre sin convertir, produciendo un «Capítulo 6" suelto y sin
+// parear -- confirmado en vivo.
+{
+  const r = api.clean('Dijo "Capítulo 6" y siguió leyendo.', ['straightQuotes']);
+  ok(r.text === 'Dijo «Capítulo 6» y siguió leyendo.', `obtenido: ${JSON.stringify(r.text)}`);
+}
+{
+  const r = api.clean('El título era "1984" en la estantería.', ['straightQuotes']);
+  ok(r.text === 'El título era «1984» en la estantería.', `obtenido: ${JSON.stringify(r.text)}`);
+}
+{
+  const r = api.clean('Nos citamos en "Sala 101" a las nueve.', ['straightQuotes']);
+  ok(r.text === 'Nos citamos en «Sala 101» a las nueve.', `obtenido: ${JSON.stringify(r.text)}`);
+}
+
+// Contención por LÍNEA (no solo por párrafo en blanco, 2026-09): un
+// manuscrito pegado con un único \n entre párrafos (sin línea en blanco)
+// debe contener igualmente una comilla suelta al párrafo/línea donde
+// aparece, sin propagarse a las líneas siguientes. Antes de este fix el
+// reset solo ocurría en \n\s*\n+, así que este caso de una sola línea de
+// separación no tenía contención alguna.
+{
+  const input = 'Medía 6" de alto.\nElla dijo "hola" y él respondió "adiós".';
+  const r = api.clean(input, ['straightQuotes']);
+  ok(r.text === 'Medía 6" de alto.\nElla dijo «hola» y él respondió «adiós».', `obtenido: ${JSON.stringify(r.text)}`);
+}
+
 // Guion de diálogo a raya larga, solo al inicio de línea.
 {
   const r = api.clean('- Hola, dijo Ana.\nTexto normal - con guion en medio.', ['dashDialogue']);
