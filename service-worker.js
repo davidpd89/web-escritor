@@ -1,5 +1,5 @@
 const CACHE_NAMESPACE = "david-porto-pwa";
-const CACHE_VERSION = `${CACHE_NAMESPACE}-v14`;
+const CACHE_VERSION = `${CACHE_NAMESPACE}-v15`;
 const STATIC_CACHE = `${CACHE_VERSION}-static`;
 const PAGE_CACHE = `${CACHE_VERSION}-pages`;
 const CURRENT_CACHES = new Set([STATIC_CACHE, PAGE_CACHE]);
@@ -10,7 +10,16 @@ const LEGACY_PWA_CACHES = new Set([
   "david-porto-v2026-08-20-launch-1-static",
   "david-porto-v2026-08-20-launch-1-pages",
   "david-porto-pwa-v2-20260813",
-  "david-porto-pwa-v2-20260813-assets"
+  "david-porto-pwa-v2-20260813-assets",
+  // v14 -> v15 (2026-09-05): a returning visitor could have cached
+  // editorial-public-facts.mjs's stale purchaseUrl:null (from before #384)
+  // into v14's STATIC_CACHE before #388 made .mjs network-first. That fix
+  // closes it while online, but the same visitor going offline without ever
+  // re-fetching it online first could still see the stale copy served as
+  // the offline fallback -- a version bump purges the whole cache instead
+  // of leaving that narrow window open indefinitely.
+  "david-porto-pwa-v14-static",
+  "david-porto-pwa-v14-pages"
 ]);
 
 // Stable offline shell only. Editorial pages remain network-first and are not
