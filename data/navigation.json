@@ -38,6 +38,10 @@
       "targetId": "work-manecillas-fragments"
     },
     {
+      "label": "Comprar en Kindle",
+      "targetId": "work-manecillas-kindle"
+    },
+    {
       "label": "Revisar un texto",
       "targetId": "tools-hub"
     },
@@ -95,6 +99,7 @@
     "manecillas": [
       "work-manecillas",
       "work-manecillas-fragments",
+      "work-manecillas-kindle",
       "press"
     ],
     "samuel": [

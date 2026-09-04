@@ -406,6 +406,7 @@ def render_explore_rows(nav: dict, by_id: dict[str, Entry]) -> list[tuple[str, s
 # rendered here at all: it now lives as its own header button.
 EXPLORE_SHORTCUT_PARENTS = {
     "work-manecillas-fragments": "works-hub",
+    "work-manecillas-kindle": "works-hub",
     "tools-hub": "tools-hub",
     "editorials-hub": "tools-hub",
     "tool-book-metadata": "tools-hub",
