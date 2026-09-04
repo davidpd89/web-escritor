@@ -50,9 +50,15 @@
     "atomic": "Las manecillas del recuerdo (Monza Ediciones, publicada el 3 de septiembre de 2026) es una novela coral de vidas conectadas de David Porto Díaz. Un reloj familiar atraviesa generaciones marcadas por el amor, la pérdida, los secretos y la esperanza. 272 páginas, ISBN 979-8-90514-935-1, PVP 16 €."
   },
   "purchase": {
-    "purchaseUrl": null,
-    "status": "Sin URL de compra verificada",
-    "note": "No se enlaza ninguna tienda hasta que exista una ficha comercial verificable. El PVP no implica disponibilidad ni una oferta comercial."
+    "purchaseUrl": "https://amzn.to/3SM4Oxu",
+    "status": "Disponible en Kindle",
+    "note": "Edición Kindle verificada el 2026-09-04 (ASIN B0HHM71F46, ISBN-13 979-8906781925, 2,99 €, Monza Ediciones, publicada el 12 de agosto de 2026). Distinta de la edición en tapa blanda (ISBN/páginas/PVP arriba): no mezclar los datos de ambas ediciones.",
+    "kindleEdition": {
+      "asin": "B0HHM71F46",
+      "isbn": "979-8906781925",
+      "priceEUR": 2.99,
+      "publicationDate": "2026-08-12"
+    }
   },
   "urls": {
     "officialPage": "https://davidportodiaz.com/las-manecillas-del-recuerdo/",
@@ -68,5 +74,5 @@
     "mockup3D": "https://davidportodiaz.com/assets/manecillas-book-mockup.webp",
     "socialCardHorizontal": "https://davidportodiaz.com/assets/og-manecillas.webp"
   },
-  "lastUpdated": "2026-08-27"
+  "lastUpdated": "2026-09-04"
 }

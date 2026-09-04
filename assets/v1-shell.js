@@ -379,7 +379,7 @@
   // HTML href/src attribute). Bump the ?v= here AND the matching
   // TRACKED_ASSETS entry in check-asset-versions.py whenever either file's
   // content changes.
-  const HOME_EDITORIAL_SRC = '/assets/v1-home-editorial-v3.js?v=1';
+  const HOME_EDITORIAL_SRC = '/assets/v1-home-editorial-v3.js?v=2';
   const EDITORIAL_INTERIOR_SRC = '/assets/v1-editorial-interior-v4.js?v=1';
   const root = document.documentElement;
   const houseSvg = `

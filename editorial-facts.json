@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "lastReviewed": "2026-09-03",
+  "lastReviewed": "2026-09-04",
   "author": {
     "name": "David Porto Díaz",
     "website": "https://davidportodiaz.com/",
@@ -34,8 +34,23 @@
       ],
       "statusBeforePublication": "published",
       "statusFromPublicationDate": "published",
-      "editorialCopyNote": "Editorial decision 2026-08-20 (authorized by David directly, independent of the calendar publicationDate gate): public copy presents the book as permanently published ('Publicada el 3 de septiembre de 2026'), not as prelaunch/scheduled, even though today's date is still before publicationDate. statusBeforePublication set to 'published' to match. purchaseUrl stays null/gated separately — no commercial links or Offer schema until a real, verified purchase URL exists.",
-      "purchaseUrl": null
+      "editorialCopyNote": "Editorial decision 2026-08-20 (authorized by David directly, independent of the calendar publicationDate gate): public copy presents the book as permanently published ('Publicada el 3 de septiembre de 2026'), not as prelaunch/scheduled, even though today's date is still before publicationDate. statusBeforePublication set to 'published' to match. 2026-09-04: purchaseUrl now set to the Kindle edition's affiliate link (kindleEdition below) -- the first real, verified purchase surface for this book. The fields above (isbn/numberOfPages/priceEUR/format) describe the PAPERBACK specifically and are unchanged; do not overwrite them with Kindle-edition values.",
+      "purchaseUrl": "https://amzn.to/3SM4Oxu",
+      "kindleEdition": {
+        "format": "EBook",
+        "asin": "B0HHM71F46",
+        "isbn13": "979-8906781925",
+        "publisher": "Monza Ediciones",
+        "publicationDate": "2026-08-12",
+        "priceEUR": 2.99,
+        "printLengthPages": 227,
+        "fileSizeMB": 1.2,
+        "purchaseUrl": "https://amzn.to/3SM4Oxu",
+        "canonicalRetailerUrl": "https://www.amazon.es/dp/B0HHM71F46",
+        "verifiedAt": "2026-09-04",
+        "sourceUrl": "https://www.amazon.es/dp/B0HHM71F46",
+        "note": "Verified live against the Amazon.es Kindle product page on 2026-09-04 (title, author, publisher, ASIN, ISBN-13, price, file size, print-length-equivalent page count, publication date). This is a separate edition from the paperback: different ISBN, different page count (Kindle print-length equivalent, not the physical book's pagination), different (earlier) publication date. purchaseUrl is the amzn.to affiliate short link (tag=davidporto-21, same Associates tag used sitewide); canonicalRetailerUrl is its resolved https://www.amazon.es/dp/<ASIN> target, kept separately as a stable identifier independent of the short link."
+      }
     },
     "samuelEntreMundos": {
       "title": "Samuel entre mundos",

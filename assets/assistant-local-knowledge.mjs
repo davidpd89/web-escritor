@@ -240,6 +240,7 @@ export function resolveLocalAnswer(query, context = {}) {
   const asksFragment = includesAny(q, READ_TERMS);
   const asksNavigation = includesAny(q, NAVIGATION_TERMS);
   const asksAward = includesAny(q, ["premio", "premios", "premiado", "reconocimiento", "reconocimientos", "finalista", "letras como espada", "juan andres", "teno"]);
+  const asksBuy = includesAny(q, ["comprar", "compra", "donde compro", "kindle", "ebook", "libro electronico", "amazon", "cuanto cuesta", "precio"]);
   const asksRecommendation = includesAny(q, RECOMMENDATION_TERMS);
   const asksPortalRecommendation = asksRecommendation && (
     includesAny(q, PORTAL_RECOMMENDATION_TERMS)
@@ -296,6 +297,14 @@ export function resolveLocalAnswer(query, context = {}) {
   if (mentionsManecillas && includesAny(q, ["cuando", "fecha", "publica", "sale", "lanzamiento"])) {
     const { manecillas } = EDITORIAL_PUBLIC_FACTS;
     return result("manecillas-date", `La fecha de publicación de «${manecillas.title}» es el ${manecillas.publicationDateHuman}, con ${manecillas.publisher}.`, ["work-manecillas"]);
+  }
+  if (mentionsManecillas && asksBuy) {
+    const { manecillas } = EDITORIAL_PUBLIC_FACTS;
+    const kindle = manecillas.kindleEdition;
+    const answer = kindle
+      ? `Sí, «${manecillas.title}» ya está disponible en Kindle por ${kindle.priceEUR.toFixed(2).replace(".", ",")} €. También puedes leer una muestra gratis antes de comprarlo.`
+      : `«${manecillas.title}» todavía no tiene una URL de compra verificada.`;
+    return result("manecillas-buy", answer, ["work-manecillas", "work-manecillas-fragments"]);
   }
   if (mentionsManecillas) {
     if (asksNavigation) {

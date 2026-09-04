@@ -20,7 +20,7 @@ const manecillas = facts.books?.lasManecillasDelRecuerdo;
 const samuel = facts.books?.samuelEntreMundos;
 assert(manecillas, 'editorial-facts: falta books.lasManecillasDelRecuerdo');
 assert(samuel, 'editorial-facts: falta books.samuelEntreMundos');
-assert.equal(manecillas.purchaseUrl, null, 'purchaseUrl de Manecillas debe seguir null');
+assert.equal(manecillas.purchaseUrl, 'https://amzn.to/3SM4Oxu', 'purchaseUrl de Manecillas debe ser el enlace Kindle verificado');
 assert.equal(manecillas.format, 'Paperback', 'la autoridad actual debe confirmar Paperback');
 
 function jsonLd(html) {
