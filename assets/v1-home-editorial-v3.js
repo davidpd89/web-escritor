@@ -5,7 +5,14 @@
    and back-top. An earlier MUBI-banner + LRB-reading-cluster rhythm was
    replaced by that redesign (commit "Apply editorial home redesign") but
    left its now-dead createBanner/createCluster/createInterlude code and
-   assets/banners/* behind; both were removed as part of a later cleanup. */
+   assets/banners/* behind; both were removed as part of a later cleanup.
+
+   Loaded as a module (assets/v1-shell.js's loadScript(..., {module:true}))
+   specifically so it can import EDITORIAL_PUBLIC_FACTS below instead of
+   hand-duplicating a literal that would silently drift from
+   editorial-facts.json. */
+import { EDITORIAL_PUBLIC_FACTS } from './editorial-public-facts.mjs';
+
 (() => {
   'use strict';
 
@@ -16,20 +23,29 @@
   // 2026-09-04: Las manecillas del recuerdo now has its own real, verified
   // purchase URL (its Kindle edition) -- editorial-facts.json
   // books.lasManecillasDelRecuerdo.purchaseUrl is the single source of
-  // truth. This used to alias SAMUEL_AMAZON_URL as a provisional
-  // placeholder; that placeholder is gone now that the real link exists.
-  const MANECILLAS_BUY_URL = 'https://amzn.to/3SM4Oxu';
+  // truth, consumed here via the generated assets/editorial-public-facts.mjs
+  // projection (scripts/build-public-editorial-facts.py) rather than a
+  // hand-typed literal, so changing the URL in editorial-facts.json can't
+  // drift from what Home's dynamically-built CTAs actually link to.
+  const MANECILLAS_BUY_URL = EDITORIAL_PUBLIC_FACTS.manecillas.purchaseUrl;
   const AUTHOR_EMAIL_URL = 'mailto:davidportodiaz@gmail.com?subject=Te%20leo%20%E2%80%94%20David%20Porto%20D%C3%ADaz';
 
   // Explicit host allowlist (K.3): a pattern like /amazon\.[a-z.]+/ would also
   // match a lookalike host such as "amazon.evil.com". Parsing the URL and
-  // checking the real hostname avoids that.
+  // checking the real hostname avoids that. amzn.to is the author's own
+  // Amazon Associates short-link domain (used for MANECILLAS_BUY_URL): it
+  // never carries a visible ?tag= itself (the tag lives server-side in the
+  // redirect target), so it's always treated as affiliate outright, unlike
+  // amazon.es/etc. links which still require an explicit tag= to qualify.
   const AMAZON_HOSTS = ['amazon.es'];
-  function isAmazonHost(href) {
+  const AMAZON_SHORTLINK_HOSTS = ['amzn.to'];
+  function isAmazonAffiliateUrl(href) {
     try {
       const { hostname, protocol } = new URL(href);
       if (protocol !== 'http:' && protocol !== 'https:') return false;
-      return AMAZON_HOSTS.some((host) => hostname === host || hostname.endsWith(`.${host}`));
+      if (AMAZON_SHORTLINK_HOSTS.some((host) => hostname === host)) return true;
+      const isAmazonHost = AMAZON_HOSTS.some((host) => hostname === host || hostname.endsWith(`.${host}`));
+      return isAmazonHost && /[?&]tag=/.test(href);
     } catch {
       return false;
     }
@@ -73,11 +89,11 @@
     link.href = href;
     if (/^https?:\/\//.test(href)) {
       link.target = '_blank';
-      // Amazon Associates tag=... is an affiliate link (K.3): needs
-      // sponsored/nofollow, not just noopener/noreferrer. Scoped to the exact
-      // amazon.es host (not a pattern match) so a lookalike host such as
-      // amazon.evil.com can't be misclassified as affiliate.
-      const isAmazonAffiliate = isAmazonHost(href) && /[?&]tag=/.test(href);
+      // Amazon Associates links are affiliate (K.3): need sponsored/nofollow,
+      // not just noopener/noreferrer. Scoped to an explicit host allowlist
+      // (not a pattern match) so a lookalike host such as amazon.evil.com
+      // can't be misclassified as affiliate.
+      const isAmazonAffiliate = isAmazonAffiliateUrl(href);
       link.rel = isAmazonAffiliate ? 'sponsored nofollow noopener noreferrer' : 'noopener noreferrer';
       // No visible "afiliado" text next to these CTAs (author decision,
       // 2026-09-01) -- aria-label keeps the disclosure available to

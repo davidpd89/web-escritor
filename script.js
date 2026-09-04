@@ -299,7 +299,7 @@ function fallbackCopy(text, done) {
   const NEWSLETTER_PENDING_COPY = {
     home: "Revisa tu correo y confirma la suscripción para recibir las novedades de David Porto Díaz.",
     fragmento: "Revisa tu correo y confirma la suscripción para recibir las novedades de David Porto Díaz.",
-    manecillas: "Revisa tu correo y confirma la suscripción. Después te avisaré cuando Las manecillas del recuerdo esté disponible.",
+    manecillas: "Revisa tu correo y confirma la suscripción para recibir novedades de Las manecillas del recuerdo: nuevas ediciones, eventos y contenidos.",
     cuaderno: "Revisa tu correo y confirma la suscripción para recibir las novedades de David Porto Díaz.",
     explore: "Revisa tu correo y confirma la suscripción para recibir las novedades de David Porto Díaz."
   };
@@ -541,8 +541,21 @@ document.addEventListener('dp:analytics', _dpAnalyticsBridge);
 // to "amazon.es" stopped tracking every Comprar click sitewide the moment
 // the header button's href became an amzn.to short link, confirmed live
 // before this fix.
-document.querySelectorAll('a[href*="amazon.es"]:not(#buy-dialog a), a[href*="amzn.to"]:not(#buy-dialog a)').forEach(link => {
-  link.addEventListener("click", () => _gcEvent("comprar-amazon", "Clic: Comprar Amazon"));
+//
+// Delegated (not a one-time querySelectorAll().forEach() at parse time,
+// 2026-09-05): Home's Comprar CTAs are built by assets/v1-home-editorial-
+// v3.js, a module fetched and executed asynchronously well after this
+// script runs, so a parse-time query never saw them and their clicks were
+// silently untracked -- confirmed live (0 comprar-amazon events on a real
+// click) before this fix. Delegation matches the same pattern already used
+// for leer-fragmento-* just below.
+document.addEventListener("click", (event) => {
+  const link = event.target && event.target.closest ? event.target.closest('a[href]') : null;
+  if (!link || link.closest("#buy-dialog")) return;
+  const href = link.getAttribute("href") || "";
+  if (href.includes("amazon.es") || href.includes("amzn.to")) {
+    _gcEvent("comprar-amazon", "Clic: Comprar Amazon");
+  }
 });
 
 // Leer fragmento gratis -- eventos separados por libro (H.2, 2026-08-23):

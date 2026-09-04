@@ -379,7 +379,7 @@
   // HTML href/src attribute). Bump the ?v= here AND the matching
   // TRACKED_ASSETS entry in check-asset-versions.py whenever either file's
   // content changes.
-  const HOME_EDITORIAL_SRC = '/assets/v1-home-editorial-v3.js?v=2';
+  const HOME_EDITORIAL_SRC = '/assets/v1-home-editorial-v3.js?v=3';
   const EDITORIAL_INTERIOR_SRC = '/assets/v1-editorial-interior-v4.js?v=2';
   const root = document.documentElement;
   const houseSvg = `
@@ -510,11 +510,12 @@
     nav.dataset.lrbEnhanced = 'true';
   }
 
-  function loadScript(src, dataKey) {
+  function loadScript(src, dataKey, { module = false } = {}) {
     if (document.querySelector(`script[src="${src}"]`)) return;
     const script = document.createElement('script');
     script.src = src;
     script.async = false;
+    if (module) script.type = 'module';
     if (dataKey) script.dataset[dataKey] = 'true';
     document.head.append(script);
   }
@@ -571,7 +572,7 @@
         update();
       });
     });
-    loadScript(HOME_EDITORIAL_SRC, 'homeEditorialV3');
+    loadScript(HOME_EDITORIAL_SRC, 'homeEditorialV3', { module: true });
   }
 
   function initLrbHeaderV2() {

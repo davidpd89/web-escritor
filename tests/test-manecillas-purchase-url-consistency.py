@@ -51,13 +51,32 @@ for rel in SURFACES:
 # CTAs that specifically mean "buy Las manecillas del recuerdo" must all
 # resolve to the exact same canonical URL -- not Samuel's link, not a
 # hand-typed duplicate that can drift from editorial-facts.json.
+#
+# 2026-09-05: MANECILLAS_BUY_URL used to be a hand-typed string literal here
+# (a duplicate of editorial-facts.json's purchaseUrl this test merely
+# cross-checked for drift). It's now sourced live from the generated
+# assets/editorial-public-facts.mjs projection instead, so there is no
+# literal left to drift -- this test now asserts that wiring is intact
+# rather than comparing two independently-typed values.
 home_js = (ROOT / "assets" / "v1-home-editorial-v3.js").read_text(encoding="utf-8")
-manecillas_buy_match = re.search(r"const MANECILLAS_BUY_URL = '([^']+)'", home_js)
-assert manecillas_buy_match, "assets/v1-home-editorial-v3.js: MANECILLAS_BUY_URL constant not found"
-if manecillas_buy_match.group(1) != PURCHASE_URL:
+assert "import { EDITORIAL_PUBLIC_FACTS } from './editorial-public-facts.mjs';" in home_js, (
+    "assets/v1-home-editorial-v3.js: must import EDITORIAL_PUBLIC_FACTS instead of hand-typing a purchase URL literal"
+)
+assert "const MANECILLAS_BUY_URL = EDITORIAL_PUBLIC_FACTS.manecillas.purchaseUrl;" in home_js, (
+    "assets/v1-home-editorial-v3.js: MANECILLAS_BUY_URL must be sourced from EDITORIAL_PUBLIC_FACTS, not a hand-typed literal"
+)
+assert not re.search(r"const MANECILLAS_BUY_URL = ['\"]https?://", home_js), (
+    "assets/v1-home-editorial-v3.js: MANECILLAS_BUY_URL regressed back into a hardcoded literal"
+)
+
+public_facts_mjs = (ROOT / "assets" / "editorial-public-facts.mjs").read_text(encoding="utf-8")
+public_facts_json = public_facts_mjs.split("=", 1)[1].rsplit(";", 1)[0]
+public_facts = json.loads(public_facts_json)
+if public_facts["manecillas"]["purchaseUrl"] != PURCHASE_URL:
     errors.append(
-        f"assets/v1-home-editorial-v3.js: MANECILLAS_BUY_URL ({manecillas_buy_match.group(1)!r}) "
-        f"drifted from editorial-facts.json purchaseUrl ({PURCHASE_URL!r})"
+        f"assets/editorial-public-facts.mjs: manecillas.purchaseUrl ({public_facts['manecillas']['purchaseUrl']!r}) "
+        f"drifted from editorial-facts.json purchaseUrl ({PURCHASE_URL!r}) -- regenerate with "
+        "scripts/build-public-editorial-facts.py"
     )
 
 shell_py = (ROOT / "scripts" / "build-site-shell.py").read_text(encoding="utf-8")
