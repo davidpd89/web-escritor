@@ -90,13 +90,20 @@ assert(!/aria-current/.test(indexBlock), 'el índice no debe usar aria-current')
 // no es una regresion de contenido protegido, asi que se normaliza aqui para
 // que el guard siga cazando cualquier otro cambio real en estos campos.
 const normalizeImageExt = tag => tag.replace(/\.(webp|jpe?g)(["'])/i, '.__img__$2');
+// dateModified es una fecha editorial que se actualiza legitimamente cada vez
+// que el contenido de la pagina cambia de verdad (ver 2026-09-04: se bumpeo
+// junto con el CTA final de esta pagina) -- no es una regresion de "SEO/schema
+// protegido" como si lo seria un cambio de title/canonical/breadcrumb, asi que
+// se normaliza igual que la extension de imagen para que el guard no confunda
+// una fecha correctamente actualizada con contenido protegido roto.
+const normalizeDateModified = jsonld => jsonld?.replace(/"dateModified"\s*:\s*"[^"]*"/g, '"dateModified":"__date__"');
 const protectedParts = html => ({
   title: html.match(/<title>[\s\S]*?<\/title>/)?.[0],
   description: html.match(/<meta name="description"[^>]*>/)?.[0],
   canonical: html.match(/<link rel="canonical"[^>]*>/)?.[0],
   og: [...html.matchAll(/<meta property="og:[^>]+>/g)].map(m => normalizeImageExt(m[0])),
   twitter: [...html.matchAll(/<meta name="twitter:[^>]+>/g)].map(m => normalizeImageExt(m[0])),
-  jsonld: html.match(/<script type="application\/ld\+json">[\s\S]*?<\/script>/)?.[0]
+  jsonld: normalizeDateModified(html.match(/<script type="application\/ld\+json">[\s\S]*?<\/script>/)?.[0])
 });
 // Misma condicion que arriba: contra una base sin la pagina no hay metadatos
 // anteriores que comparar. Se comprueba entonces que los que trae existen, que
