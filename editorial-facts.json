@@ -34,7 +34,7 @@
       ],
       "statusBeforePublication": "published",
       "statusFromPublicationDate": "published",
-      "editorialCopyNote": "Editorial decision 2026-08-20 (authorized by David directly, independent of the calendar publicationDate gate): public copy presents the book as permanently published ('Publicada el 3 de septiembre de 2026'), not as prelaunch/scheduled, even though today's date is still before publicationDate. statusBeforePublication set to 'published' to match. 2026-09-04: purchaseUrl now set to the Kindle edition's affiliate link (kindleEdition below) -- the first real, verified purchase surface for this book. The fields above (isbn/numberOfPages/priceEUR/format) describe the PAPERBACK specifically and are unchanged; do not overwrite them with Kindle-edition values.",
+      "editorialCopyNote": "Editorial decision 2026-08-20 (authorized by David directly, independent of the calendar publicationDate gate): public copy presents the book as permanently published ('Publicada el 3 de septiembre de 2026'), not as prelaunch/scheduled. statusBeforePublication set to 'published' to match. The book's publicationDate (2026-09-03) has now passed. 2026-09-04: purchaseUrl now set to the Kindle edition's affiliate link (kindleEdition below) -- the first real, verified purchase surface for this book. The fields above (isbn/numberOfPages/priceEUR/format) describe the PAPERBACK specifically and are unchanged; do not overwrite them with Kindle-edition values.",
       "purchaseUrl": "https://amzn.to/3SM4Oxu",
       "kindleEdition": {
         "format": "EBook",
