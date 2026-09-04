@@ -576,3 +576,9 @@ document.querySelectorAll('a[href*="/prensa"]').forEach(link => {
 document.querySelectorAll('a[href*="/press-kit/"]').forEach(link => {
   link.addEventListener("click", () => _gcEvent("download-press-kit", "Descarga: press kit JSON"));
 });
+
+// Muestra de Las manecillas del recuerdo (capítulo 1.1) descargada en EPUB/TXT
+document.querySelectorAll('a[data-sample-download]').forEach(link => {
+  const format = link.dataset.sampleDownload;
+  link.addEventListener("click", () => _gcEvent(`sample-download-manecillas-${format}`, `Descarga: muestra Manecillas (${format.toUpperCase()})`));
+});
