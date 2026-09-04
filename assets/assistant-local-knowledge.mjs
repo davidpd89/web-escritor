@@ -82,6 +82,49 @@ const MANECILLAS_ALIASES = Object.freeze([
   "reloj del recuerdo",
 ]);
 
+// Las manecillas del recuerdo is (as of 2026-09-04) the only book on the
+// site with a Kindle edition, so a bare "kindle"/"ebook" mention -- even
+// without the title itself -- unambiguously identifies it, as long as
+// Samuel/Noveris aren't also mentioned. This lets "¿cuándo salió en
+// Kindle?" resolve correctly instead of falling through unmatched.
+const KINDLE_EDITION_TERMS = Object.freeze([
+  "kindle",
+  "ebook",
+  "e-book",
+  "libro electronico",
+  "version digital",
+  "edicion digital",
+  "formato digital",
+]);
+
+const PAPER_EDITION_TERMS = Object.freeze([
+  "papel",
+  "tapa blanda",
+  "fisico",
+  "fisica",
+  "impreso",
+  "impresa",
+  "edicion impresa",
+  "version impresa",
+]);
+
+const EDITION_DIFFERENCE_TERMS = Object.freeze([
+  "diferencia entre",
+  "diferencias entre",
+  "que diferencia hay",
+  "que diferencias hay",
+  "en que se diferencian",
+  "en que se diferencia",
+]);
+
+const PAGE_COUNT_TERMS = Object.freeze([
+  "cuantas paginas",
+  "numero de paginas",
+  "paginas tiene",
+]);
+
+const MANECILLAS_DATE_TERMS = Object.freeze(["cuando", "fecha", "publica", "sale", "lanzamiento"]);
+
 const SAMUEL_ALIASES = Object.freeze([
   "samuel",
   "samuel entre mundos",
@@ -294,19 +337,82 @@ export function resolveLocalAnswer(query, context = {}) {
     );
   }
 
-  if (mentionsManecillas && includesAny(q, ["cuando", "fecha", "publica", "sale", "lanzamiento"])) {
-    const { manecillas } = EDITORIAL_PUBLIC_FACTS;
-    return result("manecillas-date", `La fecha de publicación de «${manecillas.title}» es el ${manecillas.publicationDateHuman}, con ${manecillas.publisher}.`, ["work-manecillas"]);
-  }
-  if (mentionsManecillas && asksBuy) {
+  const asksKindleEdition = includesAny(q, KINDLE_EDITION_TERMS);
+  const asksPaperEdition = includesAny(q, PAPER_EDITION_TERMS);
+  // Bare "kindle"/"ebook" implies Manecillas (see KINDLE_EDITION_TERMS
+  // above) as long as the turn isn't actually about Samuel/Noveris.
+  const mentionsManecillasEffective = mentionsManecillas || (asksKindleEdition && !mentionsSamuel && !mentionsNoveris);
+
+  if (mentionsManecillasEffective) {
     const { manecillas } = EDITORIAL_PUBLIC_FACTS;
     const kindle = manecillas.kindleEdition;
-    const answer = kindle
-      ? `Sí, «${manecillas.title}» ya está disponible en Kindle por ${kindle.priceEUR.toFixed(2).replace(".", ",")} €. También puedes descargar gratis una muestra del capítulo 1.1 antes de comprarlo.`
-      : `«${manecillas.title}» todavía no tiene una URL de compra verificada.`;
-    return result("manecillas-buy", answer, ["work-manecillas-kindle", "work-manecillas"]);
-  }
-  if (mentionsManecillas) {
+    const asksEditionDifference = includesAny(q, EDITION_DIFFERENCE_TERMS);
+    const asksIsbn = includesAny(q, ["isbn"]);
+    const asksAsin = includesAny(q, ["asin"]);
+    const asksPageCount = includesAny(q, PAGE_COUNT_TERMS);
+    const asksDate = includesAny(q, MANECILLAS_DATE_TERMS);
+    const kindleOnly = asksKindleEdition && !asksPaperEdition && kindle;
+    const paperOnly = asksPaperEdition && !asksKindleEdition;
+
+    if (asksEditionDifference && kindle) {
+      return result(
+        "manecillas-editions",
+        `«${manecillas.title}» tiene dos ediciones distintas: tapa blanda (${manecillas.publisher}, ${manecillas.publicationDateHuman}, ISBN ${manecillas.isbn}, ${manecillas.numberOfPages} páginas, ${manecillas.priceEUR} €) y Kindle (${kindle.publicationDateHuman}, ISBN-13 ${kindle.isbn13}, ASIN ${kindle.asin}, ${kindle.printLengthPages} páginas de longitud impresa, ${kindle.priceEUR.toFixed(2).replace(".", ",")} €). Solo la edición Kindle tiene hoy una URL de compra verificada.`,
+        ["work-manecillas-kindle", "work-manecillas"],
+      );
+    }
+
+    if (asksAsin && kindle) {
+      return result("manecillas-asin", `El ASIN de la edición Kindle de «${manecillas.title}» es ${kindle.asin}.`, ["work-manecillas-kindle"]);
+    }
+
+    if (asksIsbn) {
+      if (kindleOnly) {
+        return result("manecillas-isbn-kindle", `El ISBN-13 de la edición Kindle de «${manecillas.title}» es ${kindle.isbn13}.`, ["work-manecillas-kindle"]);
+      }
+      if (paperOnly) {
+        return result("manecillas-isbn-paper", `El ISBN de la edición en tapa blanda de «${manecillas.title}» es ${manecillas.isbn}.`, ["work-manecillas"]);
+      }
+      return result(
+        "manecillas-isbn",
+        kindle
+          ? `«${manecillas.title}» tiene dos ISBN distintos: ${manecillas.isbn} en tapa blanda y ${kindle.isbn13} (ISBN-13) en Kindle.`
+          : `El ISBN de «${manecillas.title}» es ${manecillas.isbn}.`,
+        ["work-manecillas", "work-manecillas-kindle"],
+      );
+    }
+
+    if (asksPageCount) {
+      if (kindleOnly) {
+        return result("manecillas-pages-kindle", `La edición Kindle de «${manecillas.title}» indica ${kindle.printLengthPages} páginas de longitud impresa (print length), una cifra distinta de la paginación real de la tapa blanda.`, ["work-manecillas-kindle"]);
+      }
+      if (paperOnly || !kindle) {
+        return result("manecillas-pages-paper", `La edición en tapa blanda de «${manecillas.title}» tiene ${manecillas.numberOfPages} páginas.`, ["work-manecillas"]);
+      }
+      return result(
+        "manecillas-pages",
+        `La tapa blanda de «${manecillas.title}» tiene ${manecillas.numberOfPages} páginas; la edición Kindle indica ${kindle.printLengthPages} páginas de longitud impresa, una cifra distinta propia del formato digital.`,
+        ["work-manecillas", "work-manecillas-kindle"],
+      );
+    }
+
+    if (asksDate) {
+      if (kindleOnly) {
+        return result("manecillas-date-kindle", `La edición Kindle de «${manecillas.title}» está disponible desde el ${kindle.publicationDateHuman}.`, ["work-manecillas-kindle"]);
+      }
+      return result("manecillas-date", `La fecha de publicación de «${manecillas.title}» es el ${manecillas.publicationDateHuman}, con ${manecillas.publisher}.`, ["work-manecillas"]);
+    }
+
+    if (asksBuy) {
+      if (paperOnly) {
+        return result("manecillas-buy-paper", `La edición en tapa blanda de «${manecillas.title}» (${manecillas.priceEUR} €) no tiene todavía una URL de compra verificada propia.`, ["work-manecillas"]);
+      }
+      const answer = kindle
+        ? `Sí, «${manecillas.title}» ya está disponible en Kindle por ${kindle.priceEUR.toFixed(2).replace(".", ",")} €. También puedes descargar gratis una muestra del capítulo 1.1 antes de comprarlo.`
+        : `«${manecillas.title}» todavía no tiene una URL de compra verificada.`;
+      return result("manecillas-buy", answer, ["work-manecillas-kindle", "work-manecillas"]);
+    }
+
     if (asksNavigation) {
       return result("manecillas", "La página de «Las manecillas del recuerdo» reúne la información principal del libro. Puedes abrirla desde aquí.", ["work-manecillas"]);
     }

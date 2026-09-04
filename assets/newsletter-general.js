@@ -10,7 +10,7 @@
   const PENDING_COPY = {
     home: 'Revisa tu correo y confirma la suscripción para recibir las novedades de David Porto Díaz.',
     fragmento: 'Revisa tu correo y confirma la suscripción para recibir las novedades de David Porto Díaz.',
-    manecillas: 'Revisa tu correo y confirma la suscripción. Después te avisaré cuando Las manecillas del recuerdo esté disponible.',
+    manecillas: 'Revisa tu correo y confirma la suscripción para recibir novedades de Las manecillas del recuerdo: nuevas ediciones, eventos y contenidos.',
     cuaderno: 'Revisa tu correo y confirma la suscripción para recibir las novedades de David Porto Díaz.',
     explore: 'Revisa tu correo y confirma la suscripción para recibir las novedades de David Porto Díaz.'
   };
