@@ -72,7 +72,17 @@ def types_of(node: dict) -> set[str]:
 
 def walk(node, found):
     if isinstance(node, dict):
-        if types_of(node) & WATCHED_TYPES:
+        # A node that declares exampleOfWork (2026-09-04, Manecillas Kindle
+        # launch) is explicitly modeling itself as one SPECIFIC EDITION of
+        # another watched entity -- schema.org's own pattern for "same work,
+        # different format" (e.g. a paperback's #book-manecillas and its
+        # Kindle edition #book-manecillas-kindle, linked via
+        # workExample/exampleOfWork). That's a deliberate second @id sharing
+        # the work's name, not the accidental entity-fragmentation bug this
+        # checker exists to catch, so it's excluded from the collision check
+        # below entirely (its own @id is never itself required to be the
+        # canonical one).
+        if types_of(node) & WATCHED_TYPES and "exampleOfWork" not in node:
             name, entity_id = node.get("name"), node.get("@id")
             if isinstance(name, str) and isinstance(entity_id, str):
                 found.append((name.strip(), entity_id.strip()))
