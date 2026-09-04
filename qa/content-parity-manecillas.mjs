@@ -77,7 +77,7 @@ assert.equal(hasOffer(bookSchema), false, 'ficha: no puede haber Offer sin purch
 assert(!/amazon\.es|amazon\.com/i.test(bookHtml), 'ficha Manecillas: no debe contener retailer externo/Amazon');
 assert(!/data-purchase|comprar en amazon|comprar ahora/i.test(bookHtml), 'ficha Manecillas: no debe simular CTA comercial');
 assert(!/book-crosspromo/.test(bookHtml), 'ficha Manecillas: no debe duplicar Samuel como upsell grande');
-assert(/<dt>Formato<\/dt><dd>Tapa blanda<\/dd>/.test(bookHtml), 'ficha: falta formato autorizado visible');
+assert(/<dt>Formato<\/dt>\s*<dd>Tapa blanda<\/dd>/.test(bookHtml), 'ficha: falta formato autorizado visible');
 assert(/PVP editorial/.test(bookHtml), 'ficha: el precio debe identificarse como dato editorial');
 assert(/Publicada el 3 de septiembre de 2026/.test(bookHtml), 'ficha: falta copy estable de publicación');
 assert(!/próximamente|en proceso de publicación/i.test(bookHtml), 'ficha: queda copy prelaunch');
