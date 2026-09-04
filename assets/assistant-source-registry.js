@@ -145,7 +145,7 @@ export const ASSISTANT_SOURCE_REGISTRY = [
     "keywords": [
       "kindle",
       "ebook",
-      "libro electronico",
+      "libro electrónico",
       "comprar manecillas",
       "amazon manecillas",
       "epub manecillas",
@@ -155,7 +155,7 @@ export const ASSISTANT_SOURCE_REGISTRY = [
       "kindle manecillas",
       "ebook manecillas",
       "comprar las manecillas del recuerdo",
-      "edicion kindle"
+      "edición kindle"
     ],
     "summary": "Edición Kindle de «Las manecillas del recuerdo» y muestra gratuita descargable del capítulo 1.1.",
     "action": "Ver edición Kindle"

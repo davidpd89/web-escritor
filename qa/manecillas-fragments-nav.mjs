@@ -246,7 +246,7 @@ try {
     assert.equal(await page.locator('.fragment-pager__link').count(), 5);
     assert.equal(await page.locator('[data-fragment-link][data-current="true"]').count(), 0, 'no-JS: no debe existir estado automático de fragmento actual');
     assert(await page.locator('#cta-final').isVisible(), 'no-JS: CTA final no visible');
-    assert.equal(await page.locator('#cta-final .primary-action').getAttribute('href'), '/las-manecillas-del-recuerdo/', 'no-JS: CTA final cambió');
+    assert.equal(await page.locator('#cta-final .primary-action').getAttribute('href'), 'https://amzn.to/3SM4Oxu', 'no-JS: CTA final cambió');
     await assertTargetBelowHeader(page, 'fragmento-2', 'no-JS deep link fragmento-2');
     await clickHash(page, page.locator('[data-fragment-link="fragmento-3"]'), '#fragmento-3');
     await assertTargetBelowHeader(page, 'fragmento-3', 'no-JS anchor fragmento-3');

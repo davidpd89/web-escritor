@@ -218,6 +218,15 @@ p.no-indent { text-indent: 0; }
         info = zipfile.ZipInfo(name, date_time=FIXED_DATE_TIME)
         info.compress_type = compress_type
         info.external_attr = 0o644 << 16
+        # ZipInfo defaults create_system to 0 (DOS/Windows) or 3 (Unix)
+        # based on the CURRENT platform running this script -- left at its
+        # default, the exact same source produces different zip bytes when
+        # built on Windows (this developer's machine) vs Linux (CI), which
+        # is exactly what made --check see the committed EPUB as "stale"
+        # in CI even though it was byte-identical to a local Windows
+        # rebuild (confirmed live). Pinning it makes the build a pure
+        # function of the source content, independent of the host OS.
+        info.create_system = 3
         return info
 
     buf = io.BytesIO()
@@ -251,7 +260,8 @@ def main() -> int:
 
     if args.check:
         errors = []
-        if not TXT_PATH.exists() or TXT_PATH.read_text(encoding="utf-8") != txt_rendered:
+        txt_on_disk = open(TXT_PATH, encoding="utf-8", newline="").read() if TXT_PATH.exists() else None
+        if txt_on_disk != txt_rendered:
             errors.append(f"{TXT_PATH.relative_to(ROOT)} is stale or missing")
         if not EPUB_PATH.exists() or EPUB_PATH.read_bytes() != epub_rendered:
             errors.append(f"{EPUB_PATH.relative_to(ROOT)} is stale or missing")
@@ -264,7 +274,11 @@ def main() -> int:
         return 0
 
     OUT_DIR.mkdir(parents=True, exist_ok=True)
-    TXT_PATH.write_text(txt_rendered, encoding="utf-8")
+    # newline="" disables the platform-native newline translation
+    # write_text() applies by default (which would silently turn every \n
+    # in txt_rendered into \r\n on Windows) -- without it, this file's
+    # actual on-disk bytes depended on which OS last regenerated it.
+    TXT_PATH.write_text(txt_rendered, encoding="utf-8", newline="")
     EPUB_PATH.write_bytes(epub_rendered)
     print(f"WROTE: {TXT_PATH.relative_to(ROOT)}")
     print(f"WROTE: {EPUB_PATH.relative_to(ROOT)}")
