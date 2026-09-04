@@ -285,6 +285,7 @@
     const actions = make('div', 'yale-lead__actions');
     addTextLink(actions, '/las-manecillas-del-recuerdo/', 'Ver la obra', 'yale-text-link yale-text-link--gradient');
     addTextLink(actions, '/las-manecillas-del-recuerdo/fragmentos/', 'Leer fragmentos', 'yale-text-link yale-text-link--gradient');
+    addTextLink(actions, MANECILLAS_BUY_URL, 'Comprar', 'yale-text-link yale-text-link--gradient');
     copy.append(actions);
     lead.append(media, copy);
 
