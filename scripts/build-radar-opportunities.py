@@ -104,16 +104,16 @@ def fee_label(item):
 
 def card(item):
     genres = ", ".join(item["genres"])
-    prize = f'<div><dt>Premio/ayuda</dt><dd>{esc(item.get("prize"))}</dd></div>' if item.get("prize") else ""
-    eligibility = f'<div><dt>Quién puede participar</dt><dd>{esc(item.get("eligibility"))}</dd></div>' if item.get("eligibility") else ""
-    submission_mode = f'<div><dt>Cómo presentarse</dt><dd>{esc(item.get("submission_mode"))}</dd></div>' if item.get("submission_mode") else ""
+    prize = f'<div><dt>Premio/ayuda</dt> <dd>{esc(item.get("prize"))}</dd></div>' if item.get("prize") else ""
+    eligibility = f'<div><dt>Quién puede participar</dt> <dd>{esc(item.get("eligibility"))}</dd></div>' if item.get("eligibility") else ""
+    submission_mode = f'<div><dt>Cómo presentarse</dt> <dd>{esc(item.get("submission_mode"))}</dd></div>' if item.get("submission_mode") else ""
     note = f'<p class="radar-note">{esc(item.get("editorial_note"))}</p>' if item.get("editorial_note") else ""
     deadline_label = iso_date(item["deadline"], "deadline").strftime("%d/%m/%Y")
     verified_label = iso_date(item["verified_at"], "verified_at").strftime("%d/%m/%Y")
     return f'''<article class="radar-card" data-radar-item data-type="{esc(item['type'])}" data-genres="{esc('|'.join(item['genres']).lower())}" data-title="{esc(item['title'].lower())}" data-organizer="{esc(item['organizer'].lower())}" data-deadline="{esc(item['deadline'])}" data-verified-at="{esc(item['verified_at'])}">
 <div class="radar-card__top"><span class="radar-badge" data-radar-status>Plazo verificado</span><span>{esc(item['type'].capitalize())}</span></div>
 <h2>{esc(item['title'])}</h2><p class="radar-org">{esc(item['organizer'])}</p>
-<dl><div><dt>Fecha límite</dt><dd><time datetime="{esc(item['deadline'])}">{deadline_label}</time><span class="radar-relative" data-radar-relative aria-hidden="true"></span></dd></div><div><dt>Géneros</dt><dd>{esc(genres)}</dd></div><div><dt>Coste</dt><dd>{esc(fee_label(item))}</dd></div>{prize}{eligibility}{submission_mode}</dl>
+<dl><div><dt>Fecha límite</dt> <dd><time datetime="{esc(item['deadline'])}">{deadline_label}</time><span class="radar-relative" data-radar-relative aria-hidden="true"></span></dd></div><div><dt>Géneros</dt> <dd>{esc(genres)}</dd></div><div><dt>Coste</dt> <dd>{esc(fee_label(item))}</dd></div>{prize}{eligibility}{submission_mode}</dl>
 {note}
 <p class="radar-verified">Verificado: <time datetime="{esc(item['verified_at'])}">{verified_label}</time></p>
 <p><a class="button secondary" data-radar-source data-radar-source-type="{esc(item['type'])}" href="{esc(item['source_url'])}" target="_blank" rel="noopener noreferrer">Ver fuente oficial</a></p></article>'''

@@ -390,7 +390,7 @@ def render_detail(site: str, record: dict, today: date) -> str:
     <header class="tool-hero"><p class="eyebrow">Ficha editorial verificada</p><h1>{esc(record['name'])}</h1><div class="editorial-genres editorial-genres--spaced">{status_badge(record)}<span class="editorial-badge">{esc(record['publisher_type'])}</span></div><p class="tool-hero__lead">{esc(record['summary'])}</p><div class="editorial-genres">{genre_tags}</div></header>
     <section class="v1-section">
         {stale_html}
-        <dl class="spec-ledger"><div class="editorial-fact"><dt>Estado de originales</dt><dd>{esc(status)}</dd></div><div class="editorial-fact"><dt>Última comprobación</dt><dd><time datetime="{esc(record['verified_at'])}">{esc(record['verified_at'])}</time></dd></div><div class="editorial-fact"><dt>Canal</dt><dd>{esc(record['submission_channel'])}</dd></div><div class="editorial-fact"><dt>Correo de envío</dt><dd>{email_html}</dd></div><div class="editorial-fact"><dt>Grupo / tipo</dt><dd>{esc(record['group'])}</dd></div><div class="editorial-fact"><dt>País</dt><dd>{esc(record['country'])}</dd></div></dl>
+        <dl class="spec-ledger"><div class="editorial-fact"><dt>Estado de originales</dt> <dd>{esc(status)}</dd></div><div class="editorial-fact"><dt>Última comprobación</dt> <dd><time datetime="{esc(record['verified_at'])}">{esc(record['verified_at'])}</time></dd></div><div class="editorial-fact"><dt>Canal</dt> <dd>{esc(record['submission_channel'])}</dd></div><div class="editorial-fact"><dt>Correo de envío</dt> <dd>{email_html}</dd></div><div class="editorial-fact"><dt>Grupo / tipo</dt> <dd>{esc(record['group'])}</dd></div><div class="editorial-fact"><dt>País</dt> <dd>{esc(record['country'])}</dd></div></dl>
 
         <div class="tool-findings-block"><h2>Qué pide ahora</h2><ul class="tool-findings">{requirements}</ul><p class="tool-actions"><a class="text-action" href="{esc(record['submission_url'])}" target="_blank" rel="noopener noreferrer">Comprobar las instrucciones oficiales</a></p></div>
         <div class="tool-findings-block"><h2>Plazo de respuesta publicado</h2><p>{response}</p></div>
@@ -473,7 +473,7 @@ def render_methodology(site: str, records: list[dict], today: date) -> str:
     """
     canonical = f"{site}/{METHODOLOGY_SLUG}/"
     states = "".join(
-        f"<div class=\"editorial-fact\"><dt>{esc(code)}</dt><dd>{esc(label)}</dd></div>"
+        f"<div class=\"editorial-fact\"><dt>{esc(code)}</dt> <dd>{esc(label)}</dd></div>"
         for code, label in (
             ("open", "La editorial acepta envíos directos según su propia página oficial."),
             ("closed", "La recepción está cerrada en la fecha de comprobación."),

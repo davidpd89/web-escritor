@@ -231,7 +231,7 @@ def render(items: list[dict], generated_on: str) -> str:
     if not items:
         raise ValueError('No hay estadísticas publicables (>0).')
     cards = ''.join(
-        f'<div class="human-stat"><dt>{html.escape(str(i["value"]))}</dt><dd>{html.escape(i["label"])}</dd></div>'
+        f'<div class="human-stat"><dt>{html.escape(str(i["value"]))}</dt> <dd>{html.escape(i["label"])}</dd></div>'
         for i in items
     )
     methods = ''.join(f'<li><strong>{html.escape(i["label"])}</strong>: {html.escape(i["method"])}</li>' for i in items)
