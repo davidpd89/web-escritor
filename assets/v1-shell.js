@@ -368,8 +368,19 @@
 (() => {
   'use strict';
 
-  const HOME_EDITORIAL_SRC = '/assets/v1-home-editorial-v3.js';
-  const EDITORIAL_INTERIOR_SRC = '/assets/v1-editorial-interior-v4.js';
+  // Both scripts below are injected via loadScript() (a real <script src>
+  // element, not an import()), so they're subject to ordinary HTTP caching
+  // like any other asset -- but until this fix neither URL carried a
+  // ?v=, so editing either file's content could never bust a returning
+  // visitor's cached copy (the exact silent-stale-cache class of bug
+  // scripts/check-asset-versions.py exists to catch for statically
+  // <script src>-loaded assets; these two were invisible to it because
+  // they're only ever referenced from inside this JS string, never from an
+  // HTML href/src attribute). Bump the ?v= here AND the matching
+  // TRACKED_ASSETS entry in check-asset-versions.py whenever either file's
+  // content changes.
+  const HOME_EDITORIAL_SRC = '/assets/v1-home-editorial-v3.js?v=1';
+  const EDITORIAL_INTERIOR_SRC = '/assets/v1-editorial-interior-v4.js?v=1';
   const root = document.documentElement;
   const houseSvg = `
     <svg aria-hidden="true" viewBox="0 0 24 24" focusable="false">
