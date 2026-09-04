@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "enforcement": "enforce",
-  "note": "E.5. Budget determinista de bytes del artifact. Baseline capturado por Performance budget QA el 2026-08-30 sobre main@291c8c6 + esta PR en modo report. Los imports CSS y los imports JS estaticos se resuelven transitivamente; import() dinamico no se sigue automaticamente y debe tener su propio budget si forma una familia/carga diferida relevante. Los limites de bytes dejan aproximadamente un 10% de margen, redondeado a KiB; request_count no tiene margen silencioso: un nuevo fichero/request requiere revisar y justificar el budget.",
+  "note": "E.5. Budget determinista de bytes del artifact. Baseline capturado por Performance budget QA el 2026-08-30 sobre main@291c8c6 + esta PR en modo report. Los imports CSS y los imports JS estaticos se resuelven transitivamente; import() dinamico no se sigue automaticamente y debe tener su propio budget si forma una familia/carga diferida relevante. Los limites de bytes dejan aproximadamente un 10% de margen, redondeado a KiB; request_count no tiene margen silencioso: un nuevo fichero/request requiere revisar y justificar el budget. 2026-09-05: home-runtime recapturado (request_count 1->2, justificado: assets/v1-home-editorial-v3.js paso a modulo ES para importar EDITORIAL_PUBLIC_FACTS de assets/editorial-public-facts.mjs en vez de duplicar a mano el purchaseUrl de editorial-facts.json -- una fuente-de-verdad real, no un fichero de mas gratuito). assistant-runtime recapturado (bytes, no request_count): el resolver local del Asistente gano ramas edition-aware reales para las dos ediciones de Manecillas (fecha/precio/ISBN/ASIN/paginas/comparacion), no bloat.",
   "budgets": [
     {
       "id": "shell-v1",
@@ -28,13 +28,13 @@
         "assets/v1-home-editorial-v3.js"
       ],
       "baseline": {
-        "total_bytes": 33769,
-        "js_bytes": 33769,
-        "request_count": 1
+        "total_bytes": 29764,
+        "js_bytes": 29764,
+        "request_count": 2
       },
       "limits": {
-        "total_bytes": 37888,
-        "request_count": 1
+        "total_bytes": 32768,
+        "request_count": 2
       }
     },
     {
@@ -77,13 +77,13 @@
         "assets/assistant.js"
       ],
       "baseline": {
-        "total_bytes": 54256,
-        "css_bytes": 9372,
-        "js_bytes": 44884,
+        "total_bytes": 63678,
+        "css_bytes": 11291,
+        "js_bytes": 52387,
         "request_count": 7
       },
       "limits": {
-        "total_bytes": 60416,
+        "total_bytes": 70656,
         "request_count": 7
       }
     },
