@@ -1,9 +1,9 @@
 # Release Readiness Evidence V1
 
-- Generated: `2026-09-05T08:59:07.707333+00:00`
+- Generated: `2026-09-05T09:07:21.708598+00:00`
 - Branch: `seo/bing-audit-fixes-2026-09-05`
-- HEAD: `313c9ce1aa08bb9efa4a58c81bf2a88b258d4d67`
-- Previous SHA (rollback candidate): `65afede53598221c2b25935056498902883f88ec`
+- HEAD: `2cacd95fd13854b1b22c2aa38f92207e95708007`
+- Previous SHA (rollback candidate): `313c9ce1aa08bb9efa4a58c81bf2a88b258d4d67`
 
 ## Final Status: `STATIC_CHECKS_PASSED`
 
@@ -19,6 +19,7 @@
 ## Commit Window (latest 20)
 
 ```text
+2cacd95f docs: regenerate release readiness report
 313c9ce1 fix: shorten meta descriptions over Bing's 160-character limit sitewide
 65afede5 fix: shorten 9 page titles Bing Site Scan flagged as over 70 characters
 17852f2b feat: add FAQ content/schema to contador-palabras and shorten portal-fantasy title
@@ -38,7 +39,6 @@ d55679af fix: two relative assets/ references survived PR #365's absolute-path c
 e19ed6e2 test: lock in ICS UID stability/uniqueness contract for the event tool (#368)
 72399d83 fix: one stray quote could corrupt dialogue formatting for a whole manuscript (#380)
 28b8f071 test: add regression coverage for newsletter email validation (#379)
-957b2442 fix: repetition detector's per-1000-words stat used period decimals (#378)
 ```
 
 ## Required Route Inventory
@@ -104,10 +104,10 @@ HREF-OK
 ```text
 INTERNAL GRAPH REPORT
 Files scanned: 96
-Indexable pages: 61
+Indexable pages: 62
 
 INFO (1):
-  [noindex-skipped] 35 pages excluded (noindex): aviso-legal.html, privacidad.html, samuel-entre-mundos.html, asistente\embed.html, asistente\index.html, cuaderno\libros-fantasia-juvenil-espanola-2025-2026\index.html, cuaderno\sistema-de-magia-noveris\index.html, donde-empieza-la-jaula\index.html �
+  [noindex-skipped] 34 pages excluded (noindex): aviso-legal.html, privacidad.html, samuel-entre-mundos.html, asistente\embed.html, asistente\index.html, cuaderno\sistema-de-magia-noveris\index.html, donde-empieza-la-jaula\index.html, gracias-suscripcion\index.html �
 
 Summary: 0 error(s), 0 warning(s)
 ```
@@ -115,7 +115,7 @@ Summary: 0 error(s), 0 warning(s)
 ### CI parity: navigation coverage — PASS
 
 ```text
-PASS: navigation coverage (69 registry routes, 61 sitemap routes, 22 interactive tools)
+PASS: navigation coverage (69 registry routes, 62 sitemap routes, 22 interactive tools)
 ```
 
 ### CI parity: heading structure — PASS
@@ -243,7 +243,7 @@ test-social-card-article-specific: OK (7 pages checked)
 ## Rollback Procedure (Documented, not executed)
 
 1. Identify incident and freeze merges.
-2. Checkout rollback target SHA: `65afede53598221c2b25935056498902883f88ec`.
+2. Checkout rollback target SHA: `313c9ce1aa08bb9efa4a58c81bf2a88b258d4d67`.
 3. Re-run core checks:
 ```bash
 python scripts/check-local-assets.py
