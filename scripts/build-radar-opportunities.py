@@ -15,7 +15,7 @@ sys.path.insert(0, str(Path(__file__).resolve().parent))
 from site_shell import inject_shell_auto  # noqa: E402
 
 STALE_DAYS = 30
-TITLE = "Convocatorias para escritores: concursos, becas y manuscritos | David Porto Díaz"
+TITLE = "Concursos, becas y manuscritos para escritores | David Porto Díaz"
 DESCRIPTION = "Radar de concursos, premios, becas, ayudas y convocatorias para escritores, verificados contra su fuente oficial y ordenados por fecha límite."
 CANONICAL = "https://davidportodiaz.com/convocatorias-escritores/"
 SHARE_IMAGE = "https://davidportodiaz.com/assets/david-porto-imagen-compartir.jpg"
