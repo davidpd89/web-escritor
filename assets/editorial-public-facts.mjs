@@ -9,9 +9,9 @@ export const EDITORIAL_PUBLIC_FACTS = {
     "publicationDateHuman": "3 de septiembre de 2026",
     "isbn": "979-8-90514-935-1",
     "numberOfPages": 272,
-    "priceEUR": 16,
-    "purchaseUrl": "https://amzn.to/3SM4Oxu",
-    "availabilityNote": "https://amzn.to/3SM4Oxu",
+    "priceEUR": 15.99,
+    "purchaseUrl": "https://amzn.to/4zW6Yeu",
+    "availabilityNote": "https://amzn.to/4zW6Yeu",
     "kindleEdition": {
       "format": "EBook",
       "asin": "B0HHM71F46",

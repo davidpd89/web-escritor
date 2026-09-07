@@ -1,9 +1,9 @@
 # Release Readiness Evidence V1
 
-- Generated: `2026-09-05T09:07:21.708598+00:00`
+- Generated: `2026-09-07T07:45:48.027672+00:00`
 - Branch: `seo/bing-audit-fixes-2026-09-05`
-- HEAD: `2cacd95fd13854b1b22c2aa38f92207e95708007`
-- Previous SHA (rollback candidate): `313c9ce1aa08bb9efa4a58c81bf2a88b258d4d67`
+- HEAD: `bdd536663511a891b822f454ba1e604750e7c011`
+- Previous SHA (rollback candidate): `9745b72a44de446b27e59871a24337e29853d79d`
 
 ## Final Status: `STATIC_CHECKS_PASSED`
 
@@ -19,6 +19,8 @@
 ## Commit Window (latest 20)
 
 ```text
+bdd53666 docs: regenerate release readiness report
+9745b72a fix: make libros-fantasia-juvenil-espanola-2025-2026 indexable again
 2cacd95f docs: regenerate release readiness report
 313c9ce1 fix: shorten meta descriptions over Bing's 160-character limit sitewide
 65afede5 fix: shorten 9 page titles Bing Site Scan flagged as over 70 characters
@@ -37,8 +39,6 @@ a88bfa24 feat: add Comprar CTA to Manecillas Home hero + fix script cache-bustin
 d55679af fix: two relative assets/ references survived PR #365's absolute-path cleanup on Home (#383)
 72d11bd4 fix: closing dialogue quote after a number stayed straight, and reset only fired on blank paragraphs (#381)
 e19ed6e2 test: lock in ICS UID stability/uniqueness contract for the event tool (#368)
-72399d83 fix: one stray quote could corrupt dialogue formatting for a whole manuscript (#380)
-28b8f071 test: add regression coverage for newsletter email validation (#379)
 ```
 
 ## Required Route Inventory
@@ -139,7 +139,7 @@ CANONICAL ENTITY IDs: OK (4 entidades con @id, todas consistentes)
 ### CI parity: editorial facts — PASS
 
 ```text
-EDITORIAL FACT CHECK � mode=launch � date=2026-09-05 � publication=2026-09-03
+EDITORIAL FACT CHECK � mode=launch � date=2026-09-07 � publication=2026-09-03
 EDITORIAL FACT CHECK: OK
 ```
 
@@ -177,7 +177,7 @@ COPY TILDES: OK (180 ficheros HTML/JS revisados)
 ### Authority: machine-readable contract — PASS
 
 ```text
-PASS � machine authority contract (663 checks).
+PASS � machine authority contract (680 checks).
 ```
 
 ### Builder parity: editoriales — PASS
@@ -243,7 +243,7 @@ test-social-card-article-specific: OK (7 pages checked)
 ## Rollback Procedure (Documented, not executed)
 
 1. Identify incident and freeze merges.
-2. Checkout rollback target SHA: `313c9ce1aa08bb9efa4a58c81bf2a88b258d4d67`.
+2. Checkout rollback target SHA: `9745b72a44de446b27e59871a24337e29853d79d`.
 3. Re-run core checks:
 ```bash
 python scripts/check-local-assets.py

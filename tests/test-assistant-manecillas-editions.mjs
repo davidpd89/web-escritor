@@ -13,14 +13,14 @@ const cases = [
   ["¿cuándo salió Manecillas?", "manecillas-date", /3 de septiembre de 2026/],
   ["¿cuándo salió en Kindle?", "manecillas-date-kindle", /12 de agosto de 2026/],
   ["¿precio del Kindle?", "manecillas-buy", /2,99\s*€/],
-  ["¿precio en papel de Manecillas?", "manecillas-buy-paper", /16\s*€.*no tiene todavía una URL de compra verificada/],
+  ["¿precio en papel de Manecillas?", "manecillas-buy-paper", /15,99\s*€/],
   ["ISBN del Kindle", "manecillas-isbn-kindle", /979-8906781925/],
   ["¿ISBN del libro impreso de Manecillas?", "manecillas-isbn-paper", /979-8-90514-935-1/],
   ["ASIN de Manecillas", "manecillas-asin", /B0HHM71F46/],
   ["¿cuántas páginas tiene Manecillas en papel?", "manecillas-pages-paper", /272 páginas/],
   ["¿cuántas páginas tiene Manecillas en Kindle?", "manecillas-pages-kindle", /227 páginas/],
   ["dónde compro Manecillas en Kindle", "manecillas-buy", /amzn\.to|Kindle/i],
-  ["¿dónde compro Las manecillas del recuerdo en papel?", "manecillas-buy-paper", /no tiene todavía una URL de compra verificada/],
+  ["¿dónde compro Las manecillas del recuerdo en papel?", "manecillas-buy-paper", /disponible/],
   ["¿qué diferencias hay entre las dos ediciones de Manecillas?", "manecillas-editions", /tapa blanda.*Kindle|Kindle.*tapa blanda/s],
 ];
 

@@ -357,7 +357,7 @@ export function resolveLocalAnswer(query, context = {}) {
     if (asksEditionDifference && kindle) {
       return result(
         "manecillas-editions",
-        `«${manecillas.title}» tiene dos ediciones distintas: tapa blanda (${manecillas.publisher}, ${manecillas.publicationDateHuman}, ISBN ${manecillas.isbn}, ${manecillas.numberOfPages} páginas, ${manecillas.priceEUR} €) y Kindle (${kindle.publicationDateHuman}, ISBN-13 ${kindle.isbn13}, ASIN ${kindle.asin}, ${kindle.printLengthPages} páginas de longitud impresa, ${kindle.priceEUR.toFixed(2).replace(".", ",")} €). Solo la edición Kindle tiene hoy una URL de compra verificada.`,
+        `«${manecillas.title}» tiene dos ediciones distintas: tapa blanda (${manecillas.publisher}, ${manecillas.publicationDateHuman}, ISBN ${manecillas.isbn}, ${manecillas.numberOfPages} páginas, ${manecillas.priceEUR.toFixed(2).replace(".", ",")} €) y Kindle (${kindle.publicationDateHuman}, ISBN-13 ${kindle.isbn13}, ASIN ${kindle.asin}, ${kindle.printLengthPages} páginas de longitud impresa, ${kindle.priceEUR.toFixed(2).replace(".", ",")} €). Ambas tienen ya una URL de compra verificada propia.`,
         ["work-manecillas-kindle", "work-manecillas"],
       );
     }
@@ -405,11 +405,11 @@ export function resolveLocalAnswer(query, context = {}) {
 
     if (asksBuy) {
       if (paperOnly) {
-        return result("manecillas-buy-paper", `La edición en tapa blanda de «${manecillas.title}» (${manecillas.priceEUR} €) no tiene todavía una URL de compra verificada propia.`, ["work-manecillas"]);
+        return result("manecillas-buy-paper", `Sí, la edición en tapa blanda de «${manecillas.title}» ya está disponible por ${manecillas.priceEUR.toFixed(2).replace(".", ",")} €.`, ["work-manecillas"]);
       }
       const answer = kindle
-        ? `Sí, «${manecillas.title}» ya está disponible en Kindle por ${kindle.priceEUR.toFixed(2).replace(".", ",")} €. También puedes descargar gratis una muestra del capítulo 1.1 antes de comprarlo.`
-        : `«${manecillas.title}» todavía no tiene una URL de compra verificada.`;
+        ? `Sí, «${manecillas.title}» ya está disponible en tapa blanda (${manecillas.priceEUR.toFixed(2).replace(".", ",")} €) y en Kindle (${kindle.priceEUR.toFixed(2).replace(".", ",")} €). También puedes descargar gratis una muestra del capítulo 1.1 antes de comprarlo.`
+        : `«${manecillas.title}» ya está disponible por ${manecillas.priceEUR.toFixed(2).replace(".", ",")} €.`;
       return result("manecillas-buy", answer, ["work-manecillas-kindle", "work-manecillas"]);
     }
 

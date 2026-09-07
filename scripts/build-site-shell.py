@@ -345,7 +345,7 @@ def render_header(nav: dict, by_id: dict[str, Entry], current_path: str) -> str:
         buy_link = (
             f'      <a class="header-buy" href="{PRIMARY_BUY_URL}" '
             'target="_blank" rel="sponsored nofollow noopener noreferrer" '
-            'aria-label="Comprar Las manecillas del recuerdo en Kindle — enlace de afiliado">'
+            'aria-label="Comprar Las manecillas del recuerdo — enlace de afiliado">'
             'Comprar</a>\n'
         )
     return (

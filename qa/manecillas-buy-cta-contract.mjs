@@ -20,8 +20,15 @@ import fs from 'node:fs';
 import path from 'node:path';
 
 const ROOT = process.cwd();
-const CANONICAL_BUY_URL = JSON.parse(fs.readFileSync(path.join(ROOT, 'editorial-facts.json'), 'utf8'))
-  .books.lasManecillasDelRecuerdo.purchaseUrl;
+const BOOK_FACTS = JSON.parse(fs.readFileSync(path.join(ROOT, 'editorial-facts.json'), 'utf8'))
+  .books.lasManecillasDelRecuerdo;
+// 2026-09-07: the paperback got its own verified purchase link, distinct
+// from the Kindle edition's -- CANONICAL_BUY_URL (paperback) is used by the
+// header, Home hero, book-page hero and fragmentos CTA; KINDLE_BUY_URL is
+// used only by Home's dedicated Kindle rail card and the Kindle landing
+// page's own hero (see checkSurface's expectedUrl param below).
+const CANONICAL_BUY_URL = BOOK_FACTS.purchaseUrl;
+const KINDLE_BUY_URL = BOOK_FACTS.kindleEdition.purchaseUrl;
 
 const MIME = new Map([
   ['.html', 'text/html; charset=utf-8'], ['.css', 'text/css; charset=utf-8'],
@@ -52,7 +59,7 @@ async function withGoatcounterSpy(page) {
   });
 }
 
-async function checkSurface(page, { route, selector, label, waitMs = 800 }) {
+async function checkSurface(page, { route, selector, label, waitMs = 800, expectedUrl = CANONICAL_BUY_URL }) {
   await page.goto(`${ORIGIN}${route}`, { waitUntil: 'load' });
   await page.waitForTimeout(waitMs);
   const links = page.locator(selector);
@@ -70,7 +77,7 @@ async function checkSurface(page, { route, selector, label, waitMs = 800 }) {
       link.isVisible(),
     ]);
     const accessibleName = (ariaLabel || text || '').trim();
-    assert.equal(href, CANONICAL_BUY_URL, `${label} #${i}: href is ${href}, expected ${CANONICAL_BUY_URL}`);
+    assert.equal(href, expectedUrl, `${label} #${i}: href is ${href}, expected ${expectedUrl}`);
     assert.equal(target, '_blank', `${label} #${i}: target must be _blank`);
     assert.match(rel || '', /\bsponsored\b/, `${label} #${i}: rel missing "sponsored" (rel=${rel})`);
     assert.match(rel || '', /\bnofollow\b/, `${label} #${i}: rel missing "nofollow" (rel=${rel})`);
@@ -103,8 +110,15 @@ try {
 
   await checkSurface(page, {
     route: '/',
-    selector: '.yale-lead__actions a[href*="amzn.to"], .yale-rail a[href*="amzn.to"]',
-    label: 'Home hero + rail (dynamic)',
+    selector: '.yale-lead__actions a[href*="amzn.to"]',
+    label: 'Home hero (dynamic, paperback)',
+  });
+
+  await checkSurface(page, {
+    route: '/',
+    selector: '.yale-rail a[href*="amzn.to"]',
+    label: 'Home rail (dynamic, Kindle card)',
+    expectedUrl: KINDLE_BUY_URL,
   });
 
   await checkSurface(page, {
@@ -123,6 +137,7 @@ try {
     route: '/las-manecillas-del-recuerdo/kindle/',
     selector: '.book-actions a[href*="amzn.to"]',
     label: 'Kindle landing (hero)',
+    expectedUrl: KINDLE_BUY_URL,
   });
 
   await context.close();

@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "lastReviewed": "2026-09-04",
+  "lastReviewed": "2026-09-07",
   "author": {
     "name": "David Porto Díaz",
     "website": "https://davidportodiaz.com/",
@@ -25,7 +25,7 @@
       "publicationDate": "2026-09-03",
       "isbn": "979-8-90514-935-1",
       "numberOfPages": 272,
-      "priceEUR": 16,
+      "priceEUR": 15.99,
       "format": "Paperback",
       "genres": [
         "Novela coral",
@@ -34,8 +34,10 @@
       ],
       "statusBeforePublication": "published",
       "statusFromPublicationDate": "published",
-      "editorialCopyNote": "Editorial decision 2026-08-20 (authorized by David directly, independent of the calendar publicationDate gate): public copy presents the book as permanently published ('Publicada el 3 de septiembre de 2026'), not as prelaunch/scheduled. statusBeforePublication set to 'published' to match. The book's publicationDate (2026-09-03) has now passed. 2026-09-04: purchaseUrl now set to the Kindle edition's affiliate link (kindleEdition below) -- the first real, verified purchase surface for this book. The fields above (isbn/numberOfPages/priceEUR/format) describe the PAPERBACK specifically and are unchanged; do not overwrite them with Kindle-edition values.",
-      "purchaseUrl": "https://amzn.to/3SM4Oxu",
+      "editorialCopyNote": "Editorial decision 2026-08-20 (authorized by David directly, independent of the calendar publicationDate gate): public copy presents the book as permanently published ('Publicada el 3 de septiembre de 2026'), not as prelaunch/scheduled. statusBeforePublication set to 'published' to match. The book's publicationDate (2026-09-03) has now passed. 2026-09-04: purchaseUrl was temporarily set to the Kindle edition's affiliate link (kindleEdition below) as the first real, verified purchase surface for this book. 2026-09-07: purchaseUrl now points to the paperback's own verified Amazon affiliate link (amzn.to/4zW6Yeu); the Kindle edition keeps its own separate purchaseUrl below. priceEUR corrected to 15.99 (Amazon's own 'PVP editorial' for the paperback; the previous 16 was an editorial estimate). The fields above (isbn/numberOfPages/priceEUR/format) describe the PAPERBACK specifically and are unchanged otherwise; do not overwrite them with Kindle-edition values.",
+      "purchaseUrl": "https://amzn.to/4zW6Yeu",
+      "canonicalRetailerUrl": "https://www.amazon.es/dp/B0HHY9MYLM",
+      "verifiedAt": "2026-09-07",
       "kindleEdition": {
         "format": "EBook",
         "asin": "B0HHM71F46",
