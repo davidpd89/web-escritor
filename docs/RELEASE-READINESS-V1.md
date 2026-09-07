@@ -1,9 +1,9 @@
 # Release Readiness Evidence V1
 
-- Generated: `2026-09-07T14:32:17.789823+00:00`
-- Branch: `main`
-- HEAD: `6359cbde8e6626698b02c2a5b46ffc406cd0f2ad`
-- Previous SHA (rollback candidate): `8c1a7044a06824c7868dc6cc15e63b128d5477a9`
+- Generated: `2026-09-07T15:06:21.429151+00:00`
+- Branch: `seo/clarity-consent-noindex-audit-2026-09-07`
+- HEAD: `12b93c6663c7c9ca9d63f73ecde886c0ecdcff6a`
+- Previous SHA (rollback candidate): `6359cbde8e6626698b02c2a5b46ffc406cd0f2ad`
 
 ## Final Status: `STATIC_CHECKS_PASSED`
 
@@ -19,6 +19,7 @@
 ## Commit Window (latest 20)
 
 ```text
+12b93c66 fix: deny Clarity's ad-storage/Bing-sync consent category, keep analytics
 6359cbde SEO fixes: Amazon links, dead ASINs, RSS styling, Bing title, Microsoft Clarity (#393)
 8c1a7044 docs: track Bing/GSC backlink-authority gap as a pending item (#394)
 d2f70aa2 fix: disambiguate Home buy-CTA accessible names, purge stale v14 cache (#392)
@@ -38,7 +39,6 @@ e19ed6e2 test: lock in ICS UID stability/uniqueness contract for the event tool 
 28b8f071 test: add regression coverage for newsletter email validation (#379)
 957b2442 fix: repetition detector's per-1000-words stat used period decimals (#378)
 4ea0fe8c fix: press kit ZIP-size summary used period decimals, not comma (#377)
-6a4e6001 fix: repetition detector flagged basic ser/estar grammar as "overused" (#376)
 ```
 
 ## Required Route Inventory
@@ -243,7 +243,7 @@ test-social-card-article-specific: OK (7 pages checked)
 ## Rollback Procedure (Documented, not executed)
 
 1. Identify incident and freeze merges.
-2. Checkout rollback target SHA: `8c1a7044a06824c7868dc6cc15e63b128d5477a9`.
+2. Checkout rollback target SHA: `6359cbde8e6626698b02c2a5b46ffc406cd0f2ad`.
 3. Re-run core checks:
 ```bash
 python scripts/check-local-assets.py
