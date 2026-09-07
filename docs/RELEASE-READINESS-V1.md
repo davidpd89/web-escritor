@@ -1,9 +1,9 @@
 # Release Readiness Evidence V1
 
-- Generated: `2026-08-22T12:02:02.305703+00:00`
-- Branch: `gpt/release-readiness-v1`
-- HEAD: `64fa58fb7f8bd223e9fa8c32c554f43d2286998c`
-- Previous SHA (rollback candidate): `8a8d8f227a5e838876d4584aa9e220365fca2996`
+- Generated: `2026-09-07T13:50:08.901324+00:00`
+- Branch: `seo/bing-audit-fixes-2026-09-05`
+- HEAD: `a955020759cb04263b8b6a04b92df51f2228ade9`
+- Previous SHA (rollback candidate): `3c66692b7e6d50d3cfc0c5640d55f7c1eb3d0bd8`
 
 ## Final Status: `STATIC_CHECKS_PASSED`
 
@@ -19,26 +19,26 @@
 ## Commit Window (latest 20)
 
 ```text
-64fa58f release: add pre-main readiness evidence package v1
-8a8d8f2 Site audit: remove residual legacy and integration regressions V1 (#26)
-e920727 Visual system: finish editorial frames routes and media treatment V1 (#24)
-db68607 Convocatorias: migrate builder output to V1 shell parity (#22)
-cc5ef69 Handoff: add tasks 7-11 and run the secret scan on every PR (#25)
-9fc2e62 Harden newsletter client flows and contract checks (#23)
-12efea3 fix(editoriales): reconcile builder templates with V1 pages (#21)
-0d1cb96 docs(handoff): add controlled remaining-work execution plan (#20)
-c820b21 fix(editoriales): stop the builder silently reverting the V1 directory
-752af0e fix(cards): keep the "Verificado" badge inside its card
-1ab3135 fix(masthead): give the headline room above its lead paragraph
-8250e8c fix(header): stop the mobile header eating 15% of the screen
-a05cac4 chore: remove probe scripts committed by mistake
-1072c23 fix(qa): measure rendered layout, not the pre-stylesheet flash
-7742d58 ci: make the repo-wide secret scan actually run, and fix its false positive
-841fba4 fix(qa): findability preservation handles new pages and the landmark rename
-109dbc0 fix(masthead): headline no longer spills out of its own measure
-ad46b15 feat(footer): restore social profiles sitewide and fix two lost destinations
-7a10f26 ci: promote the Pa11y WCAG2AA baseline to a pull-request gate
-b863386 a11y: warn about disabled JavaScript on the four tools that did not
+a9550207 fix: allow Clarity's Bing identity-sync pixel in img-src CSP
+3c66692b fix: close CI gaps found while getting #393 to a green merge
+10e44127 feat: install Microsoft Clarity sitewide (UX/conversion analytics)
+a29d06f0 fix: shorten libros-fantasia-juvenil-espanola-2025-2026 title flagged by Bing
+f6dcb07c docs: regenerate release readiness report
+241e1ae7 fix: separate paperback/Kindle purchase links, dead Amazon ASINs, mobile gallery overflow, RSS feed styling
+e07b1edf feat: add Vara Glytch image to the Noveris canalizadores table
+bdd53666 docs: regenerate release readiness report
+9745b72a fix: make libros-fantasia-juvenil-espanola-2025-2026 indexable again
+2cacd95f docs: regenerate release readiness report
+313c9ce1 fix: shorten meta descriptions over Bing's 160-character limit sitewide
+65afede5 fix: shorten 9 page titles Bing Site Scan flagged as over 70 characters
+17852f2b feat: add FAQ content/schema to contador-palabras and shorten portal-fantasy title
+f5e150db feat: make lectores-beta pages indexable and add social card metadata
+d2f70aa2 fix: disambiguate Home buy-CTA accessible names, purge stale v14 cache (#392)
+c5578022 fix: content-parity regex broke by #390's intentional dt/dd space (#391)
+1ec49bfa fix: sitewide dt/dd search-index concatenation across every fact ledger (#390)
+5895e54f fix: Samuel entre mundos ledger dt/dd search-index concatenation (#389)
+c5466531 fix: .mjs cache staleness and blank-Home fallback recovery (#388)
+df32de9c fix: second post-Kindle-launch QA round (newsletter, dynamic CTAs, assistant editions) (#387)
 ```
 
 ## Required Route Inventory
@@ -90,7 +90,7 @@ b863386 a11y: warn about disabled JavaScript on the four tools that did not
 ### CI parity: content indexes — PASS
 
 ```text
-Local asset check: 87 HTML files scanned; 0 broken local reference(s) (including 0 JS reference target(s) and 0 CSS url() target(s)).
+Local asset check: 100 HTML files scanned; 0 broken local reference(s) (including 0 JS reference target(s) and 0 CSS url() target(s)).
 ```
 
 ### CI parity: hrefs — PASS
@@ -103,11 +103,11 @@ HREF-OK
 
 ```text
 INTERNAL GRAPH REPORT
-Files scanned: 84
-Indexable pages: 55
+Files scanned: 96
+Indexable pages: 62
 
 INFO (1):
-  [noindex-skipped] 29 pages excluded (noindex): aviso-legal.html, privacidad.html, samuel-entre-mundos.html, asistente\embed.html, asistente\index.html, donde-empieza-la-jaula\index.html, herramientas\auditor-web\index.html, lab\diseno-home-v1\article-pilot.html �
+  [noindex-skipped] 34 pages excluded (noindex): aviso-legal.html, privacidad.html, samuel-entre-mundos.html, asistente\embed.html, asistente\index.html, cuaderno\sistema-de-magia-noveris\index.html, donde-empieza-la-jaula\index.html, gracias-suscripcion\index.html �
 
 Summary: 0 error(s), 0 warning(s)
 ```
@@ -115,19 +115,19 @@ Summary: 0 error(s), 0 warning(s)
 ### CI parity: navigation coverage — PASS
 
 ```text
-PASS: navigation coverage (56 registry routes, 55 sitemap routes, 17 interactive tools)
+PASS: navigation coverage (69 registry routes, 62 sitemap routes, 22 interactive tools)
 ```
 
 ### CI parity: heading structure — PASS
 
 ```text
-Heading/skip-link structure: 67 ficheros HTML revisados; 0 problema(s).
+Heading/skip-link structure: 80 ficheros HTML revisados; 0 problema(s).
 ```
 
 ### CI parity: jsonld absolute URLs — PASS
 
 ```text
-OK � 59 page(s) with JSON-LD checked, all url/@id/isPartOf/about/mainEntity/isBasedOn references are absolute.
+OK � 72 page(s) with JSON-LD checked, all url/@id/isPartOf/about/mainEntity/isBasedOn references are absolute.
 ```
 
 ### CI parity: canonical entity IDs — PASS
@@ -139,7 +139,7 @@ CANONICAL ENTITY IDs: OK (4 entidades con @id, todas consistentes)
 ### CI parity: editorial facts — PASS
 
 ```text
-EDITORIAL FACT CHECK � mode=prelaunch � date=2026-08-22 � publication=2026-09-03
+EDITORIAL FACT CHECK � mode=launch � date=2026-09-07 � publication=2026-09-03
 EDITORIAL FACT CHECK: OK
 ```
 
@@ -163,20 +163,21 @@ EDITORIAL FACT CHECK: OK
 ### CI parity: social cards strict — PASS
 
 ```text
-NOTICE  shared article card used by 8 pages: https://davidportodiaz.com/assets/og-worldbuilding-noveris-ciudad-fantastica.webp
-Social cards: 55 indexable HTML pages; 0 error(s), 0 warning(s), 0 notice(s).
+NOTICE  shared article card used by 4 pages: https://davidportodiaz.com/assets/eventos/og-feria-libro-madrid-2026-david-porto-samuel.jpg :: .claude/worktrees/agent-a4a0f10ba479e3318/cuaderno/feria-libro-madrid-2026-samuel-entre-mundos/index.html, .claude/worktrees/agent-aa779067cd4e87151/cuaderno/feria-libro-madrid-2026-samuel-entre-mundos/index.html, .claude/worktrees/agent-aaa07b6a8f068661e/cuaderno/feria-libro-madrid-2026-samuel-entre-mundos/index.html, cuaderno/feria-libro-madrid-2026-samuel-entre-mundos/index.html
+NOTICE  shared article card used by 8 pages: https://davidportodiaz.com/assets/og-clubes-lectura-samuel-entre-mundos.jpg :: .claude/worktrees/agent-a4a0f10ba479e3318/clubes-de-lectura/samuel-entre-mundos/guia-imprimible/index.html, .claude/worktrees/agent-a4a0f10ba479e3318/clubes-de-lectura/samuel-entre-mundos/index.html, .claude/worktrees/agent-aa779067cd4e87151/clubes-de
+... [truncated]
 ```
 
 ### CI parity: copy tildes — PASS
 
 ```text
-COPY TILDES: OK (148 ficheros HTML/JS revisados)
+COPY TILDES: OK (180 ficheros HTML/JS revisados)
 ```
 
 ### Authority: machine-readable contract — PASS
 
 ```text
-PASS � machine authority contract (568 checks).
+PASS � machine authority contract (680 checks).
 ```
 
 ### Builder parity: editoriales — PASS
@@ -219,7 +220,12 @@ test-newsletter-client-contract: all assertions passed
 
 ```text
 newsletter Worker contract: PASS
-Brevo error 500: secret upstream detail
+Worker misconfigured: BREVO_DOI_TEMPLATE_ID must be a positive integer
+Worker misconfigured: BREVO_DOI_REDIRECT_URL must be a valid HTTPS URL
+Worker misconfigured: BREVO_LIST_ID must be a positive integer
+Worker misconfigured: BREVO_API_KEY missing
+Brevo DOI error 400: {"message":"Contact already exists","email":"qa-newsletter@example.test"}
+Brevo DOI error 500: secret upstream detail
 ```
 
 ### Newsletter: staging gate — PASS
@@ -237,7 +243,7 @@ test-social-card-article-specific: OK (7 pages checked)
 ## Rollback Procedure (Documented, not executed)
 
 1. Identify incident and freeze merges.
-2. Checkout rollback target SHA: `8a8d8f227a5e838876d4584aa9e220365fca2996`.
+2. Checkout rollback target SHA: `3c66692b7e6d50d3cfc0c5640d55f7c1eb3d0bd8`.
 3. Re-run core checks:
 ```bash
 python scripts/check-local-assets.py

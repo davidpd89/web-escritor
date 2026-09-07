@@ -480,6 +480,26 @@ document.querySelectorAll(".faq-question").forEach((btn) => {
   });
 })();
 
+// Microsoft Clarity: heatmaps and session recordings, UX/conversion insight
+// only (not SEO). Same reach as GoatCounter/Metricool above -- loaded from
+// this shared script so it only runs on the pages whose CSP already allows
+// third-party analytics; tool pages keep their stricter local CSP untouched.
+//
+// Samuel's Noveris quiz (assets/samuel-quiz.js) carries its own explicit
+// promise to readers, visible on the page, that answering it never sends
+// anything to a third party (qa/samuel-book-fragment-browser.mjs enforces
+// zero external network calls during that interaction). Clarity's session
+// recording is sitewide by nature -- it would capture exactly the
+// interaction that promise covers -- so this is the one page it must not
+// load on, rather than something to explain away after the fact.
+if (!document.querySelector('[data-samuel-quiz]')) {
+  (function (c, l, a, r, i, t, y) {
+    c[a] = c[a] || function () { (c[a].q = c[a].q || []).push(arguments); };
+    t = l.createElement(r); t.async = 1; t.src = "https://www.clarity.ms/tag/" + i;
+    y = l.getElementsByTagName(r)[0]; y.parentNode.insertBefore(t, y);
+  })(window, document, "clarity", "script", "wxkseslr28");
+}
+
 // GoatCounter custom event tracking: send immediately when GC is ready so
 // navigation clicks are not lost; fall back to a background retry otherwise.
 function _gcEvent(path, title) {

@@ -8,7 +8,7 @@
   "country": "España",
   "format": "Tapa blanda",
   "pages": 272,
-  "priceEUR": 16,
+  "priceEUR": 15.99,
   "status": "published",
   "award": null,
   "rating": null,
@@ -47,17 +47,18 @@
   "synopsis": {
     "short": "Manuel comparte con su nieto Tomás las historias de un reloj que ha pasado por distintas manos y generaciones. Cuando alguien inesperado regresa del pasado, el destino de la familia cambia.",
     "medium": "Las manecillas del recuerdo sigue un reloj que atraviesa vidas, generaciones y épocas. Con cada mano cambia su significado: recuerdo, ancla, mercancía, prueba o herencia. La memoria familiar abre el recorrido; después aparecen preguntas sobre precio, credibilidad, tecnología y segundas oportunidades. No es una cronología explicada desde fuera: cada tramo obliga a mirar el reloj desde intereses distintos.",
-    "atomic": "Las manecillas del recuerdo (Monza Ediciones, publicada el 3 de septiembre de 2026) es una novela coral de vidas conectadas de David Porto Díaz. Un reloj familiar atraviesa generaciones marcadas por el amor, la pérdida, los secretos y la esperanza. 272 páginas, ISBN 979-8-90514-935-1, PVP 16 €."
+    "atomic": "Las manecillas del recuerdo (Monza Ediciones, publicada el 3 de septiembre de 2026) es una novela coral de vidas conectadas de David Porto Díaz. Un reloj familiar atraviesa generaciones marcadas por el amor, la pérdida, los secretos y la esperanza. 272 páginas, ISBN 979-8-90514-935-1, PVP 15,99 €."
   },
   "purchase": {
-    "purchaseUrl": "https://amzn.to/3SM4Oxu",
-    "status": "Disponible en Kindle",
-    "note": "Edición Kindle verificada el 2026-09-04 (ASIN B0HHM71F46, ISBN-13 979-8906781925, 2,99 €, Monza Ediciones, publicada el 12 de agosto de 2026). Distinta de la edición en tapa blanda (ISBN/páginas/PVP arriba): no mezclar los datos de ambas ediciones.",
+    "purchaseUrl": "https://amzn.to/4zW6Yeu",
+    "status": "Disponible en tapa blanda y en Kindle",
+    "note": "Edición en tapa blanda verificada el 2026-09-07 (15,99 €, Monza Ediciones). Edición Kindle verificada el 2026-09-04 (ASIN B0HHM71F46, ISBN-13 979-8906781925, 2,99 €, Monza Ediciones, publicada el 12 de agosto de 2026). Son dos ediciones distintas: no mezclar los datos de ambas.",
     "kindleEdition": {
       "asin": "B0HHM71F46",
       "isbn": "979-8906781925",
       "priceEUR": 2.99,
-      "publicationDate": "2026-08-12"
+      "publicationDate": "2026-08-12",
+      "purchaseUrl": "https://amzn.to/3SM4Oxu"
     }
   },
   "urls": {
@@ -75,5 +76,5 @@
     "mockup3D": "https://davidportodiaz.com/assets/manecillas-book-mockup.webp",
     "socialCardHorizontal": "https://davidportodiaz.com/assets/og-manecillas.webp"
   },
-  "lastUpdated": "2026-09-04"
+  "lastUpdated": "2026-09-07"
 }

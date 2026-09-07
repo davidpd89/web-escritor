@@ -28,6 +28,7 @@ import { EDITORIAL_PUBLIC_FACTS } from './editorial-public-facts.mjs';
   // hand-typed literal, so changing the URL in editorial-facts.json can't
   // drift from what Home's dynamically-built CTAs actually link to.
   const MANECILLAS_BUY_URL = EDITORIAL_PUBLIC_FACTS.manecillas.purchaseUrl;
+  const MANECILLAS_KINDLE_URL = EDITORIAL_PUBLIC_FACTS.manecillas.kindleEdition.purchaseUrl;
   const AUTHOR_EMAIL_URL = 'mailto:davidportodiaz@gmail.com?subject=Te%20leo%20%E2%80%94%20David%20Porto%20D%C3%ADaz';
 
   // Explicit host allowlist (K.3): a pattern like /amazon\.[a-z.]+/ would also
@@ -326,17 +327,18 @@ import { EDITORIAL_PUBLIC_FACTS } from './editorial-public-facts.mjs';
     [
       ['Autor', 'David Porto Díaz', 'Biografía, fotografías y recursos para lectores, librerías y medios.', '/autor.html'],
       ['Comunidad', 'Lectores beta', 'Sé el primero en leer contenido y opina antes de que llegue a todos.', '/lectores-beta/#quiero-ser-lector'],
-      ['Comprar', 'Comprar en Amazon', '', MANECILLAS_BUY_URL],
+      ['Comprar', 'Comprar en Kindle', '', MANECILLAS_KINDLE_URL],
       ['Te leo', 'Escríbeme', '', AUTHOR_EMAIL_URL]
     ].forEach(([eyebrow, cardTitle, text, href]) => {
       const card = make('article', 'yale-rail-card');
       card.append(make('p', 'editorial-card__eyebrow', eyebrow));
-      const bookContext = href === MANECILLAS_BUY_URL ? 'Las manecillas del recuerdo' : '';
+      const bookContext = href === MANECILLAS_BUY_URL || href === MANECILLAS_KINDLE_URL ? 'Las manecillas del recuerdo' : '';
+      const buyLinkText = href === MANECILLAS_KINDLE_URL ? 'Comprar' : 'Abrir';
       const cardHeading = make('h3');
       addTextLink(cardHeading, href, cardTitle, '', bookContext);
       card.append(cardHeading);
       if (text) card.append(make('p', '', text));
-      addTextLink(card, href, 'Abrir', 'yale-text-link yale-text-link--gradient', bookContext);
+      addTextLink(card, href, buyLinkText, 'yale-text-link yale-text-link--gradient', bookContext);
       rail.append(card);
     });
 
