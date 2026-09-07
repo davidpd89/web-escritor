@@ -1,9 +1,9 @@
 # Release Readiness Evidence V1
 
-- Generated: `2026-09-07T07:49:39.900286+00:00`
+- Generated: `2026-09-07T08:13:40.372674+00:00`
 - Branch: `seo/bing-audit-fixes-2026-09-05`
-- HEAD: `241e1ae7204a2b8a3b9c32aeb9e7d8d41931e696`
-- Previous SHA (rollback candidate): `e07b1edf44a6a53bcba335478a58000eee5c855a`
+- HEAD: `f6dcb07cd13ba5669deb6cfc43639edbbfb27173`
+- Previous SHA (rollback candidate): `241e1ae7204a2b8a3b9c32aeb9e7d8d41931e696`
 
 ## Final Status: `STATIC_CHECKS_PASSED`
 
@@ -19,6 +19,7 @@
 ## Commit Window (latest 20)
 
 ```text
+f6dcb07c docs: regenerate release readiness report
 241e1ae7 fix: separate paperback/Kindle purchase links, dead Amazon ASINs, mobile gallery overflow, RSS feed styling
 e07b1edf feat: add Vara Glytch image to the Noveris canalizadores table
 bdd53666 docs: regenerate release readiness report
@@ -38,7 +39,6 @@ df32de9c fix: second post-Kindle-launch QA round (newsletter, dynamic CTAs, assi
 6e8a244a fix: manecillas sample --check false-positive on a local Windows checkout (#385)
 f8311aaa feat: activate Las manecillas del recuerdo's Kindle purchase link sitewide (#384)
 a88bfa24 feat: add Comprar CTA to Manecillas Home hero + fix script cache-busting gap (#382)
-d55679af fix: two relative assets/ references survived PR #365's absolute-path cleanup on Home (#383)
 ```
 
 ## Required Route Inventory
@@ -243,7 +243,7 @@ test-social-card-article-specific: OK (7 pages checked)
 ## Rollback Procedure (Documented, not executed)
 
 1. Identify incident and freeze merges.
-2. Checkout rollback target SHA: `e07b1edf44a6a53bcba335478a58000eee5c855a`.
+2. Checkout rollback target SHA: `241e1ae7204a2b8a3b9c32aeb9e7d8d41931e696`.
 3. Re-run core checks:
 ```bash
 python scripts/check-local-assets.py
