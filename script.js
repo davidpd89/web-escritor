@@ -480,6 +480,16 @@ document.querySelectorAll(".faq-question").forEach((btn) => {
   });
 })();
 
+// Microsoft Clarity: heatmaps and session recordings, UX/conversion insight
+// only (not SEO). Same reach as GoatCounter/Metricool above -- loaded from
+// this shared script so it only runs on the pages whose CSP already allows
+// third-party analytics; tool pages keep their stricter local CSP untouched.
+(function (c, l, a, r, i, t, y) {
+  c[a] = c[a] || function () { (c[a].q = c[a].q || []).push(arguments); };
+  t = l.createElement(r); t.async = 1; t.src = "https://www.clarity.ms/tag/" + i;
+  y = l.getElementsByTagName(r)[0]; y.parentNode.insertBefore(t, y);
+})(window, document, "clarity", "script", "wxkseslr28");
+
 // GoatCounter custom event tracking: send immediately when GC is ready so
 // navigation clicks are not lost; fall back to a background retry otherwise.
 function _gcEvent(path, title) {

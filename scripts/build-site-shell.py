@@ -78,6 +78,17 @@ INLINE_SCRIPT_RE = re.compile(
 #   - script-src/connect-src/img-src tracker.metricool.com: script de
 #     analitica de Metricool (script.js, funcion "Metricool web analytics")
 #     + su pixel de imagen c3po.jpg, documentado ya en privacidad.html.
+#   - script-src/connect-src *.clarity.ms: Microsoft Clarity (mapas de
+#     calor y grabaciones de sesion, script.js, IIFE del tag oficial de
+#     Clarity). www.clarity.ms sirve solo el loader (tag/<id>); el runtime
+#     real y el beacon de recogida rotan por subdominios de una sola letra
+#     (confirmado en vivo: scripts.clarity.ms para el runtime, b.clarity.ms
+#     y z.clarity.ms para /collect, bloqueados uno tras otro hasta llegar
+#     al comodin) -- listar hosts sueltos aqui se habria roto en cuanto
+#     Clarity balanceara a otra letra, así que el comodin de Microsoft es
+#     la opcion correcta, no un atajo. Mismo alcance que GoatCounter/
+#     Metricool arriba, sin ampliar a las paginas de herramientas (CSP
+#     local mas estricta).
 #   - connect-src subscribe.davidpd89.workers.dev: Worker de alta de
 #     newsletter (NEWSLETTER_CONFIG.endpoint en script.js).
 #   - El asistente usa rutas same-origin (/api/assistant*), cubiertas por 'self'.
@@ -106,8 +117,8 @@ INLINE_SCRIPT_RE = re.compile(
 #     que el navegador nunca aplica por esta via.
 PUBLIC_CSP = (
     "default-src 'self'; "
-    "script-src 'self' gc.zgo.at davidportodiaz.goatcounter.com tracker.metricool.com challenges.cloudflare.com; "
-    "connect-src 'self' gc.zgo.at davidportodiaz.goatcounter.com tracker.metricool.com https://subscribe.davidpd89.workers.dev; "
+    "script-src 'self' gc.zgo.at davidportodiaz.goatcounter.com tracker.metricool.com *.clarity.ms challenges.cloudflare.com; "
+    "connect-src 'self' gc.zgo.at davidportodiaz.goatcounter.com tracker.metricool.com *.clarity.ms https://subscribe.davidpd89.workers.dev; "
     "img-src 'self' data: tracker.metricool.com; "
     "style-src 'self' 'unsafe-inline'; "
     "font-src 'self'; "

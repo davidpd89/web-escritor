@@ -1,9 +1,9 @@
 # Release Readiness Evidence V1
 
-- Generated: `2026-09-07T08:13:40.372674+00:00`
+- Generated: `2026-09-07T08:35:36.602884+00:00`
 - Branch: `seo/bing-audit-fixes-2026-09-05`
-- HEAD: `f6dcb07cd13ba5669deb6cfc43639edbbfb27173`
-- Previous SHA (rollback candidate): `241e1ae7204a2b8a3b9c32aeb9e7d8d41931e696`
+- HEAD: `a29d06f0d86df51706ae0fb0dcaa6d45acc45a16`
+- Previous SHA (rollback candidate): `f6dcb07cd13ba5669deb6cfc43639edbbfb27173`
 
 ## Final Status: `STATIC_CHECKS_PASSED`
 
@@ -19,6 +19,7 @@
 ## Commit Window (latest 20)
 
 ```text
+a29d06f0 fix: shorten libros-fantasia-juvenil-espanola-2025-2026 title flagged by Bing
 f6dcb07c docs: regenerate release readiness report
 241e1ae7 fix: separate paperback/Kindle purchase links, dead Amazon ASINs, mobile gallery overflow, RSS feed styling
 e07b1edf feat: add Vara Glytch image to the Noveris canalizadores table
@@ -38,7 +39,6 @@ df32de9c fix: second post-Kindle-launch QA round (newsletter, dynamic CTAs, assi
 75c91f44 fix: post-Kindle-launch consistency sweep (stale copy, dates, nav, CSS) (#386)
 6e8a244a fix: manecillas sample --check false-positive on a local Windows checkout (#385)
 f8311aaa feat: activate Las manecillas del recuerdo's Kindle purchase link sitewide (#384)
-a88bfa24 feat: add Comprar CTA to Manecillas Home hero + fix script cache-busting gap (#382)
 ```
 
 ## Required Route Inventory
@@ -243,7 +243,7 @@ test-social-card-article-specific: OK (7 pages checked)
 ## Rollback Procedure (Documented, not executed)
 
 1. Identify incident and freeze merges.
-2. Checkout rollback target SHA: `241e1ae7204a2b8a3b9c32aeb9e7d8d41931e696`.
+2. Checkout rollback target SHA: `f6dcb07cd13ba5669deb6cfc43639edbbfb27173`.
 3. Re-run core checks:
 ```bash
 python scripts/check-local-assets.py
