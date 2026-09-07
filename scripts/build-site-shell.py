@@ -90,6 +90,15 @@ INLINE_SCRIPT_RE = re.compile(
 #     comodin de Microsoft es la opcion correcta, no un atajo. Mismo
 #     alcance que GoatCounter/Metricool arriba, sin ampliar a las paginas
 #     de herramientas (CSP local mas estricta).
+#   - img-src c.bing.com: Clarity tambien dispara, por su cuenta, un pixel
+#     de sincronizacion de identidad hacia c.bing.com/c.gif (parametro
+#     RedC=c.clarity.ms) -- confirmado en vivo en CI, bloqueado hasta
+#     anadir este host exacto (no rota como *.clarity.ms, así que no lleva
+#     comodin). Esto es infraestructura de Microsoft para enlazar Clarity
+#     con Bing/Microsoft Advertising, no analitica de UX -- si en el
+#     futuro se decide que no es aceptable, la via correcta es desactivar
+#     ese enlace desde la configuracion del proyecto en clarity.microsoft.com
+#     (no solo bloquearlo aqui, que dejaria el pixel disparandose en vano).
 #   - connect-src subscribe.davidpd89.workers.dev: Worker de alta de
 #     newsletter (NEWSLETTER_CONFIG.endpoint en script.js).
 #   - El asistente usa rutas same-origin (/api/assistant*), cubiertas por 'self'.
@@ -120,7 +129,7 @@ PUBLIC_CSP = (
     "default-src 'self'; "
     "script-src 'self' gc.zgo.at davidportodiaz.goatcounter.com tracker.metricool.com *.clarity.ms challenges.cloudflare.com; "
     "connect-src 'self' gc.zgo.at davidportodiaz.goatcounter.com tracker.metricool.com *.clarity.ms https://subscribe.davidpd89.workers.dev; "
-    "img-src 'self' data: tracker.metricool.com *.clarity.ms; "
+    "img-src 'self' data: tracker.metricool.com *.clarity.ms c.bing.com; "
     "style-src 'self' 'unsafe-inline'; "
     "font-src 'self'; "
     "worker-src 'self'; "
