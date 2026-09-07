@@ -498,6 +498,20 @@ if (!document.querySelector('[data-samuel-quiz]')) {
     t = l.createElement(r); t.async = 1; t.src = "https://www.clarity.ms/tag/" + i;
     y = l.getElementsByTagName(r)[0]; y.parentNode.insertBefore(t, y);
   })(window, document, "clarity", "script", "wxkseslr28");
+  // Clarity enforces its own consent gate for EEA/UK/CH visitors (since
+  // 2025-10-31): without a signal, those sessions get a per-pageview ID and
+  // no cookie instead of the real cross-page session Clarity is here for --
+  // this site's actual readers are mostly exactly that region, so leaving
+  // this uncalled wasn't neutral, it was quietly breaking the tool for them.
+  // analytics_Storage granted is the author's own explicit call for UX
+  // insight (same basis as GoatCounter/Metricool, disclosed in
+  // privacidad.html); ad_Storage stays denied on purpose -- confirmed live
+  // that Clarity's default behavior pings c.bing.com for Microsoft
+  // Advertising's identity sync even with no Ads/UET account ever linked
+  // here, and this project has no use for that. Per Microsoft's own
+  // consentv2 docs this is the documented way to keep heatmaps/recordings
+  // while declining the ad-linking category specifically.
+  window.clarity('consentv2', { ad_Storage: 'denied', analytics_Storage: 'granted' });
 }
 
 // GoatCounter custom event tracking: send immediately when GC is ready so
