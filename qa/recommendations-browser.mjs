@@ -155,11 +155,9 @@ for (const route of ['/recomendaciones/portal-fantasy-espanol/', '/recomendacion
   if (route !== '/recomendaciones/politica-de-recomendaciones/') {
     const listColors = await page.evaluate(() => ({
       position: getComputedStyle(document.querySelector('.rec-position')).color,
-      disclosureBorder: getComputedStyle(document.querySelector('.rec-disclosures')).borderLeftColor,
       firstBookValue: getComputedStyle(document.querySelector('.rec-book-title')).color,
     }));
     check(listColors.position === REC_BLUE, `${route}: position number should use editorial blue, got ${listColors.position}`);
-    check(listColors.disclosureBorder === REC_BLUE, `${route}: disclosure rail should use editorial blue, got ${listColors.disclosureBorder}`);
     check(listColors.firstBookValue !== REC_BLUE && listColors.firstBookValue !== REC_GOLD, `${route}: book titles must stay neutral, not recolored`);
   }
   await context.close();
@@ -201,7 +199,6 @@ async function inspectList(route, expectedCount) {
       hasSummary: Boolean(d.querySelector(':scope > summary')),
     }));
     const firstAffiliateTop = document.querySelector('.rec-item a[href*="amazon.es"]')?.getBoundingClientRect().top ?? Infinity;
-    const disclosureBottom = document.querySelector('.rec-disclosures')?.getBoundingClientRect().bottom ?? -Infinity;
     return {
       visible,
       schema,
@@ -210,11 +207,10 @@ async function inspectList(route, expectedCount) {
       hasFaqPage: nodes.some((n) => n['@type'] === 'FAQPage'),
       primaryCurrent: [...document.querySelectorAll('.primary-nav [aria-current="page"]')].map((a) => a.getAttribute('href')),
       affiliateLinks: [...document.querySelectorAll('a[href*="amazon.es"]')].map((a) => ({ href: a.href, rel: a.rel, target: a.target })),
-      affiliateDisclosure: document.querySelector('.rec-disclosures')?.innerText || '',
+      affiliateDisclosure: document.querySelector('.affiliate-disclosure')?.innerText || '',
       selfText: document.querySelector('.rec-item--self')?.innerText || '',
       selfSpecialPrimary: document.querySelectorAll('.rec-item--self .primary-action').length,
       firstAffiliateTop,
-      disclosureBottom,
       title: document.title,
       h1: document.querySelector('h1')?.textContent || '',
       og: document.querySelector('meta[property="og:title"]')?.content || '',
@@ -270,7 +266,13 @@ async function inspectList(route, expectedCount) {
     check(link.target === '_blank', `${route}: external affiliate target is not _blank`);
   }
   check(/afiliad/i.test(data.affiliateDisclosure) && /comisi/i.test(data.affiliateDisclosure), `${route}: affiliate disclosure missing/unclear`);
-  check(data.disclosureBottom <= data.firstAffiliateTop + 1, `${route}: disclosure appears after commerce links`);
+  // 2026-09-07: the author deliberately removed the up-front "Transparencia/
+  // Afiliación/Evidencia" block readers hit before any real content -- the
+  // affiliate note now lives as a single short paragraph after the list
+  // (.affiliate-disclosure), backed by the sitewide disclosure already in
+  // aviso-legal.html. Requiring it to appear before the first commerce link
+  // would reintroduce exactly what was removed, so this only checks that a
+  // clear disclosure exists somewhere on the page, not its position.
   check(/obra del autor de esta web/i.test(data.selfText), `${route}: Samuel conflict-of-interest label missing`);
   check(data.selfSpecialPrimary === 0, `${route}: Samuel receives a privileged primary CTA`);
   for (const surface of [data.title, data.h1, data.og, data.twitter, data.listName]) check(new RegExp(`\\b${expectedCount}\\b`).test(surface), `${route}: count ${expectedCount} missing from metadata surface: ${surface}`);
@@ -341,7 +343,7 @@ for (const route of routes) {
     footer: getComputedStyle(document.querySelector('.site-footer')).display,
     title: document.querySelector('#article-title')?.innerText || '',
     books: [...document.querySelectorAll('.rec-book-title')].filter((el) => getComputedStyle(el).display !== 'none' && el.innerText.trim()).length,
-    disclosure: getComputedStyle(document.querySelector('.rec-disclosures')).display,
+    disclosure: getComputedStyle(document.querySelector('.affiliate-disclosure')).display,
   }));
   check(print.header === 'none', 'print: interactive header not hidden');
   check(print.footer === 'none', 'print: site footer not hidden');
