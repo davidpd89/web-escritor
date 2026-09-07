@@ -105,7 +105,6 @@ async function postNewsletter(payload) {
 const STAGING_HOSTNAMES = new Set(["david-porto-preview.davidpd89.workers.dev"]);
 const IS_STAGING = STAGING_HOSTNAMES.has(window.location.hostname);
 const STAGING_DISABLED_MESSAGE = "Formulario desactivado en el entorno de pruebas.";
-// Clarity analytics is intentionally disabled. Keep the project id out of runtime until it is useful again.
 if ("serviceWorker" in navigator) {
   window.addEventListener("load", () => {
     scheduleTask(() => {
@@ -499,19 +498,19 @@ if (!document.querySelector('[data-samuel-quiz]')) {
     y = l.getElementsByTagName(r)[0]; y.parentNode.insertBefore(t, y);
   })(window, document, "clarity", "script", "wxkseslr28");
   // Clarity enforces its own consent gate for EEA/UK/CH visitors (since
-  // 2025-10-31): without a signal, those sessions get a per-pageview ID and
-  // no cookie instead of the real cross-page session Clarity is here for --
-  // this site's actual readers are mostly exactly that region, so leaving
-  // this uncalled wasn't neutral, it was quietly breaking the tool for them.
-  // analytics_Storage granted is the author's own explicit call for UX
-  // insight (same basis as GoatCounter/Metricool, disclosed in
-  // privacidad.html); ad_Storage stays denied on purpose -- confirmed live
-  // that Clarity's default behavior pings c.bing.com for Microsoft
-  // Advertising's identity sync even with no Ads/UET account ever linked
-  // here, and this project has no use for that. Per Microsoft's own
-  // consentv2 docs this is the documented way to keep heatmaps/recordings
-  // while declining the ad-linking category specifically.
-  window.clarity('consentv2', { ad_Storage: 'denied', analytics_Storage: 'granted' });
+  // 2025-10-31): without any signal at all, those sessions get a
+  // per-pageview ID and no cookie instead of a real cross-page session.
+  // This site asks for no cookie-consent banner (deliberate choice to keep
+  // the reading experience friction-free), which means there is no actual
+  // per-visitor consent to report -- so analytics_Storage must be the
+  // GDPR-safe default of 'denied', not 'granted' on nobody's behalf. Clarity
+  // still loads and still produces heatmaps/recordings, just in that
+  // documented cookieless/per-pageview mode instead of the full cross-page
+  // session; that reduced fidelity is the accepted trade-off for not
+  // running a consent UI. ad_Storage is always denied regardless -- this
+  // project has no Microsoft Ads/UET account linked and no use for
+  // Clarity's identity-sync pixel to Microsoft Advertising.
+  window.clarity('consentv2', { ad_Storage: 'denied', analytics_Storage: 'denied' });
 }
 
 // GoatCounter custom event tracking: send immediately when GC is ready so
