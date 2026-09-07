@@ -1,9 +1,9 @@
 # Release Readiness Evidence V1
 
-- Generated: `2026-09-07T13:50:08.901324+00:00`
-- Branch: `seo/bing-audit-fixes-2026-09-05`
-- HEAD: `a955020759cb04263b8b6a04b92df51f2228ade9`
-- Previous SHA (rollback candidate): `3c66692b7e6d50d3cfc0c5640d55f7c1eb3d0bd8`
+- Generated: `2026-09-07T14:32:17.789823+00:00`
+- Branch: `main`
+- HEAD: `6359cbde8e6626698b02c2a5b46ffc406cd0f2ad`
+- Previous SHA (rollback candidate): `8c1a7044a06824c7868dc6cc15e63b128d5477a9`
 
 ## Final Status: `STATIC_CHECKS_PASSED`
 
@@ -19,26 +19,26 @@
 ## Commit Window (latest 20)
 
 ```text
-a9550207 fix: allow Clarity's Bing identity-sync pixel in img-src CSP
-3c66692b fix: close CI gaps found while getting #393 to a green merge
-10e44127 feat: install Microsoft Clarity sitewide (UX/conversion analytics)
-a29d06f0 fix: shorten libros-fantasia-juvenil-espanola-2025-2026 title flagged by Bing
-f6dcb07c docs: regenerate release readiness report
-241e1ae7 fix: separate paperback/Kindle purchase links, dead Amazon ASINs, mobile gallery overflow, RSS feed styling
-e07b1edf feat: add Vara Glytch image to the Noveris canalizadores table
-bdd53666 docs: regenerate release readiness report
-9745b72a fix: make libros-fantasia-juvenil-espanola-2025-2026 indexable again
-2cacd95f docs: regenerate release readiness report
-313c9ce1 fix: shorten meta descriptions over Bing's 160-character limit sitewide
-65afede5 fix: shorten 9 page titles Bing Site Scan flagged as over 70 characters
-17852f2b feat: add FAQ content/schema to contador-palabras and shorten portal-fantasy title
-f5e150db feat: make lectores-beta pages indexable and add social card metadata
+6359cbde SEO fixes: Amazon links, dead ASINs, RSS styling, Bing title, Microsoft Clarity (#393)
+8c1a7044 docs: track Bing/GSC backlink-authority gap as a pending item (#394)
 d2f70aa2 fix: disambiguate Home buy-CTA accessible names, purge stale v14 cache (#392)
 c5578022 fix: content-parity regex broke by #390's intentional dt/dd space (#391)
 1ec49bfa fix: sitewide dt/dd search-index concatenation across every fact ledger (#390)
 5895e54f fix: Samuel entre mundos ledger dt/dd search-index concatenation (#389)
 c5466531 fix: .mjs cache staleness and blank-Home fallback recovery (#388)
 df32de9c fix: second post-Kindle-launch QA round (newsletter, dynamic CTAs, assistant editions) (#387)
+75c91f44 fix: post-Kindle-launch consistency sweep (stale copy, dates, nav, CSS) (#386)
+6e8a244a fix: manecillas sample --check false-positive on a local Windows checkout (#385)
+f8311aaa feat: activate Las manecillas del recuerdo's Kindle purchase link sitewide (#384)
+a88bfa24 feat: add Comprar CTA to Manecillas Home hero + fix script cache-busting gap (#382)
+d55679af fix: two relative assets/ references survived PR #365's absolute-path cleanup on Home (#383)
+72d11bd4 fix: closing dialogue quote after a number stayed straight, and reset only fired on blank paragraphs (#381)
+e19ed6e2 test: lock in ICS UID stability/uniqueness contract for the event tool (#368)
+72399d83 fix: one stray quote could corrupt dialogue formatting for a whole manuscript (#380)
+28b8f071 test: add regression coverage for newsletter email validation (#379)
+957b2442 fix: repetition detector's per-1000-words stat used period decimals (#378)
+4ea0fe8c fix: press kit ZIP-size summary used period decimals, not comma (#377)
+6a4e6001 fix: repetition detector flagged basic ser/estar grammar as "overused" (#376)
 ```
 
 ## Required Route Inventory
@@ -243,7 +243,7 @@ test-social-card-article-specific: OK (7 pages checked)
 ## Rollback Procedure (Documented, not executed)
 
 1. Identify incident and freeze merges.
-2. Checkout rollback target SHA: `3c66692b7e6d50d3cfc0c5640d55f7c1eb3d0bd8`.
+2. Checkout rollback target SHA: `8c1a7044a06824c7868dc6cc15e63b128d5477a9`.
 3. Re-run core checks:
 ```bash
 python scripts/check-local-assets.py
