@@ -1,9 +1,9 @@
 # Release Readiness Evidence V1
 
-- Generated: `2026-09-07T07:45:48.027672+00:00`
+- Generated: `2026-09-07T07:49:39.900286+00:00`
 - Branch: `seo/bing-audit-fixes-2026-09-05`
-- HEAD: `bdd536663511a891b822f454ba1e604750e7c011`
-- Previous SHA (rollback candidate): `9745b72a44de446b27e59871a24337e29853d79d`
+- HEAD: `241e1ae7204a2b8a3b9c32aeb9e7d8d41931e696`
+- Previous SHA (rollback candidate): `e07b1edf44a6a53bcba335478a58000eee5c855a`
 
 ## Final Status: `STATIC_CHECKS_PASSED`
 
@@ -19,6 +19,8 @@
 ## Commit Window (latest 20)
 
 ```text
+241e1ae7 fix: separate paperback/Kindle purchase links, dead Amazon ASINs, mobile gallery overflow, RSS feed styling
+e07b1edf feat: add Vara Glytch image to the Noveris canalizadores table
 bdd53666 docs: regenerate release readiness report
 9745b72a fix: make libros-fantasia-juvenil-espanola-2025-2026 indexable again
 2cacd95f docs: regenerate release readiness report
@@ -37,8 +39,6 @@ df32de9c fix: second post-Kindle-launch QA round (newsletter, dynamic CTAs, assi
 f8311aaa feat: activate Las manecillas del recuerdo's Kindle purchase link sitewide (#384)
 a88bfa24 feat: add Comprar CTA to Manecillas Home hero + fix script cache-busting gap (#382)
 d55679af fix: two relative assets/ references survived PR #365's absolute-path cleanup on Home (#383)
-72d11bd4 fix: closing dialogue quote after a number stayed straight, and reset only fired on blank paragraphs (#381)
-e19ed6e2 test: lock in ICS UID stability/uniqueness contract for the event tool (#368)
 ```
 
 ## Required Route Inventory
@@ -243,7 +243,7 @@ test-social-card-article-specific: OK (7 pages checked)
 ## Rollback Procedure (Documented, not executed)
 
 1. Identify incident and freeze merges.
-2. Checkout rollback target SHA: `9745b72a44de446b27e59871a24337e29853d79d`.
+2. Checkout rollback target SHA: `e07b1edf44a6a53bcba335478a58000eee5c855a`.
 3. Re-run core checks:
 ```bash
 python scripts/check-local-assets.py
