@@ -47,22 +47,36 @@ function webApplication(html) {
 // no es una regresion de metadata protegida, asi que se normaliza aqui para
 // que el guard siga cazando cualquier otro cambio real en estos campos.
 const normalizeImageExt = url => String(url).replace(/\.(webp|jpe?g)$/i, '.__img__');
+// 2026-09-05: this page's description/og:description/twitter:description
+// exceeded Bing's 160-char limit (see commit "shorten meta descriptions over
+// Bing's 160-character limit sitewide") and was deliberately shortened, from
+// "...identificarlo, entenderlo y continuar hacia la compra o la lectura..."
+// to "...identificarlo y continuar hacia la compra...". A dated,
+// field-specific normalization (same pattern as normalizeImageExt above)
+// lets this real fix through while the guard keeps catching anything else.
+const KNOWN_DESCRIPTION_SHORTENINGS = new Map([
+  [
+    'Pega el código HTML de la página de un libro y comprueba si un lector puede identificarlo, entenderlo y continuar hacia la compra o la lectura. Sin URL, sin fetch, todo local.',
+    'Pega el código HTML de la página de un libro y comprueba si un lector puede identificarlo y continuar hacia la compra. Sin URL, sin fetch, todo local.',
+  ],
+]);
+const normalizeDescription = value => KNOWN_DESCRIPTION_SHORTENINGS.get(value) || value;
 function extract(html) {
   const title = text((html.match(/<title\b[^>]*>([\s\S]*?)<\/title>/i)||[,''])[1]);
   const h1 = text((html.match(/<h1\b[^>]*>([\s\S]*?)<\/h1>/i)||[,''])[1]);
   const canonicalTag = (html.match(/<link\b[^>]*rel=["']canonical["'][^>]*>/i)||[''])[0];
   return {
     title,
-    description: meta(html,'description'),
+    description: normalizeDescription(meta(html,'description')),
     canonical: attr(canonicalTag,'href'),
     robots: meta(html,'robots'),
     h1,
     ogTitle: meta(html,'og:title',true),
-    ogDescription: meta(html,'og:description',true),
+    ogDescription: normalizeDescription(meta(html,'og:description',true)),
     ogImage: normalizeImageExt(meta(html,'og:image',true)),
     twitterCard: meta(html,'twitter:card'),
     twitterTitle: meta(html,'twitter:title'),
-    twitterDescription: meta(html,'twitter:description'),
+    twitterDescription: normalizeDescription(meta(html,'twitter:description')),
     twitterImage: normalizeImageExt(meta(html,'twitter:image')),
     webApplication: webApplication(html),
   };
