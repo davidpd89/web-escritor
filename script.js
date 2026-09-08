@@ -479,6 +479,146 @@ document.querySelectorAll(".faq-question").forEach((btn) => {
   });
 })();
 
+// Minimal analytics-consent banner (2026-09-08): a small, non-blocking bar,
+// not a full cookie-CMP -- the site deliberately has no banner for anything
+// else (GoatCounter/Metricool never set cookies regardless of any choice
+// here). Shown once; the choice persists in localStorage. This is the only
+// legitimate way to get Clarity's full cross-page session data: reporting
+// 'granted' without ever asking would misrepresent consent that was never
+// collected, which is exactly the bug fixed earlier today. Declared here,
+// above the Clarity block below that calls these on page load -- they were
+// originally declared after it, which put ANALYTICS_CONSENT_KEY in the
+// temporal dead zone at the exact moment getStoredAnalyticsConsent() needed
+// it; the ReferenceError was silently swallowed by that function's own
+// try/catch (meant for storage-disabled browsers), so it always returned
+// null and the banner reappeared on every load even after a real choice was
+// stored. Caught via a real headless-browser test, not the sandboxed
+// preview tool, which didn't reproduce it -- see PR description.
+const ANALYTICS_CONSENT_KEY = "dp-analytics-consent";
+
+function getStoredAnalyticsConsent() {
+  try {
+    const v = localStorage.getItem(ANALYTICS_CONSENT_KEY);
+    return v === "granted" || v === "denied" ? v : null;
+  } catch {
+    return null;
+  }
+}
+
+function setStoredAnalyticsConsent(value) {
+  try {
+    localStorage.setItem(ANALYTICS_CONSENT_KEY, value);
+  } catch {
+    // Storage blocked (private mode, disabled storage, etc.) -- the choice
+    // just won't be remembered across visits; applyAnalyticsConsent still
+    // runs for this pageview.
+  }
+}
+
+function applyAnalyticsConsent(value) {
+  if (window.clarity) {
+    window.clarity("consentv2", { ad_Storage: "denied", analytics_Storage: value });
+  }
+}
+
+function showAnalyticsConsentBanner() {
+  if (document.querySelector("[data-analytics-consent-banner]")) return;
+  const bar = document.createElement("div");
+  bar.setAttribute("data-analytics-consent-banner", "");
+  bar.setAttribute("role", "region");
+  bar.setAttribute("aria-label", "Preferencia de analítica");
+  // A small bottom-left corner toast, not a full-width bar: this site
+  // already has other fixed-position interactive UI sitewide (#sticky-cta
+  // full-width on Manecillas/Samuel sample pages, the [data-intro-enter]
+  // splash gate button on others) and a solid full-width bar fought them
+  // for the same screen region, intercepting clicks meant for them (caught
+  // by qa/manecillas-funnel-browser.mjs, qa/samuel-fragmento-design-cross-
+  // engine.mjs, and qa/privacy-contract-browser.mjs in CI). Rather than
+  // enumerating every such element sitewide, the container itself ignores
+  // pointer events -- only the actual controls (link + two buttons) opt
+  // back in -- so the banner's padding/background/text never intercepts a
+  // click meant for whatever happens to render underneath it.
+  // width uses %, not 100vw: vw is the raw window width and ignores a
+  // reserved scrollbar gutter, so on a page tall enough to scroll this
+  // corner box would sit a few pixels wider than the actual viewport
+  // and overflow horizontally -- caught by qa/sitewide-reflow-browser.mjs's
+  // F.2 200%-text-resize+spacing scenario, which reliably makes every
+  // page tall enough to scroll. % correctly resolves against the
+  // scrollbar-adjusted viewport.
+  bar.style.cssText = "position:fixed;left:.75rem;bottom:.75rem;z-index:9999;display:flex;flex-direction:column;gap:.6rem;width:300px;max-width:calc(100% - 1.5rem);padding:.9rem 1rem;background:#1a1a1a;color:#f5f5f5;font:13px/1.4 system-ui,-apple-system,sans-serif;border-radius:8px;box-shadow:0 4px 16px rgba(0,0,0,.3);pointer-events:none;";
+
+  const text = document.createElement("p");
+  text.style.cssText = "margin:0;";
+  text.textContent = "Usamos analítica (Microsoft Clarity) para ver cómo se usa la web y mejorarla. ¿Aceptas?";
+
+  const link = document.createElement("a");
+  link.href = "/privacidad.html";
+  link.textContent = "Leer la política de privacidad";
+  // padding bumps the link's own hit target to >=24x24 CSS px (WCAG 2.2
+  // SC 2.5.8), which the plain text line (~18px tall) fell short of --
+  // caught by qa/sitewide-reflow-browser.mjs's target-size gate.
+  link.style.cssText = "display:inline-block;padding:.3rem 0;margin:-.3rem 0;color:#9cc9ff;text-decoration:underline;align-self:flex-start;pointer-events:auto;";
+
+  const actions = document.createElement("div");
+  // flex-wrap: the two buttons' rem-based padding doubles under 200% root
+  // font-size (WCAG 1.4.4), which can need more width than the narrow
+  // corner box has to give at 320px -- without wrapping, "Aceptar" got
+  // pushed past the viewport edge instead of onto its own line (caught
+  // by qa/text-resilience-report-gate.mjs's enforced F.2 gate).
+  actions.style.cssText = "display:flex;flex-wrap:wrap;gap:.5rem;";
+
+  const rejectBtn = document.createElement("button");
+  rejectBtn.type = "button";
+  rejectBtn.textContent = "Rechazar";
+  rejectBtn.style.cssText = "padding:.5rem 1rem;border:1px solid #777;border-radius:4px;background:transparent;color:#f5f5f5;cursor:pointer;font:inherit;pointer-events:auto;";
+
+  const acceptBtn = document.createElement("button");
+  acceptBtn.type = "button";
+  acceptBtn.textContent = "Aceptar";
+  acceptBtn.style.cssText = "padding:.5rem 1rem;border:0;border-radius:4px;background:#4a9eff;color:#08182b;font-weight:600;cursor:pointer;font:inherit;pointer-events:auto;";
+
+  function decide(value) {
+    setStoredAnalyticsConsent(value);
+    applyAnalyticsConsent(value);
+    bar.remove();
+  }
+  rejectBtn.addEventListener("click", () => decide("denied"));
+  acceptBtn.addEventListener("click", () => decide("granted"));
+
+  actions.append(rejectBtn, acceptBtn);
+  bar.append(text, link, actions);
+  document.body.appendChild(bar);
+  avoidBottomBarOverlap(bar);
+}
+
+// #sticky-cta (Manecillas/Samuel sample pages) is also left:0;right:0;
+// bottom:0 -- a corner position alone doesn't clear a full-width sibling,
+// only a real vertical offset does. Measured, not hardcoded, because its
+// height varies by viewport and it slides in/out (transform, not
+// display:none) after the reader scrolls a threshold.
+function avoidBottomBarOverlap(bar) {
+  const conflict = document.getElementById("sticky-cta");
+  if (!conflict) return;
+  const reposition = () => {
+    const rect = conflict.getBoundingClientRect();
+    const overlapping = rect.height > 0 && rect.top < window.innerHeight && rect.bottom > 0;
+    bar.style.bottom = overlapping ? `${Math.max(12, window.innerHeight - rect.top + 12)}px` : ".75rem";
+  };
+  reposition();
+  window.addEventListener("resize", reposition);
+  // #sticky-cta slides in/out via a CSS transform transition (220ms), not an
+  // instant class toggle -- reading its rect the instant the class changes
+  // (MutationObserver fires synchronously with the mutation, before the
+  // transition has run) captures its pre-animation position, not where it
+  // ends up. Re-measure once the transition actually finishes, plus a
+  // fallback timer in case a future change drops the transition entirely.
+  conflict.addEventListener("transitionend", reposition);
+  new MutationObserver(() => {
+    reposition();
+    setTimeout(reposition, 260);
+  }).observe(conflict, { attributes: true, attributeFilter: ["class", "style"] });
+}
+
 // Microsoft Clarity: heatmaps and session recordings, UX/conversion insight
 // only (not SEO). Same reach as GoatCounter/Metricool above -- loaded from
 // this shared script so it only runs on the pages whose CSP already allows
@@ -511,19 +651,21 @@ if (!document.querySelector('[data-samuel-quiz]')) {
     y = l.getElementsByTagName(r)[0]; y.parentNode.insertBefore(t, y);
   })(window, document, "clarity", "script", "wxkseslr28");
   // Clarity enforces its own consent gate for EEA/UK/CH visitors (since
-  // 2025-10-31): without any signal at all, those sessions get a
-  // per-pageview ID and no cookie instead of a real cross-page session.
-  // This site asks for no cookie-consent banner (deliberate choice to keep
-  // the reading experience friction-free), which means there is no actual
-  // per-visitor consent to report -- so analytics_Storage must be the
-  // GDPR-safe default of 'denied', not 'granted' on nobody's behalf. Clarity
-  // still loads and still produces heatmaps/recordings, just in that
-  // documented cookieless/per-pageview mode instead of the full cross-page
-  // session; that reduced fidelity is the accepted trade-off for not
-  // running a consent UI. ad_Storage is always denied regardless -- this
-  // project has no Microsoft Ads/UET account linked and no use for
-  // Clarity's identity-sync pixel to Microsoft Advertising.
-  window.clarity('consentv2', { ad_Storage: 'denied', analytics_Storage: 'denied' });
+  // 2025-10-31): without a 'granted' signal, sessions get a per-pageview ID
+  // and no cookie instead of a real cross-page session. Reporting 'granted'
+  // without asking anyone would just be lying about a consent that was
+  // never given (2026-09-08 fix). Reporting 'denied' forever is honest but
+  // throws away exactly the cross-page session data this tool exists for.
+  // The minimal-banner() call below is the real fix: ask once, remember the
+  // answer, and apply whatever the visitor actually chose. Until they
+  // decide, the safe default is 'denied'. ad_Storage is always denied
+  // regardless of the analytics choice -- this project has no Microsoft
+  // Ads/UET account linked and no use for Clarity's identity-sync pixel.
+  const storedConsent = getStoredAnalyticsConsent();
+  applyAnalyticsConsent(storedConsent || "denied");
+  if (!storedConsent) {
+    scheduleTask(showAnalyticsConsentBanner, "user-visible");
+  }
 }
 
 // GoatCounter custom event tracking: send immediately when GC is ready so
