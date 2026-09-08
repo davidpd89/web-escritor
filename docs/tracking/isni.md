@@ -58,3 +58,17 @@ Obras de referencia:
 ## Criterio de cierre
 
 `ISNI_SEARCHED · DUPLICATES_REVIEWED · ISNI_CONFIRMED_OR_BNE_REQUEST_SUBMITTED · PUBLIC_ID_VERIFIED · WIKIDATA_SITE_UPDATED_IF_APPLICABLE · NO_PAID_REGISTRATION`
+
+## Nota de intento (2026-09-08)
+
+Se intentó el paso 1 (búsqueda directa en isni.org) esta noche: el buscador
+público de isni.org está protegido por un challenge de Cloudflare
+("Verifique que es un ser humano"), que un navegador automatizado no debe
+completar — es exactamente el tipo de verificación anti-bot que no hay que
+sortear. La búsqueda directa en isni.org requiere, por tanto, hacerse
+manualmente desde un navegador humano.
+
+No cambia el resto del análisis: la vía BNE (`isni@bne.es`) sigue siendo el
+camino recomendado si no aparece un ISNI ya existente, y sigue siendo un
+correo que el propio autor debería enviar o autorizar explícitamente, no
+algo para automatizar.
