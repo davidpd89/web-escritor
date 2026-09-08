@@ -2,7 +2,36 @@
 
 Fecha de revisión: 2026-09-07
 
-Estado: `RESEARCHED · MODERATED_EDIT_MODEL_CONFIRMED · SAMUEL_HIGH_FIT · READY_FOR_SUBMISSION`
+Estado: `ENTRY_ALREADY_EXISTS · UNVERIFIED_FIELDS_FOUND · CORRECTION_NEEDS_ISFDB_LOGIN`
+
+## Hallazgo (2026-09-08) — la ficha ya existe, con datos sin verificar
+
+Búsqueda directa confirma que **ya hay ficha de Samuel entre mundos y del
+autor en ISFDB** — no hace falta enviar un alta nueva:
+
+- Título: `Samuel entre mundos` — Title Record #3627659 — https://www.isfdb.org/cgi-bin/title.cgi?3627659
+- Autor: `David Porto Díaz` — Author Record #419634 — https://www.isfdb.org/cgi-bin/ea.cgi?419634
+
+Pero varios campos llevan el signo `?` de ISFDB, que marca **dato sin
+verificar por un moderador**:
+
+- `Author: David Porto Díaz?`
+- `Price: €22.00?`
+- `Format: tp?` (tapa blanda, sin confirmar)
+
+El resto de la ficha es correcto: editorial Libros Indie, ISBN-13
+`979-13-87659-77-6`, 422 páginas, idioma español, tipo `NOVEL [juvenile]`,
+nota describiéndolo como "Portal fantasy / young-adult fantasy novel",
+web oficial enlazada. `Las manecillas del recuerdo` no aparece — coherente
+con la recomendación de este mismo documento de no forzarla si no encaja
+claramente en el catálogo de género de ISFDB.
+
+**Para quitar los `?` hace falta una cuenta registrada de ISFDB** (las
+correcciones se envían a moderación, según la documentación oficial ya
+citada abajo) — no se ha intentado crear una cuenta ni enviar ninguna
+corrección esta noche. Si el autor tiene o crea una cuenta ISFDB, el
+siguiente paso es enviar una corrección de publicación confirmando precio
+y formato reales de la edición de Libros Indie.
 
 ## Objetivo
 
