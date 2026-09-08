@@ -2,7 +2,28 @@
 
 Fecha de revisión: 2026-09-07
 
-Estado: `RESEARCHED · WORK_EDITION_MODEL_CONFIRMED · WIKIDATA_INTEROP_CONFIRMED · READY_FOR_EXECUTION`
+Estado: `AUTO_POPULATED_FROM_WIKIDATA · NO_MANUAL_CREATION_NEEDED_FOR_SAMUEL · MANECILLAS_PENDING_ON_WIKIDATA`
+
+## Hallazgo (2026-09-08)
+
+La interoperabilidad con Wikidata confirmada en este documento resulta ser
+más directa de lo esperado: **el buscador de inventaire.io ya devuelve
+tanto al autor como a Samuel entre mundos sin que nadie haya creado nada
+manualmente ahí**. Buscando "David Porto Díaz" aparece directamente:
+
+- `autor/a — David Porto Díaz — Escritor español de fantasía juvenil`
+- `obra — Samuel entre mundos — novela de David Porto Díaz publicada en 2026`
+
+Ambas descripciones coinciden con los datos ya presentes en los items de
+Wikidata auditados hoy (#398 — Q139678851 y Q139915381), confirmando que
+Inventaire lee directamente de Wikidata en tiempo real: no hace falta
+ninguna alta separada mientras el dato de origen (Wikidata) sea correcto.
+
+**Consecuencia práctica**: esta PR queda esencialmente resuelta para
+Samuel entre mundos sin ninguna acción adicional. Para Las manecillas del
+recuerdo, la misma lógica implica que aparecerá automáticamente en
+Inventaire en cuanto exista su item de Wikidata (ver #398, todavía
+pendiente) — no hay nada que hacer aquí primero.
 
 ## Objetivo
 
