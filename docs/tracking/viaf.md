@@ -49,3 +49,13 @@ No añadir un resultado solo por coincidencia de nombre.
 ## Criterio de cierre
 
 `VIAF_AUDITED · CLUSTER_CONFIRMED_OR_NOT_OBSERVED · SOURCE_AUTHORITIES_IDENTIFIED · DUPLICATES_REVIEWED · CORRECTION_OWNER_IDENTIFIED · SITE_GRAPH_UPDATED_IF_APPLICABLE`
+
+## Audición directa (2026-09-08)
+
+Búsqueda ejecutada directamente en viaf.org ("All Fields" → "David Porto
+Díaz"): **"No headings found"** — confirmado, no existe registro VIAF hoy.
+Esto es coherente con lo esperado: VIAF federa autoridades de bibliotecas
+nacionales (BNE, Library of Congress, etc.), así que la vía de entrada
+sigue siendo indirecta — normalmente aparece automáticamente una vez la
+BNE/ISNI tramitan la autoridad del autor (ver #422 BNE, #421 ISNI), no
+por una alta directa en viaf.org.
