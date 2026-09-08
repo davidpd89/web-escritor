@@ -72,7 +72,7 @@ HASH_LOCK_PATH = ROOT / "scripts" / "asset-version-hashes.json"
 # page still on the old version, or still completely unversioned.
 TRACKED_ASSETS = {
     "script.js": "202609-launch-17",
-    "analytics-consent-banner.js": "9",
+    "analytics-consent-banner.js": "10",
     "styles.css": "202609-launch-1",
     "v1-fonts.css": "1",
     "v1-home.css": "11",

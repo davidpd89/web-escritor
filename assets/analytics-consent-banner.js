@@ -141,7 +141,13 @@ function showAnalyticsConsentBanner() {
   // which is worth knowing if this ever gets a compliance review, but it's
   // the look that was explicitly asked for over the initially-shipped
   // equal-weight version.
-  const btnBaseCss = "padding:.5rem .55rem;min-height:var(--control-min-height,44px);border-radius:var(--radius-control,4px);font:600 .76rem/1.2 var(--font-ui,inherit);cursor:pointer;pointer-events:auto;white-space:nowrap;";
+  // No white-space:nowrap here (on purpose): at 320px+200%-text-zoom, even
+  // after flex-wrap above puts each button on its own row, "Rechazo
+  // ayudarte" at doubled font size is still wider than the available
+  // width, so the button itself must be able to break onto two lines
+  // (min-width:0 lets it actually shrink instead of keeping nowrap's
+  // full-phrase content-based minimum) -- caught by the same F.2 gate.
+  const btnBaseCss = "padding:.5rem .55rem;min-height:var(--control-min-height,44px);min-width:0;border-radius:var(--radius-control,4px);font:600 .76rem/1.2 var(--font-ui,inherit);cursor:pointer;pointer-events:auto;text-align:center;";
 
   const rejectBtn = document.createElement("button");
   rejectBtn.type = "button";
