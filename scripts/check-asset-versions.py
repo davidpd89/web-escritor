@@ -94,7 +94,7 @@ TRACKED_ASSETS = {
     "newsletter-general.js": "2",
     "v1-tools.css": "4",
     "v1-tools-identity.css": "1",
-    "v1-editorial.css": "2",
+    "v1-editorial.css": "3",
     "v1-editorial.js": "1",
     "newsletter-popup.css": "1",
     "newsletter-popup.js": "2",
