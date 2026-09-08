@@ -2,7 +2,92 @@
 
 Fecha de investigación: **2026-09-07**  
 PR owner: **#398 · `tracking/wikidata`**  
-Estado: **RESEARCHED · ENTITY_GRAPH_PLAN_READY · LIVE_ITEM_AUDIT_PENDING**
+Estado: **PHASE_1_2_3_AUDITED · PERSONAL_DATA_FLAG_FOR_AUTHOR_REVIEW · MANECILLAS_ITEM_NOT_YET_CREATED**
+
+## Auditoría en vivo (2026-09-08, solo lectura — sin editar nada)
+
+Fase 1 (inventario) y fase 2/3 (comparación autor/obras) completadas
+abriendo directamente cada item público. **No se ha guardado ningún
+cambio en Wikidata** — esto es una auditoría, no ejecución, a propósito:
+crear/editar items es una acción sobre una wiki pública que este proyecto
+ya trata con cautela (ver BookBrainz), y esta ronda concreta destapó algo
+que de verdad necesita que lo mires tú antes de que nadie edite nada.
+
+### ⚠️ Hallazgo que requiere tu atención: datos personales sin ninguna referencia
+
+El item del autor (Q139678851) tiene en vivo, **hoy**, estas declaraciones
+sin ni una sola fuente citada (`0 references`):
+
+- **fecha de nacimiento: 31 de julio de 1989** (fecha completa y exacta)
+- **educated at: Sacred Heart** (centro educativo concreto)
+- sex or gender: male
+- country of citizenship: Spain
+- native language: Spanish
+
+Esto no lo ha añadido esta sesión — ya estaba así al auditar. Pero es
+exactamente lo que este mismo documento (sección 5) ya advertía que no
+se debía hacer: *"no añadir fecha completa de nacimiento si no está
+claramente publicada y respaldada"*. Una fecha de nacimiento exacta y un
+centro educativo concreto, sin ninguna fuente, en un item público sobre
+una persona viva, es un dato que **tú** deberías revisar: ¿es correcto?
+¿lo quieres público con ese nivel de detalle? ¿hay una fuente real que
+citar, o preferirías que se retirase o se dejara solo el año?
+
+No se ha tocado nada de esto — es tu decisión, no la de Claude.
+
+Lo que sí está bien en el autor: `official website`, ORCID (con
+referencia), Goodreads author ID, Amazon author ID, `award received`
+(Letras Como Espada, con referencia), occupation (writer/author). Falta
+una etiqueta/descripción en español (solo existe en inglés) — un cambio
+de bajo riesgo si algún día se quiere completar.
+
+### Noveris (Q139927664)
+
+Existe, pero la interfaz en inglés lo muestra sin etiqueta ni descripción
+("No label defined" / "No description defined"); el buscador sí devuelve
+una descripción en español ("Ciudad dimensional ficticia en la novela
+Samuel entre mundos"), lo que sugiere que la etiqueta/descripción en
+español existe pero la inglesa no — modelo de idiomas incompleto, no un
+error grave. `instance of: fictional city`, `creator: David Porto Díaz`,
+`present in work: Samuel entre mundos`, `official website` — todo
+correcto, pero sin referencias.
+
+### Samuel entre mundos — YA CREADO (2025 → hoy 2026-09-08)
+
+Encontrados y auditados, ambos creados hoy mismo:
+
+- **Work**: `Samuel entre mundos` — Q139915381
+- **Edition**: `Samuel entre mundos (first edition)` — Q139945987
+
+El modelo sigue correctamente el patrón work/edition de WikiProject
+Books: `instance of: literary work` / `version, edition or translation`,
+`author`, `publisher: Libros Indie`, `ISBN-13: 979-13-87659-77-6`,
+`number of pages: 422`, género (`portal fantasy`, `young adult
+literature`), fecha de publicación diciembre 2025, idioma español. Sin
+etiqueta en español (solo inglés) en ninguno de los dos, y la mayoría de
+declaraciones están sin referencia — mismo patrón que el autor.
+
+### Las manecillas del recuerdo — NO CREADO todavía
+
+Búsqueda directa por título: **sin resultados** — Wikidata ofrece
+literalmente crear el item. No se ha creado nada esta noche: crear un
+work + edition nuevos con el modelo exacto de la sección 4 de este
+documento (evitando el mismo error de ISBN/páginas que Samuel, y
+resolviendo antes si procede separar edición papel/Kindle) merece una
+sesión dedicada, no un tramo final de una noche ya muy larga. El
+procedimiento del documento original sigue siendo válido tal cual.
+
+## Qué falta (fases 4-6 del documento original)
+
+- Añadir etiquetas/descripciones en español al autor, a Noveris y a los
+  dos items de Samuel.
+- Decidir qué hacer con las declaraciones personales sin referencia del
+  autor (ver hallazgo de arriba) — **esto primero, antes que nada más**.
+- Crear el work (+ edition/s) de Las manecillas del recuerdo siguiendo el
+  modelo de la sección 4.
+- Añadir referencias a las declaraciones que hoy tienen `0 references`.
+- Una vez estable, añadir el QID de Samuel a `Book.sameAs` en
+  `libros/samuel-entre-mundos/index.html` (hoy no lo tiene).
 
 ## Objetivo
 
