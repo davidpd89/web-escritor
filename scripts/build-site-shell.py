@@ -90,15 +90,20 @@ INLINE_SCRIPT_RE = re.compile(
 #     comodin de Microsoft es la opcion correcta, no un atajo. Mismo
 #     alcance que GoatCounter/Metricool arriba, sin ampliar a las paginas
 #     de herramientas (CSP local mas estricta).
-#   - img-src c.bing.com: Clarity tambien dispara, por su cuenta, un pixel
-#     de sincronizacion de identidad hacia c.bing.com/c.gif (parametro
-#     RedC=c.clarity.ms) -- confirmado en vivo en CI, bloqueado hasta
-#     anadir este host exacto (no rota como *.clarity.ms, así que no lleva
-#     comodin). Esto es infraestructura de Microsoft para enlazar Clarity
-#     con Bing/Microsoft Advertising, no analitica de UX -- si en el
-#     futuro se decide que no es aceptable, la via correcta es desactivar
-#     ese enlace desde la configuracion del proyecto en clarity.microsoft.com
-#     (no solo bloquearlo aqui, que dejaria el pixel disparandose en vano).
+#   - img-src c.bing.com: en su momento Clarity disparaba, por su cuenta, un
+#     pixel de sincronizacion de identidad hacia c.bing.com/c.gif (parametro
+#     RedC=c.clarity.ms) incluso con ad_Storage denied -- de ahi que este
+#     host se anadiera explicitamente (no rota como *.clarity.ms, asi que
+#     no lleva comodin). Reverificado en vivo en produccion el 2026-09-08
+#     (Performance Resource Timing tras el cambio a analytics_Storage
+#     tambien denied): cero peticiones a *.bing.com, solo a.clarity.ms
+#     /collect. Se deja la entrada en la CSP por si Clarity reactiva ese
+#     comportamiento (p. ej. tras un cambio de su lado), en vez de retirarla
+#     y arriesgarse a que un pixel legitimamente bloqueado por CSP se
+#     confunda con un error. Verificar la integracion "Microsoft Ads" en
+#     clarity.microsoft.com sigue siendo la referencia: no esta conectada
+#     en este proyecto, asi que este pixel (cuando aparece) no viene de una
+#     integracion propia.
 #   - connect-src subscribe.davidpd89.workers.dev: Worker de alta de
 #     newsletter (NEWSLETTER_CONFIG.endpoint en script.js).
 #   - El asistente usa rutas same-origin (/api/assistant*), cubiertas por 'self'.

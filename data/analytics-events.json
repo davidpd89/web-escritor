@@ -23,7 +23,8 @@
 
     { "name": "explorar-noveris",    "action": "navigate_editorial", "context": "noveris",    "note": "Clic a cualquier enlace /universo/noveris/." },
     { "name": "ver-prensa",          "action": "navigate_editorial", "context": "prensa",     "note": "Clic a cualquier enlace /prensa*." },
-    { "name": "download-press-kit",  "action": "download_resource",  "context": "press-kit",  "note": "Clic a cualquier enlace /press-kit/." }
+    { "name": "download-press-kit",  "action": "download_resource",  "context": "press-kit",  "note": "Clic a cualquier enlace /press-kit/." },
+    { "name": "google-preferred-source", "action": "external_engagement", "context": "google-preferred-sources", "note": "Clic al CTA de /cuaderno/ hacia google.com/preferences/source -- criterio de cierre de docs/pending/google-preferred-sources.md, mide si alguien usa el enlace." }
   ],
   "article_bridge": {
     "note": "assets/*.js (herramientas del Cuaderno y afines) nunca llaman a _gcEvent directamente: disparan un CustomEvent 'dp:analytics' local con {event:<nombre_snake_case>, target?}, y _dpAnalyticsBridge() en script.js lo valida (regex /^[a-z0-9_-]{1,64}$/i) y lo reenvia a GoatCounter como 'article-<nombre_snake_case>'. El checker valida el <nombre_snake_case> tal como aparece en cada fichero (antes del prefijo), no el nombre final con prefijo, porque asi es como se emite en el codigo fuente.",
