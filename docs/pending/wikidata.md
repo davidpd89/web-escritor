@@ -589,3 +589,19 @@ Caso completo:
 Caso en que una obra no deba tener item:
 
 `NOTABILITY_CHECKED · NO_PROMOTIONAL_ITEM_CREATED · AUTHOR_GRAPH_CLEAN · EXTERNAL_DEPENDENCY_RECORDED`
+
+## Nota de acceso (2026-09-08, segunda ronda)
+
+Se consideró crear directamente el work/edition de Las manecillas del
+recuerdo copiando el patrón ya validado de Samuel (Q139915381 /
+Q139945987). Antes de tocar nada se comprobó el estado de sesión en
+wikidata.org: **no hay ninguna cuenta logueada** en esta sesión. Los
+items existentes de Samuel fueron creados por una cuenta autenticada; 
+crear el equivalente de Manecillas de forma anónima (por IP) sería
+inconsistente con eso y, en la práctica, este tipo de contribución
+sustancial y no vinculada a una cuenta tiende a recibir más escrutinio y
+reversión en wikis colaborativas. Se ha dejado sin crear.
+
+**Para completarlo hace falta iniciar sesión en Wikidata** con la cuenta
+que ya se usó para crear los items de Samuel (o una nueva) antes de que
+Claude continúe con la fase 3 de este documento.
