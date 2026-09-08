@@ -2,7 +2,30 @@
 
 Fecha de investigación: **2026-09-07**  
 PR owner: **#463 · `tracking/ahrefs-free`**  
-Estado: **RESEARCHED · FREE_SCOPE_VERIFIED · READY_FOR_AUTHENTICATED_EXECUTION**
+Estado: **EXECUTED · FREE_TIER_CONFIRMED_NO_PAYWALL · OWNERSHIP_VERIFICATION_PENDING_DEPLOY**
+
+## Ejecución (2026-09-08)
+
+Con la sesión de Ahrefs ya logueada por el autor: el flujo "Create project" →
+Ahrefs Webmaster Tools no pide tarjeta ni pantalla de pago en ningún paso;
+solo pide (paso 2) instalar opcionalmente "Ahrefs Web Analytics" -- un script
+de terceros nuevo en el sitio -- que se ha dejado sin instalar a propósito
+("Continue without analytics") porque añadir un tracker de terceros al sitio
+en producción es una decisión que corresponde al autor, no algo a decidir
+de forma autónoma.
+
+Verificación de propiedad elegida: **HTML tag** (de las 4 opciones -- Google
+Search Console, DNS record, HTML file, HTML tag -- es la única verificable
+sin acceso a Google/DNS del autor). Se añadió a `index.html`:
+
+```html
+<meta name="ahrefs-site-verification" content="41735c3561cc3c682929cae030ab01f0e684bc6aa43b9a0a036282e4696a10d8">
+```
+
+Pendiente: una vez esta rama se mergee y despliegue, volver a Ahrefs →
+Projects manager → davidportodiaz.com → "Recheck status" para completar la
+verificación. Sin necesidad de intervención del autor salvo ese clic (o se
+completa desde esta misma sesión tras el deploy).
 
 ## Objetivo
 
