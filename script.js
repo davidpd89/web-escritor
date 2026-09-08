@@ -479,6 +479,91 @@ document.querySelectorAll(".faq-question").forEach((btn) => {
   });
 })();
 
+// Minimal analytics-consent banner (2026-09-08): a small, non-blocking bar,
+// not a full cookie-CMP -- the site deliberately has no banner for anything
+// else (GoatCounter/Metricool never set cookies regardless of any choice
+// here). Shown once; the choice persists in localStorage. This is the only
+// legitimate way to get Clarity's full cross-page session data: reporting
+// 'granted' without ever asking would misrepresent consent that was never
+// collected, which is exactly the bug fixed earlier today. Declared here,
+// above the Clarity block below that calls these on page load -- they were
+// originally declared after it, which put ANALYTICS_CONSENT_KEY in the
+// temporal dead zone at the exact moment getStoredAnalyticsConsent() needed
+// it; the ReferenceError was silently swallowed by that function's own
+// try/catch (meant for storage-disabled browsers), so it always returned
+// null and the banner reappeared on every load even after a real choice was
+// stored. Caught via a real headless-browser test, not the sandboxed
+// preview tool, which didn't reproduce it -- see PR description.
+const ANALYTICS_CONSENT_KEY = "dp-analytics-consent";
+
+function getStoredAnalyticsConsent() {
+  try {
+    const v = localStorage.getItem(ANALYTICS_CONSENT_KEY);
+    return v === "granted" || v === "denied" ? v : null;
+  } catch {
+    return null;
+  }
+}
+
+function setStoredAnalyticsConsent(value) {
+  try {
+    localStorage.setItem(ANALYTICS_CONSENT_KEY, value);
+  } catch {
+    // Storage blocked (private mode, disabled storage, etc.) -- the choice
+    // just won't be remembered across visits; applyAnalyticsConsent still
+    // runs for this pageview.
+  }
+}
+
+function applyAnalyticsConsent(value) {
+  if (window.clarity) {
+    window.clarity("consentv2", { ad_Storage: "denied", analytics_Storage: value });
+  }
+}
+
+function showAnalyticsConsentBanner() {
+  if (document.querySelector("[data-analytics-consent-banner]")) return;
+  const bar = document.createElement("div");
+  bar.setAttribute("data-analytics-consent-banner", "");
+  bar.setAttribute("role", "region");
+  bar.setAttribute("aria-label", "Preferencia de analítica");
+  bar.style.cssText = "position:fixed;left:0;right:0;bottom:0;z-index:9999;display:flex;flex-wrap:wrap;gap:.75rem;align-items:center;justify-content:center;padding:.85rem 1.1rem;background:#1a1a1a;color:#f5f5f5;font:14px/1.4 system-ui,-apple-system,sans-serif;box-shadow:0 -2px 10px rgba(0,0,0,.25);";
+
+  const text = document.createElement("p");
+  text.style.cssText = "margin:0;flex:1 1 260px;max-width:46ch;";
+  text.textContent = "Usamos analítica (Microsoft Clarity) para ver cómo se usa la web y mejorarla. ¿Aceptas?";
+
+  const link = document.createElement("a");
+  link.href = "/privacidad.html";
+  link.textContent = "Más información";
+  link.style.cssText = "color:#9cc9ff;text-decoration:underline;flex:0 0 auto;";
+
+  const actions = document.createElement("div");
+  actions.style.cssText = "display:flex;gap:.5rem;flex:0 0 auto;";
+
+  const rejectBtn = document.createElement("button");
+  rejectBtn.type = "button";
+  rejectBtn.textContent = "Rechazar";
+  rejectBtn.style.cssText = "padding:.5rem 1rem;border:1px solid #777;border-radius:4px;background:transparent;color:#f5f5f5;cursor:pointer;font:inherit;";
+
+  const acceptBtn = document.createElement("button");
+  acceptBtn.type = "button";
+  acceptBtn.textContent = "Aceptar";
+  acceptBtn.style.cssText = "padding:.5rem 1rem;border:0;border-radius:4px;background:#4a9eff;color:#08182b;font-weight:600;cursor:pointer;font:inherit;";
+
+  function decide(value) {
+    setStoredAnalyticsConsent(value);
+    applyAnalyticsConsent(value);
+    bar.remove();
+  }
+  rejectBtn.addEventListener("click", () => decide("denied"));
+  acceptBtn.addEventListener("click", () => decide("granted"));
+
+  actions.append(rejectBtn, acceptBtn);
+  bar.append(text, link, actions);
+  document.body.appendChild(bar);
+}
+
 // Microsoft Clarity: heatmaps and session recordings, UX/conversion insight
 // only (not SEO). Same reach as GoatCounter/Metricool above -- loaded from
 // this shared script so it only runs on the pages whose CSP already allows
@@ -511,19 +596,21 @@ if (!document.querySelector('[data-samuel-quiz]')) {
     y = l.getElementsByTagName(r)[0]; y.parentNode.insertBefore(t, y);
   })(window, document, "clarity", "script", "wxkseslr28");
   // Clarity enforces its own consent gate for EEA/UK/CH visitors (since
-  // 2025-10-31): without any signal at all, those sessions get a
-  // per-pageview ID and no cookie instead of a real cross-page session.
-  // This site asks for no cookie-consent banner (deliberate choice to keep
-  // the reading experience friction-free), which means there is no actual
-  // per-visitor consent to report -- so analytics_Storage must be the
-  // GDPR-safe default of 'denied', not 'granted' on nobody's behalf. Clarity
-  // still loads and still produces heatmaps/recordings, just in that
-  // documented cookieless/per-pageview mode instead of the full cross-page
-  // session; that reduced fidelity is the accepted trade-off for not
-  // running a consent UI. ad_Storage is always denied regardless -- this
-  // project has no Microsoft Ads/UET account linked and no use for
-  // Clarity's identity-sync pixel to Microsoft Advertising.
-  window.clarity('consentv2', { ad_Storage: 'denied', analytics_Storage: 'denied' });
+  // 2025-10-31): without a 'granted' signal, sessions get a per-pageview ID
+  // and no cookie instead of a real cross-page session. Reporting 'granted'
+  // without asking anyone would just be lying about a consent that was
+  // never given (2026-09-08 fix). Reporting 'denied' forever is honest but
+  // throws away exactly the cross-page session data this tool exists for.
+  // The minimal-banner() call below is the real fix: ask once, remember the
+  // answer, and apply whatever the visitor actually chose. Until they
+  // decide, the safe default is 'denied'. ad_Storage is always denied
+  // regardless of the analytics choice -- this project has no Microsoft
+  // Ads/UET account linked and no use for Clarity's identity-sync pixel.
+  const storedConsent = getStoredAnalyticsConsent();
+  applyAnalyticsConsent(storedConsent || "denied");
+  if (!storedConsent) {
+    scheduleTask(showAnalyticsConsentBanner, "user-visible");
+  }
 }
 
 // GoatCounter custom event tracking: send immediately when GC is ready so

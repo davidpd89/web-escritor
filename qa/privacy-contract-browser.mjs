@@ -62,17 +62,43 @@ for(const [route,meta] of Object.entries(expected)){
   const spacing=await capture(route,{width:320,height:720}); await spacing.page.addStyleTag({content:'*{line-height:1.5!important;letter-spacing:.12em!important;word-spacing:.16em!important}p{margin-bottom:2em!important}'}); const spacingOverflow=await spacing.page.evaluate(()=>document.documentElement.scrollWidth-document.documentElement.clientWidth); assert(spacingOverflow<=1,`${route}: text-spacing overflow (${spacingOverflow}px)`); await spacing.context.close();
 }
 
-// Current project contract has no analytics consent manager/banner. Verify state instead of inventing accept/reject UI.
+// Minimal analytics-consent banner (2026-09-08): GoatCounter/Metricool never
+// set cookies regardless of any choice here -- this banner is Clarity-only.
+// A visitor with no stored decision must see it exactly once; their choice
+// (granted/denied) must persist in localStorage and the banner must not
+// reappear on a later visit ("returning user"). Regression coverage for the
+// TDZ bug (const declared after its first use, silently swallowed by the
+// function's own try/catch, so the banner reappeared on every load even
+// after a real choice was stored) -- caught by this exact accept-then-reload
+// sequence in a real headless browser, not the sandboxed preview tool used
+// during development, which never reproduced it.
 const home=await capture('/',{width:390,height:844});
-const consentCount=await home.page.locator('[data-consent],#cookie-banner,.cookie-banner,[class*="consent-banner"]').count();
-assert(consentCount===0,'Unexpected consent manager/banner appeared');
-report.network.consent={managerPresent:false,accept:'N/A — no consent manager in current technical contract',reject:'N/A — no consent manager in current technical contract',persistence:'N/A'};
+const bannerSel='[data-analytics-consent-banner]';
+assert(await home.page.locator(bannerSel).count()===1,'Consent banner missing on first visit');
+assert((await home.page.locator(bannerSel).textContent()||'').includes('Clarity'),'Consent banner does not mention Clarity');
 report.network.homeFresh=[...home.requests];
 report.storage.homeFresh=await storageSnapshot(home.page);
 const goatLoads=home.requests.filter(r=>r.url.includes('gc.zgo.at/count.js')).length;
 const metricoolLoads=home.requests.filter(r=>r.url.includes('tracker.metricool.com/resources/be.js')).length;
 assert(goatLoads<=1,'Duplicate GoatCounter script load'); assert(metricoolLoads<=1,'Duplicate Metricool script load');
+await home.page.getByRole('button',{name:'Aceptar'}).click();
+assert(await home.page.locator(bannerSel).count()===0,'Consent banner did not dismiss after Aceptar');
+const acceptedValue=await home.page.evaluate(()=>localStorage.getItem('dp-analytics-consent'));
+assert(acceptedValue==='granted','Aceptar did not store granted');
+await home.page.reload({waitUntil:'networkidle'});
+assert(await home.page.locator(bannerSel).count()===0,'Consent banner reappeared for a returning user who already accepted');
+assert(await home.page.evaluate(()=>localStorage.getItem('dp-analytics-consent'))==='granted','Accepted choice did not survive reload');
+report.network.consent={managerPresent:true,accept:'stores granted, banner dismissed, does not reappear on reload',reject:'checked in a separate context below',persistence:'localStorage dp-analytics-consent survives reload'};
 await home.context.close();
+
+const rejectFlow=await capture('/',{width:390,height:844});
+await rejectFlow.page.getByRole('button',{name:'Rechazar'}).click();
+assert(await rejectFlow.page.locator(bannerSel).count()===0,'Consent banner did not dismiss after Rechazar');
+assert(await rejectFlow.page.evaluate(()=>localStorage.getItem('dp-analytics-consent'))==='denied','Rechazar did not store denied');
+await rejectFlow.page.reload({waitUntil:'networkidle'});
+assert(await rejectFlow.page.locator(bannerSel).count()===0,'Consent banner reappeared for a returning user who already rejected');
+assert(await rejectFlow.page.evaluate(()=>localStorage.getItem('dp-analytics-consent'))==='denied','Rejected choice did not survive reload');
+await rejectFlow.context.close();
 
 // Newsletter DOI contract: invalid/unchecked block; accepted POST is pending, never confirmed locally.
 // Home no longer carries the footer newsletter fixture; lectores-beta keeps

@@ -1,9 +1,9 @@
 # Release Readiness Evidence V1
 
-- Generated: `2026-09-08T06:01:12.042340+00:00`
-- Branch: `fix/privacy-text-clarity-audit-tracking-2026-09-08`
-- HEAD: `2258ec654b726059ce5ec1645bee971938dfe9ac`
-- Previous SHA (rollback candidate): `7dc1d57893f4aa22cbba8671a6a2ce27b6f7d1aa`
+- Generated: `2026-09-08T08:04:05.019694+00:00`
+- Branch: `feat/minimal-analytics-consent-banner-2026-09-08`
+- HEAD: `42e461efd3ce50a4625f41a6e60a6a92d3251a38`
+- Previous SHA (rollback candidate): `2258ec654b726059ce5ec1645bee971938dfe9ac`
 
 ## Final Status: `STATIC_CHECKS_PASSED`
 
@@ -19,6 +19,7 @@
 ## Commit Window (latest 20)
 
 ```text
+42e461ef Correcciones de seguimiento: privacidad, minors/Clarity, tracking Preferred Sources (#475)
 2258ec65 Corregir consentimiento de analítica de Clarity (denied por defecto) (#473)
 7dc1d578 docs: record 2026-09-08 corrections to the Wikidata/Amazon closure (#474)
 5188ed3c Enlazar Google Preferred Sources en el Cuaderno (#472)
@@ -38,7 +39,6 @@ df32de9c fix: second post-Kindle-launch QA round (newsletter, dynamic CTAs, assi
 f8311aaa feat: activate Las manecillas del recuerdo's Kindle purchase link sitewide (#384)
 a88bfa24 feat: add Comprar CTA to Manecillas Home hero + fix script cache-busting gap (#382)
 d55679af fix: two relative assets/ references survived PR #365's absolute-path cleanup on Home (#383)
-72d11bd4 fix: closing dialogue quote after a number stayed straight, and reset only fired on blank paragraphs (#381)
 ```
 
 ## Required Route Inventory
@@ -243,7 +243,7 @@ test-social-card-article-specific: OK (7 pages checked)
 ## Rollback Procedure (Documented, not executed)
 
 1. Identify incident and freeze merges.
-2. Checkout rollback target SHA: `7dc1d57893f4aa22cbba8671a6a2ce27b6f7d1aa`.
+2. Checkout rollback target SHA: `2258ec654b726059ce5ec1645bee971938dfe9ac`.
 3. Re-run core checks:
 ```bash
 python scripts/check-local-assets.py
