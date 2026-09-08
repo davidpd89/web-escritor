@@ -3,6 +3,7 @@ from __future__ import annotations
 
 import html
 import importlib.util
+import sys
 import tempfile
 import unittest
 from pathlib import Path
@@ -13,6 +14,11 @@ SCRIPT = ROOT / "scripts" / "audit-public-email-exposure.py"
 spec = importlib.util.spec_from_file_location("email_audit", SCRIPT)
 email_audit = importlib.util.module_from_spec(spec)
 assert spec and spec.loader
+# dataclasses (via `from __future__ import annotations`) resolves forward
+# references by looking the module up in sys.modules; a module built with
+# module_from_spec is never registered there on its own, so registering it
+# first is required for `@dataclass` in the loaded script to work at all.
+sys.modules[spec.name] = email_audit
 spec.loader.exec_module(email_audit)
 
 

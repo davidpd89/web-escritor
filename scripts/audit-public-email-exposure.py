@@ -29,7 +29,7 @@ AUTHOR_EMAIL_CODES = (
 AUTHOR_EMAIL = "".join(chr(code) for code in AUTHOR_EMAIL_CODES)
 MAILTO = f"mailto:{AUTHOR_EMAIL}"
 
-PUBLIC_SUFFIXES = {".html", ".htm", ".xml", ".json", ".txt", ".webmanifest"}
+PUBLIC_SUFFIXES = {".html", ".htm", ".xml", ".json", ".txt", ".webmanifest", ".js", ".mjs"}
 SKIP_DIRS = {
     ".git",
     ".github",
@@ -39,6 +39,24 @@ SKIP_DIRS = {
     "scripts",
     "node_modules",
     "lab",
+}
+
+# Files whose entire purpose is a human or machine reading the contact address
+# programmatically or on paper -- obfuscating them would defeat the file, not
+# protect anyone. This is a short, explicit allowlist, not a directory skip,
+# so a new page can never accidentally inherit the exemption.
+PUBLIC_DISCLOSURE_EXEMPT = {
+    "humans.txt",
+    "llms.txt",
+    "llms-full.txt",
+    "editorial-facts.json",  # build-time source only; not deployed (404 on the live site)
+    "assets/samuel-entre-mundos-ficha-tecnica.txt",  # downloadable press fact sheet
+    "press-kit/david-porto-diaz.json",
+    "press-kit/las-manecillas-del-recuerdo.json",
+    "press-kit/samuel-entre-mundos.json",
+    # Meant to be printed and read offline by book clubs; a click-to-reveal
+    # trigger is meaningless on paper.
+    "clubes-de-lectura/samuel-entre-mundos/guia-imprimible/index.html",
 }
 
 
@@ -72,7 +90,10 @@ def iter_public_files(root: Path):
     for path in root.rglob("*"):
         if not path.is_file() or path.suffix.lower() not in PUBLIC_SUFFIXES:
             continue
-        if any(part in SKIP_DIRS for part in path.relative_to(root).parts[:-1]):
+        rel = path.relative_to(root)
+        if any(part in SKIP_DIRS for part in rel.parts[:-1]):
+            continue
+        if rel.as_posix() in PUBLIC_DISCLOSURE_EXEMPT:
             continue
         yield path
 
