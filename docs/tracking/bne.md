@@ -2,7 +2,37 @@
 
 Fecha de investigación: **2026-09-07**  
 PR owner: **#422 · `tracking/bne`**  
-Estado: **RESEARCHED · PUBLIC_BNE_RECORD_NOT_OBSERVED_WITH_CURRENT_SEARCH · AUTHORITY_ID_NOT_VERIFIED · VIAF_ISNI_NOT_VERIFIED · EXTERNAL_ACTION_PENDING**
+Estado: **CATALOG_QUERIED_DIRECTLY · CONFIRMED_ABSENT_NOT_JUST_UNOBSERVED · DEPOSITO_LEGAL_LIKELY_PENDING · EXTERNAL_ACTION_PENDING**
+
+## Consulta directa al catálogo (2026-09-08)
+
+La investigación anterior se basó en búsqueda web general y explícitamente
+no descartaba que el catálogo tuviera el registro sin exponerlo bien al
+buscador. Esta ronda consulta **directamente** `catalogo.bne.es`
+(interfaz Primo/Ex Libris, `vid=34BNE_INST:CATALOGO`), que es justo lo
+que este documento pedía hacer antes de concluir ausencia:
+
+- Búsqueda por `David Porto Díaz`: 11 resultados, ninguno relacionado —
+  todos son coincidencias sueltas de "David", "Porto" o "Díaz" como
+  fragmentos de nombre en obras de cine/audio/tesis sin relación.
+- Búsqueda por ISBN `9791387659776` (Samuel entre mundos): **0
+  resultados** — "No se encontraron registros".
+- Búsqueda por ISBN `9798905149351` (Manecillas, papel): **0
+  resultados** — "No se encontraron registros".
+
+Esto ya no es `NOT_OBSERVED_WITH_CURRENT_SEARCH` (un buscador general que
+podría no exponerlo bien): es una consulta directa al catálogo por ISBN
+exacto, con resultado limpio y explícito de "no encontrado". La
+interpretación más probable es que el **Depósito Legal** de ninguno de
+los dos libros se ha completado o procesado todavía en el catálogo BNE —
+en España esto suele ser responsabilidad de la editorial (Libros Indie /
+Monza Ediciones), no algo que el autor o esta sesión puedan completar
+directamente desde aquí.
+
+**Siguiente paso real**: confirmar con Libros Indie y Monza Ediciones si
+el Depósito Legal de sus ISBN se tramitó, y si no, que lo tramiten — esto
+sigue bloqueado en las editoriales, coordinable con #428/#404/#429, igual
+que la discrepancia de páginas ya documentada ahí.
 
 ## Objetivo
 
