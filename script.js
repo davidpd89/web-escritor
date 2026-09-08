@@ -538,7 +538,14 @@ function showAnalyticsConsentBanner() {
   // pointer events -- only the actual controls (link + two buttons) opt
   // back in -- so the banner's padding/background/text never intercepts a
   // click meant for whatever happens to render underneath it.
-  bar.style.cssText = "position:fixed;left:.75rem;bottom:.75rem;z-index:9999;display:flex;flex-direction:column;gap:.6rem;width:min(300px,calc(100vw - 1.5rem));padding:.9rem 1rem;background:#1a1a1a;color:#f5f5f5;font:13px/1.4 system-ui,-apple-system,sans-serif;border-radius:8px;box-shadow:0 4px 16px rgba(0,0,0,.3);pointer-events:none;";
+  // width uses %, not 100vw: vw is the raw window width and ignores a
+  // reserved scrollbar gutter, so on a page tall enough to scroll this
+  // corner box would sit a few pixels wider than the actual viewport
+  // and overflow horizontally -- caught by qa/sitewide-reflow-browser.mjs's
+  // F.2 200%-text-resize+spacing scenario, which reliably makes every
+  // page tall enough to scroll. % correctly resolves against the
+  // scrollbar-adjusted viewport.
+  bar.style.cssText = "position:fixed;left:.75rem;bottom:.75rem;z-index:9999;display:flex;flex-direction:column;gap:.6rem;width:300px;max-width:calc(100% - 1.5rem);padding:.9rem 1rem;background:#1a1a1a;color:#f5f5f5;font:13px/1.4 system-ui,-apple-system,sans-serif;border-radius:8px;box-shadow:0 4px 16px rgba(0,0,0,.3);pointer-events:none;";
 
   const text = document.createElement("p");
   text.style.cssText = "margin:0;";
