@@ -17,8 +17,8 @@ html.v1 .book-date{display:block;color:var(--color-muted);font-size:.88rem}
 html.v1 .book-actions{display:flex;align-items:center;gap:1.25rem;margin-top:2rem;flex-wrap:wrap}
 html.v1 .book-meta-ledger{grid-column:10/-1;align-self:center;margin:0;border-top:1px solid var(--color-border)}
 html.v1 .book-meta-ledger>div{padding:.9rem 0;border-bottom:1px solid var(--color-border)}
-html.v1 .book-meta-ledger dt{font-size:.66rem;text-transform:uppercase;letter-spacing:.09em;color:var(--color-muted)}
-html.v1 .book-meta-ledger dd{margin:.25rem 0 0;font-family:var(--font-reading);font-size:1rem;line-height:1.3}
+html.v1 .book-meta-ledger dt{font-size:.66rem;text-transform:uppercase;letter-spacing:.09em;color:var(--color-muted);overflow-wrap:anywhere}
+html.v1 .book-meta-ledger dd{margin:.25rem 0 0;font-family:var(--font-reading);font-size:1rem;line-height:1.3;overflow-wrap:anywhere}
 html.v1 .book-anchor-alias{display:block;height:0;scroll-margin-top:96px}
 html.v1 .book-dedication{display:grid;grid-template-columns:3fr minmax(0,6fr) 3fr;gap:var(--grid-gap);align-items:start;padding:clamp(2.8rem,5.6vw,4.8rem) 0;border-top:1px solid var(--color-border)}
 html.v1 .book-dedication>.eyebrow{grid-column:1;margin:0}
