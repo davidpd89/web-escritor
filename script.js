@@ -105,7 +105,6 @@ async function postNewsletter(payload) {
 const STAGING_HOSTNAMES = new Set(["david-porto-preview.davidpd89.workers.dev"]);
 const IS_STAGING = STAGING_HOSTNAMES.has(window.location.hostname);
 const STAGING_DISABLED_MESSAGE = "Formulario desactivado en el entorno de pruebas.";
-// Clarity analytics is intentionally disabled. Keep the project id out of runtime until it is useful again.
 if ("serviceWorker" in navigator) {
   window.addEventListener("load", () => {
     scheduleTask(() => {
@@ -480,6 +479,15 @@ document.querySelectorAll(".faq-question").forEach((btn) => {
   });
 })();
 
+// Analytics-consent banner, storage and preferences control now live in
+// assets/analytics-consent-banner.js (split out 2026-09-08 so the legal
+// pages can load a working "Preferencias de analítica" control without also
+// pulling in the Clarity/GoatCounter/Metricool loaders below -- see that
+// file's own header comment). Every page that loads this script loads that
+// one first, so getStoredAnalyticsConsent/applyAnalyticsConsent/
+// showAnalyticsConsentBanner are already global by the time the Clarity
+// block below calls them.
+
 // Microsoft Clarity: heatmaps and session recordings, UX/conversion insight
 // only (not SEO). Same reach as GoatCounter/Metricool above -- loaded from
 // this shared script so it only runs on the pages whose CSP already allows
@@ -492,12 +500,41 @@ document.querySelectorAll(".faq-question").forEach((btn) => {
 // recording is sitewide by nature -- it would capture exactly the
 // interaction that promise covers -- so this is the one page it must not
 // load on, rather than something to explain away after the fact.
+//
+// Microsoft's Clarity terms bar it from sites/apps "directed to" or
+// "targeted at" users under 18 -- reviewed 2026-09-08 against every page
+// on this site, not just the quiz: the novels are YA fantasy, but the
+// *website* (author bio, book sales, blog, reading-club guides) is a
+// general-audience/adult-facing property, the same distinction Microsoft's
+// own guidance draws from "may incidentally receive traffic from minors".
+// The one exception already excluded above is the direct-interaction quiz.
+// clubes-de-lectura/samuel-entre-mundos/ looked like a second candidate at
+// a glance, but its own JSON-LD declares audienceType "Coordinadores de
+// clubes de lectura, profesores de secundaria" -- it's a resource page
+// for teachers/librarians, not a page minors use directly. No other page
+// is framed as a direct child-facing product.
 if (!document.querySelector('[data-samuel-quiz]')) {
   (function (c, l, a, r, i, t, y) {
     c[a] = c[a] || function () { (c[a].q = c[a].q || []).push(arguments); };
     t = l.createElement(r); t.async = 1; t.src = "https://www.clarity.ms/tag/" + i;
     y = l.getElementsByTagName(r)[0]; y.parentNode.insertBefore(t, y);
   })(window, document, "clarity", "script", "wxkseslr28");
+  // Clarity enforces its own consent gate for EEA/UK/CH visitors (since
+  // 2025-10-31): without a 'granted' signal, sessions get a per-pageview ID
+  // and no cookie instead of a real cross-page session. Reporting 'granted'
+  // without asking anyone would just be lying about a consent that was
+  // never given (2026-09-08 fix). Reporting 'denied' forever is honest but
+  // throws away exactly the cross-page session data this tool exists for.
+  // The minimal-banner() call below is the real fix: ask once, remember the
+  // answer, and apply whatever the visitor actually chose. Until they
+  // decide, the safe default is 'denied'. ad_Storage is always denied
+  // regardless of the analytics choice -- this project has no Microsoft
+  // Ads/UET account linked and no use for Clarity's identity-sync pixel.
+  const storedConsent = getStoredAnalyticsConsent();
+  applyAnalyticsConsent(storedConsent ? storedConsent.value : "denied");
+  if (!storedConsent) {
+    scheduleTask(showAnalyticsConsentBanner, "user-visible");
+  }
 }
 
 // GoatCounter custom event tracking: send immediately when GC is ready so
@@ -592,6 +629,18 @@ document.addEventListener("click", (event) => {
     _gcEvent("leer-fragmento-manecillas", "Clic: Leer fragmento (Las manecillas del recuerdo)");
   } else if (href.includes("/fragmento/")) {
     _gcEvent("leer-fragmento-samuel", "Clic: Leer fragmento (Samuel entre mundos)");
+  }
+});
+
+// Google Preferred Sources CTA (docs/pending/google-preferred-sources.md
+// closure criterion: verify anyone actually uses the link, not just that
+// it's on the page).
+document.addEventListener("click", (event) => {
+  const link = event.target && event.target.closest ? event.target.closest('a[href]') : null;
+  if (!link) return;
+  const href = link.getAttribute("href") || "";
+  if (href.includes("google.com/preferences/source")) {
+    _gcEvent("google-preferred-source", "Clic: marcar como fuente preferida de Google");
   }
 });
 
