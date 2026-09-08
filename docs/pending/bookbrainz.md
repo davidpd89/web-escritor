@@ -2,7 +2,48 @@
 
 Fecha de revisión: 2026-09-07
 
-Estado: `RESEARCHED · ENTITY_MODEL_CONFIRMED · OPEN_DATA_VALUE_CONFIRMED · READY_FOR_EXECUTION`
+Estado: `PARTIALLY_EXECUTED · AUTHOR_CREATED · WORKS_EDITIONS_PENDING`
+
+## Ejecución (2026-09-08)
+
+Con sesión de BookBrainz logueada por el autor (usuario "David Porto Díaz"):
+
+1. Búsqueda previa (paso 1 del procedimiento) confirmada sin duplicados:
+   "David Porto Díaz", "Samuel entre mundos", "Las manecillas del recuerdo",
+   los tres ISBN (`9791387659776`, `9798905149351`, `9798906781925`),
+   "Libros Indie" y "Monza Ediciones" -- ninguno existía ya en BookBrainz.
+2. **Author creado**: David Porto Díaz
+   - BBID: `d220d27f-0a62-458a-9d94-2b48ca2656f1`
+   - URL: https://bookbrainz.org/author/d220d27f-0a62-458a-9d94-2b48ca2656f1
+   - Type: Person · Language: Spanish
+   - Identifiers: ORCID `0009-0005-9089-3782`, Wikidata `Q139678851`
+3. Al continuar hacia la creación del primer Work ("Samuel entre mundos"),
+   el clasificador de permisos de la sesión de Claude Code bloqueó las
+   siguientes acciones de automatización de navegador (no fue un error de
+   BookBrainz ni del formulario) -- probablemente un límite razonable sobre
+   el volumen de ediciones automatizadas a una wiki pública en una sola
+   sesión. La ejecución se detuvo ahí en vez de forzar el bloqueo.
+
+### Pendiente (siguiendo el mismo procedimiento del documento original)
+
+- Crear Work "Samuel entre mundos" (writer: el Author de arriba).
+- Crear Edition de Samuel: tapa blanda, ISBN `9791387659776`, publisher
+  Libros Indie, año 2025. No fijar páginas (queda abierta la discrepancia
+  422/412 ya señalada en el documento original).
+- Crear Work "Las manecillas del recuerdo" (writer: el Author de arriba).
+- Crear Edition Group + Edition papel (ISBN `9798905149351`, Monza
+  Ediciones, 2026-09-03) y Edition ebook (ISBN `9798906781925`, Monza
+  Ediciones, 2026-08-12) de Manecillas, ambas en el mismo Edition Group.
+  No fijar páginas mientras siga abierta la discrepancia 272/266.
+- Crear/vincular publishers Libros Indie y Monza Ediciones (buscar antes
+  de crear, ya confirmado que no existen todavía).
+- Una vez estable: valorar añadir el BBID del Author a `Person.sameAs` en
+  el JSON-LD del sitio.
+
+Todo lo anterior puede repetirse en una sesión nueva siguiendo el
+"Procedimiento para Claude" original de este documento tal cual, ya que
+sigue siendo válido -- solo falta ejecutarlo desde el paso 3 (Works) en
+adelante.
 
 ## Objetivo
 
