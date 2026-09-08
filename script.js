@@ -491,6 +491,19 @@ document.querySelectorAll(".faq-question").forEach((btn) => {
 // recording is sitewide by nature -- it would capture exactly the
 // interaction that promise covers -- so this is the one page it must not
 // load on, rather than something to explain away after the fact.
+//
+// Microsoft's Clarity terms bar it from sites/apps "directed to" or
+// "targeted at" users under 18 -- reviewed 2026-09-08 against every page
+// on this site, not just the quiz: the novels are YA fantasy, but the
+// *website* (author bio, book sales, blog, reading-club guides) is a
+// general-audience/adult-facing property, the same distinction Microsoft's
+// own guidance draws from "may incidentally receive traffic from minors".
+// The one exception already excluded above is the direct-interaction quiz.
+// clubes-de-lectura/samuel-entre-mundos/ looked like a second candidate at
+// a glance, but its own JSON-LD declares audienceType "Coordinadores de
+// clubes de lectura, profesores de secundaria" -- it's a resource page
+// for teachers/librarians, not a page minors use directly. No other page
+// is framed as a direct child-facing product.
 if (!document.querySelector('[data-samuel-quiz]')) {
   (function (c, l, a, r, i, t, y) {
     c[a] = c[a] || function () { (c[a].q = c[a].q || []).push(arguments); };
@@ -605,6 +618,18 @@ document.addEventListener("click", (event) => {
     _gcEvent("leer-fragmento-manecillas", "Clic: Leer fragmento (Las manecillas del recuerdo)");
   } else if (href.includes("/fragmento/")) {
     _gcEvent("leer-fragmento-samuel", "Clic: Leer fragmento (Samuel entre mundos)");
+  }
+});
+
+// Google Preferred Sources CTA (docs/pending/google-preferred-sources.md
+// closure criterion: verify anyone actually uses the link, not just that
+// it's on the page).
+document.addEventListener("click", (event) => {
+  const link = event.target && event.target.closest ? event.target.closest('a[href]') : null;
+  if (!link) return;
+  const href = link.getAttribute("href") || "";
+  if (href.includes("google.com/preferences/source")) {
+    _gcEvent("google-preferred-source", "Clic: marcar como fuente preferida de Google");
   }
 });
 
