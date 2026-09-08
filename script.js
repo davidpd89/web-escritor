@@ -527,29 +527,40 @@ function showAnalyticsConsentBanner() {
   bar.setAttribute("data-analytics-consent-banner", "");
   bar.setAttribute("role", "region");
   bar.setAttribute("aria-label", "Preferencia de analítica");
-  bar.style.cssText = "position:fixed;left:0;right:0;bottom:0;z-index:9999;display:flex;flex-wrap:wrap;gap:.75rem;align-items:center;justify-content:center;padding:.85rem 1.1rem;background:#1a1a1a;color:#f5f5f5;font:14px/1.4 system-ui,-apple-system,sans-serif;box-shadow:0 -2px 10px rgba(0,0,0,.25);";
+  // A small bottom-left corner toast, not a full-width bar: this site
+  // already has other fixed-position interactive UI sitewide (#sticky-cta
+  // full-width on Manecillas/Samuel sample pages, the [data-intro-enter]
+  // splash gate button on others) and a solid full-width bar fought them
+  // for the same screen region, intercepting clicks meant for them (caught
+  // by qa/manecillas-funnel-browser.mjs, qa/samuel-fragmento-design-cross-
+  // engine.mjs, and qa/privacy-contract-browser.mjs in CI). Rather than
+  // enumerating every such element sitewide, the container itself ignores
+  // pointer events -- only the actual controls (link + two buttons) opt
+  // back in -- so the banner's padding/background/text never intercepts a
+  // click meant for whatever happens to render underneath it.
+  bar.style.cssText = "position:fixed;left:.75rem;bottom:.75rem;z-index:9999;display:flex;flex-direction:column;gap:.6rem;width:min(300px,calc(100vw - 1.5rem));padding:.9rem 1rem;background:#1a1a1a;color:#f5f5f5;font:13px/1.4 system-ui,-apple-system,sans-serif;border-radius:8px;box-shadow:0 4px 16px rgba(0,0,0,.3);pointer-events:none;";
 
   const text = document.createElement("p");
-  text.style.cssText = "margin:0;flex:1 1 260px;max-width:46ch;";
+  text.style.cssText = "margin:0;";
   text.textContent = "Usamos analítica (Microsoft Clarity) para ver cómo se usa la web y mejorarla. ¿Aceptas?";
 
   const link = document.createElement("a");
   link.href = "/privacidad.html";
-  link.textContent = "Más información";
-  link.style.cssText = "color:#9cc9ff;text-decoration:underline;flex:0 0 auto;";
+  link.textContent = "Leer la política de privacidad";
+  link.style.cssText = "color:#9cc9ff;text-decoration:underline;align-self:flex-start;pointer-events:auto;";
 
   const actions = document.createElement("div");
-  actions.style.cssText = "display:flex;gap:.5rem;flex:0 0 auto;";
+  actions.style.cssText = "display:flex;gap:.5rem;";
 
   const rejectBtn = document.createElement("button");
   rejectBtn.type = "button";
   rejectBtn.textContent = "Rechazar";
-  rejectBtn.style.cssText = "padding:.5rem 1rem;border:1px solid #777;border-radius:4px;background:transparent;color:#f5f5f5;cursor:pointer;font:inherit;";
+  rejectBtn.style.cssText = "padding:.5rem 1rem;border:1px solid #777;border-radius:4px;background:transparent;color:#f5f5f5;cursor:pointer;font:inherit;pointer-events:auto;";
 
   const acceptBtn = document.createElement("button");
   acceptBtn.type = "button";
   acceptBtn.textContent = "Aceptar";
-  acceptBtn.style.cssText = "padding:.5rem 1rem;border:0;border-radius:4px;background:#4a9eff;color:#08182b;font-weight:600;cursor:pointer;font:inherit;";
+  acceptBtn.style.cssText = "padding:.5rem 1rem;border:0;border-radius:4px;background:#4a9eff;color:#08182b;font-weight:600;cursor:pointer;font:inherit;pointer-events:auto;";
 
   function decide(value) {
     setStoredAnalyticsConsent(value);
@@ -562,6 +573,35 @@ function showAnalyticsConsentBanner() {
   actions.append(rejectBtn, acceptBtn);
   bar.append(text, link, actions);
   document.body.appendChild(bar);
+  avoidBottomBarOverlap(bar);
+}
+
+// #sticky-cta (Manecillas/Samuel sample pages) is also left:0;right:0;
+// bottom:0 -- a corner position alone doesn't clear a full-width sibling,
+// only a real vertical offset does. Measured, not hardcoded, because its
+// height varies by viewport and it slides in/out (transform, not
+// display:none) after the reader scrolls a threshold.
+function avoidBottomBarOverlap(bar) {
+  const conflict = document.getElementById("sticky-cta");
+  if (!conflict) return;
+  const reposition = () => {
+    const rect = conflict.getBoundingClientRect();
+    const overlapping = rect.height > 0 && rect.top < window.innerHeight && rect.bottom > 0;
+    bar.style.bottom = overlapping ? `${Math.max(12, window.innerHeight - rect.top + 12)}px` : ".75rem";
+  };
+  reposition();
+  window.addEventListener("resize", reposition);
+  // #sticky-cta slides in/out via a CSS transform transition (220ms), not an
+  // instant class toggle -- reading its rect the instant the class changes
+  // (MutationObserver fires synchronously with the mutation, before the
+  // transition has run) captures its pre-animation position, not where it
+  // ends up. Re-measure once the transition actually finishes, plus a
+  // fallback timer in case a future change drops the transition entirely.
+  conflict.addEventListener("transitionend", reposition);
+  new MutationObserver(() => {
+    reposition();
+    setTimeout(reposition, 260);
+  }).observe(conflict, { attributes: true, attributeFilter: ["class", "style"] });
 }
 
 // Microsoft Clarity: heatmaps and session recordings, UX/conversion insight
