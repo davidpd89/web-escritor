@@ -1,9 +1,9 @@
 # Release Readiness Evidence V1
 
-- Generated: `2026-09-07T21:36:50.583571+00:00`
-- Branch: `fix/clarity-analytics-consent-denied-default-2026-09-08`
-- HEAD: `517cf1603e80e1adbc7e216c0ddbde71cc6dbdcc`
-- Previous SHA (rollback candidate): `ead76838b40dc5b2a76f22171df966d631a4aac8`
+- Generated: `2026-09-08T06:01:12.042340+00:00`
+- Branch: `fix/privacy-text-clarity-audit-tracking-2026-09-08`
+- HEAD: `2258ec654b726059ce5ec1645bee971938dfe9ac`
+- Previous SHA (rollback candidate): `7dc1d57893f4aa22cbba8671a6a2ce27b6f7d1aa`
 
 ## Final Status: `STATIC_CHECKS_PASSED`
 
@@ -19,6 +19,9 @@
 ## Commit Window (latest 20)
 
 ```text
+2258ec65 Corregir consentimiento de analítica de Clarity (denied por defecto) (#473)
+7dc1d578 docs: record 2026-09-08 corrections to the Wikidata/Amazon closure (#474)
+5188ed3c Enlazar Google Preferred Sources en el Cuaderno (#472)
 517cf160 feat: link Manecillas' now-combined Goodreads work in sameAs (#471)
 ead76838 Cierre Amazon Author Central + Goodreads + Wikidata (2026-09-07) (#470)
 7c1b91e4 Clarity consent closure + noindex/keyword/interlinking audit (#395)
@@ -36,9 +39,6 @@ f8311aaa feat: activate Las manecillas del recuerdo's Kindle purchase link sitew
 a88bfa24 feat: add Comprar CTA to Manecillas Home hero + fix script cache-busting gap (#382)
 d55679af fix: two relative assets/ references survived PR #365's absolute-path cleanup on Home (#383)
 72d11bd4 fix: closing dialogue quote after a number stayed straight, and reset only fired on blank paragraphs (#381)
-e19ed6e2 test: lock in ICS UID stability/uniqueness contract for the event tool (#368)
-72399d83 fix: one stray quote could corrupt dialogue formatting for a whole manuscript (#380)
-28b8f071 test: add regression coverage for newsletter email validation (#379)
 ```
 
 ## Required Route Inventory
@@ -139,7 +139,7 @@ CANONICAL ENTITY IDs: OK (4 entidades con @id, todas consistentes)
 ### CI parity: editorial facts — PASS
 
 ```text
-EDITORIAL FACT CHECK � mode=launch � date=2026-09-07 � publication=2026-09-03
+EDITORIAL FACT CHECK � mode=launch � date=2026-09-08 � publication=2026-09-03
 EDITORIAL FACT CHECK: OK
 ```
 
@@ -243,7 +243,7 @@ test-social-card-article-specific: OK (7 pages checked)
 ## Rollback Procedure (Documented, not executed)
 
 1. Identify incident and freeze merges.
-2. Checkout rollback target SHA: `ead76838b40dc5b2a76f22171df966d631a4aac8`.
+2. Checkout rollback target SHA: `7dc1d57893f4aa22cbba8671a6a2ce27b6f7d1aa`.
 3. Re-run core checks:
 ```bash
 python scripts/check-local-assets.py
