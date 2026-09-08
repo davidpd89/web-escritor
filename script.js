@@ -560,7 +560,12 @@ function showAnalyticsConsentBanner() {
   link.style.cssText = "display:inline-block;padding:.3rem 0;margin:-.3rem 0;color:#9cc9ff;text-decoration:underline;align-self:flex-start;pointer-events:auto;";
 
   const actions = document.createElement("div");
-  actions.style.cssText = "display:flex;gap:.5rem;";
+  // flex-wrap: the two buttons' rem-based padding doubles under 200% root
+  // font-size (WCAG 1.4.4), which can need more width than the narrow
+  // corner box has to give at 320px -- without wrapping, "Aceptar" got
+  // pushed past the viewport edge instead of onto its own line (caught
+  // by qa/text-resilience-report-gate.mjs's enforced F.2 gate).
+  actions.style.cssText = "display:flex;flex-wrap:wrap;gap:.5rem;";
 
   const rejectBtn = document.createElement("button");
   rejectBtn.type = "button";
