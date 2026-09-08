@@ -547,7 +547,10 @@ function showAnalyticsConsentBanner() {
   const link = document.createElement("a");
   link.href = "/privacidad.html";
   link.textContent = "Leer la política de privacidad";
-  link.style.cssText = "color:#9cc9ff;text-decoration:underline;align-self:flex-start;pointer-events:auto;";
+  // padding bumps the link's own hit target to >=24x24 CSS px (WCAG 2.2
+  // SC 2.5.8), which the plain text line (~18px tall) fell short of --
+  // caught by qa/sitewide-reflow-browser.mjs's target-size gate.
+  link.style.cssText = "display:inline-block;padding:.3rem 0;margin:-.3rem 0;color:#9cc9ff;text-decoration:underline;align-self:flex-start;pointer-events:auto;";
 
   const actions = document.createElement("div");
   actions.style.cssText = "display:flex;gap:.5rem;";
