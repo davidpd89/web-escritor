@@ -31,7 +31,7 @@ async function capture(route, viewport={width:1440,height:1000}, js=true){
   return {context,page,requests,consoleMessages};
 }
 const expected={
-  '/privacidad.html':{title:'Política de privacidad — David Porto Díaz',description:'Política de privacidad de davidportodiaz.com. Información sobre el tratamiento de datos personales conforme al RGPD.',canonical:'https://davidportodiaz.com/privacidad.html',h1:'Política de privacidad',dateModified:'2026-08-21',headings:['Responsable del tratamiento','Datos que recopilamos','Finalidad del tratamiento','Base legal','Conservación de datos','Tus derechos','Proveedores de servicios (encargados del tratamiento)','Cookies','Transferencias internacionales']},
+  '/privacidad.html':{title:'Política de privacidad — David Porto Díaz',description:'Política de privacidad de davidportodiaz.com. Información sobre el tratamiento de datos personales conforme al RGPD.',canonical:'https://davidportodiaz.com/privacidad.html',h1:'Política de privacidad',dateModified:'2026-09-08',headings:['Responsable del tratamiento','Datos que recopilamos','Finalidad del tratamiento','Base legal','Conservación de datos','Tus derechos','Proveedores de servicios (encargados del tratamiento)','Cookies','Transferencias internacionales']},
   '/aviso-legal.html':{title:'Aviso legal — David Porto Díaz',description:'Aviso legal de davidportodiaz.com. Responsable, propiedad intelectual, enlaces afiliados y limitación de responsabilidad.',canonical:'https://davidportodiaz.com/aviso-legal.html',h1:'Aviso legal',headings:['1. Responsable del sitio web','2. Objeto y finalidad','3. Propiedad intelectual','4. Marca y nombre comercial','5. Enlaces a terceros','6. Aviso de enlaces de afiliado','7. Exención de responsabilidad','8. Ley aplicable y jurisdicción','9. Datos personales','10. Contacto']}
 };
 const viewports=[[320,720],[390,844],[768,1024],[1024,768],[1440,1000],[1728,1100],[844,390]];
@@ -62,17 +62,92 @@ for(const [route,meta] of Object.entries(expected)){
   const spacing=await capture(route,{width:320,height:720}); await spacing.page.addStyleTag({content:'*{line-height:1.5!important;letter-spacing:.12em!important;word-spacing:.16em!important}p{margin-bottom:2em!important}'}); const spacingOverflow=await spacing.page.evaluate(()=>document.documentElement.scrollWidth-document.documentElement.clientWidth); assert(spacingOverflow<=1,`${route}: text-spacing overflow (${spacingOverflow}px)`); await spacing.context.close();
 }
 
-// Current project contract has no analytics consent manager/banner. Verify state instead of inventing accept/reject UI.
-const home=await capture('/',{width:390,height:844});
-const consentCount=await home.page.locator('[data-consent],#cookie-banner,.cookie-banner,[class*="consent-banner"]').count();
-assert(consentCount===0,'Unexpected consent manager/banner appeared');
-report.network.consent={managerPresent:false,accept:'N/A — no consent manager in current technical contract',reject:'N/A — no consent manager in current technical contract',persistence:'N/A'};
+// Minimal analytics-consent banner (2026-09-08): GoatCounter/Metricool never
+// set cookies regardless of any choice here -- this banner is Clarity-only.
+// A visitor with no stored decision must see it exactly once; their choice
+// (granted/denied) must persist in localStorage and the banner must not
+// reappear on a later visit ("returning user"). Regression coverage for the
+// TDZ bug (const declared after its first use, silently swallowed by the
+// function's own try/catch, so the banner reappeared on every load even
+// after a real choice was stored) -- caught by this exact accept-then-reload
+// sequence in a real headless browser, not the sandboxed preview tool used
+// during development, which never reproduced it.
+const home=await capture('/las-manecillas-del-recuerdo/kindle/',{width:390,height:844});
+const bannerSel='[data-analytics-consent-banner]';
+assert(await home.page.locator(bannerSel).count()===1,'Consent banner missing on first visit');
+assert((await home.page.locator(bannerSel).textContent()||'').includes('Clarity'),'Consent banner does not mention Clarity');
 report.network.homeFresh=[...home.requests];
 report.storage.homeFresh=await storageSnapshot(home.page);
 const goatLoads=home.requests.filter(r=>r.url.includes('gc.zgo.at/count.js')).length;
 const metricoolLoads=home.requests.filter(r=>r.url.includes('tracker.metricool.com/resources/be.js')).length;
 assert(goatLoads<=1,'Duplicate GoatCounter script load'); assert(metricoolLoads<=1,'Duplicate Metricool script load');
+// Storage is versioned+timestamped as of 2026-09-08 ({value,v,ts}), not a
+// bare string -- AEPD guidance treats a stored cookie consent as stale after
+// long enough that re-asking is warranted, so the value needs a recorded
+// moment to expire from; this snapshot lets each read pull out .value while
+// still asserting a real timestamp landed.
+const readConsent=async(page)=>page.evaluate(()=>JSON.parse(localStorage.getItem('dp-analytics-consent')||'null'));
+await home.page.getByRole('button',{name:'Acepto ayudarte'}).click();
+assert(await home.page.locator(bannerSel).count()===0,'Consent banner did not dismiss after Acepto ayudarte');
+const accepted=await readConsent(home.page);
+assert(accepted&&accepted.value==='granted','Acepto ayudarte did not store granted');
+assert(typeof accepted.ts==='number'&&accepted.ts>0,'Stored consent is missing a timestamp');
+await home.page.reload({waitUntil:'networkidle'});
+assert(await home.page.locator(bannerSel).count()===0,'Consent banner reappeared for a returning user who already accepted');
+assert((await readConsent(home.page)).value==='granted','Accepted choice did not survive reload');
+report.network.consent={managerPresent:true,accept:'stores {value:granted,v,ts}, banner dismissed, does not reappear on reload',reject:'checked in a separate context below',persistence:'localStorage dp-analytics-consent survives reload'};
 await home.context.close();
+
+const rejectFlow=await capture('/las-manecillas-del-recuerdo/kindle/',{width:390,height:844});
+await rejectFlow.page.getByRole('button',{name:'Rechazo ayudarte'}).click();
+assert(await rejectFlow.page.locator(bannerSel).count()===0,'Consent banner did not dismiss after Rechazo ayudarte');
+assert((await readConsent(rejectFlow.page)).value==='denied','Rechazo ayudarte did not store denied');
+await rejectFlow.page.reload({waitUntil:'networkidle'});
+assert(await rejectFlow.page.locator(bannerSel).count()===0,'Consent banner reappeared for a returning user who already rejected');
+assert((await readConsent(rejectFlow.page)).value==='denied','Rejected choice did not survive reload');
+await rejectFlow.context.close();
+
+// Implicit-accept-by-continued-use (2026-09-08, explicit site-owner decision):
+// browsing the site without clicking either button is treated as acceptance.
+// Only "Rechazo ayudarte" itself must ever produce denied -- every other
+// interaction with the page (click elsewhere, scroll, navigate away) while
+// the banner is showing must resolve to granted, and clicking a REAL banner
+// button must never get short-circuited by this path (the implicit-accept
+// listener explicitly ignores clicks that land inside the banner).
+const scrollFlow=await capture('/las-manecillas-del-recuerdo/kindle/',{width:390,height:844});
+await scrollFlow.page.mouse.wheel(0,400);
+await scrollFlow.page.waitForTimeout(50);
+assert(await scrollFlow.page.locator(bannerSel).count()===0,'Consent banner did not dismiss after scrolling without responding');
+assert((await readConsent(scrollFlow.page)).value==='granted','Scrolling without responding did not store granted');
+await scrollFlow.context.close();
+
+const clickElsewhereFlow=await capture('/las-manecillas-del-recuerdo/kindle/',{width:390,height:844});
+await clickElsewhereFlow.page.locator('body').click({position:{x:5,y:5}});
+await clickElsewhereFlow.page.waitForTimeout(50);
+assert(await clickElsewhereFlow.page.locator(bannerSel).count()===0,'Consent banner did not dismiss after a click elsewhere on the page');
+assert((await readConsent(clickElsewhereFlow.page)).value==='granted','Clicking elsewhere without responding did not store granted');
+await clickElsewhereFlow.context.close();
+
+const navigateFlow=await capture('/las-manecillas-del-recuerdo/kindle/',{width:390,height:844});
+// header-home, not "first a[href]": the actual first link in DOM order is a
+// skip-link that stays off-screen until keyboard-focused, which Playwright's
+// .click() refuses to act on ("element is outside of the viewport") -- this
+// one is a real, always-visible link.
+await navigateFlow.page.locator('a.header-home').first().click();
+await navigateFlow.page.waitForLoadState('networkidle');
+assert((await readConsent(navigateFlow.page)).value==='granted','Navigating away without responding did not store granted');
+await navigateFlow.context.close();
+
+// Legacy bare-string values (pre-versioning, before 2026-09-08) must migrate
+// on read rather than being treated as corrupt/absent -- otherwise every
+// visitor who already chose under the old format gets re-asked once.
+const migrateFlow=await capture('/las-manecillas-del-recuerdo/kindle/',{width:390,height:844});
+await migrateFlow.page.evaluate(()=>localStorage.setItem('dp-analytics-consent','granted'));
+await migrateFlow.page.reload({waitUntil:'networkidle'});
+assert(await migrateFlow.page.locator(bannerSel).count()===0,'Legacy bare-string consent was not honored; banner reappeared');
+const migrated=await readConsent(migrateFlow.page);
+assert(migrated&&migrated.value==='granted'&&typeof migrated.ts==='number'&&migrated.ts>0,'Legacy bare-string consent was not migrated to the versioned shape');
+await migrateFlow.context.close();
 
 // Newsletter DOI contract: invalid/unchecked block; accepted POST is pending, never confirmed locally.
 // Home no longer carries the footer newsletter fixture; lectores-beta keeps
