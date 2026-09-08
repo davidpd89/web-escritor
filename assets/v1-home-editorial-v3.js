@@ -29,7 +29,11 @@ import { EDITORIAL_PUBLIC_FACTS } from './editorial-public-facts.mjs';
   // drift from what Home's dynamically-built CTAs actually link to.
   const MANECILLAS_BUY_URL = EDITORIAL_PUBLIC_FACTS.manecillas.purchaseUrl;
   const MANECILLAS_KINDLE_URL = EDITORIAL_PUBLIC_FACTS.manecillas.kindleEdition.purchaseUrl;
-  const AUTHOR_EMAIL_URL = 'mailto:davidportodiaz@gmail.com?subject=Te%20leo%20%E2%80%94%20David%20Porto%20D%C3%ADaz';
+  // No address literal here on purpose (see assets/email-reveal.js): this
+  // module only ever needs the subject line, never the mailto: target, so
+  // addEmailLink() below can hand off entirely to the shared reveal runtime.
+  const AUTHOR_EMAIL_SENTINEL = 'internal:author-email';
+  const AUTHOR_EMAIL_SUBJECT_TE_LEO = 'Te leo — David Porto Díaz';
 
   // Explicit host allowlist (K.3): a pattern like /amazon\.[a-z.]+/ would also
   // match a lookalike host such as "amazon.evil.com". Parsing the URL and
@@ -121,6 +125,17 @@ import { EDITORIAL_PUBLIC_FACTS } from './editorial-public-facts.mjs';
     return link;
   }
 
+  // No mailto: href, no address anywhere in this file -- assets/email-reveal.js
+  // builds the real mailto: link locally, only after a human click/keypress.
+  function addEmailLink(parent, subject, text, className = '') {
+    const link = make('a', className, text);
+    link.href = '/prensa.html#contacto';
+    link.setAttribute('data-email-reveal', '');
+    if (subject) link.setAttribute('data-email-subject', subject);
+    parent.append(link);
+    return link;
+  }
+
   function createEvents() {
     const section = make('section', 'home-events');
     section.setAttribute('aria-labelledby', 'home-events-title');
@@ -173,7 +188,7 @@ import { EDITORIAL_PUBLIC_FACTS } from './editorial-public-facts.mjs';
     ctaCopy.append(make('h3', '', '¿Quieres organizar una presentación, firma o club de lectura?'));
     ctaCopy.append(make('p', '', 'Para librerías, ferias, centros culturales, institutos y clubes de lectura.'));
     cta.append(ctaCopy);
-    const mail = addTextLink(cta, 'mailto:davidportodiaz@gmail.com?subject=Solicitud%20de%20presentaci%C3%B3n%20%E2%80%94%20David%20Porto%20D%C3%ADaz', 'Escribir', 'yale-text-link');
+    const mail = addEmailLink(cta, 'Solicitud de presentación — David Porto Díaz', 'Escribir', 'yale-text-link');
     mail.addEventListener('click', () => emit('home_event_contact_click'));
     grid.append(cta);
 
@@ -328,17 +343,26 @@ import { EDITORIAL_PUBLIC_FACTS } from './editorial-public-facts.mjs';
       ['Autor', 'David Porto Díaz', 'Biografía, fotografías y recursos para lectores, librerías y medios.', '/autor.html'],
       ['Comunidad', 'Lectores beta', 'Sé el primero en leer contenido y opina antes de que llegue a todos.', '/lectores-beta/#quiero-ser-lector'],
       ['Comprar', 'Comprar en Kindle', '', MANECILLAS_KINDLE_URL],
-      ['Te leo', 'Escríbeme', '', AUTHOR_EMAIL_URL]
+      ['Te leo', 'Escríbeme', '', AUTHOR_EMAIL_SENTINEL]
     ].forEach(([eyebrow, cardTitle, text, href]) => {
       const card = make('article', 'yale-rail-card');
       card.append(make('p', 'editorial-card__eyebrow', eyebrow));
+      const isEmail = href === AUTHOR_EMAIL_SENTINEL;
       const bookContext = href === MANECILLAS_BUY_URL || href === MANECILLAS_KINDLE_URL ? 'Las manecillas del recuerdo' : '';
       const buyLinkText = href === MANECILLAS_KINDLE_URL ? 'Comprar' : 'Abrir';
       const cardHeading = make('h3');
-      addTextLink(cardHeading, href, cardTitle, '', bookContext);
+      if (isEmail) {
+        addEmailLink(cardHeading, AUTHOR_EMAIL_SUBJECT_TE_LEO, cardTitle);
+      } else {
+        addTextLink(cardHeading, href, cardTitle, '', bookContext);
+      }
       card.append(cardHeading);
       if (text) card.append(make('p', '', text));
-      addTextLink(card, href, buyLinkText, 'yale-text-link yale-text-link--gradient', bookContext);
+      if (isEmail) {
+        addEmailLink(card, AUTHOR_EMAIL_SUBJECT_TE_LEO, buyLinkText, 'yale-text-link yale-text-link--gradient');
+      } else {
+        addTextLink(card, href, buyLinkText, 'yale-text-link yale-text-link--gradient', bookContext);
+      }
       rail.append(card);
     });
 
