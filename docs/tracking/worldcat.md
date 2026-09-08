@@ -355,3 +355,14 @@ Por autor/obra:
 Si no hay registros y la vía correcta es biblioteca:
 
 `CATALOGING_PATH_IDENTIFIED · EXTERNAL_DEPENDENCY_RECORDED · NO_FAKE_RECORD_CREATED`
+
+## Intento de acceso directo (2026-09-08)
+
+search.worldcat.org bloquea el acceso automatizado directamente vía
+Cloudflare ("Access denied") — no es un challenge a completar, es un
+bloqueo directo, así que no se ha intentado sortear. La comprobación
+directa de registros WorldCat necesita hacerse a mano desde un navegador
+normal. No cambia la recomendación del documento: los registros de
+WorldCat normalmente reflejan lo que ya está en OCLC/bibliotecas
+miembro, así que el camino real sigue siendo BNE/ISNI/VIAF, no una
+gestión directa en WorldCat.
