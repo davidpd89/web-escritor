@@ -2,7 +2,33 @@
 
 Fecha de revisión: 2026-09-07
 
-Estado: `RESEARCHED · FREE_CORRECTION_ROUTE_CONFIRMED · READY_FOR_DIRECT_AUDIT`
+Estado: `RESEARCHED · ENGLISH_LANGUAGE_REQUIREMENT_CONFIRMED · NOT_ELIGIBLE_UNTIL_ENGLISH_EDITION`
+
+## Actualización (2026-09-08) — hallazgo que cambia la recomendación
+
+Búsqueda confirmada sin resultado ("Sorry, we couldn't find a matching
+book") para David Porto Díaz / Samuel entre mundos / Las manecillas del
+recuerdo — como se esperaba, no hay ficha.
+
+Pero la página `/information-for-authors.htm` (leída completa hoy) declara
+explícitamente un requisito que el documento original no tenía en cuenta:
+
+> "we don't include authors who haven't written fiction in the English
+> language."
+
+Ninguno de los dos libros de David Porto Díaz tiene edición en inglés
+publicada hoy. Esto significa que, aunque el resto del análisis de abajo
+sigue siendo correcto (canal de contacto gratuito, sin promoción de pago),
+**no tiene sentido pedir el alta ahora** — Fantastic Fiction la rechazaría
+por el idioma, no por falta de datos.
+
+No se ha enviado ningún email a `webmaster@fantasticfiction.com` — enviar
+un mensaje en nombre del autor a un tercero requiere su confirmación
+explícita cada vez, y en este caso además sería contraproducente dado el
+requisito de idioma.
+
+**Revisar de nuevo si/cuando exista una edición en inglés de cualquiera de
+los dos libros.** Hasta entonces, no hay acción disponible aquí.
 
 ## Objetivo
 
@@ -83,4 +109,4 @@ No fijar las discrepancias de páginas hasta cerrar #428/#404/#429.
 
 ## Criterio de cierre
 
-`AUTHOR_SEARCHED · BOOKS_SEARCHED · AUTHOR_PAGE_VERIFIED_OR_REQUESTED · SAMUEL_VERIFIED_OR_REQUESTED · MANECILLAS_VERIFIED_OR_REQUESTED · METADATA_ERRORS_REPORTED · PUBLIC_URLS_RECORDED · SITE_GRAPH_UPDATED_IF_APPLICABLE · NO_PAID_PROMOTION`
+`AUTHOR_SEARCHED · BOOKS_SEARCHED · ENGLISH_LANGUAGE_REQUIREMENT_CONFIRMED · NOT_ELIGIBLE_UNTIL_ENGLISH_EDITION · NO_EMAIL_SENT · NO_PAID_PROMOTION`
