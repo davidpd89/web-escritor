@@ -2,7 +2,15 @@
 
 Fecha de revisión: 2026-09-07
 
-Estado: `RESEARCHED · GOOGLE_ENTITY_FLOWS_UPDATED · READY_FOR_DIRECT_AUDIT`
+Estado: `RESOLVED · CLAIMED_BY_AUTHOR · CLOSED`
+
+## Cierre (2026-09-09)
+
+David confirmó directamente que ya completó el paso de verificación de identidad de Google (el que pide documento de identidad) y reclamó el panel/entidad por su cuenta — ese paso, por su naturaleza, solo lo puede hacer él, nunca esta sesión.
+
+Verificado en vivo que existe una entidad real en el Knowledge Graph de Google para "David Porto Díaz escritor" (aparece una tarjeta de "Información" con fecha de nacimiento junto a los resultados). Nota aparte, no bloqueante para este cierre: esa fecha de nacimiento visible en Google coincide con el mismo dato sin referencias ya señalado en Wikidata (`docs/tracking/wikidata.md` / #398) — sigue siendo una decisión de privacidad del autor, no algo para tocar aquí.
+
+Sin más acción pendiente en esta rama.
 
 ## Objetivo
 
