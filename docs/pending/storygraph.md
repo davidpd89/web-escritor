@@ -2,7 +2,20 @@
 
 Fecha de investigación: **2026-09-07**  
 PR owner: **#399 · `tracking/storygraph`**  
-Estado: **SAMUEL_EXISTS_USER_ADDED · PAGE_COUNT_DISCREPANCY_NEW_DATA_POINT · MANECILLAS_MISSING · NEEDS_STORYGRAPH_ACCOUNT**
+Estado: **RESOLVED · SAMUEL_FAMILY_VERIFIED · MANECILLAS_BOTH_EDITIONS_LIVE · PROFILE_OWNERSHIP_CONFIRMED**
+
+## Cierre (2026-09-09)
+
+Completado y verificado en vivo, con la sesión de StoryGraph logueada como `david_porto`:
+
+- **Perfil público `@david_porto` confirmado**: es público, con bio propia y coherente con la voz del autor ("A veces los mundos no se cruzan por accidente, sino porque alguien olvidó cerrar una puerta.") y tags que reflejan temas reales de su obra (`hard magic system`, `portal fantasy`, `family secrets`). No es un perfil abandonado ni un anuncio de ventas. Se mantiene en `Person.sameAs` de `autor.html` sin cambios.
+- **Samuel entre mundos**: ya existía (`user-added`), autoría correcta "David Porto Díaz", género `fiction fantasy`, sin duplicados, 1 sola edición. Confirma el tercer valor de páginas (409) ya documentado en #429/#404 — `NO_ACTION` sobre esa cifra, se sigue coordinando allí, no aquí.
+- **Las manecillas del recuerdo — no existía, creada vía `Add a Book`** (`/books/new`) con los datos canónicos: título, autor enlazado al autocompletado exacto "David Porto Díaz" (evitando duplicar entre varios homónimos sugeridos), sinopsis editorial oficial como blurb, tipo `fiction`, géneros `Literary` + `Contemporary`, ISBN papel `9798905149351`, formato paperback, 272 páginas, fecha de edición 2026-09-03, año original 2026, idioma Spanish, editorial `Monza Ediciones` (creada como nueva publisher, no existía en su base). URL: `https://app.thestorygraph.com/books/fd647d7f-dbce-43ff-9cb6-c1847284a4a8`.
+- **Edición Kindle/ebook añadida vía `Editions → Add Edition`** (no un segundo `Add a Book`, evitando crear una obra duplicada): el formulario heredó automáticamente título, autor, blurb, tipo y géneros de la obra ya creada. Se completó ISBN digital `9798906781925`, formato `digital`, fecha de edición 2026-08-12, año original 2026, idioma Spanish, editorial Monza Ediciones (ya existente tras el paso anterior). Página dejada en blanco a propósito — no hay fuente editorial confirmada para el conteo de páginas del ebook, y la regla del proyecto es no propagar cifras sin autoridad clara.
+- Verificado en `/books/.../editions`: **2 ediciones, misma familia/obra**, cada una con su ISBN y formato correctos — nunca se llegó a crear una segunda obra independiente.
+- Sin autocrítica ni autovaloración: no se marcó rating ni review en ninguna de las dos ediciones.
+
+No queda ninguna acción real pendiente en StoryGraph. El único hilo abierto (discrepancia de páginas de Samuel: 409 aquí vs 422/412 en otras fuentes) es competencia de Libros Indie/DILVE (#429/#404), no de esta plataforma.
 
 ## Verificación directa (2026-09-08)
 
