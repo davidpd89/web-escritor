@@ -147,6 +147,14 @@ for (const viewport of viewports) {
   await page.screenshot({ path: path.join(OUT, 'prensa-390-copied.png'), fullPage: true });
 
   await page.emulateMedia({ media: 'print' });
+  // emulateMedia only flips the CSS media query; it does not fire the actual
+  // browser print lifecycle. A real Print (Ctrl/Cmd+P or window.print()) does
+  // fire 'beforeprint' first, which is what assets/email-reveal.js listens
+  // for to reveal the address before the page is captured on paper -- so the
+  // check has to trigger that same event, or it can't see that behavior at
+  // all (caught after the fact: emulateMedia alone left #contacto unrevealed
+  // and the assertion below failed even though the fix worked in a real browser).
+  await page.evaluate(() => window.dispatchEvent(new Event('beforeprint')));
   const printState = await page.evaluate(() => ({
     main: getComputedStyle(document.querySelector('main')).display,
     header: getComputedStyle(document.querySelector('.site-header')).display,
@@ -211,7 +219,7 @@ for (const viewport of viewports) {
   await mobileContext.close();
 }
 
-// Eventos: upcoming empty state first, only two authorized archive records, both EventCompleted.
+// Eventos: upcoming empty state first, only two authorized archive records, neither EventScheduled.
 {
   const context = await newContext({ width: 1440, height: 1000 });
   const { page } = await openChecked(context, '/eventos.html');
@@ -234,7 +242,10 @@ for (const viewport of viewports) {
   check(state.emptyText.includes('Ahora mismo no hay una próxima fecha publicada.'), 'eventos: useful empty state missing');
   check(state.emptyText.includes('Solicitar presentación'), 'eventos: empty state lacks presentation action');
   check(state.events.length === 2, `eventos: expected 2 Event schemas, got ${state.events.length}`);
-  check(state.events.every((e) => e.eventStatus === 'https://schema.org/EventCompleted'), 'eventos: completed status not preserved');
+  // Past events omit eventStatus entirely (2026-09-09) rather than using the
+  // invalid schema.org value "EventCompleted" -- see
+  // scripts/build-event-calendars.py's docstring for why.
+  check(state.events.every((e) => e.eventStatus === undefined), 'eventos: archived events unexpectedly carry an eventStatus');
   check(state.aranjuezImage === 'https://davidportodiaz.com/assets/feria-aranjuez-2026-david-porto-diaz-colocando-samuel.webp', 'eventos: Aranjuez documentary image missing or replaced by a generic asset');
   check(state.aranjuezOrganizerUrl === 'https://www.aranjuez.es/eres-autor-libreria-o-editorial-inscribete-en-la-feria-del-libro-de-aranjuez-2026/', 'eventos: Aranjuez organizer URL is not the official municipal source');
   await page.locator('#proximos').screenshot({ path: path.join(OUT, 'eventos-empty-1440.png') });
