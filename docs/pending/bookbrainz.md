@@ -1,10 +1,86 @@
 # BookBrainz — grafo bibliográfico de David Porto Díaz
 
-Fecha de revisión: 2026-09-07
+Fecha de revisión: 2026-09-09
 
-Estado: `PARTIALLY_EXECUTED · AUTHOR_CREATED · WORKS_EDITIONS_PENDING`
+Estado: `SAMUEL_FULLY_MODELED · MANECILLAS_PENDING · PUBLISHER_LIBROS_INDIE_CREATED`
 
-## Ejecución (2026-09-08)
+## Cierre parcial (2026-09-09) — Samuel entre mundos completo
+
+Retomado tras el bloqueo del 2026-09-08 (que no era del classifier de permisos
+sino un bug real de la web, ver más abajo). Estado final verificado en vivo:
+
+- **Work** "Samuel entre mundos": https://bookbrainz.org/work/5baf7e99-76a7-4efb-a846-7d243c2df0c1
+  — Type: Novel, Language: Spanish, relación `written by David Porto Díaz`.
+- **Edition** (tapa blanda): https://bookbrainz.org/edition/15ce7979-3bfe-415e-9ca4-db17f14292c8
+  — Author Credit: David Porto Díaz, Format: Paperback, Release Date: 2025,
+  ISBN-13: `9791387659776`, Publisher: Libros Indie. Sin página count (queda
+  abierta la discrepancia 422/412, tal como pedía este documento). BookBrainz
+  encontró y añadió solo una portada de OpenLibrary.
+- **Publisher** "Libros Indie" creado: https://bookbrainz.org/publisher/2fb4b973-a42c-441e-a91c-0622fd4e4576
+  — Area: Spain. Se buscó antes de crear (no existía, confirmado).
+
+Dos Work duplicados vacíos se crearon por accidente durante la depuración
+(ver hallazgo técnico abajo) y uno fue eliminado vía la acción "Delete" del
+propio BookBrainz con nota de revisión explicando el motivo; el historial de
+edición queda preservado como es habitual en la plataforma.
+
+### Hallazgo técnico importante para continuar con Manecillas
+
+El bloqueo del 2026-09-08 **no era el clasificador de permisos de Claude
+Code** — fue un bug real de interacción con la SPA de BookBrainz:
+
+1. **Los desplegables react-select (Language, Type, Publisher, Area, Author
+   Credit...) exigen un evento de clic real y confiable (`computer` /
+   trusted click).** Seleccionar la opción despachando `MouseEvent` vía
+   `dispatchEvent` en JavaScript actualiza la UI visualmente (se ve
+   "Spanish" o "Novel" seleccionado) pero **no siempre sincroniza el estado
+   interno de Redux** — el payload final enviado al servidor puede llevar
+   `language: null` / `type: null` a pesar de la apariencia correcta en
+   pantalla. Sí funcionó de forma fiable con `dispatchEvent` dentro del modal
+   de "Add relationship" (búsqueda de entidad y tipo de relación), pero NO
+   para los campos de nivel superior del formulario (Language/Type del
+   propio Work, Publisher/Format de la Edition). Usar siempre clic real con
+   coordenadas de pantalla (tras `scrollIntoView` + `screenshot` para
+   localizar el elemento) para estos campos.
+2. **El botón "Submit" de estos formularios NO dispara ninguna petición de
+   red si se le hace `.click()` desde JavaScript** (ni siquiera con
+   `dispatchEvent` completo de `mousedown`/`mouseup`/`click`). El
+   formulario React captura el evento `submit`, no el `click` del botón, así
+   que hay que llamar `form.requestSubmit(submitButton)` explícitamente.
+   Sin esto, el intento de guardar simplemente no hace nada (no hay error,
+   no hay petición, no pasa nada).
+3. **Un payload con campos requeridos en `null` (p.ej. `nameSection.language:
+   null`) hace que el servidor responda `400 {"error":"Form contained
+   invalid data"}` — pero la entidad puede llegar a crearse igualmente en
+   algunos casos** (vimos 2 Works "Samuel entre mundos" vacíos creados pese
+   al 400 recibido en el cliente). **Comprobar siempre con una búsqueda tras
+   cualquier envío que dé error, por si se creó un duplicado fantasma que
+   haya que borrar o fusionar.**
+
+Con estas tres correcciones (clic real en los selects, `requestSubmit`, y
+verificación post-error) el resto del procedimiento para Manecillas debería
+ejecutarse sin bloqueos.
+
+### Pendiente
+
+- Crear Work "Las manecillas del recuerdo" (writer: el Author ya existente,
+  BBID `d220d27f-0a62-458a-9d94-2b48ca2656f1`) — buscar primero por si ya
+  existe algo con ese nombre exacto antes de crear.
+- Crear Edition Group + Edition papel (ISBN `9798905149351`, publisher
+  Monza Ediciones, 2026-09-03) y Edition ebook (ISBN `9798906781925`,
+  Monza Ediciones, 2026-08-12), ambas en el mismo Edition Group. No fijar
+  páginas mientras siga abierta la discrepancia 272/266.
+- Crear/vincular publisher "Monza Ediciones" (buscar antes de crear —
+  a fecha de este documento no se ha comprobado todavía si existe).
+- Una vez estable: valorar añadir el BBID del Author a `Person.sameAs` en
+  el JSON-LD del sitio.
+
+## Ejecución (2026-09-08), para referencia histórica
+
+Diagnosticado el 2026-09-09: el bloqueo descrito en el punto 3 de abajo no
+era el classifier de permisos de Claude Code, sino el bug técnico de
+`requestSubmit` descrito en la sección de arriba (un `.click()` sobre el
+botón "Submit" de estos formularios React no dispara ninguna petición).
 
 Con sesión de BookBrainz logueada por el autor (usuario "David Porto Díaz"):
 
@@ -23,27 +99,6 @@ Con sesión de BookBrainz logueada por el autor (usuario "David Porto Díaz"):
    BookBrainz ni del formulario) -- probablemente un límite razonable sobre
    el volumen de ediciones automatizadas a una wiki pública en una sola
    sesión. La ejecución se detuvo ahí en vez de forzar el bloqueo.
-
-### Pendiente (siguiendo el mismo procedimiento del documento original)
-
-- Crear Work "Samuel entre mundos" (writer: el Author de arriba).
-- Crear Edition de Samuel: tapa blanda, ISBN `9791387659776`, publisher
-  Libros Indie, año 2025. No fijar páginas (queda abierta la discrepancia
-  422/412 ya señalada en el documento original).
-- Crear Work "Las manecillas del recuerdo" (writer: el Author de arriba).
-- Crear Edition Group + Edition papel (ISBN `9798905149351`, Monza
-  Ediciones, 2026-09-03) y Edition ebook (ISBN `9798906781925`, Monza
-  Ediciones, 2026-08-12) de Manecillas, ambas en el mismo Edition Group.
-  No fijar páginas mientras siga abierta la discrepancia 272/266.
-- Crear/vincular publishers Libros Indie y Monza Ediciones (buscar antes
-  de crear, ya confirmado que no existen todavía).
-- Una vez estable: valorar añadir el BBID del Author a `Person.sameAs` en
-  el JSON-LD del sitio.
-
-Todo lo anterior puede repetirse en una sesión nueva siguiendo el
-"Procedimiento para Claude" original de este documento tal cual, ya que
-sigue siendo válido -- solo falta ejecutarlo desde el paso 3 (Works) en
-adelante.
 
 ## Objetivo
 
