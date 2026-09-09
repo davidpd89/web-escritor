@@ -61,13 +61,28 @@
       const status = document.getElementById(statusId);
       if (status) status.textContent = `Correo mostrado: ${emailAddress()}`;
     }
+
+    return link;
+  };
+
+  // One interaction, not two: a control that says "Contactar por email"
+  // should open the mail client on the first click, not reveal-then-wait-
+  // for-a-second-click. Navigating here, inside the same click/keydown
+  // handler that reveal() ran in, still counts as the direct result of a
+  // user gesture -- it is not a background redirect. The real <a href="
+  // mailto:...">  stays in the DOM afterward exactly as before, so right-
+  // click "copy email address", re-reading it, or a screen reader
+  // revisiting the element all keep working.
+  const revealAndOpen = (trigger) => {
+    const link = reveal(trigger);
+    if (link) window.location.href = link.href;
   };
 
   document.addEventListener('click', (event) => {
     const trigger = event.target.closest('[data-email-reveal]');
     if (!trigger) return;
     event.preventDefault();
-    reveal(trigger);
+    revealAndOpen(trigger);
   });
 
   document.addEventListener('keydown', (event) => {
@@ -78,7 +93,7 @@
     // it explicitly for link-shaped controls without creating a custom widget.
     if (event.key === ' ') {
       event.preventDefault();
-      reveal(trigger);
+      revealAndOpen(trigger);
     }
   });
 
@@ -88,7 +103,28 @@
   // legitimate use case this exists to protect, not just a scraper. A print
   // command is not something a bulk static-scraping bot issues, so revealing
   // here does not reopen the exposure this file exists to close.
+  //
+  // afterprint puts back the ORIGINAL trigger for exactly the elements this
+  // pass revealed (each one cloned before reveal() ran), so cancelling the
+  // print dialog does not leave the address sitting in the DOM indefinitely.
+  // querySelectorAll('[data-email-reveal]') only ever matches un-revealed
+  // triggers to begin with (reveal() replaces the element and the
+  // replacement carries no data-email-reveal attribute), so a trigger a
+  // visitor already revealed by clicking before printing is untouched here
+  // and correctly stays revealed after the print dialog closes.
+  let printRevealState = null;
   window.addEventListener('beforeprint', () => {
-    document.querySelectorAll('[data-email-reveal]').forEach(reveal);
+    printRevealState = [...document.querySelectorAll('[data-email-reveal]')].map((trigger) => {
+      const original = trigger.cloneNode(true);
+      const link = reveal(trigger);
+      return link ? { original, link } : null;
+    }).filter(Boolean);
+  });
+  window.addEventListener('afterprint', () => {
+    if (!printRevealState) return;
+    for (const { original, link } of printRevealState) {
+      if (link.isConnected) link.replaceWith(original);
+    }
+    printRevealState = null;
   });
 })();
