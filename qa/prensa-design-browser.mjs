@@ -160,7 +160,14 @@ try{
       assert.equal(await page.locator('#ficha img').getAttribute('src'),'/assets/samuel_entre_mundos_3d.webp',`${name}: mockup de Samuel alterado`);
       assert.ok((await page.locator('#ficha-manecillas').innerText()).includes('979-8-90514-935-1'),`${name}: ISBN Manecillas ausente`);
       assert.ok((await page.locator('#ficha').innerText()).includes('9791387659776'),`${name}: ISBN Samuel ausente`);
-      assert.ok((await page.locator('#contacto').innerText()).includes('davidportodiaz@gmail.com'),`${name}: contacto de prensa ausente`);
+      // Contract since #478/#482: the address never sits in static HTML --
+      // it only exists after a real click builds it (checked end-to-end,
+      // once, further down). Asserting its ABSENCE here is what actually
+      // verifies the anti-scraping property on every viewport; the old
+      // assertion checked for the address's PRESENCE in static innerText,
+      // which is exactly the exposure this migration removed.
+      assert.ok(!(await page.locator('#contacto').innerText()).includes('davidportodiaz@gmail.com'),`${name}: contacto de prensa expone el email en HTML estático`);
+      assert.ok(await page.locator('#contacto [data-email-reveal]').count()>0,`${name}: falta el trigger de contacto de prensa`);
 
       const schema=await page.evaluate(()=>{
         const docs=[...document.querySelectorAll('script[type="application/ld+json"]')].map(s=>JSON.parse(s.textContent));
@@ -212,10 +219,37 @@ try{
       const r=await page.goto(`${ORIGIN}/prensa.html`,{waitUntil:'load'});assert.ok(r?.ok(),'no-js: Prensa no carga');
       assert.equal(await page.locator('#bios .press-card').count(),4,'no-js: bios/materiales incompletos');
       assert.equal(await page.locator('#entrevistas details').count(),5,'no-js: entrevistas incompletas');
-      assert.ok((await page.locator('#contacto').innerText()).includes('davidportodiaz@gmail.com'),'no-js: contacto ausente');
+      // email-reveal.js needs JS to run at all, so a no-JS visitor genuinely
+      // cannot get the address here -- but they must not be left with a dead
+      // end either. Verify the real, working alternative (Instagram/LinkedIn,
+      // already plain links elsewhere in #contacto, no JS required) is named.
+      assert.ok(!(await page.locator('#contacto').innerText()).includes('davidportodiaz@gmail.com'),'no-js: contacto expone el email en HTML estático');
+      const noJsNote=(await page.locator('#contacto noscript').innerText()).toLowerCase();
+      assert.ok(noJsNote.includes('instagram')||noJsNote.includes('linkedin'),'no-js: falta alternativa real de contacto sin JavaScript');
+      assert.ok(await page.locator('#contacto .social-icon[href*="instagram.com"]').count()>0,'no-js: enlace de Instagram no funcional sin JS');
       await noOverflow(page,'no-js 390');
       await page.screenshot({path:path.join(OUT,'prensa-no-js-390.png'),fullPage:true});
     }catch(error){failures.push({viewport:'no-js-390',width:390,height:900,error:error instanceof Error?error.message:String(error)});}finally{await c.close();}
+  }
+
+  // End-to-end contract for the reveal itself (checked once, not per
+  // viewport): clicking the trigger must produce the real mailto with the
+  // right address and subject in a single interaction -- not just "some
+  // link appears eventually". Covers the #482 fix that made the first click
+  // itself open the mail client instead of requiring a second one.
+  {
+    const c=await context(browser,{width:1440,height:1000});const page=await c.newPage();
+    try{
+      await page.goto(`${ORIGIN}/prensa.html`,{waitUntil:'load'});
+      const trigger=page.locator('#contacto .contact-card--featured [data-email-reveal]');
+      assert.equal(await trigger.getAttribute('href'),'/prensa.html#contacto','contacto: trigger no es un enlace real antes de revelar');
+      await trigger.click();
+      const revealed=page.locator('#contacto .contact-card--featured a[href^="mailto:"]');
+      assert.equal(await revealed.count(),1,'contacto: el clic no reveló un mailto real');
+      const href=await revealed.getAttribute('href');
+      assert.ok(href.startsWith('mailto:davidportodiaz@gmail.com'),`contacto: dirección revelada incorrecta (${href})`);
+      assert.ok(href.includes('subject=Entrevista'),`contacto: subject de la solicitud de entrevista ausente (${href})`);
+    }catch(error){failures.push({viewport:'contacto-reveal-e2e',width:1440,height:1000,error:error instanceof Error?error.message:String(error)});}finally{await c.close();}
   }
 
   {

@@ -19,6 +19,17 @@ https?://([^/]+\.)?tandfonline\.com/.*
 https?://([^/]+\.)?planetadelibros\.com/.*
 https?://([^/]+\.)?diversidadliteraria\.com/.*
 
+# docta.ucm.es (repositorio institucional de la Universidad Complutense de
+# Madrid) responde correctamente en un navegador real, pero de forma
+# intermitente supera el timeout de 25s de este workflow bajo la
+# concurrencia del checker -- ha vuelto a fallar por esta misma URL en
+# ejecuciones separadas. No es un enlace roto ni un host que bloquee bots
+# deliberadamente, solo un único servidor académico lento. La cita
+# bibliográfica (tesis de Szigriszt Pazos en herramientas/legibilidad/) sigue
+# siendo la fuente correcta y autorizada; no se ha sustituido por una
+# alternativa sin confirmar que sea igual de autorizada y más estable.
+https?://([^/]+\.)?docta\.ucm\.es/.*
+
 # Estas dos referencias DOI resuelven a proveedores que bloquean/limitan
 # clientes automatizados en sus redirecciones finales. Se ignoran únicamente
 # las citas conocidas: futuros enlaces doi.org siguen sometidos a Lychee.

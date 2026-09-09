@@ -14,6 +14,7 @@ from __future__ import annotations
 import argparse
 import base64
 import hashlib
+import html
 import json
 import re
 import subprocess
@@ -90,15 +91,20 @@ INLINE_SCRIPT_RE = re.compile(
 #     comodin de Microsoft es la opcion correcta, no un atajo. Mismo
 #     alcance que GoatCounter/Metricool arriba, sin ampliar a las paginas
 #     de herramientas (CSP local mas estricta).
-#   - img-src c.bing.com: Clarity tambien dispara, por su cuenta, un pixel
-#     de sincronizacion de identidad hacia c.bing.com/c.gif (parametro
-#     RedC=c.clarity.ms) -- confirmado en vivo en CI, bloqueado hasta
-#     anadir este host exacto (no rota como *.clarity.ms, así que no lleva
-#     comodin). Esto es infraestructura de Microsoft para enlazar Clarity
-#     con Bing/Microsoft Advertising, no analitica de UX -- si en el
-#     futuro se decide que no es aceptable, la via correcta es desactivar
-#     ese enlace desde la configuracion del proyecto en clarity.microsoft.com
-#     (no solo bloquearlo aqui, que dejaria el pixel disparandose en vano).
+#   - img-src c.bing.com: en su momento Clarity disparaba, por su cuenta, un
+#     pixel de sincronizacion de identidad hacia c.bing.com/c.gif (parametro
+#     RedC=c.clarity.ms) incluso con ad_Storage denied -- de ahi que este
+#     host se anadiera explicitamente (no rota como *.clarity.ms, asi que
+#     no lleva comodin). Reverificado en vivo en produccion el 2026-09-08
+#     (Performance Resource Timing tras el cambio a analytics_Storage
+#     tambien denied): cero peticiones a *.bing.com, solo a.clarity.ms
+#     /collect. Se deja la entrada en la CSP por si Clarity reactiva ese
+#     comportamiento (p. ej. tras un cambio de su lado), en vez de retirarla
+#     y arriesgarse a que un pixel legitimamente bloqueado por CSP se
+#     confunda con un error. Verificar la integracion "Microsoft Ads" en
+#     clarity.microsoft.com sigue siendo la referencia: no esta conectada
+#     en este proyecto, asi que este pixel (cuando aparece) no viene de una
+#     integracion propia.
 #   - connect-src subscribe.davidpd89.workers.dev: Worker de alta de
 #     newsletter (NEWSLETTER_CONFIG.endpoint en script.js).
 #   - El asistente usa rutas same-origin (/api/assistant*), cubiertas por 'self'.
@@ -152,17 +158,42 @@ _EDITORIAL_FACTS = json.loads(EDITORIAL_FACTS_PATH.read_text(encoding="utf-8"))
 # site are untouched and keep pointing at Samuel specifically.
 PRIMARY_BUY_URL = _EDITORIAL_FACTS["books"]["lasManecillasDelRecuerdo"]["purchaseUrl"]
 
-AUTHOR_EMAIL = "davidportodiaz@gmail.com"
+# The address itself now lives only in assets/email-reveal.js (as character
+# codes, not literal text) -- see docs/audits/EMAIL-ANTI-SPAM-PROTECTION-2026-09-08.md.
+# Numeric-HTML-entity "obfuscation" used to live here, but a standard HTML
+# parser decodes &#100;&#97;... automatically, so it protected against
+# nothing more sophisticated than a raw regex over '@'/'mailto:'. The footer
+# now emits an inert `[data-email-reveal]` trigger with no address anywhere
+# in its markup; assets/email-reveal.js builds the real mailto: link only
+# after a human click/keypress.
+EMAIL_REVEAL_RUNTIME = '<script defer src="/assets/email-reveal.js?v=3"></script>'
 
 
-def obfuscated_mailto(address: str) -> str:
-    """Numeric-character-reference encoding of a mailto link: renders and
-    reads identically to a plain mailto for humans and screen readers (no JS
-    required), but a bot scraping raw HTML for '@'/'mailto:' text patterns
-    sees only &#100;&#97;... escapes instead of the literal address."""
-    encoded = "".join(f"&#{ord(c)};" for c in address)
-    href = "".join(f"&#{ord(c)};" for c in f"mailto:{address}")
-    return f'<a class="footer-email" href="{href}">{encoded}</a>'
+def email_reveal_link(
+    label: str,
+    *,
+    css_class: str = "footer-email",
+    href: str = "/prensa.html#contacto",
+    subject: str | None = None,
+    label_after: str | None = None,
+) -> str:
+    """An interaction-gated contact trigger with no address in its markup.
+
+    `href` is the no-JS fallback: without JavaScript this is a plain link to
+    a real contact section, so the affordance still works. With JavaScript,
+    assets/email-reveal.js intercepts the click/keypress, builds the mailto:
+    locally and replaces the trigger with a real `mailto:` link, preserving
+    `subject` via `data-email-subject` (never concatenated into HTML)."""
+    attrs = [
+        f'class="{html.escape(css_class, quote=True)}"',
+        f'href="{html.escape(href, quote=True)}"',
+        "data-email-reveal",
+    ]
+    if subject:
+        attrs.append(f'data-email-subject="{html.escape(subject, quote=True)}"')
+    if label_after:
+        attrs.append(f'data-email-label-after="{html.escape(label_after, quote=True)}"')
+    return f'<a {" ".join(attrs)}>{html.escape(label)}</a>'
 
 SOCIAL_ROW = (
     '<div class="social-row">'
@@ -503,7 +534,7 @@ def render_explore(nav: dict, by_id: dict[str, Entry], current_path: str, allow_
         '      <p id="nl-status-explore" class="form-status" role="status" aria-live="polite"></p>\n'
         '    </form>\n'
     ) if allow_newsletter else ''
-    runtime_markup = '<script defer src="/assets/newsletter-general.js?v=2"></script>' if allow_newsletter else ''
+    runtime_markup = '<script defer src="/assets/newsletter-general.js?v=3"></script>' if allow_newsletter else ''
 
     return (
         '<dialog class="explore-dialog" id="explore-dialog" aria-labelledby="explore-title" data-explore-dialog>\n'
@@ -557,7 +588,7 @@ def render_footer(nav: dict, by_id: dict[str, Entry], extras: dict, rel_path: st
         '        <strong class="brand__name">David Porto Díaz</strong>\n'
         '        <p>Autor de Las manecillas del recuerdo y Samuel entre mundos.</p>\n'
         f'        {SOCIAL_ROW}\n'
-        f'        {obfuscated_mailto(AUTHOR_EMAIL)}\n'
+        f'        {email_reveal_link("Contactar por email")}\n'
         '      </div>'
     ]
     for group_name, entries in groups.items():
@@ -575,7 +606,8 @@ def render_footer(nav: dict, by_id: dict[str, Entry], extras: dict, rel_path: st
         '  <p class="footer-legal">\n'
         + "\n".join(legal)
         + '\n  </p>\n'
-        '</footer>'
+        '</footer>\n'
+        + EMAIL_REVEAL_RUNTIME
     )
 
 
