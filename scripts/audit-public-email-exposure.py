@@ -41,16 +41,6 @@ AUTHOR_EMAIL = "".join(chr(code) for code in AUTHOR_EMAIL_CODES)
 MAILTO = f"mailto:{AUTHOR_EMAIL}"
 
 PUBLIC_SUFFIXES = {".html", ".htm", ".xml", ".json", ".txt", ".webmanifest", ".js", ".mjs"}
-SKIP_DIRS = {
-    ".git",
-    ".github",
-    "docs",
-    "tests",
-    "qa",
-    "scripts",
-    "node_modules",
-    "lab",
-}
 
 # All machine-readable/public-fact files now point to the prensa.html contact
 # page instead of a literal address, so no file needs a disclosure exemption
@@ -107,6 +97,21 @@ def _tracked_files(root: Path) -> list[str] | None:
 
 
 def iter_public_files(root: Path):
+    # A directory with no .git is not the source repo -- most likely a
+    # built artifact (scripts/build-public-dist.py --out DIR) whose
+    # contents already passed is_publishable() during the build itself, so
+    # every file under it IS the deployed public surface by construction.
+    # Re-deriving tracked-ness/is_publishable() against paths relative to
+    # a build output directory would be meaningless (git ls-files there is
+    # either empty or reflects an unrelated ambient repo); just scan
+    # everything, which is what makes --root .preview-dist a meaningful
+    # second pass over the EFFECTIVE artifact, not a vacuous no-op.
+    if not (root / ".git").exists():
+        for path in root.rglob("*"):
+            if path.is_file() and path.suffix.lower() in PUBLIC_SUFFIXES:
+                yield path
+        return
+
     tracked = _tracked_files(root)
     if tracked is not None:
         candidates = (root / rel for rel in tracked)
@@ -117,11 +122,18 @@ def iter_public_files(root: Path):
         if not path.is_file() or path.suffix.lower() not in PUBLIC_SUFFIXES:
             continue
         rel = path.relative_to(root)
-        if any(part in SKIP_DIRS for part in rel.parts[:-1]):
-            continue
         if rel.as_posix() in PUBLIC_DISCLOSURE_EXEMPT:
             continue
-        if _bpd.forbidden_reason(rel.as_posix()):
+        # is_publishable() is the actual predicate build-public-dist.py uses
+        # to decide what ships -- not just forbidden_reason()'s narrow
+        # denylist. forbidden_reason() alone would still audit plenty of
+        # tracked-but-never-deployed files (docs/, tests/, qa/, scripts/,
+        # lab/, anything outside the allowlist), which is exactly what a
+        # hand-maintained SKIP_DIRS list used to paper over here -- and
+        # SKIP_DIRS could just as easily drift from the real allowlist as
+        # PUBLIC_DISCLOSURE_EXEMPT did. Using the real predicate directly
+        # means this audit can never drift from deploy reality again.
+        if not _bpd.is_publishable(rel.as_posix(), root):
             continue
         yield path
 
