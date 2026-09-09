@@ -2,64 +2,110 @@
 
 Fecha de revisión: 2026-09-09
 
-Estado: `SAMUEL_FULLY_MODELED · MANECILLAS_PENDING · PUBLISHER_LIBROS_INDIE_CREATED`
+Estado: `SAMUEL_VERIFIED_CLEAN_NO_DUPLICATES · SAMUEL_METADATA_CORRECTED · MANECILLAS_PENDING · PUBLISHER_LIBROS_INDIE_CREATED`
 
-## Cierre parcial (2026-09-09) — Samuel entre mundos completo
+## Cierre parcial (2026-09-09) — Samuel entre mundos completo y corregido
 
 Retomado tras el bloqueo del 2026-09-08 (que no era del classifier de permisos
-sino un bug real de la web, ver más abajo). Estado final verificado en vivo:
+sino una incompatibilidad de automatización con la SPA, ver más abajo).
+Revisión posterior (misma fecha) corrigió metadata que había quedado
+desactualizada respecto a #429 y verificó ausencia de duplicados. Estado
+final verificado en vivo:
 
 - **Work** "Samuel entre mundos": https://bookbrainz.org/work/5baf7e99-76a7-4efb-a846-7d243c2df0c1
   — Type: Novel, Language: Spanish, relación `written by David Porto Díaz`.
 - **Edition** (tapa blanda): https://bookbrainz.org/edition/15ce7979-3bfe-415e-9ca4-db17f14292c8
-  — Author Credit: David Porto Díaz, Format: Paperback, Release Date: 2025,
-  ISBN-13: `9791387659776`, Publisher: Libros Indie. Sin página count (queda
-  abierta la discrepancia 422/412, tal como pedía este documento). BookBrainz
-  encontró y añadió solo una portada de OpenLibrary.
+  — Author Credit: David Porto Díaz, Format: Paperback, ISBN-13:
+  `9791387659776`, Publisher: Libros Indie. **Release Date: `2025-12`** y
+  **Page Count: `422`** (corregidos el 2026-09-09; ver sección siguiente).
+  BookBrainz encontró y añadió solo una portada de OpenLibrary.
+- **Edition Group** (auto-creado al dar de alta la Edition, BBID documentado
+  ahora por primera vez): https://bookbrainz.org/edition-group/4d213e44-1237-42e0-b093-b6c35390fe34
+  — Verificado en vivo: contiene exactamente una Edition (la de arriba), sin
+  duplicados.
 - **Publisher** "Libros Indie" creado: https://bookbrainz.org/publisher/2fb4b973-a42c-441e-a91c-0622fd4e4576
   — Area: Spain. Se buscó antes de crear (no existía, confirmado).
 
-Dos Work duplicados vacíos se crearon por accidente durante la depuración
-(ver hallazgo técnico abajo) y uno fue eliminado vía la acción "Delete" del
+### Corrección de metadata (2026-09-09): página count y fecha
+
+La Edition se había dejado con `Release Date: 2025` (sin mes) y sin página
+count, "a la espera" de resolver la discrepancia `422/412`. Pero esa
+discrepancia **ya estaba resuelta** desde antes en #429 usando la ficha de
+producción primaria de Libros Indie (fuente más autorizada posible: venta
+directa del propio editor, no un agregador/retailer): **422 páginas**,
+**diciembre de 2025**. Este documento no se había actualizado para reflejar
+ese cierre. Corregido ahora en BookBrainz vía el formulario de edición de la
+Edition (`Page Count: 422`, `Release Date: 2025-12`), con nota de revisión
+citando #429 como fuente. Verificado tras el submit: ambos valores se ven
+correctamente en la ficha pública.
+
+### Verificación final de duplicados (2026-09-09)
+
+Búsqueda en vivo en `bookbrainz.org/search` para cada término, tras la
+limpieza descrita abajo:
+
+- `David Porto Díaz` → exactamente 1 Author.
+- `Samuel entre mundos` → exactamente 1 Work, 1 Edition Group, 1 Edition.
+- `9791387659776` (ISBN) → el buscador de texto de BookBrainz no indexa
+  identificadores (0 resultados esperados), pero la Edition única ya
+  confirmada arriba lleva ese ISBN-13 como identifier.
+- `Libros Indie` → exactamente 1 Publisher.
+
+No queda ningún duplicado fantasma. El Work vacío eliminado durante la
+depuración (ver hallazgo técnico) no reaparece en ninguna búsqueda.
+
+Un Work duplicado vacío se creó por accidente durante la depuración
+(ver hallazgo técnico abajo) y fue eliminado vía la acción "Delete" del
 propio BookBrainz con nota de revisión explicando el motivo; el historial de
 edición queda preservado como es habitual en la plataforma.
 
 ### Hallazgo técnico importante para continuar con Manecillas
 
 El bloqueo del 2026-09-08 **no era el clasificador de permisos de Claude
-Code** — fue un bug real de interacción con la SPA de BookBrainz:
+Code** — fueron incompatibilidades entre la automatización de navegador
+usada por Claude y la SPA de BookBrainz. **Importante — esto no está
+confirmado como un bug que afecte a un usuario humano navegando
+normalmente**: todo lo de abajo se demostró únicamente con `.click()`
+programático, `dispatchEvent` de eventos no confiables (`isTrusted: false`)
+e inspección de red vía DevTools, no con interacción humana real. Etiquetado
+como `AUTOMATION_INTERACTION_QUIRK / PROGRAMMATIC_EVENT_NOT_RELIABLE`, no
+como "bug de BookBrainz", salvo que en el futuro se reproduzca el mismo
+fallo con clics/teclado humanos genuinos:
 
 1. **Los desplegables react-select (Language, Type, Publisher, Area, Author
-   Credit...) exigen un evento de clic real y confiable (`computer` /
-   trusted click).** Seleccionar la opción despachando `MouseEvent` vía
-   `dispatchEvent` en JavaScript actualiza la UI visualmente (se ve
-   "Spanish" o "Novel" seleccionado) pero **no siempre sincroniza el estado
-   interno de Redux** — el payload final enviado al servidor puede llevar
-   `language: null` / `type: null` a pesar de la apariencia correcta en
-   pantalla. Sí funcionó de forma fiable con `dispatchEvent` dentro del modal
-   de "Add relationship" (búsqueda de entidad y tipo de relación), pero NO
-   para los campos de nivel superior del formulario (Language/Type del
-   propio Work, Publisher/Format de la Edition). Usar siempre clic real con
-   coordenadas de pantalla (tras `scrollIntoView` + `screenshot` para
-   localizar el elemento) para estos campos.
-2. **El botón "Submit" de estos formularios NO dispara ninguna petición de
-   red si se le hace `.click()` desde JavaScript** (ni siquiera con
-   `dispatchEvent` completo de `mousedown`/`mouseup`/`click`). El
-   formulario React captura el evento `submit`, no el `click` del botón, así
-   que hay que llamar `form.requestSubmit(submitButton)` explícitamente.
-   Sin esto, el intento de guardar simplemente no hace nada (no hay error,
-   no hay petición, no pasa nada).
+   Credit...) no sincronizaron el estado interno de Redux cuando se
+   seleccionaron vía `dispatchEvent(new MouseEvent(...))` desde JavaScript.**
+   La UI se veía correcta ("Spanish"/"Novel" seleccionado) pero el payload
+   final enviado al servidor llevaba `language: null` / `type: null` — es
+   decir, el evento sintético no disparó los mismos handlers que un clic de
+   ratón real del sistema operativo. Sí funcionó de forma fiable el mismo
+   `dispatchEvent` dentro del modal de "Add relationship" (búsqueda de
+   entidad y tipo de relación); falló solo en los campos de nivel superior
+   del formulario (Language/Type del Work, Publisher/Format de la Edition).
+   Solución de automatización: usar el tool `computer` (clic de ratón real
+   a nivel de sistema, no sintético) con coordenadas de pantalla tras
+   `scrollIntoView` + `screenshot`.
+2. **El botón "Submit" de estos formularios no disparó ninguna petición de
+   red al invocar `.click()` desde JavaScript** (tampoco con una secuencia
+   completa `dispatchEvent` de `mousedown`/`mouseup`/`click`). El
+   formulario React parece escuchar el evento `submit` del propio
+   `<form>`, no el `click` sintético del botón. Solución de automatización:
+   llamar `form.requestSubmit(submitButton)` directamente sobre el
+   elemento `<form>`.
 3. **Un payload con campos requeridos en `null` (p.ej. `nameSection.language:
-   null`) hace que el servidor responda `400 {"error":"Form contained
-   invalid data"}` — pero la entidad puede llegar a crearse igualmente en
-   algunos casos** (vimos 2 Works "Samuel entre mundos" vacíos creados pese
-   al 400 recibido en el cliente). **Comprobar siempre con una búsqueda tras
-   cualquier envío que dé error, por si se creó un duplicado fantasma que
-   haya que borrar o fusionar.**
+   null`) — causado por el problema del punto 1 — hizo que el servidor
+   respondiera `400 {"error":"Form contained invalid data"}`, pero la
+   entidad se creó igualmente en el servidor** (se crearon 2 Works "Samuel
+   entre mundos" vacíos pese al 400 recibido en el cliente). Esto sí podría
+   ser una inconsistencia real del backend de BookBrainz (crear parcialmente
+   pese a devolver error de validación), independiente de cómo se originó
+   el payload inválido. **Comprobar siempre con una búsqueda tras cualquier
+   envío que dé error, por si se creó un duplicado fantasma que haya que
+   borrar o fusionar.**
 
-Con estas tres correcciones (clic real en los selects, `requestSubmit`, y
-verificación post-error) el resto del procedimiento para Manecillas debería
-ejecutarse sin bloqueos.
+Con estos tres ajustes de automatización (clic real del sistema en los
+selects, `requestSubmit`, y verificación post-error) el resto del
+procedimiento para Manecillas debería ejecutarse sin bloqueos.
 
 ### Pendiente
 
