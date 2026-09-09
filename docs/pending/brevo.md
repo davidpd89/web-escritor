@@ -2,7 +2,29 @@
 
 Fecha de investigación: **2026-09-07**  
 PR owner: **#400 · `tracking/brevo`**  
-Estado: **RESEARCHED · SITE_INTEGRATION_REVIEWED · READY_FOR_AUTHENTICATED_EXECUTION**
+Estado: **WELCOME_AUTOMATION_FIXED_FOR_REAL · LECTORES_BETA_AUTOMATION_BUILT_INACTIVE · DOMAIN_AUTH_STILL_PENDING**
+
+## Cierre parcial (2026-09-09) — hallazgo crítico y corrección real
+
+**Contexto del error previo**: en una sesión anterior (08-09) se "arregló" el remitente y el contenido de tres plantillas en la biblioteca de Plantillas (`Bienvenida_Samuel_Email1/2/3`, IDs #2/#3/#4) creyendo que eran las que usaba la automatización de bienvenida. El usuario reportó en vivo que seguía viendo el email roto (bienvenida a Noveris, sin Manecillas, remitente `samuelentremundos@gmail.com`). Al investigar se descubrió que **cada paso "Enviar un email" de una automatización en Brevo tiene su propia plantilla interna, independiente de la biblioteca de Plantillas** (aunque comparten el mismo editor HTML). Las plantillas #2/#3/#4 editadas nunca estuvieron enlazadas a la automatización real — son copias huérfanas sin usar. Las plantillas realmente enviadas por la automatización activa (`Bienvenida newsletter — Lectores web`, automatización #2) son las #6 (paso #3, email de bienvenida), #7 (paso #5) y #8 (paso #7).
+
+### Arreglado de verdad, en las plantillas #6/#7/#8 (las que sí se envían)
+
+- **Email 1 (plantilla #6)**: contenido reescrito con una rama condicional — si `contact.NOVERIS` está definido (el lector hizo el test de personalidad de Noveris), recibe su resultado personalizado como antes; si no (la mayoría — alta desde home/explore/cuaderno/manecillas/fragmento), recibe una bienvenida genérica que menciona *Las manecillas del recuerdo* (con CTA de compra) y *Samuel entre mundos*. Remitente corregido a `David Porto Díaz <davidpd89@gmail.com>` (el remitente `davidportodiaz@gmail.com` que se había asumido **no existe como remitente verificado en Brevo** — los dos únicos verificados son `davidpd89@gmail.com` y `samuelentremundos@gmail.com`). "Responder a" personalizado corregido a la misma dirección (antes apuntaba también a `samuelentremundos@gmail.com`).
+- **Email 2 (plantilla #7, "El mundo de Noveris")**: contenido de catálogo de fondo, correcto tal cual — solo remitente + texto de vista previa (no existía) corregidos.
+- **Email 3 (plantilla #8, "Si quieres saber cómo termina")**: pitch de compra de Samuel con reseña real de Goodreads, correcto tal cual — mismo arreglo de remitente + vista previa.
+- **DOI/confirmación de suscripción** (plantilla #9, transaccional, llamada directamente por el worker): ya no promete "el primer capítulo de Samuel entre mundos" a todo el mundo — ahora es genérico ("novedades de David Porto Díaz"). El remitente de este email YA estaba correcto en los envíos reales (`davidpd89@...brevosend.com`, confirmado en los logs transaccionales) — el worker lo fuerza directamente en la llamada a la API, así que el campo de remitente de la plantilla es en la práctica decorativo para este caso concreto.
+
+### Lectores beta — automatización nueva, construida pero inactiva
+
+No existía ninguna automatización para la lista `Lectores beta - #6`; cualquiera que se apuntara no recibía ningún email de bienvenida. Se creó **"Bienvenida — Lectores beta"** (automatización #6), duplicando la ya arreglada #2 y sustituyendo: la lista disparadora por `Lectores beta - #6`, y el único paso de email por un contenido dedicado (manuscritos sin publicar, sin calendario fijo, sin obligación, misma redacción que ya usa `/lectores-beta` en la web). **Queda guardada pero `Inactivo`** — activar una automatización que dispara envíos automáticos futuros es una acción que requiere el visto bueno explícito del autor; no se ha activado.
+
+### Sin resolver / a decisión del autor
+
+- Las plantillas huérfanas #1–#4 y #9 originales (visibles en Plantillas como "Bienvenida_Samuel_EmailN" y "Nueva plantilla") siguen existiendo sin usar. Inofensivas pero confusas. Borrarlas requiere confirmación.
+- `davidportodiaz@gmail.com` no es un remitente verificado en Brevo; si el autor lo prefiere sobre `davidpd89@gmail.com`, hay que añadirlo y verificarlo en Brevo primero.
+- Activar la automatización de Lectores beta.
+- El resto del runbook original de abajo (autenticación de dominio DKIM/DMARC, arquitectura de contactos, QA de clientes de email, etc.) sigue sin ejecutar.
 
 ## Objetivo
 
