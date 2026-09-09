@@ -18,9 +18,14 @@ const patterns={goatcounter:/gc\.zgo\.at|goatcounter/i,metricool:/tracker\.metri
 for(const [provider,re] of Object.entries(patterns)){ const hits=[]; for(const file of files){ const text=await fs.readFile(file,'utf8'); if(re.test(text)) hits.push(file.replaceAll('\\','/')); } report.sourceInventory[provider]=hits; }
 
 const browser=await chromium.launch({ headless: true, ...(process.env.QA_CHROMIUM_EXECUTABLE_PATH ? { executablePath: process.env.QA_CHROMIUM_EXECUTABLE_PATH } : {}) });
-async function capture(route, viewport={width:1440,height:1000}, js=true){
+async function capture(route, viewport={width:1440,height:1000}, js=true, graceMs=null){
   const context=await browser.newContext({viewport,javaScriptEnabled:js});
   await context.clearCookies();
+  // Real visitors get a 30s grace window (assets/analytics-consent-banner.js)
+  // before a scroll/click/unload can implicitly accept -- QA overrides it to
+  // 0 wherever it verifies that eventual behavior, so the suite doesn't need
+  // a real 30s wait per flow.
+  if(graceMs!==null) await context.addInitScript((ms)=>{ window.__ANALYTICS_CONSENT_GRACE_MS__=ms; }, graceMs);
   const page=await context.newPage(); const requests=[]; const consoleMessages=[];
   page.on('request',r=>{ if(external(r.url())) requests.push({url:r.url(),method:r.method(),postData:r.postData()}); });
   page.on('console',m=>consoleMessages.push(m.text()));
@@ -31,7 +36,7 @@ async function capture(route, viewport={width:1440,height:1000}, js=true){
   return {context,page,requests,consoleMessages};
 }
 const expected={
-  '/privacidad.html':{title:'Política de privacidad — David Porto Díaz',description:'Política de privacidad de davidportodiaz.com. Información sobre el tratamiento de datos personales conforme al RGPD.',canonical:'https://davidportodiaz.com/privacidad.html',h1:'Política de privacidad',dateModified:'2026-09-08',headings:['Responsable del tratamiento','Datos que recopilamos','Finalidad del tratamiento','Base legal','Conservación de datos','Tus derechos','Proveedores de servicios (encargados del tratamiento)','Cookies','Transferencias internacionales']},
+  '/privacidad.html':{title:'Política de privacidad — David Porto Díaz',description:'Política de privacidad de davidportodiaz.com. Información sobre el tratamiento de datos personales conforme al RGPD.',canonical:'https://davidportodiaz.com/privacidad.html',h1:'Política de privacidad',dateModified:'2026-09-09',headings:['Responsable del tratamiento','Datos que recopilamos','Finalidad del tratamiento','Base legal','Conservación de datos','Tus derechos','Proveedores de servicios (encargados del tratamiento y otros responsables)','Cookies','Transferencias internacionales']},
   '/aviso-legal.html':{title:'Aviso legal — David Porto Díaz',description:'Aviso legal de davidportodiaz.com. Responsable, propiedad intelectual, enlaces afiliados y limitación de responsabilidad.',canonical:'https://davidportodiaz.com/aviso-legal.html',h1:'Aviso legal',headings:['1. Responsable del sitio web','2. Objeto y finalidad','3. Propiedad intelectual','4. Marca y nombre comercial','5. Enlaces a terceros','6. Aviso de enlaces de afiliado','7. Exención de responsabilidad','8. Ley aplicable y jurisdicción','9. Datos personales','10. Contacto']}
 };
 const viewports=[[320,720],[390,844],[768,1024],[1024,768],[1440,1000],[1728,1100],[844,390]];
@@ -114,21 +119,21 @@ await rejectFlow.context.close();
 // the banner is showing must resolve to granted, and clicking a REAL banner
 // button must never get short-circuited by this path (the implicit-accept
 // listener explicitly ignores clicks that land inside the banner).
-const scrollFlow=await capture('/las-manecillas-del-recuerdo/kindle/',{width:390,height:844});
+const scrollFlow=await capture('/las-manecillas-del-recuerdo/kindle/',{width:390,height:844},true,0);
 await scrollFlow.page.mouse.wheel(0,400);
 await scrollFlow.page.waitForTimeout(50);
 assert(await scrollFlow.page.locator(bannerSel).count()===0,'Consent banner did not dismiss after scrolling without responding');
 assert((await readConsent(scrollFlow.page)).value==='granted','Scrolling without responding did not store granted');
 await scrollFlow.context.close();
 
-const clickElsewhereFlow=await capture('/las-manecillas-del-recuerdo/kindle/',{width:390,height:844});
+const clickElsewhereFlow=await capture('/las-manecillas-del-recuerdo/kindle/',{width:390,height:844},true,0);
 await clickElsewhereFlow.page.locator('body').click({position:{x:5,y:5}});
 await clickElsewhereFlow.page.waitForTimeout(50);
 assert(await clickElsewhereFlow.page.locator(bannerSel).count()===0,'Consent banner did not dismiss after a click elsewhere on the page');
 assert((await readConsent(clickElsewhereFlow.page)).value==='granted','Clicking elsewhere without responding did not store granted');
 await clickElsewhereFlow.context.close();
 
-const navigateFlow=await capture('/las-manecillas-del-recuerdo/kindle/',{width:390,height:844});
+const navigateFlow=await capture('/las-manecillas-del-recuerdo/kindle/',{width:390,height:844},true,0);
 // header-home, not "first a[href]": the actual first link in DOM order is a
 // skip-link that stays off-screen until keyboard-focused, which Playwright's
 // .click() refuses to act on ("element is outside of the viewport") -- this
@@ -137,6 +142,28 @@ await navigateFlow.page.locator('a.header-home').first().click();
 await navigateFlow.page.waitForLoadState('networkidle');
 assert((await readConsent(navigateFlow.page)).value==='granted','Navigating away without responding did not store granted');
 await navigateFlow.context.close();
+
+// 30s grace window (2026-09-09, explicit site-owner instruction): a scroll
+// arriving before the window elapses must NOT decide anything, so the
+// visitor actually has time to see the banner. Uses the real default (no
+// graceMs override) with a shortened window instead, so this exercises the
+// exact same code path production uses, not a separate zero-grace mode.
+// 3s, not a value close to capture()'s own goto/networkidle overhead: the
+// grace clock starts the instant the banner script runs, before capture()
+// even returns control here, so a window only slightly longer than that
+// overhead flakes shut before the first assertion below ever gets to run.
+const GRACE_TEST_MS=3000;
+const graceFlow=await capture('/las-manecillas-del-recuerdo/kindle/',{width:390,height:844},true,GRACE_TEST_MS);
+await graceFlow.page.mouse.wheel(0,400);
+await graceFlow.page.waitForTimeout(50);
+assert(await graceFlow.page.locator(bannerSel).count()===1,'Consent banner dismissed by a scroll inside the grace window');
+assert((await readConsent(graceFlow.page))===null,'Scrolling inside the grace window stored a decision');
+await graceFlow.page.waitForTimeout(GRACE_TEST_MS);
+await graceFlow.page.mouse.wheel(0,400);
+await graceFlow.page.waitForTimeout(50);
+assert(await graceFlow.page.locator(bannerSel).count()===0,'Consent banner still present after the grace window elapsed and a further scroll');
+assert((await readConsent(graceFlow.page)).value==='granted','Scrolling after the grace window elapsed did not store granted');
+await graceFlow.context.close();
 
 // Legacy bare-string values (pre-versioning, before 2026-09-08) must migrate
 // on read rather than being treated as corrupt/absent -- otherwise every

@@ -16,6 +16,19 @@
 // window.clarity was never loaded, which is exactly the legal pages' case.
 const ANALYTICS_CONSENT_KEY = "dp-analytics-consent";
 const ANALYTICS_CONSENT_VERSION = 1;
+// Explicit site-owner decision (2026-09-09): the very first scroll after the
+// banner appears used to count as implicit accept, which meant a visitor who
+// arrived and immediately scrolled never actually saw the banner before it
+// vanished. This grace window keeps clicks/scrolls/unload from deciding
+// anything for the first 30s the banner is on screen -- after that, the
+// original "continued use = accept" behavior applies exactly as before.
+// Overridable via window.__ANALYTICS_CONSENT_GRACE_MS__ so QA
+// (qa/privacy-contract-browser.mjs) can verify the eventual implicit-accept
+// behavior without a real 30s wait.
+const ANALYTICS_CONSENT_GRACE_MS =
+  typeof window.__ANALYTICS_CONSENT_GRACE_MS__ === "number"
+    ? window.__ANALYTICS_CONSENT_GRACE_MS__
+    : 30000;
 // AEPD guidance treats a cookie consent as stale after long enough that the
 // visitor may no longer remember giving it, and recommends re-asking rather
 // than relying on it indefinitely -- 24 months, same ceiling the guidance
@@ -185,11 +198,17 @@ function showAnalyticsConsentBanner() {
   // ayudarte" is the only path to denied. Only clicks/scrolls OUTSIDE the
   // banner count (bar.contains guard), so choosing either button still
   // always goes through decide() directly above, never through this path.
+  // graceUntil (2026-09-09): none of that fires during the first
+  // ANALYTICS_CONSENT_GRACE_MS -- the visitor gets that long to actually see
+  // the banner before an ordinary scroll or tap silently decides for them.
+  const graceUntil = Date.now() + ANALYTICS_CONSENT_GRACE_MS;
   function implicitAccept(e) {
     if (bar.contains(e.target)) return;
+    if (Date.now() < graceUntil) return;
     decide("granted");
   }
   function implicitAcceptOnUnload() {
+    if (Date.now() < graceUntil) return;
     if (!getStoredAnalyticsConsent()) decide("granted");
   }
   document.addEventListener("click", implicitAccept, true);
