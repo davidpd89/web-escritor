@@ -7,6 +7,10 @@
     "sha256": "4d2878d67543aec68d1eb4ab83e545ba5d0eea33e55650cc4d1965877b706db9",
     "version": "2"
   },
+  "analytics-consent-banner.js": {
+    "sha256": "2ff8a14d8a4c6ac337e136d7cceea527a9e4e9bd47df7742342cd17dbc9487d9",
+    "version": "11"
+  },
   "assistant-embed.css": {
     "sha256": "4cf612139ca082033aa20ef19669d06c20eb5914e767ff99eb5db838627e1342",
     "version": "2"
@@ -74,6 +78,10 @@
   "editoriales.js": {
     "sha256": "9c2caf38d1598b9b8049accc79de07c11478d4eeea798247cb2467372c72ceb0",
     "version": "1"
+  },
+  "email-reveal.js": {
+    "sha256": "5af2564c048c34252c9132e9e93ef71832f19e43fed969ed647808687f734394",
+    "version": "3"
   },
   "entrevista-familiar.css": {
     "sha256": "ba9966a2415bc85274175a9ade74d717ea0d7ac9b0448ffbfaeef410674a1fb6",
@@ -156,8 +164,8 @@
     "version": "2"
   },
   "newsletter-general.js": {
-    "sha256": "e982eefcfa031e6885ed9628ac10a385bee411fee0e21bc6e1592f6e25a31fc8",
-    "version": "2"
+    "sha256": "c3e427a372267a85cb82288adbf02511457d40e781675c08256bc4912415fe74",
+    "version": "3"
   },
   "newsletter-popup.css": {
     "sha256": "f524ec81ef8f4aa51fcd50320e9ef353267efae34a103c5b7e8b604b8f80a676",
@@ -232,8 +240,8 @@
     "version": "2"
   },
   "script.js": {
-    "sha256": "6bf1ca13dddd940830a57a71e12ff75752a7fd1a65cb7563424b7b6dafc37b77",
-    "version": "202609-launch-6"
+    "sha256": "861f692e7c68580eff0406eeff41abfd97aa8a34c007f1a354faf744354f8e44",
+    "version": "202609-launch-19"
   },
   "styles.css": {
     "sha256": "3043ceaa1005fe45b3d76daac4a72e0132c6e01303dbc3a224126c8b365456a8",
@@ -292,8 +300,8 @@
     "version": "1"
   },
   "v1-book.css": {
-    "sha256": "2421e213720a949333cd74cf4706c25d54af85cea0d82c9c1158357279af95c4",
-    "version": "3"
+    "sha256": "42a173eea1cc3f178091db0e47394f37dc52b1756804b020a665e6cb764730d9",
+    "version": "4"
   },
   "v1-components.css": {
     "sha256": "47989cdf54a3af4f5bb19096b4bd3c40bc0cd0622275203d4978488373dda844",
@@ -316,8 +324,8 @@
     "version": "2"
   },
   "v1-editorial.css": {
-    "sha256": "6be409b518401b3e8507db555b6de9a10a67d86d7250aa90c68f7037ab1b0489",
-    "version": "2"
+    "sha256": "13cd5b9792c93b835f515dfb5d0f4ef5ba7d5425e9340b5a7442098c1e348e9c",
+    "version": "3"
   },
   "v1-editorial.js": {
     "sha256": "fd328cf25c61ecc6129952871600a3183eb32b82b4399bbf58e4dd9a519aaae5",
@@ -360,8 +368,8 @@
     "version": "1"
   },
   "v1-home-editorial-v3.js": {
-    "sha256": "3e208855f58c5f19447bdbb54df291fcef0afd79f6ac8fad67d2b2aac1e3c4b2",
-    "version": "5"
+    "sha256": "0ba54926587dc800707c84771618c809a15ae5f59c3bca6293d7b5a044ed3ff4",
+    "version": "6"
   },
   "v1-home.css": {
     "sha256": "ea62fcdadc4061b5bf7965ed48dd6c3ff996c3dbfe3772df97e1f3d91aa7cd4d",
