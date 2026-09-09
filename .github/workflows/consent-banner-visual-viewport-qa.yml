@@ -1,0 +1,60 @@
+name: Consent banner positioning QA
+
+on:
+  pull_request:
+    paths:
+      - 'assets/analytics-consent-banner.js'
+      - 'assets/v1-shell.js'
+      - 'fragmento/**'
+      - 'index.html'
+      - 'script.js'
+      # Both contracts assert absolute pixel positions/rects (banner corner,
+      # #sticky-cta's rect, the intro overlay) that any sitewide CSS can
+      # shift -- not just the JS files above. A JS-only path filter here
+      # would let a real CSS regression to this geometry merge without this
+      # test ever running (flagged in review of the JS-only version).
+      - 'assets/*.css'
+      - 'qa/consent-banner-visual-viewport-contract.mjs'
+      - 'qa/consent-banner-focus-not-obscured-contract.mjs'
+      - '.github/workflows/consent-banner-visual-viewport-qa.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  consent-banner-positioning-qa:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v5
+
+      - name: Set up Node
+        uses: actions/setup-node@v5
+        with:
+          node-version: '22'
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Cache Playwright browsers
+        id: playwright-cache
+        uses: actions/cache@v5
+        with:
+          path: ~/.cache/ms-playwright
+          key: playwright-chromium-${{ hashFiles('package-lock.json') }}
+
+      - name: Install Playwright Chromium (with OS deps)
+        if: steps.playwright-cache.outputs.cache-hit != 'true'
+        run: npx playwright install --with-deps chromium
+
+      - name: Install Playwright OS deps only (browser cached)
+        if: steps.playwright-cache.outputs.cache-hit == 'true'
+        run: npx playwright install-deps chromium
+
+      - name: Run consent banner visualViewport contract QA
+        run: node qa/consent-banner-visual-viewport-contract.mjs
+
+      - name: Run consent banner focus-not-obscured contract QA
+        run: node qa/consent-banner-focus-not-obscured-contract.mjs

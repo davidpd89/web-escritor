@@ -240,7 +240,22 @@ function showAnalyticsConsentBanner() {
 function avoidObscuringFocus(bar) {
   function reposition() {
     const active = document.activeElement;
-    if (!active || active === document.body || bar.contains(active)) {
+    // Narrow, deliberate exception: the <main> landmark itself, focused via
+    // tabindex="-1" as a script-only target (never reachable by Tab). This
+    // site's own v1-shell.js does exactly that -- `main.focus()` -- once the
+    // Home intro closes. <main> wraps essentially the whole page by
+    // definition, so its bounding box always "overlaps" this corner banner
+    // under the plain rect-intersection test below, which shoved the banner
+    // down by a full viewport height every time (reported live: banner
+    // invisible after the intro, only reappearing/disappearing as that
+    // page-spanning rect's viewport-relative position swept past the corner
+    // on scroll). This does NOT generalize to every tabindex="-1" element:
+    // that pattern is also used for genuinely visible, boundable focus
+    // targets this check must keep protecting -- an error message, a modal
+    // heading, a "skip to" destination that isn't the whole page. Only the
+    // <main>-landmark case is exempt, matched by tag, not by tabIndex alone.
+    const isMainLandmarkFocusSink = active && active.tagName === "MAIN" && active.tabIndex === -1;
+    if (!active || active === document.body || bar.contains(active) || isMainLandmarkFocusSink) {
       bar.style.transform = "";
       return;
     }
