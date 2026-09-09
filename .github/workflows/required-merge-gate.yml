@@ -85,6 +85,9 @@ jobs:
       - name: Verify generated site shell is current
         run: python scripts/build-site-shell.py --check
 
+      - name: Verify no public email exposure
+        run: python scripts/audit-public-email-exposure.py --strict
+
       - name: Verify sitemap is current
         run: python scripts/build-sitemap.py --check
 
