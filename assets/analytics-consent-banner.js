@@ -317,6 +317,24 @@ document.addEventListener("click", (e) => {
   }
 });
 
+// Mobile Safari (and some Android browsers) position `position:fixed`
+// elements against the LAYOUT viewport, which starts out taller than the
+// VISUAL viewport while the browser's own UI (URL bar, bottom toolbar) is
+// still fully expanded on first paint. A fixed bottom-anchored element can
+// therefore render below the currently-visible area -- reported live on a
+// phone as "the Clarity banner only shows up once I scroll all the way
+// down" -- because scrolling is what makes the toolbar auto-collapse and
+// the layout viewport catch up to the visual one. window.visualViewport
+// (supported in every current mobile browser) reports the real visible
+// size directly, so adding the gap between it and window.innerHeight as
+// extra bottom offset keeps the banner inside the actually-visible area
+// from the first paint, without waiting for a scroll to fix itself.
+function visualViewportInset() {
+  const vv = window.visualViewport;
+  if (!vv) return 0;
+  return Math.max(0, window.innerHeight - (vv.height + vv.offsetTop));
+}
+
 // #sticky-cta (Manecillas/Samuel sample pages) is also left:0;right:0;
 // bottom:0 -- a corner position alone doesn't clear a full-width sibling,
 // only a real vertical offset does. Measured, not hardcoded, because its
@@ -324,14 +342,22 @@ document.addEventListener("click", (e) => {
 // display:none) after the reader scrolls a threshold.
 function avoidBottomBarOverlap(bar) {
   const conflict = document.getElementById("sticky-cta");
-  if (!conflict) return;
   const reposition = () => {
-    const rect = conflict.getBoundingClientRect();
-    const overlapping = rect.height > 0 && rect.top < window.innerHeight && rect.bottom > 0;
-    bar.style.bottom = overlapping ? `${Math.max(12, window.innerHeight - rect.top + 12)}px` : ".75rem";
+    let basePx = 12; // matches the original bottom:.75rem default (16px root font-size)
+    if (conflict) {
+      const rect = conflict.getBoundingClientRect();
+      const overlapping = rect.height > 0 && rect.top < window.innerHeight && rect.bottom > 0;
+      if (overlapping) basePx = Math.max(12, window.innerHeight - rect.top + 12);
+    }
+    bar.style.bottom = `${basePx + visualViewportInset()}px`;
   };
   reposition();
   window.addEventListener("resize", reposition);
+  if (window.visualViewport) {
+    window.visualViewport.addEventListener("resize", reposition);
+    window.visualViewport.addEventListener("scroll", reposition);
+  }
+  if (!conflict) return;
   // #sticky-cta slides in/out via a CSS transform transition (220ms), not an
   // instant class toggle -- reading its rect the instant the class changes
   // (MutationObserver fires synchronously with the mutation, before the
