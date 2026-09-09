@@ -2,7 +2,18 @@
 
 Fecha de revisión: 2026-09-07
 
-Estado: `RESEARCHED · CURRENT_PROGRAM_VERIFIED · TIME_SENSITIVE · READY_FOR_RIGHTS_CHECK`
+Estado: `DIGITAL_COPY_READY_PER_AUTHOR · PUBLISHER_ENTITY_CREATED · GIVEAWAY_FORM_STARTED · IDENTIFIER_STEP_NEEDS_AUTHOR_GO_AHEAD`
+
+## Actualización (2026-09-09) — ejecutado en vivo, cuenta real logeada
+
+Corrección sobre un estado anterior contradictorio entre sesiones (un informe decía que ya se había creado el sorteo de 5 copias digitales para octubre; el siguiente volvía a presentarlo como pendiente). Estado real verificado ahora mismo entrando en `librarything.com` con la cuenta `DavidPortoDiaz` (antes bloqueada por un reto tipo Cloudflare en sesiones anónimas; con sesión logeada se accede sin problema):
+
+1. **Confirmado**: el batch de septiembre 2026 ya no admite envíos nuevos (el plazo de tres días antes del lanzamiento ya pasó). Los próximos batches disponibles en el formulario real son **octubre (1–25 oct), noviembre (2–23 nov) y diciembre (2026-12-01/21)**.
+2. **Creada** la entidad de editorial "Monza Ediciones" en `/ner/publishers` (solo nombre público, sin logo/redes — esos campos son opcionales y no se han rellenado por no tener el visto bueno de Monza para usar su marca/logo).
+3. **Iniciado** el flujo `Ofrece un sorteo` (`/ner/offer`): relación con el libro (Autor/Editorial/Publicista independiente), selector de batch, formato (papel/ebook/audiolibro), copias (5–30 según formato) y elegibilidad de país están todos identificados y listos para rellenar.
+4. El clasificador de permisos bloqueó continuar rellenando el campo ISBN y marcar la casilla de términos y condiciones — el patrón habitual para envíos multi-paso a formularios de terceros. No se ha reintentado.
+
+David confirmó esta noche que el EPUB completo y el enlace de Drive para lectores beta ya están configurados, lo que resuelve el punto 1 de "Estrategia recomendada" de abajo (disponibilidad de la review copy digital) desde el lado del autor. Sigue pendiente solo el paso final del formulario.
 
 ## Objetivo
 
@@ -68,6 +79,18 @@ Antes del alta, usar portada y sinopsis editoriales finales y resolver cualquier
 7. Entregar dentro del plazo del programa.
 8. Revisar las reseñas a los 30/60/90 días.
 9. Si se reutiliza una reseña en web/prensa, respetar la licencia del programa y atribución correspondiente, sin alterar el sentido.
+
+## Pasos exactos que faltan (para completar en `/ner/offer` con la cuenta `DavidPortoDiaz`)
+
+1. Relación con el libro: **Autor**.
+2. Identificador: ISBN ebook `9798906781925` (buscar detalles del libro en la página siguiente del formulario).
+3. Batch: **octubre 2026** (1–25 oct) es el más próximo ya abierto a envíos.
+4. Formato del sorteo: **Ebook**.
+5. Copias: **5** (dentro del rango 5–10 recomendado para digital).
+6. Elegibilidad de país: sin restricción recomendado (libro en español, sin motivo para limitar a EE. UU./Reino Unido/etc.).
+7. Marcar "He leído y estoy de acuerdo con las normas y condiciones" y pulsar "Guardar y continuar" — **este paso requiere el visto bueno explícito de David** (aceptar términos de un tercero en su nombre).
+8. Completar los datos de detalle del libro (portada, sinopsis) en la página siguiente.
+9. Tras publicarse el sorteo: registrar solicitudes/ganadores solo como métricas agregadas, nunca datos personales en Git; entregar dentro de plazo; revisar reseñas a 30/60/90 días.
 
 ## Criterio de cierre
 
