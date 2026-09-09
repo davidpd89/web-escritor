@@ -81,4 +81,14 @@
       reveal(trigger);
     }
   });
+
+  // Printing (e.g. a journalist keeping a paper copy of the press page) never
+  // fires a click, so without this the printed page would show only the
+  // trigger's label and never the address -- a real functional loss for the
+  // legitimate use case this exists to protect, not just a scraper. A print
+  // command is not something a bulk static-scraping bot issues, so revealing
+  // here does not reopen the exposure this file exists to close.
+  window.addEventListener('beforeprint', () => {
+    document.querySelectorAll('[data-email-reveal]').forEach(reveal);
+  });
 })();

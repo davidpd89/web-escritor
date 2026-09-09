@@ -147,6 +147,14 @@ for (const viewport of viewports) {
   await page.screenshot({ path: path.join(OUT, 'prensa-390-copied.png'), fullPage: true });
 
   await page.emulateMedia({ media: 'print' });
+  // emulateMedia only flips the CSS media query; it does not fire the actual
+  // browser print lifecycle. A real Print (Ctrl/Cmd+P or window.print()) does
+  // fire 'beforeprint' first, which is what assets/email-reveal.js listens
+  // for to reveal the address before the page is captured on paper -- so the
+  // check has to trigger that same event, or it can't see that behavior at
+  // all (caught after the fact: emulateMedia alone left #contacto unrevealed
+  // and the assertion below failed even though the fix worked in a real browser).
+  await page.evaluate(() => window.dispatchEvent(new Event('beforeprint')));
   const printState = await page.evaluate(() => ({
     main: getComputedStyle(document.querySelector('main')).display,
     header: getComputedStyle(document.querySelector('.site-header')).display,
