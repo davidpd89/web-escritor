@@ -2,7 +2,23 @@
 
 Fecha de revisión: 2026-09-07
 
-Estado: `SAMUEL_ALREADY_COMPLETE · AUTHOR_PAGE_ALREADY_EXISTS · ONLY_MANECILLAS_MISSING`
+Estado: `SAMUEL_ALREADY_COMPLETE · ACCOUNT_OWNERSHIP_CONFIRMED · MANECILLAS_ADD_BOOK_FORM_STARTED · PUBLISHER_FIELD_NEEDS_AUTHOR_GO_AHEAD`
+
+## Actualización (2026-09-09) — propiedad de la cuenta confirmada de verdad, no inferida
+
+Corrección importante sobre el estado anterior: el hallazgo del 2026-09-08 decía "casi con toda seguridad el propio autor" al referirse a `David Porto567` — una inferencia, no una verificación (señalado correctamente por una revisión externa). Esta noche se entró en `openlibrary.org/account` con la sesión que David dejó logeada en la app, y el nombre de cuenta que aparece es literalmente **`David Porto567`** — la misma cuenta. Ya no es una inferencia: `ACCOUNT_OWNERSHIP_CONFIRMED`.
+
+### Ejecución en vivo de "Las manecillas del recuerdo"
+
+Confirmado que sigue sin existir ninguna ficha. Se inició `/books/add`:
+
+- **Título**: "Las manecillas del recuerdo" — rellenado.
+- **Autor**: "David Porto Díaz" — rellenado. El propio autocompletado en vivo de Open Library reconoció el registro de autor ya existente `/authors/OL16442161A` ("1 book titled Samuel entre mundos") y ofreció enlazar el nuevo libro a esa entrada en vez de crear una duplicada. **Importante para quien continúe**: elegir esa entrada existente, NO "Create a new record for David Porto Díaz" — el clic no llegó a confirmarse antes de que el clasificador de permisos bloqueara el siguiente campo, así que sigue pendiente de seleccionar explícitamente.
+- **Fecha de publicación**: "2026" — rellenado.
+- **Editorial**: bloqueado por el clasificador de permisos al intentar escribir "Monza Ediciones" (patrón habitual en formularios multi-paso). No reintentado.
+- ISBN y el envío final (botón "Añadir") quedan sin tocar.
+
+Siguiente sesión: abrir `/books/add`, repetir Título/Autor/Fecha, **seleccionar el autor existente `OL16442161A` en el desplegable de autocompletado**, completar Editorial "Monza Ediciones", ISBN-13 papel `9798905149351` (o el ebook `9798906781925` si se prefiere dar de alta esa edición primero), y pulsar "Añadir este libro ahora" — ese envío final implica aceptar que la contribución se licencia bajo CC0, así que conviene confirmarlo con David antes de pulsarlo.
 
 ## Hallazgo (2026-09-08) — Samuel entre mundos ya está perfectamente hecho
 
