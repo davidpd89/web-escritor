@@ -2,7 +2,39 @@
 
 Fecha de revisión: 2026-09-09
 
-Estado: `SAMUEL_VERIFIED_CLEAN_NO_DUPLICATES · SAMUEL_METADATA_CORRECTED · MANECILLAS_PENDING · PUBLISHER_LIBROS_INDIE_CREATED`
+Estado: `SAMUEL_VERIFIED_CLEAN_NO_DUPLICATES · SAMUEL_METADATA_CORRECTED · MANECILLAS_FULLY_MODELED_VERIFIED_NO_DUPLICATES · PUBLISHER_LIBROS_INDIE_CREATED · PUBLISHER_MONZA_EDICIONES_CREATED`
+
+## Cierre (2026-09-10) — Las manecillas del recuerdo completo
+
+Creado siguiendo exactamente el procedimiento ya documentado abajo (clic real
+en los react-select, `form.requestSubmit()`, verificación de duplicados antes
+y después). Estado final verificado en vivo:
+
+- **Work** "Las manecillas del recuerdo": https://bookbrainz.org/work/c4952bbe-d883-471b-b3fd-598176a8c706
+  — Type: Novel, Language: Spanish, relación `written by David Porto Díaz`.
+- **Edition Group**: https://bookbrainz.org/edition-group/053a7848-4756-4e1c-926d-550c12b595cc
+  — verificado en vivo: contiene exactamente las 2 Editions correctas, ninguna
+  extra.
+- **Edition papel**: https://bookbrainz.org/edition/ca9658ee-5caf-4527-bea5-a13c765bebee
+  — Paperback, ISBN-13 `9798905149351`, Monza Ediciones, Release Date
+  `2026-09-03`, Language Spanish. Sin página count (discrepancia 272/266
+  sigue abierta, tal como pedía este documento).
+- **Edition ebook**: https://bookbrainz.org/edition/8ca16ed2-727e-4e29-85e7-0ad1fd7f77db
+  — eBook, ISBN-13 `9798906781925`, Monza Ediciones, Release Date
+  `2026-08-12`, disambiguation "Edición Kindle" (necesaria porque BookBrainz
+  detectó el nombre exacto duplicado frente a la edición en papel — es el
+  comportamiento esperado del modelo, no un error).
+- **Publisher** "Monza Ediciones" creado: https://bookbrainz.org/publisher/d12c8fb0-84a0-4aa9-b929-c42894d97665
+  — Area: Spain. Se buscó antes de crear (no existía, confirmado).
+
+**Búsqueda final de duplicados** (David Porto Díaz, Las manecillas del
+recuerdo, Monza Ediciones): exactamente 1 resultado cada uno — 1 Work,
+1 Edition Group, 2 Editions (las correctas), 1 Publisher. Sin fantasmas.
+
+Con esto, tanto Samuel entre mundos como Las manecillas del recuerdo quedan
+completos y verificados en BookBrainz. Pendiente únicamente lo ya anotado en
+"Oportunidad para la web" (valorar `Person.sameAs`/`Book.sameAs` cuando se
+considere oportuno) — no es urgente ni bloqueante.
 
 ## Cierre parcial (2026-09-09) — Samuel entre mundos completo y corregido
 
@@ -109,15 +141,9 @@ procedimiento para Manecillas debería ejecutarse sin bloqueos.
 
 ### Pendiente
 
-- Crear Work "Las manecillas del recuerdo" (writer: el Author ya existente,
-  BBID `d220d27f-0a62-458a-9d94-2b48ca2656f1`) — buscar primero por si ya
-  existe algo con ese nombre exacto antes de crear.
-- Crear Edition Group + Edition papel (ISBN `9798905149351`, publisher
-  Monza Ediciones, 2026-09-03) y Edition ebook (ISBN `9798906781925`,
-  Monza Ediciones, 2026-08-12), ambas en el mismo Edition Group. No fijar
-  páginas mientras siga abierta la discrepancia 272/266.
-- Crear/vincular publisher "Monza Ediciones" (buscar antes de crear —
-  a fecha de este documento no se ha comprobado todavía si existe).
+Ninguno — completado el 2026-09-10 (ver "Cierre" arriba). Solo queda
+lo ya anotado en "Oportunidad para la web" más abajo (`Person.sameAs` /
+`Book.sameAs`), sin urgencia.
 - Una vez estable: valorar añadir el BBID del Author a `Person.sameAs` en
   el JSON-LD del sitio.
 
