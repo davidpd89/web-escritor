@@ -1,8 +1,24 @@
 # Hardcover.app — autor, libros y ediciones
 
-Fecha de revisión: 2026-09-07
+Fecha de revisión: 2026-09-09
 
-Estado: `RESEARCHED · CATALOG_EDIT_MODEL_CONFIRMED · AUTHOR_CLAIM_NOT_AVAILABLE · READY_FOR_AUTHENTICATED_EXECUTION`
+Estado: `AUTHENTICATED · MANECILLAS_ADDED_AND_LIVE · SAMUEL_QUEUED_PENDING_ASYNC_IMPORT · AUTHOR_CLAIM_NOT_AVAILABLE`
+
+## Cierre parcial (2026-09-09)
+
+Cuenta creada e iniciada sesión (`hardcover.app/@DavidPortoDiaz`, visible como "David Porto Díaz", vía el flujo de onboarding estándar del propio sitio — sin credenciales especiales, cuenta nueva del autor).
+
+**Las manecillas del recuerdo — encontrada, alta confirmada y en vivo.** No existía. Se usó "Could you add it for us?" → alta por ISBN 13 (9798905149351, edición papel). La importación es un job asíncrono con delay real (varios minutos/horas, no instantáneo) — quedó en "Looking up..." en el intento anterior y se resolvió sola entre sesiones. Verificado en vivo el 2026-09-09:
+
+- URL: https://hardcover.app/books/las-manecillas-del-recuerdo
+- Autor: David Porto Díaz — correcto, sin duplicar.
+- Año: 2026, 1 edición, "Available from 4 Sellers".
+- Páginas mostradas: **266** (no 272). Es la discrepancia ya conocida y explícitamente cubierta por la nota de este documento ("No propagar 422/412 ni 272/266 hasta cerrar #429/#428/#404") — no se ha tocado ni se debe tocar hasta que esas issues internas se cierren.
+- Sin descripción todavía (el propio Hardcover lo señala: "You can help out the author by adding a description") — no añadida esta sesión, queda pendiente si se quiere completar la ficha.
+
+**Samuel entre mundos — todavía ausente, alta reintentada, en cola.** Búsqueda por título e ISBN (9791387659776) siguen sin resultado ("We couldn't find this book in our library"). Se repitió el mismo flujo de alta por ISBN 13 el 2026-09-09; quedó igual que Manecillas antes de resolverse: encolado en el importador asíncrono, sin confirmación inmediata. **Acción pendiente para una futura sesión: volver a buscar `9791387659776` en Hardcover; si ya aparece, solo falta verificar autor/edición/páginas (422) igual que se hizo con Manecillas — no repetir el alta si ya existe.**
+
+No se ha tocado `Person`/`Author` claim (sigue sin existir ese flujo en Hardcover, ver hallazgo original más abajo). No se ha creado ninguna reseña ni valoración propia.
 
 ## Objetivo
 
