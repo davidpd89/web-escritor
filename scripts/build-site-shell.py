@@ -166,7 +166,7 @@ PRIMARY_BUY_URL = _EDITORIAL_FACTS["books"]["lasManecillasDelRecuerdo"]["purchas
 # now emits an inert `[data-email-reveal]` trigger with no address anywhere
 # in its markup; assets/email-reveal.js builds the real mailto: link only
 # after a human click/keypress.
-EMAIL_REVEAL_RUNTIME = '<script defer src="/assets/email-reveal.js?v=1"></script>'
+EMAIL_REVEAL_RUNTIME = '<script defer src="/assets/email-reveal.js?v=3"></script>'
 
 
 def email_reveal_link(
