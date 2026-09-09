@@ -2,7 +2,38 @@
 
 Fecha de revisión: 2026-09-07
 
-Estado: `RESEARCHED · FREE_USER_UPLOAD_CONFIRMED · READY_FOR_AUTHENTICATED_EXECUTION`
+Estado: `SAMUEL_ALREADY_EXISTS · MANECILLAS_FORM_PARTIALLY_FILLED · SUBMISSION_NEEDS_AUTHOR_GO_AHEAD`
+
+## Verificación y ejecución parcial (2026-09-08)
+
+Con la sesión de Quelibroleo logueada como `davidpd`:
+
+- **Samuel entre mundos ya existe**: ficha correcta con autor "PORTO
+  DÍAZ, DAVID" y resumen ya cargado (0 votos/críticas, pero la ficha
+  bibliográfica está bien). Nada que hacer ahí.
+- **Las manecillas del recuerdo no existe** — búsqueda avanzada sin
+  resultados, con un enlace directo "Si desea añadir el libro que no
+  encuentra pulse aquí" → `https://quelibroleo.com/nuevo-libro`, un
+  formulario de alta genuinamente autoservicio (Título, Autor, Editorial,
+  Año, Género, ISBN, ISBN digital, Resumen, Crítica opcional, Voto
+  opcional, Portada opcional).
+
+Se empezó a rellenar (Título: "Las manecillas del recuerdo") y al
+continuar con el campo de autor, el clasificador de permisos de la
+sesión de Claude Code bloqueó la acción — mismo patrón que esta noche en
+BookBrainz y BookBub: dar de alta contenido nuevo en un catálogo público
+de terceros, más allá del primer campo, requiere el visto bueno explícito
+del autor en vez de completarse de forma autónoma. No se ha enviado el
+formulario ni se ha dejado nada a medias visible públicamente (el
+formulario nunca llegó a enviarse).
+
+**Siguiente paso real**: el autor entra a
+`https://quelibroleo.com/nuevo-libro` logueado y completa: título "Las
+manecillas del recuerdo", autor "Porto Díaz, David", editorial "Monza
+Ediciones", año 2026, género Fantástica/ciencia ficción o Literatura
+contemporánea (a su criterio), ISBN papel `9798905149351`, ISBN digital
+`9798906781925`. Sin voto ni crítica (dejar en blanco: una autovaloración
+del propio autor no aporta valor de comunidad real).
 
 ## Objetivo
 
