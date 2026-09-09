@@ -14,7 +14,9 @@ David dio permiso explícito esta noche ("sigue si puedes") para continuar el pa
 4. **BookBub devolvió un error 422 propio** ("Oops! We encountered an error while submitting your books") en la primera petición `POST /author_profile_claims/create_from_books`; dos reintentos posteriores (siguiendo la sugerencia de su propio mensaje de "Please try again") devolvieron `{"errors":["Partner You have already submitted a claim for that author"]}` — un guard de duplicados sobre el intento fallido, no confirmación de que se guardara.
 5. Verificado después: `partners.bookbub.com/authors` ("My Author Profile") vuelve a mostrar la pantalla inicial de reclamación vacía, y `partners.bookbub.com/my_books` no lista ningún libro. **La reclamación no llegó a completarse** — es un fallo del lado de BookBub, no un bloqueo de permisos ni una decisión pendiente del autor.
 
-**Siguiente paso real**: reintentar el mismo flujo más tarde (podría ser un fallo transitorio de su backend) o, si persiste, usar "Contact Us" del Partner Dashboard para reportarlo. Los datos a introducir cuando se reintente son exactamente los mismos de arriba: nombre "David Porto Díaz", libro "Las Manecillas del Recuerdo" (excluir el resultado homónimo ajeno).
+Repetido el flujo completo una segunda vez unos minutos después (mismos datos, mismo resultado limpio de búsqueda) para descartar un fallo puntual: **mismo error 422** en el mismo paso. Confirmado que es un fallo persistente del backend de BookBub, no una casualidad de la primera vez.
+
+**Siguiente paso real**: no tiene sentido seguir reintentando el mismo POST — usar "Contact Us" del Partner Dashboard para reportarlo a BookBub (requiere que lo escriba/envíe David, o que confirme que Claude redacte y envíe ese mensaje de soporte en su nombre). Los datos a introducir cuando funcione son exactamente los mismos de arriba: nombre "David Porto Díaz", libro "Las Manecillas del Recuerdo" (excluir el resultado homónimo ajeno).
 
 ## Ejecución (2026-09-08)
 
