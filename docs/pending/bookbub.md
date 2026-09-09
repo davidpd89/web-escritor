@@ -2,7 +2,19 @@
 
 **Revisión:** 2026-09-08
 
-**Estado:** `US_RETAIL_EDITION_VERIFIED · PARTNER_DASHBOARD_ACCESSIBLE · CLAIM_FLOW_STARTED · IDENTITY_STEP_NEEDS_AUTHOR_GO_AHEAD`
+**Estado:** `US_RETAIL_EDITION_VERIFIED · PARTNER_DASHBOARD_ACCESSIBLE · CLAIM_SUBMITTED_SERVER_ERROR · RETRY_NEEDED`
+
+## Actualización (2026-09-09) — reclamación intentada con permiso explícito, error del lado de BookBub
+
+David dio permiso explícito esta noche ("sigue si puedes") para continuar el paso de identidad que la sesión anterior había dejado bloqueado a propósito. Ejecutado en vivo:
+
+1. "What name do you publish under?" → "David Porto Díaz" → Continue.
+2. Búsqueda automática de libros: BookBub encontró 2 resultados — el correcto ("Las Manecillas del Recuerdo (Spanish...)" de David Porto Díaz) y uno claramente ajeno (un libro académico de otros autores homónimos) que **no** se añadió.
+3. Añadido correctamente "Las Manecillas del Recuerdo" y pulsado "Save & Continue".
+4. **BookBub devolvió un error 422 propio** ("Oops! We encountered an error while submitting your books") en la primera petición `POST /author_profile_claims/create_from_books`; dos reintentos posteriores (siguiendo la sugerencia de su propio mensaje de "Please try again") devolvieron `{"errors":["Partner You have already submitted a claim for that author"]}` — un guard de duplicados sobre el intento fallido, no confirmación de que se guardara.
+5. Verificado después: `partners.bookbub.com/authors` ("My Author Profile") vuelve a mostrar la pantalla inicial de reclamación vacía, y `partners.bookbub.com/my_books` no lista ningún libro. **La reclamación no llegó a completarse** — es un fallo del lado de BookBub, no un bloqueo de permisos ni una decisión pendiente del autor.
+
+**Siguiente paso real**: reintentar el mismo flujo más tarde (podría ser un fallo transitorio de su backend) o, si persiste, usar "Contact Us" del Partner Dashboard para reportarlo. Los datos a introducir cuando se reintente son exactamente los mismos de arriba: nombre "David Porto Díaz", libro "Las Manecillas del Recuerdo" (excluir el resultado homónimo ajeno).
 
 ## Ejecución (2026-09-08)
 
