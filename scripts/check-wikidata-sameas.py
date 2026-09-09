@@ -38,6 +38,7 @@ ROOT = Path(__file__).resolve().parents[1]
 KNOWN_GOOD = {
     "Q139678851": ("David Porto Díaz", "the author's own Wikidata item"),
     "Q139927664": ("Noveris", "fictional city in Samuel entre mundos (ES label only)"),
+    "Q139915381": ("Samuel entre mundos", "the novel's work item; verified and corrected 2026-09-07 (publication year, stray genre and misattached award fixed)"),
     "Q119429258": ("portal fantasy", "fantasy fiction involving travel between universes"),
     "Q9326077": ("speculative fiction", "umbrella genre"),
     "Q1822655": ("worldbuilding", "practice of constructing an imaginary world"),
