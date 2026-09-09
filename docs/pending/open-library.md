@@ -2,7 +2,50 @@
 
 Fecha de revisión: 2026-09-07
 
-Estado: `RESEARCHED · OPEN_LIBRARY_EDIT_MODEL_CONFIRMED · READY_FOR_AUTHENTICATED_EXECUTION`
+Estado: `SAMUEL_ALREADY_COMPLETE · AUTHOR_PAGE_ALREADY_EXISTS · ONLY_MANECILLAS_MISSING`
+
+## Hallazgo (2026-09-08) — Samuel entre mundos ya está perfectamente hecho
+
+Antes de plantear ninguna ejecución, se comprobó el estado real en
+openlibrary.org: **ya existe una ficha completa y de muy alta calidad**,
+editada por la cuenta `David Porto567` el 27 de mayo de 2026 — casi con
+toda seguridad el propio autor.
+
+- Work: https://openlibrary.org/works/OL45355983W (`Samuel entre mundos`)
+- Edition: `OL61814887M` — ISBN-13 `9791387659776`, Libros Indie,
+  diciembre 2025, 422 páginas, rústica, Madrid
+- **Wikidata cross-link ya presente**: `Q139915381` — coincide
+  exactamente con el Work item auditado hoy en #398
+- Temas, personajes, lugares y época extensísimos y correctos (Noveris,
+  Zunthar/Marelian, Samuel Osborne, etc.)
+- Enlaces externos ya cargados: página oficial, fragmento gratuito,
+  guía del universo, ficha de Libros Indie, guía de clubes de lectura
+- **Página de autor propia ya existe**: buscar "David Porto Díaz" en
+  Autores devuelve 1 coincidencia exacta con su bibliografía
+
+No hay nada que hacer aquí para Samuel entre mundos — ya está mejor
+hecho de lo que este documento pedía conseguir.
+
+### Lo único que falta: Las manecillas del recuerdo
+
+Búsqueda directa confirma: **no existe todavía** ninguna ficha de Las
+manecillas del recuerdo en Open Library.
+
+Como la ficha de Samuel está vinculada a la cuenta `David Porto567`, lo
+más coherente es que la misma cuenta añada la edición de Manecillas
+("Add an Edition" dentro del work, o "Add a Book" si no existe work
+todavía) — esta sesión no tiene esa sesión iniciada, así que no se ha
+intentado crear nada anónimamente aquí (mismo criterio que en #398
+Wikidata: una entrada tan completa como la de Samuel merece mantenerse
+bajo la misma cuenta, no fragmentarse entre una cuenta y ediciones
+anónimas).
+
+**Siguiente paso real**: iniciar sesión como `David Porto567` en
+openlibrary.org y añadir Las manecillas del recuerdo siguiendo
+exactamente el mismo nivel de detalle que ya tiene Samuel (temas,
+personajes, lugares, ISBN papel `9798905149351` y Kindle
+`9798906781925`, editorial Monza Ediciones) — o autorizar a esta sesión
+para hacerlo si se comparte el acceso.
 
 ## Objetivo
 
