@@ -2,7 +2,13 @@
 
 **Revisión:** 2026-09-08
 
-**Estado:** `US_RETAIL_EDITION_VERIFIED · PARTNER_DASHBOARD_ACCESSIBLE · CLAIM_SUBMITTED_SERVER_ERROR · RETRY_NEEDED`
+**Estado:** `US_RETAIL_EDITION_VERIFIED · PARTNER_DASHBOARD_ACCESSIBLE · CLAIM_FAILS_ON_BOOKBUBS_SIDE_CONFIRMED_3X · NEEDS_BOOKBUB_SUPPORT_CONTACT`
+
+## Actualización (2026-09-09, segunda comprobación) — mismo error una tercera vez, con sesión reiniciada
+
+David volvió a dejar la sesión de BookBub logeada esta noche específicamente para reintentar. Repetido el flujo completo desde cero (nombre → búsqueda → añadir "Las Manecillas del Recuerdo", excluyendo el mismo resultado homónimo ajeno → enviar): **idéntico error 422** ("Oops! We encountered an error while submitting your books"). Confirmado tras guardar: `partners.bookbub.com/authors` sigue mostrando la pantalla de reclamación vacía — no hay ningún registro parcial visible desde el dashboard.
+
+Con esto son **3 intentos en 2 sesiones distintas**, mismo resultado exacto cada vez. Ya no tiene sentido seguir reintentando el mismo envío — es un fallo real y persistente del backend de BookBub, no algo que una nueva sesión o más reintentos vayan a arreglar. El único camino que queda es que BookBub lo solucione por su lado: contactar su soporte ("Contact Us" en el Partner Dashboard) indicando que el formulario de reclamación de autor devuelve error 422 de forma consistente. Esto implica enviar un mensaje a un tercero en nombre de David — necesita su confirmación explícita para que esta sesión lo redacte y envíe, o que lo haga él directamente.
 
 ## Actualización (2026-09-09) — reclamación intentada con permiso explícito, error del lado de BookBub
 
