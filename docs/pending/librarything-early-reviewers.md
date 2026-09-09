@@ -2,7 +2,13 @@
 
 Fecha de revisión: 2026-09-07
 
-Estado: `DIGITAL_COPY_READY_PER_AUTHOR · PUBLISHER_ENTITY_CREATED · GIVEAWAY_FORM_STARTED · IDENTIFIER_STEP_NEEDS_AUTHOR_GO_AHEAD`
+Estado: `RESOLVED · GIVEAWAY_COMPLETED_BY_AUTHOR · REAL_REVIEWS_ALREADY_IN`
+
+## Cierre (2026-09-09) — David completó el envío, ya hay reseñas reales
+
+David terminó él mismo el paso que quedó bloqueado por el clasificador (aceptar términos + enviar). Verificado en vivo: la obra "Las Manecillas del Recuerdo (Spanish Edition)" ya existe en el catálogo de LibraryThing (`librarything.com/work/37203222/t/Las-Manecillas-del-Recuerdo-Spanish-Edition`) con **1 miembro y 2 reseñas de lectores reales** — una de ellas, de la cuenta `carlosbermejop`, ya es una reseña sustancial y positiva fechada el 8 de septiembre de 2026. El sorteo/Early Reviewers ya está produciendo tracción real, no solo configurado.
+
+Nada pendiente de nuestro lado. Seguimiento opcional a 30/60/90 días: revisar si aparecen más reseñas y si merece la pena citar alguna en la web (con atribución y respetando los términos del programa).
 
 ## Actualización (2026-09-09) — ejecutado en vivo, cuenta real logeada
 
