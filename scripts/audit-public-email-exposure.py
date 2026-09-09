@@ -14,11 +14,22 @@ from __future__ import annotations
 
 import argparse
 import html
+import importlib.util
 import json
 from dataclasses import dataclass
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
+
+# Reuse the deploy allowlist's own exclusion logic instead of a second,
+# hand-maintained exemption list that can silently drift from what actually
+# ships (a real file, editorial-facts.json, was flagged here even though
+# build-public-dist.py has never published it).
+_bpd_spec = importlib.util.spec_from_file_location(
+    "build_public_dist", ROOT / "scripts" / "build-public-dist.py"
+)
+_bpd = importlib.util.module_from_spec(_bpd_spec)
+_bpd_spec.loader.exec_module(_bpd)
 
 # Same address as the reveal runtime, represented without a plaintext email
 # literal in this source file. This is obfuscation, not a secret.
@@ -41,23 +52,11 @@ SKIP_DIRS = {
     "lab",
 }
 
-# Files whose entire purpose is a human or machine reading the contact address
-# programmatically or on paper -- obfuscating them would defeat the file, not
-# protect anyone. This is a short, explicit allowlist, not a directory skip,
-# so a new page can never accidentally inherit the exemption.
-PUBLIC_DISCLOSURE_EXEMPT = {
-    "humans.txt",
-    "llms.txt",
-    "llms-full.txt",
-    "editorial-facts.json",  # build-time source only; not deployed (404 on the live site)
-    "assets/samuel-entre-mundos-ficha-tecnica.txt",  # downloadable press fact sheet
-    "press-kit/david-porto-diaz.json",
-    "press-kit/las-manecillas-del-recuerdo.json",
-    "press-kit/samuel-entre-mundos.json",
-    # Meant to be printed and read offline by book clubs; a click-to-reveal
-    # trigger is meaningless on paper.
-    "clubes-de-lectura/samuel-entre-mundos/guia-imprimible/index.html",
-}
+# All machine-readable/public-fact files now point to the prensa.html contact
+# page instead of a literal address, so no file needs a disclosure exemption
+# any more. Kept as an explicit (empty) allowlist -- not a directory skip --
+# so a future file can never silently inherit an exemption.
+PUBLIC_DISCLOSURE_EXEMPT: set[str] = set()
 
 
 @dataclass(frozen=True)
@@ -86,14 +85,43 @@ def inspect_text(text: str) -> set[str]:
     return kinds
 
 
+def _tracked_files(root: Path) -> list[str] | None:
+    """Git-tracked file list, so stale local build output (.preview-dist,
+    artifacts/, qa-artifacts/) and scratch files outside the repo can never
+    produce false positives or mask a real regression in what actually ships.
+    Returns None when git is unavailable, so callers can fall back to a
+    filesystem walk (e.g. running against an extracted archive)."""
+    import subprocess
+
+    try:
+        out = subprocess.run(
+            ["git", "ls-files"],
+            cwd=root,
+            capture_output=True,
+            text=True,
+            check=True,
+        )
+    except (OSError, subprocess.CalledProcessError):
+        return None
+    return [line for line in out.stdout.splitlines() if line]
+
+
 def iter_public_files(root: Path):
-    for path in root.rglob("*"):
+    tracked = _tracked_files(root)
+    if tracked is not None:
+        candidates = (root / rel for rel in tracked)
+    else:
+        candidates = root.rglob("*")
+
+    for path in candidates:
         if not path.is_file() or path.suffix.lower() not in PUBLIC_SUFFIXES:
             continue
         rel = path.relative_to(root)
         if any(part in SKIP_DIRS for part in rel.parts[:-1]):
             continue
         if rel.as_posix() in PUBLIC_DISCLOSURE_EXEMPT:
+            continue
+        if _bpd.forbidden_reason(rel.as_posix()):
             continue
         yield path
 
