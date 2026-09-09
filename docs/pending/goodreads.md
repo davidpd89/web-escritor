@@ -2,7 +2,38 @@
 
 Fecha de investigación: **2026-09-07**  
 PR owner: **#397 · `tracking/goodreads`**  
-Estado: **RESEARCHED · GOODREADS_AUTHOR_CONFIRMED · MANECILLAS_RECORD_PROPAGATION_INCONSISTENT · EXTERNAL_ACTION_PENDING**
+Estado: **RESOLVED · BOTH_WORKS_CORRECTLY_GROUPED · NO_ACTION_NEEDED · MINOR_THIRD_PARTY_EMAIL_NOTE**
+
+## Verificación en vivo (2026-09-08) — la inconsistencia ya no existe
+
+Abierta directamente la página pública de autor hoy:
+https://www.goodreads.com/author/show/66843136.David_Porto_D_az
+
+El snapshot antiguo que mostraba solo "1 distinct work" ya no representa
+el estado actual. Hoy la página muestra correctamente:
+
+- **"2 distinct works"** en el resumen de bibliografía;
+- `Samuel entre mundos` — 5.00 avg rating, 14 ratings;
+- `Las Manecillas del Recuerdo` — 5.00 avg rating, 1 rating, **2
+  editions** (confirma que las ediciones papel + Kindle ya están
+  agrupadas bajo la misma obra, no separadas como fichas distintas);
+- bio actualizada mencionando ambos libros y sus editoriales
+  (Libros Indie / Monza Ediciones) y los dos premios/reconocimientos.
+
+No hace falta ninguna acción de re-agrupación ni contactar a Goodreads
+Librarians: el propio catálogo ya se corrigió solo (probablemente al
+propagarse los metadatos tras el alta de la segunda edición). Esta PR
+puede considerarse cerrada.
+
+### Nota aparte, no accionable desde aquí
+
+La página muestra públicamente una actualización del propio autor (22 de
+diciembre de 2025, "NOTA DEL AUTOR") que incluye su email en texto plano
+para contacto de lectores. Es contenido histórico del propio autor en un
+sitio de terceros (Goodreads), no algo que esta sesión pueda o deba
+editar — solo se deja constancia por si el autor quiere revisar esa nota
+él mismo, dado que esta noche se ha estado trabajando precisamente en
+reducir la exposición pública del email en davidportodiaz.com.
 
 ## Objetivo
 
