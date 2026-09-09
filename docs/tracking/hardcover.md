@@ -2,7 +2,28 @@
 
 Fecha de revisión: 2026-09-09
 
-Estado: `AUTHENTICATED · MANECILLAS_ADDED_AND_LIVE · SAMUEL_QUEUED_PENDING_ASYNC_IMPORT · AUTHOR_CLAIM_NOT_AVAILABLE`
+Estado: `AUTHENTICATED · MANECILLAS_PAPER_LIVE · MANECILLAS_EBOOK_EDITION_ADDED_PENDING_IMPORT · SAMUEL_STILL_ABSENT_RECHECKED_NOT_RESUBMITTED · AUTHOR_CLAIM_NOT_AVAILABLE`
+
+## Cierre parcial (2026-09-09) v2 — edición ebook añadida, Samuel re-verificado
+
+Una revisión externa (GPT) señaló correctamente que el cierre anterior solo
+cubría la edición en papel de Manecillas, cuando el criterio original de
+esta PR pedía ambas ediciones (papel + ebook). Corregido:
+
+- **Edición ebook de Manecillas (ISBN `9798906781925`) añadida** desde la
+  pestaña "Editions" del libro ya existente (`Add an Edition to Hardcover` →
+  ISBN 10/13 → `9798906781925`), **no como obra nueva** — se usó
+  deliberadamente el flujo "Add an Edition" sobre el libro ya localizado,
+  no "Could you add it for us?", para que quede como segunda edición del
+  mismo libro/familia en vez de un duplicado. Quedó en el mismo estado
+  asíncrono "Looking up..." que ya se documentó para las altas anteriores;
+  pendiente de revisar en una sesión futura si ya resolvió.
+- **Samuel entre mundos re-verificado, sigue ausente.** Búsqueda por
+  título en el buscador de Hardcover no devuelve el libro (solo coincidencias
+  irrelevantes por la palabra "Samuel" en otros autores/títulos). Conforme a
+  la nota ya dejada aquí, **no se ha vuelto a enviar el alta** — ya está en
+  cola desde el intento anterior; solo falta comprobar más adelante si
+  resolvió.
 
 ## Cierre parcial (2026-09-09)
 
