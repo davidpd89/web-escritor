@@ -62,6 +62,18 @@
        end up consuming), removed rather than left in place wasting
        high-priority bandwidth on every home page load. -->
   <link rel="preload" as="font" type="font/woff2" href="/assets/fonts/yellowtail-normal-400-latin.woff2" crossorigin />
+  <!-- 2026-09-09 (PageSpeed Insights audit): this comment used to describe
+       the ONLY LCP candidate on this page, but that was only ever true for a
+       RETURNING visitor -- sessionStorage already has dp-intro-seen, so
+       v1-shell.js hides .intro immediately and this Home hero image really
+       is the largest thing painted. Lighthouse (and every genuinely first-
+       time visitor, which is most of what CrUX's field data aggregates)
+       instead sees the full-screen `.intro` video first -- its poster image
+       becomes the actual LCP candidate, and it had no discovery hint at all,
+       measured at 17.3s LCP under mobile/slow-4G. Preloading it here fixes
+       the first-time-visitor path without touching the returning-visitor
+       one below, which stays exactly as documented. -->
+  <link rel="preload" as="image" href="/assets/hero-tinta-poster.jpg?v=2" fetchpriority="high" />
   <!-- The current LCP element on this page (confirmed live via
        PerformanceObserver's largest-contentful-paint entry) is the hero
        image createYaleHero() inserts -- but that function only runs after
@@ -329,7 +341,7 @@
            H.264 High Profile + faststart (moov before mdat) plays natively
            on every browser this site targets, so a second source only
            reintroduces the failure mode with no real benefit. -->
-      <video class="intro__video" autoplay muted playsinline webkit-playsinline preload="auto" poster="/assets/hero-tinta-poster.jpg?v=2" data-hero-video aria-hidden="true">
+      <video class="intro__video" autoplay muted playsinline webkit-playsinline preload="auto" poster="/assets/hero-tinta-poster.jpg?v=2" data-hero-video aria-hidden="true" fetchpriority="high">
         <source src="/assets/video/hero-tinta-david-porto.mp4?v=2" type="video/mp4" />
       </video>
     </div>
