@@ -2,7 +2,34 @@
 
 Fecha de revisión: 2026-09-07
 
-Estado: `SAMUEL_ALREADY_COMPLETE · ACCOUNT_OWNERSHIP_CONFIRMED · MANECILLAS_ADD_BOOK_FORM_STARTED · PUBLISHER_FIELD_NEEDS_AUTHOR_GO_AHEAD`
+Estado: `RESOLVED · SAMUEL_AND_MANECILLAS_COMPLETE · BOTH_EDITIONS_LIVE · WORK_WIKIDATA_ID_FIXED`
+
+## Cierre (2026-09-09)
+
+Terminado en vivo, sin bloqueos del clasificador esta vez:
+
+1. **Corregido**: eliminado el identificador Wikidata `Q139678851` del Work `OL45970133W` — era el QID del autor pegado por error en el campo de la obra (esta obra todavía no tiene ítem Wikidata propio). Editado en `openlibrary.org/works/OL45970133W/Las_manecillas_del_recuerdo/edit` con nota explicando el motivo.
+2. **Añadida** la edición Kindle como segunda Edition del mismo Work (`OL45970133W`) vía "¿Añadir otra edición?" → editorial Monza Ediciones, 2026, ISBN-13 `9798906781925`. Confirmado: la ficha del Work ahora dice "Ver 2 ediciones" y ambas aparecen listadas (papel `OL62535354M` y la nueva edición Kindle).
+
+Las manecillas del recuerdo y Samuel entre mundos quedan ambos completos en Open Library, siguiendo el mismo modelo Work/Edition correcto y sin duplicados. Nada pendiente aquí salvo revisión ocasional si Open Library cambia algo por su cuenta.
+
+## Cierre parcial (2026-09-09) — David completó la ficha de papel él mismo
+
+David terminó lo que quedaba bloqueado por el clasificador: la ficha ya está publicada y editada por `David Porto567` ("hace 25 minutos" en el momento de esta comprobación).
+
+- **URL**: https://openlibrary.org/books/OL62535354M/Las_manecillas_del_recuerdo
+- Work ID: `OL45970133W` · Edition ID (papel): `OL62535354M` · ISBN-13: `9798905149351`
+- Editorial "Monza ediciones", publicación 2026, sinopsis completa, temas/personajes/lugares/época rellenados — mismo nivel de detalle que la ficha de Samuel.
+- Autor correctamente enlazado al registro existente `OL16442161A` (no se duplicó).
+
+### Hallazgo nuevo: el Wikidata del Work está mal
+
+La ficha muestra, bajo "Identificadores de obra", `Wikidata: Q139678851` — pero **ese QID es el del autor** (David Porto Díaz), no un ítem Wikidata de la obra "Las manecillas del recuerdo" (que todavía no existe — ver `docs/tracking/wikidata.md`/#398). Es casi seguro un error al rellenar el campo, probablemente copiado del identificador que sí aparece correctamente en la ficha de Samuel para el AUTOR, pero pegado aquí en el campo equivocado (el de la OBRA). Hay que corregirlo: o se borra ese campo hasta que exista un QID real para la obra, o se mueve al lugar correcto si Open Library separa identificador de autor/obra en la edición del Work.
+
+### Pendiente
+
+- Añadir la edición Kindle (ISBN-13 `9798906781925`, ASIN `B0HHM71F46`) como segunda Edition del mismo Work `OL45970133W` (usar "¿Añadir otra edición?" en la propia ficha, no crear un Work nuevo).
+- Corregir el campo Wikidata del Work (ver arriba).
 
 ## Actualización (2026-09-09) — propiedad de la cuenta confirmada de verdad, no inferida
 
