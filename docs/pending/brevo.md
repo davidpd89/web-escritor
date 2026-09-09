@@ -2,7 +2,7 @@
 
 Fecha de investigación: **2026-09-07**  
 PR owner: **#400 · `tracking/brevo`**  
-Estado: **WELCOME_AUTOMATION_FIXED_FOR_REAL · LECTORES_BETA_AUTOMATION_BUILT_INACTIVE · DOMAIN_AUTH_STILL_PENDING**
+Estado: **WELCOME_AUTOMATION_FIXED_FOR_REAL · DECOY_TEMPLATES_DEACTIVATED · EMAIL2_3_SEGMENTATION_STILL_NOVERIS_CENTRIC · LECTORES_BETA_AUTOMATION_BUILT_INACTIVE · DOMAIN_AUTH_STILL_PENDING**
 
 ## Cierre parcial (2026-09-09) — hallazgo crítico y corrección real
 
@@ -19,9 +19,13 @@ Estado: **WELCOME_AUTOMATION_FIXED_FOR_REAL · LECTORES_BETA_AUTOMATION_BUILT_IN
 
 No existía ninguna automatización para la lista `Lectores beta - #6`; cualquiera que se apuntara no recibía ningún email de bienvenida. Se creó **"Bienvenida — Lectores beta"** (automatización #6), duplicando la ya arreglada #2 y sustituyendo: la lista disparadora por `Lectores beta - #6`, y el único paso de email por un contenido dedicado (manuscritos sin publicar, sin calendario fijo, sin obligación, misma redacción que ya usa `/lectores-beta` en la web). **Queda guardada pero `Inactivo`** — activar una automatización que dispara envíos automáticos futuros es una acción que requiere el visto bueno explícito del autor; no se ha activado.
 
+### Plantillas huérfanas — desactivadas (2026-09-09)
+
+Una revisión externa (GPT) señaló, con razón, que dejar copias huérfanas indistinguibles de las reales ya había provocado un incidente real (la confusión del 08-09 de arriba) y que debían eliminarse o marcarse claramente. Brevo no ofrece un "Eliminar" directo desde el listado de Plantillas (solo Vista previa/Duplicar/Desactivar/Generar traducción/Compartir), así que se usó la vía de repliegue que este mismo documento ya contemplaba: **desactivar** las seis plantillas huérfanas encontradas (una más de las que este documento tenía registradas: #1, #2, #3, #4, #9, y también **#10**, un "Nueva plantilla" adicional sin usar que no estaba documentado). Desactivar impide que Brevo la deje usar en Automatizaciones/Transaccional, que es justo el vector del incidente original. Ninguna de las plantillas realmente activas de la automatización (#6/#7/#8, ni la #19 de Lectores beta) se ha tocado — verificado que ninguna de ellas aparece siquiera en el listado general de Plantillas, confirmando el hallazgo de que son internas a cada automatización.
+
 ### Sin resolver / a decisión del autor
 
-- Las plantillas huérfanas #1–#4 y #9 originales (visibles en Plantillas como "Bienvenida_Samuel_EmailN" y "Nueva plantilla") siguen existiendo sin usar. Inofensivas pero confusas. Borrarlas requiere confirmación.
+- **Email 2 y 3 siguen sin segmentar por origen del lector** (señalado por la misma revisión externa): el Email 1 ya distingue `NOVERIS` definido vs alta general, pero el Email 2 (plantilla #7, "El mundo de Noveris") y el Email 3 (plantilla #8, pitch de compra de Samuel) se envían igual a todo el mundo, incluido quien se dio de alta desde Manecillas/Home/Cuaderno sin pasar por Noveris ni mostrar interés en Samuel. Arreglar esto de verdad requiere una decisión de contenido que esta sesión no puede tomar unilateralmente sobre una automatización que ya envía correos reales a lectores reales: habría que (a) escribir una rama de contenido alternativa para Email 2/3 centrada en Manecillas para quien no viene de Noveris, y (b) añadir un paso de condición (`SI/SINO` sobre `contact.NOVERIS`, igual que ya existe conceptualmente en el Email 1) en el canvas de la automatización antes de esos dos pasos. Documentado aquí en vez de improvisarlo para que quien lo ejecute tenga el contenido ya decidido, no solo el diagnóstico.
 - `davidportodiaz@gmail.com` no es un remitente verificado en Brevo; si el autor lo prefiere sobre `davidpd89@gmail.com`, hay que añadirlo y verificarlo en Brevo primero.
 - Activar la automatización de Lectores beta.
 - El resto del runbook original de abajo (autenticación de dominio DKIM/DMARC, arquitectura de contactos, QA de clientes de email, etc.) sigue sin ejecutar.
