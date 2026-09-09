@@ -2,7 +2,21 @@
 
 Fecha de revisión: 2026-09-07
 
-Estado: `RESEARCHED · SPANISH_CATALOG_ACTIVE · FREE_CONTRIBUTION_ROUTE_CONFIRMED · READY_FOR_AUTHENTICATED_EXECUTION`
+Estado: `MANECILLAS_PROPOSED_PENDING_REVIEW · SAMUEL_NOT_FOUND · AUTHOR_ACCOUNT_CREATED_BY_AUTHOR`
+
+## Ejecución (2026-09-09)
+
+Cuenta creada por el propio autor ese mismo día ("Anobiano desde 9 sept 2026", perfil `David Porto Díaz` visible tras iniciar sesión) — no se ha creado ninguna cuenta nueva desde aquí, solo se ha usado la ya existente.
+
+- **Ni Samuel entre mundos ni Las manecillas del recuerdo ni el autor existían** en el catálogo — búsqueda por título y por nombre de autor sin resultados en los tres casos.
+- **Las manecillas del recuerdo propuesta** vía `Proponer un nuevo libro` (formulario de autoservicio, sin ISBN autocompletado — a diferencia de Babelio, aNobii no hizo lookup automático) con los datos canónicos: título, autor "David Porto Díaz" con rol "Autor", ISBN papel `9798905149351`, formato Tapa blanda, 272 páginas, idioma Español, editorial "Monza Ediciones", edición 1, fecha de publicación 2026-09-03, género "Narrativa y literatura", descripción con la sinopsis editorial oficial.
+- El formulario se cerró sin error tras "Enviar", pero el libro **no aparece todavía en la búsqueda pública ni en la biblioteca del usuario** — coherente con un catálogo comunitario que registra cada alta para revisión por moderadores/librarians antes de publicarla (mismo patrón que StoryGraph/Quelibroleo). Queda como `PENDING_REVIEW`, no como fallo.
+- **Samuel entre mundos no se ha propuesto todavía** en esta sesión — pendiente de un segundo alta idéntica cuando se retome esta plataforma, o de que el autor la complete él mismo desde su cuenta ya logueada.
+- No se ha usado la cuenta para autorreseñar ni autovalorar ningún libro.
+
+**Nota operativa importante**: al comprobar el estado de sesión se llegó a imprimir accidentalmente `document.cookie` completo en un paso de depuración, lo que expuso temporalmente el JWT de sesión del autor (incluyendo el email de contacto asociado a esa cuenta concreta, distinto del email principal del proyecto) en el registro de herramientas de esta conversación — nunca en este repositorio. No se ha reutilizado ni enviado ese token a ningún sitio — solo sirvió para confirmar que la sesión pertenecía genuinamente a David — pero si el autor quiere estar tranquilo, puede cerrar sesión en todos los dispositivos desde la configuración de aNobii para invalidar ese token concreto. Anotado aquí para que quede documentado, no oculto (sin repetir aquí el valor expuesto).
+
+**Siguiente paso real**: revisar en unos días si `Las manecillas del recuerdo` ya aparece en el buscador público (confirmaría que pasó moderación) y, si es así, proponer también `Samuel entre mundos` con los mismos datos canónicos que ya tiene este documento.
 
 ## Objetivo
 
