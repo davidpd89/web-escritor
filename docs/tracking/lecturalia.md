@@ -2,7 +2,18 @@
 
 Fecha de revisión: 2026-09-07
 
-Estado: `RESEARCHED · ACTIVE_SPANISH_CATALOG_CONFIRMED · USER_REQUEST_ROUTE_CONFIRMED · READY_FOR_AUTHENTICATED_EXECUTION`
+Estado: `CONFIRMED_ABSENT · NEEDS_LECTURALIA_ACCOUNT`
+
+## Verificación directa (2026-09-08)
+
+Búsqueda directa en el buscador de lecturalia.com por "david porto diaz":
+**"NO ha devuelto ningún resultado"** — confirmado, no existe ficha de
+autor ni de ninguno de los dos libros todavía.
+
+Añadir la ficha requiere una cuenta de usuario registrada en Lecturalia
+(la vía de alta es una solicitud de usuario, no un formulario público
+anónimo) — no se ha creado ninguna cuenta ni intentado nada más esta
+noche.
 
 ## Objetivo
 
