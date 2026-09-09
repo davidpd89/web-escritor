@@ -1,8 +1,27 @@
 # Mastodon — identidad verificada + atribución Fediverse
 
-Fecha de revisión: 2026-09-07
+Fecha de revisión: 2026-09-09
 
-Estado: `RESEARCHED · FREE_WEB_VERIFICATION_CONFIRMED · FEDIVERSE_ATTRIBUTION_CONFIRMED · INSTANCE_RECOMMENDED · ACCOUNT_CREATION_NEEDS_AUTHOR`
+Estado: `LIVE_ON_SITE · SAMEAS_FEDIVERSE_CREATOR_DEPLOYED · EDITORIAL_FACTS_SYNCED`
+
+## Cierre (2026-09-09)
+
+La cuenta `@davidportodiaz@mastodon.social` ya existe y quedó completamente
+integrada en `main` vía #484: icono `rel="me"` en `SOCIAL_ROW` (69 páginas),
+`Person.sameAs` en `index.html`/`autor.html`, y `fediverse:creator` en los 7
+artículos de Cuaderno + `autor.html`/`premios.html`.
+
+**Divergencia corregida**: #484 actualizó el HTML directamente pero no añadió
+Mastodon a `editorial-facts.json` (`author.identifiers`), que es la fuente
+factual que este mismo repo usa como referencia canónica para identificadores
+externos del autor (Wikidata, ORCID, Babelio, StoryGraph...). Aunque ningún
+script de build lee hoy ese campo para generar `sameAs` (se comprobó en
+`build-site-shell.py`: solo consume `purchaseUrl`), dejarlo desincronizado
+crea el mismo riesgo que ya se corrigió en Babelio (#401): una fuente
+"canónica" que no refleja la identidad pública real. Añadido
+`"mastodon": "https://mastodon.social/@davidportodiaz"` a
+`author.identifiers`. Verificado con `scripts/check-editorial-facts.py`
+(OK).
 
 ## Recomendación de instancia y handle (2026-09-09)
 
