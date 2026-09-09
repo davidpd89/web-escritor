@@ -2,15 +2,26 @@
 
 Fecha de revisión: **2026-09-07**  
 PR owner: **#444 · `tracking/wikimedia-commons`**  
-Estado: **RESEARCHED · COPYRIGHT_OWNER_MUST_BE_VERIFIED · FREE_LICENSE_DECISION_PENDING · WIKIDATA_P18_PATH_DEFINED · COVER_RIGHTS_CLAIM_NEEDS_EVIDENCE**
+Estado: **PAGE_COPYRIGHT_CREDITS_REVIEWED · IMAGES_CREDIT_CLEAR · DESIGN_LAYOUT_IS_JOINT · FULL_COVER_STILL_NEEDS_CO_AUTHOR_CONSENT**
 
-## Nota del autor (2026-09-09) sobre la portada de Manecillas
+## Evidencia aportada (2026-09-09): página de copyright del libro físico
 
-David comentó: "yo creo que la portada del libro de Manecillas pone que también tengo los derechos". Es un dato a tener en cuenta, pero no evidencia suficiente por sí sola para subir la portada a Commons bajo licencia libre — la sección "Portadas de libros" de abajo sigue aplicando sin cambios: que el contrato editorial le reconozca derechos sobre la portada no equivale automáticamente a que Commons pueda aceptarla (podría, por ejemplo, ser un uso exclusivo para la edición y no una cesión libre reutilizable comercialmente por terceros).
+David envió una foto de la página de créditos de `Las manecillas del recuerdo`. Texto exacto relevante:
 
-**Antes de subir nada**: pedirle a David que localice el texto exacto (créditos de portada/página de copyright del libro físico, o cláusula del contrato con Monza) donde se especifican sus derechos sobre la portada, y que confirme si acepta conscientemente que cualquiera pueda reutilizarla/modificarla, incluso comercialmente (lo que exige una licencia libre real tipo CC BY/CC BY-SA). Si solo tiene derecho de uso para promoción propia, eso NO es suficiente para Commons.
+> © del texto: David Porto Díaz
+> © de esta publicación: Monza Ediciones SC839555
+> Diseño de cubierta, diseño interior y maquetación: Mónica Iglesias y David Porto
+> **Imágenes de portada por David Porto**
 
-El retrato del autor (foto personal, sección de abajo) es un caso más simple y no depende de esta duda — puede avanzar independientemente en cuanto haya una foto candidata y confirmación de licencia.
+Esto aclara la pregunta, pero con un matiz importante que separa dos cosas distintas:
+
+1. **Las imágenes/fotografías que forman la portada**: crédito exclusivo a David Porto. Si son suyas de verdad (no un banco de imágenes/IA con licencia restrictiva usado con su nombre puesto solo como maquetador), **él sí puede liberarlas bajo licencia libre en Commons** sin necesitar el visto bueno de nadie más — es el caso más simple, equivalente al retrato personal de más abajo.
+2. **La portada terminada tal como aparece en el libro** (composición + tipografía + maquetación): crédito conjunto a "Mónica Iglesias y David Porto". Subir la portada COMPLETA tal cual se ve en el libro seguiría necesitando el consentimiento explícito de Mónica Iglesias como coautora del diseño — David no puede liberar en solitario un trabajo de autoría conjunta.
+3. La publicación en su conjunto es © Monza Ediciones — no afecta a los dos puntos anteriores (derechos de imagen/diseño), pero confirma que Monza tiene su propio interés editorial en la edición; no hace falta su permiso para las imágenes/diseño en concreto según este crédito, pero conviene no ignorarlo si en algún momento se sube el trabajo completo.
+
+**Siguiente paso real**: preguntar a David (a) si las imágenes de portada son fotografías/ilustraciones que él mismo tomó/creó (no de un banco de imágenes de terceros usado bajo licencia no transferible), y (b) si quiere subir solo esas imágenes base (puede hacerlo solo) o la portada completa tal como se ve en el libro (necesitaría el ok de Mónica Iglesias primero). Cualquiera de las dos vías sigue exigiendo confirmar que acepta la reutilización libre, incluso comercial (ver "Licencias válidas" más abajo) — el crédito de autoría por sí solo no implica automáticamente esa cesión.
+
+El retrato del autor (foto personal, sección de abajo) sigue siendo el caso más simple y no depende de esta duda — puede avanzar independientemente en cuanto haya una foto candidata y confirmación de licencia.
 
 ## Objetivo
 
