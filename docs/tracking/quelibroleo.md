@@ -1,8 +1,14 @@
 # Quelibroleo — libros y descubrimiento en español
 
-Fecha de revisión: 2026-09-07
+Fecha de revisión: 2026-09-09
 
-Estado: `RESOLVED · MANECILLAS_SUBMITTED_PENDING_MODERATION`
+Estado: `SUBMITTED · MODERATION_PENDING`
+
+## Corrección de estado (2026-09-09)
+
+Una revisión externa (GPT) señaló, correctamente, que el cierre anterior se marcó `RESOLVED` cuando su propio texto decía "pendiente de validación" — hemos enviado la ficha, no confirmado que se haya publicado. Corregido el estado a `SUBMITTED · MODERATION_PENDING`. Re-verificado en vivo: buscando "manecillas del recuerdo" en Quelibroleo con la sesión logueada como `davidpd`, la ficha todavía no aparece públicamente (solo resultados irrelevantes: "Reloj sin manecillas" de Carson McCullers y "Fulgor" de Alma Mancilla) — sigue en cola de moderación.
+
+**Pendiente para una sesión futura**: volver a buscar "Las manecillas del recuerdo" en Quelibroleo; si ya aparece públicamente, marcar entonces `RESOLVED · MANECILLAS_PUBLISHED` y verificar que los datos (autor, editorial, ISBN, resumen) se publicaron tal cual se enviaron.
 
 ## Cierre (2026-09-09)
 

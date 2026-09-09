@@ -1,16 +1,23 @@
 # Google Knowledge Panel + Search Profile — David Porto Díaz
 
-Fecha de revisión: 2026-09-07
+Fecha de revisión: 2026-09-09
 
-Estado: `RESOLVED · CLAIMED_BY_AUTHOR · CLOSED`
+Estado: `CLAIM_SUBMITTED_BY_AUTHOR · GOOGLE_APPROVAL_UNVERIFIABLE_ANONYMOUSLY · SEARCH_PROFILE_NOT_CHECKED`
 
-## Cierre (2026-09-09)
+## Corrección de cierre (2026-09-09)
 
-David confirmó directamente que ya completó el paso de verificación de identidad de Google (el que pide documento de identidad) y reclamó el panel/entidad por su cuenta — ese paso, por su naturaleza, solo lo puede hacer él, nunca esta sesión.
+Una revisión externa (GPT) señaló, correctamente, que el cierre anterior (`RESOLVED · CLOSED`) daba por hecho más de lo que la evidencia real sostiene. Lo único verificable de forma independiente es:
 
-Verificado en vivo que existe una entidad real en el Knowledge Graph de Google para "David Porto Díaz escritor" (aparece una tarjeta de "Información" con fecha de nacimiento junto a los resultados). Nota aparte, no bloqueante para este cierre: esa fecha de nacimiento visible en Google coincide con el mismo dato sin referencias ya señalado en Wikidata (`docs/tracking/wikidata.md` / #398) — sigue siendo una decisión de privacidad del autor, no algo para tocar aquí.
+- Que existe una entidad real en el Knowledge Graph de Google para "David Porto Díaz escritor": al buscarlo aparece un panel de conocimiento con foto y etiqueta "Autor".
+- Que el menú "⋮" de ese panel ofrece la opción **"Registrarse como responsable de este panel de información"**. Esta opción por sí sola **no confirma ni descarta** que el panel ya esté reclamado — Google no expone el estado de reclamación a un visitante anónimo/no autenticado, solo al propio titular cuando revisa el panel desde su cuenta de Google.
 
-Sin más acción pendiente en esta rama.
+Lo que decía el cierre anterior — que David ya completó la verificación de identidad y reclamó el panel — es lo que David reportó directamente, no algo que esta sesión pueda confirmar por su cuenta navegando de forma anónima. Y el **Search Profile** (la superficie de creador con hasta 8 publicaciones/enlaces fijados) mencionado en este mismo documento **nunca se llegó a comprobar** en el cierre anterior pese a estar en el alcance original.
+
+**Para cerrar esto de verdad hace falta que David, con sesión iniciada en su propia cuenta de Google**:
+1. busque su nombre y confirme si el panel muestra algún indicador de "gestionas este panel" / aprobación, en vez de la opción de reclamarlo;
+2. compruebe si tiene disponible un Search Profile en `google.com/search` (aparece solo para cuentas elegibles) y, si existe, complete los enlaces/publicaciones fijados.
+
+Sin esa confirmación del propio David, esta rama se deja documentada pero no se marca `RESOLVED`.
 
 ## Objetivo
 
