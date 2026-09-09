@@ -8,6 +8,12 @@ on:
       - 'fragmento/**'
       - 'index.html'
       - 'script.js'
+      # Both contracts assert absolute pixel positions/rects (banner corner,
+      # #sticky-cta's rect, the intro overlay) that any sitewide CSS can
+      # shift -- not just the JS files above. A JS-only path filter here
+      # would let a real CSS regression to this geometry merge without this
+      # test ever running (flagged in review of the JS-only version).
+      - 'assets/*.css'
       - 'qa/consent-banner-visual-viewport-contract.mjs'
       - 'qa/consent-banner-focus-not-obscured-contract.mjs'
       - '.github/workflows/consent-banner-visual-viewport-qa.yml'

@@ -127,6 +127,46 @@ try {
     `overlap shift should move the banner clear of its resting position (was top=${restingRect.top}, now top=${withRealFocus.top})`);
 
   await context2.close();
+
+  // --- Scenario 3: tabindex="-1" is NOT a blanket exemption. It's also the
+  // standard pattern for a genuinely visible, boundable focus target that
+  // SC 2.4.11 must still protect -- an error message, a modal heading, a
+  // "skip to" destination -- none of which are the <main> landmark. A
+  // synthetic <div tabindex="-1"> placed over the banner's corner must still
+  // trigger the shift; if this fails, the fix over-generalized to "any
+  // tabindex===-1" instead of specifically the <main>-landmark sink.
+  const context3 = await browser.newContext({ viewport: VIEWPORT });
+  const page3 = await context3.newPage();
+  await page3.goto(`${ORIGIN}/`, { waitUntil: 'load' });
+  await page3.evaluate(() => { try { sessionStorage.setItem('dp-intro-seen', '1'); localStorage.clear(); } catch {} });
+  await page3.reload({ waitUntil: 'load' });
+  await page3.waitForSelector('[data-analytics-consent-banner]', { timeout: 5000 });
+
+  const restingRect3 = await page3.evaluate(() => {
+    const bar = document.querySelector('[data-analytics-consent-banner]');
+    return { left: bar.offsetLeft, top: bar.offsetTop, width: bar.offsetWidth, height: bar.offsetHeight };
+  });
+
+  await page3.evaluate((rect) => {
+    const probe = document.createElement('div');
+    probe.tabIndex = -1;
+    probe.id = 'qa-focus-probe-tabindex-minus-one';
+    probe.setAttribute('role', 'alert');
+    probe.textContent = 'A genuinely visible tabindex=-1 alert, not <main>';
+    probe.style.cssText = `position:fixed;left:${rect.left}px;top:${rect.top}px;width:${rect.width}px;height:${rect.height}px;`;
+    document.body.appendChild(probe);
+  }, restingRect3);
+  await page3.locator('#qa-focus-probe-tabindex-minus-one').focus();
+  await page3.waitForTimeout(150);
+
+  const withTabindexMinusOneFocus = await getBannerState(page3);
+  assert.notEqual(withTabindexMinusOneFocus.transform, '',
+    'a visible tabindex="-1" element (not <main>) overlapping the banner must still trigger the SC 2.4.11 shift -- ' +
+    'the fix must exempt only the <main>-landmark focus sink, not every tabindex===-1 target');
+  assert.ok(withTabindexMinusOneFocus.top >= VIEWPORT.height || withTabindexMinusOneFocus.bottom <= restingRect3.top,
+    `overlap shift should move the banner clear of its resting position (was top=${restingRect3.top}, now top=${withTabindexMinusOneFocus.top})`);
+
+  await context3.close();
 } finally {
   await browser.close();
   server.close();
