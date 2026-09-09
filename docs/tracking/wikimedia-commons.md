@@ -2,7 +2,15 @@
 
 Fecha de revisión: **2026-09-07**  
 PR owner: **#444 · `tracking/wikimedia-commons`**  
-Estado: **RESEARCHED · COPYRIGHT_OWNER_MUST_BE_VERIFIED · FREE_LICENSE_DECISION_PENDING · WIKIDATA_P18_PATH_DEFINED**
+Estado: **RESEARCHED · COPYRIGHT_OWNER_MUST_BE_VERIFIED · FREE_LICENSE_DECISION_PENDING · WIKIDATA_P18_PATH_DEFINED · COVER_RIGHTS_CLAIM_NEEDS_EVIDENCE**
+
+## Nota del autor (2026-09-09) sobre la portada de Manecillas
+
+David comentó: "yo creo que la portada del libro de Manecillas pone que también tengo los derechos". Es un dato a tener en cuenta, pero no evidencia suficiente por sí sola para subir la portada a Commons bajo licencia libre — la sección "Portadas de libros" de abajo sigue aplicando sin cambios: que el contrato editorial le reconozca derechos sobre la portada no equivale automáticamente a que Commons pueda aceptarla (podría, por ejemplo, ser un uso exclusivo para la edición y no una cesión libre reutilizable comercialmente por terceros).
+
+**Antes de subir nada**: pedirle a David que localice el texto exacto (créditos de portada/página de copyright del libro físico, o cláusula del contrato con Monza) donde se especifican sus derechos sobre la portada, y que confirme si acepta conscientemente que cualquiera pueda reutilizarla/modificarla, incluso comercialmente (lo que exige una licencia libre real tipo CC BY/CC BY-SA). Si solo tiene derecho de uso para promoción propia, eso NO es suficiente para Commons.
+
+El retrato del autor (foto personal, sección de abajo) es un caso más simple y no depende de esta duda — puede avanzar independientemente en cuanto haya una foto candidata y confirmación de licencia.
 
 ## Objetivo
 
