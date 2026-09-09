@@ -2,7 +2,18 @@
 
 Fecha de revisión: 2026-09-07
 
-Estado: `RESEARCHED · FREE_WEB_VERIFICATION_CONFIRMED · FEDIVERSE_ATTRIBUTION_CONFIRMED · PROFILE_HANDLE_PENDING`
+Estado: `RESEARCHED · FREE_WEB_VERIFICATION_CONFIRMED · FEDIVERSE_ATTRIBUTION_CONFIRMED · INSTANCE_RECOMMENDED · ACCOUNT_CREATION_NEEDS_AUTHOR`
+
+## Recomendación de instancia y handle (2026-09-09)
+
+David preguntó qué significan "instancia" y "handle" y pidió usar el mismo nombre de usuario que en sus otras redes.
+
+- **Handle** = el nombre de usuario dentro de Mastodon, exactamente como `@nombre` en Instagram/TikTok/etc. Ya usa `davidportodiaz` en Instagram/Facebook/LinkedIn/Threads y `davidportoescritor` en TikTok/Bluesky — para consistencia se recomienda **`davidportodiaz`**.
+- **Instancia** = el servidor concreto de Mastodon donde vive la cuenta (Mastodon es una red descentralizada, no hay un único "mastodon.com"). El handle completo se escribe `@usuario@instancia`, p. ej. `@davidportodiaz@mastodon.social`.
+
+**Recomendación**: `mastodon.social`, la instancia insignia operada por Mastodon gGmbH (la propia organización detrás del proyecto) — estable a largo plazo, moderación seria, sin política de nicho de una comunidad temática, y la más ampliamente federada, lo que maximiza que perfiles en otras instancias puedan encontrarlo y seguirlo sin fricción. Handle resultante: **`@davidportodiaz@mastodon.social`**.
+
+**Importante — esto no lo puedo crear yo**: crear una cuenta nueva (Mastodon incluida) es una acción que las normas de esta sesión reservan siempre para el titular, nunca para Claude, con independencia de lo urgente o simple que parezca. David tiene que registrar `davidportodiaz` en `mastodon.social` él mismo (email + contraseña, sin datos sensibles adicionales). En cuanto exista la cuenta, Claude puede completar el resto de este documento sin más intervención suya: verificación `rel="me"`, `fediverse:creator`, y añadir el perfil a `Person.sameAs`.
 
 ## Objetivo
 
