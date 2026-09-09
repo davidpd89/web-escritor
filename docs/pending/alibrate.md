@@ -2,7 +2,26 @@
 
 Fecha de revisión: 2026-09-07
 
-Estado: `RESEARCHED · FREE_COMMUNITY_CONFIRMED · VALUE_REAL_BUT_SECONDARY · READY_FOR_AUTHENTICATED_EXECUTION`
+Estado: `DOMAIN_NO_LONGER_THE_SERVICE · NOT_ACTIONABLE · NO_GO`
+
+## Hallazgo (2026-09-08) — el dominio ya no es Alibrate
+
+`alibrate.com` **ya no aloja la plataforma de lectura investigada** en
+este documento. Hoy el dominio redirige a un sitio de afiliación de
+casinos de criptomonedas ("Crypto Casinos en España 2025 — Mejores
+Casinos de Bitcoin", con fecha de "última actualización" del 16 de
+septiembre de 2025), sin ninguna relación con libros ni lectura.
+
+Lo más probable: la plataforma original cerró o dejó caducar el dominio
+en algún momento del último año, y alguien lo registró de nuevo para un
+sitio de afiliados sin relación. No se ha localizado en esta sesión un
+dominio alternativo donde la comunidad Alibrate original siga activa.
+
+**No hay nada que hacer aquí.** Cerrando como `NO_GO`: la plataforma
+investigada ya no existe en la forma descrita por este documento. Si en
+el futuro reaparece bajo otro dominio, habría que volver a evaluarla
+desde cero, no reutilizar los datos canónicos preparados aquí sin
+verificar primero que el nuevo sitio es genuinamente el mismo servicio.
 
 ## Objetivo
 
