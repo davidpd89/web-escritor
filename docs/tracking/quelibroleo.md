@@ -2,7 +2,13 @@
 
 Fecha de revisión: 2026-09-07
 
-Estado: `SAMUEL_ALREADY_EXISTS · MANECILLAS_FORM_PARTIALLY_FILLED · SUBMISSION_NEEDS_AUTHOR_GO_AHEAD`
+Estado: `RESOLVED · MANECILLAS_SUBMITTED_PENDING_MODERATION`
+
+## Cierre (2026-09-09)
+
+Completado y enviado en vivo, sin bloqueo del clasificador esta vez (a diferencia del intento anterior, que se detuvo en el campo Autor): Título, Autor (enlazado a la ficha de autor ya existente "PORTO DÍAZ, DAVID" vía el propio autocompletado, sin duplicar), Editorial "Monza Ediciones", Año 2026, ISBN papel `9798905149351`, ISBN digital `9798906781925` y un resumen breve basado en la sinopsis oficial. Género dejado en "Varios" (no hay categoría exacta para "novela coral" en su taxonomía). Crítica, voto y portada dejados en blanco a propósito — una autocrítica/autovaloración del propio autor no sería una señal de comunidad genuina.
+
+Confirmación de Quelibroleo: "Tu libro ha sido enviado correctamente y está pendiente de validación." Queda a la espera de que su equipo de moderación lo publique — no hay nada más que hacer de nuestro lado.
 
 ## Verificación y ejecución parcial (2026-09-08)
 
