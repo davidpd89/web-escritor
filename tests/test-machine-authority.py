@@ -311,7 +311,7 @@ def main() -> int:
     check(author_press["nationality"] == author["nationality"], "author nationality drift: press-kit vs editorial facts")
     check(author_press["birthplace"] == author["birthPlace"], "author birthplace drift: press-kit vs editorial facts")
     check(author_press["residence"] == author["homeLocation"], "author residence drift: press-kit vs editorial facts")
-    check(author_press["contact"]["email"] == author["publicContact"], "author public contact drift")
+    check(author_press["contact"]["contactPage"] == "https://davidportodiaz.com/prensa.html#contacto", "author public contact page mismatch")
     check(author_press["identifiers"] == author["identifiers"], "author identifier drift")
 
     author_man = next(b for b in author_press["books"] if b["title"] == man["title"])
