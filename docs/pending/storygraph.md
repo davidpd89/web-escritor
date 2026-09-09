@@ -2,7 +2,27 @@
 
 Fecha de investigación: **2026-09-07**  
 PR owner: **#399 · `tracking/storygraph`**  
-Estado: **RESEARCHED · AUTHOR_PROFILE_MODEL_CLARIFIED · READY_FOR_AUTHENTICATED_EXECUTION**
+Estado: **SAMUEL_EXISTS_USER_ADDED · PAGE_COUNT_DISCREPANCY_NEW_DATA_POINT · MANECILLAS_MISSING · NEEDS_STORYGRAPH_ACCOUNT**
+
+## Verificación directa (2026-09-08)
+
+- `Samuel entre mundos` **ya existe** en StoryGraph, marcado
+  `user-added` (alguien lo dio de alta manualmente, probablemente el
+  propio autor o un lector): tapa blanda, 2025, género `fiction fantasy`.
+- **Nuevo dato para la discrepancia de páginas ya abierta en #429/#404**:
+  aquí figuran **409 páginas** — un TERCER número distinto de los 422/412
+  ya documentados en otras fuentes. Cuantas más fuentes se comprueban,
+  más varía la cifra; refuerza que hace falta que la editorial (Libros
+  Indie) confirme el número real antes de intentar unificar nada.
+- `Las manecillas del recuerdo`: búsqueda directa sin resultados — **no
+  existe todavía** en StoryGraph.
+
+Añadir Manecillas o corregir la página de Samuel requiere una cuenta de
+StoryGraph — no se ha intentado crear ninguna ni editar nada de forma
+anónima. Como ya señalaba este documento, StoryGraph todavía no ofrece
+un programa de autor equivalente a Goodreads/Amazon, así que cualquier
+alta se hace como una edición de catálogo normal, no como "reclamar
+perfil".
 
 ## Objetivo
 
