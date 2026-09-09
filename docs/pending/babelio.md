@@ -2,7 +2,20 @@
 
 Fecha de revisión: 2026-09-07
 
-Estado: `RESEARCHED · EXISTING_USER_PROFILE_KNOWN · PUBLIC_AUTHOR_PAGE_UNVERIFIED · READY_FOR_AUTHENTICATED_EXECUTION`
+Estado: `RESOLVED · AUTHOR_PAGE_FOUND_AND_VERIFIED · SAMUEL_ALREADY_PRESENT · MANECILLAS_ADDED · SITE_SAMEAS_CORRECTED`
+
+## Cierre (2026-09-09)
+
+Completado y verificado en vivo, logueado con la cuenta ya existente del autor:
+
+- **Página de autor pública encontrada**: `https://es.babelio.com/auteur/David-Porto-Diaz/169723` — distinta del perfil de lector `monprofil.php?id_user=114337` que la web ya usaba en `Person.sameAs`. Es una entidad bibliográfica real: agrupa correctamente **2 libros** bajo un único autor, sin duplicados por homónimo, con biografía/etiquetas propias (`novela fantástica`, `fantasía juvenil`, `mundos paralelos`, etc.) y una cita genuina ya publicada por la cuenta del autor.
+- **Samuel entre mundos**: ya existía en el catálogo, correctamente atribuido.
+- **Las manecillas del recuerdo**: no existía. Se buscó vía el flujo de alta (`/ajoutlivres.php`), que sí encontró un registro externo ya indexado (ISBN papel `9798905149351`, portada editorial correcta, mismo autor) y se añadió con "Añadir a mis libros" — sin crear una obra duplicada ni rellenar campos a mano.
+- **Discrepancia de metadata detectada, no corregida a ciegas**: la ficha resultante muestra `266 páginas` (un valor ya documentado en la discrepancia abierta de #429/#428/#404 — no es un dato nuevo) y fecha de editorial `12/08/2026` (la fecha del ebook, no la de papel 2026-09-03), pese a llevar el ISBN de papel — mezcla de campos que viene del proveedor externo que alimenta el alta rápida de Babelio, no de nada que hiciéramos aquí. No se ha usado "MODIFICAR" para tocarlo sin una fuente editorial que confirme qué campo es el erróneo; queda documentado como dependencia externa.
+- **`Person.sameAs` corregido en el repo**: se sustituyó `https://es.babelio.com/monprofil.php?id_user=114337` (perfil personal de lector) por `https://es.babelio.com/auteur/David-Porto-Diaz/169723` (página de autor canónica) en `index.html`, `autor.html`, `editorial-facts.json`, `press-kit/david-porto-diaz.json`, `llms.txt` y `llms-full.txt` — siguiendo la advertencia que ya dejaba este mismo documento ("no usar el perfil personal por inercia si aparece una página de autor real"). Verificado con `scripts/check-editorial-facts.py` y `tests/test-machine-authority.py`, ambos en verde.
+- Sin autocrítica ni voto propio en ninguna ficha.
+
+No queda ninguna acción real pendiente en Babelio. La discrepancia de páginas/fecha de Manecillas sigue siendo competencia de Monza/DILVE (#428/#404), no de esta plataforma.
 
 ## Objetivo
 
