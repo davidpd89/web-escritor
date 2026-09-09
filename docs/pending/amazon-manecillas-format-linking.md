@@ -2,7 +2,15 @@
 
 Fecha: 2026-09-08
 
-Estado: `REAL_EXTERNAL_ISSUE · AUTHOR_CENTRAL_DONE · FORMAT_LINKING_PENDING`
+Estado: `LINKED_OK · NO_TICKET_NEEDED · RESOLVED`
+
+## Cierre (2026-09-09) — Amazon ya agrupó los formatos, sin intervención necesaria
+
+David dio permiso para abrir un ticket a Amazon esta noche, pero antes de escribirlo se comprobó en vivo `https://www.amazon.es/dp/B0HHY9MYLM` (tapa blanda): la ficha ya muestra **ambos formatos como pestañas de la misma página** ("Versión Kindle · 2,99 €" y "Tapa blanda · 15,99 €"), con "Ver todos los formatos y ediciones" visible — exactamente lo que el documento definía como `LINKED_OK`. Coincide con lo que la propia ayuda de Amazon documentaba: la vinculación automática puede tardar hasta una semana, y esa ventana ya pasó desde que se investigó esto por primera vez.
+
+**No hace falta enviar el ticket preparado más abajo.** Nada que ejecutar.
+
+Nota aparte, sin relación con este cierre: la ficha muestra "Longitud de impresión: 266 páginas" para la tapa blanda, que no coincide con las 272 páginas que usa la web. Siguiendo el criterio que David ya dio esta noche ("esto le pasa a cada libro, no se puede corregir en cada web... solo revisar en los que lo ponemos nosotros"), no se toca Amazon por esto — es la misma discrepancia de páginas ya rastreada en #428/#404, sin acción nueva aquí.
 
 ## Problema
 
