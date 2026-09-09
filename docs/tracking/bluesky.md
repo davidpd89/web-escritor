@@ -2,7 +2,19 @@
 
 Fecha de revisión: **2026-09-07**  
 PR owner: **#451 · `tracking/bluesky`**  
-Estado: **RESEARCHED · EXISTING_ACCOUNT_IN_REPO · DOMAIN_HANDLE_AVAILABLE · EXTERNAL_ACTION_PENDING**
+Estado: **RESEARCHED · EXISTING_ACCOUNT_IN_REPO · DOMAIN_HANDLE_AVAILABLE · RECOMMENDATION_DEFER_LOW_ROI**
+
+## Recomendación (2026-09-09)
+
+David preguntó para qué sirve esto y dijo que actualmente no tiene apenas seguidores en Bluesky. Mi recomendación: **aplazarlo por ahora**, no hacerlo esta noche.
+
+El TXT de dominio (`_atproto.davidportodiaz.com`) es viable técnicamente y sin coste, pero:
+
+- es un cambio de DNS en vivo sobre el dominio real — categoría de acción que esta sesión trata siempre como "requiere tu confirmación explícita", no algo que decida por mi cuenta aunque sea técnicamente reversible;
+- con audiencia mínima en Bluesky ahora mismo, el beneficio inmediato es bajo: el handle de dominio ayuda sobre todo a que otros verifiquen que la cuenta es realmente tuya, algo más valioso cuando ya hay gente mirando el perfil;
+- no perjudica nada dejarlo para cuando el uso de Bluesky crezca — no hay ventana de oportunidad que se cierre por esperar.
+
+Si en el futuro decides invertir en Bluesky (más actividad, más seguidores), este documento ya tiene toda la investigación lista para ejecutarlo entonces sin repetir el trabajo.
 
 ## Objetivo
 
