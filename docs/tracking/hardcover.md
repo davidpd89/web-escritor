@@ -2,7 +2,25 @@
 
 Fecha de revisión: 2026-09-09
 
-Estado: `AUTHENTICATED · MANECILLAS_PAPER_LIVE · MANECILLAS_EBOOK_EDITION_ADDED_PENDING_IMPORT · SAMUEL_STILL_ABSENT_RECHECKED_NOT_RESUBMITTED · AUTHOR_CLAIM_NOT_AVAILABLE`
+Estado: `AUTHENTICATED · MANECILLAS_PAPER_AND_EBOOK_BOTH_LIVE · SAMUEL_STILL_ABSENT_NOT_RESUBMITTED · AUTHOR_CLAIM_NOT_AVAILABLE`
+
+## Cierre parcial (2026-09-09) v3 — edición ebook confirmada en vivo
+
+Comprobado en vivo (`hardcover.app/books/las-manecillas-del-recuerdo/editions`):
+el importador asíncrono resolvió la edición ebook encolada en el cierre
+anterior. El libro ahora tiene **2 ediciones**, ambas correctas:
+
+- **Ebook**: Kindle Edition, ISBN-13 `9798906781925`, ASIN `B0HHM71F46`,
+  227 páginas, fecha `2026-08-12`.
+- **Papel**: Paperback, ISBN-13 `9798905149351`, ASIN `B0HHY9MYLM`,
+  266 páginas, fecha `2026-09-03`.
+
+Con esto, el criterio original de esta PR (ambas ediciones de Manecillas
+presentes) queda cumplido. **Samuel entre mundos sigue sin aparecer** —
+re-verificado de nuevo en el buscador, sin resultados reales; sigue sin
+reenviarse el alta (ya en cola desde antes). Sin más acción posible hasta
+que el importador la resuelva o hasta que se decida forzar un nuevo intento
+en una sesión futura.
 
 ## Cierre parcial (2026-09-09) v2 — edición ebook añadida, Samuel re-verificado
 
