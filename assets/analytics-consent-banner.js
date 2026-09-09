@@ -240,7 +240,21 @@ function showAnalyticsConsentBanner() {
 function avoidObscuringFocus(bar) {
   function reposition() {
     const active = document.activeElement;
-    if (!active || active === document.body || bar.contains(active)) {
+    // tabIndex === -1 on an element the user didn't reach by Tab (i.e. not
+    // document.body's own -1 default) means script moved focus here as a
+    // landmark/scroll target, not a real control -- the exact pattern this
+    // site uses for `<main id="contenido" tabindex="-1">` after the intro
+    // closes (site's own v1-shell.js: `main.focus()`). That element's
+    // bounding box spans the entire page, so the naive overlap test below
+    // always finds it "overlapping" the banner's corner and shoves the
+    // banner down by a full viewport height -- reported live as the banner
+    // being invisible after the intro until scrolling deep enough for
+    // main's rect to clear it, then reappearing/disappearing on every
+    // scroll thereafter as that huge rect swept past the corner. A
+    // tabindex="-1" sink like this has no natural-tab-order focus ring for
+    // SC 2.4.11 to protect in the first place, unlike a real link/button/
+    // input (tabIndex 0 or an explicit non-negative value).
+    if (!active || active === document.body || bar.contains(active) || active.tabIndex === -1) {
       bar.style.transform = "";
       return;
     }
