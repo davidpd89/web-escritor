@@ -30,6 +30,17 @@ https?://([^/]+\.)?diversidadliteraria\.com/.*
 # alternativa sin confirmar que sea igual de autorizada y más estable.
 https?://([^/]+\.)?docta\.ucm\.es/.*
 
+# librosindie.net (editorial de Samuel entre mundos) falla el handshake TLS
+# de Lychee de forma consistente y reproducible en dos ejecuciones
+# separadas (2026-09-09) -- "TLS handshake failed. Check SSL/TLS
+# configuration". Verificado independientemente con curl: el sitio
+# responde 200 OK con contenido correcto sobre HTTPS real sin ningún
+# problema, así que no es un enlace roto ni un servidor caído, solo una
+# incompatibilidad del cliente TLS de Lychee (Rust/rustls) con la
+# configuración concreta de este servidor -- el mismo patrón que
+# docta.ucm.es arriba, no una excepción global para "conseguir verde".
+https?://([^/]+\.)?librosindie\.net/.*
+
 # Estas dos referencias DOI resuelven a proveedores que bloquean/limitan
 # clientes automatizados en sus redirecciones finales. Se ignoran únicamente
 # las citas conocidas: futuros enlaces doi.org siguen sometidos a Lychee.
