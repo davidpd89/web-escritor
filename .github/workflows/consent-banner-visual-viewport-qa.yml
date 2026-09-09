@@ -1,0 +1,48 @@
+name: Consent banner visualViewport QA
+
+on:
+  pull_request:
+    paths:
+      - 'assets/analytics-consent-banner.js'
+      - 'fragmento/**'
+      - 'script.js'
+      - 'qa/consent-banner-visual-viewport-contract.mjs'
+      - '.github/workflows/consent-banner-visual-viewport-qa.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  consent-banner-visual-viewport-qa:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v5
+
+      - name: Set up Node
+        uses: actions/setup-node@v5
+        with:
+          node-version: '22'
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Cache Playwright browsers
+        id: playwright-cache
+        uses: actions/cache@v5
+        with:
+          path: ~/.cache/ms-playwright
+          key: playwright-chromium-${{ hashFiles('package-lock.json') }}
+
+      - name: Install Playwright Chromium (with OS deps)
+        if: steps.playwright-cache.outputs.cache-hit != 'true'
+        run: npx playwright install --with-deps chromium
+
+      - name: Install Playwright OS deps only (browser cached)
+        if: steps.playwright-cache.outputs.cache-hit == 'true'
+        run: npx playwright install-deps chromium
+
+      - name: Run consent banner visualViewport contract QA
+        run: node qa/consent-banner-visual-viewport-contract.mjs
