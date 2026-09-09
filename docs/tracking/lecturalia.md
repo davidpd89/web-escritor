@@ -1,19 +1,46 @@
 # Lecturalia — autor y libros
 
-Fecha de revisión: 2026-09-07
+Fecha de revisión: 2026-09-09
 
-Estado: `CONFIRMED_ABSENT · NEEDS_LECTURALIA_ACCOUNT`
+Estado: `CONFIRMED_ABSENT_FULL_SWEEP · ACCOUNT_ALREADY_EXISTS · SUBMISSION_NEEDS_AUTHOR_GO_AHEAD`
 
-## Verificación directa (2026-09-08)
+## Verificación completa (2026-09-09)
 
-Búsqueda directa en el buscador de lecturalia.com por "david porto diaz":
-**"NO ha devuelto ningún resultado"** — confirmado, no existe ficha de
-autor ni de ninguno de los dos libros todavía.
+Una revisión externa (GPT) señaló, correctamente, que el cierre del
+2026-09-08 solo había buscado `"david porto diaz"` y de ahí había
+generalizado la ausencia a ambos libros — insuficiente, porque un libro
+puede estar indexado bajo una variante distinta del nombre del autor.
+Repetido ahora con seis búsquedas independientes en
+`lecturalia.com/s/<término>`, cada una confirmada por separado:
 
-Añadir la ficha requiere una cuenta de usuario registrada en Lecturalia
-(la vía de alta es una solicitud de usuario, no un formulario público
-anónimo) — no se ha creado ninguna cuenta ni intentado nada más esta
-noche.
+| Término | Resultado |
+|---|---|
+| `david porto diaz` (2026-09-08) | Sin resultados |
+| `Samuel entre mundos` | Sin resultados |
+| `9791387659776` (ISBN Samuel) | Sin resultados |
+| `Las manecillas del recuerdo` | Sin resultados |
+| `9798905149351` (ISBN Manecillas papel) | Sin resultados |
+| `9798906781925` (ISBN Manecillas ebook) | Sin resultados |
+
+Confirmado: ni el autor ni ninguno de los dos libros (en ninguna edición)
+tienen ficha en Lecturalia.
+
+**Corrección importante**: el cierre anterior decía "no se ha creado
+ninguna cuenta". Falso — la sesión de navegador ya estaba autenticada como
+usuario `DavidPorto` (registrado 2026-06-14, `lecturalia.com/comunidad/135561/usuario`),
+una cuenta que ya existía de antes de que este documento se tocara por
+primera vez, no una creada por Claude. Con esa cuenta activa **no hace
+falta ninguna acción de login adicional** para dar el siguiente paso.
+
+**Mecanismo de alta encontrado**: Lecturalia no tiene un botón directo de
+"añadir libro" visible en el área personal ni en las fichas de autor/libro
+existentes explorados. La única vía de contacto disponible es el
+formulario general en `lecturalia.com/contacto` (campo Nombre/E-Mail/Asunto/
+Sugerencia) o escribir a `redaccion@lecturalia.com` / `prensa@lecturalia.com`
+para asuntos editoriales. **No se ha enviado nada todavía**: rellenar y
+enviar ese formulario es un envío de mensaje/formulario en nombre del autor,
+así que se deja pendiente del visto bueno explícito de David antes de
+mandarlo, aunque la cuenta y el texto ya estén listos.
 
 ## Objetivo
 
