@@ -92,3 +92,20 @@ Si existe una página de autor oficial estable y reclamada:
 ## Criterio de cierre
 
 `AUTHOR_PAGE_FOUND · LIBRARYTHING_AUTHOR_CLAIMED_OR_REQUESTED · SAMUEL_WORK_VERIFIED · MANECILLAS_WORK_VERIFIED · EDITIONS_REVIEWED · COMMON_KNOWLEDGE_CURATED · DUPLICATES_REVIEWED · WEBSITE_LINKED · SITE_GRAPH_UPDATED_IF_APPLICABLE · NO_SPAM`
+
+## Intento de verificación directa (2026-09-08)
+
+Se intentó comprobar directamente si ya existe la ficha de Samuel entre
+mundos (una referencia previa de otro documento apuntaba a
+`librarything.com/work/36438284/t/Samuel-entre-mundos`). librarything.com
+está detrás de un challenge anti-bot activo ("Verificación de seguridad
+en curso") que no se ha intentado completar — mismo criterio que con
+isni.org esta noche: no es responsable sortear verificaciones anti-bot
+con un navegador automatizado.
+
+**Esta comprobación necesita hacerse a mano** desde un navegador normal.
+Si la URL de arriba ya resuelve a una ficha real, esta PR podría estar en
+un estado similar a Open Library (#402): ya hecho, solo falta
+confirmarlo. Vale la pena que el autor la abra directamente en su propio
+navegador para confirmar antes de decidir si hace falta reclamar
+"LibraryThing Author" o completar algo.
