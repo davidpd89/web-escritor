@@ -2,7 +2,34 @@
 
 Fecha de investigación: **2026-09-07**  
 PR owner: **#408 · `tracking/orcid`**  
-Estado: **RESEARCHED · RECORD_ID_CONFIRMED · READY_FOR_AUTHENTICATED_EXECUTION**
+Estado: **RESOLVED · RECORD_ALREADY_COMPLETE · NO_ACTION_NEEDED**
+
+## Auditoría en vivo (2026-09-08)
+
+Abierto directamente https://orcid.org/0009-0005-9089-3782 — el registro
+público ya está completo y correcto:
+
+- **Bio** presente, factual, menciona ambos libros, editoriales y los dos
+  reconocimientos (Letras Como Espada, Juan Andrés Teno)
+- **Websites & social links**: web oficial, Wikidata, Amazon Author,
+  Goodreads — todos presentes
+- **Keywords**: escritor, ficción especulativa, fantasía, fantasía
+  juvenil, portal fantasy, worldbuilding, escritura creativa, novela
+  coral, memoria
+- **Country**: Spain
+- **Works (2)**: `Las manecillas del recuerdo` (Monza Ediciones,
+  2026-08-12, con ambos ISBN papel/Kindle `9798905149351` y
+  `9798906781925`) y `Samuel entre mundos` (ISBN `9791387659776`)
+
+Único detalle menor, no bloqueante: `Samuel entre mundos` está
+etiquetado con tipo de contribución "Writing - review & editing" en vez
+de simplemente autoría — una categorización imprecisa de ORCID, no un
+error de datos. No hace falta ninguna acción; el propio autor puede
+ajustar el tipo de contribución desde su cuenta ORCID si quiere
+afinarlo, pero no es necesario para que el registro cumpla su función.
+
+No hay nada más que hacer aquí. El sitio ya enlaza este ORCID en
+`Person.sameAs`, así que esta PR queda cerrada sin cambios de código.
 
 ## Objetivo
 
