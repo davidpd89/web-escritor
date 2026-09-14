@@ -1,8 +1,55 @@
 # Libros Indie — auditoría y plan de ejecución
 
-Fecha de investigación: **2026-09-07**  
+Fecha de investigación: **2026-09-07** (cierre de esta ronda: **2026-09-14**)  
 PR owner: **#429 · `tracking/libros-indie`**  
-Estado: **RESEARCHED · PUBLISHER_PUBLIC_SITE_CONFIRMED · SAMUEL_DOWNSTREAM_RECORDS_CONFIRMED · PAGE_COUNT_DISCREPANCY_CONFIRMED · EXTERNAL_ACTION_PENDING**
+Estado: **PAGE_COUNT_CLOSED_NOT_ACTIONABLE_OWNER_DECISION · PUBLICATION_DATE_CONFIRMED_CORRECT_VIA_AMAZON · NO_PUBLISHER_CONTACT_NEEDED_THIS_ROUND**
+
+## Cierre de esta ronda (2026-09-14)
+
+### Páginas: cerrado, decisión del propietario
+
+Igual que en #428 (Monza) y #404 (DILVE), el propietario del proyecto ha
+decidido no perseguir la discrepancia de páginas (422 en la autoridad del
+proyecto vs. 412 en Casa del Libro/Bookish): cada tienda cuenta de forma
+distinta (con o sin portadillas/guardas) y no es un dato unívoco que
+merezca cinco correcciones. Cerrado sin más acción.
+
+### Fecha de publicación: verificada en vivo, nuestro dato es el correcto
+
+Comprobación en vivo de hoy en Amazon.es (`amazon.es/dp/B0GB6LGQFH`, la
+ficha vendida directamente, no un agregador) muestra:
+
+- **Fecha de publicación: 1 diciembre 2025** — coincide con el año
+  editorial 2025 que ya usa el proyecto.
+- Precio recomendado: **22,00 €** — coincide con el precio ya observado
+  en TodosTusLibros.
+- 412 páginas (ver arriba, cerrado sin acción).
+
+Esto **resuelve la duda de fecha a nuestro favor**: la fuente más
+autorizada disponible (Amazon, que recibe metadata directamente de
+Libros Indie/su distribuidor) confirma el mismo año que ya mantiene la
+web del autor. La fecha `05/01/2026` de Casa del Libro y `01/01/2025` de
+Bookish son, con toda probabilidad, la fecha en la que cada retailer
+ingirió/indexó el ISBN en su propio sistema, no la fecha editorial real
+— un artefacto de cada tienda, no un error nuestro que corregir. No se
+necesita contactar a Libros Indie por este punto.
+
+Contraste útil con #428 Monza: allí Amazon.es y Casa del Libro
+**coinciden entre sí** en una fecha distinta a la nuestra (señal real de
+que conviene preguntar a la editorial). Aquí Amazon.es **coincide con
+nosotros** y solo discrepan los retailers menos autorizados — la lectura
+correcta es la contraria: no hay nada que preguntarle a Libros Indie.
+
+### Qué queda
+
+Nada accionable esta ronda: páginas cerradas por decisión del propietario,
+fecha confirmada correcta. Se mantiene abierta la pregunta genérica de
+quién controla el feed DILVE/ONIX (#404) solo como contexto para el
+propio #404, no como tarea pendiente de este documento — no hay ningún
+dato erróneo aquí que exija abrir contacto con Libros Indie en esta
+ronda, así que no se envía ningún mensaje (el canal `info@librosindie.net`
+/ `admin@librosindie.net` queda documentado arriba por si hiciera falta
+en el futuro).
 
 ## Objetivo
 
