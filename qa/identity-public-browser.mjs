@@ -203,7 +203,7 @@ for (const viewport of viewports) {
       ledgerGeometry,
     };
   });
-  check(result.awards.length === 2, `premios: expected 2 schema awards, got ${result.awards.length}`);
+  check(result.awards.length === 3, `premios: expected 3 schema awards, got ${result.awards.length}`);
   check(!result.awards.join(' ').toLowerCase().includes('antolog'), 'premios: anthology still appears as schema award');
   check(!result.recognition.includes('Debut novelístico publicado'), 'premios: debut still classified as recognition');
   check(result.trajectory.includes('Debut novelístico publicado'), 'premios: debut missing from trajectory');
