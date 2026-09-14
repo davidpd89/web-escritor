@@ -64,7 +64,7 @@ section_match = re.search(
 check(bool(section_match), "premios.html: missing #reconocimientos")
 recognition_html = section_match.group(1) if section_match else ""
 records = re.findall(r'<li\b[^>]*data-award-record[^>]*>(.*?)</li>', recognition_html, flags=re.I | re.S)
-check(len(records) == 2, f"premios.html: expected exactly 2 visible recognition records, got {len(records)}")
+check(len(records) == 3, f"premios.html: expected exactly 3 visible recognition records, got {len(records)}")
 
 visible_awards: list[str] = []
 source_links: list[dict[str, str]] = []
@@ -86,7 +86,7 @@ for index, record in enumerate(records, start=1):
         attrs = dict(re.findall(r'([:\w-]+)="([^"]*)"', raw_attrs))
         source_links.append(attrs)
 
-check(len(person_awards) == 2, f"premios.html: Person.award must contain exactly 2 recognitions, got {len(person_awards) if isinstance(person_awards, list) else 'non-list'}")
+check(len(person_awards) == 3, f"premios.html: Person.award must contain exactly 3 recognitions, got {len(person_awards) if isinstance(person_awards, list) else 'non-list'}")
 check(person_awards == visible_awards, f"premios.html: Person.award does not exactly match visible recognitions: schema={person_awards!r}, visible={visible_awards!r}")
 check(len(set(visible_awards)) == len(visible_awards), "premios.html: duplicated visible recognition")
 check(len(set(person_awards)) == len(person_awards) if isinstance(person_awards, list) else False, "premios.html: duplicated Person.award value")
@@ -94,9 +94,10 @@ check(len(set(person_awards)) == len(person_awards) if isinstance(person_awards,
 for forbidden in ("Debut novelístico publicado", "Antología colaborativa", "Segunda novela", "Reseñas de lectores"):
     check(forbidden not in " ".join(person_awards), f"premios.html: trajectory/reception item leaked into Person.award: {forbidden}")
 
-check("No es un premio de <em>Samuel entre mundos</em>" in records[0] if records else False, "premios.html: first award does not explicitly disambiguate Samuel entre mundos")
-check("no lo atribuye a <em>Samuel entre mundos</em>" in records[1] if len(records) > 1 else False, "premios.html: finalist record incorrectly attributes the submitted work to Samuel entre mundos")
-check("manuscritos inéditos" in records[1] if len(records) > 1 else False, "premios.html: finalist evidence limitation omits the official unpublished-work requirement")
+check("No es un premio de <em>Samuel entre mundos</em>" in records[0] if records else False, "premios.html: Aullidos en papel award does not explicitly disambiguate Samuel entre mundos")
+check("No es un premio de <em>Samuel entre mundos</em>" in records[1] if len(records) > 1 else False, "premios.html: Letras Como Espada award does not explicitly disambiguate Samuel entre mundos")
+check("no lo atribuye a <em>Samuel entre mundos</em>" in records[2] if len(records) > 2 else False, "premios.html: finalist record incorrectly attributes the submitted work to Samuel entre mundos")
+check("manuscritos inéditos" in records[2] if len(records) > 2 else False, "premios.html: finalist evidence limitation omits the official unpublished-work requirement")
 check(bool(source_links), "premios.html: recognition records lack evidence links")
 for index, attrs in enumerate(source_links, start=1):
     href = attrs.get("href", "")
@@ -108,6 +109,7 @@ for index, attrs in enumerate(source_links, start=1):
 
 source_hrefs = [attrs.get("href", "") for attrs in source_links]
 check("https://www.instagram.com/davidportodiaz/" not in source_hrefs, "premios.html: author social network used as award evidence")
+check("https://www.diversidadliteraria.com/resultado-del-i-concurso-de--aullidos-en-papel-i" in source_hrefs, "premios.html: official Aullidos en papel results source missing")
 check("https://www.letrascomoespada.com/concursos/memoria_concursos/memoria2026.php" in source_hrefs, "premios.html: official Letras Como Espada results source missing")
 check("https://www.babidibulibros.com/premio-literatura-juan-andres-teno-2026/" in source_hrefs, "premios.html: official BABIDI-BÚ call source missing")
 
