@@ -63,7 +63,7 @@ try{
       assert.equal(await p.locator('.author-bio__aside img').count(),1,`${name}: imagen documental lateral ausente`);
       assert.equal(await p.locator('#libros .id-card').count(),3,`${name}: obra publicada deja de tener tres registros`);
       assert.equal(await p.locator('#libros .id-card--featured').count(),1,`${name}: Manecillas deja de ser la obra destacada`);
-      assert.equal(await p.locator('#premios .awards-ledger li').count(),3,`${name}: trayectoria visible alterada`);
+      assert.equal(await p.locator('#premios .awards-ledger li').count(),4,`${name}: trayectoria visible alterada`);
       assert.equal(await p.locator('#reseñas .quote-stream li').count(),3,`${name}: testimonios visibles alterados`);
 
       const person=await p.evaluate(()=>{
@@ -71,7 +71,7 @@ try{
         const nodes=docs.flatMap(d=>d['@graph']||[d]);return nodes.find(n=>n['@type']==='Person');
       });
       assert.equal(person?.name,'David Porto Díaz',`${name}: Person schema pierde nombre`);
-      assert.equal(person?.award?.length,2,`${name}: Person schema altera reconocimientos reales`);
+      assert.equal(person?.award?.length,3,`${name}: Person schema altera reconocimientos reales`);
 
       const overflow=await noOverflow(p,name);
       const masthead=await style(p.locator('.v1-masthead'));
@@ -125,7 +125,7 @@ try{
       assert.ok((await p.locator('main').innerText()).length>1000,'no-js: biografía deja de estar disponible');
       assert.equal(await p.locator('.author-portrait img').count(),1,'no-js: retrato principal ausente');
       assert.equal(await p.locator('#libros .id-card').count(),3,'no-js: obra publicada ausente');
-      assert.equal(await p.locator('#premios .awards-ledger li').count(),3,'no-js: trayectoria deja de estar disponible');
+      assert.equal(await p.locator('#premios .awards-ledger li').count(),4,'no-js: trayectoria deja de estar disponible');
       await noOverflow(p,'no-js 390');await p.screenshot({path:path.join(OUT,'autor-no-js-390.png'),fullPage:true});
     }catch(error){failures.push({viewport:'no-js-390',width:390,height:844,error:error instanceof Error?error.message:String(error)});}finally{await c.close();}
   }

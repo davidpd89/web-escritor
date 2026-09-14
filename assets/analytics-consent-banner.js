@@ -16,6 +16,19 @@
 // window.clarity was never loaded, which is exactly the legal pages' case.
 const ANALYTICS_CONSENT_KEY = "dp-analytics-consent";
 const ANALYTICS_CONSENT_VERSION = 1;
+// Explicit site-owner decision (2026-09-09): the very first scroll after the
+// banner appears used to count as implicit accept, which meant a visitor who
+// arrived and immediately scrolled never actually saw the banner before it
+// vanished. This grace window keeps clicks/scrolls/unload from deciding
+// anything for the first 30s the banner is on screen -- after that, the
+// original "continued use = accept" behavior applies exactly as before.
+// Overridable via window.__ANALYTICS_CONSENT_GRACE_MS__ so QA
+// (qa/privacy-contract-browser.mjs) can verify the eventual implicit-accept
+// behavior without a real 30s wait.
+const ANALYTICS_CONSENT_GRACE_MS =
+  typeof window.__ANALYTICS_CONSENT_GRACE_MS__ === "number"
+    ? window.__ANALYTICS_CONSENT_GRACE_MS__
+    : 30000;
 // AEPD guidance treats a cookie consent as stale after long enough that the
 // visitor may no longer remember giving it, and recommends re-asking rather
 // than relying on it indefinitely -- 24 months, same ceiling the guidance
@@ -185,11 +198,17 @@ function showAnalyticsConsentBanner() {
   // ayudarte" is the only path to denied. Only clicks/scrolls OUTSIDE the
   // banner count (bar.contains guard), so choosing either button still
   // always goes through decide() directly above, never through this path.
+  // graceUntil (2026-09-09): none of that fires during the first
+  // ANALYTICS_CONSENT_GRACE_MS -- the visitor gets that long to actually see
+  // the banner before an ordinary scroll or tap silently decides for them.
+  const graceUntil = Date.now() + ANALYTICS_CONSENT_GRACE_MS;
   function implicitAccept(e) {
     if (bar.contains(e.target)) return;
+    if (Date.now() < graceUntil) return;
     decide("granted");
   }
   function implicitAcceptOnUnload() {
+    if (Date.now() < graceUntil) return;
     if (!getStoredAnalyticsConsent()) decide("granted");
   }
   document.addEventListener("click", implicitAccept, true);
@@ -221,7 +240,22 @@ function showAnalyticsConsentBanner() {
 function avoidObscuringFocus(bar) {
   function reposition() {
     const active = document.activeElement;
-    if (!active || active === document.body || bar.contains(active)) {
+    // Narrow, deliberate exception: the <main> landmark itself, focused via
+    // tabindex="-1" as a script-only target (never reachable by Tab). This
+    // site's own v1-shell.js does exactly that -- `main.focus()` -- once the
+    // Home intro closes. <main> wraps essentially the whole page by
+    // definition, so its bounding box always "overlaps" this corner banner
+    // under the plain rect-intersection test below, which shoved the banner
+    // down by a full viewport height every time (reported live: banner
+    // invisible after the intro, only reappearing/disappearing as that
+    // page-spanning rect's viewport-relative position swept past the corner
+    // on scroll). This does NOT generalize to every tabindex="-1" element:
+    // that pattern is also used for genuinely visible, boundable focus
+    // targets this check must keep protecting -- an error message, a modal
+    // heading, a "skip to" destination that isn't the whole page. Only the
+    // <main>-landmark case is exempt, matched by tag, not by tabIndex alone.
+    const isMainLandmarkFocusSink = active && active.tagName === "MAIN" && active.tabIndex === -1;
+    if (!active || active === document.body || bar.contains(active) || isMainLandmarkFocusSink) {
       bar.style.transform = "";
       return;
     }
@@ -298,6 +332,24 @@ document.addEventListener("click", (e) => {
   }
 });
 
+// Mobile Safari (and some Android browsers) position `position:fixed`
+// elements against the LAYOUT viewport, which starts out taller than the
+// VISUAL viewport while the browser's own UI (URL bar, bottom toolbar) is
+// still fully expanded on first paint. A fixed bottom-anchored element can
+// therefore render below the currently-visible area -- reported live on a
+// phone as "the Clarity banner only shows up once I scroll all the way
+// down" -- because scrolling is what makes the toolbar auto-collapse and
+// the layout viewport catch up to the visual one. window.visualViewport
+// (supported in every current mobile browser) reports the real visible
+// size directly, so adding the gap between it and window.innerHeight as
+// extra bottom offset keeps the banner inside the actually-visible area
+// from the first paint, without waiting for a scroll to fix itself.
+function visualViewportInset() {
+  const vv = window.visualViewport;
+  if (!vv) return 0;
+  return Math.max(0, window.innerHeight - (vv.height + vv.offsetTop));
+}
+
 // #sticky-cta (Manecillas/Samuel sample pages) is also left:0;right:0;
 // bottom:0 -- a corner position alone doesn't clear a full-width sibling,
 // only a real vertical offset does. Measured, not hardcoded, because its
@@ -305,14 +357,22 @@ document.addEventListener("click", (e) => {
 // display:none) after the reader scrolls a threshold.
 function avoidBottomBarOverlap(bar) {
   const conflict = document.getElementById("sticky-cta");
-  if (!conflict) return;
   const reposition = () => {
-    const rect = conflict.getBoundingClientRect();
-    const overlapping = rect.height > 0 && rect.top < window.innerHeight && rect.bottom > 0;
-    bar.style.bottom = overlapping ? `${Math.max(12, window.innerHeight - rect.top + 12)}px` : ".75rem";
+    let basePx = 12; // matches the original bottom:.75rem default (16px root font-size)
+    if (conflict) {
+      const rect = conflict.getBoundingClientRect();
+      const overlapping = rect.height > 0 && rect.top < window.innerHeight && rect.bottom > 0;
+      if (overlapping) basePx = Math.max(12, window.innerHeight - rect.top + 12);
+    }
+    bar.style.bottom = `${basePx + visualViewportInset()}px`;
   };
   reposition();
   window.addEventListener("resize", reposition);
+  if (window.visualViewport) {
+    window.visualViewport.addEventListener("resize", reposition);
+    window.visualViewport.addEventListener("scroll", reposition);
+  }
+  if (!conflict) return;
   // #sticky-cta slides in/out via a CSS transform transition (220ms), not an
   // instant class toggle -- reading its rect the instant the class changes
   // (MutationObserver fires synchronously with the mutation, before the

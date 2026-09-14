@@ -1,8 +1,16 @@
 #!/usr/bin/env python3
 """Generate .ics files for scheduled events declared in eventos.html.
 
-The JSON-LD Event nodes are the single source of truth. Only EventScheduled
-nodes produce calendar files; completed/cancelled events are ignored.
+The JSON-LD Event nodes are the single source of truth. Only nodes with
+eventStatus exactly "https://schema.org/EventScheduled" produce calendar
+files. Past/archived events simply OMIT eventStatus rather than using it to
+carry an internal "completed" signal -- schema.org's EventStatusType has no
+such value (only Scheduled/Cancelled/Postponed/Rescheduled/MovedOnline), and
+an invalid enum value there is a real validation error picked up by tools
+like Ahrefs Site Audit (2026-09-09), not a private implementation detail.
+Omitting the property is valid schema.org and this generator's own filter
+already treats "anything other than EventScheduled" -- including absent --
+as not-upcoming, so no replacement signal was needed.
 
 Usage:
     python scripts/build-event-calendars.py
@@ -25,8 +33,6 @@ ROOT = Path(__file__).resolve().parents[1]
 DEFAULT_SOURCE = ROOT / "eventos.html"
 DEFAULT_OUTPUT_DIR = ROOT / "assets" / "events" / "calendar"
 EVENT_SCHEDULED = "https://schema.org/EventScheduled"
-EVENT_COMPLETED = "https://schema.org/EventCompleted"
-EVENT_CANCELLED = "https://schema.org/EventCancelled"
 
 
 class JsonLdParser(HTMLParser):

@@ -156,7 +156,7 @@ def render(data, tools, directories):
   <meta name="twitter:image:alt" content="Herramientas gratuitas para escritores | David Porto Díaz" />
 
   <meta name="theme-color" content="#F4EFE7" />
-  <link rel="preconnect" href="https://gc.zgo.at" />
+  <link rel="preconnect" href="https://gc.zgo.at" /><link rel="preconnect" href="https://tracker.metricool.com" />
   <link rel="canonical" href="https://davidportodiaz.com/herramientas/" />
   <link rel="icon" type="image/png" href="/assets/david-porto-favicon.png" />
   <link rel="apple-touch-icon" href="/assets/david-porto-favicon.png" />
@@ -242,8 +242,8 @@ def render(data, tools, directories):
   <footer class="site-footer"></footer>
 
   <script defer src="/assets/v1-shell.js?v=9"></script>
-  <script defer src="/assets/analytics-consent-banner.js?v=10"></script>
-  <script defer src="/script.js?v=202609-launch-17"></script>
+  <script defer src="/assets/analytics-consent-banner.js?v=14"></script>
+  <script defer src="/script.js?v=202609-launch-19"></script>
   <script src="/assets/herramientas-hub.js?v=20260819-1" defer></script>
 </body>
 </html>
