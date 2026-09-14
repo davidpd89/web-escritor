@@ -2,7 +2,17 @@
 
 Fecha de revisión: 2026-09-07
 
-Estado: `AUTO_POPULATED_FROM_WIKIDATA · NO_MANUAL_CREATION_NEEDED_FOR_SAMUEL · MANECILLAS_PENDING_ON_WIKIDATA`
+Estado: `CLOSED_NO_ACTION · SAMUEL_AUTO_POPULATED_CONFIRMED · MANECILLAS_BLOCKED_ON_398_WIKIDATA_LOGIN`
+
+## Cierre (2026-09-14)
+
+Sin cambios desde el hallazgo de abajo: Samuel entre mundos sigue
+apareciendo correctamente en Inventaire sin ninguna acción manual, leído
+directamente de Wikidata. Manecillas aparecerá solo cuando exista su item
+en Wikidata (#398, bloqueado ahora mismo porque crear ese item necesita
+iniciar sesión con la cuenta que ya se usó para Samuel — ver el bloque de
+logins pendientes). Cerrado sin acción propia; se resolverá solo en
+cuanto se complete #398.
 
 ## Hallazgo (2026-09-08)
 
