@@ -57,7 +57,7 @@ function newsletterErrorMessage(code) {
   if (code === "offline") return "No hay conexión. Revisa tu red e inténtalo de nuevo.";
   if (code === "timeout") return "La solicitud está tardando demasiado. Inténtalo de nuevo en unos segundos.";
   if (code === "rate_limited") return "Has hecho demasiados intentos. Espera un minuto e inténtalo de nuevo.";
-  return "Error al suscribirse. Escríbenos a davidportodiaz@gmail.com.";
+  return "Error al suscribirse. Inténtalo de nuevo más tarde o contacta desde prensa.html.";
 }
 
 async function postNewsletter(payload) {
@@ -112,17 +112,6 @@ if ("serviceWorker" in navigator) {
     }, "background");
   });
 }
-
-// Email obfuscation — build mailto: links from data-n + data-d at runtime.
-// Bots that don't execute JS see href="#" and no email in the href.
-document.querySelectorAll('[data-n][data-d]').forEach(el => {
-  const addr = el.dataset.n + '@' + el.dataset.d;
-  let href = 'mailto:' + addr;
-  if (el.dataset.s) href += '?subject=' + encodeURIComponent(el.dataset.s);
-  el.href = href;
-  el.removeAttribute('target');
-  el.removeAttribute('rel');
-});
 
 function syncHashScroll() {
   if (!window.location.hash || window.location.hash === "#") return;
