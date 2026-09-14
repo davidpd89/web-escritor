@@ -2,7 +2,7 @@
 
 Fecha de investigación: **2026-09-07** (última reverificación en vivo: **2026-09-14**)  
 PR owner: **#422 · `tracking/bne`**  
-Estado: **CATALOG_REVERIFIED_LIVE_2026-09-14 · ALL_THREE_ISBN_CONFIRMED_ABSENT · AUTHOR_AUTHORITY_NOT_OBSERVED · VIAF_ISNI_OUT_OF_SCOPE_SEE_420_421 · DEPOSITO_LEGAL_STATUS_PUBLISHER_DEPENDENCY · EXTERNAL_ACTION_PENDING**
+Estado: **BNE_RECORD_NOT_FOUND · DEPOSITO_LEGAL_STATUS_UNVERIFIED · PUBLISHER_CONFIRMATION_REQUIRED · KINDLE_CAUSE_NOT_INFERRED · VIAF_ISNI_OUT_OF_SCOPE_SEE_420_421**
 
 ## Reverificación en vivo (2026-09-14)
 
@@ -35,9 +35,36 @@ de depender solo del catálogo bibliográfico general.
 después, ahora con el ISBN Kindle también confirmado y con una segunda
 fuente (autoridades) apuntando en la misma dirección. No hay nada nuevo
 que indique que el catálogo haya procesado depósito/catalogación desde la
-ronda anterior. Sigue siendo, con alta probabilidad, una cuestión de
-Depósito Legal pendiente por parte de la editorial (Libros Indie / Monza
-Ediciones), no algo accionable desde este repositorio.
+ronda anterior.
+
+**Corrección importante (2026-09-14, tras revisión externa)**: una
+versión anterior de esta sección afirmaba, "con alta probabilidad", que
+la causa era Depósito Legal pendiente en la editorial — para los **tres**
+ISBN por igual, incluido el Kindle. Eso era una inferencia no verificada
+y, además, mezclaba dos circuitos distintos que no deberían tratarse
+igual:
+
+- **Ediciones físicas** (Samuel papel, Manecillas papel): el Depósito
+  Legal de una obra impresa sí es responsabilidad normal del editor
+  (Libros Indie / Monza Ediciones). Que el catálogo no muestre el
+  registro es compatible con que el depósito esté pendiente, pero **no
+  está confirmado** — no se ha preguntado a ninguna de las dos
+  editoriales. Estado correcto: `DEPOSITO_LEGAL_STATUS_UNVERIFIED`, no
+  "alta probabilidad".
+- **Edición Kindle** (ebook): el régimen de Depósito Legal para
+  publicaciones electrónicas/en línea en España no sigue necesariamente
+  el mismo circuito de envío-por-el-editor que una obra impresa. No se
+  ha verificado con una fuente oficial concreta cómo se gestiona en este
+  caso concreto, así que **no se debe inferir la misma causa** que para
+  el físico solo por analogía. Estado correcto para el Kindle:
+  `NOT_OBSERVED`, causa `NOT_INFERRED` — ausencia sin explicación
+  asumida.
+
+La acción real pendiente es la misma que ya decía este documento:
+preguntar directamente a Libros Indie y Monza Ediciones por el estado del
+Depósito Legal de sus respectivas ediciones físicas (coordinable con
+#428/#429, ver más abajo), no seguir infiriendo la causa desde aquí, y no
+extender esa pregunta al Kindle sin motivo verificado.
 
 VIAF e ISNI quedan explícitamente **fuera del alcance de este documento**:
 como no hay registro de autoridad BNE del que partir, no hay enlace BNE→VIAF
@@ -409,13 +436,15 @@ Categoría aplicable de las tres definidas en "Criterios de cierre":
 `DIRECT_BNE_SEARCH_COMPLETED · RECORDS_NOT_OBSERVED · DEPOSIT_PUBLISHER_STATUS_DOCUMENTED_NOT_YET_REQUESTED · NO_FALSE_ABSENCE_CLAIM`
 
 Esta PR se cierra como **documentación de auditoría completa**, no como
-`RESOLVED`: la causa más probable (Depósito Legal pendiente por parte de
-Libros Indie / Monza Ediciones) es una dependencia externa a este
-repositorio. Ninguna sesión de Claude puede tramitar Depósito Legal ni
-contactar a las editoriales de tu parte sin que tú lo pidas o lo hagas
-directamente. Queda documentado como acción pendiente del propietario del
-proyecto, coordinada con las mismas editoriales que ya aparecen en
-#428 (Monza) y #429 (Libros Indie).
+`RESOLVED`: el registro no aparece en el catálogo, pero la causa real no
+está verificada (`DEPOSITO_LEGAL_STATUS_UNVERIFIED` para las ediciones
+físicas, causa `NOT_INFERRED` para el Kindle — ver corrección más
+arriba). Confirmar el estado real del Depósito Legal con Libros Indie y
+Monza Ediciones es una dependencia externa a este repositorio: ninguna
+sesión de Claude puede tramitarlo ni contactar a las editoriales de tu
+parte sin que tú lo pidas o lo hagas directamente. Queda documentado como
+acción pendiente del propietario del proyecto, coordinada con las mismas
+editoriales que ya aparecen en #428 (Monza) y #429 (Libros Indie).
 
 No crear ningún registro BNE manual, no inventar VIAF/ISNI, no reabrir
 esta comprobación por búsqueda de Google — solo por consulta directa al
