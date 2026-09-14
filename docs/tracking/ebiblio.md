@@ -1,8 +1,27 @@
 # eBiblio — bibliotecas públicas digitales españolas
 
-Fecha de revisión: 2026-09-07
+Fecha de revisión: 2026-09-07 (cierre: 2026-09-14)
 
-Estado: `RESEARCHED · NATIONAL_SERVICE_ACTIVE · MADRID_ACQUISITION_ROUTE_CONFIRMED · MANECILLAS_PRIORITY · READY_FOR_EXECUTION`
+Estado: `MANECILLAS_NOT_IN_MADRID_CATALOG_VERIFIED_LIVE · MONZA_CONTACT_NOT_PURSUED · ACQUISITION_REQUEST_NEEDS_OWNER_LIBRARY_ACCOUNT · AWAITING_OWNER`
+
+## Cierre de esta parte (2026-09-14)
+
+Búsqueda directa hoy en el catálogo de eBiblio Madrid por el ISBN del
+ebook (`9798906781925`): **"Ninguna entrada encontrada"**. Confirmado en
+vivo, sin cambios respecto a la investigación original.
+
+El siguiente paso lógico (preguntar a Monza si el ebook está disponible
+para adquisición bibliotecaria) no se persigue — misma decisión ya
+tomada en #428 de no contactar a Monza.
+
+Queda un único paso que sí es legítimo hacer sin depender de Monza: **la
+propuesta de adquisición individual** (`madrid.ebiblio.es/remarks/new`,
+"Sugerencia de compra") — pero eso se envía desde tu propia cuenta de
+lector de la Biblioteca de Madrid, no algo que yo pueda enviar por ti sin
+tu carné/cuenta y tu confirmación explícita de que quieres hacerlo (una
+propuesta por persona y mes, según el propio límite del servicio). Si
+quieres, dime y la preparo para que la envíes tú, o me das acceso y lo
+hago yo — pero no se envía sin ese paso tuyo. Cerrado en lo demás.
 
 ## Objetivo
 
