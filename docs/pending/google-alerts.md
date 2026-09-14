@@ -1,8 +1,42 @@
 # Google Alerts — monitorización gratuita
 
-Fecha de revisión: 2026-09-07
+Fecha de revisión: 2026-09-07 (ejecutado: 2026-09-14)
 
-Estado: `RESEARCHED · FREE_SERVICE_CONFIRMED · FILTER_MODEL_CONFIRMED · READY_FOR_EXECUTION`
+Estado: `EXECUTED · 9_ALERTS_ACTIVE · CLOSED`
+
+## Ejecución (2026-09-14)
+
+Creadas las 9 alertas recomendadas, todas con frecuencia "una vez al
+día", fuentes "Automático", idioma español, región "Todas las
+regiones" y cantidad "Todos los resultados", entregadas a
+`davidportodiaz@gmail.com`:
+
+**P0:**
+- `"David Porto Díaz"`
+- `"Las manecillas del recuerdo"`
+- `"Samuel entre mundos"`
+- `davidportodiaz.com`
+
+**P1 — identificadores:**
+- `"9798905149351"`
+- `"9798906781925"`
+- `"B0HHY9MYLM"`
+- `"B0HHM71F46"`
+- `"9791387659776"`
+
+Nota técnica: la alerta de Manecillas quedó guardada con una comilla de
+cierre duplicada al final de la consulta (`"...recuerdo""`) por un
+artefacto de la UI de edición de Google Alerts que reintroduce la
+comilla cada vez que se reabre para editar — no afecta a los resultados
+en la práctica (la vista previa mostró coincidencias correctas), pero
+queda anotado por si conviene revisarlo manualmente más adelante desde
+un navegador normal.
+
+Revisar en 30 días si las alertas P1 (identificadores) generan señal
+útil; si no, según el propio criterio del documento, eliminarlas o
+pasarlas a frecuencia semanal.
+
+Cierre: `EXECUTED · 9_ALERTS_ACTIVE · REVIEW_IN_30_DAYS_FOR_P1_SIGNAL`
 
 ## Objetivo
 
