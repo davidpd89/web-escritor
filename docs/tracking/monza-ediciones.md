@@ -1,8 +1,71 @@
 # Monza Ediciones — auditoría y plan de ejecución
 
-Fecha de investigación: **2026-09-07**  
+Fecha de investigación: **2026-09-07** (cierre de esta ronda: **2026-09-14**)  
 PR owner: **#428 · `tracking/monza-ediciones`**  
-Estado: **RESEARCHED · MANECILLAS_EXTERNAL_RECORDS_OBSERVED · EDITORIAL_PUBLIC_WEB_RECORD_NOT_OBSERVED · PAGE_COUNT_DISCREPANCY_CONFIRMED · EXTERNAL_ACTION_PENDING**
+Estado: **PAGE_COUNT_AND_PVP_CLOSED_NOT_ACTIONABLE_OWNER_DECISION · PUBLICATION_DATE_DISCREPANCY_CONFIRMED_LIVE · PUBLISHER_CONTACT_CHANNEL_UNKNOWN · AWAITING_OWNER_CONTACT_OR_MESSAGE_OK**
+
+## Cierre de esta ronda (2026-09-14)
+
+### Decisión del propietario del proyecto sobre páginas y PVP
+
+El propietario del proyecto ha decidido **cerrar sin más acción** la
+discrepancia de páginas (272 en la autoridad del proyecto vs. 266 en
+Amazon.es/Casa del Libro/Agapea): cada tienda cuenta páginas con su
+propio criterio (con o sin guardas/portadillas), no es un dato que se
+pueda "arreglar" de forma unívoca, y no vale la pena perseguir cinco
+fuentes por una diferencia de conteo. Esto aplica también, por la misma
+razón, a #404 (DILVE) y #429 (Libros Indie/Samuel: 422 vs 412). No se
+va a corregir ni a preguntar más por esto en ninguno de los tres frentes.
+
+Comprobación en vivo de hoy (Amazon.es, ASIN `B0HHY9MYLM`) confirma
+además que el **PVP no es una discrepancia real**: Amazon.es vende la
+edición física a **15,99 €** y el Kindle a **2,99 €**, exactamente los
+valores que ya usa el proyecto. La cifra de "16,00 €" que aparecía en un
+snapshot antiguo de Agapea no se ha reproducido hoy; se cierra como ruido
+histórico, no como discrepancia vigente.
+
+### Matriz de verdad (2026-09-14, evidencia en vivo)
+
+| Campo | Nuestro dato | Dato externo confirmado hoy | Evidencia | Owner | Acción |
+|---|---|---|---|---|---|
+| Páginas (físico) | 272 | 266 | Amazon.es, Casa del Libro Colombia, Agapea (histórico) | — | **Cerrado, no accionable — decisión del propietario** |
+| PVP físico | 15,99 € | 15,99 € | Amazon.es (ASIN B0HHY9MYLM), en vivo hoy | — | Sin discrepancia, cerrado |
+| PVP Kindle | 2,99 € | 2,99 € | Amazon.es, en vivo hoy | — | Sin discrepancia, cerrado |
+| **Fecha de publicación (físico)** | **2026-09-03** | **12 agosto 2026** | Amazon.es (ficha oficial del producto) y Casa del Libro Colombia, ambos en vivo hoy, coincidentes entre sí | Monza | **Abierto — preguntar a Monza cuál es la fecha real** |
+| Encuadernación | tapa blanda (sin detalle) | Tapa blanda **con solapas** | Casa del Libro Colombia, en vivo hoy | Monza | Actualizar copy propio si Monza confirma |
+| Dimensiones/peso | no documentado | 15.2 × 22.8 cm, 370 g (Casa del Libro); 15.19 × 1.7 × 22.81 cm (Amazon.es, incluye grosor de lomo) | en vivo hoy, ambas fuentes | Monza | Informativo, no urgente |
+| Registrant ISBN 979-8 (ambos) | desconocido | no verificado hoy | — | Monza / agencia registrant | Preguntar a Monza |
+| Owner DILVE/ONIX/feed comercial | desconocido | no verificado hoy — Monza es entidad británica (Companies House `SC839555`), no se debe asumir DILVE español como origen | — | Monza | Preguntar a Monza antes de tocar #404 |
+| Depósito Legal (físico) | desconocido | ausente del catálogo BNE (ver #422), causa no verificada | catalogo.bne.es, en vivo hoy | Monza | Preguntar a Monza (ver #422) |
+| Metadata oficial ebook | ver arriba | consistente con lo publicado hoy | Amazon.es/Casa del Libro | Monza | Sin acción |
+
+La fecha de publicación es el único campo con una discrepancia real,
+confirmada por dos fuentes independientes hoy mismo (no un hallazgo
+antiguo sin repetir). El resto de preguntas a Monza (registrant ISBN,
+owner DILVE/ONIX, Depósito Legal) siguen abiertas por falta de respuesta
+de la editorial, no por evidencia contradictoria.
+
+### Canal de contacto — desconocido, necesito tu ayuda
+
+A diferencia de la BNE (que publica un email institucional), no he
+encontrado ningún contacto editorial público de Monza Ediciones
+(búsqueda web hoy: sin web propia indexada, sin email de contacto
+público; solo el registro de Companies House `SC839555`, que es una
+dirección registral, no un canal editorial). Si tú ya tienes un contacto
+directo con Monza (lo normal, al ser tu editorial), dime el canal
+(email/persona) y preparo el mensaje exacto con la matriz de arriba para
+tu revisión antes de enviarlo — igual que se hizo con el correo ISNI a la
+BNE. Si prefieres escribirles tú directamente, te paso la matriz tal
+cual está aquí.
+
+### Qué NO se ha hecho
+
+- No se ha contactado a Monza (no hay canal conocido todavía).
+- No se ha cambiado ningún dato en la web propia — ni páginas, ni PVP,
+  ni fecha — a la espera de confirmación editorial donde aplica.
+- No se ha tocado #404 DILVE, #407 TodosTusLibros ni #410 retailers:
+  siguen bloqueados a que Monza confirme quién controla el feed
+  comercial real, tal y como pedía el runbook original.
 
 ## Objetivo
 
