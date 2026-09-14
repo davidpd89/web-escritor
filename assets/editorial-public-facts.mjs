@@ -37,6 +37,14 @@ export const EDITORIAL_PUBLIC_FACTS = {
     }
   },
   "recognitions": {
+    "aullidosEnPapel": {
+      "result": "Ganador",
+      "name": "I Concurso de microrrelatos sobre hombres lobo «Aullidos en papel»",
+      "organizer": "Diversidad Literaria",
+      "year": 2026,
+      "holder": "David Porto Díaz",
+      "submittedWork": null
+    },
     "letrasComoEspada": {
       "result": "Primer Premio",
       "name": "XII Certamen de Microrrelatos «De amor»",

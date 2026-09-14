@@ -1,9 +1,9 @@
 # Release Readiness Evidence V1
 
-- Generated: `2026-09-07T13:50:08.901324+00:00`
-- Branch: `seo/bing-audit-fixes-2026-09-05`
-- HEAD: `a955020759cb04263b8b6a04b92df51f2228ade9`
-- Previous SHA (rollback candidate): `3c66692b7e6d50d3cfc0c5640d55f7c1eb3d0bd8`
+- Generated: `2026-09-08T08:33:37.230510+00:00`
+- Branch: `feat/minimal-analytics-consent-banner-2026-09-08`
+- HEAD: `fa1f172112c2d126f6a073508bd44b26b9076755`
+- Previous SHA (rollback candidate): `42e461efd3ce50a4625f41a6e60a6a92d3251a38`
 
 ## Final Status: `STATIC_CHECKS_PASSED`
 
@@ -19,26 +19,26 @@
 ## Commit Window (latest 20)
 
 ```text
-a9550207 fix: allow Clarity's Bing identity-sync pixel in img-src CSP
-3c66692b fix: close CI gaps found while getting #393 to a green merge
-10e44127 feat: install Microsoft Clarity sitewide (UX/conversion analytics)
-a29d06f0 fix: shorten libros-fantasia-juvenil-espanola-2025-2026 title flagged by Bing
-f6dcb07c docs: regenerate release readiness report
-241e1ae7 fix: separate paperback/Kindle purchase links, dead Amazon ASINs, mobile gallery overflow, RSS feed styling
-e07b1edf feat: add Vara Glytch image to the Noveris canalizadores table
-bdd53666 docs: regenerate release readiness report
-9745b72a fix: make libros-fantasia-juvenil-espanola-2025-2026 indexable again
-2cacd95f docs: regenerate release readiness report
-313c9ce1 fix: shorten meta descriptions over Bing's 160-character limit sitewide
-65afede5 fix: shorten 9 page titles Bing Site Scan flagged as over 70 characters
-17852f2b feat: add FAQ content/schema to contador-palabras and shorten portal-fantasy title
-f5e150db feat: make lectores-beta pages indexable and add social card metadata
+fa1f1721 feat: add minimal analytics-consent banner for Microsoft Clarity
+42e461ef Correcciones de seguimiento: privacidad, minors/Clarity, tracking Preferred Sources (#475)
+2258ec65 Corregir consentimiento de analítica de Clarity (denied por defecto) (#473)
+7dc1d578 docs: record 2026-09-08 corrections to the Wikidata/Amazon closure (#474)
+5188ed3c Enlazar Google Preferred Sources en el Cuaderno (#472)
+517cf160 feat: link Manecillas' now-combined Goodreads work in sameAs (#471)
+ead76838 Cierre Amazon Author Central + Goodreads + Wikidata (2026-09-07) (#470)
+7c1b91e4 Clarity consent closure + noindex/keyword/interlinking audit (#395)
+6359cbde SEO fixes: Amazon links, dead ASINs, RSS styling, Bing title, Microsoft Clarity (#393)
+8c1a7044 docs: track Bing/GSC backlink-authority gap as a pending item (#394)
 d2f70aa2 fix: disambiguate Home buy-CTA accessible names, purge stale v14 cache (#392)
 c5578022 fix: content-parity regex broke by #390's intentional dt/dd space (#391)
 1ec49bfa fix: sitewide dt/dd search-index concatenation across every fact ledger (#390)
 5895e54f fix: Samuel entre mundos ledger dt/dd search-index concatenation (#389)
 c5466531 fix: .mjs cache staleness and blank-Home fallback recovery (#388)
 df32de9c fix: second post-Kindle-launch QA round (newsletter, dynamic CTAs, assistant editions) (#387)
+75c91f44 fix: post-Kindle-launch consistency sweep (stale copy, dates, nav, CSS) (#386)
+6e8a244a fix: manecillas sample --check false-positive on a local Windows checkout (#385)
+f8311aaa feat: activate Las manecillas del recuerdo's Kindle purchase link sitewide (#384)
+a88bfa24 feat: add Comprar CTA to Manecillas Home hero + fix script cache-busting gap (#382)
 ```
 
 ## Required Route Inventory
@@ -139,7 +139,7 @@ CANONICAL ENTITY IDs: OK (4 entidades con @id, todas consistentes)
 ### CI parity: editorial facts — PASS
 
 ```text
-EDITORIAL FACT CHECK � mode=launch � date=2026-09-07 � publication=2026-09-03
+EDITORIAL FACT CHECK � mode=launch � date=2026-09-08 � publication=2026-09-03
 EDITORIAL FACT CHECK: OK
 ```
 
@@ -243,7 +243,7 @@ test-social-card-article-specific: OK (7 pages checked)
 ## Rollback Procedure (Documented, not executed)
 
 1. Identify incident and freeze merges.
-2. Checkout rollback target SHA: `3c66692b7e6d50d3cfc0c5640d55f7c1eb3d0bd8`.
+2. Checkout rollback target SHA: `42e461efd3ce50a4625f41a6e60a6a92d3251a38`.
 3. Re-run core checks:
 ```bash
 python scripts/check-local-assets.py
