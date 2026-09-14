@@ -164,8 +164,8 @@ class AIHTMLParser(HTMLParser):
             self._script_data = []
 
 
-def exact_award_label(facts: dict) -> str:
-    award = facts["recognitions"]["letrasComoEspada2026"]
+def exact_award_label(facts: dict, key: str = "letrasComoEspada2026") -> str:
+    award = facts["recognitions"][key]
     return f'{award["result"]} — {award["name"]} · {award["organizer"]} {award["year"]}'
 
 
@@ -311,7 +311,7 @@ def main() -> int:
     check(author_press["nationality"] == author["nationality"], "author nationality drift: press-kit vs editorial facts")
     check(author_press["birthplace"] == author["birthPlace"], "author birthplace drift: press-kit vs editorial facts")
     check(author_press["residence"] == author["homeLocation"], "author residence drift: press-kit vs editorial facts")
-    check(author_press["contact"]["email"] == author["publicContact"], "author public contact drift")
+    check(author_press["contact"]["contactPage"] == "https://davidportodiaz.com/prensa.html#contacto", "author public contact page mismatch")
     check(author_press["identifiers"] == author["identifiers"], "author identifier drift")
 
     author_man = next(b for b in author_press["books"] if b["title"] == man["title"])
@@ -342,11 +342,15 @@ def main() -> int:
 
     award = facts["recognitions"]["letrasComoEspada2026"]
     finalist = facts["recognitions"]["juanAndresTeno2026"]
+    wolves_award = facts["recognitions"]["aullidosEnPapel2026"]
     check(award["type"] == "award" and award["holder"] == author["name"] and award["submittedWork"] is None, "Letras award ownership drift")
     check(finalist["type"] == "finalistSelection" and finalist["submittedWork"] is None, "Juan Andrés Teno must remain an author-level recognition without an unverified submitted work")
     check(finalist.get("sourceUrl") == "https://www.babidibulibros.com/premio-literatura-juan-andres-teno-2026/", "Juan Andrés Teno official call source drift")
     check(bool(finalist.get("sourceLimitation")), "Juan Andrés Teno source limitation must be explicit")
-    check(len(author_press["awards"]) == 1 and "Letras Como Espada" in author_press["awards"][0]["name"], "author press-kit awards must contain only the true award")
+    check(wolves_award["type"] == "award" and wolves_award["holder"] == author["name"] and wolves_award["submittedWork"] is None, "Aullidos en papel award ownership drift")
+    check(wolves_award.get("sourceUrl") == "https://www.diversidadliteraria.com/resultado-del-i-concurso-de--aullidos-en-papel-i", "Aullidos en papel official results source drift")
+    check(len(author_press["awards"]) == 2, "author press-kit awards must contain exactly the two true awards")
+    check(any("Letras Como Espada" in a["name"] for a in author_press["awards"]) and any("Aullidos en papel" in a["name"] for a in author_press["awards"]), "author press-kit awards must contain both true awards")
     check(len(author_press["recognitions"]) == 1 and author_press["recognitions"][0]["submittedWork"] is None, "author press-kit finalist recognition must not invent a submitted work")
     check(bool(author_press["recognitions"][0].get("sourceLimitation")), "author press-kit finalist source limitation missing")
     check(sam_press["award"] is None, "Samuel must not carry a book award")
@@ -362,6 +366,7 @@ def main() -> int:
         man["purchaseUrl"],
         man["kindleEdition"]["asin"],
         exact_award_label(facts),
+        exact_award_label(facts, "aullidosEnPapel2026"),
         finalist["name"],
         "Noveris",
         "Q139927664",

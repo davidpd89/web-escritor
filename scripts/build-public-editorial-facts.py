@@ -45,6 +45,7 @@ def build_projection(facts: dict) -> dict:
     sam = facts["books"]["samuelEntreMundos"]
     award = facts["recognitions"]["letrasComoEspada2026"]
     finalist = facts["recognitions"]["juanAndresTeno2026"]
+    wolves_award = facts["recognitions"]["aullidosEnPapel2026"]
 
     manecillas_available = man["purchaseUrl"] is not None
     kindle = man.get("kindleEdition")
@@ -82,6 +83,14 @@ def build_projection(facts: dict) -> dict:
             "purchaseUrls": dict(sam["purchaseUrls"]),
         },
         "recognitions": {
+            "aullidosEnPapel": {
+                "result": wolves_award["result"],
+                "name": wolves_award["name"],
+                "organizer": wolves_award["organizer"],
+                "year": wolves_award["year"],
+                "holder": wolves_award["holder"],
+                "submittedWork": wolves_award["submittedWork"],
+            },
             "letrasComoEspada": {
                 "result": award["result"],
                 "name": award["name"],
