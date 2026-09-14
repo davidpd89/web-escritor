@@ -2,7 +2,7 @@
 
 Fecha de investigación: **2026-09-07** (cierre de esta ronda: **2026-09-14**)  
 PR owner: **#428 · `tracking/monza-ediciones`**  
-Estado: **PAGE_COUNT_AND_PVP_CLOSED_NOT_ACTIONABLE_OWNER_DECISION · PUBLICATION_DATE_DISCREPANCY_CONFIRMED_LIVE · PUBLISHER_CONTACT_CHANNEL_UNKNOWN · AWAITING_OWNER_CONTACT_OR_MESSAGE_OK**
+Estado: **PAGE_COUNT_AND_PVP_CLOSED_NOT_ACTIONABLE_OWNER_DECISION · PUBLICATION_DATE_DISCREPANCY_DOCUMENTED_NOT_PURSUED · NO_MONZA_CONTACT_BY_OWNER_DECISION · CLOSED_THIS_ROUND**
 
 ## Cierre de esta ronda (2026-09-14)
 
@@ -45,27 +45,32 @@ antiguo sin repetir). El resto de preguntas a Monza (registrant ISBN,
 owner DILVE/ONIX, Depósito Legal) siguen abiertas por falta de respuesta
 de la editorial, no por evidencia contradictoria.
 
-### Canal de contacto — desconocido, necesito tu ayuda
+### Decisión final (2026-09-14): no se contacta a Monza esta ronda
 
-A diferencia de la BNE (que publica un email institucional), no he
-encontrado ningún contacto editorial público de Monza Ediciones
-(búsqueda web hoy: sin web propia indexada, sin email de contacto
-público; solo el registro de Companies House `SC839555`, que es una
-dirección registral, no un canal editorial). Si tú ya tienes un contacto
-directo con Monza (lo normal, al ser tu editorial), dime el canal
-(email/persona) y preparo el mensaje exacto con la matriz de arriba para
-tu revisión antes de enviarlo — igual que se hizo con el correo ISNI a la
-BNE. Si prefieres escribirles tú directamente, te paso la matriz tal
-cual está aquí.
+No existe un canal editorial público de Monza Ediciones (sin web propia
+indexada, sin email de contacto público; solo el registro de Companies
+House `SC839555`, que es una dirección registral, no un canal editorial).
+El propietario del proyecto ha decidido explícitamente **no perseguir un
+contacto con Monza** para resolver esto ahora. Se cierra esta PR con la
+discrepancia de fecha documentada como hallazgo, no como incidencia
+abierta:
+
+- fecha propia del proyecto: `2026-09-03`;
+- fecha coincidente en Amazon.es + Casa del Libro: `12/08/2026`;
+- no se ha corregido la web propia ni se ha escrito a nadie por esto;
+- si en el futuro surge un canal real con Monza (contrato, renovación,
+  nueva edición), es el momento natural para preguntar de paso, no antes.
 
 ### Qué NO se ha hecho
 
-- No se ha contactado a Monza (no hay canal conocido todavía).
+- No se ha contactado a Monza — decisión explícita del propietario, no
+  falta de canal únicamente.
 - No se ha cambiado ningún dato en la web propia — ni páginas, ni PVP,
-  ni fecha — a la espera de confirmación editorial donde aplica.
-- No se ha tocado #404 DILVE, #407 TodosTusLibros ni #410 retailers:
-  siguen bloqueados a que Monza confirme quién controla el feed
-  comercial real, tal y como pedía el runbook original.
+  ni fecha.
+- No se ha tocado #407 TodosTusLibros ni #410 retailers para Manecillas:
+  no hay nada nuevo que propagar sin confirmación de Monza, y esa
+  confirmación no se va a pedir esta ronda. #404 DILVE ya se cerró por
+  separado (ver esa PR) por el mismo motivo.
 
 ## Objetivo
 
