@@ -2,7 +2,29 @@
 
 Fecha de investigación: **2026-09-07**  
 PR owner: **#463 · `tracking/ahrefs-free`**  
-Estado: **EXECUTED · FREE_TIER_CONFIRMED_NO_PAYWALL · OWNERSHIP_VERIFICATION_PENDING_DEPLOY**
+Estado: **OWNERSHIP_VERIFIED · SITE_AUDIT_BASELINE_REVIEWED · SCHEMA_BUGS_FIXED_VIA_482 · BACKLINKS_KEYWORDS_AI_VISIBILITY_NOT_YET_TRIAGED**
+
+## Actualización (2026-09-09) — verificación de propiedad confirmada y primer Site Audit real ejecutado
+
+Corrección sobre el estado anterior (`OWNERSHIP_VERIFICATION_PENDING_DEPLOY`, que quedó desactualizado sin que nadie lo revisara después del deploy): entrando en vivo a `app.ahrefs.com`, el proyecto **"David Porto Díaz · *.davidportodiaz.com/*"** ya está verificado y con datos reales — Health Score 100, 79 URLs rastreadas en el último crawl (211 en un crawl más amplio anterior), 0 errores internos, Domain Rating 2, 355 dominios de referencia.
+
+### Site Audit — hallazgos reales clasificados
+
+- **`Structured data has schema.org validation error` (6 páginas) → `REAL_BUG`, corregido en #482**: `Person.dateModified` no es una propiedad válida de schema.org (eliminada de `index.html`/`autor.html`/`premios.html`); `Person.award` en `index.html` usaba objetos `Thing` en vez de `Text` (aplanado a texto). `Event.eventStatus: EventCompleted` en `eventos.html`/`ferias.html`/el artículo de la Feria de Madrid también es un valor inválido (`EventStatusType` de schema.org solo define `EventScheduled/Cancelled/Postponed/Rescheduled/MovedOnline`), pero **no se ha tocado**: `scripts/build-event-calendars.py` y dos tests (`test-ferias-parity.py`, `qa/identity-public-browser.mjs`) usan ese valor no estándar como la señal deliberada que distingue eventos archivados de próximos para el feed .ics. Corregirlo bien requiere rediseñar esa distinción (p. ej. derivarla de `endDate` en vez de un `eventStatus` inventado), no un rename de paso — pendiente para una sesión dedicada.
+- **`Noindex page` / `Noindex follow page` (4 cada uno)**: `FALSE_POSITIVE` esperado — son `privacidad.html`/`aviso-legal.html` con `robots: noindex, follow` intencional (páginas legales, ya documentado en `privacidad.html`).
+- **`3XX redirect` (3) / `HTTP to HTTPS redirect` (2)**: probablemente intencional (canonicalización HTTPS/afiliados) — no triado en detalle todavía.
+- **`Meta description too long` (2) / `Meta description too short` (1) / `Title too long (not indexable)` (1)**: no identificadas las URLs exactas todavía — pendiente de triar en una próxima sesión (afecta directamente al snippet en resultados de búsqueda, así que tiene valor real si se confirma).
+- **`CSS file size too large` (1)**: pendiente de identificar el archivo — puede ser `FALSE_POSITIVE` si el umbral de Ahrefs no coincide con el presupuesto de rendimiento que ya vigila `performance-budget` en CI.
+- **`Page has only one dofollow incoming internal link` (2)**: pendiente de identificar qué páginas — si son reales, es una oportunidad de mejorar enlazado interno (`REAL_IMPROVEMENT`).
+
+### Pendiente de ejecutar (no tocado todavía)
+
+- Backlinks/referring domains: 355 dominios de referencia visibles en el dashboard, sin explorar ancla/calidad/enlaces perdidos.
+- Keywords/páginas orgánicas: Ahrefs muestra 0 en el resumen (probablemente porque el sitio es muy reciente en su índice, no necesariamente un problema real) — sin explorar Keywords Explorer.
+- AI Visibility Checker (menciones en ChatGPT/Gemini/Perplexity/Copilot/Google AI Overviews): no ejecutado todavía.
+- Clasificación completa de los issues de Site Audit restantes (redirects, meta description, CSS size, enlazado interno) en `REAL_BUG`/`REAL_IMPROVEMENT`/`FALSE_POSITIVE`/`LOW_VALUE`.
+
+No cerrar esta rama como "hecho" hasta completar esos cuatro puntos — las plantillas/verificación de dominio están terminadas, pero el valor real de Ahrefs (backlinks, keywords, AI visibility) todavía no se ha extraído.
 
 ## Ejecución (2026-09-08)
 

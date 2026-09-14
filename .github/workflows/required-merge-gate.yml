@@ -112,6 +112,13 @@ jobs:
       - name: Re-check final public artifact contents
         run: python scripts/build-public-dist.py --check-contents --out .preview-dist
 
+      - name: Verify no public email exposure in the built artifact
+        # The source-tree pass above (line 89) can only ever prove what is
+        # NOT going to be published; it says nothing about a generator that
+        # introduces the address only at build time. Running the same audit
+        # again against the actual built output is what closes that gap.
+        run: python scripts/audit-public-email-exposure.py --strict --root .preview-dist
+
       - name: Prove marker can be stamped into built artifact
         shell: bash
         run: |
