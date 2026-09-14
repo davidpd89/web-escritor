@@ -1,8 +1,30 @@
 # Retailers y disponibilidad — auditoría y plan de ejecución
 
-Fecha de investigación: **2026-09-07**  
+Fecha de investigación: **2026-09-07** (cierre: **2026-09-14**)  
 PR owner: **#410 · `tracking/retailers-books`**  
-Estado: **RESEARCHED · CORE_RETAILERS_MAPPED · METADATA_DISCREPANCIES_CONFIRMED · FNAC_ECI_NOT_OBSERVED · DIGITAL_CHANNELS_DELEGATED · EXTERNAL_ACTION_PENDING**
+Estado: **PAGE_COUNT_CLOSED_OWNER_DECISION · AMAZON_CASA_AGAPEA_VERIFIED_LIVE · FNAC_ECI_RECONFIRMED_NOT_OBSERVED · CLOSED_NO_ACTION**
+
+## Cierre de esta ronda (2026-09-14)
+
+- **Páginas** (422/412 Samuel, 272/266 Manecillas): cerrado sin acción,
+  decisión del propietario del proyecto — misma razón que #428/#404/#407/#429.
+- **Amazon.es**: verificado en vivo hoy para ambos libros (ver #428 y
+  #429) — metadata, precios y fechas coherentes salvo la fecha de
+  Manecillas ya documentada en #428 (no perseguida).
+- **Casa del Libro / Agapea**: verificado en vivo hoy vía Casa del Libro
+  Colombia — sin novedades más allá de lo ya recogido en #428/#429.
+- **FNAC y El Corte Inglés**: reverificado hoy (búsqueda directa +
+  externa) — sigue sin aparecer ninguna ficha para Samuel ni Manecillas
+  en ninguno de los dos. Esto es `NOT_OBSERVED`, no una incidencia: no
+  hay evidencia de que debieran estar ahí (no se ha confirmado que el
+  distribuidor de ninguna de las dos editoriales incluya estos canales),
+  así que no se escala nada — coherente con la propia guía del
+  documento de no asumir presencia por existir en DILVE.
+
+No queda ninguna discrepancia real y accionable en este documento que no
+dependa ya de Monza (#428, cerrado sin contacto por decisión del
+propietario) o de datos que hemos decidido no perseguir. Se cierra sin
+más acción.
 
 ## Objetivo
 
