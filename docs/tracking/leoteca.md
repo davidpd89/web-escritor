@@ -1,8 +1,17 @@
 # Leoteca — lectura educativa y catálogo juvenil
 
-Fecha de revisión: 2026-09-07
+Fecha de revisión: 2026-09-07 (revisión: 2026-09-14)
 
-Estado: `RESEARCHED · ACTIVE_EDUCATIONAL_PLATFORM · AUTHOR_CONTACT_ROUTE_CONFIRMED · SAMUEL_PUBLIC_RECORD_NOT_OBSERVED · READY_FOR_FIT_CHECK`
+Estado: `INTERNAL_SEARCH_NEEDS_LOGIN · OUTREACH_MESSAGE_PENDING · AWAITING_OWNER`
+
+## Nota de acceso (2026-09-14)
+
+`leoteca.es/buscador` redirige a la home sin sesión iniciada — el
+buscador interno con ISBN que pedía este documento necesita una cuenta
+Leoteca (gratuita), que esta sesión no tiene. Queda en el bloque de
+logins pendientes. La vía de contacto para editoriales/autores sigue
+siendo válida sin login, pero escribirles es un mensaje en tu nombre a
+un tercero — lo preparo en cuanto lo pidas, no se envía sin tu OK.
 
 ## Objetivo
 
