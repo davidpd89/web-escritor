@@ -1,8 +1,31 @@
 # TodosTusLibros — auditoría y plan de ejecución
 
-Fecha de investigación: **2026-09-07**  
+Fecha de investigación: **2026-09-07** (cierre: **2026-09-14**)  
 PR owner: **#407 · `tracking/todostuslibros`**  
-Estado: **RESEARCHED · SAMUEL_PUBLIC_RECORD_OBSERVED · MANECILLAS_PUBLIC_RECORD_NOT_OBSERVED · UPSTREAM_DILVE_OWNER_CONFIRMED · EXTERNAL_ACTION_PENDING**
+Estado: **PAGE_COUNT_CLOSED_OWNER_DECISION · AUTHOR_NAME_SERIALIZATION_NOT_AN_ERROR · MANECILLAS_STILL_NOT_OBSERVED_NO_ERROR · CLOSED_NO_ACTION**
+
+## Cierre de esta ronda (2026-09-14)
+
+Este documento dependía casi enteramente de la discrepancia de páginas
+(422 vs 412, Samuel) que TodosTusLibros hereda automáticamente de DILVE.
+El propietario del proyecto ha decidido no perseguir esa discrepancia en
+ninguna de sus paradas (#428, #404, #429, aquí) — cerrado sin acción.
+
+El resto de puntos de este documento no son errores:
+
+- `DAVID, PORTO DÍAZ` en el índice es serialización apellido-nombre, no
+  un error de identidad — el propio documento ya advertía no pedir
+  corrección solo por estilo visual.
+- Manecillas sigue sin ficha observable en TodosTusLibros hoy
+  (reverificado): esto es `NOT_OBSERVED`, no un error propio de
+  TodosTusLibros — sus fichas se cargan automáticamente desde DILVE, y
+  #404/#428 ya están cerrados sin haber podido confirmar con Monza si
+  su feed llega siquiera a DILVE. No hay nada que pedirle a TodosTusLibros
+  directamente.
+
+**Se cierra sin acción.** Si en el futuro Monza confirma un feed DILVE
+real y Manecillas debería aparecer aquí y no aparece, es el momento de
+reabrir esto como incidencia real — no antes.
 
 ## Objetivo
 
