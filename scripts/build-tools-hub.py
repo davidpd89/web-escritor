@@ -156,7 +156,7 @@ def render(data, tools, directories):
   <meta name="twitter:image:alt" content="Herramientas gratuitas para escritores | David Porto Díaz" />
 
   <meta name="theme-color" content="#F4EFE7" />
-  <link rel="preconnect" href="https://gc.zgo.at" />
+  <link rel="preconnect" href="https://gc.zgo.at" /><link rel="preconnect" href="https://tracker.metricool.com" />
   <link rel="canonical" href="https://davidportodiaz.com/herramientas/" />
   <link rel="icon" type="image/png" href="/assets/david-porto-favicon.png" />
   <link rel="apple-touch-icon" href="/assets/david-porto-favicon.png" />
