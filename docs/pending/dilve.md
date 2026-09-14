@@ -4,6 +4,41 @@ Fecha de investigación: **2026-09-07**
 PR owner: **#404 · `tracking/dilve`**  
 Estado: **RESEARCHED · UPSTREAM_METADATA_OWNER_NOT_YET_VERIFIED · EXTERNAL_ACTION_PENDING**
 
+## Cierre de esta ronda (2026-09-14)
+
+Este documento nació entero alrededor de la discrepancia de páginas y PVP
+entre la web del proyecto y varios retailers. Esas dos cosas ya están
+cerradas (ver #428 Monza y #429 Libros Indie, actualizados hoy):
+
+- **Páginas** (272 vs 266 en Manecillas; 422 vs 412 en Samuel): el
+  propietario del proyecto ha decidido no perseguirlo — cada tienda
+  cuenta de forma distinta y no es un dato unívoco corregible. Cerrado
+  sin acción, aplicado también aquí.
+- **PVP**: verificado en vivo hoy contra Amazon.es — 15,99 €/2,99 €
+  (Manecillas) y 22,00 € (Samuel) coinciden exactamente con lo que ya
+  usa el proyecto. No hay discrepancia real que reportar a DILVE.
+
+Lo único que queda con una discrepancia real y verificada es la **fecha
+de publicación de Manecillas** (ver #428: Amazon.es y Casa del Libro
+coinciden en 12/08/2026 frente a nuestro 03/09/2026) — pero esa pregunta
+va dirigida a **Monza**, no a DILVE directamente: DILVE es una
+plataforma B2B sin búsqueda pública (`PUBLIC_DILVE_RECORD_NOT_OBSERVED`,
+confirmado ya en su momento), así que no se puede auditar sin saber
+antes si Monza siquiera carga su feed ahí — exactamente lo que este
+documento ya advertía en "Quién puede corregir" y lo que señaló también
+la revisión externa: no asumir que DILVE es el upstream de Monza sin que
+la propia editorial lo confirme.
+
+**Esta PR se cierra sin acción propia.** Estado:
+
+`DILVE_ACCESS_NOT_AVAILABLE_PUBLICLY · PAGE_COUNT_AND_PVP_CLOSED_SEE_428_429 · OWNER_UNCONFIRMED_PENDING_MONZA_RESPONSE · NO_INDEPENDENT_ACTION_THIS_ROUND`
+
+No se contacta a `asistencia@dilve.es` todavía: no hay ningún error
+propagado conocido que reportar, solo una pregunta de ownership que
+depende de que Monza responda primero (#428). Si Monza confirma que
+usa DILVE y aparece algún dato realmente incorrecto (no de conteo de
+páginas), se reabre este documento entonces.
+
 ## Objetivo
 
 Auditar cómo están descritas y distribuidas `Samuel entre mundos` y `Las manecillas del recuerdo` en **DILVE (Distribuidor de Información del Libro Español en Venta)** y corregir los metadatos en el **owner upstream real**, de modo que la mejora se propague a librerías, distribuidoras y tiendas en línea sin mantener parches manuales distintos en cada retailer.
