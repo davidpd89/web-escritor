@@ -1,8 +1,8 @@
 # WorldCat / OCLC — bibliografía, autoridad y linked data
 
-Fecha de investigación: **2026-09-07**  
+Fecha de investigación: **2026-09-07** (última reverificación en vivo: **2026-09-14**)  
 PR owner: **#419 · `tracking/worldcat`**  
-Estado: **RESEARCHED · PUBLIC_RECORDS_NOT_OBSERVED · READY_FOR_DIRECT_AUDIT**
+Estado: **WORLDCAT_ENTITIES_AUDITED_LIVE_NOT_OBSERVED · CLASSIC_SEARCH_BLOCKED_BY_CAPTCHA_NOT_BYPASSED · EXTERNAL_DEPENDENCY_LIBRARY_CATALOGING**
 
 ## Objetivo
 
@@ -366,3 +366,41 @@ normal. No cambia la recomendación del documento: los registros de
 WorldCat normalmente reflejan lo que ya está en OCLC/bibliotecas
 miembro, así que el camino real sigue siendo BNE/ISNI/VIAF, no una
 gestión directa en WorldCat.
+
+## Reverificación en vivo (2026-09-14)
+
+- `search.worldcat.org` (búsqueda clásica): tras aceptar los términos de
+  servicio del sitio, la búsqueda por ISBN `9791387659776` presenta un
+  **challenge interactivo de Cloudflare Turnstile** ("Verifique que es
+  un ser humano"). No se ha completado — es exactamente el tipo de
+  verificación anti-bot que esta sesión no debe sortear. Sigue siendo,
+  por tanto, una comprobación que solo se puede hacer a mano desde un
+  navegador normal.
+- `entities.oclc.org` (WorldCat Entities, interfaz distinta y **sin**
+  bloqueo de Cloudflare): comprobación directa realizada con éxito hoy.
+  - Búsqueda por `David Porto Díaz`: **"We could not find anything that
+    matches your search criteria."**
+  - Búsqueda por ISBN `9791387659776` (Samuel entre mundos): mismo
+    resultado, sin coincidencias.
+
+**Conclusión de esta ronda**: WorldCat Entities, que sí es accesible
+directamente, no tiene ninguna entidad de Persona ni de Obra para David
+ni para Samuel. Es coherente con el resto de la cadena de autoridad: sin
+registro BNE (#422, confirmado ausente) ni cluster VIAF (#420, confirmado
+ausente) de los que WorldCat pudiera heredar metadatos, y sin que ninguna
+biblioteca miembro de OCLC haya catalogado aún el ejemplar. La vía
+clásica de `search.worldcat.org` queda pendiente de una comprobación
+manual futura (humana) si se quiere descartar del todo, pero WorldCat
+Entities ya da una señal suficientemente clara para cerrar esta ronda sin
+inventar ni forzar nada.
+
+### Cierre de esta ronda
+
+`WORLDCAT_ENTITIES_AUDITED_NOT_OBSERVED · CLASSIC_SEARCH_BLOCKED_BY_CAPTCHA_NOT_BYPASSED · NO_DUPLICATE_FOUND · CATALOGING_PATH_IDENTIFIED_VIA_OCLC_MEMBER_LIBRARY · EXTERNAL_DEPENDENCY_RECORDED · NO_FAKE_RECORD_CREATED`
+
+Se cierra esta PR como auditoría completa con dependencia externa (ni la
+BNE ni ninguna biblioteca OCLC ha catalogado aún las obras), no como
+`RESOLVED`. No hay ninguna acción disponible directamente desde este
+repositorio: el camino sigue siendo que el Depósito Legal se complete
+(ver #422) y/o que una biblioteca miembro de OCLC catalogue el ejemplar
+por su cuenta.
