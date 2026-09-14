@@ -1,8 +1,66 @@
 # LibraryThing — autor, libros y comunidad
 
-Fecha de revisión: 2026-09-07
+Fecha de revisión: 2026-09-07 (ejecutado: 2026-09-14)
 
-Estado: `RESEARCHED · FREE_AUTHOR_PROGRAM_CONFIRMED · READY_FOR_AUTHENTICATED_EXECUTION`
+Estado: `SAMUEL_YEAR_FIXED · REAL_REVIEW_FOUND_ON_MANECILLAS · DUPLICATE_WORKS_FLAGGED_NOT_MERGED · AWAITING_OWNER_ON_COMBINE`
+
+## Ejecución (2026-09-14, sesión `DavidPortoDiaz` autenticada)
+
+### Buena noticia: reseña real de 5 estrellas de un lector
+
+`Las manecillas del recuerdo (Spanish Edition)` (work `37203222`) tiene
+una reseña real de 5 estrellas de un lector genuino, `carlosbermejop`
+(125 reseñas en su perfil), publicada el 8 de septiembre de 2026:
+
+> "Funciona de maravilla como antología, especialmente gracias a la
+> historia marco del reloj y los temas comunes que recorren todo el
+> libro: el tiempo, la memoria, el legado..."
+
+URL: `https://www.librarything.com/work/37203222/book/322955985`
+
+### Corregido: año de publicación de Samuel
+
+La ficha de Samuel entre mundos en la biblioteca personal de David
+(work `36438284`) tenía `Publication: Libros Indie, 2026` y
+`Publication Date: 2026` — incorrecto, el año real es 2025 (diciembre
+2025, confirmado ya en Amazon.es/ISFDB). Corregido vía "Edit Book" a
+`2025-12-01` / `Libros Indie, 2025`. Verificado tras guardar.
+
+### Hallazgo: dos fichas de obra (Work) separadas para Manecillas
+
+El autor tiene **dos Work IDs distintos** para el mismo libro:
+
+- `37203951` — "Las Manecillas Del Recuerdo" (2026), listado con 5
+  copias pero **0 members reales**; parece un registro poblado por un
+  feed externo (ISBN/metadata), no por catalogación manual.
+- `37203222` — "Las Manecillas del Recuerdo (Spanish Edition)", 1
+  member real (`carlosbermejop`) con la reseña de arriba.
+
+Esto es exactamente el tipo de duplicado que LibraryThing espera que la
+comunidad combine, y probablemente debería fusionarse para que la
+reseña quede en la ficha "canónica" del libro. **No se ha combinado**:
+no se encontró la herramienta de combinar/separar accesible desde estas
+páginas de obra con esta cuenta, y combinar mal dos ediciones distintas
+en una wiki comunitaria no es reversible sin esfuerzo — prefiero que
+esto se revise con calma (o se pida ayuda a un bibliotecario/moderador
+de LibraryThing vía su foro) antes que arriesgarme a una fusión
+incorrecta. Queda documentado para retomarlo.
+
+### Confirmado: Common Knowledge del autor ya está bien completado
+
+Bio corta, nacionalidad, lugar de nacimiento, premios y ocupación ya
+constan correctamente en la página de autor (`/a/31983928/`), con la
+forma canónica en español "Porto Díaz, David" (convención bibliográfica
+normal, no un error). No se ha tocado.
+
+### Pendiente
+
+- Decidir si combinar los dos Works de Manecillas (recomendado, pero
+  requiere la herramienta de combinación o ayuda de un bibliotecario
+  de LibraryThing).
+- Explorar si existe la opción "LibraryThing Author" para reclamar
+  oficialmente el perfil de autor (no se ha localizado el botón
+  concreto en esta sesión; puede requerir contactar soporte).
 
 ## Objetivo
 
