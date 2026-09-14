@@ -113,3 +113,5 @@ PageSpeed Insights incluye una categoría experimental ("aún está en desarroll
 7. Auditar qué hojas de estilo síncronas en `<head>` pueden diferirse sin causar FOUC.
 8. Revisar compresión/dimensionado de imágenes pesadas de Home.
 9. (Por UX, no por LCP) Si David quiere acortar o hacer no bloqueante el timeout de la intro, ver la sección de decisión de producto de arriba — sigue siendo una opción válida, solo que ya no se justifica como fix de rendimiento.
+
+<!-- test/docs-only-skip-check: trivial docs-only change to validate the lighthouse/visual-regression fast-skip path; this branch is closed and deleted without merging -->
