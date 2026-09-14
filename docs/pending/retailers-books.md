@@ -2,7 +2,29 @@
 
 Fecha de investigación: **2026-09-07** (cierre: **2026-09-14**)  
 PR owner: **#410 · `tracking/retailers-books`**  
-Estado: **PAGE_COUNT_CLOSED_OWNER_DECISION · AMAZON_CASA_AGAPEA_VERIFIED_LIVE · FNAC_ECI_RECONFIRMED_NOT_OBSERVED · CLOSED_NO_ACTION**
+Estado: **PAGE_COUNT_CLOSED_OWNER_DECISION · AMAZON_CASA_AGAPEA_VERIFIED_LIVE · FNAC_CORRECTION_MANECILLAS_IS_LISTED · ECI_STILL_NOT_OBSERVED · CLOSED_NO_ACTION**
+
+## Corrección (2026-09-14, misma noche)
+
+**El cierre de abajo se equivocó sobre FNAC** — se basó en una búsqueda
+web general que no encontró nada, sin comprobar directamente en
+fnac.es. Al crear las alertas de Google (#460) apareció la ficha real:
+
+`https://www.fnac.es/a13491285/David-Porto-Diaz-Las-Manecillas-Del-Recuerdo`
+
+Verificado en vivo: **Las Manecillas Del Recuerdo SÍ está en FNAC.es**
+— autor correcto, 15,99 € (coincide con Amazon.es), fecha de
+lanzamiento 12/08/2026 (tercera fuente independiente que coincide en
+esa fecha, junto a Amazon.es y Casa del Libro — refuerza aún más que la
+pregunta real pendiente es esa fecha, ver #428). Samuel no se ha vuelto
+a comprobar en FNAC con este método más fiable; queda pendiente si se
+retoma este documento. El Corte Inglés sigue sin verificarse de forma
+concluyente (los intentos de búsqueda directa no cargaron resultados).
+
+Esto no cambia el cierre general (nada aquí depende de una acción
+nuestra), pero corrige el hallazgo — no declarar "no observado" en un
+retailer basándose solo en búsqueda externa fue exactamente el error
+que este mismo documento advertía no cometer.
 
 ## Cierre de esta ronda (2026-09-14)
 
