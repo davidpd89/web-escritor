@@ -2,9 +2,9 @@
 
 Fecha de revisión: 2026-09-09
 
-Estado: `LCP_RENDER_DELAY_CONFIRMED · INTRO_GATE_SUSPECTED · CAUSAL_TEST_PENDING · PRIORITY_HINTS_CORRECTED_NO_MEASURABLE_LCP_IMPACT · PRODUCT_DECISION_NEEDED · CACHE_LIFETIMES_PENDING · IMAGE_DELIVERY_PENDING · AGENTIC_NAV_EXPERIMENTAL_LOW_PRIORITY`
+Estado: `INTRO_GATE_HYPOTHESIS_REFUTED · VIDEO_ELEMENT_RENDER_DELAY_CONFIRMED · ROOT_CAUSE_STILL_OPEN · PRIORITY_HINTS_CORRECTED_NO_MEASURABLE_LCP_IMPACT · CACHE_LIFETIMES_PENDING · IMAGE_DELIVERY_PENDING · AGENTIC_NAV_EXPERIMENTAL_LOW_PRIORITY`
 
-**Corrección importante (2026-09-10, v3)**: una segunda revisión externa (GPT) señaló que el punto anterior sobreafirmaba la causa raíz como "confirmada". Lo único demostrado con evidencia es que `Render Delay` domina el LCP (79-97% del tiempo, tabla más abajo); el vínculo causal específico con el `setTimeout` de 9,6s de la intro es la explicación más probable pero **no está probado**, porque el CSS mantiene el vídeo visible desde el arranque de la página (no hay un `display:none` que se levante al pasar la intro) y no se ha ejecutado ninguna prueba A/B controlada que aísle esa variable. El estado correcto es `INTRO_GATE_SUSPECTED`, no confirmado, hasta completar la prueba causal descrita en "Próximos pasos".
+**Corrección importante (2026-09-14, v4 — prueba causal ejecutada, hipótesis de la intro descartada)**: se ejecutó por fin la prueba A/B controlada que las versiones v2/v3 de este documento dejaban pendiente. Resultado: **la hipótesis de que el `setTimeout` de la intro (9,6s) causa el `Render Delay` queda refutada por evidencia directa y repetida**. Ver la sección "Prueba causal ejecutada" más abajo para metodología y datos completos. El `Render Delay` es real y sigue dominando el LCP, pero su causa es otra: algo en el propio elemento `<video>` (autoplay + `preload="auto"`, decodificación bajo red móvil limitada) retiene la finalización del LCP durante ~3,2s de forma consistente, **independientemente de si la intro se cierra a los 9,6s, al segundo, o se omite por completo**. Las tres opciones de producto sobre el timeout de la intro (sección de abajo) quedan **sin sustento para mejorar el LCP** — pueden seguir siendo deseables por UX/accesibilidad, pero no resuelven este problema de rendimiento.
 
 **Corrección importante (2026-09-09, v2)**: el cierre original de esta auditoría diagnosticó mal la causa del LCP de 17,3s y lo marcó `LCP_FIXED`. Una revisión externa (GPT) señaló, con razón, varios problemas reales en ese cierre — que a su vez llevaron a un diagnóstico más profundo que cambia la conclusión por completo. Ver "Historial de la investigación" más abajo para la trazabilidad completa. **El fix de prioridad de carga es correcto y se mantiene, pero no explica el LCP malo — la causa real es otra y sigue sin resolverse.**
 
@@ -12,7 +12,7 @@ Estado: `LCP_RENDER_DELAY_CONFIRMED · INTRO_GATE_SUSPECTED · CAUSAL_TEST_PENDI
 
 Google usa las Core Web Vitals (LCP, INP, CLS) como señal de "page experience" en el ranking. No es el factor dominante, pero a paridad de contenido puede inclinar la balanza, y un LCP muy malo también empeora la percepción real de velocidad para cualquier visitante que llega desde una búsqueda.
 
-## Causa sospechada (pendiente de prueba causal): la propia intro cinemática podría bloquear el contenido hasta 9,6s
+## Prueba causal ejecutada (2026-09-14): la intro NO es la causa
 
 `assets/v1-shell.js`, función `initIntro()`:
 
@@ -20,32 +20,44 @@ Google usa las Core Web Vitals (LCP, INP, CLS) como señal de "page experience" 
 let fallback = setTimeout(doEnter, reduced ? 5000 : 9600);
 ```
 
-La intro a pantalla completa de Home (`<div class="intro">`, `z-index:900`, `background:#000`, cubre todo el viewport) se cierra automáticamente al pulsar "Entrar" **o pasados 9,6 segundos reales sin pulsar nada** (5s con `prefers-reduced-motion`). Lighthouse/PageSpeed nunca interactúan con la página — cargan y esperan — así que en toda auditoría automatizada (y en cualquier visitante real que no haga clic de inmediato) la intro permanece bloqueando la vista durante esos 9,6s completos, más ~820ms de la transición de salida, antes de que aparezca cualquier contenido real. **Esta es la hipótesis más probable, no un hecho demostrado**: el CSS del vídeo lo mantiene visible desde el arranque de la página (no está oculto y revelado al terminar la intro), así que la relación causa-efecto exacta entre el temporizador y el `Render Delay` medido abajo sigue sin aislarse con una prueba controlada — ver "Próximos pasos".
+La intro a pantalla completa de Home (`<div class="intro">`, `z-index:900`, `background:#000`, cubre todo el viewport) se cierra automáticamente al pulsar "Entrar" o pasados 9,6 segundos reales sin pulsar nada (5s con `prefers-reduced-motion`). Las versiones v2/v3 de este documento planteaban esto como la hipótesis más probable para el `Render Delay` que domina el LCP, pero dejaban explícitamente pendiente una prueba A/B real antes de darlo por confirmado.
 
-### Qué se demostró y qué no (evidencia real, sin sobreinterpretar)
+### Por qué las medidas anteriores (tabla de la v2) no eran una prueba causal válida
 
-Se ejecutó Lighthouse localmente (`node_modules/.bin/lighthouse`, sin CLI de terceros) contra producción y contra una copia local con el fix de prioridad aplicado, inspeccionando el desglose de fases del audit `largest-contentful-paint-element` en el JSON crudo (no solo el resumen visual de PageSpeed Insights, que no expone esta tabla con suficiente detalle):
+Las medidas de la tabla original se tomaron con `node_modules/.bin/lighthouse` sin especificar `--throttling-method`, que por defecto usa `simulate`: Lighthouse captura un trace SIN throttling real y luego estima ("Lantern") cómo se vería bajo red/CPU móvil simuladas. Esa simulación modela cadenas de dependencia de red y tareas de CPU, pero **no modela de forma fiable un `setTimeout` de UI arbitrario que no depende de ninguna carga de red** — por eso los números de esa tabla (14,4s / 22,2s de Render Delay) resultaron ser un artefacto de la simulación, coincidente en magnitud con el timeout de 9,6s pero no causado por él, como demuestra la prueba siguiente.
 
-| Ejecución | LCP total | TTFB | Load Delay | Load Time | **Render Delay** |
-|---|---|---|---|---|---|
-| Producción, sin fix | 18,2 s | 742 ms (4%) | 820 ms (5%) | 2274 ms (12%) | **14 388 ms (79%)** |
-| Local, CON el fix de prioridad ya aplicado | 22,9 s | 463 ms (2%) | 24 ms (0%) | 212 ms (1%) | **22 232 ms (97%)** |
+### Metodología de la prueba real
 
-`Render Delay` es el tiempo entre "el recurso ya está listo para pintarse" y "el navegador realmente lo pinta". En ambas ejecuciones domina por completo — la carga del recurso (TTFB + Load Delay + Load Time) nunca pasa de ~3,3s, y en la ejecución con el fix aplicado se redujo a menos de 700ms, tal como se esperaba. **Y aun así el LCP total no mejoró — empeoró.** Esto demuestra de forma concluyente que el cuello de botella nunca fue la prioridad de carga del recurso. Lo que **no** demuestra por sí solo es que la intro sea la causa específica del `Render Delay`: solo confirma que algo posterior a la carga del recurso retrasa el pintado. La intro es la explicación más plausible (su temporizador de 9,6s encaja con el orden de magnitud medido), pero sigue siendo una hipótesis sin una prueba A/B que la aísle de otras posibles causas (por ejemplo, trabajo de JS bloqueante en el hilo principal durante la carga).
+Se sirvió el sitio en local (`python -m http.server`) y se ejecutó `node_modules/.bin/lighthouse` contra `http://127.0.0.1:4187/` con **`--throttling-method=devtools`** (throttling real de red/CPU vía DevTools Protocol — 1.6 Mbps de bajada, 150ms RTT, CPU×4 — no una estimación posterior), inspeccionando el JSON crudo del audit `largest-contentful-paint-element` (fases TTFB / Load Delay / Load Time / Render Delay) en cada variante. Cuatro variantes, cada una con una única variable cambiada:
 
-(La variación entre 14,4s y 22,2s de Render Delay entre ejecuciones es ruido esperado de la limitación de CPU simulada de Lighthouse sobre temporizadores JS reales — no cambia la conclusión: el `Render Delay` es sistemáticamente el 79-97% del LCP en toda ejecución.)
+| Variante | Cambio | LCP total | Render Delay |
+|---|---|---|---|
+| A — actual | `setTimeout(doEnter, 9600)` sin tocar | **5015,9 ms** | 3202,8 ms (64%) |
+| B — timeout corto | `setTimeout(doEnter, 1000)` | **5090,3 ms** | 3250,7 ms (64%) |
+| C — intro omitida | `sessionStorage.dp-intro-seen` forzado a `true` (visitante recurrente simulado, intro nunca se muestra) | **4997,2 ms** | 3181,5 ms (64%) |
+| D — sin autoplay | Atributo `autoplay` retirado del `<video>` (JS igual llama a `.play()`, ver más abajo) | **4699,9 ms** | 2862,8 ms (61%) |
 
-## Esto requiere una decisión de producto, no solo un fix técnico
+Las variantes A, B y C —que cambian radicalmente cuándo o si la intro se cierra— dan un LCP prácticamente idéntico (diferencia máxima de 93ms, dentro del ruido normal entre ejecuciones). Si el timeout de la intro fuera la causa, reducirlo de 9600ms a 1000ms (variante B) o eliminarlo por completo (variante C) debería haber reducido el LCP en varios segundos. No lo hizo. **Esto refuta la hipótesis de forma directa y repetida.**
 
-La intro cinemática es una decisión de diseño/marca deliberada (vídeo de tinta + "Entrar"), no un bug. Acortar, hacerla no bloqueante o eliminar su espera automática de 9,6s mejoraría el LCP directamente, pero cambia la experiencia que ve todo el mundo en la primera visita — no es algo para decidir unilateralmente en una sesión nocturna sin supervisión. Opciones, de menos a más invasiva (todas benefician a **cualquier** visitante, no solo a los crawlers de medición):
+Cada test cambió una sola línea en un checkout local, se verificó servida (`curl` contra el HTML/JS servido) y se revirtió inmediatamente después de medir — no se ha desplegado ningún cambio de comportamiento a `main` a partir de esta investigación.
 
-1. **Reducir el timeout de 9,6s** (por ejemplo a 3-4s) manteniendo el vídeo/intro tal cual. Mejora el peor caso sin cambiar el diseño.
+### Qué es realmente el `Render Delay`, según esta misma prueba
+
+Inspeccionando `network-requests` del trace de la variante A: el póster (`hero-tinta-poster.jpg`, 53 KB) termina de descargarse a los 1812ms — coincide con el final de la fase `Load Time`. El LCP no se registra hasta los 5016ms: una brecha real de ~3,2s **después** de que el recurso ya esté completamente cargado. El elemento LCP reportado en las cuatro variantes es siempre `body > div.intro > div.intro__stage > video.intro__video` — nunca el hero real de Home visible tras cerrar la intro (consistente con que el vídeo, a pantalla completa, nunca es superado en tamaño por ningún elemento posterior). El vídeo completo (630 KB) tarda ~12,9s en descargarse bajo el throttling de la prueba (empieza a los 2818ms, termina a los 15704ms) — muy por detrás del LCP registrado a los 5016ms, así que la descarga completa del vídeo tampoco es la explicación directa.
+
+La variante D (sin `autoplay`) apenas cambia el resultado porque `assets/v1-shell.js` (`initHeroVideo()`) llama a `video.play()` por script incondicionalmente, así que retirar el atributo HTML no impide la reproducción real. La causa más probable en este punto —sin confirmar todavía— es un comportamiento propio de Chrome para elementos `<video>` con `poster` bajo red limitada: el candidato a LCP parece no finalizarse hasta que el vídeo alcanza cierto estado de reproducción/decodificación, no solo cuando el póster termina de descargarse. web.dev desaconseja explícitamente usar `<video>` como elemento LCP por este tipo de comportamiento poco predecible.
+
+## Decisión de producto sobre el timeout de la intro: sigue siendo válida por UX, ya no por LCP
+
+La intro cinemática es una decisión de diseño/marca deliberada (vídeo de tinta + "Entrar"), no un bug. La prueba causal de arriba muestra que tocar su timeout **no mueve el LCP** — así que ninguna de las opciones siguientes debe justificarse ya como una mejora de rendimiento. Se mantienen documentadas porque siguen siendo razonables por accesibilidad/UX (una espera de 9,6s sin interacción es larga independientemente del LCP), pero la urgencia/prioridad que tenían como "fix de LCP" desaparece:
+
+1. **Reducir el timeout de 9,6s** (por ejemplo a 3-4s) manteniendo el vídeo/intro tal cual. Mejora el peor caso de espera sin cambiar el diseño, pero no el LCP.
 2. **Hacer el cierre no bloqueante** — respetar `prefers-reduced-motion` y la señal `Save-Data` reduciendo o saltando la espera automática para quien ya indica esa preferencia en su navegador (ya se hace parcialmente con `prefers-reduced-motion` → 5s; se podría llevar a 0s en ambos casos). Esto es distinto de detectar bots por `User-Agent`: se basa en una preferencia real declarada por el visitante, no en quién hace la petición.
-3. **Aceptar el coste como intencional** — mantener la intro tal cual y asumir que el LCP de Home será estructuralmente malo mientras exista, documentándolo como una compensación consciente entre marca/experiencia y rendimiento.
+3. **Aceptar el coste como intencional** — mantener la intro tal cual.
 
-**Descartado explícitamente: saltar la intro solo para user-agents de bots/crawlers (Googlebot, Lighthouse, etc.)**. Una revisión externa (GPT) señaló correctamente que esto es cloaking según la propia definición de Google (servir contenido distinto condicionado al user-agent para mejorar cómo se evalúa la página), con riesgo de penalización. Se retira de las opciones; cualquier fix debe beneficiar también a los visitantes humanos reales.
+**Descartado explícitamente: saltar la intro solo para user-agents de bots/crawlers (Googlebot, Lighthouse, etc.)**. Una revisión externa (GPT) señaló correctamente que esto es cloaking según la propia definición de Google (servir contenido distinto condicionado al user-agent para mejorar cómo se evalúa la página), con riesgo de penalización. Sigue retirado de las opciones, y ahora doblemente descartado: ni siquiera resolvería el LCP.
 
-No se ha aplicado ninguna de las tres opciones restantes porque son decisiones de producto, no correcciones técnicas, y además dependen de confirmar primero la causa real (ver "Próximos pasos", prueba A/B pendiente). Queda pendiente de que David decida.
+No se ha aplicado ninguna de las tres opciones porque siguen siendo decisiones de producto/UX, no correcciones técnicas de rendimiento. Queda pendiente de que David decida si quiere acortar la espera por razones de experiencia de usuario, con la información correcta de que no es un fix de LCP.
 
 ## Fix de prioridad de carga — correcto, mantenido, pero sin impacto medible en el LCP
 
@@ -60,7 +72,7 @@ Se mantiene porque es una corrección real y bien fundamentada por su cuenta, no
 - **Cachear con más agresividad activos estáticos** — ahorro estimado 3399-3608 KiB. Depende de las cabeceras `Cache-Control`/`Expires` del hosting/CDN (Cloudflare Pages), no de nada editable en el HTML.
 - **Mejorar la entrega de imágenes** — ahorro estimado 2260 KiB. Candidatas: imágenes servidas más grandes de lo necesario para el viewport móvil, o sin `srcset`/formatos modernos en todas partes.
 - **Solicitudes que bloquean el renderizado** — ahorro estimado 1790-2120 ms. Candidatas probables: hojas de estilo `<link rel="stylesheet">` síncronas en `<head>`.
-- **Preconectar con `gc.zgo.at` y `tracker.metricool.com`** — ahorro estimado de LCP de 470ms y 310ms respectivamente, según el propio árbol de dependencias de PageSpeed Insights. Menor que la causa raíz, pero fácil y sin riesgo de aplicar. **Corrección (2026-09-10)**: solo el preconnect de `gc.zgo.at` está realmente en `main` (ya existía antes de esta auditoría); el de `tracker.metricool.com` se discutió pero nunca llegó a añadirse al HTML — una versión anterior de este documento afirmaba erróneamente que ambos estaban aplicados. Sigue pendiente.
+- **Preconectar con `gc.zgo.at` y `tracker.metricool.com`** — ahorro estimado de LCP de 470ms y 310ms respectivamente, según el propio árbol de dependencias de PageSpeed Insights. **Resuelto (2026-09-14)**: `tracker.metricool.com` añadido junto al preconnect ya existente de `gc.zgo.at` en las 23 páginas que lo tenían (ver PR de `perf/metricool-preconnect`). Ambos están ahora en `main`.
 - **Minificar CSS/JS** — ahorros pequeños (11-17 KiB), baja prioridad.
 - **Imágenes sin `width`/`height` explícitos** — puede afectar a CLS en condiciones reales aunque aquí midió 0.
 - **Tamaño total de red: ~3,7-4 MB** en la carga inicial de Home.
@@ -76,14 +88,15 @@ PageSpeed Insights incluye una categoría experimental ("aún está en desarroll
 1. **Primera pasada**: PageSpeed Insights identificó el vídeo de la intro como elemento LCP a 17,3s. Se asumió (incorrectamente) que era un problema de prioridad de carga y se aplicó `fetchpriority="high"` al `<video>` más un preload incondicional del hero de Home — cerrado como `LCP_FIXED` sin volver a medir.
 2. **Revisión externa (GPT)** señaló, correctamente: (a) `fetchpriority` no existe como atributo válido en `<video>`; (b) los dos preloads incondicionales compiten entre sí; (c) no se puede llamar "arreglado" a algo nunca vuelto a medir; (d) había que investigar el waterfall real (TTFB/discovery/poster/vídeo) antes de seguir con microoptimizaciones, porque un vídeo de 630 KB tardando 17s es demasiado anómalo para asumir que la prioridad por sí sola lo explica.
 3. **Segunda pasada**: se investigó con Lighthouse local y el desglose de fases del propio audit de LCP, encontrando que `Render Delay` — no la carga del recurso — es el 79-97% del tiempo total en toda ejecución. Se corrigieron los dos problemas técnicos reales señalados (atributo inválido, preloads en competencia) y se planteó la intro como causa probable, pero el cierre se redactó como "confirmado" sin haber aislado la variable con una prueba real.
-4. **Tercera pasada (esta, 2026-09-10)**: una nueva revisión externa (GPT) señaló que "confirmado" era una sobreafirmación — la intro es la hipótesis más plausible, no un hecho demostrado — y además que la opción de "saltar la intro para bots" era cloaking. Se corrigió el estado a `INTRO_GATE_SUSPECTED · CAUSAL_TEST_PENDING`, se retiró esa opción, y se definió la prueba A/B pendiente para confirmar o descartar la causa antes de tomar ninguna decisión de producto.
+4. **Tercera pasada (2026-09-10)**: una nueva revisión externa (GPT) señaló que "confirmado" era una sobreafirmación — la intro es la hipótesis más plausible, no un hecho demostrado — y además que la opción de "saltar la intro para bots" era cloaking. Se corrigió el estado a `INTRO_GATE_SUSPECTED · CAUSAL_TEST_PENDING`, se retiró esa opción, y se definió la prueba A/B pendiente para confirmar o descartar la causa antes de tomar ninguna decisión de producto.
+5. **Cuarta pasada (esta, 2026-09-14)**: se ejecutó por fin la prueba A/B con throttling real (`--throttling-method=devtools`, no `simulate`). Resultado: la hipótesis de la intro queda refutada — el LCP es idéntico (±93ms) con timeout de 9600ms, 1000ms o con la intro omitida por completo. Se descubrió además que las medidas anteriores (tabla de la v2) usaban `simulate` por defecto, que no modela de forma fiable un `setTimeout` de UI ajeno a la carga de red — de ahí la coincidencia engañosa entre el timeout de 9,6s y el Render Delay medido entonces. La causa real señalada por esta prueba es el propio elemento `<video>` (autoplay + `preload="auto"`, decodificación bajo red limitada), no la intro. Queda abierta una investigación específica sobre por qué Chrome tarda ~3,2s en finalizar el LCP de este `<video>` incluso con el póster ya cargado.
 
 ## Próximos pasos
 
-1. **Prueba causal A/B pendiente (antes de decidir nada más)**: medir el LCP con Lighthouse local en al menos cuatro variantes controladas — timeout de intro en 9600ms (actual), 1000ms, 0ms, y vídeo oculto desde el arranque (`display:none` hasta pasar la intro) o sustituido por solo el póster estático. Si el LCP cae de forma proporcional al reducir el timeout, la causa queda confirmada; si no, hay que seguir investigando (JS bloqueante, otra causa). Solo entonces pasa el estado de `INTRO_GATE_SUSPECTED` a confirmado.
-2. **David decide** una de las opciones de la sección "requiere una decisión de producto" de arriba (o ninguna, si el coste se acepta conscientemente) — una vez confirmada la causa en el paso 1.
-3. Una vez decidido y desplegado, volver a medir con PageSpeed Insights (varias ejecuciones, mediana, no una sola) para confirmar el LCP real antes de marcar cualquier estado como `_FIXED`.
+1. **Investigar el `Render Delay` del `<video>` en sí** (nueva causa identificada 2026-09-14): probar sustituir el elemento LCP-candidato por una `<img>` estática (el póster) en vez de un `<video poster>` — web.dev desaconseja `<video>` como elemento LCP precisamente por este tipo de comportamiento. Si una `<img>` equivalente registra LCP nada más cargar (sin los ~3,2s de Render Delay), confirma que el problema es específico de cómo Chrome trata `<video>` bajo red limitada, no del contenido en sí. Repetir con `--throttling-method=devtools` para que sea comparable con los datos de esta sesión.
+2. Si el paso 1 confirma la causa, valorar: reducir `preload` real (más allá del atributo HTML, evitando que `initHeroVideo()` fuerce `play()` antes de que el LCP se resuelva), o servir un poster de mayor calidad como LCP real y diferir el vídeo hasta después del primer paint.
+3. Una vez aplicado y verificado localmente, volver a medir con PageSpeed Insights en producción (varias ejecuciones, mediana, no una sola) antes de marcar cualquier estado como `_FIXED`.
 4. Revisar cabeceras de caché del hosting (Cloudflare) para el ahorro de ~3,4-3,6 MB.
-5. Añadir `<link rel="preconnect">` para `tracker.metricool.com` (bajo riesgo, ahorro estimado ~310ms de LCP; `gc.zgo.at` ya está aplicado en `main`).
-6. Auditar qué hojas de estilo síncronas en `<head>` pueden diferirse sin causar FOUC.
-7. Revisar compresión/dimensionado de imágenes pesadas de Home.
+5. Auditar qué hojas de estilo síncronas en `<head>` pueden diferirse sin causar FOUC.
+6. Revisar compresión/dimensionado de imágenes pesadas de Home.
+7. (Por UX, no por LCP) Si David quiere acortar o hacer no bloqueante el timeout de la intro, ver la sección de decisión de producto de arriba — sigue siendo una opción válida, solo que ya no se justifica como fix de rendimiento.
