@@ -1,8 +1,14 @@
 # Bluesky — identidad oficial y verificación por dominio
 
-Fecha de revisión: **2026-09-07**  
+Fecha de revisión: **2026-09-07** (cierre: **2026-09-14**)  
 PR owner: **#451 · `tracking/bluesky`**  
-Estado: **RESEARCHED · EXISTING_ACCOUNT_IN_REPO · DOMAIN_HANDLE_AVAILABLE · RECOMMENDATION_DEFER_LOW_ROI**
+Estado: **DEFERRED_NO_ACTION · REVISIT_WHEN_AUDIENCE_JUSTIFIES_DOMAIN_HANDLE**
+
+## Cierre (2026-09-14)
+
+Cerrado tal y como estaba orientado: sin cambios de DNS ni de cuenta
+ahora. Se retoma solo cuando la audiencia en Bluesky lo justifique — la
+investigación de este documento sigue siendo válida para entonces.
 
 ## Recomendación (2026-09-09)
 
