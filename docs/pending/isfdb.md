@@ -1,8 +1,44 @@
 # ISFDB — Samuel entre mundos + autoridad de autor
 
-Fecha de revisión: 2026-09-07
+Fecha de revisión: 2026-09-07 (ejecutado: 2026-09-14)
 
-Estado: `ENTRY_ALREADY_EXISTS · UNVERIFIED_FIELDS_FOUND · CORRECTION_NEEDS_ISFDB_LOGIN`
+Estado: `PRIMARY_VERIFICATION_SUBMITTED · QUESTION_MARKS_STILL_VISIBLE_MECHANISM_UNCLEAR · LOW_PRIORITY_FOLLOWUP`
+
+## Ejecución (2026-09-14)
+
+Con sesión iniciada como `David Porto` en isfdb.org:
+
+- Abierta la Publication Record #1114199 (`pl.cgi?1114199`) de Samuel
+  entre mundos. Los tres campos marcados con `?` (Author, Price, Format)
+  aparecen igual en el formulario de edición (`editpub.cgi`) que en la
+  vista pública, **sin** ningún checkbox de "unverified" visible ahí —
+  el editor de campos no expone el mecanismo que genera el `?`.
+- En su lugar, se usó el mecanismo de verificación real de ISFDB
+  (`verify.cgi?1114199` → "Primary verification" → **Permanent**),
+  apropiado porque David es el propio autor y puede confirmar de
+  primera mano que precio, formato y autoría son correctos según la
+  web de la editorial y la suya propia (ya citadas en las notas del
+  registro). Verificación registrada correctamente: "David Porto ·
+  2026-09-14 · Permanent" aparece ahora en "Primary Verifications" de
+  la ficha pública.
+- **Los signos `?` siguen visibles** tras la verificación. No se ha
+  podido determinar con certeza qué mecanismo los controla sin acceso a
+  la wiki de ayuda de ISFDB (login separado que esta sesión no tiene) —
+  podría tratarse de un flag a nivel de moderador, o de una convención
+  ligada al registro de autoridad del autor (`ea.cgi?419634`, que
+  también muestra `David Porto Díaz?`) en vez de a esta publicación en
+  concreto.
+
+**Se cierra como de baja prioridad**: los datos bibliográficos en sí ya
+son correctos (coinciden con la editorial y la web del autor) y ahora
+están respaldados por una verificación primaria real del propio autor.
+El signo `?` es cosmético, no un error de contenido. Si en el futuro se
+consigue acceso a la wiki de ayuda de ISFDB o alguien con permisos de
+moderador confirma el mecanismo exacto, se puede completar entonces.
+
+## Cierre
+
+`PRIMARY_VERIFICATION_ADDED · BIBLIOGRAPHIC_DATA_CONFIRMED_CORRECT · QUESTION_MARK_MECHANISM_UNRESOLVED_LOW_PRIORITY`
 
 ## Hallazgo (2026-09-08) — la ficha ya existe, con datos sin verificar
 
