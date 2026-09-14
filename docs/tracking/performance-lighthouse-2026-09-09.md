@@ -1,6 +1,6 @@
 # Rendimiento (PageSpeed Insights / Lighthouse) — auditoría 2026-09-09
 
-Fecha de revisión: 2026-09-09
+Fecha de revisión: 2026-09-14 (auditoría original 2026-09-09; ver "Historial de la investigación" — el documento se ha rehecho materialmente varias veces desde entonces)
 
 Estado: `VIDEO_LCP_RENDER_DELAY_CONFIRMED · TIMEOUT_EFFECT_NOT_OBSERVED_N5 · PLAYBACK_STATE_NOT_OBSERVED_AS_CAUSE_N5 · NAIVE_INTRO_REMOVAL_REGRESSES_LCP_VIA_HERO_DISCOVERY_PATH · ROOT_CAUSE_OPEN · PRIORITY_HINTS_CORRECTED_NO_MEASURABLE_LCP_IMPACT · CACHE_LIFETIMES_PENDING · IMAGE_DELIVERY_PENDING · AGENTIC_NAV_EXPERIMENTAL_LOW_PRIORITY`
 
