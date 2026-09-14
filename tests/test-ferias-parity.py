@@ -69,7 +69,12 @@ for event in events:
     require(fragment in EVENT_IDS, f"unexpected Event fragment #{fragment}")
     require(fragment in ids, f"Event @id does not resolve to a real anchor: #{fragment}")
     require(event.get("url") == event_id, f"Event url must equal its anchored @id: {fragment}")
-    require(event.get("eventStatus") == "https://schema.org/EventCompleted", f"past event is not EventCompleted: {fragment}")
+    # Past events OMIT eventStatus entirely (2026-09-09) rather than using
+    # the invalid schema.org value "EventCompleted" -- see
+    # scripts/build-event-calendars.py's module docstring for why. Anything
+    # other than exactly EventScheduled -- including absent -- means
+    # "not upcoming" for this generator's own filter.
+    require(event.get("eventStatus") is None, f"past event unexpectedly has an eventStatus: {fragment}")
     require(event.get("eventStatus") != "https://schema.org/EventScheduled", f"past event is EventScheduled: {fragment}")
     visible_date = EVENT_IDS[fragment]
     require(str(event.get("startDate", "")).startswith(visible_date), f"startDate mismatch for {fragment}")
