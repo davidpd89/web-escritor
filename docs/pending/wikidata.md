@@ -35,6 +35,11 @@ citar, o preferirías que se retirase o se dejara solo el año?
 
 No se ha tocado nada de esto — es tu decisión, no la de Claude.
 
+**Reverificado en vivo hoy (2026-09-14): sin cambios.** Fecha de
+nacimiento, centro educativo, sexo, país y lengua nativa siguen con
+`0 references`; se suma además `Instagram username: davidpuede` también
+sin referencia. Sigue pendiente tu decisión antes de que se edite nada.
+
 Lo que sí está bien en el autor: `official website`, ORCID (con
 referencia), Goodreads author ID, Amazon author ID, `award received`
 (Letras Como Espada, con referencia), occupation (writer/author). Falta
