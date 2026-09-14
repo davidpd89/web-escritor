@@ -1,8 +1,18 @@
 # BookLife — fichas gratuitas de autor/libros
 
-Fecha de revisión: 2026-09-07
+Fecha de revisión: 2026-09-07 (revisión: 2026-09-14)
 
-Estado: `RESEARCHED · FREE_LISTING_CONFIRMED · PAID_FEATURES_EXCLUDED · ELIGIBILITY_CHECK_PENDING`
+Estado: `NEEDS_NEW_ACCOUNT_OWNER_MUST_CREATE_IT · AWAITING_OWNER`
+
+## Nota (2026-09-14)
+
+El primer paso del procedimiento es crear una cuenta gratuita en
+BookLife a tu nombre — eso no lo puedo hacer yo (no creo cuentas en tu
+nombre bajo ninguna circunstancia). En cuanto tengas la cuenta creada y
+la sesión abierta, retomo esto: comprobar elegibilidad (Samuel/Manecillas
+tienen sello editorial, hay que confirmar que BookLife admite igualmente
+proyectos con editorial) y dar de alta las fichas gratuitas con los datos
+ya preparados más abajo.
 
 ## Objetivo
 
