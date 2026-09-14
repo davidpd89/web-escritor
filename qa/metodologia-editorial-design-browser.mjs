@@ -81,7 +81,12 @@ try {
       assert.equal(await page.locator('.tool-findings-block').count(), 5, `${name}: no conserva cinco bloques metodológicos`);
       assert.equal(await page.locator('.spec-ledger .editorial-fact').count(), 5, `${name}: ledger de estados alterado`);
       assert.equal(await page.locator('.tool-note').count(), 1, `${name}: nota legal ausente`);
-      assert.equal(await page.locator('main#contenido a[href="mailto:davidportodiaz@gmail.com"]').count(), 1, `${name}: canal de correcciones alterado`);
+      // Since #478/#482 the corrections channel is a click-to-reveal trigger,
+      // not a static mailto -- asserting the OLD static link would just
+      // re-fail every time this migrates further. Assert the trigger exists
+      // and the address is not sitting in static HTML instead.
+      assert.equal(await page.locator('main#contenido [data-email-reveal]').count(), 1, `${name}: canal de correcciones alterado`);
+      assert.ok(!(await page.locator('.tool-findings-block').nth(4).innerText()).includes('davidportodiaz@gmail.com'), `${name}: canal de correcciones expone el email en HTML estático`);
 
       const statusTerms = await page.locator('.spec-ledger dt').allTextContents();
       assert.deepEqual(statusTerms.map(value => value.trim()), ['open', 'closed', 'indirect', 'award_only', 'unknown'], `${name}: estados cerrados alterados`);
