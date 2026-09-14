@@ -1,8 +1,8 @@
 # ISNI — David Porto Díaz
 
-Fecha de revisión: 2026-09-07
+Fecha de revisión: 2026-09-07 (última reverificación en vivo: 2026-09-14)
 
-Estado: `RESEARCHED · FREE_BNE_ROUTE_CONFIRMED · READY_FOR_DIRECT_AUDIT`
+Estado: `DIRECT_SEARCH_BLOCKED_BY_CAPTCHA_NOT_BYPASSED · FREE_BNE_ROUTE_CONFIRMED · REQUEST_MESSAGE_DRAFTED_AWAITING_OWNER_OK`
 
 ## Objetivo
 
@@ -72,3 +72,61 @@ No cambia el resto del análisis: la vía BNE (`isni@bne.es`) sigue siendo el
 camino recomendado si no aparece un ISNI ya existente, y sigue siendo un
 correo que el propio autor debería enviar o autorizar explícitamente, no
 algo para automatizar.
+
+## Reverificación en vivo (2026-09-14)
+
+Se ha vuelto a intentar isni.org directamente hoy: sigue mostrando el
+challenge de Cloudflare ("Just a moment...") antes de cualquier
+resultado. No se ha intentado completarlo, igual que la ronda anterior.
+
+Como comprobación cruzada indirecta (no sustituye una búsqueda directa en
+isni.org, pero es una señal adicional): ISNI es uno de los archivos de
+autoridad que alimentan VIAF, y la búsqueda directa en viaf.org de hoy
+mismo (ver #420) tampoco encuentra ningún cluster para el nombre ni para
+el ISBN de Samuel. Si existiera ya un ISNI de David indexado en VIAF,
+normalmente aparecería ahí. Esto es consistente con "no hay ISNI todavía",
+pero no es una prueba definitiva — un ISNI podría existir sin estar aún
+propagado a VIAF.
+
+### Mensaje preparado para `isni@bne.es` (NO enviado — pendiente de tu OK)
+
+Dado que la vía directa en isni.org sigue bloqueada por el captcha y la
+señal cruzada por VIAF apunta a que no hay ISNI todavía, el siguiente paso
+real es escribir a la BNE por el canal gratuito que ellos mismos ofrecen.
+Esto es un correo enviado en tu nombre a una entidad externa, así que no
+se envía sin tu confirmación explícita. Borrador:
+
+> **Para:** isni@bne.es
+> **Asunto:** Solicitud de ISNI — David Porto Díaz (autor)
+>
+> Buenos días,
+>
+> Escribo para solicitar la asignación de un identificador ISNI para mi
+> identidad como autor, ya que no he podido verificar si dispongo de uno
+> a través de isni.org.
+>
+> - Nombre: David Porto Díaz
+> - Función: escritor / autor
+> - Lugar de nacimiento: Pontevedra; residencia actual: Madrid
+> - Web oficial: https://davidportodiaz.com/
+> - ORCID: 0009-0005-9089-3782
+> - Wikidata: Q139678851
+> - Obras de referencia:
+>   - *Samuel entre mundos* — ISBN 9791387659776 — Libros Indie — 2025
+>   - *Las manecillas del recuerdo* (papel) — ISBN 9798905149351 — Monza
+>     Ediciones — 2026
+>   - *Las manecillas del recuerdo* (ebook) — ISBN 9798906781925 — Monza
+>     Ediciones — 2026
+>
+> Quedo a su disposición para aportar cualquier dato adicional que
+> necesiten para tramitar la solicitud.
+>
+> Un saludo,
+> David Porto Díaz
+
+Este mensaje no se envía hasta que el propietario del proyecto lo revise
+y confirme explícitamente que quiere que se envíe (o lo envíe él mismo).
+
+### Cierre de esta ronda
+
+`ISNI_SEARCH_BLOCKED_BY_CAPTCHA_NOT_BYPASSED · CROSS_CHECK_VIA_VIAF_NEGATIVE · REQUEST_MESSAGE_DRAFTED · AWAITING_OWNER_CONFIRMATION_TO_SEND · NO_PAID_REGISTRATION`
