@@ -1,8 +1,31 @@
 # Agencia del ISBN — auditoría de asignación y plan de corrección
 
-Fecha de investigación: **2026-09-07**  
+Fecha de investigación: **2026-09-07** (cierre: **2026-09-14**)  
 PR owner: **#406 · `tracking/agencia-isbn`**  
-Estado: **RESEARCHED · ISBN_AGENCY_OWNERSHIP_SPLIT_CONFIRMED · SAMUEL_SPAIN_RANGE · MANECILLAS_US_RANGE · EXTERNAL_ACTION_PENDING**
+Estado: **SAMUEL_REGISTRANT_VERIFIED_PUBLICLY · MANECILLAS_REGISTRANT_NOT_FOUND_PUBLIC_SEARCH · CLOSED_NO_ACTION**
+
+## Cierre (2026-09-14) — verificado en vivo contra el Global Register of Publishers
+
+Búsqueda directa en `grp.isbn-international.org` (la herramienta pública
+que este mismo documento señalaba), sin necesidad de cuenta:
+
+- **Samuel entre mundos** (prefijo `979-13-87659`): **1 resultado** —
+  registrant **Libros Indie**, país **España**, agencia **España**.
+  Coincide exactamente con lo que ya teníamos. Sin discrepancia, cerrado.
+- **Las manecillas del recuerdo** (probado `979-8-90514`, el tramo del
+  ISBN físico): **0 resultados**. El registro público no expone ese
+  tramo como prefijo de registrant propio — probable porque, en el rango
+  `979-8` (EE. UU.), muchos ISBN de pequeñas editoriales/autopublicación
+  se emiten bajo el prefijo de un proveedor mayor (p. ej. el propio canal
+  de impresión/distribución), no bajo un prefijo exclusivo de Monza. Ver
+  todos los detalles de un publisher requiere cuenta (`Please sign in or
+  register`), que esta sesión no tiene.
+
+**No se persigue más.** Sigue la misma decisión ya tomada en #428: no se
+contacta a Monza, y sin un prefijo de registrant propio no hay más que
+consultar públicamente aquí. Esto no es una discrepancia — es
+simplemente el límite de lo que el registro público expone sin cuenta.
+Cerrado sin acción.
 
 ## Objetivo
 
