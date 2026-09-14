@@ -1,8 +1,49 @@
 # Biblioteca Nacional de España — auditoría y plan de ejecución
 
-Fecha de investigación: **2026-09-07**  
+Fecha de investigación: **2026-09-07** (última reverificación en vivo: **2026-09-14**)  
 PR owner: **#422 · `tracking/bne`**  
-Estado: **CATALOG_QUERIED_DIRECTLY · CONFIRMED_ABSENT_NOT_JUST_UNOBSERVED · DEPOSITO_LEGAL_LIKELY_PENDING · EXTERNAL_ACTION_PENDING**
+Estado: **CATALOG_REVERIFIED_LIVE_2026-09-14 · ALL_THREE_ISBN_CONFIRMED_ABSENT · AUTHOR_AUTHORITY_NOT_OBSERVED · VIAF_ISNI_OUT_OF_SCOPE_SEE_420_421 · DEPOSITO_LEGAL_STATUS_PUBLISHER_DEPENDENCY · EXTERNAL_ACTION_PENDING**
+
+## Reverificación en vivo (2026-09-14)
+
+Repetida la consulta directa a `catalogo.bne.es` una semana después, con dos
+adiciones respecto a la ronda anterior: se comprueba también el ISBN Kindle
+(nunca verificado directamente hasta ahora) y se consulta además
+`datos.bne.es` (el portal de datos enlazados/autoridades de la BNE) en vez
+de depender solo del catálogo bibliográfico general.
+
+- ISBN `9791387659776` (Samuel entre mundos): **0 resultados** — "No se
+  encontraron registros". Confirmado de nuevo.
+- ISBN `9798905149351` (Manecillas, papel): **0 resultados** — "No se
+  encontraron registros". Confirmado de nuevo.
+- ISBN `9798906781925` (Manecillas, Kindle): **0 resultados** — "No se
+  encontraron registros". **Verificación nueva** — la ronda de 2026-09-08
+  solo había comprobado los dos ISBN físicos, no el de Kindle.
+- Búsqueda por `David Porto Díaz` en el catálogo bibliográfico: mismos 11
+  resultados sueltos de la ronda anterior (vídeos, tesis, actas de
+  congreso), ninguno relacionado con el autor real.
+- `datos.bne.es` (portal de autoridades/datos enlazados de la BNE, snapshot
+  fechado `17/06/2026`): el buscador de autocompletado no devuelve ninguna
+  sugerencia ni para `David Porto Díaz` ni para la forma invertida
+  `Porto Díaz, David`. Es una señal adicional (no una consulta SPARQL
+  directa al grafo) consistente con que no existe registro de autoridad
+  BNE para el autor, pero no sustituye una comprobación exhaustiva del
+  dataset completo si en el futuro se dispusiera de acceso a la interfaz
+  SPARQL de `datos.bne.es`.
+
+**Conclusión de esta ronda**: la ausencia se mantiene igual una semana
+después, ahora con el ISBN Kindle también confirmado y con una segunda
+fuente (autoridades) apuntando en la misma dirección. No hay nada nuevo
+que indique que el catálogo haya procesado depósito/catalogación desde la
+ronda anterior. Sigue siendo, con alta probabilidad, una cuestión de
+Depósito Legal pendiente por parte de la editorial (Libros Indie / Monza
+Ediciones), no algo accionable desde este repositorio.
+
+VIAF e ISNI quedan explícitamente **fuera del alcance de este documento**:
+como no hay registro de autoridad BNE del que partir, no hay enlace BNE→VIAF
+que seguir. La comprobación directa en `viaf.org` e `isni.org` corresponde
+a los issues dedicados #420 (VIAF) y #421 (ISNI) respectivamente, cada uno
+con su propia consulta directa e independiente.
 
 ## Consulta directa al catálogo (2026-09-08)
 
@@ -359,6 +400,27 @@ Guardar en la PR:
 ### Sin registros observables
 
 `DIRECT_BNE_SEARCH_COMPLETED · RECORDS_NOT_OBSERVED · DEPOSIT_PUBLISHER_STATUS_REQUESTED_OR_DOCUMENTED · NO_FALSE_ABSENCE_CLAIM`
+
+## Cierre de esta ronda (2026-09-14)
+
+Categoría aplicable de las tres definidas en "Criterios de cierre":
+**Sin registros observables**.
+
+`DIRECT_BNE_SEARCH_COMPLETED · RECORDS_NOT_OBSERVED · DEPOSIT_PUBLISHER_STATUS_DOCUMENTED_NOT_YET_REQUESTED · NO_FALSE_ABSENCE_CLAIM`
+
+Esta PR se cierra como **documentación de auditoría completa**, no como
+`RESOLVED`: la causa más probable (Depósito Legal pendiente por parte de
+Libros Indie / Monza Ediciones) es una dependencia externa a este
+repositorio. Ninguna sesión de Claude puede tramitar Depósito Legal ni
+contactar a las editoriales de tu parte sin que tú lo pidas o lo hagas
+directamente. Queda documentado como acción pendiente del propietario del
+proyecto, coordinada con las mismas editoriales que ya aparecen en
+#428 (Monza) y #429 (Libros Indie).
+
+No crear ningún registro BNE manual, no inventar VIAF/ISNI, no reabrir
+esta comprobación por búsqueda de Google — solo por consulta directa al
+catálogo/autoridades BNE cuando haya motivo real para pensar que algo ha
+cambiado (p. ej. confirmación de depósito legal por la editorial).
 
 ## Fuentes primarias consultadas · 2026-09-07
 
