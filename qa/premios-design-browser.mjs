@@ -61,13 +61,16 @@ try{
       assert.equal(await p.evaluate(()=>getComputedStyle(document.documentElement).getPropertyValue('--awards-blue').trim()),'#1d4f96',`${name}: token azul documental perdido`);
 
       const records=p.locator('#reconocimientos [data-award-record]');
-      assert.equal(await records.count(),2,`${name}: deben existir exactamente dos reconocimientos`);
-      assert.equal((await records.nth(0).locator('[data-award-result]').textContent()).trim(),'Primer Premio',`${name}: primer resultado alterado`);
-      assert.equal((await records.nth(0).locator('[data-award-organizer]').textContent()).trim(),'Letras Como Espada',`${name}: primer organizador alterado`);
-      assert.equal(await records.nth(0).locator('[data-award-source]').count(),2,`${name}: primer reconocimiento pierde su doble evidencia`);
-      assert.equal((await records.nth(1).locator('[data-award-result]').textContent()).trim(),'Top 10 — Finalista',`${name}: segundo resultado alterado`);
-      assert.equal((await records.nth(1).locator('[data-award-organizer]').textContent()).trim(),'BABIDI-BÚ',`${name}: segundo organizador alterado`);
-      assert.equal(await records.nth(1).locator('[data-award-source]').count(),1,`${name}: segundo reconocimiento debe conservar una única fuente pública`);
+      assert.equal(await records.count(),3,`${name}: deben existir exactamente tres reconocimientos`);
+      assert.equal((await records.nth(0).locator('[data-award-result]').textContent()).trim(),'Ganador',`${name}: primer resultado alterado`);
+      assert.equal((await records.nth(0).locator('[data-award-organizer]').textContent()).trim(),'Diversidad Literaria',`${name}: primer organizador alterado`);
+      assert.equal(await records.nth(0).locator('[data-award-source]').count(),1,`${name}: primer reconocimiento debe conservar una única fuente pública`);
+      assert.equal((await records.nth(1).locator('[data-award-result]').textContent()).trim(),'Primer Premio',`${name}: segundo resultado alterado`);
+      assert.equal((await records.nth(1).locator('[data-award-organizer]').textContent()).trim(),'Letras Como Espada',`${name}: segundo organizador alterado`);
+      assert.equal(await records.nth(1).locator('[data-award-source]').count(),2,`${name}: segundo reconocimiento pierde su doble evidencia`);
+      assert.equal((await records.nth(2).locator('[data-award-result]').textContent()).trim(),'Top 10 — Finalista',`${name}: tercer resultado alterado`);
+      assert.equal((await records.nth(2).locator('[data-award-organizer]').textContent()).trim(),'BABIDI-BÚ',`${name}: tercer organizador alterado`);
+      assert.equal(await records.nth(2).locator('[data-award-source]').count(),1,`${name}: tercer reconocimiento debe conservar una única fuente pública`);
       assert.equal(await p.locator('#colaboraciones .awards-ledger > li').count(),3,`${name}: trayectoria editorial alterada`);
       assert.equal(await p.locator('#recepcion .awards-ledger > li').count(),1,`${name}: recepción alterada`);
       assert.equal(await p.locator('#conocer .awards-next > a').count(),3,`${name}: salidas de continuación alteradas`);
@@ -77,7 +80,7 @@ try{
         const nodes=docs.flatMap(d=>d['@graph']||[d]);return nodes.find(n=>n['@type']==='Person');
       });
       assert.equal(person?.name,'David Porto Díaz',`${name}: Person schema pierde nombre`);
-      assert.equal(person?.award?.length,2,`${name}: Person schema debe conservar exactamente dos reconocimientos`);
+      assert.equal(person?.award?.length,3,`${name}: Person schema debe conservar exactamente tres reconocimientos`);
 
       const overflow=await noOverflow(p,name);
       const masthead=await style(p.locator('.v1-masthead'));
@@ -106,9 +109,9 @@ try{
       assert.equal(columns(sectionHead.gridTemplateColumns),expectedHead,`${name}: seam 601/600 de cabecera cambió`);
       assert.equal(masthead.display,'block',`${name}: masthead vuelve a plantilla genérica de dos columnas`);
       assert.equal(title.color,'rgb(29, 79, 150)',`${name}: H1 pierde azul canónico`);
-      assert.notEqual(firstRecord.backgroundImage,'none',`${name}: Primer Premio pierde tratamiento documental destacado`);
-      assert.notEqual(firstRecord.boxShadow,'none',`${name}: Primer Premio pierde filete jerárquico`);
-      assert.ok(parseFloat(firstResult.fontSize)>parseFloat(secondResult.fontSize),`${name}: Primer Premio deja de tener jerarquía tipográfica sobre el Top 10`);
+      assert.notEqual(firstRecord.backgroundImage,'none',`${name}: Ganador pierde tratamiento documental destacado`);
+      assert.notEqual(firstRecord.boxShadow,'none',`${name}: Ganador pierde filete jerárquico`);
+      assert.ok(parseFloat(firstResult.fontSize)>parseFloat(secondResult.fontSize),`${name}: primer reconocimiento deja de tener jerarquía tipográfica sobre el segundo`);
       assert.equal(sourceRail.borderTopWidth,'2px',`${name}: procedencia pierde rail de evidencia`);
       assert.notEqual(receptionHeading.color,recognitionHeading.color,`${name}: Recepción vuelve a tener el mismo peso cromático que Reconocimientos`);
 
@@ -134,7 +137,7 @@ try{
     const c=await context(browser,{width:390,height:900},false);const p=await c.newPage();
     try{
       const r=await p.goto(`${ORIGIN}/premios.html`,{waitUntil:'load'});assert.ok(r?.ok(),'no-js: Premios no carga');
-      assert.equal(await p.locator('#reconocimientos [data-award-record]').count(),2,'no-js: reconocimientos ausentes');
+      assert.equal(await p.locator('#reconocimientos [data-award-record]').count(),3,'no-js: reconocimientos ausentes');
       assert.equal(await p.locator('#colaboraciones .awards-ledger > li').count(),3,'no-js: trayectoria ausente');
       assert.equal(await p.locator('#recepcion .awards-ledger > li').count(),1,'no-js: recepción ausente');
       await noOverflow(p,'no-js 390');await p.screenshot({path:path.join(OUT,'premios-no-js-390.png'),fullPage:true});
