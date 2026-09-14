@@ -1,8 +1,8 @@
 # VIAF — autoridad de David Porto Díaz
 
-Fecha de revisión: 2026-09-07
+Fecha de revisión: 2026-09-07 (última reverificación en vivo: 2026-09-14)
 
-Estado: `RESEARCHED · SOURCE_AUTHORITY_MODEL_CONFIRMED · READY_FOR_DIRECT_AUDIT`
+Estado: `VIAF_AUDITED · NOT_OBSERVED_CONFIRMED_LIVE_TWICE · CORRECTION_OWNER_IS_BNE_421_422 · EXTERNAL_DEPENDENCY`
 
 ## Objetivo
 
@@ -59,3 +59,32 @@ nacionales (BNE, Library of Congress, etc.), así que la vía de entrada
 sigue siendo indirecta — normalmente aparece automáticamente una vez la
 BNE/ISNI tramitan la autoridad del autor (ver #422 BNE, #421 ISNI), no
 por una alta directa en viaf.org.
+
+## Reverificación en vivo (2026-09-14)
+
+Repetida la búsqueda directamente en viaf.org, una semana después y con
+más cobertura que la primera vez:
+
+- `David Porto Díaz` (orden nombre-apellido): **"No headings found"**.
+- `Porto Díaz, David` (orden apellido-nombre): **"No headings found"**.
+- ISBN `9791387659776` (Samuel entre mundos), campo "All Fields": **"No
+  headings found"** — comprobación nueva, no se había buscado antes por
+  ISBN directamente en viaf.org.
+
+Mismo resultado que hace una semana, ahora con una tercera consulta
+(ISBN) que tampoco encuentra nada. Esto confirma con más margen que no
+existe cluster VIAF hoy, y sigue sin haber nada que corregir *en VIAF
+mismo*: el bloqueador real es que #422 BNE ya confirmó por consulta
+directa al catálogo que no hay registro bibliográfico ni de autoridad de
+la BNE del que VIAF pudiera heredar un cluster. Sin autoridad fuente
+(BNE u otra biblioteca participante), VIAF no tiene nada que agregar.
+
+### Cierre de esta ronda
+
+`VIAF_AUDITED · CLUSTER_NOT_OBSERVED_CONFIRMED_2026-09-14 · SOURCE_AUTHORITIES_IDENTIFIED_AS_BNE_421_422 · NO_DUPLICATE_FOUND · CORRECTION_OWNER_IDENTIFIED_UPSTREAM · SITE_GRAPH_NOT_UPDATED_NO_EVIDENCE`
+
+Se cierra esta PR como auditoría completa, no como alta conseguida: no
+hay nada que David ni esta sesión puedan hacer directamente en viaf.org.
+El camino de entrada sigue siendo indirecto vía BNE (#422, ya documentado
+como dependencia editorial de Depósito Legal) y/o ISNI (#421). Revisar
+VIAF de nuevo solo si BNE o ISNI cambian de estado, no por rutina.
