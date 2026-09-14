@@ -1,8 +1,21 @@
 # OverDrive / Libby — bibliotecas digitales
 
-Fecha de revisión: 2026-09-07
+Fecha de revisión: 2026-09-07 (cierre: 2026-09-14)
 
-Estado: `RESEARCHED · PUBLISHER_DISTRIBUTION_MODEL_CONFIRMED · MANECILLAS_PUBLISHER_DEPENDENCY · READY_FOR_CATALOG_AUDIT`
+Estado: `NO_PUBLIC_EVIDENCE_FOUND · MONZA_DEPENDENCY_NOT_PURSUED · SAMUEL_NO_EBOOK_NOTHING_TO_CHECK · CLOSED_NO_ACTION`
+
+## Cierre (2026-09-14)
+
+Búsqueda pública de hoy por el ISBN del ebook de Manecillas
+(`9798906781925`) no devuelve ninguna referencia en OverDrive/Libby.
+OverDrive Marketplace no tiene un buscador global público sin elegir
+antes una biblioteca concreta, así que esto no es una confirmación tan
+fuerte como catalogo.bne.es o viaf.org, pero es la mejor evidencia
+disponible sin acceso a Marketplace.
+
+La pregunta real (¿distribuye Monza a OverDrive?) depende de Monza, y ya
+se decidió en #428 no contactarla. Samuel no tiene edición ebook, así
+que no hay nada que comprobar para ese título. Cerrado sin acción.
 
 ## Objetivo
 
