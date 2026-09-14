@@ -2,7 +2,7 @@
 
 Fecha de revisión: 2026-09-07 (última reverificación en vivo: 2026-09-14)
 
-Estado: `DIRECT_SEARCH_BLOCKED_BY_CAPTCHA_NOT_BYPASSED · FREE_BNE_ROUTE_CONFIRMED · REQUEST_MESSAGE_DRAFTED_AWAITING_OWNER_OK`
+Estado: `BNE_ISNI_REQUEST_SENT_2026-09-14 · RESPONSE_PENDING`
 
 ## Objetivo
 
@@ -88,13 +88,16 @@ normalmente aparecería ahí. Esto es consistente con "no hay ISNI todavía",
 pero no es una prueba definitiva — un ISNI podría existir sin estar aún
 propagado a VIAF.
 
-### Mensaje preparado para `isni@bne.es` (NO enviado — pendiente de tu OK)
+### Correo enviado a `isni@bne.es` (2026-09-14 — confirmado, no un borrador)
 
-Dado que la vía directa en isni.org sigue bloqueada por el captcha y la
-señal cruzada por VIAF apunta a que no hay ISNI todavía, el siguiente paso
-real es escribir a la BNE por el canal gratuito que ellos mismos ofrecen.
-Esto es un correo enviado en tu nombre a una entidad externa, así que no
-se envía sin tu confirmación explícita. Borrador:
+**Corrección de esta entrada**: una versión anterior de este documento
+decía que este correo estaba redactado pero sin enviar. Eso quedó
+desactualizado en cuanto se envió — se corrige aquí para que el registro
+sea preciso. El correo se envió el **2026-09-14** desde la cuenta de
+Gmail del propietario del proyecto, tras su confirmación explícita
+("Sí, envíalo"). Referencia del hilo de Gmail: `1a0a0dae4d650b85`.
+
+Texto exacto enviado:
 
 > **Para:** isni@bne.es
 > **Asunto:** Solicitud de ISNI — David Porto Díaz (autor)
@@ -124,9 +127,21 @@ se envía sin tu confirmación explícita. Borrador:
 > Un saludo,
 > David Porto Díaz
 
-Este mensaje no se envía hasta que el propietario del proyecto lo revise
-y confirme explícitamente que quiere que se envíe (o lo envíe él mismo).
+### Qué queda pendiente
+
+BNE no da un plazo público de respuesta para solicitudes ISNI. Este
+issue permanece abierto hasta que llegue una respuesta:
+
+- si asignan un ISNI: verificarlo, guardarlo aquí, y solo entonces
+  añadirlo a Wikidata y `Person.sameAs` de la web;
+- si piden más información: responder con lo que pidan, sin inventar
+  datos no publicados;
+- si no responden en varias semanas: valorar un recordatorio, no
+  reenviar por rutina.
+
+No se marca `ISNI_CONFIRMED` ni se toca la web hasta tener una respuesta
+real de la BNE con un identificador verificable.
 
 ### Cierre de esta ronda
 
-`ISNI_SEARCH_BLOCKED_BY_CAPTCHA_NOT_BYPASSED · CROSS_CHECK_VIA_VIAF_NEGATIVE · REQUEST_MESSAGE_DRAFTED · AWAITING_OWNER_CONFIRMATION_TO_SEND · NO_PAID_REGISTRATION`
+`BNE_ISNI_REQUEST_SENT_2026-09-14 · RESPONSE_PENDING · CROSS_CHECK_VIA_VIAF_NEGATIVE · NO_PAID_REGISTRATION · NO_ID_ADDED_UNTIL_CONFIRMED`
