@@ -38,7 +38,21 @@ No se ha tocado nada de esto — es tu decisión, no la de Claude.
 **Reverificado en vivo hoy (2026-09-14): sin cambios.** Fecha de
 nacimiento, centro educativo, sexo, país y lengua nativa siguen con
 `0 references`; se suma además `Instagram username: davidpuede` también
-sin referencia. Sigue pendiente tu decisión antes de que se edite nada.
+sin referencia.
+
+### Decisión del propietario (2026-09-14)
+
+Confirmado: la fecha de nacimiento y el centro educativo son correctos y
+no le preocupa que sean públicos — "si realmente ves mal que salga lo
+sacamos, si no se puede dejar". Con el dato ya confirmado como exacto por
+el propio interesado, no hay motivo de privacidad para retirarlo.
+
+**Se deja tal cual, sin editar nada por retirar datos.** Cuando haya
+sesión iniciada en Wikidata (bloque de logins pendientes), la única
+mejora de bajo riesgo que merece la pena, si hay tiempo, es añadir una
+referencia real a estas declaraciones (para que no queden marcadas como
+no verificadas y sean menos susceptibles de reversión en el futuro) — no
+es urgente ni fue pedido explícitamente, así que no se hace de oficio.
 
 Lo que sí está bien en el autor: `official website`, ORCID (con
 referencia), Goodreads author ID, Amazon author ID, `award received`
