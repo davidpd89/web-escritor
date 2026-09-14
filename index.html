@@ -78,10 +78,13 @@
        exclusive first-vs-returning-visitor resource" case, and the only way
        to hand the scanner a single decided <link rel=preload> instead of
        two competing ones. Note: this preload alone does not make LCP fast --
-       see the root-cause writeup in
-       docs/tracking/performance-lighthouse-2026-09-09.md for why the intro
-       itself, not resource priority, is the dominant factor on a fresh
-       visit. -->
+       see docs/tracking/performance-lighthouse-2026-09-09.md: the intro's
+       <video> is the LCP candidate on a fresh visit, and its ~3.2s Render
+       Delay is real, but a rigorous n=5 test (2026-09-14, v5) ruled out both
+       the intro's timeout value and the video's playback state as its cause
+       -- root cause still open. That same test also showed removing the
+       intro without first fixing this preload script makes LCP ~4x worse,
+       not better, so don't treat "just remove the intro" as a ready fix. -->
   <script>
     (function () {
       var seen = false;
