@@ -282,7 +282,7 @@ export function resolveLocalAnswer(query, context = {}) {
   const mentionsNoveris = entityMatch(q, NOVERIS_ALIASES);
   const asksFragment = includesAny(q, READ_TERMS);
   const asksNavigation = includesAny(q, NAVIGATION_TERMS);
-  const asksAward = includesAny(q, ["premio", "premios", "premiado", "reconocimiento", "reconocimientos", "finalista", "letras como espada", "juan andres", "teno"]);
+  const asksAward = includesAny(q, ["premio", "premios", "premiado", "reconocimiento", "reconocimientos", "finalista", "ganador", "letras como espada", "juan andres", "teno", "aullidos en papel", "aullidos"]);
   const asksBuy = includesAny(q, ["comprar", "compra", "donde compro", "kindle", "ebook", "libro electronico", "amazon", "cuanto cuesta", "precio"]);
   const asksRecommendation = includesAny(q, RECOMMENDATION_TERMS);
   const asksPortalRecommendation = asksRecommendation && (
@@ -420,10 +420,10 @@ export function resolveLocalAnswer(query, context = {}) {
   }
 
   if ((mentionsSamuel || mentionsNoveris) && asksAward) {
-    const { letrasComoEspada, juanAndresTeno } = EDITORIAL_PUBLIC_FACTS.recognitions;
+    const { letrasComoEspada, juanAndresTeno, aullidosEnPapel } = EDITORIAL_PUBLIC_FACTS.recognitions;
     return result(
       "samuel-awards",
-      `No se atribuye a «Samuel entre mundos» el ${letrasComoEspada.result} ${letrasComoEspada.organizer} de ${letrasComoEspada.year}: ese premio pertenece a ${letrasComoEspada.holder} por un certamen de microrrelatos. Tampoco se atribuye al libro la selección ${juanAndresTeno.result} del ${juanAndresTeno.name}, porque la obra presentada no está identificada en la fuente pública oficial localizada.`,
+      `No se atribuye a «Samuel entre mundos» el ${letrasComoEspada.result} ${letrasComoEspada.organizer} de ${letrasComoEspada.year} ni el premio de ${aullidosEnPapel.organizer} en «${aullidosEnPapel.name}»: son certámenes de microrrelatos que pertenecen a ${letrasComoEspada.holder}, no a un libro. Tampoco se atribuye al libro la selección ${juanAndresTeno.result} del ${juanAndresTeno.name}, porque la obra presentada no está identificada en la fuente pública oficial localizada.`,
       ["awards", "work-samuel"],
     );
   }
