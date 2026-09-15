@@ -439,7 +439,21 @@ document.querySelectorAll(".faq-question").forEach((btn) => {
   });
 });
 
-(function () {
+// A real visitor never has this hostname -- it's exclusively a local dev
+// server or a CI browser test hitting `python -m http.server` (found
+// 2026-09-15 via Clarity's own "popular pages" list: /cuaderno/ and one
+// article were the top two entries, both served from 127.0.0.1, from
+// repeated CI runs -- none of the ~70 qa/*.mjs browser suites mock Clarity's
+// own script tag the way a handful already mock GoatCounter/Metricool's).
+// Guarding here fixes it once at the source instead of retrofitting every
+// suite. getStoredAnalyticsConsent/applyAnalyticsConsent/
+// showAnalyticsConsentBanner below are untouched by this -- the consent-flow
+// UI itself is real product behavior other tests correctly still exercise
+// on localhost; applyAnalyticsConsent is already a documented no-op
+// wherever window.clarity was never loaded (see that function's own guard).
+const IS_LOCAL_TEST_ENV = /^(?:localhost|127\.0\.0\.1|\[::1\])$/.test(location.hostname);
+
+if (!IS_LOCAL_TEST_ENV) (function () {
   // Guard against double-loading: some pages still carry a legacy direct
   // <script data-goatcounter> tag alongside this global loader, which would
   // otherwise fetch count.js twice and double-count the same pageview.
@@ -453,7 +467,7 @@ document.querySelectorAll(".faq-question").forEach((btn) => {
 })();
 
 // Metricool web analytics
-(function () {
+if (!IS_LOCAL_TEST_ENV) (function () {
   function loadScript(a) {
     var b = document.getElementsByTagName("head")[0],
       c = document.createElement("script");
@@ -503,7 +517,7 @@ document.querySelectorAll(".faq-question").forEach((btn) => {
 // for teachers/librarians, not a page minors use directly. No other page
 // is framed as a direct child-facing product.
 if (!document.querySelector('[data-samuel-quiz]')) {
-  (function (c, l, a, r, i, t, y) {
+  if (!IS_LOCAL_TEST_ENV) (function (c, l, a, r, i, t, y) {
     c[a] = c[a] || function () { (c[a].q = c[a].q || []).push(arguments); };
     t = l.createElement(r); t.async = 1; t.src = "https://www.clarity.ms/tag/" + i;
     y = l.getElementsByTagName(r)[0]; y.parentNode.insertBefore(t, y);
