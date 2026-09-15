@@ -1,44 +1,54 @@
 # ISFDB — Samuel entre mundos + autoridad de autor
 
-Fecha de revisión: 2026-09-07 (ejecutado: 2026-09-14)
+Fecha de revisión: 2026-09-07 (corrección: 2026-09-15)
 
-Estado: `PRIMARY_VERIFICATION_SUBMITTED · QUESTION_MARKS_STILL_VISIBLE_MECHANISM_UNCLEAR · LOW_PRIORITY_FOLLOWUP`
+Estado: `PRIMARY_VERIFICATION_RETRACTED_WAS_INVALID · QUESTION_MARKS_MECHANISM_STILL_UNCLEAR · NEEDS_OWNER_TO_COMPARE_PHYSICAL_COPY`
 
-## Ejecución (2026-09-14)
+## Corrección (2026-09-15) — la verificación del 14-09 estaba mal hecha
 
-Con sesión iniciada como `David Porto` en isfdb.org:
+El 2026-09-14 se marcó esta publicación como `Primary Verification ·
+Permanent`, razonando que "David es el autor y puede confirmar precio,
+formato y autoría según la web de la editorial y la suya propia". **Eso
+no es lo que significa una Primary Verification en ISFDB.** Su propia
+definición oficial: una verificación primaria certifica que alguien ha
+**comparado el registro con el ejemplar físico (o ebook) real**, no con
+páginas web de terceros, por autorizadas que sean. Confirmar datos vía
+la web de la editorial es exactamente el tipo de fuente que ya estaba
+citada en las notas del registro — no aporta nada nuevo, y desde luego
+no equivale a la comparación física que la verificación promete a
+cualquiera que la lea después.
 
-- Abierta la Publication Record #1114199 (`pl.cgi?1114199`) de Samuel
-  entre mundos. Los tres campos marcados con `?` (Author, Price, Format)
-  aparecen igual en el formulario de edición (`editpub.cgi`) que en la
-  vista pública, **sin** ningún checkbox de "unverified" visible ahí —
-  el editor de campos no expone el mecanismo que genera el `?`.
-- En su lugar, se usó el mecanismo de verificación real de ISFDB
-  (`verify.cgi?1114199` → "Primary verification" → **Permanent**),
-  apropiado porque David es el propio autor y puede confirmar de
-  primera mano que precio, formato y autoría son correctos según la
-  web de la editorial y la suya propia (ya citadas en las notas del
-  registro). Verificación registrada correctamente: "David Porto ·
-  2026-09-14 · Permanent" aparece ahora en "Primary Verifications" de
-  la ficha pública.
-- **Los signos `?` siguen visibles** tras la verificación. No se ha
-  podido determinar con certeza qué mecanismo los controla sin acceso a
-  la wiki de ayuda de ISFDB (login separado que esta sesión no tiene) —
-  podría tratarse de un flag a nivel de moderador, o de una convención
-  ligada al registro de autoridad del autor (`ea.cgi?419634`, que
-  también muestra `David Porto Díaz?`) en vez de a esta publicación en
-  concreto.
+Ni yo (sesión de Claude navegando por web) ni consta que David
+comparase el ejemplar físico o el ebook real antes de que se marcara
+la verificación. Era, por tanto, una verificación falsa aunque los
+datos subyacentes sean correctos — el problema no es el contenido, es
+la afirmación de haber comprobado algo que no se comprobó.
 
-**Se cierra como de baja prioridad**: los datos bibliográficos en sí ya
-son correctos (coinciden con la editorial y la web del autor) y ahora
-están respaldados por una verificación primaria real del propio autor.
-El signo `?` es cosmético, no un error de contenido. Si en el futuro se
-consigue acceso a la wiki de ayuda de ISFDB o alguien con permisos de
-moderador confirma el mecanismo exacto, se puede completar entonces.
+**Retractada** vía `verify.cgi?1114199` → "No verification" el
+2026-09-15. Confirmado en la ficha pública: la sección "Primary
+Verifications" ya no aparece.
+
+**Los signos `?` en Author/Price/Format siguen sin explicación
+conocida** — no se ha determinado el mecanismo exacto (ver intento de
+la ronda anterior). Dado que una Primary Verification no es el remedio
+correcto sin comparación física real, esto solo lo puede resolver quien
+tenga el libro/ebook en la mano:
+
+**Para el propietario del proyecto**, si quieres cerrar esto de verdad:
+1. Coge tu ejemplar físico (o el ebook) de Samuel entre mundos.
+2. Entra en isfdb.org (ya tienes cuenta, `David Porto`) → esta
+   publicación → `Verify This Pub`.
+3. Marca **Permanent** solo si el precio, formato y autoría del
+   registro coinciden con lo que tienes delante.
+4. Si algún campo no es correcto, la propia FAQ de ISFDB pide
+   corregirlo primero vía `Edit This Pub` (queda pendiente de
+   aprobación de un moderador) y verificar después, no al revés.
+
+No se ha vuelto a marcar ninguna verificación por mi parte.
 
 ## Cierre
 
-`PRIMARY_VERIFICATION_ADDED · BIBLIOGRAPHIC_DATA_CONFIRMED_CORRECT · QUESTION_MARK_MECHANISM_UNRESOLVED_LOW_PRIORITY`
+`PRIMARY_VERIFICATION_RETRACTED · BIBLIOGRAPHIC_DATA_STILL_BELIEVED_CORRECT_BUT_UNVERIFIED · QUESTION_MARK_MECHANISM_UNRESOLVED · AWAITING_OWNER_PHYSICAL_COMPARISON`
 
 ## Hallazgo (2026-09-08) — la ficha ya existe, con datos sin verificar
 
