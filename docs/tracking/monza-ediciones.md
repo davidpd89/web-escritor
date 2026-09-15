@@ -1,10 +1,38 @@
 # Monza Ediciones — auditoría y plan de ejecución
 
-Fecha de investigación: **2026-09-07** (cierre de esta ronda: **2026-09-14**)  
+Fecha de investigación: **2026-09-07** (página física verificada: **2026-09-15**)  
 PR owner: **#428 · `tracking/monza-ediciones`**  
-Estado: **PAGE_COUNT_AND_PVP_CLOSED_NOT_ACTIONABLE_OWNER_DECISION · PUBLICATION_DATE_DISCREPANCY_DOCUMENTED_NOT_PURSUED · NO_MONZA_CONTACT_BY_OWNER_DECISION · CLOSED_THIS_ROUND**
+Estado: **PAGE_COUNT_RESOLVED_VIA_PHYSICAL_COPY_272_CONFIRMED_REASONABLE · PUBLICATION_DATE_DISCREPANCY_DOCUMENTED_NOT_PURSUED · NO_MONZA_CONTACT_BY_OWNER_DECISION**
 
-## Cierre de esta ronda (2026-09-14)
+## Resuelto (2026-09-15): recuento físico real del ejemplar
+
+David inspeccionó el ejemplar físico de `Las manecillas del recuerdo` y
+dio el desglose exacto del recuento, de dentro hacia fuera:
+
+- **263** — última página numerada del texto interior.
+- **266** — sumando las páginas en blanco que siguen al texto (dos
+  hojas en blanco).
+- **270** — sumando portada y contraportada.
+- **274** — sumando las solapas (autor y redes sociales).
+
+Esto confirma de una vez el origen de la discrepancia 272 vs. 266 que
+esta PR había cerrado en 2026-09-14 como "no accionable" sin haber
+inspeccionado el ejemplar todavía: **no es un error de ninguna de las
+dos partes** — Amazon/Casa del Libro/Agapea cuentan solo hasta el
+bloque de texto+blancos (266), mientras que el dato de **272** que ya
+usa la web del proyecto cae dentro del rango real y esperable del
+recuento físico completo (entre 270 con cubiertas y 274 con solapas
+incluidas). **No hace falta cambiar el 272 de la web** — está
+justificado por el propio ejemplar, solo con un criterio de recuento
+más amplio que el de los retailers. Se cierra como resuelto, no como
+"no accionable por decisión del propietario".
+
+Esto NO aplica a la discrepancia equivalente de Samuel entre mundos
+(422 vs. 412, #429): son libros distintos y no se ha inspeccionado ese
+ejemplar en esta sesión — esa sigue cerrada tal como estaba, sin nuevo
+dato.
+
+## Cierre de la ronda anterior (2026-09-14)
 
 ### Decisión del propietario del proyecto sobre páginas y PVP
 
@@ -28,7 +56,7 @@ histórico, no como discrepancia vigente.
 
 | Campo | Nuestro dato | Dato externo confirmado hoy | Evidencia | Owner | Acción |
 |---|---|---|---|---|---|
-| Páginas (físico) | 272 | 266 | Amazon.es, Casa del Libro Colombia, Agapea (histórico) | — | **Cerrado, no accionable — decisión del propietario** |
+| Páginas (físico) | 272 | 266 | Amazon.es, Casa del Libro Colombia, Agapea (histórico) | — | **Resuelto 2026-09-15 — ver desglose físico arriba: 272 es correcto, retailers cuentan solo hasta 266 (texto+blancos)** |
 | PVP físico | 15,99 € | 15,99 € | Amazon.es (ASIN B0HHY9MYLM), en vivo hoy | — | Sin discrepancia, cerrado |
 | PVP Kindle | 2,99 € | 2,99 € | Amazon.es, en vivo hoy | — | Sin discrepancia, cerrado |
 | **Fecha de publicación (físico)** | **2026-09-03** | **12 agosto 2026** | Amazon.es (ficha oficial del producto) y Casa del Libro Colombia, ambos en vivo hoy, coincidentes entre sí | Monza | **Abierto — preguntar a Monza cuál es la fecha real** |
