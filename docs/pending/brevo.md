@@ -1,8 +1,74 @@
 # Brevo — newsletter, entregabilidad, automatizaciones y diseño
 
-Fecha de investigación: **2026-09-07** (copy decidido: 2026-09-15)  
+Fecha de investigación: **2026-09-07** (sesión Brevo autenticada: 2026-09-15)  
 PR owner: **#400 · `tracking/brevo`**  
-Estado: **WELCOME_AUTOMATION_FIXED_FOR_REAL · DECOY_TEMPLATES_DEACTIVATED · EMAIL2_3_COPY_DECIDED_READY_TO_IMPLEMENT · ALT_SENDER_DEFERRED_BY_AUTHOR · LECTORES_BETA_AUTOMATION_BUILT_INACTIVE · DOMAIN_AUTH_NEEDS_BREVO_LOGIN**
+Estado: **WELCOME_AUTOMATION_FIXED_FOR_REAL · DECOY_TEMPLATES_DEACTIVATED · DOMAIN_AUTH_VERIFIED_COMPLETE · EMAIL2_3_COPY_DECIDED_BLOCKED_ON_EDITOR_403 · ALT_SENDER_DEFERRED_BY_AUTHOR · LECTORES_BETA_ACTIVATED_BY_AUTHOR**
+
+## Ejecución con sesión de Brevo autenticada (2026-09-15)
+
+### Autenticación de dominio: ya está completa, no pendiente
+
+`Settings → Senders, domains, IPs → Domains` confirma
+`davidportodiaz.com` con **Authentication status: Authenticated**.
+Entrando en "View configuration", los 4 registros DNS requeridos están
+todos en verde ("values match"):
+
+| Registro | Tipo | Nombre | Valor |
+|---|---|---|---|
+| Brevo code | TXT | `@` | `brevo-code:ecad8b61c09f1f3ace5b1b8b9df48d36` |
+| DKIM 1 | CNAME | `brevo1._domainkey` | `b1.davidportodiaz-com.dkim.brevo.com` |
+| DKIM 2 | CNAME | `brevo2._domainkey` | `b2.davidportodiaz-com.dkim.brevo.com` |
+| DMARC | TXT | `_dmarc` | `v=DMARC1; p=none; rua=mailto:rua@dmarc.brevo.com` |
+
+El registro DMARC ya incluye `rua=`, que es justo lo que este documento
+pedía verificar para cumplir los requisitos actuales de Gmail/Yahoo/
+Microsoft. **Esto estaba mal etiquetado como `DOMAIN_AUTH_STILL_PENDING`
+en cierres anteriores — en realidad ya estaba hecho.** No hace falta
+ninguna acción DNS adicional.
+
+### Lectores beta: el autor ya la activó
+
+La automatización "Bienvenida — Lectores beta" (#6), que las sesiones
+anteriores habían dejado guardada pero `Inactivo` a propósito a la
+espera del visto bueno del autor, aparece ahora como **Active** en el
+listado de Automations. El autor la activó él mismo entre sesiones; no
+hace falta ninguna acción aquí.
+
+### Bloqueado: implementar el copy de Email 2/3 en el editor visual
+
+Se entró en la automatización real "Bienvenida newsletter — Lectores
+web" (#2) y se confirmó la estructura de pasos documentada
+(trigger → Email 1 "Bienvenido a las novedades" → Wait 2 días → Email 2
+"El mundo de Noveris" → ...). El contenido condicional de Email 1 (rama
+según `contact.NOVERIS`) vive dentro de la propia plantilla HTML del
+paso, no como un paso `SI/SINO` separado en el lienzo — confirma que el
+mismo enfoque debía aplicarse a Email 2/3 pegando el copy ya decidido
+dentro de sus plantillas.
+
+Al pulsar "Edit" sobre el contenido del email (botón
+`data-testid="edit-template-design"`, confirmado en el DOM que el clic
+llega exactamente a ese botón) **no ocurre nada visible**: no se abre
+ningún editor ni pestaña nueva. La consola del navegador muestra
+`403 Unauthenticated error` en llamadas de la API alrededor de esa
+acción, y esta misma sesión ya había visto antes un aviso de Brevo
+("Some actions require permissions... Contact the account owner for
+approval") a pesar de que la sesión está confirmada como
+`davidpd89@gmail.com`, el email dueño de la cuenta. Esto no parece un
+límite de la herramienta de automatización usada en esta sesión (se
+comprobó que el clic aterriza en el elemento correcto del DOM): parece
+un problema real de permisos/sesión del lado de Brevo para esta acción
+concreta.
+
+**No se ha tocado ni guardado nada** en la automatización — no aparece
+ningún "unsaved changes" tras los intentos.
+
+**Siguiente paso real**: el propio David debería intentar pulsar
+"Edit" sobre el paso de Email 2 o Email 3 desde su navegador habitual
+para confirmar si el editor de plantillas abre con normalidad ahí. Si
+tampoco le funciona a él, es un bug/permiso a reportar al soporte de
+Brevo, no algo que se pueda resolver reintentando desde esta sesión.
+El copy final para Email 2/3 sigue documentado y listo más abajo, sin
+cambios.
 
 ## Cierre parcial (2026-09-09) — hallazgo crítico y corrección real
 
