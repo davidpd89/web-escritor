@@ -1,8 +1,26 @@
 # Kobo / Kobo Writing Life — auditoría y plan de ejecución
 
-Fecha de investigación: **2026-09-07**  
+Fecha de investigación: **2026-09-07** (reintentado: 2026-09-15)  
 PR owner: **#412 · `tracking/kobo-writing-life`**  
-Estado: **RESEARCHED · PUBLIC_KOBO_RECORD_NOT_OBSERVED · DIGITAL_RIGHTS_OWNER_NOT_VERIFIED · READY_FOR_CATALOG_AUDIT**
+Estado: **DIRECT_CHECK_BLOCKED_BY_ANTIBOT_WALL · NOT_A_LOGIN_ISSUE · NEEDS_MANUAL_HUMAN_BROWSER_CHECK**
+
+## Reintento (2026-09-15)
+
+Se intentó comprobar el catálogo directamente en `kobo.com` (búsqueda
+por título y una URL de ficha directa), igual que se hizo con éxito en
+Apple Books y Google Play Books. En este caso `kobo.com` devuelve una
+página de reto anti-bot ("Challenged / Un momento…") en todas las
+rutas probadas, no solo en la búsqueda — un bloqueo a nivel de sitio,
+no un resultado de búsqueda vacío.
+
+Consistente con el criterio ya aplicado antes en este proyecto con
+otros sitios protegidos (isni.org, librarything.com en su momento): no
+es responsable de esta sesión intentar sortear verificaciones anti-bot
+con un navegador automatizado. **Esto no es un bloqueo de login** — no
+hay ninguna cuenta que abrir que lo resuelva; es el propio sitio
+detectando tráfico automatizado. Solo se puede comprobar de verdad
+abriendo `kobo.com` desde un navegador normal, humano, en el propio
+equipo del autor.
 
 ## Objetivo
 
