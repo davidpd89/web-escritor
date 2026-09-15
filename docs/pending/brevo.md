@@ -1,8 +1,8 @@
 # Brevo — newsletter, entregabilidad, automatizaciones y diseño
 
-Fecha de investigación: **2026-09-07**  
+Fecha de investigación: **2026-09-07** (copy decidido: 2026-09-15)  
 PR owner: **#400 · `tracking/brevo`**  
-Estado: **WELCOME_AUTOMATION_FIXED_FOR_REAL · DECOY_TEMPLATES_DEACTIVATED · EMAIL2_3_SEGMENTATION_STILL_NOVERIS_CENTRIC · LECTORES_BETA_AUTOMATION_BUILT_INACTIVE · DOMAIN_AUTH_STILL_PENDING**
+Estado: **WELCOME_AUTOMATION_FIXED_FOR_REAL · DECOY_TEMPLATES_DEACTIVATED · EMAIL2_3_COPY_DECIDED_READY_TO_IMPLEMENT · ALT_SENDER_DEFERRED_BY_AUTHOR · LECTORES_BETA_AUTOMATION_BUILT_INACTIVE · DOMAIN_AUTH_NEEDS_BREVO_LOGIN**
 
 ## Cierre parcial (2026-09-09) — hallazgo crítico y corrección real
 
@@ -23,12 +23,67 @@ No existía ninguna automatización para la lista `Lectores beta - #6`; cualquie
 
 Una revisión externa (GPT) señaló, con razón, que dejar copias huérfanas indistinguibles de las reales ya había provocado un incidente real (la confusión del 08-09 de arriba) y que debían eliminarse o marcarse claramente. Brevo no ofrece un "Eliminar" directo desde el listado de Plantillas (solo Vista previa/Duplicar/Desactivar/Generar traducción/Compartir), así que se usó la vía de repliegue que este mismo documento ya contemplaba: **desactivar** las seis plantillas huérfanas encontradas (una más de las que este documento tenía registradas: #1, #2, #3, #4, #9, y también **#10**, un "Nueva plantilla" adicional sin usar que no estaba documentado). Desactivar impide que Brevo la deje usar en Automatizaciones/Transaccional, que es justo el vector del incidente original. Ninguna de las plantillas realmente activas de la automatización (#6/#7/#8, ni la #19 de Lectores beta) se ha tocado — verificado que ninguna de ellas aparece siquiera en el listado general de Plantillas, confirmando el hallazgo de que son internas a cada automatización.
 
-### Sin resolver / a decisión del autor
+### Resuelto (2026-09-15): copy final de Email 2/3 para la rama no-Noveris
 
-- **Email 2 y 3 siguen sin segmentar por origen del lector** (señalado por la misma revisión externa): el Email 1 ya distingue `NOVERIS` definido vs alta general, pero el Email 2 (plantilla #7, "El mundo de Noveris") y el Email 3 (plantilla #8, pitch de compra de Samuel) se envían igual a todo el mundo, incluido quien se dio de alta desde Manecillas/Home/Cuaderno sin pasar por Noveris ni mostrar interés en Samuel. Arreglar esto de verdad requiere una decisión de contenido que esta sesión no puede tomar unilateralmente sobre una automatización que ya envía correos reales a lectores reales: habría que (a) escribir una rama de contenido alternativa para Email 2/3 centrada en Manecillas para quien no viene de Noveris, y (b) añadir un paso de condición (`SI/SINO` sobre `contact.NOVERIS`, igual que ya existe conceptualmente en el Email 1) en el canvas de la automatización antes de esos dos pasos. Documentado aquí en vez de improvisarlo para que quien lo ejecute tenga el contenido ya decidido, no solo el diagnóstico.
-- `davidportodiaz@gmail.com` no es un remitente verificado en Brevo; si el autor lo prefiere sobre `davidpd89@gmail.com`, hay que añadirlo y verificarlo en Brevo primero.
-- Activar la automatización de Lectores beta.
-- El resto del runbook original de abajo (autenticación de dominio DKIM/DMARC, arquitectura de contactos, QA de clientes de email, etc.) sigue sin ejecutar.
+El autor confirmó dos decisiones: (a) dejar `davidportodiaz@gmail.com`
+como remitente alternativo para el futuro, sin tocarlo ahora, y (b)
+que esta sesión decida y cierre el contenido de Email 2/3. Copy final,
+listo para pegar en las plantillas #7/#8 dentro de la rama `SINO`
+(`contact.NOVERIS` no definido) del mismo `SI/SINO` que ya existe
+conceptualmente en el Email 1:
+
+**Email 2 — rama no-Noveris (plantilla #7, hoy "El mundo de Noveris")**
+
+> Asunto: El reloj que conecta *Las manecillas del recuerdo*
+>
+> *Las manecillas del recuerdo* no es una novela: es una antología
+> coral unida por un mismo reloj que pasa de mano en mano y va
+> acumulando memoria de cada dueño — su tiempo, sus pérdidas, su
+> familia, su culpa. Cada relato es la historia de quien lo tuvo entre
+> las manos antes de dejarlo ir.
+>
+> Si ya lo has leído, esta es la pieza que conecta todo lo demás. Si
+> todavía no, es el mejor sitio por el que empezar a conocer el libro.
+>
+> CTA: Leer un fragmento gratis → `/las-manecillas-del-recuerdo/fragmentos/`
+
+**Email 3 — rama no-Noveris (plantilla #8, hoy pitch de compra de Samuel)**
+
+> Asunto: Un lector ya lo dijo mejor que yo
+>
+> "Funciona de maravilla como antología, especialmente gracias a la
+> historia marco del reloj y los temas comunes que recorren todo el
+> libro: el tiempo, la memoria, el legado…" — reseña real de un lector
+> en LibraryThing.
+>
+> Si la premisa del reloj te ha intrigado, *Las manecillas del
+> recuerdo* ya está disponible en papel y ebook.
+>
+> CTA: Comprar ahora → `/las-manecillas-del-recuerdo/` (papel) y
+> `/las-manecillas-del-recuerdo/kindle/` (ebook)
+
+La rama `SI` (`contact.NOVERIS` definido) de ambos pasos se queda
+exactamente como está hoy (mundo de Noveris / pitch de Samuel) — ese
+lector ya mostró interés específico en Samuel vía el test.
+
+**Queda pendiente solo la implementación en el canvas real de Brevo**:
+añadir el paso de condición `SI/SINO` sobre `contact.NOVERIS` antes de
+los pasos de Email 2 y Email 3, igual que ya existe para el Email 1, y
+pegar este copy en la rama `SINO` de cada uno. Esta sesión no tiene
+ahora mismo una sesión de Brevo autenticada abierta para hacerlo en
+vivo — queda listo para ejecutar en cuanto se abra esa sesión.
+
+### Pendiente de login (no de decisión)
+
+- **Autenticación de dominio (SPF/DKIM/DMARC)**: requiere sesión en
+  Brevo (`Settings → Senders, Domains, IPs → Domains`) y, después,
+  acceso al panel DNS del dominio `davidportodiaz.com` para añadir los
+  registros que Brevo genere. Ninguna de las dos está abierta en esta
+  sesión.
+- Activar la automatización de Lectores beta (requiere la misma sesión
+  de Brevo).
+- El resto del runbook original de abajo (arquitectura de contactos,
+  QA de clientes de email, etc.) sigue sin ejecutar.
 
 ## Objetivo
 
