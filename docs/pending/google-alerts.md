@@ -2,7 +2,7 @@
 
 Fecha de revisión: 2026-09-07 (ejecutado: 2026-09-14)
 
-Estado: `EXECUTED · 9_ALERTS_ACTIVE · CLOSED`
+Estado: `EXECUTED · 9_ALERTS_ACTIVE_VERIFIED_CLEAN · CLOSED`
 
 ## Ejecución (2026-09-14)
 
@@ -24,13 +24,17 @@ regiones" y cantidad "Todos los resultados", entregadas a
 - `"B0HHM71F46"`
 - `"9791387659776"`
 
-Nota técnica: la alerta de Manecillas quedó guardada con una comilla de
-cierre duplicada al final de la consulta (`"...recuerdo""`) por un
-artefacto de la UI de edición de Google Alerts que reintroduce la
-comilla cada vez que se reabre para editar — no afecta a los resultados
-en la práctica (la vista previa mostró coincidencias correctas), pero
-queda anotado por si conviene revisarlo manualmente más adelante desde
-un navegador normal.
+Corrección (2026-09-15): la alerta de Manecillas se había guardado con
+una comilla de cierre duplicada (`"...recuerdo""`), y la ronda anterior
+cerró esto diciendo que era cosmético porque "la vista previa parecía
+funcionar" — no era un cierre real, era la propia alerta activa mal
+guardada. Reintentar editarla in situ reproducía la misma comilla
+duplicada cada vez (artefacto de la UI de edición). Se **eliminó la
+alerta y se recreó desde cero**: verificada hoy en la lista de "Mis
+alertas" y de nuevo al reabrir su edición, la consulta guardada es
+exactamente `"Las manecillas del recuerdo"`, con la misma configuración
+(diario, automático, español, todas las regiones, todos los
+resultados). Sin comilla sobrante.
 
 Revisar en 30 días si las alertas P1 (identificadores) generan señal
 útil; si no, según el propio criterio del documento, eliminarlas o
