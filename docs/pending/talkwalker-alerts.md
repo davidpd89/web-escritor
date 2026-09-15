@@ -1,8 +1,23 @@
 # Talkwalker Alerts — monitorización gratuita de menciones
 
-Fecha de revisión: 2026-09-07
+Fecha de revisión: 2026-09-07 (cierre: 2026-09-15)
 
-Estado: `RESEARCHED · FREE_SERVICE_CONFIRMED · BOOLEAN_AND_RSS_AVAILABLE · READY_FOR_EXECUTION`
+Estado: `NO_SELF_SERVE_SIGNUP_ONLY_DEMO_REQUEST · REDUNDANT_WITH_GOOGLE_ALERTS · NO_GO · CLOSED`
+
+## Cierre (2026-09-15)
+
+David confirma directamente que Talkwalker ya no ofrece un alta de
+"Alerts" gratuita autoservicio como describía la investigación
+original de este documento (`READY_FOR_EXECUTION` estaba desactualizado
+frente al producto real hoy): el único flujo visible en el sitio es
+solicitar una demo comercial de su suite, no crear una alerta gratuita
+directamente. Además, Google Alertas (#pendiente `google-alerts.md`,
+ya cerrado y verificado) cubre exactamente la misma necesidad de
+monitorización de menciones para autor/libros/dominio/ISBN. No merece
+la pena perseguir una demo comercial para una función redundante.
+
+Se cierra sin acción. El resto del documento queda como registro de la
+investigación original, ya no vigente respecto al flujo de alta.
 
 ## Objetivo
 
