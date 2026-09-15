@@ -23,7 +23,10 @@
         {"host": "gc.zgo.at", "directives": ["script-src", "connect-src"]},
         {"host": "davidportodiaz.goatcounter.com", "directives": ["script-src", "connect-src"]}
       ],
-      "privacy_evidence": ["<strong>GoatCounter</strong>", "GoatCounter tampoco instala cookies"]
+      "privacy_evidence": ["<strong>GoatCounter</strong>", "GoatCounter tampoco instala cookies"],
+      "loading_signatures": ["data-goatcounter=", "gc.zgo.at/count.js"],
+      "single_load_exceptions": ["asistente/index.html"],
+      "single_load_exceptions_reason": "asistente/index.html no carga script.js (tiene su propio shell v1-shell.js/assistant.js): lleva su propio loader guardado con el mismo allowlist de hostnames de producción que script.js, en vez de delegar en su IIFE."
     },
     {
       "id": "metricool",
@@ -44,7 +47,30 @@
       "browser_hosts": [
         {"host": "tracker.metricool.com", "directives": ["script-src", "connect-src", "img-src"]}
       ],
-      "privacy_evidence": ["<strong>Metricool</strong>", "tracker.metricool.com/resources/be.js"]
+      "privacy_evidence": ["<strong>Metricool</strong>", "tracker.metricool.com/resources/be.js"],
+      "loading_signatures": ["tracker.metricool.com/resources/be.js"]
+    },
+    {
+      "id": "microsoft-clarity",
+      "provider": "Microsoft Clarity",
+      "layer": "browser",
+      "status": "active",
+      "purpose": "Mapas de calor y grabaciones de sesión para insight de UX/conversión (no SEO).",
+      "trigger": "Carga de script.js en superficies públicas que lo incluyen, excepto el quiz de Samuel (data-samuel-quiz), que Clarity nunca debe capturar.",
+      "failure_mode": "Fail-open: la web y las acciones continúan si Clarity no carga.",
+      "data_scope": "Interacciones de UI y grabación de sesión; enmascara campos/contraseñas por defecto; nunca sincroniza con Microsoft Advertising.",
+      "decision": "keep",
+      "owner_files": ["script.js", "privacidad.html"],
+      "evidence": [
+        {"file": "script.js", "contains": ["https://www.clarity.ms/tag/", "wxkseslr28"]},
+        {"file": "privacidad.html", "contains": ["Microsoft Clarity"]}
+      ],
+      "browser_hosts": [
+        {"host": "*.clarity.ms", "directives": ["script-src", "connect-src", "img-src"]}
+      ],
+      "privacy_evidence": ["Microsoft Clarity", "dp-analytics-consent"],
+      "loading_signatures": ["clarity.ms/tag/", "wxkseslr28"],
+      "single_load_exceptions": []
     },
     {
       "id": "newsletter-cloudflare-worker",

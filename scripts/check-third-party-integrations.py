@@ -18,9 +18,11 @@ import argparse
 import html
 import json
 import re
+import subprocess
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
+_FS_WALK_EXCLUDE_DIRS = {".git", "node_modules", "artifacts", ".lighthouseci", ".claude", ".preview-dist"}
 DEFAULT_MANIFEST = Path("data/third-party-integrations.json")
 ALLOWED_STATUS = {"active", "conditional", "optional_disabled", "retired"}
 ALLOWED_LAYER = {"browser", "browser_to_edge", "server_side"}
@@ -116,6 +118,73 @@ def validate_manifest(manifest: dict) -> list[str]:
     return errors
 
 
+def list_html_files(root: Path) -> list[Path]:
+    """Tracked HTML files, source of truth for what actually ships.
+
+    `git ls-files` is preferred because it automatically excludes anything
+    gitignored (build output like .preview-dist/, sibling worktrees under
+    .claude/worktrees/, personal notes folders) without a hand-maintained
+    exclude list that would drift. Falls back to a plain filesystem walk for
+    non-repo fixture roots (used by the unit tests in
+    tests/test-third-party-integrations.py), with the same excludes this
+    repo's other check-*.py scripts already use for non-production content.
+    """
+    try:
+        result = subprocess.run(
+            ["git", "ls-files", "*.html"],
+            cwd=root, capture_output=True, text=True, check=True,
+        )
+        return [root / line for line in result.stdout.splitlines() if line]
+    except (OSError, subprocess.CalledProcessError):
+        return [
+            p for p in root.rglob("*.html")
+            if not _FS_WALK_EXCLUDE_DIRS.intersection(p.relative_to(root).parts)
+        ]
+
+
+def check_single_loading_path(root: Path, manifest: dict, cache: dict[str, str]) -> list[str]:
+    """Each active/conditional browser integration must load from exactly
+    one place. Found 2026-09-16: GoatCounter's own manifest entry documents
+    its trigger as "Carga de script.js" (script.js's own IIFE even guards
+    against double-loading via `document.querySelector('script[data-goatcounter]')`),
+    but 16 pages carried a second, hardcoded `<script data-goatcounter>` tag
+    of their own -- unguarded by script.js's environment check, so those
+    pages kept sending real GoatCounter traffic from localhost/file:///
+    staging even after that guard shipped. A single "loading_signatures"
+    list per integration (the literal string(s) that only appear in an
+    actual load attempt, not in privacy-policy prose describing the
+    provider) lets this be enforced mechanically instead of relying on
+    remembering to check next time.
+    """
+    errors: list[str] = []
+    html_files = list_html_files(root)
+    for item in manifest["integrations"]:
+        if item.get("layer") != "browser" or item.get("status") not in {"active", "conditional"}:
+            continue
+        signatures = item.get("loading_signatures")
+        if not signatures:
+            continue
+        allowed = set(item.get("owner_files", [])) | set(item.get("single_load_exceptions", []))
+        for path in html_files:
+            rel = path.relative_to(root).as_posix()
+            if rel in allowed:
+                continue
+            try:
+                text = cache.get(rel) or path.read_text(encoding="utf-8", errors="replace")
+            except OSError:
+                continue
+            cache[rel] = text
+            for signature in signatures:
+                if signature in text:
+                    errors.append(
+                        f"{item['id']}: {rel} contiene un segundo punto de carga no declarado "
+                        f"({signature!r}) -- añade el fichero a single_load_exceptions si es "
+                        f"intencional y está correctamente guardado, o elimina el tag legacy."
+                    )
+                    break
+    return errors
+
+
 def evaluate(root: Path, manifest: dict) -> list[str]:
     errors = validate_manifest(manifest)
     if errors:
@@ -181,6 +250,7 @@ def evaluate(root: Path, manifest: dict) -> list[str]:
                     if host not in csp[directive] and f"https://{host}" not in csp[directive]:
                         errors.append(f"{item_id}: {host} no permitido por {directive} en CSP publico")
 
+    errors.extend(check_single_loading_path(root, manifest, cache))
     return errors
 
 
