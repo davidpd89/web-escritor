@@ -439,19 +439,24 @@ document.querySelectorAll(".faq-question").forEach((btn) => {
   });
 });
 
-// A real visitor never has this hostname -- it's exclusively a local dev
-// server or a CI browser test hitting `python -m http.server` (found
-// 2026-09-15 via Clarity's own "popular pages" list: /cuaderno/ and one
-// article were the top two entries, both served from 127.0.0.1, from
-// repeated CI runs -- none of the ~70 qa/*.mjs browser suites mock Clarity's
-// own script tag the way a handful already mock GoatCounter/Metricool's).
-// Guarding here fixes it once at the source instead of retrofitting every
-// suite. getStoredAnalyticsConsent/applyAnalyticsConsent/
-// showAnalyticsConsentBanner below are untouched by this -- the consent-flow
-// UI itself is real product behavior other tests correctly still exercise
-// on localhost; applyAnalyticsConsent is already a documented no-op
-// wherever window.clarity was never loaded (see that function's own guard).
-const IS_LOCAL_TEST_ENV = /^(?:localhost|127\.0\.0\.1|\[::1\])$/.test(location.hostname);
+// A real visitor never has this hostname/protocol -- it's exclusively a
+// local dev server, a CI browser test hitting `python -m http.server`, or a
+// page opened directly as a local file (found 2026-09-15 via Clarity's and
+// Metricool's own dashboards: 127.0.0.1 routes and, worse, literal local
+// filesystem paths like "/web david porto nuevas ideas/.../*.example.html"
+// were among the top tracked "pages" -- someone's editor/tool previewing an
+// HTML file with file:// opens it with an empty location.hostname, not
+// "localhost", so a hostname-only check misses it). None of the ~70
+// qa/*.mjs browser suites mock Clarity's own script tag the way a handful
+// already mock GoatCounter/Metricool's, and nothing mocks any of the three
+// for a plain file:// open. Guarding here fixes it once at the source
+// instead of retrofitting every suite. getStoredAnalyticsConsent/
+// applyAnalyticsConsent/showAnalyticsConsentBanner below are untouched by
+// this -- the consent-flow UI itself is real product behavior other tests
+// correctly still exercise on localhost; applyAnalyticsConsent is already a
+// documented no-op wherever window.clarity was never loaded (see that
+// function's own guard).
+const IS_LOCAL_TEST_ENV = location.protocol === "file:" || /^(?:localhost|127\.0\.0\.1|\[::1\])$/.test(location.hostname);
 
 if (!IS_LOCAL_TEST_ENV) (function () {
   // Guard against double-loading: some pages still carry a legacy direct
