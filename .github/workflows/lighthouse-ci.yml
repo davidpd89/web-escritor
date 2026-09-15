@@ -37,15 +37,6 @@ name: Lighthouse CI
 
 on:
   pull_request:
-    paths:
-      - '**/*.html'
-      - '**/*.css'
-      - '**/*.js'
-      - 'assets/**'
-      - 'manifest.json'
-      - 'service-worker.js'
-      - 'lighthouserc.json'
-      - '.github/workflows/lighthouse-ci.yml'
   workflow_dispatch:
 
 permissions:
@@ -59,26 +50,57 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v5
+        with:
+          fetch-depth: 0
+
+      # This check is a required ruleset context, so it must post a result on
+      # every PR -- a path-filtered `on.pull_request.paths` trigger would mean
+      # a docs-only PR never gets this check at all, which GitHub then shows
+      # as permanently "Expected", blocking merge instead of passing it. So
+      # the workflow trigger has no path filter and instead this step decides,
+      # per PR, whether the surface Lighthouse actually measures changed --
+      # every later step is gated on that instead of on the trigger.
+      - name: Detect relevant changes
+        id: changes
+        run: |
+          if [ "${{ github.event_name }}" != "pull_request" ]; then
+            echo "relevant=true" >> "$GITHUB_OUTPUT"
+            exit 0
+          fi
+          if git diff --name-only "${{ github.event.pull_request.base.sha }}" "${{ github.event.pull_request.head.sha }}" \
+            | grep -qE '\.(html|css|js)$|^assets/|^manifest\.json$|^service-worker\.js$|^lighthouserc\.json$|^\.github/workflows/lighthouse-ci\.yml$'; then
+            echo "relevant=true" >> "$GITHUB_OUTPUT"
+          else
+            echo "relevant=false" >> "$GITHUB_OUTPUT"
+          fi
+
+      - name: No HTML/CSS/JS/assets changes -- skipping Lighthouse
+        if: steps.changes.outputs.relevant != 'true'
+        run: echo "This PR doesn't touch any surface Lighthouse measures. Passing without running it."
 
       - name: Set up Node
+        if: steps.changes.outputs.relevant == 'true'
         uses: actions/setup-node@v5
         with:
           node-version: '22'
 
       - name: Install Lighthouse CI
+        if: steps.changes.outputs.relevant == 'true'
         run: npm install --global @lhci/cli@0.15.1
 
       # collect y assert van separados a proposito: con `lhci autorun`, un fallo
       # de assertions terminaba el proceso antes de los pasos siguientes.
       - name: Collect Lighthouse reports
+        if: steps.changes.outputs.relevant == 'true'
         run: lhci collect --config=./lighthouserc.json
 
       - name: Upload reports to temporary public storage
-        if: always()
+        if: always() && steps.changes.outputs.relevant == 'true'
         continue-on-error: true
         run: lhci upload --config=./lighthouserc.json
 
       - name: Assert budgets
+        if: steps.changes.outputs.relevant == 'true'
         run: lhci assert --config=./lighthouserc.json
 
       # include-hidden-files es imprescindible, no decorativo: LHCI deja los
@@ -87,7 +109,7 @@ jobs:
       # provided path" de los runs anteriores — el directorio existia y estaba
       # lleno; la accion no lo miraba.
       - name: Upload local Lighthouse reports
-        if: always()
+        if: always() && steps.changes.outputs.relevant == 'true'
         uses: actions/upload-artifact@v6
         with:
           name: lighthouse-reports
