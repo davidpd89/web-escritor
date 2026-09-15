@@ -78,9 +78,14 @@ class EventCalendarTests(unittest.TestCase):
         self.assertIn("DTSTART;VALUE=DATE:20260910\r\n", generated)
         self.assertIn("DTEND;VALUE=DATE:20260911\r\n", generated)
 
-    def test_completed_event_creates_no_calendar(self) -> None:
+    def test_archived_event_creates_no_calendar(self) -> None:
+        # Past events omit eventStatus entirely (2026-09-09) rather than the
+        # invalid schema.org value "EventCompleted" -- see build-event-
+        # calendars.py's module docstring for why. The generator's filter
+        # already treats "anything other than EventScheduled" -- including
+        # absent -- as not-upcoming, so deleting the key is the real case.
         event = self.timed_event()
-        event["eventStatus"] = cal.EVENT_COMPLETED
+        del event["eventStatus"]
         expected, errors = cal.expected_calendars(page_for(event, include_link=False))
         self.assertEqual(expected, {})
         self.assertEqual(errors, [])
