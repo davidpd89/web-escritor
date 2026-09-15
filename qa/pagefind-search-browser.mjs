@@ -105,13 +105,28 @@ try {
     );
   }
 
-  // 5. No external network requests during a search (fully local/static).
+  // 5. No external network requests caused by a search (fully local/static).
+  // Baseline-then-diff (same pattern as qa/samuel-book-fragment-browser.mjs),
+  // not a raw "must stay empty" window: Clarity's own SDK (loaded page-wide,
+  // independent of search) pings an anonymized per-pageview collect beacon
+  // even under denied consent (see script.js's comment on that), on its own
+  // timer that has nothing to do with pagefind. A bare-empty assertion here
+  // raced that ambient beacon and flaked in CI (saw g.clarity.ms/collect,
+  // then y.clarity.ms/collect on a later run) -- recording the count right
+  // before the search and asserting no *new* external request appears keeps
+  // testing what this check actually claims (search doesn't call out)
+  // without depending on when Clarity's unrelated timer happens to fire.
   const external = [];
   page.on('request', (req) => {
     if (!req.url().startsWith(ORIGIN)) external.push(req.url());
   });
+  const baselineExternal = external.length;
   await search(page, 'herramientas');
-  assert.deepEqual(external, [], `local search must not issue external requests, saw: ${JSON.stringify(external)}`);
+  assert.deepEqual(
+    external.slice(baselineExternal),
+    [],
+    `local search must not issue external requests, saw: ${JSON.stringify(external.slice(baselineExternal))}`,
+  );
 
   await context.close();
 
