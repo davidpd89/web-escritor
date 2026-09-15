@@ -1,8 +1,8 @@
 # LibraryThing — autor, libros y comunidad
 
-Fecha de revisión: 2026-09-07 (ejecutado: 2026-09-14)
+Fecha de revisión: 2026-09-07 (ejecutado: 2026-09-14, completado: 2026-09-15)
 
-Estado: `SAMUEL_YEAR_FIXED · REAL_REVIEW_FOUND_ON_MANECILLAS · DUPLICATE_WORKS_FLAGGED_NOT_MERGED · AWAITING_OWNER_ON_COMBINE`
+Estado: `SAMUEL_YEAR_FIXED · DUPLICATE_WORKS_COMBINED · AUTHOR_CLAIM_SUBMITTED_PENDING_REVIEW · CLOSED`
 
 ## Ejecución (2026-09-14, sesión `DavidPortoDiaz` autenticada)
 
@@ -26,25 +26,37 @@ La ficha de Samuel entre mundos en la biblioteca personal de David
 2025, confirmado ya en Amazon.es/ISFDB). Corregido vía "Edit Book" a
 `2025-12-01` / `Libros Indie, 2025`. Verificado tras guardar.
 
-### Hallazgo: dos fichas de obra (Work) separadas para Manecillas
+### Corregido: dos fichas de obra (Work) separadas para Manecillas, ahora combinadas
 
-El autor tiene **dos Work IDs distintos** para el mismo libro:
+El autor tenía **dos Work IDs distintos** para el mismo libro:
 
-- `37203951` — "Las Manecillas Del Recuerdo" (2026), listado con 5
-  copias pero **0 members reales**; parece un registro poblado por un
-  feed externo (ISBN/metadata), no por catalogación manual.
+- `37203951` — "Las Manecillas Del Recuerdo", 0 members reales; su
+  única edición listada era el ISBN `9798906781925` — el **Kindle**,
+  no un registro genérico de feed externo como se pensó la ronda
+  anterior.
 - `37203222` — "Las Manecillas del Recuerdo (Spanish Edition)", 1
-  member real (`carlosbermejop`) con la reseña de arriba.
+  member real (`carlosbermejop`) con la reseña de 5 estrellas citada
+  arriba.
 
-Esto es exactamente el tipo de duplicado que LibraryThing espera que la
-comunidad combine, y probablemente debería fusionarse para que la
-reseña quede en la ficha "canónica" del libro. **No se ha combinado**:
-no se encontró la herramienta de combinar/separar accesible desde estas
-páginas de obra con esta cuenta, y combinar mal dos ediciones distintas
-en una wiki comunitaria no es reversible sin esfuerzo — prefiero que
-esto se revise con calma (o se pida ayuda a un bibliotecario/moderador
-de LibraryThing vía su foro) antes que arriesgarme a una fusión
-incorrecta. Queda documentado para retomarlo.
+La ronda anterior no combinó esto por no encontrar la herramienta y por
+prudencia ante una wiki comunitaria. La herramienta sí existe y es de
+uso normal para cualquier miembro: desde la página de la obra →
+`Editions` (`/work/<id>/editions`) → módulo "Potential Combinations" →
+`Combine/separate potential work combinations…`
+(`/combine.php?work=<id>`), marcar ambas obras y pulsar "Combine
+Selected Works" → confirmar en la pantalla "Combine Works".
+
+Esto **no es fusionar dos ediciones distintas en una** — el modelo de
+LibraryThing usa "Work" precisamente para agrupar todas las ediciones
+(papel, Kindle, traducciones) de una misma obra bajo una ficha común,
+manteniendo cada edición/ISBN identificable dentro. Con el Kindle y el
+papel de Manecillas ya identificados como ediciones de la misma novela,
+combinarlas es exactamente lo que el sistema espera, no un riesgo.
+
+**Ejecutado y verificado**: ambas obras combinadas el 2026-09-15. La
+página del autor ahora muestra **2 Works** (antes 3). La reseña de
+`carlosbermejop` sigue visible en la ficha combinada, junto con ambas
+ediciones (Kindle ISBN `9798906781925` y la edición en papel).
 
 ### Confirmado: Common Knowledge del autor ya está bien completado
 
@@ -53,14 +65,29 @@ constan correctamente en la página de autor (`/a/31983928/`), con la
 forma canónica en español "Porto Díaz, David" (convención bibliográfica
 normal, no un error). No se ha tocado.
 
-### Pendiente
+### Solicitado: estatus de LibraryThing Author
 
-- Decidir si combinar los dos Works de Manecillas (recomendado, pero
-  requiere la herramienta de combinación o ayuda de un bibliotecario
-  de LibraryThing).
-- Explorar si existe la opción "LibraryThing Author" para reclamar
-  oficialmente el perfil de autor (no se ha localizado el botón
-  concreto en esta sesión; puede requerir contactar soporte).
+Localizado en la página de autor, sección "Is This You?" →
+"Become a LibraryThing Author" (`/author_claim.php?author=portodazdavid`):
+formulario para seleccionar una obra propia + mensaje opcional +
+aceptar las normas del programa ("How Authors Can Use LibraryThing").
+Completado seleccionando `Samuel entre mundos`, con mensaje
+identificando al autor y ambos libros, aceptando las normas y enviando
+la solicitud.
+
+Esto es un programa **moderado por el equipo de LibraryThing**, no
+instantáneo: no hay ninguna confirmación visible en la propia web tras
+enviarlo (ni aquí ni en el perfil), así que el resultado (aprobación o
+petición de más información) llegará por email o mensaje interno de
+LibraryThing más adelante — normal en un programa de curación humana,
+no un fallo. No se ha vuelto a intentar más de lo necesario para no
+generar solicitudes duplicadas.
+
+### Qué queda
+
+Nada accionable por ahora: revisar en unos días si LibraryThing
+confirma el estatus de autor (badge amarillo "LT Author" en el perfil y
+en las fichas de las obras) o pide algo más.
 
 ## Objetivo
 
