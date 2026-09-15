@@ -2,8 +2,6 @@ name: Home masthead nav interaction QA
 
 on:
   pull_request:
-    branches:
-      - implementacion-web-2026
     paths:
       - 'index.html'
       - 'assets/v1-home.css'
