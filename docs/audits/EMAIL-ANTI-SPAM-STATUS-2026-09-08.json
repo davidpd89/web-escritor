@@ -1,0 +1,27 @@
+{
+  "date": "2026-09-08",
+  "status": "PARTIAL_IMPLEMENTATION",
+  "documented": true,
+  "runtimeImplemented": true,
+  "auditorImplemented": true,
+  "unitTestsImplemented": true,
+  "footerMigrated": false,
+  "pressMigrated": false,
+  "staticExposureGateEnabled": false,
+  "mergedMain": false,
+  "verifiedLive": false,
+  "knownCurrentExposure": {
+    "footer": "numeric HTML entity obfuscation generated sitewide",
+    "press": "multiple numeric-entity mailto links and one visible encoded address"
+  },
+  "closeOnlyWhen": [
+    "PUBLIC_STATIC_EMAIL_EXPOSURES=0",
+    "footer migrated",
+    "press CTAs migrated with subjects preserved",
+    "strict audit in CI",
+    "no-JS fallback verified",
+    "keyboard/screen-reader path verified",
+    "reflow/CSP/Pa11y/press QA green",
+    "post-deploy source smoke verified"
+  ]
+}

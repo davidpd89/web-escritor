@@ -1,0 +1,147 @@
+# ISNI — David Porto Díaz
+
+Fecha de revisión: 2026-09-07 (última reverificación en vivo: 2026-09-14)
+
+Estado: `BNE_ISNI_REQUEST_SENT_2026-09-14 · RESPONSE_PENDING`
+
+## Objetivo
+
+Comprobar si David Porto Díaz ya dispone de ISNI y, si no existe, tramitarlo por una vía institucional gratuita que mejore la desambiguación del autor entre catálogos, bibliotecas y grafos de identidad.
+
+## Vía gratuita confirmada
+
+La Biblioteca Nacional de España confirma que tramita solicitudes ISNI escribiendo a `isni@bne.es` para:
+- autores o entidades españolas o que trabajan en España;
+- autores o entidades presentes en el catálogo de la BNE.
+
+Fuente oficial:
+- https://www.bne.es/es/preguntas-frecuentes/como-puedo-conseguir-isni
+
+La BNE indica que la identificación de una identidad pública utiliza, entre otros datos, nombre, fecha/lugar cuando proceda, categoría y función, una obra de referencia y una URI pública.
+
+No necesitamos contratar una agencia comercial si la BNE admite la solicitud.
+
+## Paquete de identidad preparado
+
+- Nombre: David Porto Díaz
+- Función: escritor / autor
+- Nacido en Pontevedra; residente en Madrid
+- Web oficial: https://davidportodiaz.com/
+- ORCID: 0009-0005-9089-3782
+- Wikidata: Q139678851
+- Amazon Author: B0GZFP1JV3
+- Goodreads Author: 66843136
+
+Obras de referencia:
+- `Samuel entre mundos` — ISBN 9791387659776 — Libros Indie — 2025
+- `Las manecillas del recuerdo` — papel ISBN 9798905149351 — Monza Ediciones — 2026
+- `Las manecillas del recuerdo` — ebook ISBN 9798906781925 — Monza Ediciones — 2026
+
+## Procedimiento
+
+1. Buscar primero en ISNI por nombre y variantes.
+2. Desambiguar cada candidato mediante obras, país, función y URLs asociadas.
+3. Revisar posibles registros duplicados.
+4. Si existe un ISNI inequívoco, guardar ID/URL y revisar sus datos públicos.
+5. Si no existe, coordinar con #422 BNE y enviar la solicitud a la BNE con el paquete de identidad anterior y las fuentes públicas que solicite.
+6. No incluir datos privados innecesarios en Git ni en comentarios públicos de la PR.
+7. Una vez confirmado el ISNI, añadirlo a Wikidata y a `Person.sameAs` de la web si procede.
+8. Comprobar posteriormente VIAF/BNE/WorldCat para detectar propagación/enlaces.
+
+## Qué NO hacer
+
+- No pagar por un ISNI mientras exista la vía BNE aplicable.
+- No aceptar un ISNI solo por coincidencia de nombre.
+- No inventar fecha de nacimiento completa u otros datos no publicados.
+- No crear otro identificador si ya existe uno correcto.
+
+## Criterio de cierre
+
+`ISNI_SEARCHED · DUPLICATES_REVIEWED · ISNI_CONFIRMED_OR_BNE_REQUEST_SUBMITTED · PUBLIC_ID_VERIFIED · WIKIDATA_SITE_UPDATED_IF_APPLICABLE · NO_PAID_REGISTRATION`
+
+## Nota de intento (2026-09-08)
+
+Se intentó el paso 1 (búsqueda directa en isni.org) esta noche: el buscador
+público de isni.org está protegido por un challenge de Cloudflare
+("Verifique que es un ser humano"), que un navegador automatizado no debe
+completar — es exactamente el tipo de verificación anti-bot que no hay que
+sortear. La búsqueda directa en isni.org requiere, por tanto, hacerse
+manualmente desde un navegador humano.
+
+No cambia el resto del análisis: la vía BNE (`isni@bne.es`) sigue siendo el
+camino recomendado si no aparece un ISNI ya existente, y sigue siendo un
+correo que el propio autor debería enviar o autorizar explícitamente, no
+algo para automatizar.
+
+## Reverificación en vivo (2026-09-14)
+
+Se ha vuelto a intentar isni.org directamente hoy: sigue mostrando el
+challenge de Cloudflare ("Just a moment...") antes de cualquier
+resultado. No se ha intentado completarlo, igual que la ronda anterior.
+
+Como comprobación cruzada indirecta (no sustituye una búsqueda directa en
+isni.org, pero es una señal adicional): ISNI es uno de los archivos de
+autoridad que alimentan VIAF, y la búsqueda directa en viaf.org de hoy
+mismo (ver #420) tampoco encuentra ningún cluster para el nombre ni para
+el ISBN de Samuel. Si existiera ya un ISNI de David indexado en VIAF,
+normalmente aparecería ahí. Esto es consistente con "no hay ISNI todavía",
+pero no es una prueba definitiva — un ISNI podría existir sin estar aún
+propagado a VIAF.
+
+### Correo enviado a `isni@bne.es` (2026-09-14 — confirmado, no un borrador)
+
+**Corrección de esta entrada**: una versión anterior de este documento
+decía que este correo estaba redactado pero sin enviar. Eso quedó
+desactualizado en cuanto se envió — se corrige aquí para que el registro
+sea preciso. El correo se envió el **2026-09-14** desde la cuenta de
+Gmail del propietario del proyecto, tras su confirmación explícita
+("Sí, envíalo"). Referencia del hilo de Gmail: `1a0a0dae4d650b85`.
+
+Texto exacto enviado:
+
+> **Para:** isni@bne.es
+> **Asunto:** Solicitud de ISNI — David Porto Díaz (autor)
+>
+> Buenos días,
+>
+> Escribo para solicitar la asignación de un identificador ISNI para mi
+> identidad como autor, ya que no he podido verificar si dispongo de uno
+> a través de isni.org.
+>
+> - Nombre: David Porto Díaz
+> - Función: escritor / autor
+> - Lugar de nacimiento: Pontevedra; residencia actual: Madrid
+> - Web oficial: https://davidportodiaz.com/
+> - ORCID: 0009-0005-9089-3782
+> - Wikidata: Q139678851
+> - Obras de referencia:
+>   - *Samuel entre mundos* — ISBN 9791387659776 — Libros Indie — 2025
+>   - *Las manecillas del recuerdo* (papel) — ISBN 9798905149351 — Monza
+>     Ediciones — 2026
+>   - *Las manecillas del recuerdo* (ebook) — ISBN 9798906781925 — Monza
+>     Ediciones — 2026
+>
+> Quedo a su disposición para aportar cualquier dato adicional que
+> necesiten para tramitar la solicitud.
+>
+> Un saludo,
+> David Porto Díaz
+
+### Qué queda pendiente
+
+BNE no da un plazo público de respuesta para solicitudes ISNI. Este
+issue permanece abierto hasta que llegue una respuesta:
+
+- si asignan un ISNI: verificarlo, guardarlo aquí, y solo entonces
+  añadirlo a Wikidata y `Person.sameAs` de la web;
+- si piden más información: responder con lo que pidan, sin inventar
+  datos no publicados;
+- si no responden en varias semanas: valorar un recordatorio, no
+  reenviar por rutina.
+
+No se marca `ISNI_CONFIRMED` ni se toca la web hasta tener una respuesta
+real de la BNE con un identificador verificable.
+
+### Cierre de esta ronda
+
+`BNE_ISNI_REQUEST_SENT_2026-09-14 · RESPONSE_PENDING · CROSS_CHECK_VIA_VIAF_NEGATIVE · NO_PAID_REGISTRATION · NO_ID_ADDED_UNTIL_CONFIRMED`

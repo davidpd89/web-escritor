@@ -38,3 +38,19 @@ Un enlace entrante de un dominio de autoridad no se puede fabricar desde el prop
 
 - Bing Webmaster Tools → Recomendaciones (severidad moderada, sin páginas asociadas porque es una señal de dominio, no de página).
 - Google Search Console → Enlaces → Enlaces externos (`sc-domain:davidportodiaz.com`), corte del 2026-09-07.
+
+## Ranking de oportunidades (añadido 2026-09-07, con datos de la sesión de SEO/IA)
+
+Ordenado por valor esperado (relevancia temática real + autoridad + viabilidad sin pagar ni intercambiar enlaces), no por orden alfabético. Ninguna de estas es "fabricar" un enlace: todas son sitios que ya tendrían un motivo genuino, propio, para enlazar aquí.
+
+1. **Monza Ediciones (la propia editorial de *Las manecillas del recuerdo*)** — el enlace de mayor autoridad posible y el más fácil de conseguir: es una relación comercial ya activa. Pedir que su ficha de catálogo/autor enlace a `davidportodiaz.com` es una solicitud estándar, no una petición inusual.
+2. **Distribuidores/librerías donde el libro ya está a la venta** (Casa del Libro, FNAC, La Casa del Libro, librerías independientes que lo tengan en catálogo) — sus fichas de producto o de autor a menudo permiten un enlace a la web oficial; coste de gestión bajo, autoridad de dominio alta.
+3. **Blogs/canales de reseñas de fantasía juvenil española y portal fantasy** — esta sesión confirmó con datos reales (Bing AI Performance) que `/cuaderno/libros-fantasia-juvenil-espanola-2025-2026/` ya es, con diferencia, la pieza más citada por IA del sitio (29 citas) y que el propio término "libros de fantasía juvenil" genera una cuota de citación del 18,52 % en Bing Copilot. Un blog/canal de ese nicho exacto enlazando a esa pieza concreta (no a la home) es la oportunidad de mayor relevancia temática encontrada.
+4. **Prensa local (Pontevedra/Galicia, origen del autor; Madrid, residencia)** — cobertura de un autor debutante con editorial es un ángulo habitual para prensa local/regional; el kit de prensa (`/prensa.html`, `press-kit/`) ya está listo para facilitar esto.
+5. **Comunidad de escritores que buscan editorial** — hallazgo nuevo de esta sesión: Google Search Console muestra tráfico real y posiciones ya buenas (página 1) para búsquedas como "nocturna ediciones manuscritos" y "minotauro manuscritos" hacia `/editoriales/`. Foros/comunidades de escritores hispanohablantes (no genéricos, sino los específicos donde se discuten convocatorias y editoriales) tendrían un motivo real para enlazar esas fichas como recurso útil.
+6. **Perfiles de autor verificados ya existentes** (Goodreads, StoryGraph, Babelio, Amazon Author Central, Wikidata) — de menor impacto por ser enlaces `nofollow` en su mayoría, pero conviene confirmar que los 5 apuntan de verdad a `davidportodiaz.com` y no a una URL antigua.
+7. **Clubes de lectura y booktokers/bookstagrammers** que ya reseñan el género — la web ya tiene una página dedicada (`/clubes-de-lectura/`) pensada para esto; el enlace vendría como consecuencia natural de una reseña real, no de una solicitud fría.
+
+## Qué NO hacer (confirmado, no cambia con el ranking anterior)
+
+Directorios de enlaces genéricos, guest posts pagados, redes PBN o intercambios de enlaces no entran en este ranking bajo ningún puesto: son exactamente el patrón que el usuario pidió evitar, y no aportan autoridad temática real.
