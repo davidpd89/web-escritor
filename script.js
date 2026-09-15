@@ -522,11 +522,27 @@ if (!IS_LOCAL_TEST_ENV) (function () {
 // for teachers/librarians, not a page minors use directly. No other page
 // is framed as a direct child-facing product.
 if (!document.querySelector('[data-samuel-quiz]')) {
-  if (!IS_LOCAL_TEST_ENV) (function (c, l, a, r, i, t, y) {
+  // Deferred via scheduleTask("background") (2026-09-15 perf audit): a real
+  // Performance-trace A/B on the throttled first-visit path (intro <video>,
+  // hero-tinta-poster.jpg as LCP element) measured Clarity's own script
+  // costing 526ms of main-thread time landing squarely inside the LCP
+  // element's "render delay" window. Fully blocking Clarity's request
+  // dropped LCP from 7248ms to 4388ms (-39%) in that test -- not a fix we
+  // can ship, since it would just delete the analytics, but it confirmed
+  // Clarity, not the poster image itself, was the dominant cost there.
+  // `async=1` below only ever stopped it from blocking the HTML parser;
+  // once the tag is inserted it competes for the same main thread the
+  // decode/paint needs regardless. Wrapping the whole injection (tag
+  // creation included, so the request itself is pushed back too, not just
+  // post-load execution) in a background-priority task measured a smaller
+  // but real and consistent ~100-150ms LCP improvement against production
+  // over repeated runs -- most of the 2860ms only came from removing
+  // Clarity outright, which staying deferred (not blocked) can't recover.
+  if (!IS_LOCAL_TEST_ENV) scheduleTask(() => (function (c, l, a, r, i, t, y) {
     c[a] = c[a] || function () { (c[a].q = c[a].q || []).push(arguments); };
     t = l.createElement(r); t.async = 1; t.src = "https://www.clarity.ms/tag/" + i;
     y = l.getElementsByTagName(r)[0]; y.parentNode.insertBefore(t, y);
-  })(window, document, "clarity", "script", "wxkseslr28");
+  })(window, document, "clarity", "script", "wxkseslr28"), "background");
   // Clarity enforces its own consent gate for EEA/UK/CH visitors (since
   // 2025-10-31): without a 'granted' signal, sessions get a per-pageview ID
   // and no cookie instead of a real cross-page session. Reporting 'granted'
