@@ -251,7 +251,7 @@ def page_shell(*, title: str, description: str, canonical: str, main_html: str, 
     <link rel="preload" as="style" href="/assets/v1-reflow-hardening-v7.css?v=1" />
     <link rel="preload" as="style" href="/assets/v1-text-resilience-v8.css?v=1" />
     <!-- v1-shell-preload:end -->
-    <link rel="stylesheet" href="/assets/v1-shell.css?v=3" />
+    <link rel="stylesheet" href="/assets/v1-shell.css?v=4" />
     <link rel="stylesheet" href="/assets/v1-components.css?v=3" />
     <link rel="stylesheet" href="/assets/v1-families.css?v=2" />
     <link rel="stylesheet" href="/assets/v1-tools.css?v=4" />
