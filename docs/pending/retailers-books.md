@@ -2,46 +2,47 @@
 
 Fecha de investigación: **2026-09-07** (cierre: **2026-09-14**)  
 PR owner: **#410 · `tracking/retailers-books`**  
-Estado: **PAGE_COUNT_CLOSED_OWNER_DECISION · AMAZON_CASA_AGAPEA_VERIFIED_LIVE · FNAC_CORRECTION_MANECILLAS_IS_LISTED · ECI_STILL_NOT_OBSERVED · CLOSED_NO_ACTION**
+Estado: **PAGE_COUNT_CLOSED_OWNER_DECISION · AMAZON_CASA_AGAPEA_VERIFIED_LIVE · FNAC_MANECILLAS_LISTED_SAMUEL_ABSENT_BOTH_VERIFIED_LIVE · ECI_NOT_VERIFIED_SITE_UNRESPONSIVE · CLOSED_NO_ACTION**
 
-## Corrección (2026-09-14, misma noche)
+## Cierre de esta ronda (2026-09-15, versión final — sustituye cierres anteriores)
 
-**El cierre de abajo se equivocó sobre FNAC** — se basó en una búsqueda
-web general que no encontró nada, sin comprobar directamente en
-fnac.es. Al crear las alertas de Google (#460) apareció la ficha real:
+Esta sección sustituye por completo el cierre del 2026-09-14 y su
+"corrección" posterior: ambos quedaban contradictorios entre sí (el
+primero decía que ni Samuel ni Manecillas aparecían en FNAC; el parche
+posterior decía que Manecillas sí, pero dejaba intacto el resto del
+documento — tabla, sección FNAC/ECI y criterios de cierre — todavía
+afirmando lo contrario). Estado real, verificado en vivo hoy
+(2026-09-15) con búsqueda directa dentro de cada sitio, no búsqueda web
+externa:
 
-`https://www.fnac.es/a13491285/David-Porto-Diaz-Las-Manecillas-Del-Recuerdo`
-
-Verificado en vivo: **Las Manecillas Del Recuerdo SÍ está en FNAC.es**
-— autor correcto, 15,99 € (coincide con Amazon.es), fecha de
-lanzamiento 12/08/2026 (tercera fuente independiente que coincide en
-esa fecha, junto a Amazon.es y Casa del Libro — refuerza aún más que la
-pregunta real pendiente es esa fecha, ver #428). Samuel no se ha vuelto
-a comprobar en FNAC con este método más fiable; queda pendiente si se
-retoma este documento. El Corte Inglés sigue sin verificarse de forma
-concluyente (los intentos de búsqueda directa no cargaron resultados).
-
-Esto no cambia el cierre general (nada aquí depende de una acción
-nuestra), pero corrige el hallazgo — no declarar "no observado" en un
-retailer basándose solo en búsqueda externa fue exactamente el error
-que este mismo documento advertía no cometer.
-
-## Cierre de esta ronda (2026-09-14)
-
-- **Páginas** (422/412 Samuel, 272/266 Manecillas): cerrado sin acción,
-  decisión del propietario del proyecto — misma razón que #428/#404/#407/#429.
-- **Amazon.es**: verificado en vivo hoy para ambos libros (ver #428 y
+- **FNAC.es**:
+  - **Las manecillas del recuerdo (papel): SÍ está listada.**
+    `https://www.fnac.es/a13491285/David-Porto-Diaz-Las-Manecillas-Del-Recuerdo`
+    — autor correcto, 15,99 € (coincide con Amazon.es), fecha de
+    lanzamiento 12/08/2026 (tercera fuente independiente coincidiendo
+    en esa fecha junto a Amazon.es y Casa del Libro — refuerza que la
+    pregunta real pendiente es esa fecha, ver #428, no perseguida).
+  - **Samuel entre mundos: confirmado ausente.** Búsqueda directa por
+    ISBN `9791387659776` en fnac.es → "Uy, de eso no tenemos". Esto sí
+    es `NOT_OBSERVED` genuino, comprobado hoy dentro del propio sitio,
+    no una búsqueda externa fallida como la ronda del 14.
+- **El Corte Inglés**: sigue sin verificarse de forma concluyente — la
+  búsqueda dentro del sitio no ha cargado resultados en los intentos de
+  hoy ni de la ronda anterior. Estado correcto: `NOT_VERIFIED`, no
+  `NOT_OBSERVED` (no equivalen: aquí ni siquiera se ha completado la
+  comprobación, no que se haya comprobado y no aparezca).
+- **Amazon.es**: verificado en vivo para ambos libros (ver #428 y
   #429) — metadata, precios y fechas coherentes salvo la fecha de
   Manecillas ya documentada en #428 (no perseguida).
-- **Casa del Libro / Agapea**: verificado en vivo hoy vía Casa del Libro
+- **Casa del Libro / Agapea**: verificado en vivo vía Casa del Libro
   Colombia — sin novedades más allá de lo ya recogido en #428/#429.
-- **FNAC y El Corte Inglés**: reverificado hoy (búsqueda directa +
-  externa) — sigue sin aparecer ninguna ficha para Samuel ni Manecillas
-  en ninguno de los dos. Esto es `NOT_OBSERVED`, no una incidencia: no
-  hay evidencia de que debieran estar ahí (no se ha confirmado que el
-  distribuidor de ninguna de las dos editoriales incluya estos canales),
-  así que no se escala nada — coherente con la propia guía del
-  documento de no asumir presencia por existir en DILVE.
+- **Páginas** (422/412 Samuel, 272/266 Manecillas): cerrado sin acción,
+  decisión del propietario del proyecto — misma razón que #428/#404/#407/#429.
+
+No hay ninguna acción pendiente que dependa de este repositorio: la
+única cosa nueva y real (fecha de Manecillas en FNAC coincidiendo con
+Amazon/Casa del Libro) ya está recogida en #428 y no se persigue por
+decisión del propietario de no contactar a Monza.
 
 No queda ninguna discrepancia real y accionable en este documento que no
 dependa ya de Monza (#428, cerrado sin contacto por decisión del
@@ -93,8 +94,8 @@ Esta PR NO debe convertirse en una base manual de precios/stock. Precio y dispon
 | TodosTusLibros | registro público observado | no observado | no observado | `PARTIAL` |
 | Agapea | no auditado a fondo | registro público observado | no auditado | `PARTIAL` |
 | Bookish | registro público observado | no auditado | no auditado | `PARTIAL` |
-| FNAC España | no observado hoy | no observado hoy | no observado hoy | `NOT_OBSERVED` |
-| El Corte Inglés | no observado hoy | no observado hoy | no observado hoy | `NOT_OBSERVED` |
+| FNAC España | confirmado ausente (verificado 2026-09-15) | listado y verificado en vivo (ver arriba) | no comprobado | `SAMUEL_ABSENT · MANECILLAS_LISTED` |
+| El Corte Inglés | no verificado (sitio no cargó resultados) | no verificado (sitio no cargó resultados) | no verificado | `NOT_VERIFIED` |
 | Google Books/Play | owner #405 | owner #405 | owner #405 | `DELEGATED` |
 | Apple Books | owner #411 | owner #411 | owner #411 | `DELEGATED` |
 | Kobo | owner #412 | owner #412 | owner #412 | `DELEGATED` |
@@ -248,14 +249,23 @@ No ajustar la web ni retailers hasta que #428 Monza confirme ejemplar/metadata d
 
 ## FNAC y El Corte Inglés
 
-Las búsquedas públicas de hoy por título/ISBN no devolvieron fichas inequívocas.
+Verificado en vivo el 2026-09-15 con búsqueda directa dentro de cada sitio
+por ISBN exacto (no búsqueda web externa, que fue el error de la
+primera ronda):
+
+- FNAC.es — ISBN `9791387659776` (Samuel): **"Uy, de eso no tenemos"**,
+  confirmado ausente. Manecillas (`9798905149351`) sí tiene ficha real:
+  `https://www.fnac.es/a13491285/David-Porto-Diaz-Las-Manecillas-Del-Recuerdo`
+  (ver matriz y cierre arriba para detalles).
+- El Corte Inglés — la búsqueda dentro del sitio no cargó resultados
+  navegables en ninguno de los dos intentos (14 y 15 de septiembre).
+  Estado: `NOT_VERIFIED`, no `NOT_OBSERVED` — no llegó a completarse la
+  comprobación.
 
 Estado:
 
-- `FNAC_PUBLIC_RECORD_NOT_OBSERVED`
-- `ECI_PUBLIC_RECORD_NOT_OBSERVED`
-
-Claude debe repetir búsqueda directa dentro de cada sitio por ISBN exacto.
+- `FNAC_SAMUEL_ABSENT_CONFIRMED · FNAC_MANECILLAS_LISTED_CONFIRMED`
+- `ECI_NOT_VERIFIED_SITE_UNRESPONSIVE`
 
 Si no aparece:
 
