@@ -2,7 +2,55 @@
 
 Fecha de revisión: **2026-09-07**  
 PR owner: **#444 · `tracking/wikimedia-commons`**  
-Estado: **PAGE_COPYRIGHT_CREDITS_REVIEWED · IMAGES_CREDIT_CLEAR · DESIGN_LAYOUT_IS_JOINT · FULL_COVER_STILL_NEEDS_CO_AUTHOR_CONSENT**
+Estado: **AUTHOR_CONFIRMED_CONSENT_COVERS_FULL_COVER · LOGGED_IN_AS_COMMONS_USER · BLOCKED_ONLY_ON_FILE_PICKER_STEP**
+
+## Decisión del autor (2026-09-15)
+
+David confirma directamente (no una inferencia de esta sesión) que la
+portada completa **sí se puede subir**: él mismo aparece acreditado
+como coautor del diseño de cubierta ("Diseño de cubierta, diseño
+interior y maquetación: Mónica Iglesias y David Porto"), y con esa
+base decide avanzar con la portada completa, no solo con las imágenes
+sueltas. Se acepta explícitamente la licencia libre con reutilización
+comercial y derivados que exige Commons (ver "Licencias válidas" más
+abajo) — se usará **CC BY-SA 4.0**.
+
+- Fichero elegido: la versión de mayor calidad disponible en el repo,
+  `portada-las-manecillas-del-recuerdo-1024x1536.png` (1024×1536,
+  proporción real de cubierta de libro; la versión de `assets/` usada
+  en la web es una copia comprimida a 1024px de ancho de esta misma
+  imagen).
+- Título de archivo propuesto: `Las manecillas del recuerdo (portada, David Porto Díaz, 2026).png`
+- Autor/diseño: Mónica Iglesias y David Porto; imágenes de portada: David Porto.
+- Fuente: `own work` (David Porto, coautor del diseño, subiendo con consentimiento del autor del texto y titular conjunto).
+- Licencia: CC BY-SA 4.0.
+- Descripción: "Portada de *Las manecillas del recuerdo*, de David Porto Díaz (Monza Ediciones, 2026). Diseño de cubierta de Mónica Iglesias y David Porto."
+
+**Progreso real de la subida**: sesión de Wikimedia ya autenticada en
+esta sesión de navegador como `DavidPortoDiaz` (login único de
+Wikimedia, válido también en Commons — confirmado en
+`commons.wikimedia.org/wiki/Special:UploadWizard`, que muestra la
+cuenta activa). Se avanzó hasta el paso "Upload" del Upload Wizard.
+
+**Bloqueo real, no de permisos**: el control de selección de archivo
+de esa página es un `<input type="file">` nativo — por diseño de
+seguridad del navegador, ninguna herramienta de automatización puede
+rellenar ese campo mediante JavaScript ni asignarle una ruta
+directamente; solo se puede completar con un clic humano real que abra
+el selector de archivos del sistema operativo, o con una herramienta
+que sepa adjuntar archivos a un `<input type="file">` (se intentó vía
+Claude en Chrome del propio equipo del autor, pero esa extensión no
+está conectada en esta sesión). El resto de campos (licencia,
+descripción, autor, categorías) están decididos arriba y listos para
+rellenarse en cuanto el archivo esté adjunto.
+
+**Qué falta exactamente**: abrir
+`commons.wikimedia.org/wiki/Special:UploadWizard` (ya logeado como
+`DavidPortoDiaz`), pulsar "Select media files to share" y elegir
+`WEB DAVID PORTO nuevas ideas/CODIGO PROPUESTO 2026-08-15/portada-las-manecillas-del-recuerdo-1024x1536.png`
+del repo — un único clic. Con eso hecho, esta sesión puede continuar
+sola con el resto del asistente (licencia/descripción/categorías) y
+cerrar la PR.
 
 ## Evidencia aportada (2026-09-09): página de copyright del libro físico
 
