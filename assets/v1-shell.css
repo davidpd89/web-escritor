@@ -5,7 +5,7 @@
    none) and every page fetched all 8 files twice -- once via the unused preload, once for real
    via this @import -- confirmed live via Resource Timing on production. Bump the version here
    AND in TRACKED_ASSETS AND re-run add_v1_shell_preloads.py together, never one without the others. */
-@import url('/assets/v1-shell-base.css?v=1');
+@import url('/assets/v1-shell-base.css?v=2');
 @import url('/assets/v1-shell-lrb-v2.css?v=1');
 @import url('/assets/v1-lrb-material-v2.css?v=1');
 @import url('/assets/v1-home-editorial-v3.css?v=1');
