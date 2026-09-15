@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "lastReviewed": "2026-09-07",
+  "lastReviewed": "2026-09-14",
   "author": {
     "name": "David Porto Díaz",
     "website": "https://davidportodiaz.com/",
@@ -14,7 +14,8 @@
       "amazonAuthorCentral": "https://www.amazon.es/stores/author/B0GZFP1JV3",
       "goodreads": "https://www.goodreads.com/author/show/66843136.David_Porto_D_az",
       "babelio": "https://es.babelio.com/auteur/David-Porto-Diaz/169723",
-      "storygraph": "https://app.thestorygraph.com/profile/david_porto"
+      "storygraph": "https://app.thestorygraph.com/profile/david_porto",
+      "mastodon": "https://mastodon.social/@davidportodiaz"
     },
     "nationality": "Española"
   },
@@ -103,6 +104,18 @@
       "submittedWork": null,
       "sourceUrl": "https://www.babidibulibros.com/premio-literatura-juan-andres-teno-2026/",
       "sourceLimitation": "La convocatoria pública oficial localizada acredita el certamen y sus bases, pero no identifica la obra presentada ni contiene una lista pública de finalistas localizada durante esta revisión. No atribuir esta selección a Samuel entre mundos sin una fuente adicional verificable."
+    },
+    "aullidosEnPapel2026": {
+      "type": "award",
+      "result": "Ganador",
+      "name": "I Concurso de microrrelatos sobre hombres lobo «Aullidos en papel»",
+      "organizer": "Diversidad Literaria",
+      "year": 2026,
+      "holder": "David Porto Díaz",
+      "submittedWork": null,
+      "sourceUrl": "https://www.diversidadliteraria.com/resultado-del-i-concurso-de--aullidos-en-papel-i",
+      "verifiedAt": "2026-09-14",
+      "note": "Ganador de un certamen de microrrelatos sobre hombres lobo; no es un premio de Samuel entre mundos ni de Las manecillas del recuerdo. La página oficial de resultados del organizador lista a 'David Porto Díaz / España' bajo el epígrafe 'GANADOR', por delante de los listados separados de finalistas y seleccionados. La fuente no publica una fecha de fallo explícita; se verificó el listado en vivo el 14/09/2026. Mismo organizador (Diversidad Literaria) que la antología La memoria de las tierras del norte, ya listada en contributions — son dos relaciones editoriales distintas con la misma entidad, no se deben fundir en una sola."
     }
   },
   "contributions": [
