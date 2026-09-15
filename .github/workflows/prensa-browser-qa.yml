@@ -68,6 +68,7 @@ jobs:
         run: node qa/identity-public-browser.mjs
 
       - name: Run Prensa visual-system contract
+        if: always()
         env:
           QA_ORIGIN: http://127.0.0.1:4173
           QA_OUT: qa-artifacts/prensa-design
