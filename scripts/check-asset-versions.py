@@ -79,7 +79,7 @@ TRACKED_ASSETS = {
     "v1-home.css": "11",
     "v1-tokens.css": "1",
     "v1-base.css": "1",
-    "v1-shell-base.css": "1",
+    "v1-shell-base.css": "2",
     "v1-shell-lrb-v2.css": "1",
     "v1-lrb-material-v2.css": "1",
     "v1-home-editorial-v3.css": "1",
