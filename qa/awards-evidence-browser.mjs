@@ -51,7 +51,7 @@ for (const viewport of viewports) {
   }));
   check(state.scrollWidth <= state.clientWidth + 1, `${route} @ ${viewport.name}: horizontal overflow ${state.scrollWidth}/${state.clientWidth}`);
   check(state.h1 === 1, `${route} @ ${viewport.name}: expected one H1, got ${state.h1}`);
-  check(state.recognitions === 2, `${route} @ ${viewport.name}: expected two recognition records, got ${state.recognitions}`);
+  check(state.recognitions === 3, `${route} @ ${viewport.name}: expected three recognition records, got ${state.recognitions}`);
   check(state.mainText > 1000, `${route} @ ${viewport.name}: content unexpectedly short`);
   check(errors.length === 0, `${route} @ ${viewport.name}: ${errors.join(' | ')}`);
   check(brokenLocal.length === 0, `${route} @ ${viewport.name}: broken local assets ${[...new Set(brokenLocal)].join(', ')}`);

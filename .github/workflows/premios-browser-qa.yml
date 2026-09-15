@@ -71,12 +71,14 @@ jobs:
         run: node qa/identity-public-browser.mjs
 
       - name: Run inherited awards evidence authority
+        if: always()
         env:
           IDENTITY_BASE_URL: http://127.0.0.1:4173
           IDENTITY_ARTIFACT_DIR: qa-artifacts/premios-evidence-authority
         run: node qa/awards-evidence-browser.mjs
 
       - name: Run Premios visual-system contract
+        if: always()
         env:
           QA_ORIGIN: http://127.0.0.1:4173
           QA_OUT: qa-artifacts/premios-design
