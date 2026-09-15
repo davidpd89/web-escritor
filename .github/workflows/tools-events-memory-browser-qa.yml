@@ -2,8 +2,6 @@ name: Tools events and memory browser QA
 
 on:
   pull_request:
-    branches:
-      - implementacion-web-2026
     paths:
       - 'herramientas/eventos-ics/**'
       - 'herramientas/tiempo-lectura-voz-alta/**'
