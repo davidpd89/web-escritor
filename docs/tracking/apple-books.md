@@ -1,8 +1,62 @@
 # Apple Books — auditoría y plan de ejecución
 
-Fecha de investigación: **2026-09-07**  
+Fecha de investigación: **2026-09-07** (ejecutado: 2026-09-15)  
 PR owner: **#411 · `tracking/apple-books`**  
-Estado: **RESEARCHED · PUBLIC_APPLE_BOOKS_RECORD_NOT_OBSERVED · DISTRIBUTION_OWNER_NOT_VERIFIED · READY_FOR_CATALOG_AUDIT**
+Estado: **CATALOG_ABSENCE_CONFIRMED_VIA_API · NO_ITUNES_CONNECT_ACCOUNT_LINKED · NEEDS_MONZA_DISTRIBUTION_DECISION · NOT_A_LOGIN_BLOCKER**
+
+## Ejecución (2026-09-15)
+
+Con la cuenta de Apple personal de David (`account.apple.com`, sesión
+confirmada: "David Porto Díaz") ya autenticada:
+
+### Ausencia confirmada de verdad (no solo "no observado")
+
+En vez de una búsqueda web genérica, se consultó directamente el
+catálogo público de Apple Books vía su API oficial de búsqueda
+(`itunes.apple.com/search`, sin necesidad de login — es la misma API
+que usan los widgets de afiliados), cubriendo autor, título y ambos
+ISBN, en las tiendas de España y Estados Unidos:
+
+| Consulta | Tienda | Resultado |
+|---|---|---|
+| "Las manecillas del recuerdo" | ES | Sin coincidencias |
+| "Las manecillas del recuerdo" | US | Sin coincidencias |
+| "Samuel entre mundos David Porto" | ES | Sin coincidencias |
+| "David Porto Díaz" / "David Porto Diaz" | ES / US | Sin coincidencias |
+| ISBN `9798906781925` (Manecillas ebook) | ES | Sin coincidencias |
+| ISBN `9791387659776` (Samuel) | ES | Sin coincidencias |
+
+Confirmado: **ninguno de los dos libros está en Apple Books**, en
+ninguna tienda comprobada. Esto reemplaza el `NOT_OBSERVED` anterior
+(que solo reflejaba una búsqueda web no concluyente) por una
+comprobación directa y positiva del catálogo real.
+
+### Por qué esto NO es un bloqueo de login
+
+`authors.apple.com/publish` confirma que la cuenta de Apple personal de
+David **no tiene ninguna cuenta de iTunes Connect vinculada todavía**
+(la página ofrece "Get started with iTunes Connect" como alta nueva, no
+como panel existente). Crear esa cuenta y publicar directamente sería
+una decisión real, no un simple inicio de sesión:
+
+- **Samuel entre mundos** no tiene ninguna edición digital
+  autorizada/documentada en el proyecto — no hay nada que subir a Apple
+  Books para este título todavía.
+- **Las manecillas del recuerdo (ebook)** ya tiene una edición digital
+  publicada por Monza Ediciones vía Amazon Kindle. Publicarla también
+  en Apple Books usando la cuenta personal de David, sin confirmar
+  primero con Monza quién controla los derechos de distribución digital
+  y si ya existe o está prevista una vía propia (agregador/partner),
+  arriesga crear una ficha duplicada o conflictiva con la distribución
+  editorial real — exactamente lo que este documento ya advertía no
+  hacer ("no publicar el mismo ebook desde otra cuenta solo para
+  conseguir una URL Apple Books").
+
+**Siguiente paso real**: no es un login adicional, es una decisión de
+distribución que depende de Monza (#428) — confirmar si Apple Books
+forma parte de su plan de distribución del ebook y, si no, si autorizan
+que se publique de forma independiente. Hasta entonces, no hay acción
+segura que ejecutar aquí.
 
 ## Objetivo
 
