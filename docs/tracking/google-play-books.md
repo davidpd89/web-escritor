@@ -1,8 +1,38 @@
 # Google Play Books / Partner Center — auditoría y plan de ejecución
 
-Fecha de investigación: **2026-09-07**  
+Fecha de investigación: **2026-09-07** (ejecutado: 2026-09-15)  
 PR owner: **#413 · `tracking/google-play-books`**  
-Estado: **RESEARCHED · PUBLIC_RECORD_NOT_OBSERVED · DISTRIBUTION_OWNER_NOT_VERIFIED · READY_FOR_AUTHENTICATED_AUDIT**
+Estado: **MANECILLAS_EBOOK_LIVE_AND_CORRECT · SAMUEL_CORRECTLY_ABSENT_NO_DIGITAL_EDITION · SITE_LINK_PENDING_AUTHOR_DECISION**
+
+## Ejecución (2026-09-15) — hallazgo: Manecillas SÍ está, y está correcta
+
+Búsqueda directa en la propia tienda pública de Google Play Books
+(`play.google.com/store/search?...&c=books`, sin necesidad de login)
+en vez de la búsqueda web genérica del 07-09:
+
+- **`Las manecillas del recuerdo` (ebook): LISTADA Y CORRECTA.**
+  Ficha pública:
+  `https://play.google.com/store/books/details/David_Porto_D%C3%ADaz_Las_Manecillas_del_Recuerdo?id=QBMIEgAAQBAJ`
+  — autor "David Porto Díaz", editorial "Monza Ediciones", fecha "ago
+  2026" (coherente con la publicación del ebook el 12/08/2026), 266
+  páginas, precio 2,99 € (idéntico al precio Kindle documentado),
+  sinopsis completa y correcta. No hay nada que corregir aquí; el
+  `RECORD_NOT_OBSERVED` de la sesión del 07-09 era simplemente una
+  búsqueda web que no encontró lo que sí está en el catálogo real.
+- **`Samuel entre mundos`: correctamente ausente.** Sin resultados para
+  "Samuel entre mundos David Porto" en la tienda — coherente, ya que
+  Samuel no tiene ninguna edición digital publicada (solo tapa blanda).
+  No hay nada que subir ni corregir.
+
+**Pendiente, no de login sino de decisión editorial**: la sección "Oportunidad
+para la web" de más abajo ya contemplaba este caso — con Manecillas
+confirmada en Google Play, cabría añadirla como destino de compra
+digital secundario en la página del ebook de la web (junto a
+Kindle/Casa del Libro). No se ha tocado la web en esta sesión: es un
+cambio de contenido en páginas públicas con QA visual propio (baselines
+en `qa/visual-baselines/`), y añadir un CTA nuevo merece una decisión
+explícita del autor sobre si quiere ese enlace visible, no una
+iniciativa unilateral de esta sesión sobre páginas ya publicadas.
 
 ## Objetivo
 
