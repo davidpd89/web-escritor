@@ -1,8 +1,61 @@
 # Google Books + Knowledge Graph — auditoría y plan de ejecución
 
-Fecha de investigación: **2026-09-07**  
+Fecha de investigación: **2026-09-07** (ejecutado: 2026-09-15)  
 PR owner: **#405 · `tracking/google-books-knowledge-graph`**  
-Estado: **RESEARCHED · PUBLIC_GOOGLE_BOOKS_RECORD_NOT_OBSERVED · KNOWLEDGE_PANEL_NOT_VERIFIED · EXTERNAL_ACTION_PENDING**
+Estado: **GOOGLE_BOOKS_RECORDS_NOT_OBSERVED_AFTER_DIRECT_CHECK · NO_UNAUTHORIZED_UPLOAD · KNOWLEDGE_PANEL_OBSERVED_UNCLAIMED · CLAIM_NEEDS_GOOGLE_LOGIN**
+
+## Ejecución (2026-09-15)
+
+### Google Books: ausencia confirmada de verdad
+
+En vez de la búsqueda web genérica del 07-09, se consultó directamente
+la **API pública oficial de Google Books**
+(`googleapis.com/books/v1/volumes`, sin login) por título y por los
+tres ISBN:
+
+| Consulta | Resultado |
+|---|---|
+| `intitle:"Las manecillas del recuerdo"` | Sin resultados |
+| `intitle:"Samuel entre mundos"` | Sin resultados |
+| `inauthor:"David Porto Díaz"` | Sin resultados |
+| ISBN `9798906781925` (Manecillas ebook) | Sin resultados |
+| ISBN `9798905149351` (Manecillas papel) | Sin resultados |
+| ISBN `9791387659776` (Samuel) | Sin resultados |
+
+Confirmado: **ninguna de las tres ediciones está en el catálogo de
+Google Books**. Esto reemplaza el `NOT_OBSERVED_WITH_CURRENT_SEARCH`
+anterior por una comprobación directa y positiva contra el catálogo
+real, no una búsqueda web inconclusa.
+
+Igual que con Apple Books (#411): no hay cuenta de Google Play Books
+Partner Center vinculada a David, y ambas ediciones ya tienen owner
+editorial (Libros Indie / Monza vía Amazon). Cargarlas de forma
+independiente sin confirmar con la editorial arriesga un duplicado
+conflictivo — se documenta `EXTERNAL_PUBLISHER_OR_DISTRIBUTOR_DEPENDENCY_RECORDED`,
+no se sube nada.
+
+### Knowledge Panel: existe, sin reclamar
+
+Búsqueda directa en Google (`David Porto Díaz escritor`) confirma que
+**sí existe un Knowledge Panel**, aunque modesto: encabezado "David
+Porto Díaz" con el rol "Autor", favicon de `davidportodiaz.com`,
+imagen de portada de Manecillas, y una caja "Información" con fecha de
+nacimiento (31 de julio de 1989) — coherente con el trabajo ya hecho en
+Wikidata (`Q139678851`, #398) y el schema.org `Person` de la propia
+web, que son las fuentes más probables de este panel.
+
+`OBSERVED_UNCLAIMED` — el menú de tres puntos junto a "Autor" ofrece
+**"Registrarse como responsable de este panel de información"**, que
+lleva al flujo oficial de reclamación de entidad de Google
+(`posts.google.com`, "Entity Claiming" → "Verifica tu identidad").
+
+**No completado**: ese paso pide iniciar sesión con una cuenta de
+Google — no hay ninguna sesión de Google abierta en este navegador
+ahora mismo. Necesita que el autor confirme qué cuenta de Google usar
+(idealmente una ligada a una de las propiedades ya verificadas del
+panel: el canal de YouTube `@davidportoescritor` o la propiedad de
+Search Console de `davidportodiaz.com`) y la abra en este navegador
+para completar la verificación de identidad.
 
 ## Objetivo
 
