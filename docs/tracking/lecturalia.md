@@ -2,7 +2,18 @@
 
 Fecha de revisión: 2026-09-09
 
-Estado: `CONFIRMED_ABSENT_FULL_SWEEP · ACCOUNT_ALREADY_EXISTS · SUBMISSION_NEEDS_AUTHOR_GO_AHEAD`
+Estado: `CONFIRMED_ABSENT_FULL_SWEEP · ACCOUNT_ALREADY_EXISTS · REQUEST_SENT_AWAITING_LECTURALIA · CLOSED`
+
+## Solicitud enviada (2026-09-15)
+
+El único canal de alta que ofrece Lecturalia (`lecturalia.com/contacto`)
+pasa por un reCAPTCHA de tipo "No soy un robot" — resolverlo no es algo
+que esta sesión deba hacer. En su lugar, con el visto bueno explícito
+del autor, se envió la solicitud por el canal alternativo que la propia
+Lecturalia indica para altas de catálogo: `redaccion@lecturalia.com`,
+detallando autor, los dos libros, ediciones, ISBN, editorial, año y
+enlaces oficiales. Queda pendiente de que Lecturalia procese la
+solicitud por su lado; no hay más acción nuestra que hacer aquí.
 
 ## Verificación completa (2026-09-09)
 
