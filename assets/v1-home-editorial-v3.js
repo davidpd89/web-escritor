@@ -157,6 +157,8 @@ import { EDITORIAL_PUBLIC_FACTS } from './editorial-public-facts.mjs';
     const leadImage = new Image();
     leadImage.src = '/assets/eventos/david-porto-diaz-lectores-feria-libro-madrid-2026-samuel.webp';
     leadImage.alt = 'David Porto Díaz sosteniendo Samuel entre mundos en su caseta de la Feria del Libro de Madrid';
+    leadImage.width = 1086;
+    leadImage.height = 1448;
     leadImage.loading = 'eager';
     leadImage.decoding = 'async';
     leadMedia.append(leadImage);
@@ -318,6 +320,8 @@ import { EDITORIAL_PUBLIC_FACTS } from './editorial-public-facts.mjs';
     const image = new Image();
     image.src = '/assets/manecillas-del-recuerdo-3d-transparent.png';
     image.alt = 'Portada de Las manecillas del recuerdo';
+    image.width = 860;
+    image.height = 1206;
     image.loading = 'eager';
     image.decoding = 'async';
     image.fetchPriority = 'high';
@@ -385,10 +389,10 @@ import { EDITORIAL_PUBLIC_FACTS } from './editorial-public-facts.mjs';
 
     const grid = make('div', 'yale-tile-grid yale-tile-grid--works');
     [
-      ['Obra actual', 'Las manecillas del recuerdo', 'Novela coral de memoria, objetos heredados y vidas conectadas.', '/las-manecillas-del-recuerdo/', '/assets/manecillas-del-recuerdo-3d-transparent.png'],
-      ['Publicada', 'Samuel entre mundos', 'Fantasía juvenil española: portales, canalizadores y secretos familiares.', '/libros/samuel-entre-mundos/', '/assets/samuel_entre_mundos_3d.webp'],
-      ['Antología', 'La memoria de las tierras del norte', 'Antología colaborativa de fantasía.', '/libros/#memoria-tierras-norte', '/assets/david-porto-memoria-sinfondo.webp']
-    ].forEach(([eyebrow, cardTitle, text, href, src]) => {
+      ['Obra actual', 'Las manecillas del recuerdo', 'Novela coral de memoria, objetos heredados y vidas conectadas.', '/las-manecillas-del-recuerdo/', '/assets/manecillas-del-recuerdo-3d-transparent.png', 860, 1206],
+      ['Publicada', 'Samuel entre mundos', 'Fantasía juvenil española: portales, canalizadores y secretos familiares.', '/libros/samuel-entre-mundos/', '/assets/samuel_entre_mundos_3d.webp', 1530, 2400],
+      ['Antología', 'La memoria de las tierras del norte', 'Antología colaborativa de fantasía.', '/libros/#memoria-tierras-norte', '/assets/david-porto-memoria-sinfondo.webp', 447, 558]
+    ].forEach(([eyebrow, cardTitle, text, href, src, srcWidth, srcHeight]) => {
       const card = make('article', 'yale-tile yale-tile--with-media');
       const media = make('a', 'yale-tile__media');
       media.href = href;
@@ -396,6 +400,8 @@ import { EDITORIAL_PUBLIC_FACTS } from './editorial-public-facts.mjs';
       const img = new Image();
       img.src = src;
       img.alt = cardTitle;
+      img.width = srcWidth;
+      img.height = srcHeight;
       img.loading = 'lazy';
       img.decoding = 'async';
       media.append(wrapMediaFrame(img));
@@ -450,6 +456,8 @@ import { EDITORIAL_PUBLIC_FACTS } from './editorial-public-facts.mjs';
     const image = new Image();
     image.src = '/assets/samuel_entre_mundos_3d.webp';
     image.alt = 'Portada de Samuel entre mundos';
+    image.width = 1530;
+    image.height = 2400;
     image.loading = 'eager';
     image.decoding = 'async';
     media.append(wrapMediaFrame(image));
