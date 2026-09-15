@@ -1,10 +1,30 @@
 # Wikimedia Commons — fotografía oficial libre y vínculo con Wikidata
 
-Fecha de revisión: **2026-09-07**  
+Fecha de revisión: **2026-09-07** (cierre definitivo: 2026-09-15)  
 PR owner: **#444 · `tracking/wikimedia-commons`**  
-Estado: **AUTHOR_CONFIRMED_CONSENT_COVERS_FULL_COVER · LOGGED_IN_AS_COMMONS_USER · BLOCKED_ONLY_ON_FILE_PICKER_STEP**
+Estado: **NO_GO_FREE_LICENSE_NOT_ACCEPTED · COVER_HAS_PUBLISHER_COPYRIGHT · NO_UPLOAD_PERFORMED · CLOSED**
 
-## Decisión del autor (2026-09-15)
+## Cierre definitivo (2026-09-15) — el autor decide no liberar la portada
+
+Tras reconsiderarlo, David decide **no seguir adelante** con la subida
+de la portada completa: es la portada de un libro publicado, con
+copyright de la editorial (Monza Ediciones) sobre la publicación y
+diseño conjunto con Mónica Iglesias — no tiene sentido ponerla bajo una
+licencia libre que permite reutilización comercial y derivados por
+cualquiera. Esto sustituye la decisión de "Decisión del autor
+(2026-09-15)" de más abajo, que quedaba condicionada a esa reconsideración.
+
+No se ha subido nada a Commons (la sesión llegó hasta el paso de
+selección de archivo del Upload Wizard, sin completarlo — ver detalle
+abajo). El retrato personal del autor (sección "Qué fotografía usar"
+más abajo) sigue siendo un caso distinto y más simple si en algún
+momento interesa retomarlo, pero no forma parte de esta decisión y no
+se ha tocado.
+
+Cierre: `NO_GO_FREE_LICENSE_NOT_ACCEPTED · NO_UPLOAD_PERFORMED` (tal
+como ya contemplaba el propio criterio de cierre del documento).
+
+## Decisión del autor (2026-09-15) — superada por el cierre de arriba
 
 David confirma directamente (no una inferencia de esta sesión) que la
 portada completa **sí se puede subir**: él mismo aparece acreditado
