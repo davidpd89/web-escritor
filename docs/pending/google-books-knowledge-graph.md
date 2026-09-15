@@ -2,7 +2,7 @@
 
 Fecha de investigación: **2026-09-07** (ejecutado: 2026-09-15)  
 PR owner: **#405 · `tracking/google-books-knowledge-graph`**  
-Estado: **GOOGLE_BOOKS_RECORDS_NOT_OBSERVED_AFTER_DIRECT_CHECK · NO_UNAUTHORIZED_UPLOAD · KNOWLEDGE_PANEL_OBSERVED_UNCLAIMED · CLAIM_NEEDS_GOOGLE_LOGIN**
+Estado: **GOOGLE_BOOKS_RECORDS_NOT_OBSERVED_AFTER_DIRECT_CHECK · NO_UNAUTHORIZED_UPLOAD · KNOWLEDGE_PANEL_CLAIM_SUBMITTED_AWAITING_GOOGLE**
 
 ## Ejecución (2026-09-15)
 
@@ -44,18 +44,32 @@ nacimiento (31 de julio de 1989) — coherente con el trabajo ya hecho en
 Wikidata (`Q139678851`, #398) y el schema.org `Person` de la propia
 web, que son las fuentes más probables de este panel.
 
-`OBSERVED_UNCLAIMED` — el menú de tres puntos junto a "Autor" ofrece
+`CLAIM_SUBMITTED` — el menú de tres puntos junto a "Autor" ofrece
 **"Registrarse como responsable de este panel de información"**, que
 lleva al flujo oficial de reclamación de entidad de Google
 (`posts.google.com`, "Entity Claiming" → "Verifica tu identidad").
 
-**No completado**: ese paso pide iniciar sesión con una cuenta de
-Google — no hay ninguna sesión de Google abierta en este navegador
-ahora mismo. Necesita que el autor confirme qué cuenta de Google usar
-(idealmente una ligada a una de las propiedades ya verificadas del
-panel: el canal de YouTube `@davidportoescritor` o la propiedad de
-Search Console de `davidportodiaz.com`) y la abra en este navegador
-para completar la verificación de identidad.
+### Reclamación completada y enviada (2026-09-15)
+
+Con la cuenta `davidportodiaz@gmail.com` (la misma que Google usa para
+notificar sobre este panel) autenticada en el navegador de esta sesión:
+
+1. Paso 1 (Introductory Info): confirmado que la entidad a reclamar es
+   David Porto Díaz, seleccionado "Soy esta persona" (no
+   "Represento a..."), y rellenado el campo de explicación ("Soy el
+   autor representado en este panel de información. He publicado dos
+   novelas...") sin incluir datos de contacto, tal como pide el propio
+   formulario.
+2. Paso 2 (Identification): David subió personalmente el selfie con
+   DNI requerido y los perfiles web — completado y enviado por el
+   propio autor, no por esta sesión.
+3. Envío final confirmado por el autor.
+
+El formulario de Google avisa que la revisión no tiene confirmación en
+la propia página: la respuesta llega por correo a
+`davidportodiaz@gmail.com` cuando Google la procese. No hay más acción
+nuestra posible hasta entonces — no volver a preguntar por esto salvo
+que llegue esa respuesta y haya que actuar sobre ella.
 
 ## Objetivo
 
