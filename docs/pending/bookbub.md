@@ -2,7 +2,19 @@
 
 **Revisión:** 2026-09-08
 
-**Estado:** `US_RETAIL_EDITION_VERIFIED · PARTNER_DASHBOARD_ACCESSIBLE · CLAIM_FAILS_ON_BOOKBUBS_SIDE_CONFIRMED_3X · NEEDS_BOOKBUB_SUPPORT_CONTACT`
+**Estado:** `US_RETAIL_EDITION_VERIFIED · PARTNER_DASHBOARD_ACCESSIBLE · CLAIM_FAILS_ON_BOOKBUBS_SIDE_CONFIRMED_3X · SUPPORT_TICKET_SENT · AWAITING_BOOKBUB`
+
+## Reporte enviado a BookBub Partners Support (2026-09-15)
+
+Con el visto bueno explícito del autor, se envió el reporte del error a
+través del formulario público `bookbub.com/partners-contact/new`
+(sin necesidad de sesión ni CAPTCHA), incluyendo la descripción técnica
+exacta del fallo (error 422 en `POST /author_profile_claims/create_from_books`,
+seguido del guard de duplicados, sin que la reclamación llegue a
+guardarse), el nombre del autor y el libro. Confirmación recibida en
+pantalla: "Thank You For Contacting Us" — BookBub indica que responden
+en un día laborable aproximadamente. Queda esperando su respuesta; no
+hay más acción nuestra posible hasta entonces.
 
 ## Actualización (2026-09-09, segunda comprobación) — mismo error una tercera vez, con sesión reiniciada
 
