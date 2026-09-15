@@ -2,17 +2,33 @@
 
 Fecha de revisión: 2026-09-07 (revisión: 2026-09-14)
 
-Estado: `NEEDS_NEW_ACCOUNT_OWNER_MUST_CREATE_IT · AWAITING_OWNER`
+Estado: `ACCOUNT_CREATED_BY_OWNER · ADD_PROJECT_BUTTON_BROKEN_ON_SITE · BLOCKED_NOT_OWNER_ACTIONABLE`
 
-## Nota (2026-09-14)
+## Intento de ejecución (2026-09-14)
 
-El primer paso del procedimiento es crear una cuenta gratuita en
-BookLife a tu nombre — eso no lo puedo hacer yo (no creo cuentas en tu
-nombre bajo ninguna circunstancia). En cuanto tengas la cuenta creada y
-la sesión abierta, retomo esto: comprobar elegibilidad (Samuel/Manecillas
-tienen sello editorial, hay que confirmar que BookLife admite igualmente
-proyectos con editorial) y dar de alta las fichas gratuitas con los datos
-ya preparados más abajo.
+Cuenta ya creada por el propietario ("David Porto") y sesión iniciada.
+Se intentó pulsar "Create New Project" en el Profile para dar de alta
+Samuel/Manecillas. El botón es un componente JS ("ProjectWizard") que
+debería abrir un modal (`#add-project-wizard`) con el formulario de
+título/ISBN — pero el modal se queda permanentemente en `display: none`
+pase lo que pase: clic normal, clic tras hover, distintos tamaños de
+viewport. Confirmado que el clic sí llega al elemento correcto (no hay
+nada superpuesto tapándolo) — es la propia inicialización JS del sitio
+la que no está reaccionando, no un problema de esta sesión.
+
+**No es algo que yo pueda arreglar** (es código del sitio de BookLife,
+no nuestro) y no se ha intentado forzar la apertura del modal
+manualmente vía consola — eso saltaría la inicialización real del
+asistente y probablemente rompería el envío del formulario. Recomiendo
+que pruebes tú directamente desde tu propio navegador (podría ser un
+bloqueador de anuncios, una extensión, o simplemente que el sitio
+necesite una interacción humana real); si a ti tampoco te funciona,
+es un bug para reportar a soporte de BookLife (`Contact Us` en el
+sitio), no algo que puedas arreglar desde tu lado tampoco.
+
+## Cierre de esta ronda
+
+`ACCOUNT_READY · ELIGIBILITY_QUESTION_STILL_OPEN · SITE_BUG_BLOCKS_PROJECT_CREATION · NEEDS_OWNER_TO_TEST_OR_CONTACT_SUPPORT`
 
 ## Objetivo
 
