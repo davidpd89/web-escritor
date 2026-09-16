@@ -90,7 +90,7 @@ TRACKED_ASSETS = {
     "v1-reflow-hardening-v7.css": "1",
     "v1-text-resilience-v8.css": "1",
     "v1-shell.css": "4",
-    "v1-shell.js": "11",
+    "v1-shell.js": "13",
     "v1-components.css": "3",
     "v1-families.css": "2",
     "newsletter-general.js": "3",
@@ -119,7 +119,7 @@ TRACKED_ASSETS = {
     "v1-accessibility-statement.css": "1",
     "v1-ai-authority.css": "1",
     "assistant-embed.css": "2",
-    "assistant-embed.js": "1",
+    "assistant-embed.js": "2",
     "club-session-builder.css": "2",
     "club-session-builder.js": "1",
     "clubes-samuel.css": "1",
@@ -186,6 +186,9 @@ TRACKED_ASSETS = {
     "objeto-heredado.css": "1",
     "objeto-heredado.js": "1",
     "writer-tools.js": "1",
+    "assistant-widget.js": "2",
+    "assistant-widget.css": "1",
+    "assistant-widget-core.mjs": "1",
 }
 
 # Anchored to an actual href="..."/src="..." attribute value, not a bare
@@ -200,9 +203,29 @@ TRACKED_ASSETS = {
 # never actually checking a single asset reference on the homepage.
 REF_RE = re.compile(r'(?:href|src)=["\']\.?/?assets/(' + '|'.join(re.escape(a) for a in TRACKED_ASSETS) + r')(\?v=([a-zA-Z0-9_.-]+))?(["\'])')
 
+# JS-side counterpart: v1-shell.js loads assets/assistant-widget.{js,css} via
+# a runtime `import(...)`/`style.href = ...`, and assistant-widget.js/
+# assistant-embed.js each statically `import ... from "/assets/assistant-
+# widget-core.mjs"` -- none of that is a static HTML href=/src= attribute,
+# so REF_RE above never saw any of it. Confirmed live: all three were
+# shipped completely unversioned (2026-09-16) until this fix, the exact
+# same silent-stale-cache class already hit twice before on HTML-loaded
+# assets (see module docstring). Matches `href = "..."` (JS assignment,
+# spaced), `import("...")` (dynamic import) and `from "..."` (static
+# ESM import specifier).
+JS_REF_RE = re.compile(r'(?:href\s*=\s*|import\(|from\s+)["\']\.?/?assets/(' + '|'.join(re.escape(a) for a in TRACKED_ASSETS) + r')(\?v=([a-zA-Z0-9_.-]+))?(["\'])')
+
 
 def git_tracked_html():
     result = subprocess.run(["git", "ls-files", "*.html"], cwd=ROOT, capture_output=True, text=True, check=True)
+    for line in result.stdout.splitlines():
+        line = line.strip()
+        if line:
+            yield ROOT / line
+
+
+def git_tracked_js():
+    result = subprocess.run(["git", "ls-files", "*.js"], cwd=ROOT, capture_output=True, text=True, check=True)
     for line in result.stdout.splitlines():
         line = line.strip()
         if line:
@@ -315,6 +338,23 @@ def main() -> int:
                 errors.append(f"{rel}: {asset} loaded with no ?v= at all")
             elif version != canonical:
                 errors.append(f"{rel}: {asset}?v={version} (expected ?v={canonical})")
+
+    for path in git_tracked_js():
+        try:
+            text = path.read_text(encoding="utf-8")
+        except (UnicodeDecodeError, FileNotFoundError):
+            continue
+        rel = path.relative_to(ROOT)
+        matches = JS_REF_RE.findall(text)
+        if not matches:
+            continue
+        scanned += 1
+        for asset, _qs, version, _quote in matches:
+            canonical = TRACKED_ASSETS[asset]
+            if not version:
+                errors.append(f"{rel}: {asset} loaded (via import()/href=) with no ?v= at all")
+            elif version != canonical:
+                errors.append(f"{rel}: {asset}?v={version} (expected ?v={canonical}) [via import()/href=]")
 
     errors.extend(check_hashes())
 

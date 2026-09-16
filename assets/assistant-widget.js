@@ -1,7 +1,7 @@
 import {
   ASSISTANT_WIDGET_HINT_KEY,
   shouldMountAssistantWidget,
-} from "/assets/assistant-widget-core.mjs";
+} from "/assets/assistant-widget-core.mjs?v=1";
 
 const EXPECTED_ORIGIN = location.origin;
 const HINT_DELAY_MS = 3600;

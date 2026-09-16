@@ -268,11 +268,11 @@
       if (!q('link[data-assistant-widget-style]')) {
         const style = document.createElement('link');
         style.rel = 'stylesheet';
-        style.href = '/assets/assistant-widget.css';
+        style.href = '/assets/assistant-widget.css?v=1';
         style.dataset.assistantWidgetStyle = 'true';
         document.head.append(style);
       }
-      import('/assets/assistant-widget.js').catch(() => {});
+      import('/assets/assistant-widget.js?v=2').catch(() => {});
     };
     const schedule = () => {
       if ('requestIdleCallback' in window) requestIdleCallback(load, { timeout: 1400 });
@@ -295,11 +295,11 @@
         if (!q('link[data-assistant-widget-style]')) {
           const style = document.createElement('link');
           style.rel = 'stylesheet';
-          style.href = '/assets/assistant-widget.css';
+          style.href = '/assets/assistant-widget.css?v=1';
           style.dataset.assistantWidgetStyle = 'true';
           document.head.append(style);
         }
-        import('/assets/assistant-widget.js')
+        import('/assets/assistant-widget.js?v=2')
           .then(() => q('.assistant-widget__launcher')?.click())
           .catch(() => { location.href = '/asistente/'; });
       });

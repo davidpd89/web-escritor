@@ -1,4 +1,4 @@
-import { assistantContextStarters, normalizeWidgetPath } from "/assets/assistant-widget-core.mjs";
+import { assistantContextStarters, normalizeWidgetPath } from "/assets/assistant-widget-core.mjs?v=1";
 
 const params = new URLSearchParams(location.search);
 const from = normalizeWidgetPath(params.get("from") || "/");

@@ -18,7 +18,7 @@ client = (ROOT / "assets/assistant.js").read_text(encoding="utf-8")
 knowledge = (ROOT / "assets/assistant-local-knowledge.mjs").read_text(encoding="utf-8")
 shell = (ROOT / "assets/v1-shell.js").read_text(encoding="utf-8")
 
-need("import('/assets/assistant-widget.js')" in shell, "V1 shell must lazy-load the assistant widget")
+need("import('/assets/assistant-widget.js?v=2')" in shell, "V1 shell must lazy-load the assistant widget")
 need('/assets/assistant-widget.css' in shell, "V1 shell must load widget styles")
 need('data-assistant-menu-link' in shell and "href = '/asistente/'" in shell, "Explore must expose the assistant as a real fallback link")
 need("asistente: ['Asistente'" in shell, "Explore preview copy for assistant missing")
@@ -49,7 +49,7 @@ need('content="noindex,nofollow"' in embed, "embed document must never be indexe
 need('data-assistant-log' in embed and 'role="log"' in embed, "embed must expose an actual chat transcript")
 need('assistant-composer' in embed and 'data-assistant-query' in embed and 'data-assistant-submit' in embed, "compact chat composer missing")
 need('data-assistant-turnstile' in embed, "embed must keep the anti-abuse control mount point")
-need(re.search(r'/assets/assistant\.js\?v=\d+', embed) and '/assets/assistant-embed.js?v=1' in embed, "embed must reuse the hardened assistant client")
+need(re.search(r'/assets/assistant\.js\?v=\d+', embed) and '/assets/assistant-embed.js?v=2' in embed, "embed must reuse the hardened assistant client")
 need(embed.count('data-assistant-example=') == 3, "embed must expose exactly three contextual starter questions")
 for forbidden in ('asistente remoto', 'respuesta con IA', 'Cloudflare Turnstile', 'repositorio', 'no se guarda una conversación', 'endpoint del propio sitio'):
     need(forbidden.lower() not in embed.lower(), f"embed must not expose internal implementation copy: {forbidden}")
