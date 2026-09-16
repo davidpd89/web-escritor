@@ -16,8 +16,20 @@
     "version": "2"
   },
   "assistant-embed.js": {
-    "sha256": "ce2708b8d372bf1c54592db43189fb4df000203275110141e94f55e8ffedffa1",
+    "sha256": "80c3e7610267109ccad6b145eb50ecca8e23d098ad03f94cdaa8509c795a4ef0",
+    "version": "2"
+  },
+  "assistant-widget-core.mjs": {
+    "sha256": "0690ff95cd35ae766daa1257171ada28aae080075b6f9f9854a0e6f73a7d1423",
     "version": "1"
+  },
+  "assistant-widget.css": {
+    "sha256": "7b69dfbb578f514e0e44c94fa182602f7e97ad625c4416de9c3e6949a7728fc2",
+    "version": "1"
+  },
+  "assistant-widget.js": {
+    "sha256": "1a4f5cb73d0c954b6696df7fd665c670dcb10ee69be1612de3dc22cbf15c8938",
+    "version": "2"
   },
   "assistant.css": {
     "sha256": "d0ef2ac2de28c205b24b747dc04c95d5ee694d1186dc1fc327dbcb6aa30a4f5a",
@@ -420,8 +432,8 @@
     "version": "4"
   },
   "v1-shell.js": {
-    "sha256": "fa416f76a85806e793f13c208ecfbabc007f14c64257bdb1ce55c6569d95951e",
-    "version": "11"
+    "sha256": "4a0eab8d981bb7f59cbcae164d1c355ed92c2f89d194ea75777eaec1f1042fcc",
+    "version": "13"
   },
   "v1-site-cohesion-v6.css": {
     "sha256": "c36a6f117a4bcc0c2fb00dd229fabeb10f52e43117e666002861113d9917fab9",
