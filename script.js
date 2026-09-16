@@ -6,6 +6,25 @@ function scheduleTask(fn, priority = "background") {
   return Promise.resolve().then(fn);
 }
 
+// Real deferral for the one call site (Clarity injection, below) where the
+// point is to push work off the current task, not just off the call stack.
+// scheduleTask's own no-Scheduler-API fallback is a same-tick microtask —
+// correct for its other "background"-priority callers (FAQ toggles,
+// newsletter submit, copy buttons), which want to run promptly even on
+// Safari/Firefox, but wrong here, where a microtask still competes with the
+// LCP paint in the same task. requestIdleCallback actually yields until the
+// browser is idle (or `timeout` elapses) on engines without Scheduler API;
+// setTimeout is the last-resort fallback for engines with neither.
+function scheduleBackgroundIdle(fn) {
+  if (typeof scheduler !== "undefined" && scheduler.postTask) {
+    return scheduler.postTask(fn, { priority: "background" });
+  }
+  if (typeof requestIdleCallback === "function") {
+    return requestIdleCallback(fn, { timeout: 2000 });
+  }
+  return setTimeout(fn, 200);
+}
+
 // Client contract (2026-08-23): only { email, source, result?, website? } is ever
 // sent to the Worker. `website` is a honeypot and is never forwarded by the Worker.
 // listIds/attributes/templateId/redirectionUrl are never client-controlled —
@@ -439,26 +458,29 @@ document.querySelectorAll(".faq-question").forEach((btn) => {
   });
 });
 
-// A real visitor never has this hostname/protocol -- it's exclusively a
-// local dev server, a CI browser test hitting `python -m http.server`, or a
-// page opened directly as a local file (found 2026-09-15 via Clarity's and
-// Metricool's own dashboards: 127.0.0.1 routes and, worse, literal local
-// filesystem paths like "/web david porto nuevas ideas/.../*.example.html"
-// were among the top tracked "pages" -- someone's editor/tool previewing an
-// HTML file with file:// opens it with an empty location.hostname, not
-// "localhost", so a hostname-only check misses it). None of the ~70
-// qa/*.mjs browser suites mock Clarity's own script tag the way a handful
-// already mock GoatCounter/Metricool's, and nothing mocks any of the three
-// for a plain file:// open. Guarding here fixes it once at the source
-// instead of retrofitting every suite. getStoredAnalyticsConsent/
-// applyAnalyticsConsent/showAnalyticsConsentBanner below are untouched by
-// this -- the consent-flow UI itself is real product behavior other tests
-// correctly still exercise on localhost; applyAnalyticsConsent is already a
-// documented no-op wherever window.clarity was never loaded (see that
-// function's own guard).
-const IS_LOCAL_TEST_ENV = location.protocol === "file:" || /^(?:localhost|127\.0\.0\.1|\[::1\])$/.test(location.hostname);
+// Trackers load ONLY on an explicit production-hostname allowlist, not on a
+// blocklist of known-bad environments. A blocklist (file:, localhost,
+// 127.0.0.1) was tried first (2026-09-15, found via Clarity's and
+// Metricool's own dashboards: 127.0.0.1 routes and literal local filesystem
+// paths like "/web david porto nuevas ideas/.../*.example.html" were among
+// the top tracked "pages" -- an editor/tool previewing an HTML file with
+// file:// opens it with an empty location.hostname, not "localhost", so a
+// hostname-only check missed it) but a second review the same day found the
+// blocklist itself was still incomplete: STAGING_HOSTNAMES above (line ~105)
+// is a real, reachable Cloudflare Pages preview hostname that was never in
+// the block set, so opening the staging preview was still sending real
+// traffic to production Clarity/GoatCounter/Metricool. An allowlist can't
+// have that class of gap -- any hostname not explicitly production
+// (including staging, and any future preview/CI hostname) is excluded by
+// default. getStoredAnalyticsConsent/applyAnalyticsConsent/
+// showAnalyticsConsentBanner below are untouched by this -- the consent-flow
+// UI itself is real product behavior other tests correctly still exercise
+// on localhost; applyAnalyticsConsent is already a documented no-op
+// wherever window.clarity was never loaded (see that function's own guard).
+const ANALYTICS_PRODUCTION_HOSTNAMES = new Set(["davidportodiaz.com", "www.davidportodiaz.com"]);
+const IS_ANALYTICS_PRODUCTION_HOST = ANALYTICS_PRODUCTION_HOSTNAMES.has(location.hostname);
 
-if (!IS_LOCAL_TEST_ENV) (function () {
+if (IS_ANALYTICS_PRODUCTION_HOST) (function () {
   // Guard against double-loading: some pages still carry a legacy direct
   // <script data-goatcounter> tag alongside this global loader, which would
   // otherwise fetch count.js twice and double-count the same pageview.
@@ -472,7 +494,7 @@ if (!IS_LOCAL_TEST_ENV) (function () {
 })();
 
 // Metricool web analytics
-if (!IS_LOCAL_TEST_ENV) (function () {
+if (IS_ANALYTICS_PRODUCTION_HOST) (function () {
   function loadScript(a) {
     var b = document.getElementsByTagName("head")[0],
       c = document.createElement("script");
@@ -522,27 +544,42 @@ if (!IS_LOCAL_TEST_ENV) (function () {
 // for teachers/librarians, not a page minors use directly. No other page
 // is framed as a direct child-facing product.
 if (!document.querySelector('[data-samuel-quiz]')) {
-  // Deferred via scheduleTask("background") (2026-09-15 perf audit): a real
-  // Performance-trace A/B on the throttled first-visit path (intro <video>,
+  // Deferred (2026-09-15 perf audit, corrected 2026-09-16): a Performance-
+  // trace A/B on the throttled first-visit path (intro <video>,
   // hero-tinta-poster.jpg as LCP element) measured Clarity's own script
-  // costing 526ms of main-thread time landing squarely inside the LCP
-  // element's "render delay" window. Fully blocking Clarity's request
-  // dropped LCP from 7248ms to 4388ms (-39%) in that test -- not a fix we
-  // can ship, since it would just delete the analytics, but it confirmed
-  // Clarity, not the poster image itself, was the dominant cost there.
-  // `async=1` below only ever stopped it from blocking the HTML parser;
-  // once the tag is inserted it competes for the same main thread the
-  // decode/paint needs regardless. Wrapping the whole injection (tag
-  // creation included, so the request itself is pushed back too, not just
-  // post-load execution) in a background-priority task measured a smaller
-  // but real and consistent ~100-150ms LCP improvement against production
-  // over repeated runs -- most of the 2860ms only came from removing
-  // Clarity outright, which staying deferred (not blocked) can't recover.
-  if (!IS_LOCAL_TEST_ENV) scheduleTask(() => (function (c, l, a, r, i, t, y) {
+  // costing 526ms of main-thread time landing inside the LCP element's
+  // "render delay" window, and fully blocking Clarity's request dropped LCP
+  // from 7248ms to 4388ms (-39%) in that test. That shows Clarity is a
+  // material contributor to that render delay -- it does NOT show Clarity
+  // causally explains the full ~2860ms gap: the actual shipped fix (defer,
+  // not block) only recovered ~100-150ms of it in a second A/B measured
+  // against production, so most of that gap remains unexplained. Root cause
+  // of the render delay stays open (see
+  // docs/tracking/performance-lighthouse-2026-09-09.md). `async=1` below
+  // only ever stopped it from blocking the HTML parser; once the tag is
+  // inserted it competes for the same main thread the decode/paint needs
+  // regardless. Wrapping the whole injection (tag creation included, so the
+  // request itself is pushed back too, not just post-load execution) in a
+  // background-priority task is what measured that smaller but real
+  // ~100-150ms improvement.
+  //
+  // Uses scheduleBackgroundIdle(), not the shared scheduleTask(), because
+  // scheduleTask's own fallback (no Scheduler API) is `Promise.resolve()
+  // .then(fn)` -- a same-tick microtask, chosen deliberately so every other
+  // scheduleTask("background") caller (FAQ toggles, newsletter submit,
+  // copy buttons -- all "background" priority by default, see scheduleTask's
+  // default parameter) still runs promptly on browsers without Scheduler
+  // API. That fallback is fine for those interactive call sites but would
+  // silently undo this specific deferral's purpose on the same browsers
+  // (Safari/Firefox lack scheduler.postTask): the injection would still run
+  // in the same task as everything else competing for the LCP paint. Found
+  // 2026-09-16 review; scoped a dedicated helper to this one call site
+  // rather than changing scheduleTask's fallback for everyone.
+  if (IS_ANALYTICS_PRODUCTION_HOST) scheduleBackgroundIdle(() => (function (c, l, a, r, i, t, y) {
     c[a] = c[a] || function () { (c[a].q = c[a].q || []).push(arguments); };
     t = l.createElement(r); t.async = 1; t.src = "https://www.clarity.ms/tag/" + i;
     y = l.getElementsByTagName(r)[0]; y.parentNode.insertBefore(t, y);
-  })(window, document, "clarity", "script", "wxkseslr28"), "background");
+  })(window, document, "clarity", "script", "wxkseslr28"));
   // Clarity enforces its own consent gate for EEA/UK/CH visitors (since
   // 2025-10-31): without a 'granted' signal, sessions get a per-pageview ID
   // and no cookie instead of a real cross-page session. Reporting 'granted'

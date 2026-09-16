@@ -109,6 +109,39 @@ def test_optional_disabled_must_not_fake_current_privacy_disclosure() -> None:
     assert any("no debe fingir disclosure activo" in error for error in errors), errors
 
 
+def test_single_loading_path_catches_legacy_duplicate_tag() -> None:
+    # Regression test for the 2026-09-16 finding: 16 pages carried a second,
+    # hardcoded <script data-goatcounter> tag alongside script.js's own
+    # guarded loader, unprotected by the environment allowlist. A page that
+    # reintroduces that pattern must fail this check, not slip through.
+    manifest = basic_manifest()
+    manifest["integrations"][0]["loading_signatures"] = ["tracker.example.test/a.js"]
+    root = fixture_root()
+    write(root, "some-other-page/index.html", '<script src="https://tracker.example.test/a.js" async></script>')
+    errors = MODULE.evaluate(root, manifest)
+    assert any("segundo punto de carga no declarado" in error for error in errors), errors
+
+
+def test_single_loading_path_allows_declared_exception() -> None:
+    manifest = basic_manifest()
+    manifest["integrations"][0]["loading_signatures"] = ["tracker.example.test/a.js"]
+    manifest["integrations"][0]["single_load_exceptions"] = ["standalone/index.html"]
+    root = fixture_root()
+    write(root, "standalone/index.html", '<script src="https://tracker.example.test/a.js" async></script>')
+    errors = MODULE.evaluate(root, manifest)
+    assert not errors, errors
+
+
+def test_single_loading_path_ignores_prose_mentions() -> None:
+    # privacidad.html is allowed to *describe* a provider's script URL in
+    # disclosure prose (it already does, for real, for Metricool) without
+    # that being mistaken for a second load attempt -- it's already in
+    # owner_files, which the check treats as the canonical/declared surface.
+    manifest = load_current_manifest()
+    errors = MODULE.evaluate(ROOT, manifest)
+    assert not any("segundo punto de carga" in error for error in errors), errors
+
+
 if __name__ == "__main__":
     tests = [
         test_current_registry_matches_current_repo,
@@ -117,6 +150,9 @@ if __name__ == "__main__":
         test_missing_csp_host_fails,
         test_missing_evidence_string_fails,
         test_optional_disabled_must_not_fake_current_privacy_disclosure,
+        test_single_loading_path_catches_legacy_duplicate_tag,
+        test_single_loading_path_allows_declared_exception,
+        test_single_loading_path_ignores_prose_mentions,
     ]
     for test in tests:
         test()
