@@ -44,6 +44,15 @@ async function openChecked(context, route) {
     // an OS/font-rendering difference is the leading theory, but guessing
     // further without seeing which element moved wastes another CI round
     // trip. This makes the next failure self-diagnosing via browser-metrics.json.
+    // Follow-up the same day: deliberately hunted it by rerunning this exact
+    // job on the real Ubuntu CI runner 25 consecutive times (not locally --
+    // this doesn't reproduce there at all). Zero failures in 25/25. Base rate
+    // is genuinely low, not "doesn't reproduce because it's already fixed" --
+    // it's real (3 occurrences seen over many dozens of runs across separate
+    // PRs) but rare enough that a deliberate 25x hunt isn't enough to force
+    // it. Not chasing it further with brute-force reruns; this instrumentation
+    // stays armed so whenever it recurs naturally, that run is self-diagnosing
+    // instead of needing this investigation redone from zero.
     window.__identityCLSSources = [];
     try {
       new PerformanceObserver((list) => {
