@@ -135,6 +135,14 @@ def render_page_body(items, today):
         "url": CANONICAL,
         "inLanguage": "es",
         "isPartOf": {"@id": "https://davidportodiaz.com/#website"},
+        "breadcrumb": {
+            "@type": "BreadcrumbList",
+            "itemListElement": [
+                {"@type": "ListItem", "position": 1, "name": "Inicio", "item": "https://davidportodiaz.com/"},
+                {"@type": "ListItem", "position": 2, "name": "Herramientas", "item": "https://davidportodiaz.com/herramientas/"},
+                {"@type": "ListItem", "position": 3, "name": "Convocatorias", "item": CANONICAL},
+            ],
+        },
     }, ensure_ascii=False, separators=(",", ":"))
     # El header/dialog de abajo son placeholders minimos: apply_shell() en
     # build-site-shell.py los sustituye por completo (via HEADER_RE/DIALOG_RE)

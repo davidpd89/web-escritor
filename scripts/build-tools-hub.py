@@ -186,7 +186,7 @@ def render(data, tools, directories):
   <link rel="stylesheet" href="/assets/v1-families.css?v=2" />
   <link rel="stylesheet" href="/assets/herramientas-index.css?v=1" />
 
-  <script type="application/ld+json">{{"@context":"https://schema.org","@type":"CollectionPage","name":"Herramientas gratuitas para escritores","url":"https://davidportodiaz.com/herramientas/","inLanguage":"es","mainEntity":{{"@type":"ItemList","numberOfItems":{len(tools)},"itemListElement":[{item_list_json}]}}}}</script>
+  <script type="application/ld+json">{{"@context":"https://schema.org","@type":"CollectionPage","name":"Herramientas gratuitas para escritores","url":"https://davidportodiaz.com/herramientas/","inLanguage":"es","breadcrumb":{{"@type":"BreadcrumbList","itemListElement":[{{"@type":"ListItem","position":1,"name":"Inicio","item":"https://davidportodiaz.com/"}},{{"@type":"ListItem","position":2,"name":"Herramientas","item":"https://davidportodiaz.com/herramientas/"}}]}},"mainEntity":{{"@type":"ItemList","numberOfItems":{len(tools)},"itemListElement":[{item_list_json}]}}}}</script>
 </head>
 
 <body data-back-to-top>
