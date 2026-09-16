@@ -37,10 +37,30 @@ async function openChecked(context, route) {
   const brokenLocal = [];
   await page.addInitScript(() => {
     window.__identityCLS = 0;
+    // Source attribution for whichever element(s) actually moved, kept only
+    // when a shift is nonzero (2026-09-16: this route/viewport combination
+    // failed 3 times across separate CI runs with the exact same CLS value,
+    // 0.2300, yet never reproduced locally on Windows across 10+ attempts --
+    // an OS/font-rendering difference is the leading theory, but guessing
+    // further without seeing which element moved wastes another CI round
+    // trip. This makes the next failure self-diagnosing via browser-metrics.json.
+    window.__identityCLSSources = [];
     try {
       new PerformanceObserver((list) => {
         for (const entry of list.getEntries()) {
-          if (!entry.hadRecentInput) window.__identityCLS += entry.value;
+          if (entry.hadRecentInput) continue;
+          window.__identityCLS += entry.value;
+          window.__identityCLSSources.push({
+            value: entry.value,
+            startTime: entry.startTime,
+            sources: (entry.sources || []).map((s) => ({
+              node: s.node
+                ? `${s.node.tagName}${s.node.id ? '#' + s.node.id : ''}${s.node.className ? '.' + String(s.node.className).trim().replace(/\s+/g, '.') : ''}`
+                : null,
+              previousRect: s.previousRect && { x: s.previousRect.x, y: s.previousRect.y, w: s.previousRect.width, h: s.previousRect.height },
+              currentRect: s.currentRect && { x: s.currentRect.x, y: s.currentRect.y, w: s.currentRect.width, h: s.currentRect.height },
+            })),
+          });
         }
       }).observe({ type: 'layout-shift', buffered: true });
     } catch (_) {}
@@ -62,6 +82,7 @@ async function openChecked(context, route) {
     scrollWidth: document.documentElement.scrollWidth,
     clientWidth: document.documentElement.clientWidth,
     cls: window.__identityCLS || 0,
+    clsSources: window.__identityCLSSources || [],
     title: document.title,
     mainText: document.querySelector('main')?.innerText.trim().length || 0,
   }));
@@ -78,7 +99,10 @@ for (const viewport of viewports) {
     check(errors.length === 0, `${route} @ ${viewport.name}: ${errors.join(' | ')}`);
     check(brokenLocal.length === 0, `${route} @ ${viewport.name}: broken local assets ${[...new Set(brokenLocal)].join(', ')}`);
     check(layout.cls <= 0.1, `${route} @ ${viewport.name}: CLS ${layout.cls.toFixed(4)} > 0.1`);
-    metrics.push({ route, viewport: viewport.name, cls: layout.cls, overflow: layout.scrollWidth - layout.clientWidth });
+    metrics.push({
+      route, viewport: viewport.name, cls: layout.cls, overflow: layout.scrollWidth - layout.clientWidth,
+      ...(layout.cls > 0 ? { clsSources: layout.clsSources } : {}),
+    });
     await context.close();
   }
 }
