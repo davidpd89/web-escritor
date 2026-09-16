@@ -520,7 +520,8 @@ def render_methodology(site: str, records: list[dict], today: date) -> str:
                 "inLanguage": "es",
                 "isPartOf": {"@id": f"{site}/editoriales/"},
                 "author": {"@id": f"{site}/#author"},
-            }
+            },
+            breadcrumb_jsonld(site, [("Inicio", f"{site}/"), ("Editoriales", f"{site}/editoriales/"), ("Metodología", canonical)]),
         ],
     }
     return page_shell(
