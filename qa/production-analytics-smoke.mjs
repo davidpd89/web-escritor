@@ -11,10 +11,24 @@
 // CI-generated pollution #516/#518 fixed, just at a smaller, real-hostname
 // scale. Run by hand (`node qa/production-analytics-smoke.mjs`) when
 // verifying an analytics-loading change.
+//
+// 2026-09-16 fix: the first version of this script only console.log'd the
+// counts -- no assert, no exit(1). It "passed" by a human reading the
+// output, which is exactly the failure mode this whole audit stretch is
+// about (a green run that proves nothing). Now it actually fails the
+// process if production isn't exactly 1/1/1 with zero issues.
+//
+// Staging is asserted at 0/0/0 -- true today (STAGING_STALE below is a
+// known, tracked exception, not a silent skip) because that worker is
+// running script.js?v=202609-launch-1 (main is at launch-24, no deploy
+// automation for it exists in this repo -- see PR #522's description).
+// Once it's redeployed, flip STAGING_STALE to false so this starts
+// enforcing 0/0/0 for real instead of just logging the leak.
 import { chromium } from 'playwright';
 
 const PROD = 'https://davidportodiaz.com';
 const STAGING = 'https://david-porto-preview.davidpd89.workers.dev';
+const STAGING_STALE = true;
 
 async function crawl(url, { label, waitMs = 4000, interact = true }) {
   const browser = await chromium.launch({ headless: true });
@@ -76,3 +90,27 @@ results.staging = await crawl(`${STAGING}/`, { label: 'STAGING Home', waitMs: 40
 console.log('\n=== SUMMARY ===');
 console.log(`Production: goatcounter=${results.production.trackerHits.goatcounter} metricool=${results.production.trackerHits.metricool} clarity=${results.production.trackerHits.clarity} issues=${results.production.issues.length}`);
 console.log(`Staging:    goatcounter=${results.staging.trackerHits.goatcounter} metricool=${results.staging.trackerHits.metricool} clarity=${results.staging.trackerHits.clarity} issues=${results.staging.issues.length}`);
+
+const failures = [];
+function check(condition, message) { if (!condition) failures.push(message); }
+
+check(results.production.trackerHits.goatcounter === 1, `production GoatCounter: expected 1 hit, got ${results.production.trackerHits.goatcounter}`);
+check(results.production.trackerHits.metricool === 1, `production Metricool: expected 1 hit, got ${results.production.trackerHits.metricool}`);
+check(results.production.trackerHits.clarity === 1, `production Clarity: expected 1 hit, got ${results.production.trackerHits.clarity}`);
+check(results.production.issues.length === 0, `production issues: expected 0, got ${results.production.issues.length} (${results.production.issues.join(' | ')})`);
+
+if (STAGING_STALE) {
+  console.log('\nSTAGING_STALE=true: not enforcing 0/0/0 on staging (known stale deploy, see file header). Logged above for visibility only.');
+} else {
+  check(results.staging.trackerHits.goatcounter === 0, `staging GoatCounter: expected 0 hits, got ${results.staging.trackerHits.goatcounter}`);
+  check(results.staging.trackerHits.metricool === 0, `staging Metricool: expected 0 hits, got ${results.staging.trackerHits.metricool}`);
+  check(results.staging.trackerHits.clarity === 0, `staging Clarity: expected 0 hits, got ${results.staging.trackerHits.clarity}`);
+  check(results.staging.issues.length === 0, `staging issues: expected 0, got ${results.staging.issues.length} (${results.staging.issues.join(' | ')})`);
+}
+
+if (failures.length) {
+  console.error(`\nproduction-analytics-smoke FAILED (${failures.length}):`);
+  for (const f of failures) console.error(`  - ${f}`);
+  process.exit(1);
+}
+console.log('\nproduction-analytics-smoke: PASS');
