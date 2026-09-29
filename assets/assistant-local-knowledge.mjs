@@ -282,6 +282,9 @@ export function resolveLocalAnswer(query, context = {}) {
   const mentionsNoveris = entityMatch(q, NOVERIS_ALIASES);
   const asksFragment = includesAny(q, READ_TERMS);
   const asksNavigation = includesAny(q, NAVIGATION_TERMS);
+  // Pregunta por la obra premiada en sí («al otro lado», «el microrrelato»), no por
+  // la lista de premios: se resuelve antes que asksAward, que también captura «ganador».
+  const asksMicrostory = includesAny(q, ["al otro lado", "microrrelato ganador", "microrrelato premiado", "relato ganador", "que microrrelato", "cual es el microrrelato", "leer el microrrelato", "el microrrelato de david"]);
   const asksAward = includesAny(q, ["premio", "premios", "premiado", "reconocimiento", "reconocimientos", "finalista", "ganador", "letras como espada", "juan andres", "teno", "aullidos en papel", "aullidos"]);
   const asksBuy = includesAny(q, ["comprar", "compra", "donde compro", "kindle", "ebook", "libro electronico", "amazon", "cuanto cuesta", "precio"]);
   const asksRecommendation = includesAny(q, RECOMMENDATION_TERMS);
@@ -453,8 +456,18 @@ export function resolveLocalAnswer(query, context = {}) {
     return result("events", "La página de Eventos y firmas reúne las fechas públicas disponibles y su contexto.", ["events"]);
   }
 
+  if (asksMicrostory) {
+    const { letrasComoEspada } = EDITORIAL_PUBLIC_FACTS.recognitions;
+    return result(
+      "microstory",
+      `«${letrasComoEspada.submittedWork}» es el microrrelato de ${letrasComoEspada.holder} que ganó el ${letrasComoEspada.name} de ${letrasComoEspada.organizer} (${letrasComoEspada.year}) y que da título a la antología del certamen. El texto completo está publicado en la web, con la portada del libro y las fuentes oficiales del fallo.`,
+      ["microstory-al-otro-lado", "awards"],
+    );
+  }
+
   if (asksAward) {
-    return result("awards", "Los premios y reconocimientos están reunidos en una página específica para poder comprobar cada mención con su contexto.", ["awards"]);
+    const { letrasComoEspada } = EDITORIAL_PUBLIC_FACTS.recognitions;
+    return result("awards", `Los premios y reconocimientos están reunidos en una página específica para poder comprobar cada mención con su contexto. El ${letrasComoEspada.result} del ${letrasComoEspada.name} (${letrasComoEspada.organizer}, ${letrasComoEspada.year}) corresponde al microrrelato «${letrasComoEspada.submittedWork}», que se puede leer completo en la web.`, ["awards", "microstory-al-otro-lado"]);
   }
 
   if (asksEditorialSubmission(q)) {

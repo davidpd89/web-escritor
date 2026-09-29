@@ -51,7 +51,7 @@ export const EDITORIAL_PUBLIC_FACTS = {
       "organizer": "Letras Como Espada",
       "year": 2026,
       "holder": "David Porto Díaz",
-      "submittedWork": null
+      "submittedWork": "Al otro lado"
     },
     "juanAndresTeno": {
       "result": "Top 10 — Finalista",

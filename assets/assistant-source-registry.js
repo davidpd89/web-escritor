@@ -393,6 +393,29 @@ export const ASSISTANT_SOURCE_REGISTRY = [
     "action": "Ver premios"
   },
   {
+    "id": "microstory-al-otro-lado",
+    "url": "/al-otro-lado/",
+    "title": "«Al otro lado», microrrelato ganador",
+    "territory": "autor",
+    "priority": 2,
+    "visibility": "public",
+    "keywords": [
+      "al otro lado",
+      "microrrelato",
+      "microrrelato ganador",
+      "letras como espada",
+      "antología"
+    ],
+    "aliases": [
+      "al otro lado",
+      "el microrrelato de david",
+      "microrrelato premiado",
+      "relato ganador"
+    ],
+    "summary": "Texto completo del microrrelato premiado y la antología que lleva su título.",
+    "action": "Leer el microrrelato"
+  },
+  {
     "id": "events",
     "url": "/eventos.html",
     "title": "Eventos y firmas",

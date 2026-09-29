@@ -90,9 +90,15 @@ try {
       assert.equal(current.color, BLUE);
       assert.equal(current.backgroundColor, PALE_BLUE);
 
+      // Era `equal(count, 3)`. El 29/09/2026 se sumo una cuarta portada (la
+      // antologia «Al otro lado» de Letras Como Espada) y una igualdad exacta
+      // convertia el alta de una obra en un fallo de diseno. El contrato real
+      // es el tratamiento visual: cada portada de la pagina, sean las que
+      // sean, lleva sus corner brackets, carga de verdad y ocupa caja visible.
       const media = page.locator('main[data-family="books-index"] .books-stage__media');
-      assert.equal(await media.count(), 3);
-      for (let i = 0; i < 3; i++) {
+      const mediaCount = await media.count();
+      assert.ok(mediaCount >= 3, `${name}: /libros/ deberia mostrar al menos 3 portadas, hay ${mediaCount}`);
+      for (let i = 0; i < mediaCount; i++) {
         const before = await computed(media.nth(i), '::before');
         const after = await computed(media.nth(i), '::after');
         assert.match(before.backgroundImage, /corner-bracket-blue-gold\.svg/);
