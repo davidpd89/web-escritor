@@ -30,6 +30,10 @@ _david/
 !.env.example
 __pycache__/
 **/__pycache__/
+.preview-dist*
+.preview-dist*/**
+*.preview-dist*
+.vscode/
 
 # Claude Code: permisos, rutas y configuración específica de cada máquina.
 # La configuración compartida debe vivir en ficheros deliberadamente versionados;

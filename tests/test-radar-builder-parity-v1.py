@@ -38,14 +38,16 @@ print("tests/test-radar-builder-parity-v1")
 
 raw = json.loads(DATA.read_text(encoding="utf-8"))
 items = br.load_items(DATA)
+committed_json_raw = json.loads((ROOT / "convocatorias-escritores/opportunities.json").read_text(encoding="utf-8"))
+target_date = date.fromisoformat(committed_json_raw.get("generated_for", "2026-08-22"))
 
 with tempfile.TemporaryDirectory() as tmp_dir:
     tmp = Path(tmp_dir)
     tmp.mkdir(parents=True, exist_ok=True)
 
-    generated_html = br.build_html(items, date.fromisoformat("2026-08-22"))
-    generated_json = br.public_json(items, date.fromisoformat("2026-08-22"))
-    generated_ics = br.build_ics(items, date.fromisoformat("2026-08-22"))
+    generated_html = br.build_html(items, target_date)
+    generated_json = br.public_json(items, target_date)
+    generated_ics = br.build_ics(items, target_date)
 
     check(generated_html == (ROOT / "convocatorias-escritores/index.html").read_text(encoding="utf-8"), "convocatorias-escritores/index.html está sincronizado")
     check(generated_json == (ROOT / "convocatorias-escritores/opportunities.json").read_text(encoding="utf-8"), "convocatorias-escritores/opportunities.json está sincronizado")

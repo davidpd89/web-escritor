@@ -21,7 +21,8 @@ const DIST = process.env.SITEWIDE_DIST || path.join(ROOT, '.preview-dist-sitewid
 const KEEP_DIST = process.env.SITEWIDE_KEEP_DIST === '1';
 
 if (!process.env.SITEWIDE_SKIP_BUILD) {
-  execFileSync('python3', ['scripts/build-public-dist.py', '--out', DIST], { cwd: ROOT, stdio: 'inherit' });
+  const py = process.env.PYTHON || (process.platform === 'win32' ? 'python' : 'python3');
+  execFileSync(py, ['scripts/build-public-dist.py', '--out', DIST], { cwd: ROOT, stdio: 'inherit' });
 }
 
 function collectHtmlFiles(dir, base = dir) {

@@ -38,6 +38,11 @@ CHECKS = [
     ("Newsletter: worker contract", "node qa/newsletter-worker-contract.mjs"),
     ("Newsletter: staging gate", "node tests/test-staging-newsletter-disable.mjs"),
     ("Social card regression guard", "python tests/test-social-card-article-specific.py"),
+    ("Smoke: sample build parity", "python tests/test-manecillas-sample-build.py"),
+    ("Smoke: radar freshness real clock", "python tests/test-radar-freshness-real-clock.py"),
+    ("Smoke: ICS RFC5545 roundtrip", "python tests/test-ics-roundtrip-independent-parser.py"),
+    ("Smoke: SEO & discoverability sitewide", "node tests/test-seo-discoverability-smoke.mjs"),
+    ("Smoke: cross-device multi-viewport", "node tests/test-cross-device-smoke.mjs"),
 ]
 
 ROUTE_CHECKS = [

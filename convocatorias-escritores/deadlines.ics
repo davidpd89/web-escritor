@@ -5,14 +5,6 @@ CALSCALE:GREGORIAN
 METHOD:PUBLISH
 X-WR-CALNAME:Convocatorias para escritores
 BEGIN:VEVENT
-UID:kutxa-literarios-2027@davidportodiaz.com
-DTSTART;VALUE=DATE:20260921
-DTEND;VALUE=DATE:20260922
-SUMMARY:Premios Literarios Kutxa Fundazioa 2027
-DESCRIPTION:Kutxa Fundazioa
-URL:https://literatursariak.kutxafundazioa.eus/es/preguntas-y-respuestas
-END:VEVENT
-BEGIN:VEVENT
 UID:jorge-manrique-poesia-2026@davidportodiaz.com
 DTSTART;VALUE=DATE:20261009
 DTEND;VALUE=DATE:20261010

@@ -1,9 +1,9 @@
 # Release Readiness Evidence V1
 
-- Generated: `2026-09-08T08:33:37.230510+00:00`
-- Branch: `feat/minimal-analytics-consent-banner-2026-09-08`
-- HEAD: `fa1f172112c2d126f6a073508bd44b26b9076755`
-- Previous SHA (rollback candidate): `42e461efd3ce50a4625f41a6e60a6a92d3251a38`
+- Generated: `2026-09-29T15:27:43.526749+00:00`
+- Branch: `main`
+- HEAD: `4943b841ec387ba8d28d285702ed0054cebe6fd5`
+- Previous SHA (rollback candidate): `4dacaed803fa03e1a1fdf6bd13585a4ddba1f954`
 
 ## Final Status: `STATIC_CHECKS_PASSED`
 
@@ -19,26 +19,26 @@
 ## Commit Window (latest 20)
 
 ```text
-fa1f1721 feat: add minimal analytics-consent banner for Microsoft Clarity
-42e461ef Correcciones de seguimiento: privacidad, minors/Clarity, tracking Preferred Sources (#475)
-2258ec65 Corregir consentimiento de analítica de Clarity (denied por defecto) (#473)
-7dc1d578 docs: record 2026-09-08 corrections to the Wikidata/Amazon closure (#474)
-5188ed3c Enlazar Google Preferred Sources en el Cuaderno (#472)
-517cf160 feat: link Manecillas' now-combined Goodreads work in sameAs (#471)
-ead76838 Cierre Amazon Author Central + Goodreads + Wikidata (2026-09-07) (#470)
-7c1b91e4 Clarity consent closure + noindex/keyword/interlinking audit (#395)
-6359cbde SEO fixes: Amazon links, dead ASINs, RSS styling, Bing title, Microsoft Clarity (#393)
-8c1a7044 docs: track Bing/GSC backlink-authority gap as a pending item (#394)
-d2f70aa2 fix: disambiguate Home buy-CTA accessible names, purge stale v14 cache (#392)
-c5578022 fix: content-parity regex broke by #390's intentional dt/dd space (#391)
-1ec49bfa fix: sitewide dt/dd search-index concatenation across every fact ledger (#390)
-5895e54f fix: Samuel entre mundos ledger dt/dd search-index concatenation (#389)
-c5466531 fix: .mjs cache staleness and blank-Home fallback recovery (#388)
-df32de9c fix: second post-Kindle-launch QA round (newsletter, dynamic CTAs, assistant editions) (#387)
-75c91f44 fix: post-Kindle-launch consistency sweep (stale copy, dates, nav, CSS) (#386)
-6e8a244a fix: manecillas sample --check false-positive on a local Windows checkout (#385)
-f8311aaa feat: activate Las manecillas del recuerdo's Kindle purchase link sitewide (#384)
-a88bfa24 feat: add Comprar CTA to Manecillas Home hero + fix script cache-busting gap (#382)
+4943b841 seo(structured-data): add missing BreadcrumbList JSON-LD to 27 published pages (#527)
+4dacaed8 fix(qa): extend asset-version checker to cover JS-side dynamic/static imports (#526)
+76317a8e perf(home): re-encode intro poster to WebP, real ~224ms LCP improvement (#525)
+881d1f40 fix(qa): make production-analytics-smoke actually assert (was log-only) (#524)
+ddcaf599 docs(qa): record 25x CI hunt evidence for the /autor.html @768 CLS flake (#523)
+7e824251 test(qa): add manual production analytics smoke (positive-case, on-demand) (#522)
+4d6a226a test(qa): add sitewide zero-console-errors crawl audit (#521)
+efbdb5ca fix(analytics): close production-hostname guard gaps (staging, legacy tags, Clarity fallback) (#520)
+7254d9f9 fix(analytics): also block Clarity/GoatCounter/Metricool on file:// opens (#518)
+4022692f perf(lcp): defer Clarity's injection off the LCP-critical main thread (#519)
+a17e8fd9 content(prensa): add Praza Pública opinion piece (#517)
+d0788680 fix(analytics): stop GoatCounter/Metricool/Clarity from firing on localhost (#516)
+ffa68c29 fix(seo): add ProfilePage dateCreated, drop invalid ItemList.dateModified (#515)
+b2744a43 fix(security): add explicit Referrer-Policy meta tag sitewide (#513)
+e5e0af10 fix(seo): correct press-mention JSON-LD authorship and add headline (#514)
+1973e4c4 fix(footer): WCAG 1.4.4 zoom overflow + revive 2 dead CI checks (#508)
+cb8c02e4 test(qa): fix flaky external-request assertion in pagefind search (#512)
+458f01c3 Merge pull request #511 from davidpd89/tracking/pagespeed-image-optimization
+2889ec23 test(visual-baselines): update home__tablet for resized masthead images
+43352cff Merge remote-tracking branch 'origin/main' into tracking/pagespeed-image-optimization
 ```
 
 ## Required Route Inventory
@@ -84,6 +84,11 @@ a88bfa24 feat: add Comprar CTA to Manecillas Home hero + fix script cache-bustin
 | Newsletter: worker contract | `node qa/newsletter-worker-contract.mjs` | `PASS` |
 | Newsletter: staging gate | `node tests/test-staging-newsletter-disable.mjs` | `PASS` |
 | Social card regression guard | `python tests/test-social-card-article-specific.py` | `PASS` |
+| Smoke: sample build parity | `python tests/test-manecillas-sample-build.py` | `PASS` |
+| Smoke: radar freshness real clock | `python tests/test-radar-freshness-real-clock.py` | `PASS` |
+| Smoke: ICS RFC5545 roundtrip | `python tests/test-ics-roundtrip-independent-parser.py` | `PASS` |
+| Smoke: SEO & discoverability sitewide | `node tests/test-seo-discoverability-smoke.mjs` | `PASS` |
+| Smoke: cross-device multi-viewport | `node tests/test-cross-device-smoke.mjs` | `PASS` |
 
 ## Output Excerpts
 
@@ -107,7 +112,7 @@ Files scanned: 96
 Indexable pages: 62
 
 INFO (1):
-  [noindex-skipped] 34 pages excluded (noindex): aviso-legal.html, privacidad.html, samuel-entre-mundos.html, asistente\embed.html, asistente\index.html, cuaderno\sistema-de-magia-noveris\index.html, donde-empieza-la-jaula\index.html, gracias-suscripcion\index.html �
+  [noindex-skipped] 34 pages excluded (noindex): aviso-legal.html, privacidad.html, samuel-entre-mundos.html, asistente\embed.html, asistente\index.html, donde-empieza-la-jaula\index.html, gracias-suscripcion\index.html, lecturas\index.html �
 
 Summary: 0 error(s), 0 warning(s)
 ```
@@ -139,7 +144,7 @@ CANONICAL ENTITY IDs: OK (4 entidades con @id, todas consistentes)
 ### CI parity: editorial facts — PASS
 
 ```text
-EDITORIAL FACT CHECK � mode=launch � date=2026-09-08 � publication=2026-09-03
+EDITORIAL FACT CHECK � mode=launch � date=2026-09-29 � publication=2026-09-03
 EDITORIAL FACT CHECK: OK
 ```
 
@@ -163,21 +168,20 @@ EDITORIAL FACT CHECK: OK
 ### CI parity: social cards strict — PASS
 
 ```text
-NOTICE  shared article card used by 4 pages: https://davidportodiaz.com/assets/eventos/og-feria-libro-madrid-2026-david-porto-samuel.jpg :: .claude/worktrees/agent-a4a0f10ba479e3318/cuaderno/feria-libro-madrid-2026-samuel-entre-mundos/index.html, .claude/worktrees/agent-aa779067cd4e87151/cuaderno/feria-libro-madrid-2026-samuel-entre-mundos/index.html, .claude/worktrees/agent-aaa07b6a8f068661e/cuaderno/feria-libro-madrid-2026-samuel-entre-mundos/index.html, cuaderno/feria-libro-madrid-2026-samuel-entre-mundos/index.html
-NOTICE  shared article card used by 8 pages: https://davidportodiaz.com/assets/og-clubes-lectura-samuel-entre-mundos.jpg :: .claude/worktrees/agent-a4a0f10ba479e3318/clubes-de-lectura/samuel-entre-mundos/guia-imprimible/index.html, .claude/worktrees/agent-a4a0f10ba479e3318/clubes-de-lectura/samuel-entre-mundos/index.html, .claude/worktrees/agent-aa779067cd4e87151/clubes-de
-... [truncated]
+NOTICE  shared article card used by 7 pages: https://davidportodiaz.com/assets/og-worldbuilding-noveris-ciudad-fantastica.jpg :: cuaderno/fantasia-juvenil-espanola-portales-magia-coste/index.html, cuaderno/libros-fantasia-juvenil-espanola-2025-2026/index.html, cuaderno/portal-fantasy-vs-fantasia-epica/index.html, cuaderno/que-es-el-portal-fantasy/index.html, cuaderno/worldbuilding-noveris-ciudad-magica/index.html, recomendaciones/magia-con-coste/index.html, recomendaciones/portal-fantasy-espanol/index.html
+Social cards: 62 indexable HTML pages; 0 error(s), 0 warning(s), 1 notice(s).
 ```
 
 ### CI parity: copy tildes — PASS
 
 ```text
-COPY TILDES: OK (180 ficheros HTML/JS revisados)
+COPY TILDES: OK (183 ficheros HTML/JS revisados)
 ```
 
 ### Authority: machine-readable contract — PASS
 
 ```text
-PASS � machine authority contract (680 checks).
+PASS � machine authority contract (742 checks).
 ```
 
 ### Builder parity: editoriales — PASS
@@ -240,10 +244,62 @@ test-staging-newsletter-disable: all assertions passed
 test-social-card-article-specific: OK (7 pages checked)
 ```
 
+### Smoke: sample build parity — PASS
+
+```text
+test-manecillas-sample-build: OK
+```
+
+### Smoke: radar freshness real clock — PASS
+
+```text
+ok mutation: stale published dataset -> FAIL
+ok mutation control: stale hidden item -> PASS
+ok current: freshly verified dataset -> PASS
+test-radar-freshness-real-clock: OK
+```
+
+### Smoke: ICS RFC5545 roundtrip — PASS
+
+```text
+ok   evento-escritor-core.js generator exits 0 (stderr: (node:39616) [MODULE_TYPELESS_PACKAGE_JSON] Warning: Module type of file:///C:/GIT/web-escritor/assets/evento-escritor-core.js is not specified and it doesn't parse as CommonJS.
+Reparsing as ES module)
+  ok   icalendar parses exactly 1 VEVENT from the event tool's ICS
+  ok   SUMMARY round-trips with accents intact
+  ok   DTSTART is 17:00 UTC per icalendar (got 2026-09-03 17:00:00+00:00)
+  ok   folded DESCRIPTION unfolds correctly
+  ok   event tool's JSON-LD re-parses with json.loads and keeps @type Event
+  ok   JSON-LD nested address survives re-parse
+  ok   icalendar parses 2 VEVENT(s) from the radar builder's ICS
+  ok   the committed deadlines.ics parses with icalendar
+tests/test-ics-roundtrip-independent-parser: OK
+```
+
+### Smoke: SEO & discoverability sitewide — PASS
+
+```text
+BUILT C:\GIT\web-escritor\.preview-dist-sitewide-qa: 428 file(s) included, 1353 excluded; manifest=.preview-dist-sitewide-qa-manifest.json
+OK: C:\GIT\web-escritor\.preview-dist-sitewide-qa satisfies the allowlist-first public-artifact contract (428 files).
+Auditing SEO & Schema on 73 published HTML pages...
+SEO & Schema Smoke: 890/890 assertions passed.
+ALL SEO & DISCOVERABILITY CHECKS PASSED 100%!
+```
+
+### Smoke: cross-device multi-viewport — PASS
+
+```text
+BUILT C:\GIT\web-escritor\.preview-dist-sitewide-qa: 428 file(s) included, 1353 excluded; manifest=.preview-dist-sitewide-qa-manifest.json
+OK: C:\GIT\web-escritor\.preview-dist-sitewide-qa satisfies the allowlist-first public-artifact contract (428 files).
+Cross-device smoke testing 31 routes across 7 viewports...
+
+Results: 217 checks PASSED, 0 FAILED.
+ALL CROSS-DEVICE SMOKE CHECKS PASSED 100%!
+```
+
 ## Rollback Procedure (Documented, not executed)
 
 1. Identify incident and freeze merges.
-2. Checkout rollback target SHA: `42e461efd3ce50a4625f41a6e60a6a92d3251a38`.
+2. Checkout rollback target SHA: `4dacaed803fa03e1a1fdf6bd13585a4ddba1f954`.
 3. Re-run core checks:
 ```bash
 python scripts/check-local-assets.py

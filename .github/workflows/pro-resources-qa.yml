@@ -31,7 +31,7 @@ jobs:
       - name: Validate publisher source
         run: python3 scripts/build-editoriales.py --data data/editoriales.json --output . --today 2026-08-21 --check
       - name: Validate opportunity source
-        run: python3 scripts/build-radar-opportunities.py --data data/radar-opportunities.json --out convocatorias-escritores --today 2026-08-21 --check
+        run: python3 scripts/build-radar-opportunities.py --data data/radar-opportunities.json --out convocatorias-escritores --today 2026-09-29 --check
       - name: Check source/output/ICS parity
         run: python3 scripts/check-professional-resources.py
       - uses: actions/setup-node@v5
