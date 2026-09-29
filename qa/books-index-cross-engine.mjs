@@ -14,8 +14,12 @@ for (const [name, launcher] of Object.entries(engines)) {
     const rootContext = await page.locator('html').getAttribute('data-editorial-context');
     assert.equal(rootContext, 'obras', `${name}: contexto editorial incorrecto`);
 
+    // Era `equal(stageCount, 3)`. El 29/09/2026 entro la antologia «Al otro
+    // lado» como cuarto bloque y una igualdad exacta convertia el alta de una
+    // obra en un fallo de humo. Lo que este smoke protege es que /libros/
+    // siga siendo la pagina con las obras, no un numero concreto.
     const stageCount = await page.locator('.books-stage, .books-stage-anthology').count();
-    assert.equal(stageCount, 3, `${name}: se esperaban tres bloques de obra`);
+    assert.ok(stageCount >= 3, `${name}: se esperaban al menos tres bloques de obra, hay ${stageCount}`);
 
     const h1Color = await page.locator('.v1-masthead h1').evaluate((el) => getComputedStyle(el).color);
     assert.equal(h1Color, 'rgb(29, 79, 150)', `${name}: H1 fuera del azul canónico`);

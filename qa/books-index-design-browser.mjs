@@ -63,10 +63,27 @@ try {
       await page.evaluate(async () => {
         await document.fonts?.ready;
         const images = [...document.querySelectorAll('main[data-family="books-index"] .books-stage__media img')];
+        // Las portadas llevan loading="lazy". Una que quede fuera del viewport
+        // -- y con cuatro obras la ultima siempre lo esta en los viewports
+        // estrechos -- nunca dispara `load`, asi que el `await` de abajo se
+        // quedaba colgado hasta que el job entero se cancelaba por timeout
+        // (3 cancelaciones seguidas a los 30 min en la PR de «Al otro lado»).
+        // Se fuerza la entrada en viewport primero, que es lo que hace un
+        // lector real, y ademas se pone un tope por imagen para que un fallo
+        // de carga sea un assert legible y no una cancelacion del workflow.
+        for (const img of images) img.scrollIntoView({ block: 'center' });
         await Promise.all(images.map(async (img) => {
-          if (!img.complete) await new Promise((resolve) => img.addEventListener('load', resolve, { once: true }));
+          if (!img.complete) {
+            await new Promise((resolve) => {
+              const done = () => resolve();
+              img.addEventListener('load', done, { once: true });
+              img.addEventListener('error', done, { once: true });
+              setTimeout(done, 10000);
+            });
+          }
           if (typeof img.decode === 'function') await img.decode().catch(() => {});
         }));
+        window.scrollTo(0, 0);
       });
 
       assert.equal(await page.locator('html').getAttribute('data-editorial-context'), 'obras');
