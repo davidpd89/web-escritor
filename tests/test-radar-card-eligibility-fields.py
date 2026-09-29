@@ -64,14 +64,14 @@ check("Cómo presentarse" not in card_without, "card() omits the submission_mode
 
 # The real dataset should still build without error with these fields active.
 items = br.load_items(ROOT / "data" / "radar-opportunities.json")
-html = br.build_html(items, date.fromisoformat("2026-08-22"))
+html = br.build_html(items, date.fromisoformat("2026-09-29"))
 real_with_eligibility = [i for i in items if i.get("eligibility")]
 check(len(real_with_eligibility) > 0, "the real dataset has at least one item with eligibility (sanity check)")
 for item in real_with_eligibility:
     if not item.get("published"):
         continue
     check(
-        br.esc(item["eligibility"]) in html or item["deadline"] < "2026-08-22",
+        br.esc(item["eligibility"]) in html or item["deadline"] < "2026-09-29",
         f"{item['id']}: its eligibility text appears in the real generated HTML (or the item is already expired)",
     )
 

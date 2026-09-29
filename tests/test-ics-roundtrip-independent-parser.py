@@ -79,11 +79,11 @@ spec.loader.exec_module(br)
 
 data = json.loads((ROOT / "data" / "radar-opportunities.json").read_text(encoding="utf-8"))
 items = br.load_items(ROOT / "data" / "radar-opportunities.json")
-generated_ics = br.build_ics(items, date.fromisoformat("2026-08-22"))
+generated_ics = br.build_ics(items, date.fromisoformat("2026-09-29"))
 
 radar_cal = Calendar.from_ical(generated_ics)
 radar_events = [c for c in radar_cal.walk() if c.name == "VEVENT"]
-active_count = len(br.active_items(items, date.fromisoformat("2026-08-22")))
+active_count = len(br.active_items(items, date.fromisoformat("2026-09-29")))
 check(len(radar_events) == active_count, f"icalendar parses {active_count} VEVENT(s) from the radar builder's ICS")
 
 # The committed deadlines.ics is the same content the browser actually
