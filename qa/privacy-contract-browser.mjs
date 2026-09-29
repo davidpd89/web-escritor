@@ -148,11 +148,8 @@ await navigateFlow.context.close();
 // visitor actually has time to see the banner. Uses the real default (no
 // graceMs override) with a shortened window instead, so this exercises the
 // exact same code path production uses, not a separate zero-grace mode.
-// 3s, not a value close to capture()'s own goto/networkidle overhead: the
-// grace clock starts the instant the banner script runs, before capture()
-// even returns control here, so a window only slightly longer than that
-// overhead flakes shut before the first assertion below ever gets to run.
-const GRACE_TEST_MS=3000;
+// 6s window for test stability against variable navigation/render latency:
+const GRACE_TEST_MS=6000;
 const graceFlow=await capture('/las-manecillas-del-recuerdo/kindle/',{width:390,height:844},true,GRACE_TEST_MS);
 await graceFlow.page.mouse.wheel(0,400);
 await graceFlow.page.waitForTimeout(50);

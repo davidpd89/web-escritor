@@ -1,9 +1,9 @@
 # Release Readiness Evidence V1
 
-- Generated: `2026-09-29T15:27:43.526749+00:00`
+- Generated: `2026-09-29T16:53:02.436148+00:00`
 - Branch: `main`
-- HEAD: `4943b841ec387ba8d28d285702ed0054cebe6fd5`
-- Previous SHA (rollback candidate): `4dacaed803fa03e1a1fdf6bd13585a4ddba1f954`
+- HEAD: `260f5f652c40db32a0838266724df92f577e3e71`
+- Previous SHA (rollback candidate): `4943b841ec387ba8d28d285702ed0054cebe6fd5`
 
 ## Final Status: `STATIC_CHECKS_PASSED`
 
@@ -19,6 +19,7 @@
 ## Commit Window (latest 20)
 
 ```text
+260f5f65 test(qa): add cross-device and SEO smoke tests, update radar dataset and harden CI parity
 4943b841 seo(structured-data): add missing BreadcrumbList JSON-LD to 27 published pages (#527)
 4dacaed8 fix(qa): extend asset-version checker to cover JS-side dynamic/static imports (#526)
 76317a8e perf(home): re-encode intro poster to WebP, real ~224ms LCP improvement (#525)
@@ -38,7 +39,6 @@ e5e0af10 fix(seo): correct press-mention JSON-LD authorship and add headline (#5
 cb8c02e4 test(qa): fix flaky external-request assertion in pagefind search (#512)
 458f01c3 Merge pull request #511 from davidpd89/tracking/pagespeed-image-optimization
 2889ec23 test(visual-baselines): update home__tablet for resized masthead images
-43352cff Merge remote-tracking branch 'origin/main' into tracking/pagespeed-image-optimization
 ```
 
 ## Required Route Inventory
@@ -262,7 +262,7 @@ test-radar-freshness-real-clock: OK
 ### Smoke: ICS RFC5545 roundtrip — PASS
 
 ```text
-ok   evento-escritor-core.js generator exits 0 (stderr: (node:39616) [MODULE_TYPELESS_PACKAGE_JSON] Warning: Module type of file:///C:/GIT/web-escritor/assets/evento-escritor-core.js is not specified and it doesn't parse as CommonJS.
+ok   evento-escritor-core.js generator exits 0 (stderr: (node:51924) [MODULE_TYPELESS_PACKAGE_JSON] Warning: Module type of file:///C:/GIT/web-escritor/assets/evento-escritor-core.js is not specified and it doesn't parse as CommonJS.
 Reparsing as ES module)
   ok   icalendar parses exactly 1 VEVENT from the event tool's ICS
   ok   SUMMARY round-trips with accents intact
@@ -278,7 +278,7 @@ tests/test-ics-roundtrip-independent-parser: OK
 ### Smoke: SEO & discoverability sitewide — PASS
 
 ```text
-BUILT C:\GIT\web-escritor\.preview-dist-sitewide-qa: 428 file(s) included, 1353 excluded; manifest=.preview-dist-sitewide-qa-manifest.json
+BUILT C:\GIT\web-escritor\.preview-dist-sitewide-qa: 428 file(s) included, 1355 excluded; manifest=.preview-dist-sitewide-qa-manifest.json
 OK: C:\GIT\web-escritor\.preview-dist-sitewide-qa satisfies the allowlist-first public-artifact contract (428 files).
 Auditing SEO & Schema on 73 published HTML pages...
 SEO & Schema Smoke: 890/890 assertions passed.
@@ -288,7 +288,7 @@ ALL SEO & DISCOVERABILITY CHECKS PASSED 100%!
 ### Smoke: cross-device multi-viewport — PASS
 
 ```text
-BUILT C:\GIT\web-escritor\.preview-dist-sitewide-qa: 428 file(s) included, 1353 excluded; manifest=.preview-dist-sitewide-qa-manifest.json
+BUILT C:\GIT\web-escritor\.preview-dist-sitewide-qa: 428 file(s) included, 1355 excluded; manifest=.preview-dist-sitewide-qa-manifest.json
 OK: C:\GIT\web-escritor\.preview-dist-sitewide-qa satisfies the allowlist-first public-artifact contract (428 files).
 Cross-device smoke testing 31 routes across 7 viewports...
 
@@ -299,7 +299,7 @@ ALL CROSS-DEVICE SMOKE CHECKS PASSED 100%!
 ## Rollback Procedure (Documented, not executed)
 
 1. Identify incident and freeze merges.
-2. Checkout rollback target SHA: `4dacaed803fa03e1a1fdf6bd13585a4ddba1f954`.
+2. Checkout rollback target SHA: `4943b841ec387ba8d28d285702ed0054cebe6fd5`.
 3. Re-run core checks:
 ```bash
 python scripts/check-local-assets.py

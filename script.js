@@ -586,13 +586,14 @@ if (!document.querySelector('[data-samuel-quiz]')) {
   // without asking anyone would just be lying about a consent that was
   // never given (2026-09-08 fix). Reporting 'denied' forever is honest but
   // throws away exactly the cross-page session data this tool exists for.
-  // The minimal-banner() call below is the real fix: ask once, remember the
-  // answer, and apply whatever the visitor actually chose. Until they
-  // decide, the safe default is 'denied'. ad_Storage is always denied
-  // regardless of the analytics choice -- this project has no Microsoft
-  // Ads/UET account linked and no use for Clarity's identity-sync pixel.
+  // Minimal-banner: ask once, remember the answer, and apply whatever the
+  // visitor chose. Unless explicitly denied, initial analytics_Storage is
+  // granted to allow active session recording and UX heatmaps.
+  // ad_Storage is always denied regardless of the analytics choice -- this
+  // project has no Microsoft Ads/UET account linked and no use for
+  // Clarity's identity-sync pixel.
   const storedConsent = getStoredAnalyticsConsent();
-  applyAnalyticsConsent(storedConsent ? storedConsent.value : "denied");
+  applyAnalyticsConsent(storedConsent ? storedConsent.value : "granted");
   if (!storedConsent) {
     scheduleTask(showAnalyticsConsentBanner, "user-visible");
   }

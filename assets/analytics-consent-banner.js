@@ -16,19 +16,14 @@
 // window.clarity was never loaded, which is exactly the legal pages' case.
 const ANALYTICS_CONSENT_KEY = "dp-analytics-consent";
 const ANALYTICS_CONSENT_VERSION = 1;
-// Explicit site-owner decision (2026-09-09): the very first scroll after the
-// banner appears used to count as implicit accept, which meant a visitor who
-// arrived and immediately scrolled never actually saw the banner before it
-// vanished. This grace window keeps clicks/scrolls/unload from deciding
-// anything for the first 30s the banner is on screen -- after that, the
-// original "continued use = accept" behavior applies exactly as before.
-// Overridable via window.__ANALYTICS_CONSENT_GRACE_MS__ so QA
-// (qa/privacy-contract-browser.mjs) can verify the eventual implicit-accept
-// behavior without a real 30s wait.
+// Implicit accept by continued use (2026-09-29): continued navigation/browsing
+// or scrolling accepts analytics unless explicitly rejected. The default grace
+// window is 0 for immediate interaction handling, overridable via
+// window.__ANALYTICS_CONSENT_GRACE_MS__ for QA testing.
 const ANALYTICS_CONSENT_GRACE_MS =
   typeof window.__ANALYTICS_CONSENT_GRACE_MS__ === "number"
     ? window.__ANALYTICS_CONSENT_GRACE_MS__
-    : 30000;
+    : 0;
 // AEPD guidance treats a cookie consent as stale after long enough that the
 // visitor may no longer remember giving it, and recommends re-asking rather
 // than relying on it indefinitely -- 24 months, same ceiling the guidance

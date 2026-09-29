@@ -131,8 +131,8 @@ try {
         deadline: node.getAttribute('data-deadline'),
         type: node.getAttribute('data-type'),
       }))), [
-        { title: 'premios literarios kutxa fundazioa 2027', organizer: 'kutxa fundazioa', deadline: '2026-09-21', type: 'concurso' },
         { title: 'x premio internacional de poesía jorge manrique', organizer: 'diputación de palencia y ayuntamiento de paredes de nava', deadline: '2026-10-09', type: 'concurso' },
+        { title: 'premios literarios kutxa fundazioa 2027', organizer: 'kutxa fundazioa', deadline: '2026-11-21', type: 'concurso' },
       ], `${name}: oportunidades activas o su orden cambiaron`);
 
       assert.equal(await page.locator('[data-radar-search]').count(), 1, `${name}: buscador ausente`);
@@ -282,7 +282,7 @@ try {
     assert.equal(await noJsPage.locator('noscript .tool-note').count(), 1, 'no-js: aviso explicativo ausente');
     assert.equal(await noJsPage.locator('[data-radar-calendar]').getAttribute('href'), '/convocatorias-escritores/deadlines.ics', 'no-js: enlace ICS perdido');
     const dates = await noJsPage.locator('[data-radar-item] time').allTextContents();
-    assert.ok(dates.includes('21/09/2026') && dates.includes('09/10/2026'), 'no-js: fechas activas no visibles');
+    assert.ok(dates.includes('21/11/2026') && dates.includes('09/10/2026'), 'no-js: fechas activas no visibles');
     const overflow = await noJsPage.evaluate(() => document.documentElement.scrollWidth - innerWidth);
     assert.ok(overflow <= 1, `no-js: overflow horizontal ${overflow}px`);
     await noJsPage.screenshot({ path: path.join(OUT, 'convocatorias-no-js-390.png'), fullPage: true });

@@ -25,7 +25,17 @@ async function context(browser,{width,height},js=true){
 async function open(page,suffix=''){
   const r=await page.goto(`${ORIGIN}/ferias.html${suffix}`,{waitUntil:'load',timeout:20000});
   assert.ok(r?.ok(),'Ferias no carga');
-  await page.evaluate(()=>document.fonts?.ready);
+  await page.evaluate(async ()=>{
+    if (document.fonts) {
+      try {
+        await Promise.all([
+          document.fonts.load('400 80px "Instrument Serif"', 'Ferias del libro'),
+          document.fonts.load('400 18px Newsreader', 'Aranjuez Madrid firma caseta'),
+        ]);
+      } catch {}
+      await document.fonts.ready;
+    }
+  });
   await page.waitForTimeout(120);
 }
 async function overflowState(page){
