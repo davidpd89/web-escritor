@@ -16,7 +16,7 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
 PYTHON = sys.executable
-TODAY = "2026-08-22"
+TODAY = "2026-09-29"
 
 
 def snapshot(root: Path) -> dict[str, str]:
