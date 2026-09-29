@@ -7,8 +7,8 @@
   "nationality": "Española",
   "website": "https://davidportodiaz.com/",
   "canonicalDescription": "David Porto Díaz es un escritor gallego residente en Madrid, autor de Samuel entre mundos y de Las manecillas del recuerdo (Monza Ediciones, 3 de septiembre de 2026).",
-  "shortBio": "Escritor gallego residente en Madrid. Autor de Las manecillas del recuerdo (Monza Ediciones, publicada el 3 de septiembre de 2026) y Samuel entre mundos (Libros Indie, 2025). Ganador del Primer Premio — XII Certamen de Microrrelatos «De amor» · Letras Como Espada 2026 y del I Concurso de microrrelatos sobre hombres lobo «Aullidos en papel» · Diversidad Literaria 2026.",
-  "longBio": "David Porto Díaz nació en Pontevedra (Galicia) y reside en Madrid. Su segunda novela, Las manecillas del recuerdo (Monza Ediciones), publicada el 3 de septiembre de 2026, es una novela coral de vidas conectadas por un reloj que pasa de mano en mano. Su primera novela, Samuel entre mundos, fue publicada por Libros Indie en 2025. En 2026 fue seleccionado Top 10 — Finalista del I Premio de Literatura Infantil Juan Andrés Teno, organizado por BABIDI-BÚ; la fuente pública oficial localizada no identifica la obra presentada, por lo que esta ficha no atribuye la selección a una obra concreta. En 2026 obtuvo el Primer Premio — XII Certamen de Microrrelatos «De amor» · Letras Como Espada, en la categoría de microrrelatos, y resultó ganador del I Concurso de microrrelatos sobre hombres lobo «Aullidos en papel», organizado por Diversidad Literaria.",
+  "shortBio": "Escritor gallego residente en Madrid. Autor de Las manecillas del recuerdo (Monza Ediciones, publicada el 3 de septiembre de 2026) y Samuel entre mundos (Libros Indie, 2025). Ganador del Primer Premio — XII Certamen de Microrrelatos «De amor» · Letras Como Espada 2026 (microrrelato «Al otro lado») y del I Concurso de microrrelatos sobre hombres lobo «Aullidos en papel» · Diversidad Literaria 2026.",
+  "longBio": "David Porto Díaz nació en Pontevedra (Galicia) y reside en Madrid. Su segunda novela, Las manecillas del recuerdo (Monza Ediciones), publicada el 3 de septiembre de 2026, es una novela coral de vidas conectadas por un reloj que pasa de mano en mano. Su primera novela, Samuel entre mundos, fue publicada por Libros Indie en 2025. En 2026 fue seleccionado Top 10 — Finalista del I Premio de Literatura Infantil Juan Andrés Teno, organizado por BABIDI-BÚ; la fuente pública oficial localizada no identifica la obra presentada, por lo que esta ficha no atribuye la selección a una obra concreta. En 2026 obtuvo el Primer Premio — XII Certamen de Microrrelatos «De amor» · Letras Como Espada, en la categoría de microrrelatos, con «Al otro lado», microrrelato que da título a la antología del certamen (Letras Como Espada, 2026), y resultó ganador del I Concurso de microrrelatos sobre hombres lobo «Aullidos en papel», organizado por Diversidad Literaria.",
   "identifiers": {
     "wikidata": "https://www.wikidata.org/wiki/Q139678851",
     "orcid": "https://orcid.org/0009-0005-9089-3782",
@@ -53,7 +53,12 @@
       "name": "Primer Premio — XII Certamen de Microrrelatos «De amor» · Letras Como Espada 2026",
       "year": 2026,
       "category": "Microrrelatos",
-      "holder": "David Porto Díaz"
+      "holder": "David Porto Díaz",
+      "submittedWork": "Al otro lado",
+      "submittedWorkType": "microrrelato",
+      "publishedIn": "Antología Al otro lado (Letras Como Espada, 2026), pág. 67",
+      "sourceUrl": "https://www.letrascomoespada.com/concursos/ganadores/microrrelatos/2026/ganadores-febrero2026-microrrelatos-de-amor.php",
+      "fullTextUrl": "https://davidportodiaz.com/al-otro-lado/"
     },
     {
       "name": "Ganador — I Concurso de microrrelatos sobre hombres lobo «Aullidos en papel» · Diversidad Literaria 2026",
@@ -87,5 +92,5 @@
     "contactPage": "https://davidportodiaz.com/prensa.html#contacto",
     "pressKit": "https://davidportodiaz.com/prensa.html"
   },
-  "lastUpdated": "2026-09-14"
+  "lastUpdated": "2026-09-29"
 }

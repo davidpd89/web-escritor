@@ -131,6 +131,7 @@ TRACKED_ASSETS = {
     "v1-events.css": "1",
     "v1-ferias.css": "1",
     "fragmento.css": "1",
+    "al-otro-lado.css": "1",
     "auditor-pagina-libro.css": "1",
     "auditor-pagina-libro.js": "1",
     "contador-palabras-engine.js": "3",

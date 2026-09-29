@@ -41,6 +41,7 @@ GATED_REGISTRY_STATUS = {"noindex", "internal", "gated", "deprecated"}
 PUBLIC_DIR_PREFIXES = (
     "accesibilidad/",
     "ai/",
+    "al-otro-lado/",
     "asistente/",
     "assets/",
     "clubes-de-lectura/",

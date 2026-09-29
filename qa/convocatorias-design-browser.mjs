@@ -5,7 +5,7 @@ import { chromium } from 'playwright';
 
 const ORIGIN = process.env.QA_ORIGIN || process.env.QA_BASE_URL || 'http://127.0.0.1:4173';
 const OUT = process.env.QA_OUT || 'qa-artifacts/convocatorias';
-const FIXED_TODAY = '2026-08-21';
+const FIXED_TODAY = '2026-09-29';
 fs.mkdirSync(OUT, { recursive: true });
 
 const BLUE = 'rgb(29, 79, 150)';
@@ -123,15 +123,18 @@ try {
       assert.equal((await page.locator('h1').textContent()).trim(), 'Convocatorias que todavía están a tiempo.', `${name}: H1 alterado`);
       assert.equal(await page.locator('.section-context [aria-current="page"]').getAttribute('href'), '/convocatorias-escritores/', `${name}: contexto no marca Convocatorias`);
 
+      // Kutxa Fundazioa cerro el 21/09/2026 y salio del radar. La fecha fija
+      // de esta suite se mueve con cada regeneracion del radar: lo que se
+      // verifica no es «cuantas hay» sino que las que hay son exactamente las
+      // publicadas, en orden de cierre.
       const items = page.locator('[data-radar-item]');
-      assert.equal(await items.count(), 2, `${name}: el radar ya no conserva dos oportunidades activas en la fecha fija`);
+      assert.equal(await items.count(), 1, `${name}: el radar ya no conserva la oportunidad activa en la fecha fija`);
       assert.deepEqual(await items.evaluateAll(nodes => nodes.map(node => ({
         title: node.getAttribute('data-title'),
         organizer: node.getAttribute('data-organizer'),
         deadline: node.getAttribute('data-deadline'),
         type: node.getAttribute('data-type'),
       }))), [
-        { title: 'premios literarios kutxa fundazioa 2027', organizer: 'kutxa fundazioa', deadline: '2026-09-21', type: 'concurso' },
         { title: 'x premio internacional de poesía jorge manrique', organizer: 'diputación de palencia y ayuntamiento de paredes de nava', deadline: '2026-10-09', type: 'concurso' },
       ], `${name}: oportunidades activas o su orden cambiaron`);
 
@@ -144,7 +147,7 @@ try {
       assert.equal(await page.locator('.tool-findings-block h2').textContent(), 'Cómo se mantiene este radar', `${name}: bloque metodológico alterado`);
 
       const statuses = await page.locator('[data-radar-status]').allTextContents();
-      assert.deepEqual(statuses.map(value => value.trim()), ['En plazo', 'En plazo'], `${name}: estados dinámicos inesperados con fecha fija`);
+      assert.deepEqual(statuses.map(value => value.trim()), ['En plazo'], `${name}: estados dinámicos inesperados con fecha fija`);
       const relatives = await page.locator('[data-radar-relative]').allTextContents();
       assert.ok(relatives.every(value => value.includes('faltan')), `${name}: fechas relativas no calculadas`);
 
@@ -244,16 +247,16 @@ try {
     assert.ok(response?.ok(), 'interaction: radar no carga');
     await stabilizeTypography(interactionPage);
 
-    await interactionPage.locator('[data-radar-search]').fill('KUTXA');
-    assert.equal(await interactionPage.locator('[data-radar-item]:visible').count(), 1, 'interaction: búsqueda Kutxa no devuelve una oportunidad');
+    await interactionPage.locator('[data-radar-search]').fill('MANRIQUE');
+    assert.equal(await interactionPage.locator('[data-radar-item]:visible').count(), 1, 'interaction: búsqueda Manrique no devuelve una oportunidad');
     assert.equal((await interactionPage.locator('[data-radar-count]').textContent()).trim(), '1 convocatoria visible', 'interaction: singular del contador no corregido');
     await interactionPage.evaluate(() => { if (document.activeElement instanceof HTMLElement) document.activeElement.blur(); window.scrollTo(0, 0); });
     await interactionPage.waitForTimeout(50);
     await interactionPage.screenshot({ path: path.join(OUT, 'convocatorias-filtered-390.png'), fullPage: true });
 
     await interactionPage.locator('[data-radar-clear]').click();
-    await interactionPage.locator('[data-radar-genre]').selectOption('novela');
-    assert.equal(await interactionPage.locator('[data-radar-item]:visible').count(), 1, 'interaction: género novela no devuelve solo Kutxa');
+    await interactionPage.locator('[data-radar-genre]').selectOption('poesía');
+    assert.equal(await interactionPage.locator('[data-radar-item]:visible').count(), 1, 'interaction: género poesía no devuelve la convocatoria de poesía');
 
     await interactionPage.locator('[data-radar-clear]').click();
     await interactionPage.locator('[data-radar-soon]').check();
@@ -266,7 +269,7 @@ try {
     await interactionPage.screenshot({ path: path.join(OUT, 'convocatorias-empty-390.png'), fullPage: true });
 
     await interactionPage.locator('[data-radar-empty-clear]').click();
-    assert.equal(await interactionPage.locator('[data-radar-item]:visible').count(), 2, 'interaction: limpiar desde vacío no restaura las dos oportunidades');
+    assert.equal(await interactionPage.locator('[data-radar-item]:visible').count(), 1, 'interaction: limpiar desde vacío no restaura las oportunidades activas');
   } catch (error) {
     failures.push({ viewport: 'interaction-mobile-390', width: 390, height: 844, error: error instanceof Error ? error.message : String(error) });
   } finally {
@@ -278,11 +281,11 @@ try {
   try {
     const response = await noJsPage.goto(`${ORIGIN}/convocatorias-escritores/`, { waitUntil: 'load', timeout: 20000 });
     assert.ok(response?.ok(), 'no-js: radar no carga');
-    assert.equal(await noJsPage.locator('[data-radar-item]').count(), 2, 'no-js: las dos oportunidades dejan de estar en HTML');
+    assert.equal(await noJsPage.locator('[data-radar-item]').count(), 1, 'no-js: las oportunidades activas dejan de estar en HTML');
     assert.equal(await noJsPage.locator('noscript .tool-note').count(), 1, 'no-js: aviso explicativo ausente');
     assert.equal(await noJsPage.locator('[data-radar-calendar]').getAttribute('href'), '/convocatorias-escritores/deadlines.ics', 'no-js: enlace ICS perdido');
     const dates = await noJsPage.locator('[data-radar-item] time').allTextContents();
-    assert.ok(dates.includes('21/09/2026') && dates.includes('09/10/2026'), 'no-js: fechas activas no visibles');
+    assert.ok(dates.includes('09/10/2026'), 'no-js: fechas activas no visibles');
     const overflow = await noJsPage.evaluate(() => document.documentElement.scrollWidth - innerWidth);
     assert.ok(overflow <= 1, `no-js: overflow horizontal ${overflow}px`);
     await noJsPage.screenshot({ path: path.join(OUT, 'convocatorias-no-js-390.png'), fullPage: true });

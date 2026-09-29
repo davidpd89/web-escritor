@@ -343,7 +343,17 @@ def main() -> int:
     award = facts["recognitions"]["letrasComoEspada2026"]
     finalist = facts["recognitions"]["juanAndresTeno2026"]
     wolves_award = facts["recognitions"]["aullidosEnPapel2026"]
-    check(award["type"] == "award" and award["holder"] == author["name"] and award["submittedWork"] is None, "Letras award ownership drift")
+    check(award["type"] == "award" and award["holder"] == author["name"], "Letras award ownership drift")
+    # Hasta el 29/09/2026 la obra presentada era desconocida y este test exigia
+    # submittedWork is None para que nadie la rellenase con una novela. Ya no:
+    # el editor envio al ganador el PDF de la antologia y el propio libro
+    # imprime autoria y titulo ("Al otro lado", pag. 67, epigrafe GANADOR) y lo
+    # repite en el prologo (pag. 4). El guardrail cambia de "no afirmes nada" a
+    # "afirma exactamente esto y nunca una novela".
+    check(award["submittedWork"] == "Al otro lado", "Letras award submitted work drift: debe ser el microrrelato «Al otro lado»")
+    check(award["submittedWork"] not in {sam["title"], man["title"]}, "Letras award attributed to a novel")
+    check(award.get("submittedWorkType") == "microrrelato", "Letras award submitted work must stay typed as microrrelato")
+    check(award.get("anthology", {}).get("title") == "Al otro lado" and award["anthology"].get("publisher") == "Letras Como Espada", "Letras award anthology provenance drift")
     check(finalist["type"] == "finalistSelection" and finalist["submittedWork"] is None, "Juan Andrés Teno must remain an author-level recognition without an unverified submitted work")
     check(finalist.get("sourceUrl") == "https://www.babidibulibros.com/premio-literatura-juan-andres-teno-2026/", "Juan Andrés Teno official call source drift")
     check(bool(finalist.get("sourceLimitation")), "Juan Andrés Teno source limitation must be explicit")
