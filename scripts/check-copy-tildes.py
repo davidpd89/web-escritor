@@ -165,7 +165,7 @@ def files():
     for pattern in ("*.html", "*.js"):
         for path in sorted(ROOT.rglob(pattern)):
             rel = path.relative_to(ROOT)
-            if any(part in SKIP_PARTS for part in rel.parts):
+            if any(part in SKIP_PARTS or part.startswith(".preview-dist-") for part in rel.parts):
                 continue
             yield rel.as_posix(), path
 

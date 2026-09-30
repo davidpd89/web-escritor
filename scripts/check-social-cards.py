@@ -263,7 +263,7 @@ def main() -> int:
     for path in sorted(root.rglob("*.html")):
         # Never treat vendored/generated fixtures or draft/example pages from
         # the planning folder as live site pages.
-        if any(part in skip_parts for part in path.parts):
+        if any(part in skip_parts or part.startswith(".preview-dist-") for part in path.parts):
             continue
         audit = audit_page(path, root, args.origin)
         if audit:

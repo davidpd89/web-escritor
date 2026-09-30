@@ -1,9 +1,9 @@
 # Release Readiness Evidence (Static Preflight Gate)
 
-- Generated: `2026-09-30T11:27:25.087422+00:00`
-- Branch: `fix/qa-hardening-mutation-journeys-supplychain`
-- HEAD: `53741feb4947c6b7e1c8fa2b6a73bb39a7bd4484`
-- Previous SHA (rollback candidate): `6a6a09eb2e60b105d667cf8388314a4a0facdbe2`
+- Generated: `2026-09-30T16:09:57.115497+00:00`
+- Branch: `fix/qa-traceability-keyboard-event-followup`
+- HEAD: `9f1f72eead6fb2239a4b0c122269458fb7762def`
+- Previous SHA (rollback candidate): `2b461024d407ed16fac023655f71872a56965f60`
 
 ## Status: `STATIC_CHECKS_PASSED`
 
@@ -17,8 +17,8 @@
 ## Commit Window (latest 20)
 
 ```text
-53741feb fix(qa): relocate browser suites to qa/, normalize sample generator newlines and sync release readiness
-6a6a09eb feat(qa): harden mutation tests, supply-chain baseline, user journeys, keyboard resize and DOM integrity
+9f1f72ee fix(qa): close PR531 traceability and false-green coverage gaps
+2b461024 Merge pull request #531 from fix/qa-hardening-mutation-journeys-supplychain
 03acd591 docs: sync release-readiness report for merged main
 e8172f60 feat(qa): add supply-chain baseline, SEO collision checker, DOM integrity suite, search benchmark and core user journeys
 0add07af docs(sync): update editorial facts review dates, sync machine-readable files and rebuild feed.xml
@@ -264,7 +264,7 @@ test-radar-freshness-real-clock: OK
 ### Smoke: ICS RFC5545 roundtrip — PASS
 
 ```text
-ok   evento-escritor-core.js generator exits 0 (stderr: (node:13316) [MODULE_TYPELESS_PACKAGE_JSON] Warning: Module type of file:///C:/GIT/web-escritor/assets/evento-escritor-core.js is not specified and it doesn't parse as CommonJS.
+ok   evento-escritor-core.js generator exits 0 (stderr: (node:15584) [MODULE_TYPELESS_PACKAGE_JSON] Warning: Module type of file:///C:/GIT/web-escritor/assets/evento-escritor-core.js is not specified and it doesn't parse as CommonJS.
 Reparsing as ES module)
   ok   icalendar parses exactly 1 VEVENT from the event tool's ICS
   ok   SUMMARY round-trips with accents intact
@@ -337,7 +337,7 @@ test-npm-supply-chain-baseline: OK
 ## Rollback Procedure (Documented, not executed)
 
 1. Identify incident and freeze merges.
-2. Checkout rollback target SHA: `6a6a09eb2e60b105d667cf8388314a4a0facdbe2`.
+2. Checkout rollback target SHA: `2b461024d407ed16fac023655f71872a56965f60`.
 3. Re-run core checks:
 ```bash
 python scripts/check-local-assets.py

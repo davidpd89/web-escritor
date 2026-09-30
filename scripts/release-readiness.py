@@ -171,8 +171,8 @@ def build_report(output: Path) -> int:
         if not ok:
             failures += 1
 
-    # No decir "READY_FOR_HUMAN_MAIN_REVIEW". Este script corre 28 comprobaciones
-    # estaticas/unitarias y un inventario de rutas. Un informe que se titula
+    # No decir "READY_FOR_HUMAN_MAIN_REVIEW". Este script ejecuta las comprobaciones
+    # estáticas/unitarias declaradas en CHECKS y un inventario de rutas. Un informe que se titula
     # "listo para main" sin la suite de navegador y CI completa invita a leerlo
     # como una autorizacion final que no es. El paquete final lo certifica
     # CI_REQUIRED_GATES_PASSED en GitHub Actions y PRODUCTION_VERIFIED en deploy.

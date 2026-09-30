@@ -98,7 +98,7 @@ def read_text(path: Path) -> str:
 
 def should_skip_file(path: Path, root: Path) -> bool:
     rel = path.relative_to(root)
-    if any(part in EXCLUDE_DIRS for part in rel.parts):
+    if any(part in EXCLUDE_DIRS or part.startswith(".preview-dist-") for part in rel.parts):
         return True
     if path.name.lower() in {"offline.html", "404.html"}:
         return True

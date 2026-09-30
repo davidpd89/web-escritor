@@ -131,7 +131,7 @@ def check_dom_integrity_sitewide() -> list[str]:
     all_issues: list[str] = []
     for path in ROOT.rglob("*.html"):
         rel_parts = path.relative_to(ROOT).parts
-        if any(part in SKIP_PARTS for part in rel_parts):
+        if any(part in SKIP_PARTS or part.startswith(".preview-dist-") for part in rel_parts):
             continue
         all_issues.extend(check_html_file(path))
     return all_issues

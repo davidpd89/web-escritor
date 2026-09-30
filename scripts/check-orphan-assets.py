@@ -105,7 +105,7 @@ def all_tracked_or_walk() -> list[Path]:
         if not path.is_file():
             continue
         rel = path.relative_to(ROOT)
-        if any(part in SKIP_PARTS for part in rel.parts):
+        if any(part in SKIP_PARTS or part.startswith(".preview-dist-") for part in rel.parts):
             continue
         found.append(path)
     return found

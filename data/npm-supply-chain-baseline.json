@@ -1,7 +1,9 @@
 {
   "schemaVersion": 1,
   "lastReviewed": "2026-09-30",
-  "reviewBy": "David Porto Díaz / QA Automation",
+  "reviewer": "David Porto Díaz / QA Automation",
+  "reviewedAt": "2026-09-30",
+  "reviewBy": "2026-12-29",
   "policy": {
     "productionVulnerabilitiesAllowed": 0,
     "directDependenciesAllowed": 0,
@@ -21,8 +23,13 @@
       "fixAvailable": true,
       "decision": "accept-temporarily",
       "owner": "CI-Tooling",
-      "reviewBy": "David Porto Díaz / QA Automation",
-      "sourceUrl": "https://github.com/advisories/GHSA-q2hr-2g5m-vwhr"
+      "reviewBy": "2026-12-29",
+      "sourceUrl": "https://github.com/advisories/GHSA-q2hr-2g5m-vwhr",
+      "installedVersion": "1.1.18",
+      "lockfileNode": "node_modules/brace-expansion",
+      "reviewer": "David Porto Díaz / QA Automation",
+      "reviewedAt": "2026-09-30",
+      "fixedVersion": null
     },
     {
       "id": "GHSA-qhr7-859c-m2p7",
@@ -37,8 +44,13 @@
       "fixAvailable": true,
       "decision": "accept-temporarily",
       "owner": "CI-Tooling",
-      "reviewBy": "David Porto Díaz / QA Automation",
-      "sourceUrl": "https://github.com/advisories/GHSA-qhr7-859c-m2p7"
+      "reviewBy": "2026-12-29",
+      "sourceUrl": "https://github.com/advisories/GHSA-qhr7-859c-m2p7",
+      "installedVersion": "1.1.18",
+      "lockfileNode": "node_modules/brace-expansion",
+      "reviewer": "David Porto Díaz / QA Automation",
+      "reviewedAt": "2026-09-30",
+      "fixedVersion": null
     },
     {
       "id": "GHSA-6j4f-fj2g-mc7p",
@@ -53,8 +65,13 @@
       "fixAvailable": true,
       "decision": "accept-temporarily",
       "owner": "CI-Tooling",
-      "reviewBy": "David Porto Díaz / QA Automation",
-      "sourceUrl": "https://github.com/advisories/GHSA-6j4f-fj2g-mc7p"
+      "reviewBy": "2026-12-29",
+      "sourceUrl": "https://github.com/advisories/GHSA-6j4f-fj2g-mc7p",
+      "installedVersion": "1.1.18",
+      "lockfileNode": "node_modules/brace-expansion",
+      "reviewer": "David Porto Díaz / QA Automation",
+      "reviewedAt": "2026-09-30",
+      "fixedVersion": null
     },
     {
       "id": "GHSA-jmr9-qjv8-65gv",
@@ -69,8 +86,13 @@
       "fixAvailable": true,
       "decision": "accept-temporarily",
       "owner": "CI-Tooling",
-      "reviewBy": "David Porto Díaz / QA Automation",
-      "sourceUrl": "https://github.com/advisories/GHSA-jmr9-qjv8-65gv"
+      "reviewBy": "2026-12-29",
+      "sourceUrl": "https://github.com/advisories/GHSA-jmr9-qjv8-65gv",
+      "installedVersion": "2.0.1",
+      "lockfileNode": "node_modules/extract-zip",
+      "reviewer": "David Porto Díaz / QA Automation",
+      "reviewedAt": "2026-09-30",
+      "fixedVersion": null
     },
     {
       "id": "GHSA-7pqw-9j4j-h8q3",
@@ -85,8 +107,13 @@
       "fixAvailable": true,
       "decision": "accept-temporarily",
       "owner": "CI-Tooling",
-      "reviewBy": "David Porto Díaz / QA Automation",
-      "sourceUrl": "https://github.com/advisories/GHSA-7pqw-9j4j-h8q3"
+      "reviewBy": "2026-12-29",
+      "sourceUrl": "https://github.com/advisories/GHSA-7pqw-9j4j-h8q3",
+      "installedVersion": "2.0.1",
+      "lockfileNode": "node_modules/extract-zip",
+      "reviewer": "David Porto Díaz / QA Automation",
+      "reviewedAt": "2026-09-30",
+      "fixedVersion": null
     },
     {
       "id": "GHSA-rpw4-54j3-4h4q",
@@ -101,8 +128,13 @@
       "fixAvailable": true,
       "decision": "accept-temporarily",
       "owner": "CI-Tooling",
-      "reviewBy": "David Porto Díaz / QA Automation",
-      "sourceUrl": "https://github.com/advisories/GHSA-rpw4-54j3-4h4q"
+      "reviewBy": "2026-12-29",
+      "sourceUrl": "https://github.com/advisories/GHSA-rpw4-54j3-4h4q",
+      "installedVersion": "10.5.0",
+      "lockfileNode": "node_modules/ip-address",
+      "reviewer": "David Porto Díaz / QA Automation",
+      "reviewedAt": "2026-09-30",
+      "fixedVersion": null
     },
     {
       "id": "GHSA-2vr4-cq9g-pvrc",
@@ -117,8 +149,13 @@
       "fixAvailable": true,
       "decision": "accept-temporarily",
       "owner": "CI-Tooling",
-      "reviewBy": "David Porto Díaz / QA Automation",
-      "sourceUrl": "https://github.com/advisories/GHSA-2vr4-cq9g-pvrc"
+      "reviewBy": "2026-12-29",
+      "sourceUrl": "https://github.com/advisories/GHSA-2vr4-cq9g-pvrc",
+      "installedVersion": "10.5.0",
+      "lockfileNode": "node_modules/ip-address",
+      "reviewer": "David Porto Díaz / QA Automation",
+      "reviewedAt": "2026-09-30",
+      "fixedVersion": null
     },
     {
       "id": "GHSA-j6r3-76f7-8jcv",
@@ -133,8 +170,13 @@
       "fixAvailable": true,
       "decision": "accept-temporarily",
       "owner": "CI-Tooling",
-      "reviewBy": "David Porto Díaz / QA Automation",
-      "sourceUrl": "https://github.com/advisories/GHSA-j6r3-76f7-8jcv"
+      "reviewBy": "2026-12-29",
+      "sourceUrl": "https://github.com/advisories/GHSA-j6r3-76f7-8jcv",
+      "installedVersion": "10.5.0",
+      "lockfileNode": "node_modules/ip-address",
+      "reviewer": "David Porto Díaz / QA Automation",
+      "reviewedAt": "2026-09-30",
+      "fixedVersion": null
     },
     {
       "id": "GHSA-h3mg-xc3c-68pw",
@@ -149,8 +191,13 @@
       "fixAvailable": true,
       "decision": "accept-temporarily",
       "owner": "CI-Tooling",
-      "reviewBy": "David Porto Díaz / QA Automation",
-      "sourceUrl": "https://github.com/advisories/GHSA-h3mg-xc3c-68pw"
+      "reviewBy": "2026-12-29",
+      "sourceUrl": "https://github.com/advisories/GHSA-h3mg-xc3c-68pw",
+      "installedVersion": "10.5.0",
+      "lockfileNode": "node_modules/ip-address",
+      "reviewer": "David Porto Díaz / QA Automation",
+      "reviewedAt": "2026-09-30",
+      "fixedVersion": null
     },
     {
       "id": "GHSA-2883-xcg3-v3hh",
@@ -165,8 +212,13 @@
       "fixAvailable": true,
       "decision": "accept-temporarily",
       "owner": "CI-Tooling",
-      "reviewBy": "David Porto Díaz / QA Automation",
-      "sourceUrl": "https://github.com/advisories/GHSA-2883-xcg3-v3hh"
+      "reviewBy": "2026-12-29",
+      "sourceUrl": "https://github.com/advisories/GHSA-2883-xcg3-v3hh",
+      "installedVersion": "4.3.1",
+      "lockfileNode": "node_modules/cosmiconfig/node_modules/js-yaml",
+      "reviewer": "David Porto Díaz / QA Automation",
+      "reviewedAt": "2026-09-30",
+      "fixedVersion": null
     },
     {
       "id": "GHSA-x5fp-wj9c-mxmx",
@@ -181,8 +233,13 @@
       "fixAvailable": true,
       "decision": "accept-temporarily",
       "owner": "CI-Tooling",
-      "reviewBy": "David Porto Díaz / QA Automation",
-      "sourceUrl": "https://github.com/advisories/GHSA-x5fp-wj9c-mxmx"
+      "reviewBy": "2026-12-29",
+      "sourceUrl": "https://github.com/advisories/GHSA-x5fp-wj9c-mxmx",
+      "installedVersion": "6.15.3",
+      "lockfileNode": "node_modules/qs",
+      "reviewer": "David Porto Díaz / QA Automation",
+      "reviewedAt": "2026-09-30",
+      "fixedVersion": null
     },
     {
       "id": "GHSA-4mjr-xmp4-gh2g",
@@ -197,8 +254,13 @@
       "fixAvailable": true,
       "decision": "accept-temporarily",
       "owner": "CI-Tooling",
-      "reviewBy": "David Porto Díaz / QA Automation",
-      "sourceUrl": "https://github.com/advisories/GHSA-4mjr-xmp4-gh2g"
+      "reviewBy": "2026-12-29",
+      "sourceUrl": "https://github.com/advisories/GHSA-4mjr-xmp4-gh2g",
+      "installedVersion": "6.15.3",
+      "lockfileNode": "node_modules/qs",
+      "reviewer": "David Porto Díaz / QA Automation",
+      "reviewedAt": "2026-09-30",
+      "fixedVersion": null
     },
     {
       "id": "GHSA-52f5-9888-hmc6",
@@ -213,8 +275,13 @@
       "fixAvailable": true,
       "decision": "accept-temporarily",
       "owner": "CI-Tooling",
-      "reviewBy": "David Porto Díaz / QA Automation",
-      "sourceUrl": "https://github.com/advisories/GHSA-52f5-9888-hmc6"
+      "reviewBy": "2026-12-29",
+      "sourceUrl": "https://github.com/advisories/GHSA-52f5-9888-hmc6",
+      "installedVersion": "0.0.33",
+      "lockfileNode": "node_modules/external-editor/node_modules/tmp",
+      "reviewer": "David Porto Díaz / QA Automation",
+      "reviewedAt": "2026-09-30",
+      "fixedVersion": null
     },
     {
       "id": "GHSA-ph9p-34f9-6g65",
@@ -229,8 +296,13 @@
       "fixAvailable": true,
       "decision": "accept-temporarily",
       "owner": "CI-Tooling",
-      "reviewBy": "David Porto Díaz / QA Automation",
-      "sourceUrl": "https://github.com/advisories/GHSA-ph9p-34f9-6g65"
+      "reviewBy": "2026-12-29",
+      "sourceUrl": "https://github.com/advisories/GHSA-ph9p-34f9-6g65",
+      "installedVersion": "0.0.33",
+      "lockfileNode": "node_modules/external-editor/node_modules/tmp",
+      "reviewer": "David Porto Díaz / QA Automation",
+      "reviewedAt": "2026-09-30",
+      "fixedVersion": null
     },
     {
       "id": "GHSA-3wwx-pv8p-q78v",
@@ -245,8 +317,13 @@
       "fixAvailable": true,
       "decision": "accept-temporarily",
       "owner": "CI-Tooling",
-      "reviewBy": "David Porto Díaz / QA Automation",
-      "sourceUrl": "https://github.com/advisories/GHSA-3wwx-pv8p-q78v"
+      "reviewBy": "2026-12-29",
+      "sourceUrl": "https://github.com/advisories/GHSA-3wwx-pv8p-q78v",
+      "installedVersion": "6.28.0",
+      "lockfileNode": "node_modules/undici",
+      "reviewer": "David Porto Díaz / QA Automation",
+      "reviewedAt": "2026-09-30",
+      "fixedVersion": null
     },
     {
       "id": "GHSA-r53p-7pc4-xj5r",
@@ -261,8 +338,13 @@
       "fixAvailable": true,
       "decision": "accept-temporarily",
       "owner": "CI-Tooling",
-      "reviewBy": "David Porto Díaz / QA Automation",
-      "sourceUrl": "https://github.com/advisories/GHSA-r53p-7pc4-xj5r"
+      "reviewBy": "2026-12-29",
+      "sourceUrl": "https://github.com/advisories/GHSA-r53p-7pc4-xj5r",
+      "installedVersion": "6.28.0",
+      "lockfileNode": "node_modules/undici",
+      "reviewer": "David Porto Díaz / QA Automation",
+      "reviewedAt": "2026-09-30",
+      "fixedVersion": null
     },
     {
       "id": "GHSA-rfgv-xxqx-mfg5",
@@ -277,8 +359,13 @@
       "fixAvailable": true,
       "decision": "accept-temporarily",
       "owner": "CI-Tooling",
-      "reviewBy": "David Porto Díaz / QA Automation",
-      "sourceUrl": "https://github.com/advisories/GHSA-rfgv-xxqx-mfg5"
+      "reviewBy": "2026-12-29",
+      "sourceUrl": "https://github.com/advisories/GHSA-rfgv-xxqx-mfg5",
+      "installedVersion": "6.28.0",
+      "lockfileNode": "node_modules/undici",
+      "reviewer": "David Porto Díaz / QA Automation",
+      "reviewedAt": "2026-09-30",
+      "fixedVersion": null
     },
     {
       "id": "GHSA-w5hq-g745-h8pq",
@@ -293,8 +380,13 @@
       "fixAvailable": true,
       "decision": "accept-temporarily",
       "owner": "CI-Tooling",
-      "reviewBy": "David Porto Díaz / QA Automation",
-      "sourceUrl": "https://github.com/advisories/GHSA-w5hq-g745-h8pq"
+      "reviewBy": "2026-12-29",
+      "sourceUrl": "https://github.com/advisories/GHSA-w5hq-g745-h8pq",
+      "installedVersion": "8.3.2",
+      "lockfileNode": "node_modules/uuid",
+      "reviewer": "David Porto Díaz / QA Automation",
+      "reviewedAt": "2026-09-30",
+      "fixedVersion": null
     }
   ]
 }
