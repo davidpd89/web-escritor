@@ -1,9 +1,9 @@
 # Release Readiness Evidence (Static Preflight Gate)
 
-- Generated: `2026-09-30T11:11:29.823930+00:00`
+- Generated: `2026-09-30T11:27:25.087422+00:00`
 - Branch: `fix/qa-hardening-mutation-journeys-supplychain`
-- HEAD: `6a6a09eb2e60b105d667cf8388314a4a0facdbe2`
-- Previous SHA (rollback candidate): `03acd591dd9ceaded8a80a7f8201b8955dc930e2`
+- HEAD: `53741feb4947c6b7e1c8fa2b6a73bb39a7bd4484`
+- Previous SHA (rollback candidate): `6a6a09eb2e60b105d667cf8388314a4a0facdbe2`
 
 ## Status: `STATIC_CHECKS_PASSED`
 
@@ -17,6 +17,7 @@
 ## Commit Window (latest 20)
 
 ```text
+53741feb fix(qa): relocate browser suites to qa/, normalize sample generator newlines and sync release readiness
 6a6a09eb feat(qa): harden mutation tests, supply-chain baseline, user journeys, keyboard resize and DOM integrity
 03acd591 docs: sync release-readiness report for merged main
 e8172f60 feat(qa): add supply-chain baseline, SEO collision checker, DOM integrity suite, search benchmark and core user journeys
@@ -36,7 +37,6 @@ efbdb5ca fix(analytics): close production-hostname guard gaps (staging, legacy t
 a17e8fd9 content(prensa): add Praza Pública opinion piece (#517)
 d0788680 fix(analytics): stop GoatCounter/Metricool/Clarity from firing on localhost (#516)
 ffa68c29 fix(seo): add ProfilePage dateCreated, drop invalid ItemList.dateModified (#515)
-b2744a43 fix(security): add explicit Referrer-Policy meta tag sitewide (#513)
 ```
 
 ## Required Route Inventory
@@ -86,19 +86,18 @@ b2744a43 fix(security): add explicit Referrer-Policy meta tag sitewide (#513)
 | Smoke: radar freshness real clock | `python tests/test-radar-freshness-real-clock.py` | `PASS` |
 | Smoke: ICS RFC5545 roundtrip | `python tests/test-ics-roundtrip-independent-parser.py` | `PASS` |
 | Smoke: SEO & discoverability sitewide | `node tests/test-seo-discoverability-smoke.mjs` | `PASS` |
-| Smoke: cross-device multi-viewport | `node qa/cross-device-smoke-browser.mjs` | `PASS` |
 | SEO: meta quality & collision prevention | `python scripts/check-seo-meta-quality.py` | `PASS` |
+| SEO: meta quality mutation tests | `python tests/test-seo-meta-quality.py` | `PASS` |
 | DOM: integrity & ARIA resolution | `python scripts/check-dom-integrity.py` | `PASS` |
+| DOM: integrity mutation tests | `python tests/test-dom-integrity.py` | `PASS` |
 | Supply chain: baseline & zero prod vulns | `python tests/test-npm-supply-chain-baseline.py` | `PASS` |
-| Search: Pagefind relevance benchmark | `node qa/pagefind-search-relevance-browser.mjs` | `PASS` |
-| Journeys: Core end-to-end user flows | `node qa/core-user-journeys-browser.mjs` | `PASS` |
 
 ## Output Excerpts
 
 ### CI parity: content indexes — PASS
 
 ```text
-Local asset check: 173 HTML files scanned; 0 broken local reference(s) (including 0 JS reference target(s) and 0 CSS url() target(s)).
+Local asset check: 100 HTML files scanned; 0 broken local reference(s) (including 0 JS reference target(s) and 0 CSS url() target(s)).
 ```
 
 ### CI parity: hrefs — PASS
@@ -111,11 +110,11 @@ HREF-OK
 
 ```text
 INTERNAL GRAPH REPORT
-Files scanned: 167
+Files scanned: 96
 Indexable pages: 62
 
 INFO (1):
-  [noindex-skipped] 43 pages excluded (noindex): aviso-legal.html, privacidad.html, samuel-entre-mundos.html, .preview-dist-sitewide-qa\aviso-legal.html, .preview-dist-sitewide-qa\privacidad.html, .preview-dist-sitewide-qa\samuel-entre-mundos.html, asistente\embed.html, asistente\index.html �
+  [noindex-skipped] 34 pages excluded (noindex): aviso-legal.html, privacidad.html, samuel-entre-mundos.html, asistente\embed.html, asistente\index.html, donde-empieza-la-jaula\index.html, gracias-suscripcion\index.html, lecturas\index.html �
 
 Summary: 0 error(s), 0 warning(s)
 ```
@@ -129,7 +128,7 @@ PASS: navigation coverage (69 registry routes, 62 sitemap routes, 22 interactive
 ### CI parity: heading structure — PASS
 
 ```text
-Heading/skip-link structure: 153 ficheros HTML revisados; 0 problema(s).
+Heading/skip-link structure: 80 ficheros HTML revisados; 0 problema(s).
 ```
 
 ### CI parity: jsonld absolute URLs — PASS
@@ -171,15 +170,14 @@ EDITORIAL FACT CHECK: OK
 ### CI parity: social cards strict — PASS
 
 ```text
-NOTICE  shared article card used by 4 pages: https://davidportodiaz.com/assets/og-clubes-lectura-samuel-entre-mundos.jpg :: .preview-dist-sitewide-qa/clubes-de-lectura/samuel-entre-mundos/guia-imprimible/index.html, .preview-dist-sitewide-qa/clubes-de-lectura/samuel-entre-mundos/index.html, clubes-de-lectura/samuel-entre-mundos/guia-imprimible/index.html, clubes-de-lectura/samuel-entre-mundos/index.html
-NOTICE  shared article card used by 14 pages: https://davidportodiaz.com/assets/og-worldbuilding-noveris-ciudad-fantastica.jpg :: .preview-dist-sitewide-qa/cuaderno/fantasia-juvenil-espanola-portales-magia-coste/index.html, .preview-dist-sitewide-qa/cuaderno/libros-fantasia-juvenil-espanola-2025-2026/index.html, .preview-dist-sitewide-qa/cuaderno/portal-fantasy-vs-fantasia-epica/index.html, .preview-dist-sitewide-qa/cuaderno/que-es-el-portal-fantasy/index.html, .preview-dist-sitewide-qa/c
-... [truncated]
+NOTICE  shared article card used by 7 pages: https://davidportodiaz.com/assets/og-worldbuilding-noveris-ciudad-fantastica.jpg :: cuaderno/fantasia-juvenil-espanola-portales-magia-coste/index.html, cuaderno/libros-fantasia-juvenil-espanola-2025-2026/index.html, cuaderno/portal-fantasy-vs-fantasia-epica/index.html, cuaderno/que-es-el-portal-fantasy/index.html, cuaderno/worldbuilding-noveris-ciudad-magica/index.html, recomendaciones/magia-con-coste/index.html, recomendaciones/portal-fantasy-espanol/index.html
+Social cards: 62 indexable HTML pages; 0 error(s), 0 warning(s), 1 notice(s).
 ```
 
 ### CI parity: copy tildes — PASS
 
 ```text
-COPY TILDES: OK (330 ficheros HTML/JS revisados)
+COPY TILDES: OK (183 ficheros HTML/JS revisados)
 ```
 
 ### Authority: machine-readable contract — PASS
@@ -266,7 +264,7 @@ test-radar-freshness-real-clock: OK
 ### Smoke: ICS RFC5545 roundtrip — PASS
 
 ```text
-ok   evento-escritor-core.js generator exits 0 (stderr: (node:60668) [MODULE_TYPELESS_PACKAGE_JSON] Warning: Module type of file:///C:/GIT/web-escritor/assets/evento-escritor-core.js is not specified and it doesn't parse as CommonJS.
+ok   evento-escritor-core.js generator exits 0 (stderr: (node:13316) [MODULE_TYPELESS_PACKAGE_JSON] Warning: Module type of file:///C:/GIT/web-escritor/assets/evento-escritor-core.js is not specified and it doesn't parse as CommonJS.
 Reparsing as ES module)
   ok   icalendar parses exactly 1 VEVENT from the event tool's ICS
   ok   SUMMARY round-trips with accents intact
@@ -282,22 +280,11 @@ tests/test-ics-roundtrip-independent-parser: OK
 ### Smoke: SEO & discoverability sitewide — PASS
 
 ```text
+BUILT C:\GIT\web-escritor\.preview-dist-sitewide-qa: 428 file(s) included, 1363 excluded; manifest=.preview-dist-sitewide-qa-manifest.json
+OK: C:\GIT\web-escritor\.preview-dist-sitewide-qa satisfies the allowlist-first public-artifact contract (428 files).
 Auditing SEO & Schema on 73 published HTML pages...
 SEO & Schema Smoke: 890/890 assertions passed.
 ALL SEO & DISCOVERABILITY CHECKS PASSED 100%!
-```
-
-### Smoke: cross-device multi-viewport — PASS
-
-```text
-BUILT C:\GIT\web-escritor\.preview-dist-sitewide-qa: 428 file(s) included, 1363 excluded; manifest=.preview-dist-sitewide-qa-manifest.json
-OK: C:\GIT\web-escritor\.preview-dist-sitewide-qa satisfies the allowlist-first public-artifact contract (428 files).
-Cross-device smoke testing 31 routes across 10 viewports...
-Testing dynamic virtual keyboard resize on interactive surfaces...
-Testing deep No-JS progressive enhancement across core routes...
-
-Results: 346 checks PASSED, 0 FAILED.
-ALL CROSS-DEVICE SMOKE CHECKS PASSED 100%!
 ```
 
 ### SEO: meta quality & collision prevention — PASS
@@ -306,10 +293,37 @@ ALL CROSS-DEVICE SMOKE CHECKS PASSED 100%!
 OK — Sitewide SEO meta quality, uniqueness, canonical and OG parity verified.
 ```
 
+### SEO: meta quality mutation tests — PASS
+
+```text
+ok   1. Current repository satisfies all SEO meta quality and uniqueness contracts
+  ok   2. Clean mock dataset passes check_seo_meta_quality with 0 errors
+  ok   3. Mutation test: duplicate <title> caught and rejected
+  ok   4. Mutation test: duplicate meta description caught and rejected
+  ok   5. Mutation test: multiple canonical tags caught and rejected
+  ok   6. Mutation test: canonical route mismatch caught and rejected
+  ok   7. Mutation test: og:url != canonical caught and rejected
+  ok   8. Mutation test: missing title and description caught and rejected
+test-seo-meta-quality: OK
+```
+
 ### DOM: integrity & ARIA resolution — PASS
 
 ```text
 OK — DOM integrity verified sitewide (IDs unique, ARIA/label references valid, no invalid interactive nesting).
+```
+
+### DOM: integrity mutation tests — PASS
+
+```text
+ok   1. Current repository satisfies all DOM integrity contracts
+  ok   2. Mutation test: duplicate ID detected
+  ok   3. Mutation test: broken label[for] detected
+  ok   4. Mutation test: broken aria reference detected
+  ok   5. Mutation test: invalid interactive nesting (<button> in <a>) detected
+  ok   6. Mutation test: invalid interactive nesting (<select> in <button>) detected
+  ok   7. Mutation test: broken aria-owns detected
+test-dom-integrity: OK
 ```
 
 ### Supply chain: baseline & zero prod vulns — PASS
@@ -320,31 +334,10 @@ ok   1. Production supply-chain has 0 vulnerabilities (npm audit --omit=dev)
 test-npm-supply-chain-baseline: OK
 ```
 
-### Search: Pagefind relevance benchmark — PASS
-
-```text
-test-pagefind-search-relevance-benchmark: PASS (11 human query patterns, zero-results and noindex exclusion)
-```
-
-### Journeys: Core end-to-end user flows — PASS
-
-```text
-ok   Journey 1: Home -> Las manecillas del recuerdo
-  ok   Journey 2: Home -> Autor bio (/autor.html)
-  ok   Journey 3: Novela -> Fragmentos de lectura
-  ok   Journey 4: Cuaderno -> Lectura de artículo (/cuaderno/feria-libro-madrid-2026-samuel-entre-mundos/)
-  ok   Journey 5: Herramientas -> Contador de palabras cálculo en vivo
-  ok   Journey 6: Diálogo Explorar -> Apertura y navegación a /herramientas/
-  ok   Journey 7: Radar de convocatorias -> Filtro en vivo y enlace oficial
-  ok   Journey 8: Búsqueda Pagefind -> Consulta "portal fantasy" y navegación a /recomendaciones/portal-fantasy-espanol/
-  ok   Journey 9: Newsletter -> Validación cliente bloquea email inválido
-test-core-user-journeys: OK (All 9 end-to-end user journeys strictly verified without skips)
-```
-
 ## Rollback Procedure (Documented, not executed)
 
 1. Identify incident and freeze merges.
-2. Checkout rollback target SHA: `03acd591dd9ceaded8a80a7f8201b8955dc930e2`.
+2. Checkout rollback target SHA: `6a6a09eb2e60b105d667cf8388314a4a0facdbe2`.
 3. Re-run core checks:
 ```bash
 python scripts/check-local-assets.py

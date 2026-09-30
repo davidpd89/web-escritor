@@ -230,19 +230,22 @@ p.no-indent { text-indent: 0; }
         info.create_system = 3
         return info
 
+    def _norm(s: str) -> str:
+        return s.replace("\r\n", "\n")
+
     buf = io.BytesIO()
     # EPUB requires "mimetype" to be the FIRST entry in the zip, stored
     # (not deflated) -- readers use this exact byte layout to identify a
     # valid EPUB before parsing any XML.
     with zipfile.ZipFile(buf, "w") as zf:
         zf.writestr(_entry("mimetype", zipfile.ZIP_STORED), "application/epub+zip")
-        zf.writestr(_entry("META-INF/container.xml", zipfile.ZIP_DEFLATED), container_xml)
-        zf.writestr(_entry("OEBPS/style.css", zipfile.ZIP_DEFLATED), style_css)
-        zf.writestr(_entry("OEBPS/nav.xhtml", zipfile.ZIP_DEFLATED), nav_xhtml)
-        zf.writestr(_entry("OEBPS/title.xhtml", zipfile.ZIP_DEFLATED), title_xhtml)
-        zf.writestr(_entry("OEBPS/chapter.xhtml", zipfile.ZIP_DEFLATED), chapter_xhtml)
-        zf.writestr(_entry("OEBPS/colophon.xhtml", zipfile.ZIP_DEFLATED), colophon_xhtml)
-        zf.writestr(_entry("OEBPS/content.opf", zipfile.ZIP_DEFLATED), content_opf)
+        zf.writestr(_entry("META-INF/container.xml", zipfile.ZIP_DEFLATED), _norm(container_xml))
+        zf.writestr(_entry("OEBPS/style.css", zipfile.ZIP_DEFLATED), _norm(style_css))
+        zf.writestr(_entry("OEBPS/nav.xhtml", zipfile.ZIP_DEFLATED), _norm(nav_xhtml))
+        zf.writestr(_entry("OEBPS/title.xhtml", zipfile.ZIP_DEFLATED), _norm(title_xhtml))
+        zf.writestr(_entry("OEBPS/chapter.xhtml", zipfile.ZIP_DEFLATED), _norm(chapter_xhtml))
+        zf.writestr(_entry("OEBPS/colophon.xhtml", zipfile.ZIP_DEFLATED), _norm(colophon_xhtml))
+        zf.writestr(_entry("OEBPS/content.opf", zipfile.ZIP_DEFLATED), _norm(content_opf))
         if has_cover:
             zf.writestr(_entry("OEBPS/cover.jpg", zipfile.ZIP_DEFLATED), COVER_JPG.read_bytes())
     return buf.getvalue()
