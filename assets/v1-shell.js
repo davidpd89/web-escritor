@@ -496,12 +496,15 @@
         const willOpen = !li.classList.contains('is-open');
         closeSubmenus(willOpen ? li : null);
         li.classList.toggle('is-open', willOpen);
+        li.classList.toggle('is-dismissed', !willOpen);
         trigger.setAttribute('aria-expanded', String(willOpen));
         if (willOpen) emit('masthead_submenu_open', { territory: key, position: position + 1 });
       });
+      li.addEventListener('mouseleave', () => li.classList.remove('is-dismissed'));
       li.addEventListener('keydown', (event) => {
         if (event.key !== 'Escape') return;
         li.classList.remove('is-open');
+        li.classList.add('is-dismissed');
         trigger.setAttribute('aria-expanded', 'false');
         trigger.focus({ preventScroll: true });
       });

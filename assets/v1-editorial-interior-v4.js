@@ -278,11 +278,14 @@
         other.querySelector('.masthead-nav__submenu-trigger')?.setAttribute('aria-expanded', 'false');
       });
       item.classList.toggle('is-open', willOpen);
+      item.classList.toggle('is-dismissed', !willOpen);
       trigger.setAttribute('aria-expanded', String(willOpen));
     });
+    item.addEventListener('mouseleave', () => item.classList.remove('is-dismissed'));
     item.addEventListener('keydown', (event) => {
       if (event.key !== 'Escape') return;
       item.classList.remove('is-open');
+      item.classList.add('is-dismissed');
       trigger?.setAttribute('aria-expanded', 'false');
       trigger?.focus({ preventScroll: true });
     });
