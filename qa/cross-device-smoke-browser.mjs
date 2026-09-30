@@ -178,8 +178,66 @@ try {
     await context.close();
   }
 
-  // 3. No-JS smoke pass: ensure pages render valid HTML and main landmark without crashing
-  console.log('Testing No-JS fallback across core routes...');
+  // 3. Dynamic Mobile Virtual Keyboard Simulation
+  // Tests opening a page at 390x844, focusing input/textarea, dynamically shrinking height to 500px,
+  // and ensuring no overflow, element remains visible and accessible, and restoring cleanly.
+  console.log('Testing dynamic virtual keyboard resize on interactive surfaces...');
+  const KEYBOARD_TEST_ROUTES = [
+    '/lectores-beta/',
+    '/herramientas/contador-palabras/',
+    '/convocatorias-escritores/',
+    '/herramientas/legibilidad/',
+    '/herramientas/dialogo/',
+    '/herramientas/manuscrito/',
+  ];
+  const kbContext = await browser.newContext({
+    viewport: { width: 390, height: 844 },
+    isMobile: true,
+    hasTouch: true,
+  });
+  for (const route of KEYBOARD_TEST_ROUTES) {
+    const page = await kbContext.newPage();
+    try {
+      await page.goto(`${origin}${route}`, { waitUntil: 'domcontentloaded', timeout: 10000 });
+      const inputEl = page.locator('input[type="email"], textarea, input[type="text"]').first();
+      if (await inputEl.count() > 0) {
+        await inputEl.focus();
+        await page.setViewportSize({ width: 390, height: 500 });
+        await page.waitForTimeout(60);
+
+        const state = await page.evaluate(() => {
+          const active = document.activeElement;
+          const rect = active ? active.getBoundingClientRect() : null;
+          const overflows = Math.max(document.documentElement.scrollWidth, document.body ? document.body.scrollWidth : 0) > window.innerWidth + 1;
+          return {
+            hasActive: !!active,
+            overflows,
+            top: rect ? rect.top : 0,
+            bottom: rect ? rect.bottom : 0,
+            winHeight: window.innerHeight,
+          };
+        });
+
+        assert.ok(!state.overflows, `${route}: horizontal overflow on dynamic keyboard resize`);
+        assert.ok(state.hasActive, `${route}: active element lost focus on keyboard resize`);
+        await page.setViewportSize({ width: 390, height: 844 });
+        totalPassed++;
+      }
+    } catch (err) {
+      failures.push({ viewport: 'Dynamic-Keyboard (390x844->500)', route, errors: [err.message] });
+    } finally {
+      await page.close();
+    }
+  }
+  await kbContext.close();
+
+  // 4. No-JS progressive enhancement pass
+  // Verifies that without JavaScript:
+  // - Valid HTML renders with H1 and substantive content (>150 chars in main)
+  // - Navigation links have valid hrefs
+  // - Tool pages present functional <noscript> explanatory notes with alternative links
+  // - Zero horizontal overflow
+  console.log('Testing deep No-JS progressive enhancement across core routes...');
   const noJsContext = await browser.newContext({
     viewport: { width: 390, height: 844 },
     javaScriptEnabled: false,
@@ -191,6 +249,25 @@ try {
       assert.equal(res.status(), 200, `Expected 200 OK for No-JS ${route}`);
       const h1Count = await page.locator('h1').count();
       assert.ok(h1Count >= 1, `Expected at least one <h1> in No-JS render of ${route}`);
+
+      const mainText = await page.locator('main').textContent();
+      assert.ok(mainText && mainText.trim().length > 150, `Expected substantive content in <main> for No-JS ${route}`);
+
+      // Check overflow in No-JS
+      const overflow = await page.evaluate(() => {
+        const docWidth = document.documentElement.scrollWidth;
+        const winWidth = window.innerWidth;
+        const bodyWidth = document.body ? document.body.scrollWidth : 0;
+        return Math.max(docWidth, bodyWidth) > winWidth + 1;
+      });
+      assert.ok(!overflow, `No-JS horizontal overflow on ${route}`);
+
+      // For interactive tool routes, verify noscript note is present in main
+      if (route.startsWith('/herramientas/') && route !== '/herramientas/') {
+        const noscriptNote = await page.locator('main noscript, .tool-panel noscript, noscript').first().textContent();
+        assert.ok(noscriptNote && noscriptNote.length > 20, `Expected descriptive noscript fallback note on ${route}`);
+      }
+
       totalPassed++;
     } catch (err) {
       failures.push({ viewport: 'No-JS (390x844)', route, errors: [err.message] });

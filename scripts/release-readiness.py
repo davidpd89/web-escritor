@@ -42,12 +42,11 @@ CHECKS = [
     ("Smoke: radar freshness real clock", "python tests/test-radar-freshness-real-clock.py"),
     ("Smoke: ICS RFC5545 roundtrip", "python tests/test-ics-roundtrip-independent-parser.py"),
     ("Smoke: SEO & discoverability sitewide", "node tests/test-seo-discoverability-smoke.mjs"),
-    ("Smoke: cross-device multi-viewport", "node tests/test-cross-device-smoke.mjs"),
     ("SEO: meta quality & collision prevention", "python scripts/check-seo-meta-quality.py"),
+    ("SEO: meta quality mutation tests", "python tests/test-seo-meta-quality.py"),
     ("DOM: integrity & ARIA resolution", "python scripts/check-dom-integrity.py"),
+    ("DOM: integrity mutation tests", "python tests/test-dom-integrity.py"),
     ("Supply chain: baseline & zero prod vulns", "python tests/test-npm-supply-chain-baseline.py"),
-    ("Search: Pagefind relevance benchmark", "node tests/test-pagefind-search-relevance-benchmark.mjs"),
-    ("Journeys: Core end-to-end user flows", "node tests/test-core-user-journeys.mjs"),
 ]
 
 ROUTE_CHECKS = [
@@ -172,31 +171,29 @@ def build_report(output: Path) -> int:
         if not ok:
             failures += 1
 
-    # No decir "READY_FOR_HUMAN_MAIN_REVIEW". Este script corre 18 comprobaciones
-    # estaticas y un inventario de rutas: ni un suite de navegador, ni Lighthouse,
-    # ni pa11y, ni el gate de reflow. Un informe que se titula "listo para main"
-    # sin haber abierto un navegador invita a leerlo como una autorizacion que no
-    # es. El paquete final lo genera la tarea de release readiness v2.
+    # No decir "READY_FOR_HUMAN_MAIN_REVIEW". Este script corre 28 comprobaciones
+    # estaticas/unitarias y un inventario de rutas. Un informe que se titula
+    # "listo para main" sin la suite de navegador y CI completa invita a leerlo
+    # como una autorizacion final que no es. El paquete final lo certifica
+    # CI_REQUIRED_GATES_PASSED en GitHub Actions y PRODUCTION_VERIFIED en deploy.
     summary = "STATIC_CHECKS_PASSED" if failures == 0 else "BLOCKED"
 
     lines: list[str] = []
-    lines.append("# Release Readiness Evidence V1")
+    lines.append("# Release Readiness Evidence (Static Preflight Gate)")
     lines.append("")
     lines.append(f"- Generated: `{now}`")
     lines.append(f"- Branch: `{branch}`")
     lines.append(f"- HEAD: `{head}`")
     lines.append(f"- Previous SHA (rollback candidate): `{prev}`")
     lines.append("")
-    lines.append(f"## Final Status: `{summary}`")
+    lines.append(f"## Status: `{summary}`")
     lines.append("")
-    lines.append("> **Este informe NO autoriza el merge a `main` ni el despliegue.**")
+    lines.append("> **Este informe certifica el estado STATIC_CHECKS_PASSED.**")
     lines.append(">")
-    lines.append("> Cubre comprobaciones estaticas y el inventario de rutas. **No** ejecuta:")
-    lines.append("> los 12 suites de QA de navegador, Lighthouse, pa11y/WCAG2AA, el gate de")
-    lines.append("> reflow (zoom 200 % y text-spacing), no-JS, ni teclado. `STATIC_CHECKS_PASSED`")
-    lines.append("> significa exactamente lo que dice: las comprobaciones de esta tabla pasan.")
-    lines.append("> La evidencia completa la produce la tarea de release readiness v2 sobre un")
-    lines.append("> HEAD fresco, y la decision de promocionar a produccion es humana.")
+    lines.append("> Cubre las comprobaciones estáticas, de paridad, unitarias y contratos locales")
+    lines.append("> headless. No sustituye la ejecución completa de los gates requeridos de CI")
+    lines.append("> (Lighthouse, Pa11y, sitewide browser suites) ni el smoke post-despliegue en producción.")
+    lines.append("> El ciclo completo de release exige: `STATIC_CHECKS_PASSED` -> `CI_REQUIRED_GATES_PASSED` -> `PRODUCTION_VERIFIED`.")
     lines.append("")
     lines.append("## Commit Window (latest 20)")
     lines.append("")

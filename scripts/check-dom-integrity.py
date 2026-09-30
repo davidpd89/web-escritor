@@ -60,18 +60,24 @@ class DomIntegrityParser(HTMLParser):
             if target:
                 self.labels.append((target, line_num))
 
-        for aria_attr in ("aria-labelledby", "aria-describedby", "aria-controls"):
+        for aria_attr in ("aria-labelledby", "aria-describedby", "aria-controls", "aria-owns", "aria-activedescendant", "aria-details", "headers"):
             if aria_attr in attr_dict:
                 for ref_id in attr_dict[aria_attr].split():
                     if ref_id.strip():
                         self.aria_refs.append((aria_attr, ref_id.strip(), line_num))
 
-        # Check interactive nesting
+        # Check interactive nesting (HTML5 spec & WCAG)
         interactive_parents = [parent for parent in self.tag_stack if parent in ("a", "button")]
-        if t in ("a", "button") and interactive_parents:
+        if t in ("a", "button", "select", "textarea", "details") and interactive_parents:
             parent = interactive_parents[-1]
             self.interactive_nesting_errors.append(
                 f"Line {line_num}: invalid interactive nesting <{t}> inside <{parent}>"
+            )
+
+        if t == "input" and attr_dict.get("type", "").lower() != "hidden" and interactive_parents:
+            parent = interactive_parents[-1]
+            self.interactive_nesting_errors.append(
+                f"Line {line_num}: invalid interactive nesting <input> inside <{parent}>"
             )
 
         if not t in ("area", "base", "br", "col", "embed", "hr", "img", "input", "link", "meta", "param", "source", "track", "wbr"):

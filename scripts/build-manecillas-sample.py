@@ -56,6 +56,7 @@ SAMPLE_UUID = str(uuid.uuid5(uuid.NAMESPACE_URL, "https://davidportodiaz.com/las
 
 
 def parse_source(text: str) -> dict:
+    text = text.replace("\r\n", "\n")
     header, body = text.split("---\n", 1)
     meta = {}
     for line in header.strip().splitlines():
@@ -229,19 +230,22 @@ p.no-indent { text-indent: 0; }
         info.create_system = 3
         return info
 
+    def _norm(s: str) -> str:
+        return s.replace("\r\n", "\n")
+
     buf = io.BytesIO()
     # EPUB requires "mimetype" to be the FIRST entry in the zip, stored
     # (not deflated) -- readers use this exact byte layout to identify a
     # valid EPUB before parsing any XML.
     with zipfile.ZipFile(buf, "w") as zf:
         zf.writestr(_entry("mimetype", zipfile.ZIP_STORED), "application/epub+zip")
-        zf.writestr(_entry("META-INF/container.xml", zipfile.ZIP_DEFLATED), container_xml)
-        zf.writestr(_entry("OEBPS/style.css", zipfile.ZIP_DEFLATED), style_css)
-        zf.writestr(_entry("OEBPS/nav.xhtml", zipfile.ZIP_DEFLATED), nav_xhtml)
-        zf.writestr(_entry("OEBPS/title.xhtml", zipfile.ZIP_DEFLATED), title_xhtml)
-        zf.writestr(_entry("OEBPS/chapter.xhtml", zipfile.ZIP_DEFLATED), chapter_xhtml)
-        zf.writestr(_entry("OEBPS/colophon.xhtml", zipfile.ZIP_DEFLATED), colophon_xhtml)
-        zf.writestr(_entry("OEBPS/content.opf", zipfile.ZIP_DEFLATED), content_opf)
+        zf.writestr(_entry("META-INF/container.xml", zipfile.ZIP_DEFLATED), _norm(container_xml))
+        zf.writestr(_entry("OEBPS/style.css", zipfile.ZIP_DEFLATED), _norm(style_css))
+        zf.writestr(_entry("OEBPS/nav.xhtml", zipfile.ZIP_DEFLATED), _norm(nav_xhtml))
+        zf.writestr(_entry("OEBPS/title.xhtml", zipfile.ZIP_DEFLATED), _norm(title_xhtml))
+        zf.writestr(_entry("OEBPS/chapter.xhtml", zipfile.ZIP_DEFLATED), _norm(chapter_xhtml))
+        zf.writestr(_entry("OEBPS/colophon.xhtml", zipfile.ZIP_DEFLATED), _norm(colophon_xhtml))
+        zf.writestr(_entry("OEBPS/content.opf", zipfile.ZIP_DEFLATED), _norm(content_opf))
         if has_cover:
             zf.writestr(_entry("OEBPS/cover.jpg", zipfile.ZIP_DEFLATED), COVER_JPG.read_bytes())
     return buf.getvalue()
@@ -252,7 +256,7 @@ def main() -> int:
     parser.add_argument("--check", action="store_true", help="verify output is up to date without writing")
     args = parser.parse_args()
 
-    text = SOURCE_PATH.read_text(encoding="utf-8")
+    text = SOURCE_PATH.read_text(encoding="utf-8").replace("\r\n", "\n")
     meta = parse_source(text)
 
     txt_rendered = build_txt(meta)
@@ -260,18 +264,23 @@ def main() -> int:
 
     if args.check:
         errors = []
-        # Universal newlines on READ (the default): a local checkout on
-        # Windows applies git's normal autocrlf CRLF conversion to this
-        # plain text file, same as any other text file in the repo -- that
-        # is not staleness, so the comparison must not be sensitive to it.
-        # (The WRITE side below still forces newline="" so the bytes this
-        # script itself produces -- and what actually gets committed -- are
-        # always pure LF regardless of build platform.)
-        txt_on_disk = TXT_PATH.read_text(encoding="utf-8") if TXT_PATH.exists() else None
+        # Universal newlines on READ: normalize CRLF/LF on comparison
+        txt_on_disk = TXT_PATH.read_text(encoding="utf-8").replace("\r\n", "\n") if TXT_PATH.exists() else None
         if txt_on_disk != txt_rendered:
             errors.append(f"{TXT_PATH.relative_to(ROOT)} is stale or missing")
-        if not EPUB_PATH.exists() or EPUB_PATH.read_bytes() != epub_rendered:
-            errors.append(f"{EPUB_PATH.relative_to(ROOT)} is stale or missing")
+
+        if not EPUB_PATH.exists():
+            errors.append(f"{EPUB_PATH.relative_to(ROOT)} is missing")
+        else:
+            # Compare uncompressed file contents and CRC32 checksums of each
+            # zip entry, rather than raw compressed stream bytes which can vary
+            # across host OS zlib builds (e.g. zlib 1.2 vs 1.3 deflate framing).
+            with zipfile.ZipFile(EPUB_PATH) as zf_disk, zipfile.ZipFile(io.BytesIO(epub_rendered)) as zf_mem:
+                disk_entries = {i.filename: (i.file_size, i.CRC, zf_disk.read(i.filename)) for i in zf_disk.infolist()}
+                mem_entries = {i.filename: (i.file_size, i.CRC, zf_mem.read(i.filename)) for i in zf_mem.infolist()}
+                if disk_entries != mem_entries:
+                    errors.append(f"{EPUB_PATH.relative_to(ROOT)} content or entry checksums drifted from source")
+
         if errors:
             for e in errors:
                 print(f"FAIL: {e}")
@@ -281,10 +290,6 @@ def main() -> int:
         return 0
 
     OUT_DIR.mkdir(parents=True, exist_ok=True)
-    # newline="" disables the platform-native newline translation
-    # write_text() applies by default (which would silently turn every \n
-    # in txt_rendered into \r\n on Windows) -- without it, this file's
-    # actual on-disk bytes depended on which OS last regenerated it.
     TXT_PATH.write_text(txt_rendered, encoding="utf-8", newline="")
     EPUB_PATH.write_bytes(epub_rendered)
     print(f"WROTE: {TXT_PATH.relative_to(ROOT)}")
