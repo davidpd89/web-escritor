@@ -113,7 +113,7 @@ def check_seo_meta_quality(base_dir: Path | None = None) -> list[str]:
             rel_parts = path.relative_to(root_path).parts
         except ValueError:
             rel_parts = path.parts
-        if any(part in SKIP_PARTS for part in rel_parts):
+        if any(part in SKIP_PARTS or part.startswith(".preview-dist-") for part in rel_parts):
             continue
 
         try:

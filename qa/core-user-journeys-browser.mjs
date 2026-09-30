@@ -1,6 +1,7 @@
-// Core User Journeys E2E validation.
+// Core flows and integrations E2E validation.
 // Every declared journey asserts its entry point before interacting; a missing
-// control is a failure, never a skipped branch.
+// control is a failure, never a skipped branch. Pagefind is reported separately
+// as an engine integration because the public site has no standalone search UI.
 import assert from 'node:assert/strict';
 import { createServer } from 'node:http';
 import fs from 'node:fs';
@@ -170,4 +171,4 @@ try {
   server.close();
 }
 
-console.log('test-core-user-journeys: OK (All 9 end-to-end user journeys strictly verified without skips)');
+console.log('test-core-user-journeys: OK (8 user journeys + 1 Pagefind engine integration, strictly verified without skips)');

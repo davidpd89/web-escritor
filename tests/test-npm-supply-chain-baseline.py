@@ -33,7 +33,7 @@ BASELINE_PATH = ROOT / "data" / "npm-supply-chain-baseline.json"
 REQUIRED_FIELDS = {
     "id", "package", "severity", "affectedRange", "dependencyType",
     "production", "reachability", "fixAvailable", "fixedVersion", "installedVersion",
-    "dependencyPath", "decision", "owner", "reviewer", "reviewedAt", "reviewBy", "sourceUrl"
+    "lockfileNode", "decision", "owner", "reviewer", "reviewedAt", "reviewBy", "sourceUrl"
 }
 VALID_SEVERITIES = {"low", "moderate", "high", "critical"}
 VALID_DECISIONS = {"accept-temporarily", "upgrade", "remove", "monitor"}
@@ -44,11 +44,14 @@ def validate_baseline_structure(baseline_data: dict) -> list[str]:
     if baseline_data.get("schemaVersion") != 1:
         errors.append("Invalid schemaVersion: expected 1")
 
+    parsed_root_dates = {}
     for root_date in ("reviewedAt", "reviewBy"):
         try:
-            date.fromisoformat(str(baseline_data.get(root_date)))
+            parsed_root_dates[root_date] = date.fromisoformat(str(baseline_data.get(root_date)))
         except ValueError:
             errors.append(f"Baseline {root_date} must be an ISO date")
+    if "reviewBy" in parsed_root_dates and date.today() > parsed_root_dates["reviewBy"]:
+        errors.append(f"Baseline reviewBy has expired: {baseline_data['reviewBy']}")
     
     last_reviewed_str = baseline_data.get("lastReviewed")
     if not last_reviewed_str:
@@ -98,8 +101,12 @@ def validate_baseline_structure(baseline_data: dict) -> list[str]:
                 errors.append(f"{adv_id}: {date_field} must be an ISO date")
 
         if item.get("reviewedAt") and item.get("reviewBy"):
-            if date.fromisoformat(item["reviewBy"]) < date.fromisoformat(item["reviewedAt"]):
+            reviewed_at = date.fromisoformat(item["reviewedAt"])
+            review_by = date.fromisoformat(item["reviewBy"])
+            if review_by < reviewed_at:
                 errors.append(f"{adv_id}: reviewBy precedes reviewedAt")
+            if date.today() > review_by:
+                errors.append(f"{adv_id}: reviewBy has expired: {item['reviewBy']}")
 
     return errors
 
@@ -163,7 +170,7 @@ def check_supply_chain(npm_cmd: str, baseline_data: dict) -> list[str]:
                     "title": via_item.get("title", ""),
                     "fixAvailable": bool(info.get("fixAvailable")),
                     "installedVersion": installed_metadata(pkg)[1],
-                    "dependencyPath": installed_metadata(pkg)[0],
+                    "lockfileNode": installed_metadata(pkg)[0],
                 }
 
     # Detect uncataloged new advisories
@@ -174,7 +181,7 @@ def check_supply_chain(npm_cmd: str, baseline_data: dict) -> list[str]:
             base_sev = baseline_advisories[adv_id].get("severity")
             if base_sev != live_info["severity"]:
                 errors.append(f"{adv_id}: severity mismatch (baseline='{base_sev}', npm audit='{live_info['severity']}')")
-            for field in ("package", "installedVersion", "dependencyPath", "fixAvailable"):
+            for field in ("package", "installedVersion", "lockfileNode", "fixAvailable"):
                 baseline_value = baseline_advisories[adv_id].get(field)
                 live_value = live_info[field]
                 if baseline_value is not None and live_value is not None and baseline_value != live_value:
@@ -194,8 +201,7 @@ def main() -> None:
 
     npm_cmd = shutil.which("npm") or shutil.which("npm.cmd")
     if not npm_cmd:
-        print("SKIP test-npm-supply-chain-baseline (npm binary not found in PATH)")
-        sys.exit(0)
+        raise AssertionError("npm binary is required for the supply-chain gate; refusing a silent SKIP")
 
     errors = check_supply_chain(npm_cmd, baseline_data)
     assert not errors, "Supply-chain baseline checks failed:\n" + "\n".join(f"- {e}" for e in errors)

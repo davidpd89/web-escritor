@@ -26,7 +26,7 @@
       "reviewBy": "2026-12-29",
       "sourceUrl": "https://github.com/advisories/GHSA-q2hr-2g5m-vwhr",
       "installedVersion": "1.1.18",
-      "dependencyPath": "node_modules/brace-expansion",
+      "lockfileNode": "node_modules/brace-expansion",
       "reviewer": "David Porto Díaz / QA Automation",
       "reviewedAt": "2026-09-30",
       "fixedVersion": null
@@ -47,7 +47,7 @@
       "reviewBy": "2026-12-29",
       "sourceUrl": "https://github.com/advisories/GHSA-qhr7-859c-m2p7",
       "installedVersion": "1.1.18",
-      "dependencyPath": "node_modules/brace-expansion",
+      "lockfileNode": "node_modules/brace-expansion",
       "reviewer": "David Porto Díaz / QA Automation",
       "reviewedAt": "2026-09-30",
       "fixedVersion": null
@@ -68,7 +68,7 @@
       "reviewBy": "2026-12-29",
       "sourceUrl": "https://github.com/advisories/GHSA-6j4f-fj2g-mc7p",
       "installedVersion": "1.1.18",
-      "dependencyPath": "node_modules/brace-expansion",
+      "lockfileNode": "node_modules/brace-expansion",
       "reviewer": "David Porto Díaz / QA Automation",
       "reviewedAt": "2026-09-30",
       "fixedVersion": null
@@ -89,7 +89,7 @@
       "reviewBy": "2026-12-29",
       "sourceUrl": "https://github.com/advisories/GHSA-jmr9-qjv8-65gv",
       "installedVersion": "2.0.1",
-      "dependencyPath": "node_modules/extract-zip",
+      "lockfileNode": "node_modules/extract-zip",
       "reviewer": "David Porto Díaz / QA Automation",
       "reviewedAt": "2026-09-30",
       "fixedVersion": null
@@ -110,7 +110,7 @@
       "reviewBy": "2026-12-29",
       "sourceUrl": "https://github.com/advisories/GHSA-7pqw-9j4j-h8q3",
       "installedVersion": "2.0.1",
-      "dependencyPath": "node_modules/extract-zip",
+      "lockfileNode": "node_modules/extract-zip",
       "reviewer": "David Porto Díaz / QA Automation",
       "reviewedAt": "2026-09-30",
       "fixedVersion": null
@@ -131,7 +131,7 @@
       "reviewBy": "2026-12-29",
       "sourceUrl": "https://github.com/advisories/GHSA-rpw4-54j3-4h4q",
       "installedVersion": "10.5.0",
-      "dependencyPath": "node_modules/ip-address",
+      "lockfileNode": "node_modules/ip-address",
       "reviewer": "David Porto Díaz / QA Automation",
       "reviewedAt": "2026-09-30",
       "fixedVersion": null
@@ -152,7 +152,7 @@
       "reviewBy": "2026-12-29",
       "sourceUrl": "https://github.com/advisories/GHSA-2vr4-cq9g-pvrc",
       "installedVersion": "10.5.0",
-      "dependencyPath": "node_modules/ip-address",
+      "lockfileNode": "node_modules/ip-address",
       "reviewer": "David Porto Díaz / QA Automation",
       "reviewedAt": "2026-09-30",
       "fixedVersion": null
@@ -173,7 +173,7 @@
       "reviewBy": "2026-12-29",
       "sourceUrl": "https://github.com/advisories/GHSA-j6r3-76f7-8jcv",
       "installedVersion": "10.5.0",
-      "dependencyPath": "node_modules/ip-address",
+      "lockfileNode": "node_modules/ip-address",
       "reviewer": "David Porto Díaz / QA Automation",
       "reviewedAt": "2026-09-30",
       "fixedVersion": null
@@ -194,7 +194,7 @@
       "reviewBy": "2026-12-29",
       "sourceUrl": "https://github.com/advisories/GHSA-h3mg-xc3c-68pw",
       "installedVersion": "10.5.0",
-      "dependencyPath": "node_modules/ip-address",
+      "lockfileNode": "node_modules/ip-address",
       "reviewer": "David Porto Díaz / QA Automation",
       "reviewedAt": "2026-09-30",
       "fixedVersion": null
@@ -215,7 +215,7 @@
       "reviewBy": "2026-12-29",
       "sourceUrl": "https://github.com/advisories/GHSA-2883-xcg3-v3hh",
       "installedVersion": "4.3.1",
-      "dependencyPath": "node_modules/cosmiconfig/node_modules/js-yaml",
+      "lockfileNode": "node_modules/cosmiconfig/node_modules/js-yaml",
       "reviewer": "David Porto Díaz / QA Automation",
       "reviewedAt": "2026-09-30",
       "fixedVersion": null
@@ -236,7 +236,7 @@
       "reviewBy": "2026-12-29",
       "sourceUrl": "https://github.com/advisories/GHSA-x5fp-wj9c-mxmx",
       "installedVersion": "6.15.3",
-      "dependencyPath": "node_modules/qs",
+      "lockfileNode": "node_modules/qs",
       "reviewer": "David Porto Díaz / QA Automation",
       "reviewedAt": "2026-09-30",
       "fixedVersion": null
@@ -257,7 +257,7 @@
       "reviewBy": "2026-12-29",
       "sourceUrl": "https://github.com/advisories/GHSA-4mjr-xmp4-gh2g",
       "installedVersion": "6.15.3",
-      "dependencyPath": "node_modules/qs",
+      "lockfileNode": "node_modules/qs",
       "reviewer": "David Porto Díaz / QA Automation",
       "reviewedAt": "2026-09-30",
       "fixedVersion": null
@@ -278,7 +278,7 @@
       "reviewBy": "2026-12-29",
       "sourceUrl": "https://github.com/advisories/GHSA-52f5-9888-hmc6",
       "installedVersion": "0.0.33",
-      "dependencyPath": "node_modules/external-editor/node_modules/tmp",
+      "lockfileNode": "node_modules/external-editor/node_modules/tmp",
       "reviewer": "David Porto Díaz / QA Automation",
       "reviewedAt": "2026-09-30",
       "fixedVersion": null
@@ -299,7 +299,7 @@
       "reviewBy": "2026-12-29",
       "sourceUrl": "https://github.com/advisories/GHSA-ph9p-34f9-6g65",
       "installedVersion": "0.0.33",
-      "dependencyPath": "node_modules/external-editor/node_modules/tmp",
+      "lockfileNode": "node_modules/external-editor/node_modules/tmp",
       "reviewer": "David Porto Díaz / QA Automation",
       "reviewedAt": "2026-09-30",
       "fixedVersion": null
@@ -320,7 +320,7 @@
       "reviewBy": "2026-12-29",
       "sourceUrl": "https://github.com/advisories/GHSA-3wwx-pv8p-q78v",
       "installedVersion": "6.28.0",
-      "dependencyPath": "node_modules/undici",
+      "lockfileNode": "node_modules/undici",
       "reviewer": "David Porto Díaz / QA Automation",
       "reviewedAt": "2026-09-30",
       "fixedVersion": null
@@ -341,7 +341,7 @@
       "reviewBy": "2026-12-29",
       "sourceUrl": "https://github.com/advisories/GHSA-r53p-7pc4-xj5r",
       "installedVersion": "6.28.0",
-      "dependencyPath": "node_modules/undici",
+      "lockfileNode": "node_modules/undici",
       "reviewer": "David Porto Díaz / QA Automation",
       "reviewedAt": "2026-09-30",
       "fixedVersion": null
@@ -362,7 +362,7 @@
       "reviewBy": "2026-12-29",
       "sourceUrl": "https://github.com/advisories/GHSA-rfgv-xxqx-mfg5",
       "installedVersion": "6.28.0",
-      "dependencyPath": "node_modules/undici",
+      "lockfileNode": "node_modules/undici",
       "reviewer": "David Porto Díaz / QA Automation",
       "reviewedAt": "2026-09-30",
       "fixedVersion": null
@@ -383,7 +383,7 @@
       "reviewBy": "2026-12-29",
       "sourceUrl": "https://github.com/advisories/GHSA-w5hq-g745-h8pq",
       "installedVersion": "8.3.2",
-      "dependencyPath": "node_modules/uuid",
+      "lockfileNode": "node_modules/uuid",
       "reviewer": "David Porto Díaz / QA Automation",
       "reviewedAt": "2026-09-30",
       "fixedVersion": null

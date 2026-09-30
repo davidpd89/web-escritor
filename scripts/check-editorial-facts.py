@@ -212,7 +212,7 @@ def public_text_files():
         if not path.is_file() or path.suffix.lower() not in SCAN_SUFFIXES:
             continue
         rel = path.relative_to(ROOT)
-        if any(part in SKIP_PARTS for part in rel.parts):
+        if any(part in SKIP_PARTS or part.startswith(".preview-dist-") for part in rel.parts):
             continue
         rel_posix = rel.as_posix()
         if tracked and rel_posix not in tracked:

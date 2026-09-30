@@ -165,7 +165,7 @@ def tracked_html(root: Path) -> list[Path]:
         if not rel:
             continue
         p = root / rel
-        if any(part in SKIP_PARTS for part in Path(rel).parts):
+        if any(part in SKIP_PARTS or part.startswith(".preview-dist-") for part in Path(rel).parts):
             continue
         paths.append(p)
     return paths

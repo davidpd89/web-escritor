@@ -56,7 +56,7 @@ EXPECTED_IDS = {
 def html_files():
     for path in ROOT.rglob("*.html"):
         rel = path.relative_to(ROOT)
-        if any(part in SKIP_PARTS for part in rel.parts):
+        if any(part in SKIP_PARTS or part.startswith(".preview-dist-") for part in rel.parts):
             continue
         yield rel.as_posix(), path
 

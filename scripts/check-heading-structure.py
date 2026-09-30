@@ -180,7 +180,7 @@ def audit(path: Path, root: Path) -> list[str]:
 
 def find_html_files(root: Path):
     for path in sorted(root.rglob("*.html")):
-        if any(part in SKIP_PARTS for part in path.relative_to(root).parts):
+        if any(part in SKIP_PARTS or part.startswith(".preview-dist-") for part in path.relative_to(root).parts):
             continue
         yield path
 
