@@ -268,8 +268,19 @@ def main() -> int:
         txt_on_disk = TXT_PATH.read_text(encoding="utf-8").replace("\r\n", "\n") if TXT_PATH.exists() else None
         if txt_on_disk != txt_rendered:
             errors.append(f"{TXT_PATH.relative_to(ROOT)} is stale or missing")
-        if not EPUB_PATH.exists() or EPUB_PATH.read_bytes() != epub_rendered:
-            errors.append(f"{EPUB_PATH.relative_to(ROOT)} is stale or missing")
+
+        if not EPUB_PATH.exists():
+            errors.append(f"{EPUB_PATH.relative_to(ROOT)} is missing")
+        else:
+            # Compare uncompressed file contents and CRC32 checksums of each
+            # zip entry, rather than raw compressed stream bytes which can vary
+            # across host OS zlib builds (e.g. zlib 1.2 vs 1.3 deflate framing).
+            with zipfile.ZipFile(EPUB_PATH) as zf_disk, zipfile.ZipFile(io.BytesIO(epub_rendered)) as zf_mem:
+                disk_entries = {i.filename: (i.file_size, i.CRC, zf_disk.read(i.filename)) for i in zf_disk.infolist()}
+                mem_entries = {i.filename: (i.file_size, i.CRC, zf_mem.read(i.filename)) for i in zf_mem.infolist()}
+                if disk_entries != mem_entries:
+                    errors.append(f"{EPUB_PATH.relative_to(ROOT)} content or entry checksums drifted from source")
+
         if errors:
             for e in errors:
                 print(f"FAIL: {e}")
