@@ -44,8 +44,9 @@ for event in events:
     offer = event.get("offers")
     assert isinstance(offer, dict), f"Offer object missing: {fragment}"
     assert offer.get("@type") == "Offer", f"Offer type missing: {fragment}"
-    assert offer.get("url") == event_id, f"Offer url must match Event anchor: {fragment}"
-    assert "price" not in offer and "priceCurrency" not in offer, "Do not invent unverified price data"
+    assert offer.get("price") == "0", f"Free event must expose price 0: {fragment}"
+    assert offer.get("priceCurrency") == "EUR", f"Free event must expose EUR currency: {fragment}"
+    assert "url" not in offer, "Offer must not invent a ticket/acquisition URL"
 
     assert str(event.get("startDate", "")).startswith(EXPECTED[fragment]), f"startDate drift: {fragment}"
 

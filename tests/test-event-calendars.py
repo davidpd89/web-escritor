@@ -5,6 +5,7 @@ import importlib.util
 import json
 import tempfile
 import unittest
+from datetime import date
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -79,27 +80,55 @@ class EventCalendarTests(unittest.TestCase):
         self.assertIn("DTEND;VALUE=DATE:20260911\r\n", generated)
 
     def test_archived_event_creates_no_calendar(self) -> None:
-        # Past events omit eventStatus entirely (2026-09-09) rather than the
-        # invalid schema.org value "EventCompleted" -- see build-event-
-        # calendars.py's module docstring for why. The generator's filter
-        # already treats "anything other than EventScheduled" -- including
-        # absent -- as not-upcoming, so deleting the key is the real case.
         event = self.timed_event()
-        del event["eventStatus"]
-        expected, errors = cal.expected_calendars(page_for(event, include_link=False))
+        expected, errors = cal.expected_calendars(
+            page_for(event, include_link=False),
+            as_of=date.fromisoformat("2026-09-11"),
+        )
         self.assertEqual(expected, {})
         self.assertEqual(errors, [])
 
+    def test_scheduled_future_event_creates_calendar(self) -> None:
+        event = self.timed_event()
+        expected, errors = cal.expected_calendars(
+            page_for(event), as_of=date.fromisoformat("2026-09-01")
+        )
+        self.assertEqual(errors, [])
+        self.assertIn("presentacion-manecillas.ics", expected)
+
+    def test_cancelled_event_does_not_create_calendar(self) -> None:
+        event = self.timed_event()
+        event["eventStatus"] = "https://schema.org/EventCancelled"
+        expected, errors = cal.expected_calendars(
+            page_for(event), as_of=date.fromisoformat("2026-09-01")
+        )
+        self.assertEqual(expected, {})
+        self.assertEqual(errors, [])
+
+    def test_date_only_boundary_is_current_on_end_date(self) -> None:
+        event = self.timed_event()
+        event["startDate"] = "2026-09-10"
+        event["endDate"] = "2026-09-10"
+        expected, errors = cal.expected_calendars(
+            page_for(event), as_of=date.fromisoformat("2026-09-10")
+        )
+        self.assertEqual(errors, [])
+        self.assertIn("presentacion-manecillas.ics", expected)
+
     def test_scheduled_event_requires_visible_calendar_link(self) -> None:
         event = self.timed_event()
-        expected, errors = cal.expected_calendars(page_for(event, include_link=False))
+        expected, errors = cal.expected_calendars(
+            page_for(event, include_link=False), as_of=date.fromisoformat("2026-09-01")
+        )
         self.assertIn("presentacion-manecillas.ics", expected)
         self.assertEqual(len(errors), 1)
         self.assertIn("no tiene enlace visible", errors[0])
 
     def test_check_detects_missing_stale_and_orphan_files(self) -> None:
         event = self.timed_event()
-        expected, errors = cal.expected_calendars(page_for(event))
+        expected, errors = cal.expected_calendars(
+            page_for(event), as_of=date.fromisoformat("2026-09-01")
+        )
         self.assertEqual(errors, [])
         with tempfile.TemporaryDirectory() as tmp:
             output = Path(tmp)
@@ -116,6 +145,14 @@ class EventCalendarTests(unittest.TestCase):
             orphan = cal.check_outputs(expected, output)
             self.assertEqual(len(orphan), 1)
             self.assertIn("huerfano", orphan[0])
+
+        def test_scheduled_past_event_does_not_require_visible_calendar_link(self) -> None:
+            event = self.timed_event()
+            expected, errors = cal.expected_calendars(
+                page_for(event, include_link=False), as_of=date.fromisoformat("2026-09-11")
+            )
+            self.assertEqual(expected, {})
+            self.assertEqual(errors, [])
 
     def test_datetime_without_offset_is_rejected(self) -> None:
         event = self.timed_event()

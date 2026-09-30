@@ -1,16 +1,11 @@
 #!/usr/bin/env python3
-"""Generate .ics files for scheduled events declared in eventos.html.
+"""Generate .ics files for scheduled and currently upcoming events declared in eventos.html.
 
-The JSON-LD Event nodes are the single source of truth. Only nodes with
-eventStatus exactly "https://schema.org/EventScheduled" produce calendar
-files. Past/archived events simply OMIT eventStatus rather than using it to
-carry an internal "completed" signal -- schema.org's EventStatusType has no
-such value (only Scheduled/Cancelled/Postponed/Rescheduled/MovedOnline), and
-an invalid enum value there is a real validation error picked up by tools
-like Ahrefs Site Audit (2026-09-09), not a private implementation detail.
-Omitting the property is valid schema.org and this generator's own filter
-already treats "anything other than EventScheduled" -- including absent --
-as not-upcoming, so no replacement signal was needed.
+The JSON-LD Event nodes are the single source of truth for event facts. The
+calendar product is a separate projection: an EventScheduled node only gets an
+ICS file while its start/end is still current or upcoming. Past events may
+correctly retain EventScheduled because that describes their historical status;
+calendar availability must never be inferred from absence of schema status.
 
 Usage:
     python scripts/build-event-calendars.py
@@ -106,6 +101,21 @@ def _event_fragment(event: dict) -> str:
 
 def _is_date_only(value: str) -> bool:
     return bool(re.fullmatch(r"\d{4}-\d{2}-\d{2}", value))
+
+
+def is_upcoming(event: dict, *, as_of: date | datetime) -> bool:
+    """Return whether an EventScheduled event still merits a calendar file."""
+    start = event.get("startDate")
+    end = event.get("endDate") or start
+    if not isinstance(start, str) or not isinstance(end, str):
+        return False
+    if _is_date_only(start):
+        if not _is_date_only(end):
+            raise ValueError("endDate debe ser DATE cuando startDate es DATE")
+        boundary = as_of.date() if isinstance(as_of, datetime) else as_of
+        return date.fromisoformat(end) >= boundary
+    boundary_dt = as_of if isinstance(as_of, datetime) else datetime.combine(as_of, time.min, tzinfo=timezone.utc)
+    return _parse_datetime(end, "endDate") >= boundary_dt.astimezone(timezone.utc)
 
 
 def _parse_datetime(value: str, field: str) -> datetime:
@@ -273,12 +283,16 @@ def _calendar_links(html_text: str) -> set[str]:
     return parser.links
 
 
-def expected_calendars(html_text: str) -> tuple[dict[str, bytes], list[str]]:
+def expected_calendars(html_text: str, *, as_of: date | datetime | None = None) -> tuple[dict[str, bytes], list[str]]:
     expected: dict[str, bytes] = {}
     errors: list[str] = []
     links = _calendar_links(html_text)
+    if as_of is None:
+        as_of = datetime.now(timezone.utc)
     for event in extract_events(html_text):
         if event.get("eventStatus") != EVENT_SCHEDULED:
+            continue
+        if not is_upcoming(event, as_of=as_of):
             continue
         try:
             fragment = _event_fragment(event)
@@ -345,7 +359,7 @@ def main(argv: list[str] | None = None) -> int:
         return 1
 
     action = "comprobados" if args.check else "generados"
-    print(f"Calendarios {action}: {len(expected)} EventScheduled")
+    print(f"Calendarios {action}: {len(expected)} EventScheduled upcoming")
     return 0
 
 

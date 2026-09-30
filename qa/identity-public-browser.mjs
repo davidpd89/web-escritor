@@ -275,10 +275,8 @@ for (const viewport of viewports) {
   check(state.emptyText.includes('Ahora mismo no hay una próxima fecha publicada.'), 'eventos: useful empty state missing');
   check(state.emptyText.includes('Solicitar presentación'), 'eventos: empty state lacks presentation action');
   check(state.events.length === 2, `eventos: expected 2 Event schemas, got ${state.events.length}`);
-  // Past events omit eventStatus entirely (2026-09-09) rather than using the
-  // invalid schema.org value "EventCompleted" -- see
-  // scripts/build-event-calendars.py's docstring for why.
-  check(state.events.every((e) => e.eventStatus === undefined), 'eventos: archived events unexpectedly carry an eventStatus');
+  check(state.events.every((e) => e.eventStatus === 'https://schema.org/EventScheduled'), 'eventos: historical scheduled events must retain EventScheduled');
+  check(state.events.every((e) => e.offers?.price === '0' && e.offers?.priceCurrency === 'EUR' && !e.offers?.url), 'eventos: free offers must not invent ticket URLs');
   check(state.aranjuezImage === 'https://davidportodiaz.com/assets/feria-aranjuez-2026-david-porto-diaz-colocando-samuel.webp', 'eventos: Aranjuez documentary image missing or replaced by a generic asset');
   check(state.aranjuezOrganizerUrl === 'https://www.aranjuez.es/eres-autor-libreria-o-editorial-inscribete-en-la-feria-del-libro-de-aranjuez-2026/', 'eventos: Aranjuez organizer URL is not the official municipal source');
   await page.locator('#proximos').screenshot({ path: path.join(OUT, 'eventos-empty-1440.png') });
