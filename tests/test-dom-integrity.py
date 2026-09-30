@@ -88,8 +88,36 @@ with tempfile.NamedTemporaryFile("w", suffix=".html", delete=False, encoding="ut
 
 try:
     mut_issues = checker.check_html_file(tmp_path)
-    assert any("invalid interactive nesting" in err for err in mut_issues), f"Failed to detect invalid nesting: {mut_issues}"
-    print("  ok   5. Mutation test: invalid interactive nesting detected")
+    assert any("invalid interactive nesting <button> inside <a>" in err for err in mut_issues), f"Failed to detect invalid nesting: {mut_issues}"
+    print("  ok   5. Mutation test: invalid interactive nesting (<button> in <a>) detected")
+finally:
+    tmp_path.unlink(missing_ok=True)
+
+# 6. Mutation testing: interactive select inside <button>
+with tempfile.NamedTemporaryFile("w", suffix=".html", delete=False, encoding="utf-8") as f:
+    f.write("""<!DOCTYPE html><html lang="es"><body>
+    <button type="button"><select><option>1</option></select></button>
+    </body></html>""")
+    tmp_path = Path(f.name)
+
+try:
+    mut_issues = checker.check_html_file(tmp_path)
+    assert any("invalid interactive nesting <select> inside <button>" in err for err in mut_issues), f"Failed to detect invalid nesting: {mut_issues}"
+    print("  ok   6. Mutation test: invalid interactive nesting (<select> in <button>) detected")
+finally:
+    tmp_path.unlink(missing_ok=True)
+
+# 7. Mutation testing: broken aria-owns reference
+with tempfile.NamedTemporaryFile("w", suffix=".html", delete=False, encoding="utf-8") as f:
+    f.write("""<!DOCTYPE html><html lang="es"><body>
+    <div role="list" aria-owns="missing-listitem-id"></div>
+    </body></html>""")
+    tmp_path = Path(f.name)
+
+try:
+    mut_issues = checker.check_html_file(tmp_path)
+    assert any("aria-owns='missing-listitem-id'" in err for err in mut_issues), f"Failed to detect broken aria-owns: {mut_issues}"
+    print("  ok   7. Mutation test: broken aria-owns detected")
 finally:
     tmp_path.unlink(missing_ok=True)
 

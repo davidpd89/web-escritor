@@ -1,24 +1,23 @@
-# Release Readiness Evidence V1
+# Release Readiness Evidence (Static Preflight Gate)
 
-- Generated: `2026-09-30T09:24:18.914303+00:00`
-- Branch: `main`
-- HEAD: `e8172f60a1d08fa156b6ef352543d0dd3979fa97`
-- Previous SHA (rollback candidate): `0add07afac431e66ba9662ddf7eb5cc540a31710`
+- Generated: `2026-09-30T10:55:01.479053+00:00`
+- Branch: `fix/qa-hardening-mutation-journeys-supplychain`
+- HEAD: `03acd591dd9ceaded8a80a7f8201b8955dc930e2`
+- Previous SHA (rollback candidate): `e8172f60a1d08fa156b6ef352543d0dd3979fa97`
 
-## Final Status: `STATIC_CHECKS_PASSED`
+## Status: `STATIC_CHECKS_PASSED`
 
-> **Este informe NO autoriza el merge a `main` ni el despliegue.**
+> **Este informe certifica el estado STATIC_CHECKS_PASSED.**
 >
-> Cubre comprobaciones estaticas y el inventario de rutas. **No** ejecuta:
-> los 12 suites de QA de navegador, Lighthouse, pa11y/WCAG2AA, el gate de
-> reflow (zoom 200 % y text-spacing), no-JS, ni teclado. `STATIC_CHECKS_PASSED`
-> significa exactamente lo que dice: las comprobaciones de esta tabla pasan.
-> La evidencia completa la produce la tarea de release readiness v2 sobre un
-> HEAD fresco, y la decision de promocionar a produccion es humana.
+> Cubre las comprobaciones estáticas, de paridad, unitarias y contratos locales
+> headless. No sustituye la ejecución completa de los gates requeridos de CI
+> (Lighthouse, Pa11y, sitewide browser suites) ni el smoke post-despliegue en producción.
+> El ciclo completo de release exige: `STATIC_CHECKS_PASSED` -> `CI_REQUIRED_GATES_PASSED` -> `PRODUCTION_VERIFIED`.
 
 ## Commit Window (latest 20)
 
 ```text
+03acd591 docs: sync release-readiness report for merged main
 e8172f60 feat(qa): add supply-chain baseline, SEO collision checker, DOM integrity suite, search benchmark and core user journeys
 0add07af docs(sync): update editorial facts review dates, sync machine-readable files and rebuild feed.xml
 11a3b852 fix(analytics): unblock Clarity session capture with granted default and immediate implicit consent
@@ -38,7 +37,6 @@ d0788680 fix(analytics): stop GoatCounter/Metricool/Clarity from firing on local
 ffa68c29 fix(seo): add ProfilePage dateCreated, drop invalid ItemList.dateModified (#515)
 b2744a43 fix(security): add explicit Referrer-Policy meta tag sitewide (#513)
 e5e0af10 fix(seo): correct press-mention JSON-LD authorship and add headline (#514)
-1973e4c4 fix(footer): WCAG 1.4.4 zoom overflow + revive 2 dead CI checks (#508)
 ```
 
 ## Required Route Inventory
@@ -100,7 +98,7 @@ e5e0af10 fix(seo): correct press-mention JSON-LD authorship and add headline (#5
 ### CI parity: content indexes — PASS
 
 ```text
-Local asset check: 173 HTML files scanned; 0 broken local reference(s) (including 0 JS reference target(s) and 0 CSS url() target(s)).
+Local asset check: 100 HTML files scanned; 0 broken local reference(s) (including 0 JS reference target(s) and 0 CSS url() target(s)).
 ```
 
 ### CI parity: hrefs — PASS
@@ -113,11 +111,11 @@ HREF-OK
 
 ```text
 INTERNAL GRAPH REPORT
-Files scanned: 167
+Files scanned: 96
 Indexable pages: 62
 
 INFO (1):
-  [noindex-skipped] 43 pages excluded (noindex): aviso-legal.html, privacidad.html, samuel-entre-mundos.html, .preview-dist-sitewide-qa\aviso-legal.html, .preview-dist-sitewide-qa\privacidad.html, .preview-dist-sitewide-qa\samuel-entre-mundos.html, asistente\embed.html, asistente\index.html �
+  [noindex-skipped] 34 pages excluded (noindex): aviso-legal.html, privacidad.html, samuel-entre-mundos.html, asistente\embed.html, asistente\index.html, donde-empieza-la-jaula\index.html, gracias-suscripcion\index.html, lecturas\index.html �
 
 Summary: 0 error(s), 0 warning(s)
 ```
@@ -131,7 +129,7 @@ PASS: navigation coverage (69 registry routes, 62 sitemap routes, 22 interactive
 ### CI parity: heading structure — PASS
 
 ```text
-Heading/skip-link structure: 153 ficheros HTML revisados; 0 problema(s).
+Heading/skip-link structure: 80 ficheros HTML revisados; 0 problema(s).
 ```
 
 ### CI parity: jsonld absolute URLs — PASS
@@ -173,15 +171,14 @@ EDITORIAL FACT CHECK: OK
 ### CI parity: social cards strict — PASS
 
 ```text
-NOTICE  shared article card used by 4 pages: https://davidportodiaz.com/assets/og-clubes-lectura-samuel-entre-mundos.jpg :: .preview-dist-sitewide-qa/clubes-de-lectura/samuel-entre-mundos/guia-imprimible/index.html, .preview-dist-sitewide-qa/clubes-de-lectura/samuel-entre-mundos/index.html, clubes-de-lectura/samuel-entre-mundos/guia-imprimible/index.html, clubes-de-lectura/samuel-entre-mundos/index.html
-NOTICE  shared article card used by 14 pages: https://davidportodiaz.com/assets/og-worldbuilding-noveris-ciudad-fantastica.jpg :: .preview-dist-sitewide-qa/cuaderno/fantasia-juvenil-espanola-portales-magia-coste/index.html, .preview-dist-sitewide-qa/cuaderno/libros-fantasia-juvenil-espanola-2025-2026/index.html, .preview-dist-sitewide-qa/cuaderno/portal-fantasy-vs-fantasia-epica/index.html, .preview-dist-sitewide-qa/cuaderno/que-es-el-portal-fantasy/index.html, .preview-dist-sitewide-qa/c
-... [truncated]
+NOTICE  shared article card used by 7 pages: https://davidportodiaz.com/assets/og-worldbuilding-noveris-ciudad-fantastica.jpg :: cuaderno/fantasia-juvenil-espanola-portales-magia-coste/index.html, cuaderno/libros-fantasia-juvenil-espanola-2025-2026/index.html, cuaderno/portal-fantasy-vs-fantasia-epica/index.html, cuaderno/que-es-el-portal-fantasy/index.html, cuaderno/worldbuilding-noveris-ciudad-magica/index.html, recomendaciones/magia-con-coste/index.html, recomendaciones/portal-fantasy-espanol/index.html
+Social cards: 62 indexable HTML pages; 0 error(s), 0 warning(s), 1 notice(s).
 ```
 
 ### CI parity: copy tildes — PASS
 
 ```text
-COPY TILDES: OK (330 ficheros HTML/JS revisados)
+COPY TILDES: OK (183 ficheros HTML/JS revisados)
 ```
 
 ### Authority: machine-readable contract — PASS
@@ -268,7 +265,7 @@ test-radar-freshness-real-clock: OK
 ### Smoke: ICS RFC5545 roundtrip — PASS
 
 ```text
-ok   evento-escritor-core.js generator exits 0 (stderr: (node:54668) [MODULE_TYPELESS_PACKAGE_JSON] Warning: Module type of file:///C:/GIT/web-escritor/assets/evento-escritor-core.js is not specified and it doesn't parse as CommonJS.
+ok   evento-escritor-core.js generator exits 0 (stderr: (node:19808) [MODULE_TYPELESS_PACKAGE_JSON] Warning: Module type of file:///C:/GIT/web-escritor/assets/evento-escritor-core.js is not specified and it doesn't parse as CommonJS.
 Reparsing as ES module)
   ok   icalendar parses exactly 1 VEVENT from the event tool's ICS
   ok   SUMMARY round-trips with accents intact
@@ -284,6 +281,8 @@ tests/test-ics-roundtrip-independent-parser: OK
 ### Smoke: SEO & discoverability sitewide — PASS
 
 ```text
+BUILT C:\GIT\web-escritor\.preview-dist-sitewide-qa: 428 file(s) included, 1363 excluded; manifest=.preview-dist-sitewide-qa-manifest.json
+OK: C:\GIT\web-escritor\.preview-dist-sitewide-qa satisfies the allowlist-first public-artifact contract (428 files).
 Auditing SEO & Schema on 73 published HTML pages...
 SEO & Schema Smoke: 890/890 assertions passed.
 ALL SEO & DISCOVERABILITY CHECKS PASSED 100%!
@@ -295,9 +294,10 @@ ALL SEO & DISCOVERABILITY CHECKS PASSED 100%!
 BUILT C:\GIT\web-escritor\.preview-dist-sitewide-qa: 428 file(s) included, 1363 excluded; manifest=.preview-dist-sitewide-qa-manifest.json
 OK: C:\GIT\web-escritor\.preview-dist-sitewide-qa satisfies the allowlist-first public-artifact contract (428 files).
 Cross-device smoke testing 31 routes across 10 viewports...
-Testing No-JS fallback across core routes...
+Testing dynamic virtual keyboard resize on interactive surfaces...
+Testing deep No-JS progressive enhancement across core routes...
 
-Results: 341 checks PASSED, 0 FAILED.
+Results: 346 checks PASSED, 0 FAILED.
 ALL CROSS-DEVICE SMOKE CHECKS PASSED 100%!
 ```
 
@@ -317,7 +317,7 @@ OK — DOM integrity verified sitewide (IDs unique, ARIA/label references valid,
 
 ```text
 ok   1. Production supply-chain has 0 vulnerabilities (npm audit --omit=dev)
-  ok   2. All 27 dev supply-chain advisories are tracked in data/npm-supply-chain-baseline.json
+  ok   2. All 18 dev supply-chain advisories match live npm audit exactly
 test-npm-supply-chain-baseline: OK
 ```
 
@@ -332,17 +332,20 @@ test-pagefind-search-relevance-benchmark: PASS (11 human query patterns, zero-re
 ```text
 ok   Journey 1: Home -> Las manecillas del recuerdo
   ok   Journey 2: Home -> Autor bio (/autor.html)
-  ok   Journey 3: Home -> Fragmento / lectura de Manecillas
-  ok   Journey 4: Cuaderno -> Lectura de artículo
-  ok   Journey 5: Herramientas -> Contador de palabras interacción viva
-  ok   Journey 7: Radar de convocatorias -> Filtro en vivo e interacción
-test-core-user-journeys: OK (All 7 end-to-end user journeys verified)
+  ok   Journey 3: Novela -> Fragmentos de lectura
+  ok   Journey 4: Cuaderno -> Lectura de artículo (/cuaderno/feria-libro-madrid-2026-samuel-entre-mundos/)
+  ok   Journey 5: Herramientas -> Contador de palabras cálculo en vivo
+  ok   Journey 6: Diálogo Explorar -> Apertura y navegación a /herramientas/
+  ok   Journey 7: Radar de convocatorias -> Filtro en vivo y enlace oficial
+  ok   Journey 8: Búsqueda Pagefind -> Consulta "portal fantasy" y navegación a /recomendaciones/portal-fantasy-espanol/
+  ok   Journey 9: Newsletter -> Validación cliente bloquea email inválido
+test-core-user-journeys: OK (All 9 end-to-end user journeys strictly verified without skips)
 ```
 
 ## Rollback Procedure (Documented, not executed)
 
 1. Identify incident and freeze merges.
-2. Checkout rollback target SHA: `0add07afac431e66ba9662ddf7eb5cc540a31710`.
+2. Checkout rollback target SHA: `e8172f60a1d08fa156b6ef352543d0dd3979fa97`.
 3. Re-run core checks:
 ```bash
 python scripts/check-local-assets.py

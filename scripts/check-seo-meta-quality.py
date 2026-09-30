@@ -92,7 +92,6 @@ class HeadMetaParser(HTMLParser):
 def parse_page_head(path: Path) -> HeadMetaParser:
     parser = HeadMetaParser()
     content = path.read_text(encoding="utf-8", errors="ignore")
-    # Feed only until </head> for fast parsing
     head_end = content.find("</head>")
     if head_end != -1:
         parser.feed(content[: head_end + 7])
@@ -101,22 +100,28 @@ def parse_page_head(path: Path) -> HeadMetaParser:
     return parser
 
 
-def check_seo_meta_quality() -> list[str]:
+def check_seo_meta_quality(base_dir: Path | None = None) -> list[str]:
+    root_path = base_dir or ROOT
     failures: list[str] = []
     titles: dict[str, list[str]] = defaultdict(list)
     descriptions: dict[str, list[str]] = defaultdict(list)
     canonicals: dict[str, list[str]] = defaultdict(list)
-    checked_count = 0
 
-    for path in ROOT.rglob("*.html"):
-        rel_parts = path.relative_to(ROOT).parts
+    html_files = list(root_path.rglob("*.html"))
+    for path in sorted(html_files):
+        try:
+            rel_parts = path.relative_to(root_path).parts
+        except ValueError:
+            rel_parts = path.parts
         if any(part in SKIP_PARTS for part in rel_parts):
             continue
 
-        rel_path = path.relative_to(ROOT).as_posix()
-        parser = parse_page_head(path)
-        checked_count += 1
+        try:
+            rel_path = path.relative_to(root_path).as_posix()
+        except ValueError:
+            rel_path = path.as_posix()
 
+        parser = parse_page_head(path)
         is_noindex = any("noindex" in r.lower() for r in parser.robots)
 
         # 1. Multiplicity errors in <head>
