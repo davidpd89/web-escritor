@@ -1,9 +1,9 @@
 # Release Readiness Evidence V1
 
-- Generated: `2026-09-30T08:54:42.903017+00:00`
+- Generated: `2026-09-30T09:24:18.914303+00:00`
 - Branch: `main`
-- HEAD: `0add07afac431e66ba9662ddf7eb5cc540a31710`
-- Previous SHA (rollback candidate): `11a3b852f8c3a68d857b5390a5e99b46daeeab29`
+- HEAD: `e8172f60a1d08fa156b6ef352543d0dd3979fa97`
+- Previous SHA (rollback candidate): `0add07afac431e66ba9662ddf7eb5cc540a31710`
 
 ## Final Status: `STATIC_CHECKS_PASSED`
 
@@ -19,6 +19,7 @@
 ## Commit Window (latest 20)
 
 ```text
+e8172f60 feat(qa): add supply-chain baseline, SEO collision checker, DOM integrity suite, search benchmark and core user journeys
 0add07af docs(sync): update editorial facts review dates, sync machine-readable files and rebuild feed.xml
 11a3b852 fix(analytics): unblock Clarity session capture with granted default and immediate implicit consent
 260f5f65 test(qa): add cross-device and SEO smoke tests, update radar dataset and harden CI parity
@@ -38,7 +39,6 @@ ffa68c29 fix(seo): add ProfilePage dateCreated, drop invalid ItemList.dateModifi
 b2744a43 fix(security): add explicit Referrer-Policy meta tag sitewide (#513)
 e5e0af10 fix(seo): correct press-mention JSON-LD authorship and add headline (#514)
 1973e4c4 fix(footer): WCAG 1.4.4 zoom overflow + revive 2 dead CI checks (#508)
-cb8c02e4 test(qa): fix flaky external-request assertion in pagefind search (#512)
 ```
 
 ## Required Route Inventory
@@ -268,7 +268,7 @@ test-radar-freshness-real-clock: OK
 ### Smoke: ICS RFC5545 roundtrip — PASS
 
 ```text
-ok   evento-escritor-core.js generator exits 0 (stderr: (node:58100) [MODULE_TYPELESS_PACKAGE_JSON] Warning: Module type of file:///C:/GIT/web-escritor/assets/evento-escritor-core.js is not specified and it doesn't parse as CommonJS.
+ok   evento-escritor-core.js generator exits 0 (stderr: (node:54668) [MODULE_TYPELESS_PACKAGE_JSON] Warning: Module type of file:///C:/GIT/web-escritor/assets/evento-escritor-core.js is not specified and it doesn't parse as CommonJS.
 Reparsing as ES module)
   ok   icalendar parses exactly 1 VEVENT from the event tool's ICS
   ok   SUMMARY round-trips with accents intact
@@ -292,7 +292,7 @@ ALL SEO & DISCOVERABILITY CHECKS PASSED 100%!
 ### Smoke: cross-device multi-viewport — PASS
 
 ```text
-BUILT C:\GIT\web-escritor\.preview-dist-sitewide-qa: 428 file(s) included, 1355 excluded; manifest=.preview-dist-sitewide-qa-manifest.json
+BUILT C:\GIT\web-escritor\.preview-dist-sitewide-qa: 428 file(s) included, 1363 excluded; manifest=.preview-dist-sitewide-qa-manifest.json
 OK: C:\GIT\web-escritor\.preview-dist-sitewide-qa satisfies the allowlist-first public-artifact contract (428 files).
 Cross-device smoke testing 31 routes across 10 viewports...
 Testing No-JS fallback across core routes...
@@ -342,7 +342,7 @@ test-core-user-journeys: OK (All 7 end-to-end user journeys verified)
 ## Rollback Procedure (Documented, not executed)
 
 1. Identify incident and freeze merges.
-2. Checkout rollback target SHA: `11a3b852f8c3a68d857b5390a5e99b46daeeab29`.
+2. Checkout rollback target SHA: `0add07afac431e66ba9662ddf7eb5cc540a31710`.
 3. Re-run core checks:
 ```bash
 python scripts/check-local-assets.py
