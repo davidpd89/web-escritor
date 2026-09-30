@@ -69,17 +69,13 @@ for event in events:
     require(fragment in EVENT_IDS, f"unexpected Event fragment #{fragment}")
     require(fragment in ids, f"Event @id does not resolve to a real anchor: #{fragment}")
     require(event.get("url") == event_id, f"Event url must equal its anchored @id: {fragment}")
-    # Past events OMIT eventStatus entirely (2026-09-09) rather than using
-    # the invalid schema.org value "EventCompleted" -- see
-    # scripts/build-event-calendars.py's module docstring for why. Anything
-    # other than exactly EventScheduled -- including absent -- means
-    # "not upcoming" for this generator's own filter.
-    require(event.get("eventStatus") is None, f"past event unexpectedly has an eventStatus: {fragment}")
-    require(event.get("eventStatus") != "https://schema.org/EventScheduled", f"past event is EventScheduled: {fragment}")
+    require(event.get("eventStatus") == "https://schema.org/EventScheduled", f"historical scheduled event lost EventScheduled: {fragment}")
     visible_date = EVENT_IDS[fragment]
     require(str(event.get("startDate", "")).startswith(visible_date), f"startDate mismatch for {fragment}")
     require(f'datetime="{visible_date}"' in HTML, f"visible date missing for {fragment}")
-    require(event.get("offers", {}).get("url") == event_id, f"Offer url not anchored canonically for {fragment}")
+    require(event.get("offers", {}).get("price") == "0", f"Free event price drifted for {fragment}")
+    require(event.get("offers", {}).get("priceCurrency") == "EUR", f"Free event currency drifted for {fragment}")
+    require("url" not in event.get("offers", {}), f"Offer contains invented acquisition URL for {fragment}")
     image = event.get("image")
     require(isinstance(image, str) and image, f"Event image missing for {fragment}")
     image_path = local_path(image)

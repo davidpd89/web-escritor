@@ -116,10 +116,13 @@ try{
         return nodes.filter(n=>n['@type']==='Event').map(e=>({id:e['@id'],status:e.eventStatus,start:e.startDate,name:e.name}));
       });
       assert.equal(schema.length,2,`${name}: deben existir exactamente 2 Event schema`);
-      // Past events omit eventStatus entirely (2026-09-09) rather than the
-      // invalid schema.org value "EventCompleted" -- see
-      // scripts/build-event-calendars.py's docstring for why.
-      assert.ok(schema.every(e=>e.status===undefined),`${name}: eventos archivados no deberían tener eventStatus`);
+      assert.ok(schema.every(e=>e.status==='https://schema.org/EventScheduled'),`${name}: eventos celebrados según programa deben conservar EventScheduled`);
+      assert.ok(schema.every(e=>e.start && e.id),`${name}: Event schema incompleto`);
+      const offers=await p.evaluate(()=>{
+        const docs=[...document.querySelectorAll('script[type="application/ld+json"]')].map(s=>JSON.parse(s.textContent));
+        return docs.flatMap(d=>d['@graph']||[d]).filter(n=>n['@type']==='Event').map(e=>e.offers);
+      });
+      assert.ok(offers.every(o=>o?.price==='0'&&o?.priceCurrency==='EUR'&&!o?.url),`${name}: offers debe describir gratuidad sin inventar ticket URL`);
 
       const order=await p.evaluate(()=>{
         const ids=['proximos','pasados','hitos-editoriales','organizar'];

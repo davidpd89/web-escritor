@@ -111,7 +111,7 @@ source_hrefs = [attrs.get("href", "") for attrs in source_links]
 check("https://www.instagram.com/davidportodiaz/" not in source_hrefs, "premios.html: author social network used as award evidence")
 check("https://www.diversidadliteraria.com/resultado-del-i-concurso-de--aullidos-en-papel-i" in source_hrefs, "premios.html: official Aullidos en papel results source missing")
 check("https://www.letrascomoespada.com/concursos/memoria_concursos/memoria2026.php" in source_hrefs, "premios.html: official Letras Como Espada results source missing")
-check("https://www.babidibulibros.com/premio-literatura-juan-andres-teno-2026/" in source_hrefs, "premios.html: official BABIDI-BÚ call source missing")
+check("https://www.babidibulibros.com/premio-literatura-juan-andres-teno/" in source_hrefs, "premios.html: official BABIDI-BÚ call source missing")
 
 if failures:
     print("Awards evidence contract FAILED:")

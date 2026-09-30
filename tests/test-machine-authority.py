@@ -345,7 +345,7 @@ def main() -> int:
     wolves_award = facts["recognitions"]["aullidosEnPapel2026"]
     check(award["type"] == "award" and award["holder"] == author["name"] and award["submittedWork"] is None, "Letras award ownership drift")
     check(finalist["type"] == "finalistSelection" and finalist["submittedWork"] is None, "Juan Andrés Teno must remain an author-level recognition without an unverified submitted work")
-    check(finalist.get("sourceUrl") == "https://www.babidibulibros.com/premio-literatura-juan-andres-teno-2026/", "Juan Andrés Teno official call source drift")
+    check(finalist.get("sourceUrl") == "https://www.babidibulibros.com/premio-literatura-juan-andres-teno/", "Juan Andrés Teno official call source drift")
     check(bool(finalist.get("sourceLimitation")), "Juan Andrés Teno source limitation must be explicit")
     check(wolves_award["type"] == "award" and wolves_award["holder"] == author["name"] and wolves_award["submittedWork"] is None, "Aullidos en papel award ownership drift")
     check(wolves_award.get("sourceUrl") == "https://www.diversidadliteraria.com/resultado-del-i-concurso-de--aullidos-en-papel-i", "Aullidos en papel official results source drift")
