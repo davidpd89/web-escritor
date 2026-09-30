@@ -56,6 +56,7 @@ SAMPLE_UUID = str(uuid.uuid5(uuid.NAMESPACE_URL, "https://davidportodiaz.com/las
 
 
 def parse_source(text: str) -> dict:
+    text = text.replace("\r\n", "\n")
     header, body = text.split("---\n", 1)
     meta = {}
     for line in header.strip().splitlines():
@@ -252,7 +253,7 @@ def main() -> int:
     parser.add_argument("--check", action="store_true", help="verify output is up to date without writing")
     args = parser.parse_args()
 
-    text = SOURCE_PATH.read_text(encoding="utf-8")
+    text = SOURCE_PATH.read_text(encoding="utf-8").replace("\r\n", "\n")
     meta = parse_source(text)
 
     txt_rendered = build_txt(meta)
@@ -260,14 +261,8 @@ def main() -> int:
 
     if args.check:
         errors = []
-        # Universal newlines on READ (the default): a local checkout on
-        # Windows applies git's normal autocrlf CRLF conversion to this
-        # plain text file, same as any other text file in the repo -- that
-        # is not staleness, so the comparison must not be sensitive to it.
-        # (The WRITE side below still forces newline="" so the bytes this
-        # script itself produces -- and what actually gets committed -- are
-        # always pure LF regardless of build platform.)
-        txt_on_disk = TXT_PATH.read_text(encoding="utf-8") if TXT_PATH.exists() else None
+        # Universal newlines on READ: normalize CRLF/LF on comparison
+        txt_on_disk = TXT_PATH.read_text(encoding="utf-8").replace("\r\n", "\n") if TXT_PATH.exists() else None
         if txt_on_disk != txt_rendered:
             errors.append(f"{TXT_PATH.relative_to(ROOT)} is stale or missing")
         if not EPUB_PATH.exists() or EPUB_PATH.read_bytes() != epub_rendered:
@@ -281,10 +276,6 @@ def main() -> int:
         return 0
 
     OUT_DIR.mkdir(parents=True, exist_ok=True)
-    # newline="" disables the platform-native newline translation
-    # write_text() applies by default (which would silently turn every \n
-    # in txt_rendered into \r\n on Windows) -- without it, this file's
-    # actual on-disk bytes depended on which OS last regenerated it.
     TXT_PATH.write_text(txt_rendered, encoding="utf-8", newline="")
     EPUB_PATH.write_bytes(epub_rendered)
     print(f"WROTE: {TXT_PATH.relative_to(ROOT)}")
