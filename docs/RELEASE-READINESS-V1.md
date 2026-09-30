@@ -1,9 +1,9 @@
 # Release Readiness Evidence V1
 
-- Generated: `2026-09-29T18:17:13.127006+00:00`
+- Generated: `2026-09-30T08:54:42.903017+00:00`
 - Branch: `main`
-- HEAD: `11a3b852f8c3a68d857b5390a5e99b46daeeab29`
-- Previous SHA (rollback candidate): `260f5f652c40db32a0838266724df92f577e3e71`
+- HEAD: `0add07afac431e66ba9662ddf7eb5cc540a31710`
+- Previous SHA (rollback candidate): `11a3b852f8c3a68d857b5390a5e99b46daeeab29`
 
 ## Final Status: `STATIC_CHECKS_PASSED`
 
@@ -19,6 +19,7 @@
 ## Commit Window (latest 20)
 
 ```text
+0add07af docs(sync): update editorial facts review dates, sync machine-readable files and rebuild feed.xml
 11a3b852 fix(analytics): unblock Clarity session capture with granted default and immediate implicit consent
 260f5f65 test(qa): add cross-device and SEO smoke tests, update radar dataset and harden CI parity
 4943b841 seo(structured-data): add missing BreadcrumbList JSON-LD to 27 published pages (#527)
@@ -38,7 +39,6 @@ b2744a43 fix(security): add explicit Referrer-Policy meta tag sitewide (#513)
 e5e0af10 fix(seo): correct press-mention JSON-LD authorship and add headline (#514)
 1973e4c4 fix(footer): WCAG 1.4.4 zoom overflow + revive 2 dead CI checks (#508)
 cb8c02e4 test(qa): fix flaky external-request assertion in pagefind search (#512)
-458f01c3 Merge pull request #511 from davidpd89/tracking/pagespeed-image-optimization
 ```
 
 ## Required Route Inventory
@@ -89,6 +89,11 @@ cb8c02e4 test(qa): fix flaky external-request assertion in pagefind search (#512
 | Smoke: ICS RFC5545 roundtrip | `python tests/test-ics-roundtrip-independent-parser.py` | `PASS` |
 | Smoke: SEO & discoverability sitewide | `node tests/test-seo-discoverability-smoke.mjs` | `PASS` |
 | Smoke: cross-device multi-viewport | `node tests/test-cross-device-smoke.mjs` | `PASS` |
+| SEO: meta quality & collision prevention | `python scripts/check-seo-meta-quality.py` | `PASS` |
+| DOM: integrity & ARIA resolution | `python scripts/check-dom-integrity.py` | `PASS` |
+| Supply chain: baseline & zero prod vulns | `python tests/test-npm-supply-chain-baseline.py` | `PASS` |
+| Search: Pagefind relevance benchmark | `node tests/test-pagefind-search-relevance-benchmark.mjs` | `PASS` |
+| Journeys: Core end-to-end user flows | `node tests/test-core-user-journeys.mjs` | `PASS` |
 
 ## Output Excerpts
 
@@ -144,7 +149,7 @@ CANONICAL ENTITY IDs: OK (4 entidades con @id, todas consistentes)
 ### CI parity: editorial facts — PASS
 
 ```text
-EDITORIAL FACT CHECK � mode=launch � date=2026-09-29 � publication=2026-09-03
+EDITORIAL FACT CHECK � mode=launch � date=2026-09-30 � publication=2026-09-03
 EDITORIAL FACT CHECK: OK
 ```
 
@@ -263,8 +268,8 @@ test-radar-freshness-real-clock: OK
 ### Smoke: ICS RFC5545 roundtrip — PASS
 
 ```text
-ok   evento-escritor-core.js generator exits 0 (stderr: (node:8412) [MODULE_TYPELESS_PACKAGE_JSON] Warning: Module type of file:///C:/GIT/web-escritor/assets/evento-escritor-core.js is not specified and it doesn't parse as CommonJS.
-Reparsing as ES module )
+ok   evento-escritor-core.js generator exits 0 (stderr: (node:58100) [MODULE_TYPELESS_PACKAGE_JSON] Warning: Module type of file:///C:/GIT/web-escritor/assets/evento-escritor-core.js is not specified and it doesn't parse as CommonJS.
+Reparsing as ES module)
   ok   icalendar parses exactly 1 VEVENT from the event tool's ICS
   ok   SUMMARY round-trips with accents intact
   ok   DTSTART is 17:00 UTC per icalendar (got 2026-09-03 17:00:00+00:00)
@@ -289,16 +294,55 @@ ALL SEO & DISCOVERABILITY CHECKS PASSED 100%!
 ```text
 BUILT C:\GIT\web-escritor\.preview-dist-sitewide-qa: 428 file(s) included, 1355 excluded; manifest=.preview-dist-sitewide-qa-manifest.json
 OK: C:\GIT\web-escritor\.preview-dist-sitewide-qa satisfies the allowlist-first public-artifact contract (428 files).
-Cross-device smoke testing 31 routes across 7 viewports...
+Cross-device smoke testing 31 routes across 10 viewports...
+Testing No-JS fallback across core routes...
 
-Results: 217 checks PASSED, 0 FAILED.
+Results: 341 checks PASSED, 0 FAILED.
 ALL CROSS-DEVICE SMOKE CHECKS PASSED 100%!
+```
+
+### SEO: meta quality & collision prevention — PASS
+
+```text
+OK — Sitewide SEO meta quality, uniqueness, canonical and OG parity verified.
+```
+
+### DOM: integrity & ARIA resolution — PASS
+
+```text
+OK — DOM integrity verified sitewide (IDs unique, ARIA/label references valid, no invalid interactive nesting).
+```
+
+### Supply chain: baseline & zero prod vulns — PASS
+
+```text
+ok   1. Production supply-chain has 0 vulnerabilities (npm audit --omit=dev)
+  ok   2. All 27 dev supply-chain advisories are tracked in data/npm-supply-chain-baseline.json
+test-npm-supply-chain-baseline: OK
+```
+
+### Search: Pagefind relevance benchmark — PASS
+
+```text
+test-pagefind-search-relevance-benchmark: PASS (11 human query patterns, zero-results and noindex exclusion)
+```
+
+### Journeys: Core end-to-end user flows — PASS
+
+```text
+ok   Journey 1: Home -> Las manecillas del recuerdo
+  ok   Journey 2: Home -> Autor bio (/autor.html)
+  ok   Journey 3: Home -> Fragmento / lectura de Manecillas
+  ok   Journey 4: Cuaderno -> Lectura de artículo
+  ok   Journey 5: Herramientas -> Contador de palabras interacción viva
+  ok   Journey 7: Radar de convocatorias -> Filtro en vivo e interacción
+test-core-user-journeys: OK (All 7 end-to-end user journeys verified)
 ```
 
 ## Rollback Procedure (Documented, not executed)
 
 1. Identify incident and freeze merges.
-2. Checkout rollback target SHA: `260f5f652c40db32a0838266724df92f577e3e71`.
+2. Checkout rollback target SHA: `11a3b852f8c3a68d857b5390a5e99b46daeeab29`.
 3. Re-run core checks:
 ```bash
 python scripts/check-local-assets.py

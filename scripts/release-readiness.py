@@ -43,6 +43,11 @@ CHECKS = [
     ("Smoke: ICS RFC5545 roundtrip", "python tests/test-ics-roundtrip-independent-parser.py"),
     ("Smoke: SEO & discoverability sitewide", "node tests/test-seo-discoverability-smoke.mjs"),
     ("Smoke: cross-device multi-viewport", "node tests/test-cross-device-smoke.mjs"),
+    ("SEO: meta quality & collision prevention", "python scripts/check-seo-meta-quality.py"),
+    ("DOM: integrity & ARIA resolution", "python scripts/check-dom-integrity.py"),
+    ("Supply chain: baseline & zero prod vulns", "python tests/test-npm-supply-chain-baseline.py"),
+    ("Search: Pagefind relevance benchmark", "node tests/test-pagefind-search-relevance-benchmark.mjs"),
+    ("Journeys: Core end-to-end user flows", "node tests/test-core-user-journeys.mjs"),
 ]
 
 ROUTE_CHECKS = [

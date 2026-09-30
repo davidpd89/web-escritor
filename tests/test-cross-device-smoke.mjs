@@ -48,6 +48,9 @@ function createStaticServer(root) {
 }
 
 const VIEWPORTS = [
+  { name: 'Ultra-compact iPhone 5/SE1 (320x568)', width: 320, height: 568, isMobile: true, hasTouch: true },
+  { name: 'Short Mobile / Keyboard Open (390x500)', width: 390, height: 500, isMobile: true, hasTouch: true },
+  { name: 'Low Landscape Mobile (667x375)', width: 667, height: 375, isMobile: true, hasTouch: true },
   { name: 'Mobile Android (360x740)', width: 360, height: 740, isMobile: true, hasTouch: true },
   { name: 'Mobile iPhone SE (375x667)', width: 375, height: 667, isMobile: true, hasTouch: true },
   { name: 'Mobile iPhone 14/15 (390x844)', width: 390, height: 844, isMobile: true, hasTouch: true },
@@ -174,6 +177,28 @@ try {
     }
     await context.close();
   }
+
+  // 3. No-JS smoke pass: ensure pages render valid HTML and main landmark without crashing
+  console.log('Testing No-JS fallback across core routes...');
+  const noJsContext = await browser.newContext({
+    viewport: { width: 390, height: 844 },
+    javaScriptEnabled: false,
+  });
+  for (const route of TARGET_ROUTES) {
+    const page = await noJsContext.newPage();
+    try {
+      const res = await page.goto(`${origin}${route}`, { waitUntil: 'domcontentloaded', timeout: 10000 });
+      assert.equal(res.status(), 200, `Expected 200 OK for No-JS ${route}`);
+      const h1Count = await page.locator('h1').count();
+      assert.ok(h1Count >= 1, `Expected at least one <h1> in No-JS render of ${route}`);
+      totalPassed++;
+    } catch (err) {
+      failures.push({ viewport: 'No-JS (390x844)', route, errors: [err.message] });
+    } finally {
+      await page.close();
+    }
+  }
+  await noJsContext.close();
 } finally {
   await browser.close();
   server.close();

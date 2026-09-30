@@ -1,0 +1,309 @@
+{
+  "schemaVersion": 1,
+  "lastReviewed": "2026-09-30",
+  "reviewBy": "David Porto Díaz / QA Automation",
+  "policy": {
+    "productionVulnerabilitiesAllowed": 0,
+    "directDependenciesAllowed": 0,
+    "auditScope": "devDependencies (CI tools @lhci/cli 0.15.1 and pa11y-ci 4.1.1 only)"
+  },
+  "advisories": [
+    {
+      "id": "GHSA-3xgq-45jj-v275",
+      "package": "cross-spawn",
+      "severity": "high",
+      "dependencyType": "transitive-dev",
+      "path": "@lhci/cli > lighthouse > puppeteer > puppeteer-core > @puppeteer/browsers > extract-zip > cross-spawn",
+      "production": false,
+      "reachability": "Used internally by extract-zip when unpacking Chrome binaries during local dev / CI setup; never invoked with untrusted command inputs.",
+      "decision": "accept-temporarily",
+      "owner": "CI-Tooling"
+    },
+    {
+      "id": "GHSA-v435-57m4-c8c7",
+      "package": "dset",
+      "severity": "high",
+      "dependencyType": "transitive-dev",
+      "path": "@lhci/cli > @lhci/utils > dset",
+      "production": false,
+      "reachability": "Used by Lighthouse CI CLI utility for setting nested configuration properties from lighthouserc.json; input is purely local trusted repo config.",
+      "decision": "accept-temporarily",
+      "owner": "CI-Tooling"
+    },
+    {
+      "id": "GHSA-mwhg-p4w4-9xvh",
+      "package": "fast-xml-parser",
+      "severity": "moderate",
+      "dependencyType": "transitive-dev",
+      "path": "@lhci/cli > lighthouse > puppeteer > puppeteer-core > @puppeteer/browsers > fast-xml-parser",
+      "production": false,
+      "reachability": "Used by @puppeteer/browsers to parse Chrome download metadata XML feeds from Google CDN.",
+      "decision": "accept-temporarily",
+      "owner": "CI-Tooling"
+    },
+    {
+      "id": "GHSA-9763-4f94-gf2q",
+      "package": "js-yaml",
+      "severity": "high",
+      "dependencyType": "transitive-dev",
+      "path": "@lhci/cli > lighthouse > js-yaml",
+      "production": false,
+      "reachability": "Used by Lighthouse for parsing config files; our repo uses lighthouserc.json (JSON format, not untrusted YAML).",
+      "decision": "accept-temporarily",
+      "owner": "CI-Tooling"
+    },
+    {
+      "id": "GHSA-2883-xcg3-v3hh",
+      "package": "js-yaml",
+      "severity": "high",
+      "dependencyType": "transitive-dev",
+      "path": "@lhci/cli > lighthouse > js-yaml",
+      "production": false,
+      "reachability": "Used by Lighthouse for parsing config files; our repo uses lighthouserc.json (JSON format).",
+      "decision": "accept-temporarily",
+      "owner": "CI-Tooling"
+    },
+    {
+      "id": "GHSA-9wv6-86v2-598j",
+      "package": "path-to-regexp",
+      "severity": "high",
+      "dependencyType": "transitive-dev",
+      "path": "@lhci/cli > express > send > serve-static > path-to-regexp",
+      "production": false,
+      "reachability": "Used in Lighthouse CI local static server routes; only bound to localhost/127.0.0.1 during automated test runs.",
+      "decision": "accept-temporarily",
+      "owner": "CI-Tooling"
+    },
+    {
+      "id": "GHSA-8xjx-2v5j-v9p7",
+      "package": "tar-fs",
+      "severity": "high",
+      "dependencyType": "transitive-dev",
+      "path": "@lhci/cli > lighthouse > puppeteer > tar-fs",
+      "production": false,
+      "reachability": "Used internally by Puppeteer when extracting browser artifacts from trusted npm/Google packages.",
+      "decision": "accept-temporarily",
+      "owner": "CI-Tooling"
+    },
+    {
+      "id": "GHSA-7955-4695-442m",
+      "package": "tmp",
+      "severity": "low",
+      "dependencyType": "transitive-dev",
+      "path": "@lhci/cli > lighthouse > inquirer > external-editor > tmp",
+      "production": false,
+      "reachability": "Used by CLI prompt editor fallback in interactive inquirer mode; CI runs purely non-interactive headless audits.",
+      "decision": "accept-temporarily",
+      "owner": "CI-Tooling"
+    },
+    {
+      "id": "GHSA-52f5-9888-hmc6",
+      "package": "tmp",
+      "severity": "low",
+      "dependencyType": "transitive-dev",
+      "path": "@lhci/cli > lighthouse > inquirer > external-editor > tmp",
+      "production": false,
+      "reachability": "Used by CLI prompt editor fallback in interactive inquirer mode; CI runs non-interactive headless audits.",
+      "decision": "accept-temporarily",
+      "owner": "CI-Tooling"
+    },
+    {
+      "id": "GHSA-ph9p-34f9-6g65",
+      "package": "tmp",
+      "severity": "high",
+      "dependencyType": "transitive-dev",
+      "path": "@lhci/cli > lighthouse > inquirer > external-editor > tmp",
+      "production": false,
+      "reachability": "Used by CLI prompt editor fallback in interactive inquirer mode; CI runs non-interactive headless audits.",
+      "decision": "accept-temporarily",
+      "owner": "CI-Tooling"
+    },
+    {
+      "id": "GHSA-3h5v-q93c-6h6q",
+      "package": "ws",
+      "severity": "high",
+      "dependencyType": "transitive-dev",
+      "path": "@lhci/cli > lighthouse > puppeteer > puppeteer-core > ws",
+      "production": false,
+      "reachability": "Used for DevTools Protocol (CDP) WebSocket communication between Puppeteer and the local headless Chromium instance.",
+      "decision": "accept-temporarily",
+      "owner": "CI-Tooling"
+    },
+    {
+      "id": "GHSA-v626-444f-c5p9",
+      "package": "brace-expansion",
+      "severity": "high",
+      "dependencyType": "transitive-dev",
+      "path": "pa11y-ci > pa11y > glob > minimatch > brace-expansion",
+      "production": false,
+      "reachability": "Used by pa11y-ci glob matcher to resolve local URL/path lists from .pa11yci config; inputs are fixed strings.",
+      "decision": "accept-temporarily",
+      "owner": "CI-Tooling"
+    },
+    {
+      "id": "GHSA-q2hr-2g5m-vwhr",
+      "package": "brace-expansion",
+      "severity": "moderate",
+      "dependencyType": "transitive-dev",
+      "path": "pa11y-ci > pa11y > glob > minimatch > brace-expansion",
+      "production": false,
+      "reachability": "Used by pa11y-ci glob matcher to resolve local URL/path lists from .pa11yci config; inputs are fixed strings.",
+      "decision": "accept-temporarily",
+      "owner": "CI-Tooling"
+    },
+    {
+      "id": "GHSA-qhr7-859c-m2p7",
+      "package": "brace-expansion",
+      "severity": "high",
+      "dependencyType": "transitive-dev",
+      "path": "pa11y-ci > pa11y > glob > minimatch > brace-expansion",
+      "production": false,
+      "reachability": "Used by pa11y-ci glob matcher to resolve local URL/path lists from .pa11yci config; inputs are fixed strings.",
+      "decision": "accept-temporarily",
+      "owner": "CI-Tooling"
+    },
+    {
+      "id": "GHSA-6j4f-fj2g-mc7p",
+      "package": "brace-expansion",
+      "severity": "high",
+      "dependencyType": "transitive-dev",
+      "path": "pa11y-ci > pa11y > glob > minimatch > brace-expansion",
+      "production": false,
+      "reachability": "Used by pa11y-ci glob matcher to resolve local URL/path lists from .pa11yci config; inputs are fixed strings.",
+      "decision": "accept-temporarily",
+      "owner": "CI-Tooling"
+    },
+    {
+      "id": "GHSA-jmr9-qjv8-65gv",
+      "package": "extract-zip",
+      "severity": "high",
+      "dependencyType": "transitive-dev",
+      "path": "@lhci/cli > lighthouse > puppeteer > puppeteer-core > @puppeteer/browsers > extract-zip",
+      "production": false,
+      "reachability": "Used by Puppeteer browser installer to extract downloaded Chromium packages from official Google storage.",
+      "decision": "accept-temporarily",
+      "owner": "CI-Tooling"
+    },
+    {
+      "id": "GHSA-7pqw-9j4j-h8q3",
+      "package": "extract-zip",
+      "severity": "high",
+      "dependencyType": "transitive-dev",
+      "path": "@lhci/cli > lighthouse > puppeteer > puppeteer-core > @puppeteer/browsers > extract-zip",
+      "production": false,
+      "reachability": "Used by Puppeteer browser installer to extract downloaded Chromium packages from official Google storage.",
+      "decision": "accept-temporarily",
+      "owner": "CI-Tooling"
+    },
+    {
+      "id": "GHSA-rpw4-54j3-4h4q",
+      "package": "ip-address",
+      "severity": "moderate",
+      "dependencyType": "transitive-dev",
+      "path": "@lhci/cli > @lhci/server > ip-address",
+      "production": false,
+      "reachability": "Used in LHCI server component; web-escritor only uses @lhci/cli collect/autorun against local files, not lhci server.",
+      "decision": "accept-temporarily",
+      "owner": "CI-Tooling"
+    },
+    {
+      "id": "GHSA-2vr4-cq9g-pvrc",
+      "package": "ip-address",
+      "severity": "moderate",
+      "dependencyType": "transitive-dev",
+      "path": "@lhci/cli > @lhci/server > ip-address",
+      "production": false,
+      "reachability": "Used in LHCI server component; web-escritor only uses @lhci/cli collect/autorun against local files, not lhci server.",
+      "decision": "accept-temporarily",
+      "owner": "CI-Tooling"
+    },
+    {
+      "id": "GHSA-j6r3-76f7-8jcv",
+      "package": "ip-address",
+      "severity": "moderate",
+      "dependencyType": "transitive-dev",
+      "path": "@lhci/cli > @lhci/server > ip-address",
+      "production": false,
+      "reachability": "Used in LHCI server component; web-escritor only uses @lhci/cli collect/autorun against local files, not lhci server.",
+      "decision": "accept-temporarily",
+      "owner": "CI-Tooling"
+    },
+    {
+      "id": "GHSA-h3mg-xc3c-68pw",
+      "package": "ip-address",
+      "severity": "moderate",
+      "dependencyType": "transitive-dev",
+      "path": "@lhci/cli > @lhci/server > ip-address",
+      "production": false,
+      "reachability": "Used in LHCI server component; web-escritor only uses @lhci/cli collect/autorun against local files, not lhci server.",
+      "decision": "accept-temporarily",
+      "owner": "CI-Tooling"
+    },
+    {
+      "id": "GHSA-x5fp-wj9c-mxmx",
+      "package": "qs",
+      "severity": "moderate",
+      "dependencyType": "transitive-dev",
+      "path": "@lhci/cli > express > qs",
+      "production": false,
+      "reachability": "Used in LHCI local express server for test runner; only processes local requests during CI run.",
+      "decision": "accept-temporarily",
+      "owner": "CI-Tooling"
+    },
+    {
+      "id": "GHSA-4mjr-xmp4-gh2g",
+      "package": "qs",
+      "severity": "moderate",
+      "dependencyType": "transitive-dev",
+      "path": "@lhci/cli > express > qs",
+      "production": false,
+      "reachability": "Used in LHCI local express server for test runner; only processes local requests during CI run.",
+      "decision": "accept-temporarily",
+      "owner": "CI-Tooling"
+    },
+    {
+      "id": "GHSA-3wwx-pv8p-q78v",
+      "package": "undici",
+      "severity": "moderate",
+      "dependencyType": "transitive-dev",
+      "path": "@lhci/cli > puppeteer > undici",
+      "production": false,
+      "reachability": "Used by Puppeteer for HTTP client fetching; only calls local test URLs and official Google Chrome download endpoints.",
+      "decision": "accept-temporarily",
+      "owner": "CI-Tooling"
+    },
+    {
+      "id": "GHSA-r53p-7pc4-xj5r",
+      "package": "undici",
+      "severity": "low",
+      "dependencyType": "transitive-dev",
+      "path": "@lhci/cli > puppeteer > undici",
+      "production": false,
+      "reachability": "Used by Puppeteer for HTTP client fetching; only calls local test URLs and official Google Chrome download endpoints.",
+      "decision": "accept-temporarily",
+      "owner": "CI-Tooling"
+    },
+    {
+      "id": "GHSA-rfgv-xxqx-mfg5",
+      "package": "undici",
+      "severity": "high",
+      "dependencyType": "transitive-dev",
+      "path": "@lhci/cli > puppeteer > undici",
+      "production": false,
+      "reachability": "Used by Puppeteer for HTTP client fetching; only calls local test URLs and official Google Chrome download endpoints.",
+      "decision": "accept-temporarily",
+      "owner": "CI-Tooling"
+    },
+    {
+      "id": "GHSA-w5hq-g745-h8pq",
+      "package": "uuid",
+      "severity": "moderate",
+      "dependencyType": "transitive-dev",
+      "path": "@lhci/cli > @lhci/server > uuid",
+      "production": false,
+      "reachability": "Used in LHCI server component for session tokens; server component is not started during client CLI audits.",
+      "decision": "accept-temporarily",
+      "owner": "CI-Tooling"
+    }
+  ]
+}
