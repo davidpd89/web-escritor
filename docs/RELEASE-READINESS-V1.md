@@ -1,9 +1,9 @@
 # Release Readiness Evidence (Static Preflight Gate)
 
-- Generated: `2026-09-30T11:27:25.087422+00:00`
-- Branch: `fix/qa-hardening-mutation-journeys-supplychain`
-- HEAD: `53741feb4947c6b7e1c8fa2b6a73bb39a7bd4484`
-- Previous SHA (rollback candidate): `6a6a09eb2e60b105d667cf8388314a4a0facdbe2`
+- Generated: `2026-09-30T15:35:08.857813+00:00`
+- Branch: `fix/qa-traceability-keyboard-event-followup`
+- HEAD: `2b461024d407ed16fac023655f71872a56965f60`
+- Previous SHA (rollback candidate): `03acd591dd9ceaded8a80a7f8201b8955dc930e2`
 
 ## Status: `STATIC_CHECKS_PASSED`
 
@@ -17,8 +17,7 @@
 ## Commit Window (latest 20)
 
 ```text
-53741feb fix(qa): relocate browser suites to qa/, normalize sample generator newlines and sync release readiness
-6a6a09eb feat(qa): harden mutation tests, supply-chain baseline, user journeys, keyboard resize and DOM integrity
+2b461024 Merge pull request #531 from fix/qa-hardening-mutation-journeys-supplychain
 03acd591 docs: sync release-readiness report for merged main
 e8172f60 feat(qa): add supply-chain baseline, SEO collision checker, DOM integrity suite, search benchmark and core user journeys
 0add07af docs(sync): update editorial facts review dates, sync machine-readable files and rebuild feed.xml
@@ -37,6 +36,7 @@ efbdb5ca fix(analytics): close production-hostname guard gaps (staging, legacy t
 a17e8fd9 content(prensa): add Praza Pública opinion piece (#517)
 d0788680 fix(analytics): stop GoatCounter/Metricool/Clarity from firing on localhost (#516)
 ffa68c29 fix(seo): add ProfilePage dateCreated, drop invalid ItemList.dateModified (#515)
+b2744a43 fix(security): add explicit Referrer-Policy meta tag sitewide (#513)
 ```
 
 ## Required Route Inventory
@@ -97,7 +97,7 @@ ffa68c29 fix(seo): add ProfilePage dateCreated, drop invalid ItemList.dateModifi
 ### CI parity: content indexes — PASS
 
 ```text
-Local asset check: 100 HTML files scanned; 0 broken local reference(s) (including 0 JS reference target(s) and 0 CSS url() target(s)).
+Local asset check: 173 HTML files scanned; 0 broken local reference(s) (including 0 JS reference target(s) and 0 CSS url() target(s)).
 ```
 
 ### CI parity: hrefs — PASS
@@ -110,11 +110,11 @@ HREF-OK
 
 ```text
 INTERNAL GRAPH REPORT
-Files scanned: 96
+Files scanned: 167
 Indexable pages: 62
 
 INFO (1):
-  [noindex-skipped] 34 pages excluded (noindex): aviso-legal.html, privacidad.html, samuel-entre-mundos.html, asistente\embed.html, asistente\index.html, donde-empieza-la-jaula\index.html, gracias-suscripcion\index.html, lecturas\index.html �
+  [noindex-skipped] 43 pages excluded (noindex): aviso-legal.html, privacidad.html, samuel-entre-mundos.html, .preview-dist-sitewide-qa\aviso-legal.html, .preview-dist-sitewide-qa\privacidad.html, .preview-dist-sitewide-qa\samuel-entre-mundos.html, asistente\embed.html, asistente\index.html �
 
 Summary: 0 error(s), 0 warning(s)
 ```
@@ -128,7 +128,7 @@ PASS: navigation coverage (69 registry routes, 62 sitemap routes, 22 interactive
 ### CI parity: heading structure — PASS
 
 ```text
-Heading/skip-link structure: 80 ficheros HTML revisados; 0 problema(s).
+Heading/skip-link structure: 153 ficheros HTML revisados; 0 problema(s).
 ```
 
 ### CI parity: jsonld absolute URLs — PASS
@@ -170,14 +170,15 @@ EDITORIAL FACT CHECK: OK
 ### CI parity: social cards strict — PASS
 
 ```text
-NOTICE  shared article card used by 7 pages: https://davidportodiaz.com/assets/og-worldbuilding-noveris-ciudad-fantastica.jpg :: cuaderno/fantasia-juvenil-espanola-portales-magia-coste/index.html, cuaderno/libros-fantasia-juvenil-espanola-2025-2026/index.html, cuaderno/portal-fantasy-vs-fantasia-epica/index.html, cuaderno/que-es-el-portal-fantasy/index.html, cuaderno/worldbuilding-noveris-ciudad-magica/index.html, recomendaciones/magia-con-coste/index.html, recomendaciones/portal-fantasy-espanol/index.html
-Social cards: 62 indexable HTML pages; 0 error(s), 0 warning(s), 1 notice(s).
+NOTICE  shared article card used by 4 pages: https://davidportodiaz.com/assets/og-clubes-lectura-samuel-entre-mundos.jpg :: .preview-dist-sitewide-qa/clubes-de-lectura/samuel-entre-mundos/guia-imprimible/index.html, .preview-dist-sitewide-qa/clubes-de-lectura/samuel-entre-mundos/index.html, clubes-de-lectura/samuel-entre-mundos/guia-imprimible/index.html, clubes-de-lectura/samuel-entre-mundos/index.html
+NOTICE  shared article card used by 14 pages: https://davidportodiaz.com/assets/og-worldbuilding-noveris-ciudad-fantastica.jpg :: .preview-dist-sitewide-qa/cuaderno/fantasia-juvenil-espanola-portales-magia-coste/index.html, .preview-dist-sitewide-qa/cuaderno/libros-fantasia-juvenil-espanola-2025-2026/index.html, .preview-dist-sitewide-qa/cuaderno/portal-fantasy-vs-fantasia-epica/index.html, .preview-dist-sitewide-qa/cuaderno/que-es-el-portal-fantasy/index.html, .preview-dist-sitewide-qa/c
+... [truncated]
 ```
 
 ### CI parity: copy tildes — PASS
 
 ```text
-COPY TILDES: OK (183 ficheros HTML/JS revisados)
+COPY TILDES: OK (330 ficheros HTML/JS revisados)
 ```
 
 ### Authority: machine-readable contract — PASS
@@ -264,7 +265,7 @@ test-radar-freshness-real-clock: OK
 ### Smoke: ICS RFC5545 roundtrip — PASS
 
 ```text
-ok   evento-escritor-core.js generator exits 0 (stderr: (node:13316) [MODULE_TYPELESS_PACKAGE_JSON] Warning: Module type of file:///C:/GIT/web-escritor/assets/evento-escritor-core.js is not specified and it doesn't parse as CommonJS.
+ok   evento-escritor-core.js generator exits 0 (stderr: (node:53004) [MODULE_TYPELESS_PACKAGE_JSON] Warning: Module type of file:///C:/GIT/web-escritor/assets/evento-escritor-core.js is not specified and it doesn't parse as CommonJS.
 Reparsing as ES module)
   ok   icalendar parses exactly 1 VEVENT from the event tool's ICS
   ok   SUMMARY round-trips with accents intact
@@ -280,8 +281,6 @@ tests/test-ics-roundtrip-independent-parser: OK
 ### Smoke: SEO & discoverability sitewide — PASS
 
 ```text
-BUILT C:\GIT\web-escritor\.preview-dist-sitewide-qa: 428 file(s) included, 1363 excluded; manifest=.preview-dist-sitewide-qa-manifest.json
-OK: C:\GIT\web-escritor\.preview-dist-sitewide-qa satisfies the allowlist-first public-artifact contract (428 files).
 Auditing SEO & Schema on 73 published HTML pages...
 SEO & Schema Smoke: 890/890 assertions passed.
 ALL SEO & DISCOVERABILITY CHECKS PASSED 100%!
@@ -337,7 +336,7 @@ test-npm-supply-chain-baseline: OK
 ## Rollback Procedure (Documented, not executed)
 
 1. Identify incident and freeze merges.
-2. Checkout rollback target SHA: `6a6a09eb2e60b105d667cf8388314a4a0facdbe2`.
+2. Checkout rollback target SHA: `03acd591dd9ceaded8a80a7f8201b8955dc930e2`.
 3. Re-run core checks:
 ```bash
 python scripts/check-local-assets.py

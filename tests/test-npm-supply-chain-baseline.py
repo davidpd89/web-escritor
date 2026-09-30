@@ -32,7 +32,8 @@ BASELINE_PATH = ROOT / "data" / "npm-supply-chain-baseline.json"
 
 REQUIRED_FIELDS = {
     "id", "package", "severity", "affectedRange", "dependencyType",
-    "production", "reachability", "fixAvailable", "decision", "owner", "reviewBy", "sourceUrl"
+    "production", "reachability", "fixAvailable", "fixedVersion", "installedVersion",
+    "dependencyPath", "decision", "owner", "reviewer", "reviewedAt", "reviewBy", "sourceUrl"
 }
 VALID_SEVERITIES = {"low", "moderate", "high", "critical"}
 VALID_DECISIONS = {"accept-temporarily", "upgrade", "remove", "monitor"}
@@ -42,6 +43,12 @@ def validate_baseline_structure(baseline_data: dict) -> list[str]:
     errors = []
     if baseline_data.get("schemaVersion") != 1:
         errors.append("Invalid schemaVersion: expected 1")
+
+    for root_date in ("reviewedAt", "reviewBy"):
+        try:
+            date.fromisoformat(str(baseline_data.get(root_date)))
+        except ValueError:
+            errors.append(f"Baseline {root_date} must be an ISO date")
     
     last_reviewed_str = baseline_data.get("lastReviewed")
     if not last_reviewed_str:
@@ -84,6 +91,16 @@ def validate_baseline_structure(baseline_data: dict) -> list[str]:
         if not str(item.get("reachability", "")).strip():
             errors.append(f"{adv_id}: reachability reasoning must not be empty")
 
+        for date_field in ("reviewedAt", "reviewBy"):
+            try:
+                date.fromisoformat(str(item.get(date_field)))
+            except ValueError:
+                errors.append(f"{adv_id}: {date_field} must be an ISO date")
+
+        if item.get("reviewedAt") and item.get("reviewBy"):
+            if date.fromisoformat(item["reviewBy"]) < date.fromisoformat(item["reviewedAt"]):
+                errors.append(f"{adv_id}: reviewBy precedes reviewedAt")
+
     return errors
 
 
@@ -121,6 +138,16 @@ def check_supply_chain(npm_cmd: str, baseline_data: dict) -> list[str]:
     # 2. Audit dev dependencies
     full_data = run_audit(npm_cmd, [])
     full_vulns = full_data.get("vulnerabilities", {})
+    lockfile = json.loads((ROOT / "package-lock.json").read_text(encoding="utf-8"))
+    lock_packages = lockfile.get("packages", {})
+
+    def installed_metadata(package: str) -> tuple[str | None, str | None]:
+        matches = [
+            (path, value.get("version"))
+            for path, value in lock_packages.items()
+            if path.endswith(f"/{package}") or path == f"node_modules/{package}"
+        ]
+        return matches[0] if matches else (None, None)
 
     baseline_advisories = {item["id"]: item for item in baseline_data.get("advisories", [])}
     live_advisories: dict[str, dict] = {}
@@ -133,7 +160,10 @@ def check_supply_chain(npm_cmd: str, baseline_data: dict) -> list[str]:
                 live_advisories[adv_id] = {
                     "package": pkg,
                     "severity": via_item.get("severity", info.get("severity")),
-                    "title": via_item.get("title", "")
+                    "title": via_item.get("title", ""),
+                    "fixAvailable": bool(info.get("fixAvailable")),
+                    "installedVersion": installed_metadata(pkg)[1],
+                    "dependencyPath": installed_metadata(pkg)[0],
                 }
 
     # Detect uncataloged new advisories
@@ -144,6 +174,11 @@ def check_supply_chain(npm_cmd: str, baseline_data: dict) -> list[str]:
             base_sev = baseline_advisories[adv_id].get("severity")
             if base_sev != live_info["severity"]:
                 errors.append(f"{adv_id}: severity mismatch (baseline='{base_sev}', npm audit='{live_info['severity']}')")
+            for field in ("package", "installedVersion", "dependencyPath", "fixAvailable"):
+                baseline_value = baseline_advisories[adv_id].get(field)
+                live_value = live_info[field]
+                if baseline_value is not None and live_value is not None and baseline_value != live_value:
+                    errors.append(f"{adv_id}: {field} mismatch (baseline='{baseline_value}', live='{live_value}')")
 
     # Detect phantom advisories in baseline (advisories that were fixed/removed from tree)
     for adv_id in baseline_advisories:

@@ -1,12 +1,6 @@
 // Core User Journeys E2E validation.
-// Verifies end-to-end traversal across critical user paths:
-// 1. Home -> Main Book (Las manecillas del recuerdo)
-// 2. Home -> Author bio (/autor.html)
-// 3. Home -> Free sample (/fragmento/)
-// 4. Cuaderno -> Article reading
-// 5. Herramientas -> Interactive tool usage (Contador de palabras live input)
-// 6. Search / Explore Dialog -> Navigation to target
-// 7. Radar de Convocatorias -> Filter interaction & official source link
+// Every declared journey asserts its entry point before interacting; a missing
+// control is a failure, never a skipped branch.
 import assert from 'node:assert/strict';
 import { createServer } from 'node:http';
 import fs from 'node:fs';
@@ -62,11 +56,6 @@ try {
   assert.ok((await page.textContent('h1')).includes('David Porto Díaz'), 'Journey 2: H1 mismatch on Autor page');
   console.log('  ok   Journey 2: Home -> Autor bio (/autor.html)');
 
-  // Journey 3: Home -> Manecillas fragment
-  await page.goto(`${ORIGIN}/`, { waitUntil: 'domcontentloaded' });
-  const sampleLink = page.locator('main a[href*="fragmentos"], main a[href*="/las-manecillas-del-recuerdo/"]:visible').first();
-  await sampleLink.click();
-  await page.waitForLoadState('domcontentloaded');
   // Journey 3: Home / Book -> Specific Reading Fragment
   await page.goto(`${ORIGIN}/las-manecillas-del-recuerdo/`, { waitUntil: 'domcontentloaded' });
   const fragmentLink = page.locator('a[href*="/las-manecillas-del-recuerdo/fragmentos/"]:visible').first();
@@ -130,7 +119,8 @@ try {
   assert.ok(sourceHref && sourceHref.startsWith('https://') && sourceHref.includes('diputaciondepalencia.es'), `Journey 7: Invalid official source URL: ${sourceHref}`);
   console.log('  ok   Journey 7: Radar de convocatorias -> Filtro en vivo y enlace oficial');
 
-  // Journey 8: Search / Pagefind execution & result navigation
+  // Journey 8: Pagefind engine integration (not a public UI journey: the site
+  // exposes Pagefind through runtime search, not a standalone search box).
   await page.goto(`${ORIGIN}/`, { waitUntil: 'load' });
   const searchResults = await page.evaluate(async () => {
     const pagefind = await import('/pagefind/pagefind.js');
@@ -142,7 +132,7 @@ try {
   assert.ok(searchResults && searchResults.url, 'Journey 8 failed: Pagefind search for "portal fantasy" returned no results');
   await page.goto(`${ORIGIN}${searchResults.url}`, { waitUntil: 'domcontentloaded' });
   assert.equal(await page.locator('h1').count(), 1, 'Journey 8: Arrived search destination missing H1');
-  console.log(`  ok   Journey 8: Búsqueda Pagefind -> Consulta "portal fantasy" y navegación a ${searchResults.url}`);
+  console.log(`  ok   Journey 8: Pagefind engine -> Consulta "portal fantasy" y navegación a ${searchResults.url}`);
 
   // Journey 9: Newsletter client validation flow
   await page.goto(`${ORIGIN}/lectores-beta/`, { waitUntil: 'domcontentloaded' });
@@ -151,14 +141,28 @@ try {
   const emailInput = page.locator('#lectores-beta-email');
   const gdprCheckbox = page.locator('#lectores-beta-gdpr');
   const submitBtn = nlForm.locator('button[type="submit"]');
+  const newsletterRequests = [];
+  await page.route('https://subscribe.davidpd89.workers.dev/**', async (route) => {
+    newsletterRequests.push(route.request().url());
+    await route.fulfill({ status: 201, contentType: 'application/json', body: '{"ok":true,"state":"pending_confirmation"}' });
+  });
 
   // Test client-side rejection of invalid email
   await emailInput.fill('invalid-email-format');
   await gdprCheckbox.check();
+  assert.equal(await emailInput.evaluate((el) => el.checkValidity()), false, 'Journey 9: invalid email must fail native validity');
   await submitBtn.click();
   await page.waitForTimeout(100);
-  assert.equal(await page.locator('#lectores-beta-email').count(), 1, 'Journey 9: Form must not submit on invalid email');
-  console.log('  ok   Journey 9: Newsletter -> Validación cliente bloquea email inválido');
+  assert.equal(newsletterRequests.length, 0, 'Journey 9: invalid email must not reach the newsletter endpoint');
+
+  // Valid email is tested against the local route mock, never against Brevo.
+  await emailInput.fill('qa-valid@example.test');
+  assert.equal(await emailInput.evaluate((el) => el.checkValidity()), true, 'Journey 9: valid email must pass native validity');
+  await submitBtn.click();
+  await page.waitForTimeout(150);
+  assert.equal(newsletterRequests.length, 1, 'Journey 9: valid email must produce exactly one intercepted request');
+  assert.equal(await page.locator('#lectores-beta-email').count(), 0, 'Journey 9: mocked pending state must replace the email input');
+  console.log('  ok   Journey 9: Newsletter -> Invalid blocked, valid request intercepted locally');
 
   await context.close();
 } finally {

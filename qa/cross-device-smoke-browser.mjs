@@ -182,47 +182,66 @@ try {
   // Tests opening a page at 390x844, focusing input/textarea, dynamically shrinking height to 500px,
   // and ensuring no overflow, element remains visible and accessible, and restoring cleanly.
   console.log('Testing dynamic virtual keyboard resize on interactive surfaces...');
-  const KEYBOARD_TEST_ROUTES = [
-    '/lectores-beta/',
-    '/herramientas/contador-palabras/',
-    '/convocatorias-escritores/',
-    '/herramientas/legibilidad/',
-    '/herramientas/dialogo/',
-    '/herramientas/manuscrito/',
-  ];
+  const KEYBOARD_TEST_ROUTES = new Map([
+    ['/lectores-beta/', '#lectores-beta-email'],
+    ['/herramientas/contador-palabras/', '[data-wc-input]'],
+    ['/convocatorias-escritores/', '[data-radar-search]'],
+    ['/herramientas/legibilidad/', 'textarea'],
+    ['/herramientas/dialogo/', 'textarea'],
+    ['/herramientas/manuscrito/', 'textarea'],
+  ]);
   const kbContext = await browser.newContext({
     viewport: { width: 390, height: 844 },
     isMobile: true,
     hasTouch: true,
   });
-  for (const route of KEYBOARD_TEST_ROUTES) {
+  for (const [route, inputSelector] of KEYBOARD_TEST_ROUTES) {
     const page = await kbContext.newPage();
     try {
       await page.goto(`${origin}${route}`, { waitUntil: 'domcontentloaded', timeout: 10000 });
-      const inputEl = page.locator('input[type="email"], textarea, input[type="text"]').first();
-      if (await inputEl.count() > 0) {
-        await inputEl.focus();
-        await page.setViewportSize({ width: 390, height: 500 });
-        await page.waitForTimeout(60);
+      const inputEl = page.locator(inputSelector).first();
+      assert.equal(await inputEl.count(), 1, `${route}: required keyboard input '${inputSelector}' is missing`);
+      await inputEl.focus();
+      await page.setViewportSize({ width: 390, height: 500 });
+      await page.waitForTimeout(60);
+      // A real mobile browser pans the document to keep the focused control
+      // above the virtual keyboard. Playwright's synthetic viewport resize
+      // does not perform that pan automatically, so reproduce that part of
+      // the platform behavior explicitly before checking the geometry.
+      await inputEl.scrollIntoViewIfNeeded();
+      await page.waitForTimeout(30);
 
-        const state = await page.evaluate(() => {
-          const active = document.activeElement;
-          const rect = active ? active.getBoundingClientRect() : null;
-          const overflows = Math.max(document.documentElement.scrollWidth, document.body ? document.body.scrollWidth : 0) > window.innerWidth + 1;
-          return {
-            hasActive: !!active,
-            overflows,
-            top: rect ? rect.top : 0,
-            bottom: rect ? rect.bottom : 0,
-            winHeight: window.innerHeight,
-          };
-        });
+      const state = await page.evaluate((selector) => {
+        const active = document.activeElement;
+        const rect = active ? active.getBoundingClientRect() : null;
+        const visualHeight = window.visualViewport?.height ?? window.innerHeight;
+        const overflows = Math.max(document.documentElement.scrollWidth, document.body ? document.body.scrollWidth : 0) > window.innerWidth + 1;
+        return {
+          activeMatches: !!active && active.matches(selector),
+          overflows,
+          top: rect?.top ?? -1,
+          bottom: rect?.bottom ?? Number.POSITIVE_INFINITY,
+          visualHeight,
+          visible: !!rect && rect.width > 0 && rect.height > 0,
+        };
+      }, inputSelector);
 
-        assert.ok(!state.overflows, `${route}: horizontal overflow on dynamic keyboard resize`);
-        assert.ok(state.hasActive, `${route}: active element lost focus on keyboard resize`);
-        await page.setViewportSize({ width: 390, height: 844 });
-        totalPassed++;
-      }
+      assert.ok(state.activeMatches, `${route}: expected control '${inputSelector}' lost focus on dynamic keyboard resize`);
+      assert.ok(state.visible, `${route}: focused control is not visible after dynamic keyboard resize`);
+      const viewportTolerance = 4;
+      assert.ok(state.top >= -viewportTolerance && state.bottom <= state.visualHeight + viewportTolerance, `${route}: focused control is outside usable viewport (${state.top}-${state.bottom}/${state.visualHeight})`);
+      assert.ok(!state.overflows, `${route}: horizontal overflow on dynamic keyboard resize`);
+
+      await page.setViewportSize({ width: 390, height: 844 });
+      await page.waitForTimeout(60);
+      const restored = await page.evaluate((selector) => ({
+        activeMatches: !!document.activeElement && document.activeElement.matches(selector),
+        width: document.documentElement.scrollWidth,
+        viewport: window.innerWidth,
+      }), inputSelector);
+      assert.ok(restored.activeMatches, `${route}: focus was lost after restoring viewport`);
+      assert.ok(restored.width <= restored.viewport + 1, `${route}: horizontal overflow after restoring viewport`);
+      totalPassed++;
     } catch (err) {
       failures.push({ viewport: 'Dynamic-Keyboard (390x844->500)', route, errors: [err.message] });
     } finally {
@@ -252,6 +271,12 @@ try {
 
       const mainText = await page.locator('main').textContent();
       assert.ok(mainText && mainText.trim().length > 150, `Expected substantive content in <main> for No-JS ${route}`);
+
+      const navigationHrefCount = await page.locator('main a[href]').evaluateAll((links) => links.filter((link) => {
+        const href = link.getAttribute('href') || '';
+        return href.startsWith('/') || href.startsWith('https://');
+      }).length);
+      assert.ok(navigationHrefCount > 0, `Expected usable navigation links in No-JS ${route}`);
 
       // Check overflow in No-JS
       const overflow = await page.evaluate(() => {
