@@ -380,7 +380,7 @@
   // TRACKED_ASSETS entry in check-asset-versions.py whenever either file's
   // content changes.
   const HOME_EDITORIAL_SRC = '/assets/v1-home-editorial-v3.js?v=8';
-  const EDITORIAL_INTERIOR_SRC = '/assets/v1-editorial-interior-v4.js?v=2';
+  const EDITORIAL_INTERIOR_SRC = '/assets/v1-editorial-interior-v4.js?v=3';
   const root = document.documentElement;
   const houseSvg = `
     <svg aria-hidden="true" viewBox="0 0 24 24" focusable="false">
@@ -473,10 +473,28 @@
     probe();
   }
 
+  function setSubmenuDismissed(item, dismissed) {
+    if (!item) return;
+    const submenu = item.querySelector(':scope > .masthead-nav__submenu');
+    item.classList.toggle('is-dismissed', dismissed);
+    if (!submenu) return;
+    const props = ['opacity', 'visibility', 'pointer-events', 'transform', 'transition-delay'];
+    if (dismissed) {
+      submenu.style.opacity = '0';
+      submenu.style.visibility = 'hidden';
+      submenu.style.pointerEvents = 'none';
+      submenu.style.transform = 'translateY(-2px)';
+      submenu.style.transitionDelay = '0s';
+    } else {
+      props.forEach((prop) => submenu.style.removeProperty(prop));
+    }
+  }
+
   function closeSubmenus(except = null) {
     document.querySelectorAll('.masthead-nav__item.is-open').forEach((item) => {
       if (item === except) return;
       item.classList.remove('is-open');
+      setSubmenuDismissed(item, true);
       item.querySelector('.masthead-nav__submenu-trigger')?.setAttribute('aria-expanded', 'false');
     });
   }
@@ -496,12 +514,17 @@
         const willOpen = !li.classList.contains('is-open');
         closeSubmenus(willOpen ? li : null);
         li.classList.toggle('is-open', willOpen);
+        setSubmenuDismissed(li, !willOpen);
         trigger.setAttribute('aria-expanded', String(willOpen));
         if (willOpen) emit('masthead_submenu_open', { territory: key, position: position + 1 });
       });
+      li.addEventListener('mouseenter', () => setSubmenuDismissed(li, false));
+      li.addEventListener('focusin', () => setSubmenuDismissed(li, false));
+      li.addEventListener('mouseleave', () => setSubmenuDismissed(li, false));
       li.addEventListener('keydown', (event) => {
         if (event.key !== 'Escape') return;
         li.classList.remove('is-open');
+        setSubmenuDismissed(li, true);
         trigger.setAttribute('aria-expanded', 'false');
         trigger.focus({ preventScroll: true });
       });

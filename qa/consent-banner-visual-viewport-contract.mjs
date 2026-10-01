@@ -54,6 +54,10 @@ const BASE_PX = 12; // matches the source's `let basePx = 12;` default
 
 async function installFakeVisualViewport(page, { height, offsetTop }) {
   await page.addInitScript(({ height, offsetTop, width }) => {
+    // Keep implicit-accept navigation/scroll from removing the banner while
+    // this contract is measuring visualViewport positioning. Production
+    // keeps its normal grace; this override exists explicitly for QA.
+    window.__ANALYTICS_CONSENT_GRACE_MS__ = 10000;
     class FakeVisualViewport extends EventTarget {
       constructor(h, o, w) {
         super();

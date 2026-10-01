@@ -269,6 +269,21 @@
     list.append(item);
 
     const trigger = item.querySelector('.masthead-nav__submenu-trigger');
+    const setDismissed = (dismissed) => {
+      const submenu = item.querySelector(':scope > .masthead-nav__submenu');
+      item.classList.toggle('is-dismissed', dismissed);
+      if (!submenu) return;
+      const props = ['opacity', 'visibility', 'pointer-events', 'transform', 'transition-delay'];
+      if (dismissed) {
+        submenu.style.opacity = '0';
+        submenu.style.visibility = 'hidden';
+        submenu.style.pointerEvents = 'none';
+        submenu.style.transform = 'translateY(-2px)';
+        submenu.style.transitionDelay = '0s';
+      } else {
+        props.forEach((prop) => submenu.style.removeProperty(prop));
+      }
+    };
     trigger?.addEventListener('click', (event) => {
       event.stopPropagation();
       const willOpen = !item.classList.contains('is-open');
@@ -278,11 +293,16 @@
         other.querySelector('.masthead-nav__submenu-trigger')?.setAttribute('aria-expanded', 'false');
       });
       item.classList.toggle('is-open', willOpen);
+      setDismissed(!willOpen);
       trigger.setAttribute('aria-expanded', String(willOpen));
     });
+    item.addEventListener('mouseenter', () => setDismissed(false));
+    item.addEventListener('focusin', () => setDismissed(false));
+    item.addEventListener('mouseleave', () => setDismissed(false));
     item.addEventListener('keydown', (event) => {
       if (event.key !== 'Escape') return;
       item.classList.remove('is-open');
+      setDismissed(true);
       trigger?.setAttribute('aria-expanded', 'false');
       trigger?.focus({ preventScroll: true });
     });

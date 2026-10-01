@@ -70,6 +70,7 @@ try {
   // Home and confirm the banner lands fully inside the viewport, untouched.
   const context = await browser.newContext({ viewport: VIEWPORT });
   const page = await context.newPage();
+  await page.addInitScript(() => { window.__ANALYTICS_CONSENT_GRACE_MS__ = 10000; });
   await page.goto(`${ORIGIN}/`, { waitUntil: 'load' });
   await page.evaluate(() => { try { localStorage.clear(); sessionStorage.clear(); } catch {} });
   await page.reload({ waitUntil: 'load' });
@@ -99,6 +100,7 @@ try {
   // put over time.
   const context2 = await browser.newContext({ viewport: VIEWPORT });
   const page2 = await context2.newPage();
+  await page2.addInitScript(() => { window.__ANALYTICS_CONSENT_GRACE_MS__ = 10000; });
   await page2.goto(`${ORIGIN}/`, { waitUntil: 'load' });
   await page2.evaluate(() => { try { sessionStorage.setItem('dp-intro-seen', '1'); localStorage.clear(); } catch {} });
   await page2.reload({ waitUntil: 'load' });
@@ -137,6 +139,7 @@ try {
   // tabindex===-1" instead of specifically the <main>-landmark sink.
   const context3 = await browser.newContext({ viewport: VIEWPORT });
   const page3 = await context3.newPage();
+  await page3.addInitScript(() => { window.__ANALYTICS_CONSENT_GRACE_MS__ = 10000; });
   await page3.goto(`${ORIGIN}/`, { waitUntil: 'load' });
   await page3.evaluate(() => { try { sessionStorage.setItem('dp-intro-seen', '1'); localStorage.clear(); } catch {} });
   await page3.reload({ waitUntil: 'load' });
