@@ -1,474 +1,120 @@
 {
-  "analizador-capitulos.css": {
-    "sha256": "826ebe0fc3cf4b88c4da32ab334416e5afd627a04c20d140ac3385d79aadec15",
-    "version": "1"
-  },
-  "analizador-capitulos.js": {
-    "sha256": "4d2878d67543aec68d1eb4ab83e545ba5d0eea33e55650cc4d1965877b706db9",
-    "version": "2"
-  },
-  "analytics-consent-banner.js": {
-    "sha256": "9e15183d7e4eaa3e70de8bd354303768eacd0be9b73f6dc932249a7d500906ac",
-    "version": "15"
-  },
-  "assistant-embed.css": {
-    "sha256": "4cf612139ca082033aa20ef19669d06c20eb5914e767ff99eb5db838627e1342",
-    "version": "2"
-  },
-  "assistant-embed.js": {
-    "sha256": "80c3e7610267109ccad6b145eb50ecca8e23d098ad03f94cdaa8509c795a4ef0",
-    "version": "2"
-  },
-  "assistant-widget-core.mjs": {
-    "sha256": "0690ff95cd35ae766daa1257171ada28aae080075b6f9f9854a0e6f73a7d1423",
-    "version": "1"
-  },
-  "assistant-widget.css": {
-    "sha256": "7b69dfbb578f514e0e44c94fa182602f7e97ad625c4416de9c3e6949a7728fc2",
-    "version": "1"
-  },
-  "assistant-widget.js": {
-    "sha256": "1a4f5cb73d0c954b6696df7fd665c670dcb10ee69be1612de3dc22cbf15c8938",
-    "version": "2"
-  },
-  "assistant.css": {
-    "sha256": "d0ef2ac2de28c205b24b747dc04c95d5ee694d1186dc1fc327dbcb6aa30a4f5a",
-    "version": "1"
-  },
-  "assistant.js": {
-    "sha256": "785d8aba3500dc8efc02c0f39c49dd427efd0fce514704d8678123a681d9aaf9",
-    "version": "2"
-  },
-  "auditor-pagina-libro.css": {
-    "sha256": "0ac48a4d7d7ba900e04fe27cd28bcef24b37d08fe4cb2e259567f4aa2cb133d1",
-    "version": "1"
-  },
-  "auditor-pagina-libro.js": {
-    "sha256": "aad99e8e42a8eda35bad97758e2be8c2fc73e54afd9a1d8c02890b5f7ec19d6f",
-    "version": "1"
-  },
-  "club-session-builder.css": {
-    "sha256": "5718fd865de8212ea10f10c35eff71720162c1922743f8e503a9cd9ba3c07727",
-    "version": "2"
-  },
-  "club-session-builder.js": {
-    "sha256": "13917ac3705df0c9ef3b1ab02dfe0c298ca926cf53ea5de9956cdc275073d6bf",
-    "version": "1"
-  },
-  "clubes-samuel.css": {
-    "sha256": "4fc4e08ea2f042df899c121c70cefb4605c6a87dcec044f83b0b3f56c74bf758",
-    "version": "1"
-  },
-  "contador-palabras-engine.js": {
-    "sha256": "131333e224306898b36e8a927b3ecef11aa8dd4f11f33827af9b05a4affc8b1f",
-    "version": "3"
-  },
-  "contador-palabras.js": {
-    "sha256": "aa9fa7dae4be948b14a68f5718a805e142e7a3587071c505339f4e9152602226",
-    "version": "1"
-  },
-  "cuaderno-index.css": {
-    "sha256": "3904a508d7a84c1919362564ffafa90d075c14adfea80cbe9bc5748546e18c79",
-    "version": "1"
-  },
-  "dialogo-convenciones.js": {
-    "sha256": "ea0da7bce6420c7f415277e881cd6e987978b891e8ba232c5ddbbf99fd1762ec",
-    "version": "1"
-  },
-  "dialogo-espanol.css": {
-    "sha256": "75d990c1a8c23f7bdeeb7943248618a87eefd806790d269f5d7f4c5e64ab2c63",
-    "version": "1"
-  },
-  "dialogo-espanol.js": {
-    "sha256": "cc0915f210b29aebfd60bae0cc1223c107e23a60fb9c9e94522e277228e6976c",
-    "version": "3"
-  },
-  "editoriales.css": {
-    "sha256": "1cde857d4eb8bbeffd8991552bef36bd7c221e0031a41fae22c61f9c5d209b5c",
-    "version": "2"
-  },
-  "editoriales.js": {
-    "sha256": "9c2caf38d1598b9b8049accc79de07c11478d4eeea798247cb2467372c72ceb0",
-    "version": "1"
-  },
-  "email-reveal.js": {
-    "sha256": "5af2564c048c34252c9132e9e93ef71832f19e43fed969ed647808687f734394",
-    "version": "3"
-  },
-  "entrevista-familiar.css": {
-    "sha256": "ba9966a2415bc85274175a9ade74d717ea0d7ac9b0448ffbfaeef410674a1fb6",
-    "version": "1"
-  },
-  "entrevista-familiar.js": {
-    "sha256": "e4096151a052e34715157cf4db15c24f26546d3ed1275df945a689ae8cf52c5e",
-    "version": "1"
-  },
-  "fragmento.css": {
-    "sha256": "0d40e2908e5008cf31eb14e7c131a30e836c699b4e6ae181c99a8fd28823e28a",
-    "version": "1"
-  },
-  "generador-evento-escritor.css": {
-    "sha256": "d50120e84a5848b740da5850aaee44fc7d296be1092ac69c5e9d2e940ecce17d",
-    "version": "1"
-  },
-  "generador-evento-escritor.js": {
-    "sha256": "2aaace52e1452116c6a4331f1784aece82dbe8aaed563f9c6dbfd0141d3eb3e0",
-    "version": "1"
-  },
-  "herramientas-index.css": {
-    "sha256": "a484b81d4b8cb7d0872f9c9d7c7b7f54400c51b7a3d743f89e1d83bc05096d7e",
-    "version": "1"
-  },
-  "jsonld-escritores.css": {
-    "sha256": "a5e91e66324a0c2414f5bbf1a6541c56977a218095a1cf6138f4991ea3968d8a",
-    "version": "1"
-  },
-  "jsonld-escritores.js": {
-    "sha256": "7f914e39f8b5f9c30596b4dc44724169ac3dfe4f2b9715b4d30ec6c7bb0c8f15",
-    "version": "1"
-  },
-  "kit-prensa-escritor.css": {
-    "sha256": "b4a1edad01a2255d11c9c30bc5b7959d0c957a600b2576464463fe2969c40f59",
-    "version": "1"
-  },
-  "kit-prensa-escritor.js": {
-    "sha256": "0a87536cc4b47df53582a03984023eaa7993ab8c415e25500003dd8470f33ec1",
-    "version": "2"
-  },
-  "legibilidad-espanol.css": {
-    "sha256": "2c0653f4f00b57889480808aebfd7f2a095c629135c7dbe248627a08e4e4d85f",
-    "version": "1"
-  },
-  "legibilidad-espanol.js": {
-    "sha256": "c96c824194533853951bd814cb4192bfa6661e5481db8227b408d157ce0f98a0",
-    "version": "1"
-  },
-  "limpiador-manuscritos-engine.js": {
-    "sha256": "7c776d81caaef67ee8628c1d9f2df109defb7b13c09bcf9fdc5ba8cf34748312",
-    "version": "3"
-  },
-  "limpiador-manuscritos.js": {
-    "sha256": "e7ee4bcc959cf11bfba0a3afdb5f70b787f2dbff074ca94210faa7e79bad90c0",
-    "version": "1"
-  },
-  "manecillas-book.js": {
-    "sha256": "5399edeb5da7781e07ce32448933cc5c1748eaf5e3e1d9c50f9ed6de38dd9aaa",
-    "version": "1"
-  },
-  "manecillas-funnel.js": {
-    "sha256": "9c4990dbe9202d2e3441fda26a96a6164f280eec973b5715419f00e743e9cb55",
-    "version": "1"
-  },
-  "mapa-personajes.css": {
-    "sha256": "d76b4cb1c1abc8c9f59967e835fd8a530115cd351ce15f3476a14a8f7024a65a",
-    "version": "2"
-  },
-  "mapa-personajes.js": {
-    "sha256": "923fd4d0941dd5660347789ac62a8f4a0f047aa612837fab7bf407b463be0a62",
-    "version": "2"
-  },
-  "metadatos-libro.css": {
-    "sha256": "c2ac3d7b9585101236ed57a1b71718cbd07b385e2e5153753c2c742399e90fb4",
-    "version": "1"
-  },
-  "metadatos-libro.js": {
-    "sha256": "43e108441d6f90511e3940ad29c3c3c664cc8076d746cdb3ebca7efef0b19ec1",
-    "version": "2"
-  },
-  "newsletter-general.js": {
-    "sha256": "c3e427a372267a85cb82288adbf02511457d40e781675c08256bc4912415fe74",
-    "version": "3"
-  },
-  "newsletter-popup.css": {
-    "sha256": "f524ec81ef8f4aa51fcd50320e9ef353267efae34a103c5b7e8b604b8f80a676",
-    "version": "1"
-  },
-  "newsletter-popup.js": {
-    "sha256": "c1e73b2b834d184872ff4581eb2f4108c0fb823c7dc87d577d2c645939435026",
-    "version": "2"
-  },
-  "nombres-personajes-engine-compat.js": {
-    "sha256": "c73befd792cf8395dc2bfe20b4bfa8b64a543dc3d40865f877554babe0730bf5",
-    "version": "1"
-  },
-  "nombres-personajes.css": {
-    "sha256": "b9fce2d8e942b30fa9ea2d2397fc338a153b0e5e15f38d48579b13820a6315be",
-    "version": "1"
-  },
-  "nombres-personajes.js": {
-    "sha256": "b3878a1041cee2d9500b142fe0e9f6d709a0a36a3295684a8140493a5a8cd8e6",
-    "version": "1"
-  },
-  "noveris.css": {
-    "sha256": "a243beccf8ab04c6b7bfaadd45a89b93e7081dd1d149ce56d11670ea97db3b7f",
-    "version": "1"
-  },
-  "objeto-heredado.css": {
-    "sha256": "c1d36508242a3665b567f91744d274d2d6099301d6aa761bb63d25cdfb668964",
-    "version": "1"
-  },
-  "objeto-heredado.js": {
-    "sha256": "8336a44571906f201f9ad6d7e8d966110d77724afa9184de8bec2762a21c7c77",
-    "version": "1"
-  },
-  "pov-distribucion-engine.js": {
-    "sha256": "151e82b40b006274bc8b111400e765569b941f07886d9e7a9ad270e62e3230cb",
-    "version": "2"
-  },
-  "pov-distribucion.css": {
-    "sha256": "eef818fef4d72270f6d306b5ceccfe02620b92610318ad42596cf1c711813fd7",
-    "version": "1"
-  },
-  "pov-distribucion.js": {
-    "sha256": "de0e7ebdd2301279a54db260931e16cc7ecd472bc26a3e8501f9a909dd375a4c",
-    "version": "3"
-  },
-  "radar-convocatorias.css": {
-    "sha256": "639b9acc116f5ccf45c416f466a03bcca61bc27882096331845739d6c2437a25",
-    "version": "1"
-  },
-  "radar-convocatorias.js": {
-    "sha256": "87283f55dc6cc624b3675901a57740b6ae2fda8b2f44fb6f54d73f0b44b5c340",
-    "version": "1"
-  },
-  "reading-list.css": {
-    "sha256": "c1aadb0abef11037eac727b02df0a34f876d8300a39994b962c1a3e565437e6f",
-    "version": "1"
-  },
-  "repeticiones-espanol.css": {
-    "sha256": "1a3db9816e71286058015a26c61ec027900c563b337254e992a7f2ced4934e8c",
-    "version": "1"
-  },
-  "repeticiones-espanol.js": {
-    "sha256": "1d17dc7276576619b8f01b42c63805b177f0d8d647b7d2704d66aac4f8fb1f73",
-    "version": "2"
-  },
-  "samuel-buy-modal.js": {
-    "sha256": "54a86854820e14b6732e4546d003d7aebd59b46ef65f6912a65e240809dde81b",
-    "version": "1"
-  },
-  "samuel-quiz.js": {
-    "sha256": "d161a101d7067f8c94a5f22068b612bdb67781a8bb9487a599f1becd449bf7c9",
-    "version": "2"
-  },
-  "script.js": {
-    "sha256": "24c166e8cf08223dde5098b024a011fbd8d7dd3585f0b9389ffea82a8a21b4af",
-    "version": "202609-launch-25"
-  },
-  "styles.css": {
-    "sha256": "3043ceaa1005fe45b3d76daac4a72e0132c6e01303dbc3a224126c8b365456a8",
-    "version": "202609-launch-1"
-  },
-  "surprise-content.generated.js": {
-    "sha256": "d7682d1bd1d4b381b00978c44cd887aafb32d8662adb139e04d1900096fd93b7",
-    "version": "1"
-  },
-  "surprise-me.js": {
-    "sha256": "c6e7847032e4542de008bcbfb6a153d16b91a9f431e08a8896fc9ff4d84c8f34",
-    "version": "1"
-  },
-  "tarjeta-estoy-leyendo.js": {
-    "sha256": "926374b505141d46c064426cedf297c7217873559afef205ea5be03ddad36f91",
-    "version": "1"
-  },
-  "tiempo-lectura-voz-alta.css": {
-    "sha256": "0c456e401d01d40d5170901cc1b5c0200db12c41023f50abd544cb1521d68fcb",
-    "version": "1"
-  },
-  "tiempo-lectura-voz-alta.js": {
-    "sha256": "44ff031ed622b61bcfde42e4d15da82f1648e1cb6bf0310e4fa5a74c1ad67e88",
-    "version": "2"
-  },
-  "tipo-lector-engine.js": {
-    "sha256": "afda04966cf9162985a38bff8b828e24bb638527daf944ec10a4f8a1341c1585",
-    "version": "1"
-  },
-  "tipo-lector.css": {
-    "sha256": "4ad47e8423bb2cfe1dc159f320802a8075a47f3a9682faa36045a884471dd2ff",
-    "version": "2"
-  },
-  "tipo-lector.js": {
-    "sha256": "06f6367854ed21b2bbae8c0016d91336df7569f3d27d8790fafbf45642497636",
-    "version": "1"
-  },
-  "v1-accessibility-statement.css": {
-    "sha256": "ef892d2b6850af6bf8141e37e22f1cd1680526365d096994efbcde558fbca7e9",
-    "version": "1"
-  },
-  "v1-ai-authority.css": {
-    "sha256": "5a24edc58937230e1e1ebe41b0e73f655af12fd3dfc8329de28eae4019f789d5",
-    "version": "1"
-  },
-  "v1-awards.css": {
-    "sha256": "fd917c7970861f81527b2aae690919986c6a4384fefca1dabf7850ea2af02f57",
-    "version": "1"
-  },
-  "v1-base.css": {
-    "sha256": "279201a6fd87d617e5b34c61d32932b424ac244f57e953dc749c28ccad0c2af7",
-    "version": "1"
-  },
-  "v1-beta-readers.css": {
-    "sha256": "9020fd9b91ae2b0d18038116749cc504e2242bb5113585ac6fbd0f2edc4eaeef",
-    "version": "1"
-  },
-  "v1-book.css": {
-    "sha256": "42a173eea1cc3f178091db0e47394f37dc52b1756804b020a665e6cb764730d9",
-    "version": "4"
-  },
-  "v1-components.css": {
-    "sha256": "47989cdf54a3af4f5bb19096b4bd3c40bc0cd0622275203d4978488373dda844",
-    "version": "3"
-  },
-  "v1-cuaderno-topics.css": {
-    "sha256": "f19053e8d80b5f5e355aa50dcc0a393f4b6a45c4f756247b61222cfdf51b3c1a",
-    "version": "1"
-  },
-  "v1-editorial-interactions-v4.css": {
-    "sha256": "e538923d78a353be73cb3f1414fc01f41893397ef3bdfc097f683e3b0a0c7236",
-    "version": "1"
-  },
-  "v1-editorial-interior-v4.css": {
-    "sha256": "06d1e8dc1c2848311a6d2199302661af6b2fc0118ed45285746bc44b46de3efb",
-    "version": "1"
-  },
-  "v1-editorial-interior-v4.js": {
-    "sha256": "f85abea1c3d33853cf645a2c47023173f32a394be1e9a81286db8401729b2b7a",
-    "version": "2"
-  },
-  "v1-editorial.css": {
-    "sha256": "13cd5b9792c93b835f515dfb5d0f4ef5ba7d5425e9340b5a7442098c1e348e9c",
-    "version": "3"
-  },
-  "v1-editorial.js": {
-    "sha256": "fd328cf25c61ecc6129952871600a3183eb32b82b4399bbf58e4dd9a519aaae5",
-    "version": "1"
-  },
-  "v1-editoriales-detail.css": {
-    "sha256": "9a46008893471766066d156ca80e9ba241a71b6705a448ec6033229b5e60adb6",
-    "version": "1"
-  },
-  "v1-events.css": {
-    "sha256": "30df87dbb07a41847afb9da3b9f89fac877b5d6783cb8280f7fa2504d102d8ac",
-    "version": "1"
-  },
-  "v1-families.css": {
-    "sha256": "37af1d3250eebb299f44244d39038f31dfce6cc60b0dd5f3958fbee7538e2d75",
-    "version": "2"
-  },
-  "v1-ferias.css": {
-    "sha256": "b6effe39b6f79b707a0df9454a5bed0ed559adea6d5eb49be185a007e0fac8d8",
-    "version": "1"
-  },
-  "v1-findability.css": {
-    "sha256": "324dc76dc892e97c3e16b53fafa461764ff26277c20d182c5b53ac8122ffd353",
-    "version": "1"
-  },
-  "v1-fonts.css": {
-    "sha256": "2d1f3d50a135272dc73c9c496318b1c72e4bf5ed1f984ec403a91b9264b26776",
-    "version": "1"
-  },
-  "v1-fragments.css": {
-    "sha256": "b6aa85289d794ef1b921704dee0d8dca9a1552cc06ecb9dd54e0885448c642cb",
-    "version": "1"
-  },
-  "v1-fragments.js": {
-    "sha256": "8396d571ebe7c1da454e7fee71c814beb3e215e6c0d177fbcff9280e1284cb6e",
-    "version": "1"
-  },
-  "v1-home-editorial-v3.css": {
-    "sha256": "0d159ca6a3059ddaf5c08d2a1918fd3d29d564562d306173f5740c8533890b86",
-    "version": "1"
-  },
-  "v1-home-editorial-v3.js": {
-    "sha256": "c8cbf48eff4a5492419041b01cbf9b818e58440b7c3a868599079ef32f2aaf23",
-    "version": "8"
-  },
-  "v1-home.css": {
-    "sha256": "ea62fcdadc4061b5bf7965ed48dd6c3ff996c3dbfe3772df97e1f3d91aa7cd4d",
-    "version": "11"
-  },
-  "v1-identity.css": {
-    "sha256": "c557d95404b351b035e44945b5613c3f12a5b5947677c06230cd4d72cb94d7e2",
-    "version": "1"
-  },
-  "v1-legal.css": {
-    "sha256": "70b59e8498b37e0d03e15a2514b5cfa92fa77fe5515140c2118f6fb6916635f3",
-    "version": "2"
-  },
-  "v1-lrb-material-v2.css": {
-    "sha256": "a0d4f7eb356704afe68724c516b3568bb7b832d849389b2ef78a927cca04f385",
-    "version": "1"
-  },
-  "v1-no-js-pending.css": {
-    "sha256": "2e0284bcf3fd23a51753e6f8c87252d4e3df94e5ef41d7e837534d60f54a2ba5",
-    "version": "1"
-  },
-  "v1-press.css": {
-    "sha256": "478e87054329048693388889dc0947ea0b64e55d907589e1007e0cefee04beda",
-    "version": "1"
-  },
-  "v1-recommendations.css": {
-    "sha256": "de7d4363e29e128037dc5939dfc5a32dfc14861bd6366a2d37bf988e3be52844",
-    "version": "2"
-  },
-  "v1-reflow-hardening-v7.css": {
-    "sha256": "cebbf52b149e90995d325506981057e516d60fee5fac0a320217069e52da0c66",
-    "version": "1"
-  },
-  "v1-samuel.css": {
-    "sha256": "78df901f1a1e587a33db5afbf963455e76e2e1ba4d78343797628b27c490875f",
-    "version": "2"
-  },
-  "v1-shell-base.css": {
-    "sha256": "ecba131cc93887152737e0f5d4ddd666640db24ca2b4177ca897ddca65de70c6",
-    "version": "2"
-  },
-  "v1-shell-lrb-v2.css": {
-    "sha256": "ab36db70ca44899b7c45aada846f4a7d2934172c345b168d396c3fe62adc6f79",
-    "version": "1"
-  },
-  "v1-shell.css": {
-    "sha256": "55c5bf2bf7ad19eace5511211746026bba12567a08097ff91c30ed00bf8afe8a",
-    "version": "4"
-  },
-  "v1-shell.js": {
-    "sha256": "4a0eab8d981bb7f59cbcae164d1c355ed92c2f89d194ea75777eaec1f1042fcc",
-    "version": "13"
-  },
-  "v1-site-cohesion-v6.css": {
-    "sha256": "c36a6f117a4bcc0c2fb00dd229fabeb10f52e43117e666002861113d9917fab9",
-    "version": "2"
-  },
-  "v1-text-resilience-v8.css": {
-    "sha256": "979c6672b381a4788b7b8efffe4b7c60c3c0723a01b94734600470f1ce99febd",
-    "version": "1"
-  },
-  "v1-tokens.css": {
-    "sha256": "cd2426b993d05c20c18c0f9b2975a257bb54713b03b19d439391855c2a44e3bc",
-    "version": "1"
-  },
-  "v1-tools-identity.css": {
-    "sha256": "e027535b0af42ca7f279440c94448c7f8254949bc0c68205fa3ae8f9d64a7faf",
-    "version": "1"
-  },
-  "v1-tools-publishing.css": {
-    "sha256": "ecd6e4edf4f5b33f58da28de3a400b9f66f7898b425e8947f6804af7ee4d9a6d",
-    "version": "1"
-  },
-  "v1-tools.css": {
-    "sha256": "f8f037a119545cf0c2bbb77ee3eb8060f761d64303856a453089a115e753deaf",
-    "version": "4"
-  },
-  "variedad-lexica.css": {
-    "sha256": "026e63384561b2328af78683884c71b2c61805d13fac25e679dd6e6cf9b629c3",
-    "version": "1"
-  },
-  "variedad-lexica.js": {
-    "sha256": "57890ad74ca4292fd30d5ca2ceceb1cf7f88aaa2404b6d28b708a7503b8c4dd1",
-    "version": "1"
-  },
-  "writer-tools.js": {
-    "sha256": "3a1aaf5eaaaf17bb77221470c4b1782bece32c0421206b9004fc1462f4b4fa1e",
-    "version": "1"
-  }
+  "analizador-capitulos.css": {},
+  "analizador-capitulos.js": {},
+  "analytics-consent-banner.js": {},
+  "assistant-embed.css": {},
+  "assistant-embed.js": {},
+  "assistant-widget-core.mjs": {},
+  "assistant-widget.css": {},
+  "assistant-widget.js": {},
+  "assistant.css": {},
+  "assistant.js": {},
+  "auditor-pagina-libro.css": {},
+  "auditor-pagina-libro.js": {},
+  "club-session-builder.css": {},
+  "club-session-builder.js": {},
+  "clubes-samuel.css": {},
+  "contador-palabras-engine.js": {},
+  "contador-palabras.js": {},
+  "cuaderno-index.css": {},
+  "dialogo-convenciones.js": {},
+  "dialogo-espanol.css": {},
+  "dialogo-espanol.js": {},
+  "editoriales.css": {},
+  "editoriales.js": {},
+  "email-reveal.js": {},
+  "entrevista-familiar.css": {},
+  "entrevista-familiar.js": {},
+  "fragmento.css": {},
+  "generador-evento-escritor.css": {},
+  "generador-evento-escritor.js": {},
+  "herramientas-index.css": {},
+  "jsonld-escritores.css": {},
+  "jsonld-escritores.js": {},
+  "kit-prensa-escritor.css": {},
+  "kit-prensa-escritor.js": {},
+  "legibilidad-espanol.css": {},
+  "legibilidad-espanol.js": {},
+  "limpiador-manuscritos-engine.js": {},
+  "limpiador-manuscritos.js": {},
+  "manecillas-book.js": {},
+  "manecillas-funnel.js": {},
+  "mapa-personajes.css": {},
+  "mapa-personajes.js": {},
+  "metadatos-libro.css": {},
+  "metadatos-libro.js": {},
+  "newsletter-general.js": {},
+  "newsletter-popup.css": {},
+  "newsletter-popup.js": {},
+  "nombres-personajes-engine-compat.js": {},
+  "nombres-personajes.css": {},
+  "nombres-personajes.js": {},
+  "noveris.css": {},
+  "objeto-heredado.css": {},
+  "objeto-heredado.js": {},
+  "pov-distribucion-engine.js": {},
+  "pov-distribucion.css": {},
+  "pov-distribucion.js": {},
+  "radar-convocatorias.css": {},
+  "radar-convocatorias.js": {},
+  "reading-list.css": {},
+  "repeticiones-espanol.css": {},
+  "repeticiones-espanol.js": {},
+  "samuel-buy-modal.js": {},
+  "samuel-quiz.js": {},
+  "script.js": {},
+  "styles.css": {},
+  "surprise-content.generated.js": {},
+  "surprise-me.js": {},
+  "tarjeta-estoy-leyendo.js": {},
+  "tiempo-lectura-voz-alta.css": {},
+  "tiempo-lectura-voz-alta.js": {},
+  "tipo-lector-engine.js": {},
+  "tipo-lector.css": {},
+  "tipo-lector.js": {},
+  "v1-accessibility-statement.css": {},
+  "v1-ai-authority.css": {},
+  "v1-awards.css": {},
+  "v1-base.css": {},
+  "v1-beta-readers.css": {},
+  "v1-book.css": {},
+  "v1-components.css": {},
+  "v1-cuaderno-topics.css": {},
+  "v1-editorial-interactions-v4.css": {},
+  "v1-editorial-interior-v4.css": {},
+  "v1-editorial-interior-v4.js": {},
+  "v1-editorial.css": {},
+  "v1-editorial.js": {},
+  "v1-editoriales-detail.css": {},
+  "v1-events.css": {},
+  "v1-families.css": {},
+  "v1-ferias.css": {},
+  "v1-findability.css": {},
+  "v1-fonts.css": {},
+  "v1-fragments.css": {},
+  "v1-fragments.js": {},
+  "v1-home-editorial-v3.css": {},
+  "v1-home-editorial-v3.js": {},
+  "v1-home.css": {},
+  "v1-identity.css": {},
+  "v1-legal.css": {},
+  "v1-lrb-material-v2.css": {},
+  "v1-no-js-pending.css": {},
+  "v1-press.css": {},
+  "v1-recommendations.css": {},
+  "v1-reflow-hardening-v7.css": {},
+  "v1-samuel.css": {},
+  "v1-shell-base.css": {},
+  "v1-shell-lrb-v2.css": {},
+  "v1-shell.css": {},
+  "v1-shell.js": {},
+  "v1-site-cohesion-v6.css": {},
+  "v1-text-resilience-v8.css": {},
+  "v1-tokens.css": {},
+  "v1-tools-identity.css": {},
+  "v1-tools-publishing.css": {},
+  "v1-tools.css": {},
+  "variedad-lexica.css": {},
+  "variedad-lexica.js": {},
+  "writer-tools.js": {}
 }
