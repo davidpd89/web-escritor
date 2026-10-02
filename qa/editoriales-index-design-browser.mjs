@@ -249,9 +249,11 @@ try {
     assert.ok(response?.ok(), 'interaction: /editoriales/ no carga');
     await settleTypography(interactionPage, 'interaction-mobile-390');
     await interactionPage.locator('[data-editoriales-status]').selectOption('closed');
-    assert.equal(await interactionPage.locator('[data-editorial-card]:visible').count(), 1, 'interaction: filtro closed deja de devolver una ficha');
-    assert.equal((await interactionPage.locator('[data-editoriales-count]').textContent()).trim(), '1 editorial', 'interaction: contador filtrado incorrecto');
-    assert.equal(await interactionPage.locator('[data-editorial-card]:visible h2').textContent(), 'Duermevela Ediciones', 'interaction: filtro closed devuelve la editorial incorrecta');
+    const expectedClosed = editorialData.filter(item => item.status === 'closed').length;
+    assert.equal(await interactionPage.locator('[data-editorial-card]:visible').count(), expectedClosed, 'interaction: filtro closed no coincide con el dataset');
+    assert.equal((await interactionPage.locator('[data-editoriales-count]').textContent()).trim(), expectedClosed === 1 ? '1 editorial' : String(expectedClosed) + ' editoriales', 'interaction: contador filtrado incorrecto');
+    const closedNames = await interactionPage.locator('[data-editorial-card]:visible h2').allTextContents();
+    assert.ok(closedNames.includes('Duermevela Ediciones') && closedNames.includes('Ediciones Raven'), 'interaction: faltan cierres verificados en el filtro closed');
     await interactionPage.evaluate(() => {
       if (document.activeElement instanceof HTMLElement) document.activeElement.blur();
       window.scrollTo(0, 0);
