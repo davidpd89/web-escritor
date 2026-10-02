@@ -423,7 +423,10 @@ def render_detail(site: str, record: dict, today: date) -> str:
             ]),
         ],
     }
-    return page_shell(title=f"{record['name']}: manuscritos y requisitos | David Porto Díaz", description=description, canonical=canonical, main_html=main, jsonld=jsonld, extra_css='<link rel="stylesheet" href="/assets/v1-editoriales-detail.css?v=1" />')
+    detail_title = f"{record['name']}: manuscritos y requisitos | David Porto Díaz"
+    if len(detail_title) > 70:
+        detail_title = f"{record['name']}: manuscritos | David Porto Díaz"
+    return page_shell(title=detail_title, description=description, canonical=canonical, main_html=main, jsonld=jsonld, extra_css='<link rel="stylesheet" href="/assets/v1-editoriales-detail.css?v=1" />')
 
 
 def render_sitemap(site: str, records: list[dict]) -> str:
