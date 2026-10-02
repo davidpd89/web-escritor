@@ -1,0 +1,37 @@
+name: PR536 Pagefind rebuild
+
+on:
+  push:
+    branches:
+      - ops/pr536-pagefind-rebuild
+
+permissions:
+  contents: write
+
+jobs:
+  rebuild:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v5
+        with:
+          ref: feat/pro-resources-editoriales-convocatorias-20261002
+          fetch-depth: 0
+      - uses: actions/setup-node@v5
+        with:
+          node-version: '22'
+          cache: npm
+      - name: Install dependencies
+        run: npm ci
+      - name: Rebuild Pagefind from current eligible corpus
+        run: python scripts/build-pagefind-index.py
+      - name: Commit generated search index to PR branch
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add pagefind/
+          if git diff --cached --quiet; then
+            echo "Pagefind already current."
+            exit 0
+          fi
+          git commit -m "chore(search): rebuild Pagefind for expanded publisher directory"
+          git push origin HEAD:feat/pro-resources-editoriales-convocatorias-20261002
