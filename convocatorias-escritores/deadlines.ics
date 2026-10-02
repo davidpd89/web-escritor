@@ -14,11 +14,91 @@ URL:https://www.diputaciondepalencia.es/servicios/becas-premios-concursos/x
  -premio-internacional-poesia-jorge-manrique
 END:VEVENT
 BEGIN:VEVENT
+UID:ateneo-valladolid-novela-2027@davidportodiaz.com
+DTSTART;VALUE=DATE:20261009
+DTEND;VALUE=DATE:20261010
+SUMMARY:74.º Premio de Novela Ateneo–Ciudad de Valladolid 2027
+DESCRIPTION:Ateneo de Valladolid y Ayuntamiento de Valladolid
+URL:https://www.ateneodevalladolid.org/premio-de-novela/
+END:VEVENT
+BEGIN:VEVENT
+UID:premio-enric-valor-2026@davidportodiaz.com
+DTSTART;VALUE=DATE:20261010
+DTEND;VALUE=DATE:20261011
+SUMMARY:Premio Enric Valor 2026
+DESCRIPTION:Diputación de Alicante · Área de Cultura
+URL:https://agendacultural.diputacionalicante.es/event/premio-enric-valor-2
+ 026/
+END:VEVENT
+BEGIN:VEVENT
+UID:cristina-tejedor-mayores-2026@davidportodiaz.com
+DTSTART;VALUE=DATE:20261015
+DTEND;VALUE=DATE:20261016
+SUMMARY:XXII Certamen Provincial de Relatos Breves «Cristina Tejedor» —
+  Mayores 2026
+DESCRIPTION:Diputación de Palencia
+URL:https://www.diputaciondepalencia.es/servicios/becas-premios-concursos/x
+ xii-certamen-provincial-relatos-breves-cristina-tejedor-0
+END:VEVENT
+BEGIN:VEVENT
+UID:elena-santiago-narrativa-2026@davidportodiaz.com
+DTSTART;VALUE=DATE:20261016
+DTEND;VALUE=DATE:20261017
+SUMMARY:I Premio de Narrativa «Elena Santiago» 2026
+DESCRIPTION:Instituto Leonés de Cultura · Diputación de León
+URL:https://www.institutoleonesdecultura.es/i-premio-de-narrativa-elena-san
+ tiago-2026/
+END:VEVENT
+BEGIN:VEVENT
+UID:princesa-galiana-2026@davidportodiaz.com
+DTSTART;VALUE=DATE:20261020
+DTEND;VALUE=DATE:20261021
+SUMMARY:XXIII Concurso de Narrativa Femenina «Princesa Galiana» 2026
+DESCRIPTION:Ayuntamiento de Toledo
+URL:https://www.toledo.es/xxiii-concurso-de-narrativa-femenina-princesa-gal
+ iana/
+END:VEVENT
+BEGIN:VEVENT
+UID:premio-primavera-novela-2027@davidportodiaz.com
+DTSTART;VALUE=DATE:20261115
+DTEND;VALUE=DATE:20261116
+SUMMARY:Premio Primavera de Novela 2027
+DESCRIPTION:Editorial Espasa
+URL:https://premios.planetadelibros.com/es-ES/candidatura/?id=premio-primav
+ era-novela-2027
+END:VEVENT
+BEGIN:VEVENT
+UID:espasa-calpe-juvenil-2027@davidportodiaz.com
+DTSTART;VALUE=DATE:20261115
+DTEND;VALUE=DATE:20261116
+SUMMARY:I Premio Espasa Calpe de Novela Juvenil 2027
+DESCRIPTION:Editorial Espasa Calpe
+URL:https://premios.planetadelibros.com/es-ES/candidatura/?id=espasa-calpe-
+ novela-juvenil-2027
+END:VEVENT
+BEGIN:VEVENT
 UID:kutxa-literarios-2027@davidportodiaz.com
 DTSTART;VALUE=DATE:20261121
 DTEND;VALUE=DATE:20261122
 SUMMARY:Premios Literarios Kutxa Fundazioa 2027
 DESCRIPTION:Kutxa Fundazioa
 URL:https://literatursariak.kutxafundazioa.eus/es/preguntas-y-respuestas
+END:VEVENT
+BEGIN:VEVENT
+UID:premio-azorin-novela-2027@davidportodiaz.com
+DTSTART;VALUE=DATE:20261130
+DTEND;VALUE=DATE:20261201
+SUMMARY:Premio Azorín de Novela 2027
+DESCRIPTION:Diputación de Alicante y Editorial Planeta
+URL:https://agendacultural.diputacionalicante.es/event/premio-azorin-de-nov
+ ela-2027/
+END:VEVENT
+BEGIN:VEVENT
+UID:castillo-puche-novela-corta-2026@davidportodiaz.com
+DTSTART;VALUE=DATE:20261130
+DTEND;VALUE=DATE:20261201
+SUMMARY:XXXIV Certamen de Novela Corta «José Luis Castillo-Puche»
+DESCRIPTION:AMPA e IES José Luis Castillo-Puche · Yecla
+URL:https://www.iescastillopuche.net/novela/bases.html
 END:VEVENT
 END:VCALENDAR
