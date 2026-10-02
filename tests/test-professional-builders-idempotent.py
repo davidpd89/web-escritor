@@ -9,6 +9,7 @@ committed output once and still be non-idempotent.
 from __future__ import annotations
 
 import hashlib
+import json
 import subprocess
 import sys
 import tempfile
@@ -16,7 +17,8 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
 PYTHON = sys.executable
-TODAY = "2026-08-22"
+EDITORIAL_DATA = json.loads((ROOT / "data" / "editoriales.json").read_text(encoding="utf-8"))
+TODAY = max(item["verified_at"] for item in EDITORIAL_DATA["publishers"] if item.get("publish") is True)
 
 
 def snapshot(root: Path) -> dict[str, str]:
