@@ -77,10 +77,11 @@ if date_a and date_b:
         "dateModified no depende de la fecha de ejecucion",
         f"{date_a.group(1)} != {date_b.group(1)}",
     )
+    expected_content_date = max([be.METHODOLOGY_REVISED] + [r["page_updated_at"] for r in published_for_clock])
     check(
-        date_a.group(1) != date.today().isoformat() or be.METHODOLOGY_REVISED == date.today().isoformat(),
-        "dateModified no es simplemente hoy",
-        date_a.group(1),
+        date_a.group(1) == expected_content_date,
+        "dateModified procede de una actualización editorial real",
+        f"{date_a.group(1)} != {expected_content_date}",
     )
 
 # El HTML entero debe coincidir: si algo mas dependiera de `today`, saldria aqui
