@@ -6,6 +6,7 @@ import { chromium } from 'playwright';
 const ORIGIN = process.env.QA_ORIGIN || process.env.QA_BASE_URL || 'http://127.0.0.1:4173';
 const OUT = process.env.QA_OUT || 'qa-artifacts/editoriales-index';
 fs.mkdirSync(OUT, { recursive: true });
+const editorialData = JSON.parse(fs.readFileSync('editoriales/editoriales-data.json', 'utf8')).publishers;
 
 const BLUE = 'rgb(29, 79, 150)';
 const BLUE_DEEP = 'rgb(13, 44, 87)';
@@ -139,16 +140,22 @@ try {
       assert.equal(await page.locator('.section-context [aria-current="page"]').getAttribute('href'), '/editoriales/', `${name}: contexto no marca Editoriales`);
 
       const cards = page.locator('[data-editorial-card]');
-      assert.equal(await cards.count(), 3, `${name}: directorio ya no conserva tres fichas`);
-      assert.deepEqual(await cards.evaluateAll(nodes => nodes.map(node => ({
+      assert.equal(await cards.count(), editorialData.length, `${name}: el HTML no refleja el dataset público completo`);
+      const cardData = await cards.evaluateAll(nodes => nodes.map(node => ({
         name: node.getAttribute('data-name'),
         status: node.getAttribute('data-status'),
         direct: node.getAttribute('data-direct'),
-      }))), [
+      })));
+      assert.equal(new Set(cardData.map(item => item.name)).size, editorialData.length, `${name}: hay nombres duplicados en el directorio`);
+      for (const expected of [
         { name: 'Minotauro', status: 'open', direct: 'true' },
-        { name: 'Nocturna Ediciones', status: 'open', direct: 'true' },
-        { name: 'Duermevela Ediciones', status: 'closed', direct: 'false' },
-      ], `${name}: datos cerrados de las fichas alterados`);
+        { name: 'HarperCollins Ibérica', status: 'open', direct: 'true' },
+        { name: 'Nova', status: 'unknown', direct: 'false' },
+        { name: 'Ediciones Raven', status: 'closed', direct: 'false' },
+      ]) {
+        assert.ok(cardData.some(item => item.name === expected.name && item.status === expected.status && item.direct === expected.direct),
+          `${name}: falta o cambió el estado de ${expected.name}`);
+      }
 
       assert.equal(await page.locator('[data-editoriales-search]').count(), 1, `${name}: buscador ausente`);
       assert.equal(await page.locator('[data-editoriales-genre]').count(), 1, `${name}: filtro de género ausente`);
