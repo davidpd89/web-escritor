@@ -7,7 +7,12 @@
       "url": "https://www.cultura.gob.es/cultura/libro/becas-ayudas-subvenciones/ayudas-y-subvenciones/creacion-literaria.html",
       "official": true,
       "enabled": true,
-      "keywords": ["convocatoria", "plazo", "creación literaria", "solicitud"]
+      "keywords": [
+        "convocatoria",
+        "plazo",
+        "creación literaria",
+        "solicitud"
+      ]
     },
     {
       "id": "diputacion-palencia-cultura",
@@ -15,7 +20,12 @@
       "url": "https://www.diputaciondepalencia.es/sitio/cultura/becas-premios-concursos",
       "official": true,
       "enabled": true,
-      "keywords": ["premio", "poesía", "inscripción", "plazo"]
+      "keywords": [
+        "premio",
+        "poesía",
+        "inscripción",
+        "plazo"
+      ]
     },
     {
       "id": "kutxa-premios-literarios",
@@ -23,7 +33,105 @@
       "url": "https://literatursariak.kutxafundazioa.eus/es/preguntas-y-respuestas",
       "official": true,
       "enabled": true,
-      "keywords": ["premios", "novela", "poesía", "fecha final", "presentación"]
+      "keywords": [
+        "premios",
+        "novela",
+        "poesía",
+        "fecha final",
+        "presentación"
+      ]
+    },
+    {
+      "id": "ateneo-valladolid-novela",
+      "name": "Ateneo de Valladolid — Premio de Novela",
+      "url": "https://www.ateneodevalladolid.org/premio-de-novela/",
+      "official": true,
+      "enabled": true,
+      "keywords": [
+        "premio",
+        "novela",
+        "admisión",
+        "originales",
+        "plazo"
+      ]
+    },
+    {
+      "id": "diputacion-palencia-cristina-tejedor",
+      "name": "Diputación de Palencia — Cristina Tejedor",
+      "url": "https://www.diputaciondepalencia.es/servicios/becas-premios-concursos/xxii-certamen-provincial-relatos-breves-cristina-tejedor-0",
+      "official": true,
+      "enabled": true,
+      "keywords": [
+        "relatos",
+        "certamen",
+        "plazo",
+        "inscripción"
+      ]
+    },
+    {
+      "id": "ayuntamiento-toledo-princesa-galiana",
+      "name": "Ayuntamiento de Toledo — Princesa Galiana",
+      "url": "https://www.toledo.es/xxiii-concurso-de-narrativa-femenina-princesa-galiana/",
+      "official": true,
+      "enabled": true,
+      "keywords": [
+        "concurso",
+        "narrativa",
+        "novela",
+        "plazo"
+      ]
+    },
+    {
+      "id": "ilc-elena-santiago",
+      "name": "Instituto Leonés de Cultura — Elena Santiago",
+      "url": "https://www.institutoleonesdecultura.es/i-premio-de-narrativa-elena-santiago-2026/",
+      "official": true,
+      "enabled": true,
+      "keywords": [
+        "premio",
+        "narrativa",
+        "plazo",
+        "presentación"
+      ]
+    },
+    {
+      "id": "planeta-premios",
+      "name": "Portal de Premios Planeta",
+      "url": "https://premios.planetadelibros.com/es-ES/",
+      "official": true,
+      "enabled": true,
+      "keywords": [
+        "premio",
+        "novela",
+        "candidatura",
+        "fecha límite"
+      ]
+    },
+    {
+      "id": "diputacion-alicante-cultura",
+      "name": "Diputación de Alicante — Agenda Cultural",
+      "url": "https://agendacultural.diputacionalicante.es/organizador/area-de-cultura/",
+      "official": true,
+      "enabled": true,
+      "keywords": [
+        "premio",
+        "literatura",
+        "novela",
+        "bases"
+      ]
+    },
+    {
+      "id": "ies-castillo-puche",
+      "name": "IES José Luis Castillo-Puche — Certamen de Novela Corta",
+      "url": "https://www.iescastillopuche.net/novela/bases.html",
+      "official": true,
+      "enabled": true,
+      "keywords": [
+        "certamen",
+        "novela",
+        "bases",
+        "plazo"
+      ]
     }
   ]
 }
