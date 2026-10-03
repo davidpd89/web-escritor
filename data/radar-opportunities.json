@@ -224,6 +224,58 @@
       "verified_at": "2026-10-02",
       "editorial_note": "La web oficial del centro identifica expresamente la XXXIV edición como la última convocada y publica sus bases.",
       "published": true
+    },
+    {
+      "id": "premio-alfaguara-novela-2027",
+      "title": "XXX Premio Alfaguara de novela 2027",
+      "type": "premio",
+      "organizer": "Editorial Alfaguara · Penguin Random House Grupo Editorial",
+      "deadline": "2026-11-02",
+      "genres": [
+        "novela"
+      ],
+      "eligibility": "Personas mayores de edad de cualquier nacionalidad; novela original e inédita escrita en castellano y con los derechos disponibles.",
+      "prize": "175.000 USD, escultura conmemorativa y publicación",
+      "fee_eur": 0,
+      "submission_mode": "Participación conforme a las bases oficiales mediante el sistema habilitado para la convocatoria.",
+      "source_url": "https://premioalfaguara.com/bases-y-participacion",
+      "verified_at": "2026-10-03",
+      "editorial_note": "Convocatoria oficial vigente. El plazo de admisión cierra el 2 de noviembre de 2026; revisa las incompatibilidades con otras convocatorias antes de registrar la obra.",
+      "published": true
+    }
+  ],
+  "watchlist": [
+    {
+      "id": "herralde-novela-2027",
+      "title": "Premio Herralde de Novela 2027",
+      "type": "premio",
+      "organizer": "Editorial Anagrama",
+      "genres": [
+        "novela"
+      ],
+      "source_url": "https://www.anagrama-ed.es/premios/herralde-de-novela/bases",
+      "verified_at": "2026-10-03",
+      "published": true,
+      "status_note": "La convocatoria 2027 está anunciada, pero la recepción todavía no ha abierto y no hay fecha límite publicada.",
+      "expected_window": "Anuncio oficial próximamente",
+      "reference_note": "La página oficial indica expresamente que el plazo de la edición actual está cerrado y que la convocatoria correspondiente a 2027 se anunciará próximamente.",
+      "editorial_note": "No presentar ningún original hasta que Anagrama publique la apertura y el formulario de la edición 2027."
+    },
+    {
+      "id": "anagrama-ensayo-2027",
+      "title": "Premio Anagrama de Ensayo 2027",
+      "type": "premio",
+      "organizer": "Editorial Anagrama",
+      "genres": [
+        "ensayo"
+      ],
+      "source_url": "https://www.anagrama-ed.es/premios/anagrama-de-ensayo/bases",
+      "verified_at": "2026-10-03",
+      "published": true,
+      "status_note": "La convocatoria 2027 está anunciada, pero la recepción todavía no ha abierto y no hay fecha límite publicada.",
+      "expected_window": "Anuncio oficial próximamente",
+      "reference_note": "Las bases oficiales señalan que el plazo actual está cerrado y que la convocatoria de 2027 se anunciará próximamente.",
+      "editorial_note": "Esta ficha funciona como aviso de próxima apertura; no sustituye las futuras bases de 2027."
     }
   ]
 }
