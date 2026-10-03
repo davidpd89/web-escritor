@@ -160,6 +160,7 @@ try {
       assert.equal(await page.locator('[data-editoriales-search]').count(), 1, `${name}: buscador ausente`);
       assert.equal(await page.locator('[data-editoriales-genre]').count(), 1, `${name}: filtro de género ausente`);
       assert.equal(await page.locator('[data-editoriales-status]').count(), 1, `${name}: filtro de estado ausente`);
+      assert.equal(await page.locator('[data-editoriales-country]').count(), 1, `${name}: filtro de país ausente`);
       assert.equal(await page.locator('[data-editoriales-direct]').count(), 1, `${name}: filtro de envío directo ausente`);
       assert.equal(await page.locator('[data-editoriales-count]').count(), 1, `${name}: contador de resultados ausente`);
 
@@ -203,7 +204,7 @@ try {
 
       assert.equal(finder.display, 'grid', `${name}: mesa de consulta deja de ser grid`);
       assert.ok(finder.boxShadow.includes(BLUE) && finder.boxShadow.includes(GOLD), `${name}: mesa de consulta pierde el rail azul/dorado`);
-      assert.equal(columnCount(options.gridTemplateColumns), width > 900 ? 3 : width > 640 ? 2 : 1, `${name}: seam de filtros incorrecto`);
+      assert.equal(columnCount(options.gridTemplateColumns), width > 900 ? 4 : width > 640 ? 2 : 1, `${name}: seam de filtros incorrecto`);
 
       assert.equal(firstCard.display, 'grid', `${name}: expediente deja de ser grid`);
       assert.equal(columnCount(firstCard.gridTemplateColumns), width > 640 ? 2 : 1, `${name}: seam 641/640 del expediente incorrecto`);
@@ -248,6 +249,9 @@ try {
     const response = await interactionPage.goto(`${ORIGIN}/editoriales/`, { waitUntil: 'networkidle', timeout: 20000 });
     assert.ok(response?.ok(), 'interaction: /editoriales/ no carga');
     await settleTypography(interactionPage, 'interaction-mobile-390');
+    await interactionPage.locator('[data-editoriales-country]').selectOption('Chile');
+    assert.equal(await interactionPage.locator('[data-editorial-card]:visible').count(), editorialData.filter(item => item.country === 'Chile').length, 'interaction: filtro país no coincide con el dataset');
+    await interactionPage.locator('[data-editoriales-reset]').click();
     await interactionPage.locator('[data-editoriales-status]').selectOption('closed');
     const expectedClosed = editorialData.filter(item => item.status === 'closed').length;
     assert.equal(await interactionPage.locator('[data-editorial-card]:visible').count(), expectedClosed, 'interaction: filtro closed no coincide con el dataset');

@@ -305,13 +305,14 @@ def stale(record: dict, today: date) -> bool:
 
 def render_index(site: str, records: list[dict], today: date) -> str:
     genres = sorted({genre for r in records for genre in r["genres"]}, key=str.casefold)
+    countries = sorted({r["country"] for r in records}, key=str.casefold)
     cards = []
     for r in records:
         genres_pipe = "|".join(r["genres"])
         tags = "".join(f'<span class="editorial-genre">{esc(g)}</span>' for g in r["genres"])
         stale_note = '<p class="tool-note">Verificación antigua: revisa la fuente oficial antes de enviar.</p>' if stale(r, today) else ""
         cards.append(f'''
-<article class="id-card editorial-card" data-editorial-card data-name="{esc(r['name'])}" data-group="{esc(r['group'])}" data-genres="{esc(genres_pipe)}" data-status="{esc(r['status'])}" data-direct="{'true' if r['direct_submission'] else 'false'}">
+<article class="id-card editorial-card" data-editorial-card data-name="{esc(r['name'])}" data-group="{esc(r['group'])}" data-genres="{esc(genres_pipe)}" data-status="{esc(r['status'])}" data-country="{esc(r['country'])}" data-direct="{'true' if r['direct_submission'] else 'false'}">
     <div class="editorial-card__head"><div><h2><a href="/editoriales/{esc(r['slug'])}/">{esc(r['name'])}</a></h2><p class="tool-meta">{esc(r['group'])}</p></div>{status_badge(r)}</div>
   <p>{esc(r['summary'])}</p>
     <div class="editorial-genres">{tags}</div>
@@ -321,6 +322,7 @@ def render_index(site: str, records: list[dict], today: date) -> str:
 </article>''')
 
     genre_options = ''.join(f'<option value="{esc(g)}">{esc(g)}</option>' for g in genres)
+    country_options = ''.join(f'<option value="{esc(c)}">{esc(c)}</option>' for c in countries)
     canonical = f"{site}/editoriales/"
     description = "Directorio verificado de editoriales: recepción de manuscritos, requisitos, canal oficial, fecha de comprobación e historial de cambios."
     main = f'''
@@ -337,6 +339,7 @@ def render_index(site: str, records: list[dict], today: date) -> str:
             <div class="tool-field"><label class="tool-field-label" for="editoriales-q">Buscar</label><input class="tool-input" id="editoriales-q" type="search" autocomplete="off" enterkeyhint="search" placeholder="Editorial, sello, género…" data-editoriales-search></div>
             <div class="tool-field"><label class="tool-field-label" for="editoriales-genero">Género</label><select class="tool-select" id="editoriales-genero" data-editoriales-genre><option value="">Todos</option>{genre_options}</select></div>
             <div class="tool-field"><label class="tool-field-label" for="editoriales-estado">Estado</label><select class="tool-select" id="editoriales-estado" data-editoriales-status><option value="">Todos</option><option value="open">Acepta manuscritos</option><option value="closed">Recepción cerrada</option><option value="indirect">Vía indirecta</option><option value="award_only">Solo convocatoria/premio</option><option value="unknown">Por verificar</option></select></div>
+            <div class="tool-field"><label class="tool-field-label" for="editoriales-pais">País</label><select class="tool-select" id="editoriales-pais" data-editoriales-country><option value="">Todos</option>{country_options}</select></div>
         </div>
         <label class="tool-check"><input type="checkbox" data-editoriales-direct> <span>Solo envío directo</span></label>
         <div class="tool-actions"><button class="text-action" type="button" data-editoriales-reset>Limpiar</button></div>

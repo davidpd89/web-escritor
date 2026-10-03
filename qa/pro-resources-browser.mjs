@@ -18,6 +18,7 @@ const genreCount=genre=>editorialData.filter(x=>(x.genres||[]).some(g=>norm(g)==
 const statusCount=status=>editorialData.filter(x=>x.status===status).length;
 const closedFantasy=editorialData.filter(x=>x.status==='closed'&&(x.genres||[]).some(g=>norm(g)==='fantasia')).length;
 const directCount=editorialData.filter(x=>x.direct_submission===true).length;
+const chileCount=editorialData.filter(x=>x.country==='Chile').length;
 const radarGenreCount=genre=>radarItems.filter(x=>(x.genres||[]).some(g=>norm(g)===norm(genre))).length;
 const daysUntil=(deadline,base)=>Math.round((new Date(deadline+'T00:00:00Z')-new Date(base+'T00:00:00Z'))/86400000);
 const soonCount=radarItems.filter(x=>{const d=daysUntil(x.deadline,fixedToday);return d>=0&&d<=7}).length;
@@ -53,14 +54,17 @@ async function noOverflow(p,label){const x=await p.evaluate(()=>document.documen
     await q.fill(term);assert.equal(await visible(p,'[data-editorial-card]'),n);
   }
   await p.locator('[data-editoriales-reset]').click();
+  await p.locator('[data-editoriales-country]').selectOption('Chile');
+  assert.equal(await visible(p,'[data-editorial-card]'),chileCount);
+  await p.locator('[data-editoriales-reset]').click();
   await p.locator('[data-editoriales-status]').selectOption('closed');
   assert.equal(await visible(p,'[data-editorial-card]'),statusCount('closed'));
   await p.locator('[data-editoriales-genre]').selectOption('fantasía');
   assert.equal(await visible(p,'[data-editorial-card]'),closedFantasy);
-  await p.goBack();assert.equal(await p.locator('[data-editoriales-genre]').inputValue(),'');
+  await p.goBack();assert.equal(await p.locator('[data-editoriales-genre]').inputValue(),'');assert.equal(await p.locator('[data-editoriales-country]').inputValue(),'');
   await p.goForward();assert.equal(await p.locator('[data-editoriales-genre]').inputValue(),'fantasía');
   await p.reload({waitUntil:'networkidle'});assert.equal(await p.locator('[data-editoriales-status]').inputValue(),'closed');
-  await p.goto(origin+'/editoriales/#estado=invalid&genero=invalid&directo=9',{waitUntil:'networkidle'});
+  await p.goto(origin+'/editoriales/#estado=invalid&genero=invalid&pais=invalid&directo=9',{waitUntil:'networkidle'});
   assert.equal(await p.locator('[data-editoriales-status]').inputValue(),'');
   assert.equal(await p.locator('[data-editoriales-genre]').inputValue(),'');
   assert.equal(await p.locator('[data-editoriales-direct]').isChecked(),false);

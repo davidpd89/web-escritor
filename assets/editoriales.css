@@ -222,7 +222,7 @@ html.v1[data-editorial-context="herramientas"]:has(main#contenido[data-editorial
   box-shadow:inset 3px 0 0 var(--directory-blue),inset 5px 0 0 var(--directory-gold)
 }
 html.v1[data-editorial-context="herramientas"]:has(main#contenido[data-editoriales-directory]) .tool-options{
-  grid-column:1/-1;display:grid;grid-template-columns:minmax(0,1.35fr) minmax(0,.8fr) minmax(0,.8fr);gap:.85rem 1rem;align-items:end
+  grid-column:1/-1;display:grid;grid-template-columns:minmax(0,1.35fr) repeat(3,minmax(0,.75fr));gap:.85rem 1rem;align-items:end
 }
 html.v1[data-editorial-context="herramientas"]:has(main#contenido[data-editoriales-directory]) .tool-field{min-width:0}
 html.v1[data-editorial-context="herramientas"]:has(main#contenido[data-editoriales-directory]) .tool-field-label{
