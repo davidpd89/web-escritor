@@ -180,6 +180,15 @@ def render_page_body(items, today, watchlist=None):
     types = sorted({item["type"] for item in visible_pool})
     genres = sorted({genre for item in visible_pool for genre in item["genres"]})
     options = lambda values: "\n".join(f'<option value="{esc(value)}">{esc(value.capitalize())}</option>' for value in values)
+    watch_section = (
+        f'<section class="radar-section radar-section--watch" data-radar-section="watch">'
+        f'<div class="radar-section__head"><p class="eyebrow">Próximamente</p>'
+        f'<h2>Convocatorias a vigilar</h2>'
+        f'<p>La entidad organizadora ya confirma una próxima edición, pero todavía no existe un plazo abierto. '
+        f'Estas fichas no se añaden al calendario hasta que haya fecha oficial.</p></div>'
+        f'<div class="radar-grid" data-radar-grid>{watch_cards}</div></section>'
+        if watch_cards else ""
+    )
     schema = json.dumps({
         "@context": "https://schema.org",
         "@type": "CollectionPage",
@@ -289,7 +298,7 @@ def render_page_body(items, today, watchlist=None):
       <div class="radar-section__head"><p class="eyebrow">En plazo</p><h2>Convocatorias abiertas</h2><p>Solo aparecen si la fecha límite sigue vigente y la fuente se verificó en los últimos 30 días.</p></div>
       <div class="radar-grid" data-radar-grid>{active_cards}</div>
     </section>
-    {f'''<section class="radar-section radar-section--watch" data-radar-section="watch"><div class="radar-section__head"><p class="eyebrow">Próximamente</p><h2>Convocatorias a vigilar</h2><p>La entidad organizadora ya confirma una próxima edición, pero todavía no existe un plazo abierto. Estas fichas no se añaden al calendario hasta que haya fecha oficial.</p></div><div class="radar-grid" data-radar-grid>{watch_cards}</div></section>''' if watch_cards else ""}
+    {watch_section}
     <div class="radar-empty" data-radar-filter-empty hidden><p>No hay coincidencias con estos filtros.</p><button type="button" class="button secondary" data-radar-empty-clear>Limpiar filtros</button></div>
 
     <section class="v1-section">
