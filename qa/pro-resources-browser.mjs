@@ -56,6 +56,11 @@ async function noOverflow(p,label){const x=await p.evaluate(()=>document.documen
     await q.fill(term);assert.equal(await visible(p,'[data-editorial-card]'),n);
   }
   await p.locator('[data-editoriales-reset]').click();
+  assert.equal(await p.locator('[data-editoriales-sort]').count(),1);
+  await p.locator('[data-editoriales-sort]').selectOption('name');
+  const sortedNames=await p.locator('[data-editorial-card]').evaluateAll(nodes=>nodes.map(n=>n.dataset.name));
+  assert.deepEqual(sortedNames,[...sortedNames].sort((a,b)=>a.localeCompare(b,'es',{sensitivity:'base'})));
+  await p.locator('[data-editoriales-reset]').click();
   await p.locator('[data-editoriales-country]').selectOption('Chile');
   assert.equal(await visible(p,'[data-editorial-card]'),chileCount);
   await p.locator('[data-editoriales-reset]').click();
@@ -66,9 +71,10 @@ async function noOverflow(p,label){const x=await p.evaluate(()=>document.documen
   await p.goBack();assert.equal(await p.locator('[data-editoriales-genre]').inputValue(),'');assert.equal(await p.locator('[data-editoriales-country]').inputValue(),'');
   await p.goForward();assert.equal(await p.locator('[data-editoriales-genre]').inputValue(),'fantasía');
   await p.reload({waitUntil:'networkidle'});assert.equal(await p.locator('[data-editoriales-status]').inputValue(),'closed');
-  await p.goto(origin+'/editoriales/#estado=invalid&genero=invalid&pais=invalid&directo=9',{waitUntil:'networkidle'});
+  await p.goto(origin+'/editoriales/#estado=invalid&genero=invalid&pais=invalid&orden=invalid&directo=9',{waitUntil:'networkidle'});
   assert.equal(await p.locator('[data-editoriales-status]').inputValue(),'');
   assert.equal(await p.locator('[data-editoriales-genre]').inputValue(),'');
+  assert.equal(await p.locator('[data-editoriales-sort]').inputValue(),'availability');
   assert.equal(await p.locator('[data-editoriales-direct]').isChecked(),false);
   await p.locator('[data-editoriales-direct]').check();
   assert.equal(await visible(p,'[data-editorial-card]'),directCount);
@@ -86,7 +92,7 @@ async function noOverflow(p,label){const x=await p.evaluate(()=>document.documen
   }),fixedToday);
   assert.deepEqual(d,{a:0,b:1,c:7,d:8,e:-1});
   const rel=await p.locator('[data-radar-relative]').allTextContents();assert.ok(rel.every(t=>t.includes('faltan')));
-  await p.locator('[data-radar-search]').fill('KUTXA');assert.equal(await visible(p,'[data-radar-item]'),1);
+  await p.locator('[data-radar-search]').fill('ALFAGUARA');assert.equal(await visible(p,'[data-radar-item]'),1);
   await p.locator('[data-radar-clear]').click();
   await p.locator('[data-radar-genre]').selectOption('novela');assert.equal(await visible(p,'[data-radar-item]'),radarGenreCount('novela'));
   await p.locator('[data-radar-clear]').click();
@@ -101,7 +107,7 @@ for(const route of ['/editoriales/','/convocatorias-escritores/']){
   assert.equal(await p.locator(route.startsWith('/editoriales')?'[data-editorial-card]':'[data-radar-item]').count(),route.startsWith('/editoriales')?editorialData.length:radarAll.length);
   if(route.includes('convocatorias')){
     const txt=await p.locator('[data-radar-item] time').allTextContents();
-    assert.ok(txt.includes('21/11/2026')&&txt.includes('09/10/2026'));
+    assert.ok(txt.includes('02/11/2026')&&txt.includes('09/10/2026'));
     assert.equal(await p.locator('[data-radar-calendar]').getAttribute('href'),'/convocatorias-escritores/deadlines.ics');
   }
   await c.close();
