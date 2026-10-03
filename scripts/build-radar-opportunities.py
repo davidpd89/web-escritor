@@ -23,6 +23,7 @@ SHARE_IMAGE_WIDTH = 1731
 SHARE_IMAGE_HEIGHT = 909
 ALLOWED_TYPES = {"concurso", "premio", "ayuda", "beca", "residencia", "manuscritos"}
 REQ = {"id", "title", "type", "organizer", "deadline", "genres", "source_url", "verified_at", "published", "fee_eur"}
+WATCH_REQ = {"id", "title", "type", "organizer", "genres", "source_url", "verified_at", "published", "status_note", "reference_note"}
 FORBIDDEN_URL = re.compile(r"[\s\\\x00-\x1f\x7f<>\"{}|^`]")
 
 def iso_date(value, field):
@@ -83,6 +84,28 @@ def validate(item):
     iso_date(item["deadline"], "deadline")
     iso_date(item["verified_at"], "verified_at")
 
+def validate_watch(item):
+    if not isinstance(item, dict):
+        raise ValueError("cada próxima convocatoria debe ser un objeto")
+    missing = WATCH_REQ - set(item)
+    if missing:
+        raise ValueError(f"{item.get('id', '?')}: faltan campos watchlist {sorted(missing)}")
+    if not slug_ok(item["id"]):
+        raise ValueError(f"id watchlist inválido: {item['id']!r}")
+    for field in ("title", "organizer", "status_note", "reference_note"):
+        if not isinstance(item[field], str) or not item[field].strip():
+            raise ValueError(f"{item['id']}: {field} vacío")
+    if item["type"] not in ALLOWED_TYPES:
+        raise ValueError(f"{item['id']}: type no permitido")
+    if not https_url(item["source_url"]):
+        raise ValueError(f"{item['id']}: source_url HTTPS inválida")
+    if not isinstance(item["genres"], list) or not item["genres"] or not all(isinstance(g, str) and g.strip() for g in item["genres"]):
+        raise ValueError(f"{item['id']}: genres inválido")
+    if not isinstance(item["published"], bool):
+        raise ValueError(f"{item['id']}: published debe ser boolean")
+    iso_date(item["verified_at"], "verified_at")
+
+
 def state(item, today):
     deadline = iso_date(item["deadline"], "deadline")
     verified = iso_date(item["verified_at"], "verified_at")
@@ -118,15 +141,44 @@ def card(item):
 <p class="radar-verified">Verificado: <time datetime="{esc(item['verified_at'])}">{verified_label}</time></p>
 <p><a class="button secondary" data-radar-source data-radar-source-type="{esc(item['type'])}" href="{esc(item['source_url'])}" target="_blank" rel="noopener noreferrer">Ver fuente oficial</a></p></article>'''
 
+def watch_card(item):
+    genres = ", ".join(item["genres"])
+    verified_label = iso_date(item["verified_at"], "verified_at").strftime("%d/%m/%Y")
+    expected = f'<div><dt>Próxima apertura</dt> <dd>{esc(item.get("expected_window") or "Fecha aún no publicada")}</dd></div>'
+    reference = f'<div><dt>Referencia oficial</dt> <dd>{esc(item["reference_note"])}</dd></div>'
+    note = f'<p class="radar-note">{esc(item.get("editorial_note"))}</p>' if item.get("editorial_note") else ""
+    return f'''<article class="radar-card radar-card--watch" data-radar-item data-radar-kind="watch" data-type="{esc(item['type'])}" data-genres="{esc('|'.join(item['genres']).lower())}" data-title="{esc(item['title'].lower())}" data-organizer="{esc(item['organizer'].lower())}" data-deadline="" data-verified-at="{esc(item['verified_at'])}">
+<div class="radar-card__top"><span class="radar-badge" data-radar-status>Próxima apertura</span><span>{esc(item['type'].capitalize())}</span></div>
+<h2>{esc(item['title'])}</h2><p class="radar-org">{esc(item['organizer'])}</p>
+<dl><div><dt>Estado</dt> <dd>{esc(item['status_note'])}</dd></div><div><dt>Géneros</dt> <dd>{esc(genres)}</dd></div>{expected}{reference}</dl>
+{note}
+<p class="radar-verified">Verificado: <time datetime="{esc(item['verified_at'])}">{verified_label}</time></p>
+<p><a class="button secondary" data-radar-source data-radar-source-type="{esc(item['type'])}" href="{esc(item['source_url'])}" target="_blank" rel="noopener noreferrer">Ver fuente oficial</a></p></article>'''
+
+
+def watch_items(items, today):
+    visible = []
+    for item in items:
+        if not item.get("published"):
+            continue
+        verified = iso_date(item["verified_at"], "verified_at")
+        if today - verified <= timedelta(days=STALE_DAYS):
+            visible.append(item)
+    return sorted(visible, key=lambda item: item["title"].casefold())
+
+
 def active_items(items, today):
     active = [item for item in items if item.get("published") and state(item, today) in {"open", "closing_soon"}]
     return sorted(active, key=lambda item: item["deadline"])
 
-def render_page_body(items, today):
+def render_page_body(items, today, watchlist=None):
     active = active_items(items, today)
-    cards = "\n".join(card(item) for item in active) or '<p data-radar-empty>No hay oportunidades verificadas activas ahora mismo.</p>'
-    types = sorted({item["type"] for item in active})
-    genres = sorted({genre for item in active for genre in item["genres"]})
+    watch = watch_items(watchlist or [], today)
+    active_cards = "\n".join(card(item) for item in active) or '<p data-radar-empty>No hay oportunidades verificadas activas ahora mismo.</p>'
+    watch_cards = "\n".join(watch_card(item) for item in watch)
+    visible_pool = active + watch
+    types = sorted({item["type"] for item in visible_pool})
+    genres = sorted({genre for item in visible_pool for genre in item["genres"]})
     options = lambda values: "\n".join(f'<option value="{esc(value)}">{esc(value.capitalize())}</option>' for value in values)
     schema = json.dumps({
         "@context": "https://schema.org",
@@ -226,13 +278,18 @@ def render_page_body(items, today):
         <div class="tool-field"><label class="tool-field-label" for="radar-search">Buscar</label><input class="tool-input" id="radar-search" type="search" autocomplete="off" enterkeyhint="search" data-radar-search placeholder="Entidad, premio, género…"></div>
         <div class="tool-field"><label class="tool-field-label" for="radar-type">Tipo</label><select class="tool-select" id="radar-type" data-radar-type><option value="">Todos</option>{options(types)}</select></div>
         <div class="tool-field"><label class="tool-field-label" for="radar-genre">Género</label><select class="tool-select" id="radar-genre" data-radar-genre><option value="">Todos</option>{options(genres)}</select></div>
+        <div class="tool-field"><label class="tool-field-label" for="radar-kind">Situación</label><select class="tool-select" id="radar-kind" data-radar-kind><option value="">Todas</option><option value="active">En plazo</option><option value="watch">Próximas aperturas</option></select></div>
       </div>
       <label class="tool-check"><input type="checkbox" data-radar-soon> <span>Cierra en 7 días</span></label>
       <div class="tool-actions"><button type="button" class="text-action" data-radar-clear>Limpiar</button></div>
-      <p class="tool-count" role="status" aria-live="polite" data-radar-count>{len(active)} convocatorias verificadas</p>
+      <p class="tool-count" role="status" aria-live="polite" data-radar-count>{len(active) + len(watch)} convocatorias verificadas</p>
     </section>
 
-    <section class="radar-grid" data-radar-grid>{cards}</section>
+    <section class="radar-section" data-radar-section="active">
+      <div class="radar-section__head"><p class="eyebrow">En plazo</p><h2>Convocatorias abiertas</h2><p>Solo aparecen si la fecha límite sigue vigente y la fuente se verificó en los últimos 30 días.</p></div>
+      <div class="radar-grid" data-radar-grid>{active_cards}</div>
+    </section>
+    {f'''<section class="radar-section radar-section--watch" data-radar-section="watch"><div class="radar-section__head"><p class="eyebrow">Próximamente</p><h2>Convocatorias a vigilar</h2><p>La entidad organizadora ya confirma una próxima edición, pero todavía no existe un plazo abierto. Estas fichas no se añaden al calendario hasta que haya fecha oficial.</p></div><div class="radar-grid" data-radar-grid>{watch_cards}</div></section>''' if watch_cards else ""}
     <div class="radar-empty" data-radar-filter-empty hidden><p>No hay coincidencias con estos filtros.</p><button type="button" class="button secondary" data-radar-empty-clear>Limpiar filtros</button></div>
 
     <section class="v1-section">
@@ -287,8 +344,8 @@ def build_ics(items, today):
     lines.extend(["END:VCALENDAR", ""])
     return "\r\n".join(fold_ics_line(line) for line in lines)
 
-def public_json(items, today):
-    return json.dumps({"generated_for": today.isoformat(), "items": active_items(items, today)}, ensure_ascii=False, indent=2) + "\n"
+def public_json(items, today, watchlist=None):
+    return json.dumps({"generated_for": today.isoformat(), "items": active_items(items, today), "watchlist": watch_items(watchlist or [], today)}, ensure_ascii=False, indent=2) + "\n"
 
 def load_items(path):
     payload = json.loads(Path(path).read_text(encoding="utf-8"))
@@ -303,6 +360,20 @@ def load_items(path):
         ids.add(item["id"])
     return items
 
+def load_watchlist(path):
+    payload = json.loads(Path(path).read_text(encoding="utf-8"))
+    watch = payload.get("watchlist", [])
+    if not isinstance(watch, list):
+        raise ValueError("dataset: watchlist debe ser una lista")
+    ids = set()
+    for item in watch:
+        validate_watch(item)
+        if item["id"] in ids:
+            raise ValueError(f"id watchlist duplicado: {item['id']}")
+        ids.add(item["id"])
+    return watch
+
+
 def main():
     parser = argparse.ArgumentParser()
     parser.add_argument("--data", required=True)
@@ -311,27 +382,29 @@ def main():
     parser.add_argument("--check", action="store_true")
     args = parser.parse_args()
     items = load_items(args.data)
+    watchlist = load_watchlist(args.data)
     today = iso_date(args.today, "today")
     if args.check:
         states = {name: sum(state(item, today) == name and item.get("published") for item in items) for name in ("open", "closing_soon", "stale", "expired")}
-        print(f"OK items={len(items)} active={states['open'] + states['closing_soon']} stale={states['stale']} expired={states['expired']}")
+        print(f"OK items={len(items)} active={states['open'] + states['closing_soon']} watch={len(watch_items(watchlist, today))} stale={states['stale']} expired={states['expired']}")
         return
     out = Path(args.out)
     out.mkdir(parents=True, exist_ok=True)
-    (out / "index.html").write_text(build_html(items, today), encoding="utf-8")
-    (out / "opportunities.json").write_text(public_json(items, today), encoding="utf-8")
+    (out / "index.html").write_text(build_html(items, today, watchlist), encoding="utf-8")
+    (out / "opportunities.json").write_text(public_json(items, today, watchlist), encoding="utf-8")
     (out / "deadlines.ics").write_text(build_ics(items, today), encoding="utf-8", newline="")
     active = len(active_items(items, today))
-    print(f"built active={active} hidden={len(items) - active}")
+    watch = len(watch_items(watchlist, today))
+    print(f"built active={active} watch={watch} hidden={len(items) - active}")
 
-def build_html(items, today):
+def build_html(items, today, watchlist=None):
     """Pagina completa del radar, con el shell generado desde el contrato.
 
     El shell ya no vive en la plantilla de este fichero: lo pone
     scripts/build-site-shell.py desde data/navigation.json, igual que en el
     resto del sitio. Ver scripts/site_shell.py.
     """
-    return inject_shell_auto(render_page_body(items, today))
+    return inject_shell_auto(render_page_body(items, today, watchlist))
 
 
 if __name__ == "__main__":
