@@ -3493,6 +3493,96 @@
         "buscar-editorial"
       ],
       "sourceFile": "editoriales/la-biblioteca-de-carfax/index.html"
+    },
+    {
+      "id": "editorial-atlantic-books",
+      "url": "/editoriales/atlantic-books/",
+      "label": "Atlantic Books",
+      "shortLabel": "Atlantic Books",
+      "type": "directory",
+      "territory": "herramientas",
+      "parentId": "editorials-hub",
+      "hubId": "tools-hub",
+      "discoverability": "contextual",
+      "audience": [
+        "writer"
+      ],
+      "jobs": [
+        "buscar-editorial"
+      ],
+      "sourceFile": "editoriales/atlantic-books/index.html"
+    },
+    {
+      "id": "editorial-faeris",
+      "url": "/editoriales/faeris/",
+      "label": "Faeris",
+      "shortLabel": "Faeris",
+      "type": "directory",
+      "territory": "herramientas",
+      "parentId": "editorials-hub",
+      "hubId": "tools-hub",
+      "discoverability": "contextual",
+      "audience": [
+        "writer"
+      ],
+      "jobs": [
+        "buscar-editorial"
+      ],
+      "sourceFile": "editoriales/faeris/index.html"
+    },
+    {
+      "id": "editorial-el-transbordador",
+      "url": "/editoriales/el-transbordador/",
+      "label": "El Transbordador",
+      "shortLabel": "El Transbordador",
+      "type": "directory",
+      "territory": "herramientas",
+      "parentId": "editorials-hub",
+      "hubId": "tools-hub",
+      "discoverability": "contextual",
+      "audience": [
+        "writer"
+      ],
+      "jobs": [
+        "buscar-editorial"
+      ],
+      "sourceFile": "editoriales/el-transbordador/index.html"
+    },
+    {
+      "id": "editorial-levanta-fuego",
+      "url": "/editoriales/levanta-fuego/",
+      "label": "Levanta Fuego",
+      "shortLabel": "Levanta Fuego",
+      "type": "directory",
+      "territory": "herramientas",
+      "parentId": "editorials-hub",
+      "hubId": "tools-hub",
+      "discoverability": "contextual",
+      "audience": [
+        "writer"
+      ],
+      "jobs": [
+        "buscar-editorial"
+      ],
+      "sourceFile": "editoriales/levanta-fuego/index.html"
+    },
+    {
+      "id": "editorial-hoja-de-lata",
+      "url": "/editoriales/hoja-de-lata/",
+      "label": "Hoja de Lata",
+      "shortLabel": "Hoja de Lata",
+      "type": "directory",
+      "territory": "herramientas",
+      "parentId": "editorials-hub",
+      "hubId": "tools-hub",
+      "discoverability": "contextual",
+      "audience": [
+        "writer"
+      ],
+      "jobs": [
+        "buscar-editorial"
+      ],
+      "sourceFile": "editoriales/hoja-de-lata/index.html"
     }
   ]
 }
