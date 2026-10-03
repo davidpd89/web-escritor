@@ -2503,6 +2503,78 @@
         "buscar-editorial"
       ],
       "sourceFile": "editoriales/contraluz-editorial/index.html"
+    },
+    {
+      "id": "editorial-rayo-verde-editorial",
+      "url": "/editoriales/rayo-verde-editorial/",
+      "label": "Rayo Verde Editorial",
+      "shortLabel": "Rayo Verde Editorial",
+      "type": "directory",
+      "territory": "herramientas",
+      "parentId": "editorials-hub",
+      "hubId": "tools-hub",
+      "discoverability": "contextual",
+      "audience": [
+        "writer"
+      ],
+      "jobs": [
+        "buscar-editorial"
+      ],
+      "sourceFile": "editoriales/rayo-verde-editorial/index.html"
+    },
+    {
+      "id": "editorial-insolita-editorial",
+      "url": "/editoriales/insolita-editorial/",
+      "label": "Insólita Editorial",
+      "shortLabel": "Insólita Editorial",
+      "type": "directory",
+      "territory": "herramientas",
+      "parentId": "editorials-hub",
+      "hubId": "tools-hub",
+      "discoverability": "contextual",
+      "audience": [
+        "writer"
+      ],
+      "jobs": [
+        "buscar-editorial"
+      ],
+      "sourceFile": "editoriales/insolita-editorial/index.html"
+    },
+    {
+      "id": "editorial-menoscuarto-ediciones",
+      "url": "/editoriales/menoscuarto-ediciones/",
+      "label": "Menoscuarto Ediciones",
+      "shortLabel": "Menoscuarto Ediciones",
+      "type": "directory",
+      "territory": "herramientas",
+      "parentId": "editorials-hub",
+      "hubId": "tools-hub",
+      "discoverability": "contextual",
+      "audience": [
+        "writer"
+      ],
+      "jobs": [
+        "buscar-editorial"
+      ],
+      "sourceFile": "editoriales/menoscuarto-ediciones/index.html"
+    },
+    {
+      "id": "editorial-duomo-ediciones",
+      "url": "/editoriales/duomo-ediciones/",
+      "label": "Duomo Ediciones",
+      "shortLabel": "Duomo Ediciones",
+      "type": "directory",
+      "territory": "herramientas",
+      "parentId": "editorials-hub",
+      "hubId": "tools-hub",
+      "discoverability": "contextual",
+      "audience": [
+        "writer"
+      ],
+      "jobs": [
+        "buscar-editorial"
+      ],
+      "sourceFile": "editoriales/duomo-ediciones/index.html"
     }
   ]
 }
