@@ -25,6 +25,14 @@ DESCRIPTION:Escuela de Escritores y Cadena SER
 URL:https://escueladeescritores.com/concursos/relatos-en-cadena/
 END:VEVENT
 BEGIN:VEVENT
+UID:amparo-perez-alamino-2026@davidportodiaz.com
+DTSTART;VALUE=DATE:20261008
+DTEND;VALUE=DATE:20261009
+SUMMARY:IV Concurso Literario «Amparo Pérez Alamino» 2026
+DESCRIPTION:FEAFES Melilla
+URL:https://feafesmelilla.es/concurso-literario-amparo-perez-alamino
+END:VEVENT
+BEGIN:VEVENT
 UID:jorge-manrique-poesia-2026@davidportodiaz.com
 DTSTART;VALUE=DATE:20261009
 DTEND;VALUE=DATE:20261010
@@ -42,6 +50,15 @@ DESCRIPTION:Ateneo de Valladolid y Ayuntamiento de Valladolid
 URL:https://www.ateneodevalladolid.org/premio-de-novela/
 END:VEVENT
 BEGIN:VEVENT
+UID:mantua-carpetanorum-2026@davidportodiaz.com
+DTSTART;VALUE=DATE:20261009
+DTEND;VALUE=DATE:20261010
+SUMMARY:III Certamen Literario «Mantua Carpetanorum» 2026
+DESCRIPTION:Ayuntamiento de Villamanta
+URL:https://www.villamanta.es/tu-ayuntamiento/agenda/iii-certamen-literario
+ -mantua-carpetanorum/
+END:VEVENT
+BEGIN:VEVENT
 UID:premio-enric-valor-2026@davidportodiaz.com
 DTSTART;VALUE=DATE:20261010
 DTEND;VALUE=DATE:20261011
@@ -49,6 +66,24 @@ SUMMARY:Premio Enric Valor 2026
 DESCRIPTION:Diputación de Alicante · Área de Cultura
 URL:https://agendacultural.diputacionalicante.es/event/premio-enric-valor-2
  026/
+END:VEVENT
+BEGIN:VEVENT
+UID:la-imagen-escrita-2026@davidportodiaz.com
+DTSTART;VALUE=DATE:20261010
+DTEND;VALUE=DATE:20261011
+SUMMARY:IV Concurso de Nanorrelatos «La Imagen Escrita»
+DESCRIPTION:Asociación Escritores en Rivas · Concejalía de Cultura de Ri
+ vas Vaciamadrid
+URL:https://www.escritoresenrivas.com/concursos-literarios/
+END:VEVENT
+BEGIN:VEVENT
+UID:arr3quentando-cultura-2026@davidportodiaz.com
+DTSTART;VALUE=DATE:20261010
+DTEND;VALUE=DATE:20261011
+SUMMARY:I Certame de Microrrelatos «Arr3quentando a Cultura»
+DESCRIPTION:AFIPRODEL Galicia
+URL:https://afiprodel.org/afiprodel/i-certame-de-microrelatos-arr3quentando
+ -a-cultura/
 END:VEVENT
 BEGIN:VEVENT
 UID:marta-portal-terror-fantastico-2026@davidportodiaz.com
@@ -115,6 +150,22 @@ DESCRIPTION:Zadua
 URL:https://zadua.co/bases-convocatoria-inaugural/
 END:VEVENT
 BEGIN:VEVENT
+UID:issste-historia-transforme-2026@davidportodiaz.com
+DTSTART;VALUE=DATE:20261015
+DTEND;VALUE=DATE:20261016
+SUMMARY:Convocatoria «Cuéntanos una historia que transforme» 2026
+DESCRIPTION:Sello Editorial ISSSTE · Revista Saberes Transformadores
+URL:https://liderazgos.issste.gob.mx/sello-editorial/convocatoria.html
+END:VEVENT
+BEGIN:VEVENT
+UID:written-in-the-dark-2026-es@davidportodiaz.com
+DTSTART;VALUE=DATE:20261015
+DTEND;VALUE=DATE:20261016
+SUMMARY:Written in the Dark 2026 · categoría en español
+DESCRIPTION:Written
+URL:https://es.written.app/in-the-dark-2026
+END:VEVENT
+BEGIN:VEVENT
 UID:elena-santiago-narrativa-2026@davidportodiaz.com
 DTSTART;VALUE=DATE:20261016
 DTEND;VALUE=DATE:20261017
@@ -179,6 +230,15 @@ URL:https://www.toledo.es/xxiii-concurso-de-narrativa-femenina-princesa-gal
  iana/
 END:VEVENT
 BEGIN:VEVENT
+UID:curtis-o-exame-2026@davidportodiaz.com
+DTSTART;VALUE=DATE:20261020
+DTEND;VALUE=DATE:20261021
+SUMMARY:XXI Certame de Narrativa Curta «O EXAME» 2026
+DESCRIPTION:Concello de Curtis
+URL:https://www.curtis.gal/index.php/es/noticias/5174-bases-do-xxi-certame-
+ de-narrativa-curta-do-concello-de-curtis-o-exame
+END:VEVENT
+BEGIN:VEVENT
 UID:alberto-magno-ciencia-ficcion-2026@davidportodiaz.com
 DTSTART;VALUE=DATE:20261023
 DTEND;VALUE=DATE:20261024
@@ -186,6 +246,23 @@ SUMMARY:XXXVIII Certamen Literario Alberto Magno de Ciencia Ficción 2026
 DESCRIPTION:Facultad de Ciencia y Tecnología · EHU
 URL:https://www.ehu.eus/es/web/zientzia-teknologia-fakultatea/certamen-lite
  rario-alberto-magno
+END:VEVENT
+BEGIN:VEVENT
+UID:manera-montblanc-relatos-2026@davidportodiaz.com
+DTSTART;VALUE=DATE:20261025
+DTEND;VALUE=DATE:20261026
+SUMMARY:Concurso de Relatos MANERA x Montblanc 2026
+DESCRIPTION:MANERA Magazine · Montblanc
+URL:https://maneramagazine.es/interiorismo/concurso-relatos-manera-montblan
+ c-2026/
+END:VEVENT
+BEGIN:VEVENT
+UID:kannonical-terror-sobrenatural-2026@davidportodiaz.com
+DTSTART;VALUE=DATE:20261025
+DTEND;VALUE=DATE:20261026
+SUMMARY:Convocatoria «Terror Sobrenatural» 2026
+DESCRIPTION:Kannonical Editores
+URL:https://kannonical-editores.github.io/convoc.html
 END:VEVENT
 BEGIN:VEVENT
 UID:si-los-pasillos-hablaran-2026@davidportodiaz.com
@@ -274,6 +351,31 @@ DESCRIPTION:Avant Editorial
 URL:https://avanteditorial.com/premio-avant-ceuta-2026-poesia-y-narrativa/
 END:VEVENT
 BEGIN:VEVENT
+UID:almansa-feminista-microrrelato-2026@davidportodiaz.com
+DTSTART;VALUE=DATE:20261031
+DTEND;VALUE=DATE:20261101
+SUMMARY:III Concurso de Microrrelato Almansa Feminista 2026
+DESCRIPTION:Almansa Feminista
+URL:https://almansafeminista.blogspot.com/2026/08/iii-concurso-microrrelato
+ -2026-almansa.html
+END:VEVENT
+BEGIN:VEVENT
+UID:conciencia-libre-2026@davidportodiaz.com
+DTSTART;VALUE=DATE:20261031
+DTEND;VALUE=DATE:20261101
+SUMMARY:V Certamen de Narrativa Laicista «Conciencia Libre» 2026
+DESCRIPTION:Rivas Laica
+URL:https://rivaslaica.org/2026/06/v-certamen-de-relatos-cortos/
+END:VEVENT
+BEGIN:VEVENT
+UID:valdastillas-100-palabras-asustar-2026@davidportodiaz.com
+DTSTART;VALUE=DATE:20261031
+DTEND;VALUE=DATE:20261101
+SUMMARY:Concurso de Microrrelatos «100 palabras para asustar» 2026
+DESCRIPTION:Ayuntamiento de Valdastillas
+URL:https://www.bandomovil.com/valdastillas/1651636/0
+END:VEVENT
+BEGIN:VEVENT
 UID:bienestar-jabones-alonso-2026@davidportodiaz.com
 DTSTART;VALUE=DATE:20261101
 DTEND;VALUE=DATE:20261102
@@ -281,6 +383,23 @@ SUMMARY:II Concurso de Microrrelatos del Bienestar 2026
 DESCRIPTION:Jabones Alonso de la Torre
 URL:https://www.jabonesalonsodelatorre.com/bases-ii-concurso-de-microrrelat
  os-del-bienestar/
+END:VEVENT
+BEGIN:VEVENT
+UID:aster-astronomia-2026@davidportodiaz.com
+DTSTART;VALUE=DATE:20261101
+DTEND;VALUE=DATE:20261102
+SUMMARY:VI Concurso de Relatos de Astronomía ASTER 2026
+DESCRIPTION:ASTER Agrupació Astronòmica de Barcelona
+URL:https://aster.cat/concurs-de-relats-dastronomia-aster-2026/
+END:VEVENT
+BEGIN:VEVENT
+UID:libros-asteroide-no-ficcion-2026@davidportodiaz.com
+DTSTART;VALUE=DATE:20261101
+DTEND;VALUE=DATE:20261102
+SUMMARY:VII Premio de No Ficción Libros del Asteroide 2026
+DESCRIPTION:Libros del Asteroide
+URL:https://librosdelasteroide.com/actualidad-asteroide/321/se-abre-la-conv
+ ocatoria-del-vii-premio-de-no-ficcion-lda
 END:VEVENT
 BEGIN:VEVENT
 UID:premio-alfaguara-novela-2027@davidportodiaz.com
@@ -356,6 +475,25 @@ DESCRIPTION:Kasa Vela Producciones
 URL:https://www.somoskasavela.com/convocatorias/tu-historia-en-pantalla
 END:VEVENT
 BEGIN:VEVENT
+UID:esstudio-agatha-christie-2026@davidportodiaz.com
+DTSTART;VALUE=DATE:20261115
+DTEND;VALUE=DATE:20261116
+SUMMARY:Concurso de Relatos Cortos de Misterio «Si Agatha Christie levanta
+ ra la cabeza…»
+DESCRIPTION:Esstudio Ediciones
+URL:https://www.esstudioediciones.com/blog/419/concurso-de-relatos-cortos-d
+ e-misterio-si-agatha-christie-levantara-la-cabeza-de-esstudio-edciones.htm
+ l
+END:VEVENT
+BEGIN:VEVENT
+UID:esta-noche-te-cuento-culpa-2026@davidportodiaz.com
+DTSTART;VALUE=DATE:20261115
+DTEND;VALUE=DATE:20261116
+SUMMARY:Esta Noche Te Cuento 2026 · «La culpa»
+DESCRIPTION:Esta Noche Te Cuento
+URL:https://estanochetecuento.com/
+END:VEVENT
+BEGIN:VEVENT
 UID:oxfam-castello-microrrelatos-2026@davidportodiaz.com
 DTSTART;VALUE=DATE:20261118
 DTEND;VALUE=DATE:20261119
@@ -381,6 +519,14 @@ SUMMARY:XII Certamen de Relato Corto «Alvar Gómez de Castro» 2026
 DESCRIPTION:Ayuntamiento de Santa Olalla
 URL:https://santaolalla.es/index.php/62-noticias/noticias-generales/2522-xi
  i-concursos-culturales-de-santa-olalla-2026-fotografia-poesia-relato-corto
+END:VEVENT
+BEGIN:VEVENT
+UID:premio-alfabeto-ensayo-2026@davidportodiaz.com
+DTSTART;VALUE=DATE:20261127
+DTEND;VALUE=DATE:20261128
+SUMMARY:Premio Alfabeto de Ensayo Breve «(Con)vivir hoy» 2026
+DESCRIPTION:Editorial Alfabeto · Plataforma Editorial
+URL:https://www.editorialalfabeto.com/premioalfabeto
 END:VEVENT
 BEGIN:VEVENT
 UID:premio-azorin-novela-2027@davidportodiaz.com
@@ -410,6 +556,23 @@ URL:https://volured.com/voluntsalud/vii-certamen-de-microrrelatos-de-volunt
  ariado/
 END:VEVENT
 BEGIN:VEVENT
+UID:olite-vina-vino-2026@davidportodiaz.com
+DTSTART;VALUE=DATE:20261130
+DTEND;VALUE=DATE:20261201
+SUMMARY:XX Certamen Literario «De la Viña y el Vino» · Narrativa
+DESCRIPTION:Cofradía del Vino de Navarra
+URL:https://sites.google.com/view/certamen-literario-cvn
+END:VEVENT
+BEGIN:VEVENT
+UID:manuel-oreste-rodriguez-lopez-2026@davidportodiaz.com
+DTSTART;VALUE=DATE:20261130
+DTEND;VALUE=DATE:20261201
+SUMMARY:XXXII Certame Literario Manuel-Oreste Rodríguez López 2026
+DESCRIPTION:Concello de Paradela
+URL:https://www.paradela.es/es/nova/bases-xxxii-certame-literario-manuel-or
+ este-rodr%C3%ADguez-l%C3%B3pez
+END:VEVENT
+BEGIN:VEVENT
 UID:sant-boi-negre-relato-2026@davidportodiaz.com
 DTSTART;VALUE=DATE:20261210
 DTEND;VALUE=DATE:20261211
@@ -427,11 +590,54 @@ URL:https://www.turismozahara.com/blog/bases-concursos-literarios-de-narrat
  iva-y-poesia
 END:VEVENT
 BEGIN:VEVENT
+UID:literaria-kalean-2026@davidportodiaz.com
+DTSTART;VALUE=DATE:20261215
+DTEND;VALUE=DATE:20261216
+SUMMARY:V Certamen de Relato y Cuento «Literaria Kalean» 2026
+DESCRIPTION:Literaria Kalean
+URL:https://literariakalean.es/abrimos-convocatoria/
+END:VEVENT
+BEGIN:VEVENT
+UID:hislibris-relato-historico-2026@davidportodiaz.com
+DTSTART;VALUE=DATE:20261230
+DTEND;VALUE=DATE:20261231
+SUMMARY:XVI Concurso de Relato Histórico Hislibris 2026
+DESCRIPTION:Hislibris
+URL:https://www.hislibris.com/foro/viewtopic.php?f=29&t=705
+END:VEVENT
+BEGIN:VEVENT
+UID:julio-visconti-relatos-2026@davidportodiaz.com
+DTSTART;VALUE=DATE:20261230
+DTEND;VALUE=DATE:20261231
+SUMMARY:XI Certamen de Relatos de la Fundación Pintor Julio Visconti
+DESCRIPTION:Fundación Pintor Julio Visconti
+URL:https://fpjuliovisconti.com/bases-del-xi-certamen-de-relatos-de-la-fund
+ acion-pintor-julio-visconti/
+END:VEVENT
+BEGIN:VEVENT
 UID:cinco-palabras-2026@davidportodiaz.com
 DTSTART;VALUE=DATE:20261231
 DTEND;VALUE=DATE:20270101
 SUMMARY:Concurso de Microrrelatos «Cinco Palabras» 2026
 DESCRIPTION:ONG Cinco Palabras
 URL:https://cincopalabras.com/concurso-microrrelato-2026/
+END:VEVENT
+BEGIN:VEVENT
+UID:flor-cactus-humor-2027@davidportodiaz.com
+DTSTART;VALUE=DATE:20261231
+DTEND;VALUE=DATE:20270101
+SUMMARY:II Certamen Internacional de Literatura de Humor «La Flor del Cact
+ us» 2027 · Narrativa
+DESCRIPTION:El Batracio Amarillo
+URL:https://www.elbatracioamarillo.com/ii-certamen-internacional-de-literat
+ ura-de-humor-la-flor-del-cactus-2027
+END:VEVENT
+BEGIN:VEVENT
+UID:delibooks-helena-2026@davidportodiaz.com
+DTSTART;VALUE=DATE:20261231
+DTEND;VALUE=DATE:20270101
+SUMMARY:Concurso Literario Delibooks 2026 · Cuento
+DESCRIPTION:Delibooks
+URL:https://www.delibooks.com.ar/concurso/
 END:VEVENT
 END:VCALENDAR

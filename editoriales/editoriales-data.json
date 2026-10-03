@@ -613,6 +613,54 @@
     },
     {
       "publish": true,
+      "publisher_type": "tradicional",
+      "country": "España",
+      "submission_email": "manuscritos@editorialalfabeto.com",
+      "response_time": "La editorial indica que contactará aproximadamente en tres meses si existe interés; no responde a propuestas que no encajan.",
+      "page_updated_at": "2026-10-03",
+      "slug": "editorial-alfabeto",
+      "name": "Editorial Alfabeto",
+      "group": "Alfabeto Editorial",
+      "genres": [
+        "ensayo",
+        "crónica",
+        "no ficción"
+      ],
+      "status": "open",
+      "direct_submission": true,
+      "submission_channel": "Correo oficial de manuscritos",
+      "submission_url": "https://www.editorialalfabeto.com/manuscritos/es/124-manuscritos/",
+      "website_url": "https://www.editorialalfabeto.com/",
+      "requirements": [
+        "Solo se valoran propuestas de no ficción, especialmente ensayo y crónica; no aceptan ficción, teatro, poesía ni literatura infantil por esta vía.",
+        "Enviar únicamente por correo electrónico en Word, Times New Roman 12 e interlineado 1,5.",
+        "Incluir en el correo una breve sinopsis y una pequeña biografía."
+      ],
+      "summary": "Editorial Alfabeto es un sello independiente centrado en no ficción que publica un protocolo específico y vigente para la recepción digital de ensayos y crónicas.",
+      "public_note": "La apertura es real pero muy especializada: una novela o relato de ficción no debe enviarse a este canal, aunque la editorial figure como receptora de manuscritos.",
+      "verified_at": "2026-10-03",
+      "sources": [
+        {
+          "label": "Editorial Alfabeto — manuscritos",
+          "url": "https://www.editorialalfabeto.com/manuscritos/es/124-manuscritos/",
+          "primary": true
+        },
+        {
+          "label": "Editorial Alfabeto — proyecto editorial",
+          "url": "https://www.editorialalfabeto.com/empresa/es/64-editorial-alfabeto/",
+          "primary": true
+        }
+      ],
+      "history": [
+        {
+          "date": "2026-10-03",
+          "event": "Verificados el canal de manuscritos, la exclusión expresa de ficción, el formato de envío y el plazo orientativo de respuesta.",
+          "source_url": "https://www.editorialalfabeto.com/manuscritos/es/124-manuscritos/"
+        }
+      ]
+    },
+    {
+      "publish": true,
       "slug": "editorial-andromeda",
       "name": "Editorial Andrómeda",
       "group": "Editorial Andrómeda",
@@ -797,6 +845,57 @@
       "summary": "Espasa publica narrativa y no ficción y mantiene un contacto editorial público integrado en la política corporativa de recepción de manuscritos de Grupo Planeta.",
       "public_note": "Los premios de Espasa tienen procedimientos propios; esta ficha describe la vía editorial general del sello.",
       "verified_at": "2026-10-03"
+    },
+    {
+      "publish": true,
+      "publisher_type": "tradicional",
+      "country": "España",
+      "submission_email": "manuscritos@editorialfanes.com",
+      "response_time": null,
+      "page_updated_at": "2026-10-03",
+      "slug": "editorial-fanes",
+      "name": "Editorial Fanes",
+      "group": "Editorial Fanes",
+      "genres": [
+        "narrativa",
+        "novela histórica",
+        "novela negra",
+        "ensayo",
+        "poesía",
+        "cómic"
+      ],
+      "status": "open",
+      "direct_submission": true,
+      "submission_channel": "Correo oficial de manuscritos",
+      "submission_url": "https://www.editorialfanes.com/publicar-un-libro-gratis-edicion-tradicional/",
+      "website_url": "https://www.editorialfanes.com/",
+      "requirements": [
+        "Ser mayor de edad, residir en España y conservar los derechos de la obra.",
+        "Enviar el manuscrito acompañado de una sinopsis, datos de contacto y experiencia editorial previa si la hubiera.",
+        "La editorial publica distintos géneros; conviene comprobar el encaje real con su catálogo antes de enviar."
+      ],
+      "summary": "Editorial Fanes es una editorial española con distribución comercial que mantiene abierta una vía específica para recibir manuscritos y propuestas de distintos géneros.",
+      "public_note": "La propia editorial presenta esta vía como edición tradicional y publicación sin coste para la persona autora; revisa las condiciones contractuales concretas si la obra resulta seleccionada.",
+      "verified_at": "2026-10-03",
+      "sources": [
+        {
+          "label": "Editorial Fanes — publicar un libro / recepción de manuscritos",
+          "url": "https://www.editorialfanes.com/publicar-un-libro-gratis-edicion-tradicional/",
+          "primary": true
+        },
+        {
+          "label": "Editorial Fanes — contacto",
+          "url": "https://www.editorialfanes.com/contacto1/",
+          "primary": true
+        }
+      ],
+      "history": [
+        {
+          "date": "2026-10-03",
+          "event": "Comprobada en la web oficial la recepción abierta, el correo específico y los requisitos generales de presentación.",
+          "source_url": "https://www.editorialfanes.com/publicar-un-libro-gratis-edicion-tradicional/"
+        }
+      ]
     },
     {
       "publish": true,
@@ -1953,6 +2052,54 @@
     },
     {
       "publish": true,
+      "publisher_type": "tradicional",
+      "country": "España",
+      "submission_email": "manuscritos@plomoediciones.es",
+      "response_time": "La editorial afirma responder a todos los manuscritos, aunque advierte de que el plazo puede ser largo.",
+      "page_updated_at": "2026-10-03",
+      "slug": "plomo-ediciones",
+      "name": "Plomo Ediciones",
+      "group": "Plomo Ediciones",
+      "genres": [
+        "novela negra",
+        "hardboiled",
+        "realismo sucio"
+      ],
+      "status": "open",
+      "direct_submission": true,
+      "submission_channel": "Correo específico de manuscritos",
+      "submission_url": "https://plomoediciones.es/index.php/manuscritos/",
+      "website_url": "https://plomoediciones.es/",
+      "requirements": [
+        "La obra debe encajar en hardboiled o realismo sucio; la editorial excluye expresamente terror, fantasía, ciencia ficción, cozy, procedural y thriller de suspense/acción.",
+        "Enviar el manuscrito completo en .docx.",
+        "Adjuntar sinopsis de 200–400 palabras, biografía de hasta 150 palabras y, si procede, referencias de estilo."
+      ],
+      "summary": "Plomo Ediciones es una editorial independiente madrileña especializada en hardboiled y realismo sucio que mantiene una convocatoria permanente y muy delimitada para nuevas voces.",
+      "public_note": "Es un canal útil solo para obras que encajen de verdad en su nicho: la editorial enumera expresamente varios géneros que no publica y recomienda revisar el catálogo antes de enviar.",
+      "verified_at": "2026-10-03",
+      "sources": [
+        {
+          "label": "Plomo Ediciones — manuscritos",
+          "url": "https://plomoediciones.es/index.php/manuscritos/",
+          "primary": true
+        },
+        {
+          "label": "Plomo Ediciones — sobre la editorial",
+          "url": "https://plomoediciones.es/index.php/sobre-la-editorial/",
+          "primary": true
+        }
+      ],
+      "history": [
+        {
+          "date": "2026-10-03",
+          "event": "Comprobados en la web oficial el canal abierto, el correo, la documentación exigida y la delimitación estricta de géneros.",
+          "source_url": "https://plomoediciones.es/index.php/manuscritos/"
+        }
+      ]
+    },
+    {
+      "publish": true,
       "slug": "puck",
       "name": "Puck",
       "group": "Ediciones Urano",
@@ -2904,6 +3051,56 @@
     },
     {
       "publish": true,
+      "publisher_type": "tradicional",
+      "country": "España",
+      "submission_email": null,
+      "response_time": null,
+      "page_updated_at": "2026-10-03",
+      "slug": "editorial-la-magnifica",
+      "name": "Editorial La Magnífica",
+      "group": "La Magnífica",
+      "genres": [
+        "aventuras",
+        "ciencia ficción",
+        "fantasía",
+        "pulp",
+        "novela negra"
+      ],
+      "status": "closed",
+      "direct_submission": false,
+      "submission_channel": "Recepción de manuscritos cerrada",
+      "submission_url": "https://magnificaeditorial.com/contacto/",
+      "website_url": "https://magnificaeditorial.com/",
+      "requirements": [
+        "No enviar originales mientras la página oficial mantenga el aviso de recepción cerrada.",
+        "Cuando abre, busca novela corta de aventura de entre 28.000 y 42.000 palabras y pide el texto completo en formato editable con sinopsis.",
+        "No publica actualmente infantil/juvenil, sagas de varios volúmenes ni antologías de relatos por esta vía."
+      ],
+      "summary": "La Magnífica es una microeditorial española orientada a aventura, ciencia ficción, fantasía y pulp; su web conserva criterios muy concretos de selección, pero la recepción está cerrada.",
+      "public_note": "La ficha sirve para seguimiento y encaje de catálogo, no como invitación a enviar ahora. No se publica ningún correo histórico como canal activo mientras el cierre siga vigente.",
+      "verified_at": "2026-10-03",
+      "sources": [
+        {
+          "label": "Editorial La Magnífica — contacto y estado de manuscritos",
+          "url": "https://magnificaeditorial.com/contacto/",
+          "primary": true
+        },
+        {
+          "label": "Editorial La Magnífica — quiénes somos",
+          "url": "https://magnificaeditorial.com/quienes-somos/",
+          "primary": true
+        }
+      ],
+      "history": [
+        {
+          "date": "2026-10-03",
+          "event": "La página oficial indica expresamente que la recepción de manuscritos está cerrada; se conservan únicamente los requisitos públicos para seguimiento.",
+          "source_url": "https://magnificaeditorial.com/contacto/"
+        }
+      ]
+    },
+    {
+      "publish": true,
       "slug": "gamon-fantasy",
       "name": "Gamon Fantasy",
       "group": "Trini Vergara Ediciones",
@@ -3488,6 +3685,57 @@
           "date": "2026-10-02",
           "event": "Comprobado el estado público de recepción, el canal disponible y las condiciones publicadas por la editorial.",
           "source_url": "https://silverbooks.es/manuscritos/"
+        }
+      ]
+    },
+    {
+      "publish": true,
+      "publisher_type": "tradicional",
+      "country": "España",
+      "submission_email": null,
+      "response_time": null,
+      "page_updated_at": "2026-10-03",
+      "slug": "siren-books",
+      "name": "Siren Books",
+      "group": "Editorial Siren Books",
+      "genres": [
+        "romántica contemporánea",
+        "sport romance",
+        "romcom",
+        "dark romance",
+        "romantasy",
+        "new adult"
+      ],
+      "status": "closed",
+      "direct_submission": false,
+      "submission_channel": "Convocatoria temporal cerrada",
+      "submission_url": "https://sirenbooks.es/wp-content/uploads/2026/01/CONDICIONES-DE-PARTICIPACION-EN-LA-CONVOCATORIA-DE-MANUSCRITOS-DE-SIREN-BOOKS.pdf",
+      "website_url": "https://sirenbooks.es/",
+      "requirements": [
+        "La última convocatoria oficial localizada estuvo abierta del 19 de enero al 2 de febrero de 2026 y ya está cerrada.",
+        "Exigía manuscrito original, completo y finalizado junto con propuesta editorial, sinopsis, resumen argumental y biografía.",
+        "La convocatoria se dirigía a romántica contemporánea, sport romance, romcom, dark romance o romantasy para público New Adult, con extensión orientativa de 90.000–170.000 palabras."
+      ],
+      "summary": "Siren Books es una editorial madrileña de romance y New Adult que utiliza ventanas temporales de recepción; la convocatoria oficial de 2026 ya finalizó y no debe mostrarse como abierta.",
+      "public_note": "Se conserva como ficha de seguimiento porque la editorial ha publicado condiciones detalladas de recepción, pero hay que esperar una nueva convocatoria oficial antes de preparar un envío.",
+      "verified_at": "2026-10-03",
+      "sources": [
+        {
+          "label": "Siren Books — condiciones de la convocatoria de manuscritos 2026",
+          "url": "https://sirenbooks.es/wp-content/uploads/2026/01/CONDICIONES-DE-PARTICIPACION-EN-LA-CONVOCATORIA-DE-MANUSCRITOS-DE-SIREN-BOOKS.pdf",
+          "primary": true
+        },
+        {
+          "label": "Siren Books — web oficial",
+          "url": "https://sirenbooks.es/",
+          "primary": true
+        }
+      ],
+      "history": [
+        {
+          "date": "2026-10-03",
+          "event": "Verificada la ventana de recepción 2026 ya finalizada y los géneros/requisitos de la convocatoria oficial.",
+          "source_url": "https://sirenbooks.es/wp-content/uploads/2026/01/CONDICIONES-DE-PARTICIPACION-EN-LA-CONVOCATORIA-DE-MANUSCRITOS-DE-SIREN-BOOKS.pdf"
         }
       ]
     },
