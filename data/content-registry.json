@@ -2341,6 +2341,168 @@
         "buscar-editorial"
       ],
       "sourceFile": "editoriales/pepitas-de-calabaza/index.html"
+    },
+    {
+      "id": "editorial-nde-novela",
+      "url": "/editoriales/nde-novela/",
+      "label": "NdeNovela",
+      "shortLabel": "NdeNovela",
+      "type": "directory",
+      "territory": "herramientas",
+      "parentId": "editorials-hub",
+      "hubId": "tools-hub",
+      "discoverability": "contextual",
+      "audience": [
+        "writer"
+      ],
+      "jobs": [
+        "buscar-editorial"
+      ],
+      "sourceFile": "editoriales/nde-novela/index.html"
+    },
+    {
+      "id": "editorial-editorial-anagrama",
+      "url": "/editoriales/editorial-anagrama/",
+      "label": "Editorial Anagrama",
+      "shortLabel": "Editorial Anagrama",
+      "type": "directory",
+      "territory": "herramientas",
+      "parentId": "editorials-hub",
+      "hubId": "tools-hub",
+      "discoverability": "contextual",
+      "audience": [
+        "writer"
+      ],
+      "jobs": [
+        "buscar-editorial"
+      ],
+      "sourceFile": "editoriales/editorial-anagrama/index.html"
+    },
+    {
+      "id": "editorial-alfaguara",
+      "url": "/editoriales/alfaguara/",
+      "label": "Alfaguara",
+      "shortLabel": "Alfaguara",
+      "type": "directory",
+      "territory": "herramientas",
+      "parentId": "editorials-hub",
+      "hubId": "tools-hub",
+      "discoverability": "contextual",
+      "audience": [
+        "writer"
+      ],
+      "jobs": [
+        "buscar-editorial"
+      ],
+      "sourceFile": "editoriales/alfaguara/index.html"
+    },
+    {
+      "id": "editorial-random-house",
+      "url": "/editoriales/random-house/",
+      "label": "Random House",
+      "shortLabel": "Random House",
+      "type": "directory",
+      "territory": "herramientas",
+      "parentId": "editorials-hub",
+      "hubId": "tools-hub",
+      "discoverability": "contextual",
+      "audience": [
+        "writer"
+      ],
+      "jobs": [
+        "buscar-editorial"
+      ],
+      "sourceFile": "editoriales/random-house/index.html"
+    },
+    {
+      "id": "editorial-reservoir-books",
+      "url": "/editoriales/reservoir-books/",
+      "label": "Reservoir Books",
+      "shortLabel": "Reservoir Books",
+      "type": "directory",
+      "territory": "herramientas",
+      "parentId": "editorials-hub",
+      "hubId": "tools-hub",
+      "discoverability": "contextual",
+      "audience": [
+        "writer"
+      ],
+      "jobs": [
+        "buscar-editorial"
+      ],
+      "sourceFile": "editoriales/reservoir-books/index.html"
+    },
+    {
+      "id": "editorial-salamandra",
+      "url": "/editoriales/salamandra/",
+      "label": "Salamandra",
+      "shortLabel": "Salamandra",
+      "type": "directory",
+      "territory": "herramientas",
+      "parentId": "editorials-hub",
+      "hubId": "tools-hub",
+      "discoverability": "contextual",
+      "audience": [
+        "writer"
+      ],
+      "jobs": [
+        "buscar-editorial"
+      ],
+      "sourceFile": "editoriales/salamandra/index.html"
+    },
+    {
+      "id": "editorial-grijalbo",
+      "url": "/editoriales/grijalbo/",
+      "label": "Grijalbo",
+      "shortLabel": "Grijalbo",
+      "type": "directory",
+      "territory": "herramientas",
+      "parentId": "editorials-hub",
+      "hubId": "tools-hub",
+      "discoverability": "contextual",
+      "audience": [
+        "writer"
+      ],
+      "jobs": [
+        "buscar-editorial"
+      ],
+      "sourceFile": "editoriales/grijalbo/index.html"
+    },
+    {
+      "id": "editorial-adn-alianza-de-novelas",
+      "url": "/editoriales/adn-alianza-de-novelas/",
+      "label": "AdN · Alianza de Novelas",
+      "shortLabel": "AdN · Alianza de Novelas",
+      "type": "directory",
+      "territory": "herramientas",
+      "parentId": "editorials-hub",
+      "hubId": "tools-hub",
+      "discoverability": "contextual",
+      "audience": [
+        "writer"
+      ],
+      "jobs": [
+        "buscar-editorial"
+      ],
+      "sourceFile": "editoriales/adn-alianza-de-novelas/index.html"
+    },
+    {
+      "id": "editorial-contraluz-editorial",
+      "url": "/editoriales/contraluz-editorial/",
+      "label": "Contraluz",
+      "shortLabel": "Contraluz",
+      "type": "directory",
+      "territory": "herramientas",
+      "parentId": "editorials-hub",
+      "hubId": "tools-hub",
+      "discoverability": "contextual",
+      "audience": [
+        "writer"
+      ],
+      "jobs": [
+        "buscar-editorial"
+      ],
+      "sourceFile": "editoriales/contraluz-editorial/index.html"
     }
   ]
 }
