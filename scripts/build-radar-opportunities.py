@@ -24,6 +24,7 @@ SHARE_IMAGE_HEIGHT = 909
 ALLOWED_TYPES = {"concurso", "premio", "ayuda", "beca", "residencia", "manuscritos"}
 REQ = {"id", "title", "type", "organizer", "deadline", "genres", "source_url", "verified_at", "published", "fee_eur"}
 WATCH_REQ = {"id", "title", "type", "organizer", "genres", "source_url", "verified_at", "published", "status_note", "reference_note"}
+WATCH_KINDS = {"announced", "recurring"}
 FORBIDDEN_URL = re.compile(r"[\s\\\x00-\x1f\x7f<>\"{}|^`]")
 
 def iso_date(value, field):
@@ -104,6 +105,9 @@ def validate_watch(item):
     if not isinstance(item["published"], bool):
         raise ValueError(f"{item['id']}: published debe ser boolean")
     iso_date(item["verified_at"], "verified_at")
+    watch_kind = item.get("watch_kind", "announced")
+    if watch_kind not in WATCH_KINDS:
+        raise ValueError(f"{item['id']}: watch_kind no permitido: {watch_kind!r}")
 
 
 def state(item, today):
@@ -144,11 +148,14 @@ def card(item):
 def watch_card(item):
     genres = ", ".join(item["genres"])
     verified_label = iso_date(item["verified_at"], "verified_at").strftime("%d/%m/%Y")
-    expected = f'<div><dt>Próxima apertura</dt> <dd>{esc(item.get("expected_window") or "Fecha aún no publicada")}</dd></div>'
+    watch_kind = item.get("watch_kind", "announced")
+    badge = "Próxima apertura" if watch_kind == "announced" else "Próxima edición a vigilar"
+    expected_label = "Próxima apertura" if watch_kind == "announced" else "Cuándo revisar"
+    expected = f'<div><dt>{expected_label}</dt> <dd>{esc(item.get("expected_window") or "Fecha aún no publicada")}</dd></div>'
     reference = f'<div><dt>Referencia oficial</dt> <dd>{esc(item["reference_note"])}</dd></div>'
     note = f'<p class="radar-note">{esc(item.get("editorial_note"))}</p>' if item.get("editorial_note") else ""
-    return f'''<article class="radar-card radar-card--watch" data-radar-item data-radar-kind="watch" data-type="{esc(item['type'])}" data-genres="{esc('|'.join(item['genres']).lower())}" data-title="{esc(item['title'].lower())}" data-organizer="{esc(item['organizer'].lower())}" data-deadline="" data-verified-at="{esc(item['verified_at'])}">
-<div class="radar-card__top"><span class="radar-badge" data-radar-status>Próxima apertura</span><span>{esc(item['type'].capitalize())}</span></div>
+    return f'''<article class="radar-card radar-card--watch" data-radar-item data-radar-kind="watch" data-watch-kind="{esc(watch_kind)}" data-type="{esc(item['type'])}" data-genres="{esc('|'.join(item['genres']).lower())}" data-title="{esc(item['title'].lower())}" data-organizer="{esc(item['organizer'].lower())}" data-deadline="" data-verified-at="{esc(item['verified_at'])}">
+<div class="radar-card__top"><span class="radar-badge" data-radar-status>{esc(badge)}</span><span>{esc(item['type'].capitalize())}</span></div>
 <h2>{esc(item['title'])}</h2><p class="radar-org">{esc(item['organizer'])}</p>
 <dl><div><dt>Estado</dt> <dd>{esc(item['status_note'])}</dd></div><div><dt>Géneros</dt> <dd>{esc(genres)}</dd></div>{expected}{reference}</dl>
 {note}
@@ -183,8 +190,8 @@ def render_page_body(items, today, watchlist=None):
     watch_section = (
         f'<section class="radar-section radar-section--watch" data-radar-section="watch">'
         f'<div class="radar-section__head"><p class="eyebrow">Próximamente</p>'
-        f'<h2>Convocatorias a vigilar</h2>'
-        f'<p>La entidad organizadora ya confirma una próxima edición, pero todavía no existe un plazo abierto. '
+        f'<h2>Próximas aperturas y premios a vigilar</h2>'
+        f'<p>Se separan las ediciones futuras ya anunciadas de los premios recurrentes cuya siguiente convocatoria todavía no está publicada. '
         f'Estas fichas no se añaden al calendario hasta que haya fecha oficial.</p></div>'
         f'<div class="radar-grid" data-radar-grid>{watch_cards}</div></section>'
         if watch_cards else ""
