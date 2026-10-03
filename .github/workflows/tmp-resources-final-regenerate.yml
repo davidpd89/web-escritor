@@ -5,6 +5,7 @@ on:
     branches:
       - feat/pro-resources-editoriales-convocatorias-20261002
     paths:
+      - 'data/editoriales.json'
       - 'data/radar-opportunities.json'
       - 'data/radar-sources.json'
       - '.github/workflows/tmp-resources-final-regenerate.yml'

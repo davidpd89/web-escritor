@@ -2989,6 +2989,96 @@
         "buscar-editorial"
       ],
       "sourceFile": "editoriales/siren-books/index.html"
+    },
+    {
+      "id": "editorial-red-key-books",
+      "url": "/editoriales/red-key-books/",
+      "label": "Red Key Books",
+      "shortLabel": "Red Key Books",
+      "type": "directory",
+      "territory": "herramientas",
+      "parentId": "editorials-hub",
+      "hubId": "tools-hub",
+      "discoverability": "contextual",
+      "audience": [
+        "writer"
+      ],
+      "jobs": [
+        "buscar-editorial"
+      ],
+      "sourceFile": "editoriales/red-key-books/index.html"
+    },
+    {
+      "id": "editorial-sportula",
+      "url": "/editoriales/sportula/",
+      "label": "Spórtula",
+      "shortLabel": "Spórtula",
+      "type": "directory",
+      "territory": "herramientas",
+      "parentId": "editorials-hub",
+      "hubId": "tools-hub",
+      "discoverability": "contextual",
+      "audience": [
+        "writer"
+      ],
+      "jobs": [
+        "buscar-editorial"
+      ],
+      "sourceFile": "editoriales/sportula/index.html"
+    },
+    {
+      "id": "editorial-caballo-de-troya",
+      "url": "/editoriales/caballo-de-troya/",
+      "label": "Caballo de Troya",
+      "shortLabel": "Caballo de Troya",
+      "type": "directory",
+      "territory": "herramientas",
+      "parentId": "editorials-hub",
+      "hubId": "tools-hub",
+      "discoverability": "contextual",
+      "audience": [
+        "writer"
+      ],
+      "jobs": [
+        "buscar-editorial"
+      ],
+      "sourceFile": "editoriales/caballo-de-troya/index.html"
+    },
+    {
+      "id": "editorial-lumen",
+      "url": "/editoriales/lumen/",
+      "label": "Lumen",
+      "shortLabel": "Lumen",
+      "type": "directory",
+      "territory": "herramientas",
+      "parentId": "editorials-hub",
+      "hubId": "tools-hub",
+      "discoverability": "contextual",
+      "audience": [
+        "writer"
+      ],
+      "jobs": [
+        "buscar-editorial"
+      ],
+      "sourceFile": "editoriales/lumen/index.html"
+    },
+    {
+      "id": "editorial-blackie-books",
+      "url": "/editoriales/blackie-books/",
+      "label": "Blackie Books",
+      "shortLabel": "Blackie Books",
+      "type": "directory",
+      "territory": "herramientas",
+      "parentId": "editorials-hub",
+      "hubId": "tools-hub",
+      "discoverability": "contextual",
+      "audience": [
+        "writer"
+      ],
+      "jobs": [
+        "buscar-editorial"
+      ],
+      "sourceFile": "editoriales/blackie-books/index.html"
     }
   ]
 }
