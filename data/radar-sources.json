@@ -254,6 +254,58 @@
         "Estepona",
         "Pre-Textos"
       ]
+    },
+    {
+      "id": "tijola-novela-corta",
+      "name": "Ayuntamiento de Tíjola — Certamen de Novela Corta",
+      "url": "https://www.tijola.es/Servicios/cmsdipro/index.nsf/fiestas.xsp?documentId=D4256D3DC0FBDA8FC1258E480042BB53&p=Tijola",
+      "official": true,
+      "enabled": true,
+      "keywords": [
+        "novela corta",
+        "Tíjola",
+        "plazo",
+        "bases"
+      ]
+    },
+    {
+      "id": "ehu-alberto-magno",
+      "name": "EHU — Certamen Literario Alberto Magno",
+      "url": "https://www.ehu.eus/es/web/zientzia-teknologia-fakultatea/certamen-literario-alberto-magno",
+      "official": true,
+      "enabled": true,
+      "keywords": [
+        "ciencia ficción",
+        "fantasía",
+        "relato",
+        "plazo"
+      ]
+    },
+    {
+      "id": "madrid-chamberi-relato",
+      "name": "Ayuntamiento de Madrid — Certamen de Relato Corto Chamberí",
+      "url": "https://www.madrid.es/portales/munimadrid/es/Inicio/El-Ayuntamiento/Publicaciones/Listado-de-Publicaciones/Certamenes-de-otono-Chamberi-2026-Pintura-rapida-relato-corto-y-fotografia/?vgnextchannel=f1aebadb6b997010VgnVCM100000dc0ca8c0RCRD&vgnextfmt=default&vgnextoid=a87737ca0ccd0a10VgnVCM100000891ecb1aRCRD",
+      "official": true,
+      "enabled": true,
+      "keywords": [
+        "relato corto",
+        "Chamberí",
+        "Madrid",
+        "inscripción"
+      ]
+    },
+    {
+      "id": "melilla-encarna-leon",
+      "name": "Ciudad Autónoma de Melilla — Premio Encarna León",
+      "url": "https://www.melilla.es/melillaportal/contenedor.jsp?codMenu=4&codMenuPN=601&contenido=32857&nivel=1400&seccion=s_fdoc_d4_v1.jsp&tipo=5",
+      "official": true,
+      "enabled": true,
+      "keywords": [
+        "relato corto",
+        "Encarna León",
+        "plazo",
+        "BOME"
+      ]
     }
   ]
 }
