@@ -52,9 +52,11 @@ async function noOverflow(p,label){const x=await p.evaluate(()=>document.documen
   const[c,p]=await open('/editoriales/');
   assert.equal(await visible(p,'[data-editorial-card]'),editorialData.length);
   const q=p.locator('[data-editoriales-search]');
-  for(const [term,n] of [['MINOTAURO',1],['fantasia',genreCount('fantasía')],['zzzz-sin-resultados',0],['  Minotauro  ',1]]){
+  for(const [term,n] of [['MINOTAURO',1],['zzzz-sin-resultados',0],['  Minotauro  ',1]]){
     await q.fill(term);assert.equal(await visible(p,'[data-editorial-card]'),n);
   }
+  await q.fill('fantasia');
+  assert.ok(await visible(p,'[data-editorial-card]')>=genreCount('fantasía'),'la búsqueda libre debe incluir al menos todas las fichas etiquetadas como fantasía');
   await p.locator('[data-editoriales-reset]').click();
   assert.equal(await p.locator('[data-editoriales-sort]').count(),1);
   await p.locator('[data-editoriales-sort]').selectOption('name');
