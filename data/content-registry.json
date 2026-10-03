@@ -1873,6 +1873,330 @@
         "buscar-editorial"
       ],
       "sourceFile": "editoriales/matchstories/index.html"
+    },
+    {
+      "id": "editorial-editorial-cetro",
+      "url": "/editoriales/editorial-cetro/",
+      "label": "Editorial Cetro",
+      "shortLabel": "Editorial Cetro",
+      "type": "directory",
+      "territory": "herramientas",
+      "parentId": "editorials-hub",
+      "hubId": "tools-hub",
+      "discoverability": "contextual",
+      "audience": [
+        "writer"
+      ],
+      "jobs": [
+        "buscar-editorial"
+      ],
+      "sourceFile": "editoriales/editorial-cetro/index.html"
+    },
+    {
+      "id": "editorial-lom-ediciones",
+      "url": "/editoriales/lom-ediciones/",
+      "label": "LOM Ediciones",
+      "shortLabel": "LOM Ediciones",
+      "type": "directory",
+      "territory": "herramientas",
+      "parentId": "editorials-hub",
+      "hubId": "tools-hub",
+      "discoverability": "contextual",
+      "audience": [
+        "writer"
+      ],
+      "jobs": [
+        "buscar-editorial"
+      ],
+      "sourceFile": "editoriales/lom-ediciones/index.html"
+    },
+    {
+      "id": "editorial-valhalla-ediciones",
+      "url": "/editoriales/valhalla-ediciones/",
+      "label": "Valhalla Ediciones",
+      "shortLabel": "Valhalla Ediciones",
+      "type": "directory",
+      "territory": "herramientas",
+      "parentId": "editorials-hub",
+      "hubId": "tools-hub",
+      "discoverability": "contextual",
+      "audience": [
+        "writer"
+      ],
+      "jobs": [
+        "buscar-editorial"
+      ],
+      "sourceFile": "editoriales/valhalla-ediciones/index.html"
+    },
+    {
+      "id": "editorial-ediciones-tyt",
+      "url": "/editoriales/ediciones-tyt/",
+      "label": "Ediciones T&T",
+      "shortLabel": "Ediciones T&T",
+      "type": "directory",
+      "territory": "herramientas",
+      "parentId": "editorials-hub",
+      "hubId": "tools-hub",
+      "discoverability": "contextual",
+      "audience": [
+        "writer"
+      ],
+      "jobs": [
+        "buscar-editorial"
+      ],
+      "sourceFile": "editoriales/ediciones-tyt/index.html"
+    },
+    {
+      "id": "editorial-numak-ediciones",
+      "url": "/editoriales/numak-ediciones/",
+      "label": "Numak Ediciones",
+      "shortLabel": "Numak Ediciones",
+      "type": "directory",
+      "territory": "herramientas",
+      "parentId": "editorials-hub",
+      "hubId": "tools-hub",
+      "discoverability": "contextual",
+      "audience": [
+        "writer"
+      ],
+      "jobs": [
+        "buscar-editorial"
+      ],
+      "sourceFile": "editoriales/numak-ediciones/index.html"
+    },
+    {
+      "id": "editorial-ediciones-labnar",
+      "url": "/editoriales/ediciones-labnar/",
+      "label": "Ediciones Labnar",
+      "shortLabel": "Ediciones Labnar",
+      "type": "directory",
+      "territory": "herramientas",
+      "parentId": "editorials-hub",
+      "hubId": "tools-hub",
+      "discoverability": "contextual",
+      "audience": [
+        "writer"
+      ],
+      "jobs": [
+        "buscar-editorial"
+      ],
+      "sourceFile": "editoriales/ediciones-labnar/index.html"
+    },
+    {
+      "id": "editorial-adel-editores",
+      "url": "/editoriales/adel-editores/",
+      "label": "Adel Editores",
+      "shortLabel": "Adel Editores",
+      "type": "directory",
+      "territory": "herramientas",
+      "parentId": "editorials-hub",
+      "hubId": "tools-hub",
+      "discoverability": "contextual",
+      "audience": [
+        "writer"
+      ],
+      "jobs": [
+        "buscar-editorial"
+      ],
+      "sourceFile": "editoriales/adel-editores/index.html"
+    },
+    {
+      "id": "editorial-editorial-periferica",
+      "url": "/editoriales/editorial-periferica/",
+      "label": "Editorial Periférica",
+      "shortLabel": "Editorial Periférica",
+      "type": "directory",
+      "territory": "herramientas",
+      "parentId": "editorials-hub",
+      "hubId": "tools-hub",
+      "discoverability": "contextual",
+      "audience": [
+        "writer"
+      ],
+      "jobs": [
+        "buscar-editorial"
+      ],
+      "sourceFile": "editoriales/editorial-periferica/index.html"
+    },
+    {
+      "id": "editorial-editorial-minuscula",
+      "url": "/editoriales/editorial-minuscula/",
+      "label": "editorial minúscula",
+      "shortLabel": "editorial minúscula",
+      "type": "directory",
+      "territory": "herramientas",
+      "parentId": "editorials-hub",
+      "hubId": "tools-hub",
+      "discoverability": "contextual",
+      "audience": [
+        "writer"
+      ],
+      "jobs": [
+        "buscar-editorial"
+      ],
+      "sourceFile": "editoriales/editorial-minuscula/index.html"
+    },
+    {
+      "id": "editorial-libros-del-asteroide",
+      "url": "/editoriales/libros-del-asteroide/",
+      "label": "Libros del Asteroide",
+      "shortLabel": "Libros del Asteroide",
+      "type": "directory",
+      "territory": "herramientas",
+      "parentId": "editorials-hub",
+      "hubId": "tools-hub",
+      "discoverability": "contextual",
+      "audience": [
+        "writer"
+      ],
+      "jobs": [
+        "buscar-editorial"
+      ],
+      "sourceFile": "editoriales/libros-del-asteroide/index.html"
+    },
+    {
+      "id": "editorial-editorial-transito",
+      "url": "/editoriales/editorial-transito/",
+      "label": "Editorial Tránsito",
+      "shortLabel": "Editorial Tránsito",
+      "type": "directory",
+      "territory": "herramientas",
+      "parentId": "editorials-hub",
+      "hubId": "tools-hub",
+      "discoverability": "contextual",
+      "audience": [
+        "writer"
+      ],
+      "jobs": [
+        "buscar-editorial"
+      ],
+      "sourceFile": "editoriales/editorial-transito/index.html"
+    },
+    {
+      "id": "editorial-galaxia-gutenberg",
+      "url": "/editoriales/galaxia-gutenberg/",
+      "label": "Galaxia Gutenberg",
+      "shortLabel": "Galaxia Gutenberg",
+      "type": "directory",
+      "territory": "herramientas",
+      "parentId": "editorials-hub",
+      "hubId": "tools-hub",
+      "discoverability": "contextual",
+      "audience": [
+        "writer"
+      ],
+      "jobs": [
+        "buscar-editorial"
+      ],
+      "sourceFile": "editoriales/galaxia-gutenberg/index.html"
+    },
+    {
+      "id": "editorial-editorial-barrett",
+      "url": "/editoriales/editorial-barrett/",
+      "label": "Editorial Barrett",
+      "shortLabel": "Editorial Barrett",
+      "type": "directory",
+      "territory": "herramientas",
+      "parentId": "editorials-hub",
+      "hubId": "tools-hub",
+      "discoverability": "contextual",
+      "audience": [
+        "writer"
+      ],
+      "jobs": [
+        "buscar-editorial"
+      ],
+      "sourceFile": "editoriales/editorial-barrett/index.html"
+    },
+    {
+      "id": "editorial-navona-editorial",
+      "url": "/editoriales/navona-editorial/",
+      "label": "Navona Editorial",
+      "shortLabel": "Navona Editorial",
+      "type": "directory",
+      "territory": "herramientas",
+      "parentId": "editorials-hub",
+      "hubId": "tools-hub",
+      "discoverability": "contextual",
+      "audience": [
+        "writer"
+      ],
+      "jobs": [
+        "buscar-editorial"
+      ],
+      "sourceFile": "editoriales/navona-editorial/index.html"
+    },
+    {
+      "id": "editorial-ediciones-versatil",
+      "url": "/editoriales/ediciones-versatil/",
+      "label": "Ediciones Versátil",
+      "shortLabel": "Ediciones Versátil",
+      "type": "directory",
+      "territory": "herramientas",
+      "parentId": "editorials-hub",
+      "hubId": "tools-hub",
+      "discoverability": "contextual",
+      "audience": [
+        "writer"
+      ],
+      "jobs": [
+        "buscar-editorial"
+      ],
+      "sourceFile": "editoriales/ediciones-versatil/index.html"
+    },
+    {
+      "id": "editorial-fulgencio-pimentel",
+      "url": "/editoriales/fulgencio-pimentel/",
+      "label": "Fulgencio Pimentel",
+      "shortLabel": "Fulgencio Pimentel",
+      "type": "directory",
+      "territory": "herramientas",
+      "parentId": "editorials-hub",
+      "hubId": "tools-hub",
+      "discoverability": "contextual",
+      "audience": [
+        "writer"
+      ],
+      "jobs": [
+        "buscar-editorial"
+      ],
+      "sourceFile": "editoriales/fulgencio-pimentel/index.html"
+    },
+    {
+      "id": "editorial-odelia-editora",
+      "url": "/editoriales/odelia-editora/",
+      "label": "Odelia editora",
+      "shortLabel": "Odelia editora",
+      "type": "directory",
+      "territory": "herramientas",
+      "parentId": "editorials-hub",
+      "hubId": "tools-hub",
+      "discoverability": "contextual",
+      "audience": [
+        "writer"
+      ],
+      "jobs": [
+        "buscar-editorial"
+      ],
+      "sourceFile": "editoriales/odelia-editora/index.html"
+    },
+    {
+      "id": "editorial-cetus-editorial",
+      "url": "/editoriales/cetus-editorial/",
+      "label": "Cetus Editorial",
+      "shortLabel": "Cetus Editorial",
+      "type": "directory",
+      "territory": "herramientas",
+      "parentId": "editorials-hub",
+      "hubId": "tools-hub",
+      "discoverability": "contextual",
+      "audience": [
+        "writer"
+      ],
+      "jobs": [
+        "buscar-editorial"
+      ],
+      "sourceFile": "editoriales/cetus-editorial/index.html"
     }
   ]
 }
