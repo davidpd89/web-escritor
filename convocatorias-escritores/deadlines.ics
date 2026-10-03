@@ -5,6 +5,15 @@ CALSCALE:GREGORIAN
 METHOD:PUBLISH
 X-WR-CALNAME:Convocatorias para escritores
 BEGIN:VEVENT
+UID:camino-santiago-navarra-relatos-2026@davidportodiaz.com
+DTSTART;VALUE=DATE:20261005
+DTEND;VALUE=DATE:20261006
+SUMMARY:VII Concurso de Relatos Cortos «Camino de Santiago» 2026
+DESCRIPTION:Asociación de Amigos del Camino de Santiago en Navarra
+URL:https://www.caminosantiago.org/CPPEREGRINO/prensa/verprensa.asp?PrensaI
+ D=23405
+END:VEVENT
+BEGIN:VEVENT
 UID:cuarto-y-mitad-2026@davidportodiaz.com
 DTSTART;VALUE=DATE:20261006
 DTEND;VALUE=DATE:20261007
@@ -31,6 +40,15 @@ DTEND;VALUE=DATE:20261009
 SUMMARY:IV Concurso Literario «Amparo Pérez Alamino» 2026
 DESCRIPTION:FEAFES Melilla
 URL:https://feafesmelilla.es/concurso-literario-amparo-perez-alamino
+END:VEVENT
+BEGIN:VEVENT
+UID:voces-del-pueblo-2026@davidportodiaz.com
+DTSTART;VALUE=DATE:20261008
+DTEND;VALUE=DATE:20261009
+SUMMARY:I Concurso de Microrrelatos «Voces del pueblo» 2026
+DESCRIPTION:Diversidad Literaria
+URL:https://www.diversidadliteraria.com/info-concursos/concursos-microrrela
+ tos/voces-del-pueblo
 END:VEVENT
 BEGIN:VEVENT
 UID:jorge-manrique-poesia-2026@davidportodiaz.com
@@ -84,6 +102,14 @@ SUMMARY:I Certame de Microrrelatos «Arr3quentando a Cultura»
 DESCRIPTION:AFIPRODEL Galicia
 URL:https://afiprodel.org/afiprodel/i-certame-de-microrelatos-arr3quentando
  -a-cultura/
+END:VEVENT
+BEGIN:VEVENT
+UID:casa-del-tiempo-requiem-television-2026@davidportodiaz.com
+DTSTART;VALUE=DATE:20261012
+DTEND;VALUE=DATE:20261013
+SUMMARY:Casa del tiempo · «Réquiem por la televisión»
+DESCRIPTION:Universidad Autónoma Metropolitana · revista Casa del tiempo
+URL:https://casadeltiempo.uam.mx/index.php/convocatorias
 END:VEVENT
 BEGIN:VEVENT
 UID:marta-portal-terror-fantastico-2026@davidportodiaz.com
@@ -247,6 +273,15 @@ URL:https://www.curtis.gal/index.php/es/noticias/5174-bases-do-xxi-certame-
  de-narrativa-curta-do-concello-de-curtis-o-exame
 END:VEVENT
 BEGIN:VEVENT
+UID:anton-aviles-taramancos-2026@davidportodiaz.com
+DTSTART;VALUE=DATE:20261020
+DTEND;VALUE=DATE:20261021
+SUMMARY:XXV Certame Literario de Aventuras Antón Avilés de Taramancos
+DESCRIPTION:Concello de Noia
+URL:https://axendacultural.aelg.gal/tag/certame-literario-de-relato-de-aven
+ turas-anton-aviles-de-taramancos/
+END:VEVENT
+BEGIN:VEVENT
 UID:luz-luna-diversidad-literaria-2026@davidportodiaz.com
 DTSTART;VALUE=DATE:20261022
 DTEND;VALUE=DATE:20261023
@@ -263,6 +298,15 @@ SUMMARY:XXXVIII Certamen Literario Alberto Magno de Ciencia Ficción 2026
 DESCRIPTION:Facultad de Ciencia y Tecnología · EHU
 URL:https://www.ehu.eus/es/web/zientzia-teknologia-fakultatea/certamen-lite
  rario-alberto-magno
+END:VEVENT
+BEGIN:VEVENT
+UID:entre-plumas-y-letras-2026@davidportodiaz.com
+DTSTART;VALUE=DATE:20261023
+DTEND;VALUE=DATE:20261024
+SUMMARY:V Concurso de relatos «Entre plumas y letras» 2026
+DESCRIPTION:Diversidad Literaria
+URL:https://www.diversidadliteraria.com/info-concursos/concurso-relatos-ent
+ re-plumas-y-letras
 END:VEVENT
 BEGIN:VEVENT
 UID:manera-montblanc-relatos-2026@davidportodiaz.com
@@ -411,6 +455,14 @@ URL:https://edicioneshesperides.blogspot.com/2026/05/bases-2026-del-concurs
  o-internacional.html
 END:VEVENT
 BEGIN:VEVENT
+UID:la-cruz-escribe-2026@davidportodiaz.com
+DTSTART;VALUE=DATE:20261031
+DTEND;VALUE=DATE:20261101
+SUMMARY:II Certamen Literario «La Cruz Escribe» 2026 · Relato adultos
+DESCRIPTION:Ilustre Cofradía de la Santa Vera Cruz de Salamanca
+URL:https://veracruzsalamanca.org/
+END:VEVENT
+BEGIN:VEVENT
 UID:bienestar-jabones-alonso-2026@davidportodiaz.com
 DTSTART;VALUE=DATE:20261101
 DTEND;VALUE=DATE:20261102
@@ -527,6 +579,15 @@ DTEND;VALUE=DATE:20261116
 SUMMARY:Esta Noche Te Cuento 2026 · «La culpa»
 DESCRIPTION:Esta Noche Te Cuento
 URL:https://estanochetecuento.com/
+END:VEVENT
+BEGIN:VEVENT
+UID:cuentos-erroticos-iliada-2026@davidportodiaz.com
+DTSTART;VALUE=DATE:20261116
+DTEND;VALUE=DATE:20261117
+SUMMARY:I Concurso Internacional de Cuentos «Erróticos» 2026
+DESCRIPTION:Ilíada Ediciones y OtroLunes
+URL:https://otrolunes.com/67/especial-ultima-hora/primer-concurso-internaci
+ onal-de-cuentos-erroticos-20206/
 END:VEVENT
 BEGIN:VEVENT
 UID:oxfam-castello-microrrelatos-2026@davidportodiaz.com

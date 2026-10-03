@@ -52,6 +52,53 @@
     },
     {
       "publish": true,
+      "slug": "altamarea-ediciones",
+      "name": "Altamarea Ediciones",
+      "group": "Altamarea",
+      "publisher_type": "tradicional",
+      "country": "España",
+      "genres": [
+        "narrativa",
+        "ensayo",
+        "ficción social"
+      ],
+      "status": "open",
+      "direct_submission": true,
+      "submission_channel": "Correo electrónico específico de manuscritos",
+      "submission_email": "manuscritos@altamarea.es",
+      "submission_url": "https://altamarea.es/contactos/",
+      "website_url": "https://altamarea.es/",
+      "requirements": [
+        "Enviar un original completo al correo específico de manuscritos.",
+        "La página oficial no publica requisitos adicionales de extensión o dossier; conviene no inventarlos y comprobar la página antes de enviar."
+      ],
+      "response_time": null,
+      "summary": "Altamarea publica narrativa y no ficción de orientación literaria, social y política y mantiene un correo específico para la recepción de originales completos.",
+      "public_note": "La fuente oficial confirma el canal y exige originales completos, pero no detalla plazos de lectura ni un paquete documental adicional.",
+      "verified_at": "2026-10-03",
+      "page_updated_at": "2026-10-03",
+      "sources": [
+        {
+          "label": "Altamarea — contacto y manuscritos",
+          "url": "https://altamarea.es/contactos/",
+          "primary": true
+        },
+        {
+          "label": "Altamarea — editorial",
+          "url": "https://altamarea.es/editorial/",
+          "primary": true
+        }
+      ],
+      "history": [
+        {
+          "date": "2026-10-03",
+          "event": "Comprobado el correo específico de manuscritos y el requisito de enviar únicamente originales completos.",
+          "source_url": "https://altamarea.es/contactos/"
+        }
+      ]
+    },
+    {
+      "publish": true,
       "publisher_type": "tradicional",
       "country": "España",
       "response_time": null,
@@ -794,6 +841,54 @@
           "date": "2026-10-02",
           "event": "Comprobado el estado público de recepción, el canal disponible y las condiciones publicadas por la editorial.",
           "source_url": "https://www.editorialcerbero.com/manuscritos/"
+        }
+      ]
+    },
+    {
+      "publish": true,
+      "slug": "editorial-cuadranta",
+      "name": "Editorial Cuadranta",
+      "group": "Editorial Cuadranta",
+      "publisher_type": "tradicional",
+      "country": "España",
+      "genres": [
+        "narrativa",
+        "thriller",
+        "ficción"
+      ],
+      "status": "open",
+      "direct_submission": true,
+      "submission_channel": "Correo electrónico oficial de recepción de manuscritos",
+      "submission_email": "elequipode@editorialcuadranta.com",
+      "submission_url": "https://www.editorialcuadranta.com/p/4236_manuscritos/",
+      "website_url": "https://www.editorialcuadranta.com/",
+      "requirements": [
+        "Residir en España.",
+        "Enviar el manuscrito original completo en Word o PDF.",
+        "Añadir unas líneas con nombre, fecha de nacimiento, lugar de residencia y ocupación."
+      ],
+      "response_time": null,
+      "summary": "Editorial Cuadranta mantiene una página específica de recepción de manuscritos y declara un modelo de edición tradicional en el que la editorial asume los costes y el autor percibe derechos de autor.",
+      "public_note": "La propia editorial indica que no acepta coediciones ni autoediciones. Los términos concretos de cualquier contrato deben revisarse antes de aceptar una propuesta.",
+      "verified_at": "2026-10-03",
+      "page_updated_at": "2026-10-03",
+      "sources": [
+        {
+          "label": "Editorial Cuadranta — recepción de manuscritos",
+          "url": "https://www.editorialcuadranta.com/p/4236_manuscritos/",
+          "primary": true
+        },
+        {
+          "label": "Editorial Cuadranta — web oficial",
+          "url": "https://www.editorialcuadranta.com/",
+          "primary": true
+        }
+      ],
+      "history": [
+        {
+          "date": "2026-10-03",
+          "event": "Comprobados el envío directo para residentes en España, los formatos admitidos y el modelo editorial declarado.",
+          "source_url": "https://www.editorialcuadranta.com/p/4236_manuscritos/"
         }
       ]
     },
@@ -2052,6 +2147,50 @@
     },
     {
       "publish": true,
+      "slug": "platero-coolbooks",
+      "name": "Platero CoolBooks",
+      "group": "Platero Editorial",
+      "publisher_type": "tradicional",
+      "country": "España",
+      "genres": [
+        "narrativa",
+        "ficción",
+        "fantasía"
+      ],
+      "status": "open",
+      "direct_submission": true,
+      "submission_channel": "Correo electrónico específico de CoolBooks",
+      "submission_email": "coolbooks@plateroeditorial.es",
+      "submission_url": "https://www.plateroeditorial.es/p/1962_coolbooks-el-sello-literario-de-platero-editorial/",
+      "website_url": "https://www.plateroeditorial.es/",
+      "requirements": [
+        "Obra inédita y manuscrito definitivo.",
+        "Sinopsis y breve biografía del autor o autora con datos de contacto.",
+        "Explicar brevemente por qué la obra debería publicarse en el sello.",
+        "Usar en el asunto «Propuesta edición» seguido del título de la obra."
+      ],
+      "response_time": "La editorial afirma que responde a las propuestas recibidas, sin publicar en esta página un plazo concreto.",
+      "summary": "CoolBooks es el sello de narrativa de Platero Editorial para nuevas voces. Publica que acepta propuestas de cualquier género y que el autor no debe realizar inversión económica ni asumir compromisos de venta.",
+      "public_note": "La editorial declara que asume edición, lanzamiento y distribución. Cualquier contrato concreto debe revisarse antes de ceder derechos.",
+      "verified_at": "2026-10-03",
+      "page_updated_at": "2026-10-03",
+      "sources": [
+        {
+          "label": "Platero CoolBooks — funcionamiento y envío",
+          "url": "https://www.plateroeditorial.es/p/1962_coolbooks-el-sello-literario-de-platero-editorial/",
+          "primary": true
+        }
+      ],
+      "history": [
+        {
+          "date": "2026-10-03",
+          "event": "Comprobados el canal de recepción, el paquete solicitado y la declaración de modelo editorial sin inversión del autor.",
+          "source_url": "https://www.plateroeditorial.es/p/1962_coolbooks-el-sello-literario-de-platero-editorial/"
+        }
+      ]
+    },
+    {
+      "publish": true,
       "publisher_type": "tradicional",
       "country": "España",
       "submission_email": "manuscritos@plomoediciones.es",
@@ -2783,6 +2922,54 @@
           "date": "2026-08-11",
           "event": "Comprobado el estado público de recepción, el canal disponible y las condiciones publicadas por la editorial.",
           "source_url": "https://www.alianzaeditorial.es/subcoleccion/runas/"
+        }
+      ]
+    },
+    {
+      "publish": true,
+      "slug": "apache-libros",
+      "name": "Apache Libros",
+      "group": "Independiente",
+      "publisher_type": "tradicional",
+      "country": "España",
+      "genres": [
+        "ciencia ficción",
+        "fantasía",
+        "terror"
+      ],
+      "status": "closed",
+      "direct_submission": false,
+      "submission_channel": "Recepción cerrada; esperar reapertura oficial",
+      "submission_email": null,
+      "submission_url": "https://apachelibros.com/content/7-envio-de-manuscrito",
+      "website_url": "https://apachelibros.com/",
+      "requirements": [
+        "No enviar mientras la página oficial mantenga «CERRADO EL PLAZO DE ENVÍO DE MANUSCRITOS».",
+        "Como referencia para una futura reapertura, la editorial publica rangos de 20.000–40.000 palabras para novela corta y 40.000–110.000 para novela, en ciencia ficción, fantasía o terror.",
+        "El protocolo publicado solicita sinopsis comercial, fortalezas de autor y novela, público objetivo, sinopsis completa con spoilers y texto completo en Word."
+      ],
+      "response_time": "La editorial indica que, cuando recibe propuestas, solo contacta si existe interés y puede tardar hasta doce meses.",
+      "summary": "Apache Libros está especializada en ciencia ficción, fantasía y terror. Mantiene publicado su protocolo de manuscritos, pero el plazo de recepción figura expresamente cerrado.",
+      "public_note": "No se publica el correo histórico como vía activa mientras el encabezado oficial mantenga el plazo cerrado. Los requisitos se conservan solo como referencia para una futura reapertura.",
+      "verified_at": "2026-10-03",
+      "page_updated_at": "2026-10-03",
+      "sources": [
+        {
+          "label": "Apache Libros — envío de manuscrito",
+          "url": "https://apachelibros.com/content/7-envio-de-manuscrito",
+          "primary": true
+        },
+        {
+          "label": "Apache Libros — catálogo",
+          "url": "https://apachelibros.com/",
+          "primary": true
+        }
+      ],
+      "history": [
+        {
+          "date": "2026-10-03",
+          "event": "Comprobada en la página oficial la recepción cerrada y el protocolo publicado para futuras aperturas.",
+          "source_url": "https://apachelibros.com/content/7-envio-de-manuscrito"
         }
       ]
     },
