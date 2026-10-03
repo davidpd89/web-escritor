@@ -2608,6 +2608,54 @@
     },
     {
       "publish": true,
+      "publisher_type": "tradicional",
+      "country": "España",
+      "response_time": null,
+      "page_updated_at": "2026-10-03",
+      "slug": "blackie-books",
+      "name": "Blackie Books",
+      "group": "Independiente",
+      "genres": [
+        "narrativa",
+        "ensayo",
+        "humor",
+        "literatura infantil"
+      ],
+      "status": "indirect",
+      "direct_submission": false,
+      "submission_channel": "Sin protocolo oficial específico de manuscritos publicado",
+      "submission_email": null,
+      "submission_url": "https://blackiebooks.org/contacto/",
+      "website_url": "https://blackiebooks.org/",
+      "requirements": [
+        "La web oficial ofrece contacto general, pero no publica en la comprobación actual instrucciones específicas para enviar originales.",
+        "Consultar primero la política vigente; no adjuntar un manuscrito completo basándose únicamente en el formulario general."
+      ],
+      "summary": "Editorial independiente de Barcelona centrada en narrativa contemporánea, libros de conocimiento y proyectos de fuerte identidad editorial, sin un protocolo público específico de originales verificado.",
+      "public_note": "La ficha distingue el formulario general de contacto de un canal autorizado de manuscritos; no se publica un correo general como vía de envío.",
+      "verified_at": "2026-10-03",
+      "sources": [
+        {
+          "label": "Blackie Books — contacto",
+          "url": "https://blackiebooks.org/contacto/",
+          "primary": true
+        },
+        {
+          "label": "Blackie Books — quiénes somos",
+          "url": "https://blackiebooks.org/quienes-somos/",
+          "primary": true
+        }
+      ],
+      "history": [
+        {
+          "date": "2026-10-03",
+          "event": "Comprobada la actividad de la editorial y la ausencia de instrucciones oficiales específicas para manuscritos en su contacto público.",
+          "source_url": "https://blackiebooks.org/contacto/"
+        }
+      ]
+    },
+    {
+      "publish": true,
       "slug": "gigamesh",
       "name": "Ediciones Gigamesh",
       "group": "Gigamesh",
@@ -2645,6 +2693,53 @@
           "date": "2026-08-19",
           "event": "Comprobado el estado público de recepción, el canal disponible y las condiciones publicadas por la editorial.",
           "source_url": "https://edicionesgigamesh.com/editorial/"
+        }
+      ]
+    },
+    {
+      "publish": true,
+      "publisher_type": "tradicional",
+      "country": "España",
+      "response_time": null,
+      "page_updated_at": "2026-10-03",
+      "slug": "red-key-books",
+      "name": "Red Key Books",
+      "group": "Independiente",
+      "genres": [
+        "fantasía",
+        "ciencia ficción",
+        "terror"
+      ],
+      "status": "indirect",
+      "direct_submission": false,
+      "submission_channel": "Sin canal oficial específico de originales publicado",
+      "submission_email": null,
+      "submission_url": "https://redkeybooks.com/",
+      "website_url": "https://redkeybooks.com/",
+      "requirements": [
+        "Consultar el catálogo y la información de la editorial antes de cualquier contacto.",
+        "No utilizar el correo general de información como si fuera un buzón de manuscritos sin confirmación previa."
+      ],
+      "summary": "Editorial independiente especializada en fantasía, ciencia ficción y terror con catálogo activo y distribución profesional, pero sin un protocolo público de recepción de originales verificado.",
+      "public_note": "La existencia de un email general de información no se interpreta como autorización para enviar manuscritos completos.",
+      "verified_at": "2026-10-03",
+      "sources": [
+        {
+          "label": "Red Key Books — web oficial",
+          "url": "https://redkeybooks.com/",
+          "primary": true
+        },
+        {
+          "label": "Red Key Books — quiénes somos",
+          "url": "https://redkeybooks.com/quienes-somos/",
+          "primary": true
+        }
+      ],
+      "history": [
+        {
+          "date": "2026-10-03",
+          "event": "Comprobada la actividad editorial, especialización y ausencia de una puerta pública específica de originales.",
+          "source_url": "https://redkeybooks.com/"
         }
       ]
     },
@@ -3743,6 +3838,54 @@
       "publish": true,
       "publisher_type": "tradicional",
       "country": "España",
+      "response_time": null,
+      "page_updated_at": "2026-10-03",
+      "slug": "sportula",
+      "name": "Spórtula",
+      "group": "Independiente",
+      "genres": [
+        "ciencia ficción",
+        "fantasía",
+        "terror",
+        "literatura de género"
+      ],
+      "status": "closed",
+      "direct_submission": false,
+      "submission_channel": "Recepción de originales cerrada",
+      "submission_email": null,
+      "submission_url": "https://sportula.es/recepcion-de-originales/",
+      "website_url": "https://sportula.es/",
+      "requirements": [
+        "No enviar originales mientras la página oficial mantenga el cierre.",
+        "La editorial indica expresamente que no acepta originales no solicitados durante el cierre."
+      ],
+      "summary": "Editorial independiente de literatura de género que mantiene una página específica de recepción de originales; en la comprobación actual figura cerrada.",
+      "public_note": "El cierre es explícito en la fuente oficial. La ficha debe revisarse cuando Spórtula anuncie una reapertura.",
+      "verified_at": "2026-10-03",
+      "sources": [
+        {
+          "label": "Spórtula — recepción de originales",
+          "url": "https://sportula.es/recepcion-de-originales/",
+          "primary": true
+        },
+        {
+          "label": "Spórtula — web oficial",
+          "url": "https://sportula.es/",
+          "primary": true
+        }
+      ],
+      "history": [
+        {
+          "date": "2026-10-03",
+          "event": "Comprobada en la página oficial la recepción de originales como cerrada.",
+          "source_url": "https://sportula.es/recepcion-de-originales/"
+        }
+      ]
+    },
+    {
+      "publish": true,
+      "publisher_type": "tradicional",
+      "country": "España",
       "submission_email": null,
       "response_time": null,
       "page_updated_at": "2026-10-03",
@@ -3826,6 +3969,54 @@
         {
           "date": "2026-10-03",
           "event": "Revisados el catálogo oficial y el estado público de la vía de recepción disponible.",
+          "source_url": "https://www.penguinrandomhousegrupoeditorial.com/sellos-y-negocios/quiero-enviar-un-manuscrito/"
+        }
+      ]
+    },
+    {
+      "publish": true,
+      "publisher_type": "tradicional",
+      "country": "España",
+      "response_time": null,
+      "page_updated_at": "2026-10-03",
+      "slug": "caballo-de-troya",
+      "name": "Caballo de Troya",
+      "group": "Penguin Random House Grupo Editorial",
+      "genres": [
+        "narrativa",
+        "literatura contemporánea",
+        "nuevas voces"
+      ],
+      "status": "unknown",
+      "direct_submission": false,
+      "submission_channel": "Portal corporativo de Penguin Random House Grupo Editorial",
+      "submission_email": null,
+      "submission_url": "https://www.penguinrandomhousegrupoeditorial.com/sellos-y-negocios/quiero-enviar-un-manuscrito/",
+      "website_url": "https://www.penguinrandomhousegrupoeditorial.com/sello/caballo-de-troya/",
+      "requirements": [
+        "Penguin Random House recibe manuscritos espontáneos mediante su portal web.",
+        "Comprobar en el formulario si Caballo de Troya está disponible como sello seleccionable antes de preparar el envío.",
+        "Seguir el PDF y los requisitos que publique el portal corporativo."
+      ],
+      "summary": "Sello de Penguin Random House orientado a la exploración literaria y al descubrimiento de nuevas voces hispánicas; el canal de originales depende del portal corporativo del grupo.",
+      "public_note": "Que el sello aparezca en el catálogo corporativo no garantiza que esté habilitado en el selector de manuscritos en todo momento.",
+      "verified_at": "2026-10-03",
+      "sources": [
+        {
+          "label": "PRH — envío de manuscritos",
+          "url": "https://www.penguinrandomhousegrupoeditorial.com/sellos-y-negocios/quiero-enviar-un-manuscrito/",
+          "primary": true
+        },
+        {
+          "label": "Caballo de Troya — sello oficial",
+          "url": "https://www.penguinrandomhousegrupoeditorial.com/sello/caballo-de-troya/",
+          "primary": true
+        }
+      ],
+      "history": [
+        {
+          "date": "2026-10-03",
+          "event": "Comprobados el sello oficial y su pertenencia al sistema corporativo de recepción de manuscritos de PRH.",
           "source_url": "https://www.penguinrandomhousegrupoeditorial.com/sellos-y-negocios/quiero-enviar-un-manuscrito/"
         }
       ]
@@ -4014,6 +4205,54 @@
         {
           "date": "2026-10-03",
           "event": "Revisados el catálogo oficial y el estado público de la vía de recepción disponible.",
+          "source_url": "https://www.penguinrandomhousegrupoeditorial.com/sellos-y-negocios/quiero-enviar-un-manuscrito/"
+        }
+      ]
+    },
+    {
+      "publish": true,
+      "publisher_type": "tradicional",
+      "country": "España",
+      "response_time": null,
+      "page_updated_at": "2026-10-03",
+      "slug": "lumen",
+      "name": "Lumen",
+      "group": "Penguin Random House Grupo Editorial",
+      "genres": [
+        "narrativa",
+        "literatura contemporánea",
+        "ensayo"
+      ],
+      "status": "unknown",
+      "direct_submission": false,
+      "submission_channel": "Portal corporativo de Penguin Random House Grupo Editorial",
+      "submission_email": null,
+      "submission_url": "https://www.penguinrandomhousegrupoeditorial.com/sellos-y-negocios/quiero-enviar-un-manuscrito/",
+      "website_url": "https://www.penguinrandomhousegrupoeditorial.com/es/?sello=lumen",
+      "requirements": [
+        "Penguin Random House recibe manuscritos espontáneos mediante su portal web.",
+        "Comprobar si Lumen aparece disponible en el selector del formulario antes de enviar.",
+        "Seguir las recomendaciones y documentación del portal corporativo."
+      ],
+      "summary": "Sello literario de Penguin Random House con narrativa contemporánea y ensayo; los originales espontáneos se canalizan, cuando procede, mediante el portal corporativo.",
+      "public_note": "La ficha no afirma recepción directa del sello: su disponibilidad concreta debe confirmarse en el formulario del grupo.",
+      "verified_at": "2026-10-03",
+      "sources": [
+        {
+          "label": "PRH — envío de manuscritos",
+          "url": "https://www.penguinrandomhousegrupoeditorial.com/sellos-y-negocios/quiero-enviar-un-manuscrito/",
+          "primary": true
+        },
+        {
+          "label": "Lumen — sello oficial",
+          "url": "https://www.penguinrandomhousegrupoeditorial.com/es/?sello=lumen",
+          "primary": true
+        }
+      ],
+      "history": [
+        {
+          "date": "2026-10-03",
+          "event": "Comprobados el sello oficial y su inclusión en el catálogo de sellos del portal corporativo de manuscritos de PRH.",
           "source_url": "https://www.penguinrandomhousegrupoeditorial.com/sellos-y-negocios/quiero-enviar-un-manuscrito/"
         }
       ]
