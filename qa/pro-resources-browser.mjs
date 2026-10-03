@@ -15,7 +15,7 @@ const radarAll=[...radarItems,...radarWatch];
 const fixedToday=radarPublic.generated_for;
 const sizes=[[320,900],[390,900],[768,1000],[1024,900],[1440,1000],[1728,1000],[844,390]];
 
-const norm=v=>String(v??'').normalize('NFD').replace(/[\u0300-\u036f]/g,'').toLowerCase();
+const norm=(value='')=>String(value).toLocaleLowerCase('es').normalize('NFD').replace(/(?<!n)\u0303|(?<!u)\u0308|[\u0300-\u0302\u0304-\u0307\u0309-\u036f]/g,'').normalize('NFC').trim();
 const genreCount=genre=>editorialData.filter(x=>(x.genres||[]).some(g=>norm(g)===norm(genre))).length;
 const statusCount=status=>editorialData.filter(x=>x.status===status).length;
 const closedFantasy=editorialData.filter(x=>x.status==='closed'&&(x.genres||[]).some(g=>norm(g)==='fantasia')).length;

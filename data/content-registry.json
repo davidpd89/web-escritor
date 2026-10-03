@@ -2899,6 +2899,96 @@
         "buscar-editorial"
       ],
       "sourceFile": "editoriales/ediciones-fatcap/index.html"
+    },
+    {
+      "id": "editorial-editorial-fanes",
+      "url": "/editoriales/editorial-fanes/",
+      "label": "Editorial Fanes",
+      "shortLabel": "Editorial Fanes",
+      "type": "directory",
+      "territory": "herramientas",
+      "parentId": "editorials-hub",
+      "hubId": "tools-hub",
+      "discoverability": "contextual",
+      "audience": [
+        "writer"
+      ],
+      "jobs": [
+        "buscar-editorial"
+      ],
+      "sourceFile": "editoriales/editorial-fanes/index.html"
+    },
+    {
+      "id": "editorial-editorial-alfabeto",
+      "url": "/editoriales/editorial-alfabeto/",
+      "label": "Editorial Alfabeto",
+      "shortLabel": "Editorial Alfabeto",
+      "type": "directory",
+      "territory": "herramientas",
+      "parentId": "editorials-hub",
+      "hubId": "tools-hub",
+      "discoverability": "contextual",
+      "audience": [
+        "writer"
+      ],
+      "jobs": [
+        "buscar-editorial"
+      ],
+      "sourceFile": "editoriales/editorial-alfabeto/index.html"
+    },
+    {
+      "id": "editorial-plomo-ediciones",
+      "url": "/editoriales/plomo-ediciones/",
+      "label": "Plomo Ediciones",
+      "shortLabel": "Plomo Ediciones",
+      "type": "directory",
+      "territory": "herramientas",
+      "parentId": "editorials-hub",
+      "hubId": "tools-hub",
+      "discoverability": "contextual",
+      "audience": [
+        "writer"
+      ],
+      "jobs": [
+        "buscar-editorial"
+      ],
+      "sourceFile": "editoriales/plomo-ediciones/index.html"
+    },
+    {
+      "id": "editorial-editorial-la-magnifica",
+      "url": "/editoriales/editorial-la-magnifica/",
+      "label": "Editorial La Magnífica",
+      "shortLabel": "Editorial La Magnífica",
+      "type": "directory",
+      "territory": "herramientas",
+      "parentId": "editorials-hub",
+      "hubId": "tools-hub",
+      "discoverability": "contextual",
+      "audience": [
+        "writer"
+      ],
+      "jobs": [
+        "buscar-editorial"
+      ],
+      "sourceFile": "editoriales/editorial-la-magnifica/index.html"
+    },
+    {
+      "id": "editorial-siren-books",
+      "url": "/editoriales/siren-books/",
+      "label": "Siren Books",
+      "shortLabel": "Siren Books",
+      "type": "directory",
+      "territory": "herramientas",
+      "parentId": "editorials-hub",
+      "hubId": "tools-hub",
+      "discoverability": "contextual",
+      "audience": [
+        "writer"
+      ],
+      "jobs": [
+        "buscar-editorial"
+      ],
+      "sourceFile": "editoriales/siren-books/index.html"
     }
   ]
 }

@@ -719,6 +719,245 @@
         "relato",
         "convocatoria"
       ]
+    },
+    {
+      "id": "escritores-rivas-imagen",
+      "name": "Escritores en Rivas — La Imagen Escrita",
+      "url": "https://www.escritoresenrivas.com/concursos-literarios/",
+      "official": true,
+      "enabled": true,
+      "keywords": [
+        "microrrelato",
+        "Rivas",
+        "plazo",
+        "imagen"
+      ]
+    },
+    {
+      "id": "afiprodel-microrrelatos",
+      "name": "AFIPRODEL Galicia — Arr3quentando a Cultura",
+      "url": "https://afiprodel.org/afiprodel/i-certame-de-microrelatos-arr3quentando-a-cultura/",
+      "official": true,
+      "enabled": true,
+      "keywords": [
+        "microrrelato",
+        "gallego",
+        "patrimonio",
+        "plazo"
+      ]
+    },
+    {
+      "id": "almansa-feminista",
+      "name": "Almansa Feminista — concurso de microrrelato",
+      "url": "https://almansafeminista.blogspot.com/2026/08/iii-concurso-microrrelato-2026-almansa.html",
+      "official": true,
+      "enabled": true,
+      "keywords": [
+        "microrrelato",
+        "mujeres",
+        "edadismo",
+        "plazo"
+      ]
+    },
+    {
+      "id": "feafes-melilla",
+      "name": "FEAFES Melilla — concurso literario",
+      "url": "https://feafesmelilla.es/concurso-literario-amparo-perez-alamino",
+      "official": true,
+      "enabled": true,
+      "keywords": [
+        "relato",
+        "salud mental",
+        "plazo"
+      ]
+    },
+    {
+      "id": "villamanta-mantua",
+      "name": "Ayuntamiento de Villamanta — Mantua Carpetanorum",
+      "url": "https://www.villamanta.es/tu-ayuntamiento/agenda/iii-certamen-literario-mantua-carpetanorum/",
+      "official": true,
+      "enabled": true,
+      "keywords": [
+        "relato histórico",
+        "Roma",
+        "plazo"
+      ]
+    },
+    {
+      "id": "issste-sello-editorial",
+      "name": "Sello Editorial ISSSTE — convocatorias",
+      "url": "https://liderazgos.issste.gob.mx/sello-editorial/convocatoria.html",
+      "official": true,
+      "enabled": true,
+      "keywords": [
+        "cuento",
+        "salud",
+        "publicación",
+        "plazo"
+      ]
+    },
+    {
+      "id": "written-dark",
+      "name": "Written — In the Dark",
+      "url": "https://es.written.app/in-the-dark-2026",
+      "official": true,
+      "enabled": true,
+      "keywords": [
+        "terror",
+        "cuento",
+        "premio",
+        "plazo"
+      ]
+    },
+    {
+      "id": "curtis-o-exame",
+      "name": "Concello de Curtis — O EXAME",
+      "url": "https://www.curtis.gal/index.php/es/noticias/5174-bases-do-xxi-certame-de-narrativa-curta-do-concello-de-curtis-o-exame",
+      "official": true,
+      "enabled": true,
+      "keywords": [
+        "narrativa curta",
+        "gallego",
+        "plazo"
+      ]
+    },
+    {
+      "id": "manera-montblanc",
+      "name": "MANERA — concurso de relatos",
+      "url": "https://maneramagazine.es/interiorismo/concurso-relatos-manera-montblanc-2026/",
+      "official": true,
+      "enabled": true,
+      "keywords": [
+        "relato",
+        "diseño",
+        "arquitectura",
+        "plazo"
+      ]
+    },
+    {
+      "id": "kannonical-convocatorias",
+      "name": "Kannonical Editores — convocatorias",
+      "url": "https://kannonical-editores.github.io/convoc.html",
+      "official": true,
+      "enabled": true,
+      "keywords": [
+        "terror",
+        "relato",
+        "antología",
+        "plazo"
+      ]
+    },
+    {
+      "id": "rivaslaica-conciencia",
+      "name": "Rivas Laica — Conciencia Libre",
+      "url": "https://rivaslaica.org/2026/06/v-certamen-de-relatos-cortos/",
+      "official": true,
+      "enabled": true,
+      "keywords": [
+        "relato",
+        "laicismo",
+        "plazo"
+      ]
+    },
+    {
+      "id": "aster-astronomia",
+      "name": "ASTER — concurso de relatos de astronomía",
+      "url": "https://aster.cat/concurs-de-relats-dastronomia-aster-2026/",
+      "official": true,
+      "enabled": true,
+      "keywords": [
+        "astronomía",
+        "relato",
+        "plazo"
+      ]
+    },
+    {
+      "id": "esstudio-misterio",
+      "name": "Esstudio Ediciones — concurso de misterio",
+      "url": "https://www.esstudioediciones.com/blog/419/concurso-de-relatos-cortos-de-misterio-si-agatha-christie-levantara-la-cabeza-de-esstudio-edciones.html",
+      "official": true,
+      "enabled": true,
+      "keywords": [
+        "misterio",
+        "relato",
+        "antología",
+        "plazo"
+      ]
+    },
+    {
+      "id": "cofradia-vino-navarra",
+      "name": "Cofradía del Vino de Navarra — certamen literario",
+      "url": "https://sites.google.com/view/certamen-literario-cvn",
+      "official": true,
+      "enabled": true,
+      "keywords": [
+        "narrativa",
+        "vino",
+        "Olite",
+        "plazo"
+      ]
+    },
+    {
+      "id": "paradela-manuel-oreste",
+      "name": "Concello de Paradela — Manuel-Oreste Rodríguez López",
+      "url": "https://www.paradela.es/es/nova/bases-xxxii-certame-literario-manuel-oreste-rodr%C3%ADguez-l%C3%B3pez",
+      "official": true,
+      "enabled": true,
+      "keywords": [
+        "narrativa",
+        "gallego",
+        "plazo"
+      ]
+    },
+    {
+      "id": "batracio-flor-cactus",
+      "name": "El Batracio Amarillo — La Flor del Cactus",
+      "url": "https://www.elbatracioamarillo.com/ii-certamen-internacional-de-literatura-de-humor-la-flor-del-cactus-2027",
+      "official": true,
+      "enabled": true,
+      "keywords": [
+        "humor",
+        "narrativa",
+        "premio",
+        "plazo"
+      ]
+    },
+    {
+      "id": "delibooks-concurso",
+      "name": "Delibooks — concurso literario Helena",
+      "url": "https://www.delibooks.com.ar/concurso/",
+      "official": true,
+      "enabled": true,
+      "keywords": [
+        "cuento",
+        "antología",
+        "plazo"
+      ]
+    },
+    {
+      "id": "asteroide-no-ficcion",
+      "name": "Libros del Asteroide — Premio de No Ficción",
+      "url": "https://librosdelasteroide.com/actualidad-asteroide/321/se-abre-la-convocatoria-del-vii-premio-de-no-ficcion-lda",
+      "official": true,
+      "enabled": true,
+      "keywords": [
+        "no ficción",
+        "premio",
+        "proyecto",
+        "plazo"
+      ]
+    },
+    {
+      "id": "entc-concurso",
+      "name": "Esta Noche Te Cuento — concurso 2026",
+      "url": "https://estanochetecuento.com/",
+      "official": true,
+      "enabled": true,
+      "keywords": [
+        "microrrelato",
+        "tema",
+        "plazo"
+      ]
     }
   ]
 }
