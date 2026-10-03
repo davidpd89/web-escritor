@@ -2701,6 +2701,204 @@
         "buscar-editorial"
       ],
       "sourceFile": "editoriales/crononauta/index.html"
+    },
+    {
+      "id": "editorial-edhasa",
+      "url": "/editoriales/edhasa/",
+      "label": "Edhasa",
+      "shortLabel": "Edhasa",
+      "type": "directory",
+      "territory": "herramientas",
+      "parentId": "editorials-hub",
+      "hubId": "tools-hub",
+      "discoverability": "contextual",
+      "audience": [
+        "writer"
+      ],
+      "jobs": [
+        "buscar-editorial"
+      ],
+      "sourceFile": "editoriales/edhasa/index.html"
+    },
+    {
+      "id": "editorial-errata-naturae",
+      "url": "/editoriales/errata-naturae/",
+      "label": "Errata naturae",
+      "shortLabel": "Errata naturae",
+      "type": "directory",
+      "territory": "herramientas",
+      "parentId": "editorials-hub",
+      "hubId": "tools-hub",
+      "discoverability": "contextual",
+      "audience": [
+        "writer"
+      ],
+      "jobs": [
+        "buscar-editorial"
+      ],
+      "sourceFile": "editoriales/errata-naturae/index.html"
+    },
+    {
+      "id": "editorial-editorial-planeta",
+      "url": "/editoriales/editorial-planeta/",
+      "label": "Editorial Planeta",
+      "shortLabel": "Editorial Planeta",
+      "type": "directory",
+      "territory": "herramientas",
+      "parentId": "editorials-hub",
+      "hubId": "tools-hub",
+      "discoverability": "contextual",
+      "audience": [
+        "writer"
+      ],
+      "jobs": [
+        "buscar-editorial"
+      ],
+      "sourceFile": "editoriales/editorial-planeta/index.html"
+    },
+    {
+      "id": "editorial-ediciones-destino",
+      "url": "/editoriales/ediciones-destino/",
+      "label": "Ediciones Destino",
+      "shortLabel": "Ediciones Destino",
+      "type": "directory",
+      "territory": "herramientas",
+      "parentId": "editorials-hub",
+      "hubId": "tools-hub",
+      "discoverability": "contextual",
+      "audience": [
+        "writer"
+      ],
+      "jobs": [
+        "buscar-editorial"
+      ],
+      "sourceFile": "editoriales/ediciones-destino/index.html"
+    },
+    {
+      "id": "editorial-seix-barral",
+      "url": "/editoriales/seix-barral/",
+      "label": "Seix Barral",
+      "shortLabel": "Seix Barral",
+      "type": "directory",
+      "territory": "herramientas",
+      "parentId": "editorials-hub",
+      "hubId": "tools-hub",
+      "discoverability": "contextual",
+      "audience": [
+        "writer"
+      ],
+      "jobs": [
+        "buscar-editorial"
+      ],
+      "sourceFile": "editoriales/seix-barral/index.html"
+    },
+    {
+      "id": "editorial-editorial-espasa",
+      "url": "/editoriales/editorial-espasa/",
+      "label": "Editorial Espasa",
+      "shortLabel": "Editorial Espasa",
+      "type": "directory",
+      "territory": "herramientas",
+      "parentId": "editorials-hub",
+      "hubId": "tools-hub",
+      "discoverability": "contextual",
+      "audience": [
+        "writer"
+      ],
+      "jobs": [
+        "buscar-editorial"
+      ],
+      "sourceFile": "editoriales/editorial-espasa/index.html"
+    },
+    {
+      "id": "editorial-tusquets-editores",
+      "url": "/editoriales/tusquets-editores/",
+      "label": "Tusquets Editores",
+      "shortLabel": "Tusquets Editores",
+      "type": "directory",
+      "territory": "herramientas",
+      "parentId": "editorials-hub",
+      "hubId": "tools-hub",
+      "discoverability": "contextual",
+      "audience": [
+        "writer"
+      ],
+      "jobs": [
+        "buscar-editorial"
+      ],
+      "sourceFile": "editoriales/tusquets-editores/index.html"
+    },
+    {
+      "id": "editorial-click-ediciones",
+      "url": "/editoriales/click-ediciones/",
+      "label": "Click Ediciones",
+      "shortLabel": "Click Ediciones",
+      "type": "directory",
+      "territory": "herramientas",
+      "parentId": "editorials-hub",
+      "hubId": "tools-hub",
+      "discoverability": "contextual",
+      "audience": [
+        "writer"
+      ],
+      "jobs": [
+        "buscar-editorial"
+      ],
+      "sourceFile": "editoriales/click-ediciones/index.html"
+    },
+    {
+      "id": "editorial-romantic-ediciones",
+      "url": "/editoriales/romantic-ediciones/",
+      "label": "Romantic Ediciones",
+      "shortLabel": "Romantic Ediciones",
+      "type": "directory",
+      "territory": "herramientas",
+      "parentId": "editorials-hub",
+      "hubId": "tools-hub",
+      "discoverability": "contextual",
+      "audience": [
+        "writer"
+      ],
+      "jobs": [
+        "buscar-editorial"
+      ],
+      "sourceFile": "editoriales/romantic-ediciones/index.html"
+    },
+    {
+      "id": "editorial-mercurio-editorial",
+      "url": "/editoriales/mercurio-editorial/",
+      "label": "Mercurio Editorial",
+      "shortLabel": "Mercurio Editorial",
+      "type": "directory",
+      "territory": "herramientas",
+      "parentId": "editorials-hub",
+      "hubId": "tools-hub",
+      "discoverability": "contextual",
+      "audience": [
+        "writer"
+      ],
+      "jobs": [
+        "buscar-editorial"
+      ],
+      "sourceFile": "editoriales/mercurio-editorial/index.html"
+    },
+    {
+      "id": "editorial-ediciones-fatcap",
+      "url": "/editoriales/ediciones-fatcap/",
+      "label": "Ediciones Fatcap",
+      "shortLabel": "Ediciones Fatcap",
+      "type": "directory",
+      "territory": "herramientas",
+      "parentId": "editorials-hub",
+      "hubId": "tools-hub",
+      "discoverability": "contextual",
+      "audience": [
+        "writer"
+      ],
+      "jobs": [
+        "buscar-editorial"
+      ],
+      "sourceFile": "editoriales/ediciones-fatcap/index.html"
     }
   ]
 }
