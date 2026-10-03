@@ -138,7 +138,7 @@ try {
     await open(page, '/');
     const trigger = page.locator('[data-explore-open]').first();
     await revealExploreTrigger(page, trigger);
-    await trigger.evaluate((el) => el.click());
+    await trigger.click();
     const dialog = page.locator('[data-explore-dialog]');
     assert.equal(await dialog.evaluate((el) => el.open), true, `Explore ${vp.name}: dialog not open`);
     assert.equal(await trigger.getAttribute('aria-expanded'), 'true', `Explore ${vp.name}: aria-expanded`);
@@ -177,7 +177,7 @@ try {
     await open(page, '/');
     const trigger = page.locator('[data-explore-open]').first();
     await revealExploreTrigger(page, trigger);
-    await trigger.evaluate((el) => el.click());
+    await trigger.click();
     await page.locator('.explore-row[href="/autor.html"]').click();
     await page.waitForLoadState('load');
     assert.equal(new URL(page.url()).pathname, '/autor.html', 'Explore mobile: one tap did not navigate');
