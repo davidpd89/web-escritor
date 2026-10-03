@@ -93,7 +93,7 @@ async function noOverflow(p,label){const x=await p.evaluate(()=>document.documen
     e:DPRadarDates.daysUntil('2026-10-02',today)
   }),fixedToday);
   assert.deepEqual(d,{a:0,b:1,c:7,d:8,e:-1});
-  const rel=await p.locator('[data-radar-relative]').allTextContents();assert.ok(rel.every(t=>t.includes('faltan')));
+  const rel=await p.locator('[data-radar-relative]').allTextContents();assert.ok(rel.every(t=>/^(?: · )?(?:hoy|mañana|faltan \d+ días)$/.test(t.trim())));
   await p.locator('[data-radar-search]').fill('ALFAGUARA');assert.equal(await visible(p,'[data-radar-item]'),1);
   await p.locator('[data-radar-clear]').click();
   await p.locator('[data-radar-genre]').selectOption('novela');assert.equal(await visible(p,'[data-radar-item]'),radarGenreCount('novela'));
@@ -109,7 +109,8 @@ for(const route of ['/editoriales/','/convocatorias-escritores/']){
   assert.equal(await p.locator(route.startsWith('/editoriales')?'[data-editorial-card]':'[data-radar-item]').count(),route.startsWith('/editoriales')?editorialData.length:radarAll.length);
   if(route.includes('convocatorias')){
     const txt=await p.locator('[data-radar-item] time').allTextContents();
-    assert.ok(txt.includes('02/11/2026')&&txt.includes('09/10/2026'));
+    const expectedDates=radarItems.map(item=>item.deadline.split('-').reverse().join('/'));
+    assert.ok(expectedDates.every(date=>txt.includes(date)),'no-js: faltan deadlines activos del dataset');
     assert.equal(await p.locator('[data-radar-calendar]').getAttribute('href'),'/convocatorias-escritores/deadlines.ics');
   }
   await c.close();
