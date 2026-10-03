@@ -3367,6 +3367,132 @@
         "buscar-editorial"
       ],
       "sourceFile": "editoriales/wave-books-editorial/index.html"
+    },
+    {
+      "id": "editorial-armaenia-editorial",
+      "url": "/editoriales/armaenia-editorial/",
+      "label": "Armaenia Editorial",
+      "shortLabel": "Armaenia Editorial",
+      "type": "directory",
+      "territory": "herramientas",
+      "parentId": "editorials-hub",
+      "hubId": "tools-hub",
+      "discoverability": "contextual",
+      "audience": [
+        "writer"
+      ],
+      "jobs": [
+        "buscar-editorial"
+      ],
+      "sourceFile": "editoriales/armaenia-editorial/index.html"
+    },
+    {
+      "id": "editorial-platanal",
+      "url": "/editoriales/platanal/",
+      "label": "PLATANAL",
+      "shortLabel": "PLATANAL",
+      "type": "directory",
+      "territory": "herramientas",
+      "parentId": "editorials-hub",
+      "hubId": "tools-hub",
+      "discoverability": "contextual",
+      "audience": [
+        "writer"
+      ],
+      "jobs": [
+        "buscar-editorial"
+      ],
+      "sourceFile": "editoriales/platanal/index.html"
+    },
+    {
+      "id": "editorial-amor-de-madre",
+      "url": "/editoriales/amor-de-madre/",
+      "label": "Amor de Madre",
+      "shortLabel": "Amor de Madre",
+      "type": "directory",
+      "territory": "herramientas",
+      "parentId": "editorials-hub",
+      "hubId": "tools-hub",
+      "discoverability": "contextual",
+      "audience": [
+        "writer"
+      ],
+      "jobs": [
+        "buscar-editorial"
+      ],
+      "sourceFile": "editoriales/amor-de-madre/index.html"
+    },
+    {
+      "id": "editorial-la-navaja-suiza-editores",
+      "url": "/editoriales/la-navaja-suiza-editores/",
+      "label": "La Navaja Suiza Editores",
+      "shortLabel": "La Navaja Suiza Editores",
+      "type": "directory",
+      "territory": "herramientas",
+      "parentId": "editorials-hub",
+      "hubId": "tools-hub",
+      "discoverability": "contextual",
+      "audience": [
+        "writer"
+      ],
+      "jobs": [
+        "buscar-editorial"
+      ],
+      "sourceFile": "editoriales/la-navaja-suiza-editores/index.html"
+    },
+    {
+      "id": "editorial-dilatando-mentes-editorial",
+      "url": "/editoriales/dilatando-mentes-editorial/",
+      "label": "Dilatando Mentes Editorial",
+      "shortLabel": "Dilatando Mentes Editorial",
+      "type": "directory",
+      "territory": "herramientas",
+      "parentId": "editorials-hub",
+      "hubId": "tools-hub",
+      "discoverability": "contextual",
+      "audience": [
+        "writer"
+      ],
+      "jobs": [
+        "buscar-editorial"
+      ],
+      "sourceFile": "editoriales/dilatando-mentes-editorial/index.html"
+    },
+    {
+      "id": "editorial-sugaar-editorial",
+      "url": "/editoriales/sugaar-editorial/",
+      "label": "Sugaar Editorial",
+      "shortLabel": "Sugaar Editorial",
+      "type": "directory",
+      "territory": "herramientas",
+      "parentId": "editorials-hub",
+      "hubId": "tools-hub",
+      "discoverability": "contextual",
+      "audience": [
+        "writer"
+      ],
+      "jobs": [
+        "buscar-editorial"
+      ],
+      "sourceFile": "editoriales/sugaar-editorial/index.html"
+    },
+    {
+      "id": "editorial-la-biblioteca-de-carfax",
+      "url": "/editoriales/la-biblioteca-de-carfax/",
+      "label": "La biblioteca de Carfax",
+      "shortLabel": "La biblioteca de Carfax",
+      "type": "directory",
+      "territory": "herramientas",
+      "parentId": "editorials-hub",
+      "hubId": "tools-hub",
+      "discoverability": "contextual",
+      "audience": [
+        "writer"
+      ],
+      "jobs": [
+        "buscar-editorial"
+      ],
+      "sourceFile": "editoriales/la-biblioteca-de-carfax/index.html"
     }
   ]
 }
