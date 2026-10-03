@@ -5877,6 +5877,142 @@
           "source_url": "https://ecoedit.org/editoriales/hoja-de-lata/"
         }
       ]
+    },
+    {
+      "publish": true,
+      "slug": "literup-ediciones",
+      "name": "LiterUp Ediciones",
+      "group": "LiterUp",
+      "publisher_type": "independiente",
+      "country": "España",
+      "genres": [
+        "fantasía",
+        "ciencia ficción",
+        "terror",
+        "narrativa"
+      ],
+      "status": "unknown",
+      "direct_submission": false,
+      "submission_channel": "Editorial activa; no se ha verificado un protocolo público actual para enviar novelas",
+      "submission_email": null,
+      "submission_url": "https://tienda.literup.com/",
+      "website_url": "https://tienda.literup.com/",
+      "requirements": [
+        "La tienda y el catálogo oficiales confirman actividad editorial actual en fantasía, ciencia ficción, terror y narrativa de género.",
+        "No se reutilizan instrucciones antiguas de convocatorias o proyectos de años anteriores como si fueran una recepción permanente.",
+        "Esperar una convocatoria pública o una indicación directa de la editorial antes de enviar un original."
+      ],
+      "response_time": null,
+      "summary": "LiterUp mantiene un catálogo activo de fantasía, ciencia ficción y terror, pero la comprobación actual no permite afirmar que exista una recepción permanente y pública de manuscritos.",
+      "public_note": "Se muestra como «estado por verificar»: la actividad comercial y editorial está confirmada, pero no se convierte un protocolo histórico en una puerta de originales vigente.",
+      "verified_at": "2026-10-03",
+      "page_updated_at": "2026-10-03",
+      "sources": [
+        {
+          "label": "LiterUp — tienda y catálogo oficial",
+          "url": "https://tienda.literup.com/",
+          "primary": true
+        }
+      ],
+      "history": [
+        {
+          "date": "2026-10-03",
+          "event": "Comprobada la actividad actual del catálogo oficial; no se localizó una convocatoria pública vigente de manuscritos.",
+          "source_url": "https://tienda.literup.com/"
+        }
+      ]
+    },
+    {
+      "publish": true,
+      "slug": "lengua-de-trapo",
+      "name": "Lengua de Trapo",
+      "group": "Lengua de Trapo · Círculo de Bellas Artes",
+      "publisher_type": "independiente",
+      "country": "España",
+      "genres": [
+        "narrativa",
+        "ensayo",
+        "ficción",
+        "no ficción"
+      ],
+      "status": "unknown",
+      "direct_submission": false,
+      "submission_channel": "Editorial activa; sin protocolo público de manuscritos verificado",
+      "submission_email": null,
+      "submission_url": "https://lenguadetrapo.com/",
+      "website_url": "https://lenguadetrapo.com/",
+      "requirements": [
+        "La web oficial confirma una editorial activa y un catálogo actual de narrativa, ensayo y literatura crítica.",
+        "La editorial declara vocación de descubrir nuevas voces españolas y latinoamericanas, pero no publica en las páginas consultadas un procedimiento de originales.",
+        "No usar formularios de compra o contactos generales como sustituto de una convocatoria editorial."
+      ],
+      "response_time": null,
+      "summary": "Lengua de Trapo es una editorial independiente activa, especializada en literatura crítica, ficción y no ficción, con vocación de descubrir nuevas voces, pero sin un protocolo público de originales verificado.",
+      "public_note": "La afinidad de catálogo no equivale a recepción abierta. La ficha se mantiene en «estado por verificar» hasta que exista una vía oficial explícita para presentar manuscritos.",
+      "verified_at": "2026-10-03",
+      "page_updated_at": "2026-10-03",
+      "sources": [
+        {
+          "label": "Lengua de Trapo — editorial",
+          "url": "https://lenguadetrapo.com/nosotros/",
+          "primary": true
+        },
+        {
+          "label": "Lengua de Trapo — catálogo actual",
+          "url": "https://lenguadetrapo.com/tienda/",
+          "primary": true
+        }
+      ],
+      "history": [
+        {
+          "date": "2026-10-03",
+          "event": "Verificados la actividad editorial, el catálogo actual y la línea de literatura crítica; no se localizó un protocolo público vigente de originales.",
+          "source_url": "https://lenguadetrapo.com/nosotros/"
+        }
+      ]
+    },
+    {
+      "publish": true,
+      "slug": "las-afueras",
+      "name": "Las afueras",
+      "group": "Las afueras editorial",
+      "publisher_type": "independiente",
+      "country": "España",
+      "genres": [
+        "narrativa",
+        "ensayo",
+        "literatura contemporánea"
+      ],
+      "status": "unknown",
+      "direct_submission": false,
+      "submission_channel": "Editorial activa; sin protocolo público actual de manuscritos verificado",
+      "submission_email": null,
+      "submission_url": "https://lasafueras.com/",
+      "website_url": "https://lasafueras.com/",
+      "requirements": [
+        "La web oficial confirma actividad editorial y un catálogo actual de narrativa, memoria, ensayo y literatura contemporánea.",
+        "No se publica en la página consultada un procedimiento vigente para presentar originales espontáneos.",
+        "No convertir un correo editorial o referencias históricas de entrevistas en una autorización actual para enviar el manuscrito completo."
+      ],
+      "response_time": null,
+      "summary": "Las afueras mantiene un catálogo editorial activo de narrativa y ensayo contemporáneo, pero la comprobación actual no permite verificar una convocatoria o protocolo público permanente para recibir manuscritos.",
+      "public_note": "La ficha separa actividad de recepción: permanece en «estado por verificar» y no publica como canal de originales ningún contacto que la editorial no haya identificado expresamente para ese fin.",
+      "verified_at": "2026-10-03",
+      "page_updated_at": "2026-10-03",
+      "sources": [
+        {
+          "label": "Las afueras — web y catálogo oficial",
+          "url": "https://lasafueras.com/",
+          "primary": true
+        }
+      ],
+      "history": [
+        {
+          "date": "2026-10-03",
+          "event": "Comprobada la actividad y el catálogo actual de la editorial; no se verificó un protocolo público vigente de recepción de originales.",
+          "source_url": "https://lasafueras.com/"
+        }
+      ]
     }
   ]
 }
