@@ -3,6 +3,55 @@
   "publishers": [
     {
       "publish": true,
+      "slug": "adel-editores",
+      "name": "Adel Editores",
+      "group": "Adel Editores",
+      "publisher_type": "tradicional",
+      "country": "España",
+      "genres": [
+        "narrativa",
+        "ficción literaria",
+        "relato"
+      ],
+      "status": "open",
+      "direct_submission": true,
+      "submission_channel": "Correo oficial de manuscritos",
+      "submission_email": "manuscritos@adeleditores.com",
+      "submission_url": "https://adeleditores.com/manuscritos/",
+      "website_url": "https://adeleditores.com/",
+      "requirements": [
+        "Obra terminada e inédita.",
+        "Preparar un dossier de presentación con datos, colección, resumen y contexto del proyecto.",
+        "Incluir exactamente diez páginas del texto.",
+        "No enviar el manuscrito completo salvo que la editorial lo solicite después."
+      ],
+      "response_time": null,
+      "summary": "Adel Editores mantiene abierta la recepción para sus colecciones mediante un dossier breve y diez páginas de muestra, con un modelo editorial tradicional.",
+      "public_note": "El sello publica pocos títulos al año y pide estudiar primero sus colecciones. El manuscrito completo no forma parte del primer envío.",
+      "verified_at": "2026-10-03",
+      "page_updated_at": "2026-10-03",
+      "sources": [
+        {
+          "label": "Adel Editores — recepción o contacto oficial",
+          "url": "https://adeleditores.com/manuscritos/",
+          "primary": true
+        },
+        {
+          "label": "Adel Editores — web o catálogo oficial",
+          "url": "https://adeleditores.com/",
+          "primary": true
+        }
+      ],
+      "history": [
+        {
+          "date": "2026-10-03",
+          "event": "Revisados el estado público de recepción, el canal y las condiciones visibles en la fuente oficial.",
+          "source_url": "https://adeleditores.com/manuscritos/"
+        }
+      ]
+    },
+    {
+      "publish": true,
       "slug": "con-pluma-y-pixel",
       "name": "Con Pluma y Píxel",
       "group": "Con Pluma y Píxel",
@@ -136,6 +185,107 @@
     },
     {
       "publish": true,
+      "slug": "ediciones-labnar",
+      "name": "Ediciones Labnar",
+      "group": "Ediciones Labnar",
+      "publisher_type": "tradicional",
+      "country": "España",
+      "genres": [
+        "fantasía",
+        "ciencia ficción",
+        "distopía",
+        "novela negra",
+        "juvenil"
+      ],
+      "status": "open",
+      "direct_submission": true,
+      "submission_channel": "Correo oficial de manuscritos",
+      "submission_email": "manuscritos@edicioneslabnar.com",
+      "submission_url": "https://www.edicioneslabnar.com/pages/corporativo/publicar-con-nosotros",
+      "website_url": "https://www.edicioneslabnar.com/",
+      "requirements": [
+        "Obra inédita y, aproximadamente, un mínimo de 60.000 palabras.",
+        "Autor o autora residente en España.",
+        "Manuscrito Word en Times New Roman 12, interlineado 1,5 y justificado.",
+        "Adjuntar resumen argumental de máximo dos páginas y biografía con datos de contacto."
+      ],
+      "response_time": "Si no hay respuesta en tres meses, la editorial indica que debe considerarse no seleccionada.",
+      "summary": "Ediciones Labnar recibe manuscritos de narrativa, incluida fantasía y ciencia ficción, y publica de forma detallada su modelo tradicional y su protocolo de evaluación.",
+      "public_note": "La editorial declara que el autor no realiza aportación económica. Sus condiciones contractuales públicas deben leerse junto con cualquier contrato individual antes de firmar.",
+      "verified_at": "2026-10-03",
+      "page_updated_at": "2026-10-03",
+      "sources": [
+        {
+          "label": "Ediciones Labnar — recepción o contacto oficial",
+          "url": "https://www.edicioneslabnar.com/pages/corporativo/publicar-con-nosotros",
+          "primary": true
+        },
+        {
+          "label": "Ediciones Labnar — web o catálogo oficial",
+          "url": "https://www.edicioneslabnar.com/",
+          "primary": true
+        }
+      ],
+      "history": [
+        {
+          "date": "2026-10-03",
+          "event": "Revisados el estado público de recepción, el canal y las condiciones visibles en la fuente oficial.",
+          "source_url": "https://www.edicioneslabnar.com/pages/corporativo/publicar-con-nosotros"
+        }
+      ]
+    },
+    {
+      "publish": true,
+      "slug": "maeva",
+      "name": "Ediciones Maeva",
+      "group": "Ediciones Maeva",
+      "publisher_type": "tradicional",
+      "country": "España",
+      "genres": [
+        "narrativa",
+        "misterio",
+        "thriller",
+        "ficción histórica",
+        "juvenil"
+      ],
+      "status": "open",
+      "direct_submission": true,
+      "submission_channel": "Correo del departamento de lectura",
+      "submission_email": "emaeva@maeva.es",
+      "submission_url": "https://www.maeva.es/contacto",
+      "website_url": "https://www.maeva.es/",
+      "requirements": [
+        "No enviar el manuscrito completo en la primera propuesta.",
+        "Enviar sinopsis, breve descripción de personajes, ambientación, los dos primeros capítulos y currículum.",
+        "La editorial solo valora propuestas remitidas por correo al departamento de lectura."
+      ],
+      "response_time": "Si no hay respuesta en 90 días, la editorial considera desestimada la propuesta.",
+      "summary": "Ediciones Maeva mantiene una vía oficial y estructurada para propuestas de novela mediante su departamento de lectura.",
+      "public_note": "La propia editorial pide expresamente un paquete parcial, no el manuscrito completo.",
+      "verified_at": "2026-10-03",
+      "page_updated_at": "2026-10-03",
+      "sources": [
+        {
+          "label": "Ediciones Maeva — información oficial",
+          "url": "https://www.maeva.es/contacto",
+          "primary": true
+        },
+        {
+          "label": "Ediciones Maeva — web oficial",
+          "url": "https://www.maeva.es/",
+          "primary": true
+        }
+      ],
+      "history": [
+        {
+          "date": "2026-10-03",
+          "event": "Revisado el estado público de recepción y las condiciones visibles en la fuente oficial.",
+          "source_url": "https://www.maeva.es/contacto"
+        }
+      ]
+    },
+    {
+      "publish": true,
       "slug": "ediciones-siruela",
       "name": "Ediciones Siruela",
       "group": "Siruela",
@@ -176,6 +326,156 @@
           "date": "2026-08-19",
           "event": "Comprobado el estado público de recepción, el canal disponible y las condiciones publicadas por la editorial.",
           "source_url": "https://www.siruela.com/laeditorial.php?opcion=premios"
+        }
+      ]
+    },
+    {
+      "publish": true,
+      "slug": "ediciones-tyt",
+      "name": "Ediciones T&T",
+      "group": "Ediciones T&T",
+      "publisher_type": "tradicional",
+      "country": "España",
+      "genres": [
+        "fantasía",
+        "ciencia ficción",
+        "terror",
+        "thriller"
+      ],
+      "status": "open",
+      "direct_submission": true,
+      "submission_channel": "Correo oficial indicado en la página de recepción",
+      "submission_email": "hola@edicionestyt.com",
+      "submission_url": "https://edicionestyt.com/blogs/noticias/recepcion-de-manuscritos",
+      "website_url": "https://edicionestyt.com/",
+      "requirements": [
+        "Manuscrito completo e inédito en .doc o .docx.",
+        "Adjuntar una propuesta editorial con sinopsis, argumento completo, público, género, comparables y biografía o currículum literario.",
+        "La obra debe encajar en ciencia ficción, fantasía, terror o thriller."
+      ],
+      "response_time": "La editorial publica un plazo orientativo de valoración de entre uno y doce meses.",
+      "summary": "Ediciones T&T publica ciencia ficción, fantasía, terror y thriller y mantiene una vía oficial para recibir manuscritos completos acompañados de propuesta editorial.",
+      "public_note": "La editorial declara que no coedita ni autoedita y que no cobra al autor. Utiliza únicamente el canal que figura en sus instrucciones vigentes.",
+      "verified_at": "2026-10-03",
+      "page_updated_at": "2026-10-03",
+      "sources": [
+        {
+          "label": "Ediciones T&T — recepción o contacto oficial",
+          "url": "https://edicionestyt.com/blogs/noticias/recepcion-de-manuscritos",
+          "primary": true
+        },
+        {
+          "label": "Ediciones T&T — web o catálogo oficial",
+          "url": "https://edicionestyt.com/",
+          "primary": true
+        }
+      ],
+      "history": [
+        {
+          "date": "2026-10-03",
+          "event": "Revisados el estado público de recepción, el canal y las condiciones visibles en la fuente oficial.",
+          "source_url": "https://edicionestyt.com/blogs/noticias/recepcion-de-manuscritos"
+        }
+      ]
+    },
+    {
+      "publish": true,
+      "slug": "ediciones-versatil",
+      "name": "Ediciones Versátil",
+      "group": "Ediciones Versátil",
+      "publisher_type": "tradicional",
+      "country": "España",
+      "genres": [
+        "narrativa",
+        "misterio",
+        "thriller",
+        "novela negra",
+        "romance",
+        "juvenil"
+      ],
+      "status": "open",
+      "direct_submission": true,
+      "submission_channel": "Correo del departamento de lectura",
+      "submission_email": "departamentodelectura@ed-versatil.com",
+      "submission_url": "https://www.ed-versatil.com/preguntas-frecuentes",
+      "website_url": "https://www.ed-versatil.com/",
+      "requirements": [
+        "Enviar una carta de presentación.",
+        "Adjuntar una sinopsis de la novela.",
+        "Adjuntar únicamente los dos primeros capítulos en esta fase.",
+        "La editorial indica que no publica obras ya autopublicadas."
+      ],
+      "response_time": "La FAQ indica que, si la propuesta encaja, contactan en un plazo máximo aproximado de un mes.",
+      "summary": "Ediciones Versátil recibe propuestas mediante su departamento de lectura y pide una carta, sinopsis y los dos primeros capítulos, no el manuscrito completo.",
+      "public_note": "La FAQ actual diferencia claramente el envío inicial de una obra completa. Respeta el paquete parcial y revisa las exclusiones antes de presentar.",
+      "verified_at": "2026-10-03",
+      "page_updated_at": "2026-10-03",
+      "sources": [
+        {
+          "label": "Ediciones Versátil — recepción o contacto oficial",
+          "url": "https://www.ed-versatil.com/preguntas-frecuentes",
+          "primary": true
+        },
+        {
+          "label": "Ediciones Versátil — web o catálogo oficial",
+          "url": "https://www.ed-versatil.com/",
+          "primary": true
+        }
+      ],
+      "history": [
+        {
+          "date": "2026-10-03",
+          "event": "Revisados el estado público de recepción, el canal y las condiciones visibles en la fuente oficial.",
+          "source_url": "https://www.ed-versatil.com/preguntas-frecuentes"
+        }
+      ]
+    },
+    {
+      "publish": true,
+      "slug": "editorial-barrett",
+      "name": "Editorial Barrett",
+      "group": "Editorial Barrett",
+      "publisher_type": "tradicional",
+      "country": "España",
+      "genres": [
+        "narrativa",
+        "ficción literaria",
+        "literatura insólita"
+      ],
+      "status": "open",
+      "direct_submission": true,
+      "submission_channel": "Propuesta breve por el canal oficial de manuscritos",
+      "submission_email": null,
+      "submission_url": "https://editorialbarrett.org/barrett/manuscritos/",
+      "website_url": "https://editorialbarrett.org/",
+      "requirements": [
+        "Enviar la propuesta en un único PDF de dos páginas.",
+        "Una página debe contener una sinopsis o argumento breve.",
+        "La otra página debe presentar al autor o autora y su relación con la literatura.",
+        "La editorial solicitará el texto completo si la propuesta le interesa."
+      ],
+      "response_time": null,
+      "summary": "Editorial Barrett recibe propuestas de narrativa mediante un formato inicial muy breve: un PDF de dos páginas antes de solicitar el texto completo.",
+      "public_note": "No envíes el manuscrito completo en la primera toma de contacto. La página oficial limita expresamente la propuesta inicial a dos páginas.",
+      "verified_at": "2026-10-03",
+      "page_updated_at": "2026-10-03",
+      "sources": [
+        {
+          "label": "Editorial Barrett — recepción o contacto oficial",
+          "url": "https://editorialbarrett.org/barrett/manuscritos/",
+          "primary": true
+        },
+        {
+          "label": "Editorial Barrett — web o catálogo oficial",
+          "url": "https://editorialbarrett.org/",
+          "primary": true
+        }
+      ],
+      "history": [
+        {
+          "date": "2026-10-03",
+          "event": "Revisados el estado público de recepción, el canal y las condiciones visibles en la fuente oficial.",
+          "source_url": "https://editorialbarrett.org/barrett/manuscritos/"
         }
       ]
     },
@@ -270,6 +570,240 @@
     },
     {
       "publish": true,
+      "slug": "editorial-minuscula",
+      "name": "editorial minúscula",
+      "group": "editorial minúscula",
+      "publisher_type": "tradicional",
+      "country": "España",
+      "genres": [
+        "ficción",
+        "ensayo literario"
+      ],
+      "status": "open",
+      "direct_submission": true,
+      "submission_channel": "Envío digital o postal según las recomendaciones oficiales",
+      "submission_email": "minuscula@editorialminuscula.com",
+      "submission_url": "https://www.editorialminuscula.com/manuscritos/",
+      "website_url": "https://www.editorialminuscula.com/",
+      "requirements": [
+        "Publica ficción y ensayo literario; no acepta por ahora poesía, teatro ni literatura infantil.",
+        "Enviar texto a doble espacio y con páginas numeradas.",
+        "Puede enviarse el manuscrito completo o una muestra de 30–50 páginas acompañada de sinopsis y datos de contacto."
+      ],
+      "response_time": "La editorial indica aproximadamente tres meses para examinar los manuscritos.",
+      "summary": "editorial minúscula recibe manuscritos de ficción y ensayo literario y publica recomendaciones concretas para el envío digital o postal.",
+      "public_note": "La editorial no acusa recibo ni envía comentarios de valoración sobre propuestas no solicitadas; contacta cuando considera que el texto encaja.",
+      "verified_at": "2026-10-03",
+      "page_updated_at": "2026-10-03",
+      "sources": [
+        {
+          "label": "editorial minúscula — recepción o contacto oficial",
+          "url": "https://www.editorialminuscula.com/manuscritos/",
+          "primary": true
+        },
+        {
+          "label": "editorial minúscula — web o catálogo oficial",
+          "url": "https://www.editorialminuscula.com/",
+          "primary": true
+        }
+      ],
+      "history": [
+        {
+          "date": "2026-10-03",
+          "event": "Revisados el estado público de recepción, el canal y las condiciones visibles en la fuente oficial.",
+          "source_url": "https://www.editorialminuscula.com/manuscritos/"
+        }
+      ]
+    },
+    {
+      "publish": true,
+      "slug": "editorial-periferica",
+      "name": "Editorial Periférica",
+      "group": "Editorial Periférica",
+      "publisher_type": "tradicional",
+      "country": "España",
+      "genres": [
+        "narrativa",
+        "ficción literaria"
+      ],
+      "status": "open",
+      "direct_submission": true,
+      "submission_channel": "Correo oficial para originales",
+      "submission_email": "manuscritos@editorialperiferica.com",
+      "submission_url": "https://www.editorialperiferica.com/contacto/",
+      "website_url": "https://www.editorialperiferica.com/",
+      "requirements": [
+        "La editorial confirma recepción de originales por correo electrónico.",
+        "La web no publica un formato o extensión cerrados; conviene presentar material profesional y ajustado a su catálogo."
+      ],
+      "response_time": null,
+      "summary": "Editorial Periférica mantiene un canal oficial específico para recibir originales de narrativa a través de correo electrónico.",
+      "public_note": "La página de contacto no publica una plantilla detallada de dossier ni un plazo de respuesta; comprueba la información vigente antes de adjuntar archivos.",
+      "verified_at": "2026-10-03",
+      "page_updated_at": "2026-10-03",
+      "sources": [
+        {
+          "label": "Editorial Periférica — recepción o contacto oficial",
+          "url": "https://www.editorialperiferica.com/contacto/",
+          "primary": true
+        },
+        {
+          "label": "Editorial Periférica — web o catálogo oficial",
+          "url": "https://www.editorialperiferica.com/",
+          "primary": true
+        }
+      ],
+      "history": [
+        {
+          "date": "2026-10-03",
+          "event": "Revisados el estado público de recepción, el canal y las condiciones visibles en la fuente oficial.",
+          "source_url": "https://www.editorialperiferica.com/contacto/"
+        }
+      ]
+    },
+    {
+      "publish": true,
+      "slug": "editorial-transito",
+      "name": "Editorial Tránsito",
+      "group": "Editorial Tránsito",
+      "publisher_type": "tradicional",
+      "country": "España",
+      "genres": [
+        "narrativa",
+        "ficción literaria",
+        "narrativa contemporánea"
+      ],
+      "status": "open",
+      "direct_submission": true,
+      "submission_channel": "Correo de la editorial para manuscritos",
+      "submission_email": "info@editorialtransito.com",
+      "submission_url": "https://editorialtransito.es/contacto/",
+      "website_url": "https://editorialtransito.es/catalogo/",
+      "requirements": [
+        "La página oficial admite manuscritos por correo electrónico.",
+        "La editorial no publica un formato rígido de dossier o extensión en su página de contacto; revisa el catálogo antes de enviar."
+      ],
+      "response_time": "Si no hay respuesta en aproximadamente tres meses, la editorial indica que la obra no encaja.",
+      "summary": "Editorial Tránsito publica narrativa contemporánea y mantiene un canal público para el envío de manuscritos, con una política de respuesta por silencio.",
+      "public_note": "La recepción abierta no implica encaje automático. Conviene estudiar el catálogo y presentar la obra de acuerdo con la línea literaria del sello.",
+      "verified_at": "2026-10-03",
+      "page_updated_at": "2026-10-03",
+      "sources": [
+        {
+          "label": "Editorial Tránsito — recepción o contacto oficial",
+          "url": "https://editorialtransito.es/contacto/",
+          "primary": true
+        },
+        {
+          "label": "Editorial Tránsito — web o catálogo oficial",
+          "url": "https://editorialtransito.es/catalogo/",
+          "primary": true
+        }
+      ],
+      "history": [
+        {
+          "date": "2026-10-03",
+          "event": "Revisados el estado público de recepción, el canal y las condiciones visibles en la fuente oficial.",
+          "source_url": "https://editorialtransito.es/contacto/"
+        }
+      ]
+    },
+    {
+      "publish": true,
+      "slug": "fulgencio-pimentel",
+      "name": "Fulgencio Pimentel",
+      "group": "Fulgencio Pimentel",
+      "publisher_type": "tradicional",
+      "country": "España",
+      "genres": [
+        "narrativa",
+        "ficción literaria",
+        "literatura experimental"
+      ],
+      "status": "open",
+      "direct_submission": true,
+      "submission_channel": "Correo oficial de propuestas",
+      "submission_email": "propuestas@fulgenciopimentel.com",
+      "submission_url": "https://www.fulgenciopimentel.com/contacto/",
+      "website_url": "https://www.fulgenciopimentel.com/",
+      "requirements": [
+        "Enviar la propuesta al correo específico publicado por la editorial.",
+        "La página oficial no impone un paquete documental cerrado; conviene presentar el proyecto de forma concisa y profesional."
+      ],
+      "response_time": "Si no hay respuesta en dos meses, la editorial indica que el proyecto no encaja.",
+      "summary": "Fulgencio Pimentel mantiene abierto un correo específico para propuestas editoriales y publica una regla clara de silencio tras dos meses.",
+      "public_note": "El equipo advierte que no puede ofrecer respuestas personalizadas a todas las propuestas. Ajusta el envío a la identidad y catálogo del sello.",
+      "verified_at": "2026-10-03",
+      "page_updated_at": "2026-10-03",
+      "sources": [
+        {
+          "label": "Fulgencio Pimentel — recepción o contacto oficial",
+          "url": "https://www.fulgenciopimentel.com/contacto/",
+          "primary": true
+        },
+        {
+          "label": "Fulgencio Pimentel — web o catálogo oficial",
+          "url": "https://www.fulgenciopimentel.com/",
+          "primary": true
+        }
+      ],
+      "history": [
+        {
+          "date": "2026-10-03",
+          "event": "Revisados el estado público de recepción, el canal y las condiciones visibles en la fuente oficial.",
+          "source_url": "https://www.fulgenciopimentel.com/contacto/"
+        }
+      ]
+    },
+    {
+      "publish": true,
+      "slug": "galaxia-gutenberg",
+      "name": "Galaxia Gutenberg",
+      "group": "Galaxia Gutenberg",
+      "publisher_type": "tradicional",
+      "country": "España",
+      "genres": [
+        "narrativa",
+        "ensayo",
+        "poesía"
+      ],
+      "status": "open",
+      "direct_submission": true,
+      "submission_channel": "Correo oficial de manuscritos",
+      "submission_email": "manuscritos@galaxiagutenberg.com",
+      "submission_url": "https://www.galaxiagutenberg.com/contacto/",
+      "website_url": "https://www.galaxiagutenberg.com/",
+      "requirements": [
+        "Consultar previamente el catálogo y la línea editorial.",
+        "La editorial recibe manuscritos de narrativa, ensayo y poesía por el canal específico de su página de contacto."
+      ],
+      "response_time": null,
+      "summary": "Galaxia Gutenberg mantiene un correo específico para la recepción de manuscritos y recomienda estudiar su catálogo de narrativa, ensayo y poesía antes de enviar.",
+      "public_note": "Por el alto volumen de propuestas la editorial no mantiene correspondencia ni informa del estado; se pone en contacto únicamente si existe interés.",
+      "verified_at": "2026-10-03",
+      "page_updated_at": "2026-10-03",
+      "sources": [
+        {
+          "label": "Galaxia Gutenberg — recepción o contacto oficial",
+          "url": "https://www.galaxiagutenberg.com/contacto/",
+          "primary": true
+        },
+        {
+          "label": "Galaxia Gutenberg — web o catálogo oficial",
+          "url": "https://www.galaxiagutenberg.com/",
+          "primary": true
+        }
+      ],
+      "history": [
+        {
+          "date": "2026-10-03",
+          "event": "Revisados el estado público de recepción, el canal y las condiciones visibles en la fuente oficial.",
+          "source_url": "https://www.galaxiagutenberg.com/contacto/"
+        }
+      ]
+    },
+    {
+      "publish": true,
       "slug": "grupo-almuzara-berenice",
       "name": "Grupo Almuzara · Almuzara/Berenice",
       "group": "Grupo Almuzara",
@@ -354,6 +888,149 @@
           "date": "2026-10-02",
           "event": "Comprobado el estado público de recepción, el canal disponible y las condiciones publicadas por la editorial.",
           "source_url": "https://www.harpercollinsiberica.com/pages/envio-de-manuscritos"
+        }
+      ]
+    },
+    {
+      "publish": true,
+      "slug": "la-huerta-grande",
+      "name": "La Huerta Grande",
+      "group": "La Huerta Grande",
+      "publisher_type": "tradicional",
+      "country": "España",
+      "genres": [
+        "narrativa",
+        "ensayo",
+        "ficción literaria"
+      ],
+      "status": "open",
+      "direct_submission": true,
+      "submission_channel": "Página oficial de contacto para propuestas no solicitadas",
+      "submission_email": "info@editoriallahuertagrande.com",
+      "submission_url": "https://www.lahuertagrande.com/contactar/",
+      "website_url": "https://www.lahuertagrande.com/",
+      "requirements": [
+        "La editorial confirma que recibe manuscritos no solicitados.",
+        "No publica en la página de contacto un formato rígido; conviene presentar una propuesta profesional y ajustada al catálogo."
+      ],
+      "response_time": "La editorial indica que contactará si el proyecto encaja, en un plazo estimado de tres meses.",
+      "summary": "La Huerta Grande mantiene abierta la recepción de propuestas no solicitadas y publica un plazo orientativo para contactar cuando existe interés.",
+      "public_note": "La ausencia de respuesta transcurrido el periodo orientativo no implica que exista un informe de lectura pendiente.",
+      "verified_at": "2026-10-03",
+      "page_updated_at": "2026-10-03",
+      "sources": [
+        {
+          "label": "La Huerta Grande — información oficial",
+          "url": "https://www.lahuertagrande.com/contactar/",
+          "primary": true
+        },
+        {
+          "label": "La Huerta Grande — web oficial",
+          "url": "https://www.lahuertagrande.com/",
+          "primary": true
+        }
+      ],
+      "history": [
+        {
+          "date": "2026-10-03",
+          "event": "Revisado el estado público de recepción y las condiciones visibles en la fuente oficial.",
+          "source_url": "https://www.lahuertagrande.com/contactar/"
+        }
+      ]
+    },
+    {
+      "publish": true,
+      "slug": "libros-del-asteroide",
+      "name": "Libros del Asteroide",
+      "group": "Libros del Asteroide",
+      "publisher_type": "tradicional",
+      "country": "España",
+      "genres": [
+        "narrativa",
+        "no ficción narrativa"
+      ],
+      "status": "open",
+      "direct_submission": true,
+      "submission_channel": "Correo oficial de propuestas editoriales",
+      "submission_email": "manuscritos@librosdelasteroide.com",
+      "submission_url": "https://www.librosdelasteroide.com/contacto",
+      "website_url": "https://www.librosdelasteroide.com/",
+      "requirements": [
+        "La editorial publica narrativa y no ficción narrativa.",
+        "No publica poesía, teatro ni literatura infantil y juvenil.",
+        "Las propuestas editoriales deben enviarse al correo específico indicado en su página de contacto."
+      ],
+      "response_time": "El tiempo estimado de valoración publicado es de tres meses.",
+      "summary": "Libros del Asteroide mantiene un canal oficial para propuestas de narrativa y no ficción narrativa y publica un plazo estimado de valoración.",
+      "public_note": "La editorial advierte que no puede responder a todas las propuestas ni emitir valoraciones cuando una obra no encaja en su línea editorial.",
+      "verified_at": "2026-10-03",
+      "page_updated_at": "2026-10-03",
+      "sources": [
+        {
+          "label": "Libros del Asteroide — recepción o contacto oficial",
+          "url": "https://www.librosdelasteroide.com/contacto",
+          "primary": true
+        },
+        {
+          "label": "Libros del Asteroide — web o catálogo oficial",
+          "url": "https://www.librosdelasteroide.com/",
+          "primary": true
+        }
+      ],
+      "history": [
+        {
+          "date": "2026-10-03",
+          "event": "Revisados el estado público de recepción, el canal y las condiciones visibles en la fuente oficial.",
+          "source_url": "https://www.librosdelasteroide.com/contacto"
+        }
+      ]
+    },
+    {
+      "publish": true,
+      "slug": "lom-ediciones",
+      "name": "LOM Ediciones",
+      "group": "LOM Ediciones",
+      "publisher_type": "tradicional",
+      "country": "Chile",
+      "genres": [
+        "narrativa",
+        "ensayo",
+        "literatura social"
+      ],
+      "status": "open",
+      "direct_submission": true,
+      "submission_channel": "Recepción 2026 durante octubre: copia impresa + archivo digital",
+      "submission_email": "secretaria@lom.cl",
+      "submission_url": "https://lom.cl/pages/procedimiento-manuscritos",
+      "website_url": "https://lom.cl/",
+      "requirements": [
+        "En 2026 la recepción se realiza durante el mes de octubre.",
+        "Enviar texto completo impreso con páginas numeradas, preferiblemente anillado o empastado.",
+        "Enviar además el archivo digital y completar la ficha de autoría y resumen.",
+        "Solo se recibe una obra por autor o autora."
+      ],
+      "response_time": "LOM indica un máximo de seis meses para evaluar la obra.",
+      "summary": "LOM Ediciones abre en octubre de 2026 una ventana oficial para evaluación de manuscritos y publica un procedimiento concreto de entrega física y respaldo digital.",
+      "public_note": "La página oficial no aclara expresamente la elegibilidad de autores residentes fuera de Chile; conviene confirmarla antes de asumir costes de envío internacional.",
+      "verified_at": "2026-10-03",
+      "page_updated_at": "2026-10-03",
+      "sources": [
+        {
+          "label": "LOM Ediciones — recepción o contacto oficial",
+          "url": "https://lom.cl/pages/procedimiento-manuscritos",
+          "primary": true
+        },
+        {
+          "label": "LOM Ediciones — web o catálogo oficial",
+          "url": "https://lom.cl/",
+          "primary": true
+        }
+      ],
+      "history": [
+        {
+          "date": "2026-10-03",
+          "event": "Revisados el estado público de recepción, el canal y las condiciones visibles en la fuente oficial.",
+          "source_url": "https://lom.cl/pages/procedimiento-manuscritos"
         }
       ]
     },
@@ -494,6 +1171,98 @@
     },
     {
       "publish": true,
+      "slug": "navona-editorial",
+      "name": "Navona Editorial",
+      "group": "Navona Editorial",
+      "publisher_type": "tradicional",
+      "country": "España",
+      "genres": [
+        "narrativa",
+        "ficción",
+        "misterio",
+        "thriller"
+      ],
+      "status": "open",
+      "direct_submission": true,
+      "submission_channel": "Formulario específico para manuscritos",
+      "submission_email": null,
+      "submission_url": "https://navonaed.com/contacto/",
+      "website_url": "https://navonaed.com/",
+      "requirements": [
+        "Utilizar el formulario específico de manuscritos de la página de contacto.",
+        "El formulario solicita nombre, email, teléfono, mensaje y un archivo PDF.",
+        "El PDF admite un tamaño máximo de 10 MB según la web oficial."
+      ],
+      "response_time": null,
+      "summary": "Navona Editorial dispone de un formulario específico y activo para manuscritos, separado del contacto general de la editorial.",
+      "public_note": "La web no publica en ese formulario una extensión o estructura obligatoria adicional; revisa el catálogo y prepara el PDF de forma profesional.",
+      "verified_at": "2026-10-03",
+      "page_updated_at": "2026-10-03",
+      "sources": [
+        {
+          "label": "Navona Editorial — recepción o contacto oficial",
+          "url": "https://navonaed.com/contacto/",
+          "primary": true
+        },
+        {
+          "label": "Navona Editorial — web o catálogo oficial",
+          "url": "https://navonaed.com/",
+          "primary": true
+        }
+      ],
+      "history": [
+        {
+          "date": "2026-10-03",
+          "event": "Revisados el estado público de recepción, el canal y las condiciones visibles en la fuente oficial.",
+          "source_url": "https://navonaed.com/contacto/"
+        }
+      ]
+    },
+    {
+      "publish": true,
+      "publisher_type": "tradicional",
+      "country": "España",
+      "submission_email": "manuscritosndenovela@planeta.es",
+      "response_time": null,
+      "page_updated_at": "2026-10-03",
+      "slug": "nde-novela",
+      "name": "NdeNovela",
+      "group": "Grupo Planeta",
+      "genres": [
+        "narrativa",
+        "novela negra",
+        "terror",
+        "ficción contemporánea"
+      ],
+      "status": "open",
+      "direct_submission": true,
+      "submission_channel": "Correo específico de manuscritos",
+      "submission_url": "https://www.planetadelibros.com/editorial/n-de-novela/615",
+      "website_url": "https://www.planetadelibros.com/editorial/n-de-novela/615",
+      "requirements": [
+        "Enviar la propuesta por el correo de manuscritos que publica el propio sello.",
+        "Comprobar la ficha oficial antes de adjuntar archivos por si el sello añade requisitos concretos."
+      ],
+      "summary": "NdeNovela es un sello de Grupo Planeta orientado a descubrir autores todavía desconocidos por el gran público y publica en su ficha un correo específico para recibir manuscritos.",
+      "public_note": "La ficha oficial confirma el canal de manuscritos, pero no fija allí un paquete documental cerrado; conviene revisar el mismo día del envío.",
+      "verified_at": "2026-10-03",
+      "history": [
+        {
+          "date": "2026-10-03",
+          "event": "Revisados el catálogo oficial y el estado público de la vía de recepción disponible.",
+          "source_url": "https://www.planetadelibros.com/editorial/n-de-novela/615"
+        }
+      ],
+      "sources": [
+        {
+          "label": "NdeNovela — fuente oficial",
+          "url": "https://www.planetadelibros.com/editorial/n-de-novela/615",
+          "primary": true
+        }
+      ]
+    },
+    {
+      "publish": true,
       "slug": "nocturna-ediciones",
       "name": "Nocturna Ediciones",
       "group": "Independiente",
@@ -538,6 +1307,102 @@
           "date": "2026-08-17",
           "event": "Comprobada la recepción de novelas por correo electrónico y los requisitos visibles en la página oficial.",
           "source_url": "https://www.nocturnaediciones.com/contacto"
+        }
+      ]
+    },
+    {
+      "publish": true,
+      "slug": "odelia-editora",
+      "name": "Odelia editora",
+      "group": "Odelia editora",
+      "publisher_type": "tradicional",
+      "country": "Argentina",
+      "genres": [
+        "cuento",
+        "novela",
+        "narrativa adulta"
+      ],
+      "status": "open",
+      "direct_submission": true,
+      "submission_channel": "Formulario específico de selección de obras",
+      "submission_email": null,
+      "submission_url": "https://www.odeliaeditora.com/contacto",
+      "website_url": "https://www.odeliaeditora.com/",
+      "requirements": [
+        "Acepta originales de cuento y novela adulta en castellano.",
+        "Completar un formulario por cada obra que se quiera presentar.",
+        "La editorial contacta únicamente cuando la decisión de avanzar con la publicación es positiva."
+      ],
+      "response_time": null,
+      "summary": "Odelia editora recibe mediante formulario obras originales de cuento y novela adulta en castellano y declara un modelo editorial sin cobro al autor.",
+      "public_note": "La editorial indica expresamente que paga derechos de autor y no cobra por publicar. No emite informes de lectura para las propuestas descartadas.",
+      "verified_at": "2026-10-03",
+      "page_updated_at": "2026-10-03",
+      "sources": [
+        {
+          "label": "Odelia editora — recepción o contacto oficial",
+          "url": "https://www.odeliaeditora.com/contacto",
+          "primary": true
+        },
+        {
+          "label": "Odelia editora — web o catálogo oficial",
+          "url": "https://www.odeliaeditora.com/",
+          "primary": true
+        }
+      ],
+      "history": [
+        {
+          "date": "2026-10-03",
+          "event": "Revisados el estado público de recepción, el canal y las condiciones visibles en la fuente oficial.",
+          "source_url": "https://www.odeliaeditora.com/contacto"
+        }
+      ]
+    },
+    {
+      "publish": true,
+      "slug": "pepitas-de-calabaza",
+      "name": "Pepitas de calabaza",
+      "group": "Pepitas de calabaza",
+      "publisher_type": "tradicional",
+      "country": "España",
+      "genres": [
+        "narrativa",
+        "ensayo",
+        "crónica",
+        "pensamiento"
+      ],
+      "status": "open",
+      "direct_submission": false,
+      "submission_channel": "La página oficial confirma recepción de originales, sin protocolo específico publicado",
+      "submission_email": null,
+      "submission_url": "https://www.pepitas.net/contacto",
+      "website_url": "https://www.pepitas.net/",
+      "requirements": [
+        "La editorial confirma que recibe originales.",
+        "No publica en esa página un formato, calendario o canal específico de manuscritos; conviene realizar una consulta concisa y seguir cualquier instrucción que proporcione."
+      ],
+      "response_time": null,
+      "summary": "Pepitas de calabaza reconoce públicamente que recibe originales, aunque advierte de que recibe más de los que puede leer y responder.",
+      "public_note": "Se clasifica como recepción abierta pero sin envío directo estructurado: no conviene inferir un protocolo que la editorial no publica.",
+      "verified_at": "2026-10-03",
+      "page_updated_at": "2026-10-03",
+      "sources": [
+        {
+          "label": "Pepitas de calabaza — información oficial",
+          "url": "https://www.pepitas.net/contacto",
+          "primary": true
+        },
+        {
+          "label": "Pepitas de calabaza — web oficial",
+          "url": "https://www.pepitas.net/",
+          "primary": true
+        }
+      ],
+      "history": [
+        {
+          "date": "2026-10-03",
+          "event": "Revisado el estado público de recepción y las condiciones visibles en la fuente oficial.",
+          "source_url": "https://www.pepitas.net/contacto"
         }
       ]
     },
@@ -860,6 +1725,56 @@
     },
     {
       "publish": true,
+      "slug": "valhalla-ediciones",
+      "name": "Valhalla Ediciones",
+      "group": "Valhalla Ediciones",
+      "publisher_type": "tradicional",
+      "country": "España",
+      "genres": [
+        "fantasía",
+        "ciencia ficción",
+        "terror",
+        "romance"
+      ],
+      "status": "open",
+      "direct_submission": true,
+      "submission_channel": "Correo oficial de manuscritos",
+      "submission_email": "manuscritos@valhallaediciones.com",
+      "submission_url": "https://www.valhallaediciones.com/envio-manuscrito/",
+      "website_url": "https://www.valhallaediciones.com/quienes-somos-valhalla-ediciones/",
+      "requirements": [
+        "Persona mayor de edad y residente en España.",
+        "Obra inédita y con derechos disponibles.",
+        "Extensión orientativa entre 45.000 y 160.000 palabras.",
+        "Manuscrito completo en Word, sinopsis y biografía; indicar la colección a la que se dirige."
+      ],
+      "response_time": null,
+      "summary": "Valhalla Ediciones mantiene abierta la recepción de manuscritos para sus colecciones y declara un modelo de edición tradicional sin cobro al autor.",
+      "public_note": "La editorial exige que la obra no se haya publicado ni siquiera parcialmente en plataformas. Revisa la colección adecuada y las condiciones antes de enviar.",
+      "verified_at": "2026-10-03",
+      "page_updated_at": "2026-10-03",
+      "sources": [
+        {
+          "label": "Valhalla Ediciones — recepción o contacto oficial",
+          "url": "https://www.valhallaediciones.com/envio-manuscrito/",
+          "primary": true
+        },
+        {
+          "label": "Valhalla Ediciones — web o catálogo oficial",
+          "url": "https://www.valhallaediciones.com/quienes-somos-valhalla-ediciones/",
+          "primary": true
+        }
+      ],
+      "history": [
+        {
+          "date": "2026-10-03",
+          "event": "Revisados el estado público de recepción, el canal y las condiciones visibles en la fuente oficial.",
+          "source_url": "https://www.valhallaediciones.com/envio-manuscrito/"
+        }
+      ]
+    },
+    {
+      "publish": true,
       "slug": "gigamesh",
       "name": "Ediciones Gigamesh",
       "group": "Gigamesh",
@@ -940,6 +1855,103 @@
           "date": "2026-08-11",
           "event": "Comprobado el estado público de recepción, el canal disponible y las condiciones publicadas por la editorial.",
           "source_url": "https://www.alianzaeditorial.es/subcoleccion/runas/"
+        }
+      ]
+    },
+    {
+      "publish": true,
+      "slug": "candaya",
+      "name": "Candaya",
+      "group": "Candaya",
+      "publisher_type": "tradicional",
+      "country": "España",
+      "genres": [
+        "narrativa",
+        "poesía",
+        "ensayo"
+      ],
+      "status": "closed",
+      "direct_submission": false,
+      "submission_channel": "Plazo de recepción cerrado hasta nuevo aviso",
+      "submission_email": null,
+      "submission_url": "https://candaya.com/recepcion-originales/",
+      "website_url": "https://candaya.com/",
+      "requirements": [
+        "No enviar mientras el protocolo oficial indique que el plazo está cerrado.",
+        "Cuando reabra, consultar de nuevo formato, documentación y canales antes de usar instrucciones históricas."
+      ],
+      "response_time": null,
+      "summary": "Candaya dispone de un protocolo específico de originales, pero su página oficial marca actualmente la recepción cerrada hasta nuevo aviso.",
+      "public_note": "Las instrucciones que siguen visibles en la página describen el protocolo de una futura reapertura, no una autorización para enviar ahora.",
+      "verified_at": "2026-10-03",
+      "page_updated_at": "2026-10-03",
+      "sources": [
+        {
+          "label": "Candaya — información oficial",
+          "url": "https://candaya.com/recepcion-originales/",
+          "primary": true
+        },
+        {
+          "label": "Candaya — web oficial",
+          "url": "https://candaya.com/",
+          "primary": true
+        }
+      ],
+      "history": [
+        {
+          "date": "2026-10-03",
+          "event": "Revisado el estado público de recepción y las condiciones visibles en la fuente oficial.",
+          "source_url": "https://candaya.com/recepcion-originales/"
+        }
+      ]
+    },
+    {
+      "publish": true,
+      "slug": "cetus-editorial",
+      "name": "Cetus Editorial",
+      "group": "Cetus Editorial",
+      "publisher_type": "tradicional",
+      "country": "España",
+      "genres": [
+        "fantasía oscura",
+        "terror",
+        "ciencia ficción",
+        "ucronía",
+        "folclore"
+      ],
+      "status": "closed",
+      "direct_submission": false,
+      "submission_channel": "Recepción en castellano cerrada; ventana específica en catalán",
+      "submission_email": null,
+      "submission_url": "https://www.cetuseditorial.com/manuscritos/",
+      "website_url": "https://www.cetuseditorial.com/",
+      "requirements": [
+        "No enviar obras en castellano fuera de una ventana oficial.",
+        "Cuando abra, la editorial pide propuesta editorial y los primeros cinco capítulos o primeras 40 páginas, no el manuscrito completo.",
+        "Las condiciones vigentes distinguen lengua y colección; deben revisarse de nuevo en cada apertura."
+      ],
+      "response_time": null,
+      "summary": "Cetus Editorial publica fantasía, terror y ciencia ficción; la recepción general en castellano está cerrada y la página solo mantiene una apertura específica para obras en catalán.",
+      "public_note": "La editorial rechaza expresamente propuestas fuera de plazo. No debe reutilizarse el correo de manuscritos para sortear el cierre anunciado.",
+      "verified_at": "2026-10-03",
+      "page_updated_at": "2026-10-03",
+      "sources": [
+        {
+          "label": "Cetus Editorial — recepción o contacto oficial",
+          "url": "https://www.cetuseditorial.com/manuscritos/",
+          "primary": true
+        },
+        {
+          "label": "Cetus Editorial — web o catálogo oficial",
+          "url": "https://www.cetuseditorial.com/",
+          "primary": true
+        }
+      ],
+      "history": [
+        {
+          "date": "2026-10-03",
+          "event": "Revisados el estado público de recepción, el canal y las condiciones visibles en la fuente oficial.",
+          "source_url": "https://www.cetuseditorial.com/manuscritos/"
         }
       ]
     },
@@ -1029,6 +2041,96 @@
     },
     {
       "publish": true,
+      "publisher_type": "tradicional",
+      "country": "España",
+      "submission_email": null,
+      "response_time": null,
+      "page_updated_at": "2026-10-03",
+      "slug": "editorial-anagrama",
+      "name": "Editorial Anagrama",
+      "group": "Grupo Feltrinelli",
+      "genres": [
+        "narrativa",
+        "ficción literaria",
+        "ensayo"
+      ],
+      "status": "closed",
+      "direct_submission": false,
+      "submission_channel": "Recepción de manuscritos temporalmente pausada",
+      "submission_url": "https://www.anagrama-ed.es/manuscritos",
+      "website_url": "https://www.anagrama-ed.es/",
+      "requirements": [
+        "No enviar manuscritos mientras la página oficial mantenga la recepción pausada.",
+        "Esperar una reapertura expresa o utilizar una convocatoria oficial con bases propias."
+      ],
+      "summary": "Editorial Anagrama mantiene temporalmente pausada la recepción de manuscritos por el volumen de propuestas pendientes de valoración.",
+      "public_note": "El Premio Herralde es una vía distinta y se sigue en el radar de convocatorias cuando existe una edición abierta.",
+      "verified_at": "2026-10-03",
+      "history": [
+        {
+          "date": "2026-10-03",
+          "event": "Revisados el catálogo oficial y el estado público de la vía de recepción disponible.",
+          "source_url": "https://www.anagrama-ed.es/manuscritos"
+        }
+      ],
+      "sources": [
+        {
+          "label": "Editorial Anagrama — fuente oficial",
+          "url": "https://www.anagrama-ed.es/manuscritos",
+          "primary": true
+        }
+      ]
+    },
+    {
+      "publish": true,
+      "slug": "editorial-cetro",
+      "name": "Editorial Cetro",
+      "group": "Editorial Cetro",
+      "publisher_type": "tradicional",
+      "country": "España",
+      "genres": [
+        "fantasía",
+        "ciencia ficción",
+        "ucronía",
+        "thriller"
+      ],
+      "status": "closed",
+      "direct_submission": false,
+      "submission_channel": "Recepción de manuscritos cerrada",
+      "submission_email": null,
+      "submission_url": "https://editorialcetro.com/",
+      "website_url": "https://editorialcetro.com/coleccion-otros-mundos/",
+      "requirements": [
+        "No enviar manuscritos mientras la web mantenga la recepción cerrada.",
+        "Esperar una reapertura oficial y revisar de nuevo las condiciones antes de presentar una obra."
+      ],
+      "response_time": null,
+      "summary": "Editorial Cetro es una editorial tradicional especializada en fantasía, ciencia ficción y ucronía; su web oficial mantiene actualmente cerrada la recepción de manuscritos.",
+      "public_note": "El catálogo sigue activo, pero el cierre de recepción es expreso. El contacto general no debe utilizarse para saltarse esa política.",
+      "verified_at": "2026-10-03",
+      "page_updated_at": "2026-10-03",
+      "sources": [
+        {
+          "label": "Editorial Cetro — recepción o contacto oficial",
+          "url": "https://editorialcetro.com/",
+          "primary": true
+        },
+        {
+          "label": "Editorial Cetro — web o catálogo oficial",
+          "url": "https://editorialcetro.com/coleccion-otros-mundos/",
+          "primary": true
+        }
+      ],
+      "history": [
+        {
+          "date": "2026-10-03",
+          "event": "Revisados el estado público de recepción, el canal y las condiciones visibles en la fuente oficial.",
+          "source_url": "https://editorialcetro.com/"
+        }
+      ]
+    },
+    {
+      "publish": true,
       "slug": "gamon-fantasy",
       "name": "Gamon Fantasy",
       "group": "Trini Vergara Ediciones",
@@ -1066,6 +2168,233 @@
           "date": "2026-08-11",
           "event": "Comprobado el estado público de recepción, el canal disponible y las condiciones publicadas por la editorial.",
           "source_url": "https://www.trinivergaraediciones.com/post/si%2Bquieres%2Benviarnos%2Btu%2Bmanuscrito%2B%2Blee%2Beste%2Bpost"
+        }
+      ]
+    },
+    {
+      "publish": true,
+      "slug": "impedimenta",
+      "name": "Impedimenta",
+      "group": "Impedimenta",
+      "publisher_type": "tradicional",
+      "country": "España",
+      "genres": [
+        "narrativa",
+        "ficción literaria",
+        "literatura internacional"
+      ],
+      "status": "closed",
+      "direct_submission": false,
+      "submission_channel": "No acepta manuscritos no solicitados",
+      "submission_email": null,
+      "submission_url": "https://impedimenta.es/contacto",
+      "website_url": "https://impedimenta.es/",
+      "requirements": [
+        "No enviar manuscritos no solicitados mientras la página oficial mantenga este aviso."
+      ],
+      "response_time": null,
+      "summary": "Impedimenta declara expresamente en su página de contacto que no acepta manuscritos no solicitados.",
+      "public_note": "La existencia de un correo editorial general no equivale a una vía de recepción de originales.",
+      "verified_at": "2026-10-03",
+      "page_updated_at": "2026-10-03",
+      "sources": [
+        {
+          "label": "Impedimenta — información oficial",
+          "url": "https://impedimenta.es/contacto",
+          "primary": true
+        },
+        {
+          "label": "Impedimenta — web oficial",
+          "url": "https://impedimenta.es/",
+          "primary": true
+        }
+      ],
+      "history": [
+        {
+          "date": "2026-10-03",
+          "event": "Revisado el estado público de recepción y las condiciones visibles en la fuente oficial.",
+          "source_url": "https://impedimenta.es/contacto"
+        }
+      ]
+    },
+    {
+      "publish": true,
+      "slug": "insolita-editorial",
+      "name": "Insólita Editorial",
+      "group": "Insólita Editorial",
+      "publisher_type": "tradicional",
+      "country": "España",
+      "genres": [
+        "ciencia ficción",
+        "fantasía",
+        "terror",
+        "ficción especulativa"
+      ],
+      "status": "closed",
+      "direct_submission": false,
+      "submission_channel": "No acepta manuscritos no solicitados",
+      "submission_email": null,
+      "submission_url": "https://www.insolitaeditorial.com/es/contacto/",
+      "website_url": "https://www.insolitaeditorial.com/",
+      "requirements": [
+        "No enviar manuscritos no solicitados mientras la página oficial mantenga este aviso.",
+        "No utilizar el correo general como buzón alternativo de originales."
+      ],
+      "response_time": null,
+      "summary": "Insólita Editorial, especializada en literatura de género, declara que por el momento no puede aceptar manuscritos no solicitados ni mantener correspondencia sobre ellos.",
+      "public_note": "La dirección general de contacto se omite como vía de manuscritos porque la propia editorial excluye expresamente ese uso.",
+      "verified_at": "2026-10-03",
+      "page_updated_at": "2026-10-03",
+      "sources": [
+        {
+          "label": "Insólita Editorial — contacto oficial",
+          "url": "https://www.insolitaeditorial.com/es/contacto/",
+          "primary": true
+        }
+      ],
+      "history": [
+        {
+          "date": "2026-10-03",
+          "event": "Comprobada la negativa vigente a recibir manuscritos no solicitados.",
+          "source_url": "https://www.insolitaeditorial.com/es/contacto/"
+        }
+      ]
+    },
+    {
+      "publish": true,
+      "slug": "menoscuarto-ediciones",
+      "name": "Menoscuarto Ediciones",
+      "group": "Menoscuarto Ediciones",
+      "publisher_type": "tradicional",
+      "country": "España",
+      "genres": [
+        "narrativa",
+        "cuento",
+        "ensayo",
+        "ficción literaria"
+      ],
+      "status": "closed",
+      "direct_submission": false,
+      "submission_channel": "No admite originales no solicitados",
+      "submission_email": null,
+      "submission_url": "https://menoscuarto.es/",
+      "website_url": "https://menoscuarto.es/",
+      "requirements": [
+        "No enviar originales no solicitados mientras el aviso oficial siga vigente.",
+        "Utilizar únicamente convocatorias o canales que la editorial identifique expresamente para recepción de obras."
+      ],
+      "response_time": null,
+      "summary": "Menoscuarto publica narrativa y ensayo y declara actualmente que no admite originales no solicitados.",
+      "public_note": "La editorial participa en premios literarios, pero esa colaboración no convierte su contacto general en un canal abierto de manuscritos.",
+      "verified_at": "2026-10-03",
+      "page_updated_at": "2026-10-03",
+      "sources": [
+        {
+          "label": "Menoscuarto — web oficial y aviso de originales",
+          "url": "https://menoscuarto.es/",
+          "primary": true
+        }
+      ],
+      "history": [
+        {
+          "date": "2026-10-03",
+          "event": "Comprobado el aviso oficial de no admisión de originales no solicitados.",
+          "source_url": "https://menoscuarto.es/"
+        }
+      ]
+    },
+    {
+      "publish": true,
+      "slug": "numak-ediciones",
+      "name": "Numak Ediciones",
+      "group": "Numak Ediciones",
+      "publisher_type": "tradicional",
+      "country": "España",
+      "genres": [
+        "fantasía",
+        "ciencia ficción",
+        "terror"
+      ],
+      "status": "closed",
+      "direct_submission": false,
+      "submission_channel": "Recepción de manuscritos cerrada",
+      "submission_email": null,
+      "submission_url": "https://numakediciones.com/manuscritos/",
+      "website_url": "https://numakediciones.com/",
+      "requirements": [
+        "No enviar mientras la página oficial siga marcando la recepción como cerrada.",
+        "Cuando reabra, volver a comprobar formatos, extensión y canal antes de reutilizar instrucciones anteriores."
+      ],
+      "response_time": null,
+      "summary": "Numak Ediciones está especializada en fantasía, terror y ciencia ficción; su página de manuscritos declara actualmente cerrada la recepción.",
+      "public_note": "La web conserva requisitos para futuras aperturas, pero no deben interpretarse como autorización de envío mientras el encabezado oficial siga indicando cierre.",
+      "verified_at": "2026-10-03",
+      "page_updated_at": "2026-10-03",
+      "sources": [
+        {
+          "label": "Numak Ediciones — recepción o contacto oficial",
+          "url": "https://numakediciones.com/manuscritos/",
+          "primary": true
+        },
+        {
+          "label": "Numak Ediciones — web o catálogo oficial",
+          "url": "https://numakediciones.com/",
+          "primary": true
+        }
+      ],
+      "history": [
+        {
+          "date": "2026-10-03",
+          "event": "Revisados el estado público de recepción, el canal y las condiciones visibles en la fuente oficial.",
+          "source_url": "https://numakediciones.com/manuscritos/"
+        }
+      ]
+    },
+    {
+      "publish": true,
+      "slug": "nordica-libros",
+      "name": "Nórdica Libros",
+      "group": "Nórdica Libros",
+      "publisher_type": "tradicional",
+      "country": "España",
+      "genres": [
+        "narrativa",
+        "literatura ilustrada",
+        "clásicos",
+        "literatura internacional"
+      ],
+      "status": "closed",
+      "direct_submission": false,
+      "submission_channel": "Recepción de originales suspendida hasta nuevo aviso",
+      "submission_email": null,
+      "submission_url": "https://nordicalibros.com/contacto/",
+      "website_url": "https://nordicalibros.com/",
+      "requirements": [
+        "No enviar originales mientras la recepción siga suspendida.",
+        "La editorial indica que los envíos realizados desde julio de 2025 se eliminan automáticamente."
+      ],
+      "response_time": null,
+      "summary": "Nórdica Libros mantiene suspendida la recepción de originales hasta nuevo aviso.",
+      "public_note": "El contacto general no sustituye la vía de manuscritos mientras el cierre siga vigente.",
+      "verified_at": "2026-10-03",
+      "page_updated_at": "2026-10-03",
+      "sources": [
+        {
+          "label": "Nórdica Libros — información oficial",
+          "url": "https://nordicalibros.com/contacto/",
+          "primary": true
+        },
+        {
+          "label": "Nórdica Libros — web oficial",
+          "url": "https://nordicalibros.com/",
+          "primary": true
+        }
+      ],
+      "history": [
+        {
+          "date": "2026-10-03",
+          "event": "Revisado el estado público de recepción y las condiciones visibles en la fuente oficial.",
+          "source_url": "https://nordicalibros.com/contacto/"
         }
       ]
     },
@@ -1157,6 +2486,148 @@
     },
     {
       "publish": true,
+      "slug": "paginas-de-espuma",
+      "name": "Páginas de Espuma",
+      "group": "Páginas de Espuma",
+      "publisher_type": "tradicional",
+      "country": "España",
+      "genres": [
+        "cuento",
+        "narrativa breve",
+        "ensayo"
+      ],
+      "status": "closed",
+      "direct_submission": false,
+      "submission_channel": "Recepción de originales temporalmente cerrada",
+      "submission_email": null,
+      "submission_url": "https://paginasdeespuma.com/contacto/",
+      "website_url": "https://paginasdeespuma.com/",
+      "requirements": [
+        "No enviar originales no solicitados mientras el departamento de lectura mantenga la recepción cerrada.",
+        "Esperar una reapertura oficial antes de reutilizar direcciones o instrucciones anteriores."
+      ],
+      "response_time": null,
+      "summary": "Páginas de Espuma, especializada en cuento y ensayo, informa actualmente de que no acepta originales no solicitados por saturación del departamento de lectura.",
+      "public_note": "Existen páginas antiguas con instrucciones de propuesta, pero la página de contacto actual prevalece y marca la recepción como temporalmente cerrada.",
+      "verified_at": "2026-10-03",
+      "page_updated_at": "2026-10-03",
+      "sources": [
+        {
+          "label": "Páginas de Espuma — información oficial",
+          "url": "https://paginasdeespuma.com/contacto/",
+          "primary": true
+        },
+        {
+          "label": "Páginas de Espuma — web oficial",
+          "url": "https://paginasdeespuma.com/",
+          "primary": true
+        }
+      ],
+      "history": [
+        {
+          "date": "2026-10-03",
+          "event": "Revisado el estado público de recepción y las condiciones visibles en la fuente oficial.",
+          "source_url": "https://paginasdeespuma.com/contacto/"
+        }
+      ]
+    },
+    {
+      "publish": true,
+      "slug": "rayo-verde-editorial",
+      "name": "Rayo Verde Editorial",
+      "group": "Rayo Verde Editorial",
+      "publisher_type": "tradicional",
+      "country": "España",
+      "genres": [
+        "narrativa",
+        "narrativa breve",
+        "ensayo",
+        "ficción literaria"
+      ],
+      "status": "closed",
+      "direct_submission": false,
+      "submission_channel": "Recepción de originales cerrada temporalmente",
+      "submission_email": null,
+      "submission_url": "https://www.rayoverde.es/contacto/",
+      "website_url": "https://www.rayoverde.es/",
+      "requirements": [
+        "No enviar originales mientras la página oficial mantenga el cierre temporal.",
+        "Esperar una reapertura expresa y volver a comprobar las condiciones."
+      ],
+      "response_time": null,
+      "summary": "Rayo Verde publica narrativa, narrativa breve y ensayo y mantiene temporalmente cerrada la recepción de originales por el volumen pendiente de valorar.",
+      "public_note": "El correo general de contacto no se presenta como alternativa al cierre del buzón de originales.",
+      "verified_at": "2026-10-03",
+      "page_updated_at": "2026-10-03",
+      "sources": [
+        {
+          "label": "Rayo Verde — contacto y originales",
+          "url": "https://www.rayoverde.es/contacto/",
+          "primary": true
+        },
+        {
+          "label": "Rayo Verde — proyecto editorial",
+          "url": "https://www.rayoverde.es/editorial/",
+          "primary": true
+        }
+      ],
+      "history": [
+        {
+          "date": "2026-10-03",
+          "event": "Comprobado en la fuente oficial que la recepción de originales está cerrada temporalmente.",
+          "source_url": "https://www.rayoverde.es/contacto/"
+        }
+      ]
+    },
+    {
+      "publish": true,
+      "slug": "sexto-piso",
+      "name": "Sexto Piso",
+      "group": "Sexto Piso",
+      "publisher_type": "tradicional",
+      "country": "España",
+      "genres": [
+        "narrativa",
+        "ensayo",
+        "ficción literaria"
+      ],
+      "status": "closed",
+      "direct_submission": false,
+      "submission_channel": "No acepta manuscritos no solicitados",
+      "submission_email": null,
+      "submission_url": "https://www.sextopiso.es/esp/menu/5/Contacto",
+      "website_url": "https://www.sextopiso.es/",
+      "requirements": [
+        "No enviar manuscritos no solicitados mientras continúe el cierre.",
+        "La editorial indica que una futura apertura se anunciará en su web y redes oficiales."
+      ],
+      "response_time": null,
+      "summary": "Sexto Piso España mantiene suspendida la recepción de manuscritos no solicitados por saturación de su plan editorial.",
+      "public_note": "El correo de prensa o contacto general no debe utilizarse como vía alternativa de originales.",
+      "verified_at": "2026-10-03",
+      "page_updated_at": "2026-10-03",
+      "sources": [
+        {
+          "label": "Sexto Piso — información oficial",
+          "url": "https://www.sextopiso.es/esp/menu/5/Contacto",
+          "primary": true
+        },
+        {
+          "label": "Sexto Piso — web oficial",
+          "url": "https://www.sextopiso.es/",
+          "primary": true
+        }
+      ],
+      "history": [
+        {
+          "date": "2026-10-03",
+          "event": "Revisado el estado público de recepción y las condiciones visibles en la fuente oficial.",
+          "source_url": "https://www.sextopiso.es/esp/menu/5/Contacto"
+        }
+      ]
+    },
+    {
+      "publish": true,
       "slug": "silver-books",
       "name": "Silver Books",
       "group": "Silver Books",
@@ -1194,6 +2665,188 @@
           "date": "2026-10-02",
           "event": "Comprobado el estado público de recepción, el canal disponible y las condiciones publicadas por la editorial.",
           "source_url": "https://silverbooks.es/manuscritos/"
+        }
+      ]
+    },
+    {
+      "publish": true,
+      "publisher_type": "tradicional",
+      "country": "España",
+      "submission_email": null,
+      "response_time": null,
+      "page_updated_at": "2026-10-03",
+      "slug": "adn-alianza-de-novelas",
+      "name": "AdN · Alianza de Novelas",
+      "group": "Grupo Anaya · Alianza Editorial",
+      "genres": [
+        "narrativa",
+        "ficción contemporánea",
+        "thriller",
+        "ficción comercial"
+      ],
+      "status": "unknown",
+      "direct_submission": false,
+      "submission_channel": "No consta un canal directo de originales verificado para el sello",
+      "submission_url": "https://www.grupoanaya.es/editoriales/adn-alianza-de-novelas",
+      "website_url": "https://www.grupoanaya.es/editoriales/adn-alianza-de-novelas",
+      "requirements": [
+        "Consultar la ficha y el catálogo oficial del sello.",
+        "No utilizar contactos generales como buzón de originales si el grupo no los identifica expresamente para ese fin."
+      ],
+      "summary": "AdN es el sello de narrativa contemporánea de Grupo Anaya, con una propuesta plural de géneros y autores, pero sin una vía pública de originales verificada en la ficha oficial consultada.",
+      "public_note": "Se publica como estado por verificar: afinidad de catálogo y recepción de manuscritos son cuestiones distintas.",
+      "verified_at": "2026-10-03",
+      "history": [
+        {
+          "date": "2026-10-03",
+          "event": "Revisados el catálogo oficial y el estado público de la vía de recepción disponible.",
+          "source_url": "https://www.grupoanaya.es/editoriales/adn-alianza-de-novelas"
+        }
+      ],
+      "sources": [
+        {
+          "label": "AdN · Alianza de Novelas — fuente oficial",
+          "url": "https://www.grupoanaya.es/editoriales/adn-alianza-de-novelas",
+          "primary": true
+        }
+      ]
+    },
+    {
+      "publish": true,
+      "publisher_type": "tradicional",
+      "country": "España",
+      "submission_email": null,
+      "response_time": null,
+      "page_updated_at": "2026-10-03",
+      "slug": "alfaguara",
+      "name": "Alfaguara",
+      "group": "Alfaguara · Penguin Random House Grupo Editorial",
+      "genres": [
+        "narrativa",
+        "ficción literaria",
+        "narrativa en español"
+      ],
+      "status": "unknown",
+      "direct_submission": false,
+      "submission_channel": "Portal corporativo de Penguin Random House Grupo Editorial",
+      "submission_url": "https://www.penguinrandomhousegrupoeditorial.com/sellos-y-negocios/quiero-enviar-un-manuscrito/",
+      "website_url": "https://www.penguinrandomhousegrupoeditorial.com/sello/alfaguara/",
+      "requirements": [
+        "Penguin Random House solo recibe manuscritos espontáneos a través de su portal web.",
+        "Seleccionar España y comprobar que el sello figure disponible antes de completar la candidatura.",
+        "Seguir el formulario y las recomendaciones que muestre el portal en ese momento."
+      ],
+      "summary": "Alfaguara forma parte de Penguin Random House Grupo Editorial; los originales espontáneos se canalizan mediante el portal corporativo del grupo.",
+      "public_note": "La presencia del sello en el catálogo del grupo no garantiza que esté seleccionable para originales en todo momento; la disponibilidad debe comprobarse en el portal.",
+      "verified_at": "2026-10-03",
+      "sources": [
+        {
+          "label": "PRH — envío de manuscritos",
+          "url": "https://www.penguinrandomhousegrupoeditorial.com/sellos-y-negocios/quiero-enviar-un-manuscrito/",
+          "primary": true
+        },
+        {
+          "label": "Alfaguara — sello oficial",
+          "url": "https://www.penguinrandomhousegrupoeditorial.com/sello/alfaguara/",
+          "primary": true
+        }
+      ],
+      "history": [
+        {
+          "date": "2026-10-03",
+          "event": "Revisados el catálogo oficial y el estado público de la vía de recepción disponible.",
+          "source_url": "https://www.penguinrandomhousegrupoeditorial.com/sellos-y-negocios/quiero-enviar-un-manuscrito/"
+        }
+      ]
+    },
+    {
+      "publish": true,
+      "publisher_type": "tradicional",
+      "country": "España",
+      "submission_email": null,
+      "response_time": null,
+      "page_updated_at": "2026-10-03",
+      "slug": "contraluz-editorial",
+      "name": "Contraluz",
+      "group": "Grupo Anaya",
+      "genres": [
+        "narrativa",
+        "ficción comercial",
+        "no ficción"
+      ],
+      "status": "unknown",
+      "direct_submission": false,
+      "submission_channel": "No consta un canal directo de originales verificado para el sello",
+      "submission_url": "https://www.grupoanaya.es/editoriales/contraluz",
+      "website_url": "https://www.grupoanaya.es/editoriales/contraluz",
+      "requirements": [
+        "Consultar la información oficial del sello.",
+        "No inferir una recepción abierta por la existencia de contactos generales del grupo."
+      ],
+      "summary": "Contraluz es un sello generalista de Grupo Anaya para literatura y no ficción que declara interés por autores de habla hispana y nuevos talentos, sin publicar en su ficha un canal directo de originales.",
+      "public_note": "La ficha se mantiene como estado por verificar hasta localizar una instrucción oficial específica de manuscritos.",
+      "verified_at": "2026-10-03",
+      "history": [
+        {
+          "date": "2026-10-03",
+          "event": "Revisados el catálogo oficial y el estado público de la vía de recepción disponible.",
+          "source_url": "https://www.grupoanaya.es/editoriales/contraluz"
+        }
+      ],
+      "sources": [
+        {
+          "label": "Contraluz — fuente oficial",
+          "url": "https://www.grupoanaya.es/editoriales/contraluz",
+          "primary": true
+        }
+      ]
+    },
+    {
+      "publish": true,
+      "slug": "duomo-ediciones",
+      "name": "Duomo Ediciones",
+      "group": "Gruppo editoriale Mauri Spagnol",
+      "publisher_type": "tradicional",
+      "country": "España",
+      "genres": [
+        "narrativa",
+        "thriller",
+        "misterio",
+        "ficción histórica",
+        "fantasía"
+      ],
+      "status": "unknown",
+      "direct_submission": false,
+      "submission_channel": "Solo contacto general; no consta un protocolo oficial de manuscritos no solicitados",
+      "submission_email": null,
+      "submission_url": "https://www.duomoediciones.com/contacto/",
+      "website_url": "https://www.duomoediciones.com/",
+      "requirements": [
+        "La página oficial publica un contacto general, pero no instrucciones específicas para originales.",
+        "No adjuntar un manuscrito completo en frío sin que la editorial confirme antes que recibe propuestas y en qué formato."
+      ],
+      "response_time": null,
+      "summary": "Duomo Ediciones publica narrativa de varios géneros y ofrece un canal general de contacto, pero no publica una política verificable de recepción de manuscritos no solicitados.",
+      "public_note": "Se clasifica como estado por verificar para no confundir un formulario general con una puerta editorial de originales.",
+      "verified_at": "2026-10-03",
+      "page_updated_at": "2026-10-03",
+      "sources": [
+        {
+          "label": "Duomo Ediciones — contacto oficial",
+          "url": "https://www.duomoediciones.com/contacto/",
+          "primary": true
+        },
+        {
+          "label": "Duomo Ediciones — web oficial",
+          "url": "https://www.duomoediciones.com/",
+          "primary": true
+        }
+      ],
+      "history": [
+        {
+          "date": "2026-10-03",
+          "event": "Revisado el contacto oficial sin localizar instrucciones específicas de recepción de originales.",
+          "source_url": "https://www.duomoediciones.com/contacto/"
         }
       ]
     },
@@ -1241,6 +2894,55 @@
         {
           "date": "2026-08-18",
           "event": "Comprobado el estado público de recepción, el canal disponible y las condiciones publicadas por la editorial.",
+          "source_url": "https://www.penguinrandomhousegrupoeditorial.com/sellos-y-negocios/quiero-enviar-un-manuscrito/"
+        }
+      ]
+    },
+    {
+      "publish": true,
+      "publisher_type": "tradicional",
+      "country": "España",
+      "submission_email": null,
+      "response_time": null,
+      "page_updated_at": "2026-10-03",
+      "slug": "grijalbo",
+      "name": "Grijalbo",
+      "group": "Grijalbo · Penguin Random House Grupo Editorial",
+      "genres": [
+        "narrativa",
+        "intriga",
+        "ficción histórica",
+        "ficción comercial"
+      ],
+      "status": "unknown",
+      "direct_submission": false,
+      "submission_channel": "Portal corporativo de Penguin Random House Grupo Editorial",
+      "submission_url": "https://www.penguinrandomhousegrupoeditorial.com/sellos-y-negocios/quiero-enviar-un-manuscrito/",
+      "website_url": "https://www.penguinrandomhousegrupoeditorial.com/sello/grijalbo/",
+      "requirements": [
+        "Penguin Random House solo recibe manuscritos espontáneos a través de su portal web.",
+        "Seleccionar España y comprobar que el sello figure disponible antes de completar la candidatura.",
+        "Seguir el formulario y las recomendaciones que muestre el portal en ese momento."
+      ],
+      "summary": "Grijalbo forma parte de Penguin Random House Grupo Editorial; los originales espontáneos se canalizan mediante el portal corporativo del grupo.",
+      "public_note": "La presencia del sello en el catálogo del grupo no garantiza que esté seleccionable para originales en todo momento; la disponibilidad debe comprobarse en el portal.",
+      "verified_at": "2026-10-03",
+      "sources": [
+        {
+          "label": "PRH — envío de manuscritos",
+          "url": "https://www.penguinrandomhousegrupoeditorial.com/sellos-y-negocios/quiero-enviar-un-manuscrito/",
+          "primary": true
+        },
+        {
+          "label": "Grijalbo — sello oficial",
+          "url": "https://www.penguinrandomhousegrupoeditorial.com/sello/grijalbo/",
+          "primary": true
+        }
+      ],
+      "history": [
+        {
+          "date": "2026-10-03",
+          "event": "Revisados el catálogo oficial y el estado público de la vía de recepción disponible.",
           "source_url": "https://www.penguinrandomhousegrupoeditorial.com/sellos-y-negocios/quiero-enviar-un-manuscrito/"
         }
       ]
@@ -1343,6 +3045,103 @@
     },
     {
       "publish": true,
+      "publisher_type": "tradicional",
+      "country": "España",
+      "submission_email": null,
+      "response_time": null,
+      "page_updated_at": "2026-10-03",
+      "slug": "random-house",
+      "name": "Random House",
+      "group": "Random House · Penguin Random House Grupo Editorial",
+      "genres": [
+        "narrativa",
+        "ficción literaria",
+        "literatura contemporánea"
+      ],
+      "status": "unknown",
+      "direct_submission": false,
+      "submission_channel": "Portal corporativo de Penguin Random House Grupo Editorial",
+      "submission_url": "https://www.penguinrandomhousegrupoeditorial.com/sellos-y-negocios/quiero-enviar-un-manuscrito/",
+      "website_url": "https://www.penguinrandomhousegrupoeditorial.com/sello/literatura-random-house/",
+      "requirements": [
+        "Penguin Random House solo recibe manuscritos espontáneos a través de su portal web.",
+        "Seleccionar España y comprobar que el sello figure disponible antes de completar la candidatura.",
+        "Seguir el formulario y las recomendaciones que muestre el portal en ese momento."
+      ],
+      "summary": "Random House forma parte de Penguin Random House Grupo Editorial; los originales espontáneos se canalizan mediante el portal corporativo del grupo.",
+      "public_note": "La presencia del sello en el catálogo del grupo no garantiza que esté seleccionable para originales en todo momento; la disponibilidad debe comprobarse en el portal.",
+      "verified_at": "2026-10-03",
+      "sources": [
+        {
+          "label": "PRH — envío de manuscritos",
+          "url": "https://www.penguinrandomhousegrupoeditorial.com/sellos-y-negocios/quiero-enviar-un-manuscrito/",
+          "primary": true
+        },
+        {
+          "label": "Random House — sello oficial",
+          "url": "https://www.penguinrandomhousegrupoeditorial.com/sello/literatura-random-house/",
+          "primary": true
+        }
+      ],
+      "history": [
+        {
+          "date": "2026-10-03",
+          "event": "Revisados el catálogo oficial y el estado público de la vía de recepción disponible.",
+          "source_url": "https://www.penguinrandomhousegrupoeditorial.com/sellos-y-negocios/quiero-enviar-un-manuscrito/"
+        }
+      ]
+    },
+    {
+      "publish": true,
+      "publisher_type": "tradicional",
+      "country": "España",
+      "submission_email": null,
+      "response_time": null,
+      "page_updated_at": "2026-10-03",
+      "slug": "reservoir-books",
+      "name": "Reservoir Books",
+      "group": "Reservoir Books · Penguin Random House Grupo Editorial",
+      "genres": [
+        "narrativa",
+        "novela negra",
+        "thriller",
+        "ficción contemporánea"
+      ],
+      "status": "unknown",
+      "direct_submission": false,
+      "submission_channel": "Portal corporativo de Penguin Random House Grupo Editorial",
+      "submission_url": "https://www.penguinrandomhousegrupoeditorial.com/sellos-y-negocios/quiero-enviar-un-manuscrito/",
+      "website_url": "https://www.penguinrandomhousegrupoeditorial.com/sello/reservoir-books/",
+      "requirements": [
+        "Penguin Random House solo recibe manuscritos espontáneos a través de su portal web.",
+        "Seleccionar España y comprobar que el sello figure disponible antes de completar la candidatura.",
+        "Seguir el formulario y las recomendaciones que muestre el portal en ese momento."
+      ],
+      "summary": "Reservoir Books forma parte de Penguin Random House Grupo Editorial; los originales espontáneos se canalizan mediante el portal corporativo del grupo.",
+      "public_note": "La presencia del sello en el catálogo del grupo no garantiza que esté seleccionable para originales en todo momento; la disponibilidad debe comprobarse en el portal.",
+      "verified_at": "2026-10-03",
+      "sources": [
+        {
+          "label": "PRH — envío de manuscritos",
+          "url": "https://www.penguinrandomhousegrupoeditorial.com/sellos-y-negocios/quiero-enviar-un-manuscrito/",
+          "primary": true
+        },
+        {
+          "label": "Reservoir Books — sello oficial",
+          "url": "https://www.penguinrandomhousegrupoeditorial.com/sello/reservoir-books/",
+          "primary": true
+        }
+      ],
+      "history": [
+        {
+          "date": "2026-10-03",
+          "event": "Revisados el catálogo oficial y el estado público de la vía de recepción disponible.",
+          "source_url": "https://www.penguinrandomhousegrupoeditorial.com/sellos-y-negocios/quiero-enviar-un-manuscrito/"
+        }
+      ]
+    },
+    {
+      "publish": true,
       "slug": "roca-editorial",
       "name": "Roca Editorial",
       "group": "Roca Editorial · Penguin Random House Grupo Editorial",
@@ -1385,6 +3184,55 @@
         {
           "date": "2026-08-18",
           "event": "Comprobado el estado público de recepción, el canal disponible y las condiciones publicadas por la editorial.",
+          "source_url": "https://www.penguinrandomhousegrupoeditorial.com/sellos-y-negocios/quiero-enviar-un-manuscrito/"
+        }
+      ]
+    },
+    {
+      "publish": true,
+      "publisher_type": "tradicional",
+      "country": "España",
+      "submission_email": null,
+      "response_time": null,
+      "page_updated_at": "2026-10-03",
+      "slug": "salamandra",
+      "name": "Salamandra",
+      "group": "Salamandra · Penguin Random House Grupo Editorial",
+      "genres": [
+        "narrativa",
+        "novela negra",
+        "fantasía",
+        "literatura internacional"
+      ],
+      "status": "unknown",
+      "direct_submission": false,
+      "submission_channel": "Portal corporativo de Penguin Random House Grupo Editorial",
+      "submission_url": "https://www.penguinrandomhousegrupoeditorial.com/sellos-y-negocios/quiero-enviar-un-manuscrito/",
+      "website_url": "https://www.penguinrandomhousegrupoeditorial.com/sello/salamandra/",
+      "requirements": [
+        "Penguin Random House solo recibe manuscritos espontáneos a través de su portal web.",
+        "Seleccionar España y comprobar que el sello figure disponible antes de completar la candidatura.",
+        "Seguir el formulario y las recomendaciones que muestre el portal en ese momento."
+      ],
+      "summary": "Salamandra forma parte de Penguin Random House Grupo Editorial; los originales espontáneos se canalizan mediante el portal corporativo del grupo.",
+      "public_note": "La presencia del sello en el catálogo del grupo no garantiza que esté seleccionable para originales en todo momento; la disponibilidad debe comprobarse en el portal.",
+      "verified_at": "2026-10-03",
+      "sources": [
+        {
+          "label": "PRH — envío de manuscritos",
+          "url": "https://www.penguinrandomhousegrupoeditorial.com/sellos-y-negocios/quiero-enviar-un-manuscrito/",
+          "primary": true
+        },
+        {
+          "label": "Salamandra — sello oficial",
+          "url": "https://www.penguinrandomhousegrupoeditorial.com/sello/salamandra/",
+          "primary": true
+        }
+      ],
+      "history": [
+        {
+          "date": "2026-10-03",
+          "event": "Revisados el catálogo oficial y el estado público de la vía de recepción disponible.",
           "source_url": "https://www.penguinrandomhousegrupoeditorial.com/sellos-y-negocios/quiero-enviar-un-manuscrito/"
         }
       ]
