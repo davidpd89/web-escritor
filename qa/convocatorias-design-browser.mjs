@@ -146,7 +146,7 @@ try {
       })));
       assert.equal(new Set(renderedItems.map(item => item.title)).size, RADAR_ALL.length, `${name}: hay oportunidades duplicadas`);
       for (const expected of [
-        ['premios literarios kutxa fundazioa 2027', '2026-11-21'],
+        ['xxx premio alfaguara de novela 2027', '2026-11-02'],
         ['74.º premio de novela ateneo–ciudad de valladolid 2027', '2026-10-09'],
         ['premio primavera de novela 2027', '2026-11-15'],
       ]) {
@@ -164,7 +164,8 @@ try {
       assert.equal(await page.locator('.tool-findings-block h2').textContent(), 'Cómo se mantiene este radar', `${name}: bloque metodológico alterado`);
 
       const statuses = await page.locator('[data-radar-status]').allTextContents();
-      assert.deepEqual(statuses.map(value => value.trim()), [...RADAR_ITEMS.map(item => expectedStatus(item.deadline)), ...RADAR_WATCH.map(() => 'Próxima apertura')], `${name}: estados dinámicos no corresponden a los deadlines publicados`);
+      const expectedWatchStatuses = RADAR_WATCH.map(item => item.watch_kind === 'recurring' ? 'Próxima edición a vigilar' : 'Próxima apertura');
+      assert.deepEqual(statuses.map(value => value.trim()), [...RADAR_ITEMS.map(item => expectedStatus(item.deadline)), ...expectedWatchStatuses], `${name}: estados dinámicos no corresponden a los deadlines publicados`);
       const relatives = await page.locator('[data-radar-relative]').allTextContents();
       assert.ok(relatives.every(value => value.includes('faltan')), `${name}: fechas relativas no calculadas`);
 
@@ -264,8 +265,8 @@ try {
     assert.ok(response?.ok(), 'interaction: radar no carga');
     await stabilizeTypography(interactionPage);
 
-    await interactionPage.locator('[data-radar-search]').fill('KUTXA');
-    assert.equal(await interactionPage.locator('[data-radar-item]:visible').count(), 1, 'interaction: búsqueda Kutxa no devuelve una oportunidad');
+    await interactionPage.locator('[data-radar-search]').fill('ALFAGUARA');
+    assert.equal(await interactionPage.locator('[data-radar-item]:visible').count(), 1, 'interaction: búsqueda Alfaguara no devuelve una oportunidad');
     assert.equal((await interactionPage.locator('[data-radar-count]').textContent()).trim(), '1 convocatoria visible', 'interaction: singular del contador no corregido');
     await interactionPage.evaluate(() => { if (document.activeElement instanceof HTMLElement) document.activeElement.blur(); window.scrollTo(0, 0); });
     await interactionPage.waitForTimeout(50);
@@ -300,7 +301,7 @@ try {
     assert.equal(await noJsPage.locator('noscript .tool-note').count(), 1, 'no-js: aviso explicativo ausente');
     assert.equal(await noJsPage.locator('[data-radar-calendar]').getAttribute('href'), '/convocatorias-escritores/deadlines.ics', 'no-js: enlace ICS perdido');
     const dates = await noJsPage.locator('[data-radar-item] time').allTextContents();
-    assert.ok(dates.includes('21/11/2026') && dates.includes('09/10/2026'), 'no-js: fechas activas no visibles');
+    assert.ok(dates.includes('02/11/2026') && dates.includes('09/10/2026'), 'no-js: fechas activas no visibles');
     const overflow = await noJsPage.evaluate(() => document.documentElement.scrollWidth - innerWidth);
     assert.ok(overflow <= 1, `no-js: overflow horizontal ${overflow}px`);
     await noJsPage.screenshot({ path: path.join(OUT, 'convocatorias-no-js-390.png'), fullPage: true });
