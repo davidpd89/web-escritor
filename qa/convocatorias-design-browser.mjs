@@ -307,7 +307,8 @@ try {
     assert.equal(await noJsPage.locator('noscript .tool-note').count(), 1, 'no-js: aviso explicativo ausente');
     assert.equal(await noJsPage.locator('[data-radar-calendar]').getAttribute('href'), '/convocatorias-escritores/deadlines.ics', 'no-js: enlace ICS perdido');
     const dates = await noJsPage.locator('[data-radar-item] time').allTextContents();
-    assert.ok(dates.includes('02/11/2026') && dates.includes('09/10/2026'), 'no-js: fechas activas no visibles');
+    const expectedDates = RADAR_ITEMS.map(item => item.deadline.split('-').reverse().join('/'));
+    assert.ok(expectedDates.every(date => dates.includes(date)), 'no-js: faltan fechas activas del dataset');
     const overflow = await noJsPage.evaluate(() => document.documentElement.scrollWidth - innerWidth);
     assert.ok(overflow <= 1, `no-js: overflow horizontal ${overflow}px`);
     await noJsPage.screenshot({ path: path.join(OUT, 'convocatorias-no-js-390.png'), fullPage: true });
