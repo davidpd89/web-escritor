@@ -161,6 +161,7 @@ try {
       assert.equal(await page.locator('[data-editoriales-genre]').count(), 1, `${name}: filtro de género ausente`);
       assert.equal(await page.locator('[data-editoriales-status]').count(), 1, `${name}: filtro de estado ausente`);
       assert.equal(await page.locator('[data-editoriales-country]').count(), 1, `${name}: filtro de país ausente`);
+      assert.equal(await page.locator('[data-editoriales-sort]').count(), 1, `${name}: control de ordenación ausente`);
       assert.equal(await page.locator('[data-editoriales-direct]').count(), 1, `${name}: filtro de envío directo ausente`);
       assert.equal(await page.locator('[data-editoriales-count]').count(), 1, `${name}: contador de resultados ausente`);
 
@@ -204,7 +205,7 @@ try {
 
       assert.equal(finder.display, 'grid', `${name}: mesa de consulta deja de ser grid`);
       assert.ok(finder.boxShadow.includes(BLUE) && finder.boxShadow.includes(GOLD), `${name}: mesa de consulta pierde el rail azul/dorado`);
-      assert.equal(columnCount(options.gridTemplateColumns), width > 900 ? 4 : width > 640 ? 2 : 1, `${name}: seam de filtros incorrecto`);
+      assert.equal(columnCount(options.gridTemplateColumns), width > 900 ? 5 : width > 640 ? 2 : 1, `${name}: seam de filtros incorrecto`);
 
       assert.equal(firstCard.display, 'grid', `${name}: expediente deja de ser grid`);
       assert.equal(columnCount(firstCard.gridTemplateColumns), width > 640 ? 2 : 1, `${name}: seam 641/640 del expediente incorrecto`);
@@ -251,6 +252,13 @@ try {
     await settleTypography(interactionPage, 'interaction-mobile-390');
     await interactionPage.locator('[data-editoriales-country]').selectOption('Chile');
     assert.equal(await interactionPage.locator('[data-editorial-card]:visible').count(), editorialData.filter(item => item.country === 'Chile').length, 'interaction: filtro país no coincide con el dataset');
+    await interactionPage.locator('[data-editoriales-reset]').click();
+    await interactionPage.locator('[data-editoriales-sort]').selectOption('name');
+    const alphabeticalNames = await interactionPage.locator('[data-editorial-card]').evaluateAll(nodes => nodes.map(node => node.dataset.name));
+    assert.deepEqual(alphabeticalNames, [...alphabeticalNames].sort((a,b) => a.localeCompare(b, 'es', { sensitivity: 'base' })), 'interaction: orden A–Z incorrecto');
+    await interactionPage.locator('[data-editoriales-sort]').selectOption('recent');
+    const recentDates = await interactionPage.locator('[data-editorial-card]').evaluateAll(nodes => nodes.map(node => node.dataset.verifiedAt));
+    assert.deepEqual(recentDates, [...recentDates].sort().reverse(), 'interaction: orden por comprobación reciente incorrecto');
     await interactionPage.locator('[data-editoriales-reset]').click();
     await interactionPage.locator('[data-editoriales-status]').selectOption('closed');
     const expectedClosed = editorialData.filter(item => item.status === 'closed').length;
