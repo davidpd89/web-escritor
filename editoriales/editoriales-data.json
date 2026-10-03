@@ -52,6 +52,50 @@
     },
     {
       "publish": true,
+      "publisher_type": "tradicional",
+      "country": "España",
+      "response_time": null,
+      "page_updated_at": "2026-10-03",
+      "history": [
+        {
+          "date": "2026-10-03",
+          "event": "Comprobado el canal público de recepción y las condiciones visibles en la fuente oficial.",
+          "source_url": "https://www.planetadelibros.com/editorial/click-ediciones/94"
+        }
+      ],
+      "sources": [
+        {
+          "label": "Click Ediciones — información oficial",
+          "url": "https://www.planetadelibros.com/editorial/click-ediciones/94",
+          "primary": true
+        }
+      ],
+      "slug": "click-ediciones",
+      "name": "Click Ediciones",
+      "group": "Grupo Planeta",
+      "genres": [
+        "narrativa",
+        "ficción",
+        "no ficción",
+        "digital"
+      ],
+      "status": "open",
+      "direct_submission": true,
+      "submission_channel": "Correo electrónico específico de manuscritos",
+      "submission_email": "edicionesclick.manuscrito@planeta.es",
+      "submission_url": "https://www.planetadelibros.com/editorial/click-ediciones/94",
+      "website_url": "https://www.planetadelibros.com/editorial/click-ediciones/94",
+      "requirements": [
+        "Enviar el manuscrito al correo específico publicado por el sello.",
+        "Comprobar el encaje con un sello generalista de publicación exclusivamente digital.",
+        "Mantener la propuesta identificada y con datos de contacto suficientes."
+      ],
+      "summary": "Click Ediciones es un sello digital generalista de Grupo Planeta que publica un correo específico para recibir manuscritos inéditos.",
+      "public_note": "El sello está orientado a publicación digital y búsqueda de nuevos autores; comprueba que ese formato editorial encaje con tus objetivos antes de enviar.",
+      "verified_at": "2026-10-03"
+    },
+    {
+      "publish": true,
       "slug": "con-pluma-y-pixel",
       "name": "Con Pluma y Píxel",
       "group": "Con Pluma y Píxel",
@@ -136,6 +180,143 @@
           "source_url": "https://dolmeneditorial.com/contactar/"
         }
       ]
+    },
+    {
+      "publish": true,
+      "publisher_type": "tradicional",
+      "country": "España",
+      "response_time": null,
+      "page_updated_at": "2026-10-03",
+      "history": [
+        {
+          "date": "2026-10-03",
+          "event": "Comprobado el canal público de recepción y las condiciones visibles en la fuente oficial.",
+          "source_url": "https://www.edhasa.es/contacto"
+        }
+      ],
+      "sources": [
+        {
+          "label": "Edhasa — información oficial",
+          "url": "https://www.edhasa.es/contacto",
+          "primary": true
+        }
+      ],
+      "slug": "edhasa",
+      "name": "Edhasa",
+      "group": "Edhasa",
+      "genres": [
+        "narrativa",
+        "novela histórica",
+        "ensayo"
+      ],
+      "status": "open",
+      "direct_submission": true,
+      "submission_channel": "Correo electrónico o correo postal",
+      "submission_email": "editorial@edhasa.es",
+      "submission_url": "https://www.edhasa.es/contacto",
+      "website_url": "https://www.edhasa.es/",
+      "requirements": [
+        "Enviar una sinopsis de la obra.",
+        "Adjuntar una carta de presentación.",
+        "Incluir solo las primeras páginas de la obra.",
+        "No enviar el manuscrito completo como propuesta no solicitada."
+      ],
+      "summary": "Edhasa mantiene una vía pública para recibir propuestas editoriales por correo electrónico o postal, pidiendo sinopsis, presentación y primeras páginas.",
+      "public_note": "La editorial indica que intentará responder, pero no se compromete a mantener correspondencia ni a devolver originales no solicitados.",
+      "verified_at": "2026-10-03"
+    },
+    {
+      "publish": true,
+      "publisher_type": "tradicional",
+      "country": "España",
+      "response_time": null,
+      "page_updated_at": "2026-10-03",
+      "history": [
+        {
+          "date": "2026-10-03",
+          "event": "Comprobado el canal público de recepción y las condiciones visibles en la fuente oficial.",
+          "source_url": "https://www.planetadelibros.com/editorial/ediciones-destino/7"
+        }
+      ],
+      "sources": [
+        {
+          "label": "PlanetadeLibros — envío de manuscritos",
+          "url": "https://www.planetadelibros.com/contactar",
+          "primary": true
+        },
+        {
+          "label": "Ediciones Destino — sello oficial",
+          "url": "https://www.planetadelibros.com/editorial/ediciones-destino/7",
+          "primary": true
+        }
+      ],
+      "slug": "ediciones-destino",
+      "name": "Ediciones Destino",
+      "group": "Grupo Planeta",
+      "genres": [
+        "narrativa",
+        "novela",
+        "ensayo"
+      ],
+      "status": "open",
+      "direct_submission": true,
+      "submission_channel": "Correo electrónico del sello o correo postal",
+      "submission_email": "edicionesedestino@edestino.es",
+      "submission_url": "https://www.planetadelibros.com/editorial/ediciones-destino/7",
+      "website_url": "https://www.planetadelibros.com/editorial/ediciones-destino/7",
+      "requirements": [
+        "Elegir Destino solo si la obra encaja con su catálogo.",
+        "Para correo postal, Grupo Planeta indica un mínimo de 150 hojas encuadernadas.",
+        "La selección puede tardar varios meses y solo se contacta si existe interés."
+      ],
+      "summary": "Ediciones Destino mantiene un contacto editorial público y participa en el sistema corporativo de recepción de manuscritos de Grupo Planeta.",
+      "public_note": "El Premio Nadal y la recepción ordinaria de manuscritos son vías distintas; consulta la opción concreta que corresponda a la obra.",
+      "verified_at": "2026-10-03"
+    },
+    {
+      "publish": true,
+      "publisher_type": "tradicional",
+      "country": "España",
+      "response_time": null,
+      "page_updated_at": "2026-10-03",
+      "history": [
+        {
+          "date": "2026-10-03",
+          "event": "Comprobado el canal público de recepción y las condiciones visibles en la fuente oficial.",
+          "source_url": "https://edicionesfatcap.es/content/7-recepcion-de-manuscritos"
+        }
+      ],
+      "sources": [
+        {
+          "label": "Ediciones Fatcap — información oficial",
+          "url": "https://edicionesfatcap.es/content/7-recepcion-de-manuscritos",
+          "primary": true
+        }
+      ],
+      "slug": "ediciones-fatcap",
+      "name": "Ediciones Fatcap",
+      "group": "Ediciones Fatcap",
+      "genres": [
+        "narrativa",
+        "arte urbano",
+        "hip hop",
+        "graffiti"
+      ],
+      "status": "open",
+      "direct_submission": true,
+      "submission_channel": "Formulario/página oficial de recepción de manuscritos",
+      "submission_email": null,
+      "submission_url": "https://edicionesfatcap.es/content/7-recepcion-de-manuscritos",
+      "website_url": "https://edicionesfatcap.es/",
+      "requirements": [
+        "Enviar la obra completa en Word o equivalente, Times New Roman 12.",
+        "Adjuntar un resumen completo de la historia, incluidos spoilers.",
+        "Añadir una presentación personal del autor o autora.",
+        "La obra debe estar retirada de internet y otros espacios públicos y contar con una corrección previa."
+      ],
+      "summary": "Ediciones Fatcap mantiene recepción abierta para una línea narrativa vinculada actualmente al arte urbano, hip hop y graffiti.",
+      "public_note": "La recepción no es generalista: la propia editorial delimita la línea que busca en este momento, por lo que hay que comprobar ese encaje antes de enviar.",
+      "verified_at": "2026-10-03"
     },
     {
       "publish": true,
@@ -570,6 +751,55 @@
     },
     {
       "publish": true,
+      "publisher_type": "tradicional",
+      "country": "España",
+      "response_time": "La editorial indica que el periodo de selección puede tardar unos meses y que solo contacta si está interesada.",
+      "page_updated_at": "2026-10-03",
+      "history": [
+        {
+          "date": "2026-10-03",
+          "event": "Comprobado el canal público de recepción y las condiciones visibles en la fuente oficial.",
+          "source_url": "https://www.planetadelibros.com/editorial/espasa/5"
+        }
+      ],
+      "sources": [
+        {
+          "label": "PlanetadeLibros — envío de manuscritos",
+          "url": "https://www.planetadelibros.com/contactar",
+          "primary": true
+        },
+        {
+          "label": "Espasa — sello oficial",
+          "url": "https://www.planetadelibros.com/editorial/espasa/5",
+          "primary": true
+        }
+      ],
+      "slug": "editorial-espasa",
+      "name": "Editorial Espasa",
+      "group": "Grupo Planeta",
+      "genres": [
+        "narrativa",
+        "novela",
+        "no ficción",
+        "poesía"
+      ],
+      "status": "open",
+      "direct_submission": true,
+      "submission_channel": "Correo electrónico del sello o correo postal",
+      "submission_email": "ediciones@espasa.es",
+      "submission_url": "https://www.planetadelibros.com/editorial/espasa/5",
+      "website_url": "https://www.planetadelibros.com/editorial/espasa/5",
+      "requirements": [
+        "Comprobar el encaje con el catálogo actual de Espasa.",
+        "Para correo postal, Grupo Planeta indica un mínimo de 150 hojas encuadernadas.",
+        "La selección puede tardar varios meses y solo se contacta si existe interés editorial."
+      ],
+      "summary": "Espasa publica narrativa y no ficción y mantiene un contacto editorial público integrado en la política corporativa de recepción de manuscritos de Grupo Planeta.",
+      "public_note": "Los premios de Espasa tienen procedimientos propios; esta ficha describe la vía editorial general del sello.",
+      "verified_at": "2026-10-03"
+    },
+    {
+      "publish": true,
       "slug": "editorial-hidra",
       "name": "Editorial Hidra",
       "group": "Grupo Hidra",
@@ -708,6 +938,54 @@
     },
     {
       "publish": true,
+      "publisher_type": "tradicional",
+      "country": "España",
+      "response_time": null,
+      "page_updated_at": "2026-10-03",
+      "history": [
+        {
+          "date": "2026-10-03",
+          "event": "Comprobado el canal público de recepción y las condiciones visibles en la fuente oficial.",
+          "source_url": "https://www.planetadelibros.com/editorial/editorial-planeta/8"
+        }
+      ],
+      "sources": [
+        {
+          "label": "PlanetadeLibros — envío de manuscritos",
+          "url": "https://www.planetadelibros.com/contactar",
+          "primary": true
+        },
+        {
+          "label": "Editorial Planeta — sello oficial",
+          "url": "https://www.planetadelibros.com/editorial/editorial-planeta/8",
+          "primary": true
+        }
+      ],
+      "slug": "editorial-planeta",
+      "name": "Editorial Planeta",
+      "group": "Grupo Planeta",
+      "genres": [
+        "narrativa",
+        "novela",
+        "no ficción"
+      ],
+      "status": "open",
+      "direct_submission": true,
+      "submission_channel": "Correo electrónico del sello o correo postal",
+      "submission_email": "departamentoliterario@planeta.es",
+      "submission_url": "https://www.planetadelibros.com/editorial/editorial-planeta/8",
+      "website_url": "https://www.planetadelibros.com/editorial/editorial-planeta/8",
+      "requirements": [
+        "Elegir el sello que mejor encaje con la obra.",
+        "Para correo postal, Grupo Planeta indica un mínimo de 150 hojas encuadernadas.",
+        "La selección puede tardar varios meses; solo se contacta si existe interés editorial."
+      ],
+      "summary": "Editorial Planeta publica narrativa y no ficción y figura dentro del canal corporativo de envío de manuscritos de PlanetadeLibros.",
+      "public_note": "Grupo Planeta indica que cada sello muestra su correo de contacto y que los originales también pueden remitirse por correo postal dirigidos al sello correspondiente.",
+      "verified_at": "2026-10-03"
+    },
+    {
+      "publish": true,
       "slug": "editorial-transito",
       "name": "Editorial Tránsito",
       "group": "Editorial Tránsito",
@@ -752,6 +1030,49 @@
           "source_url": "https://editorialtransito.es/contacto/"
         }
       ]
+    },
+    {
+      "publish": true,
+      "publisher_type": "tradicional",
+      "country": "España",
+      "response_time": null,
+      "page_updated_at": "2026-10-03",
+      "history": [
+        {
+          "date": "2026-10-03",
+          "event": "Comprobado el canal público de recepción y las condiciones visibles en la fuente oficial.",
+          "source_url": "https://erratanaturae.com/contacto/"
+        }
+      ],
+      "sources": [
+        {
+          "label": "Errata naturae — información oficial",
+          "url": "https://erratanaturae.com/contacto/",
+          "primary": true
+        }
+      ],
+      "slug": "errata-naturae",
+      "name": "Errata naturae",
+      "group": "Errata naturae editores",
+      "genres": [
+        "ensayo",
+        "narrativa",
+        "pensamiento"
+      ],
+      "status": "open",
+      "direct_submission": true,
+      "submission_channel": "Formulario oficial de envío de propuestas",
+      "submission_email": null,
+      "submission_url": "https://erratanaturae.com/contacto/",
+      "website_url": "https://erratanaturae.com/",
+      "requirements": [
+        "Enviar la idea o manuscrito mediante el formulario oficial.",
+        "Se admiten PDF, DOC, DOCX, PPT, PPTX y ODT hasta 2 MB.",
+        "Para vídeos o imágenes, facilitar un enlace; varios archivos pueden agruparse en una carpeta comprimida."
+      ],
+      "summary": "Errata naturae mantiene un formulario oficial para recibir ideas y manuscritos, con posibilidad de adjuntar documentación en varios formatos.",
+      "public_note": "La editorial advierte de que recibe muchas propuestas y no puede comprometerse a mantener correspondencia sobre proyectos no solicitados.",
+      "verified_at": "2026-10-03"
     },
     {
       "publish": true,
@@ -1217,6 +1538,50 @@
     },
     {
       "publish": true,
+      "publisher_type": "tradicional",
+      "country": "España",
+      "response_time": "Si no hay respuesta en seis meses, la editorial indica que la obra debe considerarse rechazada.",
+      "page_updated_at": "2026-10-03",
+      "history": [
+        {
+          "date": "2026-10-03",
+          "event": "Comprobado el canal público de recepción y las condiciones visibles en la fuente oficial.",
+          "source_url": "https://www.mercurioeditorial.com/Pagina-de-inicio/Recepcion-de-originales/"
+        }
+      ],
+      "sources": [
+        {
+          "label": "Mercurio Editorial — información oficial",
+          "url": "https://www.mercurioeditorial.com/Pagina-de-inicio/Recepcion-de-originales/",
+          "primary": true
+        }
+      ],
+      "slug": "mercurio-editorial",
+      "name": "Mercurio Editorial",
+      "group": "Mercurio Editorial",
+      "genres": [
+        "narrativa",
+        "ensayo",
+        "no ficción"
+      ],
+      "status": "open",
+      "direct_submission": true,
+      "submission_channel": "Correo electrónico",
+      "submission_email": "mercurioeditorial@yahoo.es",
+      "submission_url": "https://www.mercurioeditorial.com/Pagina-de-inicio/Recepcion-de-originales/",
+      "website_url": "https://www.mercurioeditorial.com/",
+      "requirements": [
+        "Enviar una obra completa e inédita en formato Word.",
+        "No enviar PDF.",
+        "Adjuntar un breve currículum literario o académico.",
+        "La obra debe encajar con los temas del catálogo."
+      ],
+      "summary": "Mercurio Editorial mantiene una página específica de recepción de originales y acepta obras completas inéditas exclusivamente por correo electrónico.",
+      "public_note": "La editorial declara que no mantendrá comunicación sobre originales rechazados y que solo contactará con autores cuyas obras sean aceptadas.",
+      "verified_at": "2026-10-03"
+    },
+    {
+      "publish": true,
       "slug": "minotauro",
       "name": "Minotauro",
       "group": "Grupo Planeta",
@@ -1633,6 +1998,100 @@
     },
     {
       "publish": true,
+      "publisher_type": "tradicional",
+      "country": "España",
+      "response_time": null,
+      "page_updated_at": "2026-10-03",
+      "history": [
+        {
+          "date": "2026-10-03",
+          "event": "Comprobado el canal público de recepción y las condiciones visibles en la fuente oficial.",
+          "source_url": "https://romantic-ediciones.com/manuscritos/"
+        }
+      ],
+      "sources": [
+        {
+          "label": "Romantic Ediciones — información oficial",
+          "url": "https://romantic-ediciones.com/manuscritos/",
+          "primary": true
+        }
+      ],
+      "slug": "romantic-ediciones",
+      "name": "Romantic Ediciones",
+      "group": "Romantic Ediciones",
+      "genres": [
+        "romance",
+        "histórica",
+        "erótica",
+        "fantasía"
+      ],
+      "status": "open",
+      "direct_submission": true,
+      "submission_channel": "Correo electrónico",
+      "submission_email": "romanticediciones@gmail.com",
+      "submission_url": "https://romantic-ediciones.com/manuscritos/",
+      "website_url": "https://romantic-ediciones.com/",
+      "requirements": [
+        "Enviar una presentación del autor o autora.",
+        "Añadir una breve sinopsis de la obra.",
+        "Adjuntar el manuscrito.",
+        "Comprobar que la obra encaja en romántica, histórica, contemporánea, erótica o fantasía."
+      ],
+      "summary": "Romantic Ediciones anuncia públicamente que busca nuevas autoras y autores y recibe manuscritos de varios subgéneros de romántica y fantasía.",
+      "public_note": "La página de manuscritos no publica una fecha límite; conviene revalidarla justo antes del envío.",
+      "verified_at": "2026-10-03"
+    },
+    {
+      "publish": true,
+      "publisher_type": "tradicional",
+      "country": "España",
+      "response_time": null,
+      "page_updated_at": "2026-10-03",
+      "history": [
+        {
+          "date": "2026-10-03",
+          "event": "Comprobado el canal público de recepción y las condiciones visibles en la fuente oficial.",
+          "source_url": "https://www.planetadelibros.com/editorial/seix-barral/9"
+        }
+      ],
+      "sources": [
+        {
+          "label": "PlanetadeLibros — envío de manuscritos",
+          "url": "https://www.planetadelibros.com/contactar",
+          "primary": true
+        },
+        {
+          "label": "Seix Barral — sello oficial",
+          "url": "https://www.planetadelibros.com/editorial/seix-barral/9",
+          "primary": true
+        }
+      ],
+      "slug": "seix-barral",
+      "name": "Seix Barral",
+      "group": "Grupo Planeta",
+      "genres": [
+        "narrativa",
+        "ficción",
+        "ensayo",
+        "poesía"
+      ],
+      "status": "open",
+      "direct_submission": true,
+      "submission_channel": "Correo electrónico del sello o correo postal",
+      "submission_email": "editorial@seix-barral.es",
+      "submission_url": "https://www.planetadelibros.com/editorial/seix-barral/9",
+      "website_url": "https://www.planetadelibros.com/editorial/seix-barral/9",
+      "requirements": [
+        "Comprobar el encaje con ficción, ensayo literario o poesía.",
+        "Para correo postal, Grupo Planeta indica un mínimo de 150 hojas encuadernadas.",
+        "La selección puede tardar varios meses; solo se contacta si existe interés editorial."
+      ],
+      "summary": "Seix Barral publica ficción, ensayo literario y poesía y dispone de un correo editorial público dentro del sistema de recepción de Grupo Planeta.",
+      "public_note": "No confundir la recepción editorial ordinaria con el Premio Biblioteca Breve, que tiene sus propias bases y calendario.",
+      "verified_at": "2026-10-03"
+    },
+    {
+      "publish": true,
       "slug": "suseya-ediciones",
       "name": "Suseya Ediciones",
       "group": "Suseya Ediciones",
@@ -1764,6 +2223,55 @@
           "source_url": "https://www.editorialtitanium.com/enviar-un-manuscrito/"
         }
       ]
+    },
+    {
+      "publish": true,
+      "publisher_type": "tradicional",
+      "country": "España",
+      "response_time": null,
+      "page_updated_at": "2026-10-03",
+      "history": [
+        {
+          "date": "2026-10-03",
+          "event": "Comprobado el canal público de recepción y las condiciones visibles en la fuente oficial.",
+          "source_url": "https://www.planetadelibros.com/editorial/tusquets-editores/59"
+        }
+      ],
+      "sources": [
+        {
+          "label": "PlanetadeLibros — envío de manuscritos",
+          "url": "https://www.planetadelibros.com/contactar",
+          "primary": true
+        },
+        {
+          "label": "Tusquets Editores — sello oficial",
+          "url": "https://www.planetadelibros.com/editorial/tusquets-editores/59",
+          "primary": true
+        }
+      ],
+      "slug": "tusquets-editores",
+      "name": "Tusquets Editores",
+      "group": "Grupo Planeta",
+      "genres": [
+        "narrativa",
+        "poesía",
+        "ensayo",
+        "memorias"
+      ],
+      "status": "open",
+      "direct_submission": true,
+      "submission_channel": "Correo electrónico del sello o correo postal",
+      "submission_email": "general@tusquets-editores.es",
+      "submission_url": "https://www.planetadelibros.com/editorial/tusquets-editores/59",
+      "website_url": "https://www.planetadelibros.com/editorial/tusquets-editores/59",
+      "requirements": [
+        "Comprobar el encaje con narrativa, poesía, ensayo o género memorialístico.",
+        "Grupo Planeta indica que el envío debe dirigirse al sello elegido.",
+        "Para correo postal, la política corporativa exige un mínimo de 150 hojas encuadernadas."
+      ],
+      "summary": "Tusquets Editores cuenta con un contacto público de sello y forma parte del sistema corporativo de recepción de manuscritos de PlanetadeLibros.",
+      "public_note": "La recepción ordinaria es independiente de los premios Tusquets; las convocatorias de premios se rigen por sus propias bases.",
+      "verified_at": "2026-10-03"
     },
     {
       "publish": true,
