@@ -8,6 +8,8 @@ const OUT = process.env.QA_OUT || 'qa-artifacts/convocatorias';
 fs.mkdirSync(OUT, { recursive: true });
 const radarPublic = JSON.parse(fs.readFileSync('convocatorias-escritores/opportunities.json', 'utf8'));
 const RADAR_ITEMS = radarPublic.items;
+const RADAR_WATCH = radarPublic.watchlist || [];
+const RADAR_ALL = [...RADAR_ITEMS, ...RADAR_WATCH];
 const FIXED_TODAY = radarPublic.generated_for;
 const dayDiff = deadline => Math.round((new Date(deadline + 'T00:00:00Z') - new Date(FIXED_TODAY + 'T00:00:00Z')) / 86400000);
 const expectedStatus = deadline => {
@@ -17,7 +19,7 @@ const expectedStatus = deadline => {
   if (d >= 2 && d <= 7) return `Cierra en ${d} días`;
   return 'En plazo';
 };
-const radarGenreCount = genre => RADAR_ITEMS.filter(item => (item.genres || []).includes(genre)).length;
+const radarGenreCount = genre => RADAR_ALL.filter(item => (item.genres || []).includes(genre)).length;
 const radarSoonCount = RADAR_ITEMS.filter(item => { const d = dayDiff(item.deadline); return d >= 0 && d <= 7; }).length;
 
 const BLUE = 'rgb(29, 79, 150)';
@@ -136,13 +138,13 @@ try {
       assert.equal(await page.locator('.section-context [aria-current="page"]').getAttribute('href'), '/convocatorias-escritores/', `${name}: contexto no marca Convocatorias`);
 
       const items = page.locator('[data-radar-item]');
-      assert.equal(await items.count(), RADAR_ITEMS.length, `${name}: el HTML no refleja todas las oportunidades públicas activas`);
+      assert.equal(await items.count(), RADAR_ALL.length, `${name}: el HTML no refleja todas las oportunidades públicas`);
       const renderedItems = await items.evaluateAll(nodes => nodes.map(node => ({
         title: node.getAttribute('data-title'),
         deadline: node.getAttribute('data-deadline'),
         type: node.getAttribute('data-type'),
       })));
-      assert.equal(new Set(renderedItems.map(item => item.title)).size, RADAR_ITEMS.length, `${name}: hay oportunidades duplicadas`);
+      assert.equal(new Set(renderedItems.map(item => item.title)).size, RADAR_ALL.length, `${name}: hay oportunidades duplicadas`);
       for (const expected of [
         ['premios literarios kutxa fundazioa 2027', '2026-11-21'],
         ['74.º premio de novela ateneo–ciudad de valladolid 2027', '2026-10-09'],
@@ -155,13 +157,14 @@ try {
       assert.equal(await page.locator('[data-radar-search]').count(), 1, `${name}: buscador ausente`);
       assert.equal(await page.locator('[data-radar-type]').count(), 1, `${name}: filtro de tipo ausente`);
       assert.equal(await page.locator('[data-radar-genre]').count(), 1, `${name}: filtro de género ausente`);
+      assert.equal(await page.locator('[data-radar-kind]').count(), 1, `${name}: filtro de situación ausente`);
       assert.equal(await page.locator('[data-radar-soon]').count(), 1, `${name}: filtro de cierre próximo ausente`);
       assert.equal(await page.locator('[data-radar-count]').count(), 1, `${name}: contador ausente`);
       assert.equal(await page.locator('[data-radar-calendar]').getAttribute('href'), '/convocatorias-escritores/deadlines.ics', `${name}: enlace ICS alterado`);
       assert.equal(await page.locator('.tool-findings-block h2').textContent(), 'Cómo se mantiene este radar', `${name}: bloque metodológico alterado`);
 
       const statuses = await page.locator('[data-radar-status]').allTextContents();
-      assert.deepEqual(statuses.map(value => value.trim()), RADAR_ITEMS.map(item => expectedStatus(item.deadline)), `${name}: estados dinámicos no corresponden a los deadlines publicados`);
+      assert.deepEqual(statuses.map(value => value.trim()), [...RADAR_ITEMS.map(item => expectedStatus(item.deadline)), ...RADAR_WATCH.map(() => 'Próxima apertura')], `${name}: estados dinámicos no corresponden a los deadlines publicados`);
       const relatives = await page.locator('[data-radar-relative]').allTextContents();
       assert.ok(relatives.every(value => value.includes('faltan')), `${name}: fechas relativas no calculadas`);
 
@@ -190,7 +193,7 @@ try {
       const calendar = await snapshot(page.locator('[data-radar-calendar]'));
       const finder = await snapshot(page.locator('.tool-finder'));
       const options = await snapshot(page.locator('.tool-options'));
-      const grid = await snapshot(page.locator('.radar-grid'));
+      const grid = await snapshot(page.locator('.radar-grid').first());
       const firstCard = await snapshot(items.first());
       const firstTop = await snapshot(items.first().locator('.radar-card__top'));
       const firstTitle = await snapshot(items.first().locator('h2'));
@@ -216,7 +219,7 @@ try {
 
       assert.equal(finder.display, 'grid', `${name}: finder deja de ser grid`);
       assert.ok(finder.backgroundImage.includes(BLUE) && finder.backgroundImage.includes(GOLD), `${name}: finder pierde su doble línea temporal`);
-      assert.equal(columnCount(options.gridTemplateColumns), width > 900 ? 3 : width > 640 ? 2 : 1, `${name}: seam de filtros incorrecto`);
+      assert.equal(columnCount(options.gridTemplateColumns), width > 900 ? 4 : width > 640 ? 2 : 1, `${name}: seam de filtros incorrecto`);
 
       assert.equal(firstCard.display, 'grid', `${name}: expediente temporal deja de ser grid`);
       assert.equal(columnCount(firstCard.gridTemplateColumns), width > 900 ? 2 : 1, `${name}: seam 901/900 del expediente incorrecto`);
@@ -281,7 +284,7 @@ try {
       assert.ok(emptyStyle.boxShadow.includes(BLUE) && emptyStyle.boxShadow.includes(GOLD), 'interaction: empty state pierde rails');
     }
     await interactionPage.locator('[data-radar-clear]').click();
-    assert.equal(await interactionPage.locator('[data-radar-item]:visible').count(), RADAR_ITEMS.length, 'interaction: limpiar filtros no restaura el dataset completo');
+    assert.equal(await interactionPage.locator('[data-radar-item]:visible').count(), RADAR_ALL.length, 'interaction: limpiar filtros no restaura el dataset completo');
   } catch (error) {
     failures.push({ viewport: 'interaction-mobile-390', width: 390, height: 844, error: error instanceof Error ? error.message : String(error) });
   } finally {
@@ -293,7 +296,7 @@ try {
   try {
     const response = await noJsPage.goto(`${ORIGIN}/convocatorias-escritores/`, { waitUntil: 'load', timeout: 20000 });
     assert.ok(response?.ok(), 'no-js: radar no carga');
-    assert.equal(await noJsPage.locator('[data-radar-item]').count(), RADAR_ITEMS.length, 'no-js: el HTML no conserva todas las oportunidades activas');
+    assert.equal(await noJsPage.locator('[data-radar-item]').count(), RADAR_ALL.length, 'no-js: el HTML no conserva todas las oportunidades publicadas');
     assert.equal(await noJsPage.locator('noscript .tool-note').count(), 1, 'no-js: aviso explicativo ausente');
     assert.equal(await noJsPage.locator('[data-radar-calendar]').getAttribute('href'), '/convocatorias-escritores/deadlines.ics', 'no-js: enlace ICS perdido');
     const dates = await noJsPage.locator('[data-radar-item] time').allTextContents();
