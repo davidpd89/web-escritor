@@ -10,6 +10,8 @@ await fs.mkdir(out,{recursive:true});
 const editorialData=JSON.parse(await fs.readFile('editoriales/editoriales-data.json','utf8')).publishers;
 const radarPublic=JSON.parse(await fs.readFile('convocatorias-escritores/opportunities.json','utf8'));
 const radarItems=radarPublic.items;
+const radarWatch=radarPublic.watchlist||[];
+const radarAll=[...radarItems,...radarWatch];
 const fixedToday=radarPublic.generated_for;
 const sizes=[[320,900],[390,900],[768,1000],[1024,900],[1440,1000],[1728,1000],[844,390]];
 
@@ -19,7 +21,7 @@ const statusCount=status=>editorialData.filter(x=>x.status===status).length;
 const closedFantasy=editorialData.filter(x=>x.status==='closed'&&(x.genres||[]).some(g=>norm(g)==='fantasia')).length;
 const directCount=editorialData.filter(x=>x.direct_submission===true).length;
 const chileCount=editorialData.filter(x=>x.country==='Chile').length;
-const radarGenreCount=genre=>radarItems.filter(x=>(x.genres||[]).some(g=>norm(g)===norm(genre))).length;
+const radarGenreCount=genre=>radarAll.filter(x=>(x.genres||[]).some(g=>norm(g)===norm(genre))).length;
 const daysUntil=(deadline,base)=>Math.round((new Date(deadline+'T00:00:00Z')-new Date(base+'T00:00:00Z'))/86400000);
 const soonCount=radarItems.filter(x=>{const d=daysUntil(x.deadline,fixedToday);return d>=0&&d<=7}).length;
 
@@ -74,7 +76,7 @@ async function noOverflow(p,label){const x=await p.evaluate(()=>document.documen
 }
 {
   const[c,p]=await open('/convocatorias-escritores/',{fixed:true});
-  assert.equal(await visible(p,'[data-radar-item]'),radarItems.length);
+  assert.equal(await visible(p,'[data-radar-item]'),radarAll.length);
   const d=await p.evaluate(today=>({
     a:DPRadarDates.daysUntil(today,today),
     b:DPRadarDates.daysUntil('2026-10-03',today),
@@ -90,13 +92,13 @@ async function noOverflow(p,label){const x=await p.evaluate(()=>document.documen
   await p.locator('[data-radar-clear]').click();
   await p.locator('[data-radar-soon]').check();assert.equal(await visible(p,'[data-radar-item]'),soonCount);
   assert.equal(await p.locator('[data-radar-filter-empty]').isVisible(),soonCount===0);
-  await p.locator('[data-radar-clear]').click();assert.equal(await visible(p,'[data-radar-item]'),radarItems.length);
+  await p.locator('[data-radar-clear]').click();assert.equal(await visible(p,'[data-radar-item]'),radarAll.length);
   assert.equal(await p.locator('[data-radar-calendar]').getAttribute('href'),'/convocatorias-escritores/deadlines.ics');
   await noOverflow(p,'radar filters');await c.close();
 }
 for(const route of ['/editoriales/','/convocatorias-escritores/']){
   const[c,p]=await open(route,{js:false});
-  assert.equal(await p.locator(route.startsWith('/editoriales')?'[data-editorial-card]':'[data-radar-item]').count(),route.startsWith('/editoriales')?editorialData.length:radarItems.length);
+  assert.equal(await p.locator(route.startsWith('/editoriales')?'[data-editorial-card]':'[data-radar-item]').count(),route.startsWith('/editoriales')?editorialData.length:radarAll.length);
   if(route.includes('convocatorias')){
     const txt=await p.locator('[data-radar-item] time').allTextContents();
     assert.ok(txt.includes('21/11/2026')&&txt.includes('09/10/2026'));
@@ -133,4 +135,4 @@ for(const w of [390,1440]){
 }
 assert.deepEqual(errors,[],`Browser errors:\n${errors.join('\n')}`);
 await browser.close();
-console.log(`OK professional resources browser QA (${editorialData.length} editoriales, ${radarItems.length} oportunidades)`);
+console.log(`OK professional resources browser QA (${editorialData.length} editoriales, ${radarItems.length} abiertas, ${radarWatch.length} próximas)`);
