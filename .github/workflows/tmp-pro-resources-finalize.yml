@@ -1,0 +1,54 @@
+name: Temporary finalize professional resources
+
+on:
+  push:
+    branches:
+      - feat/pro-resources-editoriales-convocatorias-20261002
+    paths:
+      - 'data/editoriales.json'
+      - 'data/content-registry.json'
+      - 'mapa-del-sitio/index.html'
+      - '.github/workflows/tmp-pro-resources-finalize.yml'
+
+permissions:
+  contents: write
+
+jobs:
+  finalize:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v5
+        with:
+          ref: feat/pro-resources-editoriales-convocatorias-20261002
+          fetch-depth: 0
+      - uses: actions/setup-python@v6
+        with:
+          python-version: '3.13'
+      - uses: actions/setup-node@v5
+        with:
+          node-version: '22'
+          cache: npm
+      - run: npm ci
+      - name: Regenerate
+        run: |
+          python3 scripts/build-editoriales.py --data data/editoriales.json --output .
+          python3 scripts/build-radar-opportunities.py --data data/radar-opportunities.json --out convocatorias-escritores
+          python3 scripts/build-site-shell.py
+          python3 scripts/build-sitemap.py --root . --output sitemap.xml
+          python3 scripts/build-pagefind-index.py
+      - name: Verify
+        run: |
+          python3 scripts/build-editoriales.py --data data/editoriales.json --output . --check
+          python3 scripts/build-radar-opportunities.py --data data/radar-opportunities.json --out convocatorias-escritores --check
+          python3 scripts/build-site-shell.py --check
+          python3 scripts/build-sitemap.py --root . --output sitemap.xml --check
+          python3 scripts/build-pagefind-index.py --check
+          python3 scripts/check-professional-resources.py
+      - name: Commit final state
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git rm .github/workflows/tmp-pro-resources-finalize.yml
+          git add -A
+          git commit -m "chore(resources): regenerate final verified directories"
+          git push origin HEAD:feat/pro-resources-editoriales-convocatorias-20261002

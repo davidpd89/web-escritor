@@ -5177,6 +5177,154 @@
           "source_url": "https://editorialalmadia.com/contactanos"
         }
       ]
+    },
+    {
+      "publish": true,
+      "slug": "pie-de-mosca-milmadres",
+      "name": "Pie de Mosca / MilMadres",
+      "group": "Pie de Mosca · MilMadres",
+      "publisher_type": "tradicional",
+      "country": "España",
+      "genres": [
+        "narrativa",
+        "novela negra",
+        "fantasía",
+        "histórica",
+        "poesía",
+        "dramaturgia"
+      ],
+      "status": "open",
+      "direct_submission": true,
+      "submission_channel": "Correo electrónico oficial de recepción de originales",
+      "submission_email": "editorial@piedemosca.com",
+      "submission_url": "https://piedemosca.com/contacto-y-distribucion",
+      "website_url": "https://piedemosca.com/",
+      "requirements": [
+        "Enviar el original en Word y PDF, a doble espacio y en Times New Roman o Arial 12.",
+        "Incluir un resumen argumental de media página y un resumen capítulo a capítulo.",
+        "Añadir biobibliografía y datos de contacto.",
+        "La propia editorial indica qué colecciones mantienen abierta la recepción."
+      ],
+      "response_time": null,
+      "summary": "Pie de Mosca y MilMadres forman un proyecto editorial zaragozano que declara edición tradicional y mantiene abierta la recepción de originales para varias colecciones de narrativa y poesía.",
+      "public_note": "La página oficial identifica las colecciones abiertas y el correo de recepción. Conviene revisar el encaje concreto de la obra con cada colección antes de enviar.",
+      "verified_at": "2026-10-03",
+      "page_updated_at": "2026-10-03",
+      "sources": [
+        {
+          "label": "Pie de Mosca — contacto, distribución y recepción de originales",
+          "url": "https://piedemosca.com/contacto-y-distribucion",
+          "primary": true
+        },
+        {
+          "label": "Pie de Mosca — nuestra historia",
+          "url": "https://piedemosca.com/nuestra-historia",
+          "primary": true
+        }
+      ],
+      "history": [
+        {
+          "date": "2026-10-03",
+          "event": "Comprobada la recepción abierta, el paquete documental requerido y el modelo tradicional declarado.",
+          "source_url": "https://piedemosca.com/contacto-y-distribucion"
+        }
+      ]
+    },
+    {
+      "publish": true,
+      "slug": "editorial-letra-r",
+      "name": "Editorial Letra r",
+      "group": "Editorial Letra r",
+      "publisher_type": "mixto: tradicional y autoedición",
+      "country": "España",
+      "genres": [
+        "narrativa",
+        "novela"
+      ],
+      "status": "open",
+      "direct_submission": true,
+      "submission_channel": "Formulario oficial de envío de manuscritos",
+      "submission_email": "manuscritos@letrareditorial.es",
+      "submission_url": "https://www.letrareditorial.es/envio-de-manuscritos/",
+      "website_url": "https://www.letrareditorial.es/",
+      "requirements": [
+        "Enviar una obra inédita y no publicada anteriormente.",
+        "Adjuntar el manuscrito en formato .doc mediante el formulario; para archivos de más de 20 MB la editorial publica un correo específico.",
+        "El formulario exige indicar si se opta a edición tradicional o a autoedición."
+      ],
+      "response_time": "La editorial advierte de una cola de valoración elevada y no ofrece actualmente una fecha aproximada de respuesta.",
+      "summary": "Editorial Letra r recibe manuscritos mediante un formulario propio y ofrece dos vías diferenciadas: edición tradicional y autoedición, que deben tratarse como modelos distintos al valorar una propuesta.",
+      "public_note": "La existencia de una opción de autoedición no convierte automáticamente toda propuesta en un servicio de pago: la propia editorial afirma publicar también de forma tradicional. El contrato concreto debe revisarse antes de aceptar.",
+      "verified_at": "2026-10-03",
+      "page_updated_at": "2026-10-03",
+      "sources": [
+        {
+          "label": "Editorial Letra r — envío de manuscritos",
+          "url": "https://www.letrareditorial.es/envio-de-manuscritos/",
+          "primary": true
+        },
+        {
+          "label": "Editorial Letra r — cómo publicar",
+          "url": "https://www.letrareditorial.es/como-publicar/",
+          "primary": true
+        }
+      ],
+      "history": [
+        {
+          "date": "2026-10-03",
+          "event": "Comprobados el formulario de manuscritos y la separación declarada entre edición tradicional y autoedición.",
+          "source_url": "https://www.letrareditorial.es/envio-de-manuscritos/"
+        }
+      ]
+    },
+    {
+      "publish": true,
+      "slug": "wave-books-editorial",
+      "name": "Wave Books Editorial",
+      "group": "Wave Books Editorial",
+      "publisher_type": "tradicional",
+      "country": "España",
+      "genres": [
+        "fantasía",
+        "ciencia ficción",
+        "terror",
+        "romántica paranormal",
+        "pulp"
+      ],
+      "status": "closed",
+      "direct_submission": false,
+      "submission_channel": "Recepción de manuscritos cerrada hasta nuevo aviso",
+      "submission_email": null,
+      "submission_url": "https://wavebooks.wixsite.com/editorial/contacto-manuscritos",
+      "website_url": "https://wavebooks.wixsite.com/editorial",
+      "requirements": [
+        "No enviar mientras la página oficial mantenga «Recepción de manuscrito cerrada hasta nuevo aviso».",
+        "La editorial conserva publicados sus géneros, formatos y requisitos históricos únicamente como referencia para una futura reapertura."
+      ],
+      "response_time": null,
+      "summary": "Wave Books es una editorial independiente de literatura de género que se define como tradicional y sin cobro al autor; su página de manuscritos mantiene actualmente la recepción cerrada hasta nuevo aviso.",
+      "public_note": "No se publica el correo histórico como canal activo mientras exista un cierre explícito. Si reabre, habrá que revalidar géneros, extensión, formato y plazo de respuesta.",
+      "verified_at": "2026-10-03",
+      "page_updated_at": "2026-10-03",
+      "sources": [
+        {
+          "label": "Wave Books — contacto y manuscritos",
+          "url": "https://wavebooks.wixsite.com/editorial/contacto-manuscritos",
+          "primary": true
+        },
+        {
+          "label": "Wave Books — la editorial",
+          "url": "https://wavebooks.wixsite.com/editorial/los-editores",
+          "primary": true
+        }
+      ],
+      "history": [
+        {
+          "date": "2026-10-03",
+          "event": "Comprobados el cierre actual de manuscritos y el modelo tradicional declarado por la editorial.",
+          "source_url": "https://wavebooks.wixsite.com/editorial/contacto-manuscritos"
+        }
+      ]
     }
   ]
 }

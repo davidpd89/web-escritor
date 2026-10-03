@@ -3313,6 +3313,60 @@
         "buscar-editorial"
       ],
       "sourceFile": "editoriales/editorial-almadia/index.html"
+    },
+    {
+      "id": "editorial-pie-de-mosca-milmadres",
+      "url": "/editoriales/pie-de-mosca-milmadres/",
+      "label": "Pie de Mosca / MilMadres",
+      "shortLabel": "Pie de Mosca / MilMadres",
+      "type": "directory",
+      "territory": "herramientas",
+      "parentId": "editorials-hub",
+      "hubId": "tools-hub",
+      "discoverability": "contextual",
+      "audience": [
+        "writer"
+      ],
+      "jobs": [
+        "buscar-editorial"
+      ],
+      "sourceFile": "editoriales/pie-de-mosca-milmadres/index.html"
+    },
+    {
+      "id": "editorial-editorial-letra-r",
+      "url": "/editoriales/editorial-letra-r/",
+      "label": "Editorial Letra r",
+      "shortLabel": "Editorial Letra r",
+      "type": "directory",
+      "territory": "herramientas",
+      "parentId": "editorials-hub",
+      "hubId": "tools-hub",
+      "discoverability": "contextual",
+      "audience": [
+        "writer"
+      ],
+      "jobs": [
+        "buscar-editorial"
+      ],
+      "sourceFile": "editoriales/editorial-letra-r/index.html"
+    },
+    {
+      "id": "editorial-wave-books-editorial",
+      "url": "/editoriales/wave-books-editorial/",
+      "label": "Wave Books Editorial",
+      "shortLabel": "Wave Books Editorial",
+      "type": "directory",
+      "territory": "herramientas",
+      "parentId": "editorials-hub",
+      "hubId": "tools-hub",
+      "discoverability": "contextual",
+      "audience": [
+        "writer"
+      ],
+      "jobs": [
+        "buscar-editorial"
+      ],
+      "sourceFile": "editoriales/wave-books-editorial/index.html"
     }
   ]
 }
