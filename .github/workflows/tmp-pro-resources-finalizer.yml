@@ -31,15 +31,13 @@ jobs:
         run: python3 scripts/build-site-shell.py
       - name: Refresh sitemap
         run: python3 scripts/build-sitemap.py --root . --output sitemap.xml
-      - name: Refresh Pagefind
-        run: python3 scripts/build-pagefind-index.py
       - name: Record new asset hashes
         run: python3 scripts/check-asset-versions.py --update-hashes
       - name: Commit generated outputs
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add editoriales/ metodologia-editorial/index.html editoriales-sitemap.xml convocatorias-escritores/ sitemap.xml pagefind/ scripts/asset-version-hashes.json
+          git add editoriales/ metodologia-editorial/index.html editoriales-sitemap.xml convocatorias-escritores/ sitemap.xml scripts/asset-version-hashes.json
           if git diff --cached --quiet; then
             echo "No generated changes"
             exit 0
