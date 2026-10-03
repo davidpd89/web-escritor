@@ -3102,6 +3102,189 @@
           "primary": true
         }
       ]
+    },
+    {
+      "publish": true,
+      "slug": "rayo-verde-editorial",
+      "name": "Rayo Verde Editorial",
+      "group": "Rayo Verde Editorial",
+      "publisher_type": "tradicional",
+      "country": "España",
+      "genres": [
+        "narrativa",
+        "narrativa breve",
+        "ensayo",
+        "ficción literaria"
+      ],
+      "status": "closed",
+      "direct_submission": false,
+      "submission_channel": "Recepción de originales cerrada temporalmente",
+      "submission_email": null,
+      "submission_url": "https://www.rayoverde.es/contacto/",
+      "website_url": "https://www.rayoverde.es/",
+      "requirements": [
+        "No enviar originales mientras la página oficial mantenga el cierre temporal.",
+        "Esperar una reapertura expresa y volver a comprobar las condiciones."
+      ],
+      "response_time": null,
+      "summary": "Rayo Verde publica narrativa, narrativa breve y ensayo y mantiene temporalmente cerrada la recepción de originales por el volumen pendiente de valorar.",
+      "public_note": "El correo general de contacto no se presenta como alternativa al cierre del buzón de originales.",
+      "verified_at": "2026-10-03",
+      "page_updated_at": "2026-10-03",
+      "sources": [
+        {
+          "label": "Rayo Verde — contacto y originales",
+          "url": "https://www.rayoverde.es/contacto/",
+          "primary": true
+        },
+        {
+          "label": "Rayo Verde — proyecto editorial",
+          "url": "https://www.rayoverde.es/editorial/",
+          "primary": true
+        }
+      ],
+      "history": [
+        {
+          "date": "2026-10-03",
+          "event": "Comprobado en la fuente oficial que la recepción de originales está cerrada temporalmente.",
+          "source_url": "https://www.rayoverde.es/contacto/"
+        }
+      ]
+    },
+    {
+      "publish": true,
+      "slug": "insolita-editorial",
+      "name": "Insólita Editorial",
+      "group": "Insólita Editorial",
+      "publisher_type": "tradicional",
+      "country": "España",
+      "genres": [
+        "ciencia ficción",
+        "fantasía",
+        "terror",
+        "ficción especulativa"
+      ],
+      "status": "closed",
+      "direct_submission": false,
+      "submission_channel": "No acepta manuscritos no solicitados",
+      "submission_email": null,
+      "submission_url": "https://www.insolitaeditorial.com/es/contacto/",
+      "website_url": "https://www.insolitaeditorial.com/",
+      "requirements": [
+        "No enviar manuscritos no solicitados mientras la página oficial mantenga este aviso.",
+        "No utilizar el correo general como buzón alternativo de originales."
+      ],
+      "response_time": null,
+      "summary": "Insólita Editorial, especializada en literatura de género, declara que por el momento no puede aceptar manuscritos no solicitados ni mantener correspondencia sobre ellos.",
+      "public_note": "La dirección general de contacto se omite como vía de manuscritos porque la propia editorial excluye expresamente ese uso.",
+      "verified_at": "2026-10-03",
+      "page_updated_at": "2026-10-03",
+      "sources": [
+        {
+          "label": "Insólita Editorial — contacto oficial",
+          "url": "https://www.insolitaeditorial.com/es/contacto/",
+          "primary": true
+        }
+      ],
+      "history": [
+        {
+          "date": "2026-10-03",
+          "event": "Comprobada la negativa vigente a recibir manuscritos no solicitados.",
+          "source_url": "https://www.insolitaeditorial.com/es/contacto/"
+        }
+      ]
+    },
+    {
+      "publish": true,
+      "slug": "menoscuarto-ediciones",
+      "name": "Menoscuarto Ediciones",
+      "group": "Menoscuarto Ediciones",
+      "publisher_type": "tradicional",
+      "country": "España",
+      "genres": [
+        "narrativa",
+        "cuento",
+        "ensayo",
+        "ficción literaria"
+      ],
+      "status": "closed",
+      "direct_submission": false,
+      "submission_channel": "No admite originales no solicitados",
+      "submission_email": null,
+      "submission_url": "https://menoscuarto.es/",
+      "website_url": "https://menoscuarto.es/",
+      "requirements": [
+        "No enviar originales no solicitados mientras el aviso oficial siga vigente.",
+        "Utilizar únicamente convocatorias o canales que la editorial identifique expresamente para recepción de obras."
+      ],
+      "response_time": null,
+      "summary": "Menoscuarto publica narrativa y ensayo y declara actualmente que no admite originales no solicitados.",
+      "public_note": "La editorial participa en premios literarios, pero esa colaboración no convierte su contacto general en un canal abierto de manuscritos.",
+      "verified_at": "2026-10-03",
+      "page_updated_at": "2026-10-03",
+      "sources": [
+        {
+          "label": "Menoscuarto — web oficial y aviso de originales",
+          "url": "https://menoscuarto.es/",
+          "primary": true
+        }
+      ],
+      "history": [
+        {
+          "date": "2026-10-03",
+          "event": "Comprobado el aviso oficial de no admisión de originales no solicitados.",
+          "source_url": "https://menoscuarto.es/"
+        }
+      ]
+    },
+    {
+      "publish": true,
+      "slug": "duomo-ediciones",
+      "name": "Duomo Ediciones",
+      "group": "Gruppo editoriale Mauri Spagnol",
+      "publisher_type": "tradicional",
+      "country": "España",
+      "genres": [
+        "narrativa",
+        "thriller",
+        "misterio",
+        "ficción histórica",
+        "fantasía"
+      ],
+      "status": "unknown",
+      "direct_submission": false,
+      "submission_channel": "Solo contacto general; no consta un protocolo oficial de manuscritos no solicitados",
+      "submission_email": null,
+      "submission_url": "https://www.duomoediciones.com/contacto/",
+      "website_url": "https://www.duomoediciones.com/",
+      "requirements": [
+        "La página oficial publica un contacto general, pero no instrucciones específicas para originales.",
+        "No adjuntar un manuscrito completo en frío sin que la editorial confirme antes que recibe propuestas y en qué formato."
+      ],
+      "response_time": null,
+      "summary": "Duomo Ediciones publica narrativa de varios géneros y ofrece un canal general de contacto, pero no publica una política verificable de recepción de manuscritos no solicitados.",
+      "public_note": "Se clasifica como estado por verificar para no confundir un formulario general con una puerta editorial de originales.",
+      "verified_at": "2026-10-03",
+      "page_updated_at": "2026-10-03",
+      "sources": [
+        {
+          "label": "Duomo Ediciones — contacto oficial",
+          "url": "https://www.duomoediciones.com/contacto/",
+          "primary": true
+        },
+        {
+          "label": "Duomo Ediciones — web oficial",
+          "url": "https://www.duomoediciones.com/",
+          "primary": true
+        }
+      ],
+      "history": [
+        {
+          "date": "2026-10-03",
+          "event": "Revisado el contacto oficial sin localizar instrucciones específicas de recepción de originales.",
+          "source_url": "https://www.duomoediciones.com/contacto/"
+        }
+      ]
     }
   ]
 }
