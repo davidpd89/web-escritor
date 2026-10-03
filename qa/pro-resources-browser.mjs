@@ -85,10 +85,10 @@ async function noOverflow(p,label){const x=await p.evaluate(()=>document.documen
   assert.equal(await visible(p,'[data-radar-item]'),radarAll.length);
   const d=await p.evaluate(today=>({
     a:DPRadarDates.daysUntil(today,today),
-    b:DPRadarDates.daysUntil('2026-10-03',today),
-    c:DPRadarDates.daysUntil('2026-10-09',today),
-    d:DPRadarDates.daysUntil('2026-10-10',today),
-    e:DPRadarDates.daysUntil('2026-10-01',today)
+    b:DPRadarDates.daysUntil('2026-10-04',today),
+    c:DPRadarDates.daysUntil('2026-10-10',today),
+    d:DPRadarDates.daysUntil('2026-10-11',today),
+    e:DPRadarDates.daysUntil('2026-10-02',today)
   }),fixedToday);
   assert.deepEqual(d,{a:0,b:1,c:7,d:8,e:-1});
   const rel=await p.locator('[data-radar-relative]').allTextContents();assert.ok(rel.every(t=>t.includes('faltan')));
