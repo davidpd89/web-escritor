@@ -61,8 +61,11 @@ def build_to(tmp: Path, today: str) -> str:
 print("tests/test-editoriales-metodologia")
 
 # 1. Determinismo frente a la fecha de ejecucion.
+records_for_clock = json.loads(DATA.read_text(encoding="utf-8"))["publishers"]
+published_for_clock = [r for r in records_for_clock if r.get("publish") is True]
+latest_verified = max(r["verified_at"] for r in published_for_clock)
 with tempfile.TemporaryDirectory() as a, tempfile.TemporaryDirectory() as b:
-    html_a = build_to(Path(a), "2026-08-20")
+    html_a = build_to(Path(a), latest_verified)
     html_b = build_to(Path(b), "2029-01-02")
 
 date_a = re.search(r'"dateModified":"([^"]+)"', html_a)
@@ -74,10 +77,11 @@ if date_a and date_b:
         "dateModified no depende de la fecha de ejecucion",
         f"{date_a.group(1)} != {date_b.group(1)}",
     )
+    expected_content_date = max([be.METHODOLOGY_REVISED] + [r["page_updated_at"] for r in published_for_clock])
     check(
-        date_a.group(1) != date.today().isoformat() or be.METHODOLOGY_REVISED == date.today().isoformat(),
-        "dateModified no es simplemente hoy",
-        date_a.group(1),
+        date_a.group(1) == expected_content_date,
+        "dateModified procede de una actualización editorial real",
+        f"{date_a.group(1)} != {expected_content_date}",
     )
 
 # El HTML entero debe coincidir: si algo mas dependiera de `today`, saldria aqui

@@ -7,7 +7,12 @@
       "url": "https://www.cultura.gob.es/cultura/libro/becas-ayudas-subvenciones/ayudas-y-subvenciones/creacion-literaria.html",
       "official": true,
       "enabled": true,
-      "keywords": ["convocatoria", "plazo", "creación literaria", "solicitud"]
+      "keywords": [
+        "convocatoria",
+        "plazo",
+        "creación literaria",
+        "solicitud"
+      ]
     },
     {
       "id": "diputacion-palencia-cultura",
@@ -15,7 +20,12 @@
       "url": "https://www.diputaciondepalencia.es/sitio/cultura/becas-premios-concursos",
       "official": true,
       "enabled": true,
-      "keywords": ["premio", "poesía", "inscripción", "plazo"]
+      "keywords": [
+        "premio",
+        "poesía",
+        "inscripción",
+        "plazo"
+      ]
     },
     {
       "id": "kutxa-premios-literarios",
@@ -23,7 +33,1320 @@
       "url": "https://literatursariak.kutxafundazioa.eus/es/preguntas-y-respuestas",
       "official": true,
       "enabled": true,
-      "keywords": ["premios", "novela", "poesía", "fecha final", "presentación"]
+      "keywords": [
+        "premios",
+        "novela",
+        "poesía",
+        "fecha final",
+        "presentación"
+      ]
+    },
+    {
+      "id": "ateneo-valladolid-novela",
+      "name": "Ateneo de Valladolid — Premio de Novela",
+      "url": "https://www.ateneodevalladolid.org/premio-de-novela/",
+      "official": true,
+      "enabled": true,
+      "keywords": [
+        "premio",
+        "novela",
+        "admisión",
+        "originales",
+        "plazo"
+      ]
+    },
+    {
+      "id": "diputacion-palencia-cristina-tejedor",
+      "name": "Diputación de Palencia — Cristina Tejedor",
+      "url": "https://www.diputaciondepalencia.es/servicios/becas-premios-concursos/xxii-certamen-provincial-relatos-breves-cristina-tejedor-0",
+      "official": true,
+      "enabled": true,
+      "keywords": [
+        "relatos",
+        "certamen",
+        "plazo",
+        "inscripción"
+      ]
+    },
+    {
+      "id": "ayuntamiento-toledo-princesa-galiana",
+      "name": "Ayuntamiento de Toledo — Princesa Galiana",
+      "url": "https://www.toledo.es/xxiii-concurso-de-narrativa-femenina-princesa-galiana/",
+      "official": true,
+      "enabled": true,
+      "keywords": [
+        "concurso",
+        "narrativa",
+        "novela",
+        "plazo"
+      ]
+    },
+    {
+      "id": "ilc-elena-santiago",
+      "name": "Instituto Leonés de Cultura — Elena Santiago",
+      "url": "https://www.institutoleonesdecultura.es/i-premio-de-narrativa-elena-santiago-2026/",
+      "official": true,
+      "enabled": true,
+      "keywords": [
+        "premio",
+        "narrativa",
+        "plazo",
+        "presentación"
+      ]
+    },
+    {
+      "id": "planeta-premios",
+      "name": "Portal de Premios Planeta",
+      "url": "https://premios.planetadelibros.com/es-ES/",
+      "official": true,
+      "enabled": true,
+      "keywords": [
+        "premio",
+        "novela",
+        "candidatura",
+        "fecha límite"
+      ]
+    },
+    {
+      "id": "diputacion-alicante-cultura",
+      "name": "Diputación de Alicante — Agenda Cultural",
+      "url": "https://agendacultural.diputacionalicante.es/organizador/area-de-cultura/",
+      "official": true,
+      "enabled": true,
+      "keywords": [
+        "premio",
+        "literatura",
+        "novela",
+        "bases"
+      ]
+    },
+    {
+      "id": "ies-castillo-puche",
+      "name": "IES José Luis Castillo-Puche — Certamen de Novela Corta",
+      "url": "https://www.iescastillopuche.net/novela/bases.html",
+      "official": true,
+      "enabled": true,
+      "keywords": [
+        "certamen",
+        "novela",
+        "bases",
+        "plazo"
+      ]
+    },
+    {
+      "id": "alfaguara-premio-novela",
+      "name": "Premio Alfaguara de novela — bases y participación",
+      "url": "https://premioalfaguara.com/bases-y-participacion",
+      "official": true,
+      "enabled": true,
+      "keywords": [
+        "premio",
+        "novela",
+        "bases",
+        "plazo",
+        "participación"
+      ]
+    },
+    {
+      "id": "anagrama-herralde",
+      "name": "Editorial Anagrama — Premio Herralde de Novela",
+      "url": "https://www.anagrama-ed.es/premios/herralde-de-novela/bases",
+      "official": true,
+      "enabled": true,
+      "keywords": [
+        "Herralde",
+        "novela",
+        "2027",
+        "convocatoria",
+        "formulario"
+      ]
+    },
+    {
+      "id": "anagrama-ensayo",
+      "name": "Editorial Anagrama — Premio Anagrama de Ensayo",
+      "url": "https://www.anagrama-ed.es/premios/anagrama-de-ensayo/bases",
+      "official": true,
+      "enabled": true,
+      "keywords": [
+        "ensayo",
+        "2027",
+        "convocatoria",
+        "formulario"
+      ]
+    },
+    {
+      "id": "ayuntamiento-nava-marta-portal",
+      "name": "Ayuntamiento de Nava / Injuve — Marta Portal",
+      "url": "https://www.injuve.es/node/86593/printable/print",
+      "official": true,
+      "enabled": true,
+      "keywords": [
+        "novela corta",
+        "terror",
+        "fantástico",
+        "plazo",
+        "Nava"
+      ]
+    },
+    {
+      "id": "gijon-cafe-gijon",
+      "name": "Ayuntamiento de Gijón/Xixón — Premio Café Gijón",
+      "url": "https://www.gijon.es/es/eventos/premio-cafe-gijon",
+      "official": true,
+      "enabled": true,
+      "keywords": [
+        "premio",
+        "novela",
+        "Café Gijón",
+        "bases",
+        "plazo"
+      ]
+    },
+    {
+      "id": "malaga-premio-novela",
+      "name": "Ayuntamiento de Málaga — Premio Málaga de Novela",
+      "url": "https://cultura.malaga.eu/es/actividades-culturales/actividades-literarias/premio-malaga-de-novela/",
+      "official": true,
+      "enabled": true,
+      "keywords": [
+        "premio",
+        "novela",
+        "Málaga",
+        "Galaxia Gutenberg",
+        "plazo"
+      ]
+    },
+    {
+      "id": "dacoruna-torrente-ballester",
+      "name": "Deputación da Coruña — Torrente Ballester",
+      "url": "https://sede.dacoruna.gal/subtel/publica/infoconvocatorias",
+      "official": true,
+      "enabled": true,
+      "keywords": [
+        "Torrente Ballester",
+        "narrativa",
+        "castelá",
+        "convocatoria"
+      ]
+    },
+    {
+      "id": "badajoz-premios-ciudad",
+      "name": "Ayuntamiento de Badajoz — Premios Ciudad de Badajoz",
+      "url": "https://www.aytobadajoz.es/es/ayto/especiales/especial/59819/premios-ciudad-de-badajoz-2026",
+      "official": true,
+      "enabled": true,
+      "keywords": [
+        "premios",
+        "novela",
+        "Badajoz",
+        "convocatoria"
+      ]
+    },
+    {
+      "id": "estepona-premio-novela",
+      "name": "Ayuntamiento de Estepona — Premio de Novela Ciudad de Estepona",
+      "url": "https://ayuntamiento.estepona.es/noticias/ariel-magnus-recibe-el-iv-premio-de-novela-ciudad-de-estepona-por-mentir-la-verdad-",
+      "official": true,
+      "enabled": true,
+      "keywords": [
+        "premio",
+        "novela",
+        "Estepona",
+        "Pre-Textos"
+      ]
+    },
+    {
+      "id": "tijola-novela-corta",
+      "name": "Ayuntamiento de Tíjola — Certamen de Novela Corta",
+      "url": "https://www.tijola.es/Servicios/cmsdipro/index.nsf/fiestas.xsp?documentId=D4256D3DC0FBDA8FC1258E480042BB53&p=Tijola",
+      "official": true,
+      "enabled": true,
+      "keywords": [
+        "novela corta",
+        "Tíjola",
+        "plazo",
+        "bases"
+      ]
+    },
+    {
+      "id": "ehu-alberto-magno",
+      "name": "EHU — Certamen Literario Alberto Magno",
+      "url": "https://www.ehu.eus/es/web/zientzia-teknologia-fakultatea/certamen-literario-alberto-magno",
+      "official": true,
+      "enabled": true,
+      "keywords": [
+        "ciencia ficción",
+        "fantasía",
+        "relato",
+        "plazo"
+      ]
+    },
+    {
+      "id": "madrid-chamberi-relato",
+      "name": "Ayuntamiento de Madrid — Certamen de Relato Corto Chamberí",
+      "url": "https://www.madrid.es/portales/munimadrid/es/Inicio/El-Ayuntamiento/Publicaciones/Listado-de-Publicaciones/Certamenes-de-otono-Chamberi-2026-Pintura-rapida-relato-corto-y-fotografia/?vgnextchannel=f1aebadb6b997010VgnVCM100000dc0ca8c0RCRD&vgnextfmt=default&vgnextoid=a87737ca0ccd0a10VgnVCM100000891ecb1aRCRD",
+      "official": true,
+      "enabled": true,
+      "keywords": [
+        "relato corto",
+        "Chamberí",
+        "Madrid",
+        "inscripción"
+      ]
+    },
+    {
+      "id": "melilla-encarna-leon",
+      "name": "Ciudad Autónoma de Melilla — Premio Encarna León",
+      "url": "https://www.melilla.es/melillaportal/contenedor.jsp?codMenu=4&codMenuPN=601&contenido=32857&nivel=1400&seccion=s_fdoc_d4_v1.jsp&tipo=5",
+      "official": true,
+      "enabled": true,
+      "keywords": [
+        "relato corto",
+        "Encarna León",
+        "plazo",
+        "BOME"
+      ]
+    },
+    {
+      "id": "mapfre-plataforma-vidas-inspiran",
+      "name": "Fundación MAPFRE / Plataforma Editorial — Vidas que Inspiran",
+      "url": "https://www.plataformaeditorial.com/premio-literario/1/1/11010/2-edicion-premio-literario-vidas-que-inspiran-fundacion-mapfre",
+      "official": true,
+      "enabled": true,
+      "keywords": [
+        "premio",
+        "narrativa",
+        "personas sénior",
+        "noviembre",
+        "manuscritos"
+      ]
+    },
+    {
+      "id": "madrid-cuarto-y-mitad",
+      "name": "Ayuntamiento de Madrid — Cuarto y Mitad",
+      "url": "https://www.madrid.es/portales/munimadrid/es/Inicio/El-Ayuntamiento/Convocatorias-y-proyectos-europeos/X-Concurso-de-relatos-Cuarto-y-Mitad-/?vgnextchannel=fd02ae62ab37a010VgnVCM100000d90ca8c0RCRD&vgnextfmt=default&vgnextoid=482c61b3758af910VgnVCM100000891ecb1aRCRD",
+      "official": true,
+      "enabled": true,
+      "keywords": [
+        "relato",
+        "bibliotecas",
+        "Madrid",
+        "plazo"
+      ]
+    },
+    {
+      "id": "escuela-relatos-en-cadena",
+      "name": "Escuela de Escritores — Relatos en Cadena",
+      "url": "https://escueladeescritores.com/concursos/relatos-en-cadena/",
+      "official": true,
+      "enabled": true,
+      "keywords": [
+        "microrrelato",
+        "Cadena SER",
+        "semanal",
+        "plazo"
+      ]
+    },
+    {
+      "id": "emt-madrid-microrrelatos",
+      "name": "EMT Madrid — Concurso de Microrrelatos",
+      "url": "https://www.emtmadrid.es/Noticias/El-X-Concurso-de-Microrrelatos-de-EMT-Madrid-inclu.aspx",
+      "official": true,
+      "enabled": true,
+      "keywords": [
+        "microrrelato",
+        "Madrid",
+        "EMT",
+        "plazo"
+      ]
+    },
+    {
+      "id": "cultura-arqva-profundidades",
+      "name": "Ministerio de Cultura · ARQVA — Profundidades",
+      "url": "https://www.cultura.gob.es/mnarqua/actividades/agenda/profundidades-iiiconcurso-microrrelatos.html",
+      "official": true,
+      "enabled": true,
+      "keywords": [
+        "microrrelato",
+        "terror",
+        "marítimo",
+        "plazo"
+      ]
+    },
+    {
+      "id": "getafe-negro-microrrelatos",
+      "name": "Getafe Negro — Concurso de Microrrelatos",
+      "url": "https://getafenegro.com/noticias/participa-en-el-concurso-de-microrrelatos-getafe-negro-2026/",
+      "official": true,
+      "enabled": true,
+      "keywords": [
+        "microrrelato",
+        "negro",
+        "Getafe",
+        "plazo"
+      ]
+    },
+    {
+      "id": "escuela-pasillos-unide",
+      "name": "Escuela de Escritores — Si los pasillos hablaran",
+      "url": "https://escueladeescritores.com/concursos/si-los-pasillos-hablaran/",
+      "official": true,
+      "enabled": true,
+      "keywords": [
+        "microrrelato",
+        "Unide",
+        "plazo"
+      ]
+    },
+    {
+      "id": "fundae-microrrelatos-talento",
+      "name": "Fundae — Concurso de Microrrelatos de Talento",
+      "url": "https://www.fundae.es/actualidad/gestion-del-talento-capital-radio/concurso-microrrelatos",
+      "official": true,
+      "enabled": true,
+      "keywords": [
+        "microrrelato",
+        "talento",
+        "mensual",
+        "plazo"
+      ]
+    },
+    {
+      "id": "oxfam-castello-microrrelatos",
+      "name": "Oxfam Intermón — Microrrelatos Castelló",
+      "url": "https://www.oxfamintermon.org/vi-concurso-microrrelatos-castello-vivienda",
+      "official": true,
+      "enabled": true,
+      "keywords": [
+        "microrrelato",
+        "vivienda",
+        "Castelló",
+        "plazo"
+      ]
+    },
+    {
+      "id": "cross-atapuerca-microrrelatos",
+      "name": "Cross de Atapuerca — Certamen de Microrrelatos",
+      "url": "https://www.crossatapuerca.com/nw/microrrelatos/",
+      "official": true,
+      "enabled": true,
+      "keywords": [
+        "microrrelato",
+        "Atapuerca",
+        "plazo"
+      ]
+    },
+    {
+      "id": "lardero-relatos-violencia",
+      "name": "Ayuntamiento de Lardero — Concurso Literario",
+      "url": "https://www.aytolardero.org/iv-concurso-literario-contra-la-violencia-de-genero/",
+      "official": true,
+      "enabled": true,
+      "keywords": [
+        "relato",
+        "violencia de género",
+        "Lardero",
+        "plazo"
+      ]
+    },
+    {
+      "id": "santa-olalla-alvar-gomez",
+      "name": "Ayuntamiento de Santa Olalla — Alvar Gómez de Castro",
+      "url": "https://santaolalla.es/index.php/62-noticias/noticias-generales/2522-xii-concursos-culturales-de-santa-olalla-2026-fotografia-poesia-relato-corto",
+      "official": true,
+      "enabled": true,
+      "keywords": [
+        "relato corto",
+        "Santa Olalla",
+        "plazo"
+      ]
+    },
+    {
+      "id": "sant-boi-negre-relato",
+      "name": "Sant Boi Negre — Concurso de Relato Breve",
+      "url": "https://santboinegre.es/concurso/",
+      "official": true,
+      "enabled": true,
+      "keywords": [
+        "relato",
+        "género negro",
+        "Sant Boi",
+        "plazo"
+      ]
+    },
+    {
+      "id": "cuentos-en-movimiento",
+      "name": "Cuentos en Movimiento — Concurso Literario",
+      "url": "https://cuentosenmovimiento.cl/36-concurso-literario/",
+      "official": true,
+      "enabled": true,
+      "keywords": [
+        "cuento",
+        "transporte",
+        "internacional",
+        "plazo"
+      ]
+    },
+    {
+      "id": "europe-direct-caceres-relato",
+      "name": "Ayuntamiento de Cáceres · Europe Direct — Relato Breve",
+      "url": "https://www.ayto-caceres.es/noticias/europe-direct-caceres-duplica-la-dotacion-de-sus-concursos-y-facilita-la-presentacion-digital-de-las-obras/",
+      "official": true,
+      "enabled": true,
+      "keywords": [
+        "relato",
+        "Europa",
+        "Cáceres",
+        "plazo"
+      ]
+    },
+    {
+      "id": "zaragoza-angel-sanz-briz",
+      "name": "Ayuntamiento de Zaragoza — Ángel Sanz Briz",
+      "url": "https://www.zaragoza.es/sede/portal/cementerios/servicio/premios-concursos/4322",
+      "official": true,
+      "enabled": true,
+      "keywords": [
+        "relato",
+        "Zaragoza",
+        "plazo"
+      ]
+    },
+    {
+      "id": "argos-relato-2026",
+      "name": "ARGOS Cultura y Medios — Premio de Relato",
+      "url": "https://www.argosculturaymedios.es/i-certamen-literario-argos/",
+      "official": true,
+      "enabled": true,
+      "keywords": [
+        "relato corto",
+        "ARGOS",
+        "plazo"
+      ]
+    },
+    {
+      "id": "premio-baros",
+      "name": "Premio BAROS — bases oficiales",
+      "url": "https://premiobaros.org/bases/",
+      "official": true,
+      "enabled": true,
+      "keywords": [
+        "relato",
+        "obesidad",
+        "premio",
+        "plazo"
+      ]
+    },
+    {
+      "id": "fantarquia-relatos",
+      "name": "Fantarquía — Certamen de Relatos",
+      "url": "https://www.fantarquia.es/?page_id=428",
+      "official": true,
+      "enabled": true,
+      "keywords": [
+        "relato",
+        "fantasía",
+        "terror",
+        "ciencia ficción",
+        "plazo"
+      ]
+    },
+    {
+      "id": "constanti-premis-literaris",
+      "name": "Ajuntament de Constantí — Premis Literaris",
+      "url": "https://web.constanti.cat/2026/09/02/xx-premis-literaris-de-constanti-2026-relats-de-pagesia/",
+      "official": true,
+      "enabled": true,
+      "keywords": [
+        "relato",
+        "Constantí",
+        "bases",
+        "plazo"
+      ]
+    },
+    {
+      "id": "kasa-vela-historia-pantalla",
+      "name": "Kasa Vela — Tu historia en pantalla",
+      "url": "https://www.somoskasavela.com/convocatorias/tu-historia-en-pantalla",
+      "official": true,
+      "enabled": true,
+      "keywords": [
+        "relato",
+        "audiovisual",
+        "convocatoria",
+        "plazo"
+      ]
+    },
+    {
+      "id": "zahara-ilustre-fregona",
+      "name": "Zahara de los Atunes — La Ilustre Fregona",
+      "url": "https://www.turismozahara.com/blog/bases-concursos-literarios-de-narrativa-y-poesia",
+      "official": true,
+      "enabled": true,
+      "keywords": [
+        "relato corto",
+        "Zahara",
+        "bases",
+        "plazo"
+      ]
+    },
+    {
+      "id": "bracamonte-negro",
+      "name": "Bracamonte en Negro — concursos",
+      "url": "https://bracamonteenegro.com/concursos/",
+      "official": true,
+      "enabled": true,
+      "keywords": [
+        "microrrelato",
+        "género negro",
+        "concurso",
+        "bases"
+      ]
+    },
+    {
+      "id": "fundacion-juan-muniz-zapico",
+      "name": "Fundación Juan Muñiz Zapico — microrrelatos mineros",
+      "url": "https://fundacionjuanmunizzapico.com/microrrelatos-mineros/",
+      "official": true,
+      "enabled": true,
+      "keywords": [
+        "microrrelato",
+        "minería",
+        "bases",
+        "concurso"
+      ]
+    },
+    {
+      "id": "amnistia-madrid-escribir-derechos",
+      "name": "Amnistía Internacional Madrid — Escribir por Derechos",
+      "url": "https://blogs.es.amnesty.org/madrid/escribir-por-derechos/",
+      "official": true,
+      "enabled": true,
+      "keywords": [
+        "microrrelato",
+        "derechos humanos",
+        "concurso",
+        "plazo"
+      ]
+    },
+    {
+      "id": "jabones-alonso-microrrelatos",
+      "name": "Jabones Alonso de la Torre — concurso de microrrelatos",
+      "url": "https://www.jabonesalonsodelatorre.com/bases-ii-concurso-de-microrrelatos-del-bienestar/",
+      "official": true,
+      "enabled": true,
+      "keywords": [
+        "microrrelato",
+        "bienestar",
+        "bases",
+        "plazo"
+      ]
+    },
+    {
+      "id": "madrid-bibliotecas-microrrelatos-bilingue",
+      "name": "Ayuntamiento de Madrid — microrrelatos bilingües",
+      "url": "https://www.madrid.es/portales/munimadrid/es/Inicio/El-Ayuntamiento/Vicalvaro/Actividades-y-eventos/IV-Concurso-bilingue-de-Microrrelatos-frances-espanol/?vgnextchannel=497b48e063f28010VgnVCM100000dc0ca8c0RCRD&vgnextfmt=default&vgnextoid=61fa9b05da8b0a10VgnVCM100000891ecb1aRCRD",
+      "official": true,
+      "enabled": true,
+      "keywords": [
+        "microrrelato",
+        "biblioteca",
+        "concurso",
+        "plazo"
+      ]
+    },
+    {
+      "id": "volured-microrrelatos-paliativos",
+      "name": "Plataforma del Voluntariado de Extremadura — microrrelatos",
+      "url": "https://volured.com/voluntsalud/vii-certamen-de-microrrelatos-de-voluntariado/",
+      "official": true,
+      "enabled": true,
+      "keywords": [
+        "microrrelato",
+        "voluntariado",
+        "cuidados paliativos",
+        "certamen"
+      ]
+    },
+    {
+      "id": "cinco-palabras",
+      "name": "ONG Cinco Palabras — concurso de microrrelato",
+      "url": "https://cincopalabras.com/concurso-microrrelato-2026/",
+      "official": true,
+      "enabled": true,
+      "keywords": [
+        "microrrelato",
+        "concurso",
+        "mensual",
+        "bases"
+      ]
+    },
+    {
+      "id": "zadua-relatos",
+      "name": "Zadua — convocatoria de relatos",
+      "url": "https://zadua.co/bases-convocatoria-inaugural/",
+      "official": true,
+      "enabled": true,
+      "keywords": [
+        "relato",
+        "convocatoria",
+        "publicación",
+        "bases"
+      ]
+    },
+    {
+      "id": "avant-editorial-premios",
+      "name": "Avant Editorial — premio de narrativa",
+      "url": "https://avanteditorial.com/premio-avant-ceuta-2026-poesia-y-narrativa/",
+      "official": true,
+      "enabled": true,
+      "keywords": [
+        "premio",
+        "novela",
+        "narrativa",
+        "bases"
+      ]
+    },
+    {
+      "id": "apeiron-concursos",
+      "name": "Ápeiron Ediciones — concursos",
+      "url": "https://www.apeironediciones.com/concursos",
+      "official": true,
+      "enabled": true,
+      "keywords": [
+        "premio",
+        "cuento",
+        "relato",
+        "convocatoria"
+      ]
+    },
+    {
+      "id": "escritores-rivas-imagen",
+      "name": "Escritores en Rivas — La Imagen Escrita",
+      "url": "https://www.escritoresenrivas.com/concursos-literarios/",
+      "official": true,
+      "enabled": true,
+      "keywords": [
+        "microrrelato",
+        "Rivas",
+        "plazo",
+        "imagen"
+      ]
+    },
+    {
+      "id": "afiprodel-microrrelatos",
+      "name": "AFIPRODEL Galicia — Arr3quentando a Cultura",
+      "url": "https://afiprodel.org/afiprodel/i-certame-de-microrelatos-arr3quentando-a-cultura/",
+      "official": true,
+      "enabled": true,
+      "keywords": [
+        "microrrelato",
+        "gallego",
+        "patrimonio",
+        "plazo"
+      ]
+    },
+    {
+      "id": "almansa-feminista",
+      "name": "Almansa Feminista — concurso de microrrelato",
+      "url": "https://almansafeminista.blogspot.com/2026/08/iii-concurso-microrrelato-2026-almansa.html",
+      "official": true,
+      "enabled": true,
+      "keywords": [
+        "microrrelato",
+        "mujeres",
+        "edadismo",
+        "plazo"
+      ]
+    },
+    {
+      "id": "feafes-melilla",
+      "name": "FEAFES Melilla — concurso literario",
+      "url": "https://feafesmelilla.es/concurso-literario-amparo-perez-alamino",
+      "official": true,
+      "enabled": true,
+      "keywords": [
+        "relato",
+        "salud mental",
+        "plazo"
+      ]
+    },
+    {
+      "id": "villamanta-mantua",
+      "name": "Ayuntamiento de Villamanta — Mantua Carpetanorum",
+      "url": "https://www.villamanta.es/tu-ayuntamiento/agenda/iii-certamen-literario-mantua-carpetanorum/",
+      "official": true,
+      "enabled": true,
+      "keywords": [
+        "relato histórico",
+        "Roma",
+        "plazo"
+      ]
+    },
+    {
+      "id": "issste-sello-editorial",
+      "name": "Sello Editorial ISSSTE — convocatorias",
+      "url": "https://liderazgos.issste.gob.mx/sello-editorial/convocatoria.html",
+      "official": true,
+      "enabled": true,
+      "keywords": [
+        "cuento",
+        "salud",
+        "publicación",
+        "plazo"
+      ]
+    },
+    {
+      "id": "written-dark",
+      "name": "Written — In the Dark",
+      "url": "https://es.written.app/in-the-dark-2026",
+      "official": true,
+      "enabled": true,
+      "keywords": [
+        "terror",
+        "cuento",
+        "premio",
+        "plazo"
+      ]
+    },
+    {
+      "id": "curtis-o-exame",
+      "name": "Concello de Curtis — O EXAME",
+      "url": "https://www.curtis.gal/index.php/es/noticias/5174-bases-do-xxi-certame-de-narrativa-curta-do-concello-de-curtis-o-exame",
+      "official": true,
+      "enabled": true,
+      "keywords": [
+        "narrativa curta",
+        "gallego",
+        "plazo"
+      ]
+    },
+    {
+      "id": "manera-montblanc",
+      "name": "MANERA — concurso de relatos",
+      "url": "https://maneramagazine.es/interiorismo/concurso-relatos-manera-montblanc-2026/",
+      "official": true,
+      "enabled": true,
+      "keywords": [
+        "relato",
+        "diseño",
+        "arquitectura",
+        "plazo"
+      ]
+    },
+    {
+      "id": "kannonical-convocatorias",
+      "name": "Kannonical Editores — convocatorias",
+      "url": "https://kannonical-editores.github.io/convoc.html",
+      "official": true,
+      "enabled": true,
+      "keywords": [
+        "terror",
+        "relato",
+        "antología",
+        "plazo"
+      ]
+    },
+    {
+      "id": "rivaslaica-conciencia",
+      "name": "Rivas Laica — Conciencia Libre",
+      "url": "https://rivaslaica.org/2026/06/v-certamen-de-relatos-cortos/",
+      "official": true,
+      "enabled": true,
+      "keywords": [
+        "relato",
+        "laicismo",
+        "plazo"
+      ]
+    },
+    {
+      "id": "aster-astronomia",
+      "name": "ASTER — concurso de relatos de astronomía",
+      "url": "https://aster.cat/concurs-de-relats-dastronomia-aster-2026/",
+      "official": true,
+      "enabled": true,
+      "keywords": [
+        "astronomía",
+        "relato",
+        "plazo"
+      ]
+    },
+    {
+      "id": "esstudio-misterio",
+      "name": "Esstudio Ediciones — concurso de misterio",
+      "url": "https://www.esstudioediciones.com/blog/419/concurso-de-relatos-cortos-de-misterio-si-agatha-christie-levantara-la-cabeza-de-esstudio-edciones.html",
+      "official": true,
+      "enabled": true,
+      "keywords": [
+        "misterio",
+        "relato",
+        "antología",
+        "plazo"
+      ]
+    },
+    {
+      "id": "cofradia-vino-navarra",
+      "name": "Cofradía del Vino de Navarra — certamen literario",
+      "url": "https://sites.google.com/view/certamen-literario-cvn",
+      "official": true,
+      "enabled": true,
+      "keywords": [
+        "narrativa",
+        "vino",
+        "Olite",
+        "plazo"
+      ]
+    },
+    {
+      "id": "paradela-manuel-oreste",
+      "name": "Concello de Paradela — Manuel-Oreste Rodríguez López",
+      "url": "https://www.paradela.es/es/nova/bases-xxxii-certame-literario-manuel-oreste-rodr%C3%ADguez-l%C3%B3pez",
+      "official": true,
+      "enabled": true,
+      "keywords": [
+        "narrativa",
+        "gallego",
+        "plazo"
+      ]
+    },
+    {
+      "id": "batracio-flor-cactus",
+      "name": "El Batracio Amarillo — La Flor del Cactus",
+      "url": "https://www.elbatracioamarillo.com/ii-certamen-internacional-de-literatura-de-humor-la-flor-del-cactus-2027",
+      "official": true,
+      "enabled": true,
+      "keywords": [
+        "humor",
+        "narrativa",
+        "premio",
+        "plazo"
+      ]
+    },
+    {
+      "id": "delibooks-concurso",
+      "name": "Delibooks — concurso literario Helena",
+      "url": "https://www.delibooks.com.ar/concurso/",
+      "official": true,
+      "enabled": true,
+      "keywords": [
+        "cuento",
+        "antología",
+        "plazo"
+      ]
+    },
+    {
+      "id": "asteroide-no-ficcion",
+      "name": "Libros del Asteroide — Premio de No Ficción",
+      "url": "https://librosdelasteroide.com/actualidad-asteroide/321/se-abre-la-convocatoria-del-vii-premio-de-no-ficcion-lda",
+      "official": true,
+      "enabled": true,
+      "keywords": [
+        "no ficción",
+        "premio",
+        "proyecto",
+        "plazo"
+      ]
+    },
+    {
+      "id": "entc-concurso",
+      "name": "Esta Noche Te Cuento — concurso 2026",
+      "url": "https://estanochetecuento.com/",
+      "official": true,
+      "enabled": true,
+      "keywords": [
+        "microrrelato",
+        "tema",
+        "plazo"
+      ]
+    },
+    {
+      "id": "alfabeto-premio-ensayo",
+      "name": "Editorial Alfabeto — Premio de Ensayo Breve",
+      "url": "https://www.editorialalfabeto.com/premioalfabeto",
+      "official": true,
+      "enabled": true,
+      "keywords": [
+        "ensayo",
+        "premio",
+        "no ficción",
+        "plazo"
+      ]
+    },
+    {
+      "id": "valdastillas-microrrelatos",
+      "name": "Ayuntamiento de Valdastillas — 100 palabras para asustar",
+      "url": "https://www.bandomovil.com/valdastillas/1651636/0",
+      "official": true,
+      "enabled": true,
+      "keywords": [
+        "microrrelato",
+        "terror",
+        "plazo"
+      ]
+    },
+    {
+      "id": "literaria-kalean-certamen",
+      "name": "Literaria Kalean — V Certamen de relato y cuento",
+      "url": "https://literariakalean.es/abrimos-convocatoria/",
+      "official": true,
+      "enabled": true,
+      "keywords": [
+        "relato",
+        "cuento",
+        "plazo"
+      ]
+    },
+    {
+      "id": "hislibris-relato-historico",
+      "name": "Hislibris — concurso de relato histórico",
+      "url": "https://www.hislibris.com/foro/viewtopic.php?f=29&t=705",
+      "official": true,
+      "enabled": true,
+      "keywords": [
+        "relato histórico",
+        "concurso",
+        "plazo"
+      ]
+    },
+    {
+      "id": "julio-visconti-certamen",
+      "name": "Fundación Pintor Julio Visconti — certamen de relatos",
+      "url": "https://fpjuliovisconti.com/bases-del-xi-certamen-de-relatos-de-la-fundacion-pintor-julio-visconti/",
+      "official": true,
+      "enabled": true,
+      "keywords": [
+        "relato",
+        "certamen",
+        "plazo"
+      ]
+    },
+    {
+      "id": "la-buena-letra-certamen",
+      "name": "AEF La Buena Letra — certamen literario",
+      "url": "https://labuenaletra.es/",
+      "official": true,
+      "enabled": true,
+      "keywords": [
+        "relato",
+        "certamen",
+        "plazo",
+        "premios"
+      ]
+    },
+    {
+      "id": "diversidad-microdragones",
+      "name": "Diversidad Literaria — Microdragones",
+      "url": "https://www.diversidadliteraria.com/info-concursos/microdragones",
+      "official": true,
+      "enabled": true,
+      "keywords": [
+        "microrrelato",
+        "fantasía",
+        "dragones",
+        "plazo"
+      ]
+    },
+    {
+      "id": "diversidad-luz-luna",
+      "name": "Diversidad Literaria — Luz de luna",
+      "url": "https://www.diversidadliteraria.com/info-concursos/concursos-microrrelatos/luzdeluna",
+      "official": true,
+      "enabled": true,
+      "keywords": [
+        "microrrelato",
+        "luna",
+        "plazo"
+      ]
+    },
+    {
+      "id": "diversidad-legado-manos",
+      "name": "Diversidad Literaria — El legado de sus manos",
+      "url": "https://www.diversidadliteraria.com/info-concursos/concursos-microrrelatos/concursos-abuelos",
+      "official": true,
+      "enabled": true,
+      "keywords": [
+        "microrrelato",
+        "abuelos",
+        "plazo"
+      ]
+    },
+    {
+      "id": "hesperides-cuento",
+      "name": "Ediciones Hespérides — Concurso Internacional de Cuento",
+      "url": "https://edicioneshesperides.blogspot.com/2026/05/bases-2026-del-concurso-internacional.html",
+      "official": true,
+      "enabled": true,
+      "keywords": [
+        "cuento",
+        "concurso",
+        "plazo",
+        "inscripción"
+      ]
+    },
+    {
+      "id": "diversidad-literaria-voces-pueblo",
+      "name": "Diversidad Literaria — Voces del pueblo",
+      "url": "https://www.diversidadliteraria.com/info-concursos/concursos-microrrelatos/voces-del-pueblo",
+      "official": true,
+      "enabled": true,
+      "keywords": [
+        "microrrelatos",
+        "concurso",
+        "plazo",
+        "bases"
+      ]
+    },
+    {
+      "id": "camino-santiago-navarra-relatos",
+      "name": "Federación Española de Asociaciones de Amigos del Camino — concurso Navarra",
+      "url": "https://www.caminosantiago.org/CPPEREGRINO/prensa/verprensa.asp?PrensaID=23405",
+      "official": true,
+      "enabled": true,
+      "keywords": [
+        "relatos",
+        "Camino de Santiago",
+        "concurso",
+        "plazo"
+      ]
+    },
+    {
+      "id": "uam-casa-del-tiempo-convocatorias",
+      "name": "UAM — Casa del tiempo · convocatorias",
+      "url": "https://casadeltiempo.uam.mx/index.php/convocatorias",
+      "official": true,
+      "enabled": true,
+      "keywords": [
+        "convocatoria",
+        "relato",
+        "ensayo",
+        "colaboraciones",
+        "cierre"
+      ]
+    },
+    {
+      "id": "diversidad-literaria-entre-plumas",
+      "name": "Diversidad Literaria — Entre plumas y letras",
+      "url": "https://www.diversidadliteraria.com/info-concursos/concurso-relatos-entre-plumas-y-letras",
+      "official": true,
+      "enabled": true,
+      "keywords": [
+        "relatos",
+        "fantasía",
+        "terror",
+        "concurso",
+        "plazo"
+      ]
+    },
+    {
+      "id": "otrolunes-iliada-cuentos-erroticos",
+      "name": "OtroLunes / Ilíada — Concurso Internacional de Cuentos Erróticos",
+      "url": "https://otrolunes.com/67/especial-ultima-hora/primer-concurso-internacional-de-cuentos-erroticos-20206/",
+      "official": true,
+      "enabled": true,
+      "keywords": [
+        "concurso",
+        "cuento",
+        "Ilíada",
+        "plazo",
+        "premio"
+      ]
+    },
+    {
+      "id": "aelg-aviles-taramancos",
+      "name": "AELG — Antón Avilés de Taramancos",
+      "url": "https://axendacultural.aelg.gal/tag/certame-literario-de-relato-de-aventuras-anton-aviles-de-taramancos/",
+      "official": false,
+      "enabled": false,
+      "keywords": [
+        "certame",
+        "aventuras",
+        "Noia",
+        "narrativa",
+        "bases"
+      ]
+    },
+    {
+      "id": "vera-cruz-salamanca-certamen",
+      "name": "Vera Cruz Salamanca — La Cruz Escribe",
+      "url": "https://veracruzsalamanca.org/",
+      "official": true,
+      "enabled": true,
+      "keywords": [
+        "certamen",
+        "relato",
+        "bases",
+        "plazo"
+      ]
+    },
+    {
+      "id": "terbi-certamen-relato",
+      "name": "TerBi — Certamen de Relato Temático",
+      "url": "https://notcf.blogspot.com/2026/05/bases-del-xvi-certamen-terbi-de-relato.html",
+      "official": true,
+      "enabled": true,
+      "keywords": [
+        "relato",
+        "ciencia ficción",
+        "fantasía",
+        "terror",
+        "plazo"
+      ]
+    },
+    {
+      "id": "coruna-educando-violencia",
+      "name": "Información Juvenil A Coruña — Educando contra la Violencia",
+      "url": "https://www.coruna.gal/informacionjuvenil/es/convocatorias/concursos-y-premios?argIdioma=es&argPag=2&categoriaID=1220003419689",
+      "official": true,
+      "enabled": true,
+      "keywords": [
+        "relato",
+        "violencia",
+        "concurso",
+        "plazo"
+      ]
+    },
+    {
+      "id": "san-silvestre-salmantina-relatos",
+      "name": "San Silvestre Salmantina — microrrelatos",
+      "url": "https://www.sansilvestresalmantina.com/",
+      "official": true,
+      "enabled": true,
+      "keywords": [
+        "microrrelatos",
+        "concurso",
+        "bases",
+        "plazo"
+      ]
+    },
+    {
+      "id": "zaragoza-epitafios-2026",
+      "name": "Ayuntamiento de Zaragoza — Epitafios Cementerio de Torrero",
+      "url": "https://www.zaragoza.es/sede/servicio/premios-concursos/4321",
+      "official": true,
+      "enabled": true,
+      "keywords": [
+        "epitafios",
+        "relato",
+        "concurso",
+        "plazo"
+      ]
+    },
+    {
+      "id": "fundacion-universidad-hispana-macondos",
+      "name": "Fundación Universidad Hispana — Macondos del Siglo XXI",
+      "url": "https://www.fundacionuniversidadhispana.com/concurso",
+      "official": true,
+      "enabled": true,
+      "keywords": [
+        "Macondos",
+        "relato",
+        "concurso",
+        "plazo"
+      ]
+    },
+    {
+      "id": "maniac-thriller-documental",
+      "name": "Maniac Ediciones — Premio Thriller Documental",
+      "url": "https://www.maniacediciones.com/concurso-thriller-documental/",
+      "official": true,
+      "enabled": true,
+      "keywords": [
+        "thriller",
+        "novela",
+        "premio",
+        "manuscrito"
+      ]
+    },
+    {
+      "id": "diversidad-umbral-tinieblas",
+      "name": "Diversidad Literaria — Umbral de las tinieblas",
+      "url": "https://www.diversidadliteraria.com/info-concursos/concursos-microrrelatos/i-concurso-de-microrrelatos-sobre-halloween--umbral-de-las-tinieblas",
+      "official": true,
+      "enabled": true,
+      "keywords": [
+        "microrrelato",
+        "Halloween",
+        "concurso"
+      ]
+    },
+    {
+      "id": "diversidad-navidad-nieve",
+      "name": "Diversidad Literaria — Navidad de nieve y letras",
+      "url": "https://www.diversidadliteraria.com/info-concursos/concursos-microrrelatos/ii-concurso-de-microrrelatos-navidenos--navidad-de-nieve-y-letras",
+      "official": true,
+      "enabled": true,
+      "keywords": [
+        "microrrelato",
+        "Navidad",
+        "concurso"
+      ]
+    },
+    {
+      "id": "diversidad-entre-piratas",
+      "name": "Diversidad Literaria — Entre piratas anda el micro",
+      "url": "https://www.diversidadliteraria.com/info-concursos/concursos-microrrelatos/piratas",
+      "official": true,
+      "enabled": true,
+      "keywords": [
+        "microrrelato",
+        "piratas",
+        "concurso"
+      ]
+    },
+    {
+      "id": "diversidad-abracadabra",
+      "name": "Diversidad Literaria — Abracadabra",
+      "url": "https://www.diversidadliteraria.com/info-concursos/concursos-microrrelatos/i-concurso-de-microrrelatos-sobre-magos-y-hechiceras--abracadabra",
+      "official": true,
+      "enabled": true,
+      "keywords": [
+        "microrrelato",
+        "magos",
+        "fantasía",
+        "concurso"
+      ]
+    },
+    {
+      "id": "biblioteca-popular-parana-concurso",
+      "name": "Biblioteca Popular del Paraná — Concurso Literario",
+      "url": "https://www.bibliotecapopular.org/concurso/2026/index.shtml",
+      "official": true,
+      "enabled": true,
+      "keywords": [
+        "concurso",
+        "cuento",
+        "relato",
+        "adultos",
+        "plazo"
+      ]
+    },
+    {
+      "id": "ligeia-revista-convocatorias",
+      "name": "Ligeia Revista — Convocatorias",
+      "url": "https://ligeiarevista.empretienda.com.ar/convocatorias",
+      "official": true,
+      "enabled": true,
+      "keywords": [
+        "cuento",
+        "convocatoria",
+        "revista",
+        "publicación",
+        "plazo"
+      ]
+    },
+    {
+      "id": "premio-letras-celebrart",
+      "name": "Premio Literario Letras — CelebrArt",
+      "url": "https://premioscelebrart.com/premio-de-literatura-letras/",
+      "official": true,
+      "enabled": true,
+      "keywords": [
+        "premio",
+        "cuento",
+        "novela",
+        "bases",
+        "plazo"
+      ]
     }
   ]
 }

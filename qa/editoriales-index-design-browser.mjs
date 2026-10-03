@@ -6,6 +6,7 @@ import { chromium } from 'playwright';
 const ORIGIN = process.env.QA_ORIGIN || process.env.QA_BASE_URL || 'http://127.0.0.1:4173';
 const OUT = process.env.QA_OUT || 'qa-artifacts/editoriales-index';
 fs.mkdirSync(OUT, { recursive: true });
+const editorialData = JSON.parse(fs.readFileSync('editoriales/editoriales-data.json', 'utf8')).publishers;
 
 const BLUE = 'rgb(29, 79, 150)';
 const BLUE_DEEP = 'rgb(13, 44, 87)';
@@ -139,20 +140,28 @@ try {
       assert.equal(await page.locator('.section-context [aria-current="page"]').getAttribute('href'), '/editoriales/', `${name}: contexto no marca Editoriales`);
 
       const cards = page.locator('[data-editorial-card]');
-      assert.equal(await cards.count(), 3, `${name}: directorio ya no conserva tres fichas`);
-      assert.deepEqual(await cards.evaluateAll(nodes => nodes.map(node => ({
+      assert.equal(await cards.count(), editorialData.length, `${name}: el HTML no refleja el dataset público completo`);
+      const cardData = await cards.evaluateAll(nodes => nodes.map(node => ({
         name: node.getAttribute('data-name'),
         status: node.getAttribute('data-status'),
         direct: node.getAttribute('data-direct'),
-      }))), [
+      })));
+      assert.equal(new Set(cardData.map(item => item.name)).size, editorialData.length, `${name}: hay nombres duplicados en el directorio`);
+      for (const expected of [
         { name: 'Minotauro', status: 'open', direct: 'true' },
-        { name: 'Nocturna Ediciones', status: 'open', direct: 'true' },
-        { name: 'Duermevela Ediciones', status: 'closed', direct: 'false' },
-      ], `${name}: datos cerrados de las fichas alterados`);
+        { name: 'HarperCollins Ibérica', status: 'open', direct: 'true' },
+        { name: 'Nova', status: 'unknown', direct: 'false' },
+        { name: 'Ediciones Raven', status: 'closed', direct: 'false' },
+      ]) {
+        assert.ok(cardData.some(item => item.name === expected.name && item.status === expected.status && item.direct === expected.direct),
+          `${name}: falta o cambió el estado de ${expected.name}`);
+      }
 
       assert.equal(await page.locator('[data-editoriales-search]').count(), 1, `${name}: buscador ausente`);
       assert.equal(await page.locator('[data-editoriales-genre]').count(), 1, `${name}: filtro de género ausente`);
       assert.equal(await page.locator('[data-editoriales-status]').count(), 1, `${name}: filtro de estado ausente`);
+      assert.equal(await page.locator('[data-editoriales-country]').count(), 1, `${name}: filtro de país ausente`);
+      assert.equal(await page.locator('[data-editoriales-sort]').count(), 1, `${name}: control de ordenación ausente`);
       assert.equal(await page.locator('[data-editoriales-direct]').count(), 1, `${name}: filtro de envío directo ausente`);
       assert.equal(await page.locator('[data-editoriales-count]').count(), 1, `${name}: contador de resultados ausente`);
 
@@ -196,7 +205,7 @@ try {
 
       assert.equal(finder.display, 'grid', `${name}: mesa de consulta deja de ser grid`);
       assert.ok(finder.boxShadow.includes(BLUE) && finder.boxShadow.includes(GOLD), `${name}: mesa de consulta pierde el rail azul/dorado`);
-      assert.equal(columnCount(options.gridTemplateColumns), width > 900 ? 3 : width > 640 ? 2 : 1, `${name}: seam de filtros incorrecto`);
+      assert.equal(columnCount(options.gridTemplateColumns), width > 900 ? 5 : width > 640 ? 2 : 1, `${name}: seam de filtros incorrecto`);
 
       assert.equal(firstCard.display, 'grid', `${name}: expediente deja de ser grid`);
       assert.equal(columnCount(firstCard.gridTemplateColumns), width > 640 ? 2 : 1, `${name}: seam 641/640 del expediente incorrecto`);
@@ -241,10 +250,22 @@ try {
     const response = await interactionPage.goto(`${ORIGIN}/editoriales/`, { waitUntil: 'networkidle', timeout: 20000 });
     assert.ok(response?.ok(), 'interaction: /editoriales/ no carga');
     await settleTypography(interactionPage, 'interaction-mobile-390');
+    await interactionPage.locator('[data-editoriales-country]').selectOption('Chile');
+    assert.equal(await interactionPage.locator('[data-editorial-card]:visible').count(), editorialData.filter(item => item.country === 'Chile').length, 'interaction: filtro país no coincide con el dataset');
+    await interactionPage.locator('[data-editoriales-reset]').click();
+    await interactionPage.locator('[data-editoriales-sort]').selectOption('name');
+    const alphabeticalNames = await interactionPage.locator('[data-editorial-card]').evaluateAll(nodes => nodes.map(node => node.dataset.name));
+    assert.deepEqual(alphabeticalNames, [...alphabeticalNames].sort((a,b) => a.localeCompare(b, 'es', { sensitivity: 'base' })), 'interaction: orden A–Z incorrecto');
+    await interactionPage.locator('[data-editoriales-sort]').selectOption('recent');
+    const recentDates = await interactionPage.locator('[data-editorial-card]').evaluateAll(nodes => nodes.map(node => node.dataset.verifiedAt));
+    assert.deepEqual(recentDates, [...recentDates].sort().reverse(), 'interaction: orden por comprobación reciente incorrecto');
+    await interactionPage.locator('[data-editoriales-reset]').click();
     await interactionPage.locator('[data-editoriales-status]').selectOption('closed');
-    assert.equal(await interactionPage.locator('[data-editorial-card]:visible').count(), 1, 'interaction: filtro closed deja de devolver una ficha');
-    assert.equal((await interactionPage.locator('[data-editoriales-count]').textContent()).trim(), '1 editorial', 'interaction: contador filtrado incorrecto');
-    assert.equal(await interactionPage.locator('[data-editorial-card]:visible h2').textContent(), 'Duermevela Ediciones', 'interaction: filtro closed devuelve la editorial incorrecta');
+    const expectedClosed = editorialData.filter(item => item.status === 'closed').length;
+    assert.equal(await interactionPage.locator('[data-editorial-card]:visible').count(), expectedClosed, 'interaction: filtro closed no coincide con el dataset');
+    assert.equal((await interactionPage.locator('[data-editoriales-count]').textContent()).trim(), expectedClosed === 1 ? '1 editorial' : String(expectedClosed) + ' editoriales', 'interaction: contador filtrado incorrecto');
+    const closedNames = await interactionPage.locator('[data-editorial-card]:visible h2').allTextContents();
+    assert.ok(closedNames.includes('Duermevela Ediciones') && closedNames.includes('Ediciones Raven'), 'interaction: faltan cierres verificados en el filtro closed');
     await interactionPage.evaluate(() => {
       if (document.activeElement instanceof HTMLElement) document.activeElement.blur();
       window.scrollTo(0, 0);

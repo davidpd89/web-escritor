@@ -7,7 +7,9 @@
       "type": "concurso",
       "organizer": "Diputación de Palencia y Ayuntamiento de Paredes de Nava",
       "deadline": "2026-10-09",
-      "genres": ["poesía"],
+      "genres": [
+        "poesía"
+      ],
       "eligibility": "Personas adultas de cualquier nacionalidad; obra inédita en castellano.",
       "prize": "10.000 € y publicación",
       "fee_eur": null,
@@ -22,16 +24,19 @@
       "title": "Premios Literarios Kutxa Fundazioa 2027",
       "type": "concurso",
       "organizer": "Kutxa Fundazioa",
-      "deadline": "2026-11-21",
-      "genres": ["novela", "poesía"],
+      "deadline": "2026-09-21",
+      "genres": [
+        "novela",
+        "poesía"
+      ],
       "eligibility": "Personas mayores de edad de cualquier nacionalidad y residentes en España; para modalidades en euskara, residencia en cualquier parte del mundo. Obras originales e inéditas.",
       "prize": "20.000 € novela; 15.000 € poesía; publicación de las obras ganadoras",
       "fee_eur": null,
       "submission_mode": "Inscripción mediante formulario online y envío de la obra en papel según la fuente oficial",
       "source_url": "https://literatursariak.kutxafundazioa.eus/es/preguntas-y-respuestas",
-      "verified_at": "2026-09-29",
-      "editorial_note": "La fuente oficial confirma el 21 de noviembre de 2026 como fecha final y detalla premios, elegibilidad, envío y publicación.",
-      "published": true
+      "verified_at": "2026-10-03",
+      "editorial_note": "La fuente oficial fija el 21 de septiembre de 2026 como fecha tope del matasellos. Se corrige una fecha anterior incorrecta; la convocatoria ya está fuera de plazo y el builder la oculta del radar activo.",
+      "published": false
     },
     {
       "id": "creacion-literaria-ministerio-2026",
@@ -39,7 +44,14 @@
       "type": "ayuda",
       "organizer": "Ministerio de Cultura",
       "deadline": "2026-04-10",
-      "genres": ["narrativa", "poesía", "ensayo", "teatro", "literatura infantil y juvenil", "traducción"],
+      "genres": [
+        "narrativa",
+        "poesía",
+        "ensayo",
+        "teatro",
+        "literatura infantil y juvenil",
+        "traducción"
+      ],
       "eligibility": "Consultar convocatoria oficial.",
       "prize": "Subvención pública",
       "fee_eur": null,
@@ -47,7 +59,1924 @@
       "source_url": "https://www.cultura.gob.es/servicios-a-la-ciudadania/catalogo/general/21/2102234.html",
       "verified_at": "2026-08-21",
       "editorial_note": "Convocatoria expirada: el generador conserva el registro en datos, pero no lo muestra entre las oportunidades activas.",
+      "published": false
+    },
+    {
+      "id": "ateneo-valladolid-novela-2027",
+      "title": "74.º Premio de Novela Ateneo–Ciudad de Valladolid 2027",
+      "type": "premio",
+      "organizer": "Ateneo de Valladolid y Ayuntamiento de Valladolid",
+      "deadline": "2026-10-09",
+      "genres": [
+        "novela"
+      ],
+      "eligibility": "Personas adultas de cualquier nacionalidad; novela original e inédita escrita en castellano.",
+      "prize": "20.000 € y publicación de la obra",
+      "fee_eur": 0,
+      "submission_mode": "Presentación en papel y soporte digital conforme a las bases; no es una convocatoria por email.",
+      "source_url": "https://www.ateneodevalladolid.org/premio-de-novela/",
+      "verified_at": "2026-10-02",
+      "editorial_note": "Convocatoria oficial en plazo. La página del Ateneo confirma el cierre del 9 de octubre de 2026, la dotación y la publicación.",
       "published": true
+    },
+    {
+      "id": "cristina-tejedor-mayores-2026",
+      "title": "XXII Certamen Provincial de Relatos Breves «Cristina Tejedor» — Mayores 2026",
+      "type": "concurso",
+      "organizer": "Diputación de Palencia",
+      "deadline": "2026-10-15",
+      "genres": [
+        "relato breve"
+      ],
+      "eligibility": "Mayores de 18 años; obra en castellano, original e inédita, centrada en igualdad de oportunidades entre mujeres y hombres.",
+      "prize": null,
+      "fee_eur": 0,
+      "submission_mode": "Diez ejemplares impresos en el Registro General de la Diputación de Palencia, con seudónimo y plica.",
+      "source_url": "https://www.diputaciondepalencia.es/servicios/becas-premios-concursos/xxii-certamen-provincial-relatos-breves-cristina-tejedor-0",
+      "verified_at": "2026-10-02",
+      "editorial_note": "La fuente oficial figura «En plazo de presentación» y confirma el 15 de octubre de 2026 como fecha final.",
+      "published": true
+    },
+    {
+      "id": "princesa-galiana-2026",
+      "title": "XXIII Concurso de Narrativa Femenina «Princesa Galiana» 2026",
+      "type": "concurso",
+      "organizer": "Ayuntamiento de Toledo",
+      "deadline": "2026-10-20",
+      "genres": [
+        "novela",
+        "narrativa"
+      ],
+      "eligibility": "Novela original e inédita cuya temática contribuya a una visión compleja, diversa y contemporánea de la mujer.",
+      "prize": "Publicación y condiciones económicas según las normas reguladoras",
+      "fee_eur": 0,
+      "submission_mode": "Presentación conforme a las normas del Ayuntamiento de Toledo; consultar la convocatoria para las modalidades admitidas.",
+      "source_url": "https://www.toledo.es/xxiii-concurso-de-narrativa-femenina-princesa-galiana/",
+      "verified_at": "2026-10-02",
+      "editorial_note": "La convocatoria oficial del Ayuntamiento de Toledo confirma que el plazo de presentación termina el 20 de octubre de 2026.",
+      "published": true
+    },
+    {
+      "id": "elena-santiago-narrativa-2026",
+      "title": "I Premio de Narrativa «Elena Santiago» 2026",
+      "type": "premio",
+      "organizer": "Instituto Leonés de Cultura · Diputación de León",
+      "deadline": "2026-10-16",
+      "genres": [
+        "narrativa"
+      ],
+      "eligibility": "Convocatoria con requisitos territoriales y de trayectoria especificados en las bases; comprobarlos antes de preparar la obra.",
+      "prize": "2.000 € y publicación",
+      "fee_eur": 0,
+      "submission_mode": "Original por triplicado en papel, encuadernado y presentado bajo plica conforme a las bases oficiales.",
+      "source_url": "https://www.institutoleonesdecultura.es/i-premio-de-narrativa-elena-santiago-2026/",
+      "verified_at": "2026-10-02",
+      "editorial_note": "La página oficial confirma el cierre el 16 de octubre y detalla formato, extensión y presentación física bajo plica.",
+      "published": true
+    },
+    {
+      "id": "premio-primavera-novela-2027",
+      "title": "Premio Primavera de Novela 2027",
+      "type": "premio",
+      "organizer": "Editorial Espasa",
+      "deadline": "2026-11-15",
+      "genres": [
+        "novela"
+      ],
+      "eligibility": "Personas mayores de edad; obra original e inédita y no pendiente de resolución en otro concurso en el momento de presentarla.",
+      "prize": "100.000 € y publicación",
+      "fee_eur": 0,
+      "submission_mode": "Candidatura mediante el portal oficial de premios de Planeta; manuscrito PDF/DOC/DOCX y datos solicitados.",
+      "source_url": "https://premios.planetadelibros.com/es-ES/candidatura/?id=premio-primavera-novela-2027",
+      "verified_at": "2026-10-02",
+      "editorial_note": "La candidatura oficial confirma el 15 de noviembre de 2026, mínimo 150 páginas y declaraciones de autoría y exclusividad.",
+      "published": true
+    },
+    {
+      "id": "espasa-calpe-juvenil-2027",
+      "title": "I Premio Espasa Calpe de Novela Juvenil 2027",
+      "type": "premio",
+      "organizer": "Editorial Espasa Calpe",
+      "deadline": "2026-11-15",
+      "genres": [
+        "novela juvenil",
+        "young adult"
+      ],
+      "eligibility": "Personas de 14 a 39 años; las personas menores de edad deben aportar la autorización prevista en las bases.",
+      "prize": "60.000 € y publicación",
+      "fee_eur": 0,
+      "submission_mode": "Candidatura online en el portal oficial; manuscrito PDF/DOC/DOCX y documentación adicional cuando corresponda.",
+      "source_url": "https://premios.planetadelibros.com/es-ES/candidatura/?id=espasa-calpe-novela-juvenil-2027",
+      "verified_at": "2026-10-02",
+      "editorial_note": "La fuente oficial confirma el cierre el 15 de noviembre y las FAQ fijan una extensión de 75.000 a 200.000 palabras.",
+      "published": true
+    },
+    {
+      "id": "premio-azorin-novela-2027",
+      "title": "Premio Azorín de Novela 2027",
+      "type": "premio",
+      "organizer": "Diputación de Alicante y Editorial Planeta",
+      "deadline": "2026-11-30",
+      "genres": [
+        "novela"
+      ],
+      "eligibility": "Consultar las bases oficiales enlazadas desde la convocatoria de la Diputación de Alicante.",
+      "prize": "45.000 € y publicación",
+      "fee_eur": null,
+      "submission_mode": "Presentación mediante la sede electrónica y conforme a las bases oficiales de la convocatoria.",
+      "source_url": "https://agendacultural.diputacionalicante.es/event/premio-azorin-de-novela-2027/",
+      "verified_at": "2026-10-02",
+      "editorial_note": "La Agenda Cultural oficial de la Diputación de Alicante mantiene la convocatoria activa del 28 de julio al 30 de noviembre de 2026.",
+      "published": true
+    },
+    {
+      "id": "premio-enric-valor-2026",
+      "title": "Premio Enric Valor 2026",
+      "type": "premio",
+      "organizer": "Diputación de Alicante · Área de Cultura",
+      "deadline": "2026-10-10",
+      "genres": [
+        "narrativa"
+      ],
+      "eligibility": "Consultar las bases oficiales enlazadas desde la convocatoria para modalidad, idioma y requisitos completos.",
+      "prize": null,
+      "fee_eur": null,
+      "submission_mode": "Sede electrónica de la Diputación de Alicante según las bases de la convocatoria.",
+      "source_url": "https://agendacultural.diputacionalicante.es/event/premio-enric-valor-2026/",
+      "verified_at": "2026-10-02",
+      "editorial_note": "La convocatoria institucional mantiene como fecha final el 10 de octubre de 2026 y enlaza las bases y la sede electrónica.",
+      "published": true
+    },
+    {
+      "id": "castillo-puche-novela-corta-2026",
+      "title": "XXXIV Certamen de Novela Corta «José Luis Castillo-Puche»",
+      "type": "concurso",
+      "organizer": "AMPA e IES José Luis Castillo-Puche · Yecla",
+      "deadline": "2026-11-30",
+      "genres": [
+        "novela corta"
+      ],
+      "eligibility": "Consultar las bases de la XXXIV edición publicadas por el IES para requisitos de autoría, extensión y presentación.",
+      "prize": "3.000 € y publicación según las bases de la edición",
+      "fee_eur": null,
+      "submission_mode": "Presentación conforme a las bases oficiales publicadas por el IES José Luis Castillo-Puche.",
+      "source_url": "https://www.iescastillopuche.net/novela/bases.html",
+      "verified_at": "2026-10-02",
+      "editorial_note": "La web oficial del centro identifica expresamente la XXXIV edición como la última convocada y publica sus bases.",
+      "published": true
+    },
+    {
+      "id": "premio-alfaguara-novela-2027",
+      "title": "XXX Premio Alfaguara de novela 2027",
+      "type": "premio",
+      "organizer": "Editorial Alfaguara · Penguin Random House Grupo Editorial",
+      "deadline": "2026-11-02",
+      "genres": [
+        "novela"
+      ],
+      "eligibility": "Personas mayores de edad de cualquier nacionalidad; novela original e inédita escrita en castellano y con los derechos disponibles.",
+      "prize": "175.000 USD, escultura conmemorativa y publicación",
+      "fee_eur": 0,
+      "submission_mode": "Participación conforme a las bases oficiales mediante el sistema habilitado para la convocatoria.",
+      "source_url": "https://premioalfaguara.com/bases-y-participacion",
+      "verified_at": "2026-10-03",
+      "editorial_note": "Convocatoria oficial vigente. El plazo de admisión cierra el 2 de noviembre de 2026; revisa las incompatibilidades con otras convocatorias antes de registrar la obra.",
+      "published": true
+    },
+    {
+      "id": "marta-portal-terror-fantastico-2026",
+      "title": "VII Premio de Novela Corta de Terror e Historias Fantásticas «Casa de Cultura Marta Portal»",
+      "type": "premio",
+      "organizer": "Ayuntamiento de Nava",
+      "deadline": "2026-10-13",
+      "genres": [
+        "novela corta",
+        "terror",
+        "fantasía"
+      ],
+      "eligibility": "Personas mayores de edad residentes en España; obra de terror o historias fantásticas con una extensión de 50 a 120 páginas.",
+      "prize": "700 €, publicación y 100 ejemplares para el autor o autora",
+      "fee_eur": 0,
+      "submission_mode": "Presentación conforme a las bases del Ayuntamiento de Nava; consultar la convocatoria oficial para la documentación y el canal admitido.",
+      "source_url": "https://www.injuve.es/node/86593/printable/print",
+      "verified_at": "2026-10-03",
+      "editorial_note": "Convocatoria institucional vigente. Las bases reguladoras fueron aprobadas por el Ayuntamiento de Nava y publicadas en el BOPA; el plazo termina el 13 de octubre de 2026.",
+      "published": true
+    },
+    {
+      "id": "tijola-novela-corta-2027",
+      "title": "XXVIII Certamen de Novela Corta Ciudad de Tíjola 2027",
+      "type": "concurso",
+      "organizer": "Ayuntamiento de Tíjola",
+      "deadline": "2026-10-16",
+      "genres": [
+        "novela corta"
+      ],
+      "eligibility": "Categoría nacional abierta a personas adultas; obra original e inédita en castellano. Las bases excluyen a quienes hayan sido premiados en las dos ediciones anteriores en la misma categoría.",
+      "prize": "1.000 € y publicación en la categoría nacional",
+      "fee_eur": 0,
+      "submission_mode": "Cinco copias impresas, bajo lema o seudónimo y con plica y declaración de titularidad; entrega en registro municipal o envío postal según las bases.",
+      "source_url": "https://www.tijola.es/Servicios/cmsdipro/index.nsf/fiestas.xsp?documentId=D4256D3DC0FBDA8FC1258E480042BB53&p=Tijola",
+      "verified_at": "2026-10-03",
+      "editorial_note": "La página oficial denomina la convocatoria «2027», pero fija expresamente el 16 de octubre de 2026 como fecha límite de admisión.",
+      "published": true
+    },
+    {
+      "id": "alberto-magno-ciencia-ficcion-2026",
+      "title": "XXXVIII Certamen Literario Alberto Magno de Ciencia Ficción 2026",
+      "type": "concurso",
+      "organizer": "Facultad de Ciencia y Tecnología · EHU",
+      "deadline": "2026-10-23",
+      "genres": [
+        "ciencia ficción",
+        "fantasía",
+        "relato"
+      ],
+      "eligibility": "Relato de ciencia ficción o fantasía sobre tema científico, conforme a las bases de la Facultad de Ciencia y Tecnología.",
+      "prize": "2.000 € primer premio; 1.000 € segundo premio",
+      "fee_eur": 0,
+      "submission_mode": "Envío exclusivamente por correo electrónico a ztf.kultura@ehu.eus, con relato y plica en PDF siguiendo la nomenclatura indicada en las bases.",
+      "source_url": "https://www.ehu.eus/es/web/zientzia-teknologia-fakultatea/certamen-literario-alberto-magno",
+      "verified_at": "2026-10-03",
+      "editorial_note": "La fuente oficial fija el 23 de octubre de 2026 como cierre y detalla el envío electrónico y la documentación separada bajo seudónimo.",
+      "published": true
+    },
+    {
+      "id": "chamberi-relato-corto-2026",
+      "title": "Certamen de Relato Corto de Otoño Chamberí 2026",
+      "type": "concurso",
+      "organizer": "Junta Municipal de Chamberí · Ayuntamiento de Madrid",
+      "deadline": "2026-10-13",
+      "genres": [
+        "relato corto"
+      ],
+      "eligibility": "Categoría adulta a partir de 18 años; consultar las bases municipales para requisitos completos de la obra y presentación.",
+      "prize": "1.000 € primer premio; 700 € segundo; 300 € tercero en categoría adulta",
+      "fee_eur": 0,
+      "submission_mode": "Inscripción en el plazo municipal del 29 de septiembre al 13 de octubre mediante el enlace habilitado por el Ayuntamiento.",
+      "source_url": "https://www.madrid.es/portales/munimadrid/es/Inicio/El-Ayuntamiento/Publicaciones/Listado-de-Publicaciones/Certamenes-de-otono-Chamberi-2026-Pintura-rapida-relato-corto-y-fotografia/?vgnextchannel=f1aebadb6b997010VgnVCM100000dc0ca8c0RCRD&vgnextfmt=default&vgnextoid=a87737ca0ccd0a10VgnVCM100000891ecb1aRCRD",
+      "verified_at": "2026-10-03",
+      "editorial_note": "Convocatoria municipal actualmente en plazo. La página oficial enlaza las bases específicas del certamen de relato corto.",
+      "published": true
+    },
+    {
+      "id": "encarna-leon-relato-2026",
+      "title": "XXVI Premio Internacional de Relato Corto «Encarna León»",
+      "type": "premio",
+      "organizer": "Ciudad Autónoma de Melilla",
+      "deadline": "2026-10-31",
+      "genres": [
+        "relato corto"
+      ],
+      "eligibility": "Consultar la convocatoria oficial publicada en el BOME para requisitos completos de participación, extensión y temática.",
+      "prize": null,
+      "fee_eur": 0,
+      "submission_mode": "Presentación conforme a la convocatoria oficial; para envíos postales se considera válida la fecha del matasellos dentro del plazo.",
+      "source_url": "https://www.melilla.es/melillaportal/contenedor.jsp?codMenu=4&codMenuPN=601&contenido=32857&nivel=1400&seccion=s_fdoc_d4_v1.jsp&tipo=5",
+      "verified_at": "2026-10-03",
+      "editorial_note": "La Ciudad Autónoma de Melilla confirma que el plazo de presentación finaliza el 31 de octubre de 2026.",
+      "published": true
+    },
+    {
+      "id": "vidas-que-inspiran-2026",
+      "title": "II Premio Literario «Vidas que Inspiran» 2026",
+      "type": "premio",
+      "organizer": "Fundación MAPFRE · Centro de Investigación Ageingnomics y Plataforma Editorial",
+      "deadline": "2026-11-15",
+      "genres": [
+        "narrativa",
+        "ficción",
+        "no ficción"
+      ],
+      "eligibility": "Personas mayores de edad residentes en España; obra en castellano, inédita y no premiada anteriormente, protagonizada por personas sénior y con una visión positiva de esta etapa de la vida.",
+      "prize": "3.000 € y publicación por Plataforma Editorial, con tirada mínima de 1.500 ejemplares",
+      "fee_eur": 0,
+      "submission_mode": "Envío digital en Word o equivalente, firmado con seudónimo, al correo vidasqueinspiran@plataformaeditorial.com.",
+      "source_url": "https://www.plataformaeditorial.com/premio-literario/1/1/11010/2-edicion-premio-literario-vidas-que-inspiran-fundacion-mapfre",
+      "verified_at": "2026-10-03",
+      "editorial_note": "La convocatoria oficial está abierta del 15 de julio al 15 de noviembre de 2026 y admite ficción o no ficción de entre 80 y 120 páginas.",
+      "published": true
+    },
+    {
+      "id": "cuarto-y-mitad-2026",
+      "title": "X Concurso de relatos «Cuarto y Mitad» 2026",
+      "type": "concurso",
+      "organizer": "Biblioteca Pública Municipal Mario Vargas Llosa · Ayuntamiento de Madrid",
+      "deadline": "2026-10-06",
+      "genres": [
+        "relato corto"
+      ],
+      "eligibility": "Personas mayores de 15 años residentes en la Comunidad de Madrid; relato original e inédito en castellano, máximo 1.000 palabras y título de hasta 10 palabras. Debe aparecer la expresión «Tiempo de cerezas».",
+      "prize": "350 € primer premio; 250 € segundo; 150 € tercero, en cartas de compra del Mercado Barceló, más material bibliográfico",
+      "fee_eur": null,
+      "submission_mode": "Formulario electrónico oficial del Ayuntamiento de Madrid; adjuntar el relato en PDF.",
+      "source_url": "https://www.madrid.es/portales/munimadrid/es/Inicio/El-Ayuntamiento/Convocatorias-y-proyectos-europeos/X-Concurso-de-relatos-Cuarto-y-Mitad-/?vgnextchannel=fd02ae62ab37a010VgnVCM100000d90ca8c0RCRD&vgnextfmt=default&vgnextoid=482c61b3758af910VgnVCM100000891ecb1aRCRD",
+      "verified_at": "2026-10-03",
+      "editorial_note": "Convocatoria municipal en plazo hasta el 6 de octubre de 2026 a las 23:59. Las bases excluyen expresamente relatos elaborados con ayuda de IA.",
+      "published": true
+    },
+    {
+      "id": "relatos-en-cadena-2026-ronda-08-oct",
+      "title": "XX Relatos en Cadena 2026–2027 · ronda del 8 de octubre",
+      "type": "concurso",
+      "organizer": "Escuela de Escritores y Cadena SER",
+      "deadline": "2026-10-08",
+      "genres": [
+        "microrrelato"
+      ],
+      "eligibility": "Microrrelato en castellano de hasta 100 palabras, sin contar la frase inicial semanal; consultar la frase vigente y las condiciones completas antes de participar.",
+      "prize": "6.000 € para el ganador final de la temporada; premios mensuales y semanales según las bases",
+      "fee_eur": null,
+      "submission_mode": "Formulario oficial de Escuela de Escritores. La ronda se renueva semanalmente durante la temporada.",
+      "source_url": "https://escueladeescritores.com/concursos/relatos-en-cadena/",
+      "verified_at": "2026-10-03",
+      "editorial_note": "El radar refleja la ronda vigente con cierre el jueves 8 de octubre a las 12:00; el concurso continúa con nuevas rondas y deberá actualizarse tras ese cierre.",
+      "published": true
+    },
+    {
+      "id": "emt-madrid-microrrelatos-2026",
+      "title": "X Concurso de Microrrelatos EMT Madrid 2026 · «Yo me subí a un Pegaso»",
+      "type": "concurso",
+      "organizer": "EMT Madrid",
+      "deadline": "2026-10-16",
+      "genres": [
+        "microrrelato"
+      ],
+      "eligibility": "Microrrelato de hasta 200 palabras, título aparte, inspirado en los autobuses históricos de Madrid; la organización valora especialmente el componente intergeneracional.",
+      "prize": "400 € primer premio; 300 € segundo; 150 € premio del público",
+      "fee_eur": null,
+      "submission_mode": "Participación mediante el enlace/formulario habilitado por EMT Madrid para la modalidad de microrrelatos.",
+      "source_url": "https://www.emtmadrid.es/Noticias/El-X-Concurso-de-Microrrelatos-de-EMT-Madrid-inclu.aspx",
+      "verified_at": "2026-10-03",
+      "editorial_note": "EMT Madrid abrió el certamen el 16 de septiembre y fija el 16 de octubre de 2026 como fecha final.",
+      "published": true
+    },
+    {
+      "id": "arqva-profundidades-2026",
+      "title": "III Concurso de Microrrelatos de Terror Marítimo «Profundidades»",
+      "type": "concurso",
+      "organizer": "Museo Nacional de Arqueología Subacuática ARQVA · Ministerio de Cultura",
+      "deadline": "2026-10-17",
+      "genres": [
+        "microrrelato",
+        "terror"
+      ],
+      "eligibility": "Abierto a personas de cualquier edad y nacionalidad; un microrrelato original e inédito en español, máximo 150 palabras, sobre terror marítimo.",
+      "prize": "Lotes de productos del museo valorados en 80 €, 60 € y 40 €",
+      "fee_eur": null,
+      "submission_mode": "Correo electrónico a biblioteca.arqua@cultura.gob.es con dos PDF separados: microrrelato y plica.",
+      "source_url": "https://www.cultura.gob.es/mnarqua/actividades/agenda/profundidades-iiiconcurso-microrrelatos.html",
+      "verified_at": "2026-10-03",
+      "editorial_note": "La página oficial del museo fija el plazo del 29 de septiembre al 17 de octubre y el fallo para el 31 de octubre de 2026.",
+      "published": true
+    },
+    {
+      "id": "getafe-negro-microrrelatos-2026",
+      "title": "XIX Concurso de Microrrelatos Getafe Negro 2026",
+      "type": "concurso",
+      "organizer": "Getafe Negro · Escuela de Escritores · Ayuntamiento de Getafe",
+      "deadline": "2026-10-19",
+      "genres": [
+        "microrrelato",
+        "novela negra",
+        "terror"
+      ],
+      "eligibility": "Microrrelato de género noir, policiaco o negro, máximo 150 palabras, comenzando con la frase obligatoria publicada para la edición 2026.",
+      "prize": "Cheque regalo de 400 €, curso online de Escritura Creativa, lote de libros y merchandising del festival",
+      "fee_eur": null,
+      "submission_mode": "Formulario oficial de Escuela de Escritores enlazado por Getafe Negro.",
+      "source_url": "https://getafenegro.com/noticias/participa-en-el-concurso-de-microrrelatos-getafe-negro-2026/",
+      "verified_at": "2026-10-03",
+      "editorial_note": "La organización confirma recepción hasta el 19 de octubre de 2026 a las 10:00 y premio dentro del festival Getafe Negro.",
+      "published": true
+    },
+    {
+      "id": "si-los-pasillos-hablaran-2026",
+      "title": "I Concurso de Microrrelatos «Si los pasillos hablaran»",
+      "type": "concurso",
+      "organizer": "Supermercados Unide · Escuela de Escritores",
+      "deadline": "2026-10-26",
+      "genres": [
+        "microrrelato"
+      ],
+      "eligibility": "Microrrelato de máximo 95 palabras que comience con la frase «¿Quién da la vez?, preguntó», conforme a las bases de la primera edición.",
+      "prize": "1.000 € y curso online de Escritura Creativa de tres meses",
+      "fee_eur": null,
+      "submission_mode": "Formulario de participación de Escuela de Escritores.",
+      "source_url": "https://escueladeescritores.com/concursos/si-los-pasillos-hablaran/",
+      "verified_at": "2026-10-03",
+      "editorial_note": "La página oficial fija el cierre el 26 de octubre de 2026 a las 23:59 y el fallo el 10 de noviembre.",
+      "published": true
+    },
+    {
+      "id": "fundae-microrrelatos-talento-oct-2026",
+      "title": "V Concurso de Microrrelatos de Talento · octubre 2026",
+      "type": "concurso",
+      "organizer": "Fundae y Capital Radio",
+      "deadline": "2026-10-31",
+      "genres": [
+        "microrrelato"
+      ],
+      "eligibility": "Una obra por persona y mes, máximo 100 palabras sin contar título ni nombre; la frase obligatoria cambia cada mes y debe verificarse en la página oficial.",
+      "prize": "Visita presencial o virtual a Fundae, entrevista en Capital Radio, grabación profesional y difusión del relato",
+      "fee_eur": null,
+      "submission_mode": "Formulario/plataforma oficial de Fundae para la ronda mensual.",
+      "source_url": "https://www.fundae.es/actualidad/gestion-del-talento-capital-radio/concurso-microrrelatos",
+      "verified_at": "2026-10-03",
+      "editorial_note": "Concurso recurrente mensual. Esta ficha usa el cierre del 31 de octubre; debe renovarse con la frase y fecha de la siguiente ronda.",
+      "published": true
+    },
+    {
+      "id": "oxfam-castello-microrrelatos-2026",
+      "title": "VI Concurso de Microrrelatos Oxfam Intermón Castelló 2026",
+      "type": "concurso",
+      "organizer": "Oxfam Intermón Castelló",
+      "deadline": "2026-11-18",
+      "genres": [
+        "microrrelato"
+      ],
+      "eligibility": "Categoría adulta abierta a mayores de 18 años; microrrelato en castellano o valenciano sobre «Vivienda digna, un derecho vital», conforme a las bases oficiales.",
+      "prize": "Tarjetas de comercio justo de 150 €, 100 € y 70 € para la categoría adulta",
+      "fee_eur": null,
+      "submission_mode": "Envío por correo electrónico a ccastello@oxfamintermon.org según las bases.",
+      "source_url": "https://www.oxfamintermon.org/vi-concurso-microrrelatos-castello-vivienda",
+      "verified_at": "2026-10-03",
+      "editorial_note": "Oxfam fija el cierre el 18 de noviembre de 2026 a las 23:59; fallo el 10 de diciembre y entrega de premios el 16 de diciembre.",
+      "published": true
+    },
+    {
+      "id": "cross-atapuerca-microrrelatos-2026",
+      "title": "XVI Certamen Internacional de Microrrelatos «Cross de Atapuerca»",
+      "type": "concurso",
+      "organizer": "Instituto Provincial para el Deporte y Juventud · Diputación de Burgos",
+      "deadline": "2026-11-23",
+      "genres": [
+        "microrrelato"
+      ],
+      "eligibility": "Mayores de 16 años; hasta dos microrrelatos originales e inéditos en castellano, máximo 200 palabras sin título y relacionados con el Cross de Atapuerca.",
+      "prize": "600 € primer premio; 400 € segundo; 300 € tercero",
+      "fee_eur": null,
+      "submission_mode": "Correo electrónico a certamenesidj@diputaciondeburgos.es con relato y documentación según las bases.",
+      "source_url": "https://www.crossatapuerca.com/nw/microrrelatos/",
+      "verified_at": "2026-10-03",
+      "editorial_note": "La fuente oficial fija el 23 de noviembre de 2026 a las 23:59 y la resolución antes del 31 de diciembre.",
+      "published": true
+    },
+    {
+      "id": "lardero-violencia-genero-relatos-2026",
+      "title": "IV Concurso Literario contra la Violencia de Género de Lardero",
+      "type": "concurso",
+      "organizer": "Ayuntamiento de Lardero",
+      "deadline": "2026-11-06",
+      "genres": [
+        "relato corto"
+      ],
+      "eligibility": "Mayores de 16 años residentes en España; relatos en castellano, inéditos y no premiados, de 5 a 12 páginas, sobre violencia de género.",
+      "prize": "300 € primer premio; 150 € premio regional; 150 € premio local",
+      "fee_eur": null,
+      "submission_mode": "Correo electrónico a apuntate@aytolardero.org con relato y plica en dos PDF separados.",
+      "source_url": "https://www.aytolardero.org/iv-concurso-literario-contra-la-violencia-de-genero/",
+      "verified_at": "2026-10-03",
+      "editorial_note": "El Ayuntamiento fija el cierre el 6 de noviembre de 2026 a las 14:00 y el fallo para el 20 de noviembre.",
+      "published": true
+    },
+    {
+      "id": "santa-olalla-alvar-gomez-2026",
+      "title": "XII Certamen de Relato Corto «Alvar Gómez de Castro» 2026",
+      "type": "concurso",
+      "organizer": "Ayuntamiento de Santa Olalla",
+      "deadline": "2026-11-24",
+      "genres": [
+        "relato corto"
+      ],
+      "eligibility": "Relato de temática local conforme a las bases municipales; se admiten hasta tres trabajos por participante.",
+      "prize": "100 € en cheque de comercio local y publicación para el primer premio; 50 € y publicación para el segundo",
+      "fee_eur": null,
+      "submission_mode": "Envío por correo electrónico según las bases publicadas por el Ayuntamiento de Santa Olalla.",
+      "source_url": "https://santaolalla.es/index.php/62-noticias/noticias-generales/2522-xii-concursos-culturales-de-santa-olalla-2026-fotografia-poesia-relato-corto",
+      "verified_at": "2026-10-03",
+      "editorial_note": "La convocatoria municipal fija el 24 de noviembre de 2026 como fecha límite para poesía y relato corto.",
+      "published": true
+    },
+    {
+      "id": "sant-boi-negre-relato-2026",
+      "title": "V Concurso de Relato Breve «Sant Boi Negre»",
+      "type": "concurso",
+      "organizer": "Sant Boi Negre",
+      "deadline": "2026-12-10",
+      "genres": [
+        "relato corto",
+        "novela negra"
+      ],
+      "eligibility": "Mayores de 18 años de cualquier nacionalidad; un relato original e inédito en catalán o castellano, género negro, ambientado en Sant Boi de Llobregat y máximo 4.500 palabras.",
+      "prize": "300 € al relato ganador, diploma y lote de libros; finalistas con diploma y lote de libros",
+      "fee_eur": null,
+      "submission_mode": "Envío exclusivamente por correo electrónico con relato y plica en dos archivos Word, siguiendo las bases oficiales.",
+      "source_url": "https://santboinegre.es/concurso/",
+      "verified_at": "2026-10-03",
+      "editorial_note": "El plazo está abierto del 15 de septiembre al 10 de diciembre de 2026 a las 23:59. Los finalistas deben asistir al acto o estar representados.",
+      "published": true
+    },
+    {
+      "id": "cuentos-en-movimiento-2026",
+      "title": "36.º Concurso Literario «Cuentos en Movimiento» 2026",
+      "type": "concurso",
+      "organizer": "Cuentos en Movimiento · Chile",
+      "deadline": "2026-10-18",
+      "genres": [
+        "cuento",
+        "relato"
+      ],
+      "eligibility": "Participación internacional sin restricción de nacionalidad; un cuento inédito relacionado con cualquier medio de transporte, máximo seis páginas.",
+      "prize": "Premios en efectivo y reconocimientos especiales según las bases de la edición",
+      "fee_eur": null,
+      "submission_mode": "Envío por correo electrónico a contacto@cuentosenmovimiento.cl con cuento y datos en archivos separados, o por las otras vías previstas en las bases.",
+      "source_url": "https://cuentosenmovimiento.cl/36-concurso-literario/",
+      "verified_at": "2026-10-03",
+      "editorial_note": "La organización fija el 18 de octubre de 2026 como fecha límite y enlaza las bases completas protocolizadas.",
+      "published": true
+    },
+    {
+      "id": "europe-direct-caceres-relato-2026",
+      "title": "XIX Concurso de Relato Breve Europe Direct Cáceres 2026",
+      "type": "concurso",
+      "organizer": "Europe Direct Cáceres · Ayuntamiento de Cáceres",
+      "deadline": "2026-10-26",
+      "genres": [
+        "relato breve"
+      ],
+      "eligibility": "Relato relacionado con «España: 40 años en Europa», conforme a las bases de la edición 2026.",
+      "prize": "1.300 € primer premio; 950 € segundo; 650 € tercero en categoría sénior",
+      "fee_eur": null,
+      "submission_mode": "Presentación telemática mediante los enlaces de las bases; también se mantienen las modalidades admitidas por la convocatoria.",
+      "source_url": "https://www.ayto-caceres.es/noticias/europe-direct-caceres-duplica-la-dotacion-de-sus-concursos-y-facilita-la-presentacion-digital-de-las-obras/",
+      "verified_at": "2026-10-03",
+      "editorial_note": "El Ayuntamiento confirma el cierre el 26 de octubre de 2026 y la presentación digital de los relatos como novedad de esta edición.",
+      "published": true
+    },
+    {
+      "id": "angel-sanz-briz-relatos-2026",
+      "title": "V Concurso de Relatos «Ángel Sanz Briz» 2026",
+      "type": "concurso",
+      "organizer": "Ayuntamiento de Zaragoza · Cementerio de Torrero",
+      "deadline": "2026-10-30",
+      "genres": [
+        "relato"
+      ],
+      "eligibility": "Un relato inédito en castellano, temática libre, de cuatro a siete páginas DIN A4 a doble espacio, con seudónimo y plica separada.",
+      "prize": "Escultura y tarjeta FNAC de 500 € al ganador; tarjetas de 200 € al finalista y 100 € al accésit",
+      "fee_eur": null,
+      "submission_mode": "Correo electrónico a culturacementerio@zaragoza.es con relato y ficha de identificación en PDF.",
+      "source_url": "https://www.zaragoza.es/sede/portal/cementerios/servicio/premios-concursos/4322",
+      "verified_at": "2026-10-03",
+      "editorial_note": "La ficha municipal figura «en plazo» y fija el 30 de octubre de 2026 como cierre.",
+      "published": true
+    },
+    {
+      "id": "argos-relato-corto-2026",
+      "title": "I Premio Literario ARGOS de Relato Corto 2026",
+      "type": "premio",
+      "organizer": "ARGOS Cultura y Medios",
+      "deadline": "2026-10-31",
+      "genres": [
+        "relato corto"
+      ],
+      "eligibility": "Mayores de 18 años de cualquier nacionalidad; un relato original e inédito en castellano, no premiado ni pendiente de fallo, de 1.500 a 3.000 palabras.",
+      "prize": "Diploma, publicación y difusión de la obra ganadora",
+      "fee_eur": null,
+      "submission_mode": "Correo electrónico a info@argosculturaymedios.es con relato en PDF y documento separado de datos y declaración de autoría.",
+      "source_url": "https://www.argosculturaymedios.es/i-certamen-literario-argos/",
+      "verified_at": "2026-10-03",
+      "editorial_note": "Primera edición con cierre el 31 de octubre de 2026 a las 23:59, publicada por el propio convocante.",
+      "published": true
+    },
+    {
+      "id": "premio-baros-relato-2026",
+      "title": "XVI Premio Literario BAROS 2026 · Relato",
+      "type": "premio",
+      "organizer": "Fundación SEEN y Servicio de Endocrinología y Nutrición del Hospital Vall d’Hebron",
+      "deadline": "2026-10-15",
+      "genres": [
+        "relato breve"
+      ],
+      "eligibility": "Hasta tres manuscritos originales sobre cualquier faceta relacionada con la obesidad y su entorno; el relato breve puede tener un máximo de doce hojas.",
+      "prize": "600 € primer premio; dos accésits de 300 € y un accésit adicional de perspectiva de género",
+      "fee_eur": null,
+      "submission_mode": "Formulario oficial del Premio BAROS, seleccionando la modalidad de Concurso Literario.",
+      "source_url": "https://premiobaros.org/bases/",
+      "verified_at": "2026-10-03",
+      "editorial_note": "La organización confirma la XVI edición y fija el cierre el 15 de octubre de 2026 a las 23:59.",
+      "published": true
+    },
+    {
+      "id": "fantarquia-relatos-2026",
+      "title": "I Certamen de Relatos Fantarquía 2026",
+      "type": "concurso",
+      "organizer": "Fantarquía",
+      "deadline": "2026-10-15",
+      "genres": [
+        "relato",
+        "fantasía",
+        "terror",
+        "ciencia ficción"
+      ],
+      "eligibility": "Mayores de edad; un relato original e inédito en español, de 3.500 a 4.000 palabras, adscrito a la «fantasía peligrosa» e integrando el tema «El tormento del artista».",
+      "prize": "500 €, radioficción en La Torre del Cuervo, publicación en Windumanoth y trofeo",
+      "fee_eur": null,
+      "submission_mode": "Correo electrónico a fantarquiacertamenliterario@gmail.com con obra y plica en dos archivos separados.",
+      "source_url": "https://www.fantarquia.es/?page_id=428",
+      "verified_at": "2026-10-03",
+      "editorial_note": "Las bases oficiales fijan el cierre el 15 de octubre de 2026 a las 23:59 y el fallo para el 21 de noviembre.",
+      "published": true
+    },
+    {
+      "id": "constanti-relats-rurals-2026",
+      "title": "XX Premis Literaris de Constantí 2026 · Relats de Pagesia",
+      "type": "concurso",
+      "organizer": "Ajuntament de Constantí",
+      "deadline": "2026-10-30",
+      "genres": [
+        "relato"
+      ],
+      "eligibility": "Abierto sin limitación de residencia. En adultos, un relato en prosa de 2 a 4 páginas, máximo 1.150 palabras, en catalán o castellano; categorías por edad.",
+      "prize": null,
+      "fee_eur": null,
+      "submission_mode": "Presentación mediante los formularios oficiales del Ayuntamiento de Constantí, bajo pseudónimo y con plica.",
+      "source_url": "https://web.constanti.cat/2026/09/02/xx-premis-literaris-de-constanti-2026-relats-de-pagesia/",
+      "verified_at": "2026-10-03",
+      "editorial_note": "El Ayuntamiento fija el cierre el 30 de octubre de 2026 a las 23:59 y publica las bases completas de la XX edición.",
+      "published": true
+    },
+    {
+      "id": "tu-historia-en-pantalla-2026",
+      "title": "Concurso «Tu historia en pantalla» 2026",
+      "type": "concurso",
+      "organizer": "Kasa Vela Producciones",
+      "deadline": "2026-11-15",
+      "genres": [
+        "relato",
+        "narrativa"
+      ],
+      "eligibility": "Mayores de 18 años de cualquier nacionalidad o residencia; relato original de 500 a 3.000 palabras conforme a las bases.",
+      "prize": "Adaptación y producción audiovisual del relato ganador como cortometraje",
+      "fee_eur": 0,
+      "submission_mode": "Participación a través del formulario habilitado por Kasa Vela en la convocatoria oficial.",
+      "source_url": "https://www.somoskasavela.com/convocatorias/tu-historia-en-pantalla",
+      "verified_at": "2026-10-03",
+      "editorial_note": "La convocatoria oficial declara participación gratuita, cierre el 15 de noviembre de 2026 y resultado el 30 de noviembre.",
+      "published": true
+    },
+    {
+      "id": "ilustre-fregona-zahara-2026",
+      "title": "VIII Concurso de Relatos Cortos «La Ilustre Fregona» 2026",
+      "type": "concurso",
+      "organizer": "Ayuntamiento de Zahara de los Atunes",
+      "deadline": "2026-12-15",
+      "genres": [
+        "relato corto"
+      ],
+      "eligibility": "Una obra inédita y no premiada en castellano, de seis páginas, tema libre pero con alguna referencia a Zahara de los Atunes, sus costumbres o su historia.",
+      "prize": "300 € y placa para el primer premio",
+      "fee_eur": null,
+      "submission_mode": "Correo electrónico a culturazahara@gmail.com con el relato y los datos personales indicados en las bases.",
+      "source_url": "https://www.turismozahara.com/blog/bases-concursos-literarios-de-narrativa-y-poesia",
+      "verified_at": "2026-10-03",
+      "editorial_note": "Las bases oficiales fijan el cierre el 15 de diciembre de 2026 y exigen asistencia de la persona ganadora al acto de entrega.",
+      "published": true
+    },
+    {
+      "id": "bracamonte-negro-microrrelatos-2026",
+      "title": "Concurso de Microrrelatos Bracamonte en Negro 2026 · Adultos",
+      "type": "concurso",
+      "organizer": "Bracamonte en Negro",
+      "deadline": "2026-10-15",
+      "genres": [
+        "microrrelato",
+        "género negro"
+      ],
+      "eligibility": "Personas mayores de edad residentes en España; un microrrelato original e inédito de hasta 200 palabras, siguiendo la frase inicial obligatoria publicada en las bases.",
+      "prize": "Diploma, lote de libros y tarjeta regalo digital según las bases de la edición",
+      "fee_eur": null,
+      "submission_mode": "Envío por correo electrónico conforme a las bases oficiales, con relato anónimo y archivo separado de datos del autor.",
+      "source_url": "https://bracamonteenegro.com/concursos/",
+      "verified_at": "2026-10-03",
+      "editorial_note": "Convocatoria oficial vigente hasta el 15 de octubre de 2026. La dotación exacta de la tarjeta regalo debe comprobarse en las bases antes de participar.",
+      "published": true
+    },
+    {
+      "id": "microrrelatos-mineros-nevado-2026",
+      "title": "XXIII Concurso de Microrrelatos Mineros «Manuel Nevado Madrid»",
+      "type": "concurso",
+      "organizer": "Fundación Juan Muñiz Zapico",
+      "deadline": "2026-10-31",
+      "genres": [
+        "microrrelato",
+        "memoria",
+        "minería"
+      ],
+      "eligibility": "Convocatoria internacional para obras originales e inéditas vinculadas a la minería, la cultura minera, la memoria y el mundo del trabajo; consultar categorías y condiciones completas en las bases oficiales.",
+      "prize": "600 € primer premio y accésits según categoría",
+      "fee_eur": null,
+      "submission_mode": "Participación conforme a las bases oficiales enlazadas por la Fundación Juan Muñiz Zapico.",
+      "source_url": "https://fundacionjuanmunizzapico.com/actividades/xxiii-concurso-de-microrrelatos-minero-manuel-nevado-madrid/",
+      "verified_at": "2026-10-03",
+      "editorial_note": "La Fundación confirma que la XXIII edición está abierta desde el 26 de junio y cierra el 31 de octubre de 2026.",
+      "published": true
+    },
+    {
+      "id": "amnistia-escribir-derechos-2026",
+      "title": "XIII Concurso «Escribir por Derechos» 2026",
+      "type": "concurso",
+      "organizer": "Amnistía Internacional Madrid",
+      "deadline": "2026-10-31",
+      "genres": [
+        "microrrelato",
+        "derechos humanos"
+      ],
+      "eligibility": "Personas mayores de 16 años, sin límite de nacionalidad. Microrrelato de hasta 200 palabras sobre los derechos de las personas mayores.",
+      "prize": "Reconocimiento y premios en especie según las bases de la edición",
+      "fee_eur": null,
+      "submission_mode": "Inscripción y envío mediante el formulario enlazado desde la página oficial de Amnistía Internacional Madrid.",
+      "source_url": "https://blogs.es.amnesty.org/madrid/escribir-por-derechos/",
+      "verified_at": "2026-10-03",
+      "editorial_note": "La XIII edición de 2026 está dedicada a los derechos de las personas mayores y fija el 31 de octubre como cierre de recepción.",
+      "published": true
+    },
+    {
+      "id": "bienestar-jabones-alonso-2026",
+      "title": "II Concurso de Microrrelatos del Bienestar 2026",
+      "type": "concurso",
+      "organizer": "Jabones Alonso de la Torre",
+      "deadline": "2026-11-01",
+      "genres": [
+        "microrrelato"
+      ],
+      "eligibility": "Un microrrelato de hasta 100 palabras, presentado bajo seudónimo y con una de las palabras obligatorias indicadas en las bases.",
+      "prize": "Pack Ritual Brilla valorado en 65 € y 100 marcapáginas para el primer premio; segundo premio en especie",
+      "fee_eur": null,
+      "submission_mode": "Envío por correo electrónico a info@jabonesalonsodelatorre.com con relato y datos en archivos separados conforme a las bases.",
+      "source_url": "https://www.jabonesalonsodelatorre.com/bases-ii-concurso-de-microrrelatos-del-bienestar/",
+      "verified_at": "2026-10-03",
+      "editorial_note": "Las bases oficiales publicadas el 2 de octubre fijan el 1 de noviembre de 2026 a las 23:59 como cierre.",
+      "published": true
+    },
+    {
+      "id": "microrrelato-bilingue-madrid-2026",
+      "title": "IV Concurso bilingüe de Microrrelatos francés-español 2026",
+      "type": "concurso",
+      "organizer": "Institut français de Madrid y Biblioteca Pública Municipal Iván de Vargas",
+      "deadline": "2026-11-14",
+      "genres": [
+        "microrrelato"
+      ],
+      "eligibility": "Personas a partir de 16 años residentes en la Comunidad de Madrid; un microrrelato inédito en español o francés de hasta 100 palabras.",
+      "prize": "Lotes de libros en español o francés para los relatos ganadores",
+      "fee_eur": 0,
+      "submission_mode": "Formulario electrónico oficial del Ayuntamiento de Madrid; admite DOC, DOCX o PDF.",
+      "source_url": "https://www.madrid.es/portales/munimadrid/es/Inicio/El-Ayuntamiento/Vicalvaro/Actividades-y-eventos/IV-Concurso-bilingue-de-Microrrelatos-frances-espanol/?vgnextchannel=497b48e063f28010VgnVCM100000dc0ca8c0RCRD&vgnextfmt=default&vgnextoid=61fa9b05da8b0a10VgnVCM100000891ecb1aRCRD",
+      "verified_at": "2026-10-03",
+      "editorial_note": "La página municipal expresa el cierre como 15 de noviembre de 2026 a las 00:00. El radar usa el 14 de noviembre como último día civil completo para no mostrar la convocatoria abierta durante el día 15.",
+      "published": true
+    },
+    {
+      "id": "voluntariado-paliativos-microrrelatos-2026",
+      "title": "VII Certamen de Microrrelatos de Voluntariado en Cuidados Paliativos",
+      "type": "concurso",
+      "organizer": "Plataforma del Voluntariado de Extremadura",
+      "deadline": "2026-11-30",
+      "genres": [
+        "microrrelato",
+        "voluntariado",
+        "cuidados paliativos"
+      ],
+      "eligibility": "Personas mayores de 18 años; un relato inédito por participante y modalidad, en castellano. Existe categoría general y categorías profesionales.",
+      "prize": "Premios en lotes de libros por categoría y antología digital según las bases",
+      "fee_eur": null,
+      "submission_mode": "Formulario oficial de Volured con los campos y documentación requeridos.",
+      "source_url": "https://volured.com/voluntsalud/vii-certamen-de-microrrelatos-de-voluntariado/",
+      "verified_at": "2026-10-03",
+      "editorial_note": "La fuente del organizador fija el 30 de noviembre de 2026 a las 23:59 como cierre.",
+      "published": true
+    },
+    {
+      "id": "cinco-palabras-2026",
+      "title": "Concurso de Microrrelatos «Cinco Palabras» 2026",
+      "type": "concurso",
+      "organizer": "ONG Cinco Palabras",
+      "deadline": "2026-12-31",
+      "genres": [
+        "microrrelato"
+      ],
+      "eligibility": "Texto original e inédito de hasta 100 palabras que incorpore las cinco palabras propuestas en cada fase mensual, respetando orden, género y número.",
+      "prize": "Premio anual nominal de 2.000 €: 1.000 € para el autor o autora y 1.000 € para una causa supervisada por la ONG",
+      "fee_eur": null,
+      "submission_mode": "Participación a través de la entrada mensual correspondiente en la web oficial; deben usarse las cinco palabras vigentes de ese mes.",
+      "source_url": "https://cincopalabras.com/concurso-microrrelato-2026/",
+      "verified_at": "2026-10-03",
+      "editorial_note": "Concurso recurrente durante 2026. Atención: las bases incluyen condiciones amplias de utilización de los originales y la publicación web afecta al carácter inédito; conviene leer los derechos completos antes de participar.",
+      "published": true
+    },
+    {
+      "id": "zadua-convocatoria-inaugural-2026",
+      "title": "Convocatoria inaugural Zadua · Relatos en español",
+      "type": "manuscritos",
+      "organizer": "Zadua",
+      "deadline": "2026-10-15",
+      "genres": [
+        "relato",
+        "narrativa"
+      ],
+      "eligibility": "Personas que escriban en español; relatos de hasta 7.000 palabras. La convocatoria admite simultaneidad con obligación de avisar si la obra es aceptada en otro lugar.",
+      "prize": "500 € y publicación para el relato ganador; otros seleccionados pueden recibir la tarifa editorial vigente por publicación",
+      "fee_eur": 0,
+      "submission_mode": "Formulario oficial de envío; requiere suscripción a Zadua, siendo válida la modalidad gratuita.",
+      "source_url": "https://zadua.co/bases-convocatoria-inaugural/",
+      "verified_at": "2026-10-03",
+      "editorial_note": "Primera convocatoria de Zadua, con cierre el 15 de octubre de 2026. La editorial indica que el autor conserva la propiedad intelectual.",
+      "published": true
+    },
+    {
+      "id": "avant-ceuta-narrativa-2026",
+      "title": "Premio Internacional Avant Ceuta 2026 · Narrativa",
+      "type": "premio",
+      "organizer": "Avant Editorial",
+      "deadline": "2026-10-31",
+      "genres": [
+        "novela",
+        "narrativa"
+      ],
+      "eligibility": "Obra narrativa original e inédita en castellano, no premiada ni pendiente de fallo o respuesta editorial; consultar las bases para extensión y formato completos.",
+      "prize": "500 €, publicación, 20 ejemplares y 10 % del PVP en derechos según las bases",
+      "fee_eur": null,
+      "submission_mode": "Envío por correo electrónico según las bases oficiales de Avant Editorial.",
+      "source_url": "https://avanteditorial.com/premio-avant-ceuta-2026-poesia-y-narrativa/",
+      "verified_at": "2026-10-03",
+      "editorial_note": "La página oficial mantiene la convocatoria abierta hasta el 31 de octubre de 2026. Es una oportunidad de manuscrito largo, no un certamen de relato breve.",
+      "published": true
+    },
+    {
+      "id": "caperucita-feroz-cuentos-2026",
+      "title": "X Premio «Caperucita Feroz» · Conjunto de cuentos",
+      "type": "premio",
+      "organizer": "Ápeiron Ediciones",
+      "deadline": "2026-11-09",
+      "genres": [
+        "relato",
+        "cuentos"
+      ],
+      "eligibility": "Personas mayores de 18 años de cualquier nacionalidad; conjunto original e inédito de cuentos conforme a las bases de la modalidad.",
+      "prize": "Publicación, ejemplares y derechos de autor según las bases de la convocatoria",
+      "fee_eur": null,
+      "submission_mode": "Formulario electrónico oficial de Ápeiron Ediciones con el manuscrito y los datos requeridos.",
+      "source_url": "https://www.apeironediciones.com/concursos",
+      "verified_at": "2026-10-03",
+      "editorial_note": "Ápeiron identifica actualmente «Caperucita feroz» como convocatoria abierta. Es una modalidad de conjunto de cuentos y requiere un manuscrito extenso.",
+      "published": true
+    },
+    {
+      "published": true,
+      "fee_eur": 0,
+      "verified_at": "2026-10-03",
+      "id": "la-imagen-escrita-2026",
+      "title": "IV Concurso de Nanorrelatos «La Imagen Escrita»",
+      "type": "concurso",
+      "organizer": "Asociación Escritores en Rivas · Concejalía de Cultura de Rivas Vaciamadrid",
+      "deadline": "2026-10-10",
+      "genres": [
+        "microrrelato"
+      ],
+      "prize": "50 € para el primer premio, además de diploma, entradas y publicación",
+      "eligibility": "Personas de la Comunidad de Madrid; una obra original por participante. No pueden concurrir quienes obtuvieron primer o segundo premio en la convocatoria anterior.",
+      "submission_mode": "Correo electrónico a escritoresenrivas@gmail.com con archivo anónimo; asunto «Concurso La imagen escrita» y datos de autoría en el cuerpo del mensaje.",
+      "source_url": "https://www.escritoresenrivas.com/concursos-literarios/",
+      "editorial_note": "Máximo 50 palabras sin contar el título y tema inspirado en la imagen propuesta. Para recibir premio debe asistir el autor o una persona representante."
+    },
+    {
+      "published": true,
+      "fee_eur": 0,
+      "verified_at": "2026-10-03",
+      "id": "arr3quentando-cultura-2026",
+      "title": "I Certame de Microrrelatos «Arr3quentando a Cultura»",
+      "type": "concurso",
+      "organizer": "AFIPRODEL Galicia",
+      "deadline": "2026-10-10",
+      "genres": [
+        "microrrelato",
+        "gallego"
+      ],
+      "prize": "Publicación digital, diploma y premio en especie para la categoría adulta",
+      "eligibility": "Participación abierta; categoría adulta para mayores de 18 años. Texto en gallego, máximo 150 palabras incluido el título y comienzo obligatorio «Eu son».",
+      "submission_mode": "PDF anónimo por correo a afiprodel.org@gmail.com; datos personales y categoría en el cuerpo del mensaje.",
+      "source_url": "https://afiprodel.org/afiprodel/i-certame-de-microrelatos-arr3quentando-a-cultura/",
+      "editorial_note": "Tema: patrimonio cultural gallego y economía circular. Convocatoria oficial vinculada a un proyecto apoyado por la Deputación da Coruña."
+    },
+    {
+      "published": true,
+      "fee_eur": null,
+      "verified_at": "2026-10-03",
+      "id": "almansa-feminista-microrrelato-2026",
+      "title": "III Concurso de Microrrelato Almansa Feminista 2026",
+      "type": "concurso",
+      "organizer": "Almansa Feminista",
+      "deadline": "2026-10-31",
+      "genres": [
+        "microrrelato"
+      ],
+      "prize": "1.º 300 €; 2.º 200 €; 3.º 150 €",
+      "eligibility": "Mayores de 16 años; una obra original e inédita de 100–150 palabras sobre edadismo contra las mujeres.",
+      "submission_mode": "Correo a almansafeminista@gmail.com con el relato anónimo y los datos personales en archivos PDF separados, siguiendo el asunto indicado en las bases.",
+      "source_url": "https://almansafeminista.blogspot.com/2026/08/iii-concurso-microrrelato-2026-almansa.html",
+      "editorial_note": "La organización permite ausencia en el acto si se comunica con antelación; revisar el alcance de publicación de los textos seleccionados."
+    },
+    {
+      "published": true,
+      "fee_eur": null,
+      "verified_at": "2026-10-03",
+      "id": "amparo-perez-alamino-2026",
+      "title": "IV Concurso Literario «Amparo Pérez Alamino» 2026",
+      "type": "concurso",
+      "organizer": "FEAFES Melilla",
+      "deadline": "2026-10-08",
+      "genres": [
+        "relato breve"
+      ],
+      "prize": "1.º 150 €; 2.º 100 €; 3.º 50 €",
+      "eligibility": "Mayores de 14 años; relato original e inédito en castellano, máximo tres páginas, sobre salud mental y bienestar emocional.",
+      "submission_mode": "Envío digital a tsocial@feafesmelilla.es con archivo identificado por título y pseudónimo y un segundo archivo con los datos personales.",
+      "source_url": "https://feafesmelilla.es/concurso-literario-amparo-perez-alamino",
+      "editorial_note": "Plazo corto. La fuente del organizador y la información institucional de Melilla documentan la convocatoria 2026."
+    },
+    {
+      "published": true,
+      "fee_eur": 0,
+      "verified_at": "2026-10-03",
+      "id": "mantua-carpetanorum-2026",
+      "title": "III Certamen Literario «Mantua Carpetanorum» 2026",
+      "type": "concurso",
+      "organizer": "Ayuntamiento de Villamanta",
+      "deadline": "2026-10-09",
+      "genres": [
+        "relato histórico"
+      ],
+      "prize": "500 € al ganador; 150 € al finalista y premios locales adicionales",
+      "eligibility": "Mayores de edad residentes en España; un relato original e inédito de temática histórica romana, máximo ocho páginas.",
+      "submission_mode": "Envío por email a certamen@villamanta.es mediante sistema de plica: texto anónimo y archivo separado con datos personales.",
+      "source_url": "https://www.villamanta.es/tu-ayuntamiento/agenda/iii-certamen-literario-mantua-carpetanorum/",
+      "editorial_note": "La convocatoria municipal vincula el certamen a la tradición romana de Villamanta/Mantua Carpetanorum."
+    },
+    {
+      "published": true,
+      "fee_eur": 0,
+      "verified_at": "2026-10-03",
+      "id": "issste-historia-transforme-2026",
+      "title": "Convocatoria «Cuéntanos una historia que transforme» 2026",
+      "type": "concurso",
+      "organizer": "Sello Editorial ISSSTE · Revista Saberes Transformadores",
+      "deadline": "2026-10-15",
+      "genres": [
+        "cuento",
+        "salud",
+        "divulgación"
+      ],
+      "prize": "Publicación del cuento seleccionado en la revista Saberes Transformadores",
+      "eligibility": "Autoras y autores iberoamericanos residentes en países de habla hispana; cuento inédito en español de 1–3 cuartillas.",
+      "submission_mode": "Formulario oficial en línea enlazado desde la convocatoria, con archivo Word y datos de contacto.",
+      "source_url": "https://liderazgos.issste.gob.mx/sello-editorial/convocatoria.html",
+      "editorial_note": "La convocatoria es institucional y define comité editorial, criterios de calidad/originalidad y resultados en noviembre de 2026."
+    },
+    {
+      "published": true,
+      "fee_eur": 0,
+      "verified_at": "2026-10-03",
+      "id": "written-in-the-dark-2026-es",
+      "title": "Written in the Dark 2026 · categoría en español",
+      "type": "concurso",
+      "organizer": "Written",
+      "deadline": "2026-10-15",
+      "genres": [
+        "terror",
+        "cuento"
+      ],
+      "prize": "1.º 1.500 USD; 2.º 1.000 USD; 3.º 500 USD; premio del público 1.000 USD",
+      "eligibility": "Mayores de 18 años; participación internacional donde sea legal recibir el premio; una obra terminada, inédita y propia en español.",
+      "submission_mode": "Registro y publicación del cuento en la plataforma Written mediante la página oficial del concurso.",
+      "source_url": "https://es.written.app/in-the-dark-2026",
+      "editorial_note": "Extensión oficial de 10.000–20.000 caracteres con espacios. La publicación en la plataforma consume la condición de inédito para otros certámenes."
+    },
+    {
+      "published": true,
+      "fee_eur": null,
+      "verified_at": "2026-10-03",
+      "id": "curtis-o-exame-2026",
+      "title": "XXI Certame de Narrativa Curta «O EXAME» 2026",
+      "type": "concurso",
+      "organizer": "Concello de Curtis",
+      "deadline": "2026-10-20",
+      "genres": [
+        "narrativa breve",
+        "gallego"
+      ],
+      "eligibility": "Categoría adulta para mayores de 18 años de cualquier procedencia; texto original, inédito y no premiado, escrito en gallego, de 3.000 a 5.000 caracteres. Las personas participantes se comprometen a no emplear sistemas basados en IA en la totalidad de la escritura del relato.",
+      "submission_mode": "Envío en formato Word al correo relatoscurtis@gmail.com, conforme a las bases municipales.",
+      "source_url": "https://www.coruna.gal/informacionxuvenil/gl/convocatorias/concursos-e-premios/detalle-concursos/xxi-certame-de-narrativa-curta-o-exame/suceso/1453918739931",
+      "editorial_note": "La ficha institucional de Información Xuvenil de A Coruña reproduce los requisitos, premios, contacto y plazo de la convocatoria municipal.",
+      "prize": "Categoría adulta: 700 € primer premio y 300 € segundo; existe además un premio local de 700 €"
+    },
+    {
+      "published": true,
+      "fee_eur": 0,
+      "verified_at": "2026-10-03",
+      "id": "manera-montblanc-relatos-2026",
+      "title": "Concurso de Relatos MANERA x Montblanc 2026",
+      "type": "concurso",
+      "organizer": "MANERA Magazine · Montblanc",
+      "deadline": "2026-10-25",
+      "genres": [
+        "relato",
+        "ficción"
+      ],
+      "prize": "Ocho relatos publicados en MANERA; 200 € de honorarios y dos ejemplares para cada autor seleccionado",
+      "eligibility": "Mayores de 18 años, cualquier residencia, sin libro individual de ficción publicado previamente por una editorial comercial/profesional; un relato original e inédito de 1.100–1.300 palabras.",
+      "submission_mode": "Inscripción online y relato en PDF identificado únicamente por su título.",
+      "source_url": "https://maneramagazine.es/interiorismo/concurso-relatos-manera-montblanc-2026/",
+      "editorial_note": "El relato debe relacionarse con arquitectura, interiores, diseño, arte, artesanía, objetos, espacios o formas de habitar; la organización prohíbe autoría sustancial mediante IA generativa."
+    },
+    {
+      "published": true,
+      "fee_eur": 0,
+      "verified_at": "2026-10-03",
+      "id": "kannonical-terror-sobrenatural-2026",
+      "title": "Convocatoria «Terror Sobrenatural» 2026",
+      "type": "manuscritos",
+      "organizer": "Kannonical Editores",
+      "deadline": "2026-10-25",
+      "genres": [
+        "terror",
+        "cuento"
+      ],
+      "eligibility": "Cuento original e inédito de terror sobrenatural, entre 1.000 y 8.000 palabras, siguiendo las condiciones de la convocatoria.",
+      "submission_mode": "Presentación conforme a las bases publicadas por Kannonical Editores en su web oficial.",
+      "source_url": "https://kannonical-editores.github.io/convoc.html",
+      "editorial_note": "La editorial declara expresamente que no cobra por publicar los relatos elegidos; revisar los derechos de la antología antes de aceptar publicación."
+    },
+    {
+      "published": true,
+      "fee_eur": 0,
+      "verified_at": "2026-10-03",
+      "id": "conciencia-libre-2026",
+      "title": "V Certamen de Narrativa Laicista «Conciencia Libre» 2026",
+      "type": "concurso",
+      "organizer": "Rivas Laica",
+      "deadline": "2026-10-31",
+      "genres": [
+        "relato breve"
+      ],
+      "eligibility": "Un relato original en castellano vinculado a libertad de conciencia, laicismo o pensamiento crítico, con la extensión indicada en las bases.",
+      "submission_mode": "Envío por correo electrónico mediante seudónimo/plica conforme a las bases oficiales de Rivas Laica.",
+      "source_url": "https://rivaslaica.org/2026/06/v-certamen-de-relatos-cortos/",
+      "editorial_note": "Las bases oficiales establecen temática, anonimato y condiciones de autoría; se mantiene el enlace primario para comprobar la versión vigente antes de enviar."
+    },
+    {
+      "published": true,
+      "fee_eur": null,
+      "verified_at": "2026-10-03",
+      "id": "aster-astronomia-2026",
+      "title": "VI Concurso de Relatos de Astronomía ASTER 2026",
+      "type": "concurso",
+      "organizer": "ASTER Agrupació Astronòmica de Barcelona",
+      "deadline": "2026-11-01",
+      "genres": [
+        "relato",
+        "astronomía",
+        "fantasía"
+      ],
+      "prize": "Premio a elegir entre experiencia astronómica o vale de 150 €, diploma y publicación",
+      "eligibility": "Socios y no socios; un relato original e inédito en catalán o castellano, entre 1.000 y 4.000 palabras, con astronomía como tema central.",
+      "submission_mode": "Correo a activitats@aster.cat con relato PDF bajo seudónimo y datos personales separados según las bases.",
+      "source_url": "https://aster.cat/concurs-de-relats-dastronomia-aster-2026/",
+      "editorial_note": "La convocatoria oficial admite prosa de ficción, fantasía o realista y anuncia publicación del relato ganador en el boletín de ASTER."
+    },
+    {
+      "published": true,
+      "fee_eur": 0,
+      "verified_at": "2026-10-03",
+      "id": "esstudio-agatha-christie-2026",
+      "title": "Concurso de Relatos Cortos de Misterio «Si Agatha Christie levantara la cabeza…»",
+      "type": "concurso",
+      "organizer": "Esstudio Ediciones",
+      "deadline": "2026-11-15",
+      "genres": [
+        "misterio",
+        "relato"
+      ],
+      "prize": "Ganador: edición de un libro propio bajo contrato y 10 ejemplares; seleccionados: publicación en antología",
+      "eligibility": "Autores de cualquier procedencia; un relato por participante, máximo dos páginas en Times New Roman 12.",
+      "submission_mode": "Word por correo a info@esstudioediciones.com con asunto «Relatos de misterio» y datos del autor.",
+      "source_url": "https://www.esstudioediciones.com/blog/419/concurso-de-relatos-cortos-de-misterio-si-agatha-christie-levantara-la-cabeza-de-esstudio-edciones.html",
+      "editorial_note": "El premio es editorial, no económico. La propia convocatoria permite que Esstudio publique las obras presentadas; conviene revisar cualquier contrato antes de aceptarlo."
+    },
+    {
+      "published": true,
+      "fee_eur": 0,
+      "verified_at": "2026-10-03",
+      "id": "olite-vina-vino-2026",
+      "title": "XX Certamen Literario «De la Viña y el Vino» · Narrativa",
+      "type": "concurso",
+      "organizer": "Cofradía del Vino de Navarra",
+      "deadline": "2026-11-30",
+      "genres": [
+        "narrativa",
+        "cultura del vino"
+      ],
+      "prize": "1.200 € y lote de vino D.O. Navarra",
+      "eligibility": "Mayores de 18 años; obra narrativa original e inédita en castellano sobre cultura del vino.",
+      "submission_mode": "Presentación exclusivamente digital mediante formulario y plantillas oficiales de obra y plica.",
+      "source_url": "https://sites.google.com/view/certamen-literario-cvn",
+      "editorial_note": "La modalidad narrativa se denomina «Olite, Ciudad del Vino». El plazo oficial va del 1 de octubre al 30 de noviembre de 2026."
+    },
+    {
+      "published": true,
+      "fee_eur": null,
+      "verified_at": "2026-10-03",
+      "id": "manuel-oreste-rodriguez-lopez-2026",
+      "title": "XXXII Certame Literario Manuel-Oreste Rodríguez López 2026",
+      "type": "concurso",
+      "organizer": "Concello de Paradela",
+      "deadline": "2026-11-30",
+      "genres": [
+        "narrativa",
+        "gallego"
+      ],
+      "eligibility": "Participación y modalidades conforme a las bases oficiales del Concello de Paradela.",
+      "submission_mode": "Presentación según el procedimiento detallado en las bases oficiales de la XXXII edición.",
+      "source_url": "https://www.paradela.es/es/nova/bases-xxxii-certame-literario-manuel-oreste-rodr%C3%ADguez-l%C3%B3pez",
+      "editorial_note": "El Concello confirma apertura el 1 de octubre y cierre el 30 de noviembre de 2026; la ficha remite a las bases para requisitos detallados."
+    },
+    {
+      "published": true,
+      "fee_eur": null,
+      "verified_at": "2026-10-03",
+      "id": "flor-cactus-humor-2027",
+      "title": "II Certamen Internacional de Literatura de Humor «La Flor del Cactus» 2027 · Narrativa",
+      "type": "concurso",
+      "organizer": "El Batracio Amarillo",
+      "deadline": "2026-12-31",
+      "genres": [
+        "narrativa",
+        "humor"
+      ],
+      "prize": "Premio único e indivisible de 3.000 € entre las modalidades convocadas",
+      "eligibility": "Mayores de 18 años, cualquier nacionalidad o residencia; obra original e inédita en castellano de carácter humorístico, satírico, irónico o crítico.",
+      "submission_mode": "Presentación por correo conforme a las bases oficiales, con obra bajo seudónimo y plica separada.",
+      "source_url": "https://www.elbatracioamarillo.com/ii-certamen-internacional-de-literatura-de-humor-la-flor-del-cactus-2027",
+      "editorial_note": "La convocatoria oficial mantiene el plazo hasta el 31 de diciembre de 2026. Revisar las bases enlazadas para formato exacto y documentación de plica."
+    },
+    {
+      "published": true,
+      "fee_eur": 0,
+      "verified_at": "2026-10-03",
+      "id": "delibooks-helena-2026",
+      "title": "Concurso Literario Delibooks 2026 · Cuento",
+      "type": "concurso",
+      "organizer": "Delibooks",
+      "deadline": "2026-12-31",
+      "genres": [
+        "cuento"
+      ],
+      "prize": "Publicación en la antología Helena en formato impreso y/o digital",
+      "eligibility": "Mayores de 18 años de cualquier nacionalidad y residencia; español como lengua materna; una obra original e inédita, máximo cinco páginas y 4.000 palabras.",
+      "submission_mode": "Correo indicado en la convocatoria con asunto oficial; obra anónima en Word/PDF y archivo separado con datos personales.",
+      "source_url": "https://www.delibooks.com.ar/concurso/",
+      "editorial_note": "El autor conserva la titularidad y concede un permiso no exclusivo para la publicación/difusión en Helena y el club de lectura según la convocatoria."
+    },
+    {
+      "published": true,
+      "fee_eur": 0,
+      "verified_at": "2026-10-03",
+      "id": "libros-asteroide-no-ficcion-2026",
+      "title": "VII Premio de No Ficción Libros del Asteroide 2026",
+      "type": "premio",
+      "organizer": "Libros del Asteroide",
+      "deadline": "2026-11-01",
+      "genres": [
+        "no ficción",
+        "ensayo",
+        "crónica"
+      ],
+      "prize": "10.000 € como anticipo de derechos de edición",
+      "eligibility": "Proyecto original de no ficción no publicado previamente, presentado por su autor conforme a las bases del premio.",
+      "submission_mode": "Propuesta por correo a premio@librosdelasteroide.com con proyecto, capítulos de muestra y materiales exigidos en las bases; no se admite correo postal.",
+      "source_url": "https://librosdelasteroide.com/actualidad-asteroide/321/se-abre-la-convocatoria-del-vii-premio-de-no-ficcion-lda",
+      "editorial_note": "El premio implica contrato exclusivo de edición para la obra futura; 2.500 € se abonan al fallo y 7.500 € a la entrega del manuscrito dentro de los 12 meses siguientes."
+    },
+    {
+      "published": true,
+      "fee_eur": 0,
+      "verified_at": "2026-10-03",
+      "id": "esta-noche-te-cuento-culpa-2026",
+      "title": "Esta Noche Te Cuento 2026 · «La culpa»",
+      "type": "concurso",
+      "organizer": "Esta Noche Te Cuento",
+      "deadline": "2026-11-15",
+      "genres": [
+        "microrrelato"
+      ],
+      "prize": "Publicación y premios en especie; los dos ganadores anuales reciben estancia, trofeo y ejemplares",
+      "eligibility": "Mayores de 18 años; un relato por convocatoria, original e inédito, de menos de 200 palabras y ajustado al tema «La culpa».",
+      "submission_mode": "Formulario del sitio Esta Noche Te Cuento, con registro previo de participante.",
+      "source_url": "https://estanochetecuento.com/",
+      "editorial_note": "Todos los relatos admitidos se publican en el blog, por lo que el texto deja de ser inédito para otros concursos. La convocatoria actual cierra el 15 de noviembre."
+    },
+    {
+      "id": "premio-alfabeto-ensayo-2026",
+      "title": "Premio Alfabeto de Ensayo Breve «(Con)vivir hoy» 2026",
+      "type": "premio",
+      "organizer": "Editorial Alfabeto · Plataforma Editorial",
+      "deadline": "2026-11-27",
+      "genres": [
+        "ensayo",
+        "no ficción"
+      ],
+      "prize": "4.000 €, publicación de la obra ganadora, desarrollo de un segundo proyecto y representación para actividades públicas",
+      "fee_eur": 0,
+      "eligibility": "Ensayo original vinculado a los grandes cambios sociales, culturales, tecnológicos y humanos contemporáneos, conforme a las bases oficiales.",
+      "submission_mode": "Envío a alfabeto@plataformaeditorial.com siguiendo las bases y documentación indicadas en la página oficial del premio.",
+      "source_url": "https://www.editorialalfabeto.com/premioalfabeto",
+      "verified_at": "2026-10-03",
+      "editorial_note": "Primera edición del premio. La convocatoria oficial abrió el 15 de julio de 2026, cierra el 27 de noviembre y prevé veredicto en enero de 2027.",
+      "published": true
+    },
+    {
+      "id": "valdastillas-100-palabras-asustar-2026",
+      "title": "Concurso de Microrrelatos «100 palabras para asustar» 2026",
+      "type": "concurso",
+      "organizer": "Ayuntamiento de Valdastillas",
+      "deadline": "2026-10-31",
+      "genres": [
+        "microrrelato",
+        "terror"
+      ],
+      "fee_eur": 0,
+      "prize": "Vale de 40 € para comercios de Valdastillas",
+      "eligibility": "Mayores de 12 años; un único microrrelato de máximo 100 palabras, sin contar el título, sobre miedo, terror, misterio o elementos sobrenaturales.",
+      "submission_mode": "Correo electrónico a tenientealcalde@valdastillas.es con nombre, apellidos, edad, teléfono, título y texto.",
+      "source_url": "https://www.bandomovil.com/valdastillas/1651636/0",
+      "verified_at": "2026-10-03",
+      "published": true,
+      "editorial_note": "La convocatoria municipal fija valoración el 2 de noviembre y publicación del fallo en redes sociales del Ayuntamiento."
+    },
+    {
+      "id": "literaria-kalean-2026",
+      "title": "V Certamen de Relato y Cuento «Literaria Kalean» 2026",
+      "type": "concurso",
+      "organizer": "Literaria Kalean",
+      "deadline": "2026-12-15",
+      "genres": [
+        "relato",
+        "cuento"
+      ],
+      "fee_eur": 0,
+      "prize": "Viaje en globo para el primer premio; segundo premio en vino; tercero en libros; publicación para ganadores y seleccionados",
+      "eligibility": "Mayores de 18 años residentes en la Península Ibérica; relato original e inédito vinculado al lema «Literatura en la calle».",
+      "submission_mode": "Presentación por correo electrónico conforme a las bases enlazadas por la organización, mediante seudónimo y archivos separados de relato y plica.",
+      "source_url": "https://literariakalean.es/abrimos-convocatoria/",
+      "verified_at": "2026-10-03",
+      "published": true,
+      "editorial_note": "La organización confirma que el plazo está abierto desde el 15 de julio de 2026, finaliza en diciembre y el fallo será en abril de 2027."
+    },
+    {
+      "id": "hislibris-relato-historico-2026",
+      "title": "XVI Concurso de Relato Histórico Hislibris 2026",
+      "type": "concurso",
+      "organizer": "Hislibris",
+      "deadline": "2026-12-30",
+      "genres": [
+        "relato histórico"
+      ],
+      "fee_eur": 0,
+      "prize": "Reconocimientos, publicación/antología y posible propuesta editorial para el primer puesto según las bases",
+      "eligibility": "Relatos originales e inéditos en castellano, máximo dos por participante, con contexto histórico verosímil y relevante para la trama.",
+      "submission_mode": "Presentación anónima conforme a la mecánica oficial del XVI concurso; la autoría solo puede conocerla el Guardián hasta el fallo.",
+      "source_url": "https://www.hislibris.com/foro/viewtopic.php?f=29&t=705",
+      "verified_at": "2026-10-03",
+      "published": true,
+      "editorial_note": "La recepción cierra el 30 de diciembre de 2026 a las 23:59, hora peninsular. Después hay votación popular y fallo definitivo del jurado en febrero de 2027."
+    },
+    {
+      "id": "julio-visconti-relatos-2026",
+      "title": "XI Certamen de Relatos de la Fundación Pintor Julio Visconti",
+      "type": "concurso",
+      "organizer": "Fundación Pintor Julio Visconti",
+      "deadline": "2026-12-30",
+      "genres": [
+        "relato"
+      ],
+      "fee_eur": 0,
+      "prize": "900 € y diploma; posible publicación conforme a las bases",
+      "eligibility": "Un relato original, inédito y no premiado ni pendiente de resolución; consultar las bases oficiales para formato y exclusiones de ganadores recientes.",
+      "submission_mode": "Presentación electrónica conforme al documento oficial descargable desde la web de la Fundación.",
+      "source_url": "https://fpjuliovisconti.com/bases-del-xi-certamen-de-relatos-de-la-fundacion-pintor-julio-visconti/",
+      "verified_at": "2026-10-03",
+      "published": true,
+      "editorial_note": "La Fundación publica las bases de la XI edición en su web oficial; el plazo termina el 30 de diciembre de 2026."
+    },
+    {
+      "id": "la-buena-letra-relato-2026",
+      "title": "VI Certamen Literario La Buena Letra 2026 · Relato",
+      "type": "concurso",
+      "organizer": "Asociación de Escritores de Fuenlabrada La Buena Letra",
+      "deadline": "2026-10-15",
+      "genres": [
+        "relato"
+      ],
+      "fee_eur": 0,
+      "prize": "175 € primer premio, 125 € segundo y 100 € tercero, además de diploma",
+      "eligibility": "Mayores de 18 años residentes en España; obra original, íntegramente inédita y escrita en castellano. Tema 2026: «El instante que lo cambió todo».",
+      "submission_mode": "Correo electrónico a certamen.literario@labuenaletra.es con el asunto RELATO + seudónimo; dos PDF separados para obra y plica.",
+      "source_url": "https://labuenaletra.es/",
+      "verified_at": "2026-10-03",
+      "editorial_note": "La fuente oficial fija un máximo de dos páginas, una sola obra por participante y asistencia obligatoria a la entrega de premios si se resulta premiado.",
+      "published": true
+    },
+    {
+      "id": "microdragones-diversidad-literaria-2026",
+      "title": "IV Concurso de Microrrelatos «Microdragones» 2026",
+      "type": "concurso",
+      "organizer": "Diversidad Literaria",
+      "deadline": "2026-11-19",
+      "genres": [
+        "microrrelato",
+        "fantasía"
+      ],
+      "fee_eur": 0,
+      "prize": "Contrato editorial individual para el ganador, ejemplares de la antología y curso; finalistas y seleccionados reciben condiciones editoriales según las bases",
+      "eligibility": "Participación internacional; un microrrelato por persona, máximo 500 caracteres, con temática de dragones.",
+      "submission_mode": "Formulario oficial de Diversidad Literaria; el texto se pega directamente en el formulario, sin adjuntar archivo.",
+      "source_url": "https://www.diversidadliteraria.com/info-concursos/microdragones",
+      "verified_at": "2026-10-03",
+      "editorial_note": "La autorización de publicación para obras seleccionadas es gratuita y no exclusiva, limitada a la antología y sus reimpresiones; la autoría y titularidad permanecen en el autor.",
+      "published": true
+    },
+    {
+      "id": "luz-luna-diversidad-literaria-2026",
+      "title": "VII Concurso de Microrrelatos «Luz de luna» 2026",
+      "type": "concurso",
+      "organizer": "Diversidad Literaria",
+      "deadline": "2026-10-22",
+      "genres": [
+        "microrrelato"
+      ],
+      "fee_eur": 0,
+      "prize": "Contrato editorial individual para el ganador, ejemplares de la antología y curso; finalistas y seleccionados reciben condiciones editoriales según las bases",
+      "eligibility": "Participación internacional; una obra por persona, máximo 500 caracteres, con la luna como elemento obligatorio.",
+      "submission_mode": "Formulario oficial de Diversidad Literaria; el texto se introduce directamente en el formulario.",
+      "source_url": "https://www.diversidadliteraria.com/info-concursos/concursos-microrrelatos/luzdeluna",
+      "verified_at": "2026-10-03",
+      "editorial_note": "La publicación en la antología de las obras seleccionadas se autoriza de forma gratuita y no exclusiva; no hay obligación de comprar ejemplares.",
+      "published": true
+    },
+    {
+      "id": "legado-manos-diversidad-literaria-2026",
+      "title": "II Concurso de Microrrelatos «El legado de sus manos» 2026",
+      "type": "concurso",
+      "organizer": "Diversidad Literaria",
+      "deadline": "2026-10-29",
+      "genres": [
+        "microrrelato"
+      ],
+      "fee_eur": 0,
+      "prize": "Premios editoriales y publicación en antología según las bases del convocante",
+      "eligibility": "Participación conforme a las bases oficiales; un microrrelato por participante y temática vinculada a los abuelos y su legado.",
+      "submission_mode": "Formulario oficial de Diversidad Literaria; el texto se introduce directamente en el formulario.",
+      "source_url": "https://www.diversidadliteraria.com/info-concursos/concursos-microrrelatos/concursos-abuelos",
+      "verified_at": "2026-10-03",
+      "editorial_note": "La página oficial fija el cierre a las 23:59 del 29 de octubre de 2026; revisar las condiciones editoriales completas antes de aceptar una eventual selección.",
+      "published": true
+    },
+    {
+      "id": "hesperides-cuento-2026",
+      "title": "XXIV Concurso Internacional Hespérides 2026 · Cuento",
+      "type": "concurso",
+      "organizer": "Ediciones Hespérides",
+      "deadline": "2026-10-31",
+      "genres": [
+        "cuento"
+      ],
+      "fee_eur": 5,
+      "prize": "Edición de la obra ganadora, diploma y 30 ejemplares para el primer premio; el autor conserva los derechos",
+      "eligibility": "Participación internacional en español; obra inédita y no pendiente de fallo ni de edición. En cuento, las bases publican un rango de extensión con una inconsistencia interna que debe leerse directamente antes del envío.",
+      "submission_mode": "Dos correos separados: obra bajo seudónimo en Word a concursohesperides@gmail.com y datos de autoría/comprobante de inscripción a datosdeautoria@gmail.com.",
+      "source_url": "https://edicioneshesperides.blogspot.com/2026/05/bases-2026-del-concurso-internacional.html",
+      "verified_at": "2026-10-03",
+      "editorial_note": "Para participantes del exterior la inscripción oficial es de 5 € o 5 USD. El plazo fue ampliado al 31 de octubre de 2026. Las propias bases contienen una contradicción de páginas en la modalidad cuento, por lo que se señala en vez de resolverla por inferencia.",
+      "published": true
+    },
+    {
+      "id": "voces-del-pueblo-2026",
+      "title": "I Concurso de Microrrelatos «Voces del pueblo» 2026",
+      "type": "concurso",
+      "organizer": "Diversidad Literaria",
+      "deadline": "2026-10-08",
+      "genres": [
+        "microrrelato"
+      ],
+      "eligibility": "Mayores de 18 años de cualquier país; una única obra original e inédita, máximo 500 caracteres, vinculada a la temática de los pueblos.",
+      "prize": "Contrato editorial individual con gastos de edición cubiertos para la obra ganadora, ejemplares y curso; finalistas y seleccionados pueden formar parte de la antología según las bases.",
+      "fee_eur": 0,
+      "submission_mode": "Formulario oficial en la página de la convocatoria; el texto se pega directamente y no se adjunta archivo.",
+      "source_url": "https://www.diversidadliteraria.com/info-concursos/concursos-microrrelatos/voces-del-pueblo",
+      "verified_at": "2026-10-03",
+      "editorial_note": "Las bases conceden a la organización una autorización gratuita y no exclusiva para publicar las obras seleccionadas en la antología; la autoría y titularidad permanecen en el autor. Revisar el contrato individual si se obtiene el premio.",
+      "published": true
+    },
+    {
+      "id": "camino-santiago-navarra-relatos-2026",
+      "title": "VII Concurso de Relatos Cortos «Camino de Santiago» 2026",
+      "type": "concurso",
+      "organizer": "Asociación de Amigos del Camino de Santiago en Navarra",
+      "deadline": "2026-10-05",
+      "genres": [
+        "relato corto"
+      ],
+      "eligibility": "Personas mayores de edad de cualquier nacionalidad y residencia; hasta tres relatos originales e inéditos sobre el Camino de Santiago. Las bases declaran que no debe haberse utilizado IA en su elaboración.",
+      "prize": "300 € + diploma + publicación del relato ganador en la revista «Estafeta Jacobea»",
+      "fee_eur": null,
+      "submission_mode": "Correo a info@caminodesantiagoennavarra.es con el relato en Word y los datos de autoría indicados en las bases.",
+      "source_url": "https://www.caminosantiago.org/CPPEREGRINO/prensa/verprensa.asp?PrensaID=23405",
+      "verified_at": "2026-10-03",
+      "editorial_note": "La extensión máxima es de dos folios A4 a una cara, fuente 12 e interlineado sencillo. El ganador debe acudir al acto salvo causa justificada o designar representante. Las bases contemplan cesión de derechos de uso, difusión y publicación del relato premiado.",
+      "published": true
+    },
+    {
+      "id": "casa-del-tiempo-requiem-television-2026",
+      "title": "Casa del tiempo · «Réquiem por la televisión»",
+      "type": "manuscritos",
+      "organizer": "Universidad Autónoma Metropolitana · revista Casa del tiempo",
+      "deadline": "2026-10-12",
+      "genres": [
+        "relato",
+        "ensayo",
+        "poesía"
+      ],
+      "eligibility": "Texto inédito de 7.000 a 9.000 caracteres con espacios, destinado al dossier «Réquiem por la televisión» o a una de las secciones abiertas de la revista.",
+      "prize": "Publicación y honorarios conforme al tabulador vigente de Casa del tiempo",
+      "fee_eur": null,
+      "submission_mode": "Documento Word con semblanza final de hasta 50 palabras; envío a los correos oficiales publicados por la revista y asunto «Réquiem por la televisión».",
+      "source_url": "https://casadeltiempo.uam.mx/index.php/convocatorias",
+      "verified_at": "2026-10-03",
+      "editorial_note": "No es un concurso sino una convocatoria editorial. La revista indica que el pago de honorarios requiere CFDI y los requisitos administrativos de la UAM; un colaborador residente fiscal fuera de México debe confirmar previamente cómo podría formalizar el cobro.",
+      "published": true
+    },
+    {
+      "id": "entre-plumas-y-letras-2026",
+      "title": "V Concurso de relatos «Entre plumas y letras» 2026",
+      "type": "concurso",
+      "organizer": "Diversidad Literaria",
+      "deadline": "2026-10-23",
+      "genres": [
+        "fantasía",
+        "cuento infantil",
+        "erótico",
+        "romántico",
+        "terror"
+      ],
+      "eligibility": "Mayores de 18 años residentes en España; una obra original e inédita en castellano y no premiada anteriormente.",
+      "prize": "Contrato editorial individual con gastos cubiertos para la obra ganadora, lote de libros y curso; sin dotación económica indicada.",
+      "fee_eur": 0,
+      "submission_mode": "Correo a relatos@diversidadliteraria.es con archivo Word y los datos de autoría, contacto, título y género que especifican las bases.",
+      "source_url": "https://www.diversidadliteraria.com/info-concursos/concurso-relatos-entre-plumas-y-letras",
+      "verified_at": "2026-10-03",
+      "editorial_note": "La redacción oficial de la extensión («máxima de 5 a 15 folios/páginas») es ambigua; conviene confirmar el rango exacto con la organización antes de preparar el envío.",
+      "published": true
+    },
+    {
+      "id": "cuentos-erroticos-iliada-2026",
+      "title": "I Concurso Internacional de Cuentos «Erróticos» 2026",
+      "type": "concurso",
+      "organizer": "Ilíada Ediciones y OtroLunes",
+      "deadline": "2026-11-16",
+      "genres": [
+        "cuento",
+        "literatura errótica"
+      ],
+      "eligibility": "Un cuento en castellano, totalmente inédito, de 5 a 15 folios A4, Times New Roman 12 e interlineado 1 o 1,15.",
+      "prize": "1.500 USD para la obra ganadora; ganador y nueve finalistas se publican en una antología.",
+      "fee_eur": null,
+      "submission_mode": "Correo a premioerrotico@iliadaediciones.com con dos PDF: obra anónima y archivo separado con datos y breve nota bio-bibliográfica.",
+      "source_url": "https://otrolunes.com/67/especial-ultima-hora/primer-concurso-internacional-de-cuentos-erroticos-20206/",
+      "verified_at": "2026-10-03",
+      "editorial_note": "Las bases imponen a ganador y finalistas una restricción de publicación externa durante cinco años y no asignan royalties individuales por la antología. Leer íntegramente la cláusula de derechos antes de participar.",
+      "published": true
+    },
+    {
+      "id": "anton-aviles-taramancos-2026",
+      "title": "XXV Certame Literario de Aventuras Antón Avilés de Taramancos",
+      "type": "concurso",
+      "organizer": "Concello de Noia",
+      "deadline": "2026-10-20",
+      "genres": [
+        "relato de aventuras",
+        "narrativa"
+      ],
+      "eligibility": "Personas adultas de cualquier procedencia; una obra original e inédita en gallego y de aventuras, conforme a las bases de la XXV edición.",
+      "prize": "3.000 € + escultura de Alfonso Costa + publicación por Editorial Toxosoutos",
+      "fee_eur": null,
+      "submission_mode": "Presentación conforme a las bases de la XXV edición; la documentación investigada contempla vía electrónica con obra y datos separados.",
+      "source_url": "https://axendacultural.aelg.gal/tag/certame-literario-de-relato-de-aventuras-anton-aviles-de-taramancos/",
+      "verified_at": "2026-10-03",
+      "editorial_note": "La AELG publica la convocatoria de la XXV edición y documenta el historial del certamen. Comprobar en las bases enlazadas los detalles finales de formato y cesión antes de enviar.",
+      "published": true
+    },
+    {
+      "id": "la-cruz-escribe-2026",
+      "title": "II Certamen Literario «La Cruz Escribe» 2026 · Relato adultos",
+      "type": "concurso",
+      "organizer": "Ilustre Cofradía de la Santa Vera Cruz de Salamanca",
+      "deadline": "2026-10-31",
+      "genres": [
+        "relato"
+      ],
+      "eligibility": "Categoría adulta según las bases; relato vinculado a la historia, patrimonio o devoción de la Cofradía y la Semana Santa salmantina.",
+      "prize": "Publicación y reconocimiento conmemorativo según las bases; sin dotación económica indicada.",
+      "fee_eur": null,
+      "submission_mode": "Presentación por correo electrónico con obra anónima y documento separado de datos conforme a las bases descargables de la entidad.",
+      "source_url": "https://veracruzsalamanca.org/",
+      "verified_at": "2026-10-03",
+      "editorial_note": "La web oficial confirma la II edición y el cierre el 31 de octubre de 2026. Antes del envío debe revisarse el PDF de bases para comprobar el correo, formato y derechos exactos.",
+      "published": true
+    },
+    {
+      "id": "terbi-humor-cosmico-2026",
+      "title": "XVI Certamen TerBi de Relato Temático «Humor Cósmico» 2026",
+      "type": "concurso",
+      "organizer": "TerBi · Asociación Vasca de Ciencia Ficción, Fantasía y Terror",
+      "deadline": "2026-11-01",
+      "genres": [
+        "relato",
+        "ciencia ficción",
+        "fantasía",
+        "terror"
+      ],
+      "eligibility": "Personas mayores de edad; relato original e inédito en castellano, no premiado ni pendiente de resolución en otro premio, encuadrado en ciencia ficción, fantasía o terror y centrado en el tema «Humor cósmico».",
+      "prize": null,
+      "fee_eur": null,
+      "submission_mode": "Presentación conforme a las bases publicadas por el promotor; revisar en la fuente oficial el formato y la dirección de envío antes de remitir el relato.",
+      "source_url": "https://notcf.blogspot.com/2026/05/bases-del-xvi-certamen-terbi-de-relato.html",
+      "verified_at": "2026-10-03",
+      "editorial_note": "Las bases del promotor fijan el 1 de noviembre de 2026 como fecha final y exigen que el relato se ajuste de forma sustantiva al tema «Humor cósmico».",
+      "published": true
+    },
+    {
+      "id": "educando-contra-violencia-2026",
+      "title": "X Concurso «Educando contra la Violencia: El silencio que gritaba» 2026",
+      "type": "concurso",
+      "organizer": "Thaderconsumo · ACUM · Región de Murcia",
+      "deadline": "2026-10-31",
+      "genres": [
+        "relato corto"
+      ],
+      "eligibility": "Relato original e inédito en castellano, a doble espacio y Times New Roman 12, relacionado con la erradicación de la violencia —especialmente la de género— y con un máximo de 550 palabras, título excluido.",
+      "prize": "Categoría adulta: 350 € primer premio y lote de libros para la persona finalista",
+      "fee_eur": null,
+      "submission_mode": "Envío conforme a las bases del certamen; el directorio institucional publica como contacto del concurso educandocontralaviolencia@gmail.com.",
+      "source_url": "https://www.coruna.gal/informacionjuvenil/es/convocatorias/concursos-y-premios?argIdioma=es&argPag=2&categoriaID=1220003419689",
+      "verified_at": "2026-10-03",
+      "editorial_note": "Información Juvenil del Ayuntamiento de A Coruña recoge la edición 2026, el cierre el 31 de octubre, extensión, formato y premios; Thaderconsumo confirma que el X concurso está en marcha.",
+      "published": true
+    },
+    {
+      "id": "zaragoza-epitafios-2026",
+      "title": "VIII Concurso «Epitafios para el Cementerio de Torrero» 2026",
+      "type": "concurso",
+      "organizer": "Ayuntamiento de Zaragoza · Cementerio de Torrero",
+      "deadline": "2026-10-30",
+      "genres": [
+        "microrrelato",
+        "prosa breve",
+        "poesía"
+      ],
+      "eligibility": "Una obra inédita por participante, escrita en castellano y presentada con pseudónimo.",
+      "prize": "1.º: escultura + tarjeta FNAC de 500 € + diploma; 2.º: 200 €; 3.º: 100 €; accésit: 100 € en tarjeta FNAC",
+      "fee_eur": null,
+      "submission_mode": "Email a culturacementerio@zaragoza.es con asunto «EPITAFIOS» y dos PDF: epitafio con pseudónimo + ficha de identificación independiente.",
+      "source_url": "https://www.zaragoza.es/sede/servicio/premios-concursos/4321",
+      "verified_at": "2026-10-03",
+      "editorial_note": "Fuente municipal oficial. Extensión aproximada máxima de 100 caracteres sin contar espacios; admite prosa o verso. Cierre el 30 de octubre de 2026.",
+      "published": true
+    },
+    {
+      "id": "macondos-siglo-xxi-2026",
+      "title": "Concurso Internacional «Macondos del Siglo XXI» 2026",
+      "type": "concurso",
+      "organizer": "Fundación Universidad Hispana (FUNHI)",
+      "deadline": "2026-10-15",
+      "genres": [
+        "relato"
+      ],
+      "eligibility": "Escritores de cualquier país; una obra original e inédita en castellano, no premiada ni publicada.",
+      "prize": "Tres distinciones honoríficas internacionales, siete menciones y publicación/difusión; sin premio económico indicado",
+      "fee_eur": null,
+      "submission_mode": "Envío electrónico a fundacionuniversidadhispana@hotmail.com con el relato y archivo separado de datos personales y documento de identidad.",
+      "source_url": "https://www.fundacionuniversidadhispana.com/concurso",
+      "verified_at": "2026-10-03",
+      "editorial_note": "La fuente oficial fija el 15 de octubre de 2026. Extensión máxima aproximada de 20 caras tamaño carta, Times New Roman 12 y doble espacio.",
+      "published": true
+    },
+    {
+      "id": "maniac-thriller-documental-2026",
+      "title": "I Premio Nacional de Thriller Documental 2026",
+      "type": "premio",
+      "organizer": "Maniac Ediciones",
+      "deadline": "2026-12-01",
+      "genres": [
+        "novela",
+        "thriller"
+      ],
+      "eligibility": "Mayores de 18 años, cualquier nacionalidad y residencia en España; obra original e inédita, no pendiente de resolución en otros concursos y no basada en casos reales.",
+      "prize": "Publicación + 350 € de adelanto de regalías + trofeo; hasta dos finalistas pueden recibir propuesta de publicación",
+      "fee_eur": null,
+      "submission_mode": "Email a premio@maniacediciones.com con la obra bajo seudónimo y archivo separado de datos, conforme a las bases oficiales.",
+      "source_url": "https://www.maniacediciones.com/concurso-thriller-documental/",
+      "verified_at": "2026-10-03",
+      "editorial_note": "Convocatoria oficial abierta hasta las 23:59 del 1 de diciembre de 2026. Extensión 50.000–70.000 palabras ±5 %, Word, Garamond 12 y doble espacio.",
+      "published": true
+    },
+    {
+      "id": "diversidad-umbral-tinieblas-2026",
+      "title": "II Concurso de microrrelatos «Umbral de las tinieblas» 2026",
+      "type": "concurso",
+      "organizer": "Diversidad Literaria",
+      "deadline": "2026-11-05",
+      "genres": [
+        "microrrelato",
+        "terror"
+      ],
+      "eligibility": "Mayores de 18 años de cualquier país; una obra original e inédita, no premiada previamente.",
+      "prize": "Premio editorial y ejemplares/curso según bases; sin premio económico indicado",
+      "fee_eur": 0,
+      "submission_mode": "Formulario web oficial; el texto se introduce directamente, sin adjuntos.",
+      "source_url": "https://www.diversidadliteraria.com/info-concursos/concursos-microrrelatos/i-concurso-de-microrrelatos-sobre-halloween--umbral-de-las-tinieblas",
+      "verified_at": "2026-10-03",
+      "editorial_note": "Convocatoria oficial para microrrelatos de Halloween, máximo 500 caracteres. Cierra a las 23:59 del 5 de noviembre de 2026.",
+      "published": true
+    },
+    {
+      "id": "diversidad-navidad-nieve-letras-2026",
+      "title": "IV Concurso de microrrelatos «Navidad de nieve y letras» 2026",
+      "type": "concurso",
+      "organizer": "Diversidad Literaria",
+      "deadline": "2026-11-18",
+      "genres": [
+        "microrrelato"
+      ],
+      "eligibility": "Mayores de 18 años de cualquier país; una obra original e inédita, no premiada previamente.",
+      "prize": "Premio editorial y ejemplares/curso según bases; sin premio económico indicado",
+      "fee_eur": 0,
+      "submission_mode": "Formulario web oficial; el texto se introduce directamente, sin adjuntos.",
+      "source_url": "https://www.diversidadliteraria.com/info-concursos/concursos-microrrelatos/ii-concurso-de-microrrelatos-navidenos--navidad-de-nieve-y-letras",
+      "verified_at": "2026-10-03",
+      "editorial_note": "Convocatoria oficial de temática navideña, máximo 500 caracteres. Cierra a las 23:59 del 18 de noviembre de 2026.",
+      "published": true
+    },
+    {
+      "id": "diversidad-entre-piratas-2026",
+      "title": "V Concurso de microrrelatos «Entre piratas anda el micro» 2026",
+      "type": "concurso",
+      "organizer": "Diversidad Literaria",
+      "deadline": "2026-12-17",
+      "genres": [
+        "microrrelato"
+      ],
+      "eligibility": "Participantes de cualquier país; una obra original e inédita, no premiada previamente.",
+      "prize": "Premio editorial, ejemplares y curso según bases; sin premio económico indicado",
+      "fee_eur": 0,
+      "submission_mode": "Formulario web oficial; texto pegado directamente y sin adjuntos.",
+      "source_url": "https://www.diversidadliteraria.com/info-concursos/concursos-microrrelatos/piratas",
+      "verified_at": "2026-10-03",
+      "editorial_note": "Convocatoria oficial de temática pirata, máximo 500 caracteres. Cierra antes de las 23:59 del 17 de diciembre de 2026.",
+      "published": true
+    },
+    {
+      "id": "diversidad-abracadabra-2026",
+      "title": "I Concurso de microrrelatos «Abracadabra» 2026",
+      "type": "concurso",
+      "organizer": "Diversidad Literaria",
+      "deadline": "2026-12-17",
+      "genres": [
+        "microrrelato",
+        "fantasía"
+      ],
+      "eligibility": "Mayores de 18 años de cualquier país; una obra original e inédita, no premiada previamente.",
+      "prize": "Premio editorial y ejemplares/curso según bases; sin premio económico indicado",
+      "fee_eur": 0,
+      "submission_mode": "Formulario web oficial; texto pegado directamente y sin adjuntos.",
+      "source_url": "https://www.diversidadliteraria.com/info-concursos/concursos-microrrelatos/i-concurso-de-microrrelatos-sobre-magos-y-hechiceras--abracadabra",
+      "verified_at": "2026-10-03",
+      "editorial_note": "Convocatoria oficial sobre magos y hechiceras, máximo 500 caracteres sin contar título. Cierra a las 23:59 del 17 de diciembre de 2026.",
+      "published": true
+    },
+    {
+      "id": "biblioteca-popular-parana-2026",
+      "title": "Concurso Literario Biblioteca Popular del Paraná 2026 · Adultos",
+      "type": "concurso",
+      "organizer": "Biblioteca Popular del Paraná",
+      "deadline": "2026-10-19",
+      "genres": [
+        "cuento",
+        "relato corto"
+      ],
+      "eligibility": "Personas de cualquier país; categoría Adultos para participantes de 18 años o más. Cuento original e inédito en castellano, tema libre y máximo 800 palabras sin contar el título.",
+      "prize": "Diplomas y publicación en antología física; 10 ejemplares para el primer premio, 5 para el segundo y 3 para el tercero",
+      "fee_eur": 0,
+      "submission_mode": "Formulario oficial online. El archivo no debe incluir nombre, seudónimo ni otros datos personales; se admiten DOC, DOCX, PDF, ODT y TXT.",
+      "source_url": "https://www.bibliotecapopular.org/concurso/2026/index.shtml",
+      "verified_at": "2026-10-03",
+      "editorial_note": "Fuente oficial completa. El reglamento concede a la Biblioteca un derecho no exclusivo de reproducción, traducción, venta y difusión de las obras premiadas o con mención; los autores conservan el derecho de publicar después por otros medios.",
+      "published": true
+    },
+    {
+      "id": "ligeia-revista-numero-8-2026",
+      "title": "Revista Ligeia · Convocatoria Número 8 · Cuento",
+      "type": "manuscritos",
+      "organizer": "Ligeia Revista",
+      "deadline": "2026-10-30",
+      "genres": [
+        "cuento",
+        "narrativa",
+        "crónica",
+        "ensayo",
+        "poesía"
+      ],
+      "eligibility": "Autores de cualquier nacionalidad y país de residencia; textos en español. Para cuento, extensión máxima de 4 páginas.",
+      "prize": "Selección y publicación en el número 8 de la revista impresa/digital",
+      "fee_eur": 0,
+      "submission_mode": "Enviar Word A4, Arial 12, interlineado 1,5 y justificado a ligeiarevista@gmail.com; biografía aparte de máximo 5 líneas. Asunto: «Convocatoria Número 8». Solo una categoría por participante.",
+      "source_url": "https://ligeiarevista.empretienda.com.ar/convocatorias",
+      "verified_at": "2026-10-03",
+      "editorial_note": "Convocatoria publicada por la propia revista. La página indica expresamente que los autores seleccionados mantienen los derechos sobre sus obras.",
+      "published": true
+    },
+    {
+      "id": "premio-letras-cuento-2026",
+      "title": "II Premio Literario «Letras» 2026 · Cuento corto",
+      "type": "premio",
+      "organizer": "Fundación Santa Josefina · CelebrArt · Culto EC",
+      "deadline": "2026-10-31",
+      "genres": [
+        "cuento",
+        "fantasía",
+        "ciencia ficción",
+        "realismo mágico",
+        "suspenso",
+        "narrativa"
+      ],
+      "eligibility": "Personas mayores de 18 años de cualquier nacionalidad; una obra en español. La categoría de cuento admite tema libre para público adulto y los géneros indicados en las bases.",
+      "prize": "USD 2.000, publicación por Culto EC y cinco ejemplares impresos; finalistas previstos para una antología",
+      "fee_eur": 0,
+      "submission_mode": "Postulación exclusivamente mediante la web oficial; obra en Word, Times New Roman 12, doble espacio, páginas numeradas y sin nombre del autor en el archivo.",
+      "source_url": "https://premioscelebrart.com/premio-de-literatura-letras/",
+      "verified_at": "2026-10-03",
+      "editorial_note": "La página oficial declara cierre el 31 de octubre de 2026 en el cuerpo de las bases, aunque una tabla inferior muestra «31 de octubre de 2025», aparente errata. Las condiciones editoriales y de derechos son amplias y deben leerse íntegramente antes de participar.",
+      "published": true
+    }
+  ],
+  "watchlist": [
+    {
+      "id": "herralde-novela-2027",
+      "title": "Premio Herralde de Novela 2027",
+      "type": "premio",
+      "organizer": "Editorial Anagrama",
+      "genres": [
+        "novela"
+      ],
+      "source_url": "https://www.anagrama-ed.es/premios/herralde-de-novela/bases",
+      "verified_at": "2026-10-03",
+      "published": true,
+      "status_note": "La convocatoria 2027 está anunciada, pero la recepción todavía no ha abierto y no hay fecha límite publicada.",
+      "expected_window": "Anuncio oficial próximamente",
+      "reference_note": "La página oficial indica expresamente que el plazo de la edición actual está cerrado y que la convocatoria correspondiente a 2027 se anunciará próximamente.",
+      "editorial_note": "No presentar ningún original hasta que Anagrama publique la apertura y el formulario de la edición 2027.",
+      "watch_kind": "announced"
+    },
+    {
+      "id": "anagrama-ensayo-2027",
+      "title": "Premio Anagrama de Ensayo 2027",
+      "type": "premio",
+      "organizer": "Editorial Anagrama",
+      "genres": [
+        "ensayo"
+      ],
+      "source_url": "https://www.anagrama-ed.es/premios/anagrama-de-ensayo/bases",
+      "verified_at": "2026-10-03",
+      "published": true,
+      "status_note": "La convocatoria 2027 está anunciada, pero la recepción todavía no ha abierto y no hay fecha límite publicada.",
+      "expected_window": "Anuncio oficial próximamente",
+      "reference_note": "Las bases oficiales señalan que el plazo actual está cerrado y que la convocatoria de 2027 se anunciará próximamente.",
+      "editorial_note": "Esta ficha funciona como aviso de próxima apertura; no sustituye las futuras bases de 2027.",
+      "watch_kind": "announced"
+    },
+    {
+      "id": "cafe-gijon-2027-watch",
+      "title": "Premio Café Gijón · próxima edición",
+      "type": "premio",
+      "organizer": "Ayuntamiento de Gijón/Xixón",
+      "genres": [
+        "novela"
+      ],
+      "source_url": "https://www.gijon.es/es/eventos/premio-cafe-gijon",
+      "verified_at": "2026-10-03",
+      "published": true,
+      "watch_kind": "recurring",
+      "status_note": "La edición 2026 ya fue fallada. El Ayuntamiento mantiene la página histórica del premio, pero todavía no publica bases 2027.",
+      "expected_window": "Revisar la próxima convocatoria municipal",
+      "reference_note": "La fuente oficial documenta la edición 2026 y la trayectoria continuada del Premio Café Gijón; no se presenta una edición 2027 como abierta.",
+      "editorial_note": "Se mantiene como premio recurrente a vigilar, no como convocatoria anunciada ni abierta."
+    },
+    {
+      "id": "premio-malaga-novela-2027-watch",
+      "title": "Premio Málaga de Novela · próxima edición",
+      "type": "premio",
+      "organizer": "Ayuntamiento de Málaga",
+      "genres": [
+        "novela"
+      ],
+      "source_url": "https://cultura.malaga.eu/es/actividades-culturales/actividades-literarias/premio-malaga-de-novela/",
+      "verified_at": "2026-10-03",
+      "published": true,
+      "watch_kind": "recurring",
+      "status_note": "La XX edición 2026 cerró el 21 de julio. La página oficial describe el certamen como anual, pero aún no publica la convocatoria siguiente.",
+      "expected_window": "Vigilar la próxima convocatoria anual",
+      "reference_note": "En 2026 el Ayuntamiento dotó el premio con 25.000 € y publicación por Galaxia Gutenberg; esos datos se conservan solo como referencia de la edición cerrada.",
+      "editorial_note": "No se extrapolan automáticamente cuantía, editorial, fechas ni requisitos a una futura edición."
+    },
+    {
+      "id": "torrente-ballester-2027-watch",
+      "title": "Premio Internacional Torrente Ballester de Narrativa · próxima edición",
+      "type": "premio",
+      "organizer": "Deputación da Coruña",
+      "genres": [
+        "narrativa",
+        "novela"
+      ],
+      "source_url": "https://sede.dacoruna.gal/subtel/publica/infoconvocatorias",
+      "verified_at": "2026-10-03",
+      "published": true,
+      "watch_kind": "recurring",
+      "status_note": "La edición 2026 está en fase posterior al plazo y ya cuenta con obras preseleccionadas; todavía no consta convocatoria 2027.",
+      "expected_window": "Vigilar la siguiente convocatoria de la Deputación",
+      "reference_note": "La sede oficial documenta la 38.ª edición 2026 en castellano y gallego; el radar no presupone fechas ni condiciones de 2027.",
+      "editorial_note": "Se conserva como premio recurrente relevante para narrativa, separado de las convocatorias actualmente abiertas."
+    },
+    {
+      "id": "ciudad-badajoz-novela-2027-watch",
+      "title": "Premio Ciudad de Badajoz de Novela · próxima edición",
+      "type": "premio",
+      "organizer": "Ayuntamiento de Badajoz",
+      "genres": [
+        "novela"
+      ],
+      "source_url": "https://www.aytobadajoz.es/es/ayto/especiales/especial/59819/premios-ciudad-de-badajoz-2026",
+      "verified_at": "2026-10-03",
+      "published": true,
+      "watch_kind": "recurring",
+      "status_note": "La 30.ª edición de novela de 2026 ya cerró y tiene fallo previsto en octubre. No hay bases 2027 publicadas.",
+      "expected_window": "Revisar la siguiente edición municipal",
+      "reference_note": "La fuente oficial confirma la convocatoria anual 2026 dentro de los Premios Ciudad de Badajoz y su modalidad de novela.",
+      "editorial_note": "La próxima edición se vigila como recurrencia histórica; no se afirma que esté abierta ni que repita bases."
+    },
+    {
+      "id": "ciudad-estepona-novela-watch",
+      "title": "Premio de Novela Ciudad de Estepona · próxima edición",
+      "type": "premio",
+      "organizer": "Ayuntamiento de Estepona y Fundación Manuel Alcántara",
+      "genres": [
+        "novela"
+      ],
+      "source_url": "https://ayuntamiento.estepona.es/noticias/ariel-magnus-recibe-el-iv-premio-de-novela-ciudad-de-estepona-por-mentir-la-verdad-",
+      "verified_at": "2026-10-03",
+      "published": true,
+      "watch_kind": "recurring",
+      "status_note": "La IV edición ya fue resuelta en 2026. No se ha localizado una nueva convocatoria abierta.",
+      "expected_window": "Vigilar una eventual siguiente edición",
+      "reference_note": "La fuente municipal confirma el IV Premio de Novela Ciudad de Estepona, dotado con 25.000 € y colaboración de Pre-Textos en esa edición.",
+      "editorial_note": "La continuidad futura no se da por confirmada: esta ficha solo evita perder de vista el certamen."
+    },
+    {
+      "id": "san-silvestre-salmantina-2026-watch",
+      "title": "XIV Concurso de Microrrelatos San Silvestre Salmantina 2026",
+      "type": "concurso",
+      "organizer": "San Silvestre Salmantina",
+      "genres": [
+        "microrrelato"
+      ],
+      "source_url": "https://www.sansilvestresalmantina.com/",
+      "verified_at": "2026-10-03",
+      "published": true,
+      "status_note": "La organización anuncia en su portada el XIV Concurso de Microrrelatos para 2026, pero la página específica de bases todavía no ofrece unas condiciones 2026 verificables completas.",
+      "expected_window": "Revisar hasta que se publiquen bases y plazo específicos de la XIV edición",
+      "reference_note": "La portada oficial de la San Silvestre Salmantina identifica expresamente el XIV Concurso de Microrrelatos dentro de la edición de 2026.",
+      "editorial_note": "Se mantiene como vigilancia, no como convocatoria activa: no se inventa un deadline a partir de la edición anterior.",
+      "watch_kind": "announced"
     }
   ]
 }

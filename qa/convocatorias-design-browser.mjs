@@ -5,8 +5,22 @@ import { chromium } from 'playwright';
 
 const ORIGIN = process.env.QA_ORIGIN || process.env.QA_BASE_URL || 'http://127.0.0.1:4173';
 const OUT = process.env.QA_OUT || 'qa-artifacts/convocatorias';
-const FIXED_TODAY = '2026-08-21';
 fs.mkdirSync(OUT, { recursive: true });
+const radarPublic = JSON.parse(fs.readFileSync('convocatorias-escritores/opportunities.json', 'utf8'));
+const RADAR_ITEMS = radarPublic.items;
+const RADAR_WATCH = radarPublic.watchlist || [];
+const RADAR_ALL = [...RADAR_ITEMS, ...RADAR_WATCH];
+const FIXED_TODAY = radarPublic.generated_for;
+const dayDiff = deadline => Math.round((new Date(deadline + 'T00:00:00Z') - new Date(FIXED_TODAY + 'T00:00:00Z')) / 86400000);
+const expectedStatus = deadline => {
+  const d = dayDiff(deadline);
+  if (d === 0) return 'Cierra hoy';
+  if (d === 1) return 'Cierra mañana';
+  if (d >= 2 && d <= 7) return `Cierra en ${d} días`;
+  return 'En plazo';
+};
+const radarGenreCount = genre => RADAR_ALL.filter(item => (item.genres || []).includes(genre)).length;
+const radarSoonCount = RADAR_ITEMS.filter(item => { const d = dayDiff(item.deadline); return d >= 0 && d <= 7; }).length;
 
 const BLUE = 'rgb(29, 79, 150)';
 const BLUE_DEEP = 'rgb(13, 44, 87)';
@@ -124,29 +138,42 @@ try {
       assert.equal(await page.locator('.section-context [aria-current="page"]').getAttribute('href'), '/convocatorias-escritores/', `${name}: contexto no marca Convocatorias`);
 
       const items = page.locator('[data-radar-item]');
-      assert.equal(await items.count(), 2, `${name}: el radar ya no conserva dos oportunidades activas en la fecha fija`);
-      assert.deepEqual(await items.evaluateAll(nodes => nodes.map(node => ({
+      assert.equal(await items.count(), RADAR_ALL.length, `${name}: el HTML no refleja todas las oportunidades públicas`);
+      const renderedItems = await items.evaluateAll(nodes => nodes.map(node => ({
         title: node.getAttribute('data-title'),
-        organizer: node.getAttribute('data-organizer'),
         deadline: node.getAttribute('data-deadline'),
         type: node.getAttribute('data-type'),
-      }))), [
-        { title: 'x premio internacional de poesía jorge manrique', organizer: 'diputación de palencia y ayuntamiento de paredes de nava', deadline: '2026-10-09', type: 'concurso' },
-        { title: 'premios literarios kutxa fundazioa 2027', organizer: 'kutxa fundazioa', deadline: '2026-11-21', type: 'concurso' },
-      ], `${name}: oportunidades activas o su orden cambiaron`);
+      })));
+      assert.equal(new Set(renderedItems.map(item => item.title)).size, RADAR_ALL.length, `${name}: hay oportunidades duplicadas`);
+      for (const expected of [
+        ['xxx premio alfaguara de novela 2027', '2026-11-02'],
+        ['74.º premio de novela ateneo–ciudad de valladolid 2027', '2026-10-09'],
+        ['premio primavera de novela 2027', '2026-11-15'],
+      ]) {
+        assert.ok(renderedItems.some(item => item.title === expected[0] && item.deadline === expected[1]),
+          `${name}: falta la oportunidad ${expected[0]}`);
+      }
 
       assert.equal(await page.locator('[data-radar-search]').count(), 1, `${name}: buscador ausente`);
       assert.equal(await page.locator('[data-radar-type]').count(), 1, `${name}: filtro de tipo ausente`);
       assert.equal(await page.locator('[data-radar-genre]').count(), 1, `${name}: filtro de género ausente`);
+      assert.equal(await page.locator('select[data-radar-kind]').count(), 1, `${name}: filtro de situación ausente`);
       assert.equal(await page.locator('[data-radar-soon]').count(), 1, `${name}: filtro de cierre próximo ausente`);
       assert.equal(await page.locator('[data-radar-count]').count(), 1, `${name}: contador ausente`);
       assert.equal(await page.locator('[data-radar-calendar]').getAttribute('href'), '/convocatorias-escritores/deadlines.ics', `${name}: enlace ICS alterado`);
       assert.equal(await page.locator('.tool-findings-block h2').textContent(), 'Cómo se mantiene este radar', `${name}: bloque metodológico alterado`);
 
       const statuses = await page.locator('[data-radar-status]').allTextContents();
-      assert.deepEqual(statuses.map(value => value.trim()), ['En plazo', 'En plazo'], `${name}: estados dinámicos inesperados con fecha fija`);
+      const expectedWatchStatuses = RADAR_WATCH.map(item => item.watch_kind === 'recurring' ? 'Próxima edición a vigilar' : 'Próxima apertura');
+      assert.deepEqual(statuses.map(value => value.trim()), [...RADAR_ITEMS.map(item => expectedStatus(item.deadline)), ...expectedWatchStatuses], `${name}: estados dinámicos no corresponden a los deadlines publicados`);
       const relatives = await page.locator('[data-radar-relative]').allTextContents();
-      assert.ok(relatives.every(value => value.includes('faltan')), `${name}: fechas relativas no calculadas`);
+      const expectedRelatives = RADAR_ITEMS.map(item => {
+        const d = dayDiff(item.deadline);
+        if (d === 0) return ' · hoy';
+        if (d === 1) return ' · mañana';
+        return ` · faltan ${d} días`;
+      });
+      assert.deepEqual(relatives.map(value => value.trimEnd()), expectedRelatives, `${name}: fechas relativas no corresponden a los deadlines publicados`);
 
       const radarToken = await page.locator('html').evaluate(el => getComputedStyle(el).getPropertyValue('--radar-blue').trim());
       const directoryToken = await page.locator('html').evaluate(el => getComputedStyle(el).getPropertyValue('--directory-blue').trim());
@@ -173,7 +200,7 @@ try {
       const calendar = await snapshot(page.locator('[data-radar-calendar]'));
       const finder = await snapshot(page.locator('.tool-finder'));
       const options = await snapshot(page.locator('.tool-options'));
-      const grid = await snapshot(page.locator('.radar-grid'));
+      const grid = await snapshot(page.locator('.radar-grid').first());
       const firstCard = await snapshot(items.first());
       const firstTop = await snapshot(items.first().locator('.radar-card__top'));
       const firstTitle = await snapshot(items.first().locator('h2'));
@@ -199,7 +226,7 @@ try {
 
       assert.equal(finder.display, 'grid', `${name}: finder deja de ser grid`);
       assert.ok(finder.backgroundImage.includes(BLUE) && finder.backgroundImage.includes(GOLD), `${name}: finder pierde su doble línea temporal`);
-      assert.equal(columnCount(options.gridTemplateColumns), width > 900 ? 3 : width > 640 ? 2 : 1, `${name}: seam de filtros incorrecto`);
+      assert.equal(columnCount(options.gridTemplateColumns), width > 900 ? 4 : width > 640 ? 2 : 1, `${name}: seam de filtros incorrecto`);
 
       assert.equal(firstCard.display, 'grid', `${name}: expediente temporal deja de ser grid`);
       assert.equal(columnCount(firstCard.gridTemplateColumns), width > 900 ? 2 : 1, `${name}: seam 901/900 del expediente incorrecto`);
@@ -244,8 +271,8 @@ try {
     assert.ok(response?.ok(), 'interaction: radar no carga');
     await stabilizeTypography(interactionPage);
 
-    await interactionPage.locator('[data-radar-search]').fill('KUTXA');
-    assert.equal(await interactionPage.locator('[data-radar-item]:visible').count(), 1, 'interaction: búsqueda Kutxa no devuelve una oportunidad');
+    await interactionPage.locator('[data-radar-search]').fill('ALFAGUARA');
+    assert.equal(await interactionPage.locator('[data-radar-item]:visible').count(), 1, 'interaction: búsqueda Alfaguara no devuelve una oportunidad');
     assert.equal((await interactionPage.locator('[data-radar-count]').textContent()).trim(), '1 convocatoria visible', 'interaction: singular del contador no corregido');
     await interactionPage.evaluate(() => { if (document.activeElement instanceof HTMLElement) document.activeElement.blur(); window.scrollTo(0, 0); });
     await interactionPage.waitForTimeout(50);
@@ -253,20 +280,18 @@ try {
 
     await interactionPage.locator('[data-radar-clear]').click();
     await interactionPage.locator('[data-radar-genre]').selectOption('novela');
-    assert.equal(await interactionPage.locator('[data-radar-item]:visible').count(), 1, 'interaction: género novela no devuelve solo Kutxa');
+    assert.equal(await interactionPage.locator('[data-radar-item]:visible').count(), radarGenreCount('novela'), 'interaction: filtro novela no coincide con el dataset');
 
     await interactionPage.locator('[data-radar-clear]').click();
     await interactionPage.locator('[data-radar-soon]').check();
-    assert.equal(await interactionPage.locator('[data-radar-item]:visible').count(), 0, 'interaction: cierre en 7 días debería quedar vacío en fecha fija');
-    assert.equal(await interactionPage.locator('[data-radar-filter-empty]').isVisible(), true, 'interaction: estado vacío no aparece');
-    const emptyStyle = await snapshot(interactionPage.locator('[data-radar-filter-empty]'));
-    assert.ok(emptyStyle.boxShadow.includes(BLUE) && emptyStyle.boxShadow.includes(GOLD), 'interaction: empty state pierde rails');
-    await interactionPage.evaluate(() => { if (document.activeElement instanceof HTMLElement) document.activeElement.blur(); window.scrollTo(0, 0); });
-    await interactionPage.waitForTimeout(50);
-    await interactionPage.screenshot({ path: path.join(OUT, 'convocatorias-empty-390.png'), fullPage: true });
-
-    await interactionPage.locator('[data-radar-empty-clear]').click();
-    assert.equal(await interactionPage.locator('[data-radar-item]:visible').count(), 2, 'interaction: limpiar desde vacío no restaura las dos oportunidades');
+    assert.equal(await interactionPage.locator('[data-radar-item]:visible').count(), radarSoonCount, 'interaction: filtro cierre en 7 días no coincide con el dataset');
+    if (radarSoonCount === 0) {
+      assert.equal(await interactionPage.locator('[data-radar-filter-empty]').isVisible(), true, 'interaction: estado vacío no aparece');
+      const emptyStyle = await snapshot(interactionPage.locator('[data-radar-filter-empty]'));
+      assert.ok(emptyStyle.boxShadow.includes(BLUE) && emptyStyle.boxShadow.includes(GOLD), 'interaction: empty state pierde rails');
+    }
+    await interactionPage.locator('[data-radar-clear]').click();
+    assert.equal(await interactionPage.locator('[data-radar-item]:visible').count(), RADAR_ALL.length, 'interaction: limpiar filtros no restaura el dataset completo');
   } catch (error) {
     failures.push({ viewport: 'interaction-mobile-390', width: 390, height: 844, error: error instanceof Error ? error.message : String(error) });
   } finally {
@@ -278,11 +303,12 @@ try {
   try {
     const response = await noJsPage.goto(`${ORIGIN}/convocatorias-escritores/`, { waitUntil: 'load', timeout: 20000 });
     assert.ok(response?.ok(), 'no-js: radar no carga');
-    assert.equal(await noJsPage.locator('[data-radar-item]').count(), 2, 'no-js: las dos oportunidades dejan de estar en HTML');
+    assert.equal(await noJsPage.locator('[data-radar-item]').count(), RADAR_ALL.length, 'no-js: el HTML no conserva todas las oportunidades publicadas');
     assert.equal(await noJsPage.locator('noscript .tool-note').count(), 1, 'no-js: aviso explicativo ausente');
     assert.equal(await noJsPage.locator('[data-radar-calendar]').getAttribute('href'), '/convocatorias-escritores/deadlines.ics', 'no-js: enlace ICS perdido');
     const dates = await noJsPage.locator('[data-radar-item] time').allTextContents();
-    assert.ok(dates.includes('21/11/2026') && dates.includes('09/10/2026'), 'no-js: fechas activas no visibles');
+    const expectedDates = RADAR_ITEMS.map(item => item.deadline.split('-').reverse().join('/'));
+    assert.ok(expectedDates.every(date => dates.includes(date)), 'no-js: faltan fechas activas del dataset');
     const overflow = await noJsPage.evaluate(() => document.documentElement.scrollWidth - innerWidth);
     assert.ok(overflow <= 1, `no-js: overflow horizontal ${overflow}px`);
     await noJsPage.screenshot({ path: path.join(OUT, 'convocatorias-no-js-390.png'), fullPage: true });

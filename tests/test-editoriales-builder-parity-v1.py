@@ -48,7 +48,8 @@ expected_paths.extend(Path(f"editoriales/{record['slug']}/index.html") for recor
 
 with tempfile.TemporaryDirectory() as tmp_dir:
     tmp = Path(tmp_dir)
-    be.build(DATA, tmp, date.fromisoformat("2026-08-22"), False)
+    target_date = max(date.fromisoformat(record["verified_at"]) for record in published)
+    be.build(DATA, tmp, target_date, False)
 
     for rel in expected_paths:
         generated = (tmp / rel).read_text(encoding="utf-8")

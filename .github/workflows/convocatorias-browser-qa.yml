@@ -49,7 +49,7 @@ jobs:
         run: npx playwright install-deps chromium
 
       - name: Validate radar dataset at fixed QA date
-        run: python3 scripts/build-radar-opportunities.py --data data/radar-opportunities.json --out /tmp/convocatorias-check --today 2026-09-29 --check
+        run: python3 scripts/build-radar-opportunities.py --data data/radar-opportunities.json --out /tmp/convocatorias-check --check
 
       - name: Start local static server
         run: |
