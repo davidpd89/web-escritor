@@ -1019,6 +1019,69 @@
         "certamen",
         "plazo"
       ]
+    },
+    {
+      "id": "la-buena-letra-certamen",
+      "name": "AEF La Buena Letra — certamen literario",
+      "url": "https://labuenaletra.es/",
+      "official": true,
+      "enabled": true,
+      "keywords": [
+        "relato",
+        "certamen",
+        "plazo",
+        "premios"
+      ]
+    },
+    {
+      "id": "diversidad-microdragones",
+      "name": "Diversidad Literaria — Microdragones",
+      "url": "https://www.diversidadliteraria.com/info-concursos/microdragones",
+      "official": true,
+      "enabled": true,
+      "keywords": [
+        "microrrelato",
+        "fantasía",
+        "dragones",
+        "plazo"
+      ]
+    },
+    {
+      "id": "diversidad-luz-luna",
+      "name": "Diversidad Literaria — Luz de luna",
+      "url": "https://www.diversidadliteraria.com/info-concursos/concursos-microrrelatos/luzdeluna",
+      "official": true,
+      "enabled": true,
+      "keywords": [
+        "microrrelato",
+        "luna",
+        "plazo"
+      ]
+    },
+    {
+      "id": "diversidad-legado-manos",
+      "name": "Diversidad Literaria — El legado de sus manos",
+      "url": "https://www.diversidadliteraria.com/info-concursos/concursos-microrrelatos/concursos-abuelos",
+      "official": true,
+      "enabled": true,
+      "keywords": [
+        "microrrelato",
+        "abuelos",
+        "plazo"
+      ]
+    },
+    {
+      "id": "hesperides-cuento",
+      "name": "Ediciones Hespérides — Concurso Internacional de Cuento",
+      "url": "https://edicioneshesperides.blogspot.com/2026/05/bases-2026-del-concurso-internacional.html",
+      "official": true,
+      "enabled": true,
+      "keywords": [
+        "cuento",
+        "concurso",
+        "plazo",
+        "inscripción"
+      ]
     }
   ]
 }

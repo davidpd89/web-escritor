@@ -1,0 +1,38 @@
+name: Temporary resources final regeneration
+
+on:
+  push:
+    branches:
+      - feat/pro-resources-editoriales-convocatorias-20261002
+    paths:
+      - 'data/radar-opportunities.json'
+      - 'data/radar-sources.json'
+      - '.github/workflows/tmp-resources-final-regenerate.yml'
+
+permissions:
+  contents: write
+
+jobs:
+  regenerate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v5
+        with:
+          ref: feat/pro-resources-editoriales-convocatorias-20261002
+      - uses: actions/setup-python@v6
+        with:
+          python-version: '3.13'
+      - name: Regenerate professional resources
+        run: |
+          python3 scripts/build-editoriales.py --data data/editoriales.json --output .
+          python3 scripts/build-radar-opportunities.py --data data/radar-opportunities.json --out convocatorias-escritores
+          python3 scripts/build-sitemap.py --root . --output sitemap.xml
+          python3 scripts/build-site-shell.py --root .
+      - name: Commit generated outputs
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add editoriales/ editoriales-sitemap.xml metodologia-editorial/index.html convocatorias-escritores/ sitemap.xml mapa-del-sitio/ data/content-registry.json
+          if git diff --cached --quiet; then exit 0; fi
+          git commit -m "chore(resources): regenerate reviewed professional resources"
+          git push origin HEAD:feat/pro-resources-editoriales-convocatorias-20261002
