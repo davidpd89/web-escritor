@@ -41,6 +41,8 @@ jobs:
         run: python3 scripts/build-site-shell.py
       - name: Refresh sitemap
         run: python3 scripts/build-sitemap.py --root . --output sitemap.xml
+      - name: Stage generated HTML for Pagefind eligibility
+        run: git add editoriales/ metodologia-editorial/index.html convocatorias-escritores/ sitemap.xml
       - name: Refresh Pagefind
         run: python3 scripts/build-pagefind-index.py
       - name: Record new asset hashes
