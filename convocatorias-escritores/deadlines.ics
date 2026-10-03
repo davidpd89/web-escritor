@@ -5,6 +5,26 @@ CALSCALE:GREGORIAN
 METHOD:PUBLISH
 X-WR-CALNAME:Convocatorias para escritores
 BEGIN:VEVENT
+UID:cuarto-y-mitad-2026@davidportodiaz.com
+DTSTART;VALUE=DATE:20261006
+DTEND;VALUE=DATE:20261007
+SUMMARY:X Concurso de relatos «Cuarto y Mitad» 2026
+DESCRIPTION:Biblioteca Pública Municipal Mario Vargas Llosa · Ayuntamient
+ o de Madrid
+URL:https://www.madrid.es/portales/munimadrid/es/Inicio/El-Ayuntamiento/Con
+ vocatorias-y-proyectos-europeos/X-Concurso-de-relatos-Cuarto-y-Mitad-/?vgn
+ extchannel=fd02ae62ab37a010VgnVCM100000d90ca8c0RCRD&vgnextfmt=default&vgne
+ xtoid=482c61b3758af910VgnVCM100000891ecb1aRCRD
+END:VEVENT
+BEGIN:VEVENT
+UID:relatos-en-cadena-2026-ronda-08-oct@davidportodiaz.com
+DTSTART;VALUE=DATE:20261008
+DTEND;VALUE=DATE:20261009
+SUMMARY:XX Relatos en Cadena 2026–2027 · ronda del 8 de octubre
+DESCRIPTION:Escuela de Escritores y Cadena SER
+URL:https://escueladeescritores.com/concursos/relatos-en-cadena/
+END:VEVENT
+BEGIN:VEVENT
 UID:jorge-manrique-poesia-2026@davidportodiaz.com
 DTSTART;VALUE=DATE:20261009
 DTEND;VALUE=DATE:20261010
@@ -62,6 +82,23 @@ URL:https://www.diputaciondepalencia.es/servicios/becas-premios-concursos/x
  xii-certamen-provincial-relatos-breves-cristina-tejedor-0
 END:VEVENT
 BEGIN:VEVENT
+UID:premio-baros-relato-2026@davidportodiaz.com
+DTSTART;VALUE=DATE:20261015
+DTEND;VALUE=DATE:20261016
+SUMMARY:XVI Premio Literario BAROS 2026 · Relato
+DESCRIPTION:Fundación SEEN y Servicio de Endocrinología y Nutrición del 
+ Hospital Vall d’Hebron
+URL:https://premiobaros.org/bases/
+END:VEVENT
+BEGIN:VEVENT
+UID:fantarquia-relatos-2026@davidportodiaz.com
+DTSTART;VALUE=DATE:20261015
+DTEND;VALUE=DATE:20261016
+SUMMARY:I Certamen de Relatos Fantarquía 2026
+DESCRIPTION:Fantarquía
+URL:https://www.fantarquia.es/?page_id=428
+END:VEVENT
+BEGIN:VEVENT
 UID:elena-santiago-narrativa-2026@davidportodiaz.com
 DTSTART;VALUE=DATE:20261016
 DTEND;VALUE=DATE:20261017
@@ -78,6 +115,43 @@ SUMMARY:XXVIII Certamen de Novela Corta Ciudad de Tíjola 2027
 DESCRIPTION:Ayuntamiento de Tíjola
 URL:https://www.tijola.es/Servicios/cmsdipro/index.nsf/fiestas.xsp?document
  Id=D4256D3DC0FBDA8FC1258E480042BB53&p=Tijola
+END:VEVENT
+BEGIN:VEVENT
+UID:emt-madrid-microrrelatos-2026@davidportodiaz.com
+DTSTART;VALUE=DATE:20261016
+DTEND;VALUE=DATE:20261017
+SUMMARY:X Concurso de Microrrelatos EMT Madrid 2026 · «Yo me subí a un P
+ egaso»
+DESCRIPTION:EMT Madrid
+URL:https://www.emtmadrid.es/Noticias/El-X-Concurso-de-Microrrelatos-de-EMT
+ -Madrid-inclu.aspx
+END:VEVENT
+BEGIN:VEVENT
+UID:arqva-profundidades-2026@davidportodiaz.com
+DTSTART;VALUE=DATE:20261017
+DTEND;VALUE=DATE:20261018
+SUMMARY:III Concurso de Microrrelatos de Terror Marítimo «Profundidades»
+DESCRIPTION:Museo Nacional de Arqueología Subacuática ARQVA · Ministerio
+  de Cultura
+URL:https://www.cultura.gob.es/mnarqua/actividades/agenda/profundidades-iii
+ concurso-microrrelatos.html
+END:VEVENT
+BEGIN:VEVENT
+UID:cuentos-en-movimiento-2026@davidportodiaz.com
+DTSTART;VALUE=DATE:20261018
+DTEND;VALUE=DATE:20261019
+SUMMARY:36.º Concurso Literario «Cuentos en Movimiento» 2026
+DESCRIPTION:Cuentos en Movimiento · Chile
+URL:https://cuentosenmovimiento.cl/36-concurso-literario/
+END:VEVENT
+BEGIN:VEVENT
+UID:getafe-negro-microrrelatos-2026@davidportodiaz.com
+DTSTART;VALUE=DATE:20261019
+DTEND;VALUE=DATE:20261020
+SUMMARY:XIX Concurso de Microrrelatos Getafe Negro 2026
+DESCRIPTION:Getafe Negro · Escuela de Escritores · Ayuntamiento de Getafe
+URL:https://getafenegro.com/noticias/participa-en-el-concurso-de-microrrela
+ tos-getafe-negro-2026/
 END:VEVENT
 BEGIN:VEVENT
 UID:princesa-galiana-2026@davidportodiaz.com
@@ -98,6 +172,41 @@ URL:https://www.ehu.eus/es/web/zientzia-teknologia-fakultatea/certamen-lite
  rario-alberto-magno
 END:VEVENT
 BEGIN:VEVENT
+UID:si-los-pasillos-hablaran-2026@davidportodiaz.com
+DTSTART;VALUE=DATE:20261026
+DTEND;VALUE=DATE:20261027
+SUMMARY:I Concurso de Microrrelatos «Si los pasillos hablaran»
+DESCRIPTION:Supermercados Unide · Escuela de Escritores
+URL:https://escueladeescritores.com/concursos/si-los-pasillos-hablaran/
+END:VEVENT
+BEGIN:VEVENT
+UID:europe-direct-caceres-relato-2026@davidportodiaz.com
+DTSTART;VALUE=DATE:20261026
+DTEND;VALUE=DATE:20261027
+SUMMARY:XIX Concurso de Relato Breve Europe Direct Cáceres 2026
+DESCRIPTION:Europe Direct Cáceres · Ayuntamiento de Cáceres
+URL:https://www.ayto-caceres.es/noticias/europe-direct-caceres-duplica-la-d
+ otacion-de-sus-concursos-y-facilita-la-presentacion-digital-de-las-obras/
+END:VEVENT
+BEGIN:VEVENT
+UID:angel-sanz-briz-relatos-2026@davidportodiaz.com
+DTSTART;VALUE=DATE:20261030
+DTEND;VALUE=DATE:20261031
+SUMMARY:V Concurso de Relatos «Ángel Sanz Briz» 2026
+DESCRIPTION:Ayuntamiento de Zaragoza · Cementerio de Torrero
+URL:https://www.zaragoza.es/sede/portal/cementerios/servicio/premios-concur
+ sos/4322
+END:VEVENT
+BEGIN:VEVENT
+UID:constanti-relats-rurals-2026@davidportodiaz.com
+DTSTART;VALUE=DATE:20261030
+DTEND;VALUE=DATE:20261031
+SUMMARY:XX Premis Literaris de Constantí 2026 · Relats de Pagesia
+DESCRIPTION:Ajuntament de Constantí
+URL:https://web.constanti.cat/2026/09/02/xx-premis-literaris-de-constanti-2
+ 026-relats-de-pagesia/
+END:VEVENT
+BEGIN:VEVENT
 UID:encarna-leon-relato-2026@davidportodiaz.com
 DTSTART;VALUE=DATE:20261031
 DTEND;VALUE=DATE:20261101
@@ -107,12 +216,38 @@ URL:https://www.melilla.es/melillaportal/contenedor.jsp?codMenu=4&codMenuPN
  =601&contenido=32857&nivel=1400&seccion=s_fdoc_d4_v1.jsp&tipo=5
 END:VEVENT
 BEGIN:VEVENT
+UID:fundae-microrrelatos-talento-oct-2026@davidportodiaz.com
+DTSTART;VALUE=DATE:20261031
+DTEND;VALUE=DATE:20261101
+SUMMARY:V Concurso de Microrrelatos de Talento · octubre 2026
+DESCRIPTION:Fundae y Capital Radio
+URL:https://www.fundae.es/actualidad/gestion-del-talento-capital-radio/conc
+ urso-microrrelatos
+END:VEVENT
+BEGIN:VEVENT
+UID:argos-relato-corto-2026@davidportodiaz.com
+DTSTART;VALUE=DATE:20261031
+DTEND;VALUE=DATE:20261101
+SUMMARY:I Premio Literario ARGOS de Relato Corto 2026
+DESCRIPTION:ARGOS Cultura y Medios
+URL:https://www.argosculturaymedios.es/i-certamen-literario-argos/
+END:VEVENT
+BEGIN:VEVENT
 UID:premio-alfaguara-novela-2027@davidportodiaz.com
 DTSTART;VALUE=DATE:20261102
 DTEND;VALUE=DATE:20261103
 SUMMARY:XXX Premio Alfaguara de novela 2027
 DESCRIPTION:Editorial Alfaguara · Penguin Random House Grupo Editorial
 URL:https://premioalfaguara.com/bases-y-participacion
+END:VEVENT
+BEGIN:VEVENT
+UID:lardero-violencia-genero-relatos-2026@davidportodiaz.com
+DTSTART;VALUE=DATE:20261106
+DTEND;VALUE=DATE:20261107
+SUMMARY:IV Concurso Literario contra la Violencia de Género de Lardero
+DESCRIPTION:Ayuntamiento de Lardero
+URL:https://www.aytolardero.org/iv-concurso-literario-contra-la-violencia-d
+ e-genero/
 END:VEVENT
 BEGIN:VEVENT
 UID:premio-primavera-novela-2027@davidportodiaz.com
@@ -143,6 +278,41 @@ URL:https://www.plataformaeditorial.com/premio-literario/1/1/11010/2-edicio
  n-premio-literario-vidas-que-inspiran-fundacion-mapfre
 END:VEVENT
 BEGIN:VEVENT
+UID:tu-historia-en-pantalla-2026@davidportodiaz.com
+DTSTART;VALUE=DATE:20261115
+DTEND;VALUE=DATE:20261116
+SUMMARY:Concurso «Tu historia en pantalla» 2026
+DESCRIPTION:Kasa Vela Producciones
+URL:https://www.somoskasavela.com/convocatorias/tu-historia-en-pantalla
+END:VEVENT
+BEGIN:VEVENT
+UID:oxfam-castello-microrrelatos-2026@davidportodiaz.com
+DTSTART;VALUE=DATE:20261118
+DTEND;VALUE=DATE:20261119
+SUMMARY:VI Concurso de Microrrelatos Oxfam Intermón Castelló 2026
+DESCRIPTION:Oxfam Intermón Castelló
+URL:https://www.oxfamintermon.org/vi-concurso-microrrelatos-castello-vivien
+ da
+END:VEVENT
+BEGIN:VEVENT
+UID:cross-atapuerca-microrrelatos-2026@davidportodiaz.com
+DTSTART;VALUE=DATE:20261123
+DTEND;VALUE=DATE:20261124
+SUMMARY:XVI Certamen Internacional de Microrrelatos «Cross de Atapuerca»
+DESCRIPTION:Instituto Provincial para el Deporte y Juventud · Diputación 
+ de Burgos
+URL:https://www.crossatapuerca.com/nw/microrrelatos/
+END:VEVENT
+BEGIN:VEVENT
+UID:santa-olalla-alvar-gomez-2026@davidportodiaz.com
+DTSTART;VALUE=DATE:20261124
+DTEND;VALUE=DATE:20261125
+SUMMARY:XII Certamen de Relato Corto «Alvar Gómez de Castro» 2026
+DESCRIPTION:Ayuntamiento de Santa Olalla
+URL:https://santaolalla.es/index.php/62-noticias/noticias-generales/2522-xi
+ i-concursos-culturales-de-santa-olalla-2026-fotografia-poesia-relato-corto
+END:VEVENT
+BEGIN:VEVENT
 UID:premio-azorin-novela-2027@davidportodiaz.com
 DTSTART;VALUE=DATE:20261130
 DTEND;VALUE=DATE:20261201
@@ -158,5 +328,22 @@ DTEND;VALUE=DATE:20261201
 SUMMARY:XXXIV Certamen de Novela Corta «José Luis Castillo-Puche»
 DESCRIPTION:AMPA e IES José Luis Castillo-Puche · Yecla
 URL:https://www.iescastillopuche.net/novela/bases.html
+END:VEVENT
+BEGIN:VEVENT
+UID:sant-boi-negre-relato-2026@davidportodiaz.com
+DTSTART;VALUE=DATE:20261210
+DTEND;VALUE=DATE:20261211
+SUMMARY:V Concurso de Relato Breve «Sant Boi Negre»
+DESCRIPTION:Sant Boi Negre
+URL:https://santboinegre.es/concurso/
+END:VEVENT
+BEGIN:VEVENT
+UID:ilustre-fregona-zahara-2026@davidportodiaz.com
+DTSTART;VALUE=DATE:20261215
+DTEND;VALUE=DATE:20261216
+SUMMARY:VIII Concurso de Relatos Cortos «La Ilustre Fregona» 2026
+DESCRIPTION:Ayuntamiento de Zahara de los Atunes
+URL:https://www.turismozahara.com/blog/bases-concursos-literarios-de-narrat
+ iva-y-poesia
 END:VEVENT
 END:VCALENDAR

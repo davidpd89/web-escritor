@@ -432,6 +432,51 @@
     },
     {
       "publish": true,
+      "slug": "editorial-andromeda",
+      "name": "Editorial Andrómeda",
+      "group": "Editorial Andrómeda",
+      "publisher_type": "tradicional",
+      "country": "España",
+      "genres": [
+        "romantasy",
+        "fantasía oscura",
+        "romance",
+        "dark romance"
+      ],
+      "status": "open",
+      "direct_submission": true,
+      "submission_channel": "Formulario oficial de recepción de manuscritos",
+      "submission_email": null,
+      "submission_url": "https://editorialandromeda.es/manuscritos/",
+      "website_url": "https://editorialandromeda.es/",
+      "requirements": [
+        "Obra en castellano de entre 40.000 y 150.000 palabras.",
+        "Autor o autora mayor de edad y residente en España.",
+        "Manuscrito con interlineado 1,5 y tipografía Times New Roman.",
+        "Propuesta editorial con datos técnicos, sinopsis comercial, resumen completo y biografía."
+      ],
+      "response_time": "La editorial indica que, si no hay respuesta en seis meses, el manuscrito puede considerarse rechazado.",
+      "summary": "Editorial Andrómeda mantiene abierta la recepción de novelas de romantasy, fantasía oscura y romance mediante un formulario y una propuesta editorial estructurada.",
+      "public_note": "La editorial admite obras inéditas y también obras previamente publicadas en plataformas, siempre que se declare esa circunstancia.",
+      "verified_at": "2026-10-03",
+      "page_updated_at": "2026-10-03",
+      "sources": [
+        {
+          "label": "Editorial Andrómeda — manuscritos",
+          "url": "https://editorialandromeda.es/manuscritos/",
+          "primary": true
+        }
+      ],
+      "history": [
+        {
+          "date": "2026-10-03",
+          "event": "Comprobada la recepción abierta, los géneros admitidos y los requisitos de la propuesta editorial en la fuente oficial.",
+          "source_url": "https://editorialandromeda.es/manuscritos/"
+        }
+      ]
+    },
+    {
+      "publish": true,
       "slug": "editorial-barrett",
       "name": "Editorial Barrett",
       "group": "Editorial Barrett",
@@ -888,6 +933,51 @@
           "date": "2026-10-02",
           "event": "Comprobado el estado público de recepción, el canal disponible y las condiciones publicadas por la editorial.",
           "source_url": "https://www.harpercollinsiberica.com/pages/envio-de-manuscritos"
+        }
+      ]
+    },
+    {
+      "publish": true,
+      "slug": "la-consentida-editorial",
+      "name": "La Consentida Editorial",
+      "group": "La Consentida Editorial",
+      "publisher_type": "tradicional",
+      "country": "España",
+      "genres": [
+        "novela",
+        "relato",
+        "poesía",
+        "ensayo",
+        "teatro"
+      ],
+      "status": "open",
+      "direct_submission": true,
+      "submission_channel": "Correo específico de manuscritos publicado en la web oficial",
+      "submission_email": "manuscritoslaconsentida@gmail.com",
+      "submission_url": "https://laconsentidaeditorial.es/contacto/",
+      "website_url": "https://laconsentidaeditorial.es/",
+      "requirements": [
+        "Enviar la propuesta por el correo de manuscritos publicado por la editorial.",
+        "Comprobar catálogo y colecciones para asegurar el encaje antes del envío.",
+        "Revalidar en la página oficial cualquier requisito adicional de formato."
+      ],
+      "response_time": null,
+      "summary": "La Consentida Editorial declara un modelo editorial tradicional y publica un correo específico para la recepción de manuscritos, con catálogo de novela, relato, poesía, ensayo y teatro.",
+      "public_note": "La editorial afirma que no cobra al autor por publicar; esta ficha solo documenta el canal público y no sustituye la lectura de un eventual contrato.",
+      "verified_at": "2026-10-03",
+      "page_updated_at": "2026-10-03",
+      "sources": [
+        {
+          "label": "La Consentida Editorial — contacto y manuscritos",
+          "url": "https://laconsentidaeditorial.es/contacto/",
+          "primary": true
+        }
+      ],
+      "history": [
+        {
+          "date": "2026-10-03",
+          "event": "Comprobados en la web oficial el correo específico de manuscritos y la declaración de modelo editorial tradicional.",
+          "source_url": "https://laconsentidaeditorial.es/contacto/"
         }
       ]
     },
@@ -1360,6 +1450,51 @@
     },
     {
       "publish": true,
+      "slug": "oz-editorial",
+      "name": "Oz Editorial",
+      "group": "Oz Editorial",
+      "publisher_type": "tradicional",
+      "country": "España",
+      "genres": [
+        "fantasía",
+        "ciencia ficción",
+        "distopía",
+        "juvenil"
+      ],
+      "status": "open",
+      "direct_submission": true,
+      "submission_channel": "Correo electrónico oficial para envío de originales",
+      "submission_email": "info@ozeditorial.com",
+      "submission_url": "https://ozeditorial.com/informacion/8-envio-de-manuscritos",
+      "website_url": "https://ozeditorial.com/",
+      "requirements": [
+        "Manuscrito completo en formato Word o PDF.",
+        "Sinopsis de la obra.",
+        "Biografía del autor o autora.",
+        "La propuesta debe encajar con la línea editorial antes de enviarse."
+      ],
+      "response_time": "Oz Editorial indica que la valoración puede tardar de tres a seis meses; pasado ese plazo sin respuesta, la propuesta puede considerarse descartada.",
+      "summary": "Oz Editorial publica fantasía, distopía, ciencia ficción y literatura juvenil y mantiene una página oficial con un canal directo para valorar manuscritos completos.",
+      "public_note": "La editorial pide manuscrito completo, sinopsis y biografía; las propuestas incompletas no pasan a valoración editorial.",
+      "verified_at": "2026-10-03",
+      "page_updated_at": "2026-10-03",
+      "sources": [
+        {
+          "label": "Oz Editorial — envío de manuscritos",
+          "url": "https://ozeditorial.com/informacion/8-envio-de-manuscritos",
+          "primary": true
+        }
+      ],
+      "history": [
+        {
+          "date": "2026-10-03",
+          "event": "Comprobada en la web oficial la recepción de originales, los documentos exigidos y el plazo orientativo de respuesta.",
+          "source_url": "https://ozeditorial.com/informacion/8-envio-de-manuscritos"
+        }
+      ]
+    },
+    {
+      "publish": true,
       "slug": "pepitas-de-calabaza",
       "name": "Pepitas de calabaza",
       "group": "Pepitas de calabaza",
@@ -1775,6 +1910,49 @@
     },
     {
       "publish": true,
+      "slug": "viento-norte-editorial",
+      "name": "Viento Norte Editorial",
+      "group": "Viento Norte Editorial",
+      "publisher_type": "tradicional",
+      "country": "España",
+      "genres": [
+        "narrativa",
+        "novela contemporánea"
+      ],
+      "status": "open",
+      "direct_submission": true,
+      "submission_channel": "Canal de manuscritos publicado en la página oficial",
+      "submission_email": null,
+      "submission_url": "https://vientonorteeditorial.com/manuscritos/",
+      "website_url": "https://vientonorteeditorial.com/",
+      "requirements": [
+        "Manuscrito completo e inédito.",
+        "Extensión aproximada entre 40.000 y 80.000 palabras.",
+        "Autor o autora mayor de edad y residente en España.",
+        "Presentación breve de la obra, sinopsis y biografía."
+      ],
+      "response_time": null,
+      "summary": "Viento Norte Editorial se presenta como editorial tradicional y mantiene abierta la recepción de novelas inéditas, con una línea actual centrada en narrativa fuera de varios géneros comerciales y fantásticos.",
+      "public_note": "La página oficial excluye expresamente, en la ventana actual, ciencia ficción, terror, fantasía, romántica, erótica, infantil, juvenil, thriller y novela negra.",
+      "verified_at": "2026-10-03",
+      "page_updated_at": "2026-10-03",
+      "sources": [
+        {
+          "label": "Viento Norte Editorial — manuscritos",
+          "url": "https://vientonorteeditorial.com/manuscritos/",
+          "primary": true
+        }
+      ],
+      "history": [
+        {
+          "date": "2026-10-03",
+          "event": "Comprobados el estado abierto, la franja de extensión y las exclusiones de género publicadas en la página oficial.",
+          "source_url": "https://vientonorteeditorial.com/manuscritos/"
+        }
+      ]
+    },
+    {
+      "publish": true,
       "slug": "gigamesh",
       "name": "Ediciones Gigamesh",
       "group": "Gigamesh",
@@ -1957,6 +2135,49 @@
     },
     {
       "publish": true,
+      "slug": "crononauta",
+      "name": "Crononauta",
+      "group": "Asociación Cultural Crononauta",
+      "publisher_type": "tradicional",
+      "country": "España",
+      "genres": [
+        "ciencia ficción",
+        "fantasía",
+        "terror",
+        "ficción especulativa"
+      ],
+      "status": "closed",
+      "direct_submission": false,
+      "submission_channel": "Recepción de manuscritos cerrada",
+      "submission_email": null,
+      "submission_url": "https://shop.crononauta.es/pages/contact",
+      "website_url": "https://shop.crononauta.es/",
+      "requirements": [
+        "No enviar manuscritos mientras la página oficial mantenga la recepción cerrada.",
+        "Consultar posibles premios o convocatorias específicas cuando la asociación los anuncie."
+      ],
+      "response_time": null,
+      "summary": "Crononauta es una asociación editorial especializada en ciencia ficción, fantasía y terror con perspectiva de género; su página oficial de contacto declara cerrada la recepción de manuscritos.",
+      "public_note": "El cierre general no impide que existan certámenes específicos, pero esos procesos deben tratarse como convocatorias separadas y no como buzón abierto.",
+      "verified_at": "2026-10-03",
+      "page_updated_at": "2026-10-03",
+      "sources": [
+        {
+          "label": "Crononauta — contacto oficial",
+          "url": "https://shop.crononauta.es/pages/contact",
+          "primary": true
+        }
+      ],
+      "history": [
+        {
+          "date": "2026-10-03",
+          "event": "Comprobado en la página oficial de contacto que no se están valorando manuscritos recibidos por correo ni por formulario general.",
+          "source_url": "https://shop.crononauta.es/pages/contact"
+        }
+      ]
+    },
+    {
+      "publish": true,
       "slug": "duermevela-ediciones",
       "name": "Duermevela Ediciones",
       "group": "Independiente",
@@ -1994,6 +2215,50 @@
           "date": "2026-08-17",
           "event": "Comprobada la recepción de manuscritos como cerrada; la web anuncia una futura reapertura sin fecha concreta.",
           "source_url": "https://www.duermevelaediciones.es/manuscritos/"
+        }
+      ]
+    },
+    {
+      "publish": true,
+      "slug": "ediciones-kiwi-edk",
+      "name": "Ediciones Kiwi · EDK bookverse",
+      "group": "EDK bookverse",
+      "publisher_type": "tradicional",
+      "country": "España",
+      "genres": [
+        "romance",
+        "romantasy",
+        "fantasía",
+        "juvenil",
+        "new adult"
+      ],
+      "status": "closed",
+      "direct_submission": false,
+      "submission_channel": "Recepción de manuscritos cerrada en el portal corporativo",
+      "submission_email": null,
+      "submission_url": "https://www.edkbookverse.com/",
+      "website_url": "https://www.edkbookverse.com/",
+      "requirements": [
+        "No enviar manuscritos mientras el FAQ corporativo mantenga la recepción cerrada.",
+        "Esperar una nueva apertura y comprobar qué sello y cauce estén habilitados en ese momento."
+      ],
+      "response_time": null,
+      "summary": "EDK bookverse agrupa sellos como Ediciones Kiwi y publica narrativa juvenil, romance y fantasía, pero su FAQ corporativa indica actualmente que la recepción de manuscritos está cerrada.",
+      "public_note": "No se reutilizan direcciones antiguas de envío: el grupo pide expresamente consultar la web para conocer la próxima apertura.",
+      "verified_at": "2026-10-03",
+      "page_updated_at": "2026-10-03",
+      "sources": [
+        {
+          "label": "EDK bookverse — web corporativa y FAQ de manuscritos",
+          "url": "https://www.edkbookverse.com/",
+          "primary": true
+        }
+      ],
+      "history": [
+        {
+          "date": "2026-10-03",
+          "event": "Comprobado en el FAQ corporativo que la recepción de manuscritos está cerrada y que una futura apertura se anunciará en la web.",
+          "source_url": "https://www.edkbookverse.com/"
         }
       ]
     },
@@ -2481,6 +2746,56 @@
           "date": "2026-08-19",
           "event": "Comprobado el estado público de recepción, el canal disponible y las condiciones publicadas por la editorial.",
           "source_url": "https://www.orcinypress.com/contacto/"
+        }
+      ]
+    },
+    {
+      "publish": true,
+      "slug": "pato-ediciones",
+      "name": "Pato Ediciones",
+      "group": "Pato Ediciones",
+      "publisher_type": "tradicional",
+      "country": "España",
+      "genres": [
+        "fantasía",
+        "ciencia ficción",
+        "romance",
+        "terror",
+        "juvenil",
+        "new adult"
+      ],
+      "status": "closed",
+      "direct_submission": false,
+      "submission_channel": "Recepción general de manuscritos cerrada",
+      "submission_email": null,
+      "submission_url": "https://patoediciones.com/manuscritos/",
+      "website_url": "https://patoediciones.com/",
+      "requirements": [
+        "No enviar manuscritos narrativos mientras la página oficial mantenga la recepción cerrada.",
+        "Cuando reabra, volver a comprobar extensión, documentos y formulario antes de preparar el envío."
+      ],
+      "response_time": null,
+      "summary": "Pato Ediciones publica principalmente narrativa juvenil y new adult de fantasía, ciencia ficción, romance y terror, pero su página específica marca actualmente cerrada la recepción general de manuscritos.",
+      "public_note": "Aunque otras zonas de la web puedan conservar llamadas antiguas, la página específica de manuscritos es la referencia usada aquí para el estado actual.",
+      "verified_at": "2026-10-03",
+      "page_updated_at": "2026-10-03",
+      "sources": [
+        {
+          "label": "Pato Ediciones — manuscritos",
+          "url": "https://patoediciones.com/manuscritos/",
+          "primary": true
+        },
+        {
+          "label": "Pato Ediciones — web oficial",
+          "url": "https://patoediciones.com/",
+          "primary": true
+        }
+      ],
+      "history": [
+        {
+          "date": "2026-10-03",
+          "event": "Comprobado que la página específica de manuscritos declara cerrada la recepción general y conserva requisitos para futuras aperturas.",
+          "source_url": "https://patoediciones.com/manuscritos/"
         }
       ]
     },
