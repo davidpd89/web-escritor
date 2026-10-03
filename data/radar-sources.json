@@ -1177,6 +1177,46 @@
         "bases",
         "plazo"
       ]
+    },
+    {
+      "id": "terbi-certamen-relato",
+      "name": "TerBi — Certamen de Relato Temático",
+      "url": "https://notcf.blogspot.com/2026/05/bases-del-xvi-certamen-terbi-de-relato.html",
+      "official": true,
+      "enabled": true,
+      "keywords": [
+        "relato",
+        "ciencia ficción",
+        "fantasía",
+        "terror",
+        "plazo"
+      ]
+    },
+    {
+      "id": "coruna-educando-violencia",
+      "name": "Información Juvenil A Coruña — Educando contra la Violencia",
+      "url": "https://www.coruna.gal/informacionjuvenil/es/convocatorias/concursos-y-premios?argIdioma=es&argPag=2&categoriaID=1220003419689",
+      "official": true,
+      "enabled": true,
+      "keywords": [
+        "relato",
+        "violencia",
+        "concurso",
+        "plazo"
+      ]
+    },
+    {
+      "id": "san-silvestre-salmantina-relatos",
+      "name": "San Silvestre Salmantina — microrrelatos",
+      "url": "https://www.sansilvestresalmantina.com/",
+      "official": true,
+      "enabled": true,
+      "keywords": [
+        "microrrelatos",
+        "concurso",
+        "bases",
+        "plazo"
+      ]
     }
   ]
 }

@@ -1076,10 +1076,11 @@
         "narrativa breve",
         "gallego"
       ],
-      "eligibility": "Consultar las bases municipales de la XXI edición para categoría, idioma, extensión y demás requisitos antes de presentar.",
-      "submission_mode": "Presentación conforme a las bases oficiales publicadas por el Concello de Curtis.",
-      "source_url": "https://www.curtis.gal/index.php/es/noticias/5174-bases-do-xxi-certame-de-narrativa-curta-do-concello-de-curtis-o-exame",
-      "editorial_note": "La convocatoria existe en la web municipal. Se publica con requisitos prudentes y remisión a las bases para no inventar condiciones no visibles en el resumen."
+      "eligibility": "Categoría adulta para mayores de 18 años de cualquier procedencia; texto original, inédito y no premiado, escrito en gallego, de 3.000 a 5.000 caracteres. Las personas participantes se comprometen a no emplear sistemas basados en IA en la totalidad de la escritura del relato.",
+      "submission_mode": "Envío en formato Word al correo relatoscurtis@gmail.com, conforme a las bases municipales.",
+      "source_url": "https://www.coruna.gal/informacionxuvenil/gl/convocatorias/concursos-e-premios/detalle-concursos/xxi-certame-de-narrativa-curta-o-exame/suceso/1453918739931",
+      "editorial_note": "La ficha institucional de Información Xuvenil de A Coruña reproduce los requisitos, premios, contacto y plazo de la convocatoria municipal.",
+      "prize": "Categoría adulta: 700 € primer premio y 300 € segundo; existe además un premio local de 700 €"
     },
     {
       "published": true,
@@ -1603,6 +1604,45 @@
       "verified_at": "2026-10-03",
       "editorial_note": "La web oficial confirma la II edición y el cierre el 31 de octubre de 2026. Antes del envío debe revisarse el PDF de bases para comprobar el correo, formato y derechos exactos.",
       "published": true
+    },
+    {
+      "id": "terbi-humor-cosmico-2026",
+      "title": "XVI Certamen TerBi de Relato Temático «Humor Cósmico» 2026",
+      "type": "concurso",
+      "organizer": "TerBi · Asociación Vasca de Ciencia Ficción, Fantasía y Terror",
+      "deadline": "2026-11-01",
+      "genres": [
+        "relato",
+        "ciencia ficción",
+        "fantasía",
+        "terror"
+      ],
+      "eligibility": "Personas mayores de edad; relato original e inédito en castellano, no premiado ni pendiente de resolución en otro premio, encuadrado en ciencia ficción, fantasía o terror y centrado en el tema «Humor cósmico».",
+      "prize": null,
+      "fee_eur": null,
+      "submission_mode": "Presentación conforme a las bases publicadas por el promotor; revisar en la fuente oficial el formato y la dirección de envío antes de remitir el relato.",
+      "source_url": "https://notcf.blogspot.com/2026/05/bases-del-xvi-certamen-terbi-de-relato.html",
+      "verified_at": "2026-10-03",
+      "editorial_note": "Las bases del promotor fijan el 1 de noviembre de 2026 como fecha final y exigen que el relato se ajuste de forma sustantiva al tema «Humor cósmico».",
+      "published": true
+    },
+    {
+      "id": "educando-contra-violencia-2026",
+      "title": "X Concurso «Educando contra la Violencia: El silencio que gritaba» 2026",
+      "type": "concurso",
+      "organizer": "Thaderconsumo · ACUM · Región de Murcia",
+      "deadline": "2026-10-31",
+      "genres": [
+        "relato corto"
+      ],
+      "eligibility": "Relato original e inédito en castellano, a doble espacio y Times New Roman 12, relacionado con la erradicación de la violencia —especialmente la de género— y con un máximo de 550 palabras, título excluido.",
+      "prize": "Categoría adulta: 350 € primer premio y lote de libros para la persona finalista",
+      "fee_eur": null,
+      "submission_mode": "Envío conforme a las bases del certamen; el directorio institucional publica como contacto del concurso educandocontralaviolencia@gmail.com.",
+      "source_url": "https://www.coruna.gal/informacionjuvenil/es/convocatorias/concursos-y-premios?argIdioma=es&argPag=2&categoriaID=1220003419689",
+      "verified_at": "2026-10-03",
+      "editorial_note": "Información Juvenil del Ayuntamiento de A Coruña recoge la edición 2026, el cierre el 31 de octubre, extensión, formato y premios; Thaderconsumo confirma que el X concurso está en marcha.",
+      "published": true
     }
   ],
   "watchlist": [
@@ -1725,6 +1765,23 @@
       "expected_window": "Vigilar una eventual siguiente edición",
       "reference_note": "La fuente municipal confirma el IV Premio de Novela Ciudad de Estepona, dotado con 25.000 € y colaboración de Pre-Textos en esa edición.",
       "editorial_note": "La continuidad futura no se da por confirmada: esta ficha solo evita perder de vista el certamen."
+    },
+    {
+      "id": "san-silvestre-salmantina-2026-watch",
+      "title": "XIV Concurso de Microrrelatos San Silvestre Salmantina 2026",
+      "type": "concurso",
+      "organizer": "San Silvestre Salmantina",
+      "genres": [
+        "microrrelato"
+      ],
+      "source_url": "https://www.sansilvestresalmantina.com/",
+      "verified_at": "2026-10-03",
+      "published": true,
+      "status_note": "La organización anuncia en su portada el XIV Concurso de Microrrelatos para 2026, pero la página específica de bases todavía no ofrece unas condiciones 2026 verificables completas.",
+      "expected_window": "Revisar hasta que se publiquen bases y plazo específicos de la XIV edición",
+      "reference_note": "La portada oficial de la San Silvestre Salmantina identifica expresamente el XIV Concurso de Microrrelatos dentro de la edición de 2026.",
+      "editorial_note": "Se mantiene como vigilancia, no como convocatoria activa: no se inventa un deadline a partir de la edición anterior.",
+      "watch_kind": "announced"
     }
   ]
 }

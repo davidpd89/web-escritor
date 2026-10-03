@@ -3151,6 +3151,168 @@
         "buscar-editorial"
       ],
       "sourceFile": "editoriales/altamarea-ediciones/index.html"
+    },
+    {
+      "id": "editorial-editorial-comba",
+      "url": "/editoriales/editorial-comba/",
+      "label": "Editorial Comba",
+      "shortLabel": "Editorial Comba",
+      "type": "directory",
+      "territory": "herramientas",
+      "parentId": "editorials-hub",
+      "hubId": "tools-hub",
+      "discoverability": "contextual",
+      "audience": [
+        "writer"
+      ],
+      "jobs": [
+        "buscar-editorial"
+      ],
+      "sourceFile": "editoriales/editorial-comba/index.html"
+    },
+    {
+      "id": "editorial-jekyll-jill",
+      "url": "/editoriales/jekyll-jill/",
+      "label": "Jekyll & Jill",
+      "shortLabel": "Jekyll & Jill",
+      "type": "directory",
+      "territory": "herramientas",
+      "parentId": "editorials-hub",
+      "hubId": "tools-hub",
+      "discoverability": "contextual",
+      "audience": [
+        "writer"
+      ],
+      "jobs": [
+        "buscar-editorial"
+      ],
+      "sourceFile": "editoriales/jekyll-jill/index.html"
+    },
+    {
+      "id": "editorial-malas-tierras-editorial",
+      "url": "/editoriales/malas-tierras-editorial/",
+      "label": "Malas Tierras Editorial",
+      "shortLabel": "Malas Tierras Editorial",
+      "type": "directory",
+      "territory": "herramientas",
+      "parentId": "editorials-hub",
+      "hubId": "tools-hub",
+      "discoverability": "contextual",
+      "audience": [
+        "writer"
+      ],
+      "jobs": [
+        "buscar-editorial"
+      ],
+      "sourceFile": "editoriales/malas-tierras-editorial/index.html"
+    },
+    {
+      "id": "editorial-kailas-editorial",
+      "url": "/editoriales/kailas-editorial/",
+      "label": "Kailas Editorial",
+      "shortLabel": "Kailas Editorial",
+      "type": "directory",
+      "territory": "herramientas",
+      "parentId": "editorials-hub",
+      "hubId": "tools-hub",
+      "discoverability": "contextual",
+      "audience": [
+        "writer"
+      ],
+      "jobs": [
+        "buscar-editorial"
+      ],
+      "sourceFile": "editoriales/kailas-editorial/index.html"
+    },
+    {
+      "id": "editorial-grupo-editorial-sial-pigmalion",
+      "url": "/editoriales/grupo-editorial-sial-pigmalion/",
+      "label": "Grupo Editorial Sial Pigmalión",
+      "shortLabel": "Grupo Editorial Sial Pigmalión",
+      "type": "directory",
+      "territory": "herramientas",
+      "parentId": "editorials-hub",
+      "hubId": "tools-hub",
+      "discoverability": "contextual",
+      "audience": [
+        "writer"
+      ],
+      "jobs": [
+        "buscar-editorial"
+      ],
+      "sourceFile": "editoriales/grupo-editorial-sial-pigmalion/index.html"
+    },
+    {
+      "id": "editorial-editorial-amarante",
+      "url": "/editoriales/editorial-amarante/",
+      "label": "Editorial Amarante",
+      "shortLabel": "Editorial Amarante",
+      "type": "directory",
+      "territory": "herramientas",
+      "parentId": "editorials-hub",
+      "hubId": "tools-hub",
+      "discoverability": "contextual",
+      "audience": [
+        "writer"
+      ],
+      "jobs": [
+        "buscar-editorial"
+      ],
+      "sourceFile": "editoriales/editorial-amarante/index.html"
+    },
+    {
+      "id": "editorial-aristas-martinez",
+      "url": "/editoriales/aristas-martinez/",
+      "label": "Aristas Martínez",
+      "shortLabel": "Aristas Martínez",
+      "type": "directory",
+      "territory": "herramientas",
+      "parentId": "editorials-hub",
+      "hubId": "tools-hub",
+      "discoverability": "contextual",
+      "audience": [
+        "writer"
+      ],
+      "jobs": [
+        "buscar-editorial"
+      ],
+      "sourceFile": "editoriales/aristas-martinez/index.html"
+    },
+    {
+      "id": "editorial-ediciones-vestigio",
+      "url": "/editoriales/ediciones-vestigio/",
+      "label": "Ediciones Vestigio",
+      "shortLabel": "Ediciones Vestigio",
+      "type": "directory",
+      "territory": "herramientas",
+      "parentId": "editorials-hub",
+      "hubId": "tools-hub",
+      "discoverability": "contextual",
+      "audience": [
+        "writer"
+      ],
+      "jobs": [
+        "buscar-editorial"
+      ],
+      "sourceFile": "editoriales/ediciones-vestigio/index.html"
+    },
+    {
+      "id": "editorial-editorial-almadia",
+      "url": "/editoriales/editorial-almadia/",
+      "label": "Editorial Almadía",
+      "shortLabel": "Editorial Almadía",
+      "type": "directory",
+      "territory": "herramientas",
+      "parentId": "editorials-hub",
+      "hubId": "tools-hub",
+      "discoverability": "contextual",
+      "audience": [
+        "writer"
+      ],
+      "jobs": [
+        "buscar-editorial"
+      ],
+      "sourceFile": "editoriales/editorial-almadia/index.html"
     }
   ]
 }
