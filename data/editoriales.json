@@ -5635,6 +5635,248 @@
           "primary": true
         }
       ]
+    },
+    {
+      "publish": true,
+      "slug": "atlantic-books",
+      "name": "Atlantic Books",
+      "group": "Atlantic Books · incluye sellos en español como Íbera Ediciones",
+      "publisher_type": "grupo editorial · condiciones contractuales a revisar",
+      "country": "España",
+      "genres": [
+        "ficción",
+        "narrativa",
+        "ensayo",
+        "poesía",
+        "no ficción",
+        "literatura infantil"
+      ],
+      "status": "open",
+      "direct_submission": true,
+      "submission_channel": "Correo electrónico específico para manuscritos de autores residentes en España",
+      "submission_email": "manuscritosespana@atlanticbooks.es",
+      "submission_url": "https://atlanticbooks.es/es/envio-o-de-manuscritos",
+      "website_url": "https://atlanticbooks.es/es/",
+      "requirements": [
+        "Enviar el manuscrito al correo específico para autores residentes en España.",
+        "Acompañar el original de una breve biografía.",
+        "La editorial no publica límites mínimos o máximos de páginas ni un formato tipográfico obligatorio para el análisis.",
+        "Antes de aceptar una propuesta, revisar íntegramente las condiciones económicas y contractuales aplicables al proyecto."
+      ],
+      "response_time": "Atlantic Books indica que contacta con el autor en un plazo máximo de 10 días para comunicar los siguientes pasos o el descarte.",
+      "summary": "Atlantic Books agrupa varios sellos y mantiene una vía pública y específica para que autores residentes en España envíen manuscritos, con criterios de evaluación y plazo de respuesta publicados.",
+      "public_note": "La página de recepción describe el proceso de evaluación, pero esta ficha no presupone un modelo contractual concreto ni ausencia de aportaciones económicas: esas condiciones deben comprobarse antes de aceptar cualquier propuesta.",
+      "verified_at": "2026-10-03",
+      "page_updated_at": "2026-10-03",
+      "sources": [
+        {
+          "label": "Atlantic Books — envío de manuscritos",
+          "url": "https://atlanticbooks.es/es/envio-o-de-manuscritos",
+          "primary": true
+        },
+        {
+          "label": "Atlantic Books — editoriales y catálogo",
+          "url": "https://atlanticbooks.es/es/editoriales",
+          "primary": true
+        }
+      ],
+      "history": [
+        {
+          "date": "2026-10-03",
+          "event": "Comprobada la recepción activa de manuscritos para España, el correo específico, el plazo de respuesta y los criterios generales publicados.",
+          "source_url": "https://atlanticbooks.es/es/envio-o-de-manuscritos"
+        }
+      ]
+    },
+    {
+      "publish": true,
+      "slug": "faeris",
+      "name": "Faeris",
+      "group": "Grupo Anaya",
+      "publisher_type": "tradicional",
+      "country": "España",
+      "genres": [
+        "fantasía",
+        "romantasy",
+        "dark academia",
+        "young adult",
+        "new adult"
+      ],
+      "status": "unknown",
+      "direct_submission": false,
+      "submission_channel": "No se ha verificado un canal público específico de originales para el sello",
+      "submission_email": null,
+      "submission_url": "https://www.grupoanaya.es/editoriales/faeris",
+      "website_url": "https://www.grupoanaya.es/editoriales/faeris",
+      "requirements": [
+        "El sello está activo y especializado en fantasía comercial, romantasy, dark academia y públicos young/new adult.",
+        "No se ha localizado en la fuente oficial consultada un protocolo específico para enviar manuscritos a Faeris.",
+        "No sustituir la ausencia de convocatoria por correos generales del grupo sin una indicación expresa."
+      ],
+      "response_time": null,
+      "summary": "Faeris es el sello de Grupo Anaya orientado a fantasía comercial, romantasy, dark academia y ficción para públicos young adult y new adult; su actividad editorial está verificada, pero no una puerta pública específica de originales.",
+      "public_note": "Se publica como «estado por verificar» para separar el encaje de catálogo de la recepción de manuscritos: que el sello esté activo no significa que admita propuestas espontáneas.",
+      "verified_at": "2026-10-03",
+      "page_updated_at": "2026-10-03",
+      "sources": [
+        {
+          "label": "Grupo Anaya — Faeris",
+          "url": "https://www.grupoanaya.es/editoriales/faeris",
+          "primary": true
+        }
+      ],
+      "history": [
+        {
+          "date": "2026-10-03",
+          "event": "Verificados la actividad del sello y su posicionamiento editorial; no se localizó un canal público específico de manuscritos.",
+          "source_url": "https://www.grupoanaya.es/editoriales/faeris"
+        }
+      ]
+    },
+    {
+      "publish": true,
+      "slug": "el-transbordador",
+      "name": "El Transbordador",
+      "group": "El Transbordador",
+      "publisher_type": "independiente",
+      "country": "España",
+      "genres": [
+        "ciencia ficción",
+        "fantasía",
+        "ficción especulativa"
+      ],
+      "status": "unknown",
+      "direct_submission": false,
+      "submission_channel": "Convocatoria anual anunciada por la editorial; no hay una ventana vigente verificada en la web",
+      "submission_email": null,
+      "submission_url": "https://eltransbordador.es/nueva-web/",
+      "website_url": "https://eltransbordador.es/",
+      "requirements": [
+        "La propia editorial indica que abre una convocatoria de manuscritos una vez al año, aproximadamente en septiembre u octubre.",
+        "La apertura se anuncia en sus redes; no se debe enviar fuera de una convocatoria concreta sin instrucciones actuales.",
+        "Revisar la publicación oficial de cada ventana para conocer género, extensión, formato y canal de envío."
+      ],
+      "response_time": null,
+      "summary": "El Transbordador es una editorial independiente de literatura especulativa que confirma públicamente una ventana anual de recepción de manuscritos, anunciada en sus redes, pero no mantiene una convocatoria permanente verificable.",
+      "public_note": "Aunque la editorial sitúa habitualmente la apertura en septiembre/octubre, no se marca como abierta hasta localizar el anuncio concreto de la convocatoria vigente.",
+      "verified_at": "2026-10-03",
+      "page_updated_at": "2026-10-03",
+      "sources": [
+        {
+          "label": "El Transbordador — respuesta oficial sobre manuscritos",
+          "url": "https://eltransbordador.es/nueva-web/",
+          "primary": true
+        },
+        {
+          "label": "El Transbordador — web oficial",
+          "url": "https://eltransbordador.es/",
+          "primary": true
+        }
+      ],
+      "history": [
+        {
+          "date": "2026-10-03",
+          "event": "Comprobada una respuesta pública de la editorial que confirma una convocatoria anual alrededor de septiembre/octubre; no se verificó una ventana abierta concreta.",
+          "source_url": "https://eltransbordador.es/nueva-web/"
+        }
+      ]
+    },
+    {
+      "publish": true,
+      "slug": "levanta-fuego",
+      "name": "Levanta Fuego",
+      "group": "Levanta Fuego",
+      "publisher_type": "independiente",
+      "country": "España",
+      "genres": [
+        "narrativa",
+        "ensayo",
+        "literatura contemporánea"
+      ],
+      "status": "open",
+      "direct_submission": true,
+      "submission_channel": "Contacto oficial que admite propuestas de manuscritos no solicitados",
+      "submission_email": "contacto@levantafuego.com",
+      "submission_url": "https://levantafuego.com/contacto-levanta-fuego/",
+      "website_url": "https://levantafuego.com/",
+      "requirements": [
+        "La editorial reconoce expresamente que recibe propuestas de manuscritos no solicitados.",
+        "No publica en la página consultada un protocolo detallado de formato, extensión o documentación.",
+        "Usar el contacto oficial y comprobar las condiciones vigentes antes de adjuntar material extenso."
+      ],
+      "response_time": "La editorial advierte de que, por su tamaño, no puede comprometerse a responder a todas las propuestas no solicitadas.",
+      "summary": "Levanta Fuego es una editorial independiente que admite propuestas de manuscritos no solicitados a través de su contacto oficial, aunque no publica un protocolo detallado ni garantiza respuesta individual.",
+      "public_note": "La ausencia de instrucciones de formato no debe rellenarse con suposiciones: esta ficha publica únicamente lo que la editorial declara en su contacto oficial.",
+      "verified_at": "2026-10-03",
+      "page_updated_at": "2026-10-03",
+      "sources": [
+        {
+          "label": "Levanta Fuego — contacto oficial",
+          "url": "https://levantafuego.com/contacto-levanta-fuego/",
+          "primary": true
+        },
+        {
+          "label": "Levanta Fuego — web oficial",
+          "url": "https://levantafuego.com/",
+          "primary": true
+        }
+      ],
+      "history": [
+        {
+          "date": "2026-10-03",
+          "event": "Comprobado que el contacto oficial contempla propuestas de manuscritos no solicitados y advierte de que no puede responder a todas.",
+          "source_url": "https://levantafuego.com/contacto-levanta-fuego/"
+        }
+      ]
+    },
+    {
+      "publish": true,
+      "slug": "hoja-de-lata",
+      "name": "Hoja de Lata",
+      "group": "Hoja de Lata Editorial",
+      "publisher_type": "independiente",
+      "country": "España",
+      "genres": [
+        "narrativa",
+        "novela",
+        "ensayo",
+        "no ficción"
+      ],
+      "status": "indirect",
+      "direct_submission": false,
+      "submission_channel": "Selección principalmente mediante agencias, editoriales en otras lenguas, traductores y búsqueda editorial",
+      "submission_email": null,
+      "submission_url": "https://hojadelata.net/",
+      "website_url": "https://hojadelata.net/",
+      "requirements": [
+        "La editorial está activa, pero la información sectorial disponible explica que dejó de poder atender originales no solicitados.",
+        "La búsqueda de títulos se realiza principalmente mediante agencias, editoriales en otras lenguas, traductores y ojeadores.",
+        "No utilizar el correo general como sustituto de una convocatoria de originales inexistente."
+      ],
+      "response_time": null,
+      "summary": "Hoja de Lata es una editorial independiente de narrativa y no ficción cuyo catálogo permanece activo, pero la información pública disponible describe una selección de títulos por vías profesionales e iniciativa editorial, no una recepción abierta de originales.",
+      "public_note": "El estado «vía indirecta» se apoya en una ficha sectorial de Ecoedit; la web oficial se usa para verificar la identidad y actividad de la editorial. Si Hoja de Lata publica una nueva política de originales, debe prevalecer.",
+      "verified_at": "2026-10-03",
+      "page_updated_at": "2026-10-03",
+      "sources": [
+        {
+          "label": "Hoja de Lata — web oficial",
+          "url": "https://hojadelata.net/",
+          "primary": true
+        },
+        {
+          "label": "Ecoedit — ficha de Hoja de Lata",
+          "url": "https://ecoedit.org/editoriales/hoja-de-lata/",
+          "primary": false
+        }
+      ],
+      "history": [
+        {
+          "date": "2026-10-03",
+          "event": "Revisadas la actividad editorial y la descripción pública de su sistema de selección, que no opera como recepción abierta de originales.",
+          "source_url": "https://ecoedit.org/editoriales/hoja-de-lata/"
+        }
+      ]
     }
   ]
 }
