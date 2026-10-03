@@ -187,6 +187,73 @@
         "plazo",
         "Nava"
       ]
+    },
+    {
+      "id": "gijon-cafe-gijon",
+      "name": "Ayuntamiento de Gijón/Xixón — Premio Café Gijón",
+      "url": "https://www.gijon.es/es/eventos/premio-cafe-gijon",
+      "official": true,
+      "enabled": true,
+      "keywords": [
+        "premio",
+        "novela",
+        "Café Gijón",
+        "bases",
+        "plazo"
+      ]
+    },
+    {
+      "id": "malaga-premio-novela",
+      "name": "Ayuntamiento de Málaga — Premio Málaga de Novela",
+      "url": "https://cultura.malaga.eu/es/actividades-culturales/actividades-literarias/premio-malaga-de-novela/",
+      "official": true,
+      "enabled": true,
+      "keywords": [
+        "premio",
+        "novela",
+        "Málaga",
+        "Galaxia Gutenberg",
+        "plazo"
+      ]
+    },
+    {
+      "id": "dacoruna-torrente-ballester",
+      "name": "Deputación da Coruña — Torrente Ballester",
+      "url": "https://sede.dacoruna.gal/subtel/publica/infoconvocatorias",
+      "official": true,
+      "enabled": true,
+      "keywords": [
+        "Torrente Ballester",
+        "narrativa",
+        "castelá",
+        "convocatoria"
+      ]
+    },
+    {
+      "id": "badajoz-premios-ciudad",
+      "name": "Ayuntamiento de Badajoz — Premios Ciudad de Badajoz",
+      "url": "https://www.aytobadajoz.es/es/ayto/especiales/especial/59819/premios-ciudad-de-badajoz-2026",
+      "official": true,
+      "enabled": true,
+      "keywords": [
+        "premios",
+        "novela",
+        "Badajoz",
+        "convocatoria"
+      ]
+    },
+    {
+      "id": "estepona-premio-novela",
+      "name": "Ayuntamiento de Estepona — Premio de Novela Ciudad de Estepona",
+      "url": "https://ayuntamiento.estepona.es/noticias/ariel-magnus-recibe-el-iv-premio-de-novela-ciudad-de-estepona-por-mentir-la-verdad-",
+      "official": true,
+      "enabled": true,
+      "keywords": [
+        "premio",
+        "novela",
+        "Estepona",
+        "Pre-Textos"
+      ]
     }
   ]
 }
