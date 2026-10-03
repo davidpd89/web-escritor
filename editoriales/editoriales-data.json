@@ -3166,6 +3166,49 @@
     },
     {
       "publish": true,
+      "publisher_type": "tradicional",
+      "response_time": null,
+      "page_updated_at": "2026-10-03",
+      "history": [
+        {
+          "date": "2026-10-03",
+          "event": "Revalidado el estado público de la editorial y su política o ausencia de canal de manuscritos en fuente oficial.",
+          "source_url": "https://editorialamordemadre.com/escribes-o-trabajas/"
+        }
+      ],
+      "slug": "amor-de-madre",
+      "name": "Amor de Madre",
+      "group": "Amor de Madre",
+      "country": "España",
+      "genres": [
+        "narrativa",
+        "ficción feminista",
+        "LGTBIQ+",
+        "ficción insólita"
+      ],
+      "status": "closed",
+      "direct_submission": false,
+      "submission_channel": "Recepción de manuscritos cerrada",
+      "submission_email": null,
+      "submission_url": "https://editorialamordemadre.com/escribes-o-trabajas/",
+      "website_url": "https://editorialamordemadre.com/",
+      "requirements": [
+        "No enviar mientras la página oficial mantenga cerrada la recepción.",
+        "Consultar de nuevo las instrucciones oficiales cuando la editorial anuncie una reapertura."
+      ],
+      "summary": "Amor de Madre es una editorial independiente de narrativa feminista, queer e insólita; su página para autores indica que la recepción de manuscritos está cerrada.",
+      "public_note": "Las instrucciones históricas permanecen publicadas como orientación, pero la propia editorial avisa de que ahora mismo no recibe manuscritos.",
+      "verified_at": "2026-10-03",
+      "sources": [
+        {
+          "label": "Amor de Madre — información para autores",
+          "url": "https://editorialamordemadre.com/escribes-o-trabajas/",
+          "primary": true
+        }
+      ]
+    },
+    {
+      "publish": true,
       "slug": "apache-libros",
       "name": "Apache Libros",
       "group": "Independiente",
@@ -3252,6 +3295,48 @@
           "date": "2026-10-03",
           "event": "Comprobado el cierre temporal del buzón de recepción de manuscritos.",
           "source_url": "https://www.aristasmartinez.com/contacto"
+        }
+      ]
+    },
+    {
+      "publish": true,
+      "publisher_type": "tradicional",
+      "response_time": null,
+      "page_updated_at": "2026-10-03",
+      "history": [
+        {
+          "date": "2026-10-03",
+          "event": "Revalidado el estado público de la editorial y su política o ausencia de canal de manuscritos en fuente oficial.",
+          "source_url": "https://www.armaeniaeditorial.com/contacto/"
+        }
+      ],
+      "slug": "armaenia-editorial",
+      "name": "Armaenia Editorial",
+      "group": "Armaenia Editorial",
+      "country": "España",
+      "genres": [
+        "narrativa",
+        "ensayo",
+        "ficción literaria"
+      ],
+      "status": "closed",
+      "direct_submission": false,
+      "submission_channel": "No recibe manuscritos no solicitados",
+      "submission_email": null,
+      "submission_url": "https://www.armaeniaeditorial.com/contacto/",
+      "website_url": "https://www.armaeniaeditorial.com/",
+      "requirements": [
+        "No enviar manuscritos mientras la editorial mantenga expresamente cerrada la recepción de originales no solicitados.",
+        "Utilizar el formulario de contacto únicamente para consultas generales, no como sustituto de una convocatoria."
+      ],
+      "summary": "Armaenia Editorial es una editorial independiente de narrativa y ensayo cuya página oficial indica que actualmente no recibe manuscritos no solicitados.",
+      "public_note": "La ficha separa el contacto general de una vía de originales: el formulario de contacto no convierte la recepción en abierta.",
+      "verified_at": "2026-10-03",
+      "sources": [
+        {
+          "label": "Armaenia Editorial — contacto oficial",
+          "url": "https://www.armaeniaeditorial.com/contacto/",
+          "primary": true
         }
       ]
     },
@@ -3967,6 +4052,48 @@
     {
       "publish": true,
       "publisher_type": "tradicional",
+      "response_time": null,
+      "page_updated_at": "2026-10-03",
+      "history": [
+        {
+          "date": "2026-10-03",
+          "event": "Revalidado el estado público de la editorial y su política o ausencia de canal de manuscritos en fuente oficial.",
+          "source_url": "https://www.lanavajasuizaeditores.com/contacto/"
+        }
+      ],
+      "slug": "la-navaja-suiza-editores",
+      "name": "La Navaja Suiza Editores",
+      "group": "La Navaja Suiza",
+      "country": "España",
+      "genres": [
+        "narrativa",
+        "ensayo",
+        "ficción literaria"
+      ],
+      "status": "closed",
+      "direct_submission": false,
+      "submission_channel": "Recepción de manuscritos cerrada",
+      "submission_email": null,
+      "submission_url": "https://www.lanavajasuizaeditores.com/contacto/",
+      "website_url": "https://www.lanavajasuizaeditores.com/",
+      "requirements": [
+        "No enviar manuscritos mientras la editorial mantenga cerrada la recepción.",
+        "La editorial indica que comunicará públicamente una futura reapertura."
+      ],
+      "summary": "La Navaja Suiza Editores publica narrativa y ensayo y declara en su página oficial de contacto que actualmente no tiene abierta la recepción de manuscritos.",
+      "public_note": "El correo general de contacto no se publica como vía de originales porque la editorial diferencia expresamente ambas funciones.",
+      "verified_at": "2026-10-03",
+      "sources": [
+        {
+          "label": "La Navaja Suiza — contacto oficial",
+          "url": "https://www.lanavajasuizaeditores.com/contacto/",
+          "primary": true
+        }
+      ]
+    },
+    {
+      "publish": true,
+      "publisher_type": "tradicional",
       "country": "España",
       "submission_email": null,
       "response_time": null,
@@ -4277,6 +4404,50 @@
           "date": "2026-10-03",
           "event": "Comprobado que la página específica de manuscritos declara cerrada la recepción general y conserva requisitos para futuras aperturas.",
           "source_url": "https://patoediciones.com/manuscritos/"
+        }
+      ]
+    },
+    {
+      "publish": true,
+      "publisher_type": "tradicional",
+      "response_time": null,
+      "page_updated_at": "2026-10-03",
+      "history": [
+        {
+          "date": "2026-10-03",
+          "event": "Revalidado el estado público de la editorial y su política o ausencia de canal de manuscritos en fuente oficial.",
+          "source_url": "https://platanal.net/pages/envio-de-manuscritos-y-criterios-de-publicacion"
+        }
+      ],
+      "slug": "platanal",
+      "name": "PLATANAL",
+      "group": "PLATANAL",
+      "country": "Puerto Rico / España",
+      "genres": [
+        "narrativa",
+        "poesía",
+        "crónica",
+        "no ficción",
+        "ensayo"
+      ],
+      "status": "closed",
+      "direct_submission": false,
+      "submission_channel": "Convocatoria anual/por ventana; la convocatoria de julio de 2026 está cerrada",
+      "submission_email": null,
+      "submission_url": "https://platanal.net/pages/envio-de-manuscritos-y-criterios-de-publicacion",
+      "website_url": "https://platanal.net/",
+      "requirements": [
+        "No enviar fuera de una convocatoria abierta.",
+        "La convocatoria 2026 recibió manuscritos únicamente durante julio y exigía manuscrito completo en Word, síntesis y biografía."
+      ],
+      "summary": "PLATANAL es una editorial y proyecto cultural independiente con presencia en Puerto Rico, España y Estados Unidos; su convocatoria de manuscritos de julio de 2026 figura cerrada.",
+      "public_note": "Se conserva como editorial a vigilar para futuras ventanas, sin presentar el correo usado en julio como un canal permanentemente abierto.",
+      "verified_at": "2026-10-03",
+      "sources": [
+        {
+          "label": "PLATANAL — convocatoria 2026",
+          "url": "https://platanal.net/pages/envio-de-manuscritos-y-criterios-de-publicacion",
+          "primary": true
         }
       ]
     },
@@ -4795,6 +4966,54 @@
     },
     {
       "publish": true,
+      "publisher_type": "tradicional",
+      "response_time": null,
+      "page_updated_at": "2026-10-03",
+      "history": [
+        {
+          "date": "2026-10-03",
+          "event": "Revalidado el estado público de la editorial y su política o ausencia de canal de manuscritos en fuente oficial.",
+          "source_url": "https://dilatandomenteseditorial.com/contactenos"
+        }
+      ],
+      "slug": "dilatando-mentes-editorial",
+      "name": "Dilatando Mentes Editorial",
+      "group": "Dilatando Mentes Editorial",
+      "country": "España",
+      "genres": [
+        "terror",
+        "weird",
+        "fantasía oscura",
+        "ficción especulativa"
+      ],
+      "status": "unknown",
+      "direct_submission": false,
+      "submission_channel": "No se ha verificado un protocolo público vigente de recepción de originales",
+      "submission_email": null,
+      "submission_url": "https://dilatandomenteseditorial.com/contactenos",
+      "website_url": "https://dilatandomenteseditorial.com/",
+      "requirements": [
+        "La editorial está activa y dispone de contacto general, pero no se ha localizado una política pública vigente que autorice el envío de manuscritos.",
+        "No enviar un original completo basándose únicamente en el formulario de contacto."
+      ],
+      "summary": "Dilatando Mentes Editorial es una editorial independiente especializada en terror, weird y literatura oscura; no consta un protocolo público vigente de originales en la web oficial consultada.",
+      "public_note": "Estado «por verificar»: actividad editorial sí está comprobada; apertura de manuscritos, no.",
+      "verified_at": "2026-10-03",
+      "sources": [
+        {
+          "label": "Dilatando Mentes — web oficial",
+          "url": "https://dilatandomenteseditorial.com/",
+          "primary": true
+        },
+        {
+          "label": "Dilatando Mentes — contacto",
+          "url": "https://dilatandomenteseditorial.com/contactenos",
+          "primary": true
+        }
+      ]
+    },
+    {
+      "publish": true,
       "slug": "duomo-ediciones",
       "name": "Duomo Ediciones",
       "group": "Gruppo editoriale Mauri Spagnol",
@@ -4936,6 +5155,49 @@
           "date": "2026-10-03",
           "event": "Revisados el catálogo oficial y el estado público de la vía de recepción disponible.",
           "source_url": "https://www.penguinrandomhousegrupoeditorial.com/sellos-y-negocios/quiero-enviar-un-manuscrito/"
+        }
+      ]
+    },
+    {
+      "publish": true,
+      "publisher_type": "tradicional",
+      "response_time": null,
+      "page_updated_at": "2026-10-03",
+      "history": [
+        {
+          "date": "2026-10-03",
+          "event": "Revalidado el estado público de la editorial y su política o ausencia de canal de manuscritos en fuente oficial.",
+          "source_url": "https://www.labibliotecadecarfax.com/editorial/"
+        }
+      ],
+      "slug": "la-biblioteca-de-carfax",
+      "name": "La biblioteca de Carfax",
+      "group": "La biblioteca de Carfax",
+      "country": "España",
+      "genres": [
+        "terror",
+        "gótico",
+        "horror cósmico",
+        "ficción"
+      ],
+      "status": "unknown",
+      "direct_submission": false,
+      "submission_channel": "No se ha verificado un canal público vigente de manuscritos",
+      "submission_email": null,
+      "submission_url": "https://www.labibliotecadecarfax.com/editorial/",
+      "website_url": "https://www.labibliotecadecarfax.com/",
+      "requirements": [
+        "La editorial está activa y especializada en terror, pero no se ha localizado una convocatoria o protocolo público vigente de originales.",
+        "No usar el email general de la empresa como buzón de manuscritos sin una indicación editorial expresa."
+      ],
+      "summary": "La biblioteca de Carfax es una editorial especializada en literatura de terror; la actividad editorial está verificada, pero no una puerta pública vigente de manuscritos.",
+      "public_note": "Se publica como estado por verificar para distinguir claramente catálogo activo de recepción de originales.",
+      "verified_at": "2026-10-03",
+      "sources": [
+        {
+          "label": "La biblioteca de Carfax — editorial",
+          "url": "https://www.labibliotecadecarfax.com/editorial/",
+          "primary": true
         }
       ]
     },
@@ -5274,6 +5536,54 @@
           "date": "2026-10-03",
           "event": "Revisados el catálogo oficial y el estado público de la vía de recepción disponible.",
           "source_url": "https://www.penguinrandomhousegrupoeditorial.com/sellos-y-negocios/quiero-enviar-un-manuscrito/"
+        }
+      ]
+    },
+    {
+      "publish": true,
+      "publisher_type": "tradicional",
+      "response_time": null,
+      "page_updated_at": "2026-10-03",
+      "history": [
+        {
+          "date": "2026-10-03",
+          "event": "Revalidado el estado público de la editorial y su política o ausencia de canal de manuscritos en fuente oficial.",
+          "source_url": "https://sugaareditorial.com/contact/"
+        }
+      ],
+      "slug": "sugaar-editorial",
+      "name": "Sugaar Editorial",
+      "group": "Sugaar Editorial",
+      "country": "España",
+      "genres": [
+        "ciencia ficción",
+        "fantasía",
+        "terror",
+        "juegos de rol"
+      ],
+      "status": "unknown",
+      "direct_submission": false,
+      "submission_channel": "Contacto general disponible; sin protocolo público vigente de manuscritos verificado",
+      "submission_email": null,
+      "submission_url": "https://sugaareditorial.com/contact/",
+      "website_url": "https://sugaareditorial.com/",
+      "requirements": [
+        "No confundir el correo/formulario general con una convocatoria de originales.",
+        "Esperar una política o convocatoria editorial explícita antes de remitir un manuscrito completo."
+      ],
+      "summary": "Sugaar Editorial mantiene actividad editorial y catálogo de género en 2026, pero su web pública consultada no ofrece un protocolo específico y vigente de recepción de manuscritos.",
+      "public_note": "La ficha mantiene el estado por verificar para no convertir un formulario general en una puerta de originales que la editorial no ha anunciado.",
+      "verified_at": "2026-10-03",
+      "sources": [
+        {
+          "label": "Sugaar Editorial — contacto",
+          "url": "https://sugaareditorial.com/contact/",
+          "primary": true
+        },
+        {
+          "label": "Sugaar Editorial — web oficial",
+          "url": "https://sugaareditorial.com/",
+          "primary": true
         }
       ]
     },

@@ -200,6 +200,14 @@ DESCRIPTION:Asociación de Escritores de Fuenlabrada La Buena Letra
 URL:https://labuenaletra.es/
 END:VEVENT
 BEGIN:VEVENT
+UID:macondos-siglo-xxi-2026@davidportodiaz.com
+DTSTART;VALUE=DATE:20261015
+DTEND;VALUE=DATE:20261016
+SUMMARY:Concurso Internacional «Macondos del Siglo XXI» 2026
+DESCRIPTION:Fundación Universidad Hispana (FUNHI)
+URL:https://www.fundacionuniversidadhispana.com/concurso
+END:VEVENT
+BEGIN:VEVENT
 UID:elena-santiago-narrativa-2026@davidportodiaz.com
 DTSTART;VALUE=DATE:20261016
 DTEND;VALUE=DATE:20261017
@@ -371,6 +379,14 @@ URL:https://web.constanti.cat/2026/09/02/xx-premis-literaris-de-constanti-2
  026-relats-de-pagesia/
 END:VEVENT
 BEGIN:VEVENT
+UID:zaragoza-epitafios-2026@davidportodiaz.com
+DTSTART;VALUE=DATE:20261030
+DTEND;VALUE=DATE:20261031
+SUMMARY:VIII Concurso «Epitafios para el Cementerio de Torrero» 2026
+DESCRIPTION:Ayuntamiento de Zaragoza · Cementerio de Torrero
+URL:https://www.zaragoza.es/sede/servicio/premios-concursos/4321
+END:VEVENT
+BEGIN:VEVENT
 UID:encarna-leon-relato-2026@davidportodiaz.com
 DTSTART;VALUE=DATE:20261031
 DTEND;VALUE=DATE:20261101
@@ -518,6 +534,15 @@ DESCRIPTION:Editorial Alfaguara · Penguin Random House Grupo Editorial
 URL:https://premioalfaguara.com/bases-y-participacion
 END:VEVENT
 BEGIN:VEVENT
+UID:diversidad-umbral-tinieblas-2026@davidportodiaz.com
+DTSTART;VALUE=DATE:20261105
+DTEND;VALUE=DATE:20261106
+SUMMARY:II Concurso de microrrelatos «Umbral de las tinieblas» 2026
+DESCRIPTION:Diversidad Literaria
+URL:https://www.diversidadliteraria.com/info-concursos/concursos-microrrela
+ tos/i-concurso-de-microrrelatos-sobre-halloween--umbral-de-las-tinieblas
+END:VEVENT
+BEGIN:VEVENT
 UID:lardero-violencia-genero-relatos-2026@davidportodiaz.com
 DTSTART;VALUE=DATE:20261106
 DTEND;VALUE=DATE:20261107
@@ -620,6 +645,15 @@ URL:https://www.oxfamintermon.org/vi-concurso-microrrelatos-castello-vivien
  da
 END:VEVENT
 BEGIN:VEVENT
+UID:diversidad-navidad-nieve-letras-2026@davidportodiaz.com
+DTSTART;VALUE=DATE:20261118
+DTEND;VALUE=DATE:20261119
+SUMMARY:IV Concurso de microrrelatos «Navidad de nieve y letras» 2026
+DESCRIPTION:Diversidad Literaria
+URL:https://www.diversidadliteraria.com/info-concursos/concursos-microrrela
+ tos/ii-concurso-de-microrrelatos-navidenos--navidad-de-nieve-y-letras
+END:VEVENT
+BEGIN:VEVENT
 UID:microdragones-diversidad-literaria-2026@davidportodiaz.com
 DTSTART;VALUE=DATE:20261119
 DTEND;VALUE=DATE:20261120
@@ -698,6 +732,14 @@ URL:https://www.paradela.es/es/nova/bases-xxxii-certame-literario-manuel-or
  este-rodr%C3%ADguez-l%C3%B3pez
 END:VEVENT
 BEGIN:VEVENT
+UID:maniac-thriller-documental-2026@davidportodiaz.com
+DTSTART;VALUE=DATE:20261201
+DTEND;VALUE=DATE:20261202
+SUMMARY:I Premio Nacional de Thriller Documental 2026
+DESCRIPTION:Maniac Ediciones
+URL:https://www.maniacediciones.com/concurso-thriller-documental/
+END:VEVENT
+BEGIN:VEVENT
 UID:sant-boi-negre-relato-2026@davidportodiaz.com
 DTSTART;VALUE=DATE:20261210
 DTEND;VALUE=DATE:20261211
@@ -721,6 +763,24 @@ DTEND;VALUE=DATE:20261216
 SUMMARY:V Certamen de Relato y Cuento «Literaria Kalean» 2026
 DESCRIPTION:Literaria Kalean
 URL:https://literariakalean.es/abrimos-convocatoria/
+END:VEVENT
+BEGIN:VEVENT
+UID:diversidad-entre-piratas-2026@davidportodiaz.com
+DTSTART;VALUE=DATE:20261217
+DTEND;VALUE=DATE:20261218
+SUMMARY:V Concurso de microrrelatos «Entre piratas anda el micro» 2026
+DESCRIPTION:Diversidad Literaria
+URL:https://www.diversidadliteraria.com/info-concursos/concursos-microrrela
+ tos/piratas
+END:VEVENT
+BEGIN:VEVENT
+UID:diversidad-abracadabra-2026@davidportodiaz.com
+DTSTART;VALUE=DATE:20261217
+DTEND;VALUE=DATE:20261218
+SUMMARY:I Concurso de microrrelatos «Abracadabra» 2026
+DESCRIPTION:Diversidad Literaria
+URL:https://www.diversidadliteraria.com/info-concursos/concursos-microrrela
+ tos/i-concurso-de-microrrelatos-sobre-magos-y-hechiceras--abracadabra
 END:VEVENT
 BEGIN:VEVENT
 UID:hislibris-relato-historico-2026@davidportodiaz.com
