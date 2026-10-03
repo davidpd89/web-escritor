@@ -24,7 +24,7 @@
       "title": "Premios Literarios Kutxa Fundazioa 2027",
       "type": "concurso",
       "organizer": "Kutxa Fundazioa",
-      "deadline": "2026-11-21",
+      "deadline": "2026-09-21",
       "genres": [
         "novela",
         "poesía"
@@ -34,8 +34,8 @@
       "fee_eur": null,
       "submission_mode": "Inscripción mediante formulario online y envío de la obra en papel según la fuente oficial",
       "source_url": "https://literatursariak.kutxafundazioa.eus/es/preguntas-y-respuestas",
-      "verified_at": "2026-09-29",
-      "editorial_note": "La fuente oficial confirma el 21 de noviembre de 2026 como fecha final y detalla premios, elegibilidad, envío y publicación.",
+      "verified_at": "2026-10-03",
+      "editorial_note": "La fuente oficial fija el 21 de septiembre de 2026 como fecha tope del matasellos. Se corrige una fecha anterior incorrecta; la convocatoria ya está fuera de plazo y el builder la oculta del radar activo.",
       "published": true
     },
     {
@@ -279,7 +279,8 @@
       "status_note": "La convocatoria 2027 está anunciada, pero la recepción todavía no ha abierto y no hay fecha límite publicada.",
       "expected_window": "Anuncio oficial próximamente",
       "reference_note": "La página oficial indica expresamente que el plazo de la edición actual está cerrado y que la convocatoria correspondiente a 2027 se anunciará próximamente.",
-      "editorial_note": "No presentar ningún original hasta que Anagrama publique la apertura y el formulario de la edición 2027."
+      "editorial_note": "No presentar ningún original hasta que Anagrama publique la apertura y el formulario de la edición 2027.",
+      "watch_kind": "announced"
     },
     {
       "id": "anagrama-ensayo-2027",
@@ -295,7 +296,94 @@
       "status_note": "La convocatoria 2027 está anunciada, pero la recepción todavía no ha abierto y no hay fecha límite publicada.",
       "expected_window": "Anuncio oficial próximamente",
       "reference_note": "Las bases oficiales señalan que el plazo actual está cerrado y que la convocatoria de 2027 se anunciará próximamente.",
-      "editorial_note": "Esta ficha funciona como aviso de próxima apertura; no sustituye las futuras bases de 2027."
+      "editorial_note": "Esta ficha funciona como aviso de próxima apertura; no sustituye las futuras bases de 2027.",
+      "watch_kind": "announced"
+    },
+    {
+      "id": "cafe-gijon-2027-watch",
+      "title": "Premio Café Gijón · próxima edición",
+      "type": "premio",
+      "organizer": "Ayuntamiento de Gijón/Xixón",
+      "genres": [
+        "novela"
+      ],
+      "source_url": "https://www.gijon.es/es/eventos/premio-cafe-gijon",
+      "verified_at": "2026-10-03",
+      "published": true,
+      "watch_kind": "recurring",
+      "status_note": "La edición 2026 ya fue fallada. El Ayuntamiento mantiene la página histórica del premio, pero todavía no publica bases 2027.",
+      "expected_window": "Revisar la próxima convocatoria municipal",
+      "reference_note": "La fuente oficial documenta la edición 2026 y la trayectoria continuada del Premio Café Gijón; no se presenta una edición 2027 como abierta.",
+      "editorial_note": "Se mantiene como premio recurrente a vigilar, no como convocatoria anunciada ni abierta."
+    },
+    {
+      "id": "premio-malaga-novela-2027-watch",
+      "title": "Premio Málaga de Novela · próxima edición",
+      "type": "premio",
+      "organizer": "Ayuntamiento de Málaga",
+      "genres": [
+        "novela"
+      ],
+      "source_url": "https://cultura.malaga.eu/es/actividades-culturales/actividades-literarias/premio-malaga-de-novela/",
+      "verified_at": "2026-10-03",
+      "published": true,
+      "watch_kind": "recurring",
+      "status_note": "La XX edición 2026 cerró el 21 de julio. La página oficial describe el certamen como anual, pero aún no publica la convocatoria siguiente.",
+      "expected_window": "Vigilar la próxima convocatoria anual",
+      "reference_note": "En 2026 el Ayuntamiento dotó el premio con 25.000 € y publicación por Galaxia Gutenberg; esos datos se conservan solo como referencia de la edición cerrada.",
+      "editorial_note": "No se extrapolan automáticamente cuantía, editorial, fechas ni requisitos a una futura edición."
+    },
+    {
+      "id": "torrente-ballester-2027-watch",
+      "title": "Premio Internacional Torrente Ballester de Narrativa · próxima edición",
+      "type": "premio",
+      "organizer": "Deputación da Coruña",
+      "genres": [
+        "narrativa",
+        "novela"
+      ],
+      "source_url": "https://sede.dacoruna.gal/subtel/publica/infoconvocatorias",
+      "verified_at": "2026-10-03",
+      "published": true,
+      "watch_kind": "recurring",
+      "status_note": "La edición 2026 está en fase posterior al plazo y ya cuenta con obras preseleccionadas; todavía no consta convocatoria 2027.",
+      "expected_window": "Vigilar la siguiente convocatoria de la Deputación",
+      "reference_note": "La sede oficial documenta la 38.ª edición 2026 en castellano y gallego; el radar no presupone fechas ni condiciones de 2027.",
+      "editorial_note": "Se conserva como premio recurrente relevante para narrativa, separado de las convocatorias actualmente abiertas."
+    },
+    {
+      "id": "ciudad-badajoz-novela-2027-watch",
+      "title": "Premio Ciudad de Badajoz de Novela · próxima edición",
+      "type": "premio",
+      "organizer": "Ayuntamiento de Badajoz",
+      "genres": [
+        "novela"
+      ],
+      "source_url": "https://www.aytobadajoz.es/es/ayto/especiales/especial/59819/premios-ciudad-de-badajoz-2026",
+      "verified_at": "2026-10-03",
+      "published": true,
+      "watch_kind": "recurring",
+      "status_note": "La 30.ª edición de novela de 2026 ya cerró y tiene fallo previsto en octubre. No hay bases 2027 publicadas.",
+      "expected_window": "Revisar la siguiente edición municipal",
+      "reference_note": "La fuente oficial confirma la convocatoria anual 2026 dentro de los Premios Ciudad de Badajoz y su modalidad de novela.",
+      "editorial_note": "La próxima edición se vigila como recurrencia histórica; no se afirma que esté abierta ni que repita bases."
+    },
+    {
+      "id": "ciudad-estepona-novela-watch",
+      "title": "Premio de Novela Ciudad de Estepona · próxima edición",
+      "type": "premio",
+      "organizer": "Ayuntamiento de Estepona y Fundación Manuel Alcántara",
+      "genres": [
+        "novela"
+      ],
+      "source_url": "https://ayuntamiento.estepona.es/noticias/ariel-magnus-recibe-el-iv-premio-de-novela-ciudad-de-estepona-por-mentir-la-verdad-",
+      "verified_at": "2026-10-03",
+      "published": true,
+      "watch_kind": "recurring",
+      "status_note": "La IV edición ya fue resuelta en 2026. No se ha localizado una nueva convocatoria abierta.",
+      "expected_window": "Vigilar una eventual siguiente edición",
+      "reference_note": "La fuente municipal confirma el IV Premio de Novela Ciudad de Estepona, dotado con 25.000 € y colaboración de Pre-Textos en esa edición.",
+      "editorial_note": "La continuidad futura no se da por confirmada: esta ficha solo evita perder de vista el certamen."
     }
   ]
 }
