@@ -18,7 +18,12 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parents[1]
 PYTHON = sys.executable
 EDITORIAL_DATA = json.loads((ROOT / "data" / "editoriales.json").read_text(encoding="utf-8"))
-TODAY = max(item["verified_at"] for item in EDITORIAL_DATA["publishers"] if item.get("publish") is True)
+RADAR_DATA = json.loads((ROOT / "data" / "radar-opportunities.json").read_text(encoding="utf-8"))
+TODAY = max(
+    [item["verified_at"] for item in EDITORIAL_DATA["publishers"] if item.get("publish") is True]
+    + [item["verified_at"] for item in RADAR_DATA.get("items", []) if item.get("published") is True]
+    + [item["verified_at"] for item in RADAR_DATA.get("watchlist", []) if item.get("published") is True]
+)
 
 
 def snapshot(root: Path) -> dict[str, str]:
