@@ -90,7 +90,10 @@
 
     const status = item.querySelector('[data-radar-status]');
     if (status) {
-      if (isWatch) status.textContent = stale ? 'Verificación caducada' : 'Próxima apertura';
+      if (isWatch) {
+        const watchLabel = item.dataset.watchKind === 'recurring' ? 'Próxima edición a vigilar' : 'Próxima apertura';
+        status.textContent = stale ? 'Verificación caducada' : watchLabel;
+      }
       else if (expired) status.textContent = 'Plazo finalizado';
       else if (stale) status.textContent = 'Verificación caducada';
       else if (remaining === 0) status.textContent = 'Cierra hoy';
