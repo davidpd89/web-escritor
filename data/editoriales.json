@@ -2309,6 +2309,386 @@
           "source_url": "https://www.cetuseditorial.com/manuscritos/"
         }
       ]
+    },
+    {
+      "publish": true,
+      "slug": "maeva",
+      "name": "Ediciones Maeva",
+      "group": "Ediciones Maeva",
+      "publisher_type": "tradicional",
+      "country": "España",
+      "genres": [
+        "narrativa",
+        "misterio",
+        "thriller",
+        "ficción histórica",
+        "juvenil"
+      ],
+      "status": "open",
+      "direct_submission": true,
+      "submission_channel": "Correo del departamento de lectura",
+      "submission_email": "emaeva@maeva.es",
+      "submission_url": "https://www.maeva.es/contacto",
+      "website_url": "https://www.maeva.es/",
+      "requirements": [
+        "No enviar el manuscrito completo en la primera propuesta.",
+        "Enviar sinopsis, breve descripción de personajes, ambientación, los dos primeros capítulos y currículum.",
+        "La editorial solo valora propuestas remitidas por correo al departamento de lectura."
+      ],
+      "response_time": "Si no hay respuesta en 90 días, la editorial considera desestimada la propuesta.",
+      "summary": "Ediciones Maeva mantiene una vía oficial y estructurada para propuestas de novela mediante su departamento de lectura.",
+      "public_note": "La propia editorial pide expresamente un paquete parcial, no el manuscrito completo.",
+      "verified_at": "2026-10-03",
+      "page_updated_at": "2026-10-03",
+      "sources": [
+        {
+          "label": "Ediciones Maeva — información oficial",
+          "url": "https://www.maeva.es/contacto",
+          "primary": true
+        },
+        {
+          "label": "Ediciones Maeva — web oficial",
+          "url": "https://www.maeva.es/",
+          "primary": true
+        }
+      ],
+      "history": [
+        {
+          "date": "2026-10-03",
+          "event": "Revisado el estado público de recepción y las condiciones visibles en la fuente oficial.",
+          "source_url": "https://www.maeva.es/contacto"
+        }
+      ]
+    },
+    {
+      "publish": true,
+      "slug": "la-huerta-grande",
+      "name": "La Huerta Grande",
+      "group": "La Huerta Grande",
+      "publisher_type": "tradicional",
+      "country": "España",
+      "genres": [
+        "narrativa",
+        "ensayo",
+        "ficción literaria"
+      ],
+      "status": "open",
+      "direct_submission": true,
+      "submission_channel": "Página oficial de contacto para propuestas no solicitadas",
+      "submission_email": "info@editoriallahuertagrande.com",
+      "submission_url": "https://www.lahuertagrande.com/contactar/",
+      "website_url": "https://www.lahuertagrande.com/",
+      "requirements": [
+        "La editorial confirma que recibe manuscritos no solicitados.",
+        "No publica en la página de contacto un formato rígido; conviene presentar una propuesta profesional y ajustada al catálogo."
+      ],
+      "response_time": "La editorial indica que contactará si el proyecto encaja, en un plazo estimado de tres meses.",
+      "summary": "La Huerta Grande mantiene abierta la recepción de propuestas no solicitadas y publica un plazo orientativo para contactar cuando existe interés.",
+      "public_note": "La ausencia de respuesta transcurrido el periodo orientativo no implica que exista un informe de lectura pendiente.",
+      "verified_at": "2026-10-03",
+      "page_updated_at": "2026-10-03",
+      "sources": [
+        {
+          "label": "La Huerta Grande — información oficial",
+          "url": "https://www.lahuertagrande.com/contactar/",
+          "primary": true
+        },
+        {
+          "label": "La Huerta Grande — web oficial",
+          "url": "https://www.lahuertagrande.com/",
+          "primary": true
+        }
+      ],
+      "history": [
+        {
+          "date": "2026-10-03",
+          "event": "Revisado el estado público de recepción y las condiciones visibles en la fuente oficial.",
+          "source_url": "https://www.lahuertagrande.com/contactar/"
+        }
+      ]
+    },
+    {
+      "publish": true,
+      "slug": "paginas-de-espuma",
+      "name": "Páginas de Espuma",
+      "group": "Páginas de Espuma",
+      "publisher_type": "tradicional",
+      "country": "España",
+      "genres": [
+        "cuento",
+        "narrativa breve",
+        "ensayo"
+      ],
+      "status": "closed",
+      "direct_submission": false,
+      "submission_channel": "Recepción de originales temporalmente cerrada",
+      "submission_email": null,
+      "submission_url": "https://paginasdeespuma.com/contacto/",
+      "website_url": "https://paginasdeespuma.com/",
+      "requirements": [
+        "No enviar originales no solicitados mientras el departamento de lectura mantenga la recepción cerrada.",
+        "Esperar una reapertura oficial antes de reutilizar direcciones o instrucciones anteriores."
+      ],
+      "response_time": null,
+      "summary": "Páginas de Espuma, especializada en cuento y ensayo, informa actualmente de que no acepta originales no solicitados por saturación del departamento de lectura.",
+      "public_note": "Existen páginas antiguas con instrucciones de propuesta, pero la página de contacto actual prevalece y marca la recepción como temporalmente cerrada.",
+      "verified_at": "2026-10-03",
+      "page_updated_at": "2026-10-03",
+      "sources": [
+        {
+          "label": "Páginas de Espuma — información oficial",
+          "url": "https://paginasdeespuma.com/contacto/",
+          "primary": true
+        },
+        {
+          "label": "Páginas de Espuma — web oficial",
+          "url": "https://paginasdeespuma.com/",
+          "primary": true
+        }
+      ],
+      "history": [
+        {
+          "date": "2026-10-03",
+          "event": "Revisado el estado público de recepción y las condiciones visibles en la fuente oficial.",
+          "source_url": "https://paginasdeespuma.com/contacto/"
+        }
+      ]
+    },
+    {
+      "publish": true,
+      "slug": "sexto-piso",
+      "name": "Sexto Piso",
+      "group": "Sexto Piso",
+      "publisher_type": "tradicional",
+      "country": "España",
+      "genres": [
+        "narrativa",
+        "ensayo",
+        "ficción literaria"
+      ],
+      "status": "closed",
+      "direct_submission": false,
+      "submission_channel": "No acepta manuscritos no solicitados",
+      "submission_email": null,
+      "submission_url": "https://www.sextopiso.es/esp/menu/5/Contacto",
+      "website_url": "https://www.sextopiso.es/",
+      "requirements": [
+        "No enviar manuscritos no solicitados mientras continúe el cierre.",
+        "La editorial indica que una futura apertura se anunciará en su web y redes oficiales."
+      ],
+      "response_time": null,
+      "summary": "Sexto Piso España mantiene suspendida la recepción de manuscritos no solicitados por saturación de su plan editorial.",
+      "public_note": "El correo de prensa o contacto general no debe utilizarse como vía alternativa de originales.",
+      "verified_at": "2026-10-03",
+      "page_updated_at": "2026-10-03",
+      "sources": [
+        {
+          "label": "Sexto Piso — información oficial",
+          "url": "https://www.sextopiso.es/esp/menu/5/Contacto",
+          "primary": true
+        },
+        {
+          "label": "Sexto Piso — web oficial",
+          "url": "https://www.sextopiso.es/",
+          "primary": true
+        }
+      ],
+      "history": [
+        {
+          "date": "2026-10-03",
+          "event": "Revisado el estado público de recepción y las condiciones visibles en la fuente oficial.",
+          "source_url": "https://www.sextopiso.es/esp/menu/5/Contacto"
+        }
+      ]
+    },
+    {
+      "publish": true,
+      "slug": "impedimenta",
+      "name": "Impedimenta",
+      "group": "Impedimenta",
+      "publisher_type": "tradicional",
+      "country": "España",
+      "genres": [
+        "narrativa",
+        "ficción literaria",
+        "literatura internacional"
+      ],
+      "status": "closed",
+      "direct_submission": false,
+      "submission_channel": "No acepta manuscritos no solicitados",
+      "submission_email": null,
+      "submission_url": "https://impedimenta.es/contacto",
+      "website_url": "https://impedimenta.es/",
+      "requirements": [
+        "No enviar manuscritos no solicitados mientras la página oficial mantenga este aviso."
+      ],
+      "response_time": null,
+      "summary": "Impedimenta declara expresamente en su página de contacto que no acepta manuscritos no solicitados.",
+      "public_note": "La existencia de un correo editorial general no equivale a una vía de recepción de originales.",
+      "verified_at": "2026-10-03",
+      "page_updated_at": "2026-10-03",
+      "sources": [
+        {
+          "label": "Impedimenta — información oficial",
+          "url": "https://impedimenta.es/contacto",
+          "primary": true
+        },
+        {
+          "label": "Impedimenta — web oficial",
+          "url": "https://impedimenta.es/",
+          "primary": true
+        }
+      ],
+      "history": [
+        {
+          "date": "2026-10-03",
+          "event": "Revisado el estado público de recepción y las condiciones visibles en la fuente oficial.",
+          "source_url": "https://impedimenta.es/contacto"
+        }
+      ]
+    },
+    {
+      "publish": true,
+      "slug": "nordica-libros",
+      "name": "Nórdica Libros",
+      "group": "Nórdica Libros",
+      "publisher_type": "tradicional",
+      "country": "España",
+      "genres": [
+        "narrativa",
+        "literatura ilustrada",
+        "clásicos",
+        "literatura internacional"
+      ],
+      "status": "closed",
+      "direct_submission": false,
+      "submission_channel": "Recepción de originales suspendida hasta nuevo aviso",
+      "submission_email": null,
+      "submission_url": "https://nordicalibros.com/contacto/",
+      "website_url": "https://nordicalibros.com/",
+      "requirements": [
+        "No enviar originales mientras la recepción siga suspendida.",
+        "La editorial indica que los envíos realizados desde julio de 2025 se eliminan automáticamente."
+      ],
+      "response_time": null,
+      "summary": "Nórdica Libros mantiene suspendida la recepción de originales hasta nuevo aviso.",
+      "public_note": "El contacto general no sustituye la vía de manuscritos mientras el cierre siga vigente.",
+      "verified_at": "2026-10-03",
+      "page_updated_at": "2026-10-03",
+      "sources": [
+        {
+          "label": "Nórdica Libros — información oficial",
+          "url": "https://nordicalibros.com/contacto/",
+          "primary": true
+        },
+        {
+          "label": "Nórdica Libros — web oficial",
+          "url": "https://nordicalibros.com/",
+          "primary": true
+        }
+      ],
+      "history": [
+        {
+          "date": "2026-10-03",
+          "event": "Revisado el estado público de recepción y las condiciones visibles en la fuente oficial.",
+          "source_url": "https://nordicalibros.com/contacto/"
+        }
+      ]
+    },
+    {
+      "publish": true,
+      "slug": "candaya",
+      "name": "Candaya",
+      "group": "Candaya",
+      "publisher_type": "tradicional",
+      "country": "España",
+      "genres": [
+        "narrativa",
+        "poesía",
+        "ensayo"
+      ],
+      "status": "closed",
+      "direct_submission": false,
+      "submission_channel": "Plazo de recepción cerrado hasta nuevo aviso",
+      "submission_email": null,
+      "submission_url": "https://candaya.com/recepcion-originales/",
+      "website_url": "https://candaya.com/",
+      "requirements": [
+        "No enviar mientras el protocolo oficial indique que el plazo está cerrado.",
+        "Cuando reabra, consultar de nuevo formato, documentación y canales antes de usar instrucciones históricas."
+      ],
+      "response_time": null,
+      "summary": "Candaya dispone de un protocolo específico de originales, pero su página oficial marca actualmente la recepción cerrada hasta nuevo aviso.",
+      "public_note": "Las instrucciones que siguen visibles en la página describen el protocolo de una futura reapertura, no una autorización para enviar ahora.",
+      "verified_at": "2026-10-03",
+      "page_updated_at": "2026-10-03",
+      "sources": [
+        {
+          "label": "Candaya — información oficial",
+          "url": "https://candaya.com/recepcion-originales/",
+          "primary": true
+        },
+        {
+          "label": "Candaya — web oficial",
+          "url": "https://candaya.com/",
+          "primary": true
+        }
+      ],
+      "history": [
+        {
+          "date": "2026-10-03",
+          "event": "Revisado el estado público de recepción y las condiciones visibles en la fuente oficial.",
+          "source_url": "https://candaya.com/recepcion-originales/"
+        }
+      ]
+    },
+    {
+      "publish": true,
+      "slug": "pepitas-de-calabaza",
+      "name": "Pepitas de calabaza",
+      "group": "Pepitas de calabaza",
+      "publisher_type": "tradicional",
+      "country": "España",
+      "genres": [
+        "narrativa",
+        "ensayo",
+        "crónica",
+        "pensamiento"
+      ],
+      "status": "open",
+      "direct_submission": false,
+      "submission_channel": "La página oficial confirma recepción de originales, sin protocolo específico publicado",
+      "submission_email": null,
+      "submission_url": "https://www.pepitas.net/contacto",
+      "website_url": "https://www.pepitas.net/",
+      "requirements": [
+        "La editorial confirma que recibe originales.",
+        "No publica en esa página un formato, calendario o canal específico de manuscritos; conviene realizar una consulta concisa y seguir cualquier instrucción que proporcione."
+      ],
+      "response_time": null,
+      "summary": "Pepitas de calabaza reconoce públicamente que recibe originales, aunque advierte de que recibe más de los que puede leer y responder.",
+      "public_note": "Se clasifica como recepción abierta pero sin envío directo estructurado: no conviene inferir un protocolo que la editorial no publica.",
+      "verified_at": "2026-10-03",
+      "page_updated_at": "2026-10-03",
+      "sources": [
+        {
+          "label": "Pepitas de calabaza — información oficial",
+          "url": "https://www.pepitas.net/contacto",
+          "primary": true
+        },
+        {
+          "label": "Pepitas de calabaza — web oficial",
+          "url": "https://www.pepitas.net/",
+          "primary": true
+        }
+      ],
+      "history": [
+        {
+          "date": "2026-10-03",
+          "event": "Revisado el estado público de recepción y las condiciones visibles en la fuente oficial.",
+          "source_url": "https://www.pepitas.net/contacto"
+        }
+      ]
     }
   ]
 }
