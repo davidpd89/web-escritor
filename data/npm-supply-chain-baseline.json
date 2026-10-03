@@ -1,8 +1,8 @@
 {
   "schemaVersion": 1,
-  "lastReviewed": "2026-10-03",
+  "lastReviewed": "2026-09-30",
   "reviewer": "David Porto Díaz / QA Automation",
-  "reviewedAt": "2026-10-03",
+  "reviewedAt": "2026-09-30",
   "reviewBy": "2026-12-29",
   "policy": {
     "productionVulnerabilitiesAllowed": 0,
@@ -387,27 +387,6 @@
       "reviewer": "David Porto Díaz / QA Automation",
       "reviewedAt": "2026-09-30",
       "fixedVersion": null
-    },
-    {
-      "id": "GHSA-c475-qrg2-pj4r",
-      "package": "basic-ftp",
-      "severity": "high",
-      "title": "basic-ftp: Quadratic-time CPU denial of service in Client.list() Unix directory-listing parser",
-      "affectedRange": "<6.2.1",
-      "dependencyType": "transitive-dev",
-      "path": "proxy-agent > pac-proxy-agent > get-uri > basic-ftp",
-      "production": false,
-      "reachability": "basic-ftp is pulled into CI tooling through proxy-agent/get-uri for ftp: URI support. web-escritor's Lighthouse, browser and accessibility jobs use local HTTP URLs and official HTTPS endpoints; no repository workflow or published site uses FTP input.",
-      "fixAvailable": true,
-      "fixedVersion": "6.2.1",
-      "installedVersion": "5.3.1",
-      "lockfileNode": "node_modules/basic-ftp",
-      "decision": "accept-temporarily",
-      "owner": "CI-Tooling",
-      "reviewer": "David Porto Díaz / QA Automation",
-      "reviewedAt": "2026-10-03",
-      "reviewBy": "2026-11-02",
-      "sourceUrl": "https://github.com/advisories/GHSA-c475-qrg2-pj4r"
     }
   ]
 }
