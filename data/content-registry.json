@@ -2575,6 +2575,132 @@
         "buscar-editorial"
       ],
       "sourceFile": "editoriales/duomo-ediciones/index.html"
+    },
+    {
+      "id": "editorial-oz-editorial",
+      "url": "/editoriales/oz-editorial/",
+      "label": "Oz Editorial",
+      "shortLabel": "Oz Editorial",
+      "type": "directory",
+      "territory": "herramientas",
+      "parentId": "editorials-hub",
+      "hubId": "tools-hub",
+      "discoverability": "contextual",
+      "audience": [
+        "writer"
+      ],
+      "jobs": [
+        "buscar-editorial"
+      ],
+      "sourceFile": "editoriales/oz-editorial/index.html"
+    },
+    {
+      "id": "editorial-editorial-andromeda",
+      "url": "/editoriales/editorial-andromeda/",
+      "label": "Editorial Andrómeda",
+      "shortLabel": "Editorial Andrómeda",
+      "type": "directory",
+      "territory": "herramientas",
+      "parentId": "editorials-hub",
+      "hubId": "tools-hub",
+      "discoverability": "contextual",
+      "audience": [
+        "writer"
+      ],
+      "jobs": [
+        "buscar-editorial"
+      ],
+      "sourceFile": "editoriales/editorial-andromeda/index.html"
+    },
+    {
+      "id": "editorial-pato-ediciones",
+      "url": "/editoriales/pato-ediciones/",
+      "label": "Pato Ediciones",
+      "shortLabel": "Pato Ediciones",
+      "type": "directory",
+      "territory": "herramientas",
+      "parentId": "editorials-hub",
+      "hubId": "tools-hub",
+      "discoverability": "contextual",
+      "audience": [
+        "writer"
+      ],
+      "jobs": [
+        "buscar-editorial"
+      ],
+      "sourceFile": "editoriales/pato-ediciones/index.html"
+    },
+    {
+      "id": "editorial-viento-norte-editorial",
+      "url": "/editoriales/viento-norte-editorial/",
+      "label": "Viento Norte Editorial",
+      "shortLabel": "Viento Norte Editorial",
+      "type": "directory",
+      "territory": "herramientas",
+      "parentId": "editorials-hub",
+      "hubId": "tools-hub",
+      "discoverability": "contextual",
+      "audience": [
+        "writer"
+      ],
+      "jobs": [
+        "buscar-editorial"
+      ],
+      "sourceFile": "editoriales/viento-norte-editorial/index.html"
+    },
+    {
+      "id": "editorial-la-consentida-editorial",
+      "url": "/editoriales/la-consentida-editorial/",
+      "label": "La Consentida Editorial",
+      "shortLabel": "La Consentida Editorial",
+      "type": "directory",
+      "territory": "herramientas",
+      "parentId": "editorials-hub",
+      "hubId": "tools-hub",
+      "discoverability": "contextual",
+      "audience": [
+        "writer"
+      ],
+      "jobs": [
+        "buscar-editorial"
+      ],
+      "sourceFile": "editoriales/la-consentida-editorial/index.html"
+    },
+    {
+      "id": "editorial-ediciones-kiwi-edk",
+      "url": "/editoriales/ediciones-kiwi-edk/",
+      "label": "Ediciones Kiwi · EDK bookverse",
+      "shortLabel": "Ediciones Kiwi · EDK bookverse",
+      "type": "directory",
+      "territory": "herramientas",
+      "parentId": "editorials-hub",
+      "hubId": "tools-hub",
+      "discoverability": "contextual",
+      "audience": [
+        "writer"
+      ],
+      "jobs": [
+        "buscar-editorial"
+      ],
+      "sourceFile": "editoriales/ediciones-kiwi-edk/index.html"
+    },
+    {
+      "id": "editorial-crononauta",
+      "url": "/editoriales/crononauta/",
+      "label": "Crononauta",
+      "shortLabel": "Crononauta",
+      "type": "directory",
+      "territory": "herramientas",
+      "parentId": "editorials-hub",
+      "hubId": "tools-hub",
+      "discoverability": "contextual",
+      "audience": [
+        "writer"
+      ],
+      "jobs": [
+        "buscar-editorial"
+      ],
+      "sourceFile": "editoriales/crononauta/index.html"
     }
   ]
 }
