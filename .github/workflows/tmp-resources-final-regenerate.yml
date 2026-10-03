@@ -28,7 +28,7 @@ jobs:
           python3 scripts/build-editoriales.py --data data/editoriales.json --output .
           python3 scripts/build-radar-opportunities.py --data data/radar-opportunities.json --out convocatorias-escritores
           python3 scripts/build-sitemap.py --root . --output sitemap.xml
-          python3 scripts/build-site-shell.py --root .
+          python3 scripts/build-site-shell.py
       - name: Commit generated outputs
         run: |
           git config user.name "github-actions[bot]"
