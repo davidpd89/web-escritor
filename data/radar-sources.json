@@ -1082,6 +1082,101 @@
         "plazo",
         "inscripción"
       ]
+    },
+    {
+      "id": "diversidad-literaria-voces-pueblo",
+      "name": "Diversidad Literaria — Voces del pueblo",
+      "url": "https://www.diversidadliteraria.com/info-concursos/concursos-microrrelatos/voces-del-pueblo",
+      "official": true,
+      "enabled": true,
+      "keywords": [
+        "microrrelatos",
+        "concurso",
+        "plazo",
+        "bases"
+      ]
+    },
+    {
+      "id": "camino-santiago-navarra-relatos",
+      "name": "Federación Española de Asociaciones de Amigos del Camino — concurso Navarra",
+      "url": "https://www.caminosantiago.org/CPPEREGRINO/prensa/verprensa.asp?PrensaID=23405",
+      "official": true,
+      "enabled": true,
+      "keywords": [
+        "relatos",
+        "Camino de Santiago",
+        "concurso",
+        "plazo"
+      ]
+    },
+    {
+      "id": "uam-casa-del-tiempo-convocatorias",
+      "name": "UAM — Casa del tiempo · convocatorias",
+      "url": "https://casadeltiempo.uam.mx/index.php/convocatorias",
+      "official": true,
+      "enabled": true,
+      "keywords": [
+        "convocatoria",
+        "relato",
+        "ensayo",
+        "colaboraciones",
+        "cierre"
+      ]
+    },
+    {
+      "id": "diversidad-literaria-entre-plumas",
+      "name": "Diversidad Literaria — Entre plumas y letras",
+      "url": "https://www.diversidadliteraria.com/info-concursos/concurso-relatos-entre-plumas-y-letras",
+      "official": true,
+      "enabled": true,
+      "keywords": [
+        "relatos",
+        "fantasía",
+        "terror",
+        "concurso",
+        "plazo"
+      ]
+    },
+    {
+      "id": "otrolunes-iliada-cuentos-erroticos",
+      "name": "OtroLunes / Ilíada — Concurso Internacional de Cuentos Erróticos",
+      "url": "https://otrolunes.com/67/especial-ultima-hora/primer-concurso-internacional-de-cuentos-erroticos-20206/",
+      "official": true,
+      "enabled": true,
+      "keywords": [
+        "concurso",
+        "cuento",
+        "Ilíada",
+        "plazo",
+        "premio"
+      ]
+    },
+    {
+      "id": "aelg-aviles-taramancos",
+      "name": "AELG — Antón Avilés de Taramancos",
+      "url": "https://axendacultural.aelg.gal/tag/certame-literario-de-relato-de-aventuras-anton-aviles-de-taramancos/",
+      "official": false,
+      "enabled": true,
+      "keywords": [
+        "certame",
+        "aventuras",
+        "Noia",
+        "narrativa",
+        "bases"
+      ]
+    },
+    {
+      "id": "vera-cruz-salamanca-certamen",
+      "name": "Vera Cruz Salamanca — La Cruz Escribe",
+      "url": "https://veracruzsalamanca.org/",
+      "official": true,
+      "enabled": true,
+      "keywords": [
+        "certamen",
+        "relato",
+        "bases",
+        "plazo"
+      ]
     }
   ]
 }
