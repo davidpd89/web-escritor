@@ -2197,6 +2197,150 @@
         "buscar-editorial"
       ],
       "sourceFile": "editoriales/cetus-editorial/index.html"
+    },
+    {
+      "id": "editorial-maeva",
+      "url": "/editoriales/maeva/",
+      "label": "Ediciones Maeva",
+      "shortLabel": "Ediciones Maeva",
+      "type": "directory",
+      "territory": "herramientas",
+      "parentId": "editorials-hub",
+      "hubId": "tools-hub",
+      "discoverability": "contextual",
+      "audience": [
+        "writer"
+      ],
+      "jobs": [
+        "buscar-editorial"
+      ],
+      "sourceFile": "editoriales/maeva/index.html"
+    },
+    {
+      "id": "editorial-la-huerta-grande",
+      "url": "/editoriales/la-huerta-grande/",
+      "label": "La Huerta Grande",
+      "shortLabel": "La Huerta Grande",
+      "type": "directory",
+      "territory": "herramientas",
+      "parentId": "editorials-hub",
+      "hubId": "tools-hub",
+      "discoverability": "contextual",
+      "audience": [
+        "writer"
+      ],
+      "jobs": [
+        "buscar-editorial"
+      ],
+      "sourceFile": "editoriales/la-huerta-grande/index.html"
+    },
+    {
+      "id": "editorial-paginas-de-espuma",
+      "url": "/editoriales/paginas-de-espuma/",
+      "label": "Páginas de Espuma",
+      "shortLabel": "Páginas de Espuma",
+      "type": "directory",
+      "territory": "herramientas",
+      "parentId": "editorials-hub",
+      "hubId": "tools-hub",
+      "discoverability": "contextual",
+      "audience": [
+        "writer"
+      ],
+      "jobs": [
+        "buscar-editorial"
+      ],
+      "sourceFile": "editoriales/paginas-de-espuma/index.html"
+    },
+    {
+      "id": "editorial-sexto-piso",
+      "url": "/editoriales/sexto-piso/",
+      "label": "Sexto Piso",
+      "shortLabel": "Sexto Piso",
+      "type": "directory",
+      "territory": "herramientas",
+      "parentId": "editorials-hub",
+      "hubId": "tools-hub",
+      "discoverability": "contextual",
+      "audience": [
+        "writer"
+      ],
+      "jobs": [
+        "buscar-editorial"
+      ],
+      "sourceFile": "editoriales/sexto-piso/index.html"
+    },
+    {
+      "id": "editorial-impedimenta",
+      "url": "/editoriales/impedimenta/",
+      "label": "Impedimenta",
+      "shortLabel": "Impedimenta",
+      "type": "directory",
+      "territory": "herramientas",
+      "parentId": "editorials-hub",
+      "hubId": "tools-hub",
+      "discoverability": "contextual",
+      "audience": [
+        "writer"
+      ],
+      "jobs": [
+        "buscar-editorial"
+      ],
+      "sourceFile": "editoriales/impedimenta/index.html"
+    },
+    {
+      "id": "editorial-nordica-libros",
+      "url": "/editoriales/nordica-libros/",
+      "label": "Nórdica Libros",
+      "shortLabel": "Nórdica Libros",
+      "type": "directory",
+      "territory": "herramientas",
+      "parentId": "editorials-hub",
+      "hubId": "tools-hub",
+      "discoverability": "contextual",
+      "audience": [
+        "writer"
+      ],
+      "jobs": [
+        "buscar-editorial"
+      ],
+      "sourceFile": "editoriales/nordica-libros/index.html"
+    },
+    {
+      "id": "editorial-candaya",
+      "url": "/editoriales/candaya/",
+      "label": "Candaya",
+      "shortLabel": "Candaya",
+      "type": "directory",
+      "territory": "herramientas",
+      "parentId": "editorials-hub",
+      "hubId": "tools-hub",
+      "discoverability": "contextual",
+      "audience": [
+        "writer"
+      ],
+      "jobs": [
+        "buscar-editorial"
+      ],
+      "sourceFile": "editoriales/candaya/index.html"
+    },
+    {
+      "id": "editorial-pepitas-de-calabaza",
+      "url": "/editoriales/pepitas-de-calabaza/",
+      "label": "Pepitas de calabaza",
+      "shortLabel": "Pepitas de calabaza",
+      "type": "directory",
+      "territory": "herramientas",
+      "parentId": "editorials-hub",
+      "hubId": "tools-hub",
+      "discoverability": "contextual",
+      "audience": [
+        "writer"
+      ],
+      "jobs": [
+        "buscar-editorial"
+      ],
+      "sourceFile": "editoriales/pepitas-de-calabaza/index.html"
     }
   ]
 }
