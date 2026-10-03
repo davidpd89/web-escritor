@@ -132,6 +132,47 @@
         "bases",
         "plazo"
       ]
+    },
+    {
+      "id": "alfaguara-premio-novela",
+      "name": "Premio Alfaguara de novela — bases y participación",
+      "url": "https://premioalfaguara.com/bases-y-participacion",
+      "official": true,
+      "enabled": true,
+      "keywords": [
+        "premio",
+        "novela",
+        "bases",
+        "plazo",
+        "participación"
+      ]
+    },
+    {
+      "id": "anagrama-herralde",
+      "name": "Editorial Anagrama — Premio Herralde de Novela",
+      "url": "https://www.anagrama-ed.es/premios/herralde-de-novela/bases",
+      "official": true,
+      "enabled": true,
+      "keywords": [
+        "Herralde",
+        "novela",
+        "2027",
+        "convocatoria",
+        "formulario"
+      ]
+    },
+    {
+      "id": "anagrama-ensayo",
+      "name": "Editorial Anagrama — Premio Anagrama de Ensayo",
+      "url": "https://www.anagrama-ed.es/premios/anagrama-de-ensayo/bases",
+      "official": true,
+      "enabled": true,
+      "keywords": [
+        "ensayo",
+        "2027",
+        "convocatoria",
+        "formulario"
+      ]
     }
   ]
 }
