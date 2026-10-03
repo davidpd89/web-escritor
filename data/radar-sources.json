@@ -1305,6 +1305,48 @@
         "fantasía",
         "concurso"
       ]
+    },
+    {
+      "id": "biblioteca-popular-parana-concurso",
+      "name": "Biblioteca Popular del Paraná — Concurso Literario",
+      "url": "https://www.bibliotecapopular.org/concurso/2026/index.shtml",
+      "official": true,
+      "enabled": true,
+      "keywords": [
+        "concurso",
+        "cuento",
+        "relato",
+        "adultos",
+        "plazo"
+      ]
+    },
+    {
+      "id": "ligeia-revista-convocatorias",
+      "name": "Ligeia Revista — Convocatorias",
+      "url": "https://ligeiarevista.empretienda.com.ar/convocatorias",
+      "official": true,
+      "enabled": true,
+      "keywords": [
+        "cuento",
+        "convocatoria",
+        "revista",
+        "publicación",
+        "plazo"
+      ]
+    },
+    {
+      "id": "premio-letras-celebrart",
+      "name": "Premio Literario Letras — CelebrArt",
+      "url": "https://premioscelebrart.com/premio-de-literatura-letras/",
+      "official": true,
+      "enabled": true,
+      "keywords": [
+        "premio",
+        "cuento",
+        "novela",
+        "bases",
+        "plazo"
+      ]
     }
   ]
 }
