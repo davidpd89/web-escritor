@@ -294,7 +294,7 @@ def render_page_body(items, today, watchlist=None):
         <div class="tool-field"><label class="tool-field-label" for="radar-search">Buscar</label><input class="tool-input" id="radar-search" type="search" autocomplete="off" enterkeyhint="search" data-radar-search placeholder="Entidad, premio, género…"></div>
         <div class="tool-field"><label class="tool-field-label" for="radar-type">Tipo</label><select class="tool-select" id="radar-type" data-radar-type><option value="">Todos</option>{options(types)}</select></div>
         <div class="tool-field"><label class="tool-field-label" for="radar-genre">Género</label><select class="tool-select" id="radar-genre" data-radar-genre><option value="">Todos</option>{options(genres)}</select></div>
-        <div class="tool-field"><label class="tool-field-label" for="radar-kind">Situación</label><select class="tool-select" id="radar-kind" data-radar-kind><option value="">Todas</option><option value="active">En plazo</option><option value="watch">Próximas aperturas</option></select></div>
+        <div class="tool-field"><label class="tool-field-label" for="radar-kind">Situación</label><select class="tool-select" id="radar-kind" data-radar-kind><option value="">Todas</option><option value="active">En plazo</option><option value="watch">Próximas / a vigilar</option></select></div>
       </div>
       <label class="tool-check"><input type="checkbox" data-radar-soon> <span>Cierra en 7 días</span></label>
       <div class="tool-actions"><button type="button" class="text-action" data-radar-clear>Limpiar</button></div>
