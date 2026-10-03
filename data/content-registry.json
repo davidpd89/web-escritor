@@ -3583,6 +3583,60 @@
         "buscar-editorial"
       ],
       "sourceFile": "editoriales/hoja-de-lata/index.html"
+    },
+    {
+      "id": "editorial-literup-ediciones",
+      "url": "/editoriales/literup-ediciones/",
+      "label": "LiterUp Ediciones",
+      "shortLabel": "LiterUp Ediciones",
+      "type": "directory",
+      "territory": "herramientas",
+      "parentId": "editorials-hub",
+      "hubId": "tools-hub",
+      "discoverability": "contextual",
+      "audience": [
+        "writer"
+      ],
+      "jobs": [
+        "buscar-editorial"
+      ],
+      "sourceFile": "editoriales/literup-ediciones/index.html"
+    },
+    {
+      "id": "editorial-lengua-de-trapo",
+      "url": "/editoriales/lengua-de-trapo/",
+      "label": "Lengua de Trapo",
+      "shortLabel": "Lengua de Trapo",
+      "type": "directory",
+      "territory": "herramientas",
+      "parentId": "editorials-hub",
+      "hubId": "tools-hub",
+      "discoverability": "contextual",
+      "audience": [
+        "writer"
+      ],
+      "jobs": [
+        "buscar-editorial"
+      ],
+      "sourceFile": "editoriales/lengua-de-trapo/index.html"
+    },
+    {
+      "id": "editorial-las-afueras",
+      "url": "/editoriales/las-afueras/",
+      "label": "Las afueras",
+      "shortLabel": "Las afueras",
+      "type": "directory",
+      "territory": "herramientas",
+      "parentId": "editorials-hub",
+      "hubId": "tools-hub",
+      "discoverability": "contextual",
+      "audience": [
+        "writer"
+      ],
+      "jobs": [
+        "buscar-editorial"
+      ],
+      "sourceFile": "editoriales/las-afueras/index.html"
     }
   ]
 }
