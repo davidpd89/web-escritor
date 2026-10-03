@@ -523,6 +523,72 @@
         "ARGOS",
         "plazo"
       ]
+    },
+    {
+      "id": "premio-baros",
+      "name": "Premio BAROS — bases oficiales",
+      "url": "https://premiobaros.org/bases/",
+      "official": true,
+      "enabled": true,
+      "keywords": [
+        "relato",
+        "obesidad",
+        "premio",
+        "plazo"
+      ]
+    },
+    {
+      "id": "fantarquia-relatos",
+      "name": "Fantarquía — Certamen de Relatos",
+      "url": "https://www.fantarquia.es/?page_id=428",
+      "official": true,
+      "enabled": true,
+      "keywords": [
+        "relato",
+        "fantasía",
+        "terror",
+        "ciencia ficción",
+        "plazo"
+      ]
+    },
+    {
+      "id": "constanti-premis-literaris",
+      "name": "Ajuntament de Constantí — Premis Literaris",
+      "url": "https://web.constanti.cat/2026/09/02/xx-premis-literaris-de-constanti-2026-relats-de-pagesia/",
+      "official": true,
+      "enabled": true,
+      "keywords": [
+        "relato",
+        "Constantí",
+        "bases",
+        "plazo"
+      ]
+    },
+    {
+      "id": "kasa-vela-historia-pantalla",
+      "name": "Kasa Vela — Tu historia en pantalla",
+      "url": "https://www.somoskasavela.com/convocatorias/tu-historia-en-pantalla",
+      "official": true,
+      "enabled": true,
+      "keywords": [
+        "relato",
+        "audiovisual",
+        "convocatoria",
+        "plazo"
+      ]
+    },
+    {
+      "id": "zahara-ilustre-fregona",
+      "name": "Zahara de los Atunes — La Ilustre Fregona",
+      "url": "https://www.turismozahara.com/blog/bases-concursos-literarios-de-narrativa-y-poesia",
+      "official": true,
+      "enabled": true,
+      "keywords": [
+        "relato corto",
+        "Zahara",
+        "bases",
+        "plazo"
+      ]
     }
   ]
 }
