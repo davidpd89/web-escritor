@@ -5,6 +5,10 @@ on:
     branches:
       - feat/pro-resources-editoriales-convocatorias-20261002
     paths:
+      - 'data/editoriales.json'
+      - 'data/radar-opportunities.json'
+      - 'data/content-registry.json'
+      - 'mapa-del-sitio/index.html'
       - 'scripts/build-editoriales.py'
       - 'scripts/build-radar-opportunities.py'
       - 'scripts/check-asset-versions.py'
@@ -23,6 +27,12 @@ jobs:
       - uses: actions/setup-python@v6
         with:
           python-version: '3.13'
+      - uses: actions/setup-node@v5
+        with:
+          node-version: '22'
+          cache: npm
+      - name: Install locked Node dependencies
+        run: npm ci
       - name: Regenerate editoriales
         run: python3 scripts/build-editoriales.py --data data/editoriales.json --output .
       - name: Regenerate convocatorias
@@ -31,13 +41,15 @@ jobs:
         run: python3 scripts/build-site-shell.py
       - name: Refresh sitemap
         run: python3 scripts/build-sitemap.py --root . --output sitemap.xml
+      - name: Refresh Pagefind
+        run: python3 scripts/build-pagefind-index.py
       - name: Record new asset hashes
         run: python3 scripts/check-asset-versions.py --update-hashes
       - name: Commit generated outputs
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add editoriales/ metodologia-editorial/index.html editoriales-sitemap.xml convocatorias-escritores/ sitemap.xml scripts/asset-version-hashes.json
+          git add editoriales/ metodologia-editorial/index.html editoriales-sitemap.xml convocatorias-escritores/ sitemap.xml pagefind/ scripts/asset-version-hashes.json
           if git diff --cached --quiet; then
             echo "No generated changes"
             exit 0
