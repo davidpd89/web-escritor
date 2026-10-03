@@ -3079,6 +3079,78 @@
         "buscar-editorial"
       ],
       "sourceFile": "editoriales/blackie-books/index.html"
+    },
+    {
+      "id": "editorial-apache-libros",
+      "url": "/editoriales/apache-libros/",
+      "label": "Apache Libros",
+      "shortLabel": "Apache Libros",
+      "type": "directory",
+      "territory": "herramientas",
+      "parentId": "editorials-hub",
+      "hubId": "tools-hub",
+      "discoverability": "contextual",
+      "audience": [
+        "writer"
+      ],
+      "jobs": [
+        "buscar-editorial"
+      ],
+      "sourceFile": "editoriales/apache-libros/index.html"
+    },
+    {
+      "id": "editorial-platero-coolbooks",
+      "url": "/editoriales/platero-coolbooks/",
+      "label": "Platero CoolBooks",
+      "shortLabel": "Platero CoolBooks",
+      "type": "directory",
+      "territory": "herramientas",
+      "parentId": "editorials-hub",
+      "hubId": "tools-hub",
+      "discoverability": "contextual",
+      "audience": [
+        "writer"
+      ],
+      "jobs": [
+        "buscar-editorial"
+      ],
+      "sourceFile": "editoriales/platero-coolbooks/index.html"
+    },
+    {
+      "id": "editorial-editorial-cuadranta",
+      "url": "/editoriales/editorial-cuadranta/",
+      "label": "Editorial Cuadranta",
+      "shortLabel": "Editorial Cuadranta",
+      "type": "directory",
+      "territory": "herramientas",
+      "parentId": "editorials-hub",
+      "hubId": "tools-hub",
+      "discoverability": "contextual",
+      "audience": [
+        "writer"
+      ],
+      "jobs": [
+        "buscar-editorial"
+      ],
+      "sourceFile": "editoriales/editorial-cuadranta/index.html"
+    },
+    {
+      "id": "editorial-altamarea-ediciones",
+      "url": "/editoriales/altamarea-ediciones/",
+      "label": "Altamarea Ediciones",
+      "shortLabel": "Altamarea Ediciones",
+      "type": "directory",
+      "territory": "herramientas",
+      "parentId": "editorials-hub",
+      "hubId": "tools-hub",
+      "discoverability": "contextual",
+      "audience": [
+        "writer"
+      ],
+      "jobs": [
+        "buscar-editorial"
+      ],
+      "sourceFile": "editoriales/altamarea-ediciones/index.html"
     }
   ]
 }
