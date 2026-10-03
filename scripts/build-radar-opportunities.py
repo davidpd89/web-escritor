@@ -266,7 +266,7 @@ def render_page_body(items, today, watchlist=None):
   <link rel="stylesheet" href="/assets/v1-components.css?v=3" />
   <link rel="stylesheet" href="/assets/v1-families.css?v=2" />
   <link rel="stylesheet" href="/assets/v1-tools.css?v=4" />
-  <link rel="stylesheet" href="/assets/radar-convocatorias.css?v=1">
+  <link rel="stylesheet" href="/assets/radar-convocatorias.css?v=2">
   <script type="application/ld+json">{schema}</script>
 </head>
 <body data-back-to-top>
@@ -316,7 +316,7 @@ def render_page_body(items, today, watchlist=None):
   <footer class="site-footer"></footer>
 
   <script defer src="/assets/v1-shell.js?v=14"></script>
-  <script src="/assets/radar-convocatorias.js?v=1" defer></script>
+  <script src="/assets/radar-convocatorias.js?v=2" defer></script>
 </body>
 </html>'''
 

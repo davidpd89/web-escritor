@@ -205,7 +205,7 @@ def page_shell(*, title: str, description: str, canonical: str, main_html: str, 
         # 59 paginas escritas a mano. Las cadenas literales que habia debajo eran
         # una cuarta copia del shell y se quedaron atras en cuanto el shell paso a
         # generarse. Ver scripts/site_shell.py.
-        script = '<script src="/assets/editoriales.js?v=1" defer></script>' if js else ""
+        script = '<script src="/assets/editoriales.js?v=2" defer></script>' if js else ""
         return f'''<!DOCTYPE html>
 <html lang="es" class="v1">
 <head>
@@ -255,7 +255,7 @@ def page_shell(*, title: str, description: str, canonical: str, main_html: str, 
     <link rel="stylesheet" href="/assets/v1-components.css?v=3" />
     <link rel="stylesheet" href="/assets/v1-families.css?v=2" />
     <link rel="stylesheet" href="/assets/v1-tools.css?v=4" />
-    <link rel="stylesheet" href="/assets/editoriales.css?v=2" />{"" if not extra_css else chr(10) + "    " + extra_css}
+    <link rel="stylesheet" href="/assets/editoriales.css?v=3" />{"" if not extra_css else chr(10) + "    " + extra_css}
     <script type="application/ld+json">{html.escape(json.dumps(jsonld, ensure_ascii=False, separators=(',', ':')), quote=False)}</script>
 </head>
 

@@ -157,7 +157,7 @@ try {
       assert.equal(await page.locator('[data-radar-search]').count(), 1, `${name}: buscador ausente`);
       assert.equal(await page.locator('[data-radar-type]').count(), 1, `${name}: filtro de tipo ausente`);
       assert.equal(await page.locator('[data-radar-genre]').count(), 1, `${name}: filtro de género ausente`);
-      assert.equal(await page.locator('[data-radar-kind]').count(), 1, `${name}: filtro de situación ausente`);
+      assert.equal(await page.locator('select[data-radar-kind]').count(), 1, `${name}: filtro de situación ausente`);
       assert.equal(await page.locator('[data-radar-soon]').count(), 1, `${name}: filtro de cierre próximo ausente`);
       assert.equal(await page.locator('[data-radar-count]').count(), 1, `${name}: contador ausente`);
       assert.equal(await page.locator('[data-radar-calendar]').getAttribute('href'), '/convocatorias-escritores/deadlines.ics', `${name}: enlace ICS alterado`);
