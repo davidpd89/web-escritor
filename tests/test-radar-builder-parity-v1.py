@@ -50,7 +50,8 @@ if watchlist:
     else:
         check(False, "ids duplicados entre radar y watchlist se rechazan", "no se lanzó ValueError")
 committed_json_raw = json.loads((ROOT / "convocatorias-escritores/opportunities.json").read_text(encoding="utf-8"))
-# The committed public artifact owns the test clock; a missing generated_for is a contract failure.\ntarget_date = date.fromisoformat(committed_json_raw["generated_for"])
+# The committed public artifact owns the test clock; a missing generated_for is a contract failure.
+target_date = date.fromisoformat(committed_json_raw["generated_for"])
 
 with tempfile.TemporaryDirectory() as tmp_dir:
     tmp = Path(tmp_dir)
