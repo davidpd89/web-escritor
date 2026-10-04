@@ -61,7 +61,7 @@
   const query = document.querySelector('[data-radar-search]');
   const type = document.querySelector('[data-radar-type]');
   const genre = document.querySelector('[data-radar-genre]');
-  const kind = document.querySelector('[data-radar-kind]');
+  const kind = document.querySelector('select[data-radar-kind]');
   const soon = document.querySelector('[data-radar-soon]');
   const count = document.querySelector('[data-radar-count]');
   const clear = document.querySelector('[data-radar-clear]');
