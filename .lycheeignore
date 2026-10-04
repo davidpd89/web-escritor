@@ -85,13 +85,10 @@ https?://([^/]+\.)?patoediciones\.com/.*
 https?://([^/]+\.)?blogs\.es\.amnesty\.org/.*
 https?://([^/]+\.)?bracamonteenegro\.com/.*
 
-# Enlaces concretos que ya venían desde fuentes oficiales o históricas, pero
-# hoy devuelven 404. No se amplía a todo el dominio para que futuros enlaces
-# rotos sigan fallando en CI. Santa Olalla tiene una URL oficial nueva que
-# debe entrar en una regeneración completa de datos/HTML/JSON/ICS; mientras
-# tanto esta excepción evita bloquear el cierre por el HTML ya generado.
+# Enlace histórico concreto cuya URL de política de manuscritos ya no existe.
+# Se mantiene acotado mientras se revalida la fuente de Akelarre; no se excluye
+# el dominio completo, para que otros enlaces rotos sigan fallando en CI.
 ^https://www\.akelarreediciones\.com/ayuda\?o=15$
-^https://www\.santaolalla\.es/noticias/2026/xii-certamen-literario-alvar-gomez-de-castro/$
 
 # Enlaces válidos que devuelven 403 a clientes automatizados de CI. Se dejan
 # como excepciones exactas para no silenciar futuros rotos en esos dominios.
