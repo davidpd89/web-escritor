@@ -23,6 +23,11 @@ const directCount=editorialData.filter(x=>x.direct_submission===true).length;
 const chileCount=editorialData.filter(x=>x.country==='Chile').length;
 const radarGenreCount=genre=>radarAll.filter(x=>(x.genres||[]).some(g=>norm(g)===norm(genre))).length;
 const daysUntil=(deadline,base)=>Math.round((new Date(deadline+'T00:00:00Z')-new Date(base+'T00:00:00Z'))/86400000);
+const offsetDate=(base,days)=>{
+  const value=new Date(base+'T00:00:00Z');
+  value.setUTCDate(value.getUTCDate()+days);
+  return value.toISOString().slice(0,10);
+};
 const soonCount=radarItems.filter(x=>{const d=daysUntil(x.deadline,fixedToday);return d>=0&&d<=7}).length;
 
 const browser=await chromium.launch({headless:true,...(process.env.QA_CHROMIUM_EXECUTABLE_PATH?{executablePath:process.env.QA_CHROMIUM_EXECUTABLE_PATH}:{})});
@@ -85,14 +90,21 @@ async function noOverflow(p,label){const x=await p.evaluate(()=>document.documen
 {
   const[c,p]=await open('/convocatorias-escritores/',{fixed:true});
   assert.equal(await visible(p,'[data-radar-item]'),radarAll.length);
-  const d=await p.evaluate(today=>({
-    a:DPRadarDates.daysUntil(today,today),
-    b:DPRadarDates.daysUntil('2026-10-04',today),
-    c:DPRadarDates.daysUntil('2026-10-10',today),
-    d:DPRadarDates.daysUntil('2026-10-11',today),
-    e:DPRadarDates.daysUntil('2026-10-02',today)
-  }),fixedToday);
-  assert.deepEqual(d,{a:0,b:1,c:7,d:8,e:-1});
+  const probeDates={
+    today:fixedToday,
+    tomorrow:offsetDate(fixedToday,1),
+    plus7:offsetDate(fixedToday,7),
+    plus8:offsetDate(fixedToday,8),
+    yesterday:offsetDate(fixedToday,-1)
+  };
+  const d=await p.evaluate(dates=>({
+    today:DPRadarDates.daysUntil(dates.today,dates.today),
+    tomorrow:DPRadarDates.daysUntil(dates.tomorrow,dates.today),
+    plus7:DPRadarDates.daysUntil(dates.plus7,dates.today),
+    plus8:DPRadarDates.daysUntil(dates.plus8,dates.today),
+    yesterday:DPRadarDates.daysUntil(dates.yesterday,dates.today)
+  }),probeDates);
+  assert.deepEqual(d,{today:0,tomorrow:1,plus7:7,plus8:8,yesterday:-1});
   const rel=await p.locator('[data-radar-relative]').allTextContents();assert.ok(rel.every(t=>/^(?: · )?(?:hoy|mañana|faltan \d+ días)$/.test(t.trim())));
   await p.locator('[data-radar-search]').fill('ALFAGUARA');assert.equal(await visible(p,'[data-radar-item]'),1);
   await p.locator('[data-radar-clear]').click();
