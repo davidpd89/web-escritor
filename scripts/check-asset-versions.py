@@ -124,7 +124,7 @@ TRACKED_ASSETS = {
     "club-session-builder.js": "1",
     "clubes-samuel.css": "1",
     "radar-convocatorias.css": "2",
-    "radar-convocatorias.js": "2",
+    "radar-convocatorias.js": "3",
     "surprise-content.generated.js": "1",
     "surprise-me.js": "1",
     "editoriales.js": "2",
