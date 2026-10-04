@@ -393,7 +393,11 @@ def load_watchlist(path):
 
 
 def ensure_disjoint_ids(items, watchlist):
-    ensure_disjoint_ids(items, watchlist)
+    item_ids = {item["id"] for item in items}
+    watch_ids = {item["id"] for item in watchlist}
+    overlapping_ids = sorted(item_ids & watch_ids)
+    if overlapping_ids:
+        raise ValueError(f"dataset: ids repetidos entre items y watchlist: {overlapping_ids}")
 
 
 def main():
@@ -405,9 +409,7 @@ def main():
     args = parser.parse_args()
     items = load_items(args.data)
     watchlist = load_watchlist(args.data)
-    overlapping_ids = sorted({item["id"] for item in items} & {item["id"] for item in watchlist})
-    if overlapping_ids:
-        raise ValueError(f"dataset: ids repetidos entre items y watchlist: {overlapping_ids}")
+    ensure_disjoint_ids(items, watchlist)
     today = iso_date(args.today, "today")
     if args.check:
         states = {name: sum(state(item, today) == name and item.get("published") for item in items) for name in ("open", "closing_soon", "stale", "expired")}
