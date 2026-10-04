@@ -3709,6 +3709,150 @@
         "buscar-editorial"
       ],
       "sourceFile": "editoriales/editorial-la-calle/index.html"
+    },
+    {
+      "id": "editorial-alamut",
+      "url": "/editoriales/alamut/",
+      "label": "Alamut",
+      "shortLabel": "Alamut",
+      "type": "directory",
+      "territory": "herramientas",
+      "parentId": "editorials-hub",
+      "hubId": "tools-hub",
+      "discoverability": "contextual",
+      "audience": [
+        "writer"
+      ],
+      "jobs": [
+        "buscar-editorial"
+      ],
+      "sourceFile": "editoriales/alamut/index.html"
+    },
+    {
+      "id": "editorial-editorial-vanadis",
+      "url": "/editoriales/editorial-vanadis/",
+      "label": "Editorial Vanadis",
+      "shortLabel": "Editorial Vanadis",
+      "type": "directory",
+      "territory": "herramientas",
+      "parentId": "editorials-hub",
+      "hubId": "tools-hub",
+      "discoverability": "contextual",
+      "audience": [
+        "writer"
+      ],
+      "jobs": [
+        "buscar-editorial"
+      ],
+      "sourceFile": "editoriales/editorial-vanadis/index.html"
+    },
+    {
+      "id": "editorial-editorial-runaris",
+      "url": "/editoriales/editorial-runaris/",
+      "label": "Editorial Runaris",
+      "shortLabel": "Editorial Runaris",
+      "type": "directory",
+      "territory": "herramientas",
+      "parentId": "editorials-hub",
+      "hubId": "tools-hub",
+      "discoverability": "contextual",
+      "audience": [
+        "writer"
+      ],
+      "jobs": [
+        "buscar-editorial"
+      ],
+      "sourceFile": "editoriales/editorial-runaris/index.html"
+    },
+    {
+      "id": "editorial-akelarre-ediciones",
+      "url": "/editoriales/akelarre-ediciones/",
+      "label": "Akelarre Ediciones",
+      "shortLabel": "Akelarre Ediciones",
+      "type": "directory",
+      "territory": "herramientas",
+      "parentId": "editorials-hub",
+      "hubId": "tools-hub",
+      "discoverability": "contextual",
+      "audience": [
+        "writer"
+      ],
+      "jobs": [
+        "buscar-editorial"
+      ],
+      "sourceFile": "editoriales/akelarre-ediciones/index.html"
+    },
+    {
+      "id": "editorial-ediciones-dorna",
+      "url": "/editoriales/ediciones-dorna/",
+      "label": "Ediciones Dorna",
+      "shortLabel": "Ediciones Dorna",
+      "type": "directory",
+      "territory": "herramientas",
+      "parentId": "editorials-hub",
+      "hubId": "tools-hub",
+      "discoverability": "contextual",
+      "audience": [
+        "writer"
+      ],
+      "jobs": [
+        "buscar-editorial"
+      ],
+      "sourceFile": "editoriales/ediciones-dorna/index.html"
+    },
+    {
+      "id": "editorial-la-maquina-que-hace-ping",
+      "url": "/editoriales/la-maquina-que-hace-ping/",
+      "label": "La Máquina que Hace PING!",
+      "shortLabel": "La Máquina que Hace PING!",
+      "type": "directory",
+      "territory": "herramientas",
+      "parentId": "editorials-hub",
+      "hubId": "tools-hub",
+      "discoverability": "contextual",
+      "audience": [
+        "writer"
+      ],
+      "jobs": [
+        "buscar-editorial"
+      ],
+      "sourceFile": "editoriales/la-maquina-que-hace-ping/index.html"
+    },
+    {
+      "id": "editorial-grupo-planeta-mexico",
+      "url": "/editoriales/grupo-planeta-mexico/",
+      "label": "Grupo Planeta México",
+      "shortLabel": "Grupo Planeta México",
+      "type": "directory",
+      "territory": "herramientas",
+      "parentId": "editorials-hub",
+      "hubId": "tools-hub",
+      "discoverability": "contextual",
+      "audience": [
+        "writer"
+      ],
+      "jobs": [
+        "buscar-editorial"
+      ],
+      "sourceFile": "editoriales/grupo-planeta-mexico/index.html"
+    },
+    {
+      "id": "editorial-foem-ceape",
+      "url": "/editoriales/foem-ceape/",
+      "label": "FOEM / CEAPE",
+      "shortLabel": "FOEM / CEAPE",
+      "type": "directory",
+      "territory": "herramientas",
+      "parentId": "editorials-hub",
+      "hubId": "tools-hub",
+      "discoverability": "contextual",
+      "audience": [
+        "writer"
+      ],
+      "jobs": [
+        "buscar-editorial"
+      ],
+      "sourceFile": "editoriales/foem-ceape/index.html"
     }
   ]
 }
