@@ -92,3 +92,8 @@ https?://([^/]+\.)?bracamonteenegro\.com/.*
 # tanto esta excepción evita bloquear el cierre por el HTML ya generado.
 ^https://www\.akelarreediciones\.com/ayuda\?o=15$
 ^https://www\.santaolalla\.es/noticias/2026/xii-certamen-literario-alvar-gomez-de-castro/$
+
+# Enlaces válidos que devuelven 403 a clientes automatizados de CI. Se dejan
+# como excepciones exactas para no silenciar futuros rotos en esos dominios.
+^https://quelibroleo\.com/samuel-entre-mundos$
+^https://axendacultural\.aelg\.gal/tag/certame-literario-de-relato-de-aventuras-anton-aviles-de-taramancos/$
