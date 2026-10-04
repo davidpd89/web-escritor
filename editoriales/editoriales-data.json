@@ -2431,54 +2431,6 @@
     },
     {
       "publish": true,
-      "slug": "pepitas-de-calabaza",
-      "name": "Pepitas de calabaza",
-      "group": "Pepitas de calabaza",
-      "publisher_type": "tradicional",
-      "country": "España",
-      "genres": [
-        "narrativa",
-        "ensayo",
-        "crónica",
-        "pensamiento"
-      ],
-      "status": "open",
-      "direct_submission": false,
-      "submission_channel": "La página oficial confirma recepción de originales, sin protocolo específico publicado",
-      "submission_email": null,
-      "submission_url": "https://www.pepitas.net/contacto",
-      "website_url": "https://www.pepitas.net/",
-      "requirements": [
-        "La editorial confirma que recibe originales.",
-        "No publica en esa página un formato, calendario o canal específico de manuscritos; conviene realizar una consulta concisa y seguir cualquier instrucción que proporcione."
-      ],
-      "response_time": null,
-      "summary": "Pepitas de calabaza reconoce públicamente que recibe originales, aunque advierte de que recibe más de los que puede leer y responder.",
-      "public_note": "Se clasifica como recepción abierta pero sin envío directo estructurado: no conviene inferir un protocolo que la editorial no publica.",
-      "verified_at": "2026-10-03",
-      "page_updated_at": "2026-10-03",
-      "sources": [
-        {
-          "label": "Pepitas de calabaza — información oficial",
-          "url": "https://www.pepitas.net/contacto",
-          "primary": true
-        },
-        {
-          "label": "Pepitas de calabaza — web oficial",
-          "url": "https://www.pepitas.net/",
-          "primary": true
-        }
-      ],
-      "history": [
-        {
-          "date": "2026-10-03",
-          "event": "Revisado el estado público de recepción y las condiciones visibles en la fuente oficial.",
-          "source_url": "https://www.pepitas.net/contacto"
-        }
-      ]
-    },
-    {
-      "publish": true,
       "slug": "pez-de-plata",
       "name": "Pez de Plata",
       "group": "Editorial Pez de Plata",
@@ -3363,6 +3315,54 @@
           "date": "2026-10-03",
           "event": "Revisadas la actividad editorial y la descripción pública de su sistema de selección, que no opera como recepción abierta de originales.",
           "source_url": "https://ecoedit.org/editoriales/hoja-de-lata/"
+        }
+      ]
+    },
+    {
+      "publish": true,
+      "slug": "pepitas-de-calabaza",
+      "name": "Pepitas de calabaza",
+      "group": "Pepitas de calabaza",
+      "publisher_type": "tradicional",
+      "country": "España",
+      "genres": [
+        "narrativa",
+        "ensayo",
+        "crónica",
+        "pensamiento"
+      ],
+      "status": "indirect",
+      "direct_submission": false,
+      "submission_channel": "Recepción de originales reconocida públicamente, sin protocolo específico de envío publicado",
+      "submission_email": null,
+      "submission_url": "https://www.pepitas.net/contacto",
+      "website_url": "https://www.pepitas.net/",
+      "requirements": [
+        "La editorial confirma que recibe originales.",
+        "No publica en esa página un formato, calendario o canal específico de manuscritos; conviene realizar una consulta concisa y seguir cualquier instrucción que proporcione."
+      ],
+      "response_time": null,
+      "summary": "Pepitas de calabaza reconoce públicamente que recibe originales, aunque advierte de que recibe más de los que puede leer y responder.",
+      "public_note": "La editorial confirma que recibe originales, pero no publica un protocolo directo de envío; se clasifica como vía indirecta para no inventar un canal que no está documentado.",
+      "verified_at": "2026-10-03",
+      "page_updated_at": "2026-10-03",
+      "sources": [
+        {
+          "label": "Pepitas de calabaza — información oficial",
+          "url": "https://www.pepitas.net/contacto",
+          "primary": true
+        },
+        {
+          "label": "Pepitas de calabaza — web oficial",
+          "url": "https://www.pepitas.net/",
+          "primary": true
+        }
+      ],
+      "history": [
+        {
+          "date": "2026-10-03",
+          "event": "Revisado el estado público de recepción y las condiciones visibles en la fuente oficial.",
+          "source_url": "https://www.pepitas.net/contacto"
         }
       ]
     },
