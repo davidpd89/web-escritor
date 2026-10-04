@@ -566,6 +566,51 @@
     },
     {
       "publish": true,
+      "slug": "ediciones-pamies",
+      "name": "Ediciones Pàmies",
+      "group": "Ediciones Pàmies",
+      "publisher_type": "tradicional",
+      "country": "España",
+      "genres": [
+        "novela histórica",
+        "novela romántica",
+        "romance",
+        "new adult"
+      ],
+      "status": "open",
+      "direct_submission": true,
+      "submission_channel": "Formulario oficial de envío de manuscritos",
+      "submission_email": null,
+      "submission_url": "https://edicionespamies.com/envio-manuscritos/",
+      "website_url": "https://edicionespamies.com/",
+      "requirements": [
+        "Manuscrito completo, inédito y escrito en español; la editorial solo valora autores residentes en España.",
+        "Para novela histórica, orientación de 80.000 a 150.000 palabras; excluye thriller histórico, fantasía histórica y otros subgéneros que no sean novela histórica pura.",
+        "Para romántica, orientación de 70.000 a 120.000 palabras y final feliz/cerrado dentro de los subgéneros que especifica la editorial.",
+        "Archivo Word con currículo y sinopsis/resumen de 1–2 páginas que incluya el desenlace; un único archivo de hasta 5 MB."
+      ],
+      "response_time": "La editorial indica que, si no responde en seis meses, el manuscrito puede considerarse desestimado.",
+      "summary": "Ediciones Pàmies mantiene abierta la recepción de manuscritos de novela histórica y romántica mediante un formulario oficial con criterios de género y extensión muy concretos.",
+      "public_note": "La editorial excluye expresamente varios subgéneros de histórica y solo valora manuscritos de autores residentes en España; conviene revisar la guía completa antes de preparar el archivo.",
+      "verified_at": "2026-10-04",
+      "page_updated_at": "2026-10-04",
+      "sources": [
+        {
+          "label": "Ediciones Pàmies — envío de manuscritos",
+          "url": "https://edicionespamies.com/envio-manuscritos/",
+          "primary": true
+        }
+      ],
+      "history": [
+        {
+          "date": "2026-10-04",
+          "event": "Comprobada la recepción abierta, los géneros admitidos, las franjas de extensión, el formato y el plazo orientativo de respuesta.",
+          "source_url": "https://edicionespamies.com/envio-manuscritos/"
+        }
+      ]
+    },
+    {
+      "publish": true,
       "slug": "ediciones-siruela",
       "name": "Ediciones Siruela",
       "group": "Siruela",
@@ -1135,6 +1180,51 @@
           "date": "2026-08-19",
           "event": "Comprobado el estado público de recepción, el canal disponible y las condiciones publicadas por la editorial.",
           "source_url": "https://www.editorialhidra.com/manuscrito/"
+        }
+      ]
+    },
+    {
+      "publish": true,
+      "slug": "editorial-la-calle",
+      "name": "Editorial La Calle",
+      "group": "Editorial La Calle",
+      "publisher_type": "independiente",
+      "country": "España",
+      "genres": [
+        "narrativa",
+        "poesía",
+        "infantil",
+        "ficción moderna",
+        "literatura LGTBI"
+      ],
+      "status": "open",
+      "direct_submission": true,
+      "submission_channel": "Formulario oficial de contacto con opción «Enviar manuscrito»",
+      "submission_email": null,
+      "submission_url": "https://www.editoriallacalle.es/contacto/",
+      "website_url": "https://www.editoriallacalle.es/",
+      "requirements": [
+        "Utilizar el formulario oficial y seleccionar el motivo «Enviar manuscrito».",
+        "Adjuntar el manuscrito en el campo específico del formulario.",
+        "La página pública no fija extensión, formato ni plazo de respuesta; no se añaden requisitos que la editorial no haya publicado."
+      ],
+      "response_time": null,
+      "summary": "Editorial La Calle, con sede en Antequera, mantiene abierta la recepción de manuscritos y propuestas editoriales mediante su formulario oficial.",
+      "public_note": "La página de contacto confirma la recepción abierta, pero no publica un protocolo detallado de extensión o formato; esos datos deben confirmarse directamente antes de preparar el envío.",
+      "verified_at": "2026-10-04",
+      "page_updated_at": "2026-10-04",
+      "sources": [
+        {
+          "label": "Editorial La Calle — contacto y manuscritos",
+          "url": "https://www.editoriallacalle.es/contacto/",
+          "primary": true
+        }
+      ],
+      "history": [
+        {
+          "date": "2026-10-04",
+          "event": "Comprobado que el formulario oficial ofrece la opción «Enviar manuscrito» y que la editorial declara abierta la recepción de propuestas.",
+          "source_url": "https://www.editoriallacalle.es/contacto/"
         }
       ]
     },
@@ -3086,6 +3176,59 @@
     },
     {
       "publish": true,
+      "slug": "apeiron-ediciones",
+      "name": "Ápeiron Ediciones",
+      "group": "Ápeiron Ediciones",
+      "publisher_type": "tradicional y coedición",
+      "country": "España",
+      "genres": [
+        "novela",
+        "novela negra",
+        "novela histórica",
+        "cuento",
+        "poesía",
+        "teatro",
+        "ensayo"
+      ],
+      "status": "open",
+      "direct_submission": true,
+      "submission_channel": "Formulario oficial de presentación de originales",
+      "submission_email": null,
+      "submission_url": "https://www.apeironediciones.com/envio-de-originales",
+      "website_url": "https://www.apeironediciones.com/",
+      "requirements": [
+        "Manuscrito completo, inédito en cualquier formato y libre de derechos para comercialización y distribución.",
+        "La editorial evalúa literatura —incluidas novela, novela negra, novela histórica, poesía, teatro y cuentos— además de ensayo y humanidades.",
+        "La presentación se realiza mediante el formulario oficial de obras.",
+        "La modalidad final puede ser edición tradicional o coedición; las condiciones se comunican con el contrato si la obra es aceptada."
+      ],
+      "response_time": "La editorial publica un plazo de evaluación de aproximadamente dos meses.",
+      "summary": "Ápeiron Ediciones es un sello independiente de Madrid que admite originales inéditos de literatura y humanidades mediante formulario y declara distintos modelos de publicación según el proyecto.",
+      "public_note": "La propia editorial indica que combina edición tradicional y acuerdos de coedición; esta ficha no presupone qué modalidad se ofrecerá a una obra concreta y conviene revisar íntegramente el contrato propuesto.",
+      "verified_at": "2026-10-04",
+      "page_updated_at": "2026-10-04",
+      "sources": [
+        {
+          "label": "Ápeiron Ediciones — envío de originales",
+          "url": "https://www.apeironediciones.com/envio-de-originales",
+          "primary": true
+        },
+        {
+          "label": "Ápeiron Ediciones — web oficial",
+          "url": "https://www.apeironediciones.com/",
+          "primary": true
+        }
+      ],
+      "history": [
+        {
+          "date": "2026-10-04",
+          "event": "Comprobados el formulario de originales, los géneros admitidos, el carácter inédito exigido y la advertencia sobre edición tradicional/coedición.",
+          "source_url": "https://www.apeironediciones.com/envio-de-originales"
+        }
+      ]
+    },
+    {
+      "publish": true,
       "publisher_type": "tradicional",
       "country": "España",
       "response_time": null,
@@ -4880,6 +5023,53 @@
           "date": "2026-10-03",
           "event": "Comprobada en la página oficial la recepción de originales como cerrada.",
           "source_url": "https://sportula.es/recepcion-de-originales/"
+        }
+      ]
+    },
+    {
+      "publish": true,
+      "slug": "uzanza-editorial",
+      "name": "Uzanza Editorial",
+      "group": "Uzanza Editorial",
+      "publisher_type": "tradicional",
+      "country": "España",
+      "genres": [
+        "misterio",
+        "thriller",
+        "infantil",
+        "fantasía",
+        "terror",
+        "ciencia ficción",
+        "romántica"
+      ],
+      "status": "closed",
+      "direct_submission": false,
+      "submission_channel": "Recepción de manuscritos cerrada",
+      "submission_email": null,
+      "submission_url": "https://uzanzaeditorial.com/manuscritos/",
+      "website_url": "https://uzanzaeditorial.com/",
+      "requirements": [
+        "La página oficial indica expresamente que la recepción está cerrada en este momento.",
+        "Cuando reabra, la obra deberá ser original, no publicada previamente y estar completa.",
+        "La editorial pide registro en la Propiedad Intelectual, sinopsis/resumen, CV y manuscrito completo en PDF."
+      ],
+      "response_time": null,
+      "summary": "Uzanza Editorial publica narrativa de varios géneros, incluida fantasía, terror y ciencia ficción, pero mantiene cerrada actualmente la recepción de manuscritos.",
+      "public_note": "El correo histórico de manuscritos no se publica como vía activa: hay que esperar a que la propia editorial anuncie la reapertura.",
+      "verified_at": "2026-10-04",
+      "page_updated_at": "2026-10-04",
+      "sources": [
+        {
+          "label": "Uzanza Editorial — manuscritos",
+          "url": "https://uzanzaeditorial.com/manuscritos/",
+          "primary": true
+        }
+      ],
+      "history": [
+        {
+          "date": "2026-10-04",
+          "event": "Verificado en la página oficial que la recepción de manuscritos está cerrada y conservadas las condiciones anunciadas para una futura reapertura.",
+          "source_url": "https://uzanzaeditorial.com/manuscritos/"
         }
       ]
     },
