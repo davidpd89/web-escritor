@@ -161,7 +161,7 @@ def render(data):
   <link rel="stylesheet" href="/assets/v1-components.css?v=3" />
   <link rel="stylesheet" href="/assets/v1-families.css?v=2" />
   <link rel="stylesheet" href="/assets/v1-tools.css?v=4" />
-  <link rel="stylesheet" href="/assets/editoriales.css?v=2" />
+  <link rel="stylesheet" href="/assets/editoriales.css?v=3" />
   <script type="application/ld+json">{schema}</script>
 </head>
 
