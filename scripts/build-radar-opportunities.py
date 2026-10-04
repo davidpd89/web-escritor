@@ -113,6 +113,8 @@ def validate_watch(item):
 def state(item, today):
     deadline = iso_date(item["deadline"], "deadline")
     verified = iso_date(item["verified_at"], "verified_at")
+    if verified > today:
+        return "stale"
     if deadline < today:
         return "expired"
     if today - verified > timedelta(days=STALE_DAYS):
@@ -169,7 +171,7 @@ def watch_items(items, today):
         if not item.get("published"):
             continue
         verified = iso_date(item["verified_at"], "verified_at")
-        if today - verified <= timedelta(days=STALE_DAYS):
+        if verified <= today and today - verified <= timedelta(days=STALE_DAYS):
             visible.append(item)
     return sorted(visible, key=lambda item: item["title"].casefold())
 
@@ -399,6 +401,9 @@ def main():
     args = parser.parse_args()
     items = load_items(args.data)
     watchlist = load_watchlist(args.data)
+    overlapping_ids = sorted({item["id"] for item in items} & {item["id"] for item in watchlist})
+    if overlapping_ids:
+        raise ValueError(f"dataset: ids repetidos entre items y watchlist: {overlapping_ids}")
     today = iso_date(args.today, "today")
     if args.check:
         states = {name: sum(state(item, today) == name and item.get("published") for item in items) for name in ("open", "closing_soon", "stale", "expired")}
