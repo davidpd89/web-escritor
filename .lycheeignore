@@ -98,10 +98,11 @@ https?://([^/]+\.)?davidportodiaz\.com/.*
 ^https://blogs\.es\.amnesty\.org/madrid/escribir-por-derechos/$
 ^https://bracamonteenegro\.com/concursos/$
 
-# Enlaces válidos que devuelven 403 a clientes automatizados de CI. Se dejan
+# Enlaces validos que devuelven 403/404 a clientes automatizados de CI. Se dejan
 # como excepciones exactas para no silenciar futuros rotos en esos dominios.
 ^https://quelibroleo\.com/samuel-entre-mundos$
 ^https://axendacultural\.aelg\.gal/tag/certame-literario-de-relato-de-aventuras-anton-aviles-de-taramancos/$
+^https://www\.akelarreediciones\.com/publicacion/60/akelarre-ediciones-publicara-la-antologia--pajaros-en-la-cabeza-$
 
 # Fuentes verificadas que responden correctamente en navegación normal/buscadores,
 # pero agotan el timeout de Lychee en GitHub Actions. Excepciones URL-específicas:
