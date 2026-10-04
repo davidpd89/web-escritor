@@ -3853,6 +3853,78 @@
         "buscar-editorial"
       ],
       "sourceFile": "editoriales/foem-ceape/index.html"
+    },
+    {
+      "id": "editorial-editorial-acantilado",
+      "url": "/editoriales/editorial-acantilado/",
+      "label": "Editorial Acantilado",
+      "shortLabel": "Editorial Acantilado",
+      "type": "directory",
+      "territory": "herramientas",
+      "parentId": "editorials-hub",
+      "hubId": "tools-hub",
+      "discoverability": "contextual",
+      "audience": [
+        "writer"
+      ],
+      "jobs": [
+        "buscar-editorial"
+      ],
+      "sourceFile": "editoriales/editorial-acantilado/index.html"
+    },
+    {
+      "id": "editorial-la-caja-books",
+      "url": "/editoriales/la-caja-books/",
+      "label": "La Caja Books",
+      "shortLabel": "La Caja Books",
+      "type": "directory",
+      "territory": "herramientas",
+      "parentId": "editorials-hub",
+      "hubId": "tools-hub",
+      "discoverability": "contextual",
+      "audience": [
+        "writer"
+      ],
+      "jobs": [
+        "buscar-editorial"
+      ],
+      "sourceFile": "editoriales/la-caja-books/index.html"
+    },
+    {
+      "id": "editorial-libros-de-seda",
+      "url": "/editoriales/libros-de-seda/",
+      "label": "Libros de Seda",
+      "shortLabel": "Libros de Seda",
+      "type": "directory",
+      "territory": "herramientas",
+      "parentId": "editorials-hub",
+      "hubId": "tools-hub",
+      "discoverability": "contextual",
+      "audience": [
+        "writer"
+      ],
+      "jobs": [
+        "buscar-editorial"
+      ],
+      "sourceFile": "editoriales/libros-de-seda/index.html"
+    },
+    {
+      "id": "editorial-tres-hermanas",
+      "url": "/editoriales/tres-hermanas/",
+      "label": "Tres Hermanas",
+      "shortLabel": "Tres Hermanas",
+      "type": "directory",
+      "territory": "herramientas",
+      "parentId": "editorials-hub",
+      "hubId": "tools-hub",
+      "discoverability": "contextual",
+      "audience": [
+        "writer"
+      ],
+      "jobs": [
+        "buscar-editorial"
+      ],
+      "sourceFile": "editoriales/tres-hermanas/index.html"
     }
   ]
 }

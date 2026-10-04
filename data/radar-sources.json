@@ -1373,6 +1373,58 @@
         "concurso",
         "plazo"
       ]
+    },
+    {
+      "id": "hipoacusicos-huesca",
+      "name": "Asociación de Hipoacúsicos de Huesca — actualidad",
+      "url": "https://www.hipoacusicoshuesca.es/actualidad/",
+      "official": true,
+      "enabled": true,
+      "keywords": [
+        "concurso",
+        "relatos",
+        "bases",
+        "convocatoria"
+      ]
+    },
+    {
+      "id": "otrolunes-concursos",
+      "name": "OtroLunes — convocatorias literarias",
+      "url": "https://otrolunes.com/",
+      "official": true,
+      "enabled": true,
+      "keywords": [
+        "concurso",
+        "cuento",
+        "convocatoria",
+        "bases"
+      ]
+    },
+    {
+      "id": "aama-literatura",
+      "name": "AAMA — calendario de actividades",
+      "url": "https://aama.es/actividades/calendario-de-actividades/",
+      "official": true,
+      "enabled": true,
+      "keywords": [
+        "concurso",
+        "literatura",
+        "gala",
+        "aeronáutica"
+      ]
+    },
+    {
+      "id": "subur-negre-premios",
+      "name": "Subur Negre — premios",
+      "url": "https://www.suburnegresitges.es/premios",
+      "official": true,
+      "enabled": true,
+      "keywords": [
+        "premio",
+        "relato",
+        "festival",
+        "bases"
+      ]
     }
   ]
 }

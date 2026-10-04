@@ -6588,6 +6588,186 @@
           "source_url": "https://foem.edomex.gob.mx/publica-foem"
         }
       ]
+    },
+    {
+      "publish": true,
+      "slug": "editorial-acantilado",
+      "name": "Editorial Acantilado",
+      "group": "Acantilado",
+      "publisher_type": "tradicional",
+      "country": "España",
+      "genres": [
+        "narrativa",
+        "ensayo",
+        "literatura"
+      ],
+      "status": "closed",
+      "direct_submission": false,
+      "submission_channel": "No acepta manuscritos no solicitados",
+      "submission_email": null,
+      "submission_url": "https://www.acantilado.es/contacto/manuscritos/",
+      "website_url": "https://www.acantilado.es/",
+      "requirements": [
+        "La editorial indica expresamente que actualmente no acepta manuscritos no solicitados.",
+        "No utilizar el correo general de contacto como sustituto de una vía de originales inexistente."
+      ],
+      "response_time": null,
+      "summary": "Acantilado es una editorial independiente de narrativa, ensayo y literatura europea que declara expresamente cerrada la recepción de manuscritos no solicitados.",
+      "public_note": "La ficha se mantiene para evitar envíos improcedentes; solo debería pasar a abierta si la propia editorial publica una nueva vía de recepción.",
+      "verified_at": "2026-10-04",
+      "page_updated_at": "2026-10-04",
+      "sources": [
+        {
+          "label": "Acantilado — manuscritos",
+          "url": "https://www.acantilado.es/contacto/manuscritos/",
+          "primary": true
+        },
+        {
+          "label": "Acantilado — contacto",
+          "url": "https://www.acantilado.es/contacto/",
+          "primary": true
+        }
+      ],
+      "history": [
+        {
+          "date": "2026-10-04",
+          "event": "Comprobado en la web oficial que la editorial no acepta ni valora manuscritos no solicitados.",
+          "source_url": "https://www.acantilado.es/contacto/manuscritos/"
+        }
+      ]
+    },
+    {
+      "publish": true,
+      "slug": "la-caja-books",
+      "name": "La Caja Books",
+      "group": "La Caja Books",
+      "publisher_type": "tradicional",
+      "country": "España",
+      "genres": [
+        "narrativa",
+        "ensayo",
+        "relato",
+        "memorias",
+        "biografía",
+        "novela corta"
+      ],
+      "status": "open",
+      "direct_submission": true,
+      "submission_channel": "Correo electrónico específico de manuscritos",
+      "submission_email": "manuscritos@lacajabooks.com",
+      "submission_url": "https://www.lacajabooks.com/editorial/",
+      "website_url": "https://www.lacajabooks.com/",
+      "requirements": [
+        "Enviar el original por el correo específico de manuscritos publicado por la editorial.",
+        "Revisar antes el catálogo y el encaje de la propuesta con sus colecciones de narrativa, ensayo, relato, memorias, biografía y novela corta."
+      ],
+      "response_time": null,
+      "summary": "La Caja Books es una editorial independiente valenciana que publica narrativa y no ficción literaria y mantiene un correo específico para recibir manuscritos.",
+      "public_note": "La editorial advierte de que, por carga de trabajo, no puede responder individualmente a los manuscritos recibidos.",
+      "verified_at": "2026-10-04",
+      "page_updated_at": "2026-10-04",
+      "sources": [
+        {
+          "label": "La Caja Books — editorial y manuscritos",
+          "url": "https://www.lacajabooks.com/editorial/",
+          "primary": true
+        }
+      ],
+      "history": [
+        {
+          "date": "2026-10-04",
+          "event": "Comprobado el correo específico de manuscritos y el aviso de que la editorial no puede responder a todos los envíos.",
+          "source_url": "https://www.lacajabooks.com/editorial/"
+        }
+      ]
+    },
+    {
+      "publish": true,
+      "slug": "libros-de-seda",
+      "name": "Libros de Seda",
+      "group": "Libros de Seda",
+      "publisher_type": "tradicional",
+      "country": "España",
+      "genres": [
+        "narrativa",
+        "ficción",
+        "romántica histórica"
+      ],
+      "status": "open",
+      "direct_submission": true,
+      "submission_channel": "Envío físico de pendrive conforme a las instrucciones oficiales",
+      "submission_email": null,
+      "submission_url": "https://librosdeseda.com/manuscritos/",
+      "website_url": "https://librosdeseda.com/",
+      "requirements": [
+        "Novela original e inédita.",
+        "Declaración firmada de autoría, originalidad y disponibilidad de derechos.",
+        "Texto en Word, sinopsis y currículum del autor o autora en un pendrive.",
+        "Extensión entre 400.000 y 680.000 caracteres con espacios.",
+        "Envío a la dirección postal indicada en la página oficial de manuscritos."
+      ],
+      "response_time": "La editorial indica que los procesos de lectura suelen alargarse al menos tres meses.",
+      "summary": "Libros de Seda acepta propuestas de narrativa, ficción y romántica histórica mediante un protocolo físico detallado y publicado en su web oficial.",
+      "public_note": "La recepción es directa pero no digital: la editorial pide actualmente un pendrive enviado a su dirección postal y recomienda comprobar el encaje con el catálogo antes de remitirlo.",
+      "verified_at": "2026-10-04",
+      "page_updated_at": "2026-10-04",
+      "sources": [
+        {
+          "label": "Libros de Seda — manuscritos",
+          "url": "https://librosdeseda.com/manuscritos/",
+          "primary": true
+        }
+      ],
+      "history": [
+        {
+          "date": "2026-10-04",
+          "event": "Comprobado el protocolo vigente de manuscritos, incluida la extensión, documentación y vía postal.",
+          "source_url": "https://librosdeseda.com/manuscritos/"
+        }
+      ]
+    },
+    {
+      "publish": true,
+      "slug": "tres-hermanas",
+      "name": "Tres Hermanas",
+      "group": "Tres Hermanas Libros",
+      "publisher_type": "tradicional",
+      "country": "España",
+      "genres": [
+        "narrativa",
+        "literatura",
+        "ensayo",
+        "infantil"
+      ],
+      "status": "closed",
+      "direct_submission": false,
+      "submission_channel": "No acepta manuscritos no solicitados",
+      "submission_email": null,
+      "submission_url": "https://treshermanaslibros.com/contactanos/",
+      "website_url": "https://treshermanaslibros.com/",
+      "requirements": [
+        "La editorial indica que por el momento no acepta manuscritos no solicitados.",
+        "Los correos de prensa y portfolios no deben utilizarse como canales alternativos para originales."
+      ],
+      "response_time": null,
+      "summary": "Tres Hermanas es una editorial independiente madrileña que publica narrativa, ensayo y literatura infantil y mantiene cerrada la recepción de manuscritos no solicitados.",
+      "public_note": "La web sí publica vías para prensa y portfolios de ilustración, pero las separa expresamente de la recepción de manuscritos.",
+      "verified_at": "2026-10-04",
+      "page_updated_at": "2026-10-04",
+      "sources": [
+        {
+          "label": "Tres Hermanas — contacto y manuscritos",
+          "url": "https://treshermanaslibros.com/contactanos/",
+          "primary": true
+        }
+      ],
+      "history": [
+        {
+          "date": "2026-10-04",
+          "event": "Comprobado en la página oficial de contacto que no se aceptan manuscritos no solicitados.",
+          "source_url": "https://treshermanaslibros.com/contactanos/"
+        }
+      ]
     }
   ]
 }
