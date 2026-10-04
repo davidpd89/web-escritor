@@ -117,7 +117,7 @@ def run() -> None:
     # ambos workflows sin duplicar el test de elegibilidad.
     pagefind_installed = (ROOT / "node_modules" / "pagefind").exists()
     if shutil.which("npx") is None or not pagefind_installed:
-        print("  skip 8-12. pagefind no instalado en node_modules en este entorno (ver assistant-hardening-qa.yml, que corre `npm ci` antes, para el ciclo build/--check completo)")
+        print("  skip 8-14. pagefind no instalado en node_modules en este entorno (ver assistant-hardening-qa.yml, que corre `npm ci` antes, para el ciclo build/--check completo)")
         if failures:
             print(f"\nFAIL: {len(failures)} check(s) de test-build-pagefind-index")
             raise SystemExit(1)
@@ -138,6 +138,25 @@ def run() -> None:
             rc_check_clean = bpi.check(tmp2, out_dir)
             check(rc_check_clean == 0, "11. --check pasa justo despues de construir")
 
+                    # Cambiar el contenido de una pagina YA elegible sin tocar el corpus:
+            # --check debe detectar que el indice comprometido ya no representa
+            # los bytes HTML actuales.
+            (tmp2 / "public.html").write_text(
+                PAGE.format(robots="index,follow", title="Publica modificada"),
+                encoding="utf-8",
+            )
+            rc_check_content_stale = bpi.check(tmp2, out_dir)
+            check(
+                rc_check_content_stale == 1,
+                "12. --check falla si cambia el contenido de una pagina elegible sin regenerar",
+            )
+            # Restaurar el contenido indexado para aislar la siguiente regresion.
+            (tmp2 / "public.html").write_text(
+                PAGE.format(robots="index,follow", title="Publica"),
+                encoding="utf-8",
+            )
+            check(bpi.check(tmp2, out_dir) == 0, "13. --check vuelve a pasar al restaurar el contenido indexado")
+
             # Anadir una pagina publica nueva sin regenerar el indice: --check
             # debe detectar la desincronizacion (no solo asumir que sigue OK).
             (tmp2 / "nueva.html").write_text(PAGE.format(robots="index,follow", title="Nueva"), encoding="utf-8")
@@ -147,11 +166,11 @@ def run() -> None:
                 cwd=tmp2, check=True,
             )
             rc_check_stale = bpi.check(tmp2, out_dir)
-            check(rc_check_stale == 1, "12. --check falla tras anadir una pagina elegible sin regenerar el indice")
+            check(rc_check_stale == 1, "14. --check falla tras anadir una pagina elegible sin regenerar el indice")
         except FileNotFoundError as exc:
-            check(False, "8-12. pagefind CLI no disponible en este entorno", str(exc))
+            check(False, "8-14. pagefind CLI no disponible en este entorno", str(exc))
         except Exception as exc:  # pragma: no cover - visibilidad de fallo real
-            check(False, "8-12. build()/check() del fixture no lanzaron una excepcion inesperada", str(exc))
+            check(False, "8-14. build()/check() del fixture no lanzaron una excepcion inesperada", str(exc))
 
     if failures:
         print(f"\nFAIL: {len(failures)} check(s) de test-build-pagefind-index")
