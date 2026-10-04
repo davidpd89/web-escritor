@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """Intrinsic QA for professional writer resources; no network requests."""
 from __future__ import annotations
-import importlib.util,json,re
+import importlib.util,json,re,unicodedata
 from datetime import date,timedelta
 from pathlib import Path
 from urllib.parse import urlsplit
@@ -40,6 +40,20 @@ def check_editorials():
     if {i.get("slug") for i in public}!=expected:fail("editoriales source/public mismatch")
     details={p.parent.name for p in (ROOT/"editoriales").glob("*/index.html")}
     if details!=expected:fail(f"editoriales detail coverage mismatch data={sorted(expected)} details={sorted(details)}")
+def normalized_title(value):
+    folded=unicodedata.normalize("NFD",str(value)).encode("ascii","ignore").decode("ascii").casefold()
+    return re.sub(r"[^a-z0-9]+"," ",folded).strip()
+def check_radar_sources():
+    src=load(Path("data/radar-sources.json"));sources=src.get("sources")
+    if not isinstance(sources,list):fail("radar sources[] missing")
+    ids=set();urls=set()
+    for source in sources:
+        sid=source.get("id");url=str(source.get("url") or "").rstrip("/").casefold()
+        if not sid or sid in ids:fail(f"radar source duplicate/missing id {sid!r}")
+        ids.add(sid)
+        https(source.get("url"),f"radar source {sid}.url")
+        if url in urls:fail(f"radar source duplicate URL {source.get('url')}")
+        urls.add(url)
 def radar_builder():
     p=ROOT/"scripts/build-radar-opportunities.py";spec=importlib.util.spec_from_file_location("radar_builder",p);m=importlib.util.module_from_spec(spec);assert spec.loader;spec.loader.exec_module(m);return m
 def unfold(raw):
@@ -79,11 +93,14 @@ def check_radar():
     b=radar_builder();src=load(Path("data/radar-opportunities.json"));items=src.get("items");watchlist=src.get("watchlist",[])
     if not isinstance(items,list):fail("radar source items[] missing")
     if not isinstance(watchlist,list):fail("radar source watchlist[] invalid")
-    ids=set()
+    ids=set();semantic=set()
     for item in items:
         b.validate(item)
         if item["id"] in ids:fail(f"radar duplicate id {item['id']}")
         ids.add(item["id"])
+        key=(item["deadline"],normalized_title(item["title"]))
+        if key in semantic:fail(f"radar semantic duplicate deadline/title {key}")
+        semantic.add(key)
     watch_ids=set()
     for item in watchlist:
         b.validate_watch(item)
@@ -118,5 +135,5 @@ def check_radar():
         nxt=(iso(item["deadline"],item["id"])+timedelta(days=1)).strftime("%Y%m%d")
         if e.get("DTEND;VALUE=DATE")!=nxt:fail(f"ICS DTEND mismatch {item['id']}")
 def main():
-    check_editorials();check_radar();print("OK professional resources: data, detail coverage, generated outputs, real-clock freshness and ICS parity")
+    check_editorials();check_radar_sources();check_radar();print("OK professional resources: data, detail coverage, generated outputs, real-clock freshness and ICS parity")
 if __name__=="__main__":main()

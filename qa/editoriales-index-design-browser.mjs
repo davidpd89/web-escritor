@@ -252,6 +252,11 @@ try {
     await settleTypography(interactionPage, 'interaction-mobile-390');
     await interactionPage.locator('[data-editoriales-country]').selectOption('Chile');
     assert.equal(await interactionPage.locator('[data-editorial-card]:visible').count(), editorialData.filter(item => item.country === 'Chile').length, 'interaction: filtro país no coincide con el dataset');
+    await interactionPage.goBack({ waitUntil: 'networkidle' });
+    assert.equal(await interactionPage.locator('[data-editoriales-country]').inputValue(), '', 'interaction: Atrás no restaura un único cambio de filtro');
+    assert.equal(await interactionPage.locator('[data-editorial-card]:visible').count(), editorialData.length, 'interaction: Atrás no restaura el directorio completo');
+    await interactionPage.goForward({ waitUntil: 'networkidle' });
+    assert.equal(await interactionPage.locator('[data-editoriales-country]').inputValue(), 'Chile', 'interaction: Adelante no restaura el filtro');
     await interactionPage.locator('[data-editoriales-reset]').click();
     await interactionPage.locator('[data-editoriales-sort]').selectOption('name');
     const alphabeticalNames = await interactionPage.locator('[data-editorial-card]').evaluateAll(nodes => nodes.map(node => node.dataset.name));
