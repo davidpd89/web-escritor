@@ -3637,6 +3637,78 @@
         "buscar-editorial"
       ],
       "sourceFile": "editoriales/las-afueras/index.html"
+    },
+    {
+      "id": "editorial-ediciones-pamies",
+      "url": "/editoriales/ediciones-pamies/",
+      "label": "Ediciones Pàmies",
+      "shortLabel": "Ediciones Pàmies",
+      "type": "directory",
+      "territory": "herramientas",
+      "parentId": "editorials-hub",
+      "hubId": "tools-hub",
+      "discoverability": "contextual",
+      "audience": [
+        "writer"
+      ],
+      "jobs": [
+        "buscar-editorial"
+      ],
+      "sourceFile": "editoriales/ediciones-pamies/index.html"
+    },
+    {
+      "id": "editorial-apeiron-ediciones",
+      "url": "/editoriales/apeiron-ediciones/",
+      "label": "Ápeiron Ediciones",
+      "shortLabel": "Ápeiron Ediciones",
+      "type": "directory",
+      "territory": "herramientas",
+      "parentId": "editorials-hub",
+      "hubId": "tools-hub",
+      "discoverability": "contextual",
+      "audience": [
+        "writer"
+      ],
+      "jobs": [
+        "buscar-editorial"
+      ],
+      "sourceFile": "editoriales/apeiron-ediciones/index.html"
+    },
+    {
+      "id": "editorial-uzanza-editorial",
+      "url": "/editoriales/uzanza-editorial/",
+      "label": "Uzanza Editorial",
+      "shortLabel": "Uzanza Editorial",
+      "type": "directory",
+      "territory": "herramientas",
+      "parentId": "editorials-hub",
+      "hubId": "tools-hub",
+      "discoverability": "contextual",
+      "audience": [
+        "writer"
+      ],
+      "jobs": [
+        "buscar-editorial"
+      ],
+      "sourceFile": "editoriales/uzanza-editorial/index.html"
+    },
+    {
+      "id": "editorial-editorial-la-calle",
+      "url": "/editoriales/editorial-la-calle/",
+      "label": "Editorial La Calle",
+      "shortLabel": "Editorial La Calle",
+      "type": "directory",
+      "territory": "herramientas",
+      "parentId": "editorials-hub",
+      "hubId": "tools-hub",
+      "discoverability": "contextual",
+      "audience": [
+        "writer"
+      ],
+      "jobs": [
+        "buscar-editorial"
+      ],
+      "sourceFile": "editoriales/editorial-la-calle/index.html"
     }
   ]
 }
