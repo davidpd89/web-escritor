@@ -98,11 +98,6 @@ https?://([^/]+\.)?davidportodiaz\.com/.*
 ^https://blogs\.es\.amnesty\.org/madrid/escribir-por-derechos/$
 ^https://bracamonteenegro\.com/concursos/$
 
-# Enlace histórico concreto cuya URL de política de manuscritos ya no existe.
-# Se mantiene acotado mientras se revalida la fuente de Akelarre; no se excluye
-# el dominio completo, para que otros enlaces rotos sigan fallando en CI.
-^https://www\.akelarreediciones\.com/ayuda\?o=15$
-
 # Enlaces válidos que devuelven 403 a clientes automatizados de CI. Se dejan
 # como excepciones exactas para no silenciar futuros rotos en esos dominios.
 ^https://quelibroleo\.com/samuel-entre-mundos$
