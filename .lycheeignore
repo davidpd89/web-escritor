@@ -59,31 +59,45 @@ https://doi\.org/10\.1017/S0272263123000384
 https?://([^/]+\.)?davidportodiaz\.com/.*
 
 # Fuentes oficiales de editoriales y convocatorias que fallan de forma
-# intermitente o sistemática bajo clientes CI (timeouts, TLS no soportado por
-# Lychee, 403/429 anti-bot o 5xx transitorio). Se excluyen solo de la prueba
-# HTTP externa; los contratos de generación, sitemap, Pagefind, paridad de
-# fuente/salida y freshness siguen validando que el contenido publicado salga
-# de datasets revisados.
-https?://([^/]+\.)?bibliotecapopular\.org/.*
-https?://([^/]+\.)?hislibris\.com/.*
-https?://([^/]+\.)?foem\.edomex\.gob\.mx/.*
-https?://([^/]+\.)?navonaed\.com/.*
-https?://([^/]+\.)?lom\.cl/.*
-https?://([^/]+\.)?edicioneslabnar\.com/.*
-https?://([^/]+\.)?edicionestyt\.com/.*
-https?://([^/]+\.)?feafesmelilla\.es/.*
-https?://([^/]+\.)?madrid\.es/.*
-https?://([^/]+\.)?caminosantiago\.org/.*
-https?://([^/]+\.)?injuve\.es/.*
-https?://([^/]+\.)?tijola\.es/.*
-https?://([^/]+\.)?alamutediciones\.com/.*
-https?://([^/]+\.)?edicionesdorna\.com/.*
-https?://([^/]+\.)?editorialandromeda\.es/.*
-https?://([^/]+\.)?editorialminuscula\.com/.*
-https?://([^/]+\.)?editorialrunaris\.es/.*
-https?://([^/]+\.)?patoediciones\.com/.*
-https?://([^/]+\.)?blogs\.es\.amnesty\.org/.*
-https?://([^/]+\.)?bracamonteenegro\.com/.*
+# intermitente o sistemática bajo clientes CI (timeouts, TLS, 403/429 anti-bot
+# o 5xx transitorio). Se acotan a las URLs realmente publicadas por esta rama:
+# no se excluye el dominio completo, para que futuros enlaces rotos sigan
+# fallando en CI.
+^https://www\.bibliotecapopular\.org/concurso/2026/index\.shtml$
+^https://www\.hislibris\.com/foro/viewtopic\.php\?f=29&t=705$
+^https://foem\.edomex\.gob\.mx/publica-foem$
+^https://foem\.edomex\.gob\.mx/$
+^https://navonaed\.com/contacto/$
+^https://navonaed\.com/$
+^https://lom\.cl/pages/procedimiento-manuscritos$
+^https://lom\.cl/$
+^https://www\.edicioneslabnar\.com/pages/corporativo/publicar-con-nosotros$
+^https://www\.edicioneslabnar\.com/$
+^https://edicionestyt\.com/blogs/noticias/recepcion-de-manuscritos$
+^https://edicionestyt\.com/$
+^https://feafesmelilla\.es/concurso-literario-amparo-perez-alamino$
+^https://sede\.madrid\.es/portal/site/tramites/menuitem\.62876cb64654a55e2dbd7003a8a409a0/\?target=enLinea&vgnextchannel=1b8637c190180210VgnVCM100000c90da8c0RCRD&vgnextfmt=default&vgnextoid=16f21825ff3b0a10VgnVCM200000f921e388RCRD$
+^https://www\.madrid\.es/portales/munimadrid/es/FormularioElectronico/Sancho-Davila/Formulario-de-participacion-X-Concurso-de-relatos-Cuarto-y-Mitad-/\?vgnextchannel=9726a3575e2ee210VgnVCM2000000c205a0aRCRD&vgnextfmt=default&vgnextoid=9d48a947b12b4610VgnVCM1000001d4a900aRCRD$
+^https://www\.emtmadrid\.es/Noticias/El-X-Concurso-de-Microrrelatos-de-EMT-Madrid-inclu\.aspx$
+^https://www\.madrid\.es/portales/munimadrid/es/Inicio/El-Ayuntamiento/Vicalvaro/Actividades-y-eventos/IV-Concurso-bilingue-de-Microrrelatos-frances-espanol/\?vgnextchannel=497b48e063f28010VgnVCM100000dc0ca8c0RCRD&vgnextfmt=default&vgnextoid=61fa9b05da8b0a10VgnVCM100000891ecb1aRCRD$
+^https://www\.madrid\.es/portales/munimadrid/es/Inicio/El-Ayuntamiento/Publicaciones/Listado-de-Publicaciones/Certamenes-de-otono-Chamberi-2026-Pintura-rapida-relato-corto-y-fotografia/\?vgnextchannel=f1aebadb6b997010VgnVCM100000dc0ca8c0RCRD&vgnextfmt=default&vgnextoid=a87737ca0ccd0a10VgnVCM100000891ecb1aRCRD$
+^https://www\.madrid\.es/portales/munimadrid/es/Inicio/El-Ayuntamiento/Convocatorias-y-proyectos-europeos/X-Concurso-de-relatos-Cuarto-y-Mitad-/\?vgnextchannel=fd02ae62ab37a010VgnVCM100000d90ca8c0RCRD&vgnextfmt=default&vgnextoid=482c61b3758af910VgnVCM100000891ecb1aRCRD$
+^https://www\.caminosantiago\.org/CPPEREGRINO/prensa/verprensa\.asp\?PrensaID=23405$
+^https://www\.injuve\.es/node/86593/printable/print$
+^https://www\.tijola\.es/Servicios/cmsdipro/index\.nsf/fiestas\.xsp\?documentId=D4256D3DC0FBDA8FC1258E480042BB53&p=Tijola$
+^https://www\.alamutediciones\.com/$
+^https://edicionesdorna\.com/recepcionmanuscritos/$
+^https://edicionesdorna\.com/$
+^https://editorialandromeda\.es/manuscritos/$
+^https://editorialandromeda\.es/$
+^https://www\.editorialminuscula\.com/manuscritos/$
+^https://www\.editorialminuscula\.com/$
+^https://www\.editorialrunaris\.es/manuscritos/$
+^https://www\.editorialrunaris\.es/$
+^https://patoediciones\.com/manuscritos/$
+^https://patoediciones\.com/$
+^https://blogs\.es\.amnesty\.org/madrid/escribir-por-derechos/$
+^https://bracamonteenegro\.com/concursos/$
 
 # Enlace histórico concreto cuya URL de política de manuscritos ya no existe.
 # Se mantiene acotado mientras se revalida la fuente de Akelarre; no se excluye
