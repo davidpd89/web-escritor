@@ -1,9 +1,7 @@
 name: Temporary Pagefind regeneration
 
 on:
-  push:
-    branches:
-      - feat/pro-resources-editoriales-convocatorias-20261002
+  pull_request:
     paths:
       - '.github/workflows/tmp-pagefind-regenerate.yml'
 
@@ -15,9 +13,10 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 10
     steps:
-      - name: Checkout branch
+      - name: Checkout PR branch
         uses: actions/checkout@v5
         with:
+          ref: feat/pro-resources-editoriales-convocatorias-20261002
           fetch-depth: 0
 
       - name: Set up Node
@@ -48,4 +47,4 @@ jobs:
             exit 0
           fi
           git commit -m "chore(search): regenerate Pagefind index"
-          git push origin "HEAD:${GITHUB_REF_NAME}"
+          git push origin "HEAD:feat/pro-resources-editoriales-convocatorias-20261002"
