@@ -25,6 +25,11 @@ ALLOWED_TYPES = {"concurso", "premio", "ayuda", "beca", "residencia", "manuscrit
 REQ = {"id", "title", "type", "organizer", "deadline", "genres", "source_url", "verified_at", "published", "fee_eur"}
 WATCH_REQ = {"id", "title", "type", "organizer", "genres", "source_url", "verified_at", "published", "status_note", "reference_note"}
 WATCH_KINDS = {"announced", "recurring"}
+# Public-schema allowlists. Unknown keys are rejected rather than silently
+# copied to opportunities.json: this prevents internal research/tracking fields
+# from becoming public if they are ever added to the source dataset.
+ITEM_ALLOWED = REQ | {"eligibility", "prize", "submission_mode", "editorial_note"}
+WATCH_ALLOWED = WATCH_REQ | {"expected_window", "editorial_note", "watch_kind"}
 FORBIDDEN_URL = re.compile(r"[\s\\\x00-\x1f\x7f<>\"{}|^`]")
 
 def iso_date(value, field):
@@ -63,6 +68,9 @@ def https_url(value):
 def validate(item):
     if not isinstance(item, dict):
         raise ValueError("cada oportunidad debe ser un objeto")
+    extra = set(item) - ITEM_ALLOWED
+    if extra:
+        raise ValueError(f"{item.get('id', '?')}: campos no públicos/no permitidos: {sorted(extra)}")
     missing = REQ - set(item)
     if missing:
         raise ValueError(f"{item.get('id', '?')}: faltan {sorted(missing)}")
@@ -88,6 +96,9 @@ def validate(item):
 def validate_watch(item):
     if not isinstance(item, dict):
         raise ValueError("cada próxima convocatoria debe ser un objeto")
+    extra = set(item) - WATCH_ALLOWED
+    if extra:
+        raise ValueError(f"{item.get('id', '?')}: campos no públicos/no permitidos: {sorted(extra)}")
     missing = WATCH_REQ - set(item)
     if missing:
         raise ValueError(f"{item.get('id', '?')}: faltan campos watchlist {sorted(missing)}")
