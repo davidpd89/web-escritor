@@ -429,6 +429,24 @@
       "published": true
     },
     {
+      "id": "hipoacusicos-huesca-relatos-2026",
+      "title": "XI Concurso de Relatos Cortos de la Asociación de Hipoacúsicos de Huesca",
+      "type": "concurso",
+      "organizer": "Asociación de Hipoacúsicos de Huesca",
+      "deadline": "2026-10-15",
+      "genres": [
+        "relato corto"
+      ],
+      "eligibility": "La convocatoria incluye modalidades vinculadas a la Asociación; consulta las bases oficiales antes de presentar el relato.",
+      "prize": null,
+      "fee_eur": null,
+      "submission_mode": "Consultar las bases enlazadas desde la sección de actualidad de la Asociación de Hipoacúsicos de Huesca.",
+      "source_url": "https://www.hipoacusicoshuesca.es/actualidad/",
+      "verified_at": "2026-10-04",
+      "editorial_note": "CADIS Huesca confirma la XI edición, abierta del 1 de julio al 15 de octubre de 2026, y atribuye la información a la Asociación de Hipoacúsicos, remitiendo a su web oficial para las bases.",
+      "published": true
+    },
+    {
       "id": "elena-santiago-narrativa-2026",
       "title": "I Premio de Narrativa «Elena Santiago» 2026",
       "type": "premio",
@@ -1819,6 +1837,24 @@
   ],
   "watchlist": [
     {
+      "id": "aama-literatura-aeronautica-2026-watch",
+      "title": "Concurso de Literatura Aeronáutica Creativa AAMA 2026",
+      "type": "concurso",
+      "organizer": "Asociación Amigos del Museo del Aire",
+      "genres": [
+        "relato",
+        "narrativa"
+      ],
+      "source_url": "https://aama.es/actividades/calendario-de-actividades/",
+      "verified_at": "2026-10-04",
+      "published": true,
+      "status_note": "AAMA confirma el concurso dentro de su Gala anual del 20 de noviembre de 2026, pero la página oficial consultada no publica todavía el plazo ni las bases completas.",
+      "reference_note": "La agenda oficial de AAMA enumera el «Concurso de Literatura aeronáutica creativa» entre los premios de la Gala 2026.",
+      "watch_kind": "announced",
+      "expected_window": "Bases y fecha límite pendientes de localizar en la fuente oficial.",
+      "editorial_note": "Se mantiene en vigilancia y no entra en el calendario hasta disponer de una fecha límite oficial."
+    },
+    {
       "id": "anagrama-ensayo-2027",
       "title": "Premio Anagrama de Ensayo 2027",
       "type": "premio",
@@ -1885,6 +1921,24 @@
       "expected_window": "Vigilar una eventual siguiente edición",
       "reference_note": "La fuente municipal confirma el IV Premio de Novela Ciudad de Estepona, dotado con 25.000 € y colaboración de Pre-Textos en esa edición.",
       "editorial_note": "La continuidad futura no se da por confirmada: esta ficha solo evita perder de vista el certamen."
+    },
+    {
+      "id": "subur-negre-relato-2026-watch",
+      "title": "Premio de Relato de Adultos Subur Negre 2026",
+      "type": "concurso",
+      "organizer": "Asociación Literaria Subur Negre de Sitges",
+      "genres": [
+        "relato",
+        "género negro"
+      ],
+      "source_url": "https://www.suburnegresitges.es/premios",
+      "verified_at": "2026-10-04",
+      "published": true,
+      "status_note": "La edición 2026 aparece en directorios especializados con cierre el 10 de octubre, pero la sección oficial consultada no muestra todavía las bases 2026.",
+      "reference_note": "La web oficial del festival mantiene la sección de premios, pero la información visible recuperada corresponde a la edición anterior.",
+      "watch_kind": "recurring",
+      "expected_window": "Revisar de inmediato la fuente oficial; no se trata como convocatoria abierta hasta recuperar las bases 2026.",
+      "editorial_note": "La separación evita presentar como verificada una fecha que por ahora solo está respaldada por fuentes secundarias."
     },
     {
       "id": "herralde-novela-2027",
