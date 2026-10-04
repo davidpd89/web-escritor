@@ -40,6 +40,29 @@ raw = json.loads(DATA.read_text(encoding="utf-8"))
 items = br.load_items(DATA)
 watchlist = br.load_watchlist(DATA)
 br.ensure_disjoint_ids(items, watchlist)
+
+# Privacy regression: source records are an explicitly public schema. A future
+# internal tracking key must fail validation instead of leaking into the public
+# opportunities.json output.
+private_item = dict(items[0])
+private_item["prioridad_privada"] = "alta"
+try:
+    br.validate(private_item)
+except ValueError as exc:
+    check("campos no públicos/no permitidos" in str(exc), "campos privados extra en radar se rechazan")
+else:
+    check(False, "campos privados extra en radar se rechazan", "no se lanzó ValueError")
+
+if watchlist:
+    private_watch = dict(watchlist[0])
+    private_watch["notas_privadas"] = "interno"
+    try:
+        br.validate_watch(private_watch)
+    except ValueError as exc:
+        check("campos no públicos/no permitidos" in str(exc), "campos privados extra en watchlist se rechazan")
+    else:
+        check(False, "campos privados extra en watchlist se rechazan", "no se lanzó ValueError")
+
 if watchlist:
     collision = [dict(item) for item in watchlist]
     collision[0]["id"] = items[0]["id"]
