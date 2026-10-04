@@ -145,14 +145,12 @@ try {
         type: node.getAttribute('data-type'),
       })));
       assert.equal(new Set(renderedItems.map(item => item.title)).size, RADAR_ALL.length, `${name}: hay oportunidades duplicadas`);
-      for (const expected of [
-        ['xxx premio alfaguara de novela 2027', '2026-11-02'],
-        ['74.º premio de novela ateneo–ciudad de valladolid 2027', '2026-10-09'],
-        ['premio primavera de novela 2027', '2026-11-15'],
-      ]) {
-        assert.ok(renderedItems.some(item => item.title === expected[0] && item.deadline === expected[1]),
-          `${name}: falta la oportunidad ${expected[0]}`);
-      }
+      const expectedRenderedItems = RADAR_ALL.map(item => ({
+        title: item.title.toLocaleLowerCase('es'),
+        deadline: item.deadline || '',
+        type: item.type,
+      }));
+      assert.deepEqual(renderedItems, expectedRenderedItems, `${name}: HTML y JSON público no conservan las mismas oportunidades y orden`);
 
       assert.equal(await page.locator('[data-radar-search]').count(), 1, `${name}: buscador ausente`);
       assert.equal(await page.locator('[data-radar-type]').count(), 1, `${name}: filtro de tipo ausente`);
