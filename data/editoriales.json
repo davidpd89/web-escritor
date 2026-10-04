@@ -6768,6 +6768,180 @@
           "source_url": "https://treshermanaslibros.com/contactanos/"
         }
       ]
+    },
+    {
+      "publish": true,
+      "slug": "automatica-editorial",
+      "name": "Automática Editorial",
+      "group": "Automática Editorial",
+      "publisher_type": "tradicional",
+      "country": "España",
+      "genres": [
+        "narrativa",
+        "literatura"
+      ],
+      "status": "closed",
+      "direct_submission": false,
+      "submission_channel": "No acepta manuscritos actualmente",
+      "submission_email": null,
+      "submission_url": "https://automaticaeditorial.com/contacto",
+      "website_url": "https://automaticaeditorial.com/",
+      "requirements": [
+        "La editorial indica que actualmente no acepta manuscritos ni en papel ni en formato digital.",
+        "No utilizar los correos generales o de prensa como vía alternativa para originales."
+      ],
+      "response_time": null,
+      "summary": "Automática Editorial publica narrativa literaria y declara de forma expresa que actualmente no acepta manuscritos.",
+      "public_note": "La ficha se mantiene como cerrada hasta que la propia editorial anuncie una reapertura.",
+      "verified_at": "2026-10-04",
+      "page_updated_at": "2026-10-04",
+      "sources": [
+        {
+          "label": "Automática Editorial — contacto y manuscritos",
+          "url": "https://automaticaeditorial.com/contacto",
+          "primary": true
+        }
+      ],
+      "history": [
+        {
+          "date": "2026-10-04",
+          "event": "Comprobado en la página oficial de contacto que no se aceptan manuscritos en papel ni en formato digital.",
+          "source_url": "https://automaticaeditorial.com/contacto"
+        }
+      ]
+    },
+    {
+      "publish": true,
+      "slug": "pre-textos",
+      "name": "Editorial Pre-Textos",
+      "group": "Pre-Textos",
+      "publisher_type": "tradicional",
+      "country": "España",
+      "genres": [
+        "narrativa",
+        "poesía",
+        "ensayo",
+        "literatura"
+      ],
+      "status": "closed",
+      "direct_submission": false,
+      "submission_channel": "Departamento de Lectura cerrado",
+      "submission_email": null,
+      "submission_url": "https://pre-textos.com/contacto/",
+      "website_url": "https://pre-textos.com/",
+      "requirements": [
+        "La editorial informa de que su Departamento de Lectura permanece cerrado.",
+        "No se admiten manuscritos para valoración mientras continúe ese estado."
+      ],
+      "response_time": null,
+      "summary": "Pre-Textos es una editorial independiente valenciana de narrativa, poesía y ensayo cuyo Departamento de Lectura está actualmente cerrado.",
+      "public_note": "Su catálogo sigue activo y la editorial publica convocatorias concretas, pero esas convocatorias no equivalen a una recepción general de manuscritos.",
+      "verified_at": "2026-10-04",
+      "page_updated_at": "2026-10-04",
+      "sources": [
+        {
+          "label": "Pre-Textos — contacto y recepción de manuscritos",
+          "url": "https://pre-textos.com/contacto/",
+          "primary": true
+        },
+        {
+          "label": "Pre-Textos — editorial",
+          "url": "https://pre-textos.com/la-editorial/",
+          "primary": true
+        }
+      ],
+      "history": [
+        {
+          "date": "2026-10-04",
+          "event": "Comprobado que el Departamento de Lectura permanece cerrado y no admite manuscritos para valoración.",
+          "source_url": "https://pre-textos.com/contacto/"
+        }
+      ]
+    },
+    {
+      "publish": true,
+      "slug": "dos-bigotes",
+      "name": "Editorial Dos Bigotes",
+      "group": "Dos Bigotes",
+      "publisher_type": "tradicional",
+      "country": "España",
+      "genres": [
+        "narrativa",
+        "ensayo",
+        "literatura LGTBIQ+"
+      ],
+      "status": "closed",
+      "direct_submission": false,
+      "submission_channel": "Recepción de originales temporalmente cerrada",
+      "submission_email": null,
+      "submission_url": "https://dosbigotes.es/contacto/",
+      "website_url": "https://dosbigotes.es/",
+      "requirements": [
+        "La editorial indica que necesita ponerse al día con los manuscritos pendientes y que la recepción de originales está cerrada.",
+        "Esperar a que la propia editorial anuncie una reapertura."
+      ],
+      "response_time": null,
+      "summary": "Dos Bigotes es una editorial independiente con catálogo centrado en diversidad y literatura LGTBIQ+ y mantiene temporalmente cerrada la recepción de originales.",
+      "public_note": "Los correos de contacto, prensa y derechos extranjeros no deben usarse para eludir el cierre anunciado de originales.",
+      "verified_at": "2026-10-04",
+      "page_updated_at": "2026-10-04",
+      "sources": [
+        {
+          "label": "Dos Bigotes — contacto y recepción de originales",
+          "url": "https://dosbigotes.es/contacto/",
+          "primary": true
+        }
+      ],
+      "history": [
+        {
+          "date": "2026-10-04",
+          "event": "Comprobado el aviso oficial de cierre temporal de recepción de originales.",
+          "source_url": "https://dosbigotes.es/contacto/"
+        }
+      ]
+    },
+    {
+      "publish": true,
+      "slug": "editorial-dieciseis",
+      "name": "Editorial Dieciséis",
+      "group": "Editorial Dieciséis",
+      "publisher_type": "tradicional",
+      "country": "España",
+      "genres": [
+        "narrativa",
+        "poesía",
+        "libro ilustrado",
+        "literatura contemporánea"
+      ],
+      "status": "closed",
+      "direct_submission": false,
+      "submission_channel": "Recepción de manuscritos cerrada",
+      "submission_email": null,
+      "submission_url": "https://editorialdieciseis.com/",
+      "website_url": "https://editorialdieciseis.com/",
+      "requirements": [
+        "La editorial muestra actualmente cerrada la recepción de manuscritos para valoración.",
+        "La web conserva requisitos de futuras aperturas, pero no deben interpretarse como una ventana vigente."
+      ],
+      "response_time": null,
+      "summary": "Editorial Dieciséis es un sello independiente sevillano de literatura contemporánea, narrativa, poesía y libro ilustrado que mantiene cerrada la recepción de manuscritos.",
+      "public_note": "La editorial publica en su propia web el estado de recepción; esa señal debe prevalecer sobre instrucciones históricas de envío.",
+      "verified_at": "2026-10-04",
+      "page_updated_at": "2026-10-04",
+      "sources": [
+        {
+          "label": "Editorial Dieciséis — recepción de manuscritos",
+          "url": "https://editorialdieciseis.com/",
+          "primary": true
+        }
+      ],
+      "history": [
+        {
+          "date": "2026-10-04",
+          "event": "Comprobado que la web oficial marca cerrada la recepción de manuscritos para valoración.",
+          "source_url": "https://editorialdieciseis.com/"
+        }
+      ]
     }
   ]
 }

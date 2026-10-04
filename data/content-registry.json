@@ -3925,6 +3925,78 @@
         "buscar-editorial"
       ],
       "sourceFile": "editoriales/tres-hermanas/index.html"
+    },
+    {
+      "id": "editorial-automatica-editorial",
+      "url": "/editoriales/automatica-editorial/",
+      "label": "Automática Editorial",
+      "shortLabel": "Automática Editorial",
+      "type": "directory",
+      "territory": "herramientas",
+      "parentId": "editorials-hub",
+      "hubId": "tools-hub",
+      "discoverability": "contextual",
+      "audience": [
+        "writer"
+      ],
+      "jobs": [
+        "buscar-editorial"
+      ],
+      "sourceFile": "editoriales/automatica-editorial/index.html"
+    },
+    {
+      "id": "editorial-pre-textos",
+      "url": "/editoriales/pre-textos/",
+      "label": "Editorial Pre-Textos",
+      "shortLabel": "Editorial Pre-Textos",
+      "type": "directory",
+      "territory": "herramientas",
+      "parentId": "editorials-hub",
+      "hubId": "tools-hub",
+      "discoverability": "contextual",
+      "audience": [
+        "writer"
+      ],
+      "jobs": [
+        "buscar-editorial"
+      ],
+      "sourceFile": "editoriales/pre-textos/index.html"
+    },
+    {
+      "id": "editorial-dos-bigotes",
+      "url": "/editoriales/dos-bigotes/",
+      "label": "Editorial Dos Bigotes",
+      "shortLabel": "Editorial Dos Bigotes",
+      "type": "directory",
+      "territory": "herramientas",
+      "parentId": "editorials-hub",
+      "hubId": "tools-hub",
+      "discoverability": "contextual",
+      "audience": [
+        "writer"
+      ],
+      "jobs": [
+        "buscar-editorial"
+      ],
+      "sourceFile": "editoriales/dos-bigotes/index.html"
+    },
+    {
+      "id": "editorial-editorial-dieciseis",
+      "url": "/editoriales/editorial-dieciseis/",
+      "label": "Editorial Dieciséis",
+      "shortLabel": "Editorial Dieciséis",
+      "type": "directory",
+      "territory": "herramientas",
+      "parentId": "editorials-hub",
+      "hubId": "tools-hub",
+      "discoverability": "contextual",
+      "audience": [
+        "writer"
+      ],
+      "jobs": [
+        "buscar-editorial"
+      ],
+      "sourceFile": "editoriales/editorial-dieciseis/index.html"
     }
   ]
 }
