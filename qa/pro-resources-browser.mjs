@@ -115,8 +115,8 @@ async function noOverflow(p,label){const x=await p.evaluate(()=>document.documen
   assert.deepEqual(rel.map(t=>t.trim()),expectedRel);
   await p.locator('[data-radar-search]').fill('ALFAGUARA');assert.equal(await visible(p,'[data-radar-item]'),1);
   await p.locator('[data-radar-clear]').click();
-  await p.locator('[data-radar-kind]').selectOption('active');assert.equal(await visible(p,'[data-radar-item]'),radarItems.length);
-  await p.locator('[data-radar-kind]').selectOption('watch');assert.equal(await visible(p,'[data-radar-item]'),radarWatch.length);
+  await p.locator('select[data-radar-kind]').selectOption('active');assert.equal(await visible(p,'[data-radar-item]'),radarItems.length);
+  await p.locator('select[data-radar-kind]').selectOption('watch');assert.equal(await visible(p,'[data-radar-item]'),radarWatch.length);
   await p.locator('[data-radar-clear]').click();
   await p.locator('[data-radar-genre]').selectOption('novela');assert.equal(await visible(p,'[data-radar-item]'),radarGenreCount('novela'));
   await p.locator('[data-radar-clear]').click();
