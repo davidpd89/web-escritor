@@ -94,3 +94,12 @@ https?://([^/]+\.)?bracamonteenegro\.com/.*
 # como excepciones exactas para no silenciar futuros rotos en esos dominios.
 ^https://quelibroleo\.com/samuel-entre-mundos$
 ^https://axendacultural\.aelg\.gal/tag/certame-literario-de-relato-de-aventuras-anton-aviles-de-taramancos/$
+
+# Fuentes verificadas que responden correctamente en navegación normal/buscadores,
+# pero agotan el timeout de Lychee en GitHub Actions. Excepciones URL-específicas:
+# no se silencian los dominios completos y futuros enlaces rotos seguirán fallando.
+^https://volured\.com/voluntsalud/vii-certamen-de-microrrelatos-de-voluntariado/$
+^https://aama\.es/actividades/calendario-de-actividades/$
+^https://eltransbordador\.es/$
+^https://eltransbordador\.es/nueva-web/$
+^https://oralhistory\.org/principles-and-best-practices-revised-2018/$
