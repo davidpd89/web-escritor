@@ -392,6 +392,10 @@ def load_watchlist(path):
     return watch
 
 
+def ensure_disjoint_ids(items, watchlist):
+    ensure_disjoint_ids(items, watchlist)
+
+
 def main():
     parser = argparse.ArgumentParser()
     parser.add_argument("--data", required=True)
