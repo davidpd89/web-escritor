@@ -39,6 +39,16 @@ print("tests/test-radar-builder-parity-v1")
 raw = json.loads(DATA.read_text(encoding="utf-8"))
 items = br.load_items(DATA)
 watchlist = br.load_watchlist(DATA)
+br.ensure_disjoint_ids(items, watchlist)
+if watchlist:
+    collision = [dict(item) for item in watchlist]
+    collision[0]["id"] = items[0]["id"]
+    try:
+        br.ensure_disjoint_ids(items, collision)
+    except ValueError as exc:
+        check("ids repetidos entre items y watchlist" in str(exc), "ids duplicados entre radar y watchlist se rechazan")
+    else:
+        check(False, "ids duplicados entre radar y watchlist se rechazan", "no se lanzó ValueError")
 committed_json_raw = json.loads((ROOT / "convocatorias-escritores/opportunities.json").read_text(encoding="utf-8"))
 target_date = date.fromisoformat(committed_json_raw.get("generated_for", "2026-08-22"))
 
