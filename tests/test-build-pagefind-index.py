@@ -138,7 +138,7 @@ def run() -> None:
             rc_check_clean = bpi.check(tmp2, out_dir)
             check(rc_check_clean == 0, "11. --check pasa justo despues de construir")
 
-                    # Cambiar el contenido de una pagina YA elegible sin tocar el corpus:
+            # Cambiar el contenido de una pagina YA elegible sin tocar el corpus:
             # --check debe detectar que el indice comprometido ya no representa
             # los bytes HTML actuales.
             (tmp2 / "public.html").write_text(
