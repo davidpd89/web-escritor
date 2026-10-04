@@ -1418,6 +1418,54 @@
     },
     {
       "publish": true,
+      "slug": "editorial-runaris",
+      "name": "Editorial Runaris",
+      "group": "Editorial Runaris",
+      "publisher_type": "tradicional",
+      "country": "España",
+      "genres": [
+        "narrativa",
+        "novela",
+        "ficción"
+      ],
+      "status": "open",
+      "direct_submission": true,
+      "submission_channel": "Formulario/cuestionario oficial de manuscritos",
+      "submission_email": "info@editorialrunaris.es",
+      "submission_url": "https://www.editorialrunaris.es/manuscritos/",
+      "website_url": "https://www.editorialrunaris.es/",
+      "requirements": [
+        "Manuscrito completo e inédito, no publicado previamente en papel ni en digital.",
+        "La recepción indicada en la investigación oficial se dirige a autores residentes en España.",
+        "Completar el cuestionario de autor y adjuntar el manuscrito completo siguiendo la página de manuscritos."
+      ],
+      "response_time": null,
+      "summary": "Editorial Runaris se presenta como editorial tradicional orientada a nuevas voces y mantiene un canal específico para recibir manuscritos completos.",
+      "public_note": "La última verificación directa del protocolo de manuscritos en la investigación de trabajo es del 18 de agosto de 2026; conviene reabrir la fuente oficial justo antes de enviar.",
+      "verified_at": "2026-08-18",
+      "page_updated_at": "2026-10-04",
+      "sources": [
+        {
+          "label": "Editorial Runaris — manuscritos",
+          "url": "https://www.editorialrunaris.es/manuscritos/",
+          "primary": true
+        },
+        {
+          "label": "Editorial Runaris — web oficial",
+          "url": "https://www.editorialrunaris.es/",
+          "primary": true
+        }
+      ],
+      "history": [
+        {
+          "date": "2026-08-18",
+          "event": "Comprobados el canal de manuscritos, el carácter tradicional declarado y los requisitos básicos de recepción.",
+          "source_url": "https://www.editorialrunaris.es/manuscritos/"
+        }
+      ]
+    },
+    {
+      "publish": true,
       "slug": "editorial-transito",
       "name": "Editorial Tránsito",
       "group": "Editorial Tránsito",
@@ -1505,6 +1553,55 @@
       "summary": "Errata naturae mantiene un formulario oficial para recibir ideas y manuscritos, con posibilidad de adjuntar documentación en varios formatos.",
       "public_note": "La editorial advierte de que recibe muchas propuestas y no puede comprometerse a mantener correspondencia sobre proyectos no solicitados.",
       "verified_at": "2026-10-03"
+    },
+    {
+      "publish": true,
+      "slug": "foem-ceape",
+      "name": "FOEM / CEAPE",
+      "group": "Fondo Editorial Estado de México · CEAPE",
+      "publisher_type": "institucional",
+      "country": "México",
+      "genres": [
+        "literatura",
+        "narrativa",
+        "poesía",
+        "ensayo"
+      ],
+      "status": "open",
+      "direct_submission": true,
+      "submission_channel": "Entrega física institucional con respaldo digital",
+      "submission_email": "secretariaejecutivaceape@gmail.com",
+      "submission_url": "https://foem.edomex.gob.mx/publica-foem",
+      "website_url": "https://foem.edomex.gob.mx/",
+      "requirements": [
+        "La investigación oficial indica recepción de autores independientes durante todo el año.",
+        "Presentación mediante carta/oficio, formato de registro CEAPE y original impreso con copias conforme a las especificaciones del programa.",
+        "Añadir respaldo digital en Word y PDF por el canal indicado; revisar siempre los requisitos institucionales antes de preparar un envío físico."
+      ],
+      "response_time": null,
+      "summary": "El Fondo Editorial Estado de México y el CEAPE mantienen una vía institucional para propuestas de autores independientes, con entrega física y documentación reglada.",
+      "public_note": "La última verificación detallada de los requisitos es del 19 de agosto de 2026. Desde España implica logística física y conviene solicitar por adelantado las condiciones contractuales, territoriales y de distribución.",
+      "verified_at": "2026-08-19",
+      "page_updated_at": "2026-10-04",
+      "sources": [
+        {
+          "label": "FOEM — publica con el FOEM",
+          "url": "https://foem.edomex.gob.mx/publica-foem",
+          "primary": true
+        },
+        {
+          "label": "FOEM — portal oficial",
+          "url": "https://foem.edomex.gob.mx/",
+          "primary": true
+        }
+      ],
+      "history": [
+        {
+          "date": "2026-08-19",
+          "event": "Comprobada la vía institucional para autores independientes y su documentación de presentación.",
+          "source_url": "https://foem.edomex.gob.mx/publica-foem"
+        }
+      ]
     },
     {
       "publish": true,
@@ -1686,6 +1783,51 @@
           "date": "2026-10-03",
           "event": "Comprobados el envío postal, la documentación requerida y el plazo orientativo de valoración.",
           "source_url": "https://sialpigmalion.es/manuscritos/"
+        }
+      ]
+    },
+    {
+      "publish": true,
+      "slug": "grupo-planeta-mexico",
+      "name": "Grupo Planeta México",
+      "group": "Planeta de Libros México",
+      "publisher_type": "tradicional",
+      "country": "México",
+      "genres": [
+        "narrativa",
+        "novela",
+        "ficción",
+        "no ficción"
+      ],
+      "status": "open",
+      "direct_submission": true,
+      "submission_channel": "Email corporativo de manuscritos con estructura obligatoria",
+      "submission_email": "editorialplanetamanuscritos@planeta.com.mx",
+      "submission_url": "https://www.planetadelibros.com.mx/contactar",
+      "website_url": "https://www.planetadelibros.com.mx/",
+      "requirements": [
+        "Enviar un único archivo Word o PDF.",
+        "Página 1: título, género, público, nombre, email y teléfono.",
+        "Página 2: sinopsis de máximo una página; página 3: semblanza de máximo media cuartilla.",
+        "Desde la página 4: manuscrito completo a doble espacio. Los envíos que no respeten la estructura se eliminan sin lectura."
+      ],
+      "response_time": "La página oficial indica que la valoración puede tardar unos meses y que solo contactan si existe interés editorial.",
+      "summary": "Planeta de Libros México mantiene una recepción corporativa abierta de manuscritos completos mediante email y publica una estructura de entrega obligatoria.",
+      "public_note": "La página no publica una restricción expresa de residencia; si se envía desde España conviene confirmar el encaje territorial y contractual con la adquisición editorial en México.",
+      "verified_at": "2026-10-04",
+      "page_updated_at": "2026-10-04",
+      "sources": [
+        {
+          "label": "Planeta de Libros México — contactar y envío de manuscritos",
+          "url": "https://www.planetadelibros.com.mx/contactar",
+          "primary": true
+        }
+      ],
+      "history": [
+        {
+          "date": "2026-10-04",
+          "event": "Comprobados el email de manuscritos, la estructura obligatoria del archivo y la política de contacto en la página oficial.",
+          "source_url": "https://www.planetadelibros.com.mx/contactar"
         }
       ]
     },
@@ -3181,6 +3323,58 @@
     },
     {
       "publish": true,
+      "slug": "alamut",
+      "name": "Alamut",
+      "group": "Bibliópolis / Alamut",
+      "publisher_type": "tradicional",
+      "country": "España",
+      "genres": [
+        "ciencia ficción",
+        "fantasía",
+        "narrativa de género"
+      ],
+      "status": "indirect",
+      "direct_submission": false,
+      "submission_channel": "Sin recepción pública de originales verificada; vía profesional o agencia",
+      "submission_email": null,
+      "submission_url": "https://www.alamutediciones.com/",
+      "website_url": "https://www.alamutediciones.com/",
+      "requirements": [
+        "No se ha localizado un protocolo público vigente de recepción de originales.",
+        "No utilizar un correo general como buzón de manuscritos si la editorial no lo identifica expresamente para ese fin."
+      ],
+      "response_time": null,
+      "summary": "Alamut es un sello madrileño especializado en literatura fantástica y ciencia ficción; no consta una puerta pública vigente de originales que pueda presentarse como abierta.",
+      "public_note": "La actividad editorial del sello está confirmada en 2026, pero la recepción de manuscritos no. Se clasifica como vía indirecta para no inferir una apertura inexistente.",
+      "verified_at": "2026-08-11",
+      "page_updated_at": "2026-10-04",
+      "sources": [
+        {
+          "label": "Alamut — web oficial",
+          "url": "https://www.alamutediciones.com/",
+          "primary": true
+        },
+        {
+          "label": "Federación de Gremios de Editores — Bibliópolis / Alamut",
+          "url": "https://federacioneditores.org/editoriales/bibliopolis-alamut/",
+          "primary": false
+        }
+      ],
+      "history": [
+        {
+          "date": "2026-08-11",
+          "event": "No se localizó una puerta oficial de originales; se mantuvo como vía indirecta.",
+          "source_url": "https://www.alamutediciones.com/"
+        },
+        {
+          "date": "2026-10-04",
+          "event": "Confirmada la actividad actual del sello mediante el directorio de la Federación de Gremios de Editores; sin nueva recepción pública verificada.",
+          "source_url": "https://federacioneditores.org/editoriales/bibliopolis-alamut/"
+        }
+      ]
+    },
+    {
+      "publish": true,
       "publisher_type": "tradicional",
       "country": "España",
       "response_time": null,
@@ -3453,6 +3647,56 @@
           "date": "2026-08-11",
           "event": "Comprobado el estado público de recepción, el canal disponible y las condiciones publicadas por la editorial.",
           "source_url": "https://www.alianzaeditorial.es/subcoleccion/runas/"
+        }
+      ]
+    },
+    {
+      "publish": true,
+      "slug": "akelarre-ediciones",
+      "name": "Akelarre Ediciones",
+      "group": "Akelarre Ediciones",
+      "publisher_type": "tradicional",
+      "country": "España",
+      "genres": [
+        "fantasía",
+        "ciencia ficción",
+        "terror",
+        "romance",
+        "own voices"
+      ],
+      "status": "closed",
+      "direct_submission": false,
+      "submission_channel": "Recepción de manuscritos cerrada; esperar convocatoria oficial",
+      "submission_email": null,
+      "submission_url": "https://www.akelarreediciones.com/ayuda?o=15",
+      "website_url": "https://www.akelarreediciones.com/",
+      "requirements": [
+        "No enviar manuscritos mientras la editorial no anuncie una nueva apertura.",
+        "En su protocolo histórico de convocatoria pedía propuesta editorial y una muestra inicial, no el manuscrito completo.",
+        "Revisar literalmente las condiciones de autoría y uso de IA de cualquier futura convocatoria antes de participar."
+      ],
+      "response_time": null,
+      "summary": "Akelarre Ediciones es una editorial independiente de literatura de género; la recepción no debe tratarse como abierta hasta que publique una nueva convocatoria oficial.",
+      "public_note": "La ficha conserva el cierre como estado operativo. El formulario general de contacto no se convierte en una vía alternativa para sortear una convocatoria cerrada.",
+      "verified_at": "2026-08-18",
+      "page_updated_at": "2026-10-04",
+      "sources": [
+        {
+          "label": "Akelarre Ediciones — política de manuscritos",
+          "url": "https://www.akelarreediciones.com/ayuda?o=15",
+          "primary": true
+        },
+        {
+          "label": "Akelarre Ediciones — web oficial",
+          "url": "https://www.akelarreediciones.com/",
+          "primary": true
+        }
+      ],
+      "history": [
+        {
+          "date": "2026-08-18",
+          "event": "Comprobado el cierre de recepción y el funcionamiento por convocatorias oficiales.",
+          "source_url": "https://www.akelarreediciones.com/ayuda?o=15"
         }
       ]
     },
@@ -4164,6 +4408,55 @@
           "date": "2026-10-03",
           "event": "La página oficial indica expresamente que la recepción de manuscritos está cerrada; se conservan únicamente los requisitos públicos para seguimiento.",
           "source_url": "https://magnificaeditorial.com/contacto/"
+        }
+      ]
+    },
+    {
+      "publish": true,
+      "slug": "editorial-vanadis",
+      "name": "Editorial Vanadis",
+      "group": "Editorial Vanadis",
+      "publisher_type": "tradicional y coedición",
+      "country": "Argentina",
+      "genres": [
+        "ciencia ficción",
+        "fantasía oscura",
+        "romantasy",
+        "romance paranormal",
+        "dark academia",
+        "realismo mágico",
+        "misterio",
+        "thriller",
+        "terror"
+      ],
+      "status": "closed",
+      "direct_submission": false,
+      "submission_channel": "Última convocatoria de manuscritos finalizada",
+      "submission_email": null,
+      "submission_url": "https://www.editorialvanadis.com.ar/publicar-con-vanadis/",
+      "website_url": "https://www.editorialvanadis.com.ar/",
+      "requirements": [
+        "La convocatoria visible ya está cerrada y no debe reutilizarse como autorización actual.",
+        "La última ventana admitía autores de habla hispana de cualquier nacionalidad y pedía novela terminada.",
+        "La propuesta incluía presentación, sinopsis breve, resumen completo con spoilers y primeros capítulos o aproximadamente el 15 % de la obra."
+      ],
+      "response_time": null,
+      "summary": "Editorial Vanadis publica ficción de género y utiliza convocatorias temporales de manuscritos; la convocatoria visible en su web ya tiene los plazos vencidos.",
+      "public_note": "La propia página indica modalidades de edición tradicional y coedición. Una futura apertura debe revisarse desde cero, incluido el modelo contractual y la distribución territorial.",
+      "verified_at": "2026-10-04",
+      "page_updated_at": "2026-10-04",
+      "sources": [
+        {
+          "label": "Editorial Vanadis — publicar con Vanadis",
+          "url": "https://www.editorialvanadis.com.ar/publicar-con-vanadis/",
+          "primary": true
+        }
+      ],
+      "history": [
+        {
+          "date": "2026-10-04",
+          "event": "Comprobado que la convocatoria visible mantiene fechas ya vencidas; se clasifica como recepción cerrada.",
+          "source_url": "https://www.editorialvanadis.com.ar/publicar-con-vanadis/"
         }
       ]
     },
@@ -5450,6 +5743,55 @@
     },
     {
       "publish": true,
+      "slug": "ediciones-dorna",
+      "name": "Ediciones Dorna",
+      "group": "Ediciones Dorna",
+      "publisher_type": "tradicional",
+      "country": "España",
+      "genres": [
+        "ciencia ficción",
+        "fantasía",
+        "terror",
+        "romántica",
+        "narrativa de género"
+      ],
+      "status": "unknown",
+      "direct_submission": false,
+      "submission_channel": "Estado actual de recepción no verificable en la fuente oficial",
+      "submission_email": null,
+      "submission_url": "https://edicionesdorna.com/recepcionmanuscritos/",
+      "website_url": "https://edicionesdorna.com/",
+      "requirements": [
+        "No enviar hasta que la página oficial vuelva a permitir comprobar una convocatoria vigente.",
+        "Las condiciones históricas de recepción no deben reutilizarse como si siguieran activas."
+      ],
+      "response_time": null,
+      "summary": "Ediciones Dorna es una editorial madrileña de ciencia ficción, fantasía, terror y romántica; su actividad editorial está documentada, pero el estado actual de recepción de manuscritos no puede confirmarse.",
+      "public_note": "La ficha queda en «Por verificar» deliberadamente. Fuentes sectoriales recientes confirman la actividad del sello, pero no sustituyen una convocatoria oficial vigente.",
+      "verified_at": "2026-08-19",
+      "page_updated_at": "2026-10-04",
+      "sources": [
+        {
+          "label": "Ediciones Dorna — recepción de manuscritos",
+          "url": "https://edicionesdorna.com/recepcionmanuscritos/",
+          "primary": true
+        },
+        {
+          "label": "Ecoedit — ficha de Ediciones Dorna",
+          "url": "https://ecoedit.org/editoriales/ediciones-dorna/",
+          "primary": false
+        }
+      ],
+      "history": [
+        {
+          "date": "2026-08-19",
+          "event": "No se pudo verificar una ventana de recepción vigente en la fuente oficial; se conserva como estado por verificar.",
+          "source_url": "https://edicionesdorna.com/recepcionmanuscritos/"
+        }
+      ]
+    },
+    {
+      "publish": true,
       "slug": "el-transbordador",
       "name": "El Transbordador",
       "group": "El Transbordador",
@@ -5630,6 +5972,49 @@
           "label": "La biblioteca de Carfax — editorial",
           "url": "https://www.labibliotecadecarfax.com/editorial/",
           "primary": true
+        }
+      ]
+    },
+    {
+      "publish": true,
+      "slug": "la-maquina-que-hace-ping",
+      "name": "La Máquina que Hace PING!",
+      "group": "La Máquina que Hace PING!",
+      "publisher_type": "editorial y servicios editoriales",
+      "country": "España",
+      "genres": [
+        "ciencia ficción",
+        "fantasía",
+        "terror",
+        "narrativa de género"
+      ],
+      "status": "unknown",
+      "direct_submission": false,
+      "submission_channel": "Sin protocolo vigente de recepción de novela publicado",
+      "submission_email": null,
+      "submission_url": "https://lamaquinaquehaceping.com/",
+      "website_url": "https://lamaquinaquehaceping.com/",
+      "requirements": [
+        "No enviar un manuscrito completo sin una convocatoria o indicación expresa de la editorial.",
+        "La oferta de corrección, diseño, maquetación, imprenta u otros servicios de pago no debe confundirse con selección editorial tradicional."
+      ],
+      "response_time": null,
+      "summary": "La Máquina que Hace PING! mantiene actividad ligada a literatura de género y servicios editoriales, pero no publica un protocolo vigente de recepción de novela que pueda marcarse como abierto.",
+      "public_note": "Se clasifica como «Por verificar» para separar una futura selección editorial de los servicios profesionales de pago que ofrece la misma organización.",
+      "verified_at": "2026-08-19",
+      "page_updated_at": "2026-10-04",
+      "sources": [
+        {
+          "label": "La Máquina que Hace PING! — web oficial",
+          "url": "https://lamaquinaquehaceping.com/",
+          "primary": true
+        }
+      ],
+      "history": [
+        {
+          "date": "2026-08-19",
+          "event": "Revisada la web oficial sin localizar un protocolo vigente de recepción de novela; se mantiene como estado por verificar.",
+          "source_url": "https://lamaquinaquehaceping.com/"
         }
       ]
     },
