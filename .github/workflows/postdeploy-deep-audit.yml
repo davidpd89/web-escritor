@@ -26,6 +26,7 @@ on:
       - 'qa/production-media-decode.mjs'
       - 'qa/production-compact-landscape.mjs'
       - 'qa/production-rotating-device-audit.mjs'
+      - 'qa/production-short-viewport-history.mjs'
       - 'scripts/check-*.py'
       - 'scripts/audit-public-email-exposure.py'
       - 'scripts/asset-version-hashes.json'
@@ -56,6 +57,7 @@ on:
       - 'qa/production-media-decode.mjs'
       - 'qa/production-compact-landscape.mjs'
       - 'qa/production-rotating-device-audit.mjs'
+      - 'qa/production-short-viewport-history.mjs'
       - 'scripts/check-*.py'
       - 'scripts/audit-public-email-exposure.py'
       - 'scripts/asset-version-hashes.json'
@@ -122,6 +124,7 @@ jobs:
           node --check qa/production-media-decode.mjs
           node --check qa/production-compact-landscape.mjs
           node --check qa/production-rotating-device-audit.mjs
+          node --check qa/production-short-viewport-history.mjs
 
       - name: Re-run global static contracts after main integration
         shell: bash
@@ -341,6 +344,9 @@ jobs:
 
       - name: Audit no-JS fallback and browser history state
         run: node qa/production-nojs-history.mjs
+
+      - name: Audit short mobile viewport and cross-page history restoration
+        run: node qa/production-short-viewport-history.mjs
 
   rotating-production-sample:
     name: rotating-production-sample
