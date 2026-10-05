@@ -14,6 +14,7 @@ on:
 
 permissions:
   contents: write
+  pull-requests: write
 
 concurrency:
   group: refresh-radar-clock
@@ -124,8 +125,10 @@ jobs:
           done < <(git diff --name-only)
           exit "$bad"
 
-      - name: Commit current radar projection
+      - name: Publish refresh branch and pull request
         if: steps.clock.outputs.refresh == 'true'
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         shell: bash
         run: |
           set -euo pipefail
@@ -133,12 +136,23 @@ jobs:
             echo "No generated change after refresh."
             exit 0
           fi
+
+          today="${{ steps.clock.outputs.today }}"
+          branch="automation/radar-clock-${today}-${GITHUB_RUN_ID}"
+
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git switch -c "$branch"
           git add -- \
             convocatorias-escritores/index.html \
             convocatorias-escritores/opportunities.json \
             convocatorias-escritores/deadlines.ics \
             pagefind/
-          git commit -m "chore(resources): refresh radar clock ${{ steps.clock.outputs.today }}"
-          git push origin HEAD:main
+          git commit -m "chore(resources): refresh radar clock ${today}"
+          git push origin "HEAD:refs/heads/$branch"
+
+          gh pr create \
+            --base main \
+            --head "$branch" \
+            --title "chore(resources): refresh radar clock ${today}" \
+            --body "Actualización automática del radar al día civil de Madrid \`${today}\`. Generada por \`radar-clock-refresh.yml\`; incluye únicamente los artefactos deterministas permitidos y Pagefind cuando cambia el HTML."
