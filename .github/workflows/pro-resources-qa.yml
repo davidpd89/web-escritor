@@ -15,6 +15,7 @@ on:
       - 'scripts/build-radar-opportunities.py'
       - 'scripts/check-professional-resources.py'
       - 'tests/test-editorial-freshness-boundary.py'
+      - 'tests/test-editorial-date-consistency.py'
       - 'qa/pro-resources-browser.mjs'
       - 'lighthouserc-pro-resources.json'
       - '.github/workflows/pro-resources-qa.yml'
@@ -37,6 +38,8 @@ jobs:
         run: python3 scripts/check-professional-resources.py
       - name: Check editorial freshness 90/91-day boundary
         run: python3 tests/test-editorial-freshness-boundary.py
+      - name: Check editorial date consistency mutations
+        run: python3 tests/test-editorial-date-consistency.py
       - uses: actions/setup-node@v5
         with: {node-version: '22'}
       - name: Install CI/QA dependencies (Node)
