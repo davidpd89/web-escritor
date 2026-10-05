@@ -2,6 +2,18 @@ name: Accessibility baseline (Pa11y)
 
 on:
   pull_request:
+  push:
+    branches: [main]
+    paths:
+      - '**/*.html'
+      - 'assets/**/*.css'
+      - 'assets/**/*.js'
+      - 'assets/**/*.mjs'
+      - 'data/content-registry.json'
+      - 'data/navigation.json'
+      - 'scripts/build-*.py'
+      - 'scripts/site_shell.py'
+      - '.github/workflows/pa11y-baseline.yml'
   workflow_dispatch:
 
 permissions:
