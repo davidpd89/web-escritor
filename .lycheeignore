@@ -138,3 +138,8 @@ https?://([^/]+\.)?davidportodiaz\.com/.*
 ^https://edicionesfatcap\.es/content/7-recepcion-de-manuscritos$
 ^https://magnificaeditorial\.com/contacto/$
 ^https://magnificaeditorial\.com/quienes-somos/$
+
+# PLATANAL mantiene publicada su página oficial de convocatoria 2026, pero
+# Shopify devuelve 429 a Lychee en CI. Excepción exacta; el resto del dominio
+# continúa bajo validación normal.
+^https://platanal\.net/pages/envio-de-manuscritos-y-criterios-de-publicacion$
