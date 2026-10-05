@@ -40,6 +40,8 @@ jobs:
         run: python scripts/check-heading-structure.py
       - name: Check public semantic references and same-page fragments
         run: python tests/test-public-semantic-references.py
+      - name: Check public link security contracts
+        run: python tests/test-public-link-contracts.py
       - name: Check link-check exceptions remain scoped and referenced
         run: python tests/test-lychee-ignore-hygiene.py
       - name: Check .assetsignore still matches the public-dist exclude list
