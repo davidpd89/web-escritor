@@ -16,9 +16,10 @@ import subprocess
 from pathlib import Path
 
 ROOT=Path(__file__).resolve().parents[1]
-OLD_ICON='<link rel="icon" type="image/png" href="/assets/david-porto-favicon.png" />'
 NEW_ICON='<link rel="icon" href="/favicon.ico" sizes="any" />'
-LEGACY_ICON_RE=re.compile(r'<link\b(?=[^>]*\brel=["\'](?:shortcut\s+)?icon["\'])(?=[^>]*\bhref=["\']/assets/david-porto-favicon\.png["\'])[^>]*>',re.I)
+# Match any browser-tab favicon declaration, regardless of href/type/order.
+# Apple touch icons are deliberately excluded and keep the approved yellow PNG.
+BROWSER_ICON_RE=re.compile(r'<link\b(?=[^>]*\brel=["\'](?:shortcut\s+)?icon["\'])[^>]*>',re.I)
 
 
 def tracked_targets()->list[Path]:
