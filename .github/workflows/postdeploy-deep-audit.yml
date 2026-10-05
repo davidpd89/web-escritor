@@ -34,6 +34,7 @@ on:
       - 'qa/production-filter-input-fuzz.mjs'
       - 'qa/production-radar-timezone.mjs'
       - 'qa/production-late-widget-audit.mjs'
+      - 'qa/production-script-failure-resilience.mjs'
       - 'scripts/check-*.py'
       - 'scripts/audit-public-email-exposure.py'
       - 'scripts/asset-version-hashes.json'
@@ -72,6 +73,7 @@ on:
       - 'qa/production-filter-input-fuzz.mjs'
       - 'qa/production-radar-timezone.mjs'
       - 'qa/production-late-widget-audit.mjs'
+      - 'qa/production-script-failure-resilience.mjs'
       - 'scripts/check-*.py'
       - 'scripts/audit-public-email-exposure.py'
       - 'scripts/asset-version-hashes.json'
@@ -149,6 +151,7 @@ jobs:
           node --check qa/production-filter-input-fuzz.mjs
           node --check qa/production-radar-timezone.mjs
           node --check qa/production-late-widget-audit.mjs
+          node --check qa/production-script-failure-resilience.mjs
 
       - name: Re-run global static contracts after main integration
         shell: bash
@@ -388,6 +391,9 @@ jobs:
 
       - name: Audit late-loaded assistant widget in production
         run: node qa/production-late-widget-audit.mjs
+
+      - name: Audit server-rendered resilience when critical JS fails
+        run: node qa/production-script-failure-resilience.mjs
 
   rotating-production-sample:
     name: rotating-production-sample
