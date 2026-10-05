@@ -5,12 +5,14 @@ on:
     paths:
       - 'qa/production-professional-resources-audit.mjs'
       - 'qa/adaptive-formats-production.mjs'
+      - 'qa/production-global-integrity-audit.mjs'
       - '.github/workflows/postdeploy-deep-audit.yml'
   push:
     branches: [main]
     paths:
       - 'qa/production-professional-resources-audit.mjs'
       - 'qa/adaptive-formats-production.mjs'
+      - 'qa/production-global-integrity-audit.mjs'
       - '.github/workflows/postdeploy-deep-audit.yml'
   workflow_run:
     workflows: ['Deploy Pages']
@@ -48,6 +50,7 @@ jobs:
         run: |
           node --check qa/production-professional-resources-audit.mjs
           node --check qa/adaptive-formats-production.mjs
+          node --check qa/production-global-integrity-audit.mjs
 
       - name: Re-run global static contracts after main integration
         shell: bash
@@ -101,6 +104,9 @@ jobs:
 
       - name: Audit exact production parity and real-clock freshness
         run: node qa/production-professional-resources-audit.mjs
+
+      - name: Audit whole-site production integrity
+        run: node qa/production-global-integrity-audit.mjs
 
       - name: Observe production security headers
         run: node qa/live-security-headers.mjs
