@@ -43,3 +43,4 @@ jobs:
           git add pagefind
           git commit -m "chore: regenerate Pagefind index"
           git push origin HEAD:qa/postdeploy-metadata-artifacts-20261005
+# trigger: 2026-10-05
