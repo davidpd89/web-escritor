@@ -12,6 +12,8 @@ on:
       - 'qa/production-release-marker.mjs'
       - 'qa/production-url-normalization.mjs'
       - 'qa/production-session-resilience.mjs'
+      - 'qa/production-cross-page-fragments.mjs'
+      - 'qa/production-nojs-history.mjs'
       - 'qa/production-asset-parity.mjs'
       - 'qa/production-pagefind-search.mjs'
       - 'qa/production-format-contract.mjs'
@@ -33,6 +35,8 @@ on:
       - 'qa/production-release-marker.mjs'
       - 'qa/production-url-normalization.mjs'
       - 'qa/production-session-resilience.mjs'
+      - 'qa/production-cross-page-fragments.mjs'
+      - 'qa/production-nojs-history.mjs'
       - 'qa/production-asset-parity.mjs'
       - 'qa/production-pagefind-search.mjs'
       - 'qa/production-format-contract.mjs'
@@ -89,6 +93,8 @@ jobs:
           node --check qa/production-runtime-dom-audit.mjs
           node --check qa/production-release-marker.mjs
           node --check qa/production-session-resilience.mjs
+          node --check qa/production-cross-page-fragments.mjs
+          node --check qa/production-nojs-history.mjs
           node --check qa/production-url-normalization.mjs
           node --check qa/production-asset-parity.mjs
           node --check qa/production-pagefind-search.mjs
@@ -292,3 +298,9 @@ jobs:
 
       - name: Audit blocked storage and live orientation changes
         run: node qa/production-session-resilience.mjs
+
+      - name: Audit cross-page fragment targets
+        run: node qa/production-cross-page-fragments.mjs
+
+      - name: Audit no-JS fallback and browser history state
+        run: node qa/production-nojs-history.mjs
