@@ -16,6 +16,7 @@ on:
       - 'qa/production-nojs-history.mjs'
       - 'qa/production-asset-parity.mjs'
       - 'qa/production-pagefind-search.mjs'
+      - 'qa/production-pagefind-coverage.mjs'
       - 'qa/production-format-contract.mjs'
       - 'qa/production-media-decode.mjs'
       - 'qa/production-compact-landscape.mjs'
@@ -39,6 +40,7 @@ on:
       - 'qa/production-nojs-history.mjs'
       - 'qa/production-asset-parity.mjs'
       - 'qa/production-pagefind-search.mjs'
+      - 'qa/production-pagefind-coverage.mjs'
       - 'qa/production-format-contract.mjs'
       - 'qa/production-media-decode.mjs'
       - 'qa/production-compact-landscape.mjs'
@@ -98,6 +100,7 @@ jobs:
           node --check qa/production-url-normalization.mjs
           node --check qa/production-asset-parity.mjs
           node --check qa/production-pagefind-search.mjs
+          node --check qa/production-pagefind-coverage.mjs
           node --check qa/production-format-contract.mjs
           node --check qa/production-media-decode.mjs
           node --check qa/production-compact-landscape.mjs
@@ -242,6 +245,9 @@ jobs:
 
       - name: Audit deployed Pagefind search
         run: node qa/production-pagefind-search.mjs
+
+      - name: Audit distributed Pagefind coverage
+        run: node qa/production-pagefind-coverage.mjs
 
   adaptive-formats:
     needs: production-parity
