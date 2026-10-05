@@ -23,6 +23,7 @@ on:
       - 'qa/production-http-semantics.mjs'
       - 'qa/production-media-decode.mjs'
       - 'qa/production-compact-landscape.mjs'
+      - 'qa/production-rotating-device-audit.mjs'
       - 'scripts/check-*.py'
       - 'scripts/audit-public-email-exposure.py'
       - 'scripts/asset-version-hashes.json'
@@ -50,6 +51,7 @@ on:
       - 'qa/production-http-semantics.mjs'
       - 'qa/production-media-decode.mjs'
       - 'qa/production-compact-landscape.mjs'
+      - 'qa/production-rotating-device-audit.mjs'
       - 'scripts/check-*.py'
       - 'scripts/audit-public-email-exposure.py'
       - 'scripts/asset-version-hashes.json'
@@ -113,6 +115,7 @@ jobs:
           node --check qa/production-http-semantics.mjs
           node --check qa/production-media-decode.mjs
           node --check qa/production-compact-landscape.mjs
+          node --check qa/production-rotating-device-audit.mjs
 
       - name: Re-run global static contracts after main integration
         shell: bash
@@ -328,3 +331,48 @@ jobs:
 
       - name: Audit no-JS fallback and browser history state
         run: node qa/production-nojs-history.mjs
+
+  rotating-production-sample:
+    name: rotating-production-sample
+    needs: production-parity
+    if: >-
+      always() && needs.production-parity.result == 'success' &&
+      (github.event_name == 'schedule' ||
+       github.event_name == 'workflow_dispatch' ||
+       (github.event_name == 'workflow_run' && github.event.workflow_run.conclusion == 'success'))
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    env:
+      SITE_BASE_URL: https://davidportodiaz.com
+      EXPECTED_RELEASE_SHA: ${{ github.event.workflow_run.head_sha || github.sha }}
+    steps:
+      - name: Checkout audited release
+        uses: actions/checkout@v5
+        with:
+          ref: ${{ github.event.workflow_run.head_sha || github.sha }}
+
+      - name: Set up Node
+        uses: actions/setup-node@v5
+        with:
+          node-version: '22'
+
+      - name: Install CI/QA dependencies
+        run: npm ci
+
+      - name: Cache Playwright Chromium
+        id: playwright-rotating-cache
+        uses: actions/cache@v5
+        with:
+          path: ~/.cache/ms-playwright
+          key: playwright-chromium-${{ hashFiles('package-lock.json') }}
+
+      - name: Install Playwright Chromium with OS dependencies
+        if: steps.playwright-rotating-cache.outputs.cache-hit != 'true'
+        run: npx playwright install --with-deps chromium
+
+      - name: Install Playwright OS dependencies only
+        if: steps.playwright-rotating-cache.outputs.cache-hit == 'true'
+        run: npx playwright install-deps chromium
+
+      - name: Audit rotating production pages across device classes and keyboard
+        run: node qa/production-rotating-device-audit.mjs
