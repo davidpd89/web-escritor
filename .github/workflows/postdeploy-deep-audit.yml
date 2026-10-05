@@ -7,6 +7,7 @@ on:
       - 'qa/adaptive-formats-production.mjs'
       - 'qa/production-global-integrity-audit.mjs'
       - 'qa/production-cross-engine-smoke.mjs'
+      - 'qa/production-runtime-dom-audit.mjs'
       - '.github/workflows/postdeploy-deep-audit.yml'
   push:
     branches: [main]
@@ -53,6 +54,7 @@ jobs:
           node --check qa/adaptive-formats-production.mjs
           node --check qa/production-global-integrity-audit.mjs
           node --check qa/production-cross-engine-smoke.mjs
+          node --check qa/production-runtime-dom-audit.mjs
 
       - name: Re-run global static contracts after main integration
         shell: bash
@@ -218,6 +220,9 @@ jobs:
       - name: Install Playwright OS dependencies only
         if: steps.playwright-cache.outputs.cache-hit == 'true'
         run: npx playwright install-deps chromium
+
+      - name: Audit production runtime DOM after JavaScript
+        run: node qa/production-runtime-dom-audit.mjs
 
       - name: Audit print, reduced motion, forced colors and webfont failure
         run: node qa/adaptive-formats-production.mjs
