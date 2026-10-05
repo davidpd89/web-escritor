@@ -18,6 +18,7 @@ on:
       - 'qa/production-pagefind-search.mjs'
       - 'qa/production-pagefind-coverage.mjs'
       - 'qa/production-format-contract.mjs'
+      - 'qa/production-http-semantics.mjs'
       - 'qa/production-media-decode.mjs'
       - 'qa/production-compact-landscape.mjs'
       - 'scripts/check-*.py'
@@ -42,6 +43,7 @@ on:
       - 'qa/production-pagefind-search.mjs'
       - 'qa/production-pagefind-coverage.mjs'
       - 'qa/production-format-contract.mjs'
+      - 'qa/production-http-semantics.mjs'
       - 'qa/production-media-decode.mjs'
       - 'qa/production-compact-landscape.mjs'
       - 'scripts/check-*.py'
@@ -102,6 +104,7 @@ jobs:
           node --check qa/production-pagefind-search.mjs
           node --check qa/production-pagefind-coverage.mjs
           node --check qa/production-format-contract.mjs
+          node --check qa/production-http-semantics.mjs
           node --check qa/production-media-decode.mjs
           node --check qa/production-compact-landscape.mjs
 
@@ -181,6 +184,9 @@ jobs:
 
       - name: Audit production raw formats and MIME types
         run: node qa/production-format-contract.mjs
+
+      - name: Audit production HTTP semantics and media ranges
+        run: node qa/production-http-semantics.mjs
 
       - name: Observe production security headers
         run: node qa/live-security-headers.mjs
