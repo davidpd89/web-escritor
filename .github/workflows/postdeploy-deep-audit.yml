@@ -27,6 +27,7 @@ on:
       - 'qa/production-compact-landscape.mjs'
       - 'qa/production-rotating-device-audit.mjs'
       - 'qa/production-short-viewport-history.mjs'
+      - 'qa/production-filter-input-fuzz.mjs'
       - 'scripts/check-*.py'
       - 'scripts/audit-public-email-exposure.py'
       - 'scripts/asset-version-hashes.json'
@@ -58,6 +59,7 @@ on:
       - 'qa/production-compact-landscape.mjs'
       - 'qa/production-rotating-device-audit.mjs'
       - 'qa/production-short-viewport-history.mjs'
+      - 'qa/production-filter-input-fuzz.mjs'
       - 'scripts/check-*.py'
       - 'scripts/audit-public-email-exposure.py'
       - 'scripts/asset-version-hashes.json'
@@ -125,6 +127,7 @@ jobs:
           node --check qa/production-compact-landscape.mjs
           node --check qa/production-rotating-device-audit.mjs
           node --check qa/production-short-viewport-history.mjs
+          node --check qa/production-filter-input-fuzz.mjs
 
       - name: Re-run global static contracts after main integration
         shell: bash
@@ -348,6 +351,9 @@ jobs:
 
       - name: Audit short mobile viewport and cross-page history restoration
         run: node qa/production-short-viewport-history.mjs
+
+      - name: Audit filter inputs with Unicode and malformed URL state
+        run: node qa/production-filter-input-fuzz.mjs
 
   rotating-production-sample:
     name: rotating-production-sample
