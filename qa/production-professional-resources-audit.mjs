@@ -20,7 +20,7 @@ async function get(route){
   const r=await fetch(u,{redirect:'follow',headers:{'cache-control':'no-cache','user-agent':'david-porto-postdeploy-audit/1.0'},signal:AbortSignal.timeout(15000)});
   return {status:r.status,body:await r.text(),url:r.url,headers:r.headers};
 }
-async function retry(route){let e;for(let i=0;i<3;i++){try{return await get(route)}catch(x){e=x;await new Promise(r=>setTimeout(r,1000*(i+1)))}}throw e}
+async function retry(route){let last,e;for(let i=0;i<4;i++){try{last=await get(route);if(last.status!==429&&(last.status<500||last.status>599))return last;e=null}catch(x){e=x}if(i<3)await new Promise(r=>setTimeout(r,800*(i+1)))}if(last)return last;throw e}
 async function exact(route,file,isJson=false){const r=await retry(route);assert.equal(r.status,200,route);if(isJson)assert.deepEqual(JSON.parse(r.body),json(file),route);else assert.equal(norm(r.body),norm(read(file)),route);return r}
 async function pool(xs,n,fn){let i=0;await Promise.all(Array.from({length:n},async()=>{while(i<xs.length){const x=xs[i++];await fn(x)}}))}
 
