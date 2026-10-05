@@ -126,3 +126,9 @@ https?://([^/]+\.)?davidportodiaz\.com/.*
 # devuelve 429 a Lychee tras múltiples peticiones del mismo job. Excepción
 # exacta para esta fuente; el resto de obscura.es sigue bajo validación.
 ^https://obscura\.es/pages/manuscritos$
+
+# Fuentes verificadas que fallan únicamente bajo Lychee/Google anti-bot o por
+# timeout del runner. Excepciones exactas: no se excluyen los dominios.
+^https://laorilladelasletras\.blogspot\.com/2026/09/entrevista-davis-porto-diaz\.html$
+^https://web\.constanti\.cat/2026/09/02/xx-premis-literaris-de-constanti-2026-relats-de-pagesia/$
+^https://automaticaeditorial\.com/contacto$
