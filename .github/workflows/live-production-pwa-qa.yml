@@ -1,0 +1,47 @@
+name: Live production PWA QA
+
+on:
+  workflow_run:
+    workflows: ['Deploy Pages']
+    types: [completed]
+  schedule:
+    - cron: '11 8 * * *'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  live-production-pwa:
+    if: ${{ github.event_name != 'workflow_run' || github.event.workflow_run.conclusion == 'success' }}
+    runs-on: ubuntu-24.04
+    timeout-minutes: 20
+    env:
+      SITE_BASE_URL: https://davidportodiaz.com
+    steps:
+      - name: Checkout deployed main
+        uses: actions/checkout@v5
+        with:
+          ref: main
+      - name: Set up Node
+        uses: actions/setup-node@v5
+        with:
+          node-version: '22'
+      - name: Install CI/QA dependencies
+        run: npm ci
+      - name: Syntax check
+        run: node --check qa/live-production-pwa.mjs
+      - name: Cache Playwright Chromium
+        id: playwright-cache
+        uses: actions/cache@v5
+        with:
+          path: ~/.cache/ms-playwright
+          key: playwright-chromium-${{ hashFiles('package-lock.json') }}
+      - name: Install Playwright Chromium with OS dependencies
+        if: steps.playwright-cache.outputs.cache-hit != 'true'
+        run: npx playwright install --with-deps chromium
+      - name: Install Playwright OS dependencies only
+        if: steps.playwright-cache.outputs.cache-hit == 'true'
+        run: npx playwright install-deps chromium
+      - name: Exercise deployed service worker and offline recovery
+        run: node qa/live-production-pwa.mjs
