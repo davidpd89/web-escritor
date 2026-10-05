@@ -89,6 +89,7 @@ const fields=[
   ['name','twitter:image'],
 ];
 const failures=[];
+const socialImages=new Set();
 await pool(pages,10,async x=>{
   try{
     const local=read(x.sourceFile);
@@ -109,8 +110,36 @@ await pool(pages,10,async x=>{
     if(c&&og) assert.equal(og,c,`${x.url}: og:url differs from canonical`);
     for(const [kind,key] of [['property','og:image'],['name','twitter:image']]){
       const v=meta(prod.body,kind,key);
-      if(v) assert.doesNotThrow(()=>new URL(v),`${x.url}: invalid ${key}`);
+      if(v){
+        assert.doesNotThrow(()=>new URL(v),`${x.url}: invalid ${key}`);
+        if(new URL(v).origin===ORIGIN) socialImages.add(new URL(v).pathname);
+      }
     }
+  }catch(e){failures.push(String(e?.message||e))}
+});
+
+async function binary(route){
+  const u=new URL(route,ORIGIN);
+  u.searchParams.set('__qa_social_image',SHA||Date.now().toString(36));
+  let last;
+  for(let i=0;i<4;i++){
+    try{
+      const r=await fetch(u,{headers:{'cache-control':'no-cache','user-agent':'david-porto-production-social-image/1.0'},signal:AbortSignal.timeout(20000)});
+      const body=Buffer.from(await r.arrayBuffer());
+      last={status:r.status,headers:r.headers,body};
+      if(r.status!==429&&(r.status<500||r.status>599)) return last;
+    }catch(e){last=e}
+    if(i<3) await new Promise(r=>setTimeout(r,700*(i+1)));
+  }
+  if(last?.status!==undefined)return last;
+  throw last;
+}
+await pool([...socialImages],8,async route=>{
+  try{
+    const r=await binary(route);
+    assert.equal(r.status,200,`${route}: social image HTTP ${r.status}`);
+    assert.match((r.headers.get('content-type')||'').toLowerCase(),/^image\//,`${route}: social image content-type`);
+    assert.ok(r.body.length>1024,`${route}: social image suspiciously small (${r.body.length} bytes)`);
   }catch(e){failures.push(String(e?.message||e))}
 });
 
@@ -134,4 +163,4 @@ for(const a of artifacts){
 }
 
 assert.deepEqual(failures,[],failures.slice(0,60).join('\n'));
-console.log(`PASS production metadata/artifacts: ${pages.length} public HTML routes + ${artifacts.length} non-HTML artifacts`);
+console.log(`PASS production metadata/artifacts: ${pages.length} public HTML routes + ${socialImages.size} social images + ${artifacts.length} non-HTML artifacts`);
