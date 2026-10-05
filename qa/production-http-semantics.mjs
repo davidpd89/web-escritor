@@ -43,18 +43,9 @@ for(const x of sample){
     const headType=(head.headers.get('content-type')||'').toLowerCase();
     assert.match(getType,/text\/html|application\/xhtml\+xml/,`${x.url}: GET content-type ${getType}`);
     assert.match(headType,/text\/html|application\/xhtml\+xml/,`${x.url}: HEAD content-type ${headType}`);
-    assert.equal(await head.text(),' ',`${x.url}: impossible sentinel`);
+    assert.equal((await head.arrayBuffer()).byteLength,0,`${x.url}: HEAD unexpectedly returned a body`);
   }catch(e){
-    const msg=String(e?.message||e);
-    if(msg.includes('impossible sentinel')){
-      // Fetch HEAD bodies are required to be empty; keep the assertion explicit
-      // without consuming/normalizing a potentially absent body stream.
-      try{
-        const u=`${O}${x.url}${String(x.url).includes('?')?'&':'?'}qa_http_head=${encodeURIComponent(S||'live')}`;
-        const head=await request(u,{method:'HEAD'});
-        assert.equal((await head.arrayBuffer()).byteLength,0,`${x.url}: HEAD unexpectedly returned a body`);
-      }catch(inner){failures.push(String(inner?.message||inner))}
-    }else failures.push(msg);
+    failures.push(String(e?.message||e));
   }
 }
 
