@@ -16,6 +16,8 @@ on:
       - 'scripts/check-professional-resources.py'
       - 'tests/test-editorial-freshness-boundary.py'
       - 'tests/test-editorial-date-consistency.py'
+      - 'scripts/check-radar-clock-current.py'
+      - 'tests/test-radar-clock-current.py'
       - 'qa/pro-resources-browser.mjs'
       - 'lighthouserc-pro-resources.json'
       - '.github/workflows/pro-resources-qa.yml'
@@ -35,6 +37,8 @@ on:
       - 'scripts/check-professional-resources.py'
       - 'tests/test-editorial-freshness-boundary.py'
       - 'tests/test-editorial-date-consistency.py'
+      - 'scripts/check-radar-clock-current.py'
+      - 'tests/test-radar-clock-current.py'
       - 'qa/pro-resources-browser.mjs'
       - 'lighthouserc-pro-resources.json'
       - '.github/workflows/pro-resources-qa.yml'
@@ -59,6 +63,8 @@ jobs:
         run: python3 tests/test-editorial-freshness-boundary.py
       - name: Check editorial date consistency mutations
         run: python3 tests/test-editorial-date-consistency.py
+      - name: Check radar civil-clock drift regression
+        run: python3 tests/test-radar-clock-current.py
       - uses: actions/setup-node@v5
         with: {node-version: '22'}
       - name: Install CI/QA dependencies (Node)

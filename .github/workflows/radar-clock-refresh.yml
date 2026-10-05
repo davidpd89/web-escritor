@@ -1,0 +1,136 @@
+name: Refresh radar clock outputs
+
+on:
+  schedule:
+    - cron: '23 3 * * *'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: refresh-radar-clock
+  cancel-in-progress: false
+
+jobs:
+  refresh:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - name: Checkout latest main
+        uses: actions/checkout@v5
+        with:
+          ref: main
+          fetch-depth: 0
+
+      - name: Set up Python
+        uses: actions/setup-python@v6
+        with:
+          python-version: '3.12'
+
+      - name: Fast-forward to authoritative main
+        shell: bash
+        run: |
+          set -euo pipefail
+          git fetch origin main
+          git reset --hard origin/main
+
+      - name: Resolve Madrid civil date and detect clock drift
+        id: clock
+        shell: bash
+        run: |
+          set -euo pipefail
+          today="$(python - <<'PY'
+          from datetime import datetime
+          from zoneinfo import ZoneInfo
+          print(datetime.now(ZoneInfo('Europe/Madrid')).date().isoformat())
+          PY
+          )"
+          echo "today=$today" >> "$GITHUB_OUTPUT"
+          if python scripts/check-radar-clock-current.py --today "$today"; then
+            echo "refresh=false" >> "$GITHUB_OUTPUT"
+          else
+            echo "refresh=true" >> "$GITHUB_OUTPUT"
+          fi
+
+      - name: Regenerate deterministic radar outputs
+        if: steps.clock.outputs.refresh == 'true'
+        shell: bash
+        run: |
+          set -euo pipefail
+          python scripts/build-radar-opportunities.py \
+            --data data/radar-opportunities.json \
+            --out convocatorias-escritores \
+            --today "${{ steps.clock.outputs.today }}"
+
+      - name: Detect whether searchable HTML changed
+        if: steps.clock.outputs.refresh == 'true'
+        id: html
+        shell: bash
+        run: |
+          if git diff --quiet -- convocatorias-escritores/index.html; then
+            echo "changed=false" >> "$GITHUB_OUTPUT"
+          else
+            echo "changed=true" >> "$GITHUB_OUTPUT"
+          fi
+
+      - name: Set up Node for Pagefind
+        if: steps.html.outputs.changed == 'true'
+        uses: actions/setup-node@v5
+        with:
+          node-version: '22'
+
+      - name: Install pinned Pagefind dependency
+        if: steps.html.outputs.changed == 'true'
+        run: npm ci
+
+      - name: Rebuild Pagefind only when radar HTML changed
+        if: steps.html.outputs.changed == 'true'
+        run: python scripts/build-pagefind-index.py
+
+      - name: Validate regenerated artifacts
+        if: steps.clock.outputs.refresh == 'true'
+        shell: bash
+        run: |
+          set -euo pipefail
+          python scripts/check-radar-clock-current.py --today "${{ steps.clock.outputs.today }}"
+          python scripts/check-professional-resources.py
+          python scripts/build-pagefind-index.py --check
+          git diff --check
+
+      - name: Enforce generated-file allowlist
+        if: steps.clock.outputs.refresh == 'true'
+        shell: bash
+        run: |
+          set -euo pipefail
+          bad=0
+          while IFS= read -r path; do
+            case "$path" in
+              convocatorias-escritores/index.html|convocatorias-escritores/opportunities.json|convocatorias-escritores/deadlines.ics|pagefind/*)
+                ;;
+              *)
+                echo "Unexpected generated change: $path"
+                bad=1
+                ;;
+            esac
+          done < <(git diff --name-only)
+          exit "$bad"
+
+      - name: Commit current radar projection
+        if: steps.clock.outputs.refresh == 'true'
+        shell: bash
+        run: |
+          set -euo pipefail
+          if git diff --quiet; then
+            echo "No generated change after refresh."
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -- \
+            convocatorias-escritores/index.html \
+            convocatorias-escritores/opportunities.json \
+            convocatorias-escritores/deadlines.ics \
+            pagefind/
+          git commit -m "chore(resources): refresh radar clock ${{ steps.clock.outputs.today }}"
+          git push origin HEAD:main
