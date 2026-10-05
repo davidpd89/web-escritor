@@ -10,7 +10,7 @@ const FUZZ=[
   'e\u0301 n\u0303 u\u0308',
   '💫📚🕰️',
   '\"<svg/onload=alert(1)>',
-  \"'; DROP TABLE editoriales; --\",
+  "'; DROP TABLE editoriales; --",
   '%E0%A4%A',
   'a'.repeat(512),
 ];
