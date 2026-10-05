@@ -1,0 +1,38 @@
+name: HTML reference integrity
+
+on:
+  pull_request:
+    paths:
+      - '**/*.html'
+      - 'data/content-registry.json'
+      - 'scripts/check-html-reference-integrity.py'
+      - '.github/workflows/html-reference-integrity.yml'
+  push:
+    branches: [main]
+    paths:
+      - '**/*.html'
+      - 'data/content-registry.json'
+      - 'scripts/check-html-reference-integrity.py'
+      - '.github/workflows/html-reference-integrity.yml'
+  schedule:
+    - cron: '17 5 * * 2'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  html-reference-integrity:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 10
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v5
+        with:
+          fetch-depth: 0
+      - name: Set up Python
+        uses: actions/setup-python@v6
+        with:
+          python-version: '3.12'
+      - name: Check HTML references and page contracts
+        run: python scripts/check-html-reference-integrity.py
