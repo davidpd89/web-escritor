@@ -77,8 +77,14 @@ try{
         }
 
         if(vp.textScale){
-          await page.addStyleTag({content:'html{font-size:200% !important;}'});
-          await page.waitForTimeout(250);
+          const cdp=await context.newCDPSession(page);
+          await cdp.send('Page.enable');
+          await cdp.send('DOM.enable');
+          await cdp.send('CSS.enable');
+          const {frameTree}=await cdp.send('Page.getFrameTree');
+          const {styleSheetId}=await cdp.send('CSS.createStyleSheet',{frameId:frameTree.frame.id});
+          await cdp.send('CSS.setStyleSheetText',{styleSheetId,text:'html{font-size:200%!important}'});
+          await page.evaluate(()=>new Promise(resolve=>requestAnimationFrame(()=>requestAnimationFrame(resolve))));
         }
 
         const structural=await page.evaluate(()=>{
@@ -106,15 +112,34 @@ try{
           const nested=[...document.querySelectorAll('a button, button a, a a, button button')].slice(0,10).map(el=>el.outerHTML.slice(0,180));
           const main=document.querySelectorAll('main').length;
           const h1=[...document.querySelectorAll('h1')].filter(el=>getComputedStyle(el).display!=='none'&&el.getBoundingClientRect().width>0).length;
-          const overflow=Math.max(document.documentElement.scrollWidth,document.body?.scrollWidth||0)-window.innerWidth;
-          const overflowers=[...document.querySelectorAll('body *')].filter(el=>{
-            const s=getComputedStyle(el),r=el.getBoundingClientRect();
-            if(s.display==='none'||s.visibility==='hidden'||r.width<=0||r.height<=0)return false;
-            return r.right>window.innerWidth+2||r.left<-2;
-          }).slice(0,12).map(el=>{
+          function hasHorizontalScrollerAncestor(node){
+            let parent=node.parentElement;
+            while(parent&&parent!==document.body){
+              const style=getComputedStyle(parent);
+              if((style.overflowX==='auto'||style.overflowX==='scroll')&&parent.clientWidth>0)return true;
+              parent=parent.parentElement;
+            }
+            return false;
+          }
+          const vw=document.documentElement.clientWidth;
+          let overflow=0;
+          const overflowers=[];
+          for(const el of document.querySelectorAll('body *')){
+            const s=getComputedStyle(el);
+            if(s.display==='none'||s.visibility==='hidden'||hasHorizontalScrollerAncestor(el))continue;
             const r=el.getBoundingClientRect();
-            return {tag:el.tagName.toLowerCase(),id:el.id||'',cls:String(el.className||'').slice(0,100),left:Math.round(r.left),right:Math.round(r.right),width:Math.round(r.width),text:(el.textContent||'').trim().slice(0,80)};
-          });
+            if(r.width<=0||r.height<=0)continue;
+            const amount=Math.max(0,r.right-vw,-r.left);
+            overflow=Math.max(overflow,amount);
+            if(amount>1){
+              overflowers.push({
+                tag:el.tagName.toLowerCase(),id:el.id||'',cls:String(el.className||'').slice(0,100),
+                overflow:Math.ceil(amount),left:Math.round(r.left),right:Math.round(r.right),width:Math.round(r.width),
+                whiteSpace:s.whiteSpace,minWidth:s.minWidth,overflowX:s.overflowX,text:(el.textContent||'').trim().replace(/\s+/g,' ').slice(0,80)
+              });
+            }
+          }
+          overflowers.sort((a,b)=>b.overflow-a.overflow||b.width-a.width);
           const fixed=[...document.querySelectorAll('body *')].filter(el=>{
             const s=getComputedStyle(el),r=el.getBoundingClientRect();
             return (s.position==='fixed'||s.position==='sticky')&&s.display!=='none'&&s.visibility!=='hidden'&&r.width>window.innerWidth*.85&&r.height>window.innerHeight*.85;
@@ -125,7 +150,7 @@ try{
 
         assert.equal(structural.main,1,msg(route,vp,'must have exactly one main'));
         assert.ok(structural.h1>=1,msg(route,vp,'visible h1 missing'));
-        assert.ok(structural.overflow<=2,msg(route,vp,'horizontal overflow '+structural.overflow+'px offenders='+JSON.stringify(structural.overflowers)));
+        assert.ok(structural.overflow<=1,msg(route,vp,'horizontal overflow '+Math.ceil(structural.overflow)+'px offenders='+JSON.stringify(structural.overflowers.slice(0,6))));
         assert.deepEqual(structural.duplicates,[],msg(route,vp,'duplicate ids '+JSON.stringify(structural.duplicates)));
         assert.deepEqual(structural.missingAriaControls,[],msg(route,vp,'broken aria-controls '+JSON.stringify(structural.missingAriaControls)));
         assert.deepEqual(structural.brokenLabels,[],msg(route,vp,'labels point to missing controls '+JSON.stringify(structural.brokenLabels)));
