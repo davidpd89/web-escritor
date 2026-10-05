@@ -18,6 +18,8 @@ const listeners = new Map();
 const existingCaches = new Set([
   'david-porto-pwa-v14-static',
   'david-porto-pwa-v14-pages',
+  'david-porto-pwa-v15-static',
+  'david-porto-pwa-v15-pages',
   'david-porto-v2026-08-20-launch-1-static',
   'some-totally-unrelated-cache-on-this-origin',
 ]);
@@ -47,11 +49,13 @@ await waited;
 
 assert.ok(deleted.includes('david-porto-pwa-v14-static'), 'v14 static cache (potential stale .mjs) must be purged on activation');
 assert.ok(deleted.includes('david-porto-pwa-v14-pages'), 'v14 page cache must be purged on activation');
+assert.ok(deleted.includes('david-porto-pwa-v15-static'), 'v15 static cache (potential stale favicon/PWA icons) must be purged on activation');
+assert.ok(deleted.includes('david-porto-pwa-v15-pages'), 'v15 page cache must be purged on activation');
 assert.ok(deleted.includes('david-porto-v2026-08-20-launch-1-static'), 'ancient legacy cache must still be purged');
 assert.ok(!deleted.includes('some-totally-unrelated-cache-on-this-origin'), 'unrelated caches on the origin must never be touched');
 
 const version = source.match(/const CACHE_VERSION = `\$\{CACHE_NAMESPACE\}-(v\d+)`;/)?.[1];
 assert.ok(version, 'CACHE_VERSION declaration missing');
-assert.ok(Number(version.slice(1)) >= 15, 'cache must be bumped past v14 to purge any stale-.mjs entries cached before #388');
+assert.ok(Number(version.slice(1)) >= 16, 'cache must be bumped past v15 so stale favicon/PWA icon entries are purged');
 
-console.log(`PASS: stale v14 cache (${version} now current) is purged on activation, unrelated caches untouched`);
+console.log(`PASS: stale v14/v15 caches (${version} now current) are purged on activation, unrelated caches untouched`);
