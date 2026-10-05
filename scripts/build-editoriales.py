@@ -138,7 +138,9 @@ def validate_record(record: dict, seen: set[str], today: date) -> list[str]:
         raise ValidationError(f"{slug}: public_note demasiado breve")
 
     verified = parse_iso_date(record["verified_at"], f"{slug}.verified_at")
-    parse_iso_date(record["page_updated_at"], f"{slug}.page_updated_at")
+    page_updated = parse_iso_date(record["page_updated_at"], f"{slug}.page_updated_at")
+    if page_updated > today:
+        raise ValidationError(f"{slug}: page_updated_at está en el futuro")
     age = (today - verified).days
     if age > 90:
         warnings.append(f"{slug}: verificación antigua ({age} días); mostrar aviso y revisar antes de enviar")
@@ -161,7 +163,14 @@ def validate_record(record: dict, seen: set[str], today: date) -> list[str]:
     for idx, event in enumerate(history):
         if not isinstance(event, dict) or not event.get("event"):
             raise ValidationError(f"{slug}.history[{idx}]: event obligatorio")
-        parse_iso_date(event.get("date"), f"{slug}.history[{idx}].date")
+        event_date = parse_iso_date(event.get("date"), f"{slug}.history[{idx}].date")
+        if event_date > today:
+            raise ValidationError(f"{slug}.history[{idx}].date está en el futuro")
+        if event_date > page_updated:
+            raise ValidationError(
+                f"{slug}.history[{idx}].date ({event_date}) no puede ser posterior "
+                f"a page_updated_at ({page_updated})"
+            )
         require_https(event.get("source_url"), f"{slug}.history[{idx}].source_url")
 
     if record.get("publish") is not True:
