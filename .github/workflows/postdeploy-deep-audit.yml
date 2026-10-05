@@ -10,6 +10,8 @@ on:
       - 'qa/production-cross-engine-smoke.mjs'
       - 'qa/production-runtime-dom-audit.mjs'
       - 'qa/production-release-marker.mjs'
+      - 'qa/production-url-normalization.mjs'
+      - 'qa/production-session-resilience.mjs'
       - 'qa/production-asset-parity.mjs'
       - 'qa/production-pagefind-search.mjs'
       - 'qa/production-format-contract.mjs'
@@ -29,6 +31,8 @@ on:
       - 'qa/production-cross-engine-smoke.mjs'
       - 'qa/production-runtime-dom-audit.mjs'
       - 'qa/production-release-marker.mjs'
+      - 'qa/production-url-normalization.mjs'
+      - 'qa/production-session-resilience.mjs'
       - 'qa/production-asset-parity.mjs'
       - 'qa/production-pagefind-search.mjs'
       - 'qa/production-format-contract.mjs'
@@ -84,6 +88,8 @@ jobs:
           node --check qa/production-cross-engine-smoke.mjs
           node --check qa/production-runtime-dom-audit.mjs
           node --check qa/production-release-marker.mjs
+          node --check qa/production-session-resilience.mjs
+          node --check qa/production-url-normalization.mjs
           node --check qa/production-asset-parity.mjs
           node --check qa/production-pagefind-search.mjs
           node --check qa/production-format-contract.mjs
@@ -157,6 +163,9 @@ jobs:
 
       - name: Audit deployed semantic metadata parity
         run: node qa/production-semantic-parity.mjs
+
+      - name: Audit production URL normalization
+        run: node qa/production-url-normalization.mjs
 
       - name: Audit production static asset parity
         run: node qa/production-asset-parity.mjs
@@ -236,7 +245,7 @@ jobs:
        github.event_name == 'workflow_dispatch' ||
        (github.event_name == 'workflow_run' && github.event.workflow_run.conclusion == 'success'))
     runs-on: ubuntu-latest
-    timeout-minutes: 35
+    timeout-minutes: 40
     env:
       SITE_BASE_URL: https://davidportodiaz.com
       EXPECTED_RELEASE_SHA: ${{ github.event.workflow_run.head_sha || github.sha }}
@@ -280,3 +289,6 @@ jobs:
 
       - name: Audit print, reduced motion, forced colors and webfont failure
         run: node qa/adaptive-formats-production.mjs
+
+      - name: Audit blocked storage and live orientation changes
+        run: node qa/production-session-resilience.mjs
