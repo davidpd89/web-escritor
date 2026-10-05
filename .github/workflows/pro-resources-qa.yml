@@ -14,6 +14,7 @@ on:
       - 'scripts/build-editoriales.py'
       - 'scripts/build-radar-opportunities.py'
       - 'scripts/check-professional-resources.py'
+      - 'tests/test-editorial-freshness-boundary.py'
       - 'qa/pro-resources-browser.mjs'
       - 'lighthouserc-pro-resources.json'
       - '.github/workflows/pro-resources-qa.yml'
@@ -34,6 +35,8 @@ jobs:
         run: python3 scripts/build-radar-opportunities.py --data data/radar-opportunities.json --out convocatorias-escritores --check
       - name: Check source/output/ICS parity
         run: python3 scripts/check-professional-resources.py
+      - name: Check editorial freshness 90/91-day boundary
+        run: python3 tests/test-editorial-freshness-boundary.py
       - uses: actions/setup-node@v5
         with: {node-version: '22'}
       - name: Install CI/QA dependencies (Node)
