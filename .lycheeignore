@@ -28,7 +28,7 @@ https?://([^/]+\.)?diversidadliteraria\.com/.*
 # bibliográfica (tesis de Szigriszt Pazos en herramientas/legibilidad/) sigue
 # siendo la fuente correcta y autorizada; no se ha sustituido por una
 # alternativa sin confirmar que sea igual de autorizada y más estable.
-https?://([^/]+\.)?docta\.ucm\.es/.*
+^https://docta\.ucm\.es/entities/publication/72b6bb4b-0773-4ca2-84f6-748c83076ace$
 
 # librosindie.net/product/samuel-entre-mundos/ (editorial de Samuel entre
 # mundos) falla el handshake TLS de Lychee de forma consistente y
