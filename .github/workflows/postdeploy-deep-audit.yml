@@ -6,6 +6,7 @@ on:
       - 'qa/production-professional-resources-audit.mjs'
       - 'qa/adaptive-formats-production.mjs'
       - 'qa/production-global-integrity-audit.mjs'
+      - 'qa/production-semantic-parity.mjs'
       - 'qa/production-cross-engine-smoke.mjs'
       - 'qa/production-runtime-dom-audit.mjs'
       - 'qa/production-asset-parity.mjs'
@@ -23,6 +24,7 @@ on:
       - 'qa/production-professional-resources-audit.mjs'
       - 'qa/adaptive-formats-production.mjs'
       - 'qa/production-global-integrity-audit.mjs'
+      - 'qa/production-semantic-parity.mjs'
       - 'qa/production-cross-engine-smoke.mjs'
       - 'qa/production-runtime-dom-audit.mjs'
       - 'qa/production-asset-parity.mjs'
@@ -76,6 +78,7 @@ jobs:
           node --check qa/production-professional-resources-audit.mjs
           node --check qa/adaptive-formats-production.mjs
           node --check qa/production-global-integrity-audit.mjs
+          node --check qa/production-semantic-parity.mjs
           node --check qa/production-cross-engine-smoke.mjs
           node --check qa/production-runtime-dom-audit.mjs
           node --check qa/production-asset-parity.mjs
@@ -148,6 +151,9 @@ jobs:
 
       - name: Audit whole-site production integrity
         run: node qa/production-global-integrity-audit.mjs
+
+      - name: Audit deployed semantic metadata parity
+        run: node qa/production-semantic-parity.mjs
 
       - name: Audit production static asset parity
         run: node qa/production-asset-parity.mjs
@@ -227,7 +233,7 @@ jobs:
        github.event_name == 'workflow_dispatch' ||
        (github.event_name == 'workflow_run' && github.event.workflow_run.conclusion == 'success'))
     runs-on: ubuntu-latest
-    timeout-minutes: 25
+    timeout-minutes: 35
     env:
       SITE_BASE_URL: https://davidportodiaz.com
       EXPECTED_RELEASE_SHA: ${{ github.event.workflow_run.head_sha || github.sha }}
