@@ -19,6 +19,25 @@ on:
       - 'qa/pro-resources-browser.mjs'
       - 'lighthouserc-pro-resources.json'
       - '.github/workflows/pro-resources-qa.yml'
+  push:
+    branches: [main]
+    paths:
+      - 'data/editoriales.json'
+      - 'data/radar-opportunities.json'
+      - 'editoriales/**'
+      - 'convocatorias-escritores/**'
+      - 'assets/editoriales.css'
+      - 'assets/editoriales.js'
+      - 'assets/radar-convocatorias.css'
+      - 'assets/radar-convocatorias.js'
+      - 'scripts/build-editoriales.py'
+      - 'scripts/build-radar-opportunities.py'
+      - 'scripts/check-professional-resources.py'
+      - 'tests/test-editorial-freshness-boundary.py'
+      - 'tests/test-editorial-date-consistency.py'
+      - 'qa/pro-resources-browser.mjs'
+      - 'lighthouserc-pro-resources.json'
+      - '.github/workflows/pro-resources-qa.yml'
   workflow_dispatch:
 permissions:
   contents: read
