@@ -23,6 +23,7 @@ on:
       - 'qa/production-cross-engine-smoke.mjs'
       - 'qa/production-runtime-dom-audit.mjs'
       - 'qa/production-metadata-artifacts-audit.mjs'
+      - 'qa/production-asset-parity.mjs'
       - 'scripts/check-*.py'
       - 'scripts/audit-public-email-exposure.py'
       - 'scripts/asset-version-hashes.json'
