@@ -17,7 +17,7 @@ const code = fs.readFileSync(path.join(__dirname, '../assets/radar-convocatorias
 const sandbox = { window: {}, document: { querySelectorAll: () => [], querySelector: () => null, addEventListener: () => {} } };
 vm.createContext(sandbox);
 vm.runInContext(code, sandbox);
-const { parseCivil, daysUntil, daysSince, relativeLabel } = sandbox.window.DPRadarDates;
+const { parseCivil, siteCivilDate, daysUntil, daysSince, relativeLabel, SITE_TIME_ZONE } = sandbox.window.DPRadarDates;
 
 // Basic validity / invalid-calendar-date rejection (e.g. 2027-02-29 does not exist)
 assert.ok(parseCivil('2026-09-03'), 'fecha válida debe parsear');
@@ -25,6 +25,16 @@ assert.equal(parseCivil('2027-02-29'), null, '2027 no es bisiesto: 29 de febrero
 assert.ok(parseCivil('2028-02-29'), '2028 sí es bisiesto: 29 de febrero es válido');
 assert.equal(parseCivil('not-a-date'), null, 'texto no numérico debe rechazarse');
 assert.equal(parseCivil('2026-13-01'), null, 'mes 13 no existe');
+
+
+// The public radar is governed by Europe/Madrid civil dates, independent of
+// the visitor's own timezone. These instants straddle Madrid midnight in CET
+// and CEST and would be the previous civil day in parts of the Americas.
+assert.equal(SITE_TIME_ZONE, 'Europe/Madrid');
+assert.equal(siteCivilDate('2026-01-01T23:30:00Z').day, 2, 'CET: 23:30Z ya es 2 de enero en Madrid');
+assert.equal(siteCivilDate('2026-07-01T22:30:00Z').day, 2, 'CEST: 22:30Z ya es 2 de julio en Madrid');
+assert.equal(siteCivilDate('2026-07-01T21:30:00Z').day, 1, 'CEST: 21:30Z todavía es 1 de julio en Madrid');
+assert.equal(siteCivilDate('not-an-instant'), null, 'instante inválido debe rechazarse');
 
 // Leap-day arithmetic: from 2028-02-28 to 2028-03-01 is 2 days (crossing Feb 29 in a leap year)
 assert.equal(daysUntil('2028-03-01', '2028-02-28'), 2, 'debe contar el 29 de febrero en un año bisiesto');

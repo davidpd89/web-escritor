@@ -3,6 +3,7 @@
 
   const MS_DAY = 86400000;
   const STALE_DAYS = 30;
+  const SITE_TIME_ZONE = 'Europe/Madrid';
   // n with tilde and u with diaeresis are distinct letters in Spanish, not
   // accented n/u: folding them makes a search for one of them match every
   // word containing the base letter. Fold every other combining mark.
@@ -25,11 +26,24 @@
     return { year, month, day, stamp };
   };
 
+  const siteCivilDate = (value = new Date()) => {
+    const instant = value instanceof Date ? value : new Date(value);
+    if (Number.isNaN(instant.getTime())) return null;
+    const parts = Object.fromEntries(
+      new Intl.DateTimeFormat('en-US', {
+        timeZone: SITE_TIME_ZONE,
+        year: 'numeric',
+        month: '2-digit',
+        day: '2-digit',
+      }).formatToParts(instant).filter((part) => part.type !== 'literal').map((part) => [part.type, part.value]),
+    );
+    return parseCivil(`${parts.year}-${parts.month}-${parts.day}`);
+  };
+
   const todayCivil = () => {
     const injected = parseCivil(window.__DP_RADAR_TODAY__);
     if (injected) return injected;
-    const now = new Date();
-    return parseCivil(`${now.getFullYear()}-${String(now.getMonth() + 1).padStart(2, '0')}-${String(now.getDate()).padStart(2, '0')}`);
+    return siteCivilDate(new Date());
   };
 
   const daysUntil = (deadline, today) => {
@@ -53,7 +67,7 @@
     return 'plazo finalizado';
   };
 
-  window.DPRadarDates = Object.freeze({ parseCivil, daysUntil, daysSince, relativeLabel });
+  window.DPRadarDates = Object.freeze({ parseCivil, siteCivilDate, daysUntil, daysSince, relativeLabel, SITE_TIME_ZONE });
 
   const items = [...document.querySelectorAll('[data-radar-item]')];
   if (!items.length) return;

@@ -20,6 +20,7 @@ on:
       - 'tests/test-radar-clock-current.py'
       - 'scripts/site_clock.py'
       - 'tests/test-site-clock.py'
+      - 'tests/test-radar-dates.mjs'
       - 'qa/pro-resources-browser.mjs'
       - 'lighthouserc-pro-resources.json'
       - '.github/workflows/pro-resources-qa.yml'
@@ -43,6 +44,7 @@ on:
       - 'tests/test-radar-clock-current.py'
       - 'scripts/site_clock.py'
       - 'tests/test-site-clock.py'
+      - 'tests/test-radar-dates.mjs'
       - 'qa/pro-resources-browser.mjs'
       - 'lighthouserc-pro-resources.json'
       - '.github/workflows/pro-resources-qa.yml'
@@ -75,6 +77,8 @@ jobs:
         with: {node-version: '22'}
       - name: Install CI/QA dependencies (Node)
         run: npm ci
+      - name: Check radar client civil date across timezone boundaries
+        run: node tests/test-radar-dates.mjs
 
       - name: Cache Playwright browsers
         id: playwright-cache

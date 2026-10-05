@@ -28,6 +28,7 @@ on:
       - 'qa/production-rotating-device-audit.mjs'
       - 'qa/production-short-viewport-history.mjs'
       - 'qa/production-filter-input-fuzz.mjs'
+      - 'qa/production-radar-timezone.mjs'
       - 'qa/production-late-widget-audit.mjs'
       - 'scripts/check-*.py'
       - 'scripts/audit-public-email-exposure.py'
@@ -61,6 +62,7 @@ on:
       - 'qa/production-rotating-device-audit.mjs'
       - 'qa/production-short-viewport-history.mjs'
       - 'qa/production-filter-input-fuzz.mjs'
+      - 'qa/production-radar-timezone.mjs'
       - 'qa/production-late-widget-audit.mjs'
       - 'scripts/check-*.py'
       - 'scripts/audit-public-email-exposure.py'
@@ -130,6 +132,7 @@ jobs:
           node --check qa/production-rotating-device-audit.mjs
           node --check qa/production-short-viewport-history.mjs
           node --check qa/production-filter-input-fuzz.mjs
+          node --check qa/production-radar-timezone.mjs
           node --check qa/production-late-widget-audit.mjs
 
       - name: Re-run global static contracts after main integration
@@ -358,6 +361,9 @@ jobs:
 
       - name: Audit filter inputs with Unicode and malformed URL state
         run: node qa/production-filter-input-fuzz.mjs
+
+      - name: Audit radar date invariance across visitor time zones
+        run: node qa/production-radar-timezone.mjs
 
       - name: Audit late-loaded assistant widget in production
         run: node qa/production-late-widget-audit.mjs
