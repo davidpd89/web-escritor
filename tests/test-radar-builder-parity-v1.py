@@ -38,15 +38,50 @@ print("tests/test-radar-builder-parity-v1")
 
 raw = json.loads(DATA.read_text(encoding="utf-8"))
 items = br.load_items(DATA)
+watchlist = br.load_watchlist(DATA)
+br.ensure_disjoint_ids(items, watchlist)
+
+# Privacy regression: source records are an explicitly public schema. A future
+# internal tracking key must fail validation instead of leaking into the public
+# opportunities.json output.
+private_item = dict(items[0])
+private_item["prioridad_privada"] = "alta"
+try:
+    br.validate(private_item)
+except ValueError as exc:
+    check("campos no públicos/no permitidos" in str(exc), "campos privados extra en radar se rechazan")
+else:
+    check(False, "campos privados extra en radar se rechazan", "no se lanzó ValueError")
+
+if watchlist:
+    private_watch = dict(watchlist[0])
+    private_watch["notas_privadas"] = "interno"
+    try:
+        br.validate_watch(private_watch)
+    except ValueError as exc:
+        check("campos no públicos/no permitidos" in str(exc), "campos privados extra en watchlist se rechazan")
+    else:
+        check(False, "campos privados extra en watchlist se rechazan", "no se lanzó ValueError")
+
+if watchlist:
+    collision = [dict(item) for item in watchlist]
+    collision[0]["id"] = items[0]["id"]
+    try:
+        br.ensure_disjoint_ids(items, collision)
+    except ValueError as exc:
+        check("ids repetidos entre items y watchlist" in str(exc), "ids duplicados entre radar y watchlist se rechazan")
+    else:
+        check(False, "ids duplicados entre radar y watchlist se rechazan", "no se lanzó ValueError")
 committed_json_raw = json.loads((ROOT / "convocatorias-escritores/opportunities.json").read_text(encoding="utf-8"))
-target_date = date.fromisoformat(committed_json_raw.get("generated_for", "2026-08-22"))
+# The committed public artifact owns the test clock; a missing generated_for is a contract failure.
+target_date = date.fromisoformat(committed_json_raw["generated_for"])
 
 with tempfile.TemporaryDirectory() as tmp_dir:
     tmp = Path(tmp_dir)
     tmp.mkdir(parents=True, exist_ok=True)
 
-    generated_html = br.build_html(items, target_date)
-    generated_json = br.public_json(items, target_date)
+    generated_html = br.build_html(items, target_date, watchlist)
+    generated_json = br.public_json(items, target_date, watchlist)
     generated_ics = br.build_ics(items, target_date)
 
     check(generated_html == (ROOT / "convocatorias-escritores/index.html").read_text(encoding="utf-8"), "convocatorias-escritores/index.html está sincronizado")

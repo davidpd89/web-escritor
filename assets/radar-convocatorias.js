@@ -61,6 +61,7 @@
   const query = document.querySelector('[data-radar-search]');
   const type = document.querySelector('[data-radar-type]');
   const genre = document.querySelector('[data-radar-genre]');
+  const kind = document.querySelector('select[data-radar-kind]');
   const soon = document.querySelector('[data-radar-soon]');
   const count = document.querySelector('[data-radar-count]');
   const clear = document.querySelector('[data-radar-clear]');
@@ -77,9 +78,10 @@
   });
 
   items.forEach((item) => {
-    const remaining = daysUntil(item.dataset.deadline, today);
+    const isWatch = item.dataset.radarKind === 'watch';
+    const remaining = isWatch ? null : daysUntil(item.dataset.deadline, today);
     const age = daysSince(item.dataset.verifiedAt, today);
-    const expired = remaining === null || remaining < 0;
+    const expired = !isWatch && (remaining === null || remaining < 0);
     const stale = age === null || age > STALE_DAYS;
     item.dataset.radarUnavailable = expired || stale ? 'true' : 'false';
 
@@ -88,7 +90,11 @@
 
     const status = item.querySelector('[data-radar-status]');
     if (status) {
-      if (expired) status.textContent = 'Plazo finalizado';
+      if (isWatch) {
+        const watchLabel = item.dataset.watchKind === 'recurring' ? 'Próxima edición a vigilar' : 'Próxima apertura';
+        status.textContent = stale ? 'Verificación caducada' : watchLabel;
+      }
+      else if (expired) status.textContent = 'Plazo finalizado';
       else if (stale) status.textContent = 'Verificación caducada';
       else if (remaining === 0) status.textContent = 'Cierra hoy';
       else if (remaining === 1) status.textContent = 'Cierra mañana';
@@ -101,10 +107,12 @@
     const q = normalize(query?.value);
     const wantedType = normalize(type?.value);
     const wantedGenre = normalize(genre?.value);
+    const wantedKind = normalize(kind?.value);
     let visible = 0;
 
     items.forEach((item) => {
-      const remaining = daysUntil(item.dataset.deadline, today);
+      const itemKind = item.dataset.radarKind === 'watch' ? 'watch' : 'active';
+      const remaining = itemKind === 'active' ? daysUntil(item.dataset.deadline, today) : null;
       const haystack = normalize(`${item.dataset.title || ''} ${item.dataset.organizer || ''} ${item.textContent || ''}`);
       const itemType = normalize(item.dataset.type);
       const itemGenres = normalize(item.dataset.genres).split('|');
@@ -114,16 +122,20 @@
         && (!q || haystack.includes(q))
         && (!wantedType || itemType === wantedType)
         && (!wantedGenre || itemGenres.includes(wantedGenre))
-        && (!soon?.checked || closesSoon);
+        && (!wantedKind || itemKind === wantedKind)
+        && (!soon?.checked || (itemKind === 'active' && closesSoon));
       item.hidden = !matches;
       if (matches) visible += 1;
     });
 
     if (count) count.textContent = `${visible} ${visible === 1 ? 'convocatoria' : 'convocatorias'} ${visible === 1 ? 'visible' : 'visibles'}`;
+    document.querySelectorAll('[data-radar-section]').forEach((section) => {
+      section.hidden = section.querySelectorAll('[data-radar-item]:not([hidden])').length === 0;
+    });
     if (empty) empty.hidden = visible !== 0;
   };
 
-  [query, type, genre, soon].forEach((control) => {
+  [query, type, genre, kind, soon].forEach((control) => {
     control?.addEventListener(control === query ? 'input' : 'change', apply);
   });
 
@@ -131,6 +143,7 @@
     if (query) query.value = '';
     if (type) type.value = '';
     if (genre) genre.value = '';
+    if (kind) kind.value = '';
     if (soon) soon.checked = false;
     apply();
     query?.focus();

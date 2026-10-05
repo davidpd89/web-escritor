@@ -11,80 +11,3992 @@
     "aliases": []
   },
   "entries": [
-    {"id":"home","url":"/","label":"Inicio","shortLabel":"Inicio","type":"system","territory":"sitio","parentId":null,"hubId":null,"discoverability":"primary","footerEligible":false,"audience":["reader","writer","press"],"jobs":["orientar"],"sourceFile":"index.html"},
-    {"id":"site-ai","url":"/ai/","label":"Información para IA","shortLabel":"Información para IA","type":"system","territory":"sitio","parentId":"home","hubId":"home","discoverability":"sitemap-only","searchIndex":false,"footerEligible":true,"audience":["machine","press"],"jobs":["entidad"],"sourceFile":"ai/index.html"},
-    {"id":"site-accessibility","url":"/accesibilidad/","label":"Declaración de accesibilidad","shortLabel":"Accesibilidad","type":"system","territory":"sitio","parentId":"home","hubId":"home","discoverability":"secondary","footerEligible":true,"audience":["reader","writer","press"],"jobs":["accesibilidad"],"sourceFile":"accesibilidad/index.html"},
-    {"id":"site-privacy","url":"/privacidad.html","label":"Privacidad","shortLabel":"Privacidad","type":"system","territory":"sitio","parentId":"home","hubId":"home","discoverability":"secondary","searchIndex":false,"sitemap":false,"footerEligible":true,"audience":["reader","writer","press"],"jobs":["legal"],"sourceFile":"privacidad.html"},
-    {"id":"site-legal","url":"/aviso-legal.html","label":"Aviso legal","shortLabel":"Aviso legal","type":"system","territory":"sitio","parentId":"home","hubId":"home","discoverability":"secondary","searchIndex":false,"sitemap":false,"footerEligible":true,"audience":["reader","writer","press"],"jobs":["legal"],"sourceFile":"aviso-legal.html"},
-    {"id":"site-rss-feed","url":"/cuaderno/feed.xml","label":"RSS del Cuaderno","shortLabel":"RSS del Cuaderno","type":"system","territory":"sitio","parentId":"notebook-hub","hubId":"notebook-hub","discoverability":"contextual","searchIndex":false,"sitemap":false,"footerEligible":false,"audience":["reader","writer"],"jobs":["suscribir"],"sourceFile":"cuaderno/feed.xml"},
-    {"id":"author","url":"/autor.html","label":"David Porto Díaz","shortLabel":"Autor","type":"author","territory":"autor","parentId":"home","hubId":"author","discoverability":"primary","footerEligible":true,"audience":["reader","press","organizer"],"jobs":["conocer-autor"],"sourceFile":"autor.html"},
-
-    {"id":"works-hub","url":"/libros/","label":"Obras","shortLabel":"Obras","type":"work","territory":"obras","parentId":"home","hubId":"works-hub","discoverability":"primary","footerEligible":true,"audience":["reader","press"],"jobs":["ver-obras"],"sourceFile":"libros/index.html","aliases":["Libros"]},
-    {"id":"work-manecillas","url":"/las-manecillas-del-recuerdo/","label":"Las manecillas del recuerdo","shortLabel":"Las manecillas del recuerdo","type":"work","territory":"obras","parentId":"works-hub","hubId":"works-hub","discoverability":"secondary","footerEligible":true,"audience":["reader","press"],"jobs":["conocer-obra","comprar"],"relatedIds":["work-samuel","author","notebook-hub","events"],"sourceFile":"las-manecillas-del-recuerdo/index.html"},
-    {"id":"work-manecillas-fragments","url":"/las-manecillas-del-recuerdo/fragmentos/","label":"Fragmentos de Las manecillas del recuerdo","shortLabel":"Fragmentos de Manecillas","type":"resource","territory":"obras","parentId":"work-manecillas","hubId":"works-hub","discoverability":"contextual","audience":["reader"],"jobs":["leer-fragmento"],"sourceFile":"las-manecillas-del-recuerdo/fragmentos/index.html"},
-    {"id":"work-manecillas-kindle","url":"/las-manecillas-del-recuerdo/kindle/","label":"Las manecillas del recuerdo en Kindle","shortLabel":"Kindle","type":"resource","territory":"obras","parentId":"work-manecillas","hubId":"works-hub","discoverability":"contextual","audience":["reader"],"jobs":["comprar","leer-fragmento"],"relatedIds":["work-manecillas","work-manecillas-fragments"],"sourceFile":"las-manecillas-del-recuerdo/kindle/index.html"},
-    {"id":"work-samuel","url":"/libros/samuel-entre-mundos/","label":"Samuel entre mundos","shortLabel":"Samuel entre mundos","type":"work","territory":"obras","parentId":"works-hub","hubId":"works-hub","discoverability":"secondary","footerEligible":true,"audience":["reader","press"],"jobs":["conocer-obra","comprar"],"relatedIds":["work-manecillas","recommend-portal-es","recommend-magic-cost","article-fantasia-juvenil-portales"],"sourceFile":"libros/samuel-entre-mundos/index.html"},
-    {"id":"work-memoria-norte","url":"/libros/#memoria-tierras-norte","label":"La memoria de las tierras del norte","shortLabel":"La memoria de las tierras del norte","type":"work","territory":"obras","parentId":"works-hub","hubId":"works-hub","discoverability":"secondary","footerEligible":true,"audience":["reader"],"jobs":["conocer-obra"],"sourceFile":"libros/index.html","searchIndex":false,"sitemap":false},
-    {"id":"samuel-fragment","url":"/fragmento/","label":"Primer capítulo de Samuel entre mundos","shortLabel":"Capítulo 1 de Samuel","type":"resource","territory":"obras","parentId":"work-samuel","hubId":"works-hub","discoverability":"contextual","footerEligible":true,"audience":["reader"],"jobs":["leer-fragmento"],"sourceFile":"fragmento/index.html"},
-    {"id":"samuel-noveris","url":"/universo/noveris/","label":"Noveris","shortLabel":"Noveris","type":"resource","territory":"obras","parentId":"work-samuel","hubId":"works-hub","discoverability":"contextual","audience":["reader"],"jobs":["explorar-mundo"],"sourceFile":"universo/noveris/index.html"},
-    {"id":"samuel-club","url":"/clubes-de-lectura/samuel-entre-mundos/","label":"Clubes de lectura de Samuel entre mundos","shortLabel":"Clubes de lectura","type":"resource","territory":"obras","parentId":"work-samuel","hubId":"works-hub","discoverability":"contextual","audience":["reader","organizer"],"jobs":["club-lectura"],"sourceFile":"clubes-de-lectura/samuel-entre-mundos/index.html"},
-    {"id":"samuel-club-guide","url":"/clubes-de-lectura/samuel-entre-mundos/guia-imprimible/","label":"Guía imprimible de Samuel entre mundos","shortLabel":"Guía imprimible","type":"resource","territory":"obras","parentId":"samuel-club","hubId":"works-hub","discoverability":"contextual","audience":["reader","organizer"],"jobs":["club-lectura"],"sourceFile":"clubes-de-lectura/samuel-entre-mundos/guia-imprimible/index.html"},
-    {"id":"work-jaula-staging","url":"/donde-empieza-la-jaula/","label":"Dónde empieza la jaula","shortLabel":"Dónde empieza la jaula","type":"work","territory":"obras","parentId":"works-hub","hubId":"works-hub","status":"noindex","discoverability":"contextual","searchIndex":false,"sitemap":false,"audience":["reader"],"jobs":["conocer-obra"],"sourceFile":"donde-empieza-la-jaula/index.html"},
-    {"id":"lectores-beta","url":"/lectores-beta/","label":"Lectores beta","shortLabel":"Lectores beta","type":"resource","territory":"autor","parentId":"author","hubId":"author","discoverability":"secondary","audience":["reader"],"jobs":["unirse-lectores-beta"],"sourceFile":"lectores-beta/index.html","footerEligible":true},
-    {"id":"lectores-beta-enviar-manuscrito","url":"/lectores-beta/enviar-manuscrito/","label":"Enviar manuscrito para valoración beta","shortLabel":"Enviar manuscrito","type":"resource","territory":"autor","parentId":"lectores-beta","hubId":"author","discoverability":"contextual","audience":["writer"],"jobs":["enviar-manuscrito-beta"],"sourceFile":"lectores-beta/enviar-manuscrito/index.html"},
-
-    {"id":"notebook-hub","url":"/cuaderno/","label":"Cuaderno","shortLabel":"Cuaderno","type":"article","territory":"cuaderno","parentId":"home","hubId":"notebook-hub","discoverability":"primary","footerEligible":true,"audience":["reader","writer"],"jobs":["leer-articulos"],"sourceFile":"cuaderno/index.html"},
-    {"id":"notebook-topics","url":"/cuaderno/temas/","label":"Temas del Cuaderno","shortLabel":"Temas","type":"article","territory":"cuaderno","parentId":"notebook-hub","hubId":"notebook-hub","discoverability":"secondary","footerEligible":true,"audience":["reader","writer"],"jobs":["explorar-temas"],"sourceFile":"cuaderno/temas/index.html"},
-    {"id":"topic-portals","url":"/cuaderno/temas/fantasia-de-portales/","label":"Fantasía de portales","shortLabel":"Fantasía de portales","type":"article","territory":"cuaderno","parentId":"notebook-topics","hubId":"notebook-hub","discoverability":"contextual","audience":["reader","writer"],"jobs":["explorar-tema"],"sourceFile":"cuaderno/temas/fantasia-de-portales/index.html"},
-    {"id":"article-fantasia-juvenil-portales","url":"/cuaderno/fantasia-juvenil-espanola-portales-magia-coste/","label":"Fantasía juvenil española: portales y magia con coste","shortLabel":"Fantasía juvenil española: portales y magia con coste","type":"article","territory":"cuaderno","parentId":"notebook-hub","hubId":"notebook-hub","discoverability":"contextual","audience":["reader"],"jobs":["leer-articulo"],"sourceFile":"cuaderno/fantasia-juvenil-espanola-portales-magia-coste/index.html"},
-    {"id":"article-flm-2026","url":"/cuaderno/feria-libro-madrid-2026-samuel-entre-mundos/","label":"Feria del Libro de Madrid 2026 y Samuel entre mundos","shortLabel":"Feria del Libro de Madrid 2026 y Samuel entre mundos","type":"article","territory":"cuaderno","parentId":"notebook-hub","hubId":"notebook-hub","discoverability":"contextual","audience":["reader"],"jobs":["leer-articulo"],"sourceFile":"cuaderno/feria-libro-madrid-2026-samuel-entre-mundos/index.html"},
-    {"id":"article-fantasia-es-2025-2026","url":"/cuaderno/libros-fantasia-juvenil-espanola-2025-2026/","label":"Libros de fantasía juvenil española 2025–2026","shortLabel":"Libros de fantasía juvenil española 2025–2026","type":"article","territory":"cuaderno","parentId":"notebook-hub","hubId":"notebook-hub","discoverability":"contextual","audience":["reader"],"jobs":["leer-articulo"],"sourceFile":"cuaderno/libros-fantasia-juvenil-espanola-2025-2026/index.html"},
-    {"id":"article-portal-vs-epica","url":"/cuaderno/portal-fantasy-vs-fantasia-epica/","label":"Portal fantasy vs. fantasía épica","shortLabel":"Portal fantasy vs. fantasía épica","type":"article","territory":"cuaderno","parentId":"notebook-hub","hubId":"notebook-hub","discoverability":"contextual","audience":["reader","writer"],"jobs":["leer-articulo"],"sourceFile":"cuaderno/portal-fantasy-vs-fantasia-epica/index.html"},
-    {"id":"article-que-es-portal","url":"/cuaderno/que-es-el-portal-fantasy/","label":"Qué es el portal fantasy","shortLabel":"Qué es el portal fantasy","type":"article","territory":"cuaderno","parentId":"notebook-hub","hubId":"notebook-hub","discoverability":"contextual","audience":["reader","writer"],"jobs":["leer-articulo"],"sourceFile":"cuaderno/que-es-el-portal-fantasy/index.html"},
-    {"id":"article-magia-noveris","url":"/cuaderno/sistema-de-magia-noveris/","label":"Sistema de magia de Noveris","shortLabel":"Sistema de magia de Noveris","type":"article","territory":"cuaderno","parentId":"notebook-hub","hubId":"notebook-hub","discoverability":"contextual","audience":["reader","writer"],"jobs":["leer-articulo"],"sitemap":false,"searchIndex":false,"sourceFile":"cuaderno/sistema-de-magia-noveris/index.html"},
-    {"id":"article-worldbuilding-noveris","url":"/cuaderno/worldbuilding-noveris-ciudad-magica/","label":"Worldbuilding de Noveris","shortLabel":"Worldbuilding de Noveris","type":"article","territory":"cuaderno","parentId":"notebook-hub","hubId":"notebook-hub","discoverability":"contextual","audience":["reader","writer"],"jobs":["leer-articulo"],"sourceFile":"cuaderno/worldbuilding-noveris-ciudad-magica/index.html"},
-    {"id":"recommendations-hub","url":"/recomendaciones/","label":"Recomendaciones de lectura","shortLabel":"Recomendaciones","type":"article","territory":"cuaderno","parentId":"notebook-hub","hubId":"notebook-hub","discoverability":"secondary","footerEligible":true,"audience":["reader"],"jobs":["buscar-lecturas"],"sourceFile":"recomendaciones/index.html"},
-    {"id":"recommend-magic-cost","url":"/recomendaciones/magia-con-coste/","label":"Libros con magia con coste","shortLabel":"Libros con magia con coste","type":"article","territory":"cuaderno","parentId":"recommendations-hub","hubId":"notebook-hub","discoverability":"contextual","audience":["reader"],"jobs":["buscar-lecturas"],"sourceFile":"recomendaciones/magia-con-coste/index.html"},
-    {"id":"recommend-portal-es","url":"/recomendaciones/portal-fantasy-espanol/","label":"Portal fantasy en español","shortLabel":"Portal fantasy en español","type":"article","territory":"cuaderno","parentId":"recommendations-hub","hubId":"notebook-hub","discoverability":"contextual","audience":["reader"],"jobs":["buscar-lecturas"],"sourceFile":"recomendaciones/portal-fantasy-espanol/index.html"},
-
-    {"id":"tools-hub","url":"/herramientas/","label":"Herramientas para escritores","shortLabel":"Herramientas","type":"tool","territory":"herramientas","parentId":"home","hubId":"tools-hub","discoverability":"primary","footerEligible":true,"audience":["writer"],"jobs":["usar-herramientas"],"sourceFile":"herramientas/index.html"},
-    {"id":"tool-book-page-audit","url":"/herramientas/auditor-pagina-libro/","label":"Auditor de página de libro","shortLabel":"Auditor de página de libro","type":"tool","territory":"herramientas","parentId":"tools-hub","hubId":"tools-hub","discoverability":"contextual","audience":["writer"],"jobs":["publicar-presentar"],"sourceFile":"herramientas/auditor-pagina-libro/index.html"},
-    {"id":"tool-dialogue","url":"/herramientas/dialogo/","label":"Medidor de diálogo","shortLabel":"Medidor de diálogo","type":"tool","territory":"herramientas","parentId":"tools-hub","hubId":"tools-hub","discoverability":"contextual","audience":["writer"],"jobs":["revisar-texto"],"sourceFile":"herramientas/dialogo/index.html"},
-    {"id":"tool-dialogue-conventions","url":"/herramientas/dialogo-convenciones/","label":"Revisor de convenciones de diálogo","shortLabel":"Revisor de convenciones","type":"tool","territory":"herramientas","parentId":"tools-hub","hubId":"tools-hub","discoverability":"contextual","audience":["writer"],"jobs":["revisar-texto"],"sourceFile":"herramientas/dialogo-convenciones/index.html"},
-    {"id":"tool-pov","url":"/herramientas/distribucion-pov/","label":"Distribución de POV por escenas","shortLabel":"Distribución de POV por escenas","type":"tool","territory":"herramientas","parentId":"tools-hub","hubId":"tools-hub","discoverability":"contextual","audience":["writer"],"jobs":["estructura-personajes"],"sourceFile":"herramientas/distribucion-pov/index.html"},
-    {"id":"tool-family-interview","url":"/herramientas/entrevista-familiar/","label":"Preparador de entrevista familiar","shortLabel":"Preparador de entrevista familiar","type":"tool","territory":"herramientas","parentId":"tools-hub","hubId":"tools-hub","discoverability":"contextual","audience":["writer"],"jobs":["investigar-preparar"],"sourceFile":"herramientas/entrevista-familiar/index.html"},
-    {"id":"tool-reading-card","url":"/herramientas/tarjeta-estoy-leyendo/","label":"Tarjeta «Estoy leyendo»","shortLabel":"Tarjeta «Estoy leyendo»","type":"tool","territory":"herramientas","parentId":"tools-hub","hubId":"tools-hub","discoverability":"contextual","audience":["writer","reader"],"jobs":["publicar-presentar"],"sourceFile":"herramientas/tarjeta-estoy-leyendo/index.html"},
-    {"id":"tool-ics","url":"/herramientas/eventos-ics/","label":"Generador de evento + calendario","shortLabel":"Generador de evento + calendario","type":"tool","territory":"herramientas","parentId":"tools-hub","hubId":"tools-hub","discoverability":"contextual","audience":["writer"],"jobs":["publicar-presentar"],"sourceFile":"herramientas/eventos-ics/index.html"},
-    {"id":"tool-jsonld","url":"/herramientas/json-ld-escritores/","label":"Generador JSON-LD para escritores","shortLabel":"Generador JSON-LD para escritores","type":"tool","territory":"herramientas","parentId":"tools-hub","hubId":"tools-hub","discoverability":"contextual","audience":["writer"],"jobs":["publicar-presentar"],"sourceFile":"herramientas/json-ld-escritores/index.html"},
-    {"id":"tool-press-kit","url":"/herramientas/kit-prensa-escritores/","label":"Generador de kit de prensa","shortLabel":"Generador de kit de prensa","type":"tool","territory":"herramientas","parentId":"tools-hub","hubId":"tools-hub","discoverability":"contextual","audience":["writer"],"jobs":["publicar-presentar"],"sourceFile":"herramientas/kit-prensa-escritores/index.html"},
-    {"id":"tool-readability","url":"/herramientas/legibilidad/","label":"Legibilidad en español","shortLabel":"Legibilidad en español","type":"tool","territory":"herramientas","parentId":"tools-hub","hubId":"tools-hub","discoverability":"contextual","audience":["writer"],"jobs":["revisar-texto"],"sourceFile":"herramientas/legibilidad/index.html"},
-    {"id":"tool-manuscript","url":"/herramientas/manuscrito/","label":"Analizador de manuscrito","shortLabel":"Analizador de manuscrito","type":"tool","territory":"herramientas","parentId":"tools-hub","hubId":"tools-hub","discoverability":"contextual","audience":["writer"],"jobs":["revisar-texto"],"sourceFile":"herramientas/manuscrito/index.html"},
-    {"id":"tool-book-metadata","url":"/herramientas/metadatos-libro/","label":"Preview de metadatos para libros","shortLabel":"Preview de metadatos para libros","type":"tool","territory":"herramientas","parentId":"tools-hub","hubId":"tools-hub","discoverability":"contextual","audience":["writer"],"jobs":["publicar-presentar"],"sourceFile":"herramientas/metadatos-libro/index.html"},
-    {"id":"tool-character-names","url":"/herramientas/nombres-personajes/","label":"Comprobador de nombres","shortLabel":"Comprobador de nombres","type":"tool","territory":"herramientas","parentId":"tools-hub","hubId":"tools-hub","discoverability":"contextual","audience":["writer"],"jobs":["estructura-personajes"],"sourceFile":"herramientas/nombres-personajes/index.html"},
-    {"id":"tool-characters","url":"/herramientas/personajes/","label":"Matriz de personajes","shortLabel":"Matriz de personajes","type":"tool","territory":"herramientas","parentId":"tools-hub","hubId":"tools-hub","discoverability":"contextual","audience":["writer"],"jobs":["estructura-personajes"],"sourceFile":"herramientas/personajes/index.html"},
-    {"id":"tool-repetitions","url":"/herramientas/repeticiones/","label":"Detector de repeticiones","shortLabel":"Detector de repeticiones","type":"tool","territory":"herramientas","parentId":"tools-hub","hubId":"tools-hub","discoverability":"contextual","audience":["writer"],"jobs":["revisar-texto"],"sourceFile":"herramientas/repeticiones/index.html"},
-    {"id":"tool-word-counter","url":"/herramientas/contador-palabras/","label":"Contador de palabras","shortLabel":"Contador de palabras","type":"tool","territory":"herramientas","parentId":"tools-hub","hubId":"tools-hub","discoverability":"contextual","audience":["writer"],"jobs":["revisar-texto"],"sourceFile":"herramientas/contador-palabras/index.html"},
-    {"id":"tool-manuscript-cleaner","url":"/herramientas/limpiador-manuscritos/","label":"Limpiador de manuscritos","shortLabel":"Limpiador de manuscritos","type":"tool","territory":"herramientas","parentId":"tools-hub","hubId":"tools-hub","discoverability":"contextual","audience":["writer"],"jobs":["revisar-texto"],"sourceFile":"herramientas/limpiador-manuscritos/index.html"},
-    {"id":"tool-read-aloud","url":"/herramientas/tiempo-lectura-voz-alta/","label":"Tiempo de lectura en voz alta","shortLabel":"Tiempo de lectura en voz alta","type":"tool","territory":"herramientas","parentId":"tools-hub","hubId":"tools-hub","discoverability":"contextual","audience":["writer"],"jobs":["revisar-texto"],"sourceFile":"herramientas/tiempo-lectura-voz-alta/index.html"},
-    {"id":"tool-lexical-variety","url":"/herramientas/variedad-lexica/","label":"Variedad léxica","shortLabel":"Variedad léxica","type":"tool","territory":"herramientas","parentId":"tools-hub","hubId":"tools-hub","discoverability":"contextual","audience":["writer"],"jobs":["revisar-texto"],"sourceFile":"herramientas/variedad-lexica/index.html"},
-    {"id":"tool-club-session","url":"/clubes-de-lectura/preparar-sesion/","label":"Preparar sesión de club de lectura","shortLabel":"Preparar sesión de club de lectura","type":"tool","territory":"herramientas","parentId":"tools-hub","hubId":"tools-hub","discoverability":"contextual","audience":["reader","organizer"],"jobs":["lectores-clubes"],"sourceFile":"clubes-de-lectura/preparar-sesion/index.html"},
-    {"id":"tool-inherited-object","url":"/recursos/ficha-historia-objeto-heredado/","label":"Ficha de objeto heredado","shortLabel":"Ficha de objeto heredado","type":"tool","territory":"herramientas","parentId":"tools-hub","hubId":"tools-hub","discoverability":"contextual","audience":["writer"],"jobs":["investigar-preparar"],"sourceFile":"recursos/ficha-historia-objeto-heredado/index.html"},
-    {"id":"tool-reader-type-quiz","url":"/herramientas/que-tipo-de-lector-eres/","label":"¿Qué tipo de lector eres?","shortLabel":"¿Qué tipo de lector eres?","type":"tool","territory":"herramientas","parentId":"tools-hub","hubId":"tools-hub","discoverability":"contextual","audience":["reader"],"jobs":["descubrir-preferencias-lectura"],"sourceFile":"herramientas/que-tipo-de-lector-eres/index.html"},
-
-    {"id":"editorials-hub","url":"/editoriales/","label":"Editoriales que aceptan manuscritos","shortLabel":"Editoriales","type":"directory","territory":"herramientas","parentId":"tools-hub","hubId":"tools-hub","discoverability":"secondary","footerEligible":true,"audience":["writer"],"jobs":["buscar-editorial"],"sourceFile":"editoriales/index.html"},
-    {"id":"editorial-duermevela","url":"/editoriales/duermevela-ediciones/","label":"Duermevela Ediciones","shortLabel":"Duermevela Ediciones","type":"directory","territory":"herramientas","parentId":"editorials-hub","hubId":"tools-hub","discoverability":"contextual","audience":["writer"],"jobs":["buscar-editorial"],"sourceFile":"editoriales/duermevela-ediciones/index.html"},
-    {"id":"editorial-minotauro","url":"/editoriales/minotauro/","label":"Minotauro","shortLabel":"Minotauro","type":"directory","territory":"herramientas","parentId":"editorials-hub","hubId":"tools-hub","discoverability":"contextual","audience":["writer"],"jobs":["buscar-editorial"],"sourceFile":"editoriales/minotauro/index.html"},
-    {"id":"editorial-nocturna","url":"/editoriales/nocturna-ediciones/","label":"Nocturna Ediciones","shortLabel":"Nocturna Ediciones","type":"directory","territory":"herramientas","parentId":"editorials-hub","hubId":"tools-hub","discoverability":"contextual","audience":["writer"],"jobs":["buscar-editorial"],"sourceFile":"editoriales/nocturna-ediciones/index.html"},
-    {"id":"editorial-method","url":"/metodologia-editorial/","label":"Metodología del directorio editorial","shortLabel":"Metodología editorial","type":"resource","territory":"herramientas","parentId":"editorials-hub","hubId":"tools-hub","discoverability":"contextual","audience":["writer"],"jobs":["entender-metodologia"],"sourceFile":"metodologia-editorial/index.html"},
-    {"id":"opportunities","url":"/convocatorias-escritores/","label":"Convocatorias para escritores","shortLabel":"Convocatorias","type":"directory","territory":"herramientas","parentId":"tools-hub","hubId":"tools-hub","discoverability":"secondary","footerEligible":true,"audience":["writer"],"jobs":["buscar-convocatoria"],"sourceFile":"convocatorias-escritores/index.html"},
-    {"id":"external-tools","url":"/recursos/herramientas-para-escritores/","label":"Directorio de herramientas para escritores","shortLabel":"Recursos externos","type":"directory","territory":"herramientas","parentId":"tools-hub","hubId":"tools-hub","discoverability":"secondary","footerEligible":false,"status":"deprecated","searchIndex":false,"sitemap":false,"audience":["writer"],"jobs":["buscar-herramienta"],"sourceFile":"recursos/herramientas-para-escritores/index.html"},
-
-    {"id":"awards","url":"/premios.html","label":"Premios y reconocimientos","shortLabel":"Premios","type":"author","territory":"autor","parentId":"author","hubId":"author","discoverability":"secondary","footerEligible":true,"audience":["reader","press"],"jobs":["ver-trayectoria"],"sourceFile":"premios.html"},
-    {"id":"events","url":"/eventos.html","label":"Eventos y firmas","shortLabel":"Eventos","type":"event","territory":"prensa-eventos","parentId":"author","hubId":"author","discoverability":"secondary","footerEligible":true,"audience":["reader","organizer","press"],"jobs":["ver-eventos"],"sourceFile":"eventos.html"},
-    {"id":"fairs","url":"/ferias.html","label":"Ferias del libro","shortLabel":"Ferias","type":"event","territory":"prensa-eventos","parentId":"events","hubId":"author","discoverability":"contextual","audience":["reader","organizer"],"jobs":["ver-eventos"],"sourceFile":"ferias.html"},
-    {"id":"press","url":"/prensa.html","label":"Prensa y kit de prensa","shortLabel":"Prensa","type":"press","territory":"prensa-eventos","parentId":"author","hubId":"author","discoverability":"secondary","footerEligible":true,"audience":["press","organizer"],"jobs":["recursos-prensa"],"sourceFile":"prensa.html"},
-
-    {"id":"start-here","url":"/empieza-aqui/","label":"Empieza aquí","shortLabel":"Empieza aquí","type":"system","territory":"sitio","parentId":"home","hubId":"home","discoverability":"contextual","audience":["reader","writer","press"],"jobs":["orientar"],"sourceFile":"empieza-aqui/index.html"},
-    {"id":"site-map","url":"/mapa-del-sitio/","label":"Mapa del sitio","shortLabel":"Mapa del sitio","type":"system","territory":"sitio","parentId":"home","hubId":"home","discoverability":"sitemap-only","searchIndex":false,"footerEligible":true,"audience":["reader","writer","press"],"jobs":["encontrar-contenido"],"sourceFile":"mapa-del-sitio/index.html"}
+    {
+      "id": "home",
+      "url": "/",
+      "label": "Inicio",
+      "shortLabel": "Inicio",
+      "type": "system",
+      "territory": "sitio",
+      "parentId": null,
+      "hubId": null,
+      "discoverability": "primary",
+      "footerEligible": false,
+      "audience": [
+        "reader",
+        "writer",
+        "press"
+      ],
+      "jobs": [
+        "orientar"
+      ],
+      "sourceFile": "index.html"
+    },
+    {
+      "id": "site-ai",
+      "url": "/ai/",
+      "label": "Información para IA",
+      "shortLabel": "Información para IA",
+      "type": "system",
+      "territory": "sitio",
+      "parentId": "home",
+      "hubId": "home",
+      "discoverability": "sitemap-only",
+      "searchIndex": false,
+      "footerEligible": true,
+      "audience": [
+        "machine",
+        "press"
+      ],
+      "jobs": [
+        "entidad"
+      ],
+      "sourceFile": "ai/index.html"
+    },
+    {
+      "id": "site-accessibility",
+      "url": "/accesibilidad/",
+      "label": "Declaración de accesibilidad",
+      "shortLabel": "Accesibilidad",
+      "type": "system",
+      "territory": "sitio",
+      "parentId": "home",
+      "hubId": "home",
+      "discoverability": "secondary",
+      "footerEligible": true,
+      "audience": [
+        "reader",
+        "writer",
+        "press"
+      ],
+      "jobs": [
+        "accesibilidad"
+      ],
+      "sourceFile": "accesibilidad/index.html"
+    },
+    {
+      "id": "site-privacy",
+      "url": "/privacidad.html",
+      "label": "Privacidad",
+      "shortLabel": "Privacidad",
+      "type": "system",
+      "territory": "sitio",
+      "parentId": "home",
+      "hubId": "home",
+      "discoverability": "secondary",
+      "searchIndex": false,
+      "sitemap": false,
+      "footerEligible": true,
+      "audience": [
+        "reader",
+        "writer",
+        "press"
+      ],
+      "jobs": [
+        "legal"
+      ],
+      "sourceFile": "privacidad.html"
+    },
+    {
+      "id": "site-legal",
+      "url": "/aviso-legal.html",
+      "label": "Aviso legal",
+      "shortLabel": "Aviso legal",
+      "type": "system",
+      "territory": "sitio",
+      "parentId": "home",
+      "hubId": "home",
+      "discoverability": "secondary",
+      "searchIndex": false,
+      "sitemap": false,
+      "footerEligible": true,
+      "audience": [
+        "reader",
+        "writer",
+        "press"
+      ],
+      "jobs": [
+        "legal"
+      ],
+      "sourceFile": "aviso-legal.html"
+    },
+    {
+      "id": "site-rss-feed",
+      "url": "/cuaderno/feed.xml",
+      "label": "RSS del Cuaderno",
+      "shortLabel": "RSS del Cuaderno",
+      "type": "system",
+      "territory": "sitio",
+      "parentId": "notebook-hub",
+      "hubId": "notebook-hub",
+      "discoverability": "contextual",
+      "searchIndex": false,
+      "sitemap": false,
+      "footerEligible": false,
+      "audience": [
+        "reader",
+        "writer"
+      ],
+      "jobs": [
+        "suscribir"
+      ],
+      "sourceFile": "cuaderno/feed.xml"
+    },
+    {
+      "id": "author",
+      "url": "/autor.html",
+      "label": "David Porto Díaz",
+      "shortLabel": "Autor",
+      "type": "author",
+      "territory": "autor",
+      "parentId": "home",
+      "hubId": "author",
+      "discoverability": "primary",
+      "footerEligible": true,
+      "audience": [
+        "reader",
+        "press",
+        "organizer"
+      ],
+      "jobs": [
+        "conocer-autor"
+      ],
+      "sourceFile": "autor.html"
+    },
+    {
+      "id": "works-hub",
+      "url": "/libros/",
+      "label": "Obras",
+      "shortLabel": "Obras",
+      "type": "work",
+      "territory": "obras",
+      "parentId": "home",
+      "hubId": "works-hub",
+      "discoverability": "primary",
+      "footerEligible": true,
+      "audience": [
+        "reader",
+        "press"
+      ],
+      "jobs": [
+        "ver-obras"
+      ],
+      "sourceFile": "libros/index.html",
+      "aliases": [
+        "Libros"
+      ]
+    },
+    {
+      "id": "work-manecillas",
+      "url": "/las-manecillas-del-recuerdo/",
+      "label": "Las manecillas del recuerdo",
+      "shortLabel": "Las manecillas del recuerdo",
+      "type": "work",
+      "territory": "obras",
+      "parentId": "works-hub",
+      "hubId": "works-hub",
+      "discoverability": "secondary",
+      "footerEligible": true,
+      "audience": [
+        "reader",
+        "press"
+      ],
+      "jobs": [
+        "conocer-obra",
+        "comprar"
+      ],
+      "relatedIds": [
+        "work-samuel",
+        "author",
+        "notebook-hub",
+        "events"
+      ],
+      "sourceFile": "las-manecillas-del-recuerdo/index.html"
+    },
+    {
+      "id": "work-manecillas-fragments",
+      "url": "/las-manecillas-del-recuerdo/fragmentos/",
+      "label": "Fragmentos de Las manecillas del recuerdo",
+      "shortLabel": "Fragmentos de Manecillas",
+      "type": "resource",
+      "territory": "obras",
+      "parentId": "work-manecillas",
+      "hubId": "works-hub",
+      "discoverability": "contextual",
+      "audience": [
+        "reader"
+      ],
+      "jobs": [
+        "leer-fragmento"
+      ],
+      "sourceFile": "las-manecillas-del-recuerdo/fragmentos/index.html"
+    },
+    {
+      "id": "work-manecillas-kindle",
+      "url": "/las-manecillas-del-recuerdo/kindle/",
+      "label": "Las manecillas del recuerdo en Kindle",
+      "shortLabel": "Kindle",
+      "type": "resource",
+      "territory": "obras",
+      "parentId": "work-manecillas",
+      "hubId": "works-hub",
+      "discoverability": "contextual",
+      "audience": [
+        "reader"
+      ],
+      "jobs": [
+        "comprar",
+        "leer-fragmento"
+      ],
+      "relatedIds": [
+        "work-manecillas",
+        "work-manecillas-fragments"
+      ],
+      "sourceFile": "las-manecillas-del-recuerdo/kindle/index.html"
+    },
+    {
+      "id": "work-samuel",
+      "url": "/libros/samuel-entre-mundos/",
+      "label": "Samuel entre mundos",
+      "shortLabel": "Samuel entre mundos",
+      "type": "work",
+      "territory": "obras",
+      "parentId": "works-hub",
+      "hubId": "works-hub",
+      "discoverability": "secondary",
+      "footerEligible": true,
+      "audience": [
+        "reader",
+        "press"
+      ],
+      "jobs": [
+        "conocer-obra",
+        "comprar"
+      ],
+      "relatedIds": [
+        "work-manecillas",
+        "recommend-portal-es",
+        "recommend-magic-cost",
+        "article-fantasia-juvenil-portales"
+      ],
+      "sourceFile": "libros/samuel-entre-mundos/index.html"
+    },
+    {
+      "id": "work-memoria-norte",
+      "url": "/libros/#memoria-tierras-norte",
+      "label": "La memoria de las tierras del norte",
+      "shortLabel": "La memoria de las tierras del norte",
+      "type": "work",
+      "territory": "obras",
+      "parentId": "works-hub",
+      "hubId": "works-hub",
+      "discoverability": "secondary",
+      "footerEligible": true,
+      "audience": [
+        "reader"
+      ],
+      "jobs": [
+        "conocer-obra"
+      ],
+      "sourceFile": "libros/index.html",
+      "searchIndex": false,
+      "sitemap": false
+    },
+    {
+      "id": "samuel-fragment",
+      "url": "/fragmento/",
+      "label": "Primer capítulo de Samuel entre mundos",
+      "shortLabel": "Capítulo 1 de Samuel",
+      "type": "resource",
+      "territory": "obras",
+      "parentId": "work-samuel",
+      "hubId": "works-hub",
+      "discoverability": "contextual",
+      "footerEligible": true,
+      "audience": [
+        "reader"
+      ],
+      "jobs": [
+        "leer-fragmento"
+      ],
+      "sourceFile": "fragmento/index.html"
+    },
+    {
+      "id": "samuel-noveris",
+      "url": "/universo/noveris/",
+      "label": "Noveris",
+      "shortLabel": "Noveris",
+      "type": "resource",
+      "territory": "obras",
+      "parentId": "work-samuel",
+      "hubId": "works-hub",
+      "discoverability": "contextual",
+      "audience": [
+        "reader"
+      ],
+      "jobs": [
+        "explorar-mundo"
+      ],
+      "sourceFile": "universo/noveris/index.html"
+    },
+    {
+      "id": "samuel-club",
+      "url": "/clubes-de-lectura/samuel-entre-mundos/",
+      "label": "Clubes de lectura de Samuel entre mundos",
+      "shortLabel": "Clubes de lectura",
+      "type": "resource",
+      "territory": "obras",
+      "parentId": "work-samuel",
+      "hubId": "works-hub",
+      "discoverability": "contextual",
+      "audience": [
+        "reader",
+        "organizer"
+      ],
+      "jobs": [
+        "club-lectura"
+      ],
+      "sourceFile": "clubes-de-lectura/samuel-entre-mundos/index.html"
+    },
+    {
+      "id": "samuel-club-guide",
+      "url": "/clubes-de-lectura/samuel-entre-mundos/guia-imprimible/",
+      "label": "Guía imprimible de Samuel entre mundos",
+      "shortLabel": "Guía imprimible",
+      "type": "resource",
+      "territory": "obras",
+      "parentId": "samuel-club",
+      "hubId": "works-hub",
+      "discoverability": "contextual",
+      "audience": [
+        "reader",
+        "organizer"
+      ],
+      "jobs": [
+        "club-lectura"
+      ],
+      "sourceFile": "clubes-de-lectura/samuel-entre-mundos/guia-imprimible/index.html"
+    },
+    {
+      "id": "work-jaula-staging",
+      "url": "/donde-empieza-la-jaula/",
+      "label": "Dónde empieza la jaula",
+      "shortLabel": "Dónde empieza la jaula",
+      "type": "work",
+      "territory": "obras",
+      "parentId": "works-hub",
+      "hubId": "works-hub",
+      "status": "noindex",
+      "discoverability": "contextual",
+      "searchIndex": false,
+      "sitemap": false,
+      "audience": [
+        "reader"
+      ],
+      "jobs": [
+        "conocer-obra"
+      ],
+      "sourceFile": "donde-empieza-la-jaula/index.html"
+    },
+    {
+      "id": "lectores-beta",
+      "url": "/lectores-beta/",
+      "label": "Lectores beta",
+      "shortLabel": "Lectores beta",
+      "type": "resource",
+      "territory": "autor",
+      "parentId": "author",
+      "hubId": "author",
+      "discoverability": "secondary",
+      "audience": [
+        "reader"
+      ],
+      "jobs": [
+        "unirse-lectores-beta"
+      ],
+      "sourceFile": "lectores-beta/index.html",
+      "footerEligible": true
+    },
+    {
+      "id": "lectores-beta-enviar-manuscrito",
+      "url": "/lectores-beta/enviar-manuscrito/",
+      "label": "Enviar manuscrito para valoración beta",
+      "shortLabel": "Enviar manuscrito",
+      "type": "resource",
+      "territory": "autor",
+      "parentId": "lectores-beta",
+      "hubId": "author",
+      "discoverability": "contextual",
+      "audience": [
+        "writer"
+      ],
+      "jobs": [
+        "enviar-manuscrito-beta"
+      ],
+      "sourceFile": "lectores-beta/enviar-manuscrito/index.html"
+    },
+    {
+      "id": "notebook-hub",
+      "url": "/cuaderno/",
+      "label": "Cuaderno",
+      "shortLabel": "Cuaderno",
+      "type": "article",
+      "territory": "cuaderno",
+      "parentId": "home",
+      "hubId": "notebook-hub",
+      "discoverability": "primary",
+      "footerEligible": true,
+      "audience": [
+        "reader",
+        "writer"
+      ],
+      "jobs": [
+        "leer-articulos"
+      ],
+      "sourceFile": "cuaderno/index.html"
+    },
+    {
+      "id": "notebook-topics",
+      "url": "/cuaderno/temas/",
+      "label": "Temas del Cuaderno",
+      "shortLabel": "Temas",
+      "type": "article",
+      "territory": "cuaderno",
+      "parentId": "notebook-hub",
+      "hubId": "notebook-hub",
+      "discoverability": "secondary",
+      "footerEligible": true,
+      "audience": [
+        "reader",
+        "writer"
+      ],
+      "jobs": [
+        "explorar-temas"
+      ],
+      "sourceFile": "cuaderno/temas/index.html"
+    },
+    {
+      "id": "topic-portals",
+      "url": "/cuaderno/temas/fantasia-de-portales/",
+      "label": "Fantasía de portales",
+      "shortLabel": "Fantasía de portales",
+      "type": "article",
+      "territory": "cuaderno",
+      "parentId": "notebook-topics",
+      "hubId": "notebook-hub",
+      "discoverability": "contextual",
+      "audience": [
+        "reader",
+        "writer"
+      ],
+      "jobs": [
+        "explorar-tema"
+      ],
+      "sourceFile": "cuaderno/temas/fantasia-de-portales/index.html"
+    },
+    {
+      "id": "article-fantasia-juvenil-portales",
+      "url": "/cuaderno/fantasia-juvenil-espanola-portales-magia-coste/",
+      "label": "Fantasía juvenil española: portales y magia con coste",
+      "shortLabel": "Fantasía juvenil española: portales y magia con coste",
+      "type": "article",
+      "territory": "cuaderno",
+      "parentId": "notebook-hub",
+      "hubId": "notebook-hub",
+      "discoverability": "contextual",
+      "audience": [
+        "reader"
+      ],
+      "jobs": [
+        "leer-articulo"
+      ],
+      "sourceFile": "cuaderno/fantasia-juvenil-espanola-portales-magia-coste/index.html"
+    },
+    {
+      "id": "article-flm-2026",
+      "url": "/cuaderno/feria-libro-madrid-2026-samuel-entre-mundos/",
+      "label": "Feria del Libro de Madrid 2026 y Samuel entre mundos",
+      "shortLabel": "Feria del Libro de Madrid 2026 y Samuel entre mundos",
+      "type": "article",
+      "territory": "cuaderno",
+      "parentId": "notebook-hub",
+      "hubId": "notebook-hub",
+      "discoverability": "contextual",
+      "audience": [
+        "reader"
+      ],
+      "jobs": [
+        "leer-articulo"
+      ],
+      "sourceFile": "cuaderno/feria-libro-madrid-2026-samuel-entre-mundos/index.html"
+    },
+    {
+      "id": "article-fantasia-es-2025-2026",
+      "url": "/cuaderno/libros-fantasia-juvenil-espanola-2025-2026/",
+      "label": "Libros de fantasía juvenil española 2025–2026",
+      "shortLabel": "Libros de fantasía juvenil española 2025–2026",
+      "type": "article",
+      "territory": "cuaderno",
+      "parentId": "notebook-hub",
+      "hubId": "notebook-hub",
+      "discoverability": "contextual",
+      "audience": [
+        "reader"
+      ],
+      "jobs": [
+        "leer-articulo"
+      ],
+      "sourceFile": "cuaderno/libros-fantasia-juvenil-espanola-2025-2026/index.html"
+    },
+    {
+      "id": "article-portal-vs-epica",
+      "url": "/cuaderno/portal-fantasy-vs-fantasia-epica/",
+      "label": "Portal fantasy vs. fantasía épica",
+      "shortLabel": "Portal fantasy vs. fantasía épica",
+      "type": "article",
+      "territory": "cuaderno",
+      "parentId": "notebook-hub",
+      "hubId": "notebook-hub",
+      "discoverability": "contextual",
+      "audience": [
+        "reader",
+        "writer"
+      ],
+      "jobs": [
+        "leer-articulo"
+      ],
+      "sourceFile": "cuaderno/portal-fantasy-vs-fantasia-epica/index.html"
+    },
+    {
+      "id": "article-que-es-portal",
+      "url": "/cuaderno/que-es-el-portal-fantasy/",
+      "label": "Qué es el portal fantasy",
+      "shortLabel": "Qué es el portal fantasy",
+      "type": "article",
+      "territory": "cuaderno",
+      "parentId": "notebook-hub",
+      "hubId": "notebook-hub",
+      "discoverability": "contextual",
+      "audience": [
+        "reader",
+        "writer"
+      ],
+      "jobs": [
+        "leer-articulo"
+      ],
+      "sourceFile": "cuaderno/que-es-el-portal-fantasy/index.html"
+    },
+    {
+      "id": "article-magia-noveris",
+      "url": "/cuaderno/sistema-de-magia-noveris/",
+      "label": "Sistema de magia de Noveris",
+      "shortLabel": "Sistema de magia de Noveris",
+      "type": "article",
+      "territory": "cuaderno",
+      "parentId": "notebook-hub",
+      "hubId": "notebook-hub",
+      "discoverability": "contextual",
+      "audience": [
+        "reader",
+        "writer"
+      ],
+      "jobs": [
+        "leer-articulo"
+      ],
+      "sitemap": false,
+      "searchIndex": false,
+      "sourceFile": "cuaderno/sistema-de-magia-noveris/index.html"
+    },
+    {
+      "id": "article-worldbuilding-noveris",
+      "url": "/cuaderno/worldbuilding-noveris-ciudad-magica/",
+      "label": "Worldbuilding de Noveris",
+      "shortLabel": "Worldbuilding de Noveris",
+      "type": "article",
+      "territory": "cuaderno",
+      "parentId": "notebook-hub",
+      "hubId": "notebook-hub",
+      "discoverability": "contextual",
+      "audience": [
+        "reader",
+        "writer"
+      ],
+      "jobs": [
+        "leer-articulo"
+      ],
+      "sourceFile": "cuaderno/worldbuilding-noveris-ciudad-magica/index.html"
+    },
+    {
+      "id": "recommendations-hub",
+      "url": "/recomendaciones/",
+      "label": "Recomendaciones de lectura",
+      "shortLabel": "Recomendaciones",
+      "type": "article",
+      "territory": "cuaderno",
+      "parentId": "notebook-hub",
+      "hubId": "notebook-hub",
+      "discoverability": "secondary",
+      "footerEligible": true,
+      "audience": [
+        "reader"
+      ],
+      "jobs": [
+        "buscar-lecturas"
+      ],
+      "sourceFile": "recomendaciones/index.html"
+    },
+    {
+      "id": "recommend-magic-cost",
+      "url": "/recomendaciones/magia-con-coste/",
+      "label": "Libros con magia con coste",
+      "shortLabel": "Libros con magia con coste",
+      "type": "article",
+      "territory": "cuaderno",
+      "parentId": "recommendations-hub",
+      "hubId": "notebook-hub",
+      "discoverability": "contextual",
+      "audience": [
+        "reader"
+      ],
+      "jobs": [
+        "buscar-lecturas"
+      ],
+      "sourceFile": "recomendaciones/magia-con-coste/index.html"
+    },
+    {
+      "id": "recommend-portal-es",
+      "url": "/recomendaciones/portal-fantasy-espanol/",
+      "label": "Portal fantasy en español",
+      "shortLabel": "Portal fantasy en español",
+      "type": "article",
+      "territory": "cuaderno",
+      "parentId": "recommendations-hub",
+      "hubId": "notebook-hub",
+      "discoverability": "contextual",
+      "audience": [
+        "reader"
+      ],
+      "jobs": [
+        "buscar-lecturas"
+      ],
+      "sourceFile": "recomendaciones/portal-fantasy-espanol/index.html"
+    },
+    {
+      "id": "tools-hub",
+      "url": "/herramientas/",
+      "label": "Herramientas para escritores",
+      "shortLabel": "Herramientas",
+      "type": "tool",
+      "territory": "herramientas",
+      "parentId": "home",
+      "hubId": "tools-hub",
+      "discoverability": "primary",
+      "footerEligible": true,
+      "audience": [
+        "writer"
+      ],
+      "jobs": [
+        "usar-herramientas"
+      ],
+      "sourceFile": "herramientas/index.html"
+    },
+    {
+      "id": "tool-book-page-audit",
+      "url": "/herramientas/auditor-pagina-libro/",
+      "label": "Auditor de página de libro",
+      "shortLabel": "Auditor de página de libro",
+      "type": "tool",
+      "territory": "herramientas",
+      "parentId": "tools-hub",
+      "hubId": "tools-hub",
+      "discoverability": "contextual",
+      "audience": [
+        "writer"
+      ],
+      "jobs": [
+        "publicar-presentar"
+      ],
+      "sourceFile": "herramientas/auditor-pagina-libro/index.html"
+    },
+    {
+      "id": "tool-dialogue",
+      "url": "/herramientas/dialogo/",
+      "label": "Medidor de diálogo",
+      "shortLabel": "Medidor de diálogo",
+      "type": "tool",
+      "territory": "herramientas",
+      "parentId": "tools-hub",
+      "hubId": "tools-hub",
+      "discoverability": "contextual",
+      "audience": [
+        "writer"
+      ],
+      "jobs": [
+        "revisar-texto"
+      ],
+      "sourceFile": "herramientas/dialogo/index.html"
+    },
+    {
+      "id": "tool-dialogue-conventions",
+      "url": "/herramientas/dialogo-convenciones/",
+      "label": "Revisor de convenciones de diálogo",
+      "shortLabel": "Revisor de convenciones",
+      "type": "tool",
+      "territory": "herramientas",
+      "parentId": "tools-hub",
+      "hubId": "tools-hub",
+      "discoverability": "contextual",
+      "audience": [
+        "writer"
+      ],
+      "jobs": [
+        "revisar-texto"
+      ],
+      "sourceFile": "herramientas/dialogo-convenciones/index.html"
+    },
+    {
+      "id": "tool-pov",
+      "url": "/herramientas/distribucion-pov/",
+      "label": "Distribución de POV por escenas",
+      "shortLabel": "Distribución de POV por escenas",
+      "type": "tool",
+      "territory": "herramientas",
+      "parentId": "tools-hub",
+      "hubId": "tools-hub",
+      "discoverability": "contextual",
+      "audience": [
+        "writer"
+      ],
+      "jobs": [
+        "estructura-personajes"
+      ],
+      "sourceFile": "herramientas/distribucion-pov/index.html"
+    },
+    {
+      "id": "tool-family-interview",
+      "url": "/herramientas/entrevista-familiar/",
+      "label": "Preparador de entrevista familiar",
+      "shortLabel": "Preparador de entrevista familiar",
+      "type": "tool",
+      "territory": "herramientas",
+      "parentId": "tools-hub",
+      "hubId": "tools-hub",
+      "discoverability": "contextual",
+      "audience": [
+        "writer"
+      ],
+      "jobs": [
+        "investigar-preparar"
+      ],
+      "sourceFile": "herramientas/entrevista-familiar/index.html"
+    },
+    {
+      "id": "tool-reading-card",
+      "url": "/herramientas/tarjeta-estoy-leyendo/",
+      "label": "Tarjeta «Estoy leyendo»",
+      "shortLabel": "Tarjeta «Estoy leyendo»",
+      "type": "tool",
+      "territory": "herramientas",
+      "parentId": "tools-hub",
+      "hubId": "tools-hub",
+      "discoverability": "contextual",
+      "audience": [
+        "writer",
+        "reader"
+      ],
+      "jobs": [
+        "publicar-presentar"
+      ],
+      "sourceFile": "herramientas/tarjeta-estoy-leyendo/index.html"
+    },
+    {
+      "id": "tool-ics",
+      "url": "/herramientas/eventos-ics/",
+      "label": "Generador de evento + calendario",
+      "shortLabel": "Generador de evento + calendario",
+      "type": "tool",
+      "territory": "herramientas",
+      "parentId": "tools-hub",
+      "hubId": "tools-hub",
+      "discoverability": "contextual",
+      "audience": [
+        "writer"
+      ],
+      "jobs": [
+        "publicar-presentar"
+      ],
+      "sourceFile": "herramientas/eventos-ics/index.html"
+    },
+    {
+      "id": "tool-jsonld",
+      "url": "/herramientas/json-ld-escritores/",
+      "label": "Generador JSON-LD para escritores",
+      "shortLabel": "Generador JSON-LD para escritores",
+      "type": "tool",
+      "territory": "herramientas",
+      "parentId": "tools-hub",
+      "hubId": "tools-hub",
+      "discoverability": "contextual",
+      "audience": [
+        "writer"
+      ],
+      "jobs": [
+        "publicar-presentar"
+      ],
+      "sourceFile": "herramientas/json-ld-escritores/index.html"
+    },
+    {
+      "id": "tool-press-kit",
+      "url": "/herramientas/kit-prensa-escritores/",
+      "label": "Generador de kit de prensa",
+      "shortLabel": "Generador de kit de prensa",
+      "type": "tool",
+      "territory": "herramientas",
+      "parentId": "tools-hub",
+      "hubId": "tools-hub",
+      "discoverability": "contextual",
+      "audience": [
+        "writer"
+      ],
+      "jobs": [
+        "publicar-presentar"
+      ],
+      "sourceFile": "herramientas/kit-prensa-escritores/index.html"
+    },
+    {
+      "id": "tool-readability",
+      "url": "/herramientas/legibilidad/",
+      "label": "Legibilidad en español",
+      "shortLabel": "Legibilidad en español",
+      "type": "tool",
+      "territory": "herramientas",
+      "parentId": "tools-hub",
+      "hubId": "tools-hub",
+      "discoverability": "contextual",
+      "audience": [
+        "writer"
+      ],
+      "jobs": [
+        "revisar-texto"
+      ],
+      "sourceFile": "herramientas/legibilidad/index.html"
+    },
+    {
+      "id": "tool-manuscript",
+      "url": "/herramientas/manuscrito/",
+      "label": "Analizador de manuscrito",
+      "shortLabel": "Analizador de manuscrito",
+      "type": "tool",
+      "territory": "herramientas",
+      "parentId": "tools-hub",
+      "hubId": "tools-hub",
+      "discoverability": "contextual",
+      "audience": [
+        "writer"
+      ],
+      "jobs": [
+        "revisar-texto"
+      ],
+      "sourceFile": "herramientas/manuscrito/index.html"
+    },
+    {
+      "id": "tool-book-metadata",
+      "url": "/herramientas/metadatos-libro/",
+      "label": "Preview de metadatos para libros",
+      "shortLabel": "Preview de metadatos para libros",
+      "type": "tool",
+      "territory": "herramientas",
+      "parentId": "tools-hub",
+      "hubId": "tools-hub",
+      "discoverability": "contextual",
+      "audience": [
+        "writer"
+      ],
+      "jobs": [
+        "publicar-presentar"
+      ],
+      "sourceFile": "herramientas/metadatos-libro/index.html"
+    },
+    {
+      "id": "tool-character-names",
+      "url": "/herramientas/nombres-personajes/",
+      "label": "Comprobador de nombres",
+      "shortLabel": "Comprobador de nombres",
+      "type": "tool",
+      "territory": "herramientas",
+      "parentId": "tools-hub",
+      "hubId": "tools-hub",
+      "discoverability": "contextual",
+      "audience": [
+        "writer"
+      ],
+      "jobs": [
+        "estructura-personajes"
+      ],
+      "sourceFile": "herramientas/nombres-personajes/index.html"
+    },
+    {
+      "id": "tool-characters",
+      "url": "/herramientas/personajes/",
+      "label": "Matriz de personajes",
+      "shortLabel": "Matriz de personajes",
+      "type": "tool",
+      "territory": "herramientas",
+      "parentId": "tools-hub",
+      "hubId": "tools-hub",
+      "discoverability": "contextual",
+      "audience": [
+        "writer"
+      ],
+      "jobs": [
+        "estructura-personajes"
+      ],
+      "sourceFile": "herramientas/personajes/index.html"
+    },
+    {
+      "id": "tool-repetitions",
+      "url": "/herramientas/repeticiones/",
+      "label": "Detector de repeticiones",
+      "shortLabel": "Detector de repeticiones",
+      "type": "tool",
+      "territory": "herramientas",
+      "parentId": "tools-hub",
+      "hubId": "tools-hub",
+      "discoverability": "contextual",
+      "audience": [
+        "writer"
+      ],
+      "jobs": [
+        "revisar-texto"
+      ],
+      "sourceFile": "herramientas/repeticiones/index.html"
+    },
+    {
+      "id": "tool-word-counter",
+      "url": "/herramientas/contador-palabras/",
+      "label": "Contador de palabras",
+      "shortLabel": "Contador de palabras",
+      "type": "tool",
+      "territory": "herramientas",
+      "parentId": "tools-hub",
+      "hubId": "tools-hub",
+      "discoverability": "contextual",
+      "audience": [
+        "writer"
+      ],
+      "jobs": [
+        "revisar-texto"
+      ],
+      "sourceFile": "herramientas/contador-palabras/index.html"
+    },
+    {
+      "id": "tool-manuscript-cleaner",
+      "url": "/herramientas/limpiador-manuscritos/",
+      "label": "Limpiador de manuscritos",
+      "shortLabel": "Limpiador de manuscritos",
+      "type": "tool",
+      "territory": "herramientas",
+      "parentId": "tools-hub",
+      "hubId": "tools-hub",
+      "discoverability": "contextual",
+      "audience": [
+        "writer"
+      ],
+      "jobs": [
+        "revisar-texto"
+      ],
+      "sourceFile": "herramientas/limpiador-manuscritos/index.html"
+    },
+    {
+      "id": "tool-read-aloud",
+      "url": "/herramientas/tiempo-lectura-voz-alta/",
+      "label": "Tiempo de lectura en voz alta",
+      "shortLabel": "Tiempo de lectura en voz alta",
+      "type": "tool",
+      "territory": "herramientas",
+      "parentId": "tools-hub",
+      "hubId": "tools-hub",
+      "discoverability": "contextual",
+      "audience": [
+        "writer"
+      ],
+      "jobs": [
+        "revisar-texto"
+      ],
+      "sourceFile": "herramientas/tiempo-lectura-voz-alta/index.html"
+    },
+    {
+      "id": "tool-lexical-variety",
+      "url": "/herramientas/variedad-lexica/",
+      "label": "Variedad léxica",
+      "shortLabel": "Variedad léxica",
+      "type": "tool",
+      "territory": "herramientas",
+      "parentId": "tools-hub",
+      "hubId": "tools-hub",
+      "discoverability": "contextual",
+      "audience": [
+        "writer"
+      ],
+      "jobs": [
+        "revisar-texto"
+      ],
+      "sourceFile": "herramientas/variedad-lexica/index.html"
+    },
+    {
+      "id": "tool-club-session",
+      "url": "/clubes-de-lectura/preparar-sesion/",
+      "label": "Preparar sesión de club de lectura",
+      "shortLabel": "Preparar sesión de club de lectura",
+      "type": "tool",
+      "territory": "herramientas",
+      "parentId": "tools-hub",
+      "hubId": "tools-hub",
+      "discoverability": "contextual",
+      "audience": [
+        "reader",
+        "organizer"
+      ],
+      "jobs": [
+        "lectores-clubes"
+      ],
+      "sourceFile": "clubes-de-lectura/preparar-sesion/index.html"
+    },
+    {
+      "id": "tool-inherited-object",
+      "url": "/recursos/ficha-historia-objeto-heredado/",
+      "label": "Ficha de objeto heredado",
+      "shortLabel": "Ficha de objeto heredado",
+      "type": "tool",
+      "territory": "herramientas",
+      "parentId": "tools-hub",
+      "hubId": "tools-hub",
+      "discoverability": "contextual",
+      "audience": [
+        "writer"
+      ],
+      "jobs": [
+        "investigar-preparar"
+      ],
+      "sourceFile": "recursos/ficha-historia-objeto-heredado/index.html"
+    },
+    {
+      "id": "tool-reader-type-quiz",
+      "url": "/herramientas/que-tipo-de-lector-eres/",
+      "label": "¿Qué tipo de lector eres?",
+      "shortLabel": "¿Qué tipo de lector eres?",
+      "type": "tool",
+      "territory": "herramientas",
+      "parentId": "tools-hub",
+      "hubId": "tools-hub",
+      "discoverability": "contextual",
+      "audience": [
+        "reader"
+      ],
+      "jobs": [
+        "descubrir-preferencias-lectura"
+      ],
+      "sourceFile": "herramientas/que-tipo-de-lector-eres/index.html"
+    },
+    {
+      "id": "editorials-hub",
+      "url": "/editoriales/",
+      "label": "Editoriales que aceptan manuscritos",
+      "shortLabel": "Editoriales",
+      "type": "directory",
+      "territory": "herramientas",
+      "parentId": "tools-hub",
+      "hubId": "tools-hub",
+      "discoverability": "secondary",
+      "footerEligible": true,
+      "audience": [
+        "writer"
+      ],
+      "jobs": [
+        "buscar-editorial"
+      ],
+      "sourceFile": "editoriales/index.html"
+    },
+    {
+      "id": "editorial-duermevela",
+      "url": "/editoriales/duermevela-ediciones/",
+      "label": "Duermevela Ediciones",
+      "shortLabel": "Duermevela Ediciones",
+      "type": "directory",
+      "territory": "herramientas",
+      "parentId": "editorials-hub",
+      "hubId": "tools-hub",
+      "discoverability": "contextual",
+      "audience": [
+        "writer"
+      ],
+      "jobs": [
+        "buscar-editorial"
+      ],
+      "sourceFile": "editoriales/duermevela-ediciones/index.html"
+    },
+    {
+      "id": "editorial-minotauro",
+      "url": "/editoriales/minotauro/",
+      "label": "Minotauro",
+      "shortLabel": "Minotauro",
+      "type": "directory",
+      "territory": "herramientas",
+      "parentId": "editorials-hub",
+      "hubId": "tools-hub",
+      "discoverability": "contextual",
+      "audience": [
+        "writer"
+      ],
+      "jobs": [
+        "buscar-editorial"
+      ],
+      "sourceFile": "editoriales/minotauro/index.html"
+    },
+    {
+      "id": "editorial-nocturna",
+      "url": "/editoriales/nocturna-ediciones/",
+      "label": "Nocturna Ediciones",
+      "shortLabel": "Nocturna Ediciones",
+      "type": "directory",
+      "territory": "herramientas",
+      "parentId": "editorials-hub",
+      "hubId": "tools-hub",
+      "discoverability": "contextual",
+      "audience": [
+        "writer"
+      ],
+      "jobs": [
+        "buscar-editorial"
+      ],
+      "sourceFile": "editoriales/nocturna-ediciones/index.html"
+    },
+    {
+      "id": "editorial-method",
+      "url": "/metodologia-editorial/",
+      "label": "Metodología del directorio editorial",
+      "shortLabel": "Metodología editorial",
+      "type": "resource",
+      "territory": "herramientas",
+      "parentId": "editorials-hub",
+      "hubId": "tools-hub",
+      "discoverability": "contextual",
+      "audience": [
+        "writer"
+      ],
+      "jobs": [
+        "entender-metodologia"
+      ],
+      "sourceFile": "metodologia-editorial/index.html"
+    },
+    {
+      "id": "opportunities",
+      "url": "/convocatorias-escritores/",
+      "label": "Convocatorias para escritores",
+      "shortLabel": "Convocatorias",
+      "type": "directory",
+      "territory": "herramientas",
+      "parentId": "tools-hub",
+      "hubId": "tools-hub",
+      "discoverability": "secondary",
+      "footerEligible": true,
+      "audience": [
+        "writer"
+      ],
+      "jobs": [
+        "buscar-convocatoria"
+      ],
+      "sourceFile": "convocatorias-escritores/index.html"
+    },
+    {
+      "id": "external-tools",
+      "url": "/recursos/herramientas-para-escritores/",
+      "label": "Directorio de herramientas para escritores",
+      "shortLabel": "Recursos externos",
+      "type": "directory",
+      "territory": "herramientas",
+      "parentId": "tools-hub",
+      "hubId": "tools-hub",
+      "discoverability": "secondary",
+      "footerEligible": false,
+      "status": "deprecated",
+      "searchIndex": false,
+      "sitemap": false,
+      "audience": [
+        "writer"
+      ],
+      "jobs": [
+        "buscar-herramienta"
+      ],
+      "sourceFile": "recursos/herramientas-para-escritores/index.html"
+    },
+    {
+      "id": "awards",
+      "url": "/premios.html",
+      "label": "Premios y reconocimientos",
+      "shortLabel": "Premios",
+      "type": "author",
+      "territory": "autor",
+      "parentId": "author",
+      "hubId": "author",
+      "discoverability": "secondary",
+      "footerEligible": true,
+      "audience": [
+        "reader",
+        "press"
+      ],
+      "jobs": [
+        "ver-trayectoria"
+      ],
+      "sourceFile": "premios.html"
+    },
+    {
+      "id": "events",
+      "url": "/eventos.html",
+      "label": "Eventos y firmas",
+      "shortLabel": "Eventos",
+      "type": "event",
+      "territory": "prensa-eventos",
+      "parentId": "author",
+      "hubId": "author",
+      "discoverability": "secondary",
+      "footerEligible": true,
+      "audience": [
+        "reader",
+        "organizer",
+        "press"
+      ],
+      "jobs": [
+        "ver-eventos"
+      ],
+      "sourceFile": "eventos.html"
+    },
+    {
+      "id": "fairs",
+      "url": "/ferias.html",
+      "label": "Ferias del libro",
+      "shortLabel": "Ferias",
+      "type": "event",
+      "territory": "prensa-eventos",
+      "parentId": "events",
+      "hubId": "author",
+      "discoverability": "contextual",
+      "audience": [
+        "reader",
+        "organizer"
+      ],
+      "jobs": [
+        "ver-eventos"
+      ],
+      "sourceFile": "ferias.html"
+    },
+    {
+      "id": "press",
+      "url": "/prensa.html",
+      "label": "Prensa y kit de prensa",
+      "shortLabel": "Prensa",
+      "type": "press",
+      "territory": "prensa-eventos",
+      "parentId": "author",
+      "hubId": "author",
+      "discoverability": "secondary",
+      "footerEligible": true,
+      "audience": [
+        "press",
+        "organizer"
+      ],
+      "jobs": [
+        "recursos-prensa"
+      ],
+      "sourceFile": "prensa.html"
+    },
+    {
+      "id": "start-here",
+      "url": "/empieza-aqui/",
+      "label": "Empieza aquí",
+      "shortLabel": "Empieza aquí",
+      "type": "system",
+      "territory": "sitio",
+      "parentId": "home",
+      "hubId": "home",
+      "discoverability": "contextual",
+      "audience": [
+        "reader",
+        "writer",
+        "press"
+      ],
+      "jobs": [
+        "orientar"
+      ],
+      "sourceFile": "empieza-aqui/index.html"
+    },
+    {
+      "id": "site-map",
+      "url": "/mapa-del-sitio/",
+      "label": "Mapa del sitio",
+      "shortLabel": "Mapa del sitio",
+      "type": "system",
+      "territory": "sitio",
+      "parentId": "home",
+      "hubId": "home",
+      "discoverability": "sitemap-only",
+      "searchIndex": false,
+      "footerEligible": true,
+      "audience": [
+        "reader",
+        "writer",
+        "press"
+      ],
+      "jobs": [
+        "encontrar-contenido"
+      ],
+      "sourceFile": "mapa-del-sitio/index.html"
+    },
+    {
+      "id": "editorial-umbriel",
+      "url": "/editoriales/umbriel/",
+      "label": "Umbriel",
+      "shortLabel": "Umbriel",
+      "type": "directory",
+      "territory": "herramientas",
+      "parentId": "editorials-hub",
+      "hubId": "tools-hub",
+      "discoverability": "contextual",
+      "audience": [
+        "writer"
+      ],
+      "jobs": [
+        "buscar-editorial"
+      ],
+      "sourceFile": "editoriales/umbriel/index.html"
+    },
+    {
+      "id": "editorial-editorial-hidra",
+      "url": "/editoriales/editorial-hidra/",
+      "label": "Editorial Hidra",
+      "shortLabel": "Editorial Hidra",
+      "type": "directory",
+      "territory": "herramientas",
+      "parentId": "editorials-hub",
+      "hubId": "tools-hub",
+      "discoverability": "contextual",
+      "audience": [
+        "writer"
+      ],
+      "jobs": [
+        "buscar-editorial"
+      ],
+      "sourceFile": "editoriales/editorial-hidra/index.html"
+    },
+    {
+      "id": "editorial-nova",
+      "url": "/editoriales/nova/",
+      "label": "Nova",
+      "shortLabel": "Nova",
+      "type": "directory",
+      "territory": "herramientas",
+      "parentId": "editorials-hub",
+      "hubId": "tools-hub",
+      "discoverability": "contextual",
+      "audience": [
+        "writer"
+      ],
+      "jobs": [
+        "buscar-editorial"
+      ],
+      "sourceFile": "editoriales/nova/index.html"
+    },
+    {
+      "id": "editorial-runas",
+      "url": "/editoriales/runas/",
+      "label": "Runas",
+      "shortLabel": "Runas",
+      "type": "directory",
+      "territory": "herramientas",
+      "parentId": "editorials-hub",
+      "hubId": "tools-hub",
+      "discoverability": "contextual",
+      "audience": [
+        "writer"
+      ],
+      "jobs": [
+        "buscar-editorial"
+      ],
+      "sourceFile": "editoriales/runas/index.html"
+    },
+    {
+      "id": "editorial-gamon-fantasy",
+      "url": "/editoriales/gamon-fantasy/",
+      "label": "Gamon Fantasy",
+      "shortLabel": "Gamon Fantasy",
+      "type": "directory",
+      "territory": "herramientas",
+      "parentId": "editorials-hub",
+      "hubId": "tools-hub",
+      "discoverability": "contextual",
+      "audience": [
+        "writer"
+      ],
+      "jobs": [
+        "buscar-editorial"
+      ],
+      "sourceFile": "editoriales/gamon-fantasy/index.html"
+    },
+    {
+      "id": "editorial-los-libros-del-salvaje",
+      "url": "/editoriales/los-libros-del-salvaje/",
+      "label": "Los Libros del Salvaje",
+      "shortLabel": "Los Libros del Salvaje",
+      "type": "directory",
+      "territory": "herramientas",
+      "parentId": "editorials-hub",
+      "hubId": "tools-hub",
+      "discoverability": "contextual",
+      "audience": [
+        "writer"
+      ],
+      "jobs": [
+        "buscar-editorial"
+      ],
+      "sourceFile": "editoriales/los-libros-del-salvaje/index.html"
+    },
+    {
+      "id": "editorial-ediciones-siruela",
+      "url": "/editoriales/ediciones-siruela/",
+      "label": "Ediciones Siruela",
+      "shortLabel": "Ediciones Siruela",
+      "type": "directory",
+      "territory": "herramientas",
+      "parentId": "editorials-hub",
+      "hubId": "tools-hub",
+      "discoverability": "contextual",
+      "audience": [
+        "writer"
+      ],
+      "jobs": [
+        "buscar-editorial"
+      ],
+      "sourceFile": "editoriales/ediciones-siruela/index.html"
+    },
+    {
+      "id": "editorial-txalaparta",
+      "url": "/editoriales/txalaparta/",
+      "label": "Txalaparta",
+      "shortLabel": "Txalaparta",
+      "type": "directory",
+      "territory": "herramientas",
+      "parentId": "editorials-hub",
+      "hubId": "tools-hub",
+      "discoverability": "contextual",
+      "audience": [
+        "writer"
+      ],
+      "jobs": [
+        "buscar-editorial"
+      ],
+      "sourceFile": "editoriales/txalaparta/index.html"
+    },
+    {
+      "id": "editorial-harpercollins-iberica",
+      "url": "/editoriales/harpercollins-iberica/",
+      "label": "HarperCollins Ibérica",
+      "shortLabel": "HarperCollins Ibérica",
+      "type": "directory",
+      "territory": "herramientas",
+      "parentId": "editorials-hub",
+      "hubId": "tools-hub",
+      "discoverability": "contextual",
+      "audience": [
+        "writer"
+      ],
+      "jobs": [
+        "buscar-editorial"
+      ],
+      "sourceFile": "editoriales/harpercollins-iberica/index.html"
+    },
+    {
+      "id": "editorial-obscura-editorial",
+      "url": "/editoriales/obscura-editorial/",
+      "label": "Obscura Editorial",
+      "shortLabel": "Obscura Editorial",
+      "type": "directory",
+      "territory": "herramientas",
+      "parentId": "editorials-hub",
+      "hubId": "tools-hub",
+      "discoverability": "contextual",
+      "audience": [
+        "writer"
+      ],
+      "jobs": [
+        "buscar-editorial"
+      ],
+      "sourceFile": "editoriales/obscura-editorial/index.html"
+    },
+    {
+      "id": "editorial-gigamesh",
+      "url": "/editoriales/gigamesh/",
+      "label": "Ediciones Gigamesh",
+      "shortLabel": "Ediciones Gigamesh",
+      "type": "directory",
+      "territory": "herramientas",
+      "parentId": "editorials-hub",
+      "hubId": "tools-hub",
+      "discoverability": "contextual",
+      "audience": [
+        "writer"
+      ],
+      "jobs": [
+        "buscar-editorial"
+      ],
+      "sourceFile": "editoriales/gigamesh/index.html"
+    },
+    {
+      "id": "editorial-editorial-cerbero",
+      "url": "/editoriales/editorial-cerbero/",
+      "label": "Editorial Cerbero",
+      "shortLabel": "Editorial Cerbero",
+      "type": "directory",
+      "territory": "herramientas",
+      "parentId": "editorials-hub",
+      "hubId": "tools-hub",
+      "discoverability": "contextual",
+      "audience": [
+        "writer"
+      ],
+      "jobs": [
+        "buscar-editorial"
+      ],
+      "sourceFile": "editoriales/editorial-cerbero/index.html"
+    },
+    {
+      "id": "editorial-suseya-ediciones",
+      "url": "/editoriales/suseya-ediciones/",
+      "label": "Suseya Ediciones",
+      "shortLabel": "Suseya Ediciones",
+      "type": "directory",
+      "territory": "herramientas",
+      "parentId": "editorials-hub",
+      "hubId": "tools-hub",
+      "discoverability": "contextual",
+      "audience": [
+        "writer"
+      ],
+      "jobs": [
+        "buscar-editorial"
+      ],
+      "sourceFile": "editoriales/suseya-ediciones/index.html"
+    },
+    {
+      "id": "editorial-grupo-almuzara-berenice",
+      "url": "/editoriales/grupo-almuzara-berenice/",
+      "label": "Almuzara / Berenice",
+      "shortLabel": "Almuzara / Berenice",
+      "type": "directory",
+      "territory": "herramientas",
+      "parentId": "editorials-hub",
+      "hubId": "tools-hub",
+      "discoverability": "contextual",
+      "audience": [
+        "writer"
+      ],
+      "jobs": [
+        "buscar-editorial"
+      ],
+      "sourceFile": "editoriales/grupo-almuzara-berenice/index.html"
+    },
+    {
+      "id": "editorial-roca-editorial",
+      "url": "/editoriales/roca-editorial/",
+      "label": "Roca Editorial",
+      "shortLabel": "Roca Editorial",
+      "type": "directory",
+      "territory": "herramientas",
+      "parentId": "editorials-hub",
+      "hubId": "tools-hub",
+      "discoverability": "contextual",
+      "audience": [
+        "writer"
+      ],
+      "jobs": [
+        "buscar-editorial"
+      ],
+      "sourceFile": "editoriales/roca-editorial/index.html"
+    },
+    {
+      "id": "editorial-suma-de-letras",
+      "url": "/editoriales/suma-de-letras/",
+      "label": "Suma de Letras",
+      "shortLabel": "Suma de Letras",
+      "type": "directory",
+      "territory": "herramientas",
+      "parentId": "editorials-hub",
+      "hubId": "tools-hub",
+      "discoverability": "contextual",
+      "audience": [
+        "writer"
+      ],
+      "jobs": [
+        "buscar-editorial"
+      ],
+      "sourceFile": "editoriales/suma-de-letras/index.html"
+    },
+    {
+      "id": "editorial-plaza-y-janes",
+      "url": "/editoriales/plaza-y-janes/",
+      "label": "Plaza & Janés",
+      "shortLabel": "Plaza & Janés",
+      "type": "directory",
+      "territory": "herramientas",
+      "parentId": "editorials-hub",
+      "hubId": "tools-hub",
+      "discoverability": "contextual",
+      "audience": [
+        "writer"
+      ],
+      "jobs": [
+        "buscar-editorial"
+      ],
+      "sourceFile": "editoriales/plaza-y-janes/index.html"
+    },
+    {
+      "id": "editorial-ediciones-b",
+      "url": "/editoriales/ediciones-b/",
+      "label": "Ediciones B",
+      "shortLabel": "Ediciones B",
+      "type": "directory",
+      "territory": "herramientas",
+      "parentId": "editorials-hub",
+      "hubId": "tools-hub",
+      "discoverability": "contextual",
+      "audience": [
+        "writer"
+      ],
+      "jobs": [
+        "buscar-editorial"
+      ],
+      "sourceFile": "editoriales/ediciones-b/index.html"
+    },
+    {
+      "id": "editorial-orcinypress",
+      "url": "/editoriales/orcinypress/",
+      "label": "Orciny Press",
+      "shortLabel": "Orciny Press",
+      "type": "directory",
+      "territory": "herramientas",
+      "parentId": "editorials-hub",
+      "hubId": "tools-hub",
+      "discoverability": "contextual",
+      "audience": [
+        "writer"
+      ],
+      "jobs": [
+        "buscar-editorial"
+      ],
+      "sourceFile": "editoriales/orcinypress/index.html"
+    },
+    {
+      "id": "editorial-con-pluma-y-pixel",
+      "url": "/editoriales/con-pluma-y-pixel/",
+      "label": "Con Pluma y Píxel",
+      "shortLabel": "Con Pluma y Píxel",
+      "type": "directory",
+      "territory": "herramientas",
+      "parentId": "editorials-hub",
+      "hubId": "tools-hub",
+      "discoverability": "contextual",
+      "audience": [
+        "writer"
+      ],
+      "jobs": [
+        "buscar-editorial"
+      ],
+      "sourceFile": "editoriales/con-pluma-y-pixel/index.html"
+    },
+    {
+      "id": "editorial-pez-de-plata",
+      "url": "/editoriales/pez-de-plata/",
+      "label": "Pez de Plata",
+      "shortLabel": "Pez de Plata",
+      "type": "directory",
+      "territory": "herramientas",
+      "parentId": "editorials-hub",
+      "hubId": "tools-hub",
+      "discoverability": "contextual",
+      "audience": [
+        "writer"
+      ],
+      "jobs": [
+        "buscar-editorial"
+      ],
+      "sourceFile": "editoriales/pez-de-plata/index.html"
+    },
+    {
+      "id": "editorial-titanium-editorial",
+      "url": "/editoriales/titanium-editorial/",
+      "label": "Titanium Editorial",
+      "shortLabel": "Titanium Editorial",
+      "type": "directory",
+      "territory": "herramientas",
+      "parentId": "editorials-hub",
+      "hubId": "tools-hub",
+      "discoverability": "contextual",
+      "audience": [
+        "writer"
+      ],
+      "jobs": [
+        "buscar-editorial"
+      ],
+      "sourceFile": "editoriales/titanium-editorial/index.html"
+    },
+    {
+      "id": "editorial-puck",
+      "url": "/editoriales/puck/",
+      "label": "Puck",
+      "shortLabel": "Puck",
+      "type": "directory",
+      "territory": "herramientas",
+      "parentId": "editorials-hub",
+      "hubId": "tools-hub",
+      "discoverability": "contextual",
+      "audience": [
+        "writer"
+      ],
+      "jobs": [
+        "buscar-editorial"
+      ],
+      "sourceFile": "editoriales/puck/index.html"
+    },
+    {
+      "id": "editorial-titania",
+      "url": "/editoriales/titania/",
+      "label": "Titania",
+      "shortLabel": "Titania",
+      "type": "directory",
+      "territory": "herramientas",
+      "parentId": "editorials-hub",
+      "hubId": "tools-hub",
+      "discoverability": "contextual",
+      "audience": [
+        "writer"
+      ],
+      "jobs": [
+        "buscar-editorial"
+      ],
+      "sourceFile": "editoriales/titania/index.html"
+    },
+    {
+      "id": "editorial-dolmen-editorial",
+      "url": "/editoriales/dolmen-editorial/",
+      "label": "Dolmen Editorial",
+      "shortLabel": "Dolmen Editorial",
+      "type": "directory",
+      "territory": "herramientas",
+      "parentId": "editorials-hub",
+      "hubId": "tools-hub",
+      "discoverability": "contextual",
+      "audience": [
+        "writer"
+      ],
+      "jobs": [
+        "buscar-editorial"
+      ],
+      "sourceFile": "editoriales/dolmen-editorial/index.html"
+    },
+    {
+      "id": "editorial-ediciones-hic-sic",
+      "url": "/editoriales/ediciones-hic-sic/",
+      "label": "Ediciones Hic Sic",
+      "shortLabel": "Ediciones Hic Sic",
+      "type": "directory",
+      "territory": "herramientas",
+      "parentId": "editorials-hub",
+      "hubId": "tools-hub",
+      "discoverability": "contextual",
+      "audience": [
+        "writer"
+      ],
+      "jobs": [
+        "buscar-editorial"
+      ],
+      "sourceFile": "editoriales/ediciones-hic-sic/index.html"
+    },
+    {
+      "id": "editorial-silver-books",
+      "url": "/editoriales/silver-books/",
+      "label": "Silver Books",
+      "shortLabel": "Silver Books",
+      "type": "directory",
+      "territory": "herramientas",
+      "parentId": "editorials-hub",
+      "hubId": "tools-hub",
+      "discoverability": "contextual",
+      "audience": [
+        "writer"
+      ],
+      "jobs": [
+        "buscar-editorial"
+      ],
+      "sourceFile": "editoriales/silver-books/index.html"
+    },
+    {
+      "id": "editorial-ediciones-raven",
+      "url": "/editoriales/ediciones-raven/",
+      "label": "Ediciones Raven",
+      "shortLabel": "Ediciones Raven",
+      "type": "directory",
+      "territory": "herramientas",
+      "parentId": "editorials-hub",
+      "hubId": "tools-hub",
+      "discoverability": "contextual",
+      "audience": [
+        "writer"
+      ],
+      "jobs": [
+        "buscar-editorial"
+      ],
+      "sourceFile": "editoriales/ediciones-raven/index.html"
+    },
+    {
+      "id": "editorial-matchstories",
+      "url": "/editoriales/matchstories/",
+      "label": "Matchstories",
+      "shortLabel": "Matchstories",
+      "type": "directory",
+      "territory": "herramientas",
+      "parentId": "editorials-hub",
+      "hubId": "tools-hub",
+      "discoverability": "contextual",
+      "audience": [
+        "writer"
+      ],
+      "jobs": [
+        "buscar-editorial"
+      ],
+      "sourceFile": "editoriales/matchstories/index.html"
+    },
+    {
+      "id": "editorial-editorial-cetro",
+      "url": "/editoriales/editorial-cetro/",
+      "label": "Editorial Cetro",
+      "shortLabel": "Editorial Cetro",
+      "type": "directory",
+      "territory": "herramientas",
+      "parentId": "editorials-hub",
+      "hubId": "tools-hub",
+      "discoverability": "contextual",
+      "audience": [
+        "writer"
+      ],
+      "jobs": [
+        "buscar-editorial"
+      ],
+      "sourceFile": "editoriales/editorial-cetro/index.html"
+    },
+    {
+      "id": "editorial-lom-ediciones",
+      "url": "/editoriales/lom-ediciones/",
+      "label": "LOM Ediciones",
+      "shortLabel": "LOM Ediciones",
+      "type": "directory",
+      "territory": "herramientas",
+      "parentId": "editorials-hub",
+      "hubId": "tools-hub",
+      "discoverability": "contextual",
+      "audience": [
+        "writer"
+      ],
+      "jobs": [
+        "buscar-editorial"
+      ],
+      "sourceFile": "editoriales/lom-ediciones/index.html"
+    },
+    {
+      "id": "editorial-valhalla-ediciones",
+      "url": "/editoriales/valhalla-ediciones/",
+      "label": "Valhalla Ediciones",
+      "shortLabel": "Valhalla Ediciones",
+      "type": "directory",
+      "territory": "herramientas",
+      "parentId": "editorials-hub",
+      "hubId": "tools-hub",
+      "discoverability": "contextual",
+      "audience": [
+        "writer"
+      ],
+      "jobs": [
+        "buscar-editorial"
+      ],
+      "sourceFile": "editoriales/valhalla-ediciones/index.html"
+    },
+    {
+      "id": "editorial-ediciones-tyt",
+      "url": "/editoriales/ediciones-tyt/",
+      "label": "Ediciones T&T",
+      "shortLabel": "Ediciones T&T",
+      "type": "directory",
+      "territory": "herramientas",
+      "parentId": "editorials-hub",
+      "hubId": "tools-hub",
+      "discoverability": "contextual",
+      "audience": [
+        "writer"
+      ],
+      "jobs": [
+        "buscar-editorial"
+      ],
+      "sourceFile": "editoriales/ediciones-tyt/index.html"
+    },
+    {
+      "id": "editorial-numak-ediciones",
+      "url": "/editoriales/numak-ediciones/",
+      "label": "Numak Ediciones",
+      "shortLabel": "Numak Ediciones",
+      "type": "directory",
+      "territory": "herramientas",
+      "parentId": "editorials-hub",
+      "hubId": "tools-hub",
+      "discoverability": "contextual",
+      "audience": [
+        "writer"
+      ],
+      "jobs": [
+        "buscar-editorial"
+      ],
+      "sourceFile": "editoriales/numak-ediciones/index.html"
+    },
+    {
+      "id": "editorial-ediciones-labnar",
+      "url": "/editoriales/ediciones-labnar/",
+      "label": "Ediciones Labnar",
+      "shortLabel": "Ediciones Labnar",
+      "type": "directory",
+      "territory": "herramientas",
+      "parentId": "editorials-hub",
+      "hubId": "tools-hub",
+      "discoverability": "contextual",
+      "audience": [
+        "writer"
+      ],
+      "jobs": [
+        "buscar-editorial"
+      ],
+      "sourceFile": "editoriales/ediciones-labnar/index.html"
+    },
+    {
+      "id": "editorial-adel-editores",
+      "url": "/editoriales/adel-editores/",
+      "label": "Adel Editores",
+      "shortLabel": "Adel Editores",
+      "type": "directory",
+      "territory": "herramientas",
+      "parentId": "editorials-hub",
+      "hubId": "tools-hub",
+      "discoverability": "contextual",
+      "audience": [
+        "writer"
+      ],
+      "jobs": [
+        "buscar-editorial"
+      ],
+      "sourceFile": "editoriales/adel-editores/index.html"
+    },
+    {
+      "id": "editorial-editorial-periferica",
+      "url": "/editoriales/editorial-periferica/",
+      "label": "Editorial Periférica",
+      "shortLabel": "Editorial Periférica",
+      "type": "directory",
+      "territory": "herramientas",
+      "parentId": "editorials-hub",
+      "hubId": "tools-hub",
+      "discoverability": "contextual",
+      "audience": [
+        "writer"
+      ],
+      "jobs": [
+        "buscar-editorial"
+      ],
+      "sourceFile": "editoriales/editorial-periferica/index.html"
+    },
+    {
+      "id": "editorial-editorial-minuscula",
+      "url": "/editoriales/editorial-minuscula/",
+      "label": "editorial minúscula",
+      "shortLabel": "editorial minúscula",
+      "type": "directory",
+      "territory": "herramientas",
+      "parentId": "editorials-hub",
+      "hubId": "tools-hub",
+      "discoverability": "contextual",
+      "audience": [
+        "writer"
+      ],
+      "jobs": [
+        "buscar-editorial"
+      ],
+      "sourceFile": "editoriales/editorial-minuscula/index.html"
+    },
+    {
+      "id": "editorial-libros-del-asteroide",
+      "url": "/editoriales/libros-del-asteroide/",
+      "label": "Libros del Asteroide",
+      "shortLabel": "Libros del Asteroide",
+      "type": "directory",
+      "territory": "herramientas",
+      "parentId": "editorials-hub",
+      "hubId": "tools-hub",
+      "discoverability": "contextual",
+      "audience": [
+        "writer"
+      ],
+      "jobs": [
+        "buscar-editorial"
+      ],
+      "sourceFile": "editoriales/libros-del-asteroide/index.html"
+    },
+    {
+      "id": "editorial-editorial-transito",
+      "url": "/editoriales/editorial-transito/",
+      "label": "Editorial Tránsito",
+      "shortLabel": "Editorial Tránsito",
+      "type": "directory",
+      "territory": "herramientas",
+      "parentId": "editorials-hub",
+      "hubId": "tools-hub",
+      "discoverability": "contextual",
+      "audience": [
+        "writer"
+      ],
+      "jobs": [
+        "buscar-editorial"
+      ],
+      "sourceFile": "editoriales/editorial-transito/index.html"
+    },
+    {
+      "id": "editorial-galaxia-gutenberg",
+      "url": "/editoriales/galaxia-gutenberg/",
+      "label": "Galaxia Gutenberg",
+      "shortLabel": "Galaxia Gutenberg",
+      "type": "directory",
+      "territory": "herramientas",
+      "parentId": "editorials-hub",
+      "hubId": "tools-hub",
+      "discoverability": "contextual",
+      "audience": [
+        "writer"
+      ],
+      "jobs": [
+        "buscar-editorial"
+      ],
+      "sourceFile": "editoriales/galaxia-gutenberg/index.html"
+    },
+    {
+      "id": "editorial-editorial-barrett",
+      "url": "/editoriales/editorial-barrett/",
+      "label": "Editorial Barrett",
+      "shortLabel": "Editorial Barrett",
+      "type": "directory",
+      "territory": "herramientas",
+      "parentId": "editorials-hub",
+      "hubId": "tools-hub",
+      "discoverability": "contextual",
+      "audience": [
+        "writer"
+      ],
+      "jobs": [
+        "buscar-editorial"
+      ],
+      "sourceFile": "editoriales/editorial-barrett/index.html"
+    },
+    {
+      "id": "editorial-navona-editorial",
+      "url": "/editoriales/navona-editorial/",
+      "label": "Navona Editorial",
+      "shortLabel": "Navona Editorial",
+      "type": "directory",
+      "territory": "herramientas",
+      "parentId": "editorials-hub",
+      "hubId": "tools-hub",
+      "discoverability": "contextual",
+      "audience": [
+        "writer"
+      ],
+      "jobs": [
+        "buscar-editorial"
+      ],
+      "sourceFile": "editoriales/navona-editorial/index.html"
+    },
+    {
+      "id": "editorial-ediciones-versatil",
+      "url": "/editoriales/ediciones-versatil/",
+      "label": "Ediciones Versátil",
+      "shortLabel": "Ediciones Versátil",
+      "type": "directory",
+      "territory": "herramientas",
+      "parentId": "editorials-hub",
+      "hubId": "tools-hub",
+      "discoverability": "contextual",
+      "audience": [
+        "writer"
+      ],
+      "jobs": [
+        "buscar-editorial"
+      ],
+      "sourceFile": "editoriales/ediciones-versatil/index.html"
+    },
+    {
+      "id": "editorial-fulgencio-pimentel",
+      "url": "/editoriales/fulgencio-pimentel/",
+      "label": "Fulgencio Pimentel",
+      "shortLabel": "Fulgencio Pimentel",
+      "type": "directory",
+      "territory": "herramientas",
+      "parentId": "editorials-hub",
+      "hubId": "tools-hub",
+      "discoverability": "contextual",
+      "audience": [
+        "writer"
+      ],
+      "jobs": [
+        "buscar-editorial"
+      ],
+      "sourceFile": "editoriales/fulgencio-pimentel/index.html"
+    },
+    {
+      "id": "editorial-odelia-editora",
+      "url": "/editoriales/odelia-editora/",
+      "label": "Odelia editora",
+      "shortLabel": "Odelia editora",
+      "type": "directory",
+      "territory": "herramientas",
+      "parentId": "editorials-hub",
+      "hubId": "tools-hub",
+      "discoverability": "contextual",
+      "audience": [
+        "writer"
+      ],
+      "jobs": [
+        "buscar-editorial"
+      ],
+      "sourceFile": "editoriales/odelia-editora/index.html"
+    },
+    {
+      "id": "editorial-cetus-editorial",
+      "url": "/editoriales/cetus-editorial/",
+      "label": "Cetus Editorial",
+      "shortLabel": "Cetus Editorial",
+      "type": "directory",
+      "territory": "herramientas",
+      "parentId": "editorials-hub",
+      "hubId": "tools-hub",
+      "discoverability": "contextual",
+      "audience": [
+        "writer"
+      ],
+      "jobs": [
+        "buscar-editorial"
+      ],
+      "sourceFile": "editoriales/cetus-editorial/index.html"
+    },
+    {
+      "id": "editorial-maeva",
+      "url": "/editoriales/maeva/",
+      "label": "Ediciones Maeva",
+      "shortLabel": "Ediciones Maeva",
+      "type": "directory",
+      "territory": "herramientas",
+      "parentId": "editorials-hub",
+      "hubId": "tools-hub",
+      "discoverability": "contextual",
+      "audience": [
+        "writer"
+      ],
+      "jobs": [
+        "buscar-editorial"
+      ],
+      "sourceFile": "editoriales/maeva/index.html"
+    },
+    {
+      "id": "editorial-la-huerta-grande",
+      "url": "/editoriales/la-huerta-grande/",
+      "label": "La Huerta Grande",
+      "shortLabel": "La Huerta Grande",
+      "type": "directory",
+      "territory": "herramientas",
+      "parentId": "editorials-hub",
+      "hubId": "tools-hub",
+      "discoverability": "contextual",
+      "audience": [
+        "writer"
+      ],
+      "jobs": [
+        "buscar-editorial"
+      ],
+      "sourceFile": "editoriales/la-huerta-grande/index.html"
+    },
+    {
+      "id": "editorial-paginas-de-espuma",
+      "url": "/editoriales/paginas-de-espuma/",
+      "label": "Páginas de Espuma",
+      "shortLabel": "Páginas de Espuma",
+      "type": "directory",
+      "territory": "herramientas",
+      "parentId": "editorials-hub",
+      "hubId": "tools-hub",
+      "discoverability": "contextual",
+      "audience": [
+        "writer"
+      ],
+      "jobs": [
+        "buscar-editorial"
+      ],
+      "sourceFile": "editoriales/paginas-de-espuma/index.html"
+    },
+    {
+      "id": "editorial-sexto-piso",
+      "url": "/editoriales/sexto-piso/",
+      "label": "Sexto Piso",
+      "shortLabel": "Sexto Piso",
+      "type": "directory",
+      "territory": "herramientas",
+      "parentId": "editorials-hub",
+      "hubId": "tools-hub",
+      "discoverability": "contextual",
+      "audience": [
+        "writer"
+      ],
+      "jobs": [
+        "buscar-editorial"
+      ],
+      "sourceFile": "editoriales/sexto-piso/index.html"
+    },
+    {
+      "id": "editorial-impedimenta",
+      "url": "/editoriales/impedimenta/",
+      "label": "Impedimenta",
+      "shortLabel": "Impedimenta",
+      "type": "directory",
+      "territory": "herramientas",
+      "parentId": "editorials-hub",
+      "hubId": "tools-hub",
+      "discoverability": "contextual",
+      "audience": [
+        "writer"
+      ],
+      "jobs": [
+        "buscar-editorial"
+      ],
+      "sourceFile": "editoriales/impedimenta/index.html"
+    },
+    {
+      "id": "editorial-nordica-libros",
+      "url": "/editoriales/nordica-libros/",
+      "label": "Nórdica Libros",
+      "shortLabel": "Nórdica Libros",
+      "type": "directory",
+      "territory": "herramientas",
+      "parentId": "editorials-hub",
+      "hubId": "tools-hub",
+      "discoverability": "contextual",
+      "audience": [
+        "writer"
+      ],
+      "jobs": [
+        "buscar-editorial"
+      ],
+      "sourceFile": "editoriales/nordica-libros/index.html"
+    },
+    {
+      "id": "editorial-candaya",
+      "url": "/editoriales/candaya/",
+      "label": "Candaya",
+      "shortLabel": "Candaya",
+      "type": "directory",
+      "territory": "herramientas",
+      "parentId": "editorials-hub",
+      "hubId": "tools-hub",
+      "discoverability": "contextual",
+      "audience": [
+        "writer"
+      ],
+      "jobs": [
+        "buscar-editorial"
+      ],
+      "sourceFile": "editoriales/candaya/index.html"
+    },
+    {
+      "id": "editorial-pepitas-de-calabaza",
+      "url": "/editoriales/pepitas-de-calabaza/",
+      "label": "Pepitas de calabaza",
+      "shortLabel": "Pepitas de calabaza",
+      "type": "directory",
+      "territory": "herramientas",
+      "parentId": "editorials-hub",
+      "hubId": "tools-hub",
+      "discoverability": "contextual",
+      "audience": [
+        "writer"
+      ],
+      "jobs": [
+        "buscar-editorial"
+      ],
+      "sourceFile": "editoriales/pepitas-de-calabaza/index.html"
+    },
+    {
+      "id": "editorial-nde-novela",
+      "url": "/editoriales/nde-novela/",
+      "label": "NdeNovela",
+      "shortLabel": "NdeNovela",
+      "type": "directory",
+      "territory": "herramientas",
+      "parentId": "editorials-hub",
+      "hubId": "tools-hub",
+      "discoverability": "contextual",
+      "audience": [
+        "writer"
+      ],
+      "jobs": [
+        "buscar-editorial"
+      ],
+      "sourceFile": "editoriales/nde-novela/index.html"
+    },
+    {
+      "id": "editorial-editorial-anagrama",
+      "url": "/editoriales/editorial-anagrama/",
+      "label": "Editorial Anagrama",
+      "shortLabel": "Editorial Anagrama",
+      "type": "directory",
+      "territory": "herramientas",
+      "parentId": "editorials-hub",
+      "hubId": "tools-hub",
+      "discoverability": "contextual",
+      "audience": [
+        "writer"
+      ],
+      "jobs": [
+        "buscar-editorial"
+      ],
+      "sourceFile": "editoriales/editorial-anagrama/index.html"
+    },
+    {
+      "id": "editorial-alfaguara",
+      "url": "/editoriales/alfaguara/",
+      "label": "Alfaguara",
+      "shortLabel": "Alfaguara",
+      "type": "directory",
+      "territory": "herramientas",
+      "parentId": "editorials-hub",
+      "hubId": "tools-hub",
+      "discoverability": "contextual",
+      "audience": [
+        "writer"
+      ],
+      "jobs": [
+        "buscar-editorial"
+      ],
+      "sourceFile": "editoriales/alfaguara/index.html"
+    },
+    {
+      "id": "editorial-random-house",
+      "url": "/editoriales/random-house/",
+      "label": "Random House",
+      "shortLabel": "Random House",
+      "type": "directory",
+      "territory": "herramientas",
+      "parentId": "editorials-hub",
+      "hubId": "tools-hub",
+      "discoverability": "contextual",
+      "audience": [
+        "writer"
+      ],
+      "jobs": [
+        "buscar-editorial"
+      ],
+      "sourceFile": "editoriales/random-house/index.html"
+    },
+    {
+      "id": "editorial-reservoir-books",
+      "url": "/editoriales/reservoir-books/",
+      "label": "Reservoir Books",
+      "shortLabel": "Reservoir Books",
+      "type": "directory",
+      "territory": "herramientas",
+      "parentId": "editorials-hub",
+      "hubId": "tools-hub",
+      "discoverability": "contextual",
+      "audience": [
+        "writer"
+      ],
+      "jobs": [
+        "buscar-editorial"
+      ],
+      "sourceFile": "editoriales/reservoir-books/index.html"
+    },
+    {
+      "id": "editorial-salamandra",
+      "url": "/editoriales/salamandra/",
+      "label": "Salamandra",
+      "shortLabel": "Salamandra",
+      "type": "directory",
+      "territory": "herramientas",
+      "parentId": "editorials-hub",
+      "hubId": "tools-hub",
+      "discoverability": "contextual",
+      "audience": [
+        "writer"
+      ],
+      "jobs": [
+        "buscar-editorial"
+      ],
+      "sourceFile": "editoriales/salamandra/index.html"
+    },
+    {
+      "id": "editorial-grijalbo",
+      "url": "/editoriales/grijalbo/",
+      "label": "Grijalbo",
+      "shortLabel": "Grijalbo",
+      "type": "directory",
+      "territory": "herramientas",
+      "parentId": "editorials-hub",
+      "hubId": "tools-hub",
+      "discoverability": "contextual",
+      "audience": [
+        "writer"
+      ],
+      "jobs": [
+        "buscar-editorial"
+      ],
+      "sourceFile": "editoriales/grijalbo/index.html"
+    },
+    {
+      "id": "editorial-adn-alianza-de-novelas",
+      "url": "/editoriales/adn-alianza-de-novelas/",
+      "label": "AdN · Alianza de Novelas",
+      "shortLabel": "AdN · Alianza de Novelas",
+      "type": "directory",
+      "territory": "herramientas",
+      "parentId": "editorials-hub",
+      "hubId": "tools-hub",
+      "discoverability": "contextual",
+      "audience": [
+        "writer"
+      ],
+      "jobs": [
+        "buscar-editorial"
+      ],
+      "sourceFile": "editoriales/adn-alianza-de-novelas/index.html"
+    },
+    {
+      "id": "editorial-contraluz-editorial",
+      "url": "/editoriales/contraluz-editorial/",
+      "label": "Contraluz",
+      "shortLabel": "Contraluz",
+      "type": "directory",
+      "territory": "herramientas",
+      "parentId": "editorials-hub",
+      "hubId": "tools-hub",
+      "discoverability": "contextual",
+      "audience": [
+        "writer"
+      ],
+      "jobs": [
+        "buscar-editorial"
+      ],
+      "sourceFile": "editoriales/contraluz-editorial/index.html"
+    },
+    {
+      "id": "editorial-rayo-verde-editorial",
+      "url": "/editoriales/rayo-verde-editorial/",
+      "label": "Rayo Verde Editorial",
+      "shortLabel": "Rayo Verde Editorial",
+      "type": "directory",
+      "territory": "herramientas",
+      "parentId": "editorials-hub",
+      "hubId": "tools-hub",
+      "discoverability": "contextual",
+      "audience": [
+        "writer"
+      ],
+      "jobs": [
+        "buscar-editorial"
+      ],
+      "sourceFile": "editoriales/rayo-verde-editorial/index.html"
+    },
+    {
+      "id": "editorial-insolita-editorial",
+      "url": "/editoriales/insolita-editorial/",
+      "label": "Insólita Editorial",
+      "shortLabel": "Insólita Editorial",
+      "type": "directory",
+      "territory": "herramientas",
+      "parentId": "editorials-hub",
+      "hubId": "tools-hub",
+      "discoverability": "contextual",
+      "audience": [
+        "writer"
+      ],
+      "jobs": [
+        "buscar-editorial"
+      ],
+      "sourceFile": "editoriales/insolita-editorial/index.html"
+    },
+    {
+      "id": "editorial-menoscuarto-ediciones",
+      "url": "/editoriales/menoscuarto-ediciones/",
+      "label": "Menoscuarto Ediciones",
+      "shortLabel": "Menoscuarto Ediciones",
+      "type": "directory",
+      "territory": "herramientas",
+      "parentId": "editorials-hub",
+      "hubId": "tools-hub",
+      "discoverability": "contextual",
+      "audience": [
+        "writer"
+      ],
+      "jobs": [
+        "buscar-editorial"
+      ],
+      "sourceFile": "editoriales/menoscuarto-ediciones/index.html"
+    },
+    {
+      "id": "editorial-duomo-ediciones",
+      "url": "/editoriales/duomo-ediciones/",
+      "label": "Duomo Ediciones",
+      "shortLabel": "Duomo Ediciones",
+      "type": "directory",
+      "territory": "herramientas",
+      "parentId": "editorials-hub",
+      "hubId": "tools-hub",
+      "discoverability": "contextual",
+      "audience": [
+        "writer"
+      ],
+      "jobs": [
+        "buscar-editorial"
+      ],
+      "sourceFile": "editoriales/duomo-ediciones/index.html"
+    },
+    {
+      "id": "editorial-oz-editorial",
+      "url": "/editoriales/oz-editorial/",
+      "label": "Oz Editorial",
+      "shortLabel": "Oz Editorial",
+      "type": "directory",
+      "territory": "herramientas",
+      "parentId": "editorials-hub",
+      "hubId": "tools-hub",
+      "discoverability": "contextual",
+      "audience": [
+        "writer"
+      ],
+      "jobs": [
+        "buscar-editorial"
+      ],
+      "sourceFile": "editoriales/oz-editorial/index.html"
+    },
+    {
+      "id": "editorial-editorial-andromeda",
+      "url": "/editoriales/editorial-andromeda/",
+      "label": "Editorial Andrómeda",
+      "shortLabel": "Editorial Andrómeda",
+      "type": "directory",
+      "territory": "herramientas",
+      "parentId": "editorials-hub",
+      "hubId": "tools-hub",
+      "discoverability": "contextual",
+      "audience": [
+        "writer"
+      ],
+      "jobs": [
+        "buscar-editorial"
+      ],
+      "sourceFile": "editoriales/editorial-andromeda/index.html"
+    },
+    {
+      "id": "editorial-pato-ediciones",
+      "url": "/editoriales/pato-ediciones/",
+      "label": "Pato Ediciones",
+      "shortLabel": "Pato Ediciones",
+      "type": "directory",
+      "territory": "herramientas",
+      "parentId": "editorials-hub",
+      "hubId": "tools-hub",
+      "discoverability": "contextual",
+      "audience": [
+        "writer"
+      ],
+      "jobs": [
+        "buscar-editorial"
+      ],
+      "sourceFile": "editoriales/pato-ediciones/index.html"
+    },
+    {
+      "id": "editorial-viento-norte-editorial",
+      "url": "/editoriales/viento-norte-editorial/",
+      "label": "Viento Norte Editorial",
+      "shortLabel": "Viento Norte Editorial",
+      "type": "directory",
+      "territory": "herramientas",
+      "parentId": "editorials-hub",
+      "hubId": "tools-hub",
+      "discoverability": "contextual",
+      "audience": [
+        "writer"
+      ],
+      "jobs": [
+        "buscar-editorial"
+      ],
+      "sourceFile": "editoriales/viento-norte-editorial/index.html"
+    },
+    {
+      "id": "editorial-la-consentida-editorial",
+      "url": "/editoriales/la-consentida-editorial/",
+      "label": "La Consentida Editorial",
+      "shortLabel": "La Consentida Editorial",
+      "type": "directory",
+      "territory": "herramientas",
+      "parentId": "editorials-hub",
+      "hubId": "tools-hub",
+      "discoverability": "contextual",
+      "audience": [
+        "writer"
+      ],
+      "jobs": [
+        "buscar-editorial"
+      ],
+      "sourceFile": "editoriales/la-consentida-editorial/index.html"
+    },
+    {
+      "id": "editorial-ediciones-kiwi-edk",
+      "url": "/editoriales/ediciones-kiwi-edk/",
+      "label": "Ediciones Kiwi · EDK bookverse",
+      "shortLabel": "Ediciones Kiwi · EDK bookverse",
+      "type": "directory",
+      "territory": "herramientas",
+      "parentId": "editorials-hub",
+      "hubId": "tools-hub",
+      "discoverability": "contextual",
+      "audience": [
+        "writer"
+      ],
+      "jobs": [
+        "buscar-editorial"
+      ],
+      "sourceFile": "editoriales/ediciones-kiwi-edk/index.html"
+    },
+    {
+      "id": "editorial-crononauta",
+      "url": "/editoriales/crononauta/",
+      "label": "Crononauta",
+      "shortLabel": "Crononauta",
+      "type": "directory",
+      "territory": "herramientas",
+      "parentId": "editorials-hub",
+      "hubId": "tools-hub",
+      "discoverability": "contextual",
+      "audience": [
+        "writer"
+      ],
+      "jobs": [
+        "buscar-editorial"
+      ],
+      "sourceFile": "editoriales/crononauta/index.html"
+    },
+    {
+      "id": "editorial-edhasa",
+      "url": "/editoriales/edhasa/",
+      "label": "Edhasa",
+      "shortLabel": "Edhasa",
+      "type": "directory",
+      "territory": "herramientas",
+      "parentId": "editorials-hub",
+      "hubId": "tools-hub",
+      "discoverability": "contextual",
+      "audience": [
+        "writer"
+      ],
+      "jobs": [
+        "buscar-editorial"
+      ],
+      "sourceFile": "editoriales/edhasa/index.html"
+    },
+    {
+      "id": "editorial-errata-naturae",
+      "url": "/editoriales/errata-naturae/",
+      "label": "Errata naturae",
+      "shortLabel": "Errata naturae",
+      "type": "directory",
+      "territory": "herramientas",
+      "parentId": "editorials-hub",
+      "hubId": "tools-hub",
+      "discoverability": "contextual",
+      "audience": [
+        "writer"
+      ],
+      "jobs": [
+        "buscar-editorial"
+      ],
+      "sourceFile": "editoriales/errata-naturae/index.html"
+    },
+    {
+      "id": "editorial-editorial-planeta",
+      "url": "/editoriales/editorial-planeta/",
+      "label": "Editorial Planeta",
+      "shortLabel": "Editorial Planeta",
+      "type": "directory",
+      "territory": "herramientas",
+      "parentId": "editorials-hub",
+      "hubId": "tools-hub",
+      "discoverability": "contextual",
+      "audience": [
+        "writer"
+      ],
+      "jobs": [
+        "buscar-editorial"
+      ],
+      "sourceFile": "editoriales/editorial-planeta/index.html"
+    },
+    {
+      "id": "editorial-ediciones-destino",
+      "url": "/editoriales/ediciones-destino/",
+      "label": "Ediciones Destino",
+      "shortLabel": "Ediciones Destino",
+      "type": "directory",
+      "territory": "herramientas",
+      "parentId": "editorials-hub",
+      "hubId": "tools-hub",
+      "discoverability": "contextual",
+      "audience": [
+        "writer"
+      ],
+      "jobs": [
+        "buscar-editorial"
+      ],
+      "sourceFile": "editoriales/ediciones-destino/index.html"
+    },
+    {
+      "id": "editorial-seix-barral",
+      "url": "/editoriales/seix-barral/",
+      "label": "Seix Barral",
+      "shortLabel": "Seix Barral",
+      "type": "directory",
+      "territory": "herramientas",
+      "parentId": "editorials-hub",
+      "hubId": "tools-hub",
+      "discoverability": "contextual",
+      "audience": [
+        "writer"
+      ],
+      "jobs": [
+        "buscar-editorial"
+      ],
+      "sourceFile": "editoriales/seix-barral/index.html"
+    },
+    {
+      "id": "editorial-editorial-espasa",
+      "url": "/editoriales/editorial-espasa/",
+      "label": "Editorial Espasa",
+      "shortLabel": "Editorial Espasa",
+      "type": "directory",
+      "territory": "herramientas",
+      "parentId": "editorials-hub",
+      "hubId": "tools-hub",
+      "discoverability": "contextual",
+      "audience": [
+        "writer"
+      ],
+      "jobs": [
+        "buscar-editorial"
+      ],
+      "sourceFile": "editoriales/editorial-espasa/index.html"
+    },
+    {
+      "id": "editorial-tusquets-editores",
+      "url": "/editoriales/tusquets-editores/",
+      "label": "Tusquets Editores",
+      "shortLabel": "Tusquets Editores",
+      "type": "directory",
+      "territory": "herramientas",
+      "parentId": "editorials-hub",
+      "hubId": "tools-hub",
+      "discoverability": "contextual",
+      "audience": [
+        "writer"
+      ],
+      "jobs": [
+        "buscar-editorial"
+      ],
+      "sourceFile": "editoriales/tusquets-editores/index.html"
+    },
+    {
+      "id": "editorial-click-ediciones",
+      "url": "/editoriales/click-ediciones/",
+      "label": "Click Ediciones",
+      "shortLabel": "Click Ediciones",
+      "type": "directory",
+      "territory": "herramientas",
+      "parentId": "editorials-hub",
+      "hubId": "tools-hub",
+      "discoverability": "contextual",
+      "audience": [
+        "writer"
+      ],
+      "jobs": [
+        "buscar-editorial"
+      ],
+      "sourceFile": "editoriales/click-ediciones/index.html"
+    },
+    {
+      "id": "editorial-romantic-ediciones",
+      "url": "/editoriales/romantic-ediciones/",
+      "label": "Romantic Ediciones",
+      "shortLabel": "Romantic Ediciones",
+      "type": "directory",
+      "territory": "herramientas",
+      "parentId": "editorials-hub",
+      "hubId": "tools-hub",
+      "discoverability": "contextual",
+      "audience": [
+        "writer"
+      ],
+      "jobs": [
+        "buscar-editorial"
+      ],
+      "sourceFile": "editoriales/romantic-ediciones/index.html"
+    },
+    {
+      "id": "editorial-mercurio-editorial",
+      "url": "/editoriales/mercurio-editorial/",
+      "label": "Mercurio Editorial",
+      "shortLabel": "Mercurio Editorial",
+      "type": "directory",
+      "territory": "herramientas",
+      "parentId": "editorials-hub",
+      "hubId": "tools-hub",
+      "discoverability": "contextual",
+      "audience": [
+        "writer"
+      ],
+      "jobs": [
+        "buscar-editorial"
+      ],
+      "sourceFile": "editoriales/mercurio-editorial/index.html"
+    },
+    {
+      "id": "editorial-ediciones-fatcap",
+      "url": "/editoriales/ediciones-fatcap/",
+      "label": "Ediciones Fatcap",
+      "shortLabel": "Ediciones Fatcap",
+      "type": "directory",
+      "territory": "herramientas",
+      "parentId": "editorials-hub",
+      "hubId": "tools-hub",
+      "discoverability": "contextual",
+      "audience": [
+        "writer"
+      ],
+      "jobs": [
+        "buscar-editorial"
+      ],
+      "sourceFile": "editoriales/ediciones-fatcap/index.html"
+    },
+    {
+      "id": "editorial-editorial-fanes",
+      "url": "/editoriales/editorial-fanes/",
+      "label": "Editorial Fanes",
+      "shortLabel": "Editorial Fanes",
+      "type": "directory",
+      "territory": "herramientas",
+      "parentId": "editorials-hub",
+      "hubId": "tools-hub",
+      "discoverability": "contextual",
+      "audience": [
+        "writer"
+      ],
+      "jobs": [
+        "buscar-editorial"
+      ],
+      "sourceFile": "editoriales/editorial-fanes/index.html"
+    },
+    {
+      "id": "editorial-editorial-alfabeto",
+      "url": "/editoriales/editorial-alfabeto/",
+      "label": "Editorial Alfabeto",
+      "shortLabel": "Editorial Alfabeto",
+      "type": "directory",
+      "territory": "herramientas",
+      "parentId": "editorials-hub",
+      "hubId": "tools-hub",
+      "discoverability": "contextual",
+      "audience": [
+        "writer"
+      ],
+      "jobs": [
+        "buscar-editorial"
+      ],
+      "sourceFile": "editoriales/editorial-alfabeto/index.html"
+    },
+    {
+      "id": "editorial-plomo-ediciones",
+      "url": "/editoriales/plomo-ediciones/",
+      "label": "Plomo Ediciones",
+      "shortLabel": "Plomo Ediciones",
+      "type": "directory",
+      "territory": "herramientas",
+      "parentId": "editorials-hub",
+      "hubId": "tools-hub",
+      "discoverability": "contextual",
+      "audience": [
+        "writer"
+      ],
+      "jobs": [
+        "buscar-editorial"
+      ],
+      "sourceFile": "editoriales/plomo-ediciones/index.html"
+    },
+    {
+      "id": "editorial-editorial-la-magnifica",
+      "url": "/editoriales/editorial-la-magnifica/",
+      "label": "Editorial La Magnífica",
+      "shortLabel": "Editorial La Magnífica",
+      "type": "directory",
+      "territory": "herramientas",
+      "parentId": "editorials-hub",
+      "hubId": "tools-hub",
+      "discoverability": "contextual",
+      "audience": [
+        "writer"
+      ],
+      "jobs": [
+        "buscar-editorial"
+      ],
+      "sourceFile": "editoriales/editorial-la-magnifica/index.html"
+    },
+    {
+      "id": "editorial-siren-books",
+      "url": "/editoriales/siren-books/",
+      "label": "Siren Books",
+      "shortLabel": "Siren Books",
+      "type": "directory",
+      "territory": "herramientas",
+      "parentId": "editorials-hub",
+      "hubId": "tools-hub",
+      "discoverability": "contextual",
+      "audience": [
+        "writer"
+      ],
+      "jobs": [
+        "buscar-editorial"
+      ],
+      "sourceFile": "editoriales/siren-books/index.html"
+    },
+    {
+      "id": "editorial-red-key-books",
+      "url": "/editoriales/red-key-books/",
+      "label": "Red Key Books",
+      "shortLabel": "Red Key Books",
+      "type": "directory",
+      "territory": "herramientas",
+      "parentId": "editorials-hub",
+      "hubId": "tools-hub",
+      "discoverability": "contextual",
+      "audience": [
+        "writer"
+      ],
+      "jobs": [
+        "buscar-editorial"
+      ],
+      "sourceFile": "editoriales/red-key-books/index.html"
+    },
+    {
+      "id": "editorial-sportula",
+      "url": "/editoriales/sportula/",
+      "label": "Spórtula",
+      "shortLabel": "Spórtula",
+      "type": "directory",
+      "territory": "herramientas",
+      "parentId": "editorials-hub",
+      "hubId": "tools-hub",
+      "discoverability": "contextual",
+      "audience": [
+        "writer"
+      ],
+      "jobs": [
+        "buscar-editorial"
+      ],
+      "sourceFile": "editoriales/sportula/index.html"
+    },
+    {
+      "id": "editorial-caballo-de-troya",
+      "url": "/editoriales/caballo-de-troya/",
+      "label": "Caballo de Troya",
+      "shortLabel": "Caballo de Troya",
+      "type": "directory",
+      "territory": "herramientas",
+      "parentId": "editorials-hub",
+      "hubId": "tools-hub",
+      "discoverability": "contextual",
+      "audience": [
+        "writer"
+      ],
+      "jobs": [
+        "buscar-editorial"
+      ],
+      "sourceFile": "editoriales/caballo-de-troya/index.html"
+    },
+    {
+      "id": "editorial-lumen",
+      "url": "/editoriales/lumen/",
+      "label": "Lumen",
+      "shortLabel": "Lumen",
+      "type": "directory",
+      "territory": "herramientas",
+      "parentId": "editorials-hub",
+      "hubId": "tools-hub",
+      "discoverability": "contextual",
+      "audience": [
+        "writer"
+      ],
+      "jobs": [
+        "buscar-editorial"
+      ],
+      "sourceFile": "editoriales/lumen/index.html"
+    },
+    {
+      "id": "editorial-blackie-books",
+      "url": "/editoriales/blackie-books/",
+      "label": "Blackie Books",
+      "shortLabel": "Blackie Books",
+      "type": "directory",
+      "territory": "herramientas",
+      "parentId": "editorials-hub",
+      "hubId": "tools-hub",
+      "discoverability": "contextual",
+      "audience": [
+        "writer"
+      ],
+      "jobs": [
+        "buscar-editorial"
+      ],
+      "sourceFile": "editoriales/blackie-books/index.html"
+    },
+    {
+      "id": "editorial-apache-libros",
+      "url": "/editoriales/apache-libros/",
+      "label": "Apache Libros",
+      "shortLabel": "Apache Libros",
+      "type": "directory",
+      "territory": "herramientas",
+      "parentId": "editorials-hub",
+      "hubId": "tools-hub",
+      "discoverability": "contextual",
+      "audience": [
+        "writer"
+      ],
+      "jobs": [
+        "buscar-editorial"
+      ],
+      "sourceFile": "editoriales/apache-libros/index.html"
+    },
+    {
+      "id": "editorial-platero-coolbooks",
+      "url": "/editoriales/platero-coolbooks/",
+      "label": "Platero CoolBooks",
+      "shortLabel": "Platero CoolBooks",
+      "type": "directory",
+      "territory": "herramientas",
+      "parentId": "editorials-hub",
+      "hubId": "tools-hub",
+      "discoverability": "contextual",
+      "audience": [
+        "writer"
+      ],
+      "jobs": [
+        "buscar-editorial"
+      ],
+      "sourceFile": "editoriales/platero-coolbooks/index.html"
+    },
+    {
+      "id": "editorial-editorial-cuadranta",
+      "url": "/editoriales/editorial-cuadranta/",
+      "label": "Editorial Cuadranta",
+      "shortLabel": "Editorial Cuadranta",
+      "type": "directory",
+      "territory": "herramientas",
+      "parentId": "editorials-hub",
+      "hubId": "tools-hub",
+      "discoverability": "contextual",
+      "audience": [
+        "writer"
+      ],
+      "jobs": [
+        "buscar-editorial"
+      ],
+      "sourceFile": "editoriales/editorial-cuadranta/index.html"
+    },
+    {
+      "id": "editorial-altamarea-ediciones",
+      "url": "/editoriales/altamarea-ediciones/",
+      "label": "Altamarea Ediciones",
+      "shortLabel": "Altamarea Ediciones",
+      "type": "directory",
+      "territory": "herramientas",
+      "parentId": "editorials-hub",
+      "hubId": "tools-hub",
+      "discoverability": "contextual",
+      "audience": [
+        "writer"
+      ],
+      "jobs": [
+        "buscar-editorial"
+      ],
+      "sourceFile": "editoriales/altamarea-ediciones/index.html"
+    },
+    {
+      "id": "editorial-editorial-comba",
+      "url": "/editoriales/editorial-comba/",
+      "label": "Editorial Comba",
+      "shortLabel": "Editorial Comba",
+      "type": "directory",
+      "territory": "herramientas",
+      "parentId": "editorials-hub",
+      "hubId": "tools-hub",
+      "discoverability": "contextual",
+      "audience": [
+        "writer"
+      ],
+      "jobs": [
+        "buscar-editorial"
+      ],
+      "sourceFile": "editoriales/editorial-comba/index.html"
+    },
+    {
+      "id": "editorial-jekyll-jill",
+      "url": "/editoriales/jekyll-jill/",
+      "label": "Jekyll & Jill",
+      "shortLabel": "Jekyll & Jill",
+      "type": "directory",
+      "territory": "herramientas",
+      "parentId": "editorials-hub",
+      "hubId": "tools-hub",
+      "discoverability": "contextual",
+      "audience": [
+        "writer"
+      ],
+      "jobs": [
+        "buscar-editorial"
+      ],
+      "sourceFile": "editoriales/jekyll-jill/index.html"
+    },
+    {
+      "id": "editorial-malas-tierras-editorial",
+      "url": "/editoriales/malas-tierras-editorial/",
+      "label": "Malas Tierras Editorial",
+      "shortLabel": "Malas Tierras Editorial",
+      "type": "directory",
+      "territory": "herramientas",
+      "parentId": "editorials-hub",
+      "hubId": "tools-hub",
+      "discoverability": "contextual",
+      "audience": [
+        "writer"
+      ],
+      "jobs": [
+        "buscar-editorial"
+      ],
+      "sourceFile": "editoriales/malas-tierras-editorial/index.html"
+    },
+    {
+      "id": "editorial-kailas-editorial",
+      "url": "/editoriales/kailas-editorial/",
+      "label": "Kailas Editorial",
+      "shortLabel": "Kailas Editorial",
+      "type": "directory",
+      "territory": "herramientas",
+      "parentId": "editorials-hub",
+      "hubId": "tools-hub",
+      "discoverability": "contextual",
+      "audience": [
+        "writer"
+      ],
+      "jobs": [
+        "buscar-editorial"
+      ],
+      "sourceFile": "editoriales/kailas-editorial/index.html"
+    },
+    {
+      "id": "editorial-grupo-editorial-sial-pigmalion",
+      "url": "/editoriales/grupo-editorial-sial-pigmalion/",
+      "label": "Grupo Editorial Sial Pigmalión",
+      "shortLabel": "Grupo Editorial Sial Pigmalión",
+      "type": "directory",
+      "territory": "herramientas",
+      "parentId": "editorials-hub",
+      "hubId": "tools-hub",
+      "discoverability": "contextual",
+      "audience": [
+        "writer"
+      ],
+      "jobs": [
+        "buscar-editorial"
+      ],
+      "sourceFile": "editoriales/grupo-editorial-sial-pigmalion/index.html"
+    },
+    {
+      "id": "editorial-editorial-amarante",
+      "url": "/editoriales/editorial-amarante/",
+      "label": "Editorial Amarante",
+      "shortLabel": "Editorial Amarante",
+      "type": "directory",
+      "territory": "herramientas",
+      "parentId": "editorials-hub",
+      "hubId": "tools-hub",
+      "discoverability": "contextual",
+      "audience": [
+        "writer"
+      ],
+      "jobs": [
+        "buscar-editorial"
+      ],
+      "sourceFile": "editoriales/editorial-amarante/index.html"
+    },
+    {
+      "id": "editorial-aristas-martinez",
+      "url": "/editoriales/aristas-martinez/",
+      "label": "Aristas Martínez",
+      "shortLabel": "Aristas Martínez",
+      "type": "directory",
+      "territory": "herramientas",
+      "parentId": "editorials-hub",
+      "hubId": "tools-hub",
+      "discoverability": "contextual",
+      "audience": [
+        "writer"
+      ],
+      "jobs": [
+        "buscar-editorial"
+      ],
+      "sourceFile": "editoriales/aristas-martinez/index.html"
+    },
+    {
+      "id": "editorial-ediciones-vestigio",
+      "url": "/editoriales/ediciones-vestigio/",
+      "label": "Ediciones Vestigio",
+      "shortLabel": "Ediciones Vestigio",
+      "type": "directory",
+      "territory": "herramientas",
+      "parentId": "editorials-hub",
+      "hubId": "tools-hub",
+      "discoverability": "contextual",
+      "audience": [
+        "writer"
+      ],
+      "jobs": [
+        "buscar-editorial"
+      ],
+      "sourceFile": "editoriales/ediciones-vestigio/index.html"
+    },
+    {
+      "id": "editorial-editorial-almadia",
+      "url": "/editoriales/editorial-almadia/",
+      "label": "Editorial Almadía",
+      "shortLabel": "Editorial Almadía",
+      "type": "directory",
+      "territory": "herramientas",
+      "parentId": "editorials-hub",
+      "hubId": "tools-hub",
+      "discoverability": "contextual",
+      "audience": [
+        "writer"
+      ],
+      "jobs": [
+        "buscar-editorial"
+      ],
+      "sourceFile": "editoriales/editorial-almadia/index.html"
+    },
+    {
+      "id": "editorial-pie-de-mosca-milmadres",
+      "url": "/editoriales/pie-de-mosca-milmadres/",
+      "label": "Pie de Mosca / MilMadres",
+      "shortLabel": "Pie de Mosca / MilMadres",
+      "type": "directory",
+      "territory": "herramientas",
+      "parentId": "editorials-hub",
+      "hubId": "tools-hub",
+      "discoverability": "contextual",
+      "audience": [
+        "writer"
+      ],
+      "jobs": [
+        "buscar-editorial"
+      ],
+      "sourceFile": "editoriales/pie-de-mosca-milmadres/index.html"
+    },
+    {
+      "id": "editorial-editorial-letra-r",
+      "url": "/editoriales/editorial-letra-r/",
+      "label": "Editorial Letra r",
+      "shortLabel": "Editorial Letra r",
+      "type": "directory",
+      "territory": "herramientas",
+      "parentId": "editorials-hub",
+      "hubId": "tools-hub",
+      "discoverability": "contextual",
+      "audience": [
+        "writer"
+      ],
+      "jobs": [
+        "buscar-editorial"
+      ],
+      "sourceFile": "editoriales/editorial-letra-r/index.html"
+    },
+    {
+      "id": "editorial-wave-books-editorial",
+      "url": "/editoriales/wave-books-editorial/",
+      "label": "Wave Books Editorial",
+      "shortLabel": "Wave Books Editorial",
+      "type": "directory",
+      "territory": "herramientas",
+      "parentId": "editorials-hub",
+      "hubId": "tools-hub",
+      "discoverability": "contextual",
+      "audience": [
+        "writer"
+      ],
+      "jobs": [
+        "buscar-editorial"
+      ],
+      "sourceFile": "editoriales/wave-books-editorial/index.html"
+    },
+    {
+      "id": "editorial-armaenia-editorial",
+      "url": "/editoriales/armaenia-editorial/",
+      "label": "Armaenia Editorial",
+      "shortLabel": "Armaenia Editorial",
+      "type": "directory",
+      "territory": "herramientas",
+      "parentId": "editorials-hub",
+      "hubId": "tools-hub",
+      "discoverability": "contextual",
+      "audience": [
+        "writer"
+      ],
+      "jobs": [
+        "buscar-editorial"
+      ],
+      "sourceFile": "editoriales/armaenia-editorial/index.html"
+    },
+    {
+      "id": "editorial-platanal",
+      "url": "/editoriales/platanal/",
+      "label": "PLATANAL",
+      "shortLabel": "PLATANAL",
+      "type": "directory",
+      "territory": "herramientas",
+      "parentId": "editorials-hub",
+      "hubId": "tools-hub",
+      "discoverability": "contextual",
+      "audience": [
+        "writer"
+      ],
+      "jobs": [
+        "buscar-editorial"
+      ],
+      "sourceFile": "editoriales/platanal/index.html"
+    },
+    {
+      "id": "editorial-amor-de-madre",
+      "url": "/editoriales/amor-de-madre/",
+      "label": "Amor de Madre",
+      "shortLabel": "Amor de Madre",
+      "type": "directory",
+      "territory": "herramientas",
+      "parentId": "editorials-hub",
+      "hubId": "tools-hub",
+      "discoverability": "contextual",
+      "audience": [
+        "writer"
+      ],
+      "jobs": [
+        "buscar-editorial"
+      ],
+      "sourceFile": "editoriales/amor-de-madre/index.html"
+    },
+    {
+      "id": "editorial-la-navaja-suiza-editores",
+      "url": "/editoriales/la-navaja-suiza-editores/",
+      "label": "La Navaja Suiza Editores",
+      "shortLabel": "La Navaja Suiza Editores",
+      "type": "directory",
+      "territory": "herramientas",
+      "parentId": "editorials-hub",
+      "hubId": "tools-hub",
+      "discoverability": "contextual",
+      "audience": [
+        "writer"
+      ],
+      "jobs": [
+        "buscar-editorial"
+      ],
+      "sourceFile": "editoriales/la-navaja-suiza-editores/index.html"
+    },
+    {
+      "id": "editorial-dilatando-mentes-editorial",
+      "url": "/editoriales/dilatando-mentes-editorial/",
+      "label": "Dilatando Mentes Editorial",
+      "shortLabel": "Dilatando Mentes Editorial",
+      "type": "directory",
+      "territory": "herramientas",
+      "parentId": "editorials-hub",
+      "hubId": "tools-hub",
+      "discoverability": "contextual",
+      "audience": [
+        "writer"
+      ],
+      "jobs": [
+        "buscar-editorial"
+      ],
+      "sourceFile": "editoriales/dilatando-mentes-editorial/index.html"
+    },
+    {
+      "id": "editorial-sugaar-editorial",
+      "url": "/editoriales/sugaar-editorial/",
+      "label": "Sugaar Editorial",
+      "shortLabel": "Sugaar Editorial",
+      "type": "directory",
+      "territory": "herramientas",
+      "parentId": "editorials-hub",
+      "hubId": "tools-hub",
+      "discoverability": "contextual",
+      "audience": [
+        "writer"
+      ],
+      "jobs": [
+        "buscar-editorial"
+      ],
+      "sourceFile": "editoriales/sugaar-editorial/index.html"
+    },
+    {
+      "id": "editorial-la-biblioteca-de-carfax",
+      "url": "/editoriales/la-biblioteca-de-carfax/",
+      "label": "La biblioteca de Carfax",
+      "shortLabel": "La biblioteca de Carfax",
+      "type": "directory",
+      "territory": "herramientas",
+      "parentId": "editorials-hub",
+      "hubId": "tools-hub",
+      "discoverability": "contextual",
+      "audience": [
+        "writer"
+      ],
+      "jobs": [
+        "buscar-editorial"
+      ],
+      "sourceFile": "editoriales/la-biblioteca-de-carfax/index.html"
+    },
+    {
+      "id": "editorial-atlantic-books",
+      "url": "/editoriales/atlantic-books/",
+      "label": "Atlantic Books",
+      "shortLabel": "Atlantic Books",
+      "type": "directory",
+      "territory": "herramientas",
+      "parentId": "editorials-hub",
+      "hubId": "tools-hub",
+      "discoverability": "contextual",
+      "audience": [
+        "writer"
+      ],
+      "jobs": [
+        "buscar-editorial"
+      ],
+      "sourceFile": "editoriales/atlantic-books/index.html"
+    },
+    {
+      "id": "editorial-faeris",
+      "url": "/editoriales/faeris/",
+      "label": "Faeris",
+      "shortLabel": "Faeris",
+      "type": "directory",
+      "territory": "herramientas",
+      "parentId": "editorials-hub",
+      "hubId": "tools-hub",
+      "discoverability": "contextual",
+      "audience": [
+        "writer"
+      ],
+      "jobs": [
+        "buscar-editorial"
+      ],
+      "sourceFile": "editoriales/faeris/index.html"
+    },
+    {
+      "id": "editorial-el-transbordador",
+      "url": "/editoriales/el-transbordador/",
+      "label": "El Transbordador",
+      "shortLabel": "El Transbordador",
+      "type": "directory",
+      "territory": "herramientas",
+      "parentId": "editorials-hub",
+      "hubId": "tools-hub",
+      "discoverability": "contextual",
+      "audience": [
+        "writer"
+      ],
+      "jobs": [
+        "buscar-editorial"
+      ],
+      "sourceFile": "editoriales/el-transbordador/index.html"
+    },
+    {
+      "id": "editorial-levanta-fuego",
+      "url": "/editoriales/levanta-fuego/",
+      "label": "Levanta Fuego",
+      "shortLabel": "Levanta Fuego",
+      "type": "directory",
+      "territory": "herramientas",
+      "parentId": "editorials-hub",
+      "hubId": "tools-hub",
+      "discoverability": "contextual",
+      "audience": [
+        "writer"
+      ],
+      "jobs": [
+        "buscar-editorial"
+      ],
+      "sourceFile": "editoriales/levanta-fuego/index.html"
+    },
+    {
+      "id": "editorial-hoja-de-lata",
+      "url": "/editoriales/hoja-de-lata/",
+      "label": "Hoja de Lata",
+      "shortLabel": "Hoja de Lata",
+      "type": "directory",
+      "territory": "herramientas",
+      "parentId": "editorials-hub",
+      "hubId": "tools-hub",
+      "discoverability": "contextual",
+      "audience": [
+        "writer"
+      ],
+      "jobs": [
+        "buscar-editorial"
+      ],
+      "sourceFile": "editoriales/hoja-de-lata/index.html"
+    },
+    {
+      "id": "editorial-literup-ediciones",
+      "url": "/editoriales/literup-ediciones/",
+      "label": "LiterUp Ediciones",
+      "shortLabel": "LiterUp Ediciones",
+      "type": "directory",
+      "territory": "herramientas",
+      "parentId": "editorials-hub",
+      "hubId": "tools-hub",
+      "discoverability": "contextual",
+      "audience": [
+        "writer"
+      ],
+      "jobs": [
+        "buscar-editorial"
+      ],
+      "sourceFile": "editoriales/literup-ediciones/index.html"
+    },
+    {
+      "id": "editorial-lengua-de-trapo",
+      "url": "/editoriales/lengua-de-trapo/",
+      "label": "Lengua de Trapo",
+      "shortLabel": "Lengua de Trapo",
+      "type": "directory",
+      "territory": "herramientas",
+      "parentId": "editorials-hub",
+      "hubId": "tools-hub",
+      "discoverability": "contextual",
+      "audience": [
+        "writer"
+      ],
+      "jobs": [
+        "buscar-editorial"
+      ],
+      "sourceFile": "editoriales/lengua-de-trapo/index.html"
+    },
+    {
+      "id": "editorial-las-afueras",
+      "url": "/editoriales/las-afueras/",
+      "label": "Las afueras",
+      "shortLabel": "Las afueras",
+      "type": "directory",
+      "territory": "herramientas",
+      "parentId": "editorials-hub",
+      "hubId": "tools-hub",
+      "discoverability": "contextual",
+      "audience": [
+        "writer"
+      ],
+      "jobs": [
+        "buscar-editorial"
+      ],
+      "sourceFile": "editoriales/las-afueras/index.html"
+    },
+    {
+      "id": "editorial-ediciones-pamies",
+      "url": "/editoriales/ediciones-pamies/",
+      "label": "Ediciones Pàmies",
+      "shortLabel": "Ediciones Pàmies",
+      "type": "directory",
+      "territory": "herramientas",
+      "parentId": "editorials-hub",
+      "hubId": "tools-hub",
+      "discoverability": "contextual",
+      "audience": [
+        "writer"
+      ],
+      "jobs": [
+        "buscar-editorial"
+      ],
+      "sourceFile": "editoriales/ediciones-pamies/index.html"
+    },
+    {
+      "id": "editorial-apeiron-ediciones",
+      "url": "/editoriales/apeiron-ediciones/",
+      "label": "Ápeiron Ediciones",
+      "shortLabel": "Ápeiron Ediciones",
+      "type": "directory",
+      "territory": "herramientas",
+      "parentId": "editorials-hub",
+      "hubId": "tools-hub",
+      "discoverability": "contextual",
+      "audience": [
+        "writer"
+      ],
+      "jobs": [
+        "buscar-editorial"
+      ],
+      "sourceFile": "editoriales/apeiron-ediciones/index.html"
+    },
+    {
+      "id": "editorial-uzanza-editorial",
+      "url": "/editoriales/uzanza-editorial/",
+      "label": "Uzanza Editorial",
+      "shortLabel": "Uzanza Editorial",
+      "type": "directory",
+      "territory": "herramientas",
+      "parentId": "editorials-hub",
+      "hubId": "tools-hub",
+      "discoverability": "contextual",
+      "audience": [
+        "writer"
+      ],
+      "jobs": [
+        "buscar-editorial"
+      ],
+      "sourceFile": "editoriales/uzanza-editorial/index.html"
+    },
+    {
+      "id": "editorial-editorial-la-calle",
+      "url": "/editoriales/editorial-la-calle/",
+      "label": "Editorial La Calle",
+      "shortLabel": "Editorial La Calle",
+      "type": "directory",
+      "territory": "herramientas",
+      "parentId": "editorials-hub",
+      "hubId": "tools-hub",
+      "discoverability": "contextual",
+      "audience": [
+        "writer"
+      ],
+      "jobs": [
+        "buscar-editorial"
+      ],
+      "sourceFile": "editoriales/editorial-la-calle/index.html"
+    },
+    {
+      "id": "editorial-alamut",
+      "url": "/editoriales/alamut/",
+      "label": "Alamut",
+      "shortLabel": "Alamut",
+      "type": "directory",
+      "territory": "herramientas",
+      "parentId": "editorials-hub",
+      "hubId": "tools-hub",
+      "discoverability": "contextual",
+      "audience": [
+        "writer"
+      ],
+      "jobs": [
+        "buscar-editorial"
+      ],
+      "sourceFile": "editoriales/alamut/index.html"
+    },
+    {
+      "id": "editorial-editorial-vanadis",
+      "url": "/editoriales/editorial-vanadis/",
+      "label": "Editorial Vanadis",
+      "shortLabel": "Editorial Vanadis",
+      "type": "directory",
+      "territory": "herramientas",
+      "parentId": "editorials-hub",
+      "hubId": "tools-hub",
+      "discoverability": "contextual",
+      "audience": [
+        "writer"
+      ],
+      "jobs": [
+        "buscar-editorial"
+      ],
+      "sourceFile": "editoriales/editorial-vanadis/index.html"
+    },
+    {
+      "id": "editorial-editorial-runaris",
+      "url": "/editoriales/editorial-runaris/",
+      "label": "Editorial Runaris",
+      "shortLabel": "Editorial Runaris",
+      "type": "directory",
+      "territory": "herramientas",
+      "parentId": "editorials-hub",
+      "hubId": "tools-hub",
+      "discoverability": "contextual",
+      "audience": [
+        "writer"
+      ],
+      "jobs": [
+        "buscar-editorial"
+      ],
+      "sourceFile": "editoriales/editorial-runaris/index.html"
+    },
+    {
+      "id": "editorial-akelarre-ediciones",
+      "url": "/editoriales/akelarre-ediciones/",
+      "label": "Akelarre Ediciones",
+      "shortLabel": "Akelarre Ediciones",
+      "type": "directory",
+      "territory": "herramientas",
+      "parentId": "editorials-hub",
+      "hubId": "tools-hub",
+      "discoverability": "contextual",
+      "audience": [
+        "writer"
+      ],
+      "jobs": [
+        "buscar-editorial"
+      ],
+      "sourceFile": "editoriales/akelarre-ediciones/index.html"
+    },
+    {
+      "id": "editorial-ediciones-dorna",
+      "url": "/editoriales/ediciones-dorna/",
+      "label": "Ediciones Dorna",
+      "shortLabel": "Ediciones Dorna",
+      "type": "directory",
+      "territory": "herramientas",
+      "parentId": "editorials-hub",
+      "hubId": "tools-hub",
+      "discoverability": "contextual",
+      "audience": [
+        "writer"
+      ],
+      "jobs": [
+        "buscar-editorial"
+      ],
+      "sourceFile": "editoriales/ediciones-dorna/index.html"
+    },
+    {
+      "id": "editorial-la-maquina-que-hace-ping",
+      "url": "/editoriales/la-maquina-que-hace-ping/",
+      "label": "La Máquina que Hace PING!",
+      "shortLabel": "La Máquina que Hace PING!",
+      "type": "directory",
+      "territory": "herramientas",
+      "parentId": "editorials-hub",
+      "hubId": "tools-hub",
+      "discoverability": "contextual",
+      "audience": [
+        "writer"
+      ],
+      "jobs": [
+        "buscar-editorial"
+      ],
+      "sourceFile": "editoriales/la-maquina-que-hace-ping/index.html"
+    },
+    {
+      "id": "editorial-grupo-planeta-mexico",
+      "url": "/editoriales/grupo-planeta-mexico/",
+      "label": "Grupo Planeta México",
+      "shortLabel": "Grupo Planeta México",
+      "type": "directory",
+      "territory": "herramientas",
+      "parentId": "editorials-hub",
+      "hubId": "tools-hub",
+      "discoverability": "contextual",
+      "audience": [
+        "writer"
+      ],
+      "jobs": [
+        "buscar-editorial"
+      ],
+      "sourceFile": "editoriales/grupo-planeta-mexico/index.html"
+    },
+    {
+      "id": "editorial-foem-ceape",
+      "url": "/editoriales/foem-ceape/",
+      "label": "FOEM / CEAPE",
+      "shortLabel": "FOEM / CEAPE",
+      "type": "directory",
+      "territory": "herramientas",
+      "parentId": "editorials-hub",
+      "hubId": "tools-hub",
+      "discoverability": "contextual",
+      "audience": [
+        "writer"
+      ],
+      "jobs": [
+        "buscar-editorial"
+      ],
+      "sourceFile": "editoriales/foem-ceape/index.html"
+    },
+    {
+      "id": "editorial-editorial-acantilado",
+      "url": "/editoriales/editorial-acantilado/",
+      "label": "Editorial Acantilado",
+      "shortLabel": "Editorial Acantilado",
+      "type": "directory",
+      "territory": "herramientas",
+      "parentId": "editorials-hub",
+      "hubId": "tools-hub",
+      "discoverability": "contextual",
+      "audience": [
+        "writer"
+      ],
+      "jobs": [
+        "buscar-editorial"
+      ],
+      "sourceFile": "editoriales/editorial-acantilado/index.html"
+    },
+    {
+      "id": "editorial-la-caja-books",
+      "url": "/editoriales/la-caja-books/",
+      "label": "La Caja Books",
+      "shortLabel": "La Caja Books",
+      "type": "directory",
+      "territory": "herramientas",
+      "parentId": "editorials-hub",
+      "hubId": "tools-hub",
+      "discoverability": "contextual",
+      "audience": [
+        "writer"
+      ],
+      "jobs": [
+        "buscar-editorial"
+      ],
+      "sourceFile": "editoriales/la-caja-books/index.html"
+    },
+    {
+      "id": "editorial-libros-de-seda",
+      "url": "/editoriales/libros-de-seda/",
+      "label": "Libros de Seda",
+      "shortLabel": "Libros de Seda",
+      "type": "directory",
+      "territory": "herramientas",
+      "parentId": "editorials-hub",
+      "hubId": "tools-hub",
+      "discoverability": "contextual",
+      "audience": [
+        "writer"
+      ],
+      "jobs": [
+        "buscar-editorial"
+      ],
+      "sourceFile": "editoriales/libros-de-seda/index.html"
+    },
+    {
+      "id": "editorial-tres-hermanas",
+      "url": "/editoriales/tres-hermanas/",
+      "label": "Tres Hermanas",
+      "shortLabel": "Tres Hermanas",
+      "type": "directory",
+      "territory": "herramientas",
+      "parentId": "editorials-hub",
+      "hubId": "tools-hub",
+      "discoverability": "contextual",
+      "audience": [
+        "writer"
+      ],
+      "jobs": [
+        "buscar-editorial"
+      ],
+      "sourceFile": "editoriales/tres-hermanas/index.html"
+    },
+    {
+      "id": "editorial-automatica-editorial",
+      "url": "/editoriales/automatica-editorial/",
+      "label": "Automática Editorial",
+      "shortLabel": "Automática Editorial",
+      "type": "directory",
+      "territory": "herramientas",
+      "parentId": "editorials-hub",
+      "hubId": "tools-hub",
+      "discoverability": "contextual",
+      "audience": [
+        "writer"
+      ],
+      "jobs": [
+        "buscar-editorial"
+      ],
+      "sourceFile": "editoriales/automatica-editorial/index.html"
+    },
+    {
+      "id": "editorial-pre-textos",
+      "url": "/editoriales/pre-textos/",
+      "label": "Editorial Pre-Textos",
+      "shortLabel": "Editorial Pre-Textos",
+      "type": "directory",
+      "territory": "herramientas",
+      "parentId": "editorials-hub",
+      "hubId": "tools-hub",
+      "discoverability": "contextual",
+      "audience": [
+        "writer"
+      ],
+      "jobs": [
+        "buscar-editorial"
+      ],
+      "sourceFile": "editoriales/pre-textos/index.html"
+    },
+    {
+      "id": "editorial-dos-bigotes",
+      "url": "/editoriales/dos-bigotes/",
+      "label": "Editorial Dos Bigotes",
+      "shortLabel": "Editorial Dos Bigotes",
+      "type": "directory",
+      "territory": "herramientas",
+      "parentId": "editorials-hub",
+      "hubId": "tools-hub",
+      "discoverability": "contextual",
+      "audience": [
+        "writer"
+      ],
+      "jobs": [
+        "buscar-editorial"
+      ],
+      "sourceFile": "editoriales/dos-bigotes/index.html"
+    },
+    {
+      "id": "editorial-editorial-dieciseis",
+      "url": "/editoriales/editorial-dieciseis/",
+      "label": "Editorial Dieciséis",
+      "shortLabel": "Editorial Dieciséis",
+      "type": "directory",
+      "territory": "herramientas",
+      "parentId": "editorials-hub",
+      "hubId": "tools-hub",
+      "discoverability": "contextual",
+      "audience": [
+        "writer"
+      ],
+      "jobs": [
+        "buscar-editorial"
+      ],
+      "sourceFile": "editoriales/editorial-dieciseis/index.html"
+    }
   ]
 }

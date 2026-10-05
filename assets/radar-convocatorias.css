@@ -67,7 +67,7 @@ html.v1[data-editorial-context="herramientas"]:has(main#contenido [data-radar-gr
              linear-gradient(var(--radar-gold),var(--radar-gold)) left 4px/100% 1.5px no-repeat
 }
 html.v1[data-editorial-context="herramientas"]:has(main#contenido [data-radar-grid]) .tool-options{
-  grid-column:1/-1;display:grid;grid-template-columns:minmax(0,1.35fr) minmax(0,.8fr) minmax(0,.8fr);gap:.9rem 1rem;align-items:end;margin:0;min-width:0
+  grid-column:1/-1;display:grid;grid-template-columns:minmax(0,1.35fr) repeat(3,minmax(0,.75fr));gap:.9rem 1rem;align-items:end;margin:0;min-width:0
 }
 html.v1[data-editorial-context="herramientas"]:has(main#contenido [data-radar-grid]) .tool-field{min-width:0;margin:0}
 html.v1[data-editorial-context="herramientas"]:has(main#contenido [data-radar-grid]) .tool-field-label{
@@ -261,3 +261,12 @@ html.v1[data-editorial-context="herramientas"]:has(main#contenido [data-radar-gr
 @media(prefers-reduced-motion:reduce){
   html.v1[data-editorial-context="herramientas"]:has(main#contenido [data-radar-grid]) main#contenido *{scroll-behavior:auto!important;transition:none!important;animation:none!important}
 }
+
+html.v1[data-editorial-context="herramientas"]:has(main#contenido [data-radar-grid]) .radar-section{margin-top:clamp(2.4rem,4vw,4rem)}
+html.v1[data-editorial-context="herramientas"]:has(main#contenido [data-radar-grid]) .radar-section[hidden]{display:none}
+html.v1[data-editorial-context="herramientas"]:has(main#contenido [data-radar-grid]) .radar-section__head{max-width:68rem;margin:0 0 clamp(1.8rem,3vw,3rem);padding-bottom:1.15rem;border-bottom:1px solid var(--radar-rule)}
+html.v1[data-editorial-context="herramientas"]:has(main#contenido [data-radar-grid]) .radar-section__head .eyebrow{margin:0 0 .45rem;color:var(--radar-gold-text);font:700 .7rem/1.2 var(--font-ui);letter-spacing:.08em;text-transform:uppercase}
+html.v1[data-editorial-context="herramientas"]:has(main#contenido [data-radar-grid]) .radar-section__head h2{margin:0 0 .55rem;color:var(--radar-blue);font-size:clamp(1.8rem,2.5vw,2.7rem);line-height:1}
+html.v1[data-editorial-context="herramientas"]:has(main#contenido [data-radar-grid]) .radar-section__head p:last-child{max-width:70ch;margin:0;color:var(--radar-muted);line-height:1.58}
+html.v1[data-editorial-context="herramientas"]:has(main#contenido [data-radar-grid]) .radar-section .radar-grid{margin-top:0}
+html.v1[data-editorial-context="herramientas"]:has(main#contenido [data-radar-grid]) .radar-card--watch .radar-badge{border-style:dashed;background:#fff}

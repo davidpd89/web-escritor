@@ -16,7 +16,7 @@ permissions:
 jobs:
   check-links:
     runs-on: ubuntu-latest
-    timeout-minutes: 12
+    timeout-minutes: 40
 
     steps:
       - name: Checkout
@@ -38,12 +38,12 @@ jobs:
             --root-dir "$(pwd)"
             --index-files 'index.html,.'
             --cache-exclude-status '429,500..=599'
-            --max-retries 4
-            --retry-wait-time 2
-            --timeout 25
-            --host-concurrency 2
-            --host-request-interval 250ms
-            --max-concurrency 32
+            --max-retries 5
+            --retry-wait-time 4
+            --timeout 45
+            --host-concurrency 1
+            --host-request-interval 750ms
+            --max-concurrency 8
             --method get
             --exclude-path '(^|/)scripts/'
             --exclude-path '(^|/)tests/'

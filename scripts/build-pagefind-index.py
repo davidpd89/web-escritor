@@ -29,6 +29,7 @@ Usage:
 from __future__ import annotations
 
 import argparse
+import hashlib
 import json
 import re
 import shutil
@@ -131,8 +132,21 @@ def run_pagefind(src_dir: Path, out_dir: Path) -> None:
     )
 
 
-def write_manifest(out_dir: Path, pages: list[str]) -> None:
-    manifest = {"schema_version": 1, "page_count": len(pages), "pages": pages}
+def source_hashes(root: Path, pages: list[str]) -> dict[str, str]:
+    """Hash the exact eligible source HTML bytes Pagefind was built from."""
+    return {
+        rel: hashlib.sha256((root / rel).read_bytes()).hexdigest()
+        for rel in pages
+    }
+
+
+def write_manifest(out_dir: Path, pages: list[str], root: Path) -> None:
+    manifest = {
+        "schema_version": 2,
+        "page_count": len(pages),
+        "pages": pages,
+        "source_sha256": source_hashes(root, pages),
+    }
     (out_dir / MANIFEST_NAME).write_text(
         json.dumps(manifest, ensure_ascii=False, indent=2) + "\n", encoding="utf-8"
     )
@@ -148,7 +162,7 @@ def build(root: Path, out_dir: Path, src_dir: Path) -> int:
         run_pagefind(src_dir, out_dir)
     finally:
         shutil.rmtree(src_dir, ignore_errors=True)
-    write_manifest(out_dir, pages)
+    write_manifest(out_dir, pages, root)
     print(f"BUILT {out_dir}: {len(pages)} page(s) indexed.")
     return 0
 
@@ -175,7 +189,28 @@ def check(root: Path, out_dir: Path) -> int:
             print(f"  indexed but no longer eligible: {removed}", file=sys.stderr)
         print("Regenerate with: python scripts/build-pagefind-index.py", file=sys.stderr)
         return 1
-    print(f"PASS: pagefind/ matches the current corpus ({len(current_pages)} page(s)).")
+
+    committed_hashes = manifest.get("source_sha256")
+    current_hashes = source_hashes(root, current_pages)
+    if committed_hashes != current_hashes:
+        committed_hashes = committed_hashes if isinstance(committed_hashes, dict) else {}
+        changed = sorted(
+            rel for rel in current_pages
+            if committed_hashes.get(rel) != current_hashes.get(rel)
+        )
+        print(
+            "FAIL: pagefind/ is stale -- indexed HTML content changed since last build.",
+            file=sys.stderr,
+        )
+        if changed:
+            print(f"  changed eligible page(s): {changed}", file=sys.stderr)
+        print("Regenerate with: python scripts/build-pagefind-index.py", file=sys.stderr)
+        return 1
+
+    print(
+        f"PASS: pagefind/ matches the current corpus and source content "
+        f"({len(current_pages)} page(s))."
+    )
     return 0
 
 

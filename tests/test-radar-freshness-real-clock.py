@@ -58,6 +58,34 @@ assert builder.state(fresh, today) == "open"
 checker.check_radar_freshness(builder, [fresh], [fresh], today, today)
 print("ok current: freshly verified dataset -> PASS")
 
+future = copy.deepcopy(base)
+future["verified_at"] = (today + timedelta(days=1)).isoformat()
+assert builder.state(future, today) == "stale"
+print("ok mutation: future verified_at is never treated as current")
+
+future_watch = {
+    "id": "future-watch",
+    "title": "Future watch",
+    "type": "premio",
+    "organizer": "Entidad",
+    "genres": ["novela"],
+    "source_url": "https://example.com/watch",
+    "verified_at": (today + timedelta(days=1)).isoformat(),
+    "published": True,
+    "status_note": "Anunciado",
+    "reference_note": "Referencia",
+}
+assert builder.watch_items([future_watch], today) == []
+print("ok mutation: future watchlist verification stays hidden")
+
+try:
+    builder.ensure_disjoint_ids([{"id": "same"}], [{"id": "same"}])
+except ValueError as exc:
+    assert "ids repetidos entre items y watchlist" in str(exc)
+    print("ok mutation: cross-list duplicate id -> FAIL")
+else:
+    raise AssertionError("cross-list duplicate id incorrectly passed")
+
 # The repository itself must also agree with the real execution date today.
 checker.check_radar()
 print("test-radar-freshness-real-clock: OK")

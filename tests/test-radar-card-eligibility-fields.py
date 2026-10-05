@@ -19,6 +19,7 @@ from __future__ import annotations
 
 import importlib.util
 import io
+import json
 import sys
 from datetime import date
 from pathlib import Path
@@ -64,15 +65,18 @@ check("Cómo presentarse" not in card_without, "card() omits the submission_mode
 
 # The real dataset should still build without error with these fields active.
 items = br.load_items(ROOT / "data" / "radar-opportunities.json")
-html = br.build_html(items, date.fromisoformat("2026-08-22"))
+public_payload = json.loads((ROOT / "convocatorias-escritores" / "opportunities.json").read_text(encoding="utf-8"))
+target_date = date.fromisoformat(public_payload["generated_for"])
+html = br.build_html(items, target_date)
 real_with_eligibility = [i for i in items if i.get("eligibility")]
 check(len(real_with_eligibility) > 0, "the real dataset has at least one item with eligibility (sanity check)")
 for item in real_with_eligibility:
     if not item.get("published"):
         continue
+    state = br.state(item, target_date)
     check(
-        br.esc(item["eligibility"]) in html or item["deadline"] < "2026-08-22",
-        f"{item['id']}: its eligibility text appears in the real generated HTML (or the item is already expired)",
+        br.esc(item["eligibility"]) in html or state not in {"open", "closing_soon"},
+        f"{item['id']}: its eligibility text appears when the item is public at the generated clock",
     )
 
 print(f"tests/test-radar-card-eligibility-fields: {'OK' if not failures else f'{len(failures)} FALLO(S)'}")
