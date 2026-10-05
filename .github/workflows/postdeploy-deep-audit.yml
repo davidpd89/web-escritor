@@ -6,6 +6,7 @@ on:
       - 'qa/production-professional-resources-audit.mjs'
       - 'qa/adaptive-formats-production.mjs'
       - 'qa/production-global-integrity-audit.mjs'
+      - 'qa/production-cross-engine-smoke.mjs'
       - '.github/workflows/postdeploy-deep-audit.yml'
   push:
     branches: [main]
@@ -51,6 +52,7 @@ jobs:
           node --check qa/production-professional-resources-audit.mjs
           node --check qa/adaptive-formats-production.mjs
           node --check qa/production-global-integrity-audit.mjs
+          node --check qa/production-cross-engine-smoke.mjs
 
       - name: Re-run global static contracts after main integration
         shell: bash
@@ -131,6 +133,50 @@ jobs:
             artifacts/compression/
           if-no-files-found: warn
           retention-days: 14
+
+  production-cross-engine:
+    name: production-cross-engine
+    if: >
+      (github.event_name == 'workflow_run' && github.event.workflow_run.conclusion == 'success') ||
+      github.event_name == 'schedule' ||
+      github.event_name == 'workflow_dispatch'
+    needs: production-parity
+    runs-on: ubuntu-24.04
+    timeout-minutes: 25
+    env:
+      SITE_BASE_URL: https://davidportodiaz.com
+      EXPECTED_RELEASE_SHA: ${{ github.event_name == 'workflow_run' && github.event.workflow_run.head_sha || github.sha }}
+    steps:
+      - name: Checkout audited release
+        uses: actions/checkout@v5
+        with:
+          ref: ${{ env.EXPECTED_RELEASE_SHA }}
+
+      - name: Set up Node
+        uses: actions/setup-node@v5
+        with:
+          node-version: '22'
+
+      - name: Install CI/QA dependencies
+        run: npm ci
+
+      - name: Cache Playwright browsers
+        id: playwright-cross-cache
+        uses: actions/cache@v5
+        with:
+          path: ~/.cache/ms-playwright
+          key: playwright-cross-engine-${{ hashFiles('package-lock.json') }}
+
+      - name: Install Chromium, Firefox and WebKit with OS dependencies
+        if: steps.playwright-cross-cache.outputs.cache-hit != 'true'
+        run: npx playwright install --with-deps chromium firefox webkit
+
+      - name: Install browser OS dependencies only
+        if: steps.playwright-cross-cache.outputs.cache-hit == 'true'
+        run: npx playwright install-deps chromium firefox webkit
+
+      - name: Audit production in Chromium, Firefox and WebKit
+        run: node qa/production-cross-engine-smoke.mjs
 
   adaptive-formats:
     needs: production-parity
