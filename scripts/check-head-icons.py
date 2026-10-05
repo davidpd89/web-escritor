@@ -18,7 +18,7 @@ from pathlib import Path
 ROOT=Path(__file__).resolve().parents[1]
 OLD_ICON='<link rel="icon" type="image/png" href="/assets/david-porto-favicon.png" />'
 NEW_ICON='<link rel="icon" href="/favicon.ico" sizes="any" />'
-LEGACY_ICON_RE=re.compile(r'<link\\b(?=[^>]*\\brel=["\\\'][^"\\\']*\\bicon\\b[^"\\\']*["\\\'])(?=[^>]*\\bhref=["\\\']/assets/david-porto-favicon\\.png["\\\'])[^>]*>',re.I)
+LEGACY_ICON_RE=re.compile(r'<link\b(?=[^>]*\brel=["\'][^"\']*\bicon\b[^"\']*["\'])(?=[^>]*\bhref=["\']/assets/david-porto-favicon\.png["\'])[^>]*>',re.I)
 
 
 def tracked_targets()->list[Path]:
