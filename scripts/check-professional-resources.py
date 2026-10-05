@@ -20,7 +20,10 @@ def https(v,label):
     except ValueError as e:raise AssertionError(f"{label}: malformed URL") from e
     if p.scheme!="https" or not p.hostname or p.username or p.password or port not in (None,443):fail(f"{label}: must be clean HTTPS URL")
 def load(path):return json.loads((ROOT/path).read_text(encoding="utf-8"))
+def editorials_builder():
+    p=ROOT/"scripts/build-editoriales.py";spec=importlib.util.spec_from_file_location("editorials_builder",p);m=importlib.util.module_from_spec(spec);assert spec.loader;spec.loader.exec_module(m);return m
 def check_editorials():
+    b=editorials_builder();real_today=date.today()
     src=load(Path("data/editoriales.json"));pub=load(Path("editoriales/editoriales-data.json"))
     items=src.get("publishers");public=pub.get("publishers")
     if not isinstance(items,list) or not isinstance(public,list):fail("editoriales: publishers[] missing")
@@ -30,16 +33,35 @@ def check_editorials():
         if not slug or slug in seen:fail(f"editoriales duplicate/missing slug {slug!r}")
         seen.add(slug)
         if item.get("status") not in STATUS:fail(f"{slug}: invalid status")
-        iso(item.get("verified_at"),f"{slug}.verified_at")
+        verified=iso(item.get("verified_at"),f"{slug}.verified_at")
+        if verified>real_today:fail(f"{slug}: verified_at is in the future")
         for key in ("submission_url","website_url"):
             if item.get(key):https(item[key],f"{slug}.{key}")
         for n,source in enumerate(item.get("sources",[])):
             https(source.get("url"),f"{slug}.sources[{n}]")
         if item.get("status")!="open" and item.get("submission_email"):fail(f"{slug}: submission email exposed while not open")
-    expected={i["slug"] for i in items if i.get("publish",True)}
+    published=[i for i in items if i.get("publish",True)]
+    expected={i["slug"] for i in published}
     if {i.get("slug") for i in public}!=expected:fail("editoriales source/public mismatch")
     details={p.parent.name for p in (ROOT/"editoriales").glob("*/index.html")}
     if details!=expected:fail(f"editoriales detail coverage mismatch data={sorted(expected)} details={sorted(details)}")
+
+    # Real-clock freshness: unlike a deadline, an editorial entry does not
+    # disappear after N days; instead the builder marks >90-day verifications
+    # as needing review. This guard makes that threshold advance with the real
+    # execution date, so a static build cannot silently cross day 91 without
+    # regenerating its warning state.
+    stale_now=[i for i in published if b.stale(i,real_today)]
+    index_html=(ROOT/"editoriales/index.html").read_text(encoding="utf-8")
+    marker="Verificación antigua: revisa la fuente oficial antes de enviar."
+    if index_html.count(marker)!=len(stale_now):
+        fail(f"editoriales index stale-warning drift for {real_today}: expected {len(stale_now)} marker(s), found {index_html.count(marker)}")
+    detail_marker="<strong>Revisión recomendada:</strong>"
+    for item in published:
+        detail=(ROOT/"editoriales"/item["slug"]/"index.html").read_text(encoding="utf-8")
+        expected_stale=b.stale(item,real_today)
+        if (detail_marker in detail)!=expected_stale:
+            fail(f"{item['slug']}: detail stale-warning drift for real execution date {real_today}")
 def normalized_title(value):
     folded=unicodedata.normalize("NFD",str(value)).encode("ascii","ignore").decode("ascii").casefold()
     return re.sub(r"[^a-z0-9]+"," ",folded).strip()
