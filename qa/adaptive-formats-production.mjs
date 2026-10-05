@@ -87,6 +87,16 @@ try{
     await eachRoute(c,'motion',async(page,route)=>{
       await core(page,route,'motion');
       assert.equal(await page.evaluate(()=>matchMedia('(prefers-reduced-motion: reduce)').matches),true);
+      if(route==='/'){
+        const hero=await page.locator('[data-hero-video]').first();
+        if(await hero.count()){
+          const motion=await hero.evaluate(video=>({paused:video.paused,currentTime:video.currentTime,autoplay:video.autoplay,attr:video.hasAttribute('autoplay')}));
+          assert.equal(motion.autoplay,false,'reduced-motion hero video autoplay property must be false');
+          assert.equal(motion.attr,false,'reduced-motion hero video must not carry autoplay attribute');
+          assert.equal(motion.paused,true,'reduced-motion hero video must remain paused');
+          assert.ok(motion.currentTime<0.1,`reduced-motion hero video advanced to ${motion.currentTime}s`);
+        }
+      }
       const offenders=await page.evaluate(()=>[...document.querySelectorAll('body *')]
         .filter(e=>{
           const s=getComputedStyle(e);
