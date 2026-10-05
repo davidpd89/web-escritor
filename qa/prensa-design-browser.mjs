@@ -159,7 +159,16 @@ try{
       assert.equal(await page.locator('#ficha-manecillas img').getAttribute('src'),'/assets/manecillas-book-mockup.webp',`${name}: mockup de Manecillas alterado`);
       assert.equal(await page.locator('#ficha img').getAttribute('src'),'/assets/samuel_entre_mundos_3d.webp',`${name}: mockup de Samuel alterado`);
       const mediaKitLinks=page.locator('a[href*="drive.google.com/drive/folders/16DoCPC-s5ySXzxHwQX-6O6QOJ6FzXnMz"]');
-      assert.ok(await mediaKitLinks.count()>=6,`${name}: faltan enlaces al kit gráfico privado de Drive`);
+      assert.equal(await mediaKitLinks.count(),5,`${name}: el kit gráfico privado debe tener exactamente 5 accesos contextuales`);
+      const expectedMediaKit='https://drive.google.com/drive/folders/16DoCPC-s5ySXzxHwQX-6O6QOJ6FzXnMz?usp=sharing';
+      for(let i=0;i<await mediaKitLinks.count();i++){
+        const link=mediaKitLinks.nth(i);
+        assert.equal(await link.getAttribute('href'),expectedMediaKit,`${name}: enlace Drive incorrecto en CTA ${i}`);
+        assert.equal(await link.getAttribute('target'),'_blank',`${name}: CTA Drive ${i} no abre en nueva pestaña`);
+        const rel=(await link.getAttribute('rel'))||'';
+        assert.ok(rel.includes('noopener')&&rel.includes('noreferrer'),`${name}: CTA Drive ${i} sin protección rel`);
+        assert.ok((await link.innerText()).toLowerCase().includes('solicitar acceso'),`${name}: CTA Drive ${i} no explica que se puede solicitar acceso`);
+      }
       assert.equal(await page.locator('#bios [data-email-subject="Foto editorial del autor"]').count(),0,`${name}: la foto editorial sigue solicitándose por email`);
       assert.equal(await page.locator('#bios [data-email-subject="Fotos de eventos"]').count(),0,`${name}: las fotos de eventos siguen solicitándose por email`);
       assert.equal(await page.locator('[data-email-subject="Portada Samuel entre mundos"]').count(),0,`${name}: la portada de Samuel sigue solicitándose por email`);
