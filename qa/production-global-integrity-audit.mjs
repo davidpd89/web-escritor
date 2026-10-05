@@ -77,6 +77,19 @@ await pool(pages,12,async x=>{
   }catch(e){failures.push(String(e?.message||e))}
 });
 
+for(const [route,file] of [
+  ['/robots.txt','robots.txt'],
+  ['/manifest.json','manifest.json'],
+  ['/service-worker.js','service-worker.js'],
+  ['/humans.txt','humans.txt'],
+  ['/llms.txt','llms.txt'],
+  ['/llms-full.txt','llms-full.txt'],
+]){
+  const r=await get(route);
+  assert.equal(r.status,200,route+' status');
+  assert.equal(norm(r.body),norm(read(file)),route+' differs from repository release');
+}
+
 const prodSitemap=await get('/sitemap.xml');
 assert.equal(prodSitemap.status,200,'sitemap production status');
 const localLocs=locs(read('sitemap.xml'));
