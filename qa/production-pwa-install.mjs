@@ -34,10 +34,14 @@ try{
     });
     if(!navigator.serviceWorker.controller){
       await new Promise(resolve=>{const timer=setTimeout(resolve,5000);navigator.serviceWorker.addEventListener('controllerchange',()=>{clearTimeout(timer);resolve()},{once:true})});
-      if(!navigator.serviceWorker.controller) location.reload();
     }
-    return {scope:reg.scope,state:reg.active?.state||null,scriptURL:reg.active?.scriptURL||null};
+    return {scope:reg.scope,state:reg.active?.state||null,scriptURL:reg.active?.scriptURL||null,controlled:Boolean(navigator.serviceWorker.controller)};
   });
+  if(!registration.controlled){
+    await page.reload({waitUntil:'domcontentloaded',timeout:25000});
+    registration.controlled=await page.evaluate(()=>Boolean(navigator.serviceWorker.controller));
+  }
+  assert.equal(registration.controlled,true,'PWA production page not controlled after activation/reload');
   assert.equal(registration.scope,`${O}/`,'PWA production scope drift');
   assert.equal(registration.state,'activated','PWA production worker not activated');
   assert.equal(new URL(registration.scriptURL).pathname,'/service-worker.js','PWA production script URL drift');
