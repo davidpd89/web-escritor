@@ -1433,3 +1433,6 @@ html.v1[data-lrb-home="true"] .form-submit:focus-visible{
 @media(max-width:1100px){
   html.v1[data-lrb-home="true"] .home-events__grid{grid-template-columns:1fr}
 }
+
+/* Printing must never include the cinematic first-visit overlay. */
+@media print{html.v1 .intro{display:none!important}}
