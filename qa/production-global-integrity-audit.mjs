@@ -12,7 +12,8 @@ const canonical=h=>[...(h.match(/<link\b[^>]*>/gi)||[])].find(x=>/rel=["'][^"']*
 const noindex=h=>/name=["']robots["'][^>]*content=["'][^"']*noindex/i.test(h);
 const metaRefresh=h=>/<meta\b[^>]*http-equiv=["']refresh["']/i.test(h);
 const htmlLang=h=>h.match(/<html\b[^>]*\blang=["']([^"']+)/i)?.[1]||'';
-const locs=x=>[...x.matchAll(/<loc>(.*?)<\/loc>/gis)].map(m=>m[1].trim());
+const canonicalUrl=u=>{const v=String(u||'').trim();return v===ORIGIN?ORIGIN+'/':v};
+const locs=x=>[...x.matchAll(/<loc>(.*?)<\/loc>/gis)].map(m=>canonicalUrl(m[1]));
 
 async function get(route){
   const u=new URL(route,ORIGIN);
