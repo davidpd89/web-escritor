@@ -171,7 +171,7 @@ class AuditParser(HTMLParser):
 
         for node in self.nodes:
             attrs = node.attrs
-            hidden = attrs.get("hidden") != "" or attrs.get("aria-hidden", "").lower() == "true"
+            hidden = "hidden" in attrs or attrs.get("aria-hidden", "").lower() == "true"
             if hidden:
                 continue
 
