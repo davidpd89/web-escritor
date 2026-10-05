@@ -13,6 +13,7 @@ on:
       - 'qa/production-release-marker.mjs'
       - 'qa/production-url-normalization.mjs'
       - 'qa/production-session-resilience.mjs'
+      - 'qa/production-pwa-install.mjs'
       - 'qa/production-cross-page-fragments.mjs'
       - 'qa/production-nojs-history.mjs'
       - 'qa/production-asset-parity.mjs'
@@ -39,6 +40,7 @@ on:
       - 'qa/production-release-marker.mjs'
       - 'qa/production-url-normalization.mjs'
       - 'qa/production-session-resilience.mjs'
+      - 'qa/production-pwa-install.mjs'
       - 'qa/production-cross-page-fragments.mjs'
       - 'qa/production-nojs-history.mjs'
       - 'qa/production-asset-parity.mjs'
@@ -100,6 +102,7 @@ jobs:
           node --check qa/production-runtime-interactive-contract.mjs
           node --check qa/production-release-marker.mjs
           node --check qa/production-session-resilience.mjs
+          node --check qa/production-pwa-install.mjs
           node --check qa/production-cross-page-fragments.mjs
           node --check qa/production-nojs-history.mjs
           node --check qa/production-url-normalization.mjs
@@ -316,6 +319,9 @@ jobs:
 
       - name: Audit blocked storage and live orientation changes
         run: node qa/production-session-resilience.mjs
+
+      - name: Audit production PWA installability and active caches
+        run: node qa/production-pwa-install.mjs
 
       - name: Audit cross-page fragment targets
         run: node qa/production-cross-page-fragments.mjs
