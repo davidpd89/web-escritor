@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Check HTML DOM integrity: unique IDs, valid ARIA/label references, and non-nested interactives.
+"""Check HTML DOM integrity, accessible references, interactive nesting, and new-tab safety.
 
 Enforces:
 1. ID uniqueness: Every id attribute within a document must be unique (WCAG 4.1.1).
@@ -9,6 +9,7 @@ Enforces:
 4. Interactive nesting rules: Prohibits invalid nesting of interactive elements
    (<button> inside <a>, <a> inside <button>, <button> inside <button>, <a> inside <a>).
 5. Document language: Every <html> tag must declare a non-empty lang attribute.
+6. New-tab safety: Every target="_blank" link must explicitly include rel="noopener".
 
 Usage:
     python scripts/check-dom-integrity.py
@@ -42,6 +43,7 @@ class DomIntegrityParser(HTMLParser):
         self.aria_refs: list[tuple[str, str, int]] = []
         self.tag_stack: list[str] = []
         self.interactive_nesting_errors: list[str] = []
+        self.blank_link_errors: list[str] = []
 
     def handle_starttag(self, tag: str, attrs: list[tuple[str, str | None]]) -> None:
         t = tag.lower()
@@ -79,6 +81,14 @@ class DomIntegrityParser(HTMLParser):
             self.interactive_nesting_errors.append(
                 f"Line {line_num}: invalid interactive nesting <input> inside <{parent}>"
             )
+
+        if t == "a" and attr_dict.get("target", "").lower() == "_blank":
+            rel_tokens = {token.lower() for token in attr_dict.get("rel", "").split()}
+            if "noopener" not in rel_tokens:
+                href = attr_dict.get("href", "")
+                self.blank_link_errors.append(
+                    f"Line {line_num}: target='_blank' link is missing rel='noopener' (href={href!r})"
+                )
 
         if not t in ("area", "base", "br", "col", "embed", "hr", "img", "input", "link", "meta", "param", "source", "track", "wbr"):
             self.tag_stack.append(t)
@@ -124,6 +134,9 @@ def check_html_file(path: Path) -> list[str]:
     for nesting_err in parser.interactive_nesting_errors:
         issues.append(f"{rel_path}: {nesting_err}")
 
+    for link_err in parser.blank_link_errors:
+        issues.append(f"{rel_path}: {link_err}")
+
     return issues
 
 
@@ -145,4 +158,4 @@ if __name__ == "__main__":
             print(f"- {err}")
         sys.exit(1)
     else:
-        print("OK — DOM integrity verified sitewide (IDs unique, ARIA/label references valid, no invalid interactive nesting).")
+        print("OK — DOM integrity verified sitewide (IDs, ARIA/labels, interactive nesting, language and new-tab safety).")
