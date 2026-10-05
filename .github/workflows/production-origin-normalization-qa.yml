@@ -1,0 +1,29 @@
+name: Production origin normalization QA
+
+on:
+  pull_request:
+    paths:
+      - 'qa/production-origin-normalization-audit.mjs'
+      - '.github/workflows/production-origin-normalization-qa.yml'
+  workflow_run:
+    workflows: ['Deploy Pages']
+    types: [completed]
+  schedule:
+    - cron: '23 7 * * *'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  origin-normalization:
+    if: ${{ github.event_name != 'workflow_run' || github.event.workflow_run.conclusion == 'success' }}
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v5
+      - uses: actions/setup-node@v5
+        with:
+          node-version: '22'
+      - name: Verify canonical host, HTTPS and slash normalization
+        run: node qa/production-origin-normalization-audit.mjs
