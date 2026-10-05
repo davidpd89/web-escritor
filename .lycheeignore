@@ -121,3 +121,8 @@ https?://([^/]+\.)?davidportodiaz\.com/.*
 # tras múltiples peticiones del mismo job. Excepción exacta a la raíz citada;
 # otras URLs del dominio siguen bajo validación.
 ^https://lasafueras\.com/$
+
+# Obscura mantiene activa la página oficial de manuscritos, pero Shopify
+# devuelve 429 a Lychee tras múltiples peticiones del mismo job. Excepción
+# exacta para esta fuente; el resto de obscura.es sigue bajo validación.
+^https://obscura\.es/pages/manuscritos$
