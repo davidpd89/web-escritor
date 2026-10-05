@@ -386,6 +386,15 @@ jobs:
       - name: Audit rotating production pages across device classes and keyboard
         run: node qa/production-rotating-device-audit.mjs
 
+      - name: Upload rotating device failure evidence
+        if: always()
+        uses: actions/upload-artifact@v6
+        with:
+          name: rotating-production-device-evidence
+          path: artifacts/rotating-device/
+          if-no-files-found: ignore
+          retention-days: 14
+
   rotating-cross-engine-production:
     name: rotating-cross-engine-production
     needs: production-parity
