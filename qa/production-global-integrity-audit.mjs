@@ -108,7 +108,10 @@ for(const x of entries.filter(x=>x.status==='public'&&x.sitemap)){
 for(const badRoute of ['/__qa-global-missing__','/editoriales/__qa-global-missing__/','/convocatorias-escritores/__qa-global-missing__/']){
   const r=await get(badRoute);
   assert.equal(r.status,404,badRoute+' must be a real 404');
-  assert.doesNotMatch(r.body,/name=["']robots["'][^>]*content=["'][^"']*index/i,badRoute+' 404 must not be indexable');
+  const robotsTag=r.body.match(/<meta\b[^>]*name=["']robots["'][^>]*>/i)?.[0]||'';
+  const robotsContent=robotsTag.match(/content=["']([^"']*)/i)?.[1].toLowerCase().split(',').map(x=>x.trim())||[];
+  assert.ok(robotsContent.includes('noindex'),badRoute+' 404 must declare noindex');
+  assert.equal(robotsContent.includes('index'),false,badRoute+' 404 must not declare index');
 }
 
 assert.deepEqual(failures,[],failures.slice(0,40).join('\n'));
