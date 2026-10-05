@@ -45,8 +45,11 @@ try{
         assert.equal(nav?.status(),200,`${route}: HTTP ${nav?.status()}`);
         await page.waitForTimeout(350);
         const enter=page.locator('[data-intro-enter]').first();
-        if(await enter.count()) await page.evaluate(()=>document.querySelector('[data-intro-enter]')?.click());
-        await page.waitForTimeout(300);
+        if(await enter.count()){
+          await page.evaluate(()=>document.querySelector('[data-intro-enter]')?.click());
+          const intro=page.locator('[data-intro]').first();
+          if(await intro.count()) await intro.waitFor({state:'hidden',timeout:2500});
+        }
 
         const geometry=await page.evaluate(()=>{
           const root=document.documentElement;
@@ -76,6 +79,12 @@ try{
           await explore.click();
           const dialog=page.locator('[data-explore-dialog]').first();
           await dialog.waitFor({state:'visible',timeout:3000});
+          await page.waitForFunction(()=>{
+            const el=document.querySelector('[data-explore-dialog]');
+            if(!(el instanceof HTMLDialogElement)||!el.open)return false;
+            const r=el.getBoundingClientRect();
+            return r.x>=-1&&r.y>=-1&&r.right<=innerWidth+1&&r.bottom<=innerHeight+1;
+          },null,{timeout:2500});
           const rect=await dialog.boundingBox();
           assert.ok(rect,`${route} ${vp.label}: Explore dialog has no box`);
           assert.ok(rect.x>=-1&&rect.y>=-1,`${route} ${vp.label}: Explore dialog starts offscreen`);
