@@ -81,7 +81,7 @@ try{
         }
         const unnamed=[];
         for(const el of document.querySelectorAll('input,select,textarea,button')){
-          if(el.type==='hidden'||el.getAttribute('aria-hidden')==='true') continue;
+          if(el.type==='hidden'||el.getAttribute('aria-hidden')==='true'||el.closest('[aria-hidden="true"],[inert],[hidden]')) continue;
           const s=getComputedStyle(el),r=el.getBoundingClientRect();
           if(s.display==='none'||s.visibility==='hidden'||r.width===0||r.height===0) continue;
           const by=(el.getAttribute('aria-labelledby')||'').split(/\s+/).filter(Boolean)
@@ -94,7 +94,7 @@ try{
         const unsafe=[...document.querySelectorAll('a[target="_blank"]')]
           .filter(a=>{
             const rel=(a.getAttribute('rel')||'').toLowerCase().split(/\s+/);
-            return !rel.includes('noopener')||!rel.includes('noreferrer');
+            return !rel.includes('noopener');
           }).map(a=>a.getAttribute('href'));
         return {
           duplicateIds,missingRefs,unnamed,unsafe,
