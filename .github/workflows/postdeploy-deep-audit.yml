@@ -9,6 +9,7 @@ on:
       - 'qa/production-semantic-parity.mjs'
       - 'qa/production-cross-engine-smoke.mjs'
       - 'qa/production-runtime-dom-audit.mjs'
+      - 'qa/production-release-marker.mjs'
       - 'qa/production-asset-parity.mjs'
       - 'qa/production-pagefind-search.mjs'
       - 'qa/production-format-contract.mjs'
@@ -27,6 +28,7 @@ on:
       - 'qa/production-semantic-parity.mjs'
       - 'qa/production-cross-engine-smoke.mjs'
       - 'qa/production-runtime-dom-audit.mjs'
+      - 'qa/production-release-marker.mjs'
       - 'qa/production-asset-parity.mjs'
       - 'qa/production-pagefind-search.mjs'
       - 'qa/production-format-contract.mjs'
@@ -81,6 +83,7 @@ jobs:
           node --check qa/production-semantic-parity.mjs
           node --check qa/production-cross-engine-smoke.mjs
           node --check qa/production-runtime-dom-audit.mjs
+          node --check qa/production-release-marker.mjs
           node --check qa/production-asset-parity.mjs
           node --check qa/production-pagefind-search.mjs
           node --check qa/production-format-contract.mjs

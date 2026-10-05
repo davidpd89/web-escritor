@@ -1,4 +1,5 @@
 import assert from 'node:assert/strict';
+import { assertProductionRelease } from './production-release-marker.mjs';
 import { chromium, firefox, webkit } from 'playwright';
 
 const O=(process.env.SITE_BASE_URL||'https://davidportodiaz.com').replace(/\/$/,'');
@@ -19,11 +20,7 @@ const ROUTES=[
 const ENGINES={chromium,firefox,webkit};
 const failures=[];
 
-if(S){
-  const r=await fetch(`${O}/_release/${S}.json?qa_cross_engine=1`,{signal:AbortSignal.timeout(15000)});
-  assert.equal(r.status,200,'release marker missing');
-  assert.deepEqual(await r.json(),{schemaVersion:1,sha:S},'release marker mismatch');
-}
+await assertProductionRelease({origin:O,sha:S,label:'cross-engine'});
 
 async function blockNoise(page){
   await page.route(/(?:gc\.zgo\.at|goatcounter\.com|metricool\.com|clarity\.ms|c\.bing\.com)/,r=>r.abort());

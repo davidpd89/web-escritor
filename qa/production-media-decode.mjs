@@ -1,4 +1,5 @@
 import assert from 'node:assert/strict';
+import { assertProductionRelease } from './production-release-marker.mjs';
 import { chromium } from 'playwright';
 
 const O=(process.env.SITE_BASE_URL||'https://davidportodiaz.com').replace(/\/$/,'');
@@ -16,11 +17,7 @@ const ROUTES=[
   '/prensa.html',
   '/mapa-del-sitio/',
 ];
-if(S){
-  const r=await fetch(`${O}/_release/${S}.json?qa_media_release=1`,{signal:AbortSignal.timeout(15000)});
-  assert.equal(r.status,200,'release marker missing');
-  assert.deepEqual(await r.json(),{schemaVersion:1,sha:S},'release marker mismatch');
-}
+await assertProductionRelease({origin:O,sha:S,label:'media'});
 
 const browser=await chromium.launch({headless:true});
 const failures=[],stats=[];
