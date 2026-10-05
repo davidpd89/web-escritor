@@ -1,6 +1,13 @@
 name: Radar freshness maintenance
 
 on:
+  pull_request:
+    paths:
+      - 'data/radar-opportunities.json'
+      - 'convocatorias-escritores/**'
+      - 'scripts/build-radar-opportunities.py'
+      - 'scripts/check-professional-resources.py'
+      - '.github/workflows/radar-freshness-maintenance.yml'
   schedule:
     - cron: '13 5 * * *'
   workflow_dispatch:
@@ -14,7 +21,26 @@ concurrency:
   cancel-in-progress: false
 
 jobs:
+  validate:
+    if: github.event_name == 'pull_request'
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v5
+
+      - name: Set up Python
+        uses: actions/setup-python@v6
+        with:
+          python-version: '3.12'
+
+      - name: Validate real-clock radar state
+        run: |
+          python scripts/build-radar-opportunities.py --data data/radar-opportunities.json --out convocatorias-escritores --check
+          python scripts/check-professional-resources.py
+
   refresh:
+    if: github.event_name == 'schedule' || github.event_name == 'workflow_dispatch'
     runs-on: ubuntu-latest
     timeout-minutes: 25
     steps:
