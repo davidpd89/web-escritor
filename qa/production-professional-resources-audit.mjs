@@ -26,6 +26,21 @@ async function pool(xs,n,fn){let i=0;await Promise.all(Array.from({length:n},asy
 
 if(SHA){const r=await retry(`/_release/${SHA}.json`);assert.equal(r.status,200);assert.deepEqual(JSON.parse(r.body),{schemaVersion:1,sha:SHA})}
 
+// Press-media contract: production must serve the exact prensa source from the
+// audited release, and every high-resolution media request must use the single
+// restricted Google Drive kit instead of the legacy email flow.
+const PRESS_MEDIA_DRIVE='https://drive.google.com/drive/folders/16DoCPC-s5ySXzxHwQX-6O6QOJ6FzXnMz?usp=sharing';
+const pressHtml=(await exact('/prensa.html','prensa.html')).body;
+assert.equal(pressHtml.split(PRESS_MEDIA_DRIVE).length-1,5,'prensa: deben existir exactamente 5 accesos al kit privado de Drive');
+assert.doesNotMatch(pressHtml,/bajo petici[oó]n/i,'prensa: reapareció copy legacy de petición por email');
+assert.doesNotMatch(pressHtml,/solicitar (?:foto|fotos|portada)[^<]{0,80}alta resoluci[oó]n/i,'prensa: reapareció CTA legacy de assets por email');
+const authorPress=JSON.parse((await exact('/press-kit/david-porto-diaz.json','press-kit/david-porto-diaz.json',true)).body);
+const manecillasPress=JSON.parse((await exact('/press-kit/las-manecillas-del-recuerdo.json','press-kit/las-manecillas-del-recuerdo.json',true)).body);
+const samuelPress=JSON.parse((await exact('/press-kit/samuel-entre-mundos.json','press-kit/samuel-entre-mundos.json',true)).body);
+assert.equal(authorPress.contact?.mediaAssets,PRESS_MEDIA_DRIVE,'press-kit autor: mediaAssets no apunta al kit privado');
+assert.equal(manecillasPress.press?.mediaAssets,PRESS_MEDIA_DRIVE,'press-kit Manecillas: mediaAssets no apunta al kit privado');
+assert.equal(samuelPress.press?.mediaAssets,PRESS_MEDIA_DRIVE,'press-kit Samuel: mediaAssets no apunta al kit privado');
+
 const ed=JSON.parse((await exact('/editoriales/editoriales-data.json','editoriales/editoriales-data.json',true)).body);
 assert.ok(ed.publishers.length>=100,`editorial corpus too small: ${ed.publishers.length}`);
 const radar=JSON.parse((await exact('/convocatorias-escritores/opportunities.json','convocatorias-escritores/opportunities.json',true)).body);
