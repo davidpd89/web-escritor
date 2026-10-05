@@ -37,10 +37,11 @@ try{
     }
     return {scope:reg.scope,state:reg.active?.state||null,scriptURL:reg.active?.scriptURL||null,controlled:Boolean(navigator.serviceWorker.controller)};
   });
-  if(!registration.controlled){
-    await page.reload({waitUntil:'domcontentloaded',timeout:25000});
-    registration.controlled=await page.evaluate(()=>Boolean(navigator.serviceWorker.controller));
-  }
+  // Always reload once after activation. clients.claim() may control the current
+  // document without having routed a navigation through networkFirstPage yet;
+  // the reload proves control and deterministically creates PAGE_CACHE.
+  await page.reload({waitUntil:'domcontentloaded',timeout:25000});
+  registration.controlled=await page.evaluate(()=>Boolean(navigator.serviceWorker.controller));
   assert.equal(registration.controlled,true,'PWA production page not controlled after activation/reload');
   assert.equal(registration.scope,`${O}/`,'PWA production scope drift');
   assert.equal(registration.state,'activated','PWA production worker not activated');
