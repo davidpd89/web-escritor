@@ -15,6 +15,7 @@ on:
       - 'qa/production-runtime-interactive-contract.mjs'
       - 'qa/production-release-marker.mjs'
       - 'qa/production-url-normalization.mjs'
+      - 'qa/production-url-alias-canonical.mjs'
       - 'qa/production-session-resilience.mjs'
       - 'qa/production-pwa-install.mjs'
       - 'qa/production-pwa-page-cache.mjs'
@@ -51,6 +52,7 @@ on:
       - 'qa/production-runtime-interactive-contract.mjs'
       - 'qa/production-release-marker.mjs'
       - 'qa/production-url-normalization.mjs'
+      - 'qa/production-url-alias-canonical.mjs'
       - 'qa/production-session-resilience.mjs'
       - 'qa/production-pwa-install.mjs'
       - 'qa/production-pwa-page-cache.mjs'
@@ -131,6 +133,7 @@ jobs:
           node --check qa/production-cross-page-fragments.mjs
           node --check qa/production-nojs-history.mjs
           node --check qa/production-url-normalization.mjs
+          node --check qa/production-url-alias-canonical.mjs
           node --check qa/production-asset-parity.mjs
           node --check qa/production-pagefind-search.mjs
           node --check qa/production-pagefind-coverage.mjs
@@ -217,6 +220,9 @@ jobs:
 
       - name: Audit production URL normalization
         run: node qa/production-url-normalization.mjs
+
+      - name: Audit index.html aliases against canonical metadata
+        run: node qa/production-url-alias-canonical.mjs
 
       - name: Audit production static asset parity
         run: node qa/production-asset-parity.mjs
