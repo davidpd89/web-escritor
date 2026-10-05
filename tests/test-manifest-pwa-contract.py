@@ -88,7 +88,7 @@ icon_variants: dict[str, list[str]] = {}
 touch_icon_variants: dict[str, list[str]] = {}
 for rel in html_files:
     text = (ROOT / rel).read_text(encoding="utf-8", errors="ignore")
-    m = _re.search(r'rel="icon"\s+type="image/png"\s+href="([^"]+)"', text)
+    m = _re.search(r'<link\b(?=[^>]*\brel="(?:shortcut\s+)?icon")(?=[^>]*\bhref="([^"]+)")[^>]*>', text, _re.I)
     if m:
         icon_variants.setdefault(m.group(1), []).append(rel)
     m2 = _re.search(r'rel="apple-touch-icon"\s+href="([^"]+)"', text)
