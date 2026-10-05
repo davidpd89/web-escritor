@@ -35,7 +35,13 @@ def tracked_targets()->list[Path]:
 
 
 def normalize(text:str)->str:
-    return LEGACY_ICON_RE.sub(NEW_ICON,text)
+    """Return text with every browser favicon declaration canonicalized.
+
+    This deliberately accepts any current/future favicon href so a later change
+    cannot silently point browser tabs at another icon while keeping CI green.
+    Apple touch icons are not browser-tab favicons and are left untouched.
+    """
+    return BROWSER_ICON_RE.sub(NEW_ICON,text)
 
 
 def main()->int:
