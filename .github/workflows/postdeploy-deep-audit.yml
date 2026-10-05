@@ -5,12 +5,14 @@ on:
     paths:
       - 'qa/production-professional-resources-audit.mjs'
       - 'qa/adaptive-formats-production.mjs'
+      - 'qa/production-edge-contracts.mjs'
       - '.github/workflows/postdeploy-deep-audit.yml'
   push:
     branches: [main]
     paths:
       - 'qa/production-professional-resources-audit.mjs'
       - 'qa/adaptive-formats-production.mjs'
+      - 'qa/production-edge-contracts.mjs'
       - '.github/workflows/postdeploy-deep-audit.yml'
   workflow_run:
     workflows: ['Deploy Pages']
@@ -48,6 +50,7 @@ jobs:
         run: |
           node --check qa/production-professional-resources-audit.mjs
           node --check qa/adaptive-formats-production.mjs
+          node --check qa/production-edge-contracts.mjs
 
       - name: Re-run global static contracts after main integration
         shell: bash
@@ -162,3 +165,6 @@ jobs:
 
       - name: Audit print, reduced motion, forced colors and webfont failure
         run: node qa/adaptive-formats-production.mjs
+
+      - name: Audit keyboard, ARIA, no-JS, URL and machine-format edge contracts
+        run: node qa/production-edge-contracts.mjs
