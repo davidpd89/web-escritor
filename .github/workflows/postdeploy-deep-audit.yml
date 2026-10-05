@@ -9,6 +9,9 @@ on:
       - 'qa/production-cross-engine-smoke.mjs'
       - 'qa/production-runtime-dom-audit.mjs'
       - 'qa/production-asset-parity.mjs'
+      - 'qa/production-pagefind-search.mjs'
+      - 'qa/production-format-contract.mjs'
+      - 'qa/production-media-decode.mjs'
       - 'scripts/check-*.py'
       - 'scripts/audit-public-email-exposure.py'
       - 'scripts/asset-version-hashes.json'
@@ -21,6 +24,10 @@ on:
       - 'qa/production-global-integrity-audit.mjs'
       - 'qa/production-cross-engine-smoke.mjs'
       - 'qa/production-runtime-dom-audit.mjs'
+      - 'qa/production-asset-parity.mjs'
+      - 'qa/production-pagefind-search.mjs'
+      - 'qa/production-format-contract.mjs'
+      - 'qa/production-media-decode.mjs'
       - 'scripts/check-*.py'
       - 'scripts/audit-public-email-exposure.py'
       - 'scripts/asset-version-hashes.json'
@@ -70,6 +77,9 @@ jobs:
           node --check qa/production-cross-engine-smoke.mjs
           node --check qa/production-runtime-dom-audit.mjs
           node --check qa/production-asset-parity.mjs
+          node --check qa/production-pagefind-search.mjs
+          node --check qa/production-format-contract.mjs
+          node --check qa/production-media-decode.mjs
 
       - name: Re-run global static contracts after main integration
         shell: bash
@@ -138,6 +148,9 @@ jobs:
       - name: Audit production static asset parity
         run: node qa/production-asset-parity.mjs
 
+      - name: Audit production raw formats and MIME types
+        run: node qa/production-format-contract.mjs
+
       - name: Observe production security headers
         run: node qa/live-security-headers.mjs
 
@@ -199,6 +212,9 @@ jobs:
       - name: Audit production in Chromium, Firefox and WebKit
         run: node qa/production-cross-engine-smoke.mjs
 
+      - name: Audit deployed Pagefind search
+        run: node qa/production-pagefind-search.mjs
+
   adaptive-formats:
     needs: production-parity
     if: >-
@@ -242,6 +258,9 @@ jobs:
 
       - name: Audit production runtime DOM after JavaScript
         run: node qa/production-runtime-dom-audit.mjs
+
+      - name: Audit deployed image decoding
+        run: node qa/production-media-decode.mjs
 
       - name: Audit print, reduced motion, forced colors and webfont failure
         run: node qa/adaptive-formats-production.mjs
