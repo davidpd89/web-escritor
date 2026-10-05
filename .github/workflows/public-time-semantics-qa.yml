@@ -1,0 +1,24 @@
+name: Public time semantics QA
+
+on:
+  pull_request:
+    paths:
+      - '**/*.html'
+      - 'scripts/check-public-time-semantics.py'
+      - '.github/workflows/public-time-semantics-qa.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  public-time-semantics:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v5
+      - uses: actions/setup-python@v6
+        with:
+          python-version: '3.12'
+      - name: Validate public temporal semantics
+        run: python scripts/check-public-time-semantics.py
