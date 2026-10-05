@@ -28,6 +28,7 @@ on:
       - 'qa/production-rotating-device-audit.mjs'
       - 'qa/production-short-viewport-history.mjs'
       - 'qa/production-filter-input-fuzz.mjs'
+      - 'qa/production-late-widget-audit.mjs'
       - 'scripts/check-*.py'
       - 'scripts/audit-public-email-exposure.py'
       - 'scripts/asset-version-hashes.json'
@@ -60,6 +61,7 @@ on:
       - 'qa/production-rotating-device-audit.mjs'
       - 'qa/production-short-viewport-history.mjs'
       - 'qa/production-filter-input-fuzz.mjs'
+      - 'qa/production-late-widget-audit.mjs'
       - 'scripts/check-*.py'
       - 'scripts/audit-public-email-exposure.py'
       - 'scripts/asset-version-hashes.json'
@@ -128,6 +130,7 @@ jobs:
           node --check qa/production-rotating-device-audit.mjs
           node --check qa/production-short-viewport-history.mjs
           node --check qa/production-filter-input-fuzz.mjs
+          node --check qa/production-late-widget-audit.mjs
 
       - name: Re-run global static contracts after main integration
         shell: bash
@@ -354,6 +357,9 @@ jobs:
 
       - name: Audit filter inputs with Unicode and malformed URL state
         run: node qa/production-filter-input-fuzz.mjs
+
+      - name: Audit late-loaded assistant widget in production
+        run: node qa/production-late-widget-audit.mjs
 
   rotating-production-sample:
     name: rotating-production-sample
