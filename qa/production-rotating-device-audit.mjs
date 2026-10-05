@@ -80,6 +80,39 @@ async function dismissIntro(page){
   }
 }
 
+async function headerCollisionProbe(page,route){
+  const header=page.locator('.site-header').first();
+  if(!(await header.count())) return {applicable:false};
+  const state=await header.evaluate(el=>{
+    const controls=[...el.querySelectorAll('a,button')].filter(node=>{
+      const s=getComputedStyle(node),r=node.getBoundingClientRect();
+      return s.display!=='none'&&s.visibility!=='hidden'&&r.width>0&&r.height>0;
+    }).map(node=>{
+      const r=node.getBoundingClientRect();
+      return {
+        key:node.getAttribute('aria-label')||node.textContent?.trim()||node.tagName,
+        left:r.left,right:r.right,top:r.top,bottom:r.bottom,width:r.width,height:r.height,
+      };
+    });
+    const collisions=[];
+    for(let i=0;i<controls.length;i++) for(let j=i+1;j<controls.length;j++){
+      const a=controls[i],b=controls[j];
+      const x=Math.min(a.right,b.right)-Math.max(a.left,b.left);
+      const y=Math.min(a.bottom,b.bottom)-Math.max(a.top,b.top);
+      if(x>1&&y>1) collisions.push({a:a.key,b:b.key,x:Math.round(x),y:Math.round(y)});
+    }
+    return {
+      controls,
+      collisions,
+      clipped:controls.filter(x=>x.left<-1||x.right>innerWidth+1||x.top<-1),
+      headerRect:(()=>{const r=el.getBoundingClientRect();return {left:r.left,right:r.right,top:r.top,bottom:r.bottom}})(),
+    };
+  });
+  assert.deepEqual(state.collisions,[],`${route}: header controls overlap ${JSON.stringify(state.collisions)}`);
+  assert.deepEqual(state.clipped,[],`${route}: header controls clipped ${JSON.stringify(state.clipped)}`);
+  return {applicable:true,controls:state.controls.length};
+}
+
 async function skipLinkProbe(page,route){
   const shell=await page.locator('.site-header').count();
   if(!shell) return {applicable:false};
@@ -192,6 +225,7 @@ try{
         assert.deepEqual(state.giant,[],`${scenario.label} ${route}: giant fixed/sticky overlay ${JSON.stringify(state.giant)}`);
         assert.deepEqual(state.collapsed,[],`${scenario.label} ${route}: collapsed visible controls ${JSON.stringify(state.collapsed)}`);
 
+        const header=await headerCollisionProbe(page,route);
         let keyboard=null,skipLink=null;
         if(scenario.keyboard){
           skipLink=await skipLinkProbe(page,route);
@@ -199,7 +233,7 @@ try{
         }
         assert.deepEqual(pageErrors,[],`${scenario.label} ${route}: page errors ${pageErrors.join(' | ')}`);
         assert.deepEqual([...new Set(badResponses)],[],`${scenario.label} ${route}: same-origin resource failures ${[...new Set(badResponses)].join(' | ')}`);
-        report.push({route,scenario:scenario.label,keyboard,skipLink});
+        report.push({route,scenario:scenario.label,header,keyboard,skipLink});
       }catch(e){
         const safe=(scenario.label+'-'+route).replace(/[^a-z0-9_-]+/gi,'-').replace(/^-+|-+$/g,'').slice(0,140);
         await page.screenshot({path:`artifacts/rotating-device/${safe||'failure'}.png`,fullPage:true}).catch(()=>{});
