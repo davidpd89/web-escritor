@@ -19,7 +19,7 @@ URL_ATTRS = ("href", "src", "action", "formaction", "poster")
 
 def route_to_file(url: str) -> Path:
     path = urlparse(url).path
-    if path == "/":
+    if path in {"", "/"}:
         return ROOT / "index.html"
     rel = path.lstrip("/")
     if path.endswith("/"):
