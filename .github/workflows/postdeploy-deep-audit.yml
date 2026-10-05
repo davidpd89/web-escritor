@@ -81,6 +81,56 @@ jobs:
           if-no-files-found: warn
           retention-days: 14
 
+  edge-contracts-local:
+    if: github.event_name == 'pull_request' || github.event_name == 'push' || github.event_name == 'workflow_dispatch'
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v5
+
+      - name: Set up Node
+        uses: actions/setup-node@v5
+        with:
+          node-version: '22'
+
+      - name: Install CI/QA dependencies
+        run: npm ci
+
+      - name: Cache Playwright browsers
+        id: playwright-cache-edge
+        uses: actions/cache@v5
+        with:
+          path: ~/.cache/ms-playwright
+          key: playwright-chromium-${{ hashFiles('package-lock.json') }}
+
+      - name: Install Playwright Chromium with OS dependencies
+        if: steps.playwright-cache-edge.outputs.cache-hit != 'true'
+        run: npx playwright install --with-deps chromium
+
+      - name: Install Playwright OS dependencies only
+        if: steps.playwright-cache-edge.outputs.cache-hit == 'true'
+        run: npx playwright install-deps chromium
+
+      - name: Start local static server
+        shell: bash
+        run: |
+          python3 -m http.server 4174 --bind 127.0.0.1 > /tmp/postdeploy-edge.log 2>&1 &
+          for i in {1..30}; do
+            if curl --fail --silent http://127.0.0.1:4174/editoriales/ >/dev/null; then
+              exit 0
+            fi
+            sleep 1
+          done
+          cat /tmp/postdeploy-edge.log
+          exit 1
+
+      - name: Run edge contracts before deploy
+        env:
+          SITE_BASE_URL: http://127.0.0.1:4174
+          CANONICAL_ORIGIN: https://davidportodiaz.com
+        run: node qa/production-edge-contracts.mjs
+
   production-parity:
     if: >-
       github.event_name == 'schedule' ||
