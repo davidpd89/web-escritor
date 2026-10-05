@@ -12,6 +12,7 @@ from pathlib import Path
 from urllib.parse import urlsplit
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
+from site_clock import site_today  # noqa: E402
 from site_shell import inject_shell_auto  # noqa: E402
 
 STALE_DAYS = 30
@@ -415,7 +416,7 @@ def main():
     parser = argparse.ArgumentParser()
     parser.add_argument("--data", required=True)
     parser.add_argument("--out", required=True)
-    parser.add_argument("--today", default=date.today().isoformat())
+    parser.add_argument("--today", default=site_today().isoformat())
     parser.add_argument("--check", action="store_true")
     args = parser.parse_args()
     items = load_items(args.data)

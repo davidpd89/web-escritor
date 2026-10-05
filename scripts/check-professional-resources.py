@@ -23,7 +23,7 @@ def load(path):return json.loads((ROOT/path).read_text(encoding="utf-8"))
 def editorials_builder():
     p=ROOT/"scripts/build-editoriales.py";spec=importlib.util.spec_from_file_location("editorials_builder",p);m=importlib.util.module_from_spec(spec);assert spec.loader;spec.loader.exec_module(m);return m
 def check_editorials():
-    b=editorials_builder();real_today=date.today()
+    b=editorials_builder();real_today=b.site_today()
     src=load(Path("data/editoriales.json"));pub=load(Path("editoriales/editoriales-data.json"))
     items=src.get("publishers");public=pub.get("publishers")
     if not isinstance(items,list) or not isinstance(public,list):fail("editoriales: publishers[] missing")
@@ -128,7 +128,7 @@ def check_radar():
         b.validate_watch(item)
         if item["id"] in ids or item["id"] in watch_ids:fail(f"radar duplicate id across items/watchlist {item['id']}")
         watch_ids.add(item["id"])
-    real_today=date.today()
+    real_today=b.site_today()
     for item in items:
         if item.get("published") and iso(item.get("verified_at"),f"{item.get('id')}.verified_at")>real_today:fail(f"{item['id']}: verified_at is in the future")
     for item in watchlist:

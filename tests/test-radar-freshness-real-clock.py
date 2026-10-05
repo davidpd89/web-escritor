@@ -32,7 +32,7 @@ builder = checker.radar_builder()
 source = json.loads((ROOT / "data" / "radar-opportunities.json").read_text(encoding="utf-8"))
 assert source["items"], "radar fixture source must contain at least one item"
 
-today = date.today()
+today = builder.site_today()
 base = copy.deepcopy(source["items"][0])
 base["published"] = True
 base["deadline"] = (today + timedelta(days=60)).isoformat()

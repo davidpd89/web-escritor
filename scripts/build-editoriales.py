@@ -19,6 +19,7 @@ from pathlib import Path
 from urllib.parse import urlparse
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
+from site_clock import site_today  # noqa: E402
 from site_shell import inject_shell_auto  # noqa: E402
 
 STATUS_LABELS = {
@@ -590,7 +591,7 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument("--data", type=Path, required=True, help="JSON público validado")
     parser.add_argument("--output", type=Path, default=Path("dist-editoriales"), help="Directorio de salida")
     parser.add_argument("--check", action="store_true", help="Solo validar; no generar archivos")
-    parser.add_argument("--today", default=date.today().isoformat(), help="Fecha de referencia YYYY-MM-DD para QA reproducible")
+    parser.add_argument("--today", default=site_today().isoformat(), help="Fecha civil Europe/Madrid YYYY-MM-DD para QA reproducible")
     return parser.parse_args()
 
 
