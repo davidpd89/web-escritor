@@ -29,7 +29,12 @@ if(SHA){const r=await retry(`/_release/${SHA}.json`);assert.equal(r.status,200);
 const ed=JSON.parse((await exact('/editoriales/editoriales-data.json','editoriales/editoriales-data.json',true)).body);
 assert.ok(ed.publishers.length>=100,`editorial corpus too small: ${ed.publishers.length}`);
 const radar=JSON.parse((await exact('/convocatorias-escritores/opportunities.json','convocatorias-escritores/opportunities.json',true)).body);
-assert.ok(radar.generated_for<=TODAY && days(TODAY,radar.generated_for)<=1,`stale generated_for ${radar.generated_for}`);
+assert.ok(radar.generated_for<=TODAY,`future generated_for ${radar.generated_for}`);
+const sourceRadar=json('data/radar-opportunities.json');
+const liveItems=(sourceRadar.items||[]).filter(x=>x.published&&x.deadline>=TODAY&&x.verified_at<=TODAY&&days(TODAY,x.verified_at)<=30).sort((a,b)=>a.deadline.localeCompare(b.deadline));
+const liveWatch=(sourceRadar.watchlist||[]).filter(x=>x.published&&x.verified_at<=TODAY&&days(TODAY,x.verified_at)<=30);
+assert.deepEqual(radar.items.map(x=>x.id),liveItems.map(x=>x.id),'production radar active set drifted from real clock');
+assert.deepEqual(new Set((radar.watchlist||[]).map(x=>x.id)),new Set(liveWatch.map(x=>x.id)),'production radar watchlist drifted from real clock');
 for(const x of radar.items){assert.ok(x.deadline>=TODAY,`${x.id}: expired ${x.deadline}`);assert.ok(x.verified_at<=TODAY&&days(TODAY,x.verified_at)<=30,`${x.id}: stale verification`)}
 for(const x of radar.watchlist||[])assert.ok(x.verified_at<=TODAY&&days(TODAY,x.verified_at)<=30,`${x.id}: stale watch`);
 const ics=(await exact('/convocatorias-escritores/deadlines.ics','convocatorias-escritores/deadlines.ics')).body.replace(/\r\n/g,'\n');
@@ -39,7 +44,8 @@ for(const x of radar.items){assert.ok(ics.includes(`UID:${x.id}@davidportodiaz.c
 const reg=json('data/content-registry.json'),defs=reg.defaults||{};
 const routes=reg.entries.map(x=>({...defs,...x})).filter(x=>x.status==='public'&&/^(editoriales\/|convocatorias-escritores\/|metodologia-editorial\/)/.test(x.sourceFile||'')&&(x.sourceFile||'').endsWith('.html'));
 const failures=[];
-await pool(routes,10,async x=>{try{const r=await retry(x.url);assert.equal(r.status,200,x.url);const local=read(x.sourceFile);assert.equal(title(r.body),title(local),`${x.url} title`);assert.equal(canonical(r.body),canonical(local),`${x.url} canonical`);assert.equal(h1(r.body),h1(local),`${x.url} h1`);assert.match(r.body,/<html\b[^>]*lang=["']es["']/i,`${x.url} lang`);assert.doesNotMatch(r.body,/name=["']robots["'][^>]*content=["'][^"']*noindex/i,`${x.url} noindex`)}catch(e){failures.push(e.message)}});
+const publisherByFile=new Map(ed.publishers.map(p=>[`editoriales/${p.slug}/index.html`,p]));
+await pool(routes,10,async x=>{try{const r=await retry(x.url);assert.equal(r.status,200,x.url);const local=read(x.sourceFile);assert.equal(title(r.body),title(local),`${x.url} title`);assert.equal(canonical(r.body),canonical(local),`${x.url} canonical`);assert.equal(h1(r.body),h1(local),`${x.url} h1`);assert.match(r.body,/<html\b[^>]*lang=["']es["']/i,`${x.url} lang`);assert.doesNotMatch(r.body,/name=["']robots["'][^>]*content=["'][^"']*noindex/i,`${x.url} noindex`);const pub=publisherByFile.get(x.sourceFile);if(pub){const html=r.body.replaceAll('&amp;','&');assert.ok(html.includes(pub.name),`${x.url} publisher name missing`);for(const src of pub.sources||[])assert.ok(html.includes(src.url),`${x.url} missing source ${src.url}`)}}catch(e){failures.push(e.message)}});
 assert.deepEqual(failures,[],failures.join('\n'));
 
 const es=await retry('/editoriales-sitemap.xml');assert.equal(es.status,200);assert.deepEqual(locs(es.body),locs(read('editoriales-sitemap.xml')),'editorial sitemap');
