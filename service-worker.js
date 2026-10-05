@@ -1,5 +1,5 @@
 const CACHE_NAMESPACE = "david-porto-pwa";
-const CACHE_VERSION = `${CACHE_NAMESPACE}-v15`;
+const CACHE_VERSION = `${CACHE_NAMESPACE}-v16`;
 const STATIC_CACHE = `${CACHE_VERSION}-static`;
 const PAGE_CACHE = `${CACHE_VERSION}-pages`;
 const CURRENT_CACHES = new Set([STATIC_CACHE, PAGE_CACHE]);
@@ -19,7 +19,13 @@ const LEGACY_PWA_CACHES = new Set([
   // the offline fallback -- a version bump purges the whole cache instead
   // of leaving that narrow window open indefinitely.
   "david-porto-pwa-v14-static",
-  "david-porto-pwa-v14-pages"
+  "david-porto-pwa-v14-pages",
+  // v15 -> v16 (2026-10-05): favicon/PWA icon assets kept the same public
+  // URLs while their bytes changed back to the yellow DP brand. Purging v15
+  // prevents a returning visitor from being served the stale black-on-white
+  // icon from CacheStorage after the restoration deploy.
+  "david-porto-pwa-v15-static",
+  "david-porto-pwa-v15-pages"
 ]);
 
 // Stable offline shell only. Editorial pages remain network-first and are not
@@ -28,6 +34,7 @@ const APP_SHELL = [
   "/offline.html",
   "/manifest.json",
   "/favicon.ico",
+  "/assets/david-porto-favicon.png",
   "/assets/icon-512.png",
   "/assets/icon-512-maskable.png",
   "/assets/fonts/is-normal-400-latin.woff2",

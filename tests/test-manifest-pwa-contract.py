@@ -97,9 +97,34 @@ for rel in html_files:
 
 check(len(icon_variants) == 1, f"every page links the PNG favicon the same way (found variants: {list(icon_variants.keys())})")
 check(len(touch_icon_variants) == 1, f"every page links the apple-touch-icon the same way (found variants: {list(touch_icon_variants.keys())})")
+check(set(icon_variants) == {"/assets/david-porto-favicon.png"}, "every page points to the approved yellow DP favicon asset")
+check(set(touch_icon_variants) == {"/assets/david-porto-favicon.png"}, "every page points to the approved yellow DP Apple touch icon")
+
+manifest_icon_srcs = {icon.get("src") for icon in icons}
+check("/assets/icon-512.png" in manifest_icon_srcs, "manifest uses the approved standard PWA icon path")
+check("/assets/icon-512-maskable.png" in manifest_icon_srcs, "manifest uses the approved maskable PWA icon path")
 
 favicon_ico = ROOT / "favicon.ico"
 check(favicon_ico.exists(), "favicon.ico (legacy browser-default fallback) exists at the root")
+
+# Pin the approved yellow DP brand bytes.  These are Git blob SHA-1 values
+# from the last known-good yellow-icon revision.  If any icon is accidentally
+# replaced (even while keeping the same filename), CI must fail explicitly.
+approved_brand_blobs = {
+    "assets/david-porto-favicon.png": "55db751589fc5cd356e26430b51129e69f3bef90",
+    "assets/icon-512.png": "0b669c636bfcb80729c8a792c2089fd2543a1477",
+    "assets/icon-512-maskable.png": "5a01682a067372ec3aa9ced9d8a463518617b2c9",
+    "favicon.ico": "e2e25d689fdcdbf5942dd85d5d28044d445617a7",
+}
+for rel, expected_blob in approved_brand_blobs.items():
+    actual_blob = subprocess.run(
+        ["git", "hash-object", rel],
+        cwd=ROOT,
+        capture_output=True,
+        check=True,
+        text=True,
+    ).stdout.strip()
+    check(actual_blob == expected_blob, f"{rel}: approved yellow DP brand bytes are unchanged")
 
 print(f"tests/test-manifest-pwa-contract: {'OK' if not failures else f'{len(failures)} FALLO(S)'}")
 raise SystemExit(1 if failures else 0)
