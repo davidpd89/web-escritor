@@ -77,6 +77,7 @@ jobs:
           python scripts/audit-public-email-exposure.py --strict
           python scripts/check-wikidata-sameas.py
           python scripts/check-copy-tildes.py
+          python scripts/check-public-text-encoding.py
           python scripts/check-hrefs.py
           python scripts/check-orphan-assets.py --exclude-campaign-assets
 
