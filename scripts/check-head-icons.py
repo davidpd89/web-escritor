@@ -11,12 +11,14 @@ Use --write for deterministic normalization or --check as a read-only gate.
 from __future__ import annotations
 
 import argparse
+import re
 import subprocess
 from pathlib import Path
 
 ROOT=Path(__file__).resolve().parents[1]
 OLD_ICON='<link rel="icon" type="image/png" href="/assets/david-porto-favicon.png" />'
 NEW_ICON='<link rel="icon" href="/favicon.ico" sizes="any" />'
+LEGACY_ICON_RE=re.compile(r'<link\\b(?=[^>]*\\brel=["\\\'][^"\\\']*\\bicon\\b[^"\\\']*["\\\'])(?=[^>]*\\bhref=["\\\']/assets/david-porto-favicon\\.png["\\\'])[^>]*>',re.I)
 
 
 def tracked_targets()->list[Path]:
@@ -33,7 +35,7 @@ def tracked_targets()->list[Path]:
 
 
 def normalize(text:str)->str:
-    return text.replace(OLD_ICON,NEW_ICON)
+    return LEGACY_ICON_RE.sub(NEW_ICON,text)
 
 
 def main()->int:
