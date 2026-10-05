@@ -1,0 +1,164 @@
+name: Post-deploy deep audit
+
+on:
+  pull_request:
+    paths:
+      - 'qa/production-professional-resources-audit.mjs'
+      - 'qa/adaptive-formats-production.mjs'
+      - '.github/workflows/postdeploy-deep-audit.yml'
+  push:
+    branches: [main]
+    paths:
+      - 'qa/production-professional-resources-audit.mjs'
+      - 'qa/adaptive-formats-production.mjs'
+      - '.github/workflows/postdeploy-deep-audit.yml'
+  workflow_run:
+    workflows: ['Deploy Pages']
+    types: [completed]
+  schedule:
+    - cron: '41 6 * * *'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  static-regression:
+    if: github.event_name == 'pull_request' || github.event_name == 'push' || github.event_name == 'workflow_dispatch'
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v5
+
+      - name: Set up Python
+        uses: actions/setup-python@v6
+        with:
+          python-version: '3.12'
+
+      - name: Set up Node
+        uses: actions/setup-node@v5
+        with:
+          node-version: '22'
+
+      - name: Install shared Python dependencies
+        run: python -m pip install --requirement scripts/requirements.txt
+
+      - name: Syntax-check new production audits
+        run: |
+          node --check qa/production-professional-resources-audit.mjs
+          node --check qa/adaptive-formats-production.mjs
+
+      - name: Re-run global static contracts after main integration
+        shell: bash
+        run: |
+          set -euo pipefail
+          python scripts/check-professional-resources.py
+          python scripts/check-global-discoverability.py
+          python scripts/check-dom-integrity.py
+          python scripts/check-seo-meta-quality.py
+          python scripts/check-breadcrumb-parity.py
+          python scripts/check-heading-structure.py
+          python scripts/check-jsonld-absolute-urls.py
+          python scripts/check-responsive-images.py
+          python scripts/check-social-cards.py --strict
+          python scripts/check-local-assets.py
+          python scripts/check-internal-graph.py
+          python scripts/check-navigation-coverage.py
+
+      - name: Generate consolidated static evidence
+        run: python scripts/release-readiness.py --output artifacts/postdeploy/static-readiness.md
+
+      - name: Upload static evidence
+        if: always()
+        uses: actions/upload-artifact@v6
+        with:
+          name: postdeploy-static-evidence
+          path: artifacts/postdeploy/
+          if-no-files-found: warn
+          retention-days: 14
+
+  production-parity:
+    if: >-
+      github.event_name == 'schedule' ||
+      github.event_name == 'workflow_dispatch' ||
+      (github.event_name == 'workflow_run' && github.event.workflow_run.conclusion == 'success')
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    env:
+      SITE_BASE_URL: https://davidportodiaz.com
+      EXPECTED_RELEASE_SHA: ${{ github.event.workflow_run.head_sha || github.sha }}
+    steps:
+      - name: Checkout audited release
+        uses: actions/checkout@v5
+        with:
+          ref: ${{ github.event.workflow_run.head_sha || github.sha }}
+
+      - name: Set up Node
+        uses: actions/setup-node@v5
+        with:
+          node-version: '22'
+
+      - name: Audit exact production parity and real-clock freshness
+        run: node qa/production-professional-resources-audit.mjs
+
+      - name: Observe production security headers
+        run: node qa/live-security-headers.mjs
+
+      - name: Observe production compression negotiation
+        run: node qa/live-compression-origin.mjs
+
+      - name: Upload production evidence
+        if: always()
+        uses: actions/upload-artifact@v6
+        with:
+          name: postdeploy-production-evidence
+          path: |
+            artifacts/security-headers/
+            artifacts/compression/
+          if-no-files-found: warn
+          retention-days: 14
+
+  adaptive-formats:
+    needs: production-parity
+    if: >-
+      always() && needs.production-parity.result == 'success' &&
+      (github.event_name == 'schedule' ||
+       github.event_name == 'workflow_dispatch' ||
+       (github.event_name == 'workflow_run' && github.event.workflow_run.conclusion == 'success'))
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    env:
+      SITE_BASE_URL: https://davidportodiaz.com
+      EXPECTED_RELEASE_SHA: ${{ github.event.workflow_run.head_sha || github.sha }}
+    steps:
+      - name: Checkout audited release
+        uses: actions/checkout@v5
+        with:
+          ref: ${{ github.event.workflow_run.head_sha || github.sha }}
+
+      - name: Set up Node
+        uses: actions/setup-node@v5
+        with:
+          node-version: '22'
+
+      - name: Install CI/QA dependencies
+        run: npm ci
+
+      - name: Cache Playwright browsers
+        id: playwright-cache
+        uses: actions/cache@v5
+        with:
+          path: ~/.cache/ms-playwright
+          key: playwright-chromium-${{ hashFiles('package-lock.json') }}
+
+      - name: Install Playwright Chromium with OS dependencies
+        if: steps.playwright-cache.outputs.cache-hit != 'true'
+        run: npx playwright install --with-deps chromium
+
+      - name: Install Playwright OS dependencies only
+        if: steps.playwright-cache.outputs.cache-hit == 'true'
+        run: npx playwright install-deps chromium
+
+      - name: Audit print, reduced motion, forced colors and webfont failure
+        run: node qa/adaptive-formats-production.mjs
