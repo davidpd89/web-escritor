@@ -4,6 +4,8 @@ on:
   pull_request:
     paths:
       - 'qa/production-professional-resources-audit.mjs'
+      - 'qa/site-civil-clock.mjs'
+      - 'tests/test-site-civil-clock.mjs'
       - 'qa/adaptive-formats-production.mjs'
       - 'qa/production-global-integrity-audit.mjs'
       - 'qa/production-semantic-parity.mjs'
@@ -38,6 +40,8 @@ on:
     branches: [main]
     paths:
       - 'qa/production-professional-resources-audit.mjs'
+      - 'qa/site-civil-clock.mjs'
+      - 'tests/test-site-civil-clock.mjs'
       - 'qa/adaptive-formats-production.mjs'
       - 'qa/production-global-integrity-audit.mjs'
       - 'qa/production-semantic-parity.mjs'
@@ -105,9 +109,14 @@ jobs:
       - name: Install shared Python dependencies
         run: python -m pip install --requirement scripts/requirements.txt
 
+      - name: Check JS Europe/Madrid civil clock boundaries
+        run: node tests/test-site-civil-clock.mjs
+
       - name: Syntax-check new production audits
         run: |
           node --check qa/production-professional-resources-audit.mjs
+          node --check qa/site-civil-clock.mjs
+          node --check tests/test-site-civil-clock.mjs
           node --check qa/adaptive-formats-production.mjs
           node --check qa/production-global-integrity-audit.mjs
           node --check qa/production-semantic-parity.mjs
