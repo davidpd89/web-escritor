@@ -96,7 +96,7 @@ jobs:
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git switch -c "$branch"
-          git add -- '*.html' 'scripts/*.py' 'pagefind/' .github/workflows/tmp-normalize-browser-favicon.yml
+          git add -A
           git commit -m "perf: use lightweight browser favicon sitewide"
           git push origin "HEAD:refs/heads/$branch"
           gh pr create \
