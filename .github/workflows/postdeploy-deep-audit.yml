@@ -12,6 +12,7 @@ on:
       - 'qa/production-pagefind-search.mjs'
       - 'qa/production-format-contract.mjs'
       - 'qa/production-media-decode.mjs'
+      - 'qa/production-compact-landscape.mjs'
       - 'scripts/check-*.py'
       - 'scripts/audit-public-email-exposure.py'
       - 'scripts/asset-version-hashes.json'
@@ -28,6 +29,7 @@ on:
       - 'qa/production-pagefind-search.mjs'
       - 'qa/production-format-contract.mjs'
       - 'qa/production-media-decode.mjs'
+      - 'qa/production-compact-landscape.mjs'
       - 'scripts/check-*.py'
       - 'scripts/audit-public-email-exposure.py'
       - 'scripts/asset-version-hashes.json'
@@ -80,6 +82,7 @@ jobs:
           node --check qa/production-pagefind-search.mjs
           node --check qa/production-format-contract.mjs
           node --check qa/production-media-decode.mjs
+          node --check qa/production-compact-landscape.mjs
 
       - name: Re-run global static contracts after main integration
         shell: bash
@@ -262,6 +265,9 @@ jobs:
 
       - name: Audit deployed image decoding
         run: node qa/production-media-decode.mjs
+
+      - name: Audit compact landscape production layouts
+        run: node qa/production-compact-landscape.mjs
 
       - name: Audit print, reduced motion, forced colors and webfont failure
         run: node qa/adaptive-formats-production.mjs
