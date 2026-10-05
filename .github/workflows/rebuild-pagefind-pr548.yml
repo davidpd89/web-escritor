@@ -1,0 +1,39 @@
+name: Temporary Pagefind rebuild for PR 548
+
+on:
+  push:
+    branches:
+      - feat/press-kit-drive-assets
+
+permissions:
+  contents: write
+
+jobs:
+  rebuild-pagefind:
+    if: github.actor != 'github-actions[bot]'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v5
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-python@v6
+        with:
+          python-version: '3.12'
+      - uses: actions/setup-node@v6
+        with:
+          node-version: '24'
+          cache: npm
+      - run: npm ci
+      - name: Rebuild Pagefind
+        run: python scripts/build-pagefind-index.py
+      - name: Commit generated index
+        run: |
+          if git diff --quiet -- pagefind; then
+            echo "Pagefind already current"
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add pagefind
+          git commit -m "chore(search): rebuild Pagefind [pagefind-generated]"
+          git push
