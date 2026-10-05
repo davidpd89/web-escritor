@@ -116,3 +116,8 @@ https?://([^/]+\.)?davidportodiaz\.com/.*
 # Blogger/Google confirma que esta fuente existe, pero redirige a una pantalla
 # anti-abuso y devuelve 429 a Lychee en CI. Excepcion exacta, no de dominio.
 ^https://almansafeminista\.blogspot\.com/2026/08/iii-concurso-microrrelato-2026-almansa\.html$
+
+# Las Afueras responde correctamente en navegador, pero devuelve 429 a Lychee
+# tras múltiples peticiones del mismo job. Excepción exacta a la raíz citada;
+# otras URLs del dominio siguen bajo validación.
+^https://lasafueras\.com/$
