@@ -143,3 +143,9 @@ https?://([^/]+\.)?davidportodiaz\.com/.*
 # Shopify devuelve 429 a Lychee en CI. Excepción exacta; el resto del dominio
 # continúa bajo validación normal.
 ^https://platanal\.net/pages/envio-de-manuscritos-y-criterios-de-publicacion$
+
+# Kit gráfico privado de prensa en Google Drive. La carpeta está restringida a
+# propósito: visitantes sin permiso deben pasar por el flujo nativo de
+# "Solicitar acceso" de Drive. Lychee no puede validar una carpeta privada sin
+# autenticación, así que se excluye únicamente esta URL exacta.
+^https://drive\.google\.com/drive/folders/16DoCPC-s5ySXzxHwQX-6O6QOJ6FzXnMz\?usp=sharing$

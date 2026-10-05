@@ -158,6 +158,25 @@ try{
       assert.equal(await page.locator('.event-photo-grid img').count(),3,`${name}: galería documental debe conservar 3 imágenes`);
       assert.equal(await page.locator('#ficha-manecillas img').getAttribute('src'),'/assets/manecillas-book-mockup.webp',`${name}: mockup de Manecillas alterado`);
       assert.equal(await page.locator('#ficha img').getAttribute('src'),'/assets/samuel_entre_mundos_3d.webp',`${name}: mockup de Samuel alterado`);
+      const mediaKitLinks=page.locator('a[href*="drive.google.com/drive/folders/16DoCPC-s5ySXzxHwQX-6O6QOJ6FzXnMz"]');
+      assert.equal(await mediaKitLinks.count(),5,`${name}: el kit gráfico privado debe tener exactamente 5 accesos contextuales`);
+      const expectedMediaKit='https://drive.google.com/drive/folders/16DoCPC-s5ySXzxHwQX-6O6QOJ6FzXnMz?usp=sharing';
+      for(let i=0;i<await mediaKitLinks.count();i++){
+        const link=mediaKitLinks.nth(i);
+        assert.equal(await link.getAttribute('href'),expectedMediaKit,`${name}: enlace Drive incorrecto en CTA ${i}`);
+        assert.equal(await link.getAttribute('target'),'_blank',`${name}: CTA Drive ${i} no abre en nueva pestaña`);
+        const rel=(await link.getAttribute('rel'))||'';
+        assert.ok(rel.includes('noopener')&&rel.includes('noreferrer'),`${name}: CTA Drive ${i} sin protección rel`);
+        assert.ok((await link.innerText()).toLowerCase().includes('solicitar acceso'),`${name}: CTA Drive ${i} no explica que se puede solicitar acceso`);
+      }
+      assert.equal(await page.locator('#bios [data-email-subject="Foto editorial del autor"]').count(),0,`${name}: la foto editorial sigue solicitándose por email`);
+      assert.equal(await page.locator('#bios [data-email-subject="Fotos de eventos"]').count(),0,`${name}: las fotos de eventos siguen solicitándose por email`);
+      assert.equal(await page.locator('[data-email-subject="Portada Samuel entre mundos"]').count(),0,`${name}: la portada de Samuel sigue solicitándose por email`);
+      assert.equal(await page.locator('[data-email-subject="Portada Las manecillas del recuerdo"]').count(),0,`${name}: la portada de Manecillas sigue solicitándose por email`);
+      const pressText=(await page.locator('main#contenido').innerText()).toLowerCase();
+      assert.ok(!pressText.includes('bajo petición'),`${name}: queda copy legacy "Bajo petición"`);
+      assert.ok(!pressText.includes('solicitar foto en alta resolución'),`${name}: queda CTA legacy de foto por email`);
+      assert.ok(!pressText.includes('solicitar portada en alta resolución'),`${name}: queda CTA legacy de portada por email`);
       assert.ok((await page.locator('#ficha-manecillas').innerText()).includes('979-8-90514-935-1'),`${name}: ISBN Manecillas ausente`);
       assert.ok((await page.locator('#ficha').innerText()).includes('9791387659776'),`${name}: ISBN Samuel ausente`);
       // Contract since #478/#482: the address never sits in static HTML --
