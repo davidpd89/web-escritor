@@ -9,6 +9,7 @@ on:
       - 'qa/production-semantic-parity.mjs'
       - 'qa/production-cross-engine-smoke.mjs'
       - 'qa/production-runtime-dom-audit.mjs'
+      - 'qa/production-runtime-interactive-contract.mjs'
       - 'qa/production-release-marker.mjs'
       - 'qa/production-url-normalization.mjs'
       - 'qa/production-session-resilience.mjs'
@@ -34,6 +35,7 @@ on:
       - 'qa/production-semantic-parity.mjs'
       - 'qa/production-cross-engine-smoke.mjs'
       - 'qa/production-runtime-dom-audit.mjs'
+      - 'qa/production-runtime-interactive-contract.mjs'
       - 'qa/production-release-marker.mjs'
       - 'qa/production-url-normalization.mjs'
       - 'qa/production-session-resilience.mjs'
@@ -95,6 +97,7 @@ jobs:
           node --check qa/production-semantic-parity.mjs
           node --check qa/production-cross-engine-smoke.mjs
           node --check qa/production-runtime-dom-audit.mjs
+          node --check qa/production-runtime-interactive-contract.mjs
           node --check qa/production-release-marker.mjs
           node --check qa/production-session-resilience.mjs
           node --check qa/production-cross-page-fragments.mjs
@@ -298,6 +301,9 @@ jobs:
 
       - name: Audit production runtime DOM after JavaScript
         run: node qa/production-runtime-dom-audit.mjs
+
+      - name: Audit runtime links, media and form control semantics
+        run: node qa/production-runtime-interactive-contract.mjs
 
       - name: Audit deployed image decoding
         run: node qa/production-media-decode.mjs
