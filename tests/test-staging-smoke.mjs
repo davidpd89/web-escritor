@@ -31,6 +31,9 @@ const PUBLIC_ROUTES = [
   '/libros/samuel-entre-mundos/',
   '/cuaderno/',
   '/herramientas/',
+  '/editoriales/',
+  '/convocatorias-escritores/',
+  '/metodologia-editorial/',
 ];
 
 // These classes are deliberately broader than the historical staging list.
@@ -62,6 +65,11 @@ const MACHINE_ROUTES = [
   ['/robots.txt', 'Sitemap:'],
   ['/sitemap.xml', '<urlset'],
   ['/llms.txt', 'David Porto'],
+  ['/editoriales-sitemap.xml', '<urlset'],
+  ['/convocatorias-escritores/opportunities.json', '"items"'],
+  ['/convocatorias-escritores/deadlines.ics', 'BEGIN:VCALENDAR'],
+  ['/manifest.json', '"name"'],
+  ['/service-worker.js', 'CACHE_NAMESPACE'],
 ];
 
 function requestText(url, timeoutMs) {
