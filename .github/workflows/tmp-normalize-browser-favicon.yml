@@ -11,6 +11,7 @@ on:
 
 permissions:
   contents: write
+  pull-requests: write
 
 concurrency:
   group: temporary-browser-favicon-normalization
@@ -80,7 +81,9 @@ jobs:
           done < <(git diff --name-only)
           exit "$bad"
 
-      - name: Commit deterministic normalization and retire this one-shot
+      - name: Publish deterministic normalization as protected pull request
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         shell: bash
         run: |
           set -euo pipefail
@@ -89,8 +92,15 @@ jobs:
             echo "Nothing to normalize."
             exit 0
           fi
+          branch="automation/browser-favicon-${GITHUB_RUN_ID}"
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add -- '*.html' 'scripts/*.py' 'pagefind/'
+          git switch -c "$branch"
+          git add -- '*.html' 'scripts/*.py' 'pagefind/' .github/workflows/tmp-normalize-browser-favicon.yml
           git commit -m "perf: use lightweight browser favicon sitewide"
-          git push origin HEAD:main
+          git push origin "HEAD:refs/heads/$branch"
+          gh pr create \
+            --base main \
+            --head "$branch" \
+            --title "perf: use lightweight browser favicon sitewide" \
+            --body "Normalización determinista del favicon de navegador a `/favicon.ico`, manteniendo el Apple touch icon amarillo aprobado. Regenera Pagefind, valida builders y retira este workflow temporal."
