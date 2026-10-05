@@ -11,7 +11,7 @@ module=importlib.util.module_from_spec(spec)
 assert spec.loader
 spec.loader.exec_module(module)
 
-source='''<link rel="icon" type="image/png" href="/assets/david-porto-favicon.png" />
+source='''<link href="/assets/david-porto-favicon.png" sizes="32x32" rel="shortcut icon">
 <link rel="apple-touch-icon" href="/assets/david-porto-favicon.png" />'''
 normalized=module.normalize(source)
 assert '<link rel="icon" href="/favicon.ico" sizes="any" />' in normalized
