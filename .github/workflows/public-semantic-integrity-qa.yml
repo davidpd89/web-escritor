@@ -1,0 +1,36 @@
+name: Public semantic integrity QA
+
+on:
+  pull_request:
+    paths:
+      - '**/*.html'
+      - 'data/content-registry.json'
+      - 'tests/test-public-semantic-references.py'
+      - '.github/workflows/public-semantic-integrity-qa.yml'
+  push:
+    branches: [main]
+    paths:
+      - '**/*.html'
+      - 'data/content-registry.json'
+      - 'tests/test-public-semantic-references.py'
+      - '.github/workflows/public-semantic-integrity-qa.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  semantic-integrity:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v5
+
+      - name: Set up Python
+        uses: actions/setup-python@v6
+        with:
+          python-version: '3.12'
+
+      - name: Validate public semantic references
+        run: python tests/test-public-semantic-references.py
