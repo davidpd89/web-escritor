@@ -7,7 +7,8 @@ on:
       - 'qa/adaptive-formats-production.mjs'
       - 'qa/production-global-integrity-audit.mjs'
       - 'qa/production-cross-engine-smoke.mjs'
-      - 'qa/production-runtime-dom-audit.mjs'\n      - 'qa/production-metadata-artifacts-audit.mjs'
+      - 'qa/production-runtime-dom-audit.mjs'
+      - 'qa/production-metadata-artifacts-audit.mjs'
       - 'qa/production-asset-parity.mjs'
       - 'scripts/check-*.py'
       - 'scripts/audit-public-email-exposure.py'
@@ -20,7 +21,8 @@ on:
       - 'qa/adaptive-formats-production.mjs'
       - 'qa/production-global-integrity-audit.mjs'
       - 'qa/production-cross-engine-smoke.mjs'
-      - 'qa/production-runtime-dom-audit.mjs'\n      - 'qa/production-metadata-artifacts-audit.mjs'
+      - 'qa/production-runtime-dom-audit.mjs'
+      - 'qa/production-metadata-artifacts-audit.mjs'
       - 'scripts/check-*.py'
       - 'scripts/audit-public-email-exposure.py'
       - 'scripts/asset-version-hashes.json'
@@ -69,7 +71,8 @@ jobs:
           node --check qa/production-global-integrity-audit.mjs
           node --check qa/production-cross-engine-smoke.mjs
           node --check qa/production-runtime-dom-audit.mjs
-          node --check qa/production-asset-parity.mjs\n          node --check qa/production-metadata-artifacts-audit.mjs
+          node --check qa/production-asset-parity.mjs
+          node --check qa/production-metadata-artifacts-audit.mjs
 
       - name: Re-run global static contracts after main integration
         shell: bash
