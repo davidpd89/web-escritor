@@ -22,7 +22,8 @@ async function request(url,opts={}){
   let last;
   for(let i=0;i<3;i++){
     try{
-      const r=await fetch(url,{redirect:'follow',headers:{'cache-control':'no-cache','user-agent':'david-porto-http-semantics/1.0',...(opts.headers||{})},signal:AbortSignal.timeout(15000),...opts});
+      const {headers:extraHeaders={},...rest}=opts;
+      const r=await fetch(url,{redirect:'follow',...rest,headers:{'cache-control':'no-cache','user-agent':'david-porto-http-semantics/1.0',...extraHeaders},signal:AbortSignal.timeout(15000)});
       if(r.status!==429&&(r.status<500||r.status>599)) return r;
       last=new Error(`transient HTTP ${r.status} ${url}`);
     }catch(e){last=e}
