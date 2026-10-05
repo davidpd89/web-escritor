@@ -156,6 +156,7 @@ jobs:
           python scripts/check-public-text-encoding.py
           python scripts/check-public-html-safety.py
           python scripts/check-head-icons.py --check
+          python tests/test-head-icon-normalizer.py
           python scripts/check-interaction-a11y-contracts.py
           python scripts/check-hrefs.py
           python scripts/check-orphan-assets.py --exclude-campaign-assets

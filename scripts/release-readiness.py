@@ -32,6 +32,7 @@ CHECKS = [
     ("CI parity: social cards strict", "python scripts/check-social-cards.py --strict"),
     ("CI parity: copy tildes", "python scripts/check-copy-tildes.py"),
     ("CI parity: head icon normalization", "python scripts/check-head-icons.py --check"),
+    ("CI parity: head icon normalizer regression", "python tests/test-head-icon-normalizer.py"),
     ("CI parity: interaction a11y anti-patterns", "python scripts/check-interaction-a11y-contracts.py"),
     ("CI parity: radar clock projection", "python scripts/check-radar-clock-current.py"),
     ("Authority: machine-readable contract", "python tests/test-machine-authority.py"),

@@ -95,9 +95,9 @@ for rel in html_files:
     if m2:
         touch_icon_variants.setdefault(m2.group(1), []).append(rel)
 
-check(len(icon_variants) == 1, f"every page links the PNG favicon the same way (found variants: {list(icon_variants.keys())})")
+check(len(icon_variants) == 1, f"every page links the browser favicon the same way (found variants: {list(icon_variants.keys())})")
 check(len(touch_icon_variants) == 1, f"every page links the apple-touch-icon the same way (found variants: {list(touch_icon_variants.keys())})")
-check(set(icon_variants) == {"/assets/david-porto-favicon.png"}, "every page points to the approved yellow DP favicon asset")
+check(set(icon_variants) == {"/favicon.ico"}, "every page uses the lightweight approved yellow DP browser favicon")
 check(set(touch_icon_variants) == {"/assets/david-porto-favicon.png"}, "every page points to the approved yellow DP Apple touch icon")
 
 manifest_icon_srcs = {icon.get("src") for icon in icons}
