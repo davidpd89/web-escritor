@@ -87,6 +87,12 @@ class AuditParser(HTMLParser):
         if active_desc:
             self.refs.append(("aria-activedescendant", active_desc, line, tag))
 
+        if tag == "img":
+            alt = a.get("alt", "").strip()
+            if alt:
+                for ancestor_node in self.stack:
+                    ancestor_node.img_alts.append(alt)
+
         if tag == "label":
             target = a.get("for", "").strip()
             if target:
@@ -155,6 +161,44 @@ class AuditParser(HTMLParser):
                 errors.append(
                     f"{self.source}:{line}: same-page fragment #{target} has no matching id"
                 )
+
+        for node in self.nodes:
+            attrs = node.attrs
+            hidden = attrs.get("hidden") != "" or attrs.get("aria-hidden", "").lower() == "true"
+            if hidden:
+                continue
+
+            if node.tag == "button":
+                named = bool(
+                    node.accessible_text()
+                    or attrs.get("aria-label", "").strip()
+                    or attrs.get("aria-labelledby", "").strip()
+                    or attrs.get("title", "").strip()
+                )
+                if not named:
+                    errors.append(f"{self.source}:{node.line}: unnamed <button>")
+
+            if node.tag == "a" and attrs.get("href", "").strip():
+                named = bool(
+                    node.accessible_text()
+                    or attrs.get("aria-label", "").strip()
+                    or attrs.get("aria-labelledby", "").strip()
+                    or attrs.get("title", "").strip()
+                )
+                if not named:
+                    errors.append(
+                        f"{self.source}:{node.line}: link with href={attrs.get('href')!r} has no accessible name"
+                    )
+
+            is_dialog = node.tag == "dialog" or attrs.get("role", "").lower() in {"dialog", "alertdialog"}
+            if is_dialog:
+                named = bool(
+                    attrs.get("aria-label", "").strip()
+                    or attrs.get("aria-labelledby", "").strip()
+                    or attrs.get("title", "").strip()
+                )
+                if not named:
+                    errors.append(f"{self.source}:{node.line}: unnamed dialog")
 
         return errors
 
