@@ -19,6 +19,7 @@ on:
       - 'qa/production-session-resilience.mjs'
       - 'qa/production-pwa-install.mjs'
       - 'qa/production-pwa-page-cache.mjs'
+      - 'qa/production-pwa-network-first-refresh.mjs'
       - 'qa/production-cross-page-fragments.mjs'
       - 'qa/production-nojs-history.mjs'
       - 'qa/production-asset-parity.mjs'
@@ -56,6 +57,7 @@ on:
       - 'qa/production-session-resilience.mjs'
       - 'qa/production-pwa-install.mjs'
       - 'qa/production-pwa-page-cache.mjs'
+      - 'qa/production-pwa-network-first-refresh.mjs'
       - 'qa/production-cross-page-fragments.mjs'
       - 'qa/production-nojs-history.mjs'
       - 'qa/production-asset-parity.mjs'
@@ -130,6 +132,7 @@ jobs:
           node --check qa/production-session-resilience.mjs
           node --check qa/production-pwa-install.mjs
           node --check qa/production-pwa-page-cache.mjs
+          node --check qa/production-pwa-network-first-refresh.mjs
           node --check qa/production-cross-page-fragments.mjs
           node --check qa/production-nojs-history.mjs
           node --check qa/production-url-normalization.mjs
@@ -364,6 +367,9 @@ jobs:
 
       - name: Audit real production page-cache population
         run: node qa/production-pwa-page-cache.mjs
+
+      - name: Audit network-first replacement of stale page cache
+        run: node qa/production-pwa-network-first-refresh.mjs
 
       - name: Audit cross-page fragment targets
         run: node qa/production-cross-page-fragments.mjs
