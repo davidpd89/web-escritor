@@ -3,6 +3,7 @@ import { chromium } from 'playwright';
 
 const ORIGIN=(process.env.SITE_BASE_URL||'https://davidportodiaz.com').replace(/\/$/,'');
 const SHA=(process.env.EXPECTED_RELEASE_SHA||'').trim();
+const CANONICAL=(process.env.CANONICAL_ORIGIN||ORIGIN).replace(/\/$/,'');
 const ROUTES=['/','/editoriales/','/convocatorias-escritores/','/metodologia-editorial/','/herramientas/','/autor.html','/prensa.html'];
 
 async function fetchRetry(path){
@@ -107,7 +108,7 @@ try{
       assert.deepEqual(dom.unnamed,[],`${route}: unnamed controls ${dom.unnamed.join(' | ')}`);
       assert.deepEqual(dom.unsafe,[],`${route}: target=_blank without noopener+noreferrer ${dom.unsafe.join(',')}`);
       assert.ok(dom.h1&&dom.main>120,`${route}: missing substantive content`);
-      assert.equal(dom.canonical,new URL(route,ORIGIN).href,`${route}: query/hash leaked into canonical`);
+      assert.equal(dom.canonical,new URL(route,CANONICAL).href,`${route}: query/hash leaked into canonical`);
     }catch(e){
       failures.push(e.message);
     }finally{
