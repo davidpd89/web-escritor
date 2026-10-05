@@ -1,0 +1,133 @@
+name: Radar freshness maintenance
+
+on:
+  schedule:
+    - cron: '13 5 * * *'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  pull-requests: write
+
+concurrency:
+  group: radar-freshness-maintenance
+  cancel-in-progress: false
+
+jobs:
+  refresh:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    steps:
+      - name: Checkout main
+        uses: actions/checkout@v5
+        with:
+          ref: main
+          fetch-depth: 0
+
+      - name: Set up Python
+        uses: actions/setup-python@v6
+        with:
+          python-version: '3.12'
+
+      - name: Set up Node
+        uses: actions/setup-node@v5
+        with:
+          node-version: '22'
+
+      - name: Install Pagefind toolchain
+        run: npm ci
+
+      - name: Snapshot current public radar
+        run: cp convocatorias-escritores/opportunities.json "$RUNNER_TEMP/opportunities-before.json"
+
+      - name: Regenerate radar for the real execution date
+        run: python scripts/build-radar-opportunities.py --data data/radar-opportunities.json --out convocatorias-escritores
+
+      - name: Detect a material public rollover
+        id: material
+        shell: bash
+        run: |
+          python - <<'PY'
+          import json, os, subprocess
+          from pathlib import Path
+
+          before = json.loads(
+              Path(os.environ["RUNNER_TEMP"]).joinpath("opportunities-before.json").read_text(encoding="utf-8")
+          )
+          after = json.loads(Path("convocatorias-escritores/opportunities.json").read_text(encoding="utf-8"))
+
+          # generated_for alone is not a reason to deploy. The public set is.
+          before.pop("generated_for", None)
+          after.pop("generated_for", None)
+          data_changed = before != after
+          html_or_ics = subprocess.run(
+              ["git", "diff", "--quiet", "--",
+               "convocatorias-escritores/index.html",
+               "convocatorias-escritores/deadlines.ics"]
+          ).returncode != 0
+          changed = data_changed or html_or_ics
+
+          with open(os.environ["GITHUB_OUTPUT"], "a", encoding="utf-8") as fh:
+              fh.write(f"changed={'true' if changed else 'false'}\n")
+
+          if not changed:
+              subprocess.run(
+                  ["git", "restore", "--",
+                   "convocatorias-escritores/index.html",
+                   "convocatorias-escritores/opportunities.json",
+                   "convocatorias-escritores/deadlines.ics"],
+                  check=True,
+              )
+              print("No semantic rollover today; generated_for-only churn reverted.")
+          else:
+              print("Radar public set changed and requires a refreshed deploy.")
+          PY
+
+      - name: Rebuild Pagefind after visible radar changes
+        if: steps.material.outputs.changed == 'true'
+        run: python scripts/build-pagefind-index.py
+
+      - name: Validate against the real clock
+        shell: bash
+        run: |
+          set -euo pipefail
+          python scripts/check-professional-resources.py
+          python scripts/build-pagefind-index.py --check
+          python scripts/check-global-discoverability.py
+          python scripts/check-local-assets.py
+
+      - name: Publish validated rollover branch and PR
+        if: steps.material.outputs.changed == 'true'
+        env:
+          GH_TOKEN: ${{ github.token }}
+        shell: bash
+        run: |
+          set -euo pipefail
+          branch="automation/radar-freshness"
+
+          git add             convocatorias-escritores/index.html             convocatorias-escritores/opportunities.json             convocatorias-escritores/deadlines.ics             pagefind/
+
+          if git diff --cached --quiet; then
+            echo "Nothing to publish after validation."
+            exit 0
+          fi
+
+          unexpected="$(git diff --cached --name-only | grep -Ev '^(convocatorias-escritores/(index\.html|opportunities\.json|deadlines\.ics)|pagefind/)' || true)"
+          if [ -n "$unexpected" ]; then
+            echo "Unexpected generated paths:"
+            echo "$unexpected"
+            exit 1
+          fi
+
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git checkout -B "$branch"
+          git commit -m "chore(radar): refresh public opportunities for $(date -u +%F)"
+          git push --force origin "HEAD:$branch"
+
+          number="$(gh pr list --repo "$GITHUB_REPOSITORY" --state open --head "$branch" --json number --jq '.[0].number // empty')"
+          if [ -n "$number" ]; then
+            gh pr edit "$number" --repo "$GITHUB_REPOSITORY"               --title "chore(radar): refresh public opportunities"               --body "Automated real-clock rollover of generated Convocatorias HTML/JSON/ICS and Pagefind. Source data is unchanged; required CI must pass before merge."
+          else
+            gh pr create --repo "$GITHUB_REPOSITORY"               --base main               --head "$branch"               --title "chore(radar): refresh public opportunities"               --body "Automated real-clock rollover of generated Convocatorias HTML/JSON/ICS and Pagefind. Source data is unchanged; required CI must pass before merge."
+          fi
