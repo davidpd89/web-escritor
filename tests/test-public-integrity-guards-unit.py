@@ -2,6 +2,7 @@
 from __future__ import annotations
 
 import importlib.util
+import sys
 import unittest
 from pathlib import Path
 
@@ -13,6 +14,7 @@ def load(name: str, rel: str):
     if spec is None or spec.loader is None:
         raise RuntimeError(f"cannot load {rel}")
     module = importlib.util.module_from_spec(spec)
+    sys.modules[name] = module
     spec.loader.exec_module(module)
     return module
 
