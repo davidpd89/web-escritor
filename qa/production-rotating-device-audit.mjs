@@ -56,6 +56,7 @@ await assertProductionRelease({origin:O,sha:S,label:'rotating-device'});
 const browser=await chromium.launch({headless:true});
 const failures=[];
 const report=[];
+fs.mkdirSync('artifacts/rotating-device',{recursive:true});
 
 async function gotoRetry(page,route,label){
   let last=null;
@@ -77,6 +78,41 @@ async function dismissIntro(page){
     const intro=page.locator('[data-intro]').first();
     if(await intro.count()) await intro.waitFor({state:'hidden',timeout:3000}).catch(()=>{});
   }
+}
+
+async function skipLinkProbe(page,route){
+  const shell=await page.locator('.site-header').count();
+  if(!shell) return {applicable:false};
+  const skip=page.locator('a.skip-link').first();
+  assert.equal(await skip.count(),1,`${route}: shell page missing unique skip link`);
+  await page.evaluate(()=>{window.scrollTo(0,0); if(document.activeElement instanceof HTMLElement) document.activeElement.blur()});
+  await page.locator('body').click({position:{x:2,y:2}}).catch(()=>{});
+  await page.keyboard.press('Tab');
+  assert.equal(await skip.evaluate(el=>el===document.activeElement),true,`${route}: first Tab does not focus skip link`);
+  const visible=await skip.evaluate(el=>{
+    const r=el.getBoundingClientRect(),s=getComputedStyle(el);
+    return s.display!=='none'&&s.visibility!=='hidden'&&r.width>0&&r.height>0&&r.bottom>0&&r.top<innerHeight;
+  });
+  assert.equal(visible,true,`${route}: skip link focused but not visible`);
+  await page.keyboard.press('Enter');
+  await page.waitForTimeout(80);
+  const target=await page.evaluate(()=>{
+    const main=document.querySelector('main');
+    const active=document.activeElement;
+    const r=main?.getBoundingClientRect();
+    const header=document.querySelector('.site-header');
+    const hr=header?.getBoundingClientRect();
+    return {
+      active:Boolean(main&&active===main),
+      hash:location.hash,
+      top:r?.top??null,
+      headerBottom:hr?.bottom??0,
+    };
+  });
+  assert.equal(target.active,true,`${route}: skip link did not move focus to main`);
+  assert.ok(target.hash==='#contenido'||target.hash==='',`${route}: unexpected skip-link hash ${target.hash}`);
+  if(target.top!==null) assert.ok(target.top>=target.headerBottom-2,`${route}: focused main is obscured by header (${target.top}<${target.headerBottom})`);
+  return {applicable:true};
 }
 
 async function keyboardProbe(page,route){
@@ -156,12 +192,17 @@ try{
         assert.deepEqual(state.giant,[],`${scenario.label} ${route}: giant fixed/sticky overlay ${JSON.stringify(state.giant)}`);
         assert.deepEqual(state.collapsed,[],`${scenario.label} ${route}: collapsed visible controls ${JSON.stringify(state.collapsed)}`);
 
-        let keyboard=null;
-        if(scenario.keyboard) keyboard=await keyboardProbe(page,route);
+        let keyboard=null,skipLink=null;
+        if(scenario.keyboard){
+          skipLink=await skipLinkProbe(page,route);
+          keyboard=await keyboardProbe(page,route);
+        }
         assert.deepEqual(pageErrors,[],`${scenario.label} ${route}: page errors ${pageErrors.join(' | ')}`);
         assert.deepEqual([...new Set(badResponses)],[],`${scenario.label} ${route}: same-origin resource failures ${[...new Set(badResponses)].join(' | ')}`);
-        report.push({route,scenario:scenario.label,keyboard});
+        report.push({route,scenario:scenario.label,keyboard,skipLink});
       }catch(e){
+        const safe=(scenario.label+'-'+route).replace(/[^a-z0-9_-]+/gi,'-').replace(/^-+|-+$/g,'').slice(0,140);
+        await page.screenshot({path:`artifacts/rotating-device/${safe||'failure'}.png`,fullPage:true}).catch(()=>{});
         failures.push(String(e?.message||e));
       }finally{
         await context.close();
