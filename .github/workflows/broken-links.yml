@@ -6,6 +6,12 @@ on:
       - '**/*.html'
       - '.lycheeignore'
       - '.github/workflows/broken-links.yml'
+  push:
+    branches: [main]
+    paths:
+      - '**/*.html'
+      - '.lycheeignore'
+      - '.github/workflows/broken-links.yml'
   schedule:
     - cron: '0 6 * * 1'  # Every Monday at 06:00 UTC
   workflow_dispatch:      # Allow manual trigger
