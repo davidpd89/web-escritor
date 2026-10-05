@@ -132,3 +132,9 @@ https?://([^/]+\.)?davidportodiaz\.com/.*
 ^https://laorilladelasletras\.blogspot\.com/2026/09/entrevista-davis-porto-diaz\.html$
 ^https://web\.constanti\.cat/2026/09/02/xx-premis-literaris-de-constanti-2026-relats-de-pagesia/$
 ^https://automaticaeditorial\.com/contacto$
+
+# Fuentes editoriales verificadas que responden correctamente fuera de Lychee
+# pero devolvieron 500 transitorio al runner. Excepciones exactas.
+^https://edicionesfatcap\.es/content/7-recepcion-de-manuscritos$
+^https://magnificaeditorial\.com/contacto/$
+^https://magnificaeditorial\.com/quienes-somos/$
