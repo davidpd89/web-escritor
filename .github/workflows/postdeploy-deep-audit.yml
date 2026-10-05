@@ -8,6 +8,7 @@ on:
       - 'qa/production-global-integrity-audit.mjs'
       - 'qa/production-semantic-parity.mjs'
       - 'qa/production-cross-engine-smoke.mjs'
+      - 'qa/production-rotating-cross-engine.mjs'
       - 'qa/production-runtime-dom-audit.mjs'
       - 'qa/production-runtime-interactive-contract.mjs'
       - 'qa/production-release-marker.mjs'
@@ -37,6 +38,7 @@ on:
       - 'qa/production-global-integrity-audit.mjs'
       - 'qa/production-semantic-parity.mjs'
       - 'qa/production-cross-engine-smoke.mjs'
+      - 'qa/production-rotating-cross-engine.mjs'
       - 'qa/production-runtime-dom-audit.mjs'
       - 'qa/production-runtime-interactive-contract.mjs'
       - 'qa/production-release-marker.mjs'
@@ -102,6 +104,7 @@ jobs:
           node --check qa/production-global-integrity-audit.mjs
           node --check qa/production-semantic-parity.mjs
           node --check qa/production-cross-engine-smoke.mjs
+          node --check qa/production-rotating-cross-engine.mjs
           node --check qa/production-runtime-dom-audit.mjs
           node --check qa/production-runtime-interactive-contract.mjs
           node --check qa/production-release-marker.mjs
@@ -382,3 +385,48 @@ jobs:
 
       - name: Audit rotating production pages across device classes and keyboard
         run: node qa/production-rotating-device-audit.mjs
+
+  rotating-cross-engine-production:
+    name: rotating-cross-engine-production
+    needs: production-parity
+    if: >-
+      always() && needs.production-parity.result == 'success' &&
+      (github.event_name == 'schedule' ||
+       github.event_name == 'workflow_dispatch' ||
+       (github.event_name == 'workflow_run' && github.event.workflow_run.conclusion == 'success'))
+    runs-on: ubuntu-24.04
+    timeout-minutes: 30
+    env:
+      SITE_BASE_URL: https://davidportodiaz.com
+      EXPECTED_RELEASE_SHA: ${{ github.event.workflow_run.head_sha || github.sha }}
+    steps:
+      - name: Checkout audited release
+        uses: actions/checkout@v5
+        with:
+          ref: ${{ github.event.workflow_run.head_sha || github.sha }}
+
+      - name: Set up Node
+        uses: actions/setup-node@v5
+        with:
+          node-version: '22'
+
+      - name: Install CI/QA dependencies
+        run: npm ci
+
+      - name: Cache Playwright browsers
+        id: playwright-rotating-cross-cache
+        uses: actions/cache@v5
+        with:
+          path: ~/.cache/ms-playwright
+          key: playwright-cross-engine-${{ hashFiles('package-lock.json') }}
+
+      - name: Install Chromium, Firefox and WebKit with OS dependencies
+        if: steps.playwright-rotating-cross-cache.outputs.cache-hit != 'true'
+        run: npx playwright install --with-deps chromium firefox webkit
+
+      - name: Install browser OS dependencies only
+        if: steps.playwright-rotating-cross-cache.outputs.cache-hit == 'true'
+        run: npx playwright install-deps chromium firefox webkit
+
+      - name: Audit rotating secondary pages in Chromium, Firefox and WebKit
+        run: node qa/production-rotating-cross-engine.mjs
