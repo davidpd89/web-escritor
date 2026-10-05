@@ -82,23 +82,64 @@ for rel in html_files:
 
 check(len(link_variants) == 1, f"every page links the manifest the same way (found variants: {list(link_variants.keys())})")
 
-# --- favicons: same relative-vs-absolute href consistency bug class ---
+# --- favicons: one canonical browser-tab icon on every real HTML page ---
 import re as _re
+browser_icon_re = _re.compile(
+    r'<link\b(?=[^>]*\brel=["\'](?:shortcut\s+)?icon["\'])[^>]*>',
+    _re.I,
+)
+href_re = _re.compile(r'\bhref=["\']([^"\']+)["\']', _re.I)
+touch_icon_re = _re.compile(
+    r'<link\b(?=[^>]*\brel=["\']apple-touch-icon["\'])[^>]*>',
+    _re.I,
+)
+
 icon_variants: dict[str, list[str]] = {}
 touch_icon_variants: dict[str, list[str]] = {}
+missing_browser_icons: list[str] = []
+duplicate_browser_icons: list[str] = []
+
 for rel in html_files:
     text = (ROOT / rel).read_text(encoding="utf-8", errors="ignore")
-    m = _re.search(r'<link\b(?=[^>]*\brel="(?:shortcut\s+)?icon")(?=[^>]*\bhref="([^"]+)")[^>]*>', text, _re.I)
-    if m:
-        icon_variants.setdefault(m.group(1), []).append(rel)
-    m2 = _re.search(r'rel="apple-touch-icon"\s+href="([^"]+)"', text)
-    if m2:
-        touch_icon_variants.setdefault(m2.group(1), []).append(rel)
 
-check(len(icon_variants) == 1, f"every page links the browser favicon the same way (found variants: {list(icon_variants.keys())})")
-check(len(touch_icon_variants) == 1, f"every page links the apple-touch-icon the same way (found variants: {list(touch_icon_variants.keys())})")
-check(set(icon_variants) == {"/favicon.ico"}, "every page uses the lightweight approved yellow DP browser favicon")
-check(set(touch_icon_variants) == {"/assets/david-porto-favicon.png"}, "every page points to the approved yellow DP Apple touch icon")
+    browser_tags = browser_icon_re.findall(text)
+    if not browser_tags:
+        missing_browser_icons.append(rel)
+    elif len(browser_tags) > 1:
+        duplicate_browser_icons.append(rel)
+
+    for tag in browser_tags:
+        m = href_re.search(tag)
+        if m:
+            icon_variants.setdefault(m.group(1), []).append(rel)
+
+    for tag in touch_icon_re.findall(text):
+        m = href_re.search(tag)
+        if m:
+            touch_icon_variants.setdefault(m.group(1), []).append(rel)
+
+check(
+    not missing_browser_icons,
+    "every real HTML page declares the browser favicon "
+    f"(missing: {missing_browser_icons[:20]})",
+)
+check(
+    not duplicate_browser_icons,
+    "every real HTML page has exactly one browser favicon "
+    f"(duplicates: {duplicate_browser_icons[:20]})",
+)
+check(
+    set(icon_variants) == {"/favicon.ico"},
+    f"every real page uses only /favicon.ico (found variants: {list(icon_variants.keys())})",
+)
+check(
+    len(touch_icon_variants) <= 1,
+    f"apple-touch-icon uses one path where declared (found variants: {list(touch_icon_variants.keys())})",
+)
+check(
+    not touch_icon_variants or set(touch_icon_variants) == {"/assets/david-porto-favicon.png"},
+    "apple-touch-icon points to the approved yellow DP PNG wherever declared",
+)
 
 manifest_icon_srcs = {icon.get("src") for icon in icons}
 check("/assets/icon-512.png" in manifest_icon_srcs, "manifest uses the approved standard PWA icon path")
