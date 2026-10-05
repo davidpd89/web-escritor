@@ -20,6 +20,8 @@ on:
       - 'tests/test-radar-clock-current.py'
       - 'scripts/site_clock.py'
       - 'tests/test-site-clock.py'
+      - 'tests/test-radar-refresh-schedule.py'
+      - '.github/workflows/radar-clock-refresh.yml'
       - 'tests/test-radar-dates.mjs'
       - 'qa/pro-resources-browser.mjs'
       - 'lighthouserc-pro-resources.json'
@@ -44,6 +46,8 @@ on:
       - 'tests/test-radar-clock-current.py'
       - 'scripts/site_clock.py'
       - 'tests/test-site-clock.py'
+      - 'tests/test-radar-refresh-schedule.py'
+      - '.github/workflows/radar-clock-refresh.yml'
       - 'tests/test-radar-dates.mjs'
       - 'qa/pro-resources-browser.mjs'
       - 'lighthouserc-pro-resources.json'
@@ -73,6 +77,9 @@ jobs:
         run: python3 tests/test-radar-clock-current.py
       - name: Check Europe/Madrid civil-date boundaries
         run: python3 tests/test-site-clock.py
+
+      - name: Check radar refresh coverage around Madrid midnight
+        run: python3 tests/test-radar-refresh-schedule.py
       - uses: actions/setup-node@v5
         with: {node-version: '22'}
       - name: Install CI/QA dependencies (Node)

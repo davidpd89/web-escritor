@@ -2,7 +2,14 @@ name: Refresh radar clock outputs
 
 on:
   schedule:
-    - cron: '23 3 * * *'
+    # Europe/Madrid midnight is 22:00 UTC in CEST and 23:00 UTC in CET.
+    # The earlier run is a no-op in winter; the later run is a no-op in summer.
+    - cron: '20 22 * * *'
+    - cron: '20 23 * * *'
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/radar-clock-refresh.yml'
   workflow_dispatch:
 
 permissions:
@@ -41,9 +48,10 @@ jobs:
         run: |
           set -euo pipefail
           today="$(python - <<'PY'
-          from datetime import datetime
-          from zoneinfo import ZoneInfo
-          print(datetime.now(ZoneInfo('Europe/Madrid')).date().isoformat())
+          import sys
+          sys.path.insert(0, 'scripts')
+          from site_clock import site_today
+          print(site_today().isoformat())
           PY
           )"
           echo "today=$today" >> "$GITHUB_OUTPUT"
