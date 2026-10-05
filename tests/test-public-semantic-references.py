@@ -103,6 +103,13 @@ class AuditParser(HTMLParser):
             if href.startswith("#") and href not in {"#", "#!"}:
                 self.fragments.append((unquote(href[1:]), line))
 
+        if tag == "form":
+            parent_form = next((n for n in reversed(self.stack) if n.tag == "form"), None)
+            if parent_form:
+                self.errors.append(
+                    f"{self.source}:{line}: nested <form> inside <form> from line {parent_form.line}"
+                )
+
         ancestor = self._active_interactive_ancestor()
         if ancestor and tag in INTERACTIVE_TAGS:
             if not (tag == "input" and a.get("type", "text").lower() == "hidden"):
