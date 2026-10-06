@@ -39,6 +39,7 @@ GATED_REGISTRY_STATUS = {"noindex", "internal", "gated", "deprecated"}
 # Approved public namespaces. Adding a new top-level repository directory does
 # NOT publish it. A new public content family must be classified here explicitly.
 PUBLIC_DIR_PREFIXES = (
+    "al-otro-lado/",
     "accesibilidad/",
     "ai/",
     "asistente/",

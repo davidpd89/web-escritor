@@ -1,0 +1,255 @@
+/* «Al otro lado» — microrrelato ganador (XII Certamen de Microrrelatos «De amor»).
+   Hoja exclusiva de /al-otro-lado/. El texto son 80 palabras: la pagina no
+   necesita un sistema nuevo, necesita que esas 80 palabras ocupen el centro
+   optico y que todo lo demas (antologia, evidencia, contacto) quede debajo,
+   en material tipografico mas callado. Se reutilizan los tokens de
+   v1-tokens.css y la familia editorial; aqui solo viven las piezas propias. */
+
+html.v1 [data-page="microstory"]{
+  --ms-rule:var(--color-border);
+  --ms-quiet:var(--color-muted);
+}
+
+/* La familia Identity pagina a 90rem. Aqui el contenido es una pieza breve y
+   una ficha: se estrecha la columna para que el microrrelato no quede perdido
+   en un ancho de portada. */
+html.v1 main[data-page="microstory"] > *{
+  max-width:64rem;
+  margin-inline:auto;
+}
+
+/* ------------------------------------------------------------------ apertura */
+
+html.v1 [data-page="microstory"] .microstory-header{
+  padding-block:var(--space-7) var(--space-6);
+  border-bottom:1px solid var(--ms-rule);
+}
+html.v1 [data-page="microstory"] .microstory-header h1{
+  margin:.1em 0 .25em;
+  font-family:var(--font-display);
+  font-size:var(--text-5xl);
+  line-height:.95;
+  letter-spacing:-.015em;
+}
+html.v1 [data-page="microstory"] .microstory-deck{
+  max-width:52ch;
+  margin:0;
+  color:var(--color-text);
+  font-family:var(--font-reading);
+  font-size:var(--text-lg);
+  line-height:1.5;
+}
+html.v1 [data-page="microstory"] .microstory-credit{
+  margin:var(--space-5) 0 0;
+  color:var(--ms-quiet);
+  font-size:var(--text-sm);
+  line-height:1.6;
+}
+
+/* -------------------------------------------------------------- el microrrelato */
+
+/* El texto completo, enmarcado. Filete arriba y abajo en vez de caja: la
+   pagina entera es papel, no hay tarjetas en esta familia visual. */
+html.v1 [data-page="microstory"] .microstory-text{
+  margin:var(--space-8) auto;
+  padding-block:var(--space-7);
+  max-width:46ch;
+  border-top:2px solid var(--color-text);
+  border-bottom:1px solid var(--ms-rule);
+}
+html.v1 [data-page="microstory"] .microstory-text p{
+  margin:0;
+  font-family:var(--font-reading);
+  font-size:clamp(1.15rem,1.02rem + .6vw,1.5rem);
+  line-height:1.62;
+  text-wrap:pretty;
+}
+html.v1 [data-page="microstory"] .microstory-text p + p{
+  margin-top:var(--space-4);
+}
+html.v1 [data-page="microstory"] .microstory-signature{
+  display:block;
+  margin-top:var(--space-6);
+  color:var(--ms-quiet);
+  font-family:var(--font-ui);
+  font-size:var(--text-xs);
+  letter-spacing:.08em;
+  text-transform:uppercase;
+}
+
+/* ------------------------------------------------------------------ antologia */
+
+html.v1 [data-page="microstory"] .microstory-book{
+  display:grid;
+  grid-template-columns:minmax(0,15rem) minmax(0,1fr);
+  gap:clamp(1.5rem,4vw,3rem);
+  align-items:start;
+  margin-block:var(--space-7);
+}
+html.v1 [data-page="microstory"] .microstory-book figure{
+  margin:0;
+}
+html.v1 [data-page="microstory"] .microstory-book img{
+  display:block;
+  width:100%;
+  height:auto;
+  border:1px solid var(--ms-rule);
+}
+html.v1 [data-page="microstory"] .microstory-book h2{
+  margin-top:0;
+}
+html.v1 [data-page="microstory"] .microstory-meta{
+  display:grid;
+  grid-template-columns:repeat(2,minmax(0,1fr));
+  gap:0;
+  margin:var(--space-5) 0 0;
+  border-top:1px solid var(--ms-rule);
+}
+html.v1 [data-page="microstory"] .microstory-meta > div{
+  min-width:0;
+  padding:var(--space-3) var(--space-4) var(--space-3) 0;
+  border-bottom:1px solid var(--ms-rule);
+}
+html.v1 [data-page="microstory"] .microstory-meta dt{
+  margin:0 0 .2em;
+  color:var(--ms-quiet);
+  font-family:var(--font-ui);
+  font-size:var(--text-xs);
+  letter-spacing:.08em;
+  text-transform:uppercase;
+}
+html.v1 [data-page="microstory"] .microstory-meta dd{
+  margin:0;
+  font-size:var(--text-base);
+  overflow-wrap:anywhere;
+}
+
+/* Pantallazos del libro: son evidencia, no ilustracion. Se muestran con el
+   mismo filete que la portada y con pie de foto que dice de que pagina salen. */
+html.v1 [data-page="microstory"] .microstory-shot{
+  margin:var(--space-6) 0 0;
+}
+html.v1 [data-page="microstory"] .microstory-shot img{
+  display:block;
+  width:100%;
+  height:auto;
+  border:1px solid var(--ms-rule);
+  background:var(--surface-page);
+}
+html.v1 [data-page="microstory"] .microstory-shot figcaption{
+  margin-top:var(--space-2);
+  color:var(--ms-quiet);
+  font-size:var(--text-sm);
+  line-height:1.5;
+}
+html.v1 [data-page="microstory"] .microstory-shot__pan:focus-visible{
+  outline:2px solid var(--focus-color);
+  outline-offset:3px;
+}
+
+html.v1 [data-page="microstory"] .microstory-quote{
+  max-width:60ch;
+  margin:var(--space-6) 0 0;
+  padding-left:var(--space-5);
+  border-left:2px solid var(--color-text);
+  font-family:var(--font-reading);
+  font-size:var(--text-lg);
+  line-height:1.55;
+}
+html.v1 [data-page="microstory"] .microstory-quote cite{
+  display:block;
+  margin-top:var(--space-3);
+  color:var(--ms-quiet);
+  font-family:var(--font-ui);
+  font-size:var(--text-sm);
+  font-style:normal;
+}
+
+/* ------------------------------------------------------------------ evidencia */
+
+html.v1 [data-page="microstory"] .microstory-sources{
+  margin:var(--space-5) 0 0;
+  padding:0;
+  list-style:none;
+}
+html.v1 [data-page="microstory"] .microstory-sources li{
+  padding:var(--space-3) 0;
+  border-top:1px solid var(--ms-rule);
+}
+html.v1 [data-page="microstory"] .microstory-sources li:last-child{
+  border-bottom:1px solid var(--ms-rule);
+}
+html.v1 [data-page="microstory"] .microstory-source-label{
+  display:block;
+  margin-bottom:.2em;
+  color:var(--ms-quiet);
+  font-family:var(--font-ui);
+  font-size:var(--text-xs);
+  letter-spacing:.08em;
+  text-transform:uppercase;
+}
+html.v1 [data-page="microstory"] .microstory-note{
+  max-width:66ch;
+  margin:var(--space-5) 0 0;
+  color:var(--ms-quiet);
+  font-size:var(--text-sm);
+  line-height:1.6;
+}
+
+/* -------------------------------------------------------------------- acciones */
+
+html.v1 [data-page="microstory"] .microstory-actions{
+  display:flex;
+  flex-wrap:wrap;
+  gap:var(--space-4);
+  align-items:center;
+  margin-top:var(--space-5);
+}
+
+/* ------------------------------------------------------------------ responsive */
+
+@media (max-width:52rem){
+  html.v1 [data-page="microstory"] .microstory-book{
+    grid-template-columns:minmax(0,1fr);
+  }
+  html.v1 [data-page="microstory"] .microstory-book figure{
+    max-width:15rem;
+  }
+}
+@media (max-width:34rem){
+  html.v1 [data-page="microstory"] .microstory-meta{
+    grid-template-columns:minmax(0,1fr);
+  }
+}
+
+/* Los dos pantallazos del libro son paginas A5 de texto: encogidas al ancho de
+   un movil no se leen. Por debajo de 44rem dejan de escalarse y pasan a un
+   contenedor con scroll horizontal propio -- la pagina nunca desborda, la
+   imagen se desplaza dentro de su caja. El contenedor es focusable para que
+   tambien se pueda recorrer con teclado. */
+@media (max-width:44rem){
+  html.v1 [data-page="microstory"] .microstory-shot__pan{
+    overflow-x:auto;
+    overscroll-behavior-x:contain;
+    -webkit-overflow-scrolling:touch;
+  }
+  html.v1 [data-page="microstory"] .microstory-shot__pan img{
+    width:42rem;
+    max-width:none;
+  }
+}
+
+/* Impresion: la pagina vale como hoja suelta del texto. Se cae todo lo que no
+   es el microrrelato y su credito. */
+@media print{
+  html.v1 [data-page="microstory"] .microstory-book,
+  html.v1 [data-page="microstory"] .microstory-shot,
+  html.v1 [data-page="microstory"] .microstory-sources,
+  html.v1 [data-page="microstory"] .microstory-actions,
+  html.v1 [data-page="microstory"] .editorial-newsletter{
+    display:none;
+  }
+  html.v1 [data-page="microstory"] .microstory-text{
+    border-color:#000;
+  }
+}

@@ -303,6 +303,31 @@
       "sitemap": false
     },
     {
+      "id": "work-al-otro-lado",
+      "url": "/libros/#al-otro-lado",
+      "label": "Al otro lado (antología)",
+      "shortLabel": "Al otro lado",
+      "type": "work",
+      "territory": "obras",
+      "parentId": "works-hub",
+      "hubId": "works-hub",
+      "discoverability": "secondary",
+      "footerEligible": false,
+      "audience": [
+        "reader"
+      ],
+      "jobs": [
+        "conocer-obra"
+      ],
+      "relatedIds": [
+        "microstory-al-otro-lado",
+        "awards"
+      ],
+      "sourceFile": "libros/index.html",
+      "searchIndex": false,
+      "sitemap": false
+    },
+    {
       "id": "samuel-fragment",
       "url": "/fragmento/",
       "label": "Primer capítulo de Samuel entre mundos",
@@ -1249,6 +1274,32 @@
         "ver-trayectoria"
       ],
       "sourceFile": "premios.html"
+    },
+    {
+      "id": "microstory-al-otro-lado",
+      "url": "/al-otro-lado/",
+      "label": "«Al otro lado» — microrrelato ganador",
+      "shortLabel": "Al otro lado",
+      "type": "author",
+      "territory": "autor",
+      "parentId": "awards",
+      "hubId": "author",
+      "discoverability": "contextual",
+      "footerEligible": false,
+      "audience": [
+        "reader",
+        "press"
+      ],
+      "jobs": [
+        "leer-fragmento",
+        "ver-trayectoria"
+      ],
+      "relatedIds": [
+        "awards",
+        "works-hub",
+        "author"
+      ],
+      "sourceFile": "al-otro-lado/index.html"
     },
     {
       "id": "events",
