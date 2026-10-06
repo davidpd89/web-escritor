@@ -1974,5 +1974,67 @@
       "reference_note": "En 2026 el Ayuntamiento dotó el premio con 25.000 € y publicación por Galaxia Gutenberg; esos datos se conservan solo como referencia de la edición cerrada.",
       "editorial_note": "No se extrapolan automáticamente cuantía, editorial, fechas ni requisitos a una futura edición."
     }
+  ],
+  "expired": [
+    {
+      "id": "camino-santiago-navarra-relatos-2026",
+      "title": "VII Concurso de Relatos Cortos «Camino de Santiago» 2026",
+      "type": "concurso",
+      "organizer": "Asociación de Amigos del Camino de Santiago en Navarra",
+      "deadline": "2026-10-05",
+      "genres": [
+        "relato corto"
+      ],
+      "eligibility": "Personas mayores de edad de cualquier nacionalidad y residencia; hasta tres relatos originales e inéditos sobre el Camino de Santiago. Las bases declaran que no debe haberse utilizado IA en su elaboración.",
+      "prize": "300 € + diploma + publicación del relato ganador en la revista «Estafeta Jacobea»",
+      "fee_eur": null,
+      "submission_mode": "Correo a info@caminodesantiagoennavarra.es con el relato en Word y los datos de autoría indicados en las bases.",
+      "source_url": "https://www.caminosantiago.org/CPPEREGRINO/prensa/verprensa.asp?PrensaID=23405",
+      "verified_at": "2026-10-03",
+      "editorial_note": "La extensión máxima es de dos folios A4 a una cara, fuente 12 e interlineado sencillo. El ganador debe acudir al acto salvo causa justificada o designar representante. Las bases contemplan cesión de derechos de uso, difusión y publicación del relato premiado.",
+      "published": true
+    },
+    {
+      "id": "kutxa-literarios-2027",
+      "title": "Premios Literarios Kutxa Fundazioa 2027",
+      "type": "concurso",
+      "organizer": "Kutxa Fundazioa",
+      "deadline": "2026-09-21",
+      "genres": [
+        "novela",
+        "poesía"
+      ],
+      "eligibility": "Personas mayores de edad de cualquier nacionalidad y residentes en España; para modalidades en euskara, residencia en cualquier parte del mundo. Obras originales e inéditas.",
+      "prize": "20.000 € novela; 15.000 € poesía; publicación de las obras ganadoras",
+      "fee_eur": null,
+      "submission_mode": "Inscripción mediante formulario online y envío de la obra en papel según la fuente oficial",
+      "source_url": "https://literatursariak.kutxafundazioa.eus/es/preguntas-y-respuestas",
+      "verified_at": "2026-10-03",
+      "editorial_note": "La fuente oficial fija el 21 de septiembre de 2026 como fecha tope del matasellos. Se corrigió una fecha anterior incorrecta. La convocatoria está fuera de plazo y aparece entre las cerradas: la ficha se conserva para la próxima edición, que solo necesitará fecha y verificación nuevas.",
+      "published": true
+    },
+    {
+      "id": "creacion-literaria-ministerio-2026",
+      "title": "Subvenciones para la creación literaria 2026",
+      "type": "ayuda",
+      "organizer": "Ministerio de Cultura",
+      "deadline": "2026-04-10",
+      "genres": [
+        "narrativa",
+        "poesía",
+        "ensayo",
+        "teatro",
+        "literatura infantil y juvenil",
+        "traducción"
+      ],
+      "eligibility": "Consultar convocatoria oficial.",
+      "prize": "Subvención pública",
+      "fee_eur": null,
+      "submission_mode": "Sede electrónica y registros admitidos por la convocatoria",
+      "source_url": "https://www.cultura.gob.es/servicios-a-la-ciudadania/catalogo/general/21/2102234.html",
+      "verified_at": "2026-08-21",
+      "editorial_note": "Convocatoria cerrada el 10 de abril de 2026. Se conserva entre las cerradas porque las bases y la vía de presentación se repiten cada año: la edición siguiente solo necesitará fecha y verificación nuevas.",
+      "published": true
+    }
   ]
 }

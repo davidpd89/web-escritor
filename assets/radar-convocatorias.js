@@ -77,6 +77,7 @@
   const genre = document.querySelector('[data-radar-genre]');
   const kind = document.querySelector('select[data-radar-kind]');
   const soon = document.querySelector('[data-radar-soon]');
+  const showExpired = document.querySelector('[data-radar-expired]');
   const count = document.querySelector('[data-radar-count]');
   const clear = document.querySelector('[data-radar-clear]');
   const emptyClear = document.querySelector('[data-radar-empty-clear]');
@@ -93,14 +94,12 @@
 
   items.forEach((item) => {
     const isWatch = item.dataset.radarKind === 'watch';
+    const isExpiredCard = item.dataset.radarKind === 'expired';
     const remaining = isWatch ? null : daysUntil(item.dataset.deadline, today);
     const age = daysSince(item.dataset.verifiedAt, today);
     const expired = !isWatch && (remaining === null || remaining < 0);
     const stale = age === null || age > STALE_DAYS;
     item.dataset.radarUnavailable = expired || stale ? 'true' : 'false';
-
-    const relative = item.querySelector('[data-radar-relative]');
-    if (relative && remaining !== null && remaining >= 0) relative.textContent = ` · ${relativeLabel(remaining)}`;
 
     const status = item.querySelector('[data-radar-status]');
     if (status) {
@@ -108,7 +107,9 @@
         const watchLabel = item.dataset.watchKind === 'recurring' ? 'Próxima edición a vigilar' : 'Próxima apertura';
         status.textContent = stale ? 'Verificación caducada' : watchLabel;
       }
-      else if (expired) status.textContent = 'Plazo finalizado';
+      else if (expired) status.textContent = isExpiredCard
+        ? `Cerr\u00f3 el ${new Date(`${item.dataset.deadline}T00:00:00Z`).toLocaleDateString('es-ES', { timeZone: 'UTC' })}`
+        : 'Plazo finalizado';
       else if (stale) status.textContent = 'Verificación caducada';
       else if (remaining === 0) status.textContent = 'Cierra hoy';
       else if (remaining === 1) status.textContent = 'Cierra mañana';
@@ -125,12 +126,20 @@
     let visible = 0;
 
     items.forEach((item) => {
-      const itemKind = item.dataset.radarKind === 'watch' ? 'watch' : 'active';
+      const declaredKind = item.dataset.radarKind;
+      const itemKind = declaredKind === 'watch' || declaredKind === 'expired' ? declaredKind : 'active';
       const remaining = itemKind === 'active' ? daysUntil(item.dataset.deadline, today) : null;
       const haystack = normalize(`${item.dataset.title || ''} ${item.dataset.organizer || ''} ${item.textContent || ''}`);
       const itemType = normalize(item.dataset.type);
       const itemGenres = normalize(item.dataset.genres).split('|');
-      const available = item.dataset.radarUnavailable !== 'true';
+      // Una ficha de la seccion de cerradas esta 'no disponible' por
+      // definicion -- su plazo paso -- y aun asi se puede mostrar si quien
+      // lee lo pide. Lo que no cambia es el caso que este guard protege de
+      // verdad: una ficha de la lista activa cuyo plazo ha pasado mientras el
+      // HTML estaba cacheado sigue desapareciendo sola.
+      const available = itemKind === 'expired'
+        ? Boolean(showExpired?.checked)
+        : item.dataset.radarUnavailable !== 'true';
       const closesSoon = remaining !== null && remaining >= 0 && remaining <= 7;
       const matches = available
         && (!q || haystack.includes(q))
@@ -149,7 +158,7 @@
     if (empty) empty.hidden = visible !== 0;
   };
 
-  [query, type, genre, kind, soon].forEach((control) => {
+  [query, type, genre, kind, soon, showExpired].forEach((control) => {
     control?.addEventListener(control === query ? 'input' : 'change', apply);
   });
 
@@ -159,9 +168,14 @@
     if (genre) genre.value = '';
     if (kind) kind.value = '';
     if (soon) soon.checked = false;
+    if (showExpired) showExpired.checked = false;
     apply();
     query?.focus();
   };
+
+  showExpired?.addEventListener('change', () => {
+    if (showExpired.checked) emit('radar_expired_shown');
+  });
 
   clear?.addEventListener('click', clearFilters);
   emptyClear?.addEventListener('click', clearFilters);

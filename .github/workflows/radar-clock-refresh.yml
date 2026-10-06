@@ -155,4 +155,14 @@ jobs:
             --base main \
             --head "$branch" \
             --title "chore(resources): refresh radar clock ${today}" \
-            --body "Actualización automática del radar al día civil de Madrid \`${today}\`. Generada por \`radar-clock-refresh.yml\`; incluye únicamente los artefactos deterministas permitidos y Pagefind cuando cambia el HTML."
+            --body "Actualización automática del radar al día civil de Madrid \`${today}\`. Generada por \`radar-clock-refresh.yml\`; incluye únicamente los artefactos deterministas permitidos y Pagefind cuando cambia el HTML. Se fusiona sola en cuanto pasen los checks obligatorios (auto-merge); si alguno falla, se queda abierta esperando revisión."
+
+          # Auto-merge, no merge directo: GitHub la fusiona cuando los seis
+          # checks obligatorios estan en verde, y si alguno falla la PR se
+          # queda abierta en vez de entrar rota en main. Lo que esta PR
+          # cambia es solo el resultado de regenerar con la fecha de hoy --
+          # el paso anterior ya rechaza cualquier fichero fuera de la lista
+          # permitida -- asi que no hay criterio humano que aportar: hasta
+          # hoy el unico efecto de esperar era que una convocatoria cerrada
+          # siguiera anunciada como abierta hasta que alguien se acordaba.
+          gh pr merge --auto --squash "$branch"

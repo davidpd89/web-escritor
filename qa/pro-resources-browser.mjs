@@ -11,7 +11,12 @@ const editorialData=JSON.parse(await fs.readFile('editoriales/editoriales-data.j
 const radarPublic=JSON.parse(await fs.readFile('convocatorias-escritores/opportunities.json','utf8'));
 const radarItems=radarPublic.items;
 const radarWatch=radarPublic.watchlist||[];
-const radarAll=[...radarItems,...radarWatch];
+// radarAll es lo que el documento contiene; radarDefault es lo que la pagina
+// ensena antes de que nadie marque «Mostrar vencidas». Las cerradas estan en
+// el HTML a proposito (es el motivo de conservarlas) pero no a la vista.
+const radarExpired=radarPublic.expired||[];
+const radarAll=[...radarItems,...radarWatch,...radarExpired];
+const radarDefault=[...radarItems,...radarWatch];
 const fixedToday=radarPublic.generated_for;
 const sizes=[[320,900],[390,900],[768,1000],[1024,900],[1440,1000],[1728,1000],[844,390]];
 
@@ -21,7 +26,7 @@ const statusCount=status=>editorialData.filter(x=>x.status===status).length;
 const closedFantasy=editorialData.filter(x=>x.status==='closed'&&(x.genres||[]).some(g=>norm(g)==='fantasia')).length;
 const directCount=editorialData.filter(x=>x.direct_submission===true).length;
 const chileCount=editorialData.filter(x=>x.country==='Chile').length;
-const radarGenreCount=genre=>radarAll.filter(x=>(x.genres||[]).some(g=>norm(g)===norm(genre))).length;
+const radarGenreCount=genre=>radarDefault.filter(x=>(x.genres||[]).some(g=>norm(g)===norm(genre))).length;
 const daysUntil=(deadline,base)=>Math.round((new Date(deadline+'T00:00:00Z')-new Date(base+'T00:00:00Z'))/86400000);
 const offsetDate=(base,days)=>{
   const value=new Date(base+'T00:00:00Z');
@@ -89,7 +94,7 @@ async function noOverflow(p,label){const x=await p.evaluate(()=>document.documen
 }
 {
   const[c,p]=await open('/convocatorias-escritores/',{fixed:true});
-  assert.equal(await visible(p,'[data-radar-item]'),radarAll.length);
+  assert.equal(await visible(p,'[data-radar-item]'),radarDefault.length);
   const probeDates={
     today:fixedToday,
     tomorrow:offsetDate(fixedToday,1),
@@ -105,14 +110,8 @@ async function noOverflow(p,label){const x=await p.evaluate(()=>document.documen
     yesterday:DPRadarDates.daysUntil(dates.yesterday,dates.today)
   }),probeDates);
   assert.deepEqual(d,{today:0,tomorrow:1,plus7:7,plus8:8,yesterday:-1});
-  const rel=await p.locator('[data-radar-relative]').allTextContents();
-  const expectedRel=radarItems.map(item=>{
-    const remaining=daysUntil(item.deadline,fixedToday);
-    if(remaining===0)return '· hoy';
-    if(remaining===1)return '· mañana';
-    return `· faltan ${remaining} días`;
-  });
-  assert.deepEqual(rel.map(t=>t.trim()),expectedRel);
+  // La cuenta atras («faltan N dias») se quito de las fichas: la fecha ya esta a la vista.
+  assert.equal(await p.locator('[data-radar-relative]').count(),0,'la cuenta atras sigue en las fichas');
   await p.locator('[data-radar-search]').fill('ALFAGUARA');assert.equal(await visible(p,'[data-radar-item]'),1);
   await p.locator('[data-radar-clear]').click();
   await p.locator('select[data-radar-kind]').selectOption('active');assert.equal(await visible(p,'[data-radar-item]'),radarItems.length);
@@ -122,7 +121,7 @@ async function noOverflow(p,label){const x=await p.evaluate(()=>document.documen
   await p.locator('[data-radar-clear]').click();
   await p.locator('[data-radar-soon]').check();assert.equal(await visible(p,'[data-radar-item]'),soonCount);
   assert.equal(await p.locator('[data-radar-filter-empty]').isVisible(),soonCount===0);
-  await p.locator('[data-radar-clear]').click();assert.equal(await visible(p,'[data-radar-item]'),radarAll.length);
+  await p.locator('[data-radar-clear]').click();assert.equal(await visible(p,'[data-radar-item]'),radarDefault.length);
   assert.equal(await p.locator('[data-radar-calendar]').getAttribute('href'),'/convocatorias-escritores/deadlines.ics');
   await noOverflow(p,'radar filters');await c.close();
 }
