@@ -105,6 +105,6 @@ for(const [name,launcher] of Object.entries(ENGINES)){
   }
 }
 
-console.log('ROTATING CROSS-ENGINE SAMPLE',JSON.stringify({seed,day,routes},null,2));
+console.log('ROTATING CROSS-ENGINE SAMPLE',JSON.stringify({seed,day,routes:ROUTES},null,2));
 assert.deepEqual(failures,[],failures.join('\n'));
 console.log(`PASS rotating cross-engine production smoke: ${ROUTES.length} routes x ${Object.keys(ENGINES).length} engines`);

@@ -36,6 +36,7 @@ try{
         const imageAlt=[...document.querySelectorAll('img')].filter(img=>!img.hasAttribute('alt')).map(img=>img.outerHTML.slice(0,220));
         const iframeTitle=[...document.querySelectorAll('iframe')].filter(f=>!(f.getAttribute('title')||'').trim()).map(f=>f.outerHTML.slice(0,220));
         const unnamedControls=[...document.querySelectorAll('input:not([type="hidden"]),select,textarea')].filter(el=>{
+          if(el.closest('[aria-hidden="true"],[inert]')) return false;
           const labelled=(el.getAttribute('aria-label')||'').trim()||(el.getAttribute('aria-labelledby')||'').trim();
           const labels=el.labels?.length||0;
           return !labelled&&!labels;
