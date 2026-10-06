@@ -85,7 +85,10 @@ assert.equal(new Set(locs).size,locs.length,'editoriales sitemap: duplicate <loc
 for(const loc of locs){
   const u=new URL(loc);
   assert.equal(u.origin,ORIGIN,'editoriales sitemap: external origin');
-  assert.ok(u.pathname==='/editoriales/'||u.pathname.startsWith('/editoriales/'),'editoriales sitemap: route outside /editoriales/');
+  assert.ok(
+    u.pathname==='/metodologia-editorial/'||u.pathname==='/editoriales/'||u.pathname.startsWith('/editoriales/'),
+    'editoriales sitemap: unexpected route outside editorial resource surfaces'
+  );
 }
 
 // Event calendar files are easy to orphan because they are generated from
