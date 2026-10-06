@@ -79,7 +79,7 @@ def make_fixture_repo(tmp: Path) -> Path:
         "schema_version": 1,
         "defaults": {"status": "public", "searchIndex": True},
         "entries": [
-            {"id": "registered", "sourceFile": "registered.html", "url": "/registered.html"},
+            {"id": "registered", "sourceFile": "registered.html", "url": "/registered.html", "label": "Registro canónico"},
             {"id": "privada", "sourceFile": "privada-busqueda.html", "url": "/privada-busqueda.html", "searchIndex": False},
             {"id": "gated", "sourceFile": "gated/index.html", "url": "/gated/", "status": "noindex"},
         ],
@@ -109,6 +109,16 @@ def run() -> None:
         check("data/fragment.html" not in pages, "6. fragmento bajo data/ -> siempre excluida")
         check(pages == sorted(pages), "7. eligible_pages() devuelve orden determinista (sorted)")
 
+        registered_html = (tmp / "registered.html").read_text(encoding="utf-8")
+        injected = bpi.inject_registry_search_title(
+            registered_html,
+            {"label": "Registro canónico"},
+        )
+        check(
+            'data-pagefind-meta="title[content]" content="Registro canónico"' in injected,
+            "8. el label canónico del registry se inyecta como título de búsqueda Pagefind",
+        )
+
     # --- ciclo build() / --check sobre un pagefind real, sin red externa ---
     # tool-tests.yml ejecuta tests/test-*.py sin Node/npm instalados (a
     # diferencia de assistant-hardening-qa.yml, que si lo tiene). Sin `npx`
@@ -117,7 +127,7 @@ def run() -> None:
     # ambos workflows sin duplicar el test de elegibilidad.
     pagefind_installed = (ROOT / "node_modules" / "pagefind").exists()
     if shutil.which("npx") is None or not pagefind_installed:
-        print("  skip 8-14. pagefind no instalado en node_modules en este entorno (ver assistant-hardening-qa.yml, que corre `npm ci` antes, para el ciclo build/--check completo)")
+        print("  skip 9-16. pagefind no instalado en node_modules en este entorno (ver assistant-hardening-qa.yml, que corre `npm ci` antes, para el ciclo build/--check completo)")
         if failures:
             print(f"\nFAIL: {len(failures)} check(s) de test-build-pagefind-index")
             raise SystemExit(1)
@@ -131,12 +141,29 @@ def run() -> None:
 
         try:
             rc_build = bpi.build(tmp2, out_dir, src_dir)
-            check(rc_build == 0, "8. build() termina en 0 sobre el fixture")
-            check((out_dir / "pagefind.js").exists(), "9. build() produce pagefind.js")
-            check(not src_dir.exists(), "10. build() limpia el arbol temporal .pagefind-src tras indexar")
+            check(rc_build == 0, "9. build() termina en 0 sobre el fixture")
+            check((out_dir / "pagefind.js").exists(), "10. build() produce pagefind.js")
+            check(not src_dir.exists(), "11. build() limpia el arbol temporal .pagefind-src tras indexar")
 
             rc_check_clean = bpi.check(tmp2, out_dir)
-            check(rc_check_clean == 0, "11. --check pasa justo despues de construir")
+            check(rc_check_clean == 0, "12. --check pasa justo despues de construir")
+
+            registry_path = tmp2 / "data" / "content-registry.json"
+            registry_payload = json.loads(registry_path.read_text(encoding="utf-8"))
+            registered = next(x for x in registry_payload["entries"] if x["id"] == "registered")
+            registered["label"] = "Registro renombrado"
+            registry_path.write_text(json.dumps(registry_payload), encoding="utf-8")
+            rc_check_registry_stale = bpi.check(tmp2, out_dir)
+            check(
+                rc_check_registry_stale == 1,
+                "13. --check falla si cambia el label de búsqueda del registry sin regenerar",
+            )
+            registered["label"] = "Registro canónico"
+            registry_path.write_text(json.dumps(registry_payload), encoding="utf-8")
+            check(
+                bpi.check(tmp2, out_dir) == 0,
+                "13b. --check vuelve a pasar al restaurar el label indexado",
+            )
 
             # Cambiar el contenido de una pagina YA elegible sin tocar el corpus:
             # --check debe detectar que el indice comprometido ya no representa
@@ -148,14 +175,14 @@ def run() -> None:
             rc_check_content_stale = bpi.check(tmp2, out_dir)
             check(
                 rc_check_content_stale == 1,
-                "12. --check falla si cambia el contenido de una pagina elegible sin regenerar",
+                "14. --check falla si cambia el contenido de una pagina elegible sin regenerar",
             )
             # Restaurar el contenido indexado para aislar la siguiente regresion.
             (tmp2 / "public.html").write_text(
                 PAGE.format(robots="index,follow", title="Publica"),
                 encoding="utf-8",
             )
-            check(bpi.check(tmp2, out_dir) == 0, "13. --check vuelve a pasar al restaurar el contenido indexado")
+            check(bpi.check(tmp2, out_dir) == 0, "15. --check vuelve a pasar al restaurar el contenido indexado")
 
             # Anadir una pagina publica nueva sin regenerar el indice: --check
             # debe detectar la desincronizacion (no solo asumir que sigue OK).
@@ -166,11 +193,11 @@ def run() -> None:
                 cwd=tmp2, check=True,
             )
             rc_check_stale = bpi.check(tmp2, out_dir)
-            check(rc_check_stale == 1, "14. --check falla tras anadir una pagina elegible sin regenerar el indice")
+            check(rc_check_stale == 1, "16. --check falla tras anadir una pagina elegible sin regenerar el indice")
         except FileNotFoundError as exc:
-            check(False, "8-14. pagefind CLI no disponible en este entorno", str(exc))
+            check(False, "9-16. pagefind CLI no disponible en este entorno", str(exc))
         except Exception as exc:  # pragma: no cover - visibilidad de fallo real
-            check(False, "8-14. build()/check() del fixture no lanzaron una excepcion inesperada", str(exc))
+            check(False, "9-16. build()/check() del fixture no lanzaron una excepcion inesperada", str(exc))
 
     if failures:
         print(f"\nFAIL: {len(failures)} check(s) de test-build-pagefind-index")
