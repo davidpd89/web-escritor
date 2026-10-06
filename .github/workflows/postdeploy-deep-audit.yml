@@ -30,6 +30,7 @@ on:
       - 'qa/production-format-contract.mjs'
       - 'qa/production-http-semantics.mjs'
       - 'qa/production-public-artifacts.mjs'
+      - 'qa/production-jsonld-link-integrity.mjs'
       - 'qa/production-media-decode.mjs'
       - 'qa/production-compact-landscape.mjs'
       - 'qa/production-rotating-device-audit.mjs'
@@ -70,6 +71,7 @@ on:
       - 'qa/production-format-contract.mjs'
       - 'qa/production-http-semantics.mjs'
       - 'qa/production-public-artifacts.mjs'
+      - 'qa/production-jsonld-link-integrity.mjs'
       - 'qa/production-media-decode.mjs'
       - 'qa/production-compact-landscape.mjs'
       - 'qa/production-rotating-device-audit.mjs'
@@ -154,6 +156,7 @@ jobs:
           node --check qa/production-format-contract.mjs
           node --check qa/production-http-semantics.mjs
           node --check qa/production-public-artifacts.mjs
+          node --check qa/production-jsonld-link-integrity.mjs
           node --check qa/production-media-decode.mjs
           node --check qa/production-compact-landscape.mjs
           node --check qa/production-rotating-device-audit.mjs
@@ -233,6 +236,9 @@ jobs:
 
       - name: Audit deployed semantic metadata parity
         run: node qa/production-semantic-parity.mjs
+
+      - name: Audit live internal URLs referenced by JSON-LD
+        run: node qa/production-jsonld-link-integrity.mjs
 
       - name: Audit production URL normalization
         run: node qa/production-url-normalization.mjs
