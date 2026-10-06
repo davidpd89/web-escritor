@@ -35,7 +35,7 @@
       "assets/entrevista-familiar.js": ["family_interview_generate", "family_interview_print"],
       "assets/generador-evento-escritor.js": ["event_builder", "event_builder_ics"],
       "assets/mapa-personajes.js": ["character_map_add_character", "character_map_add_relation", "character_map_focus", "character_map_export", "character_map_import", "character_map_clear"],
-      "assets/radar-convocatorias.js": ["radar_source_click", "radar_calendar_click"],
+      "assets/radar-convocatorias.js": ["radar_source_click", "radar_calendar_click", "radar_expired_shown"],
       "assets/repeticiones-espanol.js": ["repetition_analyze", "repetition_sample", "repetition_clear"],
       "assets/analizador-capitulos.js": ["chapter_analyzer_run"],
       "assets/jsonld-escritores.js": ["jsonld_tool_copy"],
