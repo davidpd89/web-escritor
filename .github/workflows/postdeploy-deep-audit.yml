@@ -223,7 +223,7 @@ jobs:
     runs-on: ubuntu-24.04
     timeout-minutes: 15
     env:
-      SITE_BASE_URL: https://davidportodiaz.com
+      SITE_BASE_URL: ${{ github.event_name == 'pull_request' && 'http://127.0.0.1:4173' || 'https://davidportodiaz.com' }}
     steps:
       - name: Checkout audit code
         uses: actions/checkout@v5
@@ -251,7 +251,20 @@ jobs:
         if: steps.playwright-focus-cache.outputs.cache-hit == 'true'
         run: npx playwright install-deps chromium
 
-      - name: Audit production focus trapping and restoration
+      - name: Start local branch server for pull-request focus audit
+        if: github.event_name == 'pull_request'
+        shell: bash
+        run: |
+          python3 -m http.server 4173 --bind 127.0.0.1 > /tmp/focus-contract-http.log 2>&1 &
+          echo $! > /tmp/focus-contract-http.pid
+          for i in {1..30}; do
+            if curl --fail --silent http://127.0.0.1:4173/ >/dev/null; then exit 0; fi
+            sleep 1
+          done
+          cat /tmp/focus-contract-http.log
+          exit 1
+
+      - name: Audit focus trapping and restoration
         run: node qa/production-focus-restoration.mjs
 
   production-parity:
