@@ -1,8 +1,8 @@
 {
   "schemaVersion": 1,
-  "lastReviewed": "2026-09-30",
+  "lastReviewed": "2026-10-06",
   "reviewer": "David Porto Díaz / QA Automation",
-  "reviewedAt": "2026-09-30",
+  "reviewedAt": "2026-10-06",
   "reviewBy": "2026-12-29",
   "policy": {
     "productionVulnerabilitiesAllowed": 0,
@@ -387,6 +387,27 @@
       "reviewer": "David Porto Díaz / QA Automation",
       "reviewedAt": "2026-09-30",
       "fixedVersion": null
+    },
+    {
+      "id": "GHSA-hp3w-g68c-fv3c",
+      "package": "sprintf-js",
+      "severity": "moderate",
+      "title": "sprintf-js vulnerable to denial of service through unbounded precision specifiers",
+      "affectedRange": "<=1.1.3",
+      "dependencyType": "transitive-dev",
+      "path": "@lhci/utils > js-yaml 3.x > argparse 1.x > sprintf-js",
+      "production": false,
+      "reachability": "Only present in Lighthouse CI development tooling through js-yaml/argparse. The published site is static and ships none of these npm modules. Repository LHCI configuration is trusted JSON, not attacker-controlled YAML/format strings.",
+      "fixAvailable": false,
+      "fixedVersion": null,
+      "installedVersion": "1.0.3",
+      "lockfileNode": "node_modules/sprintf-js",
+      "decision": "monitor",
+      "owner": "CI-Tooling",
+      "reviewer": "David Porto Díaz / QA Automation",
+      "reviewedAt": "2026-10-06",
+      "reviewBy": "2026-10-20",
+      "sourceUrl": "https://github.com/advisories/GHSA-hp3w-g68c-fv3c"
     }
   ]
 }
