@@ -253,7 +253,10 @@ try{
                 }
               }
               if(visuallySuppressed) return false;
-              const r=el.getBoundingClientRect();
+              // display:contents elements (the masthead brand link) have no box of
+              // their own by definition; what the user sees is their children.
+              const box=getComputedStyle(el).display==='contents'?(el.firstElementChild||el):el;
+              const r=box.getBoundingClientRect();
               return r.width<=0||r.height<=0;
             }).slice(0,8).map(el=>el.outerHTML.slice(0,180)),
           };
