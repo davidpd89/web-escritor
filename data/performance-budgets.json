@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "enforcement": "enforce",
-  "note": "E.5. Budget determinista de bytes del artifact. Baseline capturado por Performance budget QA el 2026-08-30 sobre main@291c8c6 + esta PR en modo report. Los imports CSS y los imports JS estaticos se resuelven transitivamente; import() dinamico no se sigue automaticamente y debe tener su propio budget si forma una familia/carga diferida relevante. Los limites de bytes dejan aproximadamente un 10% de margen, redondeado a KiB; request_count no tiene margen silencioso: un nuevo fichero/request requiere revisar y justificar el budget. 2026-09-05: home-runtime recapturado (request_count 1->2, justificado: assets/v1-home-editorial-v3.js paso a modulo ES para importar EDITORIAL_PUBLIC_FACTS de assets/editorial-public-facts.mjs en vez de duplicar a mano el purchaseUrl de editorial-facts.json -- una fuente-de-verdad real, no un fichero de mas gratuito). assistant-runtime recapturado (bytes, no request_count): el resolver local del Asistente gano ramas edition-aware reales para las dos ediciones de Manecillas (fecha/precio/ISBN/ASIN/paginas/comparacion), no bloat.",
+  "note": "E.5. Budget determinista de bytes del artifact. Baseline capturado por Performance budget QA el 2026-08-30 sobre main@291c8c6 + esta PR en modo report. Los imports CSS y los imports JS estaticos se resuelven transitivamente; import() dinamico no se sigue automaticamente y debe tener su propio budget si forma una familia/carga diferida relevante. Los limites de bytes dejan aproximadamente un 10% de margen, redondeado a KiB; request_count no tiene margen silencioso: un nuevo fichero/request requiere revisar y justificar el budget. 2026-09-05: home-runtime recapturado (request_count 1->2, justificado: assets/v1-home-editorial-v3.js paso a modulo ES para importar EDITORIAL_PUBLIC_FACTS de assets/editorial-public-facts.mjs en vez de duplicar a mano el purchaseUrl de editorial-facts.json -- una fuente-de-verdad real, no un fichero de mas gratuito). assistant-runtime recapturado (bytes, no request_count): el resolver local del Asistente gano ramas edition-aware reales para las dos ediciones de Manecillas (fecha/precio/ISBN/ASIN/paginas/comparacion), no bloat. 2026-10-06: home-runtime recapturado (bytes, no request_count: sigue en 2). El limite de 32768 habia quedado a 42 bytes del consumo real, asi que cualquier dato editorial nuevo lo rompia, y el margen del ~10% que describe esta nota ya no existia. El crecimiento no es bloat del runtime de Home: assets/v1-home-editorial-v3.js no gano ni un byte en esta ronda (el titulo del heroe paso de h1 a h2, mismo tamano), lo que crecio es assets/editorial-public-facts.mjs, que es la proyeccion de editorial-facts.json y gano la obra premiada del certamen de Letras Como Espada -- un dato real con fuente, no codigo. Nuevo limite 36864 (36 KiB), que devuelve el margen documentado.",
   "budgets": [
     {
       "id": "shell-v1",
@@ -28,12 +28,12 @@
         "assets/v1-home-editorial-v3.js"
       ],
       "baseline": {
-        "total_bytes": 29764,
-        "js_bytes": 29764,
+        "total_bytes": 32726,
+        "js_bytes": 32726,
         "request_count": 2
       },
       "limits": {
-        "total_bytes": 32768,
+        "total_bytes": 36864,
         "request_count": 2
       }
     },
