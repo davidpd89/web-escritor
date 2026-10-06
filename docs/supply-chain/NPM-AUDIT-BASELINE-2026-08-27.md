@@ -125,3 +125,30 @@ El Markdown explica decisiones; el JSON permite diff/CI.
 - [ ] añadir CI que detecte cambios sobre el baseline, no que silencie ni fuerce fixes;
 - [ ] actualizar #120 para enlazar esta autoridad en vez de repetir una conclusión resumida;
 - [ ] no exponer tokens, rutas privadas ni datos de runner innecesarios.
+
+## 7. Revisión 06/10/2026
+
+`npm audit` empezó a reportar tres advisories que no estaban en el baseline, y el gate
+(`tests/test-npm-supply-chain-baseline.py`) pasa en la Required merge gate: con ellas sin
+catalogar, **ninguna PR del repo podía fusionarse**. Las tres llegan por `@lhci/cli@0.15.1`,
+igual que las 18 anteriores.
+
+Dos tenían versión corregida compatible, así que se aplicó la política 2 de la sección 4
+(upgrade, no aceptación) mediante `overrides` en `package.json`, que es el mecanismo que este
+repo ya usaba para `basic-ftp`:
+
+| Advisory | Paquete | Severidad | Acción |
+|---|---|---|---|
+| GHSA-jqcg-44mw-7w3h | `proxy-addr` | critical | `overrides` a 2.0.8 |
+| GHSA-vc2v-76pw-4v95 | `compression` | high | `overrides` a 1.8.2 |
+| GHSA-hp3w-g68c-fv3c | `sprintf-js` | moderate | `accept-temporarily` |
+
+Con eso el árbol de dev baja de 1 critical y 14 high a **0 critical y 13 high**, y producción
+sigue en 0 (el sitio publicado no lleva JavaScript de npm).
+
+`sprintf-js` no se puede arreglar: la última versión publicada es 1.1.3 y el advisory cubre
+`<=1.1.3`, así que no existe versión segura a la que subir. Llega por
+`@lhci/cli > @lhci/utils > js-yaml@3.15.1 > argparse@1.0.10 > sprintf-js@1.0.3`, y solo se
+ejecuta al formatear los textos de ayuda del propio CLI: las cadenas de formato son de la
+librería, no de ninguna página auditada ni de ninguna entrada de CI. Aceptada con
+`reviewBy` 29/12/2026, la misma fecha que el resto.
