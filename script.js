@@ -480,7 +480,36 @@ document.querySelectorAll(".faq-question").forEach((btn) => {
 const ANALYTICS_PRODUCTION_HOSTNAMES = new Set(["davidportodiaz.com", "www.davidportodiaz.com"]);
 const IS_ANALYTICS_PRODUCTION_HOST = ANALYTICS_PRODUCTION_HOSTNAMES.has(location.hostname);
 
-if (IS_ANALYTICS_PRODUCTION_HOST) (function () {
+// Web Storage does not always just return null -- in Safari's Lockdown Mode,
+// with "block all cookies", under some enterprise policies and behind a few
+// privacy extensions, every Storage.prototype call throws SecurityError
+// instead. Our own call sites all handle that (v1-shell.js, newsletter-popup.js,
+// assistant-widget.js, analytics-consent-banner.js, the modo-samuel cleanup
+// above), but the two third-party analytics scripts do not: GoatCounter reads
+// localStorage.getItem('skipgc') inside its own filter() before counting, and
+// Clarity reads storage from its internal timers. Both threw an uncaught
+// SecurityError on every pageview, which qa/production-session-resilience.mjs
+// caught against production on 2026-10-06 (two uncaught errors per page).
+//
+// Not injecting them when storage throws loses no data: GoatCounter's filter()
+// raises before the beacon is sent, so those pageviews were never counted
+// anyway, and Clarity cannot hold a session without storage. Metricool is left
+// alone on purpose -- it touches no storage at all (verified against
+// tracker.metricool.com/resources/be.js, see privacidad.html).
+const IS_WEB_STORAGE_USABLE = (function () {
+  try {
+    const probe = "__dp-storage-probe__";
+    localStorage.setItem(probe, "1");
+    localStorage.removeItem(probe);
+    sessionStorage.getItem(probe);
+    return true;
+  } catch {
+    return false;
+  }
+})();
+const ANALYTICS_CAN_USE_STORAGE = IS_ANALYTICS_PRODUCTION_HOST && IS_WEB_STORAGE_USABLE;
+
+if (ANALYTICS_CAN_USE_STORAGE) (function () {
   // Guard against double-loading: some pages still carry a legacy direct
   // <script data-goatcounter> tag alongside this global loader, which would
   // otherwise fetch count.js twice and double-count the same pageview.
@@ -575,7 +604,7 @@ if (!document.querySelector('[data-samuel-quiz]')) {
   // in the same task as everything else competing for the LCP paint. Found
   // 2026-09-16 review; scoped a dedicated helper to this one call site
   // rather than changing scheduleTask's fallback for everyone.
-  if (IS_ANALYTICS_PRODUCTION_HOST) scheduleBackgroundIdle(() => (function (c, l, a, r, i, t, y) {
+  if (ANALYTICS_CAN_USE_STORAGE) scheduleBackgroundIdle(() => (function (c, l, a, r, i, t, y) {
     c[a] = c[a] || function () { (c[a].q = c[a].q || []).push(arguments); };
     t = l.createElement(r); t.async = 1; t.src = "https://www.clarity.ms/tag/" + i;
     y = l.getElementsByTagName(r)[0]; y.parentNode.insertBefore(t, y);
@@ -592,10 +621,17 @@ if (!document.querySelector('[data-samuel-quiz]')) {
   // ad_Storage is always denied regardless of the analytics choice -- this
   // project has no Microsoft Ads/UET account linked and no use for
   // Clarity's identity-sync pixel.
-  const storedConsent = getStoredAnalyticsConsent();
-  applyAnalyticsConsent(storedConsent ? storedConsent.value : "granted");
-  if (!storedConsent) {
-    scheduleTask(showAnalyticsConsentBanner, "user-visible");
+  // With storage blocked there is nothing left to ask about: Clarity is the
+  // only reason this banner exists and it was not injected above, while
+  // GoatCounter and Metricool are cookieless either way (privacidad.html).
+  // Showing a consent bar whose answer cannot be stored would ask the same
+  // question on every single pageview and change nothing.
+  if (IS_WEB_STORAGE_USABLE) {
+    const storedConsent = getStoredAnalyticsConsent();
+    applyAnalyticsConsent(storedConsent ? storedConsent.value : "granted");
+    if (!storedConsent) {
+      scheduleTask(showAnalyticsConsentBanner, "user-visible");
+    }
   }
 }
 
@@ -603,13 +639,25 @@ if (!document.querySelector('[data-samuel-quiz]')) {
 // navigation clicks are not lost; fall back to a background retry otherwise.
 function _gcEvent(path, title) {
   const payload = { path, title, event: true };
+  // count() runs GoatCounter's own filter() first, which reads localStorage --
+  // so a blocked-storage browser turns any event call into an uncaught
+  // SecurityError inside whatever click handler asked for it. The loader above
+  // no longer injects count.js in that case, but a page carrying its own
+  // <script data-goatcounter> tag still would, so swallow it here too.
+  const send = () => {
+    try {
+      window.goatcounter.count(payload);
+    } catch {
+      // Analytics is never allowed to break the interaction that reported it.
+    }
+  };
   if (window.goatcounter && window.goatcounter.count) {
-    window.goatcounter.count(payload);
+    send();
     return;
   }
   scheduleTask(() => {
     if (window.goatcounter && window.goatcounter.count) {
-      window.goatcounter.count(payload);
+      send();
     }
   }, "background");
 }

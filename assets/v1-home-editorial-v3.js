@@ -308,7 +308,7 @@ import { EDITORIAL_PUBLIC_FACTS } from './editorial-public-facts.mjs';
 
     const heading = make('header', 'yale-home-issue__heading');
     heading.append(make('p', 'yale-home-issue__kicker', 'Obra actual'));
-    const title = make('h1', '', 'Las manecillas del recuerdo');
+    const title = make('h2', '', 'Las manecillas del recuerdo');
     title.id = 'yale-home-title';
     heading.append(title);
 
@@ -329,7 +329,7 @@ import { EDITORIAL_PUBLIC_FACTS } from './editorial-public-facts.mjs';
 
     const copy = make('div', 'yale-lead__copy');
     copy.append(make('p', 'editorial-card__eyebrow', 'Monza Ediciones'));
-    const h = make('h2');
+    const h = make('h3');
     addTextLink(h, '/las-manecillas-del-recuerdo/', 'La nueva novela de David Porto Díaz');
     copy.append(h);
     copy.append(make('p', 'yale-lead__deck', 'Un reloj pasa de mano en mano y cambia de significado en cada vida que toca.'));

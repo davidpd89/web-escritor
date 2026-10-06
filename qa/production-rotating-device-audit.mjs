@@ -124,11 +124,26 @@ async function skipLinkProbe(page,route){
   });
   await page.keyboard.press('Tab');
   assert.equal(await skip.evaluate(el=>el===document.activeElement),true,`${route}: first Tab does not focus skip link`);
-  const visible=await skip.evaluate(el=>{
+  // The skip link slides in with `transition:transform var(--motion-state)`
+  // (220ms, assets/v1-base.css): measured in the same tick as the Tab press it
+  // is still at translateY(-180%) and reads as off-screen, which is what made
+  // this job fail on 21 production routes on 2026-10-06 while the link itself
+  // was fine. Poll until the state settles instead of relaxing the assertion --
+  // it must still end up visible, and the last rect travels with the failure.
+  const readSkip=()=>skip.evaluate(el=>{
     const r=el.getBoundingClientRect(),s=getComputedStyle(el);
-    return s.display!=='none'&&s.visibility!=='hidden'&&r.width>0&&r.height>0&&r.bottom>0&&r.top<innerHeight;
+    return {
+      visible:s.display!=='none'&&s.visibility!=='hidden'&&r.width>0&&r.height>0&&r.bottom>0&&r.top<innerHeight,
+      rect:{top:Math.round(r.top),bottom:Math.round(r.bottom),width:Math.round(r.width),height:Math.round(r.height)},
+      display:s.display,visibility:s.visibility,transform:s.transform,
+    };
   });
-  assert.equal(visible,true,`${route}: skip link focused but not visible`);
+  let shown=await readSkip();
+  for(let waited=0;!shown.visible&&waited<1500;waited+=100){
+    await page.waitForTimeout(100);
+    shown=await readSkip();
+  }
+  assert.equal(shown.visible,true,`${route}: skip link focused but not visible ${JSON.stringify(shown)}`);
   await page.keyboard.press('Enter');
   await page.waitForTimeout(80);
   const target=await page.evaluate(()=>{

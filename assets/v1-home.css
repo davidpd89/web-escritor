@@ -392,10 +392,20 @@ html.v1[data-lrb-home="true"] .yale-signup__copy .editorial-card__eyebrow::befor
   opacity:.8;
   pointer-events:none;
 }
-html.v1[data-lrb-home="true"] .yale-home-issue h1{
+/* h2, not h1 (2026-10-06): this hero is built by assets/v1-home-editorial-v3.js
+   and the static masthead already carries Home's only <h1>, so an <h1> here left
+   the live page with two visible h1 while the no-JS render had one --
+   qa/production-rotating-device-audit.mjs caught it in all three device
+   scenarios. Demoted to the same level every other Home section title uses,
+   with .yale-lead__copy h3 below following the lead/item level of
+   .home-events/.yale-tile/.yale-rail-card. The selector is scoped to
+   __heading so it cannot pick up those sibling headings. The reasoning lives
+   here and not in the JS because that file sits inside the 32 KiB
+   home-runtime budget with ~50 bytes of slack (data/performance-budgets.json). */
+html.v1[data-lrb-home="true"] .yale-home-issue__heading h2{
   margin:0;
   /* .yale-home-issue__heading is display:grid, so like the kicker above,
-     this h1 was stretching to the full grid-column width -- width:fit-content
+     this heading was stretching to the full grid-column width -- width:fit-content
      keeps its box matched to the actual text instead. */
   width:fit-content;
   font-family:'Manrope Display','Manrope Fallback','Avenir Next',Avenir,'Segoe UI',sans-serif;
@@ -505,7 +515,7 @@ html.v1[data-lrb-home="true"] .yale-lead__media img{
   object-fit:contain;
   filter:drop-shadow(0 16px 22px rgba(0,0,0,.16));
 }
-html.v1[data-lrb-home="true"] .yale-lead__copy h2,
+html.v1[data-lrb-home="true"] .yale-lead__copy h3,
 html.v1[data-lrb-home="true"] .yale-tile h3,
 html.v1[data-lrb-home="true"] .yale-rail-card h3,
 html.v1[data-lrb-home="true"] .home-events h2,
@@ -518,17 +528,17 @@ html.v1[data-lrb-home="true"] .yale-signup h2{
   color:#050505;
   overflow-wrap:anywhere;
 }
-html.v1[data-lrb-home="true"] .yale-lead__copy h2{
+html.v1[data-lrb-home="true"] .yale-lead__copy h3{
   margin:.35rem 0 .55rem;
   font-size:clamp(1.7rem,3.3vw,3.05rem);
   line-height:1;
   max-width:12ch;
 }
-html.v1[data-lrb-home="true"] .yale-lead__copy h2 a,
+html.v1[data-lrb-home="true"] .yale-lead__copy h3 a,
 html.v1[data-lrb-home="true"] .yale-tile h3 a,
 html.v1[data-lrb-home="true"] .yale-rail-card h3 a,
 html.v1[data-lrb-home="true"] .home-event h3 a{color:inherit;text-decoration:none}
-html.v1[data-lrb-home="true"] .yale-lead__copy h2 a:hover,
+html.v1[data-lrb-home="true"] .yale-lead__copy h3 a:hover,
 html.v1[data-lrb-home="true"] .yale-tile h3 a:hover,
 html.v1[data-lrb-home="true"] .yale-rail-card h3 a:hover,
 html.v1[data-lrb-home="true"] .home-event h3 a:hover{text-decoration:underline;text-decoration-color:#1d4f96;text-underline-offset:.12em}
@@ -1218,8 +1228,8 @@ html.v1[data-lrb-home="true"] .form-submit{
   html.v1[data-lrb-home="true"] .masthead__logo-image{width:auto;max-width:min(80vw,340px);height:92px}
   html.v1[data-lrb-home="true"] .masthead-nav__list{display:none}
   html.v1[data-lrb-home="true"] .yale-lead__media{min-height:18rem}
-  html.v1[data-lrb-home="true"] .yale-home-issue h1{font-size:clamp(1.8rem,9vw,2.65rem)}
-  html.v1[data-lrb-home="true"] .yale-lead__copy h2{font-size:clamp(2rem,10.5vw,2.85rem)}
+  html.v1[data-lrb-home="true"] .yale-home-issue__heading h2{font-size:clamp(1.8rem,9vw,2.65rem)}
+  html.v1[data-lrb-home="true"] .yale-lead__copy h3{font-size:clamp(2rem,10.5vw,2.85rem)}
   html.v1[data-lrb-home="true"] .yale-lead__deck{max-width:none;font-size:clamp(1.9rem,10vw,2.7rem)}
   html.v1[data-lrb-home="true"] .yale-home-section__head,
   html.v1[data-lrb-home="true"] .home-events__head,

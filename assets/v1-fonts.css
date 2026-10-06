@@ -33,7 +33,7 @@
    Real fix (2026-09-02): a second, identically-sourced font-face named
    'Manrope Display', font-display:swap, used ONLY by the four large,
    single-line Home headings that carry the gold -webkit-text-stroke
-   (.yale-home-issue h1 and its 3 siblings, v1-home.css) instead of
+   (.yale-home-issue__heading h2 and its 3 siblings, v1-home.css) instead of
    --font-ui. Same .woff2 bytes as the family above -- the browser's HTTP
    cache serves both from one fetch, this doesn't double the download --
    just declared under a name nothing else references, so 'swap' can't
@@ -41,7 +41,7 @@
    short, isolated heading swapping width causes no CLS: nothing sits
    beside it that depends on its exact wrapped line count. This is also
    why the failed 2026-08-xx attempt at this same bug (bumping the stroke
-   from 0.35px to 1px, see the comment on .yale-home-issue h1) didn't
+   from 0.35px to 1px, see the comment on that heading) didn't
    work -- it treated the symptom (which pixels the stroke lands on) as
    the cause, when the actual cause was the fallback font never being
    allowed to swap out to begin with. */
