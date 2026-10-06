@@ -152,12 +152,22 @@ def run_pagefind(src_dir: Path, out_dir: Path) -> None:
 
 
 def source_hashes(root: Path, pages: list[str]) -> dict[str, str]:
-    """Hash authored HTML plus registry labels injected into Pagefind."""
+    """Hash authored HTML plus registry labels injected into Pagefind.
+
+    Newlines are normalised before hashing. Every text file in this repo is
+    checked out with CRLF on Windows and LF on Linux, so hashing raw bytes
+    made the manifest platform-dependent: an index regenerated on Windows
+    was reported stale by CI for all ~200 pages, with no actual content
+    difference, which is why regenerating Pagefind had to be done through a
+    throwaway workflow instead of locally. CRLF versus LF is not a change in
+    indexed content -- Pagefind indexes the text -- so it must not read as
+    one here either.
+    """
     by_source = load_registry_by_source(root)
     hashes: dict[str, str] = {}
     for rel in pages:
         digest = hashlib.sha256()
-        digest.update((root / rel).read_bytes())
+        digest.update((root / rel).read_bytes().replace(b"\r\n", b"\n"))
         digest.update(b"\0pagefind-registry-label\0")
         label = str((by_source.get(rel) or {}).get("label") or "").strip()
         digest.update(label.encode("utf-8"))
