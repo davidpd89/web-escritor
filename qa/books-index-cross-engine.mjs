@@ -14,8 +14,12 @@ for (const [name, launcher] of Object.entries(engines)) {
     const rootContext = await page.locator('html').getAttribute('data-editorial-context');
     assert.equal(rootContext, 'obras', `${name}: contexto editorial incorrecto`);
 
+    // Era `equal(stageCount, 3)`. Lo que este test cruza entre motores es que
+    // la pagina de obras renderiza sus bloques con el mismo tratamiento, no
+    // cuantas obras hay publicadas: anadir una cuarta (la antologia «Al otro
+    // lado», 06/10/2026) no es una regresion de diseno.
     const stageCount = await page.locator('.books-stage, .books-stage-anthology').count();
-    assert.equal(stageCount, 3, `${name}: se esperaban tres bloques de obra`);
+    assert.ok(stageCount >= 3, `${name}: se esperaban al menos tres bloques de obra, hay ${stageCount}`);
 
     const h1Color = await page.locator('.v1-masthead h1').evaluate((el) => getComputedStyle(el).color);
     assert.equal(h1Color, 'rgb(29, 79, 150)', `${name}: H1 fuera del azul canónico`);

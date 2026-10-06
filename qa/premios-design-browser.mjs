@@ -67,7 +67,14 @@ try{
       assert.equal(await records.nth(0).locator('[data-award-source]').count(),1,`${name}: primer reconocimiento debe conservar una única fuente pública`);
       assert.equal((await records.nth(1).locator('[data-award-result]').textContent()).trim(),'Primer Premio',`${name}: segundo resultado alterado`);
       assert.equal((await records.nth(1).locator('[data-award-organizer]').textContent()).trim(),'Letras Como Espada',`${name}: segundo organizador alterado`);
-      assert.equal(await records.nth(1).locator('[data-award-source]').count(),2,`${name}: segundo reconocimiento pierde su doble evidencia`);
+      // Era `equal(...,2)`. El 29/09/2026 se sumo una tercera fuente -- la pagina
+      // oficial de GANADORES del organizador, que es la mas fuerte de las tres --
+      // y una igualdad exacta convertia esa mejora en un fallo. El contrato real
+      // siempre fue un suelo: nunca menos de dos vias de evidencia, y la oficial
+      // del fallo entre ellas.
+      const secondSources=await records.nth(1).locator('[data-award-source]').evaluateAll(nodes=>nodes.map(node=>node.getAttribute('href')));
+      assert.ok(secondSources.length>=2,`${name}: segundo reconocimiento pierde su doble evidencia (${secondSources.length})`);
+      assert.ok(secondSources.some(href=>href&&href.includes('/ganadores/microrrelatos/2026/ganadores-febrero2026-microrrelatos-de-amor.php')),`${name}: falta la pagina oficial de ganadores como evidencia del fallo`);
       assert.equal((await records.nth(2).locator('[data-award-result]').textContent()).trim(),'Top 10 — Finalista',`${name}: tercer resultado alterado`);
       assert.equal((await records.nth(2).locator('[data-award-organizer]').textContent()).trim(),'BABIDI-BÚ',`${name}: tercer organizador alterado`);
       assert.equal(await records.nth(2).locator('[data-award-source]').count(),1,`${name}: tercer reconocimiento debe conservar una única fuente pública`);

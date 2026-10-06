@@ -63,10 +63,26 @@ try {
       await page.evaluate(async () => {
         await document.fonts?.ready;
         const images = [...document.querySelectorAll('main[data-family="books-index"] .books-stage__media img')];
+        // Las portadas llevan loading="lazy". Una que quede fuera del viewport
+        // -- y con cuatro obras la ultima siempre lo esta en los viewports
+        // estrechos -- nunca dispara `load` ni llega a `complete`, asi que el
+        // await de abajo se quedaba colgado hasta que el job entero se
+        // cancelaba por timeout. Se fuerza la entrada en viewport primero, que
+        // es lo que hace un lector real, y se pone un tope por imagen para que
+        // un fallo de carga sea un assert legible y no una cancelacion.
+        for (const img of images) img.scrollIntoView({ block: 'center' });
         await Promise.all(images.map(async (img) => {
-          if (!img.complete) await new Promise((resolve) => img.addEventListener('load', resolve, { once: true }));
+          if (!img.complete) {
+            await new Promise((resolve) => {
+              const done = () => resolve();
+              img.addEventListener('load', done, { once: true });
+              img.addEventListener('error', done, { once: true });
+              setTimeout(done, 10000);
+            });
+          }
           if (typeof img.decode === 'function') await img.decode().catch(() => {});
         }));
+        window.scrollTo(0, 0);
       });
 
       assert.equal(await page.locator('html').getAttribute('data-editorial-context'), 'obras');
@@ -91,8 +107,14 @@ try {
       assert.equal(current.backgroundColor, PALE_BLUE);
 
       const media = page.locator('main[data-family="books-index"] .books-stage__media');
-      assert.equal(await media.count(), 3);
-      for (let i = 0; i < 3; i++) {
+      // Era `equal(count, 3)`. El 06/10/2026 se sumo una cuarta portada (la
+      // antologia «Al otro lado» de Letras Como Espada) y una igualdad exacta
+      // convertia el alta de una obra en un fallo de diseno. El contrato real
+      // es el tratamiento visual: cada portada de la pagina, sean las que
+      // sean, lleva sus corner brackets, carga de verdad y ocupa caja visible.
+      const mediaCount = await media.count();
+      assert.ok(mediaCount >= 3, `${name}: /libros/ deberia mostrar al menos 3 portadas, hay ${mediaCount}`);
+      for (let i = 0; i < mediaCount; i++) {
         const before = await computed(media.nth(i), '::before');
         const after = await computed(media.nth(i), '::after');
         assert.match(before.backgroundImage, /corner-bracket-blue-gold\.svg/);

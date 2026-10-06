@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "lastReviewed": "2026-09-29",
+  "lastReviewed": "2026-10-06",
   "author": {
     "name": "David Porto Díaz",
     "website": "https://davidportodiaz.com/",
@@ -91,8 +91,22 @@
       "organizer": "Letras Como Espada",
       "year": 2026,
       "holder": "David Porto Díaz",
-      "submittedWork": null,
-      "sourceUrl": "https://www.letrascomoespada.com/concursos/memoria_concursos/memoria2026.php"
+      "submittedWork": "Al otro lado",
+      "sourceUrl": "https://www.letrascomoespada.com/concursos/memoria_concursos/memoria2026.php",
+      "submittedWorkType": "microrrelato",
+      "submittedWorkWordCount": 78,
+      "decisionDate": "2026-03-20",
+      "winnersSourceUrl": "https://www.letrascomoespada.com/concursos/ganadores/microrrelatos/2026/ganadores-febrero2026-microrrelatos-de-amor.php",
+      "finalistsSourceUrl": "https://www.letrascomoespada.com/concursos/memoria2026/febrero2026/finalistas-febrero2026.php",
+      "verifiedAt": "2026-09-29",
+      "anthology": {
+        "title": "Al otro lado",
+        "publisher": "Letras Como Espada",
+        "year": 2026,
+        "page": 67,
+        "note": "La antología recoge los textos seleccionados en la XII edición de los certámenes de microrrelatos «De amor» y de poesía «Poetas de Habla Hispana». Toma su título del microrrelato ganador: el prólogo (pág. 4) lo atribuye expresamente a David Porto Díaz."
+      },
+      "note": "La obra presentada se conoce desde el 29/09/2026, cuando el editor envió al ganador el PDF de la antología: el microrrelato «Al otro lado» figura en la pág. 67 bajo el epígrafe «GANADOR» con autoría y título impresos, y el prólogo (pág. 4) declara que el libro toma su título de esa obra. La página oficial de ganadores del organizador identifica además a «DAVID PORTO DÍAZ» como ganador, separado de las cinco menciones especiales del jurado. Sigue sin ser un premio de Samuel entre mundos ni de Las manecillas del recuerdo: es un certamen de microrrelatos y la obra premiada es un texto breve independiente. La inclusión en la antología y este premio son la MISMA relación editorial, no dos: no contarlas por separado en trayectoria."
     },
     "juanAndresTeno2026": {
       "type": "finalistSelection",
@@ -124,6 +138,13 @@
       "title": "La memoria de las tierras del norte",
       "publisher": "Diversidad Literaria",
       "year": 2026
+    },
+    {
+      "type": "anthologyParticipation",
+      "title": "Al otro lado",
+      "publisher": "Letras Como Espada",
+      "year": 2026,
+      "note": "Participación derivada del Primer Premio en el XII Certamen de Microrrelatos «De amor»: el microrrelato ganador da título al volumen. Misma relación editorial que recognitions.letrasComoEspada2026, no un hito adicional."
     }
   ],
   "entities": {
