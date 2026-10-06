@@ -6,6 +6,8 @@ on:
       - 'qa/production-professional-resources-audit.mjs'
       - 'qa/site-civil-clock.mjs'
       - 'tests/test-site-civil-clock.mjs'
+      - 'tests/test-python-test-discovery-structure.py'
+      - 'tests/test-event-calendars.py'
       - 'qa/adaptive-formats-production.mjs'
       - 'qa/production-global-integrity-audit.mjs'
       - 'qa/production-semantic-parity.mjs'
@@ -119,6 +121,11 @@ jobs:
 
       - name: Check JS Europe/Madrid civil clock boundaries
         run: node tests/test-site-civil-clock.mjs
+
+      - name: Run Python test-discovery and calendar regressions
+        run: |
+          python tests/test-python-test-discovery-structure.py
+          python tests/test-event-calendars.py
 
       - name: Syntax-check new production audits
         run: |
