@@ -139,7 +139,7 @@ def render(data):
   <meta name="twitter:image:alt" content="{PAGE_TITLE}">
   <meta name="theme-color" content="#F4EFE7" />
   <link rel="canonical" href="{CANONICAL}" />
-  <link rel="icon" type="image/png" href="/assets/david-porto-favicon.png" />
+  <link rel="icon" href="/favicon.ico" sizes="any" />
   <link rel="apple-touch-icon" href="/assets/david-porto-favicon.png" />
   <link rel="manifest" href="/manifest.json" />
 

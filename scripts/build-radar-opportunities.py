@@ -258,7 +258,7 @@ def render_page_body(items, today, watchlist=None):
   <meta name="twitter:image:alt" content="{TITLE}">
   <meta name="theme-color" content="#ffffff" />
   <link rel="canonical" href="{CANONICAL}">
-  <link rel="icon" type="image/png" href="/assets/david-porto-favicon.png" />
+  <link rel="icon" href="/favicon.ico" sizes="any" />
   <link rel="apple-touch-icon" href="/assets/david-porto-favicon.png" />
   <link rel="manifest" href="/manifest.json" />
 
