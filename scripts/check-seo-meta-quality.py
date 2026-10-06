@@ -18,6 +18,7 @@ import re
 import sys
 from collections import defaultdict
 from pathlib import Path
+import subprocess
 from html.parser import HTMLParser
 
 if sys.platform == "win32" and hasattr(sys.stdout, "reconfigure"):
@@ -100,6 +101,26 @@ def parse_page_head(path: Path) -> HeadMetaParser:
     return parser
 
 
+def tracked_html(root: Path) -> list[Path]:
+    """Every git-tracked HTML file under `root`.
+
+    rglob() was fine until it wasn't: it also picks up whatever untracked HTML
+    a working copy happens to have beside the site (scratch exports, a notes
+    folder, a downloaded copy of a page), so the very same commit failed
+    locally and passed in CI, where the checkout only ever contains tracked
+    files. git ls-files is exactly the set CI sees. Falls back to rglob where
+    git is unavailable, so the checker still works outside a clone.
+    """
+    try:
+        listed = subprocess.run(
+            ["git", "ls-files", "*.html"],
+            cwd=root, capture_output=True, text=True, check=True,
+        ).stdout.splitlines()
+    except (OSError, subprocess.CalledProcessError):
+        return list(root.rglob("*.html"))
+    return [root / rel for rel in listed if rel and (root / rel).is_file()]
+
+
 def check_seo_meta_quality(base_dir: Path | None = None) -> list[str]:
     root_path = base_dir or ROOT
     failures: list[str] = []
@@ -107,7 +128,10 @@ def check_seo_meta_quality(base_dir: Path | None = None) -> list[str]:
     descriptions: dict[str, list[str]] = defaultdict(list)
     canonicals: dict[str, list[str]] = defaultdict(list)
 
-    html_files = list(root_path.rglob("*.html"))
+    # An explicit base_dir is a fixture directory built by this module's own
+    # mutation tests, and nothing there is tracked by git -- only the real
+    # repository scan goes through git ls-files.
+    html_files = list(root_path.rglob("*.html")) if base_dir else tracked_html(root_path)
     for path in sorted(html_files):
         try:
             rel_parts = path.relative_to(root_path).parts

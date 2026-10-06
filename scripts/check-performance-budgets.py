@@ -127,10 +127,28 @@ def metric_bucket(path: Path) -> str:
     return "other_bytes"
 
 
+TEXT_SUFFIXES = {".css", ".js", ".mjs", ".json", ".html", ".svg", ".txt", ".xml"}
+
+
+def served_size(path: Path) -> int:
+    """Bytes this file will have in the published artifact.
+
+    st_size is not that number on Windows: every text file in this repo is
+    checked out with CRLF, which adds one byte per line, while the artifact is
+    always built from a Linux checkout with LF. The home-runtime budget was
+    682 bytes over its limit locally and 42 under it in CI for exactly that
+    reason -- a budget nobody can run before pushing is a budget that only
+    ever fails after the fact. Binary assets are read as-is.
+    """
+    if path.suffix.lower() not in TEXT_SUFFIXES:
+        return path.stat().st_size
+    return len(path.read_bytes().replace(b"\r\n", b"\n"))
+
+
 def metrics_for(files: list[Path]) -> dict[str, int]:
     metrics = {key: 0 for key in METRIC_KEYS}
     for path in files:
-        size = path.stat().st_size
+        size = served_size(path)
         metrics[metric_bucket(path)] += size
         metrics["total_bytes"] += size
     metrics["request_count"] = len(files)
@@ -208,7 +226,7 @@ def evaluate(root: Path, manifest: dict) -> tuple[dict, list[str]]:
         file_rows = [
             {
                 "path": path.relative_to(root).as_posix(),
-                "bytes": path.stat().st_size,
+                "bytes": served_size(path),
                 "kind": metric_bucket(path).removesuffix("_bytes"),
             }
             for path in files

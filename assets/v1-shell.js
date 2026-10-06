@@ -108,22 +108,34 @@
       }
     });
 
+    // Trampa de foco endurecida (06/10/2026): el filtro anterior solo miraba
+    // caja, asi que colaba controles dentro de [hidden]/[inert]/aria-hidden y
+    // solo intervenia en los extremos de la lista, de modo que un foco que
+    // llegase al dialogo desde fuera de esa lista se escapaba del modal.
     const FOCUSABLE = 'a[href],button:not([disabled]),input:not([disabled]),select:not([disabled]),textarea:not([disabled]),[tabindex]:not([tabindex="-1"])';
+    const isTabbable = (el) => {
+      if (!(el instanceof HTMLElement) || el.tabIndex < 0) return false;
+      if (el.matches(':disabled') || el.closest('[hidden],[inert],[aria-hidden="true"]')) return false;
+      const style = getComputedStyle(el);
+      if (style.display === 'none' || style.visibility === 'hidden' || style.visibility === 'collapse') return false;
+      return el.getClientRects().length > 0;
+    };
     dialog.addEventListener('keydown', (event) => {
       if (event.key !== 'Tab') return;
-      const items = [...dialog.querySelectorAll(FOCUSABLE)]
-        .filter((el) => el.offsetWidth > 0 || el.offsetHeight > 0 || el.getClientRects().length);
-      if (!items.length) return;
-      const first = items[0];
-      const last = items[items.length - 1];
-      const active = document.activeElement;
-      if (event.shiftKey && (active === first || active === dialog)) {
+      const items = [...dialog.querySelectorAll(FOCUSABLE)].filter(isTabbable);
+      if (!items.length) {
         event.preventDefault();
-        last.focus();
-      } else if (!event.shiftKey && active === last) {
-        event.preventDefault();
-        first.focus();
+        dialog.focus({ preventScroll: true });
+        return;
       }
+      const active = document.activeElement;
+      const activeIndex = items.indexOf(active);
+      const delta = event.shiftKey ? -1 : 1;
+      const targetIndex = activeIndex === -1
+        ? (event.shiftKey ? items.length - 1 : 0)
+        : (activeIndex + delta + items.length) % items.length;
+      event.preventDefault();
+      items[targetIndex].focus({ preventScroll: true });
     });
 
     const preview = q('[data-explore-preview]', dialog);

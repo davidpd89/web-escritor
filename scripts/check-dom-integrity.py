@@ -19,6 +19,7 @@ import io
 import re
 import sys
 from collections import Counter
+import subprocess
 from html.parser import HTMLParser
 from pathlib import Path
 
@@ -127,9 +128,30 @@ def check_html_file(path: Path) -> list[str]:
     return issues
 
 
+
+def tracked_html(root: Path) -> list[Path]:
+    """Every git-tracked HTML file under `root`.
+
+    rglob() was fine until it wasn't: it also picks up whatever untracked HTML
+    a working copy happens to have beside the site (scratch exports, a notes
+    folder, a downloaded copy of a page), so the very same commit failed
+    locally and passed in CI, where the checkout only ever contains tracked
+    files. git ls-files is exactly the set CI sees. Falls back to rglob where
+    git is unavailable, so the checker still works outside a clone.
+    """
+    try:
+        listed = subprocess.run(
+            ["git", "ls-files", "*.html"],
+            cwd=root, capture_output=True, text=True, check=True,
+        ).stdout.splitlines()
+    except (OSError, subprocess.CalledProcessError):
+        return list(root.rglob("*.html"))
+    return [root / rel for rel in listed if rel and (root / rel).is_file()]
+
+
 def check_dom_integrity_sitewide() -> list[str]:
     all_issues: list[str] = []
-    for path in ROOT.rglob("*.html"):
+    for path in tracked_html(ROOT):
         rel_parts = path.relative_to(ROOT).parts
         if any(part in SKIP_PARTS or part.startswith(".preview-dist-") for part in rel_parts):
             continue
