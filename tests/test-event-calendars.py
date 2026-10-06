@@ -146,13 +146,13 @@ class EventCalendarTests(unittest.TestCase):
             self.assertEqual(len(orphan), 1)
             self.assertIn("huerfano", orphan[0])
 
-        def test_scheduled_past_event_does_not_require_visible_calendar_link(self) -> None:
-            event = self.timed_event()
-            expected, errors = cal.expected_calendars(
-                page_for(event, include_link=False), as_of=date.fromisoformat("2026-09-11")
-            )
-            self.assertEqual(expected, {})
-            self.assertEqual(errors, [])
+    def test_scheduled_past_event_does_not_require_visible_calendar_link(self) -> None:
+        event = self.timed_event()
+        expected, errors = cal.expected_calendars(
+            page_for(event, include_link=False), as_of=date.fromisoformat("2026-09-11")
+        )
+        self.assertEqual(expected, {})
+        self.assertEqual(errors, [])
 
     def test_datetime_without_offset_is_rejected(self) -> None:
         event = self.timed_event()

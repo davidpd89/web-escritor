@@ -27,6 +27,7 @@ on:
       - 'qa/production-pagefind-coverage.mjs'
       - 'qa/production-format-contract.mjs'
       - 'qa/production-http-semantics.mjs'
+      - 'qa/production-public-artifacts.mjs'
       - 'qa/production-media-decode.mjs'
       - 'qa/production-compact-landscape.mjs'
       - 'qa/production-rotating-device-audit.mjs'
@@ -66,6 +67,7 @@ on:
       - 'qa/production-pagefind-coverage.mjs'
       - 'qa/production-format-contract.mjs'
       - 'qa/production-http-semantics.mjs'
+      - 'qa/production-public-artifacts.mjs'
       - 'qa/production-media-decode.mjs'
       - 'qa/production-compact-landscape.mjs'
       - 'qa/production-rotating-device-audit.mjs'
@@ -144,6 +146,7 @@ jobs:
           node --check qa/production-pagefind-coverage.mjs
           node --check qa/production-format-contract.mjs
           node --check qa/production-http-semantics.mjs
+          node --check qa/production-public-artifacts.mjs
           node --check qa/production-media-decode.mjs
           node --check qa/production-compact-landscape.mjs
           node --check qa/production-rotating-device-audit.mjs
@@ -238,6 +241,9 @@ jobs:
 
       - name: Audit production HTTP semantics and media ranges
         run: node qa/production-http-semantics.mjs
+
+      - name: Audit deployed RSS, editorial sitemap and event calendars
+        run: node qa/production-public-artifacts.mjs
 
       - name: Observe production security headers
         run: node qa/live-security-headers.mjs
