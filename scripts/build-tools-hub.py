@@ -158,7 +158,7 @@ def render(data, tools, directories):
   <meta name="theme-color" content="#F4EFE7" />
   <link rel="preconnect" href="https://gc.zgo.at" /><link rel="preconnect" href="https://tracker.metricool.com" />
   <link rel="canonical" href="https://davidportodiaz.com/herramientas/" />
-  <link rel="icon" type="image/png" href="/assets/david-porto-favicon.png" />
+  <link rel="icon" href="/favicon.ico" sizes="any" />
   <link rel="apple-touch-icon" href="/assets/david-porto-favicon.png" />
   <link rel="manifest" href="/manifest.json" />
 
