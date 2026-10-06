@@ -30,6 +30,7 @@ from __future__ import annotations
 
 import argparse
 import hashlib
+import html
 import json
 import re
 import shutil
@@ -106,14 +107,32 @@ def eligible_pages(root: Path) -> list[str]:
     return eligible
 
 
+def inject_registry_search_title(text: str, entry: dict | None) -> str:
+    """Inject the content-registry label as Pagefind's canonical search title."""
+    label = str((entry or {}).get("label") or "").strip()
+    if not label:
+        return text
+    tag = (
+        '<meta data-pagefind-meta="title[content]" content="'
+        + html.escape(label, quote=True)
+        + '">'
+    )
+    return re.sub(r"</head\s*>", tag + "\n</head>", text, count=1, flags=re.I)
+
+
 def build_src_tree(root: Path, pages: list[str], src_dir: Path) -> None:
     if src_dir.exists():
         shutil.rmtree(src_dir)
     src_dir.mkdir(parents=True)
+    by_source = load_registry_by_source(root)
     for rel in pages:
         dst = src_dir / rel
         dst.parent.mkdir(parents=True, exist_ok=True)
-        shutil.copy2(root / rel, dst)
+        source = (root / rel).read_text(encoding="utf-8", errors="ignore")
+        dst.write_text(
+            inject_registry_search_title(source, by_source.get(rel)),
+            encoding="utf-8",
+        )
 
 
 def run_pagefind(src_dir: Path, out_dir: Path) -> None:
@@ -133,16 +152,22 @@ def run_pagefind(src_dir: Path, out_dir: Path) -> None:
 
 
 def source_hashes(root: Path, pages: list[str]) -> dict[str, str]:
-    """Hash the exact eligible source HTML bytes Pagefind was built from."""
-    return {
-        rel: hashlib.sha256((root / rel).read_bytes()).hexdigest()
-        for rel in pages
-    }
+    """Hash authored HTML plus registry labels injected into Pagefind."""
+    by_source = load_registry_by_source(root)
+    hashes: dict[str, str] = {}
+    for rel in pages:
+        digest = hashlib.sha256()
+        digest.update((root / rel).read_bytes())
+        digest.update(b"\0pagefind-registry-label\0")
+        label = str((by_source.get(rel) or {}).get("label") or "").strip()
+        digest.update(label.encode("utf-8"))
+        hashes[rel] = digest.hexdigest()
+    return hashes
 
 
 def write_manifest(out_dir: Path, pages: list[str], root: Path) -> None:
     manifest = {
-        "schema_version": 2,
+        "schema_version": 3,
         "page_count": len(pages),
         "pages": pages,
         "source_sha256": source_hashes(root, pages),
