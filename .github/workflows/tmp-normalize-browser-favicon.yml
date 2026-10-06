@@ -1,5 +1,7 @@
 name: Temporary browser favicon normalization
 
+# Relaunch marker: rebase normalization on current main (2026-10-06)
+
 on:
   push:
     branches: [main]
