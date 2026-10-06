@@ -110,14 +110,8 @@ async function noOverflow(p,label){const x=await p.evaluate(()=>document.documen
     yesterday:DPRadarDates.daysUntil(dates.yesterday,dates.today)
   }),probeDates);
   assert.deepEqual(d,{today:0,tomorrow:1,plus7:7,plus8:8,yesterday:-1});
-  const rel=await p.locator('[data-radar-relative]').allTextContents();
-  const expectedRel=radarItems.map(item=>{
-    const remaining=daysUntil(item.deadline,fixedToday);
-    if(remaining===0)return '· hoy';
-    if(remaining===1)return '· mañana';
-    return `· faltan ${remaining} días`;
-  });
-  assert.deepEqual(rel.map(t=>t.trim()),expectedRel);
+  // La cuenta atras («faltan N dias») se quito de las fichas: la fecha ya esta a la vista.
+  assert.equal(await p.locator('[data-radar-relative]').count(),0,'la cuenta atras sigue en las fichas');
   await p.locator('[data-radar-search]').fill('ALFAGUARA');assert.equal(await visible(p,'[data-radar-item]'),1);
   await p.locator('[data-radar-clear]').click();
   await p.locator('select[data-radar-kind]').selectOption('active');assert.equal(await visible(p,'[data-radar-item]'),radarItems.length);

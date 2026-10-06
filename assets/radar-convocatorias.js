@@ -101,9 +101,6 @@
     const stale = age === null || age > STALE_DAYS;
     item.dataset.radarUnavailable = expired || stale ? 'true' : 'false';
 
-    const relative = item.querySelector('[data-radar-relative]');
-    if (relative && remaining !== null && remaining >= 0) relative.textContent = ` · ${relativeLabel(remaining)}`;
-
     const status = item.querySelector('[data-radar-status]');
     if (status) {
       if (isWatch) {

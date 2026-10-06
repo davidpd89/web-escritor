@@ -99,7 +99,7 @@ html.v1[data-editorial-context="herramientas"]:has(main#contenido [data-radar-gr
   display:block;margin-top:clamp(2.4rem,4vw,4rem);border-top:0;min-width:0
 }
 html.v1[data-editorial-context="herramientas"]:has(main#contenido [data-radar-grid]) .radar-card{
-  position:relative;display:grid;grid-template-columns:minmax(13rem,.68fr) minmax(0,1.32fr);column-gap:clamp(2.6rem,5vw,5.2rem);align-items:start;
+  position:relative;display:grid;grid-template-columns:minmax(13rem,.68fr) minmax(0,1.32fr);grid-template-rows:auto auto 1fr auto;column-gap:clamp(2.6rem,5vw,5.2rem);align-items:start;
   margin:0;padding:clamp(3rem,4.6vw,4.5rem) 0;border:0;border-top:1px solid var(--radar-rule);border-radius:0;background:transparent;box-shadow:none;min-width:0;overflow-wrap:anywhere
 }
 html.v1[data-editorial-context="herramientas"]:has(main#contenido [data-radar-grid]) .radar-card:first-child{padding-top:0;border-top:0}
@@ -121,11 +121,8 @@ html.v1[data-editorial-context="herramientas"]:has(main#contenido [data-radar-gr
 html.v1[data-editorial-context="herramientas"]:has(main#contenido [data-radar-grid]) .radar-org{
   grid-column:1;grid-row:3;margin:0;color:var(--radar-muted);font-size:.86rem;line-height:1.5;overflow-wrap:anywhere
 }
-html.v1[data-editorial-context="herramientas"]:has(main#contenido [data-radar-grid]) .radar-verified{
-  grid-column:1;grid-row:4;margin:1.2rem 0 0;color:var(--radar-muted);font:500 .76rem/1.45 var(--font-ui);letter-spacing:.02em;overflow-wrap:anywhere
-}
 html.v1[data-editorial-context="herramientas"]:has(main#contenido [data-radar-grid]) .radar-card>p:has([data-radar-source]){
-  grid-column:1;grid-row:5;margin:1.05rem 0 0;min-width:0
+  grid-column:1;grid-row:4;margin:1.2rem 0 0;min-width:0
 }
 html.v1[data-editorial-context="herramientas"]:has(main#contenido [data-radar-grid]) [data-radar-source]{
   max-width:100%;min-height:0;padding:0;border:0;border-radius:0;background:transparent;color:var(--radar-blue);box-shadow:none;
@@ -153,11 +150,8 @@ html.v1[data-editorial-context="herramientas"]:has(main#contenido [data-radar-gr
 html.v1[data-editorial-context="herramientas"]:has(main#contenido [data-radar-grid]) .radar-card dl>div:first-child time{
   color:var(--radar-blue);font:400 clamp(1.65rem,2vw,2.15rem)/1 var(--font-display);letter-spacing:-.025em;overflow-wrap:anywhere
 }
-html.v1[data-editorial-context="herramientas"]:has(main#contenido [data-radar-grid]) .radar-relative{
-  margin-left:.35rem;color:var(--radar-muted);font:600 .72rem/1.35 var(--font-ui);white-space:normal;overflow-wrap:anywhere
-}
 html.v1[data-editorial-context="herramientas"]:has(main#contenido [data-radar-grid]) .radar-note{
-  grid-column:2;grid-row:4/6;max-width:68ch;margin:1.25rem 0 0;color:var(--radar-ink);font-size:.96rem;line-height:1.58;overflow-wrap:anywhere
+  grid-column:2;grid-row:4;max-width:68ch;margin:1.25rem 0 0;color:var(--radar-ink);font-size:.96rem;line-height:1.58;overflow-wrap:anywhere
 }
 
 html.v1[data-editorial-context="herramientas"]:has(main#contenido [data-radar-grid]) .radar-empty{
@@ -210,7 +204,6 @@ html.v1[data-editorial-context="herramientas"]:has(main#contenido [data-radar-gr
   html.v1[data-editorial-context="herramientas"]:has(main#contenido [data-radar-grid]) .radar-card .radar-org,
   html.v1[data-editorial-context="herramientas"]:has(main#contenido [data-radar-grid]) .radar-card dl,
   html.v1[data-editorial-context="herramientas"]:has(main#contenido [data-radar-grid]) .radar-card .radar-note,
-  html.v1[data-editorial-context="herramientas"]:has(main#contenido [data-radar-grid]) .radar-card .radar-verified,
   html.v1[data-editorial-context="herramientas"]:has(main#contenido [data-radar-grid]) .radar-card>p:has([data-radar-source]){
     grid-column:1;grid-row:auto;min-width:0
   }
@@ -219,7 +212,6 @@ html.v1[data-editorial-context="herramientas"]:has(main#contenido [data-radar-gr
   html.v1[data-editorial-context="herramientas"]:has(main#contenido [data-radar-grid]) .radar-org{margin-bottom:.55rem}
   html.v1[data-editorial-context="herramientas"]:has(main#contenido [data-radar-grid]) .radar-card dl{grid-template-columns:repeat(3,minmax(0,1fr));margin-top:.35rem}
   html.v1[data-editorial-context="herramientas"]:has(main#contenido [data-radar-grid]) .radar-note{margin-top:.75rem}
-  html.v1[data-editorial-context="herramientas"]:has(main#contenido [data-radar-grid]) .radar-verified{margin-top:.45rem}
   html.v1[data-editorial-context="herramientas"]:has(main#contenido [data-radar-grid]) .radar-card>p:has([data-radar-source]){margin-top:.45rem}
 }
 

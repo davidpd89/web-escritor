@@ -142,14 +142,6 @@ def state(item, today):
         return "closing_soon"
     return "open"
 
-def fee_label(item):
-    fee = item["fee_eur"]
-    if fee is None:
-        return "No indicado en la fuente oficial"
-    if fee == 0:
-        return "Sin tasa"
-    return f"{fee:g} €"
-
 def card(item, expired=False):
     genres = ", ".join(item["genres"])
     prize = f'<div><dt>Premio/ayuda</dt> <dd>{esc(item.get("prize"))}</dd></div>' if item.get("prize") else ""
@@ -157,23 +149,19 @@ def card(item, expired=False):
     submission_mode = f'<div><dt>Cómo presentarse</dt> <dd>{esc(item.get("submission_mode"))}</dd></div>' if item.get("submission_mode") else ""
     note = f'<p class="radar-note">{esc(item.get("editorial_note"))}</p>' if item.get("editorial_note") else ""
     deadline_label = iso_date(item["deadline"], "deadline").strftime("%d/%m/%Y")
-    verified_label = iso_date(item["verified_at"], "verified_at").strftime("%d/%m/%Y")
     classes = "radar-card radar-card--expired" if expired else "radar-card"
     kind_attr = ' data-radar-kind="expired"' if expired else ""
     badge = "Plazo finalizado" if expired else "Plazo verificado"
     deadline_term = "Cerró el" if expired else "Fecha límite"
-    relative = "" if expired else '<span class="radar-relative" data-radar-relative aria-hidden="true"></span>'
     return f'''<article class="{classes}" data-radar-item{kind_attr} data-type="{esc(item['type'])}" data-genres="{esc('|'.join(item['genres']).lower())}" data-title="{esc(item['title'].lower())}" data-organizer="{esc(item['organizer'].lower())}" data-deadline="{esc(item['deadline'])}" data-verified-at="{esc(item['verified_at'])}">
 <div class="radar-card__top"><span class="radar-badge" data-radar-status>{esc(badge)}</span><span>{esc(item['type'].capitalize())}</span></div>
 <h2>{esc(item['title'])}</h2><p class="radar-org">{esc(item['organizer'])}</p>
-<dl><div><dt>{deadline_term}</dt> <dd><time datetime="{esc(item['deadline'])}">{deadline_label}</time>{relative}</dd></div><div><dt>Géneros</dt> <dd>{esc(genres)}</dd></div><div><dt>Coste</dt> <dd>{esc(fee_label(item))}</dd></div>{prize}{eligibility}{submission_mode}</dl>
+<dl><div><dt>{deadline_term}</dt> <dd><time datetime="{esc(item['deadline'])}">{deadline_label}</time></dd></div><div><dt>Géneros</dt> <dd>{esc(genres)}</dd></div>{prize}{eligibility}{submission_mode}</dl>
 {note}
-<p class="radar-verified">Verificado: <time datetime="{esc(item['verified_at'])}">{verified_label}</time></p>
 <p><a class="button secondary" data-radar-source data-radar-source-type="{esc(item['type'])}" href="{esc(item['source_url'])}" target="_blank" rel="noopener noreferrer">Ver fuente oficial</a></p></article>'''
 
 def watch_card(item):
     genres = ", ".join(item["genres"])
-    verified_label = iso_date(item["verified_at"], "verified_at").strftime("%d/%m/%Y")
     watch_kind = item.get("watch_kind", "announced")
     badge = "Próxima apertura" if watch_kind == "announced" else "Próxima edición a vigilar"
     expected_label = "Próxima apertura" if watch_kind == "announced" else "Cuándo revisar"
@@ -185,7 +173,6 @@ def watch_card(item):
 <h2>{esc(item['title'])}</h2><p class="radar-org">{esc(item['organizer'])}</p>
 <dl><div><dt>Estado</dt> <dd>{esc(item['status_note'])}</dd></div><div><dt>Géneros</dt> <dd>{esc(genres)}</dd></div>{expected}{reference}</dl>
 {note}
-<p class="radar-verified">Verificado: <time datetime="{esc(item['verified_at'])}">{verified_label}</time></p>
 <p><a class="button secondary" data-radar-source data-radar-source-type="{esc(item['type'])}" href="{esc(item['source_url'])}" target="_blank" rel="noopener noreferrer">Ver fuente oficial</a></p></article>'''
 
 
@@ -328,7 +315,7 @@ def render_page_body(items, today, watchlist=None):
   <link rel="stylesheet" href="/assets/v1-components.css?v=3" />
   <link rel="stylesheet" href="/assets/v1-families.css?v=2" />
   <link rel="stylesheet" href="/assets/v1-tools.css?v=4" />
-  <link rel="stylesheet" href="/assets/radar-convocatorias.css?v=3">
+  <link rel="stylesheet" href="/assets/radar-convocatorias.css?v=5">
   <script type="application/ld+json">{schema}</script>
 </head>
 <body data-back-to-top>
@@ -365,7 +352,7 @@ def render_page_body(items, today, watchlist=None):
     </section>
 
     <section class="radar-section" data-radar-section="active">
-      <div class="radar-section__head"><p class="eyebrow">En plazo</p><h2>Convocatorias abiertas</h2><p>Solo aparecen si la fecha límite sigue vigente y la fuente se verificó en los últimos 30 días.</p></div>
+      <div class="radar-section__head"><p class="eyebrow">En plazo</p><h2>Convocatorias abiertas</h2><p>Ordenadas por fecha límite. Cuando el plazo termina, la ficha pasa sola a las cerradas.</p></div>
       <div class="radar-grid" data-radar-grid>{active_cards}</div>
     </section>
     {watch_section}
@@ -380,7 +367,7 @@ def render_page_body(items, today, watchlist=None):
   <footer class="site-footer"></footer>
 
   <script defer src="/assets/v1-shell.js?v=16"></script>
-  <script src="/assets/radar-convocatorias.js?v=5" defer></script>
+  <script src="/assets/radar-convocatorias.js?v=6" defer></script>
 </body>
 </html>'''
 

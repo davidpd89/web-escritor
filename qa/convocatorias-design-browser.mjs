@@ -172,14 +172,8 @@ try {
       const expectedWatchStatuses = RADAR_WATCH.map(item => item.watch_kind === 'recurring' ? 'Próxima edición a vigilar' : 'Próxima apertura');
       const expectedExpiredStatuses = RADAR_EXPIRED.map(item => `Cerró el ${new Date(`${item.deadline}T00:00:00Z`).toLocaleDateString('es-ES', { timeZone: 'UTC' })}`);
       assert.deepEqual(statuses.map(value => value.trim()), [...RADAR_ITEMS.map(item => expectedStatus(item.deadline)), ...expectedWatchStatuses, ...expectedExpiredStatuses], `${name}: estados dinámicos no corresponden a los deadlines publicados`);
-      const relatives = await page.locator('[data-radar-relative]').allTextContents();
-      const expectedRelatives = RADAR_ITEMS.map(item => {
-        const d = dayDiff(item.deadline);
-        if (d === 0) return ' · hoy';
-        if (d === 1) return ' · mañana';
-        return ` · faltan ${d} días`;
-      });
-      assert.deepEqual(relatives.map(value => value.trimEnd()), expectedRelatives, `${name}: fechas relativas no corresponden a los deadlines publicados`);
+      assert.equal(await page.locator('[data-radar-relative], .radar-verified').count(), 0, `${name}: quedan la cuenta atras o el «Verificado» en las fichas`);
+      assert.equal(await page.locator('.radar-card dt', { hasText: 'Coste' }).count(), 0, `${name}: queda el campo Coste`);
 
       const radarToken = await page.locator('html').evaluate(el => getComputedStyle(el).getPropertyValue('--radar-blue').trim());
       const directoryToken = await page.locator('html').evaluate(el => getComputedStyle(el).getPropertyValue('--directory-blue').trim());
