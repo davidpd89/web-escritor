@@ -12,7 +12,7 @@ import subprocess
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
-OLD_REF = "v1-shell.js?v=14"
+OLD_REF = "v1-shell.js?v=15"
 NEW_REF = "v1-shell.js?v=15"
 CHECKER = ROOT / "scripts" / "check-asset-versions.py"
 TEXT_EXTS = {
