@@ -118,8 +118,10 @@ async function skipLinkProbe(page,route){
   if(!shell) return {applicable:false};
   const skip=page.locator('a.skip-link').first();
   assert.equal(await skip.count(),1,`${route}: shell page missing unique skip link`);
-  await page.evaluate(()=>{window.scrollTo(0,0); if(document.activeElement instanceof HTMLElement) document.activeElement.blur()});
-  await page.locator('body').click({position:{x:2,y:2}}).catch(()=>{});
+  await page.evaluate(()=>{
+    window.scrollTo(0,0);
+    if(document.activeElement instanceof HTMLElement) document.activeElement.blur();
+  });
   await page.keyboard.press('Tab');
   assert.equal(await skip.evaluate(el=>el===document.activeElement),true,`${route}: first Tab does not focus skip link`);
   const visible=await skip.evaluate(el=>{
@@ -206,19 +208,41 @@ try{
         await dismissIntro(page);
         await page.waitForTimeout(180);
 
-        const state=await page.evaluate(()=>({
-          h1:[...document.querySelectorAll('h1')].filter(el=>{const r=el.getBoundingClientRect(),s=getComputedStyle(el);return s.display!=='none'&&s.visibility!=='hidden'&&r.width>0&&r.height>0}).length,
-          mainText:(document.querySelector('main')?.innerText||'').replace(/\s+/g,' ').trim().length,
-          overflow:Math.max(document.documentElement.scrollWidth,document.body?.scrollWidth||0)-document.documentElement.clientWidth,
-          giant:[...document.querySelectorAll('body *')].filter(el=>{
-            const s=getComputedStyle(el),r=el.getBoundingClientRect();
-            return ['fixed','sticky'].includes(s.position)&&s.display!=='none'&&s.visibility!=='hidden'&&r.width>innerWidth*.9&&r.height>innerHeight*.86;
-          }).map(el=>el.id||String(el.className||'').slice(0,80)||el.tagName),
-          collapsed:[...document.querySelectorAll('main a[href],main button,main input:not([type="hidden"]),main select,main textarea')].filter(el=>{
-            const s=getComputedStyle(el); if(s.display==='none'||s.visibility==='hidden') return false;
-            const r=el.getBoundingClientRect(); return r.width<=0||r.height<=0;
-          }).slice(0,8).map(el=>el.outerHTML.slice(0,180)),
-        }));
+        const state=await page.evaluate(()=>{
+          const rendered=(el)=>{
+            if(!(el instanceof Element)) return false;
+            if(el.closest('[hidden],[aria-hidden="true"],[inert]')) return false;
+            for(let node=el;node instanceof Element;node=node.parentElement){
+              const s=getComputedStyle(node);
+              if(s.display==='none'||s.visibility==='hidden'||Number.parseFloat(s.opacity||'1')===0) return false;
+            }
+            const r=el.getBoundingClientRect();
+            return r.width>0&&r.height>0;
+          };
+          return {
+            h1:[...document.querySelectorAll('h1')].filter(rendered).length,
+            mainText:(document.querySelector('main')?.innerText||'').replace(/\s+/g,' ').trim().length,
+            overflow:Math.max(document.documentElement.scrollWidth,document.body?.scrollWidth||0)-document.documentElement.clientWidth,
+            giant:[...document.querySelectorAll('body *')].filter(el=>{
+              if(!rendered(el)) return false;
+              const s=getComputedStyle(el),r=el.getBoundingClientRect();
+              return ['fixed','sticky'].includes(s.position)&&r.width>innerWidth*.9&&r.height>innerHeight*.86;
+            }).map(el=>el.id||String(el.className||'').slice(0,80)||el.tagName),
+            collapsed:[...document.querySelectorAll('main a[href],main button,main input:not([type="hidden"]),main select,main textarea')].filter(el=>{
+              if(el.closest('[hidden],[aria-hidden="true"],[inert]')) return false;
+              let visuallySuppressed=false;
+              for(let node=el;node instanceof Element;node=node.parentElement){
+                const s=getComputedStyle(node);
+                if(s.display==='none'||s.visibility==='hidden'||Number.parseFloat(s.opacity||'1')===0){
+                  visuallySuppressed=true; break;
+                }
+              }
+              if(visuallySuppressed) return false;
+              const r=el.getBoundingClientRect();
+              return r.width<=0||r.height<=0;
+            }).slice(0,8).map(el=>el.outerHTML.slice(0,180)),
+          };
+        });
         assert.equal(state.h1,1,`${scenario.label} ${route}: expected one visible H1, got ${state.h1}`);
         assert.ok(state.mainText>80,`${scenario.label} ${route}: critical main content too small (${state.mainText})`);
         assert.ok(state.overflow<=1,`${scenario.label} ${route}: horizontal overflow ${state.overflow}px`);
