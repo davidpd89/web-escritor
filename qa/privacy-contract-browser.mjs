@@ -185,7 +185,19 @@ const checkbox=newsletterRoute.page.locator('#lectores-beta-gdpr'); assert(!(awa
 assert(await newsletterRoute.page.locator('label[for="lectores-beta-gdpr"]').count()===1,'Newsletter checkbox lacks explicit label');
 await newsletterRoute.page.locator('#lectores-beta-email').fill('not-an-email'); await checkbox.check(); await form.locator('button[type="submit"]').click(); await newsletterRoute.page.waitForTimeout(100); assert(workerBodies.length===0,'Invalid email submitted');
 await checkbox.uncheck(); await newsletterRoute.page.locator('#lectores-beta-email').fill(SENTINEL); await form.locator('button[type="submit"]').click(); await newsletterRoute.page.waitForTimeout(100); assert(workerBodies.length===0,'Unchecked newsletter submitted');
-await checkbox.check(); await form.locator('button[type="submit"]').click(); await newsletterRoute.page.waitForTimeout(250); assert(workerBodies.length===1,'Checked newsletter did not submit exactly once');
+await checkbox.check(); await form.locator('button[type="submit"]').click();
+// Se espera el estado, no un reloj: los 250ms fijos que habia aqui bastaban en
+// local y fallaban de forma intermitente en CI bajo carga ('Pending DOI state
+// not rendered' con el formulario perfectamente bien, 06/10/2026 y antes el
+// 05/10 en una rama que no tocaba nada de esto). El contrato sigue siendo el
+// mismo: una sola llamada al Worker y el formulario sustituido por el aviso de
+// confirmacion.
+await newsletterRoute.page.waitForFunction(
+  () => document.querySelectorAll('#lectores-beta-form input[type="email"]').length === 0,
+  null,
+  { timeout: 5000 },
+).catch(() => {});
+assert(workerBodies.length===1,'Checked newsletter did not submit exactly once');
 assert(await newsletterRoute.page.locator('#lectores-beta-form input[type="email"]').count()===0,'Pending DOI state not rendered');
 assert((await newsletterRoute.page.locator('#lectores-beta-form').textContent()||'').includes('confirma'),'Pending DOI copy does not ask for confirmation');
 const pendingStorage=await storageSnapshot(newsletterRoute.page); assert(!('nl-subscribed' in pendingStorage.localStorage),'Initial DOI request marked user as subscribed');
