@@ -9,7 +9,13 @@ fs.mkdirSync(OUT, { recursive: true });
 const radarPublic = JSON.parse(fs.readFileSync('convocatorias-escritores/opportunities.json', 'utf8'));
 const RADAR_ITEMS = radarPublic.items;
 const RADAR_WATCH = radarPublic.watchlist || [];
-const RADAR_ALL = [...RADAR_ITEMS, ...RADAR_WATCH];
+// Las cerradas estan en el HTML (es el motivo de conservarlas) pero no se
+// muestran hasta que alguien marca «Mostrar vencidas», asi que hay dos
+// conjuntos distintos que comprobar: lo que el documento contiene y lo que
+// la pagina ensena de entrada.
+const RADAR_EXPIRED = radarPublic.expired || [];
+const RADAR_ALL = [...RADAR_ITEMS, ...RADAR_WATCH, ...RADAR_EXPIRED];
+const RADAR_DEFAULT = [...RADAR_ITEMS, ...RADAR_WATCH];
 const FIXED_TODAY = radarPublic.generated_for;
 const dayDiff = deadline => Math.round((new Date(deadline + 'T00:00:00Z') - new Date(FIXED_TODAY + 'T00:00:00Z')) / 86400000);
 const expectedStatus = deadline => {
@@ -19,7 +25,7 @@ const expectedStatus = deadline => {
   if (d >= 2 && d <= 7) return `Cierra en ${d} días`;
   return 'En plazo';
 };
-const radarGenreCount = genre => RADAR_ALL.filter(item => (item.genres || []).includes(genre)).length;
+const radarGenreCount = genre => RADAR_DEFAULT.filter(item => (item.genres || []).includes(genre)).length;
 const radarSoonCount = RADAR_ITEMS.filter(item => { const d = dayDiff(item.deadline); return d >= 0 && d <= 7; }).length;
 
 const BLUE = 'rgb(29, 79, 150)';
@@ -157,13 +163,15 @@ try {
       assert.equal(await page.locator('[data-radar-genre]').count(), 1, `${name}: filtro de género ausente`);
       assert.equal(await page.locator('select[data-radar-kind]').count(), 1, `${name}: filtro de situación ausente`);
       assert.equal(await page.locator('[data-radar-soon]').count(), 1, `${name}: filtro de cierre próximo ausente`);
+      assert.equal(await page.locator('[data-radar-expired]').count(), 1, `${name}: casilla de convocatorias vencidas ausente`);
       assert.equal(await page.locator('[data-radar-count]').count(), 1, `${name}: contador ausente`);
       assert.equal(await page.locator('[data-radar-calendar]').getAttribute('href'), '/convocatorias-escritores/deadlines.ics', `${name}: enlace ICS alterado`);
       assert.equal(await page.locator('.tool-findings-block h2').textContent(), 'Cómo se mantiene este radar', `${name}: bloque metodológico alterado`);
 
       const statuses = await page.locator('[data-radar-status]').allTextContents();
       const expectedWatchStatuses = RADAR_WATCH.map(item => item.watch_kind === 'recurring' ? 'Próxima edición a vigilar' : 'Próxima apertura');
-      assert.deepEqual(statuses.map(value => value.trim()), [...RADAR_ITEMS.map(item => expectedStatus(item.deadline)), ...expectedWatchStatuses], `${name}: estados dinámicos no corresponden a los deadlines publicados`);
+      const expectedExpiredStatuses = RADAR_EXPIRED.map(item => `Cerró el ${new Date(`${item.deadline}T00:00:00Z`).toLocaleDateString('es-ES', { timeZone: 'UTC' })}`);
+      assert.deepEqual(statuses.map(value => value.trim()), [...RADAR_ITEMS.map(item => expectedStatus(item.deadline)), ...expectedWatchStatuses, ...expectedExpiredStatuses], `${name}: estados dinámicos no corresponden a los deadlines publicados`);
       const relatives = await page.locator('[data-radar-relative]').allTextContents();
       const expectedRelatives = RADAR_ITEMS.map(item => {
         const d = dayDiff(item.deadline);
@@ -289,7 +297,23 @@ try {
       assert.ok(emptyStyle.boxShadow.includes(BLUE) && emptyStyle.boxShadow.includes(GOLD), 'interaction: empty state pierde rails');
     }
     await interactionPage.locator('[data-radar-clear]').click();
-    assert.equal(await interactionPage.locator('[data-radar-item]:visible').count(), RADAR_ALL.length, 'interaction: limpiar filtros no restaura el dataset completo');
+    assert.equal(await interactionPage.locator('[data-radar-item]:visible').count(), RADAR_DEFAULT.length, 'interaction: limpiar filtros no restaura la vista por defecto');
+
+    if (RADAR_EXPIRED.length) {
+      assert.equal(await interactionPage.locator('.radar-card--expired:visible').count(), 0, 'interaction: las vencidas se ven sin pedirlas');
+      assert.equal(await interactionPage.locator('[data-radar-section="expired"]').isVisible(), false, 'interaction: la seccion de vencidas no esta oculta de partida');
+      await interactionPage.locator('[data-radar-expired]').check();
+      assert.equal(await interactionPage.locator('.radar-card--expired:visible').count(), RADAR_EXPIRED.length, 'interaction: marcar la casilla no muestra todas las vencidas');
+      assert.equal(await interactionPage.locator('[data-radar-item]:visible').count(), RADAR_ALL.length, 'interaction: el total con vencidas no coincide con el dataset');
+      // Las cerradas no se cuelan en el calendario ni se confunden con lo
+      // que sigue abierto: su fecha es anterior a la del dia generado.
+      const closedDeadlines = await interactionPage.locator('.radar-card--expired').evaluateAll(
+        nodes => nodes.map(node => node.getAttribute('data-deadline')),
+      );
+      assert.ok(closedDeadlines.every(deadline => deadline < FIXED_TODAY), `interaction: una ficha cerrada no tiene fecha pasada (${closedDeadlines.join(', ')})`);
+      await interactionPage.locator('[data-radar-clear]').click();
+      assert.equal(await interactionPage.locator('.radar-card--expired:visible').count(), 0, 'interaction: limpiar no vuelve a ocultar las vencidas');
+    }
   } catch (error) {
     failures.push({ viewport: 'interaction-mobile-390', width: 390, height: 844, error: error instanceof Error ? error.message : String(error) });
   } finally {
@@ -304,6 +328,16 @@ try {
     assert.equal(await noJsPage.locator('[data-radar-item]').count(), RADAR_ALL.length, 'no-js: el HTML no conserva todas las oportunidades publicadas');
     assert.equal(await noJsPage.locator('noscript .tool-note').count(), 1, 'no-js: aviso explicativo ausente');
     assert.equal(await noJsPage.locator('[data-radar-calendar]').getAttribute('href'), '/convocatorias-escritores/deadlines.ics', 'no-js: enlace ICS perdido');
+    if (RADAR_EXPIRED.length) {
+      // Sin JavaScript la casilla sigue siendo la que manda, porque quien
+      // oculta la seccion es un selector :has() y no un script -- la CSP de
+      // esta pagina no admite estilos ni scripts inline, asi que no hay
+      // forma de marcar <html> temprano.
+      assert.equal(await noJsPage.locator('[data-radar-section="expired"]').isVisible(), false, 'no-js: la seccion de vencidas se ve sin pedirla');
+      await noJsPage.locator('[data-radar-expired]').check();
+      assert.equal(await noJsPage.locator('.radar-card--expired:visible').count(), RADAR_EXPIRED.length, 'no-js: la casilla de vencidas no funciona sin JavaScript');
+      await noJsPage.locator('[data-radar-expired]').uncheck();
+    }
     const dates = await noJsPage.locator('[data-radar-item] time').allTextContents();
     const expectedDates = RADAR_ITEMS.map(item => item.deadline.split('-').reverse().join('/'));
     assert.ok(expectedDates.every(date => dates.includes(date)), 'no-js: faltan fechas activas del dataset');

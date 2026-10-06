@@ -16,6 +16,13 @@ from site_clock import site_today  # noqa: E402
 from site_shell import inject_shell_auto  # noqa: E402
 
 STALE_DAYS = 30
+# Cuanto tiempo sigue publicada una convocatoria despues de cerrar. No se
+# borra: el trabajo de documentarla (bases, cuantia, quien puede participar,
+# fuente oficial) sigue siendo util para quien busca ese premio, y cuando se
+# abre la edicion siguiente solo hay que actualizar fecha y verificacion en
+# vez de rehacer la ficha. Pasado el ano se cae de la pagina, pero el dato se
+# queda en data/radar-opportunities.json.
+EXPIRED_WINDOW_DAYS = 365
 TITLE = "Concursos, becas y manuscritos para escritores | David Porto Díaz"
 DESCRIPTION = "Radar de concursos, premios, becas, ayudas y convocatorias para escritores, verificados contra su fuente oficial y ordenados por fecha límite."
 CANONICAL = "https://davidportodiaz.com/convocatorias-escritores/"
@@ -143,7 +150,7 @@ def fee_label(item):
         return "Sin tasa"
     return f"{fee:g} €"
 
-def card(item):
+def card(item, expired=False):
     genres = ", ".join(item["genres"])
     prize = f'<div><dt>Premio/ayuda</dt> <dd>{esc(item.get("prize"))}</dd></div>' if item.get("prize") else ""
     eligibility = f'<div><dt>Quién puede participar</dt> <dd>{esc(item.get("eligibility"))}</dd></div>' if item.get("eligibility") else ""
@@ -151,10 +158,15 @@ def card(item):
     note = f'<p class="radar-note">{esc(item.get("editorial_note"))}</p>' if item.get("editorial_note") else ""
     deadline_label = iso_date(item["deadline"], "deadline").strftime("%d/%m/%Y")
     verified_label = iso_date(item["verified_at"], "verified_at").strftime("%d/%m/%Y")
-    return f'''<article class="radar-card" data-radar-item data-type="{esc(item['type'])}" data-genres="{esc('|'.join(item['genres']).lower())}" data-title="{esc(item['title'].lower())}" data-organizer="{esc(item['organizer'].lower())}" data-deadline="{esc(item['deadline'])}" data-verified-at="{esc(item['verified_at'])}">
-<div class="radar-card__top"><span class="radar-badge" data-radar-status>Plazo verificado</span><span>{esc(item['type'].capitalize())}</span></div>
+    classes = "radar-card radar-card--expired" if expired else "radar-card"
+    kind_attr = ' data-radar-kind="expired"' if expired else ""
+    badge = "Plazo finalizado" if expired else "Plazo verificado"
+    deadline_term = "Cerró el" if expired else "Fecha límite"
+    relative = "" if expired else '<span class="radar-relative" data-radar-relative aria-hidden="true"></span>'
+    return f'''<article class="{classes}" data-radar-item{kind_attr} data-type="{esc(item['type'])}" data-genres="{esc('|'.join(item['genres']).lower())}" data-title="{esc(item['title'].lower())}" data-organizer="{esc(item['organizer'].lower())}" data-deadline="{esc(item['deadline'])}" data-verified-at="{esc(item['verified_at'])}">
+<div class="radar-card__top"><span class="radar-badge" data-radar-status>{esc(badge)}</span><span>{esc(item['type'].capitalize())}</span></div>
 <h2>{esc(item['title'])}</h2><p class="radar-org">{esc(item['organizer'])}</p>
-<dl><div><dt>Fecha límite</dt> <dd><time datetime="{esc(item['deadline'])}">{deadline_label}</time><span class="radar-relative" data-radar-relative aria-hidden="true"></span></dd></div><div><dt>Géneros</dt> <dd>{esc(genres)}</dd></div><div><dt>Coste</dt> <dd>{esc(fee_label(item))}</dd></div>{prize}{eligibility}{submission_mode}</dl>
+<dl><div><dt>{deadline_term}</dt> <dd><time datetime="{esc(item['deadline'])}">{deadline_label}</time>{relative}</dd></div><div><dt>Géneros</dt> <dd>{esc(genres)}</dd></div><div><dt>Coste</dt> <dd>{esc(fee_label(item))}</dd></div>{prize}{eligibility}{submission_mode}</dl>
 {note}
 <p class="radar-verified">Verificado: <time datetime="{esc(item['verified_at'])}">{verified_label}</time></p>
 <p><a class="button secondary" data-radar-source data-radar-source-type="{esc(item['type'])}" href="{esc(item['source_url'])}" target="_blank" rel="noopener noreferrer">Ver fuente oficial</a></p></article>'''
@@ -192,12 +204,32 @@ def active_items(items, today):
     active = [item for item in items if item.get("published") and state(item, today) in {"open", "closing_soon"}]
     return sorted(active, key=lambda item: item["deadline"])
 
+
+def expired_items(items, today):
+    """Convocatorias cerradas que la pagina sigue mostrando, bajo peticion.
+
+    El estado se deriva de la fecha, no de un campo: el dia que el plazo pasa,
+    la siguiente regeneracion mueve la ficha de «En plazo» a «Vencidas» sin
+    que nadie edite nada. La verificacion caducada no las saca de aqui -- en
+    una convocatoria cerrada no hay nada que volver a verificar -- pero sigue
+    sacando de la lista activa a las que estan en plazo.
+    """
+    expired = [
+        item for item in items
+        if item.get("published")
+        and state(item, today) == "expired"
+        and (today - iso_date(item["deadline"], "deadline")).days <= EXPIRED_WINDOW_DAYS
+    ]
+    return sorted(expired, key=lambda item: item["deadline"], reverse=True)
+
 def render_page_body(items, today, watchlist=None):
     active = active_items(items, today)
     watch = watch_items(watchlist or [], today)
+    expired = expired_items(items, today)
     active_cards = "\n".join(card(item) for item in active) or '<p data-radar-empty>No hay oportunidades verificadas activas ahora mismo.</p>'
     watch_cards = "\n".join(watch_card(item) for item in watch)
-    visible_pool = active + watch
+    expired_cards = "\n".join(card(item, expired=True) for item in expired)
+    visible_pool = active + watch + expired
     types = sorted({item["type"] for item in visible_pool})
     genres = sorted({genre for item in visible_pool for genre in item["genres"]})
     options = lambda values: "\n".join(f'<option value="{esc(value)}">{esc(value.capitalize())}</option>' for value in values)
@@ -209,6 +241,22 @@ def render_page_body(items, today, watchlist=None):
         f'Estas fichas no se añaden al calendario hasta que haya fecha oficial.</p></div>'
         f'<div class="radar-grid" data-radar-grid>{watch_cards}</div></section>'
         if watch_cards else ""
+    )
+    # Oculta por defecto con CSS puro (ver el selector :has() en
+    # assets/radar-convocatorias.css), no con JavaScript: asi no aparece ni un
+    # fotograma antes de esconderse, no desplaza nada al cargar y la casilla
+    # sigue funcionando sin JavaScript, que en esta pagina importa porque su
+    # CSP no admite estilos ni scripts inline.
+    expired_section = (
+        f'<section class="radar-section radar-section--expired" data-radar-section="expired">'
+        f'<div class="radar-section__head"><p class="eyebrow">Fuera de plazo</p>'
+        f'<h2>Convocatorias ya cerradas</h2>'
+        f'<p>Se conservan {len(expired)} fichas cuyo plazo termin\u00f3 en el \u00faltimo a\u00f1o: '
+        f'las bases, la cuant\u00eda y la fuente oficial siguen siendo \u00fatiles para quien busca ese premio, '
+        f'y cuando se abra la edici\u00f3n siguiente solo habr\u00e1 que actualizar la fecha. '
+        f'No entran en el calendario descargable ni cuentan como convocatorias activas.</p></div>'
+        f'<div class="radar-grid" data-radar-grid>{expired_cards}</div></section>'
+        if expired_cards else ""
     )
     schema = json.dumps({
         "@context": "https://schema.org",
@@ -280,7 +328,7 @@ def render_page_body(items, today, watchlist=None):
   <link rel="stylesheet" href="/assets/v1-components.css?v=3" />
   <link rel="stylesheet" href="/assets/v1-families.css?v=2" />
   <link rel="stylesheet" href="/assets/v1-tools.css?v=4" />
-  <link rel="stylesheet" href="/assets/radar-convocatorias.css?v=2">
+  <link rel="stylesheet" href="/assets/radar-convocatorias.css?v=3">
   <script type="application/ld+json">{schema}</script>
 </head>
 <body data-back-to-top>
@@ -296,7 +344,7 @@ def render_page_body(items, today, watchlist=None):
     <header class="tool-hero">
       <p class="eyebrow">Radar para escritores · fuentes verificadas</p>
       <h1>Convocatorias que todavía están a tiempo.</h1>
-      <p class="tool-hero__lead">Concursos, premios, ayudas, becas, residencias y vías de envío de manuscritos revisadas contra la fuente oficial. Se ocultan automáticamente cuando vencen o la verificación supera 30 días.</p>
+      <p class="tool-hero__lead">Concursos, premios, ayudas, becas, residencias y vías de envío de manuscritos revisadas contra la fuente oficial. Cuando pasa la fecha límite salen de la lista activa y quedan en «Convocatorias ya cerradas», que puedes mostrar con una casilla; si la verificación supera 30 días, la ficha se retira hasta volver a comprobarla.</p>
       <p class="tool-note"><strong>Importante:</strong> esta web no organiza estas convocatorias ni garantiza que sigan abiertas después de la fecha mostrada. Confirma siempre en la fuente oficial antes de enviar.</p>
       <p class="tool-hero__actions"><a class="button secondary" data-radar-calendar href="/convocatorias-escritores/deadlines.ics" download="convocatorias-escritores.ics">Añadir fechas a mi calendario</a></p>
     </header>
@@ -311,6 +359,7 @@ def render_page_body(items, today, watchlist=None):
         <div class="tool-field"><label class="tool-field-label" for="radar-kind">Situación</label><select class="tool-select" id="radar-kind" data-radar-kind><option value="">Todas</option><option value="active">En plazo</option><option value="watch">Próximas / a vigilar</option></select></div>
       </div>
       <label class="tool-check"><input type="checkbox" data-radar-soon> <span>Cierra en 7 días</span></label>
+      <label class="tool-check"><input type="checkbox" id="radar-expired" data-radar-expired> <span>Mostrar vencidas</span></label>
       <div class="tool-actions"><button type="button" class="text-action" data-radar-clear>Limpiar</button></div>
       <p class="tool-count" role="status" aria-live="polite" data-radar-count>{len(active) + len(watch)} convocatorias verificadas</p>
     </section>
@@ -320,17 +369,18 @@ def render_page_body(items, today, watchlist=None):
       <div class="radar-grid" data-radar-grid>{active_cards}</div>
     </section>
     {watch_section}
+    {expired_section}
     <div class="radar-empty" data-radar-filter-empty hidden><p>No hay coincidencias con estos filtros.</p><button type="button" class="button secondary" data-radar-empty-clear>Limpiar filtros</button></div>
 
     <section class="v1-section">
-      <div class="tool-findings-block"><h2>Cómo se mantiene este radar</h2><p>Una lista de fuentes oficiales se revisa para detectar posibles cambios y nuevas convocatorias. Nada se publica automáticamente: una oportunidad solo aparece después de revisar la fuente oficial, su fecha límite y sus condiciones básicas. Una convocatoria activa que lleva más de 30 días sin volver a comprobarse deja de mostrarse aquí aunque su plazo siga abierto.</p></div>
+      <div class="tool-findings-block"><h2>Cómo se mantiene este radar</h2><p>Una lista de fuentes oficiales se revisa para detectar posibles cambios y nuevas convocatorias. Nada se publica automáticamente: una oportunidad solo aparece después de revisar la fuente oficial, su fecha límite y sus condiciones básicas. Una convocatoria activa que lleva más de 30 días sin volver a comprobarse deja de mostrarse aquí aunque su plazo siga abierto. Y cuando el plazo termina, la ficha no se borra: pasa a las cerradas, donde sigue a mano durante un año con sus bases y su fuente oficial, porque casi todas estas convocatorias vuelven a abrir al año siguiente.</p></div>
     </section>
   </main>
 
   <footer class="site-footer"></footer>
 
   <script defer src="/assets/v1-shell.js?v=16"></script>
-  <script src="/assets/radar-convocatorias.js?v=4" defer></script>
+  <script src="/assets/radar-convocatorias.js?v=5" defer></script>
 </body>
 </html>'''
 
@@ -375,7 +425,16 @@ def build_ics(items, today):
     return "\r\n".join(fold_ics_line(line) for line in lines)
 
 def public_json(items, today, watchlist=None):
-    return json.dumps({"generated_for": today.isoformat(), "items": active_items(items, today), "watchlist": watch_items(watchlist or [], today)}, ensure_ascii=False, indent=2) + "\n"
+    # "items" sigue significando lo mismo que el primer dia -- lo que esta en
+    # plazo -- para no romper a nadie que ya lo consuma. Las cerradas van en su
+    # propia clave, con su fecha, para que se puedan distinguir sin adivinar.
+    payload = {
+        "generated_for": today.isoformat(),
+        "items": active_items(items, today),
+        "watchlist": watch_items(watchlist or [], today),
+        "expired": expired_items(items, today),
+    }
+    return json.dumps(payload, ensure_ascii=False, indent=2) + "\n"
 
 def load_items(path):
     payload = json.loads(Path(path).read_text(encoding="utf-8"))
@@ -434,7 +493,8 @@ def main():
     (out / "deadlines.ics").write_text(build_ics(items, today), encoding="utf-8", newline="")
     active = len(active_items(items, today))
     watch = len(watch_items(watchlist, today))
-    print(f"built active={active} watch={watch} hidden={len(items) - active}")
+    expired = len(expired_items(items, today))
+    print(f"built active={active} watch={watch} expired={expired} hidden={len(items) - active - expired}")
 
 def build_html(items, today, watchlist=None):
     """Pagina completa del radar, con el shell generado desde el contrato.

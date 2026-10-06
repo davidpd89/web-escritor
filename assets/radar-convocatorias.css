@@ -270,3 +270,28 @@ html.v1[data-editorial-context="herramientas"]:has(main#contenido [data-radar-gr
 html.v1[data-editorial-context="herramientas"]:has(main#contenido [data-radar-grid]) .radar-section__head p:last-child{max-width:70ch;margin:0;color:var(--radar-muted);line-height:1.58}
 html.v1[data-editorial-context="herramientas"]:has(main#contenido [data-radar-grid]) .radar-section .radar-grid{margin-top:0}
 html.v1[data-editorial-context="herramientas"]:has(main#contenido [data-radar-grid]) .radar-card--watch .radar-badge{border-style:dashed;background:#fff}
+/* Convocatorias cerradas (06/10/2026).
+
+   Se ocultan con CSS puro en lugar de con JavaScript por tres razones, y las
+   tres importan en esta pagina: no aparecen ni un fotograma antes de
+   esconderse (nada de salto de layout al cargar), la casilla sigue
+   funcionando con JavaScript desactivado, y la CSP de /convocatorias-escritores/
+   es `style-src 'self'; script-src 'self'` -- sin estilos ni scripts inline,
+   asi que la alternativa habitual de marcar <html> desde un script temprano no
+   existe aqui. El selector mira la casilla dentro de .tool-finder, que en el
+   DOM va antes que la seccion.
+
+   Un navegador sin :has() las mostraria desplegadas en vez de ocultarlas: se
+   ve contenido de mas, nunca contenido roto.
+
+   Atenuado, no ilegible: se apagan el borde, el badge y el fondo, pero el
+   texto se queda en --radar-ink y --radar-muted, que son los mismos valores de
+   contraste que el resto de la pagina. Una ficha gris con texto gris claro
+   seria exactamente el fallo de contraste que pa11y y Lighthouse vigilan. */
+html.v1[data-editorial-context="herramientas"]:has(main#contenido [data-radar-grid]) .tool-finder:has([data-radar-expired]:not(:checked)) ~ [data-radar-section="expired"]{display:none}
+html.v1[data-editorial-context="herramientas"]:has(main#contenido [data-radar-grid]) .radar-card--expired{border-color:var(--radar-rule-soft);background:#fbfbfa}
+html.v1[data-editorial-context="herramientas"]:has(main#contenido [data-radar-grid]) .radar-card--expired .radar-badge{border-style:dashed;border-color:var(--radar-rule-soft);background:#fff;color:var(--radar-muted)}
+html.v1[data-editorial-context="herramientas"]:has(main#contenido [data-radar-grid]) .radar-card--expired dl>div:first-child dt,
+html.v1[data-editorial-context="herramientas"]:has(main#contenido [data-radar-grid]) .radar-card--expired dl>div:first-child time{color:var(--radar-muted)}
+html.v1[data-editorial-context="herramientas"]:has(main#contenido [data-radar-grid]) .radar-card--expired h2{color:var(--radar-blue-deep)}
+html.v1[data-editorial-context="herramientas"]:has(main#contenido [data-radar-grid]) .radar-section--expired .radar-section__head .eyebrow{color:var(--radar-muted)}
