@@ -5,18 +5,6 @@ CALSCALE:GREGORIAN
 METHOD:PUBLISH
 X-WR-CALNAME:Convocatorias para escritores
 BEGIN:VEVENT
-UID:cuarto-y-mitad-2026@davidportodiaz.com
-DTSTART;VALUE=DATE:20261006
-DTEND;VALUE=DATE:20261007
-SUMMARY:X Concurso de relatos «Cuarto y Mitad» 2026
-DESCRIPTION:Biblioteca Pública Municipal Mario Vargas Llosa · Ayuntamient
- o de Madrid
-URL:https://www.madrid.es/portales/munimadrid/es/FormularioElectronico/Sanc
- ho-Davila/Formulario-de-participacion-X-Concurso-de-relatos-Cuarto-y-Mitad
- -/?vgnextchannel=9726a3575e2ee210VgnVCM2000000c205a0aRCRD&vgnextfmt=defaul
- t&vgnextoid=9d48a947b12b4610VgnVCM1000001d4a900aRCRD
-END:VEVENT
-BEGIN:VEVENT
 UID:relatos-en-cadena-2026-ronda-08-oct@davidportodiaz.com
 DTSTART;VALUE=DATE:20261008
 DTEND;VALUE=DATE:20261009
