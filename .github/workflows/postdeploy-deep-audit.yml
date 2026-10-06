@@ -15,6 +15,7 @@ on:
       - 'qa/production-rotating-cross-engine.mjs'
       - 'qa/production-runtime-dom-audit.mjs'
       - 'qa/production-runtime-interactive-contract.mjs'
+      - 'qa/production-focus-restoration.mjs'
       - 'qa/production-release-marker.mjs'
       - 'qa/production-url-normalization.mjs'
       - 'qa/production-url-alias-canonical.mjs'
@@ -56,6 +57,7 @@ on:
       - 'qa/production-rotating-cross-engine.mjs'
       - 'qa/production-runtime-dom-audit.mjs'
       - 'qa/production-runtime-interactive-contract.mjs'
+      - 'qa/production-focus-restoration.mjs'
       - 'qa/production-release-marker.mjs'
       - 'qa/production-url-normalization.mjs'
       - 'qa/production-url-alias-canonical.mjs'
@@ -141,6 +143,7 @@ jobs:
           node --check qa/production-rotating-cross-engine.mjs
           node --check qa/production-runtime-dom-audit.mjs
           node --check qa/production-runtime-interactive-contract.mjs
+          node --check qa/production-focus-restoration.mjs
           node --check qa/production-release-marker.mjs
           node --check qa/production-session-resilience.mjs
           node --check qa/production-pwa-install.mjs
@@ -192,6 +195,7 @@ jobs:
           python scripts/check-head-icons.py --check
           python tests/test-head-icon-normalizer.py
           python scripts/check-interaction-a11y-contracts.py
+          python scripts/check-public-document-form-contract.py
           python scripts/check-hrefs.py
           python scripts/check-orphan-assets.py --exclude-campaign-assets
 
@@ -206,6 +210,48 @@ jobs:
           path: artifacts/postdeploy/
           if-no-files-found: warn
           retention-days: 14
+
+
+  production-focus-contract:
+    name: production-focus-contract
+    if: >-
+      github.event_name == 'pull_request' ||
+      github.event_name == 'schedule' ||
+      github.event_name == 'workflow_dispatch' ||
+      (github.event_name == 'workflow_run' && github.event.workflow_run.conclusion == 'success')
+    runs-on: ubuntu-24.04
+    timeout-minutes: 15
+    env:
+      SITE_BASE_URL: https://davidportodiaz.com
+    steps:
+      - name: Checkout audit code
+        uses: actions/checkout@v5
+
+      - name: Set up Node
+        uses: actions/setup-node@v5
+        with:
+          node-version: '22'
+
+      - name: Install CI/QA dependencies
+        run: npm ci
+
+      - name: Cache Playwright Chromium
+        id: playwright-focus-cache
+        uses: actions/cache@v5
+        with:
+          path: ~/.cache/ms-playwright
+          key: playwright-chromium-${{ hashFiles('package-lock.json') }}
+
+      - name: Install Playwright Chromium with OS dependencies
+        if: steps.playwright-focus-cache.outputs.cache-hit != 'true'
+        run: npx playwright install --with-deps chromium
+
+      - name: Install browser OS dependencies only
+        if: steps.playwright-focus-cache.outputs.cache-hit == 'true'
+        run: npx playwright install-deps chromium
+
+      - name: Audit production focus trapping and restoration
+        run: node qa/production-focus-restoration.mjs
 
   production-parity:
     if: >-
