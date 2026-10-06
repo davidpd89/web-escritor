@@ -196,6 +196,7 @@ jobs:
           python tests/test-head-icon-normalizer.py
           python scripts/check-interaction-a11y-contracts.py
           python scripts/check-public-document-form-contract.py
+          python scripts/check-lychee-exception-hygiene.py
           python scripts/check-hrefs.py
           python scripts/check-orphan-assets.py --exclude-campaign-assets
 
