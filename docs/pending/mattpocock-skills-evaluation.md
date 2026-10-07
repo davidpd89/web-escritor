@@ -78,11 +78,14 @@ No convertir estas skills en infraestructura permanente hasta que un caso real d
 | Skill | Estado | Motivo |
 | --- | --- | --- |
 | `pr` | **ADOPTAR** → #593 | Ha mejorado inmediatamente la claridad de las PR abiertas y reduce revisión repetitiva. Se incorpora upstream sin modificar para Codex y Claude. |
-| `code-review` | **USAR UPSTREAM, NO VENDORIZAR** | Ha encontrado problemas reales en #574/#579, #586/#595 y #592/#594. No se copia por los bugs upstream conocidos de colisión/recursión; se usa como revisión independiente. |
-| `diagnosing-bugs` | **ESPERAR CASO REAL** | Encaja con bugs duros/flaky, pero no debe dispararse sobre preguntas o hardening preventivo. Se evaluará con el próximo fallo reproducible sin causa clara. |
+| `code-review` | **USAR UPSTREAM, NO VENDORIZAR** | Ha encontrado problemas reales en #574/#579, #586/#595 y #592/#594. No se copia por bugs upstream conocidos de colisión/recursión; se usa como revisión independiente. |
+| `retro` | **USAR PUNTUALMENTE, NO INSTALAR** | La prueba sobre esta sesión fue útil para confirmar qué NO convertir en infraestructura. No produjo una mejora permanente adicional. |
+| `diagnosing-bugs` | **ESPERAR CASO REAL** | Encaja con bugs duros/flaky, pero no debe dispararse sobre hardening preventivo. Evaluar con el próximo fallo reproducible sin causa clara. |
 | `tdd` | **ESPERAR IMPLEMENTACIÓN ADECUADA** | Útil para comportamiento nuevo con seam claro; no encaja con las PR actuales de QA/config y además depende de `codebase-design`. |
-| `retro` | **USAR UPSTREAM BAJO DEMANDA** | Probada sobre esta sesión: ayuda a convertir errores concretos en checks, pero los hallazgos útiles ya quedaron cubiertos por PR específicas. No justifica instalación permanente ahora. |
-| `prototype` | **PENDIENTE DE PRUEBA VISUAL** | Potencialmente útil para experimentos de diseño desechables, pero debe probarse cuando exista una decisión visual concreta. |
+| `implement` | **NO ADOPTAR AHORA** | Upstream revisa antes del commit aunque `code-review` puede no ver cambios sin commit, hace commit directo en la rama actual y puede consumir mucho contexto por ticket. Choca con nuestro flujo PR-first/revisión fresca. |
+| `research` | **NO ADOPTAR AHORA** | Bug upstream de subagentes recursivos, sin criterio de parada y riesgo de generar Markdown efímero/obsoleto. Usar solo puntualmente para una pregunta externa muy estrecha. |
+| `prototype` | **PENDIENTE DE CASO VISUAL REAL** | No hay ahora una decisión UI/UX abierta que justifique probarla. Reservar para una comparación visual concreta y desechable. |
+| `wizard` | **USAR PUNTUALMENTE, NO INSTALAR** | Puede servir para un futuro flujo de dashboard/credenciales, pero no encaja con la mayor parte de #555 (QA multidispositivo/manual). |
 | `improve-codebase-architecture` | **NO AHORA** | El scope global es mayor que el objetivo actual de cambios pequeños y fáciles de revisar. |
 
 ## Preguntas que debe responder la investigación
