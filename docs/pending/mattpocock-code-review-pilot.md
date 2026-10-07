@@ -9,6 +9,11 @@ A single idea from `mattpocock/skills`: review a change on two independent axes 
 Upstream reference:
 https://github.com/mattpocock/skills/tree/main/skills/engineering/code-review
 
+OpenAI also documents `.agents/skills/` as the repository-local location for Codex skills, so the pilot lives there intentionally rather than in a project-specific ad hoc folder.
+
+Official reference:
+https://developers.openai.com/blog/skills-agents-sdk
+
 This pilot deliberately does **not** install the upstream skill unchanged because its own documentation notes two practical risks:
 
 - name collision with Claude Code's built-in `/code-review`;
