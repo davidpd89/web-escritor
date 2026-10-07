@@ -14,7 +14,8 @@ from urllib.parse import urlsplit
 
 ROOT = Path(__file__).resolve().parents[1]
 CSS_PATH = ROOT / "assets" / "v1-fonts.css"
-CSS = CSS_PATH.read_text(encoding="utf-8")
+COMMENT_RE = re.compile(r"/\\*.*?\\*/", flags=re.DOTALL)
+CSS = COMMENT_RE.sub("", CSS_PATH.read_text(encoding="utf-8"))
 WOFF2_SIGNATURE = b"wOF2"
 
 URL_RE = re.compile(r"url\(\s*['\"]?([^'\")]+)['\"]?\s*\)", re.IGNORECASE)
