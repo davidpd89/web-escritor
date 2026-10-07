@@ -155,3 +155,8 @@ https?://([^/]+\.)?davidportodiaz\.com/.*
 # sometidas al checker.
 ^https://agendacultural\.diputacionalicante\.es/event/premio-azorin-de-novela-2027/$
 ^https://agendacultural\.diputacionalicante\.es/event/premio-enric-valor-2026/$
+
+# Crononauta mantiene operativa su pagina oficial de contacto, pero Shopify
+# devuelve 403 al runner de Lychee. Excepcion exacta; el resto de
+# shop.crononauta.es sigue bajo validacion.
+^https://shop\.crononauta\.es/pages/contact$
