@@ -410,7 +410,7 @@ function fallbackCopy(text, done) {
             website: honeypotValue(form)
           });
           if (result.ok && result.state === "pending_confirmation") {
-            form.innerHTML = '<p class="quiz-subscribe-ok">✓ Solicitud recibida. Revisa tu correo para confirmar si aún no lo habías hecho.</p>';
+            form.innerHTML = '<p class="quiz-subscribe-ok">✓ Solicitud recibida para lectores beta. Revisa tu correo para confirmar si aún no lo habías hecho.</p>';
             _gcEvent("newsletter-pending-lectores-beta", "Newsletter DOI pendiente: lectores beta");
           } else {
             throw new Error(result.code || "request_failed");
