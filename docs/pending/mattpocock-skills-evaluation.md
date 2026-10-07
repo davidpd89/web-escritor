@@ -40,18 +40,14 @@ Cuando se retome:
 7. Revisar licencia y condiciones antes de copiar o incorporar contenido.
 8. Documentar cualquier adopción indicando qué problema resuelve.
 
-## Principio multiagente acordado
+## Criterio de adopción
 
-La integración no debe quedar atada a un único proveedor de IA:
-
-- reglas duraderas del proyecto: fuente canónica y neutral;
-- Codex/agentes compatibles: `AGENTS.md` y skills en `.agents/skills/`;
-- Claude Code: `CLAUDE.md` y, cuando aporte descubrimiento nativo, adaptadores mínimos en `.claude/skills/`;
-- los adaptadores no deben copiar la lógica de una skill: deben apuntar a la fuente canónica;
-- no cargar todas las skills por defecto; solo la que encaja con la tarea;
-- cualquier nueva integración debe entrar en una PR pequeña, reversible y con beneficio comprobable.
-
-Esto permite que Codex, Claude u otro agente trabajen con el mismo contrato sin mantener instrucciones divergentes.
+- Usar primero la skill pública upstream, sin crear una variante local por defecto.
+- No añadir infraestructura de agentes, wrappers, adaptadores o documentación paralela si la skill ya puede utilizarse directamente.
+- Una skill se considera útil solo si descubre un problema real, reduce trabajo repetido o mejora de forma comprobable una implementación/revisión.
+- Los hallazgos concretos sí pueden convertirse en PR pequeñas del repo (tests, QA, CI o código), una por problema.
+- Si una skill no aporta nada sobre el proceso actual, no se integra.
+- Evitar ciclos de review infinitos: un hallazgo debe verificarse contra el código antes de actuar.
 
 ## Preguntas que debe responder la investigación
 
