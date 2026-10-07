@@ -71,6 +71,10 @@ def tracked_public_html() -> list[Path]:
 
 
 def main() -> None:
+    assert resolve_stylesheet("../assets/v1-base.css", "libros/index.html") == "assets/v1-base.css"
+    assert resolve_stylesheet("/assets/v1-base.css?v=1", "libros/index.html") == "assets/v1-base.css"
+    assert resolve_stylesheet("https://example.com/v1-base.css", "libros/index.html") == ""
+
     failures: list[str] = []
     v1_pages = 0
 
