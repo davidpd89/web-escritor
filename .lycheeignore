@@ -132,6 +132,11 @@ https?://([^/]+\.)?davidportodiaz\.com/.*
 ^https://web\.constanti\.cat/2026/09/02/xx-premis-literaris-de-constanti-2026-relats-de-pagesia/$
 ^https://automaticaeditorial\.com/contacto$
 
+# Crononauta mantiene operativa su pagina oficial de contacto (GET 200
+# verificado el 2026-10-07), pero Shopify devuelve 403 al runner de Lychee.
+# Excepcion exacta; el resto de shop.crononauta.es sigue bajo validacion.
+^https://shop\.crononauta\.es/pages/contact$
+
 # Fuentes editoriales verificadas que responden correctamente fuera de Lychee
 # pero devolvieron 500 transitorio al runner. Excepciones exactas.
 ^https://edicionesfatcap\.es/content/7-recepcion-de-manuscritos$
