@@ -14,8 +14,10 @@ import re
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
-FONTS = (ROOT / "assets" / "v1-fonts.css").read_text(encoding="utf-8")
-TOKENS = (ROOT / "assets" / "v1-tokens.css").read_text(encoding="utf-8")
+COMMENT_RE = re.compile(r"/\*.*?\*/", flags=re.DOTALL)
+
+FONTS = COMMENT_RE.sub("", (ROOT / "assets" / "v1-fonts.css").read_text(encoding="utf-8"))
+TOKENS = COMMENT_RE.sub("", (ROOT / "assets" / "v1-tokens.css").read_text(encoding="utf-8"))
 
 
 def normalize_font_stack(value: str) -> str:
@@ -70,6 +72,8 @@ def main() -> None:
     assert normalize_font_stack('"Manrope",var(--FONT-ui)') != normalize_font_stack(
         '"Manrope",var(--font-ui)'
     )
+    assert COMMENT_RE.sub("", "/* --font-ui:'wrong'; */ --font-ui:'right';").count("--font-ui") == 1
+    assert "@font-face" not in COMMENT_RE.sub("", "/* @font-face{font-family:'Fake';} */")
 
     expected_tokens = {
         "--font-display": '"Instrument Serif","Instrument Serif Fallback"',
