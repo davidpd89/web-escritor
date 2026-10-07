@@ -13,10 +13,9 @@ on:
       - 'data/navigation.json'
       - 'scripts/build-*.py'
       - 'scripts/site_shell.py'
-      - 'qa/sitewide-reflow-browser.mjs'
-      - 'qa/text-resilience-report-gate.mjs'
-      - 'qa/focus-not-obscured-audit.mjs'
-      - 'qa/target-size-audit.mjs'
+      - 'qa/*.mjs'
+      - 'package.json'
+      - 'package-lock.json'
       - '.github/workflows/sitewide-reflow-qa.yml'
   workflow_dispatch:
 
@@ -49,7 +48,7 @@ jobs:
             exit 0
           fi
           git diff --name-only "$BASE_SHA" "$HEAD_SHA" > /tmp/reflow-changed-files.txt
-          if grep -qE '\.html$|^assets/.*\.(css|js|mjs)$|^data/(content-registry\.json|navigation\.json)$|^scripts/build-.*\.py$|^scripts/site_shell\.py$|^qa/(sitewide-reflow-browser|text-resilience-report-gate|focus-not-obscured-audit|target-size-audit)\.mjs$|^\.github/workflows/sitewide-reflow-qa\.yml$' /tmp/reflow-changed-files.txt; then
+          if grep -qE '\.html$|^assets/.*\.(css|js|mjs)$|^data/(content-registry\.json|navigation\.json)$|^scripts/build-.*\.py$|^scripts/site_shell\.py$|^qa/.*\.mjs$|^package(-lock)?\.json$|^\.github/workflows/sitewide-reflow-qa\.yml$' /tmp/reflow-changed-files.txt; then
             echo "relevant=true" >> "$GITHUB_OUTPUT"
           else
             echo "relevant=false" >> "$GITHUB_OUTPUT"
