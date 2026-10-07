@@ -50,6 +50,15 @@ async function assertShortViewport(page,route,vp){
     await explore.click();
     const dialog=page.locator('[data-explore-dialog]').first();
     await dialog.waitFor({state:'visible',timeout:3000});
+    // The panel slides in, so it is "visible" while still translated off-screen
+    // (seen at left:-359 on production). Wait for the transition to settle;
+    // if it never lands inside the viewport the assertion below still fails.
+    await dialog.evaluate(el=>new Promise(res=>{
+      const t0=performance.now();
+      const tick=()=>{const b=el.getBoundingClientRect();
+        if((b.left>=-1&&b.right<=innerWidth+1)||performance.now()-t0>1500) res(); else requestAnimationFrame(tick)};
+      tick();
+    }));
     const g=await dialog.evaluate(el=>{
       const b=el.getBoundingClientRect(),s=getComputedStyle(el);
       const descendantScrollable=[...el.querySelectorAll('*')].some(n=>{
