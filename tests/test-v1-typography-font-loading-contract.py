@@ -20,9 +20,9 @@ FONTS = COMMENT_RE.sub("", (ROOT / "assets" / "v1-fonts.css").read_text(encoding
 TOKENS = COMMENT_RE.sub("", (ROOT / "assets" / "v1-tokens.css").read_text(encoding="utf-8"))
 
 
-def normalize_font_stack(value: str) -> str:
+def normalize_font_stack(value: str) -> tuple[str, ...]:
     parts = re.split(r"\s*,\s*", value.strip())
-    return ",".join(part.strip().replace('"', "'") for part in parts)
+    return tuple(part.strip().replace('"', "'") for part in parts)
 
 
 def font_faces(family: str) -> list[str]:
@@ -51,7 +51,8 @@ def require_canonical_token(token: str, stack_start: str) -> None:
     values = token_values(token)
     assert len(values) == 1, f"{token}: expected exactly one declaration, found {len(values)}"
     expected = normalize_font_stack(stack_start)
-    assert values[0].startswith(expected), f"{token}: canonical V1 font stack drifted"
+    actual = values[0]
+    assert actual[: len(expected)] == expected, f"{token}: canonical V1 font stack drifted"
 
 
 def main() -> None:
@@ -72,6 +73,9 @@ def main() -> None:
     assert normalize_font_stack('"Manrope",var(--FONT-ui)') != normalize_font_stack(
         '"Manrope",var(--font-ui)'
     )
+    expected_pair = normalize_font_stack('"Manrope","Manrope Fallback"')
+    bad_pair = normalize_font_stack('"Manrope","Manrope Fallback Evil",sans-serif')
+    assert bad_pair[: len(expected_pair)] != expected_pair
     assert COMMENT_RE.sub("", "/* --font-ui:'wrong'; */ --font-ui:'right';").count("--font-ui") == 1
     assert "@font-face" not in COMMENT_RE.sub("", "/* @font-face{font-family:'Fake';} */")
 
