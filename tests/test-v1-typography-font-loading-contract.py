@@ -42,7 +42,7 @@ def require_display_mode(family: str, expected: str) -> None:
     assert not wrong, f"{family}: every face must use font-display:{expected}"
 
 
-def token_values(token: str) -> list[str]:
+def token_values(token: str) -> list[tuple[str, ...]]:
     pattern = rf"{re.escape(token)}\s*:\s*([^;}}]+)"
     return [normalize_font_stack(value) for value in re.findall(pattern, TOKENS)]
 
