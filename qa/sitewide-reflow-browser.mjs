@@ -524,10 +524,11 @@ const FOCUS_VIEWPORTS = [
 // journey needs this or it only ever audits the intro overlay's own
 // controls, never the real shell underneath.
 async function dismissHomeIntro(page) {
+  const intro = page.locator('[data-intro]').first();
   const introEnter = page.locator('[data-intro-enter]').first();
   if ((await introEnter.count()) > 0 && (await introEnter.isVisible())) {
     await introEnter.click();
-    await page.waitForTimeout(900);
+    await intro.waitFor({ state: 'hidden', timeout: 2000 });
   }
 }
 const FOCUS_JOURNEYS = [
