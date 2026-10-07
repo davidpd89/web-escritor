@@ -6,7 +6,7 @@ Keep context proportional to the task: load the relevant files and skill, not ev
 
 When the task matches a repository skill under `.agents/skills/`, use that skill. In particular:
 
-- PR/readiness verification → `.agents/skills/verify-web-change/SKILL.md`
+- PR/readiness verification → `.agents/skills/verify-web-change/SKILL.md`, if present
 - code review → `.agents/skills/web-escritor-review/SKILL.md`, when present
 
 Provider-specific instructions must not override or duplicate the shared repository policy without an explicit reason.
