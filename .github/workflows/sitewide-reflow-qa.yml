@@ -2,6 +2,20 @@ name: Sitewide Reflow QA
 
 on:
   pull_request:
+    paths:
+      - '**/*.html'
+      - 'assets/**/*.css'
+      - 'assets/**/*.js'
+      - 'assets/**/*.mjs'
+      - 'data/content-registry.json'
+      - 'data/navigation.json'
+      - 'scripts/build-*.py'
+      - 'scripts/site_shell.py'
+      - 'qa/sitewide-reflow-browser.mjs'
+      - 'qa/text-resilience-report-gate.mjs'
+      - 'qa/focus-not-obscured-audit.mjs'
+      - 'qa/target-size-audit.mjs'
+      - '.github/workflows/sitewide-reflow-qa.yml'
   push:
     branches: [main]
     paths:
