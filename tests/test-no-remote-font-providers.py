@@ -101,7 +101,30 @@ def tracked_files(pattern: str) -> list[Path]:
     ]
 
 
+def self_check() -> None:
+    assert forbidden_host("https://fonts.googleapis.com/css2?family=Manrope") == "fonts.googleapis.com"
+    assert forbidden_host("//fonts.gstatic.com/s/manrope/example.woff2") == "fonts.gstatic.com"
+    assert forbidden_host("https://example.com/fonts.css") is None
+
+    parser = RuntimeFontHTMLParser()
+    parser.feed(
+        '<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Manrope">'
+        '<a href="https://fonts.googleapis.com/">Documentación</a>'
+    )
+    parser.close()
+    assert len(parser.remote_font_refs) == 1, "runtime stylesheet must be caught without flagging a normal link"
+
+    cleaned = CSS_COMMENT_RE.sub(
+        "",
+        "/* https://fonts.googleapis.com/ignored */ "
+        "@import url('https://fonts.bunny.net/css?family=Manrope');",
+    )
+    detected = [forbidden_host(match.group(0)) for match in URL_RE.finditer(cleaned)]
+    assert detected == ["fonts.bunny.net"], "CSS comments must be ignored and runtime import detected"
+
+
 def main() -> None:
+    self_check()
     failures: list[str] = []
     html_files = tracked_files("*.html")
     css_files = tracked_files("*.css")
