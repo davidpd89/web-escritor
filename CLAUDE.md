@@ -6,7 +6,7 @@ When a task matches a repository skill under `.agents/skills/`, read the matchin
 
 Useful mappings:
 
-- PR/readiness verification → `.agents/skills/verify-web-change/SKILL.md`
+- PR/readiness verification → `.agents/skills/verify-web-change/SKILL.md`, if present
 - code review → `.agents/skills/web-escritor-review/SKILL.md`, when present
 
 Do not load every skill by default. Use only the guidance needed for the current task.
