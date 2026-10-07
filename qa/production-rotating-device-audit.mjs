@@ -121,6 +121,16 @@ async function skipLinkProbe(page,route){
   await page.evaluate(()=>{
     window.scrollTo(0,0);
     if(document.activeElement instanceof HTMLElement) document.activeElement.blur();
+    // blur() leaves the browser's sequential-focus starting point where the
+    // last focus was (e.g. the home intro's enter button once dismissed), so
+    // Tab would resume from there instead of from the top of the document.
+    // Park it on <body> explicitly to test a real "first Tab".
+    window.getSelection()?.removeAllRanges();
+    const hadTabindex=document.body.hasAttribute('tabindex');
+    if(!hadTabindex) document.body.setAttribute('tabindex','-1');
+    document.body.focus({preventScroll:true});
+    if(!hadTabindex) document.body.removeAttribute('tabindex');
+    if(document.activeElement instanceof HTMLElement) document.activeElement.blur();
   });
   await page.keyboard.press('Tab');
   assert.equal(await skip.evaluate(el=>el===document.activeElement),true,`${route}: first Tab does not focus skip link`);
