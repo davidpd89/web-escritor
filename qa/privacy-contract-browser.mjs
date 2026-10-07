@@ -32,7 +32,10 @@ async function capture(route, viewport={width:1440,height:1000}, js=true, graceM
   await page.route(/https?:\/\/(?:gc\.zgo\.at|tracker\.metricool\.com)\/.*/, async r=>r.fulfill({status:200,contentType:'application/javascript',body:''}));
   await page.goto(BASE+route,{waitUntil:'networkidle'});
   const introEnter=page.locator('[data-intro-enter]').first();
-  if(await introEnter.count()>0){ await introEnter.click(); await page.waitForTimeout(900); }
+  if(await introEnter.count()>0){
+    await introEnter.click();
+    await page.locator('[data-intro]').waitFor({state:'hidden',timeout:2000});
+  }
   return {context,page,requests,consoleMessages};
 }
 const expected={
