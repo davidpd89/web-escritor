@@ -32,7 +32,10 @@ async function capture(route, viewport={width:1440,height:1000}, js=true, graceM
   await page.route(/https?:\/\/(?:gc\.zgo\.at|tracker\.metricool\.com)\/.*/, async r=>r.fulfill({status:200,contentType:'application/javascript',body:''}));
   await page.goto(BASE+route,{waitUntil:'networkidle'});
   const introEnter=page.locator('[data-intro-enter]').first();
-  if(await introEnter.count()>0){ await introEnter.click(); await page.waitForTimeout(900); }
+  if(await introEnter.count()>0){
+    await introEnter.click();
+    await page.locator('[data-intro]').waitFor({state:'hidden',timeout:2000});
+  }
   return {context,page,requests,consoleMessages};
 }
 const expected={
@@ -121,14 +124,14 @@ await rejectFlow.context.close();
 // listener explicitly ignores clicks that land inside the banner).
 const scrollFlow=await capture('/las-manecillas-del-recuerdo/kindle/',{width:390,height:844},true,0);
 await scrollFlow.page.mouse.wheel(0,400);
-await scrollFlow.page.waitForTimeout(50);
+await scrollFlow.page.locator(bannerSel).waitFor({state:'detached',timeout:2000});
 assert(await scrollFlow.page.locator(bannerSel).count()===0,'Consent banner did not dismiss after scrolling without responding');
 assert((await readConsent(scrollFlow.page)).value==='granted','Scrolling without responding did not store granted');
 await scrollFlow.context.close();
 
 const clickElsewhereFlow=await capture('/las-manecillas-del-recuerdo/kindle/',{width:390,height:844},true,0);
 await clickElsewhereFlow.page.locator('body').click({position:{x:5,y:5}});
-await clickElsewhereFlow.page.waitForTimeout(50);
+await clickElsewhereFlow.page.locator(bannerSel).waitFor({state:'detached',timeout:2000});
 assert(await clickElsewhereFlow.page.locator(bannerSel).count()===0,'Consent banner did not dismiss after a click elsewhere on the page');
 assert((await readConsent(clickElsewhereFlow.page)).value==='granted','Clicking elsewhere without responding did not store granted');
 await clickElsewhereFlow.context.close();
@@ -152,12 +155,14 @@ await navigateFlow.context.close();
 const GRACE_TEST_MS=6000;
 const graceFlow=await capture('/las-manecillas-del-recuerdo/kindle/',{width:390,height:844},true,GRACE_TEST_MS);
 await graceFlow.page.mouse.wheel(0,400);
-await graceFlow.page.waitForTimeout(50);
+// Yield two frames so the scroll handler has run; the assertion is about the
+// grace-window state, not about whether 50 ms happened to be enough in CI.
+await graceFlow.page.evaluate(()=>new Promise(resolve=>requestAnimationFrame(()=>requestAnimationFrame(resolve))));
 assert(await graceFlow.page.locator(bannerSel).count()===1,'Consent banner dismissed by a scroll inside the grace window');
 assert((await readConsent(graceFlow.page))===null,'Scrolling inside the grace window stored a decision');
 await graceFlow.page.waitForTimeout(GRACE_TEST_MS);
 await graceFlow.page.mouse.wheel(0,400);
-await graceFlow.page.waitForTimeout(50);
+await graceFlow.page.locator(bannerSel).waitFor({state:'detached',timeout:2000});
 assert(await graceFlow.page.locator(bannerSel).count()===0,'Consent banner still present after the grace window elapsed and a further scroll');
 assert((await readConsent(graceFlow.page)).value==='granted','Scrolling after the grace window elapsed did not store granted');
 await graceFlow.context.close();
