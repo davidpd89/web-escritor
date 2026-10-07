@@ -49,7 +49,16 @@ jobs:
             exit 0
           fi
           git diff --name-only "$BASE_SHA" "$HEAD_SHA" > /tmp/reflow-changed-files.txt
-          if grep -qE '\.html$|^assets/.*\.(css|js|mjs)$|^data/(content-registry\.json|navigation\.json)$|^scripts/build-.*\.py$|^scripts/site_shell\.py$|^qa/(sitewide-reflow-browser|text-resilience-report-gate|focus-not-obscured-audit|target-size-audit)\.mjs$|^\.github/workflows/sitewide-reflow-qa\.yml
+          if grep -qE '\.html$|^assets/.*\.(css|js|mjs)$|^data/(content-registry\.json|navigation\.json)$|^scripts/build-.*\.py$|^scripts/site_shell\.py$|^qa/(sitewide-reflow-browser|text-resilience-report-gate|focus-not-obscured-audit|target-size-audit)\.mjs$|^\.github/workflows/sitewide-reflow-qa\.yml$' /tmp/reflow-changed-files.txt; then
+            echo "relevant=true" >> "$GITHUB_OUTPUT"
+          else
+            echo "relevant=false" >> "$GITHUB_OUTPUT"
+          fi
+
+      - name: No reflow-relevant changes -- skip heavy browser QA
+        if: steps.changes.outputs.relevant != 'true'
+        run: echo "No sitewide-reflow surface changed; heavy browser QA is not needed."
+
       - name: Set up Node
         if: steps.changes.outputs.relevant == 'true'
         uses: actions/setup-node@v5
@@ -184,140 +193,6 @@ jobs:
 
       - name: Upload artifacts
         if: always() && steps.changes.outputs.relevant == 'true'
-        uses: actions/upload-artifact@v6
-        with:
-          name: sitewide-reflow-qa
-          path: artifacts/sitewide-reflow/
-          if-no-files-found: warn
-          retention-days: 14
- /tmp/reflow-changed-files.txt; then
-            echo "relevant=true" >> "$GITHUB_OUTPUT"
-          else
-            echo "relevant=false" >> "$GITHUB_OUTPUT"
-          fi
-
-      - name: No reflow-relevant changes -- skip heavy browser QA
-        if: steps.changes.outputs.relevant != 'true'
-        run: echo "No sitewide-reflow surface changed; heavy browser QA is not needed."
-
-      - name: Set up Node
-        uses: actions/setup-node@v5
-        with:
-          node-version: '22'
-
-      - name: Install CI/QA dependencies (Node)
-        run: npm ci
-
-      - name: F.2 report classifier unit tests
-        run: node qa/text-resilience-report-gate.test.mjs
-
-      - name: Target-size geometry unit tests (F.1)
-        run: node --test qa/target-size-audit.test.mjs
-
-      - name: Cache Playwright browsers
-        id: playwright-cache
-        uses: actions/cache@v5
-        with:
-          path: ~/.cache/ms-playwright
-          key: playwright-chromium-${{ hashFiles('package-lock.json') }}
-
-      - name: Install Playwright Chromium (with OS deps)
-        if: steps.playwright-cache.outputs.cache-hit != 'true'
-        run: npx playwright install --with-deps chromium
-
-      - name: Install Playwright OS deps only (browser cached)
-        if: steps.playwright-cache.outputs.cache-hit == 'true'
-        run: npx playwright install-deps chromium
-
-      - name: Start static server
-        shell: bash
-        run: |
-          python -m http.server 4173 --bind 127.0.0.1 > /tmp/reflow-server.log 2>&1 &
-          echo $! > /tmp/reflow-server.pid
-          for i in {1..30}; do
-            if curl --fail --silent http://127.0.0.1:4173/ >/dev/null; then exit 0; fi
-            sleep 1
-          done
-          cat /tmp/reflow-server.log
-          exit 1
-
-      - name: Run sitewide reflow gate + target-size gate + F.2 collector + F.4 focus-not-obscured gate
-        env:
-          QA_ORIGIN: http://127.0.0.1:4173
-          QA_OUT: artifacts/sitewide-reflow
-          TARGET_SIZE_MODE: enforce
-          TEXT_RESILIENCE_MODE: report
-          FOCUS_OBSCURED_MODE: enforce
-        run: node qa/sitewide-reflow-browser.mjs
-
-      - name: Enforce F.2 text-resilience findings
-        env:
-          TEXT_RESILIENCE_GATE_MODE: enforce
-        run: node qa/text-resilience-report-gate.mjs
-
-      - name: Books index visual-system QA
-        env:
-          QA_ORIGIN: http://127.0.0.1:4173
-          QA_OUT: artifacts/sitewide-reflow
-        run: node qa/books-index-design-browser.mjs
-
-      - name: Manecillas visual-system QA
-        env:
-          QA_ORIGIN: http://127.0.0.1:4173
-          QA_OUT: artifacts/sitewide-reflow
-        run: node qa/manecillas-design-browser.mjs
-
-      - name: Manecillas Fragmentos visual-system QA
-        env:
-          QA_ORIGIN: http://127.0.0.1:4173
-          QA_OUT: artifacts/sitewide-reflow
-        run: node qa/manecillas-fragmentos-design-browser.mjs
-
-      - name: Manecillas scope isolation (main vs Fragmentos)
-        env:
-          QA_ORIGIN: http://127.0.0.1:4173
-        run: node qa/manecillas-scope-isolation.mjs
-
-      - name: Samuel visual-system QA
-        env:
-          QA_ORIGIN: http://127.0.0.1:4173
-          QA_OUT: artifacts/sitewide-reflow
-        run: node qa/samuel-design-browser.mjs
-
-      - name: Samuel fragmento visual-system QA
-        env:
-          QA_ORIGIN: http://127.0.0.1:4173
-          QA_OUT: artifacts/sitewide-reflow
-        run: node qa/samuel-fragmento-design-browser.mjs
-
-      - name: Noveris world-archive visual-system QA
-        env:
-          QA_ORIGIN: http://127.0.0.1:4173
-          QA_OUT: artifacts/sitewide-reflow
-        run: node qa/noveris-design-browser.mjs
-
-      - name: Samuel reading-club visual-system QA
-        env:
-          QA_ORIGIN: http://127.0.0.1:4173
-          QA_OUT: artifacts/sitewide-reflow
-        run: node qa/club-samuel-design-browser.mjs
-
-      - name: POV distribution format QA (O.2)
-        if: always()
-        run: node qa/pov-distribucion-format-browser.mjs
-
-      - name: New base tools QA (O.1)
-        if: always()
-        run: node qa/o1-new-tools-browser.mjs
-
-      - name: Save server log
-        if: always()
-        run: |
-          mkdir -p artifacts/sitewide-reflow
-          cp /tmp/reflow-server.log artifacts/sitewide-reflow/server.log || true
-
-      - name: Upload artifacts
-        if: always()
         uses: actions/upload-artifact@v6
         with:
           name: sitewide-reflow-qa
