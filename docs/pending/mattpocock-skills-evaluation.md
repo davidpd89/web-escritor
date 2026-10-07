@@ -88,6 +88,7 @@ No convertir estas skills en infraestructura permanente hasta que un caso real d
 | `research` | **NO ADOPTAR AHORA** | Bug upstream de subagentes recursivos, sin criterio de parada y riesgo de generar Markdown efímero/obsoleto. Usar solo puntualmente para una pregunta externa muy estrecha. |
 | `prototype` | **PENDIENTE DE CASO VISUAL REAL** | No hay ahora una decisión UI/UX abierta que justifique probarla. Reservar para una comparación visual concreta y desechable. |
 | `wizard` | **USAR PUNTUALMENTE, NO INSTALAR** | Puede servir para un futuro flujo de dashboard/credenciales, pero no encaja con la mayor parte de #555 (QA multidispositivo/manual). |
+| `wayfinder` | **NO ADOPTAR AHORA** | Es el flujo más pesado del upstream y está pensado para trabajo multi-sesión cuyo camino aún no está claro. #585 ya tiene destino/frontier explícitos con mucha menos ceremonia; añadir mapas, child issues, labels y blocking edges sería duplicar planificación. |
 | `improve-codebase-architecture` | **NO AHORA** | El scope global es mayor que el objetivo actual de cambios pequeños y fáciles de revisar. |
 
 ## Preguntas que debe responder la investigación
