@@ -79,7 +79,9 @@ try{
       const r=await page.goto(O+'/convocatorias-escritores/?qa_filter_fuzz=1',{waitUntil:'domcontentloaded',timeout:25000});
       assert.equal(r?.status(),200,'radar fuzz: HTTP');
       await page.waitForFunction(()=>document.querySelector('[data-radar-search]'));
-      const total=await page.locator('[data-radar-item]').count();
+      // The closed section ships in the HTML (SEO) but is hidden until the checkbox
+      // is ticked, so the default corpus excludes it.
+      const total=await page.locator('[data-radar-item]:not([data-radar-kind="expired"])').count();
       assert.ok(total>20,'radar fuzz: unexpectedly small corpus '+total);
       for(const [i,value] of FUZZ.entries()){
         await page.locator('[data-radar-search]').fill(value);
