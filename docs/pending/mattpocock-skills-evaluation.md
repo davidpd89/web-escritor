@@ -83,6 +83,7 @@ No convertir estas skills en infraestructura permanente hasta que un caso real d
 | `diagnosing-bugs` | **ESPERAR CASO REAL** | Encaja con bugs duros/flaky, pero no debe dispararse sobre hardening preventivo. Evaluar con el próximo fallo reproducible sin causa clara. |
 | `tdd` | **ESPERAR IMPLEMENTACIÓN ADECUADA** | Útil para comportamiento nuevo con seam claro; no encaja con las PR actuales de QA/config y además depende de `codebase-design`. |
 | `implement` | **NO ADOPTAR AHORA** | Upstream revisa antes del commit aunque `code-review` puede no ver cambios sin commit, hace commit directo en la rama actual y puede consumir mucho contexto por ticket. Choca con nuestro flujo PR-first/revisión fresca. |
+| `to-spec` | **NO ADOPTAR AHORA** | #585 ya cubre el caso actual con menos ceremonia. Requiere tracker/labels y upstream documenta riesgo de que `ready-for-agent` dispare la spec padre completa en agentes AFK. Reevaluar solo para trabajo realmente multi-sesión. |
 | `research` | **NO ADOPTAR AHORA** | Bug upstream de subagentes recursivos, sin criterio de parada y riesgo de generar Markdown efímero/obsoleto. Usar solo puntualmente para una pregunta externa muy estrecha. |
 | `prototype` | **PENDIENTE DE CASO VISUAL REAL** | No hay ahora una decisión UI/UX abierta que justifique probarla. Reservar para una comparación visual concreta y desechable. |
 | `wizard` | **USAR PUNTUALMENTE, NO INSTALAR** | Puede servir para un futuro flujo de dashboard/credenciales, pero no encaja con la mayor parte de #555 (QA multidispositivo/manual). |
