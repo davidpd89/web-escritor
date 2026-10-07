@@ -73,6 +73,17 @@ Conclusión provisional: **usar upstream como herramienta de revisión, sin inst
 
 No convertir estas skills en infraestructura permanente hasta que un caso real demuestre que hace falta.
 
+## Estado de adopción
+
+| Skill | Estado | Motivo |
+| --- | --- | --- |
+| `pr` | **ADOPTAR** → #593 | Ha mejorado inmediatamente la claridad de las PR abiertas y reduce revisión repetitiva. Se incorpora upstream sin modificar para Codex y Claude. |
+| `code-review` | **USAR UPSTREAM, NO VENDORIZAR** | Ha encontrado problemas reales en #574/#579, #586/#595 y #592/#594. No se copia por los bugs upstream conocidos de colisión/recursión; se usa como revisión independiente. |
+| `diagnosing-bugs` | **ESPERAR CASO REAL** | Encaja con bugs duros/flaky, pero no debe dispararse sobre preguntas o hardening preventivo. Se evaluará con el próximo fallo reproducible sin causa clara. |
+| `tdd` | **ESPERAR IMPLEMENTACIÓN ADECUADA** | Útil para comportamiento nuevo con seam claro; no encaja con las PR actuales de QA/config y además depende de `codebase-design`. |
+| `prototype` | **PENDIENTE DE PRUEBA VISUAL** | Potencialmente útil para experimentos de diseño desechables, pero debe probarse cuando exista una decisión visual concreta. |
+| `improve-codebase-architecture` | **NO AHORA** | El scope global es mayor que el objetivo actual de cambios pequeños y fáciles de revisar. |
+
 ## Preguntas que debe responder la investigación
 
 - ¿Aporta capacidades que hoy no tenemos?
