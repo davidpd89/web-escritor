@@ -1,13 +1,13 @@
-# Evidencia de cierre del issue #555
+# Evidencia parcial del issue #555
 
 Fecha: 2026-10-07, Europe/Madrid.
-Owner de la decision: David Porto Diaz.
+Owner de exenciones: no consta una decision explicita registrada en #555.
 Ejecucion tecnica: Codex, sobre produccion y servicios reales.
 Version de produccion revisada: `49f66a66b6a469b97fb701552d5339e2f3dff385`.
 
-Este registro separa resultados observados de exenciones. `WAIVED` no significa
-que una prueba fisica haya pasado y `NOT_APPLICABLE` no afirma compatibilidad
-con un canal que no se usa.
+Este registro separa resultados observados de pruebas no ejecutadas. Mientras
+#555 no registre una decision explicita del owner, ninguna prueba pendiente se
+marca como `WAIVED` o `NOT_APPLICABLE`: permanece `BLOCKED` y conserva su riesgo.
 
 ## Edge real en Windows - PASS
 
@@ -21,54 +21,59 @@ con un canal que no se usa.
   errores de consola, requests fallidas, scroll horizontal ni controles fuera
   del viewport. Las busquedas de Hic Sic y Santa Olalla devolvieron su ficha.
 
-## Dispositivos Apple fisicos y PWA iOS - WAIVED
+## Dispositivos Apple fisicos y PWA iOS - BLOCKED
 
 - Alcance: Safari en iPhone/iPad, safe areas, teclado virtual, zoom de texto,
   rotacion y ciclo de vida de la PWA instalada.
-- Resultado: `WAIVED` por decision explicita del owner; no dispone de iPhone,
-  iPad ni Mac y no se presenta esta exencion como `PASS`.
+- Resultado: `BLOCKED`; no se dispuso de iPhone, iPad ni Mac para esta ejecucion
+  y no existe en #555 una decision explicita que permita convertirlo en `WAIVED`.
 - Evidencia compensatoria: matriz CI verde del despliegue, Lighthouse, Pa11y,
   reflow, PWA/offline automatizado y auditoria responsive en Edge real.
 - Riesgo residual: diferencias propias de WebKit, VoiceOver y PWA iOS.
-- Reevaluacion: ejecutar la matriz fisica si se dispone de hardware Apple o si
-  una incidencia de usuario apunta a WebKit, VoiceOver o instalacion iOS.
+- Siguiente paso: ejecutar la matriz fisica cuando haya hardware Apple disponible
+  o registrar en #555 una decision explicita del owner sobre el riesgo residual.
 
-## Android con TalkBack - WAIVED
+## Android con TalkBack - BLOCKED
 
-- Resultado: `WAIVED` por decision explicita del owner; no hay dispositivo y
-  lector real disponibles para esta ejecucion.
+- Resultado: `BLOCKED`; no hubo dispositivo Android con TalkBack disponible y
+  no existe una decision explicita registrada que permita marcarlo `WAIVED`.
 - Evidencia compensatoria: Pa11y, Lighthouse, contratos de accesibilidad,
   navegacion de teclado y viewports moviles en Edge real.
 - Riesgo residual: gestos, anuncios y orden de exploracion propios de TalkBack.
-- Reevaluacion: al disponer de Android/TalkBack o ante una incidencia real.
+- Siguiente paso: ejecutar con Android/TalkBack real o registrar explicitamente
+  en #555 la decision del owner y el riesgo aceptado.
 
-## Windows con NVDA o JAWS - WAIVED
+## Windows con NVDA o JAWS - BLOCKED
 
-- Resultado: `WAIVED` por decision explicita del owner; no se ejecutaron NVDA
-  ni JAWS y no se declara una prueba de lector de pantalla superada.
+- Resultado: `BLOCKED`; no se ejecutaron NVDA ni JAWS y no existe una decision
+  explicita registrada que permita renunciar a esa prueba.
 - Evidencia compensatoria: Pa11y, nombres accesibles, foco de teclado,
   live-regions y flujos criticos comprobados en Edge real.
 - Riesgo residual: diferencias de anuncio e interaccion propias de NVDA/JAWS.
-- Reevaluacion: al incorporar un lector real al entorno de QA o ante una
-  incidencia de accesibilidad.
+- Siguiente paso: ejecutar NVDA/JAWS real o registrar explicitamente en #555
+  la decision del owner y el riesgo aceptado.
 
-## macOS con VoiceOver y Safari - WAIVED
+## macOS con VoiceOver y Safari - BLOCKED
 
-- Resultado: `WAIVED` por decision explicita del owner; no hay Mac disponible.
+- Resultado: `BLOCKED`; no hubo Mac disponible y no existe una decision
+  explicita registrada que permita marcar la prueba como `WAIVED`.
 - Evidencia compensatoria y riesgo: los mismos del bloque Apple, sin afirmar
   equivalencia entre las pruebas automatizadas y VoiceOver/Safari.
-- Reevaluacion: al disponer de un Mac o ante una incidencia WebKit/VoiceOver.
+- Siguiente paso: ejecutar en Mac/VoiceOver/Safari o registrar explicitamente
+  en #555 la decision del owner y el riesgo aceptado.
 
-## Previews externos
+## Previews externos - BLOCKED
 
-- Telegram, Discord, Slack, LinkedIn y X: `NOT_APPLICABLE`; el owner confirma
-  que esos canales no forman parte de la estrategia actual.
-- WhatsApp y Facebook: `WAIVED`; no se hizo envio real a terceros. Como
-  evidencia compensatoria, `scripts/check-social-cards.py --strict` valido 384
+- Resultado: `BLOCKED`; no se ejecutaron previews reales en WhatsApp, Telegram,
+  Discord, Slack, LinkedIn, X ni Facebook durante esta ejecucion.
+- No se usa `NOT_APPLICABLE` ni `WAIVED` porque #555 no contiene una decision
+  explicita del owner sobre esos canales.
+- Evidencia compensatoria: `scripts/check-social-cards.py --strict` valido 384
   paginas indexables con 0 errores y 0 warnings, y se inspeccionaron en
   produccion las etiquetas Open Graph de las rutas criticas.
-- Riesgo residual: cache o recorte especifico de cada cliente externo.
-- Reevaluacion: antes de activar uno de esos canales o ante una tarjeta rota.
+- Riesgo residual: cache, recorte o interpretacion especifica de cada cliente.
+- Siguiente paso: ejecutar previews reales o registrar explicitamente en #555 la
+  decision del owner y la condicion de reevaluacion.
 
 ## Google Search Console - PASS
 
