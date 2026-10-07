@@ -2,10 +2,11 @@
 """Detect whether committed radar outputs still match the source at a civil date."""
 from __future__ import annotations
 import argparse, importlib.util, json, sys
-from datetime import date
 from pathlib import Path
 
 ROOT=Path(__file__).resolve().parents[1]
+sys.path.insert(0,str(ROOT/"scripts"))
+from site_clock import site_today  # noqa: E402
 BUILDER_PATH=ROOT/"scripts"/"build-radar-opportunities.py"
 SOURCE_PATH=ROOT/"data"/"radar-opportunities.json"
 PUBLIC_PATH=ROOT/"convocatorias-escritores"/"opportunities.json"
@@ -19,7 +20,10 @@ def load_builder():
 
 def main()->int:
     ap=argparse.ArgumentParser()
-    ap.add_argument("--today",default=date.today().isoformat())
+    # Madrid civil date, not the runner's UTC date: the daily refresh is generated
+    # for Madrid's day, so between 00:00 and 02:00 Madrid (UTC still "yesterday")
+    # an UTC default made every refresh PR fail its own merge gate.
+    ap.add_argument("--today",default=site_today().isoformat())
     args=ap.parse_args()
     builder=load_builder()
     today=builder.iso_date(args.today,"today")
