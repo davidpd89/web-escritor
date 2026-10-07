@@ -18,32 +18,37 @@ FONTS = (ROOT / "assets" / "v1-fonts.css").read_text(encoding="utf-8")
 TOKENS = (ROOT / "assets" / "v1-tokens.css").read_text(encoding="utf-8")
 
 
-def normalize_css(css: str) -> str:
-    return re.sub(r"\s+", "", css).replace("'", '"').lower()
+def normalize_font_stack(value: str) -> str:
+    parts = re.split(r"\s*,\s*", value.strip())
+    return ",".join(part.strip().replace('"', "'") for part in parts)
 
 
 def font_faces(family: str) -> list[str]:
-    family_needle = normalize_css(f'font-family:"{family}"')
     blocks = re.findall(r"@font-face\s*\{.*?\}", FONTS, flags=re.DOTALL | re.IGNORECASE)
-    return [normalize_css(block) for block in blocks if family_needle in normalize_css(block)]
+    family_re = re.compile(
+        rf"font-family\s*:\s*(['\"]){re.escape(family)}\1\s*(?:;|}})",
+        re.IGNORECASE,
+    )
+    return [block for block in blocks if family_re.search(block)]
 
 
 def require_display_mode(family: str, expected: str) -> None:
     faces = font_faces(family)
     assert faces, f"{family}: no @font-face declarations found"
-    wrong = [face for face in faces if f"font-display:{expected}" not in face]
+    display_re = re.compile(rf"font-display\s*:\s*{re.escape(expected)}\s*(?:;|}})", re.IGNORECASE)
+    wrong = [face for face in faces if not display_re.search(face)]
     assert not wrong, f"{family}: every face must use font-display:{expected}"
 
 
 def token_values(token: str) -> list[str]:
     pattern = rf"{re.escape(token)}\s*:\s*([^;}}]+)"
-    return [normalize_css(value) for value in re.findall(pattern, TOKENS, flags=re.IGNORECASE)]
+    return [normalize_font_stack(value) for value in re.findall(pattern, TOKENS)]
 
 
 def require_canonical_token(token: str, stack_start: str) -> None:
     values = token_values(token)
     assert len(values) == 1, f"{token}: expected exactly one declaration, found {len(values)}"
-    expected = normalize_css(stack_start)
+    expected = normalize_font_stack(stack_start)
     assert values[0].startswith(expected), f"{token}: canonical V1 font stack drifted"
 
 
@@ -58,6 +63,13 @@ def main() -> None:
     }
     for family, expected in expected_display_modes.items():
         require_display_mode(family, expected)
+
+    assert normalize_font_stack('"Instrument  Serif","Instrument Serif Fallback"') != normalize_font_stack(
+        '"Instrument Serif","Instrument Serif Fallback"'
+    )
+    assert normalize_font_stack('"Manrope",var(--FONT-ui)') != normalize_font_stack(
+        '"Manrope",var(--font-ui)'
+    )
 
     expected_tokens = {
         "--font-display": '"Instrument Serif","Instrument Serif Fallback"',
