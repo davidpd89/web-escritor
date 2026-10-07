@@ -40,6 +40,19 @@ Cuando se retome:
 7. Revisar licencia y condiciones antes de copiar o incorporar contenido.
 8. Documentar cualquier adopción indicando qué problema resuelve.
 
+## Principio multiagente acordado
+
+La integración no debe quedar atada a un único proveedor de IA:
+
+- reglas duraderas del proyecto: fuente canónica y neutral;
+- Codex/agentes compatibles: `AGENTS.md` y skills en `.agents/skills/`;
+- Claude Code: `CLAUDE.md` y, cuando aporte descubrimiento nativo, adaptadores mínimos en `.claude/skills/`;
+- los adaptadores no deben copiar la lógica de una skill: deben apuntar a la fuente canónica;
+- no cargar todas las skills por defecto; solo la que encaja con la tarea;
+- cualquier nueva integración debe entrar en una PR pequeña, reversible y con beneficio comprobable.
+
+Esto permite que Codex, Claude u otro agente trabajen con el mismo contrato sin mantener instrucciones divergentes.
+
 ## Preguntas que debe responder la investigación
 
 - ¿Aporta capacidades que hoy no tenemos?
