@@ -61,11 +61,14 @@ def family_signatures(family: str) -> set[tuple[str, str, tuple[tuple[str, str],
             continue
 
         count += 1
+        assert decls.get("src"), f"{family}: face is missing src"
+        assert decls.get("unicode-range"), f"{family}: face is missing unicode-range"
+
         signature = (
             normalize_words(decls.get("font-style", "normal")),
             normalize_words(decls.get("font-weight", "normal")),
-            sources(decls.get("src", "")),
-            normalize_unicode_range(decls.get("unicode-range", "")),
+            sources(decls["src"]),
+            normalize_unicode_range(decls["unicode-range"]),
         )
         assert signature not in signatures, f"{family}: duplicate source/range face"
         signatures.add(signature)
