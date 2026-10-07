@@ -4,7 +4,7 @@ import path from 'node:path';
 
 const BASE = process.env.IDENTITY_BASE_URL || 'http://127.0.0.1:4173';
 const OUT = process.env.IDENTITY_ARTIFACT_DIR || 'artifacts/identity-public';
-const routes = ['/autor.html', '/prensa.html', '/premios.html', '/eventos.html'];
+const routes = ['/autor.html', '/prensa.html', '/premios.html', '/eventos.html', '/al-otro-lado/'];
 const viewports = [
   { name: '320', width: 320, height: 780 },
   { name: '390', width: 390, height: 844 },

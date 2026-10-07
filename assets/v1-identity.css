@@ -393,8 +393,22 @@ html.v1 [data-family="identity"] .contact-card .text-action{
   html.v1[data-editorial-context="autor"]:has(link[rel="canonical"][href="https://davidportodiaz.com/autor.html"]) .masthead-name-row h1{
     max-width:13ch;min-width:0;margin:0;color:var(--author-blue);font-size:clamp(4rem,6.4vw,7rem);line-height:.88;letter-spacing:-.045em;overflow-wrap:anywhere;text-wrap:balance
   }
+  @media(min-width:1024px){
+    html.v1 [data-family="identity"] .v1-masthead__lead{
+      /* Newsreader's metric-matched fallback has a different zero-glyph width;
+         use a font-size-relative measure during the desktop identity masthead. */
+      max-width:25.5em
+    }
+  }
+
   html.v1[data-editorial-context="autor"]:has(link[rel="canonical"][href="https://davidportodiaz.com/autor.html"]) .v1-masthead__lead{
     max-width:43ch;color:var(--author-ink);font-size:clamp(1.1rem,1rem + .38vw,1.42rem);line-height:1.43;overflow-wrap:anywhere
+  }
+  @media(min-width:1024px){
+    html.v1[data-editorial-context="autor"]:has(link[rel="canonical"][href="https://davidportodiaz.com/autor.html"]) .v1-masthead__lead{
+      /* Keep the final Newsreader measure without tying the box to its zero glyph. */
+      max-width:24em
+    }
   }
   html.v1[data-editorial-context="autor"]:has(link[rel="canonical"][href="https://davidportodiaz.com/autor.html"]) .v1-masthead__actions{gap:.8rem 1.35rem;margin-top:1.6rem}
 

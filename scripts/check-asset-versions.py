@@ -103,7 +103,7 @@ TRACKED_ASSETS = {
     "v1-no-js-pending.css": "1",
     "cuaderno-index.css": "1",
     "editoriales.css": "3",
-    "v1-identity.css": "1",
+    "v1-identity.css": "2",
     "v1-tools-publishing.css": "1",
     "v1-recommendations.css": "2",
     "v1-findability.css": "1",
