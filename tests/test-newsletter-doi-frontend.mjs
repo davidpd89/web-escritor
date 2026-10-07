@@ -7,6 +7,8 @@ const thanks = await fs.readFile(new URL('../gracias-suscripcion/index.html', im
 
 assert.ok(script.includes('state === "pending_confirmation"'), 'frontend must require pending_confirmation');
 assert.ok(script.includes('Revisa tu correo'), 'pending DOI copy must be visible');
+assert.ok(script.includes('si aún no lo habías hecho'), 'idempotent DOI copy must not promise a new email');
+assert.ok(popup.includes('si aún no lo habías hecho'), 'popup must use idempotent DOI copy');
 assert.ok(!script.includes('localStorage.setItem("nl-subscribed", "1")'), 'initial submit must not mark confirmed');
 assert.ok(!popup.includes('localStorage.setItem(SUBSCRIBED_KEY, "1")'), 'popup submit must not mark confirmed');
 assert.ok(!script.includes('left:-9999px'), 'honeypot must not create offscreen reflow');

@@ -148,3 +148,8 @@ https?://([^/]+\.)?davidportodiaz\.com/.*
 # "Solicitar acceso" de Drive. Lychee no puede validar una carpeta privada sin
 # autenticación, así que se excluye únicamente esta URL exacta.
 ^https://drive\.google\.com/drive/folders/16DoCPC-s5ySXzxHwQX-6O6QOJ6FzXnMz\?usp=sharing$
+
+# La pagina oficial de contacto de Crononauta abre correctamente en navegador
+# (verificada el 2026-10-07), pero Shopify devuelve 403 al cliente de Lychee.
+# Excepcion exacta: el resto del dominio sigue sometido al control de enlaces.
+^https://shop\.crononauta\.es/pages/contact$

@@ -168,7 +168,8 @@ async function run() {
   res = await withMockedBrevoFetch(204, undefined, () => worker.fetch(
     makeRequest({ email: 'reader@example.com', source: 'home' }), makeEnv()
   ));
-  assert.equal(res.status, 502);
+  assert.equal(res.status, 201);
+  assert.deepEqual(await res.json(), { ok: true, state: 'pending_confirmation' });
 
   // Lectores Beta (N.1): usa BREVO_BETA_LIST_ID, no BREVO_LIST_ID -- listas
   // separadas para no mezclar consentimiento/proposito.

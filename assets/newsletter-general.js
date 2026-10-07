@@ -8,11 +8,11 @@
   const STAGING_HOSTNAMES = new Set(['david-porto-preview.davidpd89.workers.dev']);
   const STAGING_MESSAGE = 'Formulario desactivado en el entorno de pruebas.';
   const PENDING_COPY = {
-    home: 'Revisa tu correo y confirma la suscripción para recibir las novedades de David Porto Díaz.',
-    fragmento: 'Revisa tu correo y confirma la suscripción para recibir las novedades de David Porto Díaz.',
-    manecillas: 'Revisa tu correo y confirma la suscripción para recibir novedades de Las manecillas del recuerdo: nuevas ediciones, eventos y contenidos.',
-    cuaderno: 'Revisa tu correo y confirma la suscripción para recibir las novedades de David Porto Díaz.',
-    explore: 'Revisa tu correo y confirma la suscripción para recibir las novedades de David Porto Díaz.'
+    home: 'Solicitud recibida. Revisa tu correo para confirmar si aún no lo habías hecho.',
+    fragmento: 'Solicitud recibida. Revisa tu correo para confirmar si aún no lo habías hecho.',
+    manecillas: 'Solicitud recibida. Si aún no lo habías hecho, revisa tu correo y confirma la suscripción para recibir novedades de Las manecillas del recuerdo: nuevas ediciones, eventos y contenidos.',
+    cuaderno: 'Solicitud recibida. Revisa tu correo para confirmar si aún no lo habías hecho.',
+    explore: 'Solicitud recibida. Revisa tu correo para confirmar si aún no lo habías hecho.'
   };
 
   function isValidEmail(value) {

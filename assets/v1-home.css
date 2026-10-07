@@ -1444,5 +1444,11 @@ html.v1[data-lrb-home="true"] .form-submit:focus-visible{
   html.v1[data-lrb-home="true"] .home-events__grid{grid-template-columns:1fr}
 }
 
+/* Keep every global-navigation control discoverable on the desktop Home.
+   The territory row complements the Explore drawer; it does not replace it. */
+html.v1[data-lrb-home="true"]:not(.lrb-compact) .site-header__left .explore-trigger{
+  display:inline-flex;
+}
+
 /* Printing must never include the cinematic first-visit overlay. */
 @media print{html.v1 .intro{display:none!important}}

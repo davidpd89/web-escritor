@@ -176,6 +176,15 @@ await withFetch(async () => new Response(JSON.stringify({ message: 'Contact alre
   assert(!text.includes('already exists'));
 });
 
+// Brevo returns 204 for an address already confirmed in the target list. The
+// public response intentionally matches a fresh DOI request to avoid exposing
+// list membership while keeping repeated submissions idempotent.
+await withFetch(async () => new Response(null, { status: 204 }), async () => {
+  const res = await worker.fetch(req({ email: EMAIL, source: 'home' }), env());
+  assert.equal(res.status, 201);
+  assert.deepEqual(await res.json(), { ok: true, state: 'pending_confirmation' });
+});
+
 // Other upstream failures are normalized; raw provider detail/API key never leaks.
 await withFetch(async () => new Response('secret upstream detail', { status: 500 }), async () => {
   const res = await worker.fetch(req({ email: EMAIL, source: 'home' }), env());

@@ -82,6 +82,29 @@ una vez.
 - Diagnosticar (no parchear a ciegas) el 502 en reenvíos rápidos del
   mismo email entre fuentes distintas.
 
+## Revalidacion 2026-10-07
+
+Esta revalidacion cierra y sustituye los dos pendientes historicos del bloque
+anterior.
+
+El caso de reintento quedo diagnosticado y corregido con evidencia real:
+
+- Brevo devuelve `201 Created` al iniciar un DOI nuevo.
+- Brevo devuelve `204 No Content` cuando la direccion ya esta confirmada en
+  la lista de destino.
+- El Worker acepta ambos resultados y devuelve la misma respuesta publica
+  `201 {"ok":true,"state":"pending_confirmation"}`. Esto hace el alta
+  idempotente sin revelar a terceros si una direccion pertenece a la lista.
+- El copy del cliente es condicional: pide revisar el correo solo si aun no se
+  habia confirmado, sin prometer un nuevo mensaje en cada reintento.
+
+La plantilla `#9`, que se encontro desactivada, se valido mediante la API como
+`doiTemplate=true` y se reactivo sin cambiar su contenido, remitente, listas o
+clave API. El Worker se desplego mediante el endpoint `/content`, que reemplaza
+solo el codigo. Tras el despliegue se verifico que seguian presentes los seis
+bindings: secreto Brevo, listas general y beta, plantilla, redireccion y rate
+limiter.
+
 ## Rollback
 
 Si hace falta revertir: `PUT` el script anterior (Cloudflare guarda
