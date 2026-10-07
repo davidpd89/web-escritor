@@ -81,6 +81,7 @@ No convertir estas skills en infraestructura permanente hasta que un caso real d
 | `code-review` | **USAR UPSTREAM, NO VENDORIZAR** | Ha encontrado problemas reales en #574/#579, #586/#595 y #592/#594. No se copia por los bugs upstream conocidos de colisión/recursión; se usa como revisión independiente. |
 | `diagnosing-bugs` | **ESPERAR CASO REAL** | Encaja con bugs duros/flaky, pero no debe dispararse sobre preguntas o hardening preventivo. Se evaluará con el próximo fallo reproducible sin causa clara. |
 | `tdd` | **ESPERAR IMPLEMENTACIÓN ADECUADA** | Útil para comportamiento nuevo con seam claro; no encaja con las PR actuales de QA/config y además depende de `codebase-design`. |
+| `retro` | **USAR UPSTREAM BAJO DEMANDA** | Probada sobre esta sesión: ayuda a convertir errores concretos en checks, pero los hallazgos útiles ya quedaron cubiertos por PR específicas. No justifica instalación permanente ahora. |
 | `prototype` | **PENDIENTE DE PRUEBA VISUAL** | Potencialmente útil para experimentos de diseño desechables, pero debe probarse cuando exista una decisión visual concreta. |
 | `improve-codebase-architecture` | **NO AHORA** | El scope global es mayor que el objetivo actual de cambios pequeños y fáciles de revisar. |
 
