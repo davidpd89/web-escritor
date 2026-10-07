@@ -8,6 +8,10 @@ Repositorio a revisar:
 
 https://github.com/mattpocock/skills
 
+Página explicativa / catálogo de skills:
+
+https://www.aihero.dev/skills
+
 ## Objetivo
 
 Investigar en el futuro si alguna de las skills, patrones, instrucciones o formas de trabajo de ese repositorio puede mejorar el desarrollo, mantenimiento, QA o automatización de `web-escritor`.
