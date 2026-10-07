@@ -4,7 +4,10 @@ import { assertProductionRelease } from './production-release-marker.mjs';
 
 const O=(process.env.SITE_BASE_URL||'https://davidportodiaz.com').replace(/\/$/,'');
 const S=(process.env.EXPECTED_RELEASE_SHA||'').trim();
-const ROUTES=['/autor.html','/editoriales/','/convocatorias-escritores/','/cuaderno/','/herramientas/'];
+// /editoriales/ and /convocatorias-escritores/ ship `frame-src 'none'` and the
+// shell deliberately skips the widget there (initAssistantWidget), so they are
+// not representative routes for it.
+const ROUTES=['/autor.html','/premios.html','/prensa.html','/cuaderno/','/herramientas/'];
 
 await assertProductionRelease({origin:O,sha:S,label:'late-widget'});
 const browser=await chromium.launch({headless:true});
@@ -52,7 +55,7 @@ try{
       assert.equal(await page.evaluate(()=>document.activeElement?.classList.contains('assistant-widget__launcher')),true,route+': focus not restored to launcher');
       assert.deepEqual(errors,[],route+': page errors '+errors.join(' | '));
     }catch(e){
-      failures.push(String(e?.message||e));
+      failures.push(route+': '+String(e?.message||e));
     }finally{
       await context.close();
     }
