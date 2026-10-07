@@ -36,17 +36,20 @@ jobs:
 
       # Keep the workflow/check present on every PR (it may be required by a
       # ruleset), but avoid the expensive browser suite when the diff cannot
-      # affect reflow. This mirrors the paths already used for push/main.
+      # affect reflow. The patterns mirror the paths already used for push/main.
       - name: Detect reflow-relevant changes
         id: changes
         shell: bash
+        env:
+          BASE_SHA: ${{ github.event.pull_request.base.sha }}
+          HEAD_SHA: ${{ github.event.pull_request.head.sha }}
         run: |
           if [ "${{ github.event_name }}" != "pull_request" ]; then
             echo "relevant=true" >> "$GITHUB_OUTPUT"
             exit 0
           fi
-          if git diff --name-only "${{ github.event.pull_request.base.sha }}" "${{ github.event.pull_request.head.sha }}" \
-            | grep -qE '\.html$|^assets/.*\.(css|js|mjs)$|^data/(content-registry\.json|navigation\.json)$|^scripts/build-.*\.py$|^scripts/site_shell\.py$|^qa/(sitewide-reflow-browser|text-resilience-report-gate|focus-not-obscured-audit|target-size-audit)\.mjs$|^\.github/workflows/sitewide-reflow-qa\.yml
+          git diff --name-only "$BASE_SHA" "$HEAD_SHA" > /tmp/reflow-changed-files.txt
+          if grep -qE '\.html$|^assets/.*\.(css|js|mjs)$|^data/(content-registry\.json|navigation\.json)$|^scripts/build-.*\.py$|^scripts/site_shell\.py$|^qa/(sitewide-reflow-browser|text-resilience-report-gate|focus-not-obscured-audit|target-size-audit)\.mjs$|^\.github/workflows/sitewide-reflow-qa\.yml
       - name: Set up Node
         if: steps.changes.outputs.relevant == 'true'
         uses: actions/setup-node@v5
@@ -187,7 +190,7 @@ jobs:
           path: artifacts/sitewide-reflow/
           if-no-files-found: warn
           retention-days: 14
-; then
+ /tmp/reflow-changed-files.txt; then
             echo "relevant=true" >> "$GITHUB_OUTPUT"
           else
             echo "relevant=false" >> "$GITHUB_OUTPUT"
