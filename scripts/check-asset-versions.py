@@ -71,7 +71,7 @@ HASH_LOCK_PATH = ROOT / "scripts" / "asset-version-hashes.json"
 # that changes the given asset. Then run this checker; it will list every
 # page still on the old version, or still completely unversioned.
 TRACKED_ASSETS = {
-    "script.js": "202609-launch-26",
+    "script.js": "202609-launch-27",
     "analytics-consent-banner.js": "15",
     "email-reveal.js": "3",
     "styles.css": "202609-launch-1",
@@ -99,7 +99,7 @@ TRACKED_ASSETS = {
     "v1-editorial.css": "3",
     "v1-editorial.js": "1",
     "newsletter-popup.css": "1",
-    "newsletter-popup.js": "2",
+    "newsletter-popup.js": "3",
     "v1-no-js-pending.css": "1",
     "cuaderno-index.css": "1",
     "editoriales.css": "3",

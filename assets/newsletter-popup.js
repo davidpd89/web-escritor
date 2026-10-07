@@ -37,8 +37,8 @@
         title: "Sigue el universo de Noveris.",
         body: "Novedades sobre el universo de Noveris y avisos de nuevas firmas o lecturas. Un email cuando haya algo que valga la pena.",
         cta: "Suscribirme",
-        okTitle: "Revisa tu correo",
-        okBody: "Te hemos enviado un mensaje de confirmación. Abre el enlace para completar la suscripción."
+        okTitle: "Solicitud recibida",
+        okBody: "Revisa tu correo para confirmar si aún no lo habías hecho."
       };
     }
     return {
@@ -46,8 +46,8 @@
       title: "Sigue los próximos libros y artículos.",
       body: "Nuevas publicaciones, artículos, firmas y recursos para lectores. Solo cuando haya algo que contar.",
       cta: "Suscribirme",
-      okTitle: "Revisa tu correo",
-      okBody: "Te hemos enviado un mensaje de confirmación. Abre el enlace para completar la suscripción."
+      okTitle: "Solicitud recibida",
+      okBody: "Revisa tu correo para confirmar si aún no lo habías hecho."
     };
   }
 

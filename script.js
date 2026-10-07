@@ -304,11 +304,11 @@ function fallbackCopy(text, done) {
   // Manecillas keeps its own promise because that one is just "I'll notify
   // you" (a real, simple thing this list can do), not a content delivery.
   const NEWSLETTER_PENDING_COPY = {
-    home: "Revisa tu correo y confirma la suscripción para recibir las novedades de David Porto Díaz.",
-    fragmento: "Revisa tu correo y confirma la suscripción para recibir las novedades de David Porto Díaz.",
-    manecillas: "Revisa tu correo y confirma la suscripción para recibir novedades de Las manecillas del recuerdo: nuevas ediciones, eventos y contenidos.",
-    cuaderno: "Revisa tu correo y confirma la suscripción para recibir las novedades de David Porto Díaz.",
-    explore: "Revisa tu correo y confirma la suscripción para recibir las novedades de David Porto Díaz."
+    home: "Solicitud recibida. Revisa tu correo para confirmar si aún no lo habías hecho.",
+    fragmento: "Solicitud recibida. Revisa tu correo para confirmar si aún no lo habías hecho.",
+    manecillas: "Solicitud recibida. Revisa tu correo para confirmar si aún no lo habías hecho.",
+    cuaderno: "Solicitud recibida. Revisa tu correo para confirmar si aún no lo habías hecho.",
+    explore: "Solicitud recibida. Revisa tu correo para confirmar si aún no lo habías hecho."
   };
 
   async function submitNewsletter(formId, emailId, gdprId, statusId, sourceLabel) {
@@ -410,7 +410,7 @@ function fallbackCopy(text, done) {
             website: honeypotValue(form)
           });
           if (result.ok && result.state === "pending_confirmation") {
-            form.innerHTML = '<p class="quiz-subscribe-ok">✓ Revisa tu correo y confirma la suscripción. Te escribiré cuando tenga material listo para lectores beta.</p>';
+            form.innerHTML = '<p class="quiz-subscribe-ok">✓ Solicitud recibida. Revisa tu correo para confirmar si aún no lo habías hecho.</p>';
             _gcEvent("newsletter-pending-lectores-beta", "Newsletter DOI pendiente: lectores beta");
           } else {
             throw new Error(result.code || "request_failed");

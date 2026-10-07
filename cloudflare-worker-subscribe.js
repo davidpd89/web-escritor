@@ -235,10 +235,11 @@ export default {
       });
     }
 
-    // Brevo documents 201 Created for createDoiContact. Do not accept another
-    // 2xx as a valid DOI transition: an unexpected upstream contract must not
-    // become a false pending/confirmed state in the browser.
-    if (brevoRes.status === 201) {
+    // Brevo returns 201 when it starts DOI and 204 when the address is already
+    // confirmed in the target list. Keep the same public response for both so
+    // this endpoint stays idempotent without exposing list membership through
+    // account enumeration. The browser copy is deliberately conditional.
+    if (brevoRes.status === 201 || brevoRes.status === 204) {
       return pendingConfirmationResponse(origin);
     }
 

@@ -56,7 +56,7 @@ required_evidence_fields = [
     "sistema operativo y version",
     "navegador, app o lector de pantalla",
     "url o flujo probado",
-    "resultado `pass`, `fail` o `blocked`",
+    "resultado `pass`, `fail`, `blocked`, `waived` o `not_applicable`",
     "evidencia",
     "incidencias abiertas",
 ]
@@ -70,6 +70,22 @@ for field in required_evidence_fields:
 assert "no se deben marcar como superadas por inferencia" in normalized
 assert "no convertir esta matriz en un gate automatico" in normalized
 assert "blocked` solo es valido" in lower
+assert "`waived` solo es valido" in lower
+assert "`not_applicable` solo es valido" in lower
 assert "nunca usar direcciones de terceros" in lower
+
+evidence_path = ROOT / "docs" / "qa" / "REAL-DEVICE-SERVICE-EVIDENCE-2026-10-07.md"
+evidence = evidence_path.read_text(encoding="utf-8").lower()
+for term in [
+    "edge real en windows - pass",
+    "dispositivos apple fisicos y pwa ios - waived",
+    "android con talkback - waived",
+    "windows con nvda o jaws - waived",
+    "macos con voiceover y safari - waived",
+    "google search console - pass",
+    "bing webmaster tools - pass",
+    "brevo/newsletter - pass",
+]:
+    assert term in evidence, f"Issue #555 evidence missing {term!r}"
 
 print("OK: issue #555 real-device/manual-service QA contract is preserved.")

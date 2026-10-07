@@ -2,7 +2,8 @@
 
 Owner: QA post-deploy.
 Issue: #555.
-Estado: pendiente de ejecucion manual con evidencia real.
+Estado: ejecucion y decisiones registradas en
+`docs/qa/REAL-DEVICE-SERVICE-EVIDENCE-2026-10-07.md`.
 
 Este documento existe para cerrar una frontera concreta: hay pruebas que los
 checks headless de CI no pueden reproducir con fidelidad suficiente. No se deben
@@ -21,13 +22,22 @@ bloque de la matriz. Cada entrada debe incluir:
 - sistema operativo y version;
 - navegador, app o lector de pantalla y version;
 - URL o flujo probado;
-- resultado `PASS`, `FAIL` o `BLOCKED`;
+- resultado `PASS`, `FAIL`, `BLOCKED`, `WAIVED` o `NOT_APPLICABLE`;
 - evidencia: captura, video, log exportado, ID de mensaje, ID de inspeccion o
   nota operativa reproducible;
 - incidencias abiertas si el resultado no es `PASS`.
 
 `BLOCKED` solo es valido si documenta el bloqueo externo y el siguiente paso.
 No equivale a `PASS`.
+
+`WAIVED` solo es valido por decision explicita del owner cuando el hardware o
+servicio no esta disponible. Debe conservar el riesgo, la evidencia automatica
+compensatoria y la condicion para volver a evaluar. No equivale a una prueba
+fisica superada.
+
+`NOT_APPLICABLE` solo es valido cuando el canal o flujo no forma parte de la
+operacion actual. Debe indicar quien tomo la decision y que cambio de alcance
+obligaria a ejecutar la prueba.
 
 ## Matriz minima
 
@@ -214,7 +224,7 @@ sin duplicados ni filtracion de datos personales.
 ```md
 ## YYYY-MM-DD HH:MM Europe/Madrid - <bloque>
 
-- Resultado: PASS | FAIL | BLOCKED
+- Resultado: PASS | FAIL | BLOCKED | WAIVED | NOT_APPLICABLE
 - Ejecuta:
 - Dispositivo/servicio:
 - SO/app/lector:
@@ -223,6 +233,8 @@ sin duplicados ni filtracion de datos personales.
 - Evidencia:
 - Incidencias:
 - Notas:
+- Evidencia compensatoria (WAIVED):
+- Condicion de reevaluacion (WAIVED/NOT_APPLICABLE):
 ```
 
 ## Fuera de alcance automatico
