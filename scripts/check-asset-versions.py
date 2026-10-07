@@ -76,7 +76,7 @@ TRACKED_ASSETS = {
     "email-reveal.js": "3",
     "styles.css": "202609-launch-1",
     "v1-fonts.css": "2",
-    "v1-home.css": "13",
+    "v1-home.css": "14",
     "v1-tokens.css": "1",
     "v1-base.css": "1",
     "v1-shell-base.css": "2",
