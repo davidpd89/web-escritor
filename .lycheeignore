@@ -148,3 +148,10 @@ https?://([^/]+\.)?davidportodiaz\.com/.*
 # "Solicitar acceso" de Drive. Lychee no puede validar una carpeta privada sin
 # autenticación, así que se excluye únicamente esta URL exacta.
 ^https://drive\.google\.com/drive/folders/16DoCPC-s5ySXzxHwQX-6O6QOJ6FzXnMz\?usp=sharing$
+
+# La Agenda Cultural de la Diputación de Alicante sirve ambas convocatorias
+# correctamente en navegador, pero Lychee/rustls falla el handshake/certificado
+# desde GitHub Actions. Excepciones exactas: futuras URLs del dominio siguen
+# sometidas al checker.
+^https://agendacultural\.diputacionalicante\.es/event/premio-azorin-de-novela-2027/$
+^https://agendacultural\.diputacionalicante\.es/event/premio-enric-valor-2026/$
