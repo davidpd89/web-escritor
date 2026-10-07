@@ -2,9 +2,9 @@
 """Regression contract for the V1 typography loading strategy.
 
 These values are intentional:
-- body/UI Manrope stays optional to avoid CLS from late paragraph reflow;
-- isolated display-only Manrope swaps once loaded;
-- Yellowtail swaps so decorative labels do not remain on their fallback.
+- canonical body/editorial/script families stay optional to avoid late reflow;
+- isolated display-only Manrope and decorative Yellowtail swap once loaded;
+- the four semantic typography tokens keep their canonical family stacks.
 
 Whitespace/minification and quote style are not part of this contract.
 """
@@ -36,9 +36,16 @@ def require_display_mode(family: str, expected: str) -> None:
 
 
 def main() -> None:
-    require_display_mode("Manrope", "optional")
-    require_display_mode("Manrope Display", "swap")
-    require_display_mode("Yellowtail", "swap")
+    expected_display_modes = {
+        "Instrument Serif": "optional",
+        "Manrope": "optional",
+        "Manrope Display": "swap",
+        "Newsreader": "optional",
+        "Allura": "optional",
+        "Yellowtail": "swap",
+    }
+    for family, expected in expected_display_modes.items():
+        require_display_mode(family, expected)
 
     normalized_tokens = normalize_css(TOKENS)
     expected_tokens = {
