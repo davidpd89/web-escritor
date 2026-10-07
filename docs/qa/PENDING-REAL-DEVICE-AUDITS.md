@@ -1,101 +1,233 @@
-# QA pendiente de dispositivo/servicio real
+# QA manual de dispositivos y servicios reales
 
-Estas pruebas quedan fuera de los navegadores headless y de los contratos estáticos del repositorio. No deben darse por superadas por equivalencia con Playwright: requieren hardware, SO, lector de pantalla, diálogo de impresión o buzón real.
+Owner: QA post-deploy.
+Issue: #555.
+Estado: pendiente de ejecucion manual con evidencia real.
 
-## 1. iPhone / Safari real — home e intro
+Este documento existe para cerrar una frontera concreta: hay pruebas que los
+checks headless de CI no pueden reproducir con fidelidad suficiente. No se deben
+marcar como superadas por inferencia a partir de Playwright, Lighthouse, Pa11y o
+smokes de produccion. Cada bloque requiere hardware, sistema operativo,
+servicio externo o una cuenta real.
 
-**Dispositivo mínimo:** iPhone con iOS/Safari actual.
+## Politica de cierre
 
-1. Abrir una pestaña privada nueva en `https://davidportodiaz.com/`.
-2. Confirmar que la intro de tinta se reproduce o, si el sistema bloquea autoplay, que aparece «Entrar» sin quedar una pantalla congelada.
-3. Pulsar «Entrar» y comprobar acceso completo a la home.
-4. Rotar vertical → horizontal → vertical.
-5. Repetir con Modo de bajo consumo activado.
-6. Repetir con Reducir movimiento activado.
+Para cerrar el issue #555 tiene que existir una entrada de evidencia por cada
+bloque de la matriz. Cada entrada debe incluir:
 
-**PASS:** no hay bloqueo, clipping horizontal, salto permanente de foco ni control fuera de safe-area; la home queda utilizable en todos los estados.
+- fecha y zona horaria;
+- persona que ejecuta la prueba;
+- dispositivo fisico o servicio usado;
+- sistema operativo y version;
+- navegador, app o lector de pantalla y version;
+- URL o flujo probado;
+- resultado `PASS`, `FAIL` o `BLOCKED`;
+- evidencia: captura, video, log exportado, ID de mensaje, ID de inspeccion o
+  nota operativa reproducible;
+- incidencias abiertas si el resultado no es `PASS`.
 
-## 2. iOS Safari / Android Chrome — teclado virtual y formularios
+`BLOCKED` solo es valido si documenta el bloqueo externo y el siguiente paso.
+No equivale a `PASS`.
 
-Rutas: `/`, `/lectores-beta/`, herramientas con inputs y newsletter visible.
+## Matriz minima
 
-1. Enfocar cada input situado cerca de la mitad/inferior de la pantalla.
-2. Abrir teclado virtual.
-3. Tabular/usar «Siguiente» entre controles.
-4. Cerrar teclado y rotar dispositivo.
+### 1. Safari real en iPhone e iPad
 
-**PASS:** el control enfocado y mensajes de error permanecen visibles; ninguna CTA fija tapa el campo; no queda scroll lateral tras cerrar teclado.
+Rutas minimas:
 
-## 3. VoiceOver iOS/macOS y TalkBack Android
-
-Muestra mínima: home, Obras, una página de libro, Cuaderno, Herramientas, Editoriales, Convocatorias, Metodología, 404.
+- `/`
+- `/libros/`
+- `/editoriales/`
+- `/convocatorias-escritores/`
+- `/metodologia-editorial/`
+- un formulario con newsletter o lectores beta
 
 Comprobar:
-- navegación por landmarks;
-- navegación por encabezados;
-- nombre/estado de botones de menú y diálogos;
-- foco al abrir/cerrar Explorar;
-- labels de formularios y errores;
-- orden de lectura de tarjetas;
-- enlaces externos/compra comprensibles sin contexto visual.
 
-**PASS:** no hay focos perdidos, controles sin nombre, landmarks ambiguos ni contenido esencial inaccesible.
+- navegacion normal desde carga fria;
+- rotacion vertical-horizontal-vertical;
+- zoom de texto del sistema;
+- safe areas, notch y barras del sistema;
+- teclado virtual en formularios;
+- ausencia de scroll lateral y controles cortados.
 
-## 4. Impresión real / Guardar como PDF
+PASS: la navegacion queda usable, el foco no se pierde y ningun control critico
+queda fuera de viewport o tapado por el teclado.
 
-Navegadores: Chrome y Safari/Edge del sistema.
+### 2. PWA instalada en iOS
 
-Rutas: home, `/las-manecillas-del-recuerdo/`, `/editoriales/`, `/convocatorias-escritores/`, `/metodologia-editorial/`, `/prensa.html`.
+Instalar `https://davidportodiaz.com/` desde Safari en pantalla de inicio.
 
-1. Abrir vista previa de impresión.
-2. Revisar primera página y salto entre páginas.
-3. Guardar PDF.
+Comprobar:
 
-**PASS:** no aparece la intro cinematográfica, banners/overlays fijos ni navegación superpuesta; contenido principal no queda cortado; texto y enlaces esenciales son legibles.
+- primer arranque tras instalacion;
+- segundo arranque desde frio;
+- actualizacion despues de un deploy nuevo;
+- recuperacion despues de modo avion;
+- comportamiento offline en rutas ya visitadas;
+- salida limpia de modo offline a online.
 
-## 5. Newsletter DOI con buzón real
+PASS: la PWA arranca, actualiza version sin quedarse en cache antigua y muestra
+fallback offline solo cuando corresponde.
 
-Usar una dirección de prueba controlada, nunca una dirección de terceros.
+### 3. Android Chrome con TalkBack
 
-1. Suscribirse desde home.
-2. Confirmar estado «revisa tu correo».
-3. Comprobar recepción del correo DOI.
-4. Confirmar.
-5. Verificar que no se produce doble alta ni doble envío al reenviar/refrescar.
-6. Repetir en Lectores beta con su flujo/lista específica.
+Rutas minimas:
 
-**PASS:** consentimiento, DOI, mensajes de estado y segmentación funcionan sin duplicados.
+- `/`
+- `/libros/`
+- `/editoriales/`
+- `/convocatorias-escritores/`
+- `/metodologia-editorial/`
+- `/asistente/`
+- formularios visibles de newsletter o lectores beta
 
-## 6. Compartir social real
+Comprobar:
 
-Probar una URL de libro, un artículo de Cuaderno y la home en WhatsApp/Telegram/LinkedIn/X o sus depuradores oficiales.
+- navegacion por encabezados;
+- landmarks;
+- nombres accesibles de botones y enlaces;
+- orden de foco;
+- filtros de Editoriales y Convocatorias;
+- anuncios de estado y errores;
+- vuelta de foco al cerrar menus/dialogos.
 
-**PASS:** título, imagen, descripción y URL corresponden a la página compartida; no se hereda por error la tarjeta genérica de otra ruta.
+PASS: no hay focos perdidos, controles sin nombre, filtros inoperables ni
+contenido esencial inaccesible.
 
-## 7. Search Console / render de buscador
+### 4. Windows con NVDA o JAWS
 
-Tras el despliegue estable:
-- inspeccionar home, Editoriales, Convocatorias, Metodología y una ficha editorial;
-- comprobar URL canónica declarada vs seleccionada;
+Navegador recomendado: Firefox o Edge actual.
+
+Rutas minimas:
+
+- Home;
+- Obras;
+- Editoriales;
+- Convocatorias;
+- Asistente;
+- formularios de newsletter o lectores beta.
+
+Comprobar:
+
+- nombres accesibles;
+- estados expandido/colapsado;
+- anuncios live-region;
+- errores de formulario;
+- lectura de tarjetas;
+- enlaces externos comprensibles sin contexto visual.
+
+PASS: los flujos criticos se pueden completar sin raton y sin depender de
+contenido puramente visual.
+
+### 5. macOS con VoiceOver y Safari
+
+Repetir la muestra critica de Windows/NVDA en Safari real.
+
+Comprobar ademas:
+
+- rotor de encabezados y landmarks;
+- comportamiento de dialogos y menus;
+- foco al volver desde enlaces externos;
+- lectura de tarjetas y CTAs.
+
+PASS: VoiceOver expone estructura, controles y estados de forma coherente.
+
+### 6. Previews reales de enlaces externos
+
+Servicios minimos:
+
+- WhatsApp;
+- Telegram;
+- Discord;
+- Slack;
+- LinkedIn;
+- X;
+- Facebook.
+
+URLs minimas:
+
+- home;
+- una pagina de libro;
+- un articulo de Cuaderno;
+- `/editoriales/`;
+- una ficha editorial;
+- `/convocatorias-escritores/`;
+- `/metodologia-editorial/`.
+
+Comprobar:
+
+- titulo;
+- descripcion;
+- imagen;
+- URL canonica;
+- ausencia de asset roto;
+- que no se herede por error la tarjeta generica de otra ruta.
+
+PASS: cada servicio genera una tarjeta coherente con la URL compartida o se
+documenta el cache externo y el depurador usado para refrescarlo.
+
+### 7. Search Console y Bing Webmaster
+
+Comprobar en ambas herramientas:
+
+- cobertura/indexacion de `/editoriales/`;
+- fichas editoriales representativas;
+- `/convocatorias-escritores/`;
+- `/metodologia-editorial/`;
+- sitemap aceptado;
+- canonica declarada frente a canonica seleccionada;
 - renderizado/indexabilidad;
-- sitemap aceptado y sin rutas excluidas inesperadas.
+- ausencia de `noindex`, soft-404 o bloqueo de recursos inesperado.
 
-**PASS:** no hay canonical alternativo inesperado, bloqueo de recursos ni exclusión por noindex/soft-404.
+PASS: no hay exclusiones nuevas no explicadas en las rutas criticas y los
+sitemaps estan procesados sin errores operativos.
 
-## 8. Headers HTTP dependientes del hosting
+### 8. Brevo/newsletter end-to-end
 
-El audit automático observa HSTS, compresión y los headers de respuesta disponibles. GitHub Pages no permite controlar desde este repositorio todos los headers HTTP deseables.
+Usar una cuenta de prueba controlada. Nunca usar direcciones de terceros.
 
-Pendiente si se migra/antepone Cloudflare u otro edge configurable:
-- CSP como header HTTP;
-- X-Content-Type-Options: nosniff;
-- Referrer-Policy;
-- Permissions-Policy;
-- frame-ancestors / política de framing;
-- COOP/CORP según compatibilidad real del sitio.
+Flujos minimos:
 
-**PASS:** endurecimiento añadido sin romper embeds, analítica, fuentes, workers ni navegación.
+- alta desde home;
+- consentimiento visible;
+- email de confirmacion/double opt-in;
+- confirmacion;
+- baja;
+- reintento/idempotencia;
+- error de proveedor simulado o real controlado;
+- flujo especifico de lectores beta si usa lista o atributo separado.
 
----
+Registrar sin exponer PII:
 
-No cerrar estos casos por inferencia a partir de tests headless: registrar dispositivo/SO/navegador, fecha, resultado y evidencia al ejecutarlos.
+- dominio del buzon de prueba, si procede;
+- ID de mensaje o evento Brevo;
+- lista/atributo afectado;
+- estado final del contacto;
+- captura o export sanitizado.
+
+PASS: consentimiento, alta, confirmacion, baja, segmentacion y errores funcionan
+sin duplicados ni filtracion de datos personales.
+
+## Plantilla de evidencia
+
+```md
+## YYYY-MM-DD HH:MM Europe/Madrid - <bloque>
+
+- Resultado: PASS | FAIL | BLOCKED
+- Ejecuta:
+- Dispositivo/servicio:
+- SO/app/lector:
+- Versiones:
+- URLs/flujos:
+- Evidencia:
+- Incidencias:
+- Notas:
+```
+
+## Fuera de alcance automatico
+
+No convertir esta matriz en un gate automatico salvo que exista un entorno
+fiable para esa comprobacion concreta. Los checks existentes de PWA, Pa11y,
+Lighthouse, reflow, enlaces, Pagefind, consola, sitemap y produccion siguen
+siendo necesarios, pero no sustituyen esta evidencia manual.
