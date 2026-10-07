@@ -10,6 +10,7 @@ misordered base stack.
 """
 from __future__ import annotations
 
+import posixpath
 import subprocess
 from html.parser import HTMLParser
 from pathlib import Path
@@ -42,10 +43,16 @@ class PageParser(HTMLParser):
             return
         href = data.get("href", "").strip()
         if href:
-            path = urlsplit(href).path.lstrip("/")
-            if path.startswith("./"):
-                path = path[2:]
-            self.stylesheets.append(path)
+            self.stylesheets.append(href)
+
+
+def resolve_stylesheet(href: str, page_rel: str) -> str:
+    parsed = urlsplit(href)
+    if parsed.scheme or parsed.netloc:
+        return ""
+    if parsed.path.startswith("/"):
+        return parsed.path.lstrip("/")
+    return posixpath.normpath(posixpath.join(posixpath.dirname(page_rel), parsed.path))
 
 
 def tracked_public_html() -> list[Path]:
@@ -77,16 +84,17 @@ def main() -> None:
 
         v1_pages += 1
         rel = path.relative_to(ROOT).as_posix()
+        stylesheets = [resolve_stylesheet(href, rel) for href in parser.stylesheets]
 
         positions: list[int] = []
         for required in REQUIRED:
-            count = parser.stylesheets.count(required)
+            count = stylesheets.count(required)
             if count != 1:
                 failures.append(
                     f"{rel}: {required} must appear exactly once as a stylesheet; found {count}"
                 )
                 continue
-            positions.append(parser.stylesheets.index(required))
+            positions.append(stylesheets.index(required))
 
         if len(positions) == len(REQUIRED) and positions != sorted(positions):
             failures.append(
