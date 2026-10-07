@@ -306,7 +306,7 @@ function fallbackCopy(text, done) {
   const NEWSLETTER_PENDING_COPY = {
     home: "Solicitud recibida. Revisa tu correo para confirmar si aún no lo habías hecho.",
     fragmento: "Solicitud recibida. Revisa tu correo para confirmar si aún no lo habías hecho.",
-    manecillas: "Solicitud recibida. Revisa tu correo para confirmar si aún no lo habías hecho.",
+    manecillas: "Solicitud recibida. Si aún no lo habías hecho, revisa tu correo y confirma la suscripción para recibir novedades de Las manecillas del recuerdo: nuevas ediciones, eventos y contenidos.",
     cuaderno: "Solicitud recibida. Revisa tu correo para confirmar si aún no lo habías hecho.",
     explore: "Solicitud recibida. Revisa tu correo para confirmar si aún no lo habías hecho."
   };
