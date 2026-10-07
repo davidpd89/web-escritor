@@ -8,6 +8,7 @@ contract.
 from __future__ import annotations
 
 import re
+from decimal import Decimal, InvalidOperation
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -52,7 +53,18 @@ def local_sources(src: str) -> tuple[str, ...]:
     return tuple(match.group(2).strip() for match in LOCAL_RE.finditer(src))
 
 
+def percentage(value: str | None) -> Decimal:
+    assert value is not None and value.endswith("%"), f"expected CSS percentage, found {value!r}"
+    try:
+        return Decimal(value[:-1])
+    except InvalidOperation as exc:
+        raise AssertionError(f"invalid CSS percentage: {value!r}") from exc
+
+
 def main() -> None:
+    assert percentage("123.530%") == percentage("123.53%")
+    assert percentage("0.00%") == percentage("0%")
+
     expected = {
         ("Newsreader Fallback", "normal"): {
             "locals": ("Georgia", "Liberation Serif", "DejaVu Serif"),
@@ -116,7 +128,7 @@ def main() -> None:
             "descent-override",
             "line-gap-override",
         ):
-            assert face.get(prop) == contract[prop], (
+            assert percentage(face.get(prop)) == percentage(contract[prop]), (
                 f"{family} ({style}): {prop} drifted "
                 f"(expected {contract[prop]}, found {face.get(prop)!r})"
             )
