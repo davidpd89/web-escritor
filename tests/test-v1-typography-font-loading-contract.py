@@ -4,7 +4,7 @@
 These values are intentional:
 - canonical body/editorial/script families stay optional to avoid late reflow;
 - isolated display-only Manrope and decorative Yellowtail swap once loaded;
-- the four semantic typography tokens keep their canonical family stacks.
+- each semantic typography token is defined once and keeps its canonical pair.
 
 Whitespace/minification and quote style are not part of this contract.
 """
@@ -35,6 +35,18 @@ def require_display_mode(family: str, expected: str) -> None:
     assert not wrong, f"{family}: every face must use font-display:{expected}"
 
 
+def token_values(token: str) -> list[str]:
+    pattern = rf"{re.escape(token)}\s*:\s*([^;}}]+)"
+    return [normalize_css(value) for value in re.findall(pattern, TOKENS, flags=re.IGNORECASE)]
+
+
+def require_canonical_token(token: str, stack_start: str) -> None:
+    values = token_values(token)
+    assert len(values) == 1, f"{token}: expected exactly one declaration, found {len(values)}"
+    expected = normalize_css(stack_start)
+    assert values[0].startswith(expected), f"{token}: canonical V1 font stack drifted"
+
+
 def main() -> None:
     expected_display_modes = {
         "Instrument Serif": "optional",
@@ -47,7 +59,6 @@ def main() -> None:
     for family, expected in expected_display_modes.items():
         require_display_mode(family, expected)
 
-    normalized_tokens = normalize_css(TOKENS)
     expected_tokens = {
         "--font-display": '"Instrument Serif","Instrument Serif Fallback"',
         "--font-ui": '"Manrope","Manrope Fallback"',
@@ -55,8 +66,7 @@ def main() -> None:
         "--font-script": '"Allura","Allura Fallback"',
     }
     for token, stack_start in expected_tokens.items():
-        needle = normalize_css(f"{token}:{stack_start}")
-        assert needle in normalized_tokens, f"{token}: canonical V1 font stack drifted"
+        require_canonical_token(token, stack_start)
 
     print("PASS V1 typography font-loading contract")
 
