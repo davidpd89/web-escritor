@@ -41,12 +41,15 @@ def normalize_words(value: str) -> str:
 
 
 def normalize_unicode_range(value: str) -> str:
-    return re.sub(r"\s+", "", value).lower()
+    ranges = [re.sub(r"\s+", "", part).lower() for part in value.split(",") if part.strip()]
+    return ",".join(sorted(ranges))
 
 
 def sources(value: str) -> tuple[tuple[str, str], ...]:
+    assert "local(" not in value.casefold(), f"Manrope source must stay URL-backed: {value!r}"
     urls = [match.group(2).strip() for match in URL_RE.finditer(value)]
     formats = [match.group(2).strip().lower() for match in FORMAT_RE.finditer(value)]
+    assert urls, f"src has no URL-backed font source: {value!r}"
     assert len(urls) == len(formats), f"src URL/format count mismatch: {value!r}"
     return tuple(zip(urls, formats))
 
@@ -79,6 +82,9 @@ def family_signatures(family: str) -> set[tuple[str, str, tuple[tuple[str, str],
 
 def main() -> None:
     assert family_signatures("MANROPE") == family_signatures("Manrope")
+    assert normalize_unicode_range("U+0100-02BA, U+02BD") == normalize_unicode_range(
+        "u+02bd,u+0100-02ba"
+    )
 
     manrope = family_signatures("Manrope")
     display = family_signatures("Manrope Display")
