@@ -14,7 +14,7 @@ from urllib.parse import urlsplit
 
 ROOT = Path(__file__).resolve().parents[1]
 CSS_PATH = ROOT / "assets" / "v1-fonts.css"
-COMMENT_RE = re.compile(r"/\\*.*?\\*/", flags=re.DOTALL)
+COMMENT_RE = re.compile(r"/\*.*?\*/", flags=re.DOTALL)
 CSS = COMMENT_RE.sub("", CSS_PATH.read_text(encoding="utf-8"))
 WOFF2_SIGNATURE = b"wOF2"
 
@@ -30,6 +30,8 @@ def resolve_local(ref: str) -> Path:
 
 
 def main() -> None:
+    assert COMMENT_RE.sub("", "before/* url('fonts/fake.woff2') */after") == "beforeafter"
+
     refs = [match.group(1).strip() for match in URL_RE.finditer(CSS)]
     assert refs, "v1-fonts.css: no font url() references found"
 
