@@ -49,6 +49,30 @@ Cuando se retome:
 - Si una skill no aporta nada sobre el proceso actual, no se integra.
 - Evitar ciclos de review infinitos: un hallazgo debe verificarse contra el código antes de actuar.
 
+## Resultado provisional de la primera prueba
+
+### Útil ahora: `code-review`
+
+Se ha usado directamente como método de revisión sobre PR pequeñas existentes.
+
+Resultado comprobado:
+
+- detectó que #574 acoplaba un test tipográfico al formato minificado del CSS;
+- el hallazgo se convirtió en #579;
+- una primera solución demasiado compleja se simplificó durante la propia review hasta un diff neto de 12 líneas añadidas / 4 eliminadas;
+- al aplicarlo a #575 no apareció ningún defecto verificable, por lo que no se creó trabajo artificial.
+
+Conclusión provisional: **usar upstream como herramienta de revisión, sin instalar/forkear una copia local por defecto**.
+
+### Usar solo cuando exista el caso
+
+- `diagnosing-bugs`: cuando haya un fallo reproducible o CI rojo cuya causa no esté clara.
+- `tdd`: al corregir un bug o implementar comportamiento nuevo donde un test previo aporte una señal real.
+- `improve-codebase-architecture`: no aplicar de forma general ahora; el scope es demasiado amplio para el objetivo de PR pequeñas y fácilmente revisables.
+- `prototype`: reservar para una prueba visual concreta antes de tocar producción.
+
+No convertir estas skills en infraestructura permanente hasta que un caso real demuestre que hace falta.
+
 ## Preguntas que debe responder la investigación
 
 - ¿Aporta capacidades que hoy no tenemos?
