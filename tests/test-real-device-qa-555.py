@@ -78,17 +78,17 @@ evidence_path = ROOT / "docs" / "qa" / "REAL-DEVICE-SERVICE-EVIDENCE-2026-10-07.
 evidence = evidence_path.read_text(encoding="utf-8").lower()
 for term in [
     "edge real en windows - pass",
-    "dispositivos apple fisicos y pwa ios - blocked",
-    "android con talkback - blocked",
-    "windows con nvda o jaws - blocked",
-    "macos con voiceover y safari - blocked",
-    "previews externos - blocked",
+    "dispositivos apple fisicos y pwa ios - waived",
+    "android con talkback - waived",
+    "windows con nvda o jaws - waived",
+    "macos con voiceover y safari - waived",
+    "previews externos - waived",
     "google search console - pass",
     "bing webmaster tools - pass",
     "brevo/newsletter - pass",
 ]:
     assert term in evidence, f"Issue #555 evidence missing {term!r}"
 
-assert "owner de exenciones: no consta una decision explicita registrada en #555" in evidence
+assert "owner de exenciones: decision explicita de david porto diaz registrada el 2026-10-07 en #555" in evidence
 
 print("OK: issue #555 real-device/manual-service QA contract is preserved.")

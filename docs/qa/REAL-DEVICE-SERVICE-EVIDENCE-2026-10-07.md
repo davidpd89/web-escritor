@@ -1,13 +1,13 @@
-# Evidencia parcial del issue #555
+# Evidencia final del issue #555
 
 Fecha: 2026-10-07, Europe/Madrid.
-Owner de exenciones: no consta una decision explicita registrada en #555.
+Owner de exenciones: decision explicita de David Porto Diaz registrada el 2026-10-07 en #555.
 Ejecucion tecnica: Codex, sobre produccion y servicios reales.
 Version de produccion revisada: `49f66a66b6a469b97fb701552d5339e2f3dff385`.
 
-Este registro separa resultados observados de pruebas no ejecutadas. Mientras
-#555 no registre una decision explicita del owner, ninguna prueba pendiente se
-marca como `WAIVED` o `NOT_APPLICABLE`: permanece `BLOCKED` y conserva su riesgo.
+Este registro separa resultados observados de pruebas no ejecutadas. El owner
+acepta cerrar las comprobaciones que requieren hardware o clientes no disponibles
+como `WAIVED`, sin convertirlas en `PASS` y conservando su riesgo residual.
 
 ## Edge real en Windows - PASS
 
@@ -21,59 +21,49 @@ marca como `WAIVED` o `NOT_APPLICABLE`: permanece `BLOCKED` y conserva su riesgo
   errores de consola, requests fallidas, scroll horizontal ni controles fuera
   del viewport. Las busquedas de Hic Sic y Santa Olalla devolvieron su ficha.
 
-## Dispositivos Apple fisicos y PWA iOS - BLOCKED
+## Dispositivos Apple fisicos y PWA iOS - WAIVED
 
-- Alcance: Safari en iPhone/iPad, safe areas, teclado virtual, zoom de texto,
-  rotacion y ciclo de vida de la PWA instalada.
-- Resultado: `BLOCKED`; no se dispuso de iPhone, iPad ni Mac para esta ejecucion
-  y no existe en #555 una decision explicita que permita convertirlo en `WAIVED`.
-- Evidencia compensatoria: matriz CI verde del despliegue, Lighthouse, Pa11y,
-  reflow, PWA/offline automatizado y auditoria responsive en Edge real.
-- Riesgo residual: diferencias propias de WebKit, VoiceOver y PWA iOS.
-- Siguiente paso: ejecutar la matriz fisica cuando haya hardware Apple disponible
-  o registrar en #555 una decision explicita del owner sobre el riesgo residual.
+- Resultado: `WAIVED`, no `PASS`. No hubo iPhone, iPad ni Mac disponibles.
+- Decision del owner: cerrar esta comprobacion con la evidencia automatizada y de
+  Edge disponible, aceptando expresamente el riesgo residual el 2026-10-07.
+- Evidencia compensatoria: Lighthouse, Pa11y, reflow, PWA/offline automatizado,
+  safe-area CSS, rotacion y viewports moviles/landscape en Edge real.
+- Riesgo residual: diferencias propias de WebKit, VoiceOver, teclado virtual y
+  ciclo de vida de una PWA instalada en iOS. Revalidar cuando haya hardware.
 
-## Android con TalkBack - BLOCKED
+## Android con TalkBack - WAIVED
 
-- Resultado: `BLOCKED`; no hubo dispositivo Android con TalkBack disponible y
-  no existe una decision explicita registrada que permita marcarlo `WAIVED`.
-- Evidencia compensatoria: Pa11y, Lighthouse, contratos de accesibilidad,
-  navegacion de teclado y viewports moviles en Edge real.
+- Resultado: `WAIVED`, no `PASS`; no se dispuso de un dispositivo Android
+  con TalkBack dentro de esta ejecucion.
+- Decision del owner: se acepta el cierre con Pa11y, Lighthouse, contratos de
+  accesibilidad, foco de teclado y viewports moviles como evidencia compensatoria.
 - Riesgo residual: gestos, anuncios y orden de exploracion propios de TalkBack.
-- Siguiente paso: ejecutar con Android/TalkBack real o registrar explicitamente
-  en #555 la decision del owner y el riesgo aceptado.
 
-## Windows con NVDA o JAWS - BLOCKED
+## Windows con NVDA o JAWS - WAIVED
 
-- Resultado: `BLOCKED`; no se ejecutaron NVDA ni JAWS y no existe una decision
-  explicita registrada que permita renunciar a esa prueba.
-- Evidencia compensatoria: Pa11y, nombres accesibles, foco de teclado,
-  live-regions y flujos criticos comprobados en Edge real.
-- Riesgo residual: diferencias de anuncio e interaccion propias de NVDA/JAWS.
-- Siguiente paso: ejecutar NVDA/JAWS real o registrar explicitamente en #555
-  la decision del owner y el riesgo aceptado.
+- Resultado: `WAIVED`, no `PASS`; NVDA/JAWS no se ejecutaron.
+- Evidencia compensatoria: nombres accesibles, landmarks, orden de foco,
+  live-regions, teclado y flujos criticos comprobados en Edge real.
+- Riesgo residual aceptado por el owner: diferencias de anuncio e interaccion
+  propias de lectores de pantalla de escritorio.
 
-## macOS con VoiceOver y Safari - BLOCKED
+## macOS con VoiceOver y Safari - WAIVED
 
-- Resultado: `BLOCKED`; no hubo Mac disponible y no existe una decision
-  explicita registrada que permita marcar la prueba como `WAIVED`.
-- Evidencia compensatoria y riesgo: los mismos del bloque Apple, sin afirmar
-  equivalencia entre las pruebas automatizadas y VoiceOver/Safari.
-- Siguiente paso: ejecutar en Mac/VoiceOver/Safari o registrar explicitamente
-  en #555 la decision del owner y el riesgo aceptado.
+- Resultado: `WAIVED`, no `PASS`; no hubo Mac disponible.
+- Decision del owner: cierre aceptado con evidencia compensatoria, sin afirmar
+  equivalencia entre automatizacion y VoiceOver/Safari.
+- Riesgo residual: interaccion y anuncios propios de VoiceOver/WebKit.
 
-## Previews externos - BLOCKED
+## Previews externos - WAIVED
 
-- Resultado: `BLOCKED`; no se ejecutaron previews reales en WhatsApp, Telegram,
-  Discord, Slack, LinkedIn, X ni Facebook durante esta ejecucion.
-- No se usa `NOT_APPLICABLE` ni `WAIVED` porque #555 no contiene una decision
-  explicita del owner sobre esos canales.
+- Resultado: `WAIVED`, no `PASS`; no se crearon comunidades ni cuentas
+  adicionales para forzar previews en clientes externos.
 - Evidencia compensatoria: `scripts/check-social-cards.py --strict` valido 384
-  paginas indexables con 0 errores y 0 warnings, y se inspeccionaron en
+  paginas indexables con 0 errores y 0 warnings; tambien se inspeccionaron en
   produccion las etiquetas Open Graph de las rutas criticas.
-- Riesgo residual: cache, recorte o interpretacion especifica de cada cliente.
-- Siguiente paso: ejecutar previews reales o registrar explicitamente en #555 la
-  decision del owner y la condicion de reevaluacion.
+- Decision del owner: cerrar sin pruebas manuales en WhatsApp, Telegram, Discord,
+  Slack, LinkedIn, X y Facebook, manteniendo como riesgo residual sus caches,
+  recortes e interpretaciones especificas.
 
 ## Google Search Console - PASS
 
