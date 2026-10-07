@@ -1,6 +1,6 @@
-# Pendiente futuro: evaluar mattpocock/skills
+# Evaluación de mattpocock/skills para web-escritor
 
-> Estado: **PENDIENTE · INVESTIGACIÓN FUTURA · NO IMPLEMENTAR NI MERGEAR AHORA**
+> Estado: **INVESTIGACIÓN ACTIVA · ADOPCIÓN SELECTIVA · NO MERGEAR ESTA PR TODAVÍA**
 
 ## Recurso
 
@@ -14,13 +14,13 @@ https://www.aihero.dev/skills
 
 ## Objetivo
 
-Investigar en el futuro si alguna de las skills, patrones, instrucciones o formas de trabajo de ese repositorio puede mejorar el desarrollo, mantenimiento, QA o automatización de `web-escritor`.
+Determinar qué skills, patrones o instrucciones de ese repositorio mejoran de forma comprobable el desarrollo, mantenimiento, QA o automatización de `web-escritor`.
 
 No se presupone que deba instalarse ni copiarse nada. Primero hay que entender qué contiene, cómo funciona y qué encaja de verdad con este proyecto.
 
-## Investigación futura
+## Proceso de evaluación
 
-Cuando se retome:
+Durante la evaluación:
 
 1. Revisar el estado y documentación actuales del repositorio externo.
 2. Inventariar las skills disponibles y para qué sirven.
@@ -98,7 +98,7 @@ No convertir estas skills en infraestructura permanente hasta que un caso real d
 - ¿Conviene copiar/adaptar una skill, usarla como referencia o no hacer nada?
 - ¿Hay alguna idea que merezca convertirse en test, instrucción del repo o automatización?
 
-## Criterio de cierre futuro
+## Criterio de cierre
 
 Cerrar esta investigación con una de estas conclusiones:
 
