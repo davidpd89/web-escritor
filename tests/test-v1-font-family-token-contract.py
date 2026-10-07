@@ -14,7 +14,7 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parents[1]
 ASSETS = ROOT / "assets"
 
-TOKEN = r"var\(--font-(?:display|ui|reading|script)\)"
+TOKEN = r"var\(\s*--font-(?:display|ui|reading|script)\s*\)"
 TOKEN_RE = re.compile(rf"^{TOKEN}$")
 TOKEN_AT_END_RE = re.compile(rf"\s({TOKEN})$")
 DECL_RE = re.compile(r"font-family\s*:\s*([^;}]+)", re.IGNORECASE)
@@ -58,7 +58,8 @@ ALLOWED_SHORTHAND_TAILS: dict[str, set[str]] = {
 
 
 def normalized(value: str) -> str:
-    return " ".join(value.split())
+    compact_commas = re.sub(r"\s*,\s*", ",", value.strip())
+    return compact_commas.replace('"', "'")
 
 
 def shorthand_family_is_allowed(path: Path, value: str) -> bool:
@@ -66,7 +67,7 @@ def shorthand_family_is_allowed(path: Path, value: str) -> bool:
         return True
 
     for tail in ALLOWED_SHORTHAND_TAILS.get(path.name, set()):
-        if value.endswith(tail):
+        if value.endswith(normalized(tail)):
             return True
 
     match = TOKEN_AT_END_RE.search(value)
@@ -81,6 +82,21 @@ def shorthand_family_is_allowed(path: Path, value: str) -> bool:
 
 
 def main() -> None:
+    assert normalized("'Yellowtail', var(--font-ui), cursive") == normalized(
+        '"Yellowtail",var(--font-ui),cursive'
+    )
+    assert normalized('"Manrope  Display",sans-serif') != normalized(
+        '"Manrope Display",sans-serif'
+    )
+    assert shorthand_family_is_allowed(
+        Path("v1-fragments.css"),
+        normalized('400 1rem/1.2 "Yellowtail", var(--font-ui), cursive'),
+    )
+    assert not shorthand_family_is_allowed(
+        Path("v1-fragments.css"),
+        normalized("400 1rem/1.2 Arial, var(--font-ui)"),
+    )
+
     failures: list[str] = []
     family_checked = 0
     shorthand_checked = 0
@@ -98,7 +114,8 @@ def main() -> None:
             if TOKEN_RE.fullmatch(value):
                 continue
 
-            if value in ALLOWED_DIRECT.get(path.name, set()):
+            allowed = {normalized(item) for item in ALLOWED_DIRECT.get(path.name, set())}
+            if value in allowed:
                 continue
 
             failures.append(
