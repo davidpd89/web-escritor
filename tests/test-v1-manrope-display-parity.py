@@ -57,7 +57,7 @@ def family_signatures(family: str) -> set[tuple[str, str, tuple[tuple[str, str],
 
     for body in FACE_RE.findall(CSS):
         decls = declarations(body)
-        if unquote(decls.get("font-family", "")) != family:
+        if unquote(decls.get("font-family", "")).casefold() != family.casefold():
             continue
 
         count += 1
@@ -78,6 +78,8 @@ def family_signatures(family: str) -> set[tuple[str, str, tuple[tuple[str, str],
 
 
 def main() -> None:
+    assert family_signatures("MANROPE") == family_signatures("Manrope")
+
     manrope = family_signatures("Manrope")
     display = family_signatures("Manrope Display")
 
