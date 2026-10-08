@@ -50,7 +50,10 @@ def unsafe_command(segment: list[str]) -> str | None:
     if gh:
         if gh[:2] == ["pr", "merge"]:
             return "El merge de PR está reservado al autor."
-        if gh[0] == "api" and re.search(r"(?:^|[\s/])repos/[^/]+/[^/]+/pulls/\d+/merge(?:$|[/?])", " ".join(gh[1:])):
+        if gh[0] == "api" and any(
+            re.fullmatch(r"(?:https?://api\.github\.com)?/?repos/[^/]+/[^/]+/pulls/\d+/merge(?:\?.*)?", arg)
+            for arg in gh[1:]
+        ):
             return "El endpoint de merge de PR está reservado al autor."
 
     git = _command_arguments(segment, "git")
