@@ -22,6 +22,11 @@ GOOD = {
     "unquoted charset": b"<meta charset=utf-8>",
     "case-insensitive meta": b"<META CHARSET='UTF-8'>",
     "ends at exactly byte 1024": b" " * (1024 - len(META)) + META,
+    "UTF-8 comment before declaration": (
+        b"<!-- " + ("á" * 12).encode("utf-8") + b" -->" + META
+    ),
+    "quoted decoy plus literal charset": b'<meta data-note="charset=utf-8" charset="utf-8">',
+
 }
 BAD = {
     "declaration completes at byte 1025": b" " * (1025 - len(META)) + META,
@@ -31,6 +36,18 @@ BAD = {
     "wrong charset alias": b'<meta charset="utf-8-preview">',
     "no declaration": b"<!doctype html><html><head></head></html>",
     "invalid UTF-8 despite early charset": b"\xff" + META,
+    "numeric entity in charset": b'<meta charset="utf&#45;8">',
+    "hex entity in charset": b'<meta charset="utf&#x2d;8">',
+    "decoy attribute and encoded charset": (
+        b'<meta data-note="charset=utf-8" charset="utf&#45;8">'
+    ),
+    "non-ASCII bytes do not disappear in tag name": (
+        b"<m" + "é".encode("utf-8") + b"ta charset=utf-8>"
+    ),
+    "non-ASCII bytes do not disappear in charset value": (
+        b'<meta charset="utf-' + "é".encode("utf-8") + b'8">'
+    ),
+
 }
 
 
