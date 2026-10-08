@@ -111,3 +111,41 @@ Cerrar esta investigación con una de estas conclusiones:
 - `NO_USEFUL_BENEFIT_FOUND`
 
 Si se decide adoptar algo, hacerlo en una PR nueva y específica. Esta PR solo conserva la investigación pendiente.
+
+## Auditoría del catálogo completo (8 de octubre de 2026)
+
+Fuente verificada: [mattpocock/skills](https://github.com/mattpocock/skills/tree/b0618bc436ad893b3c5e84e55fba86586d34a404/skills), commit upstream `b0618bc436ad893b3c5e84e55fba86586d34a404` (2026-10-08). **38 directorios de skills**: 20 `engineering`, 7 `productivity`, 4 `misc` y 7 `in-progress`. `deprecated` solo contiene README. Licencia MIT comprobada. El upstream considera `in-progress` beta, sin garantía de estabilidad. Las 14 skills activas ya recogidas en la matriz anterior mantienen su decisión; `resolving-merge-conflicts` está retirada y no cuenta entre las 38.
+
+### Resto del catálogo: decisión explícita por skill
+
+| Skill | Decisión para web-escritor | Por qué / cuándo reabrir |
+| --- | --- | --- |
+| [engineering/ask-matt](https://github.com/mattpocock/skills/tree/main/skills/engineering/ask-matt) | NO INSTALAR | Router de skills; esta investigación y su matriz ya resuelven qué invocar. |
+| [engineering/codebase-design](https://github.com/mattpocock/skills/tree/main/skills/engineering/codebase-design) | USO PUNTUAL | Aplicar vocabulario de interfaces y seams solo ante un refactor real de JS/QA, no reestructurar por disciplina abstracta. |
+| [engineering/domain-modeling](https://github.com/mattpocock/skills/tree/main/skills/engineering/domain-modeling) | USO PUNTUAL | Crear `GLOSSARY.md`/ADR solo ante ambigüedad de dominio o decisión difícil de revertir demostrada; no hay caso documentado ahora. |
+| [engineering/grill-with-docs](https://github.com/mattpocock/skills/tree/main/skills/engineering/grill-with-docs) | NO INSTALAR AHORA | Entrevista interactiva y documentación de dominio para decisiones abiertas; el flujo actual ya tiene alcance y criterios cerrados. |
+| [engineering/implement-spec](https://github.com/mattpocock/skills/tree/main/skills/engineering/implement-spec) | NO ADOPTAR | Branch de integración, subagentes y merges internos; sobrecoste y colisión con PR pequeñas independientes y control de merges del autor. |
+| [engineering/setup-matt-pocock-skills](https://github.com/mattpocock/skills/tree/main/skills/engineering/setup-matt-pocock-skills) | NO INSTALAR | Configura tracker, labels, glosarios y steering para el ecosistema completo; aquí no se adopta el ecosistema entero. |
+| [engineering/to-tickets](https://github.com/mattpocock/skills/tree/main/skills/engineering/to-tickets) | NO ADOPTAR AHORA | Descomposición con bloqueos/issue tracker; #577 y #585 ya coordinan PR pequeñas sin crear otra capa de tickets. |
+| [productivity/grill-me](https://github.com/mattpocock/skills/tree/main/skills/productivity/grill-me) | USO PUNTUAL | Router de entrevista: solo cuando haya decisiones no resueltas que requieran al autor. |
+| [productivity/grilling](https://github.com/mattpocock/skills/tree/main/skills/productivity/grilling) | USO PUNTUAL | Preguntas para un diseño realmente ambiguo, no en trabajos con requisitos ya verificados. |
+| [productivity/teach](https://github.com/mattpocock/skills/tree/main/skills/productivity/teach) | DESCARTAR PARA REPO | Genera un espacio didáctico y lecciones, no mejora el código ni la revisión actual. |
+| [productivity/to-questionnaire](https://github.com/mattpocock/skills/tree/main/skills/productivity/to-questionnaire) | USO PUNTUAL | Solo si una decisión necesita respuestas de terceros; no añadir plantillas de cuestionario sin destinatario real. |
+| [productivity/wait-what](https://github.com/mattpocock/skills/tree/main/skills/productivity/wait-what) | NO INSTALAR | Reformula explicaciones confusas; no justifica archivos permanentes en el proyecto. |
+| [productivity/writing-for-agents](https://github.com/mattpocock/skills/tree/main/skills/productivity/writing-for-agents) | USO PUNTUAL | Evaluado en comentario de #577 del 2026-10-08: `AGENTS.md`/`CLAUDE.md` no existen en `main`; evitar recrear #587 sin un problema concreto. |
+| [misc/git-guardrails-claude-code](https://github.com/mattpocock/skills/tree/main/skills/misc/git-guardrails-claude-code) | NO ADOPTAR TAL CUAL | El hook bloquea **todo** `git push`, necesario para publicar PR; solo cubre shell de Claude, no merges via GitHub/API. Riesgo de bloqueo y falsa sensación de protección. |
+| [misc/migrate-to-shoehorn](https://github.com/mattpocock/skills/tree/main/skills/misc/migrate-to-shoehorn) | NO APLICA | Migra assertions de tests TypeScript; el repo publica HTML/CSS/JS estático y `package.json` solo fija utilidades CI, sin TypeScript de app. |
+| [misc/scaffold-exercises](https://github.com/mattpocock/skills/tree/main/skills/misc/scaffold-exercises) | NO APLICA | Crea cursos/ejercicios con lint específico de AI Hero; no existe ese producto ni estructura. |
+| [misc/setup-pre-commit](https://github.com/mattpocock/skills/tree/main/skills/misc/setup-pre-commit) | NO ADOPTAR TAL CUAL | Instala Husky/Prettier, formatea staged files y presupone scripts `test`/`typecheck`; el `package.json` real no tiene esos scripts y el repo ya tiene Required merge gate. Evitar churn editorial/HTML. |
+| [in-progress/chief-of-staff](https://github.com/mattpocock/skills/tree/main/skills/in-progress/chief-of-staff) | NO ADOPTAR (BETA) | Orquestación de subagentes y tareas de larga duración, innecesaria y no probada para este flujo. |
+| [in-progress/claude-handoff](https://github.com/mattpocock/skills/tree/main/skills/in-progress/claude-handoff) | NO ADOPTAR (BETA) | Lanza `claude --bg`; preferir `handoff` estable y manual después de #593, sin nuevos procesos autónomos. |
+| [in-progress/loop-me](https://github.com/mattpocock/skills/tree/main/skills/in-progress/loop-me) | NO APLICA (BETA) | Diseña workflows de rutinas personales, no resuelve un defecto de desarrollo actual. |
+| [in-progress/setup-ts-deep-modules](https://github.com/mattpocock/skills/tree/main/skills/in-progress/setup-ts-deep-modules) | NO APLICA (BETA) | Exige arquitectura de paquetes TypeScript/dependency-cruiser ausente. |
+| [in-progress/writing-beats](https://github.com/mattpocock/skills/tree/main/skills/in-progress/writing-beats) | USO PUNTUAL EDITORIAL (BETA) | Puede probarse sin instalar al planificar un artículo del Cuaderno, si hay material y decisión editorial concreta. No afecta al desarrollo/CI. |
+| [in-progress/writing-fragments](https://github.com/mattpocock/skills/tree/main/skills/in-progress/writing-fragments) | USO PUNTUAL EDITORIAL (BETA) | Recoge material de artículos; no crear procesos nuevos hasta un caso de escritura real. |
+| [in-progress/writing-shape](https://github.com/mattpocock/skills/tree/main/skills/in-progress/writing-shape) | USO PUNTUAL EDITORIAL (BETA) | Estructura artículos desde material previo; probar fuera de `main` solo si existe una petición de contenido. |
+
+### Veredicto de cobertura y siguiente paso
+
+**Catálogo upstream revisado al 100 % en esta fecha (38/38 rutas actuales, incluidas beta).** Esto **no equivale** a declarar la investigación principal terminada: faltan la adopción condicionada de `handoff` después del merge manual de #593 y cualquier comprobación específica que surja de cambios upstream posteriores. Solo se crea una PR hija cuando exista beneficio probado en el repositorio. Todas las PR siguen bajo control de merge del autor; no tocar la línea QA #585.
+
