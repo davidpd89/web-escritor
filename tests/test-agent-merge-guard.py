@@ -10,6 +10,7 @@ HOOK = ROOT / ".claude/hooks/guard-main.py"
 
 DENIED = [
     "gh pr merge 593",
+    "gh pr -R davidpd89/web-escritor merge 593",
     "gh --repo davidpd89/web-escritor pr merge 593 --squash",
     "npm test && gh pr merge 593",
     "gh api repos/davidpd89/web-escritor/pulls/593/merge -X PUT",
@@ -27,6 +28,11 @@ DENIED = [
     "git push -u origin main",
     "git status\ngh pr merge 593",
     "git push --all origin",
+    "git push origin :feature",
+    "git push origin :",
+    "git push origin --delete feature",
+    "git push origin feature --prune",
+    "git push origin feature --tags",
     "git merge topic",
     "git checkout main && git merge topic",
     "git pull origin main",
@@ -47,6 +53,8 @@ ALLOWED = [
     "git pull --ff-only origin main",
     "git reset --soft HEAD~1",
     "git clean -nd",
+    "git clean -nfd",
+    "git clean --dry-run -fd",
     "git branch -d old-branch",
     "git checkout -- file.txt",
     "git restore file.txt",
