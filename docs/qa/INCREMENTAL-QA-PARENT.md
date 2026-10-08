@@ -40,8 +40,8 @@ No asumir que la solución conocida sigue siendo óptima: antes de implementar i
 
 ## Estado operativo (8 de octubre de 2026)
 
-- **Listas y abiertas:** #574, #575, #586, #592, #598, #599, #604, #605, #606, #607, #608 y #609. #608 (11 workflows verdes) y #609 (10 workflows verdes) comprobadas sobre su HEAD final.
-- **En validación sobre HEAD final:** #610 (Wikidata), #611 (cuarentena Noveris canónica), #614 (breadcrumbs), #615 (fechas visibles/JSON-LD) y #616 (seguridad HTML). Los checks existentes deben completarse antes de marcar lista cada una.
+- **Listas y abiertas:** #574, #575, #586, #592, #598, #599, #604, #605, #606, #607, #608, #609, #610 y #611. #610 y #611 tienen 11/11 workflows verdes en HEAD final. #608 (11 workflows verdes) y #609 (10 workflows verdes) comprobadas sobre su HEAD final.
+- **En validación sobre HEAD final:** #614 (breadcrumbs), #615 (fechas visibles/JSON-LD) y #616 (seguridad HTML). Los checks existentes deben completarse antes de marcar lista cada una.
 - **En validación (paridad de fechas editoriales):** #619 añade `check-article-dates.py --check` al Required merge gate; cubre fechas visibles de Cuaderno, JSON-LD Article y reloj de revisión sin duplicar el checker. Una sola línea en `release-readiness.py`.
 - **Tests de mutación en validación:** #618 incorpora 8 fixtures negativos y 5 positivos para garantizar que el checker de seguridad HTML utilizado por #616 detecta regresiones reales. Solo test, sin cambiar producción ni checker.
 - **EN VALIDACIÓN:** #620, corrección de límites WHATWG para `time datetime` (horas, fechas sin año, semana ISO, offset) con 22 casos de regresión en script+test. CI pendiente.
