@@ -22,6 +22,36 @@ REGISTRY = json.loads((ROOT / "data/content-registry.json").read_text(encoding="
 DEFAULTS = REGISTRY.get("defaults", {})
 
 DURATION_RE = re.compile(r"P(?:\d+[YMWD])?(?:T(?:\d+H)?(?:\d+M)?(?:\d+(?:\.\d+)?S)?)?")
+# HTML durations represent exact seconds, unlike calendar ISO durations
+# that include variable-length months and years. See WHATWG 2.3.5.9.
+HTML_ISO_DURATION_RE = re.compile(
+    r"P(?:[0-9]+D(?:T(?=[0-9])(?:[0-9]+H)?(?:[0-9]+M)?"
+    r"(?:[0-9]+(?:\.[0-9]{1,3})?S)?)?"
+    r"|T(?=[0-9])(?:[0-9]+H)?(?:[0-9]+M)?"
+    r"(?:[0-9]+(?:\.[0-9]{1,3})?S)?)"
+)
+HTML_HUMAN_DURATION_PART_RE = re.compile(
+    r"[ \t\n\r\f]*([0-9]+)(\.[0-9]{1,3})?[ \t\n\r\f]*"
+    r"([WwDdHhMmSs])[ \t\n\r\f]*"
+)
+
+
+def valid_html_duration(value: str) -> bool:
+    """Validate ISO or human-readable WHATWG duration without unit reuse."""
+    if HTML_ISO_DURATION_RE.fullmatch(value):
+        return True
+    seen: set[str] = set()
+    position = 0
+    while position < len(value):
+        match = HTML_HUMAN_DURATION_PART_RE.match(value, position)
+        if match is None:
+            return False
+        scale = match.group(3).lower()
+        if scale in seen or (match.group(2) is not None and scale != "s"):
+            return False
+        seen.add(scale)
+        position = match.end()
+    return bool(seen)
 YEAR_RE = re.compile(r"\d{4,}")
 MONTH_RE = re.compile(r"(\d{4,})-(\d{2})")
 DATE_RE = re.compile(r"\d{4,}-\d{2}-\d{2}")
@@ -35,7 +65,11 @@ def parse_temporal(value: str, *, html_time: bool = False):
     value = value.strip()
     if not value:
         raise ValueError("empty temporal value")
-    if DURATION_RE.fullmatch(value):
+    if html_time:
+        if valid_html_duration(value):
+            return ("duration", value)
+    elif DURATION_RE.fullmatch(value):
+        # Preserve the existing schema.org ISO contract separately from HTML.
         return ("duration", value)
 
     if YEAR_RE.fullmatch(value):
