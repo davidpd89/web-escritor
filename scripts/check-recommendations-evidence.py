@@ -87,7 +87,7 @@ def validate_authority(data: dict, root: Path) -> tuple[dict[str, dict], list[st
             reference = proof.get("reference") if isinstance(proof, dict) else None
             # A non-empty string is required: whitespace and truthy non-strings
             # do not constitute documented evidence of a personal reading.
-            if not isinstance(reference, str) or not reference.strip():
+            if not isinstance(reference, str) or not any(ch.isalnum() for ch in reference):
                 errors.append(f"data/recommendations-evidence.json: ISBN {isbn} marcado como leido sin personalReadingEvidence.reference")
             elif PLACEHOLDER_RE.search(reference):
                 errors.append(f"data/recommendations-evidence.json: ISBN {isbn} tiene referencia de lectura placeholder")
