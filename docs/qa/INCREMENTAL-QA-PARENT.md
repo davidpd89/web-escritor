@@ -27,6 +27,16 @@ No asumir que la solución conocida sigue siendo óptima: antes de implementar i
 - No resolver hilos de revisión con hallazgos abiertos ni afirmar que «Codex aprobó» sin una aprobación observable.
 - Las revisiones de skills #577/#593 pertenecen a la otra conversación y no deben duplicarse desde esta línea.
 
+## Criterio para nuevos gates y presupuesto de CI (revisión Codex, 2026-10-08)
+
+**No convertir todos los workflows auxiliares en checks universales por inercia.** Antes de añadir un gate exigir: riesgo reproducible no cubierto por el ruleset actual, chequeo existente sin ejecución obligatoria, inputs/artefactos adecuados, coste razonable y tests que capturen fallos reales. Si el riesgo es local, mantener un workflow especializado y no duplicar su ejecución. Comprobar siempre la matriz de checks requeridos real.
+
+- **`scripts/release-readiness.py`:** checks deterministas, cortos y solo de lectura que inspeccionan el árbol fuente (o artefactos fuente existentes), tienen las dependencias ya instaladas en el gate y se benefician de figurar en la evidencia consolidada. Su registro se integra de forma secuencial; evitar incorporar checks que escriban archivos versionados o dependan de la red.
+- **Paso explícito de `required-merge-gate.yml`:** cuando importa el orden respecto a los builders, se requiere inspeccionar el **dist final después de construirlo**, hace falta un entorno especial, o se desea una comprobación/diagnóstico separado por un motivo concreto. No añadir otro paso si el mismo contrato ya corre en el preflight.
+- **Tests pequeños en `tests/test-*.py`:** invariantes/mutaciones de una implementación, con entradas positivas y negativas. No confundir que pasen los fixtures con que un checker audite todas las páginas reales.
+- **Integración:** las hijas que tocan `release-readiness.py` o el mismo workflow tienen dependencia de merge *operativa*, aunque nazcan de `main` y sean PR independientes. Tras cada merge del propietario, revisar el diff de cada otra hija y preservar las líneas de las ya integradas; actualizar la rama y repetir CI.
+- **Presupuesto de tiempo:** `Required merge gate` tiene `timeout-minutes: 20`. Referencias observadas en GitHub Actions del 8-oct-2026 (HEADs específicos): #619, job completo **69 s** (17 s tests Python; 7 s preflight), #615 **108 s** (24 s tests; 13 s preflight), #610 **87 s** (19 s tests; 10 s preflight). Son muestras **anteriores a la integración secuencial** de todas las hijas y no predicen el tiempo acumulado final. Revisar este indicador y el tiempo del preflight después de cada merge; si se acerca al timeout, optimizar/eliminar duplicidades antes de sumar otro gate. No subir timeout automáticamente para ocultar regresiones.
+
 ## Estados inequívocos
 
 - **CANDIDATA:** hueco aún por demostrar.
