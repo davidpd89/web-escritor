@@ -65,7 +65,7 @@ No asumir que la solución conocida sigue siendo óptima: antes de implementar i
 - **Lista con CI completo:** #619, `check-article-dates.py --check` en Required merge gate: Cuaderno/JSON-LD/revisión editorial. Un archivo, +1 línea, HEAD final 11/11 workflows verdes; ABIERTA sin mergear.
 - **EN VALIDACIÓN tras revisión Codex:** #618 amplía checker y mutaciones para `srcset`/`imagesrcset` (15 casos negativos, 9 positivos), atributos sin comillas y entidades. El 11/11 verde anterior no valida el HEAD nuevo, no mergear hasta CI y revisión.
 - **EN VALIDACIÓN:** #620, corrección de límites WHATWG para `time datetime` (horas, fechas sin año, semana ISO, fracciones, offset) con 38 casos de regresión en script+test. CI pendiente.
-- **EN VALIDACIÓN:** #621, checker integrado de indexabilidad/sitemap/robots/canónicas/navegación en Required merge gate, 1 línea del preflight, CI pendiente.
+- **LISTA:** #621, checker integrado de indexabilidad/sitemap/robots/canónicas/navegación en Required merge gate, +1 línea, HEAD final 11/11 workflows verdes; abierta sin mergear.
 - **EN VALIDACIÓN:** #622, comprobación AVIF/WebP (procedencia, dimensiones, correspondencia de `<source>` y fallback) obligatoria en Required merge gate; +1 línea de preflight; CI pendiente.
 - **EN VALIDACIÓN:** #623 integra `check-professional-resources.py` al Required merge gate; preserva paridad de editoriales, convocatorias, frescura y ICS sin duplicar su workflow filtrado, +1 línea; CI pendiente.
 - **Duplicada, NO MERGEAR:** #612 solapa exactamente con #611; conservar ABIERTA por trazabilidad, nunca integrar ambas.
