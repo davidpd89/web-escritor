@@ -50,7 +50,7 @@ def unsafe_command(segment: list[str]) -> str | None:
     if gh:
         if gh[:2] == ["pr", "merge"]:
             return "El merge de PR está reservado al autor."
-        if gh[0] == "api" and re.search(r"(?:^|/)repos/[^/]+/[^/]+/pulls/\d+/merge(?:$|[/?])", " ".join(gh[1:])):
+        if gh[0] == "api" and re.search(r"(?:^|[\s/])repos/[^/]+/[^/]+/pulls/\d+/merge(?:$|[/?])", " ".join(gh[1:])):
             return "El endpoint de merge de PR está reservado al autor."
 
     git = _command_arguments(segment, "git")
@@ -61,6 +61,8 @@ def unsafe_command(segment: list[str]) -> str | None:
         if any(flag in args or any(a.startswith(flag + "=") for a in args) for flag in FORCE_FLAGS | MASS_PUSH_FLAGS):
             return "Prohibido el push forzado o masivo."
         refs = [arg for arg in args if not arg.startswith("-")]
+        if any(ref.startswith("+") for ref in refs[1:]):
+            return "Push forzado con refspec + prohibido."
         # Bare/default pushes are ambiguous: they might update main.
         if len(refs) < 2 or any(ref in {"HEAD", "main", "refs/heads/main"} or
                                  ref.lstrip("+").split(":")[-1] in {"main", "refs/heads/main"}
