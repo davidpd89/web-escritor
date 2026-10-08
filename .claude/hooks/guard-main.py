@@ -101,11 +101,29 @@ def unsafe_command(segment: list[str]) -> str | None:
     if gh:
         if gh[0] == "pr" and (_command_arguments(gh, "pr") or [])[:1] == ["merge"]:
             return "El merge de PR está reservado al autor."
-        if gh[0] == "api" and any(
-            re.fullmatch(r"(?:https?://api\.github\.com)?/?repos/[^/]+/[^/]+/pulls/\d+/merge(?:\?.*)?", arg)
-            for arg in gh[1:]
-        ):
-            return "El endpoint de merge de PR está reservado al autor."
+        if gh[0] == "api":
+            # REST: synchronous/asynchronous PR merge and direct branch merges.
+            # GitHub Docs: /pulls/{n}/merge-async and /repos/{owner}/{repo}/merges.
+            if any(
+                re.fullmatch(
+                    r"(?:https?://api\.github\.com)?/?repos/[^/]+/[^/]+/"
+                    r"(?:pulls/\d+/merge(?:-async)?|merges)(?:\?.*)?",
+                    arg,
+                )
+                for arg in gh[1:]
+            ):
+                return "Las fusiones REST de PR o ramas están reservadas al autor."
+            # GraphQL mutations that merge immediately or schedule future merge.
+            # Queries and benign mutations remain available.
+            if "graphql" in gh[1:] and any(
+                re.search(
+                    r"\b(?:mergePullRequest|mergeBranch|enablePullRequestAutoMerge|"
+                    r"enqueuePullRequest)\b",
+                    arg,
+                )
+                for arg in gh[1:]
+            ):
+                return "La mutación GraphQL puede fusionar o programar una PR."
 
     git = _command_arguments(segment, "git")
     if not git:
