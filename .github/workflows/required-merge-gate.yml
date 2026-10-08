@@ -94,6 +94,9 @@ jobs:
       - name: Verify public editorial facts projection is current
         run: python scripts/build-public-editorial-facts.py --check
 
+      - name: Verify public breadcrumb hierarchy parity
+        run: python scripts/check-breadcrumb-parity.py
+
       - name: Verify assistant source-index parity
         run: node scripts/test-assistant-index-parity.mjs
 
