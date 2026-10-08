@@ -31,6 +31,11 @@ VALID = {
     "Z": "UTC offset",
     "2026-10-08T12:34:56.123Z": "global datetime with three decimal places",
     "2026-10-08 12:34+02:00": "local/global datetime with a space separator",
+    "2026-10-08T12:34": "valid local date and time without timezone",
+    "2026-10-08 12:34:39": "valid local date with space and seconds",
+    "2026-10-08T12:34:39.929": "valid local date with milliseconds",
+    "12345-01-01T00:00": "five-digit year as local datetime",
+    "12345-01-01T00:00Z": "five-digit year as global datetime",
     "10000-02-29T12:34Z": "five-digit leap-year HTML datetime",
     "10000-02-29": "standalone valid five-digit leap date",
 }
@@ -50,7 +55,8 @@ INVALID = {
     "2026-10-08T12:34:56.1234Z": "four decimal places are not valid in HTML",
     "2026-10-08T12:34-00:00": "full datetime cannot use negative-zero timezone",
     "2026-10-08T12:34+2400": "full datetime offset beyond 23 hours",
-    "2026-10-08T12:34": "date and time must include timezone under WHATWG",
+    "0000-01-01T00:00": "zero year invalid in local HTML datetime",
+    "0000-01-01T00:00Z": "zero year invalid in global HTML datetime",
     "10001-02-29T12:34Z": "non-leap five-digit year cannot have February 29",
     "10001-02-29": "standalone invalid five-digit leap date",
 }
