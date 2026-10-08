@@ -221,7 +221,11 @@ def unsafe_command(segment: list[str]) -> str | None:
         read_args = [arg for arg in args if arg not in read_options]
         if len(read_args) != 1 or read_args[0].startswith("-"):
             return "No crear, mover ni borrar referencias simbólicas con git symbolic-ref."
+    elif verb == "stash" and args[:1] in (["clear"], ["drop"]):
+        return "No eliminar entradas guardadas de git stash desde el agente."
     elif verb == "switch":
+        if any(arg == "--orphan" or arg.startswith("--orphan=") for arg in args):
+            return "git switch --orphan elimina archivos versionados del árbol de trabajo."
         if any(
             arg == "-C" or arg.startswith("-C") or
             arg == "--force-create" or arg.startswith("--force-create=")
