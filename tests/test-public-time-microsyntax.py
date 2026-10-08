@@ -48,6 +48,7 @@ INVALID = {
     "2026-10-08T12:34:56.1234Z": "four decimal places are not valid in HTML",
     "2026-10-08T12:34-00:00": "full datetime cannot use negative-zero timezone",
     "2026-10-08T12:34+2400": "full datetime offset beyond 23 hours",
+    "2026-10-08T12:34": "date and time must include timezone under WHATWG",
 }
 
 problems: list[str] = []
