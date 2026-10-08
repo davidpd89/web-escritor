@@ -170,8 +170,17 @@ def unsafe_command(segment: list[str]) -> str | None:
         "--delete" in args or "-d" in args
     ) and any(ref.startswith("refs/heads/") for ref in args):
         return "El agente no debe eliminar referencias simbólicas de ramas."
-    elif verb == "checkout" and "." in args:
-        return "Descartar todos los cambios está prohibido."
+    elif verb == "switch" and any(
+        arg == "-C" or arg.startswith("-C") or
+        arg == "--force-create" or arg.startswith("--force-create=")
+        for arg in args
+    ):
+        return "No restablecer ni sobrescribir ramas mediante git switch."
+    elif verb == "checkout":
+        if any(arg == "-B" or arg.startswith("-B") for arg in args):
+            return "No restablecer ni sobrescribir ramas mediante git checkout."
+        if "." in args:
+            return "Descartar todos los cambios está prohibido."
     elif verb == "restore" and "." in args:
         return "Restaurar todo el árbol está prohibido."
     return None
