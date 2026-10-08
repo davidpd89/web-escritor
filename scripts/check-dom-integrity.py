@@ -34,11 +34,18 @@ SKIP_PARTS = {
     ".preview-dist-sitewide-qa", ".preview-dist", ".claude", "tmp", "data",
 }
 
+# WHATWG labelable elements; custom form-associated elements are conservatively
+# permitted because static HTML cannot prove their JS formAssociated setting.
+LABELABLE_TAGS = {"button", "input", "meter", "output", "progress", "select", "textarea"}
+ASCII_SPACE_RE = re.compile(r"[ \t\n\r\f]+")
+
+
 class DomIntegrityParser(HTMLParser):
     def __init__(self) -> None:
         super().__init__(convert_charrefs=True)
         self.html_lang: str | None = None
         self.ids: list[str] = []
+        self.id_targets: dict[str, tuple[str, str]] = {}
         self.labels: list[tuple[str, int]] = []
         self.aria_refs: list[tuple[str, str, int]] = []
         self.tag_stack: list[str] = []
@@ -54,18 +61,19 @@ class DomIntegrityParser(HTMLParser):
 
         id_val = attr_dict.get("id")
         if id_val:
-            self.ids.append(id_val.strip())
+            # Preserve exact DOM id value and first target in tree order.
+            self.ids.append(id_val)
+            self.id_targets.setdefault(id_val, (t, attr_dict.get("type", "").strip().lower()))
 
         if t == "label" and "for" in attr_dict:
-            target = attr_dict["for"].strip()
-            if target:
-                self.labels.append((target, line_num))
+            self.labels.append((attr_dict["for"], line_num))
 
         for aria_attr in ("aria-labelledby", "aria-describedby", "aria-controls", "aria-owns", "aria-activedescendant", "aria-details", "headers"):
             if aria_attr in attr_dict:
-                for ref_id in attr_dict[aria_attr].split():
-                    if ref_id.strip():
-                        self.aria_refs.append((aria_attr, ref_id.strip(), line_num))
+                # IDREF token lists use ASCII whitespace, not arbitrary Unicode spaces.
+                for ref_id in ASCII_SPACE_RE.split(attr_dict[aria_attr]):
+                    if ref_id:
+                        self.aria_refs.append((aria_attr, ref_id, line_num))
 
         # Check interactive nesting (HTML5 spec & WCAG)
         interactive_parents = [parent for parent in self.tag_stack if parent in ("a", "button")]
@@ -115,8 +123,20 @@ def check_html_file(path: Path) -> list[str]:
     doc_ids = set(id_counts.keys())
 
     for target_id, line_num in parser.labels:
-        if target_id not in doc_ids:
+        if target_id not in parser.id_targets:
             issues.append(f"{rel_path} (line {line_num}): <label for='{target_id}'> points to non-existent id")
+            continue
+        target_tag, target_type = parser.id_targets[target_id]
+        if target_tag == "input" and target_type == "hidden":
+            issues.append(
+                f"{rel_path} (line {line_num}): <label for='{target_id}'> "
+                "points to non-labelable <input type='hidden'>"
+            )
+        elif target_tag not in LABELABLE_TAGS and "-" not in target_tag:
+            issues.append(
+                f"{rel_path} (line {line_num}): <label for='{target_id}'> "
+                f"points to non-labelable <{target_tag}>"
+            )
 
     for attr, ref_id, line_num in parser.aria_refs:
         if ref_id not in doc_ids:
