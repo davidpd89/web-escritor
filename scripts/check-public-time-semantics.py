@@ -89,7 +89,9 @@ def parse_temporal(value: str, *, html_time: bool = False):
             if value == "Z":
                 return ("html-only", value)
             digits = value[1:].replace(":", "")
-            if int(digits[:2]) <= 23 and int(digits[2:]) <= 59:
+            hours, minutes = int(digits[:2]), int(digits[2:])
+            # WHATWG permits +00:00 but forbids the negative sign for zero.
+            if hours <= 23 and minutes <= 59 and not (value.startswith("-") and hours == minutes == 0):
                 return ("html-only", value)
             raise ValueError(f"invalid timezone offset {value!r}")
 
