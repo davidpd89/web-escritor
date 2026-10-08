@@ -109,3 +109,26 @@ No asumir que la solución conocida sigue siendo óptima: antes de implementar i
 - [ ] Sin conflictos ni dependencias ocultas con otras PR pendientes
 - [ ] PR hija enlazada aquí; estado y riesgos actualizados
 - [ ] Abierta y **sin mergear**
+
+
+## Publicación efectiva de QA-625–631 (8 de octubre de 2026; Actions diferidas)
+
+A diferencia de los informes locales previos, **código, fixtures y documentación ya residen en las PR de GitHub**; no depende su revisión de descargar parches desde conversaciones. Toda integración queda reservada al autor.
+
+| PR | HEAD publicado | Estado | Dependencias / decisión |
+| --- | --- | --- | --- |
+| [#625](https://github.com/davidpd89/web-escritor/pull/625) | Verificar HEAD en GitHub | DRAFT · sin CI | Precisión de IDs literales y separadores ASCII incorporada; **solapa la validación aria-labelledby de check-dom-integrity.py**. Examinar si aporta defensa independiente antes de integrar. |
+| [#626](https://github.com/davidpd89/web-escritor/pull/626) | Verificar HEAD en GitHub | DRAFT · sin CI | Evidencia humana de lectura no admite referencia vacía, puntuación sola ni caracteres invisibles; dos fixtures adicionales. |
+| [#627](https://github.com/davidpd89/web-escritor/pull/627) | Verificar HEAD en GitHub | DRAFT · sin CI | HTMLParser + lectura de atributo charset serializado para impedir entidades HTML; conserva frontera de 1024 bytes y añade pruebas de bytes multibyte. |
+| [#628](https://github.com/davidpd89/web-escritor/pull/628) | HEAD anterior intacto | DRAFT · sin CI | Auditoría estática documentada en su cuerpo; sin cambios nuevos justificados. |
+| [#629](https://github.com/davidpd89/web-escritor/pull/629) | Publicada con script y tests | DRAFT · sin CI | Destino de label[for] realmente etiquetable; ID exacto, primer elemento en árbol; 12 casos positivos + 16 negativos. Distinta de #625. |
+| [#630](https://github.com/davidpd89/web-escritor/pull/630) | Publicada con script y tests | DRAFT · sin CI | Rechazar directorios donde se exige archivo para referencias HTML, CSS o JS; 10 positivos + 11 negativos. |
+| [#631](https://github.com/davidpd89/web-escritor/pull/631) | Publicada con script y tests | DRAFT · sin CI | Extracción JSON-LD con HTMLParser, 9 casos detectados + 6 ignorados + 2 mixtos. |
+
+### Política de cola y verificación
+
+- Se inspeccionaron los eventos configurados de los 66 workflows presentes en main el 8-oct-2026: no se encontraron triggers pull_request_target ni issue_comment; los triggers push existentes filtran por main, por rama específica o por rutas no afectadas en estas siete PR.
+- El código se publicó en ramas aisladas mediante commits **[skip ci]**; no se ha solicitado workflow_dispatch, rerun ni merge. Tras la publicación se comprobó la ausencia de workflow runs de pull_request vinculados a los nuevos HEAD; verificar de nuevo si GitHub actualiza los resultados más tarde.
+- La verificación **local aislada** de parches antiguos no certifica automáticamente los HEAD nuevos publicados. Pendiente CI completo, inspección del corpus real y revisiones Codex en cada HEAD final.
+- Cuando se autoricen Actions, validar una PR cada vez; evitar merges parciales. **No confundir git mergeable con QA validada**.
+- Prioridad de revisión: #625 y #629 antes de decidir duplicidad de cobertura, luego #627 (encoding), #631 (JSON-LD), #630 (assets), #626 (evidencias) y #628 (contacto). Las PR #620/#624 y las de preflight/YAML mantienen sus dependencias anteriores.
