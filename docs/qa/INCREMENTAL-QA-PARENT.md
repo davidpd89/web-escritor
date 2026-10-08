@@ -34,9 +34,17 @@ No asumir que la solución conocida sigue siendo óptima: antes de implementar i
 **Infraestructura de pruebas, comportamiento y QA relacionado:** #584, #589, #590, #591; fix acotado #600.  
 **Contratos públicos y CI:** #606, #607, #608, #609, #610, #611, #612.
 
-**Nota de deduplicación pendiente:** #611 y #612 parecen abordar el mismo contrato de cuarentena editorial Noveris. **No dar ambas por listas ni fusionarlas sin revisar diffs, rama y cobertura**; decidir cuál conservar como implementación canónica sin cerrar nada unilateralmente. Algunas PR (por ejemplo #608 y #609) evolucionaron de workflow opcional a Required merge gate después de su primera revisión: leer sus HEAD/diffs actuales, no descripciones antiguas.
+**Deduplicación resuelta:** #611 es la implementación canónica de la cuarentena Noveris; #612 es duplicada y queda abierta para trazabilidad, pero NO MERGEAR. #610 y #611 pasan a `release-readiness.py`/Required merge gate, en lugar de depender únicamente del workflow auxiliar `Check content indexes`. Algunas PR (por ejemplo #608 y #609) evolucionaron de workflow opcional a Required merge gate después de su primera revisión: leer sus HEAD/diffs actuales, no descripciones antiguas.
 
 **Línea que NO pertenece aquí:** investigación/adopción de skills de GitHub #577, su PR hija #593 y otros desarrollos explícitamente adscritos a skills; coordinar cruces, no duplicar.
+
+## Estado operativo (8 de octubre de 2026)
+
+- **Listas y abiertas:** #574, #575, #586, #592, #598, #599, #604, #605, #606, #607, #608 y #609. #608 (11 workflows verdes) y #609 (10 workflows verdes) comprobadas sobre su HEAD final.
+- **Pendientes de CI final:** #610, #611. Cambio definitivo reducido a una línea de `scripts/release-readiness.py` por PR, en la prevalidación del Required merge gate.
+- **Duplicada y no mergeable por alcance:** #612, solapa exactamente con #611; mantener abierta por trazabilidad, NO MERGEAR.
+- **Otras QA relacionadas:** #584, #589, #590, #591 y #600; requieren evaluación individual antes de confirmar estado final.
+- Tras cada merge del propietario, comprobar de nuevo conflictos y CI de cada hija restante. #608/#610/#611 modifican el listado `CHECKS` del mismo preflight: integrar por separado y preservar todas las entradas.
 
 ## Registro y mantenimiento
 
