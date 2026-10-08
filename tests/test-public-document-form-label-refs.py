@@ -52,6 +52,10 @@ GOOD_CASES = {
         '<label for="query">Consulta</label><input id="query">'
     ),
     "native button text": '<button type="button">Buscar</button>',
+    "nonbreaking space stays inside an IDREF token": (
+        '<span id="nombre\u00a0completo">Nombre</span>'
+        '<input aria-labelledby="nombre\u00a0completo">'
+    ),
 }
 
 BAD_CASES = {
@@ -75,6 +79,12 @@ BAD_CASES = {
     ),
     "placeholder does not name input": (
         '<input placeholder="Buscar libros">', "no accessible name"
+    ),
+    "spaces in declared ID are not stripped": (
+        '<span id=" nombre ">Nombre</span><input aria-labelledby="nombre">', "nombre"
+    ),
+    "tabs in declared ID are not stripped": (
+        '<span id="\tnombre">Nombre</span><input aria-labelledby="nombre">', "nombre"
     ),
 }
 
