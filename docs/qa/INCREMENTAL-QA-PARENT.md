@@ -44,7 +44,7 @@ No asumir que la solución conocida sigue siendo óptima: antes de implementar i
 - **En validación sobre HEAD final:** #610 (Wikidata), #611 (cuarentena Noveris canónica), #614 (breadcrumbs), #615 (fechas visibles/JSON-LD) y #616 (seguridad HTML). Los checks existentes deben completarse antes de marcar lista cada una.
 - **En validación (paridad de fechas editoriales):** #619 añade `check-article-dates.py --check` al Required merge gate; cubre fechas visibles de Cuaderno, JSON-LD Article y reloj de revisión sin duplicar el checker. Una sola línea en `release-readiness.py`.
 - **Tests de mutación en validación:** #618 incorpora 8 fixtures negativos y 5 positivos para garantizar que el checker de seguridad HTML utilizado por #616 detecta regresiones reales. Solo test, sin cambiar producción ni checker.
-- **EN VALIDACIÓN:** #620, corrección de límites WHATWG para `time datetime` (horas, fechas sin año, semana ISO, offset) con 20 casos de regresión en script+test. CI pendiente.
+- **EN VALIDACIÓN:** #620, corrección de límites WHATWG para `time datetime` (horas, fechas sin año, semana ISO, offset) con 22 casos de regresión en script+test. CI pendiente.
 - **Duplicada, NO MERGEAR:** #612 solapa exactamente con #611; conservar ABIERTA por trazabilidad, nunca integrar ambas.
 - **QA adicionales verificadas:** #584, #589, #590 y #591 listas, todas las comprobaciones del HEAD final verdes, ABIERTAS y sin merge.
 - **#600 pendiente:** CI de cambios Identity green excepto timeout de una URL externa en `Check external links` (sin relación con el diff); el único job fallido se ha relanzado. No declararla lista hasta revisión del reintento.
