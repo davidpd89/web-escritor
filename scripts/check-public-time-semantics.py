@@ -56,6 +56,11 @@ def parse_temporal(value: str, *, html_time: bool = False):
         return ("month", (year, month))
 
     if DATE_RE.fullmatch(value):
+        if html_time and len(value.split("-", 1)[0]) > 4:
+            year, month, day = map(int, value.split("-"))
+            if year < 1 or not 1 <= month <= 12 or not 1 <= day <= calendar.monthrange(year, month)[1]:
+                raise ValueError(f"invalid HTML date {value!r}")
+            return ("html-only", value)
         try:
             return ("date", date.fromisoformat(value))
         except ValueError as exc:
