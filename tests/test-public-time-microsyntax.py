@@ -31,6 +31,7 @@ VALID = {
     "Z": "UTC offset",
     "2026-10-08T12:34:56.123Z": "global datetime with three decimal places",
     "2026-10-08 12:34+02:00": "local/global datetime with a space separator",
+    "10000-02-29T12:34Z": "five-digit leap-year HTML datetime",
 }
 
 INVALID = {
@@ -49,6 +50,7 @@ INVALID = {
     "2026-10-08T12:34-00:00": "full datetime cannot use negative-zero timezone",
     "2026-10-08T12:34+2400": "full datetime offset beyond 23 hours",
     "2026-10-08T12:34": "date and time must include timezone under WHATWG",
+    "10001-02-29T12:34Z": "non-leap five-digit year cannot have February 29",
 }
 
 problems: list[str] = []
