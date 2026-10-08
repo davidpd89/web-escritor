@@ -2,6 +2,7 @@
 from __future__ import annotations
 
 import json
+import re
 import sys
 from html.parser import HTMLParser
 from pathlib import Path
@@ -22,6 +23,28 @@ MOJIBAKE = (
     "ï»¿",
 )
 
+# Parse the serialized <meta> tag: HTMLParser decodes character references in
+# attribute values, but charset declarations may not contain character refs.
+RAW_ATTRIBUTE = re.compile(
+    r'''\s+([^\s=/>]+)(?:\s*=\s*(?:"([^"]*)"|'([^']*)'|([^\s>]+)))?'''
+)
+
+
+def literal_meta_charset(starttag: str) -> str | None:
+    tail = starttag[5:]
+    pos = 0
+    while pos < len(tail):
+        match = RAW_ATTRIBUTE.match(tail, pos)
+        if match is None:
+            break
+        name, quoted_double, quoted_single, unquoted = match.groups()
+        if name.lower() == "charset":
+            return next((v for v in (quoted_double, quoted_single, unquoted)
+                         if v is not None), "")
+        pos = match.end()
+    return None
+
+
 class EarlyUtf8Meta(HTMLParser):
     """Locate a real UTF-8 meta declaration, not one inside a comment/script."""
 
@@ -30,10 +53,11 @@ class EarlyUtf8Meta(HTMLParser):
         self.found = False
 
     def handle_starttag(self, tag, attrs):
-        if tag.lower() == "meta" and any(
-            key.lower() == "charset" and (value or "").strip().lower() == "utf-8"
-            for key, value in attrs
-        ):
+        if tag.lower() != "meta":
+            return
+        # Never accept an entity-encoded charset from the parsed attrs.
+        raw_value = literal_meta_charset(self.get_starttag_text())
+        if raw_value is not None and raw_value.lower() == "utf-8":
             self.found = True
 
     def handle_startendtag(self, tag, attrs):
@@ -43,9 +67,9 @@ class EarlyUtf8Meta(HTMLParser):
 def has_early_utf8_meta(raw: bytes) -> bool:
     """The complete encoding declaration must fit in the first 1024 BYTES."""
     parser = EarlyUtf8Meta()
-    # Meta syntax is ASCII. Truncate before decoding: multibyte text must not
-    # move the browser's 1024-byte discovery boundary.
-    parser.feed(raw[:1024].decode("ascii", errors="ignore"))
+    # Latin-1 preserves the location of each source byte; ignore-ASCII
+    # decoding could turn a non-ASCII tag name into a fictitious <meta>.
+    parser.feed(raw[:1024].decode("latin-1"))
     parser.close()
     return parser.found
 
