@@ -67,8 +67,39 @@ def push_positionals(args: list[str]) -> tuple[list[str], str | None]:
     return positionals, None
 
 
+def _normalize_shell_lines(command: str) -> str:
+    """Handle direct Bash continuations and delimit unquoted physical lines.
+
+    This is deliberately not a complete Bash parser. Backslash + newline is
+    ignored outside single quotes (including inside double quotes). Newlines
+    inside quoted strings remain data, rather than command separators.
+    """
+    result: list[str] = []
+    quote: str | None = None
+    index = 0
+    while index < len(command):
+        char = command[index]
+        if char == "\\" and quote != "'" and index + 1 < len(command):
+            next_char = command[index + 1]
+            if next_char == "\n":
+                index += 2
+                continue
+            # Escaped quote/backslash must not toggle the quote state.
+            result.extend((char, next_char))
+            index += 2
+            continue
+        if char in ("'", '"'):
+            if quote is None:
+                quote = char
+            elif quote == char:
+                quote = None
+        result.append(" ; " if char == "\n" and quote is None else char)
+        index += 1
+    return "".join(result)
+
+
 def split_commands(command: str) -> list[list[str]]:
-    lexer = shlex.shlex(command.replace("\n", " ; "), posix=True, punctuation_chars=";&|")
+    lexer = shlex.shlex(_normalize_shell_lines(command), posix=True, punctuation_chars=";&|")
     lexer.whitespace_split = True
     lexer.commenters = ""
     segments: list[list[str]] = [[]]
@@ -81,9 +112,16 @@ def split_commands(command: str) -> list[list[str]]:
 
 
 def _command_arguments(tokens: list[str], executable: str) -> list[str] | None:
-    if not tokens or tokens[0] != executable:
+    # Bash assignment words can precede the program name in a simple command.
+    # They are not shell wrappers or arbitrary shell expansions.
+    position = 0
+    while position < len(tokens) and re.fullmatch(
+        r"[A-Za-z_][A-Za-z0-9_]*=.*", tokens[position], flags=re.DOTALL
+    ):
+        position += 1
+    if position == len(tokens) or tokens[position] != executable:
         return None
-    args = tokens[1:]
+    args = tokens[position + 1:]
     # GitHub CLI/global git options before the verb (-R, -C etc.) do not
     # alter the safety restriction.
     while args:
@@ -161,15 +199,15 @@ def unsafe_command(segment: list[str]) -> str | None:
                any(flag in v[1:] for flag in "dDmMfC") for v in args)
     ):
         return "No borrar, renombrar ni sobrescribir ramas desde el agente."
-    elif verb == "update-ref" and (
-        "--stdin" in args
-        or ("-d" in args and any(ref.startswith("refs/heads/") for ref in args))
-    ):
-        return "El agente no debe eliminar referencias de ramas con git update-ref."
-    elif verb == "symbolic-ref" and (
-        "--delete" in args or "-d" in args
-    ) and any(ref.startswith("refs/heads/") for ref in args):
-        return "El agente no debe eliminar referencias simbólicas de ramas."
+    elif verb == "update-ref":
+        # Git can follow symbolic refs outside refs/heads/ into main.
+        # No direct plumbing writes; ordinary git branch / git push remain.
+        return "No modificar referencias directamente con git update-ref."
+    elif verb == "symbolic-ref":
+        read_options = {"-q", "--quiet", "--short", "--no-recurse", "--recurse"}
+        read_args = [arg for arg in args if arg not in read_options]
+        if len(read_args) != 1 or read_args[0].startswith("-"):
+            return "No crear, mover ni borrar referencias simbólicas con git symbolic-ref."
     elif verb == "switch" and any(
         arg == "-C" or arg.startswith("-C") or
         arg == "--force-create" or arg.startswith("--force-create=")
