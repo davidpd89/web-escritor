@@ -21,6 +21,7 @@ SITE = "https://davidportodiaz.com"
 
 CHECKS = [
     ("CI parity: content indexes", "python scripts/check-local-assets.py"),
+    ("CI parity: AVIF/WebP format ladder", "python scripts/check-image-format-ladder.py --check"),
     ("CI parity: hrefs", "python scripts/check-hrefs.py"),
     ("CI parity: internal graph", "python scripts/check-internal-graph.py"),
     ("CI parity: navigation coverage", "python scripts/check-navigation-coverage.py"),
