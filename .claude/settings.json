@@ -29,7 +29,11 @@
       "Bash(git switch --force-create *)",
       "Bash(git switch --force-create=*)",
       "Bash(git checkout -B *)",
-      "Bash(git checkout -B*)"
+      "Bash(git checkout -B*)",
+      "Bash(git stash clear *)",
+      "Bash(git stash drop *)",
+      "Bash(git switch --orphan *)",
+      "Bash(git switch --orphan=*)"
     ]
   }
 }
