@@ -68,6 +68,10 @@ def unsafe_command(segment: list[str]) -> str | None:
                                  ref.lstrip("+").split(":")[-1] in {"main", "refs/heads/main"}
                                  for ref in refs[1:]):
             return "Push sin rama explícita o dirigido a main."
+    elif verb == "merge":
+        return "No fusionar ramas desde el agente; integración reservada al autor."
+    elif verb == "pull" and "--ff-only" not in args:
+        return "git pull puede hacer un merge implícito; usa fetch o --ff-only."
     elif verb == "reset" and "--hard" in args:
         return "Reset destructivo prohibido."
     elif verb == "clean" and any(a.startswith("-") and "f" in a for a in args):
