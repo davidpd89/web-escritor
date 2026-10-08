@@ -61,12 +61,24 @@ INVALID = {
     "10001-02-29": "standalone invalid five-digit leap date",
 }
 
+# State the expected semantic category per literal fixture rather than deriving
+# it from a year prefix. Python datetime can represent only years 1..9999,
+# while valid HTML years beyond that range preserve html-only representation.
+EXPECTED_DATETIME = {
+    "2026-10-08T12:34:56.123Z",
+    "2026-10-08 12:34+02:00",
+    "2026-10-08T12:34",
+    "2026-10-08 12:34:39",
+    "2026-10-08T12:34:39.929",
+}
+
 problems: list[str] = []
 for raw, reason in VALID.items():
     try:
         kind, _ = parse_temporal(raw, html_time=True)
-        if kind not in {"datetime", "html-only"}:
-            problems.append(f"valid {raw}: unexpected kind {kind!r} ({reason})")
+        expected = "datetime" if raw in EXPECTED_DATETIME else "html-only"
+        if kind != expected:
+            problems.append(f"valid {raw}: expected {expected}, got {kind!r} ({reason})")
     except ValueError as exc:
         problems.append(f"valid {raw}: rejected {exc} ({reason})")
 
