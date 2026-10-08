@@ -68,13 +68,14 @@ No asumir que la solución conocida sigue siendo óptima: antes de implementar i
 - **LISTA:** #621, checker integrado de indexabilidad/sitemap/robots/canónicas/navegación en Required merge gate, +1 línea, HEAD final 11/11 workflows verdes; abierta sin mergear.
 - **LISTA:** #622, comprobación AVIF/WebP (procedencia, dimensiones, correspondencia de `<source>` y fallback) en Required merge gate; +1 línea, HEAD final 11/11 workflows verdes; ABIERTA sin mergear.
 - **EN VALIDACIÓN:** #623 integra `check-professional-resources.py` al Required merge gate; preserva paridad de editoriales, convocatorias, frescura y ICS sin duplicar su workflow filtrado, +1 línea; CI pendiente.
+- **EN VALIDACIÓN:** #624, corrección aislada de duraciones HTML exactas en segundos (`P`, `PT`, meses/años inválidos) y soporte humano, con 13 válidos, 18 inválidos y 5 de compatibilidad JSON-LD; comparte archivo con #620 y requiere reconciliación secuencial. CI pendiente.
 - **Duplicada, NO MERGEAR:** #612 solapa exactamente con #611; conservar ABIERTA por trazabilidad, nunca integrar ambas.
 - **QA adicionales verificadas:** #584, #589, #590 y #591 listas, todas las comprobaciones del HEAD final verdes, ABIERTAS y sin merge.
 - **#600 pendiente:** CI de cambios Identity green excepto timeout de una URL externa en `Check external links` (sin relación con el diff); el rerun del único job rojo falló otra vez por el mismo timeout externo; no declararla lista ni repetir ciegamente.
 - **Integración individual:** #608/#610/#611/#615/#619/#621/#622/#623 afectan al preflight `scripts/release-readiness.py`; #607/#609/#614/#616 afectan a `.github/workflows/required-merge-gate.yml`. Tras cada merge del propietario, reconciliar cambios y revalidar HEAD y CI antes del siguiente; no fusionar en lote.
 - **Criterio actualizado:** la presencia de una comprobación en `Check content indexes` no equivale a check obligatorio según el ruleset de main; la #616 repara esa diferencia para seguridad HTML. No duplicar checkers, conectar los existentes al gate correcto.
 
-- **Candidata posterior a #620, todavía sin PR:** el regex `DURATION_RE` parece admitir `P`/`PT` sin duración, lo que exige contrastar WHATWG y Schema.org antes de tocar el validador. Evitar solape y no declararlo corregido.
+- **Candidata concretada como #624:** el checker admitía `P`/`PT` sin duración, meses/años en duraciones HTML. Contrato WHATWG y JSON-LD separados, pruebas de 36 casos, HEAD todavía en CI. Evitar merge conjunto con #620 sin reconciliar.
 
 ## Registro y mantenimiento
 
