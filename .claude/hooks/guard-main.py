@@ -64,6 +64,11 @@ def unsafe_command(segment: list[str]) -> str | None:
         if any(flag in args or any(a.startswith(flag + "=") for a in args) for flag in FORCE_FLAGS | MASS_PUSH_FLAGS):
             return "Prohibido el push forzado o masivo."
         refs = [arg for arg in args if not arg.startswith("-")]
+        # shlex tokenizes shell comments as words here. Without this check,
+        # `git push origin # note` looks like an explicit ref, but the shell
+        # actually runs `git push origin`, which can update main implicitly.
+        if any(arg.startswith("#") for arg in args):
+            return "Push con comentario ambiguo; especifica rama sin comentario."
         if any(ref.startswith(("+", ":")) for ref in refs[1:]):
             return "Push forzado o eliminación remota por refspec prohibido."
         # Bare/default pushes are ambiguous: they might update main.
