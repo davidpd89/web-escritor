@@ -29,6 +29,8 @@ VALID = {
     "-05:30": "negative offset",
     "+00:00": "explicit UTC as positive offset",
     "Z": "UTC offset",
+    "2026-10-08T12:34:56.123Z": "global datetime with three decimal places",
+    "2026-10-08 12:34+02:00": "local/global datetime with a space separator",
 }
 
 INVALID = {
@@ -43,14 +45,18 @@ INVALID = {
     "+24:00": "offset hour above 23",
     "-08:60": "offset minute above 59",
     "-00:00": "negative zero offset forbidden by HTML standard",
+    "2026-10-08T12:34:56.1234Z": "four decimal places are not valid in HTML",
+    "2026-10-08T12:34-00:00": "full datetime cannot use negative-zero timezone",
+    "2026-10-08T12:34+2400": "full datetime offset beyond 23 hours",
 }
 
 problems: list[str] = []
 for raw, reason in VALID.items():
     try:
         kind, _ = parse_temporal(raw, html_time=True)
-        if kind != "html-only":
-            problems.append(f"valid {raw}: expected html-only, got {kind} ({reason})")
+        expected_kind = "datetime" if raw.startswith("2026-") else "html-only"
+        if kind != expected_kind:
+            problems.append(f"valid {raw}: expected {expected_kind}, got {kind} ({reason})")
     except ValueError as exc:
         problems.append(f"valid {raw}: rejected {exc} ({reason})")
 
