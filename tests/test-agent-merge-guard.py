@@ -15,6 +15,7 @@ DENIED = [
     "gh api repos/davidpd89/web-escritor/pulls/593/merge -X PUT",
     "gh api -X PUT repos/davidpd89/web-escritor/pulls/593/merge",
     "gh api -X PUT /repos/davidpd89/web-escritor/pulls/593/merge",
+    "gh api -X PUT https://api.github.com/repos/davidpd89/web-escritor/pulls/593/merge",
     "git push",
     "git push origin",
     "git push origin main",
