@@ -27,7 +27,7 @@ class Parser(HTMLParser):
         self.rel=rel; self.errors=[]; self.doctype_count=0; self.html_count=0
         self.head_count=0; self.body_count=0; self.main_count=0
         self.lang_values=[]; self.charsets=[]; self.viewports=[]
-        self.label_for=set(); self.stack=[]; self.controls=[]
+        self.label_for=set(); self.element_ids=set(); self.stack=[]; self.controls=[]
     @staticmethod
     def attrs_dict(attrs): return {str(k).lower():"" if v is None else str(v) for k,v in attrs}
     def handle_decl(self,decl):
@@ -36,6 +36,8 @@ class Parser(HTMLParser):
     def handle_startendtag(self,tag,attrs): self._start(tag,attrs,True)
     def _start(self,tag,attrs,self_closing):
         t=tag.lower(); a=self.attrs_dict(attrs); line=self.getpos()[0]
+        identifier=a.get("id","").strip()
+        if identifier: self.element_ids.add(identifier)
         if t=="html": self.html_count+=1; self.lang_values.append(a.get("lang","").strip())
         elif t=="head": self.head_count+=1
         elif t=="body": self.body_count+=1
@@ -75,7 +77,11 @@ class Parser(HTMLParser):
         elif not re.search(r"(?:^|,)\s*width\s*=\s*device-width\s*(?:,|$)",self.viewports[0]): self.errors.append(f"{self.rel}: viewport lacks width=device-width")
         for c in self.controls:
             a=c.attrs; cid=a.get("id","").strip()
-            labelled=bool(c.wrapped_label or (cid and cid in self.label_for) or a.get("aria-label","").strip() or a.get("aria-labelledby","").strip())
+            refs=a.get("aria-labelledby","").split()
+            missing=sorted({ref for ref in refs if ref not in self.element_ids})
+            if missing:
+                self.errors.append(f"{self.rel}:{c.line}: <{c.tag}> aria-labelledby references missing IDs: {', '.join(missing)}")
+            labelled=bool(c.wrapped_label or (cid and cid in self.label_for) or a.get("aria-label","").strip() or (refs and not missing))
             if c.tag=="button": labelled=bool(labelled or c.text or a.get("title","").strip())
             elif c.tag=="input" and a.get("type","text").lower() in {"submit","reset","button"}: labelled=bool(labelled or a.get("value","").strip() or a.get("title","").strip())
             else: labelled=bool(labelled or a.get("title","").strip())
