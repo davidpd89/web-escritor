@@ -159,3 +159,58 @@ La fuente principal de cada decisión es el `SKILL.md` del enlace exacto en su f
 
 **Catálogo upstream revisado al 100 % en esta fecha (38/38 rutas actuales, incluidas beta).** Esto **no equivale** a declarar la investigación principal terminada: queda pendiente resolver/validar el handoff duradero en Codex (upstream #622), y cualquier comprobación específica que surja de cambios upstream posteriores. Solo se crea una PR hija cuando exista beneficio probado en el repositorio. Todas las PR siguen bajo control de merge del autor; no tocar la línea QA #585.
 
+
+
+## Evidencia de lectura directa de las 38 skills (8 de octubre de 2026)
+
+Fuente común: `mattpocock/skills@b0618bc436ad893b3c5e84e55fba86586d34a404`. Se han abierto los **38 archivos `SKILL.md`** asociados a la matriz anterior y cotejado el contenido introductorio, propósito e instrucciones de cada uno. Esta evidencia amplia la revisión documental: **no** acredita activación de 38 skills en agentes reales ni pruebas end-to-end. Los SHA de blob permiten detectar cambios independientes del nombre de la ruta.
+
+| Ruta exacta de `SKILL.md` | SHA de blob Git |
+| --- | --- |
+| [`skills/engineering/pr/SKILL.md`](https://github.com/mattpocock/skills/blob/b0618bc436ad893b3c5e84e55fba86586d34a404/skills/engineering/pr/SKILL.md) | `84dd4fb2f068e9f6282690235d20dd505b418119` |
+| [`skills/engineering/code-review/SKILL.md`](https://github.com/mattpocock/skills/blob/b0618bc436ad893b3c5e84e55fba86586d34a404/skills/engineering/code-review/SKILL.md) | `373a4f26e6cfa3617778397945bb069d9cb184bc` |
+| [`skills/engineering/retro/SKILL.md`](https://github.com/mattpocock/skills/blob/b0618bc436ad893b3c5e84e55fba86586d34a404/skills/engineering/retro/SKILL.md) | `12149acf2dd23b4514dec57b04a6293eaa1352fa` |
+| [`skills/engineering/diagnosing-bugs/SKILL.md`](https://github.com/mattpocock/skills/blob/b0618bc436ad893b3c5e84e55fba86586d34a404/skills/engineering/diagnosing-bugs/SKILL.md) | `d039541ddd1c46e6ddbd662fe99d49b686fc5e12` |
+| [`skills/engineering/tdd/SKILL.md`](https://github.com/mattpocock/skills/blob/b0618bc436ad893b3c5e84e55fba86586d34a404/skills/engineering/tdd/SKILL.md) | `01eadaa34e7c9a63a67d6dc3cce1cc81b0e49985` |
+| [`skills/engineering/implement/SKILL.md`](https://github.com/mattpocock/skills/blob/b0618bc436ad893b3c5e84e55fba86586d34a404/skills/engineering/implement/SKILL.md) | `bd49e472984c7b99aac40286fdae749bb955a842` |
+| [`skills/engineering/to-spec/SKILL.md`](https://github.com/mattpocock/skills/blob/b0618bc436ad893b3c5e84e55fba86586d34a404/skills/engineering/to-spec/SKILL.md) | `3f52599ae2a4347aee5a07432c2707518e691a7f` |
+| [`skills/engineering/triage/SKILL.md`](https://github.com/mattpocock/skills/blob/b0618bc436ad893b3c5e84e55fba86586d34a404/skills/engineering/triage/SKILL.md) | `3fd5617e906cf9b71a6b17424791adb905fc248b` |
+| [`skills/engineering/setup-matt-pocock-skills/SKILL.md`](https://github.com/mattpocock/skills/blob/b0618bc436ad893b3c5e84e55fba86586d34a404/skills/engineering/setup-matt-pocock-skills/SKILL.md) | `293c25b75590119794af03b037ba4288054a32b3` |
+| [`skills/engineering/research/SKILL.md`](https://github.com/mattpocock/skills/blob/b0618bc436ad893b3c5e84e55fba86586d34a404/skills/engineering/research/SKILL.md) | `fecee97e9457ba039678d2fcf1b1bc9fca78307d` |
+| [`skills/engineering/prototype/SKILL.md`](https://github.com/mattpocock/skills/blob/b0618bc436ad893b3c5e84e55fba86586d34a404/skills/engineering/prototype/SKILL.md) | `a0044501fe0d385b4d8575b610188ede9b236ccf` |
+| [`skills/engineering/wizard/SKILL.md`](https://github.com/mattpocock/skills/blob/b0618bc436ad893b3c5e84e55fba86586d34a404/skills/engineering/wizard/SKILL.md) | `c4294ad8298b9b95fc727496b1b802b1f7363fba` |
+| [`skills/engineering/wayfinder/SKILL.md`](https://github.com/mattpocock/skills/blob/b0618bc436ad893b3c5e84e55fba86586d34a404/skills/engineering/wayfinder/SKILL.md) | `e28cf3018906d6d60fc5b25390b4eeea035dd290` |
+| [`skills/engineering/improve-codebase-architecture/SKILL.md`](https://github.com/mattpocock/skills/blob/b0618bc436ad893b3c5e84e55fba86586d34a404/skills/engineering/improve-codebase-architecture/SKILL.md) | `44cc7d3136c44534d68ac523fa6cd37e759d2846` |
+| [`skills/engineering/ask-matt/SKILL.md`](https://github.com/mattpocock/skills/blob/b0618bc436ad893b3c5e84e55fba86586d34a404/skills/engineering/ask-matt/SKILL.md) | `4bfeeb61dae548b8b7754c4fba7bd40ab3926099` |
+| [`skills/engineering/codebase-design/SKILL.md`](https://github.com/mattpocock/skills/blob/b0618bc436ad893b3c5e84e55fba86586d34a404/skills/engineering/codebase-design/SKILL.md) | `3f63c8146dd2604b419c929e9876b90c30d410e9` |
+| [`skills/engineering/domain-modeling/SKILL.md`](https://github.com/mattpocock/skills/blob/b0618bc436ad893b3c5e84e55fba86586d34a404/skills/engineering/domain-modeling/SKILL.md) | `a4438c6879c517d1a08e2b5fbca049b632688dfe` |
+| [`skills/engineering/grill-with-docs/SKILL.md`](https://github.com/mattpocock/skills/blob/b0618bc436ad893b3c5e84e55fba86586d34a404/skills/engineering/grill-with-docs/SKILL.md) | `62b9efb6f991d1b229adee7506962f13ced0c499` |
+| [`skills/engineering/implement-spec/SKILL.md`](https://github.com/mattpocock/skills/blob/b0618bc436ad893b3c5e84e55fba86586d34a404/skills/engineering/implement-spec/SKILL.md) | `183923797ab58f1b3ef09e03bc1f1f203c309f37` |
+| [`skills/engineering/to-tickets/SKILL.md`](https://github.com/mattpocock/skills/blob/b0618bc436ad893b3c5e84e55fba86586d34a404/skills/engineering/to-tickets/SKILL.md) | `9b77a01db9460c99c22d03c910c349f890f12c0e` |
+| [`skills/productivity/handoff/SKILL.md`](https://github.com/mattpocock/skills/blob/b0618bc436ad893b3c5e84e55fba86586d34a404/skills/productivity/handoff/SKILL.md) | `a224edc643a20ddb989f9bca1547440169159810` |
+| [`skills/productivity/grill-me/SKILL.md`](https://github.com/mattpocock/skills/blob/b0618bc436ad893b3c5e84e55fba86586d34a404/skills/productivity/grill-me/SKILL.md) | `3947ff9c4ad980d14fc07fccbf659d47c114e81d` |
+| [`skills/productivity/grilling/SKILL.md`](https://github.com/mattpocock/skills/blob/b0618bc436ad893b3c5e84e55fba86586d34a404/skills/productivity/grilling/SKILL.md) | `df69d9936880cd3314c28858c6c52f48db23b856` |
+| [`skills/productivity/teach/SKILL.md`](https://github.com/mattpocock/skills/blob/b0618bc436ad893b3c5e84e55fba86586d34a404/skills/productivity/teach/SKILL.md) | `493fa3bae0dada971c4dfb965790e56920b1dced` |
+| [`skills/productivity/to-questionnaire/SKILL.md`](https://github.com/mattpocock/skills/blob/b0618bc436ad893b3c5e84e55fba86586d34a404/skills/productivity/to-questionnaire/SKILL.md) | `dadd0c00d6a350acaa15bb9ca1b96b20ead684ca` |
+| [`skills/productivity/wait-what/SKILL.md`](https://github.com/mattpocock/skills/blob/b0618bc436ad893b3c5e84e55fba86586d34a404/skills/productivity/wait-what/SKILL.md) | `9b15cd1a7dda0854ca093e29e3e0de57e241b2ac` |
+| [`skills/productivity/writing-for-agents/SKILL.md`](https://github.com/mattpocock/skills/blob/b0618bc436ad893b3c5e84e55fba86586d34a404/skills/productivity/writing-for-agents/SKILL.md) | `a37608daf6e835e767deecfb498facecaaba82ba` |
+| [`skills/misc/git-guardrails-claude-code/SKILL.md`](https://github.com/mattpocock/skills/blob/b0618bc436ad893b3c5e84e55fba86586d34a404/skills/misc/git-guardrails-claude-code/SKILL.md) | `58bcdd875b164093b95f436fa32a65c6cb5eb572` |
+| [`skills/misc/migrate-to-shoehorn/SKILL.md`](https://github.com/mattpocock/skills/blob/b0618bc436ad893b3c5e84e55fba86586d34a404/skills/misc/migrate-to-shoehorn/SKILL.md) | `ae4f965e204fc93cedbc4e2c306e92829d93f800` |
+| [`skills/misc/scaffold-exercises/SKILL.md`](https://github.com/mattpocock/skills/blob/b0618bc436ad893b3c5e84e55fba86586d34a404/skills/misc/scaffold-exercises/SKILL.md) | `d87df28e7d8abb4e57ecc6e47d71c274d16054c7` |
+| [`skills/misc/setup-pre-commit/SKILL.md`](https://github.com/mattpocock/skills/blob/b0618bc436ad893b3c5e84e55fba86586d34a404/skills/misc/setup-pre-commit/SKILL.md) | `1b9708168263067adb4684d06ebb8f4ccfe9682c` |
+| [`skills/in-progress/chief-of-staff/SKILL.md`](https://github.com/mattpocock/skills/blob/b0618bc436ad893b3c5e84e55fba86586d34a404/skills/in-progress/chief-of-staff/SKILL.md) | `97da622d09acaaacebbb4482663c907e241f4594` |
+| [`skills/in-progress/claude-handoff/SKILL.md`](https://github.com/mattpocock/skills/blob/b0618bc436ad893b3c5e84e55fba86586d34a404/skills/in-progress/claude-handoff/SKILL.md) | `77f82fc59c89c3a83ed5a92521dc2869f0533724` |
+| [`skills/in-progress/loop-me/SKILL.md`](https://github.com/mattpocock/skills/blob/b0618bc436ad893b3c5e84e55fba86586d34a404/skills/in-progress/loop-me/SKILL.md) | `e58a474ca80feffdeb28842bc3bdee37da6510e7` |
+| [`skills/in-progress/setup-ts-deep-modules/SKILL.md`](https://github.com/mattpocock/skills/blob/b0618bc436ad893b3c5e84e55fba86586d34a404/skills/in-progress/setup-ts-deep-modules/SKILL.md) | `7e30047eaeda175de5d93886596a37baf365bb90` |
+| [`skills/in-progress/writing-beats/SKILL.md`](https://github.com/mattpocock/skills/blob/b0618bc436ad893b3c5e84e55fba86586d34a404/skills/in-progress/writing-beats/SKILL.md) | `3d3b25b605491adc5c62ae5423127717a94b9632` |
+| [`skills/in-progress/writing-fragments/SKILL.md`](https://github.com/mattpocock/skills/blob/b0618bc436ad893b3c5e84e55fba86586d34a404/skills/in-progress/writing-fragments/SKILL.md) | `c7c889b880cf9c8d289119dea5ff240641b615ca` |
+| [`skills/in-progress/writing-shape/SKILL.md`](https://github.com/mattpocock/skills/blob/b0618bc436ad893b3c5e84e55fba86586d34a404/skills/in-progress/writing-shape/SKILL.md) | `02f2866d13e72504e010f2ad3458eb9b36b876db` |
+
+### Decisión de implementación para web-escritor
+
+- **PR ya existentes:** `pr` → #593 y adaptación local de `git-guardrails-claude-code` → #617. Son pilotos; no fusionar hasta evidencia funcional de runtime y CI del HEAD definitivo. La versión nueva de #617 se publicó usando `[skip ci]`, por lo que el CI anterior no valida sus últimos commits.
+- **Uso sin instalar:** `code-review`, `diagnosing-bugs`, `tdd`, `codebase-design` y `writing-for-agents` se pueden aplicar puntualmente con el material upstream, cuando exista un caso concreto. **No** crear PR para una simple metodología de revisión.
+- **Sin caso de integración ahora:** procesos de tracker/triage, arquitectura global, orquestación multisesión, cursos, andamiaje TS y skills beta editoriales. No se ha demostrado mejora suficiente para añadir dependencias o automatización.
+- **Estimación de PR adicionales:** **0 obligatorias** para completar la revisión documental de este snapshot; **0–3 opcionales** condicionadas a encontrar en una prueba real un defecto o mejora que aún no cubran main/otras PR. Cada PR debe tener un único objetivo y evidencia before/after, no una obligación de instalar una skill.
+- **Pendientes no sustituibles por lectura:** smoke real de la skill `pr` en Codex y Claude Code (#593); smoke real del hook Bash/Claude Code (#617); CI definitivo de #617; conclusión de las hijas y cierre de la auditoría #577.
+- **Control de consumo:** mientras se priorice otro repositorio, los commits preparatorios usarán `[skip ci]`. GitHub indica que los checks requeridos saltados pueden permanecer pendientes: antes de integrar se necesitará un commit final **sin** ese marcador y el CI completo. No activar `workflow_dispatch` ni hacer merges.
