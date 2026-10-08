@@ -120,6 +120,22 @@ for should_deny, cases in [(True, DENIED), (False, ALLOWED)]:
         if should_deny:
             assert "BLOCKED:" in result.stderr, command
 
+# Invalid hook JSON must be denied explicitly (exit 2), not crash (exit 1)
+# or silently allow the Bash call (exit 0). The shell fallback also denies
+# crashes, but the direct Python hook should be predictable independently.
+for invalid in [
+    "[]", "null", "{}", '{"tool_input": null}', '{"tool_input": []}',
+    '{"tool_input": {"command": 42}}', '{"tool_input": {"command": ""}}',
+    "not json",
+]:
+    result = subprocess.run(
+        [sys.executable, str(HOOK)], input=invalid, text=True,
+        capture_output=True, check=False,
+    )
+    assert result.returncode == 2 and "BLOCKED:" in result.stderr, (
+        invalid, result.returncode, result.stderr
+    )
+
 # Also exercise the actual command in .claude/settings.json, not just the
 # Python implementation. Claude PreToolUse exits other than 2 FAIL OPEN.
 config = json.loads((ROOT / ".claude/settings.json").read_text(encoding="utf-8"))
