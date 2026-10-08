@@ -33,6 +33,13 @@ BAD_CASES = (
     ("HTTP script", '<script src="http://cdn.example.org/script.js"></script>', "mixed-content"),
     ("unsafe meta refresh", '<meta http-equiv="refresh" content="0; URL=javascript:alert(1)">', "unsafe meta refresh"),
     ("self-closing img without alt", '<img src="/photo.webp" />', "without alt"),
+    ("source srcset mixed-content second candidate", '<source srcset="/safe.webp 1x, http://cdn.example.org/unsafe.webp 2x">', "mixed-content srcset"),
+    ("responsive img protocol-relative second candidate", '<img src="/safe.webp" srcset="/safe.webp 400w, //cdn.example.org/unsafe.webp 800w" alt="">', "protocol-relative"),
+    ("preload imagesrcset mixed content", '<link rel="preload" as="image" imagesrcset="/ok.webp 1x, http://cdn.example.org/bad.webp 2x">', "mixed-content imagesrcset"),
+    ("srcset javascript candidate", '<source srcset="javascript:alert(1) 1x, /ok.webp 2x">', "srcset uses javascript:"),
+    ("unquoted uppercase source", '<SOURCE SRCSET=HTTP://cdn.example.org/cover.webp>', "mixed-content srcset"),
+    ("HTML entity in source URL", '<source srcset="&#104;ttp://cdn.example.org/image.webp 1x">', "mixed-content srcset"),
+    ("encoded source URL in standard src", '<img src="http&#58;//cdn.example.org/cover.webp" alt="">', "mixed-content src"),
 )
 
 GOOD_CASES = (
@@ -41,6 +48,10 @@ GOOD_CASES = (
     ("titled iframe", '<iframe src="https://example.org/video" title="Vídeo"></iframe>'),
     ("relative meta refresh", '<meta http-equiv="refresh" content="0; URL=/inicio/">'),
     ("comments ignored", '<!-- <img src="http://example.org/evil.png"> -->'),
+    ("safe multi-candidate srcset", '<source srcset="/small.webp 400w, /large.webp 800w">'),
+    ("HTTPS preload imagesrcset", '<link rel=preload as=image imagesrcset="https://cdn.example.org/img.webp 1x, /larger.webp 2x">'),
+    ("data URL containing comma", '<img alt="" srcset="data:image/png;base64,AAAAAA 1x, /cover.webp 2x">'),
+    ("URL with comma inside candidate", '<source srcset="/crop,left.webp 1x, /crop,right.webp 2x">'),
 )
 
 errors: list[str] = []
