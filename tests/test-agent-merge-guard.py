@@ -1,5 +1,6 @@
 #!/usr/bin/env python3
 """Regressions for Claude Code's agent-only merge/unsafe-git hook."""
+import importlib.util
 import json
 import os
 import subprocess
@@ -103,22 +104,33 @@ ALLOWED = [
     "git push -u origin feature && gh pr view 593",
 ]
 
+# Exercise every command against the exact hook module without restarting the
+# interpreter for every fixture. Process-level exit codes remain checked below.
+spec = importlib.util.spec_from_file_location("claude_git_guard", HOOK)
+assert spec is not None and spec.loader is not None
+hook = importlib.util.module_from_spec(spec)
+spec.loader.exec_module(hook)
 for should_deny, cases in [(True, DENIED), (False, ALLOWED)]:
     for command in cases:
-        result = subprocess.run(
-            [sys.executable, str(HOOK)],
-            input=json.dumps({"tool_name": "Bash", "tool_input": {"command": command}}),
-            text=True,
-            capture_output=True,
-            check=False,
-        )
-        expected = 2 if should_deny else 0
-        assert result.returncode == expected, (
-            f"{command!r}: expected {expected}, got {result.returncode}, "
-            f"stdout={result.stdout!r}, stderr={result.stderr!r}"
-        )
-        if should_deny:
-            assert "BLOCKED:" in result.stderr, command
+        reasons = [hook.unsafe_command(part) for part in hook.split_commands(command)]
+        assert any(reasons) == should_deny, (command, reasons, should_deny)
+
+# Preserve the real Python CLI contract (JSON transport, exit 2 on blocked,
+# exit 0 on allowed), rather than relying exclusively on in-process calls.
+for command, expected in [
+    ("gh pr merge 593", 2),
+    ("git push --receive-pack git-receive-pack origin", 2),
+    ("git push -u origin skills/new-guard", 0),
+    ("git status", 0),
+]:
+    result = subprocess.run(
+        [sys.executable, str(HOOK)],
+        input=json.dumps({"tool_name": "Bash", "tool_input": {"command": command}}),
+        text=True, capture_output=True, check=False,
+    )
+    assert result.returncode == expected, (command, result.returncode, result.stderr)
+    if expected == 2:
+        assert "BLOCKED:" in result.stderr, command
 
 # Invalid hook JSON must be denied explicitly (exit 2), not crash (exit 1)
 # or silently allow the Bash call (exit 0). The shell fallback also denies
