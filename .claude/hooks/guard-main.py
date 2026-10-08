@@ -82,7 +82,11 @@ def unsafe_command(segment: list[str]) -> str | None:
         for a in args
     ):
         return "Limpieza destructiva prohibida."
-    elif verb == "branch" and "-D" in args:
+    elif verb == "branch" and (
+        "-D" in args
+        or (any(v in args for v in ("-d", "--delete")) and any(v in args for v in ("-f", "--force")))
+        or any(v.startswith("-") and not v.startswith("--") and "d" in v and "f" in v for v in args)
+    ):
         return "Borrado forzado de rama prohibido."
     elif verb == "checkout" and "." in args:
         return "Descartar todos los cambios está prohibido."
