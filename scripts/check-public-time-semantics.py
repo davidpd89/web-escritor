@@ -30,7 +30,7 @@ YEARLESS_RE = re.compile(r"(?:--)?\d{2}-\d{2}")
 TIME_RE = re.compile(r"\d{2}:\d{2}(?::\d{2}(?:\.\d{1,3})?)?")
 OFFSET_RE = re.compile(r"(?:Z|[+-]\d{2}:?\d{2})")
 HTML_DATETIME_RE = re.compile(
-    r"\d{4}-\d{2}-\d{2}[T ]\d{2}:\d{2}"
+    r"\d{4,}-\d{2}-\d{2}[T ]\d{2}:\d{2}"
     r"(?::\d{2}(?:\.\d{1,3})?)?(?:Z|[+-]\d{2}:?\d{2})"
 )
 
@@ -104,6 +104,24 @@ def parse_temporal(value: str, *, html_time: bool = False):
         # than the <time datetime> microsyntax allows.
         if not HTML_DATETIME_RE.fullmatch(value) or value.endswith(("-00:00", "-0000")):
             raise ValueError(f"invalid HTML datetime {value!r}")
+
+    # HTML accepts years with more than four digits; Python datetime does not.
+    # Validate the rest using a leap-year surrogate, then check the actual
+    # calendar day of the original year and retain reduced precision.
+    if html_time and len(value.split("-", 1)[0]) > 4:
+        year_text, suffix = value.split("-", 1)
+        year = int(year_text)
+        if year < 1:
+            raise ValueError(f"invalid HTML year {year_text!r}")
+        surrogate = "2000-" + suffix
+        normalized = surrogate[:-1] + "+00:00" if surrogate.endswith("Z") else surrogate
+        try:
+            parsed = datetime.fromisoformat(normalized)
+            if parsed.day > calendar.monthrange(year, parsed.month)[1]:
+                raise ValueError("invalid day for original year")
+        except ValueError as exc:
+            raise ValueError(f"invalid HTML datetime {value!r}") from exc
+        return ("html-only", value)
 
     try:
         normalized = value[:-1] + "+00:00" if value.endswith("Z") else value
