@@ -36,7 +36,8 @@ class Parser(HTMLParser):
     def handle_startendtag(self,tag,attrs): self._start(tag,attrs,True)
     def _start(self,tag,attrs,self_closing):
         t=tag.lower(); a=self.attrs_dict(attrs); line=self.getpos()[0]
-        identifier=a.get("id","").strip()
+        # DOM IDs compare literally; trimming can hide broken IDREFs.
+        identifier=a.get("id","")
         if identifier: self.element_ids.add(identifier)
         if t=="html": self.html_count+=1; self.lang_values.append(a.get("lang","").strip())
         elif t=="head": self.head_count+=1
@@ -77,7 +78,8 @@ class Parser(HTMLParser):
         elif not re.search(r"(?:^|,)\s*width\s*=\s*device-width\s*(?:,|$)",self.viewports[0]): self.errors.append(f"{self.rel}: viewport lacks width=device-width")
         for c in self.controls:
             a=c.attrs; cid=a.get("id","").strip()
-            refs=a.get("aria-labelledby","").split()
+            # IDREF lists split on ASCII whitespace, not on Unicode NBSP.
+            refs=re.findall(r"[^ \t\n\r\f]+", a.get("aria-labelledby",""))
             missing=sorted({ref for ref in refs if ref not in self.element_ids})
             if missing:
                 self.errors.append(f"{self.rel}:{c.line}: <{c.tag}> aria-labelledby references missing IDs: {', '.join(missing)}")
