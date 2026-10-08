@@ -36,6 +36,9 @@ BAD_REFERENCES = (
     True,
     ["ficha"],
     "TODO verificar",
+    "---",
+    "\u200b\u200d",  # Invisible formatting alone is not evidence.
+
 )
 
 errors: list[str] = []
