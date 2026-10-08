@@ -134,6 +134,19 @@ def _command_arguments(tokens: list[str], executable: str) -> list[str] | None:
     return args
 
 
+def _whole_tree_pathspec(arg: str) -> bool:
+    """Catch root-wide Git pathspecs used to discard tracked changes.
+
+    This intentionally covers clear whole-tree forms, not all Git glob
+    permutations. The hook is a guardrail, not a complete Git parser.
+    """
+    return arg in {
+        ".", ":/", ":/*", ":/**",
+        ":(top)", ":(top).", ":(top)*", ":(top)**",
+        ":(top)/*", ":(top)/**", ":(glob)**",
+    }
+
+
 def unsafe_command(segment: list[str]) -> str | None:
     gh = _command_arguments(segment, "gh")
     if gh:
@@ -208,18 +221,31 @@ def unsafe_command(segment: list[str]) -> str | None:
         read_args = [arg for arg in args if arg not in read_options]
         if len(read_args) != 1 or read_args[0].startswith("-"):
             return "No crear, mover ni borrar referencias simbólicas con git symbolic-ref."
-    elif verb == "switch" and any(
-        arg == "-C" or arg.startswith("-C") or
-        arg == "--force-create" or arg.startswith("--force-create=")
-        for arg in args
-    ):
-        return "No restablecer ni sobrescribir ramas mediante git switch."
+    elif verb == "switch":
+        if any(
+            arg == "-C" or arg.startswith("-C") or
+            arg == "--force-create" or arg.startswith("--force-create=")
+            for arg in args
+        ):
+            return "No restablecer ni sobrescribir ramas mediante git switch."
+        if any(
+            arg in {"-f", "--force", "--discard-changes"} or
+            (arg.startswith("-") and not arg.startswith("--") and "f" in arg[1:])
+            for arg in args
+        ):
+            return "git switch forzado puede descartar cambios sin guardarlos."
     elif verb == "checkout":
         if any(arg == "-B" or arg.startswith("-B") for arg in args):
             return "No restablecer ni sobrescribir ramas mediante git checkout."
-        if "." in args:
+        if any(
+            arg in {"-f", "--force"} or
+            (arg.startswith("-") and not arg.startswith("--") and "f" in arg[1:])
+            for arg in args
+        ):
+            return "git checkout forzado puede descartar cambios sin guardarlos."
+        if any(_whole_tree_pathspec(arg) for arg in args):
             return "Descartar todos los cambios está prohibido."
-    elif verb == "restore" and "." in args:
+    elif verb == "restore" and any(_whole_tree_pathspec(arg) for arg in args):
         return "Restaurar todo el árbol está prohibido."
     return None
 
