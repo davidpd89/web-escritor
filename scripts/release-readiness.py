@@ -27,6 +27,7 @@ CHECKS = [
     ("CI parity: heading structure", "python scripts/check-heading-structure.py"),
     ("CI parity: jsonld absolute URLs", "python scripts/check-jsonld-absolute-urls.py"),
     ("CI parity: canonical entity IDs", "python scripts/check-canonical-entity-ids.py"),
+    ("CI parity: Wikidata sameAs known-good", "python scripts/check-wikidata-sameas.py"),
     ("CI parity: editorial facts", "python scripts/check-editorial-facts.py"),
     ("CI parity: AI discoverability", "python scripts/check-ai-discoverability.py"),
     ("CI parity: social cards strict", "python scripts/check-social-cards.py --strict"),
