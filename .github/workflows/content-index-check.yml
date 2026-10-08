@@ -72,6 +72,8 @@ jobs:
         run: python tests/test-radar-builder-parity-v1.py
       - name: Check published Spanish copy is not missing its accents
         run: python scripts/check-copy-tildes.py
+      - name: Reject obsolete public contact email and obfuscated fragments
+        run: python scripts/check-no-stale-contact-email.py --check
       - name: Check FAQPage JSON-LD does not reappear in Recomendaciones (K.2)
         run: python scripts/check-recomendaciones-no-faqpage.py --check
       # Este escaneo vivia en assistant-hardening-qa.yml, que solo se dispara
