@@ -29,6 +29,10 @@ WEEK_RE = re.compile(r"(\d{4,})-W(\d{2})")
 YEARLESS_RE = re.compile(r"(?:--)?\d{2}-\d{2}")
 TIME_RE = re.compile(r"\d{2}:\d{2}(?::\d{2}(?:\.\d{1,3})?)?")
 OFFSET_RE = re.compile(r"(?:Z|[+-]\d{2}:?\d{2})")
+HTML_DATETIME_RE = re.compile(
+    r"\d{4}-\d{2}-\d{2}[T ]\d{2}:\d{2}"
+    r"(?::\d{2}(?:\.\d{1,3})?)?(?:Z|[+-]\d{2}:?\d{2})?"
+)
 
 
 def parse_temporal(value: str, *, html_time: bool = False):
@@ -94,6 +98,12 @@ def parse_temporal(value: str, *, html_time: bool = False):
             if hours <= 23 and minutes <= 59 and not (value.startswith("-") and hours == minutes == 0):
                 return ("html-only", value)
             raise ValueError(f"invalid timezone offset {value!r}")
+
+    if html_time:
+        # fromisoformat() accepts more fractional digits and offset forms
+        # than the <time datetime> microsyntax allows.
+        if not HTML_DATETIME_RE.fullmatch(value) or value.endswith(("-00:00", "-0000")):
+            raise ValueError(f"invalid HTML datetime {value!r}")
 
     try:
         normalized = value[:-1] + "+00:00" if value.endswith("Z") else value
