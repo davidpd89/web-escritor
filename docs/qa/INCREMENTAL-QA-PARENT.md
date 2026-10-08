@@ -63,6 +63,8 @@ No asumir que la solución conocida sigue siendo óptima: antes de implementar i
 - **Integración individual:** #608/#610/#611/#615/#619/#621/#622 afectan al preflight `scripts/release-readiness.py`; #607/#609/#614/#616 afectan a `.github/workflows/required-merge-gate.yml`. Tras cada merge del propietario, reconciliar cambios y revalidar HEAD y CI antes del siguiente; no fusionar en lote.
 - **Criterio actualizado:** la presencia de una comprobación en `Check content indexes` no equivale a check obligatorio según el ruleset de main; la #616 repara esa diferencia para seguridad HTML. No duplicar checkers, conectar los existentes al gate correcto.
 
+- **Candidata posterior a #620, todavía sin PR:** el regex `DURATION_RE` parece admitir `P`/`PT` sin duración, lo que exige contrastar WHATWG y Schema.org antes de tocar el validador. Evitar solape y no declararlo corregido.
+
 ## Registro y mantenimiento
 
 - Esta PR es la **fuente de verdad de objetivos, criterios de aceptación, alcance y parentesco**. El documento versionado que añade es su respaldo y punto de reanudación entre conversaciones.
