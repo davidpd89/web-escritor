@@ -51,10 +51,10 @@ No asumir que la solución conocida sigue siendo óptima: antes de implementar i
 
 - **Listas y abiertas:** #574, #575, #586, #592, #598, #599, #604, #605, #606, #607, #608, #609, #610 y #611. #610 y #611 tienen 11/11 workflows verdes en HEAD final. #608 (11 workflows verdes) y #609 (10 workflows verdes) comprobadas sobre su HEAD final.
 - **Listas tras CI final:** #614 (breadcrumbs) y #616 (seguridad HTML), cada una 10/10 workflows en verde, abiertas.
-- **En validación sobre HEAD final:** #615 (fechas visibles/JSON-LD). Los checks existentes deben completarse antes de marcar lista cada una.
+- **Lista tras CI final:** #615 (semántica temporal HTML/JSON-LD), 11/11 workflows verdes sobre HEAD final, +1 línea en preflight. Los checks existentes deben completarse antes de marcar lista cada una.
 - **En validación (paridad de fechas editoriales):** #619 añade `check-article-dates.py --check` al Required merge gate; cubre fechas visibles de Cuaderno, JSON-LD Article y reloj de revisión sin duplicar el checker. Una sola línea en `release-readiness.py`.
 - **Tests de mutación en validación:** #618 incorpora 8 fixtures negativos y 5 positivos para garantizar que el checker de seguridad HTML utilizado por #616 detecta regresiones reales. Solo test, sin cambiar producción ni checker.
-- **EN VALIDACIÓN:** #620, corrección de límites WHATWG para `time datetime` (horas, fechas sin año, semana ISO, offset) con 22 casos de regresión en script+test. CI pendiente.
+- **EN VALIDACIÓN:** #620, corrección de límites WHATWG para `time datetime` (horas, fechas sin año, semana ISO, fracciones, offset) con 27 casos de regresión en script+test. CI pendiente.
 - **Duplicada, NO MERGEAR:** #612 solapa exactamente con #611; conservar ABIERTA por trazabilidad, nunca integrar ambas.
 - **QA adicionales verificadas:** #584, #589, #590 y #591 listas, todas las comprobaciones del HEAD final verdes, ABIERTAS y sin merge.
 - **#600 pendiente:** CI de cambios Identity green excepto timeout de una URL externa en `Check external links` (sin relación con el diff); el rerun del único job rojo falló otra vez por el mismo timeout externo; no declararla lista ni repetir ciegamente.
