@@ -54,7 +54,7 @@ No asumir que la solución conocida sigue siendo óptima: antes de implementar i
 - **Lista tras CI final:** #615 (semántica temporal HTML/JSON-LD), 11/11 workflows verdes sobre HEAD final, +1 línea en preflight. Los checks existentes deben completarse antes de marcar lista cada una.
 - **Lista con CI completo:** #619, `check-article-dates.py --check` en Required merge gate: Cuaderno/JSON-LD/revisión editorial. Un archivo, +1 línea, HEAD final 11/11 workflows verdes; ABIERTA sin mergear.
 - **Tests de mutación LISTOS:** #618 incorpora 8 fixtures negativos y 5 positivos para el checker de seguridad HTML de #616. Un único test, HEAD final 11/11 workflows verdes incluido Reflow; ABIERTA y sin mergear.
-- **EN VALIDACIÓN:** #620, corrección de límites WHATWG para `time datetime` (horas, fechas sin año, semana ISO, fracciones, offset) con 27 casos de regresión en script+test. CI pendiente.
+- **EN VALIDACIÓN:** #620, corrección de límites WHATWG para `time datetime` (horas, fechas sin año, semana ISO, fracciones, offset) con 28 casos de regresión en script+test. CI pendiente.
 - **EN VALIDACIÓN:** #621, checker integrado de indexabilidad/sitemap/robots/canónicas/navegación en Required merge gate, 1 línea del preflight, CI pendiente.
 - **EN VALIDACIÓN:** #622, comprobación AVIF/WebP (procedencia, dimensiones, correspondencia de `<source>` y fallback) obligatoria en Required merge gate; +1 línea de preflight; CI pendiente.
 - **Duplicada, NO MERGEAR:** #612 solapa exactamente con #611; conservar ABIERTA por trazabilidad, nunca integrar ambas.
