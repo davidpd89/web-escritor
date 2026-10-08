@@ -13,7 +13,7 @@ import sys
 
 CONTROL = {";", "&&", "||", "|", "&", ";;", "|&"}
 FORCE_FLAGS = {"-f", "--force", "--force-with-lease", "--force-if-includes"}
-MASS_PUSH_FLAGS = {"--all", "--mirror"}
+MASS_PUSH_FLAGS = {"--all", "--mirror", "--delete", "-d", "--prune", "--tags"}
 
 
 def split_commands(command: str) -> list[list[str]]:
@@ -48,7 +48,7 @@ def _command_arguments(tokens: list[str], executable: str) -> list[str] | None:
 def unsafe_command(segment: list[str]) -> str | None:
     gh = _command_arguments(segment, "gh")
     if gh:
-        if gh[:2] == ["pr", "merge"]:
+        if gh[0] == "pr" and (_command_arguments(gh, "pr") or [])[:1] == ["merge"]:
             return "El merge de PR está reservado al autor."
         if gh[0] == "api" and any(
             re.fullmatch(r"(?:https?://api\.github\.com)?/?repos/[^/]+/[^/]+/pulls/\d+/merge(?:\?.*)?", arg)
@@ -64,8 +64,8 @@ def unsafe_command(segment: list[str]) -> str | None:
         if any(flag in args or any(a.startswith(flag + "=") for a in args) for flag in FORCE_FLAGS | MASS_PUSH_FLAGS):
             return "Prohibido el push forzado o masivo."
         refs = [arg for arg in args if not arg.startswith("-")]
-        if any(ref.startswith("+") for ref in refs[1:]):
-            return "Push forzado con refspec + prohibido."
+        if any(ref.startswith(("+", ":")) for ref in refs[1:]):
+            return "Push forzado o eliminación remota por refspec prohibido."
         # Bare/default pushes are ambiguous: they might update main.
         if len(refs) < 2 or any(ref in {"HEAD", "main", "refs/heads/main"} or
                                  ref.lstrip("+").split(":")[-1] in {"main", "refs/heads/main"}
@@ -77,7 +77,10 @@ def unsafe_command(segment: list[str]) -> str | None:
         return "git pull puede hacer un merge implícito; usa fetch o --ff-only."
     elif verb == "reset" and "--hard" in args:
         return "Reset destructivo prohibido."
-    elif verb == "clean" and any(a.startswith("-") and "f" in a for a in args):
+    elif verb == "clean" and any(a.startswith("-") and "f" in a for a in args) and not any(
+        a == "--dry-run" or (a.startswith("-") and not a.startswith("--") and "n" in a)
+        for a in args
+    ):
         return "Limpieza destructiva prohibida."
     elif verb == "branch" and "-D" in args:
         return "Borrado forzado de rama prohibido."
