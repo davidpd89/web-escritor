@@ -14,6 +14,57 @@ import sys
 CONTROL = {";", "&&", "||", "|", "&", ";;", "|&"}
 FORCE_FLAGS = {"-f", "--force", "--force-with-lease", "--force-if-includes"}
 MASS_PUSH_FLAGS = {"--all", "--mirror", "--delete", "-d", "--prune", "--tags"}
+# The direct Bash guard is conservative: only known Git push options are
+# allowed to precede an explicit remote AND refspec. Unknown options deny.
+# Git push manual: https://git-scm.com/docs/git-push
+PUSH_SWITCHES = {
+    "-u", "--set-upstream", "-n", "--dry-run", "--porcelain",
+    "-q", "--quiet", "-v", "--verbose", "--progress", "--no-progress",
+    "--atomic", "--no-atomic", "--follow-tags", "--no-follow-tags",
+    "--signed", "--no-signed", "--no-verify", "--verify",
+    "--thin", "--no-thin", "--ipv4", "--ipv6", "-4", "-6",
+}
+PUSH_VALUE_FLAGS = {"--receive-pack", "--exec", "--push-option", "-o"}
+PUSH_VALUE_EQUALS = ("--receive-pack=", "--exec=", "--push-option=")
+PUSH_VALUE_CHOICES = ("--signed=", "--recurse-submodules=")
+
+
+def push_positionals(args: list[str]) -> tuple[list[str], str | None]:
+    """Exclude recognized option values; do not mistake them for refspecs."""
+    positionals: list[str] = []
+    options_done = False
+    index = 0
+    while index < len(args):
+        arg = args[index]
+        if arg.startswith("#"):
+            return [], "Push con comentario de shell ambiguo."
+        if not options_done and arg == "--":
+            options_done = True
+        elif not options_done and arg.startswith("-"):
+            if arg in FORCE_FLAGS | MASS_PUSH_FLAGS or any(
+                arg.startswith(flag + "=") for flag in FORCE_FLAGS | MASS_PUSH_FLAGS
+            ):
+                return [], "Push forzado, masivo o con eliminación prohibido."
+            if arg in PUSH_VALUE_FLAGS:
+                # Consume the next token even if it resembles a remote/ref.
+                if index + 1 >= len(args):
+                    return [], "Opción de push sin valor; destino ambiguo."
+                index += 1
+            elif arg.startswith(PUSH_VALUE_EQUALS):
+                if not arg.split("=", 1)[1]:
+                    return [], "Opción de push sin valor."
+            elif arg.startswith("-o") and len(arg) > 2:
+                pass  # -omessage is the attached form of -o message.
+            elif arg in PUSH_SWITCHES or arg.startswith(PUSH_VALUE_CHOICES):
+                pass
+            else:
+                return [], "Opción de push no reconocida: no se puede demostrar el destino."
+        else:
+            if arg.startswith(("-", "+", ":")):
+                return [], "Refspec ambiguo, forzado o de eliminación."
+            positionals.append(arg)
+        index += 1
+    return positionals, None
 
 
 def split_commands(command: str) -> list[list[str]]:
@@ -61,21 +112,16 @@ def unsafe_command(segment: list[str]) -> str | None:
         return None
     verb, *args = git
     if verb == "push":
-        if any(flag in args or any(a.startswith(flag + "=") for a in args) for flag in FORCE_FLAGS | MASS_PUSH_FLAGS):
-            return "Prohibido el push forzado o masivo."
-        refs = [arg for arg in args if not arg.startswith("-")]
-        # shlex tokenizes shell comments as words here. Without this check,
-        # `git push origin # note` looks like an explicit ref, but the shell
-        # actually runs `git push origin`, which can update main implicitly.
-        if any(arg.startswith("#") for arg in args):
-            return "Push con comentario ambiguo; especifica rama sin comentario."
-        if any(ref.startswith(("+", ":")) for ref in refs[1:]):
-            return "Push forzado o eliminación remota por refspec prohibido."
-        # Bare/default pushes are ambiguous: they might update main.
-        if len(refs) < 2 or any(ref in {"HEAD", "main", "refs/heads/main"} or
-                                 ref.lstrip("+").split(":")[-1] in {"main", "refs/heads/main"}
-                                 for ref in refs[1:]):
-            return "Push sin rama explícita o dirigido a main."
+        refs, error = push_positionals(args)
+        if error:
+            return error
+        # Remote without explicit refspec may use push.default/remote.*.push.
+        if len(refs) < 2 or any(
+            ref in {"HEAD", "main", "refs/heads/main"} or
+            ref.split(":")[-1] in {"main", "refs/heads/main"}
+            for ref in refs[1:]
+        ):
+            return "Push sin remoto + rama explícita o dirigido a main."
     elif verb == "merge":
         return "No fusionar ramas desde el agente; integración reservada al autor."
     elif verb == "pull" and "--ff-only" not in args:
@@ -93,6 +139,15 @@ def unsafe_command(segment: list[str]) -> str | None:
                ("d" in v[1:] or "D" in v[1:]) for v in args)
     ):
         return "El agente no debe borrar ramas, ni siquiera con git branch -d."
+    elif verb == "update-ref" and (
+        "--stdin" in args
+        or ("-d" in args and any(ref.startswith("refs/heads/") for ref in args))
+    ):
+        return "El agente no debe eliminar referencias de ramas con git update-ref."
+    elif verb == "symbolic-ref" and (
+        "--delete" in args or "-d" in args
+    ) and any(ref.startswith("refs/heads/") for ref in args):
+        return "El agente no debe eliminar referencias simbólicas de ramas."
     elif verb == "checkout" and "." in args:
         return "Descartar todos los cambios está prohibido."
     elif verb == "restore" and "." in args:
