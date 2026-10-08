@@ -17,7 +17,7 @@ EXTRA_PUBLIC_HTML = ("404.html", "offline.html", "privacidad.html", "aviso-legal
 URL_ATTRS = ("href", "src", "action", "formaction", "poster")
 
 SRCSET_ATTRS = ("srcset", "imagesrcset")
-ASCII_WS = " \\t\\n\\r\\f"
+ASCII_WS = " \t\n\r\f"
 
 
 def srcset_urls(value: str):
@@ -55,7 +55,6 @@ def srcset_urls(value: str):
                 in_parens = False
             elif ch == "," and not in_parens:
                 break
-
 
 
 def route_to_file(url: str) -> Path:
@@ -113,7 +112,6 @@ class AuditParser(HTMLParser):
                     if target.startswith("//") or target.lower().startswith(("http://", "javascript:")):
                         self.errors.append(f"{self.rel}: unsafe meta refresh target {target}")
 
-
     def _check_url(self, attr: str, raw: str):
         value = raw.strip()
         low = value.lower()
@@ -125,7 +123,6 @@ class AuditParser(HTMLParser):
             host = (urlparse(value).hostname or "").lower()
             if host not in {"www.w3.org", "w3.org"}:
                 self.errors.append(f"{self.rel}: mixed-content {attr} {value}")
-
 
 
 def main() -> int:
