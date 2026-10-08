@@ -25,7 +25,7 @@ Usage:
 from __future__ import annotations
 
 import json
-import re
+from html.parser import HTMLParser
 import subprocess
 import sys
 from pathlib import Path
@@ -35,10 +35,38 @@ SITE_ORIGIN = "https://davidportodiaz.com"
 
 FIELDS_TO_CHECK = {"url", "@id", "isPartOf", "about", "mainEntity", "isBasedOn"}
 
-SCRIPT_RE = re.compile(
-    r'<script[^>]+type=["\']application/ld\+json["\'][^>]*>(.*?)</script>',
-    re.I | re.S,
-)
+class JsonLdScripts(HTMLParser):
+    """Collect genuine JSON-LD scripts, never fake markup in comments/attrs."""
+
+    def __init__(self) -> None:
+        super().__init__(convert_charrefs=True)
+        self.blocks: list[str] = []
+        self._collect = False
+        self._pieces: list[str] = []
+
+    def handle_starttag(self, tag: str, attrs) -> None:
+        if tag != "script":
+            return
+        mime = next((value for name, value in attrs if name == "type"), None)
+        self._collect = (mime or "").strip().lower() == "application/ld+json"
+        self._pieces = []
+
+    def handle_data(self, data: str) -> None:
+        if self._collect:
+            self._pieces.append(data)
+
+    def handle_endtag(self, tag: str) -> None:
+        if tag == "script" and self._collect:
+            self.blocks.append("".join(self._pieces))
+            self._pieces = []
+            self._collect = False
+
+
+def jsonld_blocks(markup: str) -> list[str]:
+    parser = JsonLdScripts()
+    parser.feed(markup)
+    parser.close()
+    return parser.blocks
 
 
 def git_tracked_html():
@@ -75,7 +103,7 @@ def main() -> int:
             text = path.read_text(encoding="utf-8")
         except (UnicodeDecodeError, FileNotFoundError):
             continue
-        blocks = SCRIPT_RE.findall(text)
+        blocks = jsonld_blocks(text)
         if not blocks:
             continue
         scanned += 1
