@@ -56,10 +56,11 @@ No asumir que la solución conocida sigue siendo óptima: antes de implementar i
 - **Tests de mutación LISTOS:** #618 incorpora 8 fixtures negativos y 5 positivos para el checker de seguridad HTML de #616. Un único test, HEAD final 11/11 workflows verdes incluido Reflow; ABIERTA y sin mergear.
 - **EN VALIDACIÓN:** #620, corrección de límites WHATWG para `time datetime` (horas, fechas sin año, semana ISO, fracciones, offset) con 27 casos de regresión en script+test. CI pendiente.
 - **EN VALIDACIÓN:** #621, checker integrado de indexabilidad/sitemap/robots/canónicas/navegación en Required merge gate, 1 línea del preflight, CI pendiente.
+- **EN VALIDACIÓN:** #622, comprobación AVIF/WebP (procedencia, dimensiones, correspondencia de `<source>` y fallback) obligatoria en Required merge gate; +1 línea de preflight; CI pendiente.
 - **Duplicada, NO MERGEAR:** #612 solapa exactamente con #611; conservar ABIERTA por trazabilidad, nunca integrar ambas.
 - **QA adicionales verificadas:** #584, #589, #590 y #591 listas, todas las comprobaciones del HEAD final verdes, ABIERTAS y sin merge.
 - **#600 pendiente:** CI de cambios Identity green excepto timeout de una URL externa en `Check external links` (sin relación con el diff); el rerun del único job rojo falló otra vez por el mismo timeout externo; no declararla lista ni repetir ciegamente.
-- **Integración individual:** #608/#610/#611/#615/#619/#621 afectan al preflight `scripts/release-readiness.py`; #607/#609/#614/#616 afectan a `.github/workflows/required-merge-gate.yml`. Tras cada merge del propietario, reconciliar cambios y revalidar HEAD y CI antes del siguiente; no fusionar en lote.
+- **Integración individual:** #608/#610/#611/#615/#619/#621/#622 afectan al preflight `scripts/release-readiness.py`; #607/#609/#614/#616 afectan a `.github/workflows/required-merge-gate.yml`. Tras cada merge del propietario, reconciliar cambios y revalidar HEAD y CI antes del siguiente; no fusionar en lote.
 - **Criterio actualizado:** la presencia de una comprobación en `Check content indexes` no equivale a check obligatorio según el ruleset de main; la #616 repara esa diferencia para seguridad HTML. No duplicar checkers, conectar los existentes al gate correcto.
 
 ## Registro y mantenimiento
