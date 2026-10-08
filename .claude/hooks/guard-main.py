@@ -115,7 +115,10 @@ def unsafe_command(segment: list[str]) -> str | None:
                 return "Las fusiones REST de PR o ramas están reservadas al autor."
             # GraphQL mutations that merge immediately or schedule future merge.
             # Queries and benign mutations remain available.
-            if "graphql" in gh[1:] and any(
+            if any(
+                re.fullmatch(r"(?:graphql|/?graphql|https?://[^/]+/(?:api/)?graphql)(?:\?.*)?", arg)
+                for arg in gh[1:]
+            ) and any(
                 re.search(
                     r"\b(?:mergePullRequest|mergeBranch|enablePullRequestAutoMerge|"
                     r"enqueuePullRequest)\b",
@@ -152,11 +155,12 @@ def unsafe_command(segment: list[str]) -> str | None:
     ):
         return "Limpieza destructiva prohibida."
     elif verb == "branch" and (
-        any(v in ("-d", "-D", "--delete") or v.startswith("--delete=") for v in args)
+        any(v in {"-d", "-D", "-m", "-M", "-C", "-f", "--delete", "--move", "--force"}
+            or v.startswith(("--delete=", "--move=", "--force=")) for v in args)
         or any(v.startswith("-") and not v.startswith("--") and
-               ("d" in v[1:] or "D" in v[1:]) for v in args)
+               any(flag in v[1:] for flag in "dDmMfC") for v in args)
     ):
-        return "El agente no debe borrar ramas, ni siquiera con git branch -d."
+        return "No borrar, renombrar ni sobrescribir ramas desde el agente."
     elif verb == "update-ref" and (
         "--stdin" in args
         or ("-d" in args and any(ref.startswith("refs/heads/") for ref in args))
