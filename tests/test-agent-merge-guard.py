@@ -189,6 +189,12 @@ assert config["permissions"]["deny"] == [
     "Bash(git branch -d *)",
     "Bash(git branch -D *)",
     "Bash(git branch --delete *)",
+    "Bash(git branch -m *)",
+    "Bash(git branch -M *)",
+    "Bash(git branch -C *)",
+    "Bash(git branch -f *)",
+    "Bash(git branch --move *)",
+    "Bash(git branch --force *)",
 ]
 assert all("git push" not in rule for rule in config["permissions"]["deny"])
 
