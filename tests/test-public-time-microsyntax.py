@@ -27,6 +27,7 @@ VALID = {
     "2025-W52": "last week of a normal 52-week year",
     "+23:59": "largest allowed offset",
     "-05:30": "negative offset",
+    "+00:00": "explicit UTC as positive offset",
     "Z": "UTC offset",
 }
 
@@ -41,6 +42,7 @@ INVALID = {
     "2024-W00": "ISO week zero",
     "+24:00": "offset hour above 23",
     "-08:60": "offset minute above 59",
+    "-00:00": "negative zero offset forbidden by HTML standard",
 }
 
 problems: list[str] = []
