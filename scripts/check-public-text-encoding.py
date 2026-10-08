@@ -2,8 +2,8 @@
 from __future__ import annotations
 
 import json
-import re
 import sys
+from html.parser import HTMLParser
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -21,6 +21,34 @@ MOJIBAKE = (
     "ðŸ",
     "ï»¿",
 )
+
+class EarlyUtf8Meta(HTMLParser):
+    """Locate a real UTF-8 meta declaration, not one inside a comment/script."""
+
+    def __init__(self):
+        super().__init__(convert_charrefs=True)
+        self.found = False
+
+    def handle_starttag(self, tag, attrs):
+        if tag.lower() == "meta" and any(
+            key.lower() == "charset" and (value or "").strip().lower() == "utf-8"
+            for key, value in attrs
+        ):
+            self.found = True
+
+    def handle_startendtag(self, tag, attrs):
+        self.handle_starttag(tag, attrs)
+
+
+def has_early_utf8_meta(raw: bytes) -> bool:
+    """The complete encoding declaration must fit in the first 1024 BYTES."""
+    parser = EarlyUtf8Meta()
+    # Meta syntax is ASCII. Truncate before decoding: multibyte text must not
+    # move the browser's 1024-byte discovery boundary.
+    parser.feed(raw[:1024].decode("ascii", errors="ignore"))
+    parser.close()
+    return parser.found
+
 
 def public_files() -> list[Path]:
     files: set[Path] = set()
@@ -63,9 +91,8 @@ for path in public_files():
             errors.append(f"{rel}:{line}: suspicious mojibake token {token!r}")
 
     if path.suffix.lower() in {".html", ".htm"}:
-        head = text[:12000]
-        if not re.search(r"<meta\s+charset\s*=\s*['\"]?utf-8", head, re.I):
-            errors.append(f"{rel}: public HTML lacks UTF-8 meta charset")
+        if not has_early_utf8_meta(raw):
+            errors.append(f"{rel}: public HTML lacks a real UTF-8 meta charset in its first 1024 bytes")
 
     if path.suffix.lower() == ".json":
         try:
