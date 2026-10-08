@@ -12,6 +12,19 @@ ROOT = Path(__file__).resolve().parents[1]
 HOOK = ROOT / ".claude/hooks/guard-main.py"
 
 DENIED = [
+    "git switch --discard-changes feature",
+    "git switch --force feature",
+    "git switch -f feature",
+    "git switch -fc new-feature",
+    "git checkout -f feature",
+    "git checkout --force feature",
+    "git checkout -- :/",
+    "git checkout HEAD -- :/",
+    "git restore -- :/",
+    "git restore --staged -- :/",
+    "git checkout -- ':/*'",
+    "git restore -- ':(top)**'",
+    "git restore -- ':(glob)**'",
     "gh pr merge 593",
     "git symbolic-ref refs/remotes/origin/alias refs/heads/main",
     "git symbolic-ref refs/tags/alias refs/heads/main",
@@ -132,6 +145,11 @@ DENIED = [
     "git status && git push origin main",
 ]
 ALLOWED = [
+    "git switch --merge feature",
+    "git checkout -- src/file.txt",
+    "git restore -- :/src/file.txt",
+    "git restore --staged -- src/file.txt",
+    "git checkout -- ':(top)src/file.txt'",
     "git status",
     "GIT_TRACE=1 git status",
     "GH_HOST=github.com gh pr view 593",
