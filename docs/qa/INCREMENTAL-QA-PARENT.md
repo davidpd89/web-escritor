@@ -77,6 +77,18 @@ No asumir que la solución conocida sigue siendo óptima: antes de implementar i
 
 - **Candidata concretada como #624:** el checker admitía `P`/`PT` sin duración, meses/años en duraciones HTML. Contrato WHATWG y JSON-LD separados, pruebas de 36 casos, HEAD todavía en CI. Evitar merge conjunto con #620 sin reconciliar.
 
+## Secuencia segura de integración propuesta (sin automatizar merges)
+
+*Estado observado el 8-oct-2026; **NO** es autorización para merge automático.*
+
+1. **Grupo de gates en YAML:** comprobar primero que #607, #609, #614 y #616 sigan verdes sobre sus HEAD finales. Integrar **una sola** PR por decisión del autor. Tras cada merge a main, refrescar el resto de ramas que tocan `.github/workflows/required-merge-gate.yml` y repetir CI si cambió su HEAD o base efectiva.
+2. **Grupo de preflight en Python:** #608, #610, #611, #615, #619, #621, #622 están documentadas como listas con CI de sus HEAD individuales; **no equivalen a una integración combinada probada**. #623 continúa pendiente. Fusionar secuencialmente **solo cuando la base actual y todos los checks estén verificados**, sincronizar las demás ramas para **conservar las líneas de las ya integradas**, y comprobar que no se pierde ninguna entrada del listado `CHECKS`. No aprobar una PR basándose en CI de un HEAD anterior al sync.
+3. **Seguridad HTML:** #616 introduce el checker en Required gate. #618 amplía la cobertura real de `srcset/imagesrcset` y sus pruebas, pero **sigue pendiente de CI de su HEAD nuevo**; no fusionarla por su antiguo 11/11 ni considerar que #616 sustituye sus mutaciones.
+4. **Parser temporal compartido:** #620 (fecha/hora local/global, año extendido) y #624 (duraciones) **modifican el mismo script**. Ambas siguen en validación. Una vez que #620 pase revisión y sea mergeada por el autor, reconciliar #624 sobre el parser resultante conservando ambos contratos y ejecutar conjuntamente `tests/test-public-time-microsyntax.py`, `tests/test-public-time-duration-microsyntax.py` y `scripts/check-public-time-semantics.py` más CI total. Si se invierte el orden de merge, invertir también la reconciliación.
+5. **Bloqueos no resueltos:** #600 tiene un timeout externo reproducido en su workflow; **NO LISTA**. #612 duplica la #611: **NO MERGEAR**. #613 permanece coordinadora draft hasta cerrar el conjunto; el usuario decide todos los merges.
+
+**Control por paso:** tras cada merge manual comprobar SHA de `main`, diff de cada hija contra el nuevo `main`, mergeability real, hilos de Codex y todos los checks exigidos. Medir duración de Required gate y preflight tras cada integración; ante regresión, detener la secuencia y corregir antes de continuar.
+
 ## Registro y mantenimiento
 
 - Esta PR es la **fuente de verdad de objetivos, criterios de aceptación, alcance y parentesco**. El documento versionado que añade es su respaldo y punto de reanudación entre conversaciones.
