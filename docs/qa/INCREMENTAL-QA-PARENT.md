@@ -18,6 +18,15 @@ No asumir que la solución conocida sigue siendo óptima: antes de implementar i
 6. Registrar en cada PR evidencia before/after, comandos/resultados, alcance, riesgo, limitaciones, CI y enlace **a esta PR padre**. Mantener esta coordinadora al día con enlaces y estados sin narración excesiva.
 7. **NO MERGEAR, NO CERRAR, NO AUTO-MERGE, NO PUSH A MAIN.** Solo el propietario hace merge, **una PR cada vez**, revisando conflictos y revalidando respecto del nuevo main cuando cambie. La coordinadora nunca se utiliza como lote de cambios a fusionar.
 
+## Protocolo de revisión externa (Codex y otros revisores)
+
+- Antes de declarar lista cualquier PR hija, consultar **comentarios generales, revisiones e hilos inline** del HEAD vigente y comprobar si hay nuevas observaciones desde la última validación.
+- Cada hallazgo se contrasta con los archivos reales, pruebas reproducibles y documentación oficial actual. No aplicar propuestas por autoridad sin verificar ni descartar defectos solo porque CI pasó.
+- Si es correcto, corregir **dentro del mismo scope** y añadir una prueba de regresión cuando aporte valor. Si es falso positivo, fuera de alcance o redundante, justificar la decisión técnicamente en el hilo/PR; no silenciarla sin explicar.
+- Cada nuevo commit invalida el estado «lista»: volver a revisar diff, dependencias y todos los checks aplicables del HEAD final; registrar respuesta y evidencia.
+- No resolver hilos de revisión con hallazgos abiertos ni afirmar que «Codex aprobó» sin una aprobación observable.
+- Las revisiones de skills #577/#593 pertenecen a la otra conversación y no deben duplicarse desde esta línea.
+
 ## Estados inequívocos
 
 - **CANDIDATA:** hueco aún por demostrar.
