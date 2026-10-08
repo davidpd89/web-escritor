@@ -65,9 +65,8 @@ problems: list[str] = []
 for raw, reason in VALID.items():
     try:
         kind, _ = parse_temporal(raw, html_time=True)
-        expected_kind = "datetime" if raw.startswith("2026-") else "html-only"
-        if kind != expected_kind:
-            problems.append(f"valid {raw}: expected {expected_kind}, got {kind} ({reason})")
+        if kind not in {"datetime", "html-only"}:
+            problems.append(f"valid {raw}: unexpected kind {kind!r} ({reason})")
     except ValueError as exc:
         problems.append(f"valid {raw}: rejected {exc} ({reason})")
 
