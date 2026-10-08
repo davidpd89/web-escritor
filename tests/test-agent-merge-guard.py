@@ -96,6 +96,17 @@ assert config["hooks"]["PreToolUse"][0]["hooks"][0]["command"] == (
     'sh "${CLAUDE_PROJECT_DIR}/.claude/hooks/guard-main.sh"'
 )
 
+# A second independent layer uses Claude Code’s built-in deny rules; it does
+# not rely on Python, hook exit status or CI and never denies branch PR pushes.
+assert config["permissions"]["deny"] == [
+    "Bash(gh pr merge *)",
+    "Bash(git merge *)",
+    "Bash(git branch -d *)",
+    "Bash(git branch -D *)",
+    "Bash(git branch --delete *)",
+]
+assert all("git push" not in rule for rule in config["permissions"]["deny"])
+
 if os.name != "nt":
     LAUNCHER = ROOT / ".claude/hooks/guard-main.sh"
 
