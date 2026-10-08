@@ -158,9 +158,14 @@ def unsafe_command(segment: list[str]) -> str | None:
 def main() -> int:
     try:
         payload = json.load(sys.stdin)
-        command = payload.get("tool_input", {}).get("command", "")
-        if not isinstance(command, str):
-            return 2
+        if not isinstance(payload, dict):
+            raise ValueError("payload debe ser un objeto JSON")
+        tool_input = payload.get("tool_input")
+        if not isinstance(tool_input, dict):
+            raise ValueError("tool_input debe ser un objeto JSON")
+        command = tool_input.get("command")
+        if not isinstance(command, str) or not command.strip():
+            raise ValueError("command debe ser texto no vacío")
         segments = split_commands(command)
     except (ValueError, TypeError) as exc:
         print(f"BLOCKED: entrada Bash inválida ({exc}).", file=sys.stderr)
