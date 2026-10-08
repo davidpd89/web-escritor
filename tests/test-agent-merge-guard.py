@@ -12,6 +12,11 @@ ROOT = Path(__file__).resolve().parents[1]
 HOOK = ROOT / ".claude/hooks/guard-main.py"
 
 DENIED = [
+    "git stash clear",
+    "git stash drop",
+    "git stash drop stash@{0}",
+    "git switch --orphan blank",
+    "git switch --orphan=blank",
     "git switch --discard-changes feature",
     "git switch --force feature",
     "git switch -f feature",
@@ -145,6 +150,11 @@ DENIED = [
     "git status && git push origin main",
 ]
 ALLOWED = [
+    "git stash list",
+    "git stash show",
+    "git stash apply stash@{0}",
+    "git stash push -m drop",
+    "git checkout --orphan blank",
     "git switch --merge feature",
     "git checkout -- src/file.txt",
     "git restore -- :/src/file.txt",
@@ -272,6 +282,10 @@ assert config["permissions"]["deny"] == [
     "Bash(git switch --force-create=*)",
     "Bash(git checkout -B *)",
     "Bash(git checkout -B*)",
+    "Bash(git stash clear *)",
+    "Bash(git stash drop *)",
+    "Bash(git switch --orphan *)",
+    "Bash(git switch --orphan=*)",
 ]
 assert all("git push" not in rule for rule in config["permissions"]["deny"])
 
