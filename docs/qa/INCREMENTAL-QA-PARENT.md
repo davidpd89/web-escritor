@@ -41,10 +41,11 @@ No asumir que la solución conocida sigue siendo óptima: antes de implementar i
 ## Estado operativo (8 de octubre de 2026)
 
 - **Listas y abiertas:** #574, #575, #586, #592, #598, #599, #604, #605, #606, #607, #608 y #609. #608 (11 workflows verdes) y #609 (10 workflows verdes) comprobadas sobre su HEAD final.
-- **Pendientes de CI final:** #610, #611. Cambio definitivo reducido a una línea de `scripts/release-readiness.py` por PR, en la prevalidación del Required merge gate.
-- **Duplicada y no mergeable por alcance:** #612, solapa exactamente con #611; mantener abierta por trazabilidad, NO MERGEAR.
-- **Otras QA relacionadas:** #584, #589, #590, #591 y #600; requieren evaluación individual antes de confirmar estado final.
-- Tras cada merge del propietario, comprobar de nuevo conflictos y CI de cada hija restante. #608/#610/#611 modifican el listado `CHECKS` del mismo preflight: integrar por separado y preservar todas las entradas.
+- **En validación sobre HEAD final:** #610 (Wikidata), #611 (cuarentena Noveris canónica), #614 (breadcrumbs), #615 (fechas visibles/JSON-LD) y #616 (seguridad HTML). Los checks existentes deben completarse antes de marcar lista cada una.
+- **Duplicada, NO MERGEAR:** #612 solapa exactamente con #611; conservar ABIERTA por trazabilidad, nunca integrar ambas.
+- **Otras QA relacionadas:** #584, #589, #590, #591 y #600; evaluar individualmente antes de confirmar estado.
+- **Integración individual:** #608/#610/#611/#615 afectan al preflight `scripts/release-readiness.py`; #607/#609/#614/#616 afectan a `.github/workflows/required-merge-gate.yml`. Tras cada merge del propietario, reconciliar cambios y revalidar HEAD y CI antes del siguiente; no fusionar en lote.
+- **Criterio actualizado:** la presencia de una comprobación en `Check content indexes` no equivale a check obligatorio según el ruleset de main; la #616 repara esa diferencia para seguridad HTML. No duplicar checkers, conectar los existentes al gate correcto.
 
 ## Registro y mantenimiento
 
