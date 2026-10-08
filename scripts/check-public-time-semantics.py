@@ -26,8 +26,8 @@ YEAR_RE = re.compile(r"\d{4,}")
 MONTH_RE = re.compile(r"(\d{4,})-(\d{2})")
 DATE_RE = re.compile(r"\d{4,}-\d{2}-\d{2}")
 WEEK_RE = re.compile(r"(\d{4,})-W(\d{2})")
-YEARLESS_RE = re.compile(r"\d{2}-\d{2}")
-TIME_RE = re.compile(r"\d{2}:\d{2}(?::\d{2}(?:\.\d+)?)?")
+YEARLESS_RE = re.compile(r"(?:--)?\d{2}-\d{2}")
+TIME_RE = re.compile(r"\d{2}:\d{2}(?::\d{2}(?:\.\d{1,3})?)?")
 OFFSET_RE = re.compile(r"(?:Z|[+-]\d{2}:?\d{2})")
 
 
@@ -63,18 +63,35 @@ def parse_temporal(value: str, *, html_time: bool = False):
     # denote a calendar date.
     if html_time:
         if YEARLESS_RE.fullmatch(value):
-            month, day = map(int, value.split("-"))
-            if not 1 <= month <= 12 or not 1 <= day <= 31:
+            month, day = map(int, value.removeprefix("--").split("-"))
+            # The yearless microsyntax uses a leap year so 02-29 is valid,
+            # but impossible month/day combinations must still fail.
+            if not 1 <= month <= 12 or not 1 <= day <= calendar.monthrange(2000, month)[1]:
                 raise ValueError(f"invalid yearless date {value!r}")
             return ("html-only", value)
         m = WEEK_RE.fullmatch(value)
         if m:
             year, week = map(int, m.groups())
-            if year >= 1 and 1 <= week <= 53:
-                return ("html-only", value)
+            if year >= 1:
+                jan1 = calendar.weekday(year, 1, 1)
+                last_week = 53 if (jan1 == 3 or (jan1 == 2 and calendar.isleap(year))) else 52
+                if 1 <= week <= last_week:
+                    return ("html-only", value)
             raise ValueError(f"invalid week {value!r}")
-        if TIME_RE.fullmatch(value) or OFFSET_RE.fullmatch(value):
-            return ("html-only", value)
+        if TIME_RE.fullmatch(value):
+            parts = value.split(":")
+            hour, minute = int(parts[0]), int(parts[1])
+            second = int(parts[2].split(".")[0]) if len(parts) == 3 else 0
+            if hour <= 23 and minute <= 59 and second <= 59:
+                return ("html-only", value)
+            raise ValueError(f"invalid time {value!r}")
+        if OFFSET_RE.fullmatch(value):
+            if value == "Z":
+                return ("html-only", value)
+            digits = value[1:].replace(":", "")
+            if int(digits[:2]) <= 23 and int(digits[2:]) <= 59:
+                return ("html-only", value)
+            raise ValueError(f"invalid timezone offset {value!r}")
 
     try:
         normalized = value[:-1] + "+00:00" if value.endswith("Z") else value
