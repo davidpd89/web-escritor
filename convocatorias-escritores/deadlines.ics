@@ -5,31 +5,6 @@ CALSCALE:GREGORIAN
 METHOD:PUBLISH
 X-WR-CALNAME:Convocatorias para escritores
 BEGIN:VEVENT
-UID:relatos-en-cadena-2026-ronda-08-oct@davidportodiaz.com
-DTSTART;VALUE=DATE:20261008
-DTEND;VALUE=DATE:20261009
-SUMMARY:XX Relatos en Cadena 2026–2027 · ronda del 8 de octubre
-DESCRIPTION:Escuela de Escritores y Cadena SER
-URL:https://escueladeescritores.com/concursos/relatos-en-cadena/
-END:VEVENT
-BEGIN:VEVENT
-UID:amparo-perez-alamino-2026@davidportodiaz.com
-DTSTART;VALUE=DATE:20261008
-DTEND;VALUE=DATE:20261009
-SUMMARY:IV Concurso Literario «Amparo Pérez Alamino» 2026
-DESCRIPTION:FEAFES Melilla
-URL:https://feafesmelilla.es/concurso-literario-amparo-perez-alamino
-END:VEVENT
-BEGIN:VEVENT
-UID:voces-del-pueblo-2026@davidportodiaz.com
-DTSTART;VALUE=DATE:20261008
-DTEND;VALUE=DATE:20261009
-SUMMARY:I Concurso de Microrrelatos «Voces del pueblo» 2026
-DESCRIPTION:Diversidad Literaria
-URL:https://www.diversidadliteraria.com/info-concursos/concursos-microrrela
- tos/voces-del-pueblo
-END:VEVENT
-BEGIN:VEVENT
 UID:jorge-manrique-poesia-2026@davidportodiaz.com
 DTSTART;VALUE=DATE:20261009
 DTEND;VALUE=DATE:20261010
