@@ -37,6 +37,8 @@ on:
       - 'qa/production-media-decode.mjs'
       - 'qa/production-compact-landscape.mjs'
       - 'qa/production-rotating-device-audit.mjs'
+      - 'qa/keyboard-focus-state.mjs'
+      - 'qa/keyboard-focus-state.test.mjs'
       - 'qa/production-short-viewport-history.mjs'
       - 'qa/production-filter-input-fuzz.mjs'
       - 'qa/production-radar-timezone.mjs'
@@ -81,6 +83,8 @@ on:
       - 'qa/production-media-decode.mjs'
       - 'qa/production-compact-landscape.mjs'
       - 'qa/production-rotating-device-audit.mjs'
+      - 'qa/keyboard-focus-state.mjs'
+      - 'qa/keyboard-focus-state.test.mjs'
       - 'qa/production-short-viewport-history.mjs'
       - 'qa/production-filter-input-fuzz.mjs'
       - 'qa/production-radar-timezone.mjs'
@@ -271,6 +275,9 @@ jobs:
           done
           cat /tmp/focus-contract-http.log
           exit 1
+
+      - name: Test keyboard focus observation regressions
+        run: node qa/keyboard-focus-state.test.mjs
 
       - name: Audit focus trapping and restoration
         run: node qa/production-focus-restoration.mjs
