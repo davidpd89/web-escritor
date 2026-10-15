@@ -3,6 +3,7 @@ import crypto from 'node:crypto';
 import fs from 'node:fs';
 import { chromium } from 'playwright';
 import { assertProductionRelease } from './production-release-marker.mjs';
+import { waitForKeyboardFocusState } from './keyboard-focus-state.mjs';
 
 const O=(process.env.SITE_BASE_URL||'https://davidportodiaz.com').replace(/\/$/,'');
 const S=(process.env.EXPECTED_RELEASE_SHA||'').trim();
@@ -182,19 +183,7 @@ async function keyboardProbe(page,route){
   const probes=Math.min(14,Math.max(4,expected));
   for(let i=0;i<probes;i++){
     await page.keyboard.press('Tab');
-    const state=await page.evaluate(()=>{
-      const el=document.activeElement;
-      if(!el||el===document.body) return {key:'BODY',ok:false,reason:'focus on body'};
-      const r=el.getBoundingClientRect();
-      const s=getComputedStyle(el);
-      const hidden=el.closest('[aria-hidden="true"],[inert]');
-      const key=el.id||el.getAttribute('href')||el.getAttribute('name')||el.getAttribute('aria-label')||el.textContent?.trim().slice(0,60)||el.tagName;
-      return {
-        key:String(key),
-        ok:!hidden&&s.display!=='none'&&s.visibility!=='hidden'&&r.width>0&&r.height>0&&r.bottom>0&&r.top<innerHeight&&r.right>0&&r.left<innerWidth,
-        reason:hidden?'inside aria-hidden/inert':`rect ${Math.round(r.left)},${Math.round(r.top)} ${Math.round(r.width)}x${Math.round(r.height)}`,
-      };
-    });
+    const state=await waitForKeyboardFocusState(page);
     seen.add(state.key);
     assert.equal(state.ok,true,`${route}: Tab focus unusable (${state.key}; ${state.reason})`);
   }
