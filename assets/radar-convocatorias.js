@@ -104,7 +104,7 @@
     const status = item.querySelector('[data-radar-status]');
     if (status) {
       if (isWatch) {
-        const watchLabel = item.dataset.watchKind === 'recurring' ? 'Próxima edición a vigilar' : 'Próxima apertura';
+        const watchLabel = item.dataset.watchKind === 'verification' ? 'Pendiente de verificar' : item.dataset.watchKind === 'recurring' ? 'Próxima edición a vigilar' : 'Próxima apertura';
         status.textContent = stale ? 'Verificación caducada' : watchLabel;
       }
       else if (expired) status.textContent = isExpiredCard
