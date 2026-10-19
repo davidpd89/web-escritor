@@ -5,6 +5,7 @@ on:
     paths:
       - 'data/editoriales.json'
       - 'data/radar-opportunities.json'
+      - 'data/radar-sources.json'
       - 'editoriales/**'
       - 'convocatorias-escritores/**'
       - 'assets/editoriales.css'
@@ -32,6 +33,7 @@ on:
     paths:
       - 'data/editoriales.json'
       - 'data/radar-opportunities.json'
+      - 'data/radar-sources.json'
       - 'editoriales/**'
       - 'convocatorias-escritores/**'
       - 'assets/editoriales.css'
