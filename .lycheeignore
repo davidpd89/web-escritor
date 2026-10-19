@@ -107,7 +107,6 @@ https?://([^/]+\.)?davidportodiaz\.com/.*
 # pero agotan el timeout de Lychee en GitHub Actions. Excepciones URL-específicas:
 # no se silencian los dominios completos y futuros enlaces rotos seguirán fallando.
 ^https://volured\.com/voluntsalud/vii-certamen-de-microrrelatos-de-voluntariado/$
-^https://aama\.es/actividades/calendario-de-actividades/$
 ^https://eltransbordador\.es/$
 ^https://eltransbordador\.es/nueva-web/$
 ^https://oralhistory\.org/principles-and-best-practices-revised-2018/$
@@ -115,6 +114,23 @@ https?://([^/]+\.)?davidportodiaz\.com/.*
 # Blogger/Google confirma que esta fuente existe, pero redirige a una pantalla
 # anti-abuso y devuelve 429 a Lychee en CI. Excepcion exacta, no de dominio.
 ^https://almansafeminista\.blogspot\.com/2026/08/iii-concurso-microrrelato-2026-almansa\.html$
+
+# Revisión de concursos 2026-10-19, CI 39219465883: 403 en GitHub Actions,
+# pero 200 y contenido correcto comprobados por separado (PDF de Paracuellos,
+# fichas 2026 de Madrid y evento XII Festival de las Ánimas). Solo estas URLs:
+^https://paracuellosdejarama\.es/sites/default/files/repositorio-archivos/BASES%20Y%20ANEXO%20DE%20PARTICIPACION%202026%20%28V2%29\.pdf$
+^https://sede\.madrid\.es/portal/site/tramites/menuitem\.62876cb64654a55e2dbd7003a8a409a0/\?vgnextchannel=1b8637c190180210VgnVCM100000c90da8c0RCRD&vgnextfmt=d&vgnextoid=2a8178a6d4556810VgnVCM1000001d4a900aRCRD$
+^https://sede\.madrid\.es/portal/site/tramites/menuitem\.62876cb64654a55e2dbd7003a8a409a0/\?vgnextchannel=d4968173cec9c410VgnVCM100000171f5a0aRCRD&vgnextfmt=default&vgnextoid=c54baadeab830a10VgnVCM200000f921e388RCRD$
+^https://www\.festivaldelasanimas\.com/eventos/xii-concurso-de-terror-y-fantasa-festival-de-las-nimas-2026-03-26-12-00/$
+
+# Misma revisión: Cloudflare devuelve un managed challenge 403 a clientes
+# automáticos. La reproducción completa de las bases 2027 se recuperó mediante
+# búsqueda/lectura web; la ficha sigue PENDIENTE de contraste primario, sin ICS.
+^https://www\.finalescerrados\.com/p/cl-xxiii-concurso-prix-hemingway\.html$
+
+# CelebrArt supera los reintentos/timeout de CI; la URL existente se volvió a
+# comprobar con GET 200 y la convocatoria Letras correcta el 2026-10-19.
+^https://premioscelebrart\.com/premio-de-literatura-letras/$
 
 # Las Afueras responde correctamente en navegador, pero devuelve 429 a Lychee
 # tras múltiples peticiones del mismo job. Excepción exacta a la raíz citada;

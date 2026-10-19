@@ -32,7 +32,7 @@ SHARE_IMAGE_HEIGHT = 909
 ALLOWED_TYPES = {"concurso", "premio", "ayuda", "beca", "residencia", "manuscritos"}
 REQ = {"id", "title", "type", "organizer", "deadline", "genres", "source_url", "verified_at", "published", "fee_eur"}
 WATCH_REQ = {"id", "title", "type", "organizer", "genres", "source_url", "verified_at", "published", "status_note", "reference_note"}
-WATCH_KINDS = {"announced", "recurring"}
+WATCH_KINDS = {"announced", "recurring", "verification"}
 # Public-schema allowlists. Unknown keys are rejected rather than silently
 # copied to opportunities.json: this prevents internal research/tracking fields
 # from becoming public if they are ever added to the source dataset.
@@ -158,22 +158,22 @@ def card(item, expired=False):
 <h2>{esc(item['title'])}</h2><p class="radar-org">{esc(item['organizer'])}</p>
 <dl><div><dt>{deadline_term}</dt> <dd><time datetime="{esc(item['deadline'])}">{deadline_label}</time></dd></div><div><dt>Géneros</dt> <dd>{esc(genres)}</dd></div>{prize}{eligibility}{submission_mode}</dl>
 {note}
-<p><a class="button secondary" data-radar-source data-radar-source-type="{esc(item['type'])}" href="{esc(item['source_url'])}" target="_blank" rel="noopener noreferrer">Ver fuente oficial</a></p></article>'''
+<p><a class="button secondary" data-radar-source data-radar-source-type="{esc(item['type'])}" href="{esc(item['source_url'])}" target="_blank" rel="noopener noreferrer">Consultar convocatoria y bases</a></p></article>'''
 
 def watch_card(item):
     genres = ", ".join(item["genres"])
     watch_kind = item.get("watch_kind", "announced")
-    badge = "Próxima apertura" if watch_kind == "announced" else "Próxima edición a vigilar"
+    badge = {"announced": "Próxima apertura", "recurring": "Próxima edición a vigilar", "verification": "Pendiente de verificar"}[watch_kind]
     expected_label = "Próxima apertura" if watch_kind == "announced" else "Cuándo revisar"
     expected = f'<div><dt>{expected_label}</dt> <dd>{esc(item.get("expected_window") or "Fecha aún no publicada")}</dd></div>'
-    reference = f'<div><dt>Referencia oficial</dt> <dd>{esc(item["reference_note"])}</dd></div>'
+    reference = f'<div><dt>Fuente y referencia</dt> <dd>{esc(item["reference_note"])}</dd></div>'
     note = f'<p class="radar-note">{esc(item.get("editorial_note"))}</p>' if item.get("editorial_note") else ""
     return f'''<article class="radar-card radar-card--watch" data-radar-item data-radar-kind="watch" data-watch-kind="{esc(watch_kind)}" data-type="{esc(item['type'])}" data-genres="{esc('|'.join(item['genres']).lower())}" data-title="{esc(item['title'].lower())}" data-organizer="{esc(item['organizer'].lower())}" data-deadline="" data-verified-at="{esc(item['verified_at'])}">
 <div class="radar-card__top"><span class="radar-badge" data-radar-status>{esc(badge)}</span><span>{esc(item['type'].capitalize())}</span></div>
 <h2>{esc(item['title'])}</h2><p class="radar-org">{esc(item['organizer'])}</p>
 <dl><div><dt>Estado</dt> <dd>{esc(item['status_note'])}</dd></div><div><dt>Géneros</dt> <dd>{esc(genres)}</dd></div>{expected}{reference}</dl>
 {note}
-<p><a class="button secondary" data-radar-source data-radar-source-type="{esc(item['type'])}" href="{esc(item['source_url'])}" target="_blank" rel="noopener noreferrer">Ver fuente oficial</a></p></article>'''
+<p><a class="button secondary" data-radar-source data-radar-source-type="{esc(item['type'])}" href="{esc(item['source_url'])}" target="_blank" rel="noopener noreferrer">Consultar convocatoria y bases</a></p></article>'''
 
 
 def watch_items(items, today):
@@ -222,10 +222,10 @@ def render_page_body(items, today, watchlist=None):
     options = lambda values: "\n".join(f'<option value="{esc(value)}">{esc(value.capitalize())}</option>' for value in values)
     watch_section = (
         f'<section class="radar-section radar-section--watch" data-radar-section="watch">'
-        f'<div class="radar-section__head"><p class="eyebrow">Próximamente</p>'
+        f'<div class="radar-section__head"><p class="eyebrow">En seguimiento</p>'
         f'<h2>Próximas aperturas y premios a vigilar</h2>'
-        f'<p>Se separan las ediciones futuras ya anunciadas de los premios recurrentes cuya siguiente convocatoria todavía no está publicada. '
-        f'Estas fichas no se añaden al calendario hasta que haya fecha oficial.</p></div>'
+        f'<p>Se distinguen las próximas aperturas, los premios recurrentes y las convocatorias pendientes de verificar. '
+        f'Las fuentes secundarias y las bases incompletas se identifican en cada ficha. Estas fichas no se añaden al calendario hasta confirmar las bases y el plazo.</p></div>'
         f'<div class="radar-grid" data-radar-grid>{watch_cards}</div></section>'
         if watch_cards else ""
     )
@@ -367,7 +367,7 @@ def render_page_body(items, today, watchlist=None):
   <footer class="site-footer"></footer>
 
   <script defer src="/assets/v1-shell.js?v=16"></script>
-  <script src="/assets/radar-convocatorias.js?v=6" defer></script>
+  <script src="/assets/radar-convocatorias.js?v=7" defer></script>
 </body>
 </html>'''
 

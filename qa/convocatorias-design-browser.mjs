@@ -169,7 +169,7 @@ try {
       assert.equal(await page.locator('.tool-findings-block h2').textContent(), 'Cómo se mantiene este radar', `${name}: bloque metodológico alterado`);
 
       const statuses = await page.locator('[data-radar-status]').allTextContents();
-      const expectedWatchStatuses = RADAR_WATCH.map(item => item.watch_kind === 'recurring' ? 'Próxima edición a vigilar' : 'Próxima apertura');
+      const expectedWatchStatuses = RADAR_WATCH.map(item => item.watch_kind === 'verification' ? 'Pendiente de verificar' : item.watch_kind === 'recurring' ? 'Próxima edición a vigilar' : 'Próxima apertura');
       const expectedExpiredStatuses = RADAR_EXPIRED.map(item => `Cerró el ${new Date(`${item.deadline}T00:00:00Z`).toLocaleDateString('es-ES', { timeZone: 'UTC' })}`);
       assert.deepEqual(statuses.map(value => value.trim()), [...RADAR_ITEMS.map(item => expectedStatus(item.deadline)), ...expectedWatchStatuses, ...expectedExpiredStatuses], `${name}: estados dinámicos no corresponden a los deadlines publicados`);
       assert.equal(await page.locator('[data-radar-relative], .radar-verified').count(), 0, `${name}: quedan la cuenta atras o el «Verificado» en las fichas`);
