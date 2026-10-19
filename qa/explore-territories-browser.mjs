@@ -79,11 +79,13 @@ try {
       await page.evaluate(() => window.scrollTo(0, 0));
       await page.waitForFunction(() => !document.documentElement.classList.contains('lrb-compact'), null, { timeout: 2000 });
     }
-    await page.evaluate(() => window.scrollTo(0, 900));
-    await page.locator('[data-explore-open]').click();
+    await page.evaluate(() => window.scrollTo({ top: 900, behavior: 'instant' }));
+    await page.waitForFunction(() => Math.abs(window.scrollY - 900) < 4);
+    const openerBounds = await page.locator('[data-explore-open]').boundingBox();
+    await page.mouse.click(openerBounds.x + openerBounds.width / 2, openerBounds.y + openerBounds.height / 2);
     await page.keyboard.press('Escape');
     await page.waitForTimeout(150);
-    assert(await page.evaluate(() => Math.abs(window.scrollY - 900) < 4), `${width}: closing restores the original reading position`);
+    assert(await page.evaluate(() => Math.abs(window.scrollY - 900) < 4), `${width}: closing restores the original reading position (actual ${await page.evaluate(() => window.scrollY)})`);
     assert(await page.evaluate(() => document.activeElement.hasAttribute('data-explore-open')), `${width}: closing restores focus`);
     await page.evaluate(() => window.scrollTo(0, 0));
     await page.waitForFunction(() => !document.documentElement.classList.contains('lrb-compact'), null, { timeout: 2000 });
