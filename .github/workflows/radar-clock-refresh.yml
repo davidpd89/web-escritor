@@ -15,6 +15,8 @@ on:
 permissions:
   contents: write
   pull-requests: write
+  actions: write
+  statuses: write
 
 concurrency:
   group: refresh-radar-clock
@@ -23,7 +25,7 @@ concurrency:
 jobs:
   refresh:
     runs-on: ubuntu-latest
-    timeout-minutes: 20
+    timeout-minutes: 110
     steps:
       - name: Checkout latest main
         uses: actions/checkout@v5
@@ -155,14 +157,9 @@ jobs:
             --base main \
             --head "$branch" \
             --title "chore(resources): refresh radar clock ${today}" \
-            --body "Actualización automática del radar al día civil de Madrid \`${today}\`. Generada por \`radar-clock-refresh.yml\`; incluye únicamente los artefactos deterministas permitidos y Pagefind cuando cambia el HTML. Se fusiona sola en cuanto pasen los checks obligatorios (auto-merge); si alguno falla, se queda abierta esperando revisión."
+            --body "Actualización automática del radar al día civil de Madrid \`${today}\`. Solo artefactos deterministas permitidos y Pagefind cuando cambia el HTML. Se ejecutan explícitamente las pruebas sobre este commit; solo se fusiona si todas pasan y las reglas de main lo permiten. Después se solicita el despliegue de Pages. Si alguna fase falla, la ejecución queda en rojo."
 
-          # Auto-merge, no merge directo: GitHub la fusiona cuando los seis
-          # checks obligatorios estan en verde, y si alguno falla la PR se
-          # queda abierta en vez de entrar rota en main. Lo que esta PR
-          # cambia es solo el resultado de regenerar con la fecha de hoy --
-          # el paso anterior ya rechaza cualquier fichero fuera de la lista
-          # permitida -- asi que no hay criterio humano que aportar: hasta
-          # hoy el unico efecto de esperar era que una convocatoria cerrada
-          # siguiera anunciada como abierta hasta que alguien se acordaba.
-          gh pr merge --auto --squash "$branch"
+          # GITHUB_TOKEN does not start normal PR/push CI. Dispatch real CI
+          # explicitly, wait for every result, merge through main rules and
+          # explicitly dispatch Pages. A failed phase fails this job too.
+          python scripts/publish-radar-refresh.py --branch "$branch"

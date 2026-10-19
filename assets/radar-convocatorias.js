@@ -82,7 +82,7 @@
   const clear = document.querySelector('[data-radar-clear]');
   const emptyClear = document.querySelector('[data-radar-empty-clear]');
   const empty = document.querySelector('[data-radar-filter-empty]');
-  const today = todayCivil();
+  let today = todayCivil();
 
   const emit = (event, detail = {}) => document.dispatchEvent(new CustomEvent('dp:analytics', { detail: { event, ...detail } }));
 
@@ -92,7 +92,7 @@
     if (event.target.closest?.('[data-radar-calendar]')) emit('radar_calendar_click');
   });
 
-  items.forEach((item) => {
+  const refreshAvailability = () => items.forEach((item) => {
     const isWatch = item.dataset.radarKind === 'watch';
     const isExpiredCard = item.dataset.radarKind === 'expired';
     const remaining = isWatch ? null : daysUntil(item.dataset.deadline, today);
@@ -179,5 +179,18 @@
 
   clear?.addEventListener('click', clearFilters);
   emptyClear?.addEventListener('click', clearFilters);
+  const refreshClock = () => {
+    const current = todayCivil();
+    if (current?.stamp === today?.stamp) return;
+    today = current;
+    refreshAvailability();
+    apply();
+  };
+  // Long-lived and restored tabs must stop advertising expired deadlines too.
+  // Visibility/pageshow cover suspended background timers and bfcache restores.
+  setInterval(refreshClock, 60000);
+  document.addEventListener('visibilitychange', refreshClock);
+  window.addEventListener('pageshow', refreshClock);
+  refreshAvailability();
   apply();
 })();
