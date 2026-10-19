@@ -107,7 +107,6 @@ https?://([^/]+\.)?davidportodiaz\.com/.*
 # pero agotan el timeout de Lychee en GitHub Actions. Excepciones URL-específicas:
 # no se silencian los dominios completos y futuros enlaces rotos seguirán fallando.
 ^https://volured\.com/voluntsalud/vii-certamen-de-microrrelatos-de-voluntariado/$
-^https://aama\.es/actividades/calendario-de-actividades/$
 ^https://eltransbordador\.es/$
 ^https://eltransbordador\.es/nueva-web/$
 ^https://oralhistory\.org/principles-and-best-practices-revised-2018/$
