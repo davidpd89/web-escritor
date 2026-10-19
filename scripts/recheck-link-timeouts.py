@@ -20,7 +20,7 @@ def timeout_urls(report: str) -> list[str]:
     if not failures or any(status not in retryable or not url.startswith(('https://', 'http://')) for status, url in failures):
         raise ValueError('Only timeout/transient 5xx failures can be rechecked')
     for line in report.splitlines():
-        if re.search(r'\b(?:Errors|Unknown|Unsupported)\b', line):
+        if line.lstrip().startswith('|') and re.search(r'\b(?:Errors|Unknown|Unsupported)\b', line):
             cells = line.split('|')
             if len(cells) < 3 or not cells[2].strip().isdigit():
                 raise ValueError('Unknown failure summary format')
