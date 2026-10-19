@@ -2,6 +2,7 @@ import { chromium } from 'playwright';
 import assert from 'node:assert/strict';
 import fs from 'node:fs/promises';
 import path from 'node:path';
+import { assertRadarLiveClock } from './radar-live-clock-contract.mjs';
 
 const origin=process.env.QA_ORIGIN||'http://127.0.0.1:4173';
 const out=process.env.QA_OUT||'qa-artifacts';
@@ -164,5 +165,6 @@ for(const w of [390,1440]){
   await p.keyboard.press('Tab');assert.notEqual(await p.evaluate(()=>document.activeElement?.tagName),'BODY');await c.close();
 }
 assert.deepEqual(errors,[],`Browser errors:\n${errors.join('\n')}`);
+await assertRadarLiveClock(browser, origin);
 await browser.close();
 console.log(`OK professional resources browser QA (${editorialData.length} editoriales, ${radarItems.length} abiertas, ${radarWatch.length} próximas)`);

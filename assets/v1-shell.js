@@ -584,16 +584,9 @@
     };
     const update = () => {
       const compact = window.scrollY > compactAt || root.classList.contains('explore-open');
-      // Chromium resets the whole page's scroll position to 0 when focus
-      // lands on a descendant of a position:sticky ancestor (the utility
-      // bar) -- a long-standing browser quirk, not something this site
-      // triggers. Left alone, that reset fires this same scroll handler,
-      // computes compact=false and hides the very hamburger that just
-      // received focus, so a keyboard user tabbing to it mid-scroll would
-      // watch their target vanish under them. While focus sits inside the
-      // header, only allow entering compact, never leaving it -- checked
-      // against the reset-to-0 case too, not just a partial scroll-up.
-      if (!compact && root.classList.contains('lrb-compact') && document.activeElement?.closest?.('.site-header')) return;
+      // The Home opener now stays visible in both header states (v1-home.css).
+      // Do not latch compact mode while it has focus: closing Explorar restores
+      // that focus, which used to prevent the masthead from ever returning.
       root.classList.toggle('lrb-compact', compact);
       if (compact) closeSubmenus();
     };

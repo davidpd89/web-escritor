@@ -169,3 +169,9 @@ https?://([^/]+\.)?davidportodiaz\.com/.*
 # (verificada el 2026-10-07), pero Shopify devuelve 403 al cliente de Lychee.
 # Excepcion exacta: el resto del dominio sigue sometido al control de enlaces.
 ^https://shop\.crononauta\.es/pages/contact$
+
+# JANUS: tres ejecuciones de Lychee en GitHub reciben 403 de Shopify.
+# GET y Chromium normales verificados el 2026-10-19: HTTP 200, bases del
+# concurso de relatos y cierre 30/10/2026 presentes. Solo esta URL exacta;
+# el resto del dominio y los fallos de otras fuentes siguen bajo control.
+^https://fermentar\.org/pages/concurso-de-relatos$

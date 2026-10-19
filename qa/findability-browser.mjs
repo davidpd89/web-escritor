@@ -86,7 +86,8 @@ async function assertStructure(page,key){
   for(let i=0;i<await navs.count();i++)assert((await navs.nth(i).getAttribute('aria-label'))||await navs.nth(i).locator('h2').count(),`${key}: nav sin nombre accesible`);
   const headings=await page.locator('h1,h2,h3').evaluateAll(nodes=>nodes.map(n=>({level:Number(n.tagName[1]),text:n.textContent.trim()})));
   let prev=1; for(const h of headings){assert(h.text,`${key}: heading vacío`);assert(h.level<=prev+1,`${key}: salto de heading H${prev}->H${h.level}`);prev=h.level;}
-  const links=page.locator('a[href]'); for(let i=0;i<await links.count();i++)assert((await links.nth(i).innerText()).trim()||await links.nth(i).getAttribute('aria-label'),`${key}: enlace sin propósito textual`);
+  // Closed native details retain useful anchors in HTML without rendered text.
+  const links=page.locator('a[href]'); for(let i=0;i<await links.count();i++)assert((await links.nth(i).textContent()).trim()||await links.nth(i).getAttribute('aria-label'),`${key}: enlace sin propósito textual`);
 }
 async function checkTouchTargets(page,key){
   const targets=page.locator('.findability-links a,.directory-list a,.findability-primary,.findability-plain-list a');
@@ -139,6 +140,17 @@ async function runResponsive(browser,report){
 }
 async function runContracts(browser,report){
   {
+    const c=await browser.newContext({viewport:{width:390,height:900},javaScriptEnabled:false}),p=await c.newPage();
+    await p.goto(`${ORIGIN}/mapa-del-sitio/`);
+    const details=p.locator('.directory-publishers');
+    assert(await details.locator('a').first().isHidden());
+    await details.locator('summary').click();
+    assert(await details.locator('a').first().isVisible(),'Mapa: el desplegable debe funcionar sin JavaScript');
+    await details.locator('a').first().click();
+    assert.equal(new URL(p.url()).pathname,'/editoriales/adel-editores/');
+    await c.close();
+  }
+  {
     const c=await browser.newContext({viewport:{width:1024,height:900}}),p=await c.newPage();await p.goto(`${ORIGIN}/empieza-aqui/`);
     const man=registry.get('/las-manecillas-del-recuerdo/'),sam=registry.get('/libros/samuel-entre-mundos/');assert(man&&sam);
     assert.equal(await p.locator(`main a[href="${man.url}"]`).count()>0,true);assert.equal(await p.locator(`main a[href="${sam.url}"]`).count()>0,true);
@@ -153,6 +165,14 @@ async function runContracts(browser,report){
     const nonPublic=[...registry.values()].filter(e=>e.status!=='public').map(e=>e.url);
     for(const blocked of nonPublic)assert(!hrefs.includes(blocked),`Mapa: destino no público filtrado por registry: ${blocked}`);
     assert(hrefs.includes('/herramientas/'),'Mapa: falta hub Herramientas');assert(hrefs.includes('/editoriales/'),'Mapa: falta Editoriales');assert(hrefs.includes('/convocatorias-escritores/'),'Mapa: falta Convocatorias');
+    const disclosure=p.locator('.directory-publishers');
+    assert.equal(await disclosure.getAttribute('open'),null,'Mapa: editoriales recogidas al entrar');
+    const publisherLinks=disclosure.locator('a[href^="/editoriales/"]');
+    assert.equal(await publisherLinks.count(),JSON.parse(fs.readFileSync('editoriales/editoriales-data.json','utf8')).publishers.length,'Mapa: conservar todos los enlaces estáticos');
+    assert(await publisherLinks.first().isHidden());
+    await disclosure.locator('summary').focus();await p.keyboard.press('Enter');
+    assert(await publisherLinks.first().isVisible(),'Mapa: desplegable accesible por teclado');
+    await p.keyboard.press('Space');assert(await publisherLinks.first().isHidden());
     report.contracts.map={groups:await p.locator('.directory-group').count(),nonPublicExcluded:true,publicHubs:true};await c.close();
   }
   {

@@ -23,7 +23,7 @@ const server = createServer((req, res) => {
   res.end(fs.readFileSync(file));
 });
 await new Promise((resolve) => server.listen(0, '127.0.0.1', resolve));
-const ORIGIN = `http://127.0.0.1:${server.address().port}`;
+const ORIGIN = process.env.QA_ORIGIN || `http://127.0.0.1:${server.address().port}`;
 const browser = await chromium.launch({
   headless: true,
   ...(process.env.QA_CHROMIUM_EXECUTABLE_PATH ? { executablePath: process.env.QA_CHROMIUM_EXECUTABLE_PATH } : {}),
@@ -50,6 +50,48 @@ async function assertVisibleDirectWorkLinks(page, scope) {
 }
 
 try {
+  // A focused opener must not latch the Home masthead in compact mode.
+  // Exercise both real scrolling and the scroll reset caused by dialog focus.
+  for (const width of [390, 768, 1440]) {
+    const context = await browser.newContext({ viewport: { width, height: 900 }, reducedMotion: 'reduce' });
+    const page = await context.newPage();
+    await page.addInitScript(() => sessionStorage.setItem('dp-intro-seen', '1'));
+    await page.goto(`${ORIGIN}/`, { waitUntil: 'load' });
+    for (const closeWith of ['button', 'Escape', 'backdrop']) {
+      await page.locator('[data-explore-open]').click();
+      await page.evaluate(() => window.scrollTo(0, 900));
+      await page.waitForFunction(() => document.documentElement.classList.contains('lrb-compact'));
+      await page.evaluate(() => window.scrollTo(0, 0));
+      if (closeWith === 'button') await page.locator('[data-explore-close]').click();
+      else if (closeWith === 'Escape') await page.keyboard.press('Escape');
+      else {
+        const bounds = await page.locator('[data-explore-dialog]').boundingBox();
+        if (bounds.x + bounds.width < width - 2) await page.mouse.click(width - 2, 450);
+        else await page.locator('[data-explore-dialog]').evaluate(el => el.dispatchEvent(new MouseEvent('click', { bubbles: true })));
+      }
+      await page.waitForFunction(() => !document.querySelector('[data-explore-dialog]').open);
+      await page.waitForFunction(() => !document.documentElement.classList.contains('lrb-compact'), null, { timeout: 2000 });
+      assert(await page.locator('.masthead-sticky').isVisible(), `${width}/${closeWith}: masthead must recover`);
+      assert(await page.locator('[data-explore-open]').isVisible(), `${width}/${closeWith}: opener must stay reachable`);
+      // Continue scrolling while focus is still on the restored opener.
+      await page.evaluate(() => window.scrollTo(0, 900));
+      await page.waitForFunction(() => document.documentElement.classList.contains('lrb-compact'));
+      await page.evaluate(() => window.scrollTo(0, 0));
+      await page.waitForFunction(() => !document.documentElement.classList.contains('lrb-compact'), null, { timeout: 2000 });
+    }
+    await page.evaluate(() => window.scrollTo({ top: 900, behavior: 'instant' }));
+    await page.waitForFunction(() => Math.abs(window.scrollY - 900) < 4);
+    const openerBounds = await page.locator('[data-explore-open]').boundingBox();
+    await page.mouse.click(openerBounds.x + openerBounds.width / 2, openerBounds.y + openerBounds.height / 2);
+    await page.keyboard.press('Escape');
+    await page.waitForTimeout(150);
+    assert(await page.evaluate(() => Math.abs(window.scrollY - 900) < 4), `${width}: closing restores the original reading position (actual ${await page.evaluate(() => window.scrollY)})`);
+    assert(await page.evaluate(() => document.activeElement.hasAttribute('data-explore-open')), `${width}: closing restores focus`);
+    await page.evaluate(() => window.scrollTo(0, 0));
+    await page.waitForFunction(() => !document.documentElement.classList.contains('lrb-compact'), null, { timeout: 2000 });
+    await context.close();
+  }
+
   // Mobile + keyboard contract.
   {
     const context = await browser.newContext({ viewport: { width: 390, height: 900 }, hasTouch: true });

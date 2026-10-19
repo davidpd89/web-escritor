@@ -5,6 +5,7 @@ on:
     paths:
       - 'data/editoriales.json'
       - 'data/radar-opportunities.json'
+      - 'data/radar-sources.json'
       - 'editoriales/**'
       - 'convocatorias-escritores/**'
       - 'assets/editoriales.css'
@@ -23,6 +24,7 @@ on:
       - 'tests/test-radar-refresh-schedule.py'
       - '.github/workflows/radar-clock-refresh.yml'
       - 'tests/test-radar-dates.mjs'
+      - 'qa/radar-live-clock-contract.mjs'
       - 'qa/pro-resources-browser.mjs'
       - 'lighthouserc-pro-resources.json'
       - '.github/workflows/pro-resources-qa.yml'
@@ -31,6 +33,7 @@ on:
     paths:
       - 'data/editoriales.json'
       - 'data/radar-opportunities.json'
+      - 'data/radar-sources.json'
       - 'editoriales/**'
       - 'convocatorias-escritores/**'
       - 'assets/editoriales.css'
@@ -49,6 +52,7 @@ on:
       - 'tests/test-radar-refresh-schedule.py'
       - '.github/workflows/radar-clock-refresh.yml'
       - 'tests/test-radar-dates.mjs'
+      - 'qa/radar-live-clock-contract.mjs'
       - 'qa/pro-resources-browser.mjs'
       - 'lighthouserc-pro-resources.json'
       - '.github/workflows/pro-resources-qa.yml'
