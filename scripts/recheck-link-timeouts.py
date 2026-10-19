@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Independently recheck only Lychee TIMEOUT results; require actual HTTP 2xx."""
+"""Recheck Lychee timeouts/transient 5xx independently; require actual HTTP 2xx."""
 from __future__ import annotations
 
 import argparse
@@ -14,15 +14,20 @@ UA = 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like 
 
 
 def timeout_urls(report: str) -> list[str]:
-    failures = re.findall(r'^\* \[([^\]]+)\] <(https?://[^>]+)>', report, re.M)
+    failures = re.findall(r'^\* \[([^\]]+)\] <([^>]+)>', report, re.M)
     # Never hide HTTP errors, unsupported URLs or an unexpected report format.
-    if not failures or any(status != 'TIMEOUT' for status, _ in failures):
-        raise ValueError('Only reports containing exclusively TIMEOUT failures can be rechecked')
+    retryable = {'TIMEOUT', '500', '502', '503', '504'}
+    if not failures or any(status not in retryable or not url.startswith(('https://', 'http://')) for status, url in failures):
+        raise ValueError('Only timeout/transient 5xx failures can be rechecked')
     for line in report.splitlines():
         if re.search(r'\b(?:Errors|Unknown|Unsupported)\b', line):
             cells = line.split('|')
-            if len(cells) >= 3 and cells[2].strip().isdigit() and int(cells[2]) != 0:
-                raise ValueError('Report also contains non-timeout failures')
+            if len(cells) < 3 or not cells[2].strip().isdigit():
+                raise ValueError('Unknown failure summary format')
+            count = int(cells[2])
+            expected = sum(status != 'TIMEOUT' for status, _ in failures) if 'Errors' in line else 0
+            if count != expected:
+                raise ValueError('Report contains failures not covered by the parsed transient URLs')
     return sorted({url for _, url in failures})
 
 

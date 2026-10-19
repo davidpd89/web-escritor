@@ -11,7 +11,8 @@ spec.loader.exec_module(module)
 url = 'https://example.org/bases.pdf'
 report = f'| Errors | 0 |\n| Unknown | 0 |\n| Unsupported | 0 |\n* [TIMEOUT] <{url}>\n* [TIMEOUT] <{url}>\n'
 assert module.timeout_urls(report) == [url]
-for invalid in ['', '* [404] <https://example.org/missing>', report+'* [403] <https://example.org/blocked>', report.replace('Errors | 0','Errors | 1')]:
+assert module.timeout_urls('| Errors | 1 |\n* [503] <https://example.org/busy>') == ['https://example.org/busy']
+for invalid in ['', '* [404] <https://example.org/missing>', '* [301] <https://example.org/loop>', '* [500] <file:///private>', report+'* [403] <https://example.org/blocked>', report.replace('Errors | 0','Errors | 1')]:
     try:
         module.timeout_urls(invalid)
         raise AssertionError('must not accept non-timeout failures or unknown output')
