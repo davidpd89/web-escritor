@@ -29,7 +29,9 @@ se corrige la URL de AAMA hacia la página que enlaza las bases.
 - **Relatos Subversivos:** se recuperan y revisan las bases originales de los
   convocantes y su documento de aceptación, enlazados en Drive público.
 - **Gabriel Aresti:** el boletín oficial confirma la 43.ª edición; se descarta la
-  numeración errónea de la ficha informativa.
+  numeración errónea de la ficha informativa. Se enlaza la ficha institucional de
+  Euskadi que da acceso al boletín porque el servidor del PDF tiene bloqueos
+  intermitentes.
 - **Arteaula:** apertura oficial del 15 de enero al 30 de abril de 2027. Permanece
   como próxima apertura y fuera del calendario de convocatorias abiertas.
 - **Belgrano 2026, Prix Hemingway 2027, Valdemembra, Aurelio González Ovies y
@@ -49,3 +51,7 @@ de AAMA al calendario. Los contratos existentes comprueban privacidad del esquem
 sincronización HTML/JSON/ICS, reloj de Madrid, caducidad y reconstrucción
 determinista. La QA de navegador comprueba filtros, exportaciones, estados y diseño
 en los tamaños de pantalla definidos por el repositorio.
+
+Los bloqueos de HTTP automatizado se revisaron contra el informe de CI
+39219465883. Las excepciones de `.lycheeignore` se limitan a las URL concretas
+comprobadas; no se excluyen dominios nuevos completos ni se aceptan 404/410.
