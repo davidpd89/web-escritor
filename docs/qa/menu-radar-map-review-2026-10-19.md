@@ -8,6 +8,7 @@
 - Mapa humano: las 150 fichas editoriales quedan en un `details` nativo cerrado inicialmente. El enlace al directorio sigue visible; no se elimina ningún enlace HTML ni URL del sitemap XML.
 - Enlaces externos: JANUS devuelve 403 al robot de GitHub, pero sus bases responden 200 en GET y Chromium normales; se documenta una excepción exacta. Para informes que solo contienen tiempos agotados o 500/502/503/504 se añade una segunda comprobación mediante cURL/IPv4, limitada a esas URL. Exige un 2xx real tras seguir redirecciones. Cualquier 4xx, error no temporal, informe desconocido o reintento fallido conserva el fallo; no se aceptan estados finales nuevos ni se excluyen dominios.
 - Elena Santiago: la comprobación independiente identifica que la noticia del ILC agota el tiempo también fuera de GitHub. Se sustituye por el PDF oficial firmado que enlaza esa misma noticia y responde 200. Se vuelven a contrastar fecha, premio, extensión y requisitos territoriales/de trayectoria; sigue vencida y fuera del calendario activo.
+- Getafe Negro: la noticia del festival responde 200 en navegación normal, pero GitHub no consigue conectar por TLS ni con cURL/IPv4. Se usa la página oficial de Escuela de Escritores, coorganizadora, con la edición XIX, el mismo plazo y el formulario de participación. Se contrasta de nuevo el contenido; no se añade una excepción de red para esta fuente.
 
 ## Evidencia y alcance
 
