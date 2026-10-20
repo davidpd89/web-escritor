@@ -80,3 +80,31 @@ Hay un matiz: el workflow `deploy-pages.yml` solo deriva URLs cambiadas para Ind
 6. Priorizar completar **ingesta → libro publicable → generador → despliegue**. Nuevos filtros, estudios SEO avanzados y Pinterest son posteriores. El cliente quiere mantenimiento 0 tokens/0 euros, no más paneles o herramientas.
 
 **Pendiente real:** investigación de licencias de cada origen concreto de portadas, feeds editoriales publicados, conexión de fuente real al generador, configuración de API key y disparo de Pages. Estos puntos **no están resueltos por los proyectos analizados**. No habilitar autocarga masiva hasta la prueba en al menos una rama y comprobación del despliegue.
+
+
+## G. Segunda comprobación y correcciones efectivas (20/10/2026, revisión posterior)
+
+Referencias oficiales actuales: [Google Books `volumes.list`](https://developers.google.com/books/docs/v1/reference/volumes/list) documenta `orderBy=newest`, `showPreorders`, `maxResults<=40`; [Open Library API](https://openlibrary.org/developers/api) se actualizó el **9/10/2026** y declara expresamente que no es backend para harvesting comercial masivo; [Google Search `Book`](https://developers.google.com/search/docs/appearance/structured-data/book) separa **obra** de **edición** y exige ISBN de edición para casar registros. **No presentar a Google Books como feed exhaustivo de lanzamientos ni a Open Library como backend principal diario.**
+
+**Error corregido en `scripts/reading_intake_fetch.py`:** antes el contador `max_requests` solo se incrementaba tras una respuesta HTTP **correcta**. Con 403/429/timeout repetidos, podía intentar **muchos más requests de los configurados** al iterar por todos los sellos. Ahora cada llamada intentada consume presupuesto, aunque falle, y `tests/test_reading_intake_fetch.py::test_failed_requests_still_consume_daily_budget` comprueba el comportamiento con una fuente que falla siempre. El `Retry-After` permanece acotado; los reintentos individuales son pequeños pero conviene medirlos aparte como **intentos HTTP** cuando el servicio se habilite. No leer la clave API de los logs.
+
+**NUEVO `scripts/reading_editorial_metadata.py` y `tests/test_reading_editorial_metadata.py`:** extractor autónomo, sin red, de las etiquetas `<script type="application/ld+json">` **del HTML editorial que Codex ya haya recuperado de forma permitida**. Busca tipos `Book` (incluidas páginas `@graph`), contrasta ISBN13 e ISBN10, extrae **título, autor, sello, `datePublished` con precisión, portada HTTPS y URL de ficha editorial**. Ignora `Product` sueltos, ISBN diferentes, JSON inválido y campos ausentes. **No hace scraping HTTP ni copia sinopsis** y NO resuelve por sí solo el descubrimiento de novedades: hay que programar adaptadores individuales para catálogos/feeds de los sellos que realmente publiquen datos.
+
+El extractor ofrece una forma barata de **corroborar fecha y cubierta de la edición** antes de marcar `fecha_publicacion` como novedad o publicar una ficha; junto con Google Books permite minimizar llamadas a GPT (cero por diseño).
+
+### Secuencia de integración obligatoria, sin nuevos sistemas
+
+1. Ejecutar todas las pruebas del branch (los dos comandos del workflow `reading-intake-qa.yml`), más `python scripts/reading_intake_fetch.py --fixture tests/fixtures/reading-google-books-2026.json --today 2026-10-20`. **No escribir estado en `main` a partir de fixture.**
+2. Leer `data/editoriales.json` (fuente canónica, no duplicar 150 slugs), distribuir el presupuesto de Google Books entre sellos y guardar en staging solo ISBN válidos.
+3. Aplicar fuentes editoriales **oficiales y específicas** para el ISBN detectado. Buscar una página/producto del sello a partir de URL editorial validada; recuperar JSON-LD público y comprobar coincidencia **exacta de ISBN de edición**. Datos incompatibles quedan pendientes, no se pisa una edición ya corregida.
+4. Enriquecer plantilla web con portada auténtica, categorías y texto útil no inventado; preparar link directo Amazon si ASIN verificado o alternativa **rotulada como búsqueda** por ISBN. No resolver ISBN→ASIN mágicamente ni atribuir venta.
+5. Regenerar ficheros web y la relación autor/editorial, aplicar tests y desplegar **únicamente el lote realmente cambiado**. Aprovechar `deploy-pages.yml`, no crear otro hosting.
+6. Luego conectar la PR **#662**: regenerar el RSS en el mismo lote, respetar cola de pines y publicar solo tras verificar el dominio de Pinterest y conectar cada RSS al tablero adecuado. Si no hay nuevos libros, el cron diario **aun así debe avanzar el RSS** para que salgan los pines cuya fecha de cola ha llegado.
+
+### Coste, límites y trabajo pendiente sin ocultarlo
+
+La ingesta puede consumir **cero tokens de IA y cero licencias de software**; eso no garantiza cuota ilimitada en Google Books, datos editoriales completos, permiso automático de portadas ni disponibilidad en Amazon. La publicación RSS Pinterest no requiere API v5 ni OAuth, pero **sí cuenta Business, dominio reclamado y conexión de feeds en la cuenta**, pasos manuales una sola vez.
+
+Google `Book` schema: **no copiar el ejemplo de Google "Book actions" con `ReadAction` como si la web fuese un vendedor directo**; son feeds para proveedores que participan en una funcionalidad específica, no una mejora SEO automática para cualquier blog. Mantener `Book` + `WebPage` de las fichas existentes con ISBN y autor verificados.
+
+**Diferencia clave del proyecto:** no convertir el objetivo de "muchos libros" en cientos de páginas pobres. Medir libros descubiertos, confirmados, completos y realmente publicados; generar un informe de excepciones por fuente y aplicar un máximo de altas por lote.
