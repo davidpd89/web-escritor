@@ -54,7 +54,7 @@ def resolve_publishers(editoriales: dict, overrides: list[dict] | None = None,
             continue
         # The books API sometimes omits "Editorial"/"Ediciones" prefixes:
         # "Hidra" and "Editorial Hidra" denote the same canonical site slug.
-        short_name = re.sub(r"^(?:Editorial|Ediciones)\\s+", "",
+        short_name = re.sub(r"^(?:Editorial|Ediciones)\s+", "",
                             record["name"], flags=re.IGNORECASE)
         aliases = list(dict.fromkeys([
             record["name"],
