@@ -91,6 +91,14 @@ class ContractTests(unittest.TestCase):
         self.assertNotIn('formatos_compra', self.book)
         self.assertNotIn('aggregateRating', self.book)
 
+    def test_long_seo_titles_remain_bounded_and_distinct(self):
+        self.book['titulo'] = 'Un título muy largo ' * 12
+        title = builder.book_title(self.book)
+        self.assertLessEqual(len(title), 75)
+        self.assertIn(self.book['isbn13'], title)
+        other = {**self.book, 'isbn13': '9780140449136'}
+        self.assertNotEqual(title, builder.book_title(other))
+
     def test_partial_publication_never_gets_fake_day(self):
         self.record.update(precision_fecha='mes', fecha_publicacion_edicion='2026-10')
         b = make_book(self.record, {'name': 'Salamandra', 'slug': 'salamandra'}, 'davidporto-21', '2026-10-20', '/cover.webp', (600, 900))

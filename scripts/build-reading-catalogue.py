@@ -216,6 +216,17 @@ def novelty(b, fallback):
     return '<span data-release-label="' + esc(b.get('fecha_publicacion', '')) + '" data-release-fallback="' + esc(fallback) + '">' + esc(fallback) + '</span>'
 
 
+def book_title(b):
+    base = b['titulo'] + ' · ' + ', '.join(b['autores'])
+    full = base + ' | Libros recomendados'
+    if len(full) <= 75:
+        return full
+    if len(base) <= 75:
+        return base
+    suffix = ' · ' + (b.get('isbn13') or hashlib.sha256(b['id'].encode()).hexdigest()[:8])
+    return b['titulo'][:74-len(suffix)].rsplit(' ', 1)[0] + '…' + suffix
+
+
 def author_records(root=ROOT):
     path = root / 'data/reading-authors.json'
     if not path.exists():
@@ -294,7 +305,7 @@ def render_hub(data, books, template):
 
 def render_book(data,b,template):
     canonical=SITE+url(b)
-    title=b['titulo']+' · '+', '.join(b['autores'])+' | Libros recomendados'
+    title=book_title(b)
     description=b['descripcion_breve']
     cats=categories(data,b)
     rows=[('Edición',b['edicion']),('Editorial',b.get('editorial')),('Publicación',b.get('fecha_publicacion') or b.get('fecha_publicacion_parcial') or b.get('anio_publicacion')),('ISBN-13',b.get('isbn13')),('Idioma',b.get('idioma')),('Páginas',b.get('numero_paginas')),('Edad orientativa',b.get('edad_recomendada'))]
@@ -343,6 +354,8 @@ def render_book(data,b,template):
 
 
 def render_detail_page(template,main,canonical,title,description,schema,b=None):
+    if len(title) > 75:
+        title = title[:63].rsplit(' ', 1)[0] + ' · ' + hashlib.sha256(canonical.encode()).hexdigest()[:8]
     page=template.replace('{{catalogue}}','')
     page=re.sub(r'<main\b[\s\S]*?</main>',lambda _:main,page,count=1)
     page=re.sub(r'<title>.*?</title>',lambda _:'<title>'+esc(title)+'</title>',page,count=1)
