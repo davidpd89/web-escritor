@@ -12,8 +12,17 @@
       "description": "Novedades editoriales y próximos libros de fantasía juvenil, romantasy y ficción especulativa en español. Fichas de lectura con ISBN y fecha.",
       "priority": 10,
       "recent_days": 90,
-      "categories": [],
-      "keyword": "novedades de fantasía"
+      "categories": [
+        "fantasia",
+        "fantasia-juvenil",
+        "romantasy",
+        "fantasia-oscura",
+        "portales",
+        "mundos-paralelos",
+        "magia-con-coste"
+      ],
+      "keyword": "novedades de fantasía",
+      "category_match_mode": "date_and_category"
     },
     {
       "slug": "terror-fantasia-oscura",
