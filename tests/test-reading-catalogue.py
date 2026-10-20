@@ -107,6 +107,10 @@ with tempfile.TemporaryDirectory() as tmp:
     assert len(m.registry_entries([b])) == 1
     human_map = m.render_map('<main><a href="/cuaderno/">Cuaderno</a></main>', [b])
     assert m.url(b) in human_map and m.render_map(human_map, [b]) == human_map
+    real_authors = m.author_records(ROOT)
+    real_map = m.render_map('<main></main>', m.validate(original, ROOT), real_authors)
+    assert '/recomendaciones/autores/neil-gaiman/' in real_map
+    assert m.render_map(real_map, m.validate(original, ROOT), real_authors) == real_map
     sitemap_spec = importlib.util.spec_from_file_location('reading_sitemap', ROOT / 'scripts/build-sitemap.py')
     sitemap = importlib.util.module_from_spec(sitemap_spec)
     sitemap_spec.loader.exec_module(sitemap)

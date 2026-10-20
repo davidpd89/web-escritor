@@ -342,13 +342,16 @@ def registry_entries(books):
     return [{"id": "reading-book-" + b["id"], "url": url(b), "label": b["titulo"], "shortLabel": b["titulo"], "type": "article", "territory": "cuaderno", "parentId": "recommendations-hub", "hubId": "notebook-hub", "discoverability": "secondary", "audience": ["reader"], "jobs": ["buscar-lecturas"], "sourceFile": url(b).lstrip('/') + 'index.html'} for b in books]
 
 
-def render_map(original, books):
+def render_map(original, books, authors=()):
     start, end = '<!-- reading-catalogue-map:start -->', '<!-- reading-catalogue-map:end -->'
     original = re.sub(re.escape(start) + r'[\s\S]*?' + re.escape(end) + r'\n?', '', original)
     if not books:
         return original
     links = ''.join(f'<li><a href="{url(b)}">{esc(b["titulo"])} — {esc(", ".join(b["autores"]))}</a></li>' for b in books)
+    author_links = ''.join(f'<li><a href="{author_url(a)}">{esc(a["nombre"])}</a></li>' for a in authors if any(a['nombre'] in b['autores'] for b in books))
     block = start + '<section class="directory-section"><h2>Libros recomendados</h2><p><a href="/recomendaciones/">Explorar el catálogo de lectura</a></p><details class="directory-reading-books"><summary>Ver las fichas de lectura</summary><ul class="directory-list">' + links + '</ul></details></section>' + end + '\n'
+    if author_links:
+        block = block.replace('</section>', '<details class="directory-reading-books"><summary>Ver autores del catálogo</summary><ul class="directory-list">' + author_links + '</ul></details></section>')
     require('</main>' in original, 'Mapa del sitio sin main')
     return original.replace('</main>', block + '</main>', 1)
 
@@ -363,14 +366,14 @@ def main():
     try:
         data = json.loads((args.data or root / 'data/reading-catalogue.json').read_text(encoding='utf-8'))
         books = validate(data, root)
+        authors = author_records(root)
         template = (root / 'scripts/templates/reading-catalogue.html.tmpl').read_text(encoding='utf-8')
         outputs = {'recomendaciones/index.html': render_hub(data, books, template)}
         map_path = root / 'mapa-del-sitio/index.html'
         if map_path.exists():
-            outputs['mapa-del-sitio/index.html'] = render_map(map_path.read_text(encoding='utf-8'), books)
+            outputs['mapa-del-sitio/index.html'] = render_map(map_path.read_text(encoding='utf-8'), books, authors)
         for b in books:
             outputs[url(b).lstrip('/') + 'index.html'] = render_book(data, b, template)
-        authors = author_records(root)
         active_authors = [a for a in authors if any(a['nombre'] in b['autores'] for b in books)]
         for a in active_authors:
             outputs[author_url(a).lstrip('/') + 'index.html'] = render_author(a, data, books, template)
