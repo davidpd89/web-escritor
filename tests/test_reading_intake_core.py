@@ -25,6 +25,7 @@ class IntakeCoreTests(unittest.TestCase):
         self.assertEqual(core.isbn13("8498382378"), "9788498382372")
         self.assertIsNone(core.isbn13("9788498382373"))
         self.assertIsNone(core.isbn13("not-an-isbn"))
+        self.assertEqual(core.isbn13("9791300000005"), "9791300000005")  # bloque español 979-13
 
     def test_date_precision_and_invalid_dates(self):
         self.assertEqual(core.edition_date("2026"), ("2026", "anio"))
@@ -48,7 +49,7 @@ class IntakeCoreTests(unittest.TestCase):
         self.assertEqual(core.publisher_slug("NOCTURNA EDICIONES", publishers), "nocturna-ediciones")
         self.assertIsNone(core.publisher_slug("Independently published", publishers))
         self.assertIsNone(core.publisher_slug("Salamandra de autores independientes", publishers))
-        self.assertIsNone(core.publisher_slug("Nova", publishers))  # semilla deshabilitada
+        self.assertEqual(core.publisher_slug("Nova", publishers), "nova")
 
     def test_affiliate_search_is_not_product(self):
         item = core.affiliate_destination("9788498382372", "davidporto-21")
@@ -87,6 +88,9 @@ class IntakeCoreTests(unittest.TestCase):
         self.assertEqual(item["candidate_key"], "isbn13:9788498382372")
         self.assertEqual(item["precision_fecha"], "mes")
         self.assertEqual(item["editorial_sello_slug"], "salamandra")
+        # "OTHER" is never used as ISBN if no explicit ISBN entry exists.
+        vol["volumeInfo"]["industryIdentifiers"] = [{"type": "OTHER", "identifier": "9788498382372"}]
+        self.assertIsNone(core.google_books_candidate(vol, CONFIG["publishers"]))
         vol["volumeInfo"]["publisher"] = "Independently published"
         self.assertIsNone(core.google_books_candidate(vol, CONFIG["publishers"]))
 
