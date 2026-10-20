@@ -154,9 +154,14 @@ def google_books_candidate(volume: dict, allowed: list[dict]) -> dict | None:
     slug = publisher_slug(info.get("publisher", ""), allowed)
     if slug is None:
         return None
-    isbns = [isbn13(item.get("identifier", ""))
-             for item in info.get("industryIdentifiers", [])]
-    valid = next((item for item in isbns if item is not None), None)
+    # Prefer an explicitly tagged ISBN-13 for the selected edition.
+    # Never silently treat a valid-looking "OTHER" identifier as a book ISBN.
+    identifiers = info.get("industryIdentifiers") or []
+    primary = [isbn13(i.get("identifier", "")) for i in identifiers
+               if i.get("type") == "ISBN_13"]
+    fallback = [isbn13(i.get("identifier", "")) for i in identifiers
+                if i.get("type") == "ISBN_10"]
+    valid = next((x for x in primary + fallback if x is not None), None)
     if valid is None or not info.get("title") or not info.get("authors"):
         return None
     published, precision = edition_date(info.get("publishedDate") or "")
