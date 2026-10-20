@@ -186,7 +186,7 @@ def render_filters(data):
         choices = sorted((c for c in data["categorias"] if c["tipo"] == kind and c["activa"]), key=lambda c: (c["orden"], c["id"]))
         controls += f'<label>{label}<select name="{kind}" data-filter="{kind}"><option value="">Todas las opciones</option>' + ''.join(f'<option value="{esc(c["id"])}">{esc(c["nombre"])}</option>' for c in choices) + '</select></label>'
     controls += '<label>Publicación<select name="novedad" data-filter="novedad"><option value="">Todas las fechas</option><option value="180">Últimos lanzamientos · 180 días</option></select></label>'
-    return '<form class="catalogue-filters" data-catalogue-filters><fieldset disabled><legend>Encuentra tu próxima lectura</legend><div class="catalogue-filter-grid">' + controls + '</div></fieldset><div class="catalogue-toolbar"><p>Combina los filtros para afinar la selección.</p><button type="reset" disabled>Limpiar filtros</button></div></form>'
+    return '<form class="catalogue-filters" data-catalogue-filters><fieldset disabled><legend>Encuentra tu próxima lectura</legend><div class="catalogue-filter-grid">' + controls + '</div><button type="submit">Buscar libros</button></fieldset><div class="catalogue-toolbar"><p>Combina los filtros para afinar la selección.</p><button type="reset" disabled>Limpiar filtros</button></div></form>'
 
 
 def render_hub(data, books, template):
@@ -263,7 +263,7 @@ def render_map(original, books):
     if not books:
         return original
     links = ''.join(f'<li><a href="{url(b)}">{esc(b["titulo"])} — {esc(", ".join(b["autores"]))}</a></li>' for b in books)
-    block = start + '<section class="directory-section"><h2>Libros recomendados</h2><p><a href="/recomendaciones/">Explorar el catálogo de lectura</a></p><details class="directory-publishers"><summary>Ver las fichas de lectura</summary><ul class="directory-list">' + links + '</ul></details></section>' + end + '\n'
+    block = start + '<section class="directory-section"><h2>Libros recomendados</h2><p><a href="/recomendaciones/">Explorar el catálogo de lectura</a></p><details class="directory-reading-books"><summary>Ver las fichas de lectura</summary><ul class="directory-list">' + links + '</ul></details></section>' + end + '\n'
     require('</main>' in original, 'Mapa del sitio sin main')
     return original.replace('</main>', block + '</main>', 1)
 

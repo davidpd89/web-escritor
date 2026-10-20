@@ -27,9 +27,9 @@ html.v1 [data-family="findability"] .directory-list{margin:0;padding:0;list-styl
 html.v1 [data-family="findability"] .directory-list li{min-width:0;border-top:1px solid var(--color-border)}
 html.v1 [data-family="findability"] .directory-list a{display:flex;width:fit-content;max-width:100%;min-width:0;align-items:center;min-height:44px;padding:.55rem 0;font:500 var(--text-sm)/1.4 var(--font-ui);text-decoration-line:underline;text-decoration-color:var(--color-accent);text-underline-offset:.28em;overflow-wrap:anywhere;word-break:normal}
 html.v1 [data-family="findability"] .directory-list small{display:block;margin:-.2rem 0 .65rem;color:var(--color-muted);font:400 var(--text-xs)/1.45 var(--font-ui)}
-html.v1 [data-family="findability"] .directory-publishers summary{min-height:44px;padding:.65rem 0;cursor:pointer;font:500 var(--text-sm)/1.4 var(--font-ui);overflow-wrap:anywhere}
-html.v1 [data-family="findability"] .directory-publishers summary:focus-visible{outline:2px solid var(--focus-color);outline-offset:3px}
-html.v1 [data-family="findability"] .directory-publishers>.directory-list{margin-left:1rem;border-bottom:0}
+html.v1 [data-family="findability"] :is(.directory-publishers,.directory-reading-books) summary{min-height:44px;padding:.65rem 0;cursor:pointer;font:500 var(--text-sm)/1.4 var(--font-ui);overflow-wrap:anywhere}
+html.v1 [data-family="findability"] :is(.directory-publishers,.directory-reading-books) summary:focus-visible{outline:2px solid var(--focus-color);outline-offset:3px}
+html.v1 [data-family="findability"] :is(.directory-publishers,.directory-reading-books)>.directory-list{margin-left:1rem;border-bottom:0}
 html.v1 [data-family="findability"] .findability-recovery{display:grid;grid-template-columns:minmax(0,3fr) minmax(16rem,2fr);gap:var(--grid-gap);align-items:start;padding:clamp(3rem,8vw,8rem) 0}
 /* Both direct children (the copy column and .recovery-secondary) are grid
    items with the default min-width:auto floor. At narrow widths + 200% zoom
