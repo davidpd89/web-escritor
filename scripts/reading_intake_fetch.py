@@ -57,8 +57,12 @@ def existing_isbns(path: Path) -> set[str]:
             if (valid := isbn13(b.get("isbn13", ""))) is not None}
 
 
-def fetch_google_books(params: dict, *, pause_seconds=0.3, retries=2):
-    """Small retry budget, backoff and capped Retry-After. API key stays private."""
+def fetch_google_books(params: dict, *, pause_seconds=0.3, retries=0):
+    """Default one HTTP attempt per logical request so max_requests is strict.
+
+    Explicit retries are reserved for callers with an independently accounted
+    HTTP-attempt budget. Never log a Google Books API key.
+    """
     url = BASE + "?" + urlencode(params)
     headers = {"User-Agent": "DavidPortoReadingCatalogue/1.0 (website: davidportodiaz.com)",
                "Accept": "application/json"}
