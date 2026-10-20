@@ -50,6 +50,11 @@ try {
     await page.goto(`${BASE}/recomendaciones/libros/coraline/`);
     assert.equal(await page.locator('main h1').innerText(), 'Coraline');
     await page.locator('.catalogue-book-cover').evaluate(img => img.decode());
+    const coverLink = page.getByRole('link', { name: 'Ver Coraline en Amazon (enlace afiliado)', exact: true });
+    assert.equal(await coverLink.getAttribute('href'), await page.locator('a.primary-action[href*="amazon.es"]').getAttribute('href'));
+    assert.match(await coverLink.getAttribute('rel'), /sponsored/);
+    await coverLink.focus();
+    assert(await coverLink.evaluate(a => a === document.activeElement));
     const audio = page.locator('audio');
     assert.equal(await audio.getAttribute('preload'), 'none');
     await audio.evaluate(element => element.load());

@@ -24,9 +24,12 @@ permissions:
   contents: read
 
 jobs:
-  check-links:
+  scan-links:
     runs-on: ubuntu-latest
     timeout-minutes: 40
+    outputs:
+      lychee: ${{ steps.lychee.outcome }}
+      recheck: ${{ steps.recheck.outcome }}
 
     steps:
       - name: Checkout
@@ -72,7 +75,9 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Independently verify transient network/server failures
+        id: recheck
         if: steps.lychee.outcome == 'failure'
+        continue-on-error: true
         run: python3 scripts/recheck-link-timeouts.py --report lychee/out.md --output lychee/timeout-recheck.json
 
       - name: Upload report
@@ -82,3 +87,48 @@ jobs:
           name: broken-links-report
           path: lychee/
           retention-days: 30
+
+  alternate-network-recheck:
+    # Some official sites refuse connections from the Linux runner network.
+    # Verify the SAME URLs from another runner; still require real HTTP 2xx.
+    needs: scan-links
+    if: needs.scan-links.outputs.recheck == 'failure'
+    runs-on: windows-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v5
+      - uses: actions/setup-python@v6
+        with:
+          python-version: '3.12'
+      - uses: actions/download-artifact@v8
+        with:
+          name: broken-links-report
+          path: lychee
+      - name: Require successful responses for transient failures
+        run: python scripts/recheck-link-timeouts.py --report lychee/out.md --output lychee/alternate-network-recheck.json
+      - uses: actions/upload-artifact@v6
+        if: always()
+        with:
+          name: broken-links-alternate-network
+          path: lychee/alternate-network-recheck.json
+          retention-days: 30
+
+  check-links:
+    needs: [scan-links, alternate-network-recheck]
+    if: always()
+    runs-on: ubuntu-latest
+    steps:
+      - name: Require scan and independently verified links
+        env:
+          SCAN_RESULT: ${{ needs.scan-links.result }}
+          LYCHEE_RESULT: ${{ needs.scan-links.outputs.lychee }}
+          RECHECK_RESULT: ${{ needs.scan-links.outputs.recheck }}
+          ALTERNATE_RESULT: ${{ needs.alternate-network-recheck.result }}
+        run: |
+          test "$SCAN_RESULT" = success
+          if [ "$LYCHEE_RESULT" = success ] || [ "$RECHECK_RESULT" = success ] || [ "$ALTERNATE_RESULT" = success ]; then
+            echo 'Links verified with successful HTTP responses.'
+          else
+            echo 'Unverified or broken links remain.'
+            exit 1
+          fi
