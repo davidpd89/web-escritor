@@ -271,7 +271,10 @@ def main() -> int:
     state = json_read(root / STATE) if (root / STATE).exists() else {
         "schema_version": 1, "pins": {}
     }
-    outputs, eligible = expected_files(root, config, data, state, today)
+    # Preview evaluates the hypothetical eligible content with RSS enabled,
+    # but NEVER changes the actual activation flag or writes XML/state.
+    evaluation_config = {**config, "rss_enabled": True} if args.preview else config
+    outputs, eligible = expected_files(root, evaluation_config, data, state, today)
     if args.assign:
         if not config.get("rss_enabled", False):
             parser.error("RSS desactivado: no se asignan pines; activar solo tras conexión con Pinterest.")
