@@ -52,8 +52,13 @@ def resolve_publishers(editoriales: dict, overrides: list[dict] | None = None,
         override = indexed_by_slug.get(record["slug"]) or indexed_by_name.get(_key(record["name"])) or {}
         if override.get("enabled") is False:
             continue
+        # The books API sometimes omits "Editorial"/"Ediciones" prefixes:
+        # "Hidra" and "Editorial Hidra" denote the same canonical site slug.
+        short_name = re.sub(r"^(?:Editorial|Ediciones)\\s+", "",
+                            record["name"], flags=re.IGNORECASE)
         aliases = list(dict.fromkeys([
             record["name"],
+            short_name,
             *(override.get("aliases") or []),
             *([override["name"]] if override.get("name") else [])
         ]))
