@@ -31,6 +31,7 @@ class PublisherRegistryTests(unittest.TestCase):
         chosen = resolve_publishers(self.registry, self.config["publishers"])
         self.assertEqual(publisher_slug("Salamandra Infantil y Juvenil", chosen), "salamandra")
         self.assertEqual(publisher_slug("Editorial Hidra", chosen), "editorial-hidra")
+        self.assertEqual(publisher_slug("Hidra", chosen), "editorial-hidra")
 
     def test_not_confuse_manuscript_reception_with_editorial_catalog(self):
         item = {"slug": "prueba", "name": "Editorial ficticia", "publish": True,
