@@ -4,7 +4,9 @@ on:
   pull_request:
     paths:
       - 'scripts/reading_intake_*.py'
+      - 'scripts/reading_editorial_metadata.py'
       - 'tests/test_reading_intake_*.py'
+      - 'tests/test_reading_editorial_metadata.py'
       - 'tests/fixtures/reading-google-books-2026.json'
       - 'data/reading-intake-sources.example.json'
       - 'data/editoriales.json'
@@ -25,6 +27,8 @@ jobs:
           python-version: '3.12'
       - name: Verify syntax
         run: |
-          python -m compileall -q scripts/reading_intake_*.py tests/test_reading_intake_*.py
+          python -m compileall -q scripts/reading_intake_*.py scripts/reading_editorial_metadata.py tests/test_reading_intake_*.py tests/test_reading_editorial_metadata.py
       - name: Run offline tests — no API keys or network access
-        run: python -m unittest discover -s tests -p 'test_reading_intake_*.py' -v
+        run: |
+          python -m unittest discover -s tests -p 'test_reading_intake_*.py' -v
+          python -m unittest discover -s tests -p 'test_reading_editorial_metadata.py' -v
