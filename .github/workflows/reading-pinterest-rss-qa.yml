@@ -27,3 +27,9 @@ jobs:
         run: python -m unittest discover -s tests -p 'test_reading_pinterest_rss.py' -v
       - name: Preview current catalogue without publication
         run: python scripts/build-reading-pinterest-rss.py --preview --today 2026-10-20
+      - name: Generate feeds in ephemeral CI runner (NEVER deploy)
+        run: |
+          python scripts/build-reading-pinterest-rss.py --assign --today 2026-10-20
+          python scripts/build-reading-pinterest-rss.py --check --today 2026-10-20
+          python scripts/build-reading-pinterest-rss.py --assign --today 2026-10-20
+          python scripts/build-reading-pinterest-rss.py --check --today 2026-10-20
