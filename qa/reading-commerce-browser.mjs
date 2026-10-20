@@ -2,6 +2,7 @@ import { chromium } from 'playwright';
 import assert from 'node:assert/strict';
 import fs from 'node:fs/promises';
 import { execFileSync } from 'node:child_process';
+import { auditTargetSizes } from './target-size-audit.mjs';
 
 const base = process.env.RECOMMENDATIONS_BASE_URL || 'http://127.0.0.1:4173';
 await fs.mkdir('.ci/reading-commerce', { recursive: true });
@@ -52,9 +53,14 @@ try {
   assert.deepEqual(errors, []);
   await context.close();
   const live = await browser.newPage({ viewport: { width: 390, height: 900 } });
+  await live.route('**/assets/reading-market.json', route => route.fulfill({ json: { schema_version: 1, offers: [], ratings: [{ ...payload.ratings[0], libro_id: 'lib-0001', actualizado_en: new Date(Date.now() - 3600000).toISOString(), caduca_en: new Date(Date.now() + 3600000).toISOString() }] } }));
   await live.goto(`${base}/`);
   assert.deepEqual(await live.locator('#masthead-submenu-notebook-hub a').allTextContents(), ['Archivo', 'Libros recomendados']);
   await live.goto(`${base}/recomendaciones/libros/coraline/`);
+  const ratingLink = live.locator('[data-rating-book] a');
+  await ratingLink.waitFor();
+  const target = await ratingLink.boundingBox();
+  assert(target.width >= 44 && target.height >= 44, 'Goodreads must be a usable touch target');
   const formats = await live.locator('[data-purchase-format]').evaluateAll(links => links.map(a => ({ format: a.dataset.purchaseFormat, href: a.href, rel: a.rel })));
   assert.equal(formats.length, 4);
   assert.equal(new Set(formats.map(f => new URL(f.href).pathname)).size, 4);
@@ -67,6 +73,18 @@ try {
   assert.equal(await live.locator('.catalogue-author-books > li').count(), 1);
   assert.equal(await live.locator('a[href="https://es.wikipedia.org/wiki/Neil_Gaiman"]').count(), 1);
   assert(!/aggregateRating/.test(await live.content()));
+  for (const width of [390, 768, 1280]) {
+    await live.setViewportSize({ width, height: 900 });
+    for (const route of ['/recomendaciones/', '/recomendaciones/libros/coraline/', '/recomendaciones/autores/neil-gaiman/']) {
+      await live.goto(base + route, { waitUntil: 'networkidle' });
+      await live.evaluate(() => document.fonts.ready);
+      for (const expanded of [false, true]) {
+        await live.evaluate(open => document.querySelectorAll('main details').forEach(d => d.open = open), expanded);
+        const targets = await auditTargetSizes(live);
+        assert.deepEqual(targets.failures, [], `${route} @${width}, expanded=${expanded}: touch targets`);
+      }
+    }
+  }
   await live.close();
   console.log('PASS commerce: format-specific prices, discounts, sorting, ratings, dates, expiry, invalid sources and UTM preservation.');
 } finally { await browser.close(); }

@@ -7,6 +7,7 @@ Validación local del cambio de la PR 660:
 - 27 combinaciones de tamaño, texto al 200 % y espaciado personalizado, más 12 casos con todos los acordeones abiertos y el pie común: sin desbordamiento horizontal.
 - Ofertas sintéticas aisladas del catálogo público: precio y descuento del mismo formato, ordenación, fechas, umbrales de Goodreads, caducidad, fuentes inválidas, monedas no admitidas y conservación de UTM: pasan.
 - Destinos reales de los cuatro formatos de Coraline con el tag existente, perfil local de autor, fuente Wikipedia y una identificación de afiliación en el pie: pasan.
+- El recorrido general detectó el enlace de Goodreads con 18 px de alto en móvil. Se corrige a 44 px, se reserva la misma altura antes de recibir sus datos y se aplica también a futuros enlaces de precio. Se añaden 18 casos tempranos con el mismo detector de tamaño táctil de CI: tres páginas, tres tamaños, desplegables abiertos y cerrados. Pasan sin excepciones nuevas ni cambios de umbral.
 - Sitemap: 212 URLs. Búsqueda local: 209 páginas. Fuentes locales y perfiles de navegador excluidos del sitemap con prueba de regresión.
 - Artefacto público: contiene el JSON comercial necesario y excluye el dataset privado de autores/revisión.
 - Baselines de las ocho rutas representativas en tres tamaños capturados en Ubuntu mediante Actions. Se mantienen los umbrales existentes.
