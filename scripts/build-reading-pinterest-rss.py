@@ -224,6 +224,10 @@ def expected_files(root: Path, config: dict, data: dict, state: dict,
     if url.scheme != "https" or url.hostname != "davidportodiaz.com" or url.path:
         raise ValueError("Site debe ser https://davidportodiaz.com")
     entries = suitable_books(root, data, config, today, state=state)
+    # When RSS is disabled, publish valid empty RSS channels only. Existing
+    # queued books MUST NOT leak into Pinterest on accidental feed connection.
+    if not config.get("rss_enabled", False):
+        entries = []
     cap = int(config.get("max_feed_items_per_board", 150))
     if not 1 <= cap <= 500:
         raise ValueError("Cap de elementos inválido")
@@ -269,6 +273,8 @@ def main() -> int:
     }
     outputs, eligible = expected_files(root, config, data, state, today)
     if args.assign:
+        if not config.get("rss_enabled", False):
+            parser.error("RSS desactivado: no se asignan pines; activar solo tras conexión con Pinterest.")
         assign_queue(eligible, state, today, int(config["daily_new_pin_budget"]))
         outputs, _ = expected_files(root, config, data, state, today)
         write_if_changed(root / STATE, json.dumps(
