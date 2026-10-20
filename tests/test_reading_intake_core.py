@@ -72,6 +72,7 @@ class IntakeCoreTests(unittest.TestCase):
         self.assertEqual(data["q"], "inpublisher:Salamandra")
         self.assertEqual(data["startIndex"], 40)
         self.assertEqual(data["maxResults"], 40)
+        self.assertEqual(data["showPreorders"], "true")
         with self.assertRaises(ValueError):
             core.google_books_query("Salamandra", "test-key", max_results=41)
 
