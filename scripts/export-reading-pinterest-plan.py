@@ -27,7 +27,7 @@ def export(root: Path, today: date) -> list[dict]:
     state = feed.json_read(root / feed.STATE) if (root / feed.STATE).is_file() else {
         "schema_version": 1, "pins": {}
     }
-    entries = feed.suitable_books(root, data, config, today)
+    entries = feed.suitable_books(root, data, config, today, state=state)
     result = []
     for entry in entries:
         b, board = entry["book"], entry["board"]
