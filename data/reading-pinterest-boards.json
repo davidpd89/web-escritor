@@ -4,7 +4,7 @@
   "rss_enabled": false,
   "daily_new_pin_budget": 2,
   "max_feed_items_per_board": 150,
-  "note": "Tableros propuestos, no creados. Configurar manualmente RSS en Pinterest después de reclamar dominio y revisar calidad. La conexión RSS requiere cuenta business.",
+  "note": "Los tableros son propuestas; no están creados. rss_enabled=false mantiene feeds vacíos. Al activar, pilot_book_id=lib-0001 limita la publicación inicial a Coraline; tras comprobar Pinterest, borrar ese valor (null).",
   "boards": [
     {
       "slug": "novedades-fantasia",
@@ -104,5 +104,6 @@
     "pinterest_business_connected": false,
     "boards_verified": false,
     "first_pilot_reviewed": false
-  }
+  },
+  "pilot_book_id": "lib-0001"
 }
