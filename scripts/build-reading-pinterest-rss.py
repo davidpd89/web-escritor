@@ -228,6 +228,10 @@ def expected_files(root: Path, config: dict, data: dict, state: dict,
     # queued books MUST NOT leak into Pinterest on accidental feed connection.
     if not config.get("rss_enabled", False):
         entries = []
+    elif config.get("pilot_book_id"):
+        # Activate at most ONE real book while validating the RSS connection.
+        entries = [entry for entry in entries
+                   if entry["book"]["id"] == config["pilot_book_id"]]
     cap = int(config.get("max_feed_items_per_board", 150))
     if not 1 <= cap <= 500:
         raise ValueError("Cap de elementos inválido")
