@@ -52,7 +52,7 @@ try {
     const dates = [0, 14, 15, -1].map(n => new Date(Date.parse(today + 'T00:00:00Z') - n * 86400000).toISOString().slice(0, 10));
     const boundary = await browser.newPage();
     await boundary.clock.setFixedTime(new Date(now));
-    await boundary.route('**/novelty-test/', route => route.fulfill({ contentType: 'text/html', body: '<main data-reading-catalogue>' + [...dates, '2026-10', '2026', ''].map(s => '<p><span data-release-label="' + s + '" data-release-fallback="Libros recomendados">Libros recomendados</span></p>').join('') + '</main><script src="/assets/reading-catalogue.js?v=5"></script>' }));
+    await boundary.route('**/novelty-test/', route => route.fulfill({ contentType: 'text/html', body: '<main data-reading-catalogue>' + [...dates, '2026-10', '2026', ''].map(s => '<p><span data-release-label="' + s + '" data-release-fallback="Libros recomendados">Libros recomendados</span></p>').join('') + '</main><script src="/assets/reading-catalogue.js?v=6"></script>' }));
     await boundary.goto(base + '/novelty-test/');
     assert.deepEqual(await boundary.locator('[data-release-label]').allTextContents(), ['Novedad', 'Novedad', 'Libros recomendados', 'Libros recomendados', 'Libros recomendados', 'Libros recomendados', 'Libros recomendados']);
     await boundary.close();

@@ -48,14 +48,15 @@
   function apply(save = true) {
     const v = values(); let visible = 0;
     for (const card of cards) {
-      const cats = card.dataset.categories.split(' '), published = card.dataset.published, year = card.dataset.year;
+      const cats = card.dataset.categories.split(' '), published = card.dataset.published, month = card.dataset.publishedMonth, year = card.dataset.year;
       const formats = new Set([...(card.dataset.formats || '').split(' '), ...offersFor(card.dataset.bookId).map(o => o.formato)]);
-      const lower = published || (year ? year + '-01-01' : ''), upper = published || (year ? year + '-12-31' : '');
+      const lower = published || (month ? month + '-01' : year ? year + '-01-01' : '');
+      const upper = published || (month ? new Date(Date.UTC(Number(month.slice(0, 4)), Number(month.slice(5)), 0)).toISOString().slice(0, 10) : year ? year + '-12-31' : '');
       const match = normalize(card.dataset.search).includes(normalize(v.q || '')) && ['genero', 'tematica', 'temporada', 'edad', 'contenido', 'epoca'].every(k => !v[k] || cats.includes(v[k])) && (!v.formato || formats.has(v.formato)) && (!v.novedad || isNew(published, v.novedad)) && (!v.desde || (upper && upper >= v.desde)) && (!v.hasta || (lower && lower <= v.hasta)) && (!v.valoracion || ratingFor(card.dataset.bookId)?.puntuacion >= Number(v.valoracion)) && (!(v.precio_min || v.precio_max || v.descuento) || matchingOffers(card, v).length > 0);
       card.hidden = !match; if (match) visible++;
     }
     const nullable = (x, y, desc = false) => x == null ? (y == null ? 0 : 1) : y == null ? -1 : desc ? y - x : x - y;
-    const dateOf = card => card.dataset.published || card.dataset.year ? Date.parse(card.dataset.published || card.dataset.year + '-01-01') : null;
+    const dateOf = card => card.dataset.published || card.dataset.publishedMonth || card.dataset.year ? Date.parse(card.dataset.published || (card.dataset.publishedMonth ? card.dataset.publishedMonth + '-01' : card.dataset.year + '-01-01')) : null;
     const compare = (a, b) => {
       switch (v.orden) {
         case 'titulo': return collator.compare(a.dataset.title, b.dataset.title);
