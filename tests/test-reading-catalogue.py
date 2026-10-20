@@ -94,11 +94,12 @@ with tempfile.TemporaryDirectory() as tmp:
     expected = m.SITE + m.url(b)
     assert '<link rel="canonical" href="' + expected + '"' in book
     assert 'rel="sponsored nofollow noopener noreferrer"' in book
-    assert 'enlace de afiliado' in book and 'compras adscritas' in book
+    assert 'Criterio editorial y afiliación' in book
+    assert 'compras adscritas' not in book and 'Esta comprobación no implica' not in book
     assert '"@type": "Book"' in book and '"@type": "BreadcrumbList"' in book
     assert 'aggregateRating' not in book and '"@type": "Review"' not in book
     assert 'og:image" content="' + m.SITE + b['portada_local'] in book
-    assert 'data-catalogue-speak' in book and 'Reseña externa:' in book
+    assert 'data-catalogue-speak' in book and 'Referencia técnica externa' in book
     assert 'Fixture aislada de QA' not in book
     assert hub.count('data-catalogue-book ') == 1
     assert hub.count('href="' + m.url(b) + '"') == 3
@@ -113,6 +114,12 @@ with tempfile.TemporaryDirectory() as tmp:
     pagefile.parent.mkdir(parents=True)
     pagefile.write_text(book, encoding='utf-8')
     assert expected in sitemap.collect_urls(root)
+    for hidden in ('.ci/browser/Default', '.qa-edge-profile', '.claude/worktrees/debug'):
+        debug = root / hidden / 'debug.html'
+        debug.parent.mkdir(parents=True, exist_ok=True)
+        debug.write_text('<html><head><link rel="canonical" href="https://davidportodiaz.com/debug-leak/"></head></html>', encoding='utf-8')
+        assert sitemap.should_skip_file(debug, root)
+    assert set(sitemap.collect_urls(root)) == {expected}, 'Local profiles must never enter the public sitemap'
     del b['url_amazon_afiliada']
     without = m.render_book(data, b, template)
     # The global header has its own existing affiliate CTA. Check the book article.
