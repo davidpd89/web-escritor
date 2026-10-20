@@ -200,3 +200,27 @@ Métricas de aceptación **del mecanismo**: sin coste recurrente obligatorio, **
 - Google desaconseja páginas a escala de escaso valor: https://developers.google.com/search/docs/essentials/spam-policies
 
 **Entrega que Codex debe producir en ESTA PR al retomarla**: código del pipeline funcionando con pruebas, contrato web compatible, workflow parametrizado, informe de ensayo con cifras reales, QA y guía de activación en pocos pasos. No basta con añadir otra propuesta/documentación o un script que liste candidatos.
+
+## 10. Segunda investigación de repositorios públicos: resultado y código adicional
+
+**Leer a continuación: [`docs/investigacion-catalogo-automatico-2026-10-20.md`](../../docs/investigacion-catalogo-automatico-2026-10-20.md)**. Analiza webs públicas y **código exacto** de History Books (Sheets→GitHub Actions→catálogo), GetCreditWorth (un solo workflow diario para libros/listas/commit y afiliación vía API), Bookery (caché/procedencia/consenso sin IA) y PrettyLazyLibWrapper (advertencia sobre `newest` y preventas), con enlaces a sus ficheros. **No copiar software completo ni afirmar que ninguno cubre novedades españolas con coste cero.**
+
+**Dato del repositorio que evita tareas manuales:** `data/editoriales.json` YA incluye 150 editoriales publicables; unas 69 coinciden preliminarmente con los géneros/marcas objetivo y tipos tradicionales/independientes. La allowlist debe **derivarse de ese archivo**, con slugs ya publicados, y no duplicarse a mano en `reading-intake-sources.example.json`. **Nuevo `scripts/reading_intake_publishers.py` + tests** resuelven slugs/alias y evitan confundir `status=closed` (manuscritos) con cese editorial. Nombre de grupo no identifica sello: suspender la asignación automática si falta confirmación. Fuentes `website_url` pueden ser contacto/recepción, no RSS de novedades.
+
+**Código nuevo YA preparado (experimental, no publicador):**
+
+1. `scripts/reading_intake_core.py` y `tests/test_reading_intake_core.py`: ISBN `979-13` soportado (noticia Agencia ISBN 14/10/2026); Google `industryIdentifiers.type=ISBN_13|ISBN_10` únicamente; fechas precisas; afiliación producto/búsqueda diferenciada.
+2. `scripts/reading_intake_publishers.py` y `tests/test_reading_intake_publishers.py`: editorial canónica desde `data/editoriales.json`, alias y exclusiones.
+3. `scripts/reading_intake_fetch.py`: cliente Google Books real pero **no habilitado**, `--fixture` o `--live` explícitos, cuota, pausa/reintentos, rotación diaria de sellos, no republicar ISBN ya existente, estado idempotente por ISBN; `tests/test_reading_intake_fetch.py` y JSON de respuestas aisladas en `tests/fixtures/`. No descarga portadas ni rellena `reading-catalogue.json`.
+4. `.github/workflows/reading-intake-qa.yml` verifica sintaxis y tests offline en esta PR. **Comprobar resultados CI en GitHub**; no describir pruebas como ejecutadas/aprobadas hasta ver conclusiones.
+
+**Herramientas y experiencia reales**: el repo propio ya tiene `.github/workflows/deploy-pages.yml`, que construye el artefacto, publica y hace un smoke de la web. Implementar publicación como **una sola ingesta/lote/commit**, y disparar ese despliegue existente mediante evento `workflow_dispatch` tras commit, porque `GITHUB_TOKEN` no dispara `push`/Pages. Preservar IndexNow (en `workflow_dispatch`, el workflow original deriva lista de URL vacía), la validación postdespliegue y el SHA exacto. Confirmar el despliegue **real**, no solo Git.
+
+**Criterio corregido**: `orderBy=newest` de Google Books solo descubre **candidatos**; jamás declarar novedad sin fecha de edición corroborada. El código público de PrettyLazyLibWrapper advierte de resultados antiguos/reeediciones en esa consulta. Open Library desaconseja su API como backend masivo de uso comercial; no hacer cientos de solicitudes individuales, utilizar esporádicamente por ISBN o dumps separados si alguna vez se justifican. BNE SPARQL puede verificar ISBN/autor, pero no asumir que expone un feed de lanzamientos. Sinopsis y portada de Google Books no tienen licencia universal de republicación.
+
+**Siguiente trabajo para Codex, en orden:**
+- Ejecutar test suite; corregir cualquier regresión de `scripts/reading_intake_*.py`; probar `--fixture` dos veces e idéntico estado, y una ejecución real con clave y presupuesto.
+- Añadir origen editorial específico por sello para confirmar fechas/portadas; medir cobertura antes de sumar más fuentes.
+- Implementar enriquecimiento + normalización de edición y contrato `data/reading-catalogue.json`, conservando historial/ediciones/URLs actuales y campos humanos fijados.
+- Conectar el generador, relación editoriales/autores, sitemap/Pagefind y despliegue de GitHub Pages; ejecutar 20 candidaturas reales y QA móvil/SEO. Si no hay datos verificados, dejar candidato pendiente sin bloquear otros.
+- Tras aprobación del propietario, habilitar cron/autopublicación. **Hasta entonces, la PR es un encargo draft**.
