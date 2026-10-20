@@ -101,7 +101,7 @@ async function assertCore(spec, page) {
   const cuadernoExplore = page.locator('.explore-row[href="/cuaderno/"][data-preview="notebook-hub"]');
   assert.equal(await cuadernoExplore.count(), 1, `${spec.key}: Cuaderno accesible desde Explorar`);
   assert.equal(norm(await page.locator('[data-preview-label]').textContent()), 'Cuaderno', `${spec.key}: preview label`);
-  assert.equal(norm(await page.locator('[data-preview-copy]').textContent()), 'Artículos, crónicas y piezas editoriales.', `${spec.key}: preview copy`);
+  assert.equal(norm(await page.locator('[data-preview-copy]').textContent()), 'Archivo de artículos y catálogo de libros recomendados.', `${spec.key}: preview copy`);
 
   const csp = await page.locator('meta[http-equiv="Content-Security-Policy"]').getAttribute('content');
   assert.ok(csp?.includes("connect-src 'none'"), `${spec.key}: CSP connect-src`);
