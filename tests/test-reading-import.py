@@ -30,6 +30,9 @@ assert len(discovery.candidates(payload,seen))==1
 assert discovery.candidates(payload,seen)==[]
 body=discovery.request_body('Salamandra','davidporto-21',1)
 assert body['searchIndex']=='Books' and body['sortBy']=='NewestArrivals' and not any('image' in r for r in body['resources'])
+assert discovery.is_pending_eligibility(403, {'message':'Your account does not currently meet the eligibility requirements.'})
+assert not discovery.is_pending_eligibility(403, {'message':'Access denied'})
+assert not discovery.is_pending_eligibility(401, {'message':'Your account does not currently meet the eligibility requirements.'})
 try:
     discovery.candidates({'errors':[{'code':'NoCredentials'}]},set())
 except ValueError:

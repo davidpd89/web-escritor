@@ -9,6 +9,7 @@ import json
 import os
 import re
 import urllib.request
+import urllib.error
 from datetime import datetime, timedelta, timezone
 from pathlib import Path
 
@@ -39,6 +40,10 @@ def candidates(payload, seen):
     return results
 
 
+def is_pending_eligibility(status, payload):
+    return status == 403 and payload.get('message') == 'Your account does not currently meet the eligibility requirements.'
+
+
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument('--query', action='append', required=True)
@@ -48,19 +53,26 @@ def main():
     client, secret, tag = (os.environ.get(key) for key in ('AMAZON_CREATORS_CLIENT_ID', 'AMAZON_CREATORS_CLIENT_SECRET', 'AMAZON_PARTNER_TAG'))
     if not all((client, secret, tag)):
         parser.error('Configurar credenciales Creators API EU y tag en secretos; no se necesita abrir una sesión del navegador')
-    access = post('https://api.amazon.co.uk/auth/o2/token', {'grant_type': 'client_credentials', 'client_id': client, 'client_secret': secret, 'scope': 'creatorsapi::default'})['access_token']
-    seen, found = set(), []
-    for query in args.query:
-        for page in range(1, args.pages + 1):
-            payload = post('https://creatorsapi.amazon/catalog/v1/searchItems', request_body(query, tag, page), {'Authorization': 'Bearer ' + access, 'x-marketplace': 'www.amazon.es'})
-            found += candidates(payload, seen)
-            if len(payload.get('searchResult', {}).get('items', [])) < 10:
-                break
+    seen, found, status = set(), [], 'ok'
+    try:
+        access = post('https://api.amazon.co.uk/auth/o2/token', {'grant_type': 'client_credentials', 'client_id': client, 'client_secret': secret, 'scope': 'creatorsapi::default'})['access_token']
+        for query in args.query:
+            for page in range(1, args.pages + 1):
+                payload = post('https://creatorsapi.amazon/catalog/v1/searchItems', request_body(query, tag, page), {'Authorization': 'Bearer ' + access, 'x-marketplace': 'www.amazon.es'})
+                found += candidates(payload, seen)
+                if len(payload.get('searchResult', {}).get('items', [])) < 10:
+                    break
+    except urllib.error.HTTPError as exc:
+        payload = json.loads(exc.read(10000))
+        if not is_pending_eligibility(exc.code, payload):
+            raise SystemExit(f'Creators API: HTTP {exc.code}; revisar configuración o servicio. No se publica ningún dato.')
+        status = 'pending_amazon_eligibility'
+        found = []
     now = datetime.now(timezone.utc)
-    output = {'generated_at': now.isoformat(), 'expires_at': (now + timedelta(hours=24)).isoformat(), 'scope': 'Muestra por búsquedas; no todas las subidas ni todas las editoriales', 'items': found}
+    output = {'status': status, 'generated_at': now.isoformat(), 'expires_at': (now + timedelta(hours=24)).isoformat(), 'scope': 'Muestra por búsquedas; no todas las subidas ni todas las editoriales', 'items': found}
     args.out.parent.mkdir(parents=True, exist_ok=True)
     args.out.write_text(json.dumps(output, ensure_ascii=False, indent=2) + '\n', encoding='utf-8')
-    print(f'{len(found)} candidatos para revisar; informe temporal, sin imágenes ni publicación.')
+    print('Pendiente de elegibilidad en Amazon; volver a comprobar en la siguiente ejecución.' if status != 'ok' else f'{len(found)} candidatos para revisar; informe temporal, sin imágenes ni publicación.')
 
 
 if __name__ == '__main__':

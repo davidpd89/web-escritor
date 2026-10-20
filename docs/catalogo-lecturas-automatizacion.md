@@ -11,6 +11,8 @@
 
 ## Qué hace falta para la tarea diaria
 
+Estado comprobado el 20/10/2026: aplicación `DavidPortoCatalogoLibros` creada; credenciales EU guardadas en GitHub Secrets y autenticación OAuth correcta. La consulta real a un producto devuelve HTTP 403 con el mensaje de cuenta no elegible. Amazon indica diez ventas válidas en treinta días y posible revisión de hasta 48 horas tras crear credenciales. No se promete habilitación automática ni se simulan resultados. La tarea diaria deja un informe `pending_amazon_eligibility` y volverá a probar; otros errores de autenticación o servicio sí hacen fallar la tarea.
+
 El workflow `reading-catalogue-sync.yml` queda instalado pero condicionado a `READING_INTAKE_ENABLED=true`. No se considera conectado hasta validar sus credenciales con una ejecución real.
 
 1. Amazon Afiliados: acceso aprobado a Creators API y credenciales EU. Guardar `AMAZON_CREATORS_CLIENT_ID` y `AMAZON_CREATORS_CLIENT_SECRET` como secretos del repositorio; `AMAZON_PARTNER_TAG=davidporto-21` como variable. No guardar claves en el Drive ni en Git. Un tag de afiliado no concede acceso a la API.
