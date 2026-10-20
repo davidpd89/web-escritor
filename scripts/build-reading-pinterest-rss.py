@@ -106,15 +106,20 @@ def assign_queue(entries: list[dict], state: dict, today: date, budget: int) -> 
     pins = state.setdefault("pins", {})
     allocated = Counter(entry["scheduled_date"] for entry in pins.values()
                         if isinstance(entry, dict) and entry.get("scheduled_date"))
+    # New candidates must not jump ahead of an existing future backlog.
+    backlog = [as_day(day) for day in allocated]
+    backlog = [day for day in backlog if day is not None and day >= today]
+    next_available = max(backlog, default=today)
     changed = False
     for entry in entries:
         book = entry["book"]
         if book["id"] in pins:
             continue
-        candidate_day = today
+        candidate_day = next_available
         while allocated[candidate_day.isoformat()] >= budget:
             candidate_day += timedelta(days=1)
         key = candidate_day.isoformat()
+        next_available = candidate_day
         pins[book["id"]] = {
             "book_id": book["id"],
             "slug": book["slug"],
@@ -254,7 +259,10 @@ def main() -> int:
         write_if_changed(root / STATE, json.dumps(
             state, ensure_ascii=False, indent=2, sort_keys=True) + "\n", check=False)
     if args.preview:
-        print(json.dumps({"eligible": len(eligible), "queue": state["pins"],
+        # Report what WOULD be queued, without changing state or RSS on disk.
+        preview_state = json.loads(json.dumps(state))
+        assign_queue(eligible, preview_state, today, int(config["daily_new_pin_budget"]))
+        print(json.dumps({"eligible": len(eligible), "queue": preview_state["pins"],
                           "feeds": [p.relative_to(root).as_posix() for p in outputs]},
                          ensure_ascii=False, indent=2))
         return 0
