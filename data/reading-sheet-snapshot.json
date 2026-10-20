@@ -1,0 +1,310 @@
+{
+  "schema_version": 1,
+  "spreadsheet_id": "1hHtp-B66CdnXgV6IT7ClcLGLxLUw8tKOLQThVD5KHCs",
+  "retrieved_at": "2026-10-20",
+  "sheets": {
+    "01_LIBROS": [
+      [
+        "id",
+        "slug",
+        "titulo",
+        "autor",
+        "descripcion_breve",
+        "descripcion_larga",
+        "categorias[]",
+        "isbn13",
+        "editorial",
+        "idioma",
+        "fecha_publicacion_edicion",
+        "anio_publicacion_original",
+        "edad_orientativa",
+        "asin_amazon",
+        "formato",
+        "numero_paginas",
+        "url_ficha_web",
+        "amazon_tracking_id",
+        "fecha_alta",
+        "fecha_revision",
+        "notas"
+      ],
+      [
+        "LIB-0001",
+        "coraline",
+        "Coraline",
+        "Neil Gaiman",
+        "Tras mudarse a una casa antigua, Coraline encuentra una puerta hacia otra versión de su hogar. Allí todo parece mejor, hasta que descubre que sus otros padres no piensan dejarla marchar.",
+        "Coraline explora las puertas de su nueva casa y descubre un pasadizo a una realidad casi idéntica a la suya. Al otro lado la espera una familia inquietante que quiere retenerla. Una historia de fantasía oscura con misterio, puertas secretas y una protagonista que debe enfrentarse a sus miedos para regresar.",
+        "halloween|terror|fantasia-juvenil|fantasia-oscura|mundos-paralelos|misterio",
+        "9788498382372",
+        "Salamandra Infantil y Juvenil",
+        "es",
+        "2009-06-01",
+        "2002",
+        "8-12 (editorial Penguin Random House)",
+        null,
+        "Tapa blanda",
+        "160",
+        "/recomendaciones/libros/coraline/",
+        null,
+        "2026-10-20",
+        "2026-10-20",
+        "Edición española 9788498382372; ISBN-10 8498382378. Categorías simultáneas sin duplicación."
+      ]
+    ],
+    "02_CATEGORIAS": [
+      [
+        "id",
+        "nombre",
+        "tipo",
+        "descripcion",
+        "activa",
+        "orden",
+        "slug_web",
+        "nota"
+      ],
+      [
+        "halloween",
+        "Halloween",
+        "temporada",
+        "Lecturas inquietantes, de misterio o fantasía oscura para octubre y Halloween.",
+        "sí",
+        "1",
+        "halloween",
+        "Colección principal del piloto"
+      ],
+      [
+        "terror",
+        "Terror",
+        "genero",
+        "Historias que utilizan miedo, amenaza o elementos terroríficos.",
+        "sí",
+        "2",
+        "terror",
+        "Coraline: terror apto para lectores jóvenes"
+      ],
+      [
+        "fantasia-juvenil",
+        "Fantasía juvenil",
+        "genero",
+        "Fantasía accesible a público juvenil, con elementos sobrenaturales o imaginarios.",
+        "sí",
+        "3",
+        "fantasia-juvenil"
+      ],
+      [
+        "fantasia-oscura",
+        "Fantasía oscura",
+        "subgenero",
+        "Fantasía con inquietud, extrañeza y elementos sombríos.",
+        "sí",
+        "4",
+        "fantasia-oscura"
+      ],
+      [
+        "mundos-paralelos",
+        "Mundos paralelos",
+        "tema",
+        "Historias de tránsito a otra realidad o mundo alternativo.",
+        "sí",
+        "5",
+        "mundos-paralelos"
+      ],
+      [
+        "misterio",
+        "Misterio",
+        "tema",
+        "Lecturas donde un secreto y su descubrimiento impulsan la trama.",
+        "sí",
+        "6",
+        "misterio"
+      ]
+    ],
+    "03_PORTADAS": [
+      [
+        "libro_id",
+        "isbn_edicion",
+        "asin_amazon",
+        "proveedor",
+        "url_imagen_amazon",
+        "url_imagen_editorial",
+        "url_ficha_editorial",
+        "abrir_portada",
+        "url_imagen_en_web",
+        "modo_imagen",
+        "archivo_web_opcional",
+        "fecha_actualizacion",
+        "notas"
+      ],
+      [
+        "LIB-0001",
+        "9788498382372",
+        null,
+        "Penguin Libros",
+        null,
+        "https://www.penguinlibros.com/cl/53759/coraline.jpg",
+        "https://www.penguinlibros.com/es/libros-ninos-9-anos/37666-libro-coraline-9788498382372",
+        "https://www.penguinlibros.com/cl/53759/coraline.jpg",
+        null,
+        "URL externa de proveedor",
+        null,
+        "2026-10-20",
+        "Portada española de la edición Salamandra. Codex puede sustituir la URL por la imagen de Amazon obtenida automáticamente."
+      ]
+    ],
+    "04_ENLACES": [
+      [
+        "libro_id",
+        "tipo",
+        "titulo_visible",
+        "url",
+        "es_afiliado",
+        "proveedor",
+        "fecha_consulta",
+        "notas"
+      ],
+      [
+        "LIB-0001",
+        "editorial",
+        "Ficha oficial de Coraline",
+        "https://www.penguinlibros.com/es/libros-ninos-9-anos/37666-libro-coraline-9788498382372",
+        "no",
+        "Penguin Libros",
+        "2026-10-20",
+        "Edición ISBN 9788498382372"
+      ],
+      [
+        "LIB-0001",
+        "fragmento",
+        "Leer el primer capítulo",
+        "https://www.penguinlibros.com/es/libros-ninos-9-anos/37666-libro-coraline-9788498382372/fragmento",
+        "no",
+        "Penguin Libros",
+        "2026-10-20",
+        "Capítulo gratuito online en la editorial"
+      ],
+      [
+        "LIB-0001",
+        "resenas",
+        "Reseñas de lectores (Goodreads)",
+        "https://www.goodreads.com/book/show/6785288.Coraline",
+        "no",
+        "Goodreads",
+        "2026-10-20",
+        "Valoraciones y comentarios de lectores"
+      ],
+      [
+        "LIB-0001",
+        "resenas_editorial",
+        "Opiniones de crítica y reseñas en la editorial",
+        "https://www.penguinlibros.com/es/libros-ninos-9-anos/37666-libro-coraline-9788498382372",
+        "no",
+        "Penguin Libros",
+        "2026-10-20",
+        "Citas de prensa y opiniones editoriales"
+      ],
+      [
+        "LIB-0001",
+        "amazon_afiliado",
+        "Comprar Coraline en Amazon.es",
+        null,
+        "sí",
+        "Amazon.es",
+        null,
+        "Codex generará aquí el enlace afiliado para la edición correspondiente."
+      ],
+      [
+        "LIB-0001",
+        "amazon_producto",
+        "Ficha de Coraline en Amazon.es",
+        null,
+        "no",
+        "Amazon.es",
+        null,
+        "Codex buscará el producto por ISBN/ASIN y completará la URL."
+      ]
+    ],
+    "05_FUENTES": [
+      [
+        "libro_id",
+        "campo",
+        "fuente",
+        "url",
+        "fecha_consulta",
+        "tipo_fuente",
+        "detalles"
+      ],
+      [
+        "LIB-0001",
+        "ISBN, editorial, páginas, edición española",
+        "Casa del Libro — ficha Coraline",
+        "https://www.casadellibro.com/libro-coraline/9788498382372/1258566",
+        "2026-10-20",
+        "libreria",
+        "Edición española: Salamandra Infantil y Juvenil, ISBN 9788498382372, tapa blanda, 160 páginas, lanzamiento 01/06/2009."
+      ],
+      [
+        "LIB-0001",
+        "portada",
+        "Penguin Libros",
+        "https://www.penguinlibros.com/cl/53759/coraline.jpg",
+        "2026-10-20",
+        "editorial",
+        "Portada Salamandra de Coraline."
+      ],
+      [
+        "LIB-0001",
+        "fragmento",
+        "Penguin Libros — fragmento Coraline",
+        "https://www.penguinlibros.com/es/libros-ninos-9-anos/37666-libro-coraline-9788498382372/fragmento",
+        "2026-10-20",
+        "editorial",
+        "Página con fragmento gratuito."
+      ],
+      [
+        "LIB-0001",
+        "reseñas de lectores",
+        "Goodreads",
+        "https://www.goodreads.com/book/show/6785288.Coraline",
+        "2026-10-20",
+        "comunidad",
+        "Valoraciones y reseñas de lectores."
+      ],
+      [
+        "LIB-0001",
+        "edición española",
+        "Goodreads Editions",
+        "https://www.goodreads.com/work/editions/2834844-coraline",
+        "2026-10-20",
+        "catalogo",
+        "La edición Salamandra ISBN13 9788498382372 identifica ISBN10 8498382378."
+      ],
+      [
+        "LIB-0001",
+        "sinopsis",
+        "Redacción basada en ficha de editorial",
+        "https://www.penguinrandomhouse.com/books/665423/coraline-spanish-edition-by-neil-gaiman/9788498382372/",
+        "2026-10-20",
+        "editorial",
+        "Descripción original redactada para nuestro catálogo."
+      ],
+      [
+        "LIB-0001",
+        "año de primera publicación",
+        "Goodreads",
+        "https://www.goodreads.com/book/show/6785288.Coraline",
+        "2026-10-20",
+        "catalogo",
+        "Primera publicación de la obra en 2002."
+      ],
+      [
+        "LIB-0001",
+        "edad orientativa",
+        "Penguin Random House",
+        "https://www.penguinrandomhouse.com/books/665423/coraline-spanish-edition-by-neil-gaiman/9788498382372/",
+        "2026-10-20",
+        "editorial",
+        "Edad de 8-12 años indicada para esta ficha editorial."
+      ]
+    ]
+  }
+}

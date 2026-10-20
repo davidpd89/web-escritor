@@ -654,8 +654,8 @@
     {
       "id": "recommendations-hub",
       "url": "/recomendaciones/",
-      "label": "Recomendaciones de lectura",
-      "shortLabel": "Recomendaciones",
+      "label": "Libros recomendados",
+      "shortLabel": "Libros recomendados",
       "type": "article",
       "territory": "cuaderno",
       "parentId": "notebook-hub",
@@ -4048,6 +4048,24 @@
         "buscar-editorial"
       ],
       "sourceFile": "editoriales/editorial-dieciseis/index.html"
+    },
+    {
+      "id": "reading-book-lib-0001",
+      "url": "/recomendaciones/libros/coraline/",
+      "label": "Coraline",
+      "shortLabel": "Coraline",
+      "type": "article",
+      "territory": "cuaderno",
+      "parentId": "recommendations-hub",
+      "hubId": "notebook-hub",
+      "discoverability": "secondary",
+      "audience": [
+        "reader"
+      ],
+      "jobs": [
+        "buscar-lecturas"
+      ],
+      "sourceFile": "recomendaciones/libros/coraline/index.html"
     }
   ]
 }

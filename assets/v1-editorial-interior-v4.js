@@ -62,8 +62,8 @@
       key: 'cuaderno', label: 'Cuaderno', home: '/cuaderno/',
       matches: (path) => path.startsWith('/cuaderno/') || path.startsWith('/recomendaciones/'),
       links: [
-        ['/cuaderno/', 'Artículos'],
-        ['/recomendaciones/', 'Recomendaciones de lectura']
+        ['/cuaderno/', 'Archivo'],
+        ['/recomendaciones/', 'Libros recomendados']
       ]
     },
     {

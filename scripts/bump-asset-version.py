@@ -32,7 +32,7 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
 CHECKER = ROOT / "scripts" / "check-asset-versions.py"
-TEXT_EXTS = {".html", ".py", ".js", ".mjs", ".json", ".yml", ".yaml", ".md", ".xml", ".txt", ".css"}
+TEXT_EXTS = {".html", ".tmpl", ".py", ".js", ".mjs", ".json", ".yml", ".yaml", ".md", ".xml", ".txt", ".css"}
 VERSION_RE = re.compile(r"^[A-Za-z0-9][A-Za-z0-9._-]*$")
 
 

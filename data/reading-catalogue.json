@@ -1,20 +1,222 @@
 {
   "schema_version": 1,
   "categorias": [
-    {"id":"fantasia","slug":"fantasia","nombre":"Fantasía","tipo":"genero","descripcion":"Mundos y elementos fantásticos.","orden":10,"activa":true},
-    {"id":"fantasia-juvenil","slug":"fantasia-juvenil","nombre":"Fantasía juvenil","tipo":"genero","descripcion":"Fantasía dirigida al público juvenil.","orden":20,"activa":true},
-    {"id":"romantasy","slug":"romantasy","nombre":"Romantasy","tipo":"genero","descripcion":"Fantasía con una trama romántica central.","orden":30,"activa":true},
-    {"id":"romance","slug":"romance","nombre":"Romance","tipo":"genero","descripcion":"Historias con el romance como eje.","orden":40,"activa":true},
-    {"id":"fantasia-oscura","slug":"fantasia-oscura","nombre":"Fantasía oscura","tipo":"genero","descripcion":"Fantasía de atmósfera oscura.","orden":50,"activa":true},
-    {"id":"portales","slug":"portales","nombre":"Viajes entre mundos","tipo":"tematica","descripcion":"Historias de umbrales y otros mundos.","orden":60,"activa":true},
-    {"id":"magia-con-coste","slug":"magia-con-coste","nombre":"Magia con coste","tipo":"contenido","descripcion":"Poderes con límites y consecuencias.","orden":70,"activa":true},
-    {"id":"halloween","slug":"halloween","nombre":"Halloween","tipo":"temporada","descripcion":"Lecturas para los días de Halloween.","orden":80,"activa":true},
-    {"id":"navidad","slug":"navidad","nombre":"Navidad","tipo":"temporada","descripcion":"Lecturas para Navidad.","orden":90,"activa":true},
-    {"id":"verano","slug":"verano","nombre":"Verano","tipo":"temporada","descripcion":"Lecturas para el verano.","orden":100,"activa":true},
-    {"id":"juvenil","slug":"juvenil","nombre":"Juvenil","tipo":"edad","descripcion":"Orientación editorial juvenil; consultar la edad indicada en cada ficha.","orden":110,"activa":true},
-    {"id":"adultos","slug":"adultos","nombre":"Adultos","tipo":"edad","descripcion":"Lecturas dirigidas a público adulto.","orden":120,"activa":true},
-    {"id":"clasicos","slug":"clasicos","nombre":"Clásicos","tipo":"epoca","descripcion":"Obras de recorrido consolidado; clasificación editorial revisada.","orden":130,"activa":true}
+    {
+      "id": "fantasia",
+      "slug": "fantasia",
+      "nombre": "Fantasía",
+      "tipo": "genero",
+      "descripcion": "Mundos y elementos fantásticos.",
+      "orden": 10,
+      "activa": true
+    },
+    {
+      "id": "fantasia-juvenil",
+      "slug": "fantasia-juvenil",
+      "nombre": "Fantasía juvenil",
+      "tipo": "genero",
+      "descripcion": "Fantasía accesible a público juvenil, con elementos sobrenaturales o imaginarios.",
+      "orden": 3,
+      "activa": true
+    },
+    {
+      "id": "romantasy",
+      "slug": "romantasy",
+      "nombre": "Romantasy",
+      "tipo": "genero",
+      "descripcion": "Fantasía con una trama romántica central.",
+      "orden": 30,
+      "activa": true
+    },
+    {
+      "id": "romance",
+      "slug": "romance",
+      "nombre": "Romance",
+      "tipo": "genero",
+      "descripcion": "Historias con el romance como eje.",
+      "orden": 40,
+      "activa": true
+    },
+    {
+      "id": "fantasia-oscura",
+      "slug": "fantasia-oscura",
+      "nombre": "Fantasía oscura",
+      "tipo": "genero",
+      "descripcion": "Fantasía con inquietud, extrañeza y elementos sombríos.",
+      "orden": 4,
+      "activa": true
+    },
+    {
+      "id": "portales",
+      "slug": "portales",
+      "nombre": "Viajes entre mundos",
+      "tipo": "tematica",
+      "descripcion": "Historias de umbrales y otros mundos.",
+      "orden": 60,
+      "activa": true
+    },
+    {
+      "id": "magia-con-coste",
+      "slug": "magia-con-coste",
+      "nombre": "Magia con coste",
+      "tipo": "contenido",
+      "descripcion": "Poderes con límites y consecuencias.",
+      "orden": 70,
+      "activa": true
+    },
+    {
+      "id": "halloween",
+      "slug": "halloween",
+      "nombre": "Halloween",
+      "tipo": "temporada",
+      "descripcion": "Lecturas inquietantes, de misterio o fantasía oscura para octubre y Halloween.",
+      "orden": 1,
+      "activa": true
+    },
+    {
+      "id": "navidad",
+      "slug": "navidad",
+      "nombre": "Navidad",
+      "tipo": "temporada",
+      "descripcion": "Lecturas para Navidad.",
+      "orden": 90,
+      "activa": true
+    },
+    {
+      "id": "verano",
+      "slug": "verano",
+      "nombre": "Verano",
+      "tipo": "temporada",
+      "descripcion": "Lecturas para el verano.",
+      "orden": 100,
+      "activa": true
+    },
+    {
+      "id": "juvenil",
+      "slug": "juvenil",
+      "nombre": "Juvenil",
+      "tipo": "edad",
+      "descripcion": "Orientación editorial juvenil; consultar la edad indicada en cada ficha.",
+      "orden": 110,
+      "activa": true
+    },
+    {
+      "id": "adultos",
+      "slug": "adultos",
+      "nombre": "Adultos",
+      "tipo": "edad",
+      "descripcion": "Lecturas dirigidas a público adulto.",
+      "orden": 120,
+      "activa": true
+    },
+    {
+      "id": "clasicos",
+      "slug": "clasicos",
+      "nombre": "Clásicos",
+      "tipo": "epoca",
+      "descripcion": "Obras de recorrido consolidado; clasificación editorial revisada.",
+      "orden": 130,
+      "activa": true
+    },
+    {
+      "id": "terror",
+      "slug": "terror",
+      "nombre": "Terror",
+      "tipo": "genero",
+      "descripcion": "Historias que utilizan miedo, amenaza o elementos terroríficos.",
+      "orden": 2,
+      "activa": true
+    },
+    {
+      "id": "mundos-paralelos",
+      "slug": "mundos-paralelos",
+      "nombre": "Mundos paralelos",
+      "tipo": "tematica",
+      "descripcion": "Historias de tránsito a otra realidad o mundo alternativo.",
+      "orden": 5,
+      "activa": true
+    },
+    {
+      "id": "misterio",
+      "slug": "misterio",
+      "nombre": "Misterio",
+      "tipo": "tematica",
+      "descripcion": "Lecturas donde un secreto y su descubrimiento impulsan la trama.",
+      "orden": 6,
+      "activa": true
+    }
   ],
-  "libros": [],
-  "libro_categorias": []
+  "libros": [
+    {
+      "id": "lib-0001",
+      "slug": "coraline",
+      "titulo": "Coraline",
+      "autores": [
+        "Neil Gaiman"
+      ],
+      "estado": "publicado",
+      "descripcion_breve": "Tras mudarse a una casa antigua, Coraline encuentra una puerta hacia otra versión de su hogar. Allí todo parece mejor, hasta que descubre que sus otros padres no piensan dejarla marchar.",
+      "isbn13": "9788498382372",
+      "editorial": "Salamandra Infantil y Juvenil",
+      "idioma": "es",
+      "fecha_actualizacion": "2026-10-20",
+      "numero_paginas": 160,
+      "portada_fuente_url": "https://www.penguinlibros.com/cl/53759/coraline.jpg",
+      "fuente_bibliografica_url": "https://www.penguinrandomhouse.com/books/665423/coraline-spanish-edition-by-neil-gaiman/9788498382372/",
+      "descripcion_original_confirmada": true,
+      "portada_edicion_verificada": true,
+      "autorizacion_o_base_uso": "Cubierta promocional de la edición ISBN 9788498382372 ofrecida en la ficha oficial de la editorial, que incluye descarga de imagen. Uso identificativo junto a la recomendación y sus datos bibliográficos, con enlace y atribución a la fuente; no procede de Amazon ni se altera el diseño.",
+      "portada_fecha_revision": "2026-10-20",
+      "portada_local": "/assets/reading-covers/coraline-9788498382372.webp",
+      "fecha_verificacion": "2026-10-20",
+      "edicion": "Salamandra Infantil y Juvenil · ISBN 9788498382372",
+      "anio_publicacion": 2009,
+      "url_amazon_afiliada": "https://www.amazon.es/dp/8498382378?tag=davidporto-21",
+      "audio_descripcion": "/assets/reading-audio/coraline-da027726f648.mp3",
+      "audio_voz": "Voz sintética · Elvira (español de España)",
+      "portada_ancho": 797,
+      "portada_alto": 1280,
+      "edad_recomendada": "8-12 (editorial Penguin Random House)",
+      "fuente_edad_url": "https://www.penguinrandomhouse.com/books/665423/coraline-spanish-edition-by-neil-gaiman/9788498382372/",
+      "resenas": [
+        {
+          "titulo": "Reseñas de lectores (Goodreads)",
+          "url": "https://www.goodreads.com/book/show/6785288.Coraline",
+          "fecha_verificacion": "2026-10-20"
+        },
+        {
+          "titulo": "Opiniones de crítica y reseñas en la editorial",
+          "url": "https://www.penguinlibros.com/es/libros-ninos-9-anos/37666-libro-coraline-9788498382372",
+          "fecha_verificacion": "2026-10-20"
+        }
+      ],
+      "fragmento_url": "https://www.penguinlibros.com/es/libros-ninos-9-anos/37666-libro-coraline-9788498382372/fragmento"
+    }
+  ],
+  "libro_categorias": [
+    {
+      "libro_id": "lib-0001",
+      "categoria_id": "halloween"
+    },
+    {
+      "libro_id": "lib-0001",
+      "categoria_id": "terror"
+    },
+    {
+      "libro_id": "lib-0001",
+      "categoria_id": "fantasia-juvenil"
+    },
+    {
+      "libro_id": "lib-0001",
+      "categoria_id": "fantasia-oscura"
+    },
+    {
+      "libro_id": "lib-0001",
+      "categoria_id": "mundos-paralelos"
+    },
+    {
+      "libro_id": "lib-0001",
+      "categoria_id": "misterio"
+    }
+  ]
 }

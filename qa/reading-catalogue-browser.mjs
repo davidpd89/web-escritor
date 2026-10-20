@@ -18,9 +18,9 @@ try {
     page.on('pageerror', e => errors.push(e.message));
     await page.goto(`${BASE}/recomendaciones/`);
     await page.waitForSelector('[data-catalogue-filters]:visible');
-    assert.match(await page.locator('h1').innerText(), /Recomendaciones de lectura/);
-    assert.equal(await page.locator('[data-catalogue-book]').count(), 0);
-    assert.match(await page.locator('[data-catalogue-empty]').innerText(), /preparando/);
+    assert.match(await page.locator('h1').innerText(), /Libros recomendados/);
+    assert.equal(await page.locator('[data-catalogue-book]').count(), 1);
+    assert(await page.locator('[data-catalogue-empty]').isHidden());
     assert.equal(await page.locator('.section-context__links a').count(), 2);
     await page.locator('[data-filter="genero"]').selectOption('romantasy');
     await page.locator('[data-filter="temporada"]').selectOption('halloween');
@@ -32,10 +32,35 @@ try {
     await page.waitForFunction(() => window.scrollY === 0);
     await page.screenshot({ path: `${OUT}/catalogue-${width}.png`, fullPage: true });
     await page.goto(`${BASE}/cuaderno/`);
-    assert.equal(await page.locator('.cuaderno-feature h2 a, .cuaderno-entry h3 a').count(), 6);
-    await page.getByRole('link', { name: 'Recomendaciones de lectura', exact: true }).first().click();
+    assert.equal(await page.locator('.cuaderno-feature h2 a, .cuaderno-entry h3 a').count(), 8);
+    await page.getByRole('link', { name: 'Libros recomendados', exact: true }).first().click();
     assert.equal(new URL(page.url()).pathname, '/recomendaciones/');
     assert.deepEqual(errors, []);
+    await context.close();
+  }
+  // Real pilot: publisher cover, fixed MP3 and native disclosure sections.
+  {
+    const context = await browser.newContext({ viewport: { width: 390, height: 900 } });
+    const page = await context.newPage();
+    await page.goto(`${BASE}/recomendaciones/libros/coraline/`);
+    assert.equal(await page.locator('main h1').innerText(), 'Coraline');
+    await page.locator('.catalogue-book-cover').evaluate(img => img.decode());
+    const audio = page.locator('audio');
+    assert.equal(await audio.getAttribute('preload'), 'none');
+    await audio.evaluate(element => element.load());
+    await page.waitForFunction(() => document.querySelector('audio')?.duration > 0);
+    const duration = await audio.evaluate(element => element.duration);
+    assert(duration > 5 && duration < 90);
+    assert.match(await audio.locator('source').getAttribute('src'), /^\/assets\/reading-audio\/coraline-/);
+    const reviews = page.locator('details').filter({ has: page.locator('summary', { hasText: 'Reseñas externas' }) });
+    assert.equal(await reviews.getAttribute('open'), null);
+    await reviews.locator('summary').click();
+    assert(await reviews.locator('a').first().isVisible());
+    const sample = page.locator('details').filter({ has: page.locator('summary', { hasText: 'Leer un fragmento' }) });
+    await sample.locator('summary').focus();
+    await page.keyboard.press('Enter');
+    assert(await sample.locator('a').isVisible());
+    await page.screenshot({ path: `${OUT}/coraline-mobile.png`, fullPage: true });
     await context.close();
   }
   // Rendered data uses intercepted, isolated fixtures; no synthetic books on the site.
@@ -94,7 +119,7 @@ try {
   const nojs = await browser.newContext({ javaScriptEnabled: false, viewport: { width: 390, height: 900 } });
   const staticPage = await nojs.newPage();
   await staticPage.goto(`${BASE}/recomendaciones/`);
-  assert(await staticPage.locator('a[href="/recomendaciones/portal-fantasy-espanol/"]').first().isVisible());
+  assert(await staticPage.locator('a[href="/recomendaciones/libros/coraline/"]').first().isVisible());
   assert(await staticPage.locator('[data-filter="genero"]').isDisabled());
   await nojs.route('**/recomendaciones/', route => route.fulfill({ contentType: 'text/html; charset=utf-8', body: fixture.hub }));
   await staticPage.reload();

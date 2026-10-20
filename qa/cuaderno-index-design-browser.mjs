@@ -97,7 +97,7 @@ try {
       assert.match((await style(masthead)).backgroundImage, /linear-gradient/, `${name}: masthead sin doble regla azul/dorada`);
 
       const folio = page.locator('.cuaderno-masthead__folio');
-      assert.equal((await folio.locator('strong').innerText()).trim(), '06', `${name}: folio no conserva 06 piezas`);
+      assert.equal((await folio.locator('strong').innerText()).trim(), '08', `${name}: folio no conserva ocho piezas`);
       assert.equal((await style(folio.locator('strong'))).color, BLUE, `${name}: folio no azul`);
       assert.equal((await style(folio.locator('span'))).color, NEUTRAL, `${name}: folio pierde neutral documental`);
 
@@ -120,8 +120,8 @@ try {
         assert.equal(featureBody.borderLeftWidth, '0px', `${name}: rail destacado no se limpia <=900`);
       }
 
-      assert.equal(await page.locator('.cuaderno-ledger > .cuaderno-entry').count(), 5, `${name}: archivo no conserva cinco entradas`);
-      assert.deepEqual(await page.locator('.cuaderno-entry__index').allInnerTexts(), ['02', '03', '04', '05', '06'], `${name}: índices del archivo alterados`);
+      assert.equal(await page.locator('.cuaderno-ledger > .cuaderno-entry').count(), 7, `${name}: archivo no conserva cinco entradas`);
+      assert.deepEqual(await page.locator('.cuaderno-entry__index').allInnerTexts(), ['02', '03', '04', '05', '06', '07', '08'], `${name}: índices del archivo alterados`);
       const ledger = await style(page.locator('.cuaderno-ledger'));
       assert.equal(ledger.borderTopColor, BLUE, `${name}: ledger sin apertura azul`);
       assert.equal(ledger.borderBottomColor, GOLD, `${name}: ledger sin cierre dorado`);

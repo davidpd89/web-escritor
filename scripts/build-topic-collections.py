@@ -212,7 +212,7 @@ SHELL_FOOTER = '''  <footer class="site-footer">
     </div>
   </footer>
 
-    <script defer src="/assets/v1-shell.js?v=18"></script>
+    <script defer src="/assets/v1-shell.js?v=19"></script>
 </body>
 </html>
 '''

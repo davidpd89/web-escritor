@@ -26,6 +26,13 @@ html.v1 .reading-catalogue { --catalogue-rule: var(--color-border, #d5d0c5); }
 .catalogue-book-layout dd { margin: 0; overflow-wrap: anywhere; }
 .catalogue-book-layout .affiliate-disclosure { font-size: .9rem; max-width: 60ch; }
 .catalogue-book-layout .catalogue-speech { margin-block: 1rem; }
+html.v1 .catalogue-hero { padding-block: 1rem; }
+html.v1 .catalogue-hero h1 { max-width: none; font-size: clamp(2.3rem, 5vw, 3.25rem); line-height: 1.05; }
+.catalogue-section .catalogue-filters { margin-top: 1rem; }
+.catalogue-details { border-block-start: 1px solid var(--catalogue-rule); padding-block: .6rem; margin-top: .8rem; }
+.catalogue-details summary { min-height: 44px; padding-block: .6rem; cursor: pointer; font-weight: 600; }
+.catalogue-details summary:focus-visible { outline: 2px solid var(--rec-blue); outline-offset: 3px; }
+.catalogue-audio audio { max-width: 100%; width: 100%; }
 @media (max-width: 900px) { .catalogue-grid { grid-template-columns: 1fr; } }
 @media (max-width: 650px) { .catalogue-filter-grid { grid-template-columns: 1fr; } .catalogue-book-layout { grid-template-columns: 1fr; } .catalogue-book-cover { max-width: 260px; margin-inline: auto; } .catalogue-card { gap: 1rem; grid-template-columns: minmax(85px, .45fr) minmax(0, 1fr); } }
 @media print { .catalogue-filters, .catalogue-speech { display: none !important; } .catalogue-grid { display: block; } .catalogue-card { break-inside: avoid; } }

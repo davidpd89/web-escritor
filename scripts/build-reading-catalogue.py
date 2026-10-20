@@ -24,7 +24,7 @@ ROOT = Path(__file__).resolve().parents[1]
 SITE = "https://davidportodiaz.com"
 SLUG = re.compile(r"[a-z0-9]+(?:-[a-z0-9]+)*\Z")
 TYPES = {"genero": "Género", "tematica": "Temática", "temporada": "Temporada", "edad": "Edad", "contenido": "Contenido", "epoca": "Época"}
-BOOK_FIELDS = set("id slug titulo autores descripcion_breve estado portada_local portada_fuente_url portada_edicion_verificada autorizacion_o_base_uso portada_fecha_revision portada_ancho portada_alto fuente_bibliografica_url fecha_verificacion descripcion_original_confirmada url_amazon_afiliada isbn13 edicion editorial fecha_publicacion fuente_publicacion_url idioma edad_recomendada fuente_edad_url avisos_contenido lectura_personal_confirmada evidencia_lectura autoria_propia resenas fragmento_url fecha_actualizacion".split())
+BOOK_FIELDS = set("id slug titulo autores descripcion_breve estado portada_local portada_fuente_url portada_edicion_verificada autorizacion_o_base_uso portada_fecha_revision portada_ancho portada_alto fuente_bibliografica_url fecha_verificacion descripcion_original_confirmada url_amazon_afiliada isbn13 edicion editorial fecha_publicacion anio_publicacion numero_paginas fuente_publicacion_url idioma edad_recomendada fuente_edad_url avisos_contenido lectura_personal_confirmada evidencia_lectura autoria_propia resenas fragmento_url fecha_actualizacion audio_descripcion audio_voz".split())
 
 
 class ValidationError(ValueError):
@@ -113,6 +113,10 @@ def validate(data, root):
             require(isinstance(b.get("evidencia_lectura"), str) and b["evidencia_lectura"].strip(), f"{name}: lectura personal sin evidencia")
         for key in ("editorial", "idioma", "avisos_contenido"):
             require(not b.get(key) or isinstance(b[key], str), f"{name}: {key} debe ser texto")
+        for key in ('anio_publicacion', 'numero_paginas'):
+            require(not b.get(key) or type(b[key]) is int and b[key] > 0, f'{name}: {key} debe ser entero positivo')
+        if b.get('audio_descripcion'):
+            require(bool(re.fullmatch(r'/assets/reading-audio/[a-z0-9-]+\.mp3', b['audio_descripcion'])) and (root / b['audio_descripcion'].lstrip('/')).is_file(), f'{name}: audio local inválido o ausente')
         cover = b["portada_local"]
         require(bool(re.fullmatch(r"/assets/reading-covers/[a-z0-9-]+\.(?:jpg|jpeg|png|webp)", cover)), f"{name}: portada fuera de assets/reading-covers")
         file = (root / cover.lstrip("/")).resolve()
@@ -190,7 +194,12 @@ def render_hub(data, books, template):
     for i, b in enumerate(books):
         cats = categories(data, b)
         cards.append(f'<li class="catalogue-card" data-catalogue-book data-categories="{esc(" ".join(c["id"] for c in cats))}" data-search="{esc(b["titulo"] + " " + " ".join(b["autores"]))}" data-published="{esc(b.get("fecha_publicacion", ""))}"><a href="{url(b)}" aria-label="Ver ficha de {esc(b["titulo"])}">{image(b, i > 1)}</a><div><h3><a href="{url(b)}">{esc(b["titulo"])}</a></h3><p>{esc(", ".join(b["autores"]))}</p><p>{esc(b["descripcion_breve"])}</p>{tags(cats)}<a class="text-action" href="{url(b)}">Ver ficha del libro</a></div></li>')
-    catalogue = '<section class="v1-section" id="catalogo" aria-labelledby="catalogo-title"><h2 id="catalogo-title">Libros para descubrir</h2>' + render_filters(data) + f'<p role="status" aria-live="polite" data-catalogue-count>{len(books)} libros</p><ul class="catalogue-grid">' + ''.join(cards) + '</ul><div class="catalogue-empty" data-catalogue-empty' + (' hidden' if books else '') + '><h3>' + ('No hay libros con estos filtros' if books else 'Estamos preparando la selección') + '</h3><p>' + ('Prueba otras categorías o limpia los filtros. También puedes explorar las guías de lectura.' if books else 'Mientras llegan las primeras fichas, puedes explorar las guías y artículos de lectura que encontrarás a continuación.') + '</p><a class="text-action" href="#listas">Explorar las guías de lectura</a></div><noscript><p>Puedes consultar todas las fichas y guías sin JavaScript. Los filtros requieren activarlo.</p></noscript></section>'
+    counts = {}
+    for b in books:
+        for c in categories(data, b):
+            counts[c['id']] = counts.get(c['id'], 0) + 1
+    menu = '<nav aria-label="Categorías de los libros"><ul class="catalogue-tags">' + ''.join(f'<li id="{esc(c["tipo"])}={esc(c["id"])}"><a href="/recomendaciones/#{esc(c["tipo"])}={esc(c["id"])}">{esc(c["nombre"])} ({counts[c["id"]]})</a></li>' for c in sorted(data['categorias'], key=lambda c: (c['orden'], c['id'])) if c['activa'] and c['id'] in counts) + '</ul></nav>'
+    catalogue = '<section class="catalogue-section" id="catalogo" aria-label="Buscar libros recomendados">' + render_filters(data) + menu + f'<p role="status" aria-live="polite" data-catalogue-count>{len(books)} libros</p><ul class="catalogue-grid">' + ''.join(cards) + '</ul><div class="catalogue-empty" data-catalogue-empty' + (' hidden' if books else '') + '><h2>' + ('No hay libros con estos filtros' if books else 'Estamos preparando la selección') + '</h2><p>Prueba otras categorías o explora las guías del Cuaderno.</p><a class="text-action" href="/cuaderno/#lecturas">Explorar las guías de lectura</a></div><noscript><p>Puedes consultar todas las fichas y guías sin JavaScript. Los filtros requieren activarlo.</p></noscript></section>'
     page = template.replace('{{catalogue}}', catalogue)
     if books:
         # The existing guide ItemList remains intact; the catalogue has its own list.
@@ -201,36 +210,42 @@ def render_hub(data, books, template):
 
 def render_book(data, b, template):
     canonical = SITE + url(b)
-    title = b["titulo"] + " · " + ", ".join(b["autores"]) + " | Lecturas recomendadas"
+    title = b["titulo"] + " · " + ", ".join(b["autores"]) + " | Libros recomendados"
     description = b["descripcion_breve"]
     cats = categories(data, b)
-    rows = [("Edición", b["edicion"]), ("Editorial", b.get("editorial")), ("Publicación", b.get("fecha_publicacion")), ("ISBN-13", b.get("isbn13")), ("Idioma", b.get("idioma")), ("Edad orientativa", b.get("edad_recomendada"))]
-    details = '<dl>' + ''.join(f'<dt>{esc(k)}</dt><dd>{esc(v)}</dd>' for k, v in rows if v) + '</dl>'
+    rows = [("Edición", b["edicion"]), ("Editorial", b.get("editorial")), ("Publicación", b.get("fecha_publicacion") or b.get('anio_publicacion')), ("ISBN-13", b.get("isbn13")), ("Idioma", b.get("idioma")), ("Páginas", b.get('numero_paginas')), ("Edad orientativa", b.get("edad_recomendada"))]
+    details = '<details class="catalogue-details"><summary>Datos de esta edición</summary><dl>' + ''.join(f'<dt>{esc(k)}</dt><dd>{esc(v)}</dd>' for k, v in rows if v) + '</dl></details>'
     amazon = ''
     if b.get("url_amazon_afiliada"):
         amazon = '<p class="affiliate-disclosure">Como afiliado de Amazon, obtengo ingresos por las compras adscritas que cumplen los requisitos aplicables.</p>' + f'<a class="primary-action" href="{esc(b["url_amazon_afiliada"])}" target="_blank" rel="sponsored nofollow noopener noreferrer">Ver en Amazon <span>· enlace de afiliado</span></a>'
-    extra = '<h2>Fuentes y otras lecturas</h2><ul>' + f'<li><a href="{esc(b["fuente_bibliografica_url"])}" rel="noopener noreferrer" target="_blank">Fuente bibliográfica de esta edición</a></li>'
-    for key, label in (("fuente_publicacion_url", "Fecha de publicación"), ("fuente_edad_url", "Orientación de edad"), ("fragmento_url", "Leer un fragmento en la fuente oficial")):
+    extra = '<details class="catalogue-details"><summary>Fuentes de la edición y la portada</summary><ul>' + f'<li><a href="{esc(b["fuente_bibliografica_url"])}" rel="noopener noreferrer" target="_blank">Fuente bibliográfica de esta edición</a></li><li><a href="{esc(b["portada_fuente_url"])}" rel="noopener noreferrer" target="_blank">Portada: {esc(b.get("editorial") or "fuente editorial")}</a></li>'
+    for key, label in (("fuente_publicacion_url", "Fecha de publicación"), ("fuente_edad_url", "Orientación de edad")):
         if b.get(key):
             extra += f'<li><a href="{esc(b[key])}" target="_blank" rel="noopener noreferrer">{label}</a></li>'
-    for review in b.get("resenas", []):
-        extra += f'<li><a href="{esc(review["url"])}" target="_blank" rel="noopener noreferrer">Reseña externa: {esc(review["titulo"])}</a></li>'
-    extra += '</ul>'
-    main = '<main id="contenido" tabindex="-1" class="v1-main reading-catalogue" data-family="recomendaciones" data-reading-catalogue><nav class="book-breadcrumb" aria-label="Ruta de navegación"><ol><li><a href="/">Inicio</a></li><li><a href="/cuaderno/">Cuaderno</a></li><li><a href="/recomendaciones/">Recomendaciones de lectura</a></li><li aria-current="page">' + esc(b["titulo"]) + '</li></ol></nav><article class="catalogue-book-layout"><div>' + image(b) + '</div><div><p class="eyebrow">Recomendaciones de lectura</p><h1>' + esc(b["titulo"]) + '</h1><p>' + esc(", ".join(b["autores"])) + '</p>'
+    extra += '</ul></details>'
+    if b.get('resenas'):
+        extra += '<details class="catalogue-details"><summary>Reseñas externas (' + str(len(b['resenas'])) + ')</summary><ul>' + ''.join(f'<li><a href="{esc(r["url"])}" target="_blank" rel="noopener noreferrer">Reseña externa: {esc(r["titulo"])}</a></li>' for r in b['resenas']) + '</ul></details>'
+    if b.get('fragmento_url'):
+        extra += '<details class="catalogue-details"><summary>Leer un fragmento gratuito</summary><p>La muestra se abre en la web de la editorial.</p><a class="text-action" href="' + esc(b['fragmento_url']) + '" target="_blank" rel="noopener noreferrer">Abrir el primer capítulo en la fuente oficial</a></details>'
+    main = '<main id="contenido" tabindex="-1" class="v1-main reading-catalogue" data-family="recomendaciones" data-reading-catalogue><nav class="book-breadcrumb" aria-label="Ruta de navegación"><ol><li><a href="/">Inicio</a></li><li><a href="/cuaderno/">Cuaderno</a></li><li><a href="/recomendaciones/">Libros recomendados</a></li><li aria-current="page">' + esc(b["titulo"]) + '</li></ol></nav><article class="catalogue-book-layout"><div>' + image(b) + '</div><div><p class="eyebrow">Libros recomendados</p><h1>' + esc(b["titulo"]) + '</h1><p>' + esc(", ".join(b["autores"])) + '</p>'
     if b.get("autoria_propia"):
         main += '<p>Obra del autor de esta web, David Porto Díaz.</p>'
-    main += '<p data-catalogue-description>' + esc(description) + '</p><div class="catalogue-speech" hidden><button type="button" data-catalogue-speak>Escuchar descripción</button> <button type="button" data-catalogue-stop disabled>Detener lectura</button><p role="status" data-catalogue-speech-status></p></div>' + tags(cats) + details
+    speech = '<div class="catalogue-speech" hidden><button type="button" data-catalogue-speak>Escuchar descripción</button> <button type="button" data-catalogue-stop disabled>Detener lectura</button><p role="status" data-catalogue-speech-status></p></div>'
+    if b.get('audio_descripcion'):
+        speech = '<div class="catalogue-audio"><p>Escuchar la descripción' + (' · ' + esc(b['audio_voz']) if b.get('audio_voz') else '') + '</p><audio controls preload="none" aria-label="Escuchar la descripción de ' + esc(b['titulo']) + '"><source src="' + esc(b['audio_descripcion']) + '" type="audio/mpeg"></audio></div>'
+    main += '<p data-catalogue-description>' + esc(description) + '</p>' + speech + tags(cats)
     if b.get("avisos_contenido"):
         main += '<p><strong>Sobre el contenido:</strong> ' + esc(b["avisos_contenido"]) + '</p>'
-    main += amazon + extra + f'<p>Datos de la edición revisados el <time datetime="{esc(b["fecha_verificacion"])}">{esc(b["fecha_verificacion"])}</time>. Esta comprobación no implica una lectura personal.</p><p><a href="/recomendaciones/politica-de-recomendaciones/">Criterio editorial y correcciones</a></p><a class="text-action" href="/recomendaciones/">Volver al catálogo</a></div></article></main>'
+    main += amazon + details + extra + f'<p>Datos de la edición revisados el <time datetime="{esc(b["fecha_verificacion"])}">{esc(b["fecha_verificacion"])}</time>. Esta comprobación no implica una lectura personal.</p><p><a href="/recomendaciones/politica-de-recomendaciones/">Criterio editorial y correcciones</a></p><a class="text-action" href="/recomendaciones/">Volver al catálogo</a></div></article></main>'
     schema = {"@context": "https://schema.org", "@graph": [
         {"@type": "Book", "@id": canonical + "#book", "url": canonical, "name": b["titulo"], "author": [{"@type": "Person", "name": a} for a in b["autores"]], "description": description, "image": SITE + b["portada_local"], "bookEdition": b["edicion"], **({"isbn": b["isbn13"]} if b.get("isbn13") else {}), **({"datePublished": b["fecha_publicacion"]} if b.get("fecha_publicacion") else {})},
         {"@type": "WebPage", "@id": canonical + "#page", "url": canonical, "name": title, "dateModified": b["fecha_actualizacion"], "mainEntity": {"@id": canonical + "#book"}},
-        {"@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": i + 1, "name": label, "item": SITE + href} for i, (label, href) in enumerate([("Inicio", "/"), ("Cuaderno", "/cuaderno/"), ("Recomendaciones de lectura", "/recomendaciones/"), (b["titulo"], url(b))])]}]}
+        {"@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": i + 1, "name": label, "item": SITE + href} for i, (label, href) in enumerate([("Inicio", "/"), ("Cuaderno", "/cuaderno/"), ("Libros recomendados", "/recomendaciones/"), (b["titulo"], url(b))])]}]}
     page = template.replace('{{catalogue}}', '')
     page = re.sub(r'<main\b[\s\S]*?</main>', lambda _: main, page, count=1)
     page = re.sub(r'<title>.*?</title>', lambda _: '<title>' + esc(title) + '</title>', page, count=1)
-    for key, value in (("description", description), ("og:title", title), ("og:description", description), ("og:url", canonical), ("og:image", SITE + b["portada_local"]), ("og:image:alt", "Portada de " + b["titulo"]), ("og:image:width", b["portada_ancho"]), ("og:image:height", b["portada_alto"]), ("twitter:title", title), ("twitter:description", description), ("twitter:image", SITE + b["portada_local"]), ("twitter:image:alt", "Portada de " + b["titulo"])):
+    meta_description = description if len(description) <= 160 else description[:157].rsplit(' ', 1)[0].rstrip('.,;:') + '…'
+    for key, value in (("description", meta_description), ("og:title", title), ("og:description", meta_description), ("og:url", canonical), ("og:image", SITE + b["portada_local"]), ("og:image:alt", "Portada de " + b["titulo"]), ("og:image:width", b["portada_ancho"]), ("og:image:height", b["portada_alto"]), ("twitter:title", title), ("twitter:description", meta_description), ("twitter:image", SITE + b["portada_local"]), ("twitter:image:alt", "Portada de " + b["titulo"])):
         page = re.sub(r'(<meta (?:name|property)="' + re.escape(key) + r'" content=")[^"]*', lambda m: m[1] + esc(value), page)
     page = page.replace('href="https://davidportodiaz.com/recomendaciones/"', 'href="' + canonical + '"')
     page = re.sub(r'<script type="application/ld\+json">[\s\S]*?</script>', lambda _: '<script type="application/ld+json">' + json.dumps(schema, ensure_ascii=False).replace('<', '\\u003c') + '</script>', page, count=1)
