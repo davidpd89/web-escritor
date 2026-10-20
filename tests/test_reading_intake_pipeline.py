@@ -8,12 +8,13 @@ import tempfile
 import unittest
 import shutil
 from unittest.mock import patch
+from urllib.request import Request
 from pathlib import Path
 from PIL import Image
 
 ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT / 'scripts'))
-from reading_editorial_sources import SourceError, allowed_url, penguin_edition, product_links
+from reading_editorial_sources import SourceError, CachedHTTP, _Redirects, allowed_url, penguin_edition, product_links
 from reading_intake_pipeline import make_book, cover_bytes, update_authors, classify, work_key, builder
 import reading_intake_pipeline as pipeline
 
@@ -32,6 +33,21 @@ def document(**changes):
 
 
 class SourceTests(unittest.TestCase):
+    def test_redirects_consume_physical_budget_and_cannot_leave_source(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            http = CachedHTTP(Path(tmp), ['www.penguinlibros.com'], budget=2, delay=0)
+            handler = _Redirects(http.hosts, http._before_request)
+            http._before_request()
+            result = handler.redirect_request(Request(URL), None, 302, 'Found', {}, URL + '/')
+            self.assertEqual(http.requests, 2)
+            self.assertEqual(result.full_url, URL + '/')
+            with self.assertRaises(SourceError):
+                handler.redirect_request(Request(URL), None, 302, 'Found', {}, URL + '/')
+            self.assertEqual(http.requests, 2)
+            with self.assertRaises(SourceError):
+                handler.redirect_request(Request(URL), None, 302, 'Found', {}, 'https://example.com/other')
+            self.assertEqual(http.requests, 2)
+
     def test_selected_edition_not_recommendations(self):
         value = penguin_edition(document() + document(reference='9780140449136'), URL)
         self.assertEqual(value['isbn13'], '9780140328721')

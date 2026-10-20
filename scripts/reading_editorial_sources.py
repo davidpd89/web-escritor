@@ -36,12 +36,16 @@ def allowed_url(raw, hosts):
 
 
 class _Redirects(HTTPRedirectHandler):
-    def __init__(self, hosts):
+    def __init__(self, hosts, before_request):
         self.hosts = hosts
+        self.before_request = before_request
 
     def redirect_request(self, req, fp, code, msg, headers, newurl):
         allowed_url(newurl, self.hosts)
-        return super().redirect_request(req, fp, code, msg, headers, newurl)
+        redirected = super().redirect_request(req, fp, code, msg, headers, newurl)
+        if redirected is not None:
+            self.before_request()
+        return redirected
 
 
 class CachedHTTP:
@@ -60,7 +64,16 @@ class CachedHTTP:
         self.requests = self.hits = 0
         self.last_request = 0.0
         self.robots = {}
-        self.opener = build_opener(_Redirects(self.hosts))
+        self.opener = build_opener(_Redirects(self.hosts, self._before_request))
+
+    def _before_request(self):
+        if self.requests >= self.budget:
+            raise SourceError('Presupuesto diario de solicitudes agotado')
+        pause = self.delay - (time.monotonic() - self.last_request)
+        if pause > 0:
+            time.sleep(pause)
+        self.requests += 1
+        self.last_request = time.monotonic()
 
     def get(self, url, *, ttl=86400, limit=5_000_000, robots=True):
         allowed_url(url, self.hosts)
@@ -87,13 +100,7 @@ class CachedHTTP:
             if 0 <= age < ttl and body.stat().st_size <= limit:
                 self.hits += 1
                 return body.read_bytes()
-        if self.requests >= self.budget:
-            raise SourceError('Presupuesto diario de solicitudes agotado')
-        pause = self.delay - (time.monotonic() - self.last_request)
-        if pause > 0:
-            time.sleep(pause)
-        self.requests += 1
-        self.last_request = time.monotonic()
+        self._before_request()
         req = Request(url, headers={'User-Agent': AGENT, 'Accept': 'text/html, image/*;q=0.9, */*;q=0.5'})
         with self.opener.open(req, timeout=25) as response:
             allowed_url(response.url, self.hosts)
