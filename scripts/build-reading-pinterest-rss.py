@@ -85,12 +85,21 @@ def suitable_books(root: Path, data: dict, board_config: dict, today: date) -> l
         assigned = None
         published = as_day(book.get("fecha_publicacion", ""))
         for board in sorted(board_config["boards"], key=lambda b: b["priority"]):
-            is_recent = (
+            book_cats = categories.get(book_id, set())
+            category_match = bool(book_cats & set(board.get("categories", [])))
+            is_recent = bool(
                 board.get("recent_days") and published is not None
                 and 0 <= (today - published).days < board["recent_days"]
             )
-            category_match = bool(categories.get(book_id, set()) & set(board.get("categories", [])))
-            if is_recent or category_match:
+            if board.get("recent_days"):
+                # "Novedades de fantasía" never takes unrelated new books.
+                matches = is_recent and (
+                    category_match if board.get("category_match_mode") == "date_and_category"
+                    else True
+                )
+            else:
+                matches = category_match
+            if matches:
                 assigned = board
                 break
         if assigned:
