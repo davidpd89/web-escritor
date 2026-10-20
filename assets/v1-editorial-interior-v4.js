@@ -63,8 +63,7 @@
       matches: (path) => path.startsWith('/cuaderno/') || path.startsWith('/recomendaciones/'),
       links: [
         ['/cuaderno/', 'Archivo'],
-        ['/cuaderno/temas/', 'Temas'],
-        ['/recomendaciones/', 'Recomendaciones']
+        ['/recomendaciones/', 'Libros recomendados']
       ]
     },
     {

@@ -12,6 +12,8 @@ jobs:
       - uses: actions/setup-python@v6
         with:
           python-version: '3.12'
+      - name: Install shared Python dependencies
+        run: python -m pip install --requirement scripts/requirements.txt
       - name: Check versioned experiment registry
         run: python scripts/check-experiment-registry.py
       - name: Test experiment registry checker failure modes
@@ -122,6 +124,10 @@ jobs:
         run: python scripts/build-pagefind-index.py --check
       - name: Check /cuaderno/temas/ topic collections are up to date
         run: python scripts/build-topic-collections.py --data data/topic-collections.json --root . --check
+      - name: Check static reading catalogue and book pages are up to date
+        run: python scripts/build-reading-catalogue.py --check
+      - name: Check reading sheet snapshot and editorial approval reproduce the catalogue
+        run: python scripts/import-reading-sheet.py --check
       # El contrato "el texto no sale del navegador" es el argumento de venta
       # de cada herramienta de manuscrito. Este preflight existia
       # (scripts/audit-private-tools.py) pero nada lo ejecutaba en CI: una

@@ -175,3 +175,11 @@ https?://([^/]+\.)?davidportodiaz\.com/.*
 # concurso de relatos y cierre 30/10/2026 presentes. Solo esta URL exacta;
 # el resto del dominio y los fallos de otras fuentes siguen bajo control.
 ^https://fermentar\.org/pages/concurso-de-relatos$
+
+# Zaragoza: conexión TCP agotada desde Ubuntu y Windows de GitHub Actions
+# (39410798920), pero GET local con HTTP 200 y título de convocatoria correcto
+# verificados el 2026-10-20: V Relatos Ángel Sanz Briz 2026 (4322) y VIII
+# Epitafios para el Cementerio de Torrero (4321). Solo estas dos fichas;
+# no se excluye el dominio ni se aceptan errores HTTP en el recheck general.
+^https://www\.zaragoza\.es/sede/portal/cementerios/servicio/premios-concursos/4322$
+^https://www\.zaragoza\.es/sede/servicio/premios-concursos/4321$

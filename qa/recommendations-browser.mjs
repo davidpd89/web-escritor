@@ -96,30 +96,18 @@ for (const vp of viewports) {
   }
 }
 
-// Hub: two curated collections, author context separate, no fake current Cuaderno.
+// Hub is the book catalogue; the existing editorial guides live in Archivo.
 {
   const context = await contextFor({ width: 1440, height: 1000 });
   const { page } = await openChecked(context, '/recomendaciones/');
-  const hub = await page.evaluate(() => {
-    const docs = [...document.querySelectorAll('script[type="application/ld+json"]')].map((s) => JSON.parse(s.textContent));
-    const nodes = docs.flatMap((d) => d['@graph'] || [d]);
-    const list = nodes.find((n) => n['@type'] === 'ItemList');
-    return {
-      visibleLists: document.querySelectorAll('.recommendations-index > li').length,
-      authorContext: Boolean(document.querySelector('.recommendations-author-context a[href="/libros/samuel-entre-mundos/"]')),
-      genericCards: document.querySelectorAll('.id-cards > .id-card').length,
-      primaryCurrent: [...document.querySelectorAll('.primary-nav [aria-current="page"]')].map((a) => a.getAttribute('href')),
-      schemaCount: list?.numberOfItems,
-      schemaItems: list?.itemListElement?.length,
-      urls: [...document.querySelectorAll('.recommendations-index a[href^="/recomendaciones/"]')].map((a) => a.getAttribute('href')),
-    };
-  });
-  check(hub.visibleLists === 2, `hub: expected 2 curated lists, got ${hub.visibleLists}`);
-  check(hub.schemaCount === 2 && hub.schemaItems === 2, 'hub: ItemList count is not 2/2');
-  check(hub.authorContext, 'hub: Samuel author-context link missing');
-  check(hub.genericCards === 0, 'hub: generic 3-card product-like grid still present');
-  check(hub.primaryCurrent.length === 0, `hub: primary nav has false aria-current ${hub.primaryCurrent.join(', ')}`);
-  check(hub.urls.includes('/recomendaciones/portal-fantasy-espanol/') && hub.urls.includes('/recomendaciones/magia-con-coste/'), 'hub: curated list links missing');
+  check(await page.locator('h1').innerText() === 'Libros recomendados', 'hub: catalogue heading');
+  check(await page.locator('[data-catalogue-filters]').isVisible(), 'hub: filters must be visible');
+  check(await page.locator('[data-catalogue-book]').count() >= 1, 'hub: pilot book missing');
+  check(await page.locator('a[href="/recomendaciones/libros/coraline/"]').count() >= 1, 'hub: Coraline URL missing');
+  await page.goto(BASE + '/cuaderno/');
+  for (const slug of ['portal-fantasy-espanol', 'magia-con-coste']) {
+    check(await page.locator('.cuaderno-entry a[href="/recomendaciones/' + slug + '/"]').count() === 1, 'archive: guide missing ' + slug);
+  }
   await context.close();
 }
 
@@ -134,11 +122,9 @@ const REC_GOLD = 'rgb(184, 134, 11)';
   const hubColors = await page.evaluate(() => ({
     h1: getComputedStyle(document.querySelector('.recommendations-hero h1')).color,
     eyebrow: getComputedStyle(document.querySelector('.recommendations-hero .eyebrow')).color,
-    number: getComputedStyle(document.querySelector('.recommendations-index__number')).color,
   }));
   check(hubColors.h1 === REC_BLUE, `hub: h1 should use editorial blue, got ${hubColors.h1}`);
   check(hubColors.eyebrow === REC_GOLD, `hub: eyebrow should use editorial gold, got ${hubColors.eyebrow}`);
-  check(hubColors.number === REC_BLUE, `hub: folio number should use editorial blue, got ${hubColors.number}`);
   await context.close();
 }
 for (const route of ['/recomendaciones/portal-fantasy-espanol/', '/recomendaciones/magia-con-coste/', '/recomendaciones/politica-de-recomendaciones/']) {

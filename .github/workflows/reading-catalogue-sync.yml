@@ -1,0 +1,65 @@
+name: Reading catalogue intake
+
+on:
+  schedule:
+    - cron: '30 6 * * *'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  id-token: write
+
+concurrency:
+  group: reading-catalogue-intake
+  cancel-in-progress: false
+
+jobs:
+  intake:
+    if: vars.READING_INTAKE_ENABLED == 'true'
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v5
+      - uses: actions/setup-python@v6
+        with:
+          python-version: '3.12'
+      - name: Install image validation dependencies
+        run: python -m pip install --requirement scripts/requirements.txt
+      - name: Read-only access to the catalogue sheet
+        id: google
+        if: vars.READING_GOOGLE_PROVIDER != ''
+        uses: google-github-actions/auth@v3
+        with:
+          workload_identity_provider: ${{ vars.READING_GOOGLE_PROVIDER }}
+          service_account: ${{ vars.READING_GOOGLE_ACCOUNT }}
+          token_format: access_token
+          access_token_scopes: https://www.googleapis.com/auth/spreadsheets.readonly
+      - name: Import sheet into a review snapshot
+        if: steps.google.outputs.access_token != ''
+        env:
+          GOOGLE_SHEETS_ACCESS_TOKEN: ${{ steps.google.outputs.access_token }}
+        run: |
+          python scripts/import-reading-sheet.py --live --report .ci/reading-intake/sheet-review.json
+          # The source sheet is private. Artifacts inherit repository visibility:
+          # publish only IDs/status in the review report, never its raw snapshot.
+      - name: Discover Amazon candidates
+        env:
+          AMAZON_CREATORS_CLIENT_ID: ${{ secrets.AMAZON_CREATORS_CLIENT_ID }}
+          AMAZON_CREATORS_CLIENT_SECRET: ${{ secrets.AMAZON_CREATORS_CLIENT_SECRET }}
+          AMAZON_PARTNER_TAG: ${{ vars.AMAZON_PARTNER_TAG }}
+        shell: bash
+        run: |
+          if [ -n "$AMAZON_CREATORS_CLIENT_ID" ] && [ -n "$AMAZON_CREATORS_CLIENT_SECRET" ]; then
+            python scripts/discover-reading-books.py --query 'fantasía juvenil' --query 'romantasy' --query 'Salamandra' --out .ci/reading-intake/amazon-candidates.json
+          else
+            echo 'Creators API no configurada; no se ha consultado Amazon.' >> "$GITHUB_STEP_SUMMARY"
+          fi
+      - name: Upload review inbox (24 hours)
+        uses: actions/upload-artifact@v6
+        with:
+          name: reading-intake-review
+          path: .ci/reading-intake/
+          retention-days: 1
+          if-no-files-found: error
+      - name: Explain publication boundary
+        run: echo 'Captura terminada. Revisar fuentes, portada y descripción antes de aplicar la propuesta y pasar la CI de publicación. No se cambia main desde esta tarea.' >> "$GITHUB_STEP_SUMMARY"
