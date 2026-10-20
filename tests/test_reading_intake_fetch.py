@@ -72,6 +72,25 @@ class ReadingIntakeFetchTests(unittest.TestCase):
                                today="2026-10-20", fetch_fn=forbidden)
         self.assertGreater(data["new"], 0)
 
+    def test_failed_requests_still_consume_daily_budget(self):
+        config = json.loads(json.dumps(CONFIG))
+        config["publishers"] = [
+            {"slug": f"sello-{i}", "name": f"Sello {i}", "aliases": [], "enabled": True}
+            for i in range(12)
+        ]
+        attempted = []
+        def fail(params):
+            attempted.append(params["q"])
+            raise RuntimeError("HTTP 403 (fixture de error)")
+        state = {"schema_version": 1, "items": {}}
+        stats = intake.discover(config, fixture=None, api_key="clave-ficticia",
+                                max_requests=3, existing=set(), state=state,
+                                today="2026-10-20", fetch_fn=fail)
+        self.assertEqual(stats["requests"], 3)
+        self.assertEqual(len(attempted), 3)
+        self.assertEqual(len(stats["errors"]), 3)
+        self.assertEqual(state["items"], {})
+
     def test_request_budget(self):
         state = {"schema_version": 1, "items": {}}
         stats = intake.discover(CONFIG, fixture=FIXTURES, api_key="",
