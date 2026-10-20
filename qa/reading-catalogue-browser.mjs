@@ -73,6 +73,24 @@ try {
     await page.screenshot({ path: `${OUT}/coraline-mobile.png`, fullPage: true });
     await context.close();
   }
+  // Large text and custom spacing must preserve all content on narrow screens.
+  for (const width of [320, 390, 768]) {
+    const context = await browser.newContext({ viewport: { width, height: 900 }, reducedMotion: 'reduce' });
+    const page = await context.newPage();
+    for (const route of ['/recomendaciones/', '/recomendaciones/libros/coraline/']) {
+      for (const css of ['html{font-size:200%!important}', '*{line-height:1.5!important;letter-spacing:.12em!important;word-spacing:.16em!important}p{margin-bottom:2em!important}', 'html{font-size:200%!important}*{line-height:1.5!important;letter-spacing:.12em!important;word-spacing:.16em!important}p{margin-bottom:2em!important}']) {
+        await page.goto(`${BASE}${route}`);
+        await page.addStyleTag({ content: css });
+        await page.evaluate(() => document.fonts.ready);
+        const overflow = await page.locator('main *').evaluateAll(nodes => nodes.flatMap(node => {
+          const r = node.getBoundingClientRect(), s = getComputedStyle(node);
+          return r.width > 0 && r.height > 0 && s.visibility !== 'hidden' && (r.right > innerWidth + 1 || r.left < -1) ? [{ tag: node.tagName, class: node.className, right: r.right, left: r.left }] : [];
+        }));
+        assert.deepEqual(overflow, [], `${route} @ ${width}: ${css}`);
+      }
+    }
+    await context.close();
+  }
   // Rendered data uses intercepted, isolated fixtures; no synthetic books on the site.
   const context = await browser.newContext({ viewport: { width: 390, height: 900 }, reducedMotion: 'reduce' });
   await context.route('**/recomendaciones/', route => route.fulfill({ contentType: 'text/html; charset=utf-8', body: fixture.hub }));
