@@ -47,7 +47,7 @@
     form.querySelector('button[type="reset"]').disabled = false;
     form.addEventListener('input', () => apply());
     form.addEventListener('submit', event => { event.preventDefault(); apply(); });
-    form.addEventListener('reset', () => { queueMicrotask(() => apply()); });
+    form.addEventListener('reset', () => { setTimeout(() => apply(), 0); });
     window.addEventListener('hashchange', restore);
     window.addEventListener('pageshow', () => apply(false));
     document.addEventListener('visibilitychange', () => { if (!document.hidden) apply(false); });

@@ -40,8 +40,8 @@ jobs:
           GOOGLE_SHEETS_ACCESS_TOKEN: ${{ steps.google.outputs.access_token }}
         run: |
           python scripts/import-reading-sheet.py --live --report .ci/reading-intake/sheet-review.json
-          mkdir -p .ci/reading-intake/proposed-data
-          cp data/reading-sheet-snapshot.json data/reading-catalogue.json .ci/reading-intake/proposed-data/
+          # The source sheet is private. Artifacts inherit repository visibility:
+          # publish only IDs/status in the review report, never its raw snapshot.
       - name: Discover Amazon candidates
         env:
           AMAZON_CREATORS_CLIENT_ID: ${{ secrets.AMAZON_CREATORS_CLIENT_ID }}

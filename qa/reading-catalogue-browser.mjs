@@ -27,6 +27,11 @@ try {
     assert.equal(await page.locator('[data-catalogue-count]').innerText(), '0 libros');
     await page.getByRole('button', { name: 'Limpiar filtros' }).click();
     assert.equal(await page.locator('[data-filter="genero"]').inputValue(), '');
+    await page.waitForFunction(() => document.querySelector('[data-catalogue-count]').textContent === '1 libro');
+    assert.equal(await page.locator('[data-catalogue-book]:visible').count(), 1);
+    await page.getByRole('button', { name: 'Buscar libros', exact: true }).focus();
+    await page.keyboard.press('Enter');
+    assert.equal(await page.locator('[data-catalogue-book]:visible').count(), 1);
     assert(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth + 1));
     await page.evaluate(() => { document.activeElement?.blur(); window.scrollTo({ top: 0, behavior: 'instant' }); });
     await page.waitForFunction(() => window.scrollY === 0);
