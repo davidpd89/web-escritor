@@ -168,3 +168,27 @@ python scripts/build-public-dist.py --check-contents --out .preview-dist
 ```
 
 **Prueba final obligatoria**: consultar la URL RSS desplegada (respuesta 200 XML); verificar nombre de tablero **existente** en Pinterest, pin real y destino web, imagen real sin deformación, botón Amazon voluntario, carga móvil, y persistencia en ejecuciones posteriores sin duplicados. Después de #661 integrar RSS en el **mismo workflow que actualiza el catálogo** y comprobar que se refresca cada día incluso cuando no aparecen libros nuevos.
+
+
+## Artefacto real del sitio: feeds RSS inicialmente vacíos y TRACKED (corregido)
+
+**Hallazgo del builder propio:** `scripts/build-public-dist.py` construye el sitio a partir de **`git ls-files`**, no de todos los ficheros presentes en el directorio. Por tanto, XML recién generados que no estén *versionados* quedan fuera del despliegue **aunque existan en el runner**. Esto era una omisión de la arquitectura inicial y se ha corregido.
+
+**Archivos ahora creados y versionados en ESTA PR**, como RSS 2.0 válidos sin libros:
+
+- `assets/pinterest/feeds/novedades-fantasia.xml`
+- `assets/pinterest/feeds/terror-fantasia-oscura.xml`
+- `assets/pinterest/feeds/romantasy.xml`
+- `assets/pinterest/feeds/portales-mundos-magicos.xml`
+- `assets/pinterest/feeds/fantasia-juvenil.xml`
+
+Mientras `rss_enabled=false`, `--check` exige que estos archivos coincidan con sus canales vacíos. Su existencia en la web permite comprobar HTTP, dominio y XML **sin activar ningún Pin**. No garantiza que Pinterest acepte feeds sin ítems: si lo exige, conectar con el modo piloto (único libro Coraline) el mismo día que se active.
+
+**Orden imprescindible para Codex en el workflow final:** generar fichas y portadas → asignar cola RSS → generar los cinco XML → **`git add data/reading-pinterest-state.json assets/pinterest/feeds/*.xml` y commit** junto con el lote de libros → ejecutar `build-public-dist.py` desde ese commit versionado → desplegar con `deploy-pages.yml` usando `workflow_dispatch` si el commit vino de `GITHUB_TOKEN` → comprobar que el feed XML y la ficha devuelven HTTP 200. No generar el RSS únicamente en el directorio temporal **después** del `git ls-files`: la web publicada seguiría con datos antiguos.
+
+**Primer ensayo de Codex**: correr `--check` inactivo desde la rama sin escribir XML; ejecutar `--preview` y probar `--assign` solo con `rss_enabled=true` temporal en un runner/ramal de pruebas, manteniendo `pilot_book_id=lib-0001`. No publicar la cola general hasta que Pinterest confirme realmente el pin piloto.
+
+**Inspiración pública adicional contrastada:**
+- [Pinterest API Quickstart oficial](https://github.com/pinterest/api-quickstart): OAuth, permisos y app; sirve **solo de alternativa** si RSS carece de analíticas/ALT precisos. Requiere mantenimiento y acceso; no sustituye un RSS funcional.
+- [maximedrn/pinterest-automatic-upload](https://github.com/maximedrn/pinterest-automatic-upload): automatiza vía Selenium/credenciales, pero el propio proyecto se declara **sin mantenimiento desde diciembre de 2021** y advierte sobre suspensión por volumen; NO incorporarlo.
+- [Automating Hugo Blog and Social Media with GitHub Actions (2025)](https://datalabtechtv.com/posts/automate-blog-and-social-media/): patrón público de sitio estático que publica RSS/actualizaciones mediante un solo flujo; no cubre Pinterest ni libros españoles, pero ilustra la misma separación fuente editorial → build → redes.
