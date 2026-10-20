@@ -1,0 +1,99 @@
+{
+  "schema_version": 1,
+  "site": "https://davidportodiaz.com",
+  "rss_enabled": false,
+  "daily_new_pin_budget": 2,
+  "max_feed_items_per_board": 150,
+  "note": "Tableros propuestos, no creados. Configurar manualmente RSS en Pinterest después de reclamar dominio y revisar calidad. La conexión RSS requiere cuenta business.",
+  "boards": [
+    {
+      "slug": "novedades-fantasia",
+      "name": "Novedades de fantasía y romantasy",
+      "description": "Novedades editoriales y próximos libros de fantasía juvenil, romantasy y ficción especulativa en español. Fichas de lectura con ISBN y fecha.",
+      "priority": 10,
+      "recent_days": 90,
+      "categories": [],
+      "keyword": "novedades de fantasía"
+    },
+    {
+      "slug": "terror-fantasia-oscura",
+      "name": "Libros de terror y fantasía oscura",
+      "description": "Historias inquietantes, libros para Halloween, misterio juvenil y fantasía oscura. Recomendaciones de lectura con sinopsis y edición.",
+      "priority": 20,
+      "categories": [
+        "terror",
+        "fantasia-oscura",
+        "halloween",
+        "misterio"
+      ],
+      "keyword": "libros de fantasía oscura"
+    },
+    {
+      "slug": "romantasy",
+      "name": "Libros de romantasy y fantasía romántica",
+      "description": "Romantasy en español, novelas de fantasía romántica, magia y aventuras con romance. Libros y ediciones para descubrir.",
+      "priority": 30,
+      "categories": [
+        "romantasy",
+        "romance"
+      ],
+      "keyword": "libros de romantasy"
+    },
+    {
+      "slug": "portales-mundos-magicos",
+      "name": "Portal fantasy y mundos mágicos",
+      "description": "Libros de mundos paralelos, fantasía de portales, puertas mágicas y viajes entre mundos. Lecturas de fantasía juvenil.",
+      "priority": 40,
+      "categories": [
+        "portales",
+        "mundos-paralelos"
+      ],
+      "keyword": "fantasía de portales"
+    },
+    {
+      "slug": "fantasia-juvenil",
+      "name": "Libros de fantasía juvenil",
+      "description": "Novelas juveniles de fantasía, aventuras mágicas y mundos imaginarios. Libros de editoriales en español, con datos y sinopsis.",
+      "priority": 50,
+      "categories": [
+        "fantasia-juvenil",
+        "juvenil",
+        "fantasia"
+      ],
+      "keyword": "libros de fantasía juvenil"
+    }
+  ],
+  "research_keywords": {
+    "fantasia-juvenil": [
+      "libros de fantasía juvenil",
+      "fantasía juvenil en español",
+      "libros de mundos mágicos"
+    ],
+    "romantasy": [
+      "libros de romantasy",
+      "fantasía romántica",
+      "novelas romantasy en español"
+    ],
+    "novedades-fantasia": [
+      "novedades de fantasía",
+      "nuevos libros de fantasía",
+      "próximos lanzamientos de fantasía"
+    ],
+    "terror-fantasia-oscura": [
+      "libros de fantasía oscura",
+      "libros de terror juvenil",
+      "libros para Halloween"
+    ],
+    "portales-mundos-magicos": [
+      "portal fantasy",
+      "mundos paralelos libros",
+      "libros de viajes entre mundos"
+    ]
+  },
+  "activation": {
+    "claimed_domain": false,
+    "pinterest_business_connected": false,
+    "boards_verified": false,
+    "first_pilot_reviewed": false
+  }
+}
