@@ -17,20 +17,28 @@ def main():
     parser=argparse.ArgumentParser(description=__doc__)
     parser.add_argument('--book', required=True)
     parser.add_argument('--voice', default='es-ES-ElviraNeural')
+    parser.add_argument('--content', choices=['descripcion', 'fragmento'], default='descripcion')
     args=parser.parse_args()
     data=json.loads((ROOT/'data/reading-catalogue.json').read_text(encoding='utf-8'))
     book=next(b for b in data['libros'] if b['slug']==args.book)
-    if book.get('descripcion_original_confirmada') is not True:
-        parser.error('Solo se narra una descripción original confirmada')
-    digest=hashlib.sha256((args.voice+'|-4%|'+book['descripcion_breve']).encode()).hexdigest()[:12]
-    rel=f'/assets/reading-audio/{book["slug"]}-{digest}.mp3'
+    if args.content == 'fragmento':
+        if book.get('fragmento_uso_autorizado') is not True or not book.get('fragmento_base_uso') or not book.get('fragmento_texto'):
+            parser.error('El fragmento requiere texto y autorización explícita para publicarlo y narrarlo')
+        text = book['fragmento_texto']
+    else:
+        if book.get('descripcion_original_confirmada') is not True:
+            parser.error('Solo se narra una descripción original confirmada')
+        text = book['descripcion_breve']
+    digest=hashlib.sha256((args.voice+'|-4%|'+text).encode()).hexdigest()[:12]
+    suffix = '-fragmento' if args.content == 'fragmento' else ''
+    rel=f'/assets/reading-audio/{book["slug"]}{suffix}-{digest}.mp3'
     target=ROOT/rel.lstrip('/')
     if not target.exists():
         import edge_tts
         target.parent.mkdir(parents=True,exist_ok=True)
         temporary=target.with_suffix('.tmp.mp3')
         try:
-            asyncio.run(edge_tts.Communicate(book['descripcion_breve'],args.voice,rate='-4%').save(str(temporary)))
+            asyncio.run(edge_tts.Communicate(text,args.voice,rate='-4%').save(str(temporary)))
             if temporary.stat().st_size < 1000:
                 raise ValueError('Audio vacío')
             temporary.replace(target)
@@ -40,7 +48,7 @@ def main():
     reviewpath=ROOT/'data/reading-import-review.json'
     review=json.loads(reviewpath.read_text(encoding='utf-8'))
     item=next(r for r in review['reviews'].values() if r.get('portada_local')==book['portada_local'])
-    item['audio_descripcion']=rel
+    item['audio_fragmento' if args.content == 'fragmento' else 'audio_descripcion']=rel
     item['audio_voz']='Voz sintética · '+('Elvira (español de España)' if args.voice=='es-ES-ElviraNeural' else args.voice)
     reviewpath.write_text(json.dumps(review,ensure_ascii=False,indent=2)+'\n',encoding='utf-8')
     print(f'Audio generado: {rel} ({target.stat().st_size} bytes)')

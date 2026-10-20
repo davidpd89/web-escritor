@@ -1,0 +1,16 @@
+{
+  "schema_version": 1,
+  "autores": [
+    {
+      "slug": "neil-gaiman",
+      "nombre": "Neil Gaiman",
+      "descripcion": "Neil Gaiman es un escritor y guionista británico nacido en Portchester en 1960. Ha desarrollado su trabajo en la novela, el relato y el cómic. Entre sus obras se encuentran Coraline, Stardust y The Sandman.",
+      "nacimiento": "1960-11-10",
+      "fuentes": [
+        {"titulo": "Wikipedia: Neil Gaiman", "url": "https://es.wikipedia.org/wiki/Neil_Gaiman"},
+        {"titulo": "Web oficial de Neil Gaiman", "url": "https://www.neilgaiman.com/"}
+      ],
+      "fecha_verificacion": "2026-10-20"
+    }
+  ]
+}

@@ -2,7 +2,7 @@
 
 **Decisión del propietario · 20/10/2026**  
 Complemento de la [PR #659](https://github.com/davidpd89/web-escritor/pull/659) y de `docs/catalogo-lecturas-automatizacion.md`.  
-**Fuente maestra:** [Google Sheets «Catálogo de recomendaciones de lectura»](https://docs.google.com/spreadsheets/d/1hHtp-B66CdnXgV6IT7ClcLGLxLUw8tKOLQThVD5KHCs/edit).
+**Entrada manual opcional (la automatización de descubrimiento se investiga aparte):** [Google Sheets «Catálogo de recomendaciones de lectura»](https://docs.google.com/spreadsheets/d/1hHtp-B66CdnXgV6IT7ClcLGLxLUw8tKOLQThVD5KHCs/edit).
 
 ## 1. Objetivo no negociable: dos clics, dos destinos
 
@@ -19,7 +19,7 @@ El flujo buscado es **Pinterest → davidportodiaz.com → Amazon.es con afiliac
 - Libro: `LIB-0001`, slug `coraline`, ISBN-13 `9788498382372`.
 - Categorías compartidas: `halloween|terror|fantasia-juvenil|fantasia-oscura|mundos-paralelos|misterio`.
 - Destino de TODOS los pines sobre Coraline: `https://davidportodiaz.com/recomendaciones/libros/coraline/`.
-- Destino del botón y de la **portada clicable en la web**: **URL de producto Amazon.es con tag de afiliado existente**, sin salto automático. Codex ya ha incorporado un botón afiliado en el piloto; **la portada es actualmente un `<img>` sin enlace** y debe envolverse con un enlace accesible al **mismo URL afiliado**, cuando esté configurado.
+- Destino del botón y de la **portada clicable en la web**: **URL de producto Amazon.es con tag de afiliado existente**, sin salto automático. La portada ya enlaza a la edición de referencia en tapa blanda. El desplegable de compra ofrece destinos revisados separados para tapa blanda, tapa dura, eBook y audiolibro, conservando el mismo tag.
 - La ficha conserva URL canónica propia. No crear una URL por categoría ni duplicar libros por temporada.
 
 ## 2. Fuentes de portada y destinos: separar técnicamente
@@ -38,7 +38,7 @@ El flujo buscado es **Pinterest → davidportodiaz.com → Amazon.es con afiliac
 - Si Amazon no ofrece esa edición, la ficha puede mantener su contenido y un enlace de compra solo cuando exista producto correcto. No confundir ISBN con ASIN ni prometer existencia de stock.
 - `amazon_affiliate_url`: enlace de producto al ASIN correcto en Amazon.es con el tag que realmente pertenezca al autor. En la rama actual Codex ha usado `davidporto-21`: **reutilizar la configuración real del repo y no introducir nuevos tags inventados**. Si es preciso habilitar API/confirmar permisos o datos, pedirlo al propietario.
 - El botón debe identificar claramente **«Amazon»**; su apertura no puede sustituirse por una redirección automática o invisible. Divulgación de afiliación visible y `rel="sponsored nofollow noopener noreferrer"` donde proceda.
-- Imagen de la ficha clicable con `<a href="...">`, atributo accesible que indique «Ver <título> en Amazon (enlace afiliado)» y navegación por teclado. El botón Amazon usa la misma URL. Si hay galería interactiva o ampliación, no debe robar el clic de compra de forma engañosa.
+- Imagen de la ficha clicable con `<a href="...">`, atributo accesible que indique «Ver <título> en Amazon» y navegación por teclado. El botón de la edición de referencia usa la misma URL; los demás formatos usan su ASIN verificado. La identificación de afiliación queda en el criterio editorial enlazado desde el pie común. Si hay galería interactiva o ampliación, no debe robar el clic de compra de forma engañosa.
 
 **Conclusión técnica:** **no hace falta duplicar fichas ni usar dos URLs de libro**. Hace falta separar la **URL de destino del pin (web)** de la **URL de destino de la imagen/botón de la ficha (Amazon)**, con sus respectivas imágenes.
 

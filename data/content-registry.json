@@ -4050,6 +4050,29 @@
       "sourceFile": "editoriales/editorial-dieciseis/index.html"
     },
     {
+      "id": "reading-policy",
+      "url": "/recomendaciones/politica-de-recomendaciones/",
+      "label": "Criterio editorial y afiliación",
+      "shortLabel": "Criterio editorial y afiliación",
+      "type": "system",
+      "territory": "sitio",
+      "parentId": "home",
+      "hubId": "home",
+      "discoverability": "contextual",
+      "footerEligible": true,
+      "searchIndex": false,
+      "sitemap": false,
+      "sourceFile": "recomendaciones/politica-de-recomendaciones/index.html",
+      "audience": [
+        "reader",
+        "writer",
+        "press"
+      ],
+      "jobs": [
+        "legal"
+      ]
+    },
+    {
       "id": "reading-book-lib-0001",
       "url": "/recomendaciones/libros/coraline/",
       "label": "Coraline",
@@ -4066,6 +4089,24 @@
         "buscar-lecturas"
       ],
       "sourceFile": "recomendaciones/libros/coraline/index.html"
+    },
+    {
+      "id": "reading-author-neil-gaiman",
+      "url": "/recomendaciones/autores/neil-gaiman/",
+      "label": "Neil Gaiman",
+      "shortLabel": "Neil Gaiman",
+      "type": "article",
+      "territory": "cuaderno",
+      "parentId": "recommendations-hub",
+      "hubId": "notebook-hub",
+      "discoverability": "secondary",
+      "audience": [
+        "reader"
+      ],
+      "jobs": [
+        "buscar-lecturas"
+      ],
+      "sourceFile": "recomendaciones/autores/neil-gaiman/index.html"
     }
   ]
 }

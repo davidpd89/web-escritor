@@ -56,6 +56,14 @@
     {
       "label": "Recursos para prensa",
       "targetId": "press"
+    },
+    {
+      "label": "Archivo",
+      "targetId": "notebook-hub"
+    },
+    {
+      "label": "Libros recomendados",
+      "targetId": "recommendations-hub"
     }
   ],
   "exploreUtilities": [],
@@ -67,6 +75,7 @@
     ],
     "Leer y recursos": [
       "notebook-hub",
+      "recommendations-hub",
       "tools-hub",
       "lectores-beta"
     ],
@@ -78,7 +87,8 @@
     "Legal": [
       "site-privacy",
       "site-legal",
-      "site-ai"
+      "site-ai",
+      "reading-policy"
     ]
   },
   "homeMap": [

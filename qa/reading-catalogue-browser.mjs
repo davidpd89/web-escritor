@@ -25,7 +25,7 @@ try {
     await page.locator('[data-filter="genero"]').selectOption('romantasy');
     await page.locator('[data-filter="temporada"]').selectOption('halloween');
     assert.equal(await page.locator('[data-catalogue-count]').innerText(), '0 libros');
-    await page.getByRole('button', { name: 'Limpiar filtros' }).click();
+    await page.getByRole('button', { name: 'Restablecer' }).click();
     assert.equal(await page.locator('[data-filter="genero"]').inputValue(), '');
     await page.waitForFunction(() => document.querySelector('[data-catalogue-count]').textContent === '1 libro');
     assert.equal(await page.locator('[data-catalogue-book]:visible').count(), 1);
@@ -50,11 +50,12 @@ try {
     await page.goto(`${BASE}/recomendaciones/libros/coraline/`);
     assert.equal(await page.locator('main h1').innerText(), 'Coraline');
     await page.locator('.catalogue-book-cover').evaluate(img => img.decode());
-    const coverLink = page.getByRole('link', { name: 'Ver Coraline en Amazon (enlace afiliado)', exact: true });
-    assert.equal(await coverLink.getAttribute('href'), await page.locator('a.primary-action[href*="amazon.es"]').getAttribute('href'));
+    const coverLink = page.getByRole('link', { name: 'Ver Coraline en Amazon', exact: true });
+    assert.equal(await coverLink.getAttribute('href'), await page.locator('a[data-purchase-format="tapa-blanda"]').getAttribute('href'));
     assert.match(await coverLink.getAttribute('rel'), /sponsored/);
     await coverLink.focus();
     assert(await coverLink.evaluate(a => a === document.activeElement));
+    assert.equal(await page.locator('[data-purchase-format]').count(), 4);
     const audio = page.locator('audio');
     assert.equal(await audio.getAttribute('preload'), 'none');
     await audio.evaluate(element => element.load());
@@ -70,6 +71,8 @@ try {
     await sample.locator('summary').focus();
     await page.keyboard.press('Enter');
     assert(await sample.locator('a').isVisible());
+    assert(await page.locator('[data-catalogue-description]').evaluate(el => !!(el.compareDocumentPosition(document.querySelector('.catalogue-fragment')) & Node.DOCUMENT_POSITION_FOLLOWING)));
+    assert(!/Voz sintética|Esta comprobación no implica|compras adscritas/.test(await page.locator('main').innerText()));
     await page.screenshot({ path: `${OUT}/coraline-mobile.png`, fullPage: true });
     await context.close();
   }
@@ -77,7 +80,7 @@ try {
   for (const width of [320, 390, 768]) {
     const context = await browser.newContext({ viewport: { width, height: 900 }, reducedMotion: 'reduce' });
     const page = await context.newPage();
-    for (const route of ['/recomendaciones/', '/recomendaciones/libros/coraline/']) {
+    for (const route of ['/recomendaciones/', '/recomendaciones/libros/coraline/', '/recomendaciones/autores/neil-gaiman/']) {
       for (const css of ['html{font-size:200%!important}', '*{line-height:1.5!important;letter-spacing:.12em!important;word-spacing:.16em!important}p{margin-bottom:2em!important}', 'html{font-size:200%!important}*{line-height:1.5!important;letter-spacing:.12em!important;word-spacing:.16em!important}p{margin-bottom:2em!important}']) {
         await page.goto(`${BASE}${route}`);
         await page.addStyleTag({ content: css });
@@ -111,13 +114,13 @@ try {
   assert.equal(await page.locator('[data-catalogue-book]:visible').count(), 1);
   await page.reload();
   assert.equal(await page.locator('[data-filter="q"]').inputValue(), 'TITULO');
-  await page.getByRole('button', { name: 'Limpiar filtros' }).click();
+  await page.getByRole('button', { name: 'Restablecer' }).click();
   await page.locator('[data-filter="novedad"]').selectOption('180');
   assert.equal(await page.locator('[data-catalogue-book]:visible').count(), 1);
   await page.clock.setSystemTime(new Date('2027-10-20T12:00:00Z'));
   await page.evaluate(() => window.dispatchEvent(new Event('pageshow')));
   assert.equal(await page.locator('[data-catalogue-book]:visible').count(), 0);
-  await page.getByRole('button', { name: 'Limpiar filtros' }).click();
+  await page.getByRole('button', { name: 'Restablecer' }).click();
   await page.locator('[data-filter="q"]').fill('zzzz');
   assert.equal(await page.locator('[data-catalogue-book]:visible').count(), 0);
   assert(await page.locator('[data-catalogue-empty]').isVisible());
