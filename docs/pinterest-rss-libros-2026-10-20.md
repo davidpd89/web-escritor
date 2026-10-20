@@ -60,6 +60,7 @@ Guías oficiales (consultadas el 20/10/2026):
   - Sin llamadas a ChatGPT/LLM/Metricool/Pinterest API/Amazon API; datos ya preparados por PR #661, no depende de Amazon Creators API.
 - `data/reading-pinterest-boards.json`: propuestas de nombres, descripciones, prioridades, palabras clave y ritmo. Flag informativa `rss_enabled=false` hasta conectar, no es un botón remoto que desactive pines ya importados.
 - `tests/test_reading_pinterest_rss.py`: RSS válido, XML con tildes, imágenes correctas, un tablero por libro, no duplicados, cola 2/día y borradores excluidos.
+- `scripts/export-reading-pinterest-plan.py`: genera un JSON opcional `manual_pin` a partir de la misma cola; se puede validar con `tools/pinterest_execute.py` del repositorio privado RRSS, sin copiar código ni activar publicación. Es SOLO respaldo/manual y no debe usarse para publicar el mismo libro que ya haya entrado por RSS.
 - Pendiente Codex: pruebas CI, integración real en el batch final de #661 (build → RSS → public-dist → deploy), imágenes de pin 2:3 de mejor calidad y verificación RSS/ALT en Pinterest.
 
 ## Preparación de tableros SEO — empezar con pocos, no vacíos
