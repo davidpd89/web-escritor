@@ -19,6 +19,8 @@ def scenario(failure=None, skipped_job=False):
     dispatched = set()
     def gh(*args):
         calls.append(args)
+        if args[:3] == ('api', '--paginate', '--slurp'):
+            return json.dumps([[{'filename': 'convocatorias-escritores/index.html'}]])
         if args[:2] == ('repo','view'):
             return 'owner/repo'
         if args[:2] == ('pr','view'):

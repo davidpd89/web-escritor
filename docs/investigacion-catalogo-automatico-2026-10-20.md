@@ -1,5 +1,7 @@
 # Investigación adicional para Codex — código abierto y fuentes reales (20/10/2026)
 
+Este documento conserva la investigación previa. La implementación de PR #661 eligió una fuente editorial pública sin clave, con 20 libros iniciales de ocho sellos. Google Books queda como adaptador opcional. El estado operativo actualizado está en [automatización](catalogo-lecturas-automatizacion.md).
+
 **Leer junto a:** [encargo principal](../.github/plans/ingesta-automatica-libros-editoriales-2026-10-20.md) (ruta relativa desde `docs/`: `../.github/plans/ingesta-automatica-libros-editoriales-2026-10-20.md`).  
 **Propósito:** ahorrar investigación repetida y evitar reproducir fallos conocidos; los ejemplos públicos no demuestran cobertura completa de novedades españolas y **NO se han importado/copias de código ajeno**.
 

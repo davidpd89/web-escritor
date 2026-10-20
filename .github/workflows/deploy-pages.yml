@@ -5,6 +5,11 @@ on:
     branches:
       - main
   workflow_dispatch:
+    inputs:
+      before_sha:
+        description: 'Previous main commit for a validated automatic merge (IndexNow)'
+        required: false
+        type: string
 
 permissions:
   contents: read
@@ -39,15 +44,17 @@ jobs:
       - name: Derive changed public URLs for IndexNow
         env:
           EVENT_NAME: ${{ github.event_name }}
-          BEFORE_SHA: ${{ github.event.before }}
+          BEFORE_SHA: ${{ github.event.before || inputs.before_sha }}
         shell: bash
         run: |
           set -euo pipefail
           out="$RUNNER_TEMP/indexnow-urls.json"
-          if [ "$EVENT_NAME" != "push" ] || [ -z "${BEFORE_SHA:-}" ] || [[ "$BEFORE_SHA" =~ ^0+$ ]]; then
+          if [ -z "${BEFORE_SHA:-}" ] || [[ "$BEFORE_SHA" =~ ^0+$ ]]; then
             python scripts/indexnow.py empty --output "$out"
             exit 0
           fi
+          [[ "$BEFORE_SHA" =~ ^[0-9a-f]{40}$ ]]
+          git merge-base --is-ancestor "$BEFORE_SHA" HEAD
 
           before_root="$RUNNER_TEMP/indexnow-before-src"
           before_dist="$RUNNER_TEMP/indexnow-before-dist"

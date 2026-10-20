@@ -103,6 +103,22 @@ def convert(snapshot, review, existing, root):
                 data['libro_categorias'].append({'libro_id': book['id'], 'categoria_id': cat.strip()})
         data['libros'].append(book)
         report.append({'id': source_id, 'estado': book['estado'], 'url': builder.url(book), 'needs_review': book['estado'] == 'borrador'})
+    # Sheets owns its reviewed entries; the editorial pipeline owns ISBN entries.
+    # Importing a sheet must never erase independently validated public books.
+    state_path = root / 'data/reading-intake-state.json'
+    state = json.loads(state_path.read_text(encoding='utf-8')) if state_path.exists() else {'items': {}}
+    retained = set()
+    for book in existing['libros']:
+        if not book['id'].startswith('isbn-'):
+            continue
+        evidence = state['items'].get('isbn13:' + book.get('isbn13', ''), {})
+        if evidence.get('estado_ingesta') != 'publicado' or evidence.get('libro_id') != book['id']:
+            raise ValueError('Libro automático sin registro de ingesta: ' + book['id'])
+        if any(b['id'] == book['id'] for b in data['libros']):
+            raise ValueError('La hoja intenta reemplazar un libro editorial: ' + book['id'])
+        data['libros'].append(book)
+        retained.add(book['id'])
+    data['libro_categorias'] += [r for r in existing['libro_categorias'] if r['libro_id'] in retained]
     builder.validate(data, root)
     return data, report
 
@@ -128,7 +144,7 @@ def main():
     data, report = convert(snapshot, review, json.loads(target.read_text(encoding='utf-8')), ROOT)
     text = json.dumps(data, ensure_ascii=False, indent=2) + '\n'
     if args.check:
-        if target.read_text(encoding='utf-8') != text:
+        if json.loads(target.read_text(encoding='utf-8')) != data:
             raise SystemExit('Importación desactualizada')
     else:
         target.write_text(text, encoding='utf-8')

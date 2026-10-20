@@ -1,0 +1,30 @@
+{
+  "schema_version": 1,
+  "enabled": true,
+  "autopublish": true,
+  "generate_audio": false,
+  "max_new_books": 5,
+  "max_requests": 80,
+  "request_delay_seconds": 1.5,
+  "lookback_days": 365,
+  "preorder_days": 30,
+  "amazon_partner_tag": "davidporto-21",
+  "sources": [
+    {
+      "id": "penguin-es",
+      "provider": "penguin",
+      "hosts": ["www.penguinlibros.com"],
+      "index_urls": [
+        "https://www.penguinlibros.com/es/content/113-novedades-en-libros",
+        "https://www.penguinlibros.com/es/"
+      ],
+      "cover_use_basis": "Cubierta proporcionada en la ficha oficial de la edición para su identificación bibliográfica, con atribución y enlace a la editorial. No se declara licencia abierta ni se reutiliza como imagen de Pinterest.",
+      "enabled": true
+    }
+  ],
+  "publisher_aliases": [
+    {"slug": "salamandra", "aliases": ["Salamandra Infantil y Juvenil", "Salamandra Bolsillo", "Salamandra Graphic"]},
+    {"slug": "nova", "aliases": ["Nova", "NOVA"]},
+    {"slug": "ediciones-b", "aliases": ["B", "B de Bolsillo"]}
+  ]
+}

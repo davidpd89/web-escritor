@@ -1,5 +1,7 @@
 # Catálogo de lecturas: contrato para el futuro Drive
 
+Actualización PR #661: Drive es opcional. La ingesta diaria utiliza un catálogo editorial público; el importador de esta hoja conserva los libros automáticos y sus relaciones, y comprueba su registro de procedencia antes de mantenerlos. Véase [automatización](catalogo-lecturas-automatizacion.md).
+
 Fase 1 de la PR #659. La fuente es `data/reading-catalogue.json` (`schema_version: 1`). No hay conexión a Drive ni publicación en Pinterest. El catálogo empieza vacío y conserva las guías actuales. Las pruebas usan libros sintéticos únicamente en directorios temporales y respuestas de navegador interceptadas, nunca en el contenido público.
 
 ## Hojas y columnas exactas

@@ -77,6 +77,7 @@ jobs:
           python scripts/build-reading-catalogue.py --check
           node qa/reading-catalogue-browser.mjs
           node qa/reading-commerce-browser.mjs
+          node qa/reading-intake-browser.mjs
       - name: Install Lighthouse CI
         if: always()
         run: npm install --global @lhci/cli@0.15.1

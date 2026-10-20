@@ -1,5 +1,7 @@
 # Flujo editorial y técnico: Pinterest → ficha de libro → Amazon.es
 
+Estado de PR #661: la carga diaria usa fuentes editoriales y no requiere Drive. Cuando falta un producto verificado, la ficha ofrece una búsqueda afiliada por ISBN, sin afirmar disponibilidad. Las portadas nuevas se mantienen editoriales/locales; la ingesta no publica pines ni presupone derechos para ese uso. Detalles operativos en [automatización](catalogo-lecturas-automatizacion.md).
+
 **Decisión del propietario · 20/10/2026**  
 Complemento de la [PR #659](https://github.com/davidpd89/web-escritor/pull/659) y de `docs/catalogo-lecturas-automatizacion.md`.  
 **Entrada manual opcional (la automatización de descubrimiento se investiga aparte):** [Google Sheets «Catálogo de recomendaciones de lectura»](https://docs.google.com/spreadsheets/d/1hHtp-B66CdnXgV6IT7ClcLGLxLUw8tKOLQThVD5KHCs/edit).

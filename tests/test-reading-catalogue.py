@@ -53,7 +53,7 @@ with tempfile.TemporaryDirectory() as tmp:
     data = fixture(root)
     assert len(m.validate(data, root)) == 1
     original = json.loads((ROOT / 'data/reading-catalogue.json').read_text(encoding='utf-8'))
-    assert len(m.validate(original, ROOT)) == 1
+    assert len(m.validate(original, ROOT)) == sum(b['estado'] == 'publicado' for b in original['libros'])
     template = (ROOT / 'scripts/templates/reading-catalogue.html.tmpl').read_text(encoding='utf-8')
     assert m.render_hub(original, m.validate(original, ROOT), template) == (ROOT / 'recomendaciones/index.html').read_text(encoding='utf-8')
     b = data['libros'][0]

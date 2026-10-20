@@ -1,16 +1,295 @@
 {
-  "schema_version": 1,
   "autores": [
     {
-      "slug": "neil-gaiman",
-      "nombre": "Neil Gaiman",
       "descripcion": "Neil Gaiman es un escritor y guionista británico nacido en Portchester en 1960. Ha desarrollado su trabajo en la novela, el relato y el cómic. Entre sus obras se encuentran Coraline, Stardust y The Sandman.",
-      "nacimiento": "1960-11-10",
+      "fecha_verificacion": "2026-10-20",
       "fuentes": [
-        {"titulo": "Wikipedia: Neil Gaiman", "url": "https://es.wikipedia.org/wiki/Neil_Gaiman"},
-        {"titulo": "Web oficial de Neil Gaiman", "url": "https://www.neilgaiman.com/"}
+        {
+          "titulo": "Wikipedia: Neil Gaiman",
+          "url": "https://es.wikipedia.org/wiki/Neil_Gaiman"
+        },
+        {
+          "titulo": "Web oficial de Neil Gaiman",
+          "url": "https://www.neilgaiman.com/"
+        }
       ],
-      "fecha_verificacion": "2026-10-20"
+      "nacimiento": "1960-11-10",
+      "nombre": "Neil Gaiman",
+      "slug": "neil-gaiman"
+    },
+    {
+      "descripcion": "Libros de Arturo Pérez-Reverte incluidos en este catálogo: La hipótesis más peligrosa. Consulta sus ediciones, fechas de publicación y fichas editoriales en los enlaces de cada libro.",
+      "fecha_verificacion": "2026-10-20",
+      "fuentes": [
+        {
+          "titulo": "La hipótesis más peligrosa · ficha editorial",
+          "url": "https://www.penguinlibros.com/es/libros-de-aventura/636581-libro-la-hipotesis-mas-peligrosa-9791387846008"
+        }
+      ],
+      "nombre": "Arturo Pérez-Reverte",
+      "slug": "arturo-perez-reverte",
+      "tipo": "bibliografico"
+    },
+    {
+      "descripcion": "Libros de Peter Straub incluidos en este catálogo: Otros mundos (El Talismán 3). Consulta sus ediciones, fechas de publicación y fichas editoriales en los enlaces de cada libro.",
+      "fecha_verificacion": "2026-10-20",
+      "fuentes": [
+        {
+          "titulo": "Otros mundos (El Talismán 3) · ficha editorial",
+          "url": "https://www.penguinlibros.com/es/libros-de-fantasia/635029-libro-otros-mundos-el-talisman-3-9788401039560"
+        }
+      ],
+      "nombre": "Peter Straub",
+      "slug": "peter-straub",
+      "tipo": "bibliografico"
+    },
+    {
+      "descripcion": "Libros de Sheila Masterson incluidos en este catálogo: La hija del veneno. Consulta sus ediciones, fechas de publicación y fichas editoriales en los enlaces de cada libro.",
+      "fecha_verificacion": "2026-10-20",
+      "fuentes": [
+        {
+          "titulo": "La hija del veneno · ficha editorial",
+          "url": "https://www.penguinlibros.com/es/libros-de-fantasia/626978-libro-la-hija-del-veneno-9788425375118"
+        }
+      ],
+      "nombre": "Sheila Masterson",
+      "slug": "sheila-masterson",
+      "tipo": "bibliografico"
+    },
+    {
+      "descripcion": "Libros de Alice Austen incluidos en este catálogo: Plaza Brugmann, 33. Consulta sus ediciones, fechas de publicación y fichas editoriales en los enlaces de cada libro.",
+      "fecha_verificacion": "2026-10-20",
+      "fuentes": [
+        {
+          "titulo": "Plaza Brugmann, 33 · ficha editorial",
+          "url": "https://www.penguinlibros.com/es/novela-historica/635110-libro-plaza-brugmann-33-9791387640439"
+        }
+      ],
+      "nombre": "Alice Austen",
+      "slug": "alice-austen",
+      "tipo": "bibliografico"
+    },
+    {
+      "descripcion": "Libros de Ángel Boixadós incluidos en este catálogo: El vuelo de los gansos. Consulta sus ediciones, fechas de publicación y fichas editoriales en los enlaces de cada libro.",
+      "fecha_verificacion": "2026-10-20",
+      "fuentes": [
+        {
+          "titulo": "El vuelo de los gansos · ficha editorial",
+          "url": "https://www.penguinlibros.com/es/novela-negra-misterio-y-thriller/634999-libro-el-vuelo-de-los-gansos-9788425375040"
+        }
+      ],
+      "nombre": "Ángel Boixadós",
+      "slug": "angel-boixados",
+      "tipo": "bibliografico"
+    },
+    {
+      "descripcion": "Libros de Roberto Saviano incluidos en este catálogo: Mi amor no muere. Consulta sus ediciones, fechas de publicación y fichas editoriales en los enlaces de cada libro.",
+      "fecha_verificacion": "2026-10-20",
+      "fuentes": [
+        {
+          "titulo": "Mi amor no muere · ficha editorial",
+          "url": "https://www.penguinlibros.com/es/libro-de-biografias/634618-libro-mi-amor-no-muere-9791387846794"
+        }
+      ],
+      "nombre": "Roberto Saviano",
+      "slug": "roberto-saviano",
+      "tipo": "bibliografico"
+    },
+    {
+      "descripcion": "Libros de Anne Berest incluidos en este catálogo: El linaje de Pierre. Consulta sus ediciones, fechas de publicación y fichas editoriales en los enlaces de cada libro.",
+      "fecha_verificacion": "2026-10-20",
+      "fuentes": [
+        {
+          "titulo": "El linaje de Pierre · ficha editorial",
+          "url": "https://www.penguinlibros.com/es/libro-de-biografias/635019-libro-el-linaje-de-pierre-9788426432575"
+        }
+      ],
+      "nombre": "Anne Berest",
+      "slug": "anne-berest",
+      "tipo": "bibliografico"
+    },
+    {
+      "descripcion": "Libros de Carles Porta incluidos en este catálogo: Tor. Consulta sus ediciones, fechas de publicación y fichas editoriales en los enlaces de cada libro.",
+      "fecha_verificacion": "2026-10-20",
+      "fuentes": [
+        {
+          "titulo": "Tor · ficha editorial",
+          "url": "https://www.penguinlibros.com/es/libro-de-biografias/635091-libro-tor-9791388137006"
+        }
+      ],
+      "nombre": "Carles Porta",
+      "slug": "carles-porta",
+      "tipo": "bibliografico"
+    },
+    {
+      "descripcion": "Libros de Jorge Martí Aguas incluidos en este catálogo: Canción de amor definitiva. Consulta sus ediciones, fechas de publicación y fichas editoriales en los enlaces de cada libro.",
+      "fecha_verificacion": "2026-10-20",
+      "fuentes": [
+        {
+          "titulo": "Canción de amor definitiva · ficha editorial",
+          "url": "https://www.penguinlibros.com/es/libro-de-biografias/641920-libro-cancion-de-amor-definitiva-9788401042119"
+        }
+      ],
+      "nombre": "Jorge Martí Aguas",
+      "slug": "jorge-marti-aguas",
+      "tipo": "bibliografico"
+    },
+    {
+      "descripcion": "Libros de Alba Donati incluidos en este catálogo: Esas muchachas que escriben poemas. Consulta sus ediciones, fechas de publicación y fichas editoriales en los enlaces de cada libro.",
+      "fecha_verificacion": "2026-10-20",
+      "fuentes": [
+        {
+          "titulo": "Esas muchachas que escriben poemas · ficha editorial",
+          "url": "https://www.penguinlibros.com/es/literatura-contemporanea/635022-libro-esas-muchachas-que-escriben-poemas-9788426434272"
+        }
+      ],
+      "nombre": "Alba Donati",
+      "slug": "alba-donati",
+      "tipo": "bibliografico"
+    },
+    {
+      "descripcion": "Libros de Jorge Bolaños incluidos en este catálogo: La Risa de mi vida. Consulta sus ediciones, fechas de publicación y fichas editoriales en los enlaces de cada libro.",
+      "fecha_verificacion": "2026-10-20",
+      "fuentes": [
+        {
+          "titulo": "La Risa de mi vida · ficha editorial",
+          "url": "https://www.penguinlibros.com/es/libro-de-biografias/634678-libro-la-risa-de-mi-vida-9788466684606"
+        }
+      ],
+      "nombre": "Jorge Bolaños",
+      "slug": "jorge-bolanos",
+      "tipo": "bibliografico"
+    },
+    {
+      "descripcion": "Libros de Sylvester Stallone incluidos en este catálogo: Los escalones. Consulta sus ediciones, fechas de publicación y fichas editoriales en los enlaces de cada libro.",
+      "fecha_verificacion": "2026-10-20",
+      "fuentes": [
+        {
+          "titulo": "Los escalones · ficha editorial",
+          "url": "https://www.penguinlibros.com/es/libro-de-biografias/437990-libro-los-escalones-9788401036897"
+        }
+      ],
+      "nombre": "Sylvester Stallone",
+      "slug": "sylvester-stallone",
+      "tipo": "bibliografico"
+    },
+    {
+      "descripcion": "Libros de María Moreno incluidos en este catálogo: La merma. Consulta sus ediciones, fechas de publicación y fichas editoriales en los enlaces de cada libro.",
+      "fecha_verificacion": "2026-10-20",
+      "fuentes": [
+        {
+          "titulo": "La merma · ficha editorial",
+          "url": "https://www.penguinlibros.com/es/libro-de-biografias/635085-libro-la-merma-9788439746621"
+        }
+      ],
+      "nombre": "María Moreno",
+      "slug": "maria-moreno",
+      "tipo": "bibliografico"
+    },
+    {
+      "descripcion": "Libros de Mick Herron incluidos en este catálogo: La Casa de la Ciénaga (Serie Slow Horses 7). Consulta sus ediciones, fechas de publicación y fichas editoriales en los enlaces de cada libro.",
+      "fecha_verificacion": "2026-10-20",
+      "fuentes": [
+        {
+          "titulo": "La Casa de la Ciénaga (Serie Slow Horses 7) · ficha editorial",
+          "url": "https://www.penguinlibros.com/es/novela-negra-misterio-y-thriller/635112-libro-la-casa-de-la-cienaga-serie-slow-horses-7-9788419456007"
+        }
+      ],
+      "nombre": "Mick Herron",
+      "slug": "mick-herron",
+      "tipo": "bibliografico"
+    },
+    {
+      "descripcion": "Libros de Han Kang incluidos en este catálogo: La luz y el hilo (Láurea). Consulta sus ediciones, fechas de publicación y fichas editoriales en los enlaces de cada libro.",
+      "fecha_verificacion": "2026-10-20",
+      "fuentes": [
+        {
+          "titulo": "La luz y el hilo (Láurea) · ficha editorial",
+          "url": "https://www.penguinlibros.com/es/literatura-contemporanea/635088-libro-la-luz-y-el-hilo-laurea-9788439747222"
+        }
+      ],
+      "nombre": "Han Kang",
+      "slug": "han-kang",
+      "tipo": "bibliografico"
+    },
+    {
+      "descripcion": "Libros de José Manuel Ruiz Lorenzo incluidos en este catálogo: Resistencia biológica. Consulta sus ediciones, fechas de publicación y fichas editoriales en los enlaces de cada libro.",
+      "fecha_verificacion": "2026-10-20",
+      "fuentes": [
+        {
+          "titulo": "Resistencia biológica · ficha editorial",
+          "url": "https://www.penguinlibros.com/es/libros-autoayuda/634990-libro-resistencia-biologica-9788425371790"
+        }
+      ],
+      "nombre": "José Manuel Ruiz Lorenzo",
+      "slug": "jose-manuel-ruiz-lorenzo",
+      "tipo": "bibliografico"
+    },
+    {
+      "descripcion": "Libros de Michihito Sugawara incluidos en este catálogo: Sácate a esa persona de la cabeza. Consulta sus ediciones, fechas de publicación y fichas editoriales en los enlaces de cada libro.",
+      "fecha_verificacion": "2026-10-20",
+      "fuentes": [
+        {
+          "titulo": "Sácate a esa persona de la cabeza · ficha editorial",
+          "url": "https://www.penguinlibros.com/es/libros-autoayuda/634993-libro-sacate-a-esa-persona-de-la-cabeza-9788425373121"
+        }
+      ],
+      "nombre": "Michihito Sugawara",
+      "slug": "michihito-sugawara",
+      "tipo": "bibliografico"
+    },
+    {
+      "descripcion": "Libros de Sofía Andrujóvich incluidos en este catálogo: La historia de Romana y Uliana (Amadoca 1). Consulta sus ediciones, fechas de publicación y fichas editoriales en los enlaces de cada libro.",
+      "fecha_verificacion": "2026-10-20",
+      "fuentes": [
+        {
+          "titulo": "La historia de Romana y Uliana (Amadoca 1) · ficha editorial",
+          "url": "https://www.penguinlibros.com/es/libros-crianza/635111-libro-la-historia-de-romana-y-uliana-amadoca-1-9791387640491"
+        }
+      ],
+      "nombre": "Sofía Andrujóvich",
+      "slug": "sofia-andrujovich",
+      "tipo": "bibliografico"
+    },
+    {
+      "descripcion": "Libros de Inma Sáenz incluidos en este catálogo: Mamá necesita un respiro. Consulta sus ediciones, fechas de publicación y fichas editoriales en los enlaces de cada libro.",
+      "fecha_verificacion": "2026-10-20",
+      "fuentes": [
+        {
+          "titulo": "Mamá necesita un respiro · ficha editorial",
+          "url": "https://www.penguinlibros.com/es/libros-crianza/634676-libro-mama-necesita-un-respiro-9788466683043"
+        }
+      ],
+      "nombre": "Inma Sáenz",
+      "slug": "inma-saenz",
+      "tipo": "bibliografico"
+    },
+    {
+      "descripcion": "Libros de Yotam Ottolenghi incluidos en este catálogo: Más Simple. Consulta sus ediciones, fechas de publicación y fichas editoriales en los enlaces de cada libro.",
+      "fecha_verificacion": "2026-10-20",
+      "fuentes": [
+        {
+          "titulo": "Más Simple · ficha editorial",
+          "url": "https://www.penguinlibros.com/es/libros-de-cocina/545701-libro-mas-simple-9791387928032"
+        }
+      ],
+      "nombre": "Yotam Ottolenghi",
+      "slug": "yotam-ottolenghi",
+      "tipo": "bibliografico"
+    },
+    {
+      "descripcion": "Libros de Stephen King incluidos en este catálogo: Otros mundos (El Talismán 3). Consulta sus ediciones, fechas de publicación y fichas editoriales en los enlaces de cada libro.",
+      "fecha_verificacion": "2026-10-20",
+      "fuentes": [
+        {
+          "titulo": "Otros mundos (El Talismán 3) · ficha editorial",
+          "url": "https://www.penguinlibros.com/es/libros-de-fantasia/635029-libro-otros-mundos-el-talisman-3-9788401039560"
+        }
+      ],
+      "nombre": "Stephen King",
+      "slug": "stephen-king",
+      "tipo": "bibliografico"
     }
-  ]
+  ],
+  "schema_version": 1
 }

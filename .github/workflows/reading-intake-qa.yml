@@ -5,6 +5,12 @@ on:
     paths:
       - 'scripts/reading_intake_*.py'
       - 'scripts/reading_editorial_metadata.py'
+      - 'scripts/reading_editorial_sources.py'
+      - 'scripts/reading_publisher_links.py'
+      - 'scripts/publish-reading-refresh.py'
+      - 'scripts/publish-radar-refresh.py'
+      - 'scripts/refresh-reading-catalogue.py'
+      - 'data/reading-intake-config.json'
       - 'tests/test_reading_intake_*.py'
       - 'tests/test_reading_editorial_metadata.py'
       - 'tests/test_reading_intake_multibook_contract.py'
@@ -36,5 +42,5 @@ jobs:
           python -m compileall -q scripts/reading_intake_*.py scripts/reading_editorial_metadata.py tests/test_reading_intake_*.py tests/test_reading_editorial_metadata.py
       - name: Run offline tests — no API keys or network access
         run: |
-          python -m unittest discover -s tests -p 'test_reading_intake_*.py' -v
-          python -m unittest discover -s tests -p 'test_reading_editorial_metadata.py' -v
+          python -m unittest discover -s tests -p 'test_reading*.py' -v
+          python tests/test-radar-publication.py

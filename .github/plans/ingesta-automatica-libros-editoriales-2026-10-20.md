@@ -1,6 +1,6 @@
 # Encargo a Codex — Motor autónomo y gratuito de libros, novedades y afiliación (20/10/2026)
 
-> **Estado de esta PR:** especificación técnica y utilidades deterministas de arranque. **No es el motor terminado ni habilita publicaciones.** Codex debe implementar aquí la integración completa **cuando el propietario lo encargue**, sin cobrar servicios externos ni llamar a modelos de lenguaje. No fusionar una especificación como si fuese producto.
+> **Estado actualizado:** implementación encargada por el propietario. Se ha conectado un proveedor editorial sin claves y generado el piloto de 20 libros de ocho sellos. El ciclo publica mediante PR, CI y Pages; su verificación final se documenta en `docs/qa/catalogo-lecturas-fase-3-2026-10-20.md`. Las secciones siguientes conservan el encargo original; el estado operativo está en `docs/catalogo-lecturas-automatizacion.md`.
 
 ## 0. Objetivo del propietario, literal en intención
 

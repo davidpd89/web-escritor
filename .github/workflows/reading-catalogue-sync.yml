@@ -4,10 +4,17 @@ on:
   schedule:
     - cron: '30 6 * * *'
   workflow_dispatch:
+    inputs:
+      dry_run:
+        description: 'Discover and validate without changing the website'
+        type: boolean
+        default: false
 
 permissions:
-  contents: read
-  id-token: write
+  contents: write
+  pull-requests: write
+  actions: write
+  statuses: write
 
 concurrency:
   group: reading-catalogue-intake
@@ -17,49 +24,51 @@ jobs:
   intake:
     if: vars.READING_INTAKE_ENABLED == 'true'
     runs-on: ubuntu-latest
-    timeout-minutes: 15
+    timeout-minutes: 135
     steps:
       - uses: actions/checkout@v5
+        with:
+          ref: main
+          fetch-depth: 0
       - uses: actions/setup-python@v6
         with:
           python-version: '3.12'
-      - name: Install image validation dependencies
-        run: python -m pip install --requirement scripts/requirements.txt
-      - name: Read-only access to the catalogue sheet
-        id: google
-        if: vars.READING_GOOGLE_PROVIDER != ''
-        uses: google-github-actions/auth@v3
+      - uses: actions/setup-node@v5
         with:
-          workload_identity_provider: ${{ vars.READING_GOOGLE_PROVIDER }}
-          service_account: ${{ vars.READING_GOOGLE_ACCOUNT }}
-          token_format: access_token
-          access_token_scopes: https://www.googleapis.com/auth/spreadsheets.readonly
-      - name: Import sheet into a review snapshot
-        if: steps.google.outputs.access_token != ''
-        env:
-          GOOGLE_SHEETS_ACCESS_TOKEN: ${{ steps.google.outputs.access_token }}
+          node-version: '22'
+      - name: Install pinned validation and search dependencies
         run: |
-          python scripts/import-reading-sheet.py --live --report .ci/reading-intake/sheet-review.json
-          # The source sheet is private. Artifacts inherit repository visibility:
-          # publish only IDs/status in the review report, never its raw snapshot.
-      - name: Discover Amazon candidates
+          python -m pip install --requirement scripts/requirements.txt
+          python -m pip install --requirement scripts/requirements-reading-audio.txt
+          npm ci
+      - name: Restore public editorial response cache
+        uses: actions/cache@v5
+        with:
+          path: .ci/reading-editorial-cache
+          key: reading-editorial-v1-${{ github.run_id }}
+          restore-keys: reading-editorial-v1-
+      - name: Test the ingestion contracts before network access
+        run: python -m unittest discover -s tests -p 'test_reading*.py' -q
+      - name: Discover, validate and publish through protected main
         env:
-          AMAZON_CREATORS_CLIENT_ID: ${{ secrets.AMAZON_CREATORS_CLIENT_ID }}
-          AMAZON_CREATORS_CLIENT_SECRET: ${{ secrets.AMAZON_CREATORS_CLIENT_SECRET }}
-          AMAZON_PARTNER_TAG: ${{ vars.AMAZON_PARTNER_TAG }}
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          DRY_RUN: ${{ inputs.dry_run }}
         shell: bash
         run: |
-          if [ -n "$AMAZON_CREATORS_CLIENT_ID" ] && [ -n "$AMAZON_CREATORS_CLIENT_SECRET" ]; then
-            python scripts/discover-reading-books.py --query 'fantasía juvenil' --query 'romantasy' --query 'Salamandra' --out .ci/reading-intake/amazon-candidates.json
+          set -euo pipefail
+          if [ "$DRY_RUN" = 'true' ]; then
+            python scripts/refresh-reading-catalogue.py
           else
-            echo 'Creators API no configurada; no se ha consultado Amazon.' >> "$GITHUB_STEP_SUMMARY"
+            python scripts/refresh-reading-catalogue.py --publish
           fi
-      - name: Upload review inbox (24 hours)
+      - name: Upload factual ingestion report
+        if: always()
         uses: actions/upload-artifact@v6
         with:
           name: reading-intake-review
           path: .ci/reading-intake/
-          retention-days: 1
-          if-no-files-found: error
-      - name: Explain publication boundary
-        run: echo 'Captura terminada. Revisar fuentes, portada y descripción antes de aplicar la propuesta y pasar la CI de publicación. No se cambia main desde esta tarea.' >> "$GITHUB_STEP_SUMMARY"
+          retention-days: 7
+          if-no-files-found: warn
+      - name: Explain result
+        if: always()
+        run: echo 'Sources are reviewed official editorial catalogues. Publication requires real CI, main rules and an exact-commit Pages deployment. No LLM or paid API is called. Missing data stays pending.' >> "$GITHUB_STEP_SUMMARY"

@@ -10,7 +10,8 @@ import re
 import unicodedata
 
 _MATCH_GENRES = ("fantas", "juvenil", "joven adulto", "romance", "romant",
-                 "terror", "misterio", "thriller", "ciencia ficcion", "distopi")
+                 "terror", "misterio", "thriller", "ciencia ficcion", "distopi",
+                 "narrativa", "ficcion", "novela", "histor")
 _NON_TRADITIONAL = ("autoedicion", "autopublic", "servicios editoriales",
                     "modelo editorial por verificar", "coedicion")
 
