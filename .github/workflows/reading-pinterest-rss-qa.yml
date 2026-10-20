@@ -30,6 +30,14 @@ jobs:
         run: python scripts/build-reading-pinterest-rss.py --preview --today 2026-10-20
       - name: Generate feeds in ephemeral CI runner (NEVER deploy)
         run: |
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          path = Path("data/reading-pinterest-boards.json")
+          data = json.loads(path.read_text(encoding="utf-8"))
+          data["rss_enabled"] = True  # isolated runner, never committed
+          path.write_text(json.dumps(data, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
+          PY
           python scripts/build-reading-pinterest-rss.py --assign --today 2026-10-20
           python scripts/build-reading-pinterest-rss.py --check --today 2026-10-20
           python scripts/export-reading-pinterest-plan.py --today 2026-10-20 --out .ci/reading-pinterest/manual-plan.json
