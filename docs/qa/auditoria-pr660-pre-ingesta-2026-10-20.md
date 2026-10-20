@@ -47,7 +47,7 @@ Actualmente `assets/reading-market.json` no contiene precios activos y la única
 
 ## Nueva prueba que se añade a la PR #661
 
-`tests/test_reading_intake_multibook_contract.py`: **3 libros ficticios solo en memoria/directorio temporal**, 3 ISBN válidos, 3 portadas de distinta imagen, cuatro relaciones de categorías y opciones de eBook con tag, sin llamadas externas. Verifica 3 páginas con canónicas propias, 1 catálogo común, 3 entradas de registro, bloqueo de obra duplicada aunque cambie ISBN, rechazo de portada ausente y que un libro en borrador no impida las otras dos. Ejecuta **el generador auténtico de #660**, no una imitación.
+`tests/test_reading_intake_multibook_contract.py`: **3 libros ficticios solo en memoria/directorio temporal**, 3 ISBN válidos, 3 portadas de distinta imagen, seis relaciones de categorías y opciones de eBook con tag, sin llamadas externas. Verifica 3 páginas con canónicas propias, 1 catálogo común, 3 entradas de registro, bloqueo de obra duplicada aunque cambie ISBN, rechazo de portada ausente y que un libro en borrador no impida las otras dos. Ejecuta **el generador auténtico de #660**, no una imitación.
 
 El workflow `.github/workflows/reading-intake-qa.yml` instala ahora `scripts/requirements.txt` y ejecuta esta prueba junto a los tests previos de ingesta. **No declarar su aprobación hasta ver la ejecución CI terminada**.
 
