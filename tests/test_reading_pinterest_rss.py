@@ -93,6 +93,25 @@ class RSSPublisherTest(unittest.TestCase):
                               BOARDS["site"], 30)
         self.assertEqual(len(ET.fromstring(feed).findall("./channel/item")), 2)
 
+    def test_disabled_rss_exposes_no_book_items_even_if_queued(self):
+        b = book("lib-secreto", "secreto", ["fantasia-juvenil"])
+        self.add_book(b)
+        data = {"libros": [b], "libro_categorias": [
+            {"libro_id": b["id"], "categoria_id": "fantasia-juvenil"}]}
+        state = {"schema_version": 1, "pins": {}}
+        ready = rss.suitable_books(self.root, data, BOARDS, self.today, state=state)
+        rss.assign_queue(ready, state, self.today, budget=2)
+        inactive = dict(BOARDS, rss_enabled=False)
+        outputs, eligible = rss.expected_files(self.root, inactive, data, state, self.today)
+        self.assertEqual(eligible, [])
+        for xml in outputs.values():
+            self.assertEqual(len(ET.fromstring(xml).findall("./channel/item")), 0)
+        active = dict(BOARDS, rss_enabled=True)
+        outputs, eligible = rss.expected_files(self.root, active, data, state, self.today)
+        self.assertEqual(len(eligible), 1)
+        self.assertEqual(sum(len(ET.fromstring(xml).findall("./channel/item"))
+                             for xml in outputs.values()), 1)
+
     def test_novelty_book_keeps_board_when_90_day_window_expires(self):
         b = book("lib-reciente", "reciente", ["fantasia-juvenil"], "2026-10-18")
         self.add_book(b)
