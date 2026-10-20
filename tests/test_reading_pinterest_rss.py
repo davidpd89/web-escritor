@@ -93,6 +93,21 @@ class RSSPublisherTest(unittest.TestCase):
                               BOARDS["site"], 30)
         self.assertEqual(len(ET.fromstring(feed).findall("./channel/item")), 2)
 
+    def test_novelty_book_keeps_board_when_90_day_window_expires(self):
+        b = book("lib-reciente", "reciente", ["fantasia-juvenil"], "2026-10-18")
+        self.add_book(b)
+        data = {"libros": [b], "libro_categorias": [
+            {"libro_id": b["id"], "categoria_id": "fantasia-juvenil"}]}
+        state = {"schema_version": 1, "pins": {}}
+        recent = rss.suitable_books(self.root, data, BOARDS, self.today, state=state)
+        self.assertEqual(recent[0]["board"]["slug"], "novedades-fantasia")
+        rss.assign_queue(recent, state, self.today, budget=2)
+        later = rss.suitable_books(self.root, data, BOARDS, date(2027, 3, 10), state=state)
+        self.assertEqual(later[0]["board"]["slug"], "novedades-fantasia")
+        xml = rss.build_feed(later[0]["board"], later, state, date(2027, 3, 10),
+                             BOARDS["site"], 150)
+        self.assertEqual(len(ET.fromstring(xml).findall("./channel/item")), 1)
+
     def test_recent_non_fantasy_book_does_not_enter_fantasy_novelties(self):
         b = book("lib-poesia", "libro-poesia", ["clasicos"], "2026-10-18")
         self.add_book(b)
