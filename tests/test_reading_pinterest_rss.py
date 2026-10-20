@@ -106,9 +106,27 @@ class RSSPublisherTest(unittest.TestCase):
         self.assertEqual(eligible, [])
         for xml in outputs.values():
             self.assertEqual(len(ET.fromstring(xml).findall("./channel/item")), 0)
-        active = dict(BOARDS, rss_enabled=True)
+        active = dict(BOARDS, rss_enabled=True, pilot_book_id=None)
         outputs, eligible = rss.expected_files(self.root, active, data, state, self.today)
         self.assertEqual(len(eligible), 1)
+        self.assertEqual(sum(len(ET.fromstring(xml).findall("./channel/item"))
+                             for xml in outputs.values()), 1)
+
+    def test_pilot_exposes_only_coraline_even_with_backlog(self):
+        books = [book("lib-0001", "coraline", ["halloween"]),
+                 book("lib-0002", "otra-obra", ["fantasia-juvenil"])]
+        data = {"libros": books, "libro_categorias": [
+            {"libro_id": "lib-0001", "categoria_id": "halloween"},
+            {"libro_id": "lib-0002", "categoria_id": "fantasia-juvenil"}]}
+        for b in books:
+            self.add_book(b)
+        state = {"schema_version": 1, "pins": {}}
+        full = rss.suitable_books(self.root, data, BOARDS, self.today, state=state)
+        rss.assign_queue(full, state, self.today, budget=2)
+        outputs, eligible = rss.expected_files(
+            self.root, dict(BOARDS, rss_enabled=True, pilot_book_id="lib-0001"),
+            data, state, self.today)
+        self.assertEqual([x["book"]["id"] for x in eligible], ["lib-0001"])
         self.assertEqual(sum(len(ET.fromstring(xml).findall("./channel/item"))
                              for xml in outputs.values()), 1)
 
