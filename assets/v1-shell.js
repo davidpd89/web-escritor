@@ -144,7 +144,7 @@
     const media = q('[data-preview-media]', dialog);
     const content = {
       'works-hub': ['Obras', 'Las dos novelas publicadas, fragmentos y rutas de lectura.'],
-      'notebook-hub': ['Cuaderno', 'Artículos y piezas editoriales sobre proceso y lecturas.'],
+      'notebook-hub': ['Cuaderno', 'Archivo de artículos y catálogo de libros recomendados.'],
       'tools-hub': ['Herramientas', 'Utilidades gratuitas para problemas concretos de escritura.'],
       author: ['Autor', 'Biografía, obra y trayectoria de David Porto Díaz.'],
       press: ['Prensa', 'Material de prensa, agenda y apariciones verificables.'],
@@ -152,7 +152,7 @@
       manecillas: ['Las manecillas del recuerdo', 'La obra actual y punto de entrada editorial.'],
       autor: ['Autor', 'Biografía, obra y trayectoria de David Porto Díaz.'],
       samuel: ['Samuel entre mundos', 'Primera novela publicada.'],
-      cuaderno: ['Cuaderno', 'Artículos y piezas editoriales.'],
+      cuaderno: ['Cuaderno', 'Archivo de artículos y libros recomendados.'],
       herramientas: ['Herramientas', 'Utilidades gratuitas para problemas concretos de escritura y publicación.'],
       prensa: ['Prensa y eventos', 'Apariciones, materiales de prensa y agenda.'],
       asistente: ['Asistente', 'Pregunta y encuentra la página que necesitas.']

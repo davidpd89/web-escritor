@@ -11,6 +11,9 @@ on:
       - 'scripts/templates/reading-catalogue.html.tmpl'
       - 'tests/test-reading-catalogue.py'
       - 'qa/reading-catalogue-browser.mjs'
+      - 'qa/reading-commerce-browser.mjs'
+      - 'assets/reading-market.json'
+      - 'data/reading-authors.json'
       - 'qa/recommendations-browser.mjs'
       - '.github/workflows/recommendations-browser-qa.yml'
   workflow_dispatch:
@@ -73,6 +76,7 @@ jobs:
         run: |
           python scripts/build-reading-catalogue.py --check
           node qa/reading-catalogue-browser.mjs
+          node qa/reading-commerce-browser.mjs
       - name: Install Lighthouse CI
         if: always()
         run: npm install --global @lhci/cli@0.15.1

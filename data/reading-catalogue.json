@@ -174,6 +174,32 @@
       "url_amazon_afiliada": "https://www.amazon.es/dp/8498382378?tag=davidporto-21",
       "audio_descripcion": "/assets/reading-audio/coraline-da027726f648.mp3",
       "audio_voz": "Voz sintética · Elvira (español de España)",
+      "formatos_compra": [
+        {
+          "formato": "tapa-blanda",
+          "url": "https://www.amazon.es/dp/8498382378?tag=davidporto-21",
+          "fuente_url": "https://www.amazon.es/dp/8498382378",
+          "fecha_verificacion": "2026-10-20"
+        },
+        {
+          "formato": "tapa-dura",
+          "url": "https://www.amazon.es/dp/847888579X?tag=davidporto-21",
+          "fuente_url": "https://www.amazon.es/dp/8498382378",
+          "fecha_verificacion": "2026-10-20"
+        },
+        {
+          "formato": "ebook",
+          "url": "https://www.amazon.es/dp/B08CYCPBZN?tag=davidporto-21",
+          "fuente_url": "https://www.amazon.es/dp/8498382378",
+          "fecha_verificacion": "2026-10-20"
+        },
+        {
+          "formato": "audiolibro",
+          "url": "https://www.amazon.es/dp/B08CR4VJRT?tag=davidporto-21",
+          "fuente_url": "https://www.amazon.es/dp/8498382378",
+          "fecha_verificacion": "2026-10-20"
+        }
+      ],
       "portada_ancho": 797,
       "portada_alto": 1280,
       "edad_recomendada": "8-12 (editorial Penguin Random House)",

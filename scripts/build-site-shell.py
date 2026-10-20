@@ -231,7 +231,7 @@ PREVIEW_COPY = {
     "work-manecillas": "La obra actual.",
     "work-samuel": "Primera novela publicada.",
     "works-hub": "Las manecillas del recuerdo, la obra actual, y el resto de novelas publicadas.",
-    "notebook-hub": "Artículos y piezas editoriales.",
+    "notebook-hub": "Archivo y libros recomendados.",
     "tools-hub": "Utilidades gratuitas para escritores.",
     "author": "Biografía, obra y trayectoria.",
     "press": "Apariciones, materiales y agenda.",
@@ -243,7 +243,7 @@ PREVIEW_ASIDE_COPY = {
     "work-manecillas": "La obra actual y punto de entrada editorial.",
     "work-samuel": "Primera novela publicada.",
     "works-hub": "Las manecillas del recuerdo es la obra actual y el punto de entrada editorial; aquí también está Samuel entre mundos.",
-    "notebook-hub": "Artículos, crónicas y piezas editoriales.",
+    "notebook-hub": "Archivo de artículos y catálogo de libros recomendados.",
     "tools-hub": "Utilidades gratuitas para escritores.",
     "author": "Biografía, obra y trayectoria.",
     "press": "Apariciones, materiales y agenda.",
@@ -470,6 +470,8 @@ def render_explore_rows(nav: dict, by_id: dict[str, Entry]) -> list[tuple[str, s
 # Obras, not its own numbered entry. exploreUtilities (site-map) isn't
 # rendered here at all: it now lives as its own header button.
 EXPLORE_SHORTCUT_PARENTS = {
+    "notebook-hub": "notebook-hub",
+    "recommendations-hub": "notebook-hub",
     "work-manecillas-fragments": "works-hub",
     "work-manecillas-kindle": "works-hub",
     "tools-hub": "tools-hub",

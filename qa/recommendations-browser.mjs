@@ -124,7 +124,8 @@ const REC_GOLD = 'rgb(184, 134, 11)';
     eyebrow: getComputedStyle(document.querySelector('.recommendations-hero .eyebrow')).color,
   }));
   check(hubColors.h1 === REC_BLUE, `hub: h1 should use editorial blue, got ${hubColors.h1}`);
-  check(hubColors.eyebrow === REC_GOLD, `hub: eyebrow should use editorial gold, got ${hubColors.eyebrow}`);
+  // The small catalogue label uses the darker gold variant for text contrast.
+  check(hubColors.eyebrow === 'rgb(146, 102, 0)', `hub: eyebrow should use accessible editorial gold, got ${hubColors.eyebrow}`);
   await context.close();
 }
 for (const route of ['/recomendaciones/portal-fantasy-espanol/', '/recomendaciones/magia-con-coste/', '/recomendaciones/politica-de-recomendaciones/']) {

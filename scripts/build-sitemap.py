@@ -14,6 +14,7 @@ from __future__ import annotations
 
 import argparse
 import json
+import os
 import re
 import sys
 import xml.etree.ElementTree as ET
@@ -148,7 +149,7 @@ def normalize_canonical(canonical: str | None, root: Path, path: Path) -> str | 
 
 def should_skip_file(path: Path, root: Path) -> bool:
     rel = path.relative_to(root)
-    if any(part in EXCLUDE_DIRS for part in rel.parts):
+    if any(part in EXCLUDE_DIRS or part.startswith('.') for part in rel.parts[:-1]):
         return True
     name = path.name.lower()
     if name in SKIP_BASENAMES:
@@ -165,7 +166,13 @@ def should_skip_file(path: Path, root: Path) -> bool:
 
 def collect_urls(root: Path) -> dict[str, str | None]:
     urls: dict[str, str | None] = {}
-    for path in sorted(root.rglob("*.html")):
+    # Prune local browser profiles, worktrees and build output before walking.
+    # Filtering only after rglob traversed those trees and leaked debug pages.
+    candidates = []
+    for directory, folders, files in os.walk(root):
+        folders[:] = sorted(f for f in folders if f not in EXCLUDE_DIRS and not f.startswith('.'))
+        candidates.extend(Path(directory) / f for f in files if f.endswith('.html'))
+    for path in sorted(candidates):
         if should_skip_file(path, root):
             continue
         text = read_text(path)
