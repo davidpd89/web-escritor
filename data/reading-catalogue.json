@@ -1,0 +1,20 @@
+{
+  "schema_version": 1,
+  "categorias": [
+    {"id":"fantasia","slug":"fantasia","nombre":"Fantasía","tipo":"genero","descripcion":"Mundos y elementos fantásticos.","orden":10,"activa":true},
+    {"id":"fantasia-juvenil","slug":"fantasia-juvenil","nombre":"Fantasía juvenil","tipo":"genero","descripcion":"Fantasía dirigida al público juvenil.","orden":20,"activa":true},
+    {"id":"romantasy","slug":"romantasy","nombre":"Romantasy","tipo":"genero","descripcion":"Fantasía con una trama romántica central.","orden":30,"activa":true},
+    {"id":"romance","slug":"romance","nombre":"Romance","tipo":"genero","descripcion":"Historias con el romance como eje.","orden":40,"activa":true},
+    {"id":"fantasia-oscura","slug":"fantasia-oscura","nombre":"Fantasía oscura","tipo":"genero","descripcion":"Fantasía de atmósfera oscura.","orden":50,"activa":true},
+    {"id":"portales","slug":"portales","nombre":"Viajes entre mundos","tipo":"tematica","descripcion":"Historias de umbrales y otros mundos.","orden":60,"activa":true},
+    {"id":"magia-con-coste","slug":"magia-con-coste","nombre":"Magia con coste","tipo":"contenido","descripcion":"Poderes con límites y consecuencias.","orden":70,"activa":true},
+    {"id":"halloween","slug":"halloween","nombre":"Halloween","tipo":"temporada","descripcion":"Lecturas para los días de Halloween.","orden":80,"activa":true},
+    {"id":"navidad","slug":"navidad","nombre":"Navidad","tipo":"temporada","descripcion":"Lecturas para Navidad.","orden":90,"activa":true},
+    {"id":"verano","slug":"verano","nombre":"Verano","tipo":"temporada","descripcion":"Lecturas para el verano.","orden":100,"activa":true},
+    {"id":"juvenil","slug":"juvenil","nombre":"Juvenil","tipo":"edad","descripcion":"Orientación editorial juvenil; consultar la edad indicada en cada ficha.","orden":110,"activa":true},
+    {"id":"adultos","slug":"adultos","nombre":"Adultos","tipo":"edad","descripcion":"Lecturas dirigidas a público adulto.","orden":120,"activa":true},
+    {"id":"clasicos","slug":"clasicos","nombre":"Clásicos","tipo":"epoca","descripcion":"Obras de recorrido consolidado; clasificación editorial revisada.","orden":130,"activa":true}
+  ],
+  "libros": [],
+  "libro_categorias": []
+}

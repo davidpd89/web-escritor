@@ -34,7 +34,11 @@ assert(interiorCss.includes('.section-context__links a[aria-current="page"]'), '
 
 for (const family of ['obras', 'manecillas', 'samuel', 'cuaderno', 'herramientas', 'autor', 'prensa']) {
   assert(Array.isArray(navigation.localNavSets?.[family]), `data/navigation.json missing localNavSets.${family}`);
-  assert(navigation.localNavSets[family].length >= 3, `${family} local navigation is too sparse`);
+  if (family === 'cuaderno') {
+    assert.deepEqual(navigation.localNavSets[family], ['notebook-hub', 'recommendations-hub'], 'Cuaderno separates articles and reading recommendations; themes remain contextual');
+  } else {
+    assert(navigation.localNavSets[family].length >= 3, `${family} local navigation is too sparse`);
+  }
   assert(interiorJs.includes(`key: '${family}'`), `runtime contextual navigation missing ${family}`);
 }
 

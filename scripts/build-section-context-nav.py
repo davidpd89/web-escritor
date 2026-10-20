@@ -128,9 +128,8 @@ CONTEXTS: tuple[Context, ...] = (
         key="cuaderno", label="Cuaderno", home="/cuaderno/",
         prefixes=("/cuaderno/", "/recomendaciones/"), exacts=(),
         links=(
-            ("/cuaderno/", "Archivo"),
-            ("/cuaderno/temas/", "Temas"),
-            ("/recomendaciones/", "Recomendaciones"),
+            ("/cuaderno/", "Artículos"),
+            ("/recomendaciones/", "Recomendaciones de lectura"),
         ),
     ),
     Context(
