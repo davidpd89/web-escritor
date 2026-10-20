@@ -58,7 +58,7 @@ Guías oficiales (consultadas el 20/10/2026):
   - Escribe XML `assets/pinterest/feeds/<tablero>.xml`: estos `assets/` están incluidos por `scripts/build-public-dist.py` y su `.assetsignore`. Cada item incluye **un solo** `media:content`, título SEO, descripción natural y `link` SIEMPRE a `https://davidportodiaz.com/recomendaciones/libros/<slug>/?utm_source=pinterest&utm_medium=organic&utm_campaign=<tablero>&utm_content=<libro_id>`. La canonical HTML de la ficha queda sin UTM.
   - `--preview` y `--check` para revisión y CI. **No crea tableros online ni pines en la cuenta**.
   - Sin llamadas a ChatGPT/LLM/Metricool/Pinterest API/Amazon API; datos ya preparados por PR #661, no depende de Amazon Creators API.
-- `data/reading-pinterest-boards.json`: propuestas de nombres, descripciones, prioridades, palabras clave y ritmo. Flag informativa `rss_enabled=false` hasta conectar, no es un botón remoto que desactive pines ya importados.
+- `data/reading-pinterest-boards.json`: propuestas de nombres, descripciones, prioridades, palabras clave y ritmo. **Flag funcional `rss_enabled=false`**: los XML son válidos pero **sin ítems**, y `--assign` falla de forma expresa. Solo ponerla en `true` tras preparar/vincular la cuenta, comprobar el dominio y disponer el primer piloto. Desactivar no borra los pines ya publicados en Pinterest.
 - `tests/test_reading_pinterest_rss.py`: RSS válido, XML con tildes, imágenes correctas, un tablero por libro, no duplicados, cola 2/día y borradores excluidos.
 - `scripts/export-reading-pinterest-plan.py`: genera un JSON opcional `manual_pin` a partir de la misma cola; se puede validar con `tools/pinterest_execute.py` del repositorio privado RRSS, sin copiar código ni activar publicación. Es SOLO respaldo/manual y no debe usarse para publicar el mismo libro que ya haya entrado por RSS.
 - Pendiente Codex: pruebas CI, integración real en el batch final de #661 (build → RSS → public-dist → deploy), imágenes de pin 2:3 de mejor calidad y verificación RSS/ALT en Pinterest.
@@ -120,7 +120,7 @@ NO usar reseña personal `me encantó`, `lo he leído`, bestseller, fecha, preci
 ## Criterios obligatorios antes de dar el sistema por terminado
 
 1. Reutilizar y no alterar el CSS, plantillas, SEO y canonical de #660; conservar perfil, editorial y futuras fechas de novedades de #661.
-2. `python scripts/build-reading-pinterest-rss.py --assign` desde el repo regenerado; `--check` inmediatamente después (mismo día), y repetición idempotente sin cambios.
+2. En fase preparatoria ejecutar `--preview` con `rss_enabled=false`; genera planificación **sin escribir ficheros ni publicar**. Tras conectar Pinterest, activar `rss_enabled=true` en el JSON, ejecutar `python scripts/build-reading-pinterest-rss.py --assign` y seguidamente `--check` en el **mismo día**, repetir para comprobar idempotencia. No simular el feed activo si la conexión real sigue pendiente.
 3. XML RSS 2.0 con `media:content`, un item por libro, imagen alojada en la web, destino con UTM a ficha. Publicaciones futuras programadas no aparecen antes de fecha. Solo entradas públicas válidas.
 4. `assets/pinterest/feeds` incluido en artefacto Pages (el builder actual `assets/` lo incluye). Verificar feed HTTP 200 y `Content-Type` aceptado por Pinterest antes de conectar.
 5. Colas: 2 pines/día **global**, con **una sola cola para todas las categorías**, sin pines duplicados por libros multicategoría ni por ejecución repetida.
@@ -138,3 +138,32 @@ NO usar reseña personal `me encantó`, `lo he leído`, bestseller, fecha, preci
 - `rrss-davidporto-CODE/tools/pinterest_execute.py` y `pinterest_api_audit.py` (reutilizables como especificación de revisión, sin publicador; nunca exponer URL del repo privado fuera de la sesión).
 
 **El servicio nativo RSS de Pinterest es precisamente la solución ya existente que buscábamos**: más simple que hospedar nuestro propio bot/API y compatible con el motor automático de libros en preparación.
+
+## Revisión de fallos corregidos después de contrastar fuentes oficiales (20/10/2026)
+
+Fuente oficial actual consultada: [Pinterest: autopublicar desde RSS](https://help.pinterest.com/es/business/article/auto-publish-pins-from-your-rss-feed), [Pinterest: distribución](https://help.pinterest.com/es/business/article/pin-performance-and-distribution) y [Pinterest: conectar sitio](https://help.pinterest.com/es/business/article/claim-your-website). La documentación confirma RSS 1.x/2.x (no Atom), `media:content`, un `link` por item al dominio reclamado, creación en 24h, **contenido antiguo primero** y múltiples feeds por tablero. También advierte que crear repetidos puede tratarse como spam. **El RSS conecta pines, no garantiza impresiones ni conversiones.**
+
+Tres regresiones detectadas y corregidas con tests offline:
+
+1. **Novedades de fantasía no equivale a cualquier novedad.** El primer prototipo clasificaba todo libro reciente en ese tablero. Ahora exige **fecha completa de la edición y coincidencia con categorías de fantasía/romantasy** (lista de slugs de `data/reading-pinterest-boards.json`), sin mezclar poesía, ensayo u otros nichos.
+2. **Cambio de categoría/antigüedad no puede trasladar un pin programado a otro feed.** Los registros `data/reading-pinterest-state.json` conservan `board_slug` fijo. Incluso cuando termina la ventana de 90 días, el pin **permanece en el mismo RSS**, con GUID estable y sin perderse antes de que Pinterest lo importe.
+3. **Activación controlada de RSS.** `rss_enabled=false` en el JSON significa que **los XML se generan VACÍOS de libros**. La CLI `--assign` se niega a asignar nuevas publicaciones mientras esté desactivada. `--preview` sí informa qué libros serían elegibles/qué cola se generaría, sin persistir nada. CI activa RSS solo dentro de un runner efímero y verifica `--assign --check --assign --check`.
+
+**Limitación que persiste (no inferir otra cosa):** aunque el estado tenga un calendario de 2 pines/día, Pinterest no tiene acceso al estado interno, solo al XML público. Si el propietario **activa el feed pero espera semanas antes de conectarlo a Pinterest**, pueden acumularse muchas entradas vencidas y Pinterest importarlas al conectar. Por eso no activar `rss_enabled=true` hasta el **día real de conexión**, probar primero con Coraline, y comprobar cuántos `<item>` son visibles. Codex debe ofrecer una opción `--max-initial-items=1` / modo primer piloto o documentar procedimiento equivalente antes del despliegue real.
+
+**Otro riesgo pendiente:** Pinterest menciona que puede crear pines de **varias imágenes** dentro de un item e incluso de páginas con varias imágenes. Nuestro XML expone un solo `media:content`; aun así, auditar el primer pin publicado y no asumir que Pinterest solo interpretará una imagen de la página enlazada. Si produce duplicados, limitar creatividades o cambiar a API v5 aprobada. No dar por resuelta esta semántica solo con una prueba XML.
+
+**Qué debe ejecutar Codex cuando toque activar:**
+
+```bash
+python -m unittest discover -s tests -p 'test_reading_pinterest_rss.py' -v
+python scripts/build-reading-pinterest-rss.py --preview --today 2026-10-20
+# Una vez rss_enabled=true en configuración:
+python scripts/build-reading-pinterest-rss.py --assign
+python scripts/build-reading-pinterest-rss.py --check
+python scripts/export-reading-pinterest-plan.py --out .ci/pinterest/manual-review.json
+python scripts/build-public-dist.py --out .preview-dist
+python scripts/build-public-dist.py --check-contents --out .preview-dist
+```
+
+**Prueba final obligatoria**: consultar la URL RSS desplegada (respuesta 200 XML); verificar nombre de tablero **existente** en Pinterest, pin real y destino web, imagen real sin deformación, botón Amazon voluntario, carga móvil, y persistencia en ejecuciones posteriores sin duplicados. Después de #661 integrar RSS en el **mismo workflow que actualiza el catálogo** y comprobar que se refresca cada día incluso cuando no aparecen libros nuevos.
