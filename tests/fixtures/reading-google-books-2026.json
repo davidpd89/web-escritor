@@ -1,0 +1,118 @@
+{
+  "pages": {
+    "salamandra": [
+      {
+        "totalItems": 4,
+        "items": [
+          {
+            "id": "demo-979-es",
+            "volumeInfo": {
+              "title": "Libro ficticio para una prueba aislada",
+              "authors": [
+                "Autor de prueba"
+              ],
+              "publisher": "Salamandra Infantil y Juvenil",
+              "language": "es",
+              "publishedDate": "2026-10-15",
+              "industryIdentifiers": [
+                {
+                  "type": "OTHER",
+                  "identifier": "9788498382372"
+                },
+                {
+                  "type": "ISBN_13",
+                  "identifier": "9791300000005"
+                }
+              ],
+              "categories": [
+                "Juvenile Fiction"
+              ]
+            }
+          },
+          {
+            "id": "coraline-duplicate",
+            "volumeInfo": {
+              "title": "Coraline",
+              "authors": [
+                "Neil Gaiman"
+              ],
+              "publisher": "Salamandra Infantil y Juvenil",
+              "language": "es",
+              "publishedDate": "2009-06",
+              "industryIdentifiers": [
+                {
+                  "type": "ISBN_13",
+                  "identifier": "9788498382372"
+                }
+              ]
+            }
+          },
+          {
+            "id": "indie-test",
+            "volumeInfo": {
+              "title": "Fuera de lista",
+              "authors": [
+                "Autor de prueba"
+              ],
+              "publisher": "Independently published",
+              "language": "es",
+              "publishedDate": "2026-10-18",
+              "industryIdentifiers": [
+                {
+                  "type": "ISBN_13",
+                  "identifier": "9788412345674"
+                }
+              ]
+            }
+          },
+          {
+            "id": "wrong-language",
+            "volumeInfo": {
+              "title": "Non Spanish",
+              "authors": [
+                "Test"
+              ],
+              "publisher": "Salamandra",
+              "language": "en",
+              "publishedDate": "2026-10-10",
+              "industryIdentifiers": [
+                {
+                  "type": "ISBN_13",
+                  "identifier": "9788412345674"
+                }
+              ]
+            }
+          }
+        ]
+      }
+    ],
+    "puck": [
+      {
+        "totalItems": 1,
+        "items": [
+          {
+            "id": "demo-puck",
+            "volumeInfo": {
+              "title": "Segunda obra ficticia de prueba",
+              "authors": [
+                "Otra persona de prueba"
+              ],
+              "publisher": "Puck",
+              "language": "es",
+              "publishedDate": "2026-11",
+              "industryIdentifiers": [
+                {
+                  "type": "ISBN_13",
+                  "identifier": "9788412345674"
+                }
+              ],
+              "categories": [
+                "Fiction / Fantasy"
+              ]
+            }
+          }
+        ]
+      }
+    ]
+  }
+}
