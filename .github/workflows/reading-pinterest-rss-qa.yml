@@ -4,6 +4,7 @@ on:
   pull_request:
     paths:
       - 'scripts/build-reading-pinterest-rss.py'
+      - 'scripts/export-reading-pinterest-plan.py'
       - 'data/reading-pinterest-boards.json'
       - 'tests/test_reading_pinterest_rss.py'
       - '.github/workflows/reading-pinterest-rss-qa.yml'
@@ -31,5 +32,6 @@ jobs:
         run: |
           python scripts/build-reading-pinterest-rss.py --assign --today 2026-10-20
           python scripts/build-reading-pinterest-rss.py --check --today 2026-10-20
+          python scripts/export-reading-pinterest-plan.py --today 2026-10-20 --out .ci/reading-pinterest/manual-plan.json
           python scripts/build-reading-pinterest-rss.py --assign --today 2026-10-20
           python scripts/build-reading-pinterest-rss.py --check --today 2026-10-20
