@@ -199,6 +199,7 @@ def render_hub(data, books, template):
         for c in categories(data, b):
             counts[c['id']] = counts.get(c['id'], 0) + 1
     menu = '<nav aria-label="Categorías de los libros"><ul class="catalogue-tags">' + ''.join(f'<li id="{esc(c["tipo"])}={esc(c["id"])}"><a href="/recomendaciones/#{esc(c["tipo"])}={esc(c["id"])}">{esc(c["nombre"])} ({counts[c["id"]]})</a></li>' for c in sorted(data['categorias'], key=lambda c: (c['orden'], c['id'])) if c['activa'] and c['id'] in counts) + '</ul></nav>'
+    menu += '<h2 class="sr-only">Resultados del catálogo</h2>'
     catalogue = '<section class="catalogue-section" id="catalogo" aria-label="Buscar libros recomendados">' + render_filters(data) + menu + f'<p role="status" aria-live="polite" data-catalogue-count>{len(books)} libros</p><ul class="catalogue-grid">' + ''.join(cards) + '</ul><div class="catalogue-empty" data-catalogue-empty' + (' hidden' if books else '') + '><h2>' + ('No hay libros con estos filtros' if books else 'Estamos preparando la selección') + '</h2><p>Prueba otras categorías o explora las guías del Cuaderno.</p><a class="text-action" href="/cuaderno/#lecturas">Explorar las guías de lectura</a></div><noscript><p>Puedes consultar todas las fichas y guías sin JavaScript. Los filtros requieren activarlo.</p></noscript></section>'
     page = template.replace('{{catalogue}}', catalogue)
     if books:
