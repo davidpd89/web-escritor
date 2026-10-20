@@ -51,5 +51,22 @@ try {
   assert.equal(await page.locator('[data-rating-book] a').count(), 0);
   assert.deepEqual(errors, []);
   await context.close();
+  const live = await browser.newPage({ viewport: { width: 390, height: 900 } });
+  await live.goto(`${base}/`);
+  assert.deepEqual(await live.locator('#masthead-submenu-notebook-hub a').allTextContents(), ['Archivo', 'Libros recomendados']);
+  await live.goto(`${base}/recomendaciones/libros/coraline/`);
+  const formats = await live.locator('[data-purchase-format]').evaluateAll(links => links.map(a => ({ format: a.dataset.purchaseFormat, href: a.href, rel: a.rel })));
+  assert.equal(formats.length, 4);
+  assert.equal(new Set(formats.map(f => new URL(f.href).pathname)).size, 4);
+  for (const f of formats) { assert.equal(new URL(f.href).searchParams.get('tag'), 'davidporto-21'); assert.match(f.rel, /sponsored/); }
+  assert.equal(await live.locator('footer a[href="/recomendaciones/politica-de-recomendaciones/"]').count(), 1);
+  const author = live.locator('main a[href="/recomendaciones/autores/neil-gaiman/"]').first();
+  assert.equal(await author.getAttribute('target'), '_blank');
+  await live.goto(`${base}/recomendaciones/autores/neil-gaiman/`);
+  assert.equal(await live.locator('main h1').innerText(), 'Neil Gaiman');
+  assert.equal(await live.locator('.catalogue-author-books > li').count(), 1);
+  assert.equal(await live.locator('a[href="https://es.wikipedia.org/wiki/Neil_Gaiman"]').count(), 1);
+  assert(!/aggregateRating/.test(await live.content()));
+  await live.close();
   console.log('PASS commerce: format-specific prices, discounts, sorting, ratings, dates, expiry, invalid sources and UTM preservation.');
 } finally { await browser.close(); }

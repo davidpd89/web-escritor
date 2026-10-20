@@ -11,6 +11,18 @@
 
 ## Qué hace falta para la tarea diaria
 
+Actualización del catálogo (20/10/2026): navegación común y portada de inicio con Archivo y Libros recomendados; perfil de autor generado desde `data/reading-authors.json`; compra por formatos verificados en `formatos_compra`. Los enlaces conservan el tag existente y la identificación de afiliación se consulta desde el pie común.
+
+`assets/reading-market.json` es el contrato público opcional para filtros comerciales. `offers` contiene `libro_id`, `formato`, `tipo: compra`, `moneda: EUR`, `precio_centimos`, `url`, `actualizado_en` y `caduca_en`; `precio_referencia_centimos` es opcional y solo produce descuento si supera el precio. Se aceptan registros vigentes como máximo 24 horas, con destino Amazon.es de producto etiquetado. No hay proveedor de precios conectado: `offers` permanece vacío y esos controles se desactivan.
+
+`ratings` contiene `libro_id`, `puntuacion`, `numero_valoraciones`, `url` de Goodreads, `actualizado_en` y `caduca_en`, con máximo siete días. El piloto recoge una consulta puntual de Goodreads: 4,13/5 y 809.304 votos el 20/10/2026, con caducidad el 27/10/2026. No es una conexión a su API ni una renovación automática. La valoración desaparece al caducar y no se declara como una reseña propia en datos estructurados. Los visitantes solo descargan el JSON local, sin llamadas a Goodreads.
+
+El filtro de precio se aplica a la misma oferta y formato que el descuento. Las fechas que solo tienen año se tratan como un intervalo anual; no entran en novedades de 180 días sin fecha completa. No se inventa una fecha exacta para ordenar o filtrar.
+
+Audio de fragmentos: `--content fragmento` exige texto, `fragmento_uso_autorizado: true` y base de uso documentada. Coraline mantiene el enlace al fragmento oficial, debajo de la descripción; no se ha copiado ni narrado el capítulo. El audio de descripción sigue siendo un MP3 estático y se reutiliza si su hash no cambia.
+
+La hoja privada es opcional y su conexión queda pendiente de decisión. El prompt de investigación preparado está en `docs/prompts/investigar-catalogo-amazon-pinterest.md`.
+
 Estado comprobado el 20/10/2026: aplicación `DavidPortoCatalogoLibros` creada; credenciales EU guardadas en GitHub Secrets y autenticación OAuth correcta. La consulta real a un producto devuelve HTTP 403 con el mensaje de cuenta no elegible. Amazon indica diez ventas válidas en treinta días y posible revisión de hasta 48 horas tras crear credenciales. No se promete habilitación automática ni se simulan resultados. La tarea diaria deja un informe `pending_amazon_eligibility` y volverá a probar; otros errores de autenticación o servicio sí hacen fallar la tarea.
 
 El workflow `reading-catalogue-sync.yml` queda instalado pero condicionado a `READING_INTAKE_ENABLED=true`. No se considera conectado hasta validar sus credenciales con una ejecución real.

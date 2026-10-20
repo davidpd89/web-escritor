@@ -168,6 +168,10 @@ async function capture(browser, routePath, viewport) {
     reducedMotion: 'reduce',
   });
   const page = await context.newPage();
+  // Freeze data freshness, not timers: commercial snapshots expire for users,
+  // while a screenshot comparison must not change merely with the calendar.
+  // Expiry itself is exercised by reading-commerce-browser.mjs.
+  await page.clock.setFixedTime(new Date('2026-10-20T16:00:00Z'));
   await blockExternalNetwork(page);
   await stabilize(page);
   await page.goto(`${ORIGIN}${routePath}`, { waitUntil: 'load', timeout: 20000 });
