@@ -224,3 +224,12 @@ Métricas de aceptación **del mecanismo**: sin coste recurrente obligatorio, **
 - Implementar enriquecimiento + normalización de edición y contrato `data/reading-catalogue.json`, conservando historial/ediciones/URLs actuales y campos humanos fijados.
 - Conectar el generador, relación editoriales/autores, sitemap/Pagefind y despliegue de GitHub Pages; ejecutar 20 candidaturas reales y QA móvil/SEO. Si no hay datos verificados, dejar candidato pendiente sin bloquear otros.
 - Tras aprobación del propietario, habilitar cron/autopublicación. **Hasta entonces, la PR es un encargo draft**.
+
+
+### Dependencia de PR #662 detectada al revisar el build de Pages
+
+`scripts/build-public-dist.py` basa la inclusión de activos en **`git ls-files`**. Cuando Codex implemente el workflow final, no basta con generar un RSS en el runner sin registrarlo: **NO aparecerá en el despliegue público**.
+
+La PR #662 ya incluye cinco RSS vacíos y versionados en `assets/pinterest/feeds/*.xml`, con modo `rss_enabled=false` y piloto `pilot_book_id=lib-0001`. Tras crear/actualizar libros **y antes de desplegar**, regenerar RSS con la cola y **hacer commit de los XML y el estado** junto con el resto del catálogo. Luego activar `deploy-pages.yml` explícitamente si el cambio procede de `GITHUB_TOKEN` y comprobar el RSS HTTP 200 **real**. El cron debe avanzar la cola cada día aunque ese día no haya ISBN nuevos.
+
+No copiar el captador RSS a la rama de #661 hasta integrar formalmente ambas PR; dejar que #662 se fusione después del motor (o resolver conflictos sin duplicar archivos). No activar la publicación en Pinterest por añadir ficheros al repositorio: requiere cuenta Business, dominio reclamado y conexión voluntaria de feeds en Pinterest.
