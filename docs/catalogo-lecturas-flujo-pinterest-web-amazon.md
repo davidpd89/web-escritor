@@ -55,9 +55,9 @@ Campos ya presentes/reutilizables:
 - `04_ENLACES`: una fila de tipo `amazon_afiliado`, una de tipo `amazon_producto`, más `fragmento`, `editorial`, `resenas`, etc.
 - `07_PINTEREST`: una fila por **variante de pin**, no por libro; varias variantes pueden compartir `libro_id` y `url_destino_web`. Campos de la pestaña pueden ampliarse sin tocar la clave maestra.
 
-**Extensión propuesta de `07_PINTEREST` para la futura PR de publicación** (compatibilidad con columnas actuales, no obligar al importador de libros a leer todas):
+**Esquema ya preparado en `07_PINTEREST` de Google Sheets**, para utilizarlo en la futura PR de publicación (el importador de libros no debe exigir estos campos para publicar fichas):
 
-`pin_id,libro_id,categoria_objetivo,keyword_principal,keywords_secundarias,consulta_validada,tablero_pinterest,pin_titulo,pin_descripcion,url_imagen_pin,url_origen_imagen_pin,url_destino_web,utm_campaign,utm_content,fecha_programada,estado_publicacion,pinterest_pin_id,url_pin_publicado,impresiones,guardados,clics_salientes,fecha_medicion`
+`pin_id,libro_id,categoria_objetivo,keyword_principal,keywords_secundarias,consulta_validada,tablero_pinterest,pin_titulo,pin_descripcion,url_imagen_pin,url_origen_imagen_pin,url_destino_web,utm_campaign,utm_content,fecha_programada,estado_publicacion,pinterest_pin_id,url_pin_publicado,impresiones,guardados,clics_salientes,fecha_medicion,notas`
 
 - `pin_id` identificador **único por variante creativa**, distinto de `libro_id`. P. ej. `LIB-0001-halloween-001` y `LIB-0001-fantasia-oscura-001` apuntan ambos a la ficha de Coraline.
 - `url_destino_web` debe ser una URL canónica publicada; añadir UTM al publicar si queremos atribución, manteniendo la canonical de la ficha limpia.
