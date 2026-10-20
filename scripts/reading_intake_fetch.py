@@ -138,12 +138,15 @@ def discover(config: dict, *, fixture: dict | None, api_key: str,
                     pages_for_publisher = (fixture.get("pages") or {}).get(slug, [])
                     if page >= len(pages_for_publisher):
                         break
+                    stats["requests"] += 1
                     payload = pages_for_publisher[page]
                 else:
                     params = google_books_query(publisher["name"], api_key,
                                                 page=page, max_results=per_page)
+                    # Count EVERY attempted request, including 429 / 403 / timeout.
+                    # Otherwise a bad API key makes this loop exceed daily budget.
+                    stats["requests"] += 1
                     payload = fetch_fn(params)
-                stats["requests"] += 1
                 if not isinstance(payload, dict):
                     raise ValueError("respuesta no es un objeto JSON")
                 volumes = payload.get("items", [])
