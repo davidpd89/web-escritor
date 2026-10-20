@@ -157,6 +157,10 @@ async function settle(page) {
     // del Libro de Madrid photo, ~7% of the page, diffing against itself).
     // Forcing decode() on every image removes that race without touching
     // the site's own loading strategy.
+    // Full-page snapshots must request offscreen lazy covers too. decode()
+    // alone does not start those requests and deadlocks once the catalogue grows.
+    // This affects only the test browser; production keeps loading="lazy".
+    for (const img of document.images) img.loading = 'eager';
     await Promise.all(Array.from(document.images, (img) => img.decode().catch(() => {})));
   });
   await page.waitForTimeout(200);

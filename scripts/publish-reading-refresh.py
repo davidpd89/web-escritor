@@ -13,7 +13,7 @@ spec.loader.exec_module(publication)
 
 EXACT = {'data/reading-catalogue.json', 'data/reading-authors.json', 'data/reading-intake-state.json',
          'data/content-registry.json', 'recomendaciones/index.html', 'mapa-del-sitio/index.html',
-         'sitemap.xml', 'editoriales-sitemap.xml', 'ai/site-manifest.json', 'assets/.public-assets-allowlist.json'}
+         'sitemap.xml', 'editoriales-sitemap.xml'}
 
 
 def allowed_path(path):
