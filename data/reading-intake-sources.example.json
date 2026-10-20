@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "enabled": false,
-  "description": "Plantilla de configuración para futura ingesta gratuita. Los nombres son semillas, no pruebas de acceso ni fuentes habilitadas.",
+  "description": "Configuración inicial. La allowlist real se obtiene automáticamente de data/editoriales.json; estos registros solo añaden alias. No habilitar red/cron/publicación antes del piloto.",
   "google_books": {
     "enabled": false,
     "language": "es",
@@ -105,7 +105,7 @@
         "Ediciones B"
       ],
       "group": "Penguin Random House",
-      "enabled": false
+      "enabled": true
     }
   ],
   "editorial_feeds": [],
@@ -120,5 +120,6 @@
   "reporting": {
     "enabled": true,
     "artifact_retention_days": 7
-  }
+  },
+  "editorial_registry": "data/editoriales.json"
 }
