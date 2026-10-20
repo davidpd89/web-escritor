@@ -93,6 +93,21 @@ class RSSPublisherTest(unittest.TestCase):
                               BOARDS["site"], 30)
         self.assertEqual(len(ET.fromstring(feed).findall("./channel/item")), 2)
 
+    def test_recent_non_fantasy_book_does_not_enter_fantasy_novelties(self):
+        b = book("lib-poesia", "libro-poesia", ["clasicos"], "2026-10-18")
+        self.add_book(b)
+        data = {"libros": [b], "libro_categorias": [
+            {"libro_id": b["id"], "categoria_id": "clasicos"}]}
+        self.assertEqual(rss.suitable_books(self.root, data, BOARDS, self.today), [])
+
+    def test_recent_romantasy_book_enters_novelty_board(self):
+        b = book("lib-romantasy", "libro-romantasy", ["romantasy"], "2026-10-18")
+        self.add_book(b)
+        data = {"libros": [b], "libro_categorias": [
+            {"libro_id": b["id"], "categoria_id": "romantasy"}]}
+        entries = rss.suitable_books(self.root, data, BOARDS, self.today)
+        self.assertEqual(entries[0]["board"]["slug"], "novedades-fantasia")
+
     def test_never_enqueues_draft_or_missing_page_or_cover(self):
         published = book("lib-1", "libro-listo", ["fantasia-juvenil"])
         draft = book("lib-2", "libro-borrador", ["fantasia-juvenil"])
