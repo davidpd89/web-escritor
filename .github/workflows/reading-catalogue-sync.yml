@@ -22,13 +22,13 @@ concurrency:
 
 jobs:
   intake:
-    if: vars.READING_INTAKE_ENABLED == 'true'
+    if: vars.READING_INTAKE_ENABLED == 'true' && (github.ref == 'refs/heads/main' || inputs.dry_run)
     runs-on: ubuntu-latest
     timeout-minutes: 135
     steps:
       - uses: actions/checkout@v5
         with:
-          ref: main
+          ref: ${{ github.ref }}
           fetch-depth: 0
       - uses: actions/setup-python@v6
         with:
