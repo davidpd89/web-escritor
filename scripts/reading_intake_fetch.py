@@ -12,7 +12,7 @@ import json
 import os
 import sys
 import time
-from datetime import datetime
+from datetime import date, datetime
 from pathlib import Path
 from urllib.error import HTTPError, URLError
 from urllib.parse import urlencode
@@ -20,10 +20,12 @@ from urllib.request import Request, urlopen
 from zoneinfo import ZoneInfo
 
 from reading_intake_core import google_books_candidate, google_books_query, isbn13
+from reading_intake_publishers import resolve_publishers
 
 ROOT = Path(__file__).resolve().parents[1]
 BASE = "https://www.googleapis.com/books/v1/volumes"
 _DEFAULT_CONFIG = ROOT / "data/reading-intake-sources.example.json"
+_DEFAULT_EDITORIALES = ROOT / "data/editoriales.json"
 _DEFAULT_OUTPUT = ROOT / ".ci/reading-intake/google-books-candidates.json"
 _DEFAULT_STATE = ROOT / "data/reading-intake-state.json"
 
@@ -62,6 +64,8 @@ def fetch_google_books(params: dict, *, pause_seconds=0.3, retries=2):
                "Accept": "application/json"}
     for attempt in range(retries + 1):
         try:
+            if pause_seconds:
+                time.sleep(pause_seconds)
             with urlopen(Request(url, headers=headers), timeout=20) as response:
                 data = json.load(response)
                 if not isinstance(data, dict):
@@ -115,9 +119,14 @@ def discover(config: dict, *, fixture: dict | None, api_key: str,
              "unchanged": 0, "already_published": 0, "ignored": 0, "errors": []}
     if not 1 <= max_requests <= 500:
         raise ValueError("max_requests debe estar entre 1 y 500")
-    for publisher in allowed:
-        if publisher.get("enabled") is False:
-            continue
+    # Date-rotated discovery avoids starving later sellos under a small budget.
+    # Stable within a day; no daily state cursor writes merely to rotate.
+    active = [p for p in allowed if p.get("enabled") is not False]
+    if not active:
+        return stats
+    offset = (date.fromisoformat(today).toordinal() * max(1, max_requests // pages)) % len(active)
+    rotation = active[offset:] + active[:offset]
+    for publisher in rotation:
         slug = publisher["slug"]
         if stats["requests"] >= max_requests:
             break
@@ -171,6 +180,8 @@ def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--config", type=Path, default=_DEFAULT_CONFIG)
     parser.add_argument("--fixture", type=Path, help="JSON de respuestas, no hace HTTP")
+    parser.add_argument("--editoriales", type=Path, default=_DEFAULT_EDITORIALES,
+                        help="Registro de sellos existente de la web")
     parser.add_argument("--live", action="store_true",
                         help="Habilita llamadas API si config.google_books.enabled=true")
     parser.add_argument("--max-requests", type=int, default=30)
@@ -181,6 +192,8 @@ def main():
     parser.add_argument("--today", help="Fecha de prueba ISO; default Europe/Madrid")
     args = parser.parse_args()
     config = read_json(args.config)
+    config["publishers"] = resolve_publishers(read_json(args.editoriales),
+                                             config.get("publishers", []))
     if bool(args.fixture) == bool(args.live):
         parser.error("Elegir exactamente una opción: --fixture o --live")
     if args.live and not config.get("google_books", {}).get("enabled"):
