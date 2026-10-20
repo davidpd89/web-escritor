@@ -60,9 +60,12 @@ def source_categories(dataset: dict) -> dict[str, set[str]]:
     return result
 
 
-def suitable_books(root: Path, data: dict, board_config: dict, today: date) -> list[dict]:
-    """Only genuine published WEB fichas with locally-hosted actual cover files."""
+def suitable_books(root: Path, data: dict, board_config: dict, today: date,
+                   state: dict | None = None) -> list[dict]:
+    """Only published pages; keep the originally assigned board on future runs."""
     categories = source_categories(data)
+    pinned = (state or {}).get("pins", {})
+    board_by_slug = {board["slug"]: board for board in board_config["boards"]}
     results = []
     for book in data.get("libros", []):
         if book.get("estado") != "publicado":
@@ -82,9 +85,12 @@ def suitable_books(root: Path, data: dict, board_config: dict, today: date) -> l
             continue
         if not book.get("titulo") or not book.get("autores") or not book.get("descripcion_breve"):
             continue
-        assigned = None
+        # A queued item must never move to another RSS feed just because
+        # its 90-day novelty window expires or new categories are attached.
+        queued = pinned.get(book_id)
+        assigned = board_by_slug.get(queued.get("board_slug")) if isinstance(queued, dict) else None
         published = as_day(book.get("fecha_publicacion", ""))
-        for board in sorted(board_config["boards"], key=lambda b: b["priority"]):
+        for board in ([] if assigned else sorted(board_config["boards"], key=lambda b: b["priority"])):
             book_cats = categories.get(book_id, set())
             category_match = bool(book_cats & set(board.get("categories", [])))
             is_recent = bool(
@@ -217,7 +223,7 @@ def expected_files(root: Path, config: dict, data: dict, state: dict,
     url = urlsplit(site)
     if url.scheme != "https" or url.hostname != "davidportodiaz.com" or url.path:
         raise ValueError("Site debe ser https://davidportodiaz.com")
-    entries = suitable_books(root, data, config, today)
+    entries = suitable_books(root, data, config, today, state=state)
     cap = int(config.get("max_feed_items_per_board", 150))
     if not 1 <= cap <= 500:
         raise ValueError("Cap de elementos inválido")
