@@ -273,6 +273,22 @@ def amazon_action_label(b):
     return 'Ver en Amazon' if b.get('url_amazon_afiliada') else 'Buscar este ISBN en Amazon'
 
 
+MONTHS_ES = ('', 'enero', 'febrero', 'marzo', 'abril', 'mayo', 'junio', 'julio', 'agosto', 'septiembre', 'octubre', 'noviembre', 'diciembre')
+
+
+def publication_date_label(b):
+    """Never manufacture a precise release day from year/month metadata."""
+    exact = b.get('fecha_publicacion')
+    if exact:
+        d = date.fromisoformat(exact)
+        return f'{d.day} de {MONTHS_ES[d.month]} de {d.year}'
+    partial = b.get('fecha_publicacion_parcial')
+    if partial:
+        year, month = (int(part) for part in partial.split('-'))
+        return f'{MONTHS_ES[month]} de {year}'
+    return str(b.get('anio_publicacion') or '')
+
+
 def render_filters(data):
     def select(key, label, options, extra=''):
         return f'<label>{label}<select name="{key}" data-filter="{key}" {extra}>' + ''.join(f'<option value="{esc(v)}"' + (f' id="{key}={esc(v)}"' if key in TYPES and v else '') + f'>{esc(t)}</option>' for v,t in options) + '</select></label>'
@@ -301,9 +317,14 @@ def render_hub(data, books, template):
         published = b.get('fecha_publicacion', '')
         year = b.get('anio_publicacion', '')
         attrs = f'data-catalogue-book data-book-id="{esc(b["id"])}" data-categories="{esc(" ".join(c["id"] for c in cats))}" data-search="{esc(b["titulo"] + " " + " ".join(b["autores"]) + " " + b.get("isbn13", ""))}" data-title="{esc(b["titulo"])}" data-author="{esc(", ".join(b["autores"]))}" data-formats="{formats}" data-published="{esc(published)}" data-published-month="{esc(b.get("fecha_publicacion_parcial", ""))}" data-year="{esc(year)}"'
+        edition_metadata = ' · '.join(esc(v) for v in (
+            publication_date_label(b), b.get('editorial', ''),
+            (str(b['numero_paginas']) + ' páginas') if b.get('numero_paginas') else '',
+            ('Edad: ' + b['edad_recomendada']) if b.get('edad_recomendada') else ''
+        ) if v)
         affiliate_link = amazon_destination(b)
         affiliate_cta = ('<a class="text-action catalogue-card__buy" href="' + esc(affiliate_link) + '" target="_blank" rel="sponsored nofollow noopener noreferrer">' + esc(amazon_action_label(b)) + ' <span aria-hidden="true">↗</span></a>') if affiliate_link else ''
-        cards.append(f'<li class="catalogue-card" {attrs}><a class="catalogue-card__cover" href="{url(b)}" target="_blank" rel="noopener noreferrer" aria-label="Ver ficha de {esc(b["titulo"])} (otra pestaña)">{image(b,i>1)}</a><div><p class="eyebrow">{novelty(b, " · ".join(c["nombre"] for c in cats if c["tipo"]=="genero"))}</p><h3><a href="{url(b)}" target="_blank" rel="noopener noreferrer" aria-label="Abrir ficha de {esc(b["titulo"])} en otra pestaña">{esc(b["titulo"])}</a></h3><p class="catalogue-author">{author_links(b)}</p><p class="catalogue-card__description">{esc(b["descripcion_breve"])}</p><p class="catalogue-card__meta">' + ' · '.join(esc(v) for v in [str(published or b.get('fecha_publicacion_parcial') or year) if published or b.get('fecha_publicacion_parcial') or year else '', b.get('edad_recomendada','')] if v) + f'</p><div class="catalogue-rating" data-rating-book="{esc(b["id"])}"></div><p data-price-book="{esc(b["id"])}" class="catalogue-price" hidden></p><a class="text-action" href="{url(b)}" target="_blank" rel="noopener noreferrer">Ver ficha del libro (otra pestaña)</a>' + affiliate_cta + '</div></li>')
+        cards.append(f'<li class="catalogue-card" {attrs}><a class="catalogue-card__cover" href="{url(b)}" target="_blank" rel="noopener noreferrer" aria-label="Ver ficha de {esc(b["titulo"])} (otra pestaña)">{image(b,i>1)}</a><div><p class="eyebrow">{novelty(b, "Libros recomendados")}</p>{tags(cats)}<h3><a href="{url(b)}" target="_blank" rel="noopener noreferrer" aria-label="Abrir ficha de {esc(b["titulo"])} en otra pestaña">{esc(b["titulo"])}</a></h3><p class="catalogue-author">{author_links(b)}</p><p class="catalogue-card__description">{esc(b["descripcion_breve"])}</p><p class="catalogue-card__meta">' + edition_metadata + f'</p><div class="catalogue-rating" data-rating-book="{esc(b["id"])}"></div><p data-price-book="{esc(b["id"])}" class="catalogue-price" hidden></p><a class="text-action" href="{url(b)}" target="_blank" rel="noopener noreferrer">Ver ficha del libro (otra pestaña)</a>' + affiliate_cta + '</div></li>')
     sort = '<label>Ordenar por<select name="orden" data-filter="orden" form="catalogue-search-form" disabled><option value="editorial">Selección editorial</option><option value="titulo">Título · A–Z</option><option value="titulo_desc">Título · Z–A</option><option value="autor">Autor · A–Z</option><option value="fecha_desc">Publicación · más reciente</option><option value="fecha_asc">Publicación · más antigua</option><option value="precio_asc" data-sort-market="offers" disabled>Precio · menor a mayor</option><option value="precio_desc" data-sort-market="offers" disabled>Precio · mayor a menor</option><option value="valoracion_desc" data-sort-market="ratings" disabled>Valoración · mayor a menor</option></select></label>'
     filters = render_filters(data).replace('<form class=', '<form id="catalogue-search-form" class=',1)
     catalogue = '<section class="catalogue-section" id="catalogo" aria-label="Buscar libros recomendados">' + filters + '<div class="catalogue-results-head"><h2>El catálogo</h2>' + sort + f'<p role="status" aria-live="polite" data-catalogue-count>{len(books)} ' + ('libro' if len(books)==1 else 'libros') + '</p></div><ul class="catalogue-grid">' + ''.join(cards) + '</ul><div class="catalogue-empty" data-catalogue-empty' + (' hidden' if books else '') + '><h2>' + ('No hay libros con estos filtros' if books else 'Estamos preparando la selección') + '</h2><p>Prueba con otros filtros o restablece la búsqueda.</p><a class="text-action" href="/cuaderno/#lecturas">Explorar las guías de lectura</a></div><noscript><p>Puedes consultar todas las fichas sin JavaScript. Los filtros requieren activarlo.</p></noscript></section>'
