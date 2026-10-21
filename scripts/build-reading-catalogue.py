@@ -423,6 +423,8 @@ BOOK_GROUPS = (
     ('cocina', 'Cocina y alimentación', {'cocina', 'nutricion-y-bienestar', 'tema-nutricion-belleza-y-fitness'}),
     ('crecimiento', 'Crecimiento personal', {'desarrollo-personal', 'familia-y-crianza', 'tema-tiempo-libre', 'psicologia', 'mindfulness', 'motivacion'}),
     ('biografias', 'Biografías y memorias', {'biografias-y-memorias'}),
+    ('infantil', 'Infantil y juvenil', {'infantil', 'narrativa-juvenil', 'juvenil', 'fantasia-juvenil'}),
+    ('ensayo', 'Historia y ensayo', {'historia', 'ensayo', 'divulgacion-cientifica', 'psicologia', 'comic-y-novela-grafica'}),
     ('novela', 'Novela', {'fantasia', 'fantasia-juvenil', 'fantasia-oscura', 'romantasy', 'romance', 'portales', 'magia-con-coste', 'terror', 'mundos-paralelos', 'misterio', 'misterio-y-thriller', 'novela-historica', 'narrativa', 'aventuras', 'ciencia-ficcion', 'clasicos'}),
 )
 
@@ -433,7 +435,7 @@ def book_group(cats):
 
 
 def group_selector(groups):
-    display_order = ('novela', 'cocina', 'crecimiento', 'biografias')
+    display_order = ('novela', 'infantil', 'cocina', 'crecimiento', 'biografias', 'ensayo')
     present = sorted(((gid, label) for gid, label, _m in BOOK_GROUPS if gid in groups), key=lambda g: display_order.index(g[0]))
     if groups.get('otros'):
         present.append(('otros', 'Otros'))
@@ -667,7 +669,7 @@ def registry_entries(books):
     return [{"id": "reading-book-" + b["id"], "url": url(b), "label": b["titulo"], "shortLabel": b["titulo"], "type": "article", "territory": "recomendaciones", "parentId": "recommendations-hub", "hubId": "recommendations-hub", "discoverability": "secondary", "audience": ["reader"], "jobs": ["buscar-lecturas"], "sourceFile": url(b).lstrip('/') + 'index.html'} for b in books]
 
 
-def render_map(original, books, authors=()):
+def render_map(original, books, authors=(), publishers=()):
     start, end = '<!-- reading-catalogue-map:start -->', '<!-- reading-catalogue-map:end -->'
     original = re.sub(re.escape(start) + r'[\s\S]*?' + re.escape(end) + r'\n?', '', original)
     if not books:
@@ -677,6 +679,9 @@ def render_map(original, books, authors=()):
     block = start + '<section class="directory-section"><h2>Libros recomendados</h2><p><a href="/recomendaciones/">Explorar el catálogo de lectura</a> · <a href="/recomendaciones/autores/">Autores</a> · <a href="/recomendaciones/editoriales/">Editoriales del catálogo</a></p><details class="directory-reading-books"><summary>Ver las fichas de lectura</summary><ul class="directory-list">' + links + '</ul></details></section>' + end + '\n'
     if author_links:
         block = block.replace('</section>', '<details class="directory-reading-books"><summary>Ver autores del catálogo</summary><ul class="directory-list">' + author_links + '</ul></details></section>')
+    publisher_links = ''.join(f'<li><a href="{publisher_url(p)}">{esc(p["nombre"])}</a></li>' for p in publishers if any(b.get('editorial_catalogo_slug') == p['slug'] for b in books))
+    if publisher_links:
+        block = block.replace('</section>', '<details class="directory-reading-books"><summary>Ver editoriales del catálogo</summary><ul class="directory-list">' + publisher_links + '</ul></details></section>')
     require('</main>' in original, 'Mapa del sitio sin main')
     return original.replace('</main>', block + '</main>', 1)
 
@@ -696,7 +701,7 @@ def main():
         outputs = {'recomendaciones/index.html': render_hub(data, books, template)}
         map_path = root / 'mapa-del-sitio/index.html'
         if map_path.exists():
-            outputs['mapa-del-sitio/index.html'] = render_map(map_path.read_text(encoding='utf-8'), books, authors)
+            outputs['mapa-del-sitio/index.html'] = render_map(map_path.read_text(encoding='utf-8'), books, authors, publisher_records(root))
         for b in books:
             outputs[url(b).lstrip('/') + 'index.html'] = render_book(data, b, template)
         active_authors = [a for a in authors if any(a['nombre'] in b['autores'] for b in books)]

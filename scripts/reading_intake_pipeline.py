@@ -46,6 +46,7 @@ GENRES = {
     'comic y novela grafica': ('comic-y-novela-grafica','Cómic y novela gráfica'),
     'libros infantiles': ('infantil','Infantil'),
     'clasicos': ('clasicos','Clásicos'),
+    'grandes clasicos': ('clasicos','Clásicos'),
     'literatura contemporanea': ('narrativa', 'Narrativa contemporánea'),
     'novela negra misterio y thriller': ('misterio-y-thriller', 'Misterio y thriller'),
     'libros de fantasia': ('fantasia', 'Fantasía'),
@@ -85,7 +86,20 @@ def classify(record, catalogue):
     found = []
     cats = {c['id']: c for c in catalogue['categorias']}
     for subject in record['materias']:
-        mapped = GENRES.get(normalize_text(subject))
+        key = normalize_text(subject)
+        band = re.fullmatch(r'(?:de \d+ a \d+ anos|a partir de \d+ anos)', key)
+        if band:
+            # La «materia» de los libros infantiles de Penguin es su franja de edad.
+            mapped = ('infantil', 'Infantil y juvenil')
+            age_id, age_name = 'edad-' + key.replace(' ', '-'), ' '.join(str(subject).split())
+            if age_id not in cats:
+                catalogue['categorias'].append({'id': age_id, 'slug': age_id, 'nombre': age_name, 'tipo': 'edad',
+                                                'descripcion': 'Edad orientativa de la editorial: ' + age_name + '.',
+                                                'orden': 150 + len(cats), 'activa': True})
+                cats[age_id] = catalogue['categorias'][-1]
+            found.append(age_id)
+        else:
+            mapped = GENRES.get(key)
         if not mapped:
             # Preserve the source's actual subject even when it is new to the
             # catalogue. Age is never used as a substitute for a subject.
