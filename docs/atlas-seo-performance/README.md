@@ -71,3 +71,20 @@ Fuentes de decisión: [Google faceted navigation](https://developers.google.com/
 - Abrir PR aparte de generador de rutas e índice países/autores cuando haya suficientes aprobados.
 - Construir filtros combinados accesibles con back/forward, etiquetas múltiples, paginación y noindex de búsquedas arbitrarias.
 - Medir Chrome en móvil y tamaños de texto, teclado, no-JS, contraste y contrastes de design system; indexación real tras publicación.
+
+## 22/10? No: ampliación de la misma jornada 21/10/2026 — shards para filtros mundiales
+
+Se ha añadido [scripts/atlas_facets_snapshot.py](../../scripts/atlas_facets_snapshot.py) y [tests/test_atlas_facets_snapshot.py](../../tests/test_atlas_facets_snapshot.py) (cuatro pruebas sintéticas, NO ejecutadas).
+
+**Flujo de escala:**
+1. La portada solo contiene índice HTML y enlaces a países/destinos, sin 100.000 registros de lugares.
+2. Se publica (en un futuro, no ahora) un manifiesto pequeño `/atlas-literario/facets/index.json` con países, destinos y conteos por categoría.
+3. Cuando el usuario elige **ciudad/destino**, se descarga **un único shard** `/atlas-literario/facets/destinos/<slug>.json` de los lugares aprobados de esa ciudad, con tipos y relaciones aprobadas a libros/autores/adaptaciones.
+4. El navegador filtra en memoria **solo el shard activo** (tipo de lugar, obra, autor, relación, palabras). Cambiar de ciudad intercambia el shard; no cargar mapas ni miles de elementos en el primer render.
+5. El manifest no genera por sí mismo nuevas páginas SEO: las URLs canónicas son las fichas aprobadas. Los filtros combinados nunca generan rutas rastreables infinitas.
+
+**Siguiente fase:** UI JS accesible con país→ciudad→obra/tipo/autor, estado URL fragment (no query rastreable), resultados paginados, `aria-live` con recuento, soporte teclado y back/forward. El snapshot ya queda preparado para esa UI sin llamar APIs de terceros.
+
+**Invariante de privacidad:** los shards solo contienen ID público, nombre, tipo, URL y enlaces de relaciones aprobadas; no raw dumps, emails, fotos sin derechos, coordenadas de domicilios privados ni notas internas. `MAX_TEXT_LENGTH=140` del preview NO garantiza utilidad, así que el gate editorial y QA de contenido real seguirán existiendo.
+
+**Corrección nueva:** el renderizador aborta si dos lugares o destinos generarían la misma URL (no sobrescribe slugs homónimos) y omite el hub si no hay destinos publicables; tests de regresión escritos.
