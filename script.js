@@ -151,12 +151,26 @@ function syncHashScroll() {
   target.scrollIntoView({ block: "start" });
 }
 
-window.addEventListener("load", () => {
-  scheduleTask(() => {
-    syncHashScroll();
-    window.setTimeout(syncHashScroll, 450);
-  }, "user-visible");
-});
+// Correct only the incoming anchor, while the visitor has not navigated.
+// A skip link used before load, or Tab/wheel during the delayed correction,
+// must never pull a reader back to #contenido with focus far below the viewport.
+const initialScrollHash = window.location.hash;
+if (initialScrollHash && initialScrollHash !== "#") {
+  let interrupted = false;
+  const interactions = ["keydown", "pointerdown", "wheel", "touchstart"];
+  const dispose = () => interactions.forEach(type => window.removeEventListener(type, interrupt));
+  const interrupt = () => { interrupted = true; dispose(); };
+  interactions.forEach(type => window.addEventListener(type, interrupt, { passive: true }));
+  const align = () => {
+    if (!interrupted && window.location.hash === initialScrollHash) syncHashScroll();
+  };
+  window.addEventListener("load", () => {
+    scheduleTask(() => {
+      align();
+      window.setTimeout(() => { align(); dispose(); }, 450);
+    }, "user-visible");
+  }, { once: true });
+}
 
 // Thumb-friendly mobile navigation. Injected once so every page gets the same bottom actions.
 // Scoped off legal/policy pages: a promotional "Novedad" shortcut doesn't

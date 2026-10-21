@@ -47,6 +47,12 @@ se registran en la PR para que la evidencia corresponda al commit publicado.
   El menú/scroll se comprobó en nueve casos de tres resoluciones en producción.
 - Lighthouse de catálogo: rendimiento 79, accesibilidad 100, buenas prácticas 100,
   SEO 100, CLS 0 y TBT 148 ms en CI. No se rebajaron umbrales; quedan mejoras de LCP.
+- La revisión adicional de #676 reproduce el salto tardío a `#contenido` durante
+  la navegación por teclado. La corrección de anclas solo actúa sobre el hash
+  entrante mientras no haya interacción. La regresión falla con el código anterior
+  y pasa con la corrección, preservando también enlaces entrantes sin interacción;
+  se ejecuta dentro de la suite de runtime/foco. `script.js` cambia de versión en
+  todas sus referencias para evitar que visitantes recurrentes reciban el código viejo.
 
 ## Límites externos que deben figurar en el informe final
 
