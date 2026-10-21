@@ -84,6 +84,19 @@ class AffiliateNavigationTest(unittest.TestCase):
             self.assertIn("sponsored", buying[0]["attrs"].get("rel", ""))
             self.assertEqual(buying[0]["attrs"].get("target"), "_blank")
 
+    def test_cards_keep_categories_and_human_readable_edition_metadata(self):
+        books = [self.coraline, self.imported]
+        html = builder.render_hub(self.data, books, self.template)
+        self.assertGreaterEqual(html.count('class="catalogue-tags"'), 2)
+        self.assertEqual(builder.publication_date_label(self.coraline), "2009")
+        self.assertIn(" · " + self.imported["editorial"], html)
+        if self.imported.get("numero_paginas"):
+            self.assertIn(str(self.imported["numero_paginas"]) + " páginas", html)
+        if self.imported.get("fecha_publicacion"):
+            self.assertIn(" de ", builder.publication_date_label(self.imported))
+        self.assertNotIn("Los filtros de precio y oferta estarán disponibles", html)
+        self.assertNotIn("Precios, ofertas y valoraciones: se mostrarán", html)
+
     def test_all_26_published_books_have_tagged_destination(self):
         for b in self.books:
             with self.subTest(book=b["id"]):
