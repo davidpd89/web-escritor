@@ -88,3 +88,11 @@ Se ha añadido [scripts/atlas_facets_snapshot.py](../../scripts/atlas_facets_sna
 **Invariante de privacidad:** los shards solo contienen ID público, nombre, tipo, URL y enlaces de relaciones aprobadas; no raw dumps, emails, fotos sin derechos, coordenadas de domicilios privados ni notas internas. `MAX_TEXT_LENGTH=140` del preview NO garantiza utilidad, así que el gate editorial y QA de contenido real seguirán existiendo.
 
 **Corrección nueva:** el renderizador aborta si dos lugares o destinos generarían la misma URL (no sobrescribe slugs homónimos) y omite el hub si no hay destinos publicables; tests de regresión escritos.
+
+## Prototipo JS adicional (no cargado en producción)
+
+- [research/atlas-ui/atlas-filters-preview.js](../../research/atlas-ui/atlas-filters-preview.js): JavaScript autónomo que **no necesita framework ni librería externa**. Primer fetch de `facets/index.json` tras foco/clic en controles; solo descarga `facets/destinos/<slug>.json` de la ciudad seleccionada. Filtra por país, destino, tipo, obra, autor, tipo de vínculo y búsqueda normalizada. Muestra 30 resultados por página, utiliza `document.createElement/textContent` (no `innerHTML` con texto externo), protege las URLs destino y conserva estado en hash para no multiplicar páginas indexables.
+- [research/atlas-ui/filters.example.html](../../research/atlas-ui/filters.example.html): HTML semántico de controles con labels, estados `aria-live`, paginación con botones y enlace conceptual a CSS común. **Este HTML y JS no se han insertado en ninguna página**, por tanto no representan una experiencia web ya funcional. Requieren la integración futura del script (defer) en la página real del hub junto con enlaces SSR para lectores sin JS.
+- El selector país es ISO2 visible temporalmente; integrar nombres locales `Intl.DisplayNames(['es'])` o tabla propia cuando se apruebe, no presentar códigos técnicos al usuario.
+- **Pendiente** de test de teclado, accionado móvil, estado hash al retroceder, fallos de red, múltiples filtros, 0 resultados, 10k/100k fichas, CSP real y timeouts. Evitar añadir a main sin validar que no existe regresión.
+- El JS no hace geolocalización, no llama a APIs ni mapas, no ejecuta búsquedas de IA y no usa datos de cuentas/usuarios; `URLSearchParams` para hash no envía criterios a servidor.
