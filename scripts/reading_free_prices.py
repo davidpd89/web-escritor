@@ -71,6 +71,8 @@ def penguin_offer(book, page, now, *, valid_hours=24):
     product = matches[0]
     price = cents(product.get('price_amount'))
     if price is None:
+        price = cents(product.get('price'))  # same validated edition node; never scan page-wide text
+    if price is None:
         return None
     reference = cents(product.get('regular_price_amount'))
     stamp = now.astimezone(timezone.utc)
