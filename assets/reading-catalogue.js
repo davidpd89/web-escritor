@@ -86,10 +86,11 @@
       const lower = published || (month ? month + '-01' : year ? year + '-01-01' : '');
       const upper = published || (month ? new Date(Date.UTC(Number(month.slice(0, 4)), Number(month.slice(5)), 0)).toISOString().slice(0, 10) : year ? year + '-12-31' : '');
       const pages = Number(card.dataset.pages), range = !pages ? 'sin-dato' : pages < 200 ? 'breve' : pages < 400 ? 'media' : pages < 600 ? 'larga' : 'muy-larga';
-      return normalize(card.dataset.search).includes(normalize(v.q || '')) && ['genero', 'tematica', 'temporada', 'edad', 'contenido', 'epoca'].every(k => !v[k] || cats.includes(v[k])) && (!v.formato || formats.has(v.formato)) && (!v.paginas || v.paginas === range) && (!v.novedad || isNew(published, v.novedad)) && (!v.desde || (upper && upper >= v.desde)) && (!v.hasta || (lower && lower <= v.hasta)) && (!v.valoracion || ratingFor(card.dataset.bookId)?.puntuacion >= Number(v.valoracion)) && (!(v.precio_min || v.precio_max || v.descuento) || matchingOffers(card, v).length > 0);
+      return normalize(card.dataset.search).includes(normalize(v.q || '')) && ['genero', 'tematica', 'temporada', 'edad', 'contenido', 'epoca'].every(k => !v[k] || cats.includes(v[k])) && (!v.grupo || card.dataset.group === v.grupo) && (!v.formato || formats.has(v.formato)) && (!v.paginas || v.paginas === range) && (!v.novedad || isNew(published, v.novedad)) && (!v.desde || (upper && upper >= v.desde)) && (!v.hasta || (lower && lower <= v.hasta)) && (!v.valoracion || ratingFor(card.dataset.bookId)?.puntuacion >= Number(v.valoracion)) && (!(v.precio_min || v.precio_max || v.descuento) || matchingOffers(card, v).length > 0);
   }
   function apply(save = true) {
     const v = values();
+    for (const radio of root.querySelectorAll('[data-type-radio]')) radio.checked = radio.value === (v.grupo || '');
     const nullable = (x, y, desc = false) => x == null ? (y == null ? 0 : 1) : y == null ? -1 : desc ? y - x : x - y;
     const dateOf = card => card.dataset.published || card.dataset.publishedMonth || card.dataset.year ? Date.parse(card.dataset.published || (card.dataset.publishedMonth ? card.dataset.publishedMonth + '-01' : card.dataset.year + '-01-01')) : null;
     const compare = (a, b) => {
@@ -97,7 +98,7 @@
         case 'titulo': return collator.compare(a.dataset.title, b.dataset.title);
         case 'titulo_desc': return collator.compare(b.dataset.title, a.dataset.title);
         case 'autor': return collator.compare(a.dataset.author, b.dataset.author);
-        case 'fecha_desc': case 'fecha_asc': return nullable(dateOf(a), dateOf(b), v.orden === 'fecha_desc');
+        case 'editorial': case 'fecha_desc': case 'fecha_asc': return nullable(dateOf(a), dateOf(b), v.orden !== 'fecha_asc');
         case 'paginas_asc': case 'paginas_desc': return nullable(Number(a.dataset.pages) || null, Number(b.dataset.pages) || null, v.orden === 'paginas_desc');
         case 'precio_asc': case 'precio_desc': return nullable(minPrice(a, v), minPrice(b, v), v.orden === 'precio_desc');
         case 'valoracion_desc': return nullable(ratingFor(a.dataset.bookId)?.puntuacion ?? null, ratingFor(b.dataset.bookId)?.puntuacion ?? null, true);
@@ -215,7 +216,11 @@
     form.querySelector('fieldset').disabled = false; form.querySelector('[type="reset"]').disabled = false;
     const sort = root.querySelector('[data-filter="orden"]'); if (sort) sort.disabled = false;
     fields.forEach(f => f.addEventListener('input', () => { currentPage = 1; apply(); }));
-    form.addEventListener('submit', event => { event.preventDefault(); currentPage = 1; apply(); }); form.addEventListener('reset', () => setTimeout(() => { currentPage = 1; apply(); }, 0)); window.addEventListener('hashchange', restore); restore();
+    for (const radio of root.querySelectorAll('[data-type-radio]')) {
+      radio.disabled = false;
+      radio.addEventListener('change', () => { const hidden = fields.find(f => f.dataset.filter === 'grupo'); hidden.value = radio.value; hidden.dispatchEvent(new Event('input', { bubbles: true })); });
+    }
+    form.addEventListener('submit', event => { event.preventDefault(); currentPage = 1; apply(); }); form.addEventListener('reset', () => setTimeout(() => { const type = fields.find(f => f.dataset.filter === 'grupo'); if (type) type.value = ''; currentPage = 1; apply(); }, 0)); window.addEventListener('hashchange', restore); restore();
   }
   const refresh = () => { renderNovelty(); renderMarket(); apply(false); };
   window.addEventListener('pageshow', refresh); document.addEventListener('visibilitychange', () => { if (!document.hidden) refresh(); }); setInterval(() => { if (!document.hidden) refresh(); }, 60000);

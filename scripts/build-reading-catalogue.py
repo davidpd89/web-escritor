@@ -209,12 +209,14 @@ def categories(data, b):
 
 def tags(cats, compact=False):
     def group(items):
-        return '<ul class="catalogue-tags">' + ''.join(f'<li><a href="/recomendaciones/#{esc(c["tipo"])}={esc(c["id"])}">{esc(c["nombre"])}</a></li>' for c in items) + '</ul>'
+        return '<ul class="catalogue-tags' + (' catalogue-tags--compact' if compact else '') + '">' + ''.join(f'<li><a href="/recomendaciones/#{esc(c["tipo"])}={esc(c["id"])}">{esc(c["nombre"])}</a></li>' for c in items) + '</ul>'
     if compact:
         priority={'genero':0,'temporada':1,'tematica':2,'edad':3,'contenido':4,'epoca':5}
         cats=sorted(cats,key=lambda c:(priority[c['tipo']],c['orden'],c['id']))
-    if compact and len(cats) > 3:
-        return group(cats[:3]) + '<details class="catalogue-extra-tags"><summary>Más categorías (' + str(len(cats) - 3) + ')</summary>' + group(cats[3:]) + '</details>'
+    if compact:
+        # Una sola fila de etiquetas pequeñas (sin desplegable): la tarjeta resume,
+        # el resto de categorías sigue disponible en la ficha y en los filtros.
+        cats = cats[:5]
     return group(cats)
 
 
@@ -372,14 +374,45 @@ def render_filters(data):
     return '<form class="catalogue-filters" data-catalogue-filters><fieldset disabled><legend>Encuentra tu próxima lectura</legend><div class="catalogue-filter-grid">' + controls + '</div><details class="catalogue-details catalogue-more-filters"><summary>Más filtros: fechas, precios y valoraciones <span aria-hidden="true">＋</span></summary>' + advanced + '</details><div class="catalogue-filter-actions"><button type="submit">Buscar libros</button><button type="reset" disabled>Restablecer</button></div></fieldset></form>'
 
 
+# Tipo de libro para el selector «Todos / Novela / Cocina…» junto al catálogo.
+# Orden = prioridad: gana el primer grupo que contenga alguna categoría del libro.
+BOOK_GROUPS = (
+    ('cocina', 'Cocina y alimentación', {'cocina', 'nutricion-y-bienestar', 'tema-nutricion-belleza-y-fitness'}),
+    ('crecimiento', 'Crecimiento personal', {'desarrollo-personal', 'familia-y-crianza', 'tema-tiempo-libre', 'psicologia', 'mindfulness', 'motivacion'}),
+    ('biografias', 'Biografías y memorias', {'biografias-y-memorias'}),
+    ('novela', 'Novela', {'fantasia', 'fantasia-juvenil', 'fantasia-oscura', 'romantasy', 'romance', 'portales', 'magia-con-coste', 'terror', 'mundos-paralelos', 'misterio', 'misterio-y-thriller', 'novela-historica', 'narrativa', 'aventuras', 'ciencia-ficcion', 'clasicos'}),
+)
+
+
+def book_group(cats):
+    ids = {c['id'] for c in cats}
+    return next((gid for gid, _label, members in BOOK_GROUPS if ids & members), 'otros')
+
+
+def group_selector(groups):
+    display_order = ('novela', 'cocina', 'crecimiento', 'biografias')
+    present = sorted(((gid, label) for gid, label, _m in BOOK_GROUPS if gid in groups), key=lambda g: display_order.index(g[0]))
+    if groups.get('otros'):
+        present.append(('otros', 'Otros'))
+    items = [('', 'Todos', sum(groups.values()))] + [(gid, label, groups[gid]) for gid, label in present]
+    radios = ''.join(
+        f'<label class="catalogue-type"><input type="radio" name="tipo-libro" value="{esc(v)}" data-type-radio disabled' + (' checked' if not v else '') + f'><span>{esc(label)} <small>({n})</small></span></label>'
+        for v, label, n in items)
+    return '<fieldset class="catalogue-types" data-catalogue-types><legend>Tipo de libro</legend>' + radios + '<input type="hidden" name="grupo" data-filter="grupo" form="catalogue-search-form" value=""></fieldset>'
+
+
 def render_hub(data, books, template):
     cards = []
+    groups = {}
+    books = sorted(books, key=lambda b: (b.get('fecha_publicacion') or b.get('fecha_publicacion_parcial') or str(b.get('anio_publicacion', '')), b['titulo'].casefold()), reverse=True)
     for i,b in enumerate(books):
         cats = categories(data,b)
+        group = book_group(cats)
+        groups[group] = groups.get(group, 0) + 1
         formats = ' '.join(sorted(set([o['formato'] for o in purchase_formats(b)] + ([b['formato_edicion']] if b.get('formato_edicion') else []))))
         published = b.get('fecha_publicacion', '')
         year = b.get('anio_publicacion', '')
-        attrs = f'data-catalogue-book data-book-id="{esc(b["id"])}" data-categories="{esc(" ".join(c["id"] for c in cats))}" data-search="{esc(b["titulo"] + " " + " ".join(b["autores"]) + " " + b.get("isbn13", ""))}" data-title="{esc(b["titulo"])}" data-author="{esc(", ".join(b["autores"]))}" data-formats="{formats}" data-published="{esc(published)}" data-published-month="{esc(b.get("fecha_publicacion_parcial", ""))}" data-year="{esc(year)}" data-pages="{esc(b.get("numero_paginas", ""))}"'
+        attrs = f'data-catalogue-book data-group="{group}" data-book-id="{esc(b["id"])}" data-categories="{esc(" ".join(c["id"] for c in cats))}" data-search="{esc(b["titulo"] + " " + " ".join(b["autores"]) + " " + b.get("isbn13", ""))}" data-title="{esc(b["titulo"])}" data-author="{esc(", ".join(b["autores"]))}" data-formats="{formats}" data-published="{esc(published)}" data-published-month="{esc(b.get("fecha_publicacion_parcial", ""))}" data-year="{esc(year)}" data-pages="{esc(b.get("numero_paginas", ""))}"'
         edition_metadata = ' · '.join(esc(v) for v in (
             publication_date_label(b), b.get('editorial', ''),
             (str(b['numero_paginas']) + ' páginas') if b.get('numero_paginas') else '',
@@ -388,9 +421,9 @@ def render_hub(data, books, template):
         affiliate_link = amazon_destination(b)
         affiliate_cta = ('<a class="catalogue-buy-link catalogue-card__buy" href="' + esc(affiliate_link) + '" target="_blank" rel="sponsored nofollow noopener noreferrer">' + esc(amazon_action_label(b)) + ' <span aria-hidden="true">↗</span></a>') if affiliate_link else ''
         cards.append(f'<li class="catalogue-card" {attrs}><a class="catalogue-card__cover" href="{url(b)}" target="_blank" rel="noopener noreferrer" aria-label="Ver ficha de {esc(b["titulo"])} (otra pestaña)">{image(b,i>1)}</a><div><p class="eyebrow">{novelty(b, "Libros recomendados")}</p>{tags(cats, compact=True)}<h3><a href="{url(b)}" target="_blank" rel="noopener noreferrer" aria-label="Abrir ficha de {esc(b["titulo"])} en otra pestaña">{esc(b["titulo"])}</a></h3><p class="catalogue-author">{author_links(b)}</p><p class="catalogue-card__description">{esc(synopsis(b))}</p>{synopsis_attribution(b)}<p class="catalogue-card__meta">' + edition_metadata + f'</p><div class="catalogue-rating" data-rating-book="{esc(b["id"])}"></div><p data-price-book="{esc(b["id"])}" class="catalogue-price" hidden></p><a class="text-action" href="{url(b)}" target="_blank" rel="noopener noreferrer" aria-label="Ver ficha del libro (se abre en otra pestaña)">Ver ficha</a>' + affiliate_cta + '</div></li>')
-    sort = '<label>Ordenar por<select name="orden" data-filter="orden" form="catalogue-search-form" disabled><option value="editorial">Selección editorial</option><option value="titulo">Título · A–Z</option><option value="titulo_desc">Título · Z–A</option><option value="autor">Autor · A–Z</option><option value="fecha_desc">Publicación · más reciente</option><option value="fecha_asc">Publicación · más antigua</option><option value="paginas_asc">Páginas · menor a mayor</option><option value="paginas_desc">Páginas · mayor a menor</option><option value="precio_asc" data-sort-market="offers" disabled>Precio · menor a mayor</option><option value="precio_desc" data-sort-market="offers" disabled>Precio · mayor a menor</option><option value="valoracion_desc" data-sort-market="ratings" disabled>Valoración · mayor a menor</option></select></label>'
+    sort = '<label>Ordenar por<select name="orden" data-filter="orden" form="catalogue-search-form" disabled><option value="editorial">Publicación · más reciente primero</option><option value="titulo">Título · A–Z</option><option value="titulo_desc">Título · Z–A</option><option value="autor">Autor · A–Z</option><option value="fecha_asc">Publicación · más antigua</option><option value="paginas_asc">Páginas · menor a mayor</option><option value="paginas_desc">Páginas · mayor a menor</option><option value="precio_asc" data-sort-market="offers" disabled>Precio · menor a mayor</option><option value="precio_desc" data-sort-market="offers" disabled>Precio · mayor a menor</option><option value="valoracion_desc" data-sort-market="ratings" disabled>Valoración · mayor a menor</option></select></label>'
     filters = render_filters(data).replace('<form class=', '<form id="catalogue-search-form" class=',1)
-    catalogue = '<section class="catalogue-section" id="catalogo" aria-label="Buscar libros recomendados">' + filters + '<div class="catalogue-results-head"><h2>El catálogo</h2>' + sort + f'<p role="status" aria-live="polite" data-catalogue-count>{len(books)} ' + ('libro' if len(books)==1 else 'libros') + '</p></div><ul class="catalogue-grid">' + ''.join(cards) + '</ul><div class="catalogue-empty" data-catalogue-empty' + (' hidden' if books else '') + '><h2>' + ('No hay libros con estos filtros' if books else 'Estamos preparando la selección') + '</h2><p>Prueba con otros filtros o restablece la búsqueda.</p><a class="text-action" href="/cuaderno/#lecturas">Explorar las guías de lectura</a></div><noscript><p>Puedes consultar todas las fichas sin JavaScript. Los filtros requieren activarlo.</p></noscript></section>'
+    catalogue = '<section class="catalogue-section" id="catalogo" aria-label="Buscar libros recomendados">' + group_selector(groups) + filters + '<div class="catalogue-results-head"><h2>El catálogo</h2>' + sort + f'<p role="status" aria-live="polite" data-catalogue-count>{len(books)} ' + ('libro' if len(books)==1 else 'libros') + '</p></div><ul class="catalogue-grid">' + ''.join(cards) + '</ul><div class="catalogue-empty" data-catalogue-empty' + (' hidden' if books else '') + '><h2>' + ('No hay libros con estos filtros' if books else 'Estamos preparando la selección') + '</h2><p>Prueba con otros filtros o restablece la búsqueda.</p><a class="text-action" href="/cuaderno/#lecturas">Explorar las guías de lectura</a></div><noscript><p>Puedes consultar todas las fichas sin JavaScript. Los filtros requieren activarlo.</p></noscript></section>'
     quiz='<details class="catalogue-quiz"><summary>¿Qué te apetece leer? Haz el test y encuentra tu próximo libro</summary><div class="catalogue-quiz__panel"><p>Puedes explorar todas las fichas del catálogo que aparecen a continuación.</p></div></details>' if books else ''
     page=template.replace('{{catalogue}}',quiz+catalogue)
     modified=max((b['fecha_actualizacion'] for b in books),default='2026-10-20')
