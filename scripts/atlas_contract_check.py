@@ -55,6 +55,11 @@ def problems(data: dict) -> list[str]:
         if not isinstance(key, str) or key not in tables[category]:
             errors.append(f"{scope}: referencia {category}={key!r} no existe")
 
+    def require_approved(category: str, key: object, scope: str) -> None:
+        entry = tables[category].get(key) if isinstance(key, str) else None
+        if entry is not None and entry.get("status") != APPROVED:
+            errors.append(f"{scope}: {category}={key!r} no aprobado")
+
     for place in tables["places"].values():
         scope = f"places/{place['id']}"
         require("destinations", place.get("destination_id"), scope)
@@ -69,9 +74,10 @@ def problems(data: dict) -> list[str]:
             errors.append(scope + ": longitude fuera de rango")
         if place.get("geo_precision") == "unlocated" and lat is not None:
             errors.append(scope + ": unlocated no admite coordenadas")
-        if place.get("status") == APPROVED and (not place.get("summary_original")
-                                                 or not place.get("source_ids")):
-            errors.append(scope + ": aprobado requiere texto original y fuente")
+        if place.get("status") == APPROVED:
+            if not place.get("summary_original") or not place.get("source_ids"):
+                errors.append(scope + ": aprobado requiere texto original y fuente")
+            require_approved("destinations", place.get("destination_id"), scope)
         for image_id in place.get("image_ids", []):
             require("images", image_id, scope)
         for source_id in place.get("source_ids", []):
@@ -104,6 +110,15 @@ def problems(data: dict) -> list[str]:
             for source_id in source_ids:
                 require("sources", source_id, scope)
         if relation.get("status") == APPROVED:
+            require_approved("places", relation.get("place_id"), scope)
+            if relation.get("subject_type") == required_subject:
+                table = {"work": "works", "adaptation": "adaptations", "author": "authors"}.get(required_subject)
+                if table:
+                    require_approved(table, relation.get("subject_id"), scope)
+            for source_id in source_ids if isinstance(source_ids, list) else []:
+                src = tables["sources"].get(source_id)
+                if src is not None and not all(src.get(field) for field in ("url", "retrieved_at", "evidence_summary")):
+                    errors.append(scope + ": fuente aprobada requiere URL, fecha y resumen de evidencia")
             if not relation.get("verified_at") or not relation.get("evidence_note"):
                 errors.append(scope + ": aprobado exige fecha y evidencia")
             if typ == "popular_claim_unverified":
@@ -122,6 +137,10 @@ def problems(data: dict) -> list[str]:
             errors.append(scope + ": paradas duplicadas")
         for stop in stops:
             require("places", stop, scope)
+            if route.get("status") == APPROVED:
+                require_approved("places", stop, scope)
+        if route.get("status") == APPROVED:
+            require_approved("destinations", route.get("destination_id"), scope)
     for section in ("destinations", "places", "works", "authors", "adaptations", "routes"):
         for item in tables[section].values():
             if item.get("status") == APPROVED and not item.get("verified_at"):
