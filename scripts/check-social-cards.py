@@ -12,6 +12,8 @@ from __future__ import annotations
 
 import argparse
 import struct
+import subprocess
+import os
 import sys
 from collections import defaultdict
 from dataclasses import dataclass, field
@@ -246,6 +248,19 @@ def audit_page(path: Path, root: Path, origin: str) -> PageAudit | None:
     return audit
 
 
+def html_inventory(root):
+    """Audit the published source set, excluding local browser/worktree copies."""
+    if (root / '.git').exists():
+        listed = subprocess.run(['git', 'ls-files', '-z', '--', '*.html'], cwd=root,
+                                check=True, capture_output=True).stdout.decode('utf-8')
+        return sorted(root / p for p in listed.split('\0') if p and (root / p).is_file())
+    pages = []
+    for directory, folders, files in os.walk(root):
+        folders[:] = [f for f in folders if not f.startswith('.') and f not in {'node_modules', 'vendor'}]
+        pages.extend(Path(directory) / f for f in files if f.endswith('.html'))
+    return sorted(pages)
+
+
 def main() -> int:
     ap = argparse.ArgumentParser()
     ap.add_argument("--root", default=".")
@@ -260,7 +275,7 @@ def main() -> int:
         "WEB DAVID PORTO nuevas ideas", "archive", ".codex_work",
         ".preview-dist", "dist",
     }
-    for path in sorted(root.rglob("*.html")):
+    for path in html_inventory(root):
         # Never treat vendored/generated fixtures or draft/example pages from
         # the planning folder as live site pages.
         if any(part in skip_parts or part.startswith(".preview-dist-") for part in path.parts):

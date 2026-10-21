@@ -26,6 +26,7 @@ SLUG = re.compile(r"[a-z0-9]+(?:-[a-z0-9]+)*\Z")
 TYPES = {"genero": "Género", "tematica": "Temática", "temporada": "Temporada", "edad": "Edad", "contenido": "Contenido", "epoca": "Época"}
 BOOK_FIELDS = set("id slug titulo autores descripcion_breve estado portada_local portada_fuente_url portada_edicion_verificada autorizacion_o_base_uso portada_fecha_revision portada_ancho portada_alto fuente_bibliografica_url fecha_verificacion descripcion_original_confirmada url_amazon_afiliada isbn13 edicion editorial fecha_publicacion anio_publicacion numero_paginas fuente_publicacion_url idioma edad_recomendada fuente_edad_url avisos_contenido lectura_personal_confirmada evidencia_lectura autoria_propia resenas fragmento_url fecha_actualizacion audio_descripcion audio_voz formatos_compra fragmento_texto fragmento_uso_autorizado fragmento_base_uso audio_fragmento".split())
 FORMATS = {"tapa-blanda": "Tapa blanda", "tapa-dura": "Tapa dura", "ebook": "eBook", "audiolibro": "Audiolibro"}
+BOOK_FIELDS.update({'editorial_slug', 'formato_edicion', 'amazon_busqueda_isbn', 'fecha_publicacion_parcial'})
 
 
 class ValidationError(ValueError):
@@ -91,6 +92,19 @@ def validate(data, root):
         if b.get("isbn13"):
             require(valid_isbn(b["isbn13"]) and b["isbn13"] not in isbns, f"{name}: ISBN inválido o duplicado")
             isbns.add(b["isbn13"])
+        if b.get('editorial_slug'):
+            require(SLUG.fullmatch(b['editorial_slug']) and (root / 'editoriales' / b['editorial_slug'] / 'index.html').is_file(), f'{name}: editorial inexistente')
+        if b.get('formato_edicion'):
+            require(b['formato_edicion'] in FORMATS, f'{name}: formato de edición inválido')
+        if b.get('fecha_publicacion_parcial'):
+            partial = b['fecha_publicacion_parcial']
+            require(isinstance(partial, str) and bool(re.fullmatch(r'\d{4}-\d{2}', partial)), f'{name}: mes inválido')
+            day(partial + '-01', name + '.mes')
+            require(not b.get('fecha_publicacion') and b.get('anio_publicacion') == int(partial[:4]), f'{name}: fechas incompatibles')
+        if b.get('amazon_busqueda_isbn'):
+            raw = b['amazon_busqueda_isbn']
+            p = urlparse(raw); query = parse_qs(p.query)
+            require(https(raw) and p.hostname in {'www.amazon.es', 'amazon.es'} and p.path == '/s' and not p.fragment and set(query) == {'k', 'tag'} and query['k'] == [b.get('isbn13')] and len(query['tag']) == 1 and bool(re.fullmatch(r'[A-Za-z0-9-]+', query['tag'][0])), f'{name}: búsqueda Amazon inválida')
         if b["estado"] == "borrador":
             continue
         for key in ("descripcion_breve", "portada_local", "portada_fuente_url", "autorizacion_o_base_uso", "fuente_bibliografica_url", "fecha_verificacion", "portada_fecha_revision", "fecha_actualizacion", "edicion"):
@@ -191,9 +205,26 @@ def tags(cats):
     return '<ul class="catalogue-tags">' + ''.join(f'<li><a href="/recomendaciones/#{esc(c["tipo"])}={esc(c["id"])}">{esc(c["nombre"])}</a></li>' for c in cats) + '</ul>'
 
 
-def image(b, lazy=False):
+def image(b, lazy=False, sizes='(max-width: 600px) 35vw, 260px'):
     loading = 'loading="lazy"' if lazy else 'fetchpriority="high"'
-    return f'<img class="catalogue-book-cover" src="{esc(b["portada_local"])}" alt="Portada de {esc(b["titulo"])} — {esc(b["edicion"])}" width="{b["portada_ancho"]}" height="{b["portada_alto"]}" {loading} decoding="async">'
+    preview = b['portada_local'].replace('.webp', '-320.webp')
+    responsive = f' srcset="{esc(preview)} 320w, {esc(b["portada_local"])} {b["portada_ancho"]}w" sizes="{esc(sizes)}"' if b['portada_local'].startswith('/assets/reading-covers/isbn-') else ''
+    return f'<img class="catalogue-book-cover" src="{esc(b["portada_local"])}"{responsive} alt="Portada de {esc(b["titulo"])} — {esc(b["edicion"])}" width="{b["portada_ancho"]}" height="{b["portada_alto"]}" {loading} decoding="async">'
+
+
+def novelty(b, fallback):
+    return '<span data-release-label="' + esc(b.get('fecha_publicacion', '')) + '" data-release-fallback="' + esc(fallback) + '">' + esc(fallback) + '</span>'
+
+
+def book_title(b):
+    base = b['titulo'] + ' · ' + ', '.join(b['autores'])
+    full = base + ' | Libros recomendados'
+    if len(full) <= 75:
+        return full
+    if len(base) <= 75:
+        return base
+    suffix = ' · ' + (b.get('isbn13') or hashlib.sha256(b['id'].encode()).hexdigest()[:8])
+    return b['titulo'][:74-len(suffix)].rsplit(' ', 1)[0] + '…' + suffix
 
 
 def author_records(root=ROOT):
@@ -204,10 +235,13 @@ def author_records(root=ROOT):
     require(set(payload) == {'schema_version', 'autores'} and payload['schema_version'] == 1, 'Contrato de autores inválido')
     names, slugs = set(), set()
     for a in payload['autores']:
-        require(set(a) == {'slug', 'nombre', 'descripcion', 'nacimiento', 'fuentes', 'fecha_verificacion'}, 'Campos de autor inválidos')
+        required = {'slug', 'nombre', 'descripcion', 'fuentes', 'fecha_verificacion'}
+        require(set(a) == required | ({'tipo'} if a.get('tipo') == 'bibliografico' else {'nacimiento'}), 'Campos de autor inválidos')
         require(SLUG.fullmatch(a['slug']) and a['slug'] not in slugs and a['nombre'] not in names, 'Autor duplicado o slug inválido')
         require(isinstance(a['descripcion'], str) and len(a['descripcion']) >= 60, 'Autor sin descripción')
-        day(a['nacimiento'], 'nacimiento'); day(a['fecha_verificacion'], 'autor verificado')
+        if a.get('nacimiento'):
+            day(a['nacimiento'], 'nacimiento')
+        day(a['fecha_verificacion'], 'autor verificado')
         require(a['fuentes'] and all(set(s) == {'titulo', 'url'} and s['titulo'] and https(s['url']) for s in a['fuentes']), 'Autor sin fuentes')
         names.add(a['nombre']); slugs.add(a['slug'])
     return payload['autores']
@@ -222,7 +256,7 @@ def author_links(b, authors=None):
     links = []
     for name in b['autores']:
         a = next((a for a in authors if a['nombre'] == name), None)
-        links.append(f'<a href="{author_url(a)}" target="_blank" rel="noopener" aria-label="{esc(name)}: biografía y libros (otra pestaña)">{esc(name)} <span aria-hidden="true">↗</span></a>' if a else esc(name))
+        links.append(f'<a href="{author_url(a)}" target="_blank" rel="noopener" aria-label="{esc(name)}: información y libros (otra pestaña)">{esc(name)} <span aria-hidden="true">↗</span></a>' if a else esc(name))
     return ', '.join(links)
 
 
@@ -233,12 +267,12 @@ def purchase_formats(b):
 def render_filters(data):
     def select(key, label, options, extra=''):
         return f'<label>{label}<select name="{key}" data-filter="{key}" {extra}>' + ''.join(f'<option value="{esc(v)}"' + (f' id="{key}={esc(v)}"' if key in TYPES and v else '') + f'>{esc(t)}</option>' for v,t in options) + '</select></label>'
-    controls = '<label class="catalogue-search">Buscar por título o autor<input type="search" name="q" data-filter="q" maxlength="200" autocomplete="off" placeholder="¿Qué te apetece leer?"></label>'
+    controls = '<label class="catalogue-search">Buscar por título, autor o ISBN<input type="search" name="q" data-filter="q" maxlength="200" autocomplete="off" placeholder="¿Qué te apetece leer?"></label>'
     for kind, label in TYPES.items():
         choices = sorted((c for c in data['categorias'] if c['tipo'] == kind and c['activa']), key=lambda c: (c['orden'], c['id']))
         controls += select(kind, label, [('', 'Todas las opciones')] + [(c['id'], c['nombre']) for c in choices])
     controls += select('formato', 'Formato', [('', 'Todos los formatos')] + list(FORMATS.items()))
-    controls += select('novedad', 'Novedades', [('', 'Cualquier fecha'), ('180', 'Últimos 180 días')])
+    controls += select('novedad', 'Novedades', [('', 'Cualquier fecha'), ('15', 'Novedad · menos de 15 días'), ('30', 'Últimos 30 días'), ('90', 'Últimos 90 días'), ('180', 'Últimos 180 días'), ('proximamente', 'Próximos 30 días')])
     advanced = '<div class="catalogue-filter-grid">'
     for key,label in [('desde', 'Publicado desde'), ('hasta', 'Publicado hasta')]:
         advanced += f'<label>{label}<input type="date" name="{key}" data-filter="{key}" min="1000-01-01" max="2100-12-31"></label>'
@@ -254,11 +288,11 @@ def render_hub(data, books, template):
     cards = []
     for i,b in enumerate(books):
         cats = categories(data,b)
-        formats = ' '.join(o['formato'] for o in purchase_formats(b))
+        formats = ' '.join(sorted(set([o['formato'] for o in purchase_formats(b)] + ([b['formato_edicion']] if b.get('formato_edicion') else []))))
         published = b.get('fecha_publicacion', '')
         year = b.get('anio_publicacion', '')
-        attrs = f'data-catalogue-book data-book-id="{esc(b["id"])}" data-categories="{esc(" ".join(c["id"] for c in cats))}" data-search="{esc(b["titulo"] + " " + " ".join(b["autores"]))}" data-title="{esc(b["titulo"])}" data-author="{esc(", ".join(b["autores"]))}" data-formats="{formats}" data-published="{esc(published)}" data-year="{esc(year)}"'
-        cards.append(f'<li class="catalogue-card" {attrs}><a class="catalogue-card__cover" href="{url(b)}" aria-label="Ver ficha de {esc(b["titulo"])}">{image(b,i>1)}</a><div><p class="eyebrow">{" · ".join(esc(c["nombre"]) for c in cats if c["tipo"]=="genero")}</p><h3><a href="{url(b)}">{esc(b["titulo"])}</a></h3><p class="catalogue-author">{author_links(b)}</p><p class="catalogue-card__description">{esc(b["descripcion_breve"])}</p><p class="catalogue-card__meta">' + ' · '.join(esc(v) for v in [str(published or year) if published or year else '', b.get('edad_recomendada','')] if v) + f'</p><div class="catalogue-rating" data-rating-book="{esc(b["id"])}"></div><p data-price-book="{esc(b["id"])}" class="catalogue-price" hidden></p><a class="text-action" href="{url(b)}">Ver ficha del libro</a></div></li>')
+        attrs = f'data-catalogue-book data-book-id="{esc(b["id"])}" data-categories="{esc(" ".join(c["id"] for c in cats))}" data-search="{esc(b["titulo"] + " " + " ".join(b["autores"]) + " " + b.get("isbn13", ""))}" data-title="{esc(b["titulo"])}" data-author="{esc(", ".join(b["autores"]))}" data-formats="{formats}" data-published="{esc(published)}" data-published-month="{esc(b.get("fecha_publicacion_parcial", ""))}" data-year="{esc(year)}"'
+        cards.append(f'<li class="catalogue-card" {attrs}><a class="catalogue-card__cover" href="{url(b)}" aria-label="Ver ficha de {esc(b["titulo"])}">{image(b,i>1)}</a><div><p class="eyebrow">{novelty(b, " · ".join(c["nombre"] for c in cats if c["tipo"]=="genero"))}</p><h3><a href="{url(b)}">{esc(b["titulo"])}</a></h3><p class="catalogue-author">{author_links(b)}</p><p class="catalogue-card__description">{esc(b["descripcion_breve"])}</p><p class="catalogue-card__meta">' + ' · '.join(esc(v) for v in [str(published or b.get('fecha_publicacion_parcial') or year) if published or b.get('fecha_publicacion_parcial') or year else '', b.get('edad_recomendada','')] if v) + f'</p><div class="catalogue-rating" data-rating-book="{esc(b["id"])}"></div><p data-price-book="{esc(b["id"])}" class="catalogue-price" hidden></p><a class="text-action" href="{url(b)}">Ver ficha del libro</a></div></li>')
     sort = '<label>Ordenar por<select name="orden" data-filter="orden" form="catalogue-search-form" disabled><option value="editorial">Selección editorial</option><option value="titulo">Título · A–Z</option><option value="titulo_desc">Título · Z–A</option><option value="autor">Autor · A–Z</option><option value="fecha_desc">Publicación · más reciente</option><option value="fecha_asc">Publicación · más antigua</option><option value="precio_asc" data-sort-market="offers" disabled>Precio · menor a mayor</option><option value="precio_desc" data-sort-market="offers" disabled>Precio · mayor a menor</option><option value="valoracion_desc" data-sort-market="ratings" disabled>Valoración · mayor a menor</option></select></label>'
     filters = render_filters(data).replace('<form class=', '<form id="catalogue-search-form" class=',1)
     catalogue = '<section class="catalogue-section" id="catalogo" aria-label="Buscar libros recomendados">' + filters + '<div class="catalogue-results-head"><h2>El catálogo</h2>' + sort + f'<p role="status" aria-live="polite" data-catalogue-count>{len(books)} ' + ('libro' if len(books)==1 else 'libros') + '</p></div><ul class="catalogue-grid">' + ''.join(cards) + '</ul><div class="catalogue-empty" data-catalogue-empty' + (' hidden' if books else '') + '><h2>' + ('No hay libros con estos filtros' if books else 'Estamos preparando la selección') + '</h2><p>Prueba con otros filtros o restablece la búsqueda.</p><a class="text-action" href="/cuaderno/#lecturas">Explorar las guías de lectura</a></div><noscript><p>Puedes consultar todas las fichas sin JavaScript. Los filtros requieren activarlo.</p></noscript></section>'
@@ -271,11 +305,11 @@ def render_hub(data, books, template):
 
 def render_book(data,b,template):
     canonical=SITE+url(b)
-    title=b['titulo']+' · '+', '.join(b['autores'])+' | Libros recomendados'
+    title=book_title(b)
     description=b['descripcion_breve']
     cats=categories(data,b)
-    rows=[('Edición',b['edicion']),('Editorial',b.get('editorial')),('Publicación',b.get('fecha_publicacion') or b.get('anio_publicacion')),('ISBN-13',b.get('isbn13')),('Idioma',b.get('idioma')),('Páginas',b.get('numero_paginas')),('Edad orientativa',b.get('edad_recomendada'))]
-    details='<details class="catalogue-details"><summary>Datos de esta edición</summary><dl>'+''.join(f'<dt>{esc(k)}</dt><dd>{esc(v)}</dd>' for k,v in rows if v)+'</dl></details>'
+    rows=[('Edición',b['edicion']),('Editorial',b.get('editorial')),('Publicación',b.get('fecha_publicacion') or b.get('fecha_publicacion_parcial') or b.get('anio_publicacion')),('ISBN-13',b.get('isbn13')),('Idioma',b.get('idioma')),('Páginas',b.get('numero_paginas')),('Edad orientativa',b.get('edad_recomendada'))]
+    details='<details class="catalogue-details"><summary>Datos de esta edición</summary><dl>'+''.join(f'<dt>{esc(k)}</dt><dd>' + (f'<a href="/editoriales/{esc(b["editorial_slug"])}/">{esc(v)}</a>' if k == 'Editorial' and b.get('editorial_slug') else esc(v)) + '</dd>' for k,v in rows if v)+'</dl></details>'
     fragment=''
     if b.get('fragmento_url'):
         fragment='<details class="catalogue-details catalogue-fragment"><summary>Leer un fragmento gratuito</summary>'
@@ -286,7 +320,7 @@ def render_book(data,b,template):
         fragment+='<a class="text-action" href="'+esc(b['fragmento_url'])+'" target="_blank" rel="noopener noreferrer">Abrir el primer capítulo en la fuente oficial</a></details>'
     extra=''
     if b.get('resenas'):
-        extra+='<details class="catalogue-details"><summary>Reseñas externas ('+str(len(b['resenas']))+')</summary><ul>'+''.join(f'<li><a href="{esc(r["url"])}" target="_blank" rel="noopener noreferrer">{esc(r["titulo"])}</a></li>' for r in b['resenas'])+'</ul></details>'
+        extra+='<details class="catalogue-details"><summary>'+('Buscar reseñas' if all(r['url'].startswith('https://www.goodreads.com/search?') for r in b['resenas']) else 'Reseñas externas ('+str(len(b['resenas']))+')')+'</summary><ul>'+''.join(f'<li><a href="{esc(r["url"])}" target="_blank" rel="noopener noreferrer">{esc(r["titulo"])}</a></li>' for r in b['resenas'])+'</ul></details>'
     extra+='<details class="catalogue-details"><summary>Fuentes de la edición y la portada</summary><ul>'+f'<li><a href="{esc(b["fuente_bibliografica_url"])}" target="_blank" rel="noopener noreferrer">Ficha editorial</a></li><li><a href="{esc(b["portada_fuente_url"])}" target="_blank" rel="noopener noreferrer">Portada: {esc(b.get("editorial") or "fuente editorial")}</a></li>'
     for key,label in [('fuente_publicacion_url','Fecha de publicación'),('fuente_edad_url','Orientación de edad')]:
         if b.get(key):
@@ -298,24 +332,30 @@ def render_book(data,b,template):
         buy='<details class="catalogue-details catalogue-buy"><summary>Comprar en Amazon <span>Elegir formato</span></summary><ul>'+''.join(f'<li><a class="catalogue-buy-link" data-purchase-format="{o["formato"]}" href="{esc(o["url"])}" target="_blank" rel="sponsored nofollow noopener noreferrer">{FORMATS[o["formato"]]} <span aria-hidden="true">↗</span></a></li>' for o in options)+'</ul></details>'
     elif b.get('url_amazon_afiliada'):
         buy=f'<a class="catalogue-buy-link" href="{esc(b["url_amazon_afiliada"])}" target="_blank" rel="sponsored nofollow noopener noreferrer">Ver en Amazon <span aria-hidden="true">↗</span></a>'
-    cover=image(b)
+    elif b.get('amazon_busqueda_isbn'):
+        buy=f'<a class="catalogue-buy-link" href="{esc(b["amazon_busqueda_isbn"])}" target="_blank" rel="sponsored nofollow noopener noreferrer">Buscar este ISBN en Amazon <span aria-hidden="true">↗</span></a>'
+    cover=image(b, sizes='(max-width: 600px) 65vw, 400px')
     if b.get('url_amazon_afiliada'):
         cover='<a href="'+esc(b['url_amazon_afiliada'])+'" aria-label="Ver '+esc(b['titulo'])+' en Amazon" target="_blank" rel="sponsored nofollow noopener noreferrer">'+cover+'</a>'
     speech='<div class="catalogue-speech" hidden><button type="button" data-catalogue-speak>Escuchar descripción</button> <button type="button" data-catalogue-stop disabled>Detener lectura</button><p role="status" data-catalogue-speech-status></p></div>'
+    if b['id'].startswith('isbn-'):
+        speech=''
     if b.get('audio_descripcion'):
         speech='<div class="catalogue-audio"><p>Escuchar la descripción</p><audio controls preload="none" aria-label="Escuchar la descripción de '+esc(b['titulo'])+'"><source src="'+esc(b['audio_descripcion'])+'" type="audio/mpeg"></audio></div>'
-    main='<main id="contenido" tabindex="-1" class="v1-main reading-catalogue" data-family="recomendaciones" data-reading-catalogue><nav class="book-breadcrumb" aria-label="Ruta de navegación"><ol><li><a href="/">Inicio</a></li><li><a href="/cuaderno/">Cuaderno</a></li><li><a href="/recomendaciones/">Libros recomendados</a></li><li aria-current="page">'+esc(b['titulo'])+'</li></ol></nav><article class="catalogue-book-layout"><div class="catalogue-cover-panel">'+cover+'</div><div><header class="catalogue-book-heading"><p class="eyebrow">Libros recomendados</p><h1>'+esc(b['titulo'])+'</h1><p class="catalogue-author">'+author_links(b)+'</p><div class="catalogue-rating" data-rating-book="'+esc(b['id'])+'"></div></header><p data-catalogue-description>'+esc(description)+'</p>'+speech+fragment+tags(cats)
+    main='<main id="contenido" tabindex="-1" class="v1-main reading-catalogue" data-family="recomendaciones" data-reading-catalogue><nav class="book-breadcrumb" aria-label="Ruta de navegación"><ol><li><a href="/">Inicio</a></li><li><a href="/cuaderno/">Cuaderno</a></li><li><a href="/recomendaciones/">Libros recomendados</a></li><li aria-current="page">'+esc(b['titulo'])+'</li></ol></nav><article class="catalogue-book-layout"><div class="catalogue-cover-panel">'+cover+'</div><div><header class="catalogue-book-heading"><p class="eyebrow">'+novelty(b, "Libros recomendados")+'</p><h1>'+esc(b['titulo'])+'</h1><p class="catalogue-author">'+author_links(b)+'</p><div class="catalogue-rating" data-rating-book="'+esc(b['id'])+'"></div></header><p data-catalogue-description>'+esc(description)+'</p>'+speech+fragment+tags(cats)
     if b.get('autoria_propia'):
         main+='<p>Obra de David Porto Díaz.</p>'
     if b.get('avisos_contenido'):
         main+='<p><strong>Sobre el contenido:</strong> '+esc(b['avisos_contenido'])+'</p>'
     main+='<p data-price-book="'+esc(b['id'])+'" class="catalogue-price" hidden></p>'+buy+details+extra+'</div></article><div class="catalogue-end"><a class="text-action" href="/recomendaciones/">Volver al catálogo</a></div></main>'
     authors=author_records()
-    schema={'@context':'https://schema.org','@graph':[{'@type':'Book','@id':canonical+'#book','url':canonical,'name':b['titulo'],'author':[{'@type':'Person','name':name,**({'@id':SITE+author_url(a)+'#person','url':SITE+author_url(a)} if (a:=next((a for a in authors if a['nombre']==name),None)) else {})} for name in b['autores']],'description':description,'image':SITE+b['portada_local'],'bookEdition':b['edicion'],**({'isbn':b['isbn13']} if b.get('isbn13') else {}),**({'datePublished':b['fecha_publicacion']} if b.get('fecha_publicacion') else {})},{'@type':'WebPage','@id':canonical+'#page','url':canonical,'name':title,'dateModified':b['fecha_actualizacion'],'mainEntity':{'@id':canonical+'#book'}},{'@type':'BreadcrumbList','itemListElement':[{'@type':'ListItem','position':i+1,'name':label,'item':SITE+href} for i,(label,href) in enumerate([('Inicio','/'),('Cuaderno','/cuaderno/'),('Libros recomendados','/recomendaciones/'),(b['titulo'],url(b))])]}]}
+    schema={'@context':'https://schema.org','@graph':[{'@type':'Book','@id':canonical+'#book','url':canonical,'name':b['titulo'],'author':[{'@type':'Person','name':name,**({'@id':SITE+author_url(a)+'#person','url':SITE+author_url(a)} if (a:=next((a for a in authors if a['nombre']==name),None)) else {})} for name in b['autores']],'description':description,'image':SITE+b['portada_local'],'bookEdition':b['edicion'],**({'publisher':{'@type':'Organization','name':b['editorial'],**({'url':SITE+'/editoriales/'+b['editorial_slug']+'/'} if b.get('editorial_slug') else {})}} if b.get('editorial') else {}),**({'inLanguage':b['idioma']} if b.get('idioma') else {}),**({'numberOfPages':b['numero_paginas']} if b.get('numero_paginas') else {}),**({'bookFormat':'https://schema.org/'+{'tapa-dura':'Hardcover','tapa-blanda':'Paperback','ebook':'EBook','audiolibro':'AudiobookFormat'}[b['formato_edicion']]} if b.get('formato_edicion') else {}),**({'isbn':b['isbn13']} if b.get('isbn13') else {}),**({'datePublished':b['fecha_publicacion']} if b.get('fecha_publicacion') else {})},{'@type':'WebPage','@id':canonical+'#page','url':canonical,'name':title,'dateModified':b['fecha_actualizacion'],'mainEntity':{'@id':canonical+'#book'}},{'@type':'BreadcrumbList','itemListElement':[{'@type':'ListItem','position':i+1,'name':label,'item':SITE+href} for i,(label,href) in enumerate([('Inicio','/'),('Cuaderno','/cuaderno/'),('Libros recomendados','/recomendaciones/'),(b['titulo'],url(b))])]}]}
     return render_detail_page(template,main,canonical,title,description,schema,b)
 
 
 def render_detail_page(template,main,canonical,title,description,schema,b=None):
+    if len(title) > 75:
+        title = title[:63].rsplit(' ', 1)[0] + ' · ' + hashlib.sha256(canonical.encode()).hexdigest()[:8]
     page=template.replace('{{catalogue}}','')
     page=re.sub(r'<main\b[\s\S]*?</main>',lambda _:main,page,count=1)
     page=re.sub(r'<title>.*?</title>',lambda _:'<title>'+esc(title)+'</title>',page,count=1)
@@ -333,9 +373,9 @@ def render_detail_page(template,main,canonical,title,description,schema,b=None):
 def render_author(a,data,books,template):
     selected=[b for b in books if a['nombre'] in b['autores']]
     canonical=SITE+author_url(a)
-    main='<main id="contenido" tabindex="-1" class="v1-main reading-catalogue catalogue-author-page" data-family="recomendaciones"><nav class="book-breadcrumb" aria-label="Ruta de navegación"><ol><li><a href="/">Inicio</a></li><li><a href="/cuaderno/">Cuaderno</a></li><li><a href="/recomendaciones/">Libros recomendados</a></li><li aria-current="page">'+esc(a['nombre'])+'</li></ol></nav><header class="catalogue-author-hero"><p class="eyebrow">Autores · Cuaderno</p><h1>'+esc(a['nombre'])+'</h1><p>'+esc(a['descripcion'])+'</p></header><section aria-labelledby="author-books"><h2 id="author-books">Libros de '+esc(a['nombre'])+' en el catálogo</h2><ul class="catalogue-author-books">'+''.join('<li><a href="'+url(b)+'">'+image(b,True)+'<span>'+esc(b['titulo'])+'</span></a><p>'+esc(b['descripcion_breve'])+'</p></li>' for b in selected)+'</ul></section><details class="catalogue-details"><summary>Sobre estas fuentes</summary><ul>'+''.join('<li><a href="'+esc(s['url'])+'" target="_blank" rel="noopener noreferrer">'+esc(s['titulo'])+'</a></li>' for s in a['fuentes'])+'</ul><p>Síntesis biográfica propia a partir de las fuentes enlazadas.</p></details><div class="catalogue-end"><a class="text-action" href="/recomendaciones/">Explorar todos los libros</a></div></main>'
-    schema={'@context':'https://schema.org','@graph':[{'@type':'Person','@id':canonical+'#person','name':a['nombre'],'url':canonical,'birthDate':a['nacimiento'],'description':a['descripcion'],'sameAs':[s['url'] for s in a['fuentes']]},{'@type':'CollectionPage','@id':canonical,'url':canonical,'name':a['nombre']+' · Biografía y libros','mainEntity':{'@id':canonical+'#person'},'hasPart':[{'@id':SITE+url(b)+'#book'} for b in selected]},{'@type':'BreadcrumbList','itemListElement':[{'@type':'ListItem','position':i+1,'name':label,'item':SITE+href} for i,(label,href) in enumerate([('Inicio','/'),('Cuaderno','/cuaderno/'),('Libros recomendados','/recomendaciones/'),(a['nombre'],author_url(a))])]}]}
-    return render_detail_page(template,main,canonical,a['nombre']+' · Biografía y libros | David Porto Díaz',a['descripcion'],schema,selected[0] if selected else None)
+    main='<main id="contenido" tabindex="-1" class="v1-main reading-catalogue catalogue-author-page" data-family="recomendaciones"><nav class="book-breadcrumb" aria-label="Ruta de navegación"><ol><li><a href="/">Inicio</a></li><li><a href="/cuaderno/">Cuaderno</a></li><li><a href="/recomendaciones/">Libros recomendados</a></li><li aria-current="page">'+esc(a['nombre'])+'</li></ol></nav><header class="catalogue-author-hero"><p class="eyebrow">Autores · Cuaderno</p><h1>'+esc(a['nombre'])+'</h1><p>'+esc(a['descripcion'])+'</p></header><section aria-labelledby="author-books"><h2 id="author-books">Libros de '+esc(a['nombre'])+' en el catálogo</h2><ul class="catalogue-author-books">'+''.join('<li><a href="'+url(b)+'">'+image(b,True)+'<span>'+esc(b['titulo'])+'</span></a><p>'+esc(b['descripcion_breve'])+'</p></li>' for b in selected)+'</ul></section><details class="catalogue-details"><summary>Sobre estas fuentes</summary><ul>'+''.join('<li><a href="'+esc(s['url'])+'" target="_blank" rel="noopener noreferrer">'+esc(s['titulo'])+'</a></li>' for s in a['fuentes'])+'</ul><p>'+("Relación bibliográfica a partir de las fichas editoriales enlazadas." if a.get("tipo") == "bibliografico" else "Síntesis biográfica propia a partir de las fuentes enlazadas.")+'</p></details><div class="catalogue-end"><a class="text-action" href="/recomendaciones/">Explorar todos los libros</a></div></main>'
+    schema={'@context':'https://schema.org','@graph':[{'@type':'Person','@id':canonical+'#person','name':a['nombre'],'url':canonical,**({'birthDate':a['nacimiento']} if a.get('nacimiento') else {}),'description':a['descripcion'],**({'sameAs':[s['url'] for s in a['fuentes']]} if a.get('tipo') != 'bibliografico' else {})},{'@type':'CollectionPage','@id':canonical,'url':canonical,'name':a['nombre']+' · '+('Libros y ediciones' if a.get('tipo') == 'bibliografico' else 'Biografía y libros'),'mainEntity':{'@id':canonical+'#person'},'hasPart':[{'@id':SITE+url(b)+'#book'} for b in selected]},{'@type':'BreadcrumbList','itemListElement':[{'@type':'ListItem','position':i+1,'name':label,'item':SITE+href} for i,(label,href) in enumerate([('Inicio','/'),('Cuaderno','/cuaderno/'),('Libros recomendados','/recomendaciones/'),(a['nombre'],author_url(a))])]}]}
+    return render_detail_page(template,main,canonical,a['nombre']+' · '+('Libros y ediciones' if a.get('tipo') == 'bibliografico' else 'Biografía y libros')+' | David Porto Díaz',a['descripcion'],schema,selected[0] if selected else None)
 
 
 def registry_entries(books):

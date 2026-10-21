@@ -20,7 +20,15 @@
   const ratingFor = id => market.ratings.find(r => r.libro_id === id && validRating(r));
   const money = cents => new Intl.NumberFormat('es-ES', { style: 'currency', currency: 'EUR' }).format(cents / 100);
   const today = () => new Intl.DateTimeFormat('sv-SE', { timeZone: 'Europe/Madrid', year: 'numeric', month: '2-digit', day: '2-digit' }).format(new Date());
-  const isNew = s => { if (!s) return false; const days = (Date.parse(today() + 'T00:00:00Z') - Date.parse(s + 'T00:00:00Z')) / 86400000; return days >= 0 && days <= 180; };
+  const ageDays = s => /^\d{4}-\d{2}-\d{2}$/.test(s || '') ? (Date.parse(today() + 'T00:00:00Z') - Date.parse(s + 'T00:00:00Z')) / 86400000 : NaN;
+  const isNew = (s, window) => { const days = ageDays(s); return window === 'proximamente' ? days < 0 && days >= -30 : days >= 0 && (window === '15' ? days < 15 : days <= Number(window)); };
+  function renderNovelty() {
+    for (const label of root.querySelectorAll('[data-release-label]')) {
+      const fresh = isNew(label.dataset.releaseLabel, '15');
+      label.textContent = fresh ? 'Novedad' : label.dataset.releaseFallback;
+      label.classList.toggle('catalogue-novelty', fresh);
+    }
+  }
   const values = () => Object.fromEntries(fields.map(f => [f.dataset.filter, f.disabled ? '' : f.value]));
   const matchingOffers = (card, v) => offersFor(card.dataset.bookId).filter(o => (!v.formato || o.formato === v.formato) && (!v.precio_min || o.precio_centimos >= Math.round(Number(v.precio_min) * 100)) && (!v.precio_max || o.precio_centimos <= Math.round(Number(v.precio_max) * 100)) && (!v.descuento || discount(o) >= Number(v.descuento)));
   const minPrice = (card, v) => { const o = matchingOffers(card, v); return o.length ? Math.min(...o.map(x => x.precio_centimos)) : null; };
@@ -40,14 +48,15 @@
   function apply(save = true) {
     const v = values(); let visible = 0;
     for (const card of cards) {
-      const cats = card.dataset.categories.split(' '), published = card.dataset.published, year = card.dataset.year;
+      const cats = card.dataset.categories.split(' '), published = card.dataset.published, month = card.dataset.publishedMonth, year = card.dataset.year;
       const formats = new Set([...(card.dataset.formats || '').split(' '), ...offersFor(card.dataset.bookId).map(o => o.formato)]);
-      const lower = published || (year ? year + '-01-01' : ''), upper = published || (year ? year + '-12-31' : '');
-      const match = normalize(card.dataset.search).includes(normalize(v.q || '')) && ['genero', 'tematica', 'temporada', 'edad', 'contenido', 'epoca'].every(k => !v[k] || cats.includes(v[k])) && (!v.formato || formats.has(v.formato)) && (!v.novedad || isNew(published)) && (!v.desde || (upper && upper >= v.desde)) && (!v.hasta || (lower && lower <= v.hasta)) && (!v.valoracion || ratingFor(card.dataset.bookId)?.puntuacion >= Number(v.valoracion)) && (!(v.precio_min || v.precio_max || v.descuento) || matchingOffers(card, v).length > 0);
+      const lower = published || (month ? month + '-01' : year ? year + '-01-01' : '');
+      const upper = published || (month ? new Date(Date.UTC(Number(month.slice(0, 4)), Number(month.slice(5)), 0)).toISOString().slice(0, 10) : year ? year + '-12-31' : '');
+      const match = normalize(card.dataset.search).includes(normalize(v.q || '')) && ['genero', 'tematica', 'temporada', 'edad', 'contenido', 'epoca'].every(k => !v[k] || cats.includes(v[k])) && (!v.formato || formats.has(v.formato)) && (!v.novedad || isNew(published, v.novedad)) && (!v.desde || (upper && upper >= v.desde)) && (!v.hasta || (lower && lower <= v.hasta)) && (!v.valoracion || ratingFor(card.dataset.bookId)?.puntuacion >= Number(v.valoracion)) && (!(v.precio_min || v.precio_max || v.descuento) || matchingOffers(card, v).length > 0);
       card.hidden = !match; if (match) visible++;
     }
     const nullable = (x, y, desc = false) => x == null ? (y == null ? 0 : 1) : y == null ? -1 : desc ? y - x : x - y;
-    const dateOf = card => card.dataset.published || card.dataset.year ? Date.parse(card.dataset.published || card.dataset.year + '-01-01') : null;
+    const dateOf = card => card.dataset.published || card.dataset.publishedMonth || card.dataset.year ? Date.parse(card.dataset.published || (card.dataset.publishedMonth ? card.dataset.publishedMonth + '-01' : card.dataset.year + '-01-01')) : null;
     const compare = (a, b) => {
       switch (v.orden) {
         case 'titulo': return collator.compare(a.dataset.title, b.dataset.title);
@@ -83,7 +92,7 @@
     fields.forEach(f => f.addEventListener('input', () => apply()));
     form.addEventListener('submit', event => { event.preventDefault(); apply(); }); form.addEventListener('reset', () => setTimeout(() => apply(), 0)); window.addEventListener('hashchange', restore); restore();
   }
-  const refresh = () => { renderMarket(); apply(false); };
+  const refresh = () => { renderNovelty(); renderMarket(); apply(false); };
   window.addEventListener('pageshow', refresh); document.addEventListener('visibilitychange', () => { if (!document.hidden) refresh(); }); setInterval(() => { if (!document.hidden) refresh(); }, 60000);
   const knownIds = new Set([...root.querySelectorAll('[data-rating-book]')].map(el => el.dataset.ratingBook));
   fetch('/assets/reading-market.json', { cache: 'no-store' }).then(r => r.ok ? r.json() : null).then(p => { if (p?.schema_version === 1 && Array.isArray(p.offers) && Array.isArray(p.ratings)) { market = { offers: p.offers.filter(o => o && typeof o === 'object' && knownIds.has(o.libro_id)), ratings: p.ratings.filter(r => r && typeof r === 'object' && knownIds.has(r.libro_id)) }; renderMarket(); restore(); } }).catch(() => { /* The static catalogue stays available. */ }); refresh();

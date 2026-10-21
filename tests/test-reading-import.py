@@ -16,14 +16,14 @@ review=json.loads((ROOT/'data/reading-import-review.json').read_text(encoding='u
 existing=json.loads((ROOT/'data/reading-catalogue.json').read_text(encoding='utf-8'))
 data,report=imp.convert(snapshot,review,existing,ROOT)
 assert data==existing
-assert len(data['libros'])==1 and len(data['libro_categorias'])==6
+assert len(data['libros'])==len(existing['libros']) and len(data['libro_categorias'])==len(existing['libro_categorias'])
 assert data['libros'][0]['anio_publicacion']==2009 and 'fecha_publicacion' not in data['libros'][0]
 assert data['libros'][0]['url_amazon_afiliada'].endswith('tag=davidporto-21')
 unapproved=copy.deepcopy(review)
 unapproved['reviews']={}
 drafts,report=imp.convert(snapshot,unapproved,existing,ROOT)
 assert drafts['libros'][0]['estado']=='borrador' and report[0]['needs_review']
-assert imp.builder.validate(drafts,ROOT)==[]
+assert imp.builder.validate(drafts,ROOT)==[b for b in existing['libros'] if b['id'].startswith('isbn-') and b['estado']=='publicado']
 seen=set()
 payload={'searchResult':{'items':[{'asin':'8498382378','itemInfo':{'title':{'displayValue':'Coraline'}}},{'asin':'bad'}]}}
 assert len(discovery.candidates(payload,seen))==1

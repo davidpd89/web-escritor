@@ -1,0 +1,46 @@
+name: Reading intake offline unit tests
+
+on:
+  pull_request:
+    paths:
+      - 'scripts/reading_intake_*.py'
+      - 'scripts/reading_editorial_metadata.py'
+      - 'scripts/reading_editorial_sources.py'
+      - 'scripts/reading_publisher_links.py'
+      - 'scripts/publish-reading-refresh.py'
+      - 'scripts/publish-radar-refresh.py'
+      - 'scripts/refresh-reading-catalogue.py'
+      - 'data/reading-intake-config.json'
+      - 'tests/test_reading_intake_*.py'
+      - 'tests/test_reading_editorial_metadata.py'
+      - 'tests/test_reading_intake_multibook_contract.py'
+      - 'scripts/build-reading-catalogue.py'
+      - 'scripts/templates/reading-catalogue.html.tmpl'
+      - 'scripts/requirements.txt'
+      - 'tests/fixtures/reading-google-books-2026.json'
+      - 'data/reading-intake-sources.example.json'
+      - 'data/editoriales.json'
+      - '.github/workflows/reading-intake-qa.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  offline-tests:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v5
+      - uses: actions/setup-python@v6
+        with:
+          python-version: '3.12'
+      - name: Install shared Python dependencies for real PR660 builder
+        run: python -m pip install --requirement scripts/requirements.txt
+      - name: Verify syntax
+        run: |
+          python -m compileall -q scripts/reading_intake_*.py scripts/reading_editorial_metadata.py tests/test_reading_intake_*.py tests/test_reading_editorial_metadata.py
+      - name: Run offline tests — no API keys or network access
+        run: |
+          python -m unittest discover -s tests -p 'test_reading*.py' -v
+          python tests/test-radar-publication.py

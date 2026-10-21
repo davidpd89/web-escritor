@@ -1,4 +1,6 @@
 /* Editorial catalogue: the same blue/gold rules and typography as Convocatorias. */
+html.v1 .reading-catalogue .catalogue-novelty { color:#946500; font-family:var(--font-script); font-size:1.35rem; font-weight:400; text-transform:none; letter-spacing:0; }
+html.v1 .catalogue-card .eyebrow,html.v1 .catalogue-book-heading .eyebrow { min-height:2rem; line-height:2rem; margin-block:.25rem; }
 html.v1 .reading-catalogue { --catalogue-blue:#1d4f96; --catalogue-deep:#0d2c57; --catalogue-gold:#b8860b; --catalogue-pale:#eefaff; --catalogue-rule:rgba(29,79,150,.24); --catalogue-ink:#151c29; color:var(--catalogue-ink); }
 html.v1 .reading-catalogue [hidden] { display:none!important; }
 html.v1 .reading-catalogue :is(button,input,select,a,summary):focus-visible { outline:2px solid var(--catalogue-blue); outline-offset:3px; }

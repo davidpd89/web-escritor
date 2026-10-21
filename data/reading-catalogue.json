@@ -1,248 +1,1301 @@
 {
-  "schema_version": 1,
   "categorias": [
     {
-      "id": "fantasia",
-      "slug": "fantasia",
-      "nombre": "Fantasía",
-      "tipo": "genero",
+      "activa": true,
       "descripcion": "Mundos y elementos fantásticos.",
+      "id": "fantasia",
+      "nombre": "Fantasía",
       "orden": 10,
-      "activa": true
+      "slug": "fantasia",
+      "tipo": "genero"
     },
     {
-      "id": "fantasia-juvenil",
-      "slug": "fantasia-juvenil",
-      "nombre": "Fantasía juvenil",
-      "tipo": "genero",
+      "activa": true,
       "descripcion": "Fantasía accesible a público juvenil, con elementos sobrenaturales o imaginarios.",
+      "id": "fantasia-juvenil",
+      "nombre": "Fantasía juvenil",
       "orden": 3,
-      "activa": true
+      "slug": "fantasia-juvenil",
+      "tipo": "genero"
     },
     {
-      "id": "romantasy",
-      "slug": "romantasy",
-      "nombre": "Romantasy",
-      "tipo": "genero",
+      "activa": true,
       "descripcion": "Fantasía con una trama romántica central.",
+      "id": "romantasy",
+      "nombre": "Romantasy",
       "orden": 30,
-      "activa": true
+      "slug": "romantasy",
+      "tipo": "genero"
     },
     {
-      "id": "romance",
-      "slug": "romance",
-      "nombre": "Romance",
-      "tipo": "genero",
+      "activa": true,
       "descripcion": "Historias con el romance como eje.",
+      "id": "romance",
+      "nombre": "Romance",
       "orden": 40,
-      "activa": true
+      "slug": "romance",
+      "tipo": "genero"
     },
     {
-      "id": "fantasia-oscura",
-      "slug": "fantasia-oscura",
-      "nombre": "Fantasía oscura",
-      "tipo": "genero",
+      "activa": true,
       "descripcion": "Fantasía con inquietud, extrañeza y elementos sombríos.",
+      "id": "fantasia-oscura",
+      "nombre": "Fantasía oscura",
       "orden": 4,
-      "activa": true
+      "slug": "fantasia-oscura",
+      "tipo": "genero"
     },
     {
-      "id": "portales",
-      "slug": "portales",
-      "nombre": "Viajes entre mundos",
-      "tipo": "tematica",
+      "activa": true,
       "descripcion": "Historias de umbrales y otros mundos.",
+      "id": "portales",
+      "nombre": "Viajes entre mundos",
       "orden": 60,
-      "activa": true
+      "slug": "portales",
+      "tipo": "tematica"
     },
     {
-      "id": "magia-con-coste",
-      "slug": "magia-con-coste",
-      "nombre": "Magia con coste",
-      "tipo": "contenido",
+      "activa": true,
       "descripcion": "Poderes con límites y consecuencias.",
+      "id": "magia-con-coste",
+      "nombre": "Magia con coste",
       "orden": 70,
-      "activa": true
+      "slug": "magia-con-coste",
+      "tipo": "contenido"
     },
     {
-      "id": "halloween",
-      "slug": "halloween",
-      "nombre": "Halloween",
-      "tipo": "temporada",
+      "activa": true,
       "descripcion": "Lecturas inquietantes, de misterio o fantasía oscura para octubre y Halloween.",
+      "id": "halloween",
+      "nombre": "Halloween",
       "orden": 1,
-      "activa": true
+      "slug": "halloween",
+      "tipo": "temporada"
     },
     {
-      "id": "navidad",
-      "slug": "navidad",
-      "nombre": "Navidad",
-      "tipo": "temporada",
+      "activa": true,
       "descripcion": "Lecturas para Navidad.",
+      "id": "navidad",
+      "nombre": "Navidad",
       "orden": 90,
-      "activa": true
+      "slug": "navidad",
+      "tipo": "temporada"
     },
     {
-      "id": "verano",
-      "slug": "verano",
-      "nombre": "Verano",
-      "tipo": "temporada",
+      "activa": true,
       "descripcion": "Lecturas para el verano.",
+      "id": "verano",
+      "nombre": "Verano",
       "orden": 100,
-      "activa": true
+      "slug": "verano",
+      "tipo": "temporada"
     },
     {
-      "id": "juvenil",
-      "slug": "juvenil",
-      "nombre": "Juvenil",
-      "tipo": "edad",
+      "activa": true,
       "descripcion": "Orientación editorial juvenil; consultar la edad indicada en cada ficha.",
+      "id": "juvenil",
+      "nombre": "Juvenil",
       "orden": 110,
-      "activa": true
+      "slug": "juvenil",
+      "tipo": "edad"
     },
     {
-      "id": "adultos",
-      "slug": "adultos",
-      "nombre": "Adultos",
-      "tipo": "edad",
+      "activa": true,
       "descripcion": "Lecturas dirigidas a público adulto.",
+      "id": "adultos",
+      "nombre": "Adultos",
       "orden": 120,
-      "activa": true
+      "slug": "adultos",
+      "tipo": "edad"
     },
     {
-      "id": "clasicos",
-      "slug": "clasicos",
-      "nombre": "Clásicos",
-      "tipo": "epoca",
+      "activa": true,
       "descripcion": "Obras de recorrido consolidado; clasificación editorial revisada.",
+      "id": "clasicos",
+      "nombre": "Clásicos",
       "orden": 130,
-      "activa": true
+      "slug": "clasicos",
+      "tipo": "epoca"
     },
     {
-      "id": "terror",
-      "slug": "terror",
-      "nombre": "Terror",
-      "tipo": "genero",
+      "activa": true,
       "descripcion": "Historias que utilizan miedo, amenaza o elementos terroríficos.",
+      "id": "terror",
+      "nombre": "Terror",
       "orden": 2,
-      "activa": true
+      "slug": "terror",
+      "tipo": "genero"
     },
     {
-      "id": "mundos-paralelos",
-      "slug": "mundos-paralelos",
-      "nombre": "Mundos paralelos",
-      "tipo": "tematica",
+      "activa": true,
       "descripcion": "Historias de tránsito a otra realidad o mundo alternativo.",
+      "id": "mundos-paralelos",
+      "nombre": "Mundos paralelos",
       "orden": 5,
-      "activa": true
+      "slug": "mundos-paralelos",
+      "tipo": "tematica"
     },
     {
-      "id": "misterio",
-      "slug": "misterio",
-      "nombre": "Misterio",
-      "tipo": "tematica",
+      "activa": true,
       "descripcion": "Lecturas donde un secreto y su descubrimiento impulsan la trama.",
+      "id": "misterio",
+      "nombre": "Misterio",
       "orden": 6,
-      "activa": true
-    }
-  ],
-  "libros": [
+      "slug": "misterio",
+      "tipo": "tematica"
+    },
     {
-      "id": "lib-0001",
-      "slug": "coraline",
-      "titulo": "Coraline",
-      "autores": [
-        "Neil Gaiman"
-      ],
-      "estado": "publicado",
-      "descripcion_breve": "Tras mudarse a una casa antigua, Coraline encuentra una puerta hacia otra versión de su hogar. Allí todo parece mejor, hasta que descubre que sus otros padres no piensan dejarla marchar.",
-      "isbn13": "9788498382372",
-      "editorial": "Salamandra Infantil y Juvenil",
-      "idioma": "es",
-      "fecha_actualizacion": "2026-10-20",
-      "numero_paginas": 160,
-      "portada_fuente_url": "https://www.penguinlibros.com/cl/53759/coraline.jpg",
-      "fuente_bibliografica_url": "https://www.penguinrandomhouse.com/books/665423/coraline-spanish-edition-by-neil-gaiman/9788498382372/",
-      "descripcion_original_confirmada": true,
-      "portada_edicion_verificada": true,
-      "autorizacion_o_base_uso": "Cubierta promocional de la edición ISBN 9788498382372 ofrecida en la ficha oficial de la editorial, que incluye descarga de imagen. Uso identificativo junto a la recomendación y sus datos bibliográficos, con enlace y atribución a la fuente; no procede de Amazon ni se altera el diseño.",
-      "portada_fecha_revision": "2026-10-20",
-      "portada_local": "/assets/reading-covers/coraline-9788498382372.webp",
-      "fecha_verificacion": "2026-10-20",
-      "edicion": "Salamandra Infantil y Juvenil · ISBN 9788498382372",
-      "anio_publicacion": 2009,
-      "url_amazon_afiliada": "https://www.amazon.es/dp/8498382378?tag=davidporto-21",
-      "audio_descripcion": "/assets/reading-audio/coraline-da027726f648.mp3",
-      "audio_voz": "Voz sintética · Elvira (español de España)",
-      "formatos_compra": [
-        {
-          "formato": "tapa-blanda",
-          "url": "https://www.amazon.es/dp/8498382378?tag=davidporto-21",
-          "fuente_url": "https://www.amazon.es/dp/8498382378",
-          "fecha_verificacion": "2026-10-20"
-        },
-        {
-          "formato": "tapa-dura",
-          "url": "https://www.amazon.es/dp/847888579X?tag=davidporto-21",
-          "fuente_url": "https://www.amazon.es/dp/8498382378",
-          "fecha_verificacion": "2026-10-20"
-        },
-        {
-          "formato": "ebook",
-          "url": "https://www.amazon.es/dp/B08CYCPBZN?tag=davidporto-21",
-          "fuente_url": "https://www.amazon.es/dp/8498382378",
-          "fecha_verificacion": "2026-10-20"
-        },
-        {
-          "formato": "audiolibro",
-          "url": "https://www.amazon.es/dp/B08CR4VJRT?tag=davidporto-21",
-          "fuente_url": "https://www.amazon.es/dp/8498382378",
-          "fecha_verificacion": "2026-10-20"
-        }
-      ],
-      "portada_ancho": 797,
-      "portada_alto": 1280,
-      "edad_recomendada": "8-12 (editorial Penguin Random House)",
-      "fuente_edad_url": "https://www.penguinrandomhouse.com/books/665423/coraline-spanish-edition-by-neil-gaiman/9788498382372/",
-      "resenas": [
-        {
-          "titulo": "Reseñas de lectores (Goodreads)",
-          "url": "https://www.goodreads.com/book/show/6785288.Coraline",
-          "fecha_verificacion": "2026-10-20"
-        },
-        {
-          "titulo": "Opiniones de crítica y reseñas en la editorial",
-          "url": "https://www.penguinlibros.com/es/libros-ninos-9-anos/37666-libro-coraline-9788498382372",
-          "fecha_verificacion": "2026-10-20"
-        }
-      ],
-      "fragmento_url": "https://www.penguinlibros.com/es/libros-ninos-9-anos/37666-libro-coraline-9788498382372/fragmento"
+      "activa": true,
+      "descripcion": "Clasificación editorial: Novela histórica.",
+      "id": "novela-historica",
+      "nombre": "Novela histórica",
+      "orden": 166,
+      "slug": "novela-historica",
+      "tipo": "genero"
+    },
+    {
+      "activa": true,
+      "descripcion": "Clasificación editorial: Misterio y thriller.",
+      "id": "misterio-y-thriller",
+      "nombre": "Misterio y thriller",
+      "orden": 167,
+      "slug": "misterio-y-thriller",
+      "tipo": "genero"
+    },
+    {
+      "activa": true,
+      "descripcion": "Clasificación editorial: Narrativa contemporánea.",
+      "id": "narrativa",
+      "nombre": "Narrativa contemporánea",
+      "orden": 168,
+      "slug": "narrativa",
+      "tipo": "genero"
+    },
+    {
+      "activa": true,
+      "descripcion": "Clasificación editorial: Aventuras.",
+      "id": "aventuras",
+      "nombre": "Aventuras",
+      "orden": 169,
+      "slug": "aventuras",
+      "tipo": "genero"
+    },
+    {
+      "activa": true,
+      "descripcion": "Clasificación editorial: Biografías y memorias.",
+      "id": "biografias-y-memorias",
+      "nombre": "Biografías y memorias",
+      "orden": 170,
+      "slug": "biografias-y-memorias",
+      "tipo": "genero"
+    },
+    {
+      "activa": true,
+      "descripcion": "Clasificación editorial: Desarrollo personal.",
+      "id": "desarrollo-personal",
+      "nombre": "Desarrollo personal",
+      "orden": 171,
+      "slug": "desarrollo-personal",
+      "tipo": "genero"
+    },
+    {
+      "activa": true,
+      "descripcion": "Clasificación editorial: Familia y crianza.",
+      "id": "familia-y-crianza",
+      "nombre": "Familia y crianza",
+      "orden": 172,
+      "slug": "familia-y-crianza",
+      "tipo": "genero"
+    },
+    {
+      "activa": true,
+      "descripcion": "Clasificación editorial: Cocina.",
+      "id": "cocina",
+      "nombre": "Cocina",
+      "orden": 173,
+      "slug": "cocina",
+      "tipo": "genero"
     }
   ],
   "libro_categorias": [
     {
-      "libro_id": "lib-0001",
-      "categoria_id": "halloween"
+      "categoria_id": "halloween",
+      "libro_id": "lib-0001"
     },
     {
-      "libro_id": "lib-0001",
-      "categoria_id": "terror"
+      "categoria_id": "terror",
+      "libro_id": "lib-0001"
     },
     {
-      "libro_id": "lib-0001",
-      "categoria_id": "fantasia-juvenil"
+      "categoria_id": "fantasia-juvenil",
+      "libro_id": "lib-0001"
     },
     {
-      "libro_id": "lib-0001",
-      "categoria_id": "fantasia-oscura"
+      "categoria_id": "fantasia-oscura",
+      "libro_id": "lib-0001"
     },
     {
-      "libro_id": "lib-0001",
-      "categoria_id": "mundos-paralelos"
+      "categoria_id": "mundos-paralelos",
+      "libro_id": "lib-0001"
     },
     {
-      "libro_id": "lib-0001",
-      "categoria_id": "misterio"
+      "categoria_id": "misterio",
+      "libro_id": "lib-0001"
+    },
+    {
+      "categoria_id": "aventuras",
+      "libro_id": "isbn-9791387846008"
+    },
+    {
+      "categoria_id": "adultos",
+      "libro_id": "isbn-9791387846008"
+    },
+    {
+      "categoria_id": "fantasia",
+      "libro_id": "isbn-9788401039560"
+    },
+    {
+      "categoria_id": "adultos",
+      "libro_id": "isbn-9788401039560"
+    },
+    {
+      "categoria_id": "fantasia",
+      "libro_id": "isbn-9788425375118"
+    },
+    {
+      "categoria_id": "adultos",
+      "libro_id": "isbn-9788425375118"
+    },
+    {
+      "categoria_id": "novela-historica",
+      "libro_id": "isbn-9791387640439"
+    },
+    {
+      "categoria_id": "adultos",
+      "libro_id": "isbn-9791387640439"
+    },
+    {
+      "categoria_id": "misterio-y-thriller",
+      "libro_id": "isbn-9788425375040"
+    },
+    {
+      "categoria_id": "adultos",
+      "libro_id": "isbn-9788425375040"
+    },
+    {
+      "categoria_id": "biografias-y-memorias",
+      "libro_id": "isbn-9791387846794"
+    },
+    {
+      "categoria_id": "adultos",
+      "libro_id": "isbn-9791387846794"
+    },
+    {
+      "categoria_id": "biografias-y-memorias",
+      "libro_id": "isbn-9788426432575"
+    },
+    {
+      "categoria_id": "adultos",
+      "libro_id": "isbn-9788426432575"
+    },
+    {
+      "categoria_id": "biografias-y-memorias",
+      "libro_id": "isbn-9791388137006"
+    },
+    {
+      "categoria_id": "adultos",
+      "libro_id": "isbn-9791388137006"
+    },
+    {
+      "categoria_id": "biografias-y-memorias",
+      "libro_id": "isbn-9788401042119"
+    },
+    {
+      "categoria_id": "adultos",
+      "libro_id": "isbn-9788401042119"
+    },
+    {
+      "categoria_id": "narrativa",
+      "libro_id": "isbn-9788426434272"
+    },
+    {
+      "categoria_id": "adultos",
+      "libro_id": "isbn-9788426434272"
+    },
+    {
+      "categoria_id": "biografias-y-memorias",
+      "libro_id": "isbn-9788466684606"
+    },
+    {
+      "categoria_id": "adultos",
+      "libro_id": "isbn-9788466684606"
+    },
+    {
+      "categoria_id": "biografias-y-memorias",
+      "libro_id": "isbn-9788401036897"
+    },
+    {
+      "categoria_id": "adultos",
+      "libro_id": "isbn-9788401036897"
+    },
+    {
+      "categoria_id": "biografias-y-memorias",
+      "libro_id": "isbn-9788439746621"
+    },
+    {
+      "categoria_id": "adultos",
+      "libro_id": "isbn-9788439746621"
+    },
+    {
+      "categoria_id": "misterio-y-thriller",
+      "libro_id": "isbn-9788419456007"
+    },
+    {
+      "categoria_id": "adultos",
+      "libro_id": "isbn-9788419456007"
+    },
+    {
+      "categoria_id": "narrativa",
+      "libro_id": "isbn-9788439747222"
+    },
+    {
+      "categoria_id": "adultos",
+      "libro_id": "isbn-9788439747222"
+    },
+    {
+      "categoria_id": "desarrollo-personal",
+      "libro_id": "isbn-9788425371790"
+    },
+    {
+      "categoria_id": "adultos",
+      "libro_id": "isbn-9788425371790"
+    },
+    {
+      "categoria_id": "desarrollo-personal",
+      "libro_id": "isbn-9788425373121"
+    },
+    {
+      "categoria_id": "adultos",
+      "libro_id": "isbn-9788425373121"
+    },
+    {
+      "categoria_id": "familia-y-crianza",
+      "libro_id": "isbn-9791387640491"
+    },
+    {
+      "categoria_id": "adultos",
+      "libro_id": "isbn-9791387640491"
+    },
+    {
+      "categoria_id": "familia-y-crianza",
+      "libro_id": "isbn-9788466683043"
+    },
+    {
+      "categoria_id": "adultos",
+      "libro_id": "isbn-9788466683043"
+    },
+    {
+      "categoria_id": "cocina",
+      "libro_id": "isbn-9791387928032"
+    },
+    {
+      "categoria_id": "adultos",
+      "libro_id": "isbn-9791387928032"
     }
-  ]
+  ],
+  "libros": [
+    {
+      "anio_publicacion": 2009,
+      "audio_descripcion": "/assets/reading-audio/coraline-da027726f648.mp3",
+      "audio_voz": "Voz sintética · Elvira (español de España)",
+      "autores": [
+        "Neil Gaiman"
+      ],
+      "autorizacion_o_base_uso": "Cubierta promocional de la edición ISBN 9788498382372 ofrecida en la ficha oficial de la editorial, que incluye descarga de imagen. Uso identificativo junto a la recomendación y sus datos bibliográficos, con enlace y atribución a la fuente; no procede de Amazon ni se altera el diseño.",
+      "descripcion_breve": "Tras mudarse a una casa antigua, Coraline encuentra una puerta hacia otra versión de su hogar. Allí todo parece mejor, hasta que descubre que sus otros padres no piensan dejarla marchar.",
+      "descripcion_original_confirmada": true,
+      "edad_recomendada": "8-12 (editorial Penguin Random House)",
+      "edicion": "Salamandra Infantil y Juvenil · ISBN 9788498382372",
+      "editorial": "Salamandra Infantil y Juvenil",
+      "estado": "publicado",
+      "fecha_actualizacion": "2026-10-20",
+      "fecha_verificacion": "2026-10-20",
+      "formatos_compra": [
+        {
+          "fecha_verificacion": "2026-10-20",
+          "formato": "tapa-blanda",
+          "fuente_url": "https://www.amazon.es/dp/8498382378",
+          "url": "https://www.amazon.es/dp/8498382378?tag=davidporto-21"
+        },
+        {
+          "fecha_verificacion": "2026-10-20",
+          "formato": "tapa-dura",
+          "fuente_url": "https://www.amazon.es/dp/8498382378",
+          "url": "https://www.amazon.es/dp/847888579X?tag=davidporto-21"
+        },
+        {
+          "fecha_verificacion": "2026-10-20",
+          "formato": "ebook",
+          "fuente_url": "https://www.amazon.es/dp/8498382378",
+          "url": "https://www.amazon.es/dp/B08CYCPBZN?tag=davidporto-21"
+        },
+        {
+          "fecha_verificacion": "2026-10-20",
+          "formato": "audiolibro",
+          "fuente_url": "https://www.amazon.es/dp/8498382378",
+          "url": "https://www.amazon.es/dp/B08CR4VJRT?tag=davidporto-21"
+        }
+      ],
+      "fragmento_url": "https://www.penguinlibros.com/es/libros-ninos-9-anos/37666-libro-coraline-9788498382372/fragmento",
+      "fuente_bibliografica_url": "https://www.penguinrandomhouse.com/books/665423/coraline-spanish-edition-by-neil-gaiman/9788498382372/",
+      "fuente_edad_url": "https://www.penguinrandomhouse.com/books/665423/coraline-spanish-edition-by-neil-gaiman/9788498382372/",
+      "id": "lib-0001",
+      "idioma": "es",
+      "isbn13": "9788498382372",
+      "numero_paginas": 160,
+      "portada_alto": 1280,
+      "portada_ancho": 797,
+      "portada_edicion_verificada": true,
+      "portada_fecha_revision": "2026-10-20",
+      "portada_fuente_url": "https://www.penguinlibros.com/cl/53759/coraline.jpg",
+      "portada_local": "/assets/reading-covers/coraline-9788498382372.webp",
+      "resenas": [
+        {
+          "fecha_verificacion": "2026-10-20",
+          "titulo": "Reseñas de lectores (Goodreads)",
+          "url": "https://www.goodreads.com/book/show/6785288.Coraline"
+        },
+        {
+          "fecha_verificacion": "2026-10-20",
+          "titulo": "Opiniones de crítica y reseñas en la editorial",
+          "url": "https://www.penguinlibros.com/es/libros-ninos-9-anos/37666-libro-coraline-9788498382372"
+        }
+      ],
+      "slug": "coraline",
+      "titulo": "Coraline",
+      "url_amazon_afiliada": "https://www.amazon.es/dp/8498382378?tag=davidporto-21"
+    },
+    {
+      "amazon_busqueda_isbn": "https://www.amazon.es/s?k=9791387846008&tag=davidporto-21",
+      "anio_publicacion": 2026,
+      "autores": [
+        "Arturo Pérez-Reverte"
+      ],
+      "autorizacion_o_base_uso": "Cubierta proporcionada en la ficha oficial de la edición para su identificación bibliográfica, con atribución y enlace a la editorial. No se declara licencia abierta ni se reutiliza como imagen de Pinterest.",
+      "descripcion_breve": "La hipótesis más peligrosa, de Arturo Pérez-Reverte. Edición de Alfaguara en castellano, en tapa dura con sobrecubierta. Consta de 392 páginas. La editorial la incluye en aventuras. Publicación editorial: 2026-10-20.",
+      "descripcion_original_confirmada": true,
+      "edad_recomendada": "Adultos",
+      "edicion": "Tapa dura con sobrecubierta · Alfaguara",
+      "editorial": "Alfaguara",
+      "editorial_slug": "alfaguara",
+      "estado": "publicado",
+      "fecha_actualizacion": "2026-10-20",
+      "fecha_publicacion": "2026-10-20",
+      "fecha_verificacion": "2026-10-20",
+      "formato_edicion": "tapa-dura",
+      "fuente_bibliografica_url": "https://www.penguinlibros.com/es/libros-de-aventura/636581-libro-la-hipotesis-mas-peligrosa-9791387846008",
+      "fuente_edad_url": "https://www.penguinlibros.com/es/libros-de-aventura/636581-libro-la-hipotesis-mas-peligrosa-9791387846008",
+      "fuente_publicacion_url": "https://www.penguinlibros.com/es/libros-de-aventura/636581-libro-la-hipotesis-mas-peligrosa-9791387846008",
+      "id": "isbn-9791387846008",
+      "idioma": "es",
+      "isbn13": "9791387846008",
+      "numero_paginas": 392,
+      "portada_alto": 1235,
+      "portada_ancho": 800,
+      "portada_edicion_verificada": true,
+      "portada_fecha_revision": "2026-10-20",
+      "portada_fuente_url": "https://www.penguinlibros.com/es/8190863-thickbox_default/la-hipotesis-mas-peligrosa.jpg",
+      "portada_local": "/assets/reading-covers/isbn-9791387846008.webp",
+      "resenas": [
+        {
+          "fecha_verificacion": "2026-10-20",
+          "titulo": "Buscar reseñas en Goodreads",
+          "url": "https://www.goodreads.com/search?q=9791387846008"
+        }
+      ],
+      "slug": "la-hipotesis-mas-peligrosa-9791387846008",
+      "titulo": "La hipótesis más peligrosa"
+    },
+    {
+      "amazon_busqueda_isbn": "https://www.amazon.es/s?k=9788401039560&tag=davidporto-21",
+      "anio_publicacion": 2026,
+      "autores": [
+        "Stephen King",
+        "Peter Straub"
+      ],
+      "autorizacion_o_base_uso": "Cubierta proporcionada en la ficha oficial de la edición para su identificación bibliográfica, con atribución y enlace a la editorial. No se declara licencia abierta ni se reutiliza como imagen de Pinterest.",
+      "descripcion_breve": "Otros mundos (El Talismán 3), de Stephen King, Peter Straub. Edición de Plaza & Janés en castellano, en tapa dura con sobrecubierta. Consta de 920 páginas. La editorial la incluye en fantasía. Publicación editorial: 2026-10-15.",
+      "descripcion_original_confirmada": true,
+      "edad_recomendada": "Adultos",
+      "edicion": "Tapa dura con sobrecubierta · Plaza & Janés",
+      "editorial": "Plaza & Janés",
+      "editorial_slug": "plaza-y-janes",
+      "estado": "publicado",
+      "fecha_actualizacion": "2026-10-20",
+      "fecha_publicacion": "2026-10-15",
+      "fecha_verificacion": "2026-10-20",
+      "formato_edicion": "tapa-dura",
+      "fuente_bibliografica_url": "https://www.penguinlibros.com/es/libros-de-fantasia/635029-libro-otros-mundos-el-talisman-3-9788401039560",
+      "fuente_edad_url": "https://www.penguinlibros.com/es/libros-de-fantasia/635029-libro-otros-mundos-el-talisman-3-9788401039560",
+      "fuente_publicacion_url": "https://www.penguinlibros.com/es/libros-de-fantasia/635029-libro-otros-mundos-el-talisman-3-9788401039560",
+      "id": "isbn-9788401039560",
+      "idioma": "es",
+      "isbn13": "9788401039560",
+      "numero_paginas": 920,
+      "portada_alto": 1235,
+      "portada_ancho": 800,
+      "portada_edicion_verificada": true,
+      "portada_fecha_revision": "2026-10-20",
+      "portada_fuente_url": "https://www.penguinlibros.com/es/8250289-thickbox_default/otros-mundos-el-talisman-3.jpg",
+      "portada_local": "/assets/reading-covers/isbn-9788401039560.webp",
+      "resenas": [
+        {
+          "fecha_verificacion": "2026-10-20",
+          "titulo": "Buscar reseñas en Goodreads",
+          "url": "https://www.goodreads.com/search?q=9788401039560"
+        }
+      ],
+      "slug": "otros-mundos-el-talisman-3-9788401039560",
+      "titulo": "Otros mundos (El Talismán 3)"
+    },
+    {
+      "amazon_busqueda_isbn": "https://www.amazon.es/s?k=9788425375118&tag=davidporto-21",
+      "anio_publicacion": 2026,
+      "autores": [
+        "Sheila Masterson"
+      ],
+      "autorizacion_o_base_uso": "Cubierta proporcionada en la ficha oficial de la edición para su identificación bibliográfica, con atribución y enlace a la editorial. No se declara licencia abierta ni se reutiliza como imagen de Pinterest.",
+      "descripcion_breve": "La hija del veneno, de Sheila Masterson. Edición de Grijalbo en castellano, en tapa dura con sobrecubierta. Consta de 792 páginas. La editorial la incluye en fantasía. Publicación editorial: 2026-10-15.",
+      "descripcion_original_confirmada": true,
+      "edad_recomendada": "Adultos",
+      "edicion": "Tapa dura con sobrecubierta · Grijalbo",
+      "editorial": "Grijalbo",
+      "editorial_slug": "grijalbo",
+      "estado": "publicado",
+      "fecha_actualizacion": "2026-10-20",
+      "fecha_publicacion": "2026-10-15",
+      "fecha_verificacion": "2026-10-20",
+      "formato_edicion": "tapa-dura",
+      "fuente_bibliografica_url": "https://www.penguinlibros.com/es/libros-de-fantasia/626978-libro-la-hija-del-veneno-9788425375118",
+      "fuente_edad_url": "https://www.penguinlibros.com/es/libros-de-fantasia/626978-libro-la-hija-del-veneno-9788425375118",
+      "fuente_publicacion_url": "https://www.penguinlibros.com/es/libros-de-fantasia/626978-libro-la-hija-del-veneno-9788425375118",
+      "id": "isbn-9788425375118",
+      "idioma": "es",
+      "isbn13": "9788425375118",
+      "numero_paginas": 792,
+      "portada_alto": 1235,
+      "portada_ancho": 800,
+      "portada_edicion_verificada": true,
+      "portada_fecha_revision": "2026-10-20",
+      "portada_fuente_url": "https://www.penguinlibros.com/es/8050616-thickbox_default/la-hija-del-veneno.jpg",
+      "portada_local": "/assets/reading-covers/isbn-9788425375118.webp",
+      "resenas": [
+        {
+          "fecha_verificacion": "2026-10-20",
+          "titulo": "Buscar reseñas en Goodreads",
+          "url": "https://www.goodreads.com/search?q=9788425375118"
+        }
+      ],
+      "slug": "la-hija-del-veneno-9788425375118",
+      "titulo": "La hija del veneno"
+    },
+    {
+      "amazon_busqueda_isbn": "https://www.amazon.es/s?k=9791387640439&tag=davidporto-21",
+      "anio_publicacion": 2026,
+      "autores": [
+        "Alice Austen"
+      ],
+      "autorizacion_o_base_uso": "Cubierta proporcionada en la ficha oficial de la edición para su identificación bibliográfica, con atribución y enlace a la editorial. No se declara licencia abierta ni se reutiliza como imagen de Pinterest.",
+      "descripcion_breve": "Plaza Brugmann, 33, de Alice Austen. Edición de Salamandra en castellano, en tapa blanda con solapas. Consta de 384 páginas. La editorial la incluye en novela histórica. Publicación editorial: 2026-10-15.",
+      "descripcion_original_confirmada": true,
+      "edad_recomendada": "Adultos",
+      "edicion": "Tapa blanda con solapas · Salamandra",
+      "editorial": "Salamandra",
+      "editorial_slug": "salamandra",
+      "estado": "publicado",
+      "fecha_actualizacion": "2026-10-20",
+      "fecha_publicacion": "2026-10-15",
+      "fecha_verificacion": "2026-10-20",
+      "formato_edicion": "tapa-blanda",
+      "fuente_bibliografica_url": "https://www.penguinlibros.com/es/novela-historica/635110-libro-plaza-brugmann-33-9791387640439",
+      "fuente_edad_url": "https://www.penguinlibros.com/es/novela-historica/635110-libro-plaza-brugmann-33-9791387640439",
+      "fuente_publicacion_url": "https://www.penguinlibros.com/es/novela-historica/635110-libro-plaza-brugmann-33-9791387640439",
+      "id": "isbn-9791387640439",
+      "idioma": "es",
+      "isbn13": "9791387640439",
+      "numero_paginas": 384,
+      "portada_alto": 1235,
+      "portada_ancho": 800,
+      "portada_edicion_verificada": true,
+      "portada_fecha_revision": "2026-10-20",
+      "portada_fuente_url": "https://www.penguinlibros.com/es/7987990-thickbox_default/plaza-brugmann-33.jpg",
+      "portada_local": "/assets/reading-covers/isbn-9791387640439.webp",
+      "resenas": [
+        {
+          "fecha_verificacion": "2026-10-20",
+          "titulo": "Buscar reseñas en Goodreads",
+          "url": "https://www.goodreads.com/search?q=9791387640439"
+        }
+      ],
+      "slug": "plaza-brugmann-33-9791387640439",
+      "titulo": "Plaza Brugmann, 33"
+    },
+    {
+      "amazon_busqueda_isbn": "https://www.amazon.es/s?k=9788425375040&tag=davidporto-21",
+      "anio_publicacion": 2026,
+      "autores": [
+        "Ángel Boixadós"
+      ],
+      "autorizacion_o_base_uso": "Cubierta proporcionada en la ficha oficial de la edición para su identificación bibliográfica, con atribución y enlace a la editorial. No se declara licencia abierta ni se reutiliza como imagen de Pinterest.",
+      "descripcion_breve": "El vuelo de los gansos, de Ángel Boixadós. Edición de Grijalbo en castellano, en tapa blanda con solapas. Consta de 400 páginas. La editorial la incluye en novela negra, misterio y thriller. Publicación editorial: 2026-10-15.",
+      "descripcion_original_confirmada": true,
+      "edad_recomendada": "Adultos",
+      "edicion": "Tapa blanda con solapas · Grijalbo",
+      "editorial": "Grijalbo",
+      "editorial_slug": "grijalbo",
+      "estado": "publicado",
+      "fecha_actualizacion": "2026-10-20",
+      "fecha_publicacion": "2026-10-15",
+      "fecha_verificacion": "2026-10-20",
+      "formato_edicion": "tapa-blanda",
+      "fuente_bibliografica_url": "https://www.penguinlibros.com/es/novela-negra-misterio-y-thriller/634999-libro-el-vuelo-de-los-gansos-9788425375040",
+      "fuente_edad_url": "https://www.penguinlibros.com/es/novela-negra-misterio-y-thriller/634999-libro-el-vuelo-de-los-gansos-9788425375040",
+      "fuente_publicacion_url": "https://www.penguinlibros.com/es/novela-negra-misterio-y-thriller/634999-libro-el-vuelo-de-los-gansos-9788425375040",
+      "id": "isbn-9788425375040",
+      "idioma": "es",
+      "isbn13": "9788425375040",
+      "numero_paginas": 400,
+      "portada_alto": 1235,
+      "portada_ancho": 800,
+      "portada_edicion_verificada": true,
+      "portada_fecha_revision": "2026-10-20",
+      "portada_fuente_url": "https://www.penguinlibros.com/es/8168324-thickbox_default/el-vuelo-de-los-gansos.jpg",
+      "portada_local": "/assets/reading-covers/isbn-9788425375040.webp",
+      "resenas": [
+        {
+          "fecha_verificacion": "2026-10-20",
+          "titulo": "Buscar reseñas en Goodreads",
+          "url": "https://www.goodreads.com/search?q=9788425375040"
+        }
+      ],
+      "slug": "el-vuelo-de-los-gansos-9788425375040",
+      "titulo": "El vuelo de los gansos"
+    },
+    {
+      "amazon_busqueda_isbn": "https://www.amazon.es/s?k=9791387846794&tag=davidporto-21",
+      "anio_publicacion": 2026,
+      "autores": [
+        "Roberto Saviano"
+      ],
+      "autorizacion_o_base_uso": "Cubierta proporcionada en la ficha oficial de la edición para su identificación bibliográfica, con atribución y enlace a la editorial. No se declara licencia abierta ni se reutiliza como imagen de Pinterest.",
+      "descripcion_breve": "Mi amor no muere, de Roberto Saviano. Edición de Alfaguara en castellano, en tapa blanda con solapas. Consta de 352 páginas. La editorial la incluye en biografías y memorias. Publicación editorial: 2026-10-15.",
+      "descripcion_original_confirmada": true,
+      "edad_recomendada": "Adultos",
+      "edicion": "Tapa blanda con solapas · Alfaguara",
+      "editorial": "Alfaguara",
+      "editorial_slug": "alfaguara",
+      "estado": "publicado",
+      "fecha_actualizacion": "2026-10-20",
+      "fecha_publicacion": "2026-10-15",
+      "fecha_verificacion": "2026-10-20",
+      "formato_edicion": "tapa-blanda",
+      "fuente_bibliografica_url": "https://www.penguinlibros.com/es/libro-de-biografias/634618-libro-mi-amor-no-muere-9791387846794",
+      "fuente_edad_url": "https://www.penguinlibros.com/es/libro-de-biografias/634618-libro-mi-amor-no-muere-9791387846794",
+      "fuente_publicacion_url": "https://www.penguinlibros.com/es/libro-de-biografias/634618-libro-mi-amor-no-muere-9791387846794",
+      "id": "isbn-9791387846794",
+      "idioma": "es",
+      "isbn13": "9791387846794",
+      "numero_paginas": 352,
+      "portada_alto": 1235,
+      "portada_ancho": 800,
+      "portada_edicion_verificada": true,
+      "portada_fecha_revision": "2026-10-20",
+      "portada_fuente_url": "https://www.penguinlibros.com/es/7890451-thickbox_default/mi-amor-no-muere.jpg",
+      "portada_local": "/assets/reading-covers/isbn-9791387846794.webp",
+      "resenas": [
+        {
+          "fecha_verificacion": "2026-10-20",
+          "titulo": "Buscar reseñas en Goodreads",
+          "url": "https://www.goodreads.com/search?q=9791387846794"
+        }
+      ],
+      "slug": "mi-amor-no-muere-9791387846794",
+      "titulo": "Mi amor no muere"
+    },
+    {
+      "amazon_busqueda_isbn": "https://www.amazon.es/s?k=9788426432575&tag=davidporto-21",
+      "anio_publicacion": 2026,
+      "autores": [
+        "Anne Berest"
+      ],
+      "autorizacion_o_base_uso": "Cubierta proporcionada en la ficha oficial de la edición para su identificación bibliográfica, con atribución y enlace a la editorial. No se declara licencia abierta ni se reutiliza como imagen de Pinterest.",
+      "descripcion_breve": "El linaje de Pierre, de Anne Berest. Edición de Lumen en castellano, en tapa blanda con solapas. Consta de 448 páginas. La editorial la incluye en biografías y memorias. Publicación editorial: 2026-10-15.",
+      "descripcion_original_confirmada": true,
+      "edad_recomendada": "Adultos",
+      "edicion": "Tapa blanda con solapas · Lumen",
+      "editorial": "Lumen",
+      "editorial_slug": "lumen",
+      "estado": "publicado",
+      "fecha_actualizacion": "2026-10-20",
+      "fecha_publicacion": "2026-10-15",
+      "fecha_verificacion": "2026-10-20",
+      "formato_edicion": "tapa-blanda",
+      "fuente_bibliografica_url": "https://www.penguinlibros.com/es/libro-de-biografias/635019-libro-el-linaje-de-pierre-9788426432575",
+      "fuente_edad_url": "https://www.penguinlibros.com/es/libro-de-biografias/635019-libro-el-linaje-de-pierre-9788426432575",
+      "fuente_publicacion_url": "https://www.penguinlibros.com/es/libro-de-biografias/635019-libro-el-linaje-de-pierre-9788426432575",
+      "id": "isbn-9788426432575",
+      "idioma": "es",
+      "isbn13": "9788426432575",
+      "numero_paginas": 448,
+      "portada_alto": 1235,
+      "portada_ancho": 800,
+      "portada_edicion_verificada": true,
+      "portada_fecha_revision": "2026-10-20",
+      "portada_fuente_url": "https://www.penguinlibros.com/es/7890556-thickbox_default/el-linaje-de-pierre.jpg",
+      "portada_local": "/assets/reading-covers/isbn-9788426432575.webp",
+      "resenas": [
+        {
+          "fecha_verificacion": "2026-10-20",
+          "titulo": "Buscar reseñas en Goodreads",
+          "url": "https://www.goodreads.com/search?q=9788426432575"
+        }
+      ],
+      "slug": "el-linaje-de-pierre-9788426432575",
+      "titulo": "El linaje de Pierre"
+    },
+    {
+      "amazon_busqueda_isbn": "https://www.amazon.es/s?k=9791388137006&tag=davidporto-21",
+      "anio_publicacion": 2026,
+      "autores": [
+        "Carles Porta"
+      ],
+      "autorizacion_o_base_uso": "Cubierta proporcionada en la ficha oficial de la edición para su identificación bibliográfica, con atribución y enlace a la editorial. No se declara licencia abierta ni se reutiliza como imagen de Pinterest.",
+      "descripcion_breve": "Tor, de Carles Porta. Edición de Reservoir Books en castellano, en tapa blanda con solapas. Consta de 408 páginas. La editorial la incluye en biografías y memorias. Publicación editorial: 2026-10-15.",
+      "descripcion_original_confirmada": true,
+      "edad_recomendada": "Adultos",
+      "edicion": "Tapa blanda con solapas · Reservoir Books",
+      "editorial": "Reservoir Books",
+      "editorial_slug": "reservoir-books",
+      "estado": "publicado",
+      "fecha_actualizacion": "2026-10-20",
+      "fecha_publicacion": "2026-10-15",
+      "fecha_verificacion": "2026-10-20",
+      "formato_edicion": "tapa-blanda",
+      "fuente_bibliografica_url": "https://www.penguinlibros.com/es/libro-de-biografias/635091-libro-tor-9791388137006",
+      "fuente_edad_url": "https://www.penguinlibros.com/es/libro-de-biografias/635091-libro-tor-9791388137006",
+      "fuente_publicacion_url": "https://www.penguinlibros.com/es/libro-de-biografias/635091-libro-tor-9791388137006",
+      "id": "isbn-9791388137006",
+      "idioma": "es",
+      "isbn13": "9791388137006",
+      "numero_paginas": 408,
+      "portada_alto": 1235,
+      "portada_ancho": 800,
+      "portada_edicion_verificada": true,
+      "portada_fecha_revision": "2026-10-20",
+      "portada_fuente_url": "https://www.penguinlibros.com/es/8118595-thickbox_default/tor.jpg",
+      "portada_local": "/assets/reading-covers/isbn-9791388137006.webp",
+      "resenas": [
+        {
+          "fecha_verificacion": "2026-10-20",
+          "titulo": "Buscar reseñas en Goodreads",
+          "url": "https://www.goodreads.com/search?q=9791388137006"
+        }
+      ],
+      "slug": "tor-9791388137006",
+      "titulo": "Tor"
+    },
+    {
+      "amazon_busqueda_isbn": "https://www.amazon.es/s?k=9788401042119&tag=davidporto-21",
+      "anio_publicacion": 2026,
+      "autores": [
+        "Jorge Martí Aguas"
+      ],
+      "autorizacion_o_base_uso": "Cubierta proporcionada en la ficha oficial de la edición para su identificación bibliográfica, con atribución y enlace a la editorial. No se declara licencia abierta ni se reutiliza como imagen de Pinterest.",
+      "descripcion_breve": "Canción de amor definitiva, de Jorge Martí Aguas. Edición de Plaza & Janés en castellano, en tapa blanda con solapas. Consta de 440 páginas. La editorial la incluye en biografías y memorias. Publicación editorial: 2026-10-09.",
+      "descripcion_original_confirmada": true,
+      "edad_recomendada": "Adultos",
+      "edicion": "Tapa blanda con solapas · Plaza & Janés",
+      "editorial": "Plaza & Janés",
+      "editorial_slug": "plaza-y-janes",
+      "estado": "publicado",
+      "fecha_actualizacion": "2026-10-20",
+      "fecha_publicacion": "2026-10-09",
+      "fecha_verificacion": "2026-10-20",
+      "formato_edicion": "tapa-blanda",
+      "fuente_bibliografica_url": "https://www.penguinlibros.com/es/libro-de-biografias/641920-libro-cancion-de-amor-definitiva-9788401042119",
+      "fuente_edad_url": "https://www.penguinlibros.com/es/libro-de-biografias/641920-libro-cancion-de-amor-definitiva-9788401042119",
+      "fuente_publicacion_url": "https://www.penguinlibros.com/es/libro-de-biografias/641920-libro-cancion-de-amor-definitiva-9788401042119",
+      "id": "isbn-9788401042119",
+      "idioma": "es",
+      "isbn13": "9788401042119",
+      "numero_paginas": 440,
+      "portada_alto": 1235,
+      "portada_ancho": 800,
+      "portada_edicion_verificada": true,
+      "portada_fecha_revision": "2026-10-20",
+      "portada_fuente_url": "https://www.penguinlibros.com/es/8324491-thickbox_default/cancion-de-amor-definitiva.jpg",
+      "portada_local": "/assets/reading-covers/isbn-9788401042119.webp",
+      "resenas": [
+        {
+          "fecha_verificacion": "2026-10-20",
+          "titulo": "Buscar reseñas en Goodreads",
+          "url": "https://www.goodreads.com/search?q=9788401042119"
+        }
+      ],
+      "slug": "cancion-de-amor-definitiva-9788401042119",
+      "titulo": "Canción de amor definitiva"
+    },
+    {
+      "amazon_busqueda_isbn": "https://www.amazon.es/s?k=9788426434272&tag=davidporto-21",
+      "anio_publicacion": 2026,
+      "autores": [
+        "Alba Donati"
+      ],
+      "autorizacion_o_base_uso": "Cubierta proporcionada en la ficha oficial de la edición para su identificación bibliográfica, con atribución y enlace a la editorial. No se declara licencia abierta ni se reutiliza como imagen de Pinterest.",
+      "descripcion_breve": "Esas muchachas que escriben poemas, de Alba Donati. Edición de Lumen en castellano, en tapa blanda con solapas. Consta de 152 páginas. La editorial la incluye en literatura contemporánea. Publicación editorial: 2026-10-08.",
+      "descripcion_original_confirmada": true,
+      "edad_recomendada": "Adultos",
+      "edicion": "Tapa blanda con solapas · Lumen",
+      "editorial": "Lumen",
+      "editorial_slug": "lumen",
+      "estado": "publicado",
+      "fecha_actualizacion": "2026-10-20",
+      "fecha_publicacion": "2026-10-08",
+      "fecha_verificacion": "2026-10-20",
+      "formato_edicion": "tapa-blanda",
+      "fuente_bibliografica_url": "https://www.penguinlibros.com/es/literatura-contemporanea/635022-libro-esas-muchachas-que-escriben-poemas-9788426434272",
+      "fuente_edad_url": "https://www.penguinlibros.com/es/literatura-contemporanea/635022-libro-esas-muchachas-que-escriben-poemas-9788426434272",
+      "fuente_publicacion_url": "https://www.penguinlibros.com/es/literatura-contemporanea/635022-libro-esas-muchachas-que-escriben-poemas-9788426434272",
+      "id": "isbn-9788426434272",
+      "idioma": "es",
+      "isbn13": "9788426434272",
+      "numero_paginas": 152,
+      "portada_alto": 1235,
+      "portada_ancho": 800,
+      "portada_edicion_verificada": true,
+      "portada_fecha_revision": "2026-10-20",
+      "portada_fuente_url": "https://www.penguinlibros.com/es/7987985-thickbox_default/esas-muchachas-que-escriben-poemas.jpg",
+      "portada_local": "/assets/reading-covers/isbn-9788426434272.webp",
+      "resenas": [
+        {
+          "fecha_verificacion": "2026-10-20",
+          "titulo": "Buscar reseñas en Goodreads",
+          "url": "https://www.goodreads.com/search?q=9788426434272"
+        }
+      ],
+      "slug": "esas-muchachas-que-escriben-poemas-9788426434272",
+      "titulo": "Esas muchachas que escriben poemas"
+    },
+    {
+      "amazon_busqueda_isbn": "https://www.amazon.es/s?k=9788466684606&tag=davidporto-21",
+      "anio_publicacion": 2026,
+      "autores": [
+        "Jorge Bolaños"
+      ],
+      "autorizacion_o_base_uso": "Cubierta proporcionada en la ficha oficial de la edición para su identificación bibliográfica, con atribución y enlace a la editorial. No se declara licencia abierta ni se reutiliza como imagen de Pinterest.",
+      "descripcion_breve": "La Risa de mi vida, de Jorge Bolaños. Edición de Ediciones B en castellano, en tapa blanda con solapas. Consta de 184 páginas. La editorial la incluye en biografías y memorias. Publicación editorial: 2026-10-08.",
+      "descripcion_original_confirmada": true,
+      "edad_recomendada": "Adultos",
+      "edicion": "Tapa blanda con solapas · Ediciones B",
+      "editorial": "Ediciones B",
+      "editorial_slug": "ediciones-b",
+      "estado": "publicado",
+      "fecha_actualizacion": "2026-10-20",
+      "fecha_publicacion": "2026-10-08",
+      "fecha_verificacion": "2026-10-20",
+      "formato_edicion": "tapa-blanda",
+      "fuente_bibliografica_url": "https://www.penguinlibros.com/es/libro-de-biografias/634678-libro-la-risa-de-mi-vida-9788466684606",
+      "fuente_edad_url": "https://www.penguinlibros.com/es/libro-de-biografias/634678-libro-la-risa-de-mi-vida-9788466684606",
+      "fuente_publicacion_url": "https://www.penguinlibros.com/es/libro-de-biografias/634678-libro-la-risa-de-mi-vida-9788466684606",
+      "id": "isbn-9788466684606",
+      "idioma": "es",
+      "isbn13": "9788466684606",
+      "numero_paginas": 184,
+      "portada_alto": 1235,
+      "portada_ancho": 800,
+      "portada_edicion_verificada": true,
+      "portada_fecha_revision": "2026-10-20",
+      "portada_fuente_url": "https://www.penguinlibros.com/es/8274831-thickbox_default/la-risa-de-mi-vida.jpg",
+      "portada_local": "/assets/reading-covers/isbn-9788466684606.webp",
+      "resenas": [
+        {
+          "fecha_verificacion": "2026-10-20",
+          "titulo": "Buscar reseñas en Goodreads",
+          "url": "https://www.goodreads.com/search?q=9788466684606"
+        }
+      ],
+      "slug": "la-risa-de-mi-vida-9788466684606",
+      "titulo": "La Risa de mi vida"
+    },
+    {
+      "amazon_busqueda_isbn": "https://www.amazon.es/s?k=9788401036897&tag=davidporto-21",
+      "anio_publicacion": 2026,
+      "autores": [
+        "Sylvester Stallone"
+      ],
+      "autorizacion_o_base_uso": "Cubierta proporcionada en la ficha oficial de la edición para su identificación bibliográfica, con atribución y enlace a la editorial. No se declara licencia abierta ni se reutiliza como imagen de Pinterest.",
+      "descripcion_breve": "Los escalones, de Sylvester Stallone. Edición de Plaza & Janés en castellano, en tapa dura con sobrecubierta. Consta de 352 páginas. La editorial la incluye en biografías y memorias. Publicación editorial: 2026-10-08.",
+      "descripcion_original_confirmada": true,
+      "edad_recomendada": "Adultos",
+      "edicion": "Tapa dura con sobrecubierta · Plaza & Janés",
+      "editorial": "Plaza & Janés",
+      "editorial_slug": "plaza-y-janes",
+      "estado": "publicado",
+      "fecha_actualizacion": "2026-10-20",
+      "fecha_publicacion": "2026-10-08",
+      "fecha_verificacion": "2026-10-20",
+      "formato_edicion": "tapa-dura",
+      "fuente_bibliografica_url": "https://www.penguinlibros.com/es/libro-de-biografias/437990-libro-los-escalones-9788401036897",
+      "fuente_edad_url": "https://www.penguinlibros.com/es/libro-de-biografias/437990-libro-los-escalones-9788401036897",
+      "fuente_publicacion_url": "https://www.penguinlibros.com/es/libro-de-biografias/437990-libro-los-escalones-9788401036897",
+      "id": "isbn-9788401036897",
+      "idioma": "es",
+      "isbn13": "9788401036897",
+      "numero_paginas": 352,
+      "portada_alto": 1235,
+      "portada_ancho": 800,
+      "portada_edicion_verificada": true,
+      "portada_fecha_revision": "2026-10-20",
+      "portada_fuente_url": "https://www.penguinlibros.com/es/8250288-thickbox_default/los-escalones.jpg",
+      "portada_local": "/assets/reading-covers/isbn-9788401036897.webp",
+      "resenas": [
+        {
+          "fecha_verificacion": "2026-10-20",
+          "titulo": "Buscar reseñas en Goodreads",
+          "url": "https://www.goodreads.com/search?q=9788401036897"
+        }
+      ],
+      "slug": "los-escalones-9788401036897",
+      "titulo": "Los escalones"
+    },
+    {
+      "amazon_busqueda_isbn": "https://www.amazon.es/s?k=9788439746621&tag=davidporto-21",
+      "anio_publicacion": 2026,
+      "autores": [
+        "María Moreno"
+      ],
+      "autorizacion_o_base_uso": "Cubierta proporcionada en la ficha oficial de la edición para su identificación bibliográfica, con atribución y enlace a la editorial. No se declara licencia abierta ni se reutiliza como imagen de Pinterest.",
+      "descripcion_breve": "La merma, de María Moreno. Edición de Random House en castellano, en tapa blanda con solapas. Consta de 160 páginas. La editorial la incluye en biografías y memorias. Publicación editorial: 2026-10-08.",
+      "descripcion_original_confirmada": true,
+      "edad_recomendada": "Adultos",
+      "edicion": "Tapa blanda con solapas · Random House",
+      "editorial": "Random House",
+      "editorial_slug": "random-house",
+      "estado": "publicado",
+      "fecha_actualizacion": "2026-10-20",
+      "fecha_publicacion": "2026-10-08",
+      "fecha_verificacion": "2026-10-20",
+      "formato_edicion": "tapa-blanda",
+      "fuente_bibliografica_url": "https://www.penguinlibros.com/es/libro-de-biografias/635085-libro-la-merma-9788439746621",
+      "fuente_edad_url": "https://www.penguinlibros.com/es/libro-de-biografias/635085-libro-la-merma-9788439746621",
+      "fuente_publicacion_url": "https://www.penguinlibros.com/es/libro-de-biografias/635085-libro-la-merma-9788439746621",
+      "id": "isbn-9788439746621",
+      "idioma": "es",
+      "isbn13": "9788439746621",
+      "numero_paginas": 160,
+      "portada_alto": 1235,
+      "portada_ancho": 800,
+      "portada_edicion_verificada": true,
+      "portada_fecha_revision": "2026-10-20",
+      "portada_fuente_url": "https://www.penguinlibros.com/es/7890496-thickbox_default/la-merma.jpg",
+      "portada_local": "/assets/reading-covers/isbn-9788439746621.webp",
+      "resenas": [
+        {
+          "fecha_verificacion": "2026-10-20",
+          "titulo": "Buscar reseñas en Goodreads",
+          "url": "https://www.goodreads.com/search?q=9788439746621"
+        }
+      ],
+      "slug": "la-merma-9788439746621",
+      "titulo": "La merma"
+    },
+    {
+      "amazon_busqueda_isbn": "https://www.amazon.es/s?k=9788419456007&tag=davidporto-21",
+      "anio_publicacion": 2026,
+      "autores": [
+        "Mick Herron"
+      ],
+      "autorizacion_o_base_uso": "Cubierta proporcionada en la ficha oficial de la edición para su identificación bibliográfica, con atribución y enlace a la editorial. No se declara licencia abierta ni se reutiliza como imagen de Pinterest.",
+      "descripcion_breve": "La Casa de la Ciénaga (Serie Slow Horses 7), de Mick Herron. Edición de Salamandra en castellano, en tapa blanda con solapas. Consta de 368 páginas. La editorial la incluye en novela negra, misterio y thriller. Publicación editorial: 2026-10-08.",
+      "descripcion_original_confirmada": true,
+      "edad_recomendada": "Adultos",
+      "edicion": "Tapa blanda con solapas · Salamandra",
+      "editorial": "Salamandra",
+      "editorial_slug": "salamandra",
+      "estado": "publicado",
+      "fecha_actualizacion": "2026-10-20",
+      "fecha_publicacion": "2026-10-08",
+      "fecha_verificacion": "2026-10-20",
+      "formato_edicion": "tapa-blanda",
+      "fuente_bibliografica_url": "https://www.penguinlibros.com/es/novela-negra-misterio-y-thriller/635112-libro-la-casa-de-la-cienaga-serie-slow-horses-7-9788419456007",
+      "fuente_edad_url": "https://www.penguinlibros.com/es/novela-negra-misterio-y-thriller/635112-libro-la-casa-de-la-cienaga-serie-slow-horses-7-9788419456007",
+      "fuente_publicacion_url": "https://www.penguinlibros.com/es/novela-negra-misterio-y-thriller/635112-libro-la-casa-de-la-cienaga-serie-slow-horses-7-9788419456007",
+      "id": "isbn-9788419456007",
+      "idioma": "es",
+      "isbn13": "9788419456007",
+      "numero_paginas": 368,
+      "portada_alto": 1235,
+      "portada_ancho": 800,
+      "portada_edicion_verificada": true,
+      "portada_fecha_revision": "2026-10-20",
+      "portada_fuente_url": "https://www.penguinlibros.com/es/8013756-thickbox_default/la-casa-de-la-cienaga-serie-slow-horses-7.jpg",
+      "portada_local": "/assets/reading-covers/isbn-9788419456007.webp",
+      "resenas": [
+        {
+          "fecha_verificacion": "2026-10-20",
+          "titulo": "Buscar reseñas en Goodreads",
+          "url": "https://www.goodreads.com/search?q=9788419456007"
+        }
+      ],
+      "slug": "la-casa-de-la-cienaga-serie-slow-horses-7-9788419456007",
+      "titulo": "La Casa de la Ciénaga (Serie Slow Horses 7)"
+    },
+    {
+      "amazon_busqueda_isbn": "https://www.amazon.es/s?k=9788439747222&tag=davidporto-21",
+      "anio_publicacion": 2026,
+      "autores": [
+        "Han Kang"
+      ],
+      "autorizacion_o_base_uso": "Cubierta proporcionada en la ficha oficial de la edición para su identificación bibliográfica, con atribución y enlace a la editorial. No se declara licencia abierta ni se reutiliza como imagen de Pinterest.",
+      "descripcion_breve": "La luz y el hilo (Láurea), de Han Kang. Edición de Random House en castellano, en tapa dura. Consta de 176 páginas. La editorial la incluye en literatura contemporánea. Publicación editorial: 2026-10-01.",
+      "descripcion_original_confirmada": true,
+      "edad_recomendada": "Adultos",
+      "edicion": "Tapa dura · Random House",
+      "editorial": "Random House",
+      "editorial_slug": "random-house",
+      "estado": "publicado",
+      "fecha_actualizacion": "2026-10-20",
+      "fecha_publicacion": "2026-10-01",
+      "fecha_verificacion": "2026-10-20",
+      "formato_edicion": "tapa-dura",
+      "fuente_bibliografica_url": "https://www.penguinlibros.com/es/literatura-contemporanea/635088-libro-la-luz-y-el-hilo-laurea-9788439747222",
+      "fuente_edad_url": "https://www.penguinlibros.com/es/literatura-contemporanea/635088-libro-la-luz-y-el-hilo-laurea-9788439747222",
+      "fuente_publicacion_url": "https://www.penguinlibros.com/es/literatura-contemporanea/635088-libro-la-luz-y-el-hilo-laurea-9788439747222",
+      "id": "isbn-9788439747222",
+      "idioma": "es",
+      "isbn13": "9788439747222",
+      "numero_paginas": 176,
+      "portada_alto": 1235,
+      "portada_ancho": 800,
+      "portada_edicion_verificada": true,
+      "portada_fecha_revision": "2026-10-20",
+      "portada_fuente_url": "https://www.penguinlibros.com/es/8190918-thickbox_default/la-luz-y-el-hilo-laurea.jpg",
+      "portada_local": "/assets/reading-covers/isbn-9788439747222.webp",
+      "resenas": [
+        {
+          "fecha_verificacion": "2026-10-20",
+          "titulo": "Buscar reseñas en Goodreads",
+          "url": "https://www.goodreads.com/search?q=9788439747222"
+        }
+      ],
+      "slug": "la-luz-y-el-hilo-laurea-9788439747222",
+      "titulo": "La luz y el hilo (Láurea)"
+    },
+    {
+      "amazon_busqueda_isbn": "https://www.amazon.es/s?k=9788425371790&tag=davidporto-21",
+      "anio_publicacion": 2026,
+      "autores": [
+        "José Manuel Ruiz Lorenzo"
+      ],
+      "autorizacion_o_base_uso": "Cubierta proporcionada en la ficha oficial de la edición para su identificación bibliográfica, con atribución y enlace a la editorial. No se declara licencia abierta ni se reutiliza como imagen de Pinterest.",
+      "descripcion_breve": "Resistencia biológica, de José Manuel Ruiz Lorenzo. Edición de Grijalbo en castellano, en tapa blanda con solapas. Consta de 304 páginas. La editorial la incluye en autoayuda. Publicación editorial: 2026-10-15.",
+      "descripcion_original_confirmada": true,
+      "edad_recomendada": "Adultos",
+      "edicion": "Tapa blanda con solapas · Grijalbo",
+      "editorial": "Grijalbo",
+      "editorial_slug": "grijalbo",
+      "estado": "publicado",
+      "fecha_actualizacion": "2026-10-20",
+      "fecha_publicacion": "2026-10-15",
+      "fecha_verificacion": "2026-10-20",
+      "formato_edicion": "tapa-blanda",
+      "fuente_bibliografica_url": "https://www.penguinlibros.com/es/libros-autoayuda/634990-libro-resistencia-biologica-9788425371790",
+      "fuente_edad_url": "https://www.penguinlibros.com/es/libros-autoayuda/634990-libro-resistencia-biologica-9788425371790",
+      "fuente_publicacion_url": "https://www.penguinlibros.com/es/libros-autoayuda/634990-libro-resistencia-biologica-9788425371790",
+      "id": "isbn-9788425371790",
+      "idioma": "es",
+      "isbn13": "9788425371790",
+      "numero_paginas": 304,
+      "portada_alto": 1235,
+      "portada_ancho": 800,
+      "portada_edicion_verificada": true,
+      "portada_fecha_revision": "2026-10-20",
+      "portada_fuente_url": "https://www.penguinlibros.com/es/7890492-thickbox_default/resistencia-biologica.jpg",
+      "portada_local": "/assets/reading-covers/isbn-9788425371790.webp",
+      "resenas": [
+        {
+          "fecha_verificacion": "2026-10-20",
+          "titulo": "Buscar reseñas en Goodreads",
+          "url": "https://www.goodreads.com/search?q=9788425371790"
+        }
+      ],
+      "slug": "resistencia-biologica-9788425371790",
+      "titulo": "Resistencia biológica"
+    },
+    {
+      "amazon_busqueda_isbn": "https://www.amazon.es/s?k=9788425373121&tag=davidporto-21",
+      "anio_publicacion": 2026,
+      "autores": [
+        "Michihito Sugawara"
+      ],
+      "autorizacion_o_base_uso": "Cubierta proporcionada en la ficha oficial de la edición para su identificación bibliográfica, con atribución y enlace a la editorial. No se declara licencia abierta ni se reutiliza como imagen de Pinterest.",
+      "descripcion_breve": "Sácate a esa persona de la cabeza, de Michihito Sugawara. Edición de Grijalbo en castellano, en tapa blanda con solapas. Consta de 232 páginas. La editorial la incluye en autoayuda. Publicación editorial: 2026-10-15.",
+      "descripcion_original_confirmada": true,
+      "edad_recomendada": "Adultos",
+      "edicion": "Tapa blanda con solapas · Grijalbo",
+      "editorial": "Grijalbo",
+      "editorial_slug": "grijalbo",
+      "estado": "publicado",
+      "fecha_actualizacion": "2026-10-20",
+      "fecha_publicacion": "2026-10-15",
+      "fecha_verificacion": "2026-10-20",
+      "formato_edicion": "tapa-blanda",
+      "fuente_bibliografica_url": "https://www.penguinlibros.com/es/libros-autoayuda/634993-libro-sacate-a-esa-persona-de-la-cabeza-9788425373121",
+      "fuente_edad_url": "https://www.penguinlibros.com/es/libros-autoayuda/634993-libro-sacate-a-esa-persona-de-la-cabeza-9788425373121",
+      "fuente_publicacion_url": "https://www.penguinlibros.com/es/libros-autoayuda/634993-libro-sacate-a-esa-persona-de-la-cabeza-9788425373121",
+      "id": "isbn-9788425373121",
+      "idioma": "es",
+      "isbn13": "9788425373121",
+      "numero_paginas": 232,
+      "portada_alto": 1235,
+      "portada_ancho": 800,
+      "portada_edicion_verificada": true,
+      "portada_fecha_revision": "2026-10-20",
+      "portada_fuente_url": "https://www.penguinlibros.com/es/8022318-thickbox_default/sacate-a-esa-persona-de-la-cabeza.jpg",
+      "portada_local": "/assets/reading-covers/isbn-9788425373121.webp",
+      "resenas": [
+        {
+          "fecha_verificacion": "2026-10-20",
+          "titulo": "Buscar reseñas en Goodreads",
+          "url": "https://www.goodreads.com/search?q=9788425373121"
+        }
+      ],
+      "slug": "sacate-a-esa-persona-de-la-cabeza-9788425373121",
+      "titulo": "Sácate a esa persona de la cabeza"
+    },
+    {
+      "amazon_busqueda_isbn": "https://www.amazon.es/s?k=9791387640491&tag=davidporto-21",
+      "anio_publicacion": 2026,
+      "autores": [
+        "Sofía Andrujóvich"
+      ],
+      "autorizacion_o_base_uso": "Cubierta proporcionada en la ficha oficial de la edición para su identificación bibliográfica, con atribución y enlace a la editorial. No se declara licencia abierta ni se reutiliza como imagen de Pinterest.",
+      "descripcion_breve": "La historia de Romana y Uliana (Amadoca 1), de Sofía Andrujóvich. Edición de Salamandra en castellano, en tapa blanda con solapas. Consta de 544 páginas. La editorial la incluye en familia y crianza. Publicación editorial: 2026-10-08.",
+      "descripcion_original_confirmada": true,
+      "edad_recomendada": "Adultos",
+      "edicion": "Tapa blanda con solapas · Salamandra",
+      "editorial": "Salamandra",
+      "editorial_slug": "salamandra",
+      "estado": "publicado",
+      "fecha_actualizacion": "2026-10-20",
+      "fecha_publicacion": "2026-10-08",
+      "fecha_verificacion": "2026-10-20",
+      "formato_edicion": "tapa-blanda",
+      "fuente_bibliografica_url": "https://www.penguinlibros.com/es/libros-crianza/635111-libro-la-historia-de-romana-y-uliana-amadoca-1-9791387640491",
+      "fuente_edad_url": "https://www.penguinlibros.com/es/libros-crianza/635111-libro-la-historia-de-romana-y-uliana-amadoca-1-9791387640491",
+      "fuente_publicacion_url": "https://www.penguinlibros.com/es/libros-crianza/635111-libro-la-historia-de-romana-y-uliana-amadoca-1-9791387640491",
+      "id": "isbn-9791387640491",
+      "idioma": "es",
+      "isbn13": "9791387640491",
+      "numero_paginas": 544,
+      "portada_alto": 1235,
+      "portada_ancho": 800,
+      "portada_edicion_verificada": true,
+      "portada_fecha_revision": "2026-10-20",
+      "portada_fuente_url": "https://www.penguinlibros.com/es/7987984-thickbox_default/la-historia-de-romana-y-uliana-amadoca-1.jpg",
+      "portada_local": "/assets/reading-covers/isbn-9791387640491.webp",
+      "resenas": [
+        {
+          "fecha_verificacion": "2026-10-20",
+          "titulo": "Buscar reseñas en Goodreads",
+          "url": "https://www.goodreads.com/search?q=9791387640491"
+        }
+      ],
+      "slug": "la-historia-de-romana-y-uliana-amadoca-1-9791387640491",
+      "titulo": "La historia de Romana y Uliana (Amadoca 1)"
+    },
+    {
+      "amazon_busqueda_isbn": "https://www.amazon.es/s?k=9788466683043&tag=davidporto-21",
+      "anio_publicacion": 2026,
+      "autores": [
+        "Inma Sáenz"
+      ],
+      "autorizacion_o_base_uso": "Cubierta proporcionada en la ficha oficial de la edición para su identificación bibliográfica, con atribución y enlace a la editorial. No se declara licencia abierta ni se reutiliza como imagen de Pinterest.",
+      "descripcion_breve": "Mamá necesita un respiro, de Inma Sáenz. Edición de Ediciones B en castellano, en tapa blanda con solapas. Consta de 240 páginas. La editorial la incluye en familia y crianza. Publicación editorial: 2026-10-01.",
+      "descripcion_original_confirmada": true,
+      "edad_recomendada": "Adultos",
+      "edicion": "Tapa blanda con solapas · Ediciones B",
+      "editorial": "Ediciones B",
+      "editorial_slug": "ediciones-b",
+      "estado": "publicado",
+      "fecha_actualizacion": "2026-10-20",
+      "fecha_publicacion": "2026-10-01",
+      "fecha_verificacion": "2026-10-20",
+      "formato_edicion": "tapa-blanda",
+      "fuente_bibliografica_url": "https://www.penguinlibros.com/es/libros-crianza/634676-libro-mama-necesita-un-respiro-9788466683043",
+      "fuente_edad_url": "https://www.penguinlibros.com/es/libros-crianza/634676-libro-mama-necesita-un-respiro-9788466683043",
+      "fuente_publicacion_url": "https://www.penguinlibros.com/es/libros-crianza/634676-libro-mama-necesita-un-respiro-9788466683043",
+      "id": "isbn-9788466683043",
+      "idioma": "es",
+      "isbn13": "9788466683043",
+      "numero_paginas": 240,
+      "portada_alto": 1235,
+      "portada_ancho": 800,
+      "portada_edicion_verificada": true,
+      "portada_fecha_revision": "2026-10-20",
+      "portada_fuente_url": "https://www.penguinlibros.com/es/8025672-thickbox_default/mama-necesita-un-respiro.jpg",
+      "portada_local": "/assets/reading-covers/isbn-9788466683043.webp",
+      "resenas": [
+        {
+          "fecha_verificacion": "2026-10-20",
+          "titulo": "Buscar reseñas en Goodreads",
+          "url": "https://www.goodreads.com/search?q=9788466683043"
+        }
+      ],
+      "slug": "mama-necesita-un-respiro-9788466683043",
+      "titulo": "Mamá necesita un respiro"
+    },
+    {
+      "amazon_busqueda_isbn": "https://www.amazon.es/s?k=9791387928032&tag=davidporto-21",
+      "anio_publicacion": 2026,
+      "autores": [
+        "Yotam Ottolenghi"
+      ],
+      "autorizacion_o_base_uso": "Cubierta proporcionada en la ficha oficial de la edición para su identificación bibliográfica, con atribución y enlace a la editorial. No se declara licencia abierta ni se reutiliza como imagen de Pinterest.",
+      "descripcion_breve": "Más Simple, de Yotam Ottolenghi. Edición de Salamandra en castellano, en tapa dura. Consta de 304 páginas. La editorial la incluye en cocina. Publicación editorial: 2026-10-15.",
+      "descripcion_original_confirmada": true,
+      "edad_recomendada": "Adultos",
+      "edicion": "Tapa dura · Salamandra",
+      "editorial": "Salamandra",
+      "editorial_slug": "salamandra",
+      "estado": "publicado",
+      "fecha_actualizacion": "2026-10-20",
+      "fecha_publicacion": "2026-10-15",
+      "fecha_verificacion": "2026-10-20",
+      "formato_edicion": "tapa-dura",
+      "fuente_bibliografica_url": "https://www.penguinlibros.com/es/libros-de-cocina/545701-libro-mas-simple-9791387928032",
+      "fuente_edad_url": "https://www.penguinlibros.com/es/libros-de-cocina/545701-libro-mas-simple-9791387928032",
+      "fuente_publicacion_url": "https://www.penguinlibros.com/es/libros-de-cocina/545701-libro-mas-simple-9791387928032",
+      "id": "isbn-9791387928032",
+      "idioma": "es",
+      "isbn13": "9791387928032",
+      "numero_paginas": 304,
+      "portada_alto": 1235,
+      "portada_ancho": 800,
+      "portada_edicion_verificada": true,
+      "portada_fecha_revision": "2026-10-20",
+      "portada_fuente_url": "https://www.penguinlibros.com/es/8270178-thickbox_default/mas-simple.jpg",
+      "portada_local": "/assets/reading-covers/isbn-9791387928032.webp",
+      "resenas": [
+        {
+          "fecha_verificacion": "2026-10-20",
+          "titulo": "Buscar reseñas en Goodreads",
+          "url": "https://www.goodreads.com/search?q=9791387928032"
+        }
+      ],
+      "slug": "mas-simple-9791387928032",
+      "titulo": "Más Simple"
+    }
+  ],
+  "schema_version": 1
 }

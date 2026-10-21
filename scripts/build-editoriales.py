@@ -21,6 +21,7 @@ from urllib.parse import urlparse
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 from site_clock import site_today  # noqa: E402
 from site_shell import inject_shell_auto  # noqa: E402
+from reading_publisher_links import render_books  # noqa: E402
 
 STATUS_LABELS = {
     "open": "Acepta manuscritos",
@@ -408,7 +409,7 @@ def render_detail(site: str, record: dict, today: date) -> str:
 
         <div class="tool-findings-block"><h2>Qué pide ahora</h2><ul class="tool-findings">{requirements}</ul><p class="tool-actions"><a class="text-action" href="{esc(record['submission_url'])}" target="_blank" rel="noopener noreferrer">Comprobar las instrucciones oficiales</a></p></div>
         <div class="tool-findings-block"><h2>Plazo de respuesta publicado</h2><p>{response}</p></div>
-        <div class="tool-findings-block"><h2>Nota editorial</h2><p>{esc(record['public_note'])}</p></div>
+        <div class="tool-findings-block"><h2>Nota editorial</h2><p>{esc(record['public_note'])}</p></div>{render_books(record['slug'])}
         <div class="tool-findings-block"><h2>Historial de comprobaciones y cambios</h2><ul class="tool-findings">{history}</ul></div>
         <div class="tool-findings-block"><h2>Fuentes</h2><ul class="tool-source-list">{sources}</ul><p class="tool-note">Esta ficha distingue siempre la fuente oficial de nuestro resumen.</p></div>
         <p class="tool-note"><strong>No es asesoramiento ni representación.</strong> Esta ficha es informativa. {esc(record['name'])} no participa en su redacción y sus instrucciones oficiales prevalecen siempre. <a href="/metodologia-editorial/">Cómo se verifica y se corrige esta información</a>.</p>

@@ -5,6 +5,8 @@ import assert from 'node:assert/strict';
 
 const BASE = process.env.RECOMMENDATIONS_BASE_URL || 'http://127.0.0.1:4173';
 const OUT = process.env.RECOMMENDATIONS_ARTIFACT_DIR || '.ci/reading-catalogue';
+const publicData = JSON.parse(await fs.readFile('data/reading-catalogue.json', 'utf8'));
+const realCount = publicData.libros.filter(b => b.estado === 'publicado').length;
 await fs.mkdir(OUT, { recursive: true });
 const fixturePath = `${OUT}/fixture.json`;
 execFileSync(process.env.PYTHON || 'python', ['tests/test-reading-catalogue.py', '--browser-fixture', fixturePath], { stdio: 'inherit' });
@@ -19,7 +21,7 @@ try {
     await page.goto(`${BASE}/recomendaciones/`);
     await page.waitForSelector('[data-catalogue-filters]:visible');
     assert.match(await page.locator('h1').innerText(), /Libros recomendados/);
-    assert.equal(await page.locator('[data-catalogue-book]').count(), 1);
+    assert.equal(await page.locator('[data-catalogue-book]').count(), realCount);
     assert(await page.locator('[data-catalogue-empty]').isHidden());
     assert.equal(await page.locator('.section-context__links a').count(), 2);
     await page.locator('[data-filter="genero"]').selectOption('romantasy');
@@ -27,11 +29,11 @@ try {
     assert.equal(await page.locator('[data-catalogue-count]').innerText(), '0 libros');
     await page.getByRole('button', { name: 'Restablecer' }).click();
     assert.equal(await page.locator('[data-filter="genero"]').inputValue(), '');
-    await page.waitForFunction(() => document.querySelector('[data-catalogue-count]').textContent === '1 libro');
-    assert.equal(await page.locator('[data-catalogue-book]:visible').count(), 1);
+    await page.waitForFunction(n => document.querySelectorAll('[data-catalogue-book]:not([hidden])').length === n, realCount);
+    assert.equal(await page.locator('[data-catalogue-book]:visible').count(), realCount);
     await page.getByRole('button', { name: 'Buscar libros', exact: true }).focus();
     await page.keyboard.press('Enter');
-    assert.equal(await page.locator('[data-catalogue-book]:visible').count(), 1);
+    assert.equal(await page.locator('[data-catalogue-book]:visible').count(), realCount);
     assert(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth + 1));
     await page.evaluate(() => { document.activeElement?.blur(); window.scrollTo({ top: 0, behavior: 'instant' }); });
     await page.waitForFunction(() => window.scrollY === 0);

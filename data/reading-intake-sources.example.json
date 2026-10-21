@@ -1,0 +1,125 @@
+{
+  "schema_version": 1,
+  "enabled": false,
+  "description": "Configuración inicial. La allowlist real se obtiene automáticamente de data/editoriales.json; estos registros solo añaden alias. No habilitar red/cron/publicación antes del piloto.",
+  "google_books": {
+    "enabled": false,
+    "language": "es",
+    "pages_per_publisher": 2,
+    "max_results_per_page": 40,
+    "max_requests_per_run": 30,
+    "api_key_env": "GOOGLE_BOOKS_API_KEY"
+  },
+  "open_library": {
+    "enabled": false,
+    "only_for_known_isbn": true,
+    "requests_per_minute": 10
+  },
+  "run": {
+    "max_new_books": 5,
+    "lookback_days": 180,
+    "initial_dry_run": true,
+    "autopublish_enabled": false,
+    "amazon_partner_tag_env": "AMAZON_PARTNER_TAG"
+  },
+  "publishers": [
+    {
+      "slug": "salamandra",
+      "name": "Salamandra",
+      "aliases": [
+        "Salamandra Infantil y Juvenil",
+        "Salamandra Ediciones"
+      ],
+      "group": "Penguin Random House",
+      "enabled": true
+    },
+    {
+      "slug": "puck",
+      "name": "Puck",
+      "aliases": [
+        "Puck Editorial",
+        "Ediciones Puck"
+      ],
+      "group": "Ediciones Urano",
+      "enabled": true
+    },
+    {
+      "slug": "minotauro",
+      "name": "Minotauro",
+      "aliases": [
+        "Ediciones Minotauro"
+      ],
+      "group": "Grupo Planeta",
+      "enabled": true
+    },
+    {
+      "slug": "titania",
+      "name": "Titania",
+      "aliases": [
+        "Ediciones Titania"
+      ],
+      "group": "Ediciones Urano",
+      "enabled": true
+    },
+    {
+      "slug": "nocturna-ediciones",
+      "name": "Nocturna Ediciones",
+      "aliases": [
+        "Nocturna"
+      ],
+      "group": "Nocturna Ediciones",
+      "enabled": true
+    },
+    {
+      "slug": "hidra",
+      "name": "Hidra",
+      "aliases": [
+        "Editorial Hidra"
+      ],
+      "group": "Hidra",
+      "enabled": true
+    },
+    {
+      "slug": "umbriel",
+      "name": "Umbriel",
+      "aliases": [
+        "Umbriel Editores"
+      ],
+      "group": "Ediciones Urano",
+      "enabled": true
+    },
+    {
+      "slug": "oz-editorial",
+      "name": "Oz Editorial",
+      "aliases": [
+        "Oz Editores"
+      ],
+      "group": "Oz Editorial",
+      "enabled": true
+    },
+    {
+      "slug": "nova",
+      "name": "Nova",
+      "aliases": [
+        "Nova Editorial",
+        "Ediciones B"
+      ],
+      "group": "Penguin Random House",
+      "enabled": true
+    }
+  ],
+  "editorial_feeds": [],
+  "excluded_publisher_labels": [
+    "Independently published",
+    "KDP",
+    "CreateSpace Independent Publishing Platform",
+    "Self-published",
+    "Autopublicado"
+  ],
+  "categories_note": "No asignar subgéneros por coincidencia ingenua con el título; usar materias y reglas verificables.",
+  "reporting": {
+    "enabled": true,
+    "artifact_retention_days": 7
+  },
+  "editorial_registry": "data/editoriales.json"
+}

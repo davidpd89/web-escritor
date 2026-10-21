@@ -1,0 +1,382 @@
+#!/usr/bin/env python3
+"""Reviewed publisher metadata -> isolated validation -> existing catalogue.
+
+No paid API, LLM, personal session or Amazon scraping. The caller builds and
+checks the site, submits a generated-only PR and respects main's normal gates.
+"""
+from __future__ import annotations
+
+import argparse
+import copy
+import hashlib
+import importlib.util
+import io
+import json
+import re
+import shutil
+import sys
+import tempfile
+from datetime import date, datetime, timedelta
+from pathlib import Path
+from urllib.parse import urlencode
+from zoneinfo import ZoneInfo
+
+from PIL import Image, ImageOps
+from reading_editorial_sources import CachedHTTP, SourceError, penguin_edition, product_links
+from reading_intake_core import affiliate_destination, normalize_text, publisher_slug
+from reading_intake_fetch import read_json, write_if_changed
+from reading_intake_publishers import resolve_publishers
+
+ROOT = Path(__file__).resolve().parents[1]
+spec = importlib.util.spec_from_file_location('catalogue_builder', ROOT / 'scripts/build-reading-catalogue.py')
+builder = importlib.util.module_from_spec(spec)
+spec.loader.exec_module(builder)
+
+GENRES = {
+    'literatura contemporanea': ('narrativa', 'Narrativa contemporánea'),
+    'novela negra misterio y thriller': ('misterio-y-thriller', 'Misterio y thriller'),
+    'libros de fantasia': ('fantasia', 'Fantasía'),
+    'fantasia': ('fantasia', 'Fantasía'),
+    'ciencia ficcion': ('ciencia-ficcion', 'Ciencia ficción'),
+    'libros de ciencia ficcion': ('ciencia-ficcion', 'Ciencia ficción'),
+    'novela romantica': ('romance', 'Romance'),
+    'libros de amor': ('romance', 'Romance'),
+    'romance': ('romance', 'Romance'),
+    'novela historica': ('novela-historica', 'Novela histórica'),
+    'libros de aventura': ('aventuras', 'Aventuras'),
+    'terror': ('terror', 'Terror'),
+    'libros de terror': ('terror', 'Terror'),
+    'relatos': ('relatos', 'Relatos'),
+    'novela juvenil': ('narrativa-juvenil', 'Narrativa juvenil'),
+    'literatura juvenil': ('narrativa-juvenil', 'Narrativa juvenil'),
+    'libros juveniles': ('narrativa-juvenil', 'Narrativa juvenil'),
+    'aventuras': ('aventuras', 'Aventuras'),
+    'biografias y memorias': ('biografias-y-memorias', 'Biografías y memorias'),
+    'autoayuda': ('desarrollo-personal', 'Desarrollo personal'),
+    'familia y crianza': ('familia-y-crianza', 'Familia y crianza'),
+    'cocina': ('cocina', 'Cocina'),
+}
+
+
+def slug(value):
+    return normalize_text(value).replace(' ', '-')[:75].strip('-')
+
+
+def work_key(title, authors):
+    # Remove edition labels only, never volume numbers or meaningful subtitles.
+    title = re.sub(r'\([^)]*(?:edici[oó]n|tapa dura|tapa blanda|cantos)[^)]*\)', '', title, flags=re.I)
+    return normalize_text(title), tuple(sorted(normalize_text(a) for a in authors))
+
+
+def classify(record, catalogue):
+    found = []
+    cats = {c['id']: c for c in catalogue['categorias']}
+    for subject in record['materias']:
+        mapped = GENRES.get(normalize_text(subject))
+        if not mapped:
+            continue
+        ident, name = mapped
+        if ident not in cats:
+            c = {'id': ident, 'slug': ident, 'nombre': name, 'tipo': 'genero',
+                 'descripcion': 'Clasificación editorial: ' + name + '.',
+                 'orden': 150 + len(cats), 'activa': True}
+            catalogue['categorias'].append(c)
+            cats[ident] = c
+        found.append(ident)
+    age = normalize_text(record.get('edad_recomendada', ''))
+    if age == 'adultos':
+        found.append('adultos')
+    elif 'juvenil' in age or age in ('a partir de 12 anos', 'a partir de 14 anos', 'a partir de 16 anos'):
+        found.append('juvenil')
+    if not found:
+        raise SourceError('Materia editorial no clasificada; queda pendiente')
+    return list(dict.fromkeys(found))
+
+
+def make_book(record, publisher, tag, today, cover, dimensions):
+    ident = record['isbn13']
+    description = f'{record["titulo"]}, de {", ".join(record["autores"])}. '
+    description += f'Edición de {publisher["name"]} en castellano, en {record["encuadernacion"].lower()}.'
+    if record.get('numero_paginas'):
+        description += f' Consta de {record["numero_paginas"]} páginas.'
+    subject = ', '.join(record['materias'])
+    if subject:
+        description += f' La editorial la incluye en {subject.lower()}.'
+    published = record['fecha_publicacion_edicion']
+    description += f' Publicación editorial: {published}.'
+    book = {
+        'id': 'isbn-' + ident, 'slug': slug(record['titulo']) + '-' + ident,
+        'titulo': record['titulo'], 'autores': record['autores'], 'estado': 'publicado',
+        'descripcion_breve': description, 'descripcion_original_confirmada': True,
+        'isbn13': ident, 'editorial': publisher['name'], 'editorial_slug': publisher['slug'],
+        'idioma': 'es', 'formato_edicion': record['formato_edicion'],
+        'edicion': record['encuadernacion'] + ' · ' + publisher['name'],
+        'portada_local': cover, 'portada_ancho': dimensions[0], 'portada_alto': dimensions[1],
+        'portada_fuente_url': record['portada_fuente_url'], 'portada_edicion_verificada': True,
+        'autorizacion_o_base_uso': record['cover_use_basis'], 'portada_fecha_revision': today,
+        'fuente_bibliografica_url': record['fuente_bibliografica_url'],
+        'fuente_publicacion_url': record['fuente_bibliografica_url'],
+        'fecha_verificacion': today, 'fecha_actualizacion': today,
+        'anio_publicacion': int(published[:4]),
+        'amazon_busqueda_isbn': affiliate_destination(ident, tag)['url'],
+        'resenas': [{'titulo': 'Buscar reseñas en Goodreads', 'url': 'https://www.goodreads.com/search?' + urlencode({'q': ident}), 'fecha_verificacion': today}],
+    }
+    if record['precision_fecha'] == 'dia':
+        book['fecha_publicacion'] = published
+    elif record['precision_fecha'] == 'mes':
+        book['fecha_publicacion_parcial'] = published
+    if record.get('numero_paginas'):
+        book['numero_paginas'] = record['numero_paginas']
+    if record.get('edad_recomendada'):
+        book['edad_recomendada'] = record['edad_recomendada']
+        book['fuente_edad_url'] = record['fuente_bibliografica_url']
+    return book
+
+
+def cover_bytes(raw):
+    with Image.open(io.BytesIO(raw)) as image:
+        if image.width < 320 or image.height < 400 or image.width * image.height > 30_000_000 or not .4 < image.width / image.height < .9:
+            raise SourceError('Cubierta ausente, pequeña o proporción incompatible')
+        image = ImageOps.exif_transpose(image).convert('RGB')
+        image.thumbnail((800, 1300))
+        out = io.BytesIO()
+        image.save(out, 'WEBP', quality=82, method=6)
+        dimensions = image.size
+        small = image.copy()
+        small.thumbnail((320, 600))
+        preview = io.BytesIO()
+        small.save(preview, 'WEBP', quality=80, method=6)
+        return out.getvalue(), preview.getvalue(), dimensions
+
+
+def update_authors(payload, catalogue, new_books, today):
+    known = {a['nombre']: a for a in payload['autores']}
+    used = {a['slug'] for a in payload['autores']}
+    for book in new_books:
+        for name in book['autores']:
+            if name in known and known[name].get('tipo') != 'bibliografico':
+                continue  # Manual biography and birth date are pinned.
+            authors_books = [b for b in catalogue['libros'] if name in b['autores'] and b['estado'] == 'publicado']
+            old = known.get(name)
+            key = old['slug'] if old else slug(name)
+            if key in used and not old:
+                key += '-' + hashlib.sha256(name.encode()).hexdigest()[:8]
+            titles = '; '.join(b['titulo'] for b in authors_books[:4])
+            record = {'slug': key, 'nombre': name, 'tipo': 'bibliografico',
+                      'descripcion': f'Libros de {name} incluidos en este catálogo: {titles}. Consulta sus ediciones, fechas de publicación y fichas editoriales en los enlaces de cada libro.',
+                      'fuentes': [{'titulo': b['titulo'] + ' · ficha editorial', 'url': b['fuente_bibliografica_url']} for b in authors_books[:8]],
+                      'fecha_verificacion': today}
+            if old:
+                old.update(record)
+            else:
+                payload['autores'].append(record)
+            known[name] = record
+            used.add(key)
+
+
+def ingest(config, root, cache, *, max_new=None, max_requests=None, apply=False, today=None):
+    today = today or datetime.now(ZoneInfo('Europe/Madrid')).date().isoformat()
+    day = date.fromisoformat(today)
+    if config.get('schema_version') != 1 or not config.get('enabled'):
+        raise SourceError('La ingesta editorial no está habilitada')
+    providers = [p for p in config['sources'] if p.get('enabled')]
+    if any(p['provider'] != 'penguin' or p['hosts'] != ['www.penguinlibros.com'] for p in providers):
+        raise SourceError('Conector editorial no revisado')
+    http = CachedHTTP(cache / 'http', ['www.penguinlibros.com'], budget=max_requests or config['max_requests'], delay=config['request_delay_seconds'])
+    catalogue = read_json(root / 'data/reading-catalogue.json')
+    authors = read_json(root / 'data/reading-authors.json')
+    registry = read_json(root / 'data/editoriales.json')
+    allowed = resolve_publishers(registry, config.get('publisher_aliases', []))
+    publishers = {p['slug']: p for p in allowed}
+    existing = {b.get('isbn13') for b in catalogue['libros']}
+    by_isbn = {b.get('isbn13'): b for b in catalogue['libros']}
+    works = {work_key(b['titulo'], b['autores']) for b in catalogue['libros']}
+    state = read_json(root / 'data/reading-intake-state.json', {'schema_version': 1, 'items': {}})
+    cached_state = read_json(cache / 'state.json', {'schema_version': 1, 'items': {}})
+    # Pending attempts survive in Actions cache; only published content is Git authority.
+    for key, value in cached_state['items'].items():
+        if key not in state['items']:
+            state['items'][key] = value
+    stats = {'discovered': 0, 'examined': 0, 'accepted': 0, 'updated': 0, 'already_published': 0, 'pending': 0, 'publishers': {}, 'errors': []}
+    queue = {}
+    # Revisit at most two older automatic entries per run; manual books stay pinned.
+    for book in sorted(catalogue['libros'], key=lambda b: b.get('fecha_verificacion', '')):
+        if book['id'].startswith('isbn-') and (day - date.fromisoformat(book['fecha_verificacion'])).days >= 7:
+            source = next((s for s in providers if book['fuente_bibliografica_url'].startswith('https://www.penguinlibros.com/es/')), None)
+            if source and len(queue) < 2:
+                queue[book['fuente_bibliografica_url']] = source
+    refresh_urls = set(queue)
+    for source in providers:
+        for index in source['index_urls']:
+            try:
+                document = http.get(index, ttl=12 * 3600).decode('utf-8')
+                for url in product_links(document, index):
+                    queue.setdefault(url, source)
+            except (OSError, ValueError, TimeoutError) as exc:
+                stats['errors'].append({'source': source['id'], 'error': str(exc)[:180]})
+    stats['discovered'] = len(queue)
+    if not queue:
+        raise SourceError('Ninguna fuente editorial devolvió fichas; no se cambia el catálogo')
+    new_books = []
+    updated_books = []
+    assets = {}
+    limit = max_new or config['max_new_books']
+    with tempfile.TemporaryDirectory(prefix='reading-intake-') as directory:
+        validation_root = Path(directory)
+        for publisher in allowed:
+            target = validation_root / 'editoriales' / publisher['slug'] / 'index.html'
+            if (root / 'editoriales' / publisher['slug'] / 'index.html').is_file():
+                target.parent.mkdir(parents=True, exist_ok=True)
+                target.touch()
+        for folder in ('reading-covers', 'reading-audio'):
+            source_dir = root / 'assets' / folder
+            if source_dir.exists():
+                shutil.copytree(source_dir, validation_root / 'assets' / folder)
+        for url, source in queue.items():
+            if len(new_books) >= limit or http.requests >= http.budget:
+                break
+            isbn = url.rsplit('-', 1)[-1].rstrip('/')
+            old_book = by_isbn.get(isbn)
+            refresh = bool(old_book and url in refresh_urls)
+            if isbn in existing and not refresh:
+                stats['already_published'] += 1
+                continue
+            key = 'isbn13:' + isbn
+            previous = state['items'].get(key, {})
+            if previous.get('retry_after', '') > today:
+                continue
+            stats['examined'] += 1
+            if stats['examined'] % 10 == 0:
+                print(f'Ingesta: {stats["examined"]} candidatos revisados; {len(new_books)} aceptados', file=sys.stderr, flush=True)
+            record = None
+            try:
+                record = penguin_edition(http.get(url, ttl=7 * 86400).decode('utf-8'), url)
+                record['cover_use_basis'] = source['cover_use_basis']
+                canonical_publisher = publisher_slug(record['editorial'], allowed)
+                if not canonical_publisher:
+                    raise SourceError('Sello no presente en el registro editorial de la web')
+                record['editorial_slug'] = canonical_publisher
+                # Source dates are edition dates. Unknown precision never becomes a day.
+                if record['precision_fecha'] == 'dia':
+                    delta = (day - date.fromisoformat(record['fecha_publicacion_edicion'])).days
+                    if delta > config['lookback_days'] or delta < -config['preorder_days']:
+                        raise SourceError('Edición fuera de la ventana de selección configurada')
+                if normalize_text(record['titulo']).startswith(('estuche ', 'pack ', 'caja ')):
+                    raise SourceError('Estuche o pack: requiere relación de obras comprobada')
+                work = work_key(record['titulo'], record['autores'])
+                if work in works and (not refresh or work != work_key(old_book['titulo'], old_book['autores'])):
+                    raise SourceError('Otra edición de una obra ya incluida; no se duplica la URL')
+                # Isolate taxonomy changes and validate the entire proposed catalogue.
+                trial = copy.deepcopy(catalogue)
+                categories = classify(record, trial)
+                if refresh:
+                    if record['autores'] != old_book['autores'] or record['portada_fuente_url'] != old_book['portada_fuente_url']:
+                        raise SourceError('Cambio de autoría o cubierta: requiere revisión editorial')
+                    image = (root / old_book['portada_local'].lstrip('/')).read_bytes()
+                    preview_path = root / old_book['portada_local'].lstrip('/').replace('.webp', '-320.webp')
+                    small = preview_path.read_bytes()
+                    dimensions = (old_book['portada_ancho'], old_book['portada_alto'])
+                else:
+                    image, small, dimensions = cover_bytes(http.get(record['portada_fuente_url'], ttl=30 * 86400))
+                path = '/assets/reading-covers/isbn-' + isbn + '.webp'
+                mini = path.replace('.webp', '-320.webp')
+                for relative, content in ((path, image), (mini, small)):
+                    dest = validation_root / relative.lstrip('/')
+                    dest.parent.mkdir(parents=True, exist_ok=True)
+                    dest.write_bytes(content)
+                book = make_book(record, publishers[canonical_publisher], config['amazon_partner_tag'], today, path, dimensions)
+                if refresh:
+                    book['id'], book['slug'] = old_book['id'], old_book['slug']
+                    for field in ('resenas', 'formatos_compra', 'url_amazon_afiliada', 'fragmento_url', 'fragmento_texto', 'fragmento_uso_autorizado', 'fragmento_base_uso', 'audio_fragmento', 'avisos_contenido', 'lectura_personal_confirmada', 'evidencia_lectura', 'autoria_propia'):
+                        if field in old_book:
+                            book[field] = old_book[field]
+                    changed = any(book.get(k) != old_book.get(k) for k in set(book) - {'fecha_verificacion', 'portada_fecha_revision', 'fecha_actualizacion'})
+                    if not changed:
+                        book['fecha_actualizacion'] = old_book['fecha_actualizacion']
+                    if book['descripcion_breve'] == old_book['descripcion_breve']:
+                        for field in ('audio_descripcion', 'audio_voz'):
+                            if field in old_book:
+                                book[field] = old_book[field]
+                    trial['libros'] = [book if b['id'] == old_book['id'] else b for b in trial['libros']]
+                    # Refresh is additive: preserve editorial tags assigned on
+                    # the website rather than rebuilding them from the source.
+                    categories = list(dict.fromkeys([
+                        *(r['categoria_id'] for r in trial['libro_categorias'] if r['libro_id'] == book['id']),
+                        *categories,
+                    ]))
+                    trial['libro_categorias'] = [r for r in trial['libro_categorias'] if r['libro_id'] != book['id']]
+                else:
+                    trial['libros'].append(book)
+                trial['libro_categorias'] += [{'libro_id': book['id'], 'categoria_id': c} for c in categories]
+                builder.validate(trial, validation_root)
+                catalogue = trial
+                assets[path] = image
+                assets[mini] = small
+                (updated_books if refresh else new_books).append(book)
+                existing.add(isbn)
+                works.add(work)
+                state['items'][key] = {'isbn13': isbn, 'estado_ingesta': 'publicado', 'primera_deteccion': previous.get('primera_deteccion', today), 'publicado_en': previous.get('publicado_en', today), 'libro_id': book['id'], 'datos': record}
+                stats['publishers'][canonical_publisher] = stats['publishers'].get(canonical_publisher, 0) + 1
+            except (OSError, ValueError, KeyError, TypeError, TimeoutError) as exc:
+                reason = str(exc)[:220]
+                if refresh:
+                    state['items'][key] = {**previous, 'retry_after': (day + timedelta(days=3)).isoformat(), 'ultima_revision_error': reason}
+                else:
+                    state['items'][key] = {'isbn13': isbn, 'estado_ingesta': 'pendiente_datos', 'primera_deteccion': previous.get('primera_deteccion', today), 'retry_after': (day + timedelta(days=3)).isoformat(), 'motivo': reason, 'fuente': url, **({'datos': record} if record else {})}
+                stats['pending'] += 1
+        update_authors(authors, catalogue, new_books + updated_books, today)
+        builder.validate(catalogue, validation_root)
+    stats['accepted'] = len(new_books)
+    stats['updated'] = len(updated_books)
+    stats['requests'], stats['cache_hits'] = http.requests, http.hits
+    write_if_changed(cache / 'state.json', state)
+    if apply and (new_books or updated_books):
+        for relative, content in assets.items():
+            target = root / relative.lstrip('/')
+            target.parent.mkdir(parents=True, exist_ok=True)
+            if target.exists() and target.read_bytes() != content:
+                raise SourceError('La cubierta existente está fijada; no se sobrescribe')
+            target.write_bytes(content)
+        if config.get('generate_audio'):
+            from reading_audio import narrate
+            for book in new_books:
+                try:
+                    narrate(book, root)
+                except Exception as exc:
+                    stats['errors'].append({'book': book['id'], 'optional_audio': type(exc).__name__})
+                    break  # An unavailable optional provider is tried only once per batch.
+        builder.validate(catalogue, root)
+        write_if_changed(root / 'data/reading-catalogue.json', catalogue)
+        write_if_changed(root / 'data/reading-authors.json', authors)
+        write_if_changed(root / 'data/reading-intake-state.json', state)
+    return {'schema_version': 1, 'generated_at': datetime.now(ZoneInfo('Europe/Madrid')).isoformat(), 'mode': 'applied' if apply else 'dry-run', 'stats': stats, 'updated_books': [b['id'] for b in updated_books], 'new_books': [{'id': b['id'], 'isbn13': b['isbn13'], 'titulo': b['titulo'], 'editorial': b['editorial'], 'url': builder.url(b)} for b in new_books], 'state': state}
+
+
+def main():
+    p = argparse.ArgumentParser(description=__doc__)
+    p.add_argument('--live', action='store_true')
+    p.add_argument('--apply', action='store_true')
+    p.add_argument('--config', type=Path, default=ROOT / 'data/reading-intake-config.json')
+    p.add_argument('--cache', type=Path, default=ROOT / '.ci/reading-editorial-cache')
+    p.add_argument('--report', type=Path, default=ROOT / '.ci/reading-intake/publisher-report.json')
+    p.add_argument('--max-new', type=int)
+    p.add_argument('--max-requests', type=int)
+    args = p.parse_args()
+    if not args.live:
+        p.error('La red requiere --live; las pruebas utilizan fixtures offline')
+    if args.max_new is not None and not 1 <= args.max_new <= 25:
+        p.error('--max-new debe estar entre 1 y 25')
+    if args.max_requests is not None and not 1 <= args.max_requests <= 160:
+        p.error('--max-requests debe estar entre 1 y 160')
+    try:
+        report = ingest(read_json(args.config), ROOT, args.cache, max_new=args.max_new, max_requests=args.max_requests, apply=args.apply)
+        write_if_changed(args.report, report)
+        print(json.dumps(report['stats'], ensure_ascii=True))
+        return 0
+    except (OSError, ValueError, KeyError, TimeoutError) as exc:
+        print('Ingesta detenida sin publicación: ' + str(exc), file=sys.stderr)
+        return 2
+
+
+if __name__ == '__main__':
+    sys.exit(main())

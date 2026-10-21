@@ -1,64 +1,53 @@
-# Libros recomendados: piloto y automatización
+# Catálogo de lectura: automatización editorial
 
-## Ya implementado
+Implementación de PR #661, sobre las fichas y el diseño ya publicados por #660.
 
-- Archivo de Cuaderno: seis artículos originales y dos guías de lectura, con temas integrados como accesos contextuales. Se mantienen las URLs previas.
-- Libros recomendados: buscador y filtros al inicio, una ficha por obra, categorías combinables, portada local optimizada y metadatos de libro. Piloto real: Coraline, ISBN 9788498382372.
-- Reseñas, fuentes, fragmento y datos bibliográficos en desplegables nativos. El capítulo se abre en la fuente editorial; no se convierte automáticamente un texto ajeno a audiolibro.
-- MP3 de la sinopsis original de Coraline con Elvira, español de España. Generación editorial con `scripts/build-reading-audio.py`; dependencia fijada en `scripts/requirements-reading-audio.txt`. Audio estático con nombre ligado al hash del texto y la voz, sin depender del navegador del lector.
-- `scripts/import-reading-sheet.py`: adapta las pestañas actuales `01_LIBROS`, `02_CATEGORIAS`, `03_PORTADAS`, `04_ENLACES`, `05_FUENTES`. Conserva un snapshot y separa revisión editorial de datos recibidos. Se puede repetir; un libro sin aprobación entra como borrador y no se publica.
-- `scripts/discover-reading-books.py`: adaptador de Creators API para buscar candidatos en Amazon.es. OAuth EU, búsquedas acotadas, deduplicación por ASIN, errores explícitos, salida temporal. No descarga imágenes ni mezcla resultados con fichas publicadas.
+## Un solo ciclo diario
 
-## Qué hace falta para la tarea diaria
+`reading-catalogue-sync.yml` se ejecuta a las 06:30 UTC cuando `READING_INTAKE_ENABLED=true`. `data/reading-intake-config.json` permite detener la ingesta (`enabled`) o su publicación (`autopublish`). El disparo manual admite `dry_run=true`.
 
-Actualización del catálogo (20/10/2026): navegación común y portada de inicio con Archivo y Libros recomendados; perfil de autor generado desde `data/reading-authors.json`; compra por formatos verificados en `formatos_compra`. Los enlaces conservan el tag existente y la identificación de afiliación se consulta desde el pie común.
+1. Descubre fichas en las páginas públicas de novedades e inicio de Penguin Libros España. Es la primera fuente conectada; no representa todos los libros de España ni todas las altas de Amazon.
+2. Comprueba robots, limita el ritmo a 1,5 segundos y el presupuesto a 80 solicitudes físicas. Reutiliza respuestas con caducidad. Los candidatos incompletos se aplazan tres días.
+3. Extrae los datos de la edición seleccionada: ISBN-13, URL canónica, idioma, región, autores completos, sello, fecha, encuadernación y portada. No importa sinopsis comerciales, precios ni reseñas de clientes.
+4. Admite sellos existentes en `data/editoriales.json`, con alias explícitos. El estado de recepción de manuscritos no determina si puede recomendarse un libro del sello.
+5. Añade como máximo cinco obras por ejecución y revisa hasta dos fichas automáticas cuya comprobación tenga siete días. Cada candidato pasa el validador real del catálogo completo en un entorno aislado. Un fallo no elimina fichas publicadas ni detiene otros candidatos válidos.
+6. Genera texto bibliográfico propio mediante plantilla y clasifica por materias y edades declaradas. Optimiza la cubierta auténtica a WebP con variante de 320 px. No inventa imágenes ni presupone licencia abierta para Pinterest.
+7. Genera ficha, perfil bibliográfico del autor, enlaces con editoriales, registro de contenido, mapa del sitio, sitemap y Pagefind. Los perfiles no inventan biografías o fechas de nacimiento.
+8. Crea una PR de artefactos generados. Ejecuta las pruebas reales del commit y respeta las reglas de `main`, sin `--admin`. Después de fusionar solicita Pages y espera el despliegue y smoke de producción del commit exacto. IndexNow recibe el intervalo real de cambios.
 
-`assets/reading-market.json` es el contrato público opcional para filtros comerciales. `offers` contiene `libro_id`, `formato`, `tipo: compra`, `moneda: EUR`, `precio_centimos`, `url`, `actualizado_en` y `caduca_en`; `precio_referencia_centimos` es opcional y solo produce descuento si supera el precio. Se aceptan registros vigentes como máximo 24 horas, con destino Amazon.es de producto etiquetado. No hay proveedor de precios conectado: `offers` permanece vacío y esos controles se desactivan.
+Se reutiliza el coordinador de publicación del radar. Las operaciones con `GITHUB_TOKEN` requieren disparos explícitos de CI y Pages; no basta con crear la PR o fusionar. Véase la [documentación de GitHub](https://docs.github.com/en/actions/concepts/security/github_token).
 
-`ratings` contiene `libro_id`, `puntuacion`, `numero_valoraciones`, `url` de Goodreads, `actualizado_en` y `caduca_en`, con máximo siete días. El piloto recoge una consulta puntual de Goodreads: 4,13/5 y 809.304 votos el 20/10/2026, con caducidad el 27/10/2026. No es una conexión a su API ni una renovación automática. La valoración desaparece al caducar y no se declara como una reseña propia en datos estructurados. Los visitantes solo descargan el JSON local, sin llamadas a Goodreads.
+Una PR automática abierta se conserva y se reanuda antes de descubrir otro lote. Si está detrás de main, se solicita su actualización normal, sin resolver conflictos a ciegas. Un fallo de pruebas, conflicto o despliegue deja evidencia y hace fallar la tarea.
 
-El filtro de precio se aplica a la misma oferta y formato que el descuento. Las fechas que solo tienen año se tratan como un intervalo anual; no entran en novedades de 180 días sin fecha completa. No se inventa una fecha exacta para ordenar o filtrar.
+## Identidad y actualizaciones
 
-Audio de fragmentos: `--content fragmento` exige texto, `fragmento_uso_autorizado: true` y base de uso documentada. Coraline mantiene el enlace al fragmento oficial, debajo de la descripción; no se ha copiado ni narrado el capítulo. El audio de descripción sigue siendo un MP3 estático y se reutiliza si su hash no cambia.
+- ISBN y obra normalizada evitan duplicados; categorías y formatos comparten una URL. Las URLs existentes permanecen estables.
+- Coraline y las biografías manuales revisadas se mantienen fijadas. Drive sigue siendo opcional y su importador conserva los libros editoriales con registro de ingesta.
+- La revisión conserva enlaces de compra verificados, reseñas y fragmentos añadidos. Cambios de cubierta o autoría quedan pendientes y mantienen la ficha publicada anterior.
+- `Novedad` usa la fecha completa de publicación en el día civil de Madrid: desde su publicación hasta antes de cumplir 15 días. La detección o revisión no reinicia el plazo. Años o meses incompletos no reciben un día inventado. Hay filtros de 15/30/90/180 días y próximos 30 días.
+- Procedencia y estado están en `data/reading-intake-state.json`. Los cuerpos HTTP solo van a caché de Actions. Los informes factuales duran siete días como artifacts y no contienen secretos o snapshots privados de Drive.
 
-La hoja privada es opcional y su conexión queda pendiente de decisión. El prompt de investigación preparado está en `docs/prompts/investigar-catalogo-amazon-pinterest.md`.
+## Amazon, Goodreads y audio
 
-Estado comprobado el 20/10/2026: aplicación `DavidPortoCatalogoLibros` creada; credenciales EU guardadas en GitHub Secrets y autenticación OAuth correcta. La consulta real a un producto devuelve HTTP 403 con el mensaje de cuenta no elegible. Amazon indica diez ventas válidas en treinta días y posible revisión de hasta 48 horas tras crear credenciales. No se promete habilitación automática ni se simulan resultados. La tarea diaria deja un informe `pending_amazon_eligibility` y volverá a probar; otros errores de autenticación o servicio sí hacen fallar la tarea.
+La ingesta editorial no requiere Creators API ni clave de Google Books. Sus adaptadores permanecen separados para futuras ampliaciones; el ciclo no llama a ningún LLM ni API de pago.
 
-El workflow `reading-catalogue-sync.yml` queda instalado pero condicionado a `READING_INTAKE_ENABLED=true`. No se considera conectado hasta validar sus credenciales con una ejecución real.
+Amazon es el destino de compra. Se conservan los productos/ASIN y formatos verificados. Sin producto comprobado aparece **Buscar este ISBN en Amazon**, con `davidporto-21`: una búsqueda no acredita stock, precio ni existencia del producto. Nunca se transforma un ISBN en ASIN supuesto. La identificación de afiliación está en el criterio editorial del pie común.
 
-1. Amazon Afiliados: acceso aprobado a Creators API y credenciales EU. Guardar `AMAZON_CREATORS_CLIENT_ID` y `AMAZON_CREATORS_CLIENT_SECRET` como secretos del repositorio; `AMAZON_PARTNER_TAG=davidporto-21` como variable. No guardar claves en el Drive ni en Git. Un tag de afiliado no concede acceso a la API.
-2. Drive privado: cuenta de servicio con acceso de lector solo a esta hoja y Workload Identity Federation para GitHub. Variables `READING_GOOGLE_PROVIDER` y `READING_GOOGLE_ACCOUNT`. No hay que publicar la hoja ni descargar cookies de tu sesión.
-3. Activar y ejecutar manualmente el workflow una vez. La ejecución diaria propuesta es 06:30 UTC. Produce una bandeja de revisión, guardada un día como artifact de GitHub con la visibilidad del repositorio. De la hoja solo incluye identificadores y estado de revisión; no adjunta el snapshot privado ni sus notas. **Esta tarea no hace push a main ni publica candidatos sin revisión.** Una propuesta aprobada se importa al dataset, se generan las páginas y pasa por la CI de publicación.
+Las nuevas fichas enlazan a una búsqueda de reseñas por ISBN en Goodreads. Eso no equivale a una reseña, puntuación importada o conexión a su API. El snapshot puntual de Coraline caduca el 27/10/2026; los filtros de estrellas se desactivan si no quedan valoraciones vigentes. Precios y ofertas siguen sin proveedor conectado. `assets/reading-market.json` conserva la caducidad de 24 horas para ofertas y siete días para valoraciones.
 
-El siguiente paso para reducir la revisión a la hoja es incorporar la aprobación editorial y las fuentes de uso en una pestaña específica; el importador actual conserva esa aprobación en `data/reading-import-review.json`. No es necesario reconstruir el catálogo ni copiar HTML para cada libro.
+Coraline conserva su MP3 Elvira y fragmento oficial. `scripts/reading_audio.py` reutiliza narraciones por hash de texto propio, pero **`generate_audio=false`**: el proveedor rechazó las nuevas narraciones en esta prueba. No se muestran reproductores vacíos ni se sustituye Elvira por otra voz. No se descargan ni narran automáticamente capítulos ajenos.
 
-## Por qué no «todos los libros subidos en las últimas 24 horas»
+Pinterest conserva el recorrido pin → ficha web → Amazon. Esta ingesta no publica pines ni concede derechos sobre las cubiertas para otros usos. La integración RSS/Pinterest de otras PR se incorpora por separado.
 
-Creators API ofrece búsquedas y páginas de resultados, con máximo diez resultados por solicitud y diez páginas. `NewestArrivals` ordena resultados; no es una suscripción exhaustiva a todas las altas ni acredita la hora de publicación editorial. «Visto por primera vez hoy» y «publicado hoy» son datos distintos. El adaptador no afirma una cobertura completa.
+## Operación y comprobaciones
 
-Para una cobertura fiable por editorial conviene combinar fuentes ONIX/RSS/API o catálogos autorizados de esas editoriales con Amazon como destino de compra. Guardar ISBN, editorial, fuente y fechas evita duplicar reediciones y presentar libros antiguos como novedades. Una fecha discrepante permanece sin precisión inventada: Coraline muestra 2009 y queda fuera de novedades.
+```sh
+python -m unittest discover -s tests -p 'test_reading*.py' -v
+python tests/test-reading-publication.py
+python tests/test-radar-publication.py
+python scripts/reading_intake_pipeline.py --live --max-new 5
+# En checkout limpio, con GH_TOKEN y dependencias instaladas:
+python scripts/refresh-reading-catalogue.py --publish
+```
 
-Las condiciones de Amazon no permiten convertir en permanentes las imágenes de su API mediante descarga y recompresión a WebP/AVIF. Por eso este piloto usa una cubierta editorial identificada, con procedencia y contexto de uso, y la bandeja Amazon no persiste imágenes. Si se integra contenido de Amazon en la web se debe implementar su ciclo de actualización/caducidad antes de mostrarlo. No se copian reseñas ni valoraciones como contenido propio.
-
-Referencias oficiales: [SearchItems y límites](https://affiliate-program.amazon.com/creatorsapi/docs/en-us/api-reference/operations/search-items), [OAuth EU](https://affiliate-program.amazon.com/creatorsapi/docs/en-us/get-started/using-curl), [licencia de contenido](https://afiliados.amazon.es/help/operating/policies), [autenticación Google para GitHub](https://github.com/google-github-actions/auth).
-
-## Campos para pedir a ChatGPT y añadir al Drive
-
-Mantén las pestañas existentes. Añade una pestaña **08_REVISION** con estas columnas para una futura aprobación desde la propia hoja:
-
-`libro_id, estado, descripcion_original_confirmada, fuente_bibliografica_url, fecha_verificacion, portada_edicion_verificada, autorizacion_o_base_uso, portada_fecha_revision, fecha_publicacion_verificada, fuente_publicacion_url, edad_recomendada, fuente_edad_url, avisos_contenido, lectura_personal_confirmada, evidencia_lectura, fecha_actualizacion`
-
-Estados: `borrador`, `listo`, `publicado`. No marcar «leído» ni inventar permisos o fuentes. Hasta conectar esta pestaña, su equivalente permanece en el JSON de revisión.
-
-Campos útiles adicionales, opcionales y con fuente:
-
-- **Edición:** traductor, ilustrador, título original, año original, formato, páginas e idioma. No mezclar datos de distintas ediciones.
-- **Series:** serie, número y si puede leerse de forma independiente. Ayuda a elegir un orden de lectura.
-- **Contenido y edad:** orientación editorial, temas sensibles e intensidad. Evitar deducir edades a partir del género.
-- **Valor editorial propio:** por qué encaja en cada categoría, a qué lector puede interesar y qué lo distingue. Es más útil que acumular enlaces o copiar la sinopsis comercial.
-- **Muestras y audio:** URL oficial, alcance autorizado y, si existe, audio autorizado con narrador y licencia. La disponibilidad de un capítulo gratis no implica permiso para redistribuirlo o narrarlo.
-- **Pinterest:** título del pin, descripción original, URL canónica de la ficha, portada y procedencia. Los pines enlazan primero a la ficha de esta web.
-- **Seguimiento:** primera detección, última verificación y estado de revisión, separados de la fecha real de publicación. No se imprimen notas privadas en las fichas.
-
-Estos campos pueden incorporarse gradualmente al contrato. No generan automáticamente nuevas páginas de categorías ni preguntas frecuentes: se indexan fichas y colecciones con contenido propio suficiente. Los metadatos Book, breadcrumbs, enlaces internos y fuentes verificables ayudan a describir el contenido a buscadores y sistemas de IA, sin prometer posiciones ni menciones.
+La prueba inicial incorpora 20 libros reales de ocho sellos, además de Coraline. El informe de QA de esta fase documentará CI y producción. No se promete ausencia absoluta de errores futuros ni cobertura exhaustiva.
