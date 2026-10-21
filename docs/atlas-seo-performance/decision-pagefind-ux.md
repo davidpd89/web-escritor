@@ -75,3 +75,21 @@ Se corrigió una fixture del generador de shards que no incluía `sources.title`
 ### Corrección SEO crítica (21/10/2026): protección del índice global
 
 La [documentación oficial de Pagefind](https://pagefind.app/docs/indexing/) confirma que cuando **alguna** página lleva `data-pagefind-body`, el conjunto de páginas **sin** esa marca puede quedar excluido del buscador. El prototipo #672 había empezado a marcar únicamente sus páginas Atlas, lo que podía **desindexar en Pagefind otros contenidos del sitio**. **Corregido: retirado del renderer y protegido por aserción sintética**. Mantener `data-pagefind-filter` es seguro: Pagefind recoge filtros aunque estén fuera del área de body. El [gate #677](https://github.com/davidpd89/web-escritor/pull/677) ahora detecta esta regresión antes de publicar. No se han ejecutado los tests.
+
+## Puente Atlas ↔ catálogo real, sin duplicación (21/10/2026)
+
+Revisado el `main` posterior a #665: `data/reading-catalogue.json` dispone de 26 registros `libros[]` con `id`, `slug`, `estado`; `scripts/build-reading-catalogue.py` construye URLs canónicas **`/recomendaciones/libros/<slug>/`**. No es correcto generar `/atlas-literario/libros/<slug>/` paralela ni adivinar slugs por título/ISBN.
+
+- [`scripts/atlas_reading_crosslinks.py`](../../scripts/atlas_reading_crosslinks.py): valida `works[].reading_book_id` **exacto** frente a `libros[].id`, estado realmente `publicado`, slug seguro, unicidad de asociación; devuelve mapa mínimo `work_id → URL existente`. Falla ante ID inexistente, borrador, slug inválido, ID duplicado, nunca inventa enlaces Amazon.
+- [`tests/test_atlas_reading_crosslinks.py`](../../tests/test_atlas_reading_crosslinks.py): **6 pruebas sintéticas** de integridad, NO ejecutadas.
+- [`atlas_static_preview.py`](../../scripts/atlas_static_preview.py): acepta opcionalmente `--reading-catalogue data/reading-catalogue.json`; si se facilita, resuelve los IDs con ese validador y enlaza las obras relacionadas a la **ficha ya publicada**. Si no se facilita, se conservan nombres de obras como texto, nunca se crea una ficha duplicada. `pages_from(data, reading_links)` aplica allowlist de URL interna además del puente.
+- **Regresión de veracidad**: `RELATION_SUBJECTS` en el preview impide atribuir `filming_location` a un `work`, `author_public_history` a una adaptación o `popular_claim_unverified` a una página pública. Toda relación mostrada exige `evidence_note`, aprobación, fecha, obra/autor/adaptación aprobados y fuentes HTTPS con título/fecha/evidencia. [`atlas_facets_snapshot.py`](../../scripts/atlas_facets_snapshot.py) usa la misma tabla de tipos para no mostrar en un filtro lo que el HTML oculta. Regresiones sintéticas preparadas y no ejecutadas.
+
+**Uso futuro, NO ejecutado**:
+```sh
+python scripts/atlas_static_preview.py /datos/atlas-internal-v1.json \
+  --reading-catalogue data/reading-catalogue.json \
+  --out /datos/atlas-preview
+```
+
+No enlazar desde las páginas existentes del catálogo hacia el atlas hasta completar el gate de publicación #677 y verificar que los lugares relacionados tienen HTML real, sitemap y Pagefind, evitando regresiones del catálogo.
