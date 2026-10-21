@@ -55,3 +55,9 @@ No añadir 78 millones al Git, ni generar automáticamente 78 millones de págin
 - **Portales culturales oficiales**: evidencias primarias y descripción editorial, útiles en pilotos y validación.
 
 **Pendiente en P6:** extraer CSV taxonomía y confirmar el identificador exacto de bookstore/library/museum antes de escribir SQL/Python de producción; muestras por 5 continentes, derechos por campo, presupuesto disco y tasas de cambio. No se ha llamado a la API ni descargado parquet aquí.
+
+## Verificación posterior: CSV completo de taxonomía de septiembre 2026 leído en GitHub
+
+Se ha inspeccionado directamente [`OvertureMaps/docs/static/taxonomy/2026-09-23.0/taxonomy.csv`](https://github.com/OvertureMaps/docs/blob/main/static/taxonomy/2026-09-23.0/taxonomy.csv), blob Git `1ab9097166dc04c23b73fe738b0c277317b542db`, **2.303 registros aprox.** Se encontraron categorías reales `bookstore` y subtipos `academic_bookstore`, `used_bookstore`, `comic_books_store`; `library`; `museum`; `historic_site`, `memorial_site` y `monument`. La estructura y nombres de taxones se han trasladado al filtrador de candidatos de [#673](https://github.com/davidpd89/web-escritor/pull/673).
+
+**Corrección de un riesgo previo:** ya no es necesario adivinar si el taxón se llama `book_store` o `bookstore` en esta edición: el nombre exacto para librería general es **`bookstore`**. Las variantes antiguas solo son compatibilidad heurística. Para cada nueva versión descargar CSV, comprobar diffs y testear adaptador antes de importar millones de registros.
