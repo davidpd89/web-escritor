@@ -99,10 +99,16 @@ class ReleaseCalendarContract(unittest.TestCase):
     def test_only_generator_owned_stale_ics_is_removed(self):
         with tempfile.TemporaryDirectory() as tmp:
             root = Path(tmp)
-            (root / "antiguo.ics").write_text("anterior", encoding="utf-8")
+            stale = root / "lib-antiguo.ics"
+            stale.write_bytes(calendar.calendar([
+                (date(2026, 10, 29), "lib-antiguo",
+                 fake_book(ident="lib-antiguo"), date(2026, 10, 21))
+            ]))
+            (root / "personal.ics").write_text("calendario ajeno", encoding="utf-8")
             (root / "manual.txt").write_text("mantener", encoding="utf-8")
             files = calendar.outputs({"libros": [fake_book()]}, self.today)
             calendar.write_outputs(files, root)
-            self.assertFalse((root / "antiguo.ics").exists())
+            self.assertFalse(stale.exists())
+            self.assertTrue((root / "personal.ics").exists())
             self.assertTrue((root / "manual.txt").exists())
             self.assertEqual((root / "proximos-lanzamientos.ics").read_bytes(), files["proximos-lanzamientos.ics"])
