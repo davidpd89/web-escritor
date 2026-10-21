@@ -36,3 +36,11 @@ Fecha: **21/10/2026**. Scope exclusivo: fuente, licencia, API, contrato y orden 
 5. Dos métricas de aceptación: cobertura real de candidatos válidos por fuente y % de conexiones novela-lugar corroboradas, nunca el número de páginas automáticas.
 
 **Estado:** fuentes y ejemplos contrastados. No se han bajado volúmenes, llamado APIs autenticadas, compilado ni ejecutado tests/Actions.
+
+## Mejora técnica adicional: bibliotecas identificadas y objetos digitales geográficos
+
+**[OSM `ref:isil=*`](https://wiki.openstreetmap.org/wiki/Tag:amenity=library):** las bibliotecas pueden compartir un identificador **ISIL (International Standard Identifier for Libraries and Related Organisations)**. Es mejor pista de reconciliación entre directorios públicos y OSM que coincidencia por nombre solo. Guardar `external_ids.isil`, comprobar país y entidad; ISIL no demuestra relevancia literaria de la biblioteca. La extensión [`amenity=public_bookcase`](https://wiki.openstreetmap.org/wiki/Tag:amenity=public_bookcase) distingue microbibliotecas comunitarias de bibliotecas con préstamo. **No publicar como «biblioteca histórica» una caseta de intercambio de libros**.
+
+**[IIIF navPlace](https://iiif.io/api/)**: la extensión admite GeoJSON-LD en manifiestos, con coordenadas vinculadas al objeto/Canvas. Puede ayudar a **enlazar un manuscrito, ilustración o mapa digitalizado con el lugar representado**, sin generar un pin de escena novelesca desde una imagen. Un ejemplo funcional documentado aparece en [Clover IIIF Map](https://samvera-labs.github.io/clover-iiif/docs/map) y [Canopy IIIF](https://canopy-iiif.github.io/app/docs/user-guides/enable-a-map-with-navPlace.html). Son referencias de interfaz; **no introducir React/MapLibre/Clover enteros** en nuestra web estática. Elegir primero enlace al manifiesto institucional; si la imagen tiene derechos adecuados, usar thumbnail local acreditado y diferido.
+
+**Filtros derivados de estas fuentes:** `library|bookshop|public_bookcase|historic_site|museum|digital_manuscript` como **clases distintas**. En la web debe quedar claro cuándo el elemento es una **visita física** y cuándo es un **recurso digital asociado a un lugar**. Evitar meter recursos virtuales entre los puntos visitables de una ruta.
