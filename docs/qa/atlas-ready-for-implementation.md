@@ -24,8 +24,8 @@ Fecha **21/10/2026**. Hija de [#666, ADR-000](https://github.com/davidpd89/web-e
 
 ## QA creado en esta PR (NO ejecutado)
 
-1. **[scripts/check_atlas_release_contract.py](../../scripts/check_atlas_release_contract.py)**: validador offline sobre build estático **terminado**, `--root` y `--manifest`; comprueba URLs del manifest, páginas HTML, canónicos, title/description únicos, JSON-LD y BreadcrumbList, noindex indebido, HTML extra no aprobado, fugas de nombres de campos privados, enlaces a 404 y que hub/destino no carguen mapa pesado. No sustituye validación de derechos ni de exactitud.
-2. **[tests/test_atlas_release_contract.py](../../tests/test_atlas_release_contract.py)**: siete casos sintéticos en directorios temporales; incluye rotura intencionada de enlace, fuga privada, colisión canonical, mapa eager, JSON-LD y duplicado.
+1. **[scripts/check_atlas_release_contract.py](../../scripts/check_atlas_release_contract.py)**: validador offline sobre build estático **terminado**, `--root` y `--manifest`; comprueba URLs del manifest, páginas HTML, canónicos, title/description únicos, JSON-LD y BreadcrumbList, noindex indebido, HTML extra no aprobado, fugas de nombres de campos privados, enlaces a 404, facetas `atlas_entity` obligatorias para Pagefind y que hub/destino no carguen mapa pesado. No sustituye validación de derechos ni de exactitud.
+2. **[tests/test_atlas_release_contract.py](../../tests/test_atlas_release_contract.py)**: ocho casos sintéticos en directorios temporales; incluye rotura intencionada de enlace, fuga privada, colisión canonical, mapa eager, JSON-LD y duplicado.
 3. **[qa/atlas-release-browser.mjs](../../qa/atlas-release-browser.mjs)**: harness Playwright aislado; con un build publicado en carpeta local y manifest comprueba 3 navegadores, móvil/escritorio, navegación sin JS, ausencia de peticiones de mapa, desbordamiento, filtros país+ciudad y errores JS. Por diseño **falla si no existe** interfaz real de Atlas: no simular éxito. No está enganchado a ningún workflow.
 
 ### Contrato del manifest aprobado (archivo futuro generado, NO existe aún)
@@ -88,3 +88,5 @@ python scripts/build-site-shell.py --check
 **No activar nada ahora.** Tras integración del builder real, preparar una PR QA minúscula con solo: (a) incluir Atlas en matrices Lighthouse/visual/Pa11y/CSP/cross-engine, (b) generar manifest desde el mismo snapshot, (c) ejecutar test offline nuevo, (d) presupuestos report→enforce una vez medidos. Los workflows necesarios deben respetar los *required checks* existentes y no generar contextos faltantes por filtros `on.pull_request.paths`.
 
 **No hay evidencia de resultado PASS**: esta PR contiene código de comprobación y diseño de activación solamente.
+
+**Último ajuste:** el gate inspecciona que cada página destino/lugar/ruta incluya `data-pagefind-filter=atlas_entity:<kind>`; las fixtures sintéticas añaden estas etiquetas. Evita que una ficha exista en HTML pero no pueda filtrarse por categoría de entidad en Pagefind, siempre que la generación del propio índice incluya esas páginas. **Ocho** pruebas sintéticas preparadas, no ejecutadas.
