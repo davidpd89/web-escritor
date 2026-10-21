@@ -437,6 +437,34 @@
     {
       "categoria_id": "adultos",
       "libro_id": "isbn-9788425374012"
+    },
+    {
+      "categoria_id": "cocina",
+      "libro_id": "isbn-9788410442771"
+    },
+    {
+      "categoria_id": "adultos",
+      "libro_id": "isbn-9788410442771"
+    },
+    {
+      "categoria_id": "adultos",
+      "libro_id": "isbn-9788419437662"
+    },
+    {
+      "categoria_id": "adultos",
+      "libro_id": "isbn-9788426432759"
+    },
+    {
+      "categoria_id": "adultos",
+      "libro_id": "isbn-9791387740887"
+    },
+    {
+      "categoria_id": "narrativa",
+      "libro_id": "isbn-9788401033797"
+    },
+    {
+      "categoria_id": "adultos",
+      "libro_id": "isbn-9788401033797"
     }
   ],
   "libros": [
@@ -1536,6 +1564,211 @@
       ],
       "slug": "barbacoa-9788425374012",
       "titulo": "Barbacoa"
+    },
+    {
+      "amazon_busqueda_isbn": "https://www.amazon.es/s?k=9788410442771&tag=davidporto-21",
+      "anio_publicacion": 2026,
+      "autores": [
+        "Bosco Castro"
+      ],
+      "autorizacion_o_base_uso": "Cubierta proporcionada en la ficha oficial de la edición para su identificación bibliográfica, con atribución y enlace a la editorial. No se declara licencia abierta ni se reutiliza como imagen de Pinterest.",
+      "descripcion_breve": "Cocina para cara almendras, de Bosco Castro. Edición de Roca Editorial en castellano, en tapa blanda con solapas. Consta de 208 páginas. La editorial la incluye en cocina. Publicación editorial: 2026-04-09.",
+      "descripcion_original_confirmada": true,
+      "edad_recomendada": "Adultos",
+      "edicion": "Tapa blanda con solapas · Roca Editorial",
+      "editorial": "Roca Editorial",
+      "editorial_slug": "roca-editorial",
+      "estado": "publicado",
+      "fecha_actualizacion": "2026-10-21",
+      "fecha_publicacion": "2026-04-09",
+      "fecha_verificacion": "2026-10-21",
+      "formato_edicion": "tapa-blanda",
+      "fuente_bibliografica_url": "https://www.penguinlibros.com/es/libros-de-cocina/545311-libro-cocina-para-cara-almendras-9788410442771",
+      "fuente_edad_url": "https://www.penguinlibros.com/es/libros-de-cocina/545311-libro-cocina-para-cara-almendras-9788410442771",
+      "fuente_publicacion_url": "https://www.penguinlibros.com/es/libros-de-cocina/545311-libro-cocina-para-cara-almendras-9788410442771",
+      "id": "isbn-9788410442771",
+      "idioma": "es",
+      "isbn13": "9788410442771",
+      "numero_paginas": 208,
+      "portada_alto": 1235,
+      "portada_ancho": 800,
+      "portada_edicion_verificada": true,
+      "portada_fecha_revision": "2026-10-21",
+      "portada_fuente_url": "https://www.penguinlibros.com/es/7422281-thickbox_default/cocina-para-cara-almendras.jpg",
+      "portada_local": "/assets/reading-covers/isbn-9788410442771.webp",
+      "resenas": [
+        {
+          "fecha_verificacion": "2026-10-21",
+          "titulo": "Buscar reseñas en Goodreads",
+          "url": "https://www.goodreads.com/search?q=9788410442771"
+        }
+      ],
+      "slug": "cocina-para-cara-almendras-9788410442771",
+      "titulo": "Cocina para cara almendras"
+    },
+    {
+      "amazon_busqueda_isbn": "https://www.amazon.es/s?k=9788419437662&tag=davidporto-21",
+      "anio_publicacion": 2026,
+      "autores": [
+        "Borja González"
+      ],
+      "autorizacion_o_base_uso": "Cubierta proporcionada en la ficha oficial de la edición para su identificación bibliográfica, con atribución y enlace a la editorial. No se declara licencia abierta ni se reutiliza como imagen de Pinterest.",
+      "descripcion_breve": "La reina de otoño, de Borja González. Edición de Reservoir Books en castellano, en tapa dura. Consta de 208 páginas. La editorial la incluye en cómic. Publicación editorial: 2026-10-08.",
+      "descripcion_original_confirmada": true,
+      "edad_recomendada": "Adultos",
+      "edicion": "Tapa dura · Reservoir Books",
+      "editorial": "Reservoir Books",
+      "editorial_slug": "reservoir-books",
+      "estado": "publicado",
+      "fecha_actualizacion": "2026-10-21",
+      "fecha_publicacion": "2026-10-08",
+      "fecha_verificacion": "2026-10-21",
+      "formato_edicion": "tapa-dura",
+      "fuente_bibliografica_url": "https://www.penguinlibros.com/es/los-mejores-comic/635092-libro-la-reina-de-otono-9788419437662",
+      "fuente_edad_url": "https://www.penguinlibros.com/es/los-mejores-comic/635092-libro-la-reina-de-otono-9788419437662",
+      "fuente_publicacion_url": "https://www.penguinlibros.com/es/los-mejores-comic/635092-libro-la-reina-de-otono-9788419437662",
+      "id": "isbn-9788419437662",
+      "idioma": "es",
+      "isbn13": "9788419437662",
+      "numero_paginas": 208,
+      "portada_alto": 1235,
+      "portada_ancho": 800,
+      "portada_edicion_verificada": true,
+      "portada_fecha_revision": "2026-10-21",
+      "portada_fuente_url": "https://www.penguinlibros.com/es/8178809-thickbox_default/la-reina-de-otono.jpg",
+      "portada_local": "/assets/reading-covers/isbn-9788419437662.webp",
+      "resenas": [
+        {
+          "fecha_verificacion": "2026-10-21",
+          "titulo": "Buscar reseñas en Goodreads",
+          "url": "https://www.goodreads.com/search?q=9788419437662"
+        }
+      ],
+      "slug": "la-reina-de-otono-9788419437662",
+      "titulo": "La reina de otoño"
+    },
+    {
+      "amazon_busqueda_isbn": "https://www.amazon.es/s?k=9788426432759&tag=davidporto-21",
+      "anio_publicacion": 2026,
+      "autores": [
+        "Lizzy Stewart"
+      ],
+      "autorizacion_o_base_uso": "Cubierta proporcionada en la ficha oficial de la edición para su identificación bibliográfica, con atribución y enlace a la editorial. No se declara licencia abierta ni se reutiliza como imagen de Pinterest.",
+      "descripcion_breve": "La Ruina, de Lizzy Stewart. Edición de Lumen en castellano, en tapa dura. Consta de 320 páginas. La editorial la incluye en novela gráfica. Publicación editorial: 2026-10-08.",
+      "descripcion_original_confirmada": true,
+      "edad_recomendada": "Adultos",
+      "edicion": "Tapa dura · Lumen",
+      "editorial": "Lumen",
+      "editorial_slug": "lumen",
+      "estado": "publicado",
+      "fecha_actualizacion": "2026-10-21",
+      "fecha_publicacion": "2026-10-08",
+      "fecha_verificacion": "2026-10-21",
+      "formato_edicion": "tapa-dura",
+      "fuente_bibliografica_url": "https://www.penguinlibros.com/es/novela-grafica/631828-libro-la-ruina-9788426432759",
+      "fuente_edad_url": "https://www.penguinlibros.com/es/novela-grafica/631828-libro-la-ruina-9788426432759",
+      "fuente_publicacion_url": "https://www.penguinlibros.com/es/novela-grafica/631828-libro-la-ruina-9788426432759",
+      "id": "isbn-9788426432759",
+      "idioma": "es",
+      "isbn13": "9788426432759",
+      "numero_paginas": 320,
+      "portada_alto": 1235,
+      "portada_ancho": 800,
+      "portada_edicion_verificada": true,
+      "portada_fecha_revision": "2026-10-21",
+      "portada_fuente_url": "https://www.penguinlibros.com/es/8190909-thickbox_default/la-ruina.jpg",
+      "portada_local": "/assets/reading-covers/isbn-9788426432759.webp",
+      "resenas": [
+        {
+          "fecha_verificacion": "2026-10-21",
+          "titulo": "Buscar reseñas en Goodreads",
+          "url": "https://www.goodreads.com/search?q=9788426432759"
+        }
+      ],
+      "slug": "la-ruina-9788426432759",
+      "titulo": "La Ruina"
+    },
+    {
+      "amazon_busqueda_isbn": "https://www.amazon.es/s?k=9791387740887&tag=davidporto-21",
+      "anio_publicacion": 2026,
+      "autores": [
+        "Zerocalcare"
+      ],
+      "autorizacion_o_base_uso": "Cubierta proporcionada en la ficha oficial de la edición para su identificación bibliográfica, con atribución y enlace a la editorial. No se declara licencia abierta ni se reutiliza como imagen de Pinterest.",
+      "descripcion_breve": "En el nido de las serpientes, de Zerocalcare. Edición de Reservoir Books en castellano, en tapa blanda con solapas. Consta de 200 páginas. La editorial la incluye en novela gráfica. Publicación editorial: 2026-09-23.",
+      "descripcion_original_confirmada": true,
+      "edad_recomendada": "Adultos",
+      "edicion": "Tapa blanda con solapas · Reservoir Books",
+      "editorial": "Reservoir Books",
+      "editorial_slug": "reservoir-books",
+      "estado": "publicado",
+      "fecha_actualizacion": "2026-10-21",
+      "fecha_publicacion": "2026-09-23",
+      "fecha_verificacion": "2026-10-21",
+      "formato_edicion": "tapa-blanda",
+      "fuente_bibliografica_url": "https://www.penguinlibros.com/es/novela-grafica/631904-libro-en-el-nido-de-las-serpientes-9791387740887",
+      "fuente_edad_url": "https://www.penguinlibros.com/es/novela-grafica/631904-libro-en-el-nido-de-las-serpientes-9791387740887",
+      "fuente_publicacion_url": "https://www.penguinlibros.com/es/novela-grafica/631904-libro-en-el-nido-de-las-serpientes-9791387740887",
+      "id": "isbn-9791387740887",
+      "idioma": "es",
+      "isbn13": "9791387740887",
+      "numero_paginas": 200,
+      "portada_alto": 1235,
+      "portada_ancho": 800,
+      "portada_edicion_verificada": true,
+      "portada_fecha_revision": "2026-10-21",
+      "portada_fuente_url": "https://www.penguinlibros.com/es/8040365-thickbox_default/en-el-nido-de-las-serpientes.jpg",
+      "portada_local": "/assets/reading-covers/isbn-9791387740887.webp",
+      "resenas": [
+        {
+          "fecha_verificacion": "2026-10-21",
+          "titulo": "Buscar reseñas en Goodreads",
+          "url": "https://www.goodreads.com/search?q=9791387740887"
+        }
+      ],
+      "slug": "en-el-nido-de-las-serpientes-9791387740887",
+      "titulo": "En el nido de las serpientes"
+    },
+    {
+      "amazon_busqueda_isbn": "https://www.amazon.es/s?k=9788401033797&tag=davidporto-21",
+      "anio_publicacion": 2026,
+      "autores": [
+        "Julia Navarro"
+      ],
+      "autorizacion_o_base_uso": "Cubierta proporcionada en la ficha oficial de la edición para su identificación bibliográfica, con atribución y enlace a la editorial. No se declara licencia abierta ni se reutiliza como imagen de Pinterest.",
+      "descripcion_breve": "Una familia moderna, de Julia Navarro. Edición de Plaza & Janés en castellano, en tapa dura con sobrecubierta. Consta de 400 páginas. La editorial la incluye en literatura contemporánea. Publicación editorial: 2026-09-15.",
+      "descripcion_original_confirmada": true,
+      "edad_recomendada": "Adultos",
+      "edicion": "Tapa dura con sobrecubierta · Plaza & Janés",
+      "editorial": "Plaza & Janés",
+      "editorial_slug": "plaza-y-janes",
+      "estado": "publicado",
+      "fecha_actualizacion": "2026-10-21",
+      "fecha_publicacion": "2026-09-15",
+      "fecha_verificacion": "2026-10-21",
+      "formato_edicion": "tapa-dura",
+      "fuente_bibliografica_url": "https://www.penguinlibros.com/es/literatura-contemporanea/636205-libro-una-familia-moderna-9788401033797",
+      "fuente_edad_url": "https://www.penguinlibros.com/es/literatura-contemporanea/636205-libro-una-familia-moderna-9788401033797",
+      "fuente_publicacion_url": "https://www.penguinlibros.com/es/literatura-contemporanea/636205-libro-una-familia-moderna-9788401033797",
+      "id": "isbn-9788401033797",
+      "idioma": "es",
+      "isbn13": "9788401033797",
+      "numero_paginas": 400,
+      "portada_alto": 1235,
+      "portada_ancho": 800,
+      "portada_edicion_verificada": true,
+      "portada_fecha_revision": "2026-10-21",
+      "portada_fuente_url": "https://www.penguinlibros.com/es/8087535-thickbox_default/una-familia-moderna.jpg",
+      "portada_local": "/assets/reading-covers/isbn-9788401033797.webp",
+      "resenas": [
+        {
+          "fecha_verificacion": "2026-10-21",
+          "titulo": "Buscar reseñas en Goodreads",
+          "url": "https://www.goodreads.com/search?q=9788401033797"
+        }
+      ],
+      "slug": "una-familia-moderna-9788401033797",
+      "titulo": "Una familia moderna"
     }
   ],
   "schema_version": 1

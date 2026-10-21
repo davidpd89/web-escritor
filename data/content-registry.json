@@ -4541,6 +4541,96 @@
       "sourceFile": "recomendaciones/libros/barbacoa-9788425374012/index.html"
     },
     {
+      "id": "reading-book-isbn-9788410442771",
+      "url": "/recomendaciones/libros/cocina-para-cara-almendras-9788410442771/",
+      "label": "Cocina para cara almendras",
+      "shortLabel": "Cocina para cara almendras",
+      "type": "article",
+      "territory": "cuaderno",
+      "parentId": "recommendations-hub",
+      "hubId": "notebook-hub",
+      "discoverability": "secondary",
+      "audience": [
+        "reader"
+      ],
+      "jobs": [
+        "buscar-lecturas"
+      ],
+      "sourceFile": "recomendaciones/libros/cocina-para-cara-almendras-9788410442771/index.html"
+    },
+    {
+      "id": "reading-book-isbn-9788419437662",
+      "url": "/recomendaciones/libros/la-reina-de-otono-9788419437662/",
+      "label": "La reina de otoño",
+      "shortLabel": "La reina de otoño",
+      "type": "article",
+      "territory": "cuaderno",
+      "parentId": "recommendations-hub",
+      "hubId": "notebook-hub",
+      "discoverability": "secondary",
+      "audience": [
+        "reader"
+      ],
+      "jobs": [
+        "buscar-lecturas"
+      ],
+      "sourceFile": "recomendaciones/libros/la-reina-de-otono-9788419437662/index.html"
+    },
+    {
+      "id": "reading-book-isbn-9788426432759",
+      "url": "/recomendaciones/libros/la-ruina-9788426432759/",
+      "label": "La Ruina",
+      "shortLabel": "La Ruina",
+      "type": "article",
+      "territory": "cuaderno",
+      "parentId": "recommendations-hub",
+      "hubId": "notebook-hub",
+      "discoverability": "secondary",
+      "audience": [
+        "reader"
+      ],
+      "jobs": [
+        "buscar-lecturas"
+      ],
+      "sourceFile": "recomendaciones/libros/la-ruina-9788426432759/index.html"
+    },
+    {
+      "id": "reading-book-isbn-9791387740887",
+      "url": "/recomendaciones/libros/en-el-nido-de-las-serpientes-9791387740887/",
+      "label": "En el nido de las serpientes",
+      "shortLabel": "En el nido de las serpientes",
+      "type": "article",
+      "territory": "cuaderno",
+      "parentId": "recommendations-hub",
+      "hubId": "notebook-hub",
+      "discoverability": "secondary",
+      "audience": [
+        "reader"
+      ],
+      "jobs": [
+        "buscar-lecturas"
+      ],
+      "sourceFile": "recomendaciones/libros/en-el-nido-de-las-serpientes-9791387740887/index.html"
+    },
+    {
+      "id": "reading-book-isbn-9788401033797",
+      "url": "/recomendaciones/libros/una-familia-moderna-9788401033797/",
+      "label": "Una familia moderna",
+      "shortLabel": "Una familia moderna",
+      "type": "article",
+      "territory": "cuaderno",
+      "parentId": "recommendations-hub",
+      "hubId": "notebook-hub",
+      "discoverability": "secondary",
+      "audience": [
+        "reader"
+      ],
+      "jobs": [
+        "buscar-lecturas"
+      ],
+      "sourceFile": "recomendaciones/libros/una-familia-moderna-9788401033797/index.html"
+    },
+    {
       "id": "reading-author-neil-gaiman",
       "url": "/recomendaciones/autores/neil-gaiman/",
       "label": "Neil Gaiman",
@@ -5007,6 +5097,96 @@
         "buscar-lecturas"
       ],
       "sourceFile": "recomendaciones/autores/kristen-stavridis/index.html"
+    },
+    {
+      "id": "reading-author-bosco-castro",
+      "url": "/recomendaciones/autores/bosco-castro/",
+      "label": "Bosco Castro",
+      "shortLabel": "Bosco Castro",
+      "type": "article",
+      "territory": "cuaderno",
+      "parentId": "recommendations-hub",
+      "hubId": "notebook-hub",
+      "discoverability": "secondary",
+      "audience": [
+        "reader"
+      ],
+      "jobs": [
+        "buscar-lecturas"
+      ],
+      "sourceFile": "recomendaciones/autores/bosco-castro/index.html"
+    },
+    {
+      "id": "reading-author-borja-gonzalez",
+      "url": "/recomendaciones/autores/borja-gonzalez/",
+      "label": "Borja González",
+      "shortLabel": "Borja González",
+      "type": "article",
+      "territory": "cuaderno",
+      "parentId": "recommendations-hub",
+      "hubId": "notebook-hub",
+      "discoverability": "secondary",
+      "audience": [
+        "reader"
+      ],
+      "jobs": [
+        "buscar-lecturas"
+      ],
+      "sourceFile": "recomendaciones/autores/borja-gonzalez/index.html"
+    },
+    {
+      "id": "reading-author-lizzy-stewart",
+      "url": "/recomendaciones/autores/lizzy-stewart/",
+      "label": "Lizzy Stewart",
+      "shortLabel": "Lizzy Stewart",
+      "type": "article",
+      "territory": "cuaderno",
+      "parentId": "recommendations-hub",
+      "hubId": "notebook-hub",
+      "discoverability": "secondary",
+      "audience": [
+        "reader"
+      ],
+      "jobs": [
+        "buscar-lecturas"
+      ],
+      "sourceFile": "recomendaciones/autores/lizzy-stewart/index.html"
+    },
+    {
+      "id": "reading-author-zerocalcare",
+      "url": "/recomendaciones/autores/zerocalcare/",
+      "label": "Zerocalcare",
+      "shortLabel": "Zerocalcare",
+      "type": "article",
+      "territory": "cuaderno",
+      "parentId": "recommendations-hub",
+      "hubId": "notebook-hub",
+      "discoverability": "secondary",
+      "audience": [
+        "reader"
+      ],
+      "jobs": [
+        "buscar-lecturas"
+      ],
+      "sourceFile": "recomendaciones/autores/zerocalcare/index.html"
+    },
+    {
+      "id": "reading-author-julia-navarro",
+      "url": "/recomendaciones/autores/julia-navarro/",
+      "label": "Julia Navarro",
+      "shortLabel": "Julia Navarro",
+      "type": "article",
+      "territory": "cuaderno",
+      "parentId": "recommendations-hub",
+      "hubId": "notebook-hub",
+      "discoverability": "secondary",
+      "audience": [
+        "reader"
+      ],
+      "jobs": [
+        "buscar-lecturas"
+      ],
+      "sourceFile": "recomendaciones/autores/julia-navarro/index.html"
     }
   ]
 }
