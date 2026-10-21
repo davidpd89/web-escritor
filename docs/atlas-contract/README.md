@@ -60,3 +60,7 @@ Las decisiones de esquema vigentes están en [ADR-000](https://github.com/davidp
 El gate Python anterior podía **aprobar un lugar con una fuente que solo tuviera `id`**, sin título, fecha ni evidencia, porque comprobaba únicamente la existencia de `source_ids`. Ya está corregido: para lugares y relaciones `approved`, cada fuente referenciada exige URL HTTPS, título, `retrieved_at` y `evidence_summary`; una imagen `approved` no puede apuntar a un lugar `candidate`. Las listas `author_ids`, `source_ids`, `image_ids` y `place_ids` malformadas generan errores de contrato, no excepciones inesperadas. **13 pruebas sintéticas escritas, NO ejecutadas**.
 
 La comprobación Python sigue siendo **suplementaria**, no sustituye a JSON Schema 2020-12 ni verifica que la URL responda 200 o que el texto fuente sea legalmente reproducible. El constructor HTML #672 conserva su propio gate provisional y deberá reutilizar el contrato de 9 colecciones durante la integración. No afirmar mergeable hasta QA.
+
+### URL de fuente: bloqueo adicional
+
+El parser `urlsplit` más una regex para espacios/control exige **URL HTTPS con hostname**, sin credenciales incrustadas ni puertos ajenos a 443 para fuentes aprobadas. Esto corrige un caso que antes pasaba: la cadena `https://` cumplía un simple `startswith('https://')` pese a no ser un enlace válido. **14 casos sintéticos escritos, no ejecutados**. La comprobación de que un sitio externo responde y licencia material sigue pendiente de QA con permisos.
