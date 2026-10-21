@@ -6,12 +6,13 @@ import json
 import os
 import subprocess
 import sys
-from datetime import datetime
+from datetime import datetime, timezone
 from pathlib import Path
 from zoneinfo import ZoneInfo
 
 from reading_intake_pipeline import ingest
 from reading_intake_fetch import read_json, write_if_changed
+from reading_ratings_refresh import refresh as refresh_ratings, google_response, hardcover_response, write_changed
 
 ROOT = Path(__file__).resolve().parents[1]
 spec = importlib.util.spec_from_file_location('reading_publication', ROOT / 'scripts/publish-reading-refresh.py')
@@ -42,12 +43,46 @@ def refresh(*, publish=False):
     report = ingest(config, ROOT, ROOT / '.ci/reading-editorial-cache', apply=publish)
     write_if_changed(ROOT / '.ci/reading-intake/publisher-report.json', report)
     print(json.dumps(report['stats'], ensure_ascii=True), flush=True)
-    if not publish or not (report['new_books'] or report['updated_books']):
+    if not publish:
+        return
+
+    # This runs DAILY, even when publishers have no new ISBNs.
+    # Single writer and ONE generated PR for publisher + rating changes.
+    market_path = ROOT / 'assets/reading-market.json'
+    market = read_json(market_path)
+    ratings_config = config.get('ratings_refresh', {})
+    ratings_stats = {}
+    changed_ratings = False
+    if ratings_config.get('enabled', False):
+        books = read_json(ROOT / 'data/reading-catalogue.json')
+        now = datetime.now(timezone.utc)
+        google_key = os.getenv('GOOGLE_BOOKS_API_KEY', '').strip()
+        hardcover_key = os.getenv('HARDCOVER_API_KEY', '').strip()
+        providers = [
+            ('google_books', google_key, google_response, int(ratings_config.get('google_books_requests_per_day', 25))),
+            ('hardcover', hardcover_key, hardcover_response, int(ratings_config.get('hardcover_requests_per_day', 0))),
+        ]
+        for source, secret, query, budget in providers:
+            if not secret or not budget:
+                ratings_stats[source] = {'status': 'sin_credencial_o_deshabilitado'}
+                continue
+            # A failing provider must not prevent the publisher intake or corrupt
+            # existing ratings. Failures remain in the CI report.
+            def provider(isbn, query=query, secret=secret):
+                return query(isbn, secret)
+            market, stats = refresh_ratings(books, market, provider, now=now,
+                                            budget=budget, source=source)
+            ratings_stats[source] = stats
+        changed_ratings = write_changed(market_path, market)
+    if ratings_stats:
+        write_if_changed(ROOT / '.ci/reading-intake/ratings-report.json', ratings_stats)
+        print('Valoraciones: ' + json.dumps(ratings_stats, ensure_ascii=True), flush=True)
+    if not (report['new_books'] or report['updated_books'] or changed_ratings):
         return
     # Register new routes before builders that deliberately consume git ls-files.
     command(sys.executable, 'scripts/build-reading-catalogue.py')
     command(sys.executable, 'scripts/build-editoriales.py', '--data', 'data/editoriales.json', '--output', '.')
-    command('git', 'add', '--', 'data/reading-catalogue.json', 'data/reading-authors.json', 'data/reading-intake-state.json',
+    command('git', 'add', '--', 'assets/reading-market.json', 'data/reading-catalogue.json', 'data/reading-authors.json', 'data/reading-intake-state.json',
             'data/content-registry.json', 'assets/reading-covers', 'assets/reading-audio', 'recomendaciones', 'editoriales', 'editoriales-sitemap.xml', 'mapa-del-sitio/index.html')
     for script in ('build-site-shell.py', 'build-sitemap.py', 'build-pagefind-index.py'):
         command(sys.executable, 'scripts/' + script)
