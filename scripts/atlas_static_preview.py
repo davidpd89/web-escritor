@@ -17,6 +17,14 @@ from urllib.parse import urlencode
 SITE = "https://davidportodiaz.com"
 SLUG = re.compile(r"^[a-z0-9]+(?:-[a-z0-9]+)*$")
 MIN_TEXT_LENGTH = 140
+RELATION_SUBJECTS = {
+    "narrative_explicit": "work",
+    "inspiration_documented": "work",
+    "filming_location": "adaptation",
+    "author_public_history": "author",
+    "literary_homage": "work",
+    # popular_claim_unverified is deliberately never publicly displayed.
+}
 
 
 def e(value: object) -> str:
@@ -197,10 +205,11 @@ def pages_from(data: dict, reading_links: dict[str, str] | None = None) -> dict[
         and ((r.get("subject_type") == "work" and r.get("subject_id") in valid_works)
              or (r.get("subject_type") == "author" and r.get("subject_id") in valid_authors)
              or (r.get("subject_type") == "adaptation" and r.get("subject_id") in valid_adaptations))
-        and r.get("relationship_type") != "popular_claim_unverified"
-        and r.get("source_ids")
+        and RELATION_SUBJECTS.get(r.get("relationship_type")) == r.get("subject_type")
+        and bool(r.get("evidence_note"))
+        and isinstance(r.get("source_ids"), list) and r["source_ids"]
         and all(source in src and str(src[source].get("url", "")).startswith("https://")
-                and src[source].get("retrieved_at")
+                and src[source].get("title") and src[source].get("retrieved_at")
                 and src[source].get("evidence_summary") for source in r["source_ids"])
     ]
     name_tables = {"work": titles["works"], "author": titles["authors"],
