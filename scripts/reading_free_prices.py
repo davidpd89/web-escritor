@@ -213,7 +213,7 @@ def main():
     before = read_json(out, {'schema_version': 1, 'offers': []})
     http = CachedHTTP(ROOT / '.ci/reading-editorial-cache/http', [HOST],
                       budget=args.budget + 2, delay=config['request_delay_seconds'])
-    data, stats = refresh_penguin(dataset, before, lambda url: http.get(url, ttl=12 * 3600),
+    data, stats = refresh_penguin(dataset, before, lambda url: http.get(url, ttl=0)  # Fresh HTTP response; never stamp old cached price as newly checked,
                                   datetime.now(timezone.utc), budget=args.budget)
     print(json.dumps({'stats': stats, 'solicitudes_http': http.requests,
                       'precios_validos': len(data['offers']), 'escritura': bool(args.apply)}, ensure_ascii=False))
