@@ -186,14 +186,20 @@ def pages_from(data: dict) -> dict[str, str]:
                    "adaptation": titles["adaptations"]}
     pages: dict[str, str] = {}
     for d in destinations:
+        url = destination_url(d)
+        if url in pages:
+            raise ValueError("URL de destino duplicada: " + url)
         ps = [p for p in places if p["destination_id"] == d["id"]]
-        pages[destination_url(d)] = destination_page(d, ps)
+        pages[url] = destination_page(d, ps)
     for p in places:
+        url = place_url(p)
+        if url in pages:
+            raise ValueError("URL de lugar duplicada: " + url)
         names = [
             name_tables[r["subject_type"]][r["subject_id"]]
             for r in rels if r["place_id"] == p["id"]
         ]
-        pages[place_url(p)] = place_page(p, ids[p["destination_id"]], src, names)
+        pages[url] = place_page(p, ids[p["destination_id"]], src, names)
     cards = "".join('<li><a href="' + e(destination_url(d)) + '">'
                     + e(d["name"]) + '</a></li>' for d in destinations)
     home_url = "/atlas-literario/"
