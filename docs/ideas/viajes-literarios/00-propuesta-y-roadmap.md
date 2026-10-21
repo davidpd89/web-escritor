@@ -95,6 +95,7 @@ Todas las PR hijas apuntan a main como **cambios independientes** y enlazan a es
 2. [#668 — código MIT vendorizado](https://github.com/davidpd89/web-escritor/pull/668): detector de lugares y comprobador de frescura de Read the Places, con normalizador y licencia, copias originales **sin integración**; matriz de software libre reutilizable.
 3. [#669 — contrato de datos v1](https://github.com/davidpd89/web-escritor/pull/669): JSON Schema, validador de referencias, tests sintéticos (sin ejecutar); debe pasar validación antes del merge.
 4. [#670 — arquitectura y fases](https://github.com/davidpd89/web-escritor/pull/670): pipeline incremental, snapshots, homogeneización y publicación serializada, futuras P5-P11.
+5. [#671 — muestreador Open Library offline](https://github.com/davidpd89/web-escritor/pull/671): lectura en streaming de Works con lugares candidatos y límites, sin API ni LLM; falta cotejo de dump real, checkpoint mundial y contrato.
 
 **Importante:** el programador de [#661](https://github.com/davidpd89/web-escritor/pull/661) ya publica libros y restringe rutas generadas. No autorizar otro autopublicador simultáneo; en la fase de ingeniería real hay que ampliar el gate explícitamente o empezar mediante PR manual. [#662](https://github.com/davidpd89/web-escritor/pull/662) puede servir posteriormente para Pinterest.
 
