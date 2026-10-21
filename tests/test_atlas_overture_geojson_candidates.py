@@ -43,7 +43,11 @@ class OvertureGeoTest(unittest.TestCase):
 
     def test_taxonomy_v2_categories_without_legacy_field(self):
         for kind, expected in [("library", "library"), ("museum", "museum"),
-                               ("historic_site", "historic_site")]:
+                               ("historic_site", "historic_site"),
+                               ("academic_bookstore", "bookshop"),
+                               ("used_bookstore", "bookshop"),
+                               ("comic_books_store", "bookshop"),
+                               ("memorial_site", "historic_site")]:
             self.assertEqual(mod.candidate(feature(kind), "2026-09-23.1")["kind_candidate"],
                              expected)
 
