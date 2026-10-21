@@ -62,6 +62,9 @@ def refresh(*, publish=False):
             ('google_books', google_key, google_response, int(ratings_config.get('google_books_requests_per_day', 25))),
             ('hardcover', hardcover_key, hardcover_response, int(ratings_config.get('hardcover_requests_per_day', 0))),
         ]
+        from reading_goodreads import GoodreadsPublic
+        goodreads = GoodreadsPublic()
+        providers.insert(0, ('goodreads', 'public', lambda isbn, unused: goodreads(isbn), int(ratings_config.get('goodreads_requests_per_day', 40))))
         for source, secret, query, budget in providers:
             if not secret or not budget:
                 ratings_stats[source] = {'status': 'sin_credencial_o_deshabilitado'}
@@ -77,13 +80,34 @@ def refresh(*, publish=False):
     if ratings_stats:
         write_if_changed(ROOT / '.ci/reading-intake/ratings-report.json', ratings_stats)
         print('Valoraciones: ' + json.dumps(ratings_stats, ensure_ascii=True), flush=True)
-    if not (report['new_books'] or report['updated_books'] or changed_ratings):
+    # Recheck existing free API access once each day. While Amazon refuses
+    # eligibility the provider stops at its first error and prices stay absent.
+    amazon_config=config.get('amazon_price_refresh',{})
+    amazon_id=os.getenv('AMAZON_CREATORS_CLIENT_ID','').strip()
+    amazon_secret=os.getenv('AMAZON_CREATORS_CLIENT_SECRET','').strip()
+    if amazon_config.get('enabled') and amazon_id and amazon_secret:
+        from reading_amazon_market import CreatorsPrices, refresh_offers
+        books=read_json(ROOT/'data/reading-catalogue.json')
+        tag=config['amazon_partner_tag']
+        market,price_stats=refresh_offers(books,market,CreatorsPrices(amazon_id,amazon_secret,tag),tag,
+                                         datetime.now(timezone.utc),int(amazon_config.get('requests_per_day',100)))
+        write_if_changed(ROOT/'.ci/reading-intake/prices-report.json',price_stats)
+        print('Precios Amazon: '+json.dumps(price_stats,ensure_ascii=True),flush=True)
+        changed_ratings=write_changed(market_path,market) or changed_ratings
+    # A scheduled RSS item can become due without a new book or rating. Build
+    # current pages first, then advance feeds inside this SAME daily writer.
+    command(sys.executable, 'scripts/build-reading-catalogue.py')
+    rss_config=read_json(ROOT / 'data/reading-pinterest-boards.json')
+    command(sys.executable, 'scripts/build-reading-pinterest-rss.py', *(['--assign'] if rss_config.get('rss_enabled') else []))
+    rss_changed=bool(subprocess.check_output(['git','status','--porcelain','--untracked-files=all','--','assets/pinterest/feeds','data/reading-pinterest-state.json'],cwd=ROOT,text=True).strip())
+    if not (report['new_books'] or report['updated_books'] or changed_ratings or report['stats'].get('author_profiles_updated') or rss_changed):
         return
     # Register new routes before builders that deliberately consume git ls-files.
     command(sys.executable, 'scripts/build-reading-catalogue.py')
     command(sys.executable, 'scripts/build-editoriales.py', '--data', 'data/editoriales.json', '--output', '.')
     command('git', 'add', '--', 'assets/reading-market.json', 'data/reading-catalogue.json', 'data/reading-authors.json', 'data/reading-intake-state.json',
             'data/content-registry.json', 'assets/reading-covers', 'assets/reading-audio', 'recomendaciones', 'editoriales', 'editoriales-sitemap.xml', 'mapa-del-sitio/index.html')
+    command('git','add','--','assets/pinterest/feeds')
     for script in ('build-site-shell.py', 'build-sitemap.py', 'build-pagefind-index.py'):
         command(sys.executable, 'scripts/' + script)
     for script in ('build-reading-catalogue.py', 'build-site-shell.py', 'build-sitemap.py', 'build-pagefind-index.py'):

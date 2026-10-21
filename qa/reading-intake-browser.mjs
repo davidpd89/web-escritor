@@ -23,9 +23,10 @@ try {
     await page.goto(base + '/recomendaciones/libros/' + b.slug + '/');
     assert.equal(await page.locator('main h1').innerText(), b.titulo);
     await page.locator('.catalogue-book-cover').evaluate(img => img.decode());
-    const search = page.getByRole('link', { name: 'Buscar este ISBN en Amazon' });
+    const search = page.getByRole('link', { name: 'Buscar este ISBN en Amazon', exact: true });
     assert.equal(new URL(await search.getAttribute('href')).searchParams.get('k'), b.isbn13);
     assert.match(await search.getAttribute('rel'), /sponsored/);
+    assert.equal(await page.locator('.catalogue-cover-panel > a').getAttribute('href'),await search.getAttribute('href'));
     const authors = await page.locator('.catalogue-author a').count();
     assert.equal(authors, b.autores.length);
     const ld = JSON.parse(await page.locator('script[type="application/ld+json"]').first().textContent());

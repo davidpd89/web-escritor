@@ -1,9 +1,8 @@
 #!/usr/bin/env python3
-"""Google Books ratings refresh with exact ISBN+author+title match, no LLM.
+"""Aggregate ratings with exact ISBN+author+title matching and no LLM.
 
-CLI only: --fixture executes fully offline, --live requires GOOGLE_BOOKS_API_KEY.
-This never fetches Goodreads, Amazon, or Open Library pages and never fabricates
-votes. Integrate it with the existing SINGLE writer workflow after real QA.
+Google Books and Hardcover use optional server-side API credentials.
+Goodreads uses bounded public ISBN pages and stops on denial or rate limits.
 """
 from __future__ import annotations
 
@@ -12,6 +11,7 @@ import json
 import os
 import re
 import sys
+import time
 import unicodedata
 from datetime import datetime, timedelta, timezone
 from pathlib import Path
@@ -23,6 +23,7 @@ ROOT = Path(__file__).resolve().parents[1]
 API = "https://www.googleapis.com/books/v1/volumes"
 VALID_VOLUME_ID = re.compile(r"[A-Za-z0-9_-]{1,150}\Z")
 VALID_ISBN13 = re.compile(r"97[89]\d{10}\Z")
+_hardcover_last_request = 0.0
 
 
 def isbn13(raw: str) -> str | None:
@@ -154,6 +155,7 @@ def select_hardcover_rating(book: dict, api_response: dict) -> dict | None:
 
 def hardcover_response(isbn: str, api_token: str, timeout=18) -> dict:
     """Query modeled on MIT-licensed Bookery provider. Never expose token in JS."""
+    global _hardcover_last_request
     query = """
     query ByIsbn($isbn: String!) {
       editions(
@@ -174,6 +176,10 @@ def hardcover_response(isbn: str, api_token: str, timeout=18) -> dict:
                       headers={"Authorization": "Bearer " + api_token,
                                "Content-Type": "application/json",
                                "User-Agent": "DavidPortoReadingCatalogue/1.0"})
+    # The free account permits 60 requests/minute and bursts of ten.
+    # The writer is sequential; spacing requests avoids exhausting either limit.
+    time.sleep(max(0, 1.1 - (time.monotonic() - _hardcover_last_request)))
+    _hardcover_last_request = time.monotonic()
     try:
         with urlopen(request, timeout=timeout) as response:
             result = json.load(response)
@@ -214,12 +220,12 @@ def refresh(catalogue: dict, existing: dict, provider, *, now: datetime,
     """
     if not 0 <= budget <= 100:
         raise ValueError("El presupuesto debe estar entre 0 y 100 llamadas")
-    if source not in {"google_books", "hardcover"}:
+    if source not in {"google_books", "hardcover", "goodreads"}:
         raise ValueError("Origen de valoración desconocido")
     others = [r for r in existing.get("ratings", [])
               if r.get("fuente", "goodreads") != source]
     old_source = {r.get("libro_id"): r for r in existing.get("ratings", [])
-                  if r.get("fuente") == source}
+                  if r.get("fuente", "goodreads") == source}
     stats = {"attempted": 0, "updated": 0, "unrated": 0, "failures": []}
     after = dict(old_source)
     published = [b for b in catalogue.get("libros", [])
@@ -236,7 +242,12 @@ def refresh(catalogue: dict, existing: dict, provider, *, now: datetime,
         stats["attempted"] += 1
         try:
             response = provider(book["isbn13"])
-            rated = (select_rating if source == "google_books" else select_hardcover_rating)(book, response)
+            if source == 'goodreads':
+                from reading_goodreads import select_goodreads_rating
+                selector = select_goodreads_rating
+            else:
+                selector = select_hardcover_rating if source == 'hardcover' else select_rating
+            rated = selector(book, response)
             if rated is None:
                 stats["unrated"] += 1
                 # Do not resurrect stale data by refreshing timestamps blindly.
@@ -248,6 +259,11 @@ def refresh(catalogue: dict, existing: dict, provider, *, now: datetime,
             stats["updated"] += 1
         except (RuntimeError, OSError, ValueError, TypeError) as exc:
             stats["failures"].append({"book_id": book["id"], "error": str(exc)[:140]})
+            if isinstance(exc, RuntimeError):
+                # An unavailable or throttled provider must not receive another
+                # request for every remaining ISBN in this daily batch.
+                stats["stopped"] = True
+                break
     payload = {
         "schema_version": 1,
         "offers": existing.get("offers", []),
@@ -273,6 +289,7 @@ def main() -> int:
     source.add_argument("--fixture", type=Path, help="Respuestas por ISBN para pruebas offline")
     source.add_argument("--live", action="store_true", help="API oficial Google Books")
     source.add_argument("--hardcover", action="store_true", help="API Hardcover opcional")
+    source.add_argument("--goodreads", action="store_true", help="Valoraciones públicas por ISBN, sin cuenta")
     parser.add_argument("--catalogue", type=Path, default=ROOT / "data/reading-catalogue.json")
     parser.add_argument("--market", type=Path, default=ROOT / "assets/reading-market.json")
     parser.add_argument("--out", type=Path, help="Ruta alternativa; no altera la web")
@@ -289,13 +306,16 @@ def main() -> int:
     provider = (lambda isbn: fixture.get(isbn, {"items": []})) if args.fixture else (
         (lambda isbn: hardcover_response(isbn, hardcover_key)) if args.hardcover
         else (lambda isbn: google_response(isbn, api_key)))
+    if args.goodreads:
+        from reading_goodreads import GoodreadsPublic
+        provider = GoodreadsPublic()
     now = datetime.fromisoformat(args.now.replace("Z", "+00:00")) if args.now else datetime.now(timezone.utc)
     if now.tzinfo is None:
         parser.error("--now debe contener zona horaria")
     catalogue = json.loads(args.catalogue.read_text(encoding="utf-8"))
     market = json.loads(args.market.read_text(encoding="utf-8"))
     result, stats = refresh(catalogue, market, provider, now=now, budget=args.budget,
-                            source="hardcover" if args.hardcover else "google_books")
+                            source="goodreads" if args.goodreads else "hardcover" if args.hardcover else "google_books")
     output = args.out or args.market
     changed = write_changed(output, result)
     print(json.dumps({"output": str(output), "changed": changed, **stats},

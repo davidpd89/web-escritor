@@ -215,6 +215,24 @@
       "orden": 173,
       "slug": "cocina",
       "tipo": "genero"
+    },
+    {
+      "activa": true,
+      "descripcion": "Clasificación editorial: Nutrición, belleza y fitness.",
+      "id": "tema-nutricion-belleza-y-fitness",
+      "nombre": "Nutrición, belleza y fitness",
+      "orden": 174,
+      "slug": "tema-nutricion-belleza-y-fitness",
+      "tipo": "tematica"
+    },
+    {
+      "activa": true,
+      "descripcion": "Clasificación editorial: Nutrición y bienestar.",
+      "id": "nutricion-y-bienestar",
+      "nombre": "Nutrición y bienestar",
+      "orden": 175,
+      "slug": "nutricion-y-bienestar",
+      "tipo": "genero"
     }
   ],
   "libro_categorias": [
@@ -379,10 +397,6 @@
       "libro_id": "isbn-9788425373121"
     },
     {
-      "categoria_id": "familia-y-crianza",
-      "libro_id": "isbn-9791387640491"
-    },
-    {
       "categoria_id": "adultos",
       "libro_id": "isbn-9791387640491"
     },
@@ -437,6 +451,18 @@
     {
       "categoria_id": "adultos",
       "libro_id": "isbn-9788425374012"
+    },
+    {
+      "categoria_id": "tema-nutricion-belleza-y-fitness",
+      "libro_id": "isbn-9788425374869"
+    },
+    {
+      "categoria_id": "nutricion-y-bienestar",
+      "libro_id": "isbn-9788425374869"
+    },
+    {
+      "libro_id": "isbn-9791387640491",
+      "categoria_id": "novela-historica"
     }
   ],
   "libros": [
@@ -525,7 +551,7 @@
       "editorial": "Alfaguara",
       "editorial_slug": "alfaguara",
       "estado": "publicado",
-      "fecha_actualizacion": "2026-10-20",
+      "fecha_actualizacion": "2026-10-21",
       "fecha_publicacion": "2026-10-20",
       "fecha_verificacion": "2026-10-20",
       "formato_edicion": "tapa-dura",
@@ -549,6 +575,9 @@
           "url": "https://www.goodreads.com/search?q=9791387846008"
         }
       ],
+      "sinopsis_breve": "Cal Gadea, un chico de dieciséis años criado por sus abuelos y fascinado por los videojuegos, encuentra al hombre al que lleva tiempo buscando…",
+      "sinopsis_fuente_url": "https://www.penguinlibros.com/es/libros-de-aventura/636581-libro-la-hipotesis-mas-peligrosa-9791387846008",
+      "sinopsis_tipo": "extracto_editorial",
       "slug": "la-hipotesis-mas-peligrosa-9791387846008",
       "titulo": "La hipótesis más peligrosa"
     },
@@ -567,7 +596,7 @@
       "editorial": "Plaza & Janés",
       "editorial_slug": "plaza-y-janes",
       "estado": "publicado",
-      "fecha_actualizacion": "2026-10-20",
+      "fecha_actualizacion": "2026-10-21",
       "fecha_publicacion": "2026-10-15",
       "fecha_verificacion": "2026-10-20",
       "formato_edicion": "tapa-dura",
@@ -591,6 +620,9 @@
           "url": "https://www.goodreads.com/search?q=9788401039560"
         }
       ],
+      "sinopsis_breve": "Esta es la historia de Jack Sawyer, a quien los lectores conocieron por primera vez con doce años, cuando se enfrentó al periplo de…",
+      "sinopsis_fuente_url": "https://www.penguinlibros.com/es/libros-de-fantasia/635029-libro-otros-mundos-el-talisman-3-9788401039560",
+      "sinopsis_tipo": "extracto_editorial",
       "slug": "otros-mundos-el-talisman-3-9788401039560",
       "titulo": "Otros mundos (El Talismán 3)"
     },
@@ -608,7 +640,7 @@
       "editorial": "Grijalbo",
       "editorial_slug": "grijalbo",
       "estado": "publicado",
-      "fecha_actualizacion": "2026-10-20",
+      "fecha_actualizacion": "2026-10-21",
       "fecha_publicacion": "2026-10-15",
       "fecha_verificacion": "2026-10-20",
       "formato_edicion": "tapa-dura",
@@ -632,6 +664,9 @@
           "url": "https://www.goodreads.com/search?q=9788425375118"
         }
       ],
+      "sinopsis_breve": "No obstante, Harlow tiene un secreto que ni siquiera su familia sabe: lleva una doble vida como justiciera que castiga a los hombres abusivos…",
+      "sinopsis_fuente_url": "https://www.penguinlibros.com/es/libros-de-fantasia/626978-libro-la-hija-del-veneno-9788425375118",
+      "sinopsis_tipo": "extracto_editorial",
       "slug": "la-hija-del-veneno-9788425375118",
       "titulo": "La hija del veneno"
     },
@@ -649,7 +684,7 @@
       "editorial": "Salamandra",
       "editorial_slug": "salamandra",
       "estado": "publicado",
-      "fecha_actualizacion": "2026-10-20",
+      "fecha_actualizacion": "2026-10-21",
       "fecha_publicacion": "2026-10-15",
       "fecha_verificacion": "2026-10-20",
       "formato_edicion": "tapa-blanda",
@@ -673,6 +708,9 @@
           "url": "https://www.goodreads.com/search?q=9791387640439"
         }
       ],
+      "sinopsis_breve": "Charlotte Sauvin, estudiante de arte criada por su querido padre, un arquitecto, en el apartamento 4L, conoce cada rincón del edificio y a todos…",
+      "sinopsis_fuente_url": "https://www.penguinlibros.com/es/novela-historica/635110-libro-plaza-brugmann-33-9791387640439",
+      "sinopsis_tipo": "extracto_editorial",
       "slug": "plaza-brugmann-33-9791387640439",
       "titulo": "Plaza Brugmann, 33"
     },
@@ -690,7 +728,7 @@
       "editorial": "Grijalbo",
       "editorial_slug": "grijalbo",
       "estado": "publicado",
-      "fecha_actualizacion": "2026-10-20",
+      "fecha_actualizacion": "2026-10-21",
       "fecha_publicacion": "2026-10-15",
       "fecha_verificacion": "2026-10-20",
       "formato_edicion": "tapa-blanda",
@@ -714,6 +752,9 @@
           "url": "https://www.goodreads.com/search?q=9788425375040"
         }
       ],
+      "sinopsis_breve": "Cuando la idea de Kloster llega a los gobernantes de los petroestados y a los magnates de los combustibles fósiles, estos se alían con…",
+      "sinopsis_fuente_url": "https://www.penguinlibros.com/es/novela-negra-misterio-y-thriller/634999-libro-el-vuelo-de-los-gansos-9788425375040",
+      "sinopsis_tipo": "extracto_editorial",
       "slug": "el-vuelo-de-los-gansos-9788425375040",
       "titulo": "El vuelo de los gansos"
     },
@@ -731,7 +772,7 @@
       "editorial": "Alfaguara",
       "editorial_slug": "alfaguara",
       "estado": "publicado",
-      "fecha_actualizacion": "2026-10-20",
+      "fecha_actualizacion": "2026-10-21",
       "fecha_publicacion": "2026-10-15",
       "fecha_verificacion": "2026-10-20",
       "formato_edicion": "tapa-blanda",
@@ -755,6 +796,9 @@
           "url": "https://www.goodreads.com/search?q=9791387846794"
         }
       ],
+      "sinopsis_breve": "Rossella Casini tiene poco más de veinte años. Vive en Florencia y ha cre cido en una familia cariñosa que le ha proporcionado una…",
+      "sinopsis_fuente_url": "https://www.penguinlibros.com/es/libro-de-biografias/634618-libro-mi-amor-no-muere-9791387846794",
+      "sinopsis_tipo": "extracto_editorial",
       "slug": "mi-amor-no-muere-9791387846794",
       "titulo": "Mi amor no muere"
     },
@@ -772,7 +816,7 @@
       "editorial": "Lumen",
       "editorial_slug": "lumen",
       "estado": "publicado",
-      "fecha_actualizacion": "2026-10-20",
+      "fecha_actualizacion": "2026-10-21",
       "fecha_publicacion": "2026-10-15",
       "fecha_verificacion": "2026-10-20",
       "formato_edicion": "tapa-blanda",
@@ -796,6 +840,9 @@
           "url": "https://www.goodreads.com/search?q=9788426432575"
         }
       ],
+      "sinopsis_breve": "En plena gira de promoción de La postal , la novela que nació de una postal anónima y conquistó a más de medio millón…",
+      "sinopsis_fuente_url": "https://www.penguinlibros.com/es/libro-de-biografias/635019-libro-el-linaje-de-pierre-9788426432575",
+      "sinopsis_tipo": "extracto_editorial",
       "slug": "el-linaje-de-pierre-9788426432575",
       "titulo": "El linaje de Pierre"
     },
@@ -813,7 +860,7 @@
       "editorial": "Reservoir Books",
       "editorial_slug": "reservoir-books",
       "estado": "publicado",
-      "fecha_actualizacion": "2026-10-20",
+      "fecha_actualizacion": "2026-10-21",
       "fecha_publicacion": "2026-10-15",
       "fecha_verificacion": "2026-10-20",
       "formato_edicion": "tapa-blanda",
@@ -837,6 +884,9 @@
           "url": "https://www.goodreads.com/search?q=9791388137006"
         }
       ],
+      "sinopsis_breve": "Trece vecinos, dueños de una montaña en el Pirineo, y tres muertes que marcaron para siempre la historia de Tor. Fascinado por un caso…",
+      "sinopsis_fuente_url": "https://www.penguinlibros.com/es/libro-de-biografias/635091-libro-tor-9791388137006",
+      "sinopsis_tipo": "extracto_editorial",
       "slug": "tor-9791388137006",
       "titulo": "Tor"
     },
@@ -854,7 +904,7 @@
       "editorial": "Plaza & Janés",
       "editorial_slug": "plaza-y-janes",
       "estado": "publicado",
-      "fecha_actualizacion": "2026-10-20",
+      "fecha_actualizacion": "2026-10-21",
       "fecha_publicacion": "2026-10-09",
       "fecha_verificacion": "2026-10-20",
       "formato_edicion": "tapa-blanda",
@@ -878,6 +928,9 @@
           "url": "https://www.goodreads.com/search?q=9788401042119"
         }
       ],
+      "sinopsis_breve": "Jorge Martí es líder y cantante de una de las bandas más importantes del indie español: La habitación roja. Pero su vida no es…",
+      "sinopsis_fuente_url": "https://www.penguinlibros.com/es/libro-de-biografias/641920-libro-cancion-de-amor-definitiva-9788401042119",
+      "sinopsis_tipo": "extracto_editorial",
       "slug": "cancion-de-amor-definitiva-9788401042119",
       "titulo": "Canción de amor definitiva"
     },
@@ -895,7 +948,7 @@
       "editorial": "Lumen",
       "editorial_slug": "lumen",
       "estado": "publicado",
-      "fecha_actualizacion": "2026-10-20",
+      "fecha_actualizacion": "2026-10-21",
       "fecha_publicacion": "2026-10-08",
       "fecha_verificacion": "2026-10-20",
       "formato_edicion": "tapa-blanda",
@@ -919,6 +972,9 @@
           "url": "https://www.goodreads.com/search?q=9788426434272"
         }
       ],
+      "sinopsis_breve": "Pasionales o tímidas, reservadas o atormentadas, deseosas o marginadas, valientes, vitales o llenas de ímpetu... Las jóvenes poetas que pueblan este libro están unidas…",
+      "sinopsis_fuente_url": "https://www.penguinlibros.com/es/literatura-contemporanea/635022-libro-esas-muchachas-que-escriben-poemas-9788426434272",
+      "sinopsis_tipo": "extracto_editorial",
       "slug": "esas-muchachas-que-escriben-poemas-9788426434272",
       "titulo": "Esas muchachas que escriben poemas"
     },
@@ -936,7 +992,7 @@
       "editorial": "Ediciones B",
       "editorial_slug": "ediciones-b",
       "estado": "publicado",
-      "fecha_actualizacion": "2026-10-20",
+      "fecha_actualizacion": "2026-10-21",
       "fecha_publicacion": "2026-10-08",
       "fecha_verificacion": "2026-10-20",
       "formato_edicion": "tapa-blanda",
@@ -960,6 +1016,9 @@
           "url": "https://www.goodreads.com/search?q=9788466684606"
         }
       ],
+      "sinopsis_breve": "Este libro cuenta cómo una perra a la que no buscaba acabó convirtiéndose en parte de mi familia y de mi forma de entender…",
+      "sinopsis_fuente_url": "https://www.penguinlibros.com/es/libro-de-biografias/634678-libro-la-risa-de-mi-vida-9788466684606",
+      "sinopsis_tipo": "extracto_editorial",
       "slug": "la-risa-de-mi-vida-9788466684606",
       "titulo": "La Risa de mi vida"
     },
@@ -977,7 +1036,7 @@
       "editorial": "Plaza & Janés",
       "editorial_slug": "plaza-y-janes",
       "estado": "publicado",
-      "fecha_actualizacion": "2026-10-20",
+      "fecha_actualizacion": "2026-10-21",
       "fecha_publicacion": "2026-10-08",
       "fecha_verificacion": "2026-10-20",
       "formato_edicion": "tapa-dura",
@@ -1001,6 +1060,9 @@
           "url": "https://www.goodreads.com/search?q=9788401036897"
         }
       ],
+      "sinopsis_breve": "En los cincuenta años transcurridos desde que Sylvester Stallone subió corriendo los escalones del Museo de Arte de Filadelfia, él mismo y esos escalones…",
+      "sinopsis_fuente_url": "https://www.penguinlibros.com/es/libro-de-biografias/437990-libro-los-escalones-9788401036897",
+      "sinopsis_tipo": "extracto_editorial",
       "slug": "los-escalones-9788401036897",
       "titulo": "Los escalones"
     },
@@ -1018,7 +1080,7 @@
       "editorial": "Random House",
       "editorial_slug": "random-house",
       "estado": "publicado",
-      "fecha_actualizacion": "2026-10-20",
+      "fecha_actualizacion": "2026-10-21",
       "fecha_publicacion": "2026-10-08",
       "fecha_verificacion": "2026-10-20",
       "formato_edicion": "tapa-blanda",
@@ -1042,6 +1104,9 @@
           "url": "https://www.goodreads.com/search?q=9788439746621"
         }
       ],
+      "sinopsis_breve": "Con una ferocidad mordaz y una endiablada y novedosa ternura para consigo misma, esta autora cardinal empuja al desvío la suerte de toda la…",
+      "sinopsis_fuente_url": "https://www.penguinlibros.com/es/libro-de-biografias/635085-libro-la-merma-9788439746621",
+      "sinopsis_tipo": "extracto_editorial",
       "slug": "la-merma-9788439746621",
       "titulo": "La merma"
     },
@@ -1059,7 +1124,7 @@
       "editorial": "Salamandra",
       "editorial_slug": "salamandra",
       "estado": "publicado",
-      "fecha_actualizacion": "2026-10-20",
+      "fecha_actualizacion": "2026-10-21",
       "fecha_publicacion": "2026-10-08",
       "fecha_verificacion": "2026-10-20",
       "formato_edicion": "tapa-blanda",
@@ -1083,6 +1148,9 @@
           "url": "https://www.goodreads.com/search?q=9788419456007"
         }
       ],
+      "sinopsis_breve": "En un Londres convulso, marcado por la inestabilidad política y el auge del populismo, los miembros de la Casa de la Ciénaga afrontan una…",
+      "sinopsis_fuente_url": "https://www.penguinlibros.com/es/novela-negra-misterio-y-thriller/635112-libro-la-casa-de-la-cienaga-serie-slow-horses-7-9788419456007",
+      "sinopsis_tipo": "extracto_editorial",
       "slug": "la-casa-de-la-cienaga-serie-slow-horses-7-9788419456007",
       "titulo": "La Casa de la Ciénaga (Serie Slow Horses 7)"
     },
@@ -1100,7 +1168,7 @@
       "editorial": "Random House",
       "editorial_slug": "random-house",
       "estado": "publicado",
-      "fecha_actualizacion": "2026-10-20",
+      "fecha_actualizacion": "2026-10-21",
       "fecha_publicacion": "2026-10-01",
       "fecha_verificacion": "2026-10-20",
       "formato_edicion": "tapa-dura",
@@ -1124,6 +1192,9 @@
           "url": "https://www.goodreads.com/search?q=9788439747222"
         }
       ],
+      "sinopsis_breve": "En un poema escrito a los ocho años, Han Kang imaginó un «hilo dorado» capaz de crear vínculos: una idea que explora aquí con…",
+      "sinopsis_fuente_url": "https://www.penguinlibros.com/es/literatura-contemporanea/635088-libro-la-luz-y-el-hilo-laurea-9788439747222",
+      "sinopsis_tipo": "extracto_editorial",
       "slug": "la-luz-y-el-hilo-laurea-9788439747222",
       "titulo": "La luz y el hilo (Láurea)"
     },
@@ -1141,7 +1212,7 @@
       "editorial": "Grijalbo",
       "editorial_slug": "grijalbo",
       "estado": "publicado",
-      "fecha_actualizacion": "2026-10-20",
+      "fecha_actualizacion": "2026-10-21",
       "fecha_publicacion": "2026-10-15",
       "fecha_verificacion": "2026-10-20",
       "formato_edicion": "tapa-blanda",
@@ -1165,6 +1236,9 @@
           "url": "https://www.goodreads.com/search?q=9788425371790"
         }
       ],
+      "sinopsis_breve": "No se trata solo de comer mejor o de hacer ejercicio, sino de recuperar el ritmo biológico que nos han arrebatado: desde la luz…",
+      "sinopsis_fuente_url": "https://www.penguinlibros.com/es/libros-autoayuda/634990-libro-resistencia-biologica-9788425371790",
+      "sinopsis_tipo": "extracto_editorial",
       "slug": "resistencia-biologica-9788425371790",
       "titulo": "Resistencia biológica"
     },
@@ -1182,7 +1256,7 @@
       "editorial": "Grijalbo",
       "editorial_slug": "grijalbo",
       "estado": "publicado",
-      "fecha_actualizacion": "2026-10-20",
+      "fecha_actualizacion": "2026-10-21",
       "fecha_publicacion": "2026-10-15",
       "fecha_verificacion": "2026-10-20",
       "formato_edicion": "tapa-blanda",
@@ -1206,6 +1280,9 @@
           "url": "https://www.goodreads.com/search?q=9788425373121"
         }
       ],
+      "sinopsis_breve": "El doctor Michihito Sugawara, neurólogo y neurocirujano, propone un enfoque claro y revolucionario: en vez de luchar contra tu cerebro, reentrena su funcionamiento. A…",
+      "sinopsis_fuente_url": "https://www.penguinlibros.com/es/libros-autoayuda/634993-libro-sacate-a-esa-persona-de-la-cabeza-9788425373121",
+      "sinopsis_tipo": "extracto_editorial",
       "slug": "sacate-a-esa-persona-de-la-cabeza-9788425373121",
       "titulo": "Sácate a esa persona de la cabeza"
     },
@@ -1223,7 +1300,7 @@
       "editorial": "Salamandra",
       "editorial_slug": "salamandra",
       "estado": "publicado",
-      "fecha_actualizacion": "2026-10-20",
+      "fecha_actualizacion": "2026-10-21",
       "fecha_publicacion": "2026-10-08",
       "fecha_verificacion": "2026-10-20",
       "formato_edicion": "tapa-blanda",
@@ -1247,8 +1324,14 @@
           "url": "https://www.goodreads.com/search?q=9791387640491"
         }
       ],
+      "sinopsis_breve": "En un hospital de Kiev, un soldado yace en la cama, desfigurado y amnésico. Una mujer lo cuida. Al personal sanitario le dice que…",
+      "sinopsis_fuente_url": "https://www.penguinlibros.com/es/libros-crianza/635111-libro-la-historia-de-romana-y-uliana-amadoca-1-9791387640491",
+      "sinopsis_tipo": "extracto_editorial",
       "slug": "la-historia-de-romana-y-uliana-amadoca-1-9791387640491",
-      "titulo": "La historia de Romana y Uliana (Amadoca 1)"
+      "titulo": "La historia de Romana y Uliana (Amadoca 1)",
+      "categorias_excluidas": [
+        "familia-y-crianza"
+      ]
     },
     {
       "amazon_busqueda_isbn": "https://www.amazon.es/s?k=9788466683043&tag=davidporto-21",
@@ -1264,7 +1347,7 @@
       "editorial": "Ediciones B",
       "editorial_slug": "ediciones-b",
       "estado": "publicado",
-      "fecha_actualizacion": "2026-10-20",
+      "fecha_actualizacion": "2026-10-21",
       "fecha_publicacion": "2026-10-01",
       "fecha_verificacion": "2026-10-20",
       "formato_edicion": "tapa-blanda",
@@ -1288,6 +1371,9 @@
           "url": "https://www.goodreads.com/search?q=9788466683043"
         }
       ],
+      "sinopsis_breve": "Con el humor que la ha convertido en una de las creadoras de contenido sobre maternidad más seguidas de España, Inma Sáenz nos abre…",
+      "sinopsis_fuente_url": "https://www.penguinlibros.com/es/libros-crianza/634676-libro-mama-necesita-un-respiro-9788466683043",
+      "sinopsis_tipo": "extracto_editorial",
       "slug": "mama-necesita-un-respiro-9788466683043",
       "titulo": "Mamá necesita un respiro"
     },
@@ -1305,7 +1391,7 @@
       "editorial": "Salamandra",
       "editorial_slug": "salamandra",
       "estado": "publicado",
-      "fecha_actualizacion": "2026-10-20",
+      "fecha_actualizacion": "2026-10-21",
       "fecha_publicacion": "2026-10-15",
       "fecha_verificacion": "2026-10-20",
       "formato_edicion": "tapa-dura",
@@ -1329,6 +1415,9 @@
           "url": "https://www.goodreads.com/search?q=9791387928032"
         }
       ],
+      "sinopsis_breve": "Después del grandísimo éxito de Cocina Simple , el libro que hizo de Yotam Ottolenghi un icono y referente de los libros de cocina…",
+      "sinopsis_fuente_url": "https://www.penguinlibros.com/es/libros-de-cocina/545701-libro-mas-simple-9791387928032",
+      "sinopsis_tipo": "extracto_editorial",
       "slug": "mas-simple-9791387928032",
       "titulo": "Más Simple"
     },
@@ -1370,6 +1459,9 @@
           "url": "https://www.goodreads.com/search?q=9788425371967"
         }
       ],
+      "sinopsis_breve": "De todos estos recuerdos y sensaciones actuales y pretéritos que giran alrededor de la cocina nace precisamente este libro, en el que encontrarás recetas…",
+      "sinopsis_fuente_url": "https://www.penguinlibros.com/es/libros-de-cocina/634991-libro-muerdelo-9788425371967",
+      "sinopsis_tipo": "extracto_editorial",
       "slug": "muerdelo-9788425371967",
       "titulo": "Muérdelo"
     },
@@ -1411,6 +1503,9 @@
           "url": "https://www.goodreads.com/search?q=9791387629694"
         }
       ],
+      "sinopsis_breve": "Deja de acumular recetas que nunca haces en la carpeta de guardados de Instagram y empieza a preparar comida de verdad. Platos fáciles, sabrosos…",
+      "sinopsis_fuente_url": "https://www.penguinlibros.com/es/libros-de-cocina/635080-libro-comete-la-vida-a-bocados-con-pausa-y-plato-9791387629694",
+      "sinopsis_tipo": "extracto_editorial",
       "slug": "comete-la-vida-a-bocados-con-pausa-y-plato-9791387629694",
       "titulo": "Cómete la vida a bocados con Pausa y Plato"
     },
@@ -1452,6 +1547,9 @@
           "url": "https://www.goodreads.com/search?q=9788425374074"
         }
       ],
+      "sinopsis_breve": "Desde el increíble pastel de pescado y pasta al horno, pasando por los ñoquis con peperonata llenos de sabor, hasta un reconfortante estofado aromático…",
+      "sinopsis_fuente_url": "https://www.penguinlibros.com/es/libros-de-cocina/631803-libro-20-minutos-y-listo-9788425374074",
+      "sinopsis_tipo": "extracto_editorial",
       "slug": "20-minutos-y-listo-9788425374074",
       "titulo": "20 minutos ¡y listo!"
     },
@@ -1493,6 +1591,9 @@
           "url": "https://www.goodreads.com/search?q=9788425374869"
         }
       ],
+      "sinopsis_breve": "Con esta guía práctica, la nutricionista Kristen Stavridis lo pone fácil. Su sencillo método en seis pasos te ayudará a introducir cambios sostenibles y…",
+      "sinopsis_fuente_url": "https://www.penguinlibros.com/es/libros-nutricion-fitness-belleza/631807-libro-la-fibra-es-la-solucion-9788425374869",
+      "sinopsis_tipo": "extracto_editorial",
       "slug": "la-fibra-es-la-solucion-9788425374869",
       "titulo": "La fibra es la solución"
     },
@@ -1534,6 +1635,9 @@
           "url": "https://www.goodreads.com/search?q=9788425374012"
         }
       ],
+      "sinopsis_breve": "Con recetas para barbacoas de carbón y de gas, Jamie comparte sus consejos esenciales para marinar los alimentos, preparar las brasas, controlar la temperatura…",
+      "sinopsis_fuente_url": "https://www.penguinlibros.com/es/libros-de-cocina/545229-libro-barbacoa-9788425374012",
+      "sinopsis_tipo": "extracto_editorial",
       "slug": "barbacoa-9788425374012",
       "titulo": "Barbacoa"
     }

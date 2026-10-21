@@ -9,6 +9,10 @@ on:
         description: 'Discover and validate without changing the website'
         type: boolean
         default: false
+      live_provider_pilot:
+        description: 'Read-only live ratings/prices pilot; requires dry_run=true and never publishes'
+        type: boolean
+        default: false
 
 permissions:
   contents: write
@@ -55,6 +59,8 @@ jobs:
           DRY_RUN: ${{ inputs.dry_run }}
           GOOGLE_BOOKS_API_KEY: ${{ secrets.GOOGLE_BOOKS_API_KEY }}
           HARDCOVER_API_KEY: ${{ secrets.HARDCOVER_API_KEY }}
+          AMAZON_CREATORS_CLIENT_ID: ${{ secrets.AMAZON_CREATORS_CLIENT_ID }}
+          AMAZON_CREATORS_CLIENT_SECRET: ${{ secrets.AMAZON_CREATORS_CLIENT_SECRET }}
         shell: bash
         run: |
           set -euo pipefail
@@ -63,6 +69,14 @@ jobs:
           else
             python scripts/refresh-reading-catalogue.py --publish
           fi
+      - name: Read-only live provider pilot
+        if: inputs.dry_run && inputs.live_provider_pilot
+        env:
+          GOOGLE_BOOKS_API_KEY: ${{ secrets.GOOGLE_BOOKS_API_KEY }}
+          HARDCOVER_API_KEY: ${{ secrets.HARDCOVER_API_KEY }}
+          AMAZON_CREATORS_CLIENT_ID: ${{ secrets.AMAZON_CREATORS_CLIENT_ID }}
+          AMAZON_CREATORS_CLIENT_SECRET: ${{ secrets.AMAZON_CREATORS_CLIENT_SECRET }}
+        run: python qa/reading-provider-pilot.py
       - name: Upload factual ingestion report
         if: always()
         uses: actions/upload-artifact@v6

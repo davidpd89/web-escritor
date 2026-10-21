@@ -48,10 +48,16 @@
       ]
     }
   ],
+  "amazon_price_refresh": {
+    "enabled": true,
+    "requests_per_day": 100,
+    "notes": "Solo Creators API, ISBN o ASIN verificado, EUR y compra nueva. Una denegación detiene el lote; se vuelve a comprobar al día siguiente. No se publican precios sin respuesta válida."
+  },
   "ratings_refresh": {
     "enabled": true,
+    "goodreads_requests_per_day": 100,
     "google_books_requests_per_day": 40,
     "hardcover_requests_per_day": 40,
-    "notes": "40 consultas/día Google Books y 40 Hardcover, cada fuente solo si tiene su secreto. Hardcover permite medias agregadas en sitios comerciales si se le atribuyen. No se accede a valoraciones personales de usuarios. Sin credenciales no hay peticiones."
+    "notes": "Hasta 100 consultas públicas por ISBN a Goodreads y 40 por API a Google Books y Hardcover; estas dos APIs solo se consultan si tienen su secreto. Cada valoración identifica su proveedor. No se consultan reseñas ni bibliotecas personales. Un proveedor indisponible o limitado se detiene hasta la siguiente ejecución, conservando los datos y sus fechas reales."
   }
 }

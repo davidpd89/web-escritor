@@ -9,9 +9,6 @@ from __future__ import annotations
 import re
 import unicodedata
 
-_MATCH_GENRES = ("fantas", "juvenil", "joven adulto", "romance", "romant",
-                 "terror", "misterio", "thriller", "ciencia ficcion", "distopi",
-                 "narrativa", "ficcion", "novela", "histor")
 _NON_TRADITIONAL = ("autoedicion", "autopublic", "servicios editoriales",
                     "modelo editorial por verificar", "coedicion")
 
@@ -30,8 +27,7 @@ def relevant_publisher(record: dict) -> bool:
         return False
     if any(block in model for block in _NON_TRADITIONAL):
         return False
-    return any(any(token in _key(genre) for token in _MATCH_GENRES)
-               for genre in (record.get("genres") or []))
+    return True  # All subject areas are eligible; the source validates each edition.
 
 
 def resolve_publishers(editoriales: dict, overrides: list[dict] | None = None,

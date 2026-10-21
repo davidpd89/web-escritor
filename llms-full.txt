@@ -2,7 +2,7 @@
 
 > Recurso editorial complementario del sitio oficial, inspirado en la propuesta de formato llms.txt. Reúne hechos verificables, contexto de las obras y rutas de comprobación. No es un estándar editorial universal y su publicación no implica que ningún buscador o modelo lo ingiera automáticamente.
 >
-> Última actualización: 2026-10-15
+> Última actualización: 2026-10-21
 
 ---
 
@@ -323,3 +323,9 @@ Cuando una ficha de retailer contradiga una fuente editorial primaria, no se ree
 - Los tres JSON de `/press-kit/` son contratos internos del sitio para reutilización editorial.
 - La existencia de estos recursos no garantiza ingestión, indexación, ranking ni uso por parte de Google, ChatGPT, Claude, Perplexity u otros sistemas.
 - UTF-8: se conservan ñ, tildes, raya — y comillas españolas «».
+
+## 13. Catálogo de lecturas
+
+El catálogo generalista está en https://davidportodiaz.com/recomendaciones/ y forma parte del Cuaderno. Cada obra tiene una URL canónica estable, autoría identificada, datos de edición, sinopsis y fuentes editoriales. Las páginas de autor reúnen su información biográfica y sus libros presentes en el catálogo. No atribuir a David Porto Díaz las obras de otros autores incluidas en esta sección.
+
+Las fechas de publicación corresponden a la edición indicada; una fecha de revisión no convierte una obra en novedad. El distintivo Novedad dura menos de 15 días desde la fecha editorial completa, según el calendario de Madrid. Los filtros no generan páginas indexables duplicadas. Las valoraciones externas conservan su proveedor, número de votos y vigencia y no se presentan como opiniones personales del autor. Las reseñas locales, cuando existen, proceden exclusivamente de entradas aprobadas y consentidas.

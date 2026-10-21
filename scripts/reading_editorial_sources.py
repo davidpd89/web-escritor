@@ -28,6 +28,61 @@ class SourceError(ValueError):
     pass
 
 
+class PlainParagraphs(HTMLParser):
+    def __init__(self):
+        super().__init__(convert_charrefs=True)
+        self.paragraphs, self.parts, self.ignored = [], [], 0
+
+    def flush(self):
+        text = ' '.join(' '.join(self.parts).split())
+        if text:
+            self.paragraphs.append(text)
+        self.parts = []
+
+    def handle_starttag(self, tag, attrs):
+        if tag in ('script', 'style'):
+            self.ignored += 1
+        if tag in ('p', 'div', 'br', 'li'):
+            self.flush()
+
+    def handle_endtag(self, tag):
+        if tag in ('script', 'style'):
+            self.ignored = max(0, self.ignored - 1)
+        if tag in ('p', 'div', 'li'):
+            self.flush()
+
+    def handle_data(self, text):
+        if not self.ignored:
+            self.parts.append(text)
+
+
+def editorial_excerpt(value, limit=24):
+    """A short attributed excerpt, never the publisher's complete synopsis."""
+    parser = PlainParagraphs()
+    parser.feed(str(value or ''))
+    parser.flush()
+    candidates = [p for p in parser.paragraphs if len(p.split()) >= 10
+                  and not normalize_text(p).startswith(('resenas', 'la critica', 'criticas', 'sobre el autor'))
+                  and not p.startswith(('«', '“', '"'))]
+    if not candidates:
+        return ''
+    def score(text):
+        folded = normalize_text(text)
+        letters = [ch for ch in text if ch.isalpha()]
+        uppercase = sum(ch.isupper() for ch in letters) / max(1, len(letters))
+        value = min(len(text.split()), 80) / 20
+        if uppercase > .6:
+            value -= 10
+        if any(word in folded for word in ('bestseller', 'premio', 'exito internacional', 'vuelve el autor', 'llega a las librerias', 'nuevo libro', 'fenomeno editorial')):
+            value -= 4
+        if text.count('?') or text.count('¿'):
+            value -= 3
+        return value
+    text = max(enumerate(candidates), key=lambda pair: (score(pair[1]), -pair[0]))[1]
+    words = text.split()
+    return ' '.join(words[:limit]).rstrip(' ,;:') + ('…' if len(words) > limit else '')
+
+
 def allowed_url(raw, hosts):
     p = urlsplit(raw)
     if p.scheme != 'https' or p.hostname not in hosts or p.username or p.password or p.port not in (None, 443) or p.fragment:
@@ -121,9 +176,12 @@ class ProductHTML(HTMLParser):
         self.links = []
         self.canonical = None
         self._anchor = None
+        self.meta = {}
 
     def handle_starttag(self, tag, attrs):
         d = dict(attrs)
+        if tag == 'meta' and d.get('content'):
+            self.meta[d.get('name') or d.get('property')] = d['content']
         if tag == 'link' and d.get('rel') == 'canonical':
             self.canonical = d.get('href')
         if d.get('data-product'):
@@ -157,6 +215,22 @@ def product_links(document, source):
             if url not in links:
                 links.append(url)
     return links
+
+
+def publisher_author_bio(document, source, name):
+    parser = ProductHTML()
+    parser.feed(document)
+    if parser.canonical and parser.canonical.rstrip('/') != source.rstrip('/'):
+        raise SourceError('La biografía no conserva su URL canónica')
+    title = normalize_text(parser.meta.get('og:title', ''))
+    expected = normalize_text(name)
+    if not title.startswith(expected):
+        raise SourceError('La ficha de autor no coincide con el nombre de la edición')
+    raw = parser.meta.get('description') or parser.meta.get('og:description') or ''
+    if '\ufffd' in raw or len(raw.split()) < 12:
+        raise SourceError('Biografía editorial ausente o dañada')
+    words = ' '.join(raw.split()).split()
+    return ' '.join(words[:24]).rstrip(' ,;:') + ('…' if len(words) > 24 else '')
 
 
 def penguin_edition(document, source):
@@ -195,7 +269,10 @@ def penguin_edition(document, source):
     if not image or urlsplit(image).hostname != 'www.penguinlibros.com':
         raise SourceError('Portada editorial ausente')
     count = features.get('paginas', '')
-    author_sources = {name: next((urljoin(source, a['url']) for a in parser.links if normalize_text(a['text']) == normalize_text(name) and '/autor/' in a['url']), source) for name in authors}
+    author_sources = {name: next((urljoin(source, a['url']) for a in parser.links
+        if normalize_text(a['text']) == normalize_text(name)
+        and urlsplit(urljoin(source, a['url'])).hostname == 'www.penguinlibros.com'
+        and re.fullmatch(r'/es/\d+-[a-z0-9-]+', urlsplit(urljoin(source, a['url'])).path)), source) for name in authors}
     return {'isbn13': expected, 'titulo': title, 'autores': authors, 'editorial': publisher,
             'fecha_publicacion_edicion': published, 'precision_fecha': precision,
             'idioma': 'es', 'formato_edicion': format_id, 'encuadernacion': binding,
@@ -203,4 +280,5 @@ def penguin_edition(document, source):
             'materias': [html.unescape(str(p.get('category_name', '')))],
             'edad_recomendada': features.get('target de edad', ''),
             'portada_fuente_url': image, 'fuente_bibliografica_url': source,
-            'fuentes_autores': author_sources, 'coleccion': features.get('coleccion', '')}
+            'fuentes_autores': author_sources, 'coleccion': features.get('coleccion', ''),
+            'sinopsis_breve': editorial_excerpt(p.get('description')) or editorial_excerpt(p.get('description_short'))}
