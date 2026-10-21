@@ -220,3 +220,18 @@ En este encargo **no se han ejecutado esos comandos**.
 8. **No lanzar acciones** sin autorización: ningún CI, prueba, push al main, despliegue, nueva tarea programada, activación de Pinterest o compra externa forma parte de este trabajo.
 
 **Veredicto:** lo más útil ahora es recuperar sellos legítimos, añadir biografías con procedencia y un calendario exportable, manteniendo el único escritor diario. Los precios han recibido una corrección concreta para no ofrecer datos obsoletos; el crecimiento de páginas y la fuente Planeta requieren pilotos medidos. No se promete rentabilidad SEO ni cobertura exhaustiva.
+
+
+---
+
+## 9. Actualización decisiva: sustitución de Creators API y cláusula de no comparación (21/10/2026)
+
+La investigación adicional ha comprobado que **Amazon.es prohíbe presentar una comparación de precios de tiendas ajenas con un enlace afiliado si no se puede mostrar también el precio Amazon autorizado**. No se puede solucionar simplemente con scraping, bots, Drive o un agente de ChatGPT. Referencia oficial: https://afiliados.amazon.es/help/operating/linking.
+
+**Decisión de arquitectura:** dos modos **excluyentes**, controlados por `purchase_price_mode`: `amazon_affiliate` (estado por defecto, sin importe de otra tienda) y `publisher_only` (sin enlace afiliado Amazon en el HTML, se utiliza precio procedente del proveedor/editorial al que dirige la compra). No confundir importes entre proveedores. Google Books `saleInfo` permite únicamente eBooks exactos comercializados en España; una consulta de rating por ISBN de tapa dura no implica precio de ebook. Penguin tiene precios visibles en la ficha oficial, pero extraer el campo del HTML crudo, las condiciones y la cobertura siguen **pendientes de piloto**.
+
+**Código adicional:** `scripts/reading_free_prices.py`, `tests/test_reading_free_prices.py`, `tests/test_reading_price_mode.py`, `assets/reading-free-prices.json` vacío, configuración de encendido separado, escritores y allowlist ampliados, modo de render en `scripts/build-reading-catalogue.py`, compatibilidad de filtro y precio en `assets/reading-catalogue.js`. La funcionalidad está **desactivada** en la configuración hasta verificación y QA. `amazon_price_refresh.enabled=false` evita gasto inútil de peticiones de una cuenta sin elegibilidad.
+
+**Análisis completo con matrices de alternativas, fuentes, contratos, comandos y procedimiento de activación:** [Precios sin Creators API y catálogo](precios-sin-creators-y-catalogo-2026-10-21.md).
+
+**Ajuste del plan de implementación anterior:** las propuestas de mostrar el importe editorial junto a un CTA afiliado Amazon quedan expresamente **descartadas**. La mejora de 1 h de TTL de Amazon queda solo como salvaguarda futura de la API cuando sea elegible; no desbloquea precios actuales. La nueva solución gratuita y viable (condicionada al acceso editorial) no depende de ventas, pero tampoco promete cobertura del 100 % ni un precio Amazon disfrazado.
