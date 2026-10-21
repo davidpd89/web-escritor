@@ -70,5 +70,30 @@ class AtlasContractTest(unittest.TestCase):
         self.assertTrue(any("nunca puede aprobarse" in x for x in mod.problems(data)))
 
 
+    def test_approved_relation_rejects_unapproved_place_and_work(self):
+        data = sample()
+        data["relationships"][0].update(status="approved", verified_at="2026-10-21")
+        self.assertTrue(any("places='lug-library' no aprobado" in x for x in mod.problems(data)))
+        self.assertTrue(any("works='obr-synthetic' no aprobado" in x for x in mod.problems(data)))
+
+    def test_approved_route_cannot_link_candidate_stops(self):
+        data = sample()
+        data["routes"] = [{"id": "rou-example", "status": "approved",
+                           "verified_at": "2026-10-21",
+                           "destination_id": "dst-world",
+                           "place_ids": ["lug-library"]}]
+        issues = mod.problems(data)
+        self.assertTrue(any("places='lug-library' no aprobado" in x for x in issues))
+        self.assertTrue(any("destinations='dst-world' no aprobado" in x for x in issues))
+
+    def test_approved_place_requires_approved_destination(self):
+        data = sample()
+        data["places"][0].update(status="approved", verified_at="2026-10-21",
+                                 summary_original="Descripción propia")
+        issues = mod.problems(data)
+        self.assertTrue(any("destinations='dst-world' no aprobado" in x for x in issues))
+
+
+
 if __name__ == "__main__":
     unittest.main()
