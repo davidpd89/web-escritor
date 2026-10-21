@@ -204,7 +204,7 @@ Informe: libros publicados, autores únicos y fichas faltantes, autores con biog
 
 Preflight posterior autorizado:
     python scripts/reading_content_opportunities.py --today 2026-10-21
-    python -m unittest tests.test_reading_content_opportunities tests.test_reading_release_calendar tests.test_reading_publisher_audit tests.test_reading_amazon_market -v
+    python -m unittest discover -s tests -p 'test_reading*.py' -v
 
 En este encargo **no se han ejecutado esos comandos**.
 
