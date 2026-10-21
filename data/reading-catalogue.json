@@ -233,6 +233,24 @@
       "orden": 175,
       "slug": "nutricion-y-bienestar",
       "tipo": "genero"
+    },
+    {
+      "activa": true,
+      "descripcion": "Clasificación editorial: Tiempo libre.",
+      "id": "tema-tiempo-libre",
+      "nombre": "Tiempo libre",
+      "orden": 176,
+      "slug": "tema-tiempo-libre",
+      "tipo": "tematica"
+    },
+    {
+      "activa": true,
+      "descripcion": "Clasificación editorial: Ciencia ficción.",
+      "id": "ciencia-ficcion",
+      "nombre": "Ciencia ficción",
+      "orden": 177,
+      "slug": "ciencia-ficcion",
+      "tipo": "genero"
     }
   ],
   "libro_categorias": [
@@ -461,8 +479,48 @@
       "libro_id": "isbn-9788425374869"
     },
     {
-      "libro_id": "isbn-9791387640491",
-      "categoria_id": "novela-historica"
+      "categoria_id": "novela-historica",
+      "libro_id": "isbn-9791387640491"
+    },
+    {
+      "categoria_id": "narrativa",
+      "libro_id": "isbn-9791387975340"
+    },
+    {
+      "categoria_id": "adultos",
+      "libro_id": "isbn-9791387975340"
+    },
+    {
+      "categoria_id": "tema-tiempo-libre",
+      "libro_id": "isbn-9788401039836"
+    },
+    {
+      "categoria_id": "adultos",
+      "libro_id": "isbn-9788401039836"
+    },
+    {
+      "categoria_id": "ciencia-ficcion",
+      "libro_id": "isbn-9788410466470"
+    },
+    {
+      "categoria_id": "adultos",
+      "libro_id": "isbn-9788410466470"
+    },
+    {
+      "categoria_id": "fantasia",
+      "libro_id": "isbn-9788401037917"
+    },
+    {
+      "categoria_id": "adultos",
+      "libro_id": "isbn-9788401037917"
+    },
+    {
+      "categoria_id": "misterio-y-thriller",
+      "libro_id": "isbn-9788401031380"
+    },
+    {
+      "categoria_id": "adultos",
+      "libro_id": "isbn-9788401031380"
     }
   ],
   "libros": [
@@ -1293,6 +1351,9 @@
         "Sofía Andrujóvich"
       ],
       "autorizacion_o_base_uso": "Cubierta proporcionada en la ficha oficial de la edición para su identificación bibliográfica, con atribución y enlace a la editorial. No se declara licencia abierta ni se reutiliza como imagen de Pinterest.",
+      "categorias_excluidas": [
+        "familia-y-crianza"
+      ],
       "descripcion_breve": "La historia de Romana y Uliana (Amadoca 1), de Sofía Andrujóvich. Edición de Salamandra en castellano, en tapa blanda con solapas. Consta de 544 páginas. La editorial la incluye en familia y crianza. Publicación editorial: 2026-10-08.",
       "descripcion_original_confirmada": true,
       "edad_recomendada": "Adultos",
@@ -1328,10 +1389,7 @@
       "sinopsis_fuente_url": "https://www.penguinlibros.com/es/libros-crianza/635111-libro-la-historia-de-romana-y-uliana-amadoca-1-9791387640491",
       "sinopsis_tipo": "extracto_editorial",
       "slug": "la-historia-de-romana-y-uliana-amadoca-1-9791387640491",
-      "titulo": "La historia de Romana y Uliana (Amadoca 1)",
-      "categorias_excluidas": [
-        "familia-y-crianza"
-      ]
+      "titulo": "La historia de Romana y Uliana (Amadoca 1)"
     },
     {
       "amazon_busqueda_isbn": "https://www.amazon.es/s?k=9788466683043&tag=davidporto-21",
@@ -1640,6 +1698,226 @@
       "sinopsis_tipo": "extracto_editorial",
       "slug": "barbacoa-9788425374012",
       "titulo": "Barbacoa"
+    },
+    {
+      "amazon_busqueda_isbn": "https://www.amazon.es/s?k=9791387975340&tag=davidporto-21",
+      "anio_publicacion": 2026,
+      "autores": [
+        "Rosa Montero"
+      ],
+      "autorizacion_o_base_uso": "Cubierta proporcionada en la ficha oficial de la edición para su identificación bibliográfica, con atribución y enlace a la editorial. No se declara licencia abierta ni se reutiliza como imagen de Pinterest.",
+      "descripcion_breve": "Un día en la vida de Clarita, de Rosa Montero. Edición de Alfaguara en castellano, en tapa blanda con solapas. Consta de 144 páginas. La editorial la incluye en literatura contemporánea. Publicación editorial: 2026-09-17.",
+      "descripcion_original_confirmada": true,
+      "edad_recomendada": "Adultos",
+      "edicion": "Tapa blanda con solapas · Alfaguara",
+      "editorial": "Alfaguara",
+      "editorial_slug": "alfaguara",
+      "estado": "publicado",
+      "fecha_actualizacion": "2026-10-21",
+      "fecha_publicacion": "2026-09-17",
+      "fecha_verificacion": "2026-10-21",
+      "formato_edicion": "tapa-blanda",
+      "fuente_bibliografica_url": "https://www.penguinlibros.com/es/literatura-contemporanea/631444-libro-un-dia-en-la-vida-de-clarita-9791387975340",
+      "fuente_edad_url": "https://www.penguinlibros.com/es/literatura-contemporanea/631444-libro-un-dia-en-la-vida-de-clarita-9791387975340",
+      "fuente_publicacion_url": "https://www.penguinlibros.com/es/literatura-contemporanea/631444-libro-un-dia-en-la-vida-de-clarita-9791387975340",
+      "id": "isbn-9791387975340",
+      "idioma": "es",
+      "isbn13": "9791387975340",
+      "numero_paginas": 144,
+      "portada_alto": 1235,
+      "portada_ancho": 800,
+      "portada_edicion_verificada": true,
+      "portada_fecha_revision": "2026-10-21",
+      "portada_fuente_url": "https://www.penguinlibros.com/es/8094635-thickbox_default/un-dia-en-la-vida-de-clarita.jpg",
+      "portada_local": "/assets/reading-covers/isbn-9791387975340.webp",
+      "resenas": [
+        {
+          "fecha_verificacion": "2026-10-21",
+          "titulo": "Buscar reseñas en Goodreads",
+          "url": "https://www.goodreads.com/search?q=9791387975340"
+        }
+      ],
+      "sinopsis_breve": "Pero esa jornada, que debía transcurrir entre adioses desganados, humillaciones constantes y la inercia de una oficina implacable, se ve alterada por un suceso…",
+      "sinopsis_fuente_url": "https://www.penguinlibros.com/es/literatura-contemporanea/631444-libro-un-dia-en-la-vida-de-clarita-9791387975340",
+      "sinopsis_tipo": "extracto_editorial",
+      "slug": "un-dia-en-la-vida-de-clarita-9791387975340",
+      "titulo": "Un día en la vida de Clarita"
+    },
+    {
+      "amazon_busqueda_isbn": "https://www.amazon.es/s?k=9788401039836&tag=davidporto-21",
+      "anio_publicacion": 2026,
+      "autores": [
+        "Elma van Vliet"
+      ],
+      "autorizacion_o_base_uso": "Cubierta proporcionada en la ficha oficial de la edición para su identificación bibliográfica, con atribución y enlace a la editorial. No se declara licencia abierta ni se reutiliza como imagen de Pinterest.",
+      "descripcion_breve": "Familia, ¿contamos nuestra historia? (¿Me cuentas tu historia?), de Elma van Vliet. Edición de Plaza & Janés en castellano, en tapa dura con sobrecubierta. Consta de 208 páginas. La editorial la incluye en tiempo libre. Publicación editorial: 2026-10-22.",
+      "descripcion_original_confirmada": true,
+      "edad_recomendada": "Adultos",
+      "edicion": "Tapa dura con sobrecubierta · Plaza & Janés",
+      "editorial": "Plaza & Janés",
+      "editorial_slug": "plaza-y-janes",
+      "estado": "publicado",
+      "fecha_actualizacion": "2026-10-21",
+      "fecha_publicacion": "2026-10-22",
+      "fecha_verificacion": "2026-10-21",
+      "formato_edicion": "tapa-dura",
+      "fuente_bibliografica_url": "https://www.penguinlibros.com/es/tiempo-libre/635030-libro-familia-contamos-nuestra-historia-me-cuentas-tu-historia-9788401039836",
+      "fuente_edad_url": "https://www.penguinlibros.com/es/tiempo-libre/635030-libro-familia-contamos-nuestra-historia-me-cuentas-tu-historia-9788401039836",
+      "fuente_publicacion_url": "https://www.penguinlibros.com/es/tiempo-libre/635030-libro-familia-contamos-nuestra-historia-me-cuentas-tu-historia-9788401039836",
+      "id": "isbn-9788401039836",
+      "idioma": "es",
+      "isbn13": "9788401039836",
+      "numero_paginas": 208,
+      "portada_alto": 1235,
+      "portada_ancho": 800,
+      "portada_edicion_verificada": true,
+      "portada_fecha_revision": "2026-10-21",
+      "portada_fuente_url": "https://www.penguinlibros.com/es/8218170-thickbox_default/familia-contamos-nuestra-historia-me-cuentas-tu-historia.jpg",
+      "portada_local": "/assets/reading-covers/isbn-9788401039836.webp",
+      "resenas": [
+        {
+          "fecha_verificacion": "2026-10-21",
+          "titulo": "Buscar reseñas en Goodreads",
+          "url": "https://www.goodreads.com/search?q=9788401039836"
+        }
+      ],
+      "sinopsis_breve": "Con este libro puedes hacer un regalo muy especial para toda tu familia. Está repleto de preguntas divertidas e inesperadas para que respondáis entre…",
+      "sinopsis_fuente_url": "https://www.penguinlibros.com/es/tiempo-libre/635030-libro-familia-contamos-nuestra-historia-me-cuentas-tu-historia-9788401039836",
+      "sinopsis_tipo": "extracto_editorial",
+      "slug": "familia-contamos-nuestra-historia-me-cuentas-tu-historia-9788401039836",
+      "titulo": "Familia, ¿contamos nuestra historia? (¿Me cuentas tu historia?)"
+    },
+    {
+      "amazon_busqueda_isbn": "https://www.amazon.es/s?k=9788410466470&tag=davidporto-21",
+      "anio_publicacion": 2026,
+      "autores": [
+        "Matt Dinniman"
+      ],
+      "autorizacion_o_base_uso": "Cubierta proporcionada en la ficha oficial de la edición para su identificación bibliográfica, con atribución y enlace a la editorial. No se declara licencia abierta ni se reutiliza como imagen de Pinterest.",
+      "descripcion_breve": "El ojo de la novia frenopática (Carl el Mazmorrero 6), de Matt Dinniman. Edición de Nova en castellano, en tapa blanda con solapas. Consta de 832 páginas. La editorial la incluye en ciencia ficción. Publicación editorial: 2026-10-01.",
+      "descripcion_original_confirmada": true,
+      "edad_recomendada": "Adultos",
+      "edicion": "Tapa blanda con solapas · Nova",
+      "editorial": "Nova",
+      "editorial_slug": "nova",
+      "estado": "publicado",
+      "fecha_actualizacion": "2026-10-21",
+      "fecha_publicacion": "2026-10-01",
+      "fecha_verificacion": "2026-10-21",
+      "formato_edicion": "tapa-blanda",
+      "fuente_bibliografica_url": "https://www.penguinlibros.com/es/libros-de-ciencia-ficcion/635049-libro-el-ojo-de-la-novia-frenopatica-carl-el-mazmorrero-6-9788410466470",
+      "fuente_edad_url": "https://www.penguinlibros.com/es/libros-de-ciencia-ficcion/635049-libro-el-ojo-de-la-novia-frenopatica-carl-el-mazmorrero-6-9788410466470",
+      "fuente_publicacion_url": "https://www.penguinlibros.com/es/libros-de-ciencia-ficcion/635049-libro-el-ojo-de-la-novia-frenopatica-carl-el-mazmorrero-6-9788410466470",
+      "id": "isbn-9788410466470",
+      "idioma": "es",
+      "isbn13": "9788410466470",
+      "numero_paginas": 832,
+      "portada_alto": 1235,
+      "portada_ancho": 800,
+      "portada_edicion_verificada": true,
+      "portada_fecha_revision": "2026-10-21",
+      "portada_fuente_url": "https://www.penguinlibros.com/es/8060020-thickbox_default/el-ojo-de-la-novia-frenopatica-carl-el-mazmorrero-6.jpg",
+      "portada_local": "/assets/reading-covers/isbn-9788410466470.webp",
+      "resenas": [
+        {
+          "fecha_verificacion": "2026-10-21",
+          "titulo": "Buscar reseñas en Goodreads",
+          "url": "https://www.goodreads.com/search?q=9788410466470"
+        }
+      ],
+      "sinopsis_breve": "Los participantes reciben una nueva misión: encontrar y capturar a seis monstruos que se convertirán en seis cartas. Cuanto más fuertes y letales…, mejor.…",
+      "sinopsis_fuente_url": "https://www.penguinlibros.com/es/libros-de-ciencia-ficcion/635049-libro-el-ojo-de-la-novia-frenopatica-carl-el-mazmorrero-6-9788410466470",
+      "sinopsis_tipo": "extracto_editorial",
+      "slug": "el-ojo-de-la-novia-frenopatica-carl-el-mazmorrero-6-9788410466470",
+      "titulo": "El ojo de la novia frenopática (Carl el Mazmorrero 6)"
+    },
+    {
+      "amazon_busqueda_isbn": "https://www.amazon.es/s?k=9788401037917&tag=davidporto-21",
+      "anio_publicacion": 2026,
+      "autores": [
+        "Katee Robert"
+      ],
+      "autorizacion_o_base_uso": "Cubierta proporcionada en la ficha oficial de la edición para su identificación bibliográfica, con atribución y enlace a la editorial. No se declara licencia abierta ni se reutiliza como imagen de Pinterest.",
+      "descripcion_breve": "Las Pruebas del Tarot, de Katee Robert. Edición de Plaza & Janés en castellano, en tapa dura con sobrecubierta. Consta de 496 páginas. La editorial la incluye en fantasía. Publicación editorial: 2026-10-22.",
+      "descripcion_original_confirmada": true,
+      "edad_recomendada": "Adultos",
+      "edicion": "Tapa dura con sobrecubierta · Plaza & Janés",
+      "editorial": "Plaza & Janés",
+      "editorial_slug": "plaza-y-janes",
+      "estado": "publicado",
+      "fecha_actualizacion": "2026-10-21",
+      "fecha_publicacion": "2026-10-22",
+      "fecha_verificacion": "2026-10-21",
+      "formato_edicion": "tapa-dura",
+      "fuente_bibliografica_url": "https://www.penguinlibros.com/es/libros-de-fantasia/627020-libro-las-pruebas-del-tarot-9788401037917",
+      "fuente_edad_url": "https://www.penguinlibros.com/es/libros-de-fantasia/627020-libro-las-pruebas-del-tarot-9788401037917",
+      "fuente_publicacion_url": "https://www.penguinlibros.com/es/libros-de-fantasia/627020-libro-las-pruebas-del-tarot-9788401037917",
+      "id": "isbn-9788401037917",
+      "idioma": "es",
+      "isbn13": "9788401037917",
+      "numero_paginas": 496,
+      "portada_alto": 1235,
+      "portada_ancho": 800,
+      "portada_edicion_verificada": true,
+      "portada_fecha_revision": "2026-10-21",
+      "portada_fuente_url": "https://www.penguinlibros.com/es/8087537-thickbox_default/las-pruebas-del-tarot.jpg",
+      "portada_local": "/assets/reading-covers/isbn-9788401037917.webp",
+      "resenas": [
+        {
+          "fecha_verificacion": "2026-10-21",
+          "titulo": "Buscar reseñas en Goodreads",
+          "url": "https://www.goodreads.com/search?q=9788401037917"
+        }
+      ],
+      "sinopsis_breve": "Ahora le corresponde a Kestrel tomar el testigo como Campeona de la Luna, entrar en las Pruebas y enfrentarse a su destino. Si logra…",
+      "sinopsis_fuente_url": "https://www.penguinlibros.com/es/libros-de-fantasia/627020-libro-las-pruebas-del-tarot-9788401037917",
+      "sinopsis_tipo": "extracto_editorial",
+      "slug": "las-pruebas-del-tarot-9788401037917",
+      "titulo": "Las Pruebas del Tarot"
+    },
+    {
+      "amazon_busqueda_isbn": "https://www.amazon.es/s?k=9788401031380&tag=davidporto-21",
+      "anio_publicacion": 2026,
+      "autores": [
+        "Ibon Martín"
+      ],
+      "autorizacion_o_base_uso": "Cubierta proporcionada en la ficha oficial de la edición para su identificación bibliográfica, con atribución y enlace a la editorial. No se declara licencia abierta ni se reutiliza como imagen de Pinterest.",
+      "descripcion_breve": "Bajamar, de Ibon Martín. Edición de Plaza & Janés en castellano, en tapa dura con sobrecubierta. Consta de 496 páginas. La editorial la incluye en novela negra, misterio y thriller. Publicación editorial: 2026-10-01.",
+      "descripcion_original_confirmada": true,
+      "edad_recomendada": "Adultos",
+      "edicion": "Tapa dura con sobrecubierta · Plaza & Janés",
+      "editorial": "Plaza & Janés",
+      "editorial_slug": "plaza-y-janes",
+      "estado": "publicado",
+      "fecha_actualizacion": "2026-10-21",
+      "fecha_publicacion": "2026-10-01",
+      "fecha_verificacion": "2026-10-21",
+      "formato_edicion": "tapa-dura",
+      "fuente_bibliografica_url": "https://www.penguinlibros.com/es/novela-negra-misterio-y-thriller/635026-libro-bajamar-9788401031380",
+      "fuente_edad_url": "https://www.penguinlibros.com/es/novela-negra-misterio-y-thriller/635026-libro-bajamar-9788401031380",
+      "fuente_publicacion_url": "https://www.penguinlibros.com/es/novela-negra-misterio-y-thriller/635026-libro-bajamar-9788401031380",
+      "id": "isbn-9788401031380",
+      "idioma": "es",
+      "isbn13": "9788401031380",
+      "numero_paginas": 496,
+      "portada_alto": 1235,
+      "portada_ancho": 800,
+      "portada_edicion_verificada": true,
+      "portada_fecha_revision": "2026-10-21",
+      "portada_fuente_url": "https://www.penguinlibros.com/es/8250286-thickbox_default/bajamar.jpg",
+      "portada_local": "/assets/reading-covers/isbn-9788401031380.webp",
+      "resenas": [
+        {
+          "fecha_verificacion": "2026-10-21",
+          "titulo": "Buscar reseñas en Goodreads",
+          "url": "https://www.goodreads.com/search?q=9788401031380"
+        }
+      ],
+      "sinopsis_breve": "La nueva novela de Ibon Martin tras el éxito de la serie de la inspectora Cestero.",
+      "sinopsis_fuente_url": "https://www.penguinlibros.com/es/novela-negra-misterio-y-thriller/635026-libro-bajamar-9788401031380",
+      "sinopsis_tipo": "extracto_editorial",
+      "slug": "bajamar-9788401031380",
+      "titulo": "Bajamar"
     }
   ],
   "schema_version": 1
