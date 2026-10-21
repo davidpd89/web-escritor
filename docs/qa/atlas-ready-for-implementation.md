@@ -94,3 +94,9 @@ python scripts/build-site-shell.py --check
 ### Nuevo gate contra desindexación masiva involuntaria
 
 La página [Pagefind Indexing](https://pagefind.app/docs/indexing/) advierte que etiquetar **solo algunas** páginas con `data-pagefind-body` puede excluir todas las demás sin esa marca. El sitio existente indexa body por defecto; la #672 incluyó la marca en su primer prototipo, y ahora la **ha eliminado**. En [`check_atlas_release_contract.py`](../../scripts/check_atlas_release_contract.py) se rechaza esa marca en las páginas Atlas, con **novena prueba sintética**. No activar cambio global a `--root-selector` sin comprobar todo el contenido existente y sin migración homogénea.
+
+## Regresión de enlaces Atlas → libros existentes (21/10/2026)
+
+[#672](https://github.com/davidpd89/web-escritor/pull/672) ahora puede enlazar únicamente obras identificadas por `reading_book_id` en `data/reading-catalogue.json`, usando el slug publicado real del catálogo. **Este gate #677 también se ha ampliado:** si una página del Atlas enlaza a `/recomendaciones/libros/<slug>/`, verifica que **`index.html` exista en el build final**. Si es una ruta malformada o una URL inventada, bloquea el release. Incluye un caso positivo/negativo sintético (fichero ausente → error; fichero presente → permitido).
+
+**10 pruebas sintéticas en este módulo, NO ejecutadas.** Esto complementa el comprobador de relaciones y enlaces internos Atlas y protege la conversión hacia recomendaciones sin romper SEO, canonicals ni ventas existentes. No es un vínculo de afiliación ni modifica el catálogo.
