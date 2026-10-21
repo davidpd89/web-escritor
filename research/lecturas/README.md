@@ -53,7 +53,7 @@ builder.validate          →  mismo HTML, autores, sitemap, Pagefind
 - `libro-<isbn13>.ics` individual por cada edición futura (descargar/importar en calendario);
 - `manifest.json` de propuestas para botón «Añadir al calendario» y enlace opcional «Google Calendar», sin JS de terceros.
 
-**Implementado en el prototipo, verificable al ejecutar**: solo libro `estado=publicado` con fecha exacta y **posterior** al día civil Madrid, hasta 365 días; evento de día completo `DTSTART;VALUE=DATE`, `DTEND` exclusivo de día siguiente, `VALARM TRIGGER:-P1D`, UTF-8 y líneas plegadas a 75 octetos, texto escapado y UID estable. No inserta precio de Amazon ni fecha de disponibilidad inventada.
+**Implementado en el prototipo, verificable al ejecutar**: solo libro `estado=publicado` con fecha exacta y **posterior** al día civil Madrid, hasta 365 días; evento de día completo `DTSTART;VALUE=DATE`, `DTEND` exclusivo de día siguiente, `VALARM TRIGGER:-P1D`, UTF-8 y líneas plegadas a 75 octetos, texto escapado y UID estable y `DTSTAMP` ligado a la revisión editorial (evita falsos cambios diarios si la ficha no cambia). No inserta precio de Amazon ni fecha de disponibilidad inventada.
 
 **Advertencia funcional útil, no obstáculo:** descargar un `.ics` no garantiza actualizarse si cambia la fecha después. **Suscribir** el calendario agregado sí permite que el cliente consulte actualizaciones según sus propias políticas; algunos clientes ignoran `VALARM` de feeds. El botón «Recordármelo» es recordatorio **en su calendario**, NO email/push desde tu web. Si quieres emails hay que añadir sistema de suscripciones más adelante.
 
@@ -73,7 +73,7 @@ Se investigó [`adamgibbons/ics`](https://github.com/adamgibbons/ics), paquete I
 - [`LICENSE.upstream`](vendor/ics/LICENSE.upstream) idéntica a [licencia original](https://github.com/adamgibbons/ics/blob/master/LICENSE), **Git blob SHA `f6c77f6045bd3fd3af651f05596bc5f0696c7e2f`**.
 - Ambas copias se compararon **byte a byte en GitHub**. Es una utilidad JS autocontenida para el escape de campos de texto; **todavía no está importada** porque el generador Python stdlib ya implementa escape localmente. **No vendorizamos el paquete entero ni `fold-line.js`**, que depende de `runes2` y añadiría tamaño/instalación a nuestra web sin ventaja.
 
-[Seis pruebas sintéticas](tests/test_reading_release_calendar_preview.py) no ejecutadas: fechas exactas, rechazo de borradores, UID, VALARM, plegado UTF-8, enlace Google Calendar, ISBN duplicado.
+[Siete pruebas sintéticas](tests/test_reading_release_calendar_preview.py) no ejecutadas: fechas exactas, rechazo de borradores, UID, VALARM, plegado UTF-8, enlace Google Calendar, ISBN duplicado y estabilidad diaria del feed cuando la ficha no cambia.
 
 ## 3. SEO, comparación UX y comercial: no tirar lo que ya funciona
 
@@ -89,6 +89,6 @@ Se investigó [`adamgibbons/ics`](https://github.com/adamgibbons/ics), paquete I
 2. **P2 — integrar solo el adapter que pase QA**: introducir `provider` dispatch, **eliminar** suposición `url suffix = ISBN`, resolver fechas y editoriales y reutilizar el core de #661/#665. No añadir segundo cron ni API de pago.
 3. **P3 — calendario ligero**: integrar ICS generator en mismo build, solo si hay próximos libros con día confirmado; tests de calendar normalización y fechas, enlace directo en ficha/tarjeta, diff cero a páginas existentes.
 4. **P4 — medir y decidir**: número de ISBN únicos, % fichas que completan autor+foto+sinopsis, Pagefind/sitemap/CWV de lanzamiento, clicks «Guardar», visitas orgánicas y Amazon/UTM. No inferir causalidad de conversión por número de libros.
-5. **QA**: la PR **no ejecuta** tests ni Actions ni merge ni publicación. Los 12 casos sintéticos son código escrito en carpeta aislada de investigación; exigir QA real antes de considerarlo listo.
+5. **QA**: la PR **no ejecuta** tests ni Actions ni merge ni publicación. Los 13 casos sintéticos son código escrito en carpeta aislada de investigación; exigir QA real antes de considerarlo listo.
 
 **Limitación intencionada**: esta PR recopila investigación y prototipos *utilizables* sin modificar `scripts/reading_intake_pipeline.py`, `build-reading-catalogue.py`, `data/reading-catalogue.json`, imágenes, precios, Pinterest, workflow o enlaces ya publicados.
