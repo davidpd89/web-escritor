@@ -49,7 +49,7 @@ try {
   await page.goto(`${base}/recomendaciones/?utm_source=prueba`); await page.waitForLoadState('networkidle');
   assert(await field('precio_max').isDisabled()); assert(await field('valoracion').isDisabled());
   assert.equal(await page.locator('[data-price-book]:not([hidden])').count(), 0);
-  assert.equal(await page.locator('[data-rating-book] a').count(), 0);
+  assert.equal(await page.locator('[data-rating-book] a:has(.catalogue-stars)').count(), 0);
   assert.deepEqual(errors, []);
   await context.close();
   // Official external ratings sources must render with their OWN attribution.
@@ -71,14 +71,14 @@ try {
         url: 'https://books.google.com.evil.invalid/books?id=UNTRUSTED' },
     ] } }));
   await sourcePage.goto(`${base}/recomendaciones/?utm_source=fuentes`, { waitUntil: 'networkidle' });
-  await sourcePage.waitForFunction(() => [...document.querySelectorAll('[data-rating-book] a')].length === 2);
-  const labels = await sourcePage.locator('[data-rating-book] a').evaluateAll(els => els.map(el => ({ text: el.textContent, href: el.href })));
+  await sourcePage.waitForFunction(() => [...document.querySelectorAll('[data-rating-book] a:has(.catalogue-stars)')].length === 2);
+  const labels = await sourcePage.locator('[data-rating-book] a:has(.catalogue-stars)').evaluateAll(els => els.map(el => ({ text: el.textContent, href: el.href })));
   assert(labels.some(x => x.text.includes('Google Books') && x.href === 'https://books.google.com/books?id=ABCD_123'));
   assert(labels.some(x => x.text.includes('Hardcover') && x.href === 'https://hardcover.app/books/contrato-dos'));
   assert(labels.every(x => !x.text.includes('Goodreads')), 'Must attribute imported ratings correctly');
   // A replacement aria-label previously differed from the visible score,
   // breaking voice control's "label in name" contract. Keep the visible text.
-  assert(await sourcePage.locator('[data-rating-book] a').evaluateAll(els => els.every(el => !el.hasAttribute('aria-label') && el.querySelector('.catalogue-stars')?.getAttribute('aria-hidden') === 'true')));
+  assert(await sourcePage.locator('[data-rating-book] a:has(.catalogue-stars)').evaluateAll(els => els.every(el => !el.hasAttribute('aria-label') && el.querySelector('.catalogue-stars')?.getAttribute('aria-hidden') === 'true')));
   await sourceContext.close();
   const monthContext = await browser.newContext();
   const monthPage = await monthContext.newPage();
@@ -99,7 +99,7 @@ try {
   await live.goto(`${base}/`);
   assert.deepEqual(await live.locator('#masthead-submenu-recommendations-hub a').allTextContents(), ['Catálogo de libros', 'Editoriales', 'Concursos']);
   await live.goto(`${base}/recomendaciones/libros/coraline/`);
-  const ratingLink = live.locator('[data-rating-book] a');
+  const ratingLink = live.locator('[data-rating-book] a:has(.catalogue-stars)');
   await ratingLink.waitFor();
   const target = await ratingLink.boundingBox();
   assert(target.width >= 44 && target.height >= 44, 'Goodreads must be a usable touch target');

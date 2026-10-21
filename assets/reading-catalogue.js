@@ -67,7 +67,15 @@
       ratingsIndex.get(rating.libro_id).push(rating);
     }
     for (const box of root.querySelectorAll('[data-rating-book]')) {
-      const r = ratingFor(box.dataset.ratingBook); box.replaceChildren(); if (!r) continue;
+      const r = ratingFor(box.dataset.ratingBook); box.replaceChildren();
+      if (!r) {
+        // Sin valoración pública verificada: se dice tal cual y se enlaza a la ficha del ISBN.
+        if (/^\d{13}$/.test(box.dataset.isbn || '')) {
+          const none = document.createElement('a'); none.href = 'https://www.goodreads.com/book/isbn/' + box.dataset.isbn; none.target = '_blank'; none.rel = 'noopener noreferrer';
+          none.textContent = 'Aún sin valoraciones públicas · Ver en Goodreads ↗'; box.append(none);
+        }
+        continue;
+      }
       const link = document.createElement('a'); link.href = r.url; link.target = '_blank'; link.rel = 'noopener noreferrer';
       const stars = document.createElement('span'); stars.className = 'catalogue-stars'; stars.setAttribute('aria-hidden', 'true'); stars.style.setProperty('--rating', r.puntuacion / 5 * 100 + '%'); stars.textContent = '★★★★★';
       link.append(stars, ' ' + r.puntuacion.toLocaleString('es-ES') + '/5 · ' + ratingLabel(r) + ' · ' + r.numero_valoraciones.toLocaleString('es-ES') + ' valoraciones'); link.title = 'Consultado el ' + new Date(r.actualizado_en).toLocaleDateString('es-ES'); box.append(link);

@@ -36,6 +36,9 @@ try {
     await page.waitForFunction(total => document.querySelectorAll('[data-catalogue-book]:not([hidden])').length > 0 && document.querySelector('[data-type-radio][value=""]').checked, total);
     await page.goto(`${base}/recomendaciones/#grupo=cocina`, { waitUntil: 'load' });
     await page.waitForFunction(() => document.querySelector('[data-type-radio][value="cocina"]')?.checked);
+    await page.waitForFunction(() => [...document.querySelectorAll('[data-rating-book]')].every(box => box.textContent.trim()));
+    const unrated = await page.locator('[data-rating-book]:not(:has(.catalogue-stars)) a').allInnerTexts();
+    assert.ok(unrated.every(text => text.startsWith('Aún sin valoraciones públicas')), 'Sin valoración verificada se indica con honestidad');
     assert.equal(await page.locator('.catalogue-extra-tags').count(), 0, 'Sin desplegable de «Más categorías» en las tarjetas');
     assert.deepEqual(errors, [], 'Sin errores de JavaScript');
     await page.close();
