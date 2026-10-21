@@ -45,6 +45,12 @@ class GoogleRatingsTests(unittest.TestCase):
         self.assertEqual(record["fuente"], "google_books")
         self.assertEqual(record["url"], "https://books.google.com/books?id=sAfGx_abc")
 
+    def test_canonical_author_order_without_wrong_author_collision(self):
+        self.assertTrue(ratings.author_matches("Pérez Reverte Arturo", "Arturo Pérez Reverte"))
+        self.assertTrue(ratings.author_matches("Neil Gaiman", "Neil Gaiman"))
+        self.assertFalse(ratings.author_matches("Neil Otro", "Neil Gaiman"))
+        self.assertFalse(ratings.author_matches("Ana María", "María Luisa"))
+
     def test_wrong_isbn_title_author_and_noratings_are_rejected(self):
         variants = [
             volume(identifier="9788425374012"),
