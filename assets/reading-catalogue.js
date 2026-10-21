@@ -43,7 +43,7 @@
     for (const f of root.querySelectorAll('[data-market-control]')) f.disabled = !market[f.dataset.marketControl].some(f.dataset.marketControl === 'offers' ? validOffer : validRating);
     for (const o of root.querySelectorAll('[data-sort-market]')) o.disabled = !market[o.dataset.sortMarket].some(o.dataset.sortMarket === 'offers' ? validOffer : validRating);
     for (const f of fields) if ((f.disabled || (f.tagName === 'SELECT' && f.selectedOptions[0]?.disabled)) && f.value) f.value = f.dataset.filter === 'orden' ? 'editorial' : '';
-    const note = root.querySelector('[data-market-note]'); if (note) note.textContent = market.offers.some(validOffer) ? 'Precios en EUR sujetos a disponibilidad y condiciones en Amazon.' : 'Los filtros de precio y oferta estarán disponibles cuando haya precios vigentes.';
+
   }
   function apply(save = true) {
     const v = values(); let visible = 0;
