@@ -114,7 +114,7 @@
     renderPagination(pages, visible);
     for (const box of root.querySelectorAll('[data-price-book]')) {
       const offers = offersFor(box.dataset.priceBook).filter(o => !v.formato || o.formato === v.formato).sort((a, b) => a.precio_centimos - b.precio_centimos); box.replaceChildren(); box.hidden = !offers.length;
-      if (offers.length) { const link = document.createElement('a'); link.href = offers[0].url; link.rel = 'sponsored nofollow noopener noreferrer'; link.target = '_blank'; link.textContent = 'Desde ' + money(offers[0].precio_centimos) + ' en Amazon'; link.title = 'Precio consultado el ' + new Date(offers[0].actualizado_en).toLocaleString('es-ES') + '. El precio aplicable será el de Amazon al comprar.'; box.append(link); }
+      if (offers.length) { const link = document.createElement('a'); link.href = offers[0].url; link.rel = 'sponsored nofollow noopener noreferrer'; link.target = '_blank'; link.textContent = 'Desde ' + money(offers[0].precio_centimos) + ' · ' + ({'tapa-blanda':'tapa blanda','tapa-dura':'tapa dura','ebook':'eBook','audiolibro':'audiolibro'}[offers[0].formato]) + ' · Amazon'; link.title = 'Precio consultado el ' + new Date(offers[0].actualizado_en).toLocaleString('es-ES') + '. El precio aplicable será el de Amazon al comprar.'; box.append(link); }
     }
     if (form) {
       root.querySelector('[data-catalogue-count]').textContent = visible + (visible === 1 ? ' libro' : ' libros') + (pages > 1 ? ' · página ' + currentPage + ' de ' + pages : ''); root.querySelector('[data-catalogue-empty]').hidden = visible !== 0;
