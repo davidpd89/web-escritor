@@ -32,6 +32,7 @@
   let manifest = null;
   let current = null;
   let shownPage = 0;
+  let selectionVersion = 0; // Descargas antiguas nunca sustituyen ciudad seleccionada ahora.
   const byCity = new Map();
 
   const normal = value => String(value ?? '')
@@ -164,17 +165,27 @@
   };
 
   const refreshCity = async () => {
+    const version = ++selectionVersion;
     current = null;
     message('');
     const slug = pick('destination');
-    if (slug) {
-      if (!availableCities(pick('country')).some(c => c.slug === slug)) {
-        message('Destino no válido para el país seleccionado.');
-        return;
-      }
-      current = await loadCity(slug);
-      if (!current || !Array.isArray(current.places)) throw new Error('Datos de destino no válidos');
+    const country = pick('country');
+    if (slug && !availableCities(country).some(c => c.slug === slug)) {
+      message('Destino no válido para el país seleccionado.');
+      setupRelationFacets();
+      render();
+      return;
     }
+    let data = null;
+    try {
+      data = slug ? await loadCity(slug) : null;
+    } catch (error) {
+      if (version !== selectionVersion) return; // Respuesta vieja, ya no interesa.
+      throw error;
+    }
+    if (version !== selectionVersion) return;
+    if (data && !Array.isArray(data.places)) throw new Error('Datos de destino no válidos');
+    current = data;
     setupRelationFacets();
     shownPage = 0;
     render();
