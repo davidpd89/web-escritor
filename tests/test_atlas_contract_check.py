@@ -135,5 +135,14 @@ class AtlasContractTest(unittest.TestCase):
         self.assertTrue(any("places='lug-library' no aprobado" in x for x in mod.problems(data)))
 
 
+    def test_source_https_requires_host_and_no_credentials(self):
+        self.assertFalse(mod.valid_https_url("https://"))
+        self.assertFalse(mod.valid_https_url("https://user:pass@host.test/file"))
+        self.assertFalse(mod.valid_https_url("https://host.test/a b"))
+        self.assertFalse(mod.valid_https_url("https://host.test:9090/"))
+        self.assertFalse(mod.valid_https_url("javascript:alert(1)"))
+        self.assertTrue(mod.valid_https_url("https://cultura.example.org/location"))
+
+
 if __name__ == "__main__":
     unittest.main()
