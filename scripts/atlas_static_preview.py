@@ -52,8 +52,9 @@ def page(title: str, description: str, path: str, content: str, structured: list
         "<meta name=\"viewport\" content=\"width=device-width,initial-scale=1\">"
         f"<title>{e(title)}</title><meta name=\"description\" content=\"{e(desc)}\">"
         f"<link rel=\"canonical\" href=\"{e(canonical)}\">"
+        f"<meta property=\"og:url\" content=\"{e(canonical)}\">"
         f"<script type=\"application/ld+json\">{jsonld(graph)}</script></head><body>"
-        f"<main id=\"main\">{content}</main></body></html>"
+        f"<main id=\"main\" data-pagefind-body>{content}</main></body></html>"
     )
 
 
@@ -84,7 +85,7 @@ def eligible(data: dict) -> tuple[list[dict], list[dict]]:
     dest_ids = {d["id"] for d in destinations}
     sources = {s["id"] for s in data.get("sources", [])
                if str(s.get("url", "")).startswith("https://")
-               and s.get("retrieved_at") and s.get("evidence_summary")}
+               and s.get("title") and s.get("retrieved_at") and s.get("evidence_summary")}
     places = [
         p for p in data.get("places", [])
         if approved(p) and text_ready(p) and p.get("destination_id") in dest_ids
@@ -108,7 +109,10 @@ def destination_page(d: dict, places: list[dict]) -> str:
                               (d["name"], url)])
     cards = "".join(place_card(p) for p in places)
     body = (
-        nav + '<header><h1>' + e(d["name"]) + '</h1><p>' +
+        nav + '<span data-pagefind-filter="atlas_entity:destination"></span>'
+        + '<span data-pagefind-filter="atlas_country:' + e(d["country_iso2"]) + '"></span>'
+        + '<span data-pagefind-filter="atlas_city:' + e(d["id"]) + '"></span>'
+        + '<header><h1>' + e(d["name"]) + '</h1><p>' +
         e(d["summary_original"]) + '</p></header><section aria-label="Lugares literarios">'
         + cards + '</section>'
     )
@@ -121,7 +125,7 @@ def destination_page(d: dict, places: list[dict]) -> str:
                 url, body, [crumbs, schema])
 
 
-def place_page(p: dict, d: dict, sources: dict, relation_names: list[str]) -> str:
+def place_page(p: dict, d: dict, sources: dict, relations: list[dict]) -> str:
     url = place_url(p)
     nav, crumbs = breadcrumbs([
         ("Atlas literario", "/atlas-literario/"), (d["name"], destination_url(d)),
@@ -133,9 +137,18 @@ def place_page(p: dict, d: dict, sources: dict, relation_names: list[str]) -> st
         for s in p.get("source_ids", [])
         if s in sources and str(sources[s].get("url", "")).startswith("https://")
     )
+    relation_names = [r["subject_name"] for r in relations]
     relation_text = (('<section><h2>Obras y autores relacionados</h2><ul>' +
                      "".join("<li>" + e(name) + "</li>" for name in relation_names) +
                      "</ul></section>") if relation_names else "")
+    facet_pairs = [("atlas_entity", "place"), ("atlas_country", d["country_iso2"]),
+                   ("atlas_city", d["id"])]
+    for r in relations:
+        facet_pairs.append(({"work": "atlas_work", "author": "atlas_author",
+                            "adaptation": "atlas_adaptation"}[r["subject_type"]], r["subject_id"]))
+        facet_pairs.append(("atlas_relation", r["relation"]))
+    facet_markup = "".join('<span data-pagefind-filter="' + e(k + ":" + v) + '"></span>'
+                           for k, v in dict.fromkeys(facet_pairs))
     map_link = ""
     lat, lon = p.get("latitude"), p.get("longitude")
     geo: dict = {}
@@ -148,7 +161,7 @@ def place_page(p: dict, d: dict, sources: dict, relation_names: list[str]) -> st
             {"mlat": lat, "mlon": lon, "zoom": 16}
         )
         map_link = '<p><a href="' + e(target) + '" rel="noopener noreferrer">Ver en el mapa</a></p>'
-    body = (nav + '<article><h1>' + e(p["name"]) + '</h1><p>' +
+    body = (nav + facet_markup + '<article><h1>' + e(p["name"]) + '</h1><p>' +
             e(p["summary_original"]) + '</p>' + map_link + relation_text +
             '<section><h2>Fuentes</h2><ul>' + evidence + '</ul></section></article>')
     structured = {"@type": "Place", "@id": SITE + url, "name": p["name"],
@@ -195,11 +208,9 @@ def pages_from(data: dict) -> dict[str, str]:
         url = place_url(p)
         if url in pages:
             raise ValueError("URL de lugar duplicada: " + url)
-        names = [
-            name_tables[r["subject_type"]][r["subject_id"]]
-            for r in rels if r["place_id"] == p["id"]
-        ]
-        pages[url] = place_page(p, ids[p["destination_id"]], src, names)
+        matched = [dict(r, subject_name=name_tables[r["subject_type"]][r["subject_id"]])
+                   for r in rels if r["place_id"] == p["id"]]
+        pages[url] = place_page(p, ids[p["destination_id"]], src, matched)
     cards = "".join('<li><a href="' + e(destination_url(d)) + '">'
                     + e(d["name"]) + '</a></li>' for d in destinations)
     home_url = "/atlas-literario/"
