@@ -115,8 +115,8 @@ def problems(data: dict) -> list[str]:
                 table = {"work": "works", "adaptation": "adaptations", "author": "authors"}.get(required_subject)
                 if table:
                     require_approved(table, relation.get("subject_id"), scope)
-            for source_id in source_ids if isinstance(source_ids, list) else []:
-                src = tables["sources"].get(source_id)
+            for source_id in (source_ids if isinstance(source_ids, list) else []):
+                src = tables["sources"].get(source_id) if isinstance(source_id, str) else None
                 if src is not None and not all(src.get(field) for field in ("url", "retrieved_at", "evidence_summary")):
                     errors.append(scope + ": fuente aprobada requiere URL, fecha y resumen de evidencia")
             if not relation.get("verified_at") or not relation.get("evidence_note"):
