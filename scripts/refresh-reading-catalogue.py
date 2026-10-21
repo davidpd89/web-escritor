@@ -107,7 +107,7 @@ def refresh(*, publish=False):
                           budget=budget + 2, delay=config['request_delay_seconds'])
         free_payload, free_stats = refresh_penguin(
             read_json(ROOT / 'data/reading-catalogue.json'), existing_free,
-            lambda url: http.get(url, ttl=12 * 3600), datetime.now(timezone.utc),
+            lambda url: http.get(url, ttl=0)  # Fresh HTTP response; never stamp old cached price as newly checked, datetime.now(timezone.utc),
             budget=budget)
         # Google Books eBook prices are different from physical-book prices.
         # The old provider returned HTTP 503: optional and stops after refusal.
