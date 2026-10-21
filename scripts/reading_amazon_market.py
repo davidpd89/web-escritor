@@ -71,7 +71,9 @@ def select_offers(book,payload,tag,now):
             access=(listing.get('dealDetails') or {}).get('accessType')
             if access and access!='ALL':
                 continue
-            expires=now+timedelta(hours=24)
+            # Creators API OffersV2: 1-hour offer cache (official TTL).
+            # Never expose an older offer merely because daily ingestion ran.
+            expires=now+timedelta(hours=1)
             deal=listing.get('dealDetails') or {}
             try:
                 if deal.get('startTime') and datetime.fromisoformat(deal['startTime'].replace('Z','+00:00'))>now:
