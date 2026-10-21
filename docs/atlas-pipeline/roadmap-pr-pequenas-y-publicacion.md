@@ -4,7 +4,7 @@ Investigación hija de [PR padre #666](https://github.com/davidpd89/web-escritor
 
 ## Registro de fases — prevalece [ADR-000](https://github.com/davidpd89/web-escritor/blob/research/viajes-literarios-atlas-2026-10-21/docs/ideas/viajes-literarios/README.md)
 
-**Estado:** fases P5, P6 y P8 se han subdividido en a (prototipo real) y b (integración futura). Este documento NO implica que una tarea planificada esté implementada o probada.
+**Estado:** P5 y P8 se desglosan en prototipos e integración futura; P6a es Overture y P6b un adaptador independiente de Pleiades, mientras la verdadera ingesta global de ambos continúa pendiente. Este documento NO implica que una tarea planificada esté implementada o probada.
 
 | Fase/PR | Scope único | Depende de | Criterio de entrada/salida |
 |---|---|---|---|
@@ -15,6 +15,7 @@ Investigación hija de [PR padre #666](https://github.com/davidpd89/web-escritor
 | P4 — [#670 Orquestación (ESTA PR)](https://github.com/davidpd89/web-escritor/pull/670) | Arquitectura de ingesta → curación → snapshot → HTML y roadmap | #666 y consulta P1-P3 | No tocar cron existente, identificar gates y responsables |
 | P5a — [#671 Muestreador Open Library](https://github.com/davidpd89/web-escritor/pull/671) | **Solo lector parcial offline Works dump**; sin Wikidata ni checkpoint mundial | #667, #669 como contrato posterior | Candidatos, no publicación; QA y normalizador pendientes |
 | P6a — [#673 Overture POI por bbox](https://github.com/davidpd89/web-escritor/pull/673) | **Solo lector offline Overture GeoJSON pequeño**, no GeoParquet/GeoNames/OSM | #667, #669 como contrato posterior | Etiquetas y GERS; QA y normalizador pendientes |
+| P6b — [#675 Pleiades histórico](https://github.com/davidpd89/web-escritor/pull/675) | **Solo topónimos históricos de un JSON individual**, sin dump global ni vínculo literario | #667 como fuente, #669 tras reconciliación | Alias históricos y precisión a escala de área, QA pendiente |
 | P7 — Curación Sheets (FUTURA, no PR creada) | Adaptar patrón `import-reading-sheet.py`: batchGet, review y diffs | P3+P5/P6 | Solo aprobados a vista pública, staging cerrado |
 | P8a — [#672 Preview HTML, SEO, filtros por destino](https://github.com/davidpd89/web-escritor/pull/672) | **Preview HTML y JSON shards** fuera del site shell; NO genera sitemap/Pagefind en producción | #669 como contrato posterior | Integración, navegadores, rendimiento/seguridad y SEO pendientes |
 | P9 — Mapa opcional (FUTURA, no PR creada) | Leaflet con tiles legales o PMTiles; vista lista sin JS | P8 | Performance, licencias, coste, SEO y fallback demostrado |
@@ -129,3 +130,8 @@ StaticSite.build(projection) -> generated paths
 - [#669](https://github.com/davidpd89/web-escritor/pull/669) corregida: relaciones/rutas aprobadas ya no pueden apuntar a entidades candidatas; acepta `overture_gers_id` y versión del origen, sin confundir confianza de POI con certeza narrativa. Pruebas escritas, aún no ejecutadas.
 
 **Importante:** los ejemplos de CLI de Overture no significan descargas realizadas ni cobertura literaria del dataset. Ninguna de las tres PR incorpora código a web actual hasta permiso y validación.
+## Actualización sin contradicciones 21/10/2026
+
+- [#675](https://github.com/davidpd89/web-escritor/pull/675) añade candidato histórico Pleiades sin repetir el alcance de #673; ambas salidas siguen como candidatos de fuentes distintas.
+- El [contrato operativo y DoD](contrato-integracion-y-gates.md) determina los límites de cada snapshot y publicación; se consulta después del ADR-000, antes de empezar código nuevo.
+- En [#672](https://github.com/davidpd89/web-escritor/pull/672) se corrigió carrera de carga asíncrona: un cambio rápido de país/ciudad invalida la petición previa. Pendiente QA real.
