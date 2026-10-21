@@ -1,4 +1,4 @@
-# Atlas mundial — contrato v1 para diez entidades, sin datos públicos
+# Atlas mundial — contrato v1 para nueve colecciones, sin datos públicos
 
 PR hija de [#666](https://github.com/davidpd89/web-escritor/pull/666). **Fase de ingeniería base**, no publica fichas, no migra `data/atlas-literario.json`, no ejecuta Actions ni modifica páginas existentes.
 
@@ -6,7 +6,7 @@ PR hija de [#666](https://github.com/davidpd89/web-escritor/pull/666). **Fase de
 
 - [schema](../../schemas/atlas/catalogue-v1.schema.json): documento JSON Schema Draft 2020-12 que separa `destinations`, `places`, `works`, `authors`, `adaptations`, `sources`, `relationships`, `images`, `routes`. Se pueden añadir tablas cuando se apruebe v2, no cambiar silenciosamente v1.
 - [comprobador](../../scripts/atlas_contract_check.py): Python standard-library para las **referencias entre entidades** y algunas reglas de publicación: ID único, destino/lugar, obra/autores, adaptación↔obra, rodaje↔adaptación, fuente obligatoria en relación, mito no aprobado, geo sin pin falso, autor sin dirección actual, imágenes con atribución. No es validador JSON Schema completo.
-- [pruebas sintéticas](../../tests/test_atlas_contract_check.py): seis casos sin archivos reales ni red; **escritas, NO ejecutadas** por respetar la instrucción de no lanzar pruebas/Actions. Cuando se autorice CI, comprobar resultado y reparar cualquier falla.
+- [pruebas sintéticas](../../tests/test_atlas_contract_check.py): nueve casos sintéticos sin archivos reales ni red; **escritos, NO ejecutados** por respetar la instrucción de no lanzar pruebas/Actions. Cuando se autorice CI, comprobar resultado y reparar cualquier falla.
 
 **Punto esencial:** el JSON representa la **mesa editorial interna**. Una futura exportación a la web (PR distinta) debe publicar **solamente** relaciones y entidades aprobadas, suprimir `reviewer_note_private` y demás datos privados, evitar claves, direcciones particulares de autores y HTML de fuentes externas.
 
@@ -44,3 +44,13 @@ El publicador de [PR #661](https://github.com/davidpd89/web-escritor/pull/661) t
 - [ ] QA local y JSON Schema completo comprobados contra pruebas; confirmar en momento autorizado.
 - [ ] Revisión de fuentes de verdad de `reading_book_id` y IDs aceptados.
 - [ ] Decidir si esquema detallado se versiona como backoffice (recomendado) o si se genera una proyección pública independiente.
+
+## Compatibilidad detectada con otros módulos (21/10/2026)
+
+- Contrato ahora incluye `place_type=historic_site` y `source_kind=overture_record/geonames_record/whg_record`. Sin esto el extractor de Overture [#673](https://github.com/davidpd89/web-escritor/pull/673) proponía registros incompatibles con nuestro propio JSON Schema. **Corregido**.
+- `places.overture_gers_id`, `overture_release`, `overture_confidence` describen **POI externo**; no certifican relación novela-lugar.
+- `destinations.summary_original` permite exigir introducciones editoriales auténticas antes de crear páginas indexables en [#672](https://github.com/davidpd89/web-escritor/pull/672).
+- El validador Python ya rechaza que una relación/ruta `approved` apunte a un lugar, destino u obra aún candidatos (nueve casos sintéticos preparados, pero **NO ejecutados**).
+- El nuevo convertidor de [#673](https://github.com/davidpd89/web-escritor/pull/673) solo produce `places` candidatas con un `destination_id` y `source_id` de la base editorial. Es un **fragmento interno** y debe unirse al snapshot antes de validación completa. No confundir contrato de 9 colecciones con un CSV/fragmento de importador.
+
+Las decisiones de esquema vigentes están en [ADR-000](https://github.com/davidpd89/web-escritor/blob/research/viajes-literarios-atlas-2026-10-21/docs/ideas/viajes-literarios/README.md); este documento solo detalla implementación y pruebas pendientes.
