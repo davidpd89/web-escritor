@@ -11,7 +11,7 @@ Investigación hija de [PR padre #666](https://github.com/davidpd89/web-escritor
 | P2 — [#668 Copia MIT](https://github.com/davidpd89/web-escritor/pull/668) | Código upstream copiado literal + licencia y procedencia | #666 | Copia exacta, carpeta aislada no ejecutable hasta adaptación |
 | P3 — [#669 Contrato](https://github.com/davidpd89/web-escritor/pull/669) | Schema, estados, integridad relacional y ejemplos sintéticos | #666, revisión fuentes | QA offline en momento autorizado |
 | P4 — [#670 Orquestación (ESTA PR)](https://github.com/davidpd89/web-escritor/pull/670) | Arquitectura de ingesta → curación → snapshot → HTML y roadmap | #666 y consulta P1-P3 | No tocar cron existente, identificar gates y responsables |
-| P5 — Importador de fuentes bibliográficas | 1 adapter local Open Library + 1 adapter Wikidata, caché y checkpoint | P1+P3 | Snapshot **candidatos** sin publicación, O(1) llamadas/candidato o dumps |
+| P5 — [#671 Muestreador Open Library](https://github.com/davidpd89/web-escritor/pull/671) | 1 adapter local Open Library + 1 adapter Wikidata, caché y checkpoint | P1+P3 | Snapshot **candidatos** sin publicación, O(1) llamadas/candidato o dumps |
 | P6 — Importador cultural mundial | Extractos Geofabrik acotados + GeoNames, merges por IDs | P1+P3 | Duplicados, licencias y precisión controlados |
 | P7 — Curación Sheets | Adaptar patrón `import-reading-sheet.py`: batchGet, review y diffs | P3+P5/P6 | Solo aprobados a vista pública, staging cerrado |
 | P8 — Generación de páginas | Refactor `build-atlas-literario.py` y plantillas site shell, detalles/destinos/listas | P3+P7 | Sin enlaces huérfanos, canonical, sitemap/Pagefind, accesibilidad y QA móvil |
@@ -115,3 +115,7 @@ StaticSite.build(projection) -> generated paths
 - HTML, web performance, CSP, accesibilidad, sitemap, Pagefind y navegación coherentes.
 - Identidad de edición / Amazon se conserva del catálogo actual.
 - Sin acciones sobre main, CI o auto-merge hasta permiso del propietario y validación real.
+
+### Estado real de P5 al 21/10/2026
+
+[#671](https://github.com/davidpd89/web-escritor/pull/671) prepara código offline de lectura de dumps Works como candidaturas, pero **no es todavía el adaptador normalizado final**: faltan contrato #669, licencia real y checkpoints para el mundo entero. Esta fase se divide en P5a (muestreador ya creado) y P5b (conversión/homologación posterior), sin autopublicar nada.
