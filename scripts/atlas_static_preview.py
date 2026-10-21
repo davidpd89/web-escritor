@@ -12,7 +12,7 @@ import html
 import json
 import re
 from pathlib import Path
-from urllib.parse import urlencode
+from urllib.parse import urlencode, urlsplit
 
 SITE = "https://davidportodiaz.com"
 SLUG = re.compile(r"^[a-z0-9]+(?:-[a-z0-9]+)*$")
@@ -29,6 +29,18 @@ RELATION_SUBJECTS = {
 
 def e(value: object) -> str:
     return html.escape(str(value or ""), quote=True)
+
+
+def valid_https_url(value: object) -> bool:
+    if not isinstance(value, str) or re.search(r"[\\s<>\\x00-\\x1f]", value):
+        return False
+    try:
+        parsed = urlsplit(value)
+        return (parsed.scheme == "https" and bool(parsed.hostname)
+                and not parsed.username and not parsed.password
+                and parsed.port in (None, 443))
+    except ValueError:
+        return False
 
 
 def safe_slug(value: object) -> str:
@@ -92,7 +104,7 @@ def eligible(data: dict) -> tuple[list[dict], list[dict]]:
     destinations = [d for d in data.get("destinations", []) if approved(d) and text_ready(d)]
     dest_ids = {d["id"] for d in destinations}
     sources = {s["id"] for s in data.get("sources", [])
-               if str(s.get("url", "")).startswith("https://")
+               if valid_https_url(s.get("url"))
                and s.get("title") and s.get("retrieved_at") and s.get("evidence_summary")}
     places = [
         p for p in data.get("places", [])
@@ -143,7 +155,7 @@ def place_page(p: dict, d: dict, sources: dict, relations: list[dict]) -> str:
         f'<li><a href="{e(sources[s]["url"])}" rel="noopener noreferrer">'
         + e(sources[s]["title"]) + '</a></li>'
         for s in p.get("source_ids", [])
-        if s in sources and str(sources[s].get("url", "")).startswith("https://")
+        if s in sources and valid_https_url(sources[s].get("url"))
     )
     def relation_html(r: dict) -> str:
         title = e(r["subject_name"])
@@ -208,7 +220,7 @@ def pages_from(data: dict, reading_links: dict[str, str] | None = None) -> dict[
         and RELATION_SUBJECTS.get(r.get("relationship_type")) == r.get("subject_type")
         and bool(r.get("evidence_note"))
         and isinstance(r.get("source_ids"), list) and r["source_ids"]
-        and all(source in src and str(src[source].get("url", "")).startswith("https://")
+        and all(source in src and valid_https_url(src[source].get("url"))
                 and src[source].get("title") and src[source].get("retrieved_at")
                 and src[source].get("evidence_summary") for source in r["source_ids"])
     ]
