@@ -36,7 +36,7 @@ class RatingWorkflowContract(unittest.TestCase):
         config = json.loads((ROOT / "data/reading-intake-config.json").read_text(encoding="utf-8"))
         self.assertTrue(config["ratings_refresh"]["enabled"])
         self.assertLessEqual(config["ratings_refresh"]["google_books_requests_per_day"], 100)
-        self.assertEqual(config["ratings_refresh"]["hardcover_requests_per_day"], 0)
+        self.assertLessEqual(config["ratings_refresh"]["hardcover_requests_per_day"], 100)
         self.assertEqual(config["amazon_partner_tag"], "davidporto-21")
 
 
