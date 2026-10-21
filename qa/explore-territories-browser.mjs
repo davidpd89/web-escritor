@@ -32,7 +32,7 @@ const browser = await chromium.launch({
 const TOP_LEVEL = [
   ['/libros/', 'Obras'],
   ['/autor.html', 'Autor'],
-  ['/cuaderno/', 'Cuaderno'],
+  ['/recomendaciones/', 'Libros recomendados'],
   ['/herramientas/', 'Herramientas'],
   ['/prensa.html', 'Prensa'],
 ];

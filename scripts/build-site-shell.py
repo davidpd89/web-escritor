@@ -43,6 +43,8 @@ SHELL_PAGE_RE = re.compile(r"<html[^>]*\bclass=\"[^\"]*\bv1\b")
 FOOTER_RE = re.compile(r"<footer class=\"site-footer\"[\s\S]*?</footer>", re.I)
 HEADER_RE = re.compile(r"<header class=\"site-header[^\"]*\"[\s\S]*?</header>", re.I)
 DIALOG_RE = re.compile(r"<dialog class=\"explore-dialog\"[\s\S]*?</dialog>", re.I)
+# Barra de territorios de la home: solo `index.html` la lleva.
+MASTHEAD_NAV_RE = re.compile(r"<nav class=\"masthead-nav\"[\s\S]*?</nav>")
 CANONICAL_RE = re.compile(r"<link\s+[^>]*rel=\"canonical\"[^>]*href=\"([^\"]+)\"", re.I)
 CHARSET_RE = re.compile(r"<meta\s+charset=[\"'][^\"']+[\"']\s*/?>", re.I)
 EXISTING_CSP_RE = re.compile(r'<meta\s+http-equiv=["\']Content-Security-Policy["\']', re.I)
@@ -231,7 +233,8 @@ PREVIEW_COPY = {
     "work-manecillas": "La obra actual.",
     "work-samuel": "Primera novela publicada.",
     "works-hub": "Las manecillas del recuerdo, la obra actual, y el resto de novelas publicadas.",
-    "notebook-hub": "Archivo y libros recomendados.",
+    "notebook-hub": "Archivo de artículos del autor.",
+    "recommendations-hub": "Catálogo de libros, editoriales y concursos.",
     "tools-hub": "Utilidades gratuitas para escritores.",
     "author": "Biografía, obra y trayectoria.",
     "press": "Apariciones, materiales y agenda.",
@@ -243,7 +246,8 @@ PREVIEW_ASIDE_COPY = {
     "work-manecillas": "La obra actual y punto de entrada editorial.",
     "work-samuel": "Primera novela publicada.",
     "works-hub": "Las manecillas del recuerdo es la obra actual y el punto de entrada editorial; aquí también está Samuel entre mundos.",
-    "notebook-hub": "Archivo de artículos y catálogo de libros recomendados.",
+    "notebook-hub": "Archivo de artículos del autor.",
+    "recommendations-hub": "Catálogo de libros, editoriales y concursos.",
     "tools-hub": "Utilidades gratuitas para escritores.",
     "author": "Biografía, obra y trayectoria.",
     "press": "Apariciones, materiales y agenda.",
@@ -337,6 +341,7 @@ NAV_FAMILY_BY_TERRITORY = {
     "obras": "works-hub",
     "herramientas": "tools-hub",
     "cuaderno": "notebook-hub",
+    "recomendaciones": "recommendations-hub",
 }
 # Excepciones: páginas cuyo territorio sugeriría una familia, pero que en las
 # páginas originales no resaltaban nada. Son contenido satélite (recomenda-
@@ -345,10 +350,12 @@ NAV_FAMILY_BY_TERRITORY = {
 # aquí una entrada nueva debe leerse como "aún sin decidir", no como "no
 # resalta nada".
 NAV_FAMILY_OVERRIDES = {
-    "recommendations-hub": None,
-    "recommend-magic-cost": None,
-    "recommend-portal-es": None,
     "external-tools": None,
+    # Directorio editorial y concursos viven bajo «Libros recomendados» en el
+    # menú (decisión de producto 2026-10-21), aunque su territorio siga siendo
+    # el de las herramientas para escritores.
+    "editorials-hub": "recommendations-hub",
+    "opportunities": "recommendations-hub",
 }
 
 
@@ -481,14 +488,21 @@ EXPLORE_SHORTCUT_PARENTS = {
 }
 
 
+def menu_children(nav: dict, by_id: dict[str, Entry], menu_id: str) -> list[tuple[str, str]]:
+    """Hijos del menú de un territorio (misma lista en la barra superior y en
+    Explorar): [(url, etiqueta)]. Fuente única: nav["menu"][id]."""
+    out: list[tuple[str, str]] = []
+    for child in nav.get("menu", {}).get(menu_id, []):
+        target = by_id[child["targetId"]]
+        out.append((target.url, child["label"]))
+    return out
+
+
 def render_explore_territories(nav: dict, by_id: dict[str, Entry]) -> str:
-    children_by_parent: dict[str, list[tuple[str, str]]] = {}
-    for item in nav.get("exploreShortcuts", []):
-        parent = EXPLORE_SHORTCUT_PARENTS.get(item["targetId"])
-        if not parent:
-            continue
-        target = by_id[item["targetId"]]
-        children_by_parent.setdefault(parent, []).append((target.url, item["label"]))
+    children_by_parent = {
+        item["id"]: menu_children(nav, by_id, item["id"])
+        for item in nav.get("exploreTerritories", [])
+    }
 
     markup: list[str] = []
     for index, item in enumerate(nav.get("exploreTerritories", []), 1):
@@ -517,6 +531,33 @@ def render_explore_territories(nav: dict, by_id: dict[str, Entry]) -> str:
             f'          </div>'
         )
     return "\n".join(markup)
+
+
+def render_masthead_nav(nav: dict, by_id: dict[str, Entry]) -> str:
+    """Barra de territorios de la home (`.masthead-nav`), generada desde la misma
+    lista que Explorar para que ambos menús no puedan divergir."""
+    items: list[str] = []
+    for item in nav.get("exploreTerritories", []):
+        entry = by_id[item["id"]]
+        children = menu_children(nav, by_id, item["id"])
+        panel = f"masthead-submenu-{item['id']}"
+        links = "\n".join(f'                <a href="{href}">{label}</a>' for href, label in children)
+        items.append(
+            '            <li class="masthead-nav__item">\n'
+            f'              <a href="{entry.url}" data-territory="{item["id"]}" aria-haspopup="true">{entry.short_label}</a>\n'
+            f'              <button type="button" class="masthead-nav__submenu-trigger" aria-label="Ver opciones de {entry.short_label}" aria-expanded="false" aria-controls="{panel}"><svg aria-hidden="true" viewBox="0 0 16 16" focusable="false"><path d="m4 6 4 4 4-4"/></svg></button>\n'
+            f'              <div class="masthead-nav__submenu" id="{panel}" aria-label="Opciones de {entry.short_label}">\n'
+            f'{links}\n'
+            '              </div>\n'
+            '            </li>'
+        )
+    return (
+        '<nav class="masthead-nav" aria-label="Territorios de la web">\n'
+        '          <ul class="masthead-nav__list">\n'
+        + "\n".join(items) + '\n'
+        '          </ul>\n'
+        '        </nav>'
+    )
 
 
 def render_explore(nav: dict, by_id: dict[str, Entry], current_path: str, allow_newsletter: bool = True) -> str:
@@ -776,6 +817,9 @@ def apply_shell(original: str, rel_path: str, nav: dict, by_id: dict[str, Entry]
     new_text, ok_footer = replace_or_insert_block(new_text, FOOTER_RE, footer_html, FOOTER_START, FOOTER_END)
     if not ok_footer:
         raise BuildError(f"{rel_path}: no se encontró pie para inyectar shell")
+
+    if MASTHEAD_NAV_RE.search(new_text):
+        new_text = MASTHEAD_NAV_RE.sub(lambda _m: render_masthead_nav(nav, by_id), new_text, count=1)
 
     new_text = apply_public_csp(new_text, rel_path)
     new_text = apply_referrer_policy(new_text, rel_path)

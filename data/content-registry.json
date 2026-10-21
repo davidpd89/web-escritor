@@ -657,10 +657,10 @@
       "label": "Libros recomendados",
       "shortLabel": "Libros recomendados",
       "type": "article",
-      "territory": "cuaderno",
-      "parentId": "notebook-hub",
-      "hubId": "notebook-hub",
-      "discoverability": "secondary",
+      "territory": "recomendaciones",
+      "parentId": "home",
+      "hubId": "recommendations-hub",
+      "discoverability": "primary",
       "footerEligible": true,
       "audience": [
         "reader"
@@ -676,9 +676,9 @@
       "label": "Libros con magia con coste",
       "shortLabel": "Libros con magia con coste",
       "type": "article",
-      "territory": "cuaderno",
+      "territory": "recomendaciones",
       "parentId": "recommendations-hub",
-      "hubId": "notebook-hub",
+      "hubId": "recommendations-hub",
       "discoverability": "contextual",
       "audience": [
         "reader"
@@ -694,9 +694,9 @@
       "label": "Portal fantasy en español",
       "shortLabel": "Portal fantasy en español",
       "type": "article",
-      "territory": "cuaderno",
+      "territory": "recomendaciones",
       "parentId": "recommendations-hub",
-      "hubId": "notebook-hub",
+      "hubId": "recommendations-hub",
       "discoverability": "contextual",
       "audience": [
         "reader"
@@ -1130,7 +1130,7 @@
       "shortLabel": "Editoriales",
       "type": "directory",
       "territory": "herramientas",
-      "parentId": "tools-hub",
+      "parentId": "recommendations-hub",
       "hubId": "tools-hub",
       "discoverability": "secondary",
       "footerEligible": true,
@@ -1212,16 +1212,17 @@
       "jobs": [
         "entender-metodologia"
       ],
-      "sourceFile": "metodologia-editorial/index.html"
+      "sourceFile": "metodologia-editorial/index.html",
+      "footerEligible": true
     },
     {
       "id": "opportunities",
       "url": "/convocatorias-escritores/",
-      "label": "Convocatorias para escritores",
-      "shortLabel": "Convocatorias",
+      "label": "Concursos y convocatorias para escritores",
+      "shortLabel": "Concursos",
       "type": "directory",
       "territory": "herramientas",
-      "parentId": "tools-hub",
+      "parentId": "recommendations-hub",
       "hubId": "tools-hub",
       "discoverability": "secondary",
       "footerEligible": true,
@@ -1344,7 +1345,7 @@
     {
       "id": "press",
       "url": "/prensa.html",
-      "label": "Prensa y kit de prensa",
+      "label": "Prensa y materiales",
       "shortLabel": "Prensa",
       "type": "press",
       "territory": "prensa-eventos",
@@ -4078,9 +4079,9 @@
       "label": "Coraline",
       "shortLabel": "Coraline",
       "type": "article",
-      "territory": "cuaderno",
+      "territory": "recomendaciones",
       "parentId": "recommendations-hub",
-      "hubId": "notebook-hub",
+      "hubId": "recommendations-hub",
       "discoverability": "secondary",
       "audience": [
         "reader"
@@ -4096,9 +4097,9 @@
       "label": "La hipótesis más peligrosa",
       "shortLabel": "La hipótesis más peligrosa",
       "type": "article",
-      "territory": "cuaderno",
+      "territory": "recomendaciones",
       "parentId": "recommendations-hub",
-      "hubId": "notebook-hub",
+      "hubId": "recommendations-hub",
       "discoverability": "secondary",
       "audience": [
         "reader"
@@ -4114,9 +4115,9 @@
       "label": "Otros mundos (El Talismán 3)",
       "shortLabel": "Otros mundos (El Talismán 3)",
       "type": "article",
-      "territory": "cuaderno",
+      "territory": "recomendaciones",
       "parentId": "recommendations-hub",
-      "hubId": "notebook-hub",
+      "hubId": "recommendations-hub",
       "discoverability": "secondary",
       "audience": [
         "reader"
@@ -4132,9 +4133,9 @@
       "label": "La hija del veneno",
       "shortLabel": "La hija del veneno",
       "type": "article",
-      "territory": "cuaderno",
+      "territory": "recomendaciones",
       "parentId": "recommendations-hub",
-      "hubId": "notebook-hub",
+      "hubId": "recommendations-hub",
       "discoverability": "secondary",
       "audience": [
         "reader"
@@ -4150,9 +4151,9 @@
       "label": "Plaza Brugmann, 33",
       "shortLabel": "Plaza Brugmann, 33",
       "type": "article",
-      "territory": "cuaderno",
+      "territory": "recomendaciones",
       "parentId": "recommendations-hub",
-      "hubId": "notebook-hub",
+      "hubId": "recommendations-hub",
       "discoverability": "secondary",
       "audience": [
         "reader"
@@ -4168,9 +4169,9 @@
       "label": "El vuelo de los gansos",
       "shortLabel": "El vuelo de los gansos",
       "type": "article",
-      "territory": "cuaderno",
+      "territory": "recomendaciones",
       "parentId": "recommendations-hub",
-      "hubId": "notebook-hub",
+      "hubId": "recommendations-hub",
       "discoverability": "secondary",
       "audience": [
         "reader"
@@ -4186,9 +4187,9 @@
       "label": "Mi amor no muere",
       "shortLabel": "Mi amor no muere",
       "type": "article",
-      "territory": "cuaderno",
+      "territory": "recomendaciones",
       "parentId": "recommendations-hub",
-      "hubId": "notebook-hub",
+      "hubId": "recommendations-hub",
       "discoverability": "secondary",
       "audience": [
         "reader"
@@ -4204,9 +4205,9 @@
       "label": "El linaje de Pierre",
       "shortLabel": "El linaje de Pierre",
       "type": "article",
-      "territory": "cuaderno",
+      "territory": "recomendaciones",
       "parentId": "recommendations-hub",
-      "hubId": "notebook-hub",
+      "hubId": "recommendations-hub",
       "discoverability": "secondary",
       "audience": [
         "reader"
@@ -4222,9 +4223,9 @@
       "label": "Tor",
       "shortLabel": "Tor",
       "type": "article",
-      "territory": "cuaderno",
+      "territory": "recomendaciones",
       "parentId": "recommendations-hub",
-      "hubId": "notebook-hub",
+      "hubId": "recommendations-hub",
       "discoverability": "secondary",
       "audience": [
         "reader"
@@ -4240,9 +4241,9 @@
       "label": "Canción de amor definitiva",
       "shortLabel": "Canción de amor definitiva",
       "type": "article",
-      "territory": "cuaderno",
+      "territory": "recomendaciones",
       "parentId": "recommendations-hub",
-      "hubId": "notebook-hub",
+      "hubId": "recommendations-hub",
       "discoverability": "secondary",
       "audience": [
         "reader"
@@ -4258,9 +4259,9 @@
       "label": "Esas muchachas que escriben poemas",
       "shortLabel": "Esas muchachas que escriben poemas",
       "type": "article",
-      "territory": "cuaderno",
+      "territory": "recomendaciones",
       "parentId": "recommendations-hub",
-      "hubId": "notebook-hub",
+      "hubId": "recommendations-hub",
       "discoverability": "secondary",
       "audience": [
         "reader"
@@ -4276,9 +4277,9 @@
       "label": "La Risa de mi vida",
       "shortLabel": "La Risa de mi vida",
       "type": "article",
-      "territory": "cuaderno",
+      "territory": "recomendaciones",
       "parentId": "recommendations-hub",
-      "hubId": "notebook-hub",
+      "hubId": "recommendations-hub",
       "discoverability": "secondary",
       "audience": [
         "reader"
@@ -4294,9 +4295,9 @@
       "label": "Los escalones",
       "shortLabel": "Los escalones",
       "type": "article",
-      "territory": "cuaderno",
+      "territory": "recomendaciones",
       "parentId": "recommendations-hub",
-      "hubId": "notebook-hub",
+      "hubId": "recommendations-hub",
       "discoverability": "secondary",
       "audience": [
         "reader"
@@ -4312,9 +4313,9 @@
       "label": "La merma",
       "shortLabel": "La merma",
       "type": "article",
-      "territory": "cuaderno",
+      "territory": "recomendaciones",
       "parentId": "recommendations-hub",
-      "hubId": "notebook-hub",
+      "hubId": "recommendations-hub",
       "discoverability": "secondary",
       "audience": [
         "reader"
@@ -4330,9 +4331,9 @@
       "label": "La Casa de la Ciénaga (Serie Slow Horses 7)",
       "shortLabel": "La Casa de la Ciénaga (Serie Slow Horses 7)",
       "type": "article",
-      "territory": "cuaderno",
+      "territory": "recomendaciones",
       "parentId": "recommendations-hub",
-      "hubId": "notebook-hub",
+      "hubId": "recommendations-hub",
       "discoverability": "secondary",
       "audience": [
         "reader"
@@ -4348,9 +4349,9 @@
       "label": "La luz y el hilo (Láurea)",
       "shortLabel": "La luz y el hilo (Láurea)",
       "type": "article",
-      "territory": "cuaderno",
+      "territory": "recomendaciones",
       "parentId": "recommendations-hub",
-      "hubId": "notebook-hub",
+      "hubId": "recommendations-hub",
       "discoverability": "secondary",
       "audience": [
         "reader"
@@ -4366,9 +4367,9 @@
       "label": "Resistencia biológica",
       "shortLabel": "Resistencia biológica",
       "type": "article",
-      "territory": "cuaderno",
+      "territory": "recomendaciones",
       "parentId": "recommendations-hub",
-      "hubId": "notebook-hub",
+      "hubId": "recommendations-hub",
       "discoverability": "secondary",
       "audience": [
         "reader"
@@ -4384,9 +4385,9 @@
       "label": "Sácate a esa persona de la cabeza",
       "shortLabel": "Sácate a esa persona de la cabeza",
       "type": "article",
-      "territory": "cuaderno",
+      "territory": "recomendaciones",
       "parentId": "recommendations-hub",
-      "hubId": "notebook-hub",
+      "hubId": "recommendations-hub",
       "discoverability": "secondary",
       "audience": [
         "reader"
@@ -4402,9 +4403,9 @@
       "label": "La historia de Romana y Uliana (Amadoca 1)",
       "shortLabel": "La historia de Romana y Uliana (Amadoca 1)",
       "type": "article",
-      "territory": "cuaderno",
+      "territory": "recomendaciones",
       "parentId": "recommendations-hub",
-      "hubId": "notebook-hub",
+      "hubId": "recommendations-hub",
       "discoverability": "secondary",
       "audience": [
         "reader"
@@ -4420,9 +4421,9 @@
       "label": "Mamá necesita un respiro",
       "shortLabel": "Mamá necesita un respiro",
       "type": "article",
-      "territory": "cuaderno",
+      "territory": "recomendaciones",
       "parentId": "recommendations-hub",
-      "hubId": "notebook-hub",
+      "hubId": "recommendations-hub",
       "discoverability": "secondary",
       "audience": [
         "reader"
@@ -4438,9 +4439,9 @@
       "label": "Más Simple",
       "shortLabel": "Más Simple",
       "type": "article",
-      "territory": "cuaderno",
+      "territory": "recomendaciones",
       "parentId": "recommendations-hub",
-      "hubId": "notebook-hub",
+      "hubId": "recommendations-hub",
       "discoverability": "secondary",
       "audience": [
         "reader"
@@ -4456,9 +4457,9 @@
       "label": "Muérdelo",
       "shortLabel": "Muérdelo",
       "type": "article",
-      "territory": "cuaderno",
+      "territory": "recomendaciones",
       "parentId": "recommendations-hub",
-      "hubId": "notebook-hub",
+      "hubId": "recommendations-hub",
       "discoverability": "secondary",
       "audience": [
         "reader"
@@ -4474,9 +4475,9 @@
       "label": "Cómete la vida a bocados con Pausa y Plato",
       "shortLabel": "Cómete la vida a bocados con Pausa y Plato",
       "type": "article",
-      "territory": "cuaderno",
+      "territory": "recomendaciones",
       "parentId": "recommendations-hub",
-      "hubId": "notebook-hub",
+      "hubId": "recommendations-hub",
       "discoverability": "secondary",
       "audience": [
         "reader"
@@ -4492,9 +4493,9 @@
       "label": "20 minutos ¡y listo!",
       "shortLabel": "20 minutos ¡y listo!",
       "type": "article",
-      "territory": "cuaderno",
+      "territory": "recomendaciones",
       "parentId": "recommendations-hub",
-      "hubId": "notebook-hub",
+      "hubId": "recommendations-hub",
       "discoverability": "secondary",
       "audience": [
         "reader"
@@ -4510,9 +4511,9 @@
       "label": "La fibra es la solución",
       "shortLabel": "La fibra es la solución",
       "type": "article",
-      "territory": "cuaderno",
+      "territory": "recomendaciones",
       "parentId": "recommendations-hub",
-      "hubId": "notebook-hub",
+      "hubId": "recommendations-hub",
       "discoverability": "secondary",
       "audience": [
         "reader"
@@ -4528,9 +4529,9 @@
       "label": "Barbacoa",
       "shortLabel": "Barbacoa",
       "type": "article",
-      "territory": "cuaderno",
+      "territory": "recomendaciones",
       "parentId": "recommendations-hub",
-      "hubId": "notebook-hub",
+      "hubId": "recommendations-hub",
       "discoverability": "secondary",
       "audience": [
         "reader"
@@ -4546,9 +4547,9 @@
       "label": "Un día en la vida de Clarita",
       "shortLabel": "Un día en la vida de Clarita",
       "type": "article",
-      "territory": "cuaderno",
+      "territory": "recomendaciones",
       "parentId": "recommendations-hub",
-      "hubId": "notebook-hub",
+      "hubId": "recommendations-hub",
       "discoverability": "secondary",
       "audience": [
         "reader"
@@ -4564,9 +4565,9 @@
       "label": "Familia, ¿contamos nuestra historia? (¿Me cuentas tu historia?)",
       "shortLabel": "Familia, ¿contamos nuestra historia? (¿Me cuentas tu historia?)",
       "type": "article",
-      "territory": "cuaderno",
+      "territory": "recomendaciones",
       "parentId": "recommendations-hub",
-      "hubId": "notebook-hub",
+      "hubId": "recommendations-hub",
       "discoverability": "secondary",
       "audience": [
         "reader"
@@ -4582,9 +4583,9 @@
       "label": "El ojo de la novia frenopática (Carl el Mazmorrero 6)",
       "shortLabel": "El ojo de la novia frenopática (Carl el Mazmorrero 6)",
       "type": "article",
-      "territory": "cuaderno",
+      "territory": "recomendaciones",
       "parentId": "recommendations-hub",
-      "hubId": "notebook-hub",
+      "hubId": "recommendations-hub",
       "discoverability": "secondary",
       "audience": [
         "reader"
@@ -4600,9 +4601,9 @@
       "label": "Las Pruebas del Tarot",
       "shortLabel": "Las Pruebas del Tarot",
       "type": "article",
-      "territory": "cuaderno",
+      "territory": "recomendaciones",
       "parentId": "recommendations-hub",
-      "hubId": "notebook-hub",
+      "hubId": "recommendations-hub",
       "discoverability": "secondary",
       "audience": [
         "reader"
@@ -4618,9 +4619,9 @@
       "label": "Bajamar",
       "shortLabel": "Bajamar",
       "type": "article",
-      "territory": "cuaderno",
+      "territory": "recomendaciones",
       "parentId": "recommendations-hub",
-      "hubId": "notebook-hub",
+      "hubId": "recommendations-hub",
       "discoverability": "secondary",
       "audience": [
         "reader"
@@ -4636,9 +4637,9 @@
       "label": "Neil Gaiman",
       "shortLabel": "Neil Gaiman",
       "type": "article",
-      "territory": "cuaderno",
+      "territory": "recomendaciones",
       "parentId": "recommendations-hub",
-      "hubId": "notebook-hub",
+      "hubId": "recommendations-hub",
       "discoverability": "secondary",
       "audience": [
         "reader"
@@ -4654,9 +4655,9 @@
       "label": "Arturo Pérez-Reverte",
       "shortLabel": "Arturo Pérez-Reverte",
       "type": "article",
-      "territory": "cuaderno",
+      "territory": "recomendaciones",
       "parentId": "recommendations-hub",
-      "hubId": "notebook-hub",
+      "hubId": "recommendations-hub",
       "discoverability": "secondary",
       "audience": [
         "reader"
@@ -4672,9 +4673,9 @@
       "label": "Peter Straub",
       "shortLabel": "Peter Straub",
       "type": "article",
-      "territory": "cuaderno",
+      "territory": "recomendaciones",
       "parentId": "recommendations-hub",
-      "hubId": "notebook-hub",
+      "hubId": "recommendations-hub",
       "discoverability": "secondary",
       "audience": [
         "reader"
@@ -4690,9 +4691,9 @@
       "label": "Sheila Masterson",
       "shortLabel": "Sheila Masterson",
       "type": "article",
-      "territory": "cuaderno",
+      "territory": "recomendaciones",
       "parentId": "recommendations-hub",
-      "hubId": "notebook-hub",
+      "hubId": "recommendations-hub",
       "discoverability": "secondary",
       "audience": [
         "reader"
@@ -4708,9 +4709,9 @@
       "label": "Alice Austen",
       "shortLabel": "Alice Austen",
       "type": "article",
-      "territory": "cuaderno",
+      "territory": "recomendaciones",
       "parentId": "recommendations-hub",
-      "hubId": "notebook-hub",
+      "hubId": "recommendations-hub",
       "discoverability": "secondary",
       "audience": [
         "reader"
@@ -4726,9 +4727,9 @@
       "label": "Ángel Boixadós",
       "shortLabel": "Ángel Boixadós",
       "type": "article",
-      "territory": "cuaderno",
+      "territory": "recomendaciones",
       "parentId": "recommendations-hub",
-      "hubId": "notebook-hub",
+      "hubId": "recommendations-hub",
       "discoverability": "secondary",
       "audience": [
         "reader"
@@ -4744,9 +4745,9 @@
       "label": "Roberto Saviano",
       "shortLabel": "Roberto Saviano",
       "type": "article",
-      "territory": "cuaderno",
+      "territory": "recomendaciones",
       "parentId": "recommendations-hub",
-      "hubId": "notebook-hub",
+      "hubId": "recommendations-hub",
       "discoverability": "secondary",
       "audience": [
         "reader"
@@ -4762,9 +4763,9 @@
       "label": "Anne Berest",
       "shortLabel": "Anne Berest",
       "type": "article",
-      "territory": "cuaderno",
+      "territory": "recomendaciones",
       "parentId": "recommendations-hub",
-      "hubId": "notebook-hub",
+      "hubId": "recommendations-hub",
       "discoverability": "secondary",
       "audience": [
         "reader"
@@ -4780,9 +4781,9 @@
       "label": "Carles Porta",
       "shortLabel": "Carles Porta",
       "type": "article",
-      "territory": "cuaderno",
+      "territory": "recomendaciones",
       "parentId": "recommendations-hub",
-      "hubId": "notebook-hub",
+      "hubId": "recommendations-hub",
       "discoverability": "secondary",
       "audience": [
         "reader"
@@ -4798,9 +4799,9 @@
       "label": "Jorge Martí Aguas",
       "shortLabel": "Jorge Martí Aguas",
       "type": "article",
-      "territory": "cuaderno",
+      "territory": "recomendaciones",
       "parentId": "recommendations-hub",
-      "hubId": "notebook-hub",
+      "hubId": "recommendations-hub",
       "discoverability": "secondary",
       "audience": [
         "reader"
@@ -4816,9 +4817,9 @@
       "label": "Alba Donati",
       "shortLabel": "Alba Donati",
       "type": "article",
-      "territory": "cuaderno",
+      "territory": "recomendaciones",
       "parentId": "recommendations-hub",
-      "hubId": "notebook-hub",
+      "hubId": "recommendations-hub",
       "discoverability": "secondary",
       "audience": [
         "reader"
@@ -4834,9 +4835,9 @@
       "label": "Jorge Bolaños",
       "shortLabel": "Jorge Bolaños",
       "type": "article",
-      "territory": "cuaderno",
+      "territory": "recomendaciones",
       "parentId": "recommendations-hub",
-      "hubId": "notebook-hub",
+      "hubId": "recommendations-hub",
       "discoverability": "secondary",
       "audience": [
         "reader"
@@ -4852,9 +4853,9 @@
       "label": "Sylvester Stallone",
       "shortLabel": "Sylvester Stallone",
       "type": "article",
-      "territory": "cuaderno",
+      "territory": "recomendaciones",
       "parentId": "recommendations-hub",
-      "hubId": "notebook-hub",
+      "hubId": "recommendations-hub",
       "discoverability": "secondary",
       "audience": [
         "reader"
@@ -4870,9 +4871,9 @@
       "label": "María Moreno",
       "shortLabel": "María Moreno",
       "type": "article",
-      "territory": "cuaderno",
+      "territory": "recomendaciones",
       "parentId": "recommendations-hub",
-      "hubId": "notebook-hub",
+      "hubId": "recommendations-hub",
       "discoverability": "secondary",
       "audience": [
         "reader"
@@ -4888,9 +4889,9 @@
       "label": "Mick Herron",
       "shortLabel": "Mick Herron",
       "type": "article",
-      "territory": "cuaderno",
+      "territory": "recomendaciones",
       "parentId": "recommendations-hub",
-      "hubId": "notebook-hub",
+      "hubId": "recommendations-hub",
       "discoverability": "secondary",
       "audience": [
         "reader"
@@ -4906,9 +4907,9 @@
       "label": "Han Kang",
       "shortLabel": "Han Kang",
       "type": "article",
-      "territory": "cuaderno",
+      "territory": "recomendaciones",
       "parentId": "recommendations-hub",
-      "hubId": "notebook-hub",
+      "hubId": "recommendations-hub",
       "discoverability": "secondary",
       "audience": [
         "reader"
@@ -4924,9 +4925,9 @@
       "label": "José Manuel Ruiz Lorenzo",
       "shortLabel": "José Manuel Ruiz Lorenzo",
       "type": "article",
-      "territory": "cuaderno",
+      "territory": "recomendaciones",
       "parentId": "recommendations-hub",
-      "hubId": "notebook-hub",
+      "hubId": "recommendations-hub",
       "discoverability": "secondary",
       "audience": [
         "reader"
@@ -4942,9 +4943,9 @@
       "label": "Michihito Sugawara",
       "shortLabel": "Michihito Sugawara",
       "type": "article",
-      "territory": "cuaderno",
+      "territory": "recomendaciones",
       "parentId": "recommendations-hub",
-      "hubId": "notebook-hub",
+      "hubId": "recommendations-hub",
       "discoverability": "secondary",
       "audience": [
         "reader"
@@ -4960,9 +4961,9 @@
       "label": "Sofía Andrujóvich",
       "shortLabel": "Sofía Andrujóvich",
       "type": "article",
-      "territory": "cuaderno",
+      "territory": "recomendaciones",
       "parentId": "recommendations-hub",
-      "hubId": "notebook-hub",
+      "hubId": "recommendations-hub",
       "discoverability": "secondary",
       "audience": [
         "reader"
@@ -4978,9 +4979,9 @@
       "label": "Inma Sáenz",
       "shortLabel": "Inma Sáenz",
       "type": "article",
-      "territory": "cuaderno",
+      "territory": "recomendaciones",
       "parentId": "recommendations-hub",
-      "hubId": "notebook-hub",
+      "hubId": "recommendations-hub",
       "discoverability": "secondary",
       "audience": [
         "reader"
@@ -4996,9 +4997,9 @@
       "label": "Yotam Ottolenghi",
       "shortLabel": "Yotam Ottolenghi",
       "type": "article",
-      "territory": "cuaderno",
+      "territory": "recomendaciones",
       "parentId": "recommendations-hub",
-      "hubId": "notebook-hub",
+      "hubId": "recommendations-hub",
       "discoverability": "secondary",
       "audience": [
         "reader"
@@ -5014,9 +5015,9 @@
       "label": "Stephen King",
       "shortLabel": "Stephen King",
       "type": "article",
-      "territory": "cuaderno",
+      "territory": "recomendaciones",
       "parentId": "recommendations-hub",
-      "hubId": "notebook-hub",
+      "hubId": "recommendations-hub",
       "discoverability": "secondary",
       "audience": [
         "reader"
@@ -5032,9 +5033,9 @@
       "label": "María Lo",
       "shortLabel": "María Lo",
       "type": "article",
-      "territory": "cuaderno",
+      "territory": "recomendaciones",
       "parentId": "recommendations-hub",
-      "hubId": "notebook-hub",
+      "hubId": "recommendations-hub",
       "discoverability": "secondary",
       "audience": [
         "reader"
@@ -5050,9 +5051,9 @@
       "label": "Juan Sánchez",
       "shortLabel": "Juan Sánchez",
       "type": "article",
-      "territory": "cuaderno",
+      "territory": "recomendaciones",
       "parentId": "recommendations-hub",
-      "hubId": "notebook-hub",
+      "hubId": "recommendations-hub",
       "discoverability": "secondary",
       "audience": [
         "reader"
@@ -5068,9 +5069,9 @@
       "label": "Jamie Oliver",
       "shortLabel": "Jamie Oliver",
       "type": "article",
-      "territory": "cuaderno",
+      "territory": "recomendaciones",
       "parentId": "recommendations-hub",
-      "hubId": "notebook-hub",
+      "hubId": "recommendations-hub",
       "discoverability": "secondary",
       "audience": [
         "reader"
@@ -5086,9 +5087,9 @@
       "label": "Kristen Stavridis",
       "shortLabel": "Kristen Stavridis",
       "type": "article",
-      "territory": "cuaderno",
+      "territory": "recomendaciones",
       "parentId": "recommendations-hub",
-      "hubId": "notebook-hub",
+      "hubId": "recommendations-hub",
       "discoverability": "secondary",
       "audience": [
         "reader"
@@ -5104,9 +5105,9 @@
       "label": "Rosa Montero",
       "shortLabel": "Rosa Montero",
       "type": "article",
-      "territory": "cuaderno",
+      "territory": "recomendaciones",
       "parentId": "recommendations-hub",
-      "hubId": "notebook-hub",
+      "hubId": "recommendations-hub",
       "discoverability": "secondary",
       "audience": [
         "reader"
@@ -5122,9 +5123,9 @@
       "label": "Elma van Vliet",
       "shortLabel": "Elma van Vliet",
       "type": "article",
-      "territory": "cuaderno",
+      "territory": "recomendaciones",
       "parentId": "recommendations-hub",
-      "hubId": "notebook-hub",
+      "hubId": "recommendations-hub",
       "discoverability": "secondary",
       "audience": [
         "reader"
@@ -5140,9 +5141,9 @@
       "label": "Matt Dinniman",
       "shortLabel": "Matt Dinniman",
       "type": "article",
-      "territory": "cuaderno",
+      "territory": "recomendaciones",
       "parentId": "recommendations-hub",
-      "hubId": "notebook-hub",
+      "hubId": "recommendations-hub",
       "discoverability": "secondary",
       "audience": [
         "reader"
@@ -5158,9 +5159,9 @@
       "label": "Katee Robert",
       "shortLabel": "Katee Robert",
       "type": "article",
-      "territory": "cuaderno",
+      "territory": "recomendaciones",
       "parentId": "recommendations-hub",
-      "hubId": "notebook-hub",
+      "hubId": "recommendations-hub",
       "discoverability": "secondary",
       "audience": [
         "reader"
@@ -5176,9 +5177,9 @@
       "label": "Ibon Martín",
       "shortLabel": "Ibon Martín",
       "type": "article",
-      "territory": "cuaderno",
+      "territory": "recomendaciones",
       "parentId": "recommendations-hub",
-      "hubId": "notebook-hub",
+      "hubId": "recommendations-hub",
       "discoverability": "secondary",
       "audience": [
         "reader"

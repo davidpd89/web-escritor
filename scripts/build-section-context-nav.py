@@ -126,26 +126,47 @@ CONTEXTS: tuple[Context, ...] = (
     ),
     Context(
         key="cuaderno", label="Cuaderno", home="/cuaderno/",
-        prefixes=("/cuaderno/", "/recomendaciones/"), exacts=(),
+        prefixes=("/cuaderno/",), exacts=(),
         links=(
+            ("/autor.html", "← Autor"),
             ("/cuaderno/", "Archivo"),
-            ("/recomendaciones/", "Libros recomendados"),
+        ),
+    ),
+    # `key` es el id del sistema visual (CSS data-editorial-context), no la
+    # sección del menú: «Libros recomendados» conserva el de cuaderno y el
+    # directorio editorial/concursos el de herramientas para no perder estilos.
+    Context(
+        key="cuaderno", label="Libros recomendados", home="/recomendaciones/",
+        prefixes=("/recomendaciones/",), exacts=(),
+        links=(
+            ("/recomendaciones/", "Catálogo"),
+            ("/editoriales/", "Editoriales"),
+            ("/convocatorias-escritores/", "Concursos"),
         ),
     ),
     Context(
-        key="herramientas", label="Herramientas", home="/herramientas/",
+        key="herramientas", label="Libros recomendados", home="/recomendaciones/",
         prefixes=(
-            "/herramientas/",
             "/editoriales/",
             "/convocatorias-escritores/",
             "/metodologia-editorial/",
         ),
         exacts=(),
         links=(
-            ("/herramientas/", "Herramientas"),
+            ("/recomendaciones/", "Catálogo"),
             ("/editoriales/", "Editoriales"),
-            ("/convocatorias-escritores/", "Convocatorias"),
-            ("/metodologia-editorial/", "Metodología"),
+            ("/convocatorias-escritores/", "Concursos"),
+        ),
+    ),
+    Context(
+        key="herramientas", label="Herramientas", home="/herramientas/",
+        prefixes=("/herramientas/",),
+        exacts=(),
+        links=(
+            ("/herramientas/", "Todas las herramientas"),
+            ("/herramientas/manuscrito/", "Manuscrito"),
+            ("/herramientas/dialogo/", "Diálogo"),
+            ("/herramientas/repeticiones/", "Repeticiones"),
         ),
     ),
     Context(
@@ -154,9 +175,9 @@ CONTEXTS: tuple[Context, ...] = (
         links=(
             ("/autor.html", "Autor"),
             ("/premios.html", "Premios"),
+            ("/cuaderno/", "Cuaderno"),
             ("/lectores-beta/", "Lectores beta"),
             ("/eventos.html", "Eventos"),
-            ("/prensa.html", "Prensa"),
         ),
     ),
     Context(

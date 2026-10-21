@@ -144,7 +144,8 @@
     const media = q('[data-preview-media]', dialog);
     const content = {
       'works-hub': ['Obras', 'Las dos novelas publicadas, fragmentos y rutas de lectura.'],
-      'notebook-hub': ['Cuaderno', 'Archivo de artículos y catálogo de libros recomendados.'],
+      'notebook-hub': ['Cuaderno', 'Archivo de artículos del autor.'],
+      'recommendations-hub': ['Libros recomendados', 'Catálogo de libros, editoriales y concursos.'],
       'tools-hub': ['Herramientas', 'Utilidades gratuitas para problemas concretos de escritura.'],
       author: ['Autor', 'Biografía, obra y trayectoria de David Porto Díaz.'],
       press: ['Prensa', 'Material de prensa, agenda y apariciones verificables.'],
