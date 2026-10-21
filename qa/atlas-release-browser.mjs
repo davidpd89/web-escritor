@@ -89,13 +89,18 @@ try {
         assert.equal(mapRequests.length, 0, 'Map SDK/tiles should not load during base navigation');
         assert.equal(pageErrors.length, 0, 'JavaScript errors: ' + pageErrors.join(', '));
         // First-release expectation: HTML must remain useful with JS disabled.
-        await page.setJavaScriptEnabled(false);
-        await page.goto(ORIGIN + destination, { waitUntil: 'domcontentloaded' });
-        assert(await page.locator('main a[href]').count() > 0, 'Destination no-JS links');
+        const noJsContext = await browser.newContext({ ...size, javaScriptEnabled: false });
+        try {
+          const noJsPage = await noJsContext.newPage();
+          await noJsPage.goto(ORIGIN + destination, { waitUntil: 'domcontentloaded' });
+          assert(await noJsPage.locator('main a[href]').count() > 0,
+                 'Destination no-JS links');
+        } finally {
+          await noJsContext.close();
+        }
 
         // Interactive facet behaviour will be gated only after #672 is installed
         // into the real site shell. Never hide absent filters behind a skip.
-        await page.setJavaScriptEnabled(true);
         await page.goto(ORIGIN + hub, { waitUntil: 'domcontentloaded' });
         const controls = page.locator('[data-atlas-explore]');
         assert.equal(await controls.count(), 1, 'Atlas facet UI not yet integrated');
