@@ -85,3 +85,17 @@ Los 12 elementos de data/atlas-literario.json forman backlog alternativo. Las pr
 Nombre definitivo y ubicación de menú; nivel de detalle en bibliotecas/librerías frente a novelas; mapas desde el MVP o fase posterior; países e idiomas priorizados; volumen aceptable de revisión editorial; posibilidad de rutas descargables; atribución/monetización adicional; momento de crear Sheets y secretos. Por defecto, investigar ES-ES, localizaciones reales y alcance internacional gradual.
 
 Documentación complementaria: **01-modelo-datos-drive.md**, **02-fuentes-y-repos.md**, **03-piloto-y-qa.md**, **04-auditoria-legado-prs-2026-10-21.md**, **05-captacion-gratuita-automatizacion-2026-10-21.md**, **06-pilotos-reales-evidencias-2026-10-21.md** y **07-reutilizacion-tecnica-y-piloto-sin-pago.md**.
+
+## 8. Programa de investigación mundial organizado en PR hijas (actualizado 21/10/2026)
+
+**Alcance corregido por el propietario:** mundial (no Madrid/París como límite). Madrid y París son solo pilotos editoriales, igual que una saga adaptada. El objetivo a largo plazo es el mayor número sostenible de **obras, ciudades y lugares verificables**, no publicar automáticamente todas las coincidencias no contrastadas. Usar dumps estructurados, no miles de llamadas LLM.
+
+Todas las PR hijas apuntan a main como **cambios independientes** y enlazan a esta PR padre para seguimiento; **no son ramas Git apiladas**. Orden lógico de revisión:
+1. [#667 — fuentes mundiales](https://github.com/davidpd89/web-escritor/pull/667): Open Library dumps, Wikidata, Geofabrik, GeoNames, Gutenberg, Commons, licencias, consultas y presupuesto de APIs.
+2. [#668 — código MIT vendorizado](https://github.com/davidpd89/web-escritor/pull/668): detector de lugares y comprobador de frescura de Read the Places, con normalizador y licencia, copias originales **sin integración**; matriz de software libre reutilizable.
+3. [#669 — contrato de datos v1](https://github.com/davidpd89/web-escritor/pull/669): JSON Schema, validador de referencias, tests sintéticos (sin ejecutar); debe pasar validación antes del merge.
+4. [#670 — arquitectura y fases](https://github.com/davidpd89/web-escritor/pull/670): pipeline incremental, snapshots, homogeneización y publicación serializada, futuras P5-P11.
+
+**Importante:** el programador de [#661](https://github.com/davidpd89/web-escritor/pull/661) ya publica libros y restringe rutas generadas. No autorizar otro autopublicador simultáneo; en la fase de ingeniería real hay que ampliar el gate explícitamente o empezar mediante PR manual. [#662](https://github.com/davidpd89/web-escritor/pull/662) puede servir posteriormente para Pinterest.
+
+**No se han descargado dumps enormes, ni usado claves, ni ejecutado CI/Actions, ni puesto nuevos lugares en producción.** Cada PR registra exactamente código, documentación y sus limitaciones. Ninguna está fusionada; las fases futuras se abren solo con contenido real.
