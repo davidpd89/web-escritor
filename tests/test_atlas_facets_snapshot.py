@@ -34,7 +34,7 @@ def fixture():
                            "status": "approved", "verified_at": "2026-10-21",
                            "subject_type": "work", "subject_id": "wrk-demo",
                            "relationship_type": "narrative_explicit",
-                           "source_ids": ["src-demo"]}],
+                           "evidence_note": "Cita sintética", "source_ids": ["src-demo"]}],
     }
 
 
@@ -65,6 +65,12 @@ class FacetShardsTest(unittest.TestCase):
         data["destinations"][0]["country_iso2"] = "XX/../"
         with self.assertRaisesRegex(ValueError, "ISO2"):
             mod.facet_shards(data)
+
+    def test_filming_on_work_is_not_public_facet(self):
+        data = fixture()
+        data["relationships"][0]["relationship_type"] = "filming_location"
+        _, shards = mod.facet_shards(data)
+        self.assertEqual(shards["demo-ciudad"]["places"][0]["relations"], [])
 
 
 if __name__ == "__main__":
