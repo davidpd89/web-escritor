@@ -59,3 +59,13 @@ Fuente directa: [OvertureMaps/docs taxonomy.csv](https://github.com/OvertureMaps
 - `cultural_and_historic > memorial_site > monument`
 
 **Consecuencia positiva:** el adaptador reconoce librerías de segunda mano y académicas, no solo la genérica, sin consultas de pago; `taxonomy.hierarchy` detecta descendientes. **Consecuencia limitada:** detectar biblioteca o monumento todavía no establece conexión literaria.
+
+## Avance de implementación adicional: puente explícito hacia contrato #669
+
+[scripts/atlas_overture_to_contract.py](../../scripts/atlas_overture_to_contract.py) y [tests/test_atlas_overture_to_contract.py](../../tests/test_atlas_overture_to_contract.py) (5 casos sintéticos, **NO ejecutados**) ya transforman los POIs prefiltrados de este módulo en registros `places` con **nombres, slug estable, GERS, release, coordenadas y estado candidate** del [contrato #669](https://github.com/davidpd89/web-escritor/pull/669). No los aprueban, generan texto ni publican.
+
+**Interfaz**: `python scripts/atlas_overture_to_contract.py /datos/candidatos.jsonl --destination-id dst-rome --source-id src-overture --bbox 12.4 41.8 12.6 42.0 --out /datos/lugares-candidatos.json` (ejemplo **NO ejecutado**).
+
+**Importante**: los IDs `dst-rome` y `src-overture` deben existir previamente en el snapshot maestro y sus licencias/evidencias estar registradas. La salida es un **fragmento** `{"schema_version":1,"places":[...]}`, **NO el documento completo** de 9 colecciones ni un JSON de la web. Requiere merge/deduplicación editorial controlada y validación de contrato antes de usar. La bbox la fija un destino curado: no supone que `city` del proveedor sea fiable ni geocodifica homónimos. Las bboxes que cruzan el antimeridiano se dividen en dos para no etiquetar mal puntos.
+
+El contrato #669 se amplió para aceptar `place_type=historic_site` y `source_kind=overture_record`, porque anteriormente no admitía esos valores del extractor. Esto corrige una incompatibilidad real entre ramas, sin fusionarlas.
