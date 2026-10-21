@@ -96,6 +96,13 @@ class StaticAtlasTest(unittest.TestCase):
         page = mod.pages_from(data)["/atlas-literario/lugares/biblioteca-de-prueba/"]
         self.assertNotIn("Novela de prueba", page)
 
+    def test_duplicate_place_slug_is_not_silently_overwritten(self):
+        data = fixture()
+        other = dict(data["places"][0], id="pla-second")
+        data["places"].append(other)
+        with self.assertRaisesRegex(ValueError, "URL de lugar duplicada"):
+            mod.pages_from(data)
+
 
 if __name__ == "__main__":
     unittest.main()
