@@ -289,6 +289,62 @@
       "nombre": "Stephen King",
       "slug": "stephen-king",
       "tipo": "bibliografico"
+    },
+    {
+      "descripcion": "Libros de María Lo incluidos en este catálogo: Muérdelo. Consulta sus ediciones, fechas de publicación y fichas editoriales en los enlaces de cada libro.",
+      "fecha_verificacion": "2026-10-21",
+      "fuentes": [
+        {
+          "titulo": "Muérdelo · ficha editorial",
+          "url": "https://www.penguinlibros.com/es/libros-de-cocina/634991-libro-muerdelo-9788425371967"
+        }
+      ],
+      "nombre": "María Lo",
+      "slug": "maria-lo",
+      "tipo": "bibliografico"
+    },
+    {
+      "descripcion": "Libros de Juan Sánchez incluidos en este catálogo: Cómete la vida a bocados con Pausa y Plato. Consulta sus ediciones, fechas de publicación y fichas editoriales en los enlaces de cada libro.",
+      "fecha_verificacion": "2026-10-21",
+      "fuentes": [
+        {
+          "titulo": "Cómete la vida a bocados con Pausa y Plato · ficha editorial",
+          "url": "https://www.penguinlibros.com/es/libros-de-cocina/635080-libro-comete-la-vida-a-bocados-con-pausa-y-plato-9791387629694"
+        }
+      ],
+      "nombre": "Juan Sánchez",
+      "slug": "juan-sanchez",
+      "tipo": "bibliografico"
+    },
+    {
+      "descripcion": "Libros de Jamie Oliver incluidos en este catálogo: 20 minutos ¡y listo!; Barbacoa. Consulta sus ediciones, fechas de publicación y fichas editoriales en los enlaces de cada libro.",
+      "fecha_verificacion": "2026-10-21",
+      "fuentes": [
+        {
+          "titulo": "20 minutos ¡y listo! · ficha editorial",
+          "url": "https://www.penguinlibros.com/es/libros-de-cocina/631803-libro-20-minutos-y-listo-9788425374074"
+        },
+        {
+          "titulo": "Barbacoa · ficha editorial",
+          "url": "https://www.penguinlibros.com/es/libros-de-cocina/545229-libro-barbacoa-9788425374012"
+        }
+      ],
+      "nombre": "Jamie Oliver",
+      "slug": "jamie-oliver",
+      "tipo": "bibliografico"
+    },
+    {
+      "descripcion": "Libros de Kristen Stavridis incluidos en este catálogo: La fibra es la solución. Consulta sus ediciones, fechas de publicación y fichas editoriales en los enlaces de cada libro.",
+      "fecha_verificacion": "2026-10-21",
+      "fuentes": [
+        {
+          "titulo": "La fibra es la solución · ficha editorial",
+          "url": "https://www.penguinlibros.com/es/libros-nutricion-fitness-belleza/631807-libro-la-fibra-es-la-solucion-9788425374869"
+        }
+      ],
+      "nombre": "Kristen Stavridis",
+      "slug": "kristen-stavridis",
+      "tipo": "bibliografico"
     }
   ],
   "schema_version": 1

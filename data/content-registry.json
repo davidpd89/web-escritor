@@ -4451,6 +4451,96 @@
       "sourceFile": "recomendaciones/libros/mas-simple-9791387928032/index.html"
     },
     {
+      "id": "reading-book-isbn-9788425371967",
+      "url": "/recomendaciones/libros/muerdelo-9788425371967/",
+      "label": "Muérdelo",
+      "shortLabel": "Muérdelo",
+      "type": "article",
+      "territory": "cuaderno",
+      "parentId": "recommendations-hub",
+      "hubId": "notebook-hub",
+      "discoverability": "secondary",
+      "audience": [
+        "reader"
+      ],
+      "jobs": [
+        "buscar-lecturas"
+      ],
+      "sourceFile": "recomendaciones/libros/muerdelo-9788425371967/index.html"
+    },
+    {
+      "id": "reading-book-isbn-9791387629694",
+      "url": "/recomendaciones/libros/comete-la-vida-a-bocados-con-pausa-y-plato-9791387629694/",
+      "label": "Cómete la vida a bocados con Pausa y Plato",
+      "shortLabel": "Cómete la vida a bocados con Pausa y Plato",
+      "type": "article",
+      "territory": "cuaderno",
+      "parentId": "recommendations-hub",
+      "hubId": "notebook-hub",
+      "discoverability": "secondary",
+      "audience": [
+        "reader"
+      ],
+      "jobs": [
+        "buscar-lecturas"
+      ],
+      "sourceFile": "recomendaciones/libros/comete-la-vida-a-bocados-con-pausa-y-plato-9791387629694/index.html"
+    },
+    {
+      "id": "reading-book-isbn-9788425374074",
+      "url": "/recomendaciones/libros/20-minutos-y-listo-9788425374074/",
+      "label": "20 minutos ¡y listo!",
+      "shortLabel": "20 minutos ¡y listo!",
+      "type": "article",
+      "territory": "cuaderno",
+      "parentId": "recommendations-hub",
+      "hubId": "notebook-hub",
+      "discoverability": "secondary",
+      "audience": [
+        "reader"
+      ],
+      "jobs": [
+        "buscar-lecturas"
+      ],
+      "sourceFile": "recomendaciones/libros/20-minutos-y-listo-9788425374074/index.html"
+    },
+    {
+      "id": "reading-book-isbn-9788425374869",
+      "url": "/recomendaciones/libros/la-fibra-es-la-solucion-9788425374869/",
+      "label": "La fibra es la solución",
+      "shortLabel": "La fibra es la solución",
+      "type": "article",
+      "territory": "cuaderno",
+      "parentId": "recommendations-hub",
+      "hubId": "notebook-hub",
+      "discoverability": "secondary",
+      "audience": [
+        "reader"
+      ],
+      "jobs": [
+        "buscar-lecturas"
+      ],
+      "sourceFile": "recomendaciones/libros/la-fibra-es-la-solucion-9788425374869/index.html"
+    },
+    {
+      "id": "reading-book-isbn-9788425374012",
+      "url": "/recomendaciones/libros/barbacoa-9788425374012/",
+      "label": "Barbacoa",
+      "shortLabel": "Barbacoa",
+      "type": "article",
+      "territory": "cuaderno",
+      "parentId": "recommendations-hub",
+      "hubId": "notebook-hub",
+      "discoverability": "secondary",
+      "audience": [
+        "reader"
+      ],
+      "jobs": [
+        "buscar-lecturas"
+      ],
+      "sourceFile": "recomendaciones/libros/barbacoa-9788425374012/index.html"
+    },
+    {
       "id": "reading-author-neil-gaiman",
       "url": "/recomendaciones/autores/neil-gaiman/",
       "label": "Neil Gaiman",
@@ -4845,6 +4935,78 @@
         "buscar-lecturas"
       ],
       "sourceFile": "recomendaciones/autores/stephen-king/index.html"
+    },
+    {
+      "id": "reading-author-maria-lo",
+      "url": "/recomendaciones/autores/maria-lo/",
+      "label": "María Lo",
+      "shortLabel": "María Lo",
+      "type": "article",
+      "territory": "cuaderno",
+      "parentId": "recommendations-hub",
+      "hubId": "notebook-hub",
+      "discoverability": "secondary",
+      "audience": [
+        "reader"
+      ],
+      "jobs": [
+        "buscar-lecturas"
+      ],
+      "sourceFile": "recomendaciones/autores/maria-lo/index.html"
+    },
+    {
+      "id": "reading-author-juan-sanchez",
+      "url": "/recomendaciones/autores/juan-sanchez/",
+      "label": "Juan Sánchez",
+      "shortLabel": "Juan Sánchez",
+      "type": "article",
+      "territory": "cuaderno",
+      "parentId": "recommendations-hub",
+      "hubId": "notebook-hub",
+      "discoverability": "secondary",
+      "audience": [
+        "reader"
+      ],
+      "jobs": [
+        "buscar-lecturas"
+      ],
+      "sourceFile": "recomendaciones/autores/juan-sanchez/index.html"
+    },
+    {
+      "id": "reading-author-jamie-oliver",
+      "url": "/recomendaciones/autores/jamie-oliver/",
+      "label": "Jamie Oliver",
+      "shortLabel": "Jamie Oliver",
+      "type": "article",
+      "territory": "cuaderno",
+      "parentId": "recommendations-hub",
+      "hubId": "notebook-hub",
+      "discoverability": "secondary",
+      "audience": [
+        "reader"
+      ],
+      "jobs": [
+        "buscar-lecturas"
+      ],
+      "sourceFile": "recomendaciones/autores/jamie-oliver/index.html"
+    },
+    {
+      "id": "reading-author-kristen-stavridis",
+      "url": "/recomendaciones/autores/kristen-stavridis/",
+      "label": "Kristen Stavridis",
+      "shortLabel": "Kristen Stavridis",
+      "type": "article",
+      "territory": "cuaderno",
+      "parentId": "recommendations-hub",
+      "hubId": "notebook-hub",
+      "discoverability": "secondary",
+      "audience": [
+        "reader"
+      ],
+      "jobs": [
+        "buscar-lecturas"
+      ],
+      "sourceFile": "recomendaciones/autores/kristen-stavridis/index.html"
     }
   ]
 }

@@ -401,6 +401,42 @@
     {
       "categoria_id": "adultos",
       "libro_id": "isbn-9791387928032"
+    },
+    {
+      "categoria_id": "cocina",
+      "libro_id": "isbn-9788425371967"
+    },
+    {
+      "categoria_id": "adultos",
+      "libro_id": "isbn-9788425371967"
+    },
+    {
+      "categoria_id": "cocina",
+      "libro_id": "isbn-9791387629694"
+    },
+    {
+      "categoria_id": "adultos",
+      "libro_id": "isbn-9791387629694"
+    },
+    {
+      "categoria_id": "cocina",
+      "libro_id": "isbn-9788425374074"
+    },
+    {
+      "categoria_id": "adultos",
+      "libro_id": "isbn-9788425374074"
+    },
+    {
+      "categoria_id": "adultos",
+      "libro_id": "isbn-9788425374869"
+    },
+    {
+      "categoria_id": "cocina",
+      "libro_id": "isbn-9788425374012"
+    },
+    {
+      "categoria_id": "adultos",
+      "libro_id": "isbn-9788425374012"
     }
   ],
   "libros": [
@@ -1295,6 +1331,211 @@
       ],
       "slug": "mas-simple-9791387928032",
       "titulo": "Más Simple"
+    },
+    {
+      "amazon_busqueda_isbn": "https://www.amazon.es/s?k=9788425371967&tag=davidporto-21",
+      "anio_publicacion": 2026,
+      "autores": [
+        "María Lo"
+      ],
+      "autorizacion_o_base_uso": "Cubierta proporcionada en la ficha oficial de la edición para su identificación bibliográfica, con atribución y enlace a la editorial. No se declara licencia abierta ni se reutiliza como imagen de Pinterest.",
+      "descripcion_breve": "Muérdelo, de María Lo. Edición de Grijalbo en castellano, en tapa blanda con solapas. Consta de 256 páginas. La editorial la incluye en cocina. Publicación editorial: 2026-10-15.",
+      "descripcion_original_confirmada": true,
+      "edad_recomendada": "Adultos",
+      "edicion": "Tapa blanda con solapas · Grijalbo",
+      "editorial": "Grijalbo",
+      "editorial_slug": "grijalbo",
+      "estado": "publicado",
+      "fecha_actualizacion": "2026-10-21",
+      "fecha_publicacion": "2026-10-15",
+      "fecha_verificacion": "2026-10-21",
+      "formato_edicion": "tapa-blanda",
+      "fuente_bibliografica_url": "https://www.penguinlibros.com/es/libros-de-cocina/634991-libro-muerdelo-9788425371967",
+      "fuente_edad_url": "https://www.penguinlibros.com/es/libros-de-cocina/634991-libro-muerdelo-9788425371967",
+      "fuente_publicacion_url": "https://www.penguinlibros.com/es/libros-de-cocina/634991-libro-muerdelo-9788425371967",
+      "id": "isbn-9788425371967",
+      "idioma": "es",
+      "isbn13": "9788425371967",
+      "numero_paginas": 256,
+      "portada_alto": 1235,
+      "portada_ancho": 800,
+      "portada_edicion_verificada": true,
+      "portada_fecha_revision": "2026-10-21",
+      "portada_fuente_url": "https://www.penguinlibros.com/es/8129789-thickbox_default/muerdelo.jpg",
+      "portada_local": "/assets/reading-covers/isbn-9788425371967.webp",
+      "resenas": [
+        {
+          "fecha_verificacion": "2026-10-21",
+          "titulo": "Buscar reseñas en Goodreads",
+          "url": "https://www.goodreads.com/search?q=9788425371967"
+        }
+      ],
+      "slug": "muerdelo-9788425371967",
+      "titulo": "Muérdelo"
+    },
+    {
+      "amazon_busqueda_isbn": "https://www.amazon.es/s?k=9791387629694&tag=davidporto-21",
+      "anio_publicacion": 2026,
+      "autores": [
+        "Juan Sánchez"
+      ],
+      "autorizacion_o_base_uso": "Cubierta proporcionada en la ficha oficial de la edición para su identificación bibliográfica, con atribución y enlace a la editorial. No se declara licencia abierta ni se reutiliza como imagen de Pinterest.",
+      "descripcion_breve": "Cómete la vida a bocados con Pausa y Plato, de Juan Sánchez. Edición de Roca Editorial en castellano, en tapa blanda con solapas. Consta de 224 páginas. La editorial la incluye en cocina. Publicación editorial: 2026-10-01.",
+      "descripcion_original_confirmada": true,
+      "edad_recomendada": "Adultos",
+      "edicion": "Tapa blanda con solapas · Roca Editorial",
+      "editorial": "Roca Editorial",
+      "editorial_slug": "roca-editorial",
+      "estado": "publicado",
+      "fecha_actualizacion": "2026-10-21",
+      "fecha_publicacion": "2026-10-01",
+      "fecha_verificacion": "2026-10-21",
+      "formato_edicion": "tapa-blanda",
+      "fuente_bibliografica_url": "https://www.penguinlibros.com/es/libros-de-cocina/635080-libro-comete-la-vida-a-bocados-con-pausa-y-plato-9791387629694",
+      "fuente_edad_url": "https://www.penguinlibros.com/es/libros-de-cocina/635080-libro-comete-la-vida-a-bocados-con-pausa-y-plato-9791387629694",
+      "fuente_publicacion_url": "https://www.penguinlibros.com/es/libros-de-cocina/635080-libro-comete-la-vida-a-bocados-con-pausa-y-plato-9791387629694",
+      "id": "isbn-9791387629694",
+      "idioma": "es",
+      "isbn13": "9791387629694",
+      "numero_paginas": 224,
+      "portada_alto": 1235,
+      "portada_ancho": 800,
+      "portada_edicion_verificada": true,
+      "portada_fecha_revision": "2026-10-21",
+      "portada_fuente_url": "https://www.penguinlibros.com/es/8059947-thickbox_default/comete-la-vida-a-bocados-con-pausa-y-plato.jpg",
+      "portada_local": "/assets/reading-covers/isbn-9791387629694.webp",
+      "resenas": [
+        {
+          "fecha_verificacion": "2026-10-21",
+          "titulo": "Buscar reseñas en Goodreads",
+          "url": "https://www.goodreads.com/search?q=9791387629694"
+        }
+      ],
+      "slug": "comete-la-vida-a-bocados-con-pausa-y-plato-9791387629694",
+      "titulo": "Cómete la vida a bocados con Pausa y Plato"
+    },
+    {
+      "amazon_busqueda_isbn": "https://www.amazon.es/s?k=9788425374074&tag=davidporto-21",
+      "anio_publicacion": 2026,
+      "autores": [
+        "Jamie Oliver"
+      ],
+      "autorizacion_o_base_uso": "Cubierta proporcionada en la ficha oficial de la edición para su identificación bibliográfica, con atribución y enlace a la editorial. No se declara licencia abierta ni se reutiliza como imagen de Pinterest.",
+      "descripcion_breve": "20 minutos ¡y listo!, de Jamie Oliver. Edición de Grijalbo en castellano, en tapa dura. Consta de 320 páginas. La editorial la incluye en cocina. Publicación editorial: 2026-09-23.",
+      "descripcion_original_confirmada": true,
+      "edad_recomendada": "Adultos",
+      "edicion": "Tapa dura · Grijalbo",
+      "editorial": "Grijalbo",
+      "editorial_slug": "grijalbo",
+      "estado": "publicado",
+      "fecha_actualizacion": "2026-10-21",
+      "fecha_publicacion": "2026-09-23",
+      "fecha_verificacion": "2026-10-21",
+      "formato_edicion": "tapa-dura",
+      "fuente_bibliografica_url": "https://www.penguinlibros.com/es/libros-de-cocina/631803-libro-20-minutos-y-listo-9788425374074",
+      "fuente_edad_url": "https://www.penguinlibros.com/es/libros-de-cocina/631803-libro-20-minutos-y-listo-9788425374074",
+      "fuente_publicacion_url": "https://www.penguinlibros.com/es/libros-de-cocina/631803-libro-20-minutos-y-listo-9788425374074",
+      "id": "isbn-9788425374074",
+      "idioma": "es",
+      "isbn13": "9788425374074",
+      "numero_paginas": 320,
+      "portada_alto": 1235,
+      "portada_ancho": 800,
+      "portada_edicion_verificada": true,
+      "portada_fecha_revision": "2026-10-21",
+      "portada_fuente_url": "https://www.penguinlibros.com/es/8139229-thickbox_default/20-minutos-y-listo.jpg",
+      "portada_local": "/assets/reading-covers/isbn-9788425374074.webp",
+      "resenas": [
+        {
+          "fecha_verificacion": "2026-10-21",
+          "titulo": "Buscar reseñas en Goodreads",
+          "url": "https://www.goodreads.com/search?q=9788425374074"
+        }
+      ],
+      "slug": "20-minutos-y-listo-9788425374074",
+      "titulo": "20 minutos ¡y listo!"
+    },
+    {
+      "amazon_busqueda_isbn": "https://www.amazon.es/s?k=9788425374869&tag=davidporto-21",
+      "anio_publicacion": 2026,
+      "autores": [
+        "Kristen Stavridis"
+      ],
+      "autorizacion_o_base_uso": "Cubierta proporcionada en la ficha oficial de la edición para su identificación bibliográfica, con atribución y enlace a la editorial. No se declara licencia abierta ni se reutiliza como imagen de Pinterest.",
+      "descripcion_breve": "La fibra es la solución, de Kristen Stavridis. Edición de Grijalbo en castellano, en tapa blanda con solapas. Consta de 264 páginas. La editorial la incluye en nutrición, belleza y fitness. Publicación editorial: 2026-09-03.",
+      "descripcion_original_confirmada": true,
+      "edad_recomendada": "Adultos",
+      "edicion": "Tapa blanda con solapas · Grijalbo",
+      "editorial": "Grijalbo",
+      "editorial_slug": "grijalbo",
+      "estado": "publicado",
+      "fecha_actualizacion": "2026-10-21",
+      "fecha_publicacion": "2026-09-03",
+      "fecha_verificacion": "2026-10-21",
+      "formato_edicion": "tapa-blanda",
+      "fuente_bibliografica_url": "https://www.penguinlibros.com/es/libros-nutricion-fitness-belleza/631807-libro-la-fibra-es-la-solucion-9788425374869",
+      "fuente_edad_url": "https://www.penguinlibros.com/es/libros-nutricion-fitness-belleza/631807-libro-la-fibra-es-la-solucion-9788425374869",
+      "fuente_publicacion_url": "https://www.penguinlibros.com/es/libros-nutricion-fitness-belleza/631807-libro-la-fibra-es-la-solucion-9788425374869",
+      "id": "isbn-9788425374869",
+      "idioma": "es",
+      "isbn13": "9788425374869",
+      "numero_paginas": 264,
+      "portada_alto": 1235,
+      "portada_ancho": 800,
+      "portada_edicion_verificada": true,
+      "portada_fecha_revision": "2026-10-21",
+      "portada_fuente_url": "https://www.penguinlibros.com/es/7959809-thickbox_default/la-fibra-es-la-solucion.jpg",
+      "portada_local": "/assets/reading-covers/isbn-9788425374869.webp",
+      "resenas": [
+        {
+          "fecha_verificacion": "2026-10-21",
+          "titulo": "Buscar reseñas en Goodreads",
+          "url": "https://www.goodreads.com/search?q=9788425374869"
+        }
+      ],
+      "slug": "la-fibra-es-la-solucion-9788425374869",
+      "titulo": "La fibra es la solución"
+    },
+    {
+      "amazon_busqueda_isbn": "https://www.amazon.es/s?k=9788425374012&tag=davidporto-21",
+      "anio_publicacion": 2026,
+      "autores": [
+        "Jamie Oliver"
+      ],
+      "autorizacion_o_base_uso": "Cubierta proporcionada en la ficha oficial de la edición para su identificación bibliográfica, con atribución y enlace a la editorial. No se declara licencia abierta ni se reutiliza como imagen de Pinterest.",
+      "descripcion_breve": "Barbacoa, de Jamie Oliver. Edición de Grijalbo en castellano, en tapa dura. Consta de 256 páginas. La editorial la incluye en cocina. Publicación editorial: 2026-04-16.",
+      "descripcion_original_confirmada": true,
+      "edad_recomendada": "Adultos",
+      "edicion": "Tapa dura · Grijalbo",
+      "editorial": "Grijalbo",
+      "editorial_slug": "grijalbo",
+      "estado": "publicado",
+      "fecha_actualizacion": "2026-10-21",
+      "fecha_publicacion": "2026-04-16",
+      "fecha_verificacion": "2026-10-21",
+      "formato_edicion": "tapa-dura",
+      "fuente_bibliografica_url": "https://www.penguinlibros.com/es/libros-de-cocina/545229-libro-barbacoa-9788425374012",
+      "fuente_edad_url": "https://www.penguinlibros.com/es/libros-de-cocina/545229-libro-barbacoa-9788425374012",
+      "fuente_publicacion_url": "https://www.penguinlibros.com/es/libros-de-cocina/545229-libro-barbacoa-9788425374012",
+      "id": "isbn-9788425374012",
+      "idioma": "es",
+      "isbn13": "9788425374012",
+      "numero_paginas": 256,
+      "portada_alto": 1235,
+      "portada_ancho": 800,
+      "portada_edicion_verificada": true,
+      "portada_fecha_revision": "2026-10-21",
+      "portada_fuente_url": "https://www.penguinlibros.com/es/7721271-thickbox_default/barbacoa.jpg",
+      "portada_local": "/assets/reading-covers/isbn-9788425374012.webp",
+      "resenas": [
+        {
+          "fecha_verificacion": "2026-10-21",
+          "titulo": "Buscar reseñas en Goodreads",
+          "url": "https://www.goodreads.com/search?q=9788425374012"
+        }
+      ],
+      "slug": "barbacoa-9788425374012",
+      "titulo": "Barbacoa"
     }
   ],
   "schema_version": 1
