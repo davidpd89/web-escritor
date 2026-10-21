@@ -10,6 +10,7 @@ import argparse
 import json
 import re
 from pathlib import Path
+from urllib.parse import urlsplit
 
 ID = re.compile(r"^[a-z][a-z0-9-]{2,79}$")
 QID = re.compile(r"^Q[1-9][0-9]*$")
@@ -21,6 +22,19 @@ RELATIONS = {
     "literary_homage": "work",
     "popular_claim_unverified": "work",
 }
+def valid_https_url(url: object) -> bool:
+    """Reusable strict-ish source URL gate aligned with reading catalogue."""
+    if not isinstance(url, str) or re.search(r"[\\s<>\\x00-\\x1f]", url):
+        return False
+    try:
+        parsed = urlsplit(url)
+        return (parsed.scheme == "https" and bool(parsed.hostname)
+                and not parsed.username and not parsed.password
+                and parsed.port in (None, 443))
+    except ValueError:
+        return False
+
+
 APPROVED = "approved"
 COLLECTIONS = ("destinations", "places", "works", "authors", "adaptations",
                "sources", "relationships", "images", "routes")
@@ -72,7 +86,7 @@ def problems(data: dict) -> list[str]:
             return  # require() ya informa de referencia inexistente
         if not all(src.get(k) for k in ("url", "title", "retrieved_at", "evidence_summary")):
             errors.append(f"{scope}: fuente {source_id!r} requiere URL, título, fecha y evidencia")
-        elif not isinstance(src["url"], str) or not src["url"].startswith("https://"):
+        elif not valid_https_url(src["url"]):
             errors.append(f"{scope}: fuente {source_id!r} requiere URL HTTPS")
 
     for place in tables["places"].values():
