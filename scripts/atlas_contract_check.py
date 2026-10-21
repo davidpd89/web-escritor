@@ -60,6 +60,21 @@ def problems(data: dict) -> list[str]:
         if entry is not None and entry.get("status") != APPROVED:
             errors.append(f"{scope}: {category}={key!r} no aprobado")
 
+    def id_list(value: object, scope: str, field: str) -> list[str]:
+        if not isinstance(value, list) or any(not isinstance(x, str) for x in value):
+            errors.append(f"{scope}: {field} debe ser lista de IDs")
+            return []
+        return value
+
+    def check_source_evidence(source_id: str, scope: str) -> None:
+        src = tables["sources"].get(source_id)
+        if src is None:
+            return  # require() ya informa de referencia inexistente
+        if not all(src.get(k) for k in ("url", "title", "retrieved_at", "evidence_summary")):
+            errors.append(f"{scope}: fuente {source_id!r} requiere URL, título, fecha y evidencia")
+        elif not isinstance(src["url"], str) or not src["url"].startswith("https://"):
+            errors.append(f"{scope}: fuente {source_id!r} requiere URL HTTPS")
+
     for place in tables["places"].values():
         scope = f"places/{place['id']}"
         require("destinations", place.get("destination_id"), scope)
@@ -78,15 +93,17 @@ def problems(data: dict) -> list[str]:
             if not place.get("summary_original") or not place.get("source_ids"):
                 errors.append(scope + ": aprobado requiere texto original y fuente")
             require_approved("destinations", place.get("destination_id"), scope)
-        for image_id in place.get("image_ids", []):
+        for image_id in id_list(place.get("image_ids", []), scope, "image_ids"):
             require("images", image_id, scope)
-        for source_id in place.get("source_ids", []):
+        for source_id in id_list(place.get("source_ids", []), scope, "source_ids"):
             require("sources", source_id, scope)
+            if place.get("status") == APPROVED:
+                check_source_evidence(source_id, scope)
         if place.get("osm_id") and not place.get("osm_type"):
             errors.append(scope + ": osm_id requiere osm_type")
 
     for work in tables["works"].values():
-        for author_id in work.get("author_ids", []):
+        for author_id in id_list(work.get("author_ids", []), f"works/{work['id']}", "author_ids"):
             require("authors", author_id, f"works/{work['id']}")
     for adaptation in tables["adaptations"].values():
         require("works", adaptation.get("original_work_id"), f"adaptations/{adaptation['id']}")
@@ -103,8 +120,8 @@ def problems(data: dict) -> list[str]:
             table = {"work": "works", "adaptation": "adaptations", "author": "authors"}.get(required_subject)
             if table:
                 require(table, relation.get("subject_id"), scope)
-        source_ids = relation.get("source_ids") or []
-        if not isinstance(source_ids, list) or not source_ids:
+        source_ids = id_list(relation.get("source_ids"), scope, "source_ids")
+        if not source_ids:
             errors.append(scope + ": toda relación necesita fuente propia")
         else:
             for source_id in source_ids:
@@ -115,10 +132,8 @@ def problems(data: dict) -> list[str]:
                 table = {"work": "works", "adaptation": "adaptations", "author": "authors"}.get(required_subject)
                 if table:
                     require_approved(table, relation.get("subject_id"), scope)
-            for source_id in (source_ids if isinstance(source_ids, list) else []):
-                src = tables["sources"].get(source_id) if isinstance(source_id, str) else None
-                if src is not None and not all(src.get(field) for field in ("url", "retrieved_at", "evidence_summary")):
-                    errors.append(scope + ": fuente aprobada requiere URL, fecha y resumen de evidencia")
+            for source_id in source_ids:
+                check_source_evidence(source_id, scope)
             if not relation.get("verified_at") or not relation.get("evidence_note"):
                 errors.append(scope + ": aprobado exige fecha y evidencia")
             if typ == "popular_claim_unverified":
@@ -127,12 +142,13 @@ def problems(data: dict) -> list[str]:
         scope = f"images/{image['id']}"
         require("places", image.get("place_id"), scope)
         if image.get("status") == APPROVED:
+            require_approved("places", image.get("place_id"), scope)
             if not all(image.get(k) for k in ("license", "license_url", "attribution", "source_url")):
                 errors.append(scope + ": imagen aprobada sin derechos/atribución")
     for route in tables["routes"].values():
         scope = f"routes/{route['id']}"
         require("destinations", route.get("destination_id"), scope)
-        stops = route.get("place_ids") or []
+        stops = id_list(route.get("place_ids"), scope, "place_ids")
         if len(stops) != len(set(stops)):
             errors.append(scope + ": paradas duplicadas")
         for stop in stops:
