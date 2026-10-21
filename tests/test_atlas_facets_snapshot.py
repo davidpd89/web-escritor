@@ -72,6 +72,14 @@ class FacetShardsTest(unittest.TestCase):
         _, shards = mod.facet_shards(data)
         self.assertEqual(shards["demo-ciudad"]["places"][0]["relations"], [])
 
+    def test_bad_https_source_never_makes_a_public_facet(self):
+        data = fixture()
+        data["sources"][0]["url"] = "https://"
+        manifest, shards = mod.facet_shards(data)
+        self.assertEqual(manifest["countries"], [])
+        self.assertEqual(shards, {})
+
+
 
 if __name__ == "__main__":
     unittest.main()
