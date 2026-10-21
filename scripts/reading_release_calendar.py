@@ -128,7 +128,12 @@ def write_outputs(files, destination):
     """Dedicated generated namespace: remove stale files, nothing else."""
     destination.mkdir(parents=True, exist_ok=True)
     for path in destination.glob("*.ics"):
-        if path.name not in files:
+        if path.name in files:
+            continue
+        # Never delete unrelated personal calendars in a caller-supplied folder.
+        if not path.name.startswith(("isbn-", "lib-")) or not path.is_file():
+            continue
+        if b"PRODID:-//David Porto Diaz//Lanzamientos literarios//ES" in path.read_bytes()[:2048]:
             path.unlink()
     for name, content in files.items():
         target = destination / name
