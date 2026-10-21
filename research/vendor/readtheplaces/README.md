@@ -6,6 +6,7 @@
 
 - [Original de places.ts](https://github.com/markselby9/readtheplaces.com/blob/main/packages/tools/src/places.ts) — blob Git `d4f8546d9b241d83e2b172646deeb37e03db70d2`; copia **literal** `packages/tools/src/places.ts`.
 - [Original de normalise.ts](https://github.com/markselby9/readtheplaces.com/blob/main/packages/schema/src/normalise.ts) — blob Git `0f7c1a4ac4edffb0d49bafe750a2f8f1c931357e`; copia **literal** `packages/schema/src/normalise.ts`.
+- [Original de freshness.ts](https://github.com/markselby9/readtheplaces.com/blob/main/packages/tools/src/freshness.ts) — blob `c5790af8842fc90d639e1ab88d35245b29da7530`; copia **literal** en `packages/tools/src/freshness.ts`. Compara SHA y conteo de libros del despliegue para detectar publicaciones desactualizadas. Futuro uso exige adaptar conteo a lugares/relaciones y origen real del commit.
 - [Licencia original](https://github.com/markselby9/readtheplaces.com/blob/main/LICENSE) — blob `d660c595a57f6d86a80737db9089dee0ff3605fd`; conservada literal como `LICENSE.upstream`. El copyright del código es © 2026 Read the Places contributors; código de `packages/` **MIT** con obligación de conservar avisos.
 - Licencia **distinta** de los datos del repositorio de origen: `books/*/{book,waypoints}.json` **CC BY-SA 4.0**. **No se han copiado** obras, pasajes, base editorial, fotos ni datos. Materiales terceros tienen derechos propios.
 
@@ -30,6 +31,7 @@ En PR posterior de ingeniería:
 
 - [x] Archivo fuente copiado sin alterar.
 - [x] Dependencia de normalización original copiada sin alterar.
+- [x] Comprobador de frescura de despliegue MIT copiado sin alterar.
 - [x] Licencia upstream completa copiada sin alterar.
 - [x] SHA de cada blob y URL de origen registrados.
 - [x] No importado ni ejecutado, cero impacto en web.
