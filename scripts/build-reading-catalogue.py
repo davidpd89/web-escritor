@@ -302,7 +302,7 @@ def author_records(root=ROOT):
     names, slugs = set(), set()
     for a in payload['autores']:
         required = {'slug', 'nombre', 'descripcion', 'fuentes', 'fecha_verificacion'}
-        optional = {'biografia_breve', 'biografia_fuente_url', 'biografia_fecha_revision'}
+        optional = {'biografia_breve', 'biografia_fuente_url', 'biografia_fecha_revision', 'biografia_fuente_nombre', 'biografia_ultimo_intento'}
         require(set(a) - optional == required | ({'tipo'} if a.get('tipo') == 'bibliografico' else {'nacimiento'}), 'Campos de autor inválidos')
         if a.get('biografia_breve'):
             require(30 <= len(a['biografia_breve']) <= 700 and https(a.get('biografia_fuente_url')), 'Biografía sin fuente o inválida')
@@ -564,7 +564,7 @@ def render_author(a,data,books,template):
     count=len(selected)
     summary=a['nombre']+': '+str(count)+(' libro disponible' if count==1 else ' libros disponibles')+' en este catálogo.'
     bio=a.get('biografia_breve') or (a['descripcion'] if a.get('tipo') != 'bibliografico' else summary)
-    biography_source=('<p class="catalogue-source"><a href="'+esc(a['biografia_fuente_url'])+'" target="_blank" rel="noopener noreferrer">Nota biográfica editorial ↗</a></p>') if a.get('biografia_breve') else ''
+    biography_source=('<p class="catalogue-source"><a href="'+esc(a['biografia_fuente_url'])+'" target="_blank" rel="noopener noreferrer">Nota biográfica: '+esc(a.get('biografia_fuente_nombre') or 'editorial')+' ↗</a>'+(' · Texto de Wikipedia con licencia CC BY-SA 4.0' if a.get('biografia_fuente_nombre') == 'Wikipedia' else '')+'</p>') if a.get('biografia_breve') else ''
     context='<section aria-labelledby="author-context"><h2 id="author-context">Su obra en este catálogo</h2><p>'+esc(summary)+'</p>'
     if topics:
         context+='<p>Géneros y temas presentes en sus libros:</p>'+tags(list(topics.values()))

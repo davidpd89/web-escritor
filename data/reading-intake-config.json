@@ -77,5 +77,10 @@
     "google_books_requests_per_day": 40,
     "hardcover_requests_per_day": 40,
     "notes": "Hasta 100 consultas públicas por ISBN a Goodreads y 40 por API a Google Books y Hardcover; estas dos APIs solo se consultan si tienen su secreto. Cada valoración identifica su proveedor. No se consultan reseñas ni bibliotecas personales. Un proveedor indisponible o limitado se detiene hasta la siguiente ejecución, conservando los datos y sus fechas reales."
+  },
+  "author_wikipedia": {
+    "enabled": true,
+    "requests_per_run": 10,
+    "notes": "Biografía breve de Wikipedia (es) solo para autores bibliográficos sin ficha editorial; valida título exacto, ocupación y no desambiguación."
   }
 }

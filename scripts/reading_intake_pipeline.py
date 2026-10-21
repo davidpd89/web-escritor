@@ -28,6 +28,7 @@ from reading_intake_fetch import read_json, write_if_changed
 from reading_intake_publishers import resolve_publishers
 from reading_taxonomy import extra_categories
 from reading_catalogue_publishers import catalogue_publisher, PublisherError
+from reading_author_wikipedia import WikipediaSummaries, fill_missing_bios
 
 ROOT = Path(__file__).resolve().parents[1]
 spec = importlib.util.spec_from_file_location('catalogue_builder', ROOT / 'scripts/build-reading-catalogue.py')
@@ -453,6 +454,10 @@ def ingest(config, root, cache, *, max_new=None, max_requests=None, apply=False,
                 stats['pending'] += 1
         update_authors(authors, catalogue, new_books + updated_books, today)
         stats['author_profiles_updated'] = enrich_author_bios(authors, state, http, today)
+        wiki = config.get('author_wikipedia', {})
+        if wiki.get('enabled'):
+            # Alternativa abierta para autores sin ficha biográfica editorial (p. ej. clásicos).
+            stats['author_profiles_updated'] += fill_missing_bios(authors, WikipediaSummaries(budget=int(wiki.get('requests_per_run', 10))), today)
         builder.validate(catalogue, validation_root)
     stats['accepted'] = len(new_books)
     stats['updated'] = len(updated_books)
