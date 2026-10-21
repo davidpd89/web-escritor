@@ -6,10 +6,16 @@ on:
       - 'scripts/build-reading-catalogue.py'
       - 'scripts/export-reading-approved-reviews.py'
       - 'scripts/reading_ratings_refresh.py'
+      - 'scripts/refresh-reading-catalogue.py'
+      - 'scripts/publish-reading-refresh.py'
+      - 'data/reading-intake-config.json'
+      - '.github/workflows/reading-catalogue-sync.yml'
+      - 'qa/reading-commerce-browser.mjs'
       - 'assets/reading-catalogue.js'
       - 'tests/test_reading_affiliate_card_ux.py'
       - 'tests/test_reading_review_moderation_export.py'
-      - 'tests/test_reading_ratings_refresh.py'
+      - 'tests/test_reading_ratings_refresh.py tests/test_reading_rating_workflow_contract.py'
+      - 'tests/test_reading_rating_workflow_contract.py'
       - '.github/workflows/reading-general-catalogue-ux-qa.yml'
   workflow_dispatch:
 
@@ -34,6 +40,8 @@ jobs:
       - name: Test private review moderation export and retraction
         run: python -m unittest discover -s tests -p 'test_reading_review_moderation_export.py' -v
       - name: Test Google Books provider offline, no API key
-        run: python -m unittest discover -s tests -p 'test_reading_ratings_refresh.py' -v
+        run: |
+          python -m unittest discover -s tests -p 'test_reading_ratings_refresh.py' -v
+          python -m unittest discover -s tests -p 'test_reading_rating_workflow_contract.py' -v
       - name: JavaScript syntax check
         run: node --check assets/reading-catalogue.js
