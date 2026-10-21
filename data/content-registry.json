@@ -4541,6 +4541,96 @@
       "sourceFile": "recomendaciones/libros/barbacoa-9788425374012/index.html"
     },
     {
+      "id": "reading-book-isbn-9791387975340",
+      "url": "/recomendaciones/libros/un-dia-en-la-vida-de-clarita-9791387975340/",
+      "label": "Un día en la vida de Clarita",
+      "shortLabel": "Un día en la vida de Clarita",
+      "type": "article",
+      "territory": "cuaderno",
+      "parentId": "recommendations-hub",
+      "hubId": "notebook-hub",
+      "discoverability": "secondary",
+      "audience": [
+        "reader"
+      ],
+      "jobs": [
+        "buscar-lecturas"
+      ],
+      "sourceFile": "recomendaciones/libros/un-dia-en-la-vida-de-clarita-9791387975340/index.html"
+    },
+    {
+      "id": "reading-book-isbn-9788401039836",
+      "url": "/recomendaciones/libros/familia-contamos-nuestra-historia-me-cuentas-tu-historia-9788401039836/",
+      "label": "Familia, ¿contamos nuestra historia? (¿Me cuentas tu historia?)",
+      "shortLabel": "Familia, ¿contamos nuestra historia? (¿Me cuentas tu historia?)",
+      "type": "article",
+      "territory": "cuaderno",
+      "parentId": "recommendations-hub",
+      "hubId": "notebook-hub",
+      "discoverability": "secondary",
+      "audience": [
+        "reader"
+      ],
+      "jobs": [
+        "buscar-lecturas"
+      ],
+      "sourceFile": "recomendaciones/libros/familia-contamos-nuestra-historia-me-cuentas-tu-historia-9788401039836/index.html"
+    },
+    {
+      "id": "reading-book-isbn-9788410466470",
+      "url": "/recomendaciones/libros/el-ojo-de-la-novia-frenopatica-carl-el-mazmorrero-6-9788410466470/",
+      "label": "El ojo de la novia frenopática (Carl el Mazmorrero 6)",
+      "shortLabel": "El ojo de la novia frenopática (Carl el Mazmorrero 6)",
+      "type": "article",
+      "territory": "cuaderno",
+      "parentId": "recommendations-hub",
+      "hubId": "notebook-hub",
+      "discoverability": "secondary",
+      "audience": [
+        "reader"
+      ],
+      "jobs": [
+        "buscar-lecturas"
+      ],
+      "sourceFile": "recomendaciones/libros/el-ojo-de-la-novia-frenopatica-carl-el-mazmorrero-6-9788410466470/index.html"
+    },
+    {
+      "id": "reading-book-isbn-9788401037917",
+      "url": "/recomendaciones/libros/las-pruebas-del-tarot-9788401037917/",
+      "label": "Las Pruebas del Tarot",
+      "shortLabel": "Las Pruebas del Tarot",
+      "type": "article",
+      "territory": "cuaderno",
+      "parentId": "recommendations-hub",
+      "hubId": "notebook-hub",
+      "discoverability": "secondary",
+      "audience": [
+        "reader"
+      ],
+      "jobs": [
+        "buscar-lecturas"
+      ],
+      "sourceFile": "recomendaciones/libros/las-pruebas-del-tarot-9788401037917/index.html"
+    },
+    {
+      "id": "reading-book-isbn-9788401031380",
+      "url": "/recomendaciones/libros/bajamar-9788401031380/",
+      "label": "Bajamar",
+      "shortLabel": "Bajamar",
+      "type": "article",
+      "territory": "cuaderno",
+      "parentId": "recommendations-hub",
+      "hubId": "notebook-hub",
+      "discoverability": "secondary",
+      "audience": [
+        "reader"
+      ],
+      "jobs": [
+        "buscar-lecturas"
+      ],
+      "sourceFile": "recomendaciones/libros/bajamar-9788401031380/index.html"
+    },
+    {
       "id": "reading-author-neil-gaiman",
       "url": "/recomendaciones/autores/neil-gaiman/",
       "label": "Neil Gaiman",
@@ -5007,6 +5097,96 @@
         "buscar-lecturas"
       ],
       "sourceFile": "recomendaciones/autores/kristen-stavridis/index.html"
+    },
+    {
+      "id": "reading-author-rosa-montero",
+      "url": "/recomendaciones/autores/rosa-montero/",
+      "label": "Rosa Montero",
+      "shortLabel": "Rosa Montero",
+      "type": "article",
+      "territory": "cuaderno",
+      "parentId": "recommendations-hub",
+      "hubId": "notebook-hub",
+      "discoverability": "secondary",
+      "audience": [
+        "reader"
+      ],
+      "jobs": [
+        "buscar-lecturas"
+      ],
+      "sourceFile": "recomendaciones/autores/rosa-montero/index.html"
+    },
+    {
+      "id": "reading-author-elma-van-vliet",
+      "url": "/recomendaciones/autores/elma-van-vliet/",
+      "label": "Elma van Vliet",
+      "shortLabel": "Elma van Vliet",
+      "type": "article",
+      "territory": "cuaderno",
+      "parentId": "recommendations-hub",
+      "hubId": "notebook-hub",
+      "discoverability": "secondary",
+      "audience": [
+        "reader"
+      ],
+      "jobs": [
+        "buscar-lecturas"
+      ],
+      "sourceFile": "recomendaciones/autores/elma-van-vliet/index.html"
+    },
+    {
+      "id": "reading-author-matt-dinniman",
+      "url": "/recomendaciones/autores/matt-dinniman/",
+      "label": "Matt Dinniman",
+      "shortLabel": "Matt Dinniman",
+      "type": "article",
+      "territory": "cuaderno",
+      "parentId": "recommendations-hub",
+      "hubId": "notebook-hub",
+      "discoverability": "secondary",
+      "audience": [
+        "reader"
+      ],
+      "jobs": [
+        "buscar-lecturas"
+      ],
+      "sourceFile": "recomendaciones/autores/matt-dinniman/index.html"
+    },
+    {
+      "id": "reading-author-katee-robert",
+      "url": "/recomendaciones/autores/katee-robert/",
+      "label": "Katee Robert",
+      "shortLabel": "Katee Robert",
+      "type": "article",
+      "territory": "cuaderno",
+      "parentId": "recommendations-hub",
+      "hubId": "notebook-hub",
+      "discoverability": "secondary",
+      "audience": [
+        "reader"
+      ],
+      "jobs": [
+        "buscar-lecturas"
+      ],
+      "sourceFile": "recomendaciones/autores/katee-robert/index.html"
+    },
+    {
+      "id": "reading-author-ibon-martin",
+      "url": "/recomendaciones/autores/ibon-martin/",
+      "label": "Ibon Martín",
+      "shortLabel": "Ibon Martín",
+      "type": "article",
+      "territory": "cuaderno",
+      "parentId": "recommendations-hub",
+      "hubId": "notebook-hub",
+      "discoverability": "secondary",
+      "audience": [
+        "reader"
+      ],
+      "jobs": [
+        "buscar-lecturas"
+      ],
+      "sourceFile": "recomendaciones/autores/ibon-martin/index.html"
     }
   ]
 }
