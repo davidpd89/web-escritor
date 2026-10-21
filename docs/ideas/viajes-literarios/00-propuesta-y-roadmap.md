@@ -1,5 +1,7 @@
 # Viajes literarios · propuesta de producto e investigación (v0.1)
 
+> **ESTADO: HISTÓRICO.** La fuente única de decisiones actuales es [README.md — ADR-000](README.md), actualizado el 21/10/2026. Este documento se conserva como investigación inicial para trazabilidad: las rutas alternativas, estados de PR y fases que aparezcan aquí no sustituyen el ADR. No añadir nuevas decisiones en este fichero.
+
 **Fecha:** 2026-10-21. **Estado:** investigación, no implementación. **Repositorio:** davidpd89/web-escritor. **Propietario decide el lanzamiento.**
 
 ## 1. Visión y promesa editorial
