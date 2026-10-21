@@ -24,7 +24,7 @@ ROOT = Path(__file__).resolve().parents[1]
 SITE = "https://davidportodiaz.com"
 SLUG = re.compile(r"[a-z0-9]+(?:-[a-z0-9]+)*\Z")
 TYPES = {"genero": "Género", "tematica": "Temática", "temporada": "Temporada", "edad": "Edad", "contenido": "Contenido", "epoca": "Época"}
-BOOK_FIELDS = set("id slug titulo autores descripcion_breve estado portada_local portada_fuente_url portada_edicion_verificada autorizacion_o_base_uso portada_fecha_revision portada_ancho portada_alto fuente_bibliografica_url fecha_verificacion descripcion_original_confirmada url_amazon_afiliada isbn13 edicion editorial fecha_publicacion anio_publicacion numero_paginas fuente_publicacion_url idioma edad_recomendada fuente_edad_url avisos_contenido lectura_personal_confirmada evidencia_lectura autoria_propia resenas fragmento_url fecha_actualizacion pvp_centimos pvp_fecha_verificacion audio_descripcion audio_voz formatos_compra fragmento_texto fragmento_uso_autorizado fragmento_base_uso audio_fragmento".split())
+BOOK_FIELDS = set("id slug titulo autores descripcion_breve estado portada_local portada_fuente_url portada_edicion_verificada autorizacion_o_base_uso portada_fecha_revision portada_ancho portada_alto fuente_bibliografica_url fecha_verificacion descripcion_original_confirmada url_amazon_afiliada isbn13 edicion editorial fecha_publicacion anio_publicacion numero_paginas fuente_publicacion_url idioma edad_recomendada fuente_edad_url avisos_contenido lectura_personal_confirmada evidencia_lectura autoria_propia resenas fragmento_url fecha_actualizacion editorial_catalogo_slug pvp_centimos pvp_fecha_verificacion audio_descripcion audio_voz formatos_compra fragmento_texto fragmento_uso_autorizado fragmento_base_uso audio_fragmento".split())
 FORMATS = {"tapa-blanda": "Tapa blanda", "tapa-dura": "Tapa dura", "ebook": "eBook", "audiolibro": "Audiolibro"}
 BOOK_FIELDS.update({'editorial_slug', 'formato_edicion', 'amazon_busqueda_isbn', 'fecha_publicacion_parcial'})
 BOOK_FIELDS.update({'sinopsis_breve', 'sinopsis_fuente_url', 'sinopsis_tipo', 'categorias_excluidas'})
@@ -95,6 +95,9 @@ def validate(data, root):
             isbns.add(b["isbn13"])
         if b.get('editorial_slug'):
             require(SLUG.fullmatch(b['editorial_slug']) and (root / 'editoriales' / b['editorial_slug'] / 'index.html').is_file(), f'{name}: editorial inexistente')
+        if b.get('editorial_catalogo_slug'):
+            require(not b.get('editorial_slug') and b.get('editorial'), f'{name}: la editorial del catálogo excluye la del directorio')
+            require(b['editorial_catalogo_slug'] in {p['slug'] for p in publisher_records(root)}, f'{name}: sello del catálogo inexistente')
         if b.get('formato_edicion'):
             require(b['formato_edicion'] in FORMATS, f'{name}: formato de edición inválido')
         if b.get('fecha_publicacion_parcial'):
@@ -314,6 +317,28 @@ def author_records(root=ROOT):
     return payload['autores']
 
 
+def publisher_records(root=ROOT):
+    """Sellos que aparecen en el catálogo pero no en el directorio de editoriales que aceptan manuscritos."""
+    path = root / 'data/reading-publishers.json'
+    if not path.exists():
+        return []
+    payload = json.loads(path.read_text(encoding='utf-8'))
+    require(set(payload) == {'schema_version', 'editoriales'} and payload['schema_version'] == 1, 'Contrato de sellos inválido')
+    slugs, names = set(), set()
+    for p in payload['editoriales']:
+        require(set(p) == {'slug', 'nombre', 'grupo', 'fuentes', 'fecha_verificacion'}, 'Campos de sello inválidos')
+        require(SLUG.fullmatch(p['slug']) and p['slug'] not in slugs and p['nombre'].casefold() not in names, 'Sello duplicado o slug inválido')
+        require(2 <= len(p['nombre']) <= 60 and 2 <= len(p['grupo']) <= 80, 'Nombre o grupo de sello inválido')
+        day(p['fecha_verificacion'], 'sello verificado')
+        require(p['fuentes'] and all(set(s) == {'titulo', 'url'} and s['titulo'] and https(s['url']) for s in p['fuentes']), 'Sello sin fuentes')
+        slugs.add(p['slug']); names.add(p['nombre'].casefold())
+    return payload['editoriales']
+
+
+def publisher_url(p):
+    return '/recomendaciones/editoriales/' + p['slug'] + '/'
+
+
 def author_url(a):
     return '/recomendaciones/autores/' + a['slug'] + '/'
 
@@ -341,6 +366,8 @@ def publisher_link(b):
         return ''
     if b.get('editorial_slug'):
         return '<a class="catalogue-publisher" href="/editoriales/' + esc(b['editorial_slug']) + '/">' + esc(b['editorial']) + '</a>'
+    if b.get('editorial_catalogo_slug'):
+        return '<a class="catalogue-publisher" href="/recomendaciones/editoriales/' + esc(b['editorial_catalogo_slug']) + '/">' + esc(b['editorial']) + '</a>'
     return esc(b['editorial'])
 
 
@@ -457,7 +484,7 @@ def render_book(data,b,template):
     description=synopsis(b)
     cats=categories(data,b)
     rows=[('Edición',b['edicion']),('Editorial',b.get('editorial')),('Publicación',publication_date_label(b)),('ISBN-13',b.get('isbn13')),('Idioma',b.get('idioma')),('Páginas',b.get('numero_paginas')),('PVP editorial',pvp_label(b) if b.get('pvp_centimos') else None),('Edad orientativa',b.get('edad_recomendada'))]
-    details='<details class="catalogue-details"><summary>Datos de esta edición</summary><dl>'+''.join(f'<dt>{esc(k)}</dt><dd>' + (f'<a href="/editoriales/{esc(b["editorial_slug"])}/">{esc(v)}</a>' if k == 'Editorial' and b.get('editorial_slug') else esc(v)) + '</dd>' for k,v in rows if v)+'</dl></details>'
+    details='<details class="catalogue-details"><summary>Datos de esta edición</summary><dl>'+''.join(f'<dt>{esc(k)}</dt><dd>' + (publisher_link(b) if k == 'Editorial' and (b.get('editorial_slug') or b.get('editorial_catalogo_slug')) else esc(v)) + '</dd>' for k,v in rows if v)+'</dl></details>'
     fragment=''  # Audio and samples are not rendered until all editions can support them.
     reviews=approved_reviews_for(b)
     extra=render_approved_reviews(reviews)
@@ -540,7 +567,7 @@ def render_author(a,data,books,template):
     if topics:
         context+='<p>Géneros y temas presentes en sus libros:</p>'+tags(list(topics.values()))
     if publishers:
-        context+='<p>Editoriales: '+', '.join(('<a href="/editoriales/'+esc(b['editorial_slug'])+'/">'+esc(b['editorial'])+'</a>') if b.get('editorial_slug') else esc(b['editorial']) for b in publishers.values())+'.</p>'
+        context+='<p>Editoriales: '+', '.join(publisher_link(b) for b in publishers.values())+'.</p>'
     context+='</section>'
     items=''
     for b in selected:
@@ -558,6 +585,84 @@ def render_author(a,data,books,template):
     return render_detail_page(template,main,canonical,a['nombre']+' · Información y libros | David Porto Díaz',bio,schema,selected[0] if selected else None)
 
 
+def _newest_first(books):
+    return sorted(books, key=lambda b: (b.get('fecha_publicacion') or b.get('fecha_publicacion_parcial') or str(b.get('anio_publicacion', '')), b['titulo']), reverse=True)
+
+
+def _book_items(selected):
+    items = ''
+    for b in selected:
+        metadata = ' · '.join(str(v) for v in (publication_date_label(b), b.get('editorial'), (str(b['numero_paginas']) + ' páginas') if b.get('numero_paginas') else '') if v)
+        items += '<li><a href="' + url(b) + '" target="_blank" rel="noopener noreferrer">' + image(b, True) + '<span>' + esc(b['titulo']) + '</span></a><p>' + esc(metadata) + '</p></li>'
+    return items
+
+
+def _breadcrumb_schema(trail):
+    return {'@type': 'BreadcrumbList', 'itemListElement': [{'@type': 'ListItem', 'position': i + 1, 'name': label, 'item': SITE + href} for i, (label, href) in enumerate(trail)]}
+
+
+def render_publisher(p, data, books, template):
+    """Ficha de un sello que aparece en el catálogo (distinta del directorio de manuscritos)."""
+    selected = _newest_first([b for b in books if b.get('editorial_catalogo_slug') == p['slug']])
+    canonical = SITE + publisher_url(p)
+    count = len(selected)
+    topics = {c['id']: c for b in selected for c in categories(data, b) if c['tipo'] in {'genero', 'tematica'}}
+    authors = sorted({name for b in selected for name in b['autores']}, key=str.casefold)
+    summary = p['nombre'] + ' (' + p['grupo'] + '): ' + str(count) + (' libro' if count == 1 else ' libros') + ' en este catálogo, según las fichas oficiales de la editorial.'
+    context = '<section aria-labelledby="publisher-context"><h2 id="publisher-context">Este sello en el catálogo</h2><p>' + esc(summary) + '</p>'
+    if topics:
+        context += '<p>Géneros y temas de sus libros:</p>' + tags(list(topics.values()))
+    if authors:
+        context += '<p>Autores: ' + ', '.join(esc(n) for n in authors) + '.</p>'
+    context += '<p class="catalogue-source">Este sello no figura en nuestro <a href="/editoriales/">directorio de editoriales que aceptan manuscritos</a>.</p></section>'
+    main = ('<main id="contenido" tabindex="-1" class="v1-main reading-catalogue catalogue-author-page" data-family="recomendaciones"><nav class="book-breadcrumb" aria-label="Ruta de navegación"><ol><li><a href="/">Inicio</a></li><li><a href="/recomendaciones/">Libros recomendados</a></li><li><a href="/recomendaciones/editoriales/">Editoriales del catálogo</a></li><li aria-current="page">' + esc(p['nombre']) + '</li></ol></nav>'
+            '<header class="catalogue-author-hero"><p class="eyebrow">Editoriales · Libros recomendados</p><h1>' + esc(p['nombre']) + '</h1><p>' + esc(summary) + '</p></header>' + context
+            + '<section aria-labelledby="publisher-books"><h2 id="publisher-books">Libros de ' + esc(p['nombre']) + ' en el catálogo</h2><p>Ediciones ordenadas de la más reciente a la más antigua.</p><ul class="catalogue-author-books">' + _book_items(selected) + '</ul></section>'
+            '<details class="catalogue-details"><summary>Fuentes</summary><ul>' + ''.join('<li><a href="' + esc(s['url']) + '" target="_blank" rel="noopener noreferrer">' + esc(s['titulo']) + '</a></li>' for s in p['fuentes']) + '</ul></details>'
+            '<div class="catalogue-end"><a class="text-action" href="/recomendaciones/">Explorar todos los libros</a></div></main>')
+    org = {'@type': 'Organization', '@id': canonical + '#org', 'name': p['nombre'], 'url': canonical, 'parentOrganization': {'@type': 'Organization', 'name': p['grupo']}}
+    schema = {'@context': 'https://schema.org', '@graph': [org, {'@type': 'CollectionPage', '@id': canonical, 'url': canonical, 'name': p['nombre'] + ' · Libros del catálogo', 'mainEntity': {'@id': canonical + '#org'}, 'hasPart': [{'@id': SITE + url(b) + '#book'} for b in selected]},
+                                                  _breadcrumb_schema([('Inicio', '/'), ('Libros recomendados', '/recomendaciones/'), ('Editoriales del catálogo', '/recomendaciones/editoriales/'), (p['nombre'], publisher_url(p))])]}
+    return render_detail_page(template, main, canonical, p['nombre'] + ' · Libros del catálogo | David Porto Díaz', summary, schema, selected[0] if selected else None)
+
+
+def render_authors_index(authors, books, template):
+    canonical = SITE + '/recomendaciones/autores/'
+    rows = sorted(((a, [b for b in books if a['nombre'] in b['autores']]) for a in authors), key=lambda r: r[0]['nombre'].casefold())
+    rows = [(a, bs) for a, bs in rows if bs]
+    items = ''.join('<li><a href="' + author_url(a) + '">' + esc(a['nombre']) + '</a><p>' + str(len(bs)) + (' libro' if len(bs) == 1 else ' libros') + ' · ' + esc(', '.join(b['titulo'] for b in _newest_first(bs)[:2])) + ('…' if len(bs) > 2 else '') + '</p></li>' for a, bs in rows)
+    summary = 'Autores de los libros recomendados: ' + str(len(rows)) + ' fichas con sus libros, ediciones y editoriales.'
+    main = ('<main id="contenido" tabindex="-1" class="v1-main reading-catalogue catalogue-author-page" data-family="recomendaciones"><nav class="book-breadcrumb" aria-label="Ruta de navegación"><ol><li><a href="/">Inicio</a></li><li><a href="/recomendaciones/">Libros recomendados</a></li><li aria-current="page">Autores</li></ol></nav>'
+            '<header class="catalogue-author-hero"><p class="eyebrow">Libros recomendados</p><h1>Autores</h1><p>' + esc(summary) + '</p></header>'
+            '<section aria-labelledby="authors-list"><h2 id="authors-list">Todos los autores</h2><ul class="catalogue-author-books">' + items + '</ul></section>'
+            '<div class="catalogue-end"><a class="text-action" href="/recomendaciones/">Explorar todos los libros</a></div></main>')
+    schema = {'@context': 'https://schema.org', '@graph': [{'@type': 'CollectionPage', '@id': canonical, 'url': canonical, 'name': 'Autores de los libros recomendados', 'hasPart': [{'@id': SITE + author_url(a) + '#person'} for a, _ in rows]},
+                                                  _breadcrumb_schema([('Inicio', '/'), ('Libros recomendados', '/recomendaciones/'), ('Autores', '/recomendaciones/autores/')])]}
+    return render_detail_page(template, main, canonical, 'Autores de los libros recomendados | David Porto Díaz', summary, schema, None)
+
+
+def render_publishers_index(catalogue_publishers, books, template):
+    """Sellos con libros en el catálogo: los del directorio enlazan a su ficha de manuscritos."""
+    canonical = SITE + '/recomendaciones/editoriales/'
+    entries = {}
+    for b in books:
+        if b.get('editorial_catalogo_slug'):
+            p = next(p for p in catalogue_publishers if p['slug'] == b['editorial_catalogo_slug'])
+            entries.setdefault(p['slug'], [p['nombre'], publisher_url(p), 0])[2] += 1
+        elif b.get('editorial_slug'):
+            entries.setdefault(b['editorial_slug'], [b['editorial'], '/editoriales/' + b['editorial_slug'] + '/', 0])[2] += 1
+    ordered = sorted(entries.values(), key=lambda e: e[0].casefold())
+    items = ''.join('<li><a href="' + e[1] + '">' + esc(e[0]) + '</a><p>' + str(e[2]) + (' libro' if e[2] == 1 else ' libros') + ' en el catálogo</p></li>' for e in ordered)
+    summary = 'Editoriales de los libros recomendados: ' + str(len(ordered)) + ' sellos con sus libros.'
+    main = ('<main id="contenido" tabindex="-1" class="v1-main reading-catalogue catalogue-author-page" data-family="recomendaciones"><nav class="book-breadcrumb" aria-label="Ruta de navegación"><ol><li><a href="/">Inicio</a></li><li><a href="/recomendaciones/">Libros recomendados</a></li><li aria-current="page">Editoriales del catálogo</li></ol></nav>'
+            '<header class="catalogue-author-hero"><p class="eyebrow">Libros recomendados</p><h1>Editoriales del catálogo</h1><p>' + esc(summary) + '</p></header>'
+            '<section aria-labelledby="publishers-list"><h2 id="publishers-list">Todos los sellos</h2><ul class="catalogue-author-books">' + items + '</ul></section>'
+            '<div class="catalogue-end"><a class="text-action" href="/editoriales/">Directorio de editoriales que aceptan manuscritos</a> · <a class="text-action" href="/recomendaciones/">Explorar todos los libros</a></div></main>')
+    schema = {'@context': 'https://schema.org', '@graph': [{'@type': 'CollectionPage', '@id': canonical, 'url': canonical, 'name': 'Editoriales del catálogo'},
+                                                  _breadcrumb_schema([('Inicio', '/'), ('Libros recomendados', '/recomendaciones/'), ('Editoriales del catálogo', '/recomendaciones/editoriales/')])]}
+    return render_detail_page(template, main, canonical, 'Editoriales de los libros recomendados | David Porto Díaz', summary, schema, None)
+
+
 def registry_entries(books):
     return [{"id": "reading-book-" + b["id"], "url": url(b), "label": b["titulo"], "shortLabel": b["titulo"], "type": "article", "territory": "recomendaciones", "parentId": "recommendations-hub", "hubId": "recommendations-hub", "discoverability": "secondary", "audience": ["reader"], "jobs": ["buscar-lecturas"], "sourceFile": url(b).lstrip('/') + 'index.html'} for b in books]
 
@@ -569,7 +674,7 @@ def render_map(original, books, authors=()):
         return original
     links = ''.join(f'<li><a href="{url(b)}">{esc(b["titulo"])} — {esc(", ".join(b["autores"]))}</a></li>' for b in books)
     author_links = ''.join(f'<li><a href="{author_url(a)}">{esc(a["nombre"])}</a></li>' for a in authors if any(a['nombre'] in b['autores'] for b in books))
-    block = start + '<section class="directory-section"><h2>Libros recomendados</h2><p><a href="/recomendaciones/">Explorar el catálogo de lectura</a></p><details class="directory-reading-books"><summary>Ver las fichas de lectura</summary><ul class="directory-list">' + links + '</ul></details></section>' + end + '\n'
+    block = start + '<section class="directory-section"><h2>Libros recomendados</h2><p><a href="/recomendaciones/">Explorar el catálogo de lectura</a> · <a href="/recomendaciones/autores/">Autores</a> · <a href="/recomendaciones/editoriales/">Editoriales del catálogo</a></p><details class="directory-reading-books"><summary>Ver las fichas de lectura</summary><ul class="directory-list">' + links + '</ul></details></section>' + end + '\n'
     if author_links:
         block = block.replace('</section>', '<details class="directory-reading-books"><summary>Ver autores del catálogo</summary><ul class="directory-list">' + author_links + '</ul></details></section>')
     require('</main>' in original, 'Mapa del sitio sin main')
@@ -597,13 +702,22 @@ def main():
         active_authors = [a for a in authors if any(a['nombre'] in b['autores'] for b in books)]
         for a in active_authors:
             outputs[author_url(a).lstrip('/') + 'index.html'] = render_author(a, data, books, template)
+        outputs['recomendaciones/autores/index.html'] = render_authors_index(active_authors, books, template)
+        catalogue_publishers = publisher_records(root)
+        active_publishers = [p for p in catalogue_publishers if any(b.get('editorial_catalogo_slug') == p['slug'] for b in books)]
+        for p in active_publishers:
+            outputs[publisher_url(p).lstrip('/') + 'index.html'] = render_publisher(p, data, books, template)
+        outputs['recomendaciones/editoriales/index.html'] = render_publishers_index(catalogue_publishers, books, template)
         existing = root / 'recomendaciones/libros'
         orphans = [p for p in existing.glob('*/index.html') if p.relative_to(root).as_posix() not in outputs]
         orphans += [p for p in (root / 'recomendaciones/autores').glob('*/index.html') if p.relative_to(root).as_posix() not in outputs]
+        orphans += [p for p in (root / 'recomendaciones/editoriales').glob('*/index.html') if p.relative_to(root).as_posix() not in outputs]
         require(not orphans, 'Hay fichas existentes fuera de los datos: revisar retirada/URL antes de eliminarlas')
         registry = json.loads((root / 'data/content-registry.json').read_text(encoding='utf-8'))
-        registry['entries'] = [e for e in registry['entries'] if not e['id'].startswith(('reading-book-', 'reading-author-'))] + registry_entries(books)
+        registry['entries'] = [e for e in registry['entries'] if not e['id'].startswith(('reading-book-', 'reading-author-', 'reading-publisher-', 'reading-index-'))] + registry_entries(books)
         registry['entries'] += [{'id': 'reading-author-' + a['slug'], 'url': author_url(a), 'label': a['nombre'], 'shortLabel': a['nombre'], 'type': 'article', 'territory': 'recomendaciones', 'parentId': 'recommendations-hub', 'hubId': 'recommendations-hub', 'discoverability': 'secondary', 'audience': ['reader'], 'jobs': ['buscar-lecturas'], 'sourceFile': author_url(a).lstrip('/') + 'index.html'} for a in active_authors]
+        registry['entries'] += [{'id': 'reading-publisher-' + p['slug'], 'url': publisher_url(p), 'label': p['nombre'], 'shortLabel': p['nombre'], 'type': 'article', 'territory': 'recomendaciones', 'parentId': 'recommendations-hub', 'hubId': 'recommendations-hub', 'discoverability': 'secondary', 'audience': ['reader'], 'jobs': ['buscar-lecturas'], 'sourceFile': publisher_url(p).lstrip('/') + 'index.html'} for p in active_publishers]
+        registry['entries'] += [{'id': 'reading-index-' + key, 'url': '/recomendaciones/' + key + '/', 'label': label, 'shortLabel': label, 'type': 'article', 'territory': 'recomendaciones', 'parentId': 'recommendations-hub', 'hubId': 'recommendations-hub', 'discoverability': 'secondary', 'footerEligible': True, 'audience': ['reader'], 'jobs': ['buscar-lecturas'], 'sourceFile': 'recomendaciones/' + key + '/index.html'} for key, label in (('autores', 'Autores'), ('editoriales', 'Editoriales del catálogo'))]
         outputs['data/content-registry.json'] = json.dumps(registry, ensure_ascii=False, indent=2) + '\n'
         drift = []
         for rel, text in outputs.items():

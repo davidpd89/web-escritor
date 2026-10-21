@@ -23,7 +23,7 @@ try {
     assert.match(await page.locator('h1').innerText(), /Libros recomendados/);
     assert.equal(await page.locator('[data-catalogue-book]').count(), realCount);
     assert(await page.locator('[data-catalogue-empty]').isHidden());
-    assert.deepEqual(await page.locator('.section-context__links a').allInnerTexts(), ['Catálogo', 'Editoriales', 'Concursos']);
+    assert.deepEqual(await page.locator('.section-context__links a').allInnerTexts(), ['Catálogo', 'Autores', 'Editoriales', 'Concursos']);
     await page.locator('[data-filter="genero"]').selectOption('romantasy');
     await page.locator('[data-filter="temporada"]').selectOption('halloween');
     assert.equal(await page.locator('[data-catalogue-count]').innerText(), '0 libros');

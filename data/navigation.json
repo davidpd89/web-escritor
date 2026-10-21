@@ -43,6 +43,8 @@
     "Leer y recursos": [
       "notebook-hub",
       "recommendations-hub",
+      "reading-index-autores",
+      "reading-index-editoriales",
       "editorials-hub",
       "opportunities",
       "tools-hub",
@@ -112,6 +114,7 @@
     ],
     "recomendaciones": [
       "recommendations-hub",
+      "reading-index-autores",
       "editorials-hub",
       "opportunities"
     ]
@@ -157,6 +160,10 @@
       {
         "label": "Catálogo de libros",
         "targetId": "recommendations-hub"
+      },
+      {
+        "label": "Autores",
+        "targetId": "reading-index-autores"
       },
       {
         "label": "Editoriales",

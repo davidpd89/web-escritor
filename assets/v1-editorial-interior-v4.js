@@ -74,6 +74,7 @@
       matches: (path) => path.startsWith('/recomendaciones/'),
       links: [
         ['/recomendaciones/', 'Catálogo'],
+        ['/recomendaciones/autores/', 'Autores'],
         ['/editoriales/', 'Editoriales'],
         ['/convocatorias-escritores/', 'Concursos']
       ]
@@ -83,6 +84,7 @@
       matches: (path) => path.startsWith('/editoriales/') || path.startsWith('/convocatorias-escritores/') || path.startsWith('/metodologia-editorial/'),
       links: [
         ['/recomendaciones/', 'Catálogo'],
+        ['/recomendaciones/autores/', 'Autores'],
         ['/editoriales/', 'Editoriales'],
         ['/convocatorias-escritores/', 'Concursos']
       ]

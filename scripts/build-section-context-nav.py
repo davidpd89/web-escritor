@@ -140,6 +140,7 @@ CONTEXTS: tuple[Context, ...] = (
         prefixes=("/recomendaciones/",), exacts=(),
         links=(
             ("/recomendaciones/", "Catálogo"),
+            ("/recomendaciones/autores/", "Autores"),
             ("/editoriales/", "Editoriales"),
             ("/convocatorias-escritores/", "Concursos"),
         ),
@@ -154,6 +155,7 @@ CONTEXTS: tuple[Context, ...] = (
         exacts=(),
         links=(
             ("/recomendaciones/", "Catálogo"),
+            ("/recomendaciones/autores/", "Autores"),
             ("/editoriales/", "Editoriales"),
             ("/convocatorias-escritores/", "Concursos"),
         ),

@@ -27,6 +27,7 @@ from reading_intake_core import affiliate_destination, normalize_text, publisher
 from reading_intake_fetch import read_json, write_if_changed
 from reading_intake_publishers import resolve_publishers
 from reading_taxonomy import extra_categories
+from reading_catalogue_publishers import catalogue_publisher, PublisherError
 
 ROOT = Path(__file__).resolve().parents[1]
 spec = importlib.util.spec_from_file_location('catalogue_builder', ROOT / 'scripts/build-reading-catalogue.py')
@@ -138,7 +139,8 @@ def make_book(record, publisher, tag, today, cover, dimensions):
         'id': 'isbn-' + ident, 'slug': slug(record['titulo']) + '-' + ident,
         'titulo': record['titulo'], 'autores': record['autores'], 'estado': 'publicado',
         'descripcion_breve': description, 'descripcion_original_confirmada': True,
-        'isbn13': ident, 'editorial': publisher['name'], 'editorial_slug': publisher['slug'],
+        'isbn13': ident, 'editorial': publisher['name'],
+        **({'editorial_catalogo_slug': publisher['slug']} if publisher.get('catalogo') else {'editorial_slug': publisher['slug']}),
         'idioma': 'es', 'formato_edicion': record['formato_edicion'],
         'edicion': record['encuadernacion'] + ' · ' + publisher['name'],
         'portada_local': cover, 'portada_ancho': dimensions[0], 'portada_alto': dimensions[1],
@@ -267,6 +269,11 @@ def ingest(config, root, cache, *, max_new=None, max_requests=None, apply=False,
     catalogue = read_json(root / 'data/reading-catalogue.json')
     authors = read_json(root / 'data/reading-authors.json')
     registry = read_json(root / 'data/editoriales.json')
+    catalogue_publishers = read_json(root / 'data/reading-publishers.json', {'schema_version': 1, 'editoriales': []})
+    directory_names = {normalize_text(n) for p in registry.get('publishers', []) for n in (p.get('name', ''), re.sub(r'^(?:Editorial|Ediciones)\s+', '', p.get('name', ''), flags=re.I))}
+    for override in config.get('publisher_aliases', []):
+        directory_names |= {normalize_text(a) for a in override.get('aliases', [])}
+    directory_slugs = {p.get('slug') for p in registry.get('publishers', [])}
     allowed = resolve_publishers(registry, config.get('publisher_aliases', []))
     publishers = {p['slug']: p for p in allowed}
     existing = {b.get('isbn13') for b in catalogue['libros']}
@@ -345,8 +352,16 @@ def ingest(config, root, cache, *, max_new=None, max_requests=None, apply=False,
                     raise SourceError('Autor homónimo o perfil editorial distinto; requiere desambiguación')
                 record['cover_use_basis'] = source['cover_use_basis']
                 canonical_publisher = publisher_slug(record['editorial'], allowed)
+                catalogue_only = None
                 if not canonical_publisher:
-                    raise SourceError('Sello no presente en el registro editorial de la web')
+                    # Sello fuera del directorio de manuscritos: ficha propia del catálogo, con fuente.
+                    try:
+                        catalogue_only = catalogue_publisher(record['editorial'], catalogue_publishers, url, today,
+                                                             directory_names=directory_names, directory_slugs=directory_slugs)
+                    except PublisherError as exc:
+                        raise SourceError('Sello no presente en el registro editorial de la web: ' + str(exc))
+                    canonical_publisher = catalogue_only['slug']
+                    publishers = {**publishers, canonical_publisher: {'name': catalogue_only['nombre'], 'slug': canonical_publisher, 'catalogo': True}}
                 record['editorial_slug'] = canonical_publisher
                 # Source dates are edition dates. Unknown precision never becomes a day.
                 if record['precision_fecha'] == 'dia':
@@ -372,6 +387,8 @@ def ingest(config, root, cache, *, max_new=None, max_requests=None, apply=False,
                     image, small, dimensions = cover_bytes(http.get(record['portada_fuente_url'], ttl=30 * 86400))
                 path = '/assets/reading-covers/isbn-' + isbn + '.webp'
                 mini = path.replace('.webp', '-320.webp')
+                (validation_root / 'data').mkdir(parents=True, exist_ok=True)
+                (validation_root / 'data/reading-publishers.json').write_text(json.dumps(catalogue_publishers), encoding='utf-8')
                 for relative, content in ((path, image), (mini, small)):
                     dest = validation_root / relative.lstrip('/')
                     dest.parent.mkdir(parents=True, exist_ok=True)
@@ -428,6 +445,7 @@ def ingest(config, root, cache, *, max_new=None, max_requests=None, apply=False,
     stats['requests'], stats['cache_hits'] = http.requests, http.hits
     write_if_changed(cache / 'state.json', state)
     if apply and (new_books or updated_books or stats['author_profiles_updated']):
+        write_if_changed(root / 'data/reading-publishers.json', catalogue_publishers)
         for relative, content in assets.items():
             target = root / relative.lstrip('/')
             target.parent.mkdir(parents=True, exist_ok=True)

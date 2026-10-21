@@ -5188,6 +5188,44 @@
         "buscar-lecturas"
       ],
       "sourceFile": "recomendaciones/autores/ibon-martin/index.html"
+    },
+    {
+      "id": "reading-index-autores",
+      "url": "/recomendaciones/autores/",
+      "label": "Autores",
+      "shortLabel": "Autores",
+      "type": "article",
+      "territory": "recomendaciones",
+      "parentId": "recommendations-hub",
+      "hubId": "recommendations-hub",
+      "discoverability": "secondary",
+      "footerEligible": true,
+      "audience": [
+        "reader"
+      ],
+      "jobs": [
+        "buscar-lecturas"
+      ],
+      "sourceFile": "recomendaciones/autores/index.html"
+    },
+    {
+      "id": "reading-index-editoriales",
+      "url": "/recomendaciones/editoriales/",
+      "label": "Editoriales del catálogo",
+      "shortLabel": "Editoriales del catálogo",
+      "type": "article",
+      "territory": "recomendaciones",
+      "parentId": "recommendations-hub",
+      "hubId": "recommendations-hub",
+      "discoverability": "secondary",
+      "footerEligible": true,
+      "audience": [
+        "reader"
+      ],
+      "jobs": [
+        "buscar-lecturas"
+      ],
+      "sourceFile": "recomendaciones/editoriales/index.html"
     }
   ]
 }
