@@ -20,7 +20,7 @@
 
 El script carga todo el **GeoJSON de una zona pequeña** en memoria y **rechaza entrada mayor de 16 MiB**. Es intencionado: analizar 78 millones de puntos cargando un GeoJSON global en memoria no es viable ni barato. [DuckDB + GeoParquet Overture](https://docs.overturemaps.org/getting-data/duckdb/) podrá leer solo regiones, categorías y campos útiles. Eso exige otro adapter de stream que procese particiones, checkpoints, actualización delta y licencias.
 
-Las taxonomías exactas de librerías cambian con la versión. La lista actual contiene alias hipotéticos habituales; **hay que cotejar el CSV oficial** de la release antes de confiar en su cobertura: es un filtro conservador, puede omitir muchos lugares y no se debe vender como exhaustivo.
+**Verificación adicional completada:** inspeccionado el [CSV de taxonomía Overture septiembre 2026](https://github.com/OvertureMaps/docs/blob/main/static/taxonomy/2026-09-23.0/taxonomy.csv), blob `1ab9097166dc04c23b73fe738b0c277317b542db`. Las categorías **reales** incluyen `bookstore`, `academic_bookstore`, `used_bookstore`, `comic_books_store`, `library`, `museum`, `historic_site`, `memorial_site` y `monument`. El código y sus fixtures contemplan esos identificadores. Algunas etiquetas heredadas/alternativas son heurísticas y siguen necesitando estudio. La taxonomía y el volumen pueden cambiar en otra release: **no tratar el mapping como exhaustivo ni eterno**.
 
 ## Etapa de normalización posterior
 
@@ -43,3 +43,19 @@ python -m unittest discover -s tests -p 'test_atlas_overture_geojson_candidates.
 ```
 
 **Definición de listo pendiente:** lectura real de al menos 2 regiones, comprobación taxonomy CSV y actualización P3, QA de la versión local y aprobación expresa para ejecutarlo. Hasta entonces esta PR permanece draft.
+
+## Verificación de 9 taxones de interés en fichero original
+
+Fuente directa: [OvertureMaps/docs taxonomy.csv](https://github.com/OvertureMaps/docs/blob/main/static/taxonomy/2026-09-23.0/taxonomy.csv). Jerarquías completas relevantes:
+
+- `shopping > specialty_store > books_music_and_video_store > bookstore`
+- `shopping > specialty_store > books_music_and_video_store > bookstore > academic_bookstore`
+- `shopping > specialty_store > books_music_and_video_store > bookstore > used_bookstore`
+- `shopping > specialty_store > books_music_and_video_store > bookstore > comic_books_store`
+- `education > library`
+- `arts_and_entertainment > museum`
+- `cultural_and_historic > historic_site`
+- `cultural_and_historic > memorial_site`
+- `cultural_and_historic > memorial_site > monument`
+
+**Consecuencia positiva:** el adaptador reconoce librerías de segunda mano y académicas, no solo la genérica, sin consultas de pago; `taxonomy.hierarchy` detecta descendientes. **Consecuencia limitada:** detectar biblioteca o monumento todavía no establece conexión literaria.
