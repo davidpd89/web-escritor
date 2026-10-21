@@ -1,0 +1,101 @@
+"""Synthetic regression cases for unpublished atlas static HTML preview.
+
+Do not run Actions; data here are invented and no site files are touched.
+"""
+import importlib.util
+import sys
+import unittest
+from pathlib import Path
+
+MODULE = Path(__file__).resolve().parents[1] / "scripts/atlas_static_preview.py"
+spec = importlib.util.spec_from_file_location("atlas_static_preview", MODULE)
+mod = importlib.util.module_from_spec(spec)
+sys.modules[spec.name] = mod
+spec.loader.exec_module(mod)
+
+DESCRIPTION = "Una descripción editorial original de prueba. " * 5
+
+
+def fixture():
+    return {
+        "destinations": [{"id": "dst-example", "slug": "ciudad-ficticia",
+                          "name": "Ciudad de prueba", "country_iso2": "ES",
+                          "summary_original": DESCRIPTION,
+                          "status": "approved", "verified_at": "2026-10-21"}],
+        "places": [{"id": "pla-example", "slug": "biblioteca-de-prueba",
+                    "name": "Biblioteca de prueba", "destination_id": "dst-example",
+                    "summary_original": DESCRIPTION,
+                    "geo_precision": "building", "latitude": 40.2, "longitude": -3.5,
+                    "source_ids": ["src-example"], "status": "approved",
+                    "verified_at": "2026-10-21"}],
+        "works": [{"id": "wrk-example", "title": "Novela de prueba", "status": "approved",
+                   "verified_at": "2026-10-21"}],
+        "authors": [], "adaptations": [],
+        "relationships": [{"id": "rel-example", "status": "approved",
+                           "verified_at": "2026-10-21", "place_id": "pla-example",
+                           "subject_type": "work", "subject_id": "wrk-example",
+                           "relationship_type": "narrative_explicit",
+                           "source_ids": ["src-example"]}],
+        "sources": [{"id": "src-example", "title": "Fuente sintética",
+                     "url": "https://example.org/fictional", "retrieved_at": "2026-10-21",
+                     "evidence_summary": "Prueba sintética, no fuente real."}],
+    }
+
+
+class StaticAtlasTest(unittest.TestCase):
+    def test_approved_fixture_generates_only_three_pages(self):
+        pages = mod.pages_from(fixture())
+        self.assertEqual(len(pages), 3)
+        self.assertIn("/atlas-literario/", pages)
+        self.assertIn("/atlas-literario/destinos/ciudad-ficticia/", pages)
+        self.assertIn("/atlas-literario/lugares/biblioteca-de-prueba/", pages)
+        page = pages["/atlas-literario/lugares/biblioteca-de-prueba/"]
+        self.assertIn("Novela de prueba", page)
+        self.assertIn('rel="canonical"', page)
+        self.assertIn("BreadcrumbList", page)
+        self.assertIn("Ver en el mapa", page)
+
+    def test_cannot_publish_unapproved_place_or_destination(self):
+        data = fixture()
+        data["places"][0]["status"] = "candidate"
+        self.assertEqual(set(mod.pages_from(data)), {"/atlas-literario/"})
+        data = fixture()
+        data["destinations"][0]["status"] = "candidate"
+        self.assertEqual(set(mod.pages_from(data)), {"/atlas-literario/"})
+
+    def test_no_place_without_sources_or_original_editorial_text(self):
+        data = fixture()
+        data["sources"][0]["retrieved_at"] = ""
+        self.assertEqual(set(mod.pages_from(data)), {"/atlas-literario/"})
+        data = fixture()
+        data["places"][0]["summary_original"] = "Corto"
+        self.assertEqual(set(mod.pages_from(data)), {"/atlas-literario/"})
+
+    def test_json_ld_escapes_script_end_and_html(self):
+        data = fixture()
+        data["places"][0]["name"] = "Prueba </script><img src=x onerror=alert(1)>"
+        page = mod.pages_from(data)["/atlas-literario/lugares/biblioteca-de-prueba/"]
+        self.assertEqual(page.count("</script>"), 1)  # only intended closing script
+        self.assertNotIn("<img src=x", page)
+        self.assertIn("\\u003c/script>", page)
+
+    def test_unlocated_or_area_is_not_precisely_geocoded(self):
+        data = fixture()
+        data["places"][0]["geo_precision"] = "area"
+        page = mod.pages_from(data)["/atlas-literario/lugares/biblioteca-de-prueba/"]
+        self.assertNotIn("GeoCoordinates", page)
+        self.assertNotIn("Ver en el mapa", page)
+
+    def test_unverified_relation_is_not_displayed(self):
+        data = fixture()
+        data["relationships"][0]["status"] = "candidate"
+        page = mod.pages_from(data)["/atlas-literario/lugares/biblioteca-de-prueba/"]
+        self.assertNotIn("Novela de prueba", page)
+        data = fixture()
+        data["relationships"][0]["source_ids"] = ["missing-source"]
+        page = mod.pages_from(data)["/atlas-literario/lugares/biblioteca-de-prueba/"]
+        self.assertNotIn("Novela de prueba", page)
+
+
+if __name__ == "__main__":
+    unittest.main()
