@@ -1,5 +1,139 @@
 {
   "items": {
+    "isbn13:9780241802069": {
+      "datos": {
+        "autores": [
+          "Helena Moursellas",
+          "Vikki Moursellas"
+        ],
+        "coleccion": "Cocina",
+        "cover_use_basis": "Cubierta proporcionada en la ficha oficial de la edición para su identificación bibliográfica, con atribución y enlace a la editorial. No se declara licencia abierta ni se reutiliza como imagen de Pinterest.",
+        "edad_recomendada": "Adultos",
+        "editorial": "DK",
+        "encuadernacion": "Tapa dura",
+        "fecha_publicacion_edicion": "2026-05-07",
+        "formato_edicion": "tapa-dura",
+        "fuente_bibliografica_url": "https://www.penguinlibros.com/es/libros-de-cocina/616753-libro-opa-sabores-del-mundo-9780241802069",
+        "fuentes_autores": {
+          "Helena Moursellas": "https://www.penguinlibros.com/es/libros-de-cocina/616753-libro-opa-sabores-del-mundo-9780241802069",
+          "Vikki Moursellas": "https://www.penguinlibros.com/es/libros-de-cocina/616753-libro-opa-sabores-del-mundo-9780241802069"
+        },
+        "idioma": "es",
+        "isbn13": "9780241802069",
+        "materias": [
+          "Cocina"
+        ],
+        "numero_paginas": 256,
+        "portada_fuente_url": "https://www.penguinlibros.com/es/7334450-thickbox_default/opa-sabores-del-mundo.jpg",
+        "precision_fecha": "dia",
+        "titulo": "Opa! (Sabores del mundo)"
+      },
+      "estado_ingesta": "pendiente_datos",
+      "fuente": "https://www.penguinlibros.com/es/libros-de-cocina/616753-libro-opa-sabores-del-mundo-9780241802069",
+      "isbn13": "9780241802069",
+      "motivo": "Sello no presente en el registro editorial de la web",
+      "primera_deteccion": "2026-10-21",
+      "retry_after": "2026-10-24"
+    },
+    "isbn13:9780241815045": {
+      "datos": {
+        "autores": [
+          "Deborah Kaloper"
+        ],
+        "coleccion": "Cocina",
+        "cover_use_basis": "Cubierta proporcionada en la ficha oficial de la edición para su identificación bibliográfica, con atribución y enlace a la editorial. No se declara licencia abierta ni se reutiliza como imagen de Pinterest.",
+        "edad_recomendada": "Adultos",
+        "editorial": "DK",
+        "encuadernacion": "Tapa dura",
+        "fecha_publicacion_edicion": "2026-10-15",
+        "formato_edicion": "tapa-dura",
+        "fuente_bibliografica_url": "https://www.penguinlibros.com/es/libros-de-cocina/634718-libro-ramen-cada-dia-sabores-del-mundo-9780241815045",
+        "fuentes_autores": {
+          "Deborah Kaloper": "https://www.penguinlibros.com/es/libros-de-cocina/634718-libro-ramen-cada-dia-sabores-del-mundo-9780241815045"
+        },
+        "idioma": "es",
+        "isbn13": "9780241815045",
+        "materias": [
+          "Cocina"
+        ],
+        "numero_paginas": 128,
+        "portada_fuente_url": "https://www.penguinlibros.com/es/8312093-thickbox_default/ramen-cada-dia-sabores-del-mundo.jpg",
+        "precision_fecha": "dia",
+        "titulo": "Ramen cada día (Sabores del mundo)"
+      },
+      "estado_ingesta": "pendiente_datos",
+      "fuente": "https://www.penguinlibros.com/es/libros-de-cocina/634718-libro-ramen-cada-dia-sabores-del-mundo-9780241815045",
+      "isbn13": "9780241815045",
+      "motivo": "Sello no presente en el registro editorial de la web",
+      "primera_deteccion": "2026-10-21",
+      "retry_after": "2026-10-24"
+    },
+    "isbn13:9780241831380": {
+      "datos": {
+        "autores": [
+          "Louis Girod"
+        ],
+        "coleccion": "Cocina",
+        "cover_use_basis": "Cubierta proporcionada en la ficha oficial de la edición para su identificación bibliográfica, con atribución y enlace a la editorial. No se declara licencia abierta ni se reutiliza como imagen de Pinterest.",
+        "edad_recomendada": "Adultos",
+        "editorial": "DK",
+        "encuadernacion": "Tapa dura",
+        "fecha_publicacion_edicion": "2026-09-17",
+        "formato_edicion": "tapa-dura",
+        "fuente_bibliografica_url": "https://www.penguinlibros.com/es/libros-de-cocina/634720-libro-curso-de-cocina-los-basicos-9780241831380",
+        "fuentes_autores": {
+          "Louis Girod": "https://www.penguinlibros.com/es/libros-de-cocina/634720-libro-curso-de-cocina-los-basicos-9780241831380"
+        },
+        "idioma": "es",
+        "isbn13": "9780241831380",
+        "materias": [
+          "Cocina"
+        ],
+        "numero_paginas": 160,
+        "portada_fuente_url": "https://www.penguinlibros.com/es/8022153-thickbox_default/curso-de-cocina-los-basicos.jpg",
+        "precision_fecha": "dia",
+        "titulo": "Curso de cocina - Los básicos"
+      },
+      "estado_ingesta": "pendiente_datos",
+      "fuente": "https://www.penguinlibros.com/es/libros-de-cocina/634720-libro-curso-de-cocina-los-basicos-9780241831380",
+      "isbn13": "9780241831380",
+      "motivo": "Sello no presente en el registro editorial de la web",
+      "primera_deteccion": "2026-10-21",
+      "retry_after": "2026-10-24"
+    },
+    "isbn13:9780241831397": {
+      "datos": {
+        "autores": [
+          "Séverine Augé"
+        ],
+        "coleccion": "Cocina",
+        "cover_use_basis": "Cubierta proporcionada en la ficha oficial de la edición para su identificación bibliográfica, con atribución y enlace a la editorial. No se declara licencia abierta ni se reutiliza como imagen de Pinterest.",
+        "edad_recomendada": "Adultos",
+        "editorial": "DK",
+        "encuadernacion": "Tapa dura",
+        "fecha_publicacion_edicion": "2026-09-17",
+        "formato_edicion": "tapa-dura",
+        "fuente_bibliografica_url": "https://www.penguinlibros.com/es/libros-de-cocina/631525-libro-curso-de-cocina-recetas-italianas-9780241831397",
+        "fuentes_autores": {
+          "Séverine Augé": "https://www.penguinlibros.com/es/libros-de-cocina/631525-libro-curso-de-cocina-recetas-italianas-9780241831397"
+        },
+        "idioma": "es",
+        "isbn13": "9780241831397",
+        "materias": [
+          "Cocina"
+        ],
+        "numero_paginas": 160,
+        "portada_fuente_url": "https://www.penguinlibros.com/es/8022160-thickbox_default/curso-de-cocina-recetas-italianas.jpg",
+        "precision_fecha": "dia",
+        "titulo": "Curso de cocina - Recetas italianas"
+      },
+      "estado_ingesta": "pendiente_datos",
+      "fuente": "https://www.penguinlibros.com/es/libros-de-cocina/631525-libro-curso-de-cocina-recetas-italianas-9780241831397",
+      "isbn13": "9780241831397",
+      "motivo": "Sello no presente en el registro editorial de la web",
+      "primera_deteccion": "2026-10-21",
+      "retry_after": "2026-10-24"
+    },
     "isbn13:9780241837597": {
       "datos": {
         "autores": [
@@ -65,6 +199,39 @@
       "motivo": "Sello no presente en el registro editorial de la web",
       "primera_deteccion": "2026-10-20",
       "retry_after": "2026-10-23"
+    },
+    "isbn13:9780241837849": {
+      "datos": {
+        "autores": [
+          "Matt Adlard"
+        ],
+        "coleccion": "Cocina",
+        "cover_use_basis": "Cubierta proporcionada en la ficha oficial de la edición para su identificación bibliográfica, con atribución y enlace a la editorial. No se declara licencia abierta ni se reutiliza como imagen de Pinterest.",
+        "edad_recomendada": "Adultos",
+        "editorial": "DK",
+        "encuadernacion": "Tapa dura",
+        "fecha_publicacion_edicion": "2026-10-01",
+        "formato_edicion": "tapa-dura",
+        "fuente_bibliografica_url": "https://www.penguinlibros.com/es/libros-de-cocina/634725-libro-la-ciencia-del-horneado-la-ciencia-de-la-cocina-9780241837849",
+        "fuentes_autores": {
+          "Matt Adlard": "https://www.penguinlibros.com/es/libros-de-cocina/634725-libro-la-ciencia-del-horneado-la-ciencia-de-la-cocina-9780241837849"
+        },
+        "idioma": "es",
+        "isbn13": "9780241837849",
+        "materias": [
+          "Cocina"
+        ],
+        "numero_paginas": 224,
+        "portada_fuente_url": "https://www.penguinlibros.com/es/8019051-thickbox_default/la-ciencia-del-horneado-la-ciencia-de-la-cocina.jpg",
+        "precision_fecha": "dia",
+        "titulo": "La ciencia del horneado (La ciencia de la cocina)"
+      },
+      "estado_ingesta": "pendiente_datos",
+      "fuente": "https://www.penguinlibros.com/es/libros-de-cocina/634725-libro-la-ciencia-del-horneado-la-ciencia-de-la-cocina-9780241837849",
+      "isbn13": "9780241837849",
+      "motivo": "Sello no presente en el registro editorial de la web",
+      "primera_deteccion": "2026-10-21",
+      "retry_after": "2026-10-24"
     },
     "isbn13:9788401036897": {
       "datos": {
@@ -274,6 +441,39 @@
       "primera_deteccion": "2026-10-20",
       "retry_after": "2026-10-23"
     },
+    "isbn13:9788403525238": {
+      "datos": {
+        "autores": [
+          "Jessica Ramos"
+        ],
+        "coleccion": "Divulgación",
+        "cover_use_basis": "Cubierta proporcionada en la ficha oficial de la edición para su identificación bibliográfica, con atribución y enlace a la editorial. No se declara licencia abierta ni se reutiliza como imagen de Pinterest.",
+        "edad_recomendada": "Adultos",
+        "editorial": "AGUILAR",
+        "encuadernacion": "Tapa blanda con solapas",
+        "fecha_publicacion_edicion": "2026-05-28",
+        "formato_edicion": "tapa-blanda",
+        "fuente_bibliografica_url": "https://www.penguinlibros.com/es/libros-de-cocina/616663-libro-el-alma-de-las-especias-9788403525238",
+        "fuentes_autores": {
+          "Jessica Ramos": "https://www.penguinlibros.com/es/libros-de-cocina/616663-libro-el-alma-de-las-especias-9788403525238"
+        },
+        "idioma": "es",
+        "isbn13": "9788403525238",
+        "materias": [
+          "Cocina"
+        ],
+        "numero_paginas": 448,
+        "portada_fuente_url": "https://www.penguinlibros.com/es/7679583-thickbox_default/el-alma-de-las-especias.jpg",
+        "precision_fecha": "dia",
+        "titulo": "El alma de las especias"
+      },
+      "estado_ingesta": "pendiente_datos",
+      "fuente": "https://www.penguinlibros.com/es/libros-de-cocina/616663-libro-el-alma-de-las-especias-9788403525238",
+      "isbn13": "9788403525238",
+      "motivo": "Sello no presente en el registro editorial de la web",
+      "primera_deteccion": "2026-10-21",
+      "retry_after": "2026-10-24"
+    },
     "isbn13:9788403526723": {
       "datos": {
         "autores": [
@@ -472,6 +672,39 @@
       "primera_deteccion": "2026-10-20",
       "publicado_en": "2026-10-20"
     },
+    "isbn13:9788425371967": {
+      "datos": {
+        "autores": [
+          "María Lo"
+        ],
+        "coleccion": "Cocina casera",
+        "cover_use_basis": "Cubierta proporcionada en la ficha oficial de la edición para su identificación bibliográfica, con atribución y enlace a la editorial. No se declara licencia abierta ni se reutiliza como imagen de Pinterest.",
+        "edad_recomendada": "Adultos",
+        "editorial": "GRIJALBO",
+        "editorial_slug": "grijalbo",
+        "encuadernacion": "Tapa blanda con solapas",
+        "fecha_publicacion_edicion": "2026-10-15",
+        "formato_edicion": "tapa-blanda",
+        "fuente_bibliografica_url": "https://www.penguinlibros.com/es/libros-de-cocina/634991-libro-muerdelo-9788425371967",
+        "fuentes_autores": {
+          "María Lo": "https://www.penguinlibros.com/es/libros-de-cocina/634991-libro-muerdelo-9788425371967"
+        },
+        "idioma": "es",
+        "isbn13": "9788425371967",
+        "materias": [
+          "Cocina"
+        ],
+        "numero_paginas": 256,
+        "portada_fuente_url": "https://www.penguinlibros.com/es/8129789-thickbox_default/muerdelo.jpg",
+        "precision_fecha": "dia",
+        "titulo": "Muérdelo"
+      },
+      "estado_ingesta": "publicado",
+      "isbn13": "9788425371967",
+      "libro_id": "isbn-9788425371967",
+      "primera_deteccion": "2026-10-21",
+      "publicado_en": "2026-10-21"
+    },
     "isbn13:9788425373121": {
       "datos": {
         "autores": [
@@ -505,6 +738,72 @@
       "primera_deteccion": "2026-10-20",
       "publicado_en": "2026-10-20"
     },
+    "isbn13:9788425374012": {
+      "datos": {
+        "autores": [
+          "Jamie Oliver"
+        ],
+        "coleccion": "Cocina de autor",
+        "cover_use_basis": "Cubierta proporcionada en la ficha oficial de la edición para su identificación bibliográfica, con atribución y enlace a la editorial. No se declara licencia abierta ni se reutiliza como imagen de Pinterest.",
+        "edad_recomendada": "Adultos",
+        "editorial": "GRIJALBO",
+        "editorial_slug": "grijalbo",
+        "encuadernacion": "Tapa dura",
+        "fecha_publicacion_edicion": "2026-04-16",
+        "formato_edicion": "tapa-dura",
+        "fuente_bibliografica_url": "https://www.penguinlibros.com/es/libros-de-cocina/545229-libro-barbacoa-9788425374012",
+        "fuentes_autores": {
+          "Jamie Oliver": "https://www.penguinlibros.com/es/libros-de-cocina/545229-libro-barbacoa-9788425374012"
+        },
+        "idioma": "es",
+        "isbn13": "9788425374012",
+        "materias": [
+          "Cocina"
+        ],
+        "numero_paginas": 256,
+        "portada_fuente_url": "https://www.penguinlibros.com/es/7721271-thickbox_default/barbacoa.jpg",
+        "precision_fecha": "dia",
+        "titulo": "Barbacoa"
+      },
+      "estado_ingesta": "publicado",
+      "isbn13": "9788425374012",
+      "libro_id": "isbn-9788425374012",
+      "primera_deteccion": "2026-10-21",
+      "publicado_en": "2026-10-21"
+    },
+    "isbn13:9788425374074": {
+      "datos": {
+        "autores": [
+          "Jamie Oliver"
+        ],
+        "coleccion": "Cocina de autor",
+        "cover_use_basis": "Cubierta proporcionada en la ficha oficial de la edición para su identificación bibliográfica, con atribución y enlace a la editorial. No se declara licencia abierta ni se reutiliza como imagen de Pinterest.",
+        "edad_recomendada": "Adultos",
+        "editorial": "GRIJALBO",
+        "editorial_slug": "grijalbo",
+        "encuadernacion": "Tapa dura",
+        "fecha_publicacion_edicion": "2026-09-23",
+        "formato_edicion": "tapa-dura",
+        "fuente_bibliografica_url": "https://www.penguinlibros.com/es/libros-de-cocina/631803-libro-20-minutos-y-listo-9788425374074",
+        "fuentes_autores": {
+          "Jamie Oliver": "https://www.penguinlibros.com/es/libros-de-cocina/631803-libro-20-minutos-y-listo-9788425374074"
+        },
+        "idioma": "es",
+        "isbn13": "9788425374074",
+        "materias": [
+          "Cocina"
+        ],
+        "numero_paginas": 320,
+        "portada_fuente_url": "https://www.penguinlibros.com/es/8139229-thickbox_default/20-minutos-y-listo.jpg",
+        "precision_fecha": "dia",
+        "titulo": "20 minutos ¡y listo!"
+      },
+      "estado_ingesta": "publicado",
+      "isbn13": "9788425374074",
+      "libro_id": "isbn-9788425374074",
+      "primera_deteccion": "2026-10-21",
+      "publicado_en": "2026-10-21"
+    },
     "isbn13:9788425374371": {
       "estado_ingesta": "pendiente_datos",
       "fuente": "https://www.penguinlibros.com/es/libros-nutricion-fitness-belleza/616918-libro-sana-tus-celulas-9788425374371",
@@ -512,6 +811,39 @@
       "motivo": "'utf-8' codec can't decode byte 0xc3 in position 405120: invalid continuation byte",
       "primera_deteccion": "2026-10-20",
       "retry_after": "2026-10-23"
+    },
+    "isbn13:9788425374869": {
+      "datos": {
+        "autores": [
+          "Kristen Stavridis"
+        ],
+        "coleccion": "Alimentación saludable",
+        "cover_use_basis": "Cubierta proporcionada en la ficha oficial de la edición para su identificación bibliográfica, con atribución y enlace a la editorial. No se declara licencia abierta ni se reutiliza como imagen de Pinterest.",
+        "edad_recomendada": "Adultos",
+        "editorial": "GRIJALBO",
+        "editorial_slug": "grijalbo",
+        "encuadernacion": "Tapa blanda con solapas",
+        "fecha_publicacion_edicion": "2026-09-03",
+        "formato_edicion": "tapa-blanda",
+        "fuente_bibliografica_url": "https://www.penguinlibros.com/es/libros-nutricion-fitness-belleza/631807-libro-la-fibra-es-la-solucion-9788425374869",
+        "fuentes_autores": {
+          "Kristen Stavridis": "https://www.penguinlibros.com/es/libros-nutricion-fitness-belleza/631807-libro-la-fibra-es-la-solucion-9788425374869"
+        },
+        "idioma": "es",
+        "isbn13": "9788425374869",
+        "materias": [
+          "Nutrición, belleza y fitness"
+        ],
+        "numero_paginas": 264,
+        "portada_fuente_url": "https://www.penguinlibros.com/es/7959809-thickbox_default/la-fibra-es-la-solucion.jpg",
+        "precision_fecha": "dia",
+        "titulo": "La fibra es la solución"
+      },
+      "estado_ingesta": "publicado",
+      "isbn13": "9788425374869",
+      "libro_id": "isbn-9788425374869",
+      "primera_deteccion": "2026-10-21",
+      "publicado_en": "2026-10-21"
     },
     "isbn13:9788425375040": {
       "datos": {
@@ -884,6 +1216,76 @@
       "primera_deteccion": "2026-10-20",
       "publicado_en": "2026-10-20"
     },
+    "isbn13:9788448823191": {
+      "datos": {
+        "autores": [
+          "Wendy Harmer",
+          "Gypsy Taylor",
+          "Mike Zarb"
+        ],
+        "coleccion": "Primeras lecturas",
+        "cover_use_basis": "Cubierta proporcionada en la ficha oficial de la edición para su identificación bibliográfica, con atribución y enlace a la editorial. No se declara licencia abierta ni se reutiliza como imagen de Pinterest.",
+        "edad_recomendada": "A partir de 4 años",
+        "editorial": "BEASCOA",
+        "encuadernacion": "Tapa blanda",
+        "fecha_publicacion_edicion": "2006-07-07",
+        "formato_edicion": "tapa-blanda",
+        "fuente_bibliografica_url": "https://www.penguinlibros.com/es/libros-infantiles-4-anos/9296-libro-perla-5-perla-y-el-elfo-del-parque-9788448823191",
+        "fuentes_autores": {
+          "Gypsy Taylor": "https://www.penguinlibros.com/es/libros-infantiles-4-anos/9296-libro-perla-5-perla-y-el-elfo-del-parque-9788448823191",
+          "Mike Zarb": "https://www.penguinlibros.com/es/libros-infantiles-4-anos/9296-libro-perla-5-perla-y-el-elfo-del-parque-9788448823191",
+          "Wendy Harmer": "https://www.penguinlibros.com/es/libros-infantiles-4-anos/9296-libro-perla-5-perla-y-el-elfo-del-parque-9788448823191"
+        },
+        "idioma": "es",
+        "isbn13": "9788448823191",
+        "materias": [
+          "A partir de 4 años"
+        ],
+        "numero_paginas": 48,
+        "portada_fuente_url": "https://www.penguinlibros.com/es/6634072-thickbox_default/perla-5-perla-y-el-elfo-del-parque.jpg",
+        "precision_fecha": "dia",
+        "titulo": "Perla 5 - Perla y el elfo del parque"
+      },
+      "estado_ingesta": "pendiente_datos",
+      "fuente": "https://www.penguinlibros.com/es/libros-infantiles-4-anos/9296-libro-perla-5-perla-y-el-elfo-del-parque-9788448823191",
+      "isbn13": "9788448823191",
+      "motivo": "Sello no presente en el registro editorial de la web",
+      "primera_deteccion": "2026-10-21",
+      "retry_after": "2026-10-24"
+    },
+    "isbn13:9788466378048": {
+      "datos": {
+        "autores": [
+          "Núria Coll"
+        ],
+        "coleccion": "Best Seller | No Ficción",
+        "cover_use_basis": "Cubierta proporcionada en la ficha oficial de la edición para su identificación bibliográfica, con atribución y enlace a la editorial. No se declara licencia abierta ni se reutiliza como imagen de Pinterest.",
+        "edad_recomendada": "Adultos",
+        "editorial": "PENGUIN BOLSILLO",
+        "encuadernacion": "Bolsillo",
+        "fecha_publicacion_edicion": "2026-05-28",
+        "formato_edicion": "tapa-blanda",
+        "fuente_bibliografica_url": "https://www.penguinlibros.com/es/libros-nutricion-fitness-belleza/617393-libro-soy-como-como-9788466378048",
+        "fuentes_autores": {
+          "Núria Coll": "https://www.penguinlibros.com/es/libros-nutricion-fitness-belleza/617393-libro-soy-como-como-9788466378048"
+        },
+        "idioma": "es",
+        "isbn13": "9788466378048",
+        "materias": [
+          "Nutrición, belleza y fitness"
+        ],
+        "numero_paginas": 200,
+        "portada_fuente_url": "https://www.penguinlibros.com/es/7637834-thickbox_default/soy-como-como.jpg",
+        "precision_fecha": "dia",
+        "titulo": "Soy como como"
+      },
+      "estado_ingesta": "pendiente_datos",
+      "fuente": "https://www.penguinlibros.com/es/libros-nutricion-fitness-belleza/617393-libro-soy-como-como-9788466378048",
+      "isbn13": "9788466378048",
+      "motivo": "Sello no presente en el registro editorial de la web",
+      "primera_deteccion": "2026-10-21",
+      "retry_after": "2026-10-24"
+    },
     "isbn13:9788466379021": {
       "datos": {
         "autores": [
@@ -1015,6 +1417,39 @@
       "motivo": "Sello no presente en el registro editorial de la web",
       "primera_deteccion": "2026-10-20",
       "retry_after": "2026-10-23"
+    },
+    "isbn13:9788466393850": {
+      "datos": {
+        "autores": [
+          "Sabina Banzo"
+        ],
+        "coleccion": "Campaña | Black Friday",
+        "cover_use_basis": "Cubierta proporcionada en la ficha oficial de la edición para su identificación bibliográfica, con atribución y enlace a la editorial. No se declara licencia abierta ni se reutiliza como imagen de Pinterest.",
+        "edad_recomendada": "Adultos",
+        "editorial": "PENGUIN BOLSILLO",
+        "encuadernacion": "Bolsillo",
+        "fecha_publicacion_edicion": "2026-10-01",
+        "formato_edicion": "tapa-blanda",
+        "fuente_bibliografica_url": "https://www.penguinlibros.com/es/libros-de-cocina/635067-libro-ya-tengo-mi-airfryer-y-ahora-que-edicion-limitada-black-friday-9788466393850",
+        "fuentes_autores": {
+          "Sabina Banzo": "https://www.penguinlibros.com/es/libros-de-cocina/635067-libro-ya-tengo-mi-airfryer-y-ahora-que-edicion-limitada-black-friday-9788466393850"
+        },
+        "idioma": "es",
+        "isbn13": "9788466393850",
+        "materias": [
+          "Cocina"
+        ],
+        "numero_paginas": 320,
+        "portada_fuente_url": "https://www.penguinlibros.com/es/8295339-thickbox_default/ya-tengo-mi-airfryer-y-ahora-que-edicion-limitada-black-friday.jpg",
+        "precision_fecha": "dia",
+        "titulo": "Ya tengo mi airfryer, ¿y ahora qué? (edición limitada · Black Friday)"
+      },
+      "estado_ingesta": "pendiente_datos",
+      "fuente": "https://www.penguinlibros.com/es/libros-de-cocina/635067-libro-ya-tengo-mi-airfryer-y-ahora-que-edicion-limitada-black-friday-9788466393850",
+      "isbn13": "9788466393850",
+      "motivo": "Sello no presente en el registro editorial de la web",
+      "primera_deteccion": "2026-10-21",
+      "retry_after": "2026-10-24"
     },
     "isbn13:9788466394611": {
       "datos": {
@@ -1180,6 +1615,39 @@
       "motivo": "Sello no presente en el registro editorial de la web",
       "primera_deteccion": "2026-10-20",
       "retry_after": "2026-10-23"
+    },
+    "isbn13:9791387629694": {
+      "datos": {
+        "autores": [
+          "Juan Sánchez"
+        ],
+        "coleccion": "No ficción",
+        "cover_use_basis": "Cubierta proporcionada en la ficha oficial de la edición para su identificación bibliográfica, con atribución y enlace a la editorial. No se declara licencia abierta ni se reutiliza como imagen de Pinterest.",
+        "edad_recomendada": "Adultos",
+        "editorial": "ROCA EDITORIAL",
+        "editorial_slug": "roca-editorial",
+        "encuadernacion": "Tapa blanda con solapas",
+        "fecha_publicacion_edicion": "2026-10-01",
+        "formato_edicion": "tapa-blanda",
+        "fuente_bibliografica_url": "https://www.penguinlibros.com/es/libros-de-cocina/635080-libro-comete-la-vida-a-bocados-con-pausa-y-plato-9791387629694",
+        "fuentes_autores": {
+          "Juan Sánchez": "https://www.penguinlibros.com/es/libros-de-cocina/635080-libro-comete-la-vida-a-bocados-con-pausa-y-plato-9791387629694"
+        },
+        "idioma": "es",
+        "isbn13": "9791387629694",
+        "materias": [
+          "Cocina"
+        ],
+        "numero_paginas": 224,
+        "portada_fuente_url": "https://www.penguinlibros.com/es/8059947-thickbox_default/comete-la-vida-a-bocados-con-pausa-y-plato.jpg",
+        "precision_fecha": "dia",
+        "titulo": "Cómete la vida a bocados con Pausa y Plato"
+      },
+      "estado_ingesta": "publicado",
+      "isbn13": "9791387629694",
+      "libro_id": "isbn-9791387629694",
+      "primera_deteccion": "2026-10-21",
+      "publicado_en": "2026-10-21"
     },
     "isbn13:9791387640439": {
       "datos": {
@@ -1419,6 +1887,39 @@
       "libro_id": "isbn-9791387846794",
       "primera_deteccion": "2026-10-20",
       "publicado_en": "2026-10-20"
+    },
+    "isbn13:9791387904432": {
+      "datos": {
+        "autores": [
+          "David de Jorge"
+        ],
+        "coleccion": "Cocina",
+        "cover_use_basis": "Cubierta proporcionada en la ficha oficial de la edición para su identificación bibliográfica, con atribución y enlace a la editorial. No se declara licencia abierta ni se reutiliza como imagen de Pinterest.",
+        "edad_recomendada": "Adultos",
+        "editorial": "DEBATE",
+        "encuadernacion": "Tapa blanda con solapas",
+        "fecha_publicacion_edicion": "2026-06-11",
+        "formato_edicion": "tapa-blanda",
+        "fuente_bibliografica_url": "https://www.penguinlibros.com/es/libros-de-cocina/626462-libro-satisfraier-9791387904432",
+        "fuentes_autores": {
+          "David de Jorge": "https://www.penguinlibros.com/es/libros-de-cocina/626462-libro-satisfraier-9791387904432"
+        },
+        "idioma": "es",
+        "isbn13": "9791387904432",
+        "materias": [
+          "Cocina"
+        ],
+        "numero_paginas": 256,
+        "portada_fuente_url": "https://www.penguinlibros.com/es/7908150-thickbox_default/satisfraier.jpg",
+        "precision_fecha": "dia",
+        "titulo": "Satisfraier"
+      },
+      "estado_ingesta": "pendiente_datos",
+      "fuente": "https://www.penguinlibros.com/es/libros-de-cocina/626462-libro-satisfraier-9791387904432",
+      "isbn13": "9791387904432",
+      "motivo": "Sello no presente en el registro editorial de la web",
+      "primera_deteccion": "2026-10-21",
+      "retry_after": "2026-10-24"
     },
     "isbn13:9791387904593": {
       "datos": {
@@ -1724,6 +2225,72 @@
       "motivo": "'utf-8' codec can't decode byte 0xc3 in position 402863: invalid continuation byte",
       "primera_deteccion": "2026-10-20",
       "retry_after": "2026-10-23"
+    },
+    "isbn13:9791388092039": {
+      "datos": {
+        "autores": [
+          "María Mieres"
+        ],
+        "coleccion": "Cocina",
+        "cover_use_basis": "Cubierta proporcionada en la ficha oficial de la edición para su identificación bibliográfica, con atribución y enlace a la editorial. No se declara licencia abierta ni se reutiliza como imagen de Pinterest.",
+        "edad_recomendada": "Adultos",
+        "editorial": "DEBATE",
+        "encuadernacion": "Tapa dura",
+        "fecha_publicacion_edicion": "2026-10-15",
+        "formato_edicion": "tapa-dura",
+        "fuente_bibliografica_url": "https://www.penguinlibros.com/es/libros-de-cocina/634691-libro-confiteria-cantabrica-mesa-y-mantel-9791388092039",
+        "fuentes_autores": {
+          "María Mieres": "https://www.penguinlibros.com/es/libros-de-cocina/634691-libro-confiteria-cantabrica-mesa-y-mantel-9791388092039"
+        },
+        "idioma": "es",
+        "isbn13": "9791388092039",
+        "materias": [
+          "Cocina"
+        ],
+        "numero_paginas": 184,
+        "portada_fuente_url": "https://www.penguinlibros.com/es/8252697-thickbox_default/confiteria-cantabrica-mesa-y-mantel.jpg",
+        "precision_fecha": "dia",
+        "titulo": "Confitería cantábrica (Mesa y mantel)"
+      },
+      "estado_ingesta": "pendiente_datos",
+      "fuente": "https://www.penguinlibros.com/es/libros-de-cocina/634691-libro-confiteria-cantabrica-mesa-y-mantel-9791388092039",
+      "isbn13": "9791388092039",
+      "motivo": "Sello no presente en el registro editorial de la web",
+      "primera_deteccion": "2026-10-21",
+      "retry_after": "2026-10-24"
+    },
+    "isbn13:9791388092053": {
+      "datos": {
+        "autores": [
+          "Lakshmi Aguirre"
+        ],
+        "coleccion": "Cocina",
+        "cover_use_basis": "Cubierta proporcionada en la ficha oficial de la edición para su identificación bibliográfica, con atribución y enlace a la editorial. No se declara licencia abierta ni se reutiliza como imagen de Pinterest.",
+        "edad_recomendada": "Adultos",
+        "editorial": "DEBATE",
+        "encuadernacion": "Tapa dura",
+        "fecha_publicacion_edicion": "2026-10-15",
+        "formato_edicion": "tapa-dura",
+        "fuente_bibliografica_url": "https://www.penguinlibros.com/es/libros-de-cocina/634692-libro-menu-del-dia-mesa-y-mantel-9791388092053",
+        "fuentes_autores": {
+          "Lakshmi Aguirre": "https://www.penguinlibros.com/es/libros-de-cocina/634692-libro-menu-del-dia-mesa-y-mantel-9791388092053"
+        },
+        "idioma": "es",
+        "isbn13": "9791388092053",
+        "materias": [
+          "Cocina"
+        ],
+        "numero_paginas": 224,
+        "portada_fuente_url": "https://www.penguinlibros.com/es/8252704-thickbox_default/menu-del-dia-mesa-y-mantel.jpg",
+        "precision_fecha": "dia",
+        "titulo": "Menú del día (Mesa y mantel)"
+      },
+      "estado_ingesta": "pendiente_datos",
+      "fuente": "https://www.penguinlibros.com/es/libros-de-cocina/634692-libro-menu-del-dia-mesa-y-mantel-9791388092053",
+      "isbn13": "9791388092053",
+      "motivo": "Sello no presente en el registro editorial de la web",
+      "primera_deteccion": "2026-10-21",
+      "retry_after": "2026-10-24"
     },
     "isbn13:9791388137006": {
       "datos": {
