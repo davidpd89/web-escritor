@@ -122,6 +122,41 @@ def google_ebook_offer(book, response, now):
     return None
 
 
+def refresh_google_ebooks(catalogue, previous, query, now, *, budget=10):
+    """Optional ebook offers from official Google Books saleInfo, strictly ES.
+
+    Query is injected so tests remain completely offline. Rate/provider errors
+    halt the provider and never change the timestamp of older results.
+    """
+    if not 0 <= budget <= 40:
+        raise ValueError('Presupuesto Google fuera de 0..40')
+    current = {(o.get('libro_id'), o.get('fuente')): o for o in previous.get('offers', [])
+               if isinstance(o, dict)}
+    books = [b for b in catalogue.get('libros', [])
+             if b.get('estado') == 'publicado' and b.get('formato_edicion') == 'ebook'
+             and isbn13(b.get('isbn13'))]
+    books.sort(key=lambda b: (current.get((b['id'], 'google_play_libros'), {}).get('actualizado_en', ''), b['id']))
+    stats = {'candidatos': len(books), 'consultados': 0, 'actualizados': 0,
+             'sin_oferta': 0, 'errores': []}
+    for book in books[:budget]:
+        stats['consultados'] += 1
+        try:
+            response = query(book['isbn13'])
+            offer = google_ebook_offer(book, response, now)
+            if offer:
+                current[(book['id'], 'google_play_libros')] = offer
+                stats['actualizados'] += 1
+            else:
+                current.pop((book['id'], 'google_play_libros'), None)
+                stats['sin_oferta'] += 1
+        except (RuntimeError, ValueError, OSError, TimeoutError, TypeError) as exc:
+            stats['errores'].append({'libro_id': book['id'], 'tipo': type(exc).__name__})
+            break
+    cutoff = now.astimezone(timezone.utc) - timedelta(days=1)
+    offers = [o for o in current.values() if (t := parse_time(o.get('caduca_en'))) is not None and t > cutoff]
+    return {'schema_version': 1, 'offers': sorted(offers, key=lambda o: (o['libro_id'], o['fuente']))}, stats
+
+
 def parse_time(raw):
     try:
         t = datetime.fromisoformat(str(raw).replace('Z', '+00:00'))
