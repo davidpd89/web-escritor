@@ -175,6 +175,19 @@ def validate_record(record: dict, seen: set[str], today: date) -> list[str]:
             )
         require_https(event.get("source_url"), f"{slug}.history[{idx}].source_url")
 
+    unavailable = record.get("unavailable_urls", [])
+    if not isinstance(unavailable, list) or not all(isinstance(url, str) for url in unavailable):
+        raise ValidationError(f"{slug}: unavailable_urls debe ser una lista de URLs")
+    known_urls = {record["website_url"], record["submission_url"]}
+    known_urls.update(source["url"] for source in sources)
+    known_urls.update(event["source_url"] for event in history)
+    if len(set(unavailable)) != len(unavailable) or not set(unavailable).issubset(known_urls):
+        raise ValidationError(f"{slug}: URL no disponible duplicada o ajena a las fuentes")
+    if record["submission_url"] in unavailable and (
+        record["status"] != "unknown" or record["direct_submission"] or record.get("submission_email")
+    ):
+        raise ValidationError(f"{slug}: un canal no disponible exige recepción por verificar, sin envío activo")
+
     if record.get("publish") is not True:
         warnings.append(f"{slug}: publish no es true; no se generará")
     return warnings
@@ -380,16 +393,23 @@ def render_index(site: str, records: list[dict], today: date) -> str:
     return page_shell(title="Editoriales que aceptan manuscritos | David Porto Díaz", description=description, canonical=canonical, main_html=main, jsonld=jsonld, js=True)
 
 
+def source_link(record: dict, url: str, label: str, css_class: str = "") -> str:
+    if url in record.get("unavailable_urls", []):
+        return f'<span>{esc(label)} · enlace no disponible</span>'
+    css = f' class="{esc(css_class)}"' if css_class else ""
+    return f'<a{css} href="{esc(url)}" target="_blank" rel="noopener noreferrer">{esc(label)}</a>'
+
+
 def render_detail(site: str, record: dict, today: date) -> str:
     canonical = f"{site}/editoriales/{record['slug']}/"
     status = STATUS_LABELS[record["status"]]
     requirements = ''.join(f'<li>{esc(item)}</li>' for item in record["requirements"])
     sources = ''.join(
-        f'<li><a href="{esc(source["url"])}" target="_blank" rel="noopener noreferrer">{esc(source["label"])}</a>{" · fuente primaria" if source.get("primary") else ""}</li>'
+        f'<li>{source_link(record, source["url"], source["label"])}{" · fuente primaria" if source.get("primary") else ""}</li>'
         for source in record["sources"]
     )
     history = ''.join(
-        f'<li><time datetime="{esc(event["date"])}">{esc(event["date"])}</time> — {esc(event["event"])} <a href="{esc(event["source_url"])}" target="_blank" rel="noopener noreferrer">Fuente</a></li>'
+        f'<li><time datetime="{esc(event["date"])}">{esc(event["date"])}</time> — {esc(event["event"])} {source_link(record, event["source_url"], "Fuente")}</li>'
         for event in sorted(record["history"], key=lambda e: e["date"], reverse=True)
     )
     genre_tags = ''.join(f'<span class="editorial-genre">{esc(g)}</span>' for g in record["genres"])
@@ -398,6 +418,11 @@ def render_detail(site: str, record: dict, today: date) -> str:
     response = esc(record.get("response_time") or "No se publica un plazo oficial en esta ficha.")
     stale_html = '<p class="tool-note"><strong>Revisión recomendada:</strong> esta ficha lleva más de 90 días sin verificarse. Comprueba la fuente oficial antes de usar los datos.</p>' if stale(record, today) else ""
     description = f"{record['name']}: estado de recepción de manuscritos, requisitos, canal oficial, fuentes y fecha de comprobación."
+    instructions = (
+        '<p class="tool-note">El canal oficial no está disponible. La recepción de manuscritos queda por verificar.</p>'
+        if record['submission_url'] in record.get('unavailable_urls', []) else
+        '<p class="tool-actions">' + source_link(record, record['submission_url'], 'Comprobar las instrucciones oficiales', 'text-action') + '</p>'
+    )
 
     main = f'''
 <main id="contenido" tabindex="-1" class="v1-main" data-family="tool">
@@ -407,7 +432,7 @@ def render_detail(site: str, record: dict, today: date) -> str:
         {stale_html}
         <dl class="spec-ledger"><div class="editorial-fact"><dt>Estado de originales</dt> <dd>{esc(status)}</dd></div><div class="editorial-fact"><dt>Última comprobación</dt> <dd><time datetime="{esc(record['verified_at'])}">{esc(record['verified_at'])}</time></dd></div><div class="editorial-fact"><dt>Canal</dt> <dd>{esc(record['submission_channel'])}</dd></div><div class="editorial-fact"><dt>Correo de envío</dt> <dd>{email_html}</dd></div><div class="editorial-fact"><dt>Grupo / tipo</dt> <dd>{esc(record['group'])}</dd></div><div class="editorial-fact"><dt>País</dt> <dd>{esc(record['country'])}</dd></div></dl>
 
-        <div class="tool-findings-block"><h2>Qué pide ahora</h2><ul class="tool-findings">{requirements}</ul><p class="tool-actions"><a class="text-action" href="{esc(record['submission_url'])}" target="_blank" rel="noopener noreferrer">Comprobar las instrucciones oficiales</a></p></div>
+        <div class="tool-findings-block"><h2>Qué pide ahora</h2><ul class="tool-findings">{requirements}</ul>{instructions}</div>
         <div class="tool-findings-block"><h2>Plazo de respuesta publicado</h2><p>{response}</p></div>
         <div class="tool-findings-block"><h2>Nota editorial</h2><p>{esc(record['public_note'])}</p></div>{render_books(record['slug'])}
         <div class="tool-findings-block"><h2>Historial de comprobaciones y cambios</h2><ul class="tool-findings">{history}</ul></div>
@@ -429,7 +454,7 @@ def render_detail(site: str, record: dict, today: date) -> str:
                 "inLanguage": "es",
                 "isPartOf": {"@id": f"{site}/#website"},
                 "author": {"@id": f"{site}/#author"},
-                "about": {"@type": "Organization", "name": record["name"], "url": record["website_url"]},
+                "about": {"@type": "Organization", "name": record["name"], **({"url": record["website_url"]} if record["website_url"] not in record.get("unavailable_urls", []) else {})},
             },
             breadcrumb_jsonld(site, [
                 ("Inicio", f"{site}/"),
