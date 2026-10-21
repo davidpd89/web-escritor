@@ -65,3 +65,9 @@ El proyecto ya tiene `/pagefind/`, `scripts/build-pagefind-index.py` y `pagefind
 - **Gate relevante:** [#677 QA y checklist](https://github.com/davidpd89/web-escritor/pull/677) mapea los 180 tests/70 workflows a rutas y pruebas reales; no incorporar cambios a workflows ni ampliar scope de #672 ahora.
 
 **Decisiones abiertas que NO bloquean investigación:** prioridad de 3 puertas de entrada visual (destino/libro/autor); calidad mínima para página de país; si la categoría de POI puede tener página sin vinculación a obra; políticas de fotos de Commons/OSM; horizonte de actualización. Se pueden decidir con datos de Search Console y pruebas piloto, sin preguntar al usuario por cada detalle.
+
+## Compatibilidad con gate QA #677: ya incorporada en el prototipo (21/10/2026)
+
+El generador [`atlas_static_preview.py`](../../scripts/atlas_static_preview.py) ahora añade `data-pagefind-body`, URL `og:url` idéntica a canonical y **facetas Pagefind** `atlas_entity:place|destination`, `atlas_country`, `atlas_city`, `atlas_work`, `atlas_author`, `atlas_adaptation` y `atlas_relation` a las fichas con relaciones aprobadas. Se genera una etiqueta por ID y vínculo, no una cadena arbitraria de texto de un tercero. La proyección de fuentes requiere además **título**, fecha y resumen de evidencia, alineándose parcialmente con [#669](https://github.com/davidpd89/web-escritor/pull/669).
+
+Se corrigió una fixture del generador de shards que no incluía `sources.title`; se añadieron aserciones para canonical/OG y filtros. **Los tests no se han ejecutado**. Diferencia conocida: la [PR #677](https://github.com/davidpd89/web-escritor/pull/677) espera un manifest de release que #672, por ser preview, no construye todavía. No declarar que ambas ramas ya están integradas; solo que sus campos se han alineado conceptualmente.
