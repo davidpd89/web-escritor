@@ -6,6 +6,7 @@ import importlib.util
 import json
 import tempfile
 import unittest
+from unittest.mock import patch
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -52,8 +53,8 @@ class PriceModeTest(unittest.TestCase):
                 'edicion': 'Tapa dura', 'portada_local': '/assets/reading-covers/isbn-9788401039560.webp',
                 'portada_ancho': 400, 'portada_alto': 600,
                 'amazon_busqueda_isbn': 'https://www.amazon.es/s?k=9788401039560&tag=davidporto-21'}
-        with unittest.mock.patch.object(mod, 'author_links', return_value='Autora ficticia'):
-            with unittest.mock.patch.object(mod, 'inject_shell_auto', side_effect=lambda html: html):
+        with patch.object(mod, 'author_links', return_value='Autora ficticia'):
+            with patch.object(mod, 'inject_shell_auto', side_effect=lambda html: html):
                 output = mod.render_hub(data, [book], '<main data-reading-catalogue data-family="recomendaciones">{{catalogue}}</main>', 'publisher_only')
         self.assertIn('data-price-mode="publisher_only"', output)
         self.assertIn('Consultar precio en Penguin Libros', output)
