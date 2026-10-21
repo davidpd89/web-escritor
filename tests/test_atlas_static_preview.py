@@ -53,6 +53,7 @@ class StaticAtlasTest(unittest.TestCase):
         self.assertIn("Novela de prueba", page)
         self.assertIn('rel="canonical"', page)
         self.assertIn('property="og:url"', page)
+        self.assertNotIn("data-pagefind-body", page)  # index global usa body por defecto
         self.assertIn('data-pagefind-filter="atlas_entity:place"', page)
         self.assertIn('data-pagefind-filter="atlas_city:dst-example"', page)
         self.assertIn('data-pagefind-filter="atlas_work:wrk-example"', page)
