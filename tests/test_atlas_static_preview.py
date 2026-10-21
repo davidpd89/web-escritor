@@ -136,6 +136,14 @@ class StaticAtlasTest(unittest.TestCase):
         html = mod.pages_from(data)["/atlas-literario/lugares/biblioteca-de-prueba/"]
         self.assertNotIn("Novela de prueba", html)
 
+    def test_https_source_must_have_real_host(self):
+        data = fixture()
+        data["sources"][0]["url"] = "https://"
+        self.assertEqual(mod.pages_from(data), {})
+        data["sources"][0]["url"] = "https://user:pass@example.org/data"
+        self.assertEqual(mod.pages_from(data), {})
+
+
 
 if __name__ == "__main__":
     unittest.main()
