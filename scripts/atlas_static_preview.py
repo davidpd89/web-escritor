@@ -54,7 +54,7 @@ def page(title: str, description: str, path: str, content: str, structured: list
         f"<link rel=\"canonical\" href=\"{e(canonical)}\">"
         f"<meta property=\"og:url\" content=\"{e(canonical)}\">"
         f"<script type=\"application/ld+json\">{jsonld(graph)}</script></head><body>"
-        f"<main id=\"main\" data-pagefind-body>{content}</main></body></html>"
+        f"<main id=\"main\">{content}</main></body></html>"
     )
 
 
