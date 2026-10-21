@@ -199,8 +199,8 @@ def update_authors(payload, catalogue, new_books, today):
             used.add(key)
 
 
-def enrich_author_bios(authors, state, http, today, max_profiles=2):
-    """Read bounded public author profiles; keep manually written biographies."""
+def enrich_author_bios(authors, state, http, today, max_profiles=7):
+    """Cover five new authors plus two refreshes within the shared HTTP budget."""
     sources = {}
     for item in state.get('items', {}).values():
         for name, source in (item.get('datos') or {}).get('fuentes_autores', {}).items():

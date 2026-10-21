@@ -107,6 +107,23 @@ class EnrichmentTests(unittest.TestCase):
         update_authors(authors,books,books['libros'],'2026-10-22')
         self.assertEqual(authors['autores'][0],original)
 
+    def test_author_budget_covers_daily_intake_without_unbounded_requests(self):
+        authors={'autores':[{'nombre':f'Author {i}', 'tipo':'bibliografico'} for i in range(8)]}
+        sources={a['nombre']:f'https://www.penguinlibros.com/es/{i+1}-author-{i}' for i,a in enumerate(authors['autores'])}
+        names={url:name for name,url in sources.items()}
+        state={'items':{'published':{'datos':{'fuentes_autores':sources}}}}
+        class HTTP:
+            requests=0
+            budget=80
+            def get(self,url,**kwargs):
+                self.requests+=1
+                return ('<meta property="og:title" content="'+names[url]+'"><meta name="description" content="'+names[url]+' writes novels about journeys, cities and family histories and has published several books for readers around the world.">').encode()
+        http=HTTP()
+        self.assertEqual(enrich_author_bios(authors,state,http,'2026-10-21'),7)
+        self.assertEqual(http.requests,7)
+        http.requests=http.budget
+        self.assertEqual(enrich_author_bios(authors,state,http,'2026-10-22'),0)
+
     def test_public_reviews_are_escaped_and_private_fields_rejected(self):
         review={'review_id':'r1','libro_id':'book','isbn13':'9780140328721',
                 'nombre_publico':'Alias público','puntuacion':5,'titulo_resena':'<script>no</script>',

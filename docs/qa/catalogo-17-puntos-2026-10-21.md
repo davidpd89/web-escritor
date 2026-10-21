@@ -27,7 +27,7 @@ se registran en la PR para que la evidencia corresponda al commit publicado.
 
 ## Evidencia local antes del gate completo
 
-- 100 pruebas unitarias de ingesta, valoraciones, precios, taxonomía, autores,
+- 101 pruebas unitarias de ingesta, valoraciones, precios, taxonomía, autores,
   moderación y RSS aprobadas.
 - Navegador: fixtures de 100 y 200 obras con ISBN/cubiertas/relaciones validados,
   paginación, límites de páginas, wizard adaptativo y búsqueda completa.
