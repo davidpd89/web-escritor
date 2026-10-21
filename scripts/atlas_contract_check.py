@@ -24,7 +24,7 @@ RELATIONS = {
 }
 def valid_https_url(url: object) -> bool:
     """Reusable strict-ish source URL gate aligned with reading catalogue."""
-    if not isinstance(url, str) or re.search(r"[\\s<>\\x00-\\x1f]", url):
+    if not isinstance(url, str) or re.search(r"[\s<>\x00-\x1f]", url):
         return False
     try:
         parsed = urlsplit(url)
