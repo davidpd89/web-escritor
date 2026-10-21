@@ -6,6 +6,8 @@ on:
       - '**/*.html'
       - 'scripts/recheck-link-timeouts.py'
       - 'tests/test-link-timeout-recheck.py'
+      - 'scripts/select-link-check-inputs.py'
+      - 'tests/test-link-input-selection.py'
       - '.lycheeignore'
       - '.github/workflows/broken-links.yml'
   push:
@@ -14,11 +16,18 @@ on:
       - '**/*.html'
       - 'scripts/recheck-link-timeouts.py'
       - 'tests/test-link-timeout-recheck.py'
+      - 'scripts/select-link-check-inputs.py'
+      - 'tests/test-link-input-selection.py'
       - '.lycheeignore'
       - '.github/workflows/broken-links.yml'
   schedule:
     - cron: '0 6 * * 1'  # Every Monday at 06:00 UTC
-  workflow_dispatch:      # Allow manual trigger
+  workflow_dispatch:
+    inputs:
+      full_scan:
+        description: 'Check the full site instead of changed HTML (main/schedules already check all)'
+        type: boolean
+        default: false
 
 permissions:
   contents: read
@@ -31,6 +40,12 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v5
+        with:
+          fetch-depth: 0
+
+      - name: Select all changed pages or the full scheduled audit
+        id: scope
+        run: python3 scripts/select-link-check-inputs.py
 
       # Two flags about the CI runner, not about the links (2026-10-06): lychee's
       # own user agent gets challenged -- Blogspot URLs came back as six 302s
@@ -67,7 +82,7 @@ jobs:
             --method get
             --exclude-path '(^|/)scripts/'
             --exclude-path '(^|/)tests/'
-            './**/*.html'
+            ${{ steps.scope.outputs.files }}
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 

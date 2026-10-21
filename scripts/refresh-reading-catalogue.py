@@ -36,10 +36,9 @@ def refresh(*, publish=False):
     if pending:
         if len(pending) != 1:
             raise ValueError('Hay varias cargas pendientes; revisar antes de continuar')
-        if publish:
-            publisher.run(pending[0])
-        print('Carga pendiente conservada: ' + pending[0])
-        return
+        if not publish or publisher.resume_pending(pending[0]):
+            print('Carga pendiente conservada: ' + pending[0])
+            return
     report = ingest(config, ROOT, ROOT / '.ci/reading-editorial-cache', apply=publish)
     write_if_changed(ROOT / '.ci/reading-intake/publisher-report.json', report)
     print(json.dumps(report['stats'], ensure_ascii=True), flush=True)

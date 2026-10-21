@@ -1,6 +1,7 @@
 # Catálogo generalista: implementación y verificación de los 17 puntos
 
-La entrega se prepara en la PR #665. El código de la PR #662 se incorpora con
+La entrega principal se publicó en la PR #665. La recuperación de cargas antiguas
+y la documentación operativa actualizada se encuentran en la PR #676. El código de la PR #662 se incorpora con
 sus pruebas; los feeds permanecen desactivados hasta la conexión y prueba real
 de Pinterest. Los resultados definitivos de CI, el SHA fusionado y el despliegue
 se registran en la PR para que la evidencia corresponda al commit publicado.
@@ -28,7 +29,7 @@ se registran en la PR para que la evidencia corresponda al commit publicado.
 ## Evidencia local antes del gate completo
 
 - 101 pruebas unitarias de ingesta, valoraciones, precios, taxonomía, autores,
-  moderación y RSS aprobadas.
+  moderación y RSS aprobadas en #665; 105 con las regresiones de #676.
 - Navegador: fixtures de 100 y 200 obras con ISBN/cubiertas/relaciones validados,
   paginación, límites de páginas, wizard adaptativo y búsqueda completa.
 - Tiempo medido para filtrar: 2 ms con 100 libros, 3 ms con 200, en este equipo.
@@ -38,12 +39,27 @@ se registran en la PR para que la evidencia corresponda al commit publicado.
   libro, autor y sello, más límites temporales.
 - 25 sinopsis migradas desde caché sin nuevas peticiones. Biografías editoriales
   verificadas por nombre y URL, con identidad comprobada y sin texto completo copiado.
+- #665 pasó 32 controles reales de GitHub y se publicó como
+  `d31181d6287798f5d8447b7f371559a766d7cfe7`. Producción: 106 archivos exactos,
+  cinco resoluciones, 26 libros, 16 registros de valoración de 15 libros, filtros,
+  test interactivo, pestañas nuevas, sitemap plegado y navegación sin JavaScript.
+- Chromium, Firefox y WebKit: seis casos funcionales móvil/escritorio aprobados.
+  El menú/scroll se comprobó en nueve casos de tres resoluciones en producción.
+- Lighthouse de catálogo: rendimiento 79, accesibilidad 100, buenas prácticas 100,
+  SEO 100, CLS 0 y TBT 148 ms en CI. No se rebajaron umbrales; quedan mejoras de LCP.
+- La revisión adicional de #676 reproduce el salto tardío a `#contenido` durante
+  la navegación por teclado. La corrección de anclas solo actúa sobre el hash
+  entrante mientras no haya interacción. La regresión falla con el código anterior
+  y pasa con la corrección, preservando también enlaces entrantes sin interacción;
+  se ejecuta dentro de la suite de runtime/foco. `script.js` cambia de versión en
+  todas sus referencias para evitar que visitantes recurrentes reciban el código viejo.
 
 ## Límites externos que deben figurar en el informe final
 
 - Ningún proveedor garantiza que todos los libros tengan valoración. El piloto
   local de Hardcover obtuvo una coincidencia (Coraline) y 25 sin datos, sin errores.
-  Goodreads funcionó para Coraline; no se presenta como cobertura completa.
+  El piloto real posterior de Goodreads obtuvo 15 coincidencias entre 26 libros;
+  no se presenta como cobertura completa ni se atribuyen las cifras de Hardcover a Goodreads.
 - Google Books devolvió HTTP 503 y `Service temporarily unavailable.` La clave
   está creada y restringida, pero eso no demuestra disponibilidad del proveedor.
 - La cuenta de Amazon confirma al 21/10/2026 el requisito de diez ventas válidas
