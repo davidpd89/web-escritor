@@ -305,7 +305,7 @@ def render_filters(data):
         advanced += f'<label>{label}<input type="number" min="0" max="100000" step="0.01" inputmode="decimal" name="{key}" data-filter="{key}" data-market-control="offers" disabled></label>'
     advanced += select('descuento', 'Ofertas', [('', 'Todos los precios'), ('1', 'Con descuento'), ('10', '10 % o más'), ('25', '25 % o más'), ('50', '50 % o más')], 'data-market-control="offers" disabled')
     advanced += select('valoracion', 'Valoración de Goodreads', [('', 'Todas las valoraciones'), ('3', '3 estrellas o más'), ('4', '4 estrellas o más'), ('4.5', '4,5 estrellas o más')], 'data-market-control="ratings" disabled')
-    advanced += '</div><p class="catalogue-data-note" data-market-note>Precios, ofertas y valoraciones: se mostrarán cuando haya datos contrastados y vigentes.</p>'
+    advanced += '</div>'
     return '<form class="catalogue-filters" data-catalogue-filters><fieldset disabled><legend>Encuentra tu próxima lectura</legend><div class="catalogue-filter-grid">' + controls + '</div><details class="catalogue-details catalogue-more-filters"><summary>Fechas, precios y valoraciones</summary>' + advanced + '</details><div class="catalogue-filter-actions"><button type="submit">Buscar libros</button><button type="reset" disabled>Restablecer</button></div></fieldset></form>'
 
 
