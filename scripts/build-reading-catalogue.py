@@ -611,7 +611,7 @@ def render_publisher(p, data, books, template):
     topics = {c['id']: c for b in selected for c in categories(data, b) if c['tipo'] in {'genero', 'tematica'}}
     authors = sorted({name for b in selected for name in b['autores']}, key=str.casefold)
     summary = p['nombre'] + ' (' + p['grupo'] + '): ' + str(count) + (' libro' if count == 1 else ' libros') + ' en este catálogo, según las fichas oficiales de la editorial.'
-    context = '<section aria-labelledby="publisher-context"><h2 id="publisher-context">Este sello en el catálogo</h2><p>' + esc(summary) + '</p>'
+    context = '<section aria-labelledby="publisher-context"><h2 id="publisher-context">Este sello en el catálogo</h2><p>Pertenece a ' + esc(p['grupo']) + ' y reúne ' + str(count) + (' libro' if count == 1 else ' libros') + ' de este catálogo.</p>'
     if topics:
         context += '<p>Géneros y temas de sus libros:</p>' + tags(list(topics.values()))
     if authors:
