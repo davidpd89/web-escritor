@@ -51,3 +51,15 @@ La métrica de éxito no es el total de registros descargados sino `relaciones_v
 - [ ] Confirmar descarga automática autorizada (etag/compresión) por proveedor y coste en CI; lotes fuera de `main`.
 - [ ] Crear un glosario de categorías de POI y relaciones soportado en al menos diez idiomas sin cambiar claves internas.
 - [ ] Definir condiciones de publicación en un feed RSS para Pinterest, únicamente en futuro y sin superar la PR #662.
+
+## 21/10/2026 — nuevas fuentes complementarias revisadas y riesgos
+
+**[World Historical Gazetteer (WHG)](https://docs.whgazetteer.org/content/technical/apis.html)**: **NO es una API anónima universal**; la documentación oficial exige token para la mayoría de endpoints y los datos son federados con licencias heterogéneas. Expone **Linked Places Format (LPF)**, nombre histórico, alias multilingües, coordenadas/áreas y épocas; es muy útil para vincular `Constantinopla`/Istanbul, ciudades antiguas, topónimos históricos y rutas de clásicos. Pero para registros con distribución contractual impedida devuelve **HTTP 451** aunque estén indexados; ante **HTTP 503** hay que reintentar y no guardar como «lugar inexistente». El `/api/sources/` contiene condiciones por proveedor (`redistributable`), no hay licencia global. **Estado**: fuente de reconciliación opcional con credenciales/atribución, NO alimentador gratuito principal, y nada se ha solicitado con token.
+
+**[GeoNames](https://www.geonames.org/)**: descarga global diaria **CC BY 4.0**, alternativa fuerte a geocoding remoto repetitivo para normalizar ciudades, regiones y alias en lote offline. El servicio API web gratuito requiere cuenta y dispone de versión premium: preferir fichero `allCountries.zip` o extractos por país con atribución. No usar centroides de país para marcar escenas a nivel calle.
+
+**[Open Library API Usage](https://openlibrary.org/developers/api)**: especifica directamente que la API gratuita **NO puede utilizarse como backend comercial masivo** ni para descargar cientos de libros uno a uno. Uso identificado máximo **3 req/s** y sin identificar **1 req/s** bajo sus términos; para nuestro objetivo global solo dumps mensuales y solicitudes humanas ocasionales. Los scripts de #671 **no** llaman esta API.
+
+**Overture**: consultar [ADR-000](https://github.com/davidpd89/web-escritor/blob/research/viajes-literarios-atlas-2026-10-21/docs/ideas/viajes-literarios/README.md), apartado «Métrica Overture»; explorador taxonómico 78.517.770 vs notas de release 81.455.425. No mantener un único número exacto global sin comprobar misma edición/filtro.
+
+Estos recursos complementan la arquitectura, no aportan por sí solos lugares literarios referidos a novelas. La evidencia de una escena seguirá siendo individual.
