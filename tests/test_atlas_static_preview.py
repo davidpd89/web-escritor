@@ -35,7 +35,7 @@ def fixture():
                            "verified_at": "2026-10-21", "place_id": "pla-example",
                            "subject_type": "work", "subject_id": "wrk-example",
                            "relationship_type": "narrative_explicit",
-                           "source_ids": ["src-example"]}],
+                           "evidence_note": "Obra sintética explícita", "source_ids": ["src-example"]}],
         "sources": [{"id": "src-example", "title": "Fuente sintética",
                      "url": "https://example.org/fictional", "retrieved_at": "2026-10-21",
                      "evidence_summary": "Prueba sintética, no fuente real."}],
@@ -125,6 +125,16 @@ class StaticAtlasTest(unittest.TestCase):
         ]
         self.assertNotIn("javascript:alert", html)
         self.assertIn("<li>Novela de prueba</li>", html)
+
+    def test_invalid_film_relation_or_missing_evidence_is_hidden(self):
+        data = fixture()
+        data["relationships"][0]["relationship_type"] = "filming_location"
+        html = mod.pages_from(data)["/atlas-literario/lugares/biblioteca-de-prueba/"]
+        self.assertNotIn("Novela de prueba", html)
+        data = fixture()
+        data["relationships"][0]["evidence_note"] = ""
+        html = mod.pages_from(data)["/atlas-literario/lugares/biblioteca-de-prueba/"]
+        self.assertNotIn("Novela de prueba", html)
 
 
 if __name__ == "__main__":
