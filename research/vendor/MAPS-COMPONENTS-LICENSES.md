@@ -38,5 +38,5 @@
 
 ## 21/10/2026 — revisión adicional de dependencias y alternativas
 
-- [KDBush 4.1.0](https://github.com/mourner/kdbush): se añadió [código fuente ISC literal](research/vendor/kdbush/index.js) y [LICENCIA completa](research/vendor/kdbush/LICENSE.upstream), SHA originales verificados (ver [README](research/vendor/kdbush/README.md)). **Se resuelve el hueco documental** de la dependencia runtime directa de Supercluster, no se ejecuta ni conecta el módulo.
+- [KDBush 4.1.0](https://github.com/mourner/kdbush): se añadió [código fuente ISC literal](kdbush/index.js) y [LICENCIA completa](kdbush/LICENSE.upstream), SHA originales verificados (ver [README](kdbush/README.md)). **Se resuelve el hueco documental** de la dependencia runtime directa de Supercluster, no se ejecuta ni conecta el módulo.
 - Nuevas referencias encontradas: [Akhand](https://github.com/CodeRustyPro/akhand) ofrece 9.057 registros de lugares narrativos en su release depurada, con API de país/ciudad/autor/género/año y GeoJSON; [Literary Atlas](https://github.com/rostam/literary-atlas) representa ficción con ubicación y época, distingue sitios ficticios y relata por qué algunos libros quedan SIN pin. Ambos repositorios inspeccionados **sin LICENSE en la raíz**; **NO copiar su código ni sus corpus** sin autorización explícita y verificación de permisos. Ideas de UX sí se pueden analizar en #670.
