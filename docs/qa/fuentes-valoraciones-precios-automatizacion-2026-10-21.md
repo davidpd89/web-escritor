@@ -21,7 +21,7 @@
 - `assets/reading-catalogue.js` ahora admite `google_books`, lo enlaza a `books.google.com/books?id=...` y lo atribuye claramente. Goodreads preexistente sigue mostrado mientras esté fresco, sin crear votos nuevos ni scraping.
 - El origen Google Books no es «Goodreads actualizado». **No inventar atribución**.
 
-**B. Hardcover** (complemento optativo). GraphQL `editions(where: isbn_13 eq isbn)` → `book.rating`, `book.ratings_count`, autor, slug. `scripts/reading_ratings_refresh.py --hardcover` y `HARDCOVER_API_KEY`, con `hardcover_requests_per_day=0` por defecto; cuenta gratuita + token, confirmar el permiso de uso agregado comercial y mostrar crédito «Hardcover». Su fuente es por **obra**: aunque se encuentra una edición por ISBN, los votos pueden agregarse a otras ediciones. No decir que son «valoraciones de esta tapa blanda específica», sino de la obra enlazada. Documentación [Hardcover API](https://api.hardcover.app/).
+**B. Hardcover** (complemento optativo). GraphQL `editions(where: isbn_13 eq isbn)` → `book.rating`, `book.ratings_count`, autor, slug. `scripts/reading_ratings_refresh.py --hardcover` y `HARDCOVER_API_KEY`, con `hardcover_requests_per_day=40` por defecto **solo si existe la clave**; cuenta gratuita + token, permiso oficial de medias agregadas con atribución y mostrar crédito «Hardcover». Su fuente es por **obra**: aunque se encuentra una edición por ISBN, los votos pueden agregarse a otras ediciones. No decir que son «valoraciones de esta tapa blanda específica», sino de la obra enlazada. Documentación [Hardcover API](https://api.hardcover.app/).
 
 **C. Open Library**: endpoint rating JSON gratis, pero limitaciones expresas en API para uso continuo en un comercio. No configurada para el cron.
 
@@ -55,7 +55,7 @@ Archivos ya modificados:
 - `assets/reading-catalogue.js`: reconocimiento y presentación de `goodreads`, `google_books` y `hardcover` con URL del propio proveedor, nunca suma o promedia votos cruzados.
 - `scripts/refresh-reading-catalogue.py`: actualiza ratings aunque editoriales devuelvan **cero libros nuevos**, sin añadir segundo escritor.
 - `scripts/publish-reading-refresh.py`: añade `assets/reading-market.json` a los cambios publicables tras QA.
-- `data/reading-intake-config.json`: `ratings_refresh.enabled`, 40 Google/day y 0 Hardcover/day hasta configurar clave.
+- `data/reading-intake-config.json`: `ratings_refresh.enabled`, 40 Google/day y 40 Hardcover/day, cada fuente solo si está configurada su clave.
 - `.github/workflows/reading-catalogue-sync.yml`: recibe secretos sin imprimirlos.
 - `tests/test_reading_ratings_refresh.py` y `.github/workflows/reading-general-catalogue-ux-qa.yml`: ISBN exacto, rechazo homónimo/otra edición, sin votos, errores 429, presupuesto, dos fuentes independientes y JS sintácticamente válido.
 
@@ -73,3 +73,6 @@ GOOGLE_BOOKS_API_KEY=<secreto> python scripts/reading_ratings_refresh.py --live 
 ```
 
 **Aceptación mínima para «actualización automática»:** una ejecución **programada real** con secret, un libro puntuado con enlace a proveedor correcto, valoración que caduca/oculta sin reintento, otro libro sin votos sin estrellas falsas, un día con cero libros nuevos pero rating actualizado en un PR separado protegido que despliegue, y un fallo 429 que conserva los datos viejos. Todos los tests del generador y página en verde. Los precios Amazon aún dependen de verificar Enhanced Links o API autorizada, no de un bot.
+
+### Verificación nueva en documentación oficial de Hardcover
+En [`hardcoverapp/hardcover-docs/src/content/docs/api/Getting-Started.mdx`](https://github.com/hardcoverapp/hardcover-docs/blob/main/src/content/docs/api/Getting-Started.mdx), sección «Commercial API Use», se permite explícitamente usar **aggregate data** en un sitio comercial **si se atribuye a Hardcover**. No permite recuperar datos individuales de las bibliotecas personales, reseñas o ratings de usuarios sin autorización; no estamos haciendo eso. La API exige que el token permanezca en el servidor, no en JS. El proveedor nuevo únicamente consulta valoraciones agregadas de la obra. **No reutilizar imágenes subidas por usuarios a Hardcover** para nuestras fichas/Pinterest.
