@@ -37,7 +37,7 @@ def category_kind(props: dict) -> str | None:
         strings.append(legacy.get("primary"))
     names = {str(s).casefold() for s in strings if isinstance(s, str)}
     for kind, aliases in KEYWORDS.items():
-        if any(name in aliases for name in names for alias in aliases if alias == name):
+        if names.intersection(aliases):
             return kind
     return None
 
