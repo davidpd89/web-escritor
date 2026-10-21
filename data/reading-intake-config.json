@@ -13,7 +13,9 @@
     {
       "id": "penguin-es",
       "provider": "penguin",
-      "hosts": ["www.penguinlibros.com"],
+      "hosts": [
+        "www.penguinlibros.com"
+      ],
       "index_urls": [
         "https://www.penguinlibros.com/es/content/113-novedades-en-libros",
         "https://www.penguinlibros.com/es/"
@@ -23,8 +25,33 @@
     }
   ],
   "publisher_aliases": [
-    {"slug": "salamandra", "aliases": ["Salamandra Infantil y Juvenil", "Salamandra Bolsillo", "Salamandra Graphic"]},
-    {"slug": "nova", "aliases": ["Nova", "NOVA"]},
-    {"slug": "ediciones-b", "aliases": ["B", "B de Bolsillo"]}
-  ]
+    {
+      "slug": "salamandra",
+      "aliases": [
+        "Salamandra Infantil y Juvenil",
+        "Salamandra Bolsillo",
+        "Salamandra Graphic"
+      ]
+    },
+    {
+      "slug": "nova",
+      "aliases": [
+        "Nova",
+        "NOVA"
+      ]
+    },
+    {
+      "slug": "ediciones-b",
+      "aliases": [
+        "B",
+        "B de Bolsillo"
+      ]
+    }
+  ],
+  "ratings_refresh": {
+    "enabled": true,
+    "google_books_requests_per_day": 40,
+    "hardcover_requests_per_day": 0,
+    "notes": "Se ejecuta en el cron existente y solo consulta fuentes con credenciales de secrets. Hardcover se habilita tras confirmar términos de uso comercial de los agregados. Sin API key no actualiza puntuaciones ni supone una llamada de red."
+  }
 }
