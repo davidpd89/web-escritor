@@ -64,6 +64,14 @@ class ReleaseCalendarTest(unittest.TestCase):
         with self.assertRaisesRegex(ValueError, "mismo ISBN"):
             cal.entries(books, self.today)
 
+    def test_calendar_does_not_change_daily_without_editorial_update(self):
+        item = book()
+        item["fecha_actualizacion"] = "2026-10-20"
+        first = cal.entries([item], date(2026, 10, 21))
+        second = cal.entries([item], date(2026, 10, 22))
+        self.assertEqual(cal.calendar(first, generated_day=date(2026, 10, 21)),
+                         cal.calendar(second, generated_day=date(2026, 10, 22)))
+
 
 if __name__ == "__main__":
     unittest.main()
