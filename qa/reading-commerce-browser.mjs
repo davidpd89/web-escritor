@@ -76,6 +76,9 @@ try {
   assert(labels.some(x => x.text.includes('Google Books') && x.href === 'https://books.google.com/books?id=ABCD_123'));
   assert(labels.some(x => x.text.includes('Hardcover') && x.href === 'https://hardcover.app/books/contrato-dos'));
   assert(labels.every(x => !x.text.includes('Goodreads')), 'Must attribute imported ratings correctly');
+  // A replacement aria-label previously differed from the visible score,
+  // breaking voice control's "label in name" contract. Keep the visible text.
+  assert(await sourcePage.locator('[data-rating-book] a').evaluateAll(els => els.every(el => !el.hasAttribute('aria-label') && el.querySelector('.catalogue-stars')?.getAttribute('aria-hidden') === 'true')));
   await sourceContext.close();
   const monthContext = await browser.newContext();
   const monthPage = await monthContext.newPage();

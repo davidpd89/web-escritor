@@ -28,10 +28,19 @@
     return false;
   };
   const discount = o => Number.isSafeInteger(o.precio_referencia_centimos) && o.precio_referencia_centimos > o.precio_centimos ? Math.floor((o.precio_referencia_centimos - o.precio_centimos) / o.precio_referencia_centimos * 100) : 0;
-  const offersFor = id => (offersIndex.get(id) || []).filter(validOffer);
-  const ratingFor = id => (ratingsIndex.get(id) || []).find(validRating);
-  const money = cents => new Intl.NumberFormat('es-ES', { style: 'currency', currency: 'EUR' }).format(cents / 100);
-  const today = () => new Intl.DateTimeFormat('sv-SE', { timeZone: 'Europe/Madrid', year: 'numeric', month: '2-digit', day: '2-digit' }).format(new Date());
+  // Index entries are validated by renderMarket. Recheck expiry on interaction,
+  // without reparsing the same URLs for every card and quiz option.
+  const offersFor = id => (offersIndex.get(id) || []).filter(o => fresh(o, 24));
+  const ratingFor = id => (ratingsIndex.get(id) || []).find(r => fresh(r, 168));
+  const currency = new Intl.NumberFormat('es-ES', { style: 'currency', currency: 'EUR' });
+  const madridDate = new Intl.DateTimeFormat('sv-SE', { timeZone: 'Europe/Madrid', year: 'numeric', month: '2-digit', day: '2-digit' });
+  const money = cents => currency.format(cents / 100);
+  let dateMinute = -1, dateValue;
+  const today = () => {
+    const minute = Math.floor(Date.now() / 60000);
+    if (minute !== dateMinute) { dateMinute = minute; dateValue = madridDate.format(new Date()); }
+    return dateValue;
+  };
   const ageDays = s => /^\d{4}-\d{2}-\d{2}$/.test(s || '') ? (Date.parse(today() + 'T00:00:00Z') - Date.parse(s + 'T00:00:00Z')) / 86400000 : NaN;
   const isNew = (s, window) => { const days = ageDays(s); return window === 'proximamente' ? days < 0 && days >= -30 : days >= 0 && (window === '15' ? days < 15 : days <= Number(window)); };
   function renderNovelty() {
@@ -60,7 +69,6 @@
     for (const box of root.querySelectorAll('[data-rating-book]')) {
       const r = ratingFor(box.dataset.ratingBook); box.replaceChildren(); if (!r) continue;
       const link = document.createElement('a'); link.href = r.url; link.target = '_blank'; link.rel = 'noopener noreferrer';
-      link.setAttribute('aria-label', r.puntuacion.toLocaleString('es-ES') + ' de 5 en ' + ratingLabel(r) + ', ' + r.numero_valoraciones.toLocaleString('es-ES') + ' valoraciones');
       const stars = document.createElement('span'); stars.className = 'catalogue-stars'; stars.setAttribute('aria-hidden', 'true'); stars.style.setProperty('--rating', r.puntuacion / 5 * 100 + '%'); stars.textContent = '★★★★★';
       link.append(stars, ' ' + r.puntuacion.toLocaleString('es-ES') + '/5 · ' + ratingLabel(r) + ' · ' + r.numero_valoraciones.toLocaleString('es-ES') + ' valoraciones'); link.title = 'Consultado el ' + new Date(r.actualizado_en).toLocaleDateString('es-ES'); box.append(link);
     }
