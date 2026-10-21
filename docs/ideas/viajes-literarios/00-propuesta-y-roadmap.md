@@ -96,7 +96,17 @@ Todas las PR hijas apuntan a main como **cambios independientes** y enlazan a es
 3. [#669 — contrato de datos v1](https://github.com/davidpd89/web-escritor/pull/669): JSON Schema, validador de referencias, tests sintéticos (sin ejecutar); debe pasar validación antes del merge.
 4. [#670 — arquitectura y fases](https://github.com/davidpd89/web-escritor/pull/670): pipeline incremental, snapshots, homogeneización y publicación serializada, futuras P5-P11.
 5. [#671 — muestreador Open Library offline](https://github.com/davidpd89/web-escritor/pull/671): lectura en streaming de Works con lugares candidatos y límites, sin API ni LLM; falta cotejo de dump real, checkpoint mundial y contrato.
+6. [#672 — prototipo SEO y rendimiento](https://github.com/davidpd89/web-escritor/pull/672): HTML estático para destinos/lugares y JSON de facetas por destino; no mapas en render inicial ni filtros generando URLs rastreables. Vista previa sin integración ni pruebas ejecutadas.
+7. [#673 — Overture Places POIs mundiales](https://github.com/davidpd89/web-escritor/pull/673): extractor offline por bbox de lugares culturales, con IDs GERS y taxonomía 2026; no afirma relación con novelas.
 
 **Importante:** el programador de [#661](https://github.com/davidpd89/web-escritor/pull/661) ya publica libros y restringe rutas generadas. No autorizar otro autopublicador simultáneo; en la fase de ingeniería real hay que ampliar el gate explícitamente o empezar mediante PR manual. [#662](https://github.com/davidpd89/web-escritor/pull/662) puede servir posteriormente para Pinterest.
 
 **No se han descargado dumps enormes, ni usado claves, ni ejecutado CI/Actions, ni puesto nuevos lugares en producción.** Cada PR registra exactamente código, documentación y sus limitaciones. Ninguna está fusionada; las fases futuras se abren solo con contenido real.
+
+### Hallazgos nuevos de rendimiento y SEO (21/10/2026)
+
+- [Overture Places](https://docs.overturemaps.org/guides/places/) proporciona decenas de millones de POIs culturales/comerciales globales, con licencias de datos permisivas (según fuente) y descargas GeoParquet. El [explorador de la edición septiembre 2026](https://docs.overturemaps.org/guides/places/taxonomy-explorer/) registra 78.517.770 POIs **generales**, no narrativas literarias. En esa edición `categories` fue eliminado y reemplazado por `basic_category/taxonomy`. Esto entra en [#667](https://github.com/davidpd89/web-escritor/pull/667) y [#673](https://github.com/davidpd89/web-escritor/pull/673).
+- [Google recomienda controlar filtros por facetas](https://developers.google.com/crawling/docs/faceted-navigation) para no generar espacios infinitos de URL que desperdician rastreo. Crear canonicals de destinos/lugares aprobados, no miles de búsquedas indexables.
+- [Google eliminó sitelinks search box en 2024](https://developers.google.com/search/blog/2024/10/sitelinks-search-box). El `SearchAction` antiguo del fichero MIT upstream no debe copiarse como ventaja SEO.
+- [Google advierte sobre abuso de contenido a escala](https://developers.google.com/search/docs/essentials/spam-policies). **Descargar 78M registros ≠ publicar 78M páginas**. Mantener cola masiva interna, pero producir solo páginas que aporten información original, datos contrastados y utilidad real.
+- [#672](https://github.com/davidpd89/web-escritor/pull/672) incorpora cachos JSON pequeños por destino; filtros país/ciudad/libro/autor/relación descargan únicamente el shard necesario en una implementación posterior.
