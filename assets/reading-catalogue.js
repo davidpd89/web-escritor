@@ -45,11 +45,12 @@
   const isNew = (s, window) => { const days = ageDays(s); return window === 'proximamente' ? days < 0 && days >= -30 : days >= 0 && (window === '15' ? days < 15 : days <= Number(window)); };
   function renderNovelty() {
     for (const label of root.querySelectorAll('[data-release-label]')) {
-      const fresh = isNew(label.dataset.releaseLabel, '15');
+      const fresh = isNew(label.dataset.releaseLabel, '15'), upcoming = !fresh && isNew(label.dataset.releaseLabel, 'proximamente');
+      const text = fresh ? 'Novedad' : upcoming ? 'Pr\u00f3ximamente' : '';
       if (label.dataset.releaseFallback !== undefined) {
-        label.textContent = fresh ? 'Novedad' : label.dataset.releaseFallback;
-        label.classList.toggle('catalogue-novelty', fresh);
-      } else label.hidden = !fresh;
+        label.textContent = text || label.dataset.releaseFallback;
+        label.classList.toggle('catalogue-novelty', fresh || upcoming);
+      } else { label.textContent = text; label.hidden = !text; }
     }
   }
   const values = () => Object.fromEntries(fields.map(f => [f.dataset.filter, f.disabled ? '' : f.value]));
