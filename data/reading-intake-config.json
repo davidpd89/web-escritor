@@ -51,7 +51,7 @@
   "ratings_refresh": {
     "enabled": true,
     "google_books_requests_per_day": 40,
-    "hardcover_requests_per_day": 0,
-    "notes": "Se ejecuta en el cron existente y solo consulta fuentes con credenciales de secrets. Hardcover se habilita tras confirmar términos de uso comercial de los agregados. Sin API key no actualiza puntuaciones ni supone una llamada de red."
+    "hardcover_requests_per_day": 40,
+    "notes": "40 consultas/día Google Books y 40 Hardcover, cada fuente solo si tiene su secreto. Hardcover permite medias agregadas en sitios comerciales si se le atribuyen. No se accede a valoraciones personales de usuarios. Sin credenciales no hay peticiones."
   }
 }
