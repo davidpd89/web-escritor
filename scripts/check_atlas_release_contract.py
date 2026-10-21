@@ -181,6 +181,17 @@ def audit(root: Path, manifest: dict) -> list[str]:
                     p = file_for(root, target)
                     if not p.is_file():
                         errors.append(url + " enlace interno a 404: " + target)
+            elif parsed.path.startswith("/recomendaciones/libros/"):
+                # Atlas may link only to the canonical pages of existing books;
+                # do not let a known ID turn into a guessed affiliate URL/404.
+                if not re.fullmatch(
+                    r"/recomendaciones/libros/[a-z0-9]+(?:-[a-z0-9]+)*/", parsed.path
+                ):
+                    errors.append(url + " enlace a libro con ruta no canónica: " + parsed.path)
+                else:
+                    book_html = root / parsed.path.lstrip("/") / "index.html"
+                    if not book_html.is_file():
+                        errors.append(url + " enlaza a libro sin HTML: " + parsed.path)
 
     # No indexable atlas route may be silently omitted from the approved manifest.
     atlas_dir = root / "atlas-literario"
