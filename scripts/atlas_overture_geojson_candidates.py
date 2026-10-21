@@ -15,12 +15,14 @@ from pathlib import Path
 
 MAX_INPUT_BYTES = 16 * 1024 * 1024  # fail closed; this is NOT a global JSON parser
 
-# Discovery vocabulary only; review actual Overture release taxonomy before scaling.
+# Core taxonomy names checked against Overture 2026-09-23.0 CSV; legacy aliases retained.
+# Source: OvertureMaps/docs/static/taxonomy/2026-09-23.0/taxonomy.csv
 KEYWORDS = {
-    "bookshop": ("bookstore", "book_store", "bookshop", "bookseller", "used_books"),
+    "bookshop": ("bookstore", "academic_bookstore", "used_bookstore", "comic_books_store",
+                 "book_store", "bookshop", "bookseller", "used_books"),
     "library": ("library", "libraries", "public_library"),
     "museum": ("museum", "literary_museum", "house_museum"),
-    "historic_site": ("historic_site", "historical_site", "monument", "memorial"),
+    "historic_site": ("historic_site", "historical_site", "monument", "memorial", "memorial_site"),
 }
 
 
