@@ -45,18 +45,38 @@ Documentación: https://docs.hardcover.app/api/getting-started/
 ## Goodreads y pruebas
 
 La consulta pública por ISBN de Coraline devuelve su JSON-LD y permite comprobar
-ISBN, título, autor y valoración. La prueba aislada actualiza una valoración.
-La primera prueba de los 26 libros no produjo coincidencias; por tanto, esa
-prueba no demuestra cobertura completa ni debe presentarse como tal.
+ISBN, título, autor y valoración. Tras corregir la reconciliación del proveedor,
+el [piloto real de Actions 39584027168](https://github.com/davidpd89/web-escritor/actions/runs/39584027168)
+consultó los 26 libros: **15 coincidencias de Goodreads**, 11 sin valoración y
+cero errores; Hardcover obtuvo una coincidencia y Google Books respondió 503.
+Los 16 registros de ambas fuentes corresponden a **15 libros distintos** y
+forman parte de la entrega #665. La primera prueba sin coincidencias queda
+superada por este piloto; ninguno de los dos demuestra cobertura completa.
 
 Se mantienen independientes los proveedores y sus fechas reales. Un fallo no
 renueva la fecha de un dato antiguo. Seis regresiones nuevas cubren identidades
 erróneas, votos inválidos, enlaces extraños, conservación de datos y parada tras
 denegación. Otra regresión verifica que una caída del proveedor detiene el lote
-tras la primera consulta fallida. La batería suma **71 tests aprobados**.
+tras la primera consulta fallida. La batería de #665 sumó **101 tests aprobados**;
+la recuperación de propuestas antiguas en #676 la amplía a **105**.
 
 Los resultados de las consultas se guardan en `.ci/providers/`, fuera de los
 artefactos publicados. Las credenciales nunca se incluyen en código ni informes.
 Las copias temporales locales de las dos claves se han eliminado después de
 verificar los secretos de GitHub y las consultas reales.
-La configuración de cuentas y los tests no equivalen a un despliegue de la PR.
+La clave de Hardcover tiene caducidad anual: requiere renovación antes de su
+vencimiento, sin ampliar permisos. Si caduca o falla un proveedor, los demás
+siguen disponibles y las valoraciones antiguas no se presentan como recién revisadas.
+
+## Amazon y publicación
+
+La aplicación y las credenciales de Creators API están creadas; la consulta real
+del piloto devolvió `pending_amazon_eligibility`, sin ofertas. Amazon exige diez
+ventas válidas en treinta días y advierte de hasta 48 horas de revisión inicial.
+Esa advertencia no confirma que la cuenta ya tenga diez ventas ni garantiza
+activar la API al terminar el plazo. No se copian precios manuales para fingir acceso.
+
+La configuración de cuentas y los tests no equivalen por sí solos a un despliegue.
+#665 pasó 32 controles reales y se publicó como `d31181d6287798f5d8447b7f371559a766d7cfe7`;
+la verificación pública comprobó 106 archivos exactos y sus cinco resoluciones.
+El ciclo diario y las mejoras posteriores conservan su evidencia en las PR y Actions.
