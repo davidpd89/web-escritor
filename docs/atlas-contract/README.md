@@ -1,0 +1,46 @@
+# Atlas mundial — contrato v1 para diez entidades, sin datos públicos
+
+PR hija de [#666](https://github.com/davidpd89/web-escritor/pull/666). **Fase de ingeniería base**, no publica fichas, no migra `data/atlas-literario.json`, no ejecuta Actions ni modifica páginas existentes.
+
+## Fuentes de verdad, decisiones
+
+- [schema](../../schemas/atlas/catalogue-v1.schema.json): documento JSON Schema Draft 2020-12 que separa `destinations`, `places`, `works`, `authors`, `adaptations`, `sources`, `relationships`, `images`, `routes`. Se pueden añadir tablas cuando se apruebe v2, no cambiar silenciosamente v1.
+- [comprobador](../../scripts/atlas_contract_check.py): Python standard-library para las **referencias entre entidades** y algunas reglas de publicación: ID único, destino/lugar, obra/autores, adaptación↔obra, rodaje↔adaptación, fuente obligatoria en relación, mito no aprobado, geo sin pin falso, autor sin dirección actual, imágenes con atribución. No es validador JSON Schema completo.
+- [pruebas sintéticas](../../tests/test_atlas_contract_check.py): seis casos sin archivos reales ni red; **escritas, NO ejecutadas** por respetar la instrucción de no lanzar pruebas/Actions. Cuando se autorice CI, comprobar resultado y reparar cualquier falla.
+
+**Punto esencial:** el JSON representa la **mesa editorial interna**. Una futura exportación a la web (PR distinta) debe publicar **solamente** relaciones y entidades aprobadas, suprimir `reviewer_note_private` y demás datos privados, evitar claves, direcciones particulares de autores y HTML de fuentes externas.
+
+### Reglas futuras fuera de JSON Schema
+
+JSON Schema comprueba formas, no existencia de claves externas ni que una fuente realmente pruebe una relación. El comprobador offline contempla algunas reglas cruzadas. Quedan pendientes: fechas ISO de calendario real (no solo regex), URL allowlist/redirect, unicode alias, deduplicación de obras, calidad de imagen/permiso comercial, suplantación de enlaces, datos privados y propiedad intelectual; todo ello en una PR de validación reforzada.
+
+### Contrato Sheets — no mezclar con importador de libros existente
+
+**Pestañas recomendadas**: 01_DESTINOS, 02_LUGARES, 03_OBRAS, 04_AUTORES, 05_ADAPTACIONES, 06_FUENTES, 07_RELACIONES, 08_IMAGENES, 09_RUTAS. Los nombres difieren deliberadamente de las pestañas del catálogo de lectura. Exportación a JSON versionado con mapeo de claves. Ver docs de [PR #666](https://github.com/davidpd89/web-escritor/pull/666).
+
+**Separar WORK vs EDITION:** `works.reading_book_id` hace referencia al libro existente en el catálogo del autor cuando haya ficha real; ISBN es de edición, no clave global de obra. Una obra sin ficha aprobada no crea automáticamente portada ni enlace Amazon.
+
+**Geografía:** los campos `latitude` y `longitude` se guardan separados en JSON y se convierten a GeoJSON en orden `[longitude, latitude]` cuando existan. El tipo `geo_precision=city|area|unlocated` no se presenta con un pin de fachada.
+
+**Visibilidad:** permitir POIs culturales (librería, biblioteca) con fuente propia aunque no tengan novela relacionada. Las conexiones a novelas/rodajes/autores tienen evidencia individual y estado propio.
+
+### Ejecución de revisión pendiente
+
+```sh
+# SOLO cuando se reactive QA local/CI:
+python -m unittest tests/test_atlas_contract_check.py
+python scripts/atlas_contract_check.py ruta/a/snapshot-interno.json
+# Validar también schemas/atlas/catalogue-v1.schema.json con JSON Schema 2020-12
+```
+
+## No metas estos cambios en un cron automáticamente
+
+El publicador de [PR #661](https://github.com/davidpd89/web-escritor/pull/661) tiene allowlist de rutas que **no incluye Atlas**. Incorporar un publicador separado sin locking es incorrecto. Ver plan de orquestación en la hija de automatización. Una futura PR de publicación deberá ampliar allowlist, pruebas de seguridad, diffs de artefactos y regeneración de shell/sitemap/Pagefind.
+
+## Pendiente antes de marcar «ready for merge»
+
+- [x] Contrato declarativo v1, sin dataset real.
+- [x] Validador referencial sin red, casos sintéticos preparados.
+- [ ] QA local y JSON Schema completo comprobados contra pruebas; confirmar en momento autorizado.
+- [ ] Revisión de fuentes de verdad de `reading_book_id` y IDs aceptados.
+- [ ] Decidir si esquema detallado se versiona como backoffice (recomendado) o si se genera una proyección pública independiente.
