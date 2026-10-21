@@ -7,7 +7,7 @@ from pathlib import Path
 from unittest.mock import patch
 
 sys.path.insert(0, str(Path(__file__).resolve().parents[1] / 'scripts'))
-from reading_free_prices import cents, google_ebook_offer, penguin_offer, refresh_penguin
+from reading_free_prices import cents, google_ebook_offer, penguin_offer, refresh_penguin, refresh_google_ebooks
 
 NOW = datetime(2026, 10, 21, 12, tzinfo=timezone.utc)
 ISBN = '9788401039560'
@@ -93,6 +93,28 @@ class FreePriceTests(unittest.TestCase):
         failed, failures = refresh_penguin(dataset, result, lambda _: (_ for _ in ()).throw(TimeoutError()), NOW)
         self.assertEqual(failures['consultados'], 1)
         self.assertEqual(failed['offers'], result['offers'])
+
+    def test_google_is_optional_and_no_call_for_paper_books(self):
+        result, stats = refresh_google_ebooks({'libros': [BOOK]},
+            {'schema_version': 1, 'offers': []},
+            lambda isbn: self.fail('Paper ISBN should not be queried as ebook'), NOW)
+        self.assertEqual(stats['consultados'], 0)
+        self.assertEqual(result['offers'], [])
+
+    def test_google_provider_error_halts_without_renewing_old_data(self):
+        ebook = dict(BOOK, formato_edicion='ebook')
+        old = {'schema_version': 1, 'offers': [
+            {'libro_id': ebook['id'], 'fuente': 'google_play_libros',
+             'actualizado_en': '2026-10-21T09:00:00Z',
+             'caduca_en': '2026-10-22T09:00:00Z'}]}
+        calls = []
+        def denied(isbn):
+            calls.append(isbn)
+            raise RuntimeError('Google Books HTTP 503')
+        updated, stats = refresh_google_ebooks({'libros': [ebook]}, old, denied, NOW)
+        self.assertEqual(calls, [ISBN])
+        self.assertEqual(stats['consultados'], 1)
+        self.assertEqual(updated['offers'], old['offers'])
 
     def test_no_network_when_budget_zero(self):
         calls = []
