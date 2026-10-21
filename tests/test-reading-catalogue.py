@@ -132,6 +132,13 @@ with tempfile.TemporaryDirectory() as tmp:
     b['titulo'] = '<script>alert("x")</script>'
     escaped = m.render_book(data, b, template)
     assert '<script>alert' not in escaped and '\\u003cscript' in escaped
+    future = copy.deepcopy(b)
+    future.update(fecha_publicacion='2999-01-01', fecha_actualizacion='2026-10-21')
+    page = m.render_book(data, future, template)
+    assert '"datePublished": "2999-01-01"' not in page, 'una publicacion futura no puede declararse como ya publicada'
+    past = copy.deepcopy(b)
+    past.update(fecha_publicacion='2026-10-01', fecha_actualizacion='2026-10-21')
+    assert '"datePublished": "2026-10-01"' in m.render_book(data, past, template)
     if '--browser-fixture' in sys.argv:
         # Only serialize synthetic HTML for interception in a browser test.
         b['titulo'] = 'Título de prueba técnica'
