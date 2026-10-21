@@ -137,10 +137,18 @@ def place_page(p: dict, d: dict, sources: dict, relations: list[dict]) -> str:
         for s in p.get("source_ids", [])
         if s in sources and str(sources[s].get("url", "")).startswith("https://")
     )
-    relation_names = [r["subject_name"] for r in relations]
+    def relation_html(r: dict) -> str:
+        title = e(r["subject_name"])
+        url = r.get("catalogue_url")
+        if isinstance(url, str) and re.fullmatch(
+            r"/recomendaciones/libros/[a-z0-9]+(?:-[a-z0-9]+)*/", url
+        ):
+            return "<li><a href=\"" + e(url) + "\">" + title + "</a></li>"
+        return "<li>" + title + "</li>"
+
     relation_text = (('<section><h2>Obras y autores relacionados</h2><ul>' +
-                     "".join("<li>" + e(name) + "</li>" for name in relation_names) +
-                     "</ul></section>") if relation_names else "")
+                     "".join(relation_html(r) for r in relations) +
+                     "</ul></section>") if relations else "")
     facet_pairs = [("atlas_entity", "place"), ("atlas_country", d["country_iso2"]),
                    ("atlas_city", d["id"])]
     for r in relations:
@@ -170,7 +178,7 @@ def place_page(p: dict, d: dict, sources: dict, relations: list[dict]) -> str:
                 url, body, [crumbs, structured])
 
 
-def pages_from(data: dict) -> dict[str, str]:
+def pages_from(data: dict, reading_links: dict[str, str] | None = None) -> dict[str, str]:
     destinations, places = eligible(data)
     if not destinations:
         return {}  # Nunca generar hub indexable vacío
@@ -208,8 +216,13 @@ def pages_from(data: dict) -> dict[str, str]:
         url = place_url(p)
         if url in pages:
             raise ValueError("URL de lugar duplicada: " + url)
-        matched = [dict(r, subject_name=name_tables[r["subject_type"]][r["subject_id"]])
-                   for r in rels if r["place_id"] == p["id"]]
+        matched = [
+            dict(r,
+                 subject_name=name_tables[r["subject_type"]][r["subject_id"]],
+                 catalogue_url=(reading_links or {}).get(r["subject_id"])
+                 if r["subject_type"] == "work" else None)
+            for r in rels if r["place_id"] == p["id"]
+        ]
         pages[url] = place_page(p, ids[p["destination_id"]], src, matched)
     cards = "".join('<li><a href="' + e(destination_url(d)) + '">'
                     + e(d["name"]) + '</a></li>' for d in destinations)
