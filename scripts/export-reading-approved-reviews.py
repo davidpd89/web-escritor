@@ -23,6 +23,7 @@ PUBLIC_FIELDS = ("review_id", "libro_id", "isbn13", "nombre_publico",
 
 def approved_rows(rows, books: list[dict]) -> list[dict]:
     allowed = {b["id"]: b.get("isbn13") for b in books if b.get("estado") == "publicado"}
+    by_isbn = {isbn: book_id for book_id, isbn in allowed.items() if isbn}
     seen = set()
     out = []
     for idx, row in enumerate(rows, 2):
@@ -40,8 +41,14 @@ def approved_rows(rows, books: list[dict]) -> list[dict]:
         stars = (row.get("puntuacion_1a5") or "").strip()
         if not ident or ident in seen:
             raise ValueError(f"Fila {idx}: ID de reseña duplicado o vacío")
-        if book_id not in allowed or isbn != allowed[book_id]:
-            raise ValueError(f"Fila {idx}: libro publicado/ISBN no coincidente")
+        if book_id in allowed and isbn != allowed[book_id]:
+            raise ValueError(f"Fila {idx}: ID de libro e ISBN no coinciden")
+        if book_id not in allowed:
+            # El Sheet piloto conserva algunos IDs previos (p.ej. LIB-0001).
+            # Reconciliar inequívocamente por ISBN real de la web.
+            book_id = by_isbn.get(isbn, "")
+        if not book_id:
+            raise ValueError(f"Fila {idx}: ISBN sin libro publicado")
         if not name or len(name) > MAX_NAME or not title or len(title) > MAX_TITLE:
             raise ValueError(f"Fila {idx}: nombre o título inválido")
         if not body or len(body) > MAX_TEXT:
