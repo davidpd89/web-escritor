@@ -25,7 +25,7 @@ def fixture():
                     "status": "approved", "verified_at": "2026-10-21",
                     "destination_id": "dst-demo", "summary_original": DESC,
                     "source_ids": ["src-demo"]}],
-        "sources": [{"id": "src-demo", "url": "https://example.org/source",
+        "sources": [{"id": "src-demo", "title": "Fuente sintética", "url": "https://example.org/source",
                      "evidence_summary": "Ficción sintética", "retrieved_at": "2026-10-21"}],
         "works": [{"id": "wrk-demo", "title": "Libro sintético",
                    "status": "approved", "verified_at": "2026-10-21"}],
