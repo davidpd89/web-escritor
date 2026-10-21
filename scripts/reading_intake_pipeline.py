@@ -26,6 +26,7 @@ from reading_editorial_sources import CachedHTTP, SourceError, penguin_edition, 
 from reading_intake_core import affiliate_destination, normalize_text, publisher_slug
 from reading_intake_fetch import read_json, write_if_changed
 from reading_intake_publishers import resolve_publishers
+from reading_taxonomy import extra_categories
 
 ROOT = Path(__file__).resolve().parents[1]
 spec = importlib.util.spec_from_file_location('catalogue_builder', ROOT / 'scripts/build-reading-catalogue.py')
@@ -102,6 +103,14 @@ def classify(record, catalogue):
             catalogue['categorias'].append(c)
             cats[ident] = c
         found.append(ident)
+    for ident, name, kind in extra_categories(record):
+        if ident not in cats:
+            c = {'id': ident, 'slug': ident, 'nombre': name, 'tipo': kind,
+                 'descripcion': 'Clasificación editorial: ' + name + '.',
+                 'orden': 150 + len(cats), 'activa': True}
+            catalogue['categorias'].append(c)
+            cats[ident] = c
+        found.append(ident)
     if not found:
         raise SourceError('Materia editorial no clasificada; queda pendiente')
     age = normalize_text(record.get('edad_recomendada', ''))
@@ -148,6 +157,8 @@ def make_book(record, publisher, tag, today, cover, dimensions):
         book['fecha_publicacion_parcial'] = published
     if record.get('numero_paginas'):
         book['numero_paginas'] = record['numero_paginas']
+    if record.get('pvp_centimos'):
+        book.update(pvp_centimos=record['pvp_centimos'], pvp_fecha_verificacion=today)
     if record.get('edad_recomendada'):
         book['edad_recomendada'] = record['edad_recomendada']
         book['fuente_edad_url'] = record['fuente_bibliografica_url']

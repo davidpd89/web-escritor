@@ -24,7 +24,7 @@ ROOT = Path(__file__).resolve().parents[1]
 SITE = "https://davidportodiaz.com"
 SLUG = re.compile(r"[a-z0-9]+(?:-[a-z0-9]+)*\Z")
 TYPES = {"genero": "Género", "tematica": "Temática", "temporada": "Temporada", "edad": "Edad", "contenido": "Contenido", "epoca": "Época"}
-BOOK_FIELDS = set("id slug titulo autores descripcion_breve estado portada_local portada_fuente_url portada_edicion_verificada autorizacion_o_base_uso portada_fecha_revision portada_ancho portada_alto fuente_bibliografica_url fecha_verificacion descripcion_original_confirmada url_amazon_afiliada isbn13 edicion editorial fecha_publicacion anio_publicacion numero_paginas fuente_publicacion_url idioma edad_recomendada fuente_edad_url avisos_contenido lectura_personal_confirmada evidencia_lectura autoria_propia resenas fragmento_url fecha_actualizacion audio_descripcion audio_voz formatos_compra fragmento_texto fragmento_uso_autorizado fragmento_base_uso audio_fragmento".split())
+BOOK_FIELDS = set("id slug titulo autores descripcion_breve estado portada_local portada_fuente_url portada_edicion_verificada autorizacion_o_base_uso portada_fecha_revision portada_ancho portada_alto fuente_bibliografica_url fecha_verificacion descripcion_original_confirmada url_amazon_afiliada isbn13 edicion editorial fecha_publicacion anio_publicacion numero_paginas fuente_publicacion_url idioma edad_recomendada fuente_edad_url avisos_contenido lectura_personal_confirmada evidencia_lectura autoria_propia resenas fragmento_url fecha_actualizacion pvp_centimos pvp_fecha_verificacion audio_descripcion audio_voz formatos_compra fragmento_texto fragmento_uso_autorizado fragmento_base_uso audio_fragmento".split())
 FORMATS = {"tapa-blanda": "Tapa blanda", "tapa-dura": "Tapa dura", "ebook": "eBook", "audiolibro": "Audiolibro"}
 BOOK_FIELDS.update({'editorial_slug', 'formato_edicion', 'amazon_busqueda_isbn', 'fecha_publicacion_parcial'})
 BOOK_FIELDS.update({'sinopsis_breve', 'sinopsis_fuente_url', 'sinopsis_tipo', 'categorias_excluidas'})
@@ -136,6 +136,9 @@ def validate(data, root):
             require(not b.get(key) or isinstance(b[key], str), f"{name}: {key} debe ser texto")
         for key in ('anio_publicacion', 'numero_paginas'):
             require(not b.get(key) or type(b[key]) is int and b[key] > 0, f'{name}: {key} debe ser entero positivo')
+        if b.get('pvp_centimos') is not None:
+            require(type(b['pvp_centimos']) is int and 100 <= b['pvp_centimos'] <= 20000, f'{name}: pvp_centimos fuera de rango')
+            require(bool(re.fullmatch(r'\d{4}-\d{2}-\d{2}', str(b.get('pvp_fecha_verificacion', '')))), f'{name}: PVP sin fecha de verificación')
         if b.get('audio_descripcion'):
             require(bool(re.fullmatch(r'/assets/reading-audio/[a-z0-9-]+\.mp3', b['audio_descripcion'])) and (root / b['audio_descripcion'].lstrip('/')).is_file(), f'{name}: audio local inválido o ausente')
         cover = b["portada_local"]
@@ -328,6 +331,19 @@ def purchase_formats(b):
     return b.get('formatos_compra', [])
 
 
+def pvp_label(b):
+    cents = b['pvp_centimos']
+    return f'{cents // 100},{cents % 100:02d} €'
+
+
+def publisher_link(b):
+    if not b.get('editorial'):
+        return ''
+    if b.get('editorial_slug'):
+        return '<a class="catalogue-publisher" href="/editoriales/' + esc(b['editorial_slug']) + '/">' + esc(b['editorial']) + '</a>'
+    return esc(b['editorial'])
+
+
 def amazon_destination(b):
     """Preserve a verified product link, otherwise use tagged ISBN search."""
     return b.get('url_amazon_afiliada') or b.get('amazon_busqueda_isbn')
@@ -413,10 +429,11 @@ def render_hub(data, books, template):
         published = b.get('fecha_publicacion', '')
         year = b.get('anio_publicacion', '')
         attrs = f'data-catalogue-book data-group="{group}" data-book-id="{esc(b["id"])}" data-categories="{esc(" ".join(c["id"] for c in cats))}" data-search="{esc(b["titulo"] + " " + " ".join(b["autores"]) + " " + b.get("isbn13", ""))}" data-title="{esc(b["titulo"])}" data-author="{esc(", ".join(b["autores"]))}" data-formats="{formats}" data-published="{esc(published)}" data-published-month="{esc(b.get("fecha_publicacion_parcial", ""))}" data-year="{esc(year)}" data-pages="{esc(b.get("numero_paginas", ""))}"'
-        edition_metadata = ' · '.join(esc(v) for v in (
-            publication_date_label(b), b.get('editorial', ''),
-            (str(b['numero_paginas']) + ' páginas') if b.get('numero_paginas') else '',
-            ('Edad: ' + b['edad_recomendada']) if b.get('edad_recomendada') else ''
+        edition_metadata = ' · '.join(v for v in (
+            esc(publication_date_label(b)), publisher_link(b),
+            esc((str(b['numero_paginas']) + ' páginas') if b.get('numero_paginas') else ''),
+            esc(('Edad: ' + b['edad_recomendada']) if b.get('edad_recomendada') else ''),
+            ('<span class="catalogue-pvp" title="Precio fijado por la editorial, verificado el ' + esc(b.get('pvp_fecha_verificacion', '')) + '">PVP ' + esc(pvp_label(b)) + '</span>') if b.get('pvp_centimos') else '',
         ) if v)
         affiliate_link = amazon_destination(b)
         affiliate_cta = ('<a class="catalogue-buy-link catalogue-card__buy" href="' + esc(affiliate_link) + '" target="_blank" rel="sponsored nofollow noopener noreferrer">' + esc(amazon_action_label(b)) + ' <span aria-hidden="true">↗</span></a>') if affiliate_link else ''
@@ -439,7 +456,7 @@ def render_book(data,b,template):
     title=book_title(b)
     description=synopsis(b)
     cats=categories(data,b)
-    rows=[('Edición',b['edicion']),('Editorial',b.get('editorial')),('Publicación',publication_date_label(b)),('ISBN-13',b.get('isbn13')),('Idioma',b.get('idioma')),('Páginas',b.get('numero_paginas')),('Edad orientativa',b.get('edad_recomendada'))]
+    rows=[('Edición',b['edicion']),('Editorial',b.get('editorial')),('Publicación',publication_date_label(b)),('ISBN-13',b.get('isbn13')),('Idioma',b.get('idioma')),('Páginas',b.get('numero_paginas')),('PVP editorial',pvp_label(b) if b.get('pvp_centimos') else None),('Edad orientativa',b.get('edad_recomendada'))]
     details='<details class="catalogue-details"><summary>Datos de esta edición</summary><dl>'+''.join(f'<dt>{esc(k)}</dt><dd>' + (f'<a href="/editoriales/{esc(b["editorial_slug"])}/">{esc(v)}</a>' if k == 'Editorial' and b.get('editorial_slug') else esc(v)) + '</dd>' for k,v in rows if v)+'</dl></details>'
     fragment=''  # Audio and samples are not rendered until all editions can support them.
     reviews=approved_reviews_for(b)

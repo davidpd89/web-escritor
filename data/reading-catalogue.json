@@ -251,6 +251,105 @@
       "orden": 177,
       "slug": "ciencia-ficcion",
       "tipo": "genero"
+    },
+    {
+      "activa": true,
+      "descripcion": "Clasificación editorial: Amor y pareja.",
+      "id": "tema-amor-y-pareja",
+      "nombre": "Amor y pareja",
+      "orden": 178,
+      "slug": "tema-amor-y-pareja",
+      "tipo": "tematica"
+    },
+    {
+      "activa": true,
+      "descripcion": "Clasificación editorial: Supervivencia.",
+      "id": "tema-supervivencia",
+      "nombre": "Supervivencia",
+      "orden": 179,
+      "slug": "tema-supervivencia",
+      "tipo": "tematica"
+    },
+    {
+      "activa": true,
+      "descripcion": "Clasificación editorial: Poder y política.",
+      "id": "tema-poder-y-politica",
+      "nombre": "Poder y política",
+      "orden": 180,
+      "slug": "tema-poder-y-politica",
+      "tipo": "tematica"
+    },
+    {
+      "activa": true,
+      "descripcion": "Clasificación editorial: Mujeres.",
+      "id": "tema-mujeres",
+      "nombre": "Mujeres",
+      "orden": 181,
+      "slug": "tema-mujeres",
+      "tipo": "tematica"
+    },
+    {
+      "activa": true,
+      "descripcion": "Clasificación editorial: Infancia.",
+      "id": "tema-infancia",
+      "nombre": "Infancia",
+      "orden": 182,
+      "slug": "tema-infancia",
+      "tipo": "tematica"
+    },
+    {
+      "activa": true,
+      "descripcion": "Clasificación editorial: Poesía.",
+      "id": "poesia",
+      "nombre": "Poesía",
+      "orden": 183,
+      "slug": "poesia",
+      "tipo": "genero"
+    },
+    {
+      "activa": true,
+      "descripcion": "Clasificación editorial: Humor.",
+      "id": "humor",
+      "nombre": "Humor",
+      "orden": 184,
+      "slug": "humor",
+      "tipo": "genero"
+    },
+    {
+      "activa": true,
+      "descripcion": "Clasificación editorial: Memoria.",
+      "id": "tema-memoria",
+      "nombre": "Memoria",
+      "orden": 185,
+      "slug": "tema-memoria",
+      "tipo": "tematica"
+    },
+    {
+      "activa": true,
+      "descripcion": "Clasificación editorial: Siglo XX.",
+      "id": "epoca-siglo-xx",
+      "nombre": "Siglo XX",
+      "orden": 186,
+      "slug": "epoca-siglo-xx",
+      "tipo": "epoca"
+    },
+    {
+      "activa": true,
+      "descripcion": "Clasificación editorial: Superación y duelo.",
+      "id": "tema-superacion-y-duelo",
+      "nombre": "Superación y duelo",
+      "orden": 187,
+      "slug": "tema-superacion-y-duelo",
+      "tipo": "tematica"
+    },
+    {
+      "activa": true,
+      "descripcion": "Clasificación editorial: Familia.",
+      "id": "tema-familia",
+      "nombre": "Familia",
+      "orden": 188,
+      "slug": "tema-familia",
+      "tipo": "tematica"
     }
   ],
   "libro_categorias": [
@@ -521,10 +620,151 @@
     {
       "categoria_id": "adultos",
       "libro_id": "isbn-9788401031380"
+    },
+    {
+      "categoria_id": "fantasia",
+      "libro_id": "lib-0001"
+    },
+    {
+      "categoria_id": "aventuras",
+      "libro_id": "lib-0001"
+    },
+    {
+      "categoria_id": "misterio-y-thriller",
+      "libro_id": "isbn-9788401039560"
+    },
+    {
+      "categoria_id": "terror",
+      "libro_id": "isbn-9788401039560"
+    },
+    {
+      "categoria_id": "romance",
+      "libro_id": "isbn-9788425375118"
+    },
+    {
+      "categoria_id": "tema-amor-y-pareja",
+      "libro_id": "isbn-9788425375118"
+    },
+    {
+      "categoria_id": "tema-supervivencia",
+      "libro_id": "isbn-9791387640439"
+    },
+    {
+      "categoria_id": "narrativa",
+      "libro_id": "isbn-9788425375040"
+    },
+    {
+      "categoria_id": "tema-poder-y-politica",
+      "libro_id": "isbn-9788425375040"
+    },
+    {
+      "categoria_id": "tema-amor-y-pareja",
+      "libro_id": "isbn-9791387846794"
+    },
+    {
+      "categoria_id": "tema-mujeres",
+      "libro_id": "isbn-9791387846794"
+    },
+    {
+      "categoria_id": "novela-historica",
+      "libro_id": "isbn-9788426432575"
+    },
+    {
+      "categoria_id": "tema-infancia",
+      "libro_id": "isbn-9788426432575"
+    },
+    {
+      "categoria_id": "misterio-y-thriller",
+      "libro_id": "isbn-9791388137006"
+    },
+    {
+      "categoria_id": "tema-amor-y-pareja",
+      "libro_id": "isbn-9788401042119"
+    },
+    {
+      "categoria_id": "poesia",
+      "libro_id": "isbn-9788426434272"
+    },
+    {
+      "categoria_id": "biografias-y-memorias",
+      "libro_id": "isbn-9788426434272"
+    },
+    {
+      "categoria_id": "tema-mujeres",
+      "libro_id": "isbn-9788426434272"
+    },
+    {
+      "categoria_id": "humor",
+      "libro_id": "isbn-9788466684606"
+    },
+    {
+      "categoria_id": "tema-amor-y-pareja",
+      "libro_id": "isbn-9788466684606"
+    },
+    {
+      "categoria_id": "poesia",
+      "libro_id": "isbn-9788439747222"
+    },
+    {
+      "categoria_id": "nutricion-y-bienestar",
+      "libro_id": "isbn-9788425371790"
+    },
+    {
+      "categoria_id": "tema-amor-y-pareja",
+      "libro_id": "isbn-9791387640491"
+    },
+    {
+      "categoria_id": "tema-memoria",
+      "libro_id": "isbn-9791387640491"
+    },
+    {
+      "categoria_id": "epoca-siglo-xx",
+      "libro_id": "isbn-9791387640491"
+    },
+    {
+      "categoria_id": "humor",
+      "libro_id": "isbn-9788466683043"
+    },
+    {
+      "categoria_id": "desarrollo-personal",
+      "libro_id": "isbn-9788466683043"
+    },
+    {
+      "categoria_id": "tema-mujeres",
+      "libro_id": "isbn-9788466683043"
+    },
+    {
+      "categoria_id": "cocina",
+      "libro_id": "isbn-9788425374869"
+    },
+    {
+      "categoria_id": "desarrollo-personal",
+      "libro_id": "isbn-9788425374869"
+    },
+    {
+      "categoria_id": "tema-superacion-y-duelo",
+      "libro_id": "isbn-9788425374869"
+    },
+    {
+      "categoria_id": "tema-familia",
+      "libro_id": "isbn-9788401039836"
+    },
+    {
+      "categoria_id": "fantasia",
+      "libro_id": "isbn-9788410466470"
+    },
+    {
+      "categoria_id": "aventuras",
+      "libro_id": "isbn-9788410466470"
+    },
+    {
+      "categoria_id": "tema-amor-y-pareja",
+      "libro_id": "isbn-9788401037917"
     }
   ],
   "libros": [
     {
+      "amazon_busqueda_isbn": "https://www.amazon.es/s?k=9788498382372&tag=davidporto-21",
       "anio_publicacion": 2009,
       "audio_descripcion": "/assets/reading-audio/coraline-da027726f648.mp3",
       "audio_voz": "Voz sintética · Elvira (español de España)",
@@ -537,9 +777,12 @@
       "edad_recomendada": "A partir de 9 años",
       "edicion": "Tapa blanda con solapas · Salamandra",
       "editorial": "Salamandra",
+      "editorial_slug": "salamandra",
       "estado": "publicado",
       "fecha_actualizacion": "2026-10-20",
+      "fecha_publicacion": "2009-06-01",
       "fecha_verificacion": "2026-10-20",
+      "formato_edicion": "tapa-blanda",
       "formatos_compra": [
         {
           "fecha_verificacion": "2026-10-20",
@@ -569,6 +812,7 @@
       "fragmento_url": "https://www.penguinlibros.com/es/libros-ninos-9-anos/37666-libro-coraline-9788498382372/fragmento",
       "fuente_bibliografica_url": "https://www.penguinrandomhouse.com/books/665423/coraline-spanish-edition-by-neil-gaiman/9788498382372/",
       "fuente_edad_url": "https://www.penguinlibros.com/es/libros-ninos-9-anos/37666-libro-coraline-9788498382372",
+      "fuente_publicacion_url": "https://www.penguinlibros.com/es/libros-ninos-9-anos/37666-libro-coraline-9788498382372",
       "id": "lib-0001",
       "idioma": "es",
       "isbn13": "9788498382372",
@@ -579,6 +823,8 @@
       "portada_fecha_revision": "2026-10-20",
       "portada_fuente_url": "https://www.penguinlibros.com/cl/53759/coraline.jpg",
       "portada_local": "/assets/reading-covers/coraline-9788498382372.webp",
+      "pvp_centimos": 1195,
+      "pvp_fecha_verificacion": "2026-10-21",
       "resenas": [
         {
           "fecha_verificacion": "2026-10-20",
@@ -591,17 +837,12 @@
           "url": "https://www.penguinlibros.com/es/libros-ninos-9-anos/37666-libro-coraline-9788498382372"
         }
       ],
-      "slug": "coraline",
-      "titulo": "Coraline",
-      "url_amazon_afiliada": "https://www.amazon.es/dp/8498382378?tag=davidporto-21",
-      "editorial_slug": "salamandra",
-      "formato_edicion": "tapa-blanda",
-      "fecha_publicacion": "2009-06-01",
-      "fuente_publicacion_url": "https://www.penguinlibros.com/es/libros-ninos-9-anos/37666-libro-coraline-9788498382372",
       "sinopsis_breve": "Tras mudarse a una casa antigua, Coraline encuentra una puerta hacia otra versión de su hogar. Allí todo parece mejor, hasta que descubre que sus otros padres no piensan dejarla marchar.",
       "sinopsis_fuente_url": "https://www.penguinlibros.com/es/libros-ninos-9-anos/37666-libro-coraline-9788498382372",
       "sinopsis_tipo": "resumen_propio",
-      "amazon_busqueda_isbn": "https://www.amazon.es/s?k=9788498382372&tag=davidporto-21"
+      "slug": "coraline",
+      "titulo": "Coraline",
+      "url_amazon_afiliada": "https://www.amazon.es/dp/8498382378?tag=davidporto-21"
     },
     {
       "amazon_busqueda_isbn": "https://www.amazon.es/s?k=9791387846008&tag=davidporto-21",
@@ -634,6 +875,8 @@
       "portada_fecha_revision": "2026-10-20",
       "portada_fuente_url": "https://www.penguinlibros.com/es/8190863-thickbox_default/la-hipotesis-mas-peligrosa.jpg",
       "portada_local": "/assets/reading-covers/isbn-9791387846008.webp",
+      "pvp_centimos": 2390,
+      "pvp_fecha_verificacion": "2026-10-21",
       "resenas": [
         {
           "fecha_verificacion": "2026-10-20",
@@ -679,6 +922,8 @@
       "portada_fecha_revision": "2026-10-20",
       "portada_fuente_url": "https://www.penguinlibros.com/es/8250289-thickbox_default/otros-mundos-el-talisman-3.jpg",
       "portada_local": "/assets/reading-covers/isbn-9788401039560.webp",
+      "pvp_centimos": 2790,
+      "pvp_fecha_verificacion": "2026-10-21",
       "resenas": [
         {
           "fecha_verificacion": "2026-10-20",
@@ -723,6 +968,8 @@
       "portada_fecha_revision": "2026-10-20",
       "portada_fuente_url": "https://www.penguinlibros.com/es/8050616-thickbox_default/la-hija-del-veneno.jpg",
       "portada_local": "/assets/reading-covers/isbn-9788425375118.webp",
+      "pvp_centimos": 2490,
+      "pvp_fecha_verificacion": "2026-10-21",
       "resenas": [
         {
           "fecha_verificacion": "2026-10-20",
@@ -767,6 +1014,8 @@
       "portada_fecha_revision": "2026-10-20",
       "portada_fuente_url": "https://www.penguinlibros.com/es/7987990-thickbox_default/plaza-brugmann-33.jpg",
       "portada_local": "/assets/reading-covers/isbn-9791387640439.webp",
+      "pvp_centimos": 2300,
+      "pvp_fecha_verificacion": "2026-10-21",
       "resenas": [
         {
           "fecha_verificacion": "2026-10-20",
@@ -811,6 +1060,8 @@
       "portada_fecha_revision": "2026-10-20",
       "portada_fuente_url": "https://www.penguinlibros.com/es/8168324-thickbox_default/el-vuelo-de-los-gansos.jpg",
       "portada_local": "/assets/reading-covers/isbn-9788425375040.webp",
+      "pvp_centimos": 2290,
+      "pvp_fecha_verificacion": "2026-10-21",
       "resenas": [
         {
           "fecha_verificacion": "2026-10-20",
@@ -855,6 +1106,8 @@
       "portada_fecha_revision": "2026-10-20",
       "portada_fuente_url": "https://www.penguinlibros.com/es/7890451-thickbox_default/mi-amor-no-muere.jpg",
       "portada_local": "/assets/reading-covers/isbn-9791387846794.webp",
+      "pvp_centimos": 2190,
+      "pvp_fecha_verificacion": "2026-10-21",
       "resenas": [
         {
           "fecha_verificacion": "2026-10-20",
@@ -899,6 +1152,8 @@
       "portada_fecha_revision": "2026-10-20",
       "portada_fuente_url": "https://www.penguinlibros.com/es/7890556-thickbox_default/el-linaje-de-pierre.jpg",
       "portada_local": "/assets/reading-covers/isbn-9788426432575.webp",
+      "pvp_centimos": 2290,
+      "pvp_fecha_verificacion": "2026-10-21",
       "resenas": [
         {
           "fecha_verificacion": "2026-10-20",
@@ -943,6 +1198,8 @@
       "portada_fecha_revision": "2026-10-20",
       "portada_fuente_url": "https://www.penguinlibros.com/es/8118595-thickbox_default/tor.jpg",
       "portada_local": "/assets/reading-covers/isbn-9791388137006.webp",
+      "pvp_centimos": 2290,
+      "pvp_fecha_verificacion": "2026-10-21",
       "resenas": [
         {
           "fecha_verificacion": "2026-10-20",
@@ -987,6 +1244,8 @@
       "portada_fecha_revision": "2026-10-20",
       "portada_fuente_url": "https://www.penguinlibros.com/es/8324491-thickbox_default/cancion-de-amor-definitiva.jpg",
       "portada_local": "/assets/reading-covers/isbn-9788401042119.webp",
+      "pvp_centimos": 2190,
+      "pvp_fecha_verificacion": "2026-10-21",
       "resenas": [
         {
           "fecha_verificacion": "2026-10-20",
@@ -1031,6 +1290,8 @@
       "portada_fecha_revision": "2026-10-20",
       "portada_fuente_url": "https://www.penguinlibros.com/es/7987985-thickbox_default/esas-muchachas-que-escriben-poemas.jpg",
       "portada_local": "/assets/reading-covers/isbn-9788426434272.webp",
+      "pvp_centimos": 1890,
+      "pvp_fecha_verificacion": "2026-10-21",
       "resenas": [
         {
           "fecha_verificacion": "2026-10-20",
@@ -1075,6 +1336,8 @@
       "portada_fecha_revision": "2026-10-20",
       "portada_fuente_url": "https://www.penguinlibros.com/es/8274831-thickbox_default/la-risa-de-mi-vida.jpg",
       "portada_local": "/assets/reading-covers/isbn-9788466684606.webp",
+      "pvp_centimos": 2090,
+      "pvp_fecha_verificacion": "2026-10-21",
       "resenas": [
         {
           "fecha_verificacion": "2026-10-20",
@@ -1119,6 +1382,8 @@
       "portada_fecha_revision": "2026-10-20",
       "portada_fuente_url": "https://www.penguinlibros.com/es/8250288-thickbox_default/los-escalones.jpg",
       "portada_local": "/assets/reading-covers/isbn-9788401036897.webp",
+      "pvp_centimos": 2290,
+      "pvp_fecha_verificacion": "2026-10-21",
       "resenas": [
         {
           "fecha_verificacion": "2026-10-20",
@@ -1163,6 +1428,8 @@
       "portada_fecha_revision": "2026-10-20",
       "portada_fuente_url": "https://www.penguinlibros.com/es/7890496-thickbox_default/la-merma.jpg",
       "portada_local": "/assets/reading-covers/isbn-9788439746621.webp",
+      "pvp_centimos": 1790,
+      "pvp_fecha_verificacion": "2026-10-21",
       "resenas": [
         {
           "fecha_verificacion": "2026-10-20",
@@ -1207,6 +1474,8 @@
       "portada_fecha_revision": "2026-10-20",
       "portada_fuente_url": "https://www.penguinlibros.com/es/8013756-thickbox_default/la-casa-de-la-cienaga-serie-slow-horses-7.jpg",
       "portada_local": "/assets/reading-covers/isbn-9788419456007.webp",
+      "pvp_centimos": 2300,
+      "pvp_fecha_verificacion": "2026-10-21",
       "resenas": [
         {
           "fecha_verificacion": "2026-10-20",
@@ -1251,6 +1520,8 @@
       "portada_fecha_revision": "2026-10-20",
       "portada_fuente_url": "https://www.penguinlibros.com/es/8190918-thickbox_default/la-luz-y-el-hilo-laurea.jpg",
       "portada_local": "/assets/reading-covers/isbn-9788439747222.webp",
+      "pvp_centimos": 1790,
+      "pvp_fecha_verificacion": "2026-10-21",
       "resenas": [
         {
           "fecha_verificacion": "2026-10-20",
@@ -1295,6 +1566,8 @@
       "portada_fecha_revision": "2026-10-20",
       "portada_fuente_url": "https://www.penguinlibros.com/es/7890492-thickbox_default/resistencia-biologica.jpg",
       "portada_local": "/assets/reading-covers/isbn-9788425371790.webp",
+      "pvp_centimos": 2290,
+      "pvp_fecha_verificacion": "2026-10-21",
       "resenas": [
         {
           "fecha_verificacion": "2026-10-20",
@@ -1339,6 +1612,8 @@
       "portada_fecha_revision": "2026-10-20",
       "portada_fuente_url": "https://www.penguinlibros.com/es/8022318-thickbox_default/sacate-a-esa-persona-de-la-cabeza.jpg",
       "portada_local": "/assets/reading-covers/isbn-9788425373121.webp",
+      "pvp_centimos": 2190,
+      "pvp_fecha_verificacion": "2026-10-21",
       "resenas": [
         {
           "fecha_verificacion": "2026-10-20",
@@ -1386,6 +1661,8 @@
       "portada_fecha_revision": "2026-10-20",
       "portada_fuente_url": "https://www.penguinlibros.com/es/7987984-thickbox_default/la-historia-de-romana-y-uliana-amadoca-1.jpg",
       "portada_local": "/assets/reading-covers/isbn-9791387640491.webp",
+      "pvp_centimos": 2500,
+      "pvp_fecha_verificacion": "2026-10-21",
       "resenas": [
         {
           "fecha_verificacion": "2026-10-20",
@@ -1430,6 +1707,8 @@
       "portada_fecha_revision": "2026-10-20",
       "portada_fuente_url": "https://www.penguinlibros.com/es/8025672-thickbox_default/mama-necesita-un-respiro.jpg",
       "portada_local": "/assets/reading-covers/isbn-9788466683043.webp",
+      "pvp_centimos": 2190,
+      "pvp_fecha_verificacion": "2026-10-21",
       "resenas": [
         {
           "fecha_verificacion": "2026-10-20",
@@ -1474,6 +1753,8 @@
       "portada_fecha_revision": "2026-10-20",
       "portada_fuente_url": "https://www.penguinlibros.com/es/8270178-thickbox_default/mas-simple.jpg",
       "portada_local": "/assets/reading-covers/isbn-9791387928032.webp",
+      "pvp_centimos": 3000,
+      "pvp_fecha_verificacion": "2026-10-21",
       "resenas": [
         {
           "fecha_verificacion": "2026-10-20",
@@ -1518,6 +1799,8 @@
       "portada_fecha_revision": "2026-10-21",
       "portada_fuente_url": "https://www.penguinlibros.com/es/8129789-thickbox_default/muerdelo.jpg",
       "portada_local": "/assets/reading-covers/isbn-9788425371967.webp",
+      "pvp_centimos": 2490,
+      "pvp_fecha_verificacion": "2026-10-21",
       "resenas": [
         {
           "fecha_verificacion": "2026-10-21",
@@ -1562,6 +1845,8 @@
       "portada_fecha_revision": "2026-10-21",
       "portada_fuente_url": "https://www.penguinlibros.com/es/8059947-thickbox_default/comete-la-vida-a-bocados-con-pausa-y-plato.jpg",
       "portada_local": "/assets/reading-covers/isbn-9791387629694.webp",
+      "pvp_centimos": 2490,
+      "pvp_fecha_verificacion": "2026-10-21",
       "resenas": [
         {
           "fecha_verificacion": "2026-10-21",
@@ -1606,6 +1891,8 @@
       "portada_fecha_revision": "2026-10-21",
       "portada_fuente_url": "https://www.penguinlibros.com/es/8139229-thickbox_default/20-minutos-y-listo.jpg",
       "portada_local": "/assets/reading-covers/isbn-9788425374074.webp",
+      "pvp_centimos": 3290,
+      "pvp_fecha_verificacion": "2026-10-21",
       "resenas": [
         {
           "fecha_verificacion": "2026-10-21",
@@ -1650,6 +1937,8 @@
       "portada_fecha_revision": "2026-10-21",
       "portada_fuente_url": "https://www.penguinlibros.com/es/7959809-thickbox_default/la-fibra-es-la-solucion.jpg",
       "portada_local": "/assets/reading-covers/isbn-9788425374869.webp",
+      "pvp_centimos": 2190,
+      "pvp_fecha_verificacion": "2026-10-21",
       "resenas": [
         {
           "fecha_verificacion": "2026-10-21",
@@ -1694,6 +1983,8 @@
       "portada_fecha_revision": "2026-10-21",
       "portada_fuente_url": "https://www.penguinlibros.com/es/7721271-thickbox_default/barbacoa.jpg",
       "portada_local": "/assets/reading-covers/isbn-9788425374012.webp",
+      "pvp_centimos": 2990,
+      "pvp_fecha_verificacion": "2026-10-21",
       "resenas": [
         {
           "fecha_verificacion": "2026-10-21",
@@ -1738,6 +2029,8 @@
       "portada_fecha_revision": "2026-10-21",
       "portada_fuente_url": "https://www.penguinlibros.com/es/8094635-thickbox_default/un-dia-en-la-vida-de-clarita.jpg",
       "portada_local": "/assets/reading-covers/isbn-9791387975340.webp",
+      "pvp_centimos": 1990,
+      "pvp_fecha_verificacion": "2026-10-21",
       "resenas": [
         {
           "fecha_verificacion": "2026-10-21",
@@ -1782,6 +2075,8 @@
       "portada_fecha_revision": "2026-10-21",
       "portada_fuente_url": "https://www.penguinlibros.com/es/8218170-thickbox_default/familia-contamos-nuestra-historia-me-cuentas-tu-historia.jpg",
       "portada_local": "/assets/reading-covers/isbn-9788401039836.webp",
+      "pvp_centimos": 1590,
+      "pvp_fecha_verificacion": "2026-10-21",
       "resenas": [
         {
           "fecha_verificacion": "2026-10-21",
@@ -1826,6 +2121,8 @@
       "portada_fecha_revision": "2026-10-21",
       "portada_fuente_url": "https://www.penguinlibros.com/es/8060020-thickbox_default/el-ojo-de-la-novia-frenopatica-carl-el-mazmorrero-6.jpg",
       "portada_local": "/assets/reading-covers/isbn-9788410466470.webp",
+      "pvp_centimos": 2590,
+      "pvp_fecha_verificacion": "2026-10-21",
       "resenas": [
         {
           "fecha_verificacion": "2026-10-21",
@@ -1870,6 +2167,8 @@
       "portada_fecha_revision": "2026-10-21",
       "portada_fuente_url": "https://www.penguinlibros.com/es/8087537-thickbox_default/las-pruebas-del-tarot.jpg",
       "portada_local": "/assets/reading-covers/isbn-9788401037917.webp",
+      "pvp_centimos": 2490,
+      "pvp_fecha_verificacion": "2026-10-21",
       "resenas": [
         {
           "fecha_verificacion": "2026-10-21",
@@ -1914,6 +2213,8 @@
       "portada_fecha_revision": "2026-10-21",
       "portada_fuente_url": "https://www.penguinlibros.com/es/8250286-thickbox_default/bajamar.jpg",
       "portada_local": "/assets/reading-covers/isbn-9788401031380.webp",
+      "pvp_centimos": 2290,
+      "pvp_fecha_verificacion": "2026-10-21",
       "resenas": [
         {
           "fecha_verificacion": "2026-10-21",
