@@ -7,10 +7,10 @@ Investigación hija de [PR padre #666](https://github.com/davidpd89/web-escritor
 | Fase/PR | Scope único | Depende de | Criterio de entrada/salida |
 |---|---|---|---|
 | P0 — [#666](https://github.com/davidpd89/web-escritor/pull/666) | Documento padre, decisiones, catálogo legado y reconciliación | ninguna | Solo investigación; no fusionar como implementación |
-| P1 — Fuentes mundiales (PR hija, enlazada por número cuando exista) | Inventario y consultas Open Library/Wikidata/Geofabrik/GeoNames/Commons | #666 como índice | Licencias/cuotas y plan de descarga local verificadas |
-| P2 — Copias MIT legales (hija) | Código upstream copiado literal + licencia y procedencia | #666 | Copia exacta, carpeta aislada no ejecutable hasta adaptación |
-| P3 — Contrato (hija) | Schema, estados, integridad relacional y ejemplos sintéticos | #666, revisión fuentes | QA offline en momento autorizado |
-| P4 — Orquestación (ESTA PR) | Arquitectura de ingesta → curación → snapshot → HTML y roadmap | #666 y consulta P1-P3 | No tocar cron existente, identificar gates y responsables |
+| P1 — [#667 Fuentes mundiales](https://github.com/davidpd89/web-escritor/pull/667) | Inventario y consultas Open Library/Wikidata/Geofabrik/GeoNames/Commons | #666 como índice | Licencias/cuotas y plan de descarga local verificadas |
+| P2 — [#668 Copia MIT](https://github.com/davidpd89/web-escritor/pull/668) | Código upstream copiado literal + licencia y procedencia | #666 | Copia exacta, carpeta aislada no ejecutable hasta adaptación |
+| P3 — [#669 Contrato](https://github.com/davidpd89/web-escritor/pull/669) | Schema, estados, integridad relacional y ejemplos sintéticos | #666, revisión fuentes | QA offline en momento autorizado |
+| P4 — [#670 Orquestación (ESTA PR)](https://github.com/davidpd89/web-escritor/pull/670) | Arquitectura de ingesta → curación → snapshot → HTML y roadmap | #666 y consulta P1-P3 | No tocar cron existente, identificar gates y responsables |
 | P5 — Importador de fuentes bibliográficas | 1 adapter local Open Library + 1 adapter Wikidata, caché y checkpoint | P1+P3 | Snapshot **candidatos** sin publicación, O(1) llamadas/candidato o dumps |
 | P6 — Importador cultural mundial | Extractos Geofabrik acotados + GeoNames, merges por IDs | P1+P3 | Duplicados, licencias y precisión controlados |
 | P7 — Curación Sheets | Adaptar patrón `import-reading-sheet.py`: batchGet, review y diffs | P3+P5/P6 | Solo aprobados a vista pública, staging cerrado |
