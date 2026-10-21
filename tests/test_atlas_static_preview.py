@@ -110,5 +110,22 @@ class StaticAtlasTest(unittest.TestCase):
             mod.pages_from(data)
 
 
+    def test_verified_catalogue_link_can_reuse_existing_book_page(self):
+        data = fixture()
+        html = mod.pages_from(data, {"wrk-example": "/recomendaciones/libros/coraline/"})[
+            "/atlas-literario/lugares/biblioteca-de-prueba/"
+        ]
+        self.assertIn('href="/recomendaciones/libros/coraline/"', html)
+        self.assertIn('Novela de prueba</a>', html)
+
+    def test_untrusted_catalogue_link_not_rendered(self):
+        data = fixture()
+        html = mod.pages_from(data, {"wrk-example": 'javascript:alert(1)'})[
+            "/atlas-literario/lugares/biblioteca-de-prueba/"
+        ]
+        self.assertNotIn("javascript:alert", html)
+        self.assertIn("<li>Novela de prueba</li>", html)
+
+
 if __name__ == "__main__":
     unittest.main()
