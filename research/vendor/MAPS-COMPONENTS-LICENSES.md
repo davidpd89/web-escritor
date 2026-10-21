@@ -15,7 +15,7 @@
 - Código `research/vendor/supercluster/index.js` — SHA **`460e2a7568f7156e69ca3f7283dd158bc43c1e3f`**.
 - Tipos `research/vendor/supercluster/index.d.ts` — SHA **`20aca35eb7fec2e7028093fc93038fb36836ded5`**.
 - Licencia `research/vendor/supercluster/LICENSE.upstream` — SHA **`21b48915f91320709a294274dfa418a1491455e7`**, **ISC**, copyright (c) 2024 Mapbox. Permite copia y modificación conservando copyright/permiso.
-- **DEPENDENCIA NO VENDORIZADA**: `kdbush@^4.1.0` y tipos GeoJSON. Un `index.js` aislado NO funciona sin dependencias y configuración ESM. Para implementar mapa interactivo, **preferir paquete instalado a versión fija** (lockfile y auditoría) y cargarlo **solo al entrar en vista de mapa**, no en la home ni listados. `Supercluster` no geocodifica, no prueba novelas ni añade mapas base; solo agrupa GeoJSON Point.
+- **DEPENDENCIA YA VENDORIZADA, pero NO cableada**: `kdbush@4.1.0` ISC aparece literalmente en `research/vendor/kdbush/index.js` con licencia en `LICENSE.upstream` (ver su README). Para usar `Supercluster` queda resolver su import ESM `from 'kdbush'` mediante paquete fijado/lockfile o adaptación en copia separada, más types GeoJSON para TypeScript. El `index.js` de Supercluster **aún no funciona por sí solo** dentro de nuestra web. Para implementar mapa interactivo, **preferir paquete instalado a versión fija** (lockfile y auditoría) y cargarlo **solo al entrar en vista de mapa**, no en la home ni listados. `Supercluster` no geocodifica, no prueba novelas ni añade mapas base; solo agrupa GeoJSON Point.
 
 ## 3. Decisión de dependencia y rendimiento
 
@@ -35,3 +35,8 @@
 - [ ] Verificar copia byte a byte frente a upstream y registrar revisión; el almacenamiento con mismo blob SHA permite comparación.
 - [ ] Instalar dependencias solo en PR de implementación posterior y ejecutar tests autorizados.
 - [ ] Comparar tamaño gzipped de mapa con/sin puntos, consumo móvil, CLS/INP/JS y CDN de teselas; no declarar mejora medida sin hacerlo.
+
+## 21/10/2026 — revisión adicional de dependencias y alternativas
+
+- [KDBush 4.1.0](https://github.com/mourner/kdbush): se añadió [código fuente ISC literal](research/vendor/kdbush/index.js) y [LICENCIA completa](research/vendor/kdbush/LICENSE.upstream), SHA originales verificados (ver [README](research/vendor/kdbush/README.md)). **Se resuelve el hueco documental** de la dependencia runtime directa de Supercluster, no se ejecuta ni conecta el módulo.
+- Nuevas referencias encontradas: [Akhand](https://github.com/CodeRustyPro/akhand) ofrece 9.057 registros de lugares narrativos en su release depurada, con API de país/ciudad/autor/género/año y GeoJSON; [Literary Atlas](https://github.com/rostam/literary-atlas) representa ficción con ubicación y época, distingue sitios ficticios y relata por qué algunos libros quedan SIN pin. Ambos repositorios inspeccionados **sin LICENSE en la raíz**; **NO copiar su código ni sus corpus** sin autorización explícita y verificación de permisos. Ideas de UX sí se pueden analizar en #670.
