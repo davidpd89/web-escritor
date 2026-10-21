@@ -247,11 +247,18 @@ def main() -> int:
     p = argparse.ArgumentParser(description=__doc__)
     p.add_argument("snapshot", type=Path, help="Snapshot editorial APROBADO")
     p.add_argument("--out", type=Path, required=True, help="Ruta de PREVIEW, no directorio web")
+    p.add_argument("--reading-catalogue", type=Path,
+                   help="Catálogo actual de obras; enlazar solo IDs publicados")
     args = p.parse_args()
     if "atlas-preview" not in args.out.parts:
         p.error("Salida restringida a un directorio que incluya atlas-preview")
     data = json.loads(args.snapshot.read_text(encoding="utf-8"))
-    for url, content in pages_from(data).items():
+    reading_links = None
+    if args.reading_catalogue:
+        from atlas_reading_crosslinks import canonical_links
+        reading = json.loads(args.reading_catalogue.read_text(encoding="utf-8"))
+        reading_links = canonical_links(data, reading)
+    for url, content in pages_from(data, reading_links).items():
         relative = url.removeprefix("/")
         target = args.out / relative / "index.html"
         target.parent.mkdir(parents=True, exist_ok=True)
