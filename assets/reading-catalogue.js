@@ -3,6 +3,7 @@
   'use strict';
   const root = document.querySelector('[data-reading-catalogue]');
   if (!root) return;
+  const publisherMode = root.dataset.priceMode === 'publisher_only';
   const normalize = s => s.normalize('NFD').replace(/[\u0300-\u036f]/g, '').toLocaleLowerCase('es').trim();
   const form = root.querySelector('[data-catalogue-filters]');
   const cards = [...root.querySelectorAll('[data-catalogue-book]')];
@@ -19,6 +20,7 @@
   const safeURL = (raw, hosts, path) => { try { const u = new URL(raw); return u.protocol === 'https:' && !u.username && !u.password && !u.port && hosts.includes(u.hostname) && path.test(u.pathname) ? u : null; } catch { return null; } };
   const validOffer = o => { const u = safeURL(o.url, ['amazon.es', 'www.amazon.es'], /\/(?:dp|gp\/product)\/[A-Z0-9]{10}(?:\/|$)/); return fresh(o, 1) && o.moneda === 'EUR' && o.tipo === 'compra' && ['tapa-blanda', 'tapa-dura', 'ebook', 'audiolibro'].includes(o.formato) && Number.isSafeInteger(o.precio_centimos) && o.precio_centimos > 0 && o.precio_centimos < 100000000 && u && /^[A-Za-z0-9-]+$/.test(u.searchParams.get('tag') || ''); };
   const validFreeOffer = o => {
+    if (!publisherMode) return false; // Never compare non-Amazon prices alongside Amazon affiliate offers.
     if (!o || typeof o !== 'object' || o.moneda !== 'EUR' || !Number.isSafeInteger(o.precio_centimos) || o.precio_centimos <= 0 || o.precio_centimos >= 100000000 || !['tapa-blanda', 'tapa-dura', 'ebook', 'audiolibro'].includes(o.formato) || !fresh(o, 24)) return false;
     if (o.fuente === 'penguin_libros') return Boolean(safeURL(o.url, ['www.penguinlibros.com'], /^\/es\/[a-z0-9-]+\/\d+-libro-[a-z0-9-]+-97[89]\d{10}\/?$/));
     if (o.fuente === 'google_play_libros' && o.formato === 'ebook') return Boolean(safeURL(o.url, ['books.google.com', 'play.google.com'], /^\/(books|store\/books)(?:[/?]|$)/));
