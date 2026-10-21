@@ -74,6 +74,7 @@ def event_rows(book: dict, today: date, *, horizon_days: int = 365) -> dict | No
         "id": str(book["id"]), "slug": slug, "isbn": isbn,
         "start": publication,
         "end": publication + timedelta(days=1),
+        "revision_day": exact_date(book.get("fecha_actualizacion")) or today,
         "url": page,
         "uid": f"lanzamiento-{digest}@davidportodiaz.com",
         "title": f"Lanzamiento: {book['titulo']}",
@@ -102,8 +103,10 @@ def calendar(rows: list[dict], *, generated_day: date) -> str:
              "PRODID:-//DavidPorto//Lanzamientos literarios//ES",
              "CALSCALE:GREGORIAN", "METHOD:PUBLISH",
              "X-WR-CALNAME:Lanzamientos de libros - David Porto"]
-    stamp = generated_day.strftime("%Y%m%d") + "T120000Z"
     for item in rows:
+        # Avoid generating a new DTSTAMP every day when a book didn't change;
+        # this reduces needless refreshes in subscribing calendar clients.
+        stamp = item.get("revision_day", generated_day).strftime("%Y%m%d") + "T120000Z"
         lines.extend([
             "BEGIN:VEVENT", "UID:" + item["uid"], "DTSTAMP:" + stamp,
             "DTSTART;VALUE=DATE:" + item["start"].strftime("%Y%m%d"),
