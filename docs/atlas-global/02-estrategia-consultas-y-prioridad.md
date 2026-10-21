@@ -56,3 +56,12 @@ Se puede ordenar el **trabajo editorial** por: fuente oficial disponible + refer
 - Precisión librerías OSM: muestras en 5 ciudades, falsos positivos/cerradas, deduplicación por OSM type+id.
 - Rendimiento: construir JSON de 100/1000/10.000 POIs con filtros, sin mapas, medir tamaño comprimido y tiempo en móvil.
 - Licencias: carpeta de procedencia y avisos de atribución para cada dato ODbL/CC BY y cada foto, evitando mezcla accidental de datasets share-alike.
+
+## Actualización 21/10/2026: Wikidata v1 → QLever sin reescribir nuestro atlas
+
+- **[Migración oficial de Wikidata](https://www.wikidata.org/wiki/Wikidata:SPARQL_query_service/WDQS_backend_update/Migrate)**: v1 de `query.wikidata.org` y v2 de `query-next.wikidata.org` convivirán **al menos hasta febrero de 2027**. El segundo endpoint puede contestar *Unauthorized User-Agent* hasta apertura pública. No programar un switch temporal ciego ni afirmar que v2 funciona públicamente hoy.
+- **[Alternativas comunitarias](https://www.wikidata.org/wiki/Wikidata:SPARQL_query_service/Alternative_endpoints)**: `qlever.dev/wikidata` puede resultar más rápido para ciertos queries, pero hay que medir disponibilidad, recencia de datos, política de uso y compatibilidad SPARQL antes de seleccionarlo. No duplicar consultas contra dos proveedores ante 429 automáticamente.
+- **[Límites v1](https://www.mediawiki.org/wiki/Wikidata_Query_Service/User_Manual)**: 60 s por consulta, presupuesto de CPU por usuario/IP, hasta cinco consultas paralelas, 429 con `Retry-After`. El futuro executor será offline, un User-Agent explícito, caché/manifest/versiones/reintentos exponenciales, sin dispararlo en GitHub Actions ni visita web. Evitar `SERVICE wikibase:label` al primer prototipo por semántica dependiente del motor.
+- **[Nueva PR #678](https://github.com/davidpd89/web-escritor/pull/678)**: generador offline ya creado de SPARQL con `VALUES wd:Q...` para `P840` (ambientación obra), `P915` (rodaje adaptación), `P551` (residencia autor), sin HTTP; 20 IDs/lote por defecto y SHA. **Consulta no es afirmación publicada**: P840 no demuestra calle concreta, P915 no representa novela, P551 exige filtrar residencias privadas.
+
+**Resultado:** el modelo canónico #669 no conoce QLever/Blazegraph; solo origen con licencia, `provider_release`, QID y tipo de relación. En la publicación solo entra la conexión verificada por persona, con fuente documental. El cambio de proveedor SPARQL afecta a un único adaptador futuro.
