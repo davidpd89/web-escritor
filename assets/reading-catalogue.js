@@ -14,10 +14,18 @@
   const fresh = (e, hours) => { const start = stamp(e.actualizado_en), end = stamp(e.caduca_en), now = Date.now(); return Number.isFinite(start) && Number.isFinite(end) && start <= now && end > now && end > start && end - start <= hours * 3600000 && now - start <= hours * 3600000; };
   const safeURL = (raw, hosts, path) => { try { const u = new URL(raw); return u.protocol === 'https:' && !u.username && !u.password && !u.port && hosts.includes(u.hostname) && path.test(u.pathname) ? u : null; } catch { return null; } };
   const validOffer = o => { const u = safeURL(o.url, ['amazon.es', 'www.amazon.es'], /\/(?:dp|gp\/product)\/[A-Z0-9]{10}(?:\/|$)/); return fresh(o, 24) && o.moneda === 'EUR' && o.tipo === 'compra' && ['tapa-blanda', 'tapa-dura', 'ebook', 'audiolibro'].includes(o.formato) && Number.isSafeInteger(o.precio_centimos) && o.precio_centimos > 0 && o.precio_centimos < 100000000 && u && /^[A-Za-z0-9-]+$/.test(u.searchParams.get('tag') || ''); };
-  const validRating = r => fresh(r, 168) && Number.isFinite(r.puntuacion) && r.puntuacion >= 0 && r.puntuacion <= 5 && Number.isSafeInteger(r.numero_valoraciones) && r.numero_valoraciones > 0 && safeURL(r.url, ['www.goodreads.com', 'goodreads.com'], /^\/book\/show\/\d/);
+  const ratingSource = r => r.fuente === 'google_books' ? 'google_books' : !r.fuente || r.fuente === 'goodreads' ? 'goodreads' : null;
+  const ratingLabel = r => ratingSource(r) === 'google_books' ? 'Google Books' : 'Goodreads';
+  const validRating = r => {
+    if (!fresh(r, 168) || !Number.isFinite(r.puntuacion) || r.puntuacion < 1 || r.puntuacion > 5 || !Number.isSafeInteger(r.numero_valoraciones) || r.numero_valoraciones < 1) return false;
+    const source = ratingSource(r);
+    if (source === 'goodreads') return Boolean(safeURL(r.url, ['www.goodreads.com', 'goodreads.com'], /^\/book\/show\/\d/));
+    if (source === 'google_books') { const link = safeURL(r.url, ['books.google.com'], /^\/books$/); return Boolean(link && /^[A-Za-z0-9_-]{1,150}$/.test(link.searchParams.get('id') || '')); }
+    return false;
+  };
   const discount = o => Number.isSafeInteger(o.precio_referencia_centimos) && o.precio_referencia_centimos > o.precio_centimos ? Math.floor((o.precio_referencia_centimos - o.precio_centimos) / o.precio_referencia_centimos * 100) : 0;
   const offersFor = id => market.offers.filter(o => o.libro_id === id && validOffer(o));
-  const ratingFor = id => market.ratings.find(r => r.libro_id === id && validRating(r));
+  const ratingFor = id => market.ratings.find(r => r.libro_id === id && validRating(r)); // Legacy Goodreads first while fresh; Google Books thereafter.
   const money = cents => new Intl.NumberFormat('es-ES', { style: 'currency', currency: 'EUR' }).format(cents / 100);
   const today = () => new Intl.DateTimeFormat('sv-SE', { timeZone: 'Europe/Madrid', year: 'numeric', month: '2-digit', day: '2-digit' }).format(new Date());
   const ageDays = s => /^\d{4}-\d{2}-\d{2}$/.test(s || '') ? (Date.parse(today() + 'T00:00:00Z') - Date.parse(s + 'T00:00:00Z')) / 86400000 : NaN;
@@ -36,9 +44,9 @@
     for (const box of root.querySelectorAll('[data-rating-book]')) {
       const r = ratingFor(box.dataset.ratingBook); box.replaceChildren(); if (!r) continue;
       const link = document.createElement('a'); link.href = r.url; link.target = '_blank'; link.rel = 'noopener noreferrer';
-      link.setAttribute('aria-label', r.puntuacion.toLocaleString('es-ES') + ' de 5 en Goodreads, ' + r.numero_valoraciones.toLocaleString('es-ES') + ' valoraciones');
+      link.setAttribute('aria-label', r.puntuacion.toLocaleString('es-ES') + ' de 5 en ' + ratingLabel(r) + ', ' + r.numero_valoraciones.toLocaleString('es-ES') + ' valoraciones');
       const stars = document.createElement('span'); stars.className = 'catalogue-stars'; stars.setAttribute('aria-hidden', 'true'); stars.style.setProperty('--rating', r.puntuacion / 5 * 100 + '%'); stars.textContent = '★★★★★';
-      link.append(stars, ' ' + r.puntuacion.toLocaleString('es-ES') + '/5 · Goodreads'); link.title = 'Consultado el ' + new Date(r.actualizado_en).toLocaleDateString('es-ES'); box.append(link);
+      link.append(stars, ' ' + r.puntuacion.toLocaleString('es-ES') + '/5 · ' + ratingLabel(r)); link.title = 'Consultado el ' + new Date(r.actualizado_en).toLocaleDateString('es-ES'); box.append(link);
     }
     for (const f of root.querySelectorAll('[data-market-control]')) f.disabled = !market[f.dataset.marketControl].some(f.dataset.marketControl === 'offers' ? validOffer : validRating);
     for (const o of root.querySelectorAll('[data-sort-market]')) o.disabled = !market[o.dataset.sortMarket].some(o.dataset.sortMarket === 'offers' ? validOffer : validRating);
