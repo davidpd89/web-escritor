@@ -11,7 +11,7 @@ import json
 from collections import Counter, defaultdict
 from pathlib import Path
 
-from atlas_static_preview import RELATION_SUBJECTS, approved, destination_url, eligible, place_url, safe_slug
+from atlas_static_preview import RELATION_SUBJECTS, approved, destination_url, eligible, place_url, safe_slug, valid_https_url
 
 
 def facet_shards(data: dict) -> tuple[dict, dict[str, dict]]:
@@ -24,7 +24,7 @@ def facet_shards(data: dict) -> tuple[dict, dict[str, dict]]:
     table_by_type = {"work": "works", "author": "authors", "adaptation": "adaptations"}
     source_ids = {
         s["id"] for s in data.get("sources", [])
-        if str(s.get("url", "")).startswith("https://")
+        if valid_https_url(s.get("url"))
         and s.get("title") and s.get("retrieved_at") and s.get("evidence_summary")
     }
     by_place: dict[str, list[dict]] = defaultdict(list)
@@ -38,7 +38,9 @@ def facet_shards(data: dict) -> tuple[dict, dict[str, dict]]:
         if not table or r.get("subject_id") not in approved_subjects[table]:
             continue
         refs = r.get("source_ids") or []
-        if not refs or not all(ref in source_ids for ref in refs):
+        if not isinstance(refs, list) or not refs or not all(
+                isinstance(ref, str) and ref in source_ids for ref in refs
+        ):
             continue
         by_place[r["place_id"]].append({
             "relation": r.get("relationship_type"),
