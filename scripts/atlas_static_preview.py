@@ -82,7 +82,9 @@ def eligible(data: dict) -> tuple[list[dict], list[dict]]:
     """Only editorially approved entities with real text and sources."""
     destinations = [d for d in data.get("destinations", []) if approved(d) and text_ready(d)]
     dest_ids = {d["id"] for d in destinations}
-    sources = {s["id"] for s in data.get("sources", [])}
+    sources = {s["id"] for s in data.get("sources", [])
+               if str(s.get("url", "")).startswith("https://")
+               and s.get("retrieved_at") and s.get("evidence_summary")}
     places = [
         p for p in data.get("places", [])
         if approved(p) and text_ready(p) and p.get("destination_id") in dest_ids
@@ -173,6 +175,10 @@ def pages_from(data: dict) -> dict[str, str]:
              or (r.get("subject_type") == "author" and r.get("subject_id") in valid_authors)
              or (r.get("subject_type") == "adaptation" and r.get("subject_id") in valid_adaptations))
         and r.get("relationship_type") != "popular_claim_unverified"
+        and r.get("source_ids")
+        and all(source in src and str(src[source].get("url", "")).startswith("https://")
+                and src[source].get("retrieved_at")
+                and src[source].get("evidence_summary") for source in r["source_ids"])
     ]
     name_tables = {"work": titles["works"], "author": titles["authors"],
                    "adaptation": titles["adaptations"]}
