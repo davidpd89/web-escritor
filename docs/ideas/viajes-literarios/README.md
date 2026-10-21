@@ -63,7 +63,7 @@ Regla: **fijar `provider_release`, versión de esquema y taxonomía por lote**; 
 
 - Este README es el **registro de decisiones**. Los docs numerados `00…08` de #666 son investigación por fecha. **NO seguir agregando decisiones contradictorias a cada uno**; si cambia una decisión, actualizar **aquí**, poner fecha y motivo.
 - Las hijas tienen cada una **1 scope**, documentación de uso y pruebas pendientes. No crear nuevas PR para el mismo problema si cabe corregir su rama actual.
-- Auditoría previa a integración: lista de decisiones ADR y diffs contra main, licencias, compatibilidad con #660/#661/#662/#665, tests locales autorizados, SEO, seguridad, peso de JS, Pagefind, sitemap, canonical, no URLs huérfanas, QA móvil/desktop y verificación en producción.
+- Auditoría previa a integración: lista de decisiones ADR y diffs contra main, licencias, compatibilidad con #660/#661/#665 ya fusionadas y #662 aún abierta, tests locales autorizados, SEO, seguridad, peso de JS, Pagefind, sitemap, canonical, no URLs huérfanas, QA móvil/desktop y verificación en producción.
 - Ningún Action, test ni merge ejecutado en esta ronda. Los hallazgos no suponen que algo ya esté desplegado.
 
 ## 7. Próximo desarrollo concretamente definido (no abierto/ejecutado)
@@ -81,3 +81,5 @@ Regla: **fijar `provider_release`, versión de esquema y taxonomía por lote**; 
 ### Estado de sincronización Git revisado al cierre de la ronda, 21/10/2026
 
 Se detectó movimiento de `main` mientras continuaba esta investigación: al comparar de nuevo las PR #666–#673, **todas están 1 commit por detrás de main**, abiertas, draft y sin fusionar. **No se ha intentado hacer rebase, actualizar rama, merge ni ejecutar Actions**, para no generar ejecuciones de CI o conflictos involuntarios. Antes de revisión final hay que inspeccionar el commit entrante de main, comprobar que no altera `data/atlas-literario.json`, shell, sitemap ni catálogo, y recién entonces revalidar las PR implicadas. Este estado es un corte temporal, no una propiedad permanente del repositorio.
+
+**Verificación posterior de la divergencia con main:** el commit `d31181d6287798f5d8447b7f371559a766d7cfe7` fusionó [PR #665 — catálogo generalista/UX/filtros/reseñas](https://github.com/davidpd89/web-escritor/pull/665) el **21/10/2026 a las 12:10 UTC**. Afectó a `data/reading-catalogue.json`, `assets/reading-catalogue.js/css`, configuración de automatización, Pagefind y RSS. Por tanto **#665 YA ESTÁ FUSIONADA** y deja de ser una dependencia draft. **#662 sigue abierta** en la verificación de esta ronda. Prioridad antes de integrar Atlas: revisar el nuevo contrato de catálogo y los procesos de publicación resultantes; no actualizar ramas ni ejecutar Actions automáticamente.
