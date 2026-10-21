@@ -109,3 +109,114 @@ Se valorarán también Open Library/Wikidata/BookBrainz para contrastar identifi
 6. Medir CTR, acceso a fichero y conversiones de ficha cuando exista tráfico; no declarar SEO ni Pinterest ganadores sin analítica.
 
 **Lo que esta PR no afirma:** que las pruebas han pasado, que existe un calendario publicado, que ya hay recordatorios push, que Pinterest publica pines o que Planeta autoriza un crawler. El código está preparado para revisión y necesita integración y QA posterior.
+
+
+---
+
+## 7. Auditoría final transversal: precios, reseñas, autores, editoriales, SEO y rendimiento (21/10/2026)
+
+**Inventario actualizado de esta PR:** a los cinco archivos iniciales se suman scripts/reading_content_opportunities.py y tests/test_reading_content_opportunities.py, y cambios concretos (sin desplegar) en scripts/reading_amazon_market.py, assets/reading-catalogue.js y tests/test_reading_amazon_market.py. En total, **10 archivos**. No se han ejecutado tests ni builds. El código modificado solo puede entrar en producción tras los controles de la rama y recompilación/versionado del asset JS por el proceso habitual.
+
+### 7.1 Precios Amazon: corrección comprobable, importante para su uso futuro
+
+**Hallazgo:** en el snapshot revisado, el generador de ofertas establecía caducidad de 24 horas (scripts/reading_amazon_market.py) y la UI aceptaba 24 horas (assets/reading-catalogue.js). Las [prácticas oficiales de Creators API](https://affiliate-program.amazon.com/creatorsapi/docs/en-us/concepts/best-programming-practices) indican **TTL de 1 hora para Offers**, frente a un día para otros recursos. No es correcto extender el precio a 24 h por coincidir con la ingesta diaria.
+
+**Cambio ya preparado en esta PR:** expiración de ofertas a +1 h, o antes si vence el descuento; rechazo en el cliente de ofertas de más de 1 h; ajuste del test histórico y caso nuevo. Además, el precio mínimo se acompaña de su **formato** (p. ej. eBook) para no hacerlo pasar por el precio de la edición impresa. No se modifica el consumo de API, los cron ni las credenciales. El CTA existente de Amazon permanece aunque no haya precio válido. Como el ciclo se ejecuta una vez al día, **el precio solo podrá ser visible una hora después de cada actualización válida**: es preferible al dato caducado, pero no es una solución para mostrar ofertas todo el día.
+
+**Revisión pendiente antes del merge:** ejecutar tests/test_reading_amazon_market.py y QA navegador para ofertas con fecha pasada, 1 h, límite exacto y ausencia de credenciales. Inspeccionar la versión del recurso JS en scripts/templates/reading-catalogue.html.tmpl y el HTML generado; actualizar su cache-busting mediante el mecanismo normal del proyecto y regenerar artefactos permitidos en una PR posterior de integración. Comprobar que las políticas de cacheado, declaraciones de precio y derechos asociados a los recursos Amazon siguen vigentes. La documentación de automatización existente habla todavía de TTL 24 h y deberá quedar coherente con el nuevo límite al integrar.
+
+**Otra oportunidad real detectada:** la documentación [Creators API — buenas prácticas](https://affiliate-program.amazon.com/creatorsapi/docs/en-us/concepts/best-programming-practices) avisa de no alterar enlaces proporcionados por la API. El código actual construye un enlace /dp/{ASIN}?tag=... a partir del identificador. Investigar conservación **sin modificar** de detailPageURL cuando la respuesta oficial la devuelva y verificar dominio, ASIN y afiliación; preparar una regresión offline de URI válida, otro host, tag ausente y formatos distintos. No cambiar destinos hasta comprobar el contrato concreto español y sus respuestas reales, porque actualmente la cuenta devuelve falta de elegibilidad. Referencias: [GetItems/cURL oficial](https://affiliate-program.amazon.com/creatorsapi/docs/en-us/get-started/using-curl) y [OffersV2](https://affiliate-program.amazon.com/creatorsapi/docs/en-us/api-reference/resources/offersV2).
+
+**Alternativas de UX A/B:** A: precio con formato y hora de consulta junto al CTA (un precio disponible con TTL estricto). B: CTA estable «Consultar precio en Amazon» cuando no existe dato vigente. B es el comportamiento seguro por defecto y A solo se añade temporalmente cuando hay oferta. No anunciar descuentos del precio de referencia sin fuente válida.
+
+### 7.2 Reseñas y valoraciones: origen atribuido sin estrellas inventadas
+
+**Estado existente:** assets/reading-catalogue.js presenta una puntuación identificada por Google Books, Hardcover o Goodreads, con enlace y total de votos. Las reseñas locales se publican solo tras aprobación; scripts/build-reading-catalogue.py introduce JSON-LD de reseñas propias aprobadas y su AggregateRating individual, **no convierte las valoraciones ajenas en opiniones propias**. Se conservará esta separación.
+
+La [guía oficial de Google de fragmentos de reseñas](https://developers.google.com/search/docs/appearance/structured-data/review-snippet?hl=es) exige que el rating marcado resulte visible, se refiera a la obra específica y advierte expresamente: «No agregues reseñas ni valoraciones de otros sitios web». Por eso no mezclar estrellas de Goodreads/Hardcover/Google Books en un promedio propio ni presentar los números de votos externos como valoraciones de David Porto. La cifra de una plataforma puede abarcar distintas ediciones aunque el ISBN haya servido para encontrar el registro; etiquetar claramente **origen** y **unidad**.
+
+**Mejora UX (especificación, no implementada):** ofrecer «Valoraciones externas» con fuente/hora de consulta y enlaces independientes si coinciden varias, en vez de presentar una sola como la opinión editorial de la web. Las opiniones de lectores propias se mantienen en bloque separado y moderado. Solo usar estrellas en marcado Schema cuando haya reseñas locales auténticas visibles y consentimiento válido; sin falsa calificación agregada. El formulario público sigue fuera de alcance.
+
+### 7.3 Autores: ya hay páginas automáticas; aumentar riqueza sin inventar identidades
+
+**Ya implementado en #661/#665/#676:** update_authors crea y actualiza el registro por nombre, render_author genera URL canónica por autor con todos sus libros, géneros, sellos enlazados, fechas, imágenes y fuentes. enrich_author_bios consulta perfiles oficiales de Penguin con máximo siete intentos por día dentro del mismo presupuesto HTTP, extracto biográfico breve con enlace a la fuente y caducidad de 30 días. author_identity_conflicts bloquea perfiles diferentes con el mismo nombre. No crear duplicados ni otro crawler.
+
+**Hallazgo de calidad:** cuando no hay biografía externa, la ficha muestra un contador y una lista de libros, pero puede aportar poca información original; un nombre sin identidad resuelta NO se debe ampliar automáticamente usando una búsqueda vaga. El informe nuevo scripts/reading_content_opportunities.py ordena precisamente autores del catálogo sin biografía primaria y fichas con una sola obra. Puede orientar la investigación sin alterar las páginas.
+
+**Contrato de enriquecimiento por etapas:**
+
+1. Leer nombre y perfil oficial asociado al ISBN y registrar la URL de la autoridad editorial. Identidad de persona por URL/ID verificado, no por nombre aproximado.
+2. Si existe biografía editorial del mismo perfil, guardar 1 extracto corto atribuido, fecha de verificación y fuente. No copiar todo el texto ni completar lagunas con LLM.
+3. Fuentes opcionales para **contrastar identidad**: [Open Library Authors API](https://openlibrary.org/dev/docs/api/authors), [Open Library API usage](https://openlibrary.org/developers/api), Wikidata/VIAF/BNE cuando haya identificadores compatibles. La documentación Open Library prohíbe usar su API como backend masivo comercial; cachear, identificar usuario y preferir lotes/dumps cuando proceda. Ninguna búsqueda nominal aislada aporta prueba de coincidencia.
+4. Biografía editorial futura: datos confirmados y **distintos** de los metadatos del libro (trayectoria, premios verificables, relación con saga/editorial, obras en la web). Cada afirmación con origen. Si solo hay una ficha y ninguna biografía fiable, mantener un perfil útil para la navegación sin inflarlo con texto repetitivo.
+5. Anotar equivalencias de nombres (seudónimos, transliteraciones y coautorías) como candidatos de identidad a revisar. Mantener un único perfil canónico y redirecciones solo cuando haya prueba; preservar URLs. Extender Book.author @id enlazado a Person existente, que ya hace el builder.
+
+No usar ProfilePage de Google indiscriminadamente: su guía limita esta función a perfiles de participantes o creadores asociados al sitio; para escritores externos catalogados, la combinación actual Person + CollectionPage es más prudente y expresa el contenido. [Guía oficial](https://developers.google.com/search/docs/appearance/structured-data/profile-page).
+
+**QA futuro:** homónimos, dos coautores, cambio de nombre editorial, extracto vacío, perfil 404, fuente redirigida, biografía manual protegida, autor con 200 libros y render sin datos de API en el navegador.
+
+### 7.4 Editoriales: catálogo bibliográfico y recepción de manuscritos NO son un único hecho
+
+**Ya implementado:** data/editoriales.json distingue status=open|closed|indirect|award_only|unknown, direct_submission, fuentes, verificación e historial. build-editoriales.py valida fuente primaria, oculta correos en estado closed, advierte tras 90 días y genera páginas estáticas; reading_publisher_links.py lista libros asociados al slug real. NO recrear el directorio. El estado de recepción no debe decidir si un libro del sello se publica.
+
+**Modelo objetivo sin crear una segunda fuente de verdad:** una editorial canónica con dos conjuntos de afirmaciones independientes:
+
+- **Bibliografía y sello**: slug, nombre, grupo, alias oficiales, fuentes de ISBN y publicaciones. Puede surgir del intake y beneficiarse de autopublicación si la identidad está validada y el modelo de datos permite una ficha mínima de catálogo.
+- **Recepción de manuscritos**: estado, vía directa/indirecta, requisitos, correo, URLs, fecha, texto o selector de la fuente oficial. No extrapolar de que la editorial publique libros; nunca marcar open/closed solo por la existencia de un formulario o por un sitemap. Para nuevos sellos sin prueba usar unknown (sin CTA «Enviar manuscrito»).
+
+**Flujo de descubrimiento propuesto en el escritor actual**: detecta sello nuevo desde ficha de edición, lo compara con editorial canónica por alias/URL/datos verificables, lo anota en una cola aislada y genera una PR de propuestas **sin mutar el registro**. Para sello ya conocido puede vincular ISBN a slug después de pasar validación. Para nueva editorial aún no aceptada por build-editoriales.py, Claude deberá decidir si admite un subtipo de ficha bibliográfica mínima con status=unknown o si exige completar el expediente. No rellenar requisitos, resumen, historia y fuentes con frases ficticias para superar el validador.
+
+**Autocomprobación de recepción sin falsa certeza**: consultar páginas oficiales ya incluidas en sources, con ETag/Last-Modified si el proveedor lo permite, caché y comparación de contenido relevante; almacenar fecha de último HTTP y fecha **distinta** de confirmación real del estado. Una respuesta 200 o página idéntica no demuestra que el estado siga vigente si la sección de envíos desapareció. Si cambia un párrafo de requisitos o no se puede confirmar, propuesta de revisión y no sobrescribir un estado manual. Si la URL desaparece, aplicar unknown/sin correo activo conforme a la política actual. No añadir un segundo workflow: rotación dentro del presupuesto y del escritor existente.
+
+**Límite de autopublicación razonable:** automatizar *hechos bibliográficos verificados y enlaces derivados*. Estados de manuscritos y contactos activos solo tras confirmación textual desde la web oficial; si es ambiguo, no publicar automáticamente. El informe scripts/reading_content_opportunities.py incluye editoriales que superan 90 días desde la última verificación, sin modificar estados.
+
+### 7.5 SEO: ampliar información útil, no multiplicar URLs sin contenido
+
+Actualmente: fichas Book con ISBN/formato/fecha/publisher, Person por autor, CollectionPage, BreadcrumbList, enlaces internos, sitemap y Pagefind. El [marcado de Book para acciones en Google](https://developers.google.com/search/docs/appearance/structured-data/book) exige registro de interés y participación limitada a proveedores grandes: **no** presentar ese programa especializado como una mejora automática de rich snippets por añadir Book JSON-LD. El JSON-LD existente sirve para describir la página, sin garantizar resultados enriquecidos.
+
+La [política oficial de abuso de contenido a gran escala](https://developers.google.com/search/docs/essentials/spam-policies) desaconseja miles de páginas repetidas que carezcan de utilidad. Objetivo de calidad por URL publicada:
+- Cada libro con una edición real y un ISBN/autor/fuente/portada verificados, sin sinopsis ni reseñas inventadas.
+- Autor con selección de libros reales del sitio, fuente biográfica cuando existe y enlaces a sello/género; si se queda solo en un contador, priorizar su enriquecimiento editorial en lugar de añadir párrafos mecánicos.
+- Editorial con estado y prueba primaria de recepción si se afirma, libros vinculados, fecha de verificación y condiciones.
+- Selección temática con explicación propia, libros suficientes, enlaces a fichas, actualización significativa y canonical estable. **No** publicar automáticamente combinaciones de todos los filtros como landing SEO.
+- Devolver información útil en HTML estático, no depender de JS para el contenido esencial. Los filtros actuales usan fragmentos #; Google recomienda evitar espacios infinitos de URLs facetadas ([guía](https://developers.google.com/crawling/docs/faceted-navigation)).
+- Mantener dateModified/lastmod solo si cambia realmente contenido relevante, no por ejecutar el cron. IndexNow no fuerza indexación. Medir en Search Console a 30–60 días impresiones, clics, CTR, consultas, cobertura y URLs excluidas.
+
+**Prioridad de linking interno**: libro → autor y editorial; autor → libros y sellos; editorial → libros, autores publicados y categorías; selecciones temáticas → libros. No convertir todo en enlaces recíprocos indiscriminados. La parte libro/autores/editoriales ya existe en buena medida; el informe de auditoría señala huecos.
+
+### 7.6 Rendimiento: el riesgo real es el HTML y DOM de un catálogo de miles de tarjetas
+
+La home /recomendaciones/ genera el HTML de **todas** las tarjetas, aunque JS pagine de 24 en 24. Ya se probaron 100/200 títulos en #665, no 5.000. Una futura cobertura masiva crecería en transferencia inicial, DOM, tiempo de parseo y coste de comprobaciones, incluso con servidor estático. No añadir frameworks ni bases de datos por anticipación.
+
+**Puerta para escalar (propuesta, no cifra medida):** un piloto de 500 y 1.000 libros sintéticos sin publicarlos; capturar bytes HTML, elementos DOM, memoria/INP, LCP, CLS, CPU en filtros y tiempos de build/QA; comparar con baseline 200. Objetivos iniciales para revisar: LCP p75 ≤2,5 s, INP p75 ≤200 ms, CLS p75 ≤0,1; son umbrales de Core Web Vitals, **no resultados** ([web.dev](https://web.dev/articles/vitals)). Si el coste aumenta, pasar a hubs HTML estáticos paginados o por categorías con enlaces rastreables y buscar en índice compacto generado durante build; no renderizar miles de portadas ocultas. Conservar Pagefind como búsqueda externa ya existente, sin cargar librerías nuevas. Mantener cubierta principal prioritaria, fuera de pantalla lazy y tamaños definidos.
+
+**Si se usa una única PR automática diaria:** costes de QA y despliegue deben controlarse con lotes chicos y checks por SHA; optimizar en el builder/preprocesado, nunca realizando peticiones a servicios externos desde cada ficha en tiempo de navegación. No tocar el cron actual.
+
+### 7.7 Nueva herramienta de observabilidad offline
+
+scripts/reading_content_opportunities.py y tests/test_reading_content_opportunities.py (sin ejecutar). Consume solo:
+- data/reading-catalogue.json;
+- data/reading-authors.json;
+- data/editoriales.json;
+- assets/reading-market.json.
+
+Informe: libros publicados, autores únicos y fichas faltantes, autores con biografía externa ausente, sellos no enlazados, editoriales caducadas 90 días, fechas exactas de próximos 30 días, fechas parciales, ofertas caducadas y ratings separados por proveedor. **No descarga, no inventa, no cambia datos.** Un resultado del informe no justifica publicar una editorial o biografía.
+
+Preflight posterior autorizado:
+    python scripts/reading_content_opportunities.py --today 2026-10-21
+    python -m unittest tests.test_reading_content_opportunities tests.test_reading_release_calendar tests.test_reading_publisher_audit tests.test_reading_amazon_market -v
+
+En este encargo **no se han ejecutado esos comandos**.
+
+## 8. Plan de integración ordenado para Claude — sin otra arquitectura
+
+1. **Revisar el diff exacto de esta PR** frente al SHA actual de main y la PR de lote automático #682; evitar tocar los mismos artefactos que esté publicando el bot. Resolver primero cualquier desfase de base.
+2. **Revisar estáticamente los cambios y los contratos**: iCalendar (UID/escape/folding/fechas), informe editorial (no aprobaciones), auditoría cruzada (lectura solamente), 1 h OffersV2 (Python+JS) y etiquetas de formato. Marcar errores sin ejecutar tests si sigue vigente la prohibición del usuario.
+3. **Cuando se autorice:** correr pruebas acotadas en checkout aislado y QA de navegador. Regenerar/versionar reading-catalogue.js mediante el pipeline oficial; no editar cientos de HTML directamente a mano.
+4. **Integrar calendario** en el único refresh-reading-catalogue.py; añadir su carpeta de salida a rutas de staging y a la allowlist de publicación, así como los checks de compilación y de HTTP/MIME (el directorio assets ya es público bajo la allowlist de dist). Asegurar que la existencia de un lanzamiento futuro no dispara un merge automático si no hay diferencias de archivos.
+5. **Verificar fuentes/identidades de autores** desde el dato editorial antes de añadir nuevas biografías. Convertir homónimos en propuestas, no merges automáticos. Mantener perfiles manuales como autoridad.
+6. **Mejorar editoriales** con una cola de candidatos de sellos nuevos y una rotación de comprobaciones oficiales; separar catalogación bibliográfica de admisión de originales. Mantener la política de unknown y ocultación de contactos no confirmados.
+7. **Poner límites de cobertura/SEO/performance** antes de escalar más allá de 200 libros, contrastar Search Console y métricas de campo; priorizar datos y enlaces únicos sobre páginas paramétricas duplicadas.
+8. **No lanzar acciones** sin autorización: ningún CI, prueba, push al main, despliegue, nueva tarea programada, activación de Pinterest o compra externa forma parte de este trabajo.
+
+**Veredicto:** lo más útil ahora es recuperar sellos legítimos, añadir biografías con procedencia y un calendario exportable, manteniendo el único escritor diario. Los precios han recibido una corrección concreta para no ofrecer datos obsoletos; el crecimiento de páginas y la fuente Planeta requieren pilotos medidos. No se promete rentabilidad SEO ni cobertura exhaustiva.
