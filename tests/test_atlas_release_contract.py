@@ -113,6 +113,13 @@ class AtlasReleaseContract(unittest.TestCase):
             encoding="utf-8")
         self.assertTrue(any("filtro Pagefind" in e for e in mod.audit(self.root, self.manifest)))
 
+    def test_pagefind_partial_body_attribute_cannot_deindex_existing_site(self):
+        f = self.root / "atlas-literario/lugares/biblioteca-ejemplo/index.html"
+        f.write_text(f.read_text(encoding="utf-8").replace(
+            "<main>", "<main data-pagefind-body>"), encoding="utf-8")
+        self.assertTrue(any("data-pagefind-body parcial" in e for e in
+                            mod.audit(self.root, self.manifest)))
+
 
 if __name__ == "__main__":
     unittest.main()
