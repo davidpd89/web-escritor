@@ -52,6 +52,34 @@ try {
   assert.equal(await page.locator('[data-rating-book] a').count(), 0);
   assert.deepEqual(errors, []);
   await context.close();
+  // Official external ratings sources must render with their OWN attribution.
+  // Never label Google Books/Hardcover numbers as Goodreads or trust forged hosts.
+  const sourceContext = await browser.newContext();
+  const sourcePage = await sourceContext.newPage();
+  await sourcePage.clock.install({ time: now });
+  await sourceContext.route('**/recomendaciones/?*', route => route.fulfill({ contentType: 'text/html', body: fixture.hub }));
+  await sourceContext.route('**/assets/reading-market.json', route => route.fulfill({ json: {
+    schema_version: 1, offers: [], ratings: [
+      { ...dated, libro_id: 'contrato-uno', puntuacion: 4.3,
+        numero_valoraciones: 78, fuente: 'google_books',
+        url: 'https://books.google.com/books?id=ABCD_123' },
+      { ...dated, libro_id: 'contrato-dos', puntuacion: 3.9,
+        numero_valoraciones: 201, fuente: 'hardcover',
+        url: 'https://hardcover.app/books/contrato-dos' },
+      { ...dated, libro_id: 'contrato-dos', puntuacion: 5,
+        numero_valoraciones: 1000, fuente: 'google_books',
+        url: 'https://books.google.com.evil.invalid/books?id=UNTRUSTED' },
+    ] } }));
+  await sourcePage.goto(`${base}/recomendaciones/?utm_source=fuentes`, { waitUntil: 'networkidle' });
+  await sourcePage.waitForFunction(() => [...document.querySelectorAll('[data-rating-book] a')].length === 2);
+  const labels = await sourcePage.locator('[data-rating-book] a').evaluateAll(els => els.map(el => ({ text: el.textContent, href: el.href })));
+  assert(labels.some(x => x.text.includes('Google Books') && x.href === 'https://books.google.com/books?id=ABCD_123'));
+  assert(labels.some(x => x.text.includes('Hardcover') && x.href === 'https://hardcover.app/books/contrato-dos'));
+  assert(labels.every(x => !x.text.includes('Goodreads')), 'Must attribute imported ratings correctly');
+  // A replacement aria-label previously differed from the visible score,
+  // breaking voice control's "label in name" contract. Keep the visible text.
+  assert(await sourcePage.locator('[data-rating-book] a').evaluateAll(els => els.every(el => !el.hasAttribute('aria-label') && el.querySelector('.catalogue-stars')?.getAttribute('aria-hidden') === 'true')));
+  await sourceContext.close();
   const monthContext = await browser.newContext();
   const monthPage = await monthContext.newPage();
   await monthPage.route('**/recomendaciones/', route => route.fulfill({ contentType: 'text/html', body: fixture.hub.replace('data-published="1990-01-01" data-published-month=""', 'data-published="" data-published-month="1990-06"') }));

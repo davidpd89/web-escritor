@@ -99,7 +99,7 @@ with tempfile.TemporaryDirectory() as tmp:
     assert '"@type": "Book"' in book and '"@type": "BreadcrumbList"' in book
     assert 'aggregateRating' not in book and '"@type": "Review"' not in book
     assert 'og:image" content="' + m.SITE + b['portada_local'] in book
-    assert 'data-catalogue-speak' in book and 'Referencia técnica externa' in book
+    assert 'data-catalogue-speak' not in book and '<audio' not in book and 'Referencia técnica externa' in book
     assert 'Fixture aislada de QA' not in book
     assert hub.count('data-catalogue-book ') == 1
     assert hub.count('href="' + m.url(b) + '"') == 3
