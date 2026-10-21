@@ -20,9 +20,10 @@ Investigación hija de [PR padre #666](https://github.com/davidpd89/web-escritor
 | P8a — [#672 Preview HTML, SEO, filtros por destino](https://github.com/davidpd89/web-escritor/pull/672) | **Preview HTML y JSON shards** fuera del site shell; NO genera sitemap/Pagefind en producción | #669 como contrato posterior | Integración, navegadores, rendimiento/seguridad y SEO pendientes |
 | P9 — Mapa opcional (FUTURA, no PR creada) | Leaflet con tiles legales o PMTiles; vista lista sin JS | P8 | Performance, licencias, coste, SEO y fallback demostrado |
 | P10 — Publicación con control (FUTURA, no PR creada) | Extender coordinador y allowed paths de #661, integridad y lock | P8; P9 opcional | QA por SHA, sin merges simultáneos, recuperación fallos |
+| P8-QA — [#677 QA release](https://github.com/davidpd89/web-escritor/pull/677) | Validador manifest→HTML + tests sintéticos + QA browser preparado, sin activar Actions | P8a para el prototipo; integración real futura | No ejecutar hasta que exista shell y manifest de Atlas aprobado |
 | P11 — Distribución (FUTURA, no PR creada) | Reusar enfoques RSS/Pinterest de #662 cuando estén fusionados | P8+P10 | Pines a URLs propias, licencias correctas de imágenes |
 
-**Importante:** estas fases P5-P11 son un backlog de ingeniería, NO PRs que afirmemos haber creado. No abrir PR vacías; abrirlas solo con documentación/código real en cada una y scope corto.
+**Importante:** varias fases P5a/P6a/P6b/P8a/P8-QA tienen PRs reales documentadas; el resto de las subfases P5–P11 sigue pendiente. No afirmar que importador mundial, curación Sheets, publicación o QA estén implementados. No abrir PR vacías; abrirlas solo con documentación/código real en cada una y scope corto.
 
 ## «Fácil, rápido, homogéneo» no significa publicar sin QA
 
@@ -135,3 +136,7 @@ StaticSite.build(projection) -> generated paths
 - [#675](https://github.com/davidpd89/web-escritor/pull/675) añade candidato histórico Pleiades sin repetir el alcance de #673; ambas salidas siguen como candidatos de fuentes distintas.
 - El [contrato operativo y DoD](contrato-integracion-y-gates.md) determina los límites de cada snapshot y publicación; se consulta después del ADR-000, antes de empezar código nuevo.
 - En [#672](https://github.com/davidpd89/web-escritor/pull/672) se corrigió carrera de carga asíncrona: un cambio rápido de país/ciudad invalida la petición previa. Pendiente QA real.
+
+### Auditoría site-shell / Pagefind (21/10/2026)
+
+La [#677](https://github.com/davidpd89/web-escritor/pull/677) constató que el builder real `scripts/build-pagefind-index.py` indexa **HTML rastreado por Git**; para incorporar páginas producidas por atlas build al final hay que versionarlas o cambiar explícitamente su lectura al directorio estático con exclusiones equivalentes. Además `lighthouserc.json`, `qa/visual-regression-browser.mjs`, `qa/cross-engine-smoke.mjs` y `qa/csp-public-shell-browser.mjs` necesitan registrar las rutas nuevas. Los presupuestos deterministas no siguen `import()`, por lo que el mapa opcional requiere grupo de presupuesto propio. **No tocar workflows ahora.** El [diseño de Pagefind + UI existente de #672](https://github.com/davidpd89/web-escritor/pull/672) elimina la necesidad de mantener otro buscador global y permite la misma navegación responsive del catálogo de lectura vigente.
