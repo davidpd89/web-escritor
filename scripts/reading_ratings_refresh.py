@@ -53,6 +53,14 @@ def title_matches(title: str, canonical: str) -> bool:
     return a == b or a.startswith(b + " ") or b.startswith(a + " ")
 
 
+def author_matches(source: str, catalogued: str) -> bool:
+    """Handle reversed Spanish cataloging order, without fuzzy cross-author joins."""
+    a, b = key(source), key(catalogued)
+    return bool(a and b and (a == b or (
+        len(a.split()) >= 2 and sorted(a.split()) == sorted(b.split())
+    )))
+
+
 def select_rating(book: dict, api_response: dict) -> dict | None:
     """Reject unrelated editions or authors returned by volume search.
 
@@ -81,7 +89,7 @@ def select_rating(book: dict, api_response: dict) -> dict | None:
             continue
         # Initials/full-name handling may be expanded with reviewed aliases,
         # but never choose a rating for a different author's homonymous book.
-        if not any(a == b for a in response_authors for b in desired_authors):
+        if not any(author_matches(a, b) for a in response_authors for b in desired_authors):
             continue
         rating, votes = info.get("averageRating"), info.get("ratingsCount")
         if isinstance(rating, bool) or isinstance(votes, bool):
@@ -123,7 +131,7 @@ def select_hardcover_rating(book: dict, api_response: dict) -> dict | None:
         authors = [key(str((c.get("author") or {}).get("name", "")))
                    for c in contributors if isinstance(c, dict)
                    and c.get("contribution") in (None, "Author")]
-        if not any(a == key(name) for a in authors for name in book.get("autores", [])):
+        if not any(author_matches(a, name) for a in authors for name in book.get("autores", [])):
             continue
         slug = str(source.get("slug") or "")
         rating, votes = source.get("rating"), source.get("ratings_count")
