@@ -3,6 +3,7 @@
   "enabled": true,
   "autopublish": true,
   "generate_audio": false,
+  "purchase_price_mode": "amazon_affiliate",
   "max_new_books": 5,
   "max_requests": 80,
   "request_delay_seconds": 1.5,
