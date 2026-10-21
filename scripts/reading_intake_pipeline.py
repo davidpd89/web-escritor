@@ -298,6 +298,12 @@ def ingest(config, root, cache, *, max_new=None, max_requests=None, apply=False,
                             if field in old_book:
                                 book[field] = old_book[field]
                     trial['libros'] = [book if b['id'] == old_book['id'] else b for b in trial['libros']]
+                    # Refresh is additive: preserve editorial tags assigned on
+                    # the website rather than rebuilding them from the source.
+                    categories = list(dict.fromkeys([
+                        *(r['categoria_id'] for r in trial['libro_categorias'] if r['libro_id'] == book['id']),
+                        *categories,
+                    ]))
                     trial['libro_categorias'] = [r for r in trial['libro_categorias'] if r['libro_id'] != book['id']]
                 else:
                     trial['libros'].append(book)

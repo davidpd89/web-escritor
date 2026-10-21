@@ -201,6 +201,9 @@ class ContractTests(unittest.TestCase):
             result = json.loads(saved)
             self.assertEqual(result['libros'][0], manual)
             self.assertEqual(len(result['libros']), 3)
+            # Editorial enrichment must survive the weekly metadata refresh.
+            result['libro_categorias'].append({'libro_id': result['libros'][1]['id'], 'categoria_id': 'halloween'})
+            (root / 'data/reading-catalogue.json').write_text(json.dumps(result), encoding='utf-8')
             responses[URL] = responses[URL].replace(b'240', b'244')
             with patch.object(pipeline, 'CachedHTTP', FakeHTTP):
                 third = pipeline.ingest(config, root, root / '.cache', apply=True, today='2026-10-28')
@@ -211,6 +214,7 @@ class ContractTests(unittest.TestCase):
             self.assertEqual(refreshed['libros'][1]['numero_paginas'], 244)
             self.assertEqual(refreshed['libros'][1]['slug'], result['libros'][1]['slug'])
             self.assertEqual(refreshed['libros'][1]['fecha_publicacion'], '2026-10-10')
+            self.assertIn({'libro_id': result['libros'][1]['id'], 'categoria_id': 'halloween'}, refreshed['libro_categorias'])
             # A changed source identity is quarantined while its public entry survives.
             responses[URL] = responses[URL].replace(b'Autora de prueba', b'Otra autora')
             with patch.object(pipeline, 'CachedHTTP', FakeHTTP):
