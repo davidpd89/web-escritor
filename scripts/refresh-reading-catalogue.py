@@ -93,18 +93,37 @@ def refresh(*, publish=False):
         write_if_changed(ROOT/'.ci/reading-intake/prices-report.json',price_stats)
         print('Precios Amazon: '+json.dumps(price_stats,ensure_ascii=True),flush=True)
         changed_ratings=write_changed(market_path,market) or changed_ratings
+    # Alternative with no Amazon eligibility: VERIFIED publisher-shop prices.
+    # Disabled until live pilot confirms conditions, markup and coverage.
+    free_prices_changed = False
+    free_config = config.get('free_price_refresh', {})
+    if free_config.get('enabled'):
+        from reading_free_prices import refresh_penguin, HOST
+        from reading_editorial_sources import CachedHTTP
+        free_path = ROOT / 'assets/reading-free-prices.json'
+        existing_free = read_json(free_path, {'schema_version': 1, 'offers': []})
+        budget = int(free_config.get('requests_per_day', 30))
+        http = CachedHTTP(ROOT / '.ci/reading-editorial-cache/http', [HOST],
+                          budget=budget + 2, delay=config['request_delay_seconds'])
+        free_payload, free_stats = refresh_penguin(
+            read_json(ROOT / 'data/reading-catalogue.json'), existing_free,
+            lambda url: http.get(url, ttl=12 * 3600), datetime.now(timezone.utc),
+            budget=budget)
+        free_prices_changed = write_if_changed(free_path, free_payload)
+        write_if_changed(ROOT / '.ci/reading-intake/free-prices-report.json', free_stats)
+        print('Precios editoriales: ' + json.dumps(free_stats, ensure_ascii=True), flush=True)
     # A scheduled RSS item can become due without a new book or rating. Build
     # current pages first, then advance feeds inside this SAME daily writer.
     command(sys.executable, 'scripts/build-reading-catalogue.py')
     rss_config=read_json(ROOT / 'data/reading-pinterest-boards.json')
     command(sys.executable, 'scripts/build-reading-pinterest-rss.py', *(['--assign'] if rss_config.get('rss_enabled') else []))
     rss_changed=bool(subprocess.check_output(['git','status','--porcelain','--untracked-files=all','--','assets/pinterest/feeds','data/reading-pinterest-state.json'],cwd=ROOT,text=True).strip())
-    if not (report['new_books'] or report['updated_books'] or changed_ratings or report['stats'].get('author_profiles_updated') or rss_changed):
+    if not (report['new_books'] or report['updated_books'] or changed_ratings or report['stats'].get('author_profiles_updated') or rss_changed or free_prices_changed):
         return
     # Register new routes before builders that deliberately consume git ls-files.
     command(sys.executable, 'scripts/build-reading-catalogue.py')
     command(sys.executable, 'scripts/build-editoriales.py', '--data', 'data/editoriales.json', '--output', '.')
-    command('git', 'add', '--', 'assets/reading-market.json', 'data/reading-catalogue.json', 'data/reading-authors.json', 'data/reading-intake-state.json',
+    command('git', 'add', '--', 'assets/reading-market.json', 'assets/reading-free-prices.json', 'data/reading-catalogue.json', 'data/reading-authors.json', 'data/reading-intake-state.json',
             'data/content-registry.json', 'assets/reading-covers', 'assets/reading-audio', 'recomendaciones', 'editoriales', 'editoriales-sitemap.xml', 'mapa-del-sitio/index.html')
     command('git','add','--','assets/pinterest/feeds')
     for script in ('build-site-shell.py', 'build-sitemap.py', 'build-pagefind-index.py'):
