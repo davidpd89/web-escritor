@@ -94,6 +94,46 @@ class AtlasContractTest(unittest.TestCase):
         self.assertTrue(any("destinations='dst-world' no aprobado" in x for x in issues))
 
 
+    def test_approved_place_requires_usable_source_evidence(self):
+        data = sample()
+        data["destinations"][0].update(status="approved", verified_at="2026-10-21")
+        data["places"][0].update(status="approved", verified_at="2026-10-21",
+                                 summary_original="Texto editorial original de prueba")
+        issues = mod.problems(data)
+        self.assertTrue(any("requiere URL, título, fecha y evidencia" in x for x in issues))
+
+    def test_approved_relation_requires_https_source(self):
+        data = sample()
+        data["destinations"][0].update(status="approved", verified_at="2026-10-21")
+        data["places"][0].update(status="approved", verified_at="2026-10-21",
+                                 summary_original="Texto original")
+        data["works"][0].update(status="approved", verified_at="2026-10-21")
+        data["sources"][0].update(url="javascript:alert(1)", title="Malicioso",
+                                  retrieved_at="2026-10-21",
+                                  evidence_summary="Prueba")
+        data["relationships"][0].update(status="approved", verified_at="2026-10-21")
+        self.assertTrue(any("requiere URL HTTPS" in x for x in mod.problems(data)))
+
+    def test_invalid_identifier_lists_fail_closed_without_crashing(self):
+        data = sample()
+        data["places"][0]["source_ids"] = None
+        data["works"][0]["author_ids"] = "aut-synthetic"
+        data["routes"] = [{"id": "rou-example", "status": "candidate",
+                           "destination_id": "dst-world", "place_ids": None}]
+        issues = mod.problems(data)
+        self.assertTrue(any("source_ids debe ser lista" in x for x in issues))
+        self.assertTrue(any("author_ids debe ser lista" in x for x in issues))
+        self.assertTrue(any("place_ids debe ser lista" in x for x in issues))
+
+    def test_approved_image_requires_approved_place(self):
+        data = sample()
+        data["images"] = [{"id": "img-example", "status": "approved",
+                           "place_id": "lug-library",
+                           "license": "CC BY", "license_url": "https://example.org/license",
+                           "attribution": "Autor sintético",
+                           "source_url": "https://example.org/image"}]
+        self.assertTrue(any("places='lug-library' no aprobado" in x for x in mod.problems(data)))
+
 
 if __name__ == "__main__":
     unittest.main()
