@@ -14,7 +14,7 @@ Actualizado **21 de octubre de 2026**. Esta es la **única referencia vigente** 
 | ADR-04 | Relación factual **por vínculo** y tipo: escenario de obra, inspiración, biografía pública, rodaje de adaptación, homenaje | Un POI Overture o una placa no prueban que una escena literaria ocurra allí |
 | ADR-05 | Catálogo comercial de obras y enlaces Amazon en **/recomendaciones/**, no duplicar libros ni cambiar importador | [#660](https://github.com/davidpd89/web-escritor/pull/660), [#661](https://github.com/davidpd89/web-escritor/pull/661) |
 | ADR-06 | Candidatos masivos **fuera** del HTML público; publicar solo registros aprobados con evidencia y contenido editorial real | Evitar spam SEO, información falsa y exposición de datos privados |
-| ADR-07 | Fuentes mundiales principales: **Open Library dumps** (obras), **Wikidata CC0** (vínculos candidatos), **Overture Places/Geofabrik** (POIs), **GeoNames** (identidad geográfica); fuentes oficiales para confirmar | Gratis en acceso a datos según condiciones; CPU/disco/hosting no necesariamente gratuitos |
+| ADR-07 | Fuentes mundiales principales: **Open Library dumps** (obras), **Wikidata CC0** (vínculos candidatos), **Overture Places/Geofabrik** (POIs), **GeoNames** (identidad geográfica), **FilmMap CC0** (rodajes de adaptaciones candidatos); fuentes oficiales para confirmar | Gratis en acceso a datos según condiciones; CPU/disco/hosting no necesariamente gratuitos |
 | ADR-08 | **Site estático y HTML SSR/generado**, datos JSON por ciudad/destino + índice pequeño, JS de filtros sólo si se interactúa, mapa por demanda | No penalizar home, Core Web Vitals, crawl ni carga inicial |
 | ADR-09 | Facetas UX: país, ciudad, libro, saga, autor, POI, tipo de relación, ruta y época **cuando exista evidencia**; **sin generar una URL indexable por combinación** | Google advierte sobre espacios de URLs de navegación por facetas |
 | ADR-10 | Google Sheets para **revisión editorial**, no backend de visitantes; snapshots auditables. **Un solo publicador serializado**, aprovechando el pipeline #661 cuando se autorice | Evitar carreras de sitemap/Pagefind/content-registry; primera tanda por PR manual |
@@ -26,8 +26,8 @@ Actualizado **21 de octubre de 2026**. Esta es la **única referencia vigente** 
 | PR | Una responsabilidad | Estado actual / bloqueo antes de merge |
 |---|---|---|
 | [#666](https://github.com/davidpd89/web-escritor/pull/666) padre | ADR canónico, auditoría #59 y referencias | Documentación, draft |
-| [#667](https://github.com/davidpd89/web-escritor/pull/667) | Datasets/APIs globales; Overture taxonomía septiembre 2026 | Investigar licencia de cada fuente/uso de dump; contrastar métricas divergentes |
-| [#668](https://github.com/davidpd89/web-escritor/pull/668) | **Archivo upstream MIT** de Read the Places, scripts de mapas, facetas, JSON-LD, plantillas | No están integrados ni ejecutados; dependencia de Astro/TS/Bun/sharp y derechos de teselas |
+| [#667](https://github.com/davidpd89/web-escritor/pull/667) | Datasets/APIs globales; Overture y FilmMap CC0, taxonomía septiembre 2026 | Investigar licencia de cada fuente/uso de dump; contrastar métricas divergentes |
+| [#668](https://github.com/davidpd89/web-escritor/pull/668) | **Archivo upstream con licencias MIT/BSD/ISC**: Read the Places, mapas/facetas, Simplify, Supercluster y servidor FilmMap MCP | No están integrados ni ejecutados; dependencia de Astro/TS/Bun/sharp y derechos de teselas |
 | [#669](https://github.com/davidpd89/web-escritor/pull/669) | Contrato JSON Schema/validador relacional | Validación real no ejecutada; hay que fijar migración y eliminar ambigüedades del esquema |
 | [#670](https://github.com/davidpd89/web-escritor/pull/670) | Orquestación, fases, publicación serializada | Es diseño, no cron ni publicador implementado |
 | [#671](https://github.com/davidpd89/web-escritor/pull/671) | Extractor **parcial** de Works dump de Open Library | No tiene checkpoint global ni adaptador Wikidata; **nunca** describirlo como cobertura mundial completa |
@@ -73,3 +73,7 @@ Regla: **fijar `provider_release`, versión de esquema y taxonomía por lote**; 
 3. Construir **proyección publicable** y 3 plantillas homogéneas con shell existente (destino/lugar/ruta opcional); enlazar desde catálogo sin duplicar libros.
 4. Indexación Pagefind, sitemap y JSON-LD de entidades verificadas; filtros país, ciudad, obra y autor con shards.
 5. QA real + permisos de fuentes + pruebas de rendimiento, publicación por PR manual; automatizar escritor serial después de estabilizar.
+
+### 21/10/2026 — hallazgo adicional en cobertura de rodajes
+
+[Flightmussy/filmmap-dataset](https://github.com/Flightmussy/filmmap-dataset) tiene instantánea **CC0** de agosto 2026 con 15.272 lugares/161 países/12.762 producciones según su README. [#667](https://github.com/davidpd89/web-escritor/pull/667) documenta importación. [#668](https://github.com/davidpd89/web-escritor/pull/668) contiene una copia literal MIT del servidor MCP asociado, **sin integrar** ni incluir la base compacta que necesita para funcionar. Es fuente de P915 rodaje (cine/TV) y P840 ambientación de otras clases audiovisuales, nunca prueba de escena individual ni de novela; combinar con obra original solo si la adaptación concreta se demuestra. Film commissions municipales como [DataSF](https://data.sf.gov/Culture-and-Recreation/Film-Locations-in-San-Francisco/yitu-d5am/about_data) complementan la evidencia. No cambia ADR-01 a ADR-12.
