@@ -372,8 +372,31 @@ def render_filters(data):
     return '<form class="catalogue-filters" data-catalogue-filters><fieldset disabled><legend>Encuentra tu próxima lectura</legend><div class="catalogue-filter-grid">' + controls + '</div><details class="catalogue-details catalogue-more-filters"><summary>Más filtros: fechas, precios y valoraciones <span aria-hidden="true">＋</span></summary>' + advanced + '</details><div class="catalogue-filter-actions"><button type="submit">Buscar libros</button><button type="reset" disabled>Restablecer</button></div></fieldset></form>'
 
 
-def render_hub(data, books, template):
+def publisher_purchase_destination(b):
+    """Source book page in Spanish, exact ISBN; never an Amazon price."""
+    source = b.get('fuente_bibliografica_url', '')
+    isbn = b.get('isbn13')
+    if not isbn or not valid_isbn(isbn) or not https(source):
+        return None
+    parsed = urlparse(source)
+    if (parsed.hostname == 'www.penguinlibros.com' and not parsed.query and not parsed.fragment
+            and re.fullmatch(r'/es/[a-z0-9-]+/\\d+-libro-[a-z0-9-]+-' + isbn + r'/?', parsed.path)):
+        return source
+    return None
+
+
+def purchase_price_mode(root=ROOT):
+    config = root / 'data/reading-intake-config.json'
+    if not config.is_file():
+        return 'amazon_affiliate'
+    mode = json.loads(config.read_text(encoding='utf-8')).get('purchase_price_mode', 'amazon_affiliate')
+    require(mode in {'amazon_affiliate', 'publisher_only'}, 'Modo comercial no validado')
+    return mode
+
+
+def render_hub(data, books, template, price_mode='amazon_affiliate'):
     cards = []
+    template = template.replace('data-reading-catalogue data-family=', 'data-reading-catalogue data-price-mode="' + esc(price_mode) + '" data-family=')
     for i,b in enumerate(books):
         cats = categories(data,b)
         formats = ' '.join(sorted(set([o['formato'] for o in purchase_formats(b)] + ([b['formato_edicion']] if b.get('formato_edicion') else []))))
@@ -385,8 +408,8 @@ def render_hub(data, books, template):
             (str(b['numero_paginas']) + ' páginas') if b.get('numero_paginas') else '',
             ('Edad: ' + b['edad_recomendada']) if b.get('edad_recomendada') else ''
         ) if v)
-        affiliate_link = amazon_destination(b)
-        affiliate_cta = ('<a class="catalogue-buy-link catalogue-card__buy" href="' + esc(affiliate_link) + '" target="_blank" rel="sponsored nofollow noopener noreferrer">' + esc(amazon_action_label(b)) + ' <span aria-hidden="true">↗</span></a>') if affiliate_link else ''
+        affiliate_link = amazon_destination(b) if price_mode == 'amazon_affiliate' else publisher_purchase_destination(b)
+        affiliate_cta = ('<a class="catalogue-buy-link catalogue-card__buy" href="' + esc(affiliate_link) + '" target="_blank" rel="' + ('sponsored nofollow noopener noreferrer' if price_mode == 'amazon_affiliate' else 'noopener noreferrer') + '">' + esc(amazon_action_label(b) if price_mode == 'amazon_affiliate' else 'Consultar precio en Penguin Libros') + ' <span aria-hidden="true">↗</span></a>') if affiliate_link else ''
         cards.append(f'<li class="catalogue-card" {attrs}><a class="catalogue-card__cover" href="{url(b)}" target="_blank" rel="noopener noreferrer" aria-label="Ver ficha de {esc(b["titulo"])} (otra pestaña)">{image(b,i>1)}</a><div><p class="eyebrow">{novelty(b, "Libros recomendados")}</p>{tags(cats, compact=True)}<h3><a href="{url(b)}" target="_blank" rel="noopener noreferrer" aria-label="Abrir ficha de {esc(b["titulo"])} en otra pestaña">{esc(b["titulo"])}</a></h3><p class="catalogue-author">{author_links(b)}</p><p class="catalogue-card__description">{esc(synopsis(b))}</p>{synopsis_attribution(b)}<p class="catalogue-card__meta">' + edition_metadata + f'</p><div class="catalogue-rating" data-rating-book="{esc(b["id"])}"></div><p data-price-book="{esc(b["id"])}" class="catalogue-price" hidden></p><a class="text-action" href="{url(b)}" target="_blank" rel="noopener noreferrer" aria-label="Ver ficha del libro (se abre en otra pestaña)">Ver ficha</a>' + affiliate_cta + '</div></li>')
     sort = '<label>Ordenar por<select name="orden" data-filter="orden" form="catalogue-search-form" disabled><option value="editorial">Selección editorial</option><option value="titulo">Título · A–Z</option><option value="titulo_desc">Título · Z–A</option><option value="autor">Autor · A–Z</option><option value="fecha_desc">Publicación · más reciente</option><option value="fecha_asc">Publicación · más antigua</option><option value="paginas_asc">Páginas · menor a mayor</option><option value="paginas_desc">Páginas · mayor a menor</option><option value="precio_asc" data-sort-market="offers" disabled>Precio · menor a mayor</option><option value="precio_desc" data-sort-market="offers" disabled>Precio · mayor a menor</option><option value="valoracion_desc" data-sort-market="ratings" disabled>Valoración · mayor a menor</option></select></label>'
     filters = render_filters(data).replace('<form class=', '<form id="catalogue-search-form" class=',1)
@@ -401,8 +424,9 @@ def render_hub(data, books, template):
     return inject_shell_auto(page)
 
 
-def render_book(data,b,template):
+def render_book(data,b,template, price_mode='amazon_affiliate'):
     canonical=SITE+url(b)
+    template = template.replace('data-reading-catalogue data-family=', 'data-reading-catalogue data-price-mode="' + esc(price_mode) + '" data-family=')
     title=book_title(b)
     description=synopsis(b)
     cats=categories(data,b)
@@ -418,15 +442,15 @@ def render_book(data,b,template):
         if b.get(key):
             extra+=f'<li><a href="{esc(b[key])}" target="_blank" rel="noopener noreferrer">{label}</a></li>'
     extra+='</ul></details>'
-    options=purchase_formats(b)
-    destination=amazon_destination(b)
-    buy=('<a class="catalogue-buy-link" href="'+esc(destination)+'" target="_blank" rel="sponsored nofollow noopener noreferrer">'+esc(amazon_action_label(b))+' <span aria-hidden="true">↗</span></a>') if destination else ''
+    options=purchase_formats(b) if price_mode == 'amazon_affiliate' else []
+    destination=amazon_destination(b) if price_mode == 'amazon_affiliate' else publisher_purchase_destination(b)
+    buy=('<a class="catalogue-buy-link" href="'+esc(destination)+'" target="_blank" rel="'+('sponsored nofollow noopener noreferrer' if price_mode == 'amazon_affiliate' else 'noopener noreferrer')+'">'+esc(amazon_action_label(b) if price_mode == 'amazon_affiliate' else 'Consultar precio en Penguin Libros')+' <span aria-hidden="true">↗</span></a>') if destination else ''
     if len(options) == 1 and options[0]['url'] == destination:
         buy=buy.replace('class="catalogue-buy-link"', 'class="catalogue-buy-link" data-purchase-format="'+options[0]['formato']+'"', 1)
     if len(options) > 1:
         buy+='<details class="catalogue-details catalogue-buy"><summary>Ver otros formatos</summary><ul>'+''.join(f'<li><a class="catalogue-buy-link" data-purchase-format="{o["formato"]}" href="{esc(o["url"])}" target="_blank" rel="sponsored nofollow noopener noreferrer">{FORMATS[o["formato"]]} <span aria-hidden="true">↗</span></a></li>' for o in options)+'</ul></details>'
     cover=image(b, sizes='(max-width: 600px) 65vw, 400px')
-    amazon_href = amazon_destination(b)
+    amazon_href = amazon_destination(b) if price_mode == 'amazon_affiliate' else None
     if amazon_href:
         cover='<a href="'+esc(amazon_href)+'" aria-label="'+esc(amazon_action_label(b))+': '+esc(b['titulo'])+' (otra pestaña)" target="_blank" rel="sponsored nofollow noopener noreferrer">'+cover+'</a>'
     speech=''
@@ -538,12 +562,13 @@ def main():
         books = validate(data, root)
         authors = author_records(root)
         template = (root / 'scripts/templates/reading-catalogue.html.tmpl').read_text(encoding='utf-8')
-        outputs = {'recomendaciones/index.html': render_hub(data, books, template)}
+        price_mode = purchase_price_mode(root)
+        outputs = {'recomendaciones/index.html': render_hub(data, books, template, price_mode)}
         map_path = root / 'mapa-del-sitio/index.html'
         if map_path.exists():
             outputs['mapa-del-sitio/index.html'] = render_map(map_path.read_text(encoding='utf-8'), books, authors)
         for b in books:
-            outputs[url(b).lstrip('/') + 'index.html'] = render_book(data, b, template)
+            outputs[url(b).lstrip('/') + 'index.html'] = render_book(data, b, template, price_mode)
         active_authors = [a for a in authors if any(a['nombre'] in b['autores'] for b in books)]
         for a in active_authors:
             outputs[author_url(a).lstrip('/') + 'index.html'] = render_author(a, data, books, template)
