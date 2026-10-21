@@ -286,7 +286,11 @@ def ingest(config, root, cache, *, max_new=None, max_requests=None, apply=False,
                 stats['errors'].append({'source': source['id'], 'error': str(exc)[:180]})
     stats['discovered'] = len(queue)
     if not queue:
-        raise SourceError('Ninguna fuente editorial devolvió fichas; no se cambia el catálogo')
+        # Leave book data untouched; independent providers still refresh daily.
+        stats.update(status='editorial_unavailable', requests=http.requests, cache_hits=http.hits)
+        return {'schema_version':1, 'generated_at':datetime.now(ZoneInfo('Europe/Madrid')).isoformat(),
+                'mode':'applied' if apply else 'dry-run', 'stats':stats,
+                'new_books':[], 'updated_books':[], 'state':state}
     new_books = []
     updated_books = []
     assets = {}

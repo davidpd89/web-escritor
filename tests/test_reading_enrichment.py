@@ -4,6 +4,7 @@ import json
 import sys
 import tempfile
 import unittest
+from unittest.mock import patch
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -11,9 +12,27 @@ sys.path.insert(0, str(ROOT / 'scripts'))
 from reading_editorial_sources import editorial_excerpt, publisher_author_bio, SourceError
 from reading_intake_pipeline import classify, enrich_author_bios, update_authors, builder, author_identity_conflicts
 from reading_intake_publishers import relevant_publisher
+import reading_intake_pipeline as pipeline
 
 
 class EnrichmentTests(unittest.TestCase):
+    def test_editorial_outage_preserves_catalogue_and_allows_independent_refresh(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            root=Path(tmp); (root/'data').mkdir()
+            for name in ('reading-catalogue.json','reading-authors.json','editoriales.json'):
+                (root/'data'/name).write_bytes((ROOT/'data'/name).read_bytes())
+            data=json.loads((root/'data/reading-catalogue.json').read_text(encoding='utf-8'))
+            data['libros']=[book for book in data['libros'] if book['id']=='lib-0001']
+            path=root/'data/reading-catalogue.json'
+            path.write_text(json.dumps(data),encoding='utf-8'); before=path.read_bytes()
+            config=json.loads((ROOT/'data/reading-intake-config.json').read_text(encoding='utf-8'))
+            with patch.object(pipeline.CachedHTTP,'get',side_effect=OSError('publisher unavailable')):
+                report=pipeline.ingest(config,root,root/'.cache',apply=True,today='2026-10-21')
+            self.assertEqual(report['stats']['status'],'editorial_unavailable')
+            self.assertEqual(report['new_books'],[])
+            self.assertEqual(path.read_bytes(),before)
+            self.assertFalse((root/'data/reading-intake-state.json').exists())
+
     def test_excerpt_is_bounded_and_prefers_subject_over_advertising(self):
         source = '<p>EL GRAN ÉXITO INTERNACIONAL QUE TODO EL MUNDO ESTABA ESPERANDO DESDE HACE AÑOS.</p><p>Una viajera encuentra una carta perdida y sigue sus pistas hasta una ciudad abandonada, donde conoce la historia de una familia separada por la guerra y decide buscar a sus descendientes.</p>'
         excerpt = editorial_excerpt(source)
