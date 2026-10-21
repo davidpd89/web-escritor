@@ -52,6 +52,11 @@ class StaticAtlasTest(unittest.TestCase):
         page = pages["/atlas-literario/lugares/biblioteca-de-prueba/"]
         self.assertIn("Novela de prueba", page)
         self.assertIn('rel="canonical"', page)
+        self.assertIn('property="og:url"', page)
+        self.assertIn('data-pagefind-filter="atlas_entity:place"', page)
+        self.assertIn('data-pagefind-filter="atlas_city:dst-example"', page)
+        self.assertIn('data-pagefind-filter="atlas_work:wrk-example"', page)
+        self.assertIn('data-pagefind-filter="atlas_relation:narrative_explicit"', page)
         self.assertIn("BreadcrumbList", page)
         self.assertIn("Ver en el mapa", page)
 
