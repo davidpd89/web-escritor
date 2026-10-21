@@ -93,3 +93,7 @@ python scripts/atlas_static_preview.py /datos/atlas-internal-v1.json \
 ```
 
 No enlazar desde las páginas existentes del catálogo hacia el atlas hasta completar el gate de publicación #677 y verificar que los lugares relacionados tienen HTML real, sitemap y Pagefind, evitando regresiones del catálogo.
+
+### Revisión final de fuente HTTPS y sincronía con contrato
+
+El preview y el generador de shards importan la misma función `valid_https_url`: solo URL HTTPS con hostname, sin credenciales, espacios, caracteres de control ni puerto distinto de 443; la lista de fuentes de relaciones debe ser un array real. Antes, una URL `https://` sin host podía pasar el simple prefijo y terminar indexada. Ahora no genera ficha ni faceta aprobada; ambas rutas tienen pruebas de regresión preparadas, **NO ejecutadas**. No se afirma que estos gates validen la licencia o contenido de la página de origen.
