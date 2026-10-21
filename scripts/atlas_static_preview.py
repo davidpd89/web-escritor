@@ -32,7 +32,7 @@ def e(value: object) -> str:
 
 
 def valid_https_url(value: object) -> bool:
-    if not isinstance(value, str) or re.search(r"[\\s<>\\x00-\\x1f]", value):
+    if not isinstance(value, str) or re.search(r"[\s<>\x00-\x1f]", value):
         return False
     try:
         parsed = urlsplit(value)
