@@ -341,7 +341,7 @@ def render_index(site: str, records: list[dict], today: date) -> str:
   <p>{esc(r['summary'])}</p>
     <div class="editorial-genres">{tags}</div>
   <p class="editorial-verified">Comprobado: <time datetime="{esc(r['verified_at'])}">{esc(r['verified_at'])}</time></p>
-  {stale_note}
+{stale_note}
     <div class="id-card__actions"><a class="text-action" href="/editoriales/{esc(r['slug'])}/">Ver requisitos y fuentes<span class="sr-only"> de {esc(r['name'])}</span></a></div>
 </article>''')
 

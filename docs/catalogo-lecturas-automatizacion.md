@@ -17,6 +17,15 @@ Implementación inicial de PR #661, ampliada en [#665](https://github.com/davidp
 
 Se reutiliza el coordinador de publicación del radar. Las operaciones con `GITHUB_TOKEN` requieren disparos explícitos de CI y Pages; no basta con crear la PR o fusionar. Véase la [documentación de GitHub](https://docs.github.com/en/actions/concepts/security/github_token).
 
+El control de enlaces comprueba todas las páginas HTML nuevas o modificadas en
+cada PR/publicación. Si hay borrados, renombrados o no se puede determinar la
+comparación, recorre el sitio completo. Los barridos semanales, el disparo manual
+en main y `full_scan=true` también comprueban todo. El artifact incluye el
+manifiesto exacto de entradas; no se aceptan errores HTTP adicionales ni se
+excluyen dominios por esta selección. Así, el mantenimiento temporal de una
+fuente de concursos sin cambios no detiene una carga de libros ajena a esa página.
+El gate de diseño, reflow y foco sigue comprobando todas las rutas.
+
 Una PR automática actual se reanuda antes de descubrir otro lote. Si quedó detrás de main, el escritor comprueba autoría del bot y rutas exclusivamente generadas, conserva la propuesta y su rama como referencia, cierra esa propuesta antigua y regenera el lote desde las fuentes con el código actual. No cierra propuestas humanas ni acepta cambios de código en el lote. Las comprobaciones se vuelven a ejecutar sobre el nuevo commit; un fallo de pruebas o despliegue deja evidencia y hace fallar la tarea.
 
 ## Identidad y actualizaciones
