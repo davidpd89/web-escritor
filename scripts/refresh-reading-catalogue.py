@@ -109,8 +109,19 @@ def refresh(*, publish=False):
             read_json(ROOT / 'data/reading-catalogue.json'), existing_free,
             lambda url: http.get(url, ttl=12 * 3600), datetime.now(timezone.utc),
             budget=budget)
+        # Google Books eBook prices are different from physical-book prices.
+        # The old provider returned HTTP 503: optional and stops after refusal.
+        google_price_stats = {'status': 'disabled'}
+        if free_config.get('google_ebooks_enabled') and os.getenv('GOOGLE_BOOKS_API_KEY', '').strip():
+            from reading_free_prices import refresh_google_ebooks
+            free_payload, google_price_stats = refresh_google_ebooks(
+                read_json(ROOT / 'data/reading-catalogue.json'), free_payload,
+                lambda isbn: google_response(isbn, os.environ['GOOGLE_BOOKS_API_KEY']),
+                datetime.now(timezone.utc),
+                budget=int(free_config.get('google_ebooks_requests_per_day', 10)))
         free_prices_changed = write_if_changed(free_path, free_payload)
-        write_if_changed(ROOT / '.ci/reading-intake/free-prices-report.json', free_stats)
+        write_if_changed(ROOT / '.ci/reading-intake/free-prices-report.json', {
+            'penguin': free_stats, 'google_play_libros': google_price_stats})
         print('Precios editoriales: ' + json.dumps(free_stats, ensure_ascii=True), flush=True)
     # A scheduled RSS item can become due without a new book or rating. Build
     # current pages first, then advance feeds inside this SAME daily writer.
