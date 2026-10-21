@@ -267,6 +267,24 @@
                 "pattern": "^[a-z][a-z0-9-]{2,79}$"
               },
               "uniqueItems": true
+            },
+            "overture_gers_id": {
+              "type": "string",
+              "minLength": 10,
+              "maxLength": 128,
+              "description": "ID externo GERS de Overture Places, separado de clave editorial"
+            },
+            "overture_release": {
+              "type": "string",
+              "minLength": 6,
+              "maxLength": 32,
+              "description": "Release precisa del proveedor (p.ej. 2026-09-23.1)"
+            },
+            "overture_confidence": {
+              "type": "number",
+              "minimum": 0,
+              "maximum": 1,
+              "description": "Calidad del registro proveedor NO certeza literaria"
             }
           }
         }
@@ -452,6 +470,18 @@
         },
         "attribution_text": {
           "type": "string"
+        },
+        "provider_release": {
+          "type": "string",
+          "maxLength": 70
+        },
+        "provider_record_id": {
+          "type": "string",
+          "maxLength": 140
+        },
+        "license_name": {
+          "type": "string",
+          "maxLength": 160
         }
       }
     },
