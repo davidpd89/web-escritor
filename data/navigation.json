@@ -7,7 +7,7 @@
   },
   "header": [
     "works-hub",
-    "notebook-hub",
+    "recommendations-hub",
     "tools-hub"
   ],
   "exploreTerritories": [
@@ -20,8 +20,8 @@
       "previewId": "author"
     },
     {
-      "id": "notebook-hub",
-      "previewId": "notebook-hub"
+      "id": "recommendations-hub",
+      "previewId": "recommendations-hub"
     },
     {
       "id": "tools-hub",
@@ -32,40 +32,7 @@
       "previewId": "press"
     }
   ],
-  "exploreShortcuts": [
-    {
-      "label": "Leer un fragmento",
-      "targetId": "work-manecillas-fragments"
-    },
-    {
-      "label": "Comprar en Kindle",
-      "targetId": "work-manecillas-kindle"
-    },
-    {
-      "label": "Revisar un texto",
-      "targetId": "tools-hub"
-    },
-    {
-      "label": "Buscar editorial o convocatoria",
-      "targetId": "editorials-hub"
-    },
-    {
-      "label": "Preparar publicación o promoción",
-      "targetId": "tool-book-metadata"
-    },
-    {
-      "label": "Recursos para prensa",
-      "targetId": "press"
-    },
-    {
-      "label": "Archivo",
-      "targetId": "notebook-hub"
-    },
-    {
-      "label": "Libros recomendados",
-      "targetId": "recommendations-hub"
-    }
-  ],
+  "exploreShortcuts": [],
   "exploreUtilities": [],
   "footer": {
     "Obra": [
@@ -76,6 +43,8 @@
     "Leer y recursos": [
       "notebook-hub",
       "recommendations-hub",
+      "editorials-hub",
+      "opportunities",
       "tools-hub",
       "lectores-beta"
     ],
@@ -88,14 +57,15 @@
       "site-privacy",
       "site-legal",
       "site-ai",
-      "reading-policy"
+      "reading-policy",
+      "editorial-method"
     ]
   },
   "homeMap": [
     "work-manecillas",
     "work-samuel",
     "author",
-    "notebook-hub",
+    "recommendations-hub",
     "tools-hub",
     "press"
   ],
@@ -120,24 +90,110 @@
       "samuel-club-guide"
     ],
     "cuaderno": [
-      "notebook-hub",
-      "recommendations-hub"
+      "author",
+      "notebook-hub"
     ],
     "herramientas": [
       "tools-hub",
-      "editorials-hub",
-      "opportunities"
+      "tool-manuscript",
+      "tool-dialogue",
+      "tool-repetitions"
     ],
     "autor": [
       "author",
       "awards",
-      "events",
-      "press"
+      "notebook-hub",
+      "events"
     ],
     "prensa": [
       "press",
       "events",
       "awards"
+    ],
+    "recomendaciones": [
+      "recommendations-hub",
+      "editorials-hub",
+      "opportunities"
+    ]
+  },
+  "menu": {
+    "works-hub": [
+      {
+        "label": "Todas las obras",
+        "targetId": "works-hub"
+      },
+      {
+        "label": "Las manecillas del recuerdo",
+        "targetId": "work-manecillas"
+      },
+      {
+        "label": "Samuel entre mundos",
+        "targetId": "work-samuel"
+      },
+      {
+        "label": "La memoria de las tierras del norte",
+        "targetId": "work-memoria-norte"
+      }
+    ],
+    "author": [
+      {
+        "label": "Sobre David Porto Díaz",
+        "targetId": "author"
+      },
+      {
+        "label": "Premios y reconocimientos",
+        "targetId": "awards"
+      },
+      {
+        "label": "Eventos y firmas",
+        "targetId": "events"
+      },
+      {
+        "label": "Cuaderno",
+        "targetId": "notebook-hub"
+      }
+    ],
+    "recommendations-hub": [
+      {
+        "label": "Catálogo de libros",
+        "targetId": "recommendations-hub"
+      },
+      {
+        "label": "Editoriales",
+        "targetId": "editorials-hub"
+      },
+      {
+        "label": "Concursos",
+        "targetId": "opportunities"
+      }
+    ],
+    "tools-hub": [
+      {
+        "label": "Todas las herramientas",
+        "targetId": "tools-hub"
+      },
+      {
+        "label": "Analizador de manuscrito",
+        "targetId": "tool-manuscript"
+      },
+      {
+        "label": "Medidor de diálogo",
+        "targetId": "tool-dialogue"
+      },
+      {
+        "label": "Detector de repeticiones",
+        "targetId": "tool-repetitions"
+      }
+    ],
+    "press": [
+      {
+        "label": "Prensa y materiales",
+        "targetId": "press"
+      },
+      {
+        "label": "Premios y reconocimientos",
+        "targetId": "awards"
+      }
     ]
   }
 }

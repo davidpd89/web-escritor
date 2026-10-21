@@ -47,11 +47,11 @@ MINIMAL_SHELL_EXCEPTIONS = {
     "ai/index.html": "machine-readable authority surface with intentional minimal navigation",
     "clubes-de-lectura/samuel-entre-mundos/guia-imprimible/index.html": "print-first public utility with intentional minimal shell",
 }
-EXPECTED_HEADER = ["/libros/", "/cuaderno/", "/herramientas/"]
+EXPECTED_HEADER = ["/libros/", "/recomendaciones/", "/herramientas/"]
 EXPECTED_EXPLORE_TERRITORY_IDS = [
     "works-hub",
     "author",
-    "notebook-hub",
+    "recommendations-hub",
     "tools-hub",
     "press",
 ]

@@ -63,6 +63,22 @@ class UnavailableSourcesTests(unittest.TestCase):
             with self.subTest(urls=urls),self.assertRaises(builder.ValidationError):
                 builder.validate_record(record,set(),date(2026,10,21))
 
+    def test_published_unavailable_pages_avoid_the_production_soft_404_signal(self):
+        # qa/production-global-integrity-audit.mjs rejects visible /404|página no encontrada/.
+        import json,re
+        data=json.loads((ROOT/'data'/'editoriales.json').read_text(encoding='utf-8'))
+        records=data['publishers']
+        checked=0
+        for record in records:
+            if not record.get('unavailable_urls'):
+                continue
+            checked+=1
+            page=(ROOT/'editoriales'/record['slug']/'index.html').read_text(encoding='utf-8')
+            visible=re.sub(r'<script.*?</script>|<style.*?</style>|<[^>]+>',' ',page,flags=re.S)
+            with self.subTest(slug=record['slug']):
+                self.assertIsNone(re.search(r'404|página no encontrada|page not found',visible,re.I))
+        self.assertGreaterEqual(checked,1)
+
 
 if __name__=='__main__':
     unittest.main()

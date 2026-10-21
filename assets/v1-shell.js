@@ -144,7 +144,8 @@
     const media = q('[data-preview-media]', dialog);
     const content = {
       'works-hub': ['Obras', 'Las dos novelas publicadas, fragmentos y rutas de lectura.'],
-      'notebook-hub': ['Cuaderno', 'Archivo de artículos y catálogo de libros recomendados.'],
+      'notebook-hub': ['Cuaderno', 'Archivo de artículos del autor.'],
+      'recommendations-hub': ['Libros recomendados', 'Catálogo de libros, editoriales y concursos.'],
       'tools-hub': ['Herramientas', 'Utilidades gratuitas para problemas concretos de escritura.'],
       author: ['Autor', 'Biografía, obra y trayectoria de David Porto Díaz.'],
       press: ['Prensa', 'Material de prensa, agenda y apariciones verificables.'],
@@ -392,7 +393,7 @@
   // TRACKED_ASSETS entry in check-asset-versions.py whenever either file's
   // content changes.
   const HOME_EDITORIAL_SRC = '/assets/v1-home-editorial-v3.js?v=9';
-  const EDITORIAL_INTERIOR_SRC = '/assets/v1-editorial-interior-v4.js?v=5';
+  const EDITORIAL_INTERIOR_SRC = '/assets/v1-editorial-interior-v4.js?v=6';
   const root = document.documentElement;
   const houseSvg = `
     <svg aria-hidden="true" viewBox="0 0 24 24" focusable="false">

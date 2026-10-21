@@ -294,7 +294,7 @@ def page_shell(*, title: str, description: str, canonical: str, main_html: str, 
 
     <footer class="site-footer"></footer>
 
-    <script defer src="/assets/v1-shell.js?v=20"></script>
+    <script defer src="/assets/v1-shell.js?v=22"></script>
     {script}
 </body>
 </html>
