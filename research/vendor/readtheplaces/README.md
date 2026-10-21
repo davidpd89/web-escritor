@@ -36,3 +36,22 @@ En PR posterior de ingeniería:
 - [x] SHA de cada blob y URL de origen registrados.
 - [x] No importado ni ejecutado, cero impacto en web.
 - [ ] Adaptación y pruebas de integración con datos reales (otra PR autorizada).
+
+## Ampliación 21/10 — prototipos completos de exploración, mapas y SEO
+
+Se han archivado **otros ocho ficheros sin modificar** del mismo repositorio MIT (comparables por blob SHA de Git):
+
+| Archivo literal | Función que podremos adaptar |
+|---|---|
+| `packages/tools/src/tiles.ts` | Composición WebP de mosaicos estáticos, reintentos y validación de tiles; depende de sharp y licencias del proveedor |
+| `packages/tools/src/plates.ts` | CLI para generar mapas de cada parada de libro; usa CARTO como proveedor, no ejecutar sin comprobar permisos |
+| `apps/web/src/lib/facets.ts` | País/autor/época agrupados; necesita resolver homónimos y mostrar ES |
+| `apps/web/src/lib/structured-data.ts` | Modelos de `BreadcrumbList`, `CollectionPage` y `Place`; no importar sin revisión campos de autor, copyright y URL de origen |
+| `apps/web/src/lib/atlas.ts` | GeoJSON de lugares; datos fuente/licencias aparte |
+| `apps/web/src/pages/waypoints.geojson.ts` | API estática GeoJSON, patrón de archivo publicado con build |
+| `apps/web/src/components/BrowseList.astro` | Tarjetas y listados homogéneos, dependiente de Astro |
+| `apps/web/src/pages/browse.astro` | Navegación por facetas, dependiente de Astro |
+
+**Revisión de incompatibilidades:** el original `structured-data.ts` anuncia `SearchAction` como vía para el **sitelinks search box** de Google. Esta función fue retirada globalmente en noviembre de 2024 ([Google oficial](https://developers.google.com/search/blog/2024/10/sitelinks-search-box)); NO replicar esa promesa. Revisar `isAccessibleForFree`, licencia declarada, geometría inferida y URL del libro antes de reutilizar JSON-LD. `facets.ts` crea slug solo por nombre de autor (posibles colisiones/homónimos); nuestros IDs estables prevalecen.
+
+Un mapa precompuesto WebP conserva buen LCP y evita decenas de contextos WebGL, pero **los derechos de teselas cartográficas no están cubiertos por la licencia MIT de los scripts**. Ver [#672](https://github.com/davidpd89/web-escritor/pull/672) para el camino HTML estático y QA antes de adopción. Estos archivos NO forman un componente ejecutable completo dentro de nuestra web; se han archivado como fuente verificable.
