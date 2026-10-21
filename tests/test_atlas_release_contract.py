@@ -16,14 +16,15 @@ SITE = "https://davidportodiaz.com"
 DESC = "Guía literaria de prueba con información contrastada, fuentes y navegación entre destinos y lugares documentados."
 
 
-def render(url, title, body="", ld=None, extra=""):
+def render(url, title, body="", ld=None, extra="", entity=None):
     canonical = SITE + url
     schema = ('<script type="application/ld+json">' +
               json.dumps({"@context": "https://schema.org", "@graph": ld}) + "</script>") if ld else ""
+    facets = f'<span data-pagefind-filter="atlas_entity:{entity}"></span>' if entity else ''
     return (f'<!doctype html><html lang="es"><head><title>{title}</title>'
             f'<meta name="description" content="{DESC} {title}">'
             f'<link rel="canonical" href="{canonical}">'
-            f'{schema}{extra}</head><body><main><h1>{title}</h1>{body}</main></body></html>')
+            f'{schema}{extra}</head><body><main><h1>{title}</h1>{facets}{body}</main></body></html>')
 
 
 def fixture(root):
@@ -36,13 +37,13 @@ def fixture(root):
             "/atlas-literario/destinos/ciudad-ejemplo/", "Lugares literarios en ciudad de ejemplo",
             '<a href="/atlas-literario/lugares/biblioteca-ejemplo/">Biblioteca ejemplo</a>',
             [{"@type": "BreadcrumbList", "itemListElement": []},
-             {"@type": "CollectionPage", "name": "Ciudad ejemplo"}]
+             {"@type": "CollectionPage", "name": "Ciudad ejemplo"}], entity="destination"
         ),
         "/atlas-literario/lugares/biblioteca-ejemplo/": render(
             "/atlas-literario/lugares/biblioteca-ejemplo/", "Biblioteca ejemplo y sus libros",
             '<a href="/atlas-literario/destinos/ciudad-ejemplo/">Volver</a>',
             [{"@type": "BreadcrumbList", "itemListElement": []},
-             {"@type": "Place", "name": "Biblioteca ejemplo"}]
+             {"@type": "Place", "name": "Biblioteca ejemplo"}], entity="place"
         ),
     }
     for url, content in pages.items():
@@ -104,6 +105,13 @@ class AtlasReleaseContract(unittest.TestCase):
     def test_manifest_rejects_duplicate_url(self):
         self.manifest["routes"].append(dict(self.manifest["routes"][0]))
         self.assertTrue(any("duplicada" in e for e in mod.audit(self.root, self.manifest)))
+
+    def test_missing_pagefind_type_filter_is_a_release_failure(self):
+        f = self.root / "atlas-literario/lugares/biblioteca-ejemplo/index.html"
+        f.write_text(f.read_text(encoding="utf-8").replace(
+            '<span data-pagefind-filter="atlas_entity:place"></span>', ''),
+            encoding="utf-8")
+        self.assertTrue(any("filtro Pagefind" in e for e in mod.audit(self.root, self.manifest)))
 
 
 if __name__ == "__main__":
