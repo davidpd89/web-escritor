@@ -159,6 +159,8 @@ def place_page(p: dict, d: dict, sources: dict, relation_names: list[str]) -> st
 
 def pages_from(data: dict) -> dict[str, str]:
     destinations, places = eligible(data)
+    if not destinations:
+        return {}  # Nunca generar hub indexable vacío
     ids = {d["id"]: d for d in destinations}
     src = {s["id"]: s for s in data.get("sources", [])}
     titles = {}
