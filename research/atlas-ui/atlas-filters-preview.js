@@ -24,6 +24,7 @@
     status: get('status'),
   };
   if (Object.values(ui).some(el => !el)) return;
+  const retryButton = get('retry');
 
   const BASE = '/atlas-literario/facets/';
   const PAGE_SIZE = 30;
@@ -78,7 +79,10 @@
     if (manifest) return manifest;
     manifest = await readJson(BASE + 'index.json');
     if (!Array.isArray(manifest.countries)) throw new Error('Manifiesto inválido');
-    fill(ui.country, manifest.countries.map(c => [c.iso2, c.iso2]), 'País');
+    let displayNames = null;
+    try { displayNames = new Intl.DisplayNames(['es'], { type: 'region' }); } catch (_) {}
+    fill(ui.country, manifest.countries.map(c => [c.iso2,
+      displayNames?.of(c.iso2) || c.iso2]), 'País');
     return manifest;
   };
 
@@ -89,7 +93,8 @@
   const loadCity = async slug => {
     if (!slug || !safeSlug(slug)) return null;
     if (!byCity.has(slug)) {
-      byCity.set(slug, readJson(BASE + 'destinos/' + slug + '.json'));
+      byCity.set(slug, readJson(BASE + 'destinos/' + slug + '.json')
+        .catch(error => { byCity.delete(slug); throw error; }));
     }
     return byCity.get(slug);
   };
@@ -177,6 +182,7 @@
   };
 
   const handleError = error => {
+    if (retryButton) retryButton.hidden = false;
     message('No se han podido cargar los lugares. Puedes navegar por los enlaces del directorio.');
     console.warn('Atlas facets preview:', error);
   };
@@ -209,6 +215,11 @@
   root.addEventListener('focusin', boot, { once: true });
   root.addEventListener('pointerdown', boot, { once: true });
   if (location.hash.includes('d=')) boot();
+  retryButton?.addEventListener('click', () => {
+    retryButton.hidden = true;
+    started = false;
+    boot();
+  });
 
   ui.country.addEventListener('change', () => {
     void refreshCountry().catch(handleError);
