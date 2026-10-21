@@ -12,9 +12,9 @@ Investigación hija de [PR padre #666](https://github.com/davidpd89/web-escritor
 | P3 — [#669 Contrato](https://github.com/davidpd89/web-escritor/pull/669) | Schema, estados, integridad relacional y ejemplos sintéticos | #666, revisión fuentes | QA offline en momento autorizado |
 | P4 — [#670 Orquestación (ESTA PR)](https://github.com/davidpd89/web-escritor/pull/670) | Arquitectura de ingesta → curación → snapshot → HTML y roadmap | #666 y consulta P1-P3 | No tocar cron existente, identificar gates y responsables |
 | P5 — [#671 Muestreador Open Library](https://github.com/davidpd89/web-escritor/pull/671) | 1 adapter local Open Library + 1 adapter Wikidata, caché y checkpoint | P1+P3 | Snapshot **candidatos** sin publicación, O(1) llamadas/candidato o dumps |
-| P6 — Importador cultural mundial | Extractos Geofabrik acotados + GeoNames, merges por IDs | P1+P3 | Duplicados, licencias y precisión controlados |
+| P6 — [#673 Overture POI por bbox](https://github.com/davidpd89/web-escritor/pull/673) + futura ingesta PBF/DuckDB a escala | Extractos Geofabrik acotados + GeoNames, merges por IDs | P1+P3 | Duplicados, licencias y precisión controlados |
 | P7 — Curación Sheets | Adaptar patrón `import-reading-sheet.py`: batchGet, review y diffs | P3+P5/P6 | Solo aprobados a vista pública, staging cerrado |
-| P8 — Generación de páginas | Refactor `build-atlas-literario.py` y plantillas site shell, detalles/destinos/listas | P3+P7 | Sin enlaces huérfanos, canonical, sitemap/Pagefind, accesibilidad y QA móvil |
+| P8 — [#672 Preview HTML, SEO, filtros por destino](https://github.com/davidpd89/web-escritor/pull/672) + integración real pendiente | Refactor `build-atlas-literario.py` y plantillas site shell, detalles/destinos/listas | P3+P7 | Sin enlaces huérfanos, canonical, sitemap/Pagefind, accesibilidad y QA móvil |
 | P9 — Mapa (OPCIONAL) | Leaflet con tiles legales o PMTiles; vista lista sin JS | P8 | Performance, licencias, coste, SEO y fallback demostrado |
 | P10 — Publicación con control | Extender coordinador y allowed paths de #661, integridad y lock | P8; P9 opcional | QA por SHA, sin merges simultáneos, recuperación fallos |
 | P11 — Distribución | Reusar enfoques RSS/Pinterest de #662 cuando estén fusionados | P8+P10 | Pines a URLs propias, licencias correctas de imágenes |
@@ -119,3 +119,11 @@ StaticSite.build(projection) -> generated paths
 ### Estado real de P5 al 21/10/2026
 
 [#671](https://github.com/davidpd89/web-escritor/pull/671) prepara código offline de lectura de dumps Works como candidaturas, pero **no es todavía el adaptador normalizado final**: faltan contrato #669, licencia real y checkpoints para el mundo entero. Esta fase se divide en P5a (muestreador ya creado) y P5b (conversión/homologación posterior), sin autopublicar nada.
+
+### 21/10/2026: PR nuevas reales y dependencias
+
+- [#672](https://github.com/davidpd89/web-escritor/pull/672): generador estático de índice/destino/lugar (previa, no producción), sin mapa embebido, gate de evidencia, HTML y JSON-LD seguros, canonical, breadcrumbs, shards por destino para filtros sin cargar un JSON mundial. No se ha ejecutado QA.
+- [#673](https://github.com/davidpd89/web-escritor/pull/673): Overture Places como complemento mundial gratuito (GeoJSON por zonas) para POIs culturales, exporta **solo candidatos**. Pendiente P6b (GeoParquet a escala), taxonomía real y pruebas.
+- [#669](https://github.com/davidpd89/web-escritor/pull/669) corregida: relaciones/rutas aprobadas ya no pueden apuntar a entidades candidatas; acepta `overture_gers_id` y versión del origen, sin confundir confianza de POI con certeza narrativa. Pruebas escritas, aún no ejecutadas.
+
+**Importante:** los ejemplos de CLI de Overture no significan descargas realizadas ni cobertura literaria del dataset. Ninguna de las tres PR incorpora código a web actual hasta permiso y validación.
