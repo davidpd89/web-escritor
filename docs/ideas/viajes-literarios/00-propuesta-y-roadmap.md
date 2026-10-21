@@ -10,7 +10,7 @@ Crear un atlas de lugares relacionados con libros y escritores para descubrir de
 2. **Me interesa un libro o saga** → lugares narrados, reales que inspiraron la obra, localizaciones de adaptaciones y lugares biográficos del autor; cada tipo explícito y separado.
 3. **Me interesa un autor** → lugares **públicos** y documentados asociados a su trayectoria, obras, rutas y recursos culturales. No mostrar direcciones privadas ni residencias particulares actuales.
 
-Propuesta de nombre: **Viajes literarios**. Posible URL: **/viajes-literarios/** (pendiente de validar con navegación, canonical y SEO antes de implementarla).
+Propuesta de nombre visible: **Viajes literarios**. **Corrección tras auditoría del 21/10:** en main ya existe el builder original de Atlas con canonical **/atlas-literario/**, aunque no publica fichas; preferir **/atlas-literario/** como ruta técnica provisional y «Viajes literarios» como título editorial. **/viajes-literarios/** queda como alternativa, nunca segunda URL indexada en paralelo. Ver [04-auditoria-legado-prs-2026-10-21.md](04-auditoria-legado-prs-2026-10-21.md).
 Entrada desde Cuaderno, enlaces recíprocos al catálogo de **/recomendaciones/** y futuras fichas **/recomendaciones/libros/<slug>/**; sin crear un segundo catálogo de obras.
 Cada lugar tiene UNA ficha canónica; aparece bajo múltiples libros, ciudades, temáticas y rutas mediante relaciones. Un destino puede incluir cero, una o muchas obras; una obra puede enlazar múltiples destinos.
 
@@ -19,7 +19,7 @@ Cada lugar tiene UNA ficha canónica; aparece bajo múltiples libros, ciudades, 
 
 ## 2. Descubrimiento dentro del repositorio: NO partir de cero
 
-Ya existe **data/atlas-literario.json** desde 2026-08-18, con seis categorías y 12 propuestas en estado planned. Incluye Harry Potter (separar novela/rodaje), Don Quijote, Drácula/Whitby, Joanina, Strahov, Long Room, Urueña, Barrio de las Letras, Livraria Lello, Hay-on-Wye, Wigtown y bibliotecas singulares españolas. Este material es un **backlog semilla**, no prueba de que haya fichas publicadas ni de que sus asociaciones estén verificadas.
+Ya existe **data/atlas-literario.json** desde 2026-08-18, con seis categorías y 12 propuestas en estado planned; también **scripts/build-atlas-literario.py**, **assets/atlas-literario.{js,css}** y **tests/test-atlas-literario.py** de la [PR #59 ya fusionada](https://github.com/davidpd89/web-escritor/pull/59). El generador **no crea páginas individuales**, pese a que sus tarjetas apuntan a ellas. Incluye Harry Potter (separar novela/rodaje), Don Quijote, Drácula/Whitby, Joanina, Strahov, Long Room, Urueña, Barrio de las Letras, Livraria Lello, Hay-on-Wye, Wigtown y bibliotecas singulares españolas. Este material es un **backlog semilla**, no prueba de que haya fichas publicadas ni de que sus asociaciones estén verificadas.
 No renombrar, eliminar o publicar esas entradas automáticamente. En futura implementación, migración idempotente con equivalencia entre antiguo slug y nuevo ID, trazabilidad y decisión editorial expresa.
  
 Arquitectura real del sitio, observada en main:
@@ -84,4 +84,4 @@ Los 12 elementos de data/atlas-literario.json forman backlog alternativo. Las pr
 
 Nombre definitivo y ubicación de menú; nivel de detalle en bibliotecas/librerías frente a novelas; mapas desde el MVP o fase posterior; países e idiomas priorizados; volumen aceptable de revisión editorial; posibilidad de rutas descargables; atribución/monetización adicional; momento de crear Sheets y secretos. Por defecto, investigar ES-ES, localizaciones reales y alcance internacional gradual.
 
-Siguientes documentos: **01-modelo-datos-drive.md**, **02-fuentes-y-repos.md** y **03-piloto-y-qa.md**.
+Documentación complementaria: **01-modelo-datos-drive.md**, **02-fuentes-y-repos.md**, **03-piloto-y-qa.md**, **04-auditoria-legado-prs-2026-10-21.md**, **05-captacion-gratuita-automatizacion-2026-10-21.md**, **06-pilotos-reales-evidencias-2026-10-21.md** y **07-reutilizacion-tecnica-y-piloto-sin-pago.md**.
