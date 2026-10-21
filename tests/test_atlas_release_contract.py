@@ -121,5 +121,19 @@ class AtlasReleaseContract(unittest.TestCase):
                             mod.audit(self.root, self.manifest)))
 
 
+    def test_atlas_to_reading_book_link_needs_real_html(self):
+        url = "/atlas-literario/lugares/biblioteca-ejemplo/"
+        f = self.root / url.lstrip("/") / "index.html"
+        text = f.read_text(encoding="utf-8").replace(
+            "</main>", '<a href="/recomendaciones/libros/coraline/">Coraline</a></main>'
+        )
+        f.write_text(text, encoding="utf-8")
+        self.assertTrue(any("libro sin HTML" in e for e in mod.audit(self.root, self.manifest)))
+        book = self.root / "recomendaciones/libros/coraline/index.html"
+        book.parent.mkdir(parents=True, exist_ok=True)
+        book.write_text("<h1>Coraline</h1>", encoding="utf-8")
+        self.assertEqual(mod.audit(self.root, self.manifest), [])
+
+
 if __name__ == "__main__":
     unittest.main()
