@@ -66,6 +66,46 @@ class GoogleRatingsTests(unittest.TestCase):
         self.assertEqual(record["puntuacion"], 3.9)
         self.assertEqual(record["numero_valoraciones"], 100)
 
+    def test_hardcover_aggregate_matches_exact_edition_and_author(self):
+        response = {"data": {"editions": [{
+            "isbn_13": "9788498382372", "isbn_10": None,
+            "book": {"title": "Coraline", "slug": "coraline",
+                     "rating": 4.36, "ratings_count": 1240,
+                     "contributions": [{"contribution": "Author",
+                                         "author": {"name": "Neil Gaiman"}}]}}
+        ]}}
+        record = ratings.select_hardcover_rating(BOOKS[0], response)
+        self.assertEqual(record["puntuacion"], 4.36)
+        self.assertEqual(record["numero_valoraciones"], 1240)
+        self.assertEqual(record["fuente"], "hardcover")
+        self.assertEqual(record["url"], "https://hardcover.app/books/coraline")
+        response["data"]["editions"][0]["book"]["contributions"][0]["author"]["name"] = "Otra persona"
+        self.assertIsNone(ratings.select_hardcover_rating(BOOKS[0], response))
+        response["data"]["editions"][0]["book"]["contributions"][0]["author"]["name"] = "Neil Gaiman"
+        response["data"]["editions"][0]["isbn_13"] = "9788425374012"
+        self.assertIsNone(ratings.select_hardcover_rating(BOOKS[0], response))
+
+    def test_hardcover_and_google_books_keep_independent_averages(self):
+        market = {"schema_version": 1, "offers": [], "ratings": [{
+            "fuente": "google_books", "libro_id": "lib-0001",
+            "puntuacion": 3.7, "numero_valoraciones": 8,
+            "url": "https://books.google.com/books?id=abc",
+            "actualizado_en": "2026-10-20T10:00:00Z",
+            "caduca_en": "2026-10-27T10:00:00Z"}]}
+        response = {"data": {"editions": [{
+            "isbn_13": "9788498382372",
+            "book": {"title": "Coraline", "slug": "coraline",
+                     "rating": 4.4, "ratings_count": 300,
+                     "contributions": [{"author": {"name": "Neil Gaiman"}}]}}]}}
+        out, stats = ratings.refresh({"libros": BOOKS}, market,
+            lambda isbn: response if isbn == "9788498382372" else {"data": {"editions": []}},
+            now=datetime(2026,10,21,10,tzinfo=timezone.utc), budget=2,
+            source="hardcover")
+        self.assertEqual(stats["updated"], 1)
+        self.assertEqual(len(out["ratings"]), 2)
+        self.assertEqual({r["fuente"] for r in out["ratings"]},
+                         {"hardcover", "google_books"})
+
     def test_bounded_refresh_keeps_goodreads_legacy_and_unrated_clean(self):
         market = {"schema_version": 1, "offers": [], "ratings": [
             {"libro_id": "lib-0001", "url": "https://www.goodreads.com/book/show/6785288.Coraline",
