@@ -103,6 +103,81 @@ def select_rating(book: dict, api_response: dict) -> dict | None:
     }
 
 
+def select_hardcover_rating(book: dict, api_response: dict) -> dict | None:
+    """Optional server-side Hardcover aggregate; only exact edition matching."""
+    editions = (api_response.get("data") or {}).get("editions") or []
+    wanted = isbn13(book.get("isbn13", ""))
+    if not wanted:
+        return None
+    matches = []
+    for edition in editions:
+        if not isinstance(edition, dict):
+            continue
+        if wanted not in {isbn13(edition.get("isbn_13", "")),
+                          isbn13(edition.get("isbn_10", ""))}:
+            continue
+        source = edition.get("book") or {}
+        if not title_matches(str(source.get("title") or ""), book["titulo"]):
+            continue
+        contributors = source.get("contributions") or []
+        authors = [key(str((c.get("author") or {}).get("name", "")))
+                   for c in contributors if isinstance(c, dict)
+                   and c.get("contribution") in (None, "Author")]
+        if not any(a == key(name) for a in authors for name in book.get("autores", [])):
+            continue
+        slug = str(source.get("slug") or "")
+        rating, votes = source.get("rating"), source.get("ratings_count")
+        if not re.fullmatch(r"[a-z0-9]+(?:-[a-z0-9]+)*", slug):
+            continue
+        if isinstance(rating, bool) or isinstance(votes, bool):
+            continue
+        if not isinstance(rating, (int, float)) or not 1 <= rating <= 5:
+            continue
+        if not isinstance(votes, int) or votes < 1:
+            continue
+        matches.append((votes, float(rating), slug))
+    if not matches:
+        return None
+    votes, rating, slug = max(matches)
+    return {"libro_id": book["id"], "puntuacion": round(rating, 2),
+            "numero_valoraciones": votes, "fuente": "hardcover",
+            "url": "https://hardcover.app/books/" + slug}
+
+
+def hardcover_response(isbn: str, api_token: str, timeout=18) -> dict:
+    """Query modeled on MIT-licensed Bookery provider. Never expose token in JS."""
+    query = """
+    query ByIsbn($isbn: String!) {
+      editions(
+        where: {_or: [{isbn_13: {_eq: $isbn}}, {isbn_10: {_eq: $isbn}}]},
+        limit: 5
+      ) {
+        isbn_13
+        isbn_10
+        book {
+          title slug rating ratings_count
+          contributions { author {name} contribution }
+        }
+      }
+    }
+    """
+    payload = json.dumps({"query": query, "variables": {"isbn": isbn}}).encode("utf-8")
+    request = Request("https://api.hardcover.app/v1/graphql", data=payload,
+                      headers={"Authorization": "Bearer " + api_token,
+                               "Content-Type": "application/json",
+                               "User-Agent": "DavidPortoReadingCatalogue/1.0"})
+    try:
+        with urlopen(request, timeout=timeout) as response:
+            result = json.load(response)
+    except HTTPError as exc:
+        raise RuntimeError(f"Hardcover HTTP {exc.code}") from exc
+    except (URLError, TimeoutError) as exc:
+        raise RuntimeError("Hardcover temporalmente no disponible") from exc
+    if not isinstance(result, dict) or result.get("errors"):
+        raise RuntimeError("Hardcover GraphQL error o respuesta inválida")
+    return result
+
+
 def google_response(isbn: str, key_env: str, timeout=18) -> dict:
     params = urlencode({"q": f"isbn:{isbn}", "maxResults": 10, "printType": "books",
                         "key": key_env})
@@ -123,7 +198,7 @@ def google_response(isbn: str, key_env: str, timeout=18) -> dict:
 
 
 def refresh(catalogue: dict, existing: dict, provider, *, now: datetime,
-            budget: int) -> tuple[dict, dict]:
+            budget: int, source: str = "google_books") -> tuple[dict, dict]:
     """Merge provider-sourced ratings, keep Goodreads legacy separate.
 
     Repeated runs cannot create duplicates per (book, source). No network calls
@@ -131,13 +206,21 @@ def refresh(catalogue: dict, existing: dict, provider, *, now: datetime,
     """
     if not 0 <= budget <= 100:
         raise ValueError("El presupuesto debe estar entre 0 y 100 llamadas")
+    if source not in {"google_books", "hardcover"}:
+        raise ValueError("Origen de valoración desconocido")
     others = [r for r in existing.get("ratings", [])
-              if r.get("fuente", "goodreads") != "google_books"]
-    google_old = {r.get("libro_id"): r for r in existing.get("ratings", [])
-                  if r.get("fuente") == "google_books"}
+              if r.get("fuente", "goodreads") != source]
+    old_source = {r.get("libro_id"): r for r in existing.get("ratings", [])
+                  if r.get("fuente") == source}
     stats = {"attempted": 0, "updated": 0, "unrated": 0, "failures": []}
-    after = dict(google_old)
-    for book in catalogue.get("libros", []):
+    after = dict(old_source)
+    published = [b for b in catalogue.get("libros", [])
+                 if b.get("estado") in {"listo", "publicado"}
+                 and isbn13(b.get("isbn13", ""))]
+    # Rotate fair slices to cover the entire growing catalogue.
+    offset = (now.date().toordinal() * max(budget, 1)) % len(published) if published else 0
+    queued = published[offset:] + published[:offset]
+    for book in queued:
         if stats["attempted"] >= budget:
             break
         if book.get("estado") not in {"listo", "publicado"} or not isbn13(book.get("isbn13", "")):
@@ -145,7 +228,7 @@ def refresh(catalogue: dict, existing: dict, provider, *, now: datetime,
         stats["attempted"] += 1
         try:
             response = provider(book["isbn13"])
-            rated = select_rating(book, response)
+            rated = (select_rating if source == "google_books" else select_hardcover_rating)(book, response)
             if rated is None:
                 stats["unrated"] += 1
                 # Do not resurrect stale data by refreshing timestamps blindly.
@@ -181,6 +264,7 @@ def main() -> int:
     source = parser.add_mutually_exclusive_group(required=True)
     source.add_argument("--fixture", type=Path, help="Respuestas por ISBN para pruebas offline")
     source.add_argument("--live", action="store_true", help="API oficial Google Books")
+    source.add_argument("--hardcover", action="store_true", help="API Hardcover opcional")
     parser.add_argument("--catalogue", type=Path, default=ROOT / "data/reading-catalogue.json")
     parser.add_argument("--market", type=Path, default=ROOT / "assets/reading-market.json")
     parser.add_argument("--out", type=Path, help="Ruta alternativa; no altera la web")
@@ -188,17 +272,22 @@ def main() -> int:
     parser.add_argument("--now", type=str, help="Instante ISO UTC de prueba")
     args = parser.parse_args()
     api_key = os.environ.get("GOOGLE_BOOKS_API_KEY", "").strip()
+    hardcover_key = os.environ.get("HARDCOVER_API_KEY", "").strip()
     if args.live and not api_key:
         parser.error("GOOGLE_BOOKS_API_KEY no configurada. No se hace llamada HTTP.")
+    if args.hardcover and not hardcover_key:
+        parser.error("HARDCOVER_API_KEY no configurada. No se hace llamada HTTP.")
     fixture = json.loads(args.fixture.read_text(encoding="utf-8")) if args.fixture else {}
     provider = (lambda isbn: fixture.get(isbn, {"items": []})) if args.fixture else (
-        lambda isbn: google_response(isbn, api_key))
+        (lambda isbn: hardcover_response(isbn, hardcover_key)) if args.hardcover
+        else (lambda isbn: google_response(isbn, api_key)))
     now = datetime.fromisoformat(args.now.replace("Z", "+00:00")) if args.now else datetime.now(timezone.utc)
     if now.tzinfo is None:
         parser.error("--now debe contener zona horaria")
     catalogue = json.loads(args.catalogue.read_text(encoding="utf-8"))
     market = json.loads(args.market.read_text(encoding="utf-8"))
-    result, stats = refresh(catalogue, market, provider, now=now, budget=args.budget)
+    result, stats = refresh(catalogue, market, provider, now=now, budget=args.budget,
+                            source="hardcover" if args.hardcover else "google_books")
     output = args.out or args.market
     changed = write_changed(output, result)
     print(json.dumps({"output": str(output), "changed": changed, **stats},
