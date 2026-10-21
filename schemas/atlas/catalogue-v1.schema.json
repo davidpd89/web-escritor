@@ -200,7 +200,8 @@
                 "film_location",
                 "landscape",
                 "festival",
-                "other"
+                "other",
+                "historic_site"
               ]
             },
             "geo_precision": {
@@ -453,7 +454,10 @@
             "osm_record",
             "open_library",
             "academic",
-            "other"
+            "other",
+            "overture_record",
+            "geonames_record",
+            "whg_record"
           ]
         },
         "evidence_summary": {
