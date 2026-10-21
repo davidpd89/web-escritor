@@ -5,7 +5,7 @@
 - `research/vendor/fuzzysearch/index.js`: copiado **literal** de [index.js](https://github.com/bevacqua/fuzzysearch/blob/master/index.js), Git blob `9efe386828fb977113fe2611cf53a064417a1a91`.
 - `research/vendor/fuzzysearch/LICENSE.upstream`: copiado **literal** de [LICENSE](https://github.com/bevacqua/fuzzysearch/blob/master/LICENSE), Git blob `566d0933ae925f69c02129a024ad071d47800d52`.
 - Se mantiene sin import en web; habría que convertir el export CommonJS/encapsularlo para un módulo ES moderno.
-- Uso potencial tras QA: permitir `brss` coincidir con `bibliotecas rusia` o búsquedas con letras salteadas dentro de **un shard pequeño por destino**, normalizando acentos y mayúsculas previamente.
+- Uso potencial tras QA: permitir `bbltc` coincidir con `biblioteca` o búsquedas con letras salteadas dentro de **un shard pequeño por destino**, normalizando acentos y mayúsculas previamente.
 - **No usar esta función para buscar TODO el planeta en cliente**. Pagefind existente debe seguir siendo la entrada global de texto; esta librería opcional solo si aporta resultados a los filtros locales y su tamaño real y accesibilidad superan `String.includes` actual.
 - No interpretar fuzzy textual como equivalencia de entidades para merge editorial: autor/libro/POI con nombre parecido no es identidad aprobada.
 
