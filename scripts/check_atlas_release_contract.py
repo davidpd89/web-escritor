@@ -121,6 +121,10 @@ def audit(root: Path, manifest: dict) -> list[str]:
             continue
         source = path.read_text(encoding="utf-8")
         lower = source.casefold()
+        # Pagefind processes one combined corpus: tagging only Atlas body would
+        # drop unrelated legacy pages from the global index (Pagefind docs).
+        if "data-pagefind-body" in lower:
+            errors.append(url + " introduce data-pagefind-body parcial: riesgo global Pagefind")
         for needle in FORBIDDEN_PUBLIC_TERMS:
             if needle in lower:
                 errors.append(url + " filtra información de revisión: " + needle)
