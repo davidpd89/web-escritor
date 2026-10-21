@@ -328,6 +328,8 @@ def ingest(config, root, cache, *, max_new=None, max_requests=None, apply=False,
             record = None
             try:
                 record = penguin_edition(http.get(url, ttl=7 * 86400).decode('utf-8'), url)
+                if not record.get('sinopsis_breve'):
+                    raise SourceError('Sinopsis editorial ausente; se conserva la ficha anterior o queda pendiente')
                 if author_identity_conflicts(record,state):
                     raise SourceError('Autor homónimo o perfil editorial distinto; requiere desambiguación')
                 record['cover_use_basis'] = source['cover_use_basis']

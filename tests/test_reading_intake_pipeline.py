@@ -23,6 +23,7 @@ URL = 'https://www.penguinlibros.com/es/fantasia/123-libro-prueba-9780140328721'
 
 def document(**changes):
     product = {'reference': '9780140328721', 'name': 'Obra de prueba', 'category_name': 'Fantasía',
+               'description': '<p>Una viajera encuentra una carta olvidada y sigue sus pistas hasta una ciudad abandonada, donde descubre los secretos de una familia separada por la guerra.</p>',
                'features': [{'name': k, 'value': v} for k, v in {
                    'Autor': 'Autora de prueba', 'Editorial': 'Salamandra', 'Idioma': 'ES',
                    'Region': 'ES', 'cod_tipo_material': 'ZLIB', 'Fecha de publicación': '2026-10-10',
@@ -176,7 +177,7 @@ class ContractTests(unittest.TestCase):
             url2 = URL.replace('9780140328721', '9780140449136')
             bad = URL.replace('9780140328721', '9780141187761')
             index = 'https://www.penguinlibros.com/es/'
-            responses = {index: ''.join('<a href="' + u + '">book</a>' for u in [bad, URL, url2]).encode(), bad: b'<html>Incomplete edition</html>',
+            responses = {index: ''.join('<a href="' + u + '">book</a>' for u in [bad, URL, url2]).encode(), bad: document(reference='9780141187761', description='').replace(URL, bad).encode(),
                          URL: document().encode(),
                          url2: document(reference='9780140449136', name='Segunda obra de prueba').replace(URL, url2).replace('prueba.jpg', 'prueba2.jpg').encode()}
             for suffix, color in [('prueba.jpg', 'green'), ('prueba2.jpg', 'red')]:
@@ -196,6 +197,7 @@ class ContractTests(unittest.TestCase):
                 saved = (root / 'data/reading-catalogue.json').read_bytes()
                 second = pipeline.ingest(config, root, root / '.cache', apply=True, today='2026-10-20')
             self.assertEqual((first['stats']['accepted'], first['stats']['pending']), (2, 1))
+            self.assertIn('Sinopsis editorial ausente',first['state']['items']['isbn13:9780141187761']['motivo'])
             self.assertEqual(second['stats']['accepted'], 0)
             self.assertEqual((root / 'data/reading-catalogue.json').read_bytes(), saved)
             result = json.loads(saved)
@@ -215,10 +217,20 @@ class ContractTests(unittest.TestCase):
             self.assertEqual(refreshed['libros'][1]['slug'], result['libros'][1]['slug'])
             self.assertEqual(refreshed['libros'][1]['fecha_publicacion'], '2026-10-10')
             self.assertIn({'libro_id': result['libros'][1]['id'], 'categoria_id': 'halloween'}, refreshed['libro_categorias'])
+            # A partial source response must never replace a real synopsis with
+            # the generated bibliographic fallback on the next weekly refresh.
+            complete = responses[URL]
+            responses[URL] = document(description='').encode()
+            with patch.object(pipeline, 'CachedHTTP', FakeHTTP):
+                missing = pipeline.ingest(config, root, root / '.cache', apply=True, today='2026-11-05')
+            preserved = json.loads((root / 'data/reading-catalogue.json').read_text(encoding='utf-8'))
+            self.assertEqual(preserved['libros'][1],refreshed['libros'][1])
+            self.assertIn('Sinopsis editorial ausente',missing['state']['items']['isbn13:9780140328721']['ultima_revision_error'])
+            responses[URL] = complete
             # A changed source identity is quarantined while its public entry survives.
             responses[URL] = responses[URL].replace(b'Autora de prueba', b'Otra autora')
             with patch.object(pipeline, 'CachedHTTP', FakeHTTP):
-                fourth = pipeline.ingest(config, root, root / '.cache', apply=True, today='2026-11-05')
+                fourth = pipeline.ingest(config, root, root / '.cache', apply=True, today='2026-11-13')
             evidence = fourth['state']['items']['isbn13:9780140328721']
             self.assertEqual(evidence['estado_ingesta'], 'publicado')
             self.assertIn('ultima_revision_error', evidence)
