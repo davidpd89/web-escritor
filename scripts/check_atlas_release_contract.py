@@ -38,6 +38,7 @@ class Inspect(HTMLParser):
         self.robots: list[str] = []
         self.hrefs: list[str] = []
         self.script_src: list[str] = []
+        self.pagefind_filters: list[str] = []
         self.jsonld_texts: list[str] = []
         self.in_jsonld = False
 
@@ -53,6 +54,8 @@ class Inspect(HTMLParser):
             self.description.append(attrs.get("content") or "")
         if tag == "meta" and attrs.get("name", "").lower() == "robots":
             self.robots.append(attrs.get("content") or "")
+        if attrs.get("data-pagefind-filter"):
+            self.pagefind_filters.append(attrs["data-pagefind-filter"])
         if tag == "a":
             self.hrefs.append(attrs.get("href") or "")
         if tag == "script":
@@ -140,6 +143,8 @@ def audit(root: Path, manifest: dict) -> list[str]:
         if any("noindex" in value.lower() for value in page.robots):
             errors.append(url + " noindex en página aprobada")
         if kind != "hub":
+            if not any(f"atlas_entity:{kind}" in value.split(",") for value in page.pagefind_filters):
+                errors.append(url + " sin filtro Pagefind de tipo de entidad")
             if not page.jsonld_texts:
                 errors.append(url + " sin JSON-LD")
             else:
