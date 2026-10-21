@@ -52,6 +52,8 @@
     "enabled": false,
     "provider": "penguin_libros",
     "requests_per_day": 30,
+    "google_ebooks_enabled": false,
+    "google_ebooks_requests_per_day": 10,
     "ttl_hours": 24,
     "notes": "Precio de la TIENDA EDITORIAL, nunca de Amazon. Activar solo cuando robots, condiciones, price_amount/price y cobertura esten comprobados. Sin LLM, sin cookies ni claves. Un precio no validado no se muestra."
   },
