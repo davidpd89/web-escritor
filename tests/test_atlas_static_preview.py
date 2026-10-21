@@ -58,18 +58,18 @@ class StaticAtlasTest(unittest.TestCase):
     def test_cannot_publish_unapproved_place_or_destination(self):
         data = fixture()
         data["places"][0]["status"] = "candidate"
-        self.assertEqual(set(mod.pages_from(data)), {"/atlas-literario/"})
+        self.assertEqual(mod.pages_from(data), {})
         data = fixture()
         data["destinations"][0]["status"] = "candidate"
-        self.assertEqual(set(mod.pages_from(data)), {"/atlas-literario/"})
+        self.assertEqual(mod.pages_from(data), {})
 
     def test_no_place_without_sources_or_original_editorial_text(self):
         data = fixture()
         data["sources"][0]["retrieved_at"] = ""
-        self.assertEqual(set(mod.pages_from(data)), {"/atlas-literario/"})
+        self.assertEqual(mod.pages_from(data), {})
         data = fixture()
         data["places"][0]["summary_original"] = "Corto"
-        self.assertEqual(set(mod.pages_from(data)), {"/atlas-literario/"})
+        self.assertEqual(mod.pages_from(data), {})
 
     def test_json_ld_escapes_script_end_and_html(self):
         data = fixture()
