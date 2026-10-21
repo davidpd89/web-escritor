@@ -54,3 +54,9 @@ El publicador de [PR #661](https://github.com/davidpd89/web-escritor/pull/661) t
 - El nuevo convertidor de [#673](https://github.com/davidpd89/web-escritor/pull/673) solo produce `places` candidatas con un `destination_id` y `source_id` de la base editorial. Es un **fragmento interno** y debe unirse al snapshot antes de validación completa. No confundir contrato de 9 colecciones con un CSV/fragmento de importador.
 
 Las decisiones de esquema vigentes están en [ADR-000](https://github.com/davidpd89/web-escritor/blob/research/viajes-literarios-atlas-2026-10-21/docs/ideas/viajes-literarios/README.md); este documento solo detalla implementación y pruebas pendientes.
+
+## Auditoría correctiva posterior (21/10/2026)
+
+El gate Python anterior podía **aprobar un lugar con una fuente que solo tuviera `id`**, sin título, fecha ni evidencia, porque comprobaba únicamente la existencia de `source_ids`. Ya está corregido: para lugares y relaciones `approved`, cada fuente referenciada exige URL HTTPS, título, `retrieved_at` y `evidence_summary`; una imagen `approved` no puede apuntar a un lugar `candidate`. Las listas `author_ids`, `source_ids`, `image_ids` y `place_ids` malformadas generan errores de contrato, no excepciones inesperadas. **13 pruebas sintéticas escritas, NO ejecutadas**.
+
+La comprobación Python sigue siendo **suplementaria**, no sustituye a JSON Schema 2020-12 ni verifica que la URL responda 200 o que el texto fuente sea legalmente reproducible. El constructor HTML #672 conserva su propio gate provisional y deberá reutilizar el contrato de 9 colecciones durante la integración. No afirmar mergeable hasta QA.
