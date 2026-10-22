@@ -31,13 +31,30 @@ def main() -> None:
     assert 'href="https://davidportodiaz.com/apoyar/"' in html
     assert '<meta http-equiv="Content-Security-Policy"' in html
 
-    # Sin enlace de pago, sin formulario, sin éxito falso ni inclusión de SDK.
+    # El shell añade el formulario EXISTENTE de newsletter a Explorar.
+    # Comprobar el contenido real renderizado: nunca un checkout dentro de main.
+    assert '<form class="explore-subscribe"' in html
+    main_match = re.search(
+        r'<main\\b[^>]*\\bid="contenido"[^>]*>(.*?)</main>',
+        html,
+        flags=re.I | re.S,
+    )
+    assert main_match, "Debe mantenerse el contenido principal"
+    main_html = main_match.group(1)
+    assert not re.search(r'<form\\b', main_html, flags=re.I), (
+        "La sección de apoyo no debe incorporar formularios de pago"
+    )
+    assert not re.search(
+        r'href=["\\\']https?://(?:[^/]*\\.)?(?:paypal\\.com|stripe\\.com|ko-fi\\.com)',
+        main_html, flags=re.I
+    ), "La vista previa no debe contener enlaces de cobro"
     assert "Los métodos de pago todavía no están configurados" in html
     assert not re.search(r'href="https?://(?:[^/]*\.)?(?:paypal\.com|stripe\.com|ko-fi\.com)', source)
     assert '<form' not in source
-    assert 'paypalobjects.com' not in source
-    assert 'sk_live_' not in source
-    assert 'hosted_button_id' not in source
+    assert 'paypalobjects.com' not in html
+    assert 'js.stripe.com' not in html
+    assert 'sk_live_' not in html
+    assert 'hosted_button_id' not in html
     assert 'role="status"' in source
     assert '/privacidad.html' in source and '/aviso-legal.html' in source
 

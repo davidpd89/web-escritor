@@ -10,7 +10,7 @@ Investigación aplicada + piezas de HTML/CSS listas para adaptar. No crear boton
 
 **Problema:** una página en `apoyar/index.html` sin proveedor verificado podría publicarse o generar un enlace roto; un simple `noindex` no la protegería de visitas directas.
 
-**Solución implementada:** `scripts/build-support-preview.py` genera la página **en `lab/donaciones-preview/index.html`**, no en `/apoyar/`. Usa `scripts/site_shell.py` para inyectar **cabecera, Explorar, pie y CSP reales**, conservando la arquitectura del repo. Lleva `noindex,nofollow,noarchive`, texto definitivo y un aviso explícito de que no hay cobros; no incorpora SDK, formularios ni enlaces de pago de ejemplo. El CSS contextual queda contenido en esa vista previa: no hay que invalidar CSS/preloads de todas las páginas.
+**Solución implementada:** `scripts/build-support-preview.py` genera la página **en `lab/donaciones-preview/index.html`**, no en `/apoyar/`. Usa `scripts/site_shell.py` para inyectar **cabecera, Explorar, pie y CSP reales**, conservando la arquitectura del repo. Lleva `noindex,nofollow,noarchive`, texto definitivo y un aviso explícito de que no hay cobros; no incorpora SDK, **formularios de pago** ni enlaces de cobro de ejemplo; **el shell sí conserva el formulario existente de newsletter en el diálogo «Explorar»**. El CSS contextual queda contenido en esa vista previa: no hay que invalidar CSS/preloads de todas las páginas.
 
 ```bash
 python scripts/build-support-preview.py
@@ -24,6 +24,8 @@ python -m http.server 8000
 `tests/test-support-preview.py` comprueba el shell real, estado noindex, H1 único, no presencia de URL/SDK/captura de pagos y que `lab/` está excluido del constructor público. **Añadido; requiere ejecutar en el árbol real**. Se han inspeccionado en GitHub los dos archivos de código y validado estructuralmente las referencias (8 comprobaciones estáticas OK); esto **no** sustituye a los tests Python/CI ni a una inspección visual.
 
 **Activación posterior (no hacer antes de validar receptor):** combinar la página previsualizada con el HTML de `scripts/support_paypal_link.py` de la PR **#700**, proporcionando exclusivamente la URL auténtica del panel; añadir `apoyar/index.html` a las fuentes registradas como `public`, `support-project` al pie, regenerar shell y sitemap y verificar artefacto. No copiar la URL ficticia del test. **No se ha creado** `apoyar/index.html` ni `data/navigation.json` modificado en esta PR.
+
+**Test reforzado tras revisar el shell real (22/10/2026):** `render_explore()` añade al HTML final un `<form class="explore-subscribe">` de newsletter; no es un checkout. `tests/test-support-preview.py` distingue el formulario existente del diálogo y comprueba **sobre el `<main>` realmente renderizado**, no solo el HTML fuente, que no haya formularios de pago ni enlaces PayPal/Stripe/Ko-fi. También busca SDK y marcadores de claves en el HTML final. La lógica de detección de `<main>` se ha probado fuera de Actions con tres fixtures (newsletter legítima / formulario de pago / enlace de cobro), resultados esperados. **No está ejecutado aún el generador con los JSON completos del sitio.**
 
 ## Cierre por defecto de la URL de apoyo: publicación y Cloudflare
 
@@ -170,7 +172,7 @@ export const supportProviders = [
 ## QA concreto (añadir a tests existentes, sin correr CI en esta investigación)
 
 Tests recomendados para Claude (además del `tests/test-support-preview.py` ya incorporado):
-- **Ya incorporado** en `tests/test-public-artifact-contract.py`: `/apoyar/index.html` reconocido por la allowlist, `.assetsignore` sincronizado y archivos privados (`README.md`, `.env`, `*.key`) excluidos dentro de `/apoyar/`. No depende de ninguna cuenta de cobro.
+- **Ya incorporado** en `tests/test-public-artifact-contract.py`: `/apoyar/index.html` preparado en la allowlist **pero bloqueado hasta activación explícita**, `.assetsignore` sincronizado y archivos privados (`README.md`, `.env`, `*.key`) excluidos dentro de `/apoyar/`. No depende de ninguna cuenta de cobro.
 - `tests/test-support-navigation.py`: entidad en registry, enlace en footer.Information, builder no divergente de HTML publicados; idempotencia de `build-site-shell.py --check`.
 - `tests/test-support-provider-links.py`: ninguna URL ficticia o `#`, solo HTTPS y hosts aprobados; sin `sk_`, `pk_` de pruebas, teléfono, IBAN ni email del titular; `target="_blank"` y `rel="noopener noreferrer"`.
 - `tests/test-support-pages.py`: una h1, canonical /apoyar/, validación links internos, sitemap, no formulario de pago, sin <script> remoto de proveedor, textos voluntarios y sin promesas de desgravación.
