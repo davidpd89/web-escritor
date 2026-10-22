@@ -5,40 +5,18 @@ CALSCALE:GREGORIAN
 METHOD:PUBLISH
 X-WR-CALNAME:Próximos lanzamientos de libros recomendados
 BEGIN:VEVENT
-UID:isbn-9788491058298@davidportodiaz.com
-DTSTAMP:20261021T000000Z
-DTSTART;VALUE=DATE:20261022
-DTEND;VALUE=DATE:20261023
-SUMMARY:Sale a la venta: 1984 (edición especial limitada con cantos tintad
- os)
-DESCRIPTION:George Orwell · Penguin Clásicos
-URL:https://davidportodiaz.com/recomendaciones/libros/1984-edicion-especial
- -limitada-con-cantos-tintados-9788491058298/
-END:VEVENT
-BEGIN:VEVENT
-UID:isbn-9788401039836@davidportodiaz.com
-DTSTAMP:20261021T000000Z
-DTSTART;VALUE=DATE:20261022
-DTEND;VALUE=DATE:20261023
-SUMMARY:Sale a la venta: Familia\, ¿contamos nuestra historia? (¿Me cuent
- as tu historia?)
-DESCRIPTION:Elma van Vliet · Plaza & Janés
-URL:https://davidportodiaz.com/recomendaciones/libros/familia-contamos-nues
- tra-historia-me-cuentas-tu-historia-9788401039836/
-END:VEVENT
-BEGIN:VEVENT
-UID:isbn-9788401037917@davidportodiaz.com
-DTSTAMP:20261021T000000Z
-DTSTART;VALUE=DATE:20261022
-DTEND;VALUE=DATE:20261023
-SUMMARY:Sale a la venta: Las Pruebas del Tarot
-DESCRIPTION:Katee Robert · Plaza & Janés
-URL:https://davidportodiaz.com/recomendaciones/libros/las-pruebas-del-tarot
- -9788401037917/
+UID:isbn-9788467083378@davidportodiaz.com
+DTSTAMP:20261022T000000Z
+DTSTART;VALUE=DATE:20261028
+DTEND;VALUE=DATE:20261029
+SUMMARY:Sale a la venta: Todo bajo control\, menos tú
+DESCRIPTION:Megan Maxwell · Editorial Espasa
+URL:https://davidportodiaz.com/recomendaciones/libros/todo-bajo-control-men
+ os-tu-9788467083378/
 END:VEVENT
 BEGIN:VEVENT
 UID:isbn-9791388092268@davidportodiaz.com
-DTSTAMP:20261021T000000Z
+DTSTAMP:20261022T000000Z
 DTSTART;VALUE=DATE:20261105
 DTEND;VALUE=DATE:20261106
 SUMMARY:Sale a la venta: Ponte fino
