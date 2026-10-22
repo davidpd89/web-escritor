@@ -57,10 +57,10 @@ Reproducción exacta de la prueba cruzada en un directorio local temporal desde 
 
 ~~~bash
 git fetch origin \
-  research/gpt-social-ux-2026-10-22 \
-  research/gpt-social-metricool-2026-10-22 \
-  research/gpt-social-bluesky-2026-10-22 \
-  research/gpt-social-mastodon-2026-10-22
+  +refs/heads/research/gpt-social-ux-2026-10-22:refs/remotes/origin/research/gpt-social-ux-2026-10-22 \
+  +refs/heads/research/gpt-social-metricool-2026-10-22:refs/remotes/origin/research/gpt-social-metricool-2026-10-22 \
+  +refs/heads/research/gpt-social-bluesky-2026-10-22:refs/remotes/origin/research/gpt-social-bluesky-2026-10-22 \
+  +refs/heads/research/gpt-social-mastodon-2026-10-22:refs/remotes/origin/research/gpt-social-mastodon-2026-10-22
 
 tmp="$(mktemp -d)"
 mkdir -p "$tmp/scripts/research" "$tmp/tests"
