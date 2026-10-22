@@ -28,21 +28,25 @@ try {
     assert.equal(await page.locator('#results li').count(),Math.min(24,total-24));
     await page.getByRole('button',{name:'Anterior',exact:true}).click();
     assert.equal(new URLSearchParams(new URL(page.url()).hash.slice(1)).get('pagina'),null);
-    async function choose(facetIndex,label) {
+    async function choose(facetIndex,value) {
       const widget=page.locator('.choices').nth(facetIndex);
-      await widget.locator('.choices__inner').click();
-      await widget.locator('.choices__list--dropdown .choices__item--selectable')
-        .filter({hasText:new RegExp('^'+label+' [(][0-9]+[)]$')}).first().click();
+      const dropdown=widget.locator('.choices__list--dropdown');
+      // En multiselección el menú puede seguir abierto; un segundo clic
+      // en .choices__inner lo cerraría, dando un falso fallo del test.
+      if (!(await dropdown.isVisible())) await widget.locator('.choices__inner').click();
+      // Choices v11.2.4 genera data-value en templates.ts: evita
+      // confundir Fantasía con Fantasía juvenil u otras etiquetas.
+      await dropdown.locator('[data-choice][data-value="'+value+'"]:not([aria-disabled="true"])').click();
     }
-    await choose(0,'Tapa blanda');
-    await choose(0,'Tapa dura');
+    await choose(0,'tapa-blanda');
+    await choose(0,'tapa-dura');
     await page.waitForFunction(()=>{
       const formats=new URLSearchParams(location.hash).getAll('formato');
       return formats.includes('tapa-blanda') && formats.includes('tapa-dura');
     });
     let selected=await page.locator('#formato').evaluate(el=>[...el.selectedOptions].map(o=>o.value).sort());
     assert.deepEqual(selected,['tapa-blanda','tapa-dura']);
-    await choose(1,'Fantasía');
+    await choose(1,'fantasia');
     await page.waitForFunction(()=>new URLSearchParams(location.hash).getAll('genero').includes('fantasia'));
     selected=await page.locator('#formato').evaluate(el=>[...el.selectedOptions].map(o=>o.value).sort());
     assert.deepEqual(selected,['tapa-blanda','tapa-dura'],'facet change must preserve formats');
@@ -69,6 +73,13 @@ try {
       window.addEventListener('hashchange',()=>requestAnimationFrame(resolve),{once:true});
       location.hash='q=LIBRO_INEXISTENTE&grupo=desconocido&temporada=imposible';
     }));
+    assert.match(await page.locator('#count').innerText(),new RegExp('^'+total+' de '+total+' libros'));
+    await page.evaluate(()=>{ location.hash='formato=no-existe&genero=descatalogado'; });
+    await page.waitForFunction(()=>{
+      const p=new URLSearchParams(location.hash);
+      return p.getAll('formato').length===0 && p.getAll('genero').length===0
+        && [...document.querySelector('#formato').selectedOptions].length===0;
+    });
     assert.match(await page.locator('#count').innerText(),new RegExp('^'+total+' de '+total+' libros'));
     assert.deepEqual(errors,[],'no JS errors '+width);
     await page.close();
