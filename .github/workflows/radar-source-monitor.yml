@@ -1,0 +1,73 @@
+name: Radar source monitor
+
+# Vigila las fuentes oficiales de los concursos del radar (data/radar-opportunities.json).
+# No publica ni cambia datos: deja un informe y mantiene UN solo issue abierto con lo que
+# necesita revisión humana (caída persistente, cambio sustancial, año nuevo en la fuente).
+
+on:
+  schedule:
+    - cron: '30 6 * * 1,4'
+  workflow_dispatch:
+    inputs:
+      max_sources:
+        description: 'Fuentes a revisar en esta ejecución (máximo 80)'
+        default: '40'
+
+permissions:
+  contents: read
+  issues: write
+
+concurrency:
+  group: radar-source-monitor
+  cancel-in-progress: false
+
+jobs:
+  monitor:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v5
+      - uses: actions/setup-python@v6
+        with:
+          python-version: '3.12'
+      - name: Restore monitor state
+        uses: actions/cache/restore@v5
+        with:
+          path: .ci/radar-monitor/state.json
+          key: radar-monitor-state-${{ github.run_id }}
+          restore-keys: radar-monitor-state-
+      - name: Run offline tests
+        run: python tests/test_radar_source_monitor.py
+      - name: Check sources
+        env:
+          MAX_SOURCES: ${{ github.event.inputs.max_sources || '40' }}
+        run: |
+          max="$MAX_SOURCES"
+          if ! [[ "$max" =~ ^[0-9]+$ ]] || [ "$max" -gt 80 ]; then max=40; fi
+          python scripts/radar_source_monitor.py --max "$max"
+      - name: Save monitor state
+        if: always()
+        uses: actions/cache/save@v5
+        with:
+          path: .ci/radar-monitor/state.json
+          key: radar-monitor-state-${{ github.run_id }}
+      - uses: actions/upload-artifact@v6
+        with:
+          name: radar-monitor-report
+          path: .ci/radar-monitor/report.*
+      - name: Keep a single review issue up to date
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          set -euo pipefail
+          flagged=$(python -c "import json;print(len(json.load(open('.ci/radar-monitor/report.json'))['flagged']))")
+          title="Radar de concursos: fuentes para revisar"
+          number=$(gh issue list --state open --search "\"$title\" in:title" --json number --jq '.[0].number // empty')
+          if [ "$flagged" -gt 0 ]; then
+            if [ -n "$number" ]; then
+              gh issue comment "$number" --body-file .ci/radar-monitor/report.md
+            else
+              gh issue create --title "$title" --body-file .ci/radar-monitor/report.md
+            fi
+          fi
+          cat .ci/radar-monitor/report.md >> "$GITHUB_STEP_SUMMARY"

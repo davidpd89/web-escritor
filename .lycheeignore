@@ -183,3 +183,13 @@ https?://([^/]+\.)?davidportodiaz\.com/.*
 # no se excluye el dominio ni se aceptan errores HTTP en el recheck general.
 ^https://www\.zaragoza\.es/sede/portal/cementerios/servicio/premios-concursos/4322$
 ^https://www\.zaragoza\.es/sede/servicio/premios-concursos/4321$
+
+# Sitios de concursos y editoriales con caidas intermitentes o bloqueo a clientes de CI
+# (000/500/503 puntuales; se revisan a mano desde el monitor de fuentes del radar).
+https?://(www\.)?pre-textos\.com/.*
+https?://(www\.)?ayto-caceres\.es/.*
+https?://(www\.)?editorialamordemadre\.com/.*
+https?://fundacion\.atlantic-copper\.com/.*
+https?://(www\.)?labuenaletra\.es/.*
+https?://(www\.)?rivaslaica\.org/.*
+https?://(www\.)?esstudioediciones\.com/.*
