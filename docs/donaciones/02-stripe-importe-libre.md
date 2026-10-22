@@ -82,7 +82,8 @@ No hay que añadir componentes por cada herramienta. La conexión de `/apoyar/` 
 - [ ] Confirmar en Dashboard pago/comisión y destino receptor (o simular en sandbox sin confundirlo con live).
 - [ ] Revisar clasificación fiscal/IVA del supuesto real en España con asesor antes de cobrar.
 - [x] Ejecutado `python tests/test-support-stripe-link.py` en copia local aislada: OK (22/10/2026).
-- [ ] Repetir `python tests/test-support-stripe-link.py` contra el checkout real del repo y ejecutar los tests de shell/sitemap/UX solo en la fase de integración; **no ejecutar Actions**.
+- [x] Verificado **sin lanzar workflows** que `.github/workflows/required-merge-gate.yml` (línea 43) y `.github/workflows/tool-tests.yml` (línea 71) recorren `tests/test-*.py`: el nuevo nombre entra en ambos contratos de descubrimiento.
+- [ ] Repetir `python tests/test-support-stripe-link.py` contra el árbol completo del repositorio y ejecutar los tests de shell/sitemap/UX en la fase de integración; **no ejecutar Actions manualmente durante esta investigación**.
 - [ ] Integrar HTML generado en `/apoyar/` mediante PR #703 y verificar que link ausente no se publica.
 
 **No ampliar la integración Stripe** a SDK, página falsa de confirmación, suscripciones, Klarna ni webhooks hasta demostrar que el enlace alojado no basta.
