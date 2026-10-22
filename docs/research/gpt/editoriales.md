@@ -249,3 +249,13 @@ El piloto E6.3 tenía un falso positivo reproducible: la búsqueda de «enviar p
 Se añadieron dos tests offline mediante FakeHTTP al test E4 existente. **Pendiente ejecutarlos en el checkout completo.** Estas métricas no equivalen a precisión estadística ni autorizan actualizaciones: solo hacen visible lo que cambió respecto a las cinco comprobaciones manuales previas.
 
 **Punto siguiente:** ejecutar los tests Python con el repositorio completo y un piloto de las cinco URLs, usando el cliente CachedHTTP existente; registrar peticiones, bloqueos, discrepancias y resultado del builder de Alienta. Si un caso falla, corregir su regla o fuente concretas antes de ampliar a otras editoriales. Sin cron nuevo, sin publicar el directorio.
+
+### Piloto E6.3 — procedencia de respuesta y caché
+
+**Problema concreto en el piloto:** `draft_from_html` asigna al resultado la fecha de procesamiento. Sin más datos, una respuesta reutilizada de caché (hasta 24 horas en el cliente existente) podría interpretarse como una descarga realizada ese mismo día. El código de `CachedHTTP` en `main` **ya escribe** un JSON junto al cuerpo con la marca `retrieved_at`, por lo que no hace falta otro sistema de consultas.
+
+**Solución aplicada solo al modo `run_live_pilot` existente:** cada fuente incorpora `content_sha256`, `content_bytes`, `served_from_cache` y `source_retrieved_at_unix` cuando la marca del cliente está disponible. Si falla la descarga, esas medidas son `null`, no pruebas inventadas. La fecha de procesamiento y la de obtención se distinguen. El SHA-256 permite comparar dos observaciones y saber si el HTML recibido realmente cambió, aunque el estado extraído permanezca igual.
+
+**Pruebas añadidas al archivo existente** `tests/test_gpt_editoriales_contact_evidence.py`: un FakeHTTP comprueba la huella del contenido; otro simula cinco aciertos de caché y comprueba que el informe no los clasifica como nuevas descargas. Estas dos pruebas están **escritas pero todavía NO ejecutadas contra el checkout completo**. Se mantiene la prohibición de escribir en `data/editoriales.json`.
+
+**Siguiente comprobación que aporta valor:** ejecutar el piloto sobre los cinco sitios oficiales con el repositorio completo; examinar discrepancias, número de solicitudes, errores y si una respuesta es nueva o cacheada. Los cambios de contenido sin cambio de estado pueden señalar que conviene revisar requisitos de envío. Si los cinco casos son estables, entonces probar la alta no publicable de Alienta con el builder real; no ampliar editoriales ni añadir librerías por inercia.
