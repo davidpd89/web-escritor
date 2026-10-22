@@ -29,6 +29,8 @@ test('cobertura y precedencia de superficies', () => {
   assert.equal(classify(search, '/recomendaciones/', false, true), 'comprar-amazon-recomendaciones');
   assert.equal(classify(product, '/recomendaciones/libros/coraline/', false, true), 'comprar-amazon-recomendaciones');
   assert.equal(classify(product, '/autor.html'), 'comprar-amazon');
+  assert.equal(classify('https://www.amazon.es/Nombre-del-libro/dp/B0GB6LGQFH?tag=davidporto-21', '/autor.html'), 'comprar-amazon');
+  assert.equal(classify('https://www.amazon.es/Nombre-del-libro/gp/product/B0GB6LGQFH?tag=davidporto-21', '/recomendaciones/', false, true), 'comprar-amazon-recomendaciones');
 });
 
 test('no confundir Author Follow, otros dominios o subcadenas engañosas con compra', () => {
