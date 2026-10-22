@@ -42,7 +42,10 @@ def request_public_search(*, timeout: float = 10.0) -> dict:
 def is_exact_account(account: dict) -> bool:
     if not isinstance(account, dict):
         return False
-    if account.get("username", "").casefold() != USERNAME or account.get("acct", "").casefold() != USERNAME:
+    username, acct = account.get("username"), account.get("acct")
+    if not isinstance(username, str) or not isinstance(acct, str):
+        return False
+    if username.casefold() != USERNAME or acct.casefold() != USERNAME:
         return False
     url = account.get("url")
     if not isinstance(url, str):
