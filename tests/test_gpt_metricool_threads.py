@@ -24,12 +24,19 @@ def fixture():
 
 
 class MetricoolTests(unittest.TestCase):
-    def test_unsorted_rows_last_and_sum(self):
+    def test_unsorted_rows_last_and_suppressed_views(self):
         got=module.normalize(fixture())
         self.assertEqual(got["followers"],129)
-        self.assertEqual(got["views_30d"],435)
+        self.assertIsNone(got["views_30d"])
+        self.assertEqual(got["coverage"]["days_with_post_views"],30)
+        self.assertIn("not verified period activity",got["views_not_published_reason"])
         self.assertEqual(got["status"],"ok")
         self.assertEqual(got["observed_at"],END.isoformat())
+
+    def test_complete_view_rows_still_not_reported_as_30d(self):
+        got=module.normalize(fixture())
+        self.assertEqual(got["status"],"ok")
+        self.assertIsNone(got["views_30d"])
 
     def test_zero_and_string(self):
         self.assertEqual(module.count("0.0"),0)
@@ -46,7 +53,7 @@ class MetricoolTests(unittest.TestCase):
         raw=fixture();raw["rows"].pop(4)
         got=module.normalize(raw)
         self.assertIsNone(got["views_30d"])
-        self.assertEqual(got["coverage"]["days_with_views"],29)
+        self.assertEqual(got["coverage"]["days_with_post_views"],29)
 
     def test_null_views_incomplete(self):
         raw=fixture();raw["rows"][5][1]=None
