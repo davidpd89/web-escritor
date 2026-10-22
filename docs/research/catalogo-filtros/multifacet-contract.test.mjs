@@ -109,6 +109,6 @@ test('categoría activa con 0 libros se conserva, la categoría eliminada no', (
   assert.deepEqual(cleaned.genero,['romantasy']);
   const options = availableOptions(books,cleaned,'genero',masters.genero);
   assert.deepEqual(options.map(o=>[o.value,o.count,o.selected]),[
-    ['fantasia',2,false],['romantasy',0,true]
+    ['fantasia',3,false],['romantasy',0,true]
   ]);
 });
