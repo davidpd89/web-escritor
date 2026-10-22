@@ -212,6 +212,77 @@ class RealSourceSnippetPilotTests(unittest.TestCase):
                 self.assertEqual(result["suggestion"], "open")
                 self.assertFalse(result["publish"])
 
+    def test_manuscript_mailboxes_extracted_but_not_press_or_reader_addresses(self):
+        # Sections transcribed from official pages 2026-10-22. HTML fragments
+        # are reconstructed; this is NOT downloaded original HTML.
+        pages = {
+            "nocturna-ediciones": (
+                "<h3>Prensa</h3><p>Escríbanos a info@nocturnaediciones.com.</p>"
+                "<h3>Envío de manuscritos</h3><p>Si desea enviarnos un manuscrito, "
+                "puede hacerlo vía correo electrónico a la siguiente dirección: "
+                "manuscritos@nocturnaediciones.com.</p>"),
+            "minotauro": (
+                "<p>El proyecto deberá enviarse por correo electrónico a la dirección "
+                "proyectosminotauro@planeta.es en formato pdf o word.</p>"
+                "<p>Contacto información al lector: infominotauro@planeta.es. "
+                "Prensa: prensaminotauro@planeta.es.</p>"),
+            "alienta-editorial": (
+                "<p>Alienta Editorial acepta la recepción de manuscritos originales.</p>"
+                "<p>La dirección de correo electrónico para los manuscritos en formato "
+                "digital es: alienta@planeta.es</p>"
+                "<p>Contacto prensa: mjbertran@planeta.es</p>"),
+        }
+        expected = {
+            "nocturna-ediciones": "manuscritos@nocturnaediciones.com",
+            "minotauro": "proyectosminotauro@planeta.es",
+            "alienta-editorial": "alienta@planeta.es",
+        }
+        for slug, page in pages.items():
+            with self.subTest(slug=slug):
+                output = self.check_pilot(slug, page)
+                self.assertEqual(output["suggestion"], "open")
+                self.assertEqual(output["submission_email_candidate"], expected[slug])
+                self.assertEqual(output["submission_email_basis"], "explicit_manuscript_instruction")
+                self.assertNotIn("@", output["matching_fragment"])
+                self.assertFalse(output["publish"])
+
+    def test_press_email_without_explicit_submission_instruction_is_not_copied(self):
+        for slug, phrase in [
+            ("nocturna-ediciones", "Prensa: info@nocturnaediciones.com"),
+            ("minotauro", "Premio Minotauro: premiominotauro@planeta.es"),
+            ("alienta-editorial", "Prensa: mjbertran@planeta.es"),
+        ]:
+            with self.subTest(slug=slug):
+                output = self.check_pilot(slug, "<p>" + phrase + "</p>")
+                self.assertEqual(output["suggestion"], "unknown")
+                self.assertIsNone(output["submission_email_candidate"])
+
+    def test_valid_status_without_explicit_email_remains_email_unknown(self):
+        got = self.check_pilot(
+            "alienta-editorial",
+            "<p>Alienta Editorial acepta la recepción de manuscritos originales.</p>")
+        self.assertEqual(got["suggestion"], "open")
+        self.assertIsNone(got["submission_email_candidate"])
+
+    def test_approval_cannot_be_inferred_from_group_or_closed_sources(self):
+        for slug, html in [
+            ("alfaguara", "<p>El grupo solo recibe manuscritos espontáneos a través de la web: contacto@ejemplo.com.</p>"),
+            ("editorial-anagrama", "<p>Anagrama mantendrá pausada temporalmente la recepción de manuscritos. prensa@anagrama-ed.es.</p>"),
+        ]:
+            with self.subTest(slug=slug):
+                got = self.check_pilot(slug, html)
+                self.assertIsNone(got["submission_email_candidate"])
+                self.assertFalse(got["publish"])
+
+    def test_wrong_mailbox_domain_is_not_a_contact_candidate(self):
+        for slug, text in [
+            ("nocturna-ediciones", "Si desea enviarnos un manuscrito, puede hacerlo vía correo electrónico a la siguiente dirección: fraude@otro.com."),
+            ("alienta-editorial", "Alienta Editorial acepta la recepción de manuscritos originales. La dirección de correo electrónico para los manuscritos en formato digital es: fraude@otro.com."),
+        ]:
+            with self.subTest(slug=slug):
+                got = self.check_pilot(slug, "<p>" + text + "</p>")
+                self.assertIsNone(got["submission_email_candidate"])
+
     def test_absence_of_explicit_evidence_is_unknown_for_all_five(self):
         for slug in self.URLS:
             with self.subTest(slug=slug):
