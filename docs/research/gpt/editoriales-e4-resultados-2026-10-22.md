@@ -1,3 +1,5 @@
+> Archivo de investigación anterior a la reducción de alcance de #692. Las afirmaciones de pruebas pendientes y las referencias a módulos retirados son históricas. Véase [estado comprobado y uso actual](editoriales.md).
+
 # E4 · Fuentes reales, identidad y contactos (22/10/2026)
 
 **PR #692 · DRAFT / investigación.** Las observaciones de abajo **no** implican cambios en producción. Fuentes consultadas directamente; no se han visitado por crawler propio ni importado listados ajenos.

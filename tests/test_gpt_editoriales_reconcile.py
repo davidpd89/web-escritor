@@ -1,4 +1,4 @@
-"""Prepared offline regression cases for GPT publisher research (not run).
+"""Offline regression cases for publisher reconciliation.
 
 No network, no write to public data, no import of Actions/publishing modules.
 """
@@ -49,6 +49,10 @@ def report(manual=None, seals=None, books=None, *, as_of=TODAY):
 
 
 class PublisherReconciliationTests(unittest.TestCase):
+    def test_duplicate_books_cannot_inflate_publisher_support(self):
+        with self.assertRaisesRegex(ValueError, "Duplicate book ID"):
+            report(books=[book("same", catalogue="sello"), book("same", catalogue="sello")])
+
     def test_closed_publisher_can_keep_publishing_books(self):
         data = report(manual=[record("editorial-sol", "Editorial Sol", status="closed",
                                      email="manuscritos@editorial-ejemplo.es")],

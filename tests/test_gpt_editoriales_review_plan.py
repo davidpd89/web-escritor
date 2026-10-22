@@ -1,4 +1,4 @@
-"""Contract tests for E5 offline-only review planner. Written, NOT EXECUTED."""
+"""Offline review planning contracts, including the complete repository data."""
 import importlib.util
 import json
 import unittest
@@ -59,6 +59,10 @@ def run(*imprints, directory=None, contacts=None, max_tasks=25, identity_overrid
 
 
 class ReviewPlanningTests(unittest.TestCase):
+    def test_duplicate_contact_publishers_are_rejected(self):
+        with self.assertRaisesRegex(ValueError, "Duplicate contact publisher"):
+            run(contacts=evidence(evidence_record(), evidence_record()))
+
     def test_new_imprint_is_review_only_and_idempotent(self):
         a = run(imprint())
         b = run(imprint())

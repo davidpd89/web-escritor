@@ -1,16 +1,34 @@
 name: Research editoriales — offline regression
 
 # The default Tool engine tests workflow runs test-*.py, not test_gpt_*.py.
-# Opt-in verification of PR #692 without a network pilot or publication.
+# Offline contracts only: no network pilot, secrets or publication.
 on:
-  push:
-    branches:
-      - research/gpt-editoriales-2026-10-22
+  pull_request:
     paths:
       - '.github/workflows/research-editoriales-offline.yml'
       - 'scripts/research/gpt_editoriales_*.py'
       - 'tests/test_gpt_editoriales_*.py'
-      - 'docs/research/gpt/editoriales-alienta-candidata-2026-10-22.json'
+      - 'docs/research/gpt/editoriales*.json'
+      - 'scripts/build-editoriales.py'
+      - 'scripts/reading*.py'
+      - 'scripts/editoriales*.py'
+      - 'scripts/site*.py'
+      - 'data/editoriales.json'
+      - 'data/reading*.json'
+  push:
+    branches:
+      - main
+    paths:
+      - '.github/workflows/research-editoriales-offline.yml'
+      - 'scripts/research/gpt_editoriales_*.py'
+      - 'tests/test_gpt_editoriales_*.py'
+      - 'docs/research/gpt/editoriales*.json'
+      - 'scripts/build-editoriales.py'
+      - 'scripts/reading*.py'
+      - 'scripts/editoriales*.py'
+      - 'scripts/site*.py'
+      - 'data/editoriales.json'
+      - 'data/reading*.json'
   workflow_dispatch:
 
 permissions:
@@ -26,6 +44,8 @@ jobs:
     timeout-minutes: 8
     steps:
       - uses: actions/checkout@v5
+        with:
+          persist-credentials: false
       - uses: actions/setup-python@v6
         with:
           python-version: '3.12'

@@ -1,4 +1,4 @@
-"""Synthetic contracts for publisher proof staging. Prepared only; NOT executed."""
+"""Offline contracts for publisher evidence, extraction and the real builder."""
 import importlib.util
 import json
 import unittest
@@ -89,6 +89,17 @@ class ContactEvidenceTests(unittest.TestCase):
     def test_future_date_is_rejected(self):
         r = run(observation(checked="2027-01-01"))
         self.assertEqual(r["rejected_observations"][0]["reason"], "future_evidence")
+
+    def test_same_fact_with_another_id_is_not_extra_evidence(self):
+        r = run(observation(), observation("sol-copy"))
+        self.assertEqual(len(r["publishers"][0]["submission_status_candidates"]), 1)
+        self.assertEqual(r["rejected_observations"][0]["reason"], "duplicate_evidence")
+
+    def test_dates_require_explicit_calendar_format(self):
+        for checked in ("20261022", "2026-W43-4", "2026-10-32"):
+            with self.subTest(checked=checked):
+                r = run(observation(checked=checked))
+                self.assertEqual(r["rejected_observations"][0]["reason"], "invalid_date")
 
     def test_fake_email_not_added_to_reports(self):
         r = run(observation(summary="Escribir directamente a pruebas@editorial-sol.es"))

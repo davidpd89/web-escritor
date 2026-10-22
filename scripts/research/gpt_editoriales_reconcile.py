@@ -98,6 +98,11 @@ def reconcile(directory: dict, catalogue_publishers: dict, books: dict,
     imprints = _unique_rows(catalogue_publishers["editoriales"], "catalogue")
     if any(not isinstance(b, dict) for b in books["libros"]):
         raise ValueError("Malformed book")
+    book_ids = [b.get("id") for b in books["libros"]]
+    if any(not isinstance(ident, str) or not ident for ident in book_ids):
+        raise ValueError("Missing book ID")
+    if len(set(book_ids)) != len(book_ids):
+        raise ValueError("Duplicate book ID")
     exact_names: dict[str, list[dict]] = defaultdict(list)
     alias_names: dict[str, list[dict]] = defaultdict(list)
     for row in manual.values():

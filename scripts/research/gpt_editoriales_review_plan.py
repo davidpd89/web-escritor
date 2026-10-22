@@ -114,12 +114,16 @@ def plan(directory: dict, identities: dict, evidence: dict, *,
             add("resolve_identity_conflict", slug, [], 0,
                 "Alias, collision or untrusted bibliography; refuse automatic identity merge")
 
+    contact_slugs = set()
     for item in contacts:
         if not isinstance(item, dict) or not _slug(item.get("slug")):
             raise ValueError("Malformed contact review record")
         if item.get("manual_review_required") is not True or item.get("publication_allowed") is not False:
             raise ValueError("Contact report is not review-only")
         slug = item["slug"]
+        if slug in contact_slugs:
+            raise ValueError("Duplicate contact publisher")
+        contact_slugs.add(slug)
         if slug not in manual:
             add("unknown_contact_entity", slug, [], 0,
                 "Contact refers to absent publisher; never create automatically")

@@ -74,6 +74,7 @@ def review(observations: dict, vetted_hosts: dict, *, as_of: date) -> dict:
             raise ValueError("hosts must be verified lowercase public DNS names")
         approvals[slug] = set(allowed)
     observed_ids = set()
+    observed_facts = set()
     issues = []
     by_slug = defaultdict(lambda: {
         "general_sources": [], "press_sources": [], "publisher_sources": [],
@@ -111,6 +112,8 @@ def review(observations: dict, vetted_hosts: dict, *, as_of: date) -> dict:
             continue
         try:
             day = date.fromisoformat(obs["checked_at"])
+            if day.isoformat() != obs["checked_at"]:
+                raise ValueError("Expected YYYY-MM-DD")
         except (ValueError, KeyError, TypeError):
             issues.append({"record": ident, "reason": "invalid_date"})
             continue
@@ -126,6 +129,11 @@ def review(observations: dict, vetted_hosts: dict, *, as_of: date) -> dict:
         if "@" in summary or "@" in source_url:
             issues.append({"record": ident, "reason": "possible_personal_data_or_address"})
             continue
+        fact = (slug, purpose, scope, source_url, day)
+        if fact in observed_facts:
+            issues.append({"record": ident, "reason": "duplicate_evidence"})
+            continue
+        observed_facts.add(fact)
         limit = STATUS_TTL_DAYS if purpose.startswith("submissions_") or purpose == "group_submission_channel" else CONTACT_TTL_DAYS
         expired = age > limit
         evidence = {"id": ident, "source_url": source_url,

@@ -1,3 +1,5 @@
+> Archivo de investigación anterior a la reducción de alcance de #692. Las afirmaciones de pruebas pendientes y las referencias a módulos retirados son históricas. Véase [estado comprobado y uso actual](editoriales.md).
+
 # E6.1–E6.2 · Contrato entre módulos y aprobación por campo
 
 **Investigación GPT #692 · 22/10/2026 · DRAFT / NO MERGEAR.** Ningún código de este bloque se ha ejecutado. Fuentes: GitHub repo `davidpd89/web-escritor`, commit exacto `72ab6be7b8fee47dc82f29a7daf1373178e61ad1`; fichero de auditoría en [`editoriales-e6-baseline-2026-10-22.json`](editoriales-e6-baseline-2026-10-22.json).

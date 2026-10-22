@@ -1,3 +1,5 @@
+> Archivo de investigación anterior a la reducción de alcance de #692. Las afirmaciones de pruebas pendientes y las referencias a módulos retirados son históricas. Véase [estado comprobado y uso actual](editoriales.md).
+
 # E5 · Integración sin segundos publicadores (22/10/2026)
 
 **Solo investigación / PR #692 en DRAFT. No se ha ejecutado ni integrado este código.** Fuente única del índice: [#691](https://github.com/davidpd89/web-escritor/pull/691). Dependencia funcional: [#687](https://github.com/davidpd89/web-escritor/pull/687), **fusionada durante esta investigación**. Las conclusiones se contrastaron de nuevo con `main` tras el merge.
