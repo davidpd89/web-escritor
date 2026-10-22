@@ -1,8 +1,6 @@
-"""Run offline: python -m unittest discover -s tests -p test_gpt_metricool_threads.py -v"""
+"""Offline contract tests for the single-metric Metricool Threads importer."""
 import importlib.util
 import io
-from datetime import date, timedelta
-from decimal import Decimal
 import json
 from pathlib import Path
 import tempfile
@@ -11,110 +9,124 @@ from contextlib import redirect_stdout, redirect_stderr
 
 SOURCE = Path(__file__).resolve().parents[1] / "scripts/research/gpt_metricool_threads.py"
 spec = importlib.util.spec_from_file_location("gpt_metricool_threads", SOURCE)
-module = importlib.util.module_from_spec(spec)
-spec.loader.exec_module(module)
-START = date(2026, 9, 22)
-END = START + timedelta(days=29)
+importer = importlib.util.module_from_spec(spec)
+spec.loader.exec_module(importer)
 
 
 def fixture():
-    return {"metrics": ["THEV01", "THEV06"], "from": START.isoformat(), "to": END.isoformat(),
-            "rows": [[str(100+i)+".0", str(i)+".0", (START+timedelta(days=i)).strftime("%Y%m%d")]
-                     for i in range(30)][::-1]}
+    return {"metrics": ["THEV01"], "from": "2026-10-21", "to": "2026-10-21",
+            "rows": [["232.0", "20261021"]]}
 
 
-class MetricoolTests(unittest.TestCase):
-    def test_unsorted_rows_last_and_suppressed_views(self):
-        got=module.normalize(fixture())
-        self.assertEqual(got["followers"],129)
-        self.assertIsNone(got["views_30d"])
-        self.assertEqual(got["coverage"]["days_with_post_views"],30)
-        self.assertIn("not verified as views generated",got["views_not_published_reason"])
-        self.assertEqual(got["status"],"ok")
-        self.assertEqual(got["observed_at"],END.isoformat())
+class MetricoolThreadsContractTests(unittest.TestCase):
+    def test_real_mcp_one_day_shape(self):
+        result = importer.normalize(fixture())
+        self.assertEqual(result["followers"], 232)
+        self.assertEqual(result["observed_at"], "2026-10-21")
+        self.assertEqual(result["source"], "metricool-mcp-export")
+        self.assertEqual(result["status"], "ok")
+        self.assertIsNone(result["views_30d"])
 
-    def test_complete_view_rows_still_not_reported_as_30d(self):
-        got=module.normalize(fixture())
-        self.assertEqual(got["status"],"ok")
-        self.assertIsNone(got["views_30d"])
+    def test_null_followers_are_not_zero(self):
+        data = fixture()
+        data["rows"][0][0] = None
+        result = importer.normalize(data)
+        self.assertIsNone(result["followers"])
+        self.assertIsNone(result["observed_at"])
+        self.assertEqual(result["status"], "partial")
 
-    def test_zero_and_string(self):
-        self.assertEqual(module.count("0.0"),0)
-        self.assertEqual(module.count(0),0)
+    def test_no_data_is_partial(self):
+        data = fixture()
+        data["rows"] = []
+        self.assertIsNone(importer.normalize(data)["followers"])
 
-    def test_null(self):
-        self.assertIsNone(module.count(None))
+    def test_zero_is_valid(self):
+        data = fixture()
+        data["rows"][0][0] = "0.0"
+        self.assertEqual(importer.normalize(data)["followers"], 0)
 
-    def test_numeric_rejections(self):
-        for value in (True, False, 1.2, "1.5", "NaN", "Infinity", "-1", "oops", [], {}):
-            with self.subTest(value=value), self.assertRaises(ValueError): module.count(value)
+    def test_decimal_string_is_exact(self):
+        self.assertEqual(importer.count("000232.000"), 232)
+        self.assertEqual(importer.count(232), 232)
 
-    def test_sparse_real_shape_keeps_followers_but_suppresses_views(self):
-        # 30 returned days, sparse Post Views as seen in the 22 Sep–21 Oct
-        # Metricool response. Counts below are synthetic; never publish.
-        raw=fixture()
-        for row in raw["rows"]:
-            day=int(row[2][-2:])
-            if day % 5 in (0, 2, 4):
-                row[1]=None
-        got=module.normalize(raw)
-        expected=sum(row[1] is not None for row in raw["rows"])
-        self.assertEqual(got["coverage"]["days_with_post_views"], expected)
-        self.assertEqual(got["followers"],129)
-        self.assertIsNone(got["views_30d"])
-        self.assertEqual(got["status"],"ok")
+    def test_invalid_numeric_values_fail(self):
+        for bad in (True, False, -1, "1.5", "NaN", "Infinity", "", "x", 2.3, [], {}, "9"*65):
+            with self.subTest(bad=bad), self.assertRaises(ValueError):
+                importer.count(bad)
 
-    def test_missing_day_incomplete(self):
-        raw=fixture();raw["rows"].pop(4)
-        got=module.normalize(raw)
-        self.assertIsNone(got["views_30d"])
-        self.assertEqual(got["coverage"]["days_with_post_views"],29)
+    def test_wrong_metric_is_rejected(self):
+        data = fixture()
+        data["metrics"] = ["THEV06"]
+        with self.assertRaises(ValueError):
+            importer.normalize(data)
 
-    def test_null_views_incomplete(self):
-        raw=fixture();raw["rows"][5][1]=None
-        self.assertIsNone(module.normalize(raw)["views_30d"])
+    def test_even_extra_metric_is_rejected(self):
+        data = fixture()
+        data["metrics"] = ["THEV01", "THEV06"]
+        data["rows"][0].insert(1, "15.0")
+        with self.assertRaises(ValueError):
+            importer.normalize(data)
 
-    def test_no_last_followers(self):
-        raw=fixture();raw["rows"][0][0]=None
-        self.assertIsNone(module.normalize(raw)["followers"])
+    def test_extra_private_fields_not_accepted(self):
+        data = fixture()
+        data["brandId"] = "private-do-not-publish"
+        with self.assertRaises(ValueError):
+            importer.normalize(data)
 
-    def test_bad_metric_order(self):
-        raw=fixture();raw["metrics"].reverse()
-        with self.assertRaises(ValueError):module.normalize(raw)
+    def test_multi_day_input_is_rejected(self):
+        data = fixture()
+        data["from"] = "2026-10-20"
+        with self.assertRaises(ValueError):
+            importer.normalize(data)
 
-    def test_bad_window(self):
-        raw=fixture();raw["to"]=(END+timedelta(days=1)).isoformat()
-        with self.assertRaises(ValueError):module.normalize(raw)
+    def test_duplicate_rows_rejected(self):
+        data = fixture()
+        data["rows"].append(["234.0", "20261021"])
+        with self.assertRaises(ValueError):
+            importer.normalize(data)
 
-    def test_duplicate_dates(self):
-        raw=fixture();raw["rows"].append(raw["rows"][0])
-        with self.assertRaises(ValueError):module.normalize(raw)
+    def test_wrong_date_in_row_rejected(self):
+        data = fixture()
+        data["rows"][0][1] = "20261020"
+        with self.assertRaises(ValueError):
+            importer.normalize(data)
 
-    def test_bad_date(self):
-        raw=fixture();raw["rows"][0][-1]="2026-10-21"
-        with self.assertRaises(ValueError):module.normalize(raw)
+    def test_invalid_calendar_day_rejected(self):
+        data = fixture()
+        data["from"] = data["to"] = "2026-02-30"
+        with self.assertRaises(ValueError):
+            importer.normalize(data)
 
-    def test_bad_row_shape(self):
-        raw=fixture();raw["rows"][1]=["1", "20261021"]
-        with self.assertRaises(ValueError):module.normalize(raw)
+    def test_bad_rows_rejected(self):
+        for bad in (None, 20, {}, "rows", [123], [["222.0"]], [["222.0", 20261021]]):
+            data = fixture()
+            data["rows"] = bad
+            with self.subTest(bad=bad), self.assertRaises(ValueError):
+                importer.normalize(data)
 
-    def test_bad_wrapper(self):
-        raw=fixture();raw["blogId"]="private"
-        with self.assertRaises(ValueError):module.normalize(raw)
+    def test_views_are_always_missing(self):
+        data = fixture()
+        result = importer.normalize(data)
+        self.assertIsNone(result["views_30d"])
+        self.assertIsNone(result["impressions_30d"])
 
-    def test_cli_offline(self):
+    def test_cli_does_not_write_public_data(self):
         with tempfile.TemporaryDirectory() as tmp:
-            file=Path(tmp)/"raw.json"
-            file.write_text(json.dumps(fixture()),encoding="utf-8")
-            stdout=io.StringIO()
-            with redirect_stdout(stdout): self.assertEqual(module.main([str(file)]),0)
-            self.assertEqual(json.loads(stdout.getvalue())["followers"],129)
+            raw = Path(tmp) / "private.json"
+            raw.write_text(json.dumps(fixture()), encoding="utf-8")
+            stdout = io.StringIO()
+            with redirect_stdout(stdout):
+                self.assertEqual(importer.main([str(raw)]), 0)
+            result = json.loads(stdout.getvalue())
+            self.assertEqual(result["followers"], 232)
+            self.assertEqual(sorted(p.name for p in Path(tmp).iterdir()), ["private.json"])
 
-    def test_cli_bad_no_publication(self):
+    def test_cli_rejects_bad_json(self):
         with tempfile.TemporaryDirectory() as tmp:
-            file=Path(tmp)/"raw.json"
-            file.write_text("BAD JSON",encoding="utf-8")
-            with redirect_stderr(io.StringIO()): self.assertEqual(module.main([str(file)]),1)
+            raw = Path(tmp) / "private.json"
+            raw.write_text("INVALID JSON", encoding="utf-8")
+            with redirect_stderr(io.StringIO()):
+                self.assertEqual(importer.main([str(raw)]), 1)
 
 
 if __name__ == "__main__":
