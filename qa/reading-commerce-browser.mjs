@@ -23,11 +23,11 @@ try {
   const errors = []; page.on('pageerror', e => errors.push(e.message));
   const field = name => page.locator(`[data-filter="${name}"]`);
   const ids = () => page.locator('[data-catalogue-book]:not([hidden])').evaluateAll(nodes => nodes.map(n => n.dataset.bookId));
-  const open = async () => { await page.goto(`${base}/recomendaciones/?utm_source=prueba`); await field('precio_max').waitFor({ state: 'attached' }); await page.waitForFunction(() => !document.querySelector('[data-filter="precio_max"]').disabled); await page.locator('form details summary').click(); };
+  const open = async () => { await page.goto(`${base}/recomendaciones/?utm_source=prueba`); await field('precio_max').waitFor({ state: 'attached' }); await page.waitForFunction(() => !document.querySelector('[data-filter="precio_max"]').disabled); await page.locator('details.catalogue-more-filters summary').click(); await page.locator('details[data-facet-group="formato"]').evaluate(d => { d.open = true; }); };
   await open();
-  await field('formato').selectOption('tapa-dura'); await field('precio_max').fill('10');
+  await page.locator('input[data-facet="formato"][value="tapa-dura"]').check(); await field('precio_max').fill('10');
   assert.deepEqual(await ids(), [], 'A hardcover must not inherit its cheaper ebook price');
-  await field('formato').selectOption('ebook'); assert.deepEqual(await ids(), ['contrato-uno']);
+  await page.locator('input[data-facet="formato"][value="tapa-dura"]').uncheck(); await page.locator('input[data-facet="formato"][value="ebook"]').check(); assert.deepEqual(await ids(), ['contrato-uno']);
   await field('descuento').selectOption('50'); assert.deepEqual(await ids(), ['contrato-uno']);
   await field('precio_min').fill('6'); assert.deepEqual(await ids(), []);
   await page.getByRole('button', { name: 'Restablecer' }).click();
