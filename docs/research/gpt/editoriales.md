@@ -234,3 +234,18 @@ El piloto E6.3 tenía un falso positivo reproducible: la búsqueda de «enviar p
 **Prueba local de la función aislada:** 11 comprobaciones (3 coincidencias correctas, 8 exclusiones o casos negativos), sin fallos. Añadidos cinco métodos de prueba al archivo E4 existente. Se usaron fragmentos representativos basados en el texto visible de fuentes oficiales. **No es una ejecución del HTML completo vía CachedHTTP ni de toda la suite GitHub**. El informe de candidatos solo se genera en el modo optativo de investigación, no se publica.
 
 **Ganancia funcional:** pasamos de detectar un posible estado de recepción a identificar el dato de envío adecuado con procedencia y contraste; dos contactos ya publicados se verificaron contra main y Alienta constituye una candidata a ficha adicional. El próximo paso no es aumentar controles: ejecutar las cinco URL con el cliente actual, cuantificar diferencias y corregir los errores observados antes de publicar nada.
+
+
+### Última corrección incremental — cierre frente a restricciones y métricas verificables
+
+**Defecto reproducido en el extractor aislado:** cuando una página contenía la instrucción de envío y después «No recibimos originales actualmente» o «Ya no estamos aceptando manuscritos», el piloto todavía proponía **open**. El patrón anterior tampoco distinguía correctamente una restricción «No aceptamos manuscritos de ficción». Se amplió *únicamente* la expresión de negación del extractor E4, eliminando la coincidencia demasiado amplia. **Resultado de control local:** los cuatro casos de cierre ahora producen **unknown**; tres restricciones de formato/género conservan **open**. Los 13 controles sintéticos anteriores, las cinco anclas oficiales reconstruidas, 11 aserciones de buzones y cinco casos end-to-end reconstruidos siguieron pasando en la copia local de la lógica; **no son pruebas del checkout completo ni HTML oficial original**.
+
+**Métrica pequeña incorporada al modo --live-pilot existente:** cada salida incluye la propuesta previa revisada manualmente, si se facilitó, y si coincide con lo extraído. El informe separa:
+- compared_to_prior_review: páginas obtenidas y con un estado de referencia;
+- matched_prior_review: coincidencias con esa referencia;
+- differences_needing_human_review: contradicciones que requieren inspección;
+- retrieval_failures: páginas no accesibles, **sin clasificarlas como contradicción**.
+
+Se añadieron dos tests offline mediante FakeHTTP al test E4 existente. **Pendiente ejecutarlos en el checkout completo.** Estas métricas no equivalen a precisión estadística ni autorizan actualizaciones: solo hacen visible lo que cambió respecto a las cinco comprobaciones manuales previas.
+
+**Punto siguiente:** ejecutar los tests Python con el repositorio completo y un piloto de las cinco URLs, usando el cliente CachedHTTP existente; registrar peticiones, bloqueos, discrepancias y resultado del builder de Alienta. Si un caso falla, corregir su regla o fuente concretas antes de ampliar a otras editoriales. Sin cron nuevo, sin publicar el directorio.
