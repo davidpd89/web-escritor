@@ -126,12 +126,15 @@ class MultiMetricoolPipelineTests(unittest.TestCase):
         }
         batch = metricool_batch_reader.normalize(synthetic)
         public = compose.compose([batch], now=TEST_TIME)
-        self.assertEqual(public["totals"]["follower_relationships"], 101)
-        self.assertEqual(public["totals"]["coverage"], 1)
-        self.assertEqual(public["totals"]["eligible"], 3)
+        self.assertEqual(public["totals"]["follower_relationships"], 412)
+        self.assertEqual(public["totals"]["coverage"], 4)
+        self.assertEqual(public["totals"]["eligible"], 6)
         self.assertEqual(public["networks"][2]["source"], "metricool-mcp-export")
         self.assertIsNone(public["networks"][0]["followers"])
-        self.assertNotIn("instagram", [r["id"] for r in public["networks"]])
+        self.assertIn("instagram", [r["id"] for r in public["networks"]])
+        self.assertNotIn("facebook", [r["id"] for r in public["networks"]])
+        self.assertNotIn("youtube", [r["id"] for r in public["networks"]])
+        self.assertNotIn("twitter", [r["id"] for r in public["networks"]])
 
     def test_actual_705_batch_with_public_bluesky_and_mastodon(self):
         fields = list(metricool_batch_reader.FIELDS)
@@ -142,9 +145,9 @@ class MultiMetricoolPipelineTests(unittest.TestCase):
         batch = metricool_batch_reader.normalize(synthetic)
         b, m, _ = collect()
         public = compose.compose([batch, b, m], now=TEST_TIME)
-        self.assertEqual(public["totals"]["follower_relationships"], 17 + 23 + 101)
-        self.assertEqual(public["totals"]["coverage"], 3)
-        self.assertEqual(len(public["networks"]), 3)
+        self.assertEqual(public["totals"]["follower_relationships"], 17 + 23 + 412)
+        self.assertEqual(public["totals"]["coverage"], 6)
+        self.assertEqual(len(public["networks"]), 6)
 
 if __name__ == "__main__":
     unittest.main()
