@@ -25,6 +25,20 @@ python -m http.server 8000
 
 **Activación posterior (no hacer antes de validar receptor):** combinar la página previsualizada con el HTML de `scripts/support_paypal_link.py` de la PR **#700**, proporcionando exclusivamente la URL auténtica del panel; añadir `apoyar/index.html` a las fuentes registradas como `public`, `support-project` al pie, regenerar shell y sitemap y verificar artefacto. No copiar la URL ficticia del test. **No se ha creado** `apoyar/index.html` ni `data/navigation.json` modificado en esta PR.
 
+## Cierre por defecto de la URL de apoyo: publicación y Cloudflare
+
+**Problema reproducible del contrato anterior:** haber añadido `apoyar/` a `PUBLIC_DIR_PREFIXES` y `!/apoyar/` a `.assetsignore` hacía publicable cualquier HTML situado allí, **aunque `support-project` ni siquiera existiera en el registro**. No basta con el test de activación: si no se ejecuta, una preview puede filtrarse por URL directa.
+
+**Corrección implementada en código real:** `support_page_authorized(root)` en `scripts/build-public-dist.py` exige **exactamente una** entrada `support-project`, con `url: "/apoyar/"`, `sourceFile: "apoyar/index.html"` y `status: "public"` (explícito o heredado de defaults). Tanto `is_publishable()` como la generación de `.assetsignore` consultan la misma función. Hasta entonces:
+
+- El builder de artefacto **excluye cualquier archivo** bajo `apoyar/`, aunque exista en git.
+- Cloudflare conserva `!/apoyar/` como capacidad futura, pero agrega una regla final **`/apoyar/`**, que vuelve a bloquear la carpeta. La regla desaparece automáticamente al declarar la entrada pública correcta y regenerar `.assetsignore`.
+- No se ha cambiado `gated_prefixes_from_registry()`, para no alterar tests o publicaciones de otras páginas.
+
+**Prueba de regresión:** `tests/test-public-artifact-contract.py` comprueba el estado real todavía cerrado, y simula en directorios temporales: sin registro, gated, ruta equivocada, público bien definido y entradas duplicadas. Cuando llegue la activación, debe regenerarse `.assetsignore` y ejecutarse el gate completo de checkout **antes de fusionar**.
+
+**Ejecutado en copia aislada de la lógica:** `py_compile`, nueve casos de autorización y dos configuraciones de reglas `git check-ignore --no-index`: **OK**. Verificado por lectura de GitHub que la entrada `support-project` aún no existe y que la última regla activa es `/apoyar/`. **No equivale a ejecutar la suite integral del repositorio ni a comprobar un despliegue Cloudflare real.**
+
 ## Sitemap: exclusión por carpeta, no solo por meta robots
 
 **Fallo detectado al revisar el generador existente:** `scripts/build-sitemap.py` recorre el repositorio con `os.walk()`; su `EXCLUDE_DIRS` no incluía `lab`. Una futura vista previa con canonical `/apoyar/` podría contaminar el sitemap si alguien eliminase por error el `noindex`.
@@ -54,7 +68,7 @@ python tests/test-support-release-gate.py
 1. Añadir una entidad `support-project` en `data/content-registry.json` siguiendo el esquema de `entries[]`, apuntando a `/apoyar/`, con label `Apoyar el proyecto` y contenido descriptivo real.
 2. Añadir `support-project` **solo al array `footer.Información` de `data/navigation.json`** (no al menú principal `header`, no a `exploreTerritories`, no al CTA `header-buy`).
 3. Ejecutar `python scripts/build-site-shell.py` cuando corresponda, revisar diffs y `--check` disponible, y actualizar la fuente/plantilla de páginas regeneradas para que las pruebas de paridad no reviertan el footer.
-4. **El builder público usa una allowlist explícita**: la ruta nueva requiere `PUBLIC_DIR_PREFIXES` en `scripts/build-public-dist.py` y regenerar `.assetsignore`; ambos cambios ya están incluidos en esta hija, con aserciones en `tests/test-public-artifact-contract.py`. Cloudflare confirma que `.assetsignore` usa semántica gitignore ([documentación oficial, actualizada 12/10/2026](https://developers.cloudflare.com/workers/static-assets/binding/)). Sin reabrir la carpeta, la página no se sirve, aunque exista en git.
+4. **La ruta está preparada pero bloqueada por defecto**: `scripts/build-public-dist.py` y `.assetsignore` requieren una entrada pública exacta `support-project` para permitir `/apoyar/`, aunque la carpeta ya figure en la allowlist. La protección y sus fixtures están en `tests/test-public-artifact-contract.py`. Cloudflare aplica `.assetsignore` con sintaxis gitignore: https://developers.cloudflare.com/workers/static-assets/binding/ . Al activar, regenerar `.assetsignore` desde el builder; **no borrar la regla a mano**.
 5. Crear la página nativa `apoyar/index.html` coherente con shell V1, canonical `https://davidportodiaz.com/apoyar/`, un solo h1, estructura main, contenidos y métodos. Integrar sitemap con `scripts/build-sitemap.py`, navegación / mapa del sitio y `robots.txt` si aplica.
 6. Solo después de tener proveedores confirmados, exponer enlaces desde el frontend. Deshabilitar/ocultar siempre los ausentes, nunca `href="#"`.
 
