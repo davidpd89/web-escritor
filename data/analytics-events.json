@@ -146,6 +146,12 @@
       "action": "external_engagement",
       "context": "google-preferred-sources",
       "note": "Clic al CTA de /cuaderno/ hacia google.com/preferences/source -- criterio de cierre de docs/pending/google-preferred-sources.md, mide si alguien usa el enlace."
+    },
+    {
+      "name": "seguir-autor-amazon",
+      "action": "author_follow_outbound",
+      "context": "amazon_author_central",
+      "note": "Clic en 'Seguir al autor en Amazon' (autor + dos novelas) con URL verificada de página pública. NO mide follow aceptado ni posicionamiento. El número agregado de seguidores solo se consulta en Author Central."
     }
   ],
   "article_bridge": {
