@@ -65,7 +65,9 @@ class PipelineTests(unittest.TestCase):
         public = compose.compose(collect(), now=TEST_TIME)
         self.assertEqual(public["totals"]["follower_relationships"], 53)
         self.assertEqual(public["totals"]["coverage"], 3)
-        self.assertEqual([x["status"] for x in public["networks"]], ["ok", "ok", "ok"])
+        self.assertEqual([x["status"] for x in public["networks"]],
+                         ["ok", "ok", "ok", "pending", "pending", "pending"])
+        self.assertEqual(public["totals"]["eligible"], 6)
 
     def test_real_source_contracts_do_not_leak_private_identifiers(self):
         body = json.dumps(compose.compose(collect(), now=TEST_TIME))
