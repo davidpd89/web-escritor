@@ -21,8 +21,10 @@ import ipaddress
 import json
 import re
 import sys
+import unicodedata
 from collections import defaultdict
 from datetime import date
+from html.parser import HTMLParser
 from pathlib import Path
 from urllib.parse import urlsplit
 
@@ -177,3 +179,70 @@ def main(argv: list[str] | None = None) -> int:
 
 if __name__ == "__main__":
     raise SystemExit(main())
+
+
+# Small E6.3 experimental extractor. NOT a generic legal/status classifier.
+# Use the HTTP/robots/cache implementation ALREADY in main
+# (reading_editorial_sources.CachedHTTP) to supply HTML only after approval.
+class _PilotVisibleText(HTMLParser):
+    """Visible text only: omit scripts, styles, noscript and SVG metadata."""
+    def __init__(self):
+        super().__init__(convert_charrefs=True)
+        self.parts = []
+        self.ignored = 0
+
+    def handle_starttag(self, tag, attrs):
+        if tag in {'script', 'style', 'noscript', 'svg'}:
+            self.ignored += 1
+        elif tag in {'p', 'h1', 'h2', 'h3', 'h4', 'li', 'br', 'div'} and not self.ignored:
+            self.parts.append(' ')
+
+    def handle_endtag(self, tag):
+        if tag in {'script', 'style', 'noscript', 'svg'}:
+            self.ignored = max(0, self.ignored - 1)
+        elif tag in {'p', 'h1', 'h2', 'h3', 'h4', 'li', 'div'} and not self.ignored:
+            self.parts.append(' ')
+
+    def handle_data(self, data):
+        if not self.ignored:
+            self.parts.append(data)
+
+
+# These known-page rules are a bounded experiment, not reusable auto-approval.
+# Extend only after testing diverse layouts with full real HTML; leave UNKNOWN
+# if the source changes or if the explicit statement disappears.
+_PILOT_EVIDENCE_RULES = {
+    'editorial-anagrama': (r'pausad[ao].{0,90}recepcion de manuscritos', 'paused'),
+    'nocturna-ediciones': (r'si desea enviarnos un manuscrito.{0,150}correo electronico', 'open'),
+    'minotauro': (r'el proyecto debera enviarse por correo electronico', 'open'),
+    'alienta-editorial': (r'alienta editorial acepta la recepcion de manuscritos originales', 'open'),
+    'alfaguara': (r'solo recibe manuscritos espontaneos a traves de la web', 'group_only'),
+}
+
+
+def draft_from_html(html, *, slug, source_url, checked_at, source_allowlist):
+    """Read one *pre-approved* page. Returns a tentative candidate, never edits."""
+    if not isinstance(html, str) or len(html) > 2_000_000 or not html.strip():
+        raise ValueError('Missing or oversized HTML')
+    if source_allowlist.get(slug) != source_url or slug not in _PILOT_EVIDENCE_RULES:
+        raise ValueError('Source or pilot slug not in independently reviewed allowlist')
+    if not isinstance(checked_at, str) or date.fromisoformat(checked_at).isoformat() != checked_at:
+        raise ValueError('Invalid check date')
+    parser = _PilotVisibleText()
+    parser.feed(html)
+    visible = ' '.join(''.join(parser.parts).split())
+    folded = unicodedata.normalize('NFKD', visible.casefold())
+    folded = ''.join(c for c in folded if not unicodedata.combining(c))
+    pattern, intended = _PILOT_EVIDENCE_RULES[slug]
+    found = re.search(pattern, folded)
+    suggestion = intended if found else 'unknown'
+    scope = 'group_general' if slug == 'alfaguara' else 'publisher_specific'
+    return {
+        'publisher_slug': slug, 'source_url': source_url,
+        'checked_at': checked_at, 'detected': bool(found),
+        'suggestion': suggestion, 'scope': scope,
+        'manual_review_required': True, 'publish': False,
+        # Only a matching phrase is retained; no email/contact information.
+        'matching_fragment': visible[found.start():found.end()][:180] if found else '',
+        'reason': 'Explicit known-page pattern' if found else 'No matching explicit statement',
+    }
