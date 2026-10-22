@@ -14,9 +14,9 @@
 
 | Prioridad | Línea | Vacío real | PR hija |
 |---|---|---|---|
-| P0 | Editoriales universales + contactos | Hay directorio de recepción y registro bibliográfico de sellos, **pero no descubrimiento y enriquecimiento integrados**; no conocemos con qué permiso acceder masivamente a la base pública ISBN | [ENLACE_EDITORIALES] |
-| P1 | Autores: identidad, biografías y relaciones | La biografía automática depende sobre todo de Penguin; faltan fuentes independientes y resolución de homónimos, actualización de fuentes y enriquecimiento verificable sin biografías copiadas en bloque | [ENLACE_AUTORES] |
-| P2 | Catálogo: fichas, SEO y escalado | Formato común para libro/autor/editorial, páginas útiles sin contenido inventado, rendimiento a 500–1000 obras, cobertura de enlaces, metadata y sincronización con #687 | [ENLACE_CATALOGO] |
+| P0 | Editoriales universales + contactos | Hay directorio de recepción y registro bibliográfico de sellos, **pero no descubrimiento y enriquecimiento integrados**; no conocemos con qué permiso acceder masivamente a la base pública ISBN | [#692 — Investigación de GPT: editoriales](https://github.com/davidpd89/web-escritor/pull/692) |
+| P1 | Autores: identidad, biografías y relaciones | La biografía automática depende sobre todo de Penguin; faltan fuentes independientes y resolución de homónimos, actualización de fuentes y enriquecimiento verificable sin biografías copiadas en bloque | [#693 — Investigación de GPT: autores](https://github.com/davidpd89/web-escritor/pull/693) |
+| P2 | Catálogo: fichas, SEO y escalado | Formato común para libro/autor/editorial, páginas útiles sin contenido inventado, rendimiento a 500–1000 obras, cobertura de enlaces, metadata y sincronización con #687 | [#694 — Investigación de GPT: fichas/SEO](https://github.com/davidpd89/web-escritor/pull/694) |
 
 **Referencias preexistentes, sin nuevas PR redundantes**: #683 (precios y ratings, incl. Goodreads/Google Books y límites Amazon), #680 (fuente Planeta), #688 (concursos), #666 (Atlas), #613 (auditoría técnica global). Si surge un subtema nuevo que merezca rama, justificar aquí por qué no cabe en una existente.
 
