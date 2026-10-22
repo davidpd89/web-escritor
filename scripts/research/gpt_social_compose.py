@@ -133,6 +133,10 @@ def main(argv: list[str] | None = None) -> int:
     parser.add_argument("--output", type=Path, help="Explicit file to create atomically; default stdout")
     args = parser.parse_args(argv)
     try:
+        if args.output and not args.files:
+            raise ValueError("Cannot publish without at least one validated source")
+        if args.output and any(path.resolve() == args.output.resolve() for path in args.files):
+            raise ValueError("Output file cannot overwrite a source snapshot")
         sources = []
         for path in args.files:
             if path.stat().st_size > MAX_INPUT_BYTES:
