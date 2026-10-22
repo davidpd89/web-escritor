@@ -84,7 +84,8 @@ def release_errors(root: Path) -> list[str]:
     entry = entries[0]
     if entry.get("url") != "/apoyar/" or entry.get("sourceFile") != "apoyar/index.html":
         errors.append("La fuente/canonical de support-project debe ser /apoyar/")
-    status = entry.get("status", registry.get("defaults", {}).get("status", "public"))
+    # La publicación de un cobro exige autorización explícita; no defaults.
+    status = entry.get("status")
     if status != "public":
         if status not in GATED:
             errors.append(f"Estado no protegido por build-public-dist.py: {status}")
@@ -164,6 +165,9 @@ def fixture_tests() -> None:
         assert release_errors(root)  # No enlazar staging
         nav["footer"]["Información"].clear()
         write()
+        del entry["status"]
+        write()
+        assert release_errors(root)  # No heredar defaults.status=public
         entry["status"] = "draft"
         write()
         assert release_errors(root)  # Estado no reconocido no protege

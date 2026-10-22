@@ -115,6 +115,14 @@ def main() -> None:
         support["sourceFile"] = "apoyar/index.html"
         write_registry()
         assert builder.is_publishable("apoyar/index.html", fixture)
+        # El registry tiene public por defecto: no abrir por herencia.
+        del support["status"]
+        write_registry()
+        assert not builder.is_publishable("apoyar/index.html", fixture)
+        assert "\n/apoyar/\n" in builder.render_assetsignore(fixture)
+        support["status"] = "public"
+        write_registry()
+        assert builder.is_publishable("apoyar/index.html", fixture)
         assert "\n/apoyar/\n" not in builder.render_assetsignore(fixture)
         registry["entries"].append(dict(support))
         write_registry()

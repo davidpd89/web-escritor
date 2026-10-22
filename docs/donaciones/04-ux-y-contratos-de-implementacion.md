@@ -29,7 +29,7 @@ python -m http.server 8000
 
 **Problema reproducible del contrato anterior:** haber añadido `apoyar/` a `PUBLIC_DIR_PREFIXES` y `!/apoyar/` a `.assetsignore` hacía publicable cualquier HTML situado allí, **aunque `support-project` ni siquiera existiera en el registro**. No basta con el test de activación: si no se ejecuta, una preview puede filtrarse por URL directa.
 
-**Corrección implementada en código real:** `support_page_authorized(root)` en `scripts/build-public-dist.py` exige **exactamente una** entrada `support-project`, con `url: "/apoyar/"`, `sourceFile: "apoyar/index.html"` y `status: "public"` (explícito o heredado de defaults). Tanto `is_publishable()` como la generación de `.assetsignore` consultan la misma función. Hasta entonces:
+**Corrección implementada en código real:** `support_page_authorized(root)` en `scripts/build-public-dist.py` exige **exactamente una** entrada `support-project`, con `url: "/apoyar/"`, `sourceFile: "apoyar/index.html"` y **`status: "public"` explícito**. El valor general `defaults.status = public` no autoriza por omisión esta página de cobro. Tanto `is_publishable()` como la generación de `.assetsignore` consultan la misma función. Hasta entonces:
 
 - El builder de artefacto **excluye cualquier archivo** bajo `apoyar/`, aunque exista en git.
 - Cloudflare conserva `!/apoyar/` como capacidad futura, pero agrega una regla final **`/apoyar/`**, que vuelve a bloquear la carpeta. La regla desaparece automáticamente al declarar la entrada pública correcta y regenerar `.assetsignore`.

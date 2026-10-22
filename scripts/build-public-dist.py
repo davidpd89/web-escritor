@@ -207,7 +207,7 @@ def support_page_authorized(root: Path) -> bool:
         len(support) == 1
         and support[0].get("url") == "/apoyar/"
         and support[0].get("sourceFile") == "apoyar/index.html"
-        and registry_status(support[0], data) == "public"
+        and support[0].get("status") == "public"
     )
 
 
