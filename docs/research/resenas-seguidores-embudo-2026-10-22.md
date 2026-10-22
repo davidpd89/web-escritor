@@ -48,7 +48,7 @@ Ejemplo **literal** de la documentación oficial del software (no reescritura, f
 
 Es precisamente el problema ya resuelto por este proyecto: el contador está integrado desde script.js, que carga https://gc.zgo.at/count.js en el dominio de producción y expone _gcEvent(path, title). **No copiar ni empaquetar de nuevo public/count.js:** eso duplicaría un sistema probado. **No añadir data-goatcounter-click a un enlace ya instrumentado manualmente:** evitar doble conteo. El selector debería ser exclusivo.
 
-Código existente y reutilizable **tal cual** en el repositorio propio, script.js:
+Extracto **abreviado** de la función existente en script.js (para consultar el código exacto, abrir el archivo original; aquí se han omitido comentarios y condensado el callback final):
 
 ~~~js
 function _gcEvent(path, title) {
