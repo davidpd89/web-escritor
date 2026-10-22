@@ -1,6 +1,6 @@
 # Investigación aplicada: reseñas de lectores y seguimiento de autor (22-10-2026)
 
-**Estado E2: investigación con auditor offline y 7 pruebas unitarias ejecutadas localmente; ninguna acción de producción activada.** Objetivo: conseguir más lectores que lleguen a los lugares donde pueden seguir al autor o dejar valoraciones propias, distinguir los clics en la web de las acciones completadas y priorizar por rendimiento medible.
+**Estado E3: investigación con auditor offline y 9 pruebas unitarias ejecutadas sobre copia local del código; ninguna acción de producción activada.** Objetivo: conseguir más lectores que lleguen a los lugares donde pueden seguir al autor o dejar valoraciones propias, distinguir los clics en la web de las acciones completadas y priorizar por rendimiento medible.
 
 **No duplicar:** #717 posee Amazon Author Central/Follow, tags, escaparate y auditor de URLs; #397/#470 poseen identidad y ediciones de Goodreads; #683 posee importación de ratings/precios del catálogo general. Esta PR se concentra en **adquisición de reseñas de lectores para los dos libros propios y medición del embudo**.
 
@@ -63,6 +63,47 @@ Las pruebas han pasado de 4 a **7/7**, ejecutadas localmente con `python -m unit
 ### Referencia externa de código, ahora contrastada directamente en GitHub
 
 Repositorio `arp242/goatcounter` activo y accesible. Se han leído `LICENSE` (blob `d06bcb9c8c0db5bcc049ace1caabe82ee752c68d`) y `public/count.js` (blob `3b5f6bc87a35c67875fd3efe52e75f8317949d85`). La licencia general es EUPL modificada; **`public/count.js` es ISC** de forma expresa. Método `goatcounter.bind_events()` enlaza `click` y `auxclick` cuando encuentra `data-goatcounter-click` y evita doble enlace con `data-goatcounter-bound`. Por eso el reuso de `_gcEvent` en `script.js` y un único listener delegado es preferible a añadir una segunda instrumentación. Evidencia: https://github.com/arp242/goatcounter/blob/main/public/count.js .
+
+## E3 · Dos oportunidades confirmadas y una reparación medible (22/10/2026)
+
+### 1. Programa de ejemplares anticipados: Goodreads y Amazon no se gestionan igual
+
+**Hechos comprobados en las fuentes oficiales**:
+
+- Goodreads permite explícitamente **valoraciones y reseñas previas a la publicación de lectores que han recibido copias anticipadas**. Si una copia gratuita se entregó a cambio de una reseña, la persona debe **declararlo en su opinión**. Fuente primaria, consultada 22/10/2026: https://www.goodreads.com/review/guidelines (secciones «What We Encourage» y «What May Affect...»).
+- Amazon permite entregar **copias gratuitas o con descuento**, pero no pedir una reseña como condición ni tratar de determinar la puntuación. El lector puede reseñar desde «Tus pedidos» o desde las opiniones de la ficha del producto; **el enlace actual #customerReviews lleva a la sección**, no abre directamente el editor. Fuente primaria: https://kdp.amazon.com/es_ES/help/topic/G202101910 .
+- **Decisión operativa:** para lectores reales interesados en conocer los libros, ofrecer una copia de lectura cuando se tenga derecho para ello, pedir feedback voluntario por separado de las plataformas y mostrar enlaces a las fichas para quien quiera valorar por iniciativa propia. Nunca denominar una visita de enlace «reseña recibida». En el caso de `Las manecillas del recuerdo`, coordinar disponibilidad de copias con Monza y derechos de reproducción; no inferirlos.
+
+**Dos opciones para el diseño, sin automatizaciones nuevas:**
+
+- A, mínima: colocar en las fichas visibles enlaces correctos a plataformas. Aprovecha tráfico actual, sin solicitar correo adicional. Primero medir clics.
+- B, captación real: adaptar, cuando exista finalidad propia, el programa de lectores existente para distribuir ejemplares y recibir comentarios. No migrar automáticamente a los suscriptores de `/lectores-beta/` porque su alta es para manuscritos no publicados. El objetivo es obtener lectura efectiva, no reseñas positivas.
+
+### 2. Casa del Libro es un canal utilizable ya, con URL/ISBN exactos
+
+| Libro | Destino ES cotejado | ISBN y botón visibles | Recuento de reseñas en la respuesta pública consultada |
+|---|---|---|---|
+| Samuel entre mundos | https://www.casadellibro.com/libro-samuel-entre-mundos/9791387659776/17856720 | 9791387659776 · «Escribir reseña» | 5; página rastreada el 22/10/2026 |
+| Las manecillas del recuerdo | https://www.casadellibro.com/libro-las-manecillas-del-recuerdo/9798905149351/18668032 | 9798905149351 · «Escribir reseña» | 0 en instantánea de buscador del mes anterior; **NO es valor actual** |
+
+Según el procedimiento oficial de Casa del Libro, el usuario debe iniciar sesión, buscar el libro y usar el botón de opinión de su ficha; no hay URL de formulario público independiente verificada. Fuente primaria: https://www.casadellibro.com/tu-opinion-tiene-premio .
+
+### 3. Nuevo fallo de destino en main y control automatizado
+
+**Verificado leyendo anchors reales de la rama `main`:**
+
+- `autor.html`: «Ver todas las reseñas en Amazon España y Goodreads» apunta a `https://www.amazon.es/dp/B0GB6LGQFH?tag=davidporto-21#customerReviews`. El texto promete dos tiendas pero el href solo lleva a Amazon.
+- `libros/samuel-entre-mundos/index.html`: CTAs visibles Amazon y Goodreads.
+- `las-manecillas-del-recuerdo/index.html`: Goodreads de la obra aparece en JSON-LD, pero **en los anchors visibles solo se enlaza al Goodreads del autor**, no a reseñar el libro.
+
+**Corrección preparada en este auditor, sin tocar producción:**
+
+- Nuevo campo `misleading_cross_platform_labels`, solo para botones con etiqueta que ofrece Amazon **y** Goodreads y enlace a **una sola** de esas plataformas.
+- Dos pruebas nuevas: detectar ese error y no señalar cuando los enlaces individuales son coherentes.
+- Resultado: **9/9 pruebas** ejecutadas en copia local de ambos archivos actualizados (Python 3, `unittest`; sintaxis `py_compile` OK). Esto **no** equivale a un test de integración con el navegador ni a la suite general.
+
+**Recomendación de interfaz:** sustituir el texto engañoso por «Leer reseñas en Amazon» y crear un segundo enlace «Valorar en Goodreads» con destino de la obra, no el perfil genérico de autor. En Manecillas, poner una fila sobria de enlaces a Goodreads y Casa del Libro; Amazon solo tras validar la edición correcta.
+
 
 ## Único repositorio externo con código aplicable: GoatCounter
 
@@ -148,10 +189,10 @@ CTAs propuestos, contenido neutral:
 ## Implementado en esta rama
 
 1. scripts/audit-reader-engagement-links.py: auditor local (HTMLParser de la librería estándar, sin dependencias ni red) para detectar CTAs visibles de reseñar/seguir y la colisión del enlace Amazon con el listener de compra. Salida JSON reproducible.
-2. tests/test_audit_reader_engagement_links.py: 7 pruebas aisladas para distinguir reseñar, consultar reseñas, visitar perfil, seguimiento, dominios estrictos y aria-label.
+2. tests/test_audit_reader_engagement_links.py: 9 pruebas aisladas para distinguir reseñar, consultar reseñas, visitar perfil, seguimiento, dominios estrictos y aria-label.
 3. Este documento de evidencias + fragmentos listos para integrar en una PR hija de interfaz cuando se apruebe el diseño.
 
-**Estado de comprobación (E2):** inspección del código de main y fuentes públicas; 7/7 pruebas del auditor superadas en copia local idéntica del código y comprobación de sintaxis Python, sin red. No se ejecutó la suite del repositorio completo. CI, Actions, despliegue, merges, scraping, envío de emails y modificaciones de la web pública **no realizados**.
+**Estado de comprobación (E2):** inspección del código de main y fuentes públicas; 9/9 pruebas del auditor superadas en copia local del código y comprobación de sintaxis Python, sin red. No se ejecutó la suite del repositorio completo. CI, Actions, despliegue, merges, scraping, envío de emails y modificaciones de la web pública **no realizados**.
 
 ## Criterios de aceptación de la futura integración
 
