@@ -24,7 +24,11 @@ export function writeHash(state) {
   return params.size ? '#' + params : '';
 }
 
-const anyOf = (available, wanted) => !wanted?.length || wanted.some(value => available.includes(value));
+const selection = wanted => Array.isArray(wanted) ? wanted : wanted ? [wanted] : [];
+const anyOf = (available, wanted) => {
+  const picked = selection(wanted);
+  return !picked.length || picked.some(value => available.includes(value));
+};
 
 export function matchesMulti(book, state) {
   const categories = book.categories || [];
@@ -48,7 +52,7 @@ export function availableOptions(books, state, facet, choices) {
   return choices.map(({ value, label }) => ({
     value, label,
     count: candidates.filter(book => matchesMulti(book, { ...withoutOwnFacet, [facet]: [value] })).length,
-    selected: (state[facet] || []).includes(value)
+    selected: selection(state[facet]).includes(value)
   })).filter(option => option.count > 0 || option.selected);
 }
 
