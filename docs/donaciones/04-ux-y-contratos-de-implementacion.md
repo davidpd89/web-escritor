@@ -4,15 +4,16 @@
 
 ## Alcance de esta PR
 
-Investigación aplicada + piezas de HTML/CSS listas para adaptar. No crear botones vivos sin URLs reales; no publicar página vacía ni enlaces ficticios. **Este archivo no es ejecutado por la web**.
+Investigación aplicada + piezas de HTML/CSS listas para adaptar. No crear botones vivos sin URLs reales; no publicar página vacía ni enlaces ficticios. **Este archivo no es ejecutado por la web**. Esta hija también corrige en código la publicación futura de `/apoyar/`; no crea aún el HTML de esa página ni modifica navegación o cobro: activar la ruta sin URL verificada crearía un enlace roto o una pantalla vacía.
 
 ## Contrato de navegación (orden exacto recomendado)
 
 1. Añadir una entidad `support-project` en `data/content-registry.json` siguiendo el esquema de `entries[]`, apuntando a `/apoyar/`, con label `Apoyar el proyecto` y contenido descriptivo real.
 2. Añadir `support-project` **solo al array `footer.Información` de `data/navigation.json`** (no al menú principal `header`, no a `exploreTerritories`, no al CTA `header-buy`).
 3. Ejecutar `python scripts/build-site-shell.py` cuando corresponda, revisar diffs y `--check` disponible, y actualizar la fuente/plantilla de páginas regeneradas para que las pruebas de paridad no reviertan el footer.
-4. Crear una página nativa `apoyar/index.html` coherente con shell V1, canonical `https://davidportodiaz.com/apoyar/`, un solo h1, estructura main, contenidos y métodos. Integrar sitemap con `scripts/build-sitemap.py`, navegación / mapa del sitio y `robots.txt` si aplica.
-5. Solo después de tener proveedores confirmados, exponer enlaces desde el frontend. Deshabilitar/ocultar siempre los ausentes, nunca `href="#"`.
+4. **El builder público usa una allowlist explícita**: la ruta nueva requiere `PUBLIC_DIR_PREFIXES` en `scripts/build-public-dist.py` y regenerar `.assetsignore`; ambos cambios ya están incluidos en esta hija, con aserciones en `tests/test-public-artifact-contract.py`. Cloudflare confirma que `.assetsignore` usa semántica gitignore ([documentación oficial, actualizada 12/10/2026](https://developers.cloudflare.com/workers/static-assets/binding/)). Sin reabrir la carpeta, la página no se sirve, aunque exista en git.
+5. Crear la página nativa `apoyar/index.html` coherente con shell V1, canonical `https://davidportodiaz.com/apoyar/`, un solo h1, estructura main, contenidos y métodos. Integrar sitemap con `scripts/build-sitemap.py`, navegación / mapa del sitio y `robots.txt` si aplica.
+6. Solo después de tener proveedores confirmados, exponer enlaces desde el frontend. Deshabilitar/ocultar siempre los ausentes, nunca `href="#"`.
 
 ## Código HTML de tarjeta de apoyo (sin caja agresiva)
 
@@ -106,6 +107,7 @@ export const supportProviders = [
 ## QA concreto (añadir a tests existentes, sin correr CI en esta investigación)
 
 Tests recomendados para Claude:
+- **Ya incorporado** en `tests/test-public-artifact-contract.py`: `/apoyar/index.html` reconocido por la allowlist, `.assetsignore` sincronizado y archivos privados (`README.md`, `.env`, `*.key`) excluidos dentro de `/apoyar/`. No depende de ninguna cuenta de cobro.
 - `tests/test-support-navigation.py`: entidad en registry, enlace en footer.Information, builder no divergente de HTML publicados; idempotencia de `build-site-shell.py --check`.
 - `tests/test-support-provider-links.py`: ninguna URL ficticia o `#`, solo HTTPS y hosts aprobados; sin `sk_`, `pk_` de pruebas, teléfono, IBAN ni email del titular; `target="_blank"` y `rel="noopener noreferrer"`.
 - `tests/test-support-pages.py`: una h1, canonical /apoyar/, validación links internos, sitemap, no formulario de pago, sin <script> remoto de proveedor, textos voluntarios y sin promesas de desgravación.
@@ -122,7 +124,11 @@ python tests/test-aria-landmarks-sitewide.py
 python tests/test-public-link-contracts.py
 ```
 
-No se garantiza que todos los checks cubran de manera suficiente la funcionalidad nueva; los cuatro tests `test-support-...` son **propuestos**, no creados ni ejecutados.
+No se garantiza que todos los checks cubran de manera suficiente la funcionalidad nueva; los cuatro tests `test-support-...` siguen **propuestos**. La aserción de publicación sí está incorporada en el test existente.
+
+### Verificación de despliegue imprescindible al integrar el HTML
+
+`python scripts/build-public-dist.py --check-assetsignore` y `python tests/test-public-artifact-contract.py` deben pasar. Una vez generado el HTML de `/apoyar/` y registrado como fuente pública, **comprobar su presencia real** en `.preview-dist/apoyar/index.html` después de `python scripts/build-public-dist.py`, y comprobar `sitemap.xml` (sin declarar una ruta no publicada). Repetir también `python scripts/build-site-shell.py --check`. **No ejecutar Actions desde esta PR de investigación.**
 
 ## Opciones UX A/B
 
