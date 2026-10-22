@@ -39,14 +39,68 @@ Salida estructural sin cifras inventadas:
   "schema_version": 1,
   "generated_at": "2026-10-22T12:00:00Z",
   "networks": [
-    {"id":"bluesky","profile_url":"https://bsky.app/profile/davidportoescritor.bsky.social","followers":null,"observed_at":null,"source":null,"status":"pending"},
-    {"id":"mastodon","profile_url":"https://mastodon.social/@davidportodiaz","followers":null,"observed_at":null,"source":null,"status":"pending"},
-    {"id":"threads","profile_url":"https://www.threads.com/@davidportodiaz","followers":null,"observed_at":null,"source":null,"status":"pending"},
-    {"id":"instagram","profile_url":"https://www.instagram.com/davidportodiaz/","followers":null,"observed_at":null,"source":null,"status":"pending"},
-    {"id":"tiktok","profile_url":"https://www.tiktok.com/@davidportoescritor","followers":null,"observed_at":null,"source":null,"status":"pending"},
-    {"id":"pinterest","profile_url":"https://www.pinterest.com/davidportodiaz/","followers":null,"observed_at":null,"source":null,"status":"pending"}
+    {
+      "id": "bluesky",
+      "profile_url": "https://bsky.app/profile/davidportoescritor.bsky.social",
+      "followers": null,
+      "observed_at": null,
+      "valid_until": null,
+      "source": null,
+      "status": "pending"
+    },
+    {
+      "id": "mastodon",
+      "profile_url": "https://mastodon.social/@davidportodiaz",
+      "followers": null,
+      "observed_at": null,
+      "valid_until": null,
+      "source": null,
+      "status": "pending"
+    },
+    {
+      "id": "threads",
+      "profile_url": "https://www.threads.com/@davidportodiaz",
+      "followers": null,
+      "observed_at": null,
+      "valid_until": null,
+      "source": null,
+      "status": "pending"
+    },
+    {
+      "id": "instagram",
+      "profile_url": "https://www.instagram.com/davidportodiaz/",
+      "followers": null,
+      "observed_at": null,
+      "valid_until": null,
+      "source": null,
+      "status": "pending"
+    },
+    {
+      "id": "tiktok",
+      "profile_url": "https://www.tiktok.com/@davidportoescritor",
+      "followers": null,
+      "observed_at": null,
+      "valid_until": null,
+      "source": null,
+      "status": "pending"
+    },
+    {
+      "id": "pinterest",
+      "profile_url": "https://www.pinterest.com/davidportodiaz/",
+      "followers": null,
+      "observed_at": null,
+      "valid_until": null,
+      "source": null,
+      "status": "pending"
+    }
   ],
-  "totals": {"follower_relationships":null,"coverage":0,"eligible":6,"label":"Seguidores sumados en redes con datos vigentes (no personas únicas)"}
+  "totals": {
+    "follower_relationships": null,
+    "valid_until": null,
+    "coverage": 0,
+    "eligible": 6,
+    "label": "Seguidores sumados en redes con datos vigentes (no personas únicas)"
+  }
 }
 ~~~
 
