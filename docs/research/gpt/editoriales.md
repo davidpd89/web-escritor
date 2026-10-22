@@ -162,3 +162,29 @@ Datos y fuentes originales: [editoriales-piloto-5-fuentes-2026-10-22.json](edito
 **Criterio de utilidad:** un candidato de alta nuevo (Alienta) y cuatro comprobaciones de control, sin importar automáticamente emails ni cambiar estados. Si el HTML real no da fragmentos o hay falsos positivos, corregir solo el extractor antes de ampliar. Cuando se valide, elaborar la propuesta de ficha Alienta con los campos exigidos por build-editoriales.py; no modificar main desde esta PR.
 
 **Estado:** sin HTML real descargado, sin pruebas integradas/Actions y sin publicación. Se mantienen los módulos de E1-E6 como material de investigación, no como arquitectura aprobada.
+
+
+### E6.3 — puente al cliente HTTP existente (continuación)
+
+**Código actualizado sin crear un sexto módulo:** la función run_live_pilot() y la opción --live-pilot del módulo E4 existente scripts/research/gpt_editoriales_contact_evidence.py. Importa CachedHTTP de scripts/reading_editorial_sources.py (ya integrado en main) y reutiliza sus controles de robots.txt, hosts, redirecciones, caché y presupuesto. Verifica, además, las **cinco URLs exactas** independientemente de los datos del informe; Alienta está añadida a la whitelist de hosts oficial del piloto.
+
+**Salida del prototipo:** JSON con estado propuesto o desconocido, éxito/error de acceso, URL, fecha, cinco decisiones pendientes, contador de solicitudes físicas (incluidas comprobaciones robots y redirecciones), aciertos de caché y veto permanente de publicación. No copia direcciones de correo ni modifica data/editoriales.json. El reporte opcional solo se admite bajo .ci/reading-intake/, carpeta que ya utiliza el workflow para subir informes de ingesta.
+
+**Reproducción propuesta desde la raíz del repositorio, con acceso autorizado y sin automatización programada. No ejecutado:**
+
+    python scripts/research/gpt_editoriales_contact_evidence.py \
+      --live-pilot \
+      --pilot-cases docs/research/gpt/editoriales-piloto-5-fuentes-2026-10-22.json \
+      --trusted-hosts docs/research/gpt/editoriales-e4-trusted-hosts-2026-10-22.json \
+      --as-of 2026-10-22 \
+      --cache-dir .ci/reading-editorial-cache \
+      --budget 12 \
+      --output .ci/reading-intake/editorial-candidates-pilot.json
+
+**Pruebas sin red añadidas** al test E4 existente: FakeHTTP con cinco respuestas, fallo de una fuente sin invalidar las otras, URL diferente dentro de un dominio aprobado y selección incompleta. Comando para comprobar el código:
+
+    python -m unittest discover -s tests -p 'test_gpt_editoriales_contact_evidence.py' -v
+
+**Límite verificado:** el HTML completo no ha podido descargarse desde el contenedor por falta de acceso de red. El navegador de consulta devuelve texto renderizado, no bytes HTML ni cabeceras. Tampoco se pudo consultar robots.txt por navegador, así que CachedHTTP debe comprobarlo antes de cada acceso en el entorno ejecutor. **No se ha ejecutado el modo live ni la batería unittest del repositorio**; ningún éxito sintético anterior demuestra que las expresiones funcionen con todo el DOM real. Tampoco se ha activado CI, ninguna PR de publicación ni nuevo cron.
+
+**Próxima iteración útil:** ejecutar el comando en entorno autorizado, revisar cinco resultados y sus solicitudes reales, y corregir únicamente las expresiones/páginas que fallen. Después validar con el builder existente la ficha de Alienta y preparar la aprobación de un cambio de datos, sin añadir bibliotecas externas por anticipado.
