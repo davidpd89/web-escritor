@@ -83,6 +83,31 @@ El laboratorio también limita la reconstrucción de Choice.js a cuando cambian 
 
 **Advertencia útil:** la demo solo enseña multiselección de formatos, géneros y temática. Preservar parámetros antiguos en la URL NO implica que esta demo esté aplicando ya los filtros de precio, fecha o valoraciones; se aplican en la web pública actual y deben seguir aplicándose en la implementación final. No fusionar el adaptador directamente sobre `matches()` sin mantener su lógica financiera.
 
+## Comprobación de calidad incremental: datos reales y catálogo automático
+
+En una revisión posterior de la PR se volvió a procesar el HTML **real** de `recomendaciones/index.html` (55 tarjetas, 22-10-2026) para validar el significado exacto de la multiselección:
+
+| Selección | Obras únicas encontradas |
+| --- | ---: |
+| Tapa blanda | 32 |
+| Tapa dura | 24 |
+| Tapa blanda OR tapa dura | 55 |
+| Fantasía | 7 |
+| Terror | 3 |
+| Fantasía OR Terror | 8 |
+| (Fantasía OR Terror) AND (Blanda OR Dura) | 8 |
+| Tipo Cocina AND Fantasía | 0 |
+| Tipo Cocina AND (Fantasía OR Cocina) | 10 |
+| Audiolibro | 1 |
+
+Las cifras son un **snapshot del catálogo del 22-10-2026**, no límites fijos para las pruebas. Por ejemplo, 32 + 24 = 56, pero la unión tiene 55 obras, porque un título admite ambos formatos; no duplicar tarjetas. Fantasía 7 + Terror 3 = 10, pero la unión tiene 8 por coincidencias entre etiquetas.
+
+**Regresión detectada al revisar el laboratorio:** «Quitar todos los filtros» solo vaciaba `formato/genero/tematica` y dejaba escondidos en el hash parámetros como `paginas`, `precio_max` o `novedad`; se corrigió restableciendo `parseHash('')` completo. Se amplió `qa-demo.mjs` para exigir hash vacío tras restablecer.
+
+**Otra regresión evitada:** el primer `qa-demo.mjs` suponía exactamente 55 libros y 24 en la segunda página. Como la incorporación de libros está automatizada, se corrigió: ahora lee el total que realmente devuelve el laboratorio y calcula la segunda página con `Math.min(24,total-24)`. Se preserva el requisito de paginación con más de 24 fichas; no se codifica una cifra editorial transitoria.
+
+**Estado de estas nuevas comprobaciones:** inspección y cálculo contra HTML de `main` **realizados**, código actualizado en GitHub y pruebas browser **preparadas pero pendientes de ejecución**. No se afirma validación visual ni de Choices.js dentro de Chromium hasta ejecutar `qa-demo.mjs` en una copia completa de la rama.
+
 ## Riesgo real y condiciones para Claude
 
 La PR de implementación NO debe reemplazar `reading-catalogue.js` a ciegas: ya resuelve 24 fichas/página, sort, filtros financieros con caducidad, rating y test. Iniciar con **género y formato multiselección**, luego temática. El resto de facetas solo después de verificar que sus opciones producen resultados reales. Mantener el selector «Tipo de libro» exclusivo y su orden editorial salvo decisión posterior.
