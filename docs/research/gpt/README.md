@@ -91,6 +91,13 @@
 - Se amplió el **módulo E4 existente**, no se inventó otro publicador: función draft_from_html sobre HTML autorizado y URL exacta por sello, más casos en el test E4 existente. **13 comprobaciones locales de lógica con HTML sintético correctas**; NO se ha descargado HTML real, NO se ha ejecutado CI y NO se ha verificado integración end-to-end.
 - **Siguiente investigación en #692:** probar HTML real de estas cinco fuentes con **el CachedHTTP ya existente** (robots/cache/presupuesto compartido), medir aciertos y coste en peticiones (incluidos robots.txt) y validar el borrador Alienta con el builder. No ampliar a 150 ni añadir extruct/selectolax sin demostrar que se necesitan.
 
+## 4.8. E6.3 — puente opcional a CachedHTTP, sin ejecución live (22/10/2026)
+
+- **#692:** se extendió `gpt_editoriales_contact_evidence.py`, ya existente, con `run_live_pilot` y `--live-pilot`: utiliza el cliente `CachedHTTP` de `main`, su caché, robots.txt y presupuesto; solo **cinco URLs exactas** aprobadas, informe de fallos parciales y contador real de peticiones si llega a ejecutarse. No modifica datos públicos.
+- Se añadieron pruebas **offline con FakeHTTP** al test ya existente: cinco respuestas, URL cambiada en mismo dominio, fallo aislado e inputs incompletos. **No se ejecutaron los tests de repositorio**; no confundir con las comprobaciones sintéticas de la pasada anterior.
+- **Límite:** se contrastó el texto de las cinco páginas oficiales mediante navegador de búsqueda; el entorno de ejecución no pudo descargar su HTML bruto por falta de DNS, ni consultar robots.txt. Por eso **no hay métricas reales de HTTP, precisión ni tiempo** todavía. El código está en [#692](https://github.com/davidpd89/web-escritor/pull/692), con comando reproducible en `docs/research/gpt/editoriales.md`.
+- **Siguiente «investigación de GPT»:** ejecutar ese comando en un entorno autorizado con red, inspeccionar cinco resultados y corregir solamente los problemas observados. Después validar el borrador Alienta con el builder existente, sin subirlo automáticamente a `main`.
+
 ## 5. Próxima ejecución
 
 **Siguiente investigación de GPT → #692: comprobar 5 HTML reales con CachedHTTP del repositorio y auditar la ficha Alienta sin publicarla.** Medir precisión, peticiones y tiempo de revisión, corregir solo los fallos observados. Conservar el resto como investigación, no llevar los cinco módulos a producción por inercia.
