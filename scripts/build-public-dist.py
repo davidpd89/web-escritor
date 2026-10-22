@@ -193,25 +193,28 @@ def registry_status(entry: dict, data: dict) -> str:
     return entry.get("status", defaults.get("status", "public"))
 
 
-def gated_prefixes_from_registry(root: Path) -> tuple[str, ...]:
-    """Directories whose registry status says they must not be published."""
+def support_page_authorized(root: Path) -> bool:
+    """Abrir /apoyar/ solo con un registro público explícito y correcto.
+
+    Preparar la allowlist NO basta para servir una página de cobro. Mantener
+    esta comprobación separada de las rutas gated generales, para no cambiar
+    sus contratos ni el comportamiento de otras secciones.
+    """
     data = registry_data(root)
-    prefixes: set[str] = set()
-    # /apoyar/ contiene un flujo de cobro. Su namespace está preparado en la
-    # allowlist, pero no puede abrirse por la mera presencia de un HTML en Git.
-    # El propio builder y la regla Cloudflare la bloquean hasta que el registry
-    # autorice exactamente esa página. El gate de checkout sigue siendo otro
-    # requisito (tests/test-support-release-gate.py).
-    support = [e for e in data.get("entries", []) if e.get("id") == "support-project"]
-    support_is_public = (
+    support = [entry for entry in data.get("entries", [])
+               if entry.get("id") == "support-project"]
+    return (
         len(support) == 1
         and support[0].get("url") == "/apoyar/"
         and support[0].get("sourceFile") == "apoyar/index.html"
         and registry_status(support[0], data) == "public"
     )
-    if not support_is_public:
-        prefixes.add("apoyar/")
 
+
+def gated_prefixes_from_registry(root: Path) -> tuple[str, ...]:
+    """Directories whose registry status says they must not be published."""
+    data = registry_data(root)
+    prefixes: set[str] = set()
     for entry in data.get("entries", []):
         if registry_status(entry, data) not in GATED_REGISTRY_STATUS:
             continue
@@ -262,6 +265,8 @@ def forbidden_reason(rel_path: str) -> str | None:
 def is_publishable(rel_path: str, root: Path = ROOT) -> bool:
     rel_path = rel_path.replace("\\", "/").lstrip("./")
     if forbidden_reason(rel_path):
+        return False
+    if rel_path.startswith("apoyar/") and not support_page_authorized(root):
         return False
     if rel_path in PUBLIC_EXCLUDED_FILES:
         return False
@@ -419,6 +424,8 @@ def assetsignore_lines(root: Path = ROOT) -> list[str]:
             "# Rutas gated derivadas de data/content-registry.json.",
             *[f"/{prefix}" for prefix in gated],
         ]
+    if not support_page_authorized(root):
+        lines += ["", "# Página de apoyo sin autorización pública.", "/apoyar/"]
     return lines
 
 
