@@ -34,7 +34,7 @@
   </main>
   <script src="./upstream/choices-v11.2.4.min.js"></script>
   <script type="module">
-    import {parseHash,writeHash,matchesMulti,availableOptions} from './multifacet-contract.mjs';
+    import {parseHash,writeHash,matchesMulti,availableOptions,sanitizeFacetSelections} from './multifacet-contract.mjs';
     const base = '/recomendaciones/';
     const sources = await Promise.all([
       fetch(base + 'index.html').then(r => { if (!r.ok) throw new Error('No se pudo leer el HTML del catálogo'); return r.text(); }),
@@ -61,7 +61,7 @@
       genero: data.categorias.filter(c => c.activa && c.tipo === 'genero' && used.has(c.id)).map(c => ({value:c.id,label:c.nombre})),
       tematica: data.categorias.filter(c => c.activa && c.tipo === 'tematica' && used.has(c.id)).map(c => ({value:c.id,label:c.nombre}))
     };
-    const state = parseHash(location.hash);
+    const state = sanitizeFacetSelections(parseHash(location.hash),master);
     // Esta DEMO solo dibuja tres controles. No aplicar filtros sin control
     // visible (q, grupo, temporada, edad...) desde hashes de producción.
     // Preservarlos en la URL sí permite probar compatibilidad con enlaces antiguos.
@@ -155,7 +155,7 @@
       render();
     });
     window.addEventListener('hashchange',()=>{
-      const restored=parseHash(location.hash);
+      const restored=sanitizeFacetSelections(parseHash(location.hash),master);
       Object.assign(state,restored);
       rendering=true;
       try {
