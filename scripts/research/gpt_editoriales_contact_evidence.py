@@ -169,20 +169,20 @@ def review(observations: dict, vetted_hosts: dict, *, as_of: date) -> dict:
 # Use the HTTP/robots/cache implementation ALREADY in main
 # (reading_editorial_sources.CachedHTTP) to supply HTML only after approval.
 class _PilotVisibleText(HTMLParser):
-    """Page text excluding scripts/styles; computed CSS visibility is unknown."""
+    """Page text excluding scripts, metadata and inert templates; CSS unknown."""
     def __init__(self):
         super().__init__(convert_charrefs=True)
         self.parts = []
         self.ignored = 0
 
     def handle_starttag(self, tag, attrs):
-        if tag in {'script', 'style', 'noscript', 'svg'}:
+        if tag in {'script', 'style', 'noscript', 'svg', 'head', 'template', 'title'}:
             self.ignored += 1
         elif tag in {'p', 'h1', 'h2', 'h3', 'h4', 'li', 'br', 'div'} and not self.ignored:
             self.parts.append(' ')
 
     def handle_endtag(self, tag):
-        if tag in {'script', 'style', 'noscript', 'svg'}:
+        if tag in {'script', 'style', 'noscript', 'svg', 'head', 'template', 'title'}:
             self.ignored = max(0, self.ignored - 1)
         elif tag in {'p', 'h1', 'h2', 'h3', 'h4', 'li', 'div'} and not self.ignored:
             self.parts.append(' ')
