@@ -140,6 +140,12 @@ class ComposeTests(unittest.TestCase):
         with self.assertRaises(ValueError):
             sc.compose([src], now=NOW)
 
+    def test_reject_wrong_provider_for_network(self):
+        src = bsky()
+        src["source"] = "metricool-mcp-export"
+        with self.assertRaisesRegex(ValueError, "wrong provider"):
+            sc.compose([src], now=NOW)
+
     def test_reject_invalid_status(self):
         src = bsky()
         src["status"] = "ok-nope"
