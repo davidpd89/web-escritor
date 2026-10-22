@@ -25,7 +25,7 @@ La **PR #687 aún abierta** introduce `data/reading-publishers.json`: **11 sello
 ## Pasadas de trabajo (orden)
 
 - **E1 COMPLETADO (auditoría de los JSON de main y #687, sin ejecutar código del proyecto):** no hay coincidencias exactas ni de nombre normalizado entre los 11 sellos del catálogo y las 150 editoriales del directorio; 35 de los 55 libros de #687 enlazan a fichas del directorio, todas con `status=unknown`; otros 20 enlazan a 9 de los 11 sellos exclusivamente bibliográficos. **Beascoa y Montena** tienen ficha de sello/fuente, pero cero libros publicados asociados en esa rama; revisarlas como huérfanas antes de indexarlas. Los estados de manuscritos no se pueden inferir de esta distribución. No he encontrado colisiones de nombres normalizados dentro de las 150 editoriales. Estos recuentos son instantáneas de #687, **no** de `main`.
-- **E2:** probar vía oficial ISBN y licencias; elegir fuente inicial y límites; guardar respuesta representativa autorizada como fixture anonimizado/sintético.
+- **E2 INVESTIGADO / RUTA ELEGIDA:** consultar límites del ISBN y DILVE, descartando la copia de resultados ISBN sin autorización explícita; fuente estructurada inicial **Wikidata CC0**, solo para proponer entidades y webs. Se ha creado adaptador offline de Wikibase JSON y 9 pruebas escritas sin ejecutar. Pendiente piloto con QIDs reales contrastados, confirmación de permisos de webs editoriales y petición de autorización/volcado a Agencia ISBN para ampliar cobertura. Véase hallazgo fechado abajo.
 - **E3 CÓDIGO PREPARADO:** `scripts/research/gpt_editoriales_reconcile.py` ya compara, en modo solo lectura y con ficheros suministrados explícitamente, slugs, alias sugeridos, datos obsoletos, fuentes de ficha, registros sin libros y enlaces rotos. Devuelve JSON para revisión sin filtrar correos ni escribir `data/editoriales.json`. **No probado todavía**; #692 no contiene los 11 sellos porque viven en #687. Se utilizará una copia local de esos datos después de aprobación.
 - **E4 EN PREPARACIÓN:** `tests/test_gpt_editoriales_reconcile.py` añade 11 pruebas sintéticas escritas **sin ejecutar** (estado cerrado que sigue publicando, alias, homónimos/colisiones, fuente impostora, libro sin enlace y caducidad). Pendiente contrastar los primeros 20 candidatos reales, criterios de correspondencia jurídica y contactos oficiales.
 - **E5:** piloto incremental con presupuesto y reporte; integración futura al único publicador, después de QA y revisión legal, sin segundo workflow.
@@ -70,3 +70,54 @@ python scripts/research/gpt_editoriales_reconcile.py \
 Salida: JSON en stdout con recuentos, colisiones, casos huérfanos y `imprint_candidates` con `decision=review_*|catalogue_only|quarantine_source`. Solo sugerencias, **jamás fusiones, cambios de status o alta directa**. Los datos deben provenir del **mismo commit** de #687 para evitar falsos errores referenciales. La rama no añade ni altera jobs, workflows ni datos públicos.
 
 **Siguiente acción recomendada — E2/E4:** obtener permiso o export de la base ISBN; luego preparar 20 coincidencias reales manualmente y probar la validez/atribución de contacto antes de automatizar una sola ficha. Se mantiene el coste objetivo cero.
+
+
+## E2 — vías de descubrimiento contrastadas (22/10/2026)
+
+| Fuente y prueba primaria | Gratuidad y formato real | Qué permite / qué NO | Decisión |
+|---|---|---|---|
+| [Ministerio, directorio de editoriales](https://www.cultura.gob.es/cultura/libro/isbn/base-de-datos-de-editoriales.html) + [ficha datos.gob.es](https://datos.gob.es/es/catalogo/e05234201-base-de-datos-de-editoriales) | Consulta web XHTML, actualizaciones diarias; **no** CSV/JSON/endpoint de filas verificado | El [Ministerio aclara expresamente (20/07/2026)](https://datos.gob.es/es/catalogo/e05234201-base-de-datos-de-libros-editados-en-espana) que no es titular ni verifica los datos cedidos por la **Agencia del ISBN**, de carácter privado. Su aviso legal general **no acredita una licencia de explotación masiva de los registros de tercero** | **HOLD** para ingestión masiva; sí consulta manual puntual para contraste |
+| [Agencia Española del ISBN](https://www.cultura.gob.es/cultura/libro/isbn/informacion.html) | Titularidad y derechos de los datos deben confirmarse | Contacto público oficial **agencia@agenciaisbn.es**; solicitar explícitamente formato/actualizaciones, autorización de redistribuir campos y límites, precio 0 € o tarifa real. **No se ha contactado ni obtenido permiso** | **PENDIENTE DE PERMISO**, fuente preferida de expansión nacional si autorizan |
+| [Registro Global ISBN](https://grp.isbn-international.org/content/using-register/358) + [condiciones](https://grp.isbn-international.org/node/6) | Consulta básica pública; registro gratis para contactos completos; no API masiva autorizada hallada | **Prohíbe expresamente almacenar, republicar y distribuir resultados de búsquedas, incluso registrándose**; permiso por escrito si se quiere reutilizar. No utilizar cuenta gratis como «API de contactos» | **NO-GO** de importación/redistribución sin licencia escrita |
+| [DILVE, FAQ](https://web.dilve.es/asistencia-2/preguntas-frecuentes/) | **Sí existe API HTTP** de descarga y extracciones automáticas ONIX, pero exige **alta y derechos de usuario/entidad**; tarifa/licencia para nuestro uso no confirmadas | Sirve principalmente para datos de libros y editoriales participantes, no para contactos de recepción de manuscritos. No afirmar que es API pública gratuita | **CONDICIONAL**, pedir condiciones si interesa ampliar libros |
+| [Wikidata, licencia CC0](https://www.wikidata.org/wiki/Wikidata:Licensing) + [mecanismos de acceso](https://www.wikidata.org/wiki/Wikidata:Data_access/es) | Estructura JSON, `Special:EntityData/Qxxx.json` o `action=wbgetentities`; datos estructurados CC0, acceso público; API para **pequeños grupos**, dumps para escala | [P856 web oficial](https://www.wikidata.org/wiki/Property:P856), [P749 organización matriz](https://www.wikidata.org/wiki/Property:P749), [P17 país](https://www.wikidata.org/wiki/Property:P17), [P31 clase](https://www.wikidata.org/wiki/Property:P31). **Solo candidatos**: P856 puede contener webs antiguas/secuestradas y Wikidata no verifica contactos comerciales ni manuscritos | **PILOTO E2 APROBABLE TÉCNICAMENTE**, revisión humana y verificación web antes de publicar |
+| [Open Library API](https://openlibrary.org/developers/api) / [dumps](https://openlibrary.org/developers/dumps) | API JSON gratuita **no para extracción masiva**; dumps bibliográficos gratuitos pero muy voluminosos | Los campos de editorial en ediciones son **texto bibliográfico** y no acreditan web, entidad jurídica o correo válido | **FUENTE DE LIBROS**, no directorio de contactos |
+
+### Arquitectura acordada en investigación (NO ACTIVADA)
+
+1. **Semilla**: nombres y sellos de los libros admitidos en el único pipeline vigente + catálogo local del directorio actual; opcional Wikidata para candidatos y relaciones de grupo con QID. No rastrear alfabéticamente bases completas sin permiso.
+2. **Identidad**: nombre/alias/URL/QID con procedencia. Coincidencia de nombre o dominio = `manual_review_required`, no alta automática. Un grupo comparte dominio con sellos distintos; un sello puede tener nombre propio. La empresa matriz no hereda estado de recepción.
+3. **Contactos**: visitar únicamente URLs oficiales autorizadas, con presupuesto y robots verificados por proveedor, capturar **referencias por campo** y fecha; general/prensa/manuscritos separados. Se requerirá verificar la **idoneidad del contacto** y un tratamiento de datos personales conforme antes de publicar. No copiar resultados ISBN/GRP como alternativa.
+4. **Datos dinámicos**: `status=unknown` mientras no conste declaración reciente y explícita de recepción. La caducidad no equivale a «closed»; se muestra «por verificar». Cambio de estado exige evidencia nueva y registro reversible, no extracción por palabras aisladas.
+5. **Publicación**: solo candidatos aprobados, en el **único** writer del catálogo tras resolver #687; sin workflow ni cron nuevos, sin activación en esta rama.
+
+### Código preparado en E2, pendiente de ejecutar
+
+- `scripts/research/gpt_editoriales_wikidata_candidates.py`: interpreta únicamente **snapshot Wikibase JSON suministrado**, sin HTTP; saca label, aliases, webs HTTPS candidatas (no páginas privadas, localhost ni dominios de ejemplo), identificadores de grupo/país/clase y posibles slugs del directorio por nombre/dominio. Descarta claims `deprecated` y prioriza `preferred`. **Siempre requiere revisión** y no genera correo ni estado de manuscritos. Una web P856 **no** se considera demostración de propiedad/control: se debe comprobar.
+- `tests/test_gpt_editoriales_wikidata_candidates.py`: **9 pruebas sintéticas escritas y no ejecutadas**; validan URL sospechosa, prioridad y obsolescencia, homónimos, empresas que comparten dominio, y ninguna fusión/publicación automática.
+- No se integra el módulo en el builder, no se realizan peticiones a Wikidata, no se copian ficheros externos protegidos y no se instala dependencia.
+
+Ejemplo de acceso documentado, **para un piloto futuro con identificadores confirmados y respetando condiciones/cuotas**, no ejecutado en esta investigación:
+
+```text
+https://www.wikidata.org/wiki/Special:EntityData/Q<id-validado>.json
+https://www.wikidata.org/w/api.php?action=wbgetentities&ids=Q<id-validado>&props=labels|aliases|claims&languages=es|en&format=json
+```
+
+El marcador `<id-validado>` debe sustituirse por un QID comprobado previamente: **no** es una URL literal ejecutable. El adaptador no acepta búsquedas por nombre y por diseño no inventa QIDs.
+
+### Solicitud propuesta, todavía NO enviada
+
+Destinatario oficial: **agencia@agenciaisbn.es** ([Ministerio de Cultura](https://www.cultura.gob.es/cultura/libro/isbn/informacion.html)).
+
+> Asunto: Consulta sobre reutilización autorizada del directorio de editoriales españolas.
+>
+> Estamos desarrollando un directorio bibliográfico gratuito que enlaza libros, sellos y editoriales con sus sitios oficiales. Nos gustaría confirmar si la Agencia del ISBN ofrece un fichero descargable, API o feed incremental del directorio de editoriales; formatos, periodicidad y condiciones de acceso; y si sería posible almacenar, mostrar y actualizar nombres, web institucional y datos profesionales de contacto en fichas públicas, indicando atribución y fecha. También quisiéramos conocer tarifas, límites de peticiones y si hay condiciones especiales para entidades históricas o autores-editores. **No solicitamos datos privados.** Gracias.
+
+Este texto **no representa autorización concedida ni una comunicación enviada**. No iniciar importación masiva mientras no haya respuesta/licencia aplicable.
+
+### Próxima pasada concreta — E2 validación / E4
+
+- Investigar **QIDs reales** de 10–20 sellos de catálogo, verificar correspondencia con fichas originales y cuantificar cobertura de Wikidata (`P856`, `P749`, `P17`, `P31`). Guardar solo un informe de fuentes, no nombres inferidos. Validar adaptador únicamente con datos autorizados, primero offline.
+- Definir el **contrato de evidencia del contacto**, lectura de páginas oficiales con controles de licencia/robots y detección no ambigua de sección de manuscritos. Preparar pruebas sintéticas y cola manual.
+- **No** avanzar a llamadas masivas a ISBN ni al Global Register: no existe permiso documentado de reutilización. Si recibimos autorización de Agencia ISBN, reevaluar esta decisión y documentar coste/condiciones antes de escribir el conector.
