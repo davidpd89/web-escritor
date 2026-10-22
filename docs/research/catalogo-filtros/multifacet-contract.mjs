@@ -64,3 +64,26 @@ export function sanitizeFacetSelections(state, masters) {
   }
   return clean;
 }
+
+/**
+ * Adaptador mínimo para assets/reading-catalogue.js::matchingOffers().
+ * Recibe EXCLUSIVAMENTE ofertas previamente validadas por validOffer/fresh.
+ * Cruza formato y precio EN LA MISMA oferta: evita falsos positivos de un
+ * libro con tapa blanda barata y tapa dura cara cuando solo se pide tapa dura.
+ */
+export function matchingOffersMulti(offers, state) {
+  const selected = Array.isArray(state.formato)
+    ? state.formato : state.formato ? [state.formato] : [];
+  const min = state.precio_min ? Math.round(Number(state.precio_min) * 100) : null;
+  const max = state.precio_max ? Math.round(Number(state.precio_max) * 100) : null;
+  const requiredDiscount = state.descuento ? Number(state.descuento) : 0;
+  return offers.filter(offer => {
+    if (selected.length && !selected.includes(offer.formato)) return false;
+    if (min !== null && offer.precio_centimos < min) return false;
+    if (max !== null && offer.precio_centimos > max) return false;
+    const reference = offer.precio_referencia_centimos;
+    const discount = Number.isSafeInteger(reference) && reference > offer.precio_centimos
+      ? Math.floor((reference - offer.precio_centimos) / reference * 100) : 0;
+    return discount >= requiredDiscount;
+  });
+}
