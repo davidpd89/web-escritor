@@ -90,9 +90,12 @@ La recopilación anterior es **estática, sobre el estado de `main` consultado**
 
 ## 6. Economía real y observabilidad: dos decisiones que sí cambian la operativa (22-10-2026)
 
-### A. Comisiones ES y plazos: monetizar sin falsas promesas
+### A. Comisiones ES y plazos: corregir porcentaje, no simular ingresos
 
-**Hecho primario contrastado** en el [anexo oficial UE, apartado Amazon ES](https://afiliados.amazon.es/help/operating/scheduleoct1): tanto **Libros** como **Libros electrónicos de Kindle** figuran con **7,0 % de comisión estándar**. Esta tabla describe ventas *aptas* y clasificación directa/indirecta; no garantiza que cada clic, pedido ni ejemplar genere comisión. Los rendimientos por derechos de autor/editorial son un flujo **distinto** de esta comisión, y el reparto no se infiere del código de la web.
+**Corrección importante (22-10-2026): no afirmar que la comisión de libros en Amazon ES es un 7 % fijo.** Hay **dos anexos públicos del mismo dominio oficial con porcentajes distintos** para Libros y Kindle ES:
+- La [tabla `/help/operating/scheduleoct1`](https://afiliados.amazon.es/help/operating/scheduleoct1) publica **7,0 %**, con nomenclatura histórica «Comisiones Estándar».
+- La [tabla `/help/node/topic/GRXPHT8U84RAYDXZ`](https://afiliados.amazon.es/help/node/topic/GRXPHT8U84RAYDXZ) publica **5,0 %**, con nomenclatura «Ingresos por Comisiones Estándar».
+- Ambas son URLs oficiales accesibles públicamente, pero **no se dispone de confirmación autenticada de cuál de las dos rige la cuenta a día de hoy**. Por tratarse de una base de ingresos, el indicador del 7 % que aparecía en una versión anterior de esta PR **queda retirado como cifra actual asegurada**. #427 debe obtener el porcentaje vigente del **panel** antes de cualquier presupuesto, calculadora, etiqueta de publicidad o previsión. Los ingresos por derechos de autor/editorial son otro flujo diferente, sin atribución automática a Afiliados.
 
 **Hecho primario contrastado** en la [ayuda oficial de atribución](https://afiliados.amazon.es/help/node/topic/G9SMD8TQHFJ7728F): una compra normalmente debe añadirse a cesta durante la **ventana de 24 horas** después del clic, antes de otro enlace ajeno o el primer pedido; el artículo añadido puede adquirirse antes de que expire la cesta (normalmente **90 días**). La [actualización 14-04-2026](https://afiliados.amazon.es/help/operating/compare) añade el requisito de que, para ser compra apta, el producto sea enviado/transmitido/descargado y pagado dentro de **180 días**; **no significa una cookie de 180 días**. Comparar informes diarios sin contemplar estos desfases produce falsas alarmas: la [ayuda de informes](https://afiliados.amazon.es/help/node/topic/GUJ6UKNMENGRWVS6) advierte que pueden aparecer pedidos sin clics en el mismo periodo.
 
@@ -132,6 +135,25 @@ La recopilación anterior es **estática, sobre el estado de `main` consultado**
 La [ayuda oficial Amazon ES](https://afiliados.amazon.es/help/node/topic/GH37MDS5PLQ9Z366) documenta la función **Mobile GetLink** desde la app Amazon compras: abrir **la ficha de producto exacto**, pulsar «Compartir» → «Copiar enlace de Afiliados» y seleccionar el ID de seguimiento. Permite generar enlaces directos a libros físicos sin fabricar ASIN a partir de ISBN ni raspar precios. **Excluye libros electrónicos, Audible, revistas digitales, música digital y lujo**, por lo que no es solución completa para los cuatro formatos de Coraline. Alternativa: SiteStripe o herramientas oficiales de escritorio en formatos soportados.
 
 **Piloto mínimo antes de abordar 54 libros:** elegir Coraline y otros **dos libros físicos del catálogo** con más clics de salida; validar en la ficha Amazon edición/idioma/formato/ASIN, generar URL oficial y guardarla con `fuente_url` y fecha; pasar auditor offline y revisar CTA público. Ampliar solo si hay ahorro real de trabajo y atribución correcta. Sin automatización de navegación en Amazon ni 54 enlaces inventados.
+
+## 9. Bonificaciones literarias reales ES: Kindle Unlimited y Audible
+
+**Fuente primaria actual [anexo Amazon ES de Programas Especiales](https://afiliados.amazon.es/help/operating/promotions)** (consultado el 22-10-2026):
+
+| Programa editorialmente afín | Recompensa indicada | Condición necesaria | Destino oficial |
+| --- | --- | --- | --- |
+| **Kindle Unlimited**, prueba gratuita | **3,00 €** | Cliente **elegible** que se registre correctamente para prueba gratis desde enlace indicado | `https://www.amazon.es/kindleunlimited?tag=<TRACKING_ID>` (patrón del anexo, sustituir por ID real; el régimen no implica comisión estándar por la suscripción) |
+| **Audible**, prueba gratuita | **10,00 €** | Alta de prueba gratis de cliente elegible mediante la página especificada | `https://www.amazon.es/hz/audible/mlp/mdp/discovery?actionCode=AMSTM1450129210001` (URL de campaña oficial; **generar/verificar atribución del enlace en Afiliados**, no inventar cómo añadir el tag) |
+| **Audible**, suscripción | **15,00 €** | Suscripción apta de cliente elegible mediante la página especificada | Misma página de programa, tipo de alta decidido por Amazon |
+
+**No confundir**: los 10 € de prueba y los 15 € de suscripción son categorías de bonus con criterios distintos; no son necesariamente acumulables para un mismo lector ni universales. Una comisión especial solo se considera recibida si el **reporte** de Amazon la registra. Este recurso es **más afín al catálogo literario** que intentar monetizar otros productos sin relación con lectores.
+
+**Piloto propuesto, cero despliegue antes de comprobar cuenta y destino:**
+1. Revisar en Afiliados ES que el programa de bonos está disponible para el ID y generar los enlaces admitidos (si procede un nuevo Tracking ID, hacerlo en panel, nunca subtag por visitante).
+2. Elegir dos contenidos relevantes: **recomendación con edición ebook** para Kindle Unlimited y **ficha con audiolibro realmente ofertado** para Audible. **No decir que un libro está incluido en KU o Audible** por tener ISBN Kindle o formato general: confirmar catálogo y servicio.
+3. Añadir una **nota secundaria claramente distinta de «Comprar este libro»**: «¿Lees en digital? Conoce Kindle Unlimited» o «¿Escuchas audiolibros? Conoce Audible», con `rel="sponsored nofollow noopener noreferrer"`, disclaimer editorial visible y el **link oficial comprobado**. No incluir prueba gratis en la ficha si esa oferta no está disponible para el lector.
+4. Medir evento de **salida por programa**, no usar `comprar-amazon`: distinguir `salida-kindle-unlimited` y `salida-audible` del CTR a libros. Solo comprobar conversiones e ingresos por bonus en Amazon a 30/90 días. La instrumentación aún **no está implementada** porque no se ha confirmado enlace y elegibilidad en cuenta.
+5. **Criterio económico**: implementar en producción solo si los enlaces y textos siguen exactos y la propuesta aporta utilidad editorial al visitante. Si no, dejar la idea documentada y no añadir botones.
 
 ## Fuentes primarias consultadas (22-10-2026)
 
