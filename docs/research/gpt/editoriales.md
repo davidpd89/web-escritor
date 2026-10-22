@@ -62,8 +62,8 @@ El conciliador necesita **tres ficheros explícitos**, ya disponibles en `main` 
 ```sh
 python scripts/research/gpt_editoriales_reconcile.py \
   --directory data/editoriales.json \
-  --catalogue-publishers /ruta/revisada/reading-publishers.json \
-  --books /ruta/revisada/reading-catalogue.json \
+  --catalogue-publishers data/reading-publishers.json \
+  --books data/reading-catalogue.json \
   --as-of 2026-10-22
 ```
 
