@@ -47,10 +47,10 @@ try {
     selected=await page.locator('#formato').evaluate(el=>[...el.selectedOptions].map(o=>o.value).sort());
     assert.deepEqual(selected,['tapa-blanda','tapa-dura'],'facet change must preserve formats');
     await page.evaluate(()=>{ location.hash='formato=ebook&genero=terror&paginas=breve&precio_max=20'; });
-    await page.waitForFunction(()=>{
+    await page.waitForFunction((expectedTotal)=>{
       const p=new URLSearchParams(location.hash);
-      return p.get('formato')==='ebook' && p.get('genero')==='terror' && [...document.querySelector('#formato').selectedOptions].some(o=>o.value==='ebook') && document.querySelector('#count').textContent.includes(' de '+total+' libros');
-    });
+      return p.get('formato')==='ebook' && p.get('genero')==='terror' && [...document.querySelector('#formato').selectedOptions].some(o=>o.value==='ebook') && document.querySelector('#count').textContent.includes(' de '+expectedTotal+' libros');
+    }, total);
     const restored=await page.locator('#formato').evaluate(el=>[...el.selectedOptions].map(o=>o.value));
     assert.deepEqual(restored,['ebook'],'hashchange restores widget state');
     let params=new URLSearchParams(new URL(page.url()).hash.slice(1));
