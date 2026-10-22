@@ -40,8 +40,15 @@
 - [Wikidata — acceso a datos](https://www.wikidata.org/wiki/Help:Data_access): desambiguación de entidades con QID y propiedades verificadas; no lanzar consultas SPARQL mundiales sin acotar ni usar la base como única evidencia de contactos.
 - [RapidFuzz](https://github.com/rapidfuzz/RapidFuzz) (MIT): candidato opcional para **sugerir** coincidencias y homónimos, nunca para unir automáticamente autores/sellos de nombre similar.
 
+## 4.1. Estado actualizado de las pasadas — 22/10/2026
+
+- **#692 E1 COMPLETADA:** auditoría cruzada de `main` y PR #687; 150 editoriales, 11 sellos de catálogo, 55 libros propuestos (35 enlazados al directorio, 20 a sellos separados); 2 sellos sin libro publicado asociado (Beascoa/Montena). No mezclar actividad bibliográfica con `status` de manuscritos.
+- **#692 E3 PREPARADA, SIN EJECUTAR:** conciliador offline `scripts/research/gpt_editoriales_reconcile.py`, 11 tests sintéticos pendientes de ejecución y snapshot JSON en `docs/research/gpt/editoriales-audit-2026-10-22.json`, todo en [PR #692](https://github.com/davidpd89/web-escritor/pull/692).
+- **Hallazgo de fuente:** el Ministerio permite consulta ISBN, y su aviso legal contiene licencia general con atribución; sin embargo el [dataset oficial](https://datos.gob.es/es/catalogo/e05234201-base-de-datos-de-editoriales) solo da una distribución XHTML, **no** una descarga estructurada comprobada. Pendiente confirmar autorización/vía técnica para ingesta masiva; no construir scraper antes.
+- **PR #693 y #694 siguen en planificación.** La próxima petición «siguiente investigación de GPT» debe **continuar E2 en #692**, no abrir otra PR ni saltar a autores mientras el problema editorial siga pendiente.
+
 ## 5. Próxima ejecución
 
-**Siguiente investigación de GPT → comenzar por la PR hija P0 (editoriales)**: comprobar fuente oficial del ISBN, disponibilidad real de datos exportables y permisos; diseñar resolución única de `data/editoriales.json` y `data/reading-publishers.json`; preparar piloto offline con tres casos de alias/homónimo y contrato de contactos/recepción. Después P1 autores y P2 fichas.
+**Siguiente investigación de GPT → CONTINUAR PR #692, paso E2**: comprobar opción de descarga/autorización de la base ISBN y fuentes de contacto oficiales; diseñar método incremental permitido de entrada de nuevas editoriales. La auditoría y conciliador E1/E3 están documentados y sin ejecutar. Después E4/E5 de #692; solo entonces P1 autores y P2 fichas.
 
 **Regla operativa:** Ninguna PR hija se fusiona directamente. Cualquier integración posterior debe conciliarse con el `main` del momento y con #687/#683/#680; Claude/Codex revisarán calidad y permisos antes de ejecutarla.
