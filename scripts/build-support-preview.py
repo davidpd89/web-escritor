@@ -24,6 +24,9 @@ def render_preview_source() -> str:
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
   <meta name="robots" content="noindex,nofollow,noarchive" />
   <meta name="referrer" content="strict-origin-when-cross-origin" />
+  <!-- Canonical técnico: el bridge del shell deriva /apoyar/ desde este campo.
+       La preview es noindex y vive fuera del árbol público. -->
+  <link rel="canonical" href="https://davidportodiaz.com/apoyar/" />
   <title>Apoya este proyecto — vista previa | David Porto Díaz</title>
   <meta name="description" content="Vista previa local del apoyo voluntario al contenido gratuito." />
   <meta name="theme-color" content="#F4EFE7" />
