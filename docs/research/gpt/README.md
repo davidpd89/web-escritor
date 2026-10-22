@@ -84,8 +84,15 @@
 - **Informe:** [E6: contrato por campo y reglas reales de main](https://github.com/davidpd89/web-escritor/blob/research/gpt-editoriales-2026-10-22/docs/research/gpt/editoriales-e6-contrato-2026-10-22.md).
 - **Siguiente investigación de GPT → #692 E6.3:** piloto acotado offline de cinco casos con un solo commit de `main`, validar contradicciones de esquemas y depurar prototipos; **sin tests ni CI en esta fase salvo autorización explícita para ejecutarlos**. #693 y #694 aún no avanzan.
 
+## 4.7. E6.3 — primer dato nuevo y código reutilizado (22/10/2026)
+
+- **#692** detectó **Alienta Editorial** ausente del directorio de 150; su ficha oficial en [PlanetadeLibros](https://www.planetadelibros.com/editorial/alienta-editorial/15) declara que admite originales de ensayo, con un canal profesional explícito. Se preparó [un registro completo de borrador](https://github.com/davidpd89/web-escritor/blob/research/gpt-editoriales-2026-10-22/docs/research/gpt/editoriales-alienta-candidata-2026-10-22.json) **con publish=false**, no incorporado al directorio.
+- Cuatro controles reales de fuente: Anagrama (pausa), Nocturna (envío específico), Minotauro (envío específico), Alfaguara (formulario de grupo **no equivale** a sello abierto). Ver [5 fuentes y resultados de inspección](https://github.com/davidpd89/web-escritor/blob/research/gpt-editoriales-2026-10-22/docs/research/gpt/editoriales-piloto-5-fuentes-2026-10-22.json).
+- Se amplió el **módulo E4 existente**, no se inventó otro publicador: función draft_from_html sobre HTML autorizado y URL exacta por sello, más casos en el test E4 existente. **13 comprobaciones locales de lógica con HTML sintético correctas**; NO se ha descargado HTML real, NO se ha ejecutado CI y NO se ha verificado integración end-to-end.
+- **Siguiente investigación en #692:** probar HTML real de estas cinco fuentes con **el CachedHTTP ya existente** (robots/cache/presupuesto compartido), medir aciertos y coste en peticiones (incluidos robots.txt) y validar el borrador Alienta con el builder. No ampliar a 150 ni añadir extruct/selectolax sin demostrar que se necesitan.
+
 ## 5. Próxima ejecución
 
-**Siguiente investigación de GPT → CONTINUAR PR #692, paso E6.3**: auditar un piloto offline de cinco entidades con base exacta de `main`, identificar errores de contratos y preparar criterios de salida. El ruleset actual requiere 0 aprobaciones, por lo que la protección humana debe diseñarse antes de integrar contactos; no modificar reglas ni publicar automáticamente desde #692.
+**Siguiente investigación de GPT → #692: comprobar 5 HTML reales con CachedHTTP del repositorio y auditar la ficha Alienta sin publicarla.** Medir precisión, peticiones y tiempo de revisión, corregir solo los fallos observados. Conservar el resto como investigación, no llevar los cinco módulos a producción por inercia.
 
 **Regla operativa:** Ninguna PR hija se fusiona directamente. Cualquier integración posterior debe conciliarse con el `main` del momento y con #687/#683/#680; Claude/Codex revisarán calidad y permisos antes de ejecutarla.
