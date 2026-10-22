@@ -6,7 +6,7 @@
 
 Crear una página propia `/apoyar/`, legible desde móvil, que explique las aportaciones voluntarias y muestre **solo los canales que estén correctamente configurados y comprobados**. Una contribución no compra ninguna herramienta, contenido, prioridad, recompensa ni acceso. El pago se realiza en la página segura del proveedor: **nunca recoger tarjeta, CVC, credenciales de PayPal ni IBAN en nuestra web**.
 
-Orden propuesto: (1) PayPal Business con enlace/botón alojado; (2) Stripe Payment Links como **propina por contenido ya ofrecido**, con importe libre y pago único; (3) Ko-fi Free opcional como alternativa con PayPal/Stripe; (4) Buy Me a Coffee solo si aporta alcance diferencial. Klarna es «compra ahora/paga después», no una pasarela independiente para recibir dinero, y no encaja en micropagos voluntarios.
+**Orden corregido tras comprobar PayPal el 22/10:** (1) probar **un solo PayPal Business Payment Link con «Customer-set price»**, que permite importe libre y puede ofrecer PayPal + tarjetas en un mismo checkout; (2) **solo si falla cobertura de tarjeta, privacidad o conversión**, recurrir a Stripe Payment Links, ya investigado como propina por contenido; (3) Ko-fi y BMC quedan en reserva, no en el selector inicial; Klarna, descartado. Documentación oficial PayPal: https://developer.paypal.com/payment-links-buttons/create-payment-link/ y https://developer.paypal.com/payment-links-buttons/overview/ . Código y test en PR #700: `scripts/support_paypal_link.py`, `tests/test-support-paypal-link.py`. **No se ha comprobado todavía un enlace real ni su recepción de fondos.**
 
 No basta con abrir «PayPal.Me» personal: podría revelar nombre o email. Usar nombre público/comercial en cuenta Business cuando PayPal lo permita y comprobar **en el checkout real y el justificante al donante** qué identidad aparece. Los proveedores pedirán datos verificables y cuenta de cobro **privadamente** para verificación y pagos; «no publicarlos en la web» no significa que se pueda cobrar sin identificarse ante el proveedor.
 
@@ -51,7 +51,7 @@ No llamar a estas contribuciones «donaciones benéficas» ni prometer desgravac
 
 | Ruta | Desde web estática | Elección importe | Dinero llega a | Coste indicativo y condición |
 | --- | --- | --- | --- | --- |
-| PayPal Donate/Payment link | URL oficial de botón alojado | Según configuración en PayPal | PayPal Business | PayPal ES: «donativo» nacional 2,90 % + 0,35 € (en EUR); comprobar clasificación real de la operación |
+| **PayPal Payment Links (primera prueba)** | Enlace `www.paypal.com/ncp/payment/...` | **Sí**, `Customer-set price`, aportación única | PayPal Business | Tabla general de transacción comercial nacional 2,90 % + fijo EUR; revisar tarifa aplicada al pago real, no asumir tarifa de organización benéfica |
 | Stripe Payment Links (propina por contenido proporcionado) | URL `buy.stripe.com/...` generada en dashboard | **Sí**, «Customers choose what to pay» para pago único | Saldo Stripe -> banco verificado | Stripe España: tarjetas estándar EEE 1,5 % + 0,25 €; más si internacional, divisa o método; actividad/identidad por verificar |
 | Ko-fi Free | URL de página Ko-fi o botón oficial | Según configuración Ko-fi | PayPal o Stripe vinculados | Ko-fi Free: 0 % del servicio en aportaciones puntuales; sigue habiendo tasas del procesador; modo Standard 5 % |
 | Buy Me a Coffee | URL de creador | Aportación única | Stripe -> banco | 5 % plataforma + tasa de procesamiento; desembolsos disponibles para España |
@@ -97,7 +97,7 @@ GitHub público **no** autoriza por sí solo copiar cualquier archivo sin condic
 
 ## PR hijas, independientes sobre esta rama
 
-1. PayPal: configuración, privacidad y ejemplo `<a>` hospedado; alternativa Donate SDK y CSP si realmente se exige.
+1. [PR #700](https://github.com/davidpd89/web-escritor/pull/700): enlace PayPal Payment Links de importe libre, código Python + test offline comprobados; Donate SDK descartado para V1; prueba real en cuenta pendiente.
 2. [PR #701](https://github.com/davidpd89/web-escritor/pull/701): Stripe como propina por contenido; importe libre y pago único, validador real de URL `buy.stripe.com`, render de enlace sin URL ficticia y test offline. **Stripe aún sin cuenta aprobada ni checkout probado.**
 3. Ko-fi y alternativos: modalidad gratis, visibilidad, evaluación BMC/Klarna y referencias.
 4. UX/implementación: matriz de ubicaciones, contratos HTML/CSS y tests para Claude, diferenciando fuentes y generados.
