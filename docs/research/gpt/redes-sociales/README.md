@@ -23,6 +23,7 @@ Página semántica indexable en móvil/teclado, visible sin JavaScript, tamaño 
 3. Un normalizador recibe, por red, {id, observed_at, source, followers, posts, impressions_30d, views_30d, interactions_30d, status}; los campos sin datos son null (no 0) y tienen periodo, definición y origen.
 4. Exportar JSON público generado a data/social-metrics.generated.json, consumido con mejoras progresivas por UI; refresco recomendado 12–24 h, no «tiempo real» falso. Mantener último dato válido con sello stale cuando falle la fuente; no sobrescribir null por cero.
 5. Agregados: únicamente mismas definiciones + misma ventana, con cobertura visible (por ejemplo «6 de 9 perfiles con datos»); no inferir usuarios únicos, ni sumar impresiones y alcance. Si hay dos fechas comparables mostrar evolución, en otro caso no.
+   - **Corrección concreta (22/10, PR #705):** el conector Metricool denomina `THEV06` «Post Views», pero [su documentación oficial](https://help.metricool.com/es/diferencia-entre-posts-publicados-y-posts-vistos-en-el-periodo-2pwtf) separa vistas acumuladas de posts publicados y vistas generadas durante el período. `THEV06` **no se debe mapear a `views_30d`** hasta demostrar el alcance real de esa serie. El adaptador Threads lo suprime deliberadamente. `THEV11` son vistas del perfil, no de los posts.
 
 Ejemplo de contrato propuesto (datos ficticios prohibidos, cifras deliberadamente ausentes):
 
