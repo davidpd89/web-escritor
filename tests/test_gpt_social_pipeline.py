@@ -10,12 +10,15 @@ from __future__ import annotations
 
 import importlib.util
 import json
+import sys
 import tempfile
 from datetime import datetime, timezone
 from pathlib import Path
 import unittest
 
 ROOT = Path(__file__).resolve().parents[1] / "scripts" / "research"
+if str(ROOT) not in sys.path:
+    sys.path.insert(0, str(ROOT))
 
 
 def load(filename):
@@ -32,6 +35,7 @@ compose = load("gpt_social_compose.py")
 bluesky = load("gpt_social_bluesky.py")
 mastodon = load("gpt_social_mastodon.py")
 threads = load("gpt_metricool_threads.py")
+metricool_batch_reader = load("gpt_metricool_followers.py")
 ALL_PRESENT = all(x is not None for x in (compose, bluesky, mastodon, threads))
 TEST_TIME = datetime(2026, 10, 22, 12, 0, tzinfo=timezone.utc)
 
@@ -109,6 +113,38 @@ class PipelineTests(unittest.TestCase):
                 "url": "https://another.instance/@davidportodiaz",
                 "followers_count": 999}]})
 
+
+
+@unittest.skipUnless(ALL_PRESENT and metricool_batch_reader is not None,
+                     "Needs the multi-network follower reader from #705")
+class MultiMetricoolPipelineTests(unittest.TestCase):
+    def test_actual_705_batch_into_actual_704_compositor(self):
+        fields = list(metricool_batch_reader.FIELDS)
+        synthetic = {
+            "metrics": fields, "from": "2026-10-21", "to": "2026-10-21",
+            "rows": [[str(100 + i) + ".0" for i in range(len(fields))] + ["20261021"]],
+        }
+        batch = metricool_batch_reader.normalize(synthetic)
+        public = compose.compose([batch], now=TEST_TIME)
+        self.assertEqual(public["totals"]["follower_relationships"], 101)
+        self.assertEqual(public["totals"]["coverage"], 1)
+        self.assertEqual(public["totals"]["eligible"], 3)
+        self.assertEqual(public["networks"][2]["source"], "metricool-mcp-export")
+        self.assertIsNone(public["networks"][0]["followers"])
+        self.assertNotIn("instagram", [r["id"] for r in public["networks"]])
+
+    def test_actual_705_batch_with_public_bluesky_and_mastodon(self):
+        fields = list(metricool_batch_reader.FIELDS)
+        synthetic = {
+            "metrics": fields, "from": "2026-10-21", "to": "2026-10-21",
+            "rows": [[str(100 + i) + ".0" for i in range(len(fields))] + ["20261021"]],
+        }
+        batch = metricool_batch_reader.normalize(synthetic)
+        b, m, _ = collect()
+        public = compose.compose([batch, b, m], now=TEST_TIME)
+        self.assertEqual(public["totals"]["follower_relationships"], 17 + 23 + 101)
+        self.assertEqual(public["totals"]["coverage"], 3)
+        self.assertEqual(len(public["networks"]), 3)
 
 if __name__ == "__main__":
     unittest.main()
