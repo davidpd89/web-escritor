@@ -56,7 +56,8 @@ class SupportParser(HTMLParser):
             self.methods.append({k: v or "" for k, v in attrs.items()})
         if tag == "link" and attrs.get("rel") == "canonical":
             self.canonicals.append(attrs.get("href") or "")
-        if tag == "meta" and attrs.get("name") == "robots":
+        # Google respeta tanto robots como googlebot; name es case-insensitive.
+        if tag == "meta" and (attrs.get("name") or "").lower() in {"robots", "googlebot"}:
             self.robots.append(attrs.get("content") or "")
         if tag == "script":
             src = attrs.get("src") or ""
@@ -123,8 +124,12 @@ def release_errors(root: Path) -> list[str]:
     parser.feed(html)
     if parser.canonicals != ["https://davidportodiaz.com/apoyar/"]:
         errors.append("Canonical incorrecto o duplicado")
-    if any("noindex" in item.lower() for item in parser.robots):
-        errors.append("La página pública no puede declarar noindex")
+    # "none" también bloquea la indexación (noindex + nofollow).
+    if any(
+        {"noindex", "none"} & {directive.strip().lower() for directive in item.split(",")}
+        for item in parser.robots
+    ):
+        errors.append("La página pública no puede declarar noindex/none para robots o googlebot")
     if not parser.methods:
         errors.append("No publicar una página vacía sin método de pago")
     for item in parser.methods:
@@ -230,7 +235,18 @@ def fixture_tests() -> None:
                 encoding="utf-8",
             )
             assert release_errors(root)  # Formato no documentado o ambiguo
-        page.write_text(VALID_HTML.replace("index,follow", "noindex,follow"), encoding="utf-8")
+        # Las directivas negativas equivalentes bloquean la publicación.
+        for robots_rule in ("noindex,follow", "none", "index, none", "NONE, follow"):
+            page.write_text(VALID_HTML.replace("index,follow", robots_rule), encoding="utf-8")
+            assert release_errors(root), f"Se aceptó robots={robots_rule!r}"
+        # Googlebot permite excluir solo Google incluso si robots dice index.
+        page.write_text(VALID_HTML.replace(
+            "</head>", '<meta name="googlebot" content="noindex"></head>'
+        ), encoding="utf-8")
+        assert release_errors(root)
+        # Las etiquetas robots no distinguen mayúsculas/minúsculas.
+        page.write_text(VALID_HTML.replace('name="robots" content="index,follow"',
+                                           'name="ROBOTS" content="NONE"'), encoding="utf-8")
         assert release_errors(root)
         page.write_text(VALID_HTML.replace("https://www.paypal.com/ncp/payment/ABC123",
                                           "https://buy.stripe.com/test_ABC123"), encoding="utf-8")
