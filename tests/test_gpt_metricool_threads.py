@@ -49,6 +49,21 @@ class MetricoolTests(unittest.TestCase):
         for value in (True, False, 1.2, "1.5", "NaN", "Infinity", "-1", "oops", [], {}):
             with self.subTest(value=value), self.assertRaises(ValueError): module.count(value)
 
+    def test_sparse_real_shape_keeps_followers_but_suppresses_views(self):
+        # 30 returned days, sparse Post Views as seen in the 22 Sep–21 Oct
+        # Metricool response. Counts below are synthetic; never publish.
+        raw=fixture()
+        for row in raw["rows"]:
+            day=int(row[2][-2:])
+            if day % 5 in (0, 2, 4):
+                row[1]=None
+        got=module.normalize(raw)
+        expected=sum(row[1] is not None for row in raw["rows"])
+        self.assertEqual(got["coverage"]["days_with_post_views"], expected)
+        self.assertEqual(got["followers"],129)
+        self.assertIsNone(got["views_30d"])
+        self.assertEqual(got["status"],"ok")
+
     def test_missing_day_incomplete(self):
         raw=fixture();raw["rows"].pop(4)
         got=module.normalize(raw)
