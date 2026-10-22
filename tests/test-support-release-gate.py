@@ -1,9 +1,10 @@
 #!/usr/bin/env python3
 """Contrato de activación de /apoyar/ sin pagos de prueba ni red.
 
-Hay dos estados válidos:
+Hay tres estados coherentes:
 1) No activado: no existe la ruta ni se enlaza en navegación.
-2) Activado: el registry declara página pública, existe HTML correcto,
+2) Preparación: página opcional con status gated/noindex, sin enlace público.
+3) Activado: el registry declara página pública, existe HTML correcto,
    el pie la enlaza y hay un enlace PayPal/Stripe con forma válida.
 
 Una URL con forma válida NO demuestra que cobre el titular. La revisión del
@@ -158,6 +159,11 @@ def fixture_tests() -> None:
         registry["entries"].append(entry)
         write()
         assert release_errors(root) == []  # Staging no enlazado, bloqueado por registry
+        nav["footer"]["Información"].append("support-project")
+        write()
+        assert release_errors(root)  # No enlazar staging
+        nav["footer"]["Información"].clear()
+        write()
         entry["status"] = "draft"
         write()
         assert release_errors(root)  # Estado no reconocido no protege
@@ -167,6 +173,15 @@ def fixture_tests() -> None:
         nav["footer"]["Información"].append("support-project")
         write()
         assert release_errors(root) == []  # Activación estructural correcta
+        nav["footer"]["Legal"] = ["support-project"]
+        write()
+        assert release_errors(root)  # Duplicado en otro grupo del pie
+        del nav["footer"]["Legal"]
+        write()
+        page.write_text(VALID_HTML.replace("support-method", "generic-link"), encoding="utf-8")
+        assert release_errors(root)  # Sin clase de método visible
+        page.write_text(VALID_HTML.replace('rel="noopener noreferrer"', 'rel="nofollow"'), encoding="utf-8")
+        assert release_errors(root)  # Escape de pestaña sin protección
         page.write_text(VALID_HTML.replace("www.paypal.com", "www.paypal.com.evil.test"), encoding="utf-8")
         assert release_errors(root)
         page.write_text(VALID_HTML.replace("ABC123", "ABC123?unsafe=1"), encoding="utf-8")
