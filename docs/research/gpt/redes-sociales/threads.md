@@ -1,29 +1,39 @@
-# Investigación GPT — Threads (22/10/2026)
+# #708 · Threads — integración sin duplicar la fuente ni inventar visualizaciones
 
-**PR hija de #699.** Rama basada en research/gpt-social-dashboard-2026-10-22. Solo análisis y código de referencia, no instalado ni ejecutado; sin Actions ni merge.
+**22/10/2026, hija de #699.** La implementación útil de seguidores se encuentra en [#705 Metricool](https://github.com/davidpd89/web-escritor/pull/705); el contrato de salida está implementado y probado en [#704](https://github.com/davidpd89/web-escritor/pull/704). **No duplicar esos archivos en esta PR ni introducir OAuth de Meta sin pruebas**.
 
-## Diagnóstico y fuente
-Perfil: https://www.threads.com/@davidportodiaz (ya en autor.html). API Threads oficial (colección Meta) dispone de endpoints de información, publicaciones e insights, bajo autorización de cuenta; no inventar una ruta pública sin token. En el conector Metricool asociado sí aparecen THEV01 (seguidores), THEV05 (interacciones) y THEV06 (vistas de posts) con datos consultables, además de campos no disponibles en ciertas fechas. Prioridad: Metricool si su integración **automática** tiene permiso; API Meta solo si se verifica OAuth/insights y costes.
+## Problema detectado y corrección
 
-## Adaptación al contrato sin confundir unidades
+La primera versión de este documento proponía:
+
 ~~~python
-def normalize_threads(metricool_record, date):
-    return {
-        "network": "threads", "observed_at": date,
-        "followers": metricool_record.get("THEV01"),  # LAST
-        "interactions_30d": metricool_record.get("THEV05"),  # SUM ventana
-        "views_30d": metricool_record.get("THEV06"),  # SUM ventana
-        "impressions_30d": None,  # NO derivar automáticamente de views
-        "source": "metricool-authorized"
-    }
+"views_30d": metricool_record.get("THEV06")
 ~~~
-El código presupone que metricool_record ya está agregado con el operador correcto; no usar una fila diaria como sumatoria 30d.
 
-## Referencias
-[Meta Threads API collection](https://www.postman.com/meta/threads/), [Get Post Insights](https://www.postman.com/meta/threads/request/34203612-385abc7d-b3cc-4e5d-9937-ebbe7174e041). No reutilizar ejemplos con tokens literales o permisos de publicación si solo se requieren estadísticas.
+Esa equivalencia era injustificada y **queda expresamente anulada**. [Metricool distingue las métricas de publicaciones creadas durante el periodo de las visualizaciones producidas durante él](https://help.metricool.com/es/diferencia-entre-posts-publicados-y-posts-vistos-en-el-periodo-2pwtf). En el catálogo real, `THEV06` es `Threads Evolution > Post Views`, pero no está demostrada su equivalencia con «visualizaciones que ocurrieron en estos últimos 30 días». `THEV11` corresponde a visitas al perfil y tampoco sustituye las vistas de publicaciones. El código de #705 ya **no consulta `THEV06`**.
 
-## QA pendiente
-Verificar scopes, propiedad de cuenta y métrica concreta; comprobar 30d incompletos, conteo cuenta frente a post, edad de dato, 401/403, desaparición de cuenta, CTA abre perfil y no requiere login en la web. Documentación, sin OAuth ni tests ejecutados.
+## Camino de integración comprobado, concreto
 
-## Entrega Claude
-Releer fuente oficial y estado main, integrar una sola vez sobre el contrato padre, ejecutar pruebas offline/live autorizadas, documentar limitaciones reales antes de solicitar merge. Se mantiene aislamiento respecto de las demás hijas.
+1. URL de cuenta: `https://www.threads.com/@davidportodiaz`, verificada contra `autor.html` y `scripts/build-site-shell.py`.
+2. El conector Metricool conectado identifica `THEV01` como seguidores, agregación **LAST**; una consulta de **un único día cerrado** devolvió una fila `[contador_texto_decimal, YYYYMMDD]`. La cuenta no necesita una ventana de 30 días para saber sus seguidores.
+3. **Usar, sin copiar ni reimplementar:** `scripts/research/gpt_metricool_threads.py` de #705 (17 pruebas offline, normalización de `THEV01` a entero o `null`). Escribe un registro `{"id":"threads","followers":N,"observed_at":"YYYY-MM-DD","source":"metricool-mcp-export","status":"ok"}` y campos de vistas explícitamente nulos.
+4. Tras fusionar las ramas en la padre **cuando el usuario autorice**, pasar ese registro al compositor `scripts/research/gpt_social_compose.py` de #704, que comprueba identidad, fecha local de cierre, caducidad y cobertura. Su salida sigue siendo un borrador en `/tmp`; el publicador automático y la página web no se han creado.
+
+Reproducción, desde la futura rama integrada que contenga #705 y #704:
+
+~~~bash
+python -m unittest discover -s tests -p test_gpt_metricool_threads.py -v
+python -m unittest discover -s tests -p test_gpt_social_compose.py -v
+python scripts/research/gpt_metricool_threads.py /ruta/privada/threads.json > /tmp/threads-normalized.json
+python scripts/research/gpt_social_compose.py /tmp/threads-normalized.json > /tmp/social-metrics-preview.json
+~~~
+
+`N` representa una cifra obtenida, **no un dato de ejemplo para publicar**. El fichero de entrada debe provenir de una extracción privada con `["THEV01"]` y un día local cerrado. No guardar identificadores de marca, tokens, respuesta bruta ni datos personales de analítica en GitHub.
+
+## Ruta alternativa Meta — todavía NO aceptada
+
+[API oficial de Threads, colección Meta](https://www.postman.com/meta/threads/) y [endpoint Post Insights](https://www.postman.com/meta/threads/request/34203612-385abc7d-b3cc-4e5d-9937-ebbe7174e041). Son referencias reales, pero **aún no está probado** que la cuenta disponga de token/scope autorizados, permisos válidos y dato de seguidores equivalente a `THEV01` para su extracción desatendida. Por tanto, no añadir clientes OAuth ni copiar ejemplos de publicación de contenido: sería código no probado y redundante.
+
+**Gate concreto para Claude:** comparar seguidores `THEV01` contra la interfaz real de Metricool; validar extracción MCP automatizada (piloto Make documentado en #705) y el transporte privado; aplicar el contrato de #704; si se desea visualizaciones, primero demostrar una métrica de *actividad generada dentro de la ventana*, no «posts publicados en ventana». No crear un segundo colector de Threads hasta probar que aporta un campo importante no cubierto.
+
+No se ha ejecutado ninguna prueba nueva en la rama #708, creado workflow, actualizado el sitio o hecho merge. Las pruebas antes citadas están en sus respectivas PR. No afirmar integración end-to-end.
