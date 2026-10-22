@@ -258,8 +258,7 @@ def draft_from_html(html, *, slug, source_url, checked_at, source_allowlist):
     # Keep this intentionally narrow so "no recibimos manuscritos físicos"
     # and "no publicamos ficción" don't suppress valid electronic/essay routes.
     negation = re.compile(
-        r'(?:actualmente |temporalmente |por ahora )?no aceptamos manuscritos'
-        r'|recepcion de (?:manuscritos|originales) (?:esta )?(?:cerrada|pausada|suspendida)'
+        r'recepcion de (?:manuscritos|originales) (?:esta )?(?:cerrada|pausada|suspendida)'
         r'|no lo (?:haga|envie|mande) por correo electronico'
         # Closure wordings observed in real editorial FAQs. Do NOT classify
         # format/genre restrictions ("no recibimos originales en papel",
