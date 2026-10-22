@@ -759,8 +759,7 @@ document.addEventListener("click", (event) => {
     Boolean(link.closest("[data-reading-catalogue]"))
   );
   if (category) _gcEvent(category, "Clic saliente: Amazon (no implica venta)");
-  // Author Follow es una acción distinta de comprar: nunca suma en buy_click.
-  // Se cuenta el clic, no un seguidor real (dato solo visible en Author Central).
+  // Author Follow: el clic no equivale a un seguidor verificado.
   if (link.matches("a.amazon-author-follow-link[href]")) {
     try {
       const author = new URL(link.href);
@@ -770,7 +769,7 @@ document.addEventListener("click", (event) => {
         _gcEvent("seguir-autor-amazon", "Clic saliente: Seguir autor en Amazon");
       }
     } catch {
-      // Ningún error de analítica debe impedir la navegación.
+      // No bloquear navegación por error de analytics.
     }
   }
 });
