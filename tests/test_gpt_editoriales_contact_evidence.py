@@ -398,6 +398,43 @@ class ExistingCachedHTTPBridgeTests(unittest.TestCase):
         self.assertFalse(got["published"])
         self.assertFalse(got["writes_to_public_data"])
 
+    def test_pilot_reports_comparison_to_prior_human_review(self):
+        pages = {url: "<p>Contacto general</p>"
+                 for url in RealSourceSnippetPilotTests.URLS.values()}
+        cases = json.loads(json.dumps(self.CASES))
+        for item in cases["cases"]:
+            item["expected_pilot_candidate"] = "open"
+        first = cases["cases"][0]
+        pages[first["official_url"]] = (
+            "<p>Anagrama mantendrá pausada temporalmente "
+            "la recepción de manuscritos.</p>")
+        first["expected_pilot_candidate"] = "paused"
+        fake = self.FakeHTTP(pages)
+        output = mod.run_live_pilot(
+            cases, self.HOSTS, as_of=TODAY,
+            cache_dir=Path(".ci/unused"), http=fake)
+        self.assertEqual(output["compared_to_prior_review"], 5)
+        self.assertEqual(output["matched_prior_review"], 1)
+        self.assertEqual(output["differences_needing_human_review"], 4)
+        self.assertEqual(output["retrieval_failures"], 0)
+        self.assertFalse(output["published"])
+
+    def test_failed_page_is_not_counted_as_disagreement(self):
+        urls = RealSourceSnippetPilotTests.URLS
+        cases = json.loads(json.dumps(self.CASES))
+        for item in cases["cases"]:
+            item["expected_pilot_candidate"] = "open"
+        fake = self.FakeHTTP(
+            {url: "<p>Contacto general</p>" for url in urls.values()},
+            broken=urls["minotauro"])
+        output = mod.run_live_pilot(
+            cases, self.HOSTS, as_of=TODAY,
+            cache_dir=Path(".ci/unused"), http=fake)
+        self.assertEqual(output["compared_to_prior_review"], 4)
+        self.assertEqual(output["differences_needing_human_review"], 4)
+        self.assertEqual(output["retrieval_failures"], 1)
+        self.assertFalse(output["published"])
+
     def test_failing_source_does_not_change_other_four(self):
         urls = RealSourceSnippetPilotTests.URLS
         fake = self.FakeHTTP({url: "<p>Contacto general</p>" for url in urls.values()},
