@@ -156,6 +156,35 @@ class RealSourceSnippetPilotTests(unittest.TestCase):
                 self.assertTrue(got["manual_review_required"])
                 self.assertFalse(got["publish"])
 
+    def test_five_short_anchors_from_official_pages_2026_10_22(self):
+        # These are short excerpts from the named official pages, verified
+        # against their rendered text on 2026-10-22. Not complete live HTML.
+        anchors = [
+            ("editorial-anagrama",
+             "Editorial Anagrama mantendrá pausada temporalmente la recepción de manuscritos.",
+             "paused"),
+            ("nocturna-ediciones",
+             "Si desea enviarnos un manuscrito, puede hacerlo vía correo electrónico a la siguiente dirección:",
+             "open"),
+            ("minotauro",
+             "El proyecto deberá enviarse por correo electrónico a la dirección proyectosminotauro@planeta.es",
+             "open"),
+            ("alienta-editorial",
+             "Alienta Editorial acepta la recepción de manuscritos originales.",
+             "open"),
+            ("alfaguara",
+             "Penguin Random House Grupo Editorial solo recibe manuscritos espontáneos a través de la web.",
+             "group_only"),
+        ]
+        for slug, phrase, expected in anchors:
+            with self.subTest(slug=slug):
+                from html import escape
+                got = self.check_pilot(slug, "<main><p>" + escape(phrase) + "</p></main>")
+                self.assertEqual(got["suggestion"], expected)
+                self.assertNotIn("@", got["matching_fragment"])
+                self.assertTrue(got["manual_review_required"])
+                self.assertFalse(got["publish"])
+
     def test_absence_of_explicit_evidence_is_unknown_for_all_five(self):
         for slug in self.URLS:
             with self.subTest(slug=slug):
