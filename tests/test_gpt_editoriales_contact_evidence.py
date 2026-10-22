@@ -186,5 +186,81 @@ class RealSourceSnippetPilotTests(unittest.TestCase):
         self.assertNotIn("@", got["matching_fragment"])
 
 
+
+class ExistingCachedHTTPBridgeTests(unittest.TestCase):
+    """The runner and reporting bridge are tested OFFLINE with a fake get().
+    The real CachedHTTP client is provided by main only at opt-in runtime.
+    """
+    CASES = {
+        "schema_version": 1, "checked_on": "2026-10-22",
+        "cases": [{"slug": slug, "official_url": url}
+                  for slug, url in RealSourceSnippetPilotTests.URLS.items()],
+    }
+    HOSTS = {
+        "schema_version": 1, "publishers": {
+            slug: {"hosts": [url.split("/")[2]]}
+            for slug, url in RealSourceSnippetPilotTests.URLS.items()
+        },
+    }
+
+    class FakeHTTP:
+        def __init__(self, pages, broken=None):
+            self.pages, self.broken = pages, broken
+            self.requests = 0
+            self.hits = 0
+
+        def get(self, url, *, ttl, limit):
+            self.requests += 1
+            if url == self.broken:
+                raise ValueError("Simulated source interruption")
+            return self.pages[url].encode("utf-8")
+
+    def test_five_pages_are_read_once_and_review_only(self):
+        url_by_slug = RealSourceSnippetPilotTests.URLS
+        fragments = {
+            "editorial-anagrama": "<p>Anagrama mantendrá pausada temporalmente la recepción de manuscritos.</p>",
+            "nocturna-ediciones": "<p>Si desea enviarnos un manuscrito, puede hacerlo vía correo electrónico.</p>",
+            "minotauro": "<p>El proyecto deberá enviarse por correo electrónico.</p>",
+            "alienta-editorial": "<p>Alienta Editorial acepta la recepción de manuscritos originales.</p>",
+            "alfaguara": "<p>El grupo solo recibe manuscritos espontáneos a través de la web.</p>",
+        }
+        fake = self.FakeHTTP({url: fragments[slug]
+                              for slug, url in url_by_slug.items()})
+        got = mod.run_live_pilot(self.CASES, self.HOSTS, as_of=TODAY,
+                                 cache_dir=Path(".ci/unused"), budget=12, http=fake)
+        self.assertEqual(got["requests_physical"], 5)
+        self.assertEqual(len(got["results"]), 5)
+        self.assertEqual({r["publisher_slug"]: r["suggestion"] for r in got["results"]},
+                         {"editorial-anagrama": "paused", "nocturna-ediciones": "open",
+                          "minotauro": "open", "alienta-editorial": "open",
+                          "alfaguara": "group_only"})
+        self.assertFalse(got["published"])
+        self.assertFalse(got["writes_to_public_data"])
+
+    def test_failing_source_does_not_change_other_four(self):
+        urls = RealSourceSnippetPilotTests.URLS
+        fake = self.FakeHTTP({url: "<p>Contacto general</p>" for url in urls.values()},
+                             broken=urls["minotauro"])
+        got = mod.run_live_pilot(self.CASES, self.HOSTS, as_of=TODAY,
+                                 cache_dir=Path(".ci/unused"), http=fake)
+        self.assertEqual(got["requests_physical"], 5)
+        broken, = (r for r in got["results"] if r["publisher_slug"] == "minotauro")
+        self.assertEqual(broken["retrieval"], "blocked_or_failed")
+        self.assertEqual(broken["suggestion"], "unknown")
+
+    def test_modifying_exact_url_within_same_approved_host_is_rejected(self):
+        cases = json.loads(json.dumps(self.CASES))
+        cases["cases"][0]["official_url"] = "https://www.anagrama-ed.es/contacto"
+        with self.assertRaises(ValueError):
+            mod.run_live_pilot(cases, self.HOSTS, as_of=TODAY,
+                               cache_dir=Path(".ci/unused"), http=self.FakeHTTP({}))
+
+    def test_no_network_and_no_files_if_source_list_is_invalid(self):
+        cases = {"schema_version": 1, "checked_on": "2026-10-22", "cases": []}
+        with self.assertRaises(ValueError):
+            mod.run_live_pilot(cases, self.HOSTS, as_of=TODAY,
+                               cache_dir=Path(".ci/unused"), http=self.FakeHTTP({}))
+
+
 if __name__ == "__main__":
     unittest.main()
