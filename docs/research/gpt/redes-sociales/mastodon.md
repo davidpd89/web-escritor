@@ -12,7 +12,7 @@ La investigación anterior decía que hacía falta resolver el ID de la cuenta m
 
 ### Repositorio público REAL que hace esto
 
-[Mastodon.py](https://github.com/halcy/Mastodon.py) implementa `search_v2` en [mastodon/search.py](https://github.com/halcy/Mastodon.py/blob/master/mastodon/search.py). Es software bajo [MIT](https://github.com/halcy/Mastodon.py/blob/master/LICENSE). Estas líneas proceden de su implementación, conservando su propósito: desactivar resolución autenticada y usar el endpoint `v2/search`.
+[Mastodon.py](https://github.com/halcy/Mastodon.py) implementa `search_v2` en [mastodon/search.py](https://github.com/halcy/Mastodon.py/blob/c21b954db370b122a26dff127efbca9aa74e386a/mastodon/search.py). [Sus tests públicos usan search_v2](https://github.com/halcy/Mastodon.py/blob/c21b954db370b122a26dff127efbca9aa74e386a/tests/test_search.py). Es software bajo [MIT](https://github.com/halcy/Mastodon.py/blob/master/LICENSE). Estas líneas proceden de su implementación, conservando su propósito: desactivar resolución autenticada y usar el endpoint `v2/search`.
 
 ~~~python
 if not resolve:
@@ -25,7 +25,7 @@ return self.__api_request(
 )
 ~~~
 
-Extracto atribuido a Mastodon.py, licencia MIT. El adaptador de esta PR **no vende ni incorpora Mastodon.py**: reproduce el comportamiento con Python estándar, evitando instalar dependencias para una lectura diaria. El test `test_one_get_no_auth_no_resolve` comprueba que la petición no incluye token ni `resolve`.
+Extracto atribuido a Mastodon.py, licencia MIT. El adaptador de esta PR **no depende de Mastodon.py**: reproduce el comportamiento con Python estándar, evitando instalar dependencias para una lectura diaria. El test `test_one_get_no_auth_no_resolve` comprueba que la petición no incluye token ni `resolve`.
 
 ## Archivos reales añadidos
 
