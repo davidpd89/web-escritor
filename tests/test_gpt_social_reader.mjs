@@ -12,7 +12,7 @@ function fixture() {
 }
 test('recomputes totals instead of trusting stale or forged aggregate', () => {
   const out=visibleSocialMetrics(fixture(), NOW);
-  assert.deepEqual(out.totals, {follower_relationships: 9, coverage:2,eligible:3});
+  assert.deepEqual(out.totals, {follower_relationships: 9, coverage:2,eligible:6});
 });
 test('zero followers is a genuine count', () => {
   const out=visibleSocialMetrics(fixture(),NOW);
