@@ -178,7 +178,7 @@ TRACKED_ASSETS = {
     "manecillas-book.js": "1",
     "v1-editorial-interior-v4.js": "8",
     "reading-list.css": "1",
-    "reading-catalogue.css": "12",
+    "reading-catalogue.css": "13",
     "reading-catalogue.js": "18",
     "v1-samuel.css": "2",
     "samuel-quiz.js": "2",

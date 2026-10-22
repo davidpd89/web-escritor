@@ -77,8 +77,22 @@ async function runCase(width,mode){
       assert.equal(page.url(),before,'Market result must preserve the shareable URL');
       assert.deepEqual(await visible(page),[selected.id],'Market failure must not reset or hide the result');
       assert.equal(await page.locator('[data-price-book]:visible').count(),0,'No fabricated price after failed or empty market response');
-      assert.equal(await page.locator('.catalogue-stars').count(),0,'No fabricated rating after failed or empty market response');
-      assert(await page.locator('[data-filter="precio_max"]').isDisabled(),'No active price filter without prices');
+      const ratings = await page.locator('[data-rating-book]').evaluateAll(boxes => boxes.map(box => ({
+        text: box.textContent.trim(),
+        label: box.querySelector('a')?.getAttribute('aria-label'),
+        fill: box.querySelector('.catalogue-stars')?.style.getPropertyValue('--rating')
+      })));
+      assert(ratings.every(r => !r.text || (r.text === 'Goodreads ★★★★★ 0,0 (0)' && r.fill === '0%' && r.label === 'Goodreads: aún sin valoraciones públicas')),'Only an explicitly empty Goodreads state may appear without verified ratings');
+      assert(await page.locator('[data-filter="valoracion"]').isDisabled(),'No active rating filter without verified ratings');
+      assert(await page.locator('[data-filter="precio_max"]').isEnabled(),'Editorial PVP filtering stays available without market prices');
+      const maximum = Math.ceil(selected.pvp_centimos / 100);
+      if (maximum) {
+        await page.locator('[data-filter="precio_max"]').fill(String(maximum));
+        assert.deepEqual(await visible(page),[selected.id],'Editorial PVP works after market failure');
+        await page.locator('[data-filter="precio_max"]').fill('0.01');
+        assert.deepEqual(await visible(page),[],'PVP filtering excludes editions above the limit');
+        await page.locator('[data-filter="precio_max"]').fill('');
+      }
       // Reload with the generated hash: the failure must not break shared links.
       await page.reload({waitUntil:'networkidle'});
       await page.waitForFunction(isbn=>document.querySelector('[data-filter="q"]')?.value===isbn,selected.isbn13);
