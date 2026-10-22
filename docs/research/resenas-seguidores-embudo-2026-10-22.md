@@ -204,3 +204,20 @@ CTAs propuestos, contenido neutral:
 - No se incorporan plataformas donde no esté disponible la obra o donde no se haya verificado el flujo.
 
 **No priorizados**: BookBub solo tiene alertas gratuitas de nuevos títulos con alcance estadounidense y requisitos específicos de eBook; no sustituye un embudo ES para los libros existentes (https://support.bookbub.com/articles/bookbubs-marketing-tools/). StoryGraph permite reseñas por lectores pero no existe una integración pública confirmada para crearlas: sin implementación adicional.
+
+
+## E4 · Implementación hija disponible (22/10/2026)
+
+Se abrió [#724 · Reseñas por libro sin contaminar compras](https://github.com/davidpd89/web-escritor/pull/724) como **DRAFT**, sin merge ni GitHub Actions. No duplicar aquí sus archivos de producción.
+
+Cadena: **#717 → #720 → #721 → #724**. La investigación #718 queda independiente sobre main; #724 utiliza como base la rama de #721 para preservar la clasificación Amazon y el CTA Follow existentes.
+
+La hija implementa:
+- Excluir `#customerReviews` del contador de compras, incluso sin marcador HTML; único listener delegado para salida comercial **o** salida a opiniones.
+- Cinco eventos de visita a páginas de reseñas por novela y plataforma; no equivalen a reseñas enviadas.
+- CTAs separados en la página de autor; destinos a Amazon/Goodreads/Casa del Libro en Samuel; Goodreads/Casa del Libro en Manecillas, dejando sin inventar el ASIN Amazon de la edición papel.
+- Registro analítico y regresiones de Node por ruta, host HTTPS, marcadores HTML, listener, prioridad frente a compra y compatibilidad Follow.
+
+**QA comunicado por hija:** parser de `script.js` OK; 16 aserciones funcionales en V8 sobre funciones GitHub con parser URL de prueba; sintaxis de tres test files OK. El Node `--test` del checkout, taxonomía completa, vista móvil y navegación autenticada externa continúan **pendientes**. No afirmar que la hija está validada en producción.
+
+Referencia canónica de implementación: [documento de #724](https://github.com/davidpd89/web-escritor/blob/feat/lector-review-links-tracking-2026-10-22/docs/research/reader-review-cta-2026-10-22.md).
