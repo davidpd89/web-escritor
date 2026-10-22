@@ -45,18 +45,25 @@
 - **#692 E1 COMPLETADA:** auditoría cruzada de `main` y PR #687; 150 editoriales, 11 sellos de catálogo, 55 libros propuestos (35 enlazados al directorio, 20 a sellos separados); 2 sellos sin libro publicado asociado (Beascoa/Montena). No mezclar actividad bibliográfica con `status` de manuscritos.
 - **#692 E3 PREPARADA, SIN EJECUTAR:** conciliador offline `scripts/research/gpt_editoriales_reconcile.py`, 11 tests sintéticos pendientes de ejecución y snapshot JSON en `docs/research/gpt/editoriales-audit-2026-10-22.json`, todo en [PR #692](https://github.com/davidpd89/web-escritor/pull/692).
 - **Hallazgo de fuente:** el Ministerio permite consulta ISBN, y su aviso legal contiene licencia general con atribución; sin embargo el [dataset oficial](https://datos.gob.es/es/catalogo/e05234201-base-de-datos-de-editoriales) solo da una distribución XHTML, **no** una descarga estructurada comprobada. Pendiente confirmar autorización/vía técnica para ingesta masiva; no construir scraper antes.
-- **PR #693 y #694 siguen en planificación.** La próxima petición «siguiente investigación de GPT» debe **continuar E2 en #692**, no abrir otra PR ni saltar a autores mientras el problema editorial siga pendiente.
+- **PR #693 y #694 siguen en planificación.** Priorizar #692 hasta cerrar el diseño del flujo editorial.
 
 ## 4.2. E2 cerrada como evaluación de fuentes, 22/10/2026
 
 - **#692 – Ministerio/ISBN: HOLD.** Datos.gob.es expone consulta XHTML; la Agencia Española del ISBN es la titular/gestora y Ministerio no asegura ni valida registros suministrados; se requiere autorización/contrato para reutilización sistemática de su directorio. Enlace primario y solicitud modelo en la PR hija.
 - **#692 – Registro Global ISBN: NO-GO para copiar o republicar resultados**, aunque crear cuenta y consultar contactos sea gratuito: condiciones del servicio prohíben almacenar, distribuir o publicar resultados de búsqueda sin permiso escrito.
 - **#692 – DILVE: CONDICIONAL** (sí ofrece API HTTP de ISBN, pero requiere alta autorizada y no está probado como feed gratuito de contactos).
-- **#692 – Wikidata: PILOTO CC0** para identidad/sello/grupo y webs a verificar, no para estados de manuscritos. Se añadieron `scripts/research/gpt_editoriales_wikidata_candidates.py` y 9 tests **preparados sin ejecutar**, sin peticiones en red ni modificaciones de datos.
-- **Próximo «siguiente investigación de GPT»**: continuar en la **#692, E4**: seleccionar 10–20 editoriales/sellos con QID correcto y fuente primaria, medir cobertura real de web y grupo, y preparar contrato *offline* de contactos públicos y estado de recepción de manuscritos; no saltar a #693 todavía. Si llega una autorización ISBN, revisar E2.
+- **#692 – Wikidata: PILOTO CC0** para identidad/sello/grupo y webs a verificar, no para estados de manuscritos. Se añadieron `scripts/research/gpt_editoriales_wikidata_candidates.py` y 10 tests **preparados sin ejecutar** (incluida la distinción P127/P749), sin peticiones en red ni modificaciones de datos.
+- **E4 realizada a continuación:** hallazgos y código en el apartado 4.3. La autorización de ISBN sigue pendiente.
+
+## 4.3. E4 — muestra real y evidencia de contactos (22/10/2026)
+
+- **#692:** muestra de **15** entidades (13 editoriales/sellos + 2 grupos), **6** QIDs localizados (**uno: Bruguera histórico, NO equivalente al sello actual**). Solo 4/6 con P856; 3 HTTP y 1 HTTPS, por lo que Wikidata no basta para webs oficiales actuales. P127 propiedad ≠ P749 empresa matriz.
+- **#692:** [18 observaciones oficiales, 13 listas de dominios verificados y reporte](https://github.com/davidpd89/web-escritor/blob/research/gpt-editoriales-2026-10-22/docs/research/gpt/editoriales-e4-resultados-2026-10-22.md). Anagrama: recepción pausada, contacto general y prensa separados; Nocturna/Minotauro: admisión expresamente documentada; PRH: formulario de grupo **sin heredar automáticamente el estado de cada sello**.
+- **Código experimental nuevo:** `scripts/research/gpt_editoriales_contact_evidence.py`, nunca conectado a producción: observaciones humanas + allowlist independiente, caducidad, conflictos y propuestas sin correos. **36 tests sintéticos escritos entre los tres módulos, ninguno ejecutado**. Sin dependencias externas nuevas.
+- **Próximo «siguiente investigación de GPT» → seguir en #692, fase E5**: conciliar el estado vigente #687/`main`; diseñar la integración incremental en el **único** publicador con revisión humana por contacto, colisiones históricas y grupo/sello, topes de peticiones y retractación cuando caduca la evidencia. No importar datos ISBN sin licencia.
 
 ## 5. Próxima ejecución
 
-**Siguiente investigación de GPT → CONTINUAR PR #692, paso E4**: validar 10–20 QIDs reales desde fuentes primarias y diseñar evidencia de contacto general/prensa/manuscritos y revisión de cambios; todo *offline* y sin publicar. E2 ha descartado el registro global ISBN como fuente de datos republicables y elegido Wikidata CC0 solo como semilla. Después E5 de #692 y P1 autores/P2 fichas.
+**Siguiente investigación de GPT → CONTINUAR PR #692, paso E5**: diseñar el flujo incremental único desde fuente y prueba hasta revisión/PR, reconciliar #687 si cambia, preparar contrato de errores e idempotencia, presupuesto y política de baja. E4 está documentada, sin tests ejecutados ni producción alterada. Después #693 autores y #694 fichas.
 
 **Regla operativa:** Ninguna PR hija se fusiona directamente. Cualquier integración posterior debe conciliarse con el `main` del momento y con #687/#683/#680; Claude/Codex revisarán calidad y permisos antes de ejecutarla.
