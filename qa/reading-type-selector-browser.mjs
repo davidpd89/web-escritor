@@ -40,6 +40,17 @@ try {
     const unrated = await page.locator('[data-rating-book]:not(:has(.catalogue-stars)) a').allInnerTexts();
     assert.ok(unrated.every(text => text.startsWith('Aún sin valoraciones públicas')), 'Sin valoración verificada se indica con honestidad');
     assert.equal(await page.locator('.catalogue-extra-tags').count(), 0, 'Sin desplegable de «Más categorías» en las tarjetas');
+    // Filtros dependientes: con «Cocina» no se ofrecen opciones sin libros; la selección vuelve a ampliarse al quitar el tipo.
+    const disabledNow = await page.locator('select[data-filter="genero"] option:disabled').evaluateAll(list => list.map(o => o.value));
+    assert.ok(disabledNow.length > 0, 'Con «Cocina» hay géneros sin libros desactivados');
+    for (const value of disabledNow.slice(0, 5)) {
+      const matching = await page.locator(`[data-catalogue-book][data-group="cocina"][data-categories~="${value}"]`).count();
+      assert.equal(matching, 0, `La opción desactivada ${value} no tiene libros de cocina`);
+    }
+    await page.locator('[data-type-radio][value=""]').check();
+    const stillDisabled = await page.locator('select[data-filter="genero"] option:disabled').evaluateAll(list => list.map(o => o.value));
+    for (const value of stillDisabled) assert.equal(await page.locator(`[data-catalogue-book][data-categories~="${value}"]`).count(), 0, `Sin tipo elegido solo queda desactivado lo que no tiene ningún libro (${value})`);
+    assert.ok(stillDisabled.length < disabledNow.length, 'Quitar el tipo vuelve a activar opciones');
     assert.deepEqual(errors, [], 'Sin errores de JavaScript');
     await page.close();
   }

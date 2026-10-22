@@ -117,6 +117,12 @@
     const grid = root.querySelector('.catalogue-grid'), sorted = [...cards].sort((a, b) => compare(a, b) || originalOrder.get(a) - originalOrder.get(b));
     if (grid && sorted.some((card, i) => grid.children[i] !== card)) { const fragment = document.createDocumentFragment(); sorted.forEach(card => fragment.append(card)); grid.replaceChildren(fragment); }
     const found = sorted.filter(card => matches(card, v)), visible = found.length;
+    // Filtros dependientes: una opción sin ningún libro compatible con el resto de filtros se desactiva (la elegida nunca).
+    for (const f of fields) {
+      if (f.tagName !== 'SELECT' || !['genero', 'tematica', 'temporada', 'edad', 'contenido', 'epoca', 'formato'].includes(f.dataset.filter)) continue;
+      for (const o of f.options) if (o.value) o.disabled = !o.selected && !cards.some(card => matches(card, {...v, [f.dataset.filter]: o.value}));
+    }
+    for (const radio of root.querySelectorAll('[data-type-radio]')) radio.disabled = Boolean(radio.value) && !radio.checked && !cards.some(card => matches(card, {...v, grupo: radio.value}));
     const pages = Math.max(1, Math.ceil(visible / pageSize));
     currentPage = Math.min(currentPage, pages);
     const shown = new Set(found.slice((currentPage - 1) * pageSize, currentPage * pageSize));
