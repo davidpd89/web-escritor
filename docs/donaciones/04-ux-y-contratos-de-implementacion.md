@@ -4,7 +4,26 @@
 
 ## Alcance de esta PR
 
-Investigación aplicada + piezas de HTML/CSS listas para adaptar. No crear botones vivos sin URLs reales; no publicar página vacía ni enlaces ficticios. **Este archivo no es ejecutado por la web**. Esta hija también corrige en código la publicación futura de `/apoyar/`; no crea aún el HTML de esa página ni modifica navegación o cobro: activar la ruta sin URL verificada crearía un enlace roto o una pantalla vacía.
+Investigación aplicada + piezas de HTML/CSS listas para adaptar. No crear botones vivos sin URLs reales; no publicar página vacía ni enlaces ficticios. **Este archivo no es ejecutado por la web**. Esta hija también prepara la ruta futura `/apoyar/` y aporta una **vista previa generable en `lab/`**, fuera del sitio publicado. No modifica navegación ni cobro: la ruta pública solo se activará al tener enlace verificado.
+
+## Pieza funcional incorporada: vista previa segura
+
+**Problema:** una página en `apoyar/index.html` sin proveedor verificado podría publicarse o generar un enlace roto; un simple `noindex` no la protegería de visitas directas.
+
+**Solución implementada:** `scripts/build-support-preview.py` genera la página **en `lab/donaciones-preview/index.html`**, no en `/apoyar/`. Usa `scripts/site_shell.py` para inyectar **cabecera, Explorar, pie y CSP reales**, conservando la arquitectura del repo. Lleva `noindex,nofollow,noarchive`, texto definitivo y un aviso explícito de que no hay cobros; no incorpora SDK, formularios ni enlaces de pago de ejemplo. El CSS contextual queda contenido en esa vista previa: no hay que invalidar CSS/preloads de todas las páginas.
+
+```bash
+python scripts/build-support-preview.py
+python scripts/build-support-preview.py --check
+python tests/test-support-preview.py
+# Para verla localmente, servir el root del repo; NO desplegar lab/.
+python -m http.server 8000
+# Abrir http://localhost:8000/lab/donaciones-preview/
+```
+
+`tests/test-support-preview.py` comprueba el shell real, estado noindex, H1 único, no presencia de URL/SDK/captura de pagos y que `lab/` está excluido del constructor público. **Añadido; requiere ejecutar en el árbol real**. Se han inspeccionado en GitHub los dos archivos de código y validado estructuralmente las referencias (8 comprobaciones estáticas OK); esto **no** sustituye a los tests Python/CI ni a una inspección visual.
+
+**Activación posterior (no hacer antes de validar receptor):** combinar la página previsualizada con el HTML de `scripts/support_paypal_link.py` de la PR **#700**, proporcionando exclusivamente la URL auténtica del panel; añadir `apoyar/index.html` a las fuentes registradas como `public`, `support-project` al pie, regenerar shell y sitemap y verificar artefacto. No copiar la URL ficticia del test. **No se ha creado** `apoyar/index.html` ni `data/navigation.json` modificado en esta PR.
 
 ## Contrato de navegación (orden exacto recomendado)
 
@@ -106,7 +125,7 @@ export const supportProviders = [
 
 ## QA concreto (añadir a tests existentes, sin correr CI en esta investigación)
 
-Tests recomendados para Claude:
+Tests recomendados para Claude (además del `tests/test-support-preview.py` ya incorporado):
 - **Ya incorporado** en `tests/test-public-artifact-contract.py`: `/apoyar/index.html` reconocido por la allowlist, `.assetsignore` sincronizado y archivos privados (`README.md`, `.env`, `*.key`) excluidos dentro de `/apoyar/`. No depende de ninguna cuenta de cobro.
 - `tests/test-support-navigation.py`: entidad en registry, enlace en footer.Information, builder no divergente de HTML publicados; idempotencia de `build-site-shell.py --check`.
 - `tests/test-support-provider-links.py`: ninguna URL ficticia o `#`, solo HTTPS y hosts aprobados; sin `sk_`, `pk_` de pruebas, teléfono, IBAN ni email del titular; `target="_blank"` y `rel="noopener noreferrer"`.
