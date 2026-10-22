@@ -111,5 +111,80 @@ class ContactEvidenceTests(unittest.TestCase):
         self.assertEqual(r["rejected_observations"][0]["reason"], "publisher_not_approved")
 
 
+
+class RealSourceSnippetPilotTests(unittest.TestCase):
+    """Manually selected fragments based on 22/10/2026 official pages.
+    NOT the live pages' HTML; real HTTP/DOM regression remains untested.
+    """
+    URLS = {
+        "editorial-anagrama": "https://www.anagrama-ed.es/manuscritos",
+        "nocturna-ediciones": "https://www.nocturnaediciones.com/contacto",
+        "minotauro": "https://www.planetadelibros.com/editorial/minotauro/21",
+        "alienta-editorial": "https://www.planetadelibros.com/editorial/alienta-editorial/15",
+        "alfaguara": "https://www.penguinrandomhousegrupoeditorial.com/sellos-y-negocios/quiero-enviar-un-manuscrito/",
+    }
+
+    def check_pilot(self, slug, html):
+        return mod.draft_from_html(
+            html, slug=slug, source_url=self.URLS[slug],
+            checked_at="2026-10-22", source_allowlist=self.URLS,
+        )
+
+    def test_five_real_editorial_cases_as_short_html_fixtures(self):
+        examples = [
+            ("editorial-anagrama",
+             "<main><p>Editorial Anagrama mantendrá pausada temporalmente la recepción de manuscritos.</p></main>",
+             "paused", "publisher_specific"),
+            ("nocturna-ediciones",
+             "<h3>Envío de manuscritos</h3><p>Si desea enviarnos un manuscrito, puede hacerlo vía correo electrónico a la siguiente dirección.</p>",
+             "open", "publisher_specific"),
+            ("minotauro",
+             "<h2>Sobre el envío de proyectos</h2><p>El proyecto deberá enviarse por correo electrónico en formato pdf o word.</p>",
+             "open", "publisher_specific"),
+            ("alienta-editorial",
+             "<main><p>Alienta Editorial acepta la recepción de manuscritos originales.</p></main>",
+             "open", "publisher_specific"),
+            ("alfaguara",
+             "<p>Penguin Random House Grupo Editorial solo recibe manuscritos espontáneos a través de la web.</p>",
+             "group_only", "group_general"),
+        ]
+        for slug, snippet, decision, scope in examples:
+            with self.subTest(slug=slug):
+                got = self.check_pilot(slug, snippet)
+                self.assertEqual(got["suggestion"], decision)
+                self.assertEqual(got["scope"], scope)
+                self.assertTrue(got["manual_review_required"])
+                self.assertFalse(got["publish"])
+
+    def test_absence_of_explicit_evidence_is_unknown_for_all_five(self):
+        for slug in self.URLS:
+            with self.subTest(slug=slug):
+                got = self.check_pilot(slug, "<p>Contactar con la editorial.</p>")
+                self.assertEqual(got["suggestion"], "unknown")
+
+    def test_hidden_script_cannot_infer_status(self):
+        got = self.check_pilot(
+            "alienta-editorial",
+            "<script>Alienta Editorial acepta la recepción de manuscritos originales.</script><p>Contacto general</p>",
+        )
+        self.assertEqual(got["suggestion"], "unknown")
+
+    def test_unreviewed_or_swapped_url_is_rejected(self):
+        with self.assertRaises(ValueError):
+            mod.draft_from_html(
+                "<p>Alienta Editorial acepta la recepción de manuscritos originales.</p>",
+                slug="alienta-editorial", source_url=self.URLS["minotauro"],
+                checked_at="2026-10-22", source_allowlist=self.URLS,
+            )
+
+    def test_no_emails_copied_to_experimental_fragment(self):
+        got = self.check_pilot(
+            "minotauro",
+            "<p>El proyecto deberá enviarse por correo electrónico: ejemplos@editorial.es</p>",
+        )
+        self.assertEqual(got["suggestion"], "open")
+        self.assertNotIn("@", got["matching_fragment"])
+
+
 if __name__ == "__main__":
     unittest.main()
