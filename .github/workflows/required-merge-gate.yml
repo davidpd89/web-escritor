@@ -85,6 +85,9 @@ jobs:
       - name: Verify generated site shell is current
         run: python scripts/build-site-shell.py --check
 
+      - name: Reject obsolete public contact email and obfuscated fragments
+        run: python scripts/check-no-stale-contact-email.py --check
+
       - name: Verify no public email exposure
         run: python scripts/audit-public-email-exposure.py --strict
 
