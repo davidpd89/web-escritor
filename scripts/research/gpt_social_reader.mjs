@@ -14,6 +14,7 @@ const SOURCES = {
   pinterest: 'metricool-mcp-export',
 };
 const ISO_UTC = /^\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}Z$/;
+const MAX_SNAPSHOT_AGE_MS = 48 * 60 * 60 * 1000; // Same limit as Python publisher.
 
 function instant(value) {
   if (typeof value !== 'string' || !ISO_UTC.test(value)) return null;
@@ -32,7 +33,8 @@ export function visibleSocialMetrics(snapshot, nowMs = Date.now()) {
       !Array.isArray(snapshot.networks)) return absent;
 
   const generated = instant(snapshot.generated_at);
-  if (generated === null || generated > nowMs) return absent;
+  if (generated === null || generated > nowMs ||
+      nowMs - generated > MAX_SNAPSHOT_AGE_MS) return absent;
   // Never treat a duplicate as two distinct accounts, even in corrupted JSON.
   const seen = new Set();
   const found = new Map();
@@ -43,15 +45,17 @@ export function visibleSocialMetrics(snapshot, nowMs = Date.now()) {
     const expires = instant(row.valid_until);
     const usable = row.status === 'ok' && row.source === SOURCES[row.id] &&
         Number.isSafeInteger(row.followers) && row.followers >= 0 &&
-        expires !== null && expires >= nowMs;
+        expires !== null && expires >= nowMs &&
+        expires <= generated + MAX_SNAPSHOT_AGE_MS;
     found.set(row.id, {id: row.id, followers: usable ? row.followers : null,
                        status: usable ? 'ok' : 'unavailable'});
   }
   const networks = NETWORKS.map(id => found.get(id) ?? {id, followers: null, status: 'pending'});
   const fresh = networks.filter(row => row.followers !== null);
+  const total = fresh.reduce((sum, row) => sum + row.followers, 0);
   return {
     networks,
-    totals: {follower_relationships: fresh.length ? fresh.reduce((sum, row) => sum + row.followers, 0) : null,
+    totals: {follower_relationships: fresh.length && Number.isSafeInteger(total) ? total : null,
              coverage: fresh.length, eligible: NETWORKS.length},
   };
 }
