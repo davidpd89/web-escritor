@@ -112,6 +112,8 @@ try {
       return new URLSearchParams(location.hash.slice(1)).get('genero')==='romantasy'
         && [...document.querySelector('#genero').selectedOptions].some(o=>o.value==='romantasy');
     });
+    assert.equal(await page.locator('#results li').count(),0,'Romantasy sin libros no inventa resultados');
+    assert.equal(await page.locator('#empty').isVisible(),true,'explicar por qué el listado está vacío');
     await page.evaluate(()=>{ location.hash='tematica=portales'; });
     await page.waitForFunction(()=>{
       return new URLSearchParams(location.hash.slice(1)).get('tematica')==='portales'
@@ -119,6 +121,7 @@ try {
     });
     await page.getByRole('button',{name:'Quitar todos los filtros'}).click();
     assert.match(await page.locator('#count').innerText(),new RegExp('^'+total+' de '+total+' libros'));
+    assert.equal(await page.locator('#empty').isHidden(),true,'estado vacío desaparece al restablecer');
     assert.deepEqual(errors,[],'no JS errors '+width);
     await page.close();
   }
