@@ -1,11 +1,14 @@
 // Integration adapter for the site's existing data attributes. Not a UI library.
 // Multi-select interface is supplied verbatim by Choices.js v11.2.4 (MIT).
 export const MULTI = ['genero', 'tematica', 'temporada', 'edad', 'contenido', 'epoca', 'formato'];
+// Campos ya admitidos en reading-catalogue.js: nunca perderlos en URL compartidas.
+export const SCALAR = ['paginas', 'novedad', 'desde', 'hasta', 'precio_min', 'precio_max', 'descuento', 'valoracion'];
 
 export function parseHash(hash) {
   const params = new URLSearchParams(hash.replace(/^#/, ''));
   const state = { q: params.get('q') || '', grupo: params.get('grupo') || '', orden: params.get('orden') || 'editorial' };
   for (const key of MULTI) state[key] = [...new Set(params.getAll(key).filter(Boolean))];
+  for (const key of SCALAR) state[key] = params.get(key) || '';
   state.pagina = Math.max(1, Number.parseInt(params.get('pagina'), 10) || 1);
   return state;
 }
@@ -15,6 +18,7 @@ export function writeHash(state) {
   if (state.q) params.set('q', state.q);
   if (state.grupo) params.set('grupo', state.grupo);
   for (const key of MULTI) for (const value of [...new Set(state[key] || [])].sort()) params.append(key, value);
+  for (const key of SCALAR) if (state[key]) params.set(key, String(state[key]));
   if (state.orden && state.orden !== 'editorial') params.set('orden', state.orden);
   if (state.pagina > 1) params.set('pagina', String(state.pagina));
   return params.size ? '#' + params : '';
