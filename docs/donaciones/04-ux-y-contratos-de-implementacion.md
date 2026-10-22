@@ -25,6 +25,22 @@ python -m http.server 8000
 
 **Activación posterior (no hacer antes de validar receptor):** combinar la página previsualizada con el HTML de `scripts/support_paypal_link.py` de la PR **#700**, proporcionando exclusivamente la URL auténtica del panel; añadir `apoyar/index.html` a las fuentes registradas como `public`, `support-project` al pie, regenerar shell y sitemap y verificar artefacto. No copiar la URL ficticia del test. **No se ha creado** `apoyar/index.html` ni `data/navigation.json` modificado en esta PR.
 
+## Puerta de activación: prueba negativa y positiva
+
+`tests/test-support-release-gate.py` verifica automáticamente dos estados válidos sin pagar ni consultar redes:
+
+- **Sin activar:** no existe `apoyar/index.html`, ni entrada `support-project` en el registry, ni enlace en el footer.
+- **Staging:** la página puede existir con `status: gated`/`noindex`, pero no debe enlazarse desde el pie; el builder público la excluye por `gated_prefixes_from_registry()`.
+- **Público:** la entrada del registry debe ser `status: public`, apuntar a `apoyar/index.html`, aparecer exactamente una vez en `footer.Información`, tener canonical correcto, robots sin `noindex`, privacidad/aviso legal y **al menos un enlace de método** `support-method` al checkout PayPal o Stripe oficial, sin URL de prueba ni SDK.
+
+El propio test monta casos aislados positivos y negativos para comprobar que fallan URL impostora, parámetros imprevistos, `noindex` público y enlaces Stripe `test_`. Su validación de URL **solo prueba la forma**, nunca la titularidad, estado de cuenta, recepción de fondos ni exposición de datos personales en el recibo: esas comprobaciones siguen siendo manuales y obligatorias.
+
+```bash
+python tests/test-support-release-gate.py
+```
+
+**Estado:** código añadido a la rama y revisado; no se ha ejecutado la suite del repositorio ni Actions. La vista previa tiene su test propio, que **ya no impide** una activación correcta más adelante.
+
 ## Contrato de navegación (orden exacto recomendado)
 
 1. Añadir una entidad `support-project` en `data/content-registry.json` siguiendo el esquema de `entries[]`, apuntando a `/apoyar/`, con label `Apoyar el proyecto` y contenido descriptivo real.
@@ -143,7 +159,7 @@ python tests/test-aria-landmarks-sitewide.py
 python tests/test-public-link-contracts.py
 ```
 
-No se garantiza que todos los checks cubran de manera suficiente la funcionalidad nueva; los cuatro tests `test-support-...` siguen **propuestos**. La aserción de publicación sí está incorporada en el test existente.
+No se garantiza que todos los checks cubran de manera suficiente la funcionalidad nueva; las comprobaciones específicas de colocación y enlaces todavía requieren validación en el navegador real; el test de activación y la aserción de publicación sí están incorporados en esta PR.
 
 ### Verificación de despliegue imprescindible al integrar el HTML
 
