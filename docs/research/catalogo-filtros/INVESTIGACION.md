@@ -33,12 +33,12 @@ Los blobs de estos tres archivos fueron cotejados con el tag. **No se modificó 
 
 - [`demo-multifiltro.html`](./demo-multifiltro.html): laboratorio sin despliegue, con 55 tarjetas y taxonomía extraídas al cargar del catálogo real. Presenta únicamente formato, género y temática, cuenta resultados y pagina 24 fichas. No inventa precios. Los parámetros ocultos de URL se conservan para comprobar compatibilidad, pero **no se aplican en esta demo limitada**.
 - [`multifacet-contract.mjs`](./multifacet-contract.mjs): `parseHash`/`writeHash` (valores repetidos, compatibilidad con valores antiguos, preservación de filtros escalares); `matchesMulti` (OR/AND); `availableOptions` (recuento excluyendo su propia faceta); `sanitizeFacetSelections` y `matchingOffersMulti`.
-- [`multifacet-contract.test.mjs`](./multifacet-contract.test.mjs): **24/24 superados con Node.js 22 local** usando los archivos **idénticos** a la rama; ver hashes y ejecución en la sección QA. Cubren cruces, URL, selecciones a cero, formatos y precios en la misma oferta, y compatibilidad de valores escalares con el test de lectura.
+- [`multifacet-contract.test.mjs`](./multifacet-contract.test.mjs): **25/25 superados con Node.js 22 local** usando los archivos **idénticos** a la rama; ver hashes y ejecución en la sección QA. Cubren cruces, URL, selecciones a cero, formatos y precios en la misma oferta, y compatibilidad de valores escalares con el test de lectura.
 - [`qa-demo.mjs`](./qa-demo.mjs): prueba real de Choices.js en Playwright, cuatro anchuras (320, 390, 768 y 1440), selección múltiple por `data-value`, paginación, restauración de URL, filtros antiguos y reset. **Es código preparado, no ejecutado.**
 
 ### Dos errores de integración que no se deben repetir
 
-**1. Compatibilidad con el test de lectura.** En `assets/reading-catalogue.js::setupQuiz()`, `criteria` contiene strings (`{genero: 'fantasia'}`), no arrays. La versión anterior de `matchesMulti()` llamaba `.some()` sobre ese string y fallaría. Ahora `selection(wanted)` convierte tanto un escalar como un array a lista internamente y `availableOptions()` compara IDs exactos; `fantasia-juvenil` no marca también `fantasia`. Tres pruebas Node protegen este caso.
+**1. Compatibilidad con el test de lectura.** En `assets/reading-catalogue.js::setupQuiz()`, `criteria` contiene strings (`{genero: 'fantasia'}`), no arrays. La versión anterior de `matchesMulti()` llamaba `.some()` sobre ese string y fallaría. Ahora `selection(wanted)` convierte tanto un escalar como un array a lista internamente y `availableOptions()` compara IDs exactos; `fantasia-juvenil` no marca también `fantasia`. Cuatro pruebas Node protegen estos casos. La nueva prueba verifica que `writeHash({genero: 'fantasia'})` conserva el género entero: antes `new Set('fantasia')` lo descomponía en letras sueltas.
 
 **2. Precio/formato de una misma oferta.** Un libro puede tener blanda a 9,50 € y dura a 25,90 €. `Solo dura + precio máximo 10 €` debe dar cero, no usar el precio de la blanda. `matchingOffersMulti(offers, state)` evalúa simultáneamente OR de formatos, precio mínimo/máximo y descuento por **cada oferta individual**. Se alimenta de `offersFor()` —que ya aplica `validOffer()`/`fresh()`—; no sustituir la validación del mercado existente. Actualmente `assets/reading-market.json` contiene **cero ofertas**: no atribuir precios inexistentes ni afirmar que se ha probado con precios en directo.
 
@@ -66,11 +66,11 @@ Referencia de la API upstream utilizada: [choices.ts en v11.2.4](https://github.
 
 ```sh
 node --test /mnt/data/catalogue-check/research/multifacet-contract.test.mjs
-# 24 tests, 24 pass, 0 fail — Node v22.16.0
+# 25 tests, 25 pass, 0 fail — Node v22.16.0
 git hash-object /mnt/data/catalogue-check/research/multifacet-contract.mjs
-# 0574e6b51fbe4a72a8004400a76a56e4822c15a1
+# 5076ccffe3bab5008b858171fd75064ce1241a2b
 git hash-object /mnt/data/catalogue-check/research/multifacet-contract.test.mjs
-# 5bff2c3ce4c9219447a0684ed264cfe41a6ee34c
+# a2dd3a99a5498f0db6b765602a272f7ae1e17162
 ```
 
 Los dos SHA coinciden con GitHub. Adicionalmente se calcularon 9 combinaciones ejecutando el motor sobre los 55 registros de la página: **9/9 correctas**.
