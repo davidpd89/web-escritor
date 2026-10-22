@@ -2,6 +2,22 @@
 
 **22/10/2026 · PR hija de #699.** El cambio es un **compositor de datos ejecutable y probado**, NO una página desplegada. Ningún cambio a `autor.html`, navegación, Actions o `main`.
 
+## QA de las cuatro PR — resultado definitivo (22/10/2026)
+
+**152/152 pruebas offline correctas y 0 omitidas**, ejecutadas en un directorio temporal con archivos contrastados por sus **hashes Git idénticos** a las ramas de #704, #705, #706 y #707. Python 3.13: **130** casos; Node 22: **22** casos. No hay lecturas live, CI/Actions ni merge.
+
+**Problemas reales corregidos durante la revisión:** una prueba cruzada seguía esperando tres elementos aunque ahora hay seis perfiles (los otros tres pueden quedar `pending`). Además, se limitó la caducidad máxima verificable por el lector JS a 48 h desde `generated_at`: aunque un JSON erróneo declare `valid_until=2099`, no podrá mostrar contadores indefinidamente. El productor Python rechaza números superiores a `2**53-1` o sumas que superen el rango de enteros exactos en JavaScript; el lector JS no muestra totales imprecisos. Las cinco regresiones nuevas pasan.
+
+**Nuevo ejecutor reproducible:** [`scripts/research/run_social_cross_pr_qa.sh`](../../../../scripts/research/run_social_cross_pr_qa.sh) lee **16 archivos exactos** de las cuatro refs remotas y comprueba SHA antes de ejecutar las pruebas. No modifica el working tree, no fusiona ramas, no ejecuta Actions, no consulta APIs y borra sus temporales. El ejecutor también se probó en un repositorio Git sintético local con esas mismas versiones: **130 Python + 22 Node PASS**. Tras `git fetch` de las cuatro ramas (comando completo más abajo):
+
+~~~bash
+bash scripts/research/run_social_cross_pr_qa.sh
+~~~
+
+Cobertura por archivo: compositor **37**; pipeline entre cuatro lectores **8**; identidades **10**; fechas/caducidad/precisión numérica **9**; Metricool un campo **17**; Metricool multired **18**; Bluesky **13**; Mastodon **18**; lector Node **19**; contrato Python→JS **3**. Los **17 casos exploratorios** antiguos quedan expresamente fuera del total. Los únicos datos utilizados en todas las pruebas son sintéticos.
+
+**Sigue pendiente:** acceso real a Bluesky/Mastodon (DID/ID), automatización de la extracción Metricool, HTML/CSS/navegación de la página y suite global del sitio. Esta puerta valida el **código de estadísticas**, no el despliegue.
+
 ## Problema concreto
 
 Los lectores de #705 (Metricool/Threads), #706 (Bluesky) y #707 (Mastodon) producen **objetos distintos**: Metricool identifica `observed_at` con `YYYY-MM-DD` de un día cerrado y las APIs públicas incluyen hora UTC. Si sumamos sus seguidores sin validar fechas, identidad y nulos, el dashboard puede mostrar cifras antiguas, duplicadas, de otro perfil o un «total» presentado como personas únicas.
@@ -139,7 +155,7 @@ copy_from research/gpt-social-mastodon-2026-10-22 tests/test_gpt_social_mastodon
 python -m unittest discover -s "$tmp/tests" -p 'test_gpt_*.py' -v
 ~~~
 
-**Histórico anterior a este cambio:** 81/81 pruebas offline pasadas en la combinación de cuatro lectores, sin red. **Validación de esta ampliación:** 35/35 pruebas locales correctas (18 unitarias del lector multired #705, siete de integración local lector→compositor y diez casos nuevos equivalentes a los añadidos a #704). Se comprobaron contra blobs de GitHub los hashes exactos de `gpt_social_compose.py` (`8b69952d`), `gpt_metricool_threads.py` (`cccaa4cf`), `gpt_metricool_followers.py` (`4acede8b`) y su test de 18 casos (`9e09f449`). **Todavía NO se ha ejecutado el conjunto completo de pruebas con todos los archivos de test recién modificados**; el comando anterior constituye la reproducción pendiente para Claude.
+**Histórico anterior a este cambio:** 81/81 pruebas offline pasadas en la combinación de cuatro lectores, sin red. **Validación de esta ampliación:** 35/35 pruebas locales correctas (18 unitarias del lector multired #705, siete de integración local lector→compositor y diez casos nuevos equivalentes a los añadidos a #704). Se comprobaron contra blobs de GitHub los hashes exactos de `gpt_social_compose.py` (hash de la prueba histórica: `8b69952d`; hash actual verificado en el ejecutor), `gpt_metricool_threads.py` (`cccaa4cf`), `gpt_metricool_followers.py` (`4acede8b`) y su test de 18 casos (`9e09f449`). **Estado actualizado:** el conjunto completo de 152 pruebas versionadas ya se ejecutó correctamente; los números anteriores son históricos.
 
 **Casos de integración:** las tres salidas producen suma y cobertura correctas; archivos fuente → CLI → JSON público; salida sin DID ni ID local; los seguidores caducados no inflan totales; vistas no verificadas se rechazan; identidades falsas se rechazan antes de componer.
 
@@ -164,7 +180,7 @@ python -m unittest discover -s tests -p 'test_gpt_social_expiration.py' -v
 node --test tests/test_gpt_social_reader.mjs tests/test_gpt_social_python_to_js.mjs
 ~~~
 
-**Resultados:** 7/7 Python y 19/19 Node (16 de lector + 3 cruces) PASS; también se reejecutaron **35** pruebas locales anteriores del puente Metricool→compositor. En esa sesión se obtuvieron **42 Python + 16 Node = 58 pruebas locales correctas** en total; 17 de los 42 Python corresponden a pruebas exploratorias locales del puente que no forman parte de estos archivos de la PR. Por tanto **58 NO es la cifra de pruebas versionadas de la PR ni sustituye la suite completa pendiente**. Los cinco ficheros nuevos/modificados se cotejaron por hash Git blob con la versión probada.
+**Resultados:** 7/7 Python y 19/19 Node (16 de lector + 3 cruces) PASS; también se reejecutaron **35** pruebas locales anteriores del puente Metricool→compositor. En esa sesión se obtuvieron **42 Python + 16 Node = 58 pruebas locales correctas** en total; 17 de los 42 Python corresponden a pruebas exploratorias locales del puente que no forman parte de estos archivos de la PR. Ese subtotal es histórico, no representa el total: el resultado vigente es **152/152 offline**. Los cinco ficheros nuevos/modificados se cotejaron por hash Git blob con la versión probada.
 
 **Integración pendiente:** el módulo MJS de lectura está preparado pero **no se importa todavía desde ninguna página**; hasta que se construya `/redes-sociales/` no se puede afirmar que el navegador público o su caché hayan sido comprobados. La UI deberá leer `data/social-metrics.generated.json` y usar **solo** el resultado de `visibleSocialMetrics(snapshot)`, junto con enlaces de perfil canónicos de la web. Si no hay métricas vigentes, mostrar las tarjetas y ocultar cifras/totales en lugar de un cero ficticio.
 
@@ -192,7 +208,7 @@ El compositor acepta el contenedor `metricool-follower-candidates` de #705, veri
 
 **Decisión aplicada al código:** ampliar `PROFILES` y `EXPECTED_SOURCES` del compositor y `NETWORKS` del lector JS **solo con Instagram, TikTok y Pinterest**. El lote Metricool puede aportar esas tres y Threads, de manera que tenemos seis perfiles elegibles con Bluesky/Mastodon leídos de sus endpoints propios. **No se ha demostrado aún extracción desatendida.** No promover automáticamente Facebook: el ID conectado no coincide directamente con la URL publicada; X no consta conectado a la marca; YouTube tiene ID de canal conectado pero no figuraba entre las URL sociales de la web inspeccionadas.
 
-**QA realizado en la etapa de ampliación:** `python -m unittest discover -s tests -p 'test_*.py' -v` pasó **52/52 casos locales** (35 en pruebas subidas a #704/#705 y 17 exploratorios en un entorno temporal). `node --test tests/test_gpt_social_reader.mjs tests/test_gpt_social_python_to_js.mjs` pasó **19/19**. Se contrastaron los hashes Git de los dos scripts y la nueva [suite de 10 pruebas de identidad](../../../../tests/test_gpt_social_verified_profiles.py) con los archivos de estas ramas. Los 37 tests del compositor principal y la suite cruzada completa siguen pendientes de nueva ejecución sobre las ramas actuales.
+**QA realizado en la etapa de ampliación:** `python -m unittest discover -s tests -p 'test_*.py' -v` pasó **52/52 casos locales** (35 en pruebas subidas a #704/#705 y 17 exploratorios en un entorno temporal). `node --test tests/test_gpt_social_reader.mjs tests/test_gpt_social_python_to_js.mjs` pasó **19/19**. Se contrastaron los hashes Git de los dos scripts y la nueva [suite de 10 pruebas de identidad](../../../../tests/test_gpt_social_verified_profiles.py) con los archivos de estas ramas. **Actualizado:** los 37 del compositor y toda la suite cruzada ya se ejecutaron con los archivos actuales; resultado total **152/152 offline**.
 
 **No equivale a seis conectores funcionando en producción:** la web aún no importa el lector ni hay cron. El término «elegible» significa identidad URL verificada para el contrato, no cuenta validada como accesible públicamente en cada sesión.
 
@@ -210,4 +226,4 @@ El compositor acepta el contenedor `metricool-follower-candidates` de #705, veri
 - [JSON Schema, especificación y pruebas oficiales](https://json-schema.org/understanding-json-schema/reference/object): los objetos permiten propiedades adicionales si no se prohíben explícitamente. El compositor aplica **lista permitida de campos de salida**, sin vendoring de validadores ni dependencias; la [suite oficial](https://github.com/json-schema-org/JSON-Schema-Test-Suite/blob/main/tests/draft2020-12/additionalProperties.json) demuestra el comportamiento que se evita. No se ha copiado código de terceros a esta PR.
 - [Python `zoneinfo`](https://docs.python.org/3/library/zoneinfo.html) calcula el huso de Madrid con DST; [`os.replace`](https://docs.python.org/3.13/library/os.html#os.replace) permite sustitución atómica en el mismo filesystem.
 
-**Puerta de integración para Claude:** confirmar identidad real y lectores de #705–#707; conectar el lector MJS de caducidad al HTML antes de mostrar números; decidir el TTL definitivo; ejecutar la suite completa y crear la UI/navigation/sitemap solo en PR aparte cuando esté aprobado. **No confundir las pruebas offline con un despliegue.**
+**Puerta de integración para Claude:** confirmar identidad real y lectores de #705–#707; conectar el lector MJS de caducidad al HTML antes de mostrar números; decidir el TTL definitivo; ejecutar la suite global del sitio y crear la UI/navigation/sitemap solo en PR aparte cuando esté aprobado. **No confundir las pruebas offline con un despliegue.**
