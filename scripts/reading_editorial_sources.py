@@ -18,7 +18,10 @@ from urllib.parse import urljoin, urlsplit
 from urllib.request import Request, build_opener, HTTPRedirectHandler
 from urllib.robotparser import RobotFileParser
 
+from decimal import Decimal, InvalidOperation
+
 from reading_intake_core import edition_date, isbn13, normalize_text
+from reading_taxonomy import keyword_list
 
 AGENT = 'DavidPortoReadingCatalogue/1.0 (+https://davidportodiaz.com)'
 PRODUCT_PATH = re.compile(r'^/es/[^/?]+/\d+-libro-[^/?]+-(97[89]\d{10})/?$')
@@ -233,6 +236,25 @@ def publisher_author_bio(document, source, name):
     return ' '.join(words[:24]).rstrip(' ,;:') + ('…' if len(words) > 24 else '')
 
 
+def _pvp_centimos(product):
+    """PVP fijado por la editorial (precio sin el descuento de tienda), en céntimos.
+
+    Los libros tienen precio fijo en España: `price_without_reduction` es ese PVP y no el
+    precio de ningún minorista. Sin importe claro y plausible no se publica nada.
+    """
+    for key, with_discount in (('price_without_reduction', True), ('price_amount', False)):
+        raw = product.get(key)
+        if raw in (None, '') or (with_discount and str(product.get('has_discount')) != 'True'):
+            continue
+        try:
+            cents = int((Decimal(str(raw)) * 100).quantize(Decimal('1')))
+        except (InvalidOperation, ValueError):
+            continue
+        if 100 <= cents <= 20000:
+            return cents
+    return None
+
+
 def penguin_edition(document, source):
     """Strict selected edition, not recommendations included lower on the page."""
     parser = ProductHTML()
@@ -269,6 +291,7 @@ def penguin_edition(document, source):
     if not image or urlsplit(image).hostname != 'www.penguinlibros.com':
         raise SourceError('Portada editorial ausente')
     count = features.get('paginas', '')
+    pvp = _pvp_centimos(p)
     author_sources = {name: next((urljoin(source, a['url']) for a in parser.links
         if normalize_text(a['text']) == normalize_text(name)
         and urlsplit(urljoin(source, a['url'])).hostname == 'www.penguinlibros.com'
@@ -281,4 +304,6 @@ def penguin_edition(document, source):
             'edad_recomendada': features.get('target de edad', ''),
             'portada_fuente_url': image, 'fuente_bibliografica_url': source,
             'fuentes_autores': author_sources, 'coleccion': features.get('coleccion', ''),
-            'sinopsis_breve': editorial_excerpt(p.get('description')) or editorial_excerpt(p.get('description_short'))}
+            'sinopsis_breve': editorial_excerpt(p.get('description')) or editorial_excerpt(p.get('description_short')),
+            'palabras_clave': keyword_list(html.unescape(str(p.get('meta_keywords', '')))),
+            'pvp_centimos': pvp}

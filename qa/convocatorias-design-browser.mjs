@@ -140,7 +140,7 @@ try {
       assert.equal(await page.locator('main#contenido').getAttribute('data-family'), 'tool', `${name}: familia tool alterada`);
       assert.equal(await page.locator('link[rel="canonical"]').getAttribute('href'), 'https://davidportodiaz.com/convocatorias-escritores/', `${name}: canonical alterado`);
       assert.equal(await page.locator('h1').count(), 1, `${name}: H1 no único`);
-      assert.equal((await page.locator('h1').textContent()).trim(), 'Convocatorias que todavía están a tiempo.', `${name}: H1 alterado`);
+      assert.equal((await page.locator('h1').textContent()).trim(), 'Concursos que todavía están a tiempo.', `${name}: H1 alterado`);
       assert.equal(await page.locator('.section-context [aria-current="page"]').getAttribute('href'), '/convocatorias-escritores/', `${name}: contexto no marca Convocatorias`);
 
       const items = page.locator('[data-radar-item]');

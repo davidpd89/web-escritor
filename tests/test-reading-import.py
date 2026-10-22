@@ -17,7 +17,7 @@ existing=json.loads((ROOT/'data/reading-catalogue.json').read_text(encoding='utf
 data,report=imp.convert(snapshot,review,existing,ROOT)
 assert data==existing
 assert len(data['libros'])==len(existing['libros']) and len(data['libro_categorias'])==len(existing['libro_categorias'])
-assert data['libros'][0]['anio_publicacion']==2009 and 'fecha_publicacion' not in data['libros'][0]
+assert data['libros'][0]['anio_publicacion']==2009 and data['libros'][0]['fecha_publicacion']=='2009-06-01'
 assert data['libros'][0]['url_amazon_afiliada'].endswith('tag=davidporto-21')
 unapproved=copy.deepcopy(review)
 unapproved['reviews']={}

@@ -32,8 +32,7 @@
       "fuente": "https://www.penguinlibros.com/es/libros-de-cocina/616753-libro-opa-sabores-del-mundo-9780241802069",
       "isbn13": "9780241802069",
       "motivo": "Sello no presente en el registro editorial de la web",
-      "primera_deteccion": "2026-10-21",
-      "retry_after": "2026-10-24"
+      "primera_deteccion": "2026-10-21"
     },
     "isbn13:9780241815045": {
       "datos": {
@@ -65,8 +64,7 @@
       "fuente": "https://www.penguinlibros.com/es/libros-de-cocina/634718-libro-ramen-cada-dia-sabores-del-mundo-9780241815045",
       "isbn13": "9780241815045",
       "motivo": "Sello no presente en el registro editorial de la web",
-      "primera_deteccion": "2026-10-21",
-      "retry_after": "2026-10-24"
+      "primera_deteccion": "2026-10-21"
     },
     "isbn13:9780241831380": {
       "datos": {
@@ -98,8 +96,7 @@
       "fuente": "https://www.penguinlibros.com/es/libros-de-cocina/634720-libro-curso-de-cocina-los-basicos-9780241831380",
       "isbn13": "9780241831380",
       "motivo": "Sello no presente en el registro editorial de la web",
-      "primera_deteccion": "2026-10-21",
-      "retry_after": "2026-10-24"
+      "primera_deteccion": "2026-10-21"
     },
     "isbn13:9780241831397": {
       "datos": {
@@ -131,8 +128,7 @@
       "fuente": "https://www.penguinlibros.com/es/libros-de-cocina/631525-libro-curso-de-cocina-recetas-italianas-9780241831397",
       "isbn13": "9780241831397",
       "motivo": "Sello no presente en el registro editorial de la web",
-      "primera_deteccion": "2026-10-21",
-      "retry_after": "2026-10-24"
+      "primera_deteccion": "2026-10-21"
     },
     "isbn13:9780241837597": {
       "datos": {
@@ -164,8 +160,7 @@
       "fuente": "https://www.penguinlibros.com/es/ciencia-y-tecnologia/634723-libro-la-luna-una-historia-ilustrada-la-guia-visual-definitiva-9780241837597",
       "isbn13": "9780241837597",
       "motivo": "Sello no presente en el registro editorial de la web",
-      "primera_deteccion": "2026-10-20",
-      "retry_after": "2026-10-23"
+      "primera_deteccion": "2026-10-20"
     },
     "isbn13:9780241837702": {
       "datos": {
@@ -197,8 +192,7 @@
       "fuente": "https://www.penguinlibros.com/es/libros-de-espiritualidad/634724-libro-la-biblia-una-enciclopedia-ilustrada-9780241837702",
       "isbn13": "9780241837702",
       "motivo": "Sello no presente en el registro editorial de la web",
-      "primera_deteccion": "2026-10-20",
-      "retry_after": "2026-10-23"
+      "primera_deteccion": "2026-10-20"
     },
     "isbn13:9780241837849": {
       "datos": {
@@ -230,8 +224,7 @@
       "fuente": "https://www.penguinlibros.com/es/libros-de-cocina/634725-libro-la-ciencia-del-horneado-la-ciencia-de-la-cocina-9780241837849",
       "isbn13": "9780241837849",
       "motivo": "Sello no presente en el registro editorial de la web",
-      "primera_deteccion": "2026-10-21",
-      "retry_after": "2026-10-24"
+      "primera_deteccion": "2026-10-21"
     },
     "isbn13:9780241837979": {
       "datos": {
@@ -242,6 +235,7 @@
         "cover_use_basis": "Cubierta proporcionada en la ficha oficial de la edición para su identificación bibliográfica, con atribución y enlace a la editorial. No se declara licencia abierta ni se reutiliza como imagen de Pinterest.",
         "edad_recomendada": "A partir de 7 años",
         "editorial": "DK",
+        "editorial_slug": "dk",
         "encuadernacion": "Tapa dura",
         "fecha_publicacion_edicion": "2026-10-15",
         "formato_edicion": "tapa-dura",
@@ -255,17 +249,40 @@
           "A partir de 7 años"
         ],
         "numero_paginas": 128,
+        "palabras_clave": [
+          "lego",
+          "ninjago",
+          "lego ninjago",
+          "libros para niños",
+          "libros infantiles",
+          "libros divertidos",
+          "libros para regalar",
+          "libros mas vendidos",
+          "libros lego",
+          "libros ninjago",
+          "juguetes lego",
+          "mejores libros",
+          "6 años",
+          "7 años",
+          "8 años",
+          "9 años",
+          "10 años",
+          "libros de aventuras",
+          "aventuras",
+          "lecturas",
+          "jug"
+        ],
         "portada_fuente_url": "https://www.penguinlibros.com/es/8019058-thickbox_default/lego-ninjago-la-pluma-del-destino-el-ataque-del-guardian-de-los-pergaminos.jpg",
         "precision_fecha": "dia",
+        "pvp_centimos": 1490,
         "sinopsis_breve": "Cuando Dex, el Guardián de los Pergaminos, se vuelve incontrolable y roba una antigua pluma de los archivos, los jóvenes Maestros Elementales Euphrasia y…",
         "titulo": "LEGO® Ninjago - La pluma del destino: El ataque del guardián de los pergaminos"
       },
-      "estado_ingesta": "pendiente_datos",
-      "fuente": "https://www.penguinlibros.com/es/libros-ninos-7-anos/634726-libro-lego-ninjago-la-pluma-del-destino-el-ataque-del-guardian-de-los-pergaminos-9780241837979",
+      "estado_ingesta": "publicado",
       "isbn13": "9780241837979",
-      "motivo": "Sello no presente en el registro editorial de la web",
+      "libro_id": "isbn-9780241837979",
       "primera_deteccion": "2026-10-21",
-      "retry_after": "2026-10-24"
+      "publicado_en": "2026-10-21"
     },
     "isbn13:9780241837986": {
       "datos": {
@@ -276,6 +293,7 @@
         "cover_use_basis": "Cubierta proporcionada en la ficha oficial de la edición para su identificación bibliográfica, con atribución y enlace a la editorial. No se declara licencia abierta ni se reutiliza como imagen de Pinterest.",
         "edad_recomendada": "A partir de 7 años",
         "editorial": "DK",
+        "editorial_slug": "dk",
         "encuadernacion": "Tapa dura",
         "fecha_publicacion_edicion": "2026-10-15",
         "formato_edicion": "tapa-dura",
@@ -289,17 +307,37 @@
           "A partir de 7 años"
         ],
         "numero_paginas": 128,
+        "palabras_clave": [
+          "lego",
+          "libros lego",
+          "lego friends",
+          "libros infantiles",
+          "libros para niños",
+          "cuentos",
+          "libros divertidos",
+          "libros para dormir",
+          "cuentos para dormir",
+          "m ejores libros",
+          "mejores cuentos",
+          "libros para regalar",
+          "mascotas",
+          "juguetes lego",
+          "figuras lego",
+          "ladrillos lego",
+          "construcciones lego",
+          "l"
+        ],
         "portada_fuente_url": "https://www.penguinlibros.com/es/8019065-thickbox_default/lego-friends-lego-friends-rescatadoras-de-mascotas-fuga-de-conejitos.jpg",
         "precision_fecha": "dia",
+        "pvp_centimos": 1490,
         "sinopsis_breve": "Tras una fuerte tormenta, el refugio de animales de Heartlake queda dañado, y ahora las mejores amigas Nova, Autumn, Liann, Leo y Aliya tendrán…",
         "titulo": "LEGO® Friends - LEGO Friends Rescatadoras de mascotas: ¡Fuga de conejitos!"
       },
-      "estado_ingesta": "pendiente_datos",
-      "fuente": "https://www.penguinlibros.com/es/libros-ninos-7-anos/634727-libro-lego-friends-lego-friends-rescatadoras-de-mascotas-fuga-de-conejitos-9780241837986",
+      "estado_ingesta": "publicado",
       "isbn13": "9780241837986",
-      "motivo": "Sello no presente en el registro editorial de la web",
+      "libro_id": "isbn-9780241837986",
       "primera_deteccion": "2026-10-21",
-      "retry_after": "2026-10-24"
+      "publicado_en": "2026-10-21"
     },
     "isbn13:9780241839362": {
       "datos": {
@@ -310,6 +348,7 @@
         "cover_use_basis": "Cubierta proporcionada en la ficha oficial de la edición para su identificación bibliográfica, con atribución y enlace a la editorial. No se declara licencia abierta ni se reutiliza como imagen de Pinterest.",
         "edad_recomendada": "A partir de 9 años",
         "editorial": "DK",
+        "editorial_slug": "dk",
         "encuadernacion": "Tapa dura",
         "fecha_publicacion_edicion": "2026-10-15",
         "formato_edicion": "tapa-dura",
@@ -323,17 +362,38 @@
           "A partir de 9 años"
         ],
         "numero_paginas": 160,
+        "palabras_clave": [
+          "roma",
+          "antigua roma",
+          "libros infantiles",
+          "libros juveniles",
+          "mejores libros",
+          "libros mas vendidos",
+          "historia",
+          "curiosidades",
+          "imperio romano",
+          "emperad ores",
+          "julio cesar",
+          "coliseo",
+          "gladiadores",
+          "libros ilustrados",
+          "libros educativos",
+          "arte",
+          "historia de roma",
+          "historia para niños",
+          "imperio"
+        ],
         "portada_fuente_url": "https://www.penguinlibros.com/es/8312106-thickbox_default/antigua-roma-civilizaciones-antiguas-para-ninos.jpg",
         "precision_fecha": "dia",
+        "pvp_centimos": 1995,
         "sinopsis_breve": "Con espectaculares fotografías e ilustraciones, este libro revela los aspectos más curiosos, sorprendentes y a veces escalofriantes de la vida en la Antigua Roma.…",
         "titulo": "Antigua Roma (Civilizaciones antiguas para niños)"
       },
-      "estado_ingesta": "pendiente_datos",
-      "fuente": "https://www.penguinlibros.com/es/libros-ninos-9-anos/634734-libro-antigua-roma-civilizaciones-antiguas-para-ninos-9780241839362",
+      "estado_ingesta": "publicado",
       "isbn13": "9780241839362",
-      "motivo": "Sello no presente en el registro editorial de la web",
+      "libro_id": "isbn-9780241839362",
       "primera_deteccion": "2026-10-21",
-      "retry_after": "2026-10-24"
+      "publicado_en": "2026-10-21"
     },
     "isbn13:9780241847633": {
       "datos": {
@@ -344,6 +404,7 @@
         "cover_use_basis": "Cubierta proporcionada en la ficha oficial de la edición para su identificación bibliográfica, con atribución y enlace a la editorial. No se declara licencia abierta ni se reutiliza como imagen de Pinterest.",
         "edad_recomendada": "De 0 a 3 años",
         "editorial": "DK",
+        "editorial_slug": "dk",
         "encuadernacion": "Tapa dura",
         "fecha_publicacion_edicion": "2026-10-15",
         "formato_edicion": "tapa-dura",
@@ -357,17 +418,40 @@
           "De 0 a 3 años"
         ],
         "numero_paginas": 12,
+        "palabras_clave": [
+          "niños",
+          "infantil",
+          "libros para niños",
+          "libros infantiles",
+          "cuentos",
+          "miedo",
+          "mejores libros",
+          "libros mas vendidos",
+          "primeras lecturas",
+          "bebes",
+          "regalos para bebes",
+          "libros para bebes",
+          "cuentos para bebes",
+          "niñas",
+          "1 año",
+          "2 años",
+          "3 años",
+          "4 años",
+          "5 años",
+          "libros para regalar",
+          "antes de dormir"
+        ],
         "portada_fuente_url": "https://www.penguinlibros.com/es/8035994-thickbox_default/da-miedo-o-no-da-miedo-enciclomini.jpg",
         "precision_fecha": "dia",
+        "pvp_centimos": 1290,
         "sinopsis_breve": "Perfecto para pequeñas manos, este resistente libro de cartón ayuda a enriquecer el vocabulario, trabajar los contrarios y estimular la motricidad fina de forma…",
         "titulo": "¿Da miedo o no da miedo? (Enciclomini)"
       },
-      "estado_ingesta": "pendiente_datos",
-      "fuente": "https://www.penguinlibros.com/es/libros-infantiles-3-anos/634736-libro-da-miedo-o-no-da-miedo-enciclomini-9780241847633",
+      "estado_ingesta": "publicado",
       "isbn13": "9780241847633",
-      "motivo": "Sello no presente en el registro editorial de la web",
+      "libro_id": "isbn-9780241847633",
       "primera_deteccion": "2026-10-21",
-      "retry_after": "2026-10-24"
+      "publicado_en": "2026-10-21"
     },
     "isbn13:9780241847640": {
       "datos": {
@@ -378,6 +462,7 @@
         "cover_use_basis": "Cubierta proporcionada en la ficha oficial de la edición para su identificación bibliográfica, con atribución y enlace a la editorial. No se declara licencia abierta ni se reutiliza como imagen de Pinterest.",
         "edad_recomendada": "De 0 a 3 años",
         "editorial": "DK",
+        "editorial_slug": "dk",
         "encuadernacion": "Tapa dura",
         "fecha_publicacion_edicion": "2026-10-15",
         "formato_edicion": "tapa-dura",
@@ -391,17 +476,35 @@
           "De 0 a 3 años"
         ],
         "numero_paginas": 12,
+        "palabras_clave": [
+          "libros infantiles",
+          "libros para niños",
+          "cuentos",
+          "libros interactivos",
+          "libros con sonidos",
+          "libros para bebes",
+          "cuentos para bebes",
+          "primeros libros",
+          "primeras lecturas",
+          "pop up",
+          "libros educativos",
+          "regalos para bebes",
+          "libros para regalar",
+          "mejores libros",
+          "libros mas vendidos",
+          "1"
+        ],
         "portada_fuente_url": "https://www.penguinlibros.com/es/8035998-thickbox_default/hace-ruido-o-es-silencioso-enciclomini.jpg",
         "precision_fecha": "dia",
+        "pvp_centimos": 1290,
         "sinopsis_breve": "En cada página, los niños podrán observar distintos objetos y decidir si hacen ruido o son silenciosos. No hay respuestas correctas o incorrectas: cada…",
         "titulo": "¿Hace ruido o es silencioso? (Enciclomini)"
       },
-      "estado_ingesta": "pendiente_datos",
-      "fuente": "https://www.penguinlibros.com/es/libros-infantiles-3-anos/634737-libro-hace-ruido-o-es-silencioso-enciclomini-9780241847640",
+      "estado_ingesta": "publicado",
       "isbn13": "9780241847640",
-      "motivo": "Sello no presente en el registro editorial de la web",
+      "libro_id": "isbn-9780241847640",
       "primera_deteccion": "2026-10-21",
-      "retry_after": "2026-10-24"
+      "publicado_en": "2026-10-21"
     },
     "isbn13:9788401031380": {
       "datos": {
@@ -661,12 +764,13 @@
         "cover_use_basis": "Cubierta proporcionada en la ficha oficial de la edición para su identificación bibliográfica, con atribución y enlace a la editorial. No se declara licencia abierta ni se reutiliza como imagen de Pinterest.",
         "edad_recomendada": "Adultos",
         "editorial": "BRUGUERA",
+        "editorial_slug": "bruguera",
         "encuadernacion": "Tapa blanda con solapas",
         "fecha_publicacion_edicion": "2026-10-08",
         "formato_edicion": "tapa-blanda",
         "fuente_bibliografica_url": "https://www.penguinlibros.com/es/libro-de-negocio/634661-libro-carino-y-este-recibo-9788402431332",
         "fuentes_autores": {
-          "Angie Gil Ribera": "https://www.penguinlibros.com/es/libro-de-negocio/634661-libro-carino-y-este-recibo-9788402431332"
+          "Angie Gil Ribera": "https://www.penguinlibros.com/es/1019913-angie-gil-ribera"
         },
         "idioma": "es",
         "isbn13": "9788402431332",
@@ -674,16 +778,35 @@
           "Business"
         ],
         "numero_paginas": 192,
+        "palabras_clave": [
+          "finanzas en pareja",
+          "finanzas personales",
+          "libro para ahorrar",
+          "finanzas compartidas",
+          "invertir",
+          "salud financiera",
+          "vida en pareja",
+          "inversiones",
+          "como vivir mejor en pareja",
+          "dinero",
+          "dinero en pareja",
+          "organizar finanzas",
+          "organizar dinero",
+          "ahorro",
+          "ahorro en parejas",
+          "angiecoach"
+        ],
         "portada_fuente_url": "https://www.penguinlibros.com/es/8087373-thickbox_default/carino-y-este-recibo.jpg",
         "precision_fecha": "dia",
+        "pvp_centimos": 1995,
+        "sinopsis_breve": "En este libro, la coach financiera Angie Gil te ofrece herramientas prácticas, ejercicios y estrategias sencillas para mejorarla comunicación y construir los hábitos financieros…",
         "titulo": "Cariño, ¿y este recibo?"
       },
-      "estado_ingesta": "pendiente_datos",
-      "fuente": "https://www.penguinlibros.com/es/libro-de-negocio/634661-libro-carino-y-este-recibo-9788402431332",
+      "estado_ingesta": "publicado",
       "isbn13": "9788402431332",
-      "motivo": "Sello no presente en el registro editorial de la web",
+      "libro_id": "isbn-9788402431332",
       "primera_deteccion": "2026-10-20",
-      "retry_after": "2026-10-23"
+      "publicado_en": "2026-10-21"
     },
     "isbn13:9788402431356": {
       "datos": {
@@ -715,8 +838,7 @@
       "fuente": "https://www.penguinlibros.com/es/libros-autoayuda/491269-libro-el-regalo-de-la-sensibilidad-9788402431356",
       "isbn13": "9788402431356",
       "motivo": "Sello no presente en el registro editorial de la web",
-      "primera_deteccion": "2026-10-20",
-      "retry_after": "2026-10-23"
+      "primera_deteccion": "2026-10-20"
     },
     "isbn13:9788402431486": {
       "datos": {
@@ -727,12 +849,13 @@
         "cover_use_basis": "Cubierta proporcionada en la ficha oficial de la edición para su identificación bibliográfica, con atribución y enlace a la editorial. No se declara licencia abierta ni se reutiliza como imagen de Pinterest.",
         "edad_recomendada": "Adultos",
         "editorial": "BRUGUERA",
+        "editorial_slug": "bruguera",
         "encuadernacion": "Tapa blanda con solapas",
         "fecha_publicacion_edicion": "2026-10-08",
         "formato_edicion": "tapa-blanda",
         "fuente_bibliografica_url": "https://www.penguinlibros.com/es/libros-de-espiritualidad/634662-libro-uketamo-abrazar-la-vida-tal-cual-viene-9788402431486",
         "fuentes_autores": {
-          "Ana Galeote Frontelo": "https://www.penguinlibros.com/es/libros-de-espiritualidad/634662-libro-uketamo-abrazar-la-vida-tal-cual-viene-9788402431486"
+          "Ana Galeote Frontelo": "https://www.penguinlibros.com/es/1000354-ana-galeote-frontelo"
         },
         "idioma": "es",
         "isbn13": "9788402431486",
@@ -740,16 +863,32 @@
           "Religión y espiritualidad"
         ],
         "numero_paginas": 208,
+        "palabras_clave": [
+          "autoestima",
+          "desarrollo personal",
+          "discapacidad intelectual",
+          "inteligencia emocional",
+          "educacion emocional",
+          "libros autoayuda",
+          "historia de la f ilosofia",
+          "enfermedades mentales",
+          "escuelas filosoficas",
+          "filosofia budista",
+          "filosofia del budismo zen",
+          "filosofia en la calle",
+          "filo"
+        ],
         "portada_fuente_url": "https://www.penguinlibros.com/es/8087385-thickbox_default/uketamo-abrazar-la-vida-tal-cual-viene.jpg",
         "precision_fecha": "dia",
+        "pvp_centimos": 2095,
+        "sinopsis_breve": "A casi seis mil metros de altura, en el oscuro ascenso al Kilimanjaro, la antropóloga y fisioterapeuta Ana Galeote sintió que llegaba al límite.…",
         "titulo": "Uketamo. Abrazar la vida tal cual viene"
       },
-      "estado_ingesta": "pendiente_datos",
-      "fuente": "https://www.penguinlibros.com/es/libros-de-espiritualidad/634662-libro-uketamo-abrazar-la-vida-tal-cual-viene-9788402431486",
+      "estado_ingesta": "publicado",
       "isbn13": "9788402431486",
-      "motivo": "Sello no presente en el registro editorial de la web",
+      "libro_id": "isbn-9788402431486",
       "primera_deteccion": "2026-10-20",
-      "retry_after": "2026-10-23"
+      "publicado_en": "2026-10-21"
     },
     "isbn13:9788402431936": {
       "datos": {
@@ -760,6 +899,7 @@
         "cover_use_basis": "Cubierta proporcionada en la ficha oficial de la edición para su identificación bibliográfica, con atribución y enlace a la editorial. No se declara licencia abierta ni se reutiliza como imagen de Pinterest.",
         "edad_recomendada": "A partir de 7 años",
         "editorial": "BRUGUERA",
+        "editorial_slug": "bruguera",
         "encuadernacion": "Tapa dura con sobrecubierta",
         "fecha_publicacion_edicion": "2026-10-01",
         "formato_edicion": "tapa-dura",
@@ -773,17 +913,30 @@
           "A partir de 7 años"
         ],
         "numero_paginas": 64,
+        "palabras_clave": [
+          "Ibáñez mitico",
+          "hachis...salud",
+          "obra inédita de Ibáñez",
+          "colección coleccionista deluxe Ibáñez",
+          "2026",
+          "chistes para niños",
+          "comic adultos español",
+          "comic dc",
+          "comic de genero",
+          "comic de la edad de oro",
+          "comic de superhero"
+        ],
         "portada_fuente_url": "https://www.penguinlibros.com/es/8278661-thickbox_default/ibanez-mitico-2-el-preboste-de-seguridad.jpg",
         "precision_fecha": "dia",
+        "pvp_centimos": 1795,
         "sinopsis_breve": "Una historieta atravesada por varias vicisitudes que nos invitan a hablar de unos años que sacudieron el panorama editorial español y marcaron un punto…",
         "titulo": "Ibáñez Mítico 2 - El preboste de seguridad"
       },
-      "estado_ingesta": "pendiente_datos",
-      "fuente": "https://www.penguinlibros.com/es/libros-ninos-7-anos/634667-libro-ibanez-mitico-2-el-preboste-de-seguridad-9788402431936",
+      "estado_ingesta": "publicado",
       "isbn13": "9788402431936",
-      "motivo": "Sello no presente en el registro editorial de la web",
+      "libro_id": "isbn-9788402431936",
       "primera_deteccion": "2026-10-21",
-      "retry_after": "2026-10-24"
+      "publicado_en": "2026-10-21"
     },
     "isbn13:9788402431967": {
       "datos": {
@@ -794,6 +947,7 @@
         "cover_use_basis": "Cubierta proporcionada en la ficha oficial de la edición para su identificación bibliográfica, con atribución y enlace a la editorial. No se declara licencia abierta ni se reutiliza como imagen de Pinterest.",
         "edad_recomendada": "Adultos",
         "editorial": "BRUGUERA",
+        "editorial_slug": "bruguera",
         "encuadernacion": "Tapa blanda con solapas",
         "fecha_publicacion_edicion": "2026-09-23",
         "formato_edicion": "tapa-blanda",
@@ -807,17 +961,35 @@
           "Novela gráfica"
         ],
         "numero_paginas": 448,
+        "palabras_clave": [
+          "libros recomendados",
+          "ansiedad",
+          "salud mental",
+          "gemma correll",
+          "ilustraciones",
+          "vivir con ansiedad",
+          "novela grafica",
+          "anxietyland",
+          "comic",
+          "allie bros h",
+          "esas cosas que nos pesan",
+          "comic adultos español",
+          "comic biografia",
+          "comic de genero",
+          "comic autoestima",
+          "autoestima"
+        ],
         "portada_fuente_url": "https://www.penguinlibros.com/es/8059900-thickbox_default/ansiedad-como-se-sale-de-aqui.jpg",
         "precision_fecha": "dia",
+        "pvp_centimos": 3295,
         "sinopsis_breve": "Correll, una de las voces más reconocibles de la ilustración contemporánea, nos guía por el surrealista parque de atracciones que habita en su mente…",
         "titulo": "Ansiedad. ¿Cómo se sale de aquí?"
       },
-      "estado_ingesta": "pendiente_datos",
-      "fuente": "https://www.penguinlibros.com/es/novela-grafica/631483-libro-ansiedad-como-se-sale-de-aqui-9788402431967",
+      "estado_ingesta": "publicado",
       "isbn13": "9788402431967",
-      "motivo": "Sello no presente en el registro editorial de la web",
+      "libro_id": "isbn-9788402431967",
       "primera_deteccion": "2026-10-21",
-      "retry_after": "2026-10-24"
+      "publicado_en": "2026-10-21"
     },
     "isbn13:9788403525238": {
       "datos": {
@@ -828,12 +1000,13 @@
         "cover_use_basis": "Cubierta proporcionada en la ficha oficial de la edición para su identificación bibliográfica, con atribución y enlace a la editorial. No se declara licencia abierta ni se reutiliza como imagen de Pinterest.",
         "edad_recomendada": "Adultos",
         "editorial": "AGUILAR",
+        "editorial_slug": "aguilar",
         "encuadernacion": "Tapa blanda con solapas",
         "fecha_publicacion_edicion": "2026-05-28",
         "formato_edicion": "tapa-blanda",
         "fuente_bibliografica_url": "https://www.penguinlibros.com/es/libros-de-cocina/616663-libro-el-alma-de-las-especias-9788403525238",
         "fuentes_autores": {
-          "Jessica Ramos": "https://www.penguinlibros.com/es/libros-de-cocina/616663-libro-el-alma-de-las-especias-9788403525238"
+          "Jessica Ramos": "https://www.penguinlibros.com/es/1012792-jessica-ramos"
         },
         "idioma": "es",
         "isbn13": "9788403525238",
@@ -841,16 +1014,33 @@
           "Cocina"
         ],
         "numero_paginas": 448,
+        "palabras_clave": [
+          "la cocina y los alimentos",
+          "remedios naturales",
+          "libro de cocina",
+          "remedios caseros",
+          "alimentacion consciente",
+          "sabores",
+          "el alma de las especia s",
+          "libros de historia",
+          "plantas medicinales",
+          "cocina saludable",
+          "el libro de las especias",
+          "ottolenghi",
+          "recetas",
+          "regalo para cocinero"
+        ],
         "portada_fuente_url": "https://www.penguinlibros.com/es/7679583-thickbox_default/el-alma-de-las-especias.jpg",
         "precision_fecha": "dia",
+        "pvp_centimos": 2290,
+        "sinopsis_breve": "En este libro Jessica Ramos, creadora de la marca Todoespecias, escoge cuarenta plantas y especias y se hunde hasta lo más profundo de sus…",
         "titulo": "El alma de las especias"
       },
-      "estado_ingesta": "pendiente_datos",
-      "fuente": "https://www.penguinlibros.com/es/libros-de-cocina/616663-libro-el-alma-de-las-especias-9788403525238",
+      "estado_ingesta": "publicado",
       "isbn13": "9788403525238",
-      "motivo": "Sello no presente en el registro editorial de la web",
+      "libro_id": "isbn-9788403525238",
       "primera_deteccion": "2026-10-21",
-      "retry_after": "2026-10-24"
+      "publicado_en": "2026-10-21"
     },
     "isbn13:9788403526723": {
       "datos": {
@@ -882,8 +1072,7 @@
       "fuente": "https://www.penguinlibros.com/es/libro-de-biografias/634611-libro-como-me-gustaria-contarte-9788403526723",
       "isbn13": "9788403526723",
       "motivo": "Sello no presente en el registro editorial de la web",
-      "primera_deteccion": "2026-10-20",
-      "retry_after": "2026-10-23"
+      "primera_deteccion": "2026-10-20"
     },
     "isbn13:9788403526761": {
       "datos": {
@@ -894,12 +1083,13 @@
         "cover_use_basis": "Cubierta proporcionada en la ficha oficial de la edición para su identificación bibliográfica, con atribución y enlace a la editorial. No se declara licencia abierta ni se reutiliza como imagen de Pinterest.",
         "edad_recomendada": "Adultos",
         "editorial": "AGUILAR",
+        "editorial_slug": "aguilar",
         "encuadernacion": "Tapa blanda con solapas",
         "fecha_publicacion_edicion": "2026-10-08",
         "formato_edicion": "tapa-blanda",
         "fuente_bibliografica_url": "https://www.penguinlibros.com/es/libros-autoayuda/634612-libro-sin-filtro-9788403526761",
         "fuentes_autores": {
-          "Leslie John": "https://www.penguinlibros.com/es/libros-autoayuda/634612-libro-sin-filtro-9788403526761"
+          "Leslie John": "https://www.penguinlibros.com/es/1019931-leslie-john"
         },
         "idioma": "es",
         "isbn13": "9788403526761",
@@ -907,16 +1097,30 @@
           "Autoayuda"
         ],
         "numero_paginas": 320,
+        "palabras_clave": [
+          "comunicacion",
+          "vulnerabilidad",
+          "relaciones personales",
+          "comunicacion efectiva",
+          "habilidades sociales",
+          "como comunicarse mejor",
+          "libros sobre com unicacion",
+          "como expresar lo que siento",
+          "libros sobre relaciones personales",
+          "como tener conversaciones dificiles",
+          "como abrirse"
+        ],
         "portada_fuente_url": "https://www.penguinlibros.com/es/7890559-thickbox_default/sin-filtro.jpg",
         "precision_fecha": "dia",
+        "pvp_centimos": 2190,
+        "sinopsis_breve": "Vivimos con miedo a hablar de más, y eso muchas veces nos lleva a guardar silencio, ocultar nuestras emociones y evitar mostrarnos como somos.…",
         "titulo": "Sin filtro"
       },
-      "estado_ingesta": "pendiente_datos",
-      "fuente": "https://www.penguinlibros.com/es/libros-autoayuda/634612-libro-sin-filtro-9788403526761",
+      "estado_ingesta": "publicado",
       "isbn13": "9788403526761",
-      "motivo": "Sello no presente en el registro editorial de la web",
+      "libro_id": "isbn-9788403526761",
       "primera_deteccion": "2026-10-20",
-      "retry_after": "2026-10-23"
+      "publicado_en": "2026-10-21"
     },
     "isbn13:9788403526853": {
       "datos": {
@@ -927,12 +1131,13 @@
         "cover_use_basis": "Cubierta proporcionada en la ficha oficial de la edición para su identificación bibliográfica, con atribución y enlace a la editorial. No se declara licencia abierta ni se reutiliza como imagen de Pinterest.",
         "edad_recomendada": "Adultos",
         "editorial": "AGUILAR",
+        "editorial_slug": "aguilar",
         "encuadernacion": "Tapa blanda con solapas",
         "fecha_publicacion_edicion": "2026-10-15",
         "formato_edicion": "tapa-blanda",
         "fuente_bibliografica_url": "https://www.penguinlibros.com/es/libro-de-biografias/634614-libro-treinta-y-cuatro-9788403526853",
         "fuentes_autores": {
-          "Carolina Lapausa": "https://www.penguinlibros.com/es/libro-de-biografias/634614-libro-treinta-y-cuatro-9788403526853"
+          "Carolina Lapausa": "https://www.penguinlibros.com/es/1019891-carolina-lapausa"
         },
         "idioma": "es",
         "isbn13": "9788403526853",
@@ -940,16 +1145,32 @@
           "Biografías y memorias"
         ],
         "numero_paginas": 176,
+        "palabras_clave": [
+          "memorias",
+          "trastorno de alimentacion",
+          "trastorno alimenticio",
+          "bulimia nerviosa",
+          "anorexia nerviosa",
+          "tca",
+          "trastorno de la conducta alimentaria",
+          "trastorno por atracon",
+          "trastorno por evitacion de la ingesta",
+          "trastorno por restricción de la ingesta",
+          "tratamiento",
+          "terapia",
+          "t"
+        ],
         "portada_fuente_url": "https://www.penguinlibros.com/es/7890565-thickbox_default/treinta-y-cuatro.jpg",
         "precision_fecha": "dia",
+        "pvp_centimos": 1990,
+        "sinopsis_breve": "Esta es una historia sobre todo lo que se rompe cuando uno intenta convertirse en alguien que no es, pero también es la historia…",
         "titulo": "Treinta y cuatro"
       },
-      "estado_ingesta": "pendiente_datos",
-      "fuente": "https://www.penguinlibros.com/es/libro-de-biografias/634614-libro-treinta-y-cuatro-9788403526853",
+      "estado_ingesta": "publicado",
       "isbn13": "9788403526853",
-      "motivo": "Sello no presente en el registro editorial de la web",
+      "libro_id": "isbn-9788403526853",
       "primera_deteccion": "2026-10-20",
-      "retry_after": "2026-10-23"
+      "publicado_en": "2026-10-21"
     },
     "isbn13:9788403527027": {
       "datos": {
@@ -981,8 +1202,7 @@
       "fuente": "https://www.penguinlibros.com/es/libro-de-biografias/634615-libro-extranos-9788403527027",
       "isbn13": "9788403527027",
       "motivo": "Sello no presente en el registro editorial de la web",
-      "primera_deteccion": "2026-10-20",
-      "retry_after": "2026-10-23"
+      "primera_deteccion": "2026-10-20"
     },
     "isbn13:9788410466470": {
       "datos": {
@@ -1062,6 +1282,7 @@
         "cover_use_basis": "Cubierta proporcionada en la ficha oficial de la edición para su identificación bibliográfica, con atribución y enlace a la editorial. No se declara licencia abierta ni se reutiliza como imagen de Pinterest.",
         "edad_recomendada": "Adultos",
         "editorial": "DEBATE",
+        "editorial_slug": "debate",
         "encuadernacion": "Tapa dura",
         "fecha_publicacion_edicion": "2026-04-09",
         "formato_edicion": "tapa-dura",
@@ -1075,17 +1296,40 @@
           "Cocina"
         ],
         "numero_paginas": 248,
+        "palabras_clave": [
+          "Marta Hortelano",
+          "esmorzaret",
+          "almuerzo",
+          "valencia",
+          "bocadillos",
+          "recetas",
+          "bocatas",
+          "brunch",
+          "desayunos",
+          "comidas",
+          "cocina libro",
+          "comunidad valenciana",
+          "c omunitat valenciana",
+          "recetario",
+          "libros de cocina",
+          "libro de recetas",
+          "cremaet",
+          "españa",
+          "gasto",
+          "platos",
+          "es"
+        ],
         "portada_fuente_url": "https://www.penguinlibros.com/es/7603878-thickbox_default/esmorzaret-mesa-y-mantel.jpg",
         "precision_fecha": "dia",
+        "pvp_centimos": 2190,
         "sinopsis_breve": "Antes del brunch ya existía el esmorzaret. A diario, entre las nueve y las doce de la mañana, restaurantes de toda la Comunitat Valenciana…",
         "titulo": "Esmorzaret (Mesa y mantel)"
       },
-      "estado_ingesta": "pendiente_datos",
-      "fuente": "https://www.penguinlibros.com/es/libros-de-cocina/545012-libro-esmorzaret-mesa-y-mantel-9788418967566",
+      "estado_ingesta": "publicado",
       "isbn13": "9788418967566",
-      "motivo": "Sello no presente en el registro editorial de la web",
+      "libro_id": "isbn-9788418967566",
       "primera_deteccion": "2026-10-21",
-      "retry_after": "2026-10-24"
+      "publicado_en": "2026-10-21"
     },
     "isbn13:9788419378927": {
       "datos": {
@@ -1118,8 +1362,7 @@
       "fuente": "https://www.penguinlibros.com/es/libros-ninos-9-anos/316953-libro-me-llamo-goa-1-me-llamo-goa-9788419378927",
       "isbn13": "9788419378927",
       "motivo": "Sello no presente en el registro editorial de la web",
-      "primera_deteccion": "2026-10-21",
-      "retry_after": "2026-10-24"
+      "primera_deteccion": "2026-10-21"
     },
     "isbn13:9788419456007": {
       "datos": {
@@ -1533,8 +1776,7 @@
       "fuente": "https://www.penguinlibros.com/es/libros-romanticos-juveniles/635041-libro-aunque-se-acabe-el-mundo-9788427255968",
       "isbn13": "9788427255968",
       "motivo": "Sello no presente en el registro editorial de la web",
-      "primera_deteccion": "2026-10-20",
-      "retry_after": "2026-10-23"
+      "primera_deteccion": "2026-10-20"
     },
     "isbn13:9788427257627": {
       "datos": {
@@ -1566,8 +1808,7 @@
       "fuente": "https://www.penguinlibros.com/es/ciencia-ficcion-juvenil/633365-libro-la-sexta-faccion-1-la-sexta-faccion-edicion-especial-limitada-con-cantos-tintados-9788427257627",
       "isbn13": "9788427257627",
       "motivo": "Sello no presente en el registro editorial de la web",
-      "primera_deteccion": "2026-10-20",
-      "retry_after": "2026-10-23"
+      "primera_deteccion": "2026-10-20"
     },
     "isbn13:9788430628940": {
       "estado_ingesta": "pendiente_datos",
@@ -1607,8 +1848,7 @@
       "fuente": "https://www.penguinlibros.com/es/economia-politica-y-actualidad/635115-libro-repensar-la-pobreza-9788430629077",
       "isbn13": "9788430629077",
       "motivo": "Sello no presente en el registro editorial de la web",
-      "primera_deteccion": "2026-10-20",
-      "retry_after": "2026-10-23"
+      "primera_deteccion": "2026-10-20"
     },
     "isbn13:9788430629138": {
       "datos": {
@@ -1640,8 +1880,7 @@
       "fuente": "https://www.penguinlibros.com/es/libros-de-filosofia/635116-libro-esenciales-9788430629138",
       "isbn13": "9788430629138",
       "motivo": "Sello no presente en el registro editorial de la web",
-      "primera_deteccion": "2026-10-20",
-      "retry_after": "2026-10-23"
+      "primera_deteccion": "2026-10-20"
     },
     "isbn13:9788430629664": {
       "datos": {
@@ -1652,12 +1891,13 @@
         "cover_use_basis": "Cubierta proporcionada en la ficha oficial de la edición para su identificación bibliográfica, con atribución y enlace a la editorial. No se declara licencia abierta ni se reutiliza como imagen de Pinterest.",
         "edad_recomendada": "Adultos",
         "editorial": "TAURUS",
+        "editorial_slug": "taurus",
         "encuadernacion": "Tapa blanda con solapas",
         "fecha_publicacion_edicion": "2026-10-08",
         "formato_edicion": "tapa-blanda",
         "fuente_bibliografica_url": "https://www.penguinlibros.com/es/libros-de-historia/635117-libro-los-pilares-de-la-historia-9788430629664",
         "fuentes_autores": {
-          "Javier Fernández Sebastián": "https://www.penguinlibros.com/es/libros-de-historia/635117-libro-los-pilares-de-la-historia-9788430629664"
+          "Javier Fernández Sebastián": "https://www.penguinlibros.com/es/1019943-javier-fernandez-sebastian"
         },
         "idioma": "es",
         "isbn13": "9788430629664",
@@ -1665,16 +1905,39 @@
           "Historia"
         ],
         "numero_paginas": 688,
+        "palabras_clave": [
+          "javier fernandez sebastian",
+          "historia",
+          "memoria",
+          "tiempo",
+          "historiografia",
+          "teoria de la historia",
+          "ensayo",
+          "politica",
+          "cultura visual",
+          "metaforas",
+          "rev oluciones",
+          "crisis",
+          "progreso",
+          "decadencia",
+          "transicion",
+          "historia intelectual",
+          "historia conceptual",
+          "filosofia",
+          "pensamiento historico",
+          "i"
+        ],
         "portada_fuente_url": "https://www.penguinlibros.com/es/7886760-thickbox_default/los-pilares-de-la-historia.jpg",
         "precision_fecha": "dia",
+        "pvp_centimos": 2790,
+        "sinopsis_breve": "Rica en figuraciones poderosas, metáforas visuales y alegorías, Los pilares de la historia es una invitación apasionante a repensar nuestra relación con el tiempo…",
         "titulo": "Los pilares de la historia"
       },
-      "estado_ingesta": "pendiente_datos",
-      "fuente": "https://www.penguinlibros.com/es/libros-de-historia/635117-libro-los-pilares-de-la-historia-9788430629664",
+      "estado_ingesta": "publicado",
       "isbn13": "9788430629664",
-      "motivo": "Sello no presente en el registro editorial de la web",
+      "libro_id": "isbn-9788430629664",
       "primera_deteccion": "2026-10-20",
-      "retry_after": "2026-10-23"
+      "publicado_en": "2026-10-21"
     },
     "isbn13:9788439746621": {
       "datos": {
@@ -1755,14 +2018,15 @@
         "cover_use_basis": "Cubierta proporcionada en la ficha oficial de la edición para su identificación bibliográfica, con atribución y enlace a la editorial. No se declara licencia abierta ni se reutiliza como imagen de Pinterest.",
         "edad_recomendada": "A partir de 4 años",
         "editorial": "BEASCOA",
+        "editorial_slug": "beascoa",
         "encuadernacion": "Tapa blanda",
         "fecha_publicacion_edicion": "2006-07-07",
         "formato_edicion": "tapa-blanda",
         "fuente_bibliografica_url": "https://www.penguinlibros.com/es/libros-infantiles-4-anos/9296-libro-perla-5-perla-y-el-elfo-del-parque-9788448823191",
         "fuentes_autores": {
-          "Gypsy Taylor": "https://www.penguinlibros.com/es/libros-infantiles-4-anos/9296-libro-perla-5-perla-y-el-elfo-del-parque-9788448823191",
-          "Mike Zarb": "https://www.penguinlibros.com/es/libros-infantiles-4-anos/9296-libro-perla-5-perla-y-el-elfo-del-parque-9788448823191",
-          "Wendy Harmer": "https://www.penguinlibros.com/es/libros-infantiles-4-anos/9296-libro-perla-5-perla-y-el-elfo-del-parque-9788448823191"
+          "Gypsy Taylor": "https://www.penguinlibros.com/es/185121-gypsy-taylor",
+          "Mike Zarb": "https://www.penguinlibros.com/es/192842-mike-zarb",
+          "Wendy Harmer": "https://www.penguinlibros.com/es/185120-wendy-harmer"
         },
         "idioma": "es",
         "isbn13": "9788448823191",
@@ -1770,14 +2034,35 @@
           "A partir de 4 años"
         ],
         "numero_paginas": 48,
+        "palabras_clave": [
+          "Perla",
+          "hada",
+          "elfo",
+          "hada del parque",
+          "libros de parque",
+          "libros de elfos",
+          "libros de hadas",
+          "hada del bosque",
+          "mas vendidos",
+          "anna kadabra",
+          "hada vola dora",
+          "libros infantiles 5 años",
+          "libros infantiles 6 años",
+          "libros niños 7 años",
+          "los buscapistas 1",
+          "libros para niños",
+          "juguete niñ"
+        ],
         "portada_fuente_url": "https://www.penguinlibros.com/es/6634072-thickbox_default/perla-5-perla-y-el-elfo-del-parque.jpg",
         "precision_fecha": "dia",
+        "pvp_centimos": 795,
+        "sinopsis_breve": "-Con un tamaño perfecto para manejar y para llevar a cualquier parte",
         "titulo": "Perla 5 - Perla y el elfo del parque"
       },
       "estado_ingesta": "pendiente_datos",
       "fuente": "https://www.penguinlibros.com/es/libros-infantiles-4-anos/9296-libro-perla-5-perla-y-el-elfo-del-parque-9788448823191",
       "isbn13": "9788448823191",
-      "motivo": "Sello no presente en el registro editorial de la web",
+      "motivo": "Edición fuera de la ventana de selección configurada",
       "primera_deteccion": "2026-10-21",
       "retry_after": "2026-10-24"
     },
@@ -1819,8 +2104,7 @@
       "fuente": "https://www.penguinlibros.com/es/libros-nutricion-fitness-belleza/617393-libro-soy-como-como-9788466378048",
       "isbn13": "9788466378048",
       "motivo": "Sello no presente en el registro editorial de la web",
-      "primera_deteccion": "2026-10-21",
-      "retry_after": "2026-10-24"
+      "primera_deteccion": "2026-10-21"
     },
     "isbn13:9788466379021": {
       "datos": {
@@ -1852,8 +2136,7 @@
       "fuente": "https://www.penguinlibros.com/es/literatura-contemporanea/617394-libro-la-curacion-por-el-espiritu-9788466379021",
       "isbn13": "9788466379021",
       "motivo": "Sello no presente en el registro editorial de la web",
-      "primera_deteccion": "2026-10-20",
-      "retry_after": "2026-10-23"
+      "primera_deteccion": "2026-10-20"
     },
     "isbn13:9788466391566": {
       "datos": {
@@ -1885,8 +2168,7 @@
       "fuente": "https://www.penguinlibros.com/es/novela-historica/635056-libro-la-infiel-9788466391566",
       "isbn13": "9788466391566",
       "motivo": "Sello no presente en el registro editorial de la web",
-      "primera_deteccion": "2026-10-20",
-      "retry_after": "2026-10-23"
+      "primera_deteccion": "2026-10-20"
     },
     "isbn13:9788466392259": {
       "datos": {
@@ -1918,8 +2200,7 @@
       "fuente": "https://www.penguinlibros.com/es/libros-de-fantasia/621254-libro-el-pistolero-edicion-cantos-tintados-la-torre-oscura-1-9788466392259",
       "isbn13": "9788466392259",
       "motivo": "Sello no presente en el registro editorial de la web",
-      "primera_deteccion": "2026-10-20",
-      "retry_after": "2026-10-23"
+      "primera_deteccion": "2026-10-20"
     },
     "isbn13:9788466392297": {
       "datos": {
@@ -1951,8 +2232,7 @@
       "fuente": "https://www.penguinlibros.com/es/literatura-contemporanea/635059-libro-cuentos-completos-edicion-especial-en-tapa-dura-9788466392297",
       "isbn13": "9788466392297",
       "motivo": "Sello no presente en el registro editorial de la web",
-      "primera_deteccion": "2026-10-20",
-      "retry_after": "2026-10-23"
+      "primera_deteccion": "2026-10-20"
     },
     "isbn13:9788466393850": {
       "datos": {
@@ -1984,8 +2264,7 @@
       "fuente": "https://www.penguinlibros.com/es/libros-de-cocina/635067-libro-ya-tengo-mi-airfryer-y-ahora-que-edicion-limitada-black-friday-9788466393850",
       "isbn13": "9788466393850",
       "motivo": "Sello no presente en el registro editorial de la web",
-      "primera_deteccion": "2026-10-21",
-      "retry_after": "2026-10-24"
+      "primera_deteccion": "2026-10-21"
     },
     "isbn13:9788466394611": {
       "datos": {
@@ -2017,8 +2296,7 @@
       "fuente": "https://www.penguinlibros.com/es/literatura-contemporanea/635071-libro-el-ano-del-mono-9788466394611",
       "isbn13": "9788466394611",
       "motivo": "Sello no presente en el registro editorial de la web",
-      "primera_deteccion": "2026-10-20",
-      "retry_after": "2026-10-23"
+      "primera_deteccion": "2026-10-20"
     },
     "isbn13:9788466396806": {
       "datos": {
@@ -2029,12 +2307,13 @@
         "cover_use_basis": "Cubierta proporcionada en la ficha oficial de la edición para su identificación bibliográfica, con atribución y enlace a la editorial. No se declara licencia abierta ni se reutiliza como imagen de Pinterest.",
         "edad_recomendada": "Adultos",
         "editorial": "PENGUIN BOLSILLO",
+        "editorial_slug": "penguin-bolsillo",
         "encuadernacion": "Bolsillo",
         "fecha_publicacion_edicion": "2026-10-19",
         "formato_edicion": "tapa-blanda",
         "fuente_bibliografica_url": "https://www.penguinlibros.com/es/novela-negra-misterio-y-thriller/641074-libro-carrie-edicion-serie-9788466396806",
         "fuentes_autores": {
-          "Stephen King": "https://www.penguinlibros.com/es/novela-negra-misterio-y-thriller/641074-libro-carrie-edicion-serie-9788466396806"
+          "Stephen King": "https://www.penguinlibros.com/es/384-stephen-king"
         },
         "idioma": "es",
         "isbn13": "9788466396806",
@@ -2042,16 +2321,37 @@
           "Novela negra, misterio y thriller"
         ],
         "numero_paginas": 256,
+        "palabras_clave": [
+          "carrie",
+          "el resplandor",
+          "it",
+          "joyland",
+          "la larga marcha",
+          "la milla verde",
+          "literatura",
+          "miedo",
+          "libros de bolsillo",
+          "libros de terror",
+          "libros de intrig a y suspense",
+          "misery stephen king",
+          "quien pierde paga",
+          "sobrenatural",
+          "mr mercedes",
+          "stranger things",
+          "libros mas vendidos 2023",
+          "la to"
+        ],
         "portada_fuente_url": "https://www.penguinlibros.com/es/8262186-thickbox_default/carrie-edicion-serie.jpg",
         "precision_fecha": "dia",
+        "pvp_centimos": 1195,
+        "sinopsis_breve": "Carrie, una joven de apariencia insignificante, acosada por sus compañeras de instituto, vive con su madre, una fanática religiosa. Un día en las duchas…",
         "titulo": "Carrie (edición serie)"
       },
-      "estado_ingesta": "pendiente_datos",
-      "fuente": "https://www.penguinlibros.com/es/novela-negra-misterio-y-thriller/641074-libro-carrie-edicion-serie-9788466396806",
+      "estado_ingesta": "publicado",
       "isbn13": "9788466396806",
-      "motivo": "Sello no presente en el registro editorial de la web",
+      "libro_id": "isbn-9788466396806",
       "primera_deteccion": "2026-10-20",
-      "retry_after": "2026-10-23"
+      "publicado_en": "2026-10-21"
     },
     "isbn13:9788466683043": {
       "datos": {
@@ -2138,6 +2438,7 @@
         "cover_use_basis": "Cubierta proporcionada en la ficha oficial de la edición para su identificación bibliográfica, con atribución y enlace a la editorial. No se declara licencia abierta ni se reutiliza como imagen de Pinterest.",
         "edad_recomendada": "Juvenil",
         "editorial": "MONTENA",
+        "editorial_slug": "montena",
         "encuadernacion": "Tapa blanda con solapas",
         "fecha_publicacion_edicion": "2017-06-08",
         "formato_edicion": "tapa-blanda",
@@ -2151,15 +2452,31 @@
           "Novela romántica juvenil"
         ],
         "numero_paginas": 448,
+        "palabras_clave": [
+          "libros romance",
+          "libros juveniles",
+          "culpa mia edicion especial",
+          "novela romantica mas vendida",
+          "novelas romanticas",
+          "libros wattpad",
+          "libros juv eniles 14 años",
+          "libro romance juvenil",
+          "mejores libros",
+          "boulevard libro",
+          "antes de diciembre",
+          "libros recomendados",
+          "un cuento perfe"
+        ],
         "portada_fuente_url": "https://www.penguinlibros.com/es/7346909-thickbox_default/culpa-mia-culpables-1.jpg",
         "precision_fecha": "dia",
+        "pvp_centimos": 1895,
         "sinopsis_breve": "Peligro fue lo primero que me vino a la cabeza cuando lo conocí y descubrí que mantiene una doble vida oculta de su padre…",
         "titulo": "Culpa mía (Culpables 1)"
       },
       "estado_ingesta": "pendiente_datos",
       "fuente": "https://www.penguinlibros.com/es/libros-romanticos-juveniles/30192-libro-culpa-mia-culpables-1-9788490438664",
       "isbn13": "9788490438664",
-      "motivo": "Sello no presente en el registro editorial de la web",
+      "motivo": "Edición fuera de la ventana de selección configurada",
       "primera_deteccion": "2026-10-21",
       "retry_after": "2026-10-24"
     },
@@ -2193,8 +2510,7 @@
       "fuente": "https://www.penguinlibros.com/es/libros-clasicos/635074-libro-pobre-gente-9788491058205",
       "isbn13": "9788491058205",
       "motivo": "Sello no presente en el registro editorial de la web",
-      "primera_deteccion": "2026-10-20",
-      "retry_after": "2026-10-23"
+      "primera_deteccion": "2026-10-20"
     },
     "isbn13:9788491058298": {
       "datos": {
@@ -2205,6 +2521,7 @@
         "cover_use_basis": "Cubierta proporcionada en la ficha oficial de la edición para su identificación bibliográfica, con atribución y enlace a la editorial. No se declara licencia abierta ni se reutiliza como imagen de Pinterest.",
         "edad_recomendada": "Adultos",
         "editorial": "PENGUIN CLÁSICOS",
+        "editorial_slug": "penguin-clasicos",
         "encuadernacion": "Tapa dura",
         "fecha_publicacion_edicion": "2026-10-22",
         "formato_edicion": "tapa-dura",
@@ -2218,17 +2535,30 @@
           "Grandes clásicos"
         ],
         "numero_paginas": 336,
+        "palabras_clave": [
+          "libros de bolsillo mas vendidos",
+          "libros clasicos",
+          "penguin clasicos",
+          "george orwell en español",
+          "libros recomendados",
+          "libros mas vendidos",
+          "li bro 1984 george orwell español",
+          "rebelion en la granja george orwell",
+          "un mundo feliz aldous huxley",
+          "la isla aldous huxley",
+          "ray"
+        ],
         "portada_fuente_url": "https://www.penguinlibros.com/es/8059945-thickbox_default/1984-edicion-especial-limitada-con-cantos-tintados.jpg",
         "precision_fecha": "dia",
+        "pvp_centimos": 1695,
         "sinopsis_breve": "En el año 1984 Londres es una ciudad lúgubre en la que la Policía del Pensamiento controla de forma asfixiante la vida de los…",
         "titulo": "1984 (edición especial limitada con cantos tintados)"
       },
-      "estado_ingesta": "pendiente_datos",
-      "fuente": "https://www.penguinlibros.com/es/libros-clasicos/621402-libro-1984-edicion-especial-limitada-con-cantos-tintados-9788491058298",
+      "estado_ingesta": "publicado",
       "isbn13": "9788491058298",
-      "motivo": "Sello no presente en el registro editorial de la web",
+      "libro_id": "isbn-9788491058298",
       "primera_deteccion": "2026-10-21",
-      "retry_after": "2026-10-24"
+      "publicado_en": "2026-10-21"
     },
     "isbn13:9791387629694": {
       "datos": {
@@ -2362,8 +2692,7 @@
       "fuente": "https://www.penguinlibros.com/es/novela-romantica/634645-libro-persiguiendo-las-estrellas-las-mujeres-hard-1-9791387652609",
       "isbn13": "9791387652609",
       "motivo": "Sello no presente en el registro editorial de la web",
-      "primera_deteccion": "2026-10-20",
-      "retry_after": "2026-10-23"
+      "primera_deteccion": "2026-10-20"
     },
     "isbn13:9791387724139": {
       "datos": {
@@ -2395,8 +2724,7 @@
       "fuente": "https://www.penguinlibros.com/es/libros-autoayuda/635011-libro-nadie-duele-para-siempre-9791387724139",
       "isbn13": "9791387724139",
       "motivo": "Sello no presente en el registro editorial de la web",
-      "primera_deteccion": "2026-10-20",
-      "retry_after": "2026-10-23"
+      "primera_deteccion": "2026-10-20"
     },
     "isbn13:9791387724184": {
       "estado_ingesta": "pendiente_datos",
@@ -2444,8 +2772,7 @@
       "fuente": "https://www.penguinlibros.com/es/tematicas/635103-libro-la-casa-del-arbol-9791387845292",
       "isbn13": "9791387845292",
       "motivo": "Sello no presente en el registro editorial de la web",
-      "primera_deteccion": "2026-10-20",
-      "retry_after": "2026-10-23"
+      "primera_deteccion": "2026-10-20"
     },
     "isbn13:9791387846008": {
       "datos": {
@@ -2545,8 +2872,7 @@
       "fuente": "https://www.penguinlibros.com/es/libros-de-cocina/626462-libro-satisfraier-9791387904432",
       "isbn13": "9791387904432",
       "motivo": "Sello no presente en el registro editorial de la web",
-      "primera_deteccion": "2026-10-21",
-      "retry_after": "2026-10-24"
+      "primera_deteccion": "2026-10-21"
     },
     "isbn13:9791387904593": {
       "datos": {
@@ -2578,8 +2904,7 @@
       "fuente": "https://www.penguinlibros.com/es/libro-de-biografias/634699-libro-freud-y-el-matrimonio-serie-endebate-9791387904593",
       "isbn13": "9791387904593",
       "motivo": "Sello no presente en el registro editorial de la web",
-      "primera_deteccion": "2026-10-20",
-      "retry_after": "2026-10-23"
+      "primera_deteccion": "2026-10-20"
     },
     "isbn13:9791387924980": {
       "datos": {
@@ -2611,8 +2936,7 @@
       "fuente": "https://www.penguinlibros.com/es/libros-de-filosofia/635013-libro-hay-conciencia-en-tu-cerebro-9791387924980",
       "isbn13": "9791387924980",
       "motivo": "Sello no presente en el registro editorial de la web",
-      "primera_deteccion": "2026-10-20",
-      "retry_after": "2026-10-23"
+      "primera_deteccion": "2026-10-20"
     },
     "isbn13:9791387928032": {
       "datos": {
@@ -2678,8 +3002,7 @@
       "fuente": "https://www.penguinlibros.com/es/tematicas/557898-libro-reap-sow-edicion-en-espanol-reap-sow-1-9791387949068",
       "isbn13": "9791387949068",
       "motivo": "Sello no presente en el registro editorial de la web",
-      "primera_deteccion": "2026-10-20",
-      "retry_after": "2026-10-23"
+      "primera_deteccion": "2026-10-20"
     },
     "isbn13:9791387949792": {
       "datos": {
@@ -2711,8 +3034,7 @@
       "fuente": "https://www.penguinlibros.com/es/libros-romanticos-juveniles/627577-libro-luna-nueva-edicion-especial-limitada-bella-y-jacob-por-el-20-aniversario-9791387949792",
       "isbn13": "9791387949792",
       "motivo": "Sello no presente en el registro editorial de la web",
-      "primera_deteccion": "2026-10-20",
-      "retry_after": "2026-10-23"
+      "primera_deteccion": "2026-10-20"
     },
     "isbn13:9791387949938": {
       "datos": {
@@ -2723,6 +3045,7 @@
         "cover_use_basis": "Cubierta proporcionada en la ficha oficial de la edición para su identificación bibliográfica, con atribución y enlace a la editorial. No se declara licencia abierta ni se reutiliza como imagen de Pinterest.",
         "edad_recomendada": "A partir de 12 años",
         "editorial": "ALFAGUARA IJC",
+        "editorial_slug": "alfaguara",
         "encuadernacion": "Tapa blanda con solapas",
         "fecha_publicacion_edicion": "2026-10-15",
         "formato_edicion": "tapa-blanda",
@@ -2736,17 +3059,38 @@
           "Temáticas"
         ],
         "numero_paginas": 384,
+        "palabras_clave": [
+          "Marta Morillo",
+          "libros para adolescentes",
+          "12 años",
+          "13 años",
+          "14 años",
+          "regalos para adolescentes",
+          "libros juveniles",
+          "fantasia juvenil",
+          "amor libr o",
+          "fantasia",
+          "aventuras",
+          "memorias de idhun",
+          "laura gallego",
+          "laura gallego libros",
+          "romantasy",
+          "corte real",
+          "poderes",
+          "intriga",
+          "competicion"
+        ],
         "portada_fuente_url": "https://www.penguinlibros.com/es/8060029-thickbox_default/alas-de-escarcha-y-oro-el-canto-del-cisne.jpg",
         "precision_fecha": "dia",
+        "pvp_centimos": 1995,
         "sinopsis_breve": "Eira ha crecido ocultando sus dones, y también sus debilidades. Cuando su lugar en el Imperio de Aesnovar se desmorona, se ve forzada a…",
         "titulo": "Alas de escarcha y oro: El canto del cisne"
       },
-      "estado_ingesta": "pendiente_datos",
-      "fuente": "https://www.penguinlibros.com/es/tematicas/634621-libro-alas-de-escarcha-y-oro-el-canto-del-cisne-9791387949938",
+      "estado_ingesta": "publicado",
       "isbn13": "9791387949938",
-      "motivo": "Sello no presente en el registro editorial de la web",
+      "libro_id": "isbn-9791387949938",
       "primera_deteccion": "2026-10-21",
-      "retry_after": "2026-10-24"
+      "publicado_en": "2026-10-21"
     },
     "isbn13:9791387962050": {
       "datos": {
@@ -2758,6 +3102,7 @@
         "cover_use_basis": "Cubierta proporcionada en la ficha oficial de la edición para su identificación bibliográfica, con atribución y enlace a la editorial. No se declara licencia abierta ni se reutiliza como imagen de Pinterest.",
         "edad_recomendada": "Adultos",
         "editorial": "DISTRITO MANGA",
+        "editorial_slug": "distrito-manga",
         "encuadernacion": "Tapa blanda con solapas",
         "fecha_publicacion_edicion": "2026-10-01",
         "formato_edicion": "tapa-blanda",
@@ -2772,17 +3117,36 @@
           "Manga"
         ],
         "numero_paginas": 288,
+        "palabras_clave": [
+          "para dafne",
+          "manhwa",
+          "raeliana",
+          "la emperatriz divorciada",
+          "venganza",
+          "shojo fantasia",
+          "shojo romance",
+          "akatsuki no yona",
+          "beastars",
+          "yona la princesa del amanecer",
+          "manga enemy to lovers",
+          "utena",
+          "enemies to lovers",
+          "la bestia del rey",
+          "los diarios de la boticaria",
+          "sailor moon",
+          "una h"
+        ],
         "portada_fuente_url": "https://www.penguinlibros.com/es/8238415-thickbox_default/para-dafne-2.jpg",
         "precision_fecha": "dia",
+        "pvp_centimos": 1795,
         "sinopsis_breve": "Bajo un Sol arrogante que confunde el rechazo con un capricho, Dafne se va apagando. La culpa de estar destruyéndose a sí misma y…",
         "titulo": "Para Dafne 2"
       },
-      "estado_ingesta": "pendiente_datos",
-      "fuente": "https://www.penguinlibros.com/es/manga-comic/634713-libro-para-dafne-2-9791387962050",
+      "estado_ingesta": "publicado",
       "isbn13": "9791387962050",
-      "motivo": "Sello no presente en el registro editorial de la web",
+      "libro_id": "isbn-9791387962050",
       "primera_deteccion": "2026-10-21",
-      "retry_after": "2026-10-24"
+      "publicado_en": "2026-10-21"
     },
     "isbn13:9791387962104": {
       "datos": {
@@ -2815,8 +3179,7 @@
       "fuente": "https://www.penguinlibros.com/es/comic-juvenil/634714-libro-lidiar-con-las-hermanas-mikadono-es-pan-comido-1-shonen-9791387962104",
       "isbn13": "9791387962104",
       "motivo": "Sello no presente en el registro editorial de la web",
-      "primera_deteccion": "2026-10-21",
-      "retry_after": "2026-10-24"
+      "primera_deteccion": "2026-10-21"
     },
     "isbn13:9791387972486": {
       "datos": {
@@ -2848,8 +3211,7 @@
       "fuente": "https://www.penguinlibros.com/es/novela-romantica/635015-libro-kiss-the-villain-villanos-1-9791387972486",
       "isbn13": "9791387972486",
       "motivo": "Sello no presente en el registro editorial de la web",
-      "primera_deteccion": "2026-10-20",
-      "retry_after": "2026-10-23"
+      "primera_deteccion": "2026-10-20"
     },
     "isbn13:9791387975340": {
       "datos": {
@@ -2894,6 +3256,7 @@
         "cover_use_basis": "Cubierta proporcionada en la ficha oficial de la edición para su identificación bibliográfica, con atribución y enlace a la editorial. No se declara licencia abierta ni se reutiliza como imagen de Pinterest.",
         "edad_recomendada": "A partir de 9 años",
         "editorial": "B DE BLOK",
+        "editorial_slug": "ediciones-b",
         "encuadernacion": "Tapa dura",
         "fecha_publicacion_edicion": "2026-09-23",
         "formato_edicion": "tapa-dura",
@@ -2907,17 +3270,39 @@
           "A partir de 9 años"
         ],
         "numero_paginas": 248,
+        "palabras_clave": [
+          "Me llamo goa",
+          "miriam tirado",
+          "infinito ida y vuelta",
+          "crianza",
+          "adolescencia",
+          "adolescentes",
+          "libros para adolescentes",
+          "9 años",
+          "10 años",
+          "11 años",
+          "1 2 años",
+          "para niña",
+          "para niño",
+          "inteligencia emocional",
+          "empatía",
+          "novela juvenil",
+          "amistad",
+          "serie juvenil",
+          "saga me llamo goa",
+          "instituto"
+        ],
         "portada_fuente_url": "https://www.penguinlibros.com/es/8088005-thickbox_default/me-llamo-goa-12-eres-unica-goa.jpg",
         "precision_fecha": "dia",
+        "pvp_centimos": 1695,
         "sinopsis_breve": "Tener trece años es todo un reto y Goa lo sabe bien: ¡ojalá la adolescencia viniese con cartelitos luminosos que te enseñasen por dónde…",
         "titulo": "Me llamo Goa 12 - ¡Eres única, Goa!"
       },
-      "estado_ingesta": "pendiente_datos",
-      "fuente": "https://www.penguinlibros.com/es/libros-ninos-9-anos/631486-libro-me-llamo-goa-12-eres-unica-goa-9791387994303",
+      "estado_ingesta": "publicado",
       "isbn13": "9791387994303",
-      "motivo": "Sello no presente en el registro editorial de la web",
+      "libro_id": "isbn-9791387994303",
       "primera_deteccion": "2026-10-21",
-      "retry_after": "2026-10-24"
+      "publicado_en": "2026-10-21"
     },
     "isbn13:9791387994532": {
       "datos": {
@@ -2928,6 +3313,7 @@
         "cover_use_basis": "Cubierta proporcionada en la ficha oficial de la edición para su identificación bibliográfica, con atribución y enlace a la editorial. No se declara licencia abierta ni se reutiliza como imagen de Pinterest.",
         "edad_recomendada": "A partir de 9 años",
         "editorial": "B DE BLOK",
+        "editorial_slug": "ediciones-b",
         "encuadernacion": "Tapa blanda con solapas",
         "fecha_publicacion_edicion": "2026-10-15",
         "formato_edicion": "tapa-blanda",
@@ -2941,17 +3327,38 @@
           "A partir de 9 años"
         ],
         "numero_paginas": 176,
+        "palabras_clave": [
+          "infantil",
+          "juvenil",
+          "no ficcion",
+          "no ficcion infantil",
+          "preadolescente",
+          "preadolescencia",
+          "gestion de las emociones",
+          "libro de emociones",
+          "molas muc ho",
+          "hola autoestima",
+          "amistad",
+          "libro de amistad",
+          "amigos",
+          "red flags",
+          "emociones",
+          "middle grade",
+          "libro practico",
+          "libro de autoayuda",
+          "auto"
+        ],
         "portada_fuente_url": "https://www.penguinlibros.com/es/8252691-thickbox_default/amigos-de-verdad.jpg",
         "precision_fecha": "dia",
+        "pvp_centimos": 1695,
         "sinopsis_breve": "La amistad es uno de los pilares fundamentales sobre el que los niños y adolescentes construyen su personalidad. Aprender a crear relaciones de amistad…",
         "titulo": "Amigos de verdad"
       },
-      "estado_ingesta": "pendiente_datos",
-      "fuente": "https://www.penguinlibros.com/es/libros-ninos-9-anos/634670-libro-amigos-de-verdad-9791387994532",
+      "estado_ingesta": "publicado",
       "isbn13": "9791387994532",
-      "motivo": "Sello no presente en el registro editorial de la web",
+      "libro_id": "isbn-9791387994532",
       "primera_deteccion": "2026-10-21",
-      "retry_after": "2026-10-24"
+      "publicado_en": "2026-10-21"
     },
     "isbn13:9791388038037": {
       "datos": {
@@ -2983,8 +3390,7 @@
       "fuente": "https://www.penguinlibros.com/es/libros-nutricion-fitness-belleza/635119-libro-nadie-te-cuidara-tanto-como-tu-9791388038037",
       "isbn13": "9791388038037",
       "motivo": "Sello no presente en el registro editorial de la web",
-      "primera_deteccion": "2026-10-20",
-      "retry_after": "2026-10-23"
+      "primera_deteccion": "2026-10-20"
     },
     "isbn13:9791388038280": {
       "datos": {
@@ -2995,12 +3401,13 @@
         "cover_use_basis": "Cubierta proporcionada en la ficha oficial de la edición para su identificación bibliográfica, con atribución y enlace a la editorial. No se declara licencia abierta ni se reutiliza como imagen de Pinterest.",
         "edad_recomendada": "Adultos",
         "editorial": "VERGARA",
+        "editorial_slug": "vergara",
         "encuadernacion": "Tapa blanda con solapas",
         "fecha_publicacion_edicion": "2026-10-15",
         "formato_edicion": "tapa-blanda",
         "fuente_bibliografica_url": "https://www.penguinlibros.com/es/libros-crianza/635120-libro-cuando-tu-hijo-te-habla-peor-que-a-nadie-9791388038280",
         "fuentes_autores": {
-          "Carlos Rodríguez Lorenzo": "https://www.penguinlibros.com/es/libros-crianza/635120-libro-cuando-tu-hijo-te-habla-peor-que-a-nadie-9791388038280"
+          "Carlos Rodríguez Lorenzo": "https://www.penguinlibros.com/es/1019945-carlos-rodriguez-lorenzo"
         },
         "idioma": "es",
         "isbn13": "9791388038280",
@@ -3008,16 +3415,34 @@
           "Familia y crianza"
         ],
         "numero_paginas": 288,
+        "palabras_clave": [
+          "abuela primeriza",
+          "familia libro",
+          "desarrollo personal",
+          "autoestima",
+          "inteligencia emocional",
+          "educacion emocional",
+          "libros autoayuda",
+          "crianza re spetuosa",
+          "educar hijos",
+          "adolescencia",
+          "crianza respetuosa",
+          "daniel siegel",
+          "jaume funes",
+          "el cerebro del adolescente",
+          "como educar a u"
+        ],
         "portada_fuente_url": "https://www.penguinlibros.com/es/7886762-thickbox_default/cuando-tu-hijo-te-habla-peor-que-a-nadie.jpg",
         "precision_fecha": "dia",
+        "pvp_centimos": 2190,
+        "sinopsis_breve": "A través de la neurociencia, la inteligencia emocional y con un tono cercano, Carlos Rodríguez comparte herramientas prácticas, reflexiones y situaciones del día a…",
         "titulo": "Cuando tu hijo te habla peor que a nadie"
       },
-      "estado_ingesta": "pendiente_datos",
-      "fuente": "https://www.penguinlibros.com/es/libros-crianza/635120-libro-cuando-tu-hijo-te-habla-peor-que-a-nadie-9791388038280",
+      "estado_ingesta": "publicado",
       "isbn13": "9791388038280",
-      "motivo": "Sello no presente en el registro editorial de la web",
+      "libro_id": "isbn-9791388038280",
       "primera_deteccion": "2026-10-20",
-      "retry_after": "2026-10-23"
+      "publicado_en": "2026-10-21"
     },
     "isbn13:9791388038334": {
       "datos": {
@@ -3049,8 +3474,7 @@
       "fuente": "https://www.penguinlibros.com/es/libros-crianza/635121-libro-como-aprenden-los-bebes-9791388038334",
       "isbn13": "9791388038334",
       "motivo": "Sello no presente en el registro editorial de la web",
-      "primera_deteccion": "2026-10-20",
-      "retry_after": "2026-10-23"
+      "primera_deteccion": "2026-10-20"
     },
     "isbn13:9791388038372": {
       "estado_ingesta": "pendiente_datos",
@@ -3090,8 +3514,7 @@
       "fuente": "https://www.penguinlibros.com/es/libros-de-cocina/634691-libro-confiteria-cantabrica-mesa-y-mantel-9791388092039",
       "isbn13": "9791388092039",
       "motivo": "Sello no presente en el registro editorial de la web",
-      "primera_deteccion": "2026-10-21",
-      "retry_after": "2026-10-24"
+      "primera_deteccion": "2026-10-21"
     },
     "isbn13:9791388092053": {
       "datos": {
@@ -3102,12 +3525,13 @@
         "cover_use_basis": "Cubierta proporcionada en la ficha oficial de la edición para su identificación bibliográfica, con atribución y enlace a la editorial. No se declara licencia abierta ni se reutiliza como imagen de Pinterest.",
         "edad_recomendada": "Adultos",
         "editorial": "DEBATE",
+        "editorial_slug": "debate",
         "encuadernacion": "Tapa dura",
         "fecha_publicacion_edicion": "2026-10-15",
         "formato_edicion": "tapa-dura",
         "fuente_bibliografica_url": "https://www.penguinlibros.com/es/libros-de-cocina/634692-libro-menu-del-dia-mesa-y-mantel-9791388092053",
         "fuentes_autores": {
-          "Lakshmi Aguirre": "https://www.penguinlibros.com/es/libros-de-cocina/634692-libro-menu-del-dia-mesa-y-mantel-9791388092053"
+          "Lakshmi Aguirre": "https://www.penguinlibros.com/es/1019940-lakshmi-aguirre"
         },
         "idioma": "es",
         "isbn13": "9791388092053",
@@ -3115,16 +3539,34 @@
           "Cocina"
         ],
         "numero_paginas": 224,
+        "palabras_clave": [
+          "recetario",
+          "almuerzo",
+          "libro de cocina",
+          "libros para regalar",
+          "karlos arguiñano",
+          "libro de recetas",
+          "libro cocina",
+          "comer y esas cosas",
+          "que viva la cocina",
+          "cuina o barbarie",
+          "comer sin prejuicios",
+          "cocina para disfrutones",
+          "libro cocina y punto",
+          "croquetas caseras",
+          "comida casera"
+        ],
         "portada_fuente_url": "https://www.penguinlibros.com/es/8252704-thickbox_default/menu-del-dia-mesa-y-mantel.jpg",
         "precision_fecha": "dia",
+        "pvp_centimos": 2190,
+        "sinopsis_breve": "Escrito a menudo de manera apresurada en una pizarra, el menú del día es uno de los pilares silenciosos de nuestra cultura gastronómica. Más…",
         "titulo": "Menú del día (Mesa y mantel)"
       },
-      "estado_ingesta": "pendiente_datos",
-      "fuente": "https://www.penguinlibros.com/es/libros-de-cocina/634692-libro-menu-del-dia-mesa-y-mantel-9791388092053",
+      "estado_ingesta": "publicado",
       "isbn13": "9791388092053",
-      "motivo": "Sello no presente en el registro editorial de la web",
+      "libro_id": "isbn-9791388092053",
       "primera_deteccion": "2026-10-21",
-      "retry_after": "2026-10-24"
+      "publicado_en": "2026-10-21"
     },
     "isbn13:9791388092268": {
       "datos": {
@@ -3136,6 +3578,7 @@
         "cover_use_basis": "Cubierta proporcionada en la ficha oficial de la edición para su identificación bibliográfica, con atribución y enlace a la editorial. No se declara licencia abierta ni se reutiliza como imagen de Pinterest.",
         "edad_recomendada": "Adultos",
         "editorial": "DEBATE",
+        "editorial_slug": "debate",
         "encuadernacion": "Tapa dura",
         "fecha_publicacion_edicion": "2026-11-05",
         "formato_edicion": "tapa-dura",
@@ -3150,17 +3593,38 @@
           "Cocina"
         ],
         "numero_paginas": 208,
+        "palabras_clave": [
+          "2026",
+          "arguiñano",
+          "chicote",
+          "cocina libro",
+          "cocina sana rapida",
+          "cocina sana y sencilla",
+          "regalos originales",
+          "cocinar",
+          "comida",
+          "en español",
+          "jamie oli ver",
+          "libros de cocina",
+          "libros de recetas",
+          "libros para regalar",
+          "masterchef",
+          "para adultos",
+          "platos",
+          "recetario",
+          "recetas baratas y faci"
+        ],
         "portada_fuente_url": "https://www.penguinlibros.com/es/8198704-thickbox_default/ponte-fino.jpg",
         "precision_fecha": "dia",
+        "pvp_centimos": 2490,
         "sinopsis_breve": "Martín Berasategui y David de Jorge han reunido sus recetas favoritas para que cualquiera pueda montar un festín sin perder la paciencia ni la…",
         "titulo": "Ponte fino"
       },
-      "estado_ingesta": "pendiente_datos",
-      "fuente": "https://www.penguinlibros.com/es/libros-de-cocina/637431-libro-ponte-fino-9791388092268",
+      "estado_ingesta": "publicado",
       "isbn13": "9791388092268",
-      "motivo": "Sello no presente en el registro editorial de la web",
+      "libro_id": "isbn-9791388092268",
       "primera_deteccion": "2026-10-21",
-      "retry_after": "2026-10-24"
+      "publicado_en": "2026-10-21"
     },
     "isbn13:9791388137006": {
       "datos": {
@@ -3205,6 +3669,7 @@
         "cover_use_basis": "Cubierta proporcionada en la ficha oficial de la edición para su identificación bibliográfica, con atribución y enlace a la editorial. No se declara licencia abierta ni se reutiliza como imagen de Pinterest.",
         "edad_recomendada": "A partir de 4 años",
         "editorial": "ALFAGUARA IJC",
+        "editorial_slug": "alfaguara",
         "encuadernacion": "Tapa dura",
         "fecha_publicacion_edicion": "2026-10-15",
         "formato_edicion": "tapa-dura",
@@ -3218,17 +3683,38 @@
           "A partir de 4 años"
         ],
         "numero_paginas": 32,
+        "palabras_clave": [
+          "libros clásicos",
+          "10 años",
+          "2026",
+          "4 años",
+          "5 años",
+          "6 años",
+          "clasicos literatura",
+          "coleccion de cuentos infantiles",
+          "cuento",
+          "cuentos clasicos",
+          "cuentos clasicos infantiles",
+          "cuentos infantiles",
+          "cuentos montessori",
+          "en castellano",
+          "en español",
+          "habichuelas",
+          "historia",
+          "jack",
+          "libro de cue"
+        ],
         "portada_fuente_url": "https://www.penguinlibros.com/es/8278611-thickbox_default/juan-y-la-habichuela-magica.jpg",
         "precision_fecha": "dia",
+        "pvp_centimos": 1695,
         "sinopsis_breve": "Juan cambia la vaca de la familia por una sola habichuela. Parece un mal negocio... hasta que la habichuela crece y crece convirtiéndose en…",
         "titulo": "Juan y la habichuela mágica"
       },
-      "estado_ingesta": "pendiente_datos",
-      "fuente": "https://www.penguinlibros.com/es/libros-infantiles-4-anos/634629-libro-juan-y-la-habichuela-magica-9791388277030",
+      "estado_ingesta": "publicado",
       "isbn13": "9791388277030",
-      "motivo": "Sello no presente en el registro editorial de la web",
+      "libro_id": "isbn-9791388277030",
       "primera_deteccion": "2026-10-21",
-      "retry_after": "2026-10-24"
+      "publicado_en": "2026-10-21"
     },
     "isbn13:9791388437168": {
       "estado_ingesta": "pendiente_datos",

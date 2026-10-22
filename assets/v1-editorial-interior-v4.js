@@ -60,19 +60,50 @@
     },
     {
       key: 'cuaderno', label: 'Cuaderno', home: '/cuaderno/',
-      matches: (path) => path.startsWith('/cuaderno/') || path.startsWith('/recomendaciones/'),
+      matches: (path) => path.startsWith('/cuaderno/'),
       links: [
-        ['/cuaderno/', 'Archivo'],
-        ['/recomendaciones/', 'Libros recomendados']
+        ['/autor.html', '← Autor'],
+        ['/cuaderno/', 'Archivo']
+      ]
+    },
+    /* `key` es el id del sistema visual (CSS data-editorial-context), no la
+       sección del menú: «Libros recomendados» conserva el de cuaderno y el
+       directorio editorial/concursos el de herramientas para no perder estilos. */
+    {
+      key: 'cuaderno', label: 'Libros recomendados', home: '/recomendaciones/',
+      matches: (path) => path.startsWith('/recomendaciones/'),
+      links: [
+        ['/recomendaciones/', 'Catálogo'],
+        ['/recomendaciones/autores/', 'Autores'],
+        ['/editoriales/', 'Editoriales'],
+        ['/convocatorias-escritores/', 'Concursos']
+      ]
+    },
+    {
+      key: 'herramientas', label: 'Libros recomendados', home: '/recomendaciones/',
+      matches: (path) => path.startsWith('/editoriales/') || path.startsWith('/convocatorias-escritores/'),
+      links: [
+        ['/recomendaciones/', 'Catálogo'],
+        ['/recomendaciones/autores/', 'Autores'],
+        ['/editoriales/', 'Editoriales'],
+        ['/convocatorias-escritores/', 'Concursos']
       ]
     },
     {
       key: 'herramientas', label: 'Herramientas', home: '/herramientas/',
-      matches: (path) => path.startsWith('/herramientas/') || path.startsWith('/editoriales/') || path.startsWith('/convocatorias-escritores/') || path.startsWith('/metodologia-editorial/'),
+      matches: (path) => path.startsWith('/herramientas/'),
       links: [
-        ['/herramientas/', 'Herramientas'],
+        ['/herramientas/', 'Todas las herramientas'],
+        ['/herramientas/manuscrito/', 'Manuscrito'],
+        ['/herramientas/dialogo/', 'Diálogo'],
+        ['/herramientas/repeticiones/', 'Repeticiones']
+      ]
+    },
+    {
+      key: 'herramientas', label: 'Editoriales', home: '/editoriales/',
+      matches: (path) => path.startsWith('/metodologia-editorial/'),
+      links: [
         ['/editoriales/', 'Editoriales'],
-        ['/convocatorias-escritores/', 'Convocatorias'],
         ['/metodologia-editorial/', 'Metodología']
       ]
     },
@@ -82,9 +113,9 @@
       links: [
         ['/autor.html', 'Autor'],
         ['/premios.html', 'Premios'],
+        ['/cuaderno/', 'Cuaderno'],
         ['/lectores-beta/', 'Lectores beta'],
-        ['/eventos.html', 'Eventos'],
-        ['/prensa.html', 'Prensa']
+        ['/eventos.html', 'Eventos']
       ]
     },
     {

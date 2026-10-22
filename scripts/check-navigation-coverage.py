@@ -30,7 +30,7 @@ REQUIRED_EFFECTIVE_FIELDS = {
     "hubId", "status", "discoverability", "searchIndex", "sitemap",
     "footerEligible", "audience", "jobs", "relatedIds", "sourceFile", "aliases",
 }
-CANONICAL_EXPLORE_TERRITORIES = ["works-hub", "author", "notebook-hub", "tools-hub", "press"]
+CANONICAL_EXPLORE_TERRITORIES = ["works-hub", "author", "recommendations-hub", "tools-hub", "press"]
 REQUIRED_WORK_IDS = ("work-manecillas", "work-samuel")
 
 

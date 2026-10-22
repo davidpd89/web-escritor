@@ -251,6 +251,240 @@
       "orden": 177,
       "slug": "ciencia-ficcion",
       "tipo": "genero"
+    },
+    {
+      "activa": true,
+      "descripcion": "Clasificación editorial: Amor y pareja.",
+      "id": "tema-amor-y-pareja",
+      "nombre": "Amor y pareja",
+      "orden": 178,
+      "slug": "tema-amor-y-pareja",
+      "tipo": "tematica"
+    },
+    {
+      "activa": true,
+      "descripcion": "Clasificación editorial: Supervivencia.",
+      "id": "tema-supervivencia",
+      "nombre": "Supervivencia",
+      "orden": 179,
+      "slug": "tema-supervivencia",
+      "tipo": "tematica"
+    },
+    {
+      "activa": true,
+      "descripcion": "Clasificación editorial: Poder y política.",
+      "id": "tema-poder-y-politica",
+      "nombre": "Poder y política",
+      "orden": 180,
+      "slug": "tema-poder-y-politica",
+      "tipo": "tematica"
+    },
+    {
+      "activa": true,
+      "descripcion": "Clasificación editorial: Mujeres.",
+      "id": "tema-mujeres",
+      "nombre": "Mujeres",
+      "orden": 181,
+      "slug": "tema-mujeres",
+      "tipo": "tematica"
+    },
+    {
+      "activa": true,
+      "descripcion": "Clasificación editorial: Infancia.",
+      "id": "tema-infancia",
+      "nombre": "Infancia",
+      "orden": 182,
+      "slug": "tema-infancia",
+      "tipo": "tematica"
+    },
+    {
+      "activa": true,
+      "descripcion": "Clasificación editorial: Poesía.",
+      "id": "poesia",
+      "nombre": "Poesía",
+      "orden": 183,
+      "slug": "poesia",
+      "tipo": "genero"
+    },
+    {
+      "activa": true,
+      "descripcion": "Clasificación editorial: Humor.",
+      "id": "humor",
+      "nombre": "Humor",
+      "orden": 184,
+      "slug": "humor",
+      "tipo": "genero"
+    },
+    {
+      "activa": true,
+      "descripcion": "Clasificación editorial: Memoria.",
+      "id": "tema-memoria",
+      "nombre": "Memoria",
+      "orden": 185,
+      "slug": "tema-memoria",
+      "tipo": "tematica"
+    },
+    {
+      "activa": true,
+      "descripcion": "Clasificación editorial: Siglo XX.",
+      "id": "epoca-siglo-xx",
+      "nombre": "Siglo XX",
+      "orden": 186,
+      "slug": "epoca-siglo-xx",
+      "tipo": "epoca"
+    },
+    {
+      "activa": true,
+      "descripcion": "Clasificación editorial: Superación y duelo.",
+      "id": "tema-superacion-y-duelo",
+      "nombre": "Superación y duelo",
+      "orden": 187,
+      "slug": "tema-superacion-y-duelo",
+      "tipo": "tematica"
+    },
+    {
+      "activa": true,
+      "descripcion": "Clasificación editorial: Familia.",
+      "id": "tema-familia",
+      "nombre": "Familia",
+      "orden": 188,
+      "slug": "tema-familia",
+      "tipo": "tematica"
+    },
+    {
+      "activa": true,
+      "descripcion": "Clasificación editorial: Historia.",
+      "id": "historia",
+      "nombre": "Historia",
+      "orden": 189,
+      "slug": "historia",
+      "tipo": "genero"
+    },
+    {
+      "activa": true,
+      "descripcion": "Clasificación editorial: Ensayo.",
+      "id": "ensayo",
+      "nombre": "Ensayo",
+      "orden": 190,
+      "slug": "ensayo",
+      "tipo": "genero"
+    },
+    {
+      "activa": true,
+      "descripcion": "Edad orientativa de la editorial: De 0 a 3 años.",
+      "id": "edad-de-0-a-3-anos",
+      "nombre": "De 0 a 3 años",
+      "orden": 192,
+      "slug": "edad-de-0-a-3-anos",
+      "tipo": "edad"
+    },
+    {
+      "activa": true,
+      "descripcion": "Edad orientativa de la editorial: A partir de 7 años.",
+      "id": "edad-a-partir-de-7-anos",
+      "nombre": "A partir de 7 años",
+      "orden": 193,
+      "slug": "edad-a-partir-de-7-anos",
+      "tipo": "edad"
+    },
+    {
+      "activa": true,
+      "descripcion": "Clasificación editorial: Cómic y novela gráfica.",
+      "id": "comic-y-novela-grafica",
+      "nombre": "Cómic y novela gráfica",
+      "orden": 194,
+      "slug": "comic-y-novela-grafica",
+      "tipo": "genero"
+    },
+    {
+      "activa": true,
+      "descripcion": "Edad orientativa de la editorial: A partir de 9 años.",
+      "id": "edad-a-partir-de-9-anos",
+      "nombre": "A partir de 9 años",
+      "orden": 195,
+      "slug": "edad-a-partir-de-9-anos",
+      "tipo": "edad"
+    },
+    {
+      "activa": true,
+      "descripcion": "Clasificación editorial: Amistad.",
+      "id": "tema-amistad",
+      "nombre": "Amistad",
+      "orden": 196,
+      "slug": "tema-amistad",
+      "tipo": "tematica"
+    },
+    {
+      "activa": true,
+      "descripcion": "Clasificación editorial: Temáticas.",
+      "id": "tema-tematicas",
+      "nombre": "Temáticas",
+      "orden": 197,
+      "slug": "tema-tematicas",
+      "tipo": "tematica"
+    },
+    {
+      "activa": true,
+      "descripcion": "Edad orientativa de la editorial: A partir de 4 años.",
+      "id": "edad-a-partir-de-4-anos",
+      "nombre": "A partir de 4 años",
+      "orden": 198,
+      "slug": "edad-a-partir-de-4-anos",
+      "tipo": "edad"
+    },
+    {
+      "activa": true,
+      "descripcion": "Clasificación editorial: Novela gráfica.",
+      "id": "tema-novela-grafica",
+      "nombre": "Novela gráfica",
+      "orden": 199,
+      "slug": "tema-novela-grafica",
+      "tipo": "tematica"
+    },
+    {
+      "activa": true,
+      "descripcion": "Clasificación editorial: Manga.",
+      "id": "tema-manga",
+      "nombre": "Manga",
+      "orden": 200,
+      "slug": "tema-manga",
+      "tipo": "tematica"
+    },
+    {
+      "activa": true,
+      "descripcion": "Clasificación editorial: Venganza.",
+      "id": "tema-venganza",
+      "nombre": "Venganza",
+      "orden": 201,
+      "slug": "tema-venganza",
+      "tipo": "tematica"
+    },
+    {
+      "activa": true,
+      "descripcion": "Clasificación editorial: Religión y espiritualidad.",
+      "id": "tema-religion-y-espiritualidad",
+      "nombre": "Religión y espiritualidad",
+      "orden": 202,
+      "slug": "tema-religion-y-espiritualidad",
+      "tipo": "tematica"
+    },
+    {
+      "activa": true,
+      "descripcion": "Clasificación editorial: Business.",
+      "id": "tema-business",
+      "nombre": "Business",
+      "orden": 203,
+      "slug": "tema-business",
+      "tipo": "tematica"
+    },
+    {
+      "id": "infantil",
+      "slug": "infantil",
+      "nombre": "Infantil y juvenil",
+      "tipo": "genero",
+      "descripcion": "Clasificación editorial: Infantil y juvenil.",
+      "orden": 204,
+      "activa": true
     }
   ],
   "libro_categorias": [
@@ -521,10 +755,483 @@
     {
       "categoria_id": "adultos",
       "libro_id": "isbn-9788401031380"
+    },
+    {
+      "categoria_id": "fantasia",
+      "libro_id": "lib-0001"
+    },
+    {
+      "categoria_id": "aventuras",
+      "libro_id": "lib-0001"
+    },
+    {
+      "categoria_id": "misterio-y-thriller",
+      "libro_id": "isbn-9788401039560"
+    },
+    {
+      "categoria_id": "terror",
+      "libro_id": "isbn-9788401039560"
+    },
+    {
+      "categoria_id": "romance",
+      "libro_id": "isbn-9788425375118"
+    },
+    {
+      "categoria_id": "tema-amor-y-pareja",
+      "libro_id": "isbn-9788425375118"
+    },
+    {
+      "categoria_id": "tema-supervivencia",
+      "libro_id": "isbn-9791387640439"
+    },
+    {
+      "categoria_id": "narrativa",
+      "libro_id": "isbn-9788425375040"
+    },
+    {
+      "categoria_id": "tema-poder-y-politica",
+      "libro_id": "isbn-9788425375040"
+    },
+    {
+      "categoria_id": "tema-amor-y-pareja",
+      "libro_id": "isbn-9791387846794"
+    },
+    {
+      "categoria_id": "tema-mujeres",
+      "libro_id": "isbn-9791387846794"
+    },
+    {
+      "categoria_id": "novela-historica",
+      "libro_id": "isbn-9788426432575"
+    },
+    {
+      "categoria_id": "tema-infancia",
+      "libro_id": "isbn-9788426432575"
+    },
+    {
+      "categoria_id": "misterio-y-thriller",
+      "libro_id": "isbn-9791388137006"
+    },
+    {
+      "categoria_id": "tema-amor-y-pareja",
+      "libro_id": "isbn-9788401042119"
+    },
+    {
+      "categoria_id": "poesia",
+      "libro_id": "isbn-9788426434272"
+    },
+    {
+      "categoria_id": "biografias-y-memorias",
+      "libro_id": "isbn-9788426434272"
+    },
+    {
+      "categoria_id": "tema-mujeres",
+      "libro_id": "isbn-9788426434272"
+    },
+    {
+      "categoria_id": "humor",
+      "libro_id": "isbn-9788466684606"
+    },
+    {
+      "categoria_id": "tema-amor-y-pareja",
+      "libro_id": "isbn-9788466684606"
+    },
+    {
+      "categoria_id": "poesia",
+      "libro_id": "isbn-9788439747222"
+    },
+    {
+      "categoria_id": "nutricion-y-bienestar",
+      "libro_id": "isbn-9788425371790"
+    },
+    {
+      "categoria_id": "tema-amor-y-pareja",
+      "libro_id": "isbn-9791387640491"
+    },
+    {
+      "categoria_id": "tema-memoria",
+      "libro_id": "isbn-9791387640491"
+    },
+    {
+      "categoria_id": "epoca-siglo-xx",
+      "libro_id": "isbn-9791387640491"
+    },
+    {
+      "categoria_id": "humor",
+      "libro_id": "isbn-9788466683043"
+    },
+    {
+      "categoria_id": "desarrollo-personal",
+      "libro_id": "isbn-9788466683043"
+    },
+    {
+      "categoria_id": "tema-mujeres",
+      "libro_id": "isbn-9788466683043"
+    },
+    {
+      "categoria_id": "cocina",
+      "libro_id": "isbn-9788425374869"
+    },
+    {
+      "categoria_id": "desarrollo-personal",
+      "libro_id": "isbn-9788425374869"
+    },
+    {
+      "categoria_id": "tema-superacion-y-duelo",
+      "libro_id": "isbn-9788425374869"
+    },
+    {
+      "categoria_id": "tema-familia",
+      "libro_id": "isbn-9788401039836"
+    },
+    {
+      "categoria_id": "fantasia",
+      "libro_id": "isbn-9788410466470"
+    },
+    {
+      "categoria_id": "aventuras",
+      "libro_id": "isbn-9788410466470"
+    },
+    {
+      "categoria_id": "tema-amor-y-pareja",
+      "libro_id": "isbn-9788401037917"
+    },
+    {
+      "categoria_id": "historia",
+      "libro_id": "isbn-9788430629664"
+    },
+    {
+      "categoria_id": "ensayo",
+      "libro_id": "isbn-9788430629664"
+    },
+    {
+      "categoria_id": "tema-poder-y-politica",
+      "libro_id": "isbn-9788430629664"
+    },
+    {
+      "categoria_id": "tema-memoria",
+      "libro_id": "isbn-9788430629664"
+    },
+    {
+      "categoria_id": "adultos",
+      "libro_id": "isbn-9788430629664"
+    },
+    {
+      "categoria_id": "clasicos",
+      "libro_id": "isbn-9788491058298"
+    },
+    {
+      "categoria_id": "adultos",
+      "libro_id": "isbn-9788491058298"
+    },
+    {
+      "categoria_id": "edad-de-0-a-3-anos",
+      "libro_id": "isbn-9780241847640"
+    },
+    {
+      "categoria_id": "tema-infancia",
+      "libro_id": "isbn-9780241847640"
+    },
+    {
+      "categoria_id": "edad-de-0-a-3-anos",
+      "libro_id": "isbn-9780241847633"
+    },
+    {
+      "categoria_id": "tema-infancia",
+      "libro_id": "isbn-9780241847633"
+    },
+    {
+      "categoria_id": "edad-a-partir-de-7-anos",
+      "libro_id": "isbn-9788402431936"
+    },
+    {
+      "categoria_id": "comic-y-novela-grafica",
+      "libro_id": "isbn-9788402431936"
+    },
+    {
+      "categoria_id": "nutricion-y-bienestar",
+      "libro_id": "isbn-9788402431936"
+    },
+    {
+      "categoria_id": "tema-infancia",
+      "libro_id": "isbn-9788402431936"
+    },
+    {
+      "categoria_id": "cocina",
+      "libro_id": "isbn-9791388092053"
+    },
+    {
+      "categoria_id": "adultos",
+      "libro_id": "isbn-9791388092053"
+    },
+    {
+      "categoria_id": "biografias-y-memorias",
+      "libro_id": "isbn-9788403526853"
+    },
+    {
+      "categoria_id": "adultos",
+      "libro_id": "isbn-9788403526853"
+    },
+    {
+      "categoria_id": "edad-a-partir-de-9-anos",
+      "libro_id": "isbn-9791387994303"
+    },
+    {
+      "categoria_id": "tema-amistad",
+      "libro_id": "isbn-9791387994303"
+    },
+    {
+      "categoria_id": "tema-infancia",
+      "libro_id": "isbn-9791387994303"
+    },
+    {
+      "categoria_id": "edad-a-partir-de-9-anos",
+      "libro_id": "isbn-9791387994532"
+    },
+    {
+      "categoria_id": "desarrollo-personal",
+      "libro_id": "isbn-9791387994532"
+    },
+    {
+      "categoria_id": "tema-amistad",
+      "libro_id": "isbn-9791387994532"
+    },
+    {
+      "categoria_id": "cocina",
+      "libro_id": "isbn-9788418967566"
+    },
+    {
+      "categoria_id": "adultos",
+      "libro_id": "isbn-9788418967566"
+    },
+    {
+      "categoria_id": "tema-tematicas",
+      "libro_id": "isbn-9791387949938"
+    },
+    {
+      "categoria_id": "misterio-y-thriller",
+      "libro_id": "isbn-9791387949938"
+    },
+    {
+      "categoria_id": "fantasia",
+      "libro_id": "isbn-9791387949938"
+    },
+    {
+      "categoria_id": "romance",
+      "libro_id": "isbn-9791387949938"
+    },
+    {
+      "categoria_id": "aventuras",
+      "libro_id": "isbn-9791387949938"
+    },
+    {
+      "categoria_id": "biografias-y-memorias",
+      "libro_id": "isbn-9791387949938"
+    },
+    {
+      "categoria_id": "tema-amor-y-pareja",
+      "libro_id": "isbn-9791387949938"
+    },
+    {
+      "categoria_id": "juvenil",
+      "libro_id": "isbn-9791387949938"
+    },
+    {
+      "categoria_id": "edad-a-partir-de-9-anos",
+      "libro_id": "isbn-9780241839362"
+    },
+    {
+      "categoria_id": "tema-infancia",
+      "libro_id": "isbn-9780241839362"
+    },
+    {
+      "categoria_id": "edad-a-partir-de-4-anos",
+      "libro_id": "isbn-9791388277030"
+    },
+    {
+      "categoria_id": "misterio-y-thriller",
+      "libro_id": "isbn-9788466396806"
+    },
+    {
+      "categoria_id": "terror",
+      "libro_id": "isbn-9788466396806"
+    },
+    {
+      "categoria_id": "adultos",
+      "libro_id": "isbn-9788466396806"
+    },
+    {
+      "categoria_id": "edad-a-partir-de-7-anos",
+      "libro_id": "isbn-9780241837986"
+    },
+    {
+      "categoria_id": "tema-infancia",
+      "libro_id": "isbn-9780241837986"
+    },
+    {
+      "categoria_id": "tema-novela-grafica",
+      "libro_id": "isbn-9788402431967"
+    },
+    {
+      "categoria_id": "comic-y-novela-grafica",
+      "libro_id": "isbn-9788402431967"
+    },
+    {
+      "categoria_id": "biografias-y-memorias",
+      "libro_id": "isbn-9788402431967"
+    },
+    {
+      "categoria_id": "desarrollo-personal",
+      "libro_id": "isbn-9788402431967"
+    },
+    {
+      "categoria_id": "nutricion-y-bienestar",
+      "libro_id": "isbn-9788402431967"
+    },
+    {
+      "categoria_id": "adultos",
+      "libro_id": "isbn-9788402431967"
+    },
+    {
+      "categoria_id": "desarrollo-personal",
+      "libro_id": "isbn-9788403526761"
+    },
+    {
+      "categoria_id": "adultos",
+      "libro_id": "isbn-9788403526761"
+    },
+    {
+      "categoria_id": "tema-manga",
+      "libro_id": "isbn-9791387962050"
+    },
+    {
+      "categoria_id": "fantasia",
+      "libro_id": "isbn-9791387962050"
+    },
+    {
+      "categoria_id": "romance",
+      "libro_id": "isbn-9791387962050"
+    },
+    {
+      "categoria_id": "tema-venganza",
+      "libro_id": "isbn-9791387962050"
+    },
+    {
+      "categoria_id": "adultos",
+      "libro_id": "isbn-9791387962050"
+    },
+    {
+      "categoria_id": "tema-religion-y-espiritualidad",
+      "libro_id": "isbn-9788402431486"
+    },
+    {
+      "categoria_id": "desarrollo-personal",
+      "libro_id": "isbn-9788402431486"
+    },
+    {
+      "categoria_id": "adultos",
+      "libro_id": "isbn-9788402431486"
+    },
+    {
+      "categoria_id": "edad-a-partir-de-7-anos",
+      "libro_id": "isbn-9780241837979"
+    },
+    {
+      "categoria_id": "aventuras",
+      "libro_id": "isbn-9780241837979"
+    },
+    {
+      "categoria_id": "tema-infancia",
+      "libro_id": "isbn-9780241837979"
+    },
+    {
+      "categoria_id": "cocina",
+      "libro_id": "isbn-9788403525238"
+    },
+    {
+      "categoria_id": "adultos",
+      "libro_id": "isbn-9788403525238"
+    },
+    {
+      "categoria_id": "cocina",
+      "libro_id": "isbn-9791388092268"
+    },
+    {
+      "categoria_id": "adultos",
+      "libro_id": "isbn-9791388092268"
+    },
+    {
+      "categoria_id": "familia-y-crianza",
+      "libro_id": "isbn-9791388038280"
+    },
+    {
+      "categoria_id": "desarrollo-personal",
+      "libro_id": "isbn-9791388038280"
+    },
+    {
+      "categoria_id": "tema-familia",
+      "libro_id": "isbn-9791388038280"
+    },
+    {
+      "categoria_id": "adultos",
+      "libro_id": "isbn-9791388038280"
+    },
+    {
+      "categoria_id": "tema-business",
+      "libro_id": "isbn-9788402431332"
+    },
+    {
+      "categoria_id": "tema-amor-y-pareja",
+      "libro_id": "isbn-9788402431332"
+    },
+    {
+      "categoria_id": "nutricion-y-bienestar",
+      "libro_id": "isbn-9788402431332"
+    },
+    {
+      "categoria_id": "adultos",
+      "libro_id": "isbn-9788402431332"
+    },
+    {
+      "libro_id": "isbn-9780241847640",
+      "categoria_id": "infantil"
+    },
+    {
+      "libro_id": "isbn-9780241847633",
+      "categoria_id": "infantil"
+    },
+    {
+      "libro_id": "isbn-9788402431936",
+      "categoria_id": "infantil"
+    },
+    {
+      "libro_id": "isbn-9791387994303",
+      "categoria_id": "infantil"
+    },
+    {
+      "libro_id": "isbn-9791387994532",
+      "categoria_id": "infantil"
+    },
+    {
+      "libro_id": "isbn-9780241839362",
+      "categoria_id": "infantil"
+    },
+    {
+      "libro_id": "isbn-9791388277030",
+      "categoria_id": "infantil"
+    },
+    {
+      "libro_id": "isbn-9780241837986",
+      "categoria_id": "infantil"
+    },
+    {
+      "libro_id": "isbn-9780241837979",
+      "categoria_id": "infantil"
     }
   ],
   "libros": [
     {
+      "amazon_busqueda_isbn": "https://www.amazon.es/s?k=9788498382372&tag=davidporto-21",
       "anio_publicacion": 2009,
       "audio_descripcion": "/assets/reading-audio/coraline-da027726f648.mp3",
       "audio_voz": "Voz sintética · Elvira (español de España)",
@@ -534,12 +1241,15 @@
       "autorizacion_o_base_uso": "Cubierta promocional de la edición ISBN 9788498382372 ofrecida en la ficha oficial de la editorial, que incluye descarga de imagen. Uso identificativo junto a la recomendación y sus datos bibliográficos, con enlace y atribución a la fuente; no procede de Amazon ni se altera el diseño.",
       "descripcion_breve": "Tras mudarse a una casa antigua, Coraline encuentra una puerta hacia otra versión de su hogar. Allí todo parece mejor, hasta que descubre que sus otros padres no piensan dejarla marchar.",
       "descripcion_original_confirmada": true,
-      "edad_recomendada": "8-12 (editorial Penguin Random House)",
-      "edicion": "Salamandra Infantil y Juvenil · ISBN 9788498382372",
-      "editorial": "Salamandra Infantil y Juvenil",
+      "edad_recomendada": "A partir de 9 años",
+      "edicion": "Tapa blanda con solapas · Salamandra",
+      "editorial": "Salamandra",
+      "editorial_slug": "salamandra",
       "estado": "publicado",
       "fecha_actualizacion": "2026-10-20",
+      "fecha_publicacion": "2009-06-01",
       "fecha_verificacion": "2026-10-20",
+      "formato_edicion": "tapa-blanda",
       "formatos_compra": [
         {
           "fecha_verificacion": "2026-10-20",
@@ -568,7 +1278,8 @@
       ],
       "fragmento_url": "https://www.penguinlibros.com/es/libros-ninos-9-anos/37666-libro-coraline-9788498382372/fragmento",
       "fuente_bibliografica_url": "https://www.penguinrandomhouse.com/books/665423/coraline-spanish-edition-by-neil-gaiman/9788498382372/",
-      "fuente_edad_url": "https://www.penguinrandomhouse.com/books/665423/coraline-spanish-edition-by-neil-gaiman/9788498382372/",
+      "fuente_edad_url": "https://www.penguinlibros.com/es/libros-ninos-9-anos/37666-libro-coraline-9788498382372",
+      "fuente_publicacion_url": "https://www.penguinlibros.com/es/libros-ninos-9-anos/37666-libro-coraline-9788498382372",
       "id": "lib-0001",
       "idioma": "es",
       "isbn13": "9788498382372",
@@ -579,6 +1290,8 @@
       "portada_fecha_revision": "2026-10-20",
       "portada_fuente_url": "https://www.penguinlibros.com/cl/53759/coraline.jpg",
       "portada_local": "/assets/reading-covers/coraline-9788498382372.webp",
+      "pvp_centimos": 1195,
+      "pvp_fecha_verificacion": "2026-10-21",
       "resenas": [
         {
           "fecha_verificacion": "2026-10-20",
@@ -591,6 +1304,9 @@
           "url": "https://www.penguinlibros.com/es/libros-ninos-9-anos/37666-libro-coraline-9788498382372"
         }
       ],
+      "sinopsis_breve": "Tras mudarse a una casa antigua, Coraline encuentra una puerta hacia otra versión de su hogar. Allí todo parece mejor, hasta que descubre que sus otros padres no piensan dejarla marchar.",
+      "sinopsis_fuente_url": "https://www.penguinlibros.com/es/libros-ninos-9-anos/37666-libro-coraline-9788498382372",
+      "sinopsis_tipo": "resumen_propio",
       "slug": "coraline",
       "titulo": "Coraline",
       "url_amazon_afiliada": "https://www.amazon.es/dp/8498382378?tag=davidporto-21"
@@ -626,6 +1342,8 @@
       "portada_fecha_revision": "2026-10-20",
       "portada_fuente_url": "https://www.penguinlibros.com/es/8190863-thickbox_default/la-hipotesis-mas-peligrosa.jpg",
       "portada_local": "/assets/reading-covers/isbn-9791387846008.webp",
+      "pvp_centimos": 2390,
+      "pvp_fecha_verificacion": "2026-10-21",
       "resenas": [
         {
           "fecha_verificacion": "2026-10-20",
@@ -671,6 +1389,8 @@
       "portada_fecha_revision": "2026-10-20",
       "portada_fuente_url": "https://www.penguinlibros.com/es/8250289-thickbox_default/otros-mundos-el-talisman-3.jpg",
       "portada_local": "/assets/reading-covers/isbn-9788401039560.webp",
+      "pvp_centimos": 2790,
+      "pvp_fecha_verificacion": "2026-10-21",
       "resenas": [
         {
           "fecha_verificacion": "2026-10-20",
@@ -715,6 +1435,8 @@
       "portada_fecha_revision": "2026-10-20",
       "portada_fuente_url": "https://www.penguinlibros.com/es/8050616-thickbox_default/la-hija-del-veneno.jpg",
       "portada_local": "/assets/reading-covers/isbn-9788425375118.webp",
+      "pvp_centimos": 2490,
+      "pvp_fecha_verificacion": "2026-10-21",
       "resenas": [
         {
           "fecha_verificacion": "2026-10-20",
@@ -759,6 +1481,8 @@
       "portada_fecha_revision": "2026-10-20",
       "portada_fuente_url": "https://www.penguinlibros.com/es/7987990-thickbox_default/plaza-brugmann-33.jpg",
       "portada_local": "/assets/reading-covers/isbn-9791387640439.webp",
+      "pvp_centimos": 2300,
+      "pvp_fecha_verificacion": "2026-10-21",
       "resenas": [
         {
           "fecha_verificacion": "2026-10-20",
@@ -803,6 +1527,8 @@
       "portada_fecha_revision": "2026-10-20",
       "portada_fuente_url": "https://www.penguinlibros.com/es/8168324-thickbox_default/el-vuelo-de-los-gansos.jpg",
       "portada_local": "/assets/reading-covers/isbn-9788425375040.webp",
+      "pvp_centimos": 2290,
+      "pvp_fecha_verificacion": "2026-10-21",
       "resenas": [
         {
           "fecha_verificacion": "2026-10-20",
@@ -847,6 +1573,8 @@
       "portada_fecha_revision": "2026-10-20",
       "portada_fuente_url": "https://www.penguinlibros.com/es/7890451-thickbox_default/mi-amor-no-muere.jpg",
       "portada_local": "/assets/reading-covers/isbn-9791387846794.webp",
+      "pvp_centimos": 2190,
+      "pvp_fecha_verificacion": "2026-10-21",
       "resenas": [
         {
           "fecha_verificacion": "2026-10-20",
@@ -891,6 +1619,8 @@
       "portada_fecha_revision": "2026-10-20",
       "portada_fuente_url": "https://www.penguinlibros.com/es/7890556-thickbox_default/el-linaje-de-pierre.jpg",
       "portada_local": "/assets/reading-covers/isbn-9788426432575.webp",
+      "pvp_centimos": 2290,
+      "pvp_fecha_verificacion": "2026-10-21",
       "resenas": [
         {
           "fecha_verificacion": "2026-10-20",
@@ -935,6 +1665,8 @@
       "portada_fecha_revision": "2026-10-20",
       "portada_fuente_url": "https://www.penguinlibros.com/es/8118595-thickbox_default/tor.jpg",
       "portada_local": "/assets/reading-covers/isbn-9791388137006.webp",
+      "pvp_centimos": 2290,
+      "pvp_fecha_verificacion": "2026-10-21",
       "resenas": [
         {
           "fecha_verificacion": "2026-10-20",
@@ -979,6 +1711,8 @@
       "portada_fecha_revision": "2026-10-20",
       "portada_fuente_url": "https://www.penguinlibros.com/es/8324491-thickbox_default/cancion-de-amor-definitiva.jpg",
       "portada_local": "/assets/reading-covers/isbn-9788401042119.webp",
+      "pvp_centimos": 2190,
+      "pvp_fecha_verificacion": "2026-10-21",
       "resenas": [
         {
           "fecha_verificacion": "2026-10-20",
@@ -1023,6 +1757,8 @@
       "portada_fecha_revision": "2026-10-20",
       "portada_fuente_url": "https://www.penguinlibros.com/es/7987985-thickbox_default/esas-muchachas-que-escriben-poemas.jpg",
       "portada_local": "/assets/reading-covers/isbn-9788426434272.webp",
+      "pvp_centimos": 1890,
+      "pvp_fecha_verificacion": "2026-10-21",
       "resenas": [
         {
           "fecha_verificacion": "2026-10-20",
@@ -1067,6 +1803,8 @@
       "portada_fecha_revision": "2026-10-20",
       "portada_fuente_url": "https://www.penguinlibros.com/es/8274831-thickbox_default/la-risa-de-mi-vida.jpg",
       "portada_local": "/assets/reading-covers/isbn-9788466684606.webp",
+      "pvp_centimos": 2090,
+      "pvp_fecha_verificacion": "2026-10-21",
       "resenas": [
         {
           "fecha_verificacion": "2026-10-20",
@@ -1111,6 +1849,8 @@
       "portada_fecha_revision": "2026-10-20",
       "portada_fuente_url": "https://www.penguinlibros.com/es/8250288-thickbox_default/los-escalones.jpg",
       "portada_local": "/assets/reading-covers/isbn-9788401036897.webp",
+      "pvp_centimos": 2290,
+      "pvp_fecha_verificacion": "2026-10-21",
       "resenas": [
         {
           "fecha_verificacion": "2026-10-20",
@@ -1155,6 +1895,8 @@
       "portada_fecha_revision": "2026-10-20",
       "portada_fuente_url": "https://www.penguinlibros.com/es/7890496-thickbox_default/la-merma.jpg",
       "portada_local": "/assets/reading-covers/isbn-9788439746621.webp",
+      "pvp_centimos": 1790,
+      "pvp_fecha_verificacion": "2026-10-21",
       "resenas": [
         {
           "fecha_verificacion": "2026-10-20",
@@ -1199,6 +1941,8 @@
       "portada_fecha_revision": "2026-10-20",
       "portada_fuente_url": "https://www.penguinlibros.com/es/8013756-thickbox_default/la-casa-de-la-cienaga-serie-slow-horses-7.jpg",
       "portada_local": "/assets/reading-covers/isbn-9788419456007.webp",
+      "pvp_centimos": 2300,
+      "pvp_fecha_verificacion": "2026-10-21",
       "resenas": [
         {
           "fecha_verificacion": "2026-10-20",
@@ -1243,6 +1987,8 @@
       "portada_fecha_revision": "2026-10-20",
       "portada_fuente_url": "https://www.penguinlibros.com/es/8190918-thickbox_default/la-luz-y-el-hilo-laurea.jpg",
       "portada_local": "/assets/reading-covers/isbn-9788439747222.webp",
+      "pvp_centimos": 1790,
+      "pvp_fecha_verificacion": "2026-10-21",
       "resenas": [
         {
           "fecha_verificacion": "2026-10-20",
@@ -1287,6 +2033,8 @@
       "portada_fecha_revision": "2026-10-20",
       "portada_fuente_url": "https://www.penguinlibros.com/es/7890492-thickbox_default/resistencia-biologica.jpg",
       "portada_local": "/assets/reading-covers/isbn-9788425371790.webp",
+      "pvp_centimos": 2290,
+      "pvp_fecha_verificacion": "2026-10-21",
       "resenas": [
         {
           "fecha_verificacion": "2026-10-20",
@@ -1331,6 +2079,8 @@
       "portada_fecha_revision": "2026-10-20",
       "portada_fuente_url": "https://www.penguinlibros.com/es/8022318-thickbox_default/sacate-a-esa-persona-de-la-cabeza.jpg",
       "portada_local": "/assets/reading-covers/isbn-9788425373121.webp",
+      "pvp_centimos": 2190,
+      "pvp_fecha_verificacion": "2026-10-21",
       "resenas": [
         {
           "fecha_verificacion": "2026-10-20",
@@ -1378,6 +2128,8 @@
       "portada_fecha_revision": "2026-10-20",
       "portada_fuente_url": "https://www.penguinlibros.com/es/7987984-thickbox_default/la-historia-de-romana-y-uliana-amadoca-1.jpg",
       "portada_local": "/assets/reading-covers/isbn-9791387640491.webp",
+      "pvp_centimos": 2500,
+      "pvp_fecha_verificacion": "2026-10-21",
       "resenas": [
         {
           "fecha_verificacion": "2026-10-20",
@@ -1422,6 +2174,8 @@
       "portada_fecha_revision": "2026-10-20",
       "portada_fuente_url": "https://www.penguinlibros.com/es/8025672-thickbox_default/mama-necesita-un-respiro.jpg",
       "portada_local": "/assets/reading-covers/isbn-9788466683043.webp",
+      "pvp_centimos": 2190,
+      "pvp_fecha_verificacion": "2026-10-21",
       "resenas": [
         {
           "fecha_verificacion": "2026-10-20",
@@ -1466,6 +2220,8 @@
       "portada_fecha_revision": "2026-10-20",
       "portada_fuente_url": "https://www.penguinlibros.com/es/8270178-thickbox_default/mas-simple.jpg",
       "portada_local": "/assets/reading-covers/isbn-9791387928032.webp",
+      "pvp_centimos": 3000,
+      "pvp_fecha_verificacion": "2026-10-21",
       "resenas": [
         {
           "fecha_verificacion": "2026-10-20",
@@ -1510,6 +2266,8 @@
       "portada_fecha_revision": "2026-10-21",
       "portada_fuente_url": "https://www.penguinlibros.com/es/8129789-thickbox_default/muerdelo.jpg",
       "portada_local": "/assets/reading-covers/isbn-9788425371967.webp",
+      "pvp_centimos": 2490,
+      "pvp_fecha_verificacion": "2026-10-21",
       "resenas": [
         {
           "fecha_verificacion": "2026-10-21",
@@ -1554,6 +2312,8 @@
       "portada_fecha_revision": "2026-10-21",
       "portada_fuente_url": "https://www.penguinlibros.com/es/8059947-thickbox_default/comete-la-vida-a-bocados-con-pausa-y-plato.jpg",
       "portada_local": "/assets/reading-covers/isbn-9791387629694.webp",
+      "pvp_centimos": 2490,
+      "pvp_fecha_verificacion": "2026-10-21",
       "resenas": [
         {
           "fecha_verificacion": "2026-10-21",
@@ -1598,6 +2358,8 @@
       "portada_fecha_revision": "2026-10-21",
       "portada_fuente_url": "https://www.penguinlibros.com/es/8139229-thickbox_default/20-minutos-y-listo.jpg",
       "portada_local": "/assets/reading-covers/isbn-9788425374074.webp",
+      "pvp_centimos": 3290,
+      "pvp_fecha_verificacion": "2026-10-21",
       "resenas": [
         {
           "fecha_verificacion": "2026-10-21",
@@ -1642,6 +2404,8 @@
       "portada_fecha_revision": "2026-10-21",
       "portada_fuente_url": "https://www.penguinlibros.com/es/7959809-thickbox_default/la-fibra-es-la-solucion.jpg",
       "portada_local": "/assets/reading-covers/isbn-9788425374869.webp",
+      "pvp_centimos": 2190,
+      "pvp_fecha_verificacion": "2026-10-21",
       "resenas": [
         {
           "fecha_verificacion": "2026-10-21",
@@ -1686,6 +2450,8 @@
       "portada_fecha_revision": "2026-10-21",
       "portada_fuente_url": "https://www.penguinlibros.com/es/7721271-thickbox_default/barbacoa.jpg",
       "portada_local": "/assets/reading-covers/isbn-9788425374012.webp",
+      "pvp_centimos": 2990,
+      "pvp_fecha_verificacion": "2026-10-21",
       "resenas": [
         {
           "fecha_verificacion": "2026-10-21",
@@ -1730,6 +2496,8 @@
       "portada_fecha_revision": "2026-10-21",
       "portada_fuente_url": "https://www.penguinlibros.com/es/8094635-thickbox_default/un-dia-en-la-vida-de-clarita.jpg",
       "portada_local": "/assets/reading-covers/isbn-9791387975340.webp",
+      "pvp_centimos": 1990,
+      "pvp_fecha_verificacion": "2026-10-21",
       "resenas": [
         {
           "fecha_verificacion": "2026-10-21",
@@ -1774,6 +2542,8 @@
       "portada_fecha_revision": "2026-10-21",
       "portada_fuente_url": "https://www.penguinlibros.com/es/8218170-thickbox_default/familia-contamos-nuestra-historia-me-cuentas-tu-historia.jpg",
       "portada_local": "/assets/reading-covers/isbn-9788401039836.webp",
+      "pvp_centimos": 1590,
+      "pvp_fecha_verificacion": "2026-10-21",
       "resenas": [
         {
           "fecha_verificacion": "2026-10-21",
@@ -1818,6 +2588,8 @@
       "portada_fecha_revision": "2026-10-21",
       "portada_fuente_url": "https://www.penguinlibros.com/es/8060020-thickbox_default/el-ojo-de-la-novia-frenopatica-carl-el-mazmorrero-6.jpg",
       "portada_local": "/assets/reading-covers/isbn-9788410466470.webp",
+      "pvp_centimos": 2590,
+      "pvp_fecha_verificacion": "2026-10-21",
       "resenas": [
         {
           "fecha_verificacion": "2026-10-21",
@@ -1862,6 +2634,8 @@
       "portada_fecha_revision": "2026-10-21",
       "portada_fuente_url": "https://www.penguinlibros.com/es/8087537-thickbox_default/las-pruebas-del-tarot.jpg",
       "portada_local": "/assets/reading-covers/isbn-9788401037917.webp",
+      "pvp_centimos": 2490,
+      "pvp_fecha_verificacion": "2026-10-21",
       "resenas": [
         {
           "fecha_verificacion": "2026-10-21",
@@ -1906,6 +2680,8 @@
       "portada_fecha_revision": "2026-10-21",
       "portada_fuente_url": "https://www.penguinlibros.com/es/8250286-thickbox_default/bajamar.jpg",
       "portada_local": "/assets/reading-covers/isbn-9788401031380.webp",
+      "pvp_centimos": 2290,
+      "pvp_fecha_verificacion": "2026-10-21",
       "resenas": [
         {
           "fecha_verificacion": "2026-10-21",
@@ -1918,6 +2694,1112 @@
       "sinopsis_tipo": "extracto_editorial",
       "slug": "bajamar-9788401031380",
       "titulo": "Bajamar"
+    },
+    {
+      "amazon_busqueda_isbn": "https://www.amazon.es/s?k=9788430629664&tag=davidporto-21",
+      "anio_publicacion": 2026,
+      "autores": [
+        "Javier Fernández Sebastián"
+      ],
+      "autorizacion_o_base_uso": "Cubierta proporcionada en la ficha oficial de la edición para su identificación bibliográfica, con atribución y enlace a la editorial. No se declara licencia abierta ni se reutiliza como imagen de Pinterest.",
+      "descripcion_breve": "Los pilares de la historia, de Javier Fernández Sebastián. Edición de Taurus en castellano, en tapa blanda con solapas. Consta de 688 páginas. La editorial la incluye en historia. Publicación editorial: 2026-10-08.",
+      "descripcion_original_confirmada": true,
+      "edad_recomendada": "Adultos",
+      "edicion": "Tapa blanda con solapas · Taurus",
+      "editorial": "Taurus",
+      "editorial_catalogo_slug": "taurus",
+      "estado": "publicado",
+      "fecha_actualizacion": "2026-10-21",
+      "fecha_publicacion": "2026-10-08",
+      "fecha_verificacion": "2026-10-21",
+      "formato_edicion": "tapa-blanda",
+      "fuente_bibliografica_url": "https://www.penguinlibros.com/es/libros-de-historia/635117-libro-los-pilares-de-la-historia-9788430629664",
+      "fuente_edad_url": "https://www.penguinlibros.com/es/libros-de-historia/635117-libro-los-pilares-de-la-historia-9788430629664",
+      "fuente_publicacion_url": "https://www.penguinlibros.com/es/libros-de-historia/635117-libro-los-pilares-de-la-historia-9788430629664",
+      "id": "isbn-9788430629664",
+      "idioma": "es",
+      "isbn13": "9788430629664",
+      "numero_paginas": 688,
+      "portada_alto": 1235,
+      "portada_ancho": 800,
+      "portada_edicion_verificada": true,
+      "portada_fecha_revision": "2026-10-21",
+      "portada_fuente_url": "https://www.penguinlibros.com/es/7886760-thickbox_default/los-pilares-de-la-historia.jpg",
+      "portada_local": "/assets/reading-covers/isbn-9788430629664.webp",
+      "pvp_centimos": 2790,
+      "pvp_fecha_verificacion": "2026-10-21",
+      "resenas": [
+        {
+          "fecha_verificacion": "2026-10-21",
+          "titulo": "Buscar reseñas en Goodreads",
+          "url": "https://www.goodreads.com/search?q=9788430629664"
+        }
+      ],
+      "sinopsis_breve": "Rica en figuraciones poderosas, metáforas visuales y alegorías, Los pilares de la historia es una invitación apasionante a repensar nuestra relación con el tiempo…",
+      "sinopsis_fuente_url": "https://www.penguinlibros.com/es/libros-de-historia/635117-libro-los-pilares-de-la-historia-9788430629664",
+      "sinopsis_tipo": "extracto_editorial",
+      "slug": "los-pilares-de-la-historia-9788430629664",
+      "titulo": "Los pilares de la historia"
+    },
+    {
+      "amazon_busqueda_isbn": "https://www.amazon.es/s?k=9788491058298&tag=davidporto-21",
+      "anio_publicacion": 2026,
+      "autores": [
+        "George Orwell"
+      ],
+      "autorizacion_o_base_uso": "Cubierta proporcionada en la ficha oficial de la edición para su identificación bibliográfica, con atribución y enlace a la editorial. No se declara licencia abierta ni se reutiliza como imagen de Pinterest.",
+      "descripcion_breve": "1984 (edición especial limitada con cantos tintados), de George Orwell. Edición de Penguin Clásicos en castellano, en tapa dura. Consta de 336 páginas. La editorial la incluye en grandes clásicos. Publicación editorial: 2026-10-22.",
+      "descripcion_original_confirmada": true,
+      "edad_recomendada": "Adultos",
+      "edicion": "Tapa dura · Penguin Clásicos",
+      "editorial": "Penguin Clásicos",
+      "editorial_catalogo_slug": "penguin-clasicos",
+      "estado": "publicado",
+      "fecha_actualizacion": "2026-10-21",
+      "fecha_publicacion": "2026-10-22",
+      "fecha_verificacion": "2026-10-21",
+      "formato_edicion": "tapa-dura",
+      "fuente_bibliografica_url": "https://www.penguinlibros.com/es/libros-clasicos/621402-libro-1984-edicion-especial-limitada-con-cantos-tintados-9788491058298",
+      "fuente_edad_url": "https://www.penguinlibros.com/es/libros-clasicos/621402-libro-1984-edicion-especial-limitada-con-cantos-tintados-9788491058298",
+      "fuente_publicacion_url": "https://www.penguinlibros.com/es/libros-clasicos/621402-libro-1984-edicion-especial-limitada-con-cantos-tintados-9788491058298",
+      "id": "isbn-9788491058298",
+      "idioma": "es",
+      "isbn13": "9788491058298",
+      "numero_paginas": 336,
+      "portada_alto": 1235,
+      "portada_ancho": 800,
+      "portada_edicion_verificada": true,
+      "portada_fecha_revision": "2026-10-21",
+      "portada_fuente_url": "https://www.penguinlibros.com/es/8059945-thickbox_default/1984-edicion-especial-limitada-con-cantos-tintados.jpg",
+      "portada_local": "/assets/reading-covers/isbn-9788491058298.webp",
+      "pvp_centimos": 1695,
+      "pvp_fecha_verificacion": "2026-10-21",
+      "resenas": [
+        {
+          "fecha_verificacion": "2026-10-21",
+          "titulo": "Buscar reseñas en Goodreads",
+          "url": "https://www.goodreads.com/search?q=9788491058298"
+        }
+      ],
+      "sinopsis_breve": "En el año 1984 Londres es una ciudad lúgubre en la que la Policía del Pensamiento controla de forma asfixiante la vida de los…",
+      "sinopsis_fuente_url": "https://www.penguinlibros.com/es/libros-clasicos/621402-libro-1984-edicion-especial-limitada-con-cantos-tintados-9788491058298",
+      "sinopsis_tipo": "extracto_editorial",
+      "slug": "1984-edicion-especial-limitada-con-cantos-tintados-9788491058298",
+      "titulo": "1984 (edición especial limitada con cantos tintados)"
+    },
+    {
+      "amazon_busqueda_isbn": "https://www.amazon.es/s?k=9780241847640&tag=davidporto-21",
+      "anio_publicacion": 2026,
+      "autores": [
+        "Ingela P. Arrhenius"
+      ],
+      "autorizacion_o_base_uso": "Cubierta proporcionada en la ficha oficial de la edición para su identificación bibliográfica, con atribución y enlace a la editorial. No se declara licencia abierta ni se reutiliza como imagen de Pinterest.",
+      "descripcion_breve": "¿Hace ruido o es silencioso? (Enciclomini), de Ingela P. Arrhenius. Edición de DK en castellano, en tapa dura. Consta de 12 páginas. La editorial la incluye en de 0 a 3 años. Publicación editorial: 2026-10-15.",
+      "descripcion_original_confirmada": true,
+      "edad_recomendada": "De 0 a 3 años",
+      "edicion": "Tapa dura · DK",
+      "editorial": "DK",
+      "editorial_catalogo_slug": "dk",
+      "estado": "publicado",
+      "fecha_actualizacion": "2026-10-21",
+      "fecha_publicacion": "2026-10-15",
+      "fecha_verificacion": "2026-10-21",
+      "formato_edicion": "tapa-dura",
+      "fuente_bibliografica_url": "https://www.penguinlibros.com/es/libros-infantiles-3-anos/634737-libro-hace-ruido-o-es-silencioso-enciclomini-9780241847640",
+      "fuente_edad_url": "https://www.penguinlibros.com/es/libros-infantiles-3-anos/634737-libro-hace-ruido-o-es-silencioso-enciclomini-9780241847640",
+      "fuente_publicacion_url": "https://www.penguinlibros.com/es/libros-infantiles-3-anos/634737-libro-hace-ruido-o-es-silencioso-enciclomini-9780241847640",
+      "id": "isbn-9780241847640",
+      "idioma": "es",
+      "isbn13": "9780241847640",
+      "numero_paginas": 12,
+      "portada_alto": 1235,
+      "portada_ancho": 800,
+      "portada_edicion_verificada": true,
+      "portada_fecha_revision": "2026-10-21",
+      "portada_fuente_url": "https://www.penguinlibros.com/es/8035998-thickbox_default/hace-ruido-o-es-silencioso-enciclomini.jpg",
+      "portada_local": "/assets/reading-covers/isbn-9780241847640.webp",
+      "pvp_centimos": 1290,
+      "pvp_fecha_verificacion": "2026-10-21",
+      "resenas": [
+        {
+          "fecha_verificacion": "2026-10-21",
+          "titulo": "Buscar reseñas en Goodreads",
+          "url": "https://www.goodreads.com/search?q=9780241847640"
+        }
+      ],
+      "sinopsis_breve": "En cada página, los niños podrán observar distintos objetos y decidir si hacen ruido o son silenciosos. No hay respuestas correctas o incorrectas: cada…",
+      "sinopsis_fuente_url": "https://www.penguinlibros.com/es/libros-infantiles-3-anos/634737-libro-hace-ruido-o-es-silencioso-enciclomini-9780241847640",
+      "sinopsis_tipo": "extracto_editorial",
+      "slug": "hace-ruido-o-es-silencioso-enciclomini-9780241847640",
+      "titulo": "¿Hace ruido o es silencioso? (Enciclomini)"
+    },
+    {
+      "amazon_busqueda_isbn": "https://www.amazon.es/s?k=9780241847633&tag=davidporto-21",
+      "anio_publicacion": 2026,
+      "autores": [
+        "Ingela P. Arrhenius"
+      ],
+      "autorizacion_o_base_uso": "Cubierta proporcionada en la ficha oficial de la edición para su identificación bibliográfica, con atribución y enlace a la editorial. No se declara licencia abierta ni se reutiliza como imagen de Pinterest.",
+      "descripcion_breve": "¿Da miedo o no da miedo? (Enciclomini), de Ingela P. Arrhenius. Edición de DK en castellano, en tapa dura. Consta de 12 páginas. La editorial la incluye en de 0 a 3 años. Publicación editorial: 2026-10-15.",
+      "descripcion_original_confirmada": true,
+      "edad_recomendada": "De 0 a 3 años",
+      "edicion": "Tapa dura · DK",
+      "editorial": "DK",
+      "editorial_catalogo_slug": "dk",
+      "estado": "publicado",
+      "fecha_actualizacion": "2026-10-21",
+      "fecha_publicacion": "2026-10-15",
+      "fecha_verificacion": "2026-10-21",
+      "formato_edicion": "tapa-dura",
+      "fuente_bibliografica_url": "https://www.penguinlibros.com/es/libros-infantiles-3-anos/634736-libro-da-miedo-o-no-da-miedo-enciclomini-9780241847633",
+      "fuente_edad_url": "https://www.penguinlibros.com/es/libros-infantiles-3-anos/634736-libro-da-miedo-o-no-da-miedo-enciclomini-9780241847633",
+      "fuente_publicacion_url": "https://www.penguinlibros.com/es/libros-infantiles-3-anos/634736-libro-da-miedo-o-no-da-miedo-enciclomini-9780241847633",
+      "id": "isbn-9780241847633",
+      "idioma": "es",
+      "isbn13": "9780241847633",
+      "numero_paginas": 12,
+      "portada_alto": 1235,
+      "portada_ancho": 800,
+      "portada_edicion_verificada": true,
+      "portada_fecha_revision": "2026-10-21",
+      "portada_fuente_url": "https://www.penguinlibros.com/es/8035994-thickbox_default/da-miedo-o-no-da-miedo-enciclomini.jpg",
+      "portada_local": "/assets/reading-covers/isbn-9780241847633.webp",
+      "pvp_centimos": 1290,
+      "pvp_fecha_verificacion": "2026-10-21",
+      "resenas": [
+        {
+          "fecha_verificacion": "2026-10-21",
+          "titulo": "Buscar reseñas en Goodreads",
+          "url": "https://www.goodreads.com/search?q=9780241847633"
+        }
+      ],
+      "sinopsis_breve": "Perfecto para pequeñas manos, este resistente libro de cartón ayuda a enriquecer el vocabulario, trabajar los contrarios y estimular la motricidad fina de forma…",
+      "sinopsis_fuente_url": "https://www.penguinlibros.com/es/libros-infantiles-3-anos/634736-libro-da-miedo-o-no-da-miedo-enciclomini-9780241847633",
+      "sinopsis_tipo": "extracto_editorial",
+      "slug": "da-miedo-o-no-da-miedo-enciclomini-9780241847633",
+      "titulo": "¿Da miedo o no da miedo? (Enciclomini)"
+    },
+    {
+      "amazon_busqueda_isbn": "https://www.amazon.es/s?k=9788402431936&tag=davidporto-21",
+      "anio_publicacion": 2026,
+      "autores": [
+        "Francisco Ibáñez"
+      ],
+      "autorizacion_o_base_uso": "Cubierta proporcionada en la ficha oficial de la edición para su identificación bibliográfica, con atribución y enlace a la editorial. No se declara licencia abierta ni se reutiliza como imagen de Pinterest.",
+      "descripcion_breve": "Ibáñez Mítico 2 - El preboste de seguridad, de Francisco Ibáñez. Edición de Bruguera en castellano, en tapa dura con sobrecubierta. Consta de 64 páginas. La editorial la incluye en a partir de 7 años. Publicación editorial: 2026-10-01.",
+      "descripcion_original_confirmada": true,
+      "edad_recomendada": "A partir de 7 años",
+      "edicion": "Tapa dura con sobrecubierta · Bruguera",
+      "editorial": "Bruguera",
+      "editorial_catalogo_slug": "bruguera",
+      "estado": "publicado",
+      "fecha_actualizacion": "2026-10-21",
+      "fecha_publicacion": "2026-10-01",
+      "fecha_verificacion": "2026-10-21",
+      "formato_edicion": "tapa-dura",
+      "fuente_bibliografica_url": "https://www.penguinlibros.com/es/libros-ninos-7-anos/634667-libro-ibanez-mitico-2-el-preboste-de-seguridad-9788402431936",
+      "fuente_edad_url": "https://www.penguinlibros.com/es/libros-ninos-7-anos/634667-libro-ibanez-mitico-2-el-preboste-de-seguridad-9788402431936",
+      "fuente_publicacion_url": "https://www.penguinlibros.com/es/libros-ninos-7-anos/634667-libro-ibanez-mitico-2-el-preboste-de-seguridad-9788402431936",
+      "id": "isbn-9788402431936",
+      "idioma": "es",
+      "isbn13": "9788402431936",
+      "numero_paginas": 64,
+      "portada_alto": 1235,
+      "portada_ancho": 800,
+      "portada_edicion_verificada": true,
+      "portada_fecha_revision": "2026-10-21",
+      "portada_fuente_url": "https://www.penguinlibros.com/es/8278661-thickbox_default/ibanez-mitico-2-el-preboste-de-seguridad.jpg",
+      "portada_local": "/assets/reading-covers/isbn-9788402431936.webp",
+      "pvp_centimos": 1795,
+      "pvp_fecha_verificacion": "2026-10-21",
+      "resenas": [
+        {
+          "fecha_verificacion": "2026-10-21",
+          "titulo": "Buscar reseñas en Goodreads",
+          "url": "https://www.goodreads.com/search?q=9788402431936"
+        }
+      ],
+      "sinopsis_breve": "Una historieta atravesada por varias vicisitudes que nos invitan a hablar de unos años que sacudieron el panorama editorial español y marcaron un punto…",
+      "sinopsis_fuente_url": "https://www.penguinlibros.com/es/libros-ninos-7-anos/634667-libro-ibanez-mitico-2-el-preboste-de-seguridad-9788402431936",
+      "sinopsis_tipo": "extracto_editorial",
+      "slug": "ibanez-mitico-2-el-preboste-de-seguridad-9788402431936",
+      "titulo": "Ibáñez Mítico 2 - El preboste de seguridad"
+    },
+    {
+      "amazon_busqueda_isbn": "https://www.amazon.es/s?k=9791388092053&tag=davidporto-21",
+      "anio_publicacion": 2026,
+      "autores": [
+        "Lakshmi Aguirre"
+      ],
+      "autorizacion_o_base_uso": "Cubierta proporcionada en la ficha oficial de la edición para su identificación bibliográfica, con atribución y enlace a la editorial. No se declara licencia abierta ni se reutiliza como imagen de Pinterest.",
+      "descripcion_breve": "Menú del día (Mesa y mantel), de Lakshmi Aguirre. Edición de Debate en castellano, en tapa dura. Consta de 224 páginas. La editorial la incluye en cocina. Publicación editorial: 2026-10-15.",
+      "descripcion_original_confirmada": true,
+      "edad_recomendada": "Adultos",
+      "edicion": "Tapa dura · Debate",
+      "editorial": "Debate",
+      "editorial_catalogo_slug": "debate",
+      "estado": "publicado",
+      "fecha_actualizacion": "2026-10-21",
+      "fecha_publicacion": "2026-10-15",
+      "fecha_verificacion": "2026-10-21",
+      "formato_edicion": "tapa-dura",
+      "fuente_bibliografica_url": "https://www.penguinlibros.com/es/libros-de-cocina/634692-libro-menu-del-dia-mesa-y-mantel-9791388092053",
+      "fuente_edad_url": "https://www.penguinlibros.com/es/libros-de-cocina/634692-libro-menu-del-dia-mesa-y-mantel-9791388092053",
+      "fuente_publicacion_url": "https://www.penguinlibros.com/es/libros-de-cocina/634692-libro-menu-del-dia-mesa-y-mantel-9791388092053",
+      "id": "isbn-9791388092053",
+      "idioma": "es",
+      "isbn13": "9791388092053",
+      "numero_paginas": 224,
+      "portada_alto": 1235,
+      "portada_ancho": 800,
+      "portada_edicion_verificada": true,
+      "portada_fecha_revision": "2026-10-21",
+      "portada_fuente_url": "https://www.penguinlibros.com/es/8252704-thickbox_default/menu-del-dia-mesa-y-mantel.jpg",
+      "portada_local": "/assets/reading-covers/isbn-9791388092053.webp",
+      "pvp_centimos": 2190,
+      "pvp_fecha_verificacion": "2026-10-21",
+      "resenas": [
+        {
+          "fecha_verificacion": "2026-10-21",
+          "titulo": "Buscar reseñas en Goodreads",
+          "url": "https://www.goodreads.com/search?q=9791388092053"
+        }
+      ],
+      "sinopsis_breve": "Escrito a menudo de manera apresurada en una pizarra, el menú del día es uno de los pilares silenciosos de nuestra cultura gastronómica. Más…",
+      "sinopsis_fuente_url": "https://www.penguinlibros.com/es/libros-de-cocina/634692-libro-menu-del-dia-mesa-y-mantel-9791388092053",
+      "sinopsis_tipo": "extracto_editorial",
+      "slug": "menu-del-dia-mesa-y-mantel-9791388092053",
+      "titulo": "Menú del día (Mesa y mantel)"
+    },
+    {
+      "amazon_busqueda_isbn": "https://www.amazon.es/s?k=9788403526853&tag=davidporto-21",
+      "anio_publicacion": 2026,
+      "autores": [
+        "Carolina Lapausa"
+      ],
+      "autorizacion_o_base_uso": "Cubierta proporcionada en la ficha oficial de la edición para su identificación bibliográfica, con atribución y enlace a la editorial. No se declara licencia abierta ni se reutiliza como imagen de Pinterest.",
+      "descripcion_breve": "Treinta y cuatro, de Carolina Lapausa. Edición de Aguilar en castellano, en tapa blanda con solapas. Consta de 176 páginas. La editorial la incluye en biografías y memorias. Publicación editorial: 2026-10-15.",
+      "descripcion_original_confirmada": true,
+      "edad_recomendada": "Adultos",
+      "edicion": "Tapa blanda con solapas · Aguilar",
+      "editorial": "Aguilar",
+      "editorial_catalogo_slug": "aguilar",
+      "estado": "publicado",
+      "fecha_actualizacion": "2026-10-21",
+      "fecha_publicacion": "2026-10-15",
+      "fecha_verificacion": "2026-10-21",
+      "formato_edicion": "tapa-blanda",
+      "fuente_bibliografica_url": "https://www.penguinlibros.com/es/libro-de-biografias/634614-libro-treinta-y-cuatro-9788403526853",
+      "fuente_edad_url": "https://www.penguinlibros.com/es/libro-de-biografias/634614-libro-treinta-y-cuatro-9788403526853",
+      "fuente_publicacion_url": "https://www.penguinlibros.com/es/libro-de-biografias/634614-libro-treinta-y-cuatro-9788403526853",
+      "id": "isbn-9788403526853",
+      "idioma": "es",
+      "isbn13": "9788403526853",
+      "numero_paginas": 176,
+      "portada_alto": 1235,
+      "portada_ancho": 800,
+      "portada_edicion_verificada": true,
+      "portada_fecha_revision": "2026-10-21",
+      "portada_fuente_url": "https://www.penguinlibros.com/es/7890565-thickbox_default/treinta-y-cuatro.jpg",
+      "portada_local": "/assets/reading-covers/isbn-9788403526853.webp",
+      "pvp_centimos": 1990,
+      "pvp_fecha_verificacion": "2026-10-21",
+      "resenas": [
+        {
+          "fecha_verificacion": "2026-10-21",
+          "titulo": "Buscar reseñas en Goodreads",
+          "url": "https://www.goodreads.com/search?q=9788403526853"
+        }
+      ],
+      "sinopsis_breve": "Esta es una historia sobre todo lo que se rompe cuando uno intenta convertirse en alguien que no es, pero también es la historia…",
+      "sinopsis_fuente_url": "https://www.penguinlibros.com/es/libro-de-biografias/634614-libro-treinta-y-cuatro-9788403526853",
+      "sinopsis_tipo": "extracto_editorial",
+      "slug": "treinta-y-cuatro-9788403526853",
+      "titulo": "Treinta y cuatro"
+    },
+    {
+      "amazon_busqueda_isbn": "https://www.amazon.es/s?k=9791387994303&tag=davidporto-21",
+      "anio_publicacion": 2026,
+      "autores": [
+        "Míriam Tirado"
+      ],
+      "autorizacion_o_base_uso": "Cubierta proporcionada en la ficha oficial de la edición para su identificación bibliográfica, con atribución y enlace a la editorial. No se declara licencia abierta ni se reutiliza como imagen de Pinterest.",
+      "descripcion_breve": "Me llamo Goa 12 - ¡Eres única, Goa!, de Míriam Tirado. Edición de Ediciones B en castellano, en tapa dura. Consta de 248 páginas. La editorial la incluye en a partir de 9 años. Publicación editorial: 2026-09-23.",
+      "descripcion_original_confirmada": true,
+      "edad_recomendada": "A partir de 9 años",
+      "edicion": "Tapa dura · Ediciones B",
+      "editorial": "Ediciones B",
+      "editorial_slug": "ediciones-b",
+      "estado": "publicado",
+      "fecha_actualizacion": "2026-10-21",
+      "fecha_publicacion": "2026-09-23",
+      "fecha_verificacion": "2026-10-21",
+      "formato_edicion": "tapa-dura",
+      "fuente_bibliografica_url": "https://www.penguinlibros.com/es/libros-ninos-9-anos/631486-libro-me-llamo-goa-12-eres-unica-goa-9791387994303",
+      "fuente_edad_url": "https://www.penguinlibros.com/es/libros-ninos-9-anos/631486-libro-me-llamo-goa-12-eres-unica-goa-9791387994303",
+      "fuente_publicacion_url": "https://www.penguinlibros.com/es/libros-ninos-9-anos/631486-libro-me-llamo-goa-12-eres-unica-goa-9791387994303",
+      "id": "isbn-9791387994303",
+      "idioma": "es",
+      "isbn13": "9791387994303",
+      "numero_paginas": 248,
+      "portada_alto": 1235,
+      "portada_ancho": 800,
+      "portada_edicion_verificada": true,
+      "portada_fecha_revision": "2026-10-21",
+      "portada_fuente_url": "https://www.penguinlibros.com/es/8088005-thickbox_default/me-llamo-goa-12-eres-unica-goa.jpg",
+      "portada_local": "/assets/reading-covers/isbn-9791387994303.webp",
+      "pvp_centimos": 1695,
+      "pvp_fecha_verificacion": "2026-10-21",
+      "resenas": [
+        {
+          "fecha_verificacion": "2026-10-21",
+          "titulo": "Buscar reseñas en Goodreads",
+          "url": "https://www.goodreads.com/search?q=9791387994303"
+        }
+      ],
+      "sinopsis_breve": "Tener trece años es todo un reto y Goa lo sabe bien: ¡ojalá la adolescencia viniese con cartelitos luminosos que te enseñasen por dónde…",
+      "sinopsis_fuente_url": "https://www.penguinlibros.com/es/libros-ninos-9-anos/631486-libro-me-llamo-goa-12-eres-unica-goa-9791387994303",
+      "sinopsis_tipo": "extracto_editorial",
+      "slug": "me-llamo-goa-12-eres-unica-goa-9791387994303",
+      "titulo": "Me llamo Goa 12 - ¡Eres única, Goa!"
+    },
+    {
+      "amazon_busqueda_isbn": "https://www.amazon.es/s?k=9791387994532&tag=davidporto-21",
+      "anio_publicacion": 2026,
+      "autores": [
+        "Iris Pérez-Bonaventura"
+      ],
+      "autorizacion_o_base_uso": "Cubierta proporcionada en la ficha oficial de la edición para su identificación bibliográfica, con atribución y enlace a la editorial. No se declara licencia abierta ni se reutiliza como imagen de Pinterest.",
+      "descripcion_breve": "Amigos de verdad, de Iris Pérez-Bonaventura. Edición de Ediciones B en castellano, en tapa blanda con solapas. Consta de 176 páginas. La editorial la incluye en a partir de 9 años. Publicación editorial: 2026-10-15.",
+      "descripcion_original_confirmada": true,
+      "edad_recomendada": "A partir de 9 años",
+      "edicion": "Tapa blanda con solapas · Ediciones B",
+      "editorial": "Ediciones B",
+      "editorial_slug": "ediciones-b",
+      "estado": "publicado",
+      "fecha_actualizacion": "2026-10-21",
+      "fecha_publicacion": "2026-10-15",
+      "fecha_verificacion": "2026-10-21",
+      "formato_edicion": "tapa-blanda",
+      "fuente_bibliografica_url": "https://www.penguinlibros.com/es/libros-ninos-9-anos/634670-libro-amigos-de-verdad-9791387994532",
+      "fuente_edad_url": "https://www.penguinlibros.com/es/libros-ninos-9-anos/634670-libro-amigos-de-verdad-9791387994532",
+      "fuente_publicacion_url": "https://www.penguinlibros.com/es/libros-ninos-9-anos/634670-libro-amigos-de-verdad-9791387994532",
+      "id": "isbn-9791387994532",
+      "idioma": "es",
+      "isbn13": "9791387994532",
+      "numero_paginas": 176,
+      "portada_alto": 1235,
+      "portada_ancho": 800,
+      "portada_edicion_verificada": true,
+      "portada_fecha_revision": "2026-10-21",
+      "portada_fuente_url": "https://www.penguinlibros.com/es/8252691-thickbox_default/amigos-de-verdad.jpg",
+      "portada_local": "/assets/reading-covers/isbn-9791387994532.webp",
+      "pvp_centimos": 1695,
+      "pvp_fecha_verificacion": "2026-10-21",
+      "resenas": [
+        {
+          "fecha_verificacion": "2026-10-21",
+          "titulo": "Buscar reseñas en Goodreads",
+          "url": "https://www.goodreads.com/search?q=9791387994532"
+        }
+      ],
+      "sinopsis_breve": "La amistad es uno de los pilares fundamentales sobre el que los niños y adolescentes construyen su personalidad. Aprender a crear relaciones de amistad…",
+      "sinopsis_fuente_url": "https://www.penguinlibros.com/es/libros-ninos-9-anos/634670-libro-amigos-de-verdad-9791387994532",
+      "sinopsis_tipo": "extracto_editorial",
+      "slug": "amigos-de-verdad-9791387994532",
+      "titulo": "Amigos de verdad"
+    },
+    {
+      "amazon_busqueda_isbn": "https://www.amazon.es/s?k=9788418967566&tag=davidporto-21",
+      "anio_publicacion": 2026,
+      "autores": [
+        "Marta Hortelano"
+      ],
+      "autorizacion_o_base_uso": "Cubierta proporcionada en la ficha oficial de la edición para su identificación bibliográfica, con atribución y enlace a la editorial. No se declara licencia abierta ni se reutiliza como imagen de Pinterest.",
+      "descripcion_breve": "Esmorzaret (Mesa y mantel), de Marta Hortelano. Edición de Debate en castellano, en tapa dura. Consta de 248 páginas. La editorial la incluye en cocina. Publicación editorial: 2026-04-09.",
+      "descripcion_original_confirmada": true,
+      "edad_recomendada": "Adultos",
+      "edicion": "Tapa dura · Debate",
+      "editorial": "Debate",
+      "editorial_catalogo_slug": "debate",
+      "estado": "publicado",
+      "fecha_actualizacion": "2026-10-21",
+      "fecha_publicacion": "2026-04-09",
+      "fecha_verificacion": "2026-10-21",
+      "formato_edicion": "tapa-dura",
+      "fuente_bibliografica_url": "https://www.penguinlibros.com/es/libros-de-cocina/545012-libro-esmorzaret-mesa-y-mantel-9788418967566",
+      "fuente_edad_url": "https://www.penguinlibros.com/es/libros-de-cocina/545012-libro-esmorzaret-mesa-y-mantel-9788418967566",
+      "fuente_publicacion_url": "https://www.penguinlibros.com/es/libros-de-cocina/545012-libro-esmorzaret-mesa-y-mantel-9788418967566",
+      "id": "isbn-9788418967566",
+      "idioma": "es",
+      "isbn13": "9788418967566",
+      "numero_paginas": 248,
+      "portada_alto": 1235,
+      "portada_ancho": 800,
+      "portada_edicion_verificada": true,
+      "portada_fecha_revision": "2026-10-21",
+      "portada_fuente_url": "https://www.penguinlibros.com/es/7603878-thickbox_default/esmorzaret-mesa-y-mantel.jpg",
+      "portada_local": "/assets/reading-covers/isbn-9788418967566.webp",
+      "pvp_centimos": 2190,
+      "pvp_fecha_verificacion": "2026-10-21",
+      "resenas": [
+        {
+          "fecha_verificacion": "2026-10-21",
+          "titulo": "Buscar reseñas en Goodreads",
+          "url": "https://www.goodreads.com/search?q=9788418967566"
+        }
+      ],
+      "sinopsis_breve": "Antes del brunch ya existía el esmorzaret. A diario, entre las nueve y las doce de la mañana, restaurantes de toda la Comunitat Valenciana…",
+      "sinopsis_fuente_url": "https://www.penguinlibros.com/es/libros-de-cocina/545012-libro-esmorzaret-mesa-y-mantel-9788418967566",
+      "sinopsis_tipo": "extracto_editorial",
+      "slug": "esmorzaret-mesa-y-mantel-9788418967566",
+      "titulo": "Esmorzaret (Mesa y mantel)"
+    },
+    {
+      "amazon_busqueda_isbn": "https://www.amazon.es/s?k=9791387949938&tag=davidporto-21",
+      "anio_publicacion": 2026,
+      "autores": [
+        "Marta Morillo"
+      ],
+      "autorizacion_o_base_uso": "Cubierta proporcionada en la ficha oficial de la edición para su identificación bibliográfica, con atribución y enlace a la editorial. No se declara licencia abierta ni se reutiliza como imagen de Pinterest.",
+      "descripcion_breve": "Alas de escarcha y oro: El canto del cisne, de Marta Morillo. Edición de Alfaguara en castellano, en tapa blanda con solapas. Consta de 384 páginas. La editorial la incluye en temáticas. Publicación editorial: 2026-10-15.",
+      "descripcion_original_confirmada": true,
+      "edad_recomendada": "A partir de 12 años",
+      "edicion": "Tapa blanda con solapas · Alfaguara",
+      "editorial": "Alfaguara",
+      "editorial_slug": "alfaguara",
+      "estado": "publicado",
+      "fecha_actualizacion": "2026-10-21",
+      "fecha_publicacion": "2026-10-15",
+      "fecha_verificacion": "2026-10-21",
+      "formato_edicion": "tapa-blanda",
+      "fuente_bibliografica_url": "https://www.penguinlibros.com/es/tematicas/634621-libro-alas-de-escarcha-y-oro-el-canto-del-cisne-9791387949938",
+      "fuente_edad_url": "https://www.penguinlibros.com/es/tematicas/634621-libro-alas-de-escarcha-y-oro-el-canto-del-cisne-9791387949938",
+      "fuente_publicacion_url": "https://www.penguinlibros.com/es/tematicas/634621-libro-alas-de-escarcha-y-oro-el-canto-del-cisne-9791387949938",
+      "id": "isbn-9791387949938",
+      "idioma": "es",
+      "isbn13": "9791387949938",
+      "numero_paginas": 384,
+      "portada_alto": 1235,
+      "portada_ancho": 800,
+      "portada_edicion_verificada": true,
+      "portada_fecha_revision": "2026-10-21",
+      "portada_fuente_url": "https://www.penguinlibros.com/es/8060029-thickbox_default/alas-de-escarcha-y-oro-el-canto-del-cisne.jpg",
+      "portada_local": "/assets/reading-covers/isbn-9791387949938.webp",
+      "pvp_centimos": 1995,
+      "pvp_fecha_verificacion": "2026-10-21",
+      "resenas": [
+        {
+          "fecha_verificacion": "2026-10-21",
+          "titulo": "Buscar reseñas en Goodreads",
+          "url": "https://www.goodreads.com/search?q=9791387949938"
+        }
+      ],
+      "sinopsis_breve": "Eira ha crecido ocultando sus dones, y también sus debilidades. Cuando su lugar en el Imperio de Aesnovar se desmorona, se ve forzada a…",
+      "sinopsis_fuente_url": "https://www.penguinlibros.com/es/tematicas/634621-libro-alas-de-escarcha-y-oro-el-canto-del-cisne-9791387949938",
+      "sinopsis_tipo": "extracto_editorial",
+      "slug": "alas-de-escarcha-y-oro-el-canto-del-cisne-9791387949938",
+      "titulo": "Alas de escarcha y oro: El canto del cisne"
+    },
+    {
+      "amazon_busqueda_isbn": "https://www.amazon.es/s?k=9780241839362&tag=davidporto-21",
+      "anio_publicacion": 2026,
+      "autores": [
+        "DK"
+      ],
+      "autorizacion_o_base_uso": "Cubierta proporcionada en la ficha oficial de la edición para su identificación bibliográfica, con atribución y enlace a la editorial. No se declara licencia abierta ni se reutiliza como imagen de Pinterest.",
+      "descripcion_breve": "Antigua Roma (Civilizaciones antiguas para niños), de DK. Edición de DK en castellano, en tapa dura. Consta de 160 páginas. La editorial la incluye en a partir de 9 años. Publicación editorial: 2026-10-15.",
+      "descripcion_original_confirmada": true,
+      "edad_recomendada": "A partir de 9 años",
+      "edicion": "Tapa dura · DK",
+      "editorial": "DK",
+      "editorial_catalogo_slug": "dk",
+      "estado": "publicado",
+      "fecha_actualizacion": "2026-10-21",
+      "fecha_publicacion": "2026-10-15",
+      "fecha_verificacion": "2026-10-21",
+      "formato_edicion": "tapa-dura",
+      "fuente_bibliografica_url": "https://www.penguinlibros.com/es/libros-ninos-9-anos/634734-libro-antigua-roma-civilizaciones-antiguas-para-ninos-9780241839362",
+      "fuente_edad_url": "https://www.penguinlibros.com/es/libros-ninos-9-anos/634734-libro-antigua-roma-civilizaciones-antiguas-para-ninos-9780241839362",
+      "fuente_publicacion_url": "https://www.penguinlibros.com/es/libros-ninos-9-anos/634734-libro-antigua-roma-civilizaciones-antiguas-para-ninos-9780241839362",
+      "id": "isbn-9780241839362",
+      "idioma": "es",
+      "isbn13": "9780241839362",
+      "numero_paginas": 160,
+      "portada_alto": 1235,
+      "portada_ancho": 800,
+      "portada_edicion_verificada": true,
+      "portada_fecha_revision": "2026-10-21",
+      "portada_fuente_url": "https://www.penguinlibros.com/es/8312106-thickbox_default/antigua-roma-civilizaciones-antiguas-para-ninos.jpg",
+      "portada_local": "/assets/reading-covers/isbn-9780241839362.webp",
+      "pvp_centimos": 1995,
+      "pvp_fecha_verificacion": "2026-10-21",
+      "resenas": [
+        {
+          "fecha_verificacion": "2026-10-21",
+          "titulo": "Buscar reseñas en Goodreads",
+          "url": "https://www.goodreads.com/search?q=9780241839362"
+        }
+      ],
+      "sinopsis_breve": "Con espectaculares fotografías e ilustraciones, este libro revela los aspectos más curiosos, sorprendentes y a veces escalofriantes de la vida en la Antigua Roma.…",
+      "sinopsis_fuente_url": "https://www.penguinlibros.com/es/libros-ninos-9-anos/634734-libro-antigua-roma-civilizaciones-antiguas-para-ninos-9780241839362",
+      "sinopsis_tipo": "extracto_editorial",
+      "slug": "antigua-roma-civilizaciones-antiguas-para-ninos-9780241839362",
+      "titulo": "Antigua Roma (Civilizaciones antiguas para niños)"
+    },
+    {
+      "amazon_busqueda_isbn": "https://www.amazon.es/s?k=9791388277030&tag=davidporto-21",
+      "anio_publicacion": 2026,
+      "autores": [
+        "Roald Dahl"
+      ],
+      "autorizacion_o_base_uso": "Cubierta proporcionada en la ficha oficial de la edición para su identificación bibliográfica, con atribución y enlace a la editorial. No se declara licencia abierta ni se reutiliza como imagen de Pinterest.",
+      "descripcion_breve": "Juan y la habichuela mágica, de Roald Dahl. Edición de Alfaguara en castellano, en tapa dura. Consta de 32 páginas. La editorial la incluye en a partir de 4 años. Publicación editorial: 2026-10-15.",
+      "descripcion_original_confirmada": true,
+      "edad_recomendada": "A partir de 4 años",
+      "edicion": "Tapa dura · Alfaguara",
+      "editorial": "Alfaguara",
+      "editorial_slug": "alfaguara",
+      "estado": "publicado",
+      "fecha_actualizacion": "2026-10-21",
+      "fecha_publicacion": "2026-10-15",
+      "fecha_verificacion": "2026-10-21",
+      "formato_edicion": "tapa-dura",
+      "fuente_bibliografica_url": "https://www.penguinlibros.com/es/libros-infantiles-4-anos/634629-libro-juan-y-la-habichuela-magica-9791388277030",
+      "fuente_edad_url": "https://www.penguinlibros.com/es/libros-infantiles-4-anos/634629-libro-juan-y-la-habichuela-magica-9791388277030",
+      "fuente_publicacion_url": "https://www.penguinlibros.com/es/libros-infantiles-4-anos/634629-libro-juan-y-la-habichuela-magica-9791388277030",
+      "id": "isbn-9791388277030",
+      "idioma": "es",
+      "isbn13": "9791388277030",
+      "numero_paginas": 32,
+      "portada_alto": 1235,
+      "portada_ancho": 800,
+      "portada_edicion_verificada": true,
+      "portada_fecha_revision": "2026-10-21",
+      "portada_fuente_url": "https://www.penguinlibros.com/es/8278611-thickbox_default/juan-y-la-habichuela-magica.jpg",
+      "portada_local": "/assets/reading-covers/isbn-9791388277030.webp",
+      "pvp_centimos": 1695,
+      "pvp_fecha_verificacion": "2026-10-21",
+      "resenas": [
+        {
+          "fecha_verificacion": "2026-10-21",
+          "titulo": "Buscar reseñas en Goodreads",
+          "url": "https://www.goodreads.com/search?q=9791388277030"
+        }
+      ],
+      "sinopsis_breve": "Juan cambia la vaca de la familia por una sola habichuela. Parece un mal negocio... hasta que la habichuela crece y crece convirtiéndose en…",
+      "sinopsis_fuente_url": "https://www.penguinlibros.com/es/libros-infantiles-4-anos/634629-libro-juan-y-la-habichuela-magica-9791388277030",
+      "sinopsis_tipo": "extracto_editorial",
+      "slug": "juan-y-la-habichuela-magica-9791388277030",
+      "titulo": "Juan y la habichuela mágica"
+    },
+    {
+      "amazon_busqueda_isbn": "https://www.amazon.es/s?k=9788466396806&tag=davidporto-21",
+      "anio_publicacion": 2026,
+      "autores": [
+        "Stephen King"
+      ],
+      "autorizacion_o_base_uso": "Cubierta proporcionada en la ficha oficial de la edición para su identificación bibliográfica, con atribución y enlace a la editorial. No se declara licencia abierta ni se reutiliza como imagen de Pinterest.",
+      "descripcion_breve": "Carrie (edición serie), de Stephen King. Edición de Penguin Bolsillo en castellano, en bolsillo. Consta de 256 páginas. La editorial la incluye en novela negra, misterio y thriller. Publicación editorial: 2026-10-19.",
+      "descripcion_original_confirmada": true,
+      "edad_recomendada": "Adultos",
+      "edicion": "Bolsillo · Penguin Bolsillo",
+      "editorial": "Penguin Bolsillo",
+      "editorial_catalogo_slug": "penguin-bolsillo",
+      "estado": "publicado",
+      "fecha_actualizacion": "2026-10-21",
+      "fecha_publicacion": "2026-10-19",
+      "fecha_verificacion": "2026-10-21",
+      "formato_edicion": "tapa-blanda",
+      "fuente_bibliografica_url": "https://www.penguinlibros.com/es/novela-negra-misterio-y-thriller/641074-libro-carrie-edicion-serie-9788466396806",
+      "fuente_edad_url": "https://www.penguinlibros.com/es/novela-negra-misterio-y-thriller/641074-libro-carrie-edicion-serie-9788466396806",
+      "fuente_publicacion_url": "https://www.penguinlibros.com/es/novela-negra-misterio-y-thriller/641074-libro-carrie-edicion-serie-9788466396806",
+      "id": "isbn-9788466396806",
+      "idioma": "es",
+      "isbn13": "9788466396806",
+      "numero_paginas": 256,
+      "portada_alto": 1235,
+      "portada_ancho": 800,
+      "portada_edicion_verificada": true,
+      "portada_fecha_revision": "2026-10-21",
+      "portada_fuente_url": "https://www.penguinlibros.com/es/8262186-thickbox_default/carrie-edicion-serie.jpg",
+      "portada_local": "/assets/reading-covers/isbn-9788466396806.webp",
+      "pvp_centimos": 1195,
+      "pvp_fecha_verificacion": "2026-10-21",
+      "resenas": [
+        {
+          "fecha_verificacion": "2026-10-21",
+          "titulo": "Buscar reseñas en Goodreads",
+          "url": "https://www.goodreads.com/search?q=9788466396806"
+        }
+      ],
+      "sinopsis_breve": "Carrie, una joven de apariencia insignificante, acosada por sus compañeras de instituto, vive con su madre, una fanática religiosa. Un día en las duchas…",
+      "sinopsis_fuente_url": "https://www.penguinlibros.com/es/novela-negra-misterio-y-thriller/641074-libro-carrie-edicion-serie-9788466396806",
+      "sinopsis_tipo": "extracto_editorial",
+      "slug": "carrie-edicion-serie-9788466396806",
+      "titulo": "Carrie (edición serie)"
+    },
+    {
+      "amazon_busqueda_isbn": "https://www.amazon.es/s?k=9780241837986&tag=davidporto-21",
+      "anio_publicacion": 2026,
+      "autores": [
+        "Ruby Russo"
+      ],
+      "autorizacion_o_base_uso": "Cubierta proporcionada en la ficha oficial de la edición para su identificación bibliográfica, con atribución y enlace a la editorial. No se declara licencia abierta ni se reutiliza como imagen de Pinterest.",
+      "descripcion_breve": "LEGO® Friends - LEGO Friends Rescatadoras de mascotas: ¡Fuga de conejitos!, de Ruby Russo. Edición de DK en castellano, en tapa dura. Consta de 128 páginas. La editorial la incluye en a partir de 7 años. Publicación editorial: 2026-10-15.",
+      "descripcion_original_confirmada": true,
+      "edad_recomendada": "A partir de 7 años",
+      "edicion": "Tapa dura · DK",
+      "editorial": "DK",
+      "editorial_catalogo_slug": "dk",
+      "estado": "publicado",
+      "fecha_actualizacion": "2026-10-21",
+      "fecha_publicacion": "2026-10-15",
+      "fecha_verificacion": "2026-10-21",
+      "formato_edicion": "tapa-dura",
+      "fuente_bibliografica_url": "https://www.penguinlibros.com/es/libros-ninos-7-anos/634727-libro-lego-friends-lego-friends-rescatadoras-de-mascotas-fuga-de-conejitos-9780241837986",
+      "fuente_edad_url": "https://www.penguinlibros.com/es/libros-ninos-7-anos/634727-libro-lego-friends-lego-friends-rescatadoras-de-mascotas-fuga-de-conejitos-9780241837986",
+      "fuente_publicacion_url": "https://www.penguinlibros.com/es/libros-ninos-7-anos/634727-libro-lego-friends-lego-friends-rescatadoras-de-mascotas-fuga-de-conejitos-9780241837986",
+      "id": "isbn-9780241837986",
+      "idioma": "es",
+      "isbn13": "9780241837986",
+      "numero_paginas": 128,
+      "portada_alto": 1235,
+      "portada_ancho": 800,
+      "portada_edicion_verificada": true,
+      "portada_fecha_revision": "2026-10-21",
+      "portada_fuente_url": "https://www.penguinlibros.com/es/8019065-thickbox_default/lego-friends-lego-friends-rescatadoras-de-mascotas-fuga-de-conejitos.jpg",
+      "portada_local": "/assets/reading-covers/isbn-9780241837986.webp",
+      "pvp_centimos": 1490,
+      "pvp_fecha_verificacion": "2026-10-21",
+      "resenas": [
+        {
+          "fecha_verificacion": "2026-10-21",
+          "titulo": "Buscar reseñas en Goodreads",
+          "url": "https://www.goodreads.com/search?q=9780241837986"
+        }
+      ],
+      "sinopsis_breve": "Tras una fuerte tormenta, el refugio de animales de Heartlake queda dañado, y ahora las mejores amigas Nova, Autumn, Liann, Leo y Aliya tendrán…",
+      "sinopsis_fuente_url": "https://www.penguinlibros.com/es/libros-ninos-7-anos/634727-libro-lego-friends-lego-friends-rescatadoras-de-mascotas-fuga-de-conejitos-9780241837986",
+      "sinopsis_tipo": "extracto_editorial",
+      "slug": "lego-friends-lego-friends-rescatadoras-de-mascotas-fuga-de-conejitos-9780241837986",
+      "titulo": "LEGO® Friends - LEGO Friends Rescatadoras de mascotas: ¡Fuga de conejitos!"
+    },
+    {
+      "amazon_busqueda_isbn": "https://www.amazon.es/s?k=9788402431967&tag=davidporto-21",
+      "anio_publicacion": 2026,
+      "autores": [
+        "Gemma Correll"
+      ],
+      "autorizacion_o_base_uso": "Cubierta proporcionada en la ficha oficial de la edición para su identificación bibliográfica, con atribución y enlace a la editorial. No se declara licencia abierta ni se reutiliza como imagen de Pinterest.",
+      "descripcion_breve": "Ansiedad. ¿Cómo se sale de aquí?, de Gemma Correll. Edición de Bruguera en castellano, en tapa blanda con solapas. Consta de 448 páginas. La editorial la incluye en novela gráfica. Publicación editorial: 2026-09-23.",
+      "descripcion_original_confirmada": true,
+      "edad_recomendada": "Adultos",
+      "edicion": "Tapa blanda con solapas · Bruguera",
+      "editorial": "Bruguera",
+      "editorial_catalogo_slug": "bruguera",
+      "estado": "publicado",
+      "fecha_actualizacion": "2026-10-21",
+      "fecha_publicacion": "2026-09-23",
+      "fecha_verificacion": "2026-10-21",
+      "formato_edicion": "tapa-blanda",
+      "fuente_bibliografica_url": "https://www.penguinlibros.com/es/novela-grafica/631483-libro-ansiedad-como-se-sale-de-aqui-9788402431967",
+      "fuente_edad_url": "https://www.penguinlibros.com/es/novela-grafica/631483-libro-ansiedad-como-se-sale-de-aqui-9788402431967",
+      "fuente_publicacion_url": "https://www.penguinlibros.com/es/novela-grafica/631483-libro-ansiedad-como-se-sale-de-aqui-9788402431967",
+      "id": "isbn-9788402431967",
+      "idioma": "es",
+      "isbn13": "9788402431967",
+      "numero_paginas": 448,
+      "portada_alto": 1235,
+      "portada_ancho": 800,
+      "portada_edicion_verificada": true,
+      "portada_fecha_revision": "2026-10-21",
+      "portada_fuente_url": "https://www.penguinlibros.com/es/8059900-thickbox_default/ansiedad-como-se-sale-de-aqui.jpg",
+      "portada_local": "/assets/reading-covers/isbn-9788402431967.webp",
+      "pvp_centimos": 3295,
+      "pvp_fecha_verificacion": "2026-10-21",
+      "resenas": [
+        {
+          "fecha_verificacion": "2026-10-21",
+          "titulo": "Buscar reseñas en Goodreads",
+          "url": "https://www.goodreads.com/search?q=9788402431967"
+        }
+      ],
+      "sinopsis_breve": "Correll, una de las voces más reconocibles de la ilustración contemporánea, nos guía por el surrealista parque de atracciones que habita en su mente…",
+      "sinopsis_fuente_url": "https://www.penguinlibros.com/es/novela-grafica/631483-libro-ansiedad-como-se-sale-de-aqui-9788402431967",
+      "sinopsis_tipo": "extracto_editorial",
+      "slug": "ansiedad-como-se-sale-de-aqui-9788402431967",
+      "titulo": "Ansiedad. ¿Cómo se sale de aquí?"
+    },
+    {
+      "amazon_busqueda_isbn": "https://www.amazon.es/s?k=9788403526761&tag=davidporto-21",
+      "anio_publicacion": 2026,
+      "autores": [
+        "Leslie John"
+      ],
+      "autorizacion_o_base_uso": "Cubierta proporcionada en la ficha oficial de la edición para su identificación bibliográfica, con atribución y enlace a la editorial. No se declara licencia abierta ni se reutiliza como imagen de Pinterest.",
+      "descripcion_breve": "Sin filtro, de Leslie John. Edición de Aguilar en castellano, en tapa blanda con solapas. Consta de 320 páginas. La editorial la incluye en autoayuda. Publicación editorial: 2026-10-08.",
+      "descripcion_original_confirmada": true,
+      "edad_recomendada": "Adultos",
+      "edicion": "Tapa blanda con solapas · Aguilar",
+      "editorial": "Aguilar",
+      "editorial_catalogo_slug": "aguilar",
+      "estado": "publicado",
+      "fecha_actualizacion": "2026-10-21",
+      "fecha_publicacion": "2026-10-08",
+      "fecha_verificacion": "2026-10-21",
+      "formato_edicion": "tapa-blanda",
+      "fuente_bibliografica_url": "https://www.penguinlibros.com/es/libros-autoayuda/634612-libro-sin-filtro-9788403526761",
+      "fuente_edad_url": "https://www.penguinlibros.com/es/libros-autoayuda/634612-libro-sin-filtro-9788403526761",
+      "fuente_publicacion_url": "https://www.penguinlibros.com/es/libros-autoayuda/634612-libro-sin-filtro-9788403526761",
+      "id": "isbn-9788403526761",
+      "idioma": "es",
+      "isbn13": "9788403526761",
+      "numero_paginas": 320,
+      "portada_alto": 1235,
+      "portada_ancho": 800,
+      "portada_edicion_verificada": true,
+      "portada_fecha_revision": "2026-10-21",
+      "portada_fuente_url": "https://www.penguinlibros.com/es/7890559-thickbox_default/sin-filtro.jpg",
+      "portada_local": "/assets/reading-covers/isbn-9788403526761.webp",
+      "pvp_centimos": 2190,
+      "pvp_fecha_verificacion": "2026-10-21",
+      "resenas": [
+        {
+          "fecha_verificacion": "2026-10-21",
+          "titulo": "Buscar reseñas en Goodreads",
+          "url": "https://www.goodreads.com/search?q=9788403526761"
+        }
+      ],
+      "sinopsis_breve": "Vivimos con miedo a hablar de más, y eso muchas veces nos lleva a guardar silencio, ocultar nuestras emociones y evitar mostrarnos como somos.…",
+      "sinopsis_fuente_url": "https://www.penguinlibros.com/es/libros-autoayuda/634612-libro-sin-filtro-9788403526761",
+      "sinopsis_tipo": "extracto_editorial",
+      "slug": "sin-filtro-9788403526761",
+      "titulo": "Sin filtro"
+    },
+    {
+      "amazon_busqueda_isbn": "https://www.amazon.es/s?k=9791387962050&tag=davidporto-21",
+      "anio_publicacion": 2026,
+      "autores": [
+        "KKAM",
+        "3_jokseom"
+      ],
+      "autorizacion_o_base_uso": "Cubierta proporcionada en la ficha oficial de la edición para su identificación bibliográfica, con atribución y enlace a la editorial. No se declara licencia abierta ni se reutiliza como imagen de Pinterest.",
+      "descripcion_breve": "Para Dafne 2, de KKAM, 3_jokseom. Edición de Distrito Manga en castellano, en tapa blanda con solapas. Consta de 288 páginas. La editorial la incluye en manga. Publicación editorial: 2026-10-01.",
+      "descripcion_original_confirmada": true,
+      "edad_recomendada": "Adultos",
+      "edicion": "Tapa blanda con solapas · Distrito Manga",
+      "editorial": "Distrito Manga",
+      "editorial_catalogo_slug": "distrito-manga",
+      "estado": "publicado",
+      "fecha_actualizacion": "2026-10-21",
+      "fecha_publicacion": "2026-10-01",
+      "fecha_verificacion": "2026-10-21",
+      "formato_edicion": "tapa-blanda",
+      "fuente_bibliografica_url": "https://www.penguinlibros.com/es/manga-comic/634713-libro-para-dafne-2-9791387962050",
+      "fuente_edad_url": "https://www.penguinlibros.com/es/manga-comic/634713-libro-para-dafne-2-9791387962050",
+      "fuente_publicacion_url": "https://www.penguinlibros.com/es/manga-comic/634713-libro-para-dafne-2-9791387962050",
+      "id": "isbn-9791387962050",
+      "idioma": "es",
+      "isbn13": "9791387962050",
+      "numero_paginas": 288,
+      "portada_alto": 1235,
+      "portada_ancho": 800,
+      "portada_edicion_verificada": true,
+      "portada_fecha_revision": "2026-10-21",
+      "portada_fuente_url": "https://www.penguinlibros.com/es/8238415-thickbox_default/para-dafne-2.jpg",
+      "portada_local": "/assets/reading-covers/isbn-9791387962050.webp",
+      "pvp_centimos": 1795,
+      "pvp_fecha_verificacion": "2026-10-21",
+      "resenas": [
+        {
+          "fecha_verificacion": "2026-10-21",
+          "titulo": "Buscar reseñas en Goodreads",
+          "url": "https://www.goodreads.com/search?q=9791387962050"
+        }
+      ],
+      "sinopsis_breve": "Bajo un Sol arrogante que confunde el rechazo con un capricho, Dafne se va apagando. La culpa de estar destruyéndose a sí misma y…",
+      "sinopsis_fuente_url": "https://www.penguinlibros.com/es/manga-comic/634713-libro-para-dafne-2-9791387962050",
+      "sinopsis_tipo": "extracto_editorial",
+      "slug": "para-dafne-2-9791387962050",
+      "titulo": "Para Dafne 2"
+    },
+    {
+      "amazon_busqueda_isbn": "https://www.amazon.es/s?k=9788402431486&tag=davidporto-21",
+      "anio_publicacion": 2026,
+      "autores": [
+        "Ana Galeote Frontelo"
+      ],
+      "autorizacion_o_base_uso": "Cubierta proporcionada en la ficha oficial de la edición para su identificación bibliográfica, con atribución y enlace a la editorial. No se declara licencia abierta ni se reutiliza como imagen de Pinterest.",
+      "descripcion_breve": "Uketamo. Abrazar la vida tal cual viene, de Ana Galeote Frontelo. Edición de Bruguera en castellano, en tapa blanda con solapas. Consta de 208 páginas. La editorial la incluye en religión y espiritualidad. Publicación editorial: 2026-10-08.",
+      "descripcion_original_confirmada": true,
+      "edad_recomendada": "Adultos",
+      "edicion": "Tapa blanda con solapas · Bruguera",
+      "editorial": "Bruguera",
+      "editorial_catalogo_slug": "bruguera",
+      "estado": "publicado",
+      "fecha_actualizacion": "2026-10-21",
+      "fecha_publicacion": "2026-10-08",
+      "fecha_verificacion": "2026-10-21",
+      "formato_edicion": "tapa-blanda",
+      "fuente_bibliografica_url": "https://www.penguinlibros.com/es/libros-de-espiritualidad/634662-libro-uketamo-abrazar-la-vida-tal-cual-viene-9788402431486",
+      "fuente_edad_url": "https://www.penguinlibros.com/es/libros-de-espiritualidad/634662-libro-uketamo-abrazar-la-vida-tal-cual-viene-9788402431486",
+      "fuente_publicacion_url": "https://www.penguinlibros.com/es/libros-de-espiritualidad/634662-libro-uketamo-abrazar-la-vida-tal-cual-viene-9788402431486",
+      "id": "isbn-9788402431486",
+      "idioma": "es",
+      "isbn13": "9788402431486",
+      "numero_paginas": 208,
+      "portada_alto": 1235,
+      "portada_ancho": 800,
+      "portada_edicion_verificada": true,
+      "portada_fecha_revision": "2026-10-21",
+      "portada_fuente_url": "https://www.penguinlibros.com/es/8087385-thickbox_default/uketamo-abrazar-la-vida-tal-cual-viene.jpg",
+      "portada_local": "/assets/reading-covers/isbn-9788402431486.webp",
+      "pvp_centimos": 2095,
+      "pvp_fecha_verificacion": "2026-10-21",
+      "resenas": [
+        {
+          "fecha_verificacion": "2026-10-21",
+          "titulo": "Buscar reseñas en Goodreads",
+          "url": "https://www.goodreads.com/search?q=9788402431486"
+        }
+      ],
+      "sinopsis_breve": "A casi seis mil metros de altura, en el oscuro ascenso al Kilimanjaro, la antropóloga y fisioterapeuta Ana Galeote sintió que llegaba al límite.…",
+      "sinopsis_fuente_url": "https://www.penguinlibros.com/es/libros-de-espiritualidad/634662-libro-uketamo-abrazar-la-vida-tal-cual-viene-9788402431486",
+      "sinopsis_tipo": "extracto_editorial",
+      "slug": "uketamo-abrazar-la-vida-tal-cual-viene-9788402431486",
+      "titulo": "Uketamo. Abrazar la vida tal cual viene"
+    },
+    {
+      "amazon_busqueda_isbn": "https://www.amazon.es/s?k=9780241837979&tag=davidporto-21",
+      "anio_publicacion": 2026,
+      "autores": [
+        "Jed King"
+      ],
+      "autorizacion_o_base_uso": "Cubierta proporcionada en la ficha oficial de la edición para su identificación bibliográfica, con atribución y enlace a la editorial. No se declara licencia abierta ni se reutiliza como imagen de Pinterest.",
+      "descripcion_breve": "LEGO® Ninjago - La pluma del destino: El ataque del guardián de los pergaminos, de Jed King. Edición de DK en castellano, en tapa dura. Consta de 128 páginas. La editorial la incluye en a partir de 7 años. Publicación editorial: 2026-10-15.",
+      "descripcion_original_confirmada": true,
+      "edad_recomendada": "A partir de 7 años",
+      "edicion": "Tapa dura · DK",
+      "editorial": "DK",
+      "editorial_catalogo_slug": "dk",
+      "estado": "publicado",
+      "fecha_actualizacion": "2026-10-21",
+      "fecha_publicacion": "2026-10-15",
+      "fecha_verificacion": "2026-10-21",
+      "formato_edicion": "tapa-dura",
+      "fuente_bibliografica_url": "https://www.penguinlibros.com/es/libros-ninos-7-anos/634726-libro-lego-ninjago-la-pluma-del-destino-el-ataque-del-guardian-de-los-pergaminos-9780241837979",
+      "fuente_edad_url": "https://www.penguinlibros.com/es/libros-ninos-7-anos/634726-libro-lego-ninjago-la-pluma-del-destino-el-ataque-del-guardian-de-los-pergaminos-9780241837979",
+      "fuente_publicacion_url": "https://www.penguinlibros.com/es/libros-ninos-7-anos/634726-libro-lego-ninjago-la-pluma-del-destino-el-ataque-del-guardian-de-los-pergaminos-9780241837979",
+      "id": "isbn-9780241837979",
+      "idioma": "es",
+      "isbn13": "9780241837979",
+      "numero_paginas": 128,
+      "portada_alto": 1235,
+      "portada_ancho": 800,
+      "portada_edicion_verificada": true,
+      "portada_fecha_revision": "2026-10-21",
+      "portada_fuente_url": "https://www.penguinlibros.com/es/8019058-thickbox_default/lego-ninjago-la-pluma-del-destino-el-ataque-del-guardian-de-los-pergaminos.jpg",
+      "portada_local": "/assets/reading-covers/isbn-9780241837979.webp",
+      "pvp_centimos": 1490,
+      "pvp_fecha_verificacion": "2026-10-21",
+      "resenas": [
+        {
+          "fecha_verificacion": "2026-10-21",
+          "titulo": "Buscar reseñas en Goodreads",
+          "url": "https://www.goodreads.com/search?q=9780241837979"
+        }
+      ],
+      "sinopsis_breve": "Cuando Dex, el Guardián de los Pergaminos, se vuelve incontrolable y roba una antigua pluma de los archivos, los jóvenes Maestros Elementales Euphrasia y…",
+      "sinopsis_fuente_url": "https://www.penguinlibros.com/es/libros-ninos-7-anos/634726-libro-lego-ninjago-la-pluma-del-destino-el-ataque-del-guardian-de-los-pergaminos-9780241837979",
+      "sinopsis_tipo": "extracto_editorial",
+      "slug": "lego-ninjago-la-pluma-del-destino-el-ataque-del-guardian-de-los-pergaminos-9780241837979",
+      "titulo": "LEGO® Ninjago - La pluma del destino: El ataque del guardián de los pergaminos"
+    },
+    {
+      "amazon_busqueda_isbn": "https://www.amazon.es/s?k=9788403525238&tag=davidporto-21",
+      "anio_publicacion": 2026,
+      "autores": [
+        "Jessica Ramos"
+      ],
+      "autorizacion_o_base_uso": "Cubierta proporcionada en la ficha oficial de la edición para su identificación bibliográfica, con atribución y enlace a la editorial. No se declara licencia abierta ni se reutiliza como imagen de Pinterest.",
+      "descripcion_breve": "El alma de las especias, de Jessica Ramos. Edición de Aguilar en castellano, en tapa blanda con solapas. Consta de 448 páginas. La editorial la incluye en cocina. Publicación editorial: 2026-05-28.",
+      "descripcion_original_confirmada": true,
+      "edad_recomendada": "Adultos",
+      "edicion": "Tapa blanda con solapas · Aguilar",
+      "editorial": "Aguilar",
+      "editorial_catalogo_slug": "aguilar",
+      "estado": "publicado",
+      "fecha_actualizacion": "2026-10-21",
+      "fecha_publicacion": "2026-05-28",
+      "fecha_verificacion": "2026-10-21",
+      "formato_edicion": "tapa-blanda",
+      "fuente_bibliografica_url": "https://www.penguinlibros.com/es/libros-de-cocina/616663-libro-el-alma-de-las-especias-9788403525238",
+      "fuente_edad_url": "https://www.penguinlibros.com/es/libros-de-cocina/616663-libro-el-alma-de-las-especias-9788403525238",
+      "fuente_publicacion_url": "https://www.penguinlibros.com/es/libros-de-cocina/616663-libro-el-alma-de-las-especias-9788403525238",
+      "id": "isbn-9788403525238",
+      "idioma": "es",
+      "isbn13": "9788403525238",
+      "numero_paginas": 448,
+      "portada_alto": 1235,
+      "portada_ancho": 800,
+      "portada_edicion_verificada": true,
+      "portada_fecha_revision": "2026-10-21",
+      "portada_fuente_url": "https://www.penguinlibros.com/es/7679583-thickbox_default/el-alma-de-las-especias.jpg",
+      "portada_local": "/assets/reading-covers/isbn-9788403525238.webp",
+      "pvp_centimos": 2290,
+      "pvp_fecha_verificacion": "2026-10-21",
+      "resenas": [
+        {
+          "fecha_verificacion": "2026-10-21",
+          "titulo": "Buscar reseñas en Goodreads",
+          "url": "https://www.goodreads.com/search?q=9788403525238"
+        }
+      ],
+      "sinopsis_breve": "En este libro Jessica Ramos, creadora de la marca Todoespecias, escoge cuarenta plantas y especias y se hunde hasta lo más profundo de sus…",
+      "sinopsis_fuente_url": "https://www.penguinlibros.com/es/libros-de-cocina/616663-libro-el-alma-de-las-especias-9788403525238",
+      "sinopsis_tipo": "extracto_editorial",
+      "slug": "el-alma-de-las-especias-9788403525238",
+      "titulo": "El alma de las especias"
+    },
+    {
+      "amazon_busqueda_isbn": "https://www.amazon.es/s?k=9791388092268&tag=davidporto-21",
+      "anio_publicacion": 2026,
+      "autores": [
+        "Martín Berasategui",
+        "David de Jorge"
+      ],
+      "autorizacion_o_base_uso": "Cubierta proporcionada en la ficha oficial de la edición para su identificación bibliográfica, con atribución y enlace a la editorial. No se declara licencia abierta ni se reutiliza como imagen de Pinterest.",
+      "descripcion_breve": "Ponte fino, de Martín Berasategui, David de Jorge. Edición de Debate en castellano, en tapa dura. Consta de 208 páginas. La editorial la incluye en cocina. Publicación editorial: 2026-11-05.",
+      "descripcion_original_confirmada": true,
+      "edad_recomendada": "Adultos",
+      "edicion": "Tapa dura · Debate",
+      "editorial": "Debate",
+      "editorial_catalogo_slug": "debate",
+      "estado": "publicado",
+      "fecha_actualizacion": "2026-10-21",
+      "fecha_publicacion": "2026-11-05",
+      "fecha_verificacion": "2026-10-21",
+      "formato_edicion": "tapa-dura",
+      "fuente_bibliografica_url": "https://www.penguinlibros.com/es/libros-de-cocina/637431-libro-ponte-fino-9791388092268",
+      "fuente_edad_url": "https://www.penguinlibros.com/es/libros-de-cocina/637431-libro-ponte-fino-9791388092268",
+      "fuente_publicacion_url": "https://www.penguinlibros.com/es/libros-de-cocina/637431-libro-ponte-fino-9791388092268",
+      "id": "isbn-9791388092268",
+      "idioma": "es",
+      "isbn13": "9791388092268",
+      "numero_paginas": 208,
+      "portada_alto": 1235,
+      "portada_ancho": 800,
+      "portada_edicion_verificada": true,
+      "portada_fecha_revision": "2026-10-21",
+      "portada_fuente_url": "https://www.penguinlibros.com/es/8198704-thickbox_default/ponte-fino.jpg",
+      "portada_local": "/assets/reading-covers/isbn-9791388092268.webp",
+      "pvp_centimos": 2490,
+      "pvp_fecha_verificacion": "2026-10-21",
+      "resenas": [
+        {
+          "fecha_verificacion": "2026-10-21",
+          "titulo": "Buscar reseñas en Goodreads",
+          "url": "https://www.goodreads.com/search?q=9791388092268"
+        }
+      ],
+      "sinopsis_breve": "Martín Berasategui y David de Jorge han reunido sus recetas favoritas para que cualquiera pueda montar un festín sin perder la paciencia ni la…",
+      "sinopsis_fuente_url": "https://www.penguinlibros.com/es/libros-de-cocina/637431-libro-ponte-fino-9791388092268",
+      "sinopsis_tipo": "extracto_editorial",
+      "slug": "ponte-fino-9791388092268",
+      "titulo": "Ponte fino"
+    },
+    {
+      "amazon_busqueda_isbn": "https://www.amazon.es/s?k=9791388038280&tag=davidporto-21",
+      "anio_publicacion": 2026,
+      "autores": [
+        "Carlos Rodríguez Lorenzo"
+      ],
+      "autorizacion_o_base_uso": "Cubierta proporcionada en la ficha oficial de la edición para su identificación bibliográfica, con atribución y enlace a la editorial. No se declara licencia abierta ni se reutiliza como imagen de Pinterest.",
+      "descripcion_breve": "Cuando tu hijo te habla peor que a nadie, de Carlos Rodríguez Lorenzo. Edición de Vergara en castellano, en tapa blanda con solapas. Consta de 288 páginas. La editorial la incluye en familia y crianza. Publicación editorial: 2026-10-15.",
+      "descripcion_original_confirmada": true,
+      "edad_recomendada": "Adultos",
+      "edicion": "Tapa blanda con solapas · Vergara",
+      "editorial": "Vergara",
+      "editorial_catalogo_slug": "vergara",
+      "estado": "publicado",
+      "fecha_actualizacion": "2026-10-21",
+      "fecha_publicacion": "2026-10-15",
+      "fecha_verificacion": "2026-10-21",
+      "formato_edicion": "tapa-blanda",
+      "fuente_bibliografica_url": "https://www.penguinlibros.com/es/libros-crianza/635120-libro-cuando-tu-hijo-te-habla-peor-que-a-nadie-9791388038280",
+      "fuente_edad_url": "https://www.penguinlibros.com/es/libros-crianza/635120-libro-cuando-tu-hijo-te-habla-peor-que-a-nadie-9791388038280",
+      "fuente_publicacion_url": "https://www.penguinlibros.com/es/libros-crianza/635120-libro-cuando-tu-hijo-te-habla-peor-que-a-nadie-9791388038280",
+      "id": "isbn-9791388038280",
+      "idioma": "es",
+      "isbn13": "9791388038280",
+      "numero_paginas": 288,
+      "portada_alto": 1235,
+      "portada_ancho": 800,
+      "portada_edicion_verificada": true,
+      "portada_fecha_revision": "2026-10-21",
+      "portada_fuente_url": "https://www.penguinlibros.com/es/7886762-thickbox_default/cuando-tu-hijo-te-habla-peor-que-a-nadie.jpg",
+      "portada_local": "/assets/reading-covers/isbn-9791388038280.webp",
+      "pvp_centimos": 2190,
+      "pvp_fecha_verificacion": "2026-10-21",
+      "resenas": [
+        {
+          "fecha_verificacion": "2026-10-21",
+          "titulo": "Buscar reseñas en Goodreads",
+          "url": "https://www.goodreads.com/search?q=9791388038280"
+        }
+      ],
+      "sinopsis_breve": "A través de la neurociencia, la inteligencia emocional y con un tono cercano, Carlos Rodríguez comparte herramientas prácticas, reflexiones y situaciones del día a…",
+      "sinopsis_fuente_url": "https://www.penguinlibros.com/es/libros-crianza/635120-libro-cuando-tu-hijo-te-habla-peor-que-a-nadie-9791388038280",
+      "sinopsis_tipo": "extracto_editorial",
+      "slug": "cuando-tu-hijo-te-habla-peor-que-a-nadie-9791388038280",
+      "titulo": "Cuando tu hijo te habla peor que a nadie"
+    },
+    {
+      "amazon_busqueda_isbn": "https://www.amazon.es/s?k=9788402431332&tag=davidporto-21",
+      "anio_publicacion": 2026,
+      "autores": [
+        "Angie Gil Ribera"
+      ],
+      "autorizacion_o_base_uso": "Cubierta proporcionada en la ficha oficial de la edición para su identificación bibliográfica, con atribución y enlace a la editorial. No se declara licencia abierta ni se reutiliza como imagen de Pinterest.",
+      "descripcion_breve": "Cariño, ¿y este recibo?, de Angie Gil Ribera. Edición de Bruguera en castellano, en tapa blanda con solapas. Consta de 192 páginas. La editorial la incluye en business. Publicación editorial: 2026-10-08.",
+      "descripcion_original_confirmada": true,
+      "edad_recomendada": "Adultos",
+      "edicion": "Tapa blanda con solapas · Bruguera",
+      "editorial": "Bruguera",
+      "editorial_catalogo_slug": "bruguera",
+      "estado": "publicado",
+      "fecha_actualizacion": "2026-10-21",
+      "fecha_publicacion": "2026-10-08",
+      "fecha_verificacion": "2026-10-21",
+      "formato_edicion": "tapa-blanda",
+      "fuente_bibliografica_url": "https://www.penguinlibros.com/es/libro-de-negocio/634661-libro-carino-y-este-recibo-9788402431332",
+      "fuente_edad_url": "https://www.penguinlibros.com/es/libro-de-negocio/634661-libro-carino-y-este-recibo-9788402431332",
+      "fuente_publicacion_url": "https://www.penguinlibros.com/es/libro-de-negocio/634661-libro-carino-y-este-recibo-9788402431332",
+      "id": "isbn-9788402431332",
+      "idioma": "es",
+      "isbn13": "9788402431332",
+      "numero_paginas": 192,
+      "portada_alto": 1235,
+      "portada_ancho": 800,
+      "portada_edicion_verificada": true,
+      "portada_fecha_revision": "2026-10-21",
+      "portada_fuente_url": "https://www.penguinlibros.com/es/8087373-thickbox_default/carino-y-este-recibo.jpg",
+      "portada_local": "/assets/reading-covers/isbn-9788402431332.webp",
+      "pvp_centimos": 1995,
+      "pvp_fecha_verificacion": "2026-10-21",
+      "resenas": [
+        {
+          "fecha_verificacion": "2026-10-21",
+          "titulo": "Buscar reseñas en Goodreads",
+          "url": "https://www.goodreads.com/search?q=9788402431332"
+        }
+      ],
+      "sinopsis_breve": "En este libro, la coach financiera Angie Gil te ofrece herramientas prácticas, ejercicios y estrategias sencillas para mejorarla comunicación y construir los hábitos financieros…",
+      "sinopsis_fuente_url": "https://www.penguinlibros.com/es/libro-de-negocio/634661-libro-carino-y-este-recibo-9788402431332",
+      "sinopsis_tipo": "extracto_editorial",
+      "slug": "carino-y-este-recibo-9788402431332",
+      "titulo": "Cariño, ¿y este recibo?"
     }
   ],
   "schema_version": 1
