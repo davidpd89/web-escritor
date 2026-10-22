@@ -108,7 +108,7 @@ La recopilación anterior es **estática, sobre el estado de `main` consultado**
 
 **¿Qué se gana?** Se podrá saber si las conversiones de *clic saliente* provienen del menú, libro propio o catálogo; nunca se afirmará que esos clics equivalen a ventas. Para *ventas* por fuente se requieren, cuando haya suficiente volumen, Tracking IDs aprobados en la cuenta e informes de Amazon ([ayuda oficial](https://afiliados.amazon.es/help/node/topic/GK5TZZ4AWML2QSLA)); no crear etiquetas por visitante, ni confundir evento GoatCounter con comisión real.
 
-**Criterios:** en un navegador local, un clic desde cada superficie genera el evento específico una sola vez; un clic a `amazon.es/stores/author/...` **no** genera `comprar-amazon`; `amazon.es.evil.example` tampoco; el modal Samuel no duplica; el banner común apunta a la misma ruta de compra que antes. Ejecutar `scripts/check-analytics-taxonomy.py --check` y smoke de navegación solo cuando se autoricen pruebas. Hay una PR hija separada de implementación para no ensuciar este documento y no modificar la web antes de QA.
+**Criterios:** en un navegador local, un clic desde cada superficie genera el evento específico una sola vez; un clic a `amazon.es/stores/author/...` **no** genera `comprar-amazon`; `amazon.es.evil.example` tampoco; el modal Samuel no duplica; el banner común apunta a la misma ruta de compra que antes. Ejecutar `scripts/check-analytics-taxonomy.py --check` y smoke de navegación solo cuando se autoricen pruebas. Implementación concreta preparada en la **[PR hija #720](https://github.com/davidpd89/web-escritor/pull/720)**: únicamente `script.js`, registro de eventos y pruebas diseñadas, NO ejecutadas. Se mantiene en draft hasta QA.
 
 ## Fuentes primarias consultadas (22-10-2026)
 
