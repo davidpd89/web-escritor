@@ -168,3 +168,11 @@ test('facetas heredadas: selección escalar solo marca valor exacto, no prefijo'
     ['fantasia',false],['fantasia-juvenil',true]
   ]);
 });
+
+
+test('URL del quiz: writeHash acepta escalares sin separarlos en caracteres',()=>{
+  const url=writeHash({genero:'fantasia',formato:'tapa-dura',q:'Coraline'});
+  assert.deepEqual(new URLSearchParams(url.slice(1)).getAll('genero'),['fantasia']);
+  assert.deepEqual(new URLSearchParams(url.slice(1)).getAll('formato'),['tapa-dura']);
+  assert.deepEqual(parseHash(url).formato,['tapa-dura']);
+});
