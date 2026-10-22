@@ -624,6 +624,9 @@ class ExistingCachedHTTPBridgeTests(unittest.TestCase):
                 self.CASES, self.HOSTS, as_of=TODAY,
                 cache_dir=cache, http=http)
             self.assertEqual(out["requests_physical"], 0)
+            # The production client counts cached robots.txt alongside pages:
+            # four distinct origins + five page URLs, not just five hits.
+            self.assertEqual(out["cache_hits"], len(origins) + len(html))
             self.assertEqual(len(out["results"]), 5)
             self.assertTrue(all(r["retrieval"] == "ok" for r in out["results"]))
             self.assertTrue(all(r["served_from_cache"] is True for r in out["results"]))
