@@ -104,6 +104,21 @@ try {
         && [...document.querySelector('#formato').selectedOptions].length===0;
     });
     assert.match(await page.locator('#count').innerText(),new RegExp('^'+total+' de '+total+' libros'));
+    // Romantasy y Viajes entre mundos siguen activos en la taxonomía, aunque
+    // hoy no tengan tarjetas. El selector debe permitir retirar ese valor,
+    // no borrarlo como si fuese un slug descatalogado.
+    await page.evaluate(()=>{ location.hash='genero=romantasy'; });
+    await page.waitForFunction(()=>{
+      return new URLSearchParams(location.hash.slice(1)).get('genero')==='romantasy'
+        && [...document.querySelector('#genero').selectedOptions].some(o=>o.value==='romantasy');
+    });
+    await page.evaluate(()=>{ location.hash='tematica=portales'; });
+    await page.waitForFunction(()=>{
+      return new URLSearchParams(location.hash.slice(1)).get('tematica')==='portales'
+        && [...document.querySelector('#tematica').selectedOptions].some(o=>o.value==='portales');
+    });
+    await page.getByRole('button',{name:'Quitar todos los filtros'}).click();
+    assert.match(await page.locator('#count').innerText(),new RegExp('^'+total+' de '+total+' libros'));
     assert.deepEqual(errors,[],'no JS errors '+width);
     await page.close();
   }
