@@ -75,6 +75,16 @@ class WikidataCandidateTests(unittest.TestCase):
         self.assertEqual(x["candidates"], [])
         self.assertEqual(x["rejected_ids"], ["Q123", "Qxx"])
 
+    def test_owner_p127_separate_from_parent_p749(self):
+        entity_data = entity()
+        entity_data["claims"]["P127"] = [statement({"id": "Q789"})]
+        data = module.candidates({"entities": {"Q123": entity_data}}, {"publishers": []})
+        found, = data["candidates"]
+        self.assertEqual(found["parent_qids"], ["Q11"])
+        self.assertEqual(found["owner_qids"], ["Q789"])
+        self.assertTrue(found["owner_or_parent_is_only_candidate"])
+        self.assertTrue(found["manual_review_required"])
+
     def test_unknown_identity_cannot_infer_company_or_manuscript_status(self):
         data = module.candidates({"entities": {"Q123": entity(
             label="La persona de nombre Editorial",
