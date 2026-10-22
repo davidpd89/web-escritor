@@ -196,3 +196,17 @@ Datos y fuentes originales: [editoriales-piloto-5-fuentes-2026-10-22.json](edito
 **Límite verificado:** el HTML completo no ha podido descargarse desde el contenedor por falta de acceso de red. El navegador de consulta devuelve texto renderizado, no bytes HTML ni cabeceras. Tampoco se pudo consultar robots.txt por navegador, así que CachedHTTP debe comprobarlo antes de cada acceso en el entorno ejecutor. **No se ha ejecutado el modo live ni la batería unittest del repositorio**; ningún éxito sintético anterior demuestra que las expresiones funcionen con todo el DOM real. Tampoco se ha activado CI, ninguna PR de publicación ni nuevo cron.
 
 **Próxima iteración útil:** ejecutar el comando en entorno autorizado, revisar cinco resultados y sus solicitudes reales, y corregir únicamente las expresiones/páginas que fallen. Después validar con el builder existente la ficha de Alienta y preparar la aprobación de un cambio de datos, sin añadir bibliotecas externas por anticipado.
+
+
+### Siguiente avance — validación real de Alienta con el builder existente
+
+Se ha incorporado **un test concreto, sin introducir otro módulo**, en `tests/test_gpt_editoriales_contact_evidence.py`: `AlientaRealBuilderContractTests.test_alienta_passes_builder_but_is_not_published`. El test carga el directorio vigente de `data/editoriales.json` y la propuesta de Alienta de esta PR, forma un JSON temporal, y llama al **mismo** `scripts/build-editoriales.py` que construye la web.
+
+Comprueba en dos etapas: (1) `publish=false` no altera el recuento ni crea páginas; (2) con `publish=true` **solo dentro del archivo temporal**, el constructor en `check_only=True` admitiría una ficha adicional sin escribir en el repositorio. También comprueba que no hay colisión de slug y que la propuesta tiene fuente primaria. De ese modo, **Cloud no necesita traducir a mano la ficha de investigación**: basta ejecutar el test contra el `main` correspondiente y corregir los fallos que arroje.
+
+**No ejecutado aún:** el contenedor de esta conversación no puede resolver GitHub ni las webs de editoriales; no se dispone aquí de un checkout del repositorio completo. No se debe presentar el test como verde ni la ficha como publicable. En un checkout con acceso:
+
+    python -m unittest discover -s tests -p 'test_gpt_editoriales_contact_evidence.py' -v
+
+Si el test pasa, el siguiente paso sería obtener los cinco HTML originales con `--live-pilot` mediante `CachedHTTP` y comparar las salidas. Los dos requisitos son complementarios: **datos válidos en builder** y **detección correcta en la fuente**. No añadir fichas a `main` hasta comprobar ambos.
+
