@@ -25,6 +25,14 @@ python -m http.server 8000
 
 **Activación posterior (no hacer antes de validar receptor):** combinar la página previsualizada con el HTML de `scripts/support_paypal_link.py` de la PR **#700**, proporcionando exclusivamente la URL auténtica del panel; añadir `apoyar/index.html` a las fuentes registradas como `public`, `support-project` al pie, regenerar shell y sitemap y verificar artefacto. No copiar la URL ficticia del test. **No se ha creado** `apoyar/index.html` ni `data/navigation.json` modificado en esta PR.
 
+## Sitemap: exclusión por carpeta, no solo por meta robots
+
+**Fallo detectado al revisar el generador existente:** `scripts/build-sitemap.py` recorre el repositorio con `os.walk()`; su `EXCLUDE_DIRS` no incluía `lab`. Una futura vista previa con canonical `/apoyar/` podría contaminar el sitemap si alguien eliminase por error el `noindex`.
+
+**Corrección aplicada:** `"lab"` en `EXCLUDE_DIRS`, y fixture en `tests/test-support-preview.py` que crea una página `lab/donaciones-preview/index.html` **intencionadamente sin `noindex`** junto a una home legítima; exige que `collect_urls()` descarte siempre la primera y conserve la segunda. El contrato es independiente de enlaces PayPal y Stripe y protege otros prototipos del repositorio.
+
+**Verificación realizada:** lectura del builder y los archivos modificados en GitHub; `sitemap.xml` versionado (331 URL) sin `/lab/` ni `/apoyar/`; fixture aislado de la misma poda `os.walk` OK. **Pendiente:** ejecutar `python tests/test-support-preview.py` y `python scripts/build-sitemap.py --check` en el árbol completo. No declarar esos comandos como ejecutados.
+
 ## Puerta de activación: prueba negativa y positiva
 
 `tests/test-support-release-gate.py` verifica automáticamente dos estados válidos sin pagar ni consultar redes:
