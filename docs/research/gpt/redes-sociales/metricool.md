@@ -83,6 +83,8 @@ Estos ocho registros son **candidatos**, no ocho tarjetas listas para publicar. 
 
 **Beneficio práctico contrastado:** se puede investigar qué ocho contadores proporciona la marca desde **una petición MCP** con el mismo código y una única revisión del contrato. La extracción sin intervención, el transporte a GitHub y la publicación de esas ocho redes siguen pendientes.
 
+**Integración incremental ya preparada:** la [PR #704](https://github.com/davidpd89/web-escritor/pull/704) acepta el resultado completo de este script (`metricool-follower-candidates`) y selecciona **solo Threads**; omite Bluesky del lote para mantener la lectura pública de #706 y no añade todavía Instagram/Facebook/TikTok/Pinterest/YouTube/X a la web. El enlace entre los módulos se ha probado localmente con **35 casos en total** (18 del lector multired, 7 de integración local y 10 de contrato del nuevo lote). **Esto no es una prueba del proceso automático de extracción ni de las 8 identidades.** La receta de checkout temporal, sin merge, queda en `ux.md` de #704.
+
 ## Puerta de integración: lo que funciona y lo que NO
 
 **Demostrado:** existencia y semántica `LAST` de `THEV01` en catálogo, llamada de lectura real con una fecha, estructura exacta de 2 columnas, normalización sin conexión y los 17 casos offline. Al simplificar, se eliminó toda obligación de consultar `THEV06`.
