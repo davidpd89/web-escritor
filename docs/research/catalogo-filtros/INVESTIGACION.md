@@ -122,6 +122,14 @@ Las cifras son un **snapshot del catálogo del 22-10-2026**, no límites fijos p
 
 **Corregido el test Playwright, no la web:** cuatro comprobaciones hacían `new URLSearchParams(location.hash)`. Node confirma que `#formato` no equivale a `formato`; se cambió por `location.hash.slice(1)`. El QA ahora usa `data-value` del código oficial Choices.js y cubre dos formatos, dos géneros y dos temáticas elegidos simultáneamente, además de enlaces obsoletos. Todos los módulos JS superan **comprobación sintáctica V8**, pero **no** se ha ejecutado aún Chromium con la rama completa. No marcar verde el navegador.
 
+## Incidencia verificada: una categoría activa puede tener cero libros
+
+La taxonomía de `data/reading-catalogue.json` contiene **54 categorías activas**. En el catálogo actual, **49 aparecen en las tarjetas** y cinco aún no tienen ninguna obra: `romantasy` (género), `portales` (temática), `magia-con-coste` (contenido), `navidad` y `verano` (temporada). **No son etiquetas obsoletas**.
+
+El primer laboratorio construía `master` filtrando `used.has(c.id)`, lo que confundía categoría activa sin libros con categoría eliminada. Al restaurar `#genero=romantasy`, `sanitizeFacetSelections()` borraba una selección legítima en vez de mantenerla visible a cero. **Corrección aplicada:** `master` toma **todas las categorías activas** de `genero` y `tematica`. `availableOptions()` oculta categorías sin libros cuando no están seleccionadas, pero conserva las seleccionadas con cuenta cero. Los slugs realmente inexistentes sí se depuran.
+
+**Comprobaciones:** prueba adicional de contrato de sanitización (ahora **16/16 casos superados en V8** con `URLSearchParams` mínimo compatible, **no** ejecutados aún como 16 pruebas nativas de Node); prueba de navegador escrita para restaurar `romantasy` y `portales` al cambiar el hash, aún sin ejecutar Playwright. En la primera ejecución de la prueba V8 se detectó un **error en la expectativa del fixture** (3 libros de Fantasía, no 2); corregido ese valor, la suite pasó 16/16. No se alteró el algoritmo para forzar el resultado.
+
 ## Riesgo real y condiciones para Claude
 
 La PR de implementación NO debe reemplazar `reading-catalogue.js` a ciegas: ya resuelve 24 fichas/página, sort, filtros financieros con caducidad, rating y test. Iniciar con **género y formato multiselección**, luego temática. El resto de facetas solo después de verificar que sus opciones producen resultados reales. Mantener el selector «Tipo de libro» exclusivo y su orden editorial salvo decisión posterior.
