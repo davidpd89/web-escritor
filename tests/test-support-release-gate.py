@@ -123,8 +123,8 @@ def release_errors(root: Path) -> list[str]:
     parser.feed(html)
     if parser.canonicals != ["https://davidportodiaz.com/apoyar/"]:
         errors.append("Canonical incorrecto o duplicado")
-    if not parser.robots or any("noindex" in item.lower() for item in parser.robots):
-        errors.append("Página pública debe tener robots indexable")
+    if any("noindex" in item.lower() for item in parser.robots):
+        errors.append("La página pública no puede declarar noindex")
     if not parser.methods:
         errors.append("No publicar una página vacía sin método de pago")
     for item in parser.methods:
@@ -195,6 +195,10 @@ def fixture_tests() -> None:
         nav["footer"]["Información"].append("support-project")
         write()
         assert release_errors(root) == []  # Activación estructural correcta
+        # El metatag robots es opcional: sin él la página también es indexable.
+        page.write_text(VALID_HTML.replace('<meta name="robots" content="index,follow">', ""), encoding="utf-8")
+        assert release_errors(root) == []  # Indexación predeterminada del navegador
+        page.write_text(VALID_HTML, encoding="utf-8")
         # HTMLParser decodifica &amp; en el href antes de validar la URL.
         localized = VALID_HTML.replace(
             "/ncp/payment/ABC123", "/ncp/payment/ABC123?locale.x=es_ES&amp;country.x=ES"
