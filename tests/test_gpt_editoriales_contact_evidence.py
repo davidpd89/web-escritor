@@ -435,6 +435,35 @@ class ExistingCachedHTTPBridgeTests(unittest.TestCase):
         self.assertEqual(output["retrieval_failures"], 1)
         self.assertFalse(output["published"])
 
+    def test_source_hash_and_retrieval_metrics_are_reported(self):
+        import hashlib
+        urls = RealSourceSnippetPilotTests.URLS
+        pages = {url: "<p>Contacto general</p>" for url in urls.values()}
+        fake = self.FakeHTTP(pages)
+        result = mod.run_live_pilot(self.CASES, self.HOSTS, as_of=TODAY,
+                                    cache_dir=Path(".ci/unused"), http=fake)
+        self.assertEqual(result["requests_physical"], 5)
+        sample = result["results"][0]
+        raw = pages[sample["source_url"]].encode("utf-8")
+        self.assertEqual(sample["content_sha256"], hashlib.sha256(raw).hexdigest())
+        self.assertEqual(sample["content_bytes"], len(raw))
+        self.assertIs(sample["served_from_cache"], False)
+        self.assertFalse(sample["publish"])
+
+    def test_fake_cache_hit_is_not_confused_with_new_download(self):
+        class CacheFake(self.FakeHTTP):
+            def get(self, url, *, ttl, limit):
+                content = super().get(url, ttl=ttl, limit=limit)
+                self.hits += 1
+                return content
+        pages = {url: "<p>Contacto general</p>"
+                 for url in RealSourceSnippetPilotTests.URLS.values()}
+        out = mod.run_live_pilot(self.CASES, self.HOSTS, as_of=TODAY,
+                                 cache_dir=Path(".ci/unused"), http=CacheFake(pages))
+        self.assertEqual(out["cache_hits"], 5)
+        self.assertTrue(all(r["served_from_cache"] is True for r in out["results"]))
+        self.assertFalse(out["published"])
+
     def test_failing_source_does_not_change_other_four(self):
         urls = RealSourceSnippetPilotTests.URLS
         fake = self.FakeHTTP({url: "<p>Contacto general</p>" for url in urls.values()},
