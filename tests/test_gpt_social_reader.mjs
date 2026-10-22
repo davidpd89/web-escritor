@@ -94,3 +94,25 @@ test('a new verified network also expires while the last-good JSON stays cached'
   assert.equal(output.totals.follower_relationships,9);
   assert.equal(output.totals.coverage,2);
 });
+
+test('impossibly distant valid_until never defeats 48-hour TTL', () => {
+  const x=fixture(); x.networks[0].valid_until='2099-01-01T00:00:00Z';
+  const visible=visibleSocialMetrics(x,NOW);
+  assert.equal(visible.networks[0].followers,null);
+  assert.equal(visible.totals.follower_relationships,0);
+});
+test('cached JSON older than 48h never accepts impossible future deadlines', () => {
+  const x=fixture(); x.networks[0].valid_until='2099-01-01T00:00:00Z';
+  x.networks[1].valid_until='2099-01-01T00:00:00Z';
+  const visible=visibleSocialMetrics(x,Date.parse('2026-10-26T10:00:00Z'));
+  assert.equal(visible.totals.follower_relationships,null);
+  assert.equal(visible.totals.coverage,0);
+});
+test('safe per-network integer values must not yield an imprecise total', () => {
+  const x=fixture();
+  x.networks[0].followers=Number.MAX_SAFE_INTEGER;
+  x.networks[1].followers=12;
+  const visible=visibleSocialMetrics(x,NOW);
+  assert.equal(visible.totals.coverage,2);
+  assert.equal(visible.totals.follower_relationships,null);
+});
