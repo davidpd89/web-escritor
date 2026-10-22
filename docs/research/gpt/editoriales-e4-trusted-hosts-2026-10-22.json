@@ -1,0 +1,72 @@
+{
+  "schema_version": 1,
+  "reviewed_on": "2026-10-22",
+  "warning": "Manual allowlist of official organization hosts reviewed against URLs in the linked audit. Do not merge into crawler allowlists without separate robots, legal and QA review.",
+  "publishers": {
+    "editorial-anagrama": {
+      "hosts": [
+        "www.anagrama-ed.es"
+      ]
+    },
+    "nocturna-ediciones": {
+      "hosts": [
+        "www.nocturnaediciones.com"
+      ]
+    },
+    "minotauro": {
+      "hosts": [
+        "www.planetadelibros.com"
+      ]
+    },
+    "editorial-planeta": {
+      "hosts": [
+        "www.planetadelibros.com"
+      ]
+    },
+    "tusquets-editores": {
+      "hosts": [
+        "www.planetadelibros.com"
+      ]
+    },
+    "alfaguara": {
+      "hosts": [
+        "www.penguinrandomhousegrupoeditorial.com"
+      ]
+    },
+    "salamandra": {
+      "hosts": [
+        "www.penguinrandomhousegrupoeditorial.com"
+      ]
+    },
+    "grijalbo": {
+      "hosts": [
+        "www.penguinrandomhousegrupoeditorial.com"
+      ]
+    },
+    "plaza-y-janes": {
+      "hosts": [
+        "www.penguinrandomhousegrupoeditorial.com"
+      ]
+    },
+    "bruguera": {
+      "hosts": [
+        "www.penguinrandomhousegrupoeditorial.com"
+      ]
+    },
+    "montena": {
+      "hosts": [
+        "www.penguinlibros.com"
+      ]
+    },
+    "beascoa": {
+      "hosts": [
+        "www.penguinrandomhousegrupoeditorial.com"
+      ]
+    },
+    "debate": {
+      "hosts": [
+        "www.penguinlibros.com"
+      ]
+    }
+  }
+}
