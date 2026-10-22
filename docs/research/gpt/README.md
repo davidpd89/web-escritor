@@ -47,8 +47,16 @@
 - **Hallazgo de fuente:** el Ministerio permite consulta ISBN, y su aviso legal contiene licencia general con atribución; sin embargo el [dataset oficial](https://datos.gob.es/es/catalogo/e05234201-base-de-datos-de-editoriales) solo da una distribución XHTML, **no** una descarga estructurada comprobada. Pendiente confirmar autorización/vía técnica para ingesta masiva; no construir scraper antes.
 - **PR #693 y #694 siguen en planificación.** La próxima petición «siguiente investigación de GPT» debe **continuar E2 en #692**, no abrir otra PR ni saltar a autores mientras el problema editorial siga pendiente.
 
+## 4.2. E2 cerrada como evaluación de fuentes, 22/10/2026
+
+- **#692 – Ministerio/ISBN: HOLD.** Datos.gob.es expone consulta XHTML; la Agencia Española del ISBN es la titular/gestora y Ministerio no asegura ni valida registros suministrados; se requiere autorización/contrato para reutilización sistemática de su directorio. Enlace primario y solicitud modelo en la PR hija.
+- **#692 – Registro Global ISBN: NO-GO para copiar o republicar resultados**, aunque crear cuenta y consultar contactos sea gratuito: condiciones del servicio prohíben almacenar, distribuir o publicar resultados de búsqueda sin permiso escrito.
+- **#692 – DILVE: CONDICIONAL** (sí ofrece API HTTP de ISBN, pero requiere alta autorizada y no está probado como feed gratuito de contactos).
+- **#692 – Wikidata: PILOTO CC0** para identidad/sello/grupo y webs a verificar, no para estados de manuscritos. Se añadieron `scripts/research/gpt_editoriales_wikidata_candidates.py` y 9 tests **preparados sin ejecutar**, sin peticiones en red ni modificaciones de datos.
+- **Próximo «siguiente investigación de GPT»**: continuar en la **#692, E4**: seleccionar 10–20 editoriales/sellos con QID correcto y fuente primaria, medir cobertura real de web y grupo, y preparar contrato *offline* de contactos públicos y estado de recepción de manuscritos; no saltar a #693 todavía. Si llega una autorización ISBN, revisar E2.
+
 ## 5. Próxima ejecución
 
-**Siguiente investigación de GPT → CONTINUAR PR #692, paso E2**: comprobar opción de descarga/autorización de la base ISBN y fuentes de contacto oficiales; diseñar método incremental permitido de entrada de nuevas editoriales. La auditoría y conciliador E1/E3 están documentados y sin ejecutar. Después E4/E5 de #692; solo entonces P1 autores y P2 fichas.
+**Siguiente investigación de GPT → CONTINUAR PR #692, paso E4**: validar 10–20 QIDs reales desde fuentes primarias y diseñar evidencia de contacto general/prensa/manuscritos y revisión de cambios; todo *offline* y sin publicar. E2 ha descartado el registro global ISBN como fuente de datos republicables y elegido Wikidata CC0 solo como semilla. Después E5 de #692 y P1 autores/P2 fichas.
 
 **Regla operativa:** Ninguna PR hija se fusiona directamente. Cualquier integración posterior debe conciliarse con el `main` del momento y con #687/#683/#680; Claude/Codex revisarán calidad y permisos antes de ejecutarla.
