@@ -51,3 +51,16 @@ export function availableOptions(books, state, facet, choices) {
     selected: (state[facet] || []).includes(value)
   })).filter(option => option.count > 0 || option.selected);
 }
+
+/** Descarta valores retirados de la taxonomía, sin borrar selecciones válidas con 0 resultados.
+ * La lista maestra de opciones debe venir del catálogo completo, no de facetas ya recortadas. */
+export function sanitizeFacetSelections(state, masters) {
+  const clean = { ...state };
+  for (const [facet, choices] of Object.entries(masters)) {
+    if (!MULTI.includes(facet)) continue;
+    const allowed = new Set(choices.map(choice => choice.value));
+    const raw = Array.isArray(state[facet]) ? state[facet] : state[facet] ? [state[facet]] : [];
+    clean[facet] = [...new Set(raw)].filter(value => allowed.has(value));
+  }
+  return clean;
+}
