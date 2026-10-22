@@ -717,26 +717,48 @@ document.addEventListener('dp:analytics', _dpAnalyticsBridge);
 // Esa pagina ahora carga assets/samuel-buy-modal.js directamente.
 
 
-// Matches both amazon.es (Samuel's direct link) and amzn.to (Manecillas'
-// Kindle affiliate short link, since 2026-09-04) -- a selector scoped only
-// to "amazon.es" stopped tracking every Comprar click sitewide the moment
-// the header button's href became an amzn.to short link, confirmed live
-// before this fix.
-//
-// Delegated (not a one-time querySelectorAll().forEach() at parse time,
-// 2026-09-05): Home's Comprar CTAs are built by assets/v1-home-editorial-
-// v3.js, a module fetched and executed asynchronously well after this
-// script runs, so a parse-time query never saw them and their clicks were
-// silently untracked -- confirmed live (0 comprar-amazon events on a real
-// click) before this fix. Delegation matches the same pattern already used
-// for leer-fragmento-* just below.
+// Enlaces de compra, no navegación general por Amazon (p. ej. Author Follow).
+// Función pura para poder verificar destinos/categorías sin tráfico a Amazon.
+// Conserva amzn.to del CTA global; no sigue redirecciones ni identifica compras.
+function _amazonOutboundCategory(href, pathname, inHeader, inCatalogue) {
+  let destination;
+  try {
+    destination = new URL(href, "https://davidportodiaz.com/");
+  } catch {
+    return null;
+  }
+  if (destination.protocol !== "https:") return null;
+  const host = destination.hostname.toLowerCase();
+  if (host === "amzn.to") {
+    if (!/^\/[A-Za-z0-9]+\/?$/.test(destination.pathname)) return null;
+  } else if (host === "amazon.es" || host === "www.amazon.es") {
+    const product = /^\/(?:dp|gp\/product)\/[A-Z0-9]{10}(?:\/|$)/i.test(destination.pathname);
+    const isbnSearch = destination.pathname === "/s";
+    if (!product && !isbnSearch) return null;
+  } else {
+    return null;
+  }
+  if (inHeader) return "comprar-amazon-header";
+  if (inCatalogue) return "comprar-amazon-recomendaciones";
+  if (pathname.startsWith("/las-manecillas-del-recuerdo/")) return "comprar-amazon-manecillas";
+  if (pathname.startsWith("/libros/samuel-entre-mundos/")) return "comprar-amazon-samuel";
+  if (pathname === "/") return "comprar-amazon-home";
+  return "comprar-amazon";
+}
+
+// Delegación imprescindible: varias tarjetas Home se crean asincrónicamente.
+// El modal de Samuel emite su propio evento y NO debe contabilizarse dos veces.
+// Cada clic genera exactamente un evento, sin petición adicional a Amazon.
 document.addEventListener("click", (event) => {
   const link = event.target && event.target.closest ? event.target.closest('a[href]') : null;
   if (!link || link.closest("#buy-dialog")) return;
-  const href = link.getAttribute("href") || "";
-  if (href.includes("amazon.es") || href.includes("amzn.to")) {
-    _gcEvent("comprar-amazon", "Clic: Comprar Amazon");
-  }
+  const category = _amazonOutboundCategory(
+    link.href,
+    window.location.pathname,
+    Boolean(link.closest(".header-buy")),
+    Boolean(link.closest("[data-reading-catalogue]"))
+  );
+  if (category) _gcEvent(category, "Clic saliente: Amazon (no implica venta)");
 });
 
 // Leer fragmento gratis -- eventos separados por libro (H.2, 2026-08-23):
