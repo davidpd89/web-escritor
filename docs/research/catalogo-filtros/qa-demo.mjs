@@ -41,18 +41,18 @@ try {
     await choose(0,'tapa-blanda');
     await choose(0,'tapa-dura');
     await page.waitForFunction(()=>{
-      const formats=new URLSearchParams(location.hash).getAll('formato');
+      const formats=new URLSearchParams(location.hash.slice(1)).getAll('formato');
       return formats.includes('tapa-blanda') && formats.includes('tapa-dura');
     });
     let selected=await page.locator('#formato').evaluate(el=>[...el.selectedOptions].map(o=>o.value).sort());
     assert.deepEqual(selected,['tapa-blanda','tapa-dura']);
     await choose(1,'fantasia');
-    await page.waitForFunction(()=>new URLSearchParams(location.hash).getAll('genero').includes('fantasia'));
+    await page.waitForFunction(()=>new URLSearchParams(location.hash.slice(1)).getAll('genero').includes('fantasia'));
     selected=await page.locator('#formato').evaluate(el=>[...el.selectedOptions].map(o=>o.value).sort());
     assert.deepEqual(selected,['tapa-blanda','tapa-dura'],'facet change must preserve formats');
     await page.evaluate(()=>{ location.hash='formato=ebook&genero=terror&paginas=breve&precio_max=20'; });
     await page.waitForFunction((expectedTotal)=>{
-      const p=new URLSearchParams(location.hash);
+      const p=new URLSearchParams(location.hash.slice(1));
       return p.get('formato')==='ebook' && p.get('genero')==='terror' && [...document.querySelector('#formato').selectedOptions].some(o=>o.value==='ebook') && document.querySelector('#count').textContent.includes(' de '+expectedTotal+' libros');
     }, total);
     const restored=await page.locator('#formato').evaluate(el=>[...el.selectedOptions].map(o=>o.value));
@@ -76,7 +76,7 @@ try {
     assert.match(await page.locator('#count').innerText(),new RegExp('^'+total+' de '+total+' libros'));
     await page.evaluate(()=>{ location.hash='formato=no-existe&genero=descatalogado'; });
     await page.waitForFunction(()=>{
-      const p=new URLSearchParams(location.hash);
+      const p=new URLSearchParams(location.hash.slice(1));
       return p.getAll('formato').length===0 && p.getAll('genero').length===0
         && [...document.querySelector('#formato').selectedOptions].length===0;
     });
