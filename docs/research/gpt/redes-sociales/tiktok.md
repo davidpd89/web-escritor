@@ -2,6 +2,12 @@
 
 **PR hija de #699**. Base research/gpt-social-dashboard-2026-10-22. Solo investigación verificable y código ilustrativo, no integrado. Sin CI, Actions, deploy ni merge.
 
+## Camino ya probado: Metricool, sin OAuth nuevo (22/10/2026)
+
+`getBrandSettings` de la marca conectada confirma TikTok **`davidportoescritor`**, exactamente el handle público enlazado en `autor.html` y `scripts/build-site-shell.py`. El campo `TKEV07` (followers, agregación `LAST`) devolvió valor no nulo en la consulta MCP real conjunta de 21/10/2026. No se publican los valores personales.
+
+**Reutilización directa:** lector multired ejecutable de la [PR #705](https://github.com/davidpd89/web-escritor/pull/705) y compositor de la [PR #704](https://github.com/davidpd89/web-escritor/pull/704), que ya admite `tiktok` como sexto conjunto de redes elegibles (seis en total). Las regresiones de identidad, suma, proveedor y expiración ya están codificadas. El desarrollo OAuth ilustrativo de abajo **solo es alternativa**, no implementación prioritaria ni camino demostrado. No prometer actualización desatendida MCP hasta verificarla.
+
 ## Perfil
 Cuenta pública según autor.html: https://www.tiktok.com/@davidportoescritor. TikTok Display API GET /v2/user/info/ devuelve follower_count, likes_count, video_count con consentimiento OAuth y scope user.info.stats. La Research API se reserva para investigaciones autorizadas: NO considerarla acceso público ordinario. El conector Metricool tiene TKEV07 followers y TKEV02 views, donde views es rendimiento de vídeos en periodo, no vistas acumuladas del perfil.
 
