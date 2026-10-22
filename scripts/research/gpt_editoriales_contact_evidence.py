@@ -196,6 +196,15 @@ _PILOT_EVIDENCE_RULES = {
     'alfaguara': (r'solo recibe manuscritos espontaneos a traves de la web', 'group_only'),
 }
 
+# Exact human-checked pages, independent of the pilot input JSON.
+_PILOT_OFFICIAL_URLS = {
+    'editorial-anagrama': 'https://www.anagrama-ed.es/manuscritos',
+    'nocturna-ediciones': 'https://www.nocturnaediciones.com/contacto',
+    'minotauro': 'https://www.planetadelibros.com/editorial/minotauro/21',
+    'alienta-editorial': 'https://www.planetadelibros.com/editorial/alienta-editorial/15',
+    'alfaguara': 'https://www.penguinrandomhousegrupoeditorial.com/sellos-y-negocios/quiero-enviar-un-manuscrito/',
+}
+
 
 def draft_from_html(html, *, slug, source_url, checked_at, source_allowlist):
     """Read one *pre-approved* page. Returns a tentative candidate, never edits."""
@@ -248,7 +257,7 @@ def run_live_pilot(cases: dict, vetted_hosts: dict, *,
         host = safe_host(url)
         allowed = vetted_hosts["publishers"].get(slug)
         if (not isinstance(slug, str) or slug in urls or
-                slug not in _PILOT_EVIDENCE_RULES or not host or
+                url != _PILOT_OFFICIAL_URLS.get(slug) or not host or
                 not isinstance(allowed, dict) or
                 host not in allowed.get("hosts", [])):
             raise ValueError("Unreviewed URL or missing independent host approval")
