@@ -210,3 +210,13 @@ Comprueba en dos etapas: (1) `publish=false` no altera el recuento ni crea pági
 
 Si el test pasa, el siguiente paso sería obtener los cinco HTML originales con `--live-pilot` mediante `CachedHTTP` y comparar las salidas. Los dos requisitos son complementarios: **datos válidos en builder** y **detección correcta en la fuente**. No añadir fichas a `main` hasta comprobar ambos.
 
+
+
+### Corrección verificada en lógica aislada: contradicciones de recepción
+
+El piloto E6.3 tenía un falso positivo reproducible: la búsqueda de «enviar por correo electrónico» devolvía `open` incluso si, a continuación, la misma frase indicaba que la recepción estaba cerrada. Se añadieron dos casos negativos y se cambió **solo** el extractor E4 existente: ante `no aceptamos manuscritos`, `recepción de originales cerrada/pausada/suspendida` o `no lo haga por correo electrónico` en la proximidad de una coincidencia `open`, el resultado es `unknown`, con motivo «contradicción, revisión humana». No deduce automáticamente `closed`.
+
+**Control de regresión:** la regla no debe bloquear una editorial que sí acepta originales digitales pero **no físicos**, ni a Alienta por no publicar **ficción**. Dos casos de control positivo también añadidos al fichero `tests/test_gpt_editoriales_contact_evidence.py`.
+
+**Ejecución local verificable con una copia aislada del extractor**, no el checkout integral del repositorio: 13 comprobaciones sintéticas de base, 5 anclas cortas de páginas oficiales reconstruidas en HTML y 4 comprobaciones nuevas (2 contradicciones, 2 restricciones legítimas) completadas sin errores. **No** significa que las pruebas completas de la PR ni el HTML bruto de las cinco webs hayan pasado. La regla de proximidad es conservadora y provisional: en una página larga podría necesitar segmentación de secciones tras la prueba con HTML real. En esta pasada no se añadieron librerías ni un módulo nuevo.
+
