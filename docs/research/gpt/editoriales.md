@@ -125,7 +125,17 @@ Este texto **no representa autorización concedida ni una comunicación enviada*
 
 ## Estado actual y próxima pasada (22/10/2026)
 
-**E4 terminada**: [informe específico](editoriales-e4-resultados-2026-10-22.md). **E5 terminada como investigación y propuesta no ejecutada**: [diseño de integración E5](editoriales-e5-integracion-2026-10-22.md). #687 se ha **fusionado**; ya no es dependencia abierta. **Próxima petición «siguiente investigación de GPT» → E6.1 y E6.2**, en la misma PR #692: comprobar esquemas cruzados de los cuatro módulos con los nuevos datos de `main`, y redactar el contrato de aprobación humana por campo. No ejecutar CI ni publicar automáticamente.
+**E4 terminada**: [informe específico](editoriales-e4-resultados-2026-10-22.md). **E5 terminada como investigación y propuesta no ejecutada**: [diseño de integración E5](editoriales-e5-integracion-2026-10-22.md). #687 se ha **fusionado**; ya no es dependencia abierta. **E6.1/E6.2 documentadas y código preparado sin ejecutar.** Próximo paso E6.3: piloto offline de cinco candidatos y revisión de posibles errores; detalles al final del documento.
 
 
 **Actualización de estado 22/10/2026:** #687 fusionada en `main` durante E5. `main` contiene 55 libros (35 enlazan al directorio, 20 a sellos exclusivos), 55 autores, 11 sellos y 150 editoriales. Los informes E1/E4 conservan su procedencia histórica de la rama #687; E6 debe usar **únicamente los datos de `main` del mismo commit**. #692 sigue DRAFT y sin tests ejecutados.
+
+## E6.1/E6.2 — contrato por campo y comprobación con main (22/10/2026)
+
+**Documentación principal:** [editoriales-e6-contrato-2026-10-22.md](editoriales-e6-contrato-2026-10-22.md) y [baseline auditable de `main`](editoriales-e6-baseline-2026-10-22.json), commit `72ab6be7b8fee47dc82f29a7daf1373178e61ad1`. Inspección **estática** de 150 editoriales, 11 sellos y 55 libros. Los 55 tienen exactamente uno de los dos enlaces editoriales; 18 observaciones de E4 dentro de 13 listas de hosts revisados, pero **4** conciernen a sellos solo bibliográficos y nunca implican recepción de manuscritos. Umbral E5 provisional: **24 fichas** candidatas a reverificación; no supone que estén incorrectas.
+
+**Riesgo nuevo:** el ruleset activo `main-production-integrity` (ID 21661257) mantiene los seis controles CI obligatorios, pero exige **0 aprobaciones humanas** y `require_code_owner_review=false`. Una PR humana no constituye por sí sola una garantía de aprobación. Antes de integrar cambios de `data/editoriales.json` se necesita una **protección efectiva por ruta o revisión autenticada en GitHub**, sin bloquear la automatización editorial legítima del catálogo; todavía no configurada.
+
+**Código:** `scripts/research/gpt_editoriales_approval_contract.py` y `tests/test_gpt_editoriales_approval_contract.py` (20 pruebas adicionales **sin ejecutar**). El código consume el directorio, informes E4/E5 e intención declarada; bloquea modificaciones basándose en huellas SHA-256 canónicas del contenido, fecha, antiguo valor, fuente y propósito explícito por sello. **Nunca escribe** cambios ni acepta `approve` dentro de JSON como autorización auténtica. Solo revisa de momento `status=open/closed`; otros datos necesitan aprobación conjunta, esquema y controles externos. El SHA del commit que aporta el manifiesto **tampoco está autenticado offline**: integración futura debe verificar GitHub `main` exacto.
+
+**Estado:** **77 tests sintéticos escritos en cinco módulos, ninguno ejecutado**. El siguiente «siguiente investigación de GPT» debe continuar **E6.3**, con un piloto offline de cinco registros y revisión de incompatibilidades, sin segundo workflow ni auto-merge. No alterar `main` ni reglas hasta decidir explícitamente cómo garantizar la revisión humana.
