@@ -54,4 +54,17 @@ class ExpirationTests(unittest.TestCase):
         item=sc.compose([sample],now=now)['networks'][2]
         self.assertEqual(item['valid_until'],'2026-10-27T22:59:59Z')
 
+class PublicIntegerSafetyTests(unittest.TestCase):
+    def test_reject_count_that_javascript_cannot_represent_exactly(self):
+        item=bluesky()
+        item['followers']=2**53
+        with self.assertRaisesRegex(ValueError, 'nonnegative integer'):
+            sc.compose([item],now=NOW)
+
+    def test_reject_combined_total_over_safe_integer_limit(self):
+        a=bluesky();a['followers']=2**53-1
+        b=threads();b['followers']=1
+        with self.assertRaisesRegex(ValueError, 'exact JavaScript integer range'):
+            sc.compose([a,b],now=NOW)
+
 if __name__=='__main__':unittest.main()
