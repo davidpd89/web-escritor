@@ -63,6 +63,13 @@ try {
     assert.match(await page.locator('#count').innerText(),new RegExp('^'+total+' de '+total+' libros'));
     assert.equal(await page.locator('#results li').count(),24);
     assert.equal(await page.locator('#formato').evaluate(el=>el.selectedOptions.length),0);
+    // El laboratorio no puede aplicar filtros sin interfaz para eliminarlos.
+    // Estos parámetros sí se conservan, pero las 3 facetas visibles mandan.
+    await page.evaluate(()=>new Promise(resolve=>{
+      window.addEventListener('hashchange',()=>requestAnimationFrame(resolve),{once:true});
+      location.hash='q=LIBRO_INEXISTENTE&grupo=desconocido&temporada=imposible';
+    }));
+    assert.match(await page.locator('#count').innerText(),new RegExp('^'+total+' de '+total+' libros'));
     assert.deepEqual(errors,[],'no JS errors '+width);
     await page.close();
   }
