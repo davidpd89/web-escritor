@@ -35,6 +35,54 @@ python scripts/research/gpt_metricool_threads.py /ruta/privada/threads.json
 
 Salida: `id=threads`, `followers` (entero o `null`), `observed_at` (día de la métrica), `source=metricool-mcp-export`, `generated_at`, `status` y las dos métricas de vistas como `null`. **Un contador ausente no se convierte en cero**. La salida no es el documento agregado `data/social-metrics.generated.json`; requiere el compositor central de #699 antes de mostrarse en #704.
 
+
+## 3. Nueva ampliación probada: ocho seguidores en una consulta (22/10/2026)
+
+**Evidencia del conector Metricool conectado:** se consultaron los catálogos `evolution` de ocho redes y todos los campos siguientes aparecen como `dataAggregation=LAST`:
+
+| Red | Campo de seguidores |
+|---|---|
+| Bluesky | `BKEV01` |
+| Threads | `THEV01` |
+| Instagram | `IGEV01` |
+| Facebook **Page Followers** | `FBEV17` |
+| TikTok | `TKEV07` |
+| Pinterest | `PIEV09` |
+| YouTube **Subscribers** | `YTEV01` |
+| X/Twitter | `TTEV01` |
+
+Se ejecutó **una consulta MCP real** para el 21/10/2026 completo (Europe/Madrid), con esos 8 campos y en ese orden. Respuesta constatada: **1 fila, 9 columnas: ocho cadenas numéricas no nulas + fecha `20261021`**. No se incluyen los valores privados de la cuenta. Esto **prueba que el conector puede entregar esas ocho métricas juntas para ese día**, NO que las ocho identidades públicas de la web estén ya confirmadas, ni que el MCP pueda ejecutarse en modo cron.
+
+**Código entregado (sin paquetes externos):**
+- [scripts/research/gpt_metricool_followers.py](../../../../scripts/research/gpt_metricool_followers.py), nuevo importador multired: lee la exportación local, exige ID de campo reconocido, prohíbe campos de vistas/alcance, duplicados, fechas contradictorias, filas de longitud errónea y metadatos adicionales. **Reutiliza el validador ya probado `gpt_metricool_threads.py`** para fechas y enteros. Emite solo `{"kind":"metricool-follower-candidates","schema_version":1,"requested_day":"...","records":[...]}` a stdout, sin escribir en la web.
+- [tests/test_gpt_metricool_followers.py](../../../../tests/test_gpt_metricool_followers.py), **18/18 pruebas locales PASS** en Python con archivos cuyos hashes Git coinciden con la rama (los dos scripts y este test). Datos de prueba sintéticos; contrato de API real contrastado por separado. La anterior suite de 17 casos de Threads sigue en la rama, sin modificar.
+
+### Uso reproducible
+
+Consulta a través del MCP autorizado con `getAnalyticsDataByMetrics`, período local 21/10/2026 00:00–23:59:59 (+02:00) y `metrics` exactamente en el orden elegido. Envolver la respuesta `rows` localmente con los mismos IDs:
+
+~~~json
+{
+  "metrics": ["BKEV01","THEV01","IGEV01","FBEV17","TKEV07","PIEV09","YTEV01","TTEV01"],
+  "from": "2026-10-21",
+  "to": "2026-10-21",
+  "rows": []
+}
+~~~
+
+`rows=[]` es una **muestra sin datos** deliberada: el importador informa de registros parciales, no de seguidores cero. **En una ejecución real sustituir solo `rows` por la respuesta obtenida, sin publicar valores ni IDs de marca en Git**.
+
+~~~bash
+python -m unittest discover -s tests -p 'test_gpt_metricool_followers.py' -v
+python scripts/research/gpt_metricool_followers.py /ruta/privada/export-8-redes.json
+~~~
+
+### Puerta de integración de identidad
+
+Estos ocho registros son **candidatos**, no ocho tarjetas listas para publicar. La PR #704 **solo admite por ahora** Bluesky por su API pública, Mastodon por su API pública y Threads desde Metricool, cada una con `source` permitida y enlace oficial contrastado. Por diseño, **no pasar directamente todos los `records` al compositor #704** ni cambiar su lista de fuentes para que los acepte sin revisión. Cada nueva red requiere cotejar URL/perfil con el sitio (especialmente página Facebook, canal YouTube y perfil de X), decidir fuente preferente frente a su API oficial y comprobar caducidad. El importador multired no incorpora URLs ni IDs privados.
+
+**Beneficio práctico contrastado:** se puede investigar qué ocho contadores proporciona la marca desde **una petición MCP** con el mismo código y una única revisión del contrato. La extracción sin intervención, el transporte a GitHub y la publicación de esas ocho redes siguen pendientes.
+
 ## Puerta de integración: lo que funciona y lo que NO
 
 **Demostrado:** existencia y semántica `LAST` de `THEV01` en catálogo, llamada de lectura real con una fecha, estructura exacta de 2 columnas, normalización sin conexión y los 17 casos offline. Al simplificar, se eliminó toda obligación de consultar `THEV06`.
