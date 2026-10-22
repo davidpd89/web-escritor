@@ -18,13 +18,20 @@ El conector asociado a la marca devolvió realmente `{"rows":[...]}` para campos
 
 Para mantener el cambio pequeño, se seleccionan **solo dos campos de Threads**, ambos consultados en el catálogo actual `getAnalyticsAvailableMetrics(network="threads",connector="evolution")`:
 - `THEV01` — seguidores (agregación `LAST`).
-- `THEV06` — visualizaciones de publicaciones (agregación `SUM`).
+- `THEV06` — `Post Views` (agregación `SUM`), **no publicar como `views_30d`**: la ficha no acredita si corresponde a rendimiento acumulado de publicaciones creadas en el período o a actividad generada dentro de él.
 **NO** sumar vistas con impresiones, alcance, personas únicas o likes dados por el autor.
+
+
+### Corrección de semántica validada contra documentación oficial (22/10/2026)
+
+El documento [**Diferencia entre posts publicados y posts vistos en el periodo**](https://help.metricool.com/es/diferencia-entre-posts-publicados-y-posts-vistos-en-el-periodo-2pwtf) explica un riesgo real: los **posts publicados** se filtran por fecha de publicación pero su rendimiento se mide acumulado hasta ayer; los **posts vistos** incluyen la actividad ocurrida durante el rango (incluso de publicaciones antiguas). La [ficha oficial Threads](https://help.metricool.com/threads-metrics-90qhd) aplica este criterio a las vistas de publicaciones.
+
+`THEV06` se denomina `Threads Evolution > Post Views`; la descripción del catálogo del conector no certifica que su serie represente *vistas generadas durante* esos 30 días. **Error anterior de esta PR:** el normalizador sumaba los valores y los exponía como `views_30d` si estaban completos. Esto podía generar una cifra comercial engañosa incluso sin fallos técnicos. **Corrección implantada:** `views_30d` permanece `null` siempre; se conservan únicamente diagnósticos de cobertura y el dato `THEV01` de seguidores. Test de regresión comprueba explícitamente que ni siquiera 30 valores generan un total publicado. Si se necesita tráfico mensual, deberá elegirse una métrica del apartado *posts vistos en el periodo*, demostrar su semántica y abrir un cambio acotado adicional.
 
 ## 3. Código real añadido — normalizador ejecutable de Threads
 
 - [scripts/research/gpt_metricool_threads.py](../../../../scripts/research/gpt_metricool_threads.py): lee un **fichero privado de exportación** y escribe en stdout un registro limpio. Acepta 30 días completos, fecha por fila, orden de columnas explícito, cadenas decimales que representen enteros y nulos; no accede a red.
-- [tests/test_gpt_metricool_threads.py](../../../../tests/test_gpt_metricool_threads.py): 15 pruebas offline efectivamente ejecutadas y superadas, incluidas fechas sin ordenar, tipo incorrecto, cero, `null`, falta de días, duplicación de día, orden de columnas y fallo del CLI.
+- [tests/test_gpt_metricool_threads.py](../../../../tests/test_gpt_metricool_threads.py): 16 pruebas offline efectivamente ejecutadas y superadas, incluidas fechas sin ordenar, tipo incorrecto, cero, `null`, falta de días, duplicación de día, orden de columnas y fallo del CLI.
 - **No se añade fixture con datos reales.** Las pruebas construyen series **sintéticas** de 30 días en memoria.
 
 Entrada EXACTA que acepta el script; las filas aquí son una **explicación de forma** (para procesar habrá que aportar la serie real completa de 30 días):
@@ -41,7 +48,7 @@ Entrada EXACTA que acepta el script; las filas aquí son una **explicación de f
 }
 ~~~
 
-**Atención: no publicar esas cifras de ejemplo.** La salida marcará `views_30d=null` y `status=partial` porque aquí faltan 28 días. Para producir `views_30d` necesita cada día entre `from` y `to`, ambos inclusive, con un valor válido. Los seguidores se obtienen únicamente de la fecha final; nunca arrastrar un valor de otro día ni convertir falta de dato en 0. Los snapshots parciales son inspeccionables; **el consumidor público debe omitir métricas nulas**.
+**Atención: no publicar esas cifras de ejemplo.** La salida fija `views_30d=null` **incluso con 30 valores** porque aún no se ha demostrado que `THEV06` mida visualizaciones generadas dentro de esas fechas. `status=ok` significa solamente que el dato final de seguidores es válido. Los seguidores se obtienen de la fecha final, nunca se arrastran desde un día anterior ni se convierten ausencias en 0. Se mantiene `coverage.days_with_post_views` como diagnóstico, no como prueba de cobertura de tráfico mensual.
 
 ### Procedimiento de prueba
 
@@ -53,7 +60,7 @@ python -m unittest discover -s tests -p 'test_gpt_metricool_threads.py' -v
 python scripts/research/gpt_metricool_threads.py /ruta/privada/export-threads.json
 ~~~
 
-3. Comparar `followers` y `views_30d` con la sección de Threads en Metricool, mismo período y misma cuenta. Si el campo de vistas devuelve `null` algún día, no publicar una suma aparentemente completa. Conservar fecha, cobertura y fuente `metricool-mcp-export`.
+3. Comparar `followers` con Threads en Metricool para la fecha final. **No comparar el valor de `views_30d`** porque está deliberadamente suprimido; para publicarlo en el futuro hay que identificar y validar primero una métrica de **actividad vista durante el período**, no el rendimiento acumulado de publicaciones hechas en él.
 
 ### En qué punto se conecta después
 
@@ -63,7 +70,7 @@ El script devuelve un objeto `id=threads`, `followers`, `views_30d`, `period`, `
 
 - El modo offline y los tests están probados; **no existe exportación autónoma MCP → repositorio**. No presentar como «automático» un proceso que todavía requiere recopilar el JSON manualmente.
 - API REST: comprobar primero si el titular tiene plan Advanced/Custom y acceso a token; si no, **no desarrollar** llamadas `X-Mc-Auth`. Si lo tiene, usar el esquema Swagger oficial para construir la llamada concreta y probar contra un período real; no inferir que `THEV01` es nombre de parámetro REST.
-- El ejemplo de 5 días de la cuenta real confirma **la forma de respuesta, no** que haya una serie completa de 30 días. La comparación de valores con el panel queda pendiente.
+- **Consulta real adicional** a Metricool (22/10/2026) para 22/09–21/10, con `THEV01` y `THEV06` en ese orden: 30 filas/días únicos, followers con dato 30/30; `THEV06` con dato **12/30** y `null` en **18/30**. Solo se registran coberturas aquí, no los valores personales. No se conoce si esos `null` reflejan días sin publicaciones o carencia de información. No imputar cero. Comparación de los valores con el panel visual pendiente.
 - Las pruebas no incluyen red ni fueron ejecutadas por Actions. Después de validar la ingesta, conectar al normalizador general en una PR posterior; ejecutar la suite completa únicamente con permiso explícito.
 
 **Resultado:** un camino probado para convertir matrices MCP a un dato de Threads auditable, y una restricción comercial contrastada que evita una integración REST de pago construida a ciegas.
