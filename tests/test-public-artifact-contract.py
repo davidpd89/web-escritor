@@ -3,6 +3,8 @@
 from __future__ import annotations
 
 import importlib.util
+import json
+import tempfile
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -27,7 +29,6 @@ def main() -> None:
     for path in (
         "index.html",
         "ai/index.html",
-        "apoyar/index.html",  # Future public route; no page published yet
         "assets/v1-shell.css",
         "assets/assistant-local-knowledge.mjs",
         "pagefind/pagefind-ui.js",
@@ -48,6 +49,7 @@ def main() -> None:
     # defense in depth even when a technical file is placed under /assets/.
     for path in (
         "docs/new-runbook.md",
+        "apoyar/index.html",  # Inactivo: no es publicable por una simple carpeta
         "apoyar/README.md",  # Never expose deployment/activation notes
         "apoyar/.env",
         "apoyar/private.key",
@@ -81,7 +83,45 @@ def main() -> None:
     assert rendered == current, ".assetsignore must be generated from builder policy"
     assert "/*\n" in rendered, "assetsignore must start from a root deny"
     assert "!/assets/" in rendered
-    assert "!/apoyar/" in rendered, "Future support URL must be whitelisted in Wrangler"
+    assert "!/apoyar/" in rendered, "El namespace existe pero está protegido"
+    assert "/apoyar/\\n" in rendered.split("# Rutas gated derivadas")[1], (
+        "Cloudflare no debe publicar apoyos antes de que el registry los autorice"
+    )
+
+    # El builder y .assetsignore usan la MISMA fuente de verdad para pasar de
+    # "cerrado" a "abierto". Simularlo solo en un directorio temporal.
+    with tempfile.TemporaryDirectory() as tmp:
+        fixture = Path(tmp)
+        (fixture / "data").mkdir()
+        registry_path = fixture / "data" / "content-registry.json"
+        registry = {"defaults": {"status": "public"}, "entries": []}
+
+        def write_registry() -> None:
+            registry_path.write_text(json.dumps(registry), encoding="utf-8")
+
+        write_registry()
+        assert not builder.is_publishable("apoyar/index.html", fixture)
+        assert "/apoyar/\\n" in builder.render_assetsignore(fixture)
+
+        support = {"id": "support-project", "url": "/apoyar/",
+                   "sourceFile": "apoyar/index.html", "status": "gated"}
+        registry["entries"].append(support)
+        write_registry()
+        assert not builder.is_publishable("apoyar/index.html", fixture)
+        support["status"] = "public"
+        support["sourceFile"] = "otra-ruta/index.html"
+        write_registry()
+        assert not builder.is_publishable("apoyar/index.html", fixture)
+        support["sourceFile"] = "apoyar/index.html"
+        write_registry()
+        assert builder.is_publishable("apoyar/index.html", fixture)
+        assert "/apoyar/\\n" not in builder.render_assetsignore(fixture).split(
+            "# Rutas gated derivadas"
+        )[-1]
+        registry["entries"].append(dict(support))
+        write_registry()
+        assert not builder.is_publishable("apoyar/index.html", fixture)
+
     assert "!/pagefind/" in rendered
     assert "/press-kit/package-manifest.json" in rendered
     assert "**/wrangler*.jsonc" in rendered
