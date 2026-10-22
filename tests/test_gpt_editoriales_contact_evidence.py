@@ -542,6 +542,50 @@ class ExistingCachedHTTPBridgeTests(unittest.TestCase):
             )
             self.assertFalse(out["published"])
 
+    def test_five_pilot_drafts_use_e4_schema_but_cannot_be_accepted(self):
+        html = {
+            "editorial-anagrama":
+                "<p>Editorial Anagrama mantendrá pausada temporalmente la recepción de manuscritos.</p>",
+            "nocturna-ediciones":
+                "<p>Si desea enviarnos un manuscrito, puede hacerlo vía correo electrónico a la siguiente dirección: manuscritos@nocturnaediciones.com.</p>",
+            "minotauro":
+                "<p>El proyecto deberá enviarse por correo electrónico a la dirección proyectosminotauro@planeta.es.</p>",
+            "alienta-editorial":
+                "<p>Alienta Editorial acepta la recepción de manuscritos originales.</p>",
+            "alfaguara":
+                "<p>Penguin Random House Grupo Editorial solo recibe manuscritos espontáneos a través de la web.</p>",
+        }
+        pages = {RealSourceSnippetPilotTests.URLS[slug]: fragment
+                 for slug, fragment in html.items()}
+        result = mod.run_live_pilot(
+            self.CASES, self.HOSTS, as_of=TODAY,
+            cache_dir=Path(".ci/unused"), http=self.FakeHTTP(pages))
+        pending = result["pending_review_observations"]
+        self.assertEqual(pending["schema_version"], 1)
+        self.assertEqual(len(pending["observations"]), 5)
+        self.assertTrue(all(o["origin"] == "html_pilot_unreviewed"
+                            for o in pending["observations"]))
+        self.assertFalse(any("@" in o["evidence_summary"]
+                             for o in pending["observations"]))
+        # E4 must FAIL CLOSED until a person independently rechecks the page.
+        staged = mod.review(pending, self.HOSTS, as_of=TODAY)
+        self.assertEqual(staged["publishers"], [])
+        self.assertEqual(len(staged["rejected_observations"]), 5)
+        self.assertEqual({item["reason"] for item in staged["rejected_observations"]},
+                         {"automated_evidence_needs_human_review"})
+        self.assertFalse(staged["writes_to_public_data"])
+
+    def test_unknown_or_failed_page_has_no_promotable_observation(self):
+        urls = RealSourceSnippetPilotTests.URLS
+        fake = self.FakeHTTP({url: "<p>Contacto general</p>" for url in urls.values()},
+                             broken=urls["nocturna-ediciones"])
+        output = mod.run_live_pilot(
+            self.CASES, self.HOSTS, as_of=TODAY,
+            cache_dir=Path(".ci/unused"), http=fake)
+        self.assertEqual(output["pending_review_observations"]["observations"], [])
+        self.assertEqual(output["retrieval_failures"], 1)
+        self.assertFalse(output["published"])
+
     def test_failing_source_does_not_change_other_four(self):
         urls = RealSourceSnippetPilotTests.URLS
         fake = self.FakeHTTP({url: "<p>Contacto general</p>" for url in urls.values()},
