@@ -27,9 +27,10 @@
       <div><label for="tematica">Temáticas (elige varias)</label><select id="tematica" data-facet="tematica" multiple></select></div>
     </div>
     <button type="button" id="reset">Quitar todos los filtros</button>
-    <p id="count" role="status" aria-live="polite">Cargando catálogo…</p>
+    <p id="count" role="status" aria-live="polite" tabindex="-1">Cargando catálogo…</p>
     <p class="notice">OR dentro de cada filtro; AND entre formatos, género y temática. Opciones disponibles recalculadas. Muestra las primeras 24 fichas; no es una propuesta visual definitiva.</p>
     <ul id="results" class="results"></ul>
+    <nav id="pagination" aria-label="Páginas de resultados"></nav>
   </main>
   <script src="./upstream/choices-v11.2.4.min.js"></script>
   <script type="module">
@@ -64,6 +65,7 @@
     let rendering = false;
     const selectors = {};
     const widgets = {};
+    const facetSignatures = {};
     for (const facet of Object.keys(master)) {
       selectors[facet] = document.querySelector('[data-facet="' + facet + '"]');
       const select = selectors[facet];
@@ -89,20 +91,41 @@
       rendering=true;
       try {
         const shown=books.filter(book=>matchesMulti(book,state));
-        document.querySelector('#count').textContent=shown.length+' de '+books.length+' libros';
+        const totalPages = Math.max(1, Math.ceil(shown.length / 24));
+        state.pagina = Math.max(1, Math.min(totalPages, state.pagina));
+        document.querySelector('#count').textContent=shown.length+' de '+books.length+' libros · página '+state.pagina+' de '+totalPages;
         const list=document.querySelector('#results');
         list.replaceChildren();
-        for (const book of shown.slice(0,24)) {
+        for (const book of shown.slice((state.pagina-1)*24, state.pagina*24)) {
           const li=document.createElement('li');
           const a=document.createElement('a'); a.href=book.url; a.textContent=book.title;
           li.append(a); list.append(li);
         }
         for (const facet of Object.keys(master)) {
           const options=availableOptions(books,state,facet,master[facet]);
-          // Choices.js API oficial: conservar las selecciones si replaceItems=false.
-          widgets[facet].setChoices(options.map(o=>({
-            value:o.value,label:o.label+' ('+o.count+')',selected:o.selected
-          })), 'value', 'label', true, false, false);
+          const signature=JSON.stringify(options.map(o=>[o.value,o.count,o.selected]));
+          if (facetSignatures[facet] !== signature) {
+            // Reemplazar opciones e items desde el estado canónico evita conservar
+            // duplicados obsoletos al combinar selecciones dependientes.
+            widgets[facet].setChoices(options.map(o=>({
+              value:o.value,label:o.label+' ('+o.count+')',selected:o.selected
+            })), 'value', 'label', true, true, true);
+            facetSignatures[facet]=signature;
+          }
+        }
+        const nav=document.querySelector('#pagination');
+        nav.replaceChildren();
+        if (totalPages > 1) {
+          const move = (text, page, disabled) => {
+            const button=document.createElement('button');
+            button.type='button'; button.textContent=text; button.disabled=disabled;
+            button.addEventListener('click',()=>{ state.pagina=page; render(); document.querySelector('#count').focus(); });
+            return button;
+          };
+          const info=document.createElement('span');
+          info.textContent=' Página '+state.pagina+' de '+totalPages+' ';
+          nav.append(move('Anterior',state.pagina-1,state.pagina===1),info,
+                     move('Siguiente',state.pagina+1,state.pagina===totalPages));
         }
         history.replaceState(null,'',location.pathname+location.search+writeHash(state));
       } finally {rendering=false;}
@@ -115,8 +138,18 @@
       state.pagina=1; render();
     });
     window.addEventListener('hashchange',()=>{
-      // This lab keeps URL parsing explicit. Full browser-history restoration
-      // is a production acceptance criterion, not claimed to be tested here.
+      const restored=parseHash(location.hash);
+      Object.assign(state,restored);
+      rendering=true;
+      try {
+        for (const facet of Object.keys(widgets)) {
+          widgets[facet].setChoices(master[facet].map(o=>({value:o.value,label:o.label})),
+                                    'value','label',true,true,true);
+          widgets[facet].setChoiceByValue(state[facet]);
+          delete facetSignatures[facet];
+        }
+      } finally {rendering=false;}
+      render();
     });
     render();
   </script>
