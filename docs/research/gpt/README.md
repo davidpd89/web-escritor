@@ -5,7 +5,7 @@
 ## 1. Punto de partida verificado en GitHub
 
 - **En `main`**: ingesta diaria de Penguin, control de ISBN/portadas, plantillas estáticas, autores, relaciones de editoriales y autopublicación condicionada a checks (PR #661 y #665 fusionadas). `data/reading-catalogue.json`: 31 libros; `data/reading-authors.json`: 31 autores, 30 biografías con fuente; `data/editoriales.json`: 150 editoriales, 72 recepción abierta, 45 cerrada, 26 desconocida, 7 indirecta. Todas tienen sitio web; 54 incluyen correo específico de manuscritos. Son instantáneas, no promesa de frescura diaria.
-- **PR #687 ABIERTA, no integrada**: 55 libros, 55 autores, 41 biografías y registro separado `data/reading-publishers.json` (11 sellos) para editoriales descubiertas en fichas, sin información automática completa de contactos ni recepción de manuscritos. Prioridad: resolver QA/CI de #687 y sincronizar nuevas ramas **sin tocarla desde aquí**.
+- **PR #687 FUSIONADA durante E5 (22/10/2026)**: ya están en `main` 55 libros, 55 autores, 41 biografías y registro separado `data/reading-publishers.json` (11 sellos) para editoriales descubiertas en fichas, sin información automática completa de contactos ni recepción de manuscritos. La PR ya está fusionada; **no rehacer sus cambios desde GPT**. Los informes anteriores conservan los SHAs de la rama en que se auditaron.
 - **Precios/valoraciones y calendarios**: #683 DRAFT (alternativas a Creators API, atribución, calendario, SEO), #680 DRAFT (Planeta y otro calendario). NO replicar su código.
 - **Concursos**: #688 ABIERTA (monitor de fuentes y revisión humana; no cambiar fechas sin prueba). **Atlas de viajes literarios**: #666 DRAFT y sus hijas (investigación/prototipos, no publicado).
 - Datos de partida de **22/10/2026**: comprobar de nuevo en la siguiente pasada; no presentarlos como métricas actuales sin consulta.
@@ -60,7 +60,7 @@
 - **#692:** muestra de **15** entidades (13 editoriales/sellos + 2 grupos), **6** QIDs localizados (**uno: Bruguera histórico, NO equivalente al sello actual**). Solo 4/6 con P856; 3 HTTP y 1 HTTPS, por lo que Wikidata no basta para webs oficiales actuales. P127 propiedad ≠ P749 empresa matriz.
 - **#692:** [18 observaciones oficiales, 13 listas de dominios verificados y reporte](https://github.com/davidpd89/web-escritor/blob/research/gpt-editoriales-2026-10-22/docs/research/gpt/editoriales-e4-resultados-2026-10-22.md). Anagrama: recepción pausada, contacto general y prensa separados; Nocturna/Minotauro: admisión expresamente documentada; PRH: formulario de grupo **sin heredar automáticamente el estado de cada sello**.
 - **Código experimental nuevo:** `scripts/research/gpt_editoriales_contact_evidence.py`, nunca conectado a producción: observaciones humanas + allowlist independiente, caducidad, conflictos y propuestas sin correos. **36 tests sintéticos escritos entre los tres módulos, ninguno ejecutado**. Sin dependencias externas nuevas.
-- **Próximo «siguiente investigación de GPT» → seguir en #692, fase E5**: conciliar el estado vigente #687/`main`; diseñar la integración incremental en el **único** publicador con revisión humana por contacto, colisiones históricas y grupo/sello, topes de peticiones y retractación cuando caduca la evidencia. No importar datos ISBN sin licencia.
+- **Próximo «siguiente investigación de GPT» → seguir en #692, fase E6**: conciliar el estado vigente #687/`main`; diseñar la integración incremental en el **único** publicador con revisión humana por contacto, colisiones históricas y grupo/sello, topes de peticiones y retractación cuando caduca la evidencia. No importar datos ISBN sin licencia.
 
 ## 4.4. E5 — circuito único con aprobación humana (22/10/2026)
 
@@ -70,8 +70,14 @@
 - **GitHub 2026:** `concurrency.queue: max` puede formar hasta 100 pendientes, pero **no activarlo automáticamente**: puede acumular trabajos diarios obsoletos; primero analizar colas y conflictos reales. [Guía oficial](https://docs.github.com/en/actions/how-tos/write-workflows/choose-when-workflows-run/control-workflow-concurrency).
 - **Documento E5:** [informe de integración y plan E6](https://github.com/davidpd89/web-escritor/blob/research/gpt-editoriales-2026-10-22/docs/research/gpt/editoriales-e5-integracion-2026-10-22.md). Próximo turno debe seguir #692 en **E6.1/E6.2** (validar esquemas y aprobación humana), no abrir PR nueva.
 
+## 4.5. Cambio de estado durante E5 (22/10/2026)
+
+- **#687 MERGED, verificado en GitHub durante este turno.** `main` contiene **55 libros, 55 autores, 11 sellos `data/reading-publishers.json` y 150 editoriales `data/editoriales.json`**; 35 libros enlazados al directorio y 20 a fichas bibliográficas. La allowlist del publicador **sigue sin autorizar `data/editoriales.json`**.
+- **#692 sigue DRAFT y ahora está detrás de `main`** por el merge de #687. No rebasar ni fusionar automáticamente la rama de investigación; antes de una PR de integración, revalidar E3/E4/E5 con instantáneas del mismo commit de `main`.
+- **Siguiente paso E6.1/E6.2**: corregir contratos a los formatos integrados y diseñar aprobación humana por campo. No ejecutar pruebas ni activar procesos desde esta PR mientras sigamos en modo investigación.
+
 ## 5. Próxima ejecución
 
-**Siguiente investigación de GPT → CONTINUAR PR #692, pasos E6.1 y E6.2**: validar offline y corregir los contratos E3/E4/E5 contra datos de #687 y `main` consistentes, diseñar aprobación humana por campo y bloqueo de auto-merge de contactos/manuscritos. Los prototipos están escritos pero aún no ejecutados; #687 sigue abierta. Después E6.3 piloto y, cuando proceda, #693 autores/#694 fichas.
+**Siguiente investigación de GPT → CONTINUAR PR #692, pasos E6.1 y E6.2**: preparar validación y corregir los contratos E3/E4/E5 contra datos del mismo commit de `main`, ya con #687 fusionada, diseñar aprobación humana por campo y bloqueo de auto-merge de contactos/manuscritos. Los prototipos están escritos pero aún no ejecutados; #687 está fusionada. Después E6.3 piloto y, cuando proceda, #693 autores/#694 fichas.
 
 **Regla operativa:** Ninguna PR hija se fusiona directamente. Cualquier integración posterior debe conciliarse con el `main` del momento y con #687/#683/#680; Claude/Codex revisarán calidad y permisos antes de ejecutarla.
