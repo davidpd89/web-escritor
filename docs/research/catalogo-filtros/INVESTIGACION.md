@@ -130,6 +130,31 @@ El primer laboratorio construía `master` filtrando `used.has(c.id)`, lo que con
 
 **Comprobaciones:** prueba adicional de contrato de sanitización (ahora **16/16 casos superados en V8** con `URLSearchParams` mínimo compatible, **no** ejecutados aún como 16 pruebas nativas de Node); prueba de navegador escrita para restaurar `romantasy` y `portales` al cambiar el hash, aún sin ejecutar Playwright. En la primera ejecución de la prueba V8 se detectó un **error en la expectativa del fixture** (3 libros de Fantasía, no 2); corregido ese valor, la suite pasó 16/16. No se alteró el algoritmo para forzar el resultado.
 
+## Contrato económico: formato y precio de LA MISMA oferta
+
+**Defecto potencial concreto en la integración:** el `matchingOffers()` vigente en [`assets/reading-catalogue.js`](../../../assets/reading-catalogue.js) filtra por un solo `v.formato`. Al introducir `['tapa-blanda','tapa-dura']`, no basta con comprobar por separado que «existe tapa dura» y «el libro tiene una oferta de 10 €»: esa oferta podría ser la blanda y la dura costar 25 €. No deben cruzarse dos ofertas distintas.
+
+**Solución implementada en esta PR, solo como contrato de investigación:** `matchingOffersMulti(offers, state)` en [`multifacet-contract.mjs`](./multifacet-contract.mjs). En una sola pasada filtra OR de formatos, precio mínimo, precio máximo y descuento mínimo, **todo sobre cada oferta individual**. Ejemplo: tapa blanda a 9,50 € y tapa dura a 25,90 €; la selección «solo tapa dura + máximo 10 €» devuelve **cero** ofertas; «blanda O dura + máximo 10 €» devuelve **solo la blanda**. Para ordenar por precio, usar el mínimo de las ofertas que pasaron **todos** los filtros.
+
+El helper **presupone ofertas ya validadas** por `validOffer()`/`fresh()` de la implementación existente y no altera autenticidad ni vigencia de los precios. No se deben inventar ofertas de mercado: `assets/reading-market.json` tiene actualmente **cero ofertas**. Cuando el usuario aplica un filtro de precio, no deben contarse libros sin oferta vigente que satisfaga todas sus condiciones. Cuando no hay filtro de precio, las opciones editoriales siguen disponibles. Integración mínima propuesta:
+
+```js
+// Dentro de assets/reading-catalogue.js; adaptar la nueva multiselección sin
+// sustituir validOffer(), fresh(), renders ni el resto de matches().
+const matchingOffers = (card, v) =>
+  matchingOffersMulti(offersFor(card.dataset.bookId), v);
+```
+
+Añadidos **cinco tests semánticos**: oferta equivocada (regresión), OR correcto, combinación precio/descuento, compatibilidad formato escalar, y mínimo de precios por formato. Resultado de ejecución en intérprete V8 sobre el código GitHub exacto: **21/21 tests correctos** (incluidos los 16 anteriores). Esta verificación V8 usa `URLSearchParams` mínimo compatible; **no** es una ejecución nativa Node de los 21 ni una prueba de navegador. El laboratorio visual permanece deliberadamente sin filtro de precio: no presentar precios ficticios donde el mercado no aporta ofertas.
+
+## Estado vacío: UX comprobable, no panel decorativo
+
+Una selección válida como `#genero=romantasy` produce cero obras. Antes quedaba un listado en blanco; ahora aparece `#empty`: «No hay libros con esta combinación. Puedes quitar algún filtro o pulsar Quitar todos los filtros». Se oculta automáticamente al quitar esa selección. Prueba Playwright escrita para el mensaje y su desaparición tras restablecer; **aún no ejecutada**.
+
+## Bloqueo de prueba de navegador (estado verificable)
+
+Se comprobó el entorno local: `/usr/bin/chromium` y Playwright Python están disponibles, pero el contenedor no resuelve `github.com`/`raw.githubusercontent.com` (error DNS) y no tiene montada la rama completa ni el JS upstream. Por eso **no se ha ejecutado con la biblioteca real** `qa-demo.mjs`. No reemplazar Choices.js por un simulador y etiquetarlo como prueba exitosa. Los casos de teclado, foco, CSS y móvil siguen pendientes.
+
 ## Riesgo real y condiciones para Claude
 
 La PR de implementación NO debe reemplazar `reading-catalogue.js` a ciegas: ya resuelve 24 fichas/página, sort, filtros financieros con caducidad, rating y test. Iniciar con **género y formato multiselección**, luego temática. El resto de facetas solo después de verificar que sus opciones producen resultados reales. Mantener el selector «Tipo de libro» exclusivo y su orden editorial salvo decisión posterior.
