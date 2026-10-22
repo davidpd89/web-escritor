@@ -447,7 +447,8 @@ class ExistingCachedHTTPBridgeTests(unittest.TestCase):
         raw = pages[sample["source_url"]].encode("utf-8")
         self.assertEqual(sample["content_sha256"], hashlib.sha256(raw).hexdigest())
         self.assertEqual(sample["content_bytes"], len(raw))
-        self.assertIs(sample["served_from_cache"], False)
+        # FakeHTTP has no actual response cache; page provenance is unknown.
+        self.assertIsNone(sample["served_from_cache"])
         self.assertFalse(sample["publish"])
 
     def test_fake_cache_hit_is_not_confused_with_new_download(self):
@@ -461,8 +462,85 @@ class ExistingCachedHTTPBridgeTests(unittest.TestCase):
         out = mod.run_live_pilot(self.CASES, self.HOSTS, as_of=TODAY,
                                  cache_dir=Path(".ci/unused"), http=CacheFake(pages))
         self.assertEqual(out["cache_hits"], 5)
-        self.assertTrue(all(r["served_from_cache"] is True for r in out["results"]))
+        # A hit counter alone is insufficient: it might only count robots.txt.
+        self.assertTrue(all(r["served_from_cache"] is None for r in out["results"]))
         self.assertFalse(out["published"])
+
+    def test_cached_robots_counter_does_not_imply_page_cache_hit(self):
+        import tempfile
+        pages = {url: "<p>Contacto general</p>"
+                 for url in RealSourceSnippetPilotTests.URLS.values()}
+        class RobotOnlyFake(self.FakeHTTP):
+            def get(self, url, *, ttl, limit):
+                self.hits += 1  # pretend only robots.txt was cached
+                return super().get(url, ttl=ttl, limit=limit)
+        with tempfile.TemporaryDirectory() as tmp:
+            fake = RobotOnlyFake(pages)
+            fake.cache = Path(tmp)
+            fake.now = lambda: 1792670000
+            out = mod.run_live_pilot(
+                self.CASES, self.HOSTS, as_of=TODAY,
+                cache_dir=Path(tmp), http=fake)
+            self.assertEqual(out["cache_hits"], 5)
+            self.assertTrue(all(r["served_from_cache"] is False for r in out["results"]))
+
+    def test_replays_five_pages_offline_with_real_cached_http(self):
+        """Integration with the production CachedHTTP, no network at all."""
+        import hashlib
+        import sys
+        import tempfile
+
+        scripts = str(Path(__file__).resolve().parents[1] / "scripts")
+        if scripts not in sys.path:
+            sys.path.insert(0, scripts)
+        from reading_editorial_sources import CachedHTTP
+
+        html = {
+            "editorial-anagrama":
+                "<p>Editorial Anagrama mantendrá pausada temporalmente la recepción de manuscritos.</p>",
+            "nocturna-ediciones":
+                "<p>Si desea enviarnos un manuscrito, puede hacerlo vía correo electrónico a la siguiente dirección: manuscritos@nocturnaediciones.com.</p>",
+            "minotauro":
+                "<p>El proyecto deberá enviarse por correo electrónico a la dirección proyectosminotauro@planeta.es.</p>",
+            "alienta-editorial":
+                "<p>Alienta Editorial acepta la recepción de manuscritos originales. La dirección de correo electrónico para los manuscritos en formato digital es: alienta@planeta.es.</p>",
+            "alfaguara":
+                "<p>Penguin Random House Grupo Editorial solo recibe manuscritos espontáneos a través de la web.</p>",
+        }
+        now = 1792670000
+        with tempfile.TemporaryDirectory() as dirname:
+            cache = Path(dirname)
+            def seed(url, content):
+                name = hashlib.sha256(url.encode()).hexdigest()
+                (cache / (name + ".body")).write_bytes(content.encode("utf-8"))
+                (cache / (name + ".json")).write_text(
+                    json.dumps({"url": url, "retrieved_at": now}),
+                    encoding="utf-8")
+
+            hosts = self.HOSTS["publishers"]
+            origins = {entry["hosts"][0] for entry in hosts.values()}
+            for host in origins:
+                seed("https://" + host + "/robots.txt", "User-agent: *\nAllow: /\n")
+            for slug, url in RealSourceSnippetPilotTests.URLS.items():
+                seed(url, html[slug])
+
+            http = CachedHTTP(cache, origins, budget=12, delay=0, now=lambda: now)
+            out = mod.run_live_pilot(
+                self.CASES, self.HOSTS, as_of=TODAY,
+                cache_dir=cache, http=http)
+            self.assertEqual(out["requests_physical"], 0)
+            self.assertEqual(len(out["results"]), 5)
+            self.assertTrue(all(r["retrieval"] == "ok" for r in out["results"]))
+            self.assertTrue(all(r["served_from_cache"] is True for r in out["results"]))
+            self.assertTrue(all(r["source_retrieved_at_unix"] == now for r in out["results"]))
+            self.assertEqual(
+                {r["publisher_slug"]: r["suggestion"] for r in out["results"]},
+                {"editorial-anagrama": "paused",
+                 "nocturna-ediciones": "open",
+                 "minotauro": "open", "alienta-editorial": "open",
+                 "alfaguara": "group_only"},
+            )
+            self.assertFalse(out["published"])
 
     def test_failing_source_does_not_change_other_four(self):
         urls = RealSourceSnippetPilotTests.URLS
