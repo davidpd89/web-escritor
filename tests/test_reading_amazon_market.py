@@ -35,7 +35,13 @@ class AmazonPriceTests(unittest.TestCase):
         self.assertEqual(offers[0]['precio_referencia_centimos'],1195)
         self.assertEqual(offers[0]['formato'],'tapa-blanda')
         self.assertEqual(offers[0]['url'],'https://www.amazon.es/dp/8498382378?tag=contrato-21')
-        self.assertEqual(offers[0]['caduca_en'],'2026-10-22T10:00:00Z')
+        self.assertEqual(offers[0]['caduca_en'],'2026-10-21T11:00:00Z')
+
+    def test_offer_ttl_is_one_hour_even_without_a_deal_end(self):
+        # Creators API best programming practices: OffersV2 TTL = 1 hour.
+        offer=select_offers(BOOK,response(),'contrato-21',NOW)[0]
+        self.assertEqual(offer['actualizado_en'],'2026-10-21T10:00:00Z')
+        self.assertEqual(offer['caduca_en'],'2026-10-21T11:00:00Z')
 
     def test_wrong_isbn_author_title_or_unknown_binding_is_rejected(self):
         for field,value in [('title',{'displayValue':'Otro libro'}),
