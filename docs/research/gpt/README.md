@@ -76,8 +76,16 @@
 - **#692 sigue DRAFT y ahora está detrás de `main`** por el merge de #687. No rebasar ni fusionar automáticamente la rama de investigación; antes de una PR de integración, revalidar E3/E4/E5 con instantáneas del mismo commit de `main`.
 - **Siguiente paso E6.1/E6.2**: corregir contratos a los formatos integrados y diseñar aprobación humana por campo. No ejecutar pruebas ni activar procesos desde esta PR mientras sigamos en modo investigación.
 
+## 4.6. E6.1/E6.2 — evidencia vinculada y revisión real obligatoria (22/10/2026)
+
+- **#692:** auditoría estática del commit `main` `72ab6be7b8fee47dc82f29a7daf1373178e61ad1`: 150 editoriales, 11 sellos, 55 libros; 35 enlazan al directorio, 20 a sellos. 18 observaciones E4 con dominios revisados; 4 son fichas solo bibliográficas, **no** editoriales del directorio. Según regla de caducidad E5, 24 fichas serían candidatas a nueva comprobación (no a cambios automáticos).
+- **Hallazgo de seguridad:** el ruleset GitHub activo `main-production-integrity` exige 6 controles CI, pero **0 revisiones aprobatorias** y no exige CODEOWNERS. Bloqueo de diseño: no afirmar revisión humana efectiva hasta configurar protección específica de cambios en `data/editoriales.json` o política equivalente verificable, sin perjudicar las actualizaciones automáticas de libros.
+- **E6 preparado sin ejecutar:** `scripts/research/gpt_editoriales_approval_contract.py` + 20 tests sintéticos. Solo valida un manifiesto de **intenciones** sobre `status` con SHA-256 de los objetos E3/E4/E5/directorio, fuente específica, alcance y fecha. Un `decision: approve` local **NO** autentica aprobación ni genera un parche; la futura PR requiere revisión real de GitHub. En total **77 pruebas escritas y ninguna ejecutada** en cinco módulos.
+- **Informe:** [E6: contrato por campo y reglas reales de main](https://github.com/davidpd89/web-escritor/blob/research/gpt-editoriales-2026-10-22/docs/research/gpt/editoriales-e6-contrato-2026-10-22.md).
+- **Siguiente investigación de GPT → #692 E6.3:** piloto acotado offline de cinco casos con un solo commit de `main`, validar contradicciones de esquemas y depurar prototipos; **sin tests ni CI en esta fase salvo autorización explícita para ejecutarlos**. #693 y #694 aún no avanzan.
+
 ## 5. Próxima ejecución
 
-**Siguiente investigación de GPT → CONTINUAR PR #692, pasos E6.1 y E6.2**: preparar validación y corregir los contratos E3/E4/E5 contra datos del mismo commit de `main`, ya con #687 fusionada, diseñar aprobación humana por campo y bloqueo de auto-merge de contactos/manuscritos. Los prototipos están escritos pero aún no ejecutados; #687 está fusionada. Después E6.3 piloto y, cuando proceda, #693 autores/#694 fichas.
+**Siguiente investigación de GPT → CONTINUAR PR #692, paso E6.3**: auditar un piloto offline de cinco entidades con base exacta de `main`, identificar errores de contratos y preparar criterios de salida. El ruleset actual requiere 0 aprobaciones, por lo que la protección humana debe diseñarse antes de integrar contactos; no modificar reglas ni publicar automáticamente desde #692.
 
 **Regla operativa:** Ninguna PR hija se fusiona directamente. Cualquier integración posterior debe conciliarse con el `main` del momento y con #687/#683/#680; Claude/Codex revisarán calidad y permisos antes de ejecutarla.
