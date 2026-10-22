@@ -6,7 +6,7 @@ Read-only usage:
 
 Exact private input contract:
     {"metrics":["THEV01"], "from":"2026-10-21", "to":"2026-10-21",
-     "rows":[["232.0","20261021"]]}
+     "rows":[["123456.0","20261021"]]}
 
 Values shown above are illustrative; do NOT commit real account exports.
 This adapter prints a per-network record, never writes a public site file.
@@ -25,7 +25,7 @@ FIELD = "THEV01"
 
 
 def count(value: object) -> int | None:
-    """Metricool LAST uses decimal strings such as '232.0'; do not round."""
+    """Metricool LAST uses decimal strings such as '123456.0'; do not round."""
     if value is None:
         return None
     if type(value) not in (str, int):
