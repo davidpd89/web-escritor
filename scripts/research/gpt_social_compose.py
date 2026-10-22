@@ -107,7 +107,7 @@ def compose(sources: list, *, now: datetime | None = None) -> dict:
             "follower_relationships": sum(valid) if valid else None,
             "coverage": len(valid),
             "eligible": len(PROFILES),
-            "label": "Seguimientos en redes con datos vigentes (no personas únicas)",
+            "label": "Seguidores sumados en redes con datos vigentes (no personas únicas)",
         },
     }
 
