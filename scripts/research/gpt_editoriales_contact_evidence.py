@@ -158,29 +158,6 @@ def review(observations: dict, vetted_hosts: dict, *, as_of: date) -> dict:
     }
 
 
-def main(argv: list[str] | None = None) -> int:
-    p = argparse.ArgumentParser(description=__doc__)
-    p.add_argument("--observations", type=Path, required=True)
-    p.add_argument("--trusted-hosts", type=Path, required=True)
-    p.add_argument("--as-of", type=date.fromisoformat, required=True)
-    opts = p.parse_args(argv)
-    try:
-        with opts.observations.open(encoding="utf-8") as stream:
-            observed = json.load(stream)
-        with opts.trusted_hosts.open(encoding="utf-8") as stream:
-            trusted = json.load(stream)
-        result = review(observed, trusted, as_of=opts.as_of)
-    except (OSError, ValueError, TypeError) as exc:
-        print(f"Invalid or missing offline evidence: {exc}", file=sys.stderr)
-        return 2
-    print(json.dumps(result, indent=2, ensure_ascii=False, sort_keys=True))
-    return 0
-
-
-if __name__ == "__main__":
-    raise SystemExit(main())
-
-
 # Small E6.3 experimental extractor. NOT a generic legal/status classifier.
 # Use the HTTP/robots/cache implementation ALREADY in main
 # (reading_editorial_sources.CachedHTTP) to supply HTML only after approval.
@@ -246,3 +223,117 @@ def draft_from_html(html, *, slug, source_url, checked_at, source_allowlist):
         'matching_fragment': visible[found.start():found.end()][:180] if found else '',
         'reason': 'Explicit known-page pattern' if found else 'No matching explicit statement',
     }
+
+
+def run_live_pilot(cases: dict, vetted_hosts: dict, *,
+                   as_of: date, cache_dir: Path, budget: int = 12,
+                   http=None) -> dict:
+    """Five reviewed URLs, via existing CachedHTTP or offline fake. Review-only."""
+    if (cases.get("schema_version") != 1 or
+            not isinstance(cases.get("cases"), list) or len(cases["cases"]) != 5):
+        raise ValueError("Exactly five pre-reviewed cases required")
+    if (vetted_hosts.get("schema_version") != 1 or
+            not isinstance(vetted_hosts.get("publishers"), dict)):
+        raise ValueError("Invalid host allowlist")
+    if type(budget) is not int or not 1 <= budget <= 20:
+        raise ValueError("Pilot budget must be 1..20 physical requests")
+    if date.fromisoformat(cases["checked_on"]) > as_of:
+        raise ValueError("Source review date is in future")
+    urls = {}
+    hosts = set()
+    for case in cases["cases"]:
+        if not isinstance(case, dict):
+            raise ValueError("Malformed case")
+        slug, url = case.get("slug"), case.get("official_url")
+        host = safe_host(url)
+        allowed = vetted_hosts["publishers"].get(slug)
+        if (not isinstance(slug, str) or slug in urls or
+                slug not in _PILOT_EVIDENCE_RULES or not host or
+                not isinstance(allowed, dict) or
+                host not in allowed.get("hosts", [])):
+            raise ValueError("Unreviewed URL or missing independent host approval")
+        urls[slug] = url
+        hosts.add(host)
+    if set(urls) != set(_PILOT_EVIDENCE_RULES):
+        raise ValueError("Must use exactly the five fixed pilot subjects")
+    if http is None:
+        # Reuse existing robots, cache, redirection and physical-request budget.
+        sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
+        from reading_editorial_sources import CachedHTTP
+        http = CachedHTTP(cache_dir, sorted(hosts), budget=budget, delay=1.5)
+    results = []
+    for slug, url in urls.items():
+        try:
+            body = http.get(url, ttl=86400, limit=2_000_000)
+            if not isinstance(body, bytes):
+                raise ValueError("CachedHTTP returned non-bytes")
+            result = draft_from_html(body.decode("utf-8", errors="replace"),
+                                     slug=slug, source_url=url,
+                                     checked_at=as_of.isoformat(),
+                                     source_allowlist=urls)
+            result["retrieval"] = "ok"
+        except (OSError, ValueError, UnicodeError) as exc:
+            result = {"publisher_slug": slug, "source_url": url,
+                      "checked_at": as_of.isoformat(), "suggestion": "unknown",
+                      "matching_fragment": "", "retrieval": "blocked_or_failed",
+                      "error_type": type(exc).__name__,
+                      "manual_review_required": True, "publish": False}
+        results.append(result)
+    return {
+        "schema_version": 1, "as_of": as_of.isoformat(),
+        "kind": "five_official_pages_review_only",
+        "results": results,
+        "requests_physical": getattr(http, "requests", None),
+        "cache_hits": getattr(http, "hits", None),
+        "request_budget": budget,
+        "published": False, "writes_to_public_data": False,
+        "manual_review_required": True,
+    }
+
+
+def main(argv: list[str] | None = None) -> int:
+    p = argparse.ArgumentParser(description=__doc__)
+    p.add_argument("--observations", type=Path)
+    p.add_argument("--trusted-hosts", type=Path, required=True)
+    p.add_argument("--as-of", type=date.fromisoformat, required=True)
+    p.add_argument("--live-pilot", action="store_true")
+    p.add_argument("--pilot-cases", type=Path)
+    p.add_argument("--cache-dir", type=Path,
+                   default=Path(".ci/reading-editorial-cache"))
+    p.add_argument("--budget", type=int, default=12)
+    p.add_argument("--output", type=Path)
+    opts = p.parse_args(argv)
+    try:
+        with opts.trusted_hosts.open(encoding="utf-8") as stream:
+            trusted = json.load(stream)
+        if opts.live_pilot:
+            if opts.observations is not None or opts.pilot_cases is None:
+                raise ValueError("Use --pilot-cases only for live pilot")
+            with opts.pilot_cases.open(encoding="utf-8") as stream:
+                cases = json.load(stream)
+            result = run_live_pilot(cases, trusted, as_of=opts.as_of,
+                                    cache_dir=opts.cache_dir, budget=opts.budget)
+        else:
+            if opts.observations is None or opts.pilot_cases is not None:
+                raise ValueError("Use --observations only for offline mode")
+            with opts.observations.open(encoding="utf-8") as stream:
+                observed = json.load(stream)
+            result = review(observed, trusted, as_of=opts.as_of)
+        if opts.output:
+            dest = opts.output.as_posix()
+            if (not dest.startswith(".ci/reading-intake/") or
+                    ".." in opts.output.parts or opts.output.suffix != ".json"):
+                raise ValueError("Report path must be .ci/reading-intake/*.json")
+            opts.output.parent.mkdir(parents=True, exist_ok=True)
+            opts.output.write_text(json.dumps(result, indent=2,
+                                              sort_keys=True, ensure_ascii=False) + "\n",
+                                   encoding="utf-8")
+    except (OSError, ValueError, TypeError, KeyError) as exc:
+        print(f"Pilot failed safely: {exc}", file=sys.stderr)
+        return 2
+    print(json.dumps(result, indent=2, sort_keys=True, ensure_ascii=False))
+    return 0
+
+
+if __name__ == "__main__":
+    raise SystemExit(main())
