@@ -169,26 +169,48 @@ def review(observations: dict, vetted_hosts: dict, *, as_of: date) -> dict:
 # Use the HTTP/robots/cache implementation ALREADY in main
 # (reading_editorial_sources.CachedHTTP) to supply HTML only after approval.
 class _PilotVisibleText(HTMLParser):
-    """Page text excluding scripts, metadata and inert templates; CSS unknown."""
+    """Text eligible as visible evidence; no DOM/CSS engine required."""
+    BLOCKED_TAGS = {'script', 'style', 'noscript', 'svg', 'head', 'template', 'title'}
+    VOID_TAGS = {'area', 'base', 'br', 'col', 'embed', 'hr', 'img', 'input', 'link',
+                 'meta', 'param', 'source', 'track', 'wbr'}
+    SEPARATORS = {'p', 'h1', 'h2', 'h3', 'h4', 'li', 'br', 'div'}
+
     def __init__(self):
         super().__init__(convert_charrefs=True)
         self.parts = []
-        self.ignored = 0
+        self.stack = []
+        self.hidden_depth = 0
 
     def handle_starttag(self, tag, attrs):
-        if tag in {'script', 'style', 'noscript', 'svg', 'head', 'template', 'title'}:
-            self.ignored += 1
-        elif tag in {'p', 'h1', 'h2', 'h3', 'h4', 'li', 'br', 'div'} and not self.ignored:
+        attributes = dict(attrs)
+        style = attributes.get('style') or ''
+        is_hidden = (
+            self.hidden_depth > 0 or tag in self.BLOCKED_TAGS or
+            'hidden' in attributes or
+            (attributes.get('aria-hidden') or '').lower() == 'true' or
+            bool(re.search(
+                r'(?:^|;)\s*(?:display\s*:\s*none|visibility\s*:\s*hidden)\b',
+                style, re.I,
+            ))
+        )
+        if tag not in self.VOID_TAGS:
+            self.stack.append((tag, is_hidden))
+            if is_hidden:
+                self.hidden_depth += 1
+        if tag in self.SEPARATORS and not is_hidden:
             self.parts.append(' ')
 
     def handle_endtag(self, tag):
-        if tag in {'script', 'style', 'noscript', 'svg', 'head', 'template', 'title'}:
-            self.ignored = max(0, self.ignored - 1)
-        elif tag in {'p', 'h1', 'h2', 'h3', 'h4', 'li', 'div'} and not self.ignored:
+        if tag in self.SEPARATORS and not self.hidden_depth:
             self.parts.append(' ')
+        for index in range(len(self.stack) - 1, -1, -1):
+            if self.stack[index][0] == tag:
+                self.hidden_depth -= sum(hidden for _, hidden in self.stack[index:])
+                del self.stack[index:]
+                break
 
     def handle_data(self, data):
-        if not self.ignored:
+        if not self.hidden_depth:
             self.parts.append(data)
 
 
