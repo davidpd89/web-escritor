@@ -35,7 +35,7 @@ Ejemplo de contrato propuesto (datos ficticios prohibidos, cifras deliberadament
 | Red | Fuente preferente | Datos defendibles | A comprobar |
 |---|---|---|---|
 | Bluesky | https://public.api.bsky.app/xrpc/app.bsky.actor.getProfile?actor=davidportoescritor.bsky.social | followersCount, postsCount | no hay impresiones de cuenta públicas |
-| Mastodon | https://docs.joinmastodon.org/methods/accounts/ | followers_count, statuses_count con GET público por ID local | /accounts/lookup requiere read:accounts para resolución inicial; no impresiones |
+| Mastodon | https://docs.joinmastodon.org/methods/search/ | /api/v2/search anónimo, sin resolve/offset; devuelve Account con followers_count y statuses_count | Validar en vivo cuenta exacta; /accounts/lookup sí exige token, pero ya no hace falta para este flujo; no impresiones |
 | Threads | https://www.postman.com/meta/threads/ | seguidores/insights de cuenta si se autorizan; Metricool conectado | alcance del token y métricas disponibles |
 | Instagram/Facebook | API Meta o Metricool autorizado | seguidores, vistas, alcance según cuenta | permisos, campo views vigente; deprecated pageImpressions |
 | TikTok | https://developers.tiktok.com/docs/en/tiktok-api-scopes | follower_count requiere user.info.stats y autorización | aprobación Display API y OAuth |
@@ -65,7 +65,7 @@ Documento rector y PR hijas: base técnica, fuente central Metricool, Bluesky, M
 | [#704](https://github.com/davidpd89/web-escritor/pull/704) | UX/contrato y sumatorios | [ux.md](./ux.md) |
 | [#705](https://github.com/davidpd89/web-escritor/pull/705) | Fuente agregada Metricool | [metricool.md](./metricool.md) |
 | [#706](https://github.com/davidpd89/web-escritor/pull/706) | Bluesky | [bluesky.md](./bluesky.md) |
-| [#707](https://github.com/davidpd89/web-escritor/pull/707) | Mastodon (autorización lookup diferenciada) | [mastodon.md](./mastodon.md) |
+| [#707](https://github.com/davidpd89/web-escritor/pull/707) | Mastodon (búsqueda pública, adaptador y 18 pruebas offline) | [mastodon.md](./mastodon.md) |
 | [#708](https://github.com/davidpd89/web-escritor/pull/708) | Threads | [threads.md](./threads.md) |
 | [#709](https://github.com/davidpd89/web-escritor/pull/709) | Instagram y Facebook | [meta.md](./meta.md) |
 | [#710](https://github.com/davidpd89/web-escritor/pull/710) | TikTok | [tiktok.md](./tiktok.md) |
