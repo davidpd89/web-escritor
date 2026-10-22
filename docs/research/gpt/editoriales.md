@@ -6,7 +6,7 @@
 
 En `main`, `data/editoriales.json` contiene **150** editoriales con fuentes, web y estado de recepción (72 open, 45 closed, 26 unknown, 7 indirect); solo **54** incluyen un correo específico de manuscritos. El constructor `scripts/build-editoriales.py` genera fichas y alerta de verificaciones antiguas. No hay captación universal automática ni actualización fiable continua de estado/contactos.
 
-La **PR #687 aún abierta** introduce `data/reading-publishers.json`: **11 sellos** descubiertos por libros de Penguin, con URL bibliográfica y ficha de sello. Son **identidades bibliográficas**, no pruebas de que reciban manuscritos. No deben fusionarse semánticamente con el directorio de recepción sin resolver aliases, grupos y contactos.
+La **PR #687, fusionada el 22/10/2026**, introdujo en `main` `data/reading-publishers.json`: **11 sellos** descubiertos por libros de Penguin, con URL bibliográfica y ficha de sello. Son **identidades bibliográficas**, no pruebas de que reciban manuscritos. No deben fusionarse semánticamente con el directorio de recepción sin resolver aliases, grupos y contactos.
 
 ## Resultado perseguido
 
@@ -26,7 +26,7 @@ La **PR #687 aún abierta** introduce `data/reading-publishers.json`: **11 sello
 
 - **E1 COMPLETADO (auditoría de los JSON de main y #687, sin ejecutar código del proyecto):** no hay coincidencias exactas ni de nombre normalizado entre los 11 sellos del catálogo y las 150 editoriales del directorio; 35 de los 55 libros de #687 enlazan a fichas del directorio, todas con `status=unknown`; otros 20 enlazan a 9 de los 11 sellos exclusivamente bibliográficos. **Beascoa y Montena** tienen ficha de sello/fuente, pero cero libros publicados asociados en esa rama; revisarlas como huérfanas antes de indexarlas. Los estados de manuscritos no se pueden inferir de esta distribución. No he encontrado colisiones de nombres normalizados dentro de las 150 editoriales. Estos recuentos son instantáneas de #687, **no** de `main`.
 - **E2 INVESTIGADO / RUTA ELEGIDA:** consultar límites del ISBN y DILVE, descartando la copia de resultados ISBN sin autorización explícita; fuente estructurada inicial **Wikidata CC0**, solo para proponer entidades y webs. Se ha creado adaptador offline de Wikibase JSON y 9 pruebas escritas sin ejecutar. Pendiente piloto con QIDs reales contrastados, confirmación de permisos de webs editoriales y petición de autorización/volcado a Agencia ISBN para ampliar cobertura. Véase hallazgo fechado abajo.
-- **E3 CÓDIGO PREPARADO:** `scripts/research/gpt_editoriales_reconcile.py` ya compara, en modo solo lectura y con ficheros suministrados explícitamente, slugs, alias sugeridos, datos obsoletos, fuentes de ficha, registros sin libros y enlaces rotos. Devuelve JSON para revisión sin filtrar correos ni escribir `data/editoriales.json`. **No probado todavía**; #692 no contiene los 11 sellos porque viven en #687. Se utilizará una copia local de esos datos después de aprobación.
+- **E3 CÓDIGO PREPARADO:** `scripts/research/gpt_editoriales_reconcile.py` ya compara, en modo solo lectura y con ficheros suministrados explícitamente, slugs, alias sugeridos, datos obsoletos, fuentes de ficha, registros sin libros y enlaces rotos. Devuelve JSON para revisión sin filtrar correos ni escribir `data/editoriales.json`. **No probado todavía**; #692 no copia los 11 sellos porque ya residen en `main`. El próximo estudio E6 podrá usarlos sin importar otra rama.
 - **E4 INVESTIGACIÓN Y CÓDIGO PREPARADOS, SIN EJECUTAR:** se revisó una muestra de **15 entidades reales** (13 sellos/editoriales y 2 grupos), con 6 QIDs localizados (uno es Bruguera histórico y no se debe unir al sello actual) y 18 observaciones de contactos tipificados. Documentación y resultados en [`editoriales-e4-resultados-2026-10-22.md`](editoriales-e4-resultados-2026-10-22.md). Se preparó `gpt_editoriales_contact_evidence.py` con allowlist independiente, caducidad y conflictos; **15 pruebas sintéticas adicionales sin ejecutar**. Las 11 pruebas de E3 tampoco se han ejecutado.
 - **E5 DISEÑO Y CÓDIGO PREPARADOS, NO EJECUTADOS:** revisar [informe E5](editoriales-e5-integracion-2026-10-22.md). Confirmado en el código real que el bot diario ya tiene exclusión de PR pendientes, allowlist, controles de CI y concurrencia; la allowlist de #687 **no incluye** `data/editoriales.json`. Se propone **un solo orquestador con dos carriles**: bibliografía verificada → bot de libros actual; contacto/recepción → revisión humana y PR separada no automática. Preparado `scripts/research/gpt_editoriales_review_plan.py` y **21 casos de prueba sintéticos adicionales sin ejecutar** (57 en los cuatro módulos).
 
@@ -57,7 +57,7 @@ La **PR #687 aún abierta** introduce `data/reading-publishers.json`: **11 sello
 
 ### Uso del prototipo (NO ejecutar desde la CI ni producción)
 
-El conciliador necesita **tres ficheros explícitos**; `main` todavía no contiene `reading-publishers.json`. Tras disponer de una copia de la #687 para investigación:
+El conciliador necesita **tres ficheros explícitos**, ya disponibles en `main` tras fusionar #687. Su ejecución requerirá autorización expresa; no se ha realizado:
 
 ```sh
 python scripts/research/gpt_editoriales_reconcile.py \
@@ -67,7 +67,7 @@ python scripts/research/gpt_editoriales_reconcile.py \
   --as-of 2026-10-22
 ```
 
-Salida: JSON en stdout con recuentos, colisiones, casos huérfanos y `imprint_candidates` con `decision=review_*|catalogue_only|quarantine_source`. Solo sugerencias, **jamás fusiones, cambios de status o alta directa**. Los datos deben provenir del **mismo commit** de #687 para evitar falsos errores referenciales. La rama no añade ni altera jobs, workflows ni datos públicos.
+Salida: JSON en stdout con recuentos, colisiones, casos huérfanos y `imprint_candidates` con `decision=review_*|catalogue_only|quarantine_source`. Solo sugerencias, **jamás fusiones, cambios de status o alta directa**. Los datos deben provenir del **mismo commit de `main`** para evitar falsos errores referenciales. La rama no añade ni altera jobs, workflows ni datos públicos.
 
 **Siguiente acción recomendada — E2/E4:** obtener permiso o export de la base ISBN; luego preparar 20 coincidencias reales manualmente y probar la validez/atribución de contacto antes de automatizar una sola ficha. Se mantiene el coste objetivo cero.
 
@@ -125,4 +125,7 @@ Este texto **no representa autorización concedida ni una comunicación enviada*
 
 ## Estado actual y próxima pasada (22/10/2026)
 
-**E4 terminada**: [informe específico](editoriales-e4-resultados-2026-10-22.md). **E5 terminada como investigación y propuesta no ejecutada**: [diseño de integración E5](editoriales-e5-integracion-2026-10-22.md). **Próxima petición «siguiente investigación de GPT» → E6.1 y E6.2**, en esta misma PR #692: comprobar esquemas cruzados con snapshots coherentes, auditar los cuatro módulos y redactar contrato explícito de aprobación humana por campo. No ejecutar CI ni publicar automáticamente.
+**E4 terminada**: [informe específico](editoriales-e4-resultados-2026-10-22.md). **E5 terminada como investigación y propuesta no ejecutada**: [diseño de integración E5](editoriales-e5-integracion-2026-10-22.md). #687 se ha **fusionado**; ya no es dependencia abierta. **Próxima petición «siguiente investigación de GPT» → E6.1 y E6.2**, en la misma PR #692: comprobar esquemas cruzados de los cuatro módulos con los nuevos datos de `main`, y redactar el contrato de aprobación humana por campo. No ejecutar CI ni publicar automáticamente.
+
+
+**Actualización de estado 22/10/2026:** #687 fusionada en `main` durante E5. `main` contiene 55 libros (35 enlazan al directorio, 20 a sellos exclusivos), 55 autores, 11 sellos y 150 editoriales. Los informes E1/E4 conservan su procedencia histórica de la rama #687; E6 debe usar **únicamente los datos de `main` del mismo commit**. #692 sigue DRAFT y sin tests ejecutados.
