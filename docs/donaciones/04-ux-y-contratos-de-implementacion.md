@@ -33,13 +33,13 @@ python -m http.server 8000
 - **Staging:** la página puede existir con `status: gated`/`noindex`, pero no debe enlazarse desde el pie; el builder público la excluye por `gated_prefixes_from_registry()`.
 - **Público:** la entrada del registry debe ser `status: public`, apuntar a `apoyar/index.html`, aparecer exactamente una vez en `footer.Información`, tener canonical correcto, robots sin `noindex`, privacidad/aviso legal y **al menos un enlace de método** `support-method` al checkout PayPal o Stripe oficial, sin URL de prueba ni SDK.
 
-El propio test monta casos aislados positivos y negativos para comprobar que fallan URL impostora, parámetros imprevistos, `noindex` público y enlaces Stripe `test_`. Su validación de URL **solo prueba la forma**, nunca la titularidad, estado de cuenta, recepción de fondos ni exposición de datos personales en el recibo: esas comprobaciones siguen siendo manuales y obligatorias.
+El propio test monta casos aislados positivos y negativos para comprobar que fallan URL impostora, parámetros imprevistos, `noindex` público y enlaces Stripe `test_`. Su validación de URL **solo prueba la forma**, nunca la titularidad, estado de cuenta, recepción de fondos ni exposición de datos personales en el recibo: esas comprobaciones siguen siendo manuales y obligatorias. **Fixture local aislado de este gate: `py_compile` + ejecución de casos privados, públicos y fallidos, resultado OK el 22/10/2026; no se ha ejecutado el árbol completo del repositorio ni CI.**
 
 ```bash
 python tests/test-support-release-gate.py
 ```
 
-**Estado:** código añadido a la rama y revisado; no se ha ejecutado la suite del repositorio ni Actions. La vista previa tiene su test propio, que **ya no impide** una activación correcta más adelante.
+**Estado:** código añadido a la rama, fixture aislado verificado; no se ha ejecutado la suite del repositorio ni Actions. La vista previa tiene su test propio, que **ya no impide** una activación correcta más adelante.
 
 ## Contrato de navegación (orden exacto recomendado)
 
@@ -100,23 +100,23 @@ La nota no debe afirmar que el **proveedor** no pide datos; solo que nosotros no
   gap: 1rem;
   min-height: 48px;
   padding: 1rem 1.15rem;
-  border: 1px solid var(--border);
+  border: 1px solid var(--color-border);
   border-radius: 12px;
   color: inherit;
   text-decoration: none;
 }
 .support-method:hover, .support-method:focus-visible {
-  border-color: var(--accent);
+  border-color: var(--color-accent);
   text-decoration: underline;
   outline-offset: 3px;
 }
 .support-method span, .support-note, .support-inline {
-  color: var(--muted);
+  color: var(--color-muted);
 }
 .support-inline {
   margin-block: 2.5rem 0;
   padding-block: 1rem;
-  border-top: 1px solid var(--border);
+  border-top: 1px solid var(--color-border);
   font-size: .92rem;
 }
 @media (max-width: 600px) {
@@ -124,7 +124,7 @@ La nota no debe afirmar que el **proveedor** no pide datos; solo que nosotros no
 }
 ```
 
-CSS fragmento **original**, no importado de repos externos; usa tokens actuales comprobados en `assets/v1-*.css`. La regla `focus-visible` podría requerir `outline: 2px solid currentColor` si el reset global la suprime. Revisar WCAG contraste y zoom 200–400 %. Si se añade CSS nuevo a `v1-shell.css`, actualizar versionado/preloads con `scripts/add_v1_shell_preloads.py`.
+CSS fragmento **original**, no importado de repos externos; usa tokens actuales comprobados en `assets/v1-*.css`. `assets/v1-base.css` ya define `html.v1 :focus-visible` con `outline:2px solid var(--focus-color)`: mantenerla y comprobar foco de teclado. Revisar WCAG contraste y zoom 200–400 %. Si se añade CSS nuevo a `v1-shell.css`, actualizar versionado/preloads con `scripts/add_v1_shell_preloads.py`.
 
 ## Contrato de configuración sin secretos, no dependiente de framework
 
