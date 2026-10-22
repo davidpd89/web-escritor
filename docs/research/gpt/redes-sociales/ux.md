@@ -88,6 +88,29 @@ python -m unittest discover -s "$tmp/tests" -p 'test_gpt_*.py' -v
 
 **Pendiente:** comprobar Bluesky/Mastodon contra las API reales, integración del frontend, accesibilidad y transporte automatizado de Metricool. Las 81 pruebas offline NO equivalen a despliegue funcional.
 
+## Protección probada contra JSON caducado (actualización 22/10/2026)
+
+**Problema:** el compositor conserva el último archivo correcto si fallan todos los lectores, pero un frontend ingenuo que mire el campo almacenado `status=ok` puede seguir mostrando seguidores obsoletos **indefinidamente** si no se ejecuta el generador. No basta con filtrar la caducidad cuando se escribe.
+
+**Código nuevo ya incluido, sin tocar la web publicada:**
+
+- [`scripts/research/gpt_social_compose.py`](../../../../scripts/research/gpt_social_compose.py) añade `valid_until` UTC por red a partir de la observación y la política provisional de **48 h**; en `totals.valid_until` registra la **primera caducidad** de las redes que participan en el sumatorio. Los `null` no se convierten en cero.
+- [`scripts/research/gpt_social_reader.mjs`](../../../../scripts/research/gpt_social_reader.mjs): selector de lectura para la futura página estática. Comprueba `valid_until` con el reloj real del navegador y **recalcula los totales** únicamente con contadores vigentes; nunca confía ciegamente en `totals.follower_relationships` ni en el `status=ok` que quedó almacenado. Solo devuelve los tres IDs admitidos, no expone URL externas del JSON y diferencia cero de ausencia.
+- [`tests/test_gpt_social_expiration.py`](../../../../tests/test_gpt_social_expiration.py): **7 pruebas Python**, incluidas fechas UTC, expiración del día cerrado de Madrid, zero/null, suma y cambio de horario del 25/10/2026.
+- [`tests/test_gpt_social_reader.mjs`](../../../../tests/test_gpt_social_reader.mjs): **13 pruebas Node.js** de caducidad, cifra cero, duplicación, fuente incorrecta, tiempo futuro, total almacenado manipulado y URL externa inyectada.
+- [`tests/test_gpt_social_python_to_js.mjs`](../../../../tests/test_gpt_social_python_to_js.mjs): **3 pruebas de contrato cruzado reales**. Node invoca el compositor Python por subprocess con datos sintéticos, consume **el JSON que emite**, y verifica que tras 48 h los números desaparecen aunque el archivo y su estado original permanezcan. Nada de red, credenciales o Actions.
+
+### Comandos localmente ejecutados
+
+~~~bash
+python -m unittest discover -s tests -p 'test_gpt_social_expiration.py' -v
+node --test tests/test_gpt_social_reader.mjs tests/test_gpt_social_python_to_js.mjs
+~~~
+
+**Resultados:** 7/7 Python y 16/16 Node (13 de lector + 3 cruces) PASS; también se reejecutaron **35** pruebas locales anteriores del puente Metricool→compositor. En esa sesión se obtuvieron **42 Python + 16 Node = 58 pruebas locales correctas** en total; 17 de los 42 Python corresponden a pruebas exploratorias locales del puente que no forman parte de estos archivos de la PR. Por tanto **58 NO es la cifra de pruebas versionadas de la PR ni sustituye la suite completa pendiente**. Los cinco ficheros nuevos/modificados se cotejaron por hash Git blob con la versión probada.
+
+**Integración pendiente:** el módulo MJS de lectura está preparado pero **no se importa todavía desde ninguna página**; hasta que se construya `/redes-sociales/` no se puede afirmar que el navegador público o su caché hayan sido comprobados. La UI deberá leer `data/social-metrics.generated.json` y usar **solo** el resultado de `visibleSocialMetrics(snapshot)`, junto con enlaces de perfil canónicos de la web. Si no hay métricas vigentes, mostrar las tarjetas y ocultar cifras/totales en lugar de un cero ficticio.
+
 ## Verificación realizada
 
 **Versión anterior:** 27/27 pruebas unitarias del compositor, con hash verificado. **Versión nueva:** diez casos añadidos al mismo fichero (37 declarados), más dos pruebas cruzadas nuevas en `test_gpt_social_pipeline.py` (8 declaradas; saltan mientras #705–#707 están en ramas separadas). El equivalente de los diez casos nuevos y la conexión con el lector #705 pasaron localmente; repetir la suite exacta de los archivos finales al unir las ramas.
@@ -120,4 +143,4 @@ El compositor acepta el contenedor `metricool-follower-candidates` de #705, veri
 - [JSON Schema, especificación y pruebas oficiales](https://json-schema.org/understanding-json-schema/reference/object): los objetos permiten propiedades adicionales si no se prohíben explícitamente. El compositor aplica **lista permitida de campos de salida**, sin vendoring de validadores ni dependencias; la [suite oficial](https://github.com/json-schema-org/JSON-Schema-Test-Suite/blob/main/tests/draft2020-12/additionalProperties.json) demuestra el comportamiento que se evita. No se ha copiado código de terceros a esta PR.
 - [Python `zoneinfo`](https://docs.python.org/3/library/zoneinfo.html) calcula el huso de Madrid con DST; [`os.replace`](https://docs.python.org/3.13/library/os.html#os.replace) permite sustitución atómica en el mismo filesystem.
 
-**Puerta de integración para Claude:** confirmar identidad real y lectores de #705–#707; resolver qué hacer cuando una red no entregue snapshot nuevo (caché/edad del JSON en frontend); decidir TTL definitivo; ejecutar la suite completa y crear la UI/navigation/sitemap solo en PR aparte cuando esté aprobado. **No confundir 26 pruebas offline con una prueba de despliegue.**
+**Puerta de integración para Claude:** confirmar identidad real y lectores de #705–#707; conectar el lector MJS de caducidad al HTML antes de mostrar números; decidir el TTL definitivo; ejecutar la suite completa y crear la UI/navigation/sitemap solo en PR aparte cuando esté aprobado. **No confundir las pruebas offline con un despliegue.**
