@@ -26,6 +26,7 @@ Página semántica indexable en móvil/teclado, visible sin JavaScript, tamaño 
 2. Recogida fuera del navegador: público sin token para Bluesky/Mastodon; Metricool/insights/OAuth solo cuando esté permitida una integración independiente desatendida; nunca publicar tokens.
 3. Los **adaptadores internos** pueden recibir {id, observed_at, source, followers, posts, impressions_30d, views_30d, interactions_30d, status}; el **compositor público v1 probado** expone solo identificador, enlace canónico, seguidores, fecha, fuente, estado, totales y cobertura. Las métricas no justificadas quedan fuera del documento público.
 4. Exportar JSON público generado a data/social-metrics.generated.json, consumido con mejoras progresivas por UI; refresco recomendado 12–24 h, no «tiempo real» falso. Mantener último dato válido con sello stale cuando falle la fuente; no sobrescribir null por cero.
+   - **Corrección implementada en la PR #704:** el contador en el último fichero bueno puede quedar desactualizado si deja de ejecutarse el generador. Por eso cada red tiene ahora `valid_until` UTC y el total `totals.valid_until` es la primera expiración entre los contadores participantes. El nuevo módulo `scripts/research/gpt_social_reader.mjs` **recalcula en el navegador** usando únicamente cifras aún vigentes, sin confiar en el total o estado guardados. Hay 7 pruebas Python, 13 Node y 3 pruebas cruzadas Python→JS ejecutadas, **con hashes Git idénticos** a los archivos de la PR. No está conectado aún a la web ni se ha validado con Actions.
 5. Agregados: únicamente mismas definiciones + misma ventana, con cobertura visible (por ejemplo «6 de 9 perfiles con datos»); no inferir usuarios únicos, ni sumar impresiones y alcance. Si hay dos fechas comparables mostrar evolución, en otro caso no.
    - **Corrección concreta (22/10, PR #705):** el conector Metricool denomina `THEV06` «Post Views», pero [su documentación oficial](https://help.metricool.com/es/diferencia-entre-posts-publicados-y-posts-vistos-en-el-periodo-2pwtf) separa vistas acumuladas de posts publicados y vistas generadas durante el período. `THEV06` **no se debe mapear a `views_30d`** hasta demostrar el alcance real de esa serie. El adaptador Threads lo suprime deliberadamente. **La PR #708 ha corregido la sugerencia anterior que equiparaba `THEV06` con `views_30d`** y ahora remite al código probado de #705/#704. `THEV11` son vistas del perfil, no de los posts.
 
@@ -78,7 +79,7 @@ Documento rector y PR hijas: base técnica, fuente central Metricool, Bluesky, M
 
 | PR | Alcance | Documento |
 |---|---|---|
-| [#704](https://github.com/davidpd89/web-escritor/pull/704) | Contrato ejecutable de 3 redes, caducidad y 27 tests offline | [ux.md](./ux.md) |
+| [#704](https://github.com/davidpd89/web-escritor/pull/704) | Compositor y lector JS con expiración UTC; 7 Python + 16 Node nuevos | [ux.md](./ux.md) |
 | [#705](https://github.com/davidpd89/web-escritor/pull/705) | Fuente agregada Metricool | [metricool.md](./metricool.md) |
 | [#706](https://github.com/davidpd89/web-escritor/pull/706) | Bluesky | [bluesky.md](./bluesky.md) |
 | [#707](https://github.com/davidpd89/web-escritor/pull/707) | Mastodon (búsqueda pública, adaptador y 18 pruebas offline) | [mastodon.md](./mastodon.md) |
