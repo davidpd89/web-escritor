@@ -34,7 +34,90 @@ def mastodon(**patch):
             "observed_at": "2026-10-22T10:00:00Z", **patch}
 
 
+
+def metricool_batch(include_threads=True):
+    # Literal shape emitted by #705; numbers intentionally synthetic.
+    records = []
+    for key in ("bluesky", "threads", "instagram", "facebook", "tiktok",
+                "pinterest", "youtube", "twitter"):
+        if key == "threads" and not include_threads:
+            continue
+        records.append({
+            "id": key, "followers": 13 if key == "threads" else 100,
+            "views_30d": None, "impressions_30d": None,
+            "observed_at": "2026-10-21", "source": "metricool-mcp-export",
+            "status": "ok",
+        })
+    return {"kind": "metricool-follower-candidates", "schema_version": 1,
+            "requested_day": "2026-10-21", "generated_at": "2026-10-22T11:30:00Z",
+            "records": records}
+
+
 class ComposeTests(unittest.TestCase):
+    def test_batch_counts_only_authorized_threads(self):
+        public = sc.compose([metricool_batch()], now=NOW)
+        self.assertEqual(public["totals"]["coverage"], 1)
+        self.assertEqual(public["totals"]["follower_relationships"], 13)
+        self.assertEqual(public["networks"][2]["id"], "threads")
+        self.assertTrue(all(x["followers"] is None for x in public["networks"][:2]))
+
+    def test_bundle_and_public_readers_do_not_double_count_bluesky(self):
+        public = sc.compose([metricool_batch(), bsky(), mastodon()], now=NOW)
+        self.assertEqual(public["totals"]["coverage"], 3)
+        self.assertEqual(public["totals"]["follower_relationships"], 24)
+
+    def test_batch_without_threads_does_not_extend_public_account_list(self):
+        public = sc.compose([metricool_batch(include_threads=False)], now=NOW)
+        self.assertEqual(public["totals"]["coverage"], 0)
+        self.assertEqual(public["totals"]["eligible"], 3)
+
+    def test_batch_duplicate_candidate_rejected(self):
+        batch = metricool_batch()
+        batch["records"].append(batch["records"][1].copy())
+        with self.assertRaisesRegex(ValueError, "Duplicate Metricool candidate"):
+            sc.compose([batch], now=NOW)
+
+    def test_batch_wrong_provider_rejected_even_when_ignored(self):
+        batch = metricool_batch()
+        batch["records"][0]["source"] = "other-provider"
+        with self.assertRaisesRegex(ValueError, "unexpected provider"):
+            sc.compose([batch], now=NOW)
+
+    def test_batch_wrong_day_rejected(self):
+        batch = metricool_batch()
+        batch["records"][1]["observed_at"] = "2026-10-20"
+        with self.assertRaisesRegex(ValueError, "date differs"):
+            sc.compose([batch], now=NOW)
+
+    def test_batch_with_unverified_impressions_rejected(self):
+        batch = metricool_batch()
+        batch["records"][0]["impressions_30d"] = 120
+        with self.assertRaisesRegex(ValueError, "Unverified period"):
+            sc.compose([batch], now=NOW)
+
+    def test_batch_malformed_schema_rejected(self):
+        for key, value in (("schema_version", True),
+                           ("requested_day", "2026-02-30"),
+                           ("records", "not-an-array")):
+            batch = metricool_batch()
+            batch[key] = value
+            with self.subTest(key=key), self.assertRaises(ValueError):
+                sc.compose([batch], now=NOW)
+
+    def test_batch_and_direct_threads_duplication_is_rejected(self):
+        with self.assertRaisesRegex(ValueError, "Duplicate network ID"):
+            sc.compose([metricool_batch(), threads()], now=NOW)
+
+    def test_no_publish_when_batch_has_only_unapproved_profiles(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            src = Path(tmp) / "batch.json"
+            target = Path(tmp) / "last-good.json"
+            src.write_text(json.dumps(metricool_batch(include_threads=False)), encoding="utf-8")
+            target.write_text('{"old": true}', encoding="utf-8")
+            with redirect_stderr(io.StringIO()):
+                self.assertEqual(sc.main([str(src), "--output", str(target)]), 1)
+            self.assertEqual(json.loads(target.read_text()), {"old": True})
+
     def test_three_sources_aggregate_and_canonical_order(self):
         result = sc.compose([threads(), bsky(), mastodon()], now=NOW)
         self.assertEqual(result["totals"]["follower_relationships"], 18)
