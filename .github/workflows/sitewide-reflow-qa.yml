@@ -13,10 +13,9 @@ on:
       - 'data/navigation.json'
       - 'scripts/build-*.py'
       - 'scripts/site_shell.py'
-      - 'qa/sitewide-reflow-browser.mjs'
-      - 'qa/text-resilience-report-gate.mjs'
-      - 'qa/focus-not-obscured-audit.mjs'
-      - 'qa/target-size-audit.mjs'
+      - 'qa/*.mjs'
+      - 'package.json'
+      - 'package-lock.json'
       - '.github/workflows/sitewide-reflow-qa.yml'
   workflow_dispatch:
 
