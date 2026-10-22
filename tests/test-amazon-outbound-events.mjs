@@ -40,6 +40,7 @@ test('no confundir Author Follow, otros dominios o subcadenas engañosas con com
   assert.equal(classify('http://www.amazon.es/dp/B0GB6LGQFH'), null);
   assert.equal(classify('https://amzn.to/4zW6Yeu/mal'), null);
   assert.equal(classify('https://www.amazon.es/gp/'), null);
+  assert.equal(classify('https://www.amazon.es/dp/B0GB6LGQFH#customerReviews'), null);
   assert.equal(classify('https://www.casadellibro.com/'), null);
 });
 
@@ -54,5 +55,7 @@ test('todos los eventos están en autoridad y modal de Samuel queda separado', (
   assert.match(script, /if \(!link \|\| link\.closest\("#buy-dialog"\)\) return;/);
   const body = script.slice(script.indexOf('// Delegación imprescindible:'), script.indexOf('// Leer fragmento gratis --'));
   assert.match(body, /if \(category\) _gcEvent\(category,/);
-  assert.equal((body.match(/_gcEvent\(/g) || []).length, 1, 'No emitir eventos duplicados');
+  // Una emisión única para compra O reseña, y otra separada para Follow.
+  assert.equal((body.match(/_gcEvent\(category,/g) || []).length, 1, 'Un solo evento para salida comercial/lectora');
+  assert.equal((body.match(/_gcEvent\("seguir-autor-amazon",/g) || []).length, 1, 'Un solo evento de Follow');
 });
