@@ -291,5 +291,62 @@ class ExistingCachedHTTPBridgeTests(unittest.TestCase):
                                cache_dir=Path(".ci/unused"), http=self.FakeHTTP({}))
 
 
+
+class AlientaRealBuilderContractTests(unittest.TestCase):
+    """Actual main build-editoriales.py validates a staged candidate in memory.
+
+    No network, writes to a temporary file only. No generated public pages.
+    """
+    def test_alienta_passes_builder_but_is_not_published(self):
+        import copy
+        import tempfile
+        import sys
+
+        root = Path(__file__).resolve().parents[1]
+        script_dir = str(root / "scripts")
+        if script_dir not in sys.path:
+            sys.path.insert(0, script_dir)
+        spec = importlib.util.spec_from_file_location(
+            "build_editoriales_e6_research",
+            root / "scripts" / "build-editoriales.py",
+        )
+        builder = importlib.util.module_from_spec(spec)
+        spec.loader.exec_module(builder)
+
+        current = json.loads((root / "data" / "editoriales.json").read_text(encoding="utf-8"))
+        candidate_doc = json.loads((root / "docs/research/gpt/editoriales-alienta-candidata-2026-10-22.json").read_text(encoding="utf-8"))
+        candidate = copy.deepcopy(candidate_doc["proposed_publisher"])
+        self.assertFalse(candidate["publish"])
+        self.assertTrue(candidate["sources"][0]["primary"])
+        self.assertNotIn(candidate["slug"], {p["slug"] for p in current["publishers"]})
+
+        test_data = copy.deepcopy(current)
+        test_data["publishers"].append(candidate)
+        with tempfile.TemporaryDirectory() as tmp_dir:
+            temp_root = Path(tmp_dir)
+            data_file = temp_root / "editoriales-candidate.json"
+            data_file.write_text(json.dumps(test_data, ensure_ascii=False), encoding="utf-8")
+
+            # The real production validator checks all 150 existing rows plus
+            # the candidate; published output remains unchanged.
+            _, public_rows, warnings = builder.load_and_validate(data_file, TODAY)
+            self.assertEqual(len(public_rows), sum(p.get("publish") is True for p in current["publishers"]))
+            self.assertNotIn("alienta-editorial", {p["slug"] for p in public_rows})
+            self.assertTrue(any("alienta-editorial" in w and "publish" in w for w in warnings))
+            count, build_warnings = builder.build(data_file, temp_root / "site", TODAY, True)
+            self.assertEqual(count, len(public_rows))
+            self.assertFalse((temp_root / "site").exists())
+            self.assertEqual(warnings, build_warnings)
+
+            # Switching publish on IN A TEMPORARY COPY validates the complete
+            # record but does not write any page to the repository.
+            candidate["publish"] = True
+            test_data["publishers"][-1] = candidate
+            data_file.write_text(json.dumps(test_data, ensure_ascii=False), encoding="utf-8")
+            count_with_alienta, _ = builder.build(data_file, temp_root / "site", TODAY, True)
+            self.assertEqual(count_with_alienta, count + 1)
+            self.assertFalse((temp_root / "site").exists())
+
+
 if __name__ == "__main__":
     unittest.main()
