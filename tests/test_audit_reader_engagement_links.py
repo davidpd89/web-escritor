@@ -65,6 +65,23 @@ class AuditLinksTest(unittest.TestCase):
         r = module.analyse_html(html)
         self.assertFalse(r["ctas"]["amazon_review"])
 
+    def test_cross_platform_label_detects_misleading_destination(self):
+        html = (
+            '<a href="https://www.amazon.es/dp/ASIN#customerReviews">'
+            'Ver todas las reseñas en Amazon España y Goodreads</a>'
+        )
+        r = module.analyse_html(html)
+        self.assertEqual(len(r["misleading_cross_platform_labels"]), 1)
+        self.assertEqual(len(r["ctas"]["amazon_review_view"]), 1)
+
+    def test_individual_platform_labels_are_not_flagged(self):
+        html = (
+            '<a href="https://www.amazon.es/dp/ASIN#customerReviews">Ver opiniones Amazon</a>'
+            '<a href="https://www.goodreads.com/book/show/123">Valorar en Goodreads</a>'
+        )
+        r = module.analyse_html(html)
+        self.assertFalse(r["misleading_cross_platform_labels"])
+
     def test_aria_label_used_when_anchor_has_icon(self):
         html = (
             '<a href="https://www.amazon.es/dp/ASIN#customerReviews" '
