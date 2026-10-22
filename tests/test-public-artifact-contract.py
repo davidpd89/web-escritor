@@ -27,6 +27,7 @@ def main() -> None:
     for path in (
         "index.html",
         "ai/index.html",
+        "apoyar/index.html",  # Future public route; no page published yet
         "assets/v1-shell.css",
         "assets/assistant-local-knowledge.mjs",
         "pagefind/pagefind-ui.js",
@@ -47,6 +48,9 @@ def main() -> None:
     # defense in depth even when a technical file is placed under /assets/.
     for path in (
         "docs/new-runbook.md",
+        "apoyar/README.md",  # Never expose deployment/activation notes
+        "apoyar/.env",
+        "apoyar/private.key",
         "qa/new-browser-check.mjs",
         "lab/new-prototype/index.html",
         "migrations/future.sql",
@@ -77,6 +81,7 @@ def main() -> None:
     assert rendered == current, ".assetsignore must be generated from builder policy"
     assert "/*\n" in rendered, "assetsignore must start from a root deny"
     assert "!/assets/" in rendered
+    assert "!/apoyar/" in rendered, "Future support URL must be whitelisted in Wrangler"
     assert "!/pagefind/" in rendered
     assert "/press-kit/package-manifest.json" in rendered
     assert "**/wrangler*.jsonc" in rendered
