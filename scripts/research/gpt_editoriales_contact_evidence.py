@@ -298,7 +298,11 @@ def draft_from_html(html, *, slug, source_url, checked_at, source_allowlist):
         r'\s+(?:manuscritos|originales)\b'
         r'(?!\s+(?:fisicos?|impresos?|en papel|en formato fisico|de ficcion))'
     )
-    nearby = folded[max(0, found.start()-180):min(len(folded), found.end()+180)] if found else ''
+    # The official page may announce closure much later than its initial
+    # submission instructions. For the FIVE reviewed official sources, any
+    # general contradictory statement makes an 'open' suggestion unknown.
+    # Format/genre-only restrictions are excluded by negation's regex.
+    nearby = folded if found else ''
     conflict = intended == 'open' and bool(found) and bool(negation.search(nearby))
     suggestion = 'unknown' if conflict else intended if found else 'unknown'
     scope = 'group_general' if slug == 'alfaguara' else 'publisher_specific'
