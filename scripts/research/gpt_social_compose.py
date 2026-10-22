@@ -34,6 +34,55 @@ MAX_INPUT_BYTES = 64_000
 OBSERVED_RE = re.compile(r"\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}(?:Z|[+-]\d{2}:\d{2})\Z")
 SOURCE_RE = re.compile(r"[a-z][a-z0-9-]{0,79}\Z")
 UNVERIFIED_PERIOD_FIELDS = ("views_30d", "impressions_30d", "interactions_30d")
+# Exact set of follower candidates returned by the already-tested #705 reader.
+# Only Threads is accepted as a public Metricool source in contract v1.
+METRICOOL_BATCH_KIND = "metricool-follower-candidates"
+METRICOOL_CANDIDATES = frozenset((
+    "bluesky", "threads", "instagram", "facebook",
+    "tiktok", "pinterest", "youtube", "twitter",
+))
+
+
+def public_records(source: object) -> list[dict]:
+    """Unwrap #705's batch, selecting ONLY Threads; reject malformed batches."""
+    if not isinstance(source, dict) or source.get("kind") != METRICOOL_BATCH_KIND:
+        return [source]
+    if set(source) != {"kind", "schema_version", "requested_day", "generated_at", "records"}:
+        raise ValueError("Metricool batch has unexpected or missing fields")
+    if type(source["schema_version"]) is not int or source["schema_version"] != 1:
+        raise ValueError("Unsupported Metricool batch schema")
+    day = source["requested_day"]
+    if not isinstance(day, str) or not re.fullmatch(r"\d{4}-\d{2}-\d{2}", day):
+        raise ValueError("Invalid Metricool requested day")
+    try:
+        date.fromisoformat(day)
+    except ValueError as exc:
+        raise ValueError("Invalid Metricool calendar day") from exc
+    records = source["records"]
+    if not isinstance(records, list) or not records:
+        raise ValueError("Metricool batch contains no candidates")
+    seen = set()
+    selected = []
+    for record in records:
+        if not isinstance(record, dict):
+            raise ValueError("Metricool candidate must be a record")
+        identity = record.get("id")
+        if type(identity) is not str or identity not in METRICOOL_CANDIDATES:
+            raise ValueError("Unknown Metricool candidate identity")
+        if identity in seen:
+            raise ValueError("Duplicate Metricool candidate")
+        seen.add(identity)
+        if record.get("source") != "metricool-mcp-export":
+            raise ValueError("Metricool candidate uses unexpected provider")
+        for field in UNVERIFIED_PERIOD_FIELDS:
+            if record.get(field) is not None:
+                raise ValueError("Unverified period metric in Metricool batch")
+        if record.get("followers") is not None and record.get("observed_at") != day:
+            raise ValueError("Metricool candidate date differs from batch")
+        if identity == "threads":
+            selected.append(record)
+    return selected
+
 
 
 def observed_utc(value: object) -> datetime:
@@ -94,11 +143,12 @@ def compose(sources: list, *, now: datetime | None = None) -> dict:
         raise ValueError("now must be timezone-aware")
     now = now.astimezone(timezone.utc)
     observed = {}
-    for source in sources:
-        key, normalized = normalize(source, now)
-        if key in observed:
-            raise ValueError(f"Duplicate network ID: {key}")
-        observed[key] = normalized
+    for original in sources:
+        for source in public_records(original):
+            key, normalized = normalize(source, now)
+            if key in observed:
+                raise ValueError(f"Duplicate network ID: {key}")
+            observed[key] = normalized
     networks = [observed.get(key, {
         "id": key, "profile_url": PROFILES[key], "followers": None,
         "observed_at": None, "source": None, "status": "pending",
@@ -149,6 +199,8 @@ def main(argv: list[str] | None = None) -> int:
             sources.append(json.loads(path.read_text(encoding="utf-8")))
         payload = compose(sources)
         if args.output:
+            if not any(source["status"] == "ok" for source in payload["networks"]):
+                raise ValueError("No fresh verified follower data; preserve last-good output")
             atomic_write(args.output, payload)
         else:
             print(json.dumps(payload, ensure_ascii=False, indent=2))
