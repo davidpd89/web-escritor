@@ -59,10 +59,13 @@ def analyse_html(html: str) -> dict[str, object]:
     found: dict[str, list[str]] = {
         "amazon_follow": [],
         "amazon_review": [],
+        "amazon_review_view": [],
+        "amazon_author_profile_view": [],
         "goodreads_review": [],
         "casa_review": [],
     }
     review_amazon_miscounted = []
+    amazon_nonpurchase_miscounted = []
     for link in parser.links:
         href = link["href"]
         parsed = urlsplit(href)
@@ -75,11 +78,20 @@ def analyse_html(html: str) -> dict[str, object]:
             or "dejar opinion" in wording
         )
         if host in ("amazon.es", "www.amazon.es"):
-            if "/stores/author/" in parsed.path and "seguir" in wording:
+            is_author = "/stores/author/" in parsed.path
+            is_review_dest = plain(parsed.fragment) == "customerreviews"
+            is_review_wording = ("resen" in wording or "opinion" in wording)
+            if is_author and "seguir" in wording:
                 found["amazon_follow"].append(href)
+            elif is_author:
+                found["amazon_author_profile_view"].append(href)
             if direct_review:
                 found["amazon_review"].append(href)
                 review_amazon_miscounted.append(href)
+            elif is_review_dest or is_review_wording:
+                found["amazon_review_view"].append(href)
+            if is_author or direct_review or is_review_dest or is_review_wording:
+                amazon_nonpurchase_miscounted.append(href)
         elif host == "www.goodreads.com" and direct_review:
             found["goodreads_review"].append(href)
         elif host == "www.casadellibro.com" and direct_review:
@@ -89,6 +101,7 @@ def analyse_html(html: str) -> dict[str, object]:
         # script.js en main cuenta TODOS los clics a amazon.es como comprar-amazon,
         # sin distinguir "dejar reseña" de "comprar".
         "amazon_review_links_also_match_purchase_listener": review_amazon_miscounted,
+        "amazon_nonpurchase_links_also_match_purchase_listener": amazon_nonpurchase_miscounted,
     }
 
 
