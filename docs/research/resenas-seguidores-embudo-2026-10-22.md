@@ -1,6 +1,6 @@
 # Investigación aplicada: reseñas de lectores y seguimiento de autor (22-10-2026)
 
-**Estado: investigación con auditor offline y pruebas preparadas; ninguna acción de producción activada.** Objetivo: conseguir más lectores que lleguen a los lugares donde pueden seguir al autor o dejar valoraciones propias, distinguir los clics en la web de las acciones completadas y priorizar por rendimiento medible.
+**Estado E2: investigación con auditor offline y 7 pruebas unitarias ejecutadas localmente; ninguna acción de producción activada.** Objetivo: conseguir más lectores que lleguen a los lugares donde pueden seguir al autor o dejar valoraciones propias, distinguir los clics en la web de las acciones completadas y priorizar por rendimiento medible.
 
 **No duplicar:** #717 posee Amazon Author Central/Follow, tags, escaparate y auditor de URLs; #397/#470 poseen identidad y ediciones de Goodreads; #683 posee importación de ratings/precios del catálogo general. Esta PR se concentra en **adquisición de reseñas de lectores para los dos libros propios y medición del embudo**.
 
@@ -35,6 +35,34 @@ Fuentes:
 - **Confirmado por Goodreads:** autores con perfil reclamado pueden interactuar, lectores pueden valorar obras; el programa no ofrece atajo para asignar reseñas.
 - **Confirmado por Casa del Libro:** cuenta logada y botón en la ficha; NO hay API pública de creación de reseñas verificada en esta investigación.
 - **NO comprobado:** tasa de conversión externa, seguidores iniciales en Author Central, reseñas finales creadas tras clic, capacidad de la cuenta editorial/KDP para editar las fichas, correspondencia efectiva de shortlinks actuales.
+
+## Contraste adicional E2: oportunidades ES frente a ruido
+
+**Casa del Libro · Manecillas:** ficha pública concreta y enlazable https://www.casadellibro.com/libro-las-manecillas-del-recuerdo/9798905149351/18668032 , ISBN 9798905149351, ficha con «Escribir reseña» y **0 reseñas en la instantánea pública recuperada** (el buscador indica rastreo del mes anterior; no afirmar cero actuales sin visita directa). Esta es una tercera ficha para colocar CTA, tras Goodreads y Amazon. Tiene mejor encaje ES que añadir nuevos servicios. Fuente: página de Casa del Libro consultada 22/10/2026.
+
+**Goodreads · Manecillas:** https://www.goodreads.com/book/show/258289637-las-manecillas-del-recuerdo , mostraba **2 valoraciones y 2 reseñas** en el rastreo consultado (3 semanas de antigüedad); confirma obra y botón Write a Review pero no el estado actual en cuenta autenticada. No presentar esas cifras como recuento en vivo. Página del autor mostraba **4 seguidores** en la misma instantánea; no extrapolar a Amazon.
+
+**Goodreads Giveaways no es adquisición local ES:** reglas actuales del programa: sorteos impresos para participantes residentes en EE. UU. o Canadá; sorteos Kindle para residentes en EE. UU., con cuentas Amazon correspondientes. Fuente oficial: https://www.goodreads.com/giveaway/terms . Por tanto, descartar esta vía como prioridad para lectores de España salvo campaña internacional expresa.
+
+**Programa propio de lectores beta existente:** `/lectores-beta/` ya tiene formulario `#lectores-beta-form`, autorización propia y lista Brevo separada de newsletter; está descrito expresamente para **material todavía sin publicar**, no para pedir reseñas comerciales a las mismas personas sin más. No crear otra lista ni duplicar suscriptores; si se desarrolla después un programa de lectura anticipada de libros publicados, ofrecer alta diferenciada y decisión editorial consciente. Fichero verificado: `lectores-beta/index.html` líneas 199–235.
+
+**Amazon BSR, edición y causalidad:** la clasificación Best Sellers se basa en actividad relativa reciente e histórica, no en número de seguidores; las ediciones de ebook y papel tienen BSR independiente, aunque ciertas clasificaciones por categoría pueden agregar formatos. No usar reseñas como proxy de ventas: https://kdp.amazon.com/en_US/help/topic/G201648140 .
+
+### Hallazgo QA en E2 que no cubrían las 4 pruebas iniciales
+
+El primer auditor solo detectaba enlaces con «Dejar reseña», no los enlaces **«Ver reseñas»** o **«Ver perfil»** que también contabiliza incorrectamente `script.js` como `comprar-amazon`. Corregido en el auditor, sin tocar producción:
+
+- `amazon_review`: intención de escribir opinión.
+- `amazon_review_view`: intención de leer opiniones (incluye `#customerReviews`).
+- `amazon_author_profile_view`: abrir perfil del autor sin clicar en seguir.
+- `amazon_nonpurchase_links_also_match_purchase_listener`: conjunto de enlaces Amazon que no son compras pero que coinciden con el listener actual.
+- `amazon_review_links_also_match_purchase_listener`: campo original mantenido para compatibilidad.
+
+Las pruebas han pasado de 4 a **7/7**, ejecutadas localmente con `python -m unittest discover -s tests -v`. La validación real del HTML del sitio y el flujo de navegador continúan pendientes antes de integrar instrumentación.
+
+### Referencia externa de código, ahora contrastada directamente en GitHub
+
+Repositorio `arp242/goatcounter` activo y accesible. Se han leído `LICENSE` (blob `d06bcb9c8c0db5bcc049ace1caabe82ee752c68d`) y `public/count.js` (blob `3b5f6bc87a35c67875fd3efe52e75f8317949d85`). La licencia general es EUPL modificada; **`public/count.js` es ISC** de forma expresa. Método `goatcounter.bind_events()` enlaza `click` y `auxclick` cuando encuentra `data-goatcounter-click` y evita doble enlace con `data-goatcounter-bound`. Por eso el reuso de `_gcEvent` en `script.js` y un único listener delegado es preferible a añadir una segunda instrumentación. Evidencia: https://github.com/arp242/goatcounter/blob/main/public/count.js .
 
 ## Único repositorio externo con código aplicable: GoatCounter
 
@@ -120,10 +148,10 @@ CTAs propuestos, contenido neutral:
 ## Implementado en esta rama
 
 1. scripts/audit-reader-engagement-links.py: auditor local (HTMLParser de la librería estándar, sin dependencias ni red) para detectar CTAs visibles de reseñar/seguir y la colisión del enlace Amazon con el listener de compra. Salida JSON reproducible.
-2. tests/test_audit_reader_engagement_links.py: cuatro pruebas aisladas para distinguir reseña real de enlace de compra/perfil, destino Follow y aria-label.
+2. tests/test_audit_reader_engagement_links.py: 7 pruebas aisladas para distinguir reseñar, consultar reseñas, visitar perfil, seguimiento, dominios estrictos y aria-label.
 3. Este documento de evidencias + fragmentos listos para integrar en una PR hija de interfaz cuando se apruebe el diseño.
 
-**Estado de comprobación:** inspección del código de main y fuentes públicas sí; pruebas automatizadas escritas pero **no ejecutadas**; CI, Actions, despliegue, merges, scraping, envío de emails y modificaciones de la web pública **no realizados**.
+**Estado de comprobación (E2):** inspección del código de main y fuentes públicas; 7/7 pruebas del auditor superadas en copia local idéntica del código y comprobación de sintaxis Python, sin red. No se ejecutó la suite del repositorio completo. CI, Actions, despliegue, merges, scraping, envío de emails y modificaciones de la web pública **no realizados**.
 
 ## Criterios de aceptación de la futura integración
 
