@@ -343,6 +343,36 @@ class RealSourceSnippetPilotTests(unittest.TestCase):
         self.assertTrue(got["detected"])
         self.assertFalse(got["publish"])
 
+    def test_hidden_html_blocks_cannot_open_manuscript_intake(self):
+        # These three false positives were reproduced on the local parser
+        # before the fix (all incorrectly returned "open").
+        phrase = "Alienta Editorial acepta la recepción de manuscritos originales."
+        invisible = [
+            "<main><section hidden><p>" + phrase + "</p></section><p>Contacto general</p></main>",
+            "<main><section aria-hidden='true'><p>" + phrase + "</p></section><p>Contacto general</p></main>",
+            "<main><section style='display:none'><p>" + phrase + "</p></section><p>Contacto general</p></main>",
+            "<main><section style='visibility: hidden'><p>" + phrase + "</p></section><p>Contacto general</p></main>",
+        ]
+        for html in invisible:
+            with self.subTest(case=html[:75]):
+                result = self.check_pilot("alienta-editorial", html)
+                self.assertEqual(result["suggestion"], "unknown")
+                self.assertIsNone(result["submission_email_candidate"])
+                self.assertFalse(result["publish"])
+
+    def test_visible_text_after_hidden_and_void_elements_is_still_read(self):
+        phrase = "Alienta Editorial acepta la recepción de manuscritos originales."
+        cases = [
+            "<main><section hidden><p>Prohibido enviar</p></section><p>" + phrase + "</p></main>",
+            "<main><img src='/cover'><br><p>" + phrase + "</p></main>",
+            "<main><section><p>" + phrase + "</p></section></main>",
+        ]
+        for html in cases:
+            with self.subTest(case=html[:75]):
+                result = self.check_pilot("alienta-editorial", html)
+                self.assertEqual(result["suggestion"], "open")
+                self.assertFalse(result["publish"])
+
     def test_absence_of_explicit_evidence_is_unknown_for_all_five(self):
         for slug in self.URLS:
             with self.subTest(slug=slug):
