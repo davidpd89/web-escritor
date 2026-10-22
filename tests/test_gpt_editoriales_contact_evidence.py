@@ -185,6 +185,33 @@ class RealSourceSnippetPilotTests(unittest.TestCase):
                 self.assertTrue(got["manual_review_required"])
                 self.assertFalse(got["publish"])
 
+    def test_contradictory_acceptance_within_same_sentence_is_unknown(self):
+        negatives = [
+            ("nocturna-ediciones",
+             "Si desea enviarnos un manuscrito, NO lo haga por correo electrónico: la recepción de originales está cerrada."),
+            ("minotauro",
+             "El proyecto deberá enviarse por correo electrónico cuando reabra el plazo. Actualmente no aceptamos manuscritos."),
+        ]
+        for slug, phrase in negatives:
+            with self.subTest(slug=slug):
+                result = self.check_pilot(slug, "<main><p>" + phrase + "</p></main>")
+                self.assertEqual(result["suggestion"], "unknown")
+                self.assertIn("Conflicting", result["reason"])
+                self.assertFalse(result["publish"])
+
+    def test_specific_genre_or_physical_limits_do_not_force_unknown(self):
+        cases = [
+            ("nocturna-ediciones",
+             "Si desea enviarnos un manuscrito, puede hacerlo vía correo electrónico. No recibimos manuscritos físicos."),
+            ("alienta-editorial",
+             "Alienta Editorial acepta la recepción de manuscritos originales. El manuscrito deberá ser un ensayo: no publicamos ficción."),
+        ]
+        for slug, phrase in cases:
+            with self.subTest(slug=slug):
+                result = self.check_pilot(slug, "<main><p>" + phrase + "</p></main>")
+                self.assertEqual(result["suggestion"], "open")
+                self.assertFalse(result["publish"])
+
     def test_absence_of_explicit_evidence_is_unknown_for_all_five(self):
         for slug in self.URLS:
             with self.subTest(slug=slug):
