@@ -220,3 +220,17 @@ El piloto E6.3 tenía un falso positivo reproducible: la búsqueda de «enviar p
 
 **Ejecución local verificable con una copia aislada del extractor**, no el checkout integral del repositorio: 13 comprobaciones sintéticas de base, 5 anclas cortas de páginas oficiales reconstruidas en HTML y 4 comprobaciones nuevas (2 contradicciones, 2 restricciones legítimas) completadas sin errores. **No** significa que las pruebas completas de la PR ni el HTML bruto de las cinco webs hayan pasado. La regla de proximidad es conservadora y provisional: en una página larga podría necesitar segmentación de secciones tras la prueba con HTML real. En esta pasada no se añadieron librerías ni un módulo nuevo.
 
+
+
+### E6.3 — dato nuevo aprovechable: buzón específico para originales
+
+**Código incremental aplicado sobre el módulo E4 existente:** función submission_email_candidate() y campos submission_email_candidate y submission_email_basis en el resultado de draft_from_html(). Analiza el texto oficial ya obtenido por CachedHTTP y solo propone un buzón si sigue una instrucción explícita de envío de manuscritos en una de estas tres páginas revisadas: Nocturna, Minotauro o Alienta. Además verifica el dominio del correo. Las demás fuentes, incluidas Anagrama (pausa) y Alfaguara (procedimiento de grupo), no proponen direcciones. Un correo de prensa, lector o premio nunca se sustituye por un correo de envío de originales. **Siempre publish=false y revisión humana: no se actualiza data/editoriales.json ni se envía correo.**
+
+**Resultados comparables con el código del sitio, 22/10/2026:**
+- **Nocturna**: el buzón específico de originales de [su página oficial](https://www.nocturnaediciones.com/contacto) **coincide** con submission_email de main.
+- **Minotauro**: el buzón para enviar proyectos de [su web oficial](https://www.planetadelibros.com/editorial/minotauro/21) **coincide** con submission_email de main; es distinto del correo de lectores, premios y prensa publicado en la misma página.
+- **Alienta**: el buzón para originales digitales de [su web oficial](https://www.planetadelibros.com/editorial/alienta-editorial/15) **coincide** con el borrador de alta de #692; todavía NO está en el directorio de main.
+
+**Prueba local de la función aislada:** 11 comprobaciones (3 coincidencias correctas, 8 exclusiones o casos negativos), sin fallos. Añadidos cinco métodos de prueba al archivo E4 existente. Se usaron fragmentos representativos basados en el texto visible de fuentes oficiales. **No es una ejecución del HTML completo vía CachedHTTP ni de toda la suite GitHub**. El informe de candidatos solo se genera en el modo optativo de investigación, no se publica.
+
+**Ganancia funcional:** pasamos de detectar un posible estado de recepción a identificar el dato de envío adecuado con procedencia y contraste; dos contactos ya publicados se verificaron contra main y Alienta constituye una candidata a ficha adicional. El próximo paso no es aumentar controles: ejecutar las cinco URL con el cliente actual, cuantificar diferencias y corregir los errores observados antes de publicar nada.
