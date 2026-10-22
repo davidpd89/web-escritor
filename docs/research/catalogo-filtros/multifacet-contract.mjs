@@ -17,7 +17,7 @@ export function writeHash(state) {
   const params = new URLSearchParams();
   if (state.q) params.set('q', state.q);
   if (state.grupo) params.set('grupo', state.grupo);
-  for (const key of MULTI) for (const value of [...new Set(state[key] || [])].sort()) params.append(key, value);
+  for (const key of MULTI) for (const value of [...new Set(selection(state[key]))].sort()) params.append(key, value);
   for (const key of SCALAR) if (state[key]) params.set(key, String(state[key]));
   if (state.orden && state.orden !== 'editorial') params.set('orden', state.orden);
   if (state.pagina > 1) params.set('pagina', String(state.pagina));
