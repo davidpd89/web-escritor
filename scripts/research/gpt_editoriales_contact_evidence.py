@@ -206,6 +206,38 @@ _PILOT_OFFICIAL_URLS = {
 }
 
 
+# These anchors are tied to explicit instructions on reviewed official pages.
+# Do NOT collect the first visible address: Nocturna/Minotauro also list press
+# and reader mailboxes, and Alienta lists personal press contacts.
+_OFFICIAL_SUBMISSION_EMAILS = {
+    'nocturna-ediciones': ('nocturnaediciones.com',
+        r'si desea enviarnos un manuscrito.{0,150}?a la siguiente direcci[oó]n:\s*'),
+    'minotauro': ('planeta.es',
+        r'el proyecto deber[aá] enviarse por correo electr[oó]nico a la direcci[oó]n\s*'),
+    'alienta-editorial': ('planeta.es',
+        r'la direcci[oó]n de correo electr[oó]nico para los manuscritos en formato digital es:\s*'),
+}
+_ROLE_EMAIL = r'([A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,})'
+
+
+def submission_email_candidate(visible_text: str, *, slug: str,
+                               suggestion: str) -> str | None:
+    """Public role mailbox explicitly following a reviewed submission instruction.
+
+    Only a review candidate, NEVER an approved or automatically published
+    address. It deliberately ignores general/press/awards contacts.
+    """
+    if suggestion != 'open' or slug not in _OFFICIAL_SUBMISSION_EMAILS:
+        return None
+    domain, introduction = _OFFICIAL_SUBMISSION_EMAILS[slug]
+    matched = re.search(introduction + _ROLE_EMAIL, visible_text,
+                        flags=re.IGNORECASE | re.DOTALL)
+    if not matched:
+        return None
+    email = matched.group(1).lower()
+    return email if len(email) <= 254 and email.rsplit('@', 1)[-1] == domain else None
+
+
 def draft_from_html(html, *, slug, source_url, checked_at, source_allowlist):
     """Read one *pre-approved* page. Returns a tentative candidate, never edits."""
     if not isinstance(html, str) or len(html) > 2_000_000 or not html.strip():
@@ -234,10 +266,13 @@ def draft_from_html(html, *, slug, source_url, checked_at, source_allowlist):
     conflict = intended == 'open' and bool(found) and bool(negation.search(nearby))
     suggestion = 'unknown' if conflict else intended if found else 'unknown'
     scope = 'group_general' if slug == 'alfaguara' else 'publisher_specific'
+    contact = submission_email_candidate(visible, slug=slug, suggestion=suggestion)
     return {
         'publisher_slug': slug, 'source_url': source_url,
         'checked_at': checked_at, 'detected': bool(found),
         'suggestion': suggestion, 'scope': scope,
+        'submission_email_candidate': contact,
+        'submission_email_basis': 'explicit_manuscript_instruction' if contact else 'not_proven',
         'manual_review_required': True, 'publish': False,
         # Only a matching phrase is retained; no email/contact information.
         'matching_fragment': re.sub(r'[\w.+-]+@[\w.-]+\.[A-Za-z]{2,}', '[correo]', found.group(0))[:180] if found else '',
