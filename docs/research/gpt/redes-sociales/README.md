@@ -8,7 +8,7 @@ ESTADO: documentación/investigación; NO desplegado, NO Actions, NO merge. Esta
 - Autor.html contiene Person.sameAs y URLs de perfiles; scripts/build-site-shell.py contiene SOCIAL_ROW con iconos existentes. Mantener una sola fuente autorizada de perfiles.
 - data/site-human-stats.generated.json demuestra el patrón de estadísticas generadas, pero sus valores son de libros, herramientas y artículos y NO se reutilizan como comunidad social.
 - data/third-party-integrations.json y data/analytics-events.json son contratos de integraciones/analítica; respetar CSP, privacidad, navegación, sitemap y QA.
-- **Prueba de viabilidad**: la marca ya conectada en Metricool reconoce Bluesky, Threads, Instagram, Facebook, TikTok, Pinterest, YouTube y más. La consulta de métricas de 01–21/10/2026 devolvió series numéricas y también valores null según red/fecha. No se publican los valores de la cuenta en este documento. La conexión ChatGPT-Metricool no implica disponer de un backend API o permiso para un cron. Comprobado el 22/10/2026: MCP funciona también en Free, mientras la API HTTP independiente exige Advanced/Custom. La PR #705 ya demuestra la lectura real de **solo `THEV01` de Threads en un día cerrado**: una fila `[followers, YYYYMMDD]`, y aporta importador offline con **17/17 pruebas ejecutadas sobre código idéntico al de GitHub**. Eliminó la consulta innecesaria a `THEV06`. Make → MCP por OAuth sigue siendo **un piloto NO ejecutado**, no un refresco en producción. No considerar el piloto una solución implantada.
+- **Prueba de viabilidad**: la marca ya conectada en Metricool reconoce Bluesky, Threads, Instagram, Facebook, TikTok, Pinterest, YouTube y más. La consulta de métricas de 01–21/10/2026 devolvió series numéricas y también valores null según red/fecha. No se publican los valores de la cuenta en este documento. La conexión ChatGPT-Metricool no implica disponer de un backend API o permiso para un cron. Comprobado el 22/10/2026: MCP funciona también en Free, mientras la API HTTP independiente exige Advanced/Custom. La PR #705 ya demuestra la lectura real de **solo `THEV01` de Threads en un día cerrado**: una fila `[followers, YYYYMMDD]`, y aporta importador offline con **17/17 pruebas ejecutadas sobre código idéntico al de GitHub**. La PR #704 contiene ya un **compositor ejecutable para Bluesky, Mastodon y Threads**, con 26/26 pruebas offline y hashes Git verificados; rechaza cuentas duplicadas, contadores caducados, URLs discordantes y métricas ambiguas. Publicación/UX aún pendientes. Eliminó la consulta innecesaria a `THEV06`. Make → MCP por OAuth sigue siendo **un piloto NO ejecutado**, no un refresco en producción. No considerar el piloto una solución implantada.
 
 ## Propuesta UX
 
@@ -23,7 +23,7 @@ Página semántica indexable en móvil/teclado, visible sin JavaScript, tamaño 
 3. Un normalizador recibe, por red, {id, observed_at, source, followers, posts, impressions_30d, views_30d, interactions_30d, status}; los campos sin datos son null (no 0) y tienen periodo, definición y origen.
 4. Exportar JSON público generado a data/social-metrics.generated.json, consumido con mejoras progresivas por UI; refresco recomendado 12–24 h, no «tiempo real» falso. Mantener último dato válido con sello stale cuando falle la fuente; no sobrescribir null por cero.
 5. Agregados: únicamente mismas definiciones + misma ventana, con cobertura visible (por ejemplo «6 de 9 perfiles con datos»); no inferir usuarios únicos, ni sumar impresiones y alcance. Si hay dos fechas comparables mostrar evolución, en otro caso no.
-   - **Corrección concreta (22/10, PR #705):** el conector Metricool denomina `THEV06` «Post Views», pero [su documentación oficial](https://help.metricool.com/es/diferencia-entre-posts-publicados-y-posts-vistos-en-el-periodo-2pwtf) separa vistas acumuladas de posts publicados y vistas generadas durante el período. `THEV06` **no se debe mapear a `views_30d`** hasta demostrar el alcance real de esa serie. El adaptador Threads lo suprime deliberadamente. `THEV11` son vistas del perfil, no de los posts.
+   - **Corrección concreta (22/10, PR #705):** el conector Metricool denomina `THEV06` «Post Views», pero [su documentación oficial](https://help.metricool.com/es/diferencia-entre-posts-publicados-y-posts-vistos-en-el-periodo-2pwtf) separa vistas acumuladas de posts publicados y vistas generadas durante el período. `THEV06` **no se debe mapear a `views_30d`** hasta demostrar el alcance real de esa serie. El adaptador Threads lo suprime deliberadamente. **La PR #708 ha corregido la sugerencia anterior que equiparaba `THEV06` con `views_30d`** y ahora remite al código probado de #705/#704. `THEV11` son vistas del perfil, no de los posts.
 
 Ejemplo de contrato propuesto (datos ficticios prohibidos, cifras deliberadamente ausentes):
 
@@ -63,11 +63,11 @@ Documento rector y PR hijas: base técnica, fuente central Metricool, Bluesky, M
 
 | PR | Alcance | Documento |
 |---|---|---|
-| [#704](https://github.com/davidpd89/web-escritor/pull/704) | UX/contrato y sumatorios | [ux.md](./ux.md) |
+| [#704](https://github.com/davidpd89/web-escritor/pull/704) | Contrato ejecutable de 3 redes, caducidad y 26 tests offline | [ux.md](./ux.md) |
 | [#705](https://github.com/davidpd89/web-escritor/pull/705) | Fuente agregada Metricool | [metricool.md](./metricool.md) |
 | [#706](https://github.com/davidpd89/web-escritor/pull/706) | Bluesky | [bluesky.md](./bluesky.md) |
 | [#707](https://github.com/davidpd89/web-escritor/pull/707) | Mastodon (búsqueda pública, adaptador y 18 pruebas offline) | [mastodon.md](./mastodon.md) |
-| [#708](https://github.com/davidpd89/web-escritor/pull/708) | Threads | [threads.md](./threads.md) |
+| [#708](https://github.com/davidpd89/web-escritor/pull/708) | Threads (reutilización #705 sin vistas 30d ambiguas) | [threads.md](./threads.md) |
 | [#709](https://github.com/davidpd89/web-escritor/pull/709) | Instagram y Facebook | [meta.md](./meta.md) |
 | [#710](https://github.com/davidpd89/web-escritor/pull/710) | TikTok | [tiktok.md](./tiktok.md) |
 | [#711](https://github.com/davidpd89/web-escritor/pull/711) | X | [x.md](./x.md) |
