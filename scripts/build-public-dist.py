@@ -42,6 +42,7 @@ PUBLIC_DIR_PREFIXES = (
     "al-otro-lado/",
     "accesibilidad/",
     "ai/",
+    "apoyar/",
     "asistente/",
     "assets/",
     "clubes-de-lectura/",
