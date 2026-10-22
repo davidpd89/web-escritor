@@ -47,6 +47,12 @@ python -m http.server 8000
 
 **Verificación realizada:** lectura del builder y los archivos modificados en GitHub; `sitemap.xml` versionado (331 URL) sin `/lab/` ni `/apoyar/`; fixture aislado de la misma poda `os.walk` OK. **Pendiente:** ejecutar `python tests/test-support-preview.py` y `python scripts/build-sitemap.py --check` en el árbol completo. No declarar esos comandos como ejecutados.
 
+## PayPal: consultas de localización válidas en el checkout
+
+**Defecto corregido con fuente oficial (11/09/2026):** el gate `tests/test-support-release-gate.py` rechazaba cualquier `?` de PayPal. Su documentación autoriza `locale.x` y `country.x` para evitar idioma/país erróneos: https://developer.paypal.com/payment-links-buttons/troubleshooting/ . El validador de esta PR admite el **par exacto**, con forma de valores controlada, y sigue rechazando parámetros inesperados, duplicados, fragmentos, dominios suplantados y `test_` en Stripe. `HTMLParser` decodifica correctamente `&amp;` en el `href`.
+
+Caso real español válido: `?locale.x=es_ES&country.x=ES`; código oficial de España: https://developer.paypal.com/api/codes/locale/ . El helper de la PR #700 se ha actualizado en paralelo. **La comprobación aislada local de 5 enlaces válidos, 10 inválidos y decodificación HTML resultó OK; permanece pendiente el test integrado del repositorio y el checkout real.**
+
 ## Puerta de activación: prueba negativa y positiva
 
 `tests/test-support-release-gate.py` verifica automáticamente dos estados válidos sin pagar ni consultar redes:
@@ -55,7 +61,7 @@ python -m http.server 8000
 - **Staging:** la página puede existir con `status: gated`/`noindex`, pero no debe enlazarse desde el pie; el builder público la excluye por `gated_prefixes_from_registry()`.
 - **Público:** la entrada del registry debe ser `status: public`, apuntar a `apoyar/index.html`, aparecer exactamente una vez en `footer.Información`, tener canonical correcto, robots sin `noindex`, privacidad/aviso legal y **al menos un enlace de método** `support-method` al checkout PayPal o Stripe oficial, sin URL de prueba ni SDK.
 
-El propio test monta casos aislados positivos y negativos para comprobar que fallan URL impostora, parámetros imprevistos, `noindex` público y enlaces Stripe `test_`. Su validación de URL **solo prueba la forma**, nunca la titularidad, estado de cuenta, recepción de fondos ni exposición de datos personales en el recibo: esas comprobaciones siguen siendo manuales y obligatorias. **Fixture local aislado de este gate: `py_compile` + ejecución de casos privados, públicos y fallidos, resultado OK el 22/10/2026; no se ha ejecutado el árbol completo del repositorio ni CI.**
+El propio test monta casos aislados positivos y negativos para comprobar que fallan URL impostora, parámetros no documentados, `noindex` público y enlaces Stripe `test_`. Su validación de URL **solo prueba la forma**, nunca la titularidad, estado de cuenta, recepción de fondos ni exposición de datos personales en el recibo: esas comprobaciones siguen siendo manuales y obligatorias. **Fixture local aislado de este gate: `py_compile` + ejecución de casos privados, públicos y fallidos, resultado OK el 22/10/2026; no se ha ejecutado el árbol completo del repositorio ni CI.**
 
 ```bash
 python tests/test-support-release-gate.py

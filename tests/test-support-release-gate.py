@@ -17,12 +17,29 @@ import re
 import tempfile
 from html.parser import HTMLParser
 from pathlib import Path
-from urllib.parse import urlsplit
+from urllib.parse import parse_qsl, urlsplit
 
 ROOT = Path(__file__).resolve().parents[1]
 GATED = {"noindex", "internal", "gated", "deprecated"}
 PAYPAL_PATH = re.compile(r"/ncp/payment/[A-Za-z0-9]+", re.ASCII)
 STRIPE_PATH = re.compile(r"/[A-Za-z0-9_-]+", re.ASCII)
+
+
+def paypal_locale_query_valid(query: str) -> bool:
+    """Solo parámetros documentados por PayPal; no aceptar cualquier query."""
+    if not query:
+        return True
+    try:
+        params = parse_qsl(query, keep_blank_values=True, strict_parsing=True)
+    except ValueError:
+        return False
+    if len(params) != 2 or {key for key, _ in params} != {"locale.x", "country.x"}:
+        return False
+    values = dict(params)
+    return bool(
+        re.fullmatch(r"[a-z]{2}_[A-Z]{2}", values["locale.x"], re.ASCII)
+        and re.fullmatch(r"[A-Z]{2}", values["country.x"], re.ASCII)
+    )
 
 
 class SupportParser(HTMLParser):
@@ -54,13 +71,14 @@ def payment_link_valid(url: str) -> bool:
         parts = urlsplit(url)
     except ValueError:
         return False
-    if parts.scheme != "https" or parts.query or parts.fragment:
+    if parts.scheme != "https" or parts.fragment:
         return False
     if parts.netloc in {"www.paypal.com", "paypal.com"}:
-        return bool(PAYPAL_PATH.fullmatch(parts.path))
+        return bool(PAYPAL_PATH.fullmatch(parts.path)) and paypal_locale_query_valid(parts.query)
     if parts.netloc == "buy.stripe.com":
         token = parts.path.removeprefix("/")
-        return bool(STRIPE_PATH.fullmatch(parts.path)) and not token.startswith("test_")
+        return (not parts.query and bool(STRIPE_PATH.fullmatch(parts.path))
+                and not token.startswith("test_"))
     return False
 
 
@@ -177,6 +195,13 @@ def fixture_tests() -> None:
         nav["footer"]["Información"].append("support-project")
         write()
         assert release_errors(root) == []  # Activación estructural correcta
+        # HTMLParser decodifica &amp; en el href antes de validar la URL.
+        localized = VALID_HTML.replace(
+            "/ncp/payment/ABC123", "/ncp/payment/ABC123?locale.x=es_ES&amp;country.x=ES"
+        )
+        page.write_text(localized, encoding="utf-8")
+        assert release_errors(root) == []  # Localización española oficial de PayPal
+        page.write_text(VALID_HTML, encoding="utf-8")
         nav["footer"]["Legal"] = ["support-project"]
         write()
         assert release_errors(root)  # Duplicado en otro grupo del pie
@@ -190,6 +215,17 @@ def fixture_tests() -> None:
         assert release_errors(root)
         page.write_text(VALID_HTML.replace("ABC123", "ABC123?unsafe=1"), encoding="utf-8")
         assert release_errors(root)
+        for bad_query in (
+            "?locale.x=es_ES", "?country.x=ES",
+            "?locale.x=es_ES&amp;country.x=ES&amp;unexpected=1",
+            "?locale.x=es_ES&amp;country.x=ES&amp;country.x=JP",
+            "?locale.x=%0A&amp;country.x=ES",
+        ):
+            page.write_text(
+                VALID_HTML.replace("/ncp/payment/ABC123", "/ncp/payment/ABC123" + bad_query),
+                encoding="utf-8",
+            )
+            assert release_errors(root)  # Formato no documentado o ambiguo
         page.write_text(VALID_HTML.replace("index,follow", "noindex,follow"), encoding="utf-8")
         assert release_errors(root)
         page.write_text(VALID_HTML.replace("https://www.paypal.com/ncp/payment/ABC123",
