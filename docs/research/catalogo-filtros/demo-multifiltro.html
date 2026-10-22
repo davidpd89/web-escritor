@@ -131,11 +131,17 @@
       } finally {rendering=false;}
     }
     document.querySelector('#reset').addEventListener('click',()=>{
-      for(const facet of Object.keys(widgets)) {
-        widgets[facet].removeActiveItems();
-        state[facet]=[];
-      }
-      state.pagina=1; render();
+      // El botón promete limpiar TODOS los filtros, también los escalares
+      // que llegan en hashes antiguos y no aparecen en este laboratorio.
+      rendering=true;
+      try {
+        Object.assign(state,parseHash(''));
+        for(const facet of Object.keys(widgets)) {
+          widgets[facet].removeActiveItems();
+          delete facetSignatures[facet];
+        }
+      } finally {rendering=false;}
+      render();
     });
     window.addEventListener('hashchange',()=>{
       const restored=parseHash(location.hash);
