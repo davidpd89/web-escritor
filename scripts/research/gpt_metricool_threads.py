@@ -62,9 +62,9 @@ def normalize(raw):
         by_day[day] = (count(row[0]), count(row[1]))
     # Followers are a LAST sample. Do not carry forward an earlier day silently.
     followers = by_day.get(last, (None, None))[0]
-    # THEV06 is 'Post Views' for posts published in the selected window.
-    # Metricool documents those as cumulative to yesterday, not necessarily
-    # views generated within this window. Never claim views_30d from it.
+    # THEV06 is labeled 'Post Views'. Metricool distinguishes the cumulative
+    # performance of published posts from views generated in the period.
+    # Without proving which definition this connector uses, suppress views_30d.
     expected_days = [first + timedelta(days=i) for i in range(30)]
     valid_views = [by_day[d][1] for d in expected_days if d in by_day and by_day[d][1] is not None]
     return {
@@ -72,7 +72,7 @@ def normalize(raw):
         "impressions_30d": None,
         "period": {"from": first.isoformat(), "to": last.isoformat(), "timezone": "Europe/Madrid"},
         "coverage": {"days_with_post_views": len(valid_views), "required_days": 30},
-        "views_not_published_reason": "THEV06 is post-publication lifetime views, not verified period activity",
+        "views_not_published_reason": "THEV06 not verified as views generated in selected window",
         "observed_at": last.isoformat() if followers is not None else None,
         "source": "metricool-mcp-export", "status": "ok" if followers is not None else "partial",
         "generated_at": datetime.now(timezone.utc).isoformat(timespec="seconds").replace("+00:00", "Z"),
