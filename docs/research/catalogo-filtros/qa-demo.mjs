@@ -16,10 +16,10 @@ try {
     await page.goto(base+path,{waitUntil:'networkidle'});
     await page.waitForFunction(()=>{
       const text=document.querySelector('#count')?.textContent||'';
-      const hit=text.match(/^(\\d+) de (\\d+) libros/);
+      const hit=text.match(/^(\d+) de (\d+) libros/);
       return hit && Number(hit[1])===Number(hit[2]) && Number(hit[2])>24;
     });
-    const total=Number((await page.locator('#count').innerText()).match(/ de (\\d+) libros/)[1]);
+    const total=Number((await page.locator('#count').innerText()).match(/ de (\d+) libros/)[1]);
     assert.equal(await page.locator('#results li').count(),24);
     assert.equal(await page.locator('.choices').count(),3);
     assert(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth+1),'no horizontal overflow '+width);
