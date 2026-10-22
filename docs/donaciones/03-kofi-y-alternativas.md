@@ -60,7 +60,7 @@ Klarna es modalidad de pago aplazado/financiación, no cuenta receptora independ
 
 ## Recomendación
 
-V1: PayPal + Stripe por ser dos métodos comprensibles; **Ko-fi Free** solo si permite recibir por PayPal/Stripe con mejor conversión y privacidad comprobada. BMC en reserva. Para una audiencia lectora no hace falta nombrar cinco marcas: mostrar máximo tres opciones descriptivas y que cada checkout exponga sus propios métodos admitidos.
+**V1 — decisión vigente tras #700 y #698 (22/10/2026): probar primero un único PayPal Business Payment Link con importe libre; puede admitir PayPal y tarjeta en el mismo checkout según cuenta, comprador y región.** Añadir Stripe *solo* si el checkout real revela una carencia verificable de pago con tarjeta, privacidad, coste o experiencia. **Ko-fi Free** y BMC quedan como alternativas documentadas, no como botones por defecto. No desplegar una segunda pasarela solo para llenar la página: cada método adicional necesita una ventaja comprobada y sus pruebas de recepción/identidad.
 
 ## Lista de QA
 
