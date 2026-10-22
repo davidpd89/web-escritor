@@ -103,7 +103,11 @@
         }
         for (const facet of Object.keys(master)) {
           const options=availableOptions(books,state,facet,master[facet]);
-          const signature=JSON.stringify(options.map(o=>[o.value,o.count,o.selected]));
+          // La faceta se calcula SIN su propia selección: sus cuentas no
+          // cambian al elegir otro valor en el mismo desplegable. No reconstruir
+          // Choices en ese caso: conserva menú abierto, foco y búsqueda.
+          // Choices ya gestiona internamente la marca de elemento elegido.
+          const signature=JSON.stringify(options.map(o=>[o.value,o.count]));
           if (facetSignatures[facet] !== signature) {
             // Reemplazar opciones e items desde el estado canónico evita conservar
             // duplicados obsoletos al combinar selecciones dependientes.
