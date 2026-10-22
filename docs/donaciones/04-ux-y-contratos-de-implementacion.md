@@ -34,12 +34,20 @@ python -m http.server 8000
 **Corrección implementada en código real:** `support_page_authorized(root)` en `scripts/build-public-dist.py` exige **exactamente una** entrada `support-project`, con `url: "/apoyar/"`, `sourceFile: "apoyar/index.html"` y **`status: "public"` explícito**. El valor general `defaults.status = public` no autoriza por omisión esta página de cobro. Tanto `is_publishable()` como la generación de `.assetsignore` consultan la misma función. Hasta entonces:
 
 - El builder de artefacto **excluye cualquier archivo** bajo `apoyar/`, aunque exista en git.
-- Cloudflare conserva `!/apoyar/` como capacidad futura, pero agrega una regla final **`/apoyar/`**, que vuelve a bloquear la carpeta. La regla desaparece automáticamente al declarar la entrada pública correcta y regenerar `.assetsignore`.
+- Cloudflare conserva `!/apoyar/` como capacidad futura, pero agrega una regla final **`/apoyar/`**, que vuelve a bloquear la carpeta. Tras declarar la entrada pública correcta y regenerar `.assetsignore`, se sustituye por una **allowlist de un único fichero**; no se abre el resto de la carpeta.
 - No se ha cambiado `gated_prefixes_from_registry()`, para no alterar tests o publicaciones de otras páginas.
 
 **Prueba de regresión:** `tests/test-public-artifact-contract.py` comprueba el estado real todavía cerrado, y simula en directorios temporales: sin registro, gated, ruta equivocada, público bien definido y entradas duplicadas. Cuando llegue la activación, debe regenerarse `.assetsignore` y ejecutarse el gate completo de checkout **antes de fusionar**.
 
 **Ejecutado en copia aislada de la lógica:** `py_compile`, nueve casos de autorización y dos configuraciones de reglas `git check-ignore --no-index`: **OK**. Verificado por lectura de GitHub que la entrada `support-project` aún no existe y que la última regla activa es `/apoyar/`. **No equivale a ejecutar la suite integral del repositorio ni a comprobar un despliegue Cloudflare real.**
+
+## Publicación mínima después de activar /apoyar/ (22/10/2026)
+
+**Incidencia detectada en código real:** la activación de `support-project` reabría **toda** la carpeta `apoyar/` en `is_publishable()` y en `.assetsignore`. Un `apoyar/preview.html` o `apoyar/debug.json` accidental pasaba de privado a público junto a la página autorizada.
+
+**Corrección aplicada:** en V1 solamente `apoyar/index.html` puede publicarse. El generador de artefacto excluye cualquier otro fichero de ese namespace aunque esté registrado en git. Cuando el registry lo autoriza expresamente, `render_assetsignore()` conserva la carpeta abierta pero añade `/apoyar/*` y `!/apoyar/index.html`; las reglas de rutas gated, situadas después, conservan prioridad para negar la publicación si existe un conflicto. La política de `main` **sin entrada pública no cambia**: sigue terminando con `/apoyar/`.
+
+**Prueba de Cloudflare/gitignore realmente ejecutada fuera de Actions:** matriz de 12 estados con `git check-ignore --no-index` (inactivo, activo y conflicto gated). Confirma acceso solo a `index.html` en estado activo y exclusión de previews/JSON/subdirectorios, sin romper `assets/v1-shell.css`. El test `tests/test-public-artifact-contract.py` añade el mismo comando real de Git a sus fixtures temporales, para comprobar la coincidencia builder/Cloudflare cuando se ejecute la suite completa. No se afirma haber ejecutado el builder sobre el árbol completo ni desplegado Cloudflare.
 
 ## Sitemap: exclusión por carpeta, no solo por meta robots
 

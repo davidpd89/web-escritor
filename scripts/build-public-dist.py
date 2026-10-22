@@ -266,8 +266,11 @@ def is_publishable(rel_path: str, root: Path = ROOT) -> bool:
     rel_path = rel_path.replace("\\", "/").lstrip("./")
     if forbidden_reason(rel_path):
         return False
-    if rel_path.startswith("apoyar/") and not support_page_authorized(root):
-        return False
+    # V1 de apoyo contiene una sola página: no publicar HTML/JSON incidentales
+    # al activar el registro, aunque estén bajo un namespace permitido.
+    if rel_path.startswith("apoyar/"):
+        if rel_path != "apoyar/index.html" or not support_page_authorized(root):
+            return False
     if rel_path in PUBLIC_EXCLUDED_FILES:
         return False
     if any(rel_path.startswith(prefix) for prefix in PUBLIC_EXCLUDED_DIR_PREFIXES):
@@ -417,6 +420,13 @@ def assetsignore_lines(root: Path = ROOT) -> list[str]:
         *[f"/{name}" for name in sorted(PUBLIC_EXCLUDED_FILES)],
         *ASSETSIGNORE_FORBIDDEN_PATTERNS,
     ]
+    if support_page_authorized(root):
+        lines += [
+            "",
+            "# /apoyar/ V1: solo la página registrada, nunca otros archivos.",
+            "/apoyar/*",
+            "!/apoyar/index.html",
+        ]
     gated = gated_prefixes_from_registry(root)
     if gated:
         lines += [
