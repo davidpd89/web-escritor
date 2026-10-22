@@ -6,13 +6,13 @@
 
 Los lectores de #705 (Metricool/Threads), #706 (Bluesky) y #707 (Mastodon) producen **objetos distintos**: Metricool identifica `observed_at` con `YYYY-MM-DD` de un día cerrado y las APIs públicas incluyen hora UTC. Si sumamos sus seguidores sin validar fechas, identidad y nulos, el dashboard puede mostrar cifras antiguas, duplicadas, de otro perfil o un «total» presentado como personas únicas.
 
-**Solución implementada:** [scripts/research/gpt_social_compose.py](../../../../scripts/research/gpt_social_compose.py) recibe esos objetos **sin alterar los lectores** y emite un único contrato público limitado a las métricas demostradas. [26 pruebas offline](../../../../tests/test_gpt_social_compose.py) ejecutadas y verificadas contra hashes de GitHub (detalles abajo).
+**Solución implementada:** [scripts/research/gpt_social_compose.py](../../../../scripts/research/gpt_social_compose.py) recibe esos objetos **sin alterar los lectores** y emite un único contrato público limitado a las métricas demostradas. [27 pruebas offline](../../../../tests/test_gpt_social_compose.py) ejecutadas y verificadas contra hashes de GitHub (detalles abajo).
 
 Las URL oficiales de **solo estas tres** redes proceden de `autor.html` y `scripts/build-site-shell.py` (revisados en el repositorio vigente). No introducir URLs devueltas por APIs sin comparar antes con esas fuentes.
 
 ## Comportamiento del código
 
-1. Reconoce exclusivamente `bluesky`, `mastodon` y `threads`. Rechaza IDs desconocidos, repetidos o enlaces diferentes de los oficiales. Faltantes figuran como `pending`; no se transforman en cero.
+1. Reconoce exclusivamente `bluesky`, `mastodon` y `threads`. Rechaza IDs desconocidos, repetidos, enlaces diferentes de los oficiales y también fuentes asignadas a la red equivocada (`bluesky-public-appview`, `mastodon-public-search`, `metricool-mcp-export`). Faltantes figuran como `pending`; no se transforman en cero.
 2. Acepta seguidores solo si son un entero no negativo (**`True` no es `1`**). `views_30d`, `impressions_30d` e `interactions_30d` deben ser `null` o estar ausentes: ninguna vista ambigua puede sumarse.
 3. Normaliza ISO con zona horaria para Bluesky/Mastodon y fechas de cierre de día `YYYY-MM-DD` para Metricool con `zoneinfo.ZoneInfo("Europe/Madrid")`. Rechaza días inacabados y marcas temporales futuras.
 4. Política **provisional y explícita de frescura: 48 horas** desde la observación. Un seguidor de fecha caducada se convierte en `null` con estado `stale` y **sale del total**. El resumen informa de cobertura, p. ej., «2 de 3 redes con datos vigentes». Ese plazo es una decisión editorial propia, NO una obligación de ninguna API.
@@ -80,15 +80,15 @@ copy_from research/gpt-social-mastodon-2026-10-22 tests/test_gpt_social_mastodon
 python -m unittest discover -s "$tmp/tests" -p 'test_gpt_*.py' -v
 ~~~
 
-**Resultado en entorno local de investigación:** 74 pruebas unitarias de las PR individuales + **6 pruebas cruzadas** = **80 PASS**, Python 3.13, sin red ni GitHub Actions. Los **4 scripts bajo test** coincidían byte a byte con el Git blob de su PR (hashes de adaptadores: #704 `20c9650b`, #705 `cccaa4cf`, #706 `1f4de0ab`, #707 `79345fd8`). Las pruebas cruzadas no son lecturas live de APIs: repetir el comando anterior tras unir temporalmente las versiones definitivas.
+**Resultado en entorno local de investigación:** 75 pruebas unitarias de las PR individuales + **6 pruebas cruzadas** = **81 PASS**, Python 3.13, sin red ni GitHub Actions. Los **4 scripts bajo test** coincidían byte a byte con el Git blob de su PR (hashes de adaptadores: #704 `ecdabfba`, #705 `cccaa4cf`, #706 `1f4de0ab`, #707 `79345fd8`). Las pruebas cruzadas no son lecturas live de APIs: repetir el comando anterior tras unir temporalmente las versiones definitivas.
 
 **Casos de integración:** las tres salidas producen suma y cobertura correctas; archivos fuente → CLI → JSON público; salida sin DID ni ID local; los seguidores caducados no inflan totales; vistas no verificadas se rechazan; identidades falsas se rechazan antes de componer.
 
-**Pendiente:** comprobar Bluesky/Mastodon contra las API reales, integración del frontend, accesibilidad y transporte automatizado de Metricool. Las 80 pruebas offline NO equivalen a despliegue funcional.
+**Pendiente:** comprobar Bluesky/Mastodon contra las API reales, integración del frontend, accesibilidad y transporte automatizado de Metricool. Las 81 pruebas offline NO equivalen a despliegue funcional.
 
 ## Verificación realizada
 
-`python -m unittest discover -s tests -p test_gpt_social_compose.py -v` → **26/26 PASS** en Python 3.13, fuera de GitHub Actions. Se cotejaron los hashes Git exactos de script y test locales contra los blobs de la PR.
+`python -m unittest discover -s tests -p test_gpt_social_compose.py -v` → **27/27 PASS** en Python 3.13, fuera de GitHub Actions. Se cotejaron los hashes Git exactos de script y test locales contra los blobs de la PR.
 
 Las pruebas abarcan: formatos concretos de #705/#706, inclusión de #707; sumatorios y cobertura; `null` frente a 0; duplicados y URLs impostoras; métricas no verificadas; campos extra no expuestos; 48 h exactas y caducidad; zonas de hora de Madrid en 21 y 25/10/2026 (cambio a horario de invierno); fechas futuras y sin zona; escritura atómica; no sobrescribir cuando no hay fuentes ni cuando el destino coincide con un origen.
 
