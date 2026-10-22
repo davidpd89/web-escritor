@@ -94,6 +94,12 @@ def review(observations: dict, vetted_hosts: dict, *, as_of: date) -> dict:
             issues.append({"record": ref, "reason": "missing_or_duplicate_id"})
             continue
         observed_ids.add(ident)
+        # Automatically extracted text is NOT a human-verified official
+        # observation, even if the domain/URL was independently allowlisted.
+        # A reviewer must create a separate, human-authored record first.
+        if obs.get("origin") == "html_pilot_unreviewed":
+            issues.append({"record": ident, "reason": "automated_evidence_needs_human_review"})
+            continue
         if not isinstance(slug, str) or not SLUG.fullmatch(slug) or slug not in approvals:
             issues.append({"record": ident, "reason": "publisher_not_approved"})
             continue
@@ -384,9 +390,40 @@ def run_live_pilot(cases: dict, vetted_hosts: dict, *,
             if expected[slug] is not None and result["retrieval"] == "ok" else None
         )
         results.append(result)
+    # Bridge to the EXISTING E4 observation contract. These are draft
+    # observations, not approved evidence: review() must reject their origin.
+    # Excluding unknown/error avoids inventing reception status or a source.
+    purposes = {
+        "open": "submissions_open",
+        "paused": "submissions_paused",
+        "group_only": "group_submission_channel",
+    }
+    pending_observations = []
+    for result in results:
+        status = result["suggestion"]
+        fragment = result.get("matching_fragment", "")
+        if result["retrieval"] != "ok" or status not in purposes or not fragment:
+            continue
+        summary = "Extracto por comprobar: " + fragment[:250]
+        if "@" in summary:
+            continue
+        pending_observations.append({
+            "id": "pilot-" + result["publisher_slug"] + "-" + as_of.strftime("%Y%m%d"),
+            "publisher_slug": result["publisher_slug"],
+            "purpose": purposes[status],
+            "scope": result["scope"],
+            "source_url": result["source_url"],
+            "checked_at": as_of.isoformat(),
+            "evidence_summary": summary[:300],
+            "origin": "html_pilot_unreviewed",
+        })
     return {
         "schema_version": 1, "as_of": as_of.isoformat(),
         "kind": "five_official_pages_review_only",
+        "pending_review_observations": {
+            "schema_version": 1,
+            "observations": pending_observations,
+        },
         "compared_to_prior_review": sum(r["agrees_with_previous_review"] is not None for r in results),
         "matched_prior_review": sum(r["agrees_with_previous_review"] is True for r in results),
         "differences_needing_human_review": sum(r["agrees_with_previous_review"] is False for r in results),
