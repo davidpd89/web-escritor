@@ -25,6 +25,7 @@ CHECKS = [
     ("CI parity: internal graph", "python scripts/check-internal-graph.py"),
     ("CI parity: navigation coverage", "python scripts/check-navigation-coverage.py"),
     ("CI parity: heading structure", "python scripts/check-heading-structure.py"),
+    ("CI parity: public document/form contract", "python scripts/check-public-document-form-contract.py"),
     ("CI parity: jsonld absolute URLs", "python scripts/check-jsonld-absolute-urls.py"),
     ("CI parity: canonical entity IDs", "python scripts/check-canonical-entity-ids.py"),
     ("CI parity: editorial facts", "python scripts/check-editorial-facts.py"),
