@@ -15,13 +15,13 @@ spec.loader.exec_module(importer)
 
 def fixture():
     return {"metrics": ["THEV01"], "from": "2026-10-21", "to": "2026-10-21",
-            "rows": [["232.0", "20261021"]]}
+            "rows": [["123456.0", "20261021"]]}
 
 
 class MetricoolThreadsContractTests(unittest.TestCase):
     def test_real_mcp_one_day_shape(self):
         result = importer.normalize(fixture())
-        self.assertEqual(result["followers"], 232)
+        self.assertEqual(result["followers"], 123456)
         self.assertEqual(result["observed_at"], "2026-10-21")
         self.assertEqual(result["source"], "metricool-mcp-export")
         self.assertEqual(result["status"], "ok")
@@ -46,8 +46,8 @@ class MetricoolThreadsContractTests(unittest.TestCase):
         self.assertEqual(importer.normalize(data)["followers"], 0)
 
     def test_decimal_string_is_exact(self):
-        self.assertEqual(importer.count("000232.000"), 232)
-        self.assertEqual(importer.count(232), 232)
+        self.assertEqual(importer.count("000123456.000"), 123456)
+        self.assertEqual(importer.count(123456), 123456)
 
     def test_invalid_numeric_values_fail(self):
         for bad in (True, False, -1, "1.5", "NaN", "Infinity", "", "x", 2.3, [], {}, "9"*65):
@@ -118,7 +118,7 @@ class MetricoolThreadsContractTests(unittest.TestCase):
             with redirect_stdout(stdout):
                 self.assertEqual(importer.main([str(raw)]), 0)
             result = json.loads(stdout.getvalue())
-            self.assertEqual(result["followers"], 232)
+            self.assertEqual(result["followers"], 123456)
             self.assertEqual(sorted(p.name for p in Path(tmp).iterdir()), ["private.json"])
 
     def test_cli_rejects_bad_json(self):
