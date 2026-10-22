@@ -25,17 +25,25 @@ PROFILES = {
     "bluesky": "https://bsky.app/profile/davidportoescritor.bsky.social",
     "mastodon": "https://mastodon.social/@davidportodiaz",
     "threads": "https://www.threads.com/@davidportodiaz",
+    "instagram": "https://www.instagram.com/davidportodiaz/",
+    "tiktok": "https://www.tiktok.com/@davidportoescritor",
+    "pinterest": "https://www.pinterest.com/davidportodiaz/",
 }
 EXPECTED_SOURCES = {"bluesky": "bluesky-public-appview",
                     "mastodon": "mastodon-public-search",
-                    "threads": "metricool-mcp-export"}
+                    "threads": "metricool-mcp-export",
+                    "instagram": "metricool-mcp-export",
+                    "tiktok": "metricool-mcp-export",
+                    "pinterest": "metricool-mcp-export"}
 MAX_AGE = timedelta(hours=48)
 MAX_INPUT_BYTES = 64_000
 OBSERVED_RE = re.compile(r"\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}(?:Z|[+-]\d{2}:\d{2})\Z")
 SOURCE_RE = re.compile(r"[a-z][a-z0-9-]{0,79}\Z")
 UNVERIFIED_PERIOD_FIELDS = ("views_30d", "impressions_30d", "interactions_30d")
 # Exact set of follower candidates returned by the already-tested #705 reader.
-# Only Threads is accepted as a public Metricool source in contract v1.
+# Public profile URLs and Metricool account handles independently checked.
+# Accept Threads, Instagram, TikTok, Pinterest from this connected brand.
+# Bluesky retains public AppView; Facebook, X, YouTube remain unverified.
 METRICOOL_BATCH_KIND = "metricool-follower-candidates"
 METRICOOL_CANDIDATES = frozenset((
     "bluesky", "threads", "instagram", "facebook",
@@ -44,7 +52,7 @@ METRICOOL_CANDIDATES = frozenset((
 
 
 def public_records(source: object) -> list[dict]:
-    """Unwrap #705's batch, selecting ONLY Threads; reject malformed batches."""
+    """Unwrap #705's batch; select only independently verified profiles."""
     if not isinstance(source, dict) or source.get("kind") != METRICOOL_BATCH_KIND:
         return [source]
     if set(source) != {"kind", "schema_version", "requested_day", "generated_at", "records"}:
@@ -79,7 +87,7 @@ def public_records(source: object) -> list[dict]:
                 raise ValueError("Unverified period metric in Metricool batch")
         if record.get("followers") is not None and record.get("observed_at") != day:
             raise ValueError("Metricool candidate date differs from batch")
-        if identity == "threads":
+        if identity in ("threads", "instagram", "tiktok", "pinterest"):
             selected.append(record)
     return selected
 
