@@ -158,6 +158,26 @@ def plan(directory: dict, identities: dict, evidence: dict, *,
             add("review_contact_channels", slug, sorted(set(contact_ids)), 4,
                 "Contact channels require purpose/source check; no email is auto-imported")
 
+    # Revisits for records with ageing manual proof. Status never changes here.
+    # Avoid a redundant revisit when a fresh status-change/conflict task exists.
+    for slug, row in sorted(manual.items()):
+        current = row["status"]
+        raw_checked = row.get("verified_at")
+        try:
+            checked = date.fromisoformat(raw_checked) if isinstance(raw_checked, str) else None
+        except ValueError:
+            checked = None
+        age = (as_of - checked).days if checked else None
+        pending_status = any(t["slug"] == slug and t["kind"] in {
+            "review_manuscript_change", "resolve_manuscript_conflict",
+            "recheck_expired_submission_evidence"} for t in tasks)
+        if pending_status:
+            continue
+        threshold = 90 if current == "unknown" else 45
+        if age is None or age < 0 or age > threshold:
+            add("reverify_directory_status", slug, [], 5,
+                "Current reception claim lacks a recent check; schedule manual verification, not an automatic status change")
+
     tasks.sort(key=lambda item: (item["priority"], item["slug"], item["kind"], item["id"]))
     integrity = identities.get("integrity_errors")
     collisions = identities.get("duplicate_normalized_directory_names")
