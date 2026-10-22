@@ -85,12 +85,12 @@ def convert(snapshot, review, existing, root):
         if 'fecha_publicacion' in approved:
             if approved['fecha_publicacion']:
                 book['fecha_publicacion'] = approved['fecha_publicacion']
-                book['fuente_publicacion_url'] = book['fuente_bibliografica_url']
+                book['fuente_publicacion_url'] = approved.get('fuente_publicacion_url') or book['fuente_bibliografica_url']
         elif row.get('fecha_publicacion_edicion'):
             book['fecha_publicacion'] = row['fecha_publicacion_edicion']
             book['fuente_publicacion_url'] = book['fuente_bibliografica_url']
         age_source = next((s for s in sources if s['libro_id'] == source_id and s.get('campo') == 'edad orientativa'), {})
-        if row.get('edad_orientativa') and age_source.get('url'):
+        if row.get('edad_orientativa') and age_source.get('url') and 'edad_recomendada' not in approved:
             book['edad_recomendada'] = row['edad_orientativa']
             book['fuente_edad_url'] = age_source['url']
         book_links = [link for link in links if link['libro_id'] == source_id and link.get('url')]
@@ -119,6 +119,13 @@ def convert(snapshot, review, existing, root):
         data['libros'].append(book)
         retained.add(book['id'])
     data['libro_categorias'] += [r for r in existing['libro_categorias'] if r['libro_id'] in retained]
+    # Las categorías añadidas después en la web (palabras clave editoriales) se conservan.
+    manual = {b['id'] for b in data['libros']} - retained
+    have = {(r['libro_id'], r['categoria_id']) for r in data['libro_categorias']}
+    data['libro_categorias'] += [r for r in existing['libro_categorias'] if r['libro_id'] in manual and (r['libro_id'], r['categoria_id']) not in have]
+    # Orden estable: las relaciones ya publicadas conservan su posición (diffs mínimos).
+    position = {(r['libro_id'], r['categoria_id']): i for i, r in enumerate(existing['libro_categorias'])}
+    data['libro_categorias'].sort(key=lambda r: position.get((r['libro_id'], r['categoria_id']), len(position)))
     builder.validate(data, root)
     return data, report
 

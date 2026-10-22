@@ -256,8 +256,8 @@ def render_page_body(items, today, watchlist=None):
             "@type": "BreadcrumbList",
             "itemListElement": [
                 {"@type": "ListItem", "position": 1, "name": "Inicio", "item": "https://davidportodiaz.com/"},
-                {"@type": "ListItem", "position": 2, "name": "Herramientas", "item": "https://davidportodiaz.com/herramientas/"},
-                {"@type": "ListItem", "position": 3, "name": "Convocatorias", "item": CANONICAL},
+                {"@type": "ListItem", "position": 2, "name": "Libros recomendados", "item": "https://davidportodiaz.com/recomendaciones/"},
+                {"@type": "ListItem", "position": 3, "name": "Concursos", "item": CANONICAL},
             ],
         },
     }, ensure_ascii=False, separators=(",", ":"))
@@ -326,11 +326,11 @@ def render_page_body(items, today, watchlist=None):
   <dialog class="explore-dialog" id="explore-dialog" aria-labelledby="explore-title" data-explore-dialog></dialog>
 
   <main id="contenido" tabindex="-1" class="v1-main" data-family="tool">
-    <nav class="book-breadcrumb" aria-label="Ruta de navegación"><ol><li><a href="/">Inicio</a></li><li><a href="/herramientas/">Herramientas</a></li><li aria-current="page">Convocatorias</li></ol></nav>
+    <nav class="book-breadcrumb" aria-label="Ruta de navegación"><ol><li><a href="/">Inicio</a></li><li><a href="/recomendaciones/">Libros recomendados</a></li><li aria-current="page">Concursos</li></ol></nav>
 
     <header class="tool-hero">
       <p class="eyebrow">Radar para escritores · fuentes verificadas</p>
-      <h1>Convocatorias que todavía están a tiempo.</h1>
+      <h1>Concursos que todavía están a tiempo.</h1>
       <p class="tool-hero__lead">Concursos, premios, ayudas, becas, residencias y vías de envío de manuscritos revisadas contra la fuente oficial. Cuando pasa la fecha límite salen de la lista activa y quedan en «Convocatorias ya cerradas», que puedes mostrar con una casilla; si la verificación supera 30 días, la ficha se retira hasta volver a comprobarla.</p>
       <p class="tool-note"><strong>Importante:</strong> esta web no organiza estas convocatorias ni garantiza que sigan abiertas después de la fecha mostrada. Confirma siempre en la fuente oficial antes de enviar.</p>
       <p class="tool-hero__actions"><a class="button secondary" data-radar-calendar href="/convocatorias-escritores/deadlines.ics" download="convocatorias-escritores.ics">Añadir fechas a mi calendario</a></p>
@@ -366,7 +366,7 @@ def render_page_body(items, today, watchlist=None):
 
   <footer class="site-footer"></footer>
 
-  <script defer src="/assets/v1-shell.js?v=20"></script>
+  <script defer src="/assets/v1-shell.js?v=24"></script>
   <script src="/assets/radar-convocatorias.js?v=8" defer></script>
 </body>
 </html>'''

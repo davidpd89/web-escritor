@@ -126,25 +126,56 @@ CONTEXTS: tuple[Context, ...] = (
     ),
     Context(
         key="cuaderno", label="Cuaderno", home="/cuaderno/",
-        prefixes=("/cuaderno/", "/recomendaciones/"), exacts=(),
+        prefixes=("/cuaderno/",), exacts=(),
         links=(
+            ("/autor.html", "← Autor"),
             ("/cuaderno/", "Archivo"),
-            ("/recomendaciones/", "Libros recomendados"),
+        ),
+    ),
+    # `key` es el id del sistema visual (CSS data-editorial-context), no la
+    # sección del menú: «Libros recomendados» conserva el de cuaderno y el
+    # directorio editorial/concursos el de herramientas para no perder estilos.
+    Context(
+        key="cuaderno", label="Libros recomendados", home="/recomendaciones/",
+        prefixes=("/recomendaciones/",), exacts=(),
+        links=(
+            ("/recomendaciones/", "Catálogo"),
+            ("/recomendaciones/autores/", "Autores"),
+            ("/editoriales/", "Editoriales"),
+            ("/convocatorias-escritores/", "Concursos"),
+        ),
+    ),
+    Context(
+        key="herramientas", label="Libros recomendados", home="/recomendaciones/",
+        prefixes=(
+            "/editoriales/",
+            "/convocatorias-escritores/",
+        ),
+        exacts=(),
+        links=(
+            ("/recomendaciones/", "Catálogo"),
+            ("/recomendaciones/autores/", "Autores"),
+            ("/editoriales/", "Editoriales"),
+            ("/convocatorias-escritores/", "Concursos"),
         ),
     ),
     Context(
         key="herramientas", label="Herramientas", home="/herramientas/",
-        prefixes=(
-            "/herramientas/",
-            "/editoriales/",
-            "/convocatorias-escritores/",
-            "/metodologia-editorial/",
-        ),
+        prefixes=("/herramientas/",),
         exacts=(),
         links=(
-            ("/herramientas/", "Herramientas"),
+            ("/herramientas/", "Todas las herramientas"),
+            ("/herramientas/manuscrito/", "Manuscrito"),
+            ("/herramientas/dialogo/", "Diálogo"),
+            ("/herramientas/repeticiones/", "Repeticiones"),
+        ),
+    ),
+    # La metodología no está en los menús: solo se enlaza desde su propia página y el pie.
+    Context(
+        key="herramientas", label="Editoriales", home="/editoriales/",
+        prefixes=("/metodologia-editorial/",), exacts=(),
+        links=(
             ("/editoriales/", "Editoriales"),
-            ("/convocatorias-escritores/", "Convocatorias"),
             ("/metodologia-editorial/", "Metodología"),
         ),
     ),
@@ -154,9 +185,9 @@ CONTEXTS: tuple[Context, ...] = (
         links=(
             ("/autor.html", "Autor"),
             ("/premios.html", "Premios"),
+            ("/cuaderno/", "Cuaderno"),
             ("/lectores-beta/", "Lectores beta"),
             ("/eventos.html", "Eventos"),
-            ("/prensa.html", "Prensa"),
         ),
     ),
     Context(

@@ -87,8 +87,8 @@ class AffiliateNavigationTest(unittest.TestCase):
     def test_cards_keep_categories_and_human_readable_edition_metadata(self):
         books = [self.coraline, self.imported]
         html = builder.render_hub(self.data, books, self.template)
-        self.assertGreaterEqual(html.count('class="catalogue-tags"'), 2)
-        self.assertEqual(builder.publication_date_label(self.coraline), "2009")
+        self.assertGreaterEqual(html.count('class="catalogue-tags'), 2)
+        self.assertEqual(builder.publication_date_label(self.coraline), "1 de junio de 2009")
         self.assertIn(" · " + self.imported["editorial"], html)
         if self.imported.get("numero_paginas"):
             self.assertIn(str(self.imported["numero_paginas"]) + " páginas", html)

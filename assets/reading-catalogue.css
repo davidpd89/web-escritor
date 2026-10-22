@@ -77,7 +77,7 @@ html.v1 .catalogue-author-page section { padding-block:2rem; }
 html.v1 .catalogue-author-page h2 { color:var(--catalogue-blue); font:400 clamp(1.8rem,3vw,3rem)/1.15 var(--font-display); overflow-wrap:anywhere; }
 html.v1 .catalogue-author-books { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:2rem; list-style:none; padding:0; }
 html.v1 .catalogue-author-books li { padding:1rem; border:1px solid var(--catalogue-rule); border-top:2px solid var(--catalogue-blue); }
-html.v1 .catalogue-author-books a { color:var(--catalogue-blue); font:400 1.7rem/1.2 var(--font-display); }
+html.v1 .catalogue-author-books a { max-width:100%; overflow-wrap:anywhere; color:var(--catalogue-blue); font:400 1.7rem/1.2 var(--font-display); }
 html.v1 .catalogue-author-books img { max-width:160px; margin-bottom:1rem; }
 @media(max-width:1000px) { html.v1 .catalogue-grid { grid-template-columns:1fr; } }
 @media(max-width:700px) { html.v1 .catalogue-filter-grid { grid-template-columns:repeat(2,minmax(0,1fr)); } html.v1 .catalogue-book-layout { grid-template-columns:minmax(0,1fr); } html.v1 .catalogue-cover-panel { position:static; width:100%; max-width:300px; margin-inline:auto; } html.v1 .catalogue-author-books { grid-template-columns:minmax(0,1fr); } }
@@ -89,6 +89,15 @@ html.v1 .catalogue-more-filters>summary span { font-size:1.6rem; line-height:1; 
 html.v1 .catalogue-more-filters[open]>summary { background:var(--catalogue-blue); color:white; }
 html.v1 .catalogue-more-filters[open]>summary span { transform:rotate(45deg); }
 html.v1 .catalogue-more-filters>.catalogue-filter-grid { padding:1rem; }
+html.v1 .catalogue-types { min-width:0; max-width:100%; box-sizing:border-box; display:flex; flex-wrap:wrap; gap:.4rem .6rem; align-items:center; margin:0 0 1rem; padding:0; border:0; }
+html.v1 .catalogue-types legend { max-width:100%; float:left; margin:0 .6rem 0 0; padding:0; font:600 .8rem/1.5 var(--font-ui); color:var(--catalogue-ink,inherit); }
+html.v1 .catalogue-type { min-width:0; max-width:100%; box-sizing:border-box; overflow-wrap:anywhere; padding-block:.35rem; display:inline-flex; align-items:center; gap:.4rem; min-height:44px; padding:0 .8rem; border:1px solid var(--catalogue-rule); border-radius:999px; background:var(--catalogue-pale); color:var(--catalogue-blue); font:600 .82rem/1.4 var(--font-ui); cursor:pointer; }
+html.v1 .catalogue-type:has(input:checked) { background:var(--catalogue-blue); color:#fff; border-color:var(--catalogue-blue); }
+html.v1 .catalogue-type:has(input:focus-visible) { outline:3px solid currentColor; outline-offset:2px; }
+html.v1 .catalogue-type input { width:1rem; height:1rem; margin:0; accent-color:currentColor; }
+html.v1 .catalogue-type small { font-weight:500; opacity:.8; }
+html.v1 .catalogue-tags--compact { gap:.3rem; margin:.5rem 0; }
+html.v1 .catalogue-tags--compact a { min-height:28px; padding:.1rem .5rem; font-size:.7rem; border-radius:999px; }
 html.v1 .catalogue-extra-tags>summary { min-height:44px; color:var(--catalogue-blue); cursor:pointer; font:600 .75rem/1.5 var(--font-ui); display:list-item; align-content:center; }
 html.v1 .catalogue-card__buy { box-sizing:border-box; margin-top:.8rem; font-size:.72rem; gap:.5rem; }
 html.v1 .catalogue-source { font:400 .75rem/1.5 var(--font-ui); margin-block:.4rem .8rem; }
@@ -111,7 +120,7 @@ html.v1 .catalogue-related { padding-block:2rem; border-top:1px solid var(--cata
 html.v1 .catalogue-related h2 { color:var(--catalogue-blue); font:400 clamp(1.8rem,3vw,2.8rem)/1.2 var(--font-display); }
 html.v1 .catalogue-related ul { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:1rem; list-style:none; padding:0; }
 html.v1 .catalogue-related li { min-width:0; padding:1rem; border:1px solid var(--catalogue-rule); border-top:2px solid var(--catalogue-blue); }
-html.v1 .catalogue-related a { display:inline-flex; align-items:center; min-height:44px; color:var(--catalogue-blue); font:400 1.35rem/1.2 var(--font-display); }
+html.v1 .catalogue-related a { max-width:100%; overflow-wrap:anywhere; display:inline-flex; align-items:center; min-height:44px; color:var(--catalogue-blue); font:400 1.35rem/1.2 var(--font-display); }
 @media(max-width:700px) { html.v1 .catalogue-related ul { grid-template-columns:1fr; } }
 html.v1 .catalogue-reader-reviews article { padding-block:1rem; border-top:1px solid var(--catalogue-rule); }
 html.v1 .catalogue-reader-reviews h3 { color:var(--catalogue-blue); font:400 1.4rem/1.2 var(--font-display); }

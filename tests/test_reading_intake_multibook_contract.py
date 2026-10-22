@@ -27,12 +27,15 @@ class MultiBookContractTests(unittest.TestCase):
         self.addCleanup(self.temporary.cleanup)
         self.root = Path(self.temporary.name)
         (self.root / "assets/reading-covers").mkdir(parents=True, exist_ok=True)
+        (self.root / "editoriales/salamandra").mkdir(parents=True, exist_ok=True)
+        (self.root / "editoriales/salamandra/index.html").write_text("<!doctype html>", encoding="utf-8")
         original = json.loads((ROOT / "data/reading-catalogue.json").read_text(encoding="utf-8"))
         self.data = {"schema_version": 1, "categorias": original["categorias"],
                      "libros": [], "libro_categorias": []}
         source = original["libros"][0]
         for i in range(3):
             b = copy.deepcopy(source)
+            b.pop("amazon_busqueda_isbn", None)  # el contrato exige que coincida con el ISBN de cada ficha
             b.update({
                 "id": f"contrato-{i+1:03}",
                 "slug": f"obra-tecnica-{i+1:03}",

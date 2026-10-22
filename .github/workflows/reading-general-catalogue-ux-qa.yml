@@ -11,6 +11,7 @@ on:
       - 'data/reading-intake-config.json'
       - '.github/workflows/reading-catalogue-sync.yml'
       - 'qa/reading-commerce-browser.mjs'
+      - 'qa/reading-type-selector-browser.mjs'
       - 'assets/reading-catalogue.js'
       - 'tests/test_reading_affiliate_card_ux.py'
       - 'tests/test_reading_review_moderation_export.py'

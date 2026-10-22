@@ -20,7 +20,7 @@
   const ratingSource = r => ['google_books', 'hardcover'].includes(r.fuente) ? r.fuente : !r.fuente || r.fuente === 'goodreads' ? 'goodreads' : null;
   const ratingLabel = r => ratingSource(r) === 'google_books' ? 'Google Books' : ratingSource(r) === 'hardcover' ? 'Hardcover' : 'Goodreads';
   const validRating = r => {
-    if (!fresh(r, 168) || !Number.isFinite(r.puntuacion) || r.puntuacion < 1 || r.puntuacion > 5 || !Number.isSafeInteger(r.numero_valoraciones) || r.numero_valoraciones < 1) return false;
+    if (!fresh(r, 168) || !Number.isFinite(r.puntuacion) || r.puntuacion < 1 || r.puntuacion > 5 || !Number.isSafeInteger(r.numero_valoraciones) || r.numero_valoraciones < 5) return false; // una sola valoración no es una referencia
     const source = ratingSource(r);
     if (source === 'goodreads') return Boolean(safeURL(r.url, ['www.goodreads.com', 'goodreads.com'], /^\/book\/show\/\d/));
     if (source === 'google_books') { const link = safeURL(r.url, ['books.google.com'], /^\/books$/); return Boolean(link && /^[A-Za-z0-9_-]{1,150}$/.test(link.searchParams.get('id') || '')); }
@@ -45,11 +45,12 @@
   const isNew = (s, window) => { const days = ageDays(s); return window === 'proximamente' ? days < 0 && days >= -30 : days >= 0 && (window === '15' ? days < 15 : days <= Number(window)); };
   function renderNovelty() {
     for (const label of root.querySelectorAll('[data-release-label]')) {
-      const fresh = isNew(label.dataset.releaseLabel, '15');
+      const fresh = isNew(label.dataset.releaseLabel, '15'), upcoming = !fresh && isNew(label.dataset.releaseLabel, 'proximamente');
+      const text = fresh ? 'Novedad' : upcoming ? 'Pr\u00f3ximamente' : '';
       if (label.dataset.releaseFallback !== undefined) {
-        label.textContent = fresh ? 'Novedad' : label.dataset.releaseFallback;
-        label.classList.toggle('catalogue-novelty', fresh);
-      } else label.hidden = !fresh;
+        label.textContent = text || label.dataset.releaseFallback;
+        label.classList.toggle('catalogue-novelty', fresh || upcoming);
+      } else { label.textContent = text; label.hidden = !text; }
     }
   }
   const values = () => Object.fromEntries(fields.map(f => [f.dataset.filter, f.disabled ? '' : f.value]));
@@ -67,7 +68,15 @@
       ratingsIndex.get(rating.libro_id).push(rating);
     }
     for (const box of root.querySelectorAll('[data-rating-book]')) {
-      const r = ratingFor(box.dataset.ratingBook); box.replaceChildren(); if (!r) continue;
+      const r = ratingFor(box.dataset.ratingBook); box.replaceChildren();
+      if (!r) {
+        // Sin valoración pública verificada: se dice tal cual y se enlaza a la ficha del ISBN.
+        if (/^\d{13}$/.test(box.dataset.isbn || '')) {
+          const none = document.createElement('a'); none.href = 'https://www.goodreads.com/book/isbn/' + box.dataset.isbn; none.target = '_blank'; none.rel = 'noopener noreferrer';
+          none.textContent = 'Aún sin valoraciones públicas · Ver en Goodreads ↗'; box.append(none);
+        }
+        continue;
+      }
       const link = document.createElement('a'); link.href = r.url; link.target = '_blank'; link.rel = 'noopener noreferrer';
       const stars = document.createElement('span'); stars.className = 'catalogue-stars'; stars.setAttribute('aria-hidden', 'true'); stars.style.setProperty('--rating', r.puntuacion / 5 * 100 + '%'); stars.textContent = '★★★★★';
       link.append(stars, ' ' + r.puntuacion.toLocaleString('es-ES') + '/5 · ' + ratingLabel(r) + ' · ' + r.numero_valoraciones.toLocaleString('es-ES') + ' valoraciones'); link.title = 'Consultado el ' + new Date(r.actualizado_en).toLocaleDateString('es-ES'); box.append(link);
@@ -86,10 +95,11 @@
       const lower = published || (month ? month + '-01' : year ? year + '-01-01' : '');
       const upper = published || (month ? new Date(Date.UTC(Number(month.slice(0, 4)), Number(month.slice(5)), 0)).toISOString().slice(0, 10) : year ? year + '-12-31' : '');
       const pages = Number(card.dataset.pages), range = !pages ? 'sin-dato' : pages < 200 ? 'breve' : pages < 400 ? 'media' : pages < 600 ? 'larga' : 'muy-larga';
-      return normalize(card.dataset.search).includes(normalize(v.q || '')) && ['genero', 'tematica', 'temporada', 'edad', 'contenido', 'epoca'].every(k => !v[k] || cats.includes(v[k])) && (!v.formato || formats.has(v.formato)) && (!v.paginas || v.paginas === range) && (!v.novedad || isNew(published, v.novedad)) && (!v.desde || (upper && upper >= v.desde)) && (!v.hasta || (lower && lower <= v.hasta)) && (!v.valoracion || ratingFor(card.dataset.bookId)?.puntuacion >= Number(v.valoracion)) && (!(v.precio_min || v.precio_max || v.descuento) || matchingOffers(card, v).length > 0);
+      return normalize(card.dataset.search).includes(normalize(v.q || '')) && ['genero', 'tematica', 'temporada', 'edad', 'contenido', 'epoca'].every(k => !v[k] || cats.includes(v[k])) && (!v.grupo || card.dataset.group === v.grupo) && (!v.formato || formats.has(v.formato)) && (!v.paginas || v.paginas === range) && (!v.novedad || isNew(published, v.novedad)) && (!v.desde || (upper && upper >= v.desde)) && (!v.hasta || (lower && lower <= v.hasta)) && (!v.valoracion || ratingFor(card.dataset.bookId)?.puntuacion >= Number(v.valoracion)) && (!(v.precio_min || v.precio_max || v.descuento) || matchingOffers(card, v).length > 0);
   }
   function apply(save = true) {
     const v = values();
+    for (const radio of root.querySelectorAll('[data-type-radio]')) radio.checked = radio.value === (v.grupo || '');
     const nullable = (x, y, desc = false) => x == null ? (y == null ? 0 : 1) : y == null ? -1 : desc ? y - x : x - y;
     const dateOf = card => card.dataset.published || card.dataset.publishedMonth || card.dataset.year ? Date.parse(card.dataset.published || (card.dataset.publishedMonth ? card.dataset.publishedMonth + '-01' : card.dataset.year + '-01-01')) : null;
     const compare = (a, b) => {
@@ -97,7 +107,7 @@
         case 'titulo': return collator.compare(a.dataset.title, b.dataset.title);
         case 'titulo_desc': return collator.compare(b.dataset.title, a.dataset.title);
         case 'autor': return collator.compare(a.dataset.author, b.dataset.author);
-        case 'fecha_desc': case 'fecha_asc': return nullable(dateOf(a), dateOf(b), v.orden === 'fecha_desc');
+        case 'editorial': case 'fecha_desc': case 'fecha_asc': return nullable(dateOf(a), dateOf(b), v.orden !== 'fecha_asc');
         case 'paginas_asc': case 'paginas_desc': return nullable(Number(a.dataset.pages) || null, Number(b.dataset.pages) || null, v.orden === 'paginas_desc');
         case 'precio_asc': case 'precio_desc': return nullable(minPrice(a, v), minPrice(b, v), v.orden === 'precio_desc');
         case 'valoracion_desc': return nullable(ratingFor(a.dataset.bookId)?.puntuacion ?? null, ratingFor(b.dataset.bookId)?.puntuacion ?? null, true);
@@ -215,7 +225,11 @@
     form.querySelector('fieldset').disabled = false; form.querySelector('[type="reset"]').disabled = false;
     const sort = root.querySelector('[data-filter="orden"]'); if (sort) sort.disabled = false;
     fields.forEach(f => f.addEventListener('input', () => { currentPage = 1; apply(); }));
-    form.addEventListener('submit', event => { event.preventDefault(); currentPage = 1; apply(); }); form.addEventListener('reset', () => setTimeout(() => { currentPage = 1; apply(); }, 0)); window.addEventListener('hashchange', restore); restore();
+    for (const radio of root.querySelectorAll('[data-type-radio]')) {
+      radio.disabled = false;
+      radio.addEventListener('change', () => { const hidden = fields.find(f => f.dataset.filter === 'grupo'); hidden.value = radio.value; hidden.dispatchEvent(new Event('input', { bubbles: true })); });
+    }
+    form.addEventListener('submit', event => { event.preventDefault(); currentPage = 1; apply(); }); form.addEventListener('reset', () => setTimeout(() => { const type = fields.find(f => f.dataset.filter === 'grupo'); if (type) type.value = ''; currentPage = 1; apply(); }, 0)); window.addEventListener('hashchange', restore); restore();
   }
   const refresh = () => { renderNovelty(); renderMarket(); apply(false); };
   window.addEventListener('pageshow', refresh); document.addEventListener('visibilitychange', () => { if (!document.hidden) refresh(); }); setInterval(() => { if (!document.hidden) refresh(); }, 60000);
