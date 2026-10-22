@@ -62,8 +62,16 @@
 - **Código experimental nuevo:** `scripts/research/gpt_editoriales_contact_evidence.py`, nunca conectado a producción: observaciones humanas + allowlist independiente, caducidad, conflictos y propuestas sin correos. **36 tests sintéticos escritos entre los tres módulos, ninguno ejecutado**. Sin dependencias externas nuevas.
 - **Próximo «siguiente investigación de GPT» → seguir en #692, fase E5**: conciliar el estado vigente #687/`main`; diseñar la integración incremental en el **único** publicador con revisión humana por contacto, colisiones históricas y grupo/sello, topes de peticiones y retractación cuando caduca la evidencia. No importar datos ISBN sin licencia.
 
+## 4.4. E5 — circuito único con aprobación humana (22/10/2026)
+
+- **#692:** verificado en `main` el orquestador [`reading-catalogue-sync.yml`](https://github.com/davidpd89/web-escritor/blob/main/.github/workflows/reading-catalogue-sync.yml): horario 06:30 UTC, concurrencia, CI y único publicador. En la #687, `data/reading-publishers.json` está permitido como artefacto bibliográfico; **`data/editoriales.json` NO** está en la allowlist automática.
+- **Decisión de arquitectura:** carril bibliográfico = mecanismo actual de libros con validación/CI; carril contactos/manuscritos = solo candidatos, **aprobación humana por campo y PR manual**. No abrir la allowlist para auto-mergear el directorio.
+- **Código de investigación E5:** `scripts/research/gpt_editoriales_review_plan.py` y **21 nuevas pruebas no ejecutadas**. Cola determinista y limitada, fechas de los informes coincidentes, orden de conflictos, caducidad y ninguna escritura. En total **57 tests preparados, ninguno ejecutado**, distribuidos en los cuatro módulos.
+- **GitHub 2026:** `concurrency.queue: max` puede formar hasta 100 pendientes, pero **no activarlo automáticamente**: puede acumular trabajos diarios obsoletos; primero analizar colas y conflictos reales. [Guía oficial](https://docs.github.com/en/actions/how-tos/write-workflows/choose-when-workflows-run/control-workflow-concurrency).
+- **Documento E5:** [informe de integración y plan E6](https://github.com/davidpd89/web-escritor/blob/research/gpt-editoriales-2026-10-22/docs/research/gpt/editoriales-e5-integracion-2026-10-22.md). Próximo turno debe seguir #692 en **E6.1/E6.2** (validar esquemas y aprobación humana), no abrir PR nueva.
+
 ## 5. Próxima ejecución
 
-**Siguiente investigación de GPT → CONTINUAR PR #692, paso E5**: diseñar el flujo incremental único desde fuente y prueba hasta revisión/PR, reconciliar #687 si cambia, preparar contrato de errores e idempotencia, presupuesto y política de baja. E4 está documentada, sin tests ejecutados ni producción alterada. Después #693 autores y #694 fichas.
+**Siguiente investigación de GPT → CONTINUAR PR #692, pasos E6.1 y E6.2**: validar offline y corregir los contratos E3/E4/E5 contra datos de #687 y `main` consistentes, diseñar aprobación humana por campo y bloqueo de auto-merge de contactos/manuscritos. Los prototipos están escritos pero aún no ejecutados; #687 sigue abierta. Después E6.3 piloto y, cuando proceda, #693 autores/#694 fichas.
 
 **Regla operativa:** Ninguna PR hija se fusiona directamente. Cualquier integración posterior debe conciliarse con el `main` del momento y con #687/#683/#680; Claude/Codex revisarán calidad y permisos antes de ejecutarla.
