@@ -52,3 +52,20 @@ test('título buscado y múltiples formatos no crean falsos positivos',()=>{
   const state=selected({q:'Coraline',formato:['tapa-blanda','tapa-dura']});
   assert.deepEqual(books.filter(b=>matchesMulti(b,state)).map(b=>b.title),['Coraline']);
 });
+
+test('los filtros anteriores de extensión, novedades, precios, fechas y valoración sobreviven al cambio de formato',()=>{
+  const old='#genero=fantasia&paginas=breve&novedad=30&precio_max=20&precio_min=5&desde=2024-01-01&hasta=2026-12-31&descuento=10&valoracion=4';
+  const state=parseHash(old);
+  state.formato=['tapa-blanda','tapa-dura'];
+  const restored=parseHash(writeHash(state));
+  for (const key of ['paginas','novedad','precio_max','precio_min','desde','hasta','descuento','valoracion']) {
+    assert.equal(restored[key],state[key],key);
+  }
+  assert.deepEqual(restored.formato,['tapa-blanda','tapa-dura']);
+});
+test('la URL elimina solo parámetros vacíos y conserva búsqueda, orden y grupo',()=>{
+  const state=parseHash('#q=Coraline&grupo=infantil&orden=titulo&genero=fantasia&paginas=breve&valoracion=');
+  state.genero=[];
+  assert.deepEqual(parseHash(writeHash(state)),{...state,valoracion:''});
+  assert(!writeHash(state).includes('valoracion='));
+});
