@@ -4,11 +4,14 @@
  * not trust stored `status: ok` or an old `totals.follower_relationships`.
  * Use only the publisher's explicit UTC expiration for each metric.
  */
-const NETWORKS = ['bluesky', 'mastodon', 'threads'];
+const NETWORKS = ['bluesky', 'mastodon', 'threads', 'instagram', 'tiktok', 'pinterest'];
 const SOURCES = {
   bluesky: 'bluesky-public-appview',
   mastodon: 'mastodon-public-search',
   threads: 'metricool-mcp-export',
+  instagram: 'metricool-mcp-export',
+  tiktok: 'metricool-mcp-export',
+  pinterest: 'metricool-mcp-export',
 };
 const ISO_UTC = /^\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}Z$/;
 
