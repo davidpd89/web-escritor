@@ -732,7 +732,7 @@ function _amazonOutboundCategory(href, pathname, inHeader, inCatalogue) {
   if (host === "amzn.to") {
     if (!/^\/[A-Za-z0-9]+\/?$/.test(destination.pathname)) return null;
   } else if (host === "amazon.es" || host === "www.amazon.es") {
-    const product = /^\/(?:dp|gp\/product)\/[A-Z0-9]{10}(?:\/|$)/i.test(destination.pathname);
+    const product = /^\/(?:[^/]+\/)?(?:dp|gp\/product)\/[A-Z0-9]{10}(?:\/|$)/i.test(destination.pathname);
     const isbnSearch = destination.pathname === "/s";
     if (!product && !isbnSearch) return null;
   } else {
