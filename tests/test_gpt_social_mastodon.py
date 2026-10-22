@@ -51,6 +51,11 @@ class MastodonContractTests(unittest.TestCase):
         with self.assertRaises(ValueError):
             ms.normalize_search({"accounts": [{**ACCOUNT, "url": "https://evil.example/@davidportodiaz"}]})
 
+    def test_malformed_identity_fields_rejected(self):
+        for key, value in (("username", None), ("acct", 5), ("url", [])):
+            with self.subTest(field=key), self.assertRaises(ValueError):
+                ms.normalize_search({"accounts": [{**ACCOUNT, key: value}]})
+
     def test_duplicate_canonical_fails(self):
         with self.assertRaises(ValueError):
             ms.normalize_search({"accounts": [ACCOUNT, ACCOUNT]})
