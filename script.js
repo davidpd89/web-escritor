@@ -759,6 +759,20 @@ document.addEventListener("click", (event) => {
     Boolean(link.closest("[data-reading-catalogue]"))
   );
   if (category) _gcEvent(category, "Clic saliente: Amazon (no implica venta)");
+  // Author Follow es una acción distinta de comprar: nunca suma en buy_click.
+  // Se cuenta el clic, no un seguidor real (dato solo visible en Author Central).
+  if (link.matches("a.amazon-author-follow-link[href]")) {
+    try {
+      const author = new URL(link.href);
+      if (author.protocol === "https:" &&
+          ["amazon.es", "www.amazon.es"].includes(author.hostname.toLowerCase()) &&
+          /^\/stores\/author\/B0GZFP1JV3\/?$/.test(author.pathname)) {
+        _gcEvent("seguir-autor-amazon", "Clic saliente: Seguir autor en Amazon");
+      }
+    } catch {
+      // Ningún error de analítica debe impedir la navegación.
+    }
+  }
 });
 
 // Leer fragmento gratis -- eventos separados por libro (H.2, 2026-08-23):
