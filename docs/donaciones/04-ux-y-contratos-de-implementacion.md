@@ -49,6 +49,14 @@ python -m http.server 8000
 
 **Verificación realizada:** lectura del builder y los archivos modificados en GitHub; `sitemap.xml` versionado (331 URL) sin `/lab/` ni `/apoyar/`; fixture aislado de la misma poda `os.walk` OK. **Pendiente:** ejecutar `python tests/test-support-preview.py` y `python scripts/build-sitemap.py --check` en el árbol completo. No declarar esos comandos como ejecutados.
 
+## Indexación: directivas equivalentes y Googlebot
+
+**Problema verificado con el test Python de esta PR:** el gate aceptaba `<meta name="robots" content="none">` e incluso `<meta name="googlebot" content="noindex">`. Según Google Search Central, **`none` equivale exactamente a `noindex,nofollow`**, y las directivas específicas de `googlebot` también se aplican. Eso permitiría publicar una página de aportaciones declarada indexable en el registry, pero excluida de la búsqueda.
+
+**Corrección incorporada en `tests/test-support-release-gate.py`:** reconocer `robots` y `googlebot` sin distinguir mayúsculas; dividir directivas por comas y rechazar solo tokens `noindex` o `none` (no prohibir `nofollow` o `noimageindex`). El fixture incluye `none`, `NONE, follow`, `googlebot=noindex` y nombre `ROBOTS`. Una página sin meta robots sigue siendo válida. Documentación oficial: https://developers.google.com/search/docs/crawling-indexing/robots-meta-tag (actualizada 24/03/2026).
+
+**Reproducción local real:** fuente anterior copiada del blob Git `43f3aa7068a33ac43b85e86f249f20da28e00942`, casos `none` y `googlebot` incorrectamente aceptados. Archivo corregido con SHA `4384f4794103f9c35b61ba2324435d367d8286c4`, compilación y test completo del archivo con fixtures en directorios temporales: OK. Las pruebas no ejecutan un despliegue ni verifican cabeceras HTTP `X-Robots-Tag`; el checkout sigue pendiente.
+
 ## PayPal: consultas de localización válidas en el checkout
 
 **Defecto corregido con fuente oficial (11/09/2026):** el gate `tests/test-support-release-gate.py` rechazaba cualquier `?` de PayPal. Su documentación autoriza `locale.x` y `country.x` para evitar idioma/país erróneos: https://developer.paypal.com/payment-links-buttons/troubleshooting/ . El validador de esta PR admite el **par exacto**, con forma de valores controlada, y sigue rechazando parámetros inesperados, duplicados, fragmentos, dominios suplantados y `test_` en Stripe. `HTMLParser` decodifica correctamente `&amp;` en el `href`.
@@ -61,7 +69,7 @@ Caso real español válido: `?locale.x=es_ES&country.x=ES`; código oficial de E
 
 - **Sin activar:** no existe `apoyar/index.html`, ni entrada `support-project` en el registry, ni enlace en el footer.
 - **Staging:** la página puede existir con `status: gated`/`noindex`, pero no debe enlazarse desde el pie; el builder público la excluye por `gated_prefixes_from_registry()`.
-- **Público:** la entrada del registry debe ser `status: public`, apuntar a `apoyar/index.html`, aparecer exactamente una vez en `footer.Información`, tener canonical correcto, robots sin `noindex`, privacidad/aviso legal y **al menos un enlace de método** `support-method` al checkout PayPal o Stripe oficial, sin URL de prueba ni SDK.
+- **Público:** la entrada del registry debe ser `status: public`, apuntar a `apoyar/index.html`, aparecer exactamente una vez en `footer.Información`, tener canonical correcto, robots/googlebot sin `noindex` ni `none`, privacidad/aviso legal y **al menos un enlace de método** `support-method` al checkout PayPal o Stripe oficial, sin URL de prueba ni SDK.
 
 El propio test monta casos aislados positivos y negativos para comprobar que fallan URL impostora, parámetros no documentados, `noindex` público y enlaces Stripe `test_`. Su validación de URL **solo prueba la forma**, nunca la titularidad, estado de cuenta, recepción de fondos ni exposición de datos personales en el recibo: esas comprobaciones siguen siendo manuales y obligatorias. **Fixture local aislado de este gate: `py_compile` + ejecución de casos privados, públicos y fallidos, resultado OK el 22/10/2026; no se ha ejecutado el árbol completo del repositorio ni CI.**
 
