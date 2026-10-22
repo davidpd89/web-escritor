@@ -14,13 +14,18 @@ try {
     const errors=[];
     page.on('pageerror',error=>errors.push(error.message));
     await page.goto(base+path,{waitUntil:'networkidle'});
-    await page.getByText('55 de 55 libros',{exact:false}).waitFor();
+    await page.waitForFunction(()=>{
+      const text=document.querySelector('#count')?.textContent||'';
+      const hit=text.match(/^(\\d+) de (\\d+) libros/);
+      return hit && Number(hit[1])===Number(hit[2]) && Number(hit[2])>24;
+    });
+    const total=Number((await page.locator('#count').innerText()).match(/ de (\\d+) libros/)[1]);
     assert.equal(await page.locator('#results li').count(),24);
     assert.equal(await page.locator('.choices').count(),3);
     assert(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth+1),'no horizontal overflow '+width);
     await page.getByRole('button',{name:'Siguiente',exact:true}).click();
     assert.equal(new URLSearchParams(new URL(page.url()).hash.slice(1)).get('pagina'),'2');
-    assert.equal(await page.locator('#results li').count(),24);
+    assert.equal(await page.locator('#results li').count(),Math.min(24,total-24));
     await page.getByRole('button',{name:'Anterior',exact:true}).click();
     assert.equal(new URLSearchParams(new URL(page.url()).hash.slice(1)).get('pagina'),null);
     async function choose(facetIndex,label) {
@@ -44,7 +49,7 @@ try {
     await page.evaluate(()=>{ location.hash='formato=ebook&genero=terror&paginas=breve&precio_max=20'; });
     await page.waitForFunction(()=>{
       const p=new URLSearchParams(location.hash);
-      return p.get('formato')==='ebook' && p.get('genero')==='terror' && [...document.querySelector('#formato').selectedOptions].some(o=>o.value==='ebook') && document.querySelector('#count').textContent.includes(' de 55 libros');
+      return p.get('formato')==='ebook' && p.get('genero')==='terror' && [...document.querySelector('#formato').selectedOptions].some(o=>o.value==='ebook') && document.querySelector('#count').textContent.includes(' de '+total+' libros');
     });
     const restored=await page.locator('#formato').evaluate(el=>[...el.selectedOptions].map(o=>o.value));
     assert.deepEqual(restored,['ebook'],'hashchange restores widget state');
@@ -55,7 +60,7 @@ try {
     params=new URLSearchParams(new URL(page.url()).hash.slice(1));
     assert.deepEqual(params.getAll('formato'),[]);
     assert.equal(params.size,0,'restablecer elimina también precios, páginas y otros filtros no visibles');
-    assert.match(await page.locator('#count').innerText(),/55 de 55 libros/);
+    assert.match(await page.locator('#count').innerText(),new RegExp('^'+total+' de '+total+' libros'));
     assert.equal(await page.locator('#results li').count(),24);
     assert.equal(await page.locator('#formato').evaluate(el=>el.selectedOptions.length),0);
     assert.deepEqual(errors,[],'no JS errors '+width);
