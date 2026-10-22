@@ -10,23 +10,23 @@ La propuesta anterior pedía 30 días de `THEV01` (seguidores) y `THEV06` (Post 
 
 ## Archivos de código — ya en la rama de esta PR
 
-- [scripts/research/gpt_metricool_threads.py](../../../../scripts/research/gpt_metricool_threads.py): Python estándar, sin credenciales ni peticiones propias de red; valida que `metrics=["THEV01"]`, `from=to`, única fila `[followers, YYYYMMDD]` y fecha exacta. Convierte `"232.0"` (ejemplo inventado) a entero sin redondear. Rechaza booleanos, negativos, decimales fraccionarios, fechas distintas, filas duplicadas y claves extra. Produce un **registro de Threads por stdout**; no modifica datos públicos.
+- [scripts/research/gpt_metricool_threads.py](../../../../scripts/research/gpt_metricool_threads.py): Python estándar, sin credenciales ni peticiones propias de red; valida que `metrics=["THEV01"]`, `from=to`, única fila `[followers, YYYYMMDD]` y fecha exacta. Convierte `"123456.0"` (ejemplo inventado) a entero sin redondear. Rechaza booleanos, negativos, decimales fraccionarios, fechas distintas, filas duplicadas y claves extra. Produce un **registro de Threads por stdout**; no modifica datos públicos.
 - [tests/test_gpt_metricool_threads.py](../../../../tests/test_gpt_metricool_threads.py): **17/17 PASS**, ejecutados localmente el 22/10/2026 con `python -m unittest discover -s tests -p 'test_gpt_metricool_threads.py' -v`. Hashes Git de los dos archivos probados contrastados con sus hashes en la rama; mismo código. No es el CI general del sitio.
 
 ### Contrato de entrada: envoltorio privado sobre la respuesta MCP
 
-El MCP entrega únicamente `{"rows":[["232.0","20261021"]]}` para una métrica en ese día; para no confundir campos ni fechas, quien exporte el resultado debe envolverlo **localmente**, sin IDs de marca ni tokens:
+El MCP entrega únicamente `{"rows":[["123456.0","20261021"]]}` para una métrica en ese día; para no confundir campos ni fechas, quien exporte el resultado debe envolverlo **localmente**, sin IDs de marca ni tokens:
 
 ~~~json
 {
   "metrics": ["THEV01"],
   "from": "2026-10-21",
   "to": "2026-10-21",
-  "rows": [["232.0", "20261021"]]
+  "rows": [["123456.0", "20261021"]]
 }
 ~~~
 
-**232 es una cifra ficticia.** No registrar snapshots reales en Git ni compartir tokens. Reproducir:
+**123456 es una cifra ficticia.** No registrar snapshots reales en Git ni compartir tokens. Reproducir:
 
 ~~~bash
 python -m unittest discover -s tests -p 'test_gpt_metricool_threads.py' -v
