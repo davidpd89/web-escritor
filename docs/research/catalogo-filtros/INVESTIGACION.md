@@ -108,6 +108,10 @@ Las cifras son un **snapshot del catálogo del 22-10-2026**, no límites fijos p
 
 **Estado de estas nuevas comprobaciones:** inspección y cálculo contra HTML de `main` **realizados**, código actualizado en GitHub y pruebas browser **preparadas pero pendientes de ejecución**. No se afirma validación visual ni de Choices.js dentro de Chromium hasta ejecutar `qa-demo.mjs` en una copia completa de la rama.
 
+**Evitar destruir el foco al seleccionar múltiples valores:** el laboratorio utilizaba una firma de caché que incluía `selected`, por lo que reconstruía el mismo desplegable en cada clic aunque sus opciones y recuentos no cambiasen. Como el recuento de una faceta excluye su propia selección, ahora la firma depende de `[value,count]`; al seleccionar otra opción en ese mismo control, Choices.js mantiene internamente el estado, sin `setChoices()` redundante. Es una corrección de flujo de renderizado verificada por inspección de código, **no una prueba de foco en el navegador**. La prueba de teclado/foco continúa abierta.
+
+**Evidencia reproducible del contrato exacto:** se cotejaron localmente los SHA de blob Git de `multifacet-contract.mjs` (`75256ba50ee06f67d077125bc7884e8511b1301c`) y `multifacet-contract.test.mjs` (`0463b440b1db4ce12003148330b49316430fdf4a`) con los de la rama de la PR. Ejecutados esos mismos archivos con `node --test`: **12/12 aprobados, 0 fallos**. No se extrapola ese éxito al HTML/browser.
+
 ## Riesgo real y condiciones para Claude
 
 La PR de implementación NO debe reemplazar `reading-catalogue.js` a ciegas: ya resuelve 24 fichas/página, sort, filtros financieros con caducidad, rating y test. Iniciar con **género y formato multiselección**, luego temática. El resto de facetas solo después de verificar que sus opciones producen resultados reales. Mantener el selector «Tipo de libro» exclusivo y su orden editorial salvo decisión posterior.
