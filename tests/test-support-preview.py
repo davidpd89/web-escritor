@@ -6,6 +6,7 @@ Sin servicios ni cuentas externas; usa el builder y el shell existentes.
 from __future__ import annotations
 
 import importlib.util
+import tempfile
 import re
 from pathlib import Path
 
@@ -53,6 +54,31 @@ def main() -> None:
     public = importlib.util.module_from_spec(spec_public)
     spec_public.loader.exec_module(public)
     assert not public.is_publishable("lab/donaciones-preview/index.html", ROOT)
+
+    # Un prototipo olvidado SIN meta noindex tampoco puede contaminar el
+    # sitemap de producción. Antes collect_urls() recorría lab/ sin excluirla.
+    spec_sitemap = importlib.util.spec_from_file_location(
+        "build_sitemap", ROOT / "scripts" / "build-sitemap.py"
+    )
+    assert spec_sitemap and spec_sitemap.loader
+    sitemap = importlib.util.module_from_spec(spec_sitemap)
+    spec_sitemap.loader.exec_module(sitemap)
+    assert "lab" in sitemap.EXCLUDE_DIRS
+    with tempfile.TemporaryDirectory() as tmp:
+        fixture = Path(tmp)
+        (fixture / "index.html").write_text(
+            '<link rel="canonical" href="https://davidportodiaz.com/" />',
+            encoding="utf-8",
+        )
+        preview = fixture / "lab" / "donaciones-preview" / "index.html"
+        preview.parent.mkdir(parents=True)
+        preview.write_text(
+            '<link rel="canonical" href="https://davidportodiaz.com/apoyar/" />',
+            encoding="utf-8",
+        )
+        sitemap_urls = sitemap.collect_urls(fixture)
+        assert "https://davidportodiaz.com/" in sitemap_urls
+        assert "https://davidportodiaz.com/apoyar/" not in sitemap_urls
 
     print("support-preview: OK (shell real, noindex y cero checkout; sin publicación)")
 
