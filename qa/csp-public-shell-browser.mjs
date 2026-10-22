@@ -76,7 +76,20 @@ try {
   for (const route of PAGES) {
     const response = await page.goto(`${ORIGIN}${route}`, { waitUntil: 'networkidle' });
     assert(response && response.status() < 400, `${route}: HTTP ${response?.status()}`);
-    await page.waitForTimeout(300);
+
+    // v1-shell.js loads assistant-widget.{css,js} from requestIdleCallback
+    // (timeout 1400 ms). A fixed 300 ms wait can finish before that lazy CSP
+    // surface executes, so the test can miss a real style/script violation.
+    // Wait for the module's observable mount only on pages whose CSP permits
+    // the widget; strict frame-src 'none' pages intentionally never mount it.
+    const widgetExpected = await page.evaluate(() => {
+      const csp = document.querySelector('meta[http-equiv="Content-Security-Policy"]')?.content || '';
+      return !/frame-src\s+'none'/i.test(csp) && !/^\/asistente(?:\/|$)/.test(location.pathname);
+    });
+    if (widgetExpected) {
+      await page.locator('[data-assistant-widget]').waitFor({ state: 'attached', timeout: 2500 });
+    }
+    await page.evaluate(() => new Promise(resolve => requestAnimationFrame(() => requestAnimationFrame(resolve))));
   }
 
   assert.equal(violations.length, 0, `CSP violations found:\n${violations.join('\n')}`);
