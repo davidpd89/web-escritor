@@ -66,11 +66,15 @@ def analyse_html(html: str) -> dict[str, object]:
     }
     review_amazon_miscounted = []
     amazon_nonpurchase_miscounted = []
+    misleading_cross_platform_labels = []
     for link in parser.links:
         href = link["href"]
         parsed = urlsplit(href)
         host = parsed.hostname or ""
         wording = plain(link["text"] + " " + link["aria"])
+        # Una etiqueta que anuncia dos plataformas no debe abrir solo una.
+        if "amazon" in wording and "goodreads" in wording:
+            misleading_cross_platform_labels.append({"href": href, "label": wording})
         direct_review = (
             "dejar resena" in wording
             or "escribir resena" in wording
@@ -102,6 +106,7 @@ def analyse_html(html: str) -> dict[str, object]:
         # sin distinguir "dejar reseña" de "comprar".
         "amazon_review_links_also_match_purchase_listener": review_amazon_miscounted,
         "amazon_nonpurchase_links_also_match_purchase_listener": amazon_nonpurchase_miscounted,
+        "misleading_cross_platform_labels": misleading_cross_platform_labels,
     }
 
 
