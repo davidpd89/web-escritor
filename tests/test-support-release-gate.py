@@ -95,7 +95,7 @@ def release_errors(root: Path) -> list[str]:
     if not page.is_file():
         errors.append("support-project público sin apoyar/index.html")
         return errors
-    if occurrences != [("Información", footer.get("Información", []).index("support-project"))]:
+    if len(occurrences) != 1 or occurrences[0][0] != "Información":
         errors.append("La página pública debe aparecer una sola vez en footer.Información")
 
     parser = SupportParser()
