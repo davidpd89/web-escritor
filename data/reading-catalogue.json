@@ -478,13 +478,40 @@
       "tipo": "tematica"
     },
     {
-      "id": "infantil",
-      "slug": "infantil",
-      "nombre": "Infantil y juvenil",
-      "tipo": "genero",
+      "activa": true,
       "descripcion": "Clasificación editorial: Infantil y juvenil.",
+      "id": "infantil",
+      "nombre": "Infantil y juvenil",
       "orden": 204,
-      "activa": true
+      "slug": "infantil",
+      "tipo": "genero"
+    },
+    {
+      "activa": true,
+      "descripcion": "Clasificación editorial: Cómic juvenil.",
+      "id": "tema-comic-juvenil",
+      "nombre": "Cómic juvenil",
+      "orden": 204,
+      "slug": "tema-comic-juvenil",
+      "tipo": "tematica"
+    },
+    {
+      "activa": true,
+      "descripcion": "Clasificación editorial: Novela romántica juvenil.",
+      "id": "tema-novela-romantica-juvenil",
+      "nombre": "Novela romántica juvenil",
+      "orden": 205,
+      "slug": "tema-novela-romantica-juvenil",
+      "tipo": "tematica"
+    },
+    {
+      "activa": true,
+      "descripcion": "Clasificación editorial: Secretos.",
+      "id": "tema-secretos",
+      "nombre": "Secretos",
+      "orden": 206,
+      "slug": "tema-secretos",
+      "tipo": "tematica"
     }
   ],
   "libro_categorias": [
@@ -1193,40 +1220,120 @@
       "libro_id": "isbn-9788402431332"
     },
     {
-      "libro_id": "isbn-9780241847640",
-      "categoria_id": "infantil"
+      "categoria_id": "infantil",
+      "libro_id": "isbn-9780241847640"
     },
     {
-      "libro_id": "isbn-9780241847633",
-      "categoria_id": "infantil"
+      "categoria_id": "infantil",
+      "libro_id": "isbn-9780241847633"
     },
     {
-      "libro_id": "isbn-9788402431936",
-      "categoria_id": "infantil"
+      "categoria_id": "infantil",
+      "libro_id": "isbn-9788402431936"
     },
     {
-      "libro_id": "isbn-9791387994303",
-      "categoria_id": "infantil"
+      "categoria_id": "infantil",
+      "libro_id": "isbn-9791387994303"
     },
     {
-      "libro_id": "isbn-9791387994532",
-      "categoria_id": "infantil"
+      "categoria_id": "infantil",
+      "libro_id": "isbn-9791387994532"
     },
     {
-      "libro_id": "isbn-9780241839362",
-      "categoria_id": "infantil"
+      "categoria_id": "infantil",
+      "libro_id": "isbn-9780241839362"
     },
     {
-      "libro_id": "isbn-9791388277030",
-      "categoria_id": "infantil"
+      "categoria_id": "infantil",
+      "libro_id": "isbn-9791388277030"
     },
     {
-      "libro_id": "isbn-9780241837986",
-      "categoria_id": "infantil"
+      "categoria_id": "infantil",
+      "libro_id": "isbn-9780241837986"
     },
     {
-      "libro_id": "isbn-9780241837979",
-      "categoria_id": "infantil"
+      "categoria_id": "infantil",
+      "libro_id": "isbn-9780241837979"
+    },
+    {
+      "categoria_id": "tema-comic-juvenil",
+      "libro_id": "isbn-9791387962036"
+    },
+    {
+      "categoria_id": "fantasia",
+      "libro_id": "isbn-9791387962036"
+    },
+    {
+      "categoria_id": "romance",
+      "libro_id": "isbn-9791387962036"
+    },
+    {
+      "categoria_id": "tema-venganza",
+      "libro_id": "isbn-9791387962036"
+    },
+    {
+      "categoria_id": "desarrollo-personal",
+      "libro_id": "isbn-9788418053870"
+    },
+    {
+      "categoria_id": "adultos",
+      "libro_id": "isbn-9788418053870"
+    },
+    {
+      "categoria_id": "tema-novela-romantica-juvenil",
+      "libro_id": "isbn-9791387949891"
+    },
+    {
+      "categoria_id": "romance",
+      "libro_id": "isbn-9791387949891"
+    },
+    {
+      "categoria_id": "tema-amor-y-pareja",
+      "libro_id": "isbn-9791387949891"
+    },
+    {
+      "categoria_id": "tema-memoria",
+      "libro_id": "isbn-9791387949891"
+    },
+    {
+      "categoria_id": "juvenil",
+      "libro_id": "isbn-9791387949891"
+    },
+    {
+      "categoria_id": "misterio-y-thriller",
+      "libro_id": "isbn-9791387512446"
+    },
+    {
+      "categoria_id": "tema-secretos",
+      "libro_id": "isbn-9791387512446"
+    },
+    {
+      "categoria_id": "adultos",
+      "libro_id": "isbn-9791387512446"
+    },
+    {
+      "categoria_id": "edad-a-partir-de-9-anos",
+      "libro_id": "isbn-9791387994600"
+    },
+    {
+      "categoria_id": "infantil",
+      "libro_id": "isbn-9791387994600"
+    },
+    {
+      "categoria_id": "misterio-y-thriller",
+      "libro_id": "isbn-9791387994600"
+    },
+    {
+      "categoria_id": "fantasia",
+      "libro_id": "isbn-9791387994600"
+    },
+    {
+      "categoria_id": "aventuras",
+      "libro_id": "isbn-9791387994600"
+    },
+    {
+      "categoria_id": "tema-infancia",
+      "libro_id": "isbn-9791387994600"
     }
   ],
   "libros": [
@@ -3800,6 +3907,234 @@
       "sinopsis_tipo": "extracto_editorial",
       "slug": "carino-y-este-recibo-9788402431332",
       "titulo": "Cariño, ¿y este recibo?"
+    },
+    {
+      "amazon_busqueda_isbn": "https://www.amazon.es/s?k=9791387962036&tag=davidporto-21",
+      "anio_publicacion": 2026,
+      "autores": [
+        "Rei Tôma"
+      ],
+      "autorizacion_o_base_uso": "Cubierta proporcionada en la ficha oficial de la edición para su identificación bibliográfica, con atribución y enlace a la editorial. No se declara licencia abierta ni se reutiliza como imagen de Pinterest.",
+      "descripcion_breve": "La bestia del rey 13 (Shôjo), de Rei Tôma. Edición de Distrito Manga en castellano, en tapa blanda con sobrecubierta. Consta de 168 páginas. La editorial la incluye en cómic juvenil. Publicación editorial: 2026-10-15.",
+      "descripcion_original_confirmada": true,
+      "edicion": "Tapa blanda con sobrecubierta · Distrito Manga",
+      "editorial": "Distrito Manga",
+      "editorial_catalogo_slug": "distrito-manga",
+      "estado": "publicado",
+      "fecha_actualizacion": "2026-10-22",
+      "fecha_publicacion": "2026-10-15",
+      "fecha_verificacion": "2026-10-22",
+      "formato_edicion": "tapa-blanda",
+      "fuente_bibliografica_url": "https://www.penguinlibros.com/es/comic-juvenil/634711-libro-la-bestia-del-rey-13-shojo-9791387962036",
+      "fuente_publicacion_url": "https://www.penguinlibros.com/es/comic-juvenil/634711-libro-la-bestia-del-rey-13-shojo-9791387962036",
+      "id": "isbn-9791387962036",
+      "idioma": "es",
+      "isbn13": "9791387962036",
+      "numero_paginas": 168,
+      "portada_alto": 1235,
+      "portada_ancho": 800,
+      "portada_edicion_verificada": true,
+      "portada_fecha_revision": "2026-10-22",
+      "portada_fuente_url": "https://www.penguinlibros.com/es/8139190-thickbox_default/la-bestia-del-rey-13-shojo.jpg",
+      "portada_local": "/assets/reading-covers/isbn-9791387962036.webp",
+      "pvp_centimos": 995,
+      "pvp_fecha_verificacion": "2026-10-22",
+      "resenas": [
+        {
+          "fecha_verificacion": "2026-10-22",
+          "titulo": "Buscar reseñas en Goodreads",
+          "url": "https://www.goodreads.com/search?q=9791387962036"
+        }
+      ],
+      "sinopsis_breve": "Rangetsu vuelve al palacio como el primer oficial semihumano del ejército. Tras su reencuentro con Tenyô, ambos prometen casarse. Ninguno sabe si ese deseo…",
+      "sinopsis_fuente_url": "https://www.penguinlibros.com/es/comic-juvenil/634711-libro-la-bestia-del-rey-13-shojo-9791387962036",
+      "sinopsis_tipo": "extracto_editorial",
+      "slug": "la-bestia-del-rey-13-shojo-9791387962036",
+      "titulo": "La bestia del rey 13 (Shôjo)"
+    },
+    {
+      "amazon_busqueda_isbn": "https://www.amazon.es/s?k=9788418053870&tag=davidporto-21",
+      "anio_publicacion": 2026,
+      "autores": [
+        "Ben Meer"
+      ],
+      "autorizacion_o_base_uso": "Cubierta proporcionada en la ficha oficial de la edición para su identificación bibliográfica, con atribución y enlace a la editorial. No se declara licencia abierta ni se reutiliza como imagen de Pinterest.",
+      "descripcion_breve": "Cómo hacer las cosas bien, de Ben Meer. Edición de Conecta en castellano, en tapa blanda con solapas. Consta de 384 páginas. La editorial la incluye en autoayuda. Publicación editorial: 2026-10-22.",
+      "descripcion_original_confirmada": true,
+      "edad_recomendada": "Adultos",
+      "edicion": "Tapa blanda con solapas · Conecta",
+      "editorial": "Conecta",
+      "editorial_catalogo_slug": "conecta",
+      "estado": "publicado",
+      "fecha_actualizacion": "2026-10-22",
+      "fecha_publicacion": "2026-10-22",
+      "fecha_verificacion": "2026-10-22",
+      "formato_edicion": "tapa-blanda",
+      "fuente_bibliografica_url": "https://www.penguinlibros.com/es/libros-autoayuda/634705-libro-como-hacer-las-cosas-bien-9788418053870",
+      "fuente_edad_url": "https://www.penguinlibros.com/es/libros-autoayuda/634705-libro-como-hacer-las-cosas-bien-9788418053870",
+      "fuente_publicacion_url": "https://www.penguinlibros.com/es/libros-autoayuda/634705-libro-como-hacer-las-cosas-bien-9788418053870",
+      "id": "isbn-9788418053870",
+      "idioma": "es",
+      "isbn13": "9788418053870",
+      "numero_paginas": 384,
+      "portada_alto": 1235,
+      "portada_ancho": 800,
+      "portada_edicion_verificada": true,
+      "portada_fecha_revision": "2026-10-22",
+      "portada_fuente_url": "https://www.penguinlibros.com/es/7959820-thickbox_default/como-hacer-las-cosas-bien.jpg",
+      "portada_local": "/assets/reading-covers/isbn-9788418053870.webp",
+      "pvp_centimos": 2290,
+      "pvp_fecha_verificacion": "2026-10-22",
+      "resenas": [
+        {
+          "fecha_verificacion": "2026-10-22",
+          "titulo": "Buscar reseñas en Goodreads",
+          "url": "https://www.goodreads.com/search?q=9788418053870"
+        }
+      ],
+      "sinopsis_breve": "Cada día tomas miles de decisiones. Luchas contra algoritmos diseñados para robarte la atención. Gestionas contraseñas, suscripciones y fechas límites. Y, además, se supone…",
+      "sinopsis_fuente_url": "https://www.penguinlibros.com/es/libros-autoayuda/634705-libro-como-hacer-las-cosas-bien-9788418053870",
+      "sinopsis_tipo": "extracto_editorial",
+      "slug": "como-hacer-las-cosas-bien-9788418053870",
+      "titulo": "Cómo hacer las cosas bien"
+    },
+    {
+      "amazon_busqueda_isbn": "https://www.amazon.es/s?k=9791387949891&tag=davidporto-21",
+      "anio_publicacion": 2026,
+      "autores": [
+        "Amanda Gayle"
+      ],
+      "autorizacion_o_base_uso": "Cubierta proporcionada en la ficha oficial de la edición para su identificación bibliográfica, con atribución y enlace a la editorial. No se declara licencia abierta ni se reutiliza como imagen de Pinterest.",
+      "descripcion_breve": "Una vez y para siempre, de Amanda Gayle. Edición de Alfaguara en castellano, en tapa blanda con solapas. Consta de 376 páginas. La editorial la incluye en novela romántica juvenil. Publicación editorial: 2026-10-22.",
+      "descripcion_original_confirmada": true,
+      "edad_recomendada": "Juvenil",
+      "edicion": "Tapa blanda con solapas · Alfaguara",
+      "editorial": "Alfaguara",
+      "editorial_slug": "alfaguara",
+      "estado": "publicado",
+      "fecha_actualizacion": "2026-10-22",
+      "fecha_publicacion": "2026-10-22",
+      "fecha_verificacion": "2026-10-22",
+      "formato_edicion": "tapa-blanda",
+      "fuente_bibliografica_url": "https://www.penguinlibros.com/es/libros-romanticos-juveniles/634620-libro-una-vez-y-para-siempre-9791387949891",
+      "fuente_edad_url": "https://www.penguinlibros.com/es/libros-romanticos-juveniles/634620-libro-una-vez-y-para-siempre-9791387949891",
+      "fuente_publicacion_url": "https://www.penguinlibros.com/es/libros-romanticos-juveniles/634620-libro-una-vez-y-para-siempre-9791387949891",
+      "id": "isbn-9791387949891",
+      "idioma": "es",
+      "isbn13": "9791387949891",
+      "numero_paginas": 376,
+      "portada_alto": 1235,
+      "portada_ancho": 800,
+      "portada_edicion_verificada": true,
+      "portada_fecha_revision": "2026-10-22",
+      "portada_fuente_url": "https://www.penguinlibros.com/es/7969051-thickbox_default/una-vez-y-para-siempre.jpg",
+      "portada_local": "/assets/reading-covers/isbn-9791387949891.webp",
+      "pvp_centimos": 2095,
+      "pvp_fecha_verificacion": "2026-10-22",
+      "resenas": [
+        {
+          "fecha_verificacion": "2026-10-22",
+          "titulo": "Buscar reseñas en Goodreads",
+          "url": "https://www.goodreads.com/search?q=9791387949891"
+        }
+      ],
+      "sinopsis_breve": "Molly despierta en el hospital con la cabeza vendada y un vacío ahí donde antes estaban los recuerdos de los últimos seis años. Así…",
+      "sinopsis_fuente_url": "https://www.penguinlibros.com/es/libros-romanticos-juveniles/634620-libro-una-vez-y-para-siempre-9791387949891",
+      "sinopsis_tipo": "extracto_editorial",
+      "slug": "una-vez-y-para-siempre-9791387949891",
+      "titulo": "Una vez y para siempre"
+    },
+    {
+      "amazon_busqueda_isbn": "https://www.amazon.es/s?k=9791387512446&tag=davidporto-21",
+      "anio_publicacion": 2026,
+      "autores": [
+        "Freida McFadden"
+      ],
+      "autorizacion_o_base_uso": "Cubierta proporcionada en la ficha oficial de la edición para su identificación bibliográfica, con atribución y enlace a la editorial. No se declara licencia abierta ni se reutiliza como imagen de Pinterest.",
+      "descripcion_breve": "La inquilina, de Freida McFadden. Edición de Suma de Letras en castellano, en tapa blanda con solapas. Consta de 344 páginas. La editorial la incluye en novela negra, misterio y thriller. Publicación editorial: 2026-09-03.",
+      "descripcion_original_confirmada": true,
+      "edad_recomendada": "Adultos",
+      "edicion": "Tapa blanda con solapas · Suma de Letras",
+      "editorial": "Suma de Letras",
+      "editorial_slug": "suma-de-letras",
+      "estado": "publicado",
+      "fecha_actualizacion": "2026-10-22",
+      "fecha_publicacion": "2026-09-03",
+      "fecha_verificacion": "2026-10-22",
+      "formato_edicion": "tapa-blanda",
+      "fuente_bibliografica_url": "https://www.penguinlibros.com/es/novela-negra-misterio-y-thriller/631910-libro-la-inquilina-9791387512446",
+      "fuente_edad_url": "https://www.penguinlibros.com/es/novela-negra-misterio-y-thriller/631910-libro-la-inquilina-9791387512446",
+      "fuente_publicacion_url": "https://www.penguinlibros.com/es/novela-negra-misterio-y-thriller/631910-libro-la-inquilina-9791387512446",
+      "id": "isbn-9791387512446",
+      "idioma": "es",
+      "isbn13": "9791387512446",
+      "numero_paginas": 344,
+      "portada_alto": 1235,
+      "portada_ancho": 800,
+      "portada_edicion_verificada": true,
+      "portada_fecha_revision": "2026-10-22",
+      "portada_fuente_url": "https://www.penguinlibros.com/es/7766628-thickbox_default/la-inquilina.jpg",
+      "portada_local": "/assets/reading-covers/isbn-9791387512446.webp",
+      "pvp_centimos": 2090,
+      "pvp_fecha_verificacion": "2026-10-22",
+      "resenas": [
+        {
+          "fecha_verificacion": "2026-10-22",
+          "titulo": "Buscar reseñas en Goodreads",
+          "url": "https://www.goodreads.com/search?q=9791387512446"
+        }
+      ],
+      "sinopsis_breve": "Blake Porter está en la cima del éxito... hasta que deja de estarlo. Despedido de un día para otro de su trabajo como directivo…",
+      "sinopsis_fuente_url": "https://www.penguinlibros.com/es/novela-negra-misterio-y-thriller/631910-libro-la-inquilina-9791387512446",
+      "sinopsis_tipo": "extracto_editorial",
+      "slug": "la-inquilina-9791387512446",
+      "titulo": "La inquilina"
+    },
+    {
+      "amazon_busqueda_isbn": "https://www.amazon.es/s?k=9791387994600&tag=davidporto-21",
+      "anio_publicacion": 2026,
+      "autores": [
+        "Eva Millet"
+      ],
+      "autorizacion_o_base_uso": "Cubierta proporcionada en la ficha oficial de la edición para su identificación bibliográfica, con atribución y enlace a la editorial. No se declara licencia abierta ni se reutiliza como imagen de Pinterest.",
+      "descripcion_breve": "Tessa Soul 2 - La doncella encantada, de Eva Millet. Edición de Ediciones B en castellano, en tapa dura. Consta de 192 páginas. La editorial la incluye en a partir de 9 años. Publicación editorial: 2026-10-22.",
+      "descripcion_original_confirmada": true,
+      "edad_recomendada": "A partir de 9 años",
+      "edicion": "Tapa dura · Ediciones B",
+      "editorial": "Ediciones B",
+      "editorial_slug": "ediciones-b",
+      "estado": "publicado",
+      "fecha_actualizacion": "2026-10-22",
+      "fecha_publicacion": "2026-10-22",
+      "fecha_verificacion": "2026-10-22",
+      "formato_edicion": "tapa-dura",
+      "fuente_bibliografica_url": "https://www.penguinlibros.com/es/libros-ninos-9-anos/634672-libro-tessa-soul-2-la-doncella-encantada-9791387994600",
+      "fuente_edad_url": "https://www.penguinlibros.com/es/libros-ninos-9-anos/634672-libro-tessa-soul-2-la-doncella-encantada-9791387994600",
+      "fuente_publicacion_url": "https://www.penguinlibros.com/es/libros-ninos-9-anos/634672-libro-tessa-soul-2-la-doncella-encantada-9791387994600",
+      "id": "isbn-9791387994600",
+      "idioma": "es",
+      "isbn13": "9791387994600",
+      "numero_paginas": 192,
+      "portada_alto": 1235,
+      "portada_ancho": 800,
+      "portada_edicion_verificada": true,
+      "portada_fecha_revision": "2026-10-22",
+      "portada_fuente_url": "https://www.penguinlibros.com/es/8278675-thickbox_default/tessa-soul-2-la-doncella-encantada.jpg",
+      "portada_local": "/assets/reading-covers/isbn-9791387994600.webp",
+      "pvp_centimos": 1595,
+      "pvp_fecha_verificacion": "2026-10-22",
+      "resenas": [
+        {
+          "fecha_verificacion": "2026-10-22",
+          "titulo": "Buscar reseñas en Goodreads",
+          "url": "https://www.goodreads.com/search?q=9791387994600"
+        }
+      ],
+      "sinopsis_breve": "No te pierdas la segunda entrega de la nueva serie de misterio middle grade de Eva Millet, la autora de La última sirena.",
+      "sinopsis_fuente_url": "https://www.penguinlibros.com/es/libros-ninos-9-anos/634672-libro-tessa-soul-2-la-doncella-encantada-9791387994600",
+      "sinopsis_tipo": "extracto_editorial",
+      "slug": "tessa-soul-2-la-doncella-encantada-9791387994600",
+      "titulo": "Tessa Soul 2 - La doncella encantada"
     }
   ],
   "schema_version": 1

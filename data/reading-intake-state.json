@@ -643,6 +643,14 @@
       "primera_deteccion": "2026-10-21",
       "publicado_en": "2026-10-21"
     },
+    "isbn13:9788401039331": {
+      "estado_ingesta": "pendiente_datos",
+      "fuente": "https://www.penguinlibros.com/es/novela-negra-misterio-y-thriller/635028-libro-la-ultima-luciernaga-9788401039331",
+      "isbn13": "9788401039331",
+      "motivo": "'utf-8' codec can't decode byte 0xc3 in position 400606: invalid continuation byte",
+      "primera_deteccion": "2026-10-22",
+      "retry_after": "2026-10-25"
+    },
     "isbn13:9788401039560": {
       "datos": {
         "autores": [
@@ -1272,6 +1280,107 @@
       "motivo": "Edición fuera de la ventana de selección configurada",
       "primera_deteccion": "2026-10-21",
       "retry_after": "2026-10-24"
+    },
+    "isbn13:9788416588435": {
+      "datos": {
+        "autores": [
+          "Eloy Moreno"
+        ],
+        "coleccion": "Nube de Tinta",
+        "cover_use_basis": "Cubierta proporcionada en la ficha oficial de la edición para su identificación bibliográfica, con atribución y enlace a la editorial. No se declara licencia abierta ni se reutiliza como imagen de Pinterest.",
+        "edad_recomendada": "A partir de 12 años",
+        "editorial": "NUBE DE TINTA",
+        "editorial_slug": "nube-de-tinta",
+        "encuadernacion": "Tapa blanda con solapas",
+        "fecha_publicacion_edicion": "2018-02-01",
+        "formato_edicion": "tapa-blanda",
+        "fuente_bibliografica_url": "https://www.penguinlibros.com/es/novelas-juveniles/32944-libro-invisible-9788416588435",
+        "fuentes_autores": {
+          "Eloy Moreno": "https://www.penguinlibros.com/es/7894-eloy-moreno"
+        },
+        "idioma": "es",
+        "isbn13": "9788416588435",
+        "materias": [
+          "Novelas juveniles"
+        ],
+        "numero_paginas": 304,
+        "palabras_clave": [
+          "libros para adolescentes",
+          "libros juveniles 14 años",
+          "libros 12 años mas vendidos niños",
+          "libros adolescentes mas vendidos",
+          "redes eloy more no",
+          "redes invisible 2",
+          "libros mas vendidos",
+          "tierra eloy moreno",
+          "cuando era divertido",
+          "libros para adolescentes 15 años",
+          "sant jor"
+        ],
+        "portada_fuente_url": "https://www.penguinlibros.com/es/5415327-thickbox_default/invisible.jpg",
+        "precision_fecha": "dia",
+        "pvp_centimos": 1595,
+        "sinopsis_breve": "A veces, cuando más ganas tenía de ser invisible, era cuando más gente me veía, y en cambio, cuando deseaba que todos me vieran…",
+        "titulo": "Invisible"
+      },
+      "estado_ingesta": "pendiente_datos",
+      "fuente": "https://www.penguinlibros.com/es/novelas-juveniles/32944-libro-invisible-9788416588435",
+      "isbn13": "9788416588435",
+      "motivo": "Edición fuera de la ventana de selección configurada",
+      "primera_deteccion": "2026-10-22",
+      "retry_after": "2026-10-25"
+    },
+    "isbn13:9788418053870": {
+      "datos": {
+        "autores": [
+          "Ben Meer"
+        ],
+        "coleccion": "Desarrollo personal",
+        "cover_use_basis": "Cubierta proporcionada en la ficha oficial de la edición para su identificación bibliográfica, con atribución y enlace a la editorial. No se declara licencia abierta ni se reutiliza como imagen de Pinterest.",
+        "edad_recomendada": "Adultos",
+        "editorial": "CONECTA",
+        "editorial_slug": "conecta",
+        "encuadernacion": "Tapa blanda con solapas",
+        "fecha_publicacion_edicion": "2026-10-22",
+        "formato_edicion": "tapa-blanda",
+        "fuente_bibliografica_url": "https://www.penguinlibros.com/es/libros-autoayuda/634705-libro-como-hacer-las-cosas-bien-9788418053870",
+        "fuentes_autores": {
+          "Ben Meer": "https://www.penguinlibros.com/es/1019896-ben-meer"
+        },
+        "idioma": "es",
+        "isbn13": "9788418053870",
+        "materias": [
+          "Autoayuda"
+        ],
+        "numero_paginas": 384,
+        "palabras_clave": [
+          "james clear",
+          "habitos atomicos",
+          "esencialismo",
+          "greg mckeown",
+          "oliver burkeman",
+          "cuatro mil semanas",
+          "gestion del tiempo",
+          "productividad",
+          "burnout",
+          "b usiness",
+          "regalos para el jefe",
+          "economia libro",
+          "empresa e iniciativa emprendedora",
+          "gestion de proyectos",
+          "gestion economica y fin"
+        ],
+        "portada_fuente_url": "https://www.penguinlibros.com/es/7959820-thickbox_default/como-hacer-las-cosas-bien.jpg",
+        "precision_fecha": "dia",
+        "pvp_centimos": 2290,
+        "sinopsis_breve": "Cada día tomas miles de decisiones. Luchas contra algoritmos diseñados para robarte la atención. Gestionas contraseñas, suscripciones y fechas límites. Y, además, se supone…",
+        "titulo": "Cómo hacer las cosas bien"
+      },
+      "estado_ingesta": "publicado",
+      "isbn13": "9788418053870",
+      "libro_id": "isbn-9788418053870",
+      "primera_deteccion": "2026-10-22",
+      "publicado_en": "2026-10-22"
     },
     "isbn13:9788418967566": {
       "datos": {
@@ -2066,6 +2175,14 @@
       "primera_deteccion": "2026-10-21",
       "retry_after": "2026-10-24"
     },
+    "isbn13:9788448873240": {
+      "estado_ingesta": "pendiente_datos",
+      "fuente": "https://www.penguinlibros.com/es/libros-infantiles-3-anos/629067-libro-me-quiero-mucho-libro-de-carton-9788448873240",
+      "isbn13": "9788448873240",
+      "motivo": "Encuadernación desconocida",
+      "primera_deteccion": "2026-10-22",
+      "retry_after": "2026-10-25"
+    },
     "isbn13:9788448874698": {
       "estado_ingesta": "pendiente_datos",
       "fuente": "https://www.penguinlibros.com/es/libros-ninos-7-anos/631474-libro-superthings-el-libro-de-la-pelicula-9788448874698",
@@ -2560,6 +2677,58 @@
       "primera_deteccion": "2026-10-21",
       "publicado_en": "2026-10-21"
     },
+    "isbn13:9791387512446": {
+      "datos": {
+        "autores": [
+          "Freida McFadden"
+        ],
+        "coleccion": "SUMA",
+        "cover_use_basis": "Cubierta proporcionada en la ficha oficial de la edición para su identificación bibliográfica, con atribución y enlace a la editorial. No se declara licencia abierta ni se reutiliza como imagen de Pinterest.",
+        "edad_recomendada": "Adultos",
+        "editorial": "SUMA",
+        "editorial_slug": "suma-de-letras",
+        "encuadernacion": "Tapa blanda con solapas",
+        "fecha_publicacion_edicion": "2026-09-03",
+        "formato_edicion": "tapa-blanda",
+        "fuente_bibliografica_url": "https://www.penguinlibros.com/es/novela-negra-misterio-y-thriller/631910-libro-la-inquilina-9791387512446",
+        "fuentes_autores": {
+          "Freida McFadden": "https://www.penguinlibros.com/es/948769-freida-mcfadden"
+        },
+        "idioma": "es",
+        "isbn13": "9791387512446",
+        "materias": [
+          "Novela negra, misterio y thriller"
+        ],
+        "numero_paginas": 344,
+        "palabras_clave": [
+          "mejores libros 2026",
+          "libros recomendados",
+          "la asistenta",
+          "booktok",
+          "el recluso",
+          "el secreto de la asistenta",
+          "freida mcfadden en español",
+          "intrig a libros",
+          "intriga y suspense",
+          "la asistenta te vigila",
+          "la boda de la asistenta",
+          "la mujer de arriba",
+          "la profesora",
+          "el novio",
+          "nunca"
+        ],
+        "portada_fuente_url": "https://www.penguinlibros.com/es/7766628-thickbox_default/la-inquilina.jpg",
+        "precision_fecha": "dia",
+        "pvp_centimos": 2090,
+        "sinopsis_breve": "Blake Porter está en la cima del éxito... hasta que deja de estarlo. Despedido de un día para otro de su trabajo como directivo…",
+        "titulo": "La inquilina"
+      },
+      "estado_ingesta": "publicado",
+      "isbn13": "9791387512446",
+      "libro_id": "isbn-9791387512446",
+      "primera_deteccion": "2026-10-22",
+      "publicado_en": "2026-10-22"
+    },
     "isbn13:9791387629694": {
       "datos": {
         "autores": [
@@ -3036,6 +3205,60 @@
       "motivo": "Sello no presente en el registro editorial de la web",
       "primera_deteccion": "2026-10-20"
     },
+    "isbn13:9791387949891": {
+      "datos": {
+        "autores": [
+          "Amanda Gayle"
+        ],
+        "coleccion": "Sin límites",
+        "cover_use_basis": "Cubierta proporcionada en la ficha oficial de la edición para su identificación bibliográfica, con atribución y enlace a la editorial. No se declara licencia abierta ni se reutiliza como imagen de Pinterest.",
+        "edad_recomendada": "Juvenil",
+        "editorial": "ALFAGUARA IJC",
+        "editorial_slug": "alfaguara",
+        "encuadernacion": "Tapa blanda con solapas",
+        "fecha_publicacion_edicion": "2026-10-22",
+        "formato_edicion": "tapa-blanda",
+        "fuente_bibliografica_url": "https://www.penguinlibros.com/es/libros-romanticos-juveniles/634620-libro-una-vez-y-para-siempre-9791387949891",
+        "fuentes_autores": {
+          "Amanda Gayle": "https://www.penguinlibros.com/es/1019923-amanda-gayle"
+        },
+        "idioma": "es",
+        "isbn13": "9791387949891",
+        "materias": [
+          "Novela romántica juvenil"
+        ],
+        "numero_paginas": 376,
+        "palabras_clave": [
+          "enemies to lovers",
+          "amnesia romance",
+          "novela romantica",
+          "romance",
+          "matrimonio",
+          "booktok",
+          "volver a enamorarse",
+          "marido y mujer",
+          "ao3",
+          "recuerdos",
+          "segun das oportunidades",
+          "romance viral",
+          "la hipotesis del amor",
+          "la española prometida",
+          "ali hazelwood",
+          "abby jimenez",
+          "romance contemporan"
+        ],
+        "portada_fuente_url": "https://www.penguinlibros.com/es/7969051-thickbox_default/una-vez-y-para-siempre.jpg",
+        "precision_fecha": "dia",
+        "pvp_centimos": 2095,
+        "sinopsis_breve": "Molly despierta en el hospital con la cabeza vendada y un vacío ahí donde antes estaban los recuerdos de los últimos seis años. Así…",
+        "titulo": "Una vez y para siempre"
+      },
+      "estado_ingesta": "publicado",
+      "isbn13": "9791387949891",
+      "libro_id": "isbn-9791387949891",
+      "primera_deteccion": "2026-10-22",
+      "publicado_en": "2026-10-22"
+    },
     "isbn13:9791387949938": {
       "datos": {
         "autores": [
@@ -3091,6 +3314,58 @@
       "libro_id": "isbn-9791387949938",
       "primera_deteccion": "2026-10-21",
       "publicado_en": "2026-10-21"
+    },
+    "isbn13:9791387962036": {
+      "datos": {
+        "autores": [
+          "Rei Tôma"
+        ],
+        "coleccion": "Shôjo",
+        "cover_use_basis": "Cubierta proporcionada en la ficha oficial de la edición para su identificación bibliográfica, con atribución y enlace a la editorial. No se declara licencia abierta ni se reutiliza como imagen de Pinterest.",
+        "edad_recomendada": "",
+        "editorial": "DISTRITO MANGA",
+        "editorial_slug": "distrito-manga",
+        "encuadernacion": "Tapa blanda con sobrecubierta",
+        "fecha_publicacion_edicion": "2026-10-15",
+        "formato_edicion": "tapa-blanda",
+        "fuente_bibliografica_url": "https://www.penguinlibros.com/es/comic-juvenil/634711-libro-la-bestia-del-rey-13-shojo-9791387962036",
+        "fuentes_autores": {
+          "Rei Tôma": "https://www.penguinlibros.com/es/211730-rei-toma"
+        },
+        "idioma": "es",
+        "isbn13": "9791387962036",
+        "materias": [
+          "Cómic juvenil"
+        ],
+        "numero_paginas": 168,
+        "palabras_clave": [
+          "la bestia del rey",
+          "rei toma",
+          "manga shojo",
+          "venganza",
+          "shojo fantasia",
+          "shojo romance",
+          "akatsuki no yona",
+          "beastars",
+          "yona la princesa del amanecer",
+          "manga enemy to lovers",
+          "utena",
+          "enemies to lovers",
+          "los diarios de la boticaria",
+          "sailor moon",
+          "una historia de al"
+        ],
+        "portada_fuente_url": "https://www.penguinlibros.com/es/8139190-thickbox_default/la-bestia-del-rey-13-shojo.jpg",
+        "precision_fecha": "dia",
+        "pvp_centimos": 995,
+        "sinopsis_breve": "Rangetsu vuelve al palacio como el primer oficial semihumano del ejército. Tras su reencuentro con Tenyô, ambos prometen casarse. Ninguno sabe si ese deseo…",
+        "titulo": "La bestia del rey 13 (Shôjo)"
+      },
+      "estado_ingesta": "publicado",
+      "isbn13": "9791387962036",
+      "libro_id": "isbn-9791387962036",
+      "primera_deteccion": "2026-10-22",
+      "publicado_en": "2026-10-22"
     },
     "isbn13:9791387962050": {
       "datos": {
@@ -3359,6 +3634,64 @@
       "libro_id": "isbn-9791387994532",
       "primera_deteccion": "2026-10-21",
       "publicado_en": "2026-10-21"
+    },
+    "isbn13:9791387994600": {
+      "datos": {
+        "autores": [
+          "Eva Millet"
+        ],
+        "coleccion": "Aventuras y fantasía",
+        "cover_use_basis": "Cubierta proporcionada en la ficha oficial de la edición para su identificación bibliográfica, con atribución y enlace a la editorial. No se declara licencia abierta ni se reutiliza como imagen de Pinterest.",
+        "edad_recomendada": "A partir de 9 años",
+        "editorial": "B DE BLOK",
+        "editorial_slug": "ediciones-b",
+        "encuadernacion": "Tapa dura",
+        "fecha_publicacion_edicion": "2026-10-22",
+        "formato_edicion": "tapa-dura",
+        "fuente_bibliografica_url": "https://www.penguinlibros.com/es/libros-ninos-9-anos/634672-libro-tessa-soul-2-la-doncella-encantada-9791387994600",
+        "fuentes_autores": {
+          "Eva Millet": "https://www.penguinlibros.com/es/183533-eva-millet"
+        },
+        "idioma": "es",
+        "isbn13": "9791387994600",
+        "materias": [
+          "A partir de 9 años"
+        ],
+        "numero_paginas": 192,
+        "palabras_clave": [
+          "eva millet",
+          "fantasmas",
+          "libro de fantasmas",
+          "infantil",
+          "juvenil",
+          "libro de fantasmas para niños",
+          "libro de misterio",
+          "libro de suspense",
+          "suspense",
+          "medium",
+          "gotico",
+          "victoriano",
+          "libro de aventuras",
+          "para leer",
+          "para regalar",
+          "9 años",
+          "10 años",
+          "11 años",
+          "la ultima sirena",
+          "libro gotico",
+          "b"
+        ],
+        "portada_fuente_url": "https://www.penguinlibros.com/es/8278675-thickbox_default/tessa-soul-2-la-doncella-encantada.jpg",
+        "precision_fecha": "dia",
+        "pvp_centimos": 1595,
+        "sinopsis_breve": "No te pierdas la segunda entrega de la nueva serie de misterio middle grade de Eva Millet, la autora de La última sirena.",
+        "titulo": "Tessa Soul 2 - La doncella encantada"
+      },
+      "estado_ingesta": "publicado",
+      "isbn13": "9791387994600",
+      "libro_id": "isbn-9791387994600",
+      "primera_deteccion": "2026-10-22",
+      "publicado_en": "2026-10-22"
     },
     "isbn13:9791388038037": {
       "datos": {
