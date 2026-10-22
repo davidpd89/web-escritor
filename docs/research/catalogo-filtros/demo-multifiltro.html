@@ -1,0 +1,124 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Laboratorio de filtros de libros · PR de investigación</title>
+  <link rel="stylesheet" href="./upstream/choices-v11.2.4.min.css">
+  <style>
+    body { font: 1rem/1.5 system-ui, sans-serif; max-width: 70rem; margin: auto; padding: clamp(1rem,3vw,2rem); color: #202d39; }
+    .fields { display:grid; grid-template-columns:repeat(auto-fit,minmax(min(100%,18rem),1fr)); gap:1rem; }
+    .fields label { font-weight:700; display:block; margin-bottom:.5rem; }
+    .choices { margin-bottom:1rem; }
+    .results { display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,15rem),1fr));gap:.75rem; padding:0; list-style:none; }
+    .results li { border:1px solid #a3b4c7;border-radius:.5rem;padding:.85rem; }
+    #count {font-weight:700;}
+    button:focus-visible,a:focus-visible {outline:3px solid #145ca3;outline-offset:3px}
+    .notice {padding:.6rem 0; color:#586778; }
+  </style>
+</head>
+<body>
+  <main>
+    <h1>Laboratorio de filtros acumulativos</h1>
+    <p>Demostración de investigación: Choices.js original (MIT) + adaptador de datos del catálogo. Esta página no modifica la web pública.</p>
+    <div class="fields">
+      <div><label for="formato">Formatos (elige varios)</label><select id="formato" data-facet="formato" multiple></select></div>
+      <div><label for="genero">Géneros (elige varios)</label><select id="genero" data-facet="genero" multiple></select></div>
+      <div><label for="tematica">Temáticas (elige varias)</label><select id="tematica" data-facet="tematica" multiple></select></div>
+    </div>
+    <button type="button" id="reset">Quitar todos los filtros</button>
+    <p id="count" role="status" aria-live="polite">Cargando catálogo…</p>
+    <p class="notice">OR dentro de cada filtro; AND entre formatos, género y temática. Opciones disponibles recalculadas. Muestra las primeras 24 fichas; no es una propuesta visual definitiva.</p>
+    <ul id="results" class="results"></ul>
+  </main>
+  <script src="./upstream/choices-v11.2.4.min.js"></script>
+  <script type="module">
+    import {parseHash,writeHash,matchesMulti,availableOptions} from './multifacet-contract.mjs';
+    const base = '/recomendaciones/';
+    const sources = await Promise.all([
+      fetch(base + 'index.html').then(r => { if (!r.ok) throw new Error('No se pudo leer el HTML del catálogo'); return r.text(); }),
+      fetch('/data/reading-catalogue.json').then(r => { if (!r.ok) throw new Error('No se pudo leer la taxonomía'); return r.json(); })
+    ]);
+    const doc = new DOMParser().parseFromString(sources[0], 'text/html');
+    const data = sources[1];
+    const books = [...doc.querySelectorAll('[data-catalogue-book]')].map(el => ({
+      title: el.dataset.title,
+      search: el.dataset.search,
+      group: el.dataset.group,
+      formats: (el.dataset.formats || '').split(' ').filter(Boolean),
+      categories: (el.dataset.categories || '').split(' ').filter(Boolean),
+      url: el.querySelector('h3 a')?.getAttribute('href') || '#'
+    }));
+    const used = new Set(books.flatMap(book => book.categories));
+    const master = {
+      formato: [
+        { value:'tapa-blanda',label:'Tapa blanda'},
+        { value:'tapa-dura',label:'Tapa dura'},
+        { value:'ebook',label:'Libro electrónico'},
+        { value:'audiolibro',label:'Audiolibro'}
+      ],
+      genero: data.categorias.filter(c => c.activa && c.tipo === 'genero' && used.has(c.id)).map(c => ({value:c.id,label:c.nombre})),
+      tematica: data.categorias.filter(c => c.activa && c.tipo === 'tematica' && used.has(c.id)).map(c => ({value:c.id,label:c.nombre}))
+    };
+    const state = parseHash(location.hash);
+    let rendering = false;
+    const selectors = {};
+    const widgets = {};
+    for (const facet of Object.keys(master)) {
+      selectors[facet] = document.querySelector('[data-facet="' + facet + '"]');
+      const select = selectors[facet];
+      for (const {value,label} of master[facet]) {
+        const option = document.createElement('option');
+        option.value=value; option.textContent=label;
+        select.append(option);
+      }
+      widgets[facet] = new Choices(select, {
+        removeItemButton:true, shouldSort:false, allowHTML:false, searchEnabled:true,
+        itemSelectText:'', placeholderValue:'Seleccionar uno o varios…',
+        noResultsText:'Sin opciones', noChoicesText:'Sin opciones compatibles'
+      });
+      for (const value of state[facet]) widgets[facet].setChoiceByValue(value);
+      select.addEventListener('change', () => {
+        if (rendering) return;
+        state[facet] = [...select.selectedOptions].map(o=>o.value);
+        state.pagina=1;
+        render();
+      });
+    }
+    function render() {
+      rendering=true;
+      try {
+        const shown=books.filter(book=>matchesMulti(book,state));
+        document.querySelector('#count').textContent=shown.length+' de '+books.length+' libros';
+        const list=document.querySelector('#results');
+        list.replaceChildren();
+        for (const book of shown.slice(0,24)) {
+          const li=document.createElement('li');
+          const a=document.createElement('a'); a.href=book.url; a.textContent=book.title;
+          li.append(a); list.append(li);
+        }
+        for (const facet of Object.keys(master)) {
+          const options=availableOptions(books,state,facet,master[facet]);
+          // Choices.js API oficial: conservar las selecciones si replaceItems=false.
+          widgets[facet].setChoices(options.map(o=>({
+            value:o.value,label:o.label+' ('+o.count+')',selected:o.selected
+          })), 'value', 'label', true, false, false);
+        }
+        history.replaceState(null,'',location.pathname+location.search+writeHash(state));
+      } finally {rendering=false;}
+    }
+    document.querySelector('#reset').addEventListener('click',()=>{
+      for(const facet of Object.keys(widgets)) {
+        widgets[facet].removeActiveItems();
+        state[facet]=[];
+      }
+      state.pagina=1; render();
+    });
+    window.addEventListener('hashchange',()=>{
+      // This lab keeps URL parsing explicit. Full browser-history restoration
+      // is a production acceptance criterion, not claimed to be tested here.
+    });
+    render();
+  </script>
+</body>
+</html>
