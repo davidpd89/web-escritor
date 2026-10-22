@@ -87,6 +87,29 @@ La recopilación anterior es **estática, sobre el estado de `main` consultado**
 - **No** crear 54 URLs de producto a partir de ISBN por similitud, ni anunciar validación de enlaces cortos solo por ver una página de destino.
 - **No** activar campañas Ads, scraping automático de reseñas o precios, comprar reseñas ni incentivar clics/compras para conseguir comisiones. El [acuerdo 2026](https://afiliados.amazon.es/help/operating/policies) prohíbe el tráfico artificial e impone condiciones adicionales a agentes; la revisión automática debe ser offline o basarse en fuentes autorizadas.
 
+
+## 6. Economía real y observabilidad: dos decisiones que sí cambian la operativa (22-10-2026)
+
+### A. Comisiones ES y plazos: monetizar sin falsas promesas
+
+**Hecho primario contrastado** en el [anexo oficial UE, apartado Amazon ES](https://afiliados.amazon.es/help/operating/scheduleoct1): tanto **Libros** como **Libros electrónicos de Kindle** figuran con **7,0 % de comisión estándar**. Esta tabla describe ventas *aptas* y clasificación directa/indirecta; no garantiza que cada clic, pedido ni ejemplar genere comisión. Los rendimientos por derechos de autor/editorial son un flujo **distinto** de esta comisión, y el reparto no se infiere del código de la web.
+
+**Hecho primario contrastado** en la [ayuda oficial de atribución](https://afiliados.amazon.es/help/node/topic/G9SMD8TQHFJ7728F): una compra normalmente debe añadirse a cesta durante la **ventana de 24 horas** después del clic, antes de otro enlace ajeno o el primer pedido; el artículo añadido puede adquirirse antes de que expire la cesta (normalmente **90 días**). La [actualización 14-04-2026](https://afiliados.amazon.es/help/operating/compare) añade el requisito de que, para ser compra apta, el producto sea enviado/transmitido/descargado y pagado dentro de **180 días**; **no significa una cookie de 180 días**. Comparar informes diarios sin contemplar estos desfases produce falsas alarmas: la [ayuda de informes](https://afiliados.amazon.es/help/node/topic/GUJ6UKNMENGRWVS6) advierte que pueden aparecer pedidos sin clics en el mismo periodo.
+
+**Compra propia:** la [FAQ española](https://afiliados.amazon.es/help/node/topic/GPSPSUGXUX7V87QZ) excluye pedidos iniciados con enlaces del propio afiliado y compras por encargo, familiares y socios. **No confundirlo** con la venta a lectores independientes que llega a través de la ficha: ese supuesto se evalúa con las reglas habituales del programa. No realizar autocompras para «validar» comisión.
+
+**Decisión aplicable:** en #427 registrar informes de 30 y 90 días, diferenciando `clics`, `pedidos`, `enviados`, `comisiones`, `ID de seguimiento` y fecha. Para evaluar un cambio en CTA, mirar al menos clic saliente/visita de ficha en web y, después, envíos/comisión agregados en Amazon; no calcular conversión con una ventana de un día ni imputar una venta a un usuario.
+
+### B. Instrumentación web: hoy no sabemos de dónde viene «comprar-amazon»
+
+**Prueba en `main`:** `script.js` (bloque de clic delegado tras `_dpAnalyticsBridge`) hace `if (href.includes("amazon.es") || href.includes("amzn.to")) _gcEvent("comprar-amazon", "Clic: Comprar Amazon");`. El registro `data/analytics-events.json` describe el evento como genérico. Actualmente se mezclan en **una sola serie** cabecera, página Home, fichas de Samuel/Manecillas, fichas de catálogo, portada de Coraline y búsquedas ISBN. Además, el matcher por subcadena consideraría compra una futura URL de `amazon.es/stores/author` de seguimiento de autor, aunque **no es una compra**. El modal de Samuel utiliza evento propio `comprar-amazon-papel` y está excluido del detector general: respetarlo.
+
+**Solución pequeña real:** separar SOLO estas 5 superficies de salida sin duplicar eventos (un clic = un evento): `comprar-amazon-header`, `comprar-amazon-home`, `comprar-amazon-samuel`, `comprar-amazon-manecillas`, `comprar-amazon-recomendaciones`. Conservar `comprar-amazon` para el resto histórico; `comprar-amazon-papel` sigue siendo propiedad del modal. Detectar destinos por `new URL(link.href)` con allowlist **exacta** `amazon.es`, `www.amazon.es`, `amzn.to` y URL de producto o búsqueda (el enlace al perfil del autor no es CTA de compra). Clasificar `.header-buy` antes que la ruta, luego contenedor `[data-reading-catalogue]`, luego pathname propio, Home y `otros`. Registrar 5 nombres en `data/analytics-events.json` y añadir pruebas sin depender de datos de clientes ni abrir Amazon.
+
+**¿Qué se gana?** Se podrá saber si las conversiones de *clic saliente* provienen del menú, libro propio o catálogo; nunca se afirmará que esos clics equivalen a ventas. Para *ventas* por fuente se requieren, cuando haya suficiente volumen, Tracking IDs aprobados en la cuenta e informes de Amazon ([ayuda oficial](https://afiliados.amazon.es/help/node/topic/GK5TZZ4AWML2QSLA)); no crear etiquetas por visitante, ni confundir evento GoatCounter con comisión real.
+
+**Criterios:** en un navegador local, un clic desde cada superficie genera el evento específico una sola vez; un clic a `amazon.es/stores/author/...` **no** genera `comprar-amazon`; `amazon.es.evil.example` tampoco; el modal Samuel no duplica; el banner común apunta a la misma ruta de compra que antes. Ejecutar `scripts/check-analytics-taxonomy.py --check` y smoke de navegación solo cuando se autoricen pruebas. Hay una PR hija separada de implementación para no ensuciar este documento y no modificar la web antes de QA.
+
 ## Fuentes primarias consultadas (22-10-2026)
 
 - [Amazon ES · políticas, actualización 14-04-2026](https://afiliados.amazon.es/help/operating/policies) · [Cambios oficiales (escaparate y registro)](https://afiliados.amazon.es/help/operating/compare) · [Comisiones directas/indirectas UE](https://afiliados.amazon.es/help/operating/scheduleoct1)
