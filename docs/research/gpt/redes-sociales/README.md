@@ -8,11 +8,11 @@ ESTADO: documentación/investigación; NO desplegado, NO Actions, NO merge. Esta
 - Autor.html contiene Person.sameAs y URLs de perfiles; scripts/build-site-shell.py contiene SOCIAL_ROW con iconos existentes. Mantener una sola fuente autorizada de perfiles.
 - data/site-human-stats.generated.json demuestra el patrón de estadísticas generadas, pero sus valores son de libros, herramientas y artículos y NO se reutilizan como comunidad social.
 - data/third-party-integrations.json y data/analytics-events.json son contratos de integraciones/analítica; respetar CSP, privacidad, navegación, sitemap y QA.
-- **Prueba de viabilidad**: la marca ya conectada en Metricool reconoce Bluesky, Threads, Instagram, Facebook, TikTok, Pinterest, YouTube y más. La consulta de métricas de 01–21/10/2026 devolvió series numéricas y también valores null según red/fecha. No se publican los valores de la cuenta en este documento. La conexión ChatGPT-Metricool no implica disponer de un backend API o permiso para un cron. Comprobado el 22/10/2026: MCP funciona también en Free, mientras la API HTTP independiente exige Advanced/Custom. La PR #705 ya demuestra la lectura real de **solo `THEV01` de Threads en un día cerrado**: una fila `[followers, YYYYMMDD]`, y aporta importador offline con **17/17 pruebas ejecutadas sobre código idéntico al de GitHub**. La PR #704 contiene ya un **compositor ejecutable para Bluesky, Mastodon y Threads**, con 27/27 pruebas offline y hashes Git verificados; rechaza cuentas duplicadas, proveedores atribuidos a la red equivocada, contadores caducados, URLs discordantes y métricas ambiguas. Publicación/UX aún pendientes. Eliminó la consulta innecesaria a `THEV06`. Make → MCP por OAuth sigue siendo **un piloto NO ejecutado**, no un refresco en producción. No considerar el piloto una solución implantada.
+- **Prueba de viabilidad**: la marca ya conectada en Metricool reconoce Bluesky, Threads, Instagram, Facebook, TikTok, Pinterest, YouTube y más. La consulta de métricas de 01–21/10/2026 devolvió series numéricas y también valores null según red/fecha. No se publican los valores de la cuenta en este documento. La conexión ChatGPT-Metricool no implica disponer de un backend API o permiso para un cron. Comprobado el 22/10/2026: MCP funciona también en Free, mientras la API HTTP independiente exige Advanced/Custom. La PR #705 ya demuestra la lectura real de **solo `THEV01` de Threads en un día cerrado**: una fila `[followers, YYYYMMDD]`, y aporta importador offline con **17/17 pruebas ejecutadas sobre código idéntico al de GitHub**. La PR #704 contiene un **compositor ejecutable de seis perfiles**, con 10 nuevas regresiones de identidad verificadas localmente, así como pruebas anteriores de fecha y sumatorios; rechaza cuentas duplicadas, proveedores atribuidos a la red equivocada, contadores caducados, URLs discordantes y métricas ambiguas. Publicación/UX aún pendientes. Eliminó la consulta innecesaria a `THEV06`. Make → MCP por OAuth sigue siendo **un piloto NO ejecutado**, no un refresco en producción. No considerar el piloto una solución implantada.
 
-**Ampliación contrastada 22/10/2026 (PR #705):** la marca conectada en Metricool devolvió **una fila de nueve columnas** al consultar juntos ocho campos `LAST` de seguidores para el 21/10 cerrado: `BKEV01`, `THEV01`, `IGEV01`, `FBEV17`, `TKEV07`, `PIEV09`, `YTEV01`, `TTEV01`. Hay un importador adicional `scripts/research/gpt_metricool_followers.py` con **18 pruebas offline ejecutadas**; reutiliza el normalizador diario de Threads y genera registros **candidatos**, sin publicar cifras ni URLs. La PR #704 mantiene la comprobación de identidad y fuentes para tres redes; **no ampliar sus fuentes automáticamente** ni confundir esta lectura con un cron MCP funcionando.
+**Ampliación contrastada 22/10/2026 (PR #705):** la marca conectada en Metricool devolvió **una fila de nueve columnas** al consultar juntos ocho campos `LAST` de seguidores para el 21/10 cerrado: `BKEV01`, `THEV01`, `IGEV01`, `FBEV17`, `TKEV07`, `PIEV09`, `YTEV01`, `TTEV01`. Hay un importador adicional `scripts/research/gpt_metricool_followers.py` con **18 pruebas offline ejecutadas**; reutiliza el normalizador diario de Threads y genera registros **candidatos**, sin publicar cifras ni URLs. La PR #704 comprueba identidad y fuente para **seis redes** tras cotejar con la marca conectada; no amplía Facebook, X o YouTube sin esa comprobación ni confundir esta lectura con un cron MCP funcionando.
 
-**Integración incremental de lotes (22/10/2026):** la PR #704 ya admite **directamente** el envoltorio `metricool-follower-candidates` producido por #705. Valida la estructura, la fecha, las duplicaciones y el proveedor, pero **solo incorpora Threads** al JSON público; descarta los otros siete candidatos hasta verificar los perfiles, y mantiene Bluesky sujeto a su fuente AppView. Si no queda un contador vigente, no sobrescribe el último archivo de salida. Código y diez pruebas de regresión incorporados a #704; además se ejecutaron **35 pruebas locales** sobre el puente con hashes exactos de los tres scripts principales contrastados con GitHub. **Pendiente repetir la suite completa de todos los tests nuevos tras montar las ramas en un checkout temporal**. No existe todavía cron, web desplegada ni autenticación automática de la exportación MCP.
+**Integración incremental de lotes (22/10/2026):** la PR #704 ya admite **directamente** el envoltorio `metricool-follower-candidates` producido por #705. Valida la estructura, la fecha, las duplicaciones y el proveedor, e incorpora **Threads, Instagram, TikTok y Pinterest** al JSON público; descarta Bluesky del lote para mantener su fuente AppView y omite Facebook/X/YouTube hasta cotejar su identidad. Si no queda un contador vigente, no sobrescribe el último archivo de salida. Código y diez pruebas de regresión incorporados a #704; además se ejecutaron **35 pruebas locales** sobre el puente con hashes exactos de los tres scripts principales contrastados con GitHub. **Pendiente repetir la suite completa de todos los tests nuevos tras montar las ramas en un checkout temporal**. No existe todavía cron, web desplegada ni autenticación automática de la exportación MCP.
 
 ## Propuesta UX
 
@@ -26,22 +26,79 @@ Página semántica indexable en móvil/teclado, visible sin JavaScript, tamaño 
 2. Recogida fuera del navegador: público sin token para Bluesky/Mastodon; Metricool/insights/OAuth solo cuando esté permitida una integración independiente desatendida; nunca publicar tokens.
 3. Los **adaptadores internos** pueden recibir {id, observed_at, source, followers, posts, impressions_30d, views_30d, interactions_30d, status}; el **compositor público v1 probado** expone solo identificador, enlace canónico, seguidores, fecha, fuente, estado, totales y cobertura. Las métricas no justificadas quedan fuera del documento público.
 4. Exportar JSON público generado a data/social-metrics.generated.json, consumido con mejoras progresivas por UI; refresco recomendado 12–24 h, no «tiempo real» falso. Mantener último dato válido con sello stale cuando falle la fuente; no sobrescribir null por cero.
-   - **Corrección implementada en la PR #704:** el contador en el último fichero bueno puede quedar desactualizado si deja de ejecutarse el generador. Por eso cada red tiene ahora `valid_until` UTC y el total `totals.valid_until` es la primera expiración entre los contadores participantes. El nuevo módulo `scripts/research/gpt_social_reader.mjs` **recalcula en el navegador** usando únicamente cifras aún vigentes, sin confiar en el total o estado guardados. Hay 7 pruebas Python, 13 Node y 3 pruebas cruzadas Python→JS ejecutadas, **con hashes Git idénticos** a los archivos de la PR. No está conectado aún a la web ni se ha validado con Actions.
+   - **Corrección implementada en la PR #704:** el contador en el último fichero bueno puede quedar desactualizado si deja de ejecutarse el generador. Por eso cada red tiene ahora `valid_until` UTC y el total `totals.valid_until` es la primera expiración entre los contadores participantes. El nuevo módulo `scripts/research/gpt_social_reader.mjs` **recalcula en el navegador** usando únicamente cifras aún vigentes, sin confiar en el total o estado guardados. Hay 7 pruebas Python, 16 Node y 3 pruebas cruzadas Python→JS ejecutadas, **con hashes Git idénticos** a los archivos de la PR. No está conectado aún a la web ni se ha validado con Actions.
 5. Agregados: únicamente mismas definiciones + misma ventana, con cobertura visible (por ejemplo «6 de 9 perfiles con datos»); no inferir usuarios únicos, ni sumar impresiones y alcance. Si hay dos fechas comparables mostrar evolución, en otro caso no.
    - **Corrección concreta (22/10, PR #705):** el conector Metricool denomina `THEV06` «Post Views», pero [su documentación oficial](https://help.metricool.com/es/diferencia-entre-posts-publicados-y-posts-vistos-en-el-periodo-2pwtf) separa vistas acumuladas de posts publicados y vistas generadas durante el período. `THEV06` **no se debe mapear a `views_30d`** hasta demostrar el alcance real de esa serie. El adaptador Threads lo suprime deliberadamente. **La PR #708 ha corregido la sugerencia anterior que equiparaba `THEV06` con `views_30d`** y ahora remite al código probado de #705/#704. `THEV11` son vistas del perfil, no de los posts.
 
-Contrato **v1 efectivamente implementado en PR #704** (salida vacía de ejemplo, sin números de cuenta). El esquema inicial de investigación que contenía `period` y `views_30d` **NO coincidía** con el compositor; se elimina para evitar que Claude implemente un JSON incompatible. `generated_at` es siempre timestamp UTC de ejecución; aquí se utiliza una fecha ilustrativa. Solo se admiten tres redes hasta comprobar identidades y fuentes de otras plataformas.
+Contrato **v1 efectivamente implementado en PR #704** (salida vacía de ejemplo, sin números de cuenta). El esquema inicial de investigación que contenía `period` y `views_30d` **NO coincidía** con el compositor; se elimina para evitar que Claude implemente un JSON incompatible. `generated_at` es siempre timestamp UTC de ejecución; aquí se utiliza una fecha ilustrativa. Se admiten **seis redes**: Bluesky y Mastodon desde APIs públicas; Threads, Instagram, TikTok y Pinterest desde la marca Metricool cuyos identificadores se cotejaron con las URLs del sitio. Facebook, X y YouTube aún no se incluyen en los totales.
 
 ~~~json
 {
   "schema_version": 1,
   "generated_at": "2026-10-22T12:00:00Z",
   "networks": [
-    {"id": "bluesky", "profile_url": "https://bsky.app/profile/davidportoescritor.bsky.social", "followers": null, "observed_at": null, "source": null, "status": "pending"},
-    {"id": "mastodon", "profile_url": "https://mastodon.social/@davidportodiaz", "followers": null, "observed_at": null, "source": null, "status": "pending"},
-    {"id": "threads", "profile_url": "https://www.threads.com/@davidportodiaz", "followers": null, "observed_at": null, "source": null, "status": "pending"}
+    {
+      "id": "bluesky",
+      "profile_url": "https://bsky.app/profile/davidportoescritor.bsky.social",
+      "followers": null,
+      "observed_at": null,
+      "valid_until": null,
+      "source": null,
+      "status": "pending"
+    },
+    {
+      "id": "mastodon",
+      "profile_url": "https://mastodon.social/@davidportodiaz",
+      "followers": null,
+      "observed_at": null,
+      "valid_until": null,
+      "source": null,
+      "status": "pending"
+    },
+    {
+      "id": "threads",
+      "profile_url": "https://www.threads.com/@davidportodiaz",
+      "followers": null,
+      "observed_at": null,
+      "valid_until": null,
+      "source": null,
+      "status": "pending"
+    },
+    {
+      "id": "instagram",
+      "profile_url": "https://www.instagram.com/davidportodiaz/",
+      "followers": null,
+      "observed_at": null,
+      "valid_until": null,
+      "source": null,
+      "status": "pending"
+    },
+    {
+      "id": "tiktok",
+      "profile_url": "https://www.tiktok.com/@davidportoescritor",
+      "followers": null,
+      "observed_at": null,
+      "valid_until": null,
+      "source": null,
+      "status": "pending"
+    },
+    {
+      "id": "pinterest",
+      "profile_url": "https://www.pinterest.com/davidportodiaz/",
+      "followers": null,
+      "observed_at": null,
+      "valid_until": null,
+      "source": null,
+      "status": "pending"
+    }
   ],
-  "totals": {"follower_relationships": null, "coverage": 0, "eligible": 3, "label": "Seguidores sumados en redes con datos vigentes (no personas únicas)"}
+  "totals": {
+    "follower_relationships": null,
+    "valid_until": null,
+    "coverage": 0,
+    "eligible": 6,
+    "label": "Seguidores sumados en redes con datos vigentes (no personas únicas)"
+  }
 }
 ~~~
 
@@ -79,7 +136,7 @@ Documento rector y PR hijas: base técnica, fuente central Metricool, Bluesky, M
 
 | PR | Alcance | Documento |
 |---|---|---|
-| [#704](https://github.com/davidpd89/web-escritor/pull/704) | Compositor y lector JS con expiración UTC; 7 Python + 16 Node nuevos | [ux.md](./ux.md) |
+| [#704](https://github.com/davidpd89/web-escritor/pull/704) | Compositor y lector JS para 6 perfiles, expiración UTC y pruebas locales | [ux.md](./ux.md) |
 | [#705](https://github.com/davidpd89/web-escritor/pull/705) | Fuente agregada Metricool | [metricool.md](./metricool.md) |
 | [#706](https://github.com/davidpd89/web-escritor/pull/706) | Bluesky | [bluesky.md](./bluesky.md) |
 | [#707](https://github.com/davidpd89/web-escritor/pull/707) | Mastodon (búsqueda pública, adaptador y 18 pruebas offline) | [mastodon.md](./mastodon.md) |
