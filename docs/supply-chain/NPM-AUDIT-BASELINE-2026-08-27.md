@@ -152,3 +152,20 @@ sigue en 0 (el sitio publicado no lleva JavaScript de npm).
 ejecuta al formatear los textos de ayuda del propio CLI: las cadenas de formato son de la
 librería, no de ninguna página auditada ni de ninguna entrada de CI. Aceptada con
 `reviewBy` 29/12/2026, la misma fecha que el resto.
+
+
+## Reconciliación de CI — 22/10/2026
+
+`ip-address` se actualiza de 10.5.0 a 10.7.4 para corregir
+GHSA-rxp7-6hxx-x8q5 y los cuatro avisos anteriores de ese paquete.
+Los cuatro registros resueltos se retiran de la lista activa.
+
+`npm audit` ha dejado de informar GHSA-hp3w-g68c-fv3c (`sprintf-js`),
+confirmado tanto en local como en GitHub Actions. GitHub mantiene publicado
+el aviso y no declara versión corregida: se conserva íntegro bajo
+`notReportedAdvisories`, fuera de la lista que debe coincidir exactamente
+con npm. Esta ausencia no se considera una corrección de la vulnerabilidad.
+Si npm vuelve a informarla, el control exigirá reconciliar de nuevo el registro.
+
+Fuentes: https://github.com/advisories/GHSA-rxp7-6hxx-x8q5 y
+https://github.com/advisories/GHSA-hp3w-g68c-fv3c.
