@@ -18,6 +18,7 @@ from __future__ import annotations
 
 import argparse
 import ipaddress
+import hashlib
 import json
 import re
 import sys
@@ -331,6 +332,7 @@ def run_live_pilot(cases: dict, vetted_hosts: dict, *,
         http = CachedHTTP(cache_dir, sorted(hosts), budget=budget, delay=1.5)
     results = []
     for slug, url in urls.items():
+        cache_hits_before = getattr(http, "hits", None)
         try:
             body = http.get(url, ttl=86400, limit=2_000_000)
             if not isinstance(body, bytes):
@@ -340,11 +342,33 @@ def run_live_pilot(cases: dict, vetted_hosts: dict, *,
                                      checked_at=as_of.isoformat(),
                                      source_allowlist=urls)
             result["retrieval"] = "ok"
+            result["content_sha256"] = hashlib.sha256(body).hexdigest()
+            result["content_bytes"] = len(body)
+            hits_after = getattr(http, "hits", None)
+            result["served_from_cache"] = (
+                hits_after > cache_hits_before
+                if isinstance(hits_after, int) and isinstance(cache_hits_before, int)
+                else None
+            )
+            # CachedHTTP stamps the original retrieval time. A cached copy
+            # analysed today is not proof it was fetched again today.
+            stamp = cache_dir / (hashlib.sha256(url.encode()).hexdigest() + ".json")
+            result["source_retrieved_at_unix"] = None
+            if stamp.is_file():
+                try:
+                    value = json.loads(stamp.read_text(encoding="utf-8")).get("retrieved_at")
+                    if isinstance(value, (int, float)) and value >= 0:
+                        result["source_retrieved_at_unix"] = value
+                except (OSError, ValueError, TypeError):
+                    pass
         except (OSError, ValueError, UnicodeError) as exc:
             result = {"publisher_slug": slug, "source_url": url,
                       "checked_at": as_of.isoformat(), "suggestion": "unknown",
                       "matching_fragment": "", "retrieval": "blocked_or_failed",
                       "error_type": type(exc).__name__,
+                      "content_sha256": None, "content_bytes": None,
+                      "served_from_cache": None,
+                      "source_retrieved_at_unix": None,
                       "manual_review_required": True, "publish": False}
         result["previous_manual_expectation"] = expected[slug]
         result["agrees_with_previous_review"] = (
