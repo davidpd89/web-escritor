@@ -332,7 +332,21 @@ def run_live_pilot(cases: dict, vetted_hosts: dict, *,
         http = CachedHTTP(cache_dir, sorted(hosts), budget=budget, delay=1.5)
     results = []
     for slug, url in urls.items():
-        cache_hits_before = getattr(http, "hits", None)
+        # CachedHTTP.hits also counts cached robots.txt responses.
+        # An increase in hits cannot prove that THIS page was cached.
+        key = hashlib.sha256(url.encode()).hexdigest()
+        stamp = cache_dir / (key + ".json")
+        cached_body = cache_dir / (key + ".body")
+        page_was_cached = None
+        if isinstance(getattr(http, "cache", None), Path) and callable(getattr(http, "now", None)):
+            page_was_cached = False
+            try:
+                if cached_body.is_file() and stamp.is_file():
+                    previous = json.loads(stamp.read_text(encoding="utf-8"))
+                    age = http.now() - previous["retrieved_at"]
+                    page_was_cached = 0 <= age < 86400 and cached_body.stat().st_size <= 2_000_000
+            except (OSError, ValueError, KeyError, TypeError):
+                page_was_cached = False
         try:
             body = http.get(url, ttl=86400, limit=2_000_000)
             if not isinstance(body, bytes):
@@ -344,15 +358,9 @@ def run_live_pilot(cases: dict, vetted_hosts: dict, *,
             result["retrieval"] = "ok"
             result["content_sha256"] = hashlib.sha256(body).hexdigest()
             result["content_bytes"] = len(body)
-            hits_after = getattr(http, "hits", None)
-            result["served_from_cache"] = (
-                hits_after > cache_hits_before
-                if isinstance(hits_after, int) and isinstance(cache_hits_before, int)
-                else None
-            )
+            result["served_from_cache"] = page_was_cached
             # CachedHTTP stamps the original retrieval time. A cached copy
             # analysed today is not proof it was fetched again today.
-            stamp = cache_dir / (hashlib.sha256(url.encode()).hexdigest() + ".json")
             result["source_retrieved_at_unix"] = None
             if stamp.is_file():
                 try:
