@@ -283,6 +283,40 @@ class RealSourceSnippetPilotTests(unittest.TestCase):
                 got = self.check_pilot(slug, "<p>" + text + "</p>")
                 self.assertIsNone(got["submission_email_candidate"])
 
+    def test_full_closure_wordings_are_unknown_not_open(self):
+        prefix = ("Si desea enviarnos un manuscrito, puede hacerlo vía correo "
+                  "electrónico a la siguiente dirección: "
+                  "manuscritos@nocturnaediciones.com. ")
+        for clause in [
+            "No recibimos originales actualmente.",
+            "Ya no estamos aceptando manuscritos.",
+            "No estamos recibiendo manuscritos.",
+            "Actualmente no aceptamos manuscritos.",
+        ]:
+            with self.subTest(clause=clause):
+                outcome = self.check_pilot("nocturna-ediciones",
+                                           "<p>" + prefix + clause + "</p>")
+                self.assertEqual(outcome["suggestion"], "unknown")
+                self.assertIsNone(outcome["submission_email_candidate"])
+                self.assertFalse(outcome["publish"])
+
+    def test_format_or_genre_restrictions_do_not_masquerade_as_closure(self):
+        prefix = ("Si desea enviarnos un manuscrito, puede hacerlo vía correo "
+                  "electrónico a la siguiente dirección: "
+                  "manuscritos@nocturnaediciones.com. ")
+        for clause in [
+            "No recibimos originales en papel.",
+            "No aceptamos manuscritos de ficción.",
+            "No recibimos manuscritos físicos.",
+        ]:
+            with self.subTest(clause=clause):
+                outcome = self.check_pilot("nocturna-ediciones",
+                                           "<p>" + prefix + clause + "</p>")
+                self.assertEqual(outcome["suggestion"], "open")
+                self.assertEqual(outcome["submission_email_candidate"],
+                                 "manuscritos@nocturnaediciones.com")
+                self.assertFalse(outcome["publish"])
+
     def test_absence_of_explicit_evidence_is_unknown_for_all_five(self):
         for slug in self.URLS:
             with self.subTest(slug=slug):
