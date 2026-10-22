@@ -21,7 +21,9 @@ from urllib.parse import urlsplit
 
 QID = re.compile(r"Q[1-9][0-9]*\Z")
 IGNORED_HOSTS = {"localhost"}
-PROPERTIES = {"website": "P856", "parent": "P749", "country": "P17", "class": "P31"}
+# Ownership (P127) is not the same relation as organizational parent (P749).
+PROPERTIES = {"website": "P856", "parent": "P749", "owner": "P127",
+              "country": "P17", "class": "P31"}
 
 
 def clean_key(raw: object) -> str:
@@ -142,6 +144,8 @@ def candidates(snapshot: dict, directory: dict) -> dict:
             "has_invalid_or_unusable_website_claims": len(raw_websites) != len(websites),
             "possible_existing_slugs": sorted(refs),
             "parent_qids": _qids(item, PROPERTIES["parent"]),
+            "owner_qids": _qids(item, PROPERTIES["owner"]),
+            "owner_or_parent_is_only_candidate": True,
             "country_qids": _qids(item, PROPERTIES["country"]),
             "class_qids": _qids(item, PROPERTIES["class"]),
             "manual_review_required": True,
