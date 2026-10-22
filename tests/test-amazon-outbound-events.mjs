@@ -1,0 +1,56 @@
+// Contratos de salida Amazon: no requieren navegador, login ni red.
+// A ejecutar al autorizar QA: node --test tests/test-amazon-outbound-events.mjs
+import assert from 'node:assert/strict';
+import { readFileSync } from 'node:fs';
+import { fileURLToPath } from 'node:url';
+import { dirname, resolve } from 'node:path';
+import vm from 'node:vm';
+import test from 'node:test';
+
+const base = resolve(dirname(fileURLToPath(import.meta.url)), '..');
+const script = readFileSync(resolve(base, 'script.js'), 'utf8');
+const start = script.indexOf('function _amazonOutboundCategory(');
+const end = script.indexOf('\n}\n\n// Delegación', start);
+assert.ok(start > -1 && end > start, 'Falta función pura de clasificación');
+const fn = vm.runInNewContext('(' + script.slice(start, end + 2) + ')', { URL });
+const registry = JSON.parse(readFileSync(resolve(base, 'data/analytics-events.json'), 'utf8'));
+const names = new Set(registry.events.map(x => x.name));
+const product = 'https://www.amazon.es/dp/B0GB6LGQFH?tag=davidporto-21';
+const short = 'https://amzn.to/4zW6Yeu';
+const search = 'https://www.amazon.es/s?k=9788498382372&tag=davidporto-21';
+const classify = (href, page = '/', header = false, catalogue = false) =>
+  fn(href, page, header, catalogue);
+
+test('cobertura y precedencia de superficies', () => {
+  assert.equal(classify(short, '/libros/samuel-entre-mundos/', true), 'comprar-amazon-header');
+  assert.equal(classify(product), 'comprar-amazon-home');
+  assert.equal(classify(product, '/libros/samuel-entre-mundos/'), 'comprar-amazon-samuel');
+  assert.equal(classify(short, '/las-manecillas-del-recuerdo/'), 'comprar-amazon-manecillas');
+  assert.equal(classify(search, '/recomendaciones/', false, true), 'comprar-amazon-recomendaciones');
+  assert.equal(classify(product, '/recomendaciones/libros/coraline/', false, true), 'comprar-amazon-recomendaciones');
+  assert.equal(classify(product, '/autor.html'), 'comprar-amazon');
+});
+
+test('no confundir Author Follow, otros dominios o subcadenas engañosas con compra', () => {
+  assert.equal(classify('https://www.amazon.es/stores/author/B0GZFP1JV3'), null);
+  assert.equal(classify('https://amazon.es.evil.test/dp/B0GB6LGQFH'), null);
+  assert.equal(classify('https://notamazon.es/dp/B0GB6LGQFH'), null);
+  assert.equal(classify('http://www.amazon.es/dp/B0GB6LGQFH'), null);
+  assert.equal(classify('https://amzn.to/4zW6Yeu/mal'), null);
+  assert.equal(classify('https://www.amazon.es/gp/'), null);
+  assert.equal(classify('https://www.casadellibro.com/'), null);
+});
+
+test('todos los eventos están en autoridad y modal de Samuel queda separado', () => {
+  for (const name of [
+    'comprar-amazon', 'comprar-amazon-header', 'comprar-amazon-home',
+    'comprar-amazon-samuel', 'comprar-amazon-manecillas',
+    'comprar-amazon-recomendaciones', 'comprar-amazon-papel',
+  ]) {
+    assert.ok(names.has(name), 'Evento no registrado: ' + name);
+  }
+  assert.match(script, /if \(!link \|\| link\.closest\("#buy-dialog"\)\) return;/);
+  const body = script.slice(script.indexOf('// Delegación imprescindible:'), script.indexOf('// Leer fragmento gratis --'));
+  assert.match(body, /if \(category\) _gcEvent\(category,/);
+  assert.equal((body.match(/_gcEvent\(/g) || []).length, 1, 'No emitir eventos duplicados');
+});
