@@ -84,7 +84,7 @@ def main() -> None:
     assert "/*\n" in rendered, "assetsignore must start from a root deny"
     assert "!/assets/" in rendered
     assert "!/apoyar/" in rendered, "El namespace existe pero está protegido"
-    assert "\\n/apoyar/\\n" in rendered, (
+    assert "\n/apoyar/\n" in rendered, (
         "Cloudflare no debe publicar apoyos antes de que el registry los autorice"
     )
 
@@ -101,7 +101,7 @@ def main() -> None:
 
         write_registry()
         assert not builder.is_publishable("apoyar/index.html", fixture)
-        assert "\\n/apoyar/\\n" in builder.render_assetsignore(fixture)
+        assert "\n/apoyar/\n" in builder.render_assetsignore(fixture)
 
         support = {"id": "support-project", "url": "/apoyar/",
                    "sourceFile": "apoyar/index.html", "status": "gated"}
@@ -115,7 +115,7 @@ def main() -> None:
         support["sourceFile"] = "apoyar/index.html"
         write_registry()
         assert builder.is_publishable("apoyar/index.html", fixture)
-        assert "\\n/apoyar/\\n" not in builder.render_assetsignore(fixture)
+        assert "\n/apoyar/\n" not in builder.render_assetsignore(fixture)
         registry["entries"].append(dict(support))
         write_registry()
         assert not builder.is_publishable("apoyar/index.html", fixture)
