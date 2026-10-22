@@ -139,3 +139,26 @@ Este texto **no representa autorización concedida ni una comunicación enviada*
 **Código:** `scripts/research/gpt_editoriales_approval_contract.py` y `tests/test_gpt_editoriales_approval_contract.py` (20 pruebas adicionales **sin ejecutar**). El código consume el directorio, informes E4/E5 e intención declarada; bloquea modificaciones basándose en huellas SHA-256 canónicas del contenido, fecha, antiguo valor, fuente y propósito explícito por sello. **Nunca escribe** cambios ni acepta `approve` dentro de JSON como autorización auténtica. Solo revisa de momento `status=open/closed`; otros datos necesitan aprobación conjunta, esquema y controles externos. El SHA del commit que aporta el manifiesto **tampoco está autenticado offline**: integración futura debe verificar GitHub `main` exacto.
 
 **Estado:** **77 tests sintéticos escritos en cinco módulos, ninguno ejecutado**. El siguiente «siguiente investigación de GPT» debe continuar **E6.3**, con un piloto offline de cinco registros y revisión de incompatibilidades, sin segundo workflow ni auto-merge. No alterar `main` ni reglas hasta decidir explícitamente cómo garantizar la revisión humana.
+
+
+## E6.3 — piloto acotado con cinco páginas oficiales (22/10/2026)
+
+Datos y fuentes originales: [editoriales-piloto-5-fuentes-2026-10-22.json](editoriales-piloto-5-fuentes-2026-10-22.json). Comparación con main en commit 72ab6be7b8fee47dc82f29a7daf1373178e61ad1.
+
+| Editorial | Fuente oficial y observación | Estado actual | Acción |
+|---|---|---|---|
+| [Alienta](https://www.planetadelibros.com/editorial/alienta-editorial/15) | Declara que acepta originales: ensayo/no ficción, archivo digital, máximo uno por autor | Ausente de las 150 | **Candidata nueva**, preparar ficha completa y revisión; no publicar |
+| [Anagrama](https://www.anagrama-ed.es/manuscritos) | Declara pausa temporal | closed | Sin cambio |
+| [Nocturna](https://www.nocturnaediciones.com/contacto) | Declaración expresa de envío y canal de prensa distinto | open | Sin cambio |
+| [Minotauro](https://www.planetadelibros.com/editorial/minotauro/21) | Requisitos expresos y contacto específico | open | Sin cambio |
+| [Alfaguara/PRH](https://www.penguinrandomhousegrupoeditorial.com/sellos-y-negocios/quiero-enviar-un-manuscrito/) | Canal del grupo por sello; no certifica recepción individual | unknown | Mantener unknown |
+
+**Código incremental realizado:** ampliar el módulo existente scripts/research/gpt_editoriales_contact_evidence.py con la función draft_from_html, que recibe HTML como entrada, una URL exacta previamente aprobada, la editorial y la fecha. Produce exclusivamente un candidato y fragmento muy breve, siempre para revisión. Se han añadido pruebas sintéticas al test E4 existente, en vez de abrir un sexto módulo.
+
+**Prueba efectuada:** 13 comprobaciones locales sobre fragmentos sintéticos (positivos, ausencia de evidencia, script no visible, URL fuera de la allowlist y veto de publicación) sin fallos. **No son pruebas con HTML real de las editoriales**, ni la batería de pruebas del repositorio, ni CI: la conexión completa todavía no está validada.
+
+**Soluciones públicas evaluadas:** extruct (BSD-3-Clause) extrae JSON-LD/Microdata pero no las políticas de recepción redactadas como texto; selectolax (MIT) puede ayudar con bloques HTML si el piloto demuestra que el parser estándar pierde contexto. Ninguna dependencia añadida por anticipado. La siguiente pasada debe **alimentar el extractor con el cliente CachedHTTP que ya existe en scripts/reading_editorial_sources.py**, aprovechando sus límites, robots y caché, y comparar las cinco salidas con fuente oficial. Contabilizar solicitudes físicas, incluidas las de robots.txt, fallos, falsos positivos y minutos humanos de revisión. No crear un segundo cron.
+
+**Criterio de utilidad:** un candidato de alta nuevo (Alienta) y cuatro comprobaciones de control, sin importar automáticamente emails ni cambiar estados. Si el HTML real no da fragmentos o hay falsos positivos, corregir solo el extractor antes de ampliar. Cuando se valide, elaborar la propuesta de ficha Alienta con los campos exigidos por build-editoriales.py; no modificar main desde esta PR.
+
+**Estado:** sin HTML real descargado, sin pruebas integradas/Actions y sin publicación. Se mantienen los módulos de E1-E6 como material de investigación, no como arquitectura aprobada.
