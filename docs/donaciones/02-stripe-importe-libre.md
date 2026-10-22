@@ -1,60 +1,87 @@
-# Stripe Payment Links — aportación con importe elegido por visitante
+# Stripe — aportación voluntaria por contenido ya ofrecido (implementación V1)
 
-**Revisado 22/10/2026.** Propuesta sin SDK, claves API, cuenta bancaria publicada ni backend; todo el checkout lo aloja Stripe. Este documento no crea una cuenta, enlace real ni cobra.
+**22/10/2026 · Estado: código reusable y test offline incorporados; integración en página/checkout real PENDIENTE.** No hay cuenta Stripe vinculada, Payment Link real, cobros ni edición de `main`.
 
-## Funcionalidad verificada por Stripe
+## 1. Problema real detectado y decisión
 
-Documentación del proveedor: https://support.stripe.com/questions/how-to-accept-donations-through-stripe . Stripe Payment Links ofrece:
-- **Importe variable**: modo `Customers choose what to pay`, pago **único**.
-- Importe sugerido opcional, mínimo y máximo desde el Dashboard.
-- Título, descripción, branding y CTA «Donate» si corresponde.
-- Enlace compartible, que sigue activo hasta desactivarlo.
-- **Importe recurrente** solo mediante pago de cuantía fija/suscripción; no prometer recurrencia con importe libre.
+La versión anterior describía el apoyo al autor como «donación». **No es una donación benéfica** y Stripe distingue expresamente dos categorías:
+- **Propina**: recompensa por contenido o servicios proporcionados, por ejemplo una herramienta gratuita que el visitante acaba de utilizar.
+- **Donación**: destinada a un fin benéfico específico; no usar esta clasificación para financiar genéricamente una web personal.
 
-En Stripe Dashboard: **Payment Links → Create → Customers choose what to pay**. Nombre sugerido `Apoyo voluntario a los recursos de David Porto Díaz`; EUR, mínimo sugerido a validar por el proveedor, sin recibir producto ni ventaja a cambio. Revisar descripción fiscal/actividad y configuración de correo recibo.
+**Conclusión:** proponer a Stripe «aportación voluntaria/propina por contenido gratuito publicado», sin prometer productos nuevos, contrapartidas ni desgravación. Verificar que la actividad real declarada a Stripe y el checkout concuerden. Stripe indica que creadores que distribuyen *su propio contenido en su propia web* no precisan aprobación previa como plataforma, **pero deben cumplir el contrato y están sujetos a revisión**. No afirmar que la cuenta está aprobada antes del alta.
 
-## HTML V1 listo para adaptar
+Fuentes primarias, comprobadas el 22/10:
+- [Stripe — requisitos para propinas/donaciones](https://support.stripe.com/questions/requirements-for-accepting-tips-or-donations?locale=es-ES).
+- [Stripe — preguntas frecuentes de creación de contenido](https://support.stripe.com/questions/prohibited-and-restricted-businesses-list-faqs?locale=es-ES).
+- [Stripe — reglas de negocios restringidos, última actualización 22/09/2026](https://stripe.com/legal/restricted-businesses).
 
-```html
-<!-- Pegar solo una URL real obtenida en el Dashboard; NO enviar amount arbitrario por JS. -->
-<a class="support-method"
-   href="https://buy.stripe.com/ENLACE_REAL_GENERADO"
-   target="_blank" rel="noopener noreferrer"
-   aria-label="Aportar con tarjeta u otros métodos; se abre Stripe en otra pestaña">
-  <strong>Tarjeta y otros medios</strong>
-  <span>Elige el importe y paga de forma segura con Stripe</span>
-</a>
+**Bloqueador real:** la cuenta no está dada de alta ni hemos verificado su aprobación, identidad visible o enlace real. Un ejemplo HTML no resuelve ese punto y no debe publicarse como opción de cobro.
+
+## 2. Función elegida: Payment Links, sin SDK ni servidor
+
+La documentación oficial [Create a payment link](https://docs.stripe.com/payment-links/create) confirma:
+- `Customers choose what to pay` (pago único; **no** recurrencia), con importe sugerido y mínimo/máximo opcionales.
+- Enlace alojado en Stripe, compartible y reutilizable. El sitio solo necesita un enlace HTML.
+- Stripe gestiona tarjeta y métodos dinámicos; Apple Pay/Google Pay dependen de cuenta, navegador, dispositivo y elegibilidad, **no se prometen**.
+- El panel permite consultar pagos; no se deduce un pago exitoso de una redirección o un clic.
+- Para la V1 no incorporar `stripe.js`, API, webhooks, botón JS embebido ni backend: no aportan nada al objetivo actual.
+
+También ver [Sharing a Payment Link](https://docs.stripe.com/payment-links/share), [After a payment](https://docs.stripe.com/payment-links/post-payment) y [Payment Links, prestaciones](https://docs.stripe.com/payment-links).
+
+## 3. Código REAL incorporado en esta PR
+
+| Archivo | Función práctica |
+| --- | --- |
+| `scripts/support_stripe_link.py` | `validate_stripe_payment_link(url, production=True)`: solo URL `https://buy.stripe.com/<id>` sin parámetros; rechaza dominio impostor, `javascript:`, credenciales, querystring, URL malformada y enlace `test_` en producción. |
+| `scripts/support_stripe_link.py` | `render_stripe_support_link(url)`: HTML de enlace accesible en español; devuelve cadena vacía si aún no hay URL: **no genera botones ficticios**. |
+| `tests/test-support-stripe-link.py` | Contratos locales de dominio, modo test vs live, HTML sin script/iframe/secretos y sin render si falta configuración. |
+
+Este código reutiliza solo el módulo estándar Python y el patrón de enlace alojado que Stripe documenta. No hemos copiado un servidor de Checkout del repositorio oficial porque sería trabajo inútil para este sitio estático. Repositorio evaluado: [stripe-samples/checkout-one-time-payments](https://github.com/stripe-samples/checkout-one-time-payments), licencia [MIT](https://github.com/stripe-samples/checkout-one-time-payments/blob/main/LICENSE); **no se ha incorporado su código**.
+
+### Conexión exacta para el futuro generador de `/apoyar/`
+
+En el generador Python de la página de apoyo, **una vez obtenida y verificada la URL de Stripe**, importar la función:
+
+```python
+from scripts.support_stripe_link import render_stripe_support_link
+
+# Configuración pública leída de forma explícita. No introducir enlaces de ejemplo.
+STRIPE_PAYMENT_LINK = ""  # vacío = Stripe oculto; reemplazar SOLO por URL del panel
+stripe_method_html = render_stripe_support_link(STRIPE_PAYMENT_LINK)
+# Inyectar stripe_method_html dentro de <div class="support-methods">...
 ```
 
-Reemplazar por URL íntegra copiada del dashboard; no inventar `?amount=` ni parámetros ocultos. El importe lo introducen en el checkout Stripe, que controla validación, SCA/3DS, métodos disponibles, moneda y recibo. No garantizar Apple Pay/Google Pay sin verificar su aparición real en dispositivos compatibles.
+No hay que añadir componentes por cada herramienta. La conexión de `/apoyar/` y la del footer corresponden a la PR UX **#703**, con `data/navigation.json` + `data/content-registry.json` y regeneración del shell. Esta hija **no modifica páginas publicadas**.
 
-**No agregar** `stripe.js`, librerías, iframe de Checkout ni worker de creación de sesiones. En web estática, Payment Links evita gestión de claves y el requisito de backend. Nunca poner `sk_live_...` en frontend, repositorio, CSS, data o URL.
+## 4. Configuración en Dashboard — acción concreta sin inventar URLs
 
-## Tarifas 22/10/2026
+1. Abrir [Crear Payment Link](https://dashboard.stripe.com/payment-links/create/customer-chooses-pricing) en la **cuenta real y revisada** del autor.
+2. Elegir `Customers choose what to pay`, importe único en EUR. Título: **«Apoyo voluntario por los recursos gratuitos»**; descripción: «Si las herramientas o guías de davidportodiaz.com te han servido, puedes dejar una aportación opcional. No es una donación benéfica ni concede acceso adicional».
+3. Sugerir 5 € (opcional). No imponer mínimo alto; validar mínimo/máximo aceptados por Stripe en EUR. No inventar cantidades fijas ni crear suscripciones.
+4. Desactivar campos adicionales innecesarios, promociones, dirección de envío y cobros recurrentes cuando el Dashboard lo permita. Elegir métodos apropiados para el pago puntual.
+5. En detalles públicos/branding, comprobar **nombre y descriptor en extracto y recibo**, no solo nombre interno de la cuenta. Ver [Stripe: nombre de cuenta vs nombre visible](https://support.stripe.com/questions/update-account-name-shown-in-the-dashboard?locale=es-ES). No se puede prometer ocultar toda identidad legal: la pantalla y el justificante real mandan.
+6. Obtener la URL con «Copy link» (formato `https://buy.stripe.com/...`). Antes de publicar confirmar que la cuenta es real y el enlace está activo, moneda, destino y modo de prueba/live.
+7. Sustituir la cadena vacía por la URL real **solo en la configuración fuente** del generador, nunca editando 100 HTML regenerados a mano.
+8. Elegir confirmación alojada por Stripe, sin redirección a una página propia que finja pago verificado. Conciliar pagos desde [Stripe Dashboard](https://dashboard.stripe.com/payments).
 
-https://stripe.com/es/pricing — **1,5 % + 0,25 €** para tarjetas estándar EEE en pagos online (referencia, confirmar país/tipo de tarjeta y método), **2,8 % + 0,25 €** tarjetas premium EEE, **2,5 % + 0,25 €** UK, **3,15 % + 0,25 €** internacionales y posible +2 % por conversión. No afirmar que **todas** las donaciones cuestan solo 1,5 %. El pago recibido pasa al saldo Stripe y se liquida mediante el banco privado de la cuenta.
+## 5. Costes verificados, sin falsas garantías
 
-Stripe es compatible con España: https://stripe.com/global .
+[Stripe España, tarifas](https://stripe.com/es/pricing): 1,5 % + 0,25 € en tarjeta estándar EEE; 2,8 % + 0,25 € premium EEE; 2,5 % + 0,25 € tarjeta UK; 3,15 % + 0,25 € internacional, más +2 % cuando proceda conversión. Son **tarifas orientativas por tipo**, no la comisión definitiva de la cuenta ni de cualquier método.
 
-## Privacidad y comprobación real
+## 6. Definición de terminado: evidencia y pruebas
 
-1. Abrir cuenta y completar KYC con Stripe **privadamente**, aportar banco solo allí.
-2. Nombre comercial y `statement descriptor` deben apuntar a marca pública: comprobar pantallas de checkout, recibo y extracto bancario de pagador. La información legal obligatoria puede variar.
-3. Desactivar campos de dirección de envío, marketing opcional o recogida adicional no necesaria cuando Stripe lo permita. El visitante no tiene que facilitar datos en `davidportodiaz.com`.
-4. Si hay mensaje de finalización, evitar página «Gracias por donar» que implique pago confirmado únicamente por redirección. Conciliar pagos en Stripe Dashboard; webhooks solo si se necesitara lógica posterior y se implementase backend.
-5. No forzar redirección dentro de iframe; evitar popups y scripts de pago de terceros.
+**Comprobable sin credenciales (incluido ahora en la rama):**
+- [x] Código independiente del SDK y sin claves en cliente.
+- [x] Tests de rechazo para host falso, URL de prueba en producción y ausencia de link. **Añadidos, no se afirma ejecución CI.**
+- [x] Ubicación de código en repo y contrato de incorporación al futuro generador.
 
-## Código reutilizable — evaluación, no importación innecesaria
+**Pendiente de cuenta y navegador reales (NO declarar verificado):**
+- [ ] Stripe aprueba la actividad declarada de propinas por contenido publicado.
+- [ ] Enlace real `live` con importe libre/único EUR activo y disponible; se comprueba también apertura en móvil.
+- [ ] Desde navegador privado probar monto, tarjeta, SCA/3DS si aplica; comprobar la identidad pública que ve un pagador, el recibo y el descriptor. No subir imágenes con datos del comprador al repo.
+- [ ] Confirmar en Dashboard pago/comisión y destino receptor (o simular en sandbox sin confundirlo con live).
+- [ ] Revisar clasificación fiscal/IVA del supuesto real en España con asesor antes de cobrar.
+- [ ] Ejecutar `python tests/test-support-stripe-link.py` y los tests de shell/sitemap/UX solo en la fase de integración; **no ejecutar Actions**.
+- [ ] Integrar HTML generado en `/apoyar/` mediante PR #703 y verificar que link ausente no se publica.
 
-Repositorio oficial https://github.com/stripe-samples/checkout-one-time-payments ; licencia **MIT**, archivo https://github.com/stripe-samples/checkout-one-time-payments/blob/main/LICENSE . Incluye múltiples servidores para construir sesiones Checkout. **No copiar a esta web** porque introduce backend, secretos y superficie de mantenimiento sin ventaja frente a Payment Links. Para la V1, el fragmento de arriba es HTML original equivalente al uso oficial de enlaces; no existe dependencia de fuente externa que adaptar.
-
-Si más adelante se necesita importe personalizado **dentro** del propio dominio, reevaluar un checkout oficial alojado por Stripe con backend mínimo y con su test sandbox, no un formulario de tarjetas casero. Esa ampliación queda fuera de alcance.
-
-## Aceptación de Claude
-
-- [ ] Payment Link live real en EUR con importe voluntario y pago único.
-- [ ] Checkout real en móvil y PC, medio tarjeta sin cuenta Stripe de visitante, 3DS cuando aplique.
-- [ ] Validación de enlace `https://buy.stripe.com/...`; rechazar dominios parecidos o `javascript:`.
-- [ ] Comprobar nombre del beneficiario/descriptor visible y justificante; ningún dato privado expuesto inesperadamente.
-- [ ] Confirmación por Dashboard, no por URL de retorno ni tracking local.
-- [ ] Pausar/habilitar Stripe desde configuración sin tocar páginas generadas una a una.
+**No ampliar la integración Stripe** a SDK, página falsa de confirmación, suscripciones, Klarna ni webhooks hasta demostrar que el enlace alojado no basta.
