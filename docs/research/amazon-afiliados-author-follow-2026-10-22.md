@@ -118,6 +118,21 @@ La recopilación anterior es **estática, sobre el estado de `main` consultado**
 
 **QA del contador de compras:** durante la revisión de `scripts/build-reading-catalogue.py` se comprobó que sus URLs directas admiten `/Titulo/dp/ASIN`. La primera versión de #720 ignoraba esa forma; ya **corregido en el diff de #720** y añadidos dos ejemplos a la prueba. Sin ejecución todavía.
 
+## 8. Nuevas vías prácticas sin inventar productos: OneLink internacional y GetLink móvil
+
+### OneLink — **P1 condicionada por datos internacionales, cero cambio HTML antes de comprobar panel**
+
+- **Confirmado por [FAQ oficial española de OneLink](https://afiliados.amazon.es/help/node/topic/G8JHEWQ9GTDUN7EH):** el programa incluye a afiliados de **España** y admite tanto enlaces Amazon **completos como abreviados** (pero no acortadores de terceros); geolocaliza el destino y puede llevar al cliente al Amazon local. La política permite «coincidencia parcial» y «coincidencia exacta» y ofrece **«Visualizar productos coincidentes»** para comprobar el producto antes de activar cambios. Las preferencias son **por Tracking ID**.
+- **Confirmado por la [guía de integración oficial](https://afiliados.amazon.es/help/node/topic/GKHRXG4YEJBTCAFC):** la monetización en un país requiere cuenta de Afiliados de **ese país**, vincular Stores en **Herramientas → OneLink**, y fijar el **Tracking ID predeterminado** en cada país. Las [preguntas frecuentes del informe consolidado](https://afiliados.amazon.es/help/node/topic/G9JHP7AM9XQZREQR) confirman que existen apartados «Enlazar ID de tienda» y «ID de seguimiento predeterminado».
+- **Aplicación específica:** revisar en GoatCounter si existe tráfico relevante desde Portugal, México, EE. UU., Reino Unido, Alemania y otros destinos que Amazon soporte. **No** abrir cuentas para países sin tráfico relevante. Con panel autenticado: revisar si OneLink ya está activo; si hay volumen, abrir/vincular cuentas de países prioritarios y confirmar fiscalidad/pagos por programa; elegir coincidencia **exacta** en pruebas de los dos libros propios para minimizar variantes erróneas, previsualizar cada ASIN por país y considerar el ajuste recomendado por Amazon «coincidencia parcial» únicamente si la edición alternativa es aceptable. Comprobar informes internacionales antes de hablar de comisiones adicionales.
+- **No confundir:** OneLink **no crea automáticamente derechos de comisión en todos los países** y no garantiza que ambos libros estén comercializados en todas las tiendas. Los `amzn.to` existentes no requieren sustitución **por el solo hecho** de activar OneLink, pero siguen necesitando verificación de etiquetado/edición. No hay comprobación de la cuenta en esta PR.
+
+### Mobile GetLink — opción oficial de validación y creación de enlaces para libros físicos
+
+La [ayuda oficial Amazon ES](https://afiliados.amazon.es/help/node/topic/GH37MDS5PLQ9Z366) documenta la función **Mobile GetLink** desde la app Amazon compras: abrir **la ficha de producto exacto**, pulsar «Compartir» → «Copiar enlace de Afiliados» y seleccionar el ID de seguimiento. Permite generar enlaces directos a libros físicos sin fabricar ASIN a partir de ISBN ni raspar precios. **Excluye libros electrónicos, Audible, revistas digitales, música digital y lujo**, por lo que no es solución completa para los cuatro formatos de Coraline. Alternativa: SiteStripe o herramientas oficiales de escritorio en formatos soportados.
+
+**Piloto mínimo antes de abordar 54 libros:** elegir Coraline y otros **dos libros físicos del catálogo** con más clics de salida; validar en la ficha Amazon edición/idioma/formato/ASIN, generar URL oficial y guardarla con `fuente_url` y fecha; pasar auditor offline y revisar CTA público. Ampliar solo si hay ahorro real de trabajo y atribución correcta. Sin automatización de navegación en Amazon ni 54 enlaces inventados.
+
 ## Fuentes primarias consultadas (22-10-2026)
 
 - [Amazon ES · políticas, actualización 14-04-2026](https://afiliados.amazon.es/help/operating/policies) · [Cambios oficiales (escaparate y registro)](https://afiliados.amazon.es/help/operating/compare) · [Comisiones directas/indirectas UE](https://afiliados.amazon.es/help/operating/scheduleoct1)
