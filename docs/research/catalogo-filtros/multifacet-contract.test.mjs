@@ -145,3 +145,26 @@ test('mínimo por formato solo usa ofertas de ese formato, útil para ordenar pr
   assert.equal(Math.min(...accepted.map(o=>o.precio_centimos)),690);
   assert.equal(Math.min(...matchingOffersMulti(syntheticVerifiedOffers,{formato:['tapa-dura']}).map(o=>o.precio_centimos)),2590);
 });
+
+
+test('quiz heredado: género y formato escalares coinciden sin lanzar TypeError',()=>{
+  const v={genero:'fantasia',formato:'tapa-dura'};
+  assert.deepEqual(books.filter(b=>matchesMulti(b,v)).map(b=>b.title),[
+    'Coraline','Las Pruebas del Tarot','Otros mundos (El Talismán 3)'
+  ]);
+});
+
+test('quiz heredado: valor singular de temática no genera coincidencias parciales',()=>{
+  const v={genero:'fantasia-juvenil'};
+  assert.deepEqual(books.filter(b=>matchesMulti(b,v)).map(b=>b.title),['Coraline']);
+});
+
+test('facetas heredadas: selección escalar solo marca valor exacto, no prefijo',()=>{
+  const values=availableOptions(books,{genero:'fantasia-juvenil'},'genero',[
+    {value:'fantasia',label:'Fantasía'},
+    {value:'fantasia-juvenil',label:'Fantasía juvenil'}
+  ]);
+  assert.deepEqual(values.map(o=>[o.value,o.selected]),[
+    ['fantasia',false],['fantasia-juvenil',true]
+  ]);
+});
