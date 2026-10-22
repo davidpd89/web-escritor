@@ -303,6 +303,7 @@ def run_live_pilot(cases: dict, vetted_hosts: dict, *,
     if date.fromisoformat(cases["checked_on"]) > as_of:
         raise ValueError("Source review date is in future")
     urls = {}
+    expected = {}
     hosts = set()
     for case in cases["cases"]:
         if not isinstance(case, dict):
@@ -315,7 +316,11 @@ def run_live_pilot(cases: dict, vetted_hosts: dict, *,
                 not isinstance(allowed, dict) or
                 host not in allowed.get("hosts", [])):
             raise ValueError("Unreviewed URL or missing independent host approval")
+        reviewed = case.get("expected_pilot_candidate")
+        if reviewed is not None and reviewed not in {"open", "paused", "unknown", "group_only"}:
+            raise ValueError("Invalid reviewed pilot expectation")
         urls[slug] = url
+        expected[slug] = reviewed
         hosts.add(host)
     if set(urls) != set(_PILOT_EVIDENCE_RULES):
         raise ValueError("Must use exactly the five fixed pilot subjects")
@@ -341,10 +346,19 @@ def run_live_pilot(cases: dict, vetted_hosts: dict, *,
                       "matching_fragment": "", "retrieval": "blocked_or_failed",
                       "error_type": type(exc).__name__,
                       "manual_review_required": True, "publish": False}
+        result["previous_manual_expectation"] = expected[slug]
+        result["agrees_with_previous_review"] = (
+            result["suggestion"] == expected[slug]
+            if expected[slug] is not None and result["retrieval"] == "ok" else None
+        )
         results.append(result)
     return {
         "schema_version": 1, "as_of": as_of.isoformat(),
         "kind": "five_official_pages_review_only",
+        "compared_to_prior_review": sum(r["agrees_with_previous_review"] is not None for r in results),
+        "matched_prior_review": sum(r["agrees_with_previous_review"] is True for r in results),
+        "differences_needing_human_review": sum(r["agrees_with_previous_review"] is False for r in results),
+        "retrieval_failures": sum(r["retrieval"] != "ok" for r in results),
         "results": results,
         "requests_physical": getattr(http, "requests", None),
         "cache_hits": getattr(http, "hits", None),
