@@ -36,7 +36,7 @@ python scripts/research/gpt_metricool_threads.py /ruta/privada/threads.json
 Salida: `id=threads`, `followers` (entero o `null`), `observed_at` (día de la métrica), `source=metricool-mcp-export`, `generated_at`, `status` y las dos métricas de vistas como `null`. **Un contador ausente no se convierte en cero**. La salida no es el documento agregado `data/social-metrics.generated.json`; requiere el compositor central de #699 antes de mostrarse en #704.
 
 
-## 3. Nueva ampliación probada: ocho seguidores en una consulta (22/10/2026)
+## Ampliación probada: ocho contadores en una consulta (22/10/2026)
 
 **Evidencia del conector Metricool conectado:** se consultaron los catálogos `evolution` de ocho redes y todos los campos siguientes aparecen como `dataAggregation=LAST`:
 
