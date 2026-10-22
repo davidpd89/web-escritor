@@ -317,6 +317,32 @@ class RealSourceSnippetPilotTests(unittest.TestCase):
                                  "manuscritos@nocturnaediciones.com")
                 self.assertFalse(outcome["publish"])
 
+    def test_inert_template_or_head_cannot_prove_manuscript_acceptance(self):
+        # HTML <template> stores unrendered markup and <head> contains
+        # metadata. Neither can establish a visible submission instruction.
+        phrase = "Alienta Editorial acepta la recepción de manuscritos originales."
+        for wrapper in (
+            "<template><p>" + phrase + "</p></template><main>Contacto general.</main>",
+            "<head><title>" + phrase + "</title></head><main>Contacto general.</main>",
+        ):
+            with self.subTest(wrapper=wrapper[:20]):
+                got = self.check_pilot("alienta-editorial", wrapper)
+                self.assertEqual(got["suggestion"], "unknown")
+                self.assertFalse(got["detected"])
+                self.assertIsNone(got["submission_email_candidate"])
+
+    def test_visible_body_still_proves_submission_when_template_is_present(self):
+        phrase = "Alienta Editorial acepta la recepción de manuscritos originales."
+        html = (
+            "<head><title>Contacto</title></head>"
+            "<template><p>" + phrase + "</p></template>"
+            "<main><p>" + phrase + "</p></main>"
+        )
+        got = self.check_pilot("alienta-editorial", html)
+        self.assertEqual(got["suggestion"], "open")
+        self.assertTrue(got["detected"])
+        self.assertFalse(got["publish"])
+
     def test_absence_of_explicit_evidence_is_unknown_for_all_five(self):
         for slug in self.URLS:
             with self.subTest(slug=slug):
