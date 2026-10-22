@@ -81,7 +81,7 @@
     },
     {
       key: 'herramientas', label: 'Libros recomendados', home: '/recomendaciones/',
-      matches: (path) => path.startsWith('/editoriales/') || path.startsWith('/convocatorias-escritores/') || path.startsWith('/metodologia-editorial/'),
+      matches: (path) => path.startsWith('/editoriales/') || path.startsWith('/convocatorias-escritores/'),
       links: [
         ['/recomendaciones/', 'Catálogo'],
         ['/recomendaciones/autores/', 'Autores'],
@@ -97,6 +97,14 @@
         ['/herramientas/manuscrito/', 'Manuscrito'],
         ['/herramientas/dialogo/', 'Diálogo'],
         ['/herramientas/repeticiones/', 'Repeticiones']
+      ]
+    },
+    {
+      key: 'herramientas', label: 'Editoriales', home: '/editoriales/',
+      matches: (path) => path.startsWith('/metodologia-editorial/'),
+      links: [
+        ['/editoriales/', 'Editoriales'],
+        ['/metodologia-editorial/', 'Metodología']
       ]
     },
     {

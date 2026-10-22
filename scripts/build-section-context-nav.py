@@ -150,7 +150,6 @@ CONTEXTS: tuple[Context, ...] = (
         prefixes=(
             "/editoriales/",
             "/convocatorias-escritores/",
-            "/metodologia-editorial/",
         ),
         exacts=(),
         links=(
@@ -169,6 +168,15 @@ CONTEXTS: tuple[Context, ...] = (
             ("/herramientas/manuscrito/", "Manuscrito"),
             ("/herramientas/dialogo/", "Diálogo"),
             ("/herramientas/repeticiones/", "Repeticiones"),
+        ),
+    ),
+    # La metodología no está en los menús: solo se enlaza desde su propia página y el pie.
+    Context(
+        key="herramientas", label="Editoriales", home="/editoriales/",
+        prefixes=("/metodologia-editorial/",), exacts=(),
+        links=(
+            ("/editoriales/", "Editoriales"),
+            ("/metodologia-editorial/", "Metodología"),
         ),
     ),
     Context(

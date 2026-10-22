@@ -77,7 +77,7 @@ html.v1 .catalogue-author-page section { padding-block:2rem; }
 html.v1 .catalogue-author-page h2 { color:var(--catalogue-blue); font:400 clamp(1.8rem,3vw,3rem)/1.15 var(--font-display); overflow-wrap:anywhere; }
 html.v1 .catalogue-author-books { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:2rem; list-style:none; padding:0; }
 html.v1 .catalogue-author-books li { padding:1rem; border:1px solid var(--catalogue-rule); border-top:2px solid var(--catalogue-blue); }
-html.v1 .catalogue-author-books a { color:var(--catalogue-blue); font:400 1.7rem/1.2 var(--font-display); }
+html.v1 .catalogue-author-books a { max-width:100%; overflow-wrap:anywhere; color:var(--catalogue-blue); font:400 1.7rem/1.2 var(--font-display); }
 html.v1 .catalogue-author-books img { max-width:160px; margin-bottom:1rem; }
 @media(max-width:1000px) { html.v1 .catalogue-grid { grid-template-columns:1fr; } }
 @media(max-width:700px) { html.v1 .catalogue-filter-grid { grid-template-columns:repeat(2,minmax(0,1fr)); } html.v1 .catalogue-book-layout { grid-template-columns:minmax(0,1fr); } html.v1 .catalogue-cover-panel { position:static; width:100%; max-width:300px; margin-inline:auto; } html.v1 .catalogue-author-books { grid-template-columns:minmax(0,1fr); } }
@@ -120,7 +120,7 @@ html.v1 .catalogue-related { padding-block:2rem; border-top:1px solid var(--cata
 html.v1 .catalogue-related h2 { color:var(--catalogue-blue); font:400 clamp(1.8rem,3vw,2.8rem)/1.2 var(--font-display); }
 html.v1 .catalogue-related ul { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:1rem; list-style:none; padding:0; }
 html.v1 .catalogue-related li { min-width:0; padding:1rem; border:1px solid var(--catalogue-rule); border-top:2px solid var(--catalogue-blue); }
-html.v1 .catalogue-related a { display:inline-flex; align-items:center; min-height:44px; color:var(--catalogue-blue); font:400 1.35rem/1.2 var(--font-display); }
+html.v1 .catalogue-related a { max-width:100%; overflow-wrap:anywhere; display:inline-flex; align-items:center; min-height:44px; color:var(--catalogue-blue); font:400 1.35rem/1.2 var(--font-display); }
 @media(max-width:700px) { html.v1 .catalogue-related ul { grid-template-columns:1fr; } }
 html.v1 .catalogue-reader-reviews article { padding-block:1rem; border-top:1px solid var(--catalogue-rule); }
 html.v1 .catalogue-reader-reviews h3 { color:var(--catalogue-blue); font:400 1.4rem/1.2 var(--font-display); }

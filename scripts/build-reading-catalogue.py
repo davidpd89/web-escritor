@@ -603,7 +603,7 @@ def _breadcrumb_schema(trail):
     return {'@type': 'BreadcrumbList', 'itemListElement': [{'@type': 'ListItem', 'position': i + 1, 'name': label, 'item': SITE + href} for i, (label, href) in enumerate(trail)]}
 
 
-def render_publisher(p, data, books, template):
+def render_publisher(p, data, books, template, author_names=()):
     """Ficha de un sello que aparece en el catálogo (distinta del directorio de manuscritos)."""
     selected = _newest_first([b for b in books if b.get('editorial_catalogo_slug') == p['slug']])
     canonical = SITE + publisher_url(p)
@@ -622,7 +622,9 @@ def render_publisher(p, data, books, template):
             + '<section aria-labelledby="publisher-books"><h2 id="publisher-books">Libros de ' + esc(p['nombre']) + ' en el catálogo</h2><p>Ediciones ordenadas de la más reciente a la más antigua.</p><ul class="catalogue-author-books">' + _book_items(selected) + '</ul></section>'
             '<details class="catalogue-details"><summary>Fuentes</summary><ul>' + ''.join('<li><a href="' + esc(s['url']) + '" target="_blank" rel="noopener noreferrer">' + esc(s['titulo']) + '</a></li>' for s in p['fuentes']) + '</ul></details>'
             '<div class="catalogue-end"><a class="text-action" href="/recomendaciones/">Explorar todos los libros</a></div></main>')
-    org = {'@type': 'Organization', '@id': canonical + '#org', 'name': p['nombre'], 'url': canonical, 'parentOrganization': {'@type': 'Organization', 'name': p['grupo']}}
+    # Un sello que comparte nombre con un autor (p. ej. «DK») se distingue para no mezclar entidades.
+    org_name = p['nombre'] + ' (editorial)' if p['nombre'] in author_names else p['nombre']
+    org = {'@type': 'Organization', '@id': canonical + '#org', 'name': org_name, 'url': canonical, 'parentOrganization': {'@type': 'Organization', 'name': p['grupo']}}
     schema = {'@context': 'https://schema.org', '@graph': [org, {'@type': 'CollectionPage', '@id': canonical, 'url': canonical, 'name': p['nombre'] + ' · Libros del catálogo', 'mainEntity': {'@id': canonical + '#org'}, 'hasPart': [{'@id': SITE + url(b) + '#book'} for b in selected]},
                                                   _breadcrumb_schema([('Inicio', '/'), ('Libros recomendados', '/recomendaciones/'), ('Editoriales del catálogo', '/recomendaciones/editoriales/'), (p['nombre'], publisher_url(p))])]}
     return render_detail_page(template, main, canonical, p['nombre'] + ' · Libros del catálogo | David Porto Díaz', summary, schema, selected[0] if selected else None)
@@ -711,7 +713,7 @@ def main():
         catalogue_publishers = publisher_records(root)
         active_publishers = [p for p in catalogue_publishers if any(b.get('editorial_catalogo_slug') == p['slug'] for b in books)]
         for p in active_publishers:
-            outputs[publisher_url(p).lstrip('/') + 'index.html'] = render_publisher(p, data, books, template)
+            outputs[publisher_url(p).lstrip('/') + 'index.html'] = render_publisher(p, data, books, template, {a['nombre'] for a in authors})
         outputs['recomendaciones/editoriales/index.html'] = render_publishers_index(catalogue_publishers, books, template)
         existing = root / 'recomendaciones/libros'
         orphans = [p for p in existing.glob('*/index.html') if p.relative_to(root).as_posix() not in outputs]
