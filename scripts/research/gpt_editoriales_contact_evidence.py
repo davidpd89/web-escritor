@@ -229,7 +229,7 @@ def draft_from_html(html, *, slug, source_url, checked_at, source_allowlist):
         'suggestion': suggestion, 'scope': scope,
         'manual_review_required': True, 'publish': False,
         # Only a matching phrase is retained; no email/contact information.
-        'matching_fragment': visible[found.start():found.end()][:180] if found else '',
+        'matching_fragment': re.sub(r'[\w.+-]+@[\w.-]+\.[A-Za-z]{2,}', '[correo]', found.group(0))[:180] if found else '',
         'reason': 'Explicit known-page pattern' if found else 'No matching explicit statement',
     }
 
