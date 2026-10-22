@@ -56,6 +56,7 @@ def audit(root: Path, expected: str) -> dict:
     reviews: list[dict[str, str]] = []
     shortlinks: set[str] = set()
     unique_destinations: set[str] = set()
+    product_verification_queue: list[dict[str, str]] = []
 
     def check(source: str, url: str) -> None:
         p = urlparse(url)
@@ -108,6 +109,14 @@ def audit(root: Path, expected: str) -> dict:
             direct = b.get("url_amazon_afiliada")
             counts["book_product_direct"] += bool(direct)
             counts["book_only_search"] += not bool(direct)
+            if not direct:
+                product_verification_queue.append({
+                    "slug": b.get("slug", ""),
+                    "titulo": b.get("titulo", ""),
+                    "isbn13": b.get("isbn13", ""),
+                    "actual_isbn_search": b.get("amazon_busqueda_isbn", ""),
+                    "next_step": "Verify Amazon.es exact edition ASIN, format and language; link direct product or remove affiliate CTA",
+                })
             for field in ("amazon_busqueda_isbn", "url_amazon_afiliada"):
                 if b.get(field):
                     check(source + "." + field, b[field])
@@ -132,6 +141,7 @@ def audit(root: Path, expected: str) -> dict:
         "counts": dict(sorted(counts.items())),
         "unique_destination_count": len(unique_destinations),
         "shortlinks_require_manual_verification": sorted(shortlinks),
+        "product_verification_queue": product_verification_queue,
         "errors": errors,
         "manual_review": reviews,
         "scope": "HTML estático tracked + data/reading-catalogue.json; sin JS runtime, red, ventas ni enlaces acortados resueltos",
@@ -162,6 +172,7 @@ def main() -> int:
         for key, value in report["counts"].items():
             print(f"  {key}: {value}")
         print("Shortlinks por verificar con Amazon:", report["shortlinks_require_manual_verification"])
+        print("Libros pendientes de ASIN exacto:", len(report["product_verification_queue"]))
         print("Errores de tag:", len(report["errors"]))
         print("Comprobaciones manuales adicionales:", len(report["manual_review"]))
         for item in report["errors"][:20]:
