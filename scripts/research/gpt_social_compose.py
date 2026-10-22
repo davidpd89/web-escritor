@@ -26,6 +26,9 @@ PROFILES = {
     "mastodon": "https://mastodon.social/@davidportodiaz",
     "threads": "https://www.threads.com/@davidportodiaz",
 }
+EXPECTED_SOURCES = {"bluesky": "bluesky-public-appview",
+                    "mastodon": "mastodon-public-search",
+                    "threads": "metricool-mcp-export"}
 MAX_AGE = timedelta(hours=48)
 MAX_INPUT_BYTES = 64_000
 OBSERVED_RE = re.compile(r"\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}(?:Z|[+-]\d{2}:\d{2})\Z")
@@ -57,6 +60,8 @@ def normalize(source: object, now: datetime) -> tuple[str, dict]:
     name = source.get("source")
     if not isinstance(name, str) or not SOURCE_RE.fullmatch(name):
         raise ValueError(f"{key}: source must be a short nonempty identifier")
+    if name != EXPECTED_SOURCES[key]:
+        raise ValueError(f"{key}: wrong provider for network")
     if source.get("status") not in ("ok", "partial"):
         raise ValueError(f"{key}: unexpected source status")
     for field in UNVERIFIED_PERIOD_FIELDS:
