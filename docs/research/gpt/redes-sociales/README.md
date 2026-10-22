@@ -8,7 +8,7 @@ ESTADO: documentación/investigación; NO desplegado, NO Actions, NO merge. Esta
 - Autor.html contiene Person.sameAs y URLs de perfiles; scripts/build-site-shell.py contiene SOCIAL_ROW con iconos existentes. Mantener una sola fuente autorizada de perfiles.
 - data/site-human-stats.generated.json demuestra el patrón de estadísticas generadas, pero sus valores son de libros, herramientas y artículos y NO se reutilizan como comunidad social.
 - data/third-party-integrations.json y data/analytics-events.json son contratos de integraciones/analítica; respetar CSP, privacidad, navegación, sitemap y QA.
-- **Prueba de viabilidad**: la marca ya conectada en Metricool reconoce Bluesky, Threads, Instagram, Facebook, TikTok, Pinterest, YouTube y más. La consulta de métricas de 01–21/10/2026 devolvió series numéricas y también valores null según red/fecha. No se publican los valores de la cuenta en este documento. La conexión ChatGPT-Metricool no implica disponer de un backend API o permiso para un cron. Comprobado el 22/10/2026: MCP funciona también en Free, mientras la API HTTP independiente exige Advanced/Custom. La PR #705 ya demuestra la lectura real de **solo `THEV01` de Threads en un día cerrado**: una fila `[followers, YYYYMMDD]`, y aporta importador offline con **17/17 pruebas ejecutadas sobre código idéntico al de GitHub**. La PR #704 contiene ya un **compositor ejecutable para Bluesky, Mastodon y Threads**, con 26/26 pruebas offline y hashes Git verificados; rechaza cuentas duplicadas, contadores caducados, URLs discordantes y métricas ambiguas. Publicación/UX aún pendientes. Eliminó la consulta innecesaria a `THEV06`. Make → MCP por OAuth sigue siendo **un piloto NO ejecutado**, no un refresco en producción. No considerar el piloto una solución implantada.
+- **Prueba de viabilidad**: la marca ya conectada en Metricool reconoce Bluesky, Threads, Instagram, Facebook, TikTok, Pinterest, YouTube y más. La consulta de métricas de 01–21/10/2026 devolvió series numéricas y también valores null según red/fecha. No se publican los valores de la cuenta en este documento. La conexión ChatGPT-Metricool no implica disponer de un backend API o permiso para un cron. Comprobado el 22/10/2026: MCP funciona también en Free, mientras la API HTTP independiente exige Advanced/Custom. La PR #705 ya demuestra la lectura real de **solo `THEV01` de Threads en un día cerrado**: una fila `[followers, YYYYMMDD]`, y aporta importador offline con **17/17 pruebas ejecutadas sobre código idéntico al de GitHub**. La PR #704 contiene ya un **compositor ejecutable para Bluesky, Mastodon y Threads**, con 27/27 pruebas offline y hashes Git verificados; rechaza cuentas duplicadas, proveedores atribuidos a la red equivocada, contadores caducados, URLs discordantes y métricas ambiguas. Publicación/UX aún pendientes. Eliminó la consulta innecesaria a `THEV06`. Make → MCP por OAuth sigue siendo **un piloto NO ejecutado**, no un refresco en producción. No considerar el piloto una solución implantada.
 
 ## Propuesta UX
 
@@ -40,7 +40,7 @@ Contrato **v1 efectivamente implementado en PR #704** (salida vacía de ejemplo,
 }
 ~~~
 
-**Puerta de calidad cruzada, 22/10/2026:** se han montado en un directorio local los cuatro scripts de #704/#705/#706/#707, con hashes Git que coinciden con los de sus respectivas ramas, y se han pasado **80 tests offline**: 74 unitarios de esas ramas más 6 nuevas pruebas de integración (captura simulada → normalizadores → compositor → fichero JSON). **Esto no prueba respuestas live, ejecución en GitHub Actions ni web desplegada.** Las 6 pruebas están incorporadas en `tests/test_gpt_social_pipeline.py` de #704, que se omiten deliberadamente en su rama aislada hasta combinar los cuatro scripts.
+**Puerta de calidad cruzada, 22/10/2026:** se han montado en un directorio local los cuatro scripts de #704/#705/#706/#707, con hashes Git que coinciden con los de sus respectivas ramas, y se han pasado **81 tests offline**: 75 unitarios de esas ramas más 6 nuevas pruebas de integración (captura simulada → normalizadores → compositor → fichero JSON). **Esto no prueba respuestas live, ejecución en GitHub Actions ni web desplegada.** Las 6 pruebas están incorporadas en `tests/test_gpt_social_pipeline.py` de #704, que se omiten deliberadamente en su rama aislada hasta combinar los cuatro scripts.
 
 ## Viabilidad por red (fuentes revisadas)
 
@@ -74,7 +74,7 @@ Documento rector y PR hijas: base técnica, fuente central Metricool, Bluesky, M
 
 | PR | Alcance | Documento |
 |---|---|---|
-| [#704](https://github.com/davidpd89/web-escritor/pull/704) | Contrato ejecutable de 3 redes, caducidad y 26 tests offline | [ux.md](./ux.md) |
+| [#704](https://github.com/davidpd89/web-escritor/pull/704) | Contrato ejecutable de 3 redes, caducidad y 27 tests offline | [ux.md](./ux.md) |
 | [#705](https://github.com/davidpd89/web-escritor/pull/705) | Fuente agregada Metricool | [metricool.md](./metricool.md) |
 | [#706](https://github.com/davidpd89/web-escritor/pull/706) | Bluesky | [bluesky.md](./bluesky.md) |
 | [#707](https://github.com/davidpd89/web-escritor/pull/707) | Mastodon (búsqueda pública, adaptador y 18 pruebas offline) | [mastodon.md](./mastodon.md) |
