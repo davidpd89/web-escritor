@@ -373,6 +373,45 @@ class RealSourceSnippetPilotTests(unittest.TestCase):
                 self.assertEqual(result["suggestion"], "open")
                 self.assertFalse(result["publish"])
 
+    def test_far_away_general_closure_overrides_earlier_email_instruction(self):
+        # A long page can show obsolete submission instructions near the top
+        # and an explicit general closure several paragraphs later.
+        lead = (
+            "Si desea enviarnos un manuscrito, puede hacerlo vía correo "
+            "electrónico a la siguiente dirección: "
+            "manuscritos@nocturnaediciones.com."
+        )
+        long_gap = "Esta sección recoge el catálogo editorial y otras noticias. " * 12
+        for end in (
+            "Actualmente no aceptamos manuscritos.",
+            "Ya no estamos recibiendo originales.",
+        ):
+            with self.subTest(closure=end):
+                html = "<p>" + lead + "</p><p>" + long_gap + "</p><p>" + end + "</p>"
+                output = self.check_pilot("nocturna-ediciones", html)
+                self.assertEqual(output["suggestion"], "unknown")
+                self.assertIsNone(output["submission_email_candidate"])
+                self.assertFalse(output["publish"])
+
+    def test_far_away_genre_or_format_limit_does_not_close_general_intake(self):
+        lead = (
+            "Si desea enviarnos un manuscrito, puede hacerlo vía correo "
+            "electrónico a la siguiente dirección: "
+            "manuscritos@nocturnaediciones.com."
+        )
+        long_gap = "Esta sección recoge el catálogo editorial y otras noticias. " * 12
+        for end in (
+            "No aceptamos manuscritos de ficción.",
+            "No recibimos originales en papel.",
+        ):
+            with self.subTest(restriction=end):
+                html = "<p>" + lead + "</p><p>" + long_gap + "</p><p>" + end + "</p>"
+                output = self.check_pilot("nocturna-ediciones", html)
+                self.assertEqual(output["suggestion"], "open")
+                self.assertEqual(output["submission_email_candidate"],
+                                 "manuscritos@nocturnaediciones.com")
+                self.assertFalse(output["publish"])
+
     def test_absence_of_explicit_evidence_is_unknown_for_all_five(self):
         for slug in self.URLS:
             with self.subTest(slug=slug):
