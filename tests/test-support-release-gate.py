@@ -118,6 +118,14 @@ def release_errors(root: Path) -> list[str]:
         return errors
     if len(occurrences) != 1 or occurrences[0][0] != "Información":
         errors.append("La página pública debe aparecer una sola vez en footer.Información")
+    # build-site-shell.py::ensure_registry necesita ambos campos para crear
+    # el enlace del footer. Si faltan, el gate anterior daba OK pero el build
+    # real fallaba con KeyError.
+    effective_entry = {**registry.get("defaults", {}), **entry}
+    for field in ("label", "shortLabel"):
+        value = effective_entry.get(field)
+        if not isinstance(value, str) or not value.strip():
+            errors.append(f"support-project público sin {field} válido para el shell")
 
     parser = SupportParser()
     html = page.read_text(encoding="utf-8")
@@ -194,12 +202,22 @@ def fixture_tests() -> None:
         entry["status"] = "draft"
         write()
         assert release_errors(root)  # Estado no reconocido no protege
-        entry["status"] = "public"
+        entry.update({"status": "public", "label": "Apoya este proyecto", "shortLabel": "Apoyar"})
         write()
         assert release_errors(root)  # Sin footer: BLOQUEAR
         nav["footer"]["Información"].append("support-project")
         write()
         assert release_errors(root) == []  # Activación estructural correcta
+        for field in ("label", "shortLabel"):
+            value = entry.pop(field)
+            write()
+            assert any(field in issue for issue in release_errors(root)), field
+            entry[field] = " "
+            write()
+            assert any(field in issue for issue in release_errors(root)), field
+            entry[field] = value
+            write()
+            assert release_errors(root) == []  # Shell puede renderizar el footer
         # El metatag robots es opcional: sin él la página también es indexable.
         page.write_text(VALID_HTML.replace('<meta name="robots" content="index,follow">', ""), encoding="utf-8")
         assert release_errors(root) == []  # Indexación predeterminada del navegador

@@ -87,9 +87,15 @@ python tests/test-support-release-gate.py
 
 **Estado:** código añadido a la rama, fixture aislado verificado; no se ha ejecutado la suite del repositorio ni Actions. La vista previa tiene su test propio, que **ya no impide** una activación correcta más adelante.
 
+## Contrato real del shell: label + shortLabel (22/10/2026)
+
+**Fallo reproducido:** antes de activar, `release_errors()` aceptaba `support-project` con `id`, `url`, `sourceFile` y `status: public`, pero **sin `label` ni `shortLabel`**, devolviendo `[]` en el fixture. `scripts/build-site-shell.py::ensure_registry()` requiere ambos campos y falla con `KeyError` al regenerar cabecera/pie. El gate no puede dar OK a una configuración que no puede renderizarse.
+
+**Arreglo comprobado:** la entrada pública debe tener los dos textos como strings no vacíos; se consulta el registro efectivo (entrada más `defaults`) igual que el generador, sin añadir obligaciones a los estados no publicados. El fixture ahora prueba omisión y valores vacíos de ambos campos, y conserva el caso público válido. Comprobación local con **el archivo Python original de la PR** (SHA previo `4384f4794103f9c35b61ba2324435d367d8286c4`): gate `[]` en registro incompleto mientras el shell exigía campos inexistentes. Archivo corregido con SHA Git `073965ba952eff66bd924ff95877b8c55c0b8608`: `python -m py_compile` y ejecución del test original **OK**, sin Actions. No se ha ejecutado la generación completa del sitio ni un cobro.
+
 ## Contrato de navegación (orden exacto recomendado)
 
-1. Añadir una entidad `support-project` en `data/content-registry.json` siguiendo el esquema de `entries[]`, apuntando a `/apoyar/`, con label `Apoyar el proyecto` y contenido descriptivo real.
+1. Añadir una entidad `support-project` en `data/content-registry.json` siguiendo el esquema de `entries[]`, apuntando a `/apoyar/`, con `label: "Apoya este proyecto"` y `shortLabel: "Apoyar"` (ambos requeridos por `build-site-shell.py`) y contenido descriptivo real.
 2. Añadir `support-project` **solo al array `footer.Información` de `data/navigation.json`** (no al menú principal `header`, no a `exploreTerritories`, no al CTA `header-buy`).
 3. Ejecutar `python scripts/build-site-shell.py` cuando corresponda, revisar diffs y `--check` disponible, y actualizar la fuente/plantilla de páginas regeneradas para que las pruebas de paridad no reviertan el footer.
 4. **La ruta está preparada pero bloqueada por defecto**: `scripts/build-public-dist.py` y `.assetsignore` requieren una entrada pública exacta `support-project` para permitir `/apoyar/`, aunque la carpeta ya figure en la allowlist. La protección y sus fixtures están en `tests/test-public-artifact-contract.py`. Cloudflare aplica `.assetsignore` con sintaxis gitignore: https://developers.cloudflare.com/workers/static-assets/binding/ . Al activar, regenerar `.assetsignore` desde el builder; **no borrar la regla a mano**.
