@@ -5,14 +5,14 @@
 ## Hallazgo 1 (P0): los filtros normales NO son facetas dependientes
 
 **Evidencia comprobada sobre el código actual (22-10-2026):**
-- `scripts/build-reading-catalogue.py` → `render_filters()` (aprox. líneas 399-418): los <option> se escriben desde **todas** las `categorias` activas, no desde las obras que cumplen los demás filtros.
-- `assets/reading-catalogue.js` → `matches()` y `apply()`: filtra tarjetas correctamente, pero no actualiza las opciones de los demás <select>.
+- `scripts/build-reading-catalogue.py` → `render_filters()` (aprox. líneas 399-418): los `<option>` se escriben desde **todas** las `categorias` activas, no desde las obras que cumplen los demás filtros.
+- `assets/reading-catalogue.js` → `matches()` y `apply()`: filtra tarjetas correctamente, pero no actualiza las opciones de los demás `<select>`.
 - `data/reading-catalogue.json`: 55 libros, 54 categorías activas repartidas en género (22), temática (20), contenido (1), temporada (3), edad (6), época (2); 185 relaciones libro-categoría. Conteos calculados a partir del JSON leído desde `main`, no estimados.
 - `recomendaciones/index.html`: 55 tarjetas; tipos: Cocina 14, Novela 15, Crecimiento personal 7, Infantil y juvenil 8, Biografías y memorias 10, Historia y ensayo 1. Los contadores se imprimen en `group_selector()` y no se actualizan en `apply()`.
 
 **Reproducción lógica determinista:** elige «Cocina». El filtro «Género» sigue ofreciendo «Fantasía» porque su HTML se creó con la taxonomía global. No hay tarjetas de tipo Cocina etiquetadas `fantasia`; esa combinación muestra cero resultados. Análogamente, una búsqueda por «Coraline» no actualiza el contador estático de tipo Cocina (14).
 
-**Decisión recomendada A (P0):** recalcular las opciones de cada faceta usando **todos los filtros salvo la propia faceta** («self-excluding»). Así, cambiar «Género» sigue siendo posible, pero «Temática» muestra solo temas compatibles con los demás filtros. En los <select> nativos, ofrecer las opciones con resultados y conservar cualquier opción ya seleccionada aunque su cuenta caiga a cero, con una explicación. Mostrar la cifra «Fantasía (5)» calculada y no una cifra global obsoleta.
+**Decisión recomendada A (P0):** recalcular las opciones de cada faceta usando **todos los filtros salvo la propia faceta** («self-excluding»). Así, cambiar «Género» sigue siendo posible, pero «Temática» muestra solo temas compatibles con los demás filtros. En los `<select>` nativos, ofrecer las opciones con resultados y conservar cualquier opción ya seleccionada aunque su cuenta caiga a cero, con una explicación. Mostrar la cifra «Fantasía (5)» calculada y no una cifra global obsoleta.
 
 **Alternativa B:** siempre mostrar las 54 categorías, desactivar las que no dan resultados y etiquetar sus cuentas (0). Más estable visualmente, pero obliga a recorrer opciones inútiles en móvil. Reservar para ensayo de usabilidad si A provoca desorientación; no implantar dos patrones a la vez.
 
@@ -59,7 +59,7 @@ El [changelog](https://github.com/meilisearch/meilisearch-js-plugins/blob/702301
 
 ## Hallazgo 2 (P1): los chips de filtros activos faltan
 
-La interfaz muestra el resultado y un botón «Restablecer», pero el visitante debe localizar cada valor elegido, incluso dentro de `<details>`. La ruta con hash guarda el estado (`#genero=...&grupo=...&pagina=...`), lo cual **ya funciona** y debe preservarse.
+La interfaz muestra el resultado y un botón «Restablecer», pero el visitante debe localizar cada valor elegido, incluso dentro de ``<details>``. La ruta con hash guarda el estado (`#genero=...&grupo=...&pagina=...`), lo cual **ya funciona** y debe preservarse.
 
 **Propuesta A:** franja compacta debajo del formulario y encima de «El catálogo», con «Filtros: [Cocina ×] [Halloween ×]» y «Quitar todos». Cada chip ejecuta `field.value=''`, dispara el mismo evento de filtro y fija página 1; **no** elimina búsqueda, ordenación ni otras facetas salvo que el visitante pulse expresamente el chip correspondiente. Mantener `aria-label="Quitar filtro Cocina"`. Mostrar el número de filtros dentro del texto del `<summary>` de los avanzados cuando estén cerrados. No crear chip por ordenación.
 
@@ -94,15 +94,15 @@ const createItemKey = ({
 
 `setupQuiz()` ya calcula `usable(step)` con `matches(card, criteria)`, omite pasos sin coincidencias, permite volver y traslada los criterios al formulario. **NO reescribir el test**.
 
-**Riesgo de integración concreto:** hoy `optionsFrom()` del cuestionario extrae valores de `fields.find(...).options`. Si el parche de facetas restringe físicamente las opciones de los <select>, el cuestionario heredará opciones recortadas por unos filtros **que no forman parte de su propio estado**.
+**Riesgo de integración concreto:** hoy `optionsFrom()` del cuestionario extrae valores de `fields.find(...).options`. Si el parche de facetas restringe físicamente las opciones de los `<select>`, el cuestionario heredará opciones recortadas por unos filtros **que no forman parte de su propio estado**.
 
-**Contrato para Claude:** capturar una lista inmutable `originalOptionsByFacet` al iniciar; tanto facetas como `optionsFrom()` deben leer esa lista maestra, pero el test aplica únicamente `criteria`. Nunca leer de los <select> ya reducidos como fuente universal. Probar «filtrar Cocina → abrir test → empezar nuevo», «volver» y «ver resultados».
+**Contrato para Claude:** capturar una lista inmutable `originalOptionsByFacet` al iniciar; tanto facetas como `optionsFrom()` deben leer esa lista maestra, pero el test aplica únicamente `criteria`. Nunca leer de los `<select>` ya reducidos como fuente universal. Probar «filtrar Cocina → abrir test → empezar nuevo», «volver» y «ver resultados».
 
 ## Plan de implementación mínimo y preciso (para Claude)
 
-1. En `assets/reading-catalogue.js`: capturar todas las opciones originales por `data-filter` antes de actualizar <select>. Reutilizar `matches()`; probar primero sobre `genero` y `tematica`, después `temporada`, `edad`, `contenido`, `epoca`, `formato`, `paginas`, `novedad` según datos reales. **No** convertir `orden`, fechas ni controles de precio en facetas categóricas.
-2. Recalcular `calculateFacetOptions` tras cualquier cambio de filtro; excluir la propia faceta al calcular sus opciones; no borrar selección incompatible ni modificar <select> activo si opciones no cambian (firma/cache `updateSelect`); reset y hash deben conservar el contrato actual.
-3. Para `data-type-radio`: conservar botones de tipo existentes, pero mostrar conteos recalculados sobre los demás filtros y desactivar o etiquetar cuando un tipo no tiene opciones; conservar selección actual. Evitar reconstruir el `<fieldset>` completo: se perderían los listeners y el foco.
+1. En `assets/reading-catalogue.js`: capturar todas las opciones originales por `data-filter` antes de actualizar `<select>`. Reutilizar `matches()`; probar primero sobre `genero` y `tematica`, después `temporada`, `edad`, `contenido`, `epoca`, `formato`, `paginas`, `novedad` según datos reales. **No** convertir `orden`, fechas ni controles de precio en facetas categóricas.
+2. Recalcular `calculateFacetOptions` tras cualquier cambio de filtro; excluir la propia faceta al calcular sus opciones; no borrar selección incompatible ni modificar `<select>` activo si opciones no cambian (firma/cache `updateSelect`); reset y hash deben conservar el contrato actual.
+3. Para `data-type-radio`: conservar botones de tipo existentes, pero mostrar conteos recalculados sobre los demás filtros y desactivar o etiquetar cuando un tipo no tiene opciones; conservar selección actual. Evitar reconstruir el ``<fieldset>`` completo: se perderían los listeners y el foco.
 4. Añadir chips de selecciones activas con eliminación individual y resumen de filtros avanzados, sin duplicar anuncios de `aria-live`. Resultado vacío: «No hay coincidencias» + chips removibles y restablecimiento real (no enlaces a categorías incompatibles).
 5. Adaptar `setupQuiz()` a `originalOptionsByFacet`, sin confundir su estado con el del formulario. No añadir dependencias, cuentas externas, rastreadores o llamadas a modelos.
 6. Mantener la construcción sin JS: las 55 fichas siguen accesibles y los formularios quedan deshabilitados. No tocar datos SEO, URLs canónicas, feeds, enlaces de afiliación o indexación en esta PR de investigación.
