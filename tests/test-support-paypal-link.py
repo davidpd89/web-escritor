@@ -27,6 +27,16 @@ def main() -> None:
     assert validate_paypal_payment_link(
         "https://paypal.com/ncp/payment/F3YMU2ZGT49XX"
     )
+    # PayPal documenta locale.x + country.x para controlar el idioma/país.
+    localized = example + "?locale.x=es_ES&country.x=ES"
+    assert validate_paypal_payment_link(localized) == localized
+    assert validate_paypal_payment_link(
+        example + "?country.x=JP&locale.x=ja_JP"
+    )
+    assert (
+        f'href="{example}?locale.x=es_ES&amp;country.x=ES"'
+        in render_paypal_support_link(localized)
+    )
     assert render_paypal_support_link(None) == ""
     assert render_paypal_support_link("") == ""
     html = render_paypal_support_link(example)
@@ -46,6 +56,12 @@ def main() -> None:
         "https://www.paypal.com/ncp/payment/ID_OTRO",
         "https://www.paypal.com/ncp/payment/ABC/extra",
         "https://www.paypal.com/ncp/payment/ABC?locale.x=es_ES",
+        "https://www.paypal.com/ncp/payment/ABC?country.x=ES",
+        "https://www.paypal.com/ncp/payment/ABC?locale.x=es_ES&country.x=ES&foo=bar",
+        "https://www.paypal.com/ncp/payment/ABC?locale.x=es_ES&country.x=ES&country.x=JP",
+        "https://www.paypal.com/ncp/payment/ABC?locale.x=%0A&country.x=ES",
+        "https://www.paypal.com/ncp/payment/ABC?locale.x=es_ES&country.x=ES&",
+        "https://www.paypal.com/ncp/payment/ABC?locale.x=es_ES&country.x=ES#fragment",
         "https://www.paypal.com/ncp/payment/ABC#payment",
         "https://seller@www.paypal.com/ncp/payment/ABC",
         "https://www.paypal.com:443/ncp/payment/ABC",

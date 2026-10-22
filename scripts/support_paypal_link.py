@@ -8,10 +8,31 @@ from __future__ import annotations
 
 import re
 from html import escape
-from urllib.parse import urlsplit
+from urllib.parse import parse_qsl, urlsplit
 
 PAYPAL_HOSTS = frozenset({"www.paypal.com", "paypal.com"})
 PAYPAL_LINK_PATH = re.compile(r"/ncp/payment/[A-Za-z0-9]+", re.ASCII)
+
+
+def paypal_locale_query_valid(query: str) -> bool:
+    """Admite solo el par locale.x/country.x recomendado por PayPal.
+
+    No afirmamos que todos los códigos de forma válida estén soportados:
+    la cuenta y el checkout deben comprobarse antes de publicar.
+    """
+    if not query:
+        return True
+    try:
+        params = parse_qsl(query, keep_blank_values=True, strict_parsing=True)
+    except ValueError:
+        return False
+    if len(params) != 2 or {key for key, _ in params} != {"locale.x", "country.x"}:
+        return False
+    values = dict(params)
+    return bool(
+        re.fullmatch(r"[a-z]{2}_[A-Z]{2}", values["locale.x"], re.ASCII)
+        and re.fullmatch(r"[A-Z]{2}", values["country.x"], re.ASCII)
+    )
 
 
 def validate_paypal_payment_link(url: str) -> str:
@@ -25,7 +46,7 @@ def validate_paypal_payment_link(url: str) -> str:
     if (
         parsed.scheme != "https"
         or parsed.netloc not in PAYPAL_HOSTS
-        or parsed.query
+        or not paypal_locale_query_valid(parsed.query)
         or parsed.fragment
         or not PAYPAL_LINK_PATH.fullmatch(parsed.path)
     ):

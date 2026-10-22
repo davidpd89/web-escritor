@@ -28,7 +28,7 @@ paypal_method_html = render_paypal_support_link(PAYPAL_PAYMENT_LINK)
 # Inserta paypal_method_html en el área de métodos de /apoyar/.
 ```
 
-**No pegar la URL de muestra de los tests**: es un enlace publicado como ejemplo por la documentación de PayPal, **no pertenece a este autor** ni sirve para demostrar un pago real. El validador inspecciona **forma**, no titularidad ni actividad; en los enlaces de PayPal no existe marcador test/live fiable comparable al prefijo `test_` de Stripe. El ejemplo rechaza intencionadamente URLs con parámetros (PayPal permite añadir locale.x/country.x manualmente) para evitar sorpresas en V1; tomar enlace limpio «Copy URL» del panel y revisar si hay variaciones.
+**No pegar la URL de muestra de los tests**: es un enlace publicado como ejemplo por la documentación de PayPal, **no pertenece a este autor** ni sirve para demostrar un pago real. El validador inspecciona **forma**, no titularidad ni actividad; en los enlaces de PayPal no existe marcador test/live fiable comparable al prefijo `test_` de Stripe. El validador admite el enlace oficial limpio y **solo** el par `locale.x` + `country.x` documentado por PayPal (por ejemplo `locale.x=es_ES&country.x=ES`), comprobando su forma, nunca la disponibilidad del checkout. Rechaza parámetros extra, repetidos, valores mal formados y fragmentos. El generador HTML escapa correctamente `&` a `&amp;`. Fuente oficial actualizada 11/09/2026: https://developer.paypal.com/payment-links-buttons/troubleshooting/ ; códigos de España: https://developer.paypal.com/api/codes/locale/ . Prueba aislada local: 5 casos válidos, 10 inválidos, escape de HTML OK (22/10/2026); el test del árbol completo y el cobro real siguen pendientes.
 
 ## Pasos reales para cerrar la implementación
 
