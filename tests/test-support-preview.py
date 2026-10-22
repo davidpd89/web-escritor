@@ -35,17 +35,17 @@ def main() -> None:
     # Comprobar el contenido real renderizado: nunca un checkout dentro de main.
     assert '<form class="explore-subscribe"' in html
     main_match = re.search(
-        r'<main\\b[^>]*\\bid="contenido"[^>]*>(.*?)</main>',
+        r'<main\b[^>]*\bid="contenido"[^>]*>(.*?)</main>',
         html,
         flags=re.I | re.S,
     )
     assert main_match, "Debe mantenerse el contenido principal"
     main_html = main_match.group(1)
-    assert not re.search(r'<form\\b', main_html, flags=re.I), (
+    assert not re.search(r'<form\b', main_html, flags=re.I), (
         "La sección de apoyo no debe incorporar formularios de pago"
     )
     assert not re.search(
-        r'href=["\\\']https?://(?:[^/]*\\.)?(?:paypal\\.com|stripe\\.com|ko-fi\\.com)',
+        r'href="https?://(?:[^/]*\.)?(?:paypal\.com|stripe\.com|ko-fi\.com)',
         main_html, flags=re.I
     ), "La vista previa no debe contener enlaces de cobro"
     assert "Los métodos de pago todavía no están configurados" in html
