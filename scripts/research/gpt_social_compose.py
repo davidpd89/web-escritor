@@ -37,6 +37,7 @@ EXPECTED_SOURCES = {"bluesky": "bluesky-public-appview",
                     "pinterest": "metricool-mcp-export"}
 MAX_AGE = timedelta(hours=48)
 MAX_INPUT_BYTES = 64_000
+MAX_PUBLIC_COUNT = 2**53 - 1  # JSON numbers must remain exact in JS.
 OBSERVED_RE = re.compile(r"\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}(?:Z|[+-]\d{2}:\d{2})\Z")
 SOURCE_RE = re.compile(r"[a-z][a-z0-9-]{0,79}\Z")
 UNVERIFIED_PERIOD_FIELDS = ("views_30d", "impressions_30d", "interactions_30d")
@@ -125,7 +126,7 @@ def normalize(source: object, now: datetime) -> tuple[str, dict]:
         if source.get(field) is not None:
             raise ValueError(f"{key}: {field} not yet licensed for the public aggregate")
     count = source.get("followers")
-    if count is not None and (type(count) is not int or count < 0):
+    if count is not None and (type(count) is not int or not 0 <= count <= MAX_PUBLIC_COUNT):
         raise ValueError(f"{key}: followers must be a nonnegative integer or null")
     stamp = source.get("observed_at")
     if count is not None and stamp is None:
@@ -167,6 +168,8 @@ def compose(sources: list, *, now: datetime | None = None) -> dict:
         "source": None, "status": "pending",
     }) for key in PROFILES]
     valid = [n["followers"] for n in networks if n["followers"] is not None]
+    if sum(valid) > MAX_PUBLIC_COUNT:
+        raise ValueError("Followers total exceeds exact JavaScript integer range")
     # The aggregate must stop displaying when its FIRST component expires,
     # even if no background job runs to refresh the static JSON file.
     deadlines = [n["valid_until"] for n in networks if n["followers"] is not None]
