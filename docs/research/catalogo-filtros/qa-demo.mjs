@@ -27,7 +27,41 @@ try {
       const widget=page.locator('.choices').nth(facetIndex);
       await widget.locator('.choices__inner').click();
       await widget.locator('.choices__list--dropdown .choices__item--selectable')
-        .filter({hasText:label}).first().click();
+        .filter({hasText:new RegExp('^'+label+' [(][0-9]+[)]
+    }
+    await choose(0,'Tapa blanda');
+    await choose(0,'Tapa dura');
+    await page.waitForFunction(()=>{
+      const formats=new URLSearchParams(location.hash).getAll('formato');
+      return formats.includes('tapa-blanda') && formats.includes('tapa-dura');
+    });
+    let selected=await page.locator('#formato').evaluate(el=>[...el.selectedOptions].map(o=>o.value).sort());
+    assert.deepEqual(selected,['tapa-blanda','tapa-dura']);
+    await choose(1,'Fantasía');
+    await page.waitForFunction(()=>new URLSearchParams(location.hash).getAll('genero').includes('fantasia'));
+    selected=await page.locator('#formato').evaluate(el=>[...el.selectedOptions].map(o=>o.value).sort());
+    assert.deepEqual(selected,['tapa-blanda','tapa-dura'],'facet change must preserve formats');
+    await page.evaluate(()=>{ location.hash='formato=ebook&genero=terror&paginas=breve&precio_max=20'; });
+    await page.waitForFunction(()=>{
+      const p=new URLSearchParams(location.hash);
+      return p.get('formato')==='ebook' && p.get('genero')==='terror' && [...document.querySelector('#formato').selectedOptions].some(o=>o.value==='ebook') && document.querySelector('#count').textContent.includes(' de 55 libros');
+    });
+    const restored=await page.locator('#formato').evaluate(el=>[...el.selectedOptions].map(o=>o.value));
+    assert.deepEqual(restored,['ebook'],'hashchange restores widget state');
+    let params=new URLSearchParams(new URL(page.url()).hash.slice(1));
+    assert.equal(params.get('paginas'),'breve');
+    assert.equal(params.get('precio_max'),'20');
+    await page.getByRole('button',{name:'Quitar todos los filtros'}).click();
+    params=new URLSearchParams(new URL(page.url()).hash.slice(1));
+    assert.deepEqual(params.getAll('formato'),[]);
+    assert.equal(await page.locator('#results li').count(),24);
+    assert.equal(await page.locator('#formato').evaluate(el=>el.selectedOptions.length),0);
+    assert.deepEqual(errors,[],'no JS errors '+width);
+    await page.close();
+  }
+  console.log('PASS: Choices UI, multiselect, hashchange, pagination and 4 viewports');
+} finally { await browser.close(); }
+)}).first().click();
     }
     await choose(0,'Tapa blanda');
     await choose(0,'Tapa dura');
