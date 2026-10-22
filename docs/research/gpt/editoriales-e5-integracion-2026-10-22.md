@@ -1,6 +1,6 @@
 # E5 · Integración sin segundos publicadores (22/10/2026)
 
-**Solo investigación / PR #692 en DRAFT. No se ha ejecutado ni integrado este código.** Fuente única del índice: [#691](https://github.com/davidpd89/web-escritor/pull/691). Dependencia funcional inmediata: [#687](https://github.com/davidpd89/web-escritor/pull/687) (todavía abierta al redactar este informe).
+**Solo investigación / PR #692 en DRAFT. No se ha ejecutado ni integrado este código.** Fuente única del índice: [#691](https://github.com/davidpd89/web-escritor/pull/691). Dependencia funcional: [#687](https://github.com/davidpd89/web-escritor/pull/687), **fusionada durante esta investigación**. Las conclusiones se contrastaron de nuevo con `main` tras el merge.
 
 ## 1. Diagnóstico contra código real, no suposiciones
 
@@ -8,8 +8,8 @@
 |---|---|---|
 | [`.github/workflows/reading-catalogue-sync.yml`](https://github.com/davidpd89/web-escritor/blob/main/.github/workflows/reading-catalogue-sync.yml) | Programado 06:30 **UTC**, `workflow_dispatch` y `concurrency.group=reading-catalogue-intake`, `cancel-in-progress=false`; ejecución condicionada por `vars.READING_INTAKE_ENABLED` | No crear segundo cron ni asumir que el job está habilitado solo por el JSON. Verificar el estado de esa variable al integrar |
 | [`scripts/refresh-reading-catalogue.py`](https://github.com/davidpd89/web-escritor/blob/main/scripts/refresh-reading-catalogue.py) | Reanuda o inspecciona la única PR `automation/reading-catalogue-*`; corre controles de libros y actualiza mercado; solo crea PR con cambios de tipos conocidos | Las mejoras de **contactos por sí solas no disparan una PR**; no forzar un ISBN artificial para hacerlo |
-| [`scripts/publish-reading-refresh.py` en #687](https://github.com/davidpd89/web-escritor/blob/data/carga-sellos-pendientes/scripts/publish-reading-refresh.py) | Lista permitida incluye `data/reading-publishers.json` y páginas `/recomendaciones/editoriales/`; **no** `data/editoriales.json` | Buen límite de seguridad. NO abrir automáticamente la allowlist a cambios del estado de manuscritos |
-| [`scripts/reading_intake_pipeline.py` en #687](https://github.com/davidpd89/web-escritor/blob/data/carga-sellos-pendientes/scripts/reading_intake_pipeline.py) | Fuente Penguin verifica ISBN/sello; los sellos que faltan crean ficha bibliográfica separada con fuente | Mantener la creación bibliográfica de sellos en #687. No activar enriquecimiento de contactos como efecto secundario |
+| [`scripts/publish-reading-refresh.py` en #687 (ya integrada en main)](https://github.com/davidpd89/web-escritor/blob/main/scripts/publish-reading-refresh.py) | Lista permitida incluye `data/reading-publishers.json` y páginas `/recomendaciones/editoriales/`; **no** `data/editoriales.json` | Buen límite de seguridad. NO abrir automáticamente la allowlist a cambios del estado de manuscritos |
+| [`scripts/reading_intake_pipeline.py` en #687](https://github.com/davidpd89/web-escritor/blob/main/scripts/reading_intake_pipeline.py) | Fuente Penguin verifica ISBN/sello; los sellos que faltan crean ficha bibliográfica separada con fuente | Mantener la creación bibliográfica de sellos en #687. No activar enriquecimiento de contactos como efecto secundario |
 | [`scripts/publish-radar-refresh.py`](https://github.com/davidpd89/web-escritor/blob/main/scripts/publish-radar-refresh.py) | El bot despacha CI real, valida SHA y reglas de `main` y fusiona el contenido generado | Un cambio editorial con contacto **no** debe llegar a esta ruta automática sin revisión humana previa |
 
 **Cuidado adicional sobre concurrencia:** [GitHub Actions documenta `queue: max`](https://docs.github.com/en/actions/how-tos/write-workflows/choose-when-workflows-run/control-workflow-concurrency), introducido en mayo de 2026: permite hasta 100 ejecuciones pendientes; con `cancel-in-progress=false` actual, por defecto solo puede quedar una ejecución pendiente y las nuevas la sustituyen. **No activar `queue: max` de forma automática:** para un job diario de 135 minutos podría acumular trabajos obsoletos. La PR bot pendiente y el bloqueo Actions solucionan problemas distintos; revisar necesidad antes de cambiar YAML.
@@ -63,16 +63,23 @@ El estudio completo #692 suma **57 pruebas escritas y no ejecutadas** entre cuat
 
 1. Añadir `data/editoriales.json` a `allowed_path` del autocommit de libros: abre cambios no revisados a la fusión automática.
 2. Crear un cron nuevo para contactos o habilitar procesamiento de feeds ISBN sin autorización de sus titulares.
-3. Reescribir `#687` antes de su merge: cambia 683 ficheros y ya tiene su propio recorrido de validación. La integración real ha de hacerse desde un `main` actualizado, con PR específica de ingeniería.
+3. Reescribir o duplicar las funcionalidades ya fusionadas en `#687`: introduce cambios extensos y ya se encuentra en `main`. La integración real ha de hacerse desde ese `main` actualizado, con PR específica de ingeniería.
 4. Permitir que Wikidata P856 o un correo general implique recepción de manuscritos; heredar estados entre grupo y sello.
 5. Usar `[skip ci]` en la eventual PR productiva: aquí solo es válido en investigación; la integración deberá **ejecutar** pruebas y controles exigidos.
 
 ## 5. Pendientes con criterio de cierre y siguiente paso E6
 
 **E5 concluida como diseño + código experimental, sin ejecutar.** Los pendientes de mayor valor son:
-- **E6.1, revisión del plan E5:** comparar la salida del conciliador y del clasificador con una misma instantánea de #687 y fechas concordantes; revisar compatibilidad de esquemas/errores, especialmente datos desactualizados y fuentes sin licencia.
+- **E6.1, revisión del plan E5:** comparar la salida del conciliador y del clasificador con la misma instantánea de `main` y fechas concordantes; revisar compatibilidad de esquemas/errores, especialmente datos desactualizados y fuentes sin licencia.
 - **E6.2, política de publicación del carril B:** definir un formato de aprobación manual por campo, diffs precisos `status/source/date`, revocación/expiración sin afirmar lo contrario y tests que impidan auto-merge.
 - **E6.3, piloto controlado:** medir propuestas aceptadas, fuentes rotas, duplicados, riesgos de privacidad y tiempo de revisión con un máximo de 5 webs autorizadas. No activar proveedores ni Actions desde la PR de investigación.
-- **E6.4, PR de integración** (aparte) únicamente cuando #687 sea parte de `main`, haya QA real y autorización de fuente. Antes, mantener #692 DRAFT y proponer al revisor del sitio solo las decisiones verificadas.
+- **E6.4, PR de integración** (aparte) solo con QA real y autorización de fuente; **la dependencia #687 ya es parte de `main`**, pero eso no valida los prototipos GPT. Antes, mantener #692 DRAFT y proponer al revisor del sitio solo las decisiones verificadas.
 
 **Próximo «siguiente investigación de GPT»:** continuar aquí con **E6.1 y E6.2**, no abrir una quinta rama para lo mismo.
+
+
+## Actualización de integración tras merge de #687 (22/10/2026)
+
+La PR #687 ha pasado a **MERGED** en el transcurso de esta sesión; se verificaron directamente los JSON de `main`: **55 libros**, **55 autores** (41 con biografía), **11 sellos** en `data/reading-publishers.json` y **150 editoriales** en `data/editoriales.json` (72 `open`, 45 `closed`, 26 `unknown`, 7 `indirect`). Los 55 libros enlazan a **35** fichas del directorio y **20** fichas de sellos bibliográficos. La versión `main` del publicador permite `data/reading-publishers.json`, pero **sigue excluyendo `data/editoriales.json`** de la publicación automática: límite conservado.
+
+Las muestras E1/E4 incluían SHA de la rama #687 cuando aún estaba abierta. **No reescribir historia ni declarar ejecutadas las pruebas**: los informes históricos se conservan tal cual, y los trabajos E6 leerán los nuevos datos de `main`. La rama de investigación #692 puede quedar detrás del último merge de `main` hasta que se prepare la integración; **no rebasar ni fusionar en esta fase**.
