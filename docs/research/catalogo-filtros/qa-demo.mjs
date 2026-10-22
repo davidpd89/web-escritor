@@ -47,7 +47,13 @@ try {
     let selected=await page.locator('#formato').evaluate(el=>[...el.selectedOptions].map(o=>o.value).sort());
     assert.deepEqual(selected,['tapa-blanda','tapa-dura']);
     await choose(1,'fantasia');
-    await page.waitForFunction(()=>new URLSearchParams(location.hash.slice(1)).getAll('genero').includes('fantasia'));
+    await choose(1,'terror');
+    await page.waitForFunction(()=>{
+      const values=new URLSearchParams(location.hash.slice(1)).getAll('genero');
+      return values.includes('fantasia') && values.includes('terror');
+    });
+    const selectedGenres=await page.locator('#genero').evaluate(el=>[...el.selectedOptions].map(o=>o.value).sort());
+    assert.deepEqual(selectedGenres,['fantasia','terror'],'también debe conservar dos géneros');
     selected=await page.locator('#formato').evaluate(el=>[...el.selectedOptions].map(o=>o.value).sort());
     assert.deepEqual(selected,['tapa-blanda','tapa-dura'],'facet change must preserve formats');
     await page.evaluate(()=>{ location.hash='formato=ebook&genero=terror&paginas=breve&precio_max=20'; });
@@ -67,6 +73,23 @@ try {
     assert.match(await page.locator('#count').innerText(),new RegExp('^'+total+' de '+total+' libros'));
     assert.equal(await page.locator('#results li').count(),24);
     assert.equal(await page.locator('#formato').evaluate(el=>el.selectedOptions.length),0);
+    // Dos temáticas reales elegidas dinámicamente: no congelar un nombre
+    // que podría desaparecer en actualizaciones editoriales del catálogo.
+    const themes=await page.locator('.choices').nth(2)
+      .locator('.choices__list--dropdown [data-choice][data-value]')
+      .evaluateAll(elements=>elements.map(el=>el.dataset.value).filter(Boolean));
+    assert(themes.length>=2,'el catálogo debe ofrecer al menos dos temáticas para esta prueba');
+    await choose(2,themes[0]);
+    await choose(2,themes[1]);
+    await page.waitForFunction(values=>{
+      const selected=new URLSearchParams(location.hash.slice(1)).getAll('tematica');
+      return values.every(value=>selected.includes(value));
+    },themes.slice(0,2));
+    assert.deepEqual(
+      await page.locator('#tematica').evaluate(el=>[...el.selectedOptions].map(o=>o.value).sort()),
+      themes.slice(0,2).sort(), 'dos temáticas permanecen elegidas simultáneamente'
+    );
+    await page.getByRole('button',{name:'Quitar todos los filtros'}).click();
     // El laboratorio no puede aplicar filtros sin interfaz para eliminarlos.
     // Estos parámetros sí se conservan, pero las 3 facetas visibles mandan.
     await page.evaluate(()=>new Promise(resolve=>{
