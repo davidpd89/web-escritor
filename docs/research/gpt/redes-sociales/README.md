@@ -2,6 +2,12 @@
 
 ESTADO: documentación/investigación; NO desplegado, NO Actions, NO merge. Esta PR es padre de PR pequeñas por red, con base en la rama indicada.
 
+## Validación conjunta reproducible — completada el 22/10/2026
+
+Las PR #704–#707 se han montado **sin hacer merge** con sus archivos exactos verificados por Git SHA y se han ejecutado **130/130 pruebas Python y 22/22 Node (152/152, cero omitidas)**. Se ha incorporado [`scripts/research/run_social_cross_pr_qa.sh`](../../../../scripts/research/run_social_cross_pr_qa.sh) a #704 para reconstruir los 16 archivos de las cuatro ramas y repetir la prueba con `bash scripts/research/run_social_cross_pr_qa.sh` después de actualizar las refs remotas. El runner se ha validado contra esas versiones en un repositorio Git temporal; no ejecuta Actions ni toca el working tree.
+
+**Correcciones que han salido de esta auditoría:** (1) una prueba del pipeline esperaba tres filas de estado, aunque el contrato ahora declara seis redes, y se ha corregido; (2) el lector del navegador ya no acepta una expiración arbitrariamente futura ni JSON generado hace más de 48 h; (3) Python y JavaScript evitan sumas que excedan el rango exacto de enteros JavaScript. Todas las regresiones se han ejecutado localmente. **No equivale a un test en vivo de APIs ni al CI completo del sitio.**
+
 ## Diagnóstico comprobado
 
 - Sitio publicado de HTML/CSS/JS estático sin build de app (package.json), GitHub Pages. Data/navigation.json y scripts/build-site-shell.py gobiernan el menú; NO modificar solo la portada.
@@ -12,7 +18,7 @@ ESTADO: documentación/investigación; NO desplegado, NO Actions, NO merge. Esta
 
 **Ampliación contrastada 22/10/2026 (PR #705):** la marca conectada en Metricool devolvió **una fila de nueve columnas** al consultar juntos ocho campos `LAST` de seguidores para el 21/10 cerrado: `BKEV01`, `THEV01`, `IGEV01`, `FBEV17`, `TKEV07`, `PIEV09`, `YTEV01`, `TTEV01`. Hay un importador adicional `scripts/research/gpt_metricool_followers.py` con **18 pruebas offline ejecutadas**; reutiliza el normalizador diario de Threads y genera registros **candidatos**, sin publicar cifras ni URLs. La PR #704 comprueba identidad y fuente para **seis redes** tras cotejar con la marca conectada; no amplía Facebook, X o YouTube sin esa comprobación ni confundir esta lectura con un cron MCP funcionando.
 
-**Integración incremental de lotes (22/10/2026):** la PR #704 ya admite **directamente** el envoltorio `metricool-follower-candidates` producido por #705. Valida la estructura, la fecha, las duplicaciones y el proveedor, e incorpora **Threads, Instagram, TikTok y Pinterest** al JSON público; descarta Bluesky del lote para mantener su fuente AppView y omite Facebook/X/YouTube hasta cotejar su identidad. Si no queda un contador vigente, no sobrescribe el último archivo de salida. Código y diez pruebas de regresión incorporados a #704; además se ejecutaron **35 pruebas locales** sobre el puente con hashes exactos de los tres scripts principales contrastados con GitHub. **Pendiente repetir la suite completa de todos los tests nuevos tras montar las ramas en un checkout temporal**. No existe todavía cron, web desplegada ni autenticación automática de la exportación MCP.
+**Integración incremental de lotes (22/10/2026):** la PR #704 ya admite **directamente** el envoltorio `metricool-follower-candidates` producido por #705. Valida la estructura, la fecha, las duplicaciones y el proveedor, e incorpora **Threads, Instagram, TikTok y Pinterest** al JSON público; descarta Bluesky del lote para mantener su fuente AppView y omite Facebook/X/YouTube hasta cotejar su identidad. Si no queda un contador vigente, no sobrescribe el último archivo de salida. Código y diez pruebas de regresión incorporados a #704; además se ejecutaron **35 pruebas locales** sobre el puente con hashes exactos de los tres scripts principales contrastados con GitHub. **Completado posteriormente:** suite conjunta de **152/152 tests versionados** ejecutada en checkout temporal sin merge. No existe todavía cron, web desplegada ni autenticación automática de la exportación MCP.
 
 ## Propuesta UX
 
@@ -102,7 +108,7 @@ Contrato **v1 efectivamente implementado en PR #704** (salida vacía de ejemplo,
 }
 ~~~
 
-**Puerta de calidad cruzada, 22/10/2026:** se han montado en un directorio local los cuatro scripts de #704/#705/#706/#707, con hashes Git que coinciden con los de sus respectivas ramas, y se han pasado **81 tests offline**: 75 unitarios de esas ramas más 6 nuevas pruebas de integración (captura simulada → normalizadores → compositor → fichero JSON). **Esto no prueba respuestas live, ejecución en GitHub Actions ni web desplegada.** Las 6 pruebas están incorporadas en `tests/test_gpt_social_pipeline.py` de #704, que se omiten deliberadamente en su rama aislada hasta combinar los cuatro scripts.
+**QA vigente:** **152/152 tests offline versionados** (130 Python + 22 Node). Las cifras 81 y 35 de fases anteriores ya han sido sustituidas por la ejecución conjunta actual. No prueba APIs en vivo, CI de GitHub ni despliegue.
 
 ## Viabilidad por red (fuentes revisadas)
 
