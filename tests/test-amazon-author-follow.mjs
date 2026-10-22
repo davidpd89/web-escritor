@@ -35,6 +35,7 @@ test('taxonomía Author Follow explícita y sin compra', () => {
   const js = read('script.js');
   assert.match(js, /link\.matches\("a\.amazon-author-follow-link\[href\]"\)/);
   assert.match(js, /_gcEvent\("seguir-autor-amazon",/);
-  assert.match(js, /stores\\?\/author/);
+  assert.match(js, /B0GZFP1JV3/);
+  assert.match(js, /author\.pathname/);
   assert.doesNotMatch(js, /_gcEvent\("comprar-amazon", "Clic saliente: Seguir/);
 });
