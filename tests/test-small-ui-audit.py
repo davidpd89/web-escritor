@@ -110,6 +110,30 @@ class SmallUiAuditTests(unittest.TestCase):
         audit.audit_html('<input type="number"><button form="f">Send</button><form id="f"></form>', 'index.html', set(), counts)
         self.assertEqual(counts, dict(numeric_inputs=1, form_references=1))
 
+    def test_json_duplicate_keys_are_not_silently_overwritten(self):
+        self.assertTrue(audit.audit_json('{"price":1,"price":2}', 'data/books.json'))
+
+    def test_json_nested_duplicate_keys(self):
+        self.assertTrue(audit.audit_json('{"books":[{"id":1,"id":2}]}', 'data/books.json'))
+
+    def test_json_escaped_equivalent_keys(self):
+        self.assertTrue(audit.audit_json(r'{"id":1,"\u0069d":2}', 'data/books.json'))
+
+    def test_json_separate_objects_may_share_key_names(self):
+        self.assertEqual(audit.audit_json('[{"id":1},{"id":2}]', 'data/books.json'), [])
+
+    def test_json_nonstandard_numbers(self):
+        for constant in ['NaN', 'Infinity', '-Infinity']:
+            with self.subTest(constant=constant):
+                self.assertTrue(audit.audit_json('{"rating":'+constant+'}', 'data/books.json'))
+
+    def test_json_strings_and_case_sensitive_keys_remain_valid(self):
+        self.assertEqual(audit.audit_json('{"id":"NaN","ID":"Infinity"}', 'data/books.json'), [])
+
+    def test_json_syntax_error_has_its_real_line(self):
+        finding = audit.audit_json('{\n"id":\n}', 'data/books.json')[0]
+        self.assertEqual(finding['line'], 3)
+
 
 if __name__ == '__main__':
     unittest.main()

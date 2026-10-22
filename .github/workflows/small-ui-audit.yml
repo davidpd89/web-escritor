@@ -4,6 +4,8 @@ on:
   pull_request:
     paths:
       - '**/*.html'
+      - 'assets/**/*.json'
+      - 'data/**/*.json'
       - 'scripts/audit-small-ui-contracts.py'
       - 'tests/test-small-ui-audit.py'
       - '.github/workflows/small-ui-audit.yml'
@@ -26,7 +28,7 @@ jobs:
           python-version: '3.12'
       - name: Validate the audit with independent fixtures
         run: python tests/test-small-ui-audit.py
-      - name: Audit tracked public HTML
+      - name: Audit tracked HTML and JSON sources
         run: python scripts/audit-small-ui-contracts.py
       - name: Publish findings in run summary
         if: always()

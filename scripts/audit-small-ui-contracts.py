@@ -73,6 +73,26 @@ def text(node, referenced=False):
     return ''.join(text(c, referenced) if isinstance(c, Node) else c for c in node.children)
 
 
+def audit_json(source, page):
+    """Python's default JSON decoder silently accepts duplicate keys and NaN."""
+    def unique_pairs(pairs):
+        result = {}
+        for key, value in pairs:
+            if key in result:
+                raise ValueError(f'Duplicate object key {key!r}; ordinary decoders silently overwrite data.')
+            result[key] = value
+        return result
+
+    def reject_constant(value):
+        raise ValueError(f'Non-JSON numeric token {value}; browser JSON parsing rejects it.')
+
+    try:
+        json.loads(source, object_pairs_hook=unique_pairs, parse_constant=reject_constant)
+    except ValueError as error:
+        return [dict(page=page, line=getattr(error, 'lineno', 1), rule='json-source', message=str(error))]
+    return []
+
+
 def audit_html(source, page, files, counts=None):
     nodes = list(walk(Tree(source).root))
     ids = {n.attrs['id']: n for n in nodes if n.attrs.get('id')}
@@ -174,6 +194,10 @@ def main():
     counts = dict(disclosures=0, selects=0, suggestion_lists=0, downloads=0, numeric_inputs=0, form_references=0)
     for page in pages:
         findings.extend(audit_html((ROOT/page).read_text(encoding='utf-8'), page, files, counts))
+    json_files = sorted(p for p in files if p.startswith(('assets/', 'data/')) and p.endswith('.json'))
+    counts['json_sources'] = len(json_files)
+    for page in json_files:
+        findings.extend(audit_json((ROOT/page).read_text(encoding='utf-8'), page))
     result = dict(pages=len(pages), checked=counts, findings=findings)
     args.output.mkdir(parents=True, exist_ok=True)
     (args.output/'results.json').write_text(json.dumps(result, ensure_ascii=False, indent=2)+'\n', encoding='utf-8')

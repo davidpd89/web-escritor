@@ -1,6 +1,6 @@
 # Auditoría ligera de huecos de interfaz
 
-Complementa las pruebas de navegador existentes con seis familias de controles
+Complementa las pruebas de navegador existentes con siete familias de controles
 offline sobre el HTML público versionado. No necesita servicios, claves,
 dependencias nuevas ni llamadas a modelos.
 
@@ -14,6 +14,9 @@ dependencias nuevas ni llamadas a modelos.
    `blob:` y `data:` se reconocen como descargas generadas.
 5. Entradas numéricas: mínimo superior al máximo y pasos no positivos.
 6. Asociación de formularios: `form=` debe apuntar a un elemento `form` real.
+7. JSON de `assets/` y `data/`: claves duplicadas —también mediante escapes—,
+   errores de sintaxis y tokens `NaN`/`Infinity` que Python acepta por defecto
+   pero no son JSON válido para el navegador. No imprime valores de los datos.
 
 ## Ejecución
 
@@ -32,7 +35,7 @@ entran en el bucle universal existente de `tests/test-*.py`.
 
 ## Primera medición: 22/10/2026
 
-Sobre `72ab6be7`, con 25 pruebas del auditor aprobadas:
+Sobre `72ab6be7`, con 32 pruebas del auditor aprobadas:
 
 | Cobertura | Cantidad |
 | --- | ---: |
@@ -43,6 +46,7 @@ Sobre `72ab6be7`, con 25 pruebas del auditor aprobadas:
 | Entradas numéricas | 6 |
 | Referencias explícitas a formularios | 2 |
 | Listas de sugerencias | 0 |
+| Fuentes JSON | 42 |
 | Hallazgos | 0 |
 
 Cero listas de sugerencias significa que esa regla no encuentra componentes
