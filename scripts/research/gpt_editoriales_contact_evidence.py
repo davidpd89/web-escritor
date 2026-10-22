@@ -221,7 +221,18 @@ def draft_from_html(html, *, slug, source_url, checked_at, source_allowlist):
     folded = ''.join(c for c in folded if not unicodedata.combining(c))
     pattern, intended = _PILOT_EVIDENCE_RULES[slug]
     found = re.search(pattern, folded)
-    suggestion = intended if found else 'unknown'
+    # A positive fragment may coexist with a sentence expressly closing
+    # submissions. Do not call that "open" just because the regex matched.
+    # Keep this intentionally narrow so "no recibimos manuscritos físicos"
+    # and "no publicamos ficción" don't suppress valid electronic/essay routes.
+    negation = re.compile(
+        r'(?:actualmente |temporalmente |por ahora )?no aceptamos manuscritos'
+        r'|recepcion de (?:manuscritos|originales) (?:esta )?(?:cerrada|pausada|suspendida)'
+        r'|no lo (?:haga|envie|mande) por correo electronico'
+    )
+    nearby = folded[max(0, found.start()-180):min(len(folded), found.end()+180)] if found else ''
+    conflict = intended == 'open' and bool(found) and bool(negation.search(nearby))
+    suggestion = 'unknown' if conflict else intended if found else 'unknown'
     scope = 'group_general' if slug == 'alfaguara' else 'publisher_specific'
     return {
         'publisher_slug': slug, 'source_url': source_url,
@@ -230,7 +241,8 @@ def draft_from_html(html, *, slug, source_url, checked_at, source_allowlist):
         'manual_review_required': True, 'publish': False,
         # Only a matching phrase is retained; no email/contact information.
         'matching_fragment': re.sub(r'[\w.+-]+@[\w.-]+\.[A-Za-z]{2,}', '[correo]', found.group(0))[:180] if found else '',
-        'reason': 'Explicit known-page pattern' if found else 'No matching explicit statement',
+        'reason': 'Conflicting intake wording: human review' if conflict else
+                  'Explicit known-page pattern' if found else 'No matching explicit statement',
     }
 
 
