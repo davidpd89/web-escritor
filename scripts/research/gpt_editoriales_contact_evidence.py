@@ -185,7 +185,7 @@ if __name__ == "__main__":
 # Use the HTTP/robots/cache implementation ALREADY in main
 # (reading_editorial_sources.CachedHTTP) to supply HTML only after approval.
 class _PilotVisibleText(HTMLParser):
-    """Visible text only: omit scripts, styles, noscript and SVG metadata."""
+    """Page text excluding scripts/styles; computed CSS visibility is unknown."""
     def __init__(self):
         super().__init__(convert_charrefs=True)
         self.parts = []
