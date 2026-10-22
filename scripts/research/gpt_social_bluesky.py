@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """Read one public Bluesky profile and output one normalised social snapshot.
 
-Offline: python scripts/research/gpt_social_bluesky.py --fixture tests/fixtures/profile.json
+Offline: python scripts/research/gpt_social_bluesky.py --fixture tests/fixtures/social/bluesky_profile.fixture.json
 Live:    python scripts/research/gpt_social_bluesky.py --expected-did 'did:plc:...' --output /tmp/bluesky.json
 
 No login, no auto-schedule, no page mutation. This is deliberately isolated.
