@@ -1,6 +1,6 @@
 # Stripe — aportación voluntaria por contenido ya ofrecido (implementación V1)
 
-**22/10/2026 · Estado: código reusable y test offline incorporados; integración en página/checkout real PENDIENTE.** No hay cuenta Stripe vinculada, Payment Link real, cobros ni edición de `main`.
+**22/10/2026 · Estado: código reusable y prueba local aislada superada; integración en página/checkout real PENDIENTE.** No hay cuenta Stripe vinculada, Payment Link real, cobros ni edición de `main`.
 
 ## 1. Problema real detectado y decisión
 
@@ -72,7 +72,7 @@ No hay que añadir componentes por cada herramienta. La conexión de `/apoyar/` 
 
 **Comprobable sin credenciales (incluido ahora en la rama):**
 - [x] Código independiente del SDK y sin claves en cliente.
-- [x] Tests de rechazo para host falso, URL de prueba en producción y ausencia de link. **Añadidos, no se afirma ejecución CI.**
+- [x] Tests de rechazo para host falso, URL de prueba en producción y ausencia de link. **Ejecutados localmente en una copia aislada de estos dos archivos: OK; compilación Python OK. No es prueba del árbol completo ni CI.**
 - [x] Ubicación de código en repo y contrato de incorporación al futuro generador.
 
 **Pendiente de cuenta y navegador reales (NO declarar verificado):**
@@ -81,7 +81,8 @@ No hay que añadir componentes por cada herramienta. La conexión de `/apoyar/` 
 - [ ] Desde navegador privado probar monto, tarjeta, SCA/3DS si aplica; comprobar la identidad pública que ve un pagador, el recibo y el descriptor. No subir imágenes con datos del comprador al repo.
 - [ ] Confirmar en Dashboard pago/comisión y destino receptor (o simular en sandbox sin confundirlo con live).
 - [ ] Revisar clasificación fiscal/IVA del supuesto real en España con asesor antes de cobrar.
-- [ ] Ejecutar `python tests/test-support-stripe-link.py` y los tests de shell/sitemap/UX solo en la fase de integración; **no ejecutar Actions**.
+- [x] Ejecutado `python tests/test-support-stripe-link.py` en copia local aislada: OK (22/10/2026).
+- [ ] Repetir `python tests/test-support-stripe-link.py` contra el checkout real del repo y ejecutar los tests de shell/sitemap/UX solo en la fase de integración; **no ejecutar Actions**.
 - [ ] Integrar HTML generado en `/apoyar/` mediante PR #703 y verificar que link ausente no se publica.
 
 **No ampliar la integración Stripe** a SDK, página falsa de confirmación, suscripciones, Klarna ni webhooks hasta demostrar que el enlace alojado no basta.
