@@ -261,6 +261,14 @@ def draft_from_html(html, *, slug, source_url, checked_at, source_allowlist):
         r'(?:actualmente |temporalmente |por ahora )?no aceptamos manuscritos'
         r'|recepcion de (?:manuscritos|originales) (?:esta )?(?:cerrada|pausada|suspendida)'
         r'|no lo (?:haga|envie|mande) por correo electronico'
+        # Closure wordings observed in real editorial FAQs. Do NOT classify
+        # format/genre restrictions ("no recibimos originales en papel",
+        # "no aceptamos manuscritos de ficcion") as general closure.
+        r'|(?:ya no (?:estamos )?(?:aceptando|recibiendo|admitiendo)'
+        r'|no (?:estamos )?(?:aceptando|recibiendo|admitiendo)'
+        r'|no (?:aceptamos|recibimos|admitimos))'
+        r'\s+(?:manuscritos|originales)\b'
+        r'(?!\s+(?:fisicos?|impresos?|en papel|en formato fisico|de ficcion))'
     )
     nearby = folded[max(0, found.start()-180):min(len(folded), found.end()+180)] if found else ''
     conflict = intended == 'open' and bool(found) and bool(negation.search(nearby))
