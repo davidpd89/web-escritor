@@ -2,6 +2,12 @@
 
 **PR hija de #699**. Base research/gpt-social-dashboard-2026-10-22. Solo investigación verificable y código ilustrativo, no integrado. Sin CI, Actions, deploy ni merge.
 
+## Camino ya probado: Metricool, sin otro recolector (22/10/2026)
+
+`getBrandSettings` confirma la cuenta Pinterest conectada **`davidportodiaz`**, que coincide con `autor.html` y `scripts/build-site-shell.py`. `PIEV09` es seguidores con agregación `LAST` y devolvió dato no nulo en la petición MCP conjunta verificada para el 21/10/2026.
+
+**Código que se reutiliza tal cual:** [PR #705](https://github.com/davidpd89/web-escritor/pull/705) (`scripts/research/gpt_metricool_followers.py`) → [PR #704](https://github.com/davidpd89/web-escritor/pull/704) (`scripts/research/gpt_social_compose.py` y `gpt_social_reader.mjs`), ahora con Pinterest admitido entre seis perfiles con URL contrastada. Contadores caducados se ocultan. El bloque de impresiones y clics salientes que aparece más abajo es **solo investigación**; no se publica sin definir la ventana real y la equivalencia de columnas. No hay ejecución automática del MCP demostrada.
+
 ## Perfil y objetivo
 https://www.pinterest.com/davidportodiaz/ verificado en autor.html. Tiene sentido editorial propio: derivación de Pinterest -> recomendaciones, libros, viajes literarios y afiliación web. Aunque Pinterest esté pausado como robot social, no ocultar una cuenta pública si sigue siendo útil; decidir visibilidad manual.
 
