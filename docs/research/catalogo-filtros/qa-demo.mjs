@@ -54,6 +54,8 @@ try {
     await page.getByRole('button',{name:'Quitar todos los filtros'}).click();
     params=new URLSearchParams(new URL(page.url()).hash.slice(1));
     assert.deepEqual(params.getAll('formato'),[]);
+    assert.equal(params.size,0,'restablecer elimina también precios, páginas y otros filtros no visibles');
+    assert.match(await page.locator('#count').innerText(),/55 de 55 libros/);
     assert.equal(await page.locator('#results li').count(),24);
     assert.equal(await page.locator('#formato').evaluate(el=>el.selectedOptions.length),0);
     assert.deepEqual(errors,[],'no JS errors '+width);
