@@ -6,7 +6,6 @@ Sin servicios ni cuentas externas; usa el builder y el shell existentes.
 from __future__ import annotations
 
 import importlib.util
-import json
 import re
 from pathlib import Path
 
@@ -21,8 +20,6 @@ SPEC.loader.exec_module(builder)
 def main() -> None:
     source = builder.render_preview_source()
     html = builder.render_preview()  # shell auténtico, no markup fingido
-    registry = json.loads((ROOT / "data" / "content-registry.json").read_text(encoding="utf-8"))
-    nav = json.loads((ROOT / "data" / "navigation.json").read_text(encoding="utf-8"))
 
     assert '<meta name="robots" content="noindex,nofollow,noarchive"' in html
     assert html.count('<h1 id="support-title">') == 1
@@ -45,9 +42,8 @@ def main() -> None:
 
     # Este archivo generado vive solo en lab, nunca en el artefacto público.
     assert builder.OUTPUT == ROOT / "lab" / "donaciones-preview" / "index.html"
-    assert not (ROOT / "apoyar" / "index.html").exists()
-    assert not any(e["url"] == "/apoyar/" for e in registry["entries"])
-    assert not any("support-project" in ids for ids in nav["footer"].values())
+    # No prohibir aquí una activación futura correcta de /apoyar/.
+    # Los estados de publicación se validan en test-support-release-gate.py.
 
     # El generador real mantiene la exclusión explícita de lab/.
     spec_public = importlib.util.spec_from_file_location(
