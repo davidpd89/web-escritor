@@ -98,3 +98,17 @@ test('sanear una faceta mantiene valores, búsqueda y filtros escalares no trata
   assert.equal(cleaned.paginas,'breve');
   assert.equal(cleaned.q,'Coraline');
 });
+
+test('categoría activa con 0 libros se conserva, la categoría eliminada no', () => {
+  const masters = { genero: [
+    { value:'fantasia',label:'Fantasía' },
+    { value:'romantasy',label:'Romantasy' }
+  ] };
+  const state = selected({genero:['romantasy','eliminada']});
+  const cleaned = sanitizeFacetSelections(state,masters);
+  assert.deepEqual(cleaned.genero,['romantasy']);
+  const options = availableOptions(books,cleaned,'genero',masters.genero);
+  assert.deepEqual(options.map(o=>[o.value,o.count,o.selected]),[
+    ['fantasia',2,false],['romantasy',0,true]
+  ]);
+});
