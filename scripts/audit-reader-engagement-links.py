@@ -73,7 +73,7 @@ def analyse_html(html: str) -> dict[str, object]:
         host = parsed.hostname or ""
         wording = plain(link["text"] + " " + link["aria"])
         # Una etiqueta que anuncia dos plataformas no debe abrir solo una.
-        if "amazon" in wording and "goodreads" in wording:
+        if host in ("amazon.es", "www.amazon.es", "goodreads.com", "www.goodreads.com") and "amazon" in wording and "goodreads" in wording:
             misleading_cross_platform_labels.append({"href": href, "label": wording})
         direct_review = (
             "dejar resena" in wording
