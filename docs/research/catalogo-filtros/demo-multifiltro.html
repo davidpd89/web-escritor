@@ -50,7 +50,6 @@
       categories: (el.dataset.categories || '').split(' ').filter(Boolean),
       url: el.querySelector('h3 a')?.getAttribute('href') || '#'
     }));
-    const used = new Set(books.flatMap(book => book.categories));
     const master = {
       formato: [
         { value:'tapa-blanda',label:'Tapa blanda'},
@@ -58,8 +57,10 @@
         { value:'ebook',label:'Libro electrónico'},
         { value:'audiolibro',label:'Audiolibro'}
       ],
-      genero: data.categorias.filter(c => c.activa && c.tipo === 'genero' && used.has(c.id)).map(c => ({value:c.id,label:c.nombre})),
-      tematica: data.categorias.filter(c => c.activa && c.tipo === 'tematica' && used.has(c.id)).map(c => ({value:c.id,label:c.nombre}))
+      // Incluye categorías activas sin libros: una selección válida con
+      // 0 resultados no debe confundirse con un slug eliminado.
+      genero: data.categorias.filter(c => c.activa && c.tipo === 'genero').map(c => ({value:c.id,label:c.nombre})),
+      tematica: data.categorias.filter(c => c.activa && c.tipo === 'tematica').map(c => ({value:c.id,label:c.nombre}))
     };
     const state = sanitizeFacetSelections(parseHash(location.hash),master);
     // Esta DEMO solo dibuja tres controles. No aplicar filtros sin control
