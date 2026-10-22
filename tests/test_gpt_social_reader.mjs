@@ -66,3 +66,31 @@ test('no untrusted external URL is emitted',()=>{
   const x=fixture();x.networks[0].profile_url='https://attacker.example/path';
   assert.ok(!JSON.stringify(visibleSocialMetrics(x,NOW)).includes('attacker.example'));
 });
+
+test('browser accepts verified Instagram, TikTok and Pinterest from Metricool', () => {
+  const x=fixture();
+  for (const [id, followers] of [['instagram',21],['tiktok',22],['pinterest',23]]) {
+    x.networks.push({id, followers, source:'metricool-mcp-export',status:'ok',
+                     valid_until:'2026-10-24T11:00:00Z'});
+  }
+  const output=visibleSocialMetrics(x,NOW);
+  assert.deepEqual(output.totals,{follower_relationships:75,coverage:5,eligible:6});
+  assert.deepEqual(output.networks.map(x=>x.id),
+    ['bluesky','mastodon','threads','instagram','tiktok','pinterest']);
+});
+test('browser rejects wrong metricool source for one of the new networks', () => {
+  const x=fixture();
+  x.networks.push({id:'pinterest',followers:50,source:'bluesky-public-appview',
+                   status:'ok',valid_until:'2026-10-24T11:00:00Z'});
+  const output=visibleSocialMetrics(x,NOW);
+  assert.equal(output.totals.follower_relationships,9);
+  assert.equal(output.totals.coverage,2);
+});
+test('a new verified network also expires while the last-good JSON stays cached', () => {
+  const x=fixture();
+  x.networks.push({id:'instagram',followers:41,source:'metricool-mcp-export',
+                   status:'ok',valid_until:'2026-10-22T12:00:01Z'});
+  const output=visibleSocialMetrics(x,NOW+2000);
+  assert.equal(output.totals.follower_relationships,9);
+  assert.equal(output.totals.coverage,2);
+});
